@@ -1,7 +1,7 @@
 <properties
    pageTitle="Utilisation du connecteur Informix dans Microsoft Azure App Service | Microsoft Azure"
    description="Comment utiliser le connecteur Informix avec les déclencheurs et actions d’application logique"
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="gplarsen"
    manager="erikre"
@@ -67,7 +67,7 @@ PollToAlterData | Non | Instruction UPDATE ou SELECT à utiliser avec un déclen
 ## Action d’ajout de données d’une application logique avec le connecteur Informix ##
 Vous pouvez définir une action d’application logique pour ajouter des données à une table Informix à l’aide d’une opération OData Insert ou Post to Entity. Par exemple, vous pouvez insérer un nouvel enregistrement de commande client en exécutant une instruction SQL INSERT sur une table définie avec une colonne d’identité, qui renvoie la valeur d’identité ou les lignes affectées à l’application logique (SELECT ORDID FROM FINAL TABLE (INSERT INTO NEWORDERS (CUSTID,SHIPNAME,SHIPADDR,SHIPCITY,SHIPREG,SHIPZIP) VALUES (?,?,?,?,?,?))).
 
-> [AZURE.TIP] L’instruction « *Post to EntitySet* » d’Informix Connection renvoie la valeur de la colonne d’identité et l’instruction « *API Insert* » renvoie les lignes affectées
+> [AZURE.TIP] L’instruction « *Post to EntitySet* » d’Informix Connection renvoie la valeur de la colonne d’identité et l’instruction « *API Insert* » renvoie les lignes affectées
 
 1. Dans le tableau d’accueil Azure, sélectionnez **+** (signe plus), **Web + Mobile**, puis **Application logique**.
 2. Entrez le nom (par exemple, « NewOrdersInformix »), le plan App Service ainsi que d’autres propriétés, puis sélectionnez **Créer**.
@@ -183,7 +183,7 @@ Vous pouvez créer une application logique dans Azure Marketplace et utiliser en
 1. Dans le menu hub du panneau **Démarrer** d’Azure, cliquez sur **+** (signe plus) et cliquez sur **Web + Mobile**, puis sur **Application logique**.
 2. Dans le panneau **Créer une application logique**, entrez un **nom**, par exemple **RemoveOrdersInformix**.
 3. Sélectionnez ou définissez des valeurs pour les autres paramètres (par exemple, le plan de service et le groupe de ressources).
-4. Les paramètres doivent se présenter comme suit. Cliquez sur **Créer** : ![][12]
+4. Les paramètres doivent se présenter comme suit. Cliquez sur **Créer** : ![][12]
 5. Dans le panneau **Paramètres**, cliquez sur **Déclencheurs et actions**.
 6. Dans la liste **Modèles d’application logique** du panneau **Déclencheurs et actions**, sélectionnez **Créer intégralement**.
 7. Dans le panneau **Déclencheurs et actions**, sous **Applications d’API**, cliquez sur **Périodicité** au niveau du groupe de ressources.
@@ -274,4 +274,4 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 [13]: ./media/app-service-logic-connector-informix/LogicApp_RemoveOrdersInformix_TriggersActions.png
 [14]: ./media/app-service-logic-connector-informix/LogicApp_RemoveOrdersInformix_Outputs.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

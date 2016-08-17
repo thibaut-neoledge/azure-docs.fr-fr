@@ -183,7 +183,7 @@ Créez ensuite la connexion VPN de site à site entre votre passerelle de résea
 
 Après un bref délai, la connexion sera établie.
 
-## 9\. Vérifier une connexion VPN
+## <a name="toverify"></a>Pour vérifier une connexion VPN
 
 Il existe différentes façons de vérifier votre connexion VPN. Ci-dessous, vous verrez comment effectuer des vérifications de base à l’aide du portail Azure et de PowerShell.
 
@@ -191,15 +191,18 @@ Il existe différentes façons de vérifier votre connexion VPN. Ci-dessous, vou
 
 ## <a name="modify"></a>Pour modifier des préfixes d’adresses IP d’une passerelle de réseau local
 
-Si vous devez modifier les préfixes de votre passerelle de réseau local, suivez les instructions ci-dessous. Deux ensembles d’instructions vous sont fournis : Les instructions que vous choisissez d’appliquer varient selon que vous avez déjà créé votre connexion à la passerelle VPN.
+Si vous devez modifier les préfixes de votre passerelle de réseau local, suivez les instructions ci-dessous. Deux ensembles d’instructions vous sont fournis : Les instructions que vous choisissez d’appliquer varient selon que vous avez déjà créé ou non votre connexion à la passerelle.
 
 [AZURE.INCLUDE [vpn-gateway-modify-ip-prefix-rm](../../includes/vpn-gateway-modify-ip-prefix-rm-include.md)]
 
+## <a name="modifygwipaddress"></a>Pour modifier l’adresse IP d’une passerelle de réseau local
+
+[AZURE.INCLUDE [vpn-gateway-modify-lng-gateway-ip-rm](../../includes/vpn-gateway-modify-lng-gateway-ip-rm-include.md)]
 
 ## Étapes suivantes
 
 - Vous pouvez ajouter des machines virtuelles à vos réseaux virtuels. Consultez [Création d’une machine virtuelle](../virtual-machines/virtual-machines-windows-hero-tutorial.md) pour connaître les différentes étapes.
 
-- Pour plus d’informations sur le protocole BGP, consultez la [vue d’ensemble du protocole BGP](vpn-gateway-bgp-overview.md) et la page [Comment configurer BGP sur des passerelles VPN](vpn-gateway-bgp-resource-manager-ps.md).
+- Pour plus d’informations sur le protocole BGP, consultez les articles [Vue d’ensemble du protocole BGP](vpn-gateway-bgp-overview.md) et [Comment configurer BGP sur des passerelles VPN](vpn-gateway-bgp-resource-manager-ps.md).
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

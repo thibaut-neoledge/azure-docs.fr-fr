@@ -3,8 +3,8 @@
 	description="Présentation de la sauvegarde de bases de données SQL Server à l'aide du service Azure Backup"
 	services="backup"
 	documentationCenter=""
-	authors="giridharreddy"
-	manager="shreeshd"
+	authors="adigan"
+	manager="Nkolli1"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/01/2016"
-	ms.author="giridham; jimpark;"/>
+	ms.author="giridham; jimpark;markgal;trinadhk"/>
 
 
 # Sauvegarde Azure pour les charges de travail SQL Server à l'aide de DPM
@@ -52,7 +52,7 @@ Avant de commencer, vérifiez que toutes les [conditions préalables](../backup-
 
     ![Sélectionner la base de données SQL](./media/backup-azure-backup-sql/pg-databases.png)
 
-6. Indiquez le nom du groupe de protection que vous vous apprêtez à créer. Veillez à sélectionner l’option « **Je souhaite une protection en ligne** ».
+6. Indiquez le nom du groupe de protection que vous vous apprêtez à créer. Veillez à sélectionner l’option « **Je souhaite une protection en ligne** ».
 
     ![Méthode de Protection des données - disque à court terme et Azure en ligne](./media/backup-azure-backup-sql/pg-name.png)
 
@@ -174,4 +174,4 @@ Les étapes suivantes sont nécessaires pour récupérer une entité protégée 
 
 • [Azure Backup - Forum Aux Questions](backup-azure-backup-faq.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

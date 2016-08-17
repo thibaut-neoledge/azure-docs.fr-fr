@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/01/2016"
+	ms.date="08/01/2016"
 	ms.author="tarcher"/>
 
 # Définir des stratégies de laboratoire
+
+> [AZURE.VIDEO how-to-set-vm-policies-in-a-devtest-lab]
 
 ## Vue d'ensemble
 
@@ -135,4 +137,4 @@ Une fois que vous avez défini et appliqué les différents paramètres de strat
 - [Configurer des images Marketplace](./devtest-lab-configure-marketplace-images.md) - DevTest Labs prend en charge la création de nouvelles machines virtuelles basées sur des images Azure Marketplace. Cet article explique comment spécifier, le cas échéant, les images Azure Marketplace pouvant être utilisées lors de la création de nouvelles machines virtuelles dans un laboratoire.
 - [Créer une machine virtuelle dans un laboratoire](./devtest-lab-add-vm-with-artifacts.md) : montre comment créer une machine virtuelle à partir d’une image de base (personnalisée ou Marketplace) et comment utiliser des artefacts dans votre machine virtuelle.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/06/2016"
+	ms.date="08/02/2016"
 	ms.author="trinadhk; jimpark;"/>
 
 
@@ -62,7 +62,7 @@ Procédez de la manière suivante pour restaurer une machine virtuelle sur une n
 
 1. Dans l’écran **Sélectionner l’instance à restaurer**, spécifiez les détails de l’emplacement où restaurer la machine virtuelle.
 
-  - Spécifiez le nom de la machine virtuelle : dans un service cloud donné, le nom de la machine virtuelle doit être unique. Nous ne prenons pas en charge l’écrasement d’une machine virtuelle existante. 
+  - Spécifiez le nom de la machine virtuelle : dans un service cloud donné, le nom de la machine virtuelle doit être unique. Nous ne prenons pas en charge l’écrasement d’une machine virtuelle existante.
   - Sélectionnez un service cloud pour la machine virtuelle : ce champ est obligatoire pour la création d’une machine virtuelle. Vous pouvez utiliser un service cloud existant ou en créer un.
 
         Quel que soit le nom du service cloud choisi, il doit être globalement unique. En général, le nom du service cloud est associé à une URL orientée public qui se présente sous la forme suivante : [cloudservice].cloudapp.net. Azure ne vous permet pas de créer un service cloud si son nom est déjà utilisé. Si vous choisissez de créer un service cloud, le même nom que la machine virtuelle lui sera attribué. Par conséquent, le nom de la machine virtuelle doit être assez unique pour être appliqué au service cloud associé.
@@ -101,6 +101,9 @@ Une fois l’opération de restauration terminée, elle est marquée comme termi
 ![Travail de restauration terminé](./media/backup-azure-restore-vms/restore-job-complete.png)
 
 Après la restauration de la machine virtuelle, vous devrez peut-être réinstaller les extensions de la machine virtuelle d’origine et [modifier les points de terminaison](../virtual-machines/virtual-machines-windows-classic-setup-endpoints.md) de la machine virtuelle dans le portail Azure.
+
+## Étapes post-restauration
+Si vous utilisez une distribution Linux basée sur cloud-init telle qu’Ubuntu, le mot de passe sera bloqué après la restauration pour des raisons de sécurité. Pour [réinitialiser le mot de passe](../virtual-machines/virtual-machines-linux-classic-reset-access.md), utilisez l’extension VMAccess sur la machine virtuelle restaurée. Nous vous recommandons d’utiliser des clés SSH sur ces distributions pour éviter de réinitialiser le mot de passe après la restauration.
 
 ## Sauvegarde de machines virtuelles restaurées
 Si vous avez restauré une machine virtuelle sur le même service cloud avec le même nom que la machine virtuelle sauvegardée d’origine, la sauvegarde se poursuit sur la machine virtuelle après la restauration. Si vous avez restauré une machine virtuelle sur un autre service cloud ou si vous avez spécifié un autre nom pour la machine virtuelle restaurée, celle-ci sera traitée comme une machine virtuelle nouvelle et vous devrez configurer la sauvegarde pour la machine virtuelle restaurée.
@@ -155,4 +158,4 @@ Pour pouvoir recréer entièrement des disques de machine virtuelle restaurés, 
 - [Résolution des erreurs](backup-azure-vms-troubleshoot.md#restore)
 - [Gestion des machines virtuelles](backup-azure-manage-vms.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0803_2016-->

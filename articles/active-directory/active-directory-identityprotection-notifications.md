@@ -5,7 +5,7 @@
 	keywords="azure active directory identity protection, cloud app discovery, gestion d’applications, sécurité, risque, niveau de risque, vulnérabilité, stratégie de sécurité"
 	documentationCenter=""
 	authors="markusvi"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/16/2016"
+	ms.date="08/02/2016"
 	ms.author="markvi"/>
 
 #Notifications d’Azure Active Directory Identity Protection 
@@ -57,6 +57,6 @@ Vous pouvez désactiver l’envoi de l’e-mail de synthèse hebdomadaire. <br><
 
 ## Voir aussi
 
-- [Azure Active Directory Identity Protection](active-directory-identityprotection.md) 
+- [Azure Active Directory Identity Protection](active-directory-identityprotection.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

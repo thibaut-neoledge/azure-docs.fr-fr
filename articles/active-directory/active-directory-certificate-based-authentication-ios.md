@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="07/22/2016" 
+    ms.date="08/02/2016" 
     ms.author="markvi" />
 
 
@@ -98,7 +98,7 @@ Pour plus d’informations, consultez [Personnalisation des pages de connexion A
 ### Prise en charge des clients Exchange ActiveSync 
 
 
-Certaines applications Exchange ActiveSync sur iOS 9 ou version ultérieure sont prises en charge. Pour déterminer si votre application de messagerie prend en charge cette fonctionnalité, contactez le développeur de votre application.
+Dans iOS 9 ou version ultérieure, le client de messagerie iOS natif est pris en charge. Pour toutes les autres applications Exchange ActiveSync, pour savoir si cette fonctionnalité est prise en charge, contactez le développeur de votre application.
 
 
 
@@ -278,4 +278,4 @@ La date que vous définissez doit être dans le futur. Si la date n’est pas da
 <!--Image references-->
 [1]: ./media/active-directory-certificate-based-authentication-ios/ic195031.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

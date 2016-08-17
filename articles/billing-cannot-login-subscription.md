@@ -1,11 +1,11 @@
 <properties
 	pageTitle="Impossible de me connecter pour gérer mon abonnement Azure | Microsoft Azure"
 	description="Fournit des informations sur la résolution de certains problèmes de connexion à l’abonnement Azure"
-	services="billing"
+	services=""
 	documentationCenter=""
 	authors="genlin"
 	manager="msmbaldwin"
-	editor="na"
+	editor=""
 	tags="billing"
 	/>
 
@@ -43,7 +43,7 @@ Si votre compte est associé à un compte professionnel, sélectionnez l’optio
 - Si vous vous êtes connecté avec un compte Microsoft, vous pouvez ajouter d’autres comptes Microsoft uniquement en tant que coadministrateur. Pour des raisons de sécurité, il importe d'empêcher les comptes autres que les comptes professionnels d’identifier si certains comptes (par exemple janedoe@contoso.com) sont des comptes valides.
 - Si vous vous êtes connecté avec un compte professionnel, vous pouvez ajouter d’autres comptes de société de votre société en tant que coadministrateur. Par exemple, abby@contoso.com peut ajouter bob@contoso.com en tant qu’administrateur de services ou coadministrateur, mais ne peut pas ajouter john@notcontoso.com. Les utilisateurs connectés avec des comptes professionnels peuvent également ajouter des utilisateurs de compte Microsoft en tant qu’administrateur de services ou coadministrateur.
 
-Il est désormais possible de se connecter à Azure avec un compte professionnel. Voici les modifications apportées aux exigences liées aux comptes Administrateur de services (SA) et Coadministrateur (CA) :
+Il est désormais possible de se connecter à Azure avec un compte professionnel. Voici les modifications apportées aux exigences liées aux comptes Administrateur de services (SA) et Coadministrateur (CA) :
 
 | Méthode de connexion| Ajouter un compte Microsoft en tant que coadministrateur ou administrateur de services ? |Ajouter un compte de société de la même société en tant que coadministrateur ou administrateur de services ? |Ajouter un compte de société d’une autre société en tant que coadministrateur ou administrateur de services ?
 | ------------- | ------------- |---------------|---------------|
@@ -54,4 +54,4 @@ Il est désormais possible de se connecter à Azure avec un compte professionnel
 
 Essayez de supprimer le cache/les cookies en utilisant IE en mode de navigation InPrivate et en utilisant également un autre navigateur
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

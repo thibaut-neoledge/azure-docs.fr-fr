@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/17/2016"
+   ms.date="08/02/2016"
    ms.author="larryfr"/>
 
 # Traitement des événements Azure Event Hubs avec Storm sur HDInsight (C#)
@@ -115,7 +115,7 @@ Le stockage de table sera utilisé pour conserver les valeurs lues à partir de 
 
     ![Cloud Explorer](./media/hdinsight-storm-develop-csharp-event-hub-topology/createtablestorage.png)
 
-5. Cliquez avec le bouton droit sur __Tables__ pour votre compte de stockage, puis sélectionnez __Créer une table__. Lorsque vous y êtes invité, entrez un **événement** comme nom de votre table. Enregistrez le nom ; vous en aurez besoin ultérieurement.
+5. Cliquez avec le bouton droit sur __Tables__ pour votre compte de stockage, puis sélectionnez __Créer une table__. Lorsque vous y êtes invité, saisissez **événements** comme nom de votre table. Enregistrez le nom ; vous en aurez besoin ultérieurement.
 
 ## Création de EventHubWriter
 
@@ -572,4 +572,4 @@ Dans ce document, vous avez découvert comment utiliser le spout et le bolt du h
 * [Exemples de topologies pour Storm dans HDInsight](hdinsight-storm-example-topology.md)
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

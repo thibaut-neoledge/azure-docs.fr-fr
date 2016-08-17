@@ -3,7 +3,7 @@
    description="Microsoft Azure SQL Database, déployer base de données, migration base de données, importer base de données, exporter base de données, assistant de migration"
    services="sql-database"
    documentationCenter=""
-   authors="carlrabeler"
+   authors="CarlRabeler"
    manager="jhubbard"
    editor=""/>
 
@@ -63,4 +63,4 @@ Cet article explique la procédure d’importation depuis un fichier [BACPAC](ht
 - [Fonctions partiellement ou non prises en charge de Transact-SQL](sql-database-transact-sql-information.md)
 - [Migration de bases de données non-SQL Server avec l’Assistant Migration SQL Server](http://blogs.msdn.com/b/ssma/)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Vue d’ensemble des schémas et d’Enterprise Integration Pack | Microsoft Azure App Service | Microsoft Azure" 
 	description="Découvrez comment utiliser les schémas avec Enterprise Integration Pack et vos applications logiques" 
-	services="app-service\logic" 
+	services="logic-apps" 
 	documentationCenter=".net,nodejs,java"
 	authors="msftman" 
 	manager="erikre" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/08/2016" 
+	ms.date="07/29/2016" 
 	ms.author="deonhe"/>
 
 # En savoir plus sur les schémas et Enterprise Integration Pack  
@@ -30,7 +30,7 @@ Vous utilisez des schémas pour confirmer que les documents XML que vous recevez
 5. Sélectionnez le bouton **Ajouter** dans le panneau Schémas qui s’affiche ![](./media/app-service-logic-enterprise-integration-schemas/schema-2.png)
 6. Entrez un **nom** pour votre schéma, puis sélectionnez l’icône de dossier située à droite de la zone de texte **Schéma** pour télécharger le fichier de schéma. Une fois le processus de téléchargement terminé, sélectionnez le bouton **OK**. ![](./media/app-service-logic-enterprise-integration-schemas/schema-3.png)
 7. Sélectionnez l’icône de notification en forme de *cloche* pour afficher la progression du processus de téléchargement du schéma. ![](./media/app-service-logic-enterprise-integration-schemas/schema-4.png)
-8. Sélectionnez la mosaïque **Schémas**. Cette action actualise la mosaïque. Le nombre de schémas doit augmenter, indiquant que le nouveau schéma a été ajouté avec succès. Une fois la mosaïque **Schémas** sélectionnée, le nouveau partenaire ajouté doit également s’afficher dans le panneau Schémas à droite. ![](./media/app-service-logic-enterprise-integration-schemas/schema-5.png)
+8. Sélectionnez la mosaïque **Schémas**. Cette action actualise la mosaïque. Le nombre de schémas doit augmenter, indiquant que le nouveau schéma a été ajouté avec succès. Une fois la mosaïque **Schémas** sélectionnée, le nouveau schéma ajouté doit également s’afficher dans le panneau Schémas à droite. ![](./media/app-service-logic-enterprise-integration-schemas/schema-5.png)
 
 
 ## Utilisation des schémas
@@ -57,4 +57,4 @@ Vous utilisez des schémas pour confirmer que les documents XML que vous recevez
 
       
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

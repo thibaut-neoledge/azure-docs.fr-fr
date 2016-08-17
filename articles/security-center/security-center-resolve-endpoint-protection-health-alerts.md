@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/20/2016"
+   ms.date="07/29/2016"
    ms.author="terrylan"/>
 
 # Résoudre les alertes d’intégrité Endpoint Protection dans le Centre de sécurité Azure
@@ -32,7 +32,7 @@ Le Centre de sécurité Azure recommande de résoudre les alertes d’intégrit�
 
 ## Voir aussi
 
-Pour plus d’informations sur Security Center, consultez :
+Pour plus d’informations sur Security Center, consultez :
 
 - [Définition des stratégies de sécurité dans Azure Security Center](security-center-policies.md) : découvrez comment configurer des stratégies de sécurité pour vos groupes de ressources et abonnements Azure.
 - [Gestion des recommandations de sécurité dans Azure Security Center](security-center-recommendations.md) : découvrez la façon dont les recommandations peuvent vous aider à protéger vos ressources Azure.
@@ -48,4 +48,4 @@ Pour plus d’informations sur Security Center, consultez :
 [3]: ./media/security-center-resolve-endpoint-protection/failure-list.png
 [4]: ./media/security-center-resolve-endpoint-protection/failure-event.png
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/11/2016"
+   ms.date="07/31/2016"
    ms.author="sonyama;barbkess;jrj"/>
 
 # Limites de la capacité de SQL Data Warehouse
@@ -29,6 +29,7 @@ Les tableaux ci-après présentent les valeurs maximales autorisées pour les di
 | Connexion de base de données | Sessions simultanées ouvertes | 1 024<br/><br/>Nous prenons en charge un maximum de 1 024 connexions actives, chacune pouvant envoyer simultanément des requêtes à une base de données SQL Data Warehouse. Notez que le nombre de requêtes pouvant réellement s’exécuter simultanément est limité. En cas de dépassement d’une limite de concurrence, la demande est placée dans une file d’attente interne où elle attend d’être traitée.|
 | Connexion de base de données | Mémoire maximale pour les instructions préparées | 20 Mo |
 | [Gestion des charges de travail][] | Nombre maximal de requêtes concurrentes | 32<br/><br/> Par défaut, SQL Data Warehouse exécute un maximum de 32 requêtes simultanées et place en file d’attente les requêtes restantes.<br/><br/>Le niveau de concurrence peut diminuer lorsque les utilisateurs sont affectés à une classe de ressource supérieure. Certaines requêtes, comme les requêtes DMV, sont toujours autorisées à s’exécuter.|
+| [Tempdb][] | Taille maximale de Tempdb | 399 Go par DW100. Par conséquent, pour DWU1000, la taille de Tempdb est 3,99 To |
 
 
 ## Objets de base de données
@@ -60,7 +61,7 @@ Les tableaux ci-après présentent les valeurs maximales autorisées pour les di
 
 | Catégorie | Description | Maximale |
 | :---------------- | :------------------------------------------- | :----------------- |
-| Charges Polybase | Octets par ligne | 32 768<br/><br/>Les charges Polybase sont limitées au chargement de lignes de moins de 32 Ko et qui ne peuvent pas être chargées vers VARCHR(MAX), NVARCHAR(MAX) ou VARBINARY(MAX). Bien que cette limite demeure applicable actuellement, elle sera supprimée assez rapidement.<br/><br/>
+| Charges Polybase | Octets par ligne | 32 768<br/><br/>Les charges Polybase sont limitées au chargement de lignes de moins de 32 ko et qui ne peuvent pas être chargées vers VARCHR(MAX), NVARCHAR(MAX) ou VARBINARY(MAX). Bien que cette limite demeure applicable actuellement, elle sera supprimée assez rapidement.<br/><br/>
 
 
 ## Requêtes
@@ -104,10 +105,11 @@ Pour plus d’informations, consultez la [vue d’ensemble de référence de SQL
 [Data Warehouse Units (DWU)]: ./sql-data-warehouse-overview-what-is.md#data-warehouse-units
 [vue d’ensemble de référence de SQL Data Warehouse]: ./sql-data-warehouse-overview-reference.md
 [Gestion des charges de travail]: ./sql-data-warehouse-develop-concurrency.md
+[Tempdb]: ./sql-data-warehouse-tables-temporary.md
 
 <!--MSDN references-->
 [Données de dépassement de ligne de plus de 8 Ko]: https://msdn.microsoft.com/library/ms186981.aspx
 [CREATE TABLE (Azure SQL Data Warehouse)]: https://msdn.microsoft.com/library/mt203953.aspx
 [Erreur interne : une limite des services d’expression a été atteinte]: https://support.microsoft.com/kb/913050
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0803_2016-->

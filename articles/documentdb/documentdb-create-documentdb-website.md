@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/04/2016" 
+	ms.date="08/02/2016" 
 	ms.author="stbaro"/>
 
 # Déploiement de DocumentDB et d’Azure App Service Web Apps avec un modèle Azure Resource Manager
@@ -73,13 +73,13 @@ Maintenant, nous allons déployer notre premier modèle.
 
 7.  Une fois le déploiement terminé, le panneau du groupe de ressources s’ouvre. ![Capture d’écran du panneau Groupe de ressources](./media/documentdb-create-documentdb-website/TemplateDeployment7.png)
 
-8.  Pour utiliser l’application, accédez simplement à l’URL de l’application web (dans l'exemple ci-dessus, l’URL serait http://mydemodocdbwebapp.azurewebsites.net)). Vous verrez l'application web suivante :
+8.  Pour utiliser l’application, accédez simplement à l’URL de l’application web (dans l’exemple ci-dessus, l’URL serait http://mydemodocdbwebapp.azurewebsites.net). Vous verrez l'application web suivante :
 
 	![Exemple d’application Todo](./media/documentdb-create-documentdb-website/image2.png)
 
 9. Continuez et créez deux tâches dans l’application web, puis revenez dans le panneau du groupe de ressources du portail Azure. Cliquez sur la ressource de compte DocumentDB dans la liste des ressources, puis cliquez sur **Explorateur de requête**. ![Capture d’écran de l’objectif Résumé avec l’application web myotherdocumentdbwebapp mise en surbrillance](./media/documentdb-create-documentdb-website/TemplateDeployment8.png)
 
-10. Exécutez la requête par défaut, « SELECT * FROM c », et examinez les résultats. Notez que la requête a récupéré la représentation JSON des éléments de tâche que vous avez créés à l'étape 7 ci-dessus. N'hésitez pas à faire des essais avec des requêtes ; par exemple, essayez d'exécuter SELECT * FROM c WHERE c.isComplete = true pour retourner tous les éléments de tâche qui ont été marqués comme terminés.
+10. Exécutez la requête par défaut, « SELECT * FROM c », et examinez les résultats. Notez que la requête a récupéré la représentation JSON des éléments de tâche que vous avez créés à l'étape 7 ci-dessus. N’hésitez pas à faire des essais avec des requêtes ; par exemple, essayez d’exécuter SELECT * FROM c WHERE c.isComplete = true pour retourner tous les éléments de tâche qui ont été marqués comme terminés.
 
 	![Capture d’écran des panneaux Explorateur de requête et Résultats affichant les résultats de requête](./media/documentdb-create-documentdb-website/image5.png)
 
@@ -96,7 +96,7 @@ Maintenant nous allons déployer notre deuxième modèle. Ce modèle est utile p
 
 2. Sélectionnez l’élément Déploiement de modèle et cliquez sur **Créer** ![Capture d’écran de l’interface utilisateur du déploiement de modèle](./media/documentdb-create-documentdb-website/TemplateDeployment2.png)
 
-3.  Cliquez sur **Modifier le modèles**, collez le contenu du fichier de modèle DocDBWebSite.json, puis cliquez sur **Enregistrer**. ![Capture d’écran de l’interface utilisateur du déploiement de modèle](./media/documentdb-create-documentdb-website/TemplateDeployment3.png)
+3.  Cliquez sur **Modifier le modèle**, collez le contenu du fichier de modèle DocDBWebSite.json, puis cliquez sur **Enregistrer**. ![Capture d’écran de l’interface utilisateur du déploiement de modèle](./media/documentdb-create-documentdb-website/TemplateDeployment3.png)
 
 4. Cliquez sur **Modifier les paramètres**, entrez des valeurs pour chacun des paramètres obligatoires, puis cliquez sur **OK**. Les paramètres sont les suivants :
 
@@ -141,4 +141,4 @@ Félicitations ! Vous avez déployé DocumentDB, une application web App Servic
 >[AZURE.NOTE] Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement et gratuitement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0803_2016-->

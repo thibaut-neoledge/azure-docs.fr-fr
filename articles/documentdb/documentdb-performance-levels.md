@@ -95,7 +95,7 @@ Les collections DocumentDB vous permettent de regrouper vos données selon les m
 
 Il est recommandé que votre application utilise un petit nombre de collections à moins que vos besoins en termes de stockage ou de débit ne soient importants. Vérifiez que vous avez bien compris les modèles d’application pour la création de collections. Vous pouvez choisir de réserver la création de la collection comme une action de gestion gérée en dehors de votre application. De même, l'ajustement du niveau de performances pour une collection modifiera le taux horaire de facturation de la collection. Vous devez surveiller les niveaux de performances d'une collection si votre application les ajuste de manière dynamique.
 
-## <a href="changing-performance-levels-using-the-azure-portal"></a>Remplacer S1, S2, S3 par les performances définies par l’utilisateur
+## <a id="changing-performance-levels-using-the-azure-portal"></a>Remplacer S1, S2, S3 par les performances définies par l’utilisateur
 
 Procédez comme suit pour passer de niveaux de débit prédéfinis à des niveaux de débit définis par l’utilisateur dans le portail Azure. Les niveaux de débit définis par l’utilisateur vous permettent d’adapter le débit à vos besoins. Et si vous utilisez encore un compte S1, vous pouvez augmenter le débit par défaut de 250 à 400 unités de requête/s en seulement quelques clics.
 
@@ -162,7 +162,7 @@ Visitez [MSDN](https://msdn.microsoft.com/library/azure/microsoft.azure.documen
 - [**ReplaceOfferAsync**](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.replaceofferasync.aspx)
 - [**CreateOfferQuery**](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.documentqueryable.createofferquery.aspx)
 
-## <a href="change-throughput"></a>Modification du débit d’une collection
+## <a id="change-throughput"></a>Modification du débit d’une collection
 
 Si vous utilisez déjà les performances définies par l’utilisateur, vous pouvez modifier le débit de votre collection en procédant comme suit. Si vous avez besoin de passer d’un niveau de performance S1, S2 ou S3 (performances prédéfinies) aux performances définies par l’utilisateur, consultez [Remplacer S1, S2, S3 par les performances définies par l’utilisateur](#changing-performance-levels-using-the-azure-portal).
 
@@ -193,4 +193,4 @@ Pour commencer avec le test des performances et de la mise à l’échelle avec 
 [1]: ./media/documentdb-performance-levels/documentdb-change-collection-performance7-9.png
 [2]: ./media/documentdb-performance-levels/documentdb-change-collection-performance10-11.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

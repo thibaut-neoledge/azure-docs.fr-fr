@@ -319,7 +319,7 @@ Les applications Xamarin nécessitent du code supplémentaire pour pouvoir enreg
 
 Windows prend en charge les notifications périodiques (notifications pull) pour mettre à jour les vignettes dynamiques. Lorsque les notifications périodiques sont activées, Windows accède régulièrement à un point de terminaison de l'API personnalisée pour mettre à jour la vignette dans le menu Démarrer. Pour utiliser des notifications périodiques, vous devez [définir une API personnalisée](mobile-services-javascript-backend-define-custom-api.md) qui renvoie des données XML dans un format spécifique à la vignette. Pour plus d'informations, consultez la page [Notifications périodiques](https://msdn.microsoft.com/library/windows/apps/hh761461.aspx).
 
-L’exemple suivant active les notifications périodiques pour demander les données du modèle de vignette au nouveau point de terminaison personnalisé *tiles* :
+L’exemple suivant active les notifications périodiques pour demander les données du modèle de vignette au nouveau point de terminaison personnalisé *tiles* :
 
     TileUpdateManager.CreateTileUpdaterForApplication().StartPeriodicUpdate(
         new System.Uri(MobileService.ApplicationUri, "/api/tiles"),

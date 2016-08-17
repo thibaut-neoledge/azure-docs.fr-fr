@@ -304,7 +304,7 @@ Si une application fournit la valeur d'un ID, Mobile Services la stocke en l'ét
 La valeur pour le `id` doit être unique et ne contenir aucun caractère présent dans les ensembles suivants :
 
 + Caractères de contrôle : [0x0000-0x001F] et [0x007F-0x009F]. Pour plus d'informations, consultez la page [Codes de contrôle ASCII C0 et C1].
-+  Caractères imprimables : **"**(0x0022), **+** (0x002B), **/** (0x002F), **?** (0x003F), **\** (0x005C), **`** (0x0060)
++  Caractères imprimables : **"**(0x0022), **\+** (0x002B), **/** (0x002F), **?** (0x003F), **\\** (0x005C), **`** (0x0060)
 +  Les ID « . » et « .. »
 
 Vous pouvez également utiliser des ID d'entier pour vos tables. Pour pouvoir utiliser un ID d'entier, vous devez créer votre table avec la commande `mobile table create` à l'aide de l'option `--integerId`. Cette commande s'utilise avec l'interface de ligne de commande (CLI) pour Azure. Pour plus d’informations sur l’utilisation de l’interface de ligne de commande, consultez la page [Interface de ligne de commande pour la gestion des tables Mobile Services].
@@ -586,7 +586,7 @@ Dans ce code, l'attribut *listitem* spécifie l'ID de la mise en page de chaque 
 
 Comme la source de données de notre vue est un tableau de *ToDoItem*, nous créons une sous-classe de notre adaptateur à partir de la classe *ArrayAdapter&lt;ToDoItem&gt;*. Cette sous-classe produit une vue pour chaque élément *ToDoItem* utilisant la mise en page *row\_list\_to\_do*.
 
-Dans notre code, nous définissons la classe suivante, qui est une extension de la classe *ArrayAdapter&lt;E&gt;* :
+Dans notre code, nous définissons la classe suivante, qui est une extension de la classe *ArrayAdapter&lt;E&gt;* :
 
 	public class ToDoItemAdapter extends ArrayAdapter<ToDoItem> {
 
@@ -939,3 +939,4 @@ Cette méthode générale peut être utilisée dès lors que nous sommes en pré
 [Codes de contrôle ASCII C0 et C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 
 <!---HONumber=AcomDC_0727_2016-->
+

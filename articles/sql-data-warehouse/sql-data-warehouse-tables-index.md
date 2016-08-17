@@ -86,11 +86,14 @@ CREATE TABLE myTable
 WITH ( CLUSTERED INDEX (id) );
 ```
 
-Pour ajouter un index non cluster sur une table, spécifiez simplement CLUSTERED INDEX dans la clause WITH :
+Pour ajouter un index non-cluster sur une table, utilisez simplement la syntaxe suivante :
 
 ```SQL
 CREATE INDEX zipCodeIndex ON t1 (zipCode);
 ```
+
+> [AZURE.NOTE] Un index non-cluster est créé par défaut lorsque CREATE INDEX est utilisé. En outre, un index non-cluster est autorisé uniquement sur une table de stockage de lignes (HEAP ou CLUSTERED INDEX). Les index non-cluster sur CLUSTERED COLUMNSTORE INDEX ne sont pas autorisés pour l’instant.
+
 
 ## Optimisation des index columnstore en cluster
 
@@ -254,7 +257,7 @@ ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_CO
 ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_COMPRESSION = COLUMNSTORE)
 ```
 
-La reconstruction d’un index dans SQL Data Warehouse est une opération hors connexion. Pour plus d’informations sur la reconstruction d’index, consultez la section ALTER INDEX REBUILD dans [Columnstore Indexes Defragmentation][] (Défragmentation d’index columnstore) et la rubrique de syntaxe [ALTER INDEX][].
+La reconstruction d’un index dans SQL Data Warehouse est une opération hors connexion. Pour plus d’informations sur la reconstruction d’index, consultez la section ALTER INDEX REBUILD dans [Columnstore Indexes Defragmentation][] \(Défragmentation d’index columnstore) et la rubrique de syntaxe [ALTER INDEX][].
  
 ### Étape 3 : Vérifier que la qualité de segment columnstore en cluster a été améliorée
 Réexécutez la requête qui a identifié la table présentant une qualité de segment médiocre, et vérifiez que la qualité de segment a été améliorée. Si la qualité de segment n’a pas été améliorée, cela peut signifier que les lignes de votre table sont très larges. Utilisez une classe de ressources supérieure ou une base de données DWU lors de la reconstruction de vos index. Si une mémoire plus élevée est nécessaire,
@@ -337,4 +340,4 @@ Pour plus d’informations, consultez les articles [Vue d’ensemble des tables]
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0803_2016-->

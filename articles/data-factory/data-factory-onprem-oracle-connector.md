@@ -30,7 +30,7 @@ Pour permettre au service Azure Data Factory de se connecter à votre base de do
  
 	Après avoir installé le fournisseur, redémarrez le service hôte de la passerelle de gestion des données sur votre ordinateur à l’aide de l’applet Services (ou) du Gestionnaire de configuration de la passerelle de gestion des données.
 
-> [AZURE.NOTE] Consultez [Résolution des problèmes de passerelle](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting) pour obtenir des conseils sur la résolution des problèmes de connexion/passerelle.
+> [AZURE.NOTE] Consultez [Résolution des problèmes de passerelle](data-factory-data-management-gateway.md#troubleshoot-gateway-issues) pour obtenir des conseils sur la résolution des problèmes de connexion/passerelle.
 
 ## Exemple : copie de données d’Oracle vers Azure Blob
 Cet exemple indique comment copier des données à partir d’une base de données Oracle locale vers un système Blob Storage Microsoft Azure. Toutefois, les données peuvent être copiées **directement** vers l’un des récepteurs indiqués [ici](data-factory-data-movement-activities.md#supported-data-stores), via l’activité de copie de Microsoft Azure Data Factory.
@@ -425,7 +425,7 @@ Pour obtenir la liste complète des sections et des propriétés disponibles pou
 Par contre, les propriétés disponibles dans la section typeProperties de l'activité varient avec chaque type d'activité et dans le cas de l'activité de copie, elles varient selon les types de sources et de récepteurs.
 
 ### OracleSource
-Dans le cas d’une activité de copie, lorsque la source est de type **OracleSource**, les propriétés suivantes sont disponibles dans la section **typeProperties** :
+Dans le cas d’une activité de copie, lorsque la source est de type **OracleSource**, les propriétés suivantes sont disponibles dans la section **typeProperties** :
 
 Propriété | Description |Valeurs autorisées | Requis
 -------- | ----------- | ------------- | --------
@@ -481,7 +481,7 @@ XML | String
 
 ## Conseils de dépannage
 
-**Problème : ** Le **message d’erreur** suivant s’affiche : L’activité de copie a rencontré des paramètres non valides : « UnknownParameterName ». Message détaillé : Le fournisseur de données .Net Framework demandé est introuvable. Il n’est peut-être pas installé.
+**Problème:** Le **message d’erreur** suivant s’affiche : L’activité de copie a rencontré des paramètres non valides : « UnknownParameterName ». Message détaillé : Le fournisseur de données .Net Framework demandé est introuvable. Il n’est peut-être pas installé.
 
 **Causes possibles**
 
@@ -505,4 +505,4 @@ XML | String
 ## Performances et réglage  
 Consultez l’article [Guide sur les performances et le réglage de l’activité de copie](data-factory-copy-activity-performance.md) pour en savoir plus sur les facteurs clés affectant les performances de déplacement des données (activité de copie) dans Azure Data Factory et les différentes manières de les optimiser.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

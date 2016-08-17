@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/21/2016"
-	ms.author="curtand;viviali"/>
+	ms.date="08/02/2016"
+	ms.author="curtand"/>
 
 # Ajouter des utilisateurs à partir d’autres répertoires ou entreprises partenaires dans Azure Active Directory
 
-Ajoutez des utilisateurs afin de remplir le répertoire. Cet article explique comment ajouter des utilisateurs à partir d’autres répertoires dans Azure Active Directory, ou comment ajouter des utilisateurs d’entreprises partenaires. Pour en savoir plus sur l’ajout de nouveaux utilisateurs dans votre organisation, et en particulier l’ajout d’utilisateurs disposant de comptes Microsoft, voir [Ajout ou modification d’utilisateurs dans Azure Active Directory](active-directory-create-users.md). Par défaut, les utilisateurs ajoutés ne reçoivent pas d’autorisations d’administrateur, mais vous pouvez leur attribuer des rôles à tout moment.
+Cet article explique comment ajouter des utilisateurs à partir d’autres répertoires dans Azure Active Directory, ou comment ajouter des utilisateurs d’entreprises partenaires. Pour en savoir plus sur l’ajout de nouveaux utilisateurs dans votre organisation, et en particulier l’ajout d’utilisateurs disposant de comptes Microsoft, voir [Ajout ou modification d’utilisateurs dans Azure Active Directory](active-directory-create-users.md). Par défaut, les utilisateurs ajoutés ne reçoivent pas d’autorisations d’administrateur, mais vous pouvez leur attribuer des rôles à tout moment.
 
 ## Ajouter un utilisateur
 
@@ -84,4 +84,4 @@ Si un utilisateur est supprimé de son annuaire de base ou s’il annule son com
 - [Gestion des mots de passe dans Azure AD](active-directory-manage-passwords.md)
 - [Gestion des groupes dans Azure AD](active-directory-manage-groups.md)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0810_2016-->

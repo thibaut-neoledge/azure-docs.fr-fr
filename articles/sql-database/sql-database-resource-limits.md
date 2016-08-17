@@ -1,9 +1,9 @@
 <properties
-	pageTitle="Limites de ressources de base de données SQL Azure"
-	description="Cette page décrit certaines limites de ressources courantes pour une base de données SQL Azure."
+	pageTitle="Limites de ressources de base de données SQL Azure"
+	description="Cette page décrit certaines limites de ressources courantes pour une base de données SQL Azure."
 	services="sql-database"
 	documentationCenter="na"
-	authors="carlrabeler"
+	authors="CarlRabeler"
 	manager="jhubbard"
 	editor="monicar" />
 
@@ -18,19 +18,19 @@
 	ms.author="carlrab" />
 
 
-# Limites de ressources de base de données SQL Azure
+# Limites de ressources de base de données SQL Azure
 
 ## Vue d’ensemble
 
-La base de données SQL Azure gère les ressources disponibles pour une base de données à l’aide de deux mécanismes différents : **Gouvernance des ressources** et **Application de limites**. Cette rubrique décrit ces deux domaines principaux de la gestion des ressources.
+La base de données SQL Azure gère les ressources disponibles pour une base de données à l’aide de deux mécanismes différents : **Gouvernance des ressources** et **Application de limites**. Cette rubrique décrit ces deux domaines principaux de la gestion des ressources.
 
 ## Gouvernance des ressources
 L’un des objectifs de conception des niveaux de service Basique, Standard et Premium est que la base de données SQL Azure se comporte comme si elle s’exécutait sur sa propre machine, complètement isolée des autres bases de données. La gouvernance des ressources émule ce comportement. Si l’utilisation des ressources agrégées atteint les ressources maximum disponibles de processeur, de mémoire, d’E/S du journal et d’E/S des données affectées à la base de données, la gouvernance des données mettra en file d’attente les requêtes en exécution et affectera des ressources aux requêtes en file d’attente à mesure qu’elles se libèrent.
 
 Comme sur une machine dédiée, l’utilisation de toutes les ressources disponibles entraîne une exécution plus longue des requêtes en cours d’exécution, ce qui peut provoquer des délais d’expiration de commande sur le client. Les applications avec la logique de nouvelle tentative agressive et les applications qui exécutent des requêtes sur la base de données avec une fréquence élevée peuvent rencontrer des messages d’erreur lorsque vous tentez d’exécuter de nouvelles requêtes et que la limite de demandes simultanées a été atteinte.
 
-### Recommandations :
-Surveillez l’utilisation des ressources, ainsi que les temps de réponse moyens des requêtes lorsque vous approchez de l’utilisation maximale d’une base de données. Si vous rencontrez des latences de requête supérieures, généralement, trois options s’offrent à vous :
+### Recommandations :
+Surveillez l’utilisation des ressources, ainsi que les temps de réponse moyens des requêtes lorsque vous approchez de l’utilisation maximale d’une base de données. Si vous rencontrez des latences de requête supérieures, généralement, trois options s’offrent à vous :
 
 1.	Réduire la quantité de requêtes entrantes dans la base de données afin d’éviter l’expiration et l’accumulation de demandes.
 
@@ -59,7 +59,7 @@ Pour consulter une définition étendue de chaque ressource répertoriée dans l
 
 | Domaine | Limite | Description |
 |---|---|---|
-| Bases de données utilisant l’exportation automatique par abonnement | 10 | L’exportation automatique vous permet de créer une planification personnalisée pour sauvegarder vos bases de données SQL. Pour plus d’informations, consultez [Bases de données SQL : prise en charge des exportations de base de données SQL automatisées](http://weblogs.asp.net/scottgu/windows-azure-july-updates-sql-database-traffic-manager-autoscale-virtual-machines).|
+| Bases de données utilisant l’exportation automatique par abonnement | 10 | L’exportation automatique vous permet de créer une planification personnalisée pour sauvegarder vos bases de données SQL. Pour plus d’informations, consultez [Bases de données SQL : prise en charge des exportations de base de données SQL automatisées](http://weblogs.asp.net/scottgu/windows-azure-july-updates-sql-database-traffic-manager-autoscale-virtual-machines).|
 | Base de données par serveur | Jusqu'à 5000 | Jusqu'à 5000 bases de données sont autorisées par serveur sur les serveurs V12. |  
 | DTU par serveur | 45000 | 45000 DTU sont disponibles par serveur sur les serveurs V12 pour la configuration des bases de données, des pools élastiques et des entrepôts de données. |
 
@@ -69,8 +69,8 @@ Pour consulter une définition étendue de chaque ressource répertoriée dans l
 
 [Abonnement Azure et limites, quotas et contraintes du service](../azure-subscription-service-limits.md)
 
-[Niveaux de service et niveaux de performances de la base de données SQL Azure](sql-database-service-tiers.md)
+[Niveaux de service et niveaux de performances de la base de données SQL Azure](sql-database-service-tiers.md)
 
 [Messages d'erreur pour les programmes clients SQL Database](sql-database-develop-error-messages.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

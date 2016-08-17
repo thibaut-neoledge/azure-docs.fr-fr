@@ -4,7 +4,7 @@
    keywords=""
    services="sql-database"
    documentationCenter=""
-   authors="carlrabeler"
+   authors="CarlRabeler"
    manager="jhubbard"
    editor=""/>
 
@@ -49,4 +49,4 @@ Demandez un [abonnement Azure gratuit](https://azure.microsoft.com/get-started/)
 * Consultez la [présentation technique de la base de données SQL](sql-database-technical-overview.md).
 * [Vue d’ensemble du développement de base de données SQL](sql-database-develop-overview.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

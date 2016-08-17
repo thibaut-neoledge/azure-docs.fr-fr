@@ -1,8 +1,8 @@
 <properties
-	pageTitle="CDN - Dépannage des points de terminaison de CDN renvoyant des états 404"
-	description="Dépannez les codes de réponse 404 avec les points de terminaison de CDN."
+	pageTitle="Dépannage des points de terminaison de CDN Azure renvoyant des états 404 | Microsoft Azure"
+	description="Dépannez les codes de réponse 404 avec les points de terminaison de CDN Azure."
 	services="cdn"
-	documentationCenter=".NET"
+	documentationCenter=""
 	authors="camsoper"
 	manager="erikre"
 	editor=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/11/2016"
+	ms.date="07/28/2016"
 	ms.author="casoper"/>
     
 # Dépannage des points de terminaison de CDN renvoyant des états 404
@@ -67,7 +67,7 @@ Vérifiez que les champs **Type d’origine** et **Nom d’hôte d’origine** s
 
 Cependant, imaginons que l’URL du fichier d’origine que vous avez testé précédemment est `http://www.contoso.com:8080/file.txt`. Remarquez la valeur `:8080` à la fin du segment du nom d’hôte. Elle indique au navigateur d’utiliser le port `8080` pour se connecter au serveur web sur `www.contoso.com`. Vous devrez donc entrer 8080 dans le champ **Port HTTP**. Il est important de noter que ces paramètres de port affectent uniquement le port utilisé par le point de terminaison pour récupérer des informations à partir de l’origine.
 
-> [AZURE.NOTE] Les points de terminaison du **CDN Azure fourni par Akamai** n’autorisent pas la plage de ports TCP complète pour les origines. Pour obtenir la liste des ports d’origine non autorisés, consultez [Détails concernant le comportement du CDN Azure fourni par Akamai](cdn-akamai-behavior-details.md).
+> [AZURE.NOTE] Les points de terminaison du **CDN Azure fourni par Akamai** n’autorisent pas la plage de ports TCP complète pour les origines. Pour obtenir la liste des ports d’origine non autorisés, consultez l’article [Azure CDN from Akamai Allowed Origin Ports](https://msdn.microsoft.com/library/mt757337.aspx) (Ports d’origine autorisés du CDN Azure fourni par Akamai).
   
 ### Vérifier les paramètres de point de terminaison
 
@@ -97,4 +97,4 @@ Par exemple, dans mon point de terminaison, je voulais que toutes les ressources
 
 Que se passe-t-il si je ne veux pas utiliser le CDN pour chaque chemin d’accès de mon origine ? Disons que je veux uniquement exposer le chemin `publicblob`. Si je saisis */publicblob* dans le champ **Chemin d’accès d’origine**, le point de terminaison insère */publicblob* avant chaque demande adressée à l’origine. Cela signifie que la demande pour `https://cdndocdemo.azureedge.net/publicblob/lorem.txt` prend en fait la partie demande de l’URL `/publicblob/lorem.txt` et ajoute `/publicblob` au début. Cela donne une demande pour `/publicblob/publicblob/lorem.txt` à partir de l’origine. Si ce chemin d’accès ne se résout pas en fichier réel, l’origine retournera un état 404. L’URL correcte pour récupérer lorem.txt dans cet exemple serait en fait `https://cdndocdemo.azureedge.net/lorem.txt`. Notez que nous n’incluons pas du tout le chemin */publicblob*, car la partie demande de l’URL est `/lorem.txt` et le point de terminaison ajoute `/publicblob`. Par conséquent, la demande transmise à l’origine est `/publicblob/lorem.txt`.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

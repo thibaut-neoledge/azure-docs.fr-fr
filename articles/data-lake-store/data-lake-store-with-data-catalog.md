@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/17/2016"
+   ms.date="08/02/2016"
    ms.author="nitinme"/>
 
 # Référencer des données de Data Lake Store dans Azure Data Catalog
@@ -94,4 +94,4 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 * [Documenter des sources de données dans Data Catalog](../data-catalog/data-catalog-how-to-documentation.md)
 * [Intégrer Data Lake Store à d’autres services Azure](data-lake-store-integrate-with-other-services.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

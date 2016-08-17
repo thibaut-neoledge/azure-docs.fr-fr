@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Créer et gérer des bases de données SQL Azure avec montée en charge | Microsoft Azure"
+	pageTitle="Créer et gérer des bases de données SQL Azure avec montée en charge à l’aide de tâches élastiques (version préliminaire) | Microsoft Azure"
 	description="Passez en revue la création et la gestion d'une tâche de base de données élastique."
 	services="sql-database"
 	documentationCenter=""
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/27/2016"
+	ms.date="07/27/2016"
 	ms.author="ddove"/>
 
-# Créer et gérer des bases de données SQL Azure avec montée en charge (version préliminaire)
+# Créer et gérer des bases de données SQL Azure avec montée en charge à l’aide de tâches élastiques (version préliminaire)
 
 > [AZURE.SELECTOR]
 - [Portail Azure](sql-database-elastic-jobs-create-and-manage.md)
@@ -115,4 +115,4 @@ Si une tâche échoue, un journal détaillant son exécution est créé. Cliquez
 
  
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

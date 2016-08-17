@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="05/12/2016" 
+	ms.date="08/04/2016" 
 	ms.author="billmath"/>
 
 # Mise en route du service Web de l’application mobile du serveur MFA
@@ -51,9 +51,9 @@ Si le Kit de développement logiciel (SDK) Azure Multi-Factor Authentication Web
 ## Installation du service Web de l’application mobile
 Avant d'installer le service Web de l’application mobile, tenez compte des éléments suivants :
 
-- Si le portail utilisateur Azure Multi-Factor Authentication est déjà installé sur le serveur sur Internet, le nom d'utilisateur, le mot de passe et l'URL vers le SDK du service Web peuvent être copiés à partir du fichier web.config du portail de l'utilisateur. 
+- Si le portail utilisateur Azure Multi-Factor Authentication est déjà installé sur le serveur sur Internet, le nom d'utilisateur, le mot de passe et l'URL vers le SDK du service Web peuvent être copiés à partir du fichier web.config du portail de l'utilisateur.
 - Il est utile d'ouvrir un navigateur Web sur le serveur sur Internet et d’accéder à l'URL du Kit de développement logiciel (SDK) Web Service qui a été saisie dans le fichier web.config. Si le navigateur peut accéder correctement au service Web, il vous invite à saisir des informations d'identification. Saisissez le nom d'utilisateur et le mot de passe qui ont été saisis dans le fichier web.config, exactement comme cela apparaît dans le fichier. Assurez-vous qu'aucun avertissement ou erreur de certificat ne soit affiché.
-- Si un pare-feu ou un proxy inverse est assis devant le serveur Web du service Web de l’application mobile et effectue un déchargement SSL, vous pouvez modifier le fichier web.config du service Web de l’application mobile et ajouter la clé suivante à la section <appSettings> afin que le service Web de l’application mobile puisse utiliser http au lieu de https. Cependant, SSL est toujours requis depuis l'application mobile vers le pare-feu/proxy inverse. <add key="SSL_REQUIRED" value="false"/> 
+- Si un pare-feu ou un proxy inverse est assis devant le serveur web du service web de l’application mobile et effectue un déchargement SSL, vous pouvez modifier le fichier web.config du service web de l’application mobile et ajouter la clé suivante à la section <appSettings> afin que le service web de l’application mobile puisse utiliser http au lieu de https. Cependant, SSL est toujours requis depuis l’application mobile vers le pare-feu/proxy inverse. <add key="SSL\_REQUIRED" value="false"/>
 
 ### Pour installer le service Web de l’application mobile
 
@@ -83,11 +83,11 @@ Maintenant que le service Web de l’application mobile est installé, vous deve
 2. Cochez la case Autoriser les utilisateurs à activer l'application mobile.
 3. Cochez la case Autoriser l'inscription utilisateur.
 4. Cliquez sur l'icône de l'application mobile.
-5. Entrez l'URL qui est utilisée avec le répertoire virtuel qui a été créé lors de l'installation d'Azure Multi-Factor AuthenticationMobileAppWebServiceSetup. Un nom de compte peut être entré dans l'espace fourni. Ce nom de société s'affiche dans l'application mobile. Si ce champ est vide, le nom de votre fournisseur Multi-Factor Auth créé dans le portail de gestion Azure s'affichera. 
+5. Entrez l'URL qui est utilisée avec le répertoire virtuel qui a été créé lors de l'installation d'Azure Multi-Factor AuthenticationMobileAppWebServiceSetup. Un nom de compte peut être entré dans l'espace fourni. Ce nom de société s'affiche dans l'application mobile. Si ce champ est vide, le nom de votre fournisseur Multi-Factor Auth créé dans le portail de gestion Azure s'affichera.
 
 
 
 <center>![Setup](./media/multi-factor-authentication-get-started-server-webservice/mobile.png)</center>
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

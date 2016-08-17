@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/11/2016"
+   ms.date="07/31/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Transactions dans SQL Data Warehouse
@@ -56,19 +56,21 @@ Pour optimiser et réduire la quantité de données écrites dans le journal, co
 ## État des transactions
 SQL Data Warehouse utilise la fonction XACT\_STATE() pour signaler l’échec d’une transaction, en utilisant la valeur -2. Cette valeur signifie que la transaction a échoué et est marquée pour une restauration uniquement.
 
-> [AZURE.NOTE] L’association de la valeur -2 à la fonction XACT\_STATE afin de signaler l’échec d’une transaction constitue un comportement différent par rapport à SQL Server. En effet, SQL Server utilise la valeur -1 pour indiquer qu’une transaction ne peut pas être validée. De plus, il peut tolérer la présence de certaines erreurs au sein d’une transaction sans pour autant signaler que cette dernière ne peut pas être validée. Par exemple, la valeur SELECT 1/0 entraîne une erreur, mais n’oblige pas la transaction à passer à l’état non validable. Par ailleurs, SQL Server autorise également les lectures dans une transaction non validable, ce que ne fait pas SQLDW. Si une erreur se produit dans une transaction SQLDW, cette dernière passe automatiquement à l’état -2, y compris les erreurs SELECT 1/0. Vous devez donc impérativement vérifier le code de votre application, afin de vous assurer qu’il utilise la fonction XACT\_STATE().
+> [AZURE.NOTE] L’association de la valeur -2 à la fonction XACT\_STATE afin de signaler l’échec d’une transaction constitue un comportement différent par rapport à SQL Server. En effet, SQL Server utilise la valeur -1 pour indiquer qu’une transaction ne peut pas être validée. De plus, il peut tolérer la présence de certaines erreurs au sein d’une transaction sans pour autant signaler que cette dernière ne peut pas être validée. Par exemple, la valeur `SELECT 1/0` entraîne une erreur, mais n’oblige pas la transaction à passer à l’état non validable. Par ailleurs, SQL Server autorise également les lectures dans une transaction non validable, Mais SQL Data Warehouse ne vous le permet pas. Si une erreur se produit dans une transaction SQL Data Warehouse, celle-ci passe automatiquement à l’état -2 et vous ne serez pas en mesure d’utiliser d’autres instructions select tant que l’instruction n’a pas été restaurée. Vous devez donc impérativement vérifier le code de votre application afin de vous assurer qu’il utilise la fonction XACT\_STATE() car des modifications du code peuvent être nécessaires.
 
-Dans SQL Server, vous pouvez voir apparaître un fragment de code ressemblant à ce qui suit :
+Dans SQL Server par exemple, vous pouvez voir une transaction ressemblant à ce qui suit :
 
 ```sql
+SET NOCOUNT ON;
+DECLARE @xact_state smallint = 0;
+
 BEGIN TRAN
     BEGIN TRY
         DECLARE @i INT;
-        SET     @i = CONVERT(int,'ABC');
+        SET     @i = CONVERT(INT,'ABC');
     END TRY
     BEGIN CATCH
-
-        DECLARE @xact smallint = XACT_STATE();
+        SET @xact_state = XACT_STATE();
 
         SELECT  ERROR_NUMBER()    AS ErrNumber
         ,       ERROR_SEVERITY()  AS ErrSeverity
@@ -76,27 +78,49 @@ BEGIN TRAN
         ,       ERROR_PROCEDURE() AS ErrProcedure
         ,       ERROR_MESSAGE()   AS ErrMessage
         ;
-
-        ROLLBACK TRAN;
+        
+        IF @@TRANCOUNT > 0
+        BEGIN
+            PRINT 'ROLLBACK';
+            ROLLBACK TRAN;
+        END
 
     END CATCH;
+
+IF @@TRANCOUNT >0
+BEGIN
+    PRINT 'COMMIT';
+    COMMIT TRAN;
+END
+
+SELECT @xact_state AS TransactionState;
 ```
 
-Notez que l’instruction `SELECT` survient avant l’instruction `ROLLBACK`. Par ailleurs, le paramètre de la variable `@xact` utilise l’instruction DECLARE, et non `SELECT`.
+Si vous conservez votre code ainsi, vous obtiendrez le message d’erreur suivant :
 
-Dans SQL Data Warehouse, le code doit ressembler à ce qui suit :
+Msg 111233, Level 16, State 1, Line 1 111233;La transaction active a été abandonnée. Les modifications en attente ont été restaurées. Cause : une transaction à un état de restauration uniquement n’a été pas explicitement restaurée avant une instruction DDL, DML ou SELECT.
+
+Vous n’obtiendrez pas la sortie des fonctions ERROR\_* non plus.
+
+Dans SQL Data Warehouse, le code doit être également légèrement modifié :
 
 ```sql
+SET NOCOUNT ON;
+DECLARE @xact_state smallint = 0;
+
 BEGIN TRAN
     BEGIN TRY
         DECLARE @i INT;
-        SET     @i = CONVERT(int,'ABC');
+        SET     @i = CONVERT(INT,'ABC');
     END TRY
     BEGIN CATCH
-
-        ROLLBACK TRAN;
-
-        DECLARE @xact smallint = XACT_STATE();
+        SET @xact_state = XACT_STATE();
+        
+        IF @@TRANCOUNT > 0
+        BEGIN
+            PRINT 'ROLLBACK';
+            ROLLBACK TRAN;
+        END
 
         SELECT  ERROR_NUMBER()    AS ErrNumber
         ,       ERROR_SEVERITY()  AS ErrSeverity
@@ -106,10 +130,18 @@ BEGIN TRAN
         ;
     END CATCH;
 
-SELECT @xact;
+IF @@TRANCOUNT >0
+BEGIN
+    PRINT 'COMMIT';
+    COMMIT TRAN;
+END
+
+SELECT @xact_state AS TransactionState;
 ```
 
-Vous pouvez constater que la restauration de la transaction doit se produire avant la lecture des informations sur l’erreur, dans le bloc `CATCH`.
+Le comportement attendu est maintenant examiné. L’erreur dans la transaction est gérée, et les fonctions ERROR\_* fournissent les valeurs attendues.
+
+Résultat : l’opération `ROLLBACK` de la transaction doit se produire avant la lecture des informations sur l’erreur, dans le bloc `CATCH`.
 
 ## Fonction Error\_Line()
 Il est également important de signaler que SQL Data Warehouse n’implémente pas et ne prend pas en charge la fonction ERROR\_LINE(). Si cette fonction est incluse dans votre code, vous devez la supprimer pour respecter les exigences de SQL Data Warehouse. Placez plutôt des libellés de requête dans votre code pour implémenter les fonctionnalités équivalentes. Consultez l’article relatif aux [libellés][] pour en savoir plus.
@@ -129,6 +161,8 @@ Les voici :
 - Les transactions distribuées ne sont pas acceptées.
 - Les transactions imbriquées ne sont pas autorisées.
 - Les points de sauvegarde ne sont pas acceptés.
+- Transactions sans nom
+- Transactions sans marquage
 - Aucune prise en charge de DDL comme `CREATE TABLE` dans une transaction définie par l’utilisateur
 
 ## Étapes suivantes
@@ -147,4 +181,4 @@ Pour en savoir plus sur l’optimisation des transactions, consultez les [bonnes
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0803_2016-->

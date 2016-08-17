@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/01/2016"
+	ms.date="08/01/2016"
 	ms.author="tarcher"/>
 
 #Créer des artefacts personnalisés pour vos machines virtuelles DevTest Labs
 
-> [AZURE.NOTE] Regardez la vidéo d’accompagnement de cet article : [How to author custom artifacts](/documentation/videos/how-to-author-custom-artifacts) (Créer des artefacts personnalisés)
+> [AZURE.VIDEO how-to-author-custom-artifacts] 
 
 ## Vue d'ensemble
 Les **artefacts** sont utilisés pour déployer et configurer votre application après l’approvisionnement d’une machine virtuelle. Un artefact se compose d'un fichier de définition d'artefact et autres fichiers de script qui sont stockés dans un dossier de dépôt git. Les fichiers de définition d'artefact se composent de JSON et d'expressions que vous pouvez utiliser pour spécifier ce que vous voulez installer sur une machine virtuelle. Par exemple, vous pouvez définir le nom de l'artefact, la commande à exécuter et les paramètres qui sont disponibles lorsque la commande est exécutée. Vous pouvez faire référence à d'autres fichiers de script dans le fichier de définition d'artefact par nom.
@@ -105,7 +105,7 @@ Créez votre artefact personnalisé en suivant les étapes ci-dessous :
 
 1. Installer un éditeur JSON : vous aurez besoin d'un éditeur JSON pour utiliser les fichiers de définition d'artefact. Nous vous recommandons d'utiliser [Visual Studio Code](https://code.visualstudio.com/), qui est disponible pour Windows, Linux et OS X.
 
-1. Obtenir un exemple d'artifactfile.json : découvrez les artefacts créés par l'équipe Azure DevTest Labs dans notre [dépôt GitHub](https://github.com/Azure/azure-devtestlab) où nous avons créé une bibliothèque riche d'artefacts qui vous permettra de créer vos propres artefacts. Téléchargez un fichier de définition d'artefact et modifiez-le pour créer vos propres artefacts.
+1. Obtenir un exemple d'artifactfile.json : découvrez les artefacts créés par l'équipe Azure DevTest Labs dans notre [référentiel GitHub](https://github.com/Azure/azure-devtestlab) où nous avons créé une bibliothèque riche d'artefacts qui vous permettra de créer vos propres artefacts. Téléchargez un fichier de définition d'artefact et modifiez-le pour créer vos propres artefacts.
 
 1. Utiliser IntelliSense : utilisez IntelliSense pour voir des éléments valides qui peuvent être utilisés pour construire un fichier de définition d'artefact. Vous pouvez également voir les différentes options pour les valeurs d'un élément. Par exemple, IntelliSense vous montre les deux options de Windows ou Linux lorsque vous modifiez l'élément **targetOsType**.
 
@@ -118,10 +118,14 @@ Créez votre artefact personnalisé en suivant les étapes ci-dessous :
 
 	![Exemple de dépôt git d'artefacts](./media/devtest-lab-artifact-author/git-repo.png)
 
-1. Ajouter le dépôt d’artefacts au laboratoire : reportez-vous à l’article [Ajouter un dépôt d’artefacts Git à un laboratoire](devtest-lab-add-artifact-repo.md).
+1. Ajoutez le dépôt d’artefacts au laboratoire : reportez-vous à l’article [Ajouter un dépôt d’artefacts Git à un laboratoire](devtest-lab-add-artifact-repo.md).
+
+## Billets de blog connexes
+- [How to troubleshoot failing Artifacts in AzureDevTestLabs](http://www.visualstudiogeeks.com/blog/DevOps/How-to-troubleshoot-failing-artifacts-in-AzureDevTestLabs) (Comment résoudre les problèmes d’échec des artefacts dans AzureDevTestLabs)
+- [Join a VM to existing AD Domain using ARM template in Azure Dev Test Lab](http://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs) (Joindre une machine virtuelle à un domaine Active Directory existant à l’aide du modèle ARM dans Azure Dev Test Lab)
 
 ## Étapes suivantes
 
 - Découvrez comment [ajouter un dépôt d’artefacts Git à un laboratoire](devtest-lab-add-artifact-repo.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0803_2016-->

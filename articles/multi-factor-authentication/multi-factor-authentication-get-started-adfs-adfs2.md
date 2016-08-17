@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="05/12/2016" 
+	ms.date="08/04/2016" 
 	ms.author="billmath"/>
 # Sécuriser les ressources de cloud et locales à l'aide du serveur Azure Multi-Factor Authentication avec AD FS 2.0
 
@@ -79,7 +79,7 @@ Pour sécuriser AD FS lorsqu’aucun proxy AD FS n’est utilisé, installez le 
 10. Cochez la case Activer l’authentification IIS en haut de l'écran. Le proxy ADFS est désormais protégé par le serveur Azure Multi-Factor Authentication. Assurez-vous que les utilisateurs ont été importés sur le serveur à partir d'Active Directory. Consultez la section Adresses IP de confiance ci-dessous si vous souhaitez ajouter des adresses IP internes à la liste blanche, de sorte que l'authentification à deux facteurs ne soit pas requise lors de la connexion au site Web à partir de ces emplacements.
 
 
-## Adresses IP de confiance
+## Adresses IP approuvées
 Les adresses IP approuvées permettent aux utilisateurs de contourner l'authentification multifacteur Azure pour les requêtes de sites Web provenant d'adresses IP ou de sous-réseaux spécifiques. Il se peut par exemple que vous souhaitiez exempter certains utilisateurs de l'authentification multifacteur Azure lorsqu’ils se connectent du bureau. Pour ce faire, vous devez définir le sous-réseau du bureau comme adresse IP de confiance.
 
 ### Pour configurer des adresses IP de confiance
@@ -95,4 +95,4 @@ Les adresses IP approuvées permettent aux utilisateurs de contourner l'authenti
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

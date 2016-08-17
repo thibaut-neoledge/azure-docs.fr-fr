@@ -13,7 +13,7 @@
    ms.devlang="na"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/21/2016"
+   ms.date="08/05/2016"
    ms.author="yurid"/>
 
 # Fonctionnalités de détection d’Azure Security Center
@@ -49,12 +49,12 @@ Microsoft dispose d’une multitude d’informations en matière de menaces à l
 
 ## Analyse comportementale
 
-L’analyse comportementale est une technique qui analyse et compare les données à une collection de modèles connus. Toutefois, ces modèles ne sont pas de simples signatures. Ils sont déterminés par le biais d’algorithmes d’apprentissage automatique appliqués aux ensembles de données massifs. Azure Security Center peut utiliser l’analyse comportementale pour identifier les ressources compromises en se basant sur l’analyse des journaux de la machine virtuelle, des journaux du périphérique réseau virtuel, des journaux Service Fabric et d’autres sources.
+L’analyse comportementale est une technique qui analyse et compare les données à une collection de modèles connus. Toutefois, ces modèles ne sont pas de simples signatures. Ils sont déterminés par le biais d’algorithmes d’apprentissage automatique appliqués aux ensembles de données massifs. Ils sont également déterminés à travers une analyse minutieuse des comportements malveillants par des experts. Azure Security Center peut utiliser l’analyse comportementale pour identifier les ressources compromises en se basant sur l’analyse des journaux de la machine virtuelle, des journaux du périphérique réseau virtuel, des journaux Service Fabric, des vidages sur incident et d’autres sources.
 
 En outre, il existe une corrélation avec les autres signaux pour rechercher les preuves d’une campagne généralisée. Cela permet d’identifier les événements qui sont cohérents avec les indicateurs de compromission établis. Voici quelques exemples :
 
 - **Exécution de processus suspect** : les attaquants utilisent un certain nombre de techniques pour exécuter des logiciels malveillants en l’absence de détection. Par exemple, un pirate peut donner au programme malveillant le même nom que celui utilisé pour des fichiers système légitimes, mais placera ces fichiers à d’autres emplacements, utilisera un nom très similaire à un fichier anodin ou masquera la véritable extension du fichier. Azure Security Center modélise les comportements et surveille les exécutions du processus pour détecter les valeurs aberrantes telles que celles-ci.
-- **Programme malveillant masqué et échec d’exploitation** : un programme malveillant sophistiqué est en mesure d’échapper aux produits anti-programme malveillant traditionnels en choisissant de ne jamais écrire sur le disque ou en chiffrant des composants logiciels stockés sur le disque. Toutefois, ces logiciels malveillants peuvent être détectés à l’aide de l’analyse de mémoire, car le programme malveillant laisse des traces en mémoire pour pouvoir fonctionner. Lorsque le logiciel se bloque, un vidage sur incident capture une partie de la mémoire au moment de l’incident. En analysant la mémoire dans le vidage sur incident, Azure Security Center peut détecter les techniques utilisées pour exploiter la vulnérabilité des logiciels, accéder aux données confidentielles et persister subrepticement au sein d’un ordinateur compromis sans affecter les performances de votre machine.
+- **Programmes malveillants masqués et tentatives d’exploitation** : des programmes malveillants sophistiqués sont en mesure d’échapper aux produits anti-programme malveillant traditionnels en choisissant de ne jamais écrire sur le disque ou en chiffrant des composants logiciels stockés sur le disque. Toutefois, ces logiciels malveillants peuvent être détectés à l’aide de l’analyse de mémoire, car le programme malveillant laisse des traces en mémoire pour pouvoir fonctionner. Lorsque le logiciel se bloque, un vidage sur incident capture une partie de la mémoire au moment de l’incident. En analysant la mémoire dans le vidage sur incident, Azure Security Center peut détecter les techniques utilisées pour exploiter la vulnérabilité des logiciels, accéder aux données confidentielles et persister subrepticement au sein d’un ordinateur compromis sans affecter les performances de votre machine.
 - **Mouvement latéral et reconnaissance interne** : afin de persister dans un réseau compromis et de localiser/récolter des données précieuses, les attaquants tentent souvent de se déplacer latéralement à partir de l’ordinateur compromis vers d’autres ordinateurs au sein du même réseau. Azure Security Center surveille les activités de processus et de connexion afin de détecter les tentatives de développement du pirate au sein du réseau, telles que l’exécution de commande à distance, la détection de réseau et l’énumération de compte.
 - **Scripts PowerShell malveillants** : les attaquants utilisent PowerShell pour exécuter du code malveillant sur des machines virtuelles cibles à des fins diverses. Azure Security Center inspecte l’activité PowerShell à la recherche d’activité suspecte.
 - **Attaques sortantes** : les attaquants ciblent souvent les ressources cloud en vue d’utiliser ces ressources pour lancer d’autres attaques. Les machines virtuelles compromises peuvent, par exemple, servir à lancer des attaques par force brute contre d’autres machines virtuelles, envoyer du courrier indésirable, ou analyser les ports ouverts et autres appareils sur Internet. En appliquant l’apprentissage automatique au trafic réseau, Azure Security Center peut détecter lorsque les communications réseau sortantes dépassent la norme. Dans le cas du courrier indésirable, Azure Security Center met également en corrélation le trafic de messagerie inhabituel avec l’intelligence issue d’Office 365 pour déterminer si le courrier est susceptible d’être mal intentionné ou est le résultat d’une campagne de courrier électronique légitime.
@@ -76,7 +76,7 @@ Azure Security Center s’appuie sur des équipes de recherche de sécurité et 
 
 Ces efforts combinés aboutissent à des détections nouvelles et améliorées, dont vous pouvez bénéficier instantanément sans aucune action de votre part.
 
-## Étapes suivantes
+## Voir aussi
 Dans ce document, vous avez découvert les fonctionnalités de détection d’Azure Security Center et leur fonctionnement. Pour plus d’informations sur le Centre de sécurité, consultez les rubriques suivantes :
 
 - [Guide des opérations et de planification du Centre de sécurité Azure](security-center-planning-and-operations-guide.md)
@@ -86,4 +86,4 @@ Dans ce document, vous avez découvert les fonctionnalités de détection d’Az
 - [FAQ d’Azure Security Center](security-center-faq.md) : découvrez les réponses aux questions les plus souvent posées à propos de l’utilisation de ce service.
 - [Blog sur la sécurité Azure](http://blogs.msdn.com/b/azuresecurity/) : accédez à des billets de blog sur la sécurité et la conformité Azure.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

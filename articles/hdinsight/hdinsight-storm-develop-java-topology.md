@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/27/2016"
+   ms.date="08/01/2016"
    ms.author="larryfr"/>
 
 #Développement de topologies Java pour une application de base de comptage du nombre de mots avec Apache Storm et Maven sur HDInsight
@@ -39,9 +39,9 @@ Après avoir suivi les étapes décrites dans ce document, vous disposerez d’u
 
 Les variables d’environnement suivantes peuvent être définies lors de l’installation de Java et du JDK. Toutefois, vous devez vérifier qu’elles existent et qu’elles contiennent les valeurs correctes pour votre système.
 
-* **JAVA\_HOME** : doit pointer vers le répertoire d’installation de l’environnement d’exécution Java (JRE). Par exemple, sur une distribution Unix ou Linux, il doit avoir une valeur semblable à `/usr/lib/jvm/java-7-oracle`. Sous Windows, il a une valeur semblable à `c:\Program Files (x86)\Java\jre1.7`
+* **JAVA\_HOME** : doit pointer vers le répertoire d’installation de l’environnement d’exécution Java (JRE). Par exemple, sur une distribution Unix ou Linux, il doit avoir une valeur semblable à `/usr/lib/jvm/java-7-oracle`. Sous Windows, il a une valeur semblable à `c:\Program Files (x86)\Java\jre1.7`
 
-* **PATH** :doit contenir les chemins d’accès suivants :
+* **PATH** :doit contenir les chemins d’accès suivants :
 
 	* **JAVA\_HOME** (ou le chemin d’accès équivalent)
 
@@ -51,7 +51,7 @@ Les variables d’environnement suivantes peuvent être définies lors de l’in
 
 ##Création d’un projet Maven
 
-À partir de la ligne de commande, utilisez le code suivant pour créer un nouveau projet Maven nommé **WordCount** :
+À partir de la ligne de commande, utilisez le code suivant pour créer un nouveau projet Maven nommé **WordCount** :
 
 	mvn archetype:generate -DarchetypeArtifactId=maven-archetype-quickstart -DgroupId=com.microsoft.example -DartifactId=WordCount -DinteractiveMode=false
 
@@ -59,11 +59,11 @@ Cela créera un répertoire nommé **WordCount** à l’emplacement actuel, qui 
 
 Le répertoire **WordCount** contiendra les éléments suivants :
 
-* **pom.xml** : contient les paramètres du projet Maven.
+* **pom.xml** : contient les paramètres du projet Maven.
 
-* **src\\main\\java\\com\\microsoft\\example** : contient le code de votre application.
+* **src\\main\\java\\com\\microsoft\\example** : contient le code de votre application.
 
-* **ssrc\\test\\java\\com\\microsoft\\example** : contient des tests pour votre application. Pour cet exemple, nous n’allons pas créer de tests.
+* **ssrc\\test\\java\\com\\microsoft\\example** : contient des tests pour votre application. Pour cet exemple, nous n’allons pas créer de tests.
 
 ###Suppression de l’exemple de code
 
@@ -75,14 +75,14 @@ Le répertoire **WordCount** contiendra les éléments suivants :
 
 ##Ajout de dépendances
 
-Puisqu’il s’agit d’une topologie Storm, vous devez ajouter une dépendance pour les composants Storm. Ouvrez le fichier **pom.xml** et ajoutez le code suivant dans la section **&lt;dependencies>** :
+Puisqu’il s’agit d’une topologie Storm, vous devez ajouter une dépendance pour les composants Storm. Ouvrez le fichier **pom.xml** et ajoutez le code suivant dans la section **&lt;dependencies>** :
 
 	<dependency>
 	  <groupId>org.apache.storm</groupId>
 	  <artifactId>storm-core</artifactId>
       <!-- Storm 0.10.0 is for HDInsight 3.3 and 3.4.
            To find the version information for earlier HDInsight cluster
-           versions, see https://azure.microsoft.com/fr-FR/documentation/articles/hdinsight-component-versioning/ -->
+           versions, see https://azure.microsoft.com/documentation/articles/hdinsight-component-versioning/ -->
 	  <version>0.10.0</version>
 	  <!-- keep storm out of the jar-with-dependencies -->
 	  <scope>provided</scope>
@@ -161,21 +161,21 @@ Ceci ajoute le répertoire des ressources à la racine du projet (`${basedir}`),
 
 Une topologie Storm basée sur Java comprend trois composants que vous devez créer (ou référencer) en tant que dépendance.
 
-* **Les spouts** : lisent les données provenant de sources externes et émettent des flux de données dans la topologie.
+* **Les spouts** : lisent les données provenant de sources externes et émettent des flux de données dans la topologie.
 
-* **Les bolts** : effectuent le traitement des flux de données émis par les spouts ou les autres bolts et émettent un ou plusieurs flux.
+* **Les bolts** : effectuent le traitement des flux de données émis par les spouts ou les autres bolts et émettent un ou plusieurs flux.
 
-* **La topologie** : définit l’organisation des spouts et des bolts et fournit le point d’entrée pour la topologie.
+* **La topologie** : définit l’organisation des spouts et des bolts et fournit le point d’entrée pour la topologie.
 
 ###Création du spout
 
-Afin de réduire les besoins de configuration de sources de données externes, le spout suivant émet des phrases aléatoires. Il s’agit d’une version modifiée d’un spout fourni dans les (<a href="https://github.com/apache/storm/blob/master/examples/storm-starter/" target="_blank">exemples Storm-Starter</a>).
+Afin de réduire les besoins de configuration de sources de données externes, le spout suivant émet des phrases aléatoires. Il s’agit d’une version modifiée d’un spout fourni dans les ([exemples Storm-Starter](https://github.com/apache/storm/blob/0.10.x-branch/examples/storm-starter/src/jvm/storm/starter)).
 
 > [AZURE.NOTE] Pour obtenir un exemple de spout effectuant des lectures à partir d’une source de données externe, consultez un des exemples suivants :
 >
-> * <a href="https://github.com/apache/storm/blob/master/examples/storm-starter/src/jvm/storm/starter/spout/TwitterSampleSpout.java" target="_blank">TwitterSampleSpout</a> : un exemple de spout qui effectue des lectures à partir de Twitter
+> * [TwitterSampleSpout](https://github.com/apache/storm/blob/0.10.x-branch/examples/storm-starter/src/jvm/storm/starter/spout/TwitterSampleSpout.java) : un exemple de spout qui lit à partir de Twitter
 >
-> * <a href="https://github.com/apache/storm/tree/master/external/storm-kafka" target="_blank">Storm-Kafka</a> : un spout qui lit à partir de Kafka
+> * [Storm-Kafka](https://github.com/apache/storm/tree/0.10.x-branch/external/storm-kafka) : un spout qui lit à partir de Kafka
 
 Pour le spout, créez un nouveau fichier nommé **RandomSentenceSpout.java** dans le répertoire **src\\main\\java\\com\\microsoft\\example** et utilisez ce qui suit comme contenu :
 
@@ -269,9 +269,9 @@ Prenez un moment pour lire les commentaires du code afin de comprendre le foncti
 
 Les bolts gèrent le traitement des données. Dans cette topologie, nous en avons deux :
 
-* **SplitSentence** : fractionne les phrases émises par **RandomSentenceSpout** en mots.
+* **SplitSentence** : fractionne les phrases émises par **RandomSentenceSpout** en mots.
 
-* **WordCount** : compte le nombre d’occurrences de chaque mot.
+* **WordCount** : compte le nombre d’occurrences de chaque mot.
 
 > [AZURE.NOTE] Les bolts peuvent tout faire : des calculs, la persistance, la communication avec des composants externes, etc.
 
@@ -526,4 +526,4 @@ Vous avez appris à créer une topologie Storm à l’aide de Java. Apprenez mai
 
 Vous trouverez davantage d’exemples de topologies Storm en vous rendant sur [Exemples de topologies Storm sur HDInsight](hdinsight-storm-example-topology.md).
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

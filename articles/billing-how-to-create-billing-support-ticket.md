@@ -1,11 +1,11 @@
 <properties
 	pageTitle="Comment créer un ticket de support pour les problèmes de facturation et d’abonnement Azure | Microsoft Azure"
 	description="Décrit la procédure à suivre pour créer un ticket de support pour les problèmes de facturation et d’abonnement Azure"
-	services="billing"
+	services=""
 	documentationCenter=""
 	authors="genlin"
 	manager="mbaldwin"
-	editor="na"
+	editor=""
 	tags="billing"
 	/>
 
@@ -44,4 +44,4 @@ Vous pouvez également envoyer une demande de prise en charge à partir du site 
 
  >[AZURE.NOTE]Seul l’administrateur du compte Azure est autorisé à accéder au Centre des comptes. Pour plus d’informations sur la manière de déterminer qui est l’administrateur du compte de l’abonnement, consultez le [Forum aux questions](billing-subscription-transfer.md#faq).
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

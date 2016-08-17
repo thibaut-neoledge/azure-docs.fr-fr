@@ -92,13 +92,15 @@ De grandes quantités de données peuvent être stockées dans des clusters Hado
 
 ### Jeux de données très volumineux
 
-Pour télécharger des jeux de données qui comptent plusieurs téraoctets, l’utilisation des méthodes décrites ci-dessus peut parfois être lente et coûteuse. Dans ce cas, vous pouvez utiliser les options suivantes.
+Pour télécharger des jeux de données qui comptent plusieurs téraoctets, l’utilisation des méthodes décrites ci-dessus peut parfois être lente et coûteuse. Dans ce cas, vous pouvez utiliser les options ci-dessous.
 
-* **Téléchargement « hors connexion » des données**. Vous pouvez utiliser le [service Azure Import/Export](../storage/storage-import-export-service.md) pour expédier des disques durs contenant vos données à un centre de données Azure. Vos données sont alors téléchargées vers un objet blob Azure Storage. Vous pouvez ensuite utiliser [Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md#sample-copy-data-from-azure-blob-to-azure-data-lake-store) ou l[’outil AdlCopy](data-lake-store-copy-data-azure-storage-blob.md) pour déplacer des données des objets blob Azure Storage vers Data Lake Store.
+* **Utilisation d’Azure ExpressRoute**. Azure ExpressRoute vous permet de créer des connexions privées entre les infrastructures et les centres de données Azure dans votre environnement local. Ceci constitue une option fiable pour le transfert de grandes quantités de données. Pour plus d’informations, consultez la [Documentation Azure ExpressRoute](../expressroute/expressroute-introduction.md).
+
+
+* **Téléchargement « hors connexion » des données**. Si vous ne pouvez pas utiliser Azure ExpressRoute pour une raison ou une autre, vous pouvez utiliser le [service Azure Import/Export](../storage/storage-import-export-service.md) pour expédier des disques durs contenant vos données à un centre de données Azure. Vos données sont alors téléchargées vers des objets blob Azure Storage. Vous pouvez ensuite utiliser [Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md#sample-copy-data-from-azure-blob-to-azure-data-lake-store) ou [l’outil AdlCopy](data-lake-store-copy-data-azure-storage-blob.md) pour copier des données des objets blob Azure Storage vers Data Lake Store.
 
 	>[AZURE.NOTE] Si vous utilisez le service Import/Export, la taille des fichiers sur les disques durs que vous envoyez au centre de données Azure ne doit pas être supérieure à 200 Go.
 
-* **Utilisation d’Azure ExpressRoute**. Azure ExpressRoute vous permet de créer des connexions privées entre les infrastructures et les centres de données Azure dans votre environnement local. Ceci constitue une option fiable pour le transfert de grandes quantités de données. Pour plus d’informations, consultez [Documentation Azure ExpressRoute](../expressroute/expressroute-introduction.md).
 
 ## Traitement des données stockées dans Data Lake Store
 
@@ -143,4 +145,4 @@ Vous pouvez utiliser une combinaison de services pour créer des représentation
 * Vous pouvez commencer par utiliser [Azure Data Factory pour déplacer les données de Data Lake Store vers Azure SQL Data Warehouse](../data-factory/data-factory-data-movement-activities.md#supported-data-stores)
 * Ensuite, vous pouvez [intégrer Power BI à Azure SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-integrate-power-bi.md) pour créer une représentation visuelle des données.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0803_2016-->

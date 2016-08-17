@@ -224,7 +224,7 @@ Lorsque vous utilisez Git, vous apportez généralement des modifications à un
 
 ## Étapes suivantes
 
-Pour obtenir des conseils supplémentaires sur l’utilisation de Git avec Visual Studio Team Services, consultez la page [Développer et partager votre code dans Git à l’aide de Visual Studio](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx) ; pour en savoir plus sur l’utilisation d’un référentiel Git qui n’est pas géré par Visual Studio Team Services pour la publication dans Azure, consultez la page [Déploiement continu à l’aide de Git dans Azure App Service](../app-service-web/web-sites-publish-source-control.md). Pour en savoir plus sur Visual Studio Team Services, consultez [Visual Studio Team Services](http://go.microsoft.com/fwlink/?LinkId=253861).
+Pour obtenir des conseils supplémentaires sur l’utilisation de Git avec Visual Studio Team Services, consultez la page [Développer et partager votre code dans Git à l’aide de Visual Studio](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx) ; pour en savoir plus sur l’utilisation d’un référentiel Git qui n’est pas géré par Visual Studio Team Services pour la publication dans Azure, consultez la page [Déploiement continu à l’aide de Git dans Azure App Service](../app-service-web/app-service-continuous-deployment.md). Pour en savoir plus sur Visual Studio Team Services, consultez [Visual Studio Team Services](http://go.microsoft.com/fwlink/?LinkId=253861).
 
 [0]: ./media/cloud-services-continuous-delivery-use-vso/tfs0.PNG
 [1]: ./media/cloud-services-continuous-delivery-use-vso-git/CreateTeamProjectInGit.PNG
@@ -272,4 +272,4 @@ Pour obtenir des conseils supplémentaires sur l’utilisation de Git avec Visu
 [47]: ./media/cloud-services-continuous-delivery-use-vso-git/SourceSettingsPage.PNG
 [48]: ./media/cloud-services-continuous-delivery-use-vso-git/IncludeWorkingBranch.PNG
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

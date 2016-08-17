@@ -3,7 +3,7 @@
     description="Lancer un basculement planifié ou non planifié pour une base de données SQL Azure avec Transact-SQL" 
     services="sql-database" 
     documentationCenter="" 
-    authors="carlrabeler" 
+    authors="CarlRabeler" 
     manager="jhubbard" 
     editor=""/>
 
@@ -102,4 +102,4 @@ Utilisez les étapes suivantes pour lancer un basculement non planifié.
 - Pour plus d’informations sur l’utilisation de la géo-réplication active avec des pools de bases de données élastiques, consultez [Stratégies de récupération d’urgence de pool élastique](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
 - Pour une vue d’ensemble de la continuité des activités, consultez [Vue d’ensemble de la continuité des activités](sql-database-business-continuity.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

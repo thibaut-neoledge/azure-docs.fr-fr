@@ -87,7 +87,7 @@ Il n’est pas sûr de stocker les informations d’identification nécessaires 
 
 ### Mettre à jour des fichiers de ressources pour la nouvelle interface utilisateur
 
-1. Ajoutez l’intitulé des nouveaux boutons en ajoutant le code suivant au fichier **strings.xml** dans le répertoire *valeurs* :
+1. Ajoutez l’intitulé des nouveaux boutons en ajoutant le code suivant au fichier **strings.xml** dans le répertoire *valeurs* :
 
 	    <string name="preview_button_text">Take Photo</string>
 	    <string name="upload_button_text">Upload</string>

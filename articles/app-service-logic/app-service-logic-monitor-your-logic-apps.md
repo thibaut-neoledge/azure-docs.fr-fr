@@ -4,7 +4,7 @@
 	authors="jeffhollan" 
 	manager="erikre" 
 	editor="" 
-	services="app-service\logic" 
+	services="logic-apps" 
 	documentationCenter=""/>
 
 <tags
@@ -138,4 +138,4 @@ Vous pouvez tirer parti de ces données de télémétrie de l’Event Hub ou du 
 - [Création d’un modèle de déploiement d’applications logiques](app-service-logic-create-deploy-template.md)
 - [Fonctionnalités d’intégration d'entreprise](app-service-logic-enterprise-integration-overview.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

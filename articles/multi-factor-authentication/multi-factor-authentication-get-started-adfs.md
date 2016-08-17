@@ -12,7 +12,7 @@
 	ms.workload="identity" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" ms.topic="get-started-article" 
-	ms.date="05/12/2016" 
+	ms.date="08/04/2016" 
 	ms.author="billmath"/>
 
 # Prise en main d’Azure Multi-Factor Authentication et des services de fédération Active Directory (AD FS)
@@ -23,8 +23,8 @@
 
 Si votre organisation a fédéré votre Active Directory local avec Azure Active Directory à l'aide d'AD FS, vous disposez des deux options suivantes pour l'utilisation d’Azure Multi-Factor Authentication.
 
-- Sécuriser les ressources de cloud à l’aide de l’authentification multifacteur Azure ou des services de fédération Active Directory (AD FS) 
-- Sécuriser les ressources de cloud et locales à l'aide du serveur Azure Multi-Factor Authentication 
+- Sécuriser les ressources de cloud à l’aide de l’authentification multifacteur Azure ou des services de fédération Active Directory (AD FS)
+- Sécuriser les ressources de cloud et locales à l'aide du serveur Azure Multi-Factor Authentication
 
 Le tableau suivant résume le processus d'authentification avec la sécurisation des ressources à l’aide d’Azure Multi-Factor Authentication et AD FS
 
@@ -54,4 +54,4 @@ Pour plus d'informations sur la configuration d’Azure Multi-Factor Authenticat
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

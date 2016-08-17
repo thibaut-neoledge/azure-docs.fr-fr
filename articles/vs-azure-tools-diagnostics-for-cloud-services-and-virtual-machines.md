@@ -41,13 +41,13 @@ Il existe des différences notables entre la façon dont la chaîne de connexion
 
 - Dans le Kit de développement logiciel (SDK) Azure 2.6 et les versions ultérieures, la chaîne de connexion des diagnostics est utilisée par Visual Studio pour configurer l’extension de diagnostics avec les informations de compte de stockage appropriées lors de la publication. La chaîne de connexion permet de définir des comptes de stockage différents pour différentes configurations de service que Visual Studio utilise lors de la publication. Toutefois, étant donné que le plug-in des diagnostics n’est plus disponible (après le Kit de développement logiciel (SDK) Azure 2.5), le fichier .cscfg par lui-même ne peut pas activer l’extension des diagnostics. Vous devez activer l’extension séparément par le biais d’outils tels que Visual Studio ou PowerShell.
 
-- Pour simplifier le processus de configuration de l’extension des diagnostics avec PowerShell, la sortie du package à partir de Visual Studio contient également les fichiers XML de configuration publique pour l’extension des diagnostics pour chaque rôle. Visual Studio utilise la chaîne de connexion des diagnostics pour renseigner les informations de compte de stockage présentes dans la configuration publique. Les fichiers de configuration publique sont créés dans le dossier Extensions et suivent le modèle PaaSDiagnostics.<RoleName>.PubConfig.xml. Tout déploiement basé sur PowerShell peut utiliser ce modèle pour mapper chaque configuration à un rôle.
+- Pour simplifier le processus de configuration de l’extension des diagnostics avec PowerShell, la sortie du package à partir de Visual Studio contient également les fichiers XML de configuration publique pour l’extension des diagnostics pour chaque rôle. Visual Studio utilise la chaîne de connexion des diagnostics pour renseigner les informations de compte de stockage présentes dans la configuration publique. Les fichiers de configuration publique sont créés dans le dossier Extensions et suivent le modèle PaaSDiagnostics.&lt;RoleName>.PubConfig.xml. Tout déploiement basé sur PowerShell peut utiliser ce modèle pour mapper chaque configuration à un rôle.
 
 - La chaîne de connexion dans le fichier .cscfg est également utilisée par le [portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040) pour accéder aux données de diagnostic afin de pouvoir les intégrer sous l’onglet **Analyse**. La chaîne de connexion est nécessaire pour configurer le service afin qu’il affiche les données d’analyse détaillées dans le portail.
 
 ## Migration de projets vers le Kit de développement logiciel (SDK) Azure 2.6 et les versions ultérieures
 
-Lors d’une migration du Kit de développement logiciel (SDK) Azure 2.5 vers le Kit de développement logiciel (SDK) Azure 2.6 ou les versions ultérieures, si vous avez un compte de stockage des diagnostics spécifié dans le fichier .wadcfgx, il y reste. Pour tirer parti de la souplesse d’utilisation de différents comptes de stockage pour des configurations de stockage diverses, vous devez ajouter manuellement la chaîne de connexion à votre projet. Si vous migrez un projet à partir du Kit de développement logiciel (SDK) Azure 2.4 ou les versions antérieures vers le Kit de développement logiciel (SDK) Azure 2.6, les chaînes de connexion des diagnostics sont conservées. Toutefois, notez les modifications apportées à la manière dont les chaînes de connexion sont traitées dans le Kit de développement logiciel (SDK) Azure 2.6, comme spécifié dans la section précédente.
+Lors d’une migration du Kit de développement logiciel (SDK) Azure 2.5 vers le Kit de développement logiciel (SDK) Azure 2.6 ou les versions ultérieures, si vous avez un compte de stockage des diagnostics spécifié dans le fichier .wadcfgx, il y reste. Pour tirer parti de la souplesse que représente l’utilisation de différents comptes de stockage pour différentes configurations de stockage, vous devez ajouter manuellement la chaîne de connexion à votre projet. Si vous migrez un projet à partir d'Azure SDK 2.4 ou d’une version antérieure vers Azure SDK 2.6, les chaînes de connexion de diagnostic sont conservées. Toutefois, notez les modifications apportées à la manière dont les chaînes de connexion sont traitées dans le Kit de développement logiciel (SDK) Azure 2.6, comme spécifié dans la section précédente.
 
 ### Détermination du compte de stockage des diagnostics par Visual Studio
 
@@ -67,13 +67,13 @@ Par exemple, supposons que vous activiez cette case à cocher et que la chaîne 
 
 Si vous mettez à niveau votre projet du Kit de développement logiciel (SDK) Azure 2.4 vers le Kit de développement logiciel (SDK) Azure 2.5 ou les versions ultérieures, vous devez garder à l’esprit les différences existant entre les fonctionnalités de diagnostics suivantes.
 
-- **Les API de configuration sont déconseillées** : la configuration par programmation des diagnostics est disponible dans le Kit de développement logiciel (SDK) Azure 2.4 ou les versions antérieures, mais déconseillée dans le Kit de développement logiciel (SDK) Azure 2.5 et les versions ultérieures. Si votre configuration des diagnostics est actuellement définie dans un code, vous devez reconfigurer ces paramètres à partir de rien dans le projet migré, afin que les diagnostics continuent à fonctionner. Le nom du fichier de configuration des diagnostics est diagnostics.wadcfg dans le Kit de développement logiciel (SDK) Azure 2.4 et diagnostics.wadcfgx dans le Kit de développement logiciel (SDK) Azure 2.5 et les versions ultérieures.
+- **Les API de configuration sont déconseillées** : la configuration par programmation des diagnostics est disponible dans le Kit de développement logiciel (SDK) Azure 2.4 ou les versions antérieures, mais déconseillée dans le Kit de développement logiciel (SDK) Azure 2.5 et les versions ultérieures. Si votre configuration des diagnostics est actuellement définie dans un code, vous devez reconfigurer ces paramètres à partir de rien dans le projet migré, afin que les diagnostics continuent à fonctionner. Le nom du fichier de configuration des diagnostics est diagnostics.wadcfg dans le Kit de développement logiciel (SDK) Azure 2.4 et diagnostics.wadcfgx dans le Kit de développement logiciel (SDK) Azure 2.5 et les versions ultérieures.
 
 - **Les diagnostics pour les applications du service cloud peuvent uniquement être configurés au niveau du rôle, pas au niveau de l’instance.**
 
-- **Chaque fois que vous déployez votre application, la configuration des diagnostics est mise à jour** : cela peut occasionner des problèmes de parité si vous modifiez votre configuration des diagnostics à partir de l’Explorateur de serveurs, puis redéployez votre application.
+- **Chaque fois que vous déployez votre application, la configuration des diagnostics est mise à jour** : cela peut occasionner des problèmes de parité si vous modifiez votre configuration des diagnostics à partir de l’Explorateur de serveurs, puis redéployez votre application.
 
-- **Dans le Kit de développement logiciel (SDK) Azure 2.5 et les versions ultérieures, les vidages sur incident sont configurés dans le fichier de configuration des diagnostics, pas dans le code** : si vous avez des vidages sur incident configurés dans le code, vous devez transférer la configuration manuellement du code vers le fichier de configuration, car les vidages sur incident ne sont pas transférés durant la migration vers le Kit de développement logiciel (SDK) Azure 2.6.
+- **Dans le Kit de développement logiciel (SDK) Azure 2.5 et les versions ultérieures, les vidages sur incident sont configurés dans le fichier de configuration des diagnostics, pas dans le code** : si vous avez des vidages sur incident configurés dans le code, vous devez transférer la configuration manuellement du code vers le fichier de configuration, car les vidages sur incident ne sont pas transférés durant la migration vers le Kit de développement logiciel (SDK) Azure 2.6.
 
 ## Activation des diagnostics dans les projets de service cloud avant leur déploiement
 
@@ -87,7 +87,7 @@ Dans Visual Studio, vous pouvez choisir de recueillir des données de diagnosti
 
     ![Accès à l’option Activer les diagnostics](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC796660.png)
 
-1. Choisissez le bouton de sélection (…) pour spécifier le compte de stockage dans lequel vous souhaitez stocker les données de diagnostic. Le compte de stockage que vous choisissez sera l’emplacement de stockage des données de diagnostic.
+1. Cliquez sur le bouton de sélection (...) pour spécifier le compte de stockage dans lequel vous souhaitez stocker les données de diagnostic. Les données de diagnostic seront stockées à cet emplacement.
 
     ![Spécifier le compte de stockage à utiliser](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC796661.png)
 
@@ -101,7 +101,7 @@ Dans Visual Studio, vous pouvez choisir de recueillir des données de diagnosti
 
   - Si vous choisissez l’option Informations d’identification entrées manuellement, vous êtes invité à entrer le nom et la clé du compte Azure que vous souhaitez utiliser.
 
-1. Pour afficher la boîte de dialogue **Configuration des diagnostics**, cliquez sur le bouton **Configurer**. Chaque onglet (à l’exception de **Général** et **Répertoires de journaux**) correspond à une source de données de diagnostic que vous pouvez collecter. L’onglet par défaut, **Général**, offre les options de collecte de données de diagnostic suivantes : **Erreurs uniquement**, **Toutes les informations** et **Plan personnalisé**. L’option par défaut, **Erreurs uniquement**, nécessite le plus petit volume de stockage, car elle ne transfère pas les messages d’avertissement ou de suivi. L’option Toutes les informations transfère le plus grand nombre d’informations. Elle est donc la plus coûteuse en termes de stockage.
+1. Choisissez le bouton **Configurer** pour afficher la boîte de dialogue **onfiguration de diagnostic**. Chaque onglet (à l’exception de **Général** et **Répertoires de journaux**) correspond à une source de données de diagnostic que vous pouvez collecter. L’onglet par défaut, **Général**, offre les options de collecte de données de diagnostic suivantes : **Erreurs uniquement**, **Toutes les informations** et **Plan personnalisé**. L’option par défaut, **Erreurs uniquement**, nécessite le plus petit volume de stockage, car elle ne transfère pas les messages d’avertissement ou de suivi. L’option Toutes les informations transfère le plus grand nombre d’informations. Elle est donc la plus coûteuse en termes de stockage.
 
     ![Activer les diagnostics Azure et la configuration](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC758144.png)
 
@@ -109,7 +109,7 @@ Dans Visual Studio, vous pouvez choisir de recueillir des données de diagnosti
 
 1. Le champ **Quota de disque en Mo** spécifie l’espace à allouer aux données de diagnostic dans le compte de stockage. Vous pouvez modifier la valeur par défaut si vous le souhaitez.
 
-1. Sous chaque onglet des données de diagnostic à collecter, activez la case à cocher **Activer le transfert de <log type>**. Par exemple, si vous voulez collecter les journaux d’application, sous l’onglet **Journaux d’application**, sélectionnez la case à cocher **Activer le transfert des journaux d’application**. Spécifiez également toutes autres informations requises pour chaque type de données de diagnostic. Pour plus d’informations sur la configuration de chaque onglet, consultez la section **Configuration des sources de données de diagnostic**, plus loin dans cette rubrique.
+1. Sous chaque onglet des données de diagnostic à collecter, activez la case à cocher **Activer le transfert de <type de journal>**. Par exemple, si vous voulez collecter les journaux d’application, sélectionnez la case à cocher **Activer le transfert des journaux d’application** sous l’onglet **Journaux d’application**. Spécifiez également toutes autres informations requises pour chaque type de données de diagnostic. Pour plus d’informations sur la configuration de chaque onglet, consultez la section **Configuration des sources de données de diagnostic**, plus loin dans cette rubrique.
 
 1. Après avoir activé la collecte de toutes les données de diagnostic souhaitées, cliquez sur le bouton **OK**.
 
@@ -149,7 +149,7 @@ Dans Visual Studio, vous pouvez choisir de recueillir des données de diagnosti
 
 1. Le champ **Quota de disque en Mo** spécifie l’espace à allouer aux données de diagnostic dans le compte de stockage. Vous pouvez modifier la valeur par défaut si vous le souhaitez.
 
-1. Sous chaque onglet des données de diagnostic à collecter, activez la case à cocher **Activer le transfert de <log type>**.
+1. Sous chaque onglet des données de diagnostic à collecter, activez la case à cocher **Activer le transfert de <type de journal>**.
 
     Par exemple, si vous voulez collecter les journaux d’application, sélectionnez la case à cocher **Activer le transfert des journaux d’application** sous l’onglet **Journaux d’application**. Spécifiez également toutes autres informations requises pour chaque type de données de diagnostic. Pour plus d’informations sur la configuration de chaque onglet, consultez la section **Configuration des sources de données de diagnostic**, plus loin dans cette rubrique.
 
@@ -177,7 +177,7 @@ Si vous voulez capturer les journaux des événements Windows, sélectionnez la 
 
   ![Journaux d’événements](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC796664.png)
 
-Si vous utilisez le Kit de développement logiciel (SDK) Azure 2.6 ou des versions ultérieures et souhaitez spécifier une source de données personnalisée, entrez-la dans la zone de texte **<Data source name>**, puis sélectionnez le bouton **Ajouter** en regard de celle-ci. La source de données est ajoutée au fichier diagnostics.cfcfg.
+Si vous utilisez le Kit de développement logiciel (SDK) Azure 2.6 ou des versions ultérieures et souhaitez spécifier une source de données personnalisée, entrez-la dans la zone de texte **la source de données>**, puis sélectionnez le bouton **Ajouter** en regard de celle-ci. La source de données est ajoutée au fichier diagnostics.cfcfg.
 
 Si vous utilisez le Kit de développement logiciel (SDK) Azure 2.5 et souhaitez spécifier une source de données personnalisée, vous pouvez l’ajouter dans la section `WindowsEventLog` du fichier diagnostics.wadcfgx, comme dans l’exemple suivant.
 
@@ -357,4 +357,4 @@ Maintenant, dans la fenêtre **Propriétés**, définissez la propriété **Copi
 
 Pour en savoir plus sur la journalisation des diagnostics dans Azure, consultez [Activation de Diagnostics dans les services cloud et les machines virtuelles Azure](./cloud-services/cloud-services-dotnet-diagnostics.md) et [Activer la journalisation des diagnostics pour les applications web dans Azure App Service](./app-service-web/web-sites-enable-diagnostic-log.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0803_2016-->

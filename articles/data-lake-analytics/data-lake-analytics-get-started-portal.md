@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Prise en main d’Azure Data Lake Analytics à l’aide du portail Azure | Azure" 
-   description="Découvrez comment utiliser le portail Azure pour créer un compte Data Lake Analytics, créer un travail Data Lake Analytics avec U-SQL et envoyer le travail." 
+   description="Découvrez comment utiliser le portail Azure pour créer un compte Data Lake Analytics, créer un travail Data Lake Analytics avec U-SQL et envoyer le travail. " 
    services="data-lake-analytics" 
    documentationCenter="" 
    authors="edmacauley" 
@@ -26,13 +26,13 @@ Dans ce didacticiel, vous allez développer un travail qui lit un fichier TSV (v
 
 [AZURE.INCLUDE [basic-process-include](../../includes/data-lake-analytics-basic-process.md)]
 
-##Configuration requise
+##Composants requis
 
 Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
 - **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-##Créer un compte Data Lake Analytics
+##Créer un compte Analytique Data Lake
 
 Vous devez disposer d'un compte Data Lake Analytics avant de pouvoir exécuter des travaux quelconques.
 
@@ -49,8 +49,8 @@ Chaque compte Data Lake Analytics possède un compte [Azure Data Lake Store]() d
 	- **Nom** : nom du compte Analytics.
 	- **Data Lake Store** : chaque compte Data Lake Analytics possède un compte Data Lake Store dépendant. Le compte Data Lake Analytics et le compte Data Lake Store dépendant doivent se trouver dans le même centre de données Azure. Suivez les instructions pour créer un compte Data Lake Store ou sélectionnez-en un existant.
 	- **Abonnement** : choisissez l'abonnement Azure utilisé pour le compte Analytics.
-	- **Groupe de ressources**. Sélectionnez un groupe de ressources Azure existant ou créez-en un. Azure Resource Manager (ARM) vous permet de manipuler les ressources de votre application sous la forme d'un groupe. Pour plus d'informations, consultez [Présentation d'Azure Resource Manager](resource-group-overview.md). 
-	- **Emplacement**. Sélectionnez un centre de données Azure pour le compte Data Lake Analytics. 
+	- **Groupe de ressources**. Sélectionnez un groupe de ressources Azure existant ou créez-en un. Azure Resource Manager (ARM) vous permet de manipuler les ressources de votre application sous la forme d'un groupe. Pour plus d'informations, consultez [Présentation d'Azure Resource Manager](resource-group-overview.md).
+	- **Emplacement**. Sélectionnez un centre de données Azure pour le compte Data Lake Analytics.
 7. Sélectionnez **Épingler au Tableau d'accueil**. Cela est nécessaire pour ce didacticiel.
 8. Cliquez sur **Create**. Le Tableau d'accueil du portail s'affiche. Une nouvelle vignette est ajoutée au Tableau d'accueil indiquant « Déploiement d'Azure Data Lake Analytics ». La création d'un compte Data Lake Analytics prend plusieurs minutes. Lorsque le compte est créé, le portail ouvre le compte dans un nouveau volet dans le portail.
 
@@ -61,7 +61,7 @@ Après la création d'un compte Data Lake Analytics, vous pouvez ajouter des com
 
 ##Préparer les données source
 
-Dans ce didacticiel, vous allez traiter des journaux de recherche. Le journal de recherche peut être stocké dans Data Lake Store ou dans le stockage d'objets blobs Azure.
+Dans ce didacticiel, vous allez traiter des journaux de recherche. Le journal de recherche peut être stocké dans Data Lake Store ou dans le stockage d’objets blobs Azure.
 
 Le portail Azure fournit une interface utilisateur pour la copie de fichiers de données d’exemple vers le compte Data Lake par défaut, y compris un fichier de journal de recherche.
 
@@ -72,7 +72,7 @@ Le portail Azure fournit une interface utilisateur pour la copie de fichiers de 
 3. Développez le volet **Essentials**, puis cliquez sur **Explorer les exemples de travaux**. Ceci ouvre un autre volet appelé **Exemples de travaux**.
 4. Cliquez sur **Copier les exemples de données**, puis cliquez sur **OK** pour confirmer.
 5. Cliquez sur **Notification** qui est une icône en forme de cloche. Vous devez voir un message de journal indiquant **Mise à jour des exemples de données terminée**. Cliquez n'importe où en dehors du volet de notification pour la fermer.
-7. Dans le volet du compte Data Lake Analytics, cliquez sur **Explorateur de données** en haut. 
+7. Dans le volet du compte Data Lake Analytics, cliquez sur **Explorateur de données** en haut.
 
 	![Bouton Explorateur de données Azure Data Lake Analytics](./media/data-lake-analytics-get-started-portal/data-lake-analytics-data-explorer-button.png)
 
@@ -95,7 +95,7 @@ Une fois que vous avez préparé la source de données, vous pouvez démarrer le
 
 **Pour envoyer le travail**
 
-1. Dans le volet du compte Data Lake Analytics du portail, cliquez sur **Nouveau travail**. 
+1. Dans le volet du compte Data Lake Analytics du portail, cliquez sur **Nouveau travail**.
 
 	![Bouton Nouveau travail Azure Data Lake Analytics](./media/data-lake-analytics-get-started-portal/data-lake-analytics-new-job-button.png)
 
@@ -121,9 +121,9 @@ Une fois que vous avez préparé la source de données, vous pouvez démarrer le
 
 	Ce script U-SQL lit le fichier de données source avec **Extractors.Tsv()**, puis crée un fichier csv avec **Outputters.Csv()**.
     
-    Ne modifiez pas les deux chemins d’accès, sauf si vous copiez le fichier source dans un autre emplacement. Data Lake Analytics créera le dossier de sortie s'il n'existe pas encore. Dans ce cas, nous utilisons des chemins d'accès simples et relatifs.
+    Ne modifiez pas les deux chemins d’accès, sauf si vous copiez le fichier source dans un autre emplacement. L’analyse de données Analytique Data Lake créera le dossier de sortie s’il n’existe pas encore. Dans ce cas, nous utilisons des chemins d'accès simples et relatifs.
 	
-	Il est plus simple d'utiliser des chemins d'accès relatifs pour les fichiers stockés dans les comptes Data Lake par défaut. Vous pouvez également utiliser des chemins d'accès absolus. Par exemple :
+	Il est plus simple d'utiliser des chemins d'accès relatifs pour les fichiers stockés dans les comptes Data Lake par défaut. Vous pouvez également utiliser des chemins d’accès absolus. Par exemple :
     
         adl://<Data LakeStorageAccountName>.azuredatalakestore.net:443/Samples/Data/SearchLog.tsv
       
@@ -154,5 +154,6 @@ Une fois que vous avez préparé la source de données, vous pouvez démarrer le
 - Pour les tâches de gestion, consultez [Gestion d’Azure Data Lake Analytics à l’aide du portail Azure](data-lake-analytics-manage-use-portal.md).
 - Pour obtenir une vue d'ensemble de Data Lake Analytics, consultez [Vue d'ensemble de Data Lake Analytics Azure](data-lake-analytics-overview.md).
 - Pour afficher le même didacticiel en utilisant d’autres outils, cliquez sur les sélecteurs d’onglet en haut de la page.
+- Pour consigner les informations de diagnostic, consultez [Accès aux journaux de diagnostic d’Azure Data Lake Analytics](data-lake-analytics-diagnostic-logs.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -4,7 +4,7 @@
 	authors="jeffhollan" 
 	manager="erikre" 
 	editor="" 
-	services="app-service\logic" 
+	services="logic-apps" 
 	documentationCenter=""/>
 
 <tags
@@ -345,7 +345,7 @@ Notez également que nous pouvons utiliser des formateurs de chaîne pour format
 
 Il est courant d'avoir un cycle de vie de déploiement où vous avez un environnement de développement, un environnement intermédiaire et un environnement de production. Dans tous ces environnements, vous pouvez vouloir la même définition, tout en utilisant des bases de données différentes, par exemple. De même, vous pouvez vouloir utiliser la même définition dans plusieurs régions pour une disponibilité élevée, tout en voulant que chaque instance de l'application logique communique avec la base de données de cette région.
 
-Notez que ceci diffère de la prise de paramètres différents au moment de l'*exécution* ; pour cela, vous devez utiliser la fonction `trigger()` comme indiqué ci-dessus.
+Notez que ceci diffère de la prise de paramètres différents au moment de l'*exécution* ; pour cela, vous devez utiliser la fonction `trigger()` comme indiqué ci-dessus.
 
 Vous pouvez commencer avec une définition très simple comme celle-ci :
 
@@ -398,4 +398,4 @@ Dans chaque environnement, vous pouvez ensuite fournir une valeur différente po
 
 Consultez la [documentation sur l'API REST](https://msdn.microsoft.com/library/azure/mt643787.aspx) pour connaître toutes les options dont vous disposez pour créer et gérer des applications logiques.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

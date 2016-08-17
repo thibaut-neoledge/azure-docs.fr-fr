@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/17/2016"
+   ms.date="08/02/2016"
    ms.author="yurid"/>
 
 # Centre de réponse aux problèmes de sécurité Microsoft
@@ -40,4 +40,4 @@ Apprenez-en plus sur ces programmes sur la page [Primes liées aux bugs MSRC](ht
 
 Pour plus d’informations sur le MSRC, consultez la [page d’accueil du MSRC](https://technet.microsoft.com/library/dn440717.aspx).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/25/2016"
+	ms.date="08/09/2016"
 	ms.author="sdanie"/>
 
 # Personnaliser le portail des développeurs dans Gestion des API Azure
@@ -99,4 +99,4 @@ Cliquez sur la page **Bienvenue** pour modifier le texte s’affichant sur la pa
 [amorçage]: http://getbootstrap.com/
 [variables LESS]: http://getbootstrap.com/css/
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

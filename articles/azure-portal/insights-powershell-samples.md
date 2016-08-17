@@ -4,11 +4,11 @@
 	authors="kamathashwin"
 	manager=""
 	editor=""
-	services="azure-portal"
-	documentationCenter="na"/>
+	services="monitoring"
+	documentationCenter="monitoring"/>
 
 <tags
-	ms.service="azure-portal"
+	ms.service="monitoring"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
@@ -148,13 +148,13 @@ Le tableau suivant décrit les paramètres et les valeurs utilisés pour créer 
 |Emplacement de cette règle d'alerte|	Est des États-Unis|
 |ResourceGroup|	montest|
 |TargetResourceId|	/subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig|
-|MetricName de l'alerte créée|	\\PhysicalDisk(\_Total)\\Disk Writes/sec. Voir l’applet de commande `Get-MetricDefinitions` ci-dessous pour récupérer les noms exacts des mesures|
-|operator| GreaterThan| 
-|Valeur de seuil (nombre/sec pour cette mesure)| 1|
-|WindowSize (hh:mm:ss format)| 00:05:00|
-|aggregator (statistique de la mesure, qui utilise la valeur Average dans ce cas)| Average|
-|courriers électroniques personnalisés (string array)|'foo@example.com','bar@example.com'|
-|envoyer un courrier électronique aux propriétaires, contributeurs et lecteurs| -SendToServiceOwners|
+|MetricName de l'alerte créée|	\\PhysicalDisk(\_Total)\\Disk Writes/sec (pour savoir comment récupérer les noms exacts des métriques, voir l’applet de commande `Get-MetricDefinitions` ci-dessous)|
+|operator|	GreaterThan|
+|Valeur de seuil (nombre/s pour cette métrique)|	1|
+|WindowSize (format hh:mm:ss)|	00:05:00|
+|agrégation (statistique de la métrique, qui utilise la valeur Average dans ce cas)|	Moyenne|
+|courriers électroniques personnalisés (tableau de chaînes)|« foo@example.com », « bar@example.com »|
+|envoyer un courrier électronique aux propriétaires, contributeurs et lecteurs|	-SendToServiceOwners|
 
 Créer un courrier électronique
 
@@ -180,13 +180,13 @@ Récupérer la règle d'alerte
 Get-AzureRmAlertRule -Name vmcpu_gt_1 -ResourceGroup myrg1 -DetailedOutput
 ```
 
-L'applet de commande Add alert met également à jour la règle, s'il existe une règle d'alerte pour les propriétés spécifiées. Pour désactiver une règle d'alerte, incluez le paramètre **-DisableRule**.
+L'applet de commande Add alert met également à jour la règle, s'il existe une règle d'alerte pour les propriétés spécifiées. Pour désactiver une règle d’alerte, incluez le paramètre **-DisableRule**.
 
 ### Alerte sur un événement du journal d'audit
 
 >[AZURE.NOTE] Cette fonctionnalité est encore en version préliminaire.
 
-Dans ce scénario, vous enverrez un courrier électronique lorsqu'un site Web est démarré dans mon abonnement dans le groupe de ressources *abhingrgtest123*.
+Dans ce scénario, vous enverrez un courrier électronique lorsqu’un site web est démarré dans mon abonnement dans le groupe de ressources *abhingrgtest123*.
 
 Configurer une règle de courrier électronique
 
@@ -212,10 +212,10 @@ Récupérer la règle d'alerte
 Get-AzureRmAlertRule -Name superalert1 -ResourceGroup myrg1 -DetailedOutput
 ```
 
-L’applet de commande `Add-AlertRule` permet d’utiliser divers autres paramètres. Plus d'informations, consultez [Add-AlertRule](https://msdn.microsoft.com/library/mt282468.aspx).
+L’applet de commande `Add-AlertRule` permet d’utiliser divers autres paramètres. Pour plus d’informations, voir [Add-AlertRule](https://msdn.microsoft.com/library/mt282468.aspx).
 
 ## Obtenir la liste des mesures disponibles pour les alertes
-Vous pouvez utiliser l’applet de commande`Get-AzureRmMetricDefinition` pour afficher la liste de toutes les mesures pour une ressource spécifique.
+Vous pouvez utiliser l’applet de commande`Get-AzureRmMetricDefinition` pour afficher la liste de toutes les métriques pour une ressource spécifique.
 
 ```
 Get-AzureRmMetricDefinition -ResourceId <resource_id>
@@ -227,11 +227,11 @@ L'exemple suivant génère une table avec le nom de la mesure et son unité.
 Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
 ```
 
-Une liste complète des options disponibles pour `Get-AzureRmMetricDefinition` est disponible à la rubrique [Get-MetricDefinitions](https://msdn.microsoft.com/library/mt282458.aspx).
+Une liste complète des options disponibles pour `Get-AzureRmMetricDefinition` est disponible dans [Get-MetricDefinitions](https://msdn.microsoft.com/library/mt282458.aspx).
 
 
 ## Créer et gérer les paramètres de mise à l'échelle automatique
-Une ressource, par exemple une application Web, une machine virtuelle, un service cloud ou un jeu de mise à l’échelle de machine virtuelle ne peut avoir qu'un seul paramètre de mise à l'échelle automatique configuré. Cependant, chaque paramètre de mise à l'échelle automatique peut avoir plusieurs profils. Par exemple, un pour un profil de mise à l'échelle en fonction des performances et un second pour un profil basé sur une planification. Chaque profil peut avoir plusieurs règles configurées. Pour plus d’informations sur la mise à l’échelle automatique, consultez [Mise à l'échelle automatique d’une application](../cloud-services/cloud-services-how-to-scale.md).
+Une ressource, par exemple une application Web, une machine virtuelle, un service cloud ou un jeu de mise à l’échelle de machine virtuelle ne peut avoir qu'un seul paramètre de mise à l'échelle automatique configuré. Cependant, chaque paramètre de mise à l'échelle automatique peut avoir plusieurs profils. Par exemple, un pour un profil de mise à l'échelle en fonction des performances et un second pour un profil basé sur une planification. Chaque profil peut avoir plusieurs règles configurées. Pour plus d’informations sur la mise à l’échelle automatique, voir [Mise à l’échelle automatique d’une application](../cloud-services/cloud-services-how-to-scale.md).
 
 Voici la procédure que nous allons suivre :
 
@@ -278,7 +278,7 @@ Enfin, créez le paramètre de mise à l'échelle automatique pour ajouter le pr
 Add-AzureRmAutoscaleSetting -Location "East US" -Name "MyScaleVMSSSetting" -ResourceGroup big2 -TargetResourceId /subscriptions/s1/resourceGroups/big2/providers/Microsoft.Compute/virtualMachineScaleSets/big2 -AutoscaleProfiles $profile1 -Notifications $notification1
 ```
 
-Pour plus d'informations sur la gestion des paramètres de mise à l’échelle automatique, consultez [Get-AutoscaleSetting](https://msdn.microsoft.com/library/mt282461.aspx).
+Pour plus d’informations sur la gestion des paramètres de mise à l’échelle automatique, voir [Get-AutoscaleSetting](https://msdn.microsoft.com/library/mt282461.aspx).
 
 ## Historique de la mise à l'échelle automatique
 L'exemple suivant vous montre comment consulter les dernières mises à l'échelle automatiques et les derniers événements d'alerte. Utilisez la recherche du journal d'audit pour afficher l'historique de mise à l'échelle automatique.
@@ -293,7 +293,7 @@ Vous pouvez utiliser l’applet de commande `Get-AzureRmAutoScaleHistory` pour r
 Get-AzureRmAutoScaleHistory -ResourceId /subscriptions/s1/resourceGroups/myrg1/providers/microsoft.insights/autoscalesettings/myScaleSetting -StartTime 2016-03-15 -DetailedOutput
 ```
 
-Pour plus d’informations, consultez [Get-AutoscaleHistory](https://msdn.microsoft.com/library/mt282464.aspx).
+Pour plus d’informations, voir [Get-AutoscaleHistory](https://msdn.microsoft.com/library/mt282464.aspx).
 
 ### Afficher les détails d'un paramètre de mise à l'échelle automatique
 Vous pouvez utiliser l’applet de commande `Get-Autoscalesetting` pour récupérer des informations supplémentaires sur le paramètre de mise à l’échelle automatique.
@@ -319,7 +319,7 @@ Remove-AzureRmAutoscalesetting -ResourceGroup myrg1 -Name MyScaleVMSSSetting
 
 ## Gérer les profils de journal pour les journaux d'audit
 
-Vous pouvez créer un *profil de journal* et exporter les données de vos journaux d’audit vers un compte de stockage, et configurer la rétention de données pour celui-ci. Si vous le souhaitez, vous pouvez aussi transmettre en continu les données vers votre hub d'événements. Notez que cette fonctionnalité est actuellement en version préliminaire et vous ne pouvez créer qu'un seul profil de journal par abonnement. Vous pouvez utiliser les applets de commande suivantes avec votre abonnement actuel pour créer et gérer des profils de journal. Vous pouvez également choisir un abonnement spécifique. Bien que PowerShell utilise par défaut l’abonnement actif, vous pouvez toujours modifier ce paramètre avec `Set-AzureRmContext`. Vous pouvez configurer les journaux d'audit afin d’acheminer les données vers n'importe quel compte de stockage ou un hub d'événements au sein de cet abonnement. Les données sont écrites en tant que fichiers blob au format JSON.
+Vous pouvez créer un *profil de journal* et exporter les données de vos journaux d’audit vers un compte de stockage, puis configurer la rétention de données pour celui-ci. Si vous le souhaitez, vous pouvez aussi transmettre en continu les données vers votre hub d'événements. Notez que cette fonctionnalité est actuellement en version préliminaire et vous ne pouvez créer qu'un seul profil de journal par abonnement. Vous pouvez utiliser les applets de commande suivantes avec votre abonnement actuel pour créer et gérer des profils de journal. Vous pouvez également choisir un abonnement spécifique. Bien que PowerShell utilise par défaut l’abonnement actif, vous pouvez toujours modifier ce paramètre avec `Set-AzureRmContext`. Vous pouvez configurer les journaux d'audit afin d’acheminer les données vers n'importe quel compte de stockage ou un hub d'événements au sein de cet abonnement. Les données sont écrites en tant que fichiers blob au format JSON.
 
 ### Obtenir un profil de journal
 Pour extraire vos profils de journal existants, utilisez l’applet de commande `Get-AzureRmLogProfile`.
@@ -338,7 +338,7 @@ Remove-AzureRmLogProfile -name my_log_profile_s1
 
 ### Ajouter un profil de journal avec conservation des données
 
-Vous pouvez spécifier la propriété **-RetentionInDays** en indiquant le nombre de jours (entier positif) durant lequel les données seront conservées.
+Vous pouvez spécifier la propriété **-RetentionInDays** en indiquant le nombre de jours (sous la forme d’un entier positif) durant lequel les données seront conservées.
 
 ```
 Add-AzureRmLogProfile -Name my_log_profile_s1 -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -Locations global,westus,eastus,northeurope,westeurope,eastasia,southeastasia,japaneast,japanwest,northcentralus,southcentralus,eastus2,centralus,australiaeast,australiasoutheast,brazilsouth,centralindia,southindia,westindia -RetentionInDays 90
@@ -384,4 +384,4 @@ Activer un paramètre diagnostic avec conservation pour une catégorie de journa
 Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Network/networkSecurityGroups/viruela1 -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/sakteststorage -Categories NetworkSecurityGroupEvent -Enable $true -RetentionEnabled $true -RetentionInDays 90
 ```
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0803_2016-->

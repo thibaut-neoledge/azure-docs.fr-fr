@@ -58,7 +58,7 @@ Suivez les instructions disponibles [ici](http://go.microsoft.com/fwlink/?LinkId
 
 ## 3 : Connexion du projet à Azure
 
-1. Maintenant que vous disposez d’un projet d’équipe Visual Studio Team Services contenant du code source, vous êtes prêt à connecter votre projet d’équipe à Azure. Dans le [portail Azure Classic](http://go.microsoft.com/fwlink/?LinkID=213885), sélectionnez votre service cloud ou application web, ou créez-en un en sélectionnant l’icône **+** en bas à gauche et en choisissant **Service cloud** ou **Application web**, puis **Création rapide**. Choisissez le lien **Configurer la publication avec Visual Studio Team Services**.
+1. Maintenant que vous disposez d’un projet d’équipe Visual Studio Team Services contenant du code source, vous êtes prêt à connecter votre projet d’équipe à Azure. Dans le [portail Azure Classic](http://go.microsoft.com/fwlink/?LinkID=213885), sélectionnez votre service cloud ou application web, ou créez-en un en sélectionnant l’icône **+** en bas à gauche et en choisissant **Service cloud** ou **Application web**, puis **Création rapide**. Choisissez le lien **Configurer la publication avec Visual Studio Team Services**.
 
 	![][10]
 
@@ -264,7 +264,7 @@ Cette étape s'applique uniquement aux applications Web, et non aux services clo
 	![][50]
 
 ## Étapes suivantes
-Pour en savoir plus sur le test unitaire dans Visual Studio Team Services, consultez [Exécuter des tests unitaires dans votre build](http://go.microsoft.com/fwlink/p/?LinkId=510474). Si vous utilisez Git, consultez les rubriques [Partager votre code dans Git](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx) et [Déploiement continu à l'aide de GIT dans Azure App Service](../app-service-web/web-sites-publish-source-control.md). Pour en savoir plus sur Visual Studio Team Services, consultez [Visual Studio Team Services](http://go.microsoft.com/fwlink/?LinkId=253861).
+Pour en savoir plus sur le test unitaire dans Visual Studio Team Services, consultez [Exécuter des tests unitaires dans votre build](http://go.microsoft.com/fwlink/p/?LinkId=510474). Si vous utilisez Git, consultez les rubriques [Partager votre code dans Git](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx) et [Déploiement continu vers Azure App Service](../app-service-web/app-service-continuous-deployment.md). Pour en savoir plus sur Visual Studio Team Services, consultez [Visual Studio Team Services](http://go.microsoft.com/fwlink/?LinkId=253861).
 
 [0]: ./media/cloud-services-continuous-delivery-use-vso/tfs0.PNG
 [1]: ./media/cloud-services-continuous-delivery-use-vso/tfs1.png
@@ -317,4 +317,4 @@ Pour en savoir plus sur le test unitaire dans Visual Studio Team Services, consu
 [49]: ./media/cloud-services-continuous-delivery-use-vso/TestsFailed.PNG
 [50]: ./media/cloud-services-continuous-delivery-use-vso/TestsResultsFailed.PNG
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

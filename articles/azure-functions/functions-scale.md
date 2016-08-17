@@ -3,7 +3,7 @@
    description="Découvrez comment Azure Functions se met à l'échelle pour répondre aux besoins de vos charges de travail liées aux événements."
    services="functions"
    documentationCenter="na"
-   authors="eduardolaureano"
+   authors="dariagrigoriu"
    manager="erikre"
    editor=""
    tags=""
@@ -15,8 +15,8 @@
    ms.topic="reference"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="03/09/2016"
-   ms.author="edlaure"/>
+   ms.date="08/03/2016"
+   ms.author="dariagrigoriu"/>
 
 # Mise à l’échelle d’Azure Functions
 
@@ -47,4 +47,4 @@ Lors de la création d’applications, vous pouvez choisir de les exécuter sur 
 
 [AZURE.INCLUDE [Plan de service dynamique](../../includes/functions-dynamic-service-plan.md)]
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0803_2016-->

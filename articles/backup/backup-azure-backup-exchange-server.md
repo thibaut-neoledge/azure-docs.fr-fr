@@ -3,8 +3,8 @@
 	description="Apprenez à sauvegarder un serveur Exchange dans Azure Backup à l’aide de System Center 2012 R2 DPM"
 	services="backup"
 	documentationCenter=""
-	authors="AnuragMehrotra"
-	manager="shivamg"
+	authors="MaanasSaran"
+	manager="NKolli1"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="05/19/2016"
-	ms.author="anuragm;jimpark;delhan"/>
+	ms.author="anuragm;jimpark;delhan;trinadhk;markgal"/>
 
 
 # Sauvegarder un serveur Exchange dans Azure Backup avec System Center 2012 R2 DPM
@@ -45,7 +45,7 @@ Pour installer l’agent de protection DPM sur le serveur Exchange, procédez co
 
 1. Dans la Console Administrateur DPM, cliquez sur **Protection**, puis cliquez sur **Nouveau** dans la barre d’outils pour ouvrir l’assistant **Créer un nouveau groupe de Protection**.
 
-2. Dans l’écran d’**accueil** de l’assistant, cliquez sur **Suivant**.
+2. Dans l’écran d’**accueil** de l’assistant, cliquez sur **Suivant**.
 
 3. Dans l’écran **Sélectionner le type de groupe de protection**, sélectionnez **Serveurs**, puis cliquez sur **Suivant**.
 
@@ -132,4 +132,4 @@ Pour les points de récupération en ligne, il existe cinq types de récupérati
 
 - [Azure Backup - Forum Aux Questions](backup-azure-backup-faq.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0803_2016-->

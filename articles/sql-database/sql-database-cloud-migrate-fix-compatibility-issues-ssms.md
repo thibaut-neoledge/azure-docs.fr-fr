@@ -3,7 +3,7 @@
    description="Base de données SQL Microsoft Azure, migration de base de données, compatibilité, assistant de migration SQL Azure"
    services="sql-database"
    documentationCenter=""
-   authors="carlrabeler"
+   authors="CarlRabeler"
    manager="jhubbard"
    editor=""/>
 
@@ -47,4 +47,4 @@ Servez-vous de SQL Server Management Studio pour résoudre les problèmes de com
 - [Fonctions partiellement ou non prises en charge de Transact-SQL](sql-database-transact-sql-information.md)
 - [Migration de bases de données non-SQL Server avec l’Assistant Migration SQL Server](http://blogs.msdn.com/b/ssma/)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

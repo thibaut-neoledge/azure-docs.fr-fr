@@ -36,8 +36,8 @@ Le panneau **Paramètres de l’application** regroupe différents paramètres s
 
 **Versions d'infrastructure**. Définissez ces options si votre application utilise l'une de ces infrastructures :
 
-- **.NET Framework** : définissez la version du .NET Framework. 
-- **PHP** : définissez la version du langage PHP ou choisissez **OFF** pour désactiver PHP. 
+- **.NET Framework** : définissez la version du .NET Framework.
+- **PHP** : définissez la version du langage PHP ou choisissez **OFF** pour désactiver PHP.
 - **Java** : sélectionnez la version du langage Java, ou choisissez **INACTIF** pour désactiver Java. Utilisez l’option **Conteneur Web** pour choisir entre les versions Tomcat et Jetty.
 - **Python** : sélectionnez la version du langage Python, ou choisissez **INACTIF** pour désactiver Python.
 
@@ -61,7 +61,7 @@ Pour des raisons techniques, l’activation de Java pour votre application désa
 
 Cette section contient des paires nom/valeur qui seront chargées par votre application web au démarrage.
 
-- Dans le cas des applications .NET, ces paramètres sont inclus dans les `AppSettings` de votre configuration .NET au moment de l’exécution, en remplacement des paramètres existants. 
+- Dans le cas des applications .NET, ces paramètres sont inclus dans les `AppSettings` de votre configuration .NET au moment de l’exécution, en remplacement des paramètres existants.
 
 - Les applications PHP, Python, Java et Node peuvent accéder à ces paramètres sous forme de variables d'environnement au moment de l'exécution. Pour chaque paramètre d'application, deux variables d'environnement sont créées : l'une avec le nom spécifié par l'entrée du paramètre d'application, et l'autre avec le préfixe APPSETTING\_. Elles contiennent toutes les deux la même valeur.
 
@@ -92,7 +92,7 @@ Utilisez cette zone pour ajouter des processeurs de script personnalisés et gé
 
 - **Extension**. Extension de fichier à gérer, par exemple *.php ou handler.fcgi.
 - **Chemin d'accès du processeur de script**. Chemin d'accès absolu du processeur de script. Les requêtes de fichiers qui correspondent à l'extension de fichier sont traitées par le processeur de script. Utilisez le chemin `D:\home\site\wwwroot` pour faire référence au répertoire racine de votre application Web.
-- **Arguments supplémentaires**. Arguments de ligne de commande facultatifs pour le processeur de script. 
+- **Arguments supplémentaires**. Arguments de ligne de commande facultatifs pour le processeur de script.
 
 
 ### Applications et répertoires virtuels 
@@ -105,11 +105,11 @@ Pour configurer des applications et des répertoires virtuels, spécifiez chaque
 Pour activer les journaux de diagnostic, procédez comme suit :
 
 1. Dans le panneau de votre application Web, cliquez sur **Tous les paramètres**.
-2. Cliquez sur **Journaux de diagnostic**. 
+2. Cliquez sur **Journaux de diagnostic**.
 
 Options liées à l'écriture des journaux de diagnostic à partir d'une application web qui prend en charge la journalisation :
 
-- **Journalisation des applications**. Enregistre des journaux d’application dans le système de fichiers. La journalisation s’étend sur une période de 12 heures. 
+- **Journalisation des applications**. Enregistre des journaux d’application dans le système de fichiers. La journalisation s’étend sur une période de 12 heures.
 
 **Niveau**. Lorsque la journalisation des applications est activée, cette option indique la quantité d’informations qui sera enregistrée (Erreur, Avertissement, Information ou Détaillé).
 
@@ -148,8 +148,8 @@ Pour afficher vos noms de domaine, cliquez sur **Tous les paramètres** > **Doma
 
 ### Déploiements
 
-- Configurer un déploiement continu Consultez [Utilisation de Git pour déployer des applications Web dans Azure App Service]
-- Emplacements de déploiement Consultez [Déployer sur des environnements intermédiaires pour les applications web dans Azure App Service].
+- Configurer un déploiement continu Consultez [Utilisation de Git pour déployer des applications web dans Azure App Service].
+- Emplacements de déploiement Consultez [Deploy to Staging Environments for Web Apps in Azure App Service (Procéder à des déploiements sur des environnements intermédiaires pour les applications web dans Azure App Service)].
 
 Pour afficher vos emplacements de déploiement, cliquez sur **Tous les paramètres** > **Emplacements de déploiement**.
 
@@ -173,7 +173,7 @@ Pour plus d’informations, consultez [Surveillance de l’état d’un point de
 [ASP.NET SignalR]: http://www.asp.net/signalr
 [portail Azure]: https://portal.azure.com/
 [Configuration d’un nom de domaine personnalisé dans Azure App Service]: ./web-sites-custom-domain-name.md
-[Déployer sur des environnements intermédiaires pour les applications web dans Azure App Service]: ./web-sites-staged-publishing.md
+[Deploy to Staging Environments for Web Apps in Azure App Service (Procéder à des déploiements sur des environnements intermédiaires pour les applications web dans Azure App Service)]: ./web-sites-staged-publishing.md
 [Activer le protocole HTTPS pour une application dans Azure App Service]: ./web-sites-configure-ssl-certificate.md
 [Surveillance de l’état d’un point de terminaison Web]: http://go.microsoft.com/fwLink/?LinkID=279906
 [Surveiller les applications Web dans Azure App Service]: ./web-sites-monitor.md
@@ -181,7 +181,6 @@ Pour plus d’informations, consultez [Surveillance de l’état d’un point de
 [Faire évoluer une application Web dans Azure App Service]: ./web-sites-scale.md
 [socket.io]: ./web-sites-nodejs-chat-app-socketio.md
 [Essayer App Service]: http://go.microsoft.com/fwlink/?LinkId=523751
-[Utilisation de Git pour déployer des applications Web dans Azure App Service]: ./web-sites-publish-source-control.md
 
 <!-- IMG List -->
 
@@ -189,4 +188,4 @@ Pour plus d’informations, consultez [Surveillance de l’état d’un point de
 [configure02]: ./media/web-sites-configure/configure02.png
 [configure03]: ./media/web-sites-configure/configure03.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0803_2016-->

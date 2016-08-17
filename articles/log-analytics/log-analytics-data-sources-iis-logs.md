@@ -71,9 +71,9 @@ Le tableau suivant fournit plusieurs exemples de requêtes de journaux qui extra
 |:--|:--|
 | Type=IISLog | Tous les enregistrements de journaux IIS. |
 | Type=IISLog EventLevelName=error | Tous les événements Windows avec la gravité de l'erreur. |
-| Type=W3CIISLog | Measure count() by cIP | Nombre d’entrées de journaux IIS par adresse IP du client. |
-| Type=W3CIISLog csHost="www.contoso.com" | Measure count() by csUriStem | Nombre d’entrées de journaux IIS par URL pour l'hôte www.contoso.com. |
-| Type=W3CIISLog | Measure Sum(csBytes) by Computer | top 500000| Nombre total d'octets reçus par chaque ordinateur IIS. |
+| Type=W3CIISLog &#124; Measure count() by cIP | Nombre d’entrées de journaux IIS par adresse IP du client. |
+| Type=W3CIISLog csHost="www.contoso.com" &#124; Measure count() by csUriStem | Nombre d’entrées de journaux IIS par URL pour l'hôte www.contoso.com. |
+| Type=W3CIISLog &#124; Measure Sum(csBytes) by Computer &#124; top 500000| Nombre total d'octets reçus par chaque ordinateur IIS. |
 
 ## Étapes suivantes
 

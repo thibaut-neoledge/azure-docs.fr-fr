@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/15/2016"
+   ms.date="08/01/2016"
    ms.author="aglick"/>
 
 #Liste de contrôle de haute disponibilité
@@ -76,7 +76,7 @@ Le CDN vous permet d’alléger la charge de vos serveurs en mettant en cache vo
 
 __Que se passe-t-il si vous n’utilisez pas de CDN ?__ Si vous n’utilisez pas de CDN, tout le trafic client arrive directement à vos ressources. Cela signifie que vous verrez des charges élevées sur vos serveurs, réduisant ainsi leur évolutivité. En outre, vos clients peuvent être confrontés à des latences plus élevées, car les CDN disposent de plusieurs emplacements dans le monde susceptibles d’être plus proches de vos clients.
 
-##Étapes suivantes :
+##Étapes suivantes :
 Si vous souhaitez en savoir plus sur la conception de vos applications pour une haute disponibilité, consultez [Haute disponibilité pour les applications développées sur Microsoft Azure](resiliency-high-availability-azure-applications.md).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

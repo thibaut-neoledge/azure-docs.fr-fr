@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="04/04/2016"
+    ms.date="08/03/2016"
     ms.author="monicar"/>
 
 
@@ -146,8 +146,8 @@ Un réseau qui assure la connectivité entre vos ressources Azure, isolé de tou
 
 ###**Voir aussi**  
 - [Prise en main d’Azure](https://azure.microsoft.com/get-started/)
-- [Centre de ressources du cloud](https://azure.microsoft.com/resources/)  
+- [Centre de ressources du cloud](https://azure.microsoft.com/resources/)
 - [Azure pour vos applications métier](https://azure.microsoft.com/overview/business-apps-on-azure/)
-- [Azure dans votre centre de données](https://azure.microsoft.com/overview/business-apps-on-azure/) 
+- [Azure dans votre centre de données](https://azure.microsoft.com/overview/business-apps-on-azure/)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0803_2016-->

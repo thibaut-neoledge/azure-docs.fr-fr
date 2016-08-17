@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/12/2016"
+	ms.date="08/02/2016"
 	ms.author="asteen"/>
 
 # Comment mettre à jour votre mot de passe
@@ -27,6 +27,10 @@ Si vous ne savez pas comment gérer votre mot de passe de compte professionnel o
 * [**Problèmes courants et leurs solutions**](#common-problems-and-their-solutions)
 
 ## Comment demander une réinitialisation du mot de passe
+
+> [AZURE.IMPORTANT]
+**Pourquoi est-ce que je vois cela ?** Si vous avez suivi un lien jusqu’ici, vous voyez probablement cela parce que votre administrateur exige que vous demandiez une réinitialisation du mot de passe pour pouvoir accéder à votre application. Il se peut que vous soyez invité à fournir votre numéro de téléphone ou votre adresse de messagerie, ou encore à définir des questions de sécurité. Ne vous inquiétez pas : nous n’utilisons pas ces informations pour vous contacter, mas simplement pour renforcer la sécurité de votre compte. Les étapes présentées ici devraient vous aider à atteindre votre objectif.
+
 Le moyen le plus rapide de vous inscrire pour demander une réinitialisation du mot de passe est d'atteindre http://aka.ms/ssprsetup.
 
  1. Accédez à http://aka.ms/ssprsetup.
@@ -253,4 +257,4 @@ Voici les liens vers toutes les pages de la documentation sur la réinitialisati
 [014]: ./media/active-directory-passwords-update-your-own-password/014.jpg "Image_014.jpg"
 [015]: ./media/active-directory-passwords-update-your-own-password/015.jpg "Image_015.jpg"
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0803_2016-->

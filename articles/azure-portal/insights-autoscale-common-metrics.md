@@ -1,19 +1,19 @@
 <properties
-	pageTitle="Azure Insights : Métriques courantes pour la mise à l’échelle automatique d’Azure Insights | Microsoft Azure"
+	pageTitle="Azure Insights : Métriques courantes pour la mise à l’échelle automatique d’Azure Insights | Microsoft Azure"
 	description="Découvrez les métriques utilisées pour la mise à l’échelle automatique de vos instances Cloud Services, Virtual Machines et Web Apps."
 	authors="kamathashwin"
 	manager=""
 	editor=""
-	services="azure-portal"
-	documentationCenter="na"/>
+	services="monitoring"
+	documentationCenter="monitoring"/>
 
 <tags
-	ms.service="azure-portal"
+	ms.service="monitoring"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/30/2016"
+	ms.date="08/02/2016"
 	ms.author="ashwink"/>
 
 # Métriques courantes pour la mise à l’échelle automatique d’Azure Insights
@@ -23,10 +23,10 @@ La fonction de mise à l’échelle automatique d’Azure Insights vous permet d
 Voici comment rechercher et répertorier les métriques dont vous avez besoin pour la mise à l’échelle. Les éléments suivants s’appliquent également pour la mise à l’échelle des jeux de mise à l’échelle de machine virtuelle.
 
 ## Calcul des métriques
-Par défaut, les machines virtuelles v2 d’Azure sont fournies avec une extension de diagnostics configurée et les métriques suivantes activées.
+Par défaut, les machines virtuelles v2 d’Azure sont fournies avec une extension de diagnostics configurée et les métriques suivantes activées.
 
-- [Métriques invitées pour les machines virtuelles v2 Windows](#compute-metrics-for-windows-vm-v2-as-a-guest-os)
-- [Métriques invitées pour les machines virtuelles v2 Linux](#compute-metrics-for-linux-vm-v2-as-a-guest-os)
+- [Métriques invitées pour les machines virtuelles v2 Windows](#compute-metrics-for-windows-vm-v2-as-a-guest-os)
+- [Métriques invitées pour les machines virtuelles v2 Linux](#compute-metrics-for-linux-vm-v2-as-a-guest-os)
 
 Vous pouvez utiliser l’API/PoSH/CLI `Get MetricDefinitions` pour afficher les métriques disponibles pour votre ressource VMSS.
 
@@ -36,9 +36,9 @@ Si une métrique particulière n’est pas en cours d’échantillonnage ou de t
 
 Si l’un des deux cas ci-dessus s’applique, consultez la page [Utiliser PowerShell pour activer Azure Diagnostics sur une machine virtuelle exécutant Windows](../virtual-machines/virtual-machines-windows-ps-extensions-diagnostics.md) pour savoir comment utiliser PowerShell pour configurer et mettre à jour votre extension de diagnostics de machine virtuelle Microsoft Azure afin d’activer la métrique. Cet article inclut également un exemple de fichier de configuration de diagnostics.
 
-### Calculer les métriques pour une machine virtuelle Windows v2 en tant que système d’exploitation invité
+### Calculer les métriques pour une machine virtuelle Windows v2 en tant que système d’exploitation invité
 
-Lorsque vous créez une machine virtuelle v2 dans Azure, les diagnostics sont effectués grâce à l’extension Diagnostics.
+Lorsque vous créez une machine virtuelle v2 dans Azure, les diagnostics sont effectués grâce à l’extension Diagnostics.
 
 Vous pouvez utiliser la commande suivante dans PowerShell pour générer une liste des métriques.
 
@@ -51,39 +51,39 @@ Vous pouvez créer une alerte pour les métriques suivantes.
 
 |Nom de métrique|	Unité|
 |---|---|
-|\\Processeur(\_Total)\\% temps processeur|Pourcentage|
-|\\Processeur(\_Total)\\% temps privilégié |Pourcentage|
-|\\Processeur(\_Total)\\% temps utilisateur |Pourcentage|
-|\\Informations sur le processeur(\_Total)\\Fréquence du processeur |Nombre|
-|\\Système\\Processus| Nombre|
-|\\Processus(\_Total)\\Nombre de threads| Nombre|
-|\\Processus(\_Total)\\Nombre de handles |Nombre|
-|\\Mémoire\\ % octets validés en cours d’utilisation |Poucentage|
-|\\Mémoire\\Octets disponibles| Octets|
-|\\Mémoire\\Octets validés |Octets|
-|\\Mémoire\\Limite de mémoire dédiée| Octets|
-|\\Mémoire\\Octets de réserve paginée| Octets|
-|\\Mémoire\\Octets de réserve non paginée| Octets|
-|\\Disque physique(\_Total)\\% temps disque| Pourcentage|
-|\\Disque physique(\_Total)\\% temps de lecture du disque| Pourcentage|
-|\\Disque physique(\_Total)\\% temps d’écriture sur le disque| Pourcentage|
-|\\Disque physique(\_Total)\\Transferts disque/s |Nombre par seconde|
-|\\Disque physique(\_Total)\\Lectures disque/s |Nombre par seconde|
-|\\Disque physique(\_Total)\\Écritures disque/s |Nombre par seconde|
-|\\Disque physique(\_Total)\\Octets disque/s |Octets par seconde|
-|\\Disque physique(\_Total)\\Lectures disque, octets/s| Octets par seconde|
-|\\Disque physique(\_Total)\\Écritures disque, octets/s |Octets par seconde|
-|\\Disque physique(\_Total)\\Moy. Longueur de la file d’attente du disque| Nombre|
-|\\Disque physique(\_Total)\\Moy. Longueur de file d’attente lecture disque| Nombre|
-|\\Disque physique(\_Total)\\Moy. Longueur de file d’attente écriture disque |Nombre|
-|\\Disque logique(\_Total)\\% espace libre| Pourcentage|
-|\\Espace libre(\_Total)\\Mégaoctets libres| Nombre|
+|\\Processor(\_Total)\\% Processor Time |Pourcentage|
+|\\Processor(\_Total)\\% temps privilégié |Pourcentage|
+|\\Processor(\_Total)\\% temps utilisateur |Pourcentage|
+|\\Processor Information(\_Total)\\Fréquence du processeur |Nombre|
+|\\System\\Processus|	Nombre|
+|\\Process(\_Total)\\Nombre de threads|	Nombre|
+|\\Process(\_Total)\\Nombre de handles |Nombre|
+|\\Memory\\% octets validés en cours d’utilisation |Pourcentage|
+|\\Memory\\Octets disponibles|	Octets|
+|\\Memory\\Octets validés |Octets|
+|\\Memory\\Limite de mémoire dédiée|	Octets|
+|\\Memory\\Octets de réserve paginée|	Octets|
+|\\Memory\\Octets de réserve non paginée|	Octets|
+|\\PhysicalDisk(\_Total)\\Pourcentage du temps disque|	Pourcentage|
+|\\PhysicalDisk(\_Total)\\Pourcentage du temps de lecture du disque|	Pourcentage|
+|\\PhysicalDisk(\_Total)\\Pourcentage du temps écriture du disque|	Pourcentage|
+|\\PhysicalDisk(\_Total)\\Disk Transfers/sec |Nombre par seconde|
+|\\PhysicalDisk(\_Total)\\Lectures disque/s |Nombre par seconde|
+|\\PhysicalDisk(\_Total)\\Écritures disque/s |Nombre par seconde|
+|\\PhysicalDisk(\_Total)\\Octets disque/s |Octets par seconde|
+|\\PhysicalDisk(\_Total)\\Lectures disque, octets/s|	Octets par seconde|
+|\\PhysicalDisk(\_Total)\\Écritures disque, octets/s |Octets par seconde|
+|\\PhysicalDisk(\_Total)\\Longueur moyenne Longueur de file d'attente de disque|	Nombre|
+|\\PhysicalDisk(\_Total)\\Longueur moyenne de file d’attente lecture disque|	Nombre|
+|\\PhysicalDisk(\_Total)\\Longueur moyenne de file d’attente écriture disque |Nombre|
+|\\LogicalDisk(\_Total)\\% d’espace libre|	Pourcentage|
+|\\LogicalDisk(\_Total)\\Mégaoctets libres|	Nombre|
 
 
 
-### Calculer les métriques pour une machine virtuelle Linux v2 en tant que système d’exploitation invité
+### Calculer les métriques pour une machine virtuelle Linux v2 en tant que système d’exploitation invité
 
-Lorsque vous créez une machine virtuelle v2 dans Azure, les diagnostics sont activés par défaut grâce à l’extension Diagnostics.
+Lorsque vous créez une machine virtuelle v2 dans Azure, les diagnostics sont activés par défaut grâce à l’extension Diagnostics.
 
 Vous pouvez utiliser la commande suivante dans PowerShell pour générer une liste des métriques.
 
@@ -162,22 +162,22 @@ Ces métriques permettent d’émettre une alerte ou de procéder à un mise à 
 
 
 ## Métriques couramment utilisées dans Azure Storage
-Vous pouvez procéder à une mise à l’échelle en fonction de la métrique Longueur de file d’attente, qui correspond au nombre de messages dans la file d’attente de stockage. La métrique Longueur de file d’attente de stockage est une métrique spéciale et le seuil appliqué sera le nombre de messages par instance. Cela veut dire que si vous avez deux instances et que le seuil est défini sur 100, la mise à l’échelle aura lieu lorsque la file d’attente contiendra 200 messages. Chaque instance recevra 100 messages.
+Vous pouvez procéder à une mise à l’échelle en fonction de la métrique Longueur de file d’attente, qui correspond au nombre de messages dans la file d’attente de stockage. La métrique Longueur de file d’attente de stockage est une métrique spéciale et le seuil appliqué sera le nombre de messages par instance. Cela veut dire que si vous avez deux instances et que le seuil est défini sur 100, la mise à l’échelle aura lieu lorsque la file d’attente contiendra 200 messages. Chaque instance recevra 100 messages.
 
-Vous pouvez configurer cela est dans le portail Azure, dans le volet **Paramètres**. Pour les jeux de mise à l’échelle de machine virtuelle, vous pouvez mettre à jour le paramètre Mise à l’échelle automatique dans le modèle ARM pour utiliser le *Nom de la métrique* en tant que *Nombre de messages approximatif*, puis transmettre l’ID de la file d’attente de stockage en tant qu’*URI de ressource de la métrique*.
+Vous pouvez configurer cela dans le panneau **Paramètres** du Portail Azure. Pour les jeux de mise à l’échelle de machine virtuelle, vous pouvez mettre à jour le paramètre Mise à l’échelle automatique dans le modèle ARM afin d’utiliser *metricName* avec la valeur *ApproximateMessageCount*, puis transmettre l’ID de la file d’attente de stockage avec la valeur *metricResourceUri*.
 
 
 ```
 "metricName": "ApproximateMessageCount",
  "metricNamespace": "",
  "metricResourceUri": "/subscriptions/s1/resourceGroups/rg1/providers/Microsoft.ClassicStorage/storageAccounts/mystorage/services/queue/queues/mystoragequeue"
-```
+ ```
 
 ## Métriques Service Bus généralement utilisées
 
-Vous pouvez procéder à une mise à l’échelle en fonction de la longueur de la file d’attente Service Bus, autrement dit en fonction du nombre de messages présents dans cette file d’attente. La longueur de la file d’attente Service Bus est une métrique particulière. Le seuil appliqué correspond au nombre de messages par instance. Cela veut dire que si vous avez deux instances et que le seuil est défini sur 100, la mise à l’échelle aura lieu lorsque la file d’attente contiendra 200 messages. Chaque instance recevra 100 messages.
+Vous pouvez procéder à une mise à l’échelle en fonction de la longueur de la file d’attente Service Bus, autrement dit en fonction du nombre de messages présents dans cette file d’attente. La longueur de la file d’attente Service Bus est une métrique particulière. Le seuil appliqué correspond au nombre de messages par instance. Cela veut dire que si vous avez deux instances et que le seuil est défini sur 100, la mise à l’échelle aura lieu lorsque la file d’attente contiendra 200 messages. Chaque instance recevra 100 messages.
 
-Pour les jeux de mise à l’échelle de machine virtuelle, vous pouvez mettre à jour le paramètre Mise à l’échelle automatique dans le modèle ARM pour utiliser le *Nom de la métrique* en tant que *Nombre de messages approximatif*, puis transmettre l’ID de la file d’attente de stockage en tant qu’*URI de ressource de la métrique*.
+Pour les jeux de mise à l’échelle de machine virtuelle, vous pouvez mettre à jour le paramètre Mise à l’échelle automatique dans le modèle ARM afin d’utiliser *metricName* avec la valeur *ApproximateMessageCount*, puis transmettre l’ID de la file d’attente de stockage avec la valeur *metricResourceUri*.
 
 ```
 "metricName": "MessageCount",
@@ -185,6 +185,6 @@ Pour les jeux de mise à l’échelle de machine virtuelle, vous pouvez mettre �
 "metricResourceUri": "/subscriptions/s1/resourceGroups/rg1/providers/Microsoft.ServiceBus/namespaces/mySB/queues/myqueue"
 ```
 
->[AZURE.NOTE] Le concept de groupe de ressources n’existe pas pour Service Bus, mais Azure Resource Manager crée un groupe de ressources par défaut par région. Le groupe de ressources est généralement affiché au format « [Région] Service Bus par défaut ». Par exemple, « Est des États-Unis Service Bus par défaut », « Ouest des États-Unis Service Bus par défaut », « Est de l’Australie Service Bus par défaut », etc.
+>[AZURE.NOTE] Le concept de groupe de ressources n’existe pas pour Service Bus, mais Azure Resource Manager crée un groupe de ressources par défaut par région. Le groupe de ressources est généralement affiché au format « [Région] Service Bus par défaut ». Par exemple, « Est des États-Unis Service Bus par défaut », « Ouest des États-Unis Service Bus par défaut », « Est de l’Australie Service Bus par défaut », etc.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0803_2016-->

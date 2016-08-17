@@ -4,7 +4,7 @@
 	authors="stepsic-microsoft-com" 
 	manager="dwrede" 
 	editor="" 
-	services="app-service\logic" 
+	services="logic-apps" 
 	documentationCenter=""/>
 
 <tags
@@ -464,4 +464,4 @@ Dans la mesure où nous ajouterons bientôt d’autres types de contenu, la fonc
 ## Bientôt disponibles : API d’intégration d’entreprise
 À ce stade, nous ne disposons d’aucune version gérée disponible des API d’intégration d’entreprise (comme AS2). Elles le seront bientôt, tel qu’indiqué dans la [feuille de route](http://www.zdnet.com/article/microsoft-outlines-its-cloud-and-server-integration-roadmap-for-2016/). Entre-temps, vous pouvez utiliser vos API BizTalk actuellement déployées via l’action HTTP, tel qu’indiqué ci-dessus dans l’article « Utilisation de vos applications API déployées ».
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

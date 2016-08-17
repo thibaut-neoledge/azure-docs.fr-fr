@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Sauvegarde de machines virtuelles Azure Resource Manager | Microsoft Azure"
-	description="Découvrez, inscrivez et sauvegardez vos machines virtuelles ARM dans un coffre Recovery Services avec ces procédures pour la sauvegarde de la machine virtuelle Azure."
+	pageTitle="Sauvegarder des machines virtuelles Azure dans un coffre Recovery Services | Microsoft Azure"
+	description="Découvrez, inscrivez et sauvegardez des machines virtuelles Azure dans un coffre Recovery Services avec ces procédures de sauvegarde des machines virtuelles Azure."
 	services="backup"
 	documentationCenter=""
 	authors="markgalioto"
-	manager="jwhit"
+	manager="cfreeman"
 	editor=""
 	keywords="sauvegarde de machine virtuelle ; sauvegarder la machine virtuelle ; sauvegarde et récupération d’urgence ; sauvegarde de machine virtuelle arm"/>
 
@@ -14,19 +14,19 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/04/2016"
+	ms.date="07/29/2016"
 	ms.author="trinadhk; jimpark; markgal;"/>
 
 
-# Sauvegarde des machines virtuelles Azure Resource Manager (ARM)
+# Sauvegarder des machines virtuelles Azure dans un coffre Recovery Services
 
 > [AZURE.SELECTOR]
-- [Sauvegarde des machines virtuelles ARM dans Azure](backup-azure-arm-vms.md)
-- [Sauvegarde des machines virtuelles Azure](backup-azure-vms.md)
+- [Back up VMs to Recovery Services vault](backup-azure-arm-vms.md) (Sauvegarder des machines virtuelles dans un coffre Recovery Services)
+- [Back up VMs to Backup vault](backup-azure-vms.md) (Sauvegarder des machines virtuelles dans un coffre de sauvegarde)
 
-Cet article fournit la procédure de sauvegarde de machines virtuelles Azure Resource Manager (ARM) dans un coffre Recovery Services. La majorité du travail de sauvegarde d’une machine virtuelle ARM a lieu lors de la préparation. Avant de pouvoir sauvegarder ou protéger une machine virtuelle Azure, vous devez respecter les [conditions préalables](backup-azure-arm-vms-prepare.md) pour préparer votre environnement pour la protection de vos machines virtuelles. Une fois que vous avez rempli les conditions préalables, vous pouvez lancer l’opération de sauvegarde pour prendre des instantanés de votre machine virtuelle.
+Cet article décrit la procédure de sauvegarde des machines virtuelles Azure (déployées à l’aide du modèle Resource Manager ou du modèle Classic) dans un coffre Recovery Services. La majorité du travail de sauvegarde des machines virtuelles est effectuée pendant la préparation. Avant de sauvegarder ou de protéger une machine virtuelle, vous devez remplir les [conditions préalables](backup-azure-arm-vms-prepare.md) pour préparer votre environnement à la protection de vos machines virtuelles. Une fois que vous avez rempli les conditions préalables, vous pouvez lancer l’opération de sauvegarde pour prendre des instantanés de votre machine virtuelle.
 
->[AZURE.NOTE] Azure dispose de deux modèles de déploiement pour créer et utiliser des ressources : [Azure Resource Manager et Azure Classic](../resource-manager-deployment-model.md). Cet article concerne les machines virtuelles basées sur Resource manager et sur ARM. Consultez la page [Sauvegarde des machines virtuelles Azure](backup-azure-vms.md) pour plus d’informations sur l’utilisation des machines virtuelles avec le modèle de déploiement Classic.
+>[AZURE.NOTE] Azure dispose de deux modèles de déploiement pour créer et utiliser des ressources : [Azure Resource Manager et Azure Classic](../resource-manager-deployment-model.md). Les coffres Recovery Services vous permettent de protéger aussi bien les machines virtuelles déployées à l’aide du modèle Resource Manager que celles déployées avec le modèle Classic. Consultez la page [Sauvegarde des machines virtuelles Azure](backup-azure-vms.md) pour plus d’informations sur l’utilisation des machines virtuelles avec le modèle de déploiement Classic.
 
 Pour obtenir des informations supplémentaires, consultez les articles sur la [planification de votre infrastructure de sauvegarde des machines virtuelles dans Azure](backup-azure-vms-introduction.md) et les [machines virtuelles Azure](https://azure.microsoft.com/documentation/services/virtual-machines/).
 
@@ -77,4 +77,4 @@ Maintenant que vous avez protégé votre machine virtuelle, consultez les articl
 - [Gestion et surveillance de vos machines virtuelles](backup-azure-manage-vms.md)
 - [Restauration des machines virtuelles](backup-azure-arm-restore-vms.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

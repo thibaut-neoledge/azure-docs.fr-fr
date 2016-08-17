@@ -34,7 +34,7 @@ Cette section vous indique comment utiliser l'attribut **BlobTrigger**.
 
 ### Espace réservé unique pour le nom d’objet blob avec extension  
 
-L’exemple de code suivant copie les objets blob de texte qui apparaissent dans le conteneur *input* vers le conteneur *output* :
+L’exemple de code suivant copie les objets blob de texte qui apparaissent dans le conteneur *input* vers le conteneur *output* :
 
 		public static void CopyBlob([BlobTrigger("input/{name}")] TextReader input,
 		    [Blob("output/{name}")] out string output)

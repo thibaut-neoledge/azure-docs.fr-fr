@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Créez un réseau virtuel avec une connexion de passerelle VPN site à site à l’aide du Portail Azure Classic | Microsoft Azure"
+   pageTitle="Créer un réseau virtuel avec une connexion de passerelle VPN site à site à l’aide du portail Azure Classic | Microsoft Azure"
    description="Créez un réseau virtuel avec une connexion passerelle VPN S2S de site à site pour les configurations entre locaux et hybrides à l’aide du modèle de déploiement classique."
    services="vpn-gateway"
    documentationCenter=""
@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/13/2016"
+   ms.date="08/09/2016"
    ms.author="cherylmc"/>
 
 # Créer un réseau virtuel avec une connexion VPN site à site à l’aide du Portail Azure Classic
@@ -25,7 +25,7 @@
 - [PowerShell - Resource Manager](vpn-gateway-create-site-to-site-rm-powershell.md)
 
 
-Cet article vous guidera tout au long de la création d’un réseau virtuel et d’une connexion VPN site à site à votre réseau local. Les connexions site à site peuvent être utilisées pour les configurations hybrides et entre les différents locaux. Cet article s’applique au modèle de déploiement classique et s’appuie sur le Portail Azure Classic.
+Cet article vous guide tout au long de la création d’un réseau virtuel et d’une connexion VPN site à site à votre réseau local. Les connexions site à site peuvent être utilisées pour les configurations hybrides et entre les différents locaux. Cet article s’applique au modèle de déploiement classique et s’appuie sur le Portail Azure Classic. Pour le moment, il n’est pas possible de créer une configuration site à site de bout en bout pour le modèle de déploiement classique à l’aide du portail Azure.
 
 
 **À propos des modèles de déploiement Azure**
@@ -47,7 +47,7 @@ Si vous souhaitez établir une connexion entre des réseaux virtuels, mais si vo
 
 Vérifiez que vous disposez des éléments suivants avant de commencer la configuration.
 
-- Un périphérique VPN compatible et une personne qui est en mesure de le configurer. Consultez [À propos des périphériques VPN](vpn-gateway-about-vpn-devices.md). Si vous n’êtes pas familiarisé avec la configuration de votre périphérique VPN ou avec les plages d’adresses IP situées dans la configuration de votre réseau local, vous devez consulter une personne qui peut fournir ces informations.
+- Un périphérique VPN compatible et une personne qui est en mesure de le configurer. Consultez [À propos des périphériques VPN](vpn-gateway-about-vpn-devices.md). Si vous n’êtes pas familiarisé avec la configuration de votre périphérique VPN ou avec les plages d’adresses IP situées dans la configuration de votre réseau local, vous devez vous associer à une personne qui peut vous fournir ces informations.
 
 -  Une adresse IP publique exposée en externe pour votre périphérique VPN. Cette adresse IP ne peut pas se trouver derrière un NAT.
 
@@ -73,7 +73,7 @@ Entrez les informations ci-après.
 
 Saisissez les informations ci-dessous, puis cliquez sur la flèche Suivant située en bas à droite.
 
-- **Serveurs DNS** : entrez le nom et l’adresse IP du serveur DNS, ou sélectionnez un serveur DNS précédemment inscrit dans le menu contextuel. Ce paramètre ne crée pas de serveur DNS. Il vous permet de spécifier les serveurs DNS que vous souhaitez utiliser pour la résolution de noms pour ce réseau virtuel.
+- **Serveurs DNS** : entrez le nom et l’adresse IP du serveur DNS, ou sélectionnez un serveur DNS précédemment inscrit dans le menu contextuel. Ce paramètre n'entraîne pas la création de serveur DNS. Il vous permet de spécifier le serveur DNS que vous souhaitez utiliser pour la résolution de noms pour ce réseau virtuel.
 - **Configurer une connexion VPN site à site** : activez la case à cocher **Configuration d’un VPN de site à site**.
 - **Réseau local** : un réseau local représente votre emplacement physique local. Vous pouvez sélectionner un réseau local que vous avez précédemment créé, ou vous pouvez créer un nouveau réseau local. Toutefois, si vous ne sélectionnez pas d'utiliser un réseau local que vous avez précédemment créé, rendez-vous sur la page de configuration des **réseaux locaux** et vérifiez que l’exactitude de l’adresse IP du périphérique VPN (adresse IPv4 publique) pour le périphérique VPN que vous utilisez pour cette connexion.
 
@@ -84,8 +84,8 @@ Si vous créez un nouveau réseau local, vous verrez la page **Connectivité sit
 Saisissez les informations ci-dessous puis cliquez sur la flèche Suivant.
 
 - 	**Nom** : nom que vous souhaitez donner à votre site de réseau local.
-- 	**Adresse IP du périphérique VPN** : adresse IPv4 de votre périphérique VPN local que vous utiliserez pour vous connecter à Azure. Le périphérique VPN ne peut pas se trouver derrière un traducteur d'adresses réseau.
-- 	**Espace d’adressage** : comprend l’adresse IP de départ et le CIDR (nombre d’adresses). C’est ici que vous spécifiez la ou les plages d’adresses que vous voulez envoyer via la passerelle de réseau virtuel à l’emplacement de votre site local. Si une adresse IP de destination se situe dans les plages que vous spécifiez ici, elle sera routée via la passerelle de réseau virtuel.
+- 	**Adresse IP du périphérique VPN** : adresse IPv4 publique de votre périphérique VPN local que vous utiliserez pour vous connecter à Azure. Le périphérique VPN ne peut pas se trouver derrière un traducteur d'adresses réseau.
+- 	**Espace d’adressage** : comprend l’adresse IP de départ et le CIDR (nombre d’adresses). C’est ici que vous spécifiez la ou les plages d’adresses que vous voulez envoyer via la passerelle de réseau virtuel à l’emplacement de votre site local. Si une adresse IP de destination se situe dans les plages que vous spécifiez ici, elle est routée via la passerelle de réseau virtuel.
 - 	**Ajouter un espace d’adressage** : si vous souhaitez envoyer plusieurs plages d’adresses via la passerelle de réseau virtuel, c’est ici que vous spécifiez chaque plage d’adresses supplémentaire. Vous pouvez ajouter ou supprimer des plages par la suite sur la page **Réseau local**.
 
 ## Espaces d’adressage du réseau virtuel
@@ -112,4 +112,4 @@ Vous devez ensuite configurer la passerelle du réseau virtuel pour créer une c
 
 Une fois la connexion achevée, vous pouvez ajouter des machines virtuelles à vos réseaux virtuels. Pour plus d’informations, consultez la documentation relative aux [machines virtuelles](https://azure.microsoft.com/documentation/services/virtual-machines/).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

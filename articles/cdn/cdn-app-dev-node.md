@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/19/2016"
+	ms.date="07/28/2016"
 	ms.author="casoper"/>
 
 # Prise en main du développement Azure CDN
@@ -367,4 +367,4 @@ Pour voir la référence du kit de développement logiciel Azure CDN pour Node.j
 
 Pour rechercher une documentation supplémentaire sur le kit de développement logiciel Azure pour Node.js, consultez la [référence complète](http://azure.github.io/azure-sdk-for-node/).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

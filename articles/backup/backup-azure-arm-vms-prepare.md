@@ -6,7 +6,7 @@
 	authors="markgalioto"
 	manager="cfreeman"
 	editor=""
-	keywords="sauvegardes ; sauvegarde ;"/>
+	keywords="sauvegardes ; sauvegarde ;"/>
 
 <tags
 	ms.service="backup"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/03/2016"
+	ms.date="08/01/2016"
 	ms.author="trinadhk; jimpark; markgal;"/>
 
 
@@ -44,14 +44,14 @@ Si vous savez que ces conditions existent déjà dans votre environnement, passe
 
 Avant de préparer votre environnement, notez les limitations.
 
-- La sauvegarde de machines virtuelles ayant plus de 16 disques de données n’est pas prise en charge.
+- La sauvegarde de machines virtuelles ayant plus de 16 disques de données n’est pas prise en charge.
 - La sauvegarde de machines virtuelles avec une adresse IP réservée et sans point de terminaison n’est pas prise en charge.
 - Le remplacement d’une machine virtuelle existante pendant la restauration n’est pas pris en charge. Si vous tentez de restaurer la machine virtuelle alors que celle-ci existe, l’opération de restauration échoue.
 - La sauvegarde et la restauration entre différentes régions ne sont pas prises en charge.
 - Vous pouvez sauvegarder des machines virtuelles dans toutes les régions publiques d’Azure (voir la [liste](https://azure.microsoft.com/regions/#services) des régions prises en charge). Si la région que vous recherchez n’est pas prise en charge aujourd’hui, elle n’apparaît pas dans la liste déroulante lors de la création de l’archivage.
 - Vous pouvez sauvegarder des machines virtuelles uniquement pour des versions de systèmes d’exploitation sélectionnées :
-  - **Linux** : consultez la [liste des distributions approuvées par Azure](../virtual-machines/virtual-machines-linux-endorsed-distros.md). D’autres distributions « Bring-Your-Own-Linux » fonctionnent également tant que l’agent de machine virtuelle est disponible sur la machine virtuelle.
-  - **Windows Server** : les versions antérieures à Windows Server 2008 R2 ne sont pas prises en charge.
+  - **Linux** : Azure Backup prend en charge [une liste de distributions approuvées par Azure](../virtual-machines/virtual-machines-linux-endorsed-distros.md), à l’exception de CoreOS Linux. D’autres distributions « Bring-Your-Own-Linux » fonctionnent également tant que l’agent de machine virtuelle est disponible sur la machine virtuelle et que Python est pris en charge.
+  - **Windows Server** : les versions antérieures à Windows Server 2008 R2 ne sont pas prises en charge.
 - La restauration d’une machine virtuelle de contrôleur de domaine qui fait partie d’une configuration à plusieurs contrôleurs de domaine est prise en charge uniquement par le biais de PowerShell. En savoir plus sur la [restauration d’un contrôleur de domaine dans un environnement à plusieurs contrôleurs de domaine](backup-azure-restore-vms.md#restoring-domain-controller-vms).
 - La restauration de machines virtuelles qui ont des configurations réseau spéciales suivantes est prise en charge uniquement par le biais de PowerShell. Les machines virtuelles créées à l'aide du flux de travail de restauration dans l'interface utilisateur n'aura pas ces configurations réseau une fois l'opération de restauration terminée. Pour plus d’informations, consultez [Restauration de machines virtuelles avec des configurations de réseau spéciales](backup-azure-restore-vms.md#restoring-vms-with-special-netwrok-configurations).
   - Machines virtuelles avec configuration d’un équilibreur de charge (internes et externes)
@@ -80,7 +80,7 @@ Pour créer un coffre Recovery Services :
 
     ![Créer un archivage de Recovery Services - Étape 5](./media/backup-azure-vms-first-look-arm/rs-vault-attributes.png)
 
-4. Sous **Nom**, entrez un nom convivial permettant d’identifier le coffre. Le nom doit être unique pour l’abonnement Azure. Tapez un nom contenant entre 2 et 50 caractères. Il doit commencer par une lettre, et ne peut contenir que des lettres, des chiffres et des traits d’union.
+4. Sous **Nom**, entrez un nom convivial permettant d’identifier le coffre. Le nom doit être unique pour l’abonnement Azure. Tapez un nom contenant entre 2 et 50 caractères. Il doit commencer par une lettre, et ne peut contenir que des lettres, des chiffres et des traits d’union.
 
 5. Cliquez sur **Abonnement** pour afficher la liste des abonnements disponibles. Si vous n’êtes pas sûr de l’abonnement à utiliser, utilisez l’abonnement par défaut (ou suggéré). Vous ne disposez de plusieurs choix que si votre compte professionnel est associé à plusieurs abonnements Azure.
 
@@ -100,7 +100,7 @@ Pour créer un coffre Recovery Services :
 
 L’option de réplication du stockage vous permet de choisir entre stockage géo-redondant et stockage localement redondant. Par défaut, votre archivage utilise un stockage géo-redondant. Si vous utilisez Azure comme sauvegarde principale, laissez cette option inchangée. Choisissez Stockage localement redondant si vous souhaitez une option plus économique, mais moins durable. Pour en savoir plus sur les options de stockage [géoredondant](../storage/storage-redundancy.md#locally-redundant-storage) et [localement redondant](../storage/storage-redundancy.md), consultez l’article [Réplication Azure Storage](../storage/storage-redundancy.md#geo-redundant-storage).
 
-Pour modifier le paramètre de réplication du stockage :
+Pour modifier le paramètre de réplication du stockage :
 
 1. Sélectionnez votre archivage pour ouvrir le tableau de bord associé et le panneau Paramètres. Si le panneau **Paramètres** ne s’ouvre pas, cliquez sur **Tous les paramètres** dans le tableau de bord du coffre.
 
@@ -151,7 +151,7 @@ Avant d’enregistrer une machine virtuelle dans un archivage, lancez le process
 
     ![Sélectionner la stratégie de sauvegarde](./media/backup-azure-vms-first-look-arm/setting-rs-backup-policy-new.png)
 
-    Les détails de la stratégie par défaut sont indiqués à l’écran. Pour créer une stratégie, sélectionnez **Créer** dans le menu déroulant. Le menu déroulant offre également une option permettant de définir l’heure de prise de l’instantané sur 19 h 00. Pour savoir comment définir une stratégie de sauvegarde, consultez la section [Définition d’une stratégie de sauvegarde](backup-azure-vms-first-look-arm.md#defining-a-backup-policy). Lorsque vous cliquez sur **OK**, la stratégie de sauvegarde est associée au coffre.
+    Les détails de la stratégie par défaut sont indiqués à l’écran. Pour créer une stratégie, sélectionnez **Créer** dans le menu déroulant. Le menu déroulant offre également une option permettant de définir l’heure de prise de l’instantané sur 19 h 00. Pour savoir comment définir une stratégie de sauvegarde, consultez la section [Définition d’une stratégie de sauvegarde](backup-azure-vms-first-look-arm.md#defining-a-backup-policy). Lorsque vous cliquez sur **OK**, la stratégie de sauvegarde est associée au coffre.
 
     Ensuite, choisissez les machines virtuelles à associer à l'archivage.
 
@@ -225,7 +225,7 @@ L’image de l’exemple ci-dessous montre les trois étapes de configuration n�
 
 Pour utiliser un proxy HTTP pour communiquer avec le réseau Internet public, procédez comme suit :
 
-#### Étape 1. Configurer les connexions réseau sortantes
+#### Étape 1. Configurer les connexions réseau sortantes
 
 ###### Pour les machines Windows
 Cela définit la configuration du serveur proxy pour le compte système local.
@@ -258,20 +258,20 @@ Si vous avez configuré un serveur proxy sur un compte d’utilisateur actuel (p
 
 ######Pour les machines Linux
 
-Ajoutez la ligne suivante au fichier ```/etc/environment``` :
+Ajoutez la ligne suivante au fichier ```/etc/environment``` :
 
 ```
 http_proxy=http://<proxy IP>:<proxy port>
 ```
 
-Ajoutez les lignes suivantes au fichier ```/etc/waagent.conf``` :
+Ajoutez les lignes suivantes au fichier ```/etc/waagent.conf``` :
 
 ```
 HttpProxy.Host=<proxy IP>
 HttpProxy.Port=<proxy port>
 ```
 
-#### Étape 2. Autoriser les connexions entrantes sur le serveur proxy :
+#### Étape 2. Autoriser les connexions entrantes sur le serveur proxy :
 
 1. Ouvrez le Pare-feu Windows sur le serveur proxy. Pour accéder au pare-feu, le plus simple consiste à rechercher le Pare-feu Windows avec fonctions de sécurité avancées.
 
@@ -289,16 +289,16 @@ HttpProxy.Port=<proxy port>
     ![Créer une nouvelle règle](./media/backup-azure-vms-prepare/firewall-03.png)
 
     - pour *Type de protocole*, choisissez *TCP*
-    - pour *Port local*, choisissez *Ports spécifiques* et dans le champ situé en dessous, spécifiez le ```<Proxy Port>``` qui a été configuré.
+    - pour *Port local*, choisissez *Ports spécifiques* et dans le champ situé en dessous, spécifiez le ```<Proxy Port>``` qui a été configuré.
     - pour *Port distant*, sélectionnez *Tous les ports*
 
     Pour le reste de l’Assistant, cliquez jusqu’à la fin et donnez un nom à cette règle.
 
-#### Étape 3. Ajouter une règle d’exception au groupe de sécurité réseau :
+#### Étape 3. Ajouter une règle d’exception au groupe de sécurité réseau :
 
-Dans une invite de commandes Azure PowerShell, saisissez la commande suivante :
+Dans une invite de commandes Azure PowerShell, saisissez la commande suivante :
 
-La commande suivante ajoute une exception pour le groupe de sécurité réseau. Cette exception autorise le trafic TCP à partir d’un port 10.0.0.5 de n’importe quelle adresse Internet sur le port 80 (HTTP) ou 443 (HTTPS). Si vous avez besoin d’un port spécifique de l’Internet public, veillez à ajouter ce port à ```-DestinationPortRange``` également.
+La commande suivante ajoute une exception pour le groupe de sécurité réseau. Cette exception autorise le trafic TCP à partir d’un port 10.0.0.5 de n’importe quelle adresse Internet sur le port 80 (HTTP) ou 443 (HTTPS). Si vous avez besoin d’un port spécifique de l’Internet public, veillez à ajouter ce port à ```-DestinationPortRange``` également.
 
 ```
 Get-AzureNetworkSecurityGroup -Name "NSG-lockdown" |
@@ -311,7 +311,7 @@ Set-AzureNetworkSecurityRule -Name "allow-proxy " -Action Allow -Protocol TCP -T
 
 Maintenant que vous savez que vous disposez d’une connectivité réseau, vous êtes prêt à sauvegarder votre machine virtuelle. Voir la rubrique [Sauvegarde des machines virtuelles Azure Resource Manager (ARM)](backup-azure-arm-vms.md).
 
-## Des questions ?
+## Des questions ?
 Si vous avez des questions ou si vous souhaitez que certaines fonctionnalités soient incluses, [envoyez-nous vos commentaires](http://aka.ms/azurebackup_feedback).
 
 ## Étapes suivantes
@@ -321,4 +321,4 @@ Si vous avez des questions ou si vous souhaitez que certaines fonctionnalités s
 - [Planification de votre infrastructure de sauvegarde de machines virtuelles](backup-azure-vms-introduction.md)
 - [Gestion des sauvegardes de machines virtuelles](backup-azure-manage-vms.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

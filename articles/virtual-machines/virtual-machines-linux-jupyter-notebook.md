@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Créer un bloc-notes Jupyter/IPython Notebook | Microsoft Azure"
-	description="Découvrez comment déployer un bloc-notes Jupyter/IPython Notebook sur une machine virtuelle Linux créée avec le modèle de déploiement du Gestionnaire de ressources Azure."
+	pageTitle="Créer un bloc-notes Jupyter/iPython Notebook | Microsoft Azure"
+	description="Découvrez comment déployer un bloc-notes Jupyter/iPython Notebook sur une machine virtuelle Linux créée avec le modèle de déploiement du Gestionnaire de ressources Azure."
 	services="virtual-machines-linux"
 	documentationCenter="python"
 	authors="crwilcox"
@@ -19,7 +19,7 @@
 
 # Jupyter Notebook sur Azure
 
-Le [projet Jupyter](http://jupyter.org), anciennement appelé [projet Python](http://ipython.org), fournit un ensemble d’outils destiné au calcul scientifique. Ces outils utilisent des interpréteurs de commandes interactifs et puissants qui associent l’exécution de code à la création d’un document de calcul dynamique. Ces fichiers de l'interpréteur contiennent du texte arbitraire, des formules mathématiques, un code d'entrée, des résultats, des graphiques, des vidéos et d'autres sortes de support qu'un navigateur Web moderne peut afficher. Que vous soyez complètement novice sur Python et que vous souhaitiez apprendre à vous en servir dans un environnement divertissant et interactif ou que vous souhaitiez effectuer d’importants calculs parallèles/techniques, l'interpréteur Jupyter Notebook est un choix optimal.
+Le [projet Jupyter](http://jupyter.org), anciennement appelé [projet iPython](http://ipython.org), fournit un ensemble d’outils destiné au calcul scientifique. Ces outils utilisent des interpréteurs de commandes interactifs et puissants qui associent l’exécution de code à la création d’un document de calcul dynamique. Ces fichiers de l'interpréteur contiennent du texte arbitraire, des formules mathématiques, un code d'entrée, des résultats, des graphiques, des vidéos et d'autres sortes de support qu'un navigateur Web moderne peut afficher. Que vous soyez complètement novice sur Python et que vous souhaitiez apprendre à vous en servir dans un environnement divertissant et interactif ou que vous souhaitiez effectuer d’importants calculs parallèles/techniques, l'interpréteur Jupyter Notebook est un choix optimal.
 
 ![Capture d'écran](./media/virtual-machines-linux-jupyter-notebook/ipy-notebook-spectral.png) Utilisation des packages SciPy et Matplotlib pour analyser la structure d’un enregistrement.
 
@@ -112,7 +112,7 @@ Utilisez la commande suivante pour créer le certificat SSL (Linux et Windows).
 
 Notez que puisque nous créons un certificat SSL auto-signé, lors de la connexion à l'interpréteur, votre navigateur affiche un message d'avertissement. Pour une utilisation à long terme, vous souhaiterez utiliser un certificat correctement signé associé à votre organisation. Comme la gestion des certificats ne figure pas dans cette démonstration, nous nous en tiendrons à un certificat auto-signé pour l'instant.
 
-En plus de l'utilisation d'un certificat, vous devez également fournir un mot de passe pour protéger votre interpréteur contre toute utilisation non autorisée. Pour des raisons de sécurité, Jupyter utilise des mots de passe chiffrés dans son fichier de configuration. De ce fait, vous devez tout d’abord chiffrer votre mot de passe. Pour ce faire, IPython fournit un utilitaire. À une invite de commandes, exécutez la commande suivante.
+En plus de l'utilisation d'un certificat, vous devez également fournir un mot de passe pour protéger votre interpréteur contre toute utilisation non autorisée. Pour des raisons de sécurité, Jupyter utilise des mots de passe chiffrés dans son fichier de configuration. De ce fait, vous devez tout d’abord chiffrer votre mot de passe. Pour ce faire, iPython fournit un utilitaire. À une invite de commandes, exécutez la commande suivante.
 
     /anaconda3/bin/python -c "import IPython;print(IPython.lib.passwd())"
 
@@ -181,7 +181,7 @@ Ce paradigme d'association de la puissance du Web avec le calcul dynamique offre
 * comme plateforme pour le calcul collaboratif : plusieurs utilisateurs peuvent se connecter au même serveur d’interpréteur afin de partager une session de calcul en direct.
 
 
-Si vous accédez au [référentiel][] de code source IPython, vous y trouverez un répertoire complet avec des exemples de bloc-notes, que vous pouvez télécharger et expérimenter sur votre propre machine virtuelle Azure Jupyter. Téléchargez simplement les fichiers `.ipynb` à partir du site et chargez-les sur le tableau de bord de la machine virtuelle Azure de l’interpréteur (ou téléchargez-les directement dans la machine virtuelle).
+Si vous accédez au [référentiel][] de code source iPython, vous y trouverez un répertoire complet avec des exemples de bloc-notes, que vous pouvez télécharger et expérimenter sur votre propre machine virtuelle Azure Jupyter. Téléchargez simplement les fichiers `.ipynb` à partir du site et chargez-les sur le tableau de bord de la machine virtuelle Azure de l’interpréteur (ou téléchargez-les directement dans la machine virtuelle).
 
 ## Conclusion
 

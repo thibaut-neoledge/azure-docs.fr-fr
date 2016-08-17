@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/05/2016"
-   ms.author="patw;jroth;aglick"/>
+   ms.date="08/01/2016"
+   ms.author="aglick"/>
 
 #Guide technique de la résilience Azure - Récupération suite à des défaillances locales dans Azure
 
@@ -223,4 +223,4 @@ Par défaut, les données associées à Azure HDInsight sont stockées dans le s
 
 Cet article fait partie d’une série intitulée [Guide technique de la résilience Azure](./resiliency-technical-guidance.md). L’article suivant de cette série s’intitule [Récupération d’une interruption de service à l’échelle de la région Azure](./resiliency-technical-guidance-recovery-loss-azure-region.md).
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

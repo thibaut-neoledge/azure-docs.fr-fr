@@ -3,7 +3,7 @@
 	description="Découvrez comment déployer et gérer Azure Backup à l’aide de PowerShell"
 	services="backup"
 	documentationCenter=""
-	authors="nkolli1"
+	authors="saurabhsensharma"
 	manager="shivamg"
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="05/23/2016"
-	ms.author="markgal;jimpark;nkolli"/>
+	ms.author="markgal;jimpark;nkolli;trinadhk"/>
 
 
 # Déployer et gérer une sauvegarde vers Azure pour un serveur/client Windows à l’aide de PowerShell
@@ -115,15 +115,15 @@ Les options disponibles incluent :
 
 | Option | Détails | Default |
 | ---- | ----- | ----- |
-| /q | Installation silencieuse | - |
-| /p:"emplacement" | Chemin du dossier d’installation de l’agent Azure Backup. | C:\\Program Files\\Microsoft Azure Recovery Services Agent |
-| /s:"emplacement" | Chemin du dossier du cache de l’agent Azure Backup. | C:\\Program Files\\Microsoft Azure Recovery Services Agent\\Scratch |
-| /m | Abonnement à Microsoft Update | - |
-| /nu | Ne pas rechercher les mises à jour après l’installation | - |
-| /d | Désinstalle Microsoft Azure Recovery Services Agent | - |
-| /ph | Adresse de l’hôte proxy | - |
-| /po | Numéro de port de l’hôte proxy | - |
-| /pu | Nom d’utilisateur de l’hôte proxy | - |
+| /q | Installation silencieuse | - | 
+| /p:"emplacement" | Chemin du dossier d’installation de l’agent Azure Backup. | C:\\Program Files\\Microsoft Azure Recovery Services Agent | 
+| /s:"emplacement" | Chemin du dossier du cache de l’agent Azure Backup. | C:\\Program Files\\Microsoft Azure Recovery Services Agent\\Scratch | 
+| /m | Abonnement à Microsoft Update | - | 
+| /nu | Ne pas rechercher les mises à jour après l’installation | - | 
+| /d | Désinstalle Microsoft Azure Recovery Services Agent | - | 
+| /ph | Adresse de l’hôte proxy | - | 
+| /po | Numéro de port de l’hôte proxy | - | 
+| /pu | Nom d’utilisateur de l’hôte proxy | - | 
 | /pw | Mot de passe du proxy | - |
 
 
@@ -627,4 +627,4 @@ Pour plus d’informations sur Azure Backup pour client/serveur Windows, consult
 - [Présentation d’Azure Backup](backup-introduction-to-azure-backup.md)
 - [Sauvegarder des serveurs Windows](backup-configure-vault.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0803_2016-->

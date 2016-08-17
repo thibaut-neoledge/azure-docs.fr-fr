@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/25/2015" 
+	ms.date="03/31/2016" 
 	ms.author="awills"/>
  
 # Visual Studio Application Insights
@@ -25,7 +25,7 @@ Il fonctionne avec les applications web et les applications autonomes sur un lar
 
 Application Insights est destiné à l'équipe de développement. Avec lui, vous pouvez :
 
-* [Analyser les modèles d'utilisation][knowUsers] pour mieux comprendre vos utilisateurs et améliorer sans cesse votre application. 
+* [Analyser les modèles d'utilisation][knowUsers] pour mieux comprendre vos utilisateurs et améliorer sans cesse votre application.
  * Nombre de pages consultées, les utilisateurs nouveaux et qui reviennent, la géolocalisation, les plateformes ainsi que d’autres analyses d’utilisation principales
  * Suivre les chemins d'utilisation pour évaluer la réussite de chaque fonctionnalité.
 * [Détectez, triez et diagnostiquez][detect] les problèmes de performances et corrigez-les avant que la plupart de vos utilisateurs ne s’en rende compte.
@@ -51,7 +51,7 @@ Il existe des Kits de développement logiciel pour un nombre croissant de platef
 
  * [Serveurs ASP.NET][greenbrown] sur Azure ou votre serveur IIS
  * [Azure Cloud Services](app-insights-cloudservices.md)
- * les [serveurs J2EE][java]
+ * [les serveurs J2EE][java]
  * [les pages Web][client] : HTML + JavaScript
  * [services Windows, rôles de travail et applications de bureau][desktop]
  * [Autres plateformes][platforms] : Node.js, PHP, Python, Ruby, Joomla, SharePoint, WordPress
@@ -112,7 +112,7 @@ Si vous n'utilisez pas Visual Studio, ou si ces options ne sont pas disponibles 
 * Bogues :
  * [Connect](https://connect.microsoft.com/VisualStudio/Feedback/LoadSubmitFeedbackForm?FormID=6076)
 * Suggestions
- * [User Voice](http://visualstudio.uservoice.com/forums/121579-visual-studio/category/77108-application-insights)
+ * [UserVoice](https://visualstudio.uservoice.com/forums/357324)
 
 
 ## Vidéos
@@ -144,4 +144,4 @@ Si vous n'utilisez pas Visual Studio, ou si ces options ne sont pas disponibles 
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0810_2016-->

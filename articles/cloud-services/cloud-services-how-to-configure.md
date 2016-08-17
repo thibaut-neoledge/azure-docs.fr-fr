@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/22/2016"
+	ms.date="07/27/2016"
 	ms.author="adegeo"/>
 
 
@@ -86,4 +86,4 @@ Azure ne peut garantir que 99,95 % de disponibilité du service pendant les mis
 * [Activer une connexion Bureau à distance pour un rôle dans Azure Cloud Services](cloud-services-role-enable-remote-desktop.md)
 * Configurez des [certificats SSL](cloud-services-configure-ssl-certificate.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0803_2016-->

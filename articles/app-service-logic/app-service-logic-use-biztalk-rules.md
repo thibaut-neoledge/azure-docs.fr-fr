@@ -1,7 +1,7 @@
 <properties
    pageTitle="En savoir plus et créer une application API Règles BizTalk dans votre application logique | Microsoft Azure"
    description="Cette rubrique traite des fonctionnalités du connecteur Règles BizTalk et fournit des instructions sur son utilisation."
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="anuragdalmia"
    manager="erikre"
@@ -57,14 +57,14 @@ Vous pouvez utiliser la Règle d'entreprise pour créer, modifier et déployer d
 
 ###Conditions
 
-Une condition est une expression vrai/faux (booléenne) qui se compose d'un ou plusieurs prédicats. Dans notre exemple, le prédicat « inférieur ou égal à » est appliqué à la quantité et aux fonds disponibles. 
-Cette condition sera toujours évaluée comme vraie ou fausse. 
-Vous pouvez combiner les prédicats avec les opérateurs logiques AND, OR et NOT pour former une expression logique potentiellement longue, mais ils sont toujours évalués comme vrais ou faux.
+Une condition est une expression vrai/faux (booléenne) qui se compose d'un ou plusieurs prédicats. 
+Dans notre exemple, le prédicat « inférieur ou égal à » est appliqué à la quantité et aux fonds disponibles. 
+Cette condition sera toujours évaluée comme vraie ou fausse. Vous pouvez combiner les prédicats avec les opérateurs logiques AND, OR et NOT pour former une expression logique potentiellement longue, mais ils sont toujours évalués comme vrais ou faux.
 
 ###Actions
 
 Les actions sont les conséquences fonctionnelles de l'évaluation d'une condition. Si une condition de règle est remplie, une ou plusieurs actions correspondantes sont initiées. 
-Dans notre exemple, « effectuer la transaction » et « imprimer un reçu » sont les actions exécutées quand, et uniquement quand, la condition (dans ce cas, « IF montant inférieur ou égal aux fonds disponibles ») est vraie. 
+Dans notre exemple, « effectuer la transaction » et « imprimer un reçu » sont les actions exécutées quand, et uniquement quand, la condition (dans ce cas, « IF montant inférieur ou égal aux fonds disponibles ») est vraie. 
 Les actions sont représentées dans l'Infrastructure de règles d'entreprise par des opérations exécutées sur des documents XML.
 
 ##Stratégie
@@ -115,8 +115,8 @@ Une fois que vous avez créé une application API de règles BizTalk, l'étape s
 
    ![Alt text][4]
 
-2.Sélectionnez « Définitions de vocabulaire ». L'écran de création de vocabulaire s'affiche
-3.Sélectionnez « Ajouter » pour commencer l'ajout de nouvelles définitions de vocabulaire.
+2\. Sélectionnez « Définitions de vocabulaire ». L'écran de création de vocabulaire s'affiche 
+3. Sélectionnez « Ajouter » pour commencer l'ajout de nouvelles définitions de vocabulaire. 
 Deux types de définitions de vocabulaire sont actuellement prises en charge : les définitions littérales et XML.
 
 ##Définition littérale
@@ -126,9 +126,9 @@ Deux types de définitions de vocabulaire sont actuellement prises en charge : 
   3.	Type de définition : deux types sont pris en charge. Pour cet exemple, choisissez Littéral.
   4.	Type de données : permet aux utilisateurs de sélectionner le type de données de la définition. Actuellement, quatre types de données sont pris en charge : 
   i. Chaîne : ces valeurs doivent être placées entre guillemets doubles ("exemple de chaîne") 
-  ii. Booléen : peut être vrai ou faux
-  iii. Nombre : peut être n’importe quel nombre décimal
-  iv. DateHeure : signifie que la définition est de type « date ». Vous devez entrer les données au format suivant : mm/jj/aaaa hh:mm: AM\\PM.  
+  ii. Booléen : peut être vrai ou faux 
+  iii. Nombre : peut être n’importe quel nombre décimal 
+  iv. DateHeure : signifie que la définition est de type « date ». Vous devez entrer les données au format suivant : mm/jj/aaaa hh:mm: AM\\PM.
   5. Entrée : c'est là que vous entrez la valeur de votre définition. Les valeurs entrées ici doivent être conformes au type de données choisi. Vous pouvez entrer une valeur unique, un ensemble de valeurs séparées par des virgules ou une plage de valeurs à l'aide du mot clé *to*. Pa exemple, vous pouvez entrer la valeur unique 1 ; un ensemble 1, 2, 3 ; ou la plage 1 to 5. Notez que la plage est prise en charge uniquement pour les nombres.
   6. Sélectionnez *OK*.
 
@@ -257,4 +257,4 @@ L'un des principaux avantages offerts par l'utilisation des règles d'entreprise
 [10]: ./media/app-service-logic-use-biztalk-rules/APIDef.PNG
 [11]: ./media/app-service-logic-use-biztalk-rules/PublicAnon.PNG
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

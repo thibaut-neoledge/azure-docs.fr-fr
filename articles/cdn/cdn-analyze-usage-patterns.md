@@ -1,8 +1,8 @@
 <properties
-	pageTitle="Analyse des modèles d'utilisation CDN"
+	pageTitle="Analyse des modèles d’utilisation CDN Azure | Microsoft Azure"
 	description="Vous pouvez afficher les modèles d'utilisation pour votre CDN via les rapports suivants : la bande passante, les données transférées, les correspondances, les statuts de cache, le taux d'accès au cache, les données transférées IPV4/IPV6."
 	services="cdn"
-	documentationCenter=".NET"
+	documentationCenter=""
 	authors="camsoper"
 	manager="erikre"
 	editor=""/>
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/11/2016"
+	ms.date="07/28/2016"
 	ms.author="casoper"/>
 
-# Analyse des modèles d'utilisation CDN
+# Analyse des modèles d’utilisation CDN Azure
 
 [AZURE.INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)]
 
@@ -28,6 +28,19 @@ Vous pouvez afficher les modèles d'utilisation pour votre contenu via les rappo
 - États du cache
 - Taux d'accès au cache
 - Données IPV4/IPV6 transférées
+
+## Accès aux rapports HTTP avancés
+
+1. Dans le panneau Profil CDN, cliquez sur le bouton **Gérer**.
+
+	![Bouton de gestion du panneau de profil CDN](./media/cdn-reports/cdn-manage-btn.png)
+
+	Le portail de gestion CDN s’ouvre.
+
+2. Pointez sur l’onglet **Analytics** puis sur le menu volant **Core Reports** (Rapports principaux). Cliquez sur le rapport souhaité dans le menu.
+
+	![Portail de gestion CDN - Menu des rapports principaux](./media/cdn-reports/cdn-core-reports.png)
+
 
 ## Bande passante
 
@@ -122,7 +135,7 @@ Le rapport n'inclut pas :
 - Les demandes de ressources dont les en-têtes indiquent qu'elles ne doivent pas être mises en cache. Par exemple, les en-têtes Cache-Control: private, Cache-Control: no-cache, ou Pragma: no-cache empêchent la mise en cache d’une ressource.
 - Les demandes de plage d'octets pour le contenu partiellement mis en cache.
 
-La formule est : (TCP\_ HIT/(TCP\_ HIT+TCP\_MISS))*100
+La formule est : (TCP_ HIT/(TCP_ HIT+TCP\_MISS))*100
 
 - Sélectionnez la plage de dates pour afficher les données par jour/semaine/mois, etc. ou entrez des dates personnalisées, puis cliquez sur « go » pour vous assurer que votre sélection est mise à jour.
 - Vous pouvez exporter et télécharger les données en cliquant sur l'icône de feuille Excel située en regard de « go ».
@@ -144,4 +157,4 @@ Ce rapport affiche la distribution de l'utilisation du trafic entre IPV4 et IPV6
 
 Les rapports peuvent uniquement être générés pour les 18 derniers mois.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

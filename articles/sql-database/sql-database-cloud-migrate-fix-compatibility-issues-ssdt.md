@@ -3,7 +3,7 @@
    description="Base de données SQL Microsoft Azure, migration de base de données, compatibilité, assistant de migration SQL Azure, SSDT"
    services="sql-database"
    documentationCenter=""
-   authors="carlrabeler"
+   authors="CarlRabeler"
    manager="jhubbard"
    editor=""/>
 
@@ -37,7 +37,7 @@ Utilisez SQL Server Data Tools pour Visual Studio (SSDT) pour importer le schém
 
 ## Détection des problèmes de compatibilité à l’aide de SQL Server Data Tools pour Visual Studio
    
-1.	Ouvrez l’**Explorateur d’objets SQL Server** dans Visual Studio. Utilisez l’option **Ajouter SQL Server** pour vous connecter à l’instance SQL Server qui contient la base de données en cours de migration. Localisez la base de données dans l’explorateur, cliquez dessus avec le bouton droit de la souris et sélectionnez **Créer un nouveau projet...**.     
+1.	Ouvrez l’**Explorateur d’objets SQL Server** dans Visual Studio. Utilisez l’option **Ajouter SQL Server** pour vous connecter à l’instance SQL Server qui contient la base de données en cours de migration. Localisez la base de données dans l’explorateur, cliquez dessus avec le bouton droit de la souris et sélectionnez **Créer un nouveau projet...**.
     
 	![Nouveau projet](./media/sql-database-migrate-visualstudio-ssdt/02MigrateSSDT.png)
    
@@ -63,18 +63,19 @@ Utilisez SQL Server Data Tools pour Visual Studio (SSDT) pour importer le schém
     
 ## Résolution des problèmes de compatibilité à l’aide de SQL Server Data Tools pour Visual Studio        
   
-1.	Double-cliquez sur le premier script pour l’ouvrir dans une fenêtre de requête, mettez-le en commentaire, puis exécutez le script. ![alt text](./media/sql-database-migrate-visualstudio-ssdt/08MigrateSSDT.png)    
+1.	Double-cliquez sur le premier script pour l’ouvrir dans une fenêtre de requête, mettez-le en commentaire, puis exécutez le script. ![alt text](./media/sql-database-migrate-visualstudio-ssdt/08MigrateSSDT.png)
 
-2.	Répétez ce processus pour chaque script contenant des incompatibilités jusqu’à résoudre toutes les erreurs. ![alt text](./media/sql-database-migrate-visualstudio-ssdt/09MigrateSSDT.png)
-3.	Lorsque la base de données ne contient pas d’erreurs, cliquez avec le bouton droit de la souris sur le projet, puis sélectionnez **Publier** pour générer et publier la base de données vers une copie de la base de données source (nous vous recommandons vivement d’utiliser une copie, au moins au départ).     
- - Avant d’effectuer la publication, selon la version source de SQL Server (antérieure à SQL Server 2014), vous devrez peut-être réinitialiser la plateforme cible du projet cible pour activer le déploiement.     
- - Si vous effectuez la migration d’une base de données SQL Server de version antérieure, vous ne devez introduire aucune fonctionnalité non prise en charge par le système SQL Server source dans le projet, sauf si vous migrez la base de données vers une version plus récente de SQL Server.     
+2.	Répétez ce processus pour chaque script contenant des incompatibilités jusqu’à résoudre toutes les erreurs. ![alt text](./media/sql-database-migrate-visualstudio-ssdt/09MigrateSSDT.png)  
+ 
+3.	Lorsque la base de données ne contient pas d’erreurs, cliquez avec le bouton droit de la souris sur le projet, puis sélectionnez **Publier** pour générer et publier la base de données vers une copie de la base de données source (nous vous recommandons vivement d’utiliser une copie, au moins au départ).
+ - Avant d’effectuer la publication, selon la version source de SQL Server (antérieure à SQL Server 2014), vous devrez peut-être réinitialiser la plateforme cible du projet cible pour activer le déploiement.
+ - Si vous effectuez la migration d’une base de données SQL Server de version antérieure, vous ne devez introduire aucune fonctionnalité non prise en charge par le système SQL Server source dans le projet, sauf si vous migrez la base de données vers une version plus récente de SQL Server.
 
     	![alt text](./media/sql-database-migrate-visualstudio-ssdt/10MigrateSSDT.png)    
     
     	![alt text](./media/sql-database-migrate-visualstudio-ssdt/11MigrateSSDT.png)    
     
-4.	Dans l’Explorateur d’objets de SQL Server, cliquez avec le bouton droit de la souris sur votre base de données source, puis cliquez sur **Comparaison de données** pour comparer le projet à la base de données d’origine et comprendre les modifications apportées par l’assistant. Sélectionnez votre version Azure SQL V12 de la base de données, puis cliquez sur **Terminer**.    
+4.	Dans l’Explorateur d’objets de SQL Server, cliquez avec le bouton droit de la souris sur votre base de données source, puis cliquez sur **Comparaison de données** pour comparer le projet à la base de données d’origine et comprendre les modifications apportées par l’assistant. Sélectionnez votre version Azure SQL V12 de la base de données, puis cliquez sur **Terminer**.
     
 	![alt text](./media/sql-database-migrate-visualstudio-ssdt/12MigrateSSDT.png)
     
@@ -97,4 +98,4 @@ Utilisez SQL Server Data Tools pour Visual Studio (SSDT) pour importer le schém
 - [Fonctions partiellement ou non prises en charge de Transact-SQL](sql-database-transact-sql-information.md)
 - [Migration de bases de données non-SQL Server avec l’Assistant Migration SQL Server](http://blogs.msdn.com/b/ssma/)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0803_2016-->

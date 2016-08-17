@@ -21,9 +21,9 @@ Ce didacticiel vous montre comment procéder à des *déploiements avec distribu
 
 La *distribution d’une version d’évaluation* est un processus de déploiement qui valide une nouvelle fonctionnalité ou une modification auprès d’un nombre limité de clients réels. Il s’agit d’un test majeur dans un scénario de production. Cette opération est comparable à un test bêta et est parfois appelée « version de test contrôlée ». Beaucoup de grandes entreprises avec une présence web utilisent cette approche pour obtenir les premières validations de leurs mises à jour d’application dans leur pratique de [développement agile](https://en.wikipedia.org/wiki/Agile_software_development). Azure App Service vous permet d’intégrer le test en production à la publication continue et à Application Insights pour implémenter le même scénario d’opérations de développement. Avantages de cette approche :
 
-- **Obtenir des commentaires réels _avant_ la sortie des mises à jour en production** : qu’y a-t-il de mieux qu’obtenir des commentaires dès la sortie de votre application ? Les obtenir avant ! Vous pouvez tester les mises à jour avec le trafic et les comportements des utilisateurs réels dès que vous le souhaitez dans le cycle de vie du produit.
-- **Améliorer [le développement continu piloté par les tests ](https://en.wikipedia.org/wiki/Continuous_test-driven_development)** : en intégrant le test en production à l’intégration et l’instrumentation continues avec Application Insights, la validation par les utilisateurs se produit automatiquement et tôt dans le cycle de vie de votre produit. Cela contribue à réduire les investissements en temps dans l’exécution de tests manuels.
-- **Optimiser le workflow de test** : grâce à l’automatisation du test en production avec une instrumentation de surveillance continue, vous pouvez potentiellement atteindre les objectifs de différents genres de tests dans un processus unique, notamment l’[intégration](https://en.wikipedia.org/wiki/Integration_testing), la [régression](https://en.wikipedia.org/wiki/Regression_testing), la [convivialité](https://en.wikipedia.org/wiki/Usability_testing), l’accessibilité, la localisation, les [performances](https://en.wikipedia.org/wiki/Software_performance_testing), la [sécurité](https://en.wikipedia.org/wiki/Security_testing) et l’[acceptation](https://en.wikipedia.org/wiki/Acceptance_testing).
+- **Obtenir des commentaires réels _avant_ la sortie des mises à jour en production** : qu’y a-t-il de mieux qu’obtenir des commentaires dès la sortie de votre application ? Les obtenir avant ! Vous pouvez tester les mises à jour avec le trafic et les comportements des utilisateurs réels dès que vous le souhaitez dans le cycle de vie du produit.
+- **Améliorer [le développement continu piloté par les tests ](https://en.wikipedia.org/wiki/Continuous_test-driven_development)** : en intégrant le test en production à l’intégration et l’instrumentation continues avec Application Insights, la validation par les utilisateurs se produit automatiquement et tôt dans le cycle de vie de votre produit. Cela contribue à réduire les investissements en temps dans l’exécution de tests manuels.
+- **Optimiser le workflow de test** : grâce à l’automatisation du test en production avec une instrumentation de surveillance continue, vous pouvez potentiellement atteindre les objectifs de différents genres de tests dans un processus unique, notamment l’[intégration](https://en.wikipedia.org/wiki/Integration_testing), la [régression](https://en.wikipedia.org/wiki/Regression_testing), la [convivialité](https://en.wikipedia.org/wiki/Usability_testing), l’accessibilité, la localisation, les [performances](https://en.wikipedia.org/wiki/Software_performance_testing), la [sécurité](https://en.wikipedia.org/wiki/Security_testing) et l’[acceptation](https://en.wikipedia.org/wiki/Acceptance_testing).
 
 Un déploiement avec distribution d’une version d’évaluation ne se limite pas au routage du trafic en direct. Dans un tel déploiement, vous souhaitez bénéficier d’une visibilité aussi rapidement que possible, en cas de bogues inattendus, de dégradation des performances ou de problèmes d’expérience utilisateur. N’oubliez pas : vous êtes confronté à des clients réels. Pour faire les choses correctement, vous devez donc vous assurer que vous avez configuré votre déploiement avec distribution d’une version d’évaluation de manière à collecter toutes les données requises afin de prendre une décision éclairée à l’étape suivante. Ce didacticiel vous montre comment collecter des données avec Application Insights. Toutefois, vous pouvez utiliser New Relic ou d’autres technologies adaptées à votre scénario.
 
@@ -48,15 +48,17 @@ Dans ce didacticiel, vous allez apprendre à rassembler les scénarios suivants 
 	-	[Git](http://git-scm.com/documentation)
 	-	[PowerShell](https://technet.microsoft.com/library/bb978526.aspx)
 
-> [AZURE.NOTE] Vous avez besoin d’un compte Azure pour suivre ce didacticiel : + Vous pouvez [ouvrir un compte Azure gratuitement](/pricing/free-trial/) : vous obtenez alors des crédits dont vous pouvez vous servir pour essayer les services Azure payants et, une fois vos crédits épuisés, vous pouvez conserver le compte et utiliser les services Azure gratuits, notamment Web Apps. Vous pouvez [activer les avantages d’abonnement Visual Studio](/pricing/member-offers/msdn-benefits-details/) : votre abonnement Visual Studio vous octroie des crédits chaque mois que vous pouvez utiliser pour des services Azure payants.
+> [AZURE.NOTE] Pour suivre ce didacticiel, vous avez besoin d'un compte Azure :
+> + Vous pouvez [ouvrir un compte Azure gratuitement](/pricing/free-trial/) : vous obtenez alors des crédits dont vous pouvez vous servir pour tester les services Azure payants, et même quand ils sont épuisés, vous pouvez conserver le compte et utiliser les services Azure gratuits, notamment Web Apps.
+> + Vous pouvez [activer les avantages de votre abonnement Visual Studio](/pricing/member-offers/msdn-benefits-details/) : votre abonnement Visual Studio vous donne droit chaque mois à des crédits dont vous pouvez vous servir pour les services Azure payants.
 >
-> Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement et gratuitement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
+> Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751), où vous pourrez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
 ## Configurer votre application web de production
 
 >[AZURE.NOTE] Le script utilisé dans ce didacticiel configure automatiquement la publication continue à partir de votre référentiel GitHub. Pour ce faire, vos informations d’identification GitHub doivent déjà être stockées dans Azure, sinon les scripts de déploiement échoueront lorsque vous tenterez de configurer les paramètres de contrôle de code source pour les applications web.
 >
->Pour stocker vos informations d’identification GitHub dans Azure, créez une application web dans le [portail Azure](https://portal.azure.com/) et [configurez le déploiement GitHub](web-sites-publish-source-control.md#Step7). Cette opération est unique.
+>Pour stocker vos informations d’identification GitHub dans Azure, créez une application web dans le [portail Azure](https://portal.azure.com/) et [configurez le déploiement GitHub](app-service-continuous-deployment.md#Step7). Cette opération est unique.
 
 Dans un scénario classique d’opérations de développement, vous disposez d’une application qui s’exécute dans Azure et vous souhaitez lui apporter des modifications par le biais de la publication continue. Dans ce scénario, vous allez déployer en production un modèle que vous avez développé et testé.
 
@@ -96,7 +98,7 @@ Vous avez configuré l’application de production. À présent, imaginons que v
 
 5. Ouvrez *&lt;racine\_référentiel>*\\src\\MultiChannelToDo.sln dans Visual Studio.
 6. Restaurez tous les packages Nuget en cliquant avec le bouton droit sur la solution > **Gérer les packages NuGet pour la solution** > **Restaurer**.
-6. Cliquez avec le bouton droit sur **MultiChannelToDo.Web** > **Ajouter la télémétrie Application Insights** > **Configurer les paramètres** > Modifier le groupe de ressources en ToDoApp*&lt;votre\_suffixe >* > **Ajouter Application Insights au projet**.
+6. Cliquez avec le bouton droit sur **MultiChannelToDo.Web** > **Ajouter Application Insights Telemetry** > **Configurer les paramètres** > Modifier le groupe de ressources en ToDoApp*&lt;votre\_suffixe>* > **Ajouter Application Insights au projet**.
 7. Dans le portail Azure, ouvrez le panneau de la ressource Application Insights **MultiChannelToDo.Web**. Ensuite, dans la partie **Intégrité des applications**, cliquez sur **Apprendre à collecter les données de chargement de page de navigateur** > Copier le code.
 7. Ajoutez le code d’instrumentation JS copié à *&lt;racine\_référentiel>*\\src\\MultiChannelToDo.Web\\app\\Index.cshtml, juste avant la balise de fermeture `<heading>`. Il doit contenir la clé d’instrumentation unique de votre ressource Application Insights.
 
@@ -157,7 +159,7 @@ Il peut s’agir d’un exemple fictif. Néanmoins, vous allez apporter une amé
 ### Instrumenter votre application serveur aux fins de surveillance/mesures
 Il s’agit d’une digression étant donné que le scénario présenté dans ce didacticiel traite uniquement de l’application cliente. Toutefois, par souci d’exhaustivité, vous allez configurer l’application côté serveur.
 
-6. Cliquez avec le bouton droit sur **MultiChannelToDo** > **Ajouter la télémétrie Application Insights** > **Configurer les paramètres** > Modifier le groupe de ressources en ToDoApp*&lt;votre\_suffixe >* > **Ajouter Application Insights au projet**.
+6. Cliquez avec le bouton droit sur **MultiChannelToDo** > **Ajouter Application Insights Telemetry** > **Configurer les paramètres** > Modifier le groupe de ressources en ToDoApp*&lt;votre\_suffixe>* > **Ajouter Application Insights au projet**.
 12. Dans Git Shell, validez et envoyez vos modifications à votre branchement dans GitHub. Ensuite, attendez que les clients actualisent le navigateur.
 
         git add -A :/
@@ -255,7 +257,7 @@ De nouveau, par souci d’exhaustivité, vous allez configurer l’application c
 
 ## Mise à jour : Configurer votre branche bêta
 
-2. Ouvrez *&lt;racine\_référentiel>*\\ARMTemplates\\ProdAndStagetest.json et trouvez les ressources `appsettings` (recherchez `"name": "appsettings"`). Elles sont au nombre de 4, une pour chaque emplacement. 
+2. Ouvrez *&lt;racine\_référentiel>*\\ARMTemplates\\ProdAndStagetest.json et trouvez les ressources `appsettings` (recherchez `"name": "appsettings"`). Elles sont au nombre de 4, une pour chaque emplacement.
 
 2. Pour chaque ressource `appsettings`, ajoutez un paramètre d’application `"environment": "[parameters('slotName')]"` à la fin du tableau `properties`. N’oubliez pas de terminer la ligne précédente par une virgule.
 
@@ -375,4 +377,4 @@ Azure App Service facilite le test en production des applications destinées aux
 -	[Azure PowerShell](../powershell-install-configure.md)
 -	[Projet Wiki Kudu](https://github.com/projectkudu/kudu/wiki)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0803_2016-->
