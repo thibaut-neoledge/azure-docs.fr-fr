@@ -617,7 +617,7 @@ SQL Server 2014 permet de stocker les fichiers de base de données directement s
 
 * Le compte de stockage utilisé doit se trouver dans la même région Azure que celui qui permet de déployer la machine virtuelle sur laquelle SQL Server s’exécute.
 * Les considérations relatives à la répartition de disques VHD sur différents comptes Azure Storage qui ont été abordées précédemment portent également sur cette méthode de déploiement. Cela signifie que les opérations d’E/S sont concernées par les limites du compte Azure Storage. 
-[commentaire] : <> (TODO MSSedusch - Cette opération utilise la bande passante du réseau et non celle du stockage, n’est-ce pas ?)
+[commentaire]: <> (TODO MSSedusch - Cette opération utilise la bande passante du réseau et non celle du stockage, n’est-ce pas?)
 
 Vous trouverez ici des informations supplémentaires sur ce type de déploiement : <https://msdn.microsoft.com/library/dn385720.aspx>
  
@@ -701,10 +701,11 @@ Si vous voulez gérer les sauvegardes vous-même, il y a une exigence à respect
 * Explorateur Microsoft Azure Storage (<https://azure.microsoft.com/downloads/>)
 * Outils tiers
 
-[commentaire] : <> (Fonctionnalité qui n’est pas encore prise en charge sur ARM) 
-[commentaire] : <> (### Sauvegarde de machine virtuelle Azure) 
-[commentaire] : <> (Les machines virtuelles se trouvant dans le système SAP peuvent être sauvegardées à l’aide de la fonctionnalité de sauvegarde de machine virtuelle Azure Backup. La fonctionnalité de sauvegarde de machine virtuelle Azure Backup a été commercialisée au début de l’année 2015. Il s’agit désormais de la méthode de sauvegarde standard d’une machine virtuelle complète dans Azure. Azure Backup stocke les sauvegardes dans Azure et permet une nouvelle restauration d’une machine virtuelle). 
-[commentaire] : <> (Les machines virtuelles qui exécutent des bases de données peuvent également être sauvegardées de manière cohérente si les systèmes SGBD (système de gestion de base de données) prennent en charge Windows VSS (Volume Shadow Copy Service : <https://msdn.microsoft.com/library/windows/desktop/bb968832.aspx>) comme le fait SQL Server, par exemple. L’utilisation de la fonctionnalité de sauvegarde de machine virtuelle Azure peut permettre d’obtenir une sauvegarde de base de données SAP susceptible d’être restaurée. Toutefois, n’oubliez pas qu’une limite de restauration dans le temps des bases de données peut ne pas être possible, selon les sauvegardes de machine virtuelle Azure. Par conséquent, il est recommandé d’effectuer des sauvegardes de bases de données avec un système SGBD (système de gestion de base de données) plutôt que de compter sur la sauvegarde de machines virtuelles Azure.) [commentaire] : <> (Pour vous familiariser avec la sauvegarde de machines virtuelles Azure, commencez ici <https://azure.microsoft.com/documentation/services/backup/>.)
+[commentaire]: <> (Fonctionnalité qui n’est pas encore prise en charge sur ARM) 
+[commentaire]: <> (### Sauvegarde de machine virtuelle Azure) 
+[commentaire]: <> (Les machines virtuelles se trouvant dans le système SAP peuvent être sauvegardées à l’aide de la fonctionnalité de sauvegarde de machine virtuelle Azure Backup. La fonctionnalité de sauvegarde de machine virtuelle Azure Backup a été commercialisée au début de l’année 2015. Il s’agit désormais de la méthode de sauvegarde standard d’une machine virtuelle complète dans Azure. Azure Backup stocke les sauvegardes dans Azure et permet une nouvelle restauration d’une machine virtuelle.) 
+[commentaire]: <> (Les machines virtuelles qui exécutent des bases de données peuvent également être sauvegardées de manière cohérente si les systèmes SGBD (système de gestion de base de données) prennent en charge Windows VSS (Volume Shadow Copy Service : <https://msdn.microsoft.com/library/windows/desktop/bb968832.aspx>) comme le fait SQL Server, par exemple. L’utilisation de la fonctionnalité de sauvegarde de machine virtuelle Azure peut permettre d’obtenir une sauvegarde de base de données SAP susceptible d’être restaurée. Toutefois, n’oubliez pas qu’une limite de restauration dans le temps des bases de données peut ne pas être possible, selon les sauvegardes de machine virtuelle Azure. Par conséquent, il est recommandé d’effectuer des sauvegardes de bases de données avec un système SGBD (système de gestion de base de données) plutôt que de compter sur la sauvegarde de machines virtuelles Azure.)
+[commentaire]: <> (Pour vous familiariser avec la sauvegarde de machines virtuelles Azure, commencez ici <https://azure.microsoft.com/documentation/services/backup/>.)
 
 ### <a name="1b353e38-21b3-4310-aeb6-a77e7c8e81c8"></a>Utilisation d’images SQL Server issues de Microsoft Azure Marketplace
 Dans Azure Marketplace, Microsoft propose des machines virtuelles qui contiennent déjà des versions de SQL Server. Pour les clients SAP qui requièrent des licences pour SQL Server et Windows, cela peut être l’occasion de répondre aux besoins de base en termes de licences, en configurant des machines virtuelles déjà dotées de SQL Server. Pour pouvoir utiliser ces images pour SAP, vous devez tenir compte des considérations suivantes :
@@ -736,8 +737,8 @@ Si vous n’obtenez pas ce résultat, interrompez immédiatement le déploiement
 ### Solutions SQL Server haute disponibilité pour SAP dans Azure
 Comme indiqué plus haut, il n’est pas possible de créer le stockage partagé qui est nécessaire pour l’utilisation de la fonctionnalité de haute disponibilité SQL Server la plus ancienne. Cette dernière permet d’installer deux instances SQL Server minimum au sein d’un cluster WSFC (Windows Server Failover Cluster) à l’aide d’un disque partagé pour les bases de données utilisateur (et de tempdb, en fin de compte). Il s’agit depuis longtemps de la méthode standard pour assurer la haute disponibilité. Elle est également prise en charge par SAP. Comme Azure ne prend pas en charge le stockage partagé, les configurations de haute disponibilité de SQL Server reposant sur un cluster de disque partagé sont impossibles. Toutefois, de nombreuses autres méthodes sont toujours possibles. Elles sont décrites dans les sections suivantes.
 
-[commentaire] : <> (L’article fait toujours référence à ASM.) 
-[commentaire] : <> (Avant de parcourir les différentes technologies de haute disponibilité utilisables pour SQL Server dans Azure, vous pouvez consulter cet [excellent article][virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions], qui fournit davantage de détails et de pointeurs.)
+[commentaire]: <> (L’article fait toujours référence à ASM.) 
+[commentaire]: <> (Avant de parcourir les différentes technologies de haute disponibilité utilisables pour SQL Server dans Azure, vous pouvez consulter cet [excellent article][virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions], qui fournit davantage de détails et de pointeurs.)
 
 #### Copie des journaux de transaction SQL Server
 L’une des méthodes permettant d’assurer la haute disponibilité est la copie des journaux de transaction SQL Server. Si les machines virtuelles prenant part à la configuration haute disponibilité disposent de la fonctionnalité de résolution de noms, il n’y a aucune difficulté ; l’installation dans Azure ne diffère pas d’une installation effectuée en local. Il est déconseillé de se fier uniquement à la résolution IP. Pour en savoir plus sur la configuration de la copie des journaux de transaction et connaître les principes qui sous-tendent cette technologie, consultez la documentation suivante :
@@ -763,24 +764,24 @@ Lors de l’utilisation de l’écouteur de groupe de disponibilité, tenez comp
 * Vous pouvez uniquement exploiter cet écouteur sur un système Windows Server 2012 ou Windows Server 2012 R2 utilisé en tant que SE invité de la machine virtuelle. Pour Windows Server 2012, vous devez vous assurer que ce correctif est appliqué : <https://support.microsoft.com/kb/2854082>
 * Dans le cas de Windows Server 2008 R2, ce correctif n’existe pas ; la fonction AlwaysOn doit être utilisée de la même manière que la fonctionnalité de mise en miroir de bases de données, via la spécification d’un partenaire de basculement dans la chaîne de connexion (grâce au paramètre SAP default.pfl dbs/mss/server : voir note SAP [965908]).
 * Lorsque vous utilisez un écouteur de groupe de disponibilité, les machines virtuelles de base de données doivent être connectées à un équilibreur de charge dédié. La résolution de noms dans un déploiement de cloud uniquement nécessite la présence de l’ensemble des machines virtuelles d’un système SAP (serveurs d’applications, serveur SGBD (système de gestion de base de données) et serveur (A)SCS) au sein du même réseau virtuel, ou requiert la maintenance du fichier etc\\host depuis la couche d’application SAP, afin de faire en sorte que les noms des machines virtuelles SQL Server soient résolus. Pour éviter qu’Azure n’affecte de nouvelles adresses IP lorsque les deux machines virtuelles sont arrêtées, accessoirement, l’utilisateur doit affecter des adresses IP statiques aux interfaces réseau de ces machines au sein de la configuration AlwaysOn (la procédure de définition d’une adresse IP statique est décrite dans [cet article][virtual-networks-reserved-private-ip].) 
-[commentaire] : <> (Anciens blogs.) 
-[commentaire] : <> (<https://blogs.msdn.com/b/alwaysonpro/archive/2014/08/29/recommendations-and-best-practices-when-deploying-sql-server-alwayson-availability-groups-in-windows-azure-iaas.aspx>, <https://blogs.technet.com/b/rmilne/archive/2015/07/27/how-to-set-static-ip-on-azure-vm.aspx>)
+[commentaire]: <> (Anciens blogs.) 
+[commentaire]: <> (<https://blogs.msdn.com/b/alwaysonpro/archive/2014/08/29/recommendations-and-best-practices-when-deploying-sql-server-alwayson-availability-groups-in-windows-azure-iaas.aspx>, <https://blogs.technet.com/b/rmilne/archive/2015/07/27/how-to-set-static-ip-on-azure-vm.aspx>)
 * La création d’une configuration de cluster WSFC requiert certaines étapes spécifiques lorsque ce cluster doit se voir affecter une adresse IP spécifique, car la fonctionnalité actuelle d’Azure affecte au nom du cluster la même adresse IP que celle du nœud sur lequel le cluster est créé. Cela signifie que l’attribution d’une adresse IP différente au cluster doit faire l’objet d’une étape manuelle.
 * L’écouteur de groupe de disponibilité va être créé dans Azure avec les points de terminaison TCP/IP qui sont affectés aux machines virtuelles exécutant les réplicas principaux et secondaires du groupe de disponibilité.
 * Il peut être nécessaire de sécuriser ces points de terminaison avec des ACL.
 
-[commentaire] : <> (TODO ancien blog.) 
-[commentaire] : <> (Les étapes détaillées et conditions requises pour l’installation d’une configuration AlwaysOn sur Azure sont expliquées plus clairement grâce au didacticiel disponible [ici][virtual-machines-windows-classic-ps-sql-alwayson-availability-groups].) 
-[commentaire] : <> (Installation d’AlwaysOn préconfigurée via la galerie Azure. <https://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx>) 
-[commentaire] : <> ([Ce didacticiel][virtual-machines-windows-classic-ps-sql-int-listener] explique de manière détaillée la procédure de création d’un écouteur de groupe de disponibilité.) 
-[commentaire] : <> (* <https://michaelwasham.com/windows-azure-powershell-reference-guide/network-access-control-list-capability-in-windows-azure-powershell/>) 
-[commentaire] : <> (* <https://blogs.technet.com/b/heyscriptingguy/archive/2013/08/31/weekend-scripter-creating-acls-for-windows-azure-endpoints-part-1-of-2.aspx> ) 
-[commentaire] : <> (* <https://blogs.technet.com/b/heyscriptingguy/archive/2013/09/01/weekend-scripter-creating-acls-for-windows-azure-endpoints-part-2-of-2.aspx>)
-[commentaire] : <> (* <https://blogs.technet.com/b/heyscriptingguy/archive/2013/09/18/creating-acls-for-windows-azure-endpoints.aspx>)
+[commentaire]: <> (TODO ancien blog.) 
+[commentaire]: <> (Les étapes détaillées et conditions requises pour l’installation d’une configuration AlwaysOn sur Azure sont expliquées plus clairement grâce au didacticiel disponible [ici][virtual-machines-windows-classic-ps-sql-alwayson-availability-groups].) 
+[commentaire]: <> (Installation d’AlwaysOn préconfigurée via la galerie Azure. <https://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx>) 
+[commentaire]: <> ([Ce didacticiel][virtual-machines-windows-classic-ps-sql-int-listener] explique de manière détaillée la procédure de création d’un écouteur de groupe de disponibilité.) 
+[commentaire]: <> (* <https://michaelwasham.com/windows-azure-powershell-reference-guide/network-access-control-list-capability-in-windows-azure-powershell/>) 
+[commentaire]: <> (* <https://blogs.technet.com/b/heyscriptingguy/archive/2013/08/31/weekend-scripter-creating-acls-for-windows-azure-endpoints-part-1-of-2.aspx>) 
+[commentaire]: <> (* <https://blogs.technet.com/b/heyscriptingguy/archive/2013/09/01/weekend-scripter-creating-acls-for-windows-azure-endpoints-part-2-of-2.aspx>)
+[commentaire]: <> (* <https://blogs.technet.com/b/heyscriptingguy/archive/2013/09/18/creating-acls-for-windows-azure-endpoints.aspx>)
 
 Il est possible de déployer un groupe de disponibilité AlwaysOn SQL Server sur différentes régions Azure également. Cette fonctionnalité s’appuie sur la connectivité entre des réseaux virtuels Azure ([plus d’informations ici][virtual-networks-configure-vnet-to-vnet-connection]). 
-[commentaire] : <> (TODO ancien blog.) 
-[commentaire] : <> (Le processus d’installation de groupes de disponibilité AlwaysOn SQL Server dans un tel scénario est décrit ici : <https://blogs.technet.com/b/dataplatforminsider/archive/2014/06/19/sql-server-alwayson-availability-groups-supported-between-microsoft-azure-regions.aspx>.)
+[commentaire]: <> (TODO ancien blog.) 
+[commentaire]: <> (Le processus d’installation de groupes de disponibilité AlwaysOn SQL Server dans un tel scénario est décrit ici : <https://blogs.technet.com/b/dataplatforminsider/archive/2014/06/19/sql-server-alwayson-availability-groups-supported-between-microsoft-azure-regions.aspx>.)
 
 #### Haute disponibilité SQL Server dans Azure - Résumé
 Azure Storage protégeant le contenu, vous avez une raison de moins d’insister sur la création d’une image de secours. Cela signifie que votre scénario de haute disponibilité doit uniquement protéger vos systèmes contre les problèmes suivants :
@@ -801,7 +802,7 @@ Vous devez trouver l’équilibre entre l’installation d’AlwaysOn et la mise
 ### <a name="9053f720-6f3b-4483-904d-15dc54141e30"></a>Résumé – SQL Server général pour SAP sur Azure
 Ce guide offre de nombreuses recommandations. Nous vous invitons à les parcourir plusieurs fois avant de planifier votre déploiement Azure. Cependant, de manière générale, vous devez suivre les dix points principaux spécifiques à la fonction SGBD (système de gestion de base de données) sur Azure :
 
-[commentaire] : <> (Débit multiplié par 2,3 par rapport à quoi ? À un disque VHD ?)
+[commentaire]: <> (Débit multiplié par 2,3 par rapport à quoi ? À un disque VHD?)
 1. Utilisez la dernière version du système SGBD (système de gestion de base de données), comme SQL Server 2014, qui présente les avantages les plus intéressants dans Azure. Pour SQL Server, il s’agit de SQL Server 2012 SP1 CU4, qui inclut la fonctionnalité de sauvegarde sur Azure Storage. Toutefois, en association avec SAP, nous recommandons au moins la version SQL Server 2014 SP1 CU1 ou SQL Server 2012 SP2 et la dernière unité de capacité.
 1. Planifiez avec soin votre paysage de système SAP dans Azure, afin de trouver l’équilibre entre la disposition des fichiers de données et les restrictions d’Azure :
 	* Évitez d’utiliser un trop grand nombre de disques VHD. Cependant, vous devez en configurer suffisamment pour atteindre le nombre d’E/S par seconde requis.
@@ -1140,7 +1141,7 @@ Si des E/S par seconde supplémentaires sont requises, il est vivement recommand
 Pour la fonctionnalité de sauvegarde / restauration, les outils SAP BR*Tools for Oracle sont pris en charge de la même manière que sur les systèmes d’exploitation Windows Server et Hyper-V standard. Oracle Recovery Manager (RMAN) est également pris en charge pour les sauvegardes sur disque et les restaurations à partir du disque.
 
 #### Haute disponibilité
-[commentaire] : <> (le lien fait référence à ASM) 
+[commentaire]: <> (le lien fait référence à ASM) 
 Oracle Data Guard est pris en charge aux fins de haute disponibilité et récupération d’urgence. Des informations sont à votre disposition dans [cette][virtual-machines-windows-classic-configure-oracle-data-guard] documentation.
 
 #### Autres
@@ -1360,5 +1361,6 @@ N’utilisez pas la géoréplication Azure Store. Pour plus d’informations, re
 Tous les autres sujets généraux, notamment les groupes à haute disponibilité Azure ou la surveillance SAP, s’appliquent avec IBM DB2 pour LUW comme décrit dans les trois premiers chapitres de ce document pour les déploiements de machines virtuelles.
 
 Reportez-vous également au chapitre [Résumé – SQL Server général pour SAP sur Azure][dbms-guide-5.8].
+
 
 <!---HONumber=AcomDC_0803_2016-->
