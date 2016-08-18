@@ -37,9 +37,11 @@ Un déclencheur est un événement qui peut être utilisé pour lancer le flux d
 
 Dans cet exemple, nous allons utiliser le déclencheur **Quand un fichier est créé**. Lorsque ce déclencheur apparaîtra, nous appellerons l’action Dropbox **Obtenir le contenu d’un fichier à l’aide du chemin**.
 
-1. Entrez *dropbox* dans la zone de recherche du concepteur Logic Apps, puis sélectionnez le déclencheur **Dropbox - Quand un fichier est créé**. ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-trigger.PNG)
+1. Entrez *dropbox* dans la zone de recherche du concepteur Logic Apps, puis sélectionnez le déclencheur **Dropbox - Quand un fichier est créé**.  
+ ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-trigger.PNG)
   
-2. Sélectionnez le dossier dans lequel vous souhaitez effectuer le suivi de la création de fichiers. Sélectionnez le bouton ... (encadré en rouge ci-après) et accédez au dossier que vous souhaitez sélectionner pour l’entrée du déclencheur. ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-trigger-2.PNG)
+2. Sélectionnez le dossier dans lequel vous souhaitez effectuer le suivi de la création de fichiers. Sélectionnez le bouton ... (encadré en rouge ci-après) et accédez au dossier que vous souhaitez sélectionner pour l’entrée du déclencheur.  
+ ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-trigger-2.PNG)
 
 ## Utiliser une action Dropbox
 
@@ -47,15 +49,21 @@ Une action est une opération effectuée par le flux de travail défini dans une
 
 Une fois le déclencheur ajouté, procédez comme suit pour ajouter une action qui récupérera le contenu du nouveau fichier.
 
-1. Sélectionnez **+ Nouvelle étape** pour ajouter l’action à exécuter lorsqu’un fichier est créé. ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-action.PNG)
+1. Sélectionnez **+ Nouvelle étape** pour ajouter l’action à exécuter lorsqu’un fichier est créé.  
+ 
+ ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-action.PNG)
 
-2. Sélectionnez **Ajouter une action**. Cette opération ouvre la zone de recherche vous permettant de rechercher l’action que vous souhaitez exécuter. ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-action-2.PNG)
+2. Sélectionnez **Ajouter une action**. Cette opération ouvre la zone de recherche vous permettant de rechercher l’action que vous souhaitez exécuter.  
+ ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-action-2.PNG)
 
 3. Entrez *dropbox* pour rechercher les actions associées à Dropbox.
 
-4. Sélectionnez **Dropbox - Obtenir le contenu d’un fichier à l’aide du chemin** comme action à exécuter lorsqu’un fichier est créé dans le dossier Dropbox sélectionné. Le bloc de contrôles de l’action s’affiche. Vous serez invité à autoriser votre application logique à accéder à votre compte Dropbox, si vous ne l’avez pas fait précédemment. ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-action-3.PNG)
+4. Sélectionnez **Dropbox - Obtenir le contenu d’un fichier à l’aide du chemin** comme action à exécuter lorsqu’un fichier est créé dans le dossier Dropbox sélectionné. Le bloc de contrôles de l’action s’affiche. Vous serez invité à autoriser votre application logique à accéder à votre compte Dropbox, si vous ne l’avez pas fait précédemment.  
 
-5. Sélectionnez le bouton ... (situé à droite du contrôle **Chemin de fichier**) et recherchez le chemin d’accès au fichier que vous souhaitez utiliser. Une autre possibilité consiste à utiliser le jeton **chemin de fichier** pour accélérer la création de votre application logique. ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-action-4.PNG)
+ ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-action-3.PNG)  
+
+5. Sélectionnez le bouton ... (situé à droite du contrôle **Chemin de fichier**) et recherchez le chemin d’accès au fichier que vous souhaitez utiliser. Une autre possibilité consiste à utiliser le jeton **chemin de fichier** pour accélérer la création de votre application logique.  
+ ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-action-4.PNG)  
 
 6. Enregistrez votre travail et créez un fichier dans Dropbox pour activer votre workflow.
 
