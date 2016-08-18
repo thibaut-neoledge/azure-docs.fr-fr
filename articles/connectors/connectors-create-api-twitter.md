@@ -42,8 +42,10 @@ Un déclencheur est un événement qui peut être utilisé pour lancer le flux d
 
 Dans cet exemple, nous allons vous indiquer comment utiliser le déclencheur **When a new tweet is posted** (Lorsqu’un nouveau tweet est publié) pour rechercher #Seattle et, si le texte #Seattle est trouvé, pour mettre à jour un fichier dans Dropbox avec le texte du tweet. Dans un contexte d’entreprise, vous pourriez rechercher le nom de votre société et mettre à jour une base de données SQL avec le texte du tweet.
 
-1. Entrez *twitter* dans la zone de recherche du concepteur d’applications logiques, puis sélectionnez le déclencheur **Twitter - When a new tweet is posted** (Twitter - Lorsqu’un nouveau tweet est publié). ![Image de déclencheur Twitter 1](./media/connectors-create-api-twitter/trigger-1.png)
-- Entrez *#Seattle* dans le contrôle **Search Text** (Texte de recherche). ![Image de déclencheur Twitter 2](./media/connectors-create-api-twitter/trigger-2.png)
+1. Entrez *twitter* dans la zone de recherche du concepteur d’applications logiques, puis sélectionnez le déclencheur **Twitter - When a new tweet is posted** (Twitter - Lorsqu’un nouveau tweet est publié).  
+![Image de déclencheur Twitter 1](./media/connectors-create-api-twitter/trigger-1.png)  
+- Entrez *#Seattle* dans le contrôle **Search Text** (Texte de recherche).  
+![Image de déclencheur Twitter 2](./media/connectors-create-api-twitter/trigger-2.png)  
 
 À ce stade, votre application logique a été configurée avec un déclencheur qui lance une série d’autres déclencheurs et actions dans le workflow.
 
@@ -52,14 +54,24 @@ Dans cet exemple, nous allons vous indiquer comment utiliser le déclencheur **W
 ## Ajouter une condition
 Étant donné que nous sommes uniquement intéressés par les tweets publiés par des utilisateurs disposant de plus de 50 abonnés, nous devons commencer par ajouter à l’application logique une condition confirmant le nombre d’abonnés.
 
-1. Sélectionnez **+ Nouvelle étape** pour ajouter l’action à exécuter lorsque le texte #Seattle est trouvé dans un nouveau tweet. ![Image d’action Twitter 1](../../includes/media/connectors-create-api-twitter/action-1.png)
-- Sélectionnez le lien **Ajouter une condition**. ![Image de condition Twitter 1](../../includes/media/connectors-create-api-twitter/condition-1.png) Cette opération ouvre le contrôle **Condition** qui vous permet de sélectionner des conditions telles que *est égal à*, *est inférieur à*, *est supérieur à*, *contient*, etc. ![Image de condition Twitter 2](../../includes/media/connectors-create-api-twitter/condition-2.png)
-- Sélectionnez le contrôle **Choisir une valeur**. Dans ce contrôle, vous pouvez sélectionner une ou plusieurs des propriétés des actions ou déclencheurs précédents en tant que valeur dont la condition sera évaluée comme étant vraie ou fausse. ![Image de condition Twitter 3](../../includes/media/connectors-create-api-twitter/condition-3.png)
-- Sélectionnez le bouton **...** pour développer la liste de propriétés afin de visualiser toutes les propriétés qui sont disponibles. ![Image de condition Twitter 4](../../includes/media/connectors-create-api-twitter/condition-4.png)
-- Sélectionnez la propriété **Followers count** (Nombre d’abonnés). ![Image de condition Twitter 5](../../includes/media/connectors-create-api-twitter/condition-5.png)
-- Notez que la propriété Followers count (Nombre d’abonnés) figure désormais dans le contrôle de valeur. ![Image de condition Twitter 6](../../includes/media/connectors-create-api-twitter/condition-6.png)
-- Sélectionnez **est supérieur à** dans la liste des opérateurs. ![Image de condition Twitter 7](../../includes/media/connectors-create-api-twitter/condition-7.png)
-- Entrez 50 en tant qu’opérande pour l’opérateur *est supérieur à*. La condition est à présent ajoutée. Enregistrez votre travail à l’aide du lien **Enregistrer** dans le menu supérieur. ![Image de condition Twitter 8](../../includes/media/connectors-create-api-twitter/condition-8.png)
+1. Sélectionnez **+ Nouvelle étape** pour ajouter l’action à exécuter lorsque le texte #Seattle est trouvé dans un nouveau tweet.  
+![Image d’action Twitter 1](../../includes/media/connectors-create-api-twitter/action-1.png)  
+- Sélectionnez le lien **Ajouter une condition**.  
+![Image de condition Twitter 1](../../includes/media/connectors-create-api-twitter/condition-1.png)  
+Cette opération ouvre le contrôle **Condition** qui vous permet de sélectionner des conditions telles que *est égal à*, *est inférieur à*, *est supérieur à*, *contient*, etc.  
+![Image de condition Twitter 2](../../includes/media/connectors-create-api-twitter/condition-2.png)  
+- Sélectionnez le contrôle **Choisir une valeur**. Dans ce contrôle, vous pouvez sélectionner une ou plusieurs des propriétés des actions ou déclencheurs précédents en tant que valeur dont la condition sera évaluée comme étant vraie ou fausse.  
+![Image de condition Twitter 3](../../includes/media/connectors-create-api-twitter/condition-3.png)  
+- Sélectionnez le bouton **...** pour développer la liste de propriétés afin de visualiser toutes les propriétés qui sont disponibles.  
+![Image de condition Twitter 4](../../includes/media/connectors-create-api-twitter/condition-4.png)  
+- Sélectionnez la propriété **Followers count** (Nombre d’abonnés).  
+![Image de condition Twitter 5](../../includes/media/connectors-create-api-twitter/condition-5.png)  
+- Notez que la propriété Followers count (Nombre d’abonnés) figure désormais dans le contrôle de valeur.  
+![Image de condition Twitter 6](../../includes/media/connectors-create-api-twitter/condition-6.png)  
+- Sélectionnez **est supérieur à** dans la liste des opérateurs.  
+![Image de condition Twitter 7](../../includes/media/connectors-create-api-twitter/condition-7.png)  
+- Entrez 50 en tant qu’opérande pour l’opérateur *est supérieur à*. La condition est à présent ajoutée. Enregistrez votre travail à l’aide du lien **Enregistrer** dans le menu supérieur.  
+![Image de condition Twitter 8](../../includes/media/connectors-create-api-twitter/condition-8.png)  
 
 ## Utiliser une action Twitter
 
@@ -69,12 +81,16 @@ Une fois le déclencheur ajouté, procédez comme suit pour ajouter une action q
 
 À l’étape suivante, vous allez ajouter une action Twitter qui publiera un tweet en utilisant certaines des propriétés de chaque tweet ayant été publié par un utilisateur comptant plus de 50 abonnés.
 
-1. Sélectionnez **Ajouter une action**. Cette opération ouvre le contrôle de recherche qui vous permet de rechercher d’autres actions et déclencheurs. ![Image de condition Twitter 9](../../includes/media/connectors-create-api-twitter/condition-9.png)
-- Entrez *twitter* dans la zone de recherche, puis sélectionnez l’action **Twitter - Post a tweet** (Twitter - Publier un tweet). Cette opération ouvre le contrôle **Post a tweet** (Publier un tweet) dans lequel vous entrerez tous les détails concernant le tweet en cours de publication. ![Image d’action Twitter 1 à 5](../../includes/media/connectors-create-api-twitter/action-1-5.png)
-- Sélectionnez le contrôle **Tweet text** (Texte du tweet). Toutes les sorties des actions et déclencheurs précédents dans l’application logique sont désormais visibles. Vous pouvez sélectionner les actions et déclencheurs de votre choix et les utiliser comme partie du texte du nouveau tweet. ![Image d’action Twitter 2](../../includes/media/connectors-create-api-twitter/action-2.png)
+1. Sélectionnez **Ajouter une action**. Cette opération ouvre le contrôle de recherche qui vous permet de rechercher d’autres actions et déclencheurs.  
+![Image de condition Twitter 9](../../includes/media/connectors-create-api-twitter/condition-9.png)  
+- Entrez *twitter* dans la zone de recherche, puis sélectionnez l’action **Twitter - Post a tweet** (Twitter - Publier un tweet). Cette opération ouvre le contrôle **Post a tweet** (Publier un tweet) dans lequel vous entrerez tous les détails concernant le tweet en cours de publication.  
+![Image d’action Twitter 1 à 5](../../includes/media/connectors-create-api-twitter/action-1-5.png)  
+- Sélectionnez le contrôle **Tweet text** (Texte du tweet). Toutes les sorties des actions et déclencheurs précédents dans l’application logique sont désormais visibles. Vous pouvez sélectionner les actions et déclencheurs de votre choix et les utiliser comme partie du texte du nouveau tweet.  
+![Image d’action Twitter 2](../../includes/media/connectors-create-api-twitter/action-2.png)  
 - Sélectionnez **Nom d’utilisateur**.
 - Entrez *dit :* dans le contrôle du texte du tweet. Effectuez cette opération immédiatement après avoir sélectionné le nom d’utilisateur.
-- Sélectionnez *Tweet text* (Texte du tweet). ![Image d’action Twitter 3](../../includes/media/connectors-create-api-twitter/action-3.png)
+- Sélectionnez *Tweet text* (Texte du tweet).  
+![Image d’action Twitter 3](../../includes/media/connectors-create-api-twitter/action-3.png)  
 - Enregistrez votre travail et envoyez un tweet avec le mot-dièse #Seattle pour activer votre workflow.
 
 ## Détails techniques

@@ -39,9 +39,14 @@ Un déclencheur est un événement qui peut être utilisé pour lancer le flux d
 
 Dans cet exemple, nous allons vous indiquer comment utiliser le déclencheur **FTP - Lors de l’ajout ou de la modification d’un fichier** pour initialiser un workflow d’application logique lorsqu’un fichier est ajouté à un serveur FTP ou modifié sur ce dernier. Dans un contexte d’entreprise, vous pourriez utiliser ce déclencheur pour surveiller l’apparition dans un dossier FTP de nouveaux fichiers représentant des commandes émanant de clients. Vous pourriez ensuite utiliser une action de connecteur FTP telle que **Obtenir le contenu d’un fichier** pour récupérer le contenu de la commande à des fins de traitement ultérieur et de stockage dans votre base de données de commandes.
 
-1. Entrez *ftp* dans la zone de recherche du concepteur d’applications logiques, puis sélectionnez le déclencheur **FTP - Lors de l’ajout ou de la modification d’un fichier**. ![Image de déclencheur FTP 1](./media/connectors-create-api-ftp/ftp-trigger-1.png) Le contrôle **Lors de l’ajout ou de la modification d’un fichier** s’affiche. ![Image de déclencheur FTP 2](./media/connectors-create-api-ftp/ftp-trigger-2.png)
-- Sélectionnez le bouton **...** situé à droite du contrôle. Cette opération ouvre le contrôle du sélecteur de dossiers ![Image de déclencheur FTP 3](./media/connectors-create-api-ftp/ftp-trigger-3.png).
-- Sélectionnez le symbole **>** (flèche droite) et recherchez le dossier dans lequel vous souhaitez surveiller l’apparition de fichiers nouveaux ou modifiés. Sélectionnez le dossier et remarquez qu’il apparaît à présent dans le contrôle **Dossier**. ![Image de déclencheur FTP 4](./media/connectors-create-api-ftp/ftp-trigger-4.png)
+1. Entrez *ftp* dans la zone de recherche du concepteur d’applications logiques, puis sélectionnez le déclencheur **FTP - Lors de l’ajout ou de la modification d’un fichier**.  
+![Image de déclencheur FTP 1](./media/connectors-create-api-ftp/ftp-trigger-1.png)  
+Le contrôle **Lors de l’ajout ou de la modification d’un fichier** s’affiche.  
+![Image de déclencheur FTP 2](./media/connectors-create-api-ftp/ftp-trigger-2.png)  
+- Sélectionnez le bouton **...** situé à droite du contrôle. Cette opération ouvre le contrôle du sélecteur de dossiers  
+![Image de déclencheur FTP 3](./media/connectors-create-api-ftp/ftp-trigger-3.png)  
+- Sélectionnez le symbole **>** (flèche droite) et recherchez le dossier dans lequel vous souhaitez surveiller l’apparition de fichiers nouveaux ou modifiés. Sélectionnez le dossier et remarquez qu’il apparaît à présent dans le contrôle **Dossier**.  
+![Image de déclencheur FTP 4](./media/connectors-create-api-ftp/ftp-trigger-4.png)  
 
 
 À ce stade, votre application logique a été configurée avec un déclencheur qui lance une série d’autres déclencheurs et actions dans le workflow lorsqu’un fichier est modifié ou créé dans le dossier FTP sélectionné.
@@ -57,12 +62,18 @@ Une action est une opération effectuée par le flux de travail défini dans une
 Une fois le déclencheur ajouté, procédez comme suit pour ajouter une action qui récupérera le contenu du fichier nouveau ou modifié trouvé par le déclencheur.
 
 1. Sélectionnez **+ Nouvelle étape** pour ajouter l’action permettant d’obtenir le contenu du fichier sur le serveur FTP.
-- Sélectionnez le lien **Ajouter une action**. ![Image d’action FTP 1](./media/connectors-create-api-ftp/ftp-action-1.png)
+- Sélectionnez le lien **Ajouter une action**.  
+![Image d’action FTP 1](./media/connectors-create-api-ftp/ftp-action-1.png)  
 - Entrez *FTP* pour rechercher toutes les actions associées à FTP.
-- Sélectionnez **FTP - Obtenir le contenu d’un fichier** comme action à exécuter lorsqu’un fichier nouveau ou modifié est trouvé dans le dossier FTP. ![Image d’action FTP 2](./media/connectors-create-api-ftp/ftp-action-2.png) Le contrôle **Obtenir le contenu d’un fichier** s’affiche. **Remarque** : vous serez invité à autoriser votre application logique à accéder à votre compte de serveur FTP, si vous ne l’avez pas fait précédemment. ![Image d’action FTP 3](./media/connectors-create-api-ftp/ftp-action-3.png)
+- Sélectionnez **FTP - Obtenir le contenu d’un fichier** comme action à exécuter lorsqu’un fichier nouveau ou modifié est trouvé dans le dossier FTP.  
+![Image d’action FTP 2](./media/connectors-create-api-ftp/ftp-action-2.png)  
+Le contrôle **Obtenir le contenu d’un fichier** s’affiche. **Remarque** : vous serez invité à autoriser votre application logique à accéder à votre compte de serveur FTP, si vous ne l’avez pas fait précédemment.  
+![Image d’action FTP 3](./media/connectors-create-api-ftp/ftp-action-3.png)  
 - Sélectionnez le contrôle **Fichier** (espace blanc situé sous **FICHIER***). Ce contrôle vous permet d’utiliser les diverses propriétés du fichier nouveau ou modifié trouvé sur le serveur FTP.
-- Sélectionnez l’option **Contenu du fichier**. ![Image d’action FTP 4](./media/connectors-create-api-ftp/ftp-action-4.png)
--  Le contrôle est mis à jour, ce qui indique que l’action **FTP - Obtenir le contenu d’un fichier** récupérera le *contenu du fichier* nouveau ou modifié sur le serveur FTP. ![Image d’action FTP 5](./media/connectors-create-api-ftp/ftp-action-5.png)
+- Sélectionnez l’option **Contenu du fichier**.  
+![Image d’action FTP 4](./media/connectors-create-api-ftp/ftp-action-4.png)  
+-  Le contrôle est mis à jour, ce qui indique que l’action **FTP - Obtenir le contenu d’un fichier** récupérera le *contenu du fichier* nouveau ou modifié sur le serveur FTP.  
+![Image d’action FTP 5](./media/connectors-create-api-ftp/ftp-action-5.png)       
 - Enregistrez votre travail, puis ajoutez un fichier au dossier FTP pour tester votre workflow.
 
 À ce stade, l’application logique a été configurée avec un déclencheur pour surveiller un dossier d’un serveur FTP et pour initialiser le workflow lorsqu’elle détecte un fichier nouveau ou modifié sur le serveur FTP.
