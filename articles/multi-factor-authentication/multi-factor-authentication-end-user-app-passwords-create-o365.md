@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/12/2016" 
+	ms.date="08/04/2016" 
 	ms.author="billmath"/>
 
 # Création ou suppression de mots de passe d’application dans le portail Office 365 pour Azure Multi-Factor Authentication
 
 Si vous utilisez l’authentification multifacteur avec Office 365, vous pourrez créer et supprimer des mots de passe d’application par le biais du portail Office 365.
 
-## Pour créer des mots de passe d’application dans le portail Office 365
+## Pour créer des mots de passe d'application dans le portail Office 365
 --------------------------------------------------------------------------------
 
 <ol>
@@ -31,7 +31,7 @@ Si vous utilisez l’authentification multifacteur avec Office 365, vous pourre
 ![Cloud](./media/multi-factor-authentication-end-user-app-passwords-create-o365/security.png)
 
 <li>Sur la droite, sélectionnez **Mettre à jour mes numéros de téléphone utilisés pour la sécurité du compte**.</li>
-<li>En haut de la page de vérification, sélectionnez les mots de passe d’application.</li>
+<li>En haut de la page de vérification, sélectionnez les mots de passe d'application</li>
 
 <center>![Cloud](./media/multi-factor-authentication-end-user-app-passwords-create-o365/addsec.png)</center>
 
@@ -56,7 +56,7 @@ Si vous utilisez l’authentification multifacteur avec Office 365, vous pourre
 ![Cloud](./media/multi-factor-authentication-end-user-app-passwords-create-o365/security.png)
 
 <li>Sur la droite, sélectionnez **Mettre à jour mes numéros de téléphone utilisés pour la sécurité du compte**.</li>
-<li>En haut de la page de vérification, sélectionnez les mots de passe d’application.</li>
+<li>En haut de la page de vérification, sélectionnez les mots de passe d'application</li>
 
 <center>![Cloud](./media/multi-factor-authentication-end-user-app-passwords-create-o365/addsec.png)</center>
 
@@ -73,4 +73,4 @@ Si vous utilisez l’authentification multifacteur avec Office 365, vous pourre
  
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

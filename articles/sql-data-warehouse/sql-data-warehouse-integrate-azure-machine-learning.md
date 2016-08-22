@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/17/2016"
-   ms.author="shigu;barbkess;sonyama"/>
+   ms.date="08/08/2016"
+   ms.author="kevin;barbkess;sonyama"/>
 
 # Utilisation de Microsoft Azure Machine Learning avec SQL Data Warehouse
 
@@ -30,11 +30,11 @@ Dans cet article, vous allez apprendre à effectuer les opérations suivantes en
 
 Nous lirons les données de la table Product dans la base de données AdventureWorksDW.
 
-### Étape 1
+### Étape 1 :
 
 Démarrez une nouvelle expérience en cliquant sur l’option + NOUVEAU située en bas de la fenêtre de Machine Learning Studio, sélectionnez EXPÉRIENCE, puis « Expérience vide ». Sélectionnez le nom d’expérience par défaut, situé en haut de la zone de dessin, et remplacez-le par un nom significatif, par exemple : Prédiction de prix d’un vélo.
 
-### Étape 2
+### Étape 2 :
 
 Recherchez le module Lecteur dans la palette d’ensemble de données et de modules située sur la gauche de la zone de dessin d’expérience. Faites glisser le module sur la zone de dessin d’expérience. ![][drag_reader]
 
@@ -90,13 +90,13 @@ Pour en savoir plus sur la création, la formation, l’évaluation et le test d
 
 Nous écrirons l’ensemble de résultats sur la table ProductPriceForecast de la base de données AdventureWorksDW.
 
-### Étape 1
+### Étape 1 :
 
 Recherchez le module Lecteur dans la palette d’ensemble de données et de modules située sur la gauche de la zone de dessin d’expérience. Faites glisser le module sur la zone de dessin d’expérience.
 
 ![][drag_writer]
 
-### Étape 2
+### Étape 2 :
 
 Sélectionnez le module Lecteur et renseignez le volet des propriétés.
 
@@ -149,4 +149,4 @@ Pour obtenir des conseils supplémentaires en matière de développement, consul
 
 [Azure Machine Learning documentation]: http://azure.microsoft.com/documentation/services/machine-learning/
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

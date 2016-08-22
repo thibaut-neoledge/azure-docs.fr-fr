@@ -4,11 +4,11 @@
 	authors="kamathashwin"
 	manager=""
 	editor=""
-	services="monitoring"
-	documentationCenter="monitoring"/>
+	services="monitoring-and-diagnostics"
+	documentationCenter="monitoring-and-diagnostics"/>
 
 <tags
-	ms.service="monitoring"
+	ms.service="monitoring-and-diagnostics"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
@@ -126,4 +126,4 @@ La mise à l’échelle automatique notifie par e-mail les administrateurs et le
 - Les mesures ne sont pas disponibles pour que le service de mise à l’échelle automatique prenne une décision de mise à l’échelle.
 - Les mesures sont de nouveau disponibles (récupération) pour prendre une décision de mise à l’échelle. Outre les conditions ci-dessus, vous pouvez configurer des notifications par e-mail ou webhook pour être averti en cas d’action de mise à l’échelle réussie.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

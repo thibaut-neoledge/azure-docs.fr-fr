@@ -47,7 +47,6 @@ Cette rubrique répertorie toutes les rubriques qui s'appliquent directement au 
 | 10 | get-started-create-support-ticket | [Création d’un ticket de support pour SQL Data Warehouse](sql-data-warehouse-get-started-create-support-ticket.md) | Création d'un ticket de support dans Azure SQL Data Warehouse. |
 | 11 | get-started-load-with-azure-data-factory | [Téléchargement de données avec Azure Data Factory](sql-data-warehouse-get-started-load-with-azure-data-factory.md) | Apprenez à charger des données avec Azure Data Factory |
 | 12 | get-started-load-with-polybase | [Télécharger des données avec PolyBase dans SQL Data Warehouse](sql-data-warehouse-get-started-load-with-polybase.md) | Découvrez PolyBase et apprenez comment utiliser cette solution avec les scénarios d’entreposage de données. |
-| 13\. | get-started-new-server | [Créer un serveur logique](sql-data-warehouse-get-started-new-server.md) | Découvrez comment créer une base de données Azure SQL Data Warehouse dans le portail Azure |
 | 14 | get-started-provision | [Créer un Azure SQL Data Warehouse](sql-data-warehouse-get-started-provision.md) | Découvrez comment créer une base de données Azure SQL Data Warehouse dans le portail Azure |
 | 15 | get-started-provision-powershell | [Création de SQL Data Warehouse à l'aide de Powershell](sql-data-warehouse-get-started-provision-powershell.md) | Création de SQL Data Warehouse à l'aide de Powershell |
 | 16 | get-started-visualize-with-power-bi | [Visualiser des données avec Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md) | Visualiser les données SQL Data Warehouse avec Power BI |
@@ -120,7 +119,7 @@ Cette rubrique répertorie toutes les rubriques qui s'appliquent directement au 
 
 
 
-## Charge
+## charger
 
 | &nbsp; | Url-Id | Intitulé | Description |
 | --: | :-- | :-- | :-- |
@@ -193,4 +192,4 @@ Cette rubrique répertorie toutes les rubriques qui s'appliquent directement au 
 | 86 | service-capacity-limits | [Limites de la capacité de SQL Data Warehouse](sql-data-warehouse-service-capacity-limits.md) | Valeurs maximales pour les connexions, les bases de données, les tables et les requêtes pour SQL Data Warehouse. |
 | 87 | troubleshoot | [Résolution des problèmes d’Azure SQL Data Warehouse](sql-data-warehouse-troubleshoot.md) | Résolution des problèmes d’Azure SQL Data Warehouse. |
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0810_2016-->

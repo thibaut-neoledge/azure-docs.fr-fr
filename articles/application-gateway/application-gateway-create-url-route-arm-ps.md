@@ -3,7 +3,7 @@
    description="Cette page fournit des instructions pour créer et configurer une passerelle Application Gateway Azure avec les règles de routage d’URL"
    documentationCenter="na"
    services="application-gateway"
-   authors="joaoma"
+   authors="georgewallace"
    manager="jdial"
    editor="tysonn"/>
 <tags
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/10/2016"
-   ms.author="joaoma"/>
+   ms.author="gwallace"/>
 
 
 # Créer une passerelle Application Gateway à l’aide du routage basé sur l’URL 
@@ -33,7 +33,7 @@ Les demandes pour http://contoso.com/image* seront acheminées vers le pool de s
 
 ## Avant de commencer
 
-1. Installez la dernière version des applets de commande Azure PowerShell à l’aide de Web Platform Installer. Vous pouvez télécharger et installer la dernière version à partir de la section **Windows PowerShell** de la [page Téléchargements](https://azure.microsoft.com/downloads/).
+1. Installez la dernière version des applets de commande Azure PowerShell à l’aide de Web Platform Installer. Vous pouvez télécharger et installer la dernière version à partir de la section **Windows PowerShell** de la [page Téléchargements](https://azure.microsoft.com/downloads/).
 2. Vous allez créer un réseau virtuel et un sous-réseau pour la passerelle Application Gateway. Assurez-vous qu’aucun ordinateur virtuel ou déploiement cloud n’utilise le sous-réseau. La passerelle Application Gateway doit être seule sur un sous-réseau virtuel.
 3. Les serveurs ajoutés au pool principal pour utiliser la passerelle Application Gateway doivent exister, ou vous devez créer leurs points de terminaison sur le réseau virtuel ou avec une adresse IP/VIP publique affectée.
 
@@ -44,9 +44,9 @@ Les demandes pour http://contoso.com/image* seront acheminées vers le pool de s
 
 - **Pool de serveurs principaux :** liste des adresses IP des serveurs principaux. Les adresses IP répertoriées doivent appartenir au sous-réseau de réseau virtuel ou doivent correspondre à une adresse IP/VIP publique.
 - **Paramètres du pool de serveurs principaux :** chaque pool comporte des paramètres tels que le port, le protocole et une affinité basée sur des cookies. Ces paramètres sont liés à un pool et sont appliqués à tous les serveurs du pool.
-- **Port frontal :** il s’agit du port public ouvert sur la passerelle Application Gateway. Le trafic atteint ce port, puis il est redirigé vers l’un des serveurs principaux.
-- **Écouteur :** l’écouteur a un port frontal, un protocole (Http ou Https, avec respect de la casse) et le nom du certificat SSL (en cas de configuration du déchargement SSL).
-- **Règle :** la règle lie l’écouteur et le pool de serveurs principaux, et définit vers quel pool de serveurs principaux le trafic doit être dirigé quand il atteint un écouteur spécifique.
+- **Port frontal :** il s’agit du port public ouvert sur la passerelle Application Gateway. Le trafic atteint ce port, puis il est redirigé vers l’un des serveurs principaux.
+- **Écouteur :** l’écouteur a un port frontal, un protocole (Http ou Https, avec respect de la casse) et le nom du certificat SSL (en cas de configuration du déchargement SSL).
+- **Règle :** la règle lie l’écouteur et le pool de serveurs principaux, ainsi qu’elle définit vers quel pool de serveurs principaux le trafic doit être dirigé quand il atteint un écouteur spécifique.
 
 ## Créer une passerelle Application Gateway
 
@@ -64,12 +64,12 @@ Procédure de création d’une passerelle Application Gateway :
 
 ## Créer un groupe de ressources pour Resource Manager
 
-Assurez-vous que vous disposez de la version la plus récente d’Azure PowerShell. Pour plus d’informations, consultez [Utilisation de Windows Powershell avec Azure Resource Manager](../powershell-azure-resource-manager.md).
+Assurez-vous que vous disposez de la version la plus récente d’Azure PowerShell. Pour plus d’informations, voir [Utilisation de Windows PowerShell avec Azure Resource Manager](../powershell-azure-resource-manager.md).
 
 ### Étape 1
 Connectez-vous à Azure Login-AzureRmAccount
 
-Vous devez indiquer vos informations d’identification.<BR>
+Vous êtes invité à vous authentifier avec vos informations d’identification.<BR>
 
 ### Étape 2 :
 Vérifiez les abonnements associés au compte.
@@ -94,7 +94,7 @@ Azure Resource Manager requiert que tous les groupes de ressources spécifient u
 
 Dans l’exemple ci-dessus, nous avons créé un groupe de ressources appelé « appgw-RG », ainsi que l’emplacement « West US ».
 
->[AZURE.NOTE] Si vous devez configurer une sonde personnalisée pour votre passerelle Application Gateway, consultez [Créer une passerelle Application Gateway avec des sondes personnalisées à l’aide de PowerShell](application-gateway-create-probe-ps.md). Pour plus d’informations, découvrez les [sondes personnalisées et l’analyse du fonctionnement](application-gateway-probe-overview.md).
+>[AZURE.NOTE] Si vous devez configurer une sonde personnalisée pour votre passerelle Application Gateway, consultez [Création d’une passerelle Application Gateway avec des sondes personnalisées à l’aide de PowerShell](application-gateway-create-probe-ps.md). Pour plus d’informations, découvrez les [sondes personnalisées et l’analyse du fonctionnement](application-gateway-probe-overview.md).
 
 ## Créer un réseau virtuel et un sous-réseau pour la passerelle Application Gateway
 
@@ -196,4 +196,4 @@ Créez une passerelle Application Gateway avec tous les objets de configuration 
 ## Obtenir une passerelle Application Gateway
 	$getgw =  Get-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-RG
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0810_2016-->

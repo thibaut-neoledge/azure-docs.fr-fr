@@ -1,20 +1,20 @@
 <properties
 	pageTitle="Affichage des événements et des journaux d'audit"
 	description="Découvrez comment afficher tous les événements qui se produisent dans votre abonnement Azure."
-	authors="HaniKN-MSFT"
-	manager="kamrani"
+	authors="rboucher"
+	manager=""
 	editor=""
-	services="monitoring"
-	documentationCenter="monitoring"/>
+	services="monitoring-and-diagnostics"
+	documentationCenter="monitoring-and-diagnostics"/>
 
 <tags
-	ms.service="monitoring"
+	ms.service="monitoring-and-diagnostics"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="04/28/2015"
-	ms.author="hanikn"/>
+	ms.author="robb"/>
 
 # Affichage des événements et des journaux d'audit
 
@@ -72,4 +72,4 @@ Après avoir choisi ce que vous souhaitez afficher, cliquez sur le bouton **Mise
 * [Surveillance des mesures de service](insights-how-to-customize-monitoring.md) pour vous assurer que votre service est disponible et réactif.
 * [Suivi de l'intégrité du service](insights-service-health.md) pour déterminer à quel moment Azure a rencontré des interruptions de service ou une dégradation des performances.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

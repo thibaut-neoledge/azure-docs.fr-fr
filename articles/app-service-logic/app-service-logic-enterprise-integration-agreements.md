@@ -30,7 +30,7 @@ L'intégration d’entreprise prend en charge trois normes de protocole/transpor
 
 - [AS2](./app-service-logic-enterprise-integration-as2.md)
 - [X 12](./app-service-logic-enterprise-integration-x12.md)
-- [EDIFACT](./app-service-logic-enterprise-integration-edifact.md) (bientôt disponible)
+- [EDIFACT](./app-service-logic-enterprise-integration-edifact.md)
 
 ## Pourquoi utiliser des contrats ?
 Voici quelques-uns des avantages d'utiliser des contrats :
@@ -65,4 +65,4 @@ Vous pouvez supprimer un contrat en suivant ces étapes depuis le compte d’int
 ## Étapes suivantes
 - [Créer un contrat AS2](./app-service-logic-enterprise-integration-as2.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

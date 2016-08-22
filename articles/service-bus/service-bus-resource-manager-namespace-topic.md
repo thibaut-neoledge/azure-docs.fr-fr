@@ -27,9 +27,9 @@ Pour le modèle complet, consultez le [modèle d'espace de noms Service Bus par 
 >[AZURE.NOTE] Les modèles Azure Resource Manager suivants sont disponibles au téléchargement et au déploiement.
 >
 >-    [Créer un espace de noms Service Bus avec file d'attente et règle d’autorisation](service-bus-resource-manager-namespace-auth-rule.md)
->-    [Créer un espace de noms Service Bus avec un concentrateur d'événements et un groupe de consommateurs](service-bus-resource-manager-namespace-event-hub.md)
 >-    [Créer un espace de noms Service Bus avec file d’attente](service-bus-resource-manager-namespace-queue.md)
 >-    [Création d'un espace de noms Service Bus](service-bus-resource-manager-namespace.md)
+>-    [Créer un espace de noms Service Bus avec un concentrateur d'événements et un groupe de consommateurs](service-bus-resource-manager-namespace-event-hub.md)
 >
 >Pour connaître les derniers modèles, recherchez Service Bus dans la galerie de [modèles de démarrage rapide Azure][].
 
@@ -126,7 +126,7 @@ Crée un espace de noms Service Bus standard de type **Messagerie**, avec rubriq
     }]
 ```
 
-## Commandes pour exécuter le déploiement
+## Commandes pour l’exécution du déploiement
 
 [AZURE.INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
@@ -160,4 +160,4 @@ Maintenant que vous avez créé et déployé des ressources à l’aide d’Azur
   [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../xplat-cli-azure-resource-manager.md
   [modèle d'espace de noms Service Bus par rubrique et abonnement]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-topic-and-subscription/
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0810_2016-->

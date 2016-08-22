@@ -14,13 +14,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="infrastructure-services"
-   ms.date="04/20/2016"
+   ms.date="08/05/2016"
    ms.author="danlep"/>
 
 # Articles techniques concernant les machines virtuelles Windows dans le modèle de déploiement Classic
 
 
-Recherchez tous les documents dont vous avez besoin pour créer et gérer des machines virtuelles Windows dans le modèle de déploiement Classic.
+Recherchez tous les documents dont vous avez besoin pour créer et gérer des machines virtuelles Azure basées sur Windows dans le modèle de déploiement Classic.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
@@ -71,7 +71,7 @@ Recherchez tous les documents dont vous avez besoin pour créer et gérer des ma
 [Création d’un groupe à haute disponibilité pour machines virtuelles](virtual-machines-windows-classic-configure-availability.md)
 
 
-## Déploiement
+## Déployer
 
 [Création d’une machine virtuelle personnalisée exécutant Windows](virtual-machines-windows-classic-createportal.md)
 
@@ -89,8 +89,6 @@ Recherchez tous les documents dont vous avez besoin pour créer et gérer des ma
 ## Gérer
 
 [Gérer vos machines virtuelles à l’aide d’Azure PowerShell](virtual-machines-windows-classic-manage-psh.md)
-
-[Commandes équivalentes de Resource Manager et de Service Management pour les tâches de machine virtuelle avec l’interface de ligne de commande Azure](virtual-machines-windows-cli-manage.md)
 	
 [Connexion de réseaux virtuels classiques aux nouveaux réseaux virtuels](../virtual-network/virtual-networks-arm-asm-s2s-howto.md)
 	
@@ -103,6 +101,8 @@ Recherchez tous les documents dont vous avez besoin pour créer et gérer des ma
 [Sauvegarde automatisée pour SQL Server dans les machines virtuelles Azure](virtual-machines-windows-classic-sql-automated-backup.md)
 
 [Mise à jour corrective automatisée pour SQL Server dans les machines virtuelles Azure](virtual-machines-windows-classic-sql-automated-patching.md)
+
+[Migration prise en charge par la plateforme de ressources Classic vers Azure Resource Manager](virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
 
 
 
@@ -170,6 +170,7 @@ Recherchez tous les documents dont vous avez besoin pour créer et gérer des ma
 
 [Tomcat](virtual-machines-windows-classic-java-run-tomcat-app-server.md)
 
+
 ## Référence
 [Commandes de l’interface de ligne de commande Azure en mode Service Management](../virtual-machines-command-line-tools.md)
 
@@ -179,8 +180,7 @@ Recherchez tous les documents dont vous avez besoin pour créer et gérer des ma
 
 [Documentation de référence sur l’applet de commande PowerShell de gestion des services Azure](https://msdn.microsoft.com/library/azure/dn708504.aspx)
 
-
-## Résolution des problèmes
+## Résolution de problèmes
 
 [Résolution des problèmes de connexion Bureau à distance avec une machine virtuelle Azure exécutant Windows](virtual-machines-windows-troubleshoot-rdp-connection.md)
 
@@ -192,4 +192,4 @@ Recherchez tous les documents dont vous avez besoin pour créer et gérer des ma
 
 [Résoudre les problèmes de déploiement Classic liés au redémarrage ou au redimensionnement d’une machine virtuelle Windows existante dans Azure](virtual-machines-windows-classic-restart-resize-error-troubleshooting.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0810_2016-->

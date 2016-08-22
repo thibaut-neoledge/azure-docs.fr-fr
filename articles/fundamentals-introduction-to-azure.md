@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Introduction à Azure | Microsoft Azure"
+	pageTitle="Introduction à Microsoft Azure | Microsoft Azure"
 	description="Vous débutez avec Microsoft Azure ? Consultez une présentation générale des services fournis, ainsi que des exemples démontrant leur efficacité."
 	services=" "
 	documentationCenter=".net"
-	authors="Rboucher"
-	manager="jwhit"
+	authors="rboucher"
+	manager=""
 	editor=""/>
 
 <tags
@@ -18,7 +18,7 @@
 
 # Présentation de Microsoft Azure
 
-Microsoft Azure est la plateforme d'applications de Microsoft pour le cloud public. L’objectif de cet article est de vous donner les bases pour comprendre les principes essentiels d’Azure, même si vous ne disposez d’absolument aucune connaissance en matière de [cloud computing](https://azure.microsoft.com/overview/what-is-cloud-computing/).
+Microsoft Azure est la plateforme d'applications de Microsoft pour le cloud public. L'objectif de cet article est de vous donner les bases pour comprendre les principes essentiels d'Azure, même si vous ne disposez d'absolument aucune connaissance en matière de cloud computing.
 
 **Lecture de cet article**
 
@@ -55,7 +55,7 @@ Vous pouvez utiliser ces technologies de façon séparée ou les combiner en fon
 
 ![Azure Virtual Machines ROBBCSIART\_TEST](./media/fundamentals-introduction-to-azure/mscsiart_VirtualMachinesIntroNew_12345.png) *Figure : Azure Virtual Machines offre un contrôle total des instances de machine virtuelle dans le cloud.*
 
-Il peut s’avérer très utile de créer une machine virtuelle à la demande, à partir d’une image standard comme depuis une image que vous fournissez. Cette approche, communément appelée « Infrastructure as a Service » ([IaaS](https://azure.microsoft.com/overview/what-is-iaas/)) est celle adoptée par les machines virtuelles Azure. La figure 2 présente le fonctionnement d'une machine virtuelle ainsi que la création d'une machine virtuelle depuis un disque dur virtuel.
+Il peut s’avérer très utile de créer une machine virtuelle à la demande, à partir d’une image standard comme depuis une image que vous fournissez. Cette approche, communément appelée « Infrastructure as a Service » (IaaS) est celle adoptée par les machines virtuelles Azure. La figure 2 présente le fonctionnement d'une machine virtuelle ainsi que la création d'une machine virtuelle depuis un disque dur virtuel.
 
 Pour créer une machine virtuelle, indiquez le disque dur virtuel à utiliser et la taille de la machine virtuelle. Vous payez ensuite selon la durée d’utilisation de la machine virtuelle. Vous payez à la minute et uniquement lorsque la machine virtuelle est utilisée. Cela dit, des frais de stockage minimum s'appliquent pour avoir accès au disque dur virtuel. Azure propose une galerie de disques durs virtuels de stockage (appelés « images ») qui contiennent un système d'exploitation amorçable. Ceux-ci comprennent des options Microsoft ainsi que des options partenaires, comme Windows Server et Linux, SQL Server, Oracle et bien d'autres. Vous pouvez créer des disques durs virtuels et des images, puis les télécharger sur le serveur. Vous pouvez même télécharger des disques durs virtuels contenant uniquement des données, puis y accéder depuis vos machines virtuelles en cours d'exécution.
 
@@ -202,7 +202,7 @@ Azure est aujourd'hui exécuté dans de nombreux centres de données à travers 
 ### Réseau virtuel
 ![VirtualNetwork](./media/fundamentals-introduction-to-azure/VirtualNetworkIntroNew.png)
 
-*Figure : le service Virtual Network fournit un réseau privé dans le cloud qui permet à différents services de communiquer les uns avec les autres, ou avec des ressources locales si vous configurez une connexion VPN.*
+*Figure : le service Virtual Network fournit un réseau privé dans le cloud qui permet à différents services de communiquer les uns avec les autres, ou avec des ressources locales si vous configurez une connexion VPN intersite.*
 
 
 Une approche utile pour utiliser un cloud public est de le considérer comme une extension de votre propre centre de données.
@@ -402,7 +402,7 @@ Azure Site Recovery (anciennement appelé Hyper-V Recovery Manager) vous permet 
 
 Azure surveille en continu l'état de vos services et automatise la récupération organisée des services en cas de panne de site dans le centre de données principal. Les machines virtuelles peuvent être intégrées de manière orchestrée pour restaurer rapidement le service, même pour les charges de travail multiniveau complexes.
 
-Azure Site Recovery utilise des technologies existantes telles que Réplica Hyper-V, System Center et SQL Server AlwaysOn. Pour plus de détails, consultez la [vue d’ensemble Azure Site Recovery](site-recovery/site-recovery-overview.md).
+Azure Site Recovery utilise des technologies existantes telles que Réplica Hyper-V, System Center et SQL Server Always On. Pour plus de détails, consultez la [vue d’ensemble Azure Site Recovery](site-recovery/site-recovery-overview.md).
 
 ### Azure Backup
 ![Azure Backup](./media/fundamentals-introduction-to-azure/AzureBackupIntroNew.png)
@@ -430,7 +430,7 @@ Quelle que soit son utilité, tout morceau de code a régulièrement besoin d’
 
 La mise en file d’attente est une idée simple : une application place un message dans une file d’attente afin qu’il soit ensuite lu par une autre application. Si votre application requiert juste ce service simple, les files d’attente Azure peuvent se révéler être le meilleur choix.
 
-Compte tenu de la croissance qu'a connue Azure, les files d'attente Azure Storage et Service Bus fournissent des services de mise en file d'attente similaires. Les raisons qui peuvent vous inciter à utiliser l’une plutôt que l’autre sont présentées dans le document technique [Files d’attente Azure et files d’attente Service Bus - comparaison et différences](http://msdn.microsoft.com/library/azure/hh767287.aspx) Dans de nombreux scénarios, celles-ci peuvent être utilisées indifféremment.
+Compte tenu de la croissance qu'a connue Azure, les files d'attente Azure Storage et Service Bus fournissent des services de mise en file d'attente similaires. Les raisons qui peuvent vous inciter à utiliser l’une plutôt que l’autre sont présentées dans le document technique [<LINK>](http://msdn.microsoft.com/library/azure/hh767287.aspx "Files d’attente Azure et files d’attente Service Bus : comparaison et différences"). Dans de nombreux scénarios, celles-ci peuvent être utilisées indifféremment.
 
 **Scénarios relatifs aux files d’attente**
 
@@ -606,4 +606,4 @@ Maintenant que vous connaissez les grandes lignes, la prochaine étape est de cr
 
 [Azure Media Services Poster]: http://azure.microsoft.com/documentation/infographics/media-services/
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

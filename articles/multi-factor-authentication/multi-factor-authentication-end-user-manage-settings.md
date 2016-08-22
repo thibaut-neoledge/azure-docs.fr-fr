@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/12/2016" 
+	ms.date="08/04/2016" 
 	ms.author="billmath"/>
 
 # Problèmes avec Azure Multi-Factor Authentication
@@ -34,7 +34,7 @@ Cette section vous aidera à résoudre certains problèmes courants que vous pou
 - [Je n’ai pas trouvé de réponse à mon problème](#i-didnt-find-an-answer-to-my-problem)
 
 ##Erreurs d'ID de corrélation
-Si vous avez essayé les étapes de dépannage décrites ci-dessous et que vous rencontrez toujours des problèmes, vous pouvez publier une question sur les [Forums Azure AD](https://social.msdn.microsoft.com/forums/azure/home?forum=WindowsAzureAD), [Rechercher dans la base de connaissances Microsoft (KB)](https://www.microsoft.com/en-us/Search/result.aspx?q=azure%20active%20directory%20connect&form=mssupport) ou [contacter le support technique](https://support.microsoft.com/en-us) afin que nous puissions résoudre votre problème dès que possible.
+Si vous avez essayé les étapes de dépannage décrites ci-dessous et que vous rencontrez toujours des problèmes, vous pouvez publier une question sur les [Forums Azure AD](https://social.msdn.microsoft.com/forums/azure/home?forum=WindowsAzureAD), [Rechercher dans la base de connaissances Microsoft (KB)](https://www.microsoft.com/fr-FR/Search/result.aspx?q=azure%20active%20directory%20connect&form=mssupport) ou [contacter le support technique](https://support.microsoft.com/fr-FR) afin que nous puissions résoudre votre problème dès que possible.
 
 Lorsque vous contactez le support, il est recommandé de fournir les informations suivantes :
 
@@ -47,7 +47,7 @@ Lorsque vous contactez le support, il est recommandé de fournir les information
  
 ![ID de corrélation :](./media/multi-factor-authentication-end-user-manage/correlation.png)
 
- - **ID utilisateur** : quel est l’ID de l’utilisateur qui a vu l’erreur (par exemple user@contoso.com)?)
+ - **ID utilisateur** : quel est l’ID de l’utilisateur qui a vu l’erreur (par exemple user@contoso.com) ?
  - **Informations sur l’utilisateur** : l’utilisateur était-il fédéré, disposait-il de la synchronisation du hachage de mot de passe ou était-ce un utilisateur du cloud uniquement ? L'utilisateur disposait-il d'une licence Azure AD Premium, Enterprise Mobility ou Azure AD de base ? L'utilisateur utilise-t-il Office 365 ? etc.
 
 Ces informations nous aideront à résoudre votre problème aussi rapidement que possible.
@@ -101,7 +101,7 @@ Si vous n’êtes pas sûr de la façon d’utiliser l’authentification multif
 
 #### Pour modifier vos paramètres dans le portail Myapps
 
-1. Ouvrez une session sur [https://myapps.microsoft.com](https://myapps.microsoft.com).	
+1. Ouvrez une session sur [https://myapps.microsoft.com](https://myapps.microsoft.com).
 2. En haut de la page, sélectionnez le profil.
 3. Sélectionnez Vérification de sécurité supplémentaire. ![MyApps](./media/multi-factor-authentication-end-user-manage/myapps1.png)
 4. Ceci vous amènera sur la page qui vous permet de modifier vos paramètres.
@@ -117,7 +117,7 @@ Si vous utilisez l’authentification multifacteur avec Azure, vous pouvez chang
 
 1. Connectez-vous au portail Azure.
 2. En haut du portail Azure, cliquez sur votre nom d’utilisateur. Une zone de liste déroulante s’affiche.
-3. Dans la liste déroulante, sélectionnez Vérification de sécurité supplémentaire. ![Microsoft Azure](./media/multi-factor-authentication-end-user-manage/azure1.png)
+3. Dans la liste déroulante, sélectionnez Vérification de sécurité supplémentaire. ![Les tables Azure](./media/multi-factor-authentication-end-user-manage/azure1.png)
 4. Ceci vous amènera sur la page qui vous permet de modifier vos paramètres. ![Vérification](./media/multi-factor-authentication-end-user-manage-azure/proofup.png)
 
 ##J’ai un nouveau téléphone et je dois modifier mon numéro de téléphone
@@ -145,7 +145,7 @@ Vous devez tout d’abord vérifier les points suivants :
 
 - Si vous avez choisi de recevoir un appel téléphonique sur votre téléphone mobile, vérifiez que vous disposez d’un signal adéquat. La vitesse et la disponibilité de la diffusion des messages peuvent varier selon l’emplacement et l’opérateur.
 - Si vous avez choisi de recevoir les codes de vérification par SMS sur votre téléphone mobile, assurez-vous que votre plan de service et votre appareil prennent en charge la diffusion des messages texte. La vitesse et la disponibilité de la diffusion des messages peuvent varier selon l’emplacement et l’opérateur. Assurez-vous également que vous disposez d’une bonne qualité de signal lors de la réception de ces codes.
-- Si vous avez choisi de recevoir une vérification via l’application mobile, vérifiez que votre téléphone reçoit bien le signal. N’oubliez pas que la vitesse et la disponibilité de la diffusion des messages peuvent varier selon l’emplacement et l’opérateur. 
+- Si vous avez choisi de recevoir une vérification via l’application mobile, vérifiez que votre téléphone reçoit bien le signal. N’oubliez pas que la vitesse et la disponibilité de la diffusion des messages peuvent varier selon l’emplacement et l’opérateur.
 
 Si vous disposez d’un smartphone, nous vous recommandons d’utiliser l’[application Azure Authenticator](multi-factor-authentication-azure-authenticator.md).
 
@@ -166,10 +166,10 @@ Tout d’abord, assurez-vous que vous avez saisi correctement votre mot de passe
 Lorsque vous désinstallez l’application de votre appareil ou que vous réinitialisez l’appareil, l’application ne sera pas désactivée sur le serveur principal. Vous devez suivre la procédure décrite dans la section relative au [transfert vers un nouvel appareil](multi-factor-authentication-azure-authenticator.md#how-to-move-to-the-new-azure-authenticator-app).
 
 ##Je n’ai pas trouvé de réponse à mon problème
-Si n’a pas trouvé de réponse à votre problème sur cette page, vous pouvez publier une question sur les [Forums Azure AD](https://social.msdn.microsoft.com/forums/azure/home?forum=WindowsAzureAD), [Rechercher dans la base de connaissances Microsoft (KB)](https://www.microsoft.com/en-us/Search/result.aspx?q=azure%20active%20directory%20connect&form=mssupport) ou [contacter le support technique](https://support.microsoft.com/en-us).
+Si n’a pas trouvé de réponse à votre problème sur cette page, vous pouvez publier une question sur les [Forums Azure AD](https://social.msdn.microsoft.com/forums/azure/home?forum=WindowsAzureAD), [Rechercher dans la base de connaissances Microsoft (KB)](https://www.microsoft.com/fr-FR/Search/result.aspx?q=azure%20active%20directory%20connect&form=mssupport) ou [contacter le support technique](https://support.microsoft.com/fr-FR).
 
 En outre, vous pouvez contacter votre administrateur ou la personne qui a configuré Multi-Factor Authentication pour vous et voir s’ils peuvent vous aider.
 
 Enfin, veillez à laisser des commentaires détaillés sur cette page afin que nous puissions la mettre à jour, et que nous continuions à l’améliorer en fournissant plus d’informations.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

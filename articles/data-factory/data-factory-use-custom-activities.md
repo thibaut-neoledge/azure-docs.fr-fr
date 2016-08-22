@@ -620,7 +620,7 @@ Dans cette étape, vous allez créer des jeux de données pour représenter les 
 	- **PackageLinkedService** est défini sur **AzureStorageLinkedService**, qui pointe vers le stockage d’objets blob contenant le fichier .zip de l’activité personnalisée. Si vous utilisez des comptes de stockage différents pour les fichiers d’entrée/sortie et le fichier zip de l’activité personnalisée, vous devez créer un autre service lié Azure Storage. Cet article suppose d’utiliser le même compte de stockage Azure.
 	- Le paramètre **PackageFile** est défini sur **customactivitycontainer/MyDotNetActivity.zip**. Il est au format : conteneur\_du\_zip/nom\_du\_zip.zip.
 	- L’activité personnalisée utilise **InputDataset** comme entrée et **OutputDataset** comme sortie.
-	- La propriété linkedServiceName de l’activité personnalisée pointe vers **HDInsightLinkedService**, ce qui indique à Azure Data Factory que l’activité personnalisée doit s’exécuter sur un cluster Azure HDInsight.
+	- La propriété linkedServiceName de l’activité personnalisée pointe vers **AzureBatchLinkedService**, ce qui indique à Azure Data Factory que l’activité personnalisée doit s’exécuter sur des machines virtuelles Azure Batch.
 	- La propriété **isPaused** est définie par défaut sur **false**. Le pipeline s’exécute immédiatement dans cet exemple car les tranches débutent à une date antérieure. Vous pouvez définir cette propriété sur true pour suspendre le pipeline et lui réaffecter la valeur false pour reprendre l’exécution.
 	- **5** heures séparent les heures de **début** et de **fin**, et les tranches sont produites toutes les heures, ce qui signifie que 5 tranches seront produites par le pipeline.
 
@@ -894,4 +894,4 @@ Exemple | Rôle des activités personnalisées
 
 [image-data-factory-download-logs-from-custom-activity]: ./media/data-factory-use-custom-activities/DownloadLogsFromCustomActivity.png
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/25/2016" 
+	ms.date="08/09/2016" 
 	ms.author="sdanie"/>
 
 
@@ -144,7 +144,7 @@ Pour transférer toutes les validations vers le serveur, exécutez la commande s
 
 Une fois vos modifications locales validées et transférées vers le dépôt du serveur, vous pouvez les déployer sur votre instance du service Gestion des API.
 
-![Déploiement][api-management-configuration-deploy]
+![Déployer][api-management-configuration-deploy]
 
 Pour plus d’informations sur l’exécution de cette opération en utilisant l’API REST, consultez [Déployer les modifications Git dans votre base de données de configuration à l’aide de l’API REST](https://msdn.microsoft.com/library/dn781420.aspx#DeployChanges).
 
@@ -297,4 +297,4 @@ Pour plus d’informations sur d’autres méthodes pour gérer votre instance d
 [api-management-delegation-settings]: ./media/api-management-configuration-repository-git/api-management-delegation-settings.png
 [api-management-git-icon-enable]: ./media/api-management-configuration-repository-git/api-management-git-icon-enable.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

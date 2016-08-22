@@ -4,7 +4,7 @@
 	description="Couvre les piliers de l'identité et l'identification des conditions d'accès aux ressources pour les utilisateurs dans un environnement hybride."
 	documentationCenter=""
 	services="active-directory"
-	authors="yuridio"
+	authors="billmath"
 	manager="stevenpo"
 	editor=""/>
 
@@ -14,8 +14,8 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-	ms.date="04/28/2016"
-	ms.author="yuridio"/>
+	ms.date="08/08/2016"
+	ms.author="billmath"/>
 
 # Déterminer les besoins de contrôle d'accès pour votre solution d'identité hybride
 Lorsqu'une organisation conçoit sa solution d'identité hybride, elle peut également profiter de cette opportunité pour passer en revue les exigences d'accès pour les ressources qu'elle envisage de mettre à la disposition des utilisateurs. L'accès aux données couvre les quatre piliers suivants de l'identité :
@@ -73,4 +73,4 @@ Veillez à noter chaque réponse et à comprendre le raisonnement derrière la r
 ## Voir aussi
 [Présentation des considérations relatives à la conception](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -28,15 +28,17 @@ Dans ce didacticiel, vous allez ajouter l’authentification au projet de démar
 
 [AZURE.INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
 
+[Regarder une vidéo montrant des étapes similaires](https://channel9.msdn.com/series/Azure-connected-services-with-Cordova/Azure-connected-services-task-8-Azure-authentication)
+
 ##<a name="permissions"></a>Restriction des autorisations pour les utilisateurs authentifiés
 
 [AZURE.INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
-À présent, vous pouvez vérifier que l’accès anonyme à votre serveur principal a été désactivé. Dans Visual Studio, ouvrez le projet créé durant le didacticiel [Prise en main des applications mobiles], puis exécutez votre application dans l’**Émulateur Google Android** et vérifiez qu’un problème de connexion inattendue est indiqué après le démarrage de l’application.
+À présent, vous pouvez vérifier que l’accès anonyme à votre serveur principal a été désactivé. Dans Visual Studio, ouvrez le projet créé durant le didacticiel [Prise en main des applications mobiles], puis exécutez votre application dans **l’Émulateur Google Android** et vérifiez qu’un problème de connexion inattendue est indiqué après le démarrage de l’application.
 
 Ensuite, vous allez mettre à jour l’application pour authentifier les utilisateurs avant de demander des ressources à partir du serveur principal d’applications mobiles.
 
-##<a name="add-authentication"></a>Ajouter l'authentification à l'application
+##<a name="add-authentication"></a>Ajout de l’authentification à l’application
 
 1. Ouvrez votre projet dans **Visual Studio**, puis ouvrez le fichier `www/index.html` pour modification.
 
@@ -85,18 +87,18 @@ Ensuite, vous allez mettre à jour l’application pour authentifier les utilisa
 
     La méthode login() lance l'authentification auprès du fournisseur. La méthode login() est une méthode asynchrone qui renvoie une promesse JavaScript. Le reste de l’initialisation est placé au sein de la réponse de promesse, de manière à ce qu’aucune exécution n’intervienne avant la fin de la méthode login().
 
-4. Dans le code que vous venez d’ajouter, remplacez `SDK_Provider_Name` par le nom de votre fournisseur de connexion. Par exemple, pour Azure Active Directory, utilisez `client.login('aad')`.
+4. Dans le code que vous venez d'ajouter, remplacez `SDK_Provider_Name` par le nom de votre fournisseur de connexion. Par exemple, pour Azure Active Directory, utilisez `client.login('aad')`.
 
 4. Exécutez votre projet. Une fois que le projet a terminé l’initialisation, votre application affiche la page de connexion OAuth du fournisseur d’authentification choisi.
 
 ##<a name="next-steps"></a>Étapes suivantes
 
 * En savoir plus [À propos de l’authentification] avec Azure App Service.
-* Poursuivez le didacticiel en ajoutant les [Notifications Push] à votre application Apache Cordova.
+* Poursuivez le didacticiel en ajoutant les [Notifications Push] à votre application Apache Cordova.
 
 Découvrez comment utiliser les Kits de développement logiciel.
 
-* [Kit de développement logiciel d’Apache Cordova]
+* [Kit de développement logiciel (SDK) Apache Cordova]
 * [Kit de développement logiciel du serveur ASP.NET]
 * [Kit de développement logiciel du serveur Node.js]
 
@@ -104,10 +106,10 @@ Découvrez comment utiliser les Kits de développement logiciel.
 [Prise en main de Mobile Apps]: app-service-mobile-cordova-get-started.md
 [Prise en main des applications mobiles]: app-service-mobile-cordova-get-started.md
 [documentation Content-Security-Policy]: https://cordova.apache.org/docs/en/latest/guide/appdev/whitelist/index.html
-[Notifications Push]: app-service-mobile-cordova-get-started-push.md
+[Notifications Push]: app-service-mobile-cordova-get-started-push.md
 [À propos de l’authentification]: app-service-mobile-auth.md
-[Kit de développement logiciel d’Apache Cordova]: app-service-mobile-codova-how-to-use-client-library.md
+[Kit de développement logiciel (SDK) Apache Cordova]: app-service-mobile-codova-how-to-use-client-library.md
 [Kit de développement logiciel du serveur ASP.NET]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Kit de développement logiciel du serveur Node.js]: app-service-mobile-node-backend-how-to-use-server-sdk.md
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0810_2016-->

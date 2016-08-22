@@ -3,7 +3,7 @@
    description="Découvrir comment déployer des machines virtuelles avec une adresse IP publique statique à l’aide d’un modèle dans Resource Manager"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor=""
    tags="azure-resource-manager"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="04/27/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 # Déployer une machine virtuelle avec une adresse IP publique statique à l’aide d’un modèle
 
@@ -23,7 +23,7 @@
 
 [AZURE.INCLUDE [virtual-network-deploy-static-pip-intro-include.md](../../includes/virtual-network-deploy-static-pip-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)]Modèle de déploiement classique
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] le modèle de déploiement classique.
 
 [AZURE.INCLUDE [virtual-network-deploy-static-pip-scenario-include.md](../../includes/virtual-network-deploy-static-pip-scenario-include.md)]
 
@@ -184,4 +184,4 @@ Pour déployer le modèle à l’aide de l’interface de ligne de commande Azur
 		data:
 		info:    group create command OK
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0810_2016-->

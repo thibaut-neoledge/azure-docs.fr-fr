@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/23/2016"
+	ms.date="08/09/2016"
 	ms.author="raymondl;garye"/>
 
 
@@ -52,7 +52,7 @@ Diagramme 1 : Présentation du processus de reformation
 	À l’issue de l’exécution de l’expérience, nous cliquons sur Créer une expérience prédictive. Cela crée une expérience prédictive, enregistre le modèle sous la forme d’un modèle formé et ajoute des modules d’entrée et de sortie de service web, comme illustré ci-dessous. Nous cliquons ensuite sur Exécuter.
 
 	Après l’exécution de l’expérience, en cliquant sur « Publication du service web », l’expérience prédictive est publiée en tant que service web et crée un point de terminaison par défaut. Le modèle formé de ce service Web est mis à jour, comme illustré ci-dessous. Les détails de ce point de terminaison apparaissent ensuite sur l’écran.
-3. *Publier l’expérience d’apprentissage en tant que service Web* : afin de reformer le modèle formé, nous devons publier l’expérience d’apprentissage, créée à l’étape 1 ci-dessus, en tant que service Web. Ce service Web a besoin d’un module de sortie de service Web connecté au module [Train Model][train-model], afin de produire de nouveaux modèles formés. Cliquez sur l’icône Expériences dans le volet gauche, puis cliquez sur l’expérience appelée Modèle de recensement pour revenir à l’expérience d’apprentissage.  
+3. *Publier l’expérience d’apprentissage en tant que service Web* : afin de reformer le modèle formé, nous devons publier l’expérience d’apprentissage, créée à l’étape 1 ci-dessus, en tant que service Web. Ce service Web a besoin d’un module de sortie de service Web connecté au module [Train Model][train-model], afin de produire de nouveaux modèles formés. Cliquez sur l’icône Expériences dans le volet gauche, puis cliquez sur l’expérience appelée Modèle de recensement pour revenir à l’expérience d’apprentissage.
 
 	Nous ajoutons ensuite un module d’entrée du service Web et deux modules de sortie du service Web vers le flux de travail. La sortie du service Web pour le modèle formé nous fournit le nouveau modèle formé. La sortie liée à Évaluer le modèle retourne la sortie du module Évaluer le modèle.
 
@@ -63,7 +63,9 @@ Diagramme 1 : Présentation du processus de reformation
 	Nous cliquons ensuite sur le bouton Déployer un service web, puis sur Oui. Cette opération déploie l’expérience de formation en tant que service web qui produit un modèle formé et des résultats de notation du modèle. Le tableau de bord du service Web s’affiche avec la clé d’API et la page d’aide d’API pour l’exécution par lots. Notez que la méthode d’exécution par lots peut être utilisée pour créer des modèles formés.  
 4. *Ajouter un nouveau point de terminaison* : le service web prédictif publié à l’étape 2 ci-dessus correspond au point de terminaison de notation par défaut. Les points de terminaison par défaut sont toujours synchronisés avec l’expérience originale d’apprentissage et de notation. Par conséquent, un modèle formé du point de terminaison par défaut ne peut pas être remplacé. Pour créer un point de terminaison de notation à partir d’un modèle pouvant être mis à jour, visitez le portail Azure Classic et cliquez sur Ajouter un point de terminaison (plus de détails [ici](machine-learning-create-endpoint.md)). Vous pouvez également ajouter des points de terminaison de notation à l’aide de l’exemple de code fourni [ici](https://github.com/raymondlaghaeian/AML_EndpointMgmt/blob/master/Program.cs).
 
-5. *Reformer le modèle avec de nouvelles données et BES* Pour appeler les API de reformation, nous créons une nouvelle application console C# dans Visual Studio (Nouveau -> projet -> Bureau Windows -> Application console).
+5. *Reformer le modèle avec de nouvelles données et BES* Pour reformer le modèle, nous devons appeler la fonction BES du service web que nous avons créé à l'étape 3 ci-dessus.
+
+	Pour appeler les API de reformation, nous créons une nouvelle application console C# dans Visual Studio (Nouveau -> projet -> Bureau Windows -> Application console).
 
 	Ensuite, nous copions l’exemple de code C# à partir de la page d’aide de l’API de service Web d’apprentissage pour l’exécution par lots (créée lors de l’étape 3 ci-dessus) et la collons dans le fichier Program.cs, en vérifiant que l’espace de noms reste intact.
 
@@ -90,15 +92,18 @@ Diagramme 1 : Présentation du processus de reformation
 
 		![][6]
 
-6. *Évaluer les résultats de la reformation* : à l’aide de la combinaison de BaseLocation, RelativeLocation et SasBlobToken des résultats de sortie ci-dessus pour « output2 », nous pouvons voir les résultats des performances du modèle reformé en collant l’URL complète dans la barre d’adresses du navigateur.
+6. *Évaluer les résultats de la reformation* À partir du résultat de l’appel ci-dessus, nous pouvons obtenir l'URL et le jeton SAP pour accéder aux résultats de l'évaluatiob.
+
+	À l’aide de la combinaison de BaseLocation, RelativeLocation et SasBlobToken des résultats de sortie ci-dessus pour « output2 », nous pouvons voir les résultats des performances du modèle reformé en collant l’URL complète dans la barre d’adresses du navigateur.
 
 	Cela indique si le modèle reformé est suffisamment performant pour remplacer le modèle existant.
 
-7. *Mise à jour du modèle formé du point de terminaison ajouté* : pour terminer le processus, nous devons mettre à jour le modèle formé du point de terminaison (de notation) prédictif créé à l’étape 4 ci-dessus
+7. *Mise à jour du modèle formé du point de terminaison ajouté* Pour terminer le processus, nous devons mettre à jour le modèle formé du nouveau point de terminaison ajouté à l’étape 4 ci-dessus.
 
-	(si vous avez ajouté le nouveau point de terminaison à l’aide du portail Azure, vous pouvez cliquer sur le nom du nouveau point de terminaison, puis sur le lien UpdateResource pour obtenir l’URL dont vous avez besoin pour mettre à jour le modèle du point de terminaison. Si vous avez ajouté le point de terminaison à l’aide d’un code, cet appel affichera comme sortie l’URL du point de terminaison).
+	- Si vous avez ajouté le nouveau point de terminaison à l’aide du portail Azure, vous pouvez cliquer sur le nom du nouveau point de terminaison dans le portail Azure, puis sur le lien UpdateResource pour obtenir l’URL dont vous avez besoin pour mettre à jour le modèle du point de terminaison.
+	- Si vous avez ajouté le point de terminaison à l’aide d’un exemple de code, cet appel affichera HelpLocationURL. Copiez et collez cette URL dans le navigateur. Puis cliquez sur le lien Mettre à jour la ressource. Copiez l’URL POST de la requête PATCH (par exemple, pour newendpoint2, il s'agit de l’URL PATCH : https://management.azureml.net/workspaces/00bf70534500b34rebfa1843d6/webservices/af3er32ad393852f9b30ac9a35b/endpoints/newendpoint2)
 
-	La sortie BES ci-dessus affiche les informations pour le résultat de la reformation de « output1 », qui contient les informations d’emplacement du modèle reformé. Nous devons maintenant prendre ce modèle formé et mettre à jour le point de terminaison de notation (créé à l’étape 4 ci-dessus). Voici un exemple de code :
+	La sortie de la fonction BES à l'étape 5.a ci-dessus montre les résultat dans « output1 », qui contient l’emplacement du modèle reformé. Nous devons maintenant prendre ce modèle formé et mettre à jour le point de terminaison de notation (créé à l’étape 4 ci-dessus). Voici un exemple de code :
 
 	```C#
 	private async Task OverwriteModel()
@@ -144,10 +149,13 @@ Diagramme 1 : Présentation du processus de reformation
 	
 	Notez que le jeton SAS expire au bout d’1 heure (55 minutes). Vous devez effectuer une opération GET avec l’ID de travail pour obtenir un nouveau jeton.
 
-	Après le succès de cet appel, le nouveau point de terminaison commence à utiliser le modèle reformé dans les 15 secondes environ.
+	Après le succès de cet appel, le nouveau point de terminaison commence à utiliser le modèle reformé dans les 15 - 30 secondes environ.
 
 ##Résumé  
 À l’aide des API de reformation, nous pouvons mettre à jour le modèle formé d’un service Web prédictif, ce qui permet des scénarios comme la reformation périodique de modèles avec de nouvelles données ou la distribution de modèles à des clients dans le but de leur permettre de reformer le modèle à l’aide de leurs propres données.
+
+## Étapes suivantes
+[Dépannage de la reformation d’un service web classique Azure Machine Learning](machine-learning-troubleshooting-retraining-models.md)
 
 [1]: ./media/machine-learning-retrain-models-programmatically/machine-learning-retrain-models-programmatically-IMAGE01.png
 [2]: ./media/machine-learning-retrain-models-programmatically/machine-learning-retrain-models-programmatically-IMAGE02.png
@@ -160,4 +168,4 @@ Diagramme 1 : Présentation du processus de reformation
 <!-- Module References -->
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

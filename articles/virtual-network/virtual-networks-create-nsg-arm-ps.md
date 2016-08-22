@@ -3,7 +3,7 @@
    description="Découvrez comment créer et déployer des groupes de sécurité réseau dans Azure Resource Manager à l’aide de PowerShell"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor="tysonn"
    tags="azure-resource-manager"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/23/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 # Création de groupes de sécurité réseau dans Resource Manager à l’aide de PowerShell
 
@@ -100,7 +100,7 @@ Pour créer un groupe de sécurité réseau nommé *NSG-FrontEnd* selon le scén
 		Set-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name FrontEnd `
 			-AddressPrefix 192.168.1.0/24 -NetworkSecurityGroup $nsg
 
-	La sortie indique seulement les paramètres du sous-réseau *FrontEnd*. Notez la valeur de la propriété **NetworkSecurityGroup** :
+	La sortie indique seulement les paramètres du sous-réseau *FrontEnd*. Notez la valeur de la propriété **NetworkSecurityGroup** :
 
 		Subnets           : [
 		                      {
@@ -162,7 +162,7 @@ Pour créer un groupe de sécurité réseau nommé *NSG-BackEnd* selon le scéna
 		Set-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name BackEnd `
 			-AddressPrefix 192.168.2.0/24 -NetworkSecurityGroup $nsg
 
-	La sortie indique seulement les paramètres du sous-réseau *BackEnd*. Notez la valeur de la propriété **NetworkSecurityGroup** :
+	La sortie indique seulement les paramètres du sous-réseau *BackEnd*. Notez la valeur de la propriété **NetworkSecurityGroup** :
 
 		Subnets           : [
                       {
@@ -182,4 +182,4 @@ Pour créer un groupe de sécurité réseau nommé *NSG-BackEnd* selon le scéna
 
 		Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 
-<!------HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -3,8 +3,8 @@
    description="Découvrez comment déployer des appliances virtuelles et un UDR pour créer un environnement d’application multiniveau dans Azure"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
-   manager="christb"
+   authors="jimdial"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="virtual-network"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="05/05/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 # Scénario d’appliance virtuelle
 
@@ -39,7 +39,7 @@ La solution ci-dessous utilise des appliances virtuelles de pare-feu pour implé
 Vous pouvez déployer l’environnement décrit ci-dessus dans Azure à l’aide de différentes fonctionnalités disponibles aujourd’hui, comme suit.
 
 - **Réseau virtuel**. Un réseau virtuel Azure se comporte de manière similaire à un réseau local et peut se décomposer en un ou plusieurs sous-réseaux pour isoler le trafic et les problèmes.
-- **Appliance virtuelle**. Plusieurs partenaires fournissent des appliances virtuelles dans Azure Marketplace, utilisables pour les trois pare-feu décrits ci-dessus. 
+- **Appliance virtuelle**. Plusieurs partenaires fournissent des appliances virtuelles dans Azure Marketplace, utilisables pour les trois pare-feu décrits ci-dessus.
 - **Itinéraires définis par l’utilisateur**. Les tables peuvent contenir des itinéraires définis par l’utilisateur, utilisés par la mise en réseau Azure pour contrôler le flux de paquets dans un réseau virtuel. Ces tables d’itinéraires peuvent être appliquées à des sous-réseaux. L’une des fonctionnalités les plus récentes d’Azure consiste à appliquer une table d’itinéraires au sous-réseau GatewaySubnet, pour transférer tout le trafic entrant dans le réseau virtuel Azure entre la connexion hybride et une appliance virtuelle.
 - **Transfert IP**. Par défaut, le moteur de mise en réseau Azure ne transfère les paquets aux cartes réseau que si l’adresse IP de destination des paquets correspond à l’adresse IP de la carte réseau. Par conséquent, si un itinéraire défini par l’utilisateur détermine qu’un paquet doit être envoyé à une appliance virtuelle donnée, le moteur de mise en réseau Azure supprime ce paquet. Pour vérifier que le paquet est envoyé à une machine virtuelle (dans ce cas, une appliance virtuelle) qui n’est pas la destination réelle du paquet, vous devez activer le transfert IP pour l’appliance virtuelle.
 - **Groupes de sécurité réseau (NSG)**. L’exemple ci-dessous ne fait pas l’utilisation de groupes de sécurité réseau, mais vous pouvez utiliser des NSG appliqués aux sous-réseaux ou des cartes réseau dans cette solution pour filtrer le trafic vers et depuis ces sous-réseaux et cartes réseau.
@@ -49,9 +49,9 @@ Vous pouvez déployer l’environnement décrit ci-dessus dans Azure à l’aide
 
 Dans cet exemple, il existe un abonnement qui contient les éléments suivants :
 
-- 2 groupes de ressources, non représentés sur le diagramme. 
+- 2 groupes de ressources, non représentés sur le diagramme.
 	- **ONPREMRG**. Contient toutes les ressources nécessaires pour simuler un réseau local.
-	- **AZURERG**. Contient toutes les ressources nécessaires pour l’environnement du réseau virtuel Azure. 
+	- **AZURERG**. Contient toutes les ressources nécessaires pour l’environnement du réseau virtuel Azure.
 - Un réseau virtuel nommé **onpremvnet** utilisé pour imiter un centre de données local segmenté comme indiqué ci-dessous.
 	- **onpremsn1**. Sous-réseau contenant une machine virtuelle exécutant Ubuntu pour imiter un serveur local.
 	- **onpremsn2**. Sous-réseau contenant une machine virtuelle exécutant Ubuntu pour simuler un ordinateur local utilisé par un administrateur.
@@ -61,8 +61,8 @@ Dans cet exemple, il existe un abonnement qui contient les éléments suivants 
 	- **azsn2**. Sous-réseau frontal hébergeant une machine virtuelle exécutée en tant que serveur web accessible à partir d’Internet.
 	- **azsn3**. Sous-réseau principal hébergeant une machine virtuelle exécutant un serveur d’applications principal sollicité par le serveur web frontal.
 	- **azsn4**. Sous-réseau utilisé exclusivement pour fournir un accès de gestion à toutes les appliances virtuelles de pare-feu. Ce sous-réseau ne contient qu’une carte réseau pour chaque appliance virtuelle de pare-feu utilisée dans la solution.
-	- **GatewaySubnet**. Sous-réseau de connexion hybride Azure requis pour une route ExpressRoute et une passerelle VPN assurant la connectivité entre des réseaux virtuels Azure et d’autres réseaux. 
-- Le réseau **azurevnet** contient 3 appliances virtuelle de pare-feu. 
+	- **GatewaySubnet**. Sous-réseau de connexion hybride Azure requis pour une route ExpressRoute et une passerelle VPN assurant la connectivité entre des réseaux virtuels Azure et d’autres réseaux.
+- Le réseau **azurevnet** contient 3 appliances virtuelle de pare-feu.
 	- **AZF1**. Pare-feu externe exposé à l’Internet public par l’utilisation d’une ressource ayant une adresse IP publique dans Azure. Vous devez vous procurer un modèle auprès de Marketplace ou directement auprès de votre fournisseur d’appliances, qui approvisionne une appliance virtuelle à 3 cartes réseau.
 	- **AZF2**. Pare-feu interne utilisé pour contrôler le trafic entre **azsn2** et **azsn3**. C’est également une appliance virtuelle à 3 cartes réseau.
 	- **AZF3**. Pare-feu de gestion accessible aux administrateurs à partir du centre de données local, et connecté à un sous-réseau servant à gérer toutes les appliances de pare-feu. Vous pouvez trouver des modèles d’appliance virtuelle à 2 cartes réseau dans Marketplace ou en demander un à votre fournisseur d’appliances.
@@ -115,7 +115,7 @@ L’UDR et le transfert IP sont des fonctionnalités que vous pouvez combiner po
 
 La machine virtuelle d’appliance virtuelle doit être capable de recevoir le trafic entrant qui ne lui est pas adressé. Pour permettre à une machine virtuelle de recevoir le trafic adressé à d’autres destinations, vous devez activer le transfert IP pour la machine virtuelle. Il s’agit d’un paramètre Azure, pas d’un paramètre du système d’exploitation invité. Votre appliance virtuelle doit toujours exécuter un type d’application pour gérer le trafic entrant et l’acheminer correctement.
 
-Pour plus d’informations sur le transfert IP, consultez [Présentation des itinéraires définis par l’utilisateur et du transfert IP](./virtual-networks-udr-overview/#ip-forwarding).
+Pour plus d’informations sur le transfert IP, consultez la [Présentation des itinéraires définis par l’utilisateur et du transfert IP](./virtual-networks-udr-overview.md#ip-forwarding).
 
 Par exemple, imaginez un réseau virtuel Azure avec la configuration suivante :
 
@@ -178,4 +178,4 @@ Pour déployer ce scénario, suivez la procédure générale suivante.
 4.	Approvisionnez le tunnel reliant **onpremvnet** à **azurevnet**.
 5.	Une fois toutes les ressources approvisionnées, ouvrez une session sur **onpremvm2** et envoyez la commande ping 10.0.3.101 pour tester la connectivité entre **onpremsn2** et **azsn3**.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

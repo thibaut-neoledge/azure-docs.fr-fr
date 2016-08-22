@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/23/2016" 
+	ms.date="08/09/2016" 
 	ms.author="sdanie"/>
 
 # Résolution des problèmes du cache Redis Azure
@@ -47,7 +47,7 @@ Une saturation de la mémoire sur l’ordinateur client génère des problèmes 
 
 #### Mesure 
 
-1.	Surveillez l’utilisation de la mémoire sur l’ordinateur et vérifiez qu’elle ne dépasse pas la mémoire disponible. 
+1.	Surveillez l’utilisation de la mémoire sur l’ordinateur et vérifiez qu’elle ne dépasse pas la mémoire disponible.
 2.	Surveillez le compteur de performances `Page Faults/Sec`. La plupart des systèmes rencontrent des erreurs de page, même lors d’un fonctionnement normal. Donc, surveillez les pics dans ce compteur de performances, car ils correspondent à des délais d’attente.
 
 #### Résolution :
@@ -164,8 +164,8 @@ Cette section traite des problèmes qui surviennent en raison d’un souci sur l
 
 La saturation de la mémoire sur le serveur génère toutes sortes de problèmes de performance susceptibles de retarder le traitement des demandes. En cas de saturation de la mémoire, le système doit généralement paginer les données de la mémoire physique dans la mémoire virtuelle située sur le disque. Cette *pagination* ralentit considérablement le système. Plusieurs causes peuvent être à l’origine de cette saturation de la mémoire :
 
-1.	Le cache de données est saturé. 
-2.	Redis constate une fragmentation importante de la mémoire, le plus souvent provoquée par le stockage d’objets volumineux. Redis est optimisé pour les petits objets. Pour en savoir plus, consultez le billet [What is the ideal value size range for redis? Is 100KB too large?](https://groups.google.com/forum/#!searchin/redis-db/size/redis-db/n7aa2A4DZDs/3OeEPHSQBAAJ). 
+1.	Le cache de données est saturé.
+2.	Redis constate une fragmentation importante de la mémoire, le plus souvent provoquée par le stockage d’objets volumineux. Redis est optimisé pour les petits objets. Pour en savoir plus, consultez le billet [What is the ideal value size range for redis? Is 100KB too large?](https://groups.google.com/forum/#!searchin/redis-db/size/redis-db/n7aa2A4DZDs/3OeEPHSQBAAJ).
 
 #### Mesure
 
@@ -264,7 +264,7 @@ Ce message d’erreur contient des mesures qui peuvent vous aider à identifier 
 4. Si des demandes sont impactées par les limitations de bande passante sur le serveur ou le client, leur traitement prend davantage de temps, ce qui entraîne des délais d’expiration. Pour voir si le délai d’expiration est dû à la bande passante réseau sur le serveur, consultez [Bande passante dépassée côté serveur](#server-side-bandwidth-exceeded). Pour voir si le délai d’expiration est dû à la bande passante réseau sur le client, consultez [Bande passante dépassée côté client](#client-side-bandwidth-exceeded).
 
 6. Constatez-vous une utilisation intensive du processeur sur le serveur ou sur le client ?
-	-	Vérifiez si vous constatez une utilisation intensive du processeur sur votre client, qui pourrait empêcher le traitement de la demande pendant l’intervalle `synctimeout`, entraînant un délai d’expiration. Augmentez la taille de votre client ou répartissez la charge pour résoudre ce problème. 
+	-	Vérifiez si vous constatez une utilisation intensive du processeur sur votre client, qui pourrait empêcher le traitement de la demande pendant l’intervalle `synctimeout`, entraînant un délai d’expiration. Augmentez la taille de votre client ou répartissez la charge pour résoudre ce problème.
 	-	Vérifiez si vous constatez une utilisation intensive du processeur sur votre serveur, à l’aide de la [mesure de performance du cache](cache-how-to-monitor.md#available-metrics-and-reporting-intervals) `CPU`. L’entrée de demandes pendant que Redis utilise intensivement le processeur peut entraîner une expiration du traitement des demandes. Pour résoudre ce problème, vous pouvez répartir la charge sur plusieurs partitions dans un cache premium, ou effectuer une mise à niveau vers une taille ou un niveau de tarification supérieur. Pour plus d’informations, consultez [Bande passante dépassée côté serveur](#server-side-bandwidth-exceeded).
 
 7. Le traitement de certaines commandes est-il trop long sur le serveur ? Les commandes qui prennent beaucoup de temps sur le serveur redis peuvent entraîner des délais d’expiration. Les commandes `mget` avec un nombre important de clés, `keys *` ou des scripts mal rédigés prennent notamment beaucoup de temps pour s’exécuter. Vous pouvez vous connecter à votre instance de cache Redis Azure à l’aide du client redis-cli ou utiliser la [Console Redis](cache-configure.md#redis-console) et exécuter la commande [SlowLog](http://redis.io/commands/slowlog) pour identifier les demandes prenant davantage de temps que prévu. Le serveur Redis et StackExchange.Redis sont optimisés pour traiter un grand nombre de petites requêtes plutôt qu’un nombre réduit de demandes volumineuses. Fractionner vos données en segments plus petits peut améliorer les choses.
@@ -280,18 +280,7 @@ Ce message d’erreur contient des mesures qui peuvent vous aider à identifier 
 11. Si vous utilisez `RedisSessionStateprovider`, vérifiez que vous avez configuré correctement le délai d’expiration de nouvelle tentative. `retrytimeoutInMilliseconds` doit être supérieur à `operationTimeoutinMilliseonds`, sinon aucune nouvelle tentative n’est effectuée. Dans l’exemple suivant, `retrytimeoutInMilliseconds` est réglé sur 3 000. Pour plus d’informations, consultez [Fournisseur d’état de session ASP.NET pour Cache Redis Azure](cache-aspnet-session-state-provider.md) et [How to use the configuration parameters of Session State Provider and Output Cache Provider](https://github.com/Azure/aspnet-redis-providers/wiki/Configuration).
 
 
-	<add
-	  name="AFRedisCacheSessionStateProvider"
-	  type="Microsoft.Web.Redis.RedisSessionStateProvider"
-	  host="enbwcache.redis.cache.windows.net"
-	  port="6380"
-	  accessKey="…"
-	  ssl="true"
-	  databaseId="0"
-	  applicationName="AFRedisCacheSessionState"
-	  connectionTimeoutInMilliseconds = "5000"
-	  operationTimeoutInMilliseconds = "1000"
-	  retryTimeoutInMilliseconds="3000" />
+	<add name="AFRedisCacheSessionStateProvider" type="Microsoft.Web.Redis.RedisSessionStateProvider" host="enbwcache.redis.cache.windows.net" port="6380" accessKey="…" ssl="true" databaseId="0" applicationName="AFRedisCacheSessionState" connectionTimeoutInMilliseconds = "5000" operationTimeoutInMilliseconds = "1000" retryTimeoutInMilliseconds="3000" />
 
 
 12. Vérifiez l’utilisation de la mémoire sur le serveur du cache Redis Azure en [surveillant](cache-how-to-monitor.md#available-metrics-and-reporting-intervals) `Used Memory RSS` et `Used Memory`. Si une stratégie d’éviction est en place, Redis commence la suppression de clés lorsque `Used_Memory` atteint la taille du cache. Dans l’idéal, `Used Memory RSS` doit être légèrement supérieur à `Used memory`. Une différence importante traduit une fragmentation de la mémoire (interne ou externe). Lorsque `Used Memory RSS` est inférieur à `Used Memory`, cela signifie que le système d’exploitation a permuté une partie de la mémoire cache. Dans ce cas, vous pouvez rencontrer des latences importantes. Comme Redis ne contrôle pas le mode de mappage de ses allocations aux pages mémoire, une valeur élevée de `Used Memory RSS` traduit souvent un pic d’utilisation de la mémoire. Lorsque Redis libère de la mémoire, celle-ci est redonnée à l’allocateur qui peut (ou pas) rendre la mémoire au système. Il peut y avoir une différence entre la valeur de `Used Memory` et la consommation de mémoire telle qu’elle est indiquée par le système d’exploitation. Ceci peut s’expliquer par le fait que la mémoire a été utilisée et libérée par Redis, mais pas restituée au système. Pour réduire les problèmes de mémoire, vous pouvez effectuer les étapes suivantes.
@@ -308,4 +297,4 @@ Ce message d’erreur contient des mesures qui peuvent vous aider à identifier 
 -	[Comment exécuter des commandes Redis ?](cache-faq.md#how-can-i-run-redis-commands)
 -	[Surveillance du cache Redis Azure](cache-how-to-monitor.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

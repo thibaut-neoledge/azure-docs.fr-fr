@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/12/2016" 
+	ms.date="08/04/2016" 
 	ms.author="billmath"/>
 
 # Rapports dans Azure Multi-Factor Authentication
@@ -22,7 +22,7 @@ Azure Multi-Factor Authentication fournit plusieurs rapports qui peuvent être u
 
 Vous pouvez accéder à ces rapports via le portail de gestion d’Azure.
 
-Nom| Description
+Name| Description
 :------------- | :------------- | 
 Utilisation | Les rapports d'utilisation affichent des informations sur l'utilisation générale, des récapitulatifs par utilisateurs et des détails sur les utilisateurs.
 État du serveur|Ce rapport affiche l'état des serveurs Multi-Factor Authentication associés à votre compte.
@@ -34,7 +34,7 @@ Mis en file d'attente.|Répertorie les rapports en file d'attente de traitement 
 ## Pour afficher des rapports
 
 1.	Connectez-vous à http://azure.microsoft.com.
-2.	Sélectionnez Active Directory à gauche.
+2.	Sélectionnez à gauche Active Directory.
 3.	Sélectionnez l’une des options suivantes :
 	- **Option 1** : cliquez sur l’onglet Fournisseurs d’authentification multifacteur. Sélectionnez votre fournisseur MFA et cliquez sur le bouton Gérer dans la partie inférieure.
 	- **Option 2** : sélectionnez votre annuaire et cliquez sur l’onglet Configurer. Dans la section Authentification multifacteur, sélectionnez Gérer les paramètres du service. En bas de la page Paramètres du service MFA, cliquez sur le lien Accéder au portail.
@@ -49,4 +49,4 @@ Mis en file d'attente.|Répertorie les rapports en file d'attente de traitement 
 * [Azure Multi-Factor Authentication sur MSDN](https://msdn.microsoft.com/library/azure/dn249471.aspx)
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

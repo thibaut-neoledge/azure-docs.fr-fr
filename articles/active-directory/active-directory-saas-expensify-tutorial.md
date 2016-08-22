@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/17/2016"
+	ms.date="08/04/2016"
 	ms.author="jeedes"/>
 
 
@@ -58,7 +58,7 @@ Pour configurer l’intégration de Expensify à Azure AD, vous devez ajouter E
 
 **Pour ajouter Expensify à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **portail Azure Classic**, cliquez sur **Active Directory**. 
+1. Dans le volet de navigation gauche du **portail Azure Classic**, cliquez sur **Active Directory**.
 
 	![Active Directory][1]
 
@@ -218,9 +218,7 @@ Dans cette section, vous allez créer un utilisateur de test appelé Britta Simo
 
 ### Création d’un utilisateur test Expensify
 
-Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Expensify. Expensify prend en charge l’approvisionnement juste-à-temps, option activée par défaut.
-
-Vous n’avez aucune opération à effectuer dans cette section. Un nouvel utilisateur est créé lors de l’accès Expensify si l’utilisateur n’existe pas encore. [Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-single-sign-on).
+Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Expensify. Collaborez avec l’équipe du support technique Expensify pour ajouter des utilisateurs à la plateforme Expensify.
 
 > [AZURE.NOTE] Si vous devez créer un utilisateur manuellement, contactez l’équipe de support Expensify.
 
@@ -233,7 +231,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 **Pour affecter Britta Simon à Expensify, procédez comme suit :**
 
-1. Pour ouvrir l’affichage des applications dans le portail Azure Classic, dans l’affichage de l’annuaire, cliquez sur l’option **Applications** figurant dans le menu du haut.
+1. Pour ouvrir la vue des applications dans le portail Azure Classic, dans la vue d’annuaire, cliquez sur l’option **Applications** figurant dans le menu du haut.
 
 	![Affecter des utilisateurs][201]
 
@@ -283,4 +281,4 @@ Dans cette section, vous allez tester la configuration de l’authentification u
 [204]: ./media/active-directory-saas-expensify-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-expensify-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0810_2016-->

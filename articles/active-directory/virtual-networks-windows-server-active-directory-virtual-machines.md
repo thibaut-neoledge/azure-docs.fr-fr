@@ -24,7 +24,7 @@ Cette rubrique de navigation contient des liens vers d’autres rubriques sur la
 
 ## Consignes conceptuelles
 
-- [Instructions pour le déploiement de Windows Server Active Directory sur Azure Virtual Machines](https://msdn.microsoft.com/library/azure/jj156090.aspx)
+- [Instructions pour le déploiement de Windows Server Active Directory sur Azure Virtual Machines](https://msdn.microsoft.com/library/azure/jj156090.aspx)
 
 ## Vidéo
 
@@ -34,7 +34,7 @@ Cette rubrique de navigation contient des liens vers d’autres rubriques sur la
 
 - [Installer une nouvelle forêt Active Directory sur un réseau virtuel Azure](active-directory-new-forest-virtual-machine.md)
 - [Installer un contrôleur de domaine Active Directory de réplication dans Azure Virtual Network](../active-directory/active-directory-install-replica-active-directory-domain-controller.md)
-- [Configuration d’un environnement de cloud hybride à des fins de test](../virtual-machines/virtual-machines-windows-ps-hybrid-cloud-test-env-base.md)
+- [Configuration d’un environnement de cloud hybride à des fins de test](../virtual-machines/virtual-machines-windows-ps-hybrid-cloud-test-env-sim.md)
 
 
 ## Ressources supplémentaires
@@ -42,4 +42,4 @@ Cette rubrique de navigation contient des liens vers d’autres rubriques sur la
 - [Inscription à Azure en tant qu’organisation](sign-up-organization.md)
 - [Identité Azure](fundamentals-identity.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0810_2016-->

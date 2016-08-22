@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="05/17/2016"
+	ms.date="08/10/2016"
 	ms.author="piyushjo;ricksal" />
 
 # Intégration du SDK Android pour Azure Mobile Engagement
@@ -52,25 +52,15 @@ Vous pouvez ajouter les fonctionnalités suivantes :
 
 ## Notes de publication
 
-### 4\.2.2 (05/17/2016)
+### 4\.2.3 (08/10/2016)
 
-- Améliorations de la stabilité.
-
-### 4\.2.1 (05/10/2016)
-
-- Sécurité : Désactivation de l’accès aux fichiers locaux dans les vues web.
-- Sécurité : Suppression de la classe `EngagementPreferenceActivity` qui étend la classe `PreferenceActivity` obsolète et non sécurisée.
-- Sécurité : Les activités Reach sont maintenant documentées pour utiliser `exported="false"`. Vous pouvez aussi utiliser cet indicateur dans les versions précédentes du SDK.
-
-### 4\.2.0 (03/11/2016)
-
-- Le Kit de développement logiciel (SDK) est désormais sous licence MIT.
-- Autorise la spécification d’un identificateur d’appareil personnalisé au moment de l’initialisation du Kit de développement logiciel (SDK).
+ - Plus aucun verrou Wi-Fi.
+ - Résolution d'un blocage lors de l’appel de getDeviceId avant init (bogue introduit dans 4.2.0).
 
 Pour toutes les versions, consultez les [notes de publication complètes](mobile-engagement-android-release-notes.md).
 
 ## Procédures de mise à niveau
 
-Si vous avez déjà intégré une version plus ancienne de notre SDK dans votre application, consultez [Procédures de mise à niveau](mobile-engagement-android-upgrade-procedure.md).
+Si vous avez déjà intégré une version plus ancienne de notre kit de développement logiciel (SDK) dans votre application, consultez [Procédures de mise à niveau](mobile-engagement-android-upgrade-procedure.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

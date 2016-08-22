@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/12/2016" 
+	ms.date="08/04/2016" 
 	ms.author="billmath"/>
 
 # Configuration d’Azure Multi-Factor Authentication
@@ -82,7 +82,7 @@ Une alerte de fraude peut être déclarée de deux façons. À l’aide de l'app
 ### Pour afficher le rapport de fraude
 
 1. Ouvrez une session sur [http://azure.microsoft.com](https://azure.microsoft.com/)
-2. Sélectionnez Active Directory à gauche.
+2. Sélectionnez à gauche Active Directory.
 3. En haut de la page, sélectionnez Fournisseurs d'authentification multifacteur. Cela fera apparaître une liste de vos fournisseurs d'authentification multifacteur.
 4. Si vous avez plusieurs fournisseurs d'authentification multifacteur, sélectionnez celui pour lequel vous souhaitez afficher le rapport d’alertes de fraude et cliquez sur Gérer en bas de la page. Si vous n’en avez qu’un, cliquez sur Gérer. Cette opération ouvre le portail de gestion Azure Multi-Factor Authentication.
 5. Dans le portail de gestion Azure Multi-Factor Authentication, sur la gauche, sous Afficher un rapport, cliquez sur Alerte de fraude.
@@ -108,7 +108,7 @@ Un contournement à usage unique permet à un utilisateur de s'authentifier une 
 ### Pour afficher le rapport de contournement à usage unique
 
 1. Ouvrez une session sur [http://azure.microsoft.com](https://azure.microsoft.com/)
-2. Sélectionnez Active Directory à gauche.
+2. Sélectionnez à gauche Active Directory.
 3. En haut de la page, sélectionnez Fournisseurs d'authentification multifacteur. Cela fera apparaître une liste de vos fournisseurs d'authentification multifacteur.
 4. Si vous avez plusieurs fournisseurs d'authentification multifacteur, sélectionnez celui pour lequel vous souhaitez afficher le rapport d’alertes de fraude et cliquez sur Gérer en bas de la page. Si vous n’en avez qu’un, cliquez sur Gérer. Cette opération ouvre le portail de gestion Azure Multi-Factor Authentication.
 5. Dans le portail de gestion Azure Multi-Factor Authentication, sur la gauche, sous Afficher un rapport, cliquez sur Contournement à usage unique.
@@ -165,7 +165,7 @@ La mise en cache vous permet de définir une période spécifique pour que les t
 
 <center>![Cloud](./media/multi-factor-authentication-whats-next/cache.png)</center>
 
-## Adresses IP de confiance
+## Adresses IP approuvées
 
 Adresses IP approuvées est une fonctionnalité d'authentification multifacteur qui permet aux administrateurs d'un client géré ou fédéré de contourner l'authentification multifacteur des utilisateurs qui se connectent à partir de l'intranet local de l'entreprise. Les fonctionnalités sont disponibles pour les clients Azure AD titulaires d’une licence Azure AD Premium, Enterprise Mobility Suite ou Azure Multi-Factor Authentication.
 
@@ -319,7 +319,7 @@ Les utilisateurs pourront également créer des mots de passe d’application pa
 
 ![Mots de passe d'application](./media/multi-factor-authentication-whats-next/app2.png)
 
-### Pour créer des mots de passe d'application si vous ne possédez pas d'abonnement Office 365 ou Azure
+### Pour créer des mots de passe d’application si vous ne possédez pas d’abonnement Office 365 ou Azure
 --------------------------------------------------------------------------------
 1. Ouvrez une session sur [https://myapps.microsoft.com](https://myapps.microsoft.com)
 2. En haut de la page, sélectionnez le profil.
@@ -376,4 +376,4 @@ Méthode|Description
 9. Cliquez sur Enregistrer.
 10. Cliquez sur Fermer.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0810_2016-->

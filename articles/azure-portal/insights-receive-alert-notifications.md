@@ -1,20 +1,20 @@
 <properties
 	pageTitle="Réception de notifications d’alerte pour les services Azure | Microsoft Azure"
 	description="Soyez averti quand des conditions de règles d'alerte sont remplies."
-	authors="stepsic-microsoft-com"
-	manager="ronmart"
+	authors="rboucher"
+	manager=""
 	editor=""
-	services="monitoring"
-	documentationCenter="monitoring"/>
+	services="monitoring-and-diagnostics"
+	documentationCenter="monitoring-and-diagnostics"/>
 
 <tags
-	ms.service="monitoring"
+	ms.service="monitoring-and-diagnostics"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/08/2015"
-	ms.author="stepsic"/>
+	ms.author="robb"/>
 
 # Réception de notifications d'alerte
 
@@ -32,8 +32,8 @@ Vous pouvez utiliser l'[API REST](https://msdn.microsoft.com/library/azure/dn931
 
 2. Cliquez sur la vignette **Règles d'alerte** vignette dans le filtre **Opérations**.
 
-3. Cliquez sur la commande **Ajouter une alerte**. 
-![Ajouter une alerte](./media/insights-receive-alert-notifications/Insights_AddAlert.png)
+3. Cliquez sur la commande **Ajouter une alerte**.
+    ![Ajouter une alerte](./media/insights-receive-alert-notifications/Insights_AddAlert.png)
 
 4. Vous pouvez nommer votre règle d'alerte et choisir la description à afficher dans le message électronique de notification.
 
@@ -42,6 +42,8 @@ Vous pouvez utiliser l'[API REST](https://msdn.microsoft.com/library/azure/dn931
 
 6. Vous pouvez également choisir **Événements**, puis recevoir une notification quand un certain événement se produit. 
     ![Événements](./media/insights-receive-alert-notifications/Insights_Events.png)
+    
+>[AZURE.NOTE] À ce stade, les événements ne sont pris en charge que pour les applications web. 
 
 7. Enfin, vous pouvez choisir d'envoyer la notification par courrier électronique aux administrateurs concernés.
 
@@ -66,4 +68,4 @@ Vous pouvez bien entendu modifier cette règle d'alerte, la **désactiver** ou l
 * [Affichage des événements et journaux d'audit](insights-debugging-with-events.md) pour découvrir tout ce qui s'est produit dans votre service.
 * [Suivi de l'intégrité du service](insights-service-health.md) pour déterminer à quel moment Azure a rencontré des interruptions de service ou une dégradation des performances.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

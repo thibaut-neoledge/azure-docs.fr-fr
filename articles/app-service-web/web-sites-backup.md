@@ -40,7 +40,7 @@ Ces informations sont sauvegardées dans le conteneur et le compte de stockage A
 
 * La fonctionnalité de sauvegarde et de restauration implique que le plan App Service soit de type **Standard** ou à un niveau plus élevé. Pour plus d'informations sur la mise à l’échelle de votre plan App Service en vue d'utiliser un niveau plus élevé, consultez [Mise à l’échelle d’une application web dans Microsoft Azure App Service](web-sites-scale.md). Notez que le niveau **Premium** autorise un plus grand nombre de sauvegardes quotidiennes que le niveau **Standard**.
 * Vous avez besoin d’un compte de stockage Azure et d’un conteneur dans le même abonnement que l’application que vous souhaitez sauvegarder. Pour plus d'informations sur les comptes de stockage Azure, consultez les [liens](#moreaboutstorage) situés en bas de cet article.
-* Vous pouvez sauvegarder jusqu’à 10 Go de contenu d’application et de base de données. Une erreur se produit si la taille de la sauvegarde dépasse cette limite.
+* Les sauvegardes peuvent contenir jusqu’à 10 Go de contenu d’applications et de bases de données. Une erreur se produit si la taille de la sauvegarde dépasse cette limite.
 
 <a name="manualbackup"></a>
 ## Création d’une sauvegarde manuelle
@@ -55,7 +55,7 @@ Ces informations sont sauvegardées dans le conteneur et le compte de stockage A
 
 	![Sélection d'un compte de stockage][ChooseStorageAccount]
 	
-4. Choisissez la destination de sauvegarde en sélectionnant un **Compte de stockage** et un **Conteneur**. Ce compte de stockage doit relever du même abonnement que l’application que vous souhaitez sauvegarder. Si vous le souhaitez, vous pouvez créer un compte de stockage ou un conteneur dans les panneaux respectifs. Quand vous avez terminé, cliquez sur **Sélectionner**.
+4. Choisissez la destination de sauvegarde en sélectionnant un **Compte de stockage** et un **Conteneur**. Ce compte de stockage doit relever du même abonnement que l’application que vous souhaitez sauvegarder. Si vous le souhaitez, vous pouvez créer un compte de stockage ou un conteneur dans les panneaux respectifs. Quand vous avez terminé, cliquez sur **Sélectionner**.
 	
 	![Sélection d'un compte de stockage](./media/web-sites-backup/02ChooseStorageAccount1.png)
 	
@@ -86,7 +86,7 @@ Après avoir configuré un compte de stockage et un conteneur pour les sauvegard
 	
 	![Activation des sauvegardes automatisées][SetAutomatedBackupOn]
 	
-4. Dans le panneau **Configurer les paramètres de sauvegarde** toujours ouvert, cliquez sur **Paramètres de stockage**, puis choisissez la destination de sauvegarde en sélectionnant un **compte de stockage** et un **conteneur**. Ce compte de stockage doit relever du même abonnement que l’application que vous souhaitez sauvegarder. Si vous le souhaitez, vous pouvez créer un compte de stockage ou un conteneur dans les panneaux respectifs. Quand vous avez terminé, cliquez sur **Sélectionner**.
+4. Dans le panneau **Configurer les paramètres de sauvegarde** toujours ouvert, cliquez sur **Paramètres de stockage**, puis choisissez la destination de sauvegarde en sélectionnant un **compte de stockage** et un **conteneur**. Ce compte de stockage doit relever du même abonnement que l’application que vous souhaitez sauvegarder. Si vous le souhaitez, vous pouvez créer un compte de stockage ou un conteneur dans les panneaux respectifs. Quand vous avez terminé, cliquez sur **Sélectionner**.
 	
 	![Sélection d'un compte de stockage](./media/web-sites-backup/02ChooseStorageAccount1.png)
 	
@@ -176,4 +176,4 @@ Pour plus d’informations sur la restauration d’une application à partir d�
 [GhostUpgradeWarning]: ./media/web-sites-backup/13GhostUpgradeWarning.png
  
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0810_2016-->

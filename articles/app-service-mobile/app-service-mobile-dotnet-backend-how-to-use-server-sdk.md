@@ -29,7 +29,7 @@ Cette rubrique montre comment utiliser le Kit de développement logiciel (SDK) d
 
 La documentation de référence du Kit de développement logiciel (SDK) serveur se trouve ici : [Référence .NET Azure Mobile Apps](https://msdn.microsoft.com/library/azure/dn961176.aspx).
 
-## <a name="create-app"></a>Créer un serveur principal .NET pour votre application mobile
+## <a name="create-app"></a>Comment : créer un serveur principal d’une application Mobile .NET
 
 Si vous démarrez un nouveau projet, vous pouvez créer une application App Service à l’aide du [portail Azure] ou de Visual Studio. Cette section vous aide à utiliser l’un de ces deux composants pour créer un nouveau serveur principal d’application mobile hébergeant une API simple de liste de tâches. Vous pouvez l’exécuter en local ou publier le projet sur votre application mobile App Service hébergée sur le cloud.
 
@@ -37,9 +37,11 @@ Si vous ajoutez des fonctionnalités mobiles à un projet existant, consultez la
 
 ### Création d’un serveur principal .NET à l’aide du portail Azure
 
-Vous pouvez créer une nouvelle application mobile dans le [portail Azure]. Vous pouvez suivre la procédure ci-dessous, ou créer simultanément un client et un serveur en suivant le didacticiel [Créer une application mobile](app-service-mobile-ios-get-started.md).
+Vous pouvez créer un serveur principal d'application mobile dans le [portail Azure].
 
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
+Vous pouvez suivre la procédure ci-dessous, ou créer simultanément un client et un serveur en suivant le didacticiel [Créer une application mobile](app-service-mobile-ios-get-started.md). Ce didacticiel contient une version simplifiée de ces instructions et convient mieux aux projets de preuve de concept ; le didacticiel peut uniquement créer un serveur principal Node.js.
+
+[AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service-classic](../../includes/app-service-mobile-dotnet-backend-create-new-service-classic.md)]
 
 Dans le panneau _Prise en main_, sous **Créer une table API**, sélectionnez **C#** en tant que **langue du serveur principal**. Cliquez sur **Télécharger**, extrayez les fichiers projets compressés sur votre ordinateur local, puis ouvrez la solution dans Visual Studio.
 
@@ -479,4 +481,4 @@ Votre serveur exécuté localement est désormais équipé de manière appropri�
 [Microsoft.Azure.Mobile.Server.Notifications]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Notifications/
 [MapHttpAttributeRoutes]: https://msdn.microsoft.com/library/dn479134(v=vs.118).aspx
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

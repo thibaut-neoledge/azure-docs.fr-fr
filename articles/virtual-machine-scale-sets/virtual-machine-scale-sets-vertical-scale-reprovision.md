@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/14/2016"
+	ms.date="08/03/2016"
 	ms.author="guybo"/>
 
 # Mise à l’échelle verticale avec des jeux de mise à l’échelle de machine virtuelle
@@ -37,21 +37,14 @@ Vous pouvez configurer la mise à l’échelle verticale pour qu’elle se décl
 3. Ajoutez un webhook dans votre runbook.
 4. Ajoutez une alerte dans votre jeu de mise à l’échelle de virtuelle échelle, à l’aide d’une notification de webhook.
 
-> [AZURE.NOTE] La mise à l’échelle verticale ne peut s’effectuer que sur des machines virtuelles d’une certaine taille. Vous pouvez choisir d’effectuer une mise à l’échelle entre les paires de tailles suivantes :
+> [AZURE.NOTE] La mise à l’échelle verticale ne peut s’effectuer que sur des machines virtuelles d’une certaine taille. Comparez les spécifications de chaque taille avant de décider de passer de l’une à l’autre (un chiffre plus élevé n’indique pas toujours une plus grande taille de machine virtuelle). Vous pouvez choisir d’effectuer une mise à l’échelle entre les paires de tailles suivantes :
 
 >| Paires de mise à l’échelle des machines virtuelles | |
 |---|---|
-| Basic\_A0 | Basic\_A4 |
-| Standard\_A0 | Standard\_A4 |
-| Standard\_A5 | Standard\_A7 |
-| Standard\_A8 | Standard\_A9 |
-| Standard\_A10 | Standard\_A11 |
-| D1 standard | D4 standard |
-| D11 standard | D14 standard |
-| Standard\_DS1 | Standard\_DS4 |
-| Standard\_DS11 | Standard\_DS14 |
-| Standard\_D1v2 | Standard\_D5v2 |
-| Standard\_D11v2 | Standard\_D14v2 |
+| Standard\_A0 | Standard\_A11 |
+| D1 standard | D14 standard |
+| Standard\_DS1 | Standard\_DS14 |
+| Standard\_D1v2 | Standard\_D15v2 |
 | Standard\_G1 | Standard\_G5 |
 | Standard\_GS1 | Standard\_GS5 |
 
@@ -85,7 +78,7 @@ Une fois les runbooks importés, vous devez ajouter un webhook au runbook pour q
 
 ## Ajouter une alerte à votre jeu de mise à l’échelle de machine virtuelle
 
-Voici un script PowerShell qui décrit comment ajouter une alerte dans un jeu de mise à l’échelle de machine virtuelle. Pour obtenir le nom de la mesure déclenchant l’alerte, consultez [Métriques courantes pour la mise à l’échelle automatique d’Azure Insights](../azure-portal/insights-autoscale-common-metrics.md).
+Voici un script PowerShell qui décrit comment ajouter une alerte dans un jeu de mise à l’échelle de machine virtuelle. Pour obtenir le nom de la métrique déclenchant l’alerte, consultez [Métriques courantes pour la mise à l’échelle automatique d’Azure Insights](../azure-portal/insights-autoscale-common-metrics.md).
 
 ```
 $actionEmail = New-AzureRmAlertRuleEmail -CustomEmail user@contoso.com
@@ -127,4 +120,4 @@ Cet article vous a montré des exemples simples de mise à l’échelle vertical
 [runbooks]: ./media/virtual-machine-scale-sets-vertical-scale-reprovision/runbooks.png
 [gallery]: ./media/virtual-machine-scale-sets-vertical-scale-reprovision/runbooks-gallery.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0810_2016-->

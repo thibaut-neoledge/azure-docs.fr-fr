@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/23/2016" 
+	ms.date="08/08/2016" 
 	ms.author="spelluru"/>
 
 # Azure Data Factory - Exemples
@@ -72,7 +72,7 @@ Vous pouvez utiliser la vignette **exemples de pipelines** figurant dans la page
 Les composants suivants doivent être installés sur votre ordinateur :
 
 - Visual Studio 2013 ou Visual Studio 2015
-- Téléchargez le Kit de développement logiciel (SDK) Azure pour Visual Studio 2013 ou Visual Studio 2015. Accédez à la [page de téléchargement d’Azure](https://azure.microsoft.com/downloads/), puis cliquez sur **VS 2013** ou **VS 2015** dans la section **.NET**.
+- Téléchargez le Kit de développement logiciel (SDK) Azure pour Visual Studio 2013 ou Visual Studio 2015. Accédez à la [page de téléchargement d’Azure](https://azure.microsoft.com/downloads/), puis cliquez sur **VS 2013** ou **VS 2015** dans la section **.NET**.
 - Téléchargez le dernier plug-in Azure Data Factory pour Visual Studio : [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) ou [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005). Si vous utilisez Visual Studio 2013, vous pouvez également mettre à jour le plug-in de la manière suivante : dans le menu, cliquez sur **Outils** -> **Extensions et mises à jour** -> **En ligne** -> **Galerie Visual Studio** -> **Outils Microsoft Azure Data Factory pour Visual Studio** -> **Mettre à jour**.
 
 ### Utilisation de modèles de fabrique de données
@@ -117,4 +117,4 @@ Les composants suivants doivent être installés sur votre ordinateur :
 
 Pour plus d’informations sur l’utilisation de Visual Studio pour créer des entités Data Factory et les publier sur Azure, consultez [Créer votre première fabrique de données (Visual Studio)](data-factory-build-your-first-pipeline-using-vs.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0810_2016-->

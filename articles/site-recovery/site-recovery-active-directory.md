@@ -28,7 +28,7 @@ Cet article explique comment créer une solution de récupération d’urgence p
 
 En fonction de la complexité de votre environnement, deux options vous sont recommandées.
 
-### Option 1 :
+### Option 1
 
 Si vous avez un petit nombre d'applications et un seul contrôleur de domaine, et que vous souhaitez basculer l'ensemble du site, nous vous recommandons d'utiliser Site Recovery pour répliquer le contrôleur de domaine sur le site secondaire (que vous effectuiez un basculement vers Azure ou vers un site secondaire). La même machine virtuelle répliquée peut également servir pour le test de basculement.
 
@@ -58,7 +58,7 @@ Activez la protection de la machine virtuelle du contrôleur de domaine/DNS dans
 
 ###Configurer les paramètres réseau de la machine virtuelle
 
-Pour la machine virtuelle du contrôleur de domaine/DNS, configurez les paramètres réseau dans Site Recovery afin que la machine virtuelle soit connectée au réseau approprié après un basculement. Par exemple, si vous répliquez des machines virtuelles Hyper-V vers Azure, vous pouvez sélectionner la machine virtuelle dans le cloud VMM ou dans le groupe de protection afin de configurer les paramètres réseau comme indiqué ci-dessous.
+Pour la machine virtuelle du contrôleur de domaine/DNS, configurez les paramètres réseau dans Site Recovery afin que la machine virtuelle soit connectée au réseau approprié après un basculement. Par exemple, si vous répliquez des machines virtuelles Hyper-V vers Azure, vous pouvez sélectionner la machine virtuelle dans le cloud VMM ou dans le groupe de protection afin de configurer les paramètres réseau comme indiqué ci-dessous
 
 ![Paramètres réseau de la machine virtuelle](./media/site-recovery-active-directory/VM-Network-Settings.png)
 
@@ -80,13 +80,13 @@ Suivez les instructions pour [créer un contrôleur de domaine dans un réseau v
 
 Le test de basculement est effectué dans un réseau isolé du réseau de production afin qu’il n’y ait aucun impact sur les charges de travail de production.
 
-La plupart des applications requièrent également la présence d'un contrôleur de domaine et d’un serveur DNS pour pouvoir fonctionner. Donc, pour réaliser le basculement d’une application, un contrôleur de domaine doit être créé dans le réseau isolé pour qu’il puisse être utilisé pour le test de basculement. Pour ce faire, le plus simple consiste tout d’abord à activer la protection sur la machine virtuelle du contrôleur de domaine/DNS à l’aide de Site Recovery et à effectuer le test de basculement de cette machine virtuelle avant d’exécuter le test de basculement du plan de récupération d’urgence de l’application. Voici comment procéder :
+La plupart des applications requièrent également la présence d’un contrôleur de domaine et d’un serveur DNS pour pouvoir fonctionner. Donc, pour réaliser le basculement d’une application, un contrôleur de domaine doit être créé dans le réseau isolé pour qu’il puisse être utilisé pour le test de basculement. Pour ce faire, le plus simple consiste tout d’abord à activer la protection sur la machine virtuelle du contrôleur de domaine/DNS à l’aide de Site Recovery et à effectuer le test de basculement de cette machine virtuelle avant d’exécuter le test de basculement du plan de récupération d’urgence de l’application. Voici comment procéder :
 
 1. Activez la protection de la machine virtuelle du contrôleur de domaine/DNS dans Site Recovery.
 2. Créez un réseau isolé. Tout réseau virtuel créé dans Azure par défaut est isolé des autres réseaux. Il est recommandé que la plage d’adresses IP pour ce réseau soit identique à celle de votre réseau de production. N’activez pas la connectivité de site à site sur ce réseau.
 3. Fournissez une adresse IP DNS dans le réseau créé, comme l'adresse IP que vous attendez que la machine virtuelle du DNS obtienne. Si vous répliquez vers Azure, fournissez l’adresse IP de la machine virtuelle qui sera utilisée lors du basculement dans le paramètre **Adresse IP cible**, dans les propriétés de la machine virtuelle. Si vous répliquez vers un autre site local et que vous utilisez DHCP, suivez les instructions pour [configurer DNS et DHCP pour le test de basculement](site-recovery-failover.md#prepare-dhcp)
 
->[AZURE.NOTE] L’adresse IP affectée à une machine virtuelle durant un test de basculement est identique à l’adresse IP qu’elle obtiendrait durant un basculement planifié ou non planifié, si l’adresse IP est disponible dans le réseau de test de basculement. Si ce n'est pas le cas, la machine virtuelle reçoit une adresse IP différente qui est disponible dans le réseau de test de basculement.
+>[AZURE.NOTE] L’adresse IP affectée à une machine virtuelle durant un test de basculement est identique à l’adresse IP qu’elle obtiendrait durant un basculement planifié ou non planifié, si l’adresse IP est disponible dans le réseau de test de basculement. Si ce n’est pas le cas, la machine virtuelle reçoit une adresse IP différente qui est disponible dans le réseau de test de basculement.
 
 4. Sur la machine virtuelle du contrôleur de domaine, exécutez un test de basculement de celle-ci dans le réseau isolé.
 5. Exécutez un test de basculement pour le plan de récupération de l’application.
@@ -105,7 +105,7 @@ Vous pouvez utiliser un nouveau serveur DNS et créer toutes les zones requises
 	- La zone doit être activée pour les mises à jour sécurisées et non sécurisées.
 	- Le programme de résolution de la machine virtuelle du contrôleur de domaine doit pointer vers l’adresse IP de la machine virtuelle du DNS.
 
-2. Exécutez la commande suivante dans le répertoire de la machine virtuelle du contrôleur de domaine :
+2. Exécutez la commande suivante sur la machine virtuelle du contrôleur de domaine :
 
 	`nltest /dsregdns`
 
@@ -121,4 +121,4 @@ Vous pouvez utiliser un nouveau serveur DNS et créer toutes les zones requises
 
 Pour en savoir plus sur la protection des charges de travail d’entreprise avec Azure Site Recovery, consultez la rubrique [Quelles charges de travail puis-je protéger ?](../site-recovery/site-recovery-workload.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0810_2016-->

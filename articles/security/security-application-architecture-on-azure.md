@@ -1,10 +1,10 @@
 <properties
    pageTitle="Architecture d’application sur Azure | Microsoft Azure"
-   description="Cet article vous aidera à comprendre l’architecture des services et des applications sur Azure, afin de faciliter l’intégration de la sécurité dans la conception et l’implémentation."
+   description=" Cet article vous aidera à comprendre l’architecture des services et des applications sur Azure, afin de faciliter l’intégration de la sécurité dans la conception et l’implémentation. "
    services="security"
    documentationCenter="na"
    authors="TomShinder"
-   manager="StevenPo"
+   manager="MBaldwin"
    editor="TomSh"/>
 
 <tags
@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/19/2016"
+   ms.date="08/09/2016"
    ms.author="terrylan"/>
 
 # Architecture des applications sur Azure
 
-Pour sécuriser vos solutions Cloud sur Microsoft Azure, vous devez disposer d’une base architecturale solide. Une bonne connaissance de l’architecture des services et des applications est bénéfique pour les architectes, les concepteurs et les responsables de l’implémentation. Ces connaissances fondamentales vous aident à comprendre tous les composants de vos solutions Cloud, et facilitent l’intégration de la sécurité dans tous les aspects de votre conception et de votre implémentation.
+Pour sécuriser vos solutions cloud sur Microsoft Azure, vous devez disposer d’une base architecturale solide. Une bonne connaissance de l’architecture des services et des applications est bénéfique pour les architectes, les concepteurs et les responsables de l’implémentation. Ces connaissances fondamentales vous aident à comprendre tous les composants de vos solutions cloud, et facilitent l’intégration de la sécurité dans tous les aspects de votre conception et de votre implémentation.
 
 Les éléments suivants sont conçus pour vous aider dans vos recherches et conceptions architecturales :
 
@@ -44,11 +44,11 @@ Microsoft publie un ensemble de [plans d’architecture](http://aka.ms/azbluepri
 
 ## Jeu de symboles Cloud et Enterprise
 
-[Visionnez la vidéo de formation sur Visio et les symboles](http://aka.ms/CnESymbolsVideo), puis [téléchargez le jeu de symboles Cloud et Enterprise](http://aka.ms/CnESymbols) pour créer des documents techniques qui décrivent Azure, Windows Server, SQL Server, etc. Vous pouvez utiliser les symboles dans les diagrammes d'architecture, les supports de formation, les présentations, les fiches techniques, les infographies, les livres blancs et même des ouvrages tiers si le livre est destiné à former des personnes à l'utilisation des produits Microsoft. Toutefois, ils ne sont pas destinés à être utilisés dans les interfaces utilisateur.
+[Visionnez la vidéo de formation sur Visio et les symboles](http://aka.ms/CnESymbolsVideo), puis [téléchargez le jeu de symboles Cloud et Enterprise](http://aka.ms/CnESymbols) pour créer des documents techniques qui décrivent Azure, Windows Server, SQL Server, etc. Vous pouvez utiliser les symboles dans les diagrammes d’architecture, les supports de formation, les présentations, les fiches techniques, les infographies, les livres blancs et même les ouvrages tiers si le livre est destiné à former des personnes à l’utilisation des produits Microsoft. Toutefois, ils ne sont pas destinés à être utilisés dans les interfaces utilisateur.
 
 ## Modèle 3D Blueprint Visio
 
-Les versions 3D des [plans d'architecture Microsoft](http://aka.ms/azblueprints) ont initialement été créées avec un outil autre que Microsoft. Un nouveau modèle Visio 2013 et versions ultéreieures) a été publié le 5 août 2015 dans le cadre d'un [cours de certification d'architecture Microsoft distribué sur EDX.ORG](../architecture-overview.md#microsoft-architecture-certification-course).
+Les versions 3D des [plans d'architecture Microsoft](http://aka.ms/azblueprints) ont initialement été créées avec un outil autre que Microsoft. Un nouveau modèle Visio 2013 (et versions ultérieures) a été publié le 5 août 2015 dans le cadre d’un [cours de certification d’architecture Microsoft distribué sur EDX.ORG](../architecture-overview.md#microsoft-architecture-certification-course).
 
 Le modèle est également disponible en dehors du cours.
 
@@ -56,4 +56,4 @@ Le modèle est également disponible en dehors du cours.
 - Téléchargez le [modèle Microsoft 3D Blueprint Visio](http://aka.ms/3DBlueprintTemplate).
 - Téléchargez les [symboles Cloud et Enterprise](../architecture-overview.md#drawing-symbol-and-icon-sets) à utiliser avec le modèle 3D.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

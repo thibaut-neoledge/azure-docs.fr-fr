@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/23/2016"
+   ms.date="08/09/2016"
    ms.author="yurid"/>
 
 # Services et technologies de sécurité Azure
@@ -24,7 +24,7 @@ Nous sommes conscients que lorsque vous évaluez les options techniques des four
 
 Ce document fournit une première version de cette liste. Au fil du temps, cette liste sera modifiée et développée, tout comme Azure. La liste est classée par catégories, et la liste des catégories évoluera également au fil du temps. Veillez à consulter cette page régulièrement pour vous tenir au courant de l’évolution de nos technologies et services liés à la sécurité.
 
-## Sécurité de Microsoft Azure – Généralités
+## Sécurité de Windows Azure – Généralités
 - [Centre de sécurité Azure](https://azure.microsoft.com/documentation/services/security-center/)
 - [Azure Key Vault](https://azure.microsoft.com/documentation/services/key-vault/)
 - [Azure Disk Encryption](azure-security-disk-encryption.md)
@@ -70,4 +70,4 @@ Ce document fournit une première version de cette liste. Au fil du temps, cette
 - [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md)
 - [Proxy d’application Azure](../active-directory/active-directory-application-proxy-enable.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

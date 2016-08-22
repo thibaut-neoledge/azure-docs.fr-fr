@@ -24,9 +24,7 @@ Cet article donne une vue d’ensemble de l’utilisation de l’extension de sc
 Les extensions de machine virtuelle créées par Microsoft et les éditeurs tiers de confiance étendent les fonctionnalités de la machine virtuelle. Pour consulter une vue d’ensemble des extensions de machine virtuelles, voir 
 [Fonctionnalités et extensions de machine virtuelle Azure](virtual-machines-windows-extensions-features.md).
 
-Lien :
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Découvrez comment [effectuer ces étapes à l’aide du modèle Resource Manager](virtual-machines-windows-classic-extensions-customscript.md).
-
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Découvrez comment [effectuer ces étapes à l’aide du modèle Resource Manager](virtual-machines-windows-extensions-customscript.md).
 
 ## Vue d’ensemble de l’extension de script personnalisé
 
@@ -35,7 +33,7 @@ L’extension de script personnalisé pour Windows vous permet d’exécuter des
 ### Conditions préalables pour exécuter l’extension de script personnalisé
 
 1. Installez les applets de commande Microsoft Azure PowerShell version 0.8.0 ou ultérieure à partir d’<a href="http://azure.microsoft.com/downloads" target="_blank">ici</a>.
-2. Si les scripts sont exécutés sur une machine virtuelle existante, assurez-vous que l’agent de machine virtuelle est activé sur la machine virtuelle, sinon suivez les instructions de cet <a href="https://msdn.microsoft.com/library/azure/dn832621.aspx" target="_blank">article</a> pour en installer un. (Si vous configurez la machine virtuelle à partir de la galerie Azure alors agents de machine virtuelle sont activés par défaut, vous n'êtes pas obligé de les activer)
+2. Si les scripts sont exécutés sur une machine virtuelle existante, assurez-vous que l’agent de machine virtuelle est activé sur la machine virtuelle. Si elle n’a pas été installée, suivez les étapes décrites [ici](virtual-machines-windows-classic-agents-and-extensions.md) pour installer l’agent de machine virtuelle. Si la machine virtuelle est créée à partir du portail, l’agent de machine virtuelle est installé par défaut.
 3. Téléchargez les scripts que vous souhaitez exécuter sur la machine virtuelle vers Azure Storage. Les scripts peuvent provenir d’un seul ou de plusieurs conteneurs de stockage.
 4. Le script doit être conçu de manière à ce que le script d’entrée lancé par l’extension lance à son tour les autres scripts.
 
@@ -93,4 +91,4 @@ Pour apprendre comment utiliser l’extension de script personnalisé avec les m
 <!--Image references-->
 [5]: ./media/virtual-machines-windows-classic-extensions-customscript/addcse.png
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

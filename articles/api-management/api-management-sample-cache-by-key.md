@@ -13,8 +13,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="05/25/2016"
-	ms.author="v-darmi"/>
+	ms.date="08/09/2016"
+	ms.author="darrmi"/>
 
 # Mise en cache personnalisée dans Azure API Management
 Le service Azure API Management prend en charge la [mise en cache de réponses HTTP](api-management-howto-cache.md) en utilisant l’URL de la ressource comme clé. La clé peut être modifiée par les en-têtes de requête à l’aide des propriétés `vary-by`. Si cette approche permet de mettre en cache l’ensemble des réponses HTTP (également appelées représentations), elle peut être aussi parfois utile pour la mise en cache d’une simple partie d’une représentation. Les nouvelles stratégies [cache-lookup-value](https://msdn.microsoft.com/library/azure/dn894086.aspx#GetFromCacheByKey) et [cache-store-value](https://msdn.microsoft.com/library/azure/dn894086.aspx#StoreToCacheByKey) permettent de stocker et récupérer des éléments de données arbitraires à partir des définitions de stratégie. Cette fonctionnalité apporte une valeur supplémentaire à la stratégie [send-request](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest) présentée précédemment, puisqu’elle vous permet de mettre en cache les réponses à partir de services externes.
@@ -245,4 +245,4 @@ L’utilisation du cache du service Azure API Management pour le stockage de n�
 ## Étapes suivantes
 Faites-nous part de vos commentaires dans le thread Disqus de cette rubrique si l’utilisation des stratégies décrites s’est révélée adaptée à d’autres scénarios, ou s’il existe des scénarios que vous souhaiteriez mettre en œuvre mais qu’il vous semble impossible de déployer actuellement.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/09/2016"
-	ms.author="chhavib;cgronlun;garye"/>
+	ms.date="08/09/2016"
+	ms.author="roopalik;garye"/>
 
 
 # Partager et découvrir des solutions dans la galerie Cortana Intelligence
@@ -25,31 +25,53 @@ La galerie Cortana Intelligence est un site communautaire ayant pour but d’exp
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-## Avantages
-Commencez à utiliser la galerie pour profiter de ces avantages :
+## Que puis-je trouver dans la galerie ?
 
-- Découvrez des solutions intéressantes
-- Apprenez auprès des autres
+La galerie Cortana Intelligence contient diverses ressources que vous pouvez utiliser pour développer vos propres solutions d’analyse.
 
-Connectez-vous à l’aide de votre compte Microsoft pour profiter d’avantages supplémentaires :
+- **[Expériences](https://gallery.cortanaintelligence.com/experiments)** : la galerie contient une grande variété d’expériences qui ont été développées dans Azure Machine Learning Studio. Vous trouverez aussi bien des expériences de démonstration rapides qui illustrent une technique spécifique que des solutions entièrement développées pour les problèmes complexes Machine Learning.
 
-- Téléchargez des expériences sur votre espace de travail Machine Learning Studio
-- Apportez votre contribution et présentez vos expériences et vos collections d’analyse prédictive
+- **[Blocs-notes Jupyter](https://gallery.cortanaintelligence.com/notebooks)** : les blocs-notes Jupyter incluent du code, des visualisations de données et de la documentation dans un seul canevas interactif. Les blocs-notes dans la galerie fournissent des didacticiels et des explications détaillées sur les solutions et les techniques avancées de Machine Learning.
 
-## Découvrez et apprenez
+- **[API Machine Learning](https://gallery.cortanaintelligence.com/machineLearningAPIs)** : une solution développée dans Azure Machine Learning peut être lancée comme un service web, afin que le modèle d’analyse soit accessible par d’autres utilisateurs via un jeu d’API REST. Plusieurs de ces solutions sont disponibles dans la galerie, tel qu’un moteur de recommandation de produit ou une fonctionnalité de reconnaissance faciale et vocale basée sur le cloud.
+
+-  **[Modèles de solution](https://gallery.cortanaintelligence.com/solutionTemplates)** : un modèle de solution fournit un point de départ pour créer rapidement une solution de bout en bout complète pour un problème spécifique au secteur d’activité. Ces modèles comprennent une documentation complète et tous les outils dont vous avez besoin pour créer votre propre solution.
+
+- **[Didacticiels](https://gallery.cortanaintelligence.com/tutorials)** : une série de didacticiels est disponible pour vous guider à travers les concepts et les technologies Machine Learning, ou pour décrire les méthodes avancées de résolution des divers problèmes Machine Learning.
+
+Ces ressources de base de la galerie peuvent être regroupées logiquement de différentes façons :
+
+- **[Collections](https://gallery.cortanaintelligence.com/collections)** : une collection vous permet de regrouper des expériences, des API et d’autres éléments de la galerie qui répondent à une solution ou à un concept spécifiques.
+
+- **[Solutions spécifiques au secteur d’activité](https://gallery.cortanaintelligence.com/industries)** : la section Secteurs d’activité de la galerie rassemble diverses ressources qui sont spécifiques à des secteurs d’activité tels que la vente au détail, la fabrication, les banques et la santé.
+
+Enfin, **[Competitions](https://gallery.cortanaintelligence.com/competitions)** (Concours) offre une excellente opportunité de concourir avec la communauté de scientifiques des données pour résoudre des problèmes complexes à l’aide de Cortana Intelligence Suite.
+  
+## Comment puis-je utiliser la galerie ?
+
+Tout le monde peut parcourir et rechercher les solutions dans la galerie et apprendre des autres. Si vous vous connectez à l’aide de votre compte Microsoft, vous pouvez également télécharger des expériences dans votre propre espace de travail Machine Learning Studio, et vous pouvez partager vos propres solutions dans la galerie.
+
+### Découvrez et apprenez
+
 Recherchez et parcourez les différents types de solutions qui ont été proposés par Microsoft et la communauté d’analyse avancée. Utilisez ces ressources pour accélérer la résolution de vos problèmes d’analyse de données.
 
 Recherchez facilement les solutions les plus appréciées récemment publiées dans la galerie ou effectuez des recherches par nom, balises, algorithmes ou d’autres attributs. Consultez les contributions d’un auteur spécifique en cliquant sur son nom depuis n’importe quelle vignette.
 
+Cliquez sur **Browse all** (Tout parcourir) dans l’en-tête de la galerie, puis sélectionnez les filtres de recherche à gauche de la page et entrez des termes de recherche en haut de la page.
+
 Vous pouvez commenter, donner votre avis ou poser des questions dans la section des commentaires de chaque page de solution. Vous pouvez même partager une solution d’intérêt avec vos amis ou collègues à l’aide des fonctionnalités de partage de LinkedIn ou Twitter. Vous pouvez également envoyer des liens par e-mail vers ces solutions pour inviter d’autres utilisateurs à consulter ces pages.
 
-## Téléchargez des expériences
-La galerie Cortana Intelligence vous permet de copier facilement des expériences d’analyse prédictive dans votre espace de travail Machine Learning Studio en un seul clic et de commencer immédiatement à l’utiliser conformément à vos besoins. Si vous parcourez la galerie sans être encore connecté, vous serez invité à vous connecter à l’aide de votre compte Microsoft avant que l’expérience ne soit copiée dans votre espace de travail.
+### Téléchargez des expériences
 
-## Participez
-En vous connectant, vous devenez membre de la communauté de la galerie, ce qui vous permet d’apporter votre contribution en partageant vos propres expériences et collections afin que les autres utilisateurs puissent, à leur tour, bénéficier des solutions que vous avez découvertes.
+La galerie Cortana Intelligence vous permet de copier facilement des expériences d’analyse prédictive dans votre espace de travail Machine Learning Studio en un seul clic et de commencer immédiatement à les personnaliser et à les utiliser conformément à vos besoins. Si vous parcourez la galerie sans être encore connecté, vous serez invité à vous connecter à l’aide de votre compte Microsoft avant que l’expérience ne soit copiée dans votre espace de travail.
 
-### Apportez votre contribution en partageant vos expériences
+### Partagez des expériences et des collections
+
+Lorsque vous vous connectez, vous devenez membre de la communauté de la galerie. Cela vous permet de partager vos propres expériences et collections afin que les autres utilisateurs puissent, à leur tour, bénéficier des solutions que vous avez découvertes.
+
+Consultez la section ci-dessous, [Suggestions relatives à la publication et à une documentation de qualité](#suggestions-for-publishing-and-for-quality-documentation), pour plus d’informations et de conseils sur la création d’une contribution de qualité pour la galerie.
+
+#### Apportez votre contribution en partageant vos expériences
 
 Une *expérience* est un canevas dans Machine Learning Studio qui vous permet d’élaborer un modèle d’analyse prédictive en associant les données aux différents modules analytiques. Vous pouvez essayer différentes idées, effectuer des essais et finalement publier votre modèle sous la forme d’un service Web dans Azure. Pour obtenir un exemple de création d’une expérience simple, consultez la rubrique [Didacticiel de Machine Learning : Création de votre première expérience dans Azure Machine Learning Studio](machine-learning-create-experiment.md). Pour une description plus complète de la création d’une solution d’analyse prédictive, consultez la rubrique [Procédure pas à pas : Développement d’une solution d’analyse prédictive pour l’évaluation des risques de crédit dans Azure Machine Learning](machine-learning-walkthrough-develop-predictive-solution.md).
 
@@ -59,7 +81,9 @@ Suivez les étapes suivantes pour apporter votre contribution en partageant une 
 - Créez votre expérience et exécutez-la
 - Lorsque vous êtes prêt à publier votre expérience dans la galerie, cliquez sur **Publier dans la galerie** sous le canevas de l’expérience
 
-### Apportez votre contribution en partageant vos collections
+Consultez la section ci-dessous, [Processus pour la publication d’expériences Azure Machine Learning](#process-for-publishing-azure-ml-experiments), pour plus d’informations et de conseils sur le partage d’une expérience.
+
+#### Apportez votre contribution en partageant vos collections
 
 Une *collection* est une liste d’éléments connexes issus de la galerie Cortana Intelligence qui sont regroupés à des fins de référence, d’utilisation ou de partage ultérieurs. Votre collection peut contenir des éléments que vous possédez ou qui ont été proposés par la communauté.
 
@@ -72,7 +96,7 @@ Suivez les étapes suivantes pour créer et proposer une collection à la galeri
 - Cliquez sur **Nouvelle collection**.
 - Nommez la collection, ajoutez un rapide résumé, une description ainsi que toutes les balises qui permettront aux utilisateurs de trouver la collection.
 - Ajoutez une image pour identifier la collection.
-- Cliquez sur **Créer**.
+- Cliquez sur **Créer**
 
 Votre collection figure désormais dans la galerie Cortana Intelligence.
 
@@ -83,6 +107,46 @@ Vous pouvez modifier le résumé, la description ou les balises de votre collect
 <!--
 ![Publish](./media/machine-learning-gallery-how-to-use-contribute-publish/publish.png)
 -->
+
+## Suggestions relatives à la publication et à une documentation de qualité
+
+- Même si vous supposez que le lecteur est déjà familier avec la science des données, il est toujours utile de simplifier votre langage et d’expliquer les choses en détail lorsque cela est possible.
+- Tous les lecteurs ne seront pas habitués à Cortana Intelligence Suite, étant donné qu’elle est relativement nouvelle. Par conséquent, donnez suffisamment d’informations et d’explications détaillées pour aider ce type de lecteurs à parcourir vos travaux.
+- Des éléments visuels, tels que des graphiques d’expérience ou des captures d’écran de données peuvent être très utiles pour permettre aux lecteurs d’interpréter et d’utiliser votre contenu correctement. Consultez [cette collection](https://gallery.cortanaintelligence.com/Collection/Publishing-Guidelines-and-Examples-1) pour plus d’informations sur la façon d’inclure des images dans votre documentation.
+- Si votre jeu de données fait partie de votre expérience et n’est pas importé via un module de lecture, il fait partie de votre expérience et sera publié dans la galerie. Par conséquent, assurez-vous que le jeu de données que vous publiez présente les termes du contrat de licence appropriés pour le partage et le téléchargement par toute personne. Les partages dans la galerie sont abordés dans les [Conditions d’utilisation](https://azure.microsoft.com/support/legal/website-terms-of-use/) d’Azure.
+
+## Processus pour la publication d’expériences Azure Machine Learning
+
+Lorsque vous êtes prêt à publier dans la galerie, suivez les cinq étapes ci-dessous.
+
+1. Remplissez les champs de titre et de balises. Faites en sorte qu’ils soient descriptifs et qu’ils mettent en avant les techniques utilisées ou le problème réel à résoudre, par exemple « Classification binaire : analyse des sentiments Twitter ». ![Remplir les champs de titre et de balises lors de la publication](media/machine-learning-gallery-how-to-use-contribute-publish/experiment-description.png)
+
+2. Résumez ce qu’aborde votre contenu. Décrivez brièvement le problème à résoudre et l’approche adoptée.
+
+3. Utilisez la zone de description détaillée pour parcourir les différentes parties de votre expérience. Certaines rubriques utiles à inclure ici sont :
+	- Capture d’écran de graphique d’expérience.
+	- Sources de données et explication.
+	- Traitement des données.
+	- Conception de fonctionnalités.
+	- Description du modèle.
+	- Résultats et évaluation des performances du modèle.
+
+	Vous pouvez utiliser Markdown pour formater des éléments si nécessaire. Cliquez sur l’icône d’aperçu pour avoir une idée du rendu final. Les exemples de cette collection montrent les éléments à inclure et comment vous pouvez organiser les informations.
+
+	> [AZURE.TIP] La zone fournie pour l’édition avec Markdown et la zone d’aperçu sont relativement petites. Nous vous recommandons d’écrire votre documentation dans un éditeur Markdown et de coller le document terminé dans la zone de texte. Après avoir publié votre expérience, vous pouvez utiliser des outils web standard dans Markdown pour l’édition et l’aperçu, afin d’apporter les corrections et les ajustements nécessaires.
+
+4. Téléchargez une miniature pour votre élément de la galerie. Elle apparaîtra en haut de la page de l’élément et dans la vignette de l’élément lorsque vous parcourrez la galerie. Vous pouvez choisir une image à partir de votre ordinateur ou sélectionner une des images du stock.
+
+5. Choisissez de publier votre contenu publiquement ou uniquement pour certaines personnes avec le lien.
+
+	> [AZURE.TIP] Si vous souhaitez vous assurer que le rendu final de votre documentation est correct avant de la publier publiquement, vous pouvez commencer par la publier sans la répertorier, puis la rendre publique à partir de la page de l’élément.
+
+Et voilà, vous avez terminé.
+
+Vous pouvez désormais voir votre expérience dans la galerie et partager le lien avec les autres. Si vous l’avez publiée publiquement, votre expérience s’affichera dans les résultats de navigation et de recherche dans la galerie. Vous pouvez également modifier votre documentation sur la page d’élément chaque fois que vous êtes connecté.
+
+> [AZURE.TIP] Pour apporter des modifications à l’expérience que vous avez publiée, accédez à l’expérience dans Azure ML Studio, apportez les modifications et publiez-la une nouvelle fois. Par défaut, le contenu publié existant sera mis à jour, et non créé à nouveau.
+
 
 ## Nous attendons votre avis !
 Nous souhaitons que la galerie soit gérée par nos utilisateurs, pour nos utilisateurs. Utilisez l'émoticône sur la droite pour nous dire ce que vous adorez ou ce que vous détestez à propos de la galerie.
@@ -136,4 +200,4 @@ Le rendu de la description complète n'est pas disponible de façon étendue à 
 
 **[ALLER À LA GALERIE >>](http://gallery.cortanaintelligence.com)**
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0810_2016-->

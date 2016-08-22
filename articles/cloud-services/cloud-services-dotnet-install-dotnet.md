@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/17/2016"
+   ms.date="08/10/2016"
    ms.author="adegeo"/>
 
 # Installer .NET sur un rôle de service cloud 
@@ -29,7 +29,7 @@ Le processus d'installation de .NET sur les rôles web et les rôles de travail 
   1. Dans l'**Explorateur de solutions**, dans le projet de service cloud, sous **Rôles**, cliquez avec le bouton droit sur votre rôle, puis sélectionnez **Ajouter > Nouveau dossier**. Créez un dossier intitulé *bin*.
   2. Cliquez avec le bouton droit sur le dossier **bin**, puis sélectionnez **Ajouter > Élément existant**. Sélectionnez le programme d'installation de .NET, puis ajoutez-le au dossier bin.
 - Pour un rôle de travail
-  1. Cliquez avec le bouton droit sur votre rôle, puis sélectionnez **Ajouter > Élément existant**. Sélectionnez le programme d'installation de .NET, puis ajoutez-le au rôle. 
+  1. Cliquez avec le bouton droit sur votre rôle, puis sélectionnez **Ajouter > Élément existant**. Sélectionnez le programme d'installation de .NET, puis ajoutez-le au rôle.
 
 Les fichiers ajoutés de cette façon dans le dossier de contenu du rôle seront automatiquement ajoutés au package de service cloud et déployés dans un emplacement similaire sur la machine virtuelle. Répétez ce processus pour tous les rôles web et tous les rôles de travail de Cloud Services, pour que tous les rôles disposent d'une copie du programme d'installation.
 
@@ -183,4 +183,4 @@ Quand vous déployez un service, les tâches de démarrage s'exécutent et insta
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

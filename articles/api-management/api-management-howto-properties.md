@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/25/2016" 
+	ms.date="08/09/2016" 
 	ms.author="sdanie"/>
 
 
@@ -26,7 +26,7 @@ Chaque instance du service Gestion des API possède une collection de propriét�
 
 | Attribut | Type | Description |
 |-----------|-----------------|---------------------------------------------------------------------------------------------------------|
-| Nom | string | Le nom de la propriété. Il peut contenir uniquement des lettres, des chiffres, des point, des tirets et des caractères de soulignement. |
+| Name | string | Le nom de la propriété. Il peut contenir uniquement des lettres, des chiffres, des point, des tirets et des caractères de soulignement. |
 | Valeur | string | Valeur de la propriété. Elle ne peut pas être vide ni se composer uniquement d’espaces blancs. |
 | Secret | booléenne | Détermine si la valeur est un secret et doit être chiffrée. |
 | Balises | tableau de chaînes | Balises facultatives qui, lorsqu’elles sont fournies, peuvent être utilisées pour filtrer la liste de propriétés. |
@@ -37,7 +37,7 @@ Les propriétés sont configurées dans le portail des éditeurs sous l’onglet
 
 Les valeurs de propriété peuvent contenir des chaînes littérales et des [expressions de stratégie](https://msdn.microsoft.com/library/azure/dn910913.aspx). Le tableau suivant répertorie les trois exemples de propriétés précédents et leurs attributs. La valeur de `ExpressionProperty` est une expression de stratégie qui renvoie une chaîne contenant la date et l’heure actuelles. La propriété `ContosoHeaderValue` est marquée en tant que secret. Sa valeur ne s’affiche donc pas.
 
-| Nom | Valeur | Secret | Balises |
+| Name | Valeur | Secret | Balises |
 |--------------------|----------------------------|--------|---------|
 | ContosoHeader | TrackingId | False | Contoso |
 | ContosoHeaderValue | •••••••••••••••••••••• | True | Contoso |
@@ -149,4 +149,4 @@ Pour filtrer la liste des propriétés en fonction des valeurs de balise, entrez
 [api-management-properties-filter]: ./media/api-management-howto-properties/api-management-properties-filter.png
 [api-management-api-inspector-trace]: ./media/api-management-howto-properties/api-management-api-inspector-trace.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

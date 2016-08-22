@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/12/2016"
+	ms.date="08/04/2016"
 	ms.author="billmath"/>
 
 # Utilisation du téléphone mobile comme méthode de contact avec Azure Multi-Factor Authentication
@@ -45,4 +45,4 @@ Si vous souhaitez utiliser votre téléphone mobile comme méthode de contact pr
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

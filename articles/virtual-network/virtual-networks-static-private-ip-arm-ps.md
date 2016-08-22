@@ -1,9 +1,9 @@
 <properties 
-   pageTitle="Définition d’une adresse IP privée statique dans Azure Resource Manager à l’aide de PowerShell | Microsoft Azure"
-   description="Présentation des adresses IP privées statiques et de leur gestion dans Azure Resource Manager à l’aide de PowerShell"
+   pageTitle="Définition d’une adresse IP privée statique dans Azure Resource Manager à l’aide de PowerShell | Microsoft Azure"
+   description="Présentation des adresses IP privées statiques et de leur gestion dans Azure Resource Manager à l’aide de PowerShell"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor="tysonn"
    tags="azure-resource-manager"
@@ -15,22 +15,22 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/23/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
-# Définition d’une adresse IP privée statique dans Resource Manager à l’aide de PowerShell
+# Définition d’une adresse IP privée statique dans Resource Manager à l’aide de PowerShell
 
 [AZURE.INCLUDE [virtual-networks-static-private-ip-selectors-arm-include](../../includes/virtual-networks-static-private-ip-selectors-arm-include.md)]
 
 [AZURE.INCLUDE [virtual-networks-static-private-ip-intro-include](../../includes/virtual-networks-static-private-ip-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]Cet article traite du modèle de déploiement de Resource Manager. Vous pouvez également [gérer une adresse IP privée statique dans le modèle de déploiement classique](virtual-networks-static-private-ip-classic-ps.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)] Cet article traite du modèle de déploiement de Resource Manager. Vous pouvez également [gérer une adresse IP privée statique dans le modèle de déploiement classique](virtual-networks-static-private-ip-classic-ps.md).
 
 [AZURE.INCLUDE [virtual-networks-static-ip-scenario-include](../../includes/virtual-networks-static-ip-scenario-include.md)]
 
 Les exemples de commandes PowerShell ci-dessous supposent qu’un environnement simple a déjà été créé conformément au scénario décrit ci-dessous. Si vous souhaitez exécuter les commandes telles qu’elles sont présentées dans ce document, commencez par créer l’environnement de test décrit dans [Créer un réseau virtuel](virtual-networks-create-vnet-arm-ps.md).
 
-## Spécification d’une adresse IP privée statique lors de la création d’une machine virtuelle
-Pour créer une machine virtuelle nommée *DNS01* dans le sous-réseau *FrontEnd* d’un réseau virtuel nommé *TestVNet* avec une adresse IP privée statique de *192.168.1.101*, procédez comme suit :
+## Spécification d’une adresse IP privée statique lors de la création d’une machine virtuelle
+Pour créer une machine virtuelle nommée *DNS01* dans le sous-réseau *FrontEnd* d’un réseau virtuel nommé *TestVNet* avec une adresse IP privée statique de *192.168.1.101*, procédez comme suit :
 
 [AZURE.INCLUDE [powershell-preview-include.md](../../includes/powershell-preview-include.md)]
 
@@ -64,7 +64,7 @@ Pour créer une machine virtuelle nommée *DNS01* dans le sous-réseau *FrontEnd
 		$vm = Set-AzureRmVMOSDisk -VM $vm -Name "windowsvmosdisk" -VhdUri $osDiskUri -CreateOption fromImage
 		New-AzureRmVM -ResourceGroupName $rgName -Location $locName -VM $vm 
 
-	Sortie attendue :
+	Sortie attendue :
 
 		EndTime             : 9/8/2015 2:32:09 PM -07:00
 		Error               : 
@@ -76,12 +76,12 @@ Pour créer une machine virtuelle nommée *DNS01* dans le sous-réseau *FrontEnd
 		StatusCode          : OK 
 
 
-## Récupération d’informations d’adresse IP privée statique pour une machine virtuelle
-Pour visualiser les informations d’adresse IP privée statique relatives à la machine virtuelle créée avec le script ci-dessus, exécutez la commande PowerShell ci-après et examinez les valeurs de *PrivateIpAddress* et *PrivateIpAllocationMethod*:
+## Comment récupérer des informations d’adresse IP privée statique pour une machine virtuelle
+Pour visualiser les informations d’adresse IP privée statique relatives à la machine virtuelle créée avec le script ci-dessus, exécutez la commande PowerShell ci-après et examinez les valeurs de *PrivateIpAddress* et *PrivateIpAllocationMethod* :
 
 	Get-AzureRmNetworkInterface -Name TestNIC -ResourceGroupName TestRG
 
-Sortie attendue :
+Sortie attendue :
 
 	Name                 : TestNIC
 	ResourceGroupName    : TestRG
@@ -126,14 +126,14 @@ Sortie attendue :
 	NetworkSecurityGroup : null
 	Primary              : True
 
-## Suppression d’une adresse IP privée statique d’une machine virtuelle
-Pour supprimer l’adresse IP privée statique ajoutée à la machine virtuelle dans le script ci-dessus, exécutez les commandes PowerShell suivantes :
+## Suppression d’une adresse IP privée statique d’une machine virtuelle
+Pour supprimer l’adresse IP privée statique ajoutée à la machine virtuelle dans le script ci-dessus, exécutez les commandes PowerShell suivantes :
 	
 	$nic=Get-AzureRmNetworkInterface -Name TestNIC -ResourceGroupName TestRG
 	$nic.IpConfigurations[0].PrivateIpAllocationMethod = "Dynamic"
 	Set-AzureRmNetworkInterface -NetworkInterface $nic
 
-Sortie attendue :
+Sortie attendue :
 
 	Name                 : TestNIC
 	ResourceGroupName    : TestRG
@@ -178,8 +178,8 @@ Sortie attendue :
 	NetworkSecurityGroup : null
 	Primary              : True
 
-## Ajout d’une adresse IP privée statique à une machine virtuelle existante
-Pour ajouter une adresse IP privée statique à la machine virtuelle créée à l’aide du script ci-dessus, exécutez la commande suivante :
+## Comment ajouter une adresse IP privée statique à une machine virtuelle existante
+Pour ajouter une adresse IP privée statique à la machine virtuelle créée à l’aide du script ci-dessus, exécutez la commande suivante :
 
 	$nic=Get-AzureRmNetworkInterface -Name TestNIC -ResourceGroupName TestRG
 	$nic.IpConfigurations[0].PrivateIpAllocationMethod = "Static"
@@ -188,8 +188,8 @@ Pour ajouter une adresse IP privée statique à la machine virtuelle créée à 
 
 ## Étapes suivantes
 
-- En savoir plus sur les [adresses IP publiques réservées](../virtual-networks-reserved-public-ip).
-- En savoir plus sur les [adresses IP publiques de niveau d’instance](../virtual-networks-instance-level-public-ip).
-- Consulter les [API REST d’adresse IP réservée](https://msdn.microsoft.com/library/azure/dn722420.aspx).
+- En savoir plus sur les [adresses IP publiques réservées](virtual-networks-reserved-public-ip.md).
+- En savoir plus sur les [adresses IP publiques de niveau d’instance](virtual-networks-instance-level-public-ip.md).
+- Consulter les [API REST d’adresse IP réservée](https://msdn.microsoft.com/library/azure/dn722420.aspx).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0810_2016-->

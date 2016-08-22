@@ -1,7 +1,6 @@
 ### Composants requis
 
-- Un compte [ServiceBus](https://azure.microsoft.com/services/service-bus/)
-
+Vous devez disposer d’un compte [Service Bus](https://azure.microsoft.com/services/service-bus/).
 
 Pour pouvoir utiliser votre compte Azure Service Bus dans une application logique, vous devez autoriser l’application à se connecter à votre compte. Heureusement, cette opération est très simple à effectuer depuis votre application logique, sur le Portail Azure.
 
@@ -19,4 +18,4 @@ Pour autoriser votre application logique à se connecter à votre compte Service
 3. Notez que la connexion a été créée et que vous pouvez maintenant poursuivre la procédure dans votre application logique :  
     ![Image de connexion à Service Bus 3](./media/connectors-create-api-servicebus/servicebus-3.png)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0810_2016-->

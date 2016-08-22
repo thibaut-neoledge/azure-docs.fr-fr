@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/12/2016" 
+	ms.date="08/04/2016" 
 	ms.author="billmath"/>
 
 # Expérience de connexion avec Azure Multi-Factor Authentication
@@ -39,7 +39,7 @@ Les informations suivantes décrivent l'utilisation de l'authentification multif
 
 ### Connexion avec un appel sur votre téléphone de bureau ou mobile
 
-- Connectez-vous à une application ou un service comme Office 365 à l'aide de votre nom d'utilisateur et de votre mot de passe.
+- Connectez-vous à une application ou un service comme Office 365 à l’aide de votre nom d’utilisateur et votre mot de passe.
 - Microsoft vous appelle.
 
 ![Microsoft appelle](./media/multi-factor-authentication-end-user-signin-phone/call.png)
@@ -104,4 +104,4 @@ La section suivante vous montre comment vous connecter avec une autre méthode q
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

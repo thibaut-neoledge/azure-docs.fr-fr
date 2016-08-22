@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="prasannas"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/16/2016"
+	ms.date="08/05/2016"
 	ms.author="jeedes"/>
 
 
@@ -23,13 +23,13 @@ L’objectif de ce didacticiel est de vous montrer comment intégrer TargetProce
 
 L’intégration de TargetProcess à Azure AD vous offre les avantages suivants :
 
-- Dans Azure AD, vous pouvez contrôler qui a accès à TargetProcess. 
+- Dans Azure AD, vous pouvez contrôler qui a accès à TargetProcess.
 - Vous pouvez autoriser les utilisateurs à se connecter automatiquement à TargetProcess (via l’authentification unique) avec leur compte Azure AD.
 - Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure Active Directory Classic.
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
 
-## Configuration requise 
+## Composants requis 
 
 Pour configurer l’intégration d’Azure AD avec TargetProcess, vous avez besoin des éléments suivants :
 
@@ -43,7 +43,7 @@ Pour configurer l’intégration d’Azure AD avec TargetProcess, vous avez bes
 Vous devez en outre suivre les recommandations ci-dessous :
 
 - Vous ne devez pas utiliser votre environnement de production, sauf si cela est nécessaire.
-- Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/). 
+- Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
 
  
 ## Description du scénario
@@ -51,7 +51,7 @@ Ce didacticiel vise à vous permettre de tester l’authentification unique Azur
 
 Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
-1. Ajout de TargetProcess à partir de la galerie 
+1. Ajout de TargetProcess à partir de la galerie
 2. Configuration et test de l’authentification unique Azure AD
 
 
@@ -60,7 +60,7 @@ Pour configurer l’intégration de TargetProcess avec Azure AD, vous devez ajo
 
 **Pour ajouter TargetProcess à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **portail Azure Classic**, cliquez sur **Active Directory**. 
+1. Dans le volet de navigation gauche du **portail Azure Classic**, cliquez sur **Active Directory**.
 
 	![Active Directory][1]
 
@@ -96,9 +96,9 @@ Pour cela, affectez la valeur de **nom d’utilisateur** dans Azure AD comme va
 Pour configurer et tester l’authentification unique Azure AD avec TargetProcess, vous devez suivre les indications des sections suivantes :
 
 1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
+2. **[Création d'un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l'authentification unique Azure AD avec Britta Simon.
 4. **[Création d’un utilisateur de test TargetProcess](#creating-a-targetprocess-test-user)** pour avoir un équivalent de Britta Simon dans TargetProcess lié à la représentation Azure AD associée.
-5. **[Affectation d’un utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+5. **[Affectation d’un utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
 5. **[Test de l’authentification unique](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 
 ### Configuration de l’authentification unique Azure AD
@@ -124,7 +124,7 @@ Pour configurer l’authentification unique pour TargetProcess, vous avez besoin
 	![Configurer l’authentification unique](./media/active-directory-saas-target-process-tutorial/tutorial_target_process_03.png)
 
 
-    a. Dans la zone de texte **URL d’authentification**, entrez l’URL utilisée par vos utilisateurs pour se connecter à votre application TargetProcess (p. ex., **https://fabrikam.TargetProcess.com/*).
+    a. Dans la zone de texte **URL d’authentification**, entrez l’URL utilisée par vos utilisateurs pour se connecter à votre application TargetProcess (p. ex., *https://fabrikam.TargetProcess.com/*).
 
     b. Cliquez sur **Next**.
  
@@ -273,7 +273,7 @@ L’objectif de cette section est de permettre à Britta Simon d’utiliser l’
 
 ### Test de l’authentification unique
 
-L’objectif de cette section est de tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
+L’objectif de cette section est de tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Lorsque vous cliquez sur la vignette TargetProcess dans le volet d’accès, vous devez être connecté automatiquement à votre application TargetProcess.
 
@@ -302,4 +302,4 @@ Lorsque vous cliquez sur la vignette TargetProcess dans le volet d’accès, vou
 [204]: ./media/active-directory-saas-target-process-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-target-process-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

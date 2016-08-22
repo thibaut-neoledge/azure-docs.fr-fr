@@ -3,7 +3,7 @@
    description="Présentation des adresses IP privées statiques (adresses IP dynamiques) et de leur gestion en mode classique et PowerShell"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor="tysonn"
    tags="azure-service-management"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/02/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 # Comment définir une adresse IP privée statique (classique) dans PowerShell
 
@@ -23,7 +23,7 @@
 
 [AZURE.INCLUDE [virtual-networks-static-private-ip-intro-include](../../includes/virtual-networks-static-private-ip-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]Cet article traite du modèle de déploiement classique. Vous pouvez également [gérer une adresse IP privée statique dans le modèle de déploiement Resource Manager](virtual-networks-static-private-ip-arm-ps.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)] Cet article traite du modèle de déploiement classique. Vous pouvez également [gérer une adresse IP privée statique dans le modèle de déploiement Resource Manager](virtual-networks-static-private-ip-arm-ps.md).
 
 [AZURE.INCLUDE [virtual-networks-static-ip-scenario-include](../../includes/virtual-networks-static-ip-scenario-include.md)]
 
@@ -95,7 +95,7 @@ Sortie attendue :
 	OperationId                 : 34c1560a62f0901ab75cde4fed8e8bd1
 	OperationStatus             : OK
 
-## Comment supprimer une adresse IP privée statique d’une machine virtuelle
+## Suppression d’une adresse IP privée statique d’une machine virtuelle
 Pour supprimer l’adresse IP privée statique ajoutée à la machine virtuelle par le biais du script ci-dessus, exécutez la commande PowerShell suivante :
 	
 	Get-AzureVM -ServiceName TestService -Name DNS01 `
@@ -108,7 +108,7 @@ Sortie attendue :
 	-------------------- -----------                          ---------------
 	Update-AzureVM       052fa6f6-1483-0ede-a7bf-14f91f805483 Succeeded
 
-## Ajout d’une adresse IP privée statique à une machine virtuelle existante
+## Comment ajouter une adresse IP privée statique à une machine virtuelle existante
 Pour ajouter une adresse IP privée statique à la machine virtuelle créée à l’aide du script ci-dessus, exécutez la commande suivante :
 
 	Get-AzureVM -ServiceName TestService -Name DNS01 `
@@ -123,8 +123,8 @@ Sortie attendue :
 
 ## Étapes suivantes
 
-- En savoir plus sur les [adresses IP publiques réservées](../virtual-networks-reserved-public-ip).
-- En savoir plus sur les [adresses IP publiques de niveau d’instance](../virtual-networks-instance-level-public-ip).
+- En savoir plus sur les [adresses IP publiques réservées](virtual-networks-reserved-public-ip.md).
+- En savoir plus sur les [adresses IP publiques de niveau d’instance](virtual-networks-instance-level-public-ip.md).
 - Consultez les [API REST d’adresse IP réservée](https://msdn.microsoft.com/library/azure/dn722420.aspx)
 
-<!----HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0810_2016-->

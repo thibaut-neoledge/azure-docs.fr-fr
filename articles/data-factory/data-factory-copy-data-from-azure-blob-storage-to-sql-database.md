@@ -45,9 +45,9 @@ Pour réaliser ce didacticiel, vous avez besoin du nom et de la clé de votre co
 1. Connectez-vous au [portail Azure][azure-portal].
 2. Cliquez sur le hub **PARCOURIR** situé à gauche et sélectionnez **Comptes de stockage**.
 3. Dans le panneau **Comptes de stockage**, sélectionnez le **compte de stockage Azure** que vous souhaitez utiliser dans ce didacticiel.
-4. Dans le panneau **STOCKAGE**, cliquez sur la vignette **CLÉS**.
-5. Dans le panneau **Gérer les clés**, cliquez sur le bouton **copier** (image) situé en regard de la zone de texte **NOM DU COMPTE DE STOCKAGE** et enregistrez/collez-la quelque part (dans un fichier texte, par exemple).
-6. Répétez l'étape précédente pour copier ou noter la **CLÉ D'ACCÈS PRIMAIRE**.
+4. Sélectionnez le lien **Clés d’accès** sous **PARAMÈTRES**.
+5.  Cliquez sur le bouton **copier** (image) situé en regard de la zone de texte **Nom du compte de stockage** et enregistrez/collez-la quelque part (dans un fichier texte, par exemple).
+6. Répétez l'étape précédente pour copier ou noter la **clé1**.
 7. Fermez tous les panneaux en cliquant sur **X**.
 
 ## Récupérer les noms de serveur SQL, de base de données et d’utilisateur
@@ -92,7 +92,7 @@ Vérifiez que le paramètre **Autoriser l'accès aux services Azure** est **ACTI
 
 		CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
 
-	**Si SQL Server 2012/2014 est installé sur votre ordinateur :** suivez les instructions de l'[Étape 2 : connexion à la base de données SQL de l'article Gestion de la base de données SQL Azure au moyen de SQL Server Management Studio][sql-management-studio] pour vous connecter à votre serveur SQL Azure et exécuter le script SQL. Notez que cet article utilise le [portail Azure Classic](http://manage.windowsazure.com), et non le [portail Azure](https://portal.azure.com), pour configurer le pare-feu d’un serveur SQL Azure.
+	**Si SQL Server 2012/2014 est installé sur votre ordinateur :** suivez les instructions de l'[Étape 2 : connexion à la base de données SQL de l'article Gestion de la base de données SQL Azure au moyen de SQL Server Management Studio][sql-management-studio] pour vous connecter à votre serveur SQL Azure et exécuter le script SQL. Notez que cet article utilise le [portail Azure](http://manage.windowsazure.com), et non le [portail Azure](https://portal.azure.com), pour configurer le pare-feu d’un serveur SQL Azure.
 
 	**Si Visual Studio 2013 est installé sur votre ordinateur :** dans le [portail Azure](https://portal.azure.com), cliquez sur le hub **PARCOURIR** situé à gauche, puis sur **Serveurs SQL**, sélectionnez ensuite votre base de données, puis cliquez sur le bouton **Ouvrir dans Visual Studio** dans la barre d’outils pour vous connecter à votre serveur SQL Azure et exécuter le script. Si votre client n’est pas autorisé à accéder au serveur SQL Azure, vous devez configurer le pare-feu pour votre serveur SQL Azure afin d’autoriser l’accès à partir de votre ordinateur (adresse IP). Consultez l'article ci-dessus pour savoir comment configurer le pare-feu pour votre serveur SQL Azure.
 
@@ -116,4 +116,4 @@ Pour plus d’informations sur l’activité de copie dans Azure Data Factory, c
 [data-factory-create-storage]: http://azure.microsoft.com/documentation/articles/storage-create-storage-account/#create-a-storage-account
 [data-factory-create-sql-database]: ../sql-database/sql-database-get-started.md
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

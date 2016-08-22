@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/25/2016" 
+	ms.date="08/09/2016" 
 	ms.author="sdanie"/>
 
 # FAQ sur la gestion des API Azure
@@ -150,4 +150,4 @@ Oui. Suivez les étapes ci-dessous :
 
 Si vous utilisez le Gestionnaire d’informations d’identification GIT ou si vous essayez de cloner le référentiel via Visual Studio, il est possible que vous rencontriez un problème connu dans la boîte de dialogue d’informations d’identification Windows, qui limite la longueur du mot de passe à 127 caractères seulement et tronque, par conséquent, le mot de passe que nous générons. Nous travaillons au raccourcissement du mot de passe. Pour l’instant, utilisez GIT Bash pour le clonage.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0810_2016-->

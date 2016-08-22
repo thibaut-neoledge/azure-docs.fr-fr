@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/14/2016"
+   ms.date="08/08/2016"
    ms.author="barbkess;sonyama"/>
 
 # Gestion de la puissance de calcul dans Azure SQL Data Warehouse (REST)
@@ -100,4 +100,4 @@ Pour d'autres tâches de gestion, consultez la rubrique [Vue d'ensemble de la ge
 
 [Azure portal]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0810_2016-->

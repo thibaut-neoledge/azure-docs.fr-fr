@@ -1,5 +1,12 @@
-<properties pageTitle="Variable assets in Azure Automation | Microsoft Azure" description="Les ressources de variables sont des valeurs disponibles pour tous les Runbooks et configurations DSC d’Azure Automation. Cet article présente les variables de façon détaillée et comment les utiliser dans une création textuelle ou graphique." services="automation" documentationCenter="" authors="mgoedtel" manager="jwhit"" editor="tysonn" />
-<tags  
+<properties 
+   pageTitle="Ressources de variables dans Azure Automation | Microsoft Azure"
+   description="Les ressources de variables sont des valeurs disponibles pour tous les Runbooks et configurations DSC d’Azure Automation. Cet article présente les variables de façon détaillée et comment les utiliser dans une création textuelle ou graphique."
+   services="automation"
+   documentationCenter=""
+   authors="mgoedtel"
+   manager="jwhit"
+   editor="tysonn" />
+<tags 
    ms.service="automation"
    ms.devlang="na"
    ms.topic="article"
@@ -178,7 +185,7 @@ L'illustration suivante montre comment filtrer les objets qui sont stockés dans
 
 ## Étapes suivantes
 
-- Pour en savoir plus sur la connexion d’activités lors de la création graphique, consultez [Liens lors de la création graphique](automation-graphical-authoring-intro.md#links-and-workflow).
-- Pour une prise en main des Runbooks graphiques, consultez [Mon premier Runbook graphique](automation-first-runbook-graphical.md) 
+- Pour en savoir plus sur la connexion d’activités lors de la création graphique, consultez [Liens lors de la création graphique](automation-graphical-authoring-intro.md#links-and-workflow)
+- Pour une prise en main des Runbooks graphiques, consultez [Mon premier Runbook graphique](automation-first-runbook-graphical.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0810_2016-->

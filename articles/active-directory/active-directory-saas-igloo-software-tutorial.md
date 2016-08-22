@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="05/16/2016" 
+    ms.date="08/05/2016" 
     ms.author="jeedes" />
 
 #Didacticiel : Intégration d’Azure Active Directory avec Igloo Software
@@ -62,7 +62,7 @@ Cette section décrit l’activation de l’intégration d’application pour Ig
 7.  Dans le volet des résultats, sélectionnez **Igloo Software**, puis cliquez sur **Terminer** pour ajouter l’application.
 
     ![Igloo](./media/active-directory-saas-igloo-software-tutorial/IC783963.png "Igloo")
-##Configuration de l'authentification unique
+##Configuration de l’authentification unique
   
 Cette section explique comment permettre aux utilisateurs de s’authentifier sur Igloo Software avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML. Dans le cadre de cette procédure, vous devez créer un fichier de certificat codé en base 64 sur votre locataire Central Desktop. Si cette procédure ne vous est pas familière, consultez [Comment convertir un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
 
@@ -154,4 +154,4 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
   
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -3,7 +3,7 @@
    description="Présentation des adresses IP privées statiques et de leur gestion en mode classique à l'aide du portail Azure"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor="tysonn"
    tags="azure-service-management"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/04/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 # Définition d'une adresse IP privée statique (classique) dans le portail Azure
 
@@ -23,9 +23,9 @@
 
 [AZURE.INCLUDE [virtual-networks-static-private-ip-intro-include](../../includes/virtual-networks-static-private-ip-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]Cet article traite du modèle de déploiement classique. Vous pouvez également [gérer une adresse IP privée statique dans le modèle de déploiement Resource Manager](virtual-networks-static-private-ip-arm-pportal.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)] Cet article traite du modèle de déploiement classique. Vous pouvez également [gérer une adresse IP privée statique dans le modèle de déploiement Resource Manager](virtual-networks-static-private-ip-arm-pportal.md).
 
-[AZURE.INCLUDE [virtual-networks-static-ip-scenario-include](../../includes/virtual-networks-static-ip-scenario-include.md)]
+[AZURE.INCLUDE [réseaux-virtuels-statique-scénario-ip-inclut](../../includes/virtual-networks-static-ip-scenario-include.md)]
 
 Les étapes de l’exemple ci-dessous supposent qu’un environnement simple a déjà été créé. Si vous souhaitez exécuter les étapes telles qu’elles sont présentées dans ce document, commencez par créer l’environnement de test décrit dans [Créer un réseau virtuel](virtual-networks-create-vnet-classic-pportal.md).
 
@@ -77,8 +77,8 @@ Pour ajouter une adresse IP privée statique à la machine virtuelle créée lor
 
 ## Étapes suivantes
 
-- En savoir plus sur les [adresses IP publiques réservées](../virtual-networks-reserved-public-ip).
-- En savoir plus sur les [adresses IP publiques de niveau d’instance](../virtual-networks-instance-level-public-ip).
+- En savoir plus sur les [adresses IP publiques réservées](virtual-networks-reserved-public-ip.md).
+- En savoir plus sur les [adresses IP publiques de niveau d’instance](virtual-networks-instance-level-public-ip.md).
 - Consulter les [API REST d’adresse IP réservée](https://msdn.microsoft.com/library/azure/dn722420.aspx).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0810_2016-->

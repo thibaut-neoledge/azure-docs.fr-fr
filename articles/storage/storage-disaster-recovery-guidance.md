@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/17/2016"
+	ms.date="08/03/2016"
 	ms.author="robinsh"/>
 
 
@@ -71,7 +71,7 @@ Quelques points relatifs à l’expérience de basculement géographique du stoc
 
 ##Meilleures pratiques pour la protection de vos données
 
-Il existe certaines approches recommandées pour sauvegarder régulièrement vos données de stockage.
+Il existe des approches recommandées pour sauvegarder régulièrement vos données de stockage.
 
 -   Disques de machine virtuelle : utilisez le [service Azure Backup](https://azure.microsoft.com/services/backup/) pour sauvegarder les disques de machine virtuelle utilisées par vos machines virtuelles Azure.
 
@@ -81,4 +81,4 @@ Il existe certaines approches recommandées pour sauvegarder régulièrement vos
 
 -   Fichiers : utilisez [AzCopy](storage-use-azcopy.md) ou [Azure PowerShell](storage-powershell-guide-full.md) pour copier vos fichiers vers un autre compte de stockage dans une autre région.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0810_2016-->

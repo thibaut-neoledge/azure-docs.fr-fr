@@ -3,7 +3,7 @@
    description="Apprenez à déployer des machines virtuelles à plusieurs cartes réseau à l'aide de PowerShell dans le modèle de déploiement classique"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor=""
    tags="azure-service-management"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/02/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 #Déploiement de plusieurs machines virtuelles à cartes réseau (classiques) à l'aide de PowerShell
 
@@ -43,7 +43,7 @@ Les machines virtuelles principales dépendent de la création de ressources ré
 - **Compte de stockage pour les disques de données**. Pour optimiser les performances, les disques de données sur les serveurs de base de données utilisent la technologie de disque SSD, qui requiert un compte de stockage Premium. Assurez-vous que l'emplacement Azure de déploiement prend en charge le stockage Premium.
 - **Groupe à haute disponibilité**. Tous les serveurs de base de données sont ajoutés à un groupe à haute disponibilité, afin de garantir qu’au moins une des machines virtuelles est en cours d’exécution lors de la maintenance.
 
-### Étape 1 : démarrage de votre script
+### Étape 1 : démarrer votre script
 
 Vous pouvez télécharger le script PowerShell complet utilisé [ici](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/classic/virtual-network-deploy-multinic-classic-ps.ps1). Suivez les étapes ci-dessous pour modifier le script afin qu’il fonctionne dans votre environnement.
 
@@ -53,7 +53,7 @@ Vous pouvez télécharger le script PowerShell complet utilisé [ici](https://ra
 		$vnetName              = "WTestVNet"
 		$backendSubnetName     = "BackEnd"
 
-2. Modifiez les valeurs des variables suivantes, selon les valeurs que vous souhaitez utiliser pour le déploiement de votre serveur principal.
+2. Modifiez les valeurs des variables suivantes en fonction des valeurs que vous souhaitez utiliser pour le déploiement de votre serveur principal.
 
 		$backendCSName         = "IaaSStory-Backend"
 		$prmStorageAccountName = "iaasstoryprmstorage"
@@ -171,4 +171,4 @@ Maintenant que vous avez téléchargé et modifié le script selon vos besoins, 
 		New-AzureVM             xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded
 		New-AzureVM             xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0810_2016-->

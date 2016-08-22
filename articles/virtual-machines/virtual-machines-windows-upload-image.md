@@ -103,7 +103,7 @@ Si vous voulez créer un compte de stockage, procédez comme suit :
 
 2. Pour créer un groupe de ressources, utilisez cette commande :
 
-		New-AzureRmResourceGroup -Name <resourceGroupName> -Location "West US"
+		New-AzureRmResourceGroup -Name <resourceGroupName> -Location <location>
 
 3. Créez un compte de stockage dans ce groupe de ressources en utilisant l’applet de commande [New-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607148.aspx) :
 
@@ -170,7 +170,7 @@ Créez le réseau virtuel et le sous-réseau du [réseau virtuel](../virtual-net
 2. Remplacez la valeur de **$vnetName** par le nom du réseau virtuel. Fournissez le préfixe d’adresse du réseau virtuel au format CIDR. Créez la variable et le réseau virtuel avec le sous-réseau.
 
         $vnetName = "<vnetName>"
-        $vnet = New-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $rgName -Location $locName -AddressPrefix <0.0.0.0/0> -Subnet $singleSubnet
+        $vnet = New-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $rgName -Location $location -AddressPrefix <0.0.0.0/0> -Subnet $singleSubnet
         
             
 ## Création d'une adresse IP publique et une interface réseau
@@ -180,12 +180,12 @@ Pour établir la communication avec la machine virtuelle dans le réseau virtuel
 1. Remplacez la valeur de **$ipName** par le nom de l’adresse IP publique. Créez la variable et l’adresse IP publique.
 
         $ipName = "<ipName>"
-        $pip = New-AzureRmPublicIpAddress -Name $ipName -ResourceGroupName $rgName -Location $locName -AllocationMethod Dynamic
+        $pip = New-AzureRmPublicIpAddress -Name $ipName -ResourceGroupName $rgName -Location $location -AllocationMethod Dynamic
         
 2. Remplacez la valeur de **$nicName** par le nom de l’interface réseau. Créez la variable et l'interface réseau.
 
         $nicName = "<nicName>"
-        $nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
+        $nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $location -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
 
 		
 
@@ -252,4 +252,4 @@ Lorsque vous avez terminé, vous devez voir la machine virtuelle nouvellement cr
 
 Pour gérer votre nouvelle machine virtuelle avec Azure PowerShell, consultez [Gestion des machines virtuelles à l’aide de modèles Azure Resource Manager et de PowerShell](virtual-machines-windows-ps-manage.md).
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

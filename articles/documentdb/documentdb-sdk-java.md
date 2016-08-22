@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Kit de développement logiciel (SDK) Java DocumentDB | Microsoft Azure" 
-	description="Découvrez le Kit de développement logiciel (SDK) Java, y compris les dates de lancement, les dates de suppression et les modifications apportées entre chaque version du Kit de développement logiciel (SDK) Java DocumentDB." 
+	pageTitle="API et Kit de développement logiciel (SDK) Java DocumentDB | Microsoft Azure" 
+	description="Découvrez l'API et le Kit de développement logiciel (SDK) Java, y compris les dates de lancement, les dates de suppression et les modifications apportées entre chaque version du Kit de développement logiciel (SDK) Java DocumentDB." 
 	services="documentdb" 
 	documentationCenter="java" 
-	authors="aliuy" 
+	authors="rnagpal" 
 	manager="jhubbard" 
 	editor="cgronlun"/>
 
@@ -13,23 +13,25 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="06/30/2016" 
-	ms.author="andrl"/>
+	ms.date="08/09/2016" 
+	ms.author="rnagpal"/>
 
-# Kit SDK DocumentDB
+# API DocumentDB et Kits de développement logiciel (SDK)
 
 > [AZURE.SELECTOR]
-- [Kit SDK .NET](documentdb-sdk-dotnet.md)
-- [Kit SDK Node.js](documentdb-sdk-node.md)
-- [Kit SDK Java](documentdb-sdk-java.md)
-- [Kit de développement logiciel (SDK) Python](documentdb-sdk-python.md)
+- [.NET](documentdb-sdk-dotnet.md)
+- [Node.JS](documentdb-sdk-node.md)
+- [Java](documentdb-sdk-java.md)
+- [Python](documentdb-sdk-python.md)
+- [REST](https://go.microsoft.com/fwlink/?LinkId=402413)
+- [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 
-##Kit de développement logiciel (SDK) Java DocumentDB
+## API Java DocumentDB et Kit de développement logiciel (SDK)
 
 <table>
-<tr><td>**Télécharger**</td><td>[Maven](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb)</td></tr>
-<tr><td>**Participer**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-java/)</td></tr>
-<tr><td>**Documentation**</td><td>[Documentation de référence du Kit de développement logiciel (SDK) Java](http://azure.github.io/azure-documentdb-java/)</td></tr>
+<tr><td>**Téléchargement du Kit de développement logiciel (SDK)**</td><td>[Maven](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb)</td></tr>
+<tr><td>**Documentation de l'API**</td><td>[Documentation de référence de l'API Java](http://azure.github.io/azure-documentdb-java/)</td></tr>
+<tr><td>**Contribution au Kit de développement logiciel (SDK)**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-java/)</td></tr>
 <tr><td>**Prise en main**</td><td>[Prise en main du Kit de développement logiciel (SDK) Java](documentdb-java-application.md)</td></tr>
 <tr><td>**Runtime actuellement pris en charge**</td><td>[JDK 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html)</td></tr>
 </table></br>
@@ -76,7 +78,7 @@
 - Implémente la stratégie d'indexation V2
 
 ### <a name="1.0.0"/>[1\.0.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.0.0)
-- Kit de développement logiciel (SDK) GA
+- Kit SDK GA
 
 ## Dates de lancement et de suppression
 Microsoft fournira une notification au moins **12 mois** avant le retrait d’un Kit de développement logiciel (SDK) pour faciliter la transition vers une version plus récente/prise en charge.
@@ -86,30 +88,24 @@ Les nouvelles fonctionnalités et fonctions, et les optimisations sont uniquemen
 Toute requête à DocumentDB utilisant un Kit de développement logiciel (SDK) supprimé est rejetée par le service.
 
 > [AZURE.WARNING]
-Toutes les versions du Kit de développement logiciel (SDK) Azure DocumentDB pour Java antérieures à la version **1.0.0** seront supprimées le **29 février 2016**.
+Toutes les versions du Kit de développement logiciel (SDK) Azure DocumentDB pour Java antérieures à la version **1.0.0** seront supprimées le **29 février 2016**.
 
 <br/>
 
 | Version | Date de lancement | Date de suppression 
 | ---	  | ---	         | ---
-| [1\.8.1](#1.8.1) | 30 juin 2016 |--- 
-| [1\.8.0](#1.8.0) | 14 juin 2016 |--- 
-| [1\.7.1](#1.7.1) | 30 avril 2016 |--- 
-| [1\.7.0](#1.7.0) | 27 avril 2016 |--- 
-| [1\.6.0](#1.6.0) | 29 mars 2016 |--- 
-| [1\.5.1](#1.5.1) | 31 décembre 2015 |--- 
-| [1\.5.0](#1.5.0) | 4 décembre 2015 |--- 
-| [1\.4.0](#1.4.0) | 5 octobre 2015 |--- 
-| [1\.3.0](#1.3.0) | 5 octobre 2015 |--- 
-| [1\.2.0](#1.2.0) | 5 août 2015 |--- 
-| [1\.1.0](#1.1.0) | 9 juillet 2015 |--- 
-| [1\.0.1](#1.0.1) | 12 mai 2015 |--- 
-| [1\.0.0](#1.0.0) | 7 avril 2015 |--- 
-| 0.9.5-version préliminaire | 9 mars 2015 | 29 février 2016 
-| 0.9.4-version préliminaire | 17 février 2015 | 29 février 2016 
-| 0.9.3-version préliminaire | 13 janvier 2015 | 29 février 2016 
-| 0.9.2-version préliminaire | 19 décembre 2014 | 29 février 2016 
-| 0.9.1-version préliminaire | 19 décembre 2014 | 29 février 2016 
+| [1\.5.0](#1.5.0) | 4 décembre 2015  |---
+| [1\.4.0](#1.4.0) | 5 octobre 2015 |---
+| [1\.3.0](#1.3.0) | 5 octobre 2015 |---
+| [1\.2.0](#1.2.0) | 5 août 2015 |---
+| [1\.1.0](#1.1.0) | 9 juillet 2015 |---
+| [1\.0.1](#1.0.1) | 12 mai 2015 |---
+| [1\.0.0](#1.0.0) | 7 avril 2015 |---
+| 0.9.5-version préliminaire | 9 mars 2015 | 29 février 2016
+| 0.9.4-version préliminaire | 17 février 2015 | 29 février 2016
+| 0.9.3-version préliminaire | 13 janvier 2015 | 29 février 2016
+| 0.9.2-version préliminaire | 19 décembre 2014 | 29 février 2016
+| 0.9.1-version préliminaire | 19 décembre 2014 | 29 février 2016
 | 0.9.0-version préliminaire | 10 décembre 2014 | 29 février 2016
 
 ## Forum Aux Questions
@@ -119,4 +115,4 @@ Toutes les versions du Kit de développement logiciel (SDK) Azure DocumentDB pou
 
 Pour en savoir plus sur DocumentDB, consultez la page du service [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0810_2016-->

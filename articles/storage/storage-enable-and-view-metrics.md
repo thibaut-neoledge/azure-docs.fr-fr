@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="07/05/2016"
+	ms.date="08/03/2016"
 	ms.author="robinsh"/>
 
 # Activation des métriques Azure Storage et affichage des données associées
 
 [AZURE.INCLUDE [storage-selector-portal-enable-and-view-metrics](../../includes/storage-selector-portal-enable-and-view-metrics.md)]
 
-## Vue d’ensemble
+## Vue d'ensemble
 
 Par défaut, les mesures de stockage ne sont pas activées pour vos services de stockage. Vous pouvez activer la surveillance par le biais du [portail Azure](https://portal.azure.com) ou de Windows PowerShell, ou par programme au moyen de la bibliothèque cliente de stockage.
 
@@ -213,4 +213,4 @@ La capacité utilisée par les tables de métriques est également facturée ; 
 ## Étapes suivantes :
 [Activation de la journalisation du stockage et accès aux données des journaux](https://msdn.microsoft.com/library/dn782840.aspx)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0810_2016-->
