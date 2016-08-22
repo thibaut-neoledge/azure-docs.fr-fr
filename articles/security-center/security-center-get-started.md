@@ -60,7 +60,7 @@ Vous pouvez configurer des stratégies de sécurité pour vos groupes de ressour
  - L’activation de l’option **Mises à jour du système** permet d’analyser toutes les machines virtuelles prises en charge pour y détecter des mises à jour de système d’exploitation manquantes.
  - L’activation de l’option **Vulnérabilités du système d’exploitation** permet d’analyser toutes les machines virtuelles prises en charge afin d’identifier toute configuration du système d’exploitation risquant de rendre la machine virtuelle plus vulnérable aux attaques.
 
-Afficher des **Recommandations** :
+Afficher des **Recommandations** :
 
 1. Retournez dans le panneau **Security Center** et sélectionnez la vignette **Recommandations**. Le Centre de sécurité analyse l’état de sécurité de vos ressources Azure à intervalles réguliers. Quand des failles de sécurité potentielles sont identifiées, une recommandation y est affichée.
 2.	Sélectionnez chaque recommandation pour visualiser plus d’informations et/ou prendre des mesures afin de résoudre le problème. ![Recommandations dans le Centre de sécurité Azure][5]

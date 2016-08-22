@@ -110,7 +110,7 @@ Si vous avez déjà une base de données, vérifiez qu’elle est hébergée dan
 
 Si votre base de données n’est pas hébergée dans SQL Database V12, consultez [Planifier et préparer la mise à niveau vers SQL Database V12](sql-database-v12-plan-prepare-upgrade.md), puis visitez le portail Azure Classic pour migrer la base de données vers SQL Database V12.
 
-Vous pouvez également créer une base de données dans SQL Database V12 en exécutant les opérations répertoriées dans [Créer votre première base de données SQL Azure](sql-database-get-started.md). **Conseil** : lisez l’étape suivante avant de sélectionner un abonnement pour votre nouvelle base de données.
+Vous pouvez également créer une base de données dans SQL Database V12 en exécutant les opérations répertoriées dans [Créer votre première base de données SQL Azure](sql-database-get-started.md). **Conseil** : lisez l’étape suivante avant de sélectionner un abonnement pour votre nouvelle base de données.
 
 ## 3\. Facultatif : associer ou modifier le répertoire actif actuellement associé à votre abonnement Azure
 
@@ -131,7 +131,7 @@ Les procédures suivantes fournissent des instructions étape par étape sur la 
 5. Dans la zone **MODIFIER L’ANNUAIRE**, sélectionnez le répertoire Azure Active Directory associé à votre serveur SQL Server ou à SQL Data Warehouse, puis cliquez sur la flèche Suivant.
 
 	![edit-directory-select][6]
-6. Dans la boîte de dialogue **Confirmer** le mappage d’annuaire, confirmez que « **Tous les coadministrateurs seront supprimés.** »
+6. Dans la boîte de dialogue **Confirmer** le mappage d’annuaire, confirmez que « **Tous les coadministrateurs seront supprimés.** »
 
 	![edit-directory-confirm][7]
 7. Cliquez sur la coche pour recharger le portail.
@@ -185,7 +185,7 @@ Applets de commande utilisées pour configurer et gérer Azure AD admin :
 
 Utilisez la commande PowerShell get-help pour obtenir plus de détails sur chacune de ces commandes, par exemple ``get-help Set-AzureRmSqlServerActiveDirectoryAdministrator``.
 
-Le script suivant configure un groupe d’administrateurs Azure AD nommé **DBA\_Group** (id d’objet `40b79501-b343-44ed-9ce7-da4c8cc7353f`) pour le serveur **demo\_server** d’un groupe de ressources nommé **groupe-23** :
+Le script suivant configure un groupe d’administrateurs Azure AD nommé **DBA\_Group** (id d’objet `40b79501-b343-44ed-9ce7-da4c8cc7353f`) pour le serveur **demo\_server** d’un groupe de ressources nommé **groupe-23** :
 
 ```
 Set-AzureRmSqlServerActiveDirectoryAdministrator –ResourceGroupName "Group-23"

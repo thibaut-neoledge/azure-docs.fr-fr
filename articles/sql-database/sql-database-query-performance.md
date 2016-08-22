@@ -125,7 +125,7 @@ Il existe deux types de stratégies de rétention :
 
 La stratégie de capture peut avoir les valeurs suivantes :
 
-- **Tout** : toutes les requêtes sont capturées. **Tout** est l’option par défaut.
+- **Tout** : toutes les requêtes sont capturées. **Tout** est l’option par défaut.
 - **Auto** : les requêtes peu fréquentes et les requêtes avec une durée de compilation et d’exécution insignifiante sont ignorées. Les seuils concernant le nombre d’exécutions et la durée de compilation et d’exécution sont déterminés en interne.
 - **Aucun** : le magasin de requêtes capture de nouvelles requêtes.
 	

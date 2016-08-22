@@ -34,9 +34,9 @@ Sortie max.<sup>2</sup> par compte de stockage (régions d'Europe et d'Asie)|10�
 
 <sup>3</sup>Les options de réplication Azure Storage sont les suivantes :
 
-- **RA-GRS** : stockage géo-redondant avec accès en lecture. Si RA-GRS est activé, les cibles de sortie pour l’emplacement secondaire sont identiques à celles de l’emplacement principal.
-- **GRS** : stockage géo-redondant.
-- **ZRS** : stockage redondant dans une zone. Uniquement disponible pour les objets blob de blocs.
-- **LRS** : stockage localement redondant.
+- **RA-GRS** : stockage géo-redondant avec accès en lecture. Si RA-GRS est activé, les cibles de sortie pour l’emplacement secondaire sont identiques à celles de l’emplacement principal.
+- **GRS** : stockage géo-redondant.
+- **ZRS** : stockage redondant dans une zone. Uniquement disponible pour les objets blob de blocs.
+- **LRS** : stockage localement redondant.
 
 <!---HONumber=AcomDC_0810_2016-->

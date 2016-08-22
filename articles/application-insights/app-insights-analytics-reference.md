@@ -1684,7 +1684,17 @@ Argument évalué. Si l’argument est une table, retourne la première colonne 
 || |
 |---|-------------|
 | + | Ajouter |
-| - | Soustraire || * | Multiplier || / | Diviser || % | Modulo | || |`<` |Inférieur à |`<=`|Inférieur ou égal à |`>` |Supérieur à |`>=`|Supérieur ou égal à |`<>`|Non égal à |`!=`|Non égal à
+| - | Soustraire |
+| * | Multiplier |
+| / | Diviser |
+| % | Modulo | 
+|| 
+|`<` |Inférieur à 
+|`<=`|Inférieur ou égal à 
+|`>` |Supérieur à 
+|`>=`|Supérieur ou égal à 
+|`<>`|Non égal à 
+|`!=`|Non égal à
 
 
 ### abs

@@ -30,7 +30,7 @@
 Les exemples de commandes PowerShell ci-dessous attendent un environnement simple déjà créé. Si vous souhaitez exécuter les commandes telles qu’elles sont affichées dans ce document, créez d’abord l’environnement de test décrit dans [créer un réseau virtuel](virtual-networks-create-vnet-classic-netcfg-ps.md).
 
 ## Vérification de la disponibilité d'une adresse IP particulière
-Pour vérifier si l’adresse IP *192.168.1.101* est disponible dans un réseau virtuel nommé *TestVnet*, exécutez la commande PowerShell suivante et vérifiez la valeur pour *IsAvailable* :
+Pour vérifier si l’adresse IP *192.168.1.101* est disponible dans un réseau virtuel nommé *TestVnet*, exécutez la commande PowerShell suivante et vérifiez la valeur pour *IsAvailable* :
 
 	Test-AzureStaticVNetIP –VNetName TestVNet –IPAddress 192.168.1.101 
 
@@ -62,7 +62,7 @@ Sortie attendue :
 	New-AzureVM          3b99a86d-84f8-04e5-888e-b6fc3c73c4b9 Succeeded  
 
 ## Comment récupérer des informations d’adresse IP privée statique pour une machine virtuelle
-Pour visualiser les informations d’adresse IP privée statique concernant la machine virtuelle créée avec le script ci-dessus, exécutez la commande PowerShell ci-après et examinez les valeurs pour *IpAddress* :
+Pour visualiser les informations d’adresse IP privée statique concernant la machine virtuelle créée avec le script ci-dessus, exécutez la commande PowerShell ci-après et examinez les valeurs pour *IpAddress* :
 
 	Get-AzureVM -Name DNS01 -ServiceName TestService
 

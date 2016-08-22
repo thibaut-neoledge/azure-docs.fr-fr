@@ -71,7 +71,7 @@ Dans le panneau **Stratégie de sécurité**, sélectionnez un abonnement pour a
 
 > [AZURE.NOTE] La collecte des données et le choix d’un compte de stockage par région sont configurés au niveau de l’abonnement.
 
-Sélectionnez **Stratégie de prévention** (voir ci-dessus) pour ouvrir le panneau **Stratégie de prévention**. **Afficher les recommandations pour** : vous permet de choisir les contrôles de sécurité que vous souhaitez surveiller et recommander selon les besoins en matière de sécurité des ressources au sein de l’abonnement.
+Sélectionnez **Stratégie de prévention** (voir ci-dessus) pour ouvrir le panneau **Stratégie de prévention**. **Afficher les recommandations pour** : vous permet de choisir les contrôles de sécurité que vous souhaitez surveiller et recommander selon les besoins en matière de sécurité des ressources au sein de l’abonnement.
 
 Ensuite, sélectionnez un groupe de ressources pour afficher les détails de la stratégie.
 
@@ -150,7 +150,7 @@ Ce document vous a donné un aperçu du Centre de sécurité, de ses fonctions c
 - [Blog sur la sécurité Azure](http://blogs.msdn.com/b/azuresecurity/) : découvrez les dernières nouvelles et informations sur la sécurité Azure.
 
 <!--Image references-->
-[1]: ./media/security-center-intro/security-tile.png
+[1]: ./media/security-center-intro/security-tile.PNG
 [2]: ./media/security-center-intro/security-center.png
 [3]: ./media/security-center-intro/security-policy.png
 [4]: ./media/security-center-intro/security-policy-blade.png
@@ -160,4 +160,4 @@ Ce document vous a donné un aperçu du Centre de sécurité, de ses fonctions c
 [8]: ./media/security-center-intro/security-alert-detail.png
 [9]: ./media/security-center-intro/partner-solutions.png
 
-<!---HONumber=AcomDC_0810_2016-->
+<!----HONumber=AcomDC_0810_2016-->

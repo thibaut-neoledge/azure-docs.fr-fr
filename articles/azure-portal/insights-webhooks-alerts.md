@@ -33,7 +33,7 @@ Dans l’écran Créer/mettre à jour des alertes sur le [portail Azure](https:/
 
 L’authentification peut être de deux types :
 
-1. **Authentification basée sur un jeton** : dans ce cas, vous enregistrez l’URI du webhook avec un ID de jeton tel que *https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue*.
+1. **Authentification basée sur un jeton** : dans ce cas, vous enregistrez l’URI du webhook avec un ID de jeton tel que *https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue*.
 2.	**Authentification de base**, avec un ID d’utilisateur et un mot de passe : dans ce cas, vous enregistrez l’URI du webhook sous la forme *https://userid:password@mysamplealert/webcallback?someparamater=somevalue&foo=bar*.
 
 ## Schéma de la charge utile

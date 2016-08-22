@@ -55,13 +55,13 @@ Vous pouvez autoriser ou refuser le trafic réseau de manière sélective pour u
 
 Éléments à prendre en considération :
 
-1. **Aucune liste ACL** : par défaut, quand un point de terminaison est créé, tout le trafic est autorisé sur le point de terminaison.
+1. **Aucune liste ACL** : par défaut, quand un point de terminaison est créé, tout le trafic est autorisé sur le point de terminaison.
 
-1. **Permit** : quand vous ajoutez une ou plusieurs plages « Permit », vous refusez toutes les autres plages par défaut. Seuls les paquets de la plage d’adresses IP autorisée pourront communiquer avec le point de terminaison de machine virtuelle.
+1. **Permit** : quand vous ajoutez une ou plusieurs plages « Permit », vous refusez toutes les autres plages par défaut. Seuls les paquets de la plage d’adresses IP autorisée pourront communiquer avec le point de terminaison de machine virtuelle.
 
-1. **Deny** : quand vous ajoutez une ou plusieurs plages « Deny », vous autorisez toutes les autres plages de trafic par défaut.
+1. **Deny** : quand vous ajoutez une ou plusieurs plages « Deny », vous autorisez toutes les autres plages de trafic par défaut.
 
-1. **Combinaison de Permit et Deny** : vous pouvez utiliser une combinaison de règles « Permit » et « Deny » quand vous voulez qu’une plage d’adresses IP spécifique soit autorisée ou refusée.
+1. **Combinaison de Permit et Deny** : vous pouvez utiliser une combinaison de règles « Permit » et « Deny » quand vous voulez qu’une plage d’adresses IP spécifique soit autorisée ou refusée.
 
 ## Règles et priorité des règles
 

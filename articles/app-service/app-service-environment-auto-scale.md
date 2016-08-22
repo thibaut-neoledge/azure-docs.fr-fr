@@ -22,7 +22,7 @@
 
 ## Introduction
 
-**Les environnements App Service ** prennent en charge la mise à l’échelle automatique. Ils rendent cette opération possible grâce à la mise à l’échelle automatique des pools de Workers individuels par le biais d’indicateurs de mesure ou de la planification.
+**Les environnements App Service** prennent en charge la mise à l’échelle automatique. Ils rendent cette opération possible grâce à la mise à l’échelle automatique des pools de Workers individuels par le biais d’indicateurs de mesure ou de la planification.
  
 ![][intro]
  
@@ -56,7 +56,7 @@ Une fois qu’un profil est défini, les règles de mise à l’échelle automat
 
 La mise à l’échelle automatique d’un **environnement App Service** est mieux illustrée par un scénario.
 
-Dans cet article, nous allons examiner pas à pas toutes les étapes du paramétrage d’une mise à l’échelle automatique et toutes les interactions qui ont lieu lorsque nous réalisons une mise à l’échelle automatique d’**environnements App Service ** hébergés dans une ASE.
+Dans cet article, nous allons examiner pas à pas toutes les étapes du paramétrage d’une mise à l’échelle automatique et toutes les interactions qui ont lieu lorsque nous réalisons une mise à l’échelle automatique d’ **environnements App Service** hébergés dans une ASE.
 
 ### Présentation du scénario
 
@@ -64,7 +64,7 @@ Frank est administrateur système pour une entreprise. Il a migré une partie de
 
 **L’environnement App Service** est configuré sur mise à l'échelle manuelle, comme suit :
 
-* **Serveurs frontaux** : 3
+* **Serveurs frontaux** : 3
 * **Pool de travaux 1** : 10
 * **Pool de travaux 2** : 5
 * **Pool de travaux 3** : 5
@@ -134,7 +134,7 @@ Dans le cas de la règle de *mise à l’échelle automatique – Mise à l’é
 
 ![][Equation4]
 
-Cela signifie que le **plan de service d’application** de production peut augmenter d’un taux maximal de **8** instances par heure durant la semaine et de **4** instances par heure durant le week-end. Et il peut libérer des instances à un taux maximal de **4** instances par heure durant la semaine et de **6** instances par heure durant les week-ends.
+Cela signifie que le **plan de service d’application** de production peut augmenter d’un taux maximal de **8** instances par heure durant la semaine et de **4** instances par heure durant le week-end. Et il peut libérer des instances à un taux maximal de **4** instances par heure durant la semaine et de **6** instances par heure durant les week-ends.
 
 Si plusieurs **plans App Service** sont hébergés dans un **pool de Workers**, le **taux total d’inflation** doit être calculé et représenter la *somme* du taux d’inflation de tous les **plans App Service** hébergés dans ce **pool de Workers**.
 

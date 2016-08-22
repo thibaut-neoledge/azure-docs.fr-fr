@@ -38,7 +38,7 @@ Azure publie chaque interruption du service et chaque dégradation des performan
 
 4. Cliquez sur la commande **Filtrer**.
 
-5. Sélectionnez **Catégorie d’événement** et choisissez **État du service** : ![Tous les événements](./media/insights-service-health/Insights_Filter.png)
+5. Sélectionnez **Catégorie d’événement** et choisissez **État du service** : ![Tous les événements](./media/insights-service-health/Insights_Filter.png)
 
 6. Cliquez sur **Mis à jour**.
 

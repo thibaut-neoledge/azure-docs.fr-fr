@@ -107,9 +107,9 @@ L’environnement Web Apps fournit des fonctionnalités de diagnostic pour les i
 
 Vous pouvez activer ou désactiver les types de journaux suivants :
 
--	**Messages d’erreur détaillés** : informations d’erreur détaillées pour les codes d’état HTTP qui indiquent un échec (code d’état 400 ou supérieur). Il peut s'agir d'informations qui vous aident à déterminer la raison pour laquelle le serveur a renvoyé le code d'erreur.
--	**Suivi des demandes ayant échoué** : informations détaillées sur les demandes qui ont échoué, y compris une trace des composants IIS utilisés pour traiter la demande et la durée dans chaque composant. Cela peut se révéler utile si vous essayez d’améliorer le fonctionnement des performances d’application web ou d’isoler la cause d’une erreur HTTP spécifique.
--	**Journalisation du serveur Web** : informations sur les transactions HTTP à l’aide du format de fichier journal étendu W3C. Ce rapport se révèle utile pour déterminer les mesures globales d’une application web, comme le nombre de demandes traitées ou le nombre de demandes émanant d’une adresse IP spécifique.
+-	**Messages d’erreur détaillés** : informations d’erreur détaillées pour les codes d’état HTTP qui indiquent un échec (code d’état 400 ou supérieur). Il peut s'agir d'informations qui vous aident à déterminer la raison pour laquelle le serveur a renvoyé le code d'erreur.
+-	**Suivi des demandes ayant échoué** : informations détaillées sur les demandes qui ont échoué, y compris une trace des composants IIS utilisés pour traiter la demande et la durée dans chaque composant. Cela peut se révéler utile si vous essayez d’améliorer le fonctionnement des performances d’application web ou d’isoler la cause d’une erreur HTTP spécifique.
+-	**Journalisation du serveur Web** : informations sur les transactions HTTP à l’aide du format de fichier journal étendu W3C. Ce rapport se révèle utile pour déterminer les mesures globales d’une application web, comme le nombre de demandes traitées ou le nombre de demandes émanant d’une adresse IP spécifique.
 
 ##### Diagnostic d'application
 

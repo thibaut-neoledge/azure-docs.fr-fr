@@ -143,7 +143,7 @@ Cette fonctionnalité est disponible par le biais du service **Gestion des API**
 | 2014-12-01-preview | 2016-06-01 |
 |---------------------|--------------------|
 | Cliquer sur l’application API **Écouteur HTTP** | Cliquer sur **Déclenchement manuel** (aucune application API requise) |
-| Paramètre d’écouteur HTTP « *Envoie une réponse automatiquement* » | Inclure ou non une action **response** dans la définition de workflow |
+| Paramètre d’écouteur HTTP « *Envoie une réponse automatiquement* » | Inclusion ou non d’une action **response** dans la définition de flux de travail |
 | Configurer l’authentification de base ou OAuth | Par le biais de la gestion des API |
 | Configurer la méthode HTTP | Par le biais de la gestion des API |
 | Configurer le chemin d’accès relatif | Par le biais de la gestion des API |

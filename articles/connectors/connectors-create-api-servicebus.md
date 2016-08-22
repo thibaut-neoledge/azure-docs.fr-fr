@@ -181,4 +181,4 @@ Les actions et déclencheurs précédents peuvent renvoyer un ou plusieurs des c
 ## Étapes suivantes
 [Créez une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-<!---HONumber=AcomDC_0810_2016-->
+<!----HONumber=AcomDC_0810_2016-->

@@ -98,7 +98,7 @@ La fonctionnalité de synchronisation hors connexion des données d'Azure Mobile
 	        }
         
         
-      **Swift** :
+      **Swift** :
         
         
 		func onRefresh(sender: UIRefreshControl!) {
@@ -155,7 +155,7 @@ Lorsque vous utilisez un magasin de données de base hors connexion, vous devez 
       * MS\_TableConfig : pour le suivi de la dernière mise à jour de la dernière opération de synchronisation pour toutes les opérations d’extraction.
       * TodoItem : pour le stockage des actions. Les colonnes système **createdAt**, **updatedAt** et **version** sont des propriétés système facultatives.
 
->[AZURE.NOTE] Le Kit de développement logiciel (SDK) d’Azure Mobile Apps réserve les noms de colonnes commençant par « **``** ». Vous ne devez pas utiliser ce préfixe sur autre chose que les colonnes système. Dans le cas contraire, vos noms de colonnes seront modifiés lors de l'utilisation du backend distant.
+>[AZURE.NOTE] Le Kit de développement logiciel (SDK) d’Azure Mobile Apps réserve les noms de colonnes commençant par « **``** ». Vous ne devez pas utiliser ce préfixe sur autre chose que les colonnes système. Dans le cas contraire, vos noms de colonnes seront modifiés lors de l'utilisation du backend distant.
 
 - Lorsque vous utilisez la fonctionnalité de synchronisation hors connexion, vous devez définir les tables système comme illustré ci-dessous.
 
@@ -280,7 +280,7 @@ Lorsque nous avons voulu synchroniser le magasin local avec le serveur, nous avo
 
 * [Synchronisation des données hors connexion dans Azure Mobile Apps]
 
-* [Cloud Cover : synchronisation hors connexion dans Azure Mobile Services] (remarque : le contexte de la vidéo est Mobile Services, mais la synchronisation hors connexion fonctionne de la même manière dans Azure Mobile Apps)
+* [Cloud Cover : synchronisation hors connexion dans Azure Mobile Services] \(remarque : le contexte de la vidéo est Mobile Services, mais la synchronisation hors connexion fonctionne de la même manière dans Azure Mobile Apps)
 
 <!-- URLs. -->
 

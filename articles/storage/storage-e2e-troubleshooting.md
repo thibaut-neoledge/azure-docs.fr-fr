@@ -277,7 +277,7 @@ Nous allons ensuite regrouper et filtrer les données de journal pour rechercher
 1. Recherchez la colonne **StatusCode** dans la grille d’analyse, cliquez avec le bouton droit sur le titre de la colonne et sélectionnez **Grouper**.
 2. Effectuez ensuite un regroupement sur la colonne **ClientRequestId**. Vous pouvez constater que les données dans la grille d'analyse sont désormais organisées par code d'état et par ID de demande client.
 1. Affichez la fenêtre d'outil Filtre d'affichage si elle n'est pas déjà affichée. Sur le ruban de la barre d'outils, sélectionnez **Fenêtres d'outil**, puis **Filtre d'affichage**.
-2. Pour filtrer les données de journal de manière à afficher uniquement les erreurs de la plage 400, ajoutez les critères de filtre suivants dans la fenêtre **Filtre d’affichage**, puis cliquez sur **Appliquer** :
+2. Pour filtrer les données de journal de manière à afficher uniquement les erreurs de la plage 400, ajoutez les critères de filtre suivants dans la fenêtre **Filtre d’affichage**, puis cliquez sur **Appliquer** :
 
 		(AzureStorageLog.StatusCode >= 400 && AzureStorageLog.StatusCode <=499) || (HTTP.StatusCode >= 400 && HTTP.StatusCode <= 499)
 
@@ -329,7 +329,7 @@ Message Analyzer localise et sélectionne la première entrée de journal dans l
 
 ![Journal client affichant des erreurs 404](./media/storage-e2e-troubleshooting/client-log-analysis-grid1.png)
 
-À l'aide des données affichées dans les dispositions de vue sous ces deux onglets, vous pouvez analyser les données de la demande pour déterminer ce qui peut avoir provoqué l'erreur. Vous pouvez également consulter les demandes qui ont précédé celle-ci pour voir si un événement antérieur a pu conduire à l'erreur 404. Par exemple, vous pouvez consulter les entrées du journal du client précédant cet ID de demande client pour déterminer si l'objet blob a été supprimé, ou si l'erreur est due à l'appel par l'application cliente d'une API CreateIfNotExists sur un conteneur ou un objet blob. Dans le journal du client, vous pouvez trouver l'adresse de l'objet blob dans le champ **Description** ; dans les journaux de suivi du serveur et du réseau, ces informations s'affichent dans le champ **Résumé**.
+À l'aide des données affichées dans les dispositions de vue sous ces deux onglets, vous pouvez analyser les données de la demande pour déterminer ce qui peut avoir provoqué l'erreur. Vous pouvez également consulter les demandes qui ont précédé celle-ci pour voir si un événement antérieur a pu conduire à l'erreur 404. Par exemple, vous pouvez consulter les entrées du journal du client précédant cet ID de demande client pour déterminer si l'objet blob a été supprimé, ou si l'erreur est due à l'appel par l'application cliente d'une API CreateIfNotExists sur un conteneur ou un objet blob. Dans le journal du client, vous pouvez trouver l'adresse de l'objet blob dans le champ **Description** ; dans les journaux de suivi du serveur et du réseau, ces informations s'affichent dans le champ **Résumé**.
 
 Une fois que vous connaissez l'adresse de l'objet blob qui a généré l'erreur 404, vous pouvez effectuer un examen plus approfondi. Si vous recherchez les entrées du journal pour les autres messages associés à des opérations sur le même objet blob, vous pouvez vérifier si le client a précédemment supprimé l'entité.
 
@@ -340,7 +340,7 @@ Maintenant que vous êtes familiarisé avec Message Analyzer pour analyser vos d
 | Pour examiner... | Utiliser l'expression de filtre... | L'expression s'applique au journal (client, serveur, réseau, tout) |
 |------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------|
 | Retards inattendus de la remise des messages dans une file d'attente | AzureStorageClientDotNetV4.Description contient "Retrying failed operation." | Client |
-| HTTP, augmentation de la valeur PercentThrottlingError | HTTP.Response.StatusCode == 500 || HTTP.Response.StatusCode == 503 | Réseau |
+| HTTP, augmentation de la valeur PercentThrottlingError | HTTP.Response.StatusCode == 500 &#124;&#124; HTTP.Response.StatusCode == 503 | Réseau |
 | Augmentation de la valeur PercentTimeoutError | HTTP.Response.StatusCode == 500 | Réseau |
 | Augmentation de la valeur PercentTimeoutError (tous) | *StatusCode == 500 | Tout |
 | Augmentation de la valeur PercentNetworkError | AzureStorageClientDotNetV4.EventLogEntry.Level < 2 | Client |

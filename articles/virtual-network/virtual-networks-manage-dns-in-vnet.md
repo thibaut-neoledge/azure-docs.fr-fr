@@ -31,15 +31,15 @@ Vous pouvez gérer la liste des serveurs DNS utilisés dans un réseau virtuel �
 
 1. Dans **Serveurs DNS**, vous pouvez configurer les éléments suivants :
 
-	- **Pour enregistrer (ajouter) un nouveau serveur DNS** : tapez simplement le nom et l’adresse IP dans les zones. Un serveur DNS est ajouté à votre liste de serveurs DNS du réseau virtuel et est enregistré auprès d’Azure.
+	- **Pour enregistrer (ajouter) un nouveau serveur DNS** : tapez simplement le nom et l’adresse IP dans les zones. Un serveur DNS est ajouté à votre liste de serveurs DNS du réseau virtuel et est enregistré auprès d’Azure.
 
-	- **Pour ajouter un serveur DNS précédemment enregistré** : si vous avez déjà enregistré un serveur DNS dans Azure, vous pouvez le sélectionner dans la liste préremplie.
+	- **Pour ajouter un serveur DNS précédemment enregistré** : si vous avez déjà enregistré un serveur DNS dans Azure, vous pouvez le sélectionner dans la liste préremplie.
 
-	- **Pour supprimer un serveur DNS de votre réseau virtuel** : cliquez sur le X à côté du serveur à supprimer. Notez que cela supprime uniquement le serveur de cette liste de réseaux virtuels. Le serveur DNS reste enregistré dans Azure pour être utilisé par vos autres réseaux virtuels. Pour supprimer un serveur DNS de votre abonnement, accédez à la page **Réseaux -> Serveurs DNS**.
+	- **Pour supprimer un serveur DNS de votre réseau virtuel** : cliquez sur le X à côté du serveur à supprimer. Notez que cela supprime uniquement le serveur de cette liste de réseaux virtuels. Le serveur DNS reste enregistré dans Azure pour être utilisé par vos autres réseaux virtuels. Pour supprimer un serveur DNS de votre abonnement, accédez à la page **Réseaux -> Serveurs DNS**.
 
-	- **Pour réordonner les serveurs DNS** : supprimez tous les serveurs DNS répertoriés, puis rajoutez-les dans l’ordre souhaité. N’oubliez pas qu’il ne s’agit pas d’une liste DNS de type tourniquet (round-robin).
+	- **Pour réordonner les serveurs DNS** : supprimez tous les serveurs DNS répertoriés, puis rajoutez-les dans l’ordre souhaité. N’oubliez pas qu’il ne s’agit pas d’une liste DNS de type tourniquet (round-robin).
 
-	- **Pour renommer un serveur DNS** : sélectionner le serveur DNS dans la liste, puis tapez le nouveau nom. Un nouveau serveur DNS est alors enregistré dans Azure et ajouté à la liste des serveurs DNS de votre réseau virtuel. L’ancien serveur DNS et son adresse IP restent enregistrés dans Azure. Vous pouvez le supprimer sur la page **Serveurs DNS**, si vous ne l’utilisez pas pour un autre réseau virtuel.
+	- **Pour renommer un serveur DNS** : sélectionner le serveur DNS dans la liste, puis tapez le nouveau nom. Un nouveau serveur DNS est alors enregistré dans Azure et ajouté à la liste des serveurs DNS de votre réseau virtuel. L’ancien serveur DNS et son adresse IP restent enregistrés dans Azure. Vous pouvez le supprimer sur la page **Serveurs DNS**, si vous ne l’utilisez pas pour un autre réseau virtuel.
 
 1. Cliquez sur **Enregistrer** en bas de la page pour enregistrer votre nouvelle configuration de serveurs DNS.
 

@@ -31,7 +31,7 @@ Pour créer un réseau virtuel classique selon le scénario ci-dessus, suivez le
 
 	![Créer un réseau virtuel dans le portail](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure6.png)
 
-10. Cliquez sur **Sous-réseaux** > **Ajouter**, puis tapez un **nom** et spécifiez un **(bloc CIDR) de plage d’adressage** pour votre sous-réseau, puis cliquez sur **OK**. La figure ci-dessous illustre les paramètres de notre scénario actuel.
+10. Cliquez sur **Sous-réseaux** > **Ajouter**, puis tapez un **nom** et spécifiez un **(bloc CIDR) de plage d’adressage** pour votre sous-réseau, puis cliquez sur **OK**. La figure ci-dessous illustre les paramètres de notre scénario actuel.
 
 	![Créer un réseau virtuel dans le portail Azure](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure7.gif)
 

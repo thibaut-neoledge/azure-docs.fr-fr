@@ -113,7 +113,7 @@ Dans cette étape, vous allez apprendre à effectuer la vérification de la prop
 
     * **Vérification du domaine**
 
-        * Il s’agit du processus le plus pratique **SEULEMENT SI ** vous avez **[acheté votre domaine personnalisé à partir d’Azure App Service.](custom-dns-web-site-buydomains-web-app.md)**
+        * Il s’agit du processus le plus pratique **SEULEMENT SI** vous avez **[acheté votre domaine personnalisé à partir d’Azure App Service.](custom-dns-web-site-buydomains-web-app.md)**
         
         * Cliquez sur le bouton **« Vérifier »** pour terminer cette étape.
         
@@ -174,7 +174,7 @@ Avant de suivre les étapes de cette section, vous devez avoir associé un nom d
 
 
 
-Si vous avez sélectionné **SSL basé sur IP** et que votre domaine personnalisé est configuré à l’aide d’un enregistrement A, vous devez effectuer les étapes supplémentaires suivantes :
+Si vous avez sélectionné **SSL basé sur IP** et que votre domaine personnalisé est configuré à l’aide d’un enregistrement A, vous devez effectuer les étapes supplémentaires suivantes :
 
 * Une fois la liaison SSL basée sur IP configurée, une adresse IP dédiée est attribuée à votre application. Celle-ci figure dans la page **Tableau de bord** de votre application, dans la section **Aperçu rapide**. Elle est répertoriée en tant qu’**Adresse IP virtuelle :**
     

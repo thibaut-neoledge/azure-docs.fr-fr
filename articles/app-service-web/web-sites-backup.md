@@ -55,7 +55,7 @@ Ces informations sont sauvegardées dans le conteneur et le compte de stockage A
 
 	![Sélection d'un compte de stockage][ChooseStorageAccount]
 	
-4. Choisissez la destination de sauvegarde en sélectionnant un **Compte de stockage** et un **Conteneur**. Ce compte de stockage doit relever du même abonnement que l’application que vous souhaitez sauvegarder. Si vous le souhaitez, vous pouvez créer un compte de stockage ou un conteneur dans les panneaux respectifs. Quand vous avez terminé, cliquez sur **Sélectionner**.
+4. Choisissez la destination de sauvegarde en sélectionnant un **Compte de stockage** et un **Conteneur**. Ce compte de stockage doit relever du même abonnement que l’application que vous souhaitez sauvegarder. Si vous le souhaitez, vous pouvez créer un compte de stockage ou un conteneur dans les panneaux respectifs. Quand vous avez terminé, cliquez sur **Sélectionner**.
 	
 	![Sélection d'un compte de stockage](./media/web-sites-backup/02ChooseStorageAccount1.png)
 	
@@ -86,7 +86,7 @@ Après avoir configuré un compte de stockage et un conteneur pour les sauvegard
 	
 	![Activation des sauvegardes automatisées][SetAutomatedBackupOn]
 	
-4. Dans le panneau **Configurer les paramètres de sauvegarde** toujours ouvert, cliquez sur **Paramètres de stockage**, puis choisissez la destination de sauvegarde en sélectionnant un **compte de stockage** et un **conteneur**. Ce compte de stockage doit relever du même abonnement que l’application que vous souhaitez sauvegarder. Si vous le souhaitez, vous pouvez créer un compte de stockage ou un conteneur dans les panneaux respectifs. Quand vous avez terminé, cliquez sur **Sélectionner**.
+4. Dans le panneau **Configurer les paramètres de sauvegarde** toujours ouvert, cliquez sur **Paramètres de stockage**, puis choisissez la destination de sauvegarde en sélectionnant un **compte de stockage** et un **conteneur**. Ce compte de stockage doit relever du même abonnement que l’application que vous souhaitez sauvegarder. Si vous le souhaitez, vous pouvez créer un compte de stockage ou un conteneur dans les panneaux respectifs. Quand vous avez terminé, cliquez sur **Sélectionner**.
 	
 	![Sélection d'un compte de stockage](./media/web-sites-backup/02ChooseStorageAccount1.png)
 	

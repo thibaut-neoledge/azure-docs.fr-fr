@@ -45,13 +45,13 @@ Dans ce scénario, vous allez créer un réseau virtuel avec une connexion point
 
 Nous allons utiliser les valeurs suivantes pour cette configuration :
 
-- Nom : **TestVNet**, utilisant les espaces d’adressage **192.168.0.0/16** et **10.254.0.0/16**. Notez que vous pouvez utiliser plusieurs espaces d’adressage pour un réseau virtuel.
+- Nom : **TestVNet**, utilisant les espaces d’adressage **192.168.0.0/16** et **10.254.0.0/16**. Notez que vous pouvez utiliser plusieurs espaces d’adressage pour un réseau virtuel.
 - Nom du sous-réseau : **FrontEnd**, utilisant **192.168.1.0/24**
 - Nom du sous-réseau : **BackEnd**, utilisant **10.254.1.0/24**
 - Nom du sous-réseau : **GatewaySubnet**, utilisant **192.168.200.0/24**. Le nom du sous-réseau *GatewaySubnet* est obligatoire pour que la passerelle fonctionne.
 - Pool d’adresses des clients VPN : **172.16.201.0/24**. Les clients VPN qui se connectent au réseau virtuel à l’aide de cette connexion point à site reçoivent une adresse IP de ce pool.
 - Abonnement : Vérifiez que vous disposez de l'abonnement approprié si vous en possédez plusieurs.
-- Groupe de ressources : **TestRG**
+- Groupe de ressources : **TestRG**
 - Emplacement : **États-Unis de l’Est**
 - Serveur DNS : **Adresse IP** du serveur DNS que vous souhaitez utiliser pour la résolution de noms.
 - Nom de passerelle : **GW**

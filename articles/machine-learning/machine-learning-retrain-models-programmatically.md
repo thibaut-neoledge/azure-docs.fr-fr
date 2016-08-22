@@ -44,15 +44,15 @@ Diagramme 1 : Présentation du processus de reformation
 
  	![][2]
 
-	Avec ces éléments en place, nous pouvons maintenant cliquer sur Exécuter en bas de l’écran pour exécuter cette expérience.
-2. *Création d’une expérience de notation et publication en tant que service Web*
+	Avec ces éléments en place, nous pouvons maintenant cliquer sur Exécuter en bas de l’écran pour exécuter cette expérience.  
+2. *Création d’une expérience de notation et publication en tant que service Web*  
 
 	![][3]
 
 	À l’issue de l’exécution de l’expérience, nous cliquons sur Créer une expérience prédictive. Cela crée une expérience prédictive, enregistre le modèle sous la forme d’un modèle formé et ajoute des modules d’entrée et de sortie de service web, comme illustré ci-dessous. Nous cliquons ensuite sur Exécuter.
 
 	Après l’exécution de l’expérience, en cliquant sur « Publication du service web », l’expérience prédictive est publiée en tant que service web et crée un point de terminaison par défaut. Le modèle formé de ce service Web est mis à jour, comme illustré ci-dessous. Les détails de ce point de terminaison apparaissent ensuite sur l’écran.
-3. *Publier l’expérience d’apprentissage en tant que service Web* : afin de reformer le modèle formé, nous devons publier l’expérience d’apprentissage, créée à l’étape 1 ci-dessus, en tant que service Web. Ce service Web a besoin d’un module de sortie de service Web connecté au module [Train Model][train-model], afin de produire de nouveaux modèles formés. Cliquez sur l’icône Expériences dans le volet gauche, puis cliquez sur l’expérience appelée Modèle de recensement pour revenir à l’expérience d’apprentissage.
+3. *Publier l’expérience d’apprentissage en tant que service Web* : afin de reformer le modèle formé, nous devons publier l’expérience d’apprentissage, créée à l’étape 1 ci-dessus, en tant que service Web. Ce service Web a besoin d’un module de sortie de service Web connecté au module [Train Model][train-model], afin de produire de nouveaux modèles formés. Cliquez sur l’icône Expériences dans le volet gauche, puis cliquez sur l’expérience appelée Modèle de recensement pour revenir à l’expérience d’apprentissage.
 
 	Nous ajoutons ensuite un module d’entrée du service Web et deux modules de sortie du service Web vers le flux de travail. La sortie du service Web pour le modèle formé nous fournit le nouveau modèle formé. La sortie liée à Évaluer le modèle retourne la sortie du module Évaluer le modèle.
 
@@ -60,8 +60,8 @@ Diagramme 1 : Présentation du processus de reformation
 
 	![][4]
 
-	Nous cliquons ensuite sur le bouton Déployer un service web, puis sur Oui. Cette opération déploie l’expérience de formation en tant que service web qui produit un modèle formé et des résultats de notation du modèle. Le tableau de bord du service Web s’affiche avec la clé d’API et la page d’aide d’API pour l’exécution par lots. Notez que la méthode d’exécution par lots peut être utilisée pour créer des modèles formés.
-4. *Ajouter un nouveau point de terminaison* : le service web prédictif publié à l’étape 2 ci-dessus correspond au point de terminaison de notation par défaut. Les points de terminaison par défaut sont toujours synchronisés avec l’expérience originale d’apprentissage et de notation. Par conséquent, un modèle formé du point de terminaison par défaut ne peut pas être remplacé. Pour créer un point de terminaison de notation à partir d’un modèle pouvant être mis à jour, visitez le portail Azure Classic et cliquez sur Ajouter un point de terminaison (plus de détails [ici](machine-learning-create-endpoint.md)). Vous pouvez également ajouter des points de terminaison de notation à l’aide de l’exemple de code fourni [ici](https://github.com/raymondlaghaeian/AML_EndpointMgmt/blob/master/Program.cs).
+	Nous cliquons ensuite sur le bouton Déployer un service web, puis sur Oui. Cette opération déploie l’expérience de formation en tant que service web qui produit un modèle formé et des résultats de notation du modèle. Le tableau de bord du service Web s’affiche avec la clé d’API et la page d’aide d’API pour l’exécution par lots. Notez que la méthode d’exécution par lots peut être utilisée pour créer des modèles formés.  
+4. *Ajouter un nouveau point de terminaison* : le service web prédictif publié à l’étape 2 ci-dessus correspond au point de terminaison de notation par défaut. Les points de terminaison par défaut sont toujours synchronisés avec l’expérience originale d’apprentissage et de notation. Par conséquent, un modèle formé du point de terminaison par défaut ne peut pas être remplacé. Pour créer un point de terminaison de notation à partir d’un modèle pouvant être mis à jour, visitez le portail Azure Classic et cliquez sur Ajouter un point de terminaison (plus de détails [ici](machine-learning-create-endpoint.md)). Vous pouvez également ajouter des points de terminaison de notation à l’aide de l’exemple de code fourni [ici](https://github.com/raymondlaghaeian/AML_EndpointMgmt/blob/master/Program.cs).
 
 5. *Reformer le modèle avec de nouvelles données et BES* Pour reformer le modèle, nous devons appeler la fonction BES du service web que nous avons créé à l'étape 3 ci-dessus.
 
@@ -84,7 +84,7 @@ Diagramme 1 : Présentation du processus de reformation
 		},
 	},
 	```
-	1. Fournir des informations Azure Storage L’exemple de code pour BES télécharge un fichier à partir d’un lecteur local (par exemple « C:\\temp\\CensusIpnput.csv ») vers Azure Storage, le traite et réécrit les résultats dans Azure Storage.
+	1. Fournir des informations Azure Storage L’exemple de code pour BES télécharge un fichier à partir d’un lecteur local (par exemple « C:\\temp\\CensusIpnput.csv ») vers Azure Storage, le traite et réécrit les résultats dans Azure Storage.  
 
 		Pour cela, vous devez récupérer les informations de nom de compte, de clé et de conteneur de stockage à partir du portail Azure Classic pour votre compte de stockage et mettre le code à jour ici. Vous devez également vous assurer que le fichier d’entrée est disponible à l’emplacement spécifié dans le code.
 

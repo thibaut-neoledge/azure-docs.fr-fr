@@ -30,7 +30,7 @@ Toutes les opérations effectuées sur les ressources Azure sont entièrement au
 
 4. Vous pouvez cliquer sur une entrée de journal pour afficher les événements qui la composent. Par exemple, lorsque vous déployez un élément vers un groupe de ressources, différentes ressources sont créées ou modifiées. Pour chaque entrée, vous pouvez découvrir :
     * Le **niveau** de l'événement : il peut par exemple s’agir d’un élément à suivre (**information**), ou d’un incident sur lequel vous souhaiteriez être informé (**erreur**).
-    * L’**état** : l'état final sera généralement **Succeeded** ou **Failed**, voire également **Accepted** pour les opérations de longue durée.
+    * L’**état** : l'état final sera généralement **Succeeded** ou **Failed**, voire également **Accepted** pour les opérations de longue durée.
     * Le*moment* où l’événement s’est produit.
     * La *personne* qui a effectué l'opération, le cas échéant. Les opérations ne sont pas toutes effectuées par des utilisateurs. Certaines d’entre elles sont effectuées par des services principaux pour éviter d’avoir un **appelant**.
     * L’**ID de corrélation** de l'événement : c’est-à-dire l'identificateur unique de cet ensemble d'opérations.

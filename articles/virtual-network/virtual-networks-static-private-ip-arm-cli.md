@@ -126,7 +126,7 @@ Pour créer une machine virtuelle nommée *DNS01* dans le sous-réseau *FrontEnd
 
 ## Comment récupérer des informations d’adresse IP privée statique pour une machine virtuelle
 
-Pour visualiser les informations d’adresse IP privée statique concernant la machine virtuelle créée avec le script ci-dessus, exécutez la commande d’interface de ligne de commande Azure, et examinez les valeurs *Private IP alloc-method* et *Adresse IP privée* :
+Pour visualiser les informations d’adresse IP privée statique concernant la machine virtuelle créée avec le script ci-dessus, exécutez la commande d’interface de ligne de commande Azure, et examinez les valeurs *Private IP alloc-method* et *Adresse IP privée* :
 
 	azure vm show -g TestRG -n DNS01
 

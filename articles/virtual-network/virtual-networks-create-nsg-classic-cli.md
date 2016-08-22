@@ -103,7 +103,7 @@ Pour créer un groupe de sécurité réseau nommé **NSG-FrontEnd** selon le sc�
 	- **-a (ou --nsg-name)**. Nom du groupe de sécurité réseau dans lequel la règle sera créée. Pour notre scénario, *NSG-FrontEnd*.
 	- **-n (ou --name)**. Nom de la nouvelle règle. Pour notre scénario, *rdp-rule*.
 	- **-c (ou--action)**. Niveau d’accès de la règle (Deny ou Allow).
-	- **-p (ou --protocol)**. Protocole (TCP, UDP ou *) de la règle.
+	- **-p (ou --protocol)**. Protocole (TCP, UDP ou *) de la règle.
 	- **-r (ou --type)**. Direction de la connexion (Inbound ou Outbound).
 	- **-y (ou --priority)**. Priorité de la règle.
 	- **-f (ou --source-address-prefix)**. Préfixe de l’adresse source dans CIDR ou à l’aide de balises par défaut.

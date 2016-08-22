@@ -254,6 +254,6 @@ Pour apprendre à configurer des valeurs différentes pour un environnement diff
 
 <!-- external links -->
 [dotnetcore-install]: https://www.microsoft.com/net/core#windows
-[api-management-landing-page]: https://azure.microsoft.com/fr-FR/services/api-management/
+[api-management-landing-page]: https://azure.microsoft.com/services/api-management/
 
 <!---HONumber=AcomDC_0810_2016-->

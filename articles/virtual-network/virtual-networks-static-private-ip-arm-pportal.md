@@ -54,9 +54,9 @@ Pour créer une machine virtuelle nommée *DNS01* dans le sous-réseau *frontal*
 
 6. Dans le panneau **Paramètres** lame, assurez-vous que les propriétés suivantes sont définies sont définies avec les valeurs ci-dessous, puis cliquez sur **OK**.
 
-	-**Compte de stockage** : *vnetstorage*
-	- **Réseau** : *TestVNet*
-	- **Sous-réseau** : *FrontEnd*
+	-**Compte de stockage**: *vnetstorage*
+	- **Réseau**: *TestVNet*
+	- **Sous-réseau**: *FrontEnd*
 
 	![Panneau Choisir une taille](./media/virtual-networks-static-ip-arm-pportal/figure05.png)
 

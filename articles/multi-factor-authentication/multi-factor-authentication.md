@@ -47,10 +47,10 @@ Azure Multi-Factor Authentication est une solution facile à utiliser, évolutiv
 :-------------: | :-------------: | :-------------: | :-------------: |
 **Facile à utiliser**|**Évolutif**|**Toujours protégé**|**Fiable**
 
-- **Facile à utiliser** : Azure Multi-Factor Authentication est simple à configurer et utiliser. La protection supplémentaire offerte par Azure Multi-Factor Authentication permet aux utilisateurs d'utiliser et de gérer leurs propres appareils et, dans de nombreux cas, elle peut être configurée en quelques clics simples.
-- **Évolutif** : Azure Multi-Factor Authentication utilise la puissance du cloud et s'intègre à votre site Active Directory local et vos applications personnalisées. Cette protection est même étendue à vos scénarios stratégiques volumineux.
-- **Toujours protégé** : Azure Multi-Factor Authentication fournit une authentification forte qui utilise les normes les plus strictes du secteur.
-- **Fiable** : nous garantissons une disponibilité à 99,9 % d'Azure Multi-Factor Authentication. Le service est considéré comme non disponible quand il ne parvient pas à recevoir ou traiter des demandes d'authentification pour l'authentification multifacteur.
+- **Facile à utiliser** : Azure Multi-Factor Authentication est simple à configurer et utiliser. La protection supplémentaire offerte par Azure Multi-Factor Authentication permet aux utilisateurs d'utiliser et de gérer leurs propres appareils et, dans de nombreux cas, elle peut être configurée en quelques clics simples.
+- **Évolutif** : Azure Multi-Factor Authentication utilise la puissance du cloud et s'intègre à votre site Active Directory local et vos applications personnalisées. Cette protection est même étendue à vos scénarios stratégiques volumineux.
+- **Toujours protégé** : Azure Multi-Factor Authentication fournit une authentification forte qui utilise les normes les plus strictes du secteur.
+- **Fiable** : nous garantissons une disponibilité à 99,9 % d'Azure Multi-Factor Authentication. Le service est considéré comme non disponible quand il ne parvient pas à recevoir ou traiter des demandes d'authentification pour l'authentification multifacteur.
 
 Pour plus d'informations sur la raison pour laquelle vous devez utiliser Azure Multi-Factor Authentication, regardez la vidéo suivante.
 
@@ -147,12 +147,12 @@ Choisissez le modèle qui convient le mieux à votre organisation : celui basé
 
 Étant donné qu’il existe plusieurs types d'authentification multifacteur Azure, nous devons déterminer plusieurs éléments pour connaître la version utiliser. Ces éléments sont :
 
--	[les éléments à protéger](#what-am-i-trying-to-secure)
--	[l’emplacement des utilisateurs](#where-are-the-users-located)
+-	<a href="#1">les éléments à protéger</a>
+-	<a href="#2">l’emplacement des utilisateurs</a>
 
 Les sections suivantes fournissent des conseils sur la détermination de ces éléments.
 
-### Les éléments à protéger.
+<h3 id="1">Les éléments à protéger</h3>
 
 Afin de déterminer la solution d'authentification multifacteur appropriée, nous devons tout d'abord connaître les éléments à protéger avec une seconde méthode d'authentification. S’agit-il d’une application dans Azure ? Ou un système d'accès à distance par exemple ? En déterminant les éléments à protéger, nous allons répondre à la question de savoir où l'authentification multifacteur doit être activée.
 
@@ -168,7 +168,7 @@ Accès à distance comme VPN, RDG| |* |
 
 
 
-### L’emplacement des utilisateurs
+<h3 id="2">L’emplacement des utilisateurs</h3>
 
 Ensuite, selon l’emplacement des utilisateurs, nous pouvons déterminer la solution appropriée, que ce soit l’authentification multifacteur dans le cloud ou en local avec le serveur MFA.
 

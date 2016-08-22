@@ -67,7 +67,7 @@ Bien que SQL Data Warehouse contienne un grand nombre des fonctionnalités table
 
 | Fonctionnalités non prises en charge |
 | --- |
-|[Propriété Identity][] (voir la solution de contournement [Affectation des clés de substitution][])|
+|[Propriété Identity][] \(voir la solution de contournement [Affectation des clés de substitution][])|
 |Clé primaire, clés étrangères, [contraintes de table][] uniques et de vérification|
 |[Index uniques][]|
 |[Colonnes calculées][]|

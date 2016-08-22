@@ -36,7 +36,7 @@ L’exemple suivant illustre un moyen de créer une liste ACL contenant des règ
 
 		$acl1 = New-AzureAclConfig
 
-1. Définissez une règle qui autorise l’accès depuis un sous-réseau distant. Dans l’exemple ci-dessous, vous définissez la règle *100* (qui est prioritaire sur la règle 200 et supérieure) pour autoriser le sous-réseau distant *10.0.0.0/8* à accéder au point de terminaison de machine virtuelle. Remplacez les valeurs en fonction de votre propre configuration. Le nom « SharePoint ACL config » doit être remplacé par le nom convivial que vous attribuez à cette règle.
+1. Définissez une règle qui autorise l’accès depuis un sous-réseau distant. Dans l’exemple ci-dessous, vous définissez la règle *100* (qui est prioritaire sur la règle 200 et supérieure) pour autoriser le sous-réseau distant *10.0.0.0/8* à accéder au point de terminaison de machine virtuelle. Remplacez les valeurs en fonction de votre propre configuration. Le nom « SharePoint ACL config » doit être remplacé par le nom convivial que vous attribuez à cette règle.
 
 		Set-AzureAclConfig –AddRule –ACL $acl1 –Order 100 `
 			–Action permit –RemoteSubnet "10.0.0.0/8" `

@@ -71,7 +71,7 @@ Pour créer une machine virtuelle nommée *DNS01* dans un nouveau service cloud 
 	- **AdminP@ssw0rd**. Mot de passe administrateur local pour la machine virtuelle Windows.
 
 ## Comment récupérer des informations d’adresse IP privée statique pour une machine virtuelle
-Pour visualiser les informations d’adresse IP privée statique concernant la machine virtuelle créée avec le script ci-dessus, exécutez la commande d’interface de ligne de commande Azure ci-après, et examinez la valeur *Network StaticIP* :
+Pour visualiser les informations d’adresse IP privée statique concernant la machine virtuelle créée avec le script ci-dessus, exécutez la commande d’interface de ligne de commande Azure ci-après, et examinez la valeur *Network StaticIP* :
 
 	azure vm static-ip show DNS01
 
