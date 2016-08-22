@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/12/2016" 
+	ms.date="08/04/2016" 
 	ms.author="billmath"/>
 
 
@@ -44,15 +44,15 @@ Une fois que vous disposez d’un mot de passe d’application, vous l’utilise
 
 Mode d’utilisation de l’authentification multifacteur|Description
 :------------- | :------------- | 
-<a href="#avec">Je l’utilise avec Office 365</a>| Cela signifie que vous souhaitez créer des mots de passe d’application par le biais du portail Office 365.
-<a href="#eee">Je ne sais pas</a>|Cela signifie que vous pouvez créer des mots de passe d’application par le biais de [https://myapps.microsoft.com](https://myapps.microsoft.com)
-<a href="#Je">Je l’utilise avec Microsoft Azure</a>| Cela signifie que vous souhaitez créer des mots de passe d’application par le biais du portail Azure.
+[Je l’utilise avec Office 365](#creating-and-deleting-app-passwords-with-office-365)| Cela signifie que vous souhaitez créer des mots de passe d’application par le biais du portail Office 365.
+[Je ne sais pas](#creating-and-deleting-app-passwords-with-myapps-portal)|Cela signifie que vous pouvez créer des mots de passe d’application par le biais de [https://myapps.microsoft.com](https://myapps.microsoft.com)
+[Je l’utilise avec Microsoft Azure](#create-app-passwords-in-the-azure-portal)| Cela signifie que vous souhaitez créer des mots de passe d’application par le biais du portail Azure.
 
-<h2 id="avec">Création et suppression des mots de passe d’application avec Office 365</h2> 
+## Création et suppression des mots de passe d’application avec Office 365 
 
 Si vous utilisez l’authentification multifacteur avec Office 365, vous pourrez créer et supprimer des mots de passe d’application par le biais du portail Office 365.
 
-### Pour créer des mots de passe d’application dans le portail Office 365
+### Pour créer des mots de passe d'application dans le portail Office 365
 --------------------------------------------------------------------------------
 
 1. Connectez-vous au [portail Office 365](https://login.microsoftonline.com/).
@@ -81,12 +81,12 @@ Si vous utilisez l’authentification multifacteur avec Office 365, vous pourre
 9. Une fois le mot de passe d’application supprimé, vous pouvez cliquer sur **Fermer**. ![Fermer](./media/multi-factor-authentication-end-user-app-passwords/delete3.png)
 
 
-<h2 id="Je">Création et suppression des mots de passe d’application avec Office 365avec le portail Myapps</h2>.
+## Création et suppression des mots de passe d’application avec Office 365avec le portail Myapps.
 Si vous n’êtes pas sûr de la façon d’utiliser l’authentification multifacteur, vous pouvez toujours créer et supprimer des mots de passe d’application via le portail myapps.
 
-<h2 id="eee">Pour créer un mot de passe d’application à l’aide d’un portail Myapps</h2>
+### Pour créer un mot de passe d’application à l’aide d’un portail Myapps
 
-1. Ouvrez une session sur [https://myapps.microsoft.com](https://myapps.microsoft.com)	
+1. Ouvrez une session sur [https://myapps.microsoft.com](https://myapps.microsoft.com)
 2. En haut de la page, sélectionnez le profil.
 3. Sélectionnez Vérification de sécurité supplémentaire. ![Cloud](./media/multi-factor-authentication-end-user-manage/myapps1.png)
 4. Cette opération vous amènera sur la page qui vous permet de modifier vos paramètres. ![Paramétrage](./media/multi-factor-authentication-end-user-manage-myapps/proofup.png)
@@ -97,7 +97,7 @@ Si vous n’êtes pas sûr de la façon d’utiliser l’authentification multif
 
 ### Pour supprimer un mot de passe d’application à l’aide d’un portail Myapps
 
-1. Ouvrez une session sur [https://myapps.microsoft.com](https://myapps.microsoft.com)	
+1. Ouvrez une session sur [https://myapps.microsoft.com](https://myapps.microsoft.com)
 2. En haut de la page, sélectionnez le profil.
 3. Sélectionnez Vérification de sécurité supplémentaire. ![Cloud](./media/multi-factor-authentication-end-user-manage/myapps1.png)
 4. Cette opération vous amènera sur la page qui vous permet de modifier vos paramètres. ![Paramétrage](./media/multi-factor-authentication-end-user-manage-myapps/proofup.png)
@@ -115,7 +115,7 @@ Si vous utilisez l’authentification multifacteur avec Azure, vous voulez peut-
 
 1. Connectez-vous au portail de gestion Azure.
 2. En haut de la page, cliquez avec le bouton droit sur votre nom d’utilisateur et sélectionnez Vérification de sécurité supplémentaire.
-3. En haut de la page de vérification, sélectionnez les mots de passe d’application.
+3. En haut de la page de vérification, sélectionnez les mots de passe d'application
 4. Cliquez sur **Create**.
 5. Saisissez un nom pour le mot de passe d’application, puis cliquez sur **Suivant**
 6. Copiez le mot de passe d’application dans le Presse-papiers et collez-le dans votre application. ![Cloud](./media/multi-factor-authentication-end-user-app-passwords-create-azure/app2.png)
@@ -129,4 +129,4 @@ Si vous utilisez l’authentification multifacteur avec Azure, vous voulez peut-
 5. Confirmez la suppression en cliquant sur **oui**.
 6. Une fois le mot de passe d’application supprimé, vous pouvez cliquer sur **Fermer**. ![Fermer](./media/multi-factor-authentication-end-user-app-passwords/delete3.png)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

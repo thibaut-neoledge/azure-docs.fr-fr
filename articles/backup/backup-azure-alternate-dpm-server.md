@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/05/2016"
+	ms.date="08/08/2016"
 	ms.author="giridham;jimpark;trinadhk;markgal"/>
 
 # Récupération de données à partir d'un autre serveur DPM dans le coffre de sauvegarde
@@ -82,7 +82,7 @@ Pour récupérer des données à partir d'un autre serveur DPM, procédez comme 
     ![Effacer un serveur DPM externe](./media/backup-azure-alternate-dpm-server/clear-external-dpm.png)
 
 ## Dépannage des messages d'erreur
-|N° |	Message d’erreur |	Étapes de dépannage |
+|Non. |	Message d’erreur |	Étapes de dépannage |
 | :-------------: |:-------------| :-----|
 |1\.|		Ce serveur n'est pas enregistré dans le coffre spécifié par les informations d'identification de coffre.|	**Raison :** cette erreur apparaît lorsque le fichier d'informations d'identification de coffre sélectionné n'appartient pas au coffre de sauvegarde associé au serveur DPM sur lequel la récupération est tentée. <br> **Résolution :** téléchargez le fichier d'informations d'identification de coffre du coffre de sauvegarde auquel le serveur DPM est inscrit.|
 |2\.|		Les données récupérables ne sont pas disponibles ou le serveur sélectionné n'est pas un serveur DPM.|	**Raison :** aucun autre serveur DPM avec DPM 2012 R2 UR7 inscrit auprès du coffre de sauvegarde, ni les serveurs DPM avec DPM 2012 R2 UR7 n'ont encore téléchargé les métadonnées. Ou bien, le serveur sélectionné n'est pas un serveur DPM (également appelé serveur Windows Server ou client Windows). <br> **Résolution :** s'il existe d’autres serveurs DPM inscrits auprès du coffre de sauvegarde, assurez-vous que SCDPM 2012 R2 UR7 et le dernier agent Azure Backup sont installées. <br>S'il existe d’autres serveurs DPM inscrits auprès du coffre de sauvegarde avec DPM 2012 R2 UR7, patientez un jour après l'installation d'UR7 pour lancer le processus de récupération. La tâche nocturne téléchargera les métadonnées de toutes les sauvegardes précédemment protégées dans le cloud. Les données seront disponibles pour la récupération.|
@@ -103,4 +103,4 @@ Pour récupérer des données à partir d'un autre serveur DPM, procédez comme 
 ## Étapes suivantes :
 • [Azure Backup - Forum Aux Questions](backup-azure-backup-faq.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

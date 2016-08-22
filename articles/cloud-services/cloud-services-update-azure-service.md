@@ -12,7 +12,7 @@ ms.workload="tbd"
 ms.tgt_pltfrm="na"
 ms.devlang="na"
 ms.topic="article"
-ms.date="05/05/2016"
+ms.date="08/10/2016"
 ms.author="adegeo"/>
 
 # Mettre à jour un service cloud
@@ -180,6 +180,6 @@ Le diagramme suivant montre comment un service contenant deux rôles qui sont di
 > [AZURE.NOTE] Notez qu’Azure contrôle la façon dont les instances sont affectées entre d’un domaine de mise à niveau à l’autre. Il est impossible de spécifier quelles sont les instances affectées, et à quel domaine.
 
 ## Étapes suivantes
-[Gestion de Cloud Services](cloud-services-how-to-manage.md)<br> [Surveiller Cloud Services](cloud-services-how-to-monitor.md)<br> [Configurer Cloud Services](cloud-services-how-to-configure.md)<br>
+[Gestion de Cloud Services](cloud-services-how-to-manage.md) [Surveiller Cloud Services](cloud-services-how-to-monitor.md) [Configurer Cloud Services](cloud-services-how-to-configure.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0810_2016-->

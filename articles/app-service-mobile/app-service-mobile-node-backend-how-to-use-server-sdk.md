@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="node"
 	ms.topic="article"
-	ms.date="05/27/2016"
+	ms.date="08/02/2016"
 	ms.author="adrianhall"/>
 
 # Comment utiliser le Kit de développement logiciel Node.js dans Azure Mobile Apps
@@ -125,6 +125,17 @@ Visual Studio 2015 requiert une extension pour développer les applications No
     Enregistrez le fichier .
 
 10. Exécutez l’application en local (l’API sera disponible sur http://localhost:3000) ou publiez-la dans Azure.
+
+### <a name="create-node-backend-portal"></a>Comment : créer un serveur principal Node.js à l’aide du portail Azure
+
+Vous pouvez créer un serveur principal d'application mobile dans le [portail Azure].
+
+Vous pouvez suivre la procédure ci-dessous, ou créer simultanément un client et un serveur en suivant le didacticiel [Créer une application mobile](app-service-mobile-ios-get-started.md). Ce didacticiel contient une version simplifiée de ces instructions et convient mieux aux projets de preuve de concept.
+
+[AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service-classic](../../includes/app-service-mobile-dotnet-backend-create-new-service-classic.md)]
+
+Dans le panneau _Prise en main_, sous **Créer une table API**, sélectionnez **Node.js** en tant que **langue du serveur principal**. Cochez la case indiquant **I acknowledge that this will overwrite all site contents.** (je reconnais que cette action écrasera tout le contenu du site), puis cliquez sur **Créer une table TodoItem**.
+
 
 ### <a name="download-quickstart"></a>Procédure : télécharger le projet de code quickstart du serveur principal Node.js à l’aide de Git
 
@@ -496,10 +507,10 @@ Pour voir les revendications disponibles, utilisez un navigateur web pour affich
 
 En plus d’apparaître sur la table, la propriété d’accès peut être utilisée pour contrôler des opérations spécifiques. Il existe quatre opérations :
 
-  - *read* : opération GET RESTful sur la table
-  - *insert* : opération POST RESTful sur la table
-  - *update* : opération PATCH RESTful sur la table
-  - *delete* : opération DELETE RESTful sur la table
+  - *read* : opération GET RESTful sur la table
+  - *insert* : opération POST RESTful sur la table
+  - *update* : opération PATCH RESTful sur la table
+  - *delete* : opération DELETE RESTful sur la table
 
 Vous pouvez, par exemple, souhaiter fournir une table non authentifiée en lecture seule. Pour ce faire, vous pouvez utiliser la définition de table suivante :
 
@@ -733,7 +744,7 @@ Chaque paramètre correspond à l’un des verbes RESTful standard : GET, POST,
 
 ### <a name="howto-customapi-auth"></a>Procédure : exiger une authentification pour l’accès à une API personnalisée
 
-Le SDK Azure Mobile Apps implémente l’authentification de la même façon pour le point de terminaison des tables et pour les API personnalisées. Pour ajouter l’authentification à l’API développée dans la section précédente, ajoutez une propriété **access** :
+Le SDK Azure Mobile Apps implémente l’authentification de la même façon pour le point de terminaison des tables et pour les API personnalisées. Pour ajouter l’authentification à l’API développée dans la section précédente, ajoutez une propriété **access** :
 
 	var api = {
 		get: function (req, res, next) {
@@ -840,12 +851,12 @@ Lorsque vous cliquez sur **Easy Tables** dans vos paramètres de site principal,
 
 Les commandes suivantes sont disponibles dans la barre de commandes d’une table :
 
-+ **Modifier les autorisations** : modifier l’autorisation pour les opérations de lecture, d’insertion, de mise à jour et de suppression sur la table. Vous avez la possibilité d’autoriser l’accès anonyme, d’exiger une authentification ou de désactiver tous les accès à l’opération. Ce paramètre modifie le fichier de code du projet table.json.
-+ **Modifier le script** : le fichier de script de la table est ouvert dans l’éditeur App Service.
-+ **Gérer un schéma** : ajouter ou supprimer des colonnes ou modifier l’index de la table.
-+ **Effacer la table** : tronque une table existante en supprimant toutes les lignes de données tout en conservant le schéma à l’identique.
-+ **Supprimer des lignes** : supprimer des lignes de données spécifiques.
-+ **Afficher les journaux de diffusion en continu** : permet de vous connecter au service de journaux de diffusion en continu de votre site.
++ **Modifier les autorisations** : modifier l’autorisation pour les opérations de lecture, d’insertion, de mise à jour et de suppression sur la table. Vous avez la possibilité d’autoriser l’accès anonyme, d’exiger une authentification ou de désactiver tous les accès à l’opération. Ce paramètre modifie le fichier de code du projet table.json.
++ **Modifier le script** : le fichier de script de la table est ouvert dans l’éditeur App Service.
++ **Gérer un schéma** : ajouter ou supprimer des colonnes ou modifier l’index de la table.
++ **Effacer la table** : tronque une table existante en supprimant toutes les lignes de données tout en conservant le schéma à l’identique.
++ **Supprimer des lignes** : supprimer des lignes de données spécifiques.
++ **Afficher les journaux de diffusion en continu** : permet de vous connecter au service de journaux de diffusion en continu de votre site.
 
 ###<a name="work-easy-apis"></a>Procédure : utiliser l’outil Easy APIs dans le portail Azure
 
@@ -917,4 +928,4 @@ Le portail Azure vous permet de modifier les fichiers de script de votre serveur
 [ExpressJS Middleware]: http://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

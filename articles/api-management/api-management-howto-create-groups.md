@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/25/2016" 
+	ms.date="08/09/2016" 
 	ms.author="sdanie"/>
 
 # Création et utilisation de groupes pour gérer les comptes de développeurs dans Gestion des API Azure
@@ -111,4 +111,4 @@ Une fois l’association entre le développeur et le groupe ajoutée, vous pouve
 [Création d'une instance de service Gestion des API]: api-management-get-started.md#create-service-instance
 [utiliser des groupes externes dans des locataires Azure Active Directory qui leur sont associés]: api-management-howto-aad.md#how-to-add-an-external-azure-active-directory-group
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

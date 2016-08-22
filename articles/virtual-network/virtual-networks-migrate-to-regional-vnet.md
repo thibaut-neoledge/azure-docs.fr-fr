@@ -3,7 +3,7 @@
    description="En savoir plus sur la migration des groupes d’affinités vers les réseaux virtuels régionaux"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor="tysonn" />
 <tags 
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/15/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 # Comment migrer des groupes d’affinités vers un réseau virtuel régional
 
@@ -41,9 +41,9 @@ Les réseaux virtuels qui sont actuellement associés à des groupes d’affinit
 	
 	Modifiez les lignes suivantes dans votre fichier de configuration réseau, en remplaçant les valeurs avec les vôtres :
 
-	**Ancienne valeur :** \<VirtualNetworkSitename="VNetUSWest" AffinityGroup="VNetDemoAG"\>
+	**Ancienne valeur :** <VirtualNetworkSitename="VNetUSWest" AffinityGroup="VNetDemoAG">
 
-	**Nouvelle valeur :** \<VirtualNetworkSitename="VNetUSWest" Location="West US"\>
+	**Nouvelle valeur :** <VirtualNetworkSitename="VNetUSWest" Location="West US">
 
 1. Enregistrez vos modifications et [importez](virtual-networks-using-network-configuration-file.md) la configuration réseau dans Azure.
 
@@ -66,4 +66,4 @@ Les machines virtuelles qui sont actuellement dans un groupe d’affinités n’
 Une fois qu’une machine virtuelle est déployée, elle l’est sur une seule unité d’échelle. Les groupes d’affinités peuvent restreindre la taille disponible de l’ensemble des machines virtuelles pour un nouveau déploiement de machines virtuelles, mais les machines virtuelles existantes déployées sont déjà limitées à la taille disponible de l’ensemble des machines virtuelles dans l’unité d’échelle où elles sont déployées. Pour cette raison, la suppression d’une machine virtuelle du groupe d’affinités n’a aucun effet.
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0810_2016-->

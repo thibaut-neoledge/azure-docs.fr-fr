@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/25/2016" 
+	ms.date="08/09/2016" 
 	ms.author="sdanie"/>
 
 # Référence sur les stratégies Gestion des API Azure
@@ -46,16 +46,16 @@ Les expressions de stratégie peuvent être utilisées comme valeurs d’attribu
 -	[Stratégies d’authentification][]
 	-	[Authenticate with Basic][] : authentification avec un service principal à l’aide de l’authentification de base.
 	-	[Authenticate with client certificate][] : authentification avec un service principal à l’aide de certificats clients.
--	[Stratégies de mise en cache][] 
+-	[Stratégies de mise en cache][]
 	-	[Get from cache][] : effectue une recherche dans le cache et renvoie une réponse mise en cache valide si elle est disponible.
 	-	[Store to cache][] : met en cache la réponse en fonction de la configuration de contrôle de cache spécifiée.
 	-	[Get value from cache](https://msdn.microsoft.com/library/azure/dn894086.aspx#GetFromCacheByKey) : récupère un élément mis en cache par clé.
 	-	[Store value in cache](https://msdn.microsoft.com/library/azure/dn894086.aspx#StoreToCacheByKey) : stocke un élément mis en cache par clé.
--	[Stratégies interdomaines][] 
+-	[Stratégies interdomaines][]
 	-	[Allow cross-domain calls][] : rend l'API accessible depuis les navigateurs clients utilisant Adobe Flash et Microsoft Silverlight.
 	-	[CORS][] : ajoute une prise en charge partage des ressources cross-origin (CORS) à une opération ou une API afin de permettre les appels interdomaines depuis les navigateurs clients.
 	-	[JSONP][] : ajoute une prise en charge de JSON avec remplissage (JSONP) à une opération ou une API afin de permettre les appels interdomaines depuis les navigateurs clients utilisant JavaScript.
--	[Stratégies de transformation][] 
+-	[Stratégies de transformation][]
 	-	[Convert JSON to XML][] : convertit le corps de la demande ou de la réponse de JSON en XML.
 	-	[Convert XML to JSON][] :convertit le corps de la demande ou de la réponse de XML en JSON.
 	-	[Find and replace string in body][] : recherche une sous-chaîne de demande ou de réponse et la remplace par une autre sous-chaîne.
@@ -121,4 +121,4 @@ Pour plus d’informations sur les expressions de stratégie, regardez la vidéo
 
  
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure-services"
-   ms.date="05/24/2016"
+   ms.date="08/08/2016"
    ms.author="iainfou"/>
 
 # Ouverture des ports et des points de terminaison
-Pour ouvrir un port ou créer un point de terminaison dans Azure, vous créez un filtre réseau qui autorise le trafic vers le port choisi sur un sous-réseau ou une interface réseau de machine virtuelle. Ces filtres, qui contrôlent le trafic entrant et sortant, sont placés dans un groupe de sécurité réseau et associés à la ressource qui reçoit le trafic. Nous allons utiliser un exemple courant de trafic web sur le port 80.
+Pour ouvrir un port ou créer un point de terminaison dans Azure, vous créez un filtre réseau qui autorise le trafic vers le port choisi sur un sous-réseau ou une interface réseau de machine virtuelle. Vous placez ces filtres, qui contrôlent le trafic entrant et sortant, dans un groupe de sécurité réseau associé à la ressource qui reçoit le trafic. Nous allons utiliser un exemple courant de trafic web sur le port 80.
 
 ## Commandes rapides
-Pour créer un groupe de sécurité de réseau et des règles, vous avez besoin de [l’interface de ligne de commande Azure](../xplat-cli-install.md) en mode Resource manager (`azure config mode arm`).
+Pour créer un groupe de sécurité réseau et des règles, vous avez besoin de [l’interface de ligne de commande Azure](../xplat-cli-install.md) en mode Resource Manager (`azure config mode arm`).
 
 Créez votre groupe de sécurité réseau en entrant votre nom et votre emplacement en conséquence :
 
@@ -28,7 +28,7 @@ Créez votre groupe de sécurité réseau en entrant votre nom et votre emplacem
 azure network nsg create --resource-group TestRG --name TestNSG --location westus
 ```
 
-Ajoutez une règle pour autoriser le trafic HTTP sur votre serveur Web (elle peut être ajustée en fonction de votre propre scénario, notamment l’accès SSH ou la connectivité de base de données) :
+Ajoutez une règle pour autoriser le trafic HTTP sur votre serveur Web (ou ajustez une règle en fonction de votre propre scénario, notamment l’accès SSH ou la connectivité de base de données) :
 
 ```
 azure network nsg rule create --protocol tcp --direction inbound --priority 1000 \
@@ -50,7 +50,7 @@ azure network vnet subnet set --resource-group TestRG --name TestSubnet --networ
 ## En savoir plus sur les groupes de sécurité réseau
 Les commandes rapides vous permettent d’être opérationnel avec le trafic entrant vers votre machine virtuelle. Les groupes de sécurité réseau fournissent un grand nombre de fonctionnalités intéressantes et une granularité pour contrôler l’accès à vos ressources. Découvrez plus d’informations sur la [création d’un groupe de sécurité réseau et de règles de liste de contrôle d’accès ici](../virtual-network/virtual-networks-create-nsg-arm-cli.md).
 
-Les groupes de sécurité réseau et les règles ACL peuvent également être définis dans le cadre de modèles Azure Resource Manager. En savoir plus sur la [création de groupes de sécurité réseau avec des modèles](../virtual-network/virtual-networks-create-nsg-arm-template.md).
+Vous pouvez définir des groupes de sécurité réseau et des règles de liste de contrôle d’accès dans le cadre de modèles Azure Resource Manager. En savoir plus sur la [création de groupes de sécurité réseau avec des modèles](../virtual-network/virtual-networks-create-nsg-arm-template.md).
 
 Si vous devez utiliser le réacheminement de port pour mapper un seul port externe sur un port interne de votre machine virtuelle, vous devez utiliser un équilibreur de charge et des règles de traduction d’adresses réseau (NAT). Par exemple, vous souhaitez peut-être exposer le port TCP 8080 en externe et diriger le trafic vers le port TCP 80 sur une machine virtuelle. En savoir plus sur [la création d’un équilibreur de charge accessible sur Internet](../load-balancer/load-balancer-get-started-internet-arm-cli.md).
 
@@ -61,4 +61,4 @@ Dans cet exemple, vous avez créé une règle simple pour autoriser le trafic HT
 - [Présentation du groupe de sécurité réseau](../virtual-network/virtual-networks-nsg.md)
 - [Présentation d’Azure Resource Manager Overview pour les équilibreurs de charge](../load-balancer2 /load-balancer-arm.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0810_2016-->

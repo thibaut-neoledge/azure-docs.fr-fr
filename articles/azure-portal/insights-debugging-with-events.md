@@ -1,20 +1,20 @@
 <properties
 	pageTitle="Affichage des événements et des journaux d'audit"
 	description="Découvrez comment afficher tous les événements qui se produisent dans votre abonnement Azure."
-	authors="HaniKN-MSFT"
-	manager="kamrani"
+	authors="rboucher"
+	manager=""
 	editor=""
-	services="monitoring"
-	documentationCenter="monitoring"/>
+	services="monitoring-and-diagnostics"
+	documentationCenter="monitoring-and-diagnostics"/>
 
 <tags
-	ms.service="monitoring"
+	ms.service="monitoring-and-diagnostics"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="04/28/2015"
-	ms.author="hanikn"/>
+	ms.author="robb"/>
 
 # Affichage des événements et des journaux d'audit
 
@@ -30,7 +30,7 @@ Toutes les opérations effectuées sur les ressources Azure sont entièrement au
 
 4. Vous pouvez cliquer sur une entrée de journal pour afficher les événements qui la composent. Par exemple, lorsque vous déployez un élément vers un groupe de ressources, différentes ressources sont créées ou modifiées. Pour chaque entrée, vous pouvez découvrir :
     * Le **niveau** de l'événement : il peut par exemple s’agir d’un élément à suivre (**information**), ou d’un incident sur lequel vous souhaiteriez être informé (**erreur**).
-    * L’**état** : l'état final sera généralement **Succeeded** ou **Failed**, voire également **Accepted** pour les opérations de longue durée.
+    * L’**état** : l'état final sera généralement **Succeeded** ou **Failed**, voire également **Accepted** pour les opérations de longue durée.
     * Le*moment* où l’événement s’est produit.
     * La *personne* qui a effectué l'opération, le cas échéant. Les opérations ne sont pas toutes effectuées par des utilisateurs. Certaines d’entre elles sont effectuées par des services principaux pour éviter d’avoir un **appelant**.
     * L’**ID de corrélation** de l'événement : c’est-à-dire l'identificateur unique de cet ensemble d'opérations.
@@ -72,4 +72,4 @@ Après avoir choisi ce que vous souhaitez afficher, cliquez sur le bouton **Mise
 * [Surveillance des mesures de service](insights-how-to-customize-monitoring.md) pour vous assurer que votre service est disponible et réactif.
 * [Suivi de l'intégrité du service](insights-service-health.md) pour déterminer à quel moment Azure a rencontré des interruptions de service ou une dégradation des performances.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

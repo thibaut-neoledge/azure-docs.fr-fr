@@ -13,32 +13,34 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="04/25/2016"
+   ms.date="08/10/2016"
    ms.author="jehollan"/>
 
 
 # Applications logiques en tant que points de terminaison pouvant être appelés
 
-La version précédente du schéma des applications logiques (*2014-12-01-preview*) exigeait une application API appelée **écouteur HTTP** pour exposer un point de terminaison HTTP pouvant être appelé de façon synchrone. Avec le dernier schéma (*2015-08-01-preview*), les applications logiques peuvent exposer un point de terminaison HTTP synchrone en mode natif. Vous pouvez également utiliser le modèle de points de terminaison pouvant être appelés pour appeler les applications logiques sous la forme d’un flux de travail imbriqué, via l’action « Workflow » d’une application logique.
+Les applications logiques peuvent exposer un point de terminaison HTTP synchrone en mode natif en tant que déclencheur. Vous pouvez également utiliser le modèle de points de terminaison pouvant être appelés pour appeler les applications logiques sous la forme d’un flux de travail imbriqué, via l’action « Workflow » d’une application logique.
 
 Il existe 3 types de déclencheurs qui peuvent recevoir des requêtes :
 
-* manual
-* apiConnectionWebhook
-* httpWebhook
+* Demande
+* ApiConnectionWebhook
+* HttpWebhook
 
-Dans le reste de cet article, nous utiliserons **manual** comme exemple. Toutefois, tous les principes s’appliquent de la même manière aux 2 autres types de déclencheurs.
+Dans le reste de cet article, nous utiliserons **request** comme exemple. Toutefois, tous les principes s’appliquent de la même manière aux 2 autres types de déclencheurs.
 
 ## Ajout d’un déclencheur à votre définition
 La première étape consiste à ajouter à la définition de votre application logique un déclencheur qui peut recevoir des requêtes entrantes. Dans le concepteur, vous pouvez rechercher « demande HTTP » pour ajouter la carte de déclencheur. Vous pouvez définir un schéma JSON de corps de requête ; le concepteur génère des jetons pour vous aider à analyser et transmettre des données à partir du déclenchement manuel, via le flux de travail. Je recommande un outil tel que [jsonschema.net](http://jsonschema.net) pour générer un schéma JSON à partir d’un exemple de charge utile du corps.
 
-![][2]
+![Carte de déclencheur de requête][2]
 
 Une fois la définition de l’application logique enregistrée, une URL de rappel est générée. Elle est semblable à celle-ci :
  
-```
+``` text
 https://prod-03.eastus.logic.azure.com:443/workflows/080cb66c52ea4e9cabe0abf4e197deff/triggers/myendpointtrigger?...
 ```
+
+Cette URL contient une clé SAS dans les paramètres de requête utilisés pour l’authentification.
 
 Vous pouvez également obtenir ce point de terminaison dans le portail Azure :
 
@@ -46,14 +48,15 @@ Vous pouvez également obtenir ce point de terminaison dans le portail Azure :
 
 Ou, en appelant :
 
-```
+``` text
 POST https://management.azure.com/{resourceID of your logic app}/triggers/myendpointtrigger/listCallbackURL?api-version=2015-08-01-preview
 ```
 
 ## Appel du point de terminaison du déclencheur d’application logique
-Une fois que vous avez obtenu le point de terminaison de votre déclencheur, vous pouvez l’enregistrer dans votre système back-end et l’appeler par le biais d’un élément `POST` dans l’URL complète. Vous pouvez inclure des en-têtes et des paramètres de requête supplémentaires, ainsi que du contenu dans le corps.
 
-Si le type de contenu est `application/json`, vous pouvez référencer des propriétés depuis l’intérieur même de la requête. Dans le cas contraire, il est considéré comme une unité binaire unique qui peut être transmise à d’autres API, mais qui ne peut pas faire l’objet d’un référencement interne au workflow sans conversion du contenu. Par exemple, si vous passez le contenu de l’élément `application/xml`, vous pouvez utiliser l’élément `@xpath()` pour effectuer une extraction xpath, ou `@json()` pour effectuer la conversion de XML vers JSON ([la documentation complète est accessible ici](http://aka.ms/logicappsdocs)).
+Une fois que vous avez obtenu le point de terminaison de votre déclencheur, vous pouvez le déclencher par le biais d’un élément `POST` dans l’URL complète. Vous pouvez inclure des en-têtes supplémentaires ainsi que du contenu dans le corps.
+
+Si le type de contenu est `application/json`, vous pouvez référencer des propriétés depuis l’intérieur même de la requête. Dans le cas contraire, il est considéré comme une unité binaire unique qui peut être transmise à d’autres API, mais qui ne peut pas faire l’objet d’un référencement interne au workflow sans conversion du contenu. Par exemple, si vous passez le contenu de l’élément `application/xml`, vous pouvez utiliser l’élément `@xpath()` pour effectuer une extraction xpath, ou `@json()` pour effectuer la conversion de XML vers JSON. Vous trouverez plus d’informations sur l’utilisation des types de contenu [ici](app-service-logic-content-type.md)
 
 En outre, vous pouvez spécifier un schéma JSON dans la définition. Cela entraîne la génération de jetons par le concepteur. Vous pouvez ensuite passer ces jetons via des étapes. Le code suivant permet de rendre les jetons `title` et `name` disponibles dans le concepteur :
 
@@ -76,6 +79,7 @@ En outre, vous pouvez spécifier un schéma JSON dans la définition. Cela entra
 ```
 
 ## Référencement du contenu de la requête entrante
+
 La fonction `@triggerOutputs()` génère le contenu de la requête entrante. Par exemple, elle peut se présenter comme suit :
 
 ```
@@ -91,14 +95,13 @@ La fonction `@triggerOutputs()` génère le contenu de la requête entrante. Par
 
 Vous pouvez utiliser le raccourci `@triggerBody()` pour accéder spécifiquement à la propriété `body`.
 
-Ce procédé diffère légèrement de la version *2014-12-01-preview*, dans laquelle l’accès au corps d’un écouteur HTTP suppose l’utilisation d’une fonction telle que la suivante : `@triggerOutputs().body.Content`.
-
 ## Réponse à la requête
-Pour certaines requêtes qui démarrent une application logique, vous pouvez répondre à l’appelant avec du contenu. Il existe un nouveau type d’action appelé **response**, qui peut être utilisé pour construire le code d’état, le corps et les en-têtes de votre réponse. En l’absence de forme **response**, le point de terminaison de l’application logique répond *immédiatement* avec **202 Accepté** (c’est l’équivalent de l’*envoi automatique de la réponse* dans l’écouteur HTTP).
 
-![][3]
+Pour certaines requêtes qui démarrent une application logique, vous pouvez répondre à l’appelant avec du contenu. Il existe un nouveau type d’action appelé **response**, qui peut être utilisé pour construire le code d’état, le corps et les en-têtes de votre réponse. Notez que si aucune forme de **réponse** n’est présente, le point de terminaison d’application logique répondra *immédiatement* avec **202 accepté**.
 
-```
+![Action de réponse HTTP][3]
+
+``` json
 "Response": {
             "conditions": [],
             "inputs": {
@@ -126,6 +129,7 @@ Les réponses ont les propriétés suivantes :
 Toutes les étapes de l’application logique qui sont requises pour la réponse doivent prendre au maximum *60 secondes* pour que la requête d’origine puisse recevoir la réponse, **sauf si le workflow est appelé en tant qu’application logique imbriquée**. Si aucune action de réponse n’est atteinte en 60 secondes, la requête entrante expire et reçoit la réponse HTTP **408 Délai d’expiration du client**. Pour les applications logiques imbriquées, l’application logique parente continue à attendre une réponse jusqu’à la fin, quelle que soit la durée de l’opération.
 
 ## Configuration avancée du point de terminaison
+
 Les applications logiques incluent la prise en charge du point de terminaison d’accès direct et utilisent systématiquement la méthode `POST` pour démarrer l’exécution de l’application logique. En outre, l’application API **Écouteur HTTP** prenait déjà en charge la modification des segments d’URL et de la méthode HTTP. Vous pouviez même renforcer la sécurité ou configurer un domaine personnalisé en l’ajoutant à l’hôte d’application API (l’application web hébergeant l’application API).
 
 Cette fonctionnalité est disponible par le biais du service **Gestion des API** :
@@ -136,7 +140,7 @@ Cette fonctionnalité est disponible par le biais du service **Gestion des API**
 
 ## Résumé de la migration à partir de 2014-12-01-preview
 
-| 2014-12-01-preview | 2015-08-01-preview |
+| 2014-12-01-preview | 2016-06-01 |
 |---------------------|--------------------|
 | Cliquer sur l’application API **Écouteur HTTP** | Cliquer sur **Déclenchement manuel** (aucune application API requise) |
 | Paramètre d’écouteur HTTP « *Envoie une réponse automatiquement* » | Inclure ou non une action **response** dans la définition de workflow |
@@ -151,4 +155,4 @@ Cette fonctionnalité est disponible par le biais du service **Gestion des API**
 [2]: ./media/app-service-logic-http-endpoint/manualtrigger.png
 [3]: ./media/app-service-logic-http-endpoint/response.png
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="06/16/2016"
+	ms.date="08/04/2016"
 	ms.author="billmath"/>
 
 # Présentation d'Azure Multi-Factor Authentication
@@ -147,12 +147,12 @@ Choisissez le modèle qui convient le mieux à votre organisation : celui basé
 
 Étant donné qu’il existe plusieurs types d'authentification multifacteur Azure, nous devons déterminer plusieurs éléments pour connaître la version utiliser. Ces éléments sont :
 
--	<a href="#1">les éléments à protéger</a>
--	<a href="#2">l’emplacement des utilisateurs</a>
+-	[les éléments à protéger](#what-am-i-trying-to-secure)
+-	[l’emplacement des utilisateurs](#where-are-the-users-located)
 
 Les sections suivantes fournissent des conseils sur la détermination de ces éléments.
 
-<h3 id="1">Les éléments à protéger</h3>
+### Les éléments à protéger.
 
 Afin de déterminer la solution d'authentification multifacteur appropriée, nous devons tout d'abord connaître les éléments à protéger avec une seconde méthode d'authentification. S’agit-il d’une application dans Azure ? Ou un système d'accès à distance par exemple ? En déterminant les éléments à protéger, nous allons répondre à la question de savoir où l'authentification multifacteur doit être activée.
 
@@ -168,7 +168,7 @@ Accès à distance comme VPN, RDG| |* |
 
 
 
-<h3 id="2">L’emplacement des utilisateurs</h3>
+### L’emplacement des utilisateurs
 
 Ensuite, selon l’emplacement des utilisateurs, nous pouvons déterminer la solution appropriée, que ce soit l’authentification multifacteur dans le cloud ou en local avec le serveur MFA.
 
@@ -209,4 +209,4 @@ Maintenant que nous avons déterminé s'il faut utiliser l'authentification mult
 
 <center> [![Cloud](./media/multi-factor-authentication-get-started/cloud2.png)](multi-factor-authentication-get-started-cloud.md) &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;[![Proofup](./media/multi-factor-authentication-get-started/server2.png)](multi-factor-authentication-get-started-server.md) &#160;&#160;&#160;&#160;&#160; </center>
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0810_2016-->

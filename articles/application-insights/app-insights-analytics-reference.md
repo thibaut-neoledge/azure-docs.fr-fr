@@ -12,12 +12,12 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/07/2016" 
+	ms.date="08/09/2016" 
 	ms.author="awills"/>
 
 # Référence pour Analytics
 
-[Analytics](app-insights-analytics.md) est la puissante fonctionnalité de recherche d’[Application Insights](app-insights-overview.md). Ces pages décrivent le langage de requête Analytics.
+[Analytics](app-insights-analytics.md) est la fonctionnalité de recherche performante d’[Application Insights](app-insights-overview.md). Ces pages décrivent le langage de requête Analytics.
 
 > [AZURE.NOTE] [Test drive Analytics on our simulated data](https://analytics.applicationinsights.io/demo) si votre application n’envoie pas encore de données à Application Insights.
 
@@ -105,7 +105,7 @@ La clause set définit une option pour la durée de la requête. Les options de 
     set OptionName [= OptionValue] ; query
 
 
-|Nom | Implication si la valeur est définie sur true
+|Name | Implication si la valeur est définie sur true
 |---|---
 |querytrace| Augmente le niveau des traces de débogage générées par une requête. 
 |noexecute| Désactive l’exécution réelle de la requête (seule la phase de planification de la requête est exécutée). 
@@ -1684,17 +1684,7 @@ Argument évalué. Si l’argument est une table, retourne la première colonne 
 || |
 |---|-------------|
 | + | Ajouter |
-| - | Soustraire |
-| * | Multiplier |
-| / | Diviser |
-| % | Modulo | 
-|| 
-|`<` |Inférieur à 
-|`<=`|Inférieur ou égal à 
-|`>` |Supérieur à 
-|`>=`|Supérieur ou égal à 
-|`<>`|Non égal à 
-|`!=`|Non égal à
+| - | Soustraire || * | Multiplier || / | Diviser || % | Modulo | || |`<` |Inférieur à |`<=`|Inférieur ou égal à |`>` |Supérieur à |`>=`|Supérieur ou égal à |`<>`|Non égal à |`!=`|Non égal à
 
 
 ### abs
@@ -1725,7 +1715,7 @@ Alias `floor`.
 
 **Arguments**
 
-* *value :* nombre, date ou intervalle de temps. 
+* *value :* nombre, date ou intervalle de temps.
 * *roundTo :* « taille de l’emplacement ». Nombre, date ou intervalle de temps qui divise *value*.
 
 **Retourne**
@@ -1792,7 +1782,7 @@ Fonction racine carrée.
 
 **Arguments**
 
-* *x :* nombre réel > = 0.
+* *x :* nombre réel >= 0.
 
 **Retourne**
 
@@ -2124,16 +2114,18 @@ Opérateur|Description|Respecte la casse|Exemple vrai
 `!~`|Non égal à |Non| `"aBc" !~ "xyz"`
 `has`|Le terme de droite est un terme entier dans le terme de gauche|Non| `"North America" has "america"`
 `!has`|Le terme de droite n’est pas un terme entier dans le terme de gauche|Non|`"North America" !has "amer"` 
-`hasprefix`|Le terme de droite est un préfixe de terme dans du sous terme de gauche|Non|`"North America" hasprefix "ame"`
-`!hasprefix`|Le terme de droite n’est pas un préfixe de terme dans du sous terme de gauche|Non|`"North America" !hasprefix "mer"`
-`contains` | Le terme de droite est une sous-séquence du terme de gauche|Non| `"FabriKam" contains "BRik"`
+`hasprefix`|RHS est un préfixe d’un terme dans l’attribut LHS|Non|`"North America" hasprefix "ame"`
+`!hasprefix`|Le terme de droite n’est pas un préfixe d’un terme de gauche|Non|`"North America" !hasprefix "mer"`
+`hassuffix`|RHS est un suffixe d’un terme dans l’attribut LHS|Non|`"North America" hassuffix "rth"`
+`!hassuffix`|Le terme de droite n’est pas un suffixe d’un terme de gauche|Non|`"North America" !hassuffix "mer"`
+`contains` | Le terme de droite est une sous-chaîne du terme de gauche|Non| `"FabriKam" contains "BRik"`
 `!contains`| Le terme de droite n’est pas une sous-séquence du terme de gauche|Non| `"Fabrikam" !contains "xyz"`
-`containscs` | Le terme de droite est une sous-séquence du terme de gauche|Oui| `"FabriKam" contains "Kam"`
+`containscs` | Le terme de droite est une sous-chaîne du terme de gauche|Oui| `"FabriKam" contains "Kam"`
 `!containscs`| Le terme de droite n’est pas une sous-séquence du terme de gauche|Oui| `"Fabrikam" !contains "Kam"`
-`startswith`|Le terme de droite est une sous-séquence initiale du terme de gauche|Non|`"Fabrikam" startswith "fab"`
-`!startswith`|Le terme de droite n’est pas une sous-séquence initiale du terme de gauche.|Non|`"Fabrikam" !startswith "abr"`
-`endswith`|Le terme de droite est une sous-séquence terminale du terme de gauche.|Non|`"Fabrikam" endswith "kam"`
-`!endswith`|Le terme de droite n’est pas une sous-séquence terminale du terme de gauche.|Non|`"Fabrikam" !endswith "ka"`
+`startswith`|Le terme de droite est une sous-chaîne initiale du terme de gauche.|Non|`"Fabrikam" startswith "fab"`
+`!startswith`|Le terme de droite n’est pas une sous-chaîne initiale du terme de gauche.|Non|`"Fabrikam" !startswith "abr"`
+`endswith`|Le terme de droite est une sous-chaîne terminale du terme de gauche.|Non|`"Fabrikam" endswith "kam"`
+`!endswith`|Le terme de droite n’est pas une sous-chaîne terminale du terme de gauche.|Non|`"Fabrikam" !endswith "ka"`
 `matches regex`|Le terme de gauche contient une correspondance du terme de droite|Oui| `"Fabrikam" matches regex "b.*k"`
 `in`|Est égal à un des éléments|Oui|`"abc" in ("123", "345", "abc")`
 `!in`|N’est égal à aucun des éléments|Oui|`"bc" !in ("123", "345", "abc")`
@@ -2480,7 +2472,7 @@ Résultat :
 Pour créer un littéral dynamique, utilisez `parsejson` (alias `todynamic`) avec un argument de chaîne JSON :
 
 * `parsejson('[43, 21, 65]')` : tableau de nombres
-* `parsejson('{"name":"Alan", "age":21, "address":{"street":432,"postcode":"JLK32P"}}')` 
+* `parsejson('{"name":"Alan", "age":21, "address":{"street":432,"postcode":"JLK32P"}}')`
 * `parsejson('21')` : valeur unique de type dynamique qui contient un nombre
 * `parsejson('"21"')` : valeur unique de type dynamique qui contient une chaîne
 
@@ -2587,7 +2579,7 @@ La notation entre [crochets] et la notation sous forme de points sont équivalen
 
 **Conseils sur les performances**
 
-* Appliquez les clauses where avant d’utiliser `extractjson()`.
+* Appliquez les clauses where avant d’utiliser `extractjson()`
 * Utilisez plutôt une correspondance d’expression régulière avec [extract](#extract). L’exécution peut être beaucoup plus rapide, et elle est efficace si le JSON est généré à partir d’un modèle.
 * Utilisez `parsejson()` si vous devez extraire plusieurs valeurs de JSON.
 * Envisagez d’analyser le JSON lors de l’ingestion en déclarant le type de la colonne comme étant dynamique.
@@ -2722,4 +2714,4 @@ Entourez de guillemets un nom à l’aide de ['... '] ou ["..."] pour inclure d�
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0810_2016-->

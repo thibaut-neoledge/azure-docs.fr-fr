@@ -12,7 +12,7 @@ ms.workload="tbd"
 ms.tgt_pltfrm="na" 
 ms.devlang="na" 
 ms.topic="article" 
-ms.date="05/17/2016" 
+ms.date="08/10/2016" 
 ms.author="adegeo"/>
 
 # Exposer les paramètres de configuration de rôle comme variable d'environnement avec XPath
@@ -189,4 +189,4 @@ Créer un package [ServicePackage.cspkg](cloud-services-model-and-package.md#ser
 
 Activer le [Bureau à distance](cloud-services-role-enable-remote-desktop.md) pour un rôle.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

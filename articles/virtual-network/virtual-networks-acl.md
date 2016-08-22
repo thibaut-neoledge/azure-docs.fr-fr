@@ -3,7 +3,7 @@
    description="En savoir plus sur les listes de contrôle d’accès"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor="tysonn" />
 <tags
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/15/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 # Qu’est-ce qu’une liste de contrôle d’accès de point de terminaison (ACL) ?
 
@@ -55,13 +55,13 @@ Vous pouvez autoriser ou refuser le trafic réseau de manière sélective pour u
 
 Éléments à prendre en considération :
 
-1. **Aucune liste ACL** : par défaut, quand un point de terminaison est créé, tout le trafic est autorisé sur le point de terminaison.
+1. **Aucune liste ACL** : par défaut, quand un point de terminaison est créé, tout le trafic est autorisé sur le point de terminaison.
 
-1. **Permit** : quand vous ajoutez une ou plusieurs plages « Permit », vous refusez toutes les autres plages par défaut. Seuls les paquets de la plage d’adresses IP autorisée pourront communiquer avec le point de terminaison de machine virtuelle.
+1. **Permit** : quand vous ajoutez une ou plusieurs plages « Permit », vous refusez toutes les autres plages par défaut. Seuls les paquets de la plage d’adresses IP autorisée pourront communiquer avec le point de terminaison de machine virtuelle.
 
-1. **Deny** : quand vous ajoutez une ou plusieurs plages « Deny », vous autorisez toutes les autres plages de trafic par défaut.
+1. **Deny** : quand vous ajoutez une ou plusieurs plages « Deny », vous autorisez toutes les autres plages de trafic par défaut.
 
-1. **Combinaison de Permit et Deny** : vous pouvez utiliser une combinaison de règles « Permit » et « Deny » quand vous voulez qu’une plage d’adresses IP spécifique soit autorisée ou refusée.
+1. **Combinaison de Permit et Deny** : vous pouvez utiliser une combinaison de règles « Permit » et « Deny » quand vous voulez qu’une plage d’adresses IP spécifique soit autorisée ou refusée.
 
 ## Règles et priorité des règles
 
@@ -99,4 +99,4 @@ Les liste de contrôle d’accès réseau peuvent être spécifiées sur un poin
 
 [Comment gérer les listes de contrôle d’accès (ACL) pour les points de terminaison à l’aide de PowerShell](virtual-networks-acl-powershell.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0810_2016-->

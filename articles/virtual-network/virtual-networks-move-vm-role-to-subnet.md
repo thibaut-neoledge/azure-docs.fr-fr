@@ -3,7 +3,7 @@
    description="En savoir plus sur le déplacement des machines virtuelles et des instances de rôle vers un autre sous-réseau"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor="tysonn" />
 <tags 
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/22/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 # Déplacement d’une machine virtuelle ou d’une instance de rôle vers un autre sous-réseau
 
@@ -53,4 +53,4 @@ Pour déplacer une instance de rôle, modifiez le fichier CSCFG. Dans l’exempl
 	    </AddressAssignments>
 	</NetworkConfiguration> 
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0810_2016-->

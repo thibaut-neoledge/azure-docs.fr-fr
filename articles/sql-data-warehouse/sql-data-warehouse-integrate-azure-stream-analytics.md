@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/18/2016"
-   ms.author="shigu;barbkess;sonyama"/>
+   ms.date="08/08/2016"
+   ms.author="kevin;barbkess;sonyama"/>
 
 # Utiliser Azure Stream Analytics avec SQL Data Warehouse
 
@@ -28,18 +28,18 @@ Tout d’abord, exécutez les étapes suivantes dans le didacticiel [Prise en ma
 
 1. Création d’une entrée de hub d’événements
 2. Configuration et démarrage de l’application de génération d’événements
-3. Configuration d'un travail Stream Analytics
+3. Configuration d’un travail Stream Analytics
 4. Spécification d’une entrée de travail et d’une requête
 
 Ensuite, créez une base de données SQL Data Warehouse.
 
 ## Spécifier la sortie du travail : base de données Azure SQL Data Warehouse
 
-### Étape 1
+### Étape 1 :
 
 En haut de la page de votre travail Stream Analytics, cliquez sur **SORTIE**, puis sur **AJOUTER UNE SORTIE**.
 
-### Étape 2
+### Étape 2 :
 
 Sélectionnez Base de données SQL, puis cliquez sur suivant.
 
@@ -48,18 +48,18 @@ Sélectionnez Base de données SQL, puis cliquez sur suivant.
 ### Étape 3
 Entrez les valeurs ci-dessous dans la page suivante :
 
-- *Alias de sortie* : entrez un nom convivial pour cette sortie de travail.
-- *Abonnement* :
+- *Alias de sortie* : entrez un nom convivial pour cette sortie de travail.
+- *Abonnement* :
 	- Si votre base de données SQL Data Warehouse se trouve dans le même abonnement que celui de la tâche Stream Analytics, sélectionnez Utiliser la base de données SQL de l’abonnement actuel.
 	- Si votre base de données se trouve dans un autre abonnement, sélectionnez Utiliser la base de données SQL d’un autre abonnement.
-- *Base de données* : spécifiez le nom d’une base de données de destination.
-- *Nom du serveur* : spécifiez le nom du serveur pour la base de données que vous venez d’indiquer. Vous pouvez obtenir cette information dans le portail Azure Classic.
+- *Base de données* : spécifiez le nom d’une base de données de destination.
+- *Nom du serveur* : spécifiez le nom du serveur pour la base de données que vous venez d’indiquer. Vous pouvez obtenir cette information dans le portail Azure Classic.
 
 ![][server-name]
 
-- *Nom d’utilisateur* : tapez le nom d’utilisateur d’un compte disposant d’autorisations en écriture sur la base de données.
-- *Mot de passe* : indiquez le mot de passe du compte d’utilisateur spécifié.
-- *Table* : spécifiez le nom de la table cible dans la base de données.
+- *Nom d’utilisateur* : tapez le nom d’utilisateur d’un compte disposant d’autorisations en écriture sur la base de données.
+- *Mot de passe* : indiquez le mot de passe du compte d’utilisateur spécifié.
+- *Table* : spécifiez le nom de la table cible dans la base de données.
 
 ![][add-database]
 
@@ -96,4 +96,4 @@ Pour obtenir des conseils supplémentaires en matière de développement, consul
 <!--Other Web references-->
 [Azure Stream Analytics documentation]: http://azure.microsoft.com/documentation/services/stream-analytics/
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

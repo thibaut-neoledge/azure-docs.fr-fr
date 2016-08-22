@@ -5,7 +5,7 @@
 	services="backup"
 	documentationCenter=""
 	authors="markgalioto"
-	manager="jwhit"
+	manager="cfreeman"
 	editor=""
 	keywords="restauration de sauvegarde ; restauration ; point de récupération ;"/>
 
@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/10/2016"
+	ms.date="08/10/2016"
 	ms.author="trinadhk; jimpark;"/>
 
 
@@ -26,7 +26,7 @@
 - [Restaurer des machines virtuelles dans le portail Azure](backup-azure-arm-restore-vms.md)
 
 
-Vous protégez vos données avec le service Backup en prenant des instantanés de vos données à des intervalles définis. Ces instantanés sont considérés comme des points de récupération stockés dans des coffres Recovery Services. Lorsqu’il est nécessaire de réparer ou de générer de nouveau une machine virtuelle, sa restauration peut s’effectuer à partir des points de récupération enregistrés. La restauration d’un point de récupération permet de revenir à l’état dans lequel se trouvait la machine virtuelle au moment de l’enregistrement du point de récupération. Cet article explique comment restaurer une machine virtuelle.
+Protégez vos données en prenant des instantanés de vos données à des intervalles définis. Ces instantanés sont considérés comme des points de récupération stockés dans des coffres Recovery Services. Lorsqu’il est nécessaire de réparer ou de générer de nouveau une machine virtuelle, sa restauration peut s’effectuer à partir des points de récupération enregistrés. La restauration d’un point de récupération permet de revenir à l’état dans lequel se trouvait la machine virtuelle au moment de l’enregistrement du point de récupération. Cet article explique comment restaurer une machine virtuelle.
 
 > [AZURE.NOTE] Azure dispose de deux modèles de déploiement pour créer et utiliser des ressources : [Resource Manager et classique](../resource-manager-deployment-model.md). Cet article fournit les informations et les procédures relatives à la restauration des machines virtuelles déployées à l’aide du modèle Resource Manager.
 
@@ -72,12 +72,12 @@ Vous protégez vos données avec le service Backup en prenant des instantanés d
 
     ![panneau de restauration](./media/backup-azure-arm-restore-vms/recovery-point-selector.png)
 
-    Par défaut, la boîte de dialogue affiche tous les points de restauration des 30 derniers jours. Utilisez le **filtre** en haut du panneau pour modifier la plage d’heures des points de restauration affichés. Par défaut, les points de restauration de toute cohérence sont affichés. Modifiez le filtre **Tous les points de restauration** afin de sélectionner une cohérence spécifique des points de restauration. Pour plus d’informations sur chaque type de point de restauration, consultez l’explication de la [cohérence des données](./backup-azure-vms-introduction.md#data-consistency).
+    Par défaut, la boîte de dialogue affiche tous les points de restauration des 30 derniers jours. Utilisez le **filtre** pour modifier la plage d’heures des points de restauration affichés. Par défaut, les points de restauration de toute cohérence sont affichés. Modifiez le filtre **Tous les points de restauration** afin de sélectionner une cohérence spécifique des points de restauration. Pour plus d’informations sur chaque type de point de restauration, consultez l’explication de la [cohérence des données](./backup-azure-vms-introduction.md#data-consistency).
     - **Cohérence du point de restauration** : dans cette liste, choisissez :
         - points de restauration cohérents d’incident ;
         - points de restauration cohérents d’application ;
         - points de restauration cohérents de système de fichiers ;
-        - tous les points de restauration.  
+        - tous les points de restauration.
 
 8. Choisissez un point de restauration et cliquez sur **OK**.
 
@@ -102,13 +102,13 @@ Maintenant que vous avez sélectionné le point de restauration, choisissez une 
     ![l’assistant de configuration de récupération est défini](./media/backup-azure-arm-restore-vms/recovery-configuration-wizard.png)
 
 2. Sur le panneau **Configuration de la restauration**, entrez ou sélectionnez des valeurs pour chacun des champs suivants :
-    - **Nom de la machine virtuelle** : entrez un nom pour la machine virtuelle. Le nom doit être unique pour le groupe de ressources (pour une machine virtuelle ARM) ou le service cloud (pour une machine virtuelle classique). Remplacement de la machine virtuelle si la machine virtuelle qui existe dans l’abonnement n’est pas prise en charge...
-    - **Groupe de ressources** : sélectionnez un groupe de ressources existant ou créez-en un. Si vous restaurez une machine virtuelle classique, utilisez ce champ pour spécifier le nom d’un nouveau service cloud. Lorsque vous créez un nouveau groupe de ressources/service cloud, le nom doit être globalement unique. En général, le nom du service cloud est associé à une URL publique. Par exemple : [cloudservice]. cloudapp.net. Si vous essayez d’utiliser un nom de service cloud/groupe de ressources cloud déjà utilisé, Azure attribue au service cloud/groupe de ressources le même nom que la machine virtuelle. Azure affiche les groupes de ressources/services cloud et les machines virtuelles qui ne sont associées à aucun groupe d’affinités. Pour en savoir plus, consultez [Comment migrer des groupes d’affinités vers un réseau virtuel régional](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
-    - **Réseau virtuel** : sélectionnez le réseau virtuel lors de la création de la machine virtuelle. Le champ indique tous les réseaux virtuels associés à l’abonnement. Le groupe de ressources de la machine virtuelle s’affiche entre parenthèses. 
+    - **Nom de la machine virtuelle** : entrez un nom pour la machine virtuelle. Le nom doit être unique pour le groupe de ressources (pour une machine virtuelle déployée à l'aide de Resource Manager) ou le service cloud (pour une machine virtuelle classique). Vous ne pouvez pas remplacer la machine virtuelle si elle existe déjà dans l’abonnement.
+    - **Groupe de ressources** : sélectionnez un groupe de ressources existant ou créez-en un. Si vous restaurez une machine virtuelle classique, utilisez ce champ pour spécifier le nom d’un nouveau service cloud. Si vous créez un nouveau groupe de ressources/service cloud, le nom doit être globalement unique. En général, le nom du service cloud est associé à une URL publique. Par exemple : [cloudservice]. cloudapp.net. Si vous essayez d’utiliser un nom de service cloud/groupe de ressources cloud déjà utilisé, Azure attribue au service cloud/groupe de ressources le même nom que la machine virtuelle. Azure affiche les groupes de ressources/services cloud et les machines virtuelles qui ne sont associées à aucun groupe d’affinités. Pour en savoir plus, consultez [Comment migrer des groupes d’affinités vers un réseau virtuel régional](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
+    - **Réseau virtuel** : sélectionnez le réseau virtuel lors de la création de la machine virtuelle. Le champ indique tous les réseaux virtuels associés à l’abonnement. Le groupe de ressources de la machine virtuelle s’affiche entre parenthèses.
     - **Sous-réseau** : si le réseau virtuel a des sous-réseaux, le premier sous-réseau est sélectionné par défaut. En présence de sous-réseaux supplémentaires, sélectionnez le sous-réseau souhaité.
-    - **Compte de stockage** : cette option ouvre la liste des comptes de stockage au même emplacement que le coffre Recovery Services. Lorsque vous choisissez un compte de stockage, vous devez choisir un compte qui partage le même emplacement que le coffre Recovery Services. Les comptes de stockage redondant dans une zone ne sont pas pris en charge. S’il n’existe aucun compte de stockage avec le même emplacement que le coffre Recovery Services, vous devez en créer un avant de commencer l’opération de restauration. Le type de réplication du compte de stockage est indiqué entre parenthèses. 
-    
-    > [AZURE.NOTE] Vous devez sélectionner un réseau virtuel lors de la restauration d’une machine virtuelle ARM. Un réseau virtuel est facultatif pour une machine virtuelle classique.
+    - **Compte de stockage** : ce menu répertorie les comptes de stockage au même emplacement que le coffre Recovery Services. Lorsque vous choisissez un compte de stockage, sélectionnez un compte qui partage le même emplacement que le coffre Recovery Services. Les comptes de stockage redondant dans une zone ne sont pas pris en charge. S’il n’existe aucun compte de stockage avec le même emplacement que le coffre Recovery Services, vous devez en créer un avant de commencer l’opération de restauration. Le type de réplication du compte de stockage est indiqué entre parenthèses.
+
+    > [AZURE.NOTE] Si vous restaurez une machine virtuelle déployée à l'aide de Resource Manager, vous devez identifier un réseau virtuel (VNET). Un réseau virtuel (VNET) est facultatif pour une machine virtuelle classique.
 
 3. Sur le panneau **Configuration de la restauration**, cliquez sur **OK** pour finaliser la configuration de la restauration.
 
@@ -157,7 +157,7 @@ Pour pouvoir recréer entièrement les machines virtuelles après les avoir rest
 
 2. Créez la configuration de machine virtuelle requise pour l’équilibreur de charge/plusieurs cartes réseau/plusieurs adresses IP réservées à l’aide des applets de commande PowerShell et utilisez-la pour créer la machine virtuelle avec la configuration souhaitée.
 	- Créer une machine virtuelle dans le service cloud avec un [équilibreur de charge interne ](https://azure.microsoft.com/documentation/articles/load-balancer-internal-getstarted/)
-	- Créer une machine virtuelle pour vous connecter à l'[équilibreur de charge accessible sur Internet](https://azure.microsoft.com/documentation/articles/load-balancer-internet-getstarted/)
+	- Créer une machine virtuelle pour vous connecter à l'[équilibreur de charge accessible sur Internet](https://azure.microsoft.com/fr-FR/documentation/articles/load-balancer-internet-getstarted/)
 	- Créer une machine virtuelle avec [plusieurs cartes d’interface réseau](https://azure.microsoft.com/documentation/articles/virtual-networks-multiple-nics/)
 	- Créer des machines virtuelles avec [plusieurs adresses IP réservées](https://azure.microsoft.com/documentation/articles/virtual-networks-reserved-public-ip/)
 
@@ -167,4 +167,4 @@ Maintenant que vous pouvez restaurer vos machines virtuelles, consultez l’arti
 - [Résolution des erreurs](backup-azure-vms-troubleshoot.md#restore)
 - [Gestion des machines virtuelles](backup-azure-manage-vms.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0810_2016-->

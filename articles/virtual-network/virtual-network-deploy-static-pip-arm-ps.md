@@ -1,9 +1,9 @@
 <properties 
-   pageTitle="Déployer une machine virtuelle avec une adresse IP publique statique à l’aide de PowerShell dans Resource Manager | Microsoft Azure"
-   description="Découvrir comment déployer des machines virtuelles avec une adresse IP publique statique à l’aide de PowerShell dans Resource Manager"
+   pageTitle="Déployer une machine virtuelle avec une adresse IP publique statique à l’aide de PowerShell dans Resource Manager | Microsoft Azure"
+   description="Découvrir comment déployer des machines virtuelles avec une adresse IP publique statique à l’aide de PowerShell dans Resource Manager"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor=""
    tags="azure-resource-manager"
@@ -15,21 +15,21 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/15/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
-# Déployer une machine virtuelle avec une adresse IP publique statique à l’aide de PowerShell
+# Déployer une machine virtuelle avec une adresse IP publique statique à l’aide de PowerShell
 
 [AZURE.INCLUDE [virtual-network-deploy-static-pip-arm-selectors-include.md](../../includes/virtual-network-deploy-static-pip-arm-selectors-include.md)]
 
 [AZURE.INCLUDE [virtual-network-deploy-static-pip-intro-include.md](../../includes/virtual-network-deploy-static-pip-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)]Modèle de déploiement classique
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] le modèle de déploiement classique.
 
 [AZURE.INCLUDE [virtual-network-deploy-static-pip-scenario-include.md](../../includes/virtual-network-deploy-static-pip-scenario-include.md)]
 
 [AZURE.INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
-## Étape 1 : démarrer votre script
+## Étape 1 : démarrer votre script
 
 Vous pouvez télécharger le script PowerShell complet utilisé [ici](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/03-Static-public-IP/virtual-network-deploy-static-pip-arm-ps.ps1). Suivez les étapes ci-dessous pour modifier le script afin qu’il fonctionne dans votre environnement.
 
@@ -62,9 +62,9 @@ Vous pouvez télécharger le script PowerShell complet utilisé [ici](https://ra
 		$pipName               = "PIPWEB1"
 		$dnsName               = "iaasstoryws1"
 
-## Étape 2 : créer les ressources nécessaires pour vos machines virtuelles
+## Étape 2 : créer les ressources nécessaires pour vos machines virtuelles
 
-Avant de créer une machine virtuelle, vous devez mettre à sa disposition un groupe de ressources, un réseau virtuel, une adresse IP publique et une carte réseau.
+Avant de créer une machine virtuelle, vous devez mettre à sa disposition un groupe de ressources, un réseau virtuel, une adresse IP publique et une carte réseau.
 
 1. Créez un groupe de ressources.
 
@@ -80,12 +80,12 @@ Avant de créer une machine virtuelle, vous devez mettre à sa disposition un gr
 		
 		Set-AzureRmVirtualNetwork -VirtualNetwork $vnet 
 
-3. Créez la ressource IP publique.
+3. Créez la ressource IP publique.
 
 		$pip = New-AzureRmPublicIpAddress -Name $pipName -ResourceGroupName $rgName `
 		    -AllocationMethod Static -DomainNameLabel $dnsName -Location $location
 
-4. Créez la carte réseau pour la machine virtuelle dans le sous-réseau créé ci-dessus, avec l’adresse IP publique. Notez que la première applet de commande récupère le réseau virtuel d’Azure. Cette opération est nécessaire dans la mesure où l'applet de commande **Set-AzureRmVirtualNetwork** a été exécutée pour modifier le réseau virtuel existant.
+4. Créez la carte réseau pour la machine virtuelle dans le sous-réseau créé ci-dessus, avec l’adresse IP publique. Notez que la première applet de commande récupère le réseau virtuel d’Azure. Cette opération est nécessaire dans la mesure où l'applet de commande **Set-AzureRmVirtualNetwork** a été exécutée pour modifier le réseau virtuel existant.
 
 		$vnet = Get-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $rgName
 		$subnet = Get-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name $subnetName
@@ -98,7 +98,7 @@ Avant de créer une machine virtuelle, vous devez mettre à sa disposition un gr
 		$stdStorageAccount = New-AzureRmStorageAccount -Name $stdStorageAccountName `
 		    -ResourceGroupName $rgName -Type Standard_LRS -Location $location
 
-## Étape 3 : créer la machine virtuelle 
+## Étape 3 : créer la machine virtuelle 
 
 Une fois toutes les ressources nécessaires en place, vous pouvez créer une machine virtuelle.
 
@@ -135,7 +135,7 @@ Une fois toutes les ressources nécessaires en place, vous pouvez créer une mac
 
 7. Enregistrez le fichier de script.
 
-## Étape 4 : exécution du script
+## Étape 4 : exécution du script
 
 Une fois que vous avez effectué les modifications nécessaires et compris le script ci-dessus, exécutez le script.
 
@@ -216,4 +216,4 @@ Une fois que vous avez effectué les modifications nécessaires et compris le sc
 
    
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0810_2016-->

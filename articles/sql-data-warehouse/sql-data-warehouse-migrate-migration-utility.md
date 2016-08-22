@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="04/20/2016"
+   ms.date="08/08/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 
@@ -22,9 +22,9 @@
 > [AZURE.SELECTOR]
 - [Télécharger l’utilitaire de Migration][]
 
-L’utilitaire de migration de l’entrepôt de données est un outil conçu pour migrer le schéma et les données du SQL Server et de la base de données SQL Azure vers Azure SQL Data Warehouse. Lors de la migration du schéma, l’outil mappe automatiquement le schéma correspondant à partir de la source vers la destination. Une fois que le schéma a été migré, les utilisateurs ont également la possibilité de déplacer des données au moyen de scripts générés automatiquement.
+L’utilitaire de migration de l’entrepôt de données est un outil conçu pour migrer le schéma et les données du SQL Server et de la base de données SQL Azure vers Azure SQL Data Warehouse. Lors de la migration du schéma, l’outil mappe automatiquement le schéma correspondant à partir de la source vers la destination. Une fois le schéma migré, les outils offrent la possibilité de déplacer les données avec des scripts générés automatiquement.
 
-Outre la migration du schéma et des données, cet outil permet aux utilisateurs de générer des rapports de compatibilité qui résument les incompatibilités entre les instances cible et source, qui empêcheraient la migration simplifiée.
+Outre la migration du schéma et des données, cet outil vous permet de générer des rapports de compatibilité qui résument les incompatibilités entre les instances cible et source, qui empêcheraient la migration simplifiée.
 
 ## Prise en main
 Comme condition préalable à l’installation, vous aurez besoin de l’utilitaire de ligne de commande BCP, pour exécuter des scripts de migration, et d’Office, pour afficher le rapport de compatibilité. Après le lancement de l’exécutable téléchargé, vous êtes invité à accepter un CLUF standard avant l’installation de l’outil.
@@ -65,4 +65,4 @@ Maintenant que vous avez migré certaines données, découvrez comment [dévelop
 <!--Other Web references--> 
 [Télécharger l’utilitaire de Migration]: https://migrhoststorage.blob.core.windows.net/sqldwsample/DataWarehouseMigrationUtility.zip
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

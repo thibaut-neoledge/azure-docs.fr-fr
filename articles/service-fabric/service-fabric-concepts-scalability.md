@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/20/2016"
+   ms.date="08/10/2016"
    ms.author="aprameyr"/>
 
 # Mise à l'échelle des applications Service Fabric
@@ -60,4 +60,4 @@ Pour plus d’informations sur les concepts propres à Service Fabric, consultez
 
 - [Définition et gestion de l'état](service-fabric-concepts-state.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0810_2016-->

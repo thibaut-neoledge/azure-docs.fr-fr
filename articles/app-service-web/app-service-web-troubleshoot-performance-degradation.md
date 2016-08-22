@@ -1,4 +1,13 @@
-<properties pageTitle="Baisse de performances de l’application web dans App Service | Microsoft Azure" description="Cet article vous aide à résoudre les problèmes de baisse de performances d’une application web dans Azure App Service." services="app-service\\web" documentationCenter="" authors="cephalin" manager="wpickett" editor="" tags="top-support-issue keywords="web app performance, slow app, app slow"/>
+<properties
+	pageTitle="Baisse de performances d’une application web dans App Service | Microsoft Azure"
+	description="Cet article vous aide à résoudre les problèmes de baisse de performances d’une application web dans Azure App Service."
+	services="app-service\web"
+	documentationCenter=""
+	authors="cephalin"
+	manager="wpickett"
+	editor=""
+	tags="top-support-issue"
+	keywords="performances d'application web, application lente"/>
 
 <tags
 	ms.service="app-service-web"
@@ -54,11 +63,11 @@ Parmi les mesures que vous pouvez surveiller pour votre application web, se trou
 -	Temps de réponse moyen
 -	Temps processeur
 -	Plage de travail de la mémoire
--	Demandes
+-	Requêtes
 
 ![surveiller les performances d’une application web](./media/app-service-web-troubleshoot-performance-degradation/1-monitor-metrics.png)
 
-Pour plus d’informations, consultez :
+Pour plus d'informations, consultez les pages suivantes :
 
 -	[Surveiller les applications web dans Microsoft Azure App Service](web-sites-monitor.md)
 -	[Réception de notifications d'alerte](../azure-portal/insights-receive-alert-notifications.md)
@@ -178,4 +187,4 @@ Il s’agit souvent du moyen le plus simple de résoudre des problèmes à usage
 
 Vous pouvez également gérer votre application web à l’aide d’Azure PowerShell. Pour plus d'informations, consultez [Utilisation d'Azure PowerShell avec le Gestionnaire de ressources Azure](../powershell-azure-resource-manager.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0810_2016-->

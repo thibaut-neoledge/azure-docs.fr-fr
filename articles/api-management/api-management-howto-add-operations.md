@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/25/2016" 
+	ms.date="08/09/2016" 
 	ms.author="sdanie"/>
 
 # Ajout d'opérations à une API dans Gestion des API Azure
@@ -86,7 +86,7 @@ Pour ajouter un nouveau paramètre de requête, cliquez sur **Ajouter des param�
 -	**Description** : courte description du paramètre (facultatif).
 -	**Type** : type de paramètre, sélectionné dans la liste déroulante.
 -	**Valeurs** : valeurs qui peuvent être affectées à ce paramètre. Une des valeurs peut être marquée comme valeur par défaut (facultatif).
--	**Obligatoire** : activez la case à cocher pour rendre le paramètre obligatoire. 
+-	**Obligatoire** : activez la case à cocher pour rendre le paramètre obligatoire.
 
 ![Paramètres de demande][api-management-request-parameters]
 
@@ -168,4 +168,4 @@ Une fois les opérations ajoutées à une API, l'étape suivante est l'associati
 [Création et publication d’un produit]: api-management-howto-add-products.md
 [Mise en cache des résultats d'opérations dans Gestion des API Azure]: api-management-howto-cache.md
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

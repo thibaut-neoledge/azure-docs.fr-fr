@@ -13,21 +13,17 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="04/28/2016"
+	ms.date="08/03/2016"
 	ms.author="kgremban"/>
 
 # Créer un rapport d’historique des modifications d’accès
 
-Lorsque vous n’êtes pas le seul propriétaire de vos abonnements Azure, ou des ressources et groupes de ressources qu’ils contiennent, vous devez être en mesure de suivre toutes les modifications d’accès. Chaque fois qu’un utilisateur autorise ou interdit l’accès dans vos abonnements, les modifications sont consignées dans les événements Azure. Vous pouvez créer des rapports d’historique de modification d’accès pour voir toutes les modifications apportées au cours des 90 derniers jours.
+Chaque fois qu’un utilisateur autorise ou interdit l’accès dans vos abonnements, les modifications sont consignées dans les événements Azure. Vous pouvez créer des rapports d’historique de modification d’accès pour voir toutes les modifications apportées au cours des 90 derniers jours.
 
 ## Créer un rapport avec Azure PowerShell
-Pour créer un rapport d’historique des modifications d’accès dans PowerShell, utilisez la commande suivante :
+Pour créer un rapport d’historique des modifications d’accès dans PowerShell, utilisez la commande `Get-AzureRMAuthorizationChangeLog`. Vous trouverez plus d'informations sur cette applet de commande dans la [Galerie PowerShell](https://www.powershellgallery.com/packages/AzureRM.Storage/1.0.6/Content/ResourceManagerStartup.ps1).
 
-```
-Get-AzureRMAuthorizationChangeLog
-```
-
-Vous pouvez spécifier quelle propriété des affectations répertorier, y compris les suivantes :
+Lorsque vous appelez cette commande, vous pouvez spécifier quelle propriété des affectations répertorier, y compris les suivantes :
 
 | Propriété | Description |
 | -------- | ----------- |
@@ -44,7 +40,7 @@ Vous pouvez spécifier quelle propriété des affectations répertorier, y compr
 | **SubscriptionId** | Le GUID de l’abonnement Azure |
 | **SubscriptionName** | Le nom de l’abonnement Azure |
 
-Cet exemple de commande répertorie toutes les modifications d’accès de l’abonnement au cours des 7 derniers jours :
+Cet exemple de commande répertorie toutes les modifications d’accès de l’abonnement au cours des sept derniers jours :
 
 ```
 Get-AzureRMAuthorizationChangeLog -StartTime ([DateTime]::Now - [TimeSpan]::FromDays(7)) | FT Caller,Action,RoleName,PrincipalType,PrincipalName,ScopeType,ScopeName
@@ -53,10 +49,7 @@ Get-AzureRMAuthorizationChangeLog -StartTime ([DateTime]::Now - [TimeSpan]::From
 ![PowerShell Get-AzureRMAuthorizationChangeLog - capture d’écran](./media/role-based-access-control-configure/access-change-history.png)
 
 ## Créer un rapport avec l’interface de ligne de commande Azure
-Pour créer un rapport d’historique des modifications d’accès dans l’interface de ligne de commande Azure, utilisez la commande suivante :
-```
-azure role assignment changelog list
-```
+Pour créer un rapport d’historique des modifications d’accès dans l’interface de ligne de commande Azure, utilisez la commande `azure role assignment changelog list`.
 
 ## Exporter vers une feuille de calcul
 Pour enregistrer le rapport ou manipuler les données, exportez les modifications d’accès vers un fichier .csv. Vous pouvez ensuite afficher le rapport dans une feuille de calcul pour révision.
@@ -67,4 +60,4 @@ Pour enregistrer le rapport ou manipuler les données, exportez les modification
 - Prise en main du [contrôle d’accès basé sur les rôles Azure](role-based-access-control-configure.md)
 - Utilisation des [rôles personnalisés dans le contrôle d’accès en fonction du rôle (RBAC) Azure](role-based-access-control-custom-roles.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -3,7 +3,7 @@
    description="Découvrez comment créer et déployer des groupes de sécurité réseau en mode classique à l'aide de l’interface de ligne de commande Azure"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor="tysonn"
    tags="azure-service-management"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/02/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 # Création de NSG (classiques) dans l’interface de ligne de commande Azure
 
@@ -23,7 +23,7 @@
 
 [AZURE.INCLUDE [virtual-networks-create-nsg-intro-include](../../includes/virtual-networks-create-nsg-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]Cet article traite du modèle de déploiement classique. Vous pouvez également [créer un groupe de sécurité réseau dans le modèle de déploiement Resource Manager](virtual-networks-create-nsg-arm-cli.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)] Cet article traite du modèle de déploiement classique. Vous pouvez également [créer un groupe de sécurité réseau dans le modèle de déploiement Resource Manager](virtual-networks-create-nsg-arm-cli.md).
 
 [AZURE.INCLUDE [virtual-networks-create-nsg-scenario-include](../../includes/virtual-networks-create-nsg-scenario-include.md)]
 
@@ -145,7 +145,7 @@ Pour créer un groupe de sécurité réseau nommé **NSG-FrontEnd** selon le sc�
 		info:    Creating a network security group "NSG-FrontEnd"
 		info:    network nsg subnet add command OK
 
-## Création du NSG pour le sous-réseau BackEnd
+## Création du groupe de sécurité réseau pour le sous-réseau principal
 Pour créer un groupe de sécurité réseau nommé *NSG-BackEnd* selon le scénario ci-dessus, suivez les étapes ci-dessous.
 
 3. Exécutez la commande **`azure network nsg create`** pour créer un groupe de sécurité réseau.
@@ -239,4 +239,4 @@ Pour créer un groupe de sécurité réseau nommé *NSG-BackEnd* selon le scéna
 		info:    Creating a network security group "NSG-BackEndX"
 		info:    network nsg subnet add command OK
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/14/2016"
+   ms.date="08/08/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Migration de votre schéma vers SQL Data Warehouse#
@@ -23,19 +23,19 @@ Les synthèses suivantes vous permettront de mieux comprendre les différences e
 ### Fonctionnalités de tables
 SQL Data Warehouse n’utilise ou ne prend pas en charge les fonctionnalités suivantes :
 
-- Clés primaires  
-- Clés étrangères  
-- Contraintes CHECK  
-- Contraintes uniques  
-- Index uniques  
-- Colonnes calculées  
-- Colonnes éparses  
-- Types définis par l’utilisateur  
-- Vues indexées  
-- Identités  
-- Séquences  
-- Déclencheurs  
-- Synonymes  
+- Clés primaires
+- Clés étrangères
+- Contraintes CHECK
+- Contraintes uniques
+- Index uniques
+- Colonnes calculées
+- Colonnes éparses
+- Types définis par l’utilisateur
+- Vues indexées
+- Identités
+- Séquences
+- Déclencheurs
+- Synonymes
 
 
 ### Différences entre les types de données
@@ -101,14 +101,14 @@ Si votre base de données inclut des types non pris en charge, ne vous inquiéte
 
 Au lieu du paramètre...
 
-- **geometry** : utilisez un type « varbinary » ;
-- **geography** : utilisez un type « varbinary » ;
-- **hierarchyid** : ce type CLR n’est pas pris en charge ;
-- **image**, **text**, **ntext** : utilisez une valeur «  varchar/nvarchar » (la plus petite possible) ;
-- **sql\_variant** : fractionnez la colonne en plusieurs colonnes fortement typées ;
-- **table** : appliquez une conversion vers des tables temporaires ;
-- **timestamp** : modifiez le code afin d’utiliser le paramètre « datetime2 » et la fonction `CURRENT_TIMESTAMP`. Remarque : vous ne pouvez pas utiliser le paramètre « current\_timestamp » en tant que contrainte par défaut ; la valeur ne sera pas automatiquement mise à jour. Si vous devez migrer les valeurs « rowversion » à partir d’une colonne de type horodatage, utilisez le paramètre binary(8) ou varbinary(8) pour les valeurs de version de ligne NOT NULL ou NULL ;
-- **types définis par l’utilisateur** : appliquez à nouveau les types natifs, le cas échéant ;
+- **geometry** : utilisez un type « varbinary » ;
+- **geography** : utilisez un type « varbinary » ;
+- **hierarchyid** : ce type CLR n’est pas pris en charge ;
+- **image**, **text**, **ntext** : utilisez une valeur «  varchar/nvarchar » (la plus petite possible) ;
+- **sql\_variant** : fractionnez la colonne en plusieurs colonnes fortement typées ;
+- **table** : appliquez une conversion vers des tables temporaires ;
+- **timestamp** : modifiez le code afin d’utiliser le paramètre « datetime2 » et la fonction `CURRENT_TIMESTAMP`. Remarque : vous ne pouvez pas utiliser le paramètre « current\_timestamp » en tant que contrainte par défaut ; la valeur ne sera pas automatiquement mise à jour. Si vous devez migrer les valeurs « rowversion » à partir d’une colonne de type horodatage, utilisez le paramètre binary(8) ou varbinary(8) pour les valeurs de version de ligne NOT NULL ou NULL ;
+- **types définis par l’utilisateur** : appliquez à nouveau les types natifs, le cas échéant ;
 - **xml** : utilisez la valeur varchar(max) ou une valeur inférieure pour optimiser les performances. Fractionner sur plusieurs colonnes si nécessaire.
 
 Pour optimiser les performances, au lieu de :
@@ -142,4 +142,4 @@ Pour obtenir des conseils supplémentaires sur le développement, consultez la [
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

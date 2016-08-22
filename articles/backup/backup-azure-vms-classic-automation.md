@@ -4,7 +4,7 @@
 	services="backup"
 	documentationCenter=""
 	authors="markgalioto"
-	manager="jwhit"
+	manager="cfreeman"
 	editor=""/>
 
 <tags
@@ -13,25 +13,24 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/09/2016"
+	ms.date="08/08/2016"
 	ms.author="markgal;trinadhk;jimpark" />
 
 
 # Déploiement et gestion de la sauvegarde pour les machines virtuelles Azure à l’aide de PowerShell
 
 > [AZURE.SELECTOR]
-- [ARM](backup-azure-vms-automation.md)
+- [Gestionnaire de ressources](backup-azure-vms-automation.md)
 - [Classique](backup-azure-vms-classic-automation.md)
 
-Cet article vous montre comment utiliser Azure PowerShell pour la sauvegarde et la restauration des machines virtuelles IaaS de Azure.
+Cet article vous montre comment utiliser Azure PowerShell pour la sauvegarde et la restauration des machines virtuelles Azure. Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : Resource Manager et classique. Cet article traite du modèle de déploiement classique. Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le modèle Resource Manager.
 
 ## Concepts
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
-[Découvrez la sauvegarde de machines virtuelles IaaS Azure](backup-azure-vms-introduction.md) dans la documentation Azure Backup.
+Cet article fournit des informations spécifiques aux applets de commande PowerShell utilisées pour sauvegarder des machines virtuelles. Pour obtenir des informations sur la protection des machines virtuelles Azure, consultez [Planification de votre infrastructure de sauvegarde de machines virtuelles dans Azure](backup-azure-vms-introduction.md).
 
-> [AZURE.WARNING] Avant de commencer, assurez-vous de connaître les [conditions préalables](backup-azure-vms-prepare.md) de base nécessaires pour travailler avec Azure Backup et les [limitations](backup-azure-vms-prepare.md#limitations) de la solution actuelle de sauvegarde de la machines virtuelles.
+> [AZURE.NOTE] Avant de commencer, lisez les [conditions préalables](backup-azure-vms-prepare.md) nécessaires pour travailler avec Azure Backup et les [limitations](backup-azure-vms-prepare.md#limitations) de la solution actuelle de sauvegarde de la machines virtuelles.
 
 Pour pouvoir utiliser efficacement PowerShell, il est nécessaire de comprendre la hiérarchie d’objets et par où commencer.
 
@@ -111,7 +110,7 @@ PS C:\> $registerjob = Register-AzureRmBackupContainer -Vault $backupvault -Name
 ## Sauvegarde des machines virtuelles Azure
 
 ### Création d’une stratégie de protection
-Il n’est pas obligatoire de créer une nouvelle stratégie de protection pour démarrer la sauvegarde de vos machines virtuelles. Le coffre est fourni avec une stratégie par défaut qui peut être utilisée pour activer la protection, puis modifiée ultérieurement avec les bonnes informations. Vous pouvez obtenir la liste des stratégies disponibles dans le coffre à l’aide de l’applet de commande **Get-AzureRmBackupProtectionPolicy** :
+Il n’est pas obligatoire de créer une nouvelle stratégie de protection pour démarrer la sauvegarde de vos machines virtuelles. Le coffre est fourni avec une stratégie par défaut qui peut être utilisée pour activer la protection, puis modifiée ultérieurement avec les bonnes informations. Vous pouvez obtenir la liste des stratégies disponibles dans le coffre à l’aide de l’applet de commande **Get-AzureRmBackupProtectionPolicy** :
 
 ```
 PS C:\> Get-AzureRmBackupProtectionPolicy -Vault $backupvault
@@ -144,7 +143,7 @@ PS C:\> Get-AzureRmBackupContainer -Type AzureVM -Status Registered -Vault $back
 ```
 
 ### Sauvegarde initiale
-La planification de sauvegarde se charge d’effectuer la copie initiale complète de l’élément et la copie incrémentielle pour les sauvegardes suivantes. Cependant, si vous voulez forcer l’exécution de la sauvegarde initiale à un moment déterminé, voire immédiatement, utilisez l’applet de commande **Backup-AzureRmBackupItem** :
+La planification de sauvegarde se charge d’effectuer la copie initiale complète de l’élément et la copie incrémentielle pour les sauvegardes suivantes. Cependant, si vous voulez forcer l’exécution de la sauvegarde initiale à un moment déterminé, voire immédiatement, utilisez l’applet de commande **Backup-AzureRmBackupItem** :
 
 ```
 PS C:\> $container = Get-AzureRmBackupContainer -Vault $backupvault -Type AzureVM -Name "testvm"
@@ -283,7 +282,7 @@ Pour plus d’informations sur la création d’une machine virtuelle à partir 
 
 ### 1\. Obtenir l'état d'achèvement des sous-tâches de travail
 
-Pour suivre l’état d’achèvement de sous-tâches individuelles, vous pouvez utiliser l’applet de commande **Get-AzureRmBackupJobDetails** :
+Pour suivre l’état d’achèvement de sous-tâches individuelles, vous pouvez utiliser l’applet de commande **Get-AzureRmBackupJobDetails** :
 
 ```
 PS C:\> $details = Get-AzureRmBackupJobDetails -JobId $backupjob.InstanceId -Vault $backupvault
@@ -346,4 +345,4 @@ Si vous souhaitez ajouter des fonctionnalités graphiques à ce rapport, consult
 
 Si vous préférez utiliser PowerShell pour gérer vos ressources Azure, consultez l’article de PowerShell pour la protection de Windows Server : [Déployer et gérer une sauvegarde pour Windows Server](./backup-client-automation-classic.md). Il existe également un article de PowerShell sur la gestion des sauvegardes DPM : [Déployer et gérer une sauvegarde pour DPM](./backup-dpm-automation-classic.md). Ces deux articles ont une version concernant les déploiements avec le modèle Resource Manager et le modèle Classic.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0810_2016-->

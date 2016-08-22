@@ -3,7 +3,7 @@
    description="Cette page fournit des instructions pour configurer une passerelle Application Gateway Azure avec un point de terminaison d'équilibrage de charge interne"
    documentationCenter="na"
    services="application-gateway"
-   authors="joaoma"
+   authors="georgewallace"
    manager="jdial"
    editor="tysonn"/>
 <tags 
@@ -12,14 +12,14 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="01/21/2016"
-   ms.author="joaoma"/>
+   ms.date="04/05/2016"
+   ms.author="gwallace"/>
 
 # Création d'une passerelle Application Gateway avec un équilibrage de charge interne (ILB)
 
 > [AZURE.SELECTOR]
-- [Azure classic steps](application-gateway-ilb.md)
-- [Resource Manager Powershell steps](application-gateway-ilb-arm.md)
+- [Étapes Azure Classic](application-gateway-ilb.md)
+- [Étapes PowerShell pour Azure Resource Manager](application-gateway-ilb-arm.md)
 
 
 Vous pouvez configurer une passerelle Application Gateway avec une adresse IP virtuelle côté Internet ou avec un point de terminaison interne non exposé à Internet, également appelé point de terminaison d'équilibrage de charge interne (ILB). La configuration de la passerelle avec un équilibrage de charge interne est utile pour les applications métier internes non exposées à Internet. C'est également utile pour les services/niveaux au sein d'une application multiniveau qui se trouve dans une limite de sécurité non exposée à Internet, mais la distribution de charge par tourniquet, l'adhérence de session ou la terminaison SSL sont tout de mêmes requises. Cet article vous guidera au cours des étapes de configuration d'une passerelle Application Gateway avec un équilibrage de charge interne.
@@ -79,10 +79,10 @@ La configuration d'une passerelle Application Gateway se compose de plusieurs va
  
 Les valeurs sont :
 
-- **Pool de serveurs principaux :** la liste des adresses IP des serveurs principaux. Les adresses IP répertoriées doivent appartenir au sous-réseau de réseau virtuel ou elles doivent être une adresse IP/VIP publique. 
+- **Pool de serveurs principaux :** la liste des adresses IP des serveurs principaux. Les adresses IP répertoriées doivent appartenir au sous-réseau de réseau virtuel ou elles doivent être une adresse IP/VIP publique.
 - **Paramètres du pool de serveurs principaux :** chaque pool a des paramètres comme le port, le protocole et une affinité basée sur les cookies. Ces paramètres sont liés à un pool et sont appliqués à tous les serveurs du pool.
 - **Port frontal :** ce port est le port public ouvert sur la passerelle Application Gateway. Le trafic atteint ce port, puis il est redirigé vers l'un des serveurs principaux.
-- **Écouteur :** l'écouteur a un port frontal, un protocole (Http ou Https, sensibles à la casse) et le nom du certificat SSL (en cas de configuration du déchargement SSL). 
+- **Écouteur :** l'écouteur a un port frontal, un protocole (Http ou Https, sensibles à la casse) et le nom du certificat SSL (en cas de configuration du déchargement SSL).
 - **Règle** : la règle lie l’écouteur et le pool de serveurs principaux et définit le pool de serveurs principaux vers lequel le trafic doit être dirigé lorsqu’il atteint un écouteur spécifique. Actuellement, seule la règle de *base* est prise en charge. La règle *basic* est la distribution de charge par tourniquet (round robin).
 
 Vous pouvez construire votre configuration en créant un objet de configuration ou en utilisant un fichier XML de configuration. Pour construire votre configuration à l'aide d'un fichier XML de configuration, utilisez l'exemple ci-dessous.
@@ -92,7 +92,7 @@ Vous pouvez construire votre configuration en créant un objet de configuration 
 Notez les points suivants :
 
 
-- L’élément *FrontendIPConfigurations* décrit les détails de l’équilibrage de charge interne pertinents pour la configuration de la passerelle Application Gateway avec un équilibrage de charge interne. 
+- L’élément *FrontendIPConfigurations* décrit les détails de l’équilibrage de charge interne pertinents pour la configuration de la passerelle Application Gateway avec un équilibrage de charge interne.
 
 - Le paramètre *Type* de l’adresse IP frontale doit présenter la valeur « Private ».
 
@@ -174,7 +174,7 @@ Ensuite, vous allez définir la passerelle Application Gateway. Vous pouvez util
 Une fois la passerelle configurée, utilisez l’applet de commande `Start-AzureApplicationGateway` pour démarrer la passerelle. La facturation pour une passerelle Application Gateway commence une fois la passerelle démarrée avec succès.
 
 
-**Remarque :** l'applet de commande `Start-AzureApplicationGateway` peut prendre jusqu'à 15 à 20 minutes pour se terminer.
+> [AZURE.NOTE] L’exécution de l’applet de commande `Start-AzureApplicationGateway` peut prendre jusqu’à 15 à 20 minutes.
    
 	PS C:\> Start-AzureApplicationGateway AppGwTest 
 
@@ -188,7 +188,7 @@ Une fois la passerelle configurée, utilisez l’applet de commande `Start-Azure
 
 Utilisez l’applet de commande `Get-AzureApplicationGateway` pour vérifier l’état de la passerelle. Si l’applet de commande *Start-AzureApplicationGateway* a réussi à l’étape précédente, la passerelle doit présenter l’état *Running*, et les champs Vip et DnsName doivent comporter des entrées valides. Cet exemple montre l'applet de commande sur la première ligne, suivie de la sortie. Dans cet exemple, la passerelle est en cours d'exécution et prête à prendre le trafic.
 
-**Remarque :** la passerelle Application Gateway est configurée pour accepter le trafic sur le point de terminaison de l’équilibrage de charge interne configuré de 10.0.0.10 dans cet exemple.
+> [AZURE.NOTE] Remarque : la passerelle Application Gateway est configurée pour accepter le trafic sur le point de terminaison de l’équilibrage de charge interne configuré de 10.0.0.10 dans cet exemple.
 
 	PS C:\> Get-AzureApplicationGateway AppGwTest 
 
@@ -212,4 +212,4 @@ Si vous souhaitez plus d'informations sur les options d'équilibrage de charge e
 - [Équilibrage de charge Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Azure Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0810_2016-->

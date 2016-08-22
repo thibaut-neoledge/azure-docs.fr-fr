@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/09/2016"
+	ms.date="08/03/2016"
 	ms.author="robinsh"/>
 
 
@@ -60,13 +60,13 @@ La bibliothèque cliente du stockage utilise [AES](http://en.wikipedia.org/wiki/
 
 ### Objets blob
 
-La bibliothèque cliente prend actuellement en charge le chiffrement des objets blob entiers uniquement. Plus précisément, le chiffrement est pris en charge lors de l’utilisation des méthodes **UploadFrom*** ou la méthode **OpenWrite**. Les téléchargements complets et de plages sont tous deux pris en charge.
+La bibliothèque cliente prend actuellement en charge le chiffrement des objets blob entiers uniquement. Plus précisément, le chiffrement est pris en charge lors de l’utilisation des méthodes **UploadFrom*** ou de la méthode **OpenWrite**. Les téléchargements complets et de plages sont tous deux pris en charge.
 
 Au cours du chiffrement, la bibliothèque cliente génère un vecteur d’initialisation aléatoire (IV) de 16 octets avec une clé de chiffrement de contenu (CEK) aléatoire de 32 octets, puis effectue le chiffrement d’enveloppe des données d’objets blob à l’aide de ces informations. La clé de chiffrement de contenu encapsulée ainsi que des métadonnées de chiffrement supplémentaires sont ensuite stockées en tant que métadonnées d’objet blob en même temps que l’objet blob chiffré sur le service.
 
-> [AZURE.WARNING] Si vous modifiez ou téléchargez vos propres métadonnées pour l’objet blob, vous devez vous assurer que ces métadonnées sont conservées. Si vous téléchargez les nouvelles métadonnées sans ces métadonnées, la clé de chiffrement de contenu encapsulée, le vecteur d’initialisation et d’autres métadonnées seront perdus et le contenu de l’objet blob ne sera plus jamais récupérable.
+> [AZURE.WARNING] Si vous modifiez ou téléchargez vos propres métadonnées pour l’objet blob, vous devez vous assurer que ces métadonnées sont conservées. Si vous téléchargez de nouvelles métadonnées sans ces métadonnées, la clé de chiffrement de contenu encapsulée, le vecteur d’initialisation et d’autres métadonnées seront perdus et le contenu de l’objet blob ne sera plus jamais récupérable.
 
-Le téléchargement d’un objet blob chiffré implique de récupérer le contenu de l’objet blob entier à l’aide des méthodes pratiques **DownloadTo***/**BlobReadStream **. La clé de chiffrement de contenu encapsulée est désencapsulée et utilisée en combinaison avec le vecteur d’initialisation (stocké en tant que métadonnées d’objet blob dans cet exemple) pour renvoyer les données déchiffrées aux utilisateurs.
+Le téléchargement d’un objet blob chiffré implique de récupérer le contenu de l’objet blob entier à l’aide des méthodes pratiques **DownloadTo***/**BlobReadStream**. La clé de chiffrement de contenu encapsulée est désencapsulée et utilisée en combinaison avec le vecteur d’initialisation (stocké en tant que métadonnées d’objet blob dans cet exemple) pour renvoyer les données déchiffrées aux utilisateurs.
 
 Le téléchargement d’une plage arbitraire (méthodes **DownloadRange***) dans l’objet blob chiffré implique d’ajuster la plage fournie par les utilisateurs pour obtenir une petite quantité de données supplémentaires pouvant être utilisées pour déchiffrer la plage demandée.
 
@@ -93,11 +93,11 @@ Le chiffrement des données d’une table fonctionne de la manière suivante :
 1. Les utilisateurs spécifient les propriétés à chiffrer.
 2. La bibliothèque cliente génère un vecteur d’initialisation (IV) aléatoire de 16 octets et une clé de chiffrement de contenu (CEK) aléatoire de 32 octets pour chaque entité, puis effectue le chiffrement d’enveloppe sur les propriétés individuelles à chiffrer en dérivant un nouveau vecteur d’initialisation par propriété. La propriété chiffrée est stockée en tant que données binaires.
 3. La clé de chiffrement de contenu encapsulée et certaines métadonnées de chiffrement supplémentaires sont ensuite stockées sous la forme de deux propriétés réservées supplémentaires. La première propriété réservée (\_ClientEncryptionMetadata1) est une propriété de type chaîne qui conserve les informations sur le vecteur d’initialisation, la version et la clé encapsulée. La seconde propriété réservée (\_ClientEncryptionMetadata2) est une propriété de type binaire qui conserve les informations sur les propriétés chiffrées. Les informations contenues dans cette seconde propriété (\_ClientEncryptionMetadata2) sont elles-mêmes chiffrées.
-4. En raison de ces propriétés réservées supplémentaires requises pour le chiffrement, les utilisateurs ne peuvent désormais avoir que 250 propriétés personnalisées au lieu de 252. La taille totale de l’entité doit être inférieure à 1 Mo.
+4. En raison de ces propriétés réservées supplémentaires requises pour le chiffrement, les utilisateurs ne peuvent désormais avoir que 250 propriétés personnalisées au lieu de 252. La taille totale de l’entité doit être inférieure à 1 Mo.
 
 Notez que seules les propriétés de type chaîne peuvent être chiffrées. Si d’autres types de propriétés doivent être chiffrés, ils doivent être convertis en chaînes. Les chaînes chiffrées sont stockées sur le service en tant que propriétés binaires, et elles sont converties en chaînes après le déchiffrement.
 
-Pour les tables, outre la stratégie de chiffrement, les utilisateurs doivent spécifier les propriétés à chiffrer. Pour ce faire, il faut spécifier un attribut [EncryptProperty] \(pour les entités POCO qui dérivent de TableEntity) ou un programme de résolution de chiffrement dans les options de requête. Un programme de résolution de chiffrement est un délégué qui prend une clé de partition, une clé de ligne et un nom de propriété, puis renvoie une valeur booléenne indiquant si cette propriété doit être chiffrée. Au cours du chiffrement, la bibliothèque cliente utilise ces informations pour décider si une propriété doit être chiffrée lors de l’écriture en ligne. Le délégué fournit également la possibilité de définir la manière dont les propriétés sont chiffrées l’aide d’un programme logique. (Par exemple, si X, alors chiffrer la propriété A ; sinon chiffrer les propriétés A et B.) Notez qu’il n’est pas nécessaire de fournir ces informations lors de la lecture ou de l’interrogation des entités.
+Pour les tables, outre la stratégie de chiffrement, les utilisateurs doivent spécifier les propriétés à chiffrer. Pour ce faire, il faut spécifier un attribut [EncryptProperty] (pour les entités POCO qui dérivent de TableEntity) ou un programme de résolution de chiffrement dans les options de requête. Un programme de résolution de chiffrement est un délégué qui prend une clé de partition, une clé de ligne et un nom de propriété, puis renvoie une valeur booléenne indiquant si cette propriété doit être chiffrée. Au cours du chiffrement, la bibliothèque cliente utilise ces informations pour décider si une propriété doit être chiffrée lors de l’écriture en ligne. Le délégué fournit également la possibilité de définir la manière dont les propriétés sont chiffrées l’aide d’un programme logique. (Par exemple, si X, alors chiffrer la propriété A ; sinon chiffrer les propriétés A et B.) Notez qu’il n’est pas nécessaire de fournir ces informations lors de la lecture ou de l’interrogation des entités.
 
 ### Opérations de traitement par lots
 
@@ -248,7 +248,7 @@ Notez que le chiffrement de vos données de stockage affecte les performances. L
 
 - [Didacticiel : Chiffrement et déchiffrement d’objets blob dans Microsoft Azure Storage à l'aide d'Azure Key Vault](storage-encrypt-decrypt-blobs-key-vault.md)
 - Télécharger la [Bibliothèque cliente Azure Storage pour le package NuGet .NET](https://www.nuget.org/packages/WindowsAzure.Storage)
-- Télécharger les packages NuGet [Core](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/), [Client](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/) et [Extensions](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) d’Azure Key Vault  
+- Télécharger les packages NuGet [Core](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/), [Client](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/) et [Extensions](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) d’Azure Key Vault
 - Consulter la [documentation d’Azure Key Vault](../key-vault/key-vault-whatis.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0810_2016-->

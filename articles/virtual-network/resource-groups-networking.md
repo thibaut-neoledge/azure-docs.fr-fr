@@ -3,7 +3,7 @@
    description="En savoir plus sur le nouveau fournisseur de ressources réseau dans Azure Resource Manager"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor="tysonn" />
 <tags
@@ -13,21 +13,21 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/15/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 # Fournisseur de ressources réseau
 Un besoin sous-jacent dans la réussite des entreprises aujourd'hui est la possibilité de créer et de gérer des applications prenant en charge des réseaux à grande échelle d'une manière flexible, souple, sécurisée et reproductible. Le gestionnaire des ressources Azure (ARM, Azure Resource Manager) vous permet de créer de telles applications, sous la forme d'une collection unique de ressources dans des groupes de ressources. Ces ressources sont gérées via divers fournisseurs de ressources sous ARM.
 
 Azure Resource Manager s’appuie sur différents fournisseurs de ressources pour fournir l’accès à vos ressources. Il existe trois fournisseurs de ressources principaux : réseau, stockage et calcul. Ce document présente les caractéristiques et les avantages du fournisseur de ressources réseau, à savoir :
 
-- **Métadonnées** : vous pouvez ajouter des informations aux ressources à l'aide de balises. Ces balises peuvent être utilisées pour suivre l'utilisation des ressources entre les groupes de ressources et les abonnements.
-- **Contrôle accru de votre réseau** : les ressources réseau sont faiblement couplées et vous pouvez les contrôler de manière plus précise. Cela signifie que vous disposez de davantage de flexibilité dans la gestion des ressources réseau.
-- **Configuration plus rapide** : étant donné que les ressources réseau sont faiblement couplées, vous pouvez créer et organiser les ressources réseau en parallèle. Cela a considérablement réduit le temps de configuration.
-- **Contrôle d'accès en fonction du rôle (RBAC) ** : RBAC fournit des rôles par défaut, avec une étendue de sécurité spécifique, en plus de permettre la création de rôles personnalisés pour une gestion sécurisée.
-- **Gestion et déploiement facilités** : il est plus facile de déployer et de gérer des applications dans la mesure où vous pouvez créer toute une pile d'applications sous la forme d'une collection unique de ressources dans un groupe de ressources. Le déploiement est également plus rapide, car vous pouvez l'effectuer en fournissant simplement une charge utile JSON de modèle.
-- **Personnalisation rapide** : vous pouvez utiliser des modèles de style déclaratif pour activer la personnalisation rapide et reproductible des déploiements.
-- **Personnalisation reproductible** : vous pouvez utiliser des modèles de style déclaratif pour activer la personnalisation rapide et reproductible des déploiements.
-- **Interfaces de gestion** : vous pouvez utiliser une des interfaces suivantes pour gérer vos ressources :
+- **Métadonnées** : vous pouvez ajouter des informations aux ressources à l'aide de balises. Ces balises peuvent être utilisées pour suivre l'utilisation des ressources entre les groupes de ressources et les abonnements.
+- **Contrôle accru de votre réseau** : les ressources réseau sont faiblement couplées et vous pouvez les contrôler de manière plus précise. Cela signifie que vous disposez de davantage de flexibilité dans la gestion des ressources réseau.
+- **Configuration plus rapide** : étant donné que les ressources réseau sont faiblement couplées, vous pouvez créer et organiser les ressources réseau en parallèle. Cela a considérablement réduit le temps de configuration.
+- **Contrôle d'accès en fonction du rôle (RBAC) ** : RBAC fournit des rôles par défaut, avec une étendue de sécurité spécifique, en plus de permettre la création de rôles personnalisés pour une gestion sécurisée.
+- **Gestion et déploiement facilités** : il est plus facile de déployer et de gérer des applications dans la mesure où vous pouvez créer toute une pile d'applications sous la forme d'une collection unique de ressources dans un groupe de ressources. Le déploiement est également plus rapide, car vous pouvez l'effectuer en fournissant simplement une charge utile JSON de modèle.
+- **Personnalisation rapide** : vous pouvez utiliser des modèles de style déclaratif pour activer la personnalisation rapide et reproductible des déploiements.
+- **Personnalisation reproductible** : vous pouvez utiliser des modèles de style déclaratif pour activer la personnalisation rapide et reproductible des déploiements.
+- **Interfaces de gestion** : vous pouvez utiliser une des interfaces suivantes pour gérer vos ressources :
 	- API REST
 	- PowerShell
 	- Kit de développement logiciel (SDK) .NET
@@ -86,15 +86,15 @@ Les API Rest sont conformes à la spécification du protocole HTTP 1.1. La stru
 
 Et les paramètres entre accolades représentent les éléments suivants :
 
-- **subscription-id** : ID de votre abonnement Azure.
-- **resource-provider-namespace** : espace de noms pour le fournisseur utilisé. La valeur pour le fournisseur de ressources réseau est *Microsoft.Network*.
-- **region-name** : nom de la région Azure.
+- **subscription-id** : ID de votre abonnement Azure.
+- **resource-provider-namespace** : espace de noms pour le fournisseur utilisé. La valeur pour le fournisseur de ressources réseau est *Microsoft.Network*.
+- **region-name** : nom de la région Azure.
 
 Les méthodes HTTP suivantes sont prises en charge lors des appels à l'API REST :
 
-- **PUT** : utilisée pour créer une ressource d'un type donné, modifier une propriété de ressource ou changer une association entre des ressources.
-- **GET** : utilisée pour récupérer des informations concernant une ressource configurée.
-- **DELETE** : utilisée pour supprimer une ressource existante.
+- **PUT** : utilisée pour créer une ressource d'un type donné, modifier une propriété de ressource ou changer une association entre des ressources.
+- **GET** : utilisée pour récupérer des informations concernant une ressource configurée.
+- **DELETE** : utilisée pour supprimer une ressource existante.
 
 La demande et la réponse sont toutes les deux conformes à un format de charge utile JSON. Pour plus d'informations, consultez [API de gestion des ressources Azure](https://msdn.microsoft.com/library/azure/dn948464.aspx).
 
@@ -264,4 +264,4 @@ Vous pouvez déployer des services dans Azure à partir d’un modèle à l’ai
 
 [Présentation d’Azure Resource Manager](../resource-group-overview.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -3,7 +3,7 @@
  description="Bibliothèque cliente de gestion des appareils (DM) Azure IoT Hub"
  services="iot-hub"
  documentationCenter=""
- authors="CarlosAlayo"
+ authors="juanjperez"
  manager="timlt"
  editor=""/>
 
@@ -14,7 +14,7 @@
  ms.tgt_pltfrm="na"
  ms.workload="na"
  ms.date="04/29/2016"
- ms.author="carlosa"/>
+ ms.author="juanpere"/>
 
 # Présentation de la bibliothèque cliente de gestion des appareils (DM) Azure IoT Hub
 
@@ -160,17 +160,17 @@ Pour mettre ces connaissances en pratique, vous pouvez accéder aux ressources s
 
 | Nom de la ressource | Opération à distance autorisée sur la ressource | Type | Plage et unités | Description |
 |-----------------|--------------------------------------|---------|-----------------|-------------|
-| Fabricant | Lire | String | | Nom du fabricant. |
-| ModelNumber | Lire | String | | Identificateur de modèle (chaîne spécifique du fabricant). |
-| DeviceType | Lire | String | | Type d’appareil (chaîne spécifique du fabricant)<br/>Remarque : cela correspond à l’API côté serveur **SystemPropertyNames.DeviceDescription**. |
-| SerialNumber | Lire | String | | Numéro de série de l’appareil. |
-| FirmwareVersion | Lire | String | | Version actuelle du microprogramme installé sur l’appareil. |
-| HardwareVersion | Lire | String | | Version actuelle du matériel de l’appareil. |
+| Fabricant | Lire | Chaîne | | Nom du fabricant. |
+| ModelNumber | Lire | Chaîne | | Identificateur de modèle (chaîne spécifique du fabricant). |
+| DeviceType | Lire | Chaîne | | Type d’appareil (chaîne spécifique du fabricant)<br/>Remarque : cela correspond à l’API côté serveur **SystemPropertyNames.DeviceDescription**. |
+| SerialNumber | Lire | Chaîne | | Numéro de série de l’appareil. |
+| FirmwareVersion | Lire | Chaîne | | Version actuelle du microprogramme installé sur l’appareil. |
+| HardwareVersion | Lire | Chaîne | | Version actuelle du matériel de l’appareil. |
 | Reboot | Exécuter | | | Permet de redémarrer l’appareil. |
 | FactoryReset | Exécuter | | | Permet de rétablir les paramètres d’usine de l’appareil afin que l’appareil ait la même configuration qu’au moment de son déploiement initial. |
 | CurrentTime | Lecture<br/>Écriture | Time | | Horodatage UNIX actuel de l’appareil. Le client est chargé d’augmenter cette valeur de temps à chaque seconde qui s’écoule.<br/>Le serveur DM peut écrire dans cette ressource pour synchroniser le client avec l’heure du serveur. |
-| UTCOffset | Lecture<br/>Écriture | String | | Décalage UTC en vigueur. |
-| Fuseau horaire | Lecture<br/>Écriture | String | | Indique dans quel fuseau horaire se trouve l’appareil. |
+| UTCOffset | Lecture<br/>Écriture | Chaîne | | Décalage UTC en vigueur. |
+| Fuseau horaire | Lecture<br/>Écriture | Chaîne | | Indique dans quel fuseau horaire se trouve l’appareil. |
 | MemoryFree | Lire | Integer | Ko | Estimation de la mémoire actuellement disponible pour l’espace de stockage qui permet de stocker des données et des logiciels dans l’appareil. |
 | MemoryTotal | Lire | Integer | Ko | Quantité totale d’espace de stockage permettant de stocker des données et des logiciels dans l’appareil. |
 | BatteryLevel | Lire | Integer | 0-100 % | Niveau actuel de la batterie sous forme de pourcentage (de 0 à 100). |
@@ -181,12 +181,12 @@ Pour mettre ces connaissances en pratique, vous pouvez accéder aux ressources s
 | Nom de la ressource | Opération | Type | Plage et unités | Description |
 |----------------|-----------|---------|-----------------|-------------|
 | Package | Écrire | Opaque | | Package du microprogramme au format binaire.<br/>Correspond à l’API de service :<br/>**SystemPropertyNames.FirmwarePackage** |
-| PackageURI | Écrire | String | 0-255 octets | URI à partir duquel l’appareil peut télécharger le package du microprogramme.<br/>Correspond à l’API de service : **SystemPropertyNames.FirmwarePackageUri** |
+| PackageURI | Écrire | Chaîne | 0-255 octets | URI à partir duquel l’appareil peut télécharger le package du microprogramme.<br/>Correspond à l’API de service : **SystemPropertyNames.FirmwarePackageUri** |
 | Mettre à jour | Exécuter | | | Met à jour le microprogramme à l’aide du package du microprogramme stocké dans Package, ou par le biais du microprogramme téléchargé à partir de l’URI du package.<br/>Correspond à l’API de service :<br/>**ScheduleFirmwareUpdateAsync** |
 | State | Lire | Integer | 1-3 | État du processus de mise à jour du microprogramme :<br/>**1** : inactif. Cela peut survenir avant le téléchargement du package du microprogramme ou après l’application du package du microprogramme.<br/>**2** : téléchargement du package du microprogramme.<br/>**3** : package du microprogramme téléchargé.<br/> Correspond à l’API de service : **SystemPropertyNames.FirmwareUpdateState** |
 | UpdateResult | Lire | Integer | 0-6 | Résultat du téléchargement ou de la mise à jour du microprogramme<br/>**0** : valeur par défaut.<br/>**1** : mise à jour du microprogramme réussie.<br/>**2** : mémoire insuffisante pour le nouveau package du microprogramme.<br/>**3** : mémoire insuffisante pendant le téléchargement du package du microprogramme.<br/>**4** : déconnexion intempestive lors du téléchargement du microprogramme.<br/>**5** : échec du contrôle CRC pour le nouveau package téléchargé.<br/>**6** : type de package du microprogramme non pris en charge.<br/>**7** : URI non valide. Correspond à l’API de service : **SystemPropertyNames.FirmwareUpdateResult** |
-| PkgName | Lire | String | 0-255 octets | Nom descriptif du package du microprogramme référencé par la ressource **Package**<br/>Correspond à l’API de service : <br/>**SystemPropertyNames.FirmwarePackageName** |
-| PackageVersion | Lire | String | 0-255 octets | Version du package du microprogramme référencé par la ressource **Package**<br/>Correspond à l’API de service : <br/>**SystemPropertyNames.FirmwarePackageVersion** |
+| PkgName | Lire | Chaîne | 0-255 octets | Nom descriptif du package du microprogramme référencé par la ressource **Package**<br/>Correspond à l’API de service : <br/>**SystemPropertyNames.FirmwarePackageName** |
+| PackageVersion | Lire | Chaîne | 0-255 octets | Version du package du microprogramme référencé par la ressource **Package**<br/>Correspond à l’API de service : <br/>**SystemPropertyNames.FirmwarePackageVersion** |
 
 ### Objet de serveur LWM2M
 
@@ -200,8 +200,8 @@ Pour mettre ces connaissances en pratique, vous pouvez accéder aux ressources s
 
 | Nom de la ressource | Opération | Type | Plage et unités | Description |
 |---------------|------------|--------|-----------------|-------------|
-| Nom | Lecture Écriture | String | | Identifie de façon unique le nom de la configuration d’appareil à lire ou à mettre à jour. |
-| Valeur | Lecture Écriture | String | | Identifie de façon unique la valeur de la configuration à lire ou à mettre à jour. |
+| Name | Lecture Écriture | Chaîne | | Identifie de façon unique le nom de la configuration d’appareil à lire ou à mettre à jour. |
+| Valeur | Lecture Écriture | Chaîne | | Identifie de façon unique la valeur de la configuration à lire ou à mettre à jour. |
 | Appliquer | Exécuter | | | Applique la modification de configuration sur l’appareil. |
 
 ## Étapes suivantes
@@ -235,4 +235,4 @@ Pour explorer davantage les capacités de IoT Hub, consultez :
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
 [lnk-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0810_2016-->

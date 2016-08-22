@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/25/2016" 
+	ms.date="08/09/2016" 
 	ms.author="sdanie"/>
 
 # Comment enregistrer des événements sur Azure Event Hubs dans Gestion des API Azure
@@ -117,7 +117,7 @@ Cliquez sur **Enregistrer** pour enregistrer la configuration de la stratégie m
 -	En savoir plus sur l’intégration de Gestion des API et Event Hubs
 	-	[Référence d’entité d’enregistreur](https://msdn.microsoft.com/library/azure/mt592020.aspx)
 	-	[Référence de stratégie log-to-eventhub](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub)
-	-	[Surveiller vos API avec gestion des API Azure, les hubs d’événements et Runscope](api-management-log-to-eventhub-sample.md)	
+	-	[Surveiller vos API avec gestion des API Azure, les hubs d’événements et Runscope](api-management-log-to-eventhub-sample.md)
 
 ## Regarder une procédure pas à pas en vidéo
 
@@ -133,4 +133,4 @@ Cliquez sur **Enregistrer** pour enregistrer la configuration de la stratégie m
 [event-hub-policy]: ./media/api-management-howto-log-event-hubs/event-hub-policy.png
 [add-policy]: ./media/api-management-howto-log-event-hubs/add-policy.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

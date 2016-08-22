@@ -43,7 +43,7 @@ Si votre machine virtuelle contient déjà des balises, vous verrez toutes les b
 
 Si vous voulez ajouter des balises via PowerShell, vous pouvez utiliser la commande `Set-AzureRmResource`. Notez que lors de la mise à jour des balises via PowerShell, les balises sont mises à jour comme un tout. Ainsi, si vous ajoutez une balise à une ressource qui a déjà des balises, vous devez inclure toutes les balises que vous voulez placer sur la ressource. Voici un exemple montrant comment ajouter des balises supplémentaires à une ressource via des applets de commande PowerShell.
 
-Cette première applet de commande fait pointer toutes les balises placées sur *MyTestVM* vers la variable *tags*, à l’aide des fonctions `Get-AzureRmResource` et `Tags`.
+Cette première applet de commande fait pointer toutes les balises placées sur *MyTestVM* vers la variable *$tags*, à l’aide des propriétés `Get-AzureRmResource` et `Tags`.
 
         PS C:\> $tags = (Get-AzureRmResource -ResourceGroupName MyResourceGroup -Name MyTestVM).Tags
 
@@ -62,11 +62,11 @@ La deuxième commande affiche les balises pour la variable donnée.
         Value		Production
         Name		Environment
 
-La troisième commande ajoute une balise supplémentaire à la variable *tags*. Notez l'utilisation de **+=** pour ajouter la nouvelle paire clé/valeur à la liste *tags*.
+La troisième commande ajoute une balise supplémentaire à la variable *$tags*. Notez l'utilisation de **+=** pour ajouter la nouvelle paire clé/valeur à la liste *$tags*.
 
-        PS C:\> $tags +=@{Name="Location";Value="MyLocation"}
+        PS C:\> $tags += @{Name="Location";Value="MyLocation"}
 
-La quatrième commande définit toutes les balises définies dans la variable *tags* sur la ressource donnée. Dans ce cas, il s’agit de MyTestVM.
+La quatrième commande définit toutes les balises définies dans la variable *$tags* sur la ressource donnée. Dans ce cas, il s’agit de MyTestVM.
 
         PS C:\> Set-AzureRmResource -ResourceGroupName MyResourceGroup -Name MyTestVM -ResourceType "Microsoft.Compute/VirtualMachines" -Tag $tags
 
@@ -103,4 +103,4 @@ Pour en savoir plus sur le balisage dans PowerShell, consultez les [applets de c
 [Comprendre votre facture Azure]: ../billing-understand-your-bill.md
 [Obtenir une vue d’ensemble de votre consommation des ressources Microsoft Azure]: ../billing-usage-rate-card-overview.md
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0810_2016-->

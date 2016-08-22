@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/12/2016" 
+	ms.date="08/04/2016" 
 	ms.author="billmath"/>
 
 # Création de mots de passe d’application dans le portail 365 myapps pour Azure Multi-Factor Authentication
@@ -42,4 +42,4 @@ Si vous n’utilisez pas l’authentification multifacteur avec Office 365 et n
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -17,7 +17,13 @@
 
 # Gestion des disques chiffrés lors de la sauvegarde des machines virtuelles
 
-Pour les entreprises qui cherchent à chiffrer leurs données de machine virtuelle dans Azure, la solution consiste à utiliser Bitlocker sous Windows ou dmcrypt sur les machines Linux. Il s'agit de deux solutions de chiffrement au niveau du volume. Cet article traite de la nature de la configuration de la sauvegarde pour ces machines virtuelles Azure et de l'impact sur les workflows de restauration en raison des données chiffrées.
+Pour les entreprises qui cherchent à chiffrer leurs données de machine virtuelle dans Azure, la solution consiste à utiliser [Azure Disk Encryption](../azure-security-disk-encryption.md) ou Bitlocker sous Windows ou dmcrypt sur les machines Linux.
+
+> [AZURE.NOTE]  Azure Backup prend en charge la sauvegarde et la restauration de machines virtuelles chiffrées à l’aide d'Azure Disk Encryption (ADE). <br>
+1. Ces opérations sont prises en charge à l’aide de PowerShell si la machine virtuelle est chiffrée à l’aide de clés BEK et KEK. <br>
+2. La sauvegarde et la restauration ne sont pas prises en charge si la machine virtuelle est chiffrée à l’aide d'une clé BEK uniquement. <br> Veuillez vous reporter à la [documentation PowerShell](backup-azure-vms-automation.md) Azure Backup pour sauvegarder et restaurer des machines virtuelles chiffrées à l’aide d'ADE.
+
+Cet article concerne les machines virtuelles Azure chiffrées à l’aide de CloudLink.
 
 ## Fonctionnement de la sauvegarde
 
@@ -71,4 +77,4 @@ Lorsque vous avez besoin de substituer ou de modifier des clés pour les machine
 - [Guide de déploiement - PDF](http://www.cloudlinktech.com/Azure/CL_SecureVM_4_0_DG_EMC_Azure_R2.pdf)
 - [Déploiement et utilisation de SecureVM - vidéo](https://www.youtube.com/watch?v=8AIRe92UDNg)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

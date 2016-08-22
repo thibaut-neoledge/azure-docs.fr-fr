@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="06/27/2016"
+   ms.date="08/04/2016"
    ms.author="andkjell"/>
 
 # Planificateur Azure AD Connect Sync
@@ -60,6 +60,13 @@ Vous pouvez modifier certains de ces paramètres avec `Set-ADSyncScheduler`. Les
 
 La configuration du planificateur est stockée dans Azure AD. Si vous avez un serveur intermédiaire, toute modification sur le serveur principal aura également un effet sur le serveur intermédiaire (à l'exception de IsStagingModeEnabled).
 
+### CustomizedSyncCycleInterval
+Syntaxe : `Set-ADSyncScheduler -CustomizedSyncCycleInterval d.HH:mm:ss` d - jours, HH - heures, mm - minutes, ss - secondes
+
+Exemple : `Set-ADSyncScheduler -CustomizedSyncCycleInterval 03:00:00` modifiera le Planificateur pour qu’il s’exécute toutes les 3 heures.
+
+Exemple : `Set-ADSyncScheduler -CustomizedSyncCycleInterval 1.0:0:0` modifiera le Planificateur pour qu’il s’exécute tous les jours.
+
 ## Démarrer le planificateur
 Par défaut, le planificateur s’exécutera toutes les 30 minutes. Dans certains cas, vous souhaiterez peut-être exécuter un cycle de synchronisation entre les cycles planifiés ou vous devrez exécuter un autre type de synchronisation.
 
@@ -75,7 +82,7 @@ Cela peut indiquer une modification urgente à synchroniser immédiatement, néc
 
 - Ajout de plusieurs objets ou attributs à importer à partir d’un répertoire source
 - Modifications apportées aux règles de synchronisation
-- Le [filtrage](active-directory-aadconnectsync-configure-filtering.md) étant modifié, un nombre différent d’objets doit être inclus.
+- Le [filtrage](active-directory-aadconnectsync-configure-filtering.md) étant modifié, un nombre différent d’objets doit être inclus
 
 Si vous avez effectué l’une de ces modifications, vous devez exécuter un cycle de synchronisation complète, afin que le moteur de synchronisation ait la possibilité de reconsolider les espaces du connecteur. Un cycle de synchronisation complète comprend les étapes suivantes :
 
@@ -144,4 +151,4 @@ En savoir plus sur la configuration de la [synchronisation Azure AD Connect](act
 
 En savoir plus sur l’[intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0810_2016-->

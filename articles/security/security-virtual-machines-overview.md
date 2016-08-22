@@ -1,10 +1,10 @@
 <properties
    pageTitle="Vue d’ensemble de la sécurité des machines virtuelles Azure | Microsoft Azure"
-   description="Azure Virtual Machines vous donne la flexibilité de la virtualisation sans devoir acheter le matériel physique qui exécute la machine virtuelle ni en assurer la maintenance. Cet article fournit une vue d’ensemble des principales fonctionnalités de sécurité Azure pouvant être utilisées avec Azure Virtual Machines."
+   description=" Azure Virtual Machines vous donne la flexibilité de la virtualisation sans devoir acheter le matériel physique qui exécute la machine virtuelle ni en assurer la maintenance. Cet article fournit une vue d’ensemble des principales fonctionnalités de sécurité Azure pouvant être utilisées avec Azure Virtual Machines. "
    services="security"
    documentationCenter="na"
    authors="TerryLanfear"
-   manager="StevenPo"
+   manager="MBaldwin"
    editor="TomSh"/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/24/2016"
+   ms.date="08/09/2016"
    ms.author="terrylan"/>
 
 # Vue d’ensemble de la sécurité des machines virtuelles Azure
@@ -45,7 +45,7 @@ Les principales fonctionnalités de sécurité des machines virtuelles Azure son
 
 ## Logiciel anti-programme malveillant
 
-Azure met à votre disposition des logiciels anti-programmes malveillants provenant de fournisseurs de sécurité reconnus tels que Microsoft, Symantec, Trend Micro, McAfee et Kaspersky. Ceux-ci permettent de protéger vos machines virtuelles contre les fichiers malveillants, les logiciels de publicité et d’autres menaces. Consultez la section En savoir plus ci-dessous pour rechercher des articles sur les solutions partenaires.
+Azure met à votre disposition des logiciels anti-programmes malveillants provenant de fournisseurs de sécurité tels que Microsoft, Symantec, Trend Micro, McAfee et Kaspersky. Ceux-ci permettent de protéger vos machines virtuelles contre les fichiers malveillants, les logiciels de publicité et d’autres menaces. Consultez la section En savoir plus ci-dessous pour rechercher des articles sur les solutions partenaires.
 
 Microsoft Antimalware pour Azure Cloud Services et Virtual Machines offre une fonctionnalité de protection en temps réel qui permet d’identifier et de supprimer les virus, logiciels espions et autres logiciels malveillants. Microsoft Antimalware fournit des alertes configurables lorsqu’un logiciel malveillant ou indésirable connu tente de s’installer ou de s’exécuter sur vos systèmes Azure.
 
@@ -59,12 +59,12 @@ Lorsque vous déployez et activez Microsoft Antimalware, les fonctionnalités es
 - Mises à jour de signatures : installe automatiquement les dernières signatures de protection (définitions de virus) pour garantir la mise à jour de la protection selon une fréquence prédéfinie.
 - Mises à jour du moteur Antimalware : met automatiquement à jour le moteur Microsoft Antimalware.
 - Mises à jour de la plateforme Antimalware : met automatiquement à jour la plateforme Microsoft Antimalware.
-- Protection active : signale les métadonnées de télémétrie relatives aux menaces détectées et aux ressources suspectes à Azure afin d’assurer une réaction rapide au paysage de menaces en constante évolution, et d’activer la remise de signatures synchrones en temps réel via le système MAPS (système de protection active Microsoft).
+- Protection active : signale à Azure les métadonnées de télémétrie relatives aux menaces détectées et aux ressources suspectes afin d’assurer une réaction rapide, et active la remise de signatures synchrones en temps réel avec le système MAPS (système de protection active Microsoft).
 - Exemples de création de rapport : crée et fournit des exemples de rapports au service Microsoft Antimalware pour contribuer à améliorer le service et permettre la résolution des problèmes.
 - Exclusions : permet aux administrateurs d’applications et de services de configurer certains fichiers, processus et lecteurs pour les exclure de la protection et de l’analyse, entre autres pour des raisons de performances.
 - Collecte d’événements Antimalware : enregistre l’intégrité du service Antimalware, les activités suspectes et les mesures de correction prises dans le journal des événements du système d’exploitation et les rassemble dans le compte de stockage Azure du client.
 
-En savoir plus : pour en savoir plus sur les logiciels anti-programme malveillant qui peuvent protéger vos machines virtuelles, comme Microsoft Antimalware et les logiciels anti-programme malveillant d’autres grands fournisseurs de solutions de sécurité tels que Symantec et Trend Micro, consultez :
+En savoir plus : pour en savoir plus sur les logiciels anti-programme malveillant pour protéger vos machines virtuelles, consultez :
 
 - [Microsoft Antimalware pour Azure Cloud Services et les machines virtuelles](../azure-security-antimalware.md)
 - [Déploiement de solutions anti-programmes malveillants sur des machines virtuelles Azure (en anglais)](https://azure.microsoft.com/blog/deploying-antimalware-solutions-on-azure-virtual-machines/)
@@ -75,7 +75,7 @@ En savoir plus : pour en savoir plus sur les logiciels anti-programme malveillan
 
 ## Module de sécurité matériel
 
-Le chiffrement et l’authentification n’améliorent pas la sécurité, sauf si les clés elles-mêmes sont correctement protégées. Vous pouvez simplifier la gestion et la sécurité de vos clés et secrets critiques en les stockant dans Azure Key Vault. Key Vault permet de stocker les clés dans des modules de sécurité matériels (HSM) certifiés conformes aux normes FIPS 140-2 de niveau 2. Vos clés de chiffrement SQL Server pour la sauvegarde ou le [chiffrement transparent des données](https://msdn.microsoft.com/library/bb934049.aspx) peuvent toutes être stockées dans Key Vault avec les clés ou secrets de vos applications. Les autorisations et l’accès à ces éléments protégés sont gérés via [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/).
+Le chiffrement et l’authentification n’améliorent pas la sécurité, sauf si les clés elles-mêmes sont protégées. Vous pouvez simplifier la gestion et la sécurité de vos clés et secrets critiques en les stockant dans Azure Key Vault. Key Vault permet de stocker les clés dans des modules de sécurité matériels (HSM) certifiés conformes aux normes FIPS 140-2 de niveau 2. Vos clés de chiffrement SQL Server pour la sauvegarde ou le [chiffrement transparent des données](https://msdn.microsoft.com/library/bb934049.aspx) peuvent toutes être stockées dans Key Vault avec les clés ou secrets de vos applications. Les autorisations et l’accès à ces éléments protégés sont gérés via [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/).
 
 En savoir plus :
 
@@ -85,7 +85,7 @@ En savoir plus :
 
 ## Chiffrement du disque de machine virtuelle
 
-Azure Disk Encryption est une nouvelle fonctionnalité qui vous permet de chiffrer vos disques de machine virtuelle Windows et Linux Azure. Azure Disk Encryption s’appuie sur la fonctionnalité standard [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) Windows et la fonctionnalité [dm-crypt](https://en.wikipedia.org/wiki/Dm-crypt) de Linux pour fournir le chiffrement de volume du système d’exploitation et des disques de données.
+Azure Disk Encryption est une nouvelle fonctionnalité qui vous permet de chiffrer vos disques de machine virtuelle Windows et Linux Azure. Azure Disk Encryption utilise la fonctionnalité standard [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) Windows et la fonctionnalité [dm-crypt](https://en.wikipedia.org/wiki/Dm-crypt) de Linux pour fournir le chiffrement de volume du système d’exploitation et des disques de données.
 
 La solution est intégrée à Azure Key Vault pour vous aider à contrôler et à gérer les clés de chiffrement de disque et les secrets de votre abonnement au coffre de clés, tout en vous assurant que toutes les données des disques virtuels sont chiffrées au repos dans le stockage Azure.
 
@@ -107,15 +107,15 @@ En savoir plus :
 
 ## Azure Site Recovery
 
-Une partie importante de la stratégie de continuité des activités et de récupération d’urgence de votre organisation consiste à savoir comment maintenir les charges de travail et les applications d’entreprise opérationnelles lorsque des interruptions planifiées et non planifiées se produisent. Azure Site Recovery aide à atteindre cet objectif en coordonnant la réplication, le basculement et la récupération des charges de travail et des applications afin qu’elles soient disponibles à partir d’un site secondaire si votre site principal tombe en panne.
+Une partie importante de la stratégie de continuité des activités et de récupération d’urgence de votre organisation consiste à savoir comment maintenir les charges de travail et les applications d’entreprise opérationnelles lorsque des interruptions planifiées et non planifiées se produisent. Azure Site Recovery aide à coordonner la réplication, le basculement et la récupération des charges de travail et des applications afin qu’elles soient disponibles à partir d’un site secondaire si votre site principal tombe en panne.
 
 Site Recovery :
 
-- **Simplifie votre stratégie de continuité des activités et de récupération d’urgence **: Site Recovery facilite la gestion de la réplication, du basculement et de la récupération de plusieurs charges de travail et applications métier à partir d’un emplacement unique. Site Recovery orchestre la réplication et le basculement, sans intercepter les données de vos applications ni posséder des informations à leur sujet.
+- **Simplifie votre stratégie de continuité des activités et de récupération d’urgence **: Site Recovery facilite la gestion de la réplication, du basculement et de la récupération de plusieurs charges de travail et applications métier à partir d’un site unique. Site Recovery orchestre la réplication et le basculement, sans intercepter les données de vos applications ni posséder des informations à leur sujet.
 - **Fournit une réplication flexible **: à l’aide de Site Recovery, vous pouvez répliquer des charges de travail s’exécutant sur des machines virtuelles Hyper-V et VMware, et des serveurs physiques Windows/Linux.
 - **Prend en charge le basculement et la récupération** : Site Recovery fournit des tests de basculement pour prendre en charge la marche à suivre en cas de récupération d’urgence sans affecter les environnements de production. Vous pouvez également exécuter des basculements planifiés avec une perte de données zéro pour les interruptions attendues, ou des basculements non planifiés avec une perte de données minimale (en fonction de la fréquence de réplication) pour les incidents inattendus. Après le basculement, vous pouvez procéder à une restauration automatique sur vos sites principaux. Site Recovery fournit des plans de récupération qui peuvent inclure des scripts et des classeurs Azure Automation afin que vous puissiez personnaliser le basculement et la récupération d’applications multiniveaux.
-- **Élimine le centre de données secondaire **: vous pouvez procéder à une réplication vers un site secondaire local ou vers Azure. L’utilisation d’Azure comme destination de la récupération d’urgence permet d’éliminer le coût et la complexité de la maintenance d’un site secondaire. Les données répliquées sont stockées dans Azure Storage, avec toute la résilience que cela implique.
-- **S’intègre aux technologies existantes de continuité des activités et de récupération d’urgence **: Site Recovery collabore avec les fonctionnalités de continuité des activités et de récupération d’urgence d’autres applications. Par exemple, vous pouvez utiliser Site Recovery pour protéger le serveur principal SQL Server de charges de travail d’entreprise, notamment la prise en charge native de SQL Server AlwaysOn pour gérer le basculement des groupes de disponibilité.
+- **Élimine le centre de données secondaire **: vous pouvez procéder à une réplication vers un site secondaire local ou vers Azure. L’utilisation d’Azure comme destination de la récupération d’urgence élimine le coût et la complexité associés à la gestion d’un site secondaire. Les données répliquées sont stockées dans Azure Storage.
+- **S’intègre aux technologies existantes de continuité des activités et de récupération d’urgence **: Site Recovery collabore avec les fonctionnalités de continuité des activités et de récupération d’urgence d’autres applications. Par exemple, vous pouvez utiliser Site Recovery pour protéger le serveur principal SQL Server des charges de travail d’entreprise. Cela inclut la prise en charge native de SQL Server AlwaysOn pour gérer le basculement des groupes de disponibilité.
 
 En savoir plus :
 
@@ -125,7 +125,7 @@ En savoir plus :
 
 ## Réseau virtuel
 
-Les machines virtuelles nécessitent une connectivité réseau. Pour cela, les machines virtuelles doivent être connectées à un réseau virtuel Azure. Un réseau virtuel Azure est une construction logique basée sur le réseau physique Azure. Chaque réseau virtuel logique Azure est isolé des autres réseaux virtuels Azure. Cela permet de s’assurer que le trafic réseau dans votre déploiement n’est pas accessible aux autres clients Microsoft Azure.
+Les machines virtuelles nécessitent une connectivité réseau. Pour cela, les machines virtuelles doivent être connectées à un réseau virtuel Azure. Un réseau virtuel Azure est une construction logique basée sur le réseau physique Azure. Chaque réseau virtuel logique Azure est isolé des autres réseaux virtuels Azure. Cet isolement permet de s’assurer que le trafic réseau dans votre déploiement n’est pas accessible aux autres clients Microsoft Azure.
 
 En savoir plus :
 
@@ -150,11 +150,11 @@ En savoir plus :
 
 ## Conformité
 
-Azure Virtual Machines bénéficie des certifications FISMA, FedRAMP, HIPAA, PCI DSS Level 1 et de celles d’autres principaux programmes de conformité. Il est ainsi plus facile pour vos propres applications Azure de respecter les exigences de conformité, et pour votre entreprise de se conformer à un large éventail d’exigences réglementaires internationales et locales.
+Azure Virtual Machines bénéficie des certifications FISMA, FedRAMP, HIPAA, PCI DSS Level 1 et de celles d’autres programmes majeurs de conformité. Cette certification facilite le respect des exigences de conformité pour vos propres applications Azure, et donne à votre entreprise la possibilité de se conformer à un large éventail d’exigences réglementaires internationales et locales.
 
 En savoir plus :
 
 - [Centre de gestion de la confidentialité Microsoft - Conformité](https://www.microsoft.com/TrustCenter/Compliance/default.aspx)
 - [Cloud de confiance : sécurité, confidentialité et conformité dans Microsoft Azure](http://download.microsoft.com/download/1/6/0/160216AA-8445-480B-B60F-5C8EC8067FCA/WindowsAzure-SecurityPrivacyCompliance.pdf)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0810_2016-->

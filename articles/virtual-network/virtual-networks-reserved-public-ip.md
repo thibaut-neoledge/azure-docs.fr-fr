@@ -3,7 +3,7 @@
    description="Fonctionnement et gestion des adresses IP réservées"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor="tysonn" />
 <tags
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/10/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 # Vue d’ensemble des adresses IP réservées
 Il existe deux catégories d’adresses IP dans Azure, les réservées et les dynamiques. Les adresses IP publiques gérées par Azure sont dynamiques par défaut. Cela signifie que l'adresse IP utilisée pour un service cloud donné (adresse IP virtuelle) ou pour accéder à une machine virtuelle ou à une instance de rôle directement (ILPIP) peut changer à tout moment, lorsque les ressources sont arrêtées ou désallouées.
@@ -47,7 +47,7 @@ Avant de pouvoir utiliser une adresse IP réservée, vous devez l'ajouter à vot
 
 	New-AzureReservedIP –ReservedIPName MyReservedIP –Location "Central US"
 
-Toutefois, veuillez noter que vous ne pouvez pas spécifier quelle adresse IP vous souhaitez réserver. Pour voir quelles adresses IP sont réservées dans votre abonnement, exécutez la commande PowerShell suivante et notez les valeurs de *ReservedIPName* et *Address* :
+Toutefois, veuillez noter que vous ne pouvez pas spécifier quelle adresse IP vous souhaitez réserver. Pour voir quelles adresses IP sont réservées dans votre abonnement, exécutez la commande PowerShell suivante et notez les valeurs de *ReservedIPName* et *Address* :
 
 	Get-AzureReservedIP
 
@@ -103,7 +103,7 @@ Le script ci-dessous crée un service cloud nommé *TestService2* avec une nouve
 	Set-AzureReservedIPAssociation -ReservedIPName MyReservedIP -ServiceName TestService2
 
 ## Association d’une adresse réservée à un service cloud à l’aide d’un fichier de configuration de service
-Vous pouvez aussi associer une IP réservée à un service cloud à l’aide d’un fichier de configuration de service (CSCFG). L’exemple de code xml ci-dessous indique comment configurer un service cloud pour l’utilisation d’une adresse IP réservée nommée *MyReservedIP* :
+Vous pouvez aussi associer une IP réservée à un service cloud à l’aide d’un fichier de configuration de service (CSCFG). L’exemple de code xml ci-dessous indique comment configurer un service cloud pour l’utilisation d’une adresse IP réservée nommée *MyReservedIP* :
 
 	<?xml version="1.0" encoding="utf-8"?>
 	<ServiceConfiguration serviceName="ReservedIPSample" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="4" osVersion="*" schemaVersion="2014-01.2.3">
@@ -130,4 +130,4 @@ Vous pouvez aussi associer une IP réservée à un service cloud à l’aide d�
 
 - En savoir plus sur [les adresses IP publiques de niveau d’instance (ILPIP)](virtual-networks-instance-level-public-ip.md).
 
-<!----HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0810_2016-->

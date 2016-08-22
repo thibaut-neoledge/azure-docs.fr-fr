@@ -23,7 +23,7 @@
 
 Cet article vous indique comment mapper manuellement un nom de domaine personnalisé à votre application web, à votre backend d’application mobile ou à votre application API dans [Azure App Service](../app-service/app-service-value-prop-what-is.md).
 
-Votre application est fournie avec un sous-domaine unique d’azurewebsites.net. Par exemple, si votre application se nomme **contoso**, son nom de domaine est donc **contoso.azurewebsites.net**. Toutefois, vous pouvez mapper un nom de domaine personnalisé à l’application afin que son URL, par exemple `www.contoso.com`, reflète votre marque.
+Votre application est fournie avec un sous-domaine unique d’azurewebsites.net. Par exemple, si le nom de votre application est **contoso**, son nom de domaine est donc **contoso.azurewebsites.net**. Toutefois, vous pouvez mapper un nom de domaine personnalisé à l’application afin que son URL, par exemple `www.contoso.com`, reflète votre marque.
 
 >[AZURE.NOTE] Consultez les [forums Azure](https://azure.microsoft.com/support/forums/) pour y trouver l’aide des experts Azure. Pour obtenir un niveau de support encore supérieur, accédez au [site Support Azure](https://azure.microsoft.com/support/options/), puis cliquez sur **Obtenir un support**.
 
@@ -63,7 +63,7 @@ Selon vos besoins, vous pouvez utiliser deux types d’enregistrement DNS standa
 - [A](https://en.wikipedia.org/wiki/List_of_DNS_record_types#A) : mappe directement votre nom de domaine personnalisé à l’adresse IP virtuelle de l’application Azure.
 - [CNAME](https://en.wikipedia.org/wiki/CNAME_record) : mappe votre nom de domaine personnalisé au nom de domaine Azure de votre application, **&lt;*nom\_application*>. azurewebsites.net**.
 
-L’avantage de l’enregistrement CNAME est qu’il persiste malgré les modifications de l’adresse IP. L’adresse IP virtuelle de votre application peut être modifiée si vous supprimez et recréez votre application ou si vous repassez d’un niveau tarifaire plus élevé au niveau **Partagé**. Malgré une modification de ce type, un enregistrement CNAME reste valide tandis qu’un enregistrement A doit être mis à jour.
+L’avantage de l’enregistrement CNAME est qu’il persiste malgré les modifications de l’adresse IP. Si vous supprimez et recréez votre application, ou si vous repassez d’un niveau tarifaire plus élevé au niveau **Partagé**, l’adresse IP virtuelle de votre application peut être modifiée. Avec une modification de ce type, un enregistrement CNAME reste valide tandis qu’un enregistrement A doit être mis à jour.
 
 Le didacticiel vous montre les procédures à suivre pour utiliser les enregistrements A et CNAME.
 
@@ -79,9 +79,9 @@ Pour mapper un nom de domaine personnalisé à l’aide d’un enregistrement A,
 
 4.	Cliquez sur votre application, puis sur **Paramètres** > **Domaines personnalisés et SSL** > **Apporter des domaines externes**.
 
-6.  Prenez note de l’adresse IP pour l’utiliser ultérieurement.
+6.  Prenez note de l’adresse IP.
 
-    ![Mapper un nom de domaine personnalisé avec un enregistrement A : Obtenir l’adresse IP de votre application Azure App Service](./media/web-sites-custom-domain-name/virtual-ip-address.png)
+    ![Mapper un nom de domaine personnalisé avec un enregistrement A : obtenir l’adresse IP de votre application Azure App Service](./media/web-sites-custom-domain-name/virtual-ip-address.png)
 
 7.  Laissez ce panneau du portail ouvert. Vous retournerez dans celui-ci une fois que vous aurez créé les enregistrements DNS.
 
@@ -90,8 +90,8 @@ Pour mapper un nom de domaine personnalisé à l’aide d’un enregistrement A,
 
 Connectez-vous à votre bureau d'enregistrement de domaine et utilisez son utilitaire pour ajouter un enregistrement A ou CNAME. Comme l’interface utilisateur de chaque bureau d’enregistrement est légèrement différente, vous devez donc consulter la documentation de votre fournisseur. Voici néanmoins quelques recommandations générales.
 
-1.	Trouvez la page de gestion des enregistrements DNS. Recherchez la mention **Nom de domaine**, **DNS** ou **Gestion du nom de serveur**. Vous trouverez généralement un lien en affichant vos informations de compte, puis en recherchant un lien comme **Mes domaines**.
-2.	Recherchez un lien vous permettant d’ajouter ou de modifier des enregistrements DNS. Il est probablement répertorié en tant que lien de configuration de **fichier de zone**, **d’enregistrements DNS** ou **avancé**.
+1.	Trouvez la page de gestion des enregistrements DNS. Recherchez la mention **Nom de domaine**, **DNS** ou **Gestion du nom de serveur**. Vous trouvez généralement un lien en affichant vos informations de compte, puis en recherchant un lien comme **Mes domaines**.
+2.	Recherchez un lien vous permettant d’ajouter ou de modifier des enregistrements DNS. Il s’agit probablement d’un lien de **fichier de zone** ou **d’enregistrements DNS**, ou d’un lien de configuration **avancé**.
 3.  Créez l’enregistrement et enregistrez vos modifications.
     - [Instructions relatives à un enregistrement A](#a).
     - [Instructions relatives à un enregistrement CNAME](#cname).
@@ -101,7 +101,7 @@ Connectez-vous à votre bureau d'enregistrement de domaine et utilisez son utili
 
 Pour utiliser un enregistrement A à mapper à l’adresse IP de votre application Azure, vous devez créer un enregistrement A et un enregistrement CNAME. L’enregistrement A concerne la résolution DNS proprement dite, et l’enregistrement CNAME permet à Azure de vérifier que vous possédez le nom de domaine personnalisé.
 
-Votre enregistrement A doit être configuré comme suit (@ représente généralement le domaine racine) :
+Configurez votre enregistrement A comme suit (@ représente généralement le domaine racine) :
  
 <table cellspacing="0" border="1">
   <tr>
@@ -126,7 +126,7 @@ Votre enregistrement A doit être configuré comme suit (@ représente général
   </tr>
 </table>
 
-L’enregistrement CNAME supplémentaire adopte la convention qui mappe de awverify.&lt;*sous-domaine*>.&lt;*domaine\_racine*> à awverify.&lt;*sous-domaine*>.azurewebsites.net. Voir les exemples ci-dessous :
+L’enregistrement CNAME supplémentaire adopte la convention qui mappe de awverify.&lt;*sous-domaine*>.&lt;*domaine\_racine*> à awverify.&lt;*sous-domaine*>.azurewebsites.net. Configurez votre enregistrement CNAME comme suit :
 
 <table cellspacing="0" border="1">
   <tr>
@@ -142,7 +142,7 @@ L’enregistrement CNAME supplémentaire adopte la convention qui mappe de awver
   <tr>
     <td>www.contoso.com (sous-domaine)</td>
     <td>awverify.www</td>
-    <td>awverify.www.&lt;<i>nom_application</i>>.azurewebsites.net</td>
+    <td>awverify.&lt;<i>nom_application</i>>.azurewebsites.net</td>
   </tr>
   <tr>
     <td>*.contoso.com (caractère générique)</td>
@@ -158,7 +158,7 @@ Si vous utilisez un enregistrement CNAME à mapper au nom de domaine par défaut
 
 >[AZURE.IMPORTANT] Ne créez pas d’enregistrement CNAME pour votre domaine racine (c’est-à-dire « d’enregistrement racine »). Pour plus d’informations, consultez l’article [Why can’t a CNAME record be used at the root domain (Pourquoi un enregistrement CNAME ne peut-il pas être utilisé dans le domaine racine)](http://serverfault.com/questions/613829/why-cant-a-cname-record-be-used-at-the-apex-aka-root-of-a-domain). Pour mapper un domaine racine à votre application Azure, utilisez plutôt un [enregistrement A](#a).
 
-Votre enregistrement CNAME doit être configuré comme suit (@ représente généralement le domaine racine) :
+Configurez votre enregistrement CNAME comme suit (@ représente généralement le domaine racine) :
 
 <table cellspacing="0" border="1">
   <tr>
@@ -193,11 +193,11 @@ De retour dans le panneau **Apporter des domaines externes** du portail Azure (v
 
     ![Mapper un nom de domaine personnalisé à une application Azure : Ajouter à la liste des noms de domaine](./media/web-sites-custom-domain-name/add-custom-domain.png)
 
-    >[AZURE.NOTE] Comme Azure tente de vérifier ici le nom de domaine que vous utilisez, veillez à ce qu’il s’agisse du nom de domaine pour lequel vous avez créé un enregistrement DNS à [l’étape 2](#createdns). Si vous êtes sûr qu’il s’agit du même nom, continuez.
+    >[AZURE.NOTE] Azure tente de vérifier le nom de domaine que vous utilisez ici. Assurez-vous qu’il s’agit du nom du domaine pour lequel vous avez créé un enregistrement DNS à [l’étape 2](#createdns).
 
-6.  Cliquez sur **Enregistrer**.
+6.  Cliquez sur **Save**.
 
-7.  Une fois le nouveau nom de domaine personnalisé configuré, accédez à votre nom de domaine personnalisé dans un navigateur. À présent, vous devez voir votre application s’exécuter ainsi que votre nom de domaine personnalisé.
+7.  Une fois qu’Azure a terminé la configuration de votre nouveau nom de domaine, accédez à votre nom de domaine personnalisé dans un navigateur. À présent, vous devez voir votre application s’exécuter ainsi que votre nom de domaine personnalisé.
 
 <a name="verify"></a>
 ## Vérifier la propagation DNS
@@ -209,13 +209,14 @@ Une fois les étapes de configuration terminées, la propagation des modificatio
 > [AZURE.NOTE] La propagation des entrées DNS peut prendre 48 heures (parfois plus). Même si vous avez tout configuré correctement, vous devez faire preuve de patience.
 
 ## Étapes suivantes
-
-[Prise en main d’Azure DNS](../dns/dns-getstarted-create-dnszone.md) [Créer des enregistrements DNS pour une application web dans un domaine personnalisé](../dns/dns-web-sites-custom-domain.md) [Délégation de domaine à Azure DNS](../dns/dns-domain-delegation.md)
+Apprenez à sécuriser votre nom de domaine personnalisé avec HTTPS en [achetant un certificat SSL dans Azure](web-sites-purchase-ssl-web-site.md) ou [à l’aide d’un certificat SSL depuis un autre emplacement](web-sites-configure-ssl-certificate.md).
 
 >[AZURE.NOTE] Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751), où vous pourrez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
+
+[Prise en main d’Azure DNS](../dns/dns-getstarted-create-dnszone.md) [Créer des enregistrements DNS pour une application web dans un domaine personnalisé](../dns/dns-web-sites-custom-domain.md) [Délégation de domaine à Azure DNS](../dns/dns-domain-delegation.md)
 
 
 <!-- Images -->
 [subdomain]: media/web-sites-custom-domain-name/azurewebsites-subdomain.png
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

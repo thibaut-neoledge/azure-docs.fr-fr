@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/22/2016"
+   ms.date="08/05/2016"
    ms.author="seanmck"/>
 
 
@@ -167,9 +167,17 @@ Notre service avec état est maintenant prêt à recevoir le trafic provenant d'
 
 1. Dans votre projet ASP.NET, ajoutez une référence à la bibliothèque de classes contenant l’interface `ICounter`.
 
-2. Ajoutez le package Microsoft.ServiceFabric.Services au projet ASP.NET, tout comme vous l’avez fait précédemment pour le projet de bibliothèque de classes. Ceci fournira la classe `ServiceProxy`.
+2. Dans le menu **Build**, ouvrez le **Gestionnaire de configuration**. Le résultat suivant devrait s'afficher :
 
-3. Dans le dossier **Contrôleurs**, ouvrez la classe `ValuesController`. Notez que la méthode `Get` renvoie actuellement uniquement un tableau de chaînes codées en dur avec « valeur1 » et « valeur2 », ce qui correspond à ce que nous avons vu précédemment dans le navigateur. Remplacez par le code suivant :
+    ![Gestionnaire de configuration affichant la bibliothèque de classes sous la forme Toutes les UC][vs-configuration-manager]
+
+    Notez que le projet de bibliothèque de classes, **MyStatefulService.Interface**, est configuré pour une génération pour Toutes les UC. Pour fonctionner correctement avec Service Fabric, il doit être explicitement ciblé sur x64. Cliquez sur la liste déroulante Plateforme et choisissez **Nouvelle**, puis créez une configuration de plateforme x64.
+
+    ![Création d’une plateforme pour la bibliothèque de classes][vs-create-platform]
+
+3. Ajoutez le package Microsoft.ServiceFabric.Services au projet ASP.NET, tout comme vous l’avez fait précédemment pour le projet de bibliothèque de classes. Ceci fournira la classe `ServiceProxy`.
+
+4. Dans le dossier **Contrôleurs**, ouvrez la classe `ValuesController`. Notez que la méthode `Get` renvoie actuellement uniquement un tableau de chaînes codées en dur avec « valeur1 » et « valeur2 », ce qui correspond à ce que nous avons vu précédemment dans le navigateur. Remplacez par le code suivant :
 
     ```c#
     using MyStatefulService.Interfaces;
@@ -194,11 +202,11 @@ Notre service avec état est maintenant prêt à recevoir le trafic provenant d'
 
     Le nom du service est un URI de la structure de formulaire :/&lt;nom\_application&gt;/&lt;nom\_service&gt
 
-    Avec ces deux éléments d'information, Service Fabric peut identifier de façon unique l'ordinateur auquel les demandes doivent être envoyées. La classe `ServiceProxy` traite également sans problème le cas dans lequel la machine qui héberge la partition de service avec état échoue et qu’une autre machine est promue pour prendre sa place. Cette abstraction facilite de manière significative l’écriture du code client pour la gestion avec d’autres services.
+    Avec ces deux éléments d'information, Service Fabric peut identifier de façon unique l'ordinateur auquel les demandes doivent être envoyées. La classe `ServiceProxy` traite également sans problème le cas dans lequel la machine qui héberge la partition de service avec état échoue et une autre machine est promue pour prendre sa place. Cette abstraction facilite de manière significative l’écriture du code client pour la gestion avec d’autres services.
 
     Une fois que nous avons le proxy, nous appelons simplement la méthode `GetCountAsync` et retournons son résultat.
 
-4. Appuyez sur F5 de nouveau pour exécuter l'application modifiée. Comme précédemment, Visual Studio lance automatiquement le navigateur à la racine du projet web. Ajoutez le chemin « api/values » et vous devriez voir la valeur actuelle du compteur retournée.
+5. Appuyez sur F5 de nouveau pour exécuter l'application modifiée. Comme précédemment, Visual Studio lance automatiquement le navigateur à la racine du projet web. Ajoutez le chemin « api/values » et vous devriez voir la valeur actuelle du compteur retournée.
 
     ![La valeur du compteur avec état affichée dans le navigateur][browser-aspnet-counter-value]
 
@@ -240,9 +248,12 @@ Pour apprendre à configurer des valeurs différentes pour un environnement diff
 [vs-add-class-library-reference]: ./media/service-fabric-add-a-web-frontend/vs-add-class-library-reference.png
 [vs-services-nuget-package]: ./media/service-fabric-add-a-web-frontend/vs-services-nuget-package.png
 [browser-aspnet-counter-value]: ./media/service-fabric-add-a-web-frontend/browser-aspnet-counter-value.png
+[vs-configuration-manager]: ./media/service-fabric-add-a-web-frontend/vs-configuration-manager.png
+[vs-create-platform]: ./media/service-fabric-add-a-web-frontend/vs-create-platform.png
+
 
 <!-- external links -->
 [dotnetcore-install]: https://www.microsoft.com/net/core#windows
 [api-management-landing-page]: https://azure.microsoft.com/fr-FR/services/api-management/
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0810_2016-->

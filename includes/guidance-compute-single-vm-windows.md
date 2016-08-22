@@ -2,7 +2,7 @@ Cet article présente un ensemble de pratiques éprouvées pour l’exécution d
 
 > [AZURE.NOTE] Azure propose deux modèles de déploiement : [Azure Resource Manager][resource-manager-overview] et classique. Cet article utilise Resource Manager, solution recommandée par Microsoft pour les nouveaux déploiements.
 
-Nous déconseillons l’utilisation d’une seule machine virtuelle pour les charges de travail de production car il n’existe aucun contrat SLA concernant la durée de bon fonctionnement des machines virtuelles sur Azure. Pour obtenir le contrat SLA, vous devez déployer plusieurs machines virtuelles dans un groupe à haute disponibilité. Pour plus d’informations, consultez [Exécution de plusieurs machines virtuelles Windows sur Azure][multi-vm].
+Nous déconseillons l’utilisation d’une seule machine virtuelle pour les charges de travail de production, car il n’existe aucun contrat de niveau de service (SLA) concernant la durée de bon fonctionnement des machines virtuelles sur Azure. Pour obtenir le contrat SLA, vous devez déployer plusieurs machines virtuelles dans un [groupe à haute disponibilité][availability-set]. Pour plus d’informations, consultez [Exécution de plusieurs machines virtuelles Windows sur Azure][multi-vm].
 
 ## Diagramme de l’architecture
 
@@ -16,7 +16,7 @@ L’approvisionnement d’une machine virtuelle dans Azure implique de déplacer
 
 - **Disque du système d’exploitation.** Le disque du système d’exploitation est un disque dur virtuel situé dans [Azure Storage][azure-storage]. Son contenu est conservé même si l’ordinateur hôte tombe en panne.
 
-- **Disque temporaire.** La machine virtuelle est créée avec un disque temporaire (le lecteur `D:` sous Windows). Ce disque est stocké sur un lecteur physique de l’ordinateur hôte. Il n’est _pas_ enregistré dans Azure Storage et peut disparaître lors des redémarrages ou d’autres événements de cycle de vie de la machine virtuelle. N’utilisez ce disque que pour des données temporaires, telles que des fichiers de pagination ou d’échange.
+- **Disque temporaire.** La machine virtuelle est créée avec un disque temporaire (le lecteur `D:` sous Windows). Ce disque est stocké sur un lecteur physique de l’ordinateur hôte. Il _n’est pas_ enregistré dans Azure Storage et peut disparaître lors des redémarrages ou d’autres événements du cycle de vie de la machine virtuelle. N’utilisez ce disque que pour des données temporaires, telles que des fichiers de pagination ou d’échange.
 
 - **Disques de données.** Un [disque de données][data-disk] est un disque dur virtuel persistant utilisé pour les données d’application. Les disques de données sont stockés dans Azure Storage, comme le disque du système d’exploitation.
 
@@ -34,7 +34,7 @@ L’approvisionnement d’une machine virtuelle dans Azure implique de déplacer
 
 ### Recommandations pour les machines virtuelles
 
-- Nous vous recommandons d’utiliser les gammes DS et GS, sauf si vous disposez d’une charge de travail spécialisée tels qu’un système de calcul hautes performances. Pour en savoir plus, voir [Tailles de machines virtuelles][virtual-machine-sizes]. Lorsque vous déplacez une charge de travail vers Azure, commencez par choisir la taille de machine virtuelle qui correspond le mieux à vos serveurs locaux. Mesurez ensuite les performances de votre charge de travail réelle en termes de processeur, mémoire et E/S par seconde du disque, puis ajustez la taille si nécessaire. En outre, si vous avez besoin de plusieurs cartes réseau, tenez compte de la limite de la carte réseau pour chaque taille.
+- Nous vous recommandons d’utiliser les gammes DS et GS, sauf si vous disposez d’une charge de travail spécialisée tels qu’un système de calcul hautes performances. Pour en savoir plus, voir [Tailles de machines virtuelles][virtual-machine-sizes]. Lorsque vous déplacez une charge de travail vers Azure, commencez par choisir la taille de machine virtuelle qui correspond le mieux à vos serveurs locaux. Mesurez ensuite les performances de votre charge de travail réelle en termes de processeur, de mémoire et d’opérations d’entrée/sortie par seconde du disque, puis ajustez la taille si nécessaire. En outre, si vous avez besoin de plusieurs cartes réseau, tenez compte de la limite de la carte réseau pour chaque taille.
 
 - Lorsque vous approvisionnez la machine virtuelle et d’autres ressources, vous devez spécifier un emplacement. En général, choisissez un emplacement le plus proche possible de vos utilisateurs internes ou de vos clients. Sachez toutefois que certaines tailles de machine virtuelle ne sont pas disponibles dans tous les emplacements. Pour en savoir plus, voir [Services par région][services-by-region]. Pour répertorier les tailles de machines virtuelles disponibles dans un emplacement donné, exécutez la commande CLI Azure suivante :
 
@@ -46,7 +46,7 @@ L’approvisionnement d’une machine virtuelle dans Azure implique de déplacer
 
 ### Recommandations pour le disque et le stockage
 
-- Pour bénéficier de meilleures performances d’E/S du disque, nous vous recommandons [Premium Storage][premium-storage], qui stocke les données sur des disques SSD. Le coût est basé sur la taille du disque approvisionné. Le nombre d’E/S par seconde et le débit (c’est-à-dire le taux de transfert des données) dépendent également de la taille du disque. Lorsque vous approvisionnez un disque, vous devez donc tenir compte des trois facteurs : capacité, E/S par seconde et débit.
+- Pour bénéficier de meilleures performances d’E/S du disque, nous vous recommandons [Premium Storage][premium-storage], qui stocke les données sur des disques SSD. Le coût est basé sur la taille du disque approvisionné. Le nombre d’E/S par seconde et le débit dépendent également de la taille du disque. Lorsque vous approvisionnez un disque, vous devez donc tenir compte des trois facteurs : capacité, E/S par seconde et débit.
 
 - Un compte de stockage peut prendre en charge de 1 à 20 machines virtuelles.
 
@@ -98,7 +98,7 @@ L’approvisionnement d’une machine virtuelle dans Azure implique de déplacer
     azure vm enable-diag <resource-group> <vm-name>
      ```
 
-- **Arrêt d’une machine virtuelle.** Azure fait une distinction entre les états « Arrêté » et « Désalloué ». Vous êtes facturé quand l’état de la machine virtuelle est arrêté, mais pas lorsque la machine virtuelle est désallouée.
+- **Arrêt d’une machine virtuelle.** Azure fait une distinction entre les états « Arrêté » et « Désalloué ». Vous êtes facturé quand l’état de la machine virtuelle est arrêté, Vous n'êtes pas facturé lorsque la machine virtuelle est désallouée.
 
     Utilisez la commande CLI suivante pour désallouer une machine virtuelle :
 
@@ -124,7 +124,7 @@ L’approvisionnement d’une machine virtuelle dans Azure implique de déplacer
 
 - **Logiciel anti-programme malveillant.** Si cette option est activée, le Centre de sécurité vérifie si un logiciel anti-programme malveillant est installé. Vous pouvez également utiliser le Centre de sécurité pour installer des logiciels anti-programme malveillant dans le portail Azure.
 
-- Utilisez le [contrôle d’accès en fonction du rôle][rbac] \(RBAC) pour contrôler l’accès aux ressources Azure que vous déployez. Le contrôle RBAC vous permet d’affecter des rôles d’autorisation aux membres de votre équipe DevOps. Par exemple, le rôle Lecteur permet d’afficher des ressources Azure mais pas de les créer, gérer ou supprimer. Certains rôles sont spécifiques à des types de ressources Azure particuliers. Par exemple, le rôle Contributeur de machine virtuelle peut redémarrer ou désallouer une machine virtuelle, réinitialiser le mot de passe administrateur, créer une machine virtuelle, et ainsi de suite. D’autres [rôles RBAC intégrés][rbac-roles] peuvent être utiles dans cette architecture de référence, notamment [Utilisateur DevTest Lab][rbac-devtest] et [Collaborateur de réseau][rbac-network]. Un utilisateur peut être affecté à plusieurs rôles, et vous pouvez créer des rôles personnalisés pour d’autres autorisations plus affinées.
+- Utilisez le [contrôle d’accès en fonction du rôle][rbac] (RBAC) pour contrôler l’accès aux ressources Azure que vous déployez. Le contrôle RBAC vous permet d’affecter des rôles d’autorisation aux membres de votre équipe DevOps. Par exemple, le rôle Lecteur permet d’afficher des ressources Azure mais pas de les créer, gérer ou supprimer. Certains rôles sont spécifiques à des types de ressources Azure particuliers. Par exemple, le rôle Contributeur de machine virtuelle peut redémarrer ou désallouer une machine virtuelle, réinitialiser le mot de passe administrateur, créer une machine virtuelle, et ainsi de suite. D’autres [rôles RBAC intégrés][rbac-roles] peuvent être utiles dans cette architecture de référence, notamment [Utilisateur DevTest Lab][rbac-devtest] et [Collaborateur de réseau][rbac-network]. Un utilisateur peut être affecté à plusieurs rôles, et vous pouvez créer des rôles personnalisés pour d’autres autorisations plus affinées.
 
     > [AZURE.NOTE] Le contrôle RBAC ne limite pas les actions qu’un utilisateur connecté peut effectuer sur une machine virtuelle. Ces autorisations dépendent du type de compte installé sur le système d’exploitation invité.
 
@@ -216,7 +216,7 @@ Le script fait référence aux fichiers de paramètre suivants pour créer la ma
 
 	Vous devez spécifier une image dans la section `imageReference`. Les valeurs indiquées ci-dessous créent une machine virtuelle avec la dernière version de Windows Server 2012 R2 Datacenter. Vous pouvez utiliser la commande CLI Azure suivante pour obtenir une liste de toutes les images Windows disponibles dans une région (l’exemple utilise la région westus) :
 
-	```powershell
+	```text
 	azure vm image list westus MicrosoftWindowsServer WindowsServer
 	```
 
@@ -293,25 +293,21 @@ Le script fait référence aux fichiers de paramètre suivants pour créer la ma
   }
 	```
 
-## Déploiement
+## Déploiement de la solution
 
 La solution suppose que les conditions préalables suivantes sont respectées :
 
 - Vous avez un abonnement Azure existant dans lequel vous pouvez créer des groupes de ressources.
 
-- Vous avez téléchargé et installé la version la plus récente d’Azure Powershell. Pour obtenir des instructions, consultez [ceci][azure-powershell-download].
+- Vous avez téléchargé et installé la version la plus récente d’Azure PowerShell. Pour obtenir des instructions, consultez [ceci][azure-powershell-download].
 
 Pour exécuter le script qui déploie la solution :
 
-1. Accédez à un dossier pratique sur votre ordinateur local et créez les deux sous-dossiers suivants :
-
-	- Scripts
-
-	- Modèles
+1. Créez un dossier qui contient des sous-dossiers nommés `Scripts` et `Templates`.
 
 2. Dans le dossier Modèles, créez un autre sous-dossier nommé Windows.
 
-3. Téléchargez le fichier [Deploy-ReferenceArchitecture.ps1][solution-script] dans le dossier Scripts
+3. Téléchargez le fichier [Deploy-ReferenceArchitecture.ps1][solution-script] dans le dossier Scripts.
 
 4. Téléchargez les fichiers suivants dans le dossier Modèles/Windows :
 
@@ -326,11 +322,11 @@ Pour exécuter le script qui déploie la solution :
 	```powershell
 	$resourceGroupName = "app1-dev-rg"
 	```
-6. Modifiez chacun des fichiers json dans le dossier Modèles/Windows pour définir les paramètres du réseau virtuel, du groupe de sécurité réseau et de la machine virtuelle, comme décrit dans la section Composants de la solution précédente.
+6. Modifiez chacun des fichiers JSON dans le dossier Modèles/Windows pour définir les paramètres du réseau virtuel, du groupe de sécurité réseau et de la machine virtuelle, comme décrit dans la section Composants de la solution précédente.
 
 	>[AZURE.NOTE] N’oubliez pas de définir le paramètre `resourceGroup` dans la section `virtualNetworkSettings` du fichier virtualMachineParameters.json de manière à ce qu’il soit identique à celui spécifié dans le fichier de script Deploy-ReferenceArchitecture.ps1.
 
-7. Ouvrez une fenêtre Azure PowerShell, accédez au dossier Scripts et exécutez la commande suivante :
+7. Ouvrez une fenêtre PowerShell, accédez au dossier Scripts et exécutez la commande suivante :
 
 	```powershell
 	.\Deploy-ReferenceArchitecture.ps1 <subscription id> <location> Windows
@@ -348,19 +344,20 @@ Pour appliquer le [contrat SLA pour machines virtuelles][vm-sla], vous devez dé
 
 <!-- links -->
 
-[audit-logs]: https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/
+[audit-logs]: https://azure.microsoft.com/fr-FR/blog/analyze-azure-audit-logs-in-powerbi-more/
+[availability-set]: ../articles/virtual-machines/virtual-machines-windows-create-availability-set.md
 [azure-cli]: ../articles/virtual-machines-command-line-tools.md
 [azure-storage]: ../articles/storage/storage-introduction.md
 [blob-snapshot]: ../articles/storage/storage-blob-snapshots.md
 [blob-storage]: ../articles/storage/storage-introduction.md
-[boot-diagnostics]: https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/
+[boot-diagnostics]: https://azure.microsoft.com/fr-FR/blog/boot-diagnostics-for-virtual-machines-v2/
 [cname-record]: https://en.wikipedia.org/wiki/CNAME_record
 [data-disk]: ../articles/virtual-machines/virtual-machines-windows-about-disks-vhds.md
 [disk-encryption]: ../articles/azure-security-disk-encryption.md
 [enable-monitoring]: ../articles/azure-portal/insights-how-to-use-diagnostics.md
 [fqdn]: ../articles/virtual-machines/virtual-machines-windows-portal-create-fqdn.md
 [group-policy]: https://technet.microsoft.com/fr-FR/library/dn595129.aspx
-[log-collector]: https://azure.microsoft.com/blog/simplifying-virtual-machine-troubleshooting-using-azure-log-collector/
+[log-collector]: https://azure.microsoft.com/fr-FR/blog/simplifying-virtual-machine-troubleshooting-using-azure-log-collector/
 [manage-vm-availability]: ../articles/virtual-machines/virtual-machines-windows-manage-availability.md
 [multi-vm]: ../articles/guidance/guidance-compute-multi-vm.md
 [naming conventions]: ../articles/guidance/guidance-naming-conventions.md
@@ -372,22 +369,22 @@ Pour appliquer le [contrat SLA pour machines virtuelles][vm-sla], vous devez dé
 [rbac-roles]: ../articles/active-directory/role-based-access-built-in-roles.md
 [rbac-devtest]: ../articles/active-directory/role-based-access-built-in-roles.md#devtest-lab-user
 [rbac-network]: ../articles/active-directory/role-based-access-built-in-roles.md#network-contributor
-[reboot-logs]: https://azure.microsoft.com/blog/viewing-vm-reboot-logs/
+[reboot-logs]: https://azure.microsoft.com/fr-FR/blog/viewing-vm-reboot-logs/
 [resize-os-disk]: ../articles/virtual-machines/virtual-machines-windows-expand-os-disk.md
 [Resize-VHD]: https://technet.microsoft.com/fr-FR/library/hh848535.aspx
-[Resize virtual machines]: https://azure.microsoft.com/blog/resize-virtual-machines/
+[Resize virtual machines]: https://azure.microsoft.com/fr-FR/blog/resize-virtual-machines/
 [resource-lock]: ../articles/resource-group-lock-resources.md
 [resource-manager-overview]: ../articles/resource-group-overview.md
-[security-center]: https://azure.microsoft.com/services/security-center/
+[security-center]: https://azure.microsoft.com/fr-FR/services/security-center/
 [select-vm-image]: ../articles/virtual-machines/virtual-machines-windows-cli-ps-findimage.md
-[services-by-region]: https://azure.microsoft.com/regions/#services
+[services-by-region]: https://azure.microsoft.com/fr-FR/regions/#services
 [static-ip]: ../articles/virtual-network/virtual-networks-reserved-public-ip.md
 [storage-price]: https://azure.microsoft.com/pricing/details/storage/
 [Utiliser le Centre de sécurité]: ../articles/security-center/security-center-get-started.md#use-security-center
 [virtual-machine-sizes]: ../articles/virtual-machines/virtual-machines-windows-sizes.md
 [vm-disk-limits]: ../articles/azure-subscription-service-limits.md#virtual-machine-disk-limits
 [vm-resize]: ../articles/virtual-machines/virtual-machines-linux-change-vm-size.md
-[vm-sla]: https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_0/
+[vm-sla]: https://azure.microsoft.com/fr-FR/support/legal/sla/virtual-machines/v1_0/
 [ARM-Templates]: https://azure.microsoft.com/documentation/articles/resource-group-authoring-templates/
 [solution-script]: https://raw.githubusercontent.com/mspnp/arm-building-blocks/master/guidance-compute-single-vm/Scripts/Deploy-ReferenceArchitecture.ps1
 [vnet-parameters]: https://raw.githubusercontent.com/mspnp/arm-building-blocks/master/guidance-compute-single-vm/Templates/windows/virtualNetwork.parameters.json
@@ -396,4 +393,4 @@ Pour appliquer le [contrat SLA pour machines virtuelles][vm-sla], vous devez dé
 [azure-powershell-download]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
 [0]: ./media/guidance-blueprints/compute-single-vm.png "Architecture de machine virtuelle Windows unique dans Azure"
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

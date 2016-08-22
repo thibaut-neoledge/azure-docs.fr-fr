@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/25/2016" 
+	ms.date="08/09/2016" 
 	ms.author="antonba"/>
 
 # Délégation de l'inscription des utilisateurs et des abonnements aux produits
@@ -36,7 +36,7 @@ Pour commencer, configurons Gestion des API pour que les demandes soient achemin
 
 ![Delegation page][api-management-delegation-signin-up]
 
-* Décidez de l'URL de votre point de terminaison de délégation spécial, puis entrez-la dans le champ **URL du point de terminaison de délégation**. 
+* Décidez de l'URL de votre point de terminaison de délégation spécial, puis entrez-la dans le champ **URL du point de terminaison de délégation**.
 
 * Dans le champ **Clé d'authentification de la délégation**, entrez le secret utilisé pour calculer une signature qui vous sera fournie pour vérification afin de vous assurer que la demande provient bien de Gestion des API Azure. Vous pouvez cliquer sur le bouton **Générer** pour que la gestion des API génère de manière aléatoire une clé pour vous.
 
@@ -131,7 +131,7 @@ Assurez-vous ensuite que le point de terminaison de délégation effectue bien l
 
 Ces exemples de code montrent comment prendre la *clé de validation de délégation*, définie dans l’écran Délégation du portail de publication, pour créer un HMAC qui permet ensuite de valider la signature, et fournit la preuve de la validité de l’élément returnUrl transmis. Le même code fonctionne pour productId et userId avec de légères modifications.
 
-**Code C# pour générer le hachage de returnUrl**
+****Code C# pour générer le hachage de returnUrl****
 
     using System.Security.Cryptography;
 
@@ -147,7 +147,7 @@ Ces exemples de code montrent comment prendre la *clé de validation de déléga
     }
 
 
-**Code NodeJS pour générer le hachage de returnUrl**
+****Code NodeJS pour générer le hachage de returnUrl****
 
 	var crypto = require('crypto');
 	
@@ -178,4 +178,4 @@ Pour plus d’informations sur la délégation, regardez la vidéo suivante.
 
 [api-management-delegation-signin-up]: ./media/api-management-howto-setup-delegation/api-management-delegation-signin-up.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

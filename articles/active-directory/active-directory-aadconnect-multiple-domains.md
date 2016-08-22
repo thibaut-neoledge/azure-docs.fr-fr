@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/12/2016"
+	ms.date="08/08/2016"
 	ms.author="billmath"/>
 
 # Prise en charge de plusieurs domaines pour la fédération avec Azure AD
@@ -90,10 +90,10 @@ Utilisez les étapes ci-dessous pour ajouter un domaine de niveau supérieur sup
 
 Utilisez les étapes suivantes pour supprimer l’approbation de Microsoft Online et mettre à jour votre domaine d’origine.
 
-2.  Sur votre serveur de fédération AD FS, ouvrez **Gestion AD FS.** 
+2.  Sur votre serveur de fédération AD FS, ouvrez **Gestion AD FS.**
 2.  Dans le volet gauche, développez **Relations d’approbation** et **Approbations de la partie de confiance**
 3.  Sur la droite, supprimez l’entrée **Plateforme d’identité Microsoft Office 365**. ![Supprimer Microsoft en ligne](./media/active-directory-multiple-domains/trust4.png)
-1.  Sur un ordinateur avec [Module Azure Active Directory pour Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx) installé, exécutez la commande suivante : `$cred=Get-Credential`.  
+1.  Sur un ordinateur avec [Module Azure Active Directory pour Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx) installé, exécutez la commande suivante : `$cred=Get-Credential`.
 2.  Entrez le nom d’utilisateur et le mot de passe d’un administrateur global pour le domaine Azure AD avec lequel vous voulez fédérer
 2.  Dans PowerShell, entrez `Connect-MsolService -Credential $cred`
 4.  Dans PowerShell, entrez `Update-MSOLFederatedDomain -DomainName <Federated Domain Name> -SupportMultipleDomain`. Il s’agit du domaine d’origine. Donc, en utilisant les domaines ci-dessus, cela donnerait : `Update-MsolFederatedDomain -DomainName bmcontoso.com -SupportMultipleDomain`
@@ -101,7 +101,7 @@ Utilisez les étapes suivantes pour supprimer l’approbation de Microsoft Onlin
 
 Procédez comme suit pour ajouter le nouveau domaine de niveau supérieur à l’aide de PowerShell
 
-1.  Sur un ordinateur avec [Module Azure Active Directory pour Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx) installé, exécutez la commande suivante : `$cred=Get-Credential`.  
+1.  Sur un ordinateur avec [Module Azure Active Directory pour Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx) installé, exécutez la commande suivante : `$cred=Get-Credential`.
 2.  Entrez le nom d’utilisateur et le mot de passe d’un administrateur global pour le domaine Azure AD avec lequel vous voulez fédérer
 2.  Dans PowerShell, entrez `Connect-MsolService -Credential $cred`
 3.  Dans PowerShell, entrez `New-MsolFederatedDomain –SupportMultipleDomain –DomainName`
@@ -153,4 +153,4 @@ Utilisez les étapes suivantes pour ajouter une revendication personnalisée pou
 ![Remplacer la revendication](./media/active-directory-multiple-domains/sub2.png)
 5.	Cliquez sur OK. Cliquez sur Appliquer. Cliquez sur OK. Fermez Gestion AD FS.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

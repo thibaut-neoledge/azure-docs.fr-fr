@@ -4,11 +4,11 @@
 	authors="kamathashwin"
 	manager=""
 	editor=""
-	services="monitoring"
-	documentationCenter="monitoring"/>
+	services="monitoring-and-diagnostics"
+	documentationCenter="monitoring-and-diagnostics"/>
 
 <tags
-	ms.service="monitoring"
+	ms.service="monitoring-and-diagnostics"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
@@ -33,7 +33,7 @@ Dans l’écran Créer/mettre à jour des alertes sur le [portail Azure](https:/
 
 L’authentification peut être de deux types :
 
-1. **Authentification basée sur un jeton** : dans ce cas, vous enregistrez l’URI du webhook avec un ID de jeton tel que *https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue*.
+1. **Authentification basée sur un jeton** : dans ce cas, vous enregistrez l’URI du webhook avec un ID de jeton tel que *https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue*.
 2.	**Authentification de base**, avec un ID d’utilisateur et un mot de passe : dans ce cas, vous enregistrez l’URI du webhook sous la forme *https://userid:password@mysamplealert/webcallback?someparamater=somevalue&foo=bar*.
 
 ## Schéma de la charge utile
@@ -123,4 +123,4 @@ Utilisez des alertes Azure pour envoyer des messages à d’autres services. Uti
 
 [Utilisez une application logique pour envoyer des messages à une file d’attente Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

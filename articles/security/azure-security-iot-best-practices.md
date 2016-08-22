@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/18/2016"
+   ms.date="08/09/2016"
    ms.author="yurid"/>
 
 # Internet des objets (IoT) : meilleures pratiques en matière de sécurité
@@ -35,8 +35,8 @@ Cet article résume les [meilleures pratiques de sécurité pour l’Internet de
 
 Si vous êtes fabricant ou intégrateur de matériel IoT, suivez les meilleures pratiques ci-dessous :
 
-- **Concevoir le matériel selon les exigences minimales** : la conception du matériel doit inclure les fonctionnalités minimales requises pour son fonctionnement, et rien de plus. 
-- **Protéger l’appareil contre les falsifications** : intégrez un mécanisme permettant de détecter toute falsification physique du matériel (ouverture du capot, suppression d’une partie de l’appareil, etc.). 
+- **Concevoir le matériel selon les exigences minimales** : la conception du matériel doit inclure les fonctionnalités minimales requises pour son fonctionnement, et rien de plus.
+- **Protéger l’appareil contre les falsifications** : intégrez un mécanisme permettant de détecter toute falsification physique du matériel (ouverture du capot, suppression d’une partie de l’appareil, etc.).
 - **Intégrer la sécurité au matériel** : si le [coût des marchandises vendues](https://en.wikipedia.org/wiki/Cost_of_goods_sold) le permet, intégrez des fonctionnalités de sécurité, telles qu’un stockage sécurisé et chiffré, ainsi qu’une fonctionnalité de démarrage basée sur un Module de plateforme sécurisée (TPM).
 - **Sécuriser les mises à jour** : le microprogramme doit être mis à jour durant toute la durée de vie de l’appareil.
 
@@ -46,7 +46,7 @@ Si vous êtes développeur de solutions IoT, suivez les meilleures pratiques ci-
 
 - **Respecter la méthodologie de développement de logiciels sécurisés** : le développement de logiciels sécurisés requiert une réflexion de bout en bout sur la sécurité, depuis le lancement du projet jusqu’à son implémentation, aux tests et au déploiement.
 - **Choisir des logiciels open source avec précaution** : les logiciels open source offrent la possibilité de développer des solutions rapidement.
-- **Intégrer les composants avec précaution** : les failles de sécurité logicielle se situent, pour nombre d’entre elles, à la limite des bibliothèques et des API. 
+- **Intégrer les composants avec précaution** : les failles de sécurité logicielle se situent, pour nombre d’entre elles, à la limite des bibliothèques et des API.
 
 ## Responsable du déploiement de solutions IoT
 
@@ -59,10 +59,10 @@ Si vous êtes responsable du déploiement de solutions IoT, suivez les meilleure
 
 Si vous êtes opérateur de solutions IoT, suivez les meilleures pratiques ci-dessous :
 
-- **Garder le système à jour** : vérifiez que les systèmes d’exploitation et tous les pilotes des appareils sont mis à jour avec les dernières versions. 
-- **Protéger le système contre les activités malveillantes**: implémentez les dernières fonctionnalités de protection antivirus et anti-programme malveillant sur le système d’exploitation de chaque appareil, lorsque celui-ci le permet. 
+- **Garder le système à jour** : vérifiez que les systèmes d’exploitation et tous les pilotes des appareils sont mis à jour avec les dernières versions.
+- **Protéger le système contre les activités malveillantes**: implémentez les dernières fonctionnalités de protection antivirus et anti-programme malveillant sur le système d’exploitation de chaque appareil, lorsque celui-ci le permet.
 - **Audit fréquent** : il est essentiel d’auditer l’infrastructure IoT vis-à-vis des problèmes de sécurité pour traiter les incidents de sécurité.
 - **Protéger physiquement l’infrastructure IoT** : les attaques de sécurité les plus menaçantes envers l’infrastructure IoT sont lancées par le biais d’un accès physique aux appareils.
-- **Protéger les informations d’identification cloud** : les informations d’identification cloud utilisées pour configurer et exploiter un déploiement IoT offrent peut-être le moyen le plus simple d’accéder à un système IoT et de le compromettre. 
+- **Protéger les informations d’identification cloud** : les informations d’identification cloud utilisées pour configurer et exploiter un déploiement IoT offrent peut-être le moyen le plus simple d’accéder à un système IoT et de le compromettre.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

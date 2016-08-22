@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="07/29/2016"
+   ms.date="08/04/2016"
    ms.author="rickbyh;barbkess;sonyama"/>
 
 # Authentification sur Azure SQL Data Warehouse
@@ -63,7 +63,6 @@ Les avantages suivants sont inclus :
 - L’authentification Azure Active Directory utilise les utilisateurs de base de données à relation contenant-contenu pour authentifier les identités au niveau de la base de données.
 - Azure Active Directory prend en charge l’authentification basée sur les jetons pour les applications se connectant à SQL Data Warehouse.
 
-> [AZURE.IMPORTANT] L’authentification Azure Active Directory est une fonctionnalité préliminaire et est soumise aux conditions du contrat de licence (par exemple, l’accord Entreprise, l’accord Microsoft Azure ou le contrat d’abonnement Microsoft Online), ainsi qu’à toutes les [Conditions d’utilisation supplémentaires de la version préliminaire de Microsoft Azure applicable](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ### Configuration
 
@@ -80,16 +79,16 @@ Actuellement, les utilisateurs Azure Active Directory ne sont pas affichés dans
   
 ### Rechercher des informations détaillées
 - Effectuez les étapes détaillées. Les étapes détaillées de configuration et d’utilisation de l’authentification Azure Active Directory sont presque identiques pour Base de données SQL Azure et Azure SQL Data Warehouse. Suivez les étapes détaillées dans la rubrique [Connexion au service Base de données SQL ou SQL Data Warehouse avec l’authentification Azure Active Directory](../sql-database/sql-database-aad-authentication.md).
-- Créez des rôles de base de données personnalisés et ajoutez des utilisateurs aux rôles. Accordez ensuite des autorisations granulaires aux rôles. Pour plus d’informations, consultez la rubrique [Prise en main des autorisations du moteur de base de données](https://msdn.microsoft.com/library/mt667986.aspx).
+- Créez des rôles de base de données personnalisés et ajoutez des utilisateurs aux rôles. Accordez ensuite des autorisations granulaires aux rôles. Pour plus d’informations, consultez [Prise en main des autorisations du moteur de base de données](https://msdn.microsoft.com/library/mt667986.aspx).
 
 ## Étapes suivantes
 
-Pour commencer à interroger votre entrepôt de données avec Visual Studio et d’autres applications, consultez [Query with Visual Studio (Soumettre des requêtes avec Visual Studio)][].
+Pour commencer à interroger votre entrepôt de données avec Visual Studio et d’autres applications, consultez [Soumettre des requêtes avec Visual Studio][].
 
 <!-- Article references -->
 [Sécuriser une base de données dans SQL Data Warehouse]: ./sql-data-warehouse-overview-manage-security.md
 [Envoyer des requêtes avec Visual Studio]: ./sql-data-warehouse-query-visual-studio.md
-[Query with Visual Studio (Soumettre des requêtes avec Visual Studio)]: ./sql-data-warehouse-query-visual-studio.md
+[Soumettre des requêtes avec Visual Studio]: ./sql-data-warehouse-query-visual-studio.md
 [What is Azure Active Directory]: ../active-directory/active-directory-whatis.md
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

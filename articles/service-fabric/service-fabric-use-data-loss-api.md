@@ -39,16 +39,16 @@ Le service d’injection et d’analyse des erreurs utilise un modèle asynchron
 
 1.	Elle se termine correctement. Si vous appelez « GetProgress » sur cette API dans ce cas, l’état de progression de l’objet affiche Completed (terminé).
 2.	Elle rencontre une erreur irrécupérable. Si vous appelez « GetProgress » sur cette API dans ce cas, l’état de progression de l’objet affiche Faulted (défaillance)
-3.	Vous l’annulez via l’API [CancelTestCommandAsync][cancel] API ou l’applet de commande PowerShell [Stop-ServiceFabricTestCommand][cancelps]. Si vous appelez « GetProgress » sur cette API dans ce cas, l’état de progression de l’objet affiche Cancelled (annulé) ou ForceCancelled (annulation forcée), selon un argument de cette API. Consultez la documentation de [CancelTestCommandAsync][cancel] pour plus de détails.
+3.	Vous l’annulez avec l’API [CancelTestCommandAsync][cancel] ou l’applet de commande PowerShell [Stop-ServiceFabricTestCommand][cancelps]. Si vous appelez « GetProgress » sur cette API dans ce cas, l’état de progression de l’objet affiche Cancelled (annulé) ou ForceCancelled (annulation forcée), selon un argument de cette API. Consultez la documentation de [CancelTestCommandAsync][cancel] pour plus de détails.
 
 
 ## Détails de l’exécution d’une commande
 
 Pour démarrer une commande, appelez l’API Start avec les arguments attendus. Toutes les API Start ont un argument Guid nommé operationId. Vous devriez effectuer le suivi de l’argument operationId car il est utilisé pour suivre la progression de cette commande. Cet argument doit être passée à l’API « GetProgress » afin de suivre la progression de la commande. La valeur operationId doit être unique.
 
-Après l’appel réussi de l’API Start, l’API GetProgress devrait être appelée dans une boucle jusqu'à ce que la propriété d’état de progression de l’objet retourné affiche Completed (Terminé). Tous les commandes [FabricTransientException][fte] et OperationCanceledException devraient être relancées. Lorsque la commande a atteint un état terminal (Completed, Faulted ou Cancelled), la propriété Result de progression de l’objet retourné aura plus d’informations. Si l’état affiche Completed (terminé), Result.SelectedPartition.PartitionId contient l’ID de partition qui a été sélectionné. La valeur Result.Exception sera nulle. Si l’état indique Faulted, Result.Exception indiquera la raison pour laquelle le service d’injection et d’analyse des erreurs a généré une erreur de la commande. Result.SelectedPartition.PartitionId affichera l’ID de partition qui a été sélectionné. Dans certains cas, la commande n’a peut-être pas été suffisamment loin pour choisir une partition. Dans ce cas, la valeur PartitionId sera 0. Si l’état affiche Cancelled (annulé), la valeur Result.Exception est nulle. Comme pour l’état Faulted (défaillance), Result.SelectedPartition.PartitionId affichera l’ID de partition qui a été choisi, mais si la commande n’a pas été suffisamment loin pour cela, la valeur sera 0. Reportez-vous aussi à l’exemple ci-dessous.
+Après l’appel réussi de l’API Start, l’API GetProgress devrait être appelée dans une boucle jusqu'à ce que la propriété d’état de progression de l’objet retourné affiche Completed (Terminé). Toutes les commandes [FabricTransientException][fte] et OperationCanceledException devraient être relancées. Lorsque la commande a atteint un état terminal (Completed, Faulted ou Cancelled), la propriété Result de progression de l’objet retourné aura plus d’informations. Si l’état affiche Completed (terminé), Result.SelectedPartition.PartitionId contient l’ID de partition qui a été sélectionné. La valeur Result.Exception sera nulle. Si l’état indique Faulted, Result.Exception indiquera la raison pour laquelle le service d’injection et d’analyse des erreurs a généré une erreur de la commande. Result.SelectedPartition.PartitionId affichera l’ID de partition qui a été sélectionné. Dans certains cas, la commande n’a peut-être pas été suffisamment loin pour choisir une partition. Dans ce cas, la valeur PartitionId sera 0. Si l’état affiche Cancelled (annulé), la valeur Result.Exception est nulle. Comme pour l’état Faulted (défaillance), Result.SelectedPartition.PartitionId affichera l’ID de partition qui a été choisi, mais si la commande n’a pas été suffisamment loin pour cela, la valeur sera 0. Reportez-vous aussi à l’exemple ci-dessous.
 
-L’exemple de code ci-dessous montre comment démarrer puis vérifier la progression d’une commande pour redémarrer une partition spécifique.
+L’exemple de code ci-dessous montre comment démarrer puis vérifier la progression d’une commande pour provoquer une perte de données sur une partition spécifique.
 
 ```csharp
     static async Task PerformDataLossSample()
@@ -222,14 +222,14 @@ L’exemple ci-dessous montre comment utiliser PartitionSelector pour choisir un
 
 Dès qu’une commande a atteint un état terminal, ses métadonnées resteront dans le service d’injection et d’analyse des erreurs pour un certain temps, avant d’être supprimées pour économiser de l’espace. Si « GetProgress » est appelée à l’aide de la valeur operationId d’une commande après avoir été supprimée, elle retournera une valeur FabricException avec un code d’erreur KeyNotFound.
 
-[dl]: https://msdn.microsoft.com/fr-FR/library/azure/mt693569.aspx
-[ql]: https://msdn.microsoft.com/fr-FR/library/azure/mt693558.aspx
-[rp]: https://msdn.microsoft.com/fr-FR/library/azure/mt645056.aspx
-[psdl]: https://msdn.microsoft.com/fr-FR/library/mt697573.aspx
-[psql]: https://msdn.microsoft.com/fr-FR/library/mt697557.aspx
-[psrp]: https://msdn.microsoft.com/fr-FR/library/mt697560.aspx
-[cancel]: https://msdn.microsoft.com/fr-FR/library/azure/mt668910.aspx
-[cancelps]: https://msdn.microsoft.com/fr-FR/library/mt697566.aspx
-[fte]: https://msdn.microsoft.com/fr-FR/library/azure/system.fabric.fabrictransientexception.aspx
+[dl]: https://msdn.microsoft.com/library/azure/mt693569.aspx
+[ql]: https://msdn.microsoft.com/library/azure/mt693558.aspx
+[rp]: https://msdn.microsoft.com/library/azure/mt645056.aspx
+[psdl]: https://msdn.microsoft.com/library/mt697573.aspx
+[psql]: https://msdn.microsoft.com/library/mt697557.aspx
+[psrp]: https://msdn.microsoft.com/library/mt697560.aspx
+[cancel]: https://msdn.microsoft.com/library/azure/mt668910.aspx
+[cancelps]: https://msdn.microsoft.com/library/mt697566.aspx
+[fte]: https://msdn.microsoft.com/library/azure/system.fabric.fabrictransientexception.aspx
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0810_2016-->

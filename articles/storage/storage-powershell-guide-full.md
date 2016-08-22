@@ -12,14 +12,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/18/2016"
+	ms.date="08/03/2016"
 	ms.author="robinsh"/>
 
 # Utilisation d'Azure PowerShell avec Azure Storage
 
 ## Vue d'ensemble
 
-Azure PowerShell est un module fournissant des applets de commande pour gérer Azure via Windows PowerShell. Il s'agit d'un interpréteur de ligne de commande et d'un langage de script basé sur des tâches, conçu spécialement pour l'administration système. Avec PowerShell, vous pouvez facilement contrôler et automatiser l'administration de vos services et de vos applications Azure. Par exemple, les applets de commande permettent d'effectuer les mêmes tâches que celles exécutées dans le [portail Azure](https://portal.azure.com).
+Azure PowerShell est un module fournissant des cmdlets pour gérer Azure via Windows PowerShell. Il s'agit d'un interpréteur de ligne de commande et d'un langage de script basé sur des tâches, conçu spécialement pour l'administration système. Avec PowerShell, vous pouvez facilement contrôler et automatiser l'administration de vos services et de vos applications Azure. Par exemple, les applets de commande permettent d'effectuer les mêmes tâches que celles exécutées dans le [portail Azure](https://portal.azure.com).
 
 Dans ce guide, nous allons découvrir comment utiliser les [applets de commande Azure Storage](https://msdn.microsoft.com/library/azure/mt269418.aspx) afin d’effectuer diverses tâches de développement et d’administration avec Azure Storage.
 
@@ -136,7 +136,7 @@ Après l’exécution du script, vous devez avoir un dossier local de destinatio
 ## Conditions préalables à l'utilisation d'Azure PowerShell avec Azure Storage
 Vous avez besoin d’un abonnement Azure et d’un compte pour exécuter les applets de commande PowerShell présentées dans ce guide, comme expliqué plus haut.
 
-Azure PowerShell est un module fournissant des applets de commande pour gérer Azure via Windows PowerShell. Pour plus d’informations sur l’installation et la configuration d’Azure PowerShell, consultez [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md). Nous vous recommandons de télécharger et d'installer le dernier module Azure PowerShell ou d'effectuer une mise à niveau vers celui-ci avant d'utiliser ce guide.
+Azure PowerShell est un module fournissant des cmdlets pour gérer Azure via Windows PowerShell. Pour plus d’informations sur l’installation et la configuration d’Azure PowerShell, consultez [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md). Nous vous recommandons de télécharger et d'installer le dernier module Azure PowerShell ou d'effectuer une mise à niveau vers celui-ci avant d'utiliser ce guide.
 
 Vous pouvez exécuter les applets de commande dans la console Windows PowerShell standard ou l’Environnement d’écriture de scripts intégré de Windows PowerShell (ISE). Par exemple, pour ouvrir **Windows PowerShell ISE**, accédez au menu Démarrer, tapez Outils d’administration, puis cliquez pour l’exécuter. Dans la fenêtre Outils d'administration, cliquez avec le bouton droit sur Windows PowerShell ISE, cliquez sur Exécuter en tant qu'administrateur.
 
@@ -224,7 +224,7 @@ Utilisez l'une des trois méthodes suivantes pour créer un contexte de stockage
     	$sasToken = New-AzureStorageContainerSASToken -Container abc -Permission rl
     	$Ctx = New-AzureStorageContext -StorageAccountName $StorageAccountName -SasToken $sasToken
 
-	Pour plus d’informations, consultez les pages [New-AzureStorageContainerSASToken](http://msdn.microsoft.com/library/azure/dn806416.aspx) et [Signatures d’accès partagé, partie 1 : présentation du modèle SAP](storage-dotnet-shared-access-signature-part-1.md).
+	Pour plus d’informations, consultez [New-AzureStorageContainerSASToken](http://msdn.microsoft.com/library/azure/dn806416.aspx) et [Signatures d’accès partagé, partie 1 : présentation du modèle SAP](storage-dotnet-shared-access-signature-part-1.md).
 
 - Dans certains cas, vous pouvez spécifier les points de terminaison de service lorsque vous créez un nouveau contexte de stockage. Cela peut être nécessaire lorsque vous avez enregistré un nom de domaine personnalisé pour votre compte de stockage avec le service BLOB ou que vous souhaitez utiliser une signature d'accès partagé pour l'accès aux ressources de stockage. Définissez les points de terminaison de service dans une chaîne de connexion et utilisez-la pour créer un nouveau contexte de stockage comme indiqué ci-dessous :
 
@@ -752,4 +752,4 @@ Dans ce guide, vous avez appris comment gérer Azure Storage avec Azure PowerShe
 [How to use Azure Storage for U.S. government and Azure China]: #gov
 [Next Steps]: #next
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0810_2016-->

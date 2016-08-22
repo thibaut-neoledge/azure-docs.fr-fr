@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/27/2016"
+	ms.date="08/03/2016"
 	ms.author="robinsh"/>
 
 # Azure Storage Service Encryption pour les données au repos (version préliminaire)
@@ -229,4 +229,4 @@ R : Contactez [ssediscussions@microsoft.com](mailto:ssediscussions@microsoft.com
 
 Azure Storage propose un ensemble complet de fonctionnalités de sécurité qui, réunies, permettent aux développeurs de créer des applications sécurisées. Pour plus d’informations, consultez notre [guide de sécurité sur Storage](storage-security-guide.md).
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

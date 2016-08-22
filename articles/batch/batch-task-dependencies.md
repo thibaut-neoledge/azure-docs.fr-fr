@@ -18,15 +18,19 @@
 
 # Dépendances de tâches dans Azure Batch
 
-Si vous souhaitez traiter une charge de calcul de type MapReduce dans le cloud, si vous disposez d’une tâche de traitement de données dont les tâches peuvent être exprimées sous la forme d’un graphique acyclique dirigé (DAG), ou si vous exécutez tout autre travail dont les tâches en aval dépendent de la sortie des tâches en amont, la fonctionnalité de dépendances de tâche d’Azure Batch peut être une solution.
+La fonctionnalité de dépendances de tâche d’Azure Batch est une solution parfaitement adaptée si vous souhaitez traiter :
 
-Cette fonctionnalité vous permet de créer des tâches planifiées pour s’exécuter sur des nœuds de calcul à condition qu’une ou plusieurs autres tâches se soient correctement exécutées. Par exemple, vous pouvez créer un travail qui restitue chaque image d’un film 3D avec des tâches parallèles distinctes et dont la tâche finale (la « tâche de fusion ») fusionne les images restituées dans la vidéo complète uniquement après la restitution de l’ensemble des images.
+- des charges de travail MapReduce dans le cloud ;
+- des travaux dont les tâches de traitement des données peuvent être exprimées sous la forme d’un graphe orienté acyclique (DAG) ;
+- tout autre travail dont les tâches en aval dépendent de la sortie des tâches en amont.
 
-Vous pouvez créer des tâches qui dépendent d’autres tâches dans une relation un-à-un ou un-à-plusieurs, ou même une dépendance de plages dans laquelle une tâche dépend de la bonne exécution d’un groupe de tâches au sein d’une plage d’ID de tâche spécifique. Vous pouvez combiner ces trois scénarios de base pour créer des relations plusieurs-à-plusieurs.
+Cette fonctionnalité vous permet de créer des tâches planifiées pour s’exécuter sur des nœuds de calcul à condition qu’une ou plusieurs autres tâches se soient correctement exécutées. Par exemple, vous pouvez créer un travail qui restitue chaque image d’un film 3D avec des tâches parallèles distinctes. La dernière tâche (dite de fusion) fusionne les images restituées dans la vidéo complète uniquement après restitution de toutes les images.
+
+Vous pouvez créer des tâches qui dépendent d’autres tâches dans une relation un-à-un ou un-à-plusieurs. Vous pouvez même créer une dépendance de plage dans laquelle une tâche dépend de la bonne exécution d’un groupe de tâches au sein d’une plage d’ID de tâches spécifique. Vous pouvez combiner ces trois scénarios de base pour créer des relations plusieurs-à-plusieurs.
 
 ## Dépendances de tâches avec Batch.NET
 
-Cet article explique comment configurer les dépendances de tâches à l’aide de la bibliothèque [Batch .NET][net_msdn]. Nous allons tout d’abord vous montrer comment [activer la dépendance de tâches](#enable-task-dependencies) dans vos projets, puis vous expliquer brièvement comment [configurer une tâche avec des dépendances](#create-dependent-tasks). Pour fini, nous passerons en revue les [scénarios de dépendance](#dependency-scenarios) pris en charge par Batch.
+Cet article explique comment configurer les dépendances de tâches à l’aide de la bibliothèque [Batch .NET][net_msdn]. Nous allons tout d’abord vous montrer comment [activer la dépendance de tâches](#enable-task-dependencies) dans vos projets, puis vous expliquer brièvement comment [configurer une tâche avec des dépendances](#create-dependent-tasks). Pour finir, nous passerons en revue les [scénarios de dépendance](#dependency-scenarios) pris en charge par Batch.
 
 ## Activation des dépendances de tâches
 
@@ -57,7 +61,7 @@ new CloudTask("Flowers", "cmd.exe /c echo Flowers")
 
 Cet extrait de code crée une tâche avec l’ID « Flowers » qui est programmée pour s’exécuter sur un nœud de calcul uniquement après la réussite de l’exécution des tâches associées aux ID « Rain » et « Sun ».
 
- > [AZURE.NOTE] Une tâche est considérée comme réussie lorsqu’elle se trouve à l’état **terminé** et que son **code de sortie** est `0`. Dans Batch.NET, la valeur de propriété [CloudTask][net_cloudtask].[State][net_taskstate] doit être `Completed` et la valeur de propriété [TaskExecutionInformation][net_taskexecutioninformation].[ExitCode][net_exitcode] de CloudTask doit être de `0`.
+ > [AZURE.NOTE] Une tâche est considérée comme terminée lorsqu’elle se trouve à l’état **terminé** et que son **code de sortie** est `0`. Dans Batch.NET, la valeur de propriété [CloudTask][net_cloudtask].[State][net_taskstate] doit être `Completed` et la valeur de propriété [TaskExecutionInformation][net_taskexecutioninformation].[ExitCode][net_exitcode] de CloudTask doit être de `0`.
 
 ## Scénarios de dépendance
 
@@ -71,7 +75,7 @@ Vous pouvez utiliser trois scénarios de dépendance de tâches de base dans Azu
 
 >[AZURE.TIP] Vous pouvez créer des relations **plusieurs-à-plusieurs** où, par exemple, les tâches C, D, E et F dépendent toutes des tâches A et B. Cela est utile, par exemple, dans les scénarios de prétraitement parallélisées où vos tâches en aval dépendent de la sortie de plusieurs tâches en amont.
 
-## Un-à-un
+### Un-à-un
 
 Pour créer une tâche dépendant de l’exécution d’une autre tâche, vous devez spécifier un ID de tâche unique à la méthode statique [TaskDependencies][net_taskdependencies].[OnId][net_onid] lorsque vous renseignez la propriété [DependsOn][net_dependson] de [CloudTask][net_cloudtask].
 
@@ -86,7 +90,7 @@ new CloudTask("taskB", "cmd.exe /c echo taskB")
 },
 ```
 
-## Un-à-plusieurs
+### Un-à-plusieurs
 
 Pour créer une tâche dépendant de l’exécution de plusieurs tâches, vous devez spécifier un ensemble d’ID de tâche à la méthode statique [TaskDependencies][net_taskdependencies].[OnId][net_onids] lorsque vous renseignez la propriété [DependsOn][net_dependson] de [CloudTask][net_cloudtask].
 
@@ -103,11 +107,11 @@ new CloudTask("Flowers", "cmd.exe /c echo Flowers")
 },
 ```
 
-## Plage d’ID de tâche
+### Plage d’ID de tâche
 
 Pour créer une tâche dépendant de l’exécution d’un groupe de tâches associées à des ID d’une plage spécifique, vous devez spécifier le premier ID et le dernier ID de la plage à la méthode statique [TaskDependencies][net_taskdependencies].[OnId][net_onidrange] lorsque vous renseignez la propriété [DependsOn][net_dependson] de [CloudTask][net_cloudtask].
 
->[AZURE.IMPORTANT] Lorsque vous utilisez des plages d’ID de tâche pour vos dépendances, les ID de tâche de la plage *doivent* être des **représentations sous forme de chaîne** de **valeurs entières**. En outre, **chaque tâche de la plage** doit être correctement exécutée pour permettre l’exécution planifiée de la tâche dépendante.
+>[AZURE.IMPORTANT] Lorsque vous utilisez des plages d’ID de tâche pour vos dépendances, les ID de tâche de la plage *doivent* être des représentations sous forme de chaîne de valeurs entières. En outre, chaque tâche de la plage doit être correctement exécutée pour permettre l’exécution planifiée de la tâche dépendante.
 
 ```csharp
 // Tasks 1, 2, and 3 don't depend on any other tasks. Because
@@ -139,7 +143,7 @@ La fonctionnalité [packages d’application](batch-application-packages.md) de 
 
 ### Installation d’applications et de données intermédiaires
 
-Pour découvrir les différentes méthodes de préparation des nœuds à l’exécution de tâches, consultez l’article [Installing applications and staging data on Batch compute nodes][forum_post] \(Installation d’applications et de données intermédiaires sur les nœuds de calcul Batch) sur le forum Azure Batch. Rédigée par un membre de l’équipe Azure Batch, cette publication est une excellente introduction aux différentes façons d’obtenir des fichiers (y compris les applications et les données d’entrée de tâche) sur vos nœuds de calcul. Elle décrit également certains aspects à prendre en compte pour chaque méthode.
+Pour découvrir les différentes méthodes de préparation des nœuds à l’exécution de tâches, consultez l’article [Installing applications and staging data on Batch compute nodes][forum_post] (Installation d’applications et de données intermédiaires sur les nœuds de calcul Batch) sur le forum Azure Batch. Rédigée par un membre de l’équipe Azure Batch, cette publication est une excellente introduction aux différentes façons d’obtenir des fichiers (y compris les applications et les données d’entrée de tâche) sur vos nœuds de calcul. Elle décrit également certains aspects à prendre en compte pour chaque méthode.
 
 [forum_post]: https://social.msdn.microsoft.com/Forums/fr-FR/87b19671-1bdf-427a-972c-2af7e5ba82d9/installing-applications-and-staging-data-on-batch-compute-nodes?forum=azurebatch
 [github_taskdependencies]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/TaskDependencies
@@ -162,4 +166,4 @@ Pour découvrir les différentes méthodes de préparation des nœuds à l’ex�
 [2]: ./media/batch-task-dependency/02_one_to_many.png "Schéma : dépendance un-à-plusieurs"
 [3]: ./media/batch-task-dependency/03_task_id_range.png "Schéma : dépendance de plage d’ID de tâche"
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0810_2016-->

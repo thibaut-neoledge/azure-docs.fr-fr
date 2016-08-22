@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/12/2016" 
+	ms.date="08/04/2016" 
 	ms.author="billmath"/>
 
 # Création de mots de passe d’application dans le portail Azure pour Azure Multi-Factor Authentication
 
 Si vous utilisez l’authentification multifacteur avec Azure, vous voulez peut-être créer des mots de passe d’application par le biais du portail Azure.
 
-## Pour créer des mots de passe d’application dans le portail Azure
+## Pour créer des mots de passe d'application dans le portail Azure
 
 1. Connectez-vous au portail de gestion Azure.
 3. En haut de la page, cliquez avec le bouton droit sur votre nom d’utilisateur et sélectionnez Vérification de sécurité supplémentaire.
@@ -34,4 +34,4 @@ Si vous utilisez l’authentification multifacteur avec Azure, vous voulez peut-
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

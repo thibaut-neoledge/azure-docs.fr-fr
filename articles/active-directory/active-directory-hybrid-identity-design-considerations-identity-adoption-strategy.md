@@ -13,7 +13,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="05/12/2016"
+	ms.date="08/08/2016"
 	ms.author="billmath"/>
 
 
@@ -35,9 +35,9 @@ Microsoft possède trois scénarios principaux d’intégration : identités cl
 
 Les scénarios définis dans la figure ci-dessus sont les suivants :
 
-- **Identités cloud** : ce sont des identités qui existent uniquement dans le cloud. Dans le cas d’Azure AD, elles résideraient en particulier dans votre répertoire Azure AD.
-- **Synchronisée** : ce sont des identités qui existent en local et dans le cloud. À l’aide d’Azure AD Connect, ces utilisateurs sont créés ou joints avec des comptes Azure AD existants. Le hachage du mot de passe de l’utilisateur est synchronisé à partir de l’environnement local vers le cloud dans ce que l’on appelle un hachage du mot de passe. Lorsque vous utilisez l’option Synchronisée, l’inconvénient est que si un utilisateur est désactivé dans l’environnement local, l’affichage de l’état du compte dans Azure AD peut prendre jusqu’à 3 heures. Cela est dû à l’intervalle de synchronisation.
-- **Fédérée** : ces identités existent à la fois en local et dans le cloud. À l’aide d’Azure AD Connect, ces utilisateurs sont créés ou joints avec des comptes Azure AD existants.  
+- **Identités cloud** : ce sont des identités qui existent uniquement dans le cloud. Dans le cas d’Azure AD, elles résideraient en particulier dans votre répertoire Azure AD.
+- **Synchronisée** : ce sont des identités qui existent en local et dans le cloud. À l’aide d’Azure AD Connect, ces utilisateurs sont créés ou joints avec des comptes Azure AD existants. Le hachage du mot de passe de l’utilisateur est synchronisé à partir de l’environnement local vers le cloud dans ce que l’on appelle un hachage du mot de passe. Lorsque vous utilisez l’option Synchronisée, l’inconvénient est que si un utilisateur est désactivé dans l’environnement local, l’affichage de l’état du compte dans Azure AD peut prendre jusqu’à 3 heures. Cela est dû à l’intervalle de synchronisation.
+- **Fédérée** : ces identités existent à la fois en local et dans le cloud. À l’aide d’Azure AD Connect, ces utilisateurs sont créés ou joints avec des comptes Azure AD existants.
  
 >[AZURE.NOTE]
 Pour plus d’informations sur les options de synchronisation, consultez la rubrique [Intégration de vos identités locales à Azure Active Directory](active-directory-aadconnect.md).
@@ -53,7 +53,7 @@ Le tableau suivant vous aidera à déterminer les avantages et inconvénients de
 ### Expérience client
 La stratégie que vous utilisez détermine l’expérience de connexion utilisateur. Les tableaux suivants vous fournissent des informations sur ce que les utilisateurs peuvent attendre de leur expérience de connexion. Notez que tous les fournisseurs d’identité fédérée ne prennent pas en charge l’authentification unique dans tous les scénarios.
 
-**Applications réseau jointes à un domaine et privées** :
+**Applications réseau jointes à un domaine et privées** :
  
 
 | | Identité synchronisée | Identité fédérée |
@@ -64,7 +64,7 @@ La stratégie que vous utilisez détermine l’expérience de connexion utilisat
 | OneDrive Entreprise | Demander les informations d’identification | Authentification unique |
 | Abonnement Office Professionnel Plus | Demander les informations d’identification | Authentification unique |
 
-**Sources externes ou non fiables** :
+**Sources externes ou non fiables** :
 
 | | Identité synchronisée | Identité fédérée |
 |------------------------------|----------------------------|--------------------------------------------------------------|
@@ -153,14 +153,14 @@ Pour ce faire, les éléments suivants doivent se vérifier :
 Sachez que les éléments suivants ne sont pas pris en charge et ne doivent pas être choisis comme une implémentation :
 
 - La connexion de plusieurs serveurs de synchronisation Azure AD Connect au même répertoire Azure AD n’est pas prise en charge, même s’ils sont configurés pour synchroniser un ensemble d’objets mutuellement exclusifs.
-- La synchronisation d’un même utilisateur vers plusieurs annuaires Azure AD n’est pas prise en charge. 
-- La modification d’une configuration pour faire en sorte que les utilisateurs dans un annuaire Azure AD apparaissent comme contacts dans un autre annuaire Azure AD n’est pas prise en charge. 
+- La synchronisation d’un même utilisateur vers plusieurs annuaires Azure AD n’est pas prise en charge.
+- La modification d’une configuration pour faire en sorte que les utilisateurs dans un annuaire Azure AD apparaissent comme contacts dans un autre annuaire Azure AD n’est pas prise en charge.
 - La modification d’Azure AD Connect Sync pour qu’il se connecte à plusieurs annuaires Azure AD n’est pas non plus prise en charge.
 - Les annuaires Azure AD sont isolés par conception. La modification de la configuration d’Azure AD Connect Sync pour lire des données à partir d’un autre annuaire Azure AD pour générer une liste d’adresses globale commune et unifiée entre les annuaires n’est pas prise en charge. L’exportation d’utilisateurs comme contacts vers un autre annuaire Active Directory local avec Azure AD Connect Sync n’est pas prise en charge.
 
 
 >[AZURE.NOTE]
-Si votre organisation limite la connexion des ordinateurs de votre réseau à Internet, cet article répertorie les points de terminaison (noms de domaine complets, plages d’adresses IPv4 et IPv6) que vous devez inclure dans vos listes d’autorisation sortante et dans votre zone Sites de confiance Internet Explorer d’ordinateurs clients pour garantir que vos ordinateurs peuvent utiliser Office 365. Pour plus d’informations, consultez [URL et plages d’adresses IP Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2?ui=en-US&rs=en-US&ad=US).
+Si votre organisation limite la connexion des ordinateurs de votre réseau à Internet, cet article répertorie les points de terminaison (noms de domaine complets, plages d’adresses IPv4 et IPv6) que vous devez inclure dans vos listes d’autorisation sortante et dans votre zone Sites de confiance Internet Explorer d’ordinateurs clients pour garantir que vos ordinateurs peuvent utiliser Office 365. Pour plus d’informations, consultez [URL et plages d’adresses IP Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2?ui=fr-FR&rs=fr-FR&ad=US).
 
 ## Définir la stratégie d’authentification multifacteur
 Dans cette tâche, vous allez définir la stratégie d’authentification multifacteur à utiliser. Azure Multi-Factor Authentication existe en deux versions différentes. L’une est basée sur le cloud, et l’autre est locale et utilise le serveur MFA Azure. En vous appuyant sur l’évaluation effectuée précédemment, vous pouvez déterminer quelle solution est correcte pour votre stratégie. Utilisez le tableau ci-dessous pour déterminer l’option de conception répondant le mieux aux exigences de sécurité de votre entreprise :
@@ -200,4 +200,4 @@ Vous devez également vous assurer que l’option de conception de l’authentif
 ## Voir aussi
 [Présentation des considérations relatives à la conception](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

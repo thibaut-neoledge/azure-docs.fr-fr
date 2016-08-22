@@ -3,8 +3,8 @@
    description="Cet article fournit des instructions pour créer une passerelle d’application avec le déchargement SSL en utilisant le modèle de déploiement classique Azure."
    documentationCenter="na"
    services="application-gateway"
-   authors="joaoma"
-   manager="jdial"
+   authors="georgewallace"
+   manager="carmonm"
    editor="tysonn"/>
 <tags
    ms.service="application-gateway"
@@ -12,14 +12,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/02/2016"
-   ms.author="joaoma"/>
+   ms.date="08/09/2016"
+   ms.author="gwallace"/>
 
 # Configurer une passerelle d’application pour le déchargement SSL en utilisant le modèle de déploiement classique
 
 > [AZURE.SELECTOR]
--[Azure Classic PowerShell](application-gateway-ssl.md)
+-[Azure portal](application-gateway-ssl-portal.md)
 -[Azure Resource Manager PowerShell](application-gateway-ssl-arm.md)
+-[Azure Classic PowerShell](application-gateway-ssl.md)
 
 Il est possible de configurer Azure Application Gateway de façon à mettre fin à la session SSL (Secure Sockets Layer) sur la passerelle pour éviter les tâches de déchiffrement SSL coûteuses au niveau de la batterie de serveurs web. Le déchargement SSL simplifie aussi la configuration de serveur principal et la gestion de l’application web.
 
@@ -28,7 +29,7 @@ Il est possible de configurer Azure Application Gateway de façon à mettre fin 
 
 1. Installez la dernière version des applets de commande Azure PowerShell à l’aide de Web Platform Installer. Vous pouvez télécharger et installer la dernière version à partir de la section **Windows PowerShell** de la [page Téléchargements](https://azure.microsoft.com/downloads/).
 2. Vérifiez que vous disposez d'un réseau virtuel qui fonctionne avec un sous-réseau valide. Assurez-vous qu’aucun ordinateur virtuel ou déploiement cloud n’utilise le sous-réseau. La passerelle Application Gateway doit être seule sur un sous-réseau virtuel.
-3. Les serveurs que vous configurerez pour utiliser la passerelle Application Gateway doivent exister ou vous devez créer leurs points de terminaison sur le réseau virtuel ou avec une adresse IP/VIP publique affectée.
+3. Les serveurs que vous =configurez pour utiliser la passerelle Application Gateway doivent exister ou vous devez créer leurs points de terminaison sur le réseau virtuel ou avec une adresse IP/VIP publique affectée.
 
 Pour configurer le déchargement SSL sur une passerelle d’application, exécutez les étapes suivantes dans l’ordre indiqué.
 
@@ -40,9 +41,9 @@ Pour configurer le déchargement SSL sur une passerelle d’application, exécut
 6. [Vérifier l'état de la passerelle](#verify-the-gateway-status)
 
 
-## Créer une passerelle Application Gateway
+## Créez une passerelle d’application
 
-Pour créer la passerelle, utilisez l’applet de commande **New-AzureApplicationGateway** en remplaçant les valeurs par les vôtres. Notez que la facturation de la passerelle ne démarre pas à ce stade. La facturation commence à une étape ultérieure, lorsque la passerelle a démarré correctement.
+Pour créer la passerelle, utilisez l’applet de commande **New-AzureApplicationGateway** en remplaçant les valeurs par les vôtres. La facturation de la passerelle ne démarre pas à ce stade. La facturation commence à une étape ultérieure, lorsque la passerelle a démarré correctement.
 
 Cet exemple montre l'applet de commande sur la première ligne, suivie de la sortie.
 
@@ -104,6 +105,7 @@ Cet exemple montre l'applet de commande sur la première ligne, suivie de la sor
 	ThumbprintAlgo : sha1RSA
 	State..........: Provisioned
 
+>[AZURE.NOTE] Le mot de passe du certificat doit comprendre de 4 à 12 caractères, lettres ou chiffres. Les caractères spéciaux ne sont pas acceptés.
 
 ## Configurer la passerelle
 
@@ -111,21 +113,21 @@ La configuration d'une passerelle Application Gateway se compose de plusieurs va
 
 Les valeurs sont :
 
-- **Pool de serveurs principaux :** liste des adresses IP des serveurs principaux. Les adresses IP répertoriées doivent appartenir au sous-réseau de réseau virtuel ou doivent correspondre à une adresse IP/VIP publique.
-- **Paramètres de pool de serveurs principaux :** chaque pool possède des paramètres tels que le port, le protocole et une affinité basée sur les cookies. Ces paramètres sont liés à un pool et sont appliqués à tous les serveurs du pool.
-- **Port frontal :** il s’agit du port public ouvert sur la passerelle d’application. Le trafic atteint ce port, puis il est redirigé vers l’un des serveurs principaux.
-- **Écouteur :** l’écouteur a un port frontal, un protocole (Http ou Https, avec respect de la casse) et le nom du certificat SSL (en cas de configuration du déchargement SSL).
+- **Pool de serveurs principaux :** liste des adresses IP des serveurs principaux. Les adresses IP répertoriées doivent appartenir au sous-réseau de réseau virtuel ou doivent correspondre à une adresse IP/VIP publique.
+- **Paramètres du pool de serveurs principaux :** chaque pool comporte des paramètres tels que le port, le protocole et une affinité basée sur des cookies. Ces paramètres sont liés à un pool et sont appliqués à tous les serveurs du pool.
+- **Port frontal :** il s’agit du port public ouvert sur la passerelle Application Gateway. Le trafic atteint ce port, puis il est redirigé vers l’un des serveurs principaux.
+- **Écouteur :** l’écouteur a un port frontal, un protocole (Http ou Https, avec respect de la casse) et le nom du certificat SSL (en cas de configuration du déchargement SSL).
 - **Règle :** la règle lie l’écouteur et le pool de serveurs principaux et définit vers quel pool de serveurs principaux le trafic doit être dirigé quand il atteint un écouteur spécifique. Actuellement, seule la règle *de base* est prise en charge. La règle de *base* est la distribution de charge par tourniquet.
 
-**Remarque supplémentaires sur la configuration**
+**Notes de configuration supplémentaires :**
 
-Pour configurer des certificats SSL, le protocole dans **HttpListener** doit passer à *Https* (sensible à la casse). L’élément **SslCert** doit être ajouté à **HttpListener** avec le même nom que celui utilisé dans le chargement des certificats SSL dans la section ci-dessus. Le port frontal doit être mis à jour sur 443.
+Pour configurer des certificats SSL, le protocole dans **HttpListener** doit passer à *Https* (sensible à la casse). L’élément **SslCert** est ajouté à **HttpListener** avec le même nom que celui utilisé dans le chargement des certificats SSL dans la section ci-dessus. Le port du serveur frontal doit être mis à jour sur 443.
 
-**Pour activer l’affinité basée sur les cookies** : une passerelle d’application peut être configurée pour garantir qu’une demande d’une session client est toujours dirigée vers la même machine virtuelle dans la batterie de serveurs web. Ceci se fait par l’injection d’un cookie de session qui permet à la passerelle de diriger le trafic de manière appropriée. Pour activer l’affinité basée sur les cookies, définissez **CookieBasedAffinity** sur *Enabled* dans l’élément **BackendHttpSettings**.
+**Pour activer l’affinité basée sur les cookies** : une passerelle Application Gateway peut être configurée pour garantir qu’une requête d’une session client est toujours dirigée vers la même machine virtuelle dans la batterie de serveurs web. Ceci se fait par l’injection d’un cookie de session qui permet à la passerelle de diriger le trafic de manière appropriée. Pour activer l’affinité basée sur les cookies, définissez **CookieBasedAffinity** sur *Activé* dans l’élément **BackendHttpSettings**.
 
 
 
-Vous pouvez construire votre configuration en créant un objet de configuration ou en utilisant un fichier XML de configuration. Pour construire votre configuration à l'aide d'un fichier XML de configuration, utilisez l'exemple ci-dessous.
+Vous pouvez construire votre configuration en créant un objet de configuration ou en utilisant un fichier XML de configuration. Pour construire votre configuration à l’aide d’un fichier XML de configuration, utilisez l’exemple suivant.
 
 **Exemple de configuration XML**
 
@@ -233,4 +235,4 @@ Si vous souhaitez plus d'informations sur les options d'équilibrage de charge e
 - [Équilibrage de charge Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Azure Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0810_2016-->

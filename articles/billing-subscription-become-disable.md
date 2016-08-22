@@ -60,7 +60,7 @@ Pour résoudre ce problème, utilisez l’une des méthodes suivantes :
 
 ## Comment réactiver votre abonnement
 
-Pour réactiver un abonnement annulé, vous devez créer un ticket de support : connectez-vous au [portail Azure](https://portal.azure.com/), sélectionnez **Aide + Support**>**Nouvelle demande de support**.
+Pour réactiver un abonnement désactivé, vous devez créer un ticket de support : connectez-vous au [portail Azure](https://portal.azure.com/), sélectionnez **Aide + Support**>**Nouvelle demande de support**.
 
 ![helpandsupportbutton](./media/billing-how-to-create-billing-support-ticket/helpandsupport.png)
 
@@ -71,4 +71,4 @@ Si vous ne pouvez pas accéder au portail, envoyez une demande de prise en charg
 
 Pour plus d’informations, consultez [Comment créer un ticket de support pour les problèmes de facturation et d’abonnement Azure](billing-how-to-create-billing-support-ticket.md).
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/16/2016"
+	ms.date="08/04/2016"
 	ms.author="billmath"/>
 
 #Azure Multi-Factor Authentication : fonctionnement
@@ -26,7 +26,7 @@ La sécurité de l'authentification multi-facteur repose sur son approche en cou
 
 Azure Multi-Factor Authentication contribue à sécuriser l'accès aux données et aux applications tout en répondant à la demande de l'utilisateur d'un processus d'authentification simple. Il fournit une sécurité supplémentaire en exigeant un deuxième formulaire d'authentification et fournit une authentification renforcée via un éventail d'options de vérification simples :
 
-- appel téléphonique 
+- appel téléphonique
 - SMS
 - notification sur l’application mobile, ce qui permet aux utilisateurs de choisir leur méthode préférée
 - code de vérification sur l’application mobile
@@ -66,17 +66,17 @@ Application mobile comme second facteur|* | * | *
 Appel téléphonique comme second facteur|* | * | *
 SMS comme second facteur|* | * | *
 Mots de passe d'application pour les clients qui ne prennent pas en charge MFA|* | * | *
-Contrôle d'administration sur les méthodes d'authentification| *| *| * 
-Mode du code PIN| | | * 
-Alerte de fraude| | | * 
-Rapports MFA| | | * 
-Contournement à usage unique| | | * 
-Messages de bienvenue personnalisés pour les appels téléphoniques| | | * 
-Personnalisation de l'ID d'appelant pour les appels téléphoniques| | | * 
-Confirmation d’événement| | | * 
-Adresses IP approuvées| | | * 
-Suspendre MFA pour les appareils mémorisés (aperçu public)| | | * 
-SDK MFA| | | * 
+Contrôle d'administration sur les méthodes d'authentification| *| *| *
+Mode du code PIN| | | *
+Alerte de fraude| | | *
+Rapports MFA| | | *
+Contournement à usage unique| | | *
+Messages de bienvenue personnalisés pour les appels téléphoniques| | | *
+Personnalisation de l'ID d'appelant pour les appels téléphoniques| | | *
+Confirmation d’événement| | | *
+Adresses IP approuvées| | | *
+Suspendre MFA pour les appareils mémorisés (aperçu public)| | | *
+SDK MFA| | | *
 MFA pour des applications locales utilisant le serveur MFA| | | *
 
 
@@ -102,4 +102,4 @@ Choisissez le modèle qui convient le mieux à votre organisation : celui basé
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

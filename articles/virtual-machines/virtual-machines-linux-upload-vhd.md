@@ -24,7 +24,7 @@ Cet article indique comment charger un disque dur virtuel à l’aide du modèle
 ## Commandes rapides
 Veillez à ce que [la CLI Azure](../xplat-cli-install.md) soit connectée et utilise le mode Resource Manager (`azure config mode arm`).
 
-Créez d’abord un groupe de ressources :
+Créez d’abord un groupe de ressources :
 
 ```bash
 azure group create TestRG --location "WestUS"
@@ -86,13 +86,13 @@ Pour pouvoir effectuer les étapes ci-dessus, vous avez besoin des éléments su
 
 
 <a id="prepimage"> </a>
-## préparation de l’image pour le téléchargement
+## préparation de l'image pour le téléchargement
 
-Azure prend en charge diverses distributions de Linux (voir [Distributions Linux approuvées](virtual-machines-linux-endorsed-distros.md)). Les articles suivants indiquent comment préparer les diverses distributions de Linux prises en charge dans Azure :
+Azure prend en charge diverses distributions de Linux (voir [Distributions Linux approuvées](virtual-machines-linux-endorsed-distros.md)). Les articles suivants indiquent comment préparer les diverses distributions de Linux prises en charge dans Azure :
 
 - **[Distributions CentOS](virtual-machines-linux-create-upload-centos.md)**
 - **[Debian Linux](virtual-machines-linux-debian-create-upload-vhd.md)**
-- **[Oracle Linux](virtual-machines-linux-oracle-create-upload-vhd.md)**
+- **[Oracle Linux](virtual-machines-linux-oracle-create-upload-vhd.md)**
 - **[Red Hat Enterprise Linux](virtual-machines-linux-redhat-create-upload-vhd.md)**
 - **[SLES et openSUSE](virtual-machines-linux-suse-create-upload-vhd.md)**
 - **[Ubuntu](virtual-machines-linux-create-upload-ubuntu.md)**
@@ -129,7 +129,7 @@ Affichez les clés d’accès au compte de stockage que vous venez de créer :
 azure storage account keys list testuploadedstorage --resource-group TestRG
 ```
 
-La sortie doit ressembler à ceci :
+La sortie doit ressembler à ceci :
 
 ```
 info:    Executing command storage account keys list
@@ -201,7 +201,7 @@ Dans le fournisseur `Microsoft.Compute/virtualMachines` de votre modèle, vous d
           }
 ```
 
-Vous pouvez utiliser [ce modèle existant pour créer une machine virtuelle à partir d’une image personnalisée](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image) ou en savoir plus sur [la création de vos propres modèles Azure Resource Manager] (../resource-group-authoring templates.md).
+Vous pouvez utiliser [ce modèle existant pour créer une machine virtuelle à partir d’une image personnalisée](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image) ou découvrir plus d’informations sur [la création de vos propres modèles Azure Resource Manager](../resource-group-authoring-templates.md).
 
 Une fois que vous avez configuré un modèle, vous pouvez créer vos machines virtuelles à l’aide de la commande `azure group deployment create`. Spécifiez l’URI de votre modèle JSON avec le paramètre `--template-uri` :
 
@@ -221,4 +221,4 @@ azure group deployment create --resource-group TestTemplateRG
 ## Étapes suivantes
 Après avoir préparé et chargé votre disque virtuel personnalisé, vous pouvez en savoir plus sur [l’utilisation de Resource Manager et des modèles](../resource-group-overview.md). Vous pouvez également [ajouter un disque de données](virtual-machines-linux-add-disk.md) à vos nouvelles machines virtuelles. Si vous avez besoin d’accéder à des applications qui s’exécutent sur vos machines virtuelles, veillez à [ouvrir les ports et points de terminaison](virtual-machines-linux-nsg-quickstart.md).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0810_2016-->

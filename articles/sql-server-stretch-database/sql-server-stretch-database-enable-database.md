@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/27/2016"
+	ms.date="08/05/2016"
 	ms.author="douglasl"/>
 
 # Activer Stretch Database pour une base de données
@@ -23,6 +23,8 @@ Pour configurer une base de données Stretch Database existante, sélectionnez *
 Si vous sélectionnez **Tâches | Stretch | Activer** pour une table individuelle et que vous n’avez pas encore activé la base de données pour Stretch Database, l’Assistant configure la base de données pour Stretch Database et vous permet de sélectionner des tables dans le cadre du processus. Suivez les étapes décrites dans cette rubrique au lieu de celles décrites dans [Activer Stretch Database pour une table](sql-server-stretch-database-enable-database.md).
 
 L’activation de Stretch Database sur une table ou une base de données nécessite des autorisations db\_owner. L’activation de Stretch Database sur une base de données nécessite également des autorisations CONTROL DATABASE.
+
+ >   [AZURE.NOTE] Plus tard, si vous désactivez Stretch Database, gardez à l’esprit que la désactivation pour une table ou une base de données ne supprime pas l’objet distant. Si vous souhaitez supprimer la table distante ou la base de données distante, vous devez le faire à l’aide du portail de gestion Azure. Les objets distants continuent d’entraîner des coûts Azure jusqu’à leur suppression manuelle.
 
 ## Avant de commencer
 
@@ -50,7 +52,7 @@ GO
 RECONFIGURE;
 GO
 ```
-Pour plus d’informations, consultez [Configure the remote data archive Server Configuration Option](https://msdn.microsoft.com/library/mt143175.aspx) et [sp\_configure (Transact-SQL)](https://msdn.microsoft.com/library/ms188787.aspx).
+Pour plus d’informations, consultez [Configurer l’option de configuration du serveur archive de données distante](https://msdn.microsoft.com/library/mt143175.aspx) et [sp\_configure (Transact-SQL)](https://msdn.microsoft.com/library/ms188787.aspx).
 
 ## <a name="Wizard"></a>Utiliser l’Assistant pour activer Stretch Database sur une base de données
 Pour plus d’informations sur l’Assistant Activer la base de données pour Stretch, notamment sur les informations que vous devez entrer et les choix que vous devez faire, consultez [Commencez par exécuter l’Assistant Activer une base de données pour Stretch](sql-server-stretch-database-wizard.md).
@@ -143,4 +145,4 @@ L’activation de Stretch Database sur une table ou une base de données nécess
 
 [FirewallRule]: ./media/sql-server-stretch-database-enable-database/firewall.png
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0810_2016-->

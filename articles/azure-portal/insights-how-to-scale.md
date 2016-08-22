@@ -1,20 +1,20 @@
 <properties
 	pageTitle="Mise à l’échelle manuelle ou automatique du nombre d’instances | Microsoft Azure"
 	description="Découvrez comment effectuer une mise à l’échelle de vos services Azure."
-	authors="stepsic-microsoft-com"
-	manager="ronmart"
+	authors="rboucher"
+	manager=""
 	editor=""
-	services="monitoring"
-	documentationCenter="monitoring"/>
+	services="monitoring-and-diagnostics"
+	documentationCenter="monitoring-and-diagnostics"/>
 
 <tags
-	ms.service="monitoring"
+	ms.service="monitoring-and-diagnostics"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/08/2015"
-	ms.author="stepsic"/>
+	ms.author="robb"/>
 
 # Mise à l'échelle manuelle ou automatique du nombre d’instances
 
@@ -57,7 +57,7 @@ Vous pouvez effectuer une mise à l’échelle en fonction de mesures autres que
 
 ### Ajout ou modification d'une règle
 
-1. Sélectionnez les **règles de performances et de planification** dans la liste déroulante **Mettre à l’échelle par** : ![Règles de performance](./media/insights-how-to-scale/Insights_PerformanceRules.png)
+1. Sélectionnez les **règles de performances et de planification** dans la liste déroulante **Mettre à l’échelle par** : ![Règles de performance](./media/insights-how-to-scale/Insights_PerformanceRules.png)
 
 2. Si vous avez déjà effectué une mise à l'échelle automatique, vous découvrirez les règles précises dont vous disposiez.
 
@@ -136,4 +136,4 @@ Toutefois, vous souhaiterez peut-être définir des règles d’extension ou de 
 * [Affichage des événements et journaux d’audit](insights-debugging-with-events.md) pour découvrir tout ce qui s'est produit dans votre service.
 * [Surveillance de la disponibilité et de la réactivité des pages Web](../application-insights/app-insights-monitor-web-app-availability.md) avec Application Insights pour déterminer si vos pages sont inactives.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

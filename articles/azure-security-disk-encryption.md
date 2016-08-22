@@ -21,7 +21,7 @@
 
 Microsoft Azure s’engage fermement à préserver la confidentialité, la souveraineté de vos données et vous permet de contrôler vos données Azure hébergées via une suite de technologies servant à chiffrer, contrôler et gérer les clés de chiffrement, le contrôle et l’audit de l’accès aux données. Les clients Azure ont ainsi la possibilité de choisir la solution qui répond le mieux à leurs besoins professionnels. Dans ce document, nous allons vous présenter une nouvelle solution technologique « Azure Disk Encryption for Windows and Linux IaaS VM’s » pour protéger et sauvegarder vos données afin de répondre aux engagements de votre sécurité en matière d’organisation et les exigences de conformité. Cet article fournit des instructions détaillées sur la façon d’utiliser les fonctionnalités de cryptage de disque Azure, notamment sur les scénarios pris en charge et sur les expériences utilisateur.
 
-**Remarque** : Certaines recommandations contenues dans cet article peuvent entraîner une augmentation des taux d’utilisation des données, des réseaux ou des ressources de calcul débouchant sur des coûts de licence ou abonnement supplémentaires.
+**Remarque** : Certaines recommandations contenues dans cet article peuvent entraîner une augmentation des taux d’utilisation des données, des réseaux ou des ressources de calcul débouchant sur des coûts de licence ou abonnement supplémentaires.
 
 ## Vue d’ensemble
 
@@ -145,13 +145,13 @@ Voici les conditions requises pour activer le chiffrement de disque de machines 
 
 Azure Disk Encryption est pris en charge sur les SKU clients Windows suivants : client Windows 8 et client Windows 10.
 
-**Remarque** : Pour Windows Server 2008 R2, .Net Framework 4.5 DOIT être installé avant l’activation du chiffrement dans Azure. Vous pouvez l’installer à partir de Windows Update en installant la mise à jour facultative « Microsoft .NET Framework 4.5.2 pour systèmes Windows Server 2008 R2 x64 ([KB2901983](https://support.microsoft.com/kb/2901983)) »
+**Remarque** : Pour Windows Server 2008 R2, .Net Framework 4.5 DOIT être installé avant l’activation du chiffrement dans Azure. Vous pouvez l’installer à partir de Windows Update en installant la mise à jour facultative « Microsoft .NET Framework 4.5.2 pour systèmes Windows Server 2008 R2 x64 ([KB2901983](https://support.microsoft.com/kb/2901983)) »
 
 - Azure Disk Encryption est pris en charge sur les versions serveur Linux suivantes : Ubuntu, CentOS, SUSE, SUSE Linux Enterprise Server (SLES) et Red Hat Enterprise Linux.
 
 - Toutes les ressources (par exemple coffre de clés, compte de stockage, machine virtuelle, etc.) doivent appartenir à la même région et au même abonnement Azure.
 
-**Remarque** : Le chiffrement de disque Azure nécessite que le coffre de clés et les machines virtuelles se trouvent dans la même région Azure. Le fait de les configurer dans des régions distinctes provoque l’échec de l’activation de la fonctionnalité de chiffrement de disque Azure.
+**Remarque** : Le chiffrement de disque Azure nécessite que le coffre de clés et les machines virtuelles se trouvent dans la même région Azure. Le fait de les configurer dans des régions distinctes provoque l’échec de l’activation de la fonctionnalité de chiffrement de disque Azure.
 
 - Pour installer et configurer Azure Key Vault en vue d’utiliser le chiffrement de disque Azure, consultez la section **Définition et configuration d’Azure Key Vault pour l’utilisation de chiffrement de disque Azure.** dans la rubrique *Composants requis* de cet article.
 
@@ -385,7 +385,7 @@ Utilisez le tableau de terminologie comme référence pour comprendre certains d
 | Terminologie | Définition |
 |-----------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Azure AD | Azure AD est [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/). Le compte Azure est requis pour l’authentification, le stockage et l’extraction des secrets du coffre de clés. |
-| Azure Key Vault [AKV] | Azure Key Vault est un service de gestion de clés de chiffrement basé sur des modules de sécurité matériels FIPS pour sauvegarder vos clés de chiffrement et les secrets sensibles en toute sécurité. Pour plus de détails, consultez la documentation sur le [coffre de clés](https://azure.microsoft.com/services/key-vault/). |
+| Azure Key Vault [AKV] | Azure Key Vault est un service de gestion de clés de chiffrement basé sur des modules de sécurité matériels FIPS pour sauvegarder vos clés de chiffrement et les secrets sensibles en toute sécurité. Pour plus d’informations, consultez la documentation relative au [coffre de clés](https://azure.microsoft.com/services/key-vault/). |
 | ARM | Azure Resource Manager |
 | BitLocker | [BitLocker](https://technet.microsoft.com/library/hh831713.aspx) est une technologie de chiffrement de volume Windows qui permet d’activer le chiffrement de disque sur des machines virtuelles IaaS Windows. |
 | BEK | Les clés de chiffrement BitLocker servent à chiffrer le volume de démarrage du système d’exploitation et les volumes de données. Les clés BitLocker sont sauvegardées dans le coffre de clés Azure du client en tant que secrets. |
@@ -845,4 +845,4 @@ Vous pouvez télécharger ce guide à partir de la [Galerie TechNet](https://gal
 
 [Explorer Azure Disk Encryption avec Azure PowerShell - partie 2](http://blogs.msdn.com/b/azuresecurity/archive/2015/11/21/explore-azure-disk-encryption-with-azure-powershell-part-2.aspx)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

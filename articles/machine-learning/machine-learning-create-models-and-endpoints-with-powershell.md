@@ -26,7 +26,7 @@ Vous pourriez former votre modèle une fois à l’aide d’une version fusionn�
 
 Cela pourrait être la meilleure approche, mais vous ne souhaitez pas créer 1 000 expériences d’apprentissage dans Azure Machine Learning représentant chacune un emplacement unique. Cette tâche serait non seulement intensive mais également assez inefficace, dans la mesure où chaque expérience aurait les mêmes composants, à l’exception du jeu de données d’apprentissage.
 
-Heureusement, nous pouvons obtenir le même résultat en utilisant l’[API de reformation Azure Machine Learning](machine-learning-retrain-models-programmatically.md) et en automatisant la tâche avec [Azure Machine Learning PowerShell](https://blogs.technet.microsoft.com/machinelearning/2016/05/04/announcing-the-powershell-module-for-azure-ml/).
+Heureusement, nous pouvons obtenir le même résultat en utilisant l’[API de reformation Azure Machine Learning](machine-learning-retrain-models-programmatically.md) et en automatisant la tâche avec [Azure Machine Learning PowerShell](machine-learning-powershell-module.md).
 
 > [AZURE.NOTE] Pour accélérer l’exécution de notre exemple, nous allons réduire le nombre d’emplacements de 1000 à 10, mais les mêmes principes et procédures sont valables pour 1 000 emplacements. La seule différence est que si vous souhaitez effectuer un apprentissage à partir de 1 000 jeux de données, vous devrez sans doute exécuter les scripts PowerShell suivants en parallèle. Cette opération sort du cadre de cet article, mais vous trouverez des exemples de multi-threading PowerShell sur Internet.
 
@@ -161,4 +161,4 @@ Voici l’intégralité du code source :
 	    Patch-AmlWebServiceEndpoint -WebServiceId $scoringSvc.Id -EndpointName $endpointName -ResourceName 'Bike Rental [trained model]' -BaseLocation $baseLoc -RelativeLocation $relativeLoc -SasBlobToken $sasToken
 	}
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0810_2016-->

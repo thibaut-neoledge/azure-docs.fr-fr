@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/12/2016" 
+	ms.date="08/04/2016" 
 	ms.author="billmath"/>
 
 # Expérience de connexion avec Azure Multi-Factor Authentication
@@ -28,18 +28,18 @@ Selon la méthode de connexion et l'authentification multifacteur utilisées, le
 
 Que faites-vous ?|Description
 :------------- | :------------- | 
-<a href="#1">Connexion avec un téléphone mobile ou de bureau</a> | Voici le processus de connexion habituel lors d’une connexion à l'aide de votre téléphone mobile ou de bureau.
-<a href="#2">Connexion avec l’application mobile à l’aide de la notification</a> | Voici le processus de connexion habituel lors d’une connexion à l'aide de l’application mobile avec des notifications.
-<a href="#3">Connexion avec l'application mobile à l'aide du code de vérification</a>|Voici le processus de connexion habituel lors d’une connexion à l'aide de l’application mobile avec un code de vérification.
-<a href="#4">Connexion avec une autre méthode</a>|Ceci vous présente le processus de connexion habituel si vous souhaitez utiliser une autre méthode.
+[Connexion avec un téléphone mobile ou de bureau](#signing-in-with-mobile-or-office-phone) | Voici le processus de connexion habituel lors d’une connexion à l'aide de votre téléphone mobile ou de bureau.
+[Connexion avec l’application mobile à l’aide de la notification](#signing-in-with-the-mobile-app-using-notification) | Voici le processus de connexion habituel lors d’une connexion à l'aide de l’application mobile avec des notifications.
+[Connexion avec l'application mobile à l'aide du code de vérification](#signing-in-with-the-mobile-app-using-verification-code)|Voici le processus de connexion habituel lors d’une connexion à l'aide de l’application mobile avec un code de vérification.
+[Connexion avec une autre méthode](#signing-in-with-an-alternate-method)|Ceci vous présente le processus de connexion habituel si vous souhaitez utiliser une autre méthode.
 
-<h2 id="1">Connexion avec un téléphone mobile ou de bureau</h2>
+## Connexion avec un téléphone mobile ou de bureau
 
 Les informations suivantes décrivent l'utilisation de l'authentification multifacteur avec votre téléphone de bureau ou mobile.
 
 ### Connexion avec un appel sur votre téléphone de bureau ou mobile
 
-- Connectez-vous à une application ou un service comme Office 365 à l'aide de votre nom d'utilisateur et de votre mot de passe.
+- Connectez-vous à une application ou un service comme Office 365 à l’aide de votre nom d’utilisateur et votre mot de passe.
 - Microsoft vous appelle.
 
 ![Microsoft appelle](./media/multi-factor-authentication-end-user-signin-phone/call.png)
@@ -50,7 +50,7 @@ Les informations suivantes décrivent l'utilisation de l'authentification multif
 
 - Vous devez maintenant être connecté.</li>
 
-<h2 id="2">Connexion avec l’application mobile à l’aide de la notification</h2>
+## Connexion avec l’application mobile à l’aide de la notification
 
 Les informations suivantes décrivent l'utilisation de l'authentification multifacteur avec votre application mobile, lorsqu'une notification vous est envoyée.
 
@@ -70,7 +70,7 @@ Les informations suivantes décrivent l'utilisation de l'authentification multif
 - Vous devez maintenant être connecté.
 
 
-<h2 id="3">Connexion avec l'application mobile à l'aide du code de vérification</h2>
+## Connexion avec l'application mobile à l'aide du code de vérification
 
 Les informations suivantes décrivent l'utilisation de l'authentification multifacteur avec votre application mobile, si vous utilisez un code de vérification.
 
@@ -88,7 +88,7 @@ Les informations suivantes décrivent l'utilisation de l'authentification multif
 - Vous devez maintenant être connecté.
 
 
-<h2 id="4">Connexion avec une autre méthode</h2>
+## Connexion avec une autre méthode
 
 
 La section suivante vous montre comment vous connecter avec une autre méthode quand votre méthode principale n’est pas disponible.
@@ -104,4 +104,4 @@ La section suivante vous montre comment vous connecter avec une autre méthode q
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

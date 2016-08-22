@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/03/2016"
+	ms.date="08/09/2016"
 	ms.author="spelluru"/>
 
 
@@ -37,7 +37,7 @@ Les étapes classiques que nous vous suggérons pour régler les performances de
 
 	Récupérez le temps d’exécution et les caractéristiques de performances à l’aide de l’**Application de surveillance et gestion** : cliquez sur la vignette **Surveiller et gérer** dans la page d’accueil de votre fabrique de données, sélectionnez le **jeu de données de sortie** dans l’arborescence, puis sélectionnez l’activité de copie exécutée dans la liste **Fenêtres d’activité**. La durée de l’activité de copie doit s’afficher dans la liste **Fenêtres d’activité** et la taille des données copiées et le débit apparaissent dans la fenêtre **Explorateur de fenêtres d’activité** à droite. Consultez [Surveiller et gérer les pipelines Azure Data Factory à l’aide de l’application de surveillance et gestion](data-factory-monitor-manage-app.md) pour en savoir plus sur l’application.
 	
-	![Détails de l’exécution d’activité](./media/data-factory-copy-activity-performance/mmapp-activity-run-details.png)
+	![Détails de l'exécution d'activité](./media/data-factory-copy-activity-performance/mmapp-activity-run-details.png)
 
 	Vous pouvez comparer les performances et les configurations de votre scénario aux [Performances de référence](#performance-reference) de l’activité de copie publiées sur les observations internes.
 2. **Diagnostic et optimisation des performances** Si les performances que vous observez sont inférieures à vos attentes, vous devez identifier les goulots d’étranglement et opérer des optimisations pour supprimer ou réduire l’impact des goulots d’étranglement. Une description complète du diagnostic des performances dépasserait la portée de cet article, mais vous trouverez quelques informations générales ci-après.
@@ -327,7 +327,7 @@ Pour des recommandations relatives à la configuration de la passerelle, voir [C
 
 **Environnement de l’ordinateur de la passerelle :** nous vous recommandons d’utiliser un ordinateur dédié pour héberger la passerelle de gestion des données. Utilisez des outils tels que PerfMon pour examiner l’utilisation du processeur, de la mémoire et de la bande passante pendant une opération de copie sur l’ordinateur de la passerelle. Basculez vers un ordinateur plus puissant si la bande passante du processeur, de la mémoire ou du réseau forme un goulot d’étranglement.
 
-**Exécutions d’activités de copie simultanées :** une seule instance de la passerelle de gestion des données peut traiter plusieurs exécutions d’activités de copie en même temps. Ainsi, une passerelle peut exécuter simultanément plusieurs travaux de copie, dont le nombre est calculé en fonction de la configuration matérielle de l’ordinateur de la passerelle. Les travaux de copie excédentaires sont placés en file d’attente jusqu’à ce que la passerelle les récupère ou jusqu’à ce qu’ils expirent, selon l’événement qui se produit en premier. Pour éviter tout conflit de ressources sur la passerelle, vous pouvez planifier vos activités par phases afin de réduire la quantité de travaux de copie mis en file d’attente en même temps, ou envisager de fractionner la charge sur plusieurs passerelles.
+**Exécutions d’activités de copie simultanées :** une seule instance de la passerelle de gestion des données peut traiter plusieurs exécutions d’activités de copie en même temps. Ainsi, une passerelle peut exécuter simultanément plusieurs travaux de copie, dont le nombre est calculé en fonction de la configuration matérielle de l’ordinateur de la passerelle. Les travaux de copie excédentaires sont placés en file d’attente jusqu’à ce que la passerelle les récupère ou jusqu’à ce qu’ils expirent, selon l’événement qui se produit en premier. Pour éviter tout conflit de ressources sur la passerelle, vous pouvez planifier vos activités par phases afin de réduire le nombre de travaux de copie mis en file d’attente en même temps, ou envisager de fractionner la charge sur plusieurs passerelles.
 
 
 ## Autres considérations
@@ -358,7 +358,7 @@ Un ou plusieurs des facteurs suivants peuvent occasionner un goulot d’étrangl
 	2.	La **charge sur l’ordinateur de la passerelle** a atteint ses limites pour l’exécution des opérations suivantes :
 		1.	**Sérialisation :** la sérialisation du flux de données au format CSV présente un débit lent
 		2.	**Compression :** le codec de compression choisi est lent (par exemple, BZIP2, avec un débit de 2,8 Mo/s avec Core i7)
-	3.	**WAN :** faible bande passante entre le réseau d’entreprise et Azure (par exemple, T1 = 1 544 Kbits/s, T2 = 6 312 Kbits/s)
+	3.	**WAN :** faible bande passante entre le réseau d’entreprise et Azure (par exemple, T1 = 1 544 Kbits/s, T2 = 6312 Kbits/s)
 4.	**Récepteur :** l’objet blob Azure présente un faible débit (bien que ce soit très improbable étant donné que son contrat SLA garantit un minimum de 60 Mo/s).
 
 Dans ce cas, la compression de données BZIP2 pourrait ralentir l’ensemble du pipeline. Un basculement vers le codec de compression GZIP peut résoudre ce goulot d’étranglement.
@@ -392,4 +392,4 @@ Voici quelques références relatives à la surveillance et au réglage des perf
 - SQL Server local : [Surveillance et réglage des performances](https://msdn.microsoft.com/library/ms189081.aspx).
 - Serveur de fichiers local : [Réglage des performances des serveurs de fichiers](https://msdn.microsoft.com/library/dn567661.aspx)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0810_2016-->

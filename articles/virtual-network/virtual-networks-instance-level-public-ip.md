@@ -3,7 +3,7 @@
    description="Description des adresses IP publiques (PIP) de niveau d’instance (ILPIP) et de leur mode de gestion"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor="tysonn" />
 <tags 
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/10/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 # Vue d’ensemble des adresses IP publiques de niveau d’instance
 Une adresse IP publique de niveau d’instance (ILPIP) est une adresse IP publique que vous pouvez attribuer directement à votre machine virtuelle ou instance de rôle, plutôt qu’au service cloud dans lequel réside cette machine ou cette instance. Elle ne remplace pas l’adresse IP virtuelle (VIP) affectée à votre service cloud. Il s’agit plutôt d’une adresse IP supplémentaire que vous pouvez utiliser pour vous connecter directement à votre machine virtuelle ou instance de rôle.
@@ -50,7 +50,7 @@ Le script PowerShell ci-dessous crée un service cloud nommé *FTPService*, puis
 	| Set-AzurePublicIP -PublicIPName ftpip | New-AzureVM -ServiceName FTPService -Location "Central US"
 
 ## Récupération des informations d’adresse ILPIP pour une machine virtuelle
-Pour visualiser les informations d’adresse ILPIP concernant la machine virtuelle créée avec le script ci-dessus, exécutez la commande PowerShell ci-après et examinez les valeurs des éléments *PublicIPAddress* et *PublicIPName* :
+Pour visualiser les informations d’adresse ILPIP concernant la machine virtuelle créée avec le script ci-dessus, exécutez la commande PowerShell ci-après et examinez les valeurs des éléments *PublicIPAddress* et *PublicIPName* :
 
 	Get-AzureVM -Name FTPInstance -ServiceName FTPService
 
@@ -129,4 +129,4 @@ Vous pouvez également associer une adresse ILPIP à une machine virtuelle au m
 - En savoir plus sur les [adresses IP réservées](virtual-networks-reserved-public-ip.md).
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0810_2016-->

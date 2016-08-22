@@ -240,7 +240,7 @@ Un modèle Azure Resource Manager permet de déployer et gérer des ressources
                   "protocol": "tcp",
                   "frontendPortRangeStart": 50000,
                   "frontendPortRangeEnd": 50500,
-                  "backendPort": 3389
+                  "backendPort": 22
                 }
               }
             ]
@@ -541,7 +541,7 @@ Vous pouvez obtenir des informations sur les jeux de mise à l’échelle de mac
 
 		azure resource show -n vmsstest1 -r Microsoft.Compute/virtualMachineScaleSets -o 2015-06-15 -g vmsstestrg1
 
- - Connectez-vous à la machine virtuelle jumpbox comme vous le feriez pour n’importe quel autre ordinateur et vous pouvez ensuite accéder à distance aux machines virtuelles du groupe à échelle identique pour surveiller les processus individuels.
+ - Connectez-vous à la machine virtuelle jumpbox comme vous le feriez pour n’importe quel autre ordinateur et vous pouvez ensuite accéder à distance aux machines virtuelles de l’ensemble de mise à l’échelle pour surveiller les processus individuels.
 
 >[AZURE.NOTE]Vous trouverez une API REST complète permettant d’obtenir des informations sur les jeux de mise à l’échelle dans les [groupes identiques de machines virtuelles](https://msdn.microsoft.com/library/mt589023.aspx).
 
@@ -557,4 +557,4 @@ Vous pouvez obtenir des informations sur les jeux de mise à l’échelle de mac
 - Pour en savoir plus sur les fonctionnalités de notification, consultez [Utilisation d’actions de mise à l’échelle automatique pour envoyer des notifications d’alerte webhook et par courrier électronique dans Azure Insights](../azure-portal/insights-autoscale-to-webhook-email.md) et [Utiliser les journaux d’audit pour envoyer des notifications webhook et par courrier électronique dans Azure Insights](../azure-portal/insights-auditlog-to-webhook-email.md)
 - Découvrez le modèle [Mettre à l’échelle automatiquement un groupe identique de machine virtuelle exécutant une application Ubuntu/Apache/PHP](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-lapstack-autoscale) qui configure une pile LAMP pour tester la fonctionnalité de mise à l’échelle automatique des groupes identiques de machines virtuelles.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0810_2016-->

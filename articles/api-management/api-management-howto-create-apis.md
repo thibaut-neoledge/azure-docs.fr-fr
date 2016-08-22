@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/25/2016" 
+	ms.date="08/09/2016" 
 	ms.author="sdanie"/>
 
 # Création d'API dans Gestion des API Azure
@@ -99,4 +99,4 @@ Une fois l'API créée et les paramètres configurés, l'étape suivante consist
 [Comment sécuriser les services principaux à l’aide d’une authentification de certificat client dans la Gestion des API Azure]: api-management-howto-mutual-certificates.md
 [Comment autoriser des comptes de développeurs à l’aide d’OAuth 2.0 dans Gestion des API Azure]: api-management-howto-oauth2.md
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

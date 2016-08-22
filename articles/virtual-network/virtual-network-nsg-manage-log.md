@@ -3,7 +3,7 @@
    description="Découvrez comment activer la journalisation des compteurs, des événements et des opérations pour les groupes de sécurité réseau"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor="tysonn"
    tags="azure-resource-manager"
@@ -15,15 +15,15 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="07/14/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 #Analyse de journaux pour les groupes de sécurité réseau (NSG)
 
 Vous pouvez utiliser différents types de journaux dans Azure pour gérer les groupes de sécurités réseau et résoudre les problèmes associés. Certains de ces journaux sont accessibles par le biais du portail et tous les journaux peuvent être extraits à partir d’un stockage blob Azure et affichés dans différents outils, notamment [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md), Excel et PowerBI. Pour en savoir plus sur les différents types de journaux, consultez la liste ci-dessous.
 
-- **Journaux d’audit :** vous pouvez utiliser les [journaux d’audit Azure](../azure-portal/insights-debugging-with-events.md) (anciennement journaux des opérations) pour afficher toutes les opérations soumises à votre ou vos abonnements Azure, ainsi que leur état. Les journaux d’audit sont activés par défaut et peuvent être affichés dans le portail Azure en version préliminaire.
-- **Journaux des événements :** vous pouvez utiliser ces journaux pour voir quelles règles NSG sont appliquées aux machines virtuelles et les rôles d’instance en fonction de l’adresse MAC. L’état de ces règles est collecté toutes les 60 secondes.
-- **Journaux des compteurs :** vous pouvez utiliser ces journaux pour afficher le nombre de fois où chaque règle NSG a été appliquée pour refuser ou autoriser le trafic.
+- **Journaux d’audit :** vous pouvez utiliser les [journaux d’audit Azure](../azure-portal/insights-debugging-with-events.md) (anciennement journaux des opérations) pour afficher toutes les opérations soumises à votre ou vos abonnements Azure, ainsi que leur état. Les journaux d’audit sont activés par défaut et peuvent être affichés dans le portail Azure en version préliminaire.
+- **Journaux des événements :** vous pouvez utiliser ces journaux pour voir quelles règles NSG sont appliquées aux machines virtuelles et les rôles d’instance en fonction de l’adresse MAC. L’état de ces règles est collecté toutes les 60 secondes.
+- **Journaux des compteurs :** vous pouvez utiliser ces journaux pour afficher le nombre de fois où chaque règle NSG a été appliquée pour refuser ou autoriser le trafic.
 
 >[AZURE.WARNING] Les journaux ne sont disponibles que pour les ressources déployées avec le modèle de déploiement de Resource Manager. Vous ne pouvez pas les utiliser pour les ressources utilisant le modèle de déploiement classique. Pour mieux comprendre ces deux modèles, reportez-vous à l’article [Présentation du déploiement de Resource Manager et du déploiement classique](../resource-manager-deployment-model.md).
 
@@ -50,7 +50,7 @@ La journalisation d’audit est automatiquement activée systématiquement pour 
 	![Portail en version préliminaire - Journaux de diagnostics](./media/virtual-network-nsg-manage-log/portal-enable3.png)
 
 ## Journal d’audit
-Ce journal (anciennement appelé « journal des opérations ») est généré par Azure par défaut. Les journaux sont conservés pendant 90 jours dans la banque de journalisation des événements d’Azure. Pour en savoir plus sur ces journaux, lisez l’article [Affichage des événements et des journaux d’audit](../azure-portal/insights-debugging-with-events.md).
+Ce journal (anciennement appelé « journal des opérations ») est généré par Azure par défaut. Les journaux sont conservés pendant 90 jours dans la banque de journalisation des événements d’Azure. Pour en savoir plus sur ces journaux, lisez l’article [Affichage des événements et des journaux d’audit](../azure-portal/insights-debugging-with-events.md).
 
 ## Journal des compteurs
 Ce journal n’est généré que si vous l’avez activé au niveau de chaque groupe de sécurité réseau, comme détaillé ci-dessous. Les données sont stockées dans le compte de stockage spécifié lors de l’activation de la journalisation. Chaque règle appliquée aux ressources est enregistrée au format JSON, comme indiqué ci-dessous.
@@ -73,7 +73,7 @@ Ce journal n’est généré que si vous l’avez activé au niveau de chaque gr
 	}
 
 ## Journal des événements
-Ce journal n’est généré que si vous l’avez activé au niveau de chaque groupe de sécurité réseau, comme détaillé ci-dessous. Les données sont stockées dans le compte de stockage spécifié lors de l’activation de la journalisation. Les données suivantes sont enregistrées :
+Ce journal n’est généré que si vous l’avez activé au niveau de chaque groupe de sécurité réseau, comme détaillé ci-dessous. Les données sont stockées dans le compte de stockage spécifié lors de l’activation de la journalisation. Les données suivantes sont enregistrées :
 
 	{
 		"time": "2015-09-11T23:05:22.6860000Z",
@@ -99,10 +99,10 @@ Ce journal n’est généré que si vous l’avez activé au niveau de chaque gr
 	}
 
 ## Afficher et analyser le journal d’audit
-Vous pouvez afficher et analyser les données du journal d’audit en utilisant l’une des méthodes suivantes :
+Vous pouvez afficher et analyser les données du journal d’audit en utilisant l’une des méthodes suivantes :
 
-- **Outils Azure :** récupérez les informations à partir des journaux via Azure PowerShell, l’interface de ligne de commande Azure, l’API REST Azure ou le portail Azure en version préliminaire. Des instructions détaillées pour chaque méthode sont détaillées dans l’article [Opérations d’audit avec Resource Manager](../resource-group-audit.md).
-- **Power BI :** si vous n’avez pas encore de compte [Power BI](https://powerbi.microsoft.com/pricing), vous pouvez l’essayer gratuitement. À l’aide du [pack de contenus des journaux d’audit Azure pour Power BI](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs/), vous pouvez analyser vos données avec des tableaux de bord préconfigurés à utiliser en l’état ou à personnaliser.
+- **Outils Azure :** récupérez les informations à partir des journaux via Azure PowerShell, l’interface de ligne de commande Azure, l’API REST Azure ou le portail Azure en version préliminaire. Des instructions détaillées pour chaque méthode sont détaillées dans l’article [Opérations d’audit avec Resource Manager](../resource-group-audit.md).
+- **Power BI :** si vous n’avez pas encore de compte [Power BI](https://powerbi.microsoft.com/pricing), vous pouvez l’essayer gratuitement. À l’aide du [pack de contenus des journaux d’audit Azure pour Power BI](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs/), vous pouvez analyser vos données avec des tableaux de bord préconfigurés à utiliser en l’état ou à personnaliser.
 
 ## Afficher et analyser les journaux des compteurs et des événements
 
@@ -115,7 +115,7 @@ Vous pouvez également vous connecter à votre compte de stockage et récupérer
 ## Étapes suivantes
 
 - Visualisation du compteur et des journaux des événements avec [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md)
-- Billet de blog [Visualiser vos journaux d’audit Azure avec Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx).
+- Billet de blog [Visualiser vos journaux d’audit Azure avec Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx).
 - Billet de blog [Afficher et analyser les journaux d’audit Azure dans Power BI et bien plus encore](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0810_2016-->

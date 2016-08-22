@@ -127,7 +127,7 @@ Pour plus d’informations et pour connaître les éléments à prendre en compt
 |Standard\_D12\_v2 |4|28 Go|4|Temporaire (SSD) = 200 Go |8|8 x 500| élevé |
 |Standard\_D13\_v2 |8|56 Go|8|Temporaire (SSD) = 400 Go |16|16 x 500| élevé |
 |Standard\_D14\_v2 |16|112 Go|8|Temporaire (SSD) = 800 Go |32|32 x 500| extrêmement élevé |
-|Standard\_D15\_v2 |20|140 Go|10|Temporaire (SSD) = 1 To |40|40 x 500| extrêmement élevé |
+|Standard\_D15\_v2 |20|140 Go|8|Temporaire (SSD) = 1 To |40|40 x 500| extrêmement élevé |
 
 
 ## Séries DS*
@@ -143,7 +143,7 @@ Pour plus d’informations et pour connaître les éléments à prendre en compt
 |Standard\_DS13 |8|56|8|Disque SSD local = 112 Go |16|288| 25 600 256 Mo par seconde | élevé |
 |Standard\_DS14 |16|112|8|Disque SSD local = 224 Go |32|576| 51 200 512 Mo par seconde | très élevé |
 
-* Le nombre maximal d’opérations d’entrée/sortie par seconde (IOPS) et le débit (bande passante) possibles avec une machine virtuelle de la série DS sont affectés par la taille du disque. Pour plus d’informations, consultez l’article [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](../articles/storage/storage-premium-storage.md).
+* Le nombre maximal d’opérations d’entrée/sortie par seconde (IOPS) et le débit (bande passante) possibles avec une machine virtuelle de la série DS sont affectés par la taille du disque. Pour plus d’informations, consultez l’article [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](../articles/storage/storage-premium-storage.md).
 
 
 ## Séries DSv2*
@@ -159,10 +159,10 @@ Pour plus d’informations et pour connaître les éléments à prendre en compt
 |Standard\_DS12\_v2 |4|28|4|Disque SSD local = 56 Go |8|144| 12 800 192 Mo par seconde | élevé |
 |Standard\_DS13\_v2 |8|56|8|Disque SSD local = 112 Go |16|288| 25 600 384 Mo par seconde | élevé |
 |Standard\_DS14\_v2 |16|112|8|Disque SSD local = 224 Go |32|576| 51 200 768 Mo par seconde | extrêmement élevé |
-|Standard\_DS15\_v2 |20|140 Go|10|Disque SSD local = 280 Go |40| 720|64 000 960 Mo par seconde | extrêmement élevé |
+|Standard\_DS15\_v2 |20|140 Go|8|Disque SSD local = 280 Go |40| 720|64 000 960 Mo par seconde | extrêmement élevé |
 
 
-* Le nombre maximal d’opérations d’entrée/sortie par seconde (IOPS) et le débit (bande passante) possibles avec une machine virtuelle de la série DS sont affectés par la taille du disque. Pour plus d’informations, consultez l’article [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](../articles/storage/storage-premium-storage.md).
+* Le nombre maximal d’opérations d’entrée/sortie par seconde (IOPS) et le débit (bande passante) possibles avec une machine virtuelle de la série DS sont affectés par la taille du disque. Pour plus d’informations, consultez l’article [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](../articles/storage/storage-premium-storage.md).
 
 
 ## Série F
@@ -190,7 +190,7 @@ Pour plus d’informations et pour connaître les éléments à prendre en compt
 
 
 
-* Le nombre maximal d’opérations d’entrée/sortie par seconde (IOPS) et le débit (bande passante) possibles avec une machine virtuelle de la série Fs sont affectés par la taille du disque. Pour plus d’informations, consultez l’article [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](../articles/storage/storage-premium-storage.md).
+* Le nombre maximal d’opérations d’entrée/sortie par seconde (IOPS) et le débit (bande passante) possibles avec une machine virtuelle de la série Fs sont affectés par la taille du disque. Pour plus d’informations, consultez l’article [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](../articles/storage/storage-premium-storage.md).
 
 
 
@@ -219,7 +219,7 @@ Pour plus d’informations et pour connaître les éléments à prendre en compt
 |Standard\_GS4|16|224|8|Disque SSD local = 448 Go |32|2 112| 40 000 1 000 Mo par seconde | extrêmement élevé |
 |Standard\_GS5|32|448|8|Disque SSD local = 896 Go |64|4 224| 80 000 2 000 Mo par seconde | extrêmement élevé |
 
-## Série N
+## Série N (version préliminaire)
 
 Les tailles NC et NV sont également appelées instances compatibles GPU. Il s’agit de machines virtuelles spécialisées qui incluent des cartes GPU NVIDIA, optimisées pour différents scénarios et cas d’utilisation. Les tailles NV sont optimisées et conçues pour la visualisation à distance, la diffusion en continu, les jeux, le codage et les scénarios VDI utilisant des infrastructures comme OpenGL et DirectX. Les tailles NC sont optimisées pour les applications nécessitant des ressources réseau et de calcul importantes, les algorithmes, notamment les applications et simulations CUDA et OpenCL.
 
@@ -230,9 +230,9 @@ Les instances NV sont alimentées par des GPU NVIDIA Tesla M60 et NVIDIA GRID po
 
 | Taille | Cœurs | GPU | Mémoire | Disque |
 |------|-------|----------------|--------|-------------|
-| NV6 | 6 | 1 x NVIDIA M60 | 56 Go | 380 Go de stockage SSD |
-| NV12 | 12 | 2 x NVIDIA M60 | 112 Go | 680 Go de stockage SSD |
-| NV24 | 24 | 4 x NVIDIA M60 | 224 Go | 1 440 Go de stockage SSD | 
+| Standard\_NV6 | 6 | 1 x NVIDIA M60 | 56 Go | 380 Go de stockage SSD |
+| Standard\_NV12 | 12 | 2 x NVIDIA M60 | 112 Go | 680 Go de stockage SSD |
+| Standard\_NV24 | 24 | 4 x NVIDIA M60 | 224 Go | 1 440 Go de stockage SSD | 
 
 
 
@@ -243,9 +243,9 @@ Les instances NC sont équipés de modules NVIDIA Tesla K80. Les utilisateurs pe
 
 | Taille | Cœurs | GPU | Mémoire | Disque |
 |------|-------|----------------|--------|-------------|
-| NC6 | 6 | 1 x NVIDIA K80 | 56 Go | 380 Go de stockage SSD |
-| NC12 | 12 | 2 x NVIDIA K80 | 112 Go | 680 Go de stockage SSD |
-| NC24 | 24 | 4 x NVIDIA K80 | 224 Go | 1 440 Go de stockage SSD |
+| Standard\_NC6 | 6 | 1 x NVIDIA K80 | 56 Go | 380 Go de stockage SSD |
+| Standard\_NC12 | 12 | 2 x NVIDIA K80 | 112 Go | 680 Go de stockage SSD |
+| Standard\_NC24 | 24 | 4 x NVIDIA K80 | 224 Go | 1 440 Go de stockage SSD |
 
 ## Remarques : Standard A0 - A4 à l’aide de l’interface de ligne de commande et de Powershell 
 
@@ -264,4 +264,4 @@ Dans le modèle de déploiement classique, certains noms de tailles de machines 
 - En savoir plus sur l’[abonnement Azure et les limites, quotas et contraintes des services](../articles/azure-subscription-service-limits.md).
 - En savoir plus sur [à propos des instances de calcul intensif A8, A9, A10 et A11](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md) pour les charges de travail telles que le calcul haute performance (HPC).
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

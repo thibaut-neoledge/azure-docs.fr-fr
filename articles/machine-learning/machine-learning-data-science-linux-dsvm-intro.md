@@ -13,34 +13,33 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="08/10/2016"
 	ms.author="gokuma;bradsev" />
 
 # Approvisionnement d’une machine virtuelle de science des données Linux 
-
 
 La machine virtuelle de science des données Linux est une image de machine virtuelle Azure préalablement installée et configurée avec plusieurs outils populaires couramment utilisés dans le cadre de l’analyse de données et de l’apprentissage automatique. Les principaux composants logiciels inclus sont les suivants :
 
 - Microsoft R Open
 - Distribution Anaconda Python (versions 2.7 et 3.5), y compris les populaires bibliothèques d’analyse des données
 - Jupyter Notebook (R, Python)
-- Explorateur de stockage Azure
+- Azure Storage Explorer
 - Ligne de commande Azure pour la gestion des ressources Azure
 - Base de données PostgresSQL
 - Outils d’apprentissage automatique
     - [Computational Network Toolkit (CNTK)](https://github.com/Microsoft/CNTK) : logiciel d’apprentissage profond de Microsoft Research
     - [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit) : système d’apprentissage automatique rapide prenant en charge des techniques (apprentissage en ligne, hachage, allreduce, réductions, learning2search, actif et interactif).
     - [XGBoost](https://xgboost.readthedocs.org/en/latest/) : outil offrant une implémentation rapide et précise des arborescences optimisées
-    - [Rattle (R Analytical Tool To Learn Easily)](http://rattle.togaware.com/) : outil qui facilite la prise en main de l’analyse des données et de l’apprentissage automatique dans R avec une modélisation et une exploration des données basées sur une interface graphique utilisateur avec la génération automatique de code R. 
+    - [Rattle (R Analytical Tool To Learn Easily)](http://rattle.togaware.com/) : outil qui facilite la prise en main de l’analyse des données et de l’apprentissage automatique dans R avec une modélisation et une exploration des données basées sur une interface graphique utilisateur avec la génération automatique de code R.
 - Kit de développement logiciel (SDK) Azure dans Java, Python, node.js, Ruby, PHP
 - Bibliothèques dans les langages R et Python à utiliser dans Azure Machine Learning et d’autres services Azure
 - Éditeurs et outils de développement (Eclipse, Emacs, gedit, vi)
 
 La science des données consiste à itérer sur une séquence de tâches :
 
-- recherche, chargement et traitement des données 
-- création et test des modèles 
-- déploiement des modèles à des fins d’utilisation dans des applications intelligentes 
+- recherche, chargement et traitement des données
+- création et test des modèles
+- déploiement des modèles à des fins d’utilisation dans des applications intelligentes
 
 Les chercheurs de données sont souvent amenés à utiliser divers outils pour effectuer ces tâches. La recherche des versions adéquates des logiciels, puis leur téléchargement et leurs téléchargement, compilation et installation peuvent prendre un certain temps.
 
@@ -49,12 +48,12 @@ La machine virtuelle de science des données Linux est là pour vous soulager en
 Cette image de machine virtuelle de science des données ne génère pas de frais. Vous payez uniquement les frais d’utilisation matérielle Azure en fonction de la taille de la machine virtuelle approvisionnée avec l’image de machine virtuelle. Vous trouverez d’autres informations sur les frais de calcul [ici](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linuxdsvm/).
 
 
-## Configuration requise
+## Composants requis
 
 Avant de pouvoir créer une machine virtuelle de science des données Linux, vous devez disposer des éléments suivants :
 
-- **Un abonnement Azure** : pour obtenir un abonnement, consultez la page [Obtenir une version d’évaluation gratuite d’Azure](https://azure.microsoft.com/free/).
-- **Un compte de stockage Azure** : pour créer un compte, référez-vous à la rubrique [Création d’un compte de stockage Azure](storage-create-storage-account.md#create-a-storage-account). Le compte de stockage peut être également créé dans le cadre du processus de création de la machine virtuelle si vous ne souhaitez pas utiliser un compte existant.
+- **Un abonnement Azure** : pour obtenir un abonnement, consultez la page [Obtenir une version d’évaluation gratuite d’Azure](https://azure.microsoft.com/free/).
+- **Un compte de stockage Azure** : pour créer un compte, référez-vous à la rubrique [Création d’un compte de stockage Azure](storage-create-storage-account.md#create-a-storage-account). Le compte de stockage peut être également créé dans le cadre du processus de création de la machine virtuelle si vous ne souhaitez pas utiliser un compte existant.
 
 
 ## Création d’une machine virtuelle de science des données Linux
@@ -65,16 +64,17 @@ Voici les étapes de création d’une instance de la machine virtuelle de scien
 2.	 Cliquez sur le bouton **Créer** au bas de l’écran pour accéder à un assistant.![configure-data-science-vm](./media/machine-learning-data-science-linux-dsvm-intro/configure-linux-data-science-virtual-machine.png)
 3.	 Les sections suivantes fournissent les **entrées** de chacune des **5 étapes** (énumérées à droite de la figure ci-dessus) de l’Assistant utilisé pour créer la machine virtuelle de sciences de données. Voici les entrées nécessaires à la configuration de chacune de ces étapes :
 
-  **a. Paramètres de base** :
+
+  **a. Paramètres de base** :
 
    - **Name** (Nom) : nom du serveur Data Science que vous créez.
    - **User Name** (Nom d’utilisateur) : premier identifiant de connexion du compte.
    - **Password** (Mot de passe) : premier mot de passe de compte (vous pouvez utiliser une clé publique SSH au lieu d’un mot de passe).
-   - **Subscription** (Abonnement) : si vous disposez de plusieurs abonnements, sélectionnez celui qui sera associé à la création et à la facturation de la machine. Remarque : vous devez disposer des privilèges de création de ressources pour cet abonnement. 
+   - **Subscription** (Abonnement) : si vous disposez de plusieurs abonnements, sélectionnez celui qui sera associé à la création et à la facturation de la machine. Remarque : vous devez disposer des privilèges de création de ressources pour cet abonnement.
    - **Resource Group** (Groupe de ressources) : vous pouvez créer un nouveau groupe ou utiliser un groupe existant.
    - **Location** (Emplacement) : sélectionnez le centre de données qui convient le mieux. Généralement, il s’agit du centre de données qui héberge la plupart de vos données ou du centre de données le plus proche de votre emplacement physique afin d’accélérer l’accès au réseau
 
-  **b. Taille** :
+  **b. Taille** :
 
    - Sélectionnez l’un des types de serveur qui répond à vos exigences fonctionnelles et à vos contraintes de coût. Sélectionnez « View All » (Afficher tout) pour obtenir d’autres choix de tailles de machines virtuelles
 
@@ -84,13 +84,13 @@ Voici les étapes de création d’une instance de la machine virtuelle de scien
    - **Storage Account** (Compte de stockage) : vous pouvez créer un nouveau compte de stockage Azure associé à votre abonnement ou utiliser un compte existant au même *emplacement* que celui que vous avez sélectionné à l’étape de définition des paramètres de base de l’Assistant.
    - **Other parameters** (Autres paramètres) : dans la plupart des cas, vous utiliserez simplement la valeur par défaut. Si vous ne souhaitez pas utiliser les valeurs par défaut, vous pouvez survoler le lien d'informations pour obtenir de l'aide sur des champs spécifiques.
 
-  **d. Résumé** :
+  **d. Résumé** :
 
    - Vérifiez que toutes les informations que vous avez saisies sont correctes.
 
-  **e. Acheter** :
+  **e. Acheter** :
 
-   - Cliquez sur **Buy** (Acheter) pour démarrer l’approvisionnement. Les conditions de la transaction vous sont communiquées via un lien. La machine virtuelle n'est pas assortie de frais supplémentaires au-delà du calcul de la taille de serveur que vous avez choisie à l'étape **Taille**. 
+   - Cliquez sur **Buy** (Acheter) pour démarrer l’approvisionnement. Les conditions de la transaction vous sont communiquées via un lien. La machine virtuelle n'est pas assortie de frais supplémentaires au-delà du calcul de la taille de serveur que vous avez choisie à l'étape **Taille**.
 
 
 L’approvisionnement prend environ 10 à 20 minutes. L’état de l’approvisionnement est affiché sur le portail Azure.
@@ -106,33 +106,18 @@ Une fois la machine virtuelle créée, vous pouvez vous y connecter à l’aide 
 
 La machine virtuelle Linux est déjà approvisionnée avec le serveur X2Go et elle est prête à accepter des connexions clientes. Pour vous connecter au bureau graphique de la machine virtuelle Linux, vous devez effectuer les opérations suivantes sur votre client.
 
-1. Téléchargez et installez le client X2Go pour votre plateforme cliente [ici](http://wiki.x2go.org/doku.php/doc:installation:x2goclient).    
-2. Exécutez le client X2Go et sélectionnez *New Session* (Nouvelle session). Une fenêtre de configuration avec plusieurs onglets s’ouvre. Entrez les paramètres de configuration suivants : 
+1. Téléchargez et installez le client X2Go pour votre plateforme cliente [ici](http://wiki.x2go.org/doku.php/doc:installation:x2goclient).
+2. Exécutez le client X2Go et sélectionnez *New Session* (Nouvelle session). Une fenêtre de configuration avec plusieurs onglets s’ouvre. Entrez les paramètres de configuration suivants :
     * **Onglet Session** :
-        - **Host** (Hôte) : nom d’hôte ou adresse IP de votre machine virtuelle de science de données Linux.
+        - **Host ** (Hôte) : nom d’hôte ou adresse IP de votre machine virtuelle de science de données Linux.
         - **Login** (Connexion) : nom d’utilisateur de la machine virtuelle VM.
         - **SSH Port** (Port SSH) : conservez la valeur par défaut 22.
         - **Session Type** (Type de session) : remplacez la valeur par XFCE. REMARQUE : la machine virtuelle Linux ne prend actuellement en charge que le bureau XFCE.
-    * **Onglet Media** (Média) : vous pouvez désactiver l’impression client et la prise en charge du son si vous n’en avez pas besoin. 
-    * **Shared folders** (Dossiers partagés) : si vous souhaitez que les répertoires de vos ordinateurs clients soient montés sur la machine virtuelle Linux, ajoutez ceux que vous souhaitez partager avec la machine virtuelle sous cet onglet. 
+    * **Onglet Media ** (Média) : vous pouvez désactiver l’impression client et la prise en charge du son si vous n’en avez pas besoin.
+    * **Shared folders** (Dossiers partagés) : si vous souhaitez que les répertoires de vos ordinateurs clients soient montés sur la machine virtuelle Linux, ajoutez ceux que vous souhaitez partager avec la machine virtuelle sous cet onglet.
 
 Une fois que vous êtes connecté à la machine virtuelle à l’aide du client SSH ou du bureau graphique XFCE par le biais du client X2Go, vous pouvez commencer à utiliser les outils qui sont installés et configurés sur la machine virtuelle. Sur XFCE, vous pouvez voir les icônes de bureau et raccourcis du menu d’applications pour la plupart des outils.
 
-## Création d'un mot de passe fort sur le serveur Jupyter Notebook 
-
-Exécutez la commande suivante à partir de l'invite de commandes sur la machine virtuelle de sciences de données pour créer votre propre mot de passe fort pour le serveur Jupyter Notebook installé sur la machine.
-
-	python -c "import IPython;print(IPython.lib.passwd())"
-
-À l'invite, entrez un mot de passe fort.
-
-Vous verrez le hachage du mot de passe au format « sha1:xxxxxx » dans la sortie. Copiez ce hachage de mot de passe et remplacez le hachage existant dans votre fichier de configuration de notebook situé dans le répertoire **C:\\ProgramData\\jupyter\\jupyter\_notebook\_config.py** avec un nom de paramètre ***c.NotebookApp.password***. L’accès **utilisateur racine** est requis pour modifier ce fichier.
-
-Vous devez remplacer seulement la valeur existante du hachage qui figure entre les guillemets. Les guillemets et le préfixe ***sha1:*** de la valeur du paramètre doivent être conservés.
-
-Enfin, vous devez arrêter et redémarrer le service Jupyter installé dans le dossier /etc/init.d/jupyter.
-
->[AZURE.NOTE] Si votre nouveau mot de passe n’est pas accepté après le redémarrage de Jupyter ou si vous ne parvenez pas à arrêter Jupyter, essayez de redémarrer la machine virtuelle.
 
 ## Outils installés sur la machine virtuelle de science des données Linux
 
@@ -163,19 +148,26 @@ Python 3.5 est installé dans */anaconda/envs/py35/bin*
 
 Pour appeler la session interactive Python, tapez ***python*** dans l’interpréteur de commandes. Si vous travaillez sur une interface graphique ou si vous avez le programme d’installation du transfert X11, vous pouvez taper la commande ***spyder*** pour lancer l’IDE Python.
 
-### Jupyter Notebook
-La distribution Anaconda est également fournie avec un serveur Jupyter Notebook, un environnement conçu pour le partage de code et d’analyses. Un serveur Jupyter Notebook a été préconfiguré avec Python 2, Python 3 et les noyaux R. Une icône de bureau nommée « Jupyter Notebook » permet de lancer le navigateur pour accéder au serveur. Si vous accédez à la machine virtuelle par le biais de SSH ou du client X2go, vous pouvez également accéder à l’URL [https://localhost:9999/](https://localhost:9999/) pour accéder au serveur Jupyter Notebook.
+### Jupyter Notebook 
+
+La distribution Anaconda est également fournie avec un serveur Jupyter Notebook, un environnement conçu pour le partage de code et d’analyses. Le serveur Jupyter Notebook est accessible via JupyterHub. Vous vous connectez en utilisant votre nom d’utilisateur Linux local et votre mot de passe.
+
+Le serveur Jupyter Notebook a été préconfiguré avec Python 2, Python 3 et les noyaux R. Une icône de bureau nommée « Jupyter Notebook » permet de lancer le navigateur pour accéder au serveur. Si vous accédez à la machine virtuelle par le biais de SSH ou du client X2go, vous pouvez également accéder à l’URL [https://localhost:8000/](https://localhost:8000/) pour accéder au serveur Jupyter Notebook.
 
 >[AZURE.NOTE] Si vous recevez des avertissements relatifs au certificat, vous pouvez les ignorer.
 
-Vous pouvez accéder au serveur Jupyter Notebook à partir de n’importe quel hôte. Tapez simplement https://<nom DNS de la machine virtuelle ou adresse IP>:9999/. Nous avons inclus quelques exemples de notebooks : l’un dans Python et l’autre dans R. Après vous être authentifié auprès du serveur Jupyter Notebook avec le mot de passe créé à l’étape précédente, vous pouvez voir le lien vers les exemples sur la page d’accueil du notebook. Vous pouvez créer un notebook en sélectionnant Nouveau, puis le noyau du langage. Si vous ne voyez pas le bouton Nouveau, cliquez sur l’icône Jupyter en haut à gauche pour accéder à la page d’accueil du serveur du notebook.
+Vous pouvez accéder au serveur Jupyter Notebook à partir de n’importe quel hôte. Tapez simplement https://<nom DNS de la machine virtuelle ou adresse IP>:8000/.
+
+>[AZURE.NOTE] Le port 8000 est ouvert par défaut dans le pare-feu lorsque la machine virtuelle est configurée.
+
+Nous avons inclus quelques exemples de notebooks : l’un dans Python et l’autre dans R. Après vous être authentifié auprès du serveur Jupyter Notebook avec votre nom d'utilisateur Linux local et votre mot de passe, vous pouvez voir le lien vers les exemples sur la page d’accueil du notebook. Vous pouvez créer un notebook en sélectionnant Nouveau, puis le noyau du langage. Si vous ne voyez pas le bouton Nouveau, cliquez sur l’icône Jupyter en haut à gauche pour accéder à la page d’accueil du serveur du notebook.
 
 
 ### IDE et éditeurs 
 
 Vous avez le choix entre plusieurs éditeurs de code, notamment vi/VIM, Emacs, gEdit et Eclipse. gEdit et Eclipse sont des éditeurs graphiques et vous devez être connecté à un bureau graphique pour les utiliser. Des raccourcis de menu d’applications et bureau pour permettent de lancer ces éditeurs.
 
-**VIM** et **Emacs** sont des éditeurs de texte. Sur Emacs, nous avons installé un package sous forme de module complémentaire appelé ESS (Speaks Statistics) qui facilite l’utilisation de R dans l’éditeur Emacs. Des informations supplémentaires sont disponibles [ici](http://ess.r-project.org/).
+**VIM** et **Emacs** sont des éditeurs de texte. Sur Emacs, nous avons installé un package sous forme de module complémentaire appelé ESS (Speaks Statistics) qui facilite l’utilisation de R dans l’éditeur Emacs. Des informations supplémentaires sont disponibles ici : [ESS](http://ess.r-project.org/).
 
 **Eclipse** est un IDE open source et extensible qui prend en charge plusieurs langages. L’édition Java pour les développeurs est l’instance installée sur la machine virtuelle. Des plug-ins disponibles pour plusieurs langages courants peuvent être installés pour étendre l’environnement Eclipse. Nous avons également un plug-in installé dans Eclipse, appelé **Kit de ressources Azure pour Eclipse**, qui vous permet de facilement créer, développer, tester et déployer des applications Azure avec l’environnement de développement Eclipse qui prend en charge des langages tels que Java. Il existe également un **kit SDK Azure pour Java** qui permet d’accéder à différents services Azure à partir d’un environnement Java. Vous trouverez plus d’informations sur la page du [kit SDK Azure pour Eclipse](../azure-toolkit-for-eclipse.md).
 
@@ -207,7 +199,7 @@ Des informations supplémentaires sont disponibles dans [Connexion avec bcp](htt
 
 **sqlcmd** : cet utilitaire vous permet d’entrer des procédures système, des instructions Transact-SQL et des fichiers de script à l’invite de commandes. Il utilise ODBC pour exécuter des lots Transact-SQL.
 
-Des informations supplémentaires sont disponibles dans [Connexion avec sqlcmd](https://msdn.microsoft.com/library/hh568447.aspx).
+Des informations supplémentaires sont disponibles dans [Connexion avec sqlcmd](https://msdn.microsoft.com/library/hh568447.aspx)
 
 >[AZURE.NOTE] L’utilitaire diffère légèrement entre les plateformes Linux et Windows. Consultez la page de documentation ci-dessus pour plus d’informations.
 
@@ -216,12 +208,12 @@ Des informations supplémentaires sont disponibles dans [Connexion avec sqlcmd](
 
 Des bibliothèques sont disponibles en Python et R pour l’accès aux bases de données.
 
-- Dans R, le package **RODBC** ou **dplyr** vous permet d’interroger ou d’exécuter des instructions SQL sur le serveur de bases de données. 
-- Dans Python, la bibliothèque **pyodbc** fournit l’accès aux bases de données avec ODBC en tant que couche sous-jacente.  
+- Dans R, le package **RODBC** ou **dplyr** vous permet d’interroger ou d’exécuter des instructions SQL sur le serveur de bases de données.
+- Dans Python, la bibliothèque **pyodbc** fournit l’accès aux bases de données avec ODBC en tant que couche sous-jacente.
 
 Pour accéder à **Postgres** :
 
-- Dans Python : utilisez la bibliothèque **psycopg2**. 
+- Dans Python : utilisez la bibliothèque **psycopg2**.
 - Dans R : utilisez le package **RPostgreSQL**.
 
 
@@ -229,13 +221,10 @@ Pour accéder à **Postgres** :
 Les outils Azure suivants sont installés sur la machine virtuelle :
 
 - **Interface de ligne de commande azure** : elle vous permet de créer et de gérer des ressources Azure par le biais de commandes dans un interpréteur. Pour appeler les outils Azure, tapez simplement ***azure help***. Pour plus d’informations, consultez la [page de documentation de l’interface de ligne de commande Azure](../virtual-machines-command-line-tools.md).
-- **Explorateur de stockage Microsoft Azure** : il s’agit d’un outil graphique qui permet de parcourir les objets stockés dans votre compte de stockage Azure et de télécharger des données vers et à partir des objets blob Azure. Vous pouvez accéder à l’Explorateur de stockage à partir de l’icône de raccourci sur le bureau. Vous pouvez l’appeler à partir d’une invite de commandes en tapant ***StorageExplorer***. Vous devez être connecté à partir d’un client X2go ou avoir configuré le transfert X11. 
+- **Explorateur de stockage Microsoft Azure** : il s’agit d’un outil graphique qui permet de parcourir les objets stockés dans votre compte de stockage Azure et de télécharger des données vers et à partir des objets blob Azure. Vous pouvez accéder à l’Explorateur de stockage à partir de l’icône de raccourci sur le bureau. Vous pouvez l’appeler à partir d’une invite de commandes en tapant ***StorageExplorer***. Vous devez être connecté à partir d’un client X2go ou avoir configuré le transfert X11.
 - **Bibliothèques Azure** : voici certaines des bibliothèques installées et disponibles :
-
 - **Python** : les bibliothèques Azure installées dans Python sont ***azure***, ***azureml***, ***pydocumentdb*** et ***pyodbc***. Les trois premières bibliothèques permettent d’accéder aux services de stockage Azure, à Azure Machine Learning et à Azure DocumentDB (base de données NoSQL sur Azure). pyodbc, la quatrième bibliothèque (avec le pilote Microsoft ODBC pour SQL Server) permet l’accès à Microsoft SQL Server, Azure SQL Database et Azure SQL Datawarehouse à partir de Python à l’aide d’une interface ODBC. Entrez ***pip list*** pour voir toutes les bibliothèques. Veillez à exécuter cette commande dans l’environnement Python 2.7 et 3.5.
-
 - **R** : les bibliothèques Azure installées dans R sont ***AzureML*** et ***RODBC***.
-
 - **Java** : la liste des bibliothèques Azure pour Java est disponible dans le répertoire ***/dsvm/sdk/AzureSDKJava*** sur la machine virtuelle. Les bibliothèques principales sont les API de gestion et de stockage Azure, DocumentDB et les pilotes JDBC pour SQL Server.
 
 Vous pouvez accéder au [portail Azure](https://portal.azure.com) à partir du navigateur Firefox préinstallé. Sur le portail Azure, vous pouvez créer, gérer et surveiller les ressources Azure.
@@ -248,8 +237,8 @@ Une fois que vous êtes connecté à Azure Machine Learning Studio, vous avez ac
 
 Vous pouvez également générer vos modèles dans R ou Python sur la machine virtuelle, puis les déployer en production sur Azure ML. Nous avons des bibliothèques installées dans R et Python pour activer cette fonctionnalité.
 
-- La bibliothèque R est appelée ***AzureML***. 
-- Dans Python, elle se nomme ***azureml***. 
+- La bibliothèque R est appelée ***AzureML***.
+- Dans Python, elle se nomme ***azureml***.
 
 Pour plus d’informations sur la façon de déployer des modèles dans R et Python dans Azure ML, consultez la section *Générer des modèles avec R ou Python et les rendre opérationnels à l’aide d’Azure Machine Learning* dans [Dix choses que vous pouvez effectuer sur la machine virtuelle pour la science des données](machine-learning-data-science-vm-do-ten-things.md).
  
@@ -257,13 +246,13 @@ Pour plus d’informations sur la façon de déployer des modèles dans R et Pyt
 
 ### Outils d’apprentissage automatique
 
-La machine virtuelle est fournie avec quelques outils/algorithmes ML qui ont été précompilés et installés localement. Il s’agit des actions suivantes :
+La machine virtuelle est fournie avec quelques outils/algorithmes ML qui ont été précompilés et installés localement. Vous avez notamment vu les points suivants :
 
 * **CNTK (Computational Network Toolkit de Microsoft Research)** : logiciel d’apprentissage profond
 * **Vowpal Wabbit** : algorithme d’apprentissage en ligne rapide
 * **xgboost** : outil qui fournit des algorithmes d’arborescence optimisés
 * **Python** : Anaconda Python est fourni avec des algorithmes ML et des bibliothèques comme Scikit-learn. Vous pouvez installer d’autres bibliothèques en exécutant pip install.
-* **R** : riche bibliothèque de fonctions ML disponible pour R. lm, glm, randomForest et rpart comptent parmi les bibliothèques préinstallées. D’autres bibliothèques peuvent être installées en exécutant la commande suivante : 
+* **R** : riche bibliothèque de fonctions ML disponible pour R. lm, glm, randomForest et rpart comptent parmi les bibliothèques préinstallées. D’autres bibliothèques peuvent être installées en exécutant la commande suivante :
 
 		install.packages(<lib name>)
 
@@ -340,8 +329,8 @@ Pour exécuter Rattle, vous devez ouvrir une session de connexion à un bureau g
 2. La boîte de dialogue qui s’affiche vous demande si vous souhaitez utiliser l’exemple de jeu de données météorologiques. Cliquez sur Oui pour charger l’exemple.
 3. Cliquez sur l’onglet Modéliser.
 4. Cliquez sur Exécuter pour générer un arbre de décision.
-5. Cliquez sur Dessin pour afficher l’arbre de décision. 
-6. Cliquez sur la case d’option Forêt, puis cliquez sur Exécuter pour générer une forêt aléatoire. 
+5. Cliquez sur Dessin pour afficher l’arbre de décision.
+6. Cliquez sur la case d’option Forêt, puis cliquez sur Exécuter pour générer une forêt aléatoire.
 7. Cliquez sur l’onglet Évaluer.
 8. Cliquez sur la case d’option Risque, puis cliquez sur Exécuter pour afficher deux tracés de performances (cumulatifs) Risque.
 9. Cliquez sur l’onglet Journal pour afficher le code de génération R pour les opérations ci-dessus. Remarque : il y a un bogue dans la version actuelle de Rattle : insérez « # » devant « Exporter ce journal... » dans le texte du journal.
@@ -353,8 +342,8 @@ Vous pouvez quitter Rattle et R. Vous pouvez maintenant modifier le script R gé
 ## Étapes suivantes
 Voici quelques étapes supplémentaires pour poursuivre votre travail d'apprentissage et d'exploration.
 
-* Explorez les différents outils de science des données sur la machine virtuelle de science des données en testant les outils répertoriés dans cet article. Vous pouvez également exécuter *dsvm-plus-info* dans l’interpréteur de commandes sur la machine virtuelle pour accéder à une présentation de base et des liens vers des informations supplémentaires sur les outils installés sur la machine virtuelle.  
+* Explorez les différents outils de science des données sur la machine virtuelle de science des données en testant les outils répertoriés dans cet article. Vous pouvez également exécuter *dsvm-plus-info* dans l’interpréteur de commandes sur la machine virtuelle pour accéder à une présentation de base et des liens vers des informations supplémentaires sur les outils installés sur la machine virtuelle.
 * Découvrez comment créer des solutions analytiques de bout en bout systématiquement à l’aide du [processus TDSP (Team Data Science Process)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/)
-* Visitez la [galerie Cortana Analytics](http://gallery.cortanaanalytics.com) pour obtenir des exemples d’apprentissage automatique et d’analyse des données utilisant Cortana Analytics Suite. 
+* Visitez la [galerie Cortana Analytics](http://gallery.cortanaanalytics.com) pour obtenir des exemples d’apprentissage automatique et d’analyse des données utilisant Cortana Analytics Suite.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0810_2016-->

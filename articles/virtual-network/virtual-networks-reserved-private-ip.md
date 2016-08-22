@@ -3,7 +3,7 @@
    description="Fonctionnement et gestion des adresses IP internes statiques (adresses IP dynamiques)"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor="tysonn" />
 <tags 
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/22/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 # Définition d’une adresse IP privée interne statique
 Dans la plupart des cas, il n’est pas nécessaire de spécifier une adresse IP interne statique pour votre machine virtuelle. Les machines virtuelles dans un réseau virtuel recevront automatiquement une adresse IP interne à partir d'une plage que vous spécifiez. Toutefois, dans certains cas, il peut être bon de spécifier une adresse IP statique pour une machine virtuelle en particulier. Par exemple, si votre machine virtuelle doit exécuter DNS ou fait office de contrôleur de domaine.
@@ -21,7 +21,7 @@ Dans la plupart des cas, il n’est pas nécessaire de spécifier une adresse IP
 >[AZURE.NOTE] Une adresse IP interne statique reste associée à la machine virtuelle même lorsque cette dernière se trouve en état d'arrêt/annulation de l’approvisionnement.
 
 ## Vérification de la disponibilité d'une adresse IP particulière
-Pour vérifier si l'adresse IP *10.0.0.7* est disponible dans un réseau virtuel nommé *TestVnet*, exécutez la commande PowerShell suivante et vérifiez la valeur de *IsAvailable* :
+Pour vérifier si l'adresse IP *10.0.0.7* est disponible dans un réseau virtuel nommé *TestVnet*, exécutez la commande PowerShell suivante et vérifiez la valeur de *IsAvailable* :
 
 	Test-AzureStaticVNetIP –VNetName TestVNet –IPAddress 10.0.0.7 
 
@@ -45,7 +45,7 @@ Le script PowerShell ci-dessous crée un service cloud nommé *TestService*, ext
 	| New-AzureVM -ServiceName "TestService" –VNetName TestVnet
 
 ## Récupération des informations d’adresse IP interne statique pour une machine virtuelle
-Pour visualiser les informations d’adresse interne statique concernant la machine virtuelle créée avec le script ci-dessus, exécutez la commande PowerShell ci-après et examinez les valeurs des éléments *IpAddress* :
+Pour visualiser les informations d’adresse interne statique concernant la machine virtuelle créée avec le script ci-dessus, exécutez la commande PowerShell ci-après et examinez les valeurs des éléments *IpAddress* :
 
 	Get-AzureVM -Name TestVM -ServiceName TestService
 
@@ -99,4 +99,4 @@ Pour ajouter une adresse IP interne statique à la machine virtuelle créée à 
 [API REST d’adresse IP réservée](https://msdn.microsoft.com/library/azure/dn722420.aspx)
  
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

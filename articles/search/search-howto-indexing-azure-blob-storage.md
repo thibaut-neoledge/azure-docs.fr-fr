@@ -12,7 +12,7 @@ ms.service="search"
 ms.devlang="rest-api"
 ms.workload="search" ms.topic="article"  
 ms.tgt_pltfrm="na"
-ms.date="07/12/2016"
+ms.date="08/08/2016"
 ms.author="eugenesh" />
 
 # Indexation de documents dans Azure Blob Storage avec Azure Search
@@ -21,23 +21,41 @@ Cet article explique comment utiliser Azure Search pour indexer des documents (t
 
 > [AZURE.IMPORTANT] Pour l’instant, cette fonctionnalité n’existe qu’en version préliminaire. Elle est uniquement disponible dans l’API REST utilisant la version **2015-02-28-Preview**. N’oubliez pas que les API d’évaluation sont destinées à être utilisées à des fins de test et d’évaluation, et non dans les environnements de production.
 
+## Formats de document pris en charge
+
+L’indexeur d’objets blob peut extraire du texte à partir des formats de document suivants :
+
+- PDF
+- Formats Microsoft Office : DOCX/DOC, XLSX/XLS, PPTX/PPT, MSG (e-mails Outlook)
+- HTML
+- XML
+- ZIP
+- EML
+- Fichiers de texte brut
+- JSON (consultez [Indexation d’objets blob JSON](search-howto-index-json-blobs.md) pour plus d’informations)
+- CSV (consultez [Indexation d’objets blob CSV](search-howto-index-csv-blobs.md) pour plus d’informations)
+
 ## Configuration de l’indexation d’objets blob
 
 Pour installer et configurer un indexeur Azure Blob Storage, vous pouvez appeler l’API REST Azure Search afin de créer et de gérer des **indexeurs** et des **sources de données** en suivant les procédures décrites dans [cet article](https://msdn.microsoft.com/library/azure/dn946891.aspx). À l’avenir, la prise en charge de l’indexation d’objets blob sera ajoutée au Kit de développement logiciel (SDK) .NET Azure Search et au portail Azure.
 
-Une source de données spécifie les données à indexer, les informations d’identification nécessaires pour accéder aux données et les stratégies qui permettent à Azure Search d’identifier efficacement les changements dans les données (tels que des lignes ajoutées, modifiées ou supprimées). Une source de données est définie en tant que ressource indépendante de manière à pouvoir être utilisée par plusieurs indexeurs.
+Pour configurer un indexeur, effectuez les opérations suivantes : créez une source de données, créez un index, configurez l’indexeur.
 
-Un indexeur est une ressource qui connecte des sources de données à des index de recherche cibles.
+### Étape 1 : Création d’une source de données
 
-Pour configurer l’indexation d’objets blob, procédez comme suit :
+Une source de données spécifie les données à indexer, les informations d’identification nécessaires pour accéder aux données et les stratégies qui permettent à Azure Search d’identifier efficacement les changements dans les données (tels que des lignes ajoutées, modifiées ou supprimées). Une source de données peut être utilisée par plusieurs indexeurs dans le même abonnement.
 
-1. Créez une source de données de type `azureblob` qui référence un conteneur (et éventuellement, un dossier de ce conteneur) dans un compte de stockage Azure.
-	- Transmettez une chaîne de connexion du compte de stockage en tant que paramètre `credentials.connectionString`. Vous pouvez obtenir la chaîne de connexion à partir du portail Azure : accédez au panneau/clés du compte de stockage souhaité et utilisez la valeur de « Chaîne de connexion principale » ou « Chaîne de connexion secondaire ».
-	- Spécifiez un nom de conteneur. Si vous le souhaitez, vous pouvez inclure un dossier à l’aide du paramètre `query`.
-2. Créez un index de recherche avec un champ `content` cherchable.
-3. Créez l’indexeur en connectant votre source de données à l’index cible.
+Pour l’indexation des objets blob, la source de données doit avoir les propriétés requises suivantes :
 
-### Créer une source de données
+- **name** est le nom unique de la source de données au sein de votre service de recherche.
+
+- **type** doit être `azureblob`.
+
+- **credentials** fournit la chaîne de connexion du compte de stockage en tant que paramètre `credentials.connectionString`. Vous pouvez obtenir la chaîne de connexion à partir du portail Azure en accédant au panneau du compte de stockage souhaité > **Paramètres** > **Clés** et utiliser la valeur « Chaîne de connexion principale » ou « Chaîne de connexion secondaire ». Étant donné que la chaîne de connexion est liée à un compte de stockage, le fait de spécifier la chaîne de connexion identifie implicitement le compte de stockage qui fournit les données.
+
+- **container** spécifie un conteneur dans votre compte de stockage. Par défaut, tous les objets blob du conteneur sont récupérables. Si vous souhaitez indexer uniquement les objets blob dans un répertoire virtuel particulier, vous pouvez spécifier ce répertoire à l’aide du paramètre facultatif **query**.
+
+L’exemple suivant illustre une définition de source de données :
 
 	POST https://[service name].search.windows.net/datasources?api-version=2015-02-28-Preview
 	Content-Type: application/json
@@ -47,12 +65,16 @@ Pour configurer l’indexation d’objets blob, procédez comme suit :
 	    "name" : "blob-datasource",
 	    "type" : "azureblob",
 	    "credentials" : { "connectionString" : "<my storage connection string>" },
-	    "container" : { "name" : "my-container", "query" : "my-folder" }
+	    "container" : { "name" : "my-container", "query" : "<optional-virtual-directory-name>" }
 	}   
 
-Pour plus d'informations sur l'API Créer une source de données, consultez [Créer une source de données](search-api-indexers-2015-02-28-preview.md#create-data-source).
+Pour plus d’informations sur l’API Créer une source de données, consultez [Créer une source de données](search-api-indexers-2015-02-28-preview.md#create-data-source).
 
-### Création d’index 
+### Étape 2 : Création d’un index 
+
+L’index spécifie les champs d’un document, les attributs et d’autres constructions qui façonnent l’expérience de recherche.
+
+Pour l’indexation des objets blob, assurez-vous que l’index contient un champ `content` cherchable pour stocker l’objet blob.
 
 	POST https://[service name].search.windows.net/indexes?api-version=2015-02-28
 	Content-Type: application/json
@@ -66,11 +88,11 @@ Pour plus d'informations sur l'API Créer une source de données, consultez [Cr�
   		]
 	}
 
-Pour plus d'informations sur l'API Créer un index, consultez [Créer un index](https://msdn.microsoft.com/library/dn798941.aspx)
+Pour plus d’informations sur l’API Créer un index, consultez [Créer un index](https://msdn.microsoft.com/library/dn798941.aspx)
 
-### Créer un indexeur 
+### Étape 3 : Création d’un indexeur 
 
-Enfin, créez un indexeur qui référence la source de données et un index cible. Par exemple :
+Un indexeur connecte des sources de données à des index de recherche cibles et fournit des informations de planification pour vous permettre d’automatiser l’actualisation des données. Une fois la source de données et l’index créés, il est relativement simple de créer un indexeur qui référence la source de données et un index cible. Par exemple :
 
 	POST https://[service name].search.windows.net/indexers?api-version=2015-02-28-Preview
 	Content-Type: application/json
@@ -87,19 +109,6 @@ Cet indexeur s’exécutera toutes les deux heures (intervalle de planification 
 
 Pour plus d’informations sur l’API Créer un indexeur, consultez [Créer un indexeur](search-api-indexers-2015-02-28-preview.md#create-indexer).
 
-
-## Formats de document pris en charge
-
-L’indexeur d’objets blob peut extraire du texte à partir des formats de document suivants :
-
-- PDF
-- Formats Microsoft Office : DOCX/DOC, XLSX/XLS, PPTX/PPT, MSG (e-mails Outlook)
-- HTML
-- XML
-- ZIP
-- EML
-- Fichiers de texte brut
-- JSON (consultez [Indexation d’objets blob JSON](search-howto-index-json-blobs.md) pour plus d'informations)
 
 ## Processus d’extraction de document
 
@@ -217,7 +226,7 @@ PPT (application/vnd.ms-powerpoint) | `metadata_content_type`<br/>`metadata_auth
 MSG (application/vnd.ms-outlook) | `metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_to`<br/>`metadata_message_cc`<br/>`metadata_message_bcc`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_subject` | Extraction du texte, y compris les pièces jointes
 ZIP (application/zip) | `metadata_content_type` | Extraction du texte de tous les documents figurant dans l’archive
 XML (application/xml) | `metadata_content_type`</br>`metadata_content_encoding`</br> | Suppression du balisage XML et extraction du texte
-JSON (application/json) | `metadata_content_type`</br>`metadata_content_encoding` | Extraction du texte<br/>REMARQUE : si vous devez extraire plusieurs champs de document à partir d’un objet blob JSON, consultez la rubrique [Indexation d’objets blob JSON](search-howto-index-json-blobs.md) pour plus de détails
+JSON (application/json) | `metadata_content_type`</br>`metadata_content_encoding` | Extraction du texte<br/>REMARQUE : si vous devez extraire plusieurs champs de document à partir d’un objet blob JSON, consultez [Indexation d’objets blob JSON](search-howto-index-json-blobs.md) pour plus de détails
 EML (message/rfc822) | `metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_to`<br/>`metadata_message_cc`<br/>`metadata_creation_date`<br/>`metadata_subject` | Extraction du texte, y compris les pièces jointes
 Texte brut (text/plain) | `metadata_content_type`</br>`metadata_content_encoding`</br> | 
 
@@ -294,4 +303,4 @@ Si vous devez extraire toutes les métadonnées, mais ignorer l’extraction de 
 
 Si vous souhaitez nous soumettre des demandes d’ajout de fonctionnalités ou des idées d’amélioration, n’hésitez pas à nous contacter sur notre [site UserVoice](https://feedback.azure.com/forums/263029-azure-search/).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0810_2016-->

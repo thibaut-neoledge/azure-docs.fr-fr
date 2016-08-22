@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/24/2016" 
+	ms.date="08/09/2016" 
 	ms.author="sdanie"/>
 
 # Comment implémenter une récupération d'urgence à l'aide d'une sauvegarde de service et la récupérer dans Gestion des API Azure
@@ -97,7 +97,7 @@ Remplacez `{application id}` et `{redirect uri}` à l'aide de l’**ID Client** 
 
 Une fois que les valeurs sont spécifiées, l'exemple de code doit renvoyer un jeton similaire à l'exemple suivant.
 
-![Le chiffrement][api-management-arm-token]
+![Jeton][api-management-arm-token]
 
 Avant d'appeler les opérations de sauvegarde et de restauration décrites dans les sections suivantes, définissez l'en-tête de demande d'autorisation de votre appel REST.
 
@@ -131,8 +131,8 @@ La sauvegarde est une opération de longue durée qui peut prendre plusieurs min
 **Remarque** :
 
 - Le **conteneur** spécifié dans le corps de la demande **doit exister**.
-* Lorsque la sauvegarde est en cours, **vous ne devez tenter aucune opération de gestion des services** telle que la mise à niveau vers une version supérieure/antérieure, la modification d'un nom de domaine, etc. 
-* La récupération d'une **sauvegarde n'est garantie que pendant 7 jours** à partir du moment de sa création. 
+* Lorsque la sauvegarde est en cours, **vous ne devez tenter aucune opération de gestion des services** telle que la mise à niveau vers une version supérieure/antérieure, la modification d'un nom de domaine, etc.
+* La récupération d'une **sauvegarde n'est garantie que pendant 7 jours** à partir du moment de sa création.
 * Les **données d'utilisation** utilisées pour la création des rapports d'analyse **ne sont pas incluses** dans la sauvegarde. Utilisez l'[API REST de Gestion des API Azure][] pour récupérer régulièrement les rapports d'analyse et les conserver en toute sécurité.
 * La fréquence à laquelle vous effectuez les sauvegardes du service affecte votre objectif de point de récupération. Afin de le réduire au maximum, nous vous conseillons d'implémenter des sauvegardes régulières, ainsi que des sauvegardes à la demande lorsque vous apportez des modifications importantes à votre service Gestion des API.
 * Les **modifications** de la configuration du service (par ex., API, stratégies, apparence du portail des développeurs) pendant qu'une opération de sauvegarde est en cours **peuvent ne pas être incluses dans la sauvegarde et donc être perdues**.
@@ -169,7 +169,7 @@ La récupération est une opération de longue durée qui peut prendre jusqu'à 
 ## Étapes suivantes
 Consultez les blogs Microsoft suivants pour les deux procédures pas à pas différent du processus de sauvegarde et de restauration.
 
--	[Répliquer des comptes de gestion des API Azure](https://www.returngis.net/en/2015/06/replicate-azure-api-management-accounts/) 
+-	[Répliquer des comptes de gestion des API Azure](https://www.returngis.net/en/2015/06/replicate-azure-api-management-accounts/)
 	-	Merci à Gisela pour sa contribution à cet article.
 -	[Gestion des API Azure : sauvegarde et restauration de la configuration](http://blogs.msdn.com/b/stuartleeks/archive/2015/04/29/azure-api-management-backing-up-and-restoring-configuration.aspx)
 	-	L'approche détaillée par Stuart ne correspond pas à l'aide officielle mais est très intéressante.
@@ -191,4 +191,4 @@ Consultez les blogs Microsoft suivants pour les deux procédures pas à pas diff
 [api-management-endpoint]: ./media/api-management-howto-disaster-recovery-backup-restore/api-management-endpoint.png
  
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

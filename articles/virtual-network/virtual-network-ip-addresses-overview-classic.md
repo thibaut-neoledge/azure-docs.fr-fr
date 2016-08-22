@@ -3,7 +3,7 @@
    description="En savoir plus sur l’adressage IP public et privé dans Azure"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor="tysonn"
    tags="azure-service-management" />
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/11/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 # Adresses IP (classiques) dans Azure
 Vous pouvez affecter des adresses IP à des ressources Azure pour communiquer avec d’autres ressources Azure, votre réseau local et Internet. Les adresses IP que vous pouvez utiliser dans Azure sont de deux types : publiques et privées.
@@ -34,7 +34,7 @@ Une adresse IP publique est associée aux types de ressources suivants :
 - Machines virtuelles (VM) IaaS
 - Instances de rôle PaaS
 - Passerelles VPN
-- Passerelles d'application
+- Passerelles d’application
 
 ### Méthode d’allocation
 Lorsqu'une adresse IP publique doit être affectée à une ressource Azure, elle est *dynamiquement* allouée à partir d'un pool d'adresses IP publiques disponibles dans l'emplacement où la ressource est créée. Cette adresse IP est libérée lorsque la ressource est arrêtée. Dans le cas d’un service cloud, cela se produit lorsque toutes les instances de rôle sont arrêtées, ce qui peut être évité en utilisant une adresse IP *statique* (réservée) (voir [Services cloud](#Cloud-services)).
@@ -68,7 +68,7 @@ Vous pouvez affecter une adresse IP publique directement à une [machine virtuel
 ### Passerelles VPN
 Une [passerelle VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) peut être utilisée pour connecter un réseau virtuel Azure (VNet) à d’autres réseaux virtuels Azure ou à des réseaux locaux. Une passerelle VPN est affectée *dynamiquement* à une adresse IP publique, ce qui permet la communication avec le réseau distant.
 
-### Passerelles d'application
+### Passerelles d’application
 Une [passerelle d’application](../application-gateway/application-gateway-introduction.md) Azure peut être utilisée pour l’équilibrage de la charge Layer7 pour acheminer le trafic réseau basé sur HTTP. La passerelle d'application est affectée *dynamiquement* à une adresse IP publique, qui sert d'adresse IP virtuelle à charge équilibrée.
 
 ### Aperçu
@@ -166,4 +166,4 @@ Voici une comparaison des fonctionnalités d'adressage IP dans Resource Manager 
 ## Étapes suivantes
 - [Déployez une machine virtuelle avec une adresse IP privée statique](virtual-networks-static-private-ip-classic-pportal.md) à l’aide du portail classique.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/08/2016"
+	ms.date="08/10/2016"
 	ms.author="markvi"/>
 
 # Éditions d’Azure Active Directory
@@ -51,13 +51,6 @@ Plusieurs fonctionnalités Azure Active Directory sont disponibles via les édit
 ##Comparaison des fonctionnalités mises à la disposition générale
 
 > [AZURE.NOTE] Pour bénéficier d’un affichage différent de ces données, consultez les [fonctionnalités d’Azure Active Directory](https://www.microsoft.com/en/server-cloud/products/azure-active-directory/features.aspx).
-
-| | Azure AD Gratuit | Azure AD Standard | Azure AD Premium |
-| ---                      | :-:           | :-:            | :-:              |
-| Fonctionnalités communes | ![Vérification][12] | ![Vérification][12] | ![Vérification][12] |
-| Fonctionnalités de base | | ![Vérification][12] | ![Vérification][12] |
-| Fonctionnalités Premium | | | ![Vérification][12] |
-
 
 
 
@@ -381,7 +374,7 @@ Les droits du logiciel Microsoft Identity Manager Server sont octroyés avec les
 
 #### Cloud App Discovery 
 
-**Type :** Fonctionnalités Premium
+**Type :** Fonctionnalités Premium
 
 
 **Disponibilité :**
@@ -497,4 +490,4 @@ Outre les fonctionnalités généralement disponibles des éditions gratuite, de
 <!--Image references-->
 [12]: ./media/active-directory-editions/ic195031.png
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0810_2016-->

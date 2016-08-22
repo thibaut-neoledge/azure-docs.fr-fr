@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/27/2016"
+	ms.date="08/05/2016"
 	ms.author="douglasl"/>
 
 # Activer Stretch Database pour une table
@@ -28,6 +28,8 @@ Pour configurer une table pour Stretch Database, sélectionnez **Stretch | Activ
 
 **Autorisations**. L’activation de Stretch Database sur une table ou une base de données nécessite des autorisations db\_owner. L’activation de Stretch Database sur une table nécessite également l’autorisation ALTER sur la table.
 
+ >   [AZURE.NOTE] Plus tard, si vous désactivez Stretch Database, gardez à l’esprit que la désactivation pour une table ou une base de données ne supprime pas l’objet distant. Si vous souhaitez supprimer la table distante ou la base de données distante, vous devez le faire à l’aide du portail de gestion Azure. Les objets distants continuent d’entraîner des coûts Azure jusqu’à leur suppression manuelle.
+ 
 ## <a name="EnableWizardTable"></a>Utiliser l’Assistant pour activer Stretch Database sur une table
 **Lancer l’Assistant**
 
@@ -133,4 +135,4 @@ Pour plus d’informations, consultez [CREATE TABLE (Transact-SQL)](https://msdn
 
 [CREATE TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms174979.aspx)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0810_2016-->

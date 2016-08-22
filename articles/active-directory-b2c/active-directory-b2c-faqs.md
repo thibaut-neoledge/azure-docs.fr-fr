@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/22/2016"
+	ms.date="08/09/2016"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C : FAQ
@@ -58,7 +58,22 @@ Chaque client Azure AD B2C a son propre panneau de fonctionnalités B2C sur le 
 
 ### Comment puis-je personnaliser les courriers électroniques de vérification (le contenu et le champ « De: ») envoyés par Azure AD B2C ?
 
-Utilisez la [fonctionnalité de personnalisation de la société](../active-directory/active-directory-add-company-branding.md) pour personnaliser le contenu des courriers électroniques de vérification. Le champ « De: » peut être modifié via le support technique.
+Vous pouvez utiliser la [fonctionnalité de personnalisation de la société](../active-directory/active-directory-add-company-branding.md) pour personnaliser le contenu des courriers électroniques de vérification. Plus précisément, ces deux éléments du message peuvent être personnalisés :
+
+- **Logo de bannière**: affiché en bas à droite.
+- **Couleur d’arrière-plan** : affiché en haut.
+
+	![Capture d’écran d’un message électronique de vérification personnalisée](./media/active-directory-b2c-faqs/company-branded-verification-email.png)
+
+La signature de courrier électronique contient le nom du client B2C que vous avez fourni lors de la création du client B2C. Vous pouvez modifier le nom à l’aide de ces instructions :
+
+- Connectez-vous au [portail Azure Classic](https://manage.windowsazure.com/) en tant qu’administrateur d’abonnements.
+- Accédez à votre client B2C.
+- Cliquez sur l’onglet **Configurer**.
+- Modifiez le champ **Nom** sous la section **Propriétés du répertoire**.
+- Cliquez sur **Enregistrer** au bas de la page.
+
+Il n’existe actuellement aucun moyen de modifier le champ « De : » du courrier électronique. Si cette fonctionnalité vous intéresse et que vous souhaitez personnaliser entièrement le corps du message électronique de vérification, votez pour la fonctionnalité sur [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/15334335-fully-customizable-verification-emails).
 
 ### Comment puis-je migrer mes noms d’utilisateur, mots de passe et profils existants à partir de ma base de données vers Azure AD B2C ?
 
@@ -78,7 +93,7 @@ Pas actuellement. L'intégration de ces systèmes est sur notre feuille de route
 
 ### Azure AD B2C fonctionne-t-il avec SharePoint localement 2016 ou version antérieure ?
 
-Pas actuellement. Azure AD B2C ne prend pas en charge les jetons SAML 1.1 dont les portails et applications de commerce électronique basés sur SharePoint localement ont besoin. Notez qu’Azure AD B2C n’est pas conçu pour le scénario de partage partenaire externe Sharepoint ; consultez plutôt l’article [Learn all about the Azure AD B2B Collaboration Preview!](http://blogs.technet.com/b/ad/archive/2015/09/15/learn-all-about-the-azure-ad-b2b-collaboration-preview.aspx) (Découvrez tout ce qu’il y a à savoir sur la version préliminaire d’Azure AD B2B Collaboration !).
+Pas actuellement. Azure AD B2C ne prend pas en charge les jetons SAML 1.1 dont les portails et applications de commerce électronique basés sur SharePoint localement ont besoin. Notez qu’Azure AD B2C n’est pas conçu pour le scénario de partage partenaire externe SharePoint ; consultez plutôt l’article [Learn all about the Azure AD B2B Collaboration Preview!](http://blogs.technet.com/b/ad/archive/2015/09/15/learn-all-about-the-azure-ad-b2b-collaboration-preview.aspx) (Découvrez tout ce qu’il y a à savoir sur la version préliminaire d’Azure AD B2B Collaboration !).
 
 ### Dois-je utiliser Azure AD B2C ou B2B pour gérer les identités externes ?
 
@@ -100,7 +115,7 @@ Pas actuellement. Cette fonctionnalité est sur notre feuille de route. Notez é
 
 Procédez comme suit pour supprimer votre client Azure AD B2C :
 
-- Suivez ces étapes pour [accéder au panneau de fonctionnalités B2C](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) sur le portail Azure.
+- [Suivez ces étapes pour accéder au panneau de fonctionnalités B2C sur le portail Azure](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
 - Accédez aux panneaux **Applications**, **Fournisseurs d’identité** et **Toutes les stratégies**, et supprimez toutes les entrées dans chacun d’eux.
 - À présent, connectez-vous au [portail Azure Classic](https://manage.windowsazure.com/) en tant qu’administrateur d’abonnements. (Il s’agit du compte professionnel ou scolaire, ou du compte Microsoft que vous avez utilisé pour vous inscrire à Azure.)
 - Accédez à l’extension Active Directory sur la gauche, puis cliquez sur votre client B2C.
@@ -124,4 +139,4 @@ Consultez [Azure Active Directory B2C : dépôt de demandes de support](active-d
 
 Vous pouvez également consulter les [limites, restrictions et contraintes de service actuelles](active-directory-b2c-limitations.md).
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0810_2016-->
