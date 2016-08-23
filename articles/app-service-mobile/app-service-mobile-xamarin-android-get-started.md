@@ -13,18 +13,18 @@
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="05/03/2016"
+	ms.date="08/11/2016"
 	ms.author="glenga" />
 
 #Création d'une application Xamarin.Android
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 
-##Vue d’ensemble
+##Vue d'ensemble
 
 Ce didacticiel montre comment ajouter un service backend cloud à une application Xamarin Android. Pour plus d’informations, consultez [Que sont les applications Mobile Apps ?](app-service-mobile-value-prop.md).
 
-Voici une capture d'écran de l'application terminée :
+Voici une capture d’écran de l’application terminée :
 
 ![][0]
 
@@ -72,7 +72,7 @@ Vous avez maintenant configuré un serveur principal d’application mobile Azur
 
 * [Ajouter l’authentification à votre application](app-service-mobile-xamarin-android-get-started-users.md) Découvrez comment authentifier les utilisateurs de votre application avec un fournisseur d’identité.
 * [Ajouter des notifications Push à votre application](app-service-mobile-xamarin-android-get-started-push.md) Découvrez comment ajouter des notifications Push à votre application.
-* [Comment utiliser le client géré pour Azure Mobile Apps](app-service-mobile-dotnet-how-to-use-client-library.md) Découvrez comment utiliser le Kit de développement logiciel (SDK) du client géré dans votre application Xamarin. 
+* [Comment utiliser le client géré pour Azure Mobile Apps](app-service-mobile-dotnet-how-to-use-client-library.md) Découvrez comment utiliser le Kit de développement logiciel (SDK) du client géré dans votre application Xamarin.
 
 
 <!-- Images. -->
@@ -86,4 +86,4 @@ Vous avez maintenant configuré un serveur principal d’application mobile Azur
 [Azure Portal]: https://azure.portal.com/
 [Visual Studio]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 
-<!-----HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0817_2016-->

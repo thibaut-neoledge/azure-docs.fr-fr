@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/02/2016"
+   ms.date="08/05/2016"
    ms.author="nicw;barbkess;sonyama"/>
 
 # Détails relatifs à la migration vers Premium Storage
@@ -27,8 +27,8 @@ Si vous avez créé un entrepôt de données avant les dates ci-dessous, cela si
 | **Région** | **Entrepôt de données créé avant cette date** |
 | :------------------ | :-------------------------------- |
 | Est de l’Australie | Premium Storage non disponible pour l’instant |
-| Sud-est de l’Australie | Premium Storage non disponible pour l’instant |
-| Sud du Brésil | Premium Storage non disponible pour l’instant |
+| Sud-est de l’Australie | 5 août 2016 |
+| Sud du Brésil | 5 août 2016 |
 | Centre du Canada | 25 mai 2016 |
 | Est du Canada | 26 mai 2016 |
 | Centre des États-Unis | 26 mai 2016 |
@@ -40,10 +40,10 @@ Si vous avez créé un entrepôt de données avant les dates ci-dessous, cela si
 | Inde-Centre | 27 mai 2016 |
 | Sud de l'Inde | 26 mai 2016 |
 | Inde-Ouest | Premium Storage non disponible pour l’instant |
-| Est du Japon | Premium Storage non disponible pour l’instant |
+| Est du Japon | 5 août 2016 |
 | Ouest du Japon | Premium Storage non disponible pour l’instant |
 | États-Unis - partie centrale septentrionale | Premium Storage non disponible pour l’instant |
-| Europe du Nord | Premium Storage non disponible pour l’instant |
+| Europe du Nord | 5 août 2016 |
 | Centre-Sud des États-Unis | 27 mai 2016 |
 | Asie du Sud-Est | 24 mai 2016 |
 | Europe de l'Ouest | 25 mai 2016 |
@@ -99,7 +99,7 @@ La migration automatique se produit entre 18:00 et 6 heures du matin (heure loca
 Si vous souhaitez déterminer à quel moment le temps d’arrêt doit se produire, vous pouvez suivre la procédure ci-après, qui permet de migrer un entrepôt de données existant sur un stockage standard vers Premium Storage. Si vous optez pour une migration ponctuelle, vous devez effectuer cette opération avant le début de la migration automatique effectuée dans cette région, afin d’éviter tout conflit généré par cette dernière (consultez [Planification de la migration automatique][]).
 
 ### Instructions relatives à la migration ponctuelle
-Si vous souhaitez déterminer le temps d’arrêt de votre système, vous pouvez migrer votre entrepôt de données de manière ponctuelle, à l’aide de la fonction de sauvegarde/restauration. L’opération de restauration de la migration doit durer environ 1 heure par To de stockage, pour chaque entrepôt de données. Si vous souhaitez conserver le même nom une fois la migration terminée, suivez les étapes ci-dessous, qui détaillent une [solution de contournement pour le changement de nom][].
+Si vous souhaitez déterminer le temps d’arrêt de votre système, vous pouvez migrer votre entrepôt de données de manière ponctuelle, à l’aide de la fonction de sauvegarde/restauration. L’opération de restauration de la migration doit durer environ 1 heure par To de stockage, pour chaque entrepôt de données. Si vous souhaitez conserver le même nom une fois la migration terminée, suivez les étapes ci-dessous pour [effectuer un changement de nom pendant la migration][].
 
 1.	[Interrompez][] l’entrepôt de données associé à une sauvegarde automatique
 2.	[Effectuez la restauration][] à partir de votre instantané le plus récent
@@ -129,7 +129,35 @@ ALTER DATABASE CurrentDatabasename MODIFY NAME = NewDatabaseName;
 >	-  Firewall rules at the **Database** level will need to be re-added.  Firewall rules at the **Server** level will not be impacted.
 
 ## Étapes suivantes
-Si vous rencontrez des problèmes liés à votre entrepôt de données, veuillez [créer un ticket de support][], en indiquant la migration vers Premium Storage comme cause possible.
+Avec l’évolution de Premium Storage, nous avons également augmenté le nombre de fichiers blob de base de données dans l’architecture sous-jacente de votre entrepôt de données. Si vous rencontrez des problèmes de performances, nous vous recommandons de reconstruire vos index columnstore en cluster grâce au script ci-dessous. Cette opération forcera le déplacement de certaines de vos données existantes vers les objets blob supplémentaires. Dans le cas contraire, les données seront naturellement redistribuées au fil du temps, quand vous chargerez d’autres données dans les tables de votre entrepôt de données.
+
+**Conditions préalables :**
+
+1.	Data Warehouse doit s’exécuter avec 1 000 DWU ou plus (voir [mettre à l’échelle une puissance de calcul][])
+2.	L’utilisateur qui exécute le script doit avoir un [rôle mediumrc][] ou supérieur
+	1.	Pour ajouter un utilisateur à ce rôle, exécutez la commande suivante :
+		1.	````EXEC sp_addrolemember 'xlargerc', 'MyUser'````
+
+````sql
+-------------------------------------------------------------------------------
+-- Étape 1 : Créer une table pour contrôler la reconstruction d’index
+-- Exécuter en tant qu’utilisateur mediumrc ou supérieur
+--------------------------------------------------------------------------------
+create table sql\_statements WITH (distribution = round\_robin) as select ’alter index all on ’ + s.name + ’.’ + t.NAME + ’ rebuild;’ as statement, row\_number() over (order by s.name, t.name) as sequence from sys.schemas s inner join sys.tables t on s.schema\_id = t.schema\_id where is\_external = 0 ; go
+ 
+--------------------------------------------------------------------------------
+-- Étape 2 : Exécuter les reconstructions d’index Si le script échoue, la partie ci-dessous peut être réexécutée pour redémarrer là où le script s’est arrêté
+-- Exécuter en tant qu’utilisateur mediumrc ou supérieur
+--------------------------------------------------------------------------------
+
+declare @nbr\_statements int = (select count(*) from sql\_statements) declare @i int = 1 while(@i <= @nbr\_statements) begin declare @statement nvarchar(1000)= (select statement from sql\_statements where sequence = @i) print cast(getdate() as nvarchar(1000)) + ’ Executing... ’ + @statement exec (@statement) delete from sql\_statements where sequence = @i set @i += 1 end;
+go
+-------------------------------------------------------------------------------
+-- Étape 3 : Nettoyer la table créée à l’étape 1
+--------------------------------------------------------------------------------
+drop table sql\_statements; go ````
+
+Si vous rencontrez des problèmes liés à votre entrepôt de données, veuillez [créer un ticket de support][], en indiquant « Migration vers Premium Storage » comme cause possible.
 
 <!--Image references-->
 
@@ -141,7 +169,9 @@ Si vous rencontrez des problèmes liés à votre entrepôt de données, veuillez
 [main documentation site]: ./services/sql-data-warehouse.md
 [Interrompez]: ./sql-data-warehouse-manage-compute-portal.md/#pause-compute
 [Effectuez la restauration]: ./sql-data-warehouse-manage-database-restore-portal.md
-[solution de contournement pour le changement de nom]: #optional-rename-workaround
+[effectuer un changement de nom pendant la migration]: #optional-steps-to-rename-during-migration
+[mettre à l’échelle une puissance de calcul]: ./sql-data-warehouse-manage-compute-portal/#scale-compute-power
+[rôle mediumrc]: ./sql-data-warehouse-develop-concurrency/#workload-management
 
 <!--MSDN references-->
 
@@ -150,4 +180,4 @@ Si vous rencontrez des problèmes liés à votre entrepôt de données, veuillez
 [Premium Storage, afin d’optimiser la prévisibilité des performances]: https://azure.microsoft.com/blog/azure-sql-data-warehouse-introduces-premium-storage-for-greater-performance/
 [portail Azure]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -67,7 +67,7 @@ Get-AzureRmRoleAssignment -ResourceGroupName Pharma-Sales-ProjectForcast | FL Di
 ![RBAC PowerShell - Get-AzureRmRoleAssignment pour un groupe de ressource - capture d’écran](./media/role-based-access-control-manage-access-powershell/4-get-azure-rm-role-assignment1.png)
 
 ### Répertorier les rôles attribués à un utilisateur
-Pour répertorier tous les rôles attribués à un utilisateur spécifique, y compris les rôles attribués aux groupes auxquels il appartient, utilisez `Get-AzureRmRoleAssignment -SignInName <User email> -ExpandPrincipalGroups`.
+Pour répertorier tous les rôles attribués à un utilisateur spécifié et aux rôles affectés aux groupes auxquels appartient l’utilisateur, utilisez `Get-AzureRmRoleAssignment -SignInName <User email> -ExpandPrincipalGroups`.
 
 ```
 Get-AzureRmRoleAssignment -SignInName sameert@aaddemo.com | FL DisplayName, RoleDefinitionName, Scope
@@ -86,7 +86,7 @@ Pour répertorier les affectations d'accès de liste pour les administrateurs d'
 ### Rechercher des ID d’objet
 Pour attribuer un rôle, vous devez identifier l’objet (utilisateur, groupe ou application) et l’étendue.
 
-Si vous ne connaissez pas l’ID d’abonnement, vous pouvez le trouver dans le panneau **Abonnements** du portail Azure. Découvrez également comment le rechercher avec [Get-AzureSubscription](https://msdn.microsoft.com/library/dn495302.aspx) sur MSDN.
+Si vous ne connaissez pas l’ID d’abonnement, vous pouvez le trouver dans le panneau **Abonnements** du portail Azure. Pour découvrir comment rechercher l'ID d'abonnement, consultez [Get-AzureSubscription](https://msdn.microsoft.com/library/dn495302.aspx) sur MSDN.
 
 Pour obtenir l’ID d’objet pour un groupe Azure AD, utilisez :
 
@@ -104,13 +104,13 @@ Pour accorder l'accès à une application pour l'abonnement, utilisez :
 ![RBAC PowerShell - New-AzureRmRoleAssignment - capture d’écran](./media/role-based-access-control-manage-access-powershell/2-new-azure-rm-role-assignment2.png)
 
 ### Affectation d'un rôle à un utilisateur pour le groupe de ressources
-Pour accorder l'accès à un utilisateur pour le groupe :
+Pour accorder l'accès à un utilisateur pour le groupe de ressources, utilisez :
 
     New-AzureRmRoleAssignment -SignInName <email of user> -RoleDefinitionName <role name in quotes> -ResourceGroupName <resource group name>
 
 ![RBAC PowerShell - New-AzureRmRoleAssignment - capture d’écran](./media/role-based-access-control-manage-access-powershell/2-new-azure-rm-role-assignment3.png)
 
-### Affectation d'un rôle à un groupe au niveau des ressources
+### Affectation d'un rôle à un utilisateur pour des ressources
 Pour accorder l'accès à un groupe au niveau des ressources, utilisez :
 
     New-AzureRmRoleAssignment -ObjectId <object id> -RoleDefinitionName <role name in quotes> -ResourceName <resource name> -ResourceType <resource type> -ParentResource <parent resource> -ResourceGroupName <resource group name>
@@ -127,7 +127,7 @@ Pour supprimer l'accès pour des utilisateurs, des groupes et des applications, 
 ## Créer un rôle personnalisé
 Pour créer un rôle personnalisé, utilisez la commande `New-AzureRmRoleDefinition`.
 
-Lorsque vous créez un rôle personnalisé dans PowerShell, vous devez commencer par un des [rôles intégrés](role-based-access-built-in-roles.md). Modifiez les attributs et ajoutez les propriétés Actions, notActions, ou les étendues de votre choix, puis enregistrez les modifications sous un nouveau rôle.
+Lorsque vous créez un rôle personnalisé à l'aide de PowerShell, vous devez commencer par un des [rôles intégrés](role-based-access-built-in-roles.md). Modifiez les attributs et ajoutez les propriétés *Actions*, *notActions*, ou les *étendues* de votre choix, puis enregistrez les modifications sous un nouveau rôle.
 
 L’exemple suivant commence par le rôle *Collaborateur de machine virtuelle* et l’utilise pour créer un rôle personnalisé appelé *Opérateur de machine virtuelle*. Le nouveau rôle accorde l’accès à toutes les opérations des fournisseurs de ressources *Microsoft.Compute*, *Microsoft.Storage* et *Microsoft.Network* ainsi que l’accès pour démarrer, redémarrer et surveiller des machines virtuelles. Le rôle personnalisé peut être utilisé dans deux abonnements.
 
@@ -167,7 +167,7 @@ Set-AzureRmRoleDefinition -Role $role
 
 ![RBAC PowerShell - Set-AzureRmRoleDefinition - capture d’écran](./media/role-based-access-control-manage-access-powershell/3-set-azurermroledefinition-1.png)
 
-L’exemple suivant ajoute un abonnement Azure aux étendues attribuables du rôle personnalisé Opérateur de machine virtuelle.
+L’exemple suivant ajoute un abonnement Azure aux étendues attribuables du rôle personnalisé *Opérateur de machine virtuelle*.
 
 ```
 Get-AzureRmSubscription - SubscriptionName Production3
@@ -209,7 +209,6 @@ Dans l’exemple suivant, le rôle personnalisé *Opérateur de machine virtuell
 ![RBAC PowerShell - Get-AzureRmRoleDefinition - capture d’écran](./media/role-based-access-control-manage-access-powershell/5-get-azurermroledefinition2.png)
 
 ## Voir aussi
-- [Utilisation d’Azure PowerShell avec Azure Resource Manager](../powershell-azure-resource-manager.md)
-[AZURE.INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
+- [Utilisation d’Azure PowerShell avec Azure Resource Manager](../powershell-azure-resource-manager.md) [AZURE.INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0810_2016-->

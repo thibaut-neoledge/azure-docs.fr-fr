@@ -13,7 +13,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="05/12/2016"
+	ms.date="08/08/2016"
 	ms.author="billmath"/>
 
 # Déterminer les exigences de synchronisation de répertoire
@@ -34,7 +34,7 @@ Veillez à répondre aux questions suivantes :
   - Si oui, vos utilisateurs bénéficient-ils d'un annuaire/d'une intégration virtuels d'identités ?
 - Avez-vous un autre annuaire local que vous voulez synchroniser (par exemple, annuaire LDAP, base de données des ressources humaines, etc.) ?
   - Procéderez-vous à une synchronisation de la liste d’adresses globale (GALSync) ?
-  - Quel est l'état actuel des UPN dans votre organisation ? 
+  - Quel est l'état actuel des UPN dans votre organisation ?
   - Avez-vous un annuaire différent pour l'authentification des utilisateurs ?
   - Votre entreprise utilise-t-elle Microsoft Exchange ?
     - Le déploiement d'Exchange hybride est-il prévu ?
@@ -68,4 +68,4 @@ Veillez à noter chaque réponse et à comprendre le raisonnement derrière la r
 ## Voir aussi
 [Présentation des considérations relatives à la conception](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

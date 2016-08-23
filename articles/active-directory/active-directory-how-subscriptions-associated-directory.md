@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="04/26/2016"
+	ms.date="08/15/2016"
 	ms.author="curtand"/>
 
 # Association des abonnements Azure avec Azure Active Directory
@@ -47,11 +47,11 @@ Chaque abonnement Azure dispose d’une relation d’approbation avec une instan
 
 Cette relation de confiance qu’un abonnement possède avec un répertoire est contraire à celle établie entre un abonnement et toutes les autres ressources Azure (sites Web, bases de données, etc.), qui se rapprochent plus des ressources enfants d'un abonnement. Lorsqu’un abonnement expire, les autres ressources associées à l'abonnement deviennent également inaccessibles. Mais le répertoire reste dans Azure, et vous pouvez associer un autre abonnement à ce répertoire et continuer à gérer les utilisateurs du répertoire.
 
-De même, l’extension Azure AD que vous apercevez dans votre abonnement ne fonctionne pas de la même manière que les autres extensions du portail Azure Classic. Les autres extensions du portail Azure Classic sont limitées à l’abonnement Azure. Ce que vous apercevez dans l’extension Azure AD ne varie pas en fonction de l’abonnement : seuls les répertoires sont affichés en fonction de l’utilisateur connecté.
+De même, l’extension Azure AD que vous apercevez dans votre abonnement ne fonctionne pas de la même manière que les autres extensions du portail Azure Classic. Les autres extensions du portail Azure Classic sont limitées à l’abonnement Azure. Ce que vous apercevez dans l’extension Azure AD ne varie pas en fonction de l’abonnement : seuls les répertoires sont affichés en fonction de l’utilisateur connecté.
 
 Tous les utilisateurs disposent d'un répertoire de base unique qui les authentifie, mais ils peuvent également être invités dans d'autres répertoires. Dans l’extension Azure AD, vous découvrirez tous les répertoires auxquels votre compte d’utilisateur ne s’est pas abonné. Tous les répertoires auxquels votre compte d’utilisateur ne s’est pas abonné ne s’afficheront pas. Un répertoire peut émettre des jetons pour des comptes professionnels ou scolaires dans Azure AD ou des comptes utilisateurs Microsoft (car Azure AD est fédéré avec le système de comptes Microsoft).
 
-Ce diagramme présente un abonnement de Michael Smith après que celui-ci se soit connecté à l’aide d’un compte de Contoso.
+Ce diagramme présente un abonnement de Michael Smith après que celui-ci s’est connecté à l’aide d’un compte de Contoso.
 
 ![][2]
 
@@ -89,7 +89,7 @@ Si vous avez créé, à un moment donné, un compte consommateur Microsoft à l'
 
 ![][3]
 
-Vous disposez, sous le même nom, de comptes utilisateur, un dans Azure AD et l'autre dans le système de comptes Microsoft consommateur. Vous devez sélectionner le compte qui est associé à l'abonnement Azure que vous souhaitez utiliser. Si une erreur s’affiche et vous indique qu'un abonnement n'existe pas pour cet utilisateur, cela veut certainement dire que vous avez sélectionné la mauvaise option. Déconnectez-vous et réessayez. Pour découvrir les raisons pour lesquelles vous ne parvenez pas à vous connecter, consultez la rubrique [Résolutions des problèmes vous indiquant qu’il est « impossible de trouver un abonnement associé à votre compte »](https://social.msdn.microsoft.com/Forums/fr-FR/f952f398-f700-41a1-8729-be49599dd7e2/troubleshooting-we-were-unable-to-find-any-subscriptions-associated-with-your-account-errors-in?forum=windowsazuremanagement).
+Vous disposez, sous le même nom, de comptes utilisateur, un dans Azure AD et l'autre dans le système de comptes Microsoft consommateur. Vous devez sélectionner le compte qui est associé à l'abonnement Azure que vous souhaitez utiliser. Si une erreur s’affiche et vous indique qu'un abonnement n'existe pas pour cet utilisateur, cela veut certainement dire que vous avez sélectionné la mauvaise option. Déconnectez-vous et réessayez. Pour découvrir les raisons pour lesquelles vous ne parvenez pas à vous connecter, consultez la rubrique [Résolutions des problèmes vous indiquant qu’il est « impossible de trouver un abonnement associé à votre compte »](https://social.msdn.microsoft.com/Forums/fr-FR/f952f398-f700-41a1-8729-be49599dd7e2/troubleshooting-we-were-unable-to-find-any-subscriptions-associated-with-your-account-errors-in?forum=windowsazuremanagement).
 
 ## Gestion du répertoire de l’abonnement Office 365 dans Azure
 
@@ -139,4 +139,4 @@ Ces étapes ne peuvent être effectuées que lorsqu’un utilisateur est connect
 [2]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_OrgAccountSubscription.png
 [3]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_SignInDisambiguation.PNG
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0817_2016-->

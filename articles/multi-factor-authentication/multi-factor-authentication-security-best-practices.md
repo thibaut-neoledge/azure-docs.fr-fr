@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/12/2016" 
+	ms.date="08/04/2016" 
 	ms.author="billmath"/>
 
 # Meilleures pratiques pour l’utilisation de l’authentification multifacteur Azure avec des comptes Azure AD
@@ -23,7 +23,7 @@ Lorsqu’il s’agit d’améliorer votre processus d’authentification, l’au
 ## Meilleures pratiques pour Azure Multi-Factor Authentication dans le cloud
 Pour fournir à tous vos utilisateurs des fonctions d’authentification multifacteur et tirer parti des fonctionnalités étendues qu’offre l’authentification multifacteur Azure, vous devez activer l’authentification multifacteur Azure sur tous vos utilisateurs. Pour ce faire, utilisez l’une des méthodes suivantes :
 
-- Azure AD Premium ou la suite Enterprise Mobility Suite 
+- Azure AD Premium ou la suite Enterprise Mobility Suite
 - Fournisseur d’authentification multi facteurs
 
 ### Azure AD Premium/Enterprise Mobility Suite
@@ -44,7 +44,7 @@ Lors de la configuration de l’authentification multifacteur, prenez en compte 
 
 Si vous ne disposez pas d’Azure AD Premium ou d’Enterprise Mobility Suite la première étape recommandée pour adopter l’authentification Multifacteur Azure dans le cloud consiste à créer un multifacteur. Bien que l’authentification multifacteur soit disponible par défaut pour les administrateurs généraux disposant d’Azure Active Directory, lorsque vous déployez l’authentification Multifacteur pour votre organisation, vous devez l’étendre à tous les utilisateurs et pour ce faire, vous avez besoin d’un fournisseur d’authentification multifacteur. Lorsque vous sélectionnez le fournisseur d’authentification, vous devez sélectionner un répertoire et de prendre en compte les éléments suivants :
 
-- Vous n'avez pas besoin d’un répertoire Azure AD pour créer un fournisseur Multi-Factor Auth. 
+- Vous n'avez pas besoin d’un répertoire Azure AD pour créer un fournisseur Multi-Factor Auth.
 - Vous devez associer le fournisseur d’authentification multifacteur à avec le répertoire AD si vous souhaitez que vos administrateurs généraux puissent tirer le meilleur parti de certaines fonctionnalités telles que le portail de gestion, les messages de bienvenue personnalisés et les rapports.
 - DirSync ou AAD Sync sont nécessaires uniquement si vous synchronisez votre environnement Active Directory local avec un répertoire Azure AD. Si vous utilisez uniquement un répertoire Azure AD qui n'est pas synchronisé avec une instance locale d'Active Directory, DirSync ou AAD Sync est inutile.
 - Si vous avez Azure AD Premium ou Enterprise Mobility Suite, il est inutile de créer un fournisseur Multi-Factor Auth. Il vous suffit d’attribuer une licence à un utilisateur, puis vous pouvez commencer à activer MFA pour les utilisateurs.
@@ -62,14 +62,14 @@ Lorsque vous activez l’authentification Multifacteur pour vos utilisateurs, le
 
 Dans la mesure où la grande majorité des utilisateurs sont habitués à utiliser uniquement les mots de passe pour s’authentifier, il est important que votre société sensibilise l’ensemble des utilisateurs à ce processus. Le fait de connaître le processus peut réduire la probabilité que les utilisateurs appellent votre support technique pour des problèmes mineurs liés à l’authentification Multifacteur. Toutefois, pour certains scénarios, il est nécessaire de désactiver provisoirement l’authentification Multifacteur. Suivez les indications ci-dessous pour comprendre comment gérer ces scénarios :
 
-- Assurez-vous que le personnel de support technique est formé à la gestion de scénarios dans lesquels l’application mobile ou le téléphone ne reçoivent de notification ou ne passe pas d’appel téléphonique, et pour cette raison, l’utilisateur se trouve dans l’impossibilité de se connecter. Ils peuvent activer une option de contournement à usage unique qui permet à un utilisateur de s’authentifier une seule fois en « contournant » l’authentification multifacteur. Le contournement est temporaire et expire après le nombre de secondes spécifié. 
+- Assurez-vous que le personnel de support technique est formé à la gestion de scénarios dans lesquels l’application mobile ou le téléphone ne reçoivent de notification ou ne passe pas d’appel téléphonique, et pour cette raison, l’utilisateur se trouve dans l’impossibilité de se connecter. Ils peuvent activer une option de contournement à usage unique qui permet à un utilisateur de s’authentifier une seule fois en « contournant » l’authentification multifacteur. Le contournement est temporaire et expire après le nombre de secondes spécifié.
 - Si nécessaire, vous pouvez utiliser la fonctionnalité de fournisseurs d’identité approuvés dans Azure MFA. Cette fonction permet aux administrateurs d’un client géré ou fédéré de contourner l’authentification multifacteur des utilisateurs qui se connectent depuis l’intranet local de l’entreprise. Les fonctionnalités sont disponibles pour les clients Azure AD titulaires d’une licence Azure AD Premium, Enterprise Mobility Suite ou Azure Multi-Factor Authentication.
 
 
 ## Meilleures pratiques pour l’authentification multifacteur Azure locale
 Si votre entreprise a décidé de se servir de sa propre infrastructure pour activer l’authentification Multifacteur, il sera nécessaire de déployer un serveur d’authentification multifacteur Azure localement. Les composants serveur de l’authentification Multifacteur figurent dans le diagramme ci-dessous :
 
-![Fournisseur d’authentification multi facteurs](./media/multi-factor-authentication-security-best-practices/server.png) * N’est pas installé par défaut ** installé, mais non activé par défaut
+![Fournisseur d’authentification multi facteurs](./media/multi-factor-authentication-security-best-practices/server.png) *N’est pas installé par défaut **installé, mais non activé par défaut
 
 
 Le serveur d’authentification multifacteur Azure permet de sécuriser les ressources de cloud et des ressources locales qui sont accessibles via des comptes Azure AD. Toutefois, cette opération peut uniquement être effectuée à l’aide de fédération. En d’autres termes, vous devez disposer d’AD FS et le fédérer avec votre locataire Azure AD. Lors de la configuration de serveur d’authentification multifacteur, tenez compte de ce qui suit :
@@ -94,7 +94,7 @@ Si votre organisation est fédérée (SSO) avec Azure AD et que vous vous appr�
 - Les mots de passe sont stockés dans l’id d’organisation. Si l'utilisateur quitte l'entreprise, ces informations doivent être stockées en temps réel dans l'id d'organisation à l'aide de DirSync. La désactivation/suppression de compte peut mettre jusqu'à 3 heures à se synchroniser, ce qui peut retarder la désactivation/suppression du mot de passe dans Azure AD.
 - Les paramètres de contrôle d'accès client locaux ne sont pas honorés par Mot de passe d’application
 - Aucune authentification locale de journalisation/fonctionnalité d’audit n'est disponible pour Mot de passe
-- Pour utiliser le client Microsoft Lync 2013, l’utilisateur final doit être très qualifié. 
+- Pour utiliser le client Microsoft Lync 2013, l’utilisateur final doit être très qualifié.
 - Certaines conceptions architecturales avancées peuvent nécessiter l’utilisation d'une combinaison de noms d'utilisateur, de mots de passe et de mots de passe d'application, lors de l'utilisation de l'authentification multifacteur avec les clients, selon l'emplacement de cette dernière. Pour les clients qui s’authentifient auprès d’une infrastructure locale, vous devez utiliser le nom d’utilisateur et le mot de passe d’une organisation. Pour les clients qui s'authentifient auprès d'Azure AD, vous utiliseriez le mot de passe d’application.
 - Par défaut, les utilisateurs ne peuvent pas créer de mots de passe d’application. Si votre entreprise requiert que, ou si vous devez utiliser des utilisateurs à créer un mot de passe d’application dans certains scénarios, assurez-vous que l’option Autoriser des utilisateurs pour créer des mots de passe d’application pour vous connecter à des applications sans navigateur est sélectionné.
 
@@ -121,4 +121,4 @@ Bien que cet article mette en évidence quelques-unes des meilleures pratiques d
 - [Configuration de l’expérience Azure Multi-Factor Authentication](multi-factor-authentication-end-user-first-time.md)
 - [Forum Aux Questions d’Azure Multi-Factor Authentication](multi-factor-authentication-faq.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

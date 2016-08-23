@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/09/2016"
+	ms.date="08/03/2016"
 	ms.author="robinsh"/>
 
 # Storage Analytics
@@ -84,9 +84,9 @@ Le tableau suivant décrit chaque attribut du nom du journal.
 |----------------	|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|
 | <service-name> | Nom du service de stockage. Par exemple : blob, table ou file d'attente. |
 | YYYY | Année à quatre chiffres pour le journal. Par exemple : 2011. |
-| MM | Jour à deux chiffres pour le journal. Par exemple : 07. |
-| DD | Jour à deux chiffres pour le journal. Par exemple : 07. |
-| hh | Heure à deux chiffres qui indique l'heure de début pour les journaux, au format UTC 24 heures. Par exemple : 18. |
+| MM | Mois à deux chiffres pour le journal. Par exemple : 07. |
+| DD | Mois à deux chiffres pour le journal. Par exemple : 07. |
+| hh | Heure à deux chiffres qui indique l’heure de début pour les journaux, au format UTC 24 heures. Par exemple : 18. |
 | mm | Nombre à deux chiffres qui indique la minute de début pour les journaux. Cette valeur n'étant pas prise en charge dans la version actuelle de Storage Analytics, elle est toujours égale à 00. |
 | <counter> | Compteur de base zéro à six chiffres qui indique le nombre d'objets blob de journal générés pour le service de stockage durant une période d'une heure. Ce compteur commence à 000000. Par exemple : 000001. |
 
@@ -105,7 +105,7 @@ Tous les objets blob de journal sont stockés avec des métadonnées qui peuvent
 
 | Attribut | Description |
 |------------	|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|
-| LogType | Décrit si le journal contient des informations relatives aux opérations de lecture, écriture ou suppression. Cette valeur peut inclure un type ou une combinaison des trois, séparés par des virgules. Exemple 1 : write Exemple 2 : read,write Exemple 3 : read,write,delete. |
+| LogType | Décrit si le journal contient des informations relatives aux opérations de lecture, écriture ou suppression. Cette valeur peut inclure un type ou une combinaison des trois, séparés par des virgules. Exemple 1 : write ; Exemple 2 : read,write ; Exemple 3 : read,write,delete. |
 | StartTime | Heure la plus antérieure d'une entrée dans le journal, au format AAAA-MM-JJThh:mm:ssZ. Par exemple : 2011-07-31T18:21:46Z. |
 | EndTime | Heure la plus récente d'une entrée dans le journal, au format AAAA-MM-JJThh:mm:ssZ. Par exemple : 2011-07-31T18:22:09Z. |
 | LogVersion | Version du format du journal. Actuellement, la seule valeur possible est : 1.0. |
@@ -146,17 +146,17 @@ Les métriques de transaction sont enregistrées pour les demandes utilisateur e
 
 Les données de capacité sont enregistrées quotidiennement pour le service BLOB d'un compte de stockage et deux entités de table sont écrites. Une entité fournit des statistiques sur les données utilisateur et l'autre, sur le conteneur d'objets blob `$logs` utilisé par Storage Analytics. La table `$MetricsCapacityBlob` inclut les statistiques suivantes :
 
-- **Capacity** : volume de stockage utilisé par le service BLOB du compte de stockage, en octets.
+- **Capacity** : volume de stockage utilisé par le service BLOB du compte de stockage, en octets.
 
-- **ContainerCount** : nombre de conteneurs d'objet blob dans le service BLOB du compte de stockage.
+- **ContainerCount** : nombre de conteneurs d'objet blob dans le service BLOB du compte de stockage.
 
-- **ObjectCount** : nombre d'objets blob de blocs ou de pages validés et non validés dans le service BLOB du compte de stockage.
+- **ObjectCount** : nombre d'objets blob de blocs ou de pages validés et non validés dans le service BLOB du compte de stockage.
 
 Pour plus d'informations sur les métriques de capacité, consultez [Schéma de table de métriques Storage Analytics](https://msdn.microsoft.com/library/hh343264.aspx).
 
 ### Stockage des métriques
 
-Toutes les données de métriques pour chacun des services de stockage sont stockées dans trois tables réservées à ce service : une table pour les informations sur les transactions, une autre pour les informations sur les transactions par minute et une troisième pour les informations sur la capacité. Les informations relatives aux transactions et aux transactions par minute se composent des données de demande et de réponse, et les informations de capacité se composent des données d'utilisation du stockage. Les métriques par heure et par minute et la capacité pour le service BLOB d'un compte de stockage sont accessibles dans des tables nommées comme indiqué dans le tableau ci-dessous.
+Toutes les données de métriques pour chacun des services de stockage sont stockées dans trois tables réservées à ce service : une table pour les informations sur les transactions, une autre pour les informations sur les transactions par minute et une troisième pour les informations sur la capacité. Les informations relatives aux transactions et aux transactions par minute se composent des données de demande et de réponse, et les informations de capacité se composent des données d'utilisation du stockage. Les métriques par heure et par minute et la capacité pour le service BLOB d’un compte de stockage sont accessibles dans des tables nommées comme indiqué dans le tableau ci-dessous.
 
 | Niveau de métriques | Noms de tables | Versions prises en charge |
 |------------------------------------	|-----------------------------------------------------------------------------------------------------------------------------	|----------------------------------------------------------------------------------------------------------------------------------------------	|
@@ -180,7 +180,7 @@ Storage Analytics est activé par un propriétaire de compte de stockage ; il n
 
 Les actions suivantes effectuées par Storage Analytics sont facturables :
 
-- Demandes de création d'objets blob pour la journalisation. 
+- Demandes de création d'objets blob pour la journalisation.
 
 - Demandes de création d'entités de table pour les métriques.
 
@@ -206,6 +206,6 @@ Lorsque vous consultez des données Storage Analytics, vous pouvez utiliser les 
 ### Métriques de Storage Analytics
 - [À propos des métriques de Storage Analytics](https://msdn.microsoft.com/library/hh343258.aspx)
 - [Schéma de table de métriques Storage Analytics](https://msdn.microsoft.com/library/hh343264.aspx)
-- [Opérations et messages d'état enregistrés Storage Analytics](https://msdn.microsoft.com/library/hh343260.aspx)  
+- [Opérations et messages d'état enregistrés Storage Analytics](https://msdn.microsoft.com/library/hh343260.aspx)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -99,4 +99,4 @@ Ouvrez le panneau Base de données SQL de la base de données que vous voulez ex
 [4]: ./media/sql-database-export/export-history.png
 [5]: ./media/sql-database-export/bacpac-archive.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0810_2016-->

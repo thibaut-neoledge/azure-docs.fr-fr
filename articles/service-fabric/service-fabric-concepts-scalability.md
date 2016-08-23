@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/20/2016"
+   ms.date="08/10/2016"
    ms.author="aprameyr"/>
 
 # Mise à l'échelle des applications Service Fabric
@@ -46,9 +46,9 @@ Un scénario possible serait d'utiliser les informations de date comme composant
 
 Toutefois, cette approche est basée sur les clients utilisant des informations d'affectation de noms spécifiques à l'application qui se trouvent hors de l'étendue des connaissances de Service Fabric.
 
-- *Utilisation d'une convention d'affectation de noms* : en 2013, quand votre application est mise en service, vous créez un service appelé fabric:/app/service2013. Vers le deuxième trimestre de l'année 2013, vous créez un autre service appelé fabric:/app/service2014. Ces deux services sont du même type de service. Dans cette approche, votre client devra faire preuve de logique pour construire le nom de service approprié en fonction de l'année.
+- *Utilisation d'une convention d'affectation de noms* : en 2013, quand votre application est mise en service, vous créez un service appelé fabric:/app/service2013. Vers le deuxième trimestre de l'année 2013, vous créez un autre service appelé fabric:/app/service2014. Ces deux services sont du même type de service. Dans cette approche, votre client devra faire preuve de logique pour construire le nom de service approprié en fonction de l'année.
 
-- *Utilisation d'un service de recherche* : un autre modèle consiste à fournir un service de recherche secondaire qui peut fournir le nom du service pour une clé de votre choix. De nouvelles instances de service peuvent ensuite être créées par le service de recherche. Le service de recherche lui-même ne conserve pas les données d'application, mais uniquement les données sur les noms de service qu'il crée. Ainsi, dans l'exemple ci-dessus basé sur l'année, le client contacterait tout d'abord le service de recherche pour trouver le nom du service traitant les données pour une année donnée, puis utiliserait ce nom de service pour effectuer l'opération réelle. Le résultat de la première recherche peut être mis en cache.
+- *Utilisation d'un service de recherche* : un autre modèle consiste à fournir un service de recherche secondaire qui peut fournir le nom du service pour une clé de votre choix. De nouvelles instances de service peuvent ensuite être créées par le service de recherche. Le service de recherche lui-même ne conserve pas les données d'application, mais uniquement les données sur les noms de service qu'il crée. Ainsi, dans l'exemple ci-dessus basé sur l'année, le client contacterait tout d'abord le service de recherche pour trouver le nom du service traitant les données pour une année donnée, puis utiliserait ce nom de service pour effectuer l'opération réelle. Le résultat de la première recherche peut être mis en cache.
 
 ## Étapes suivantes
 
@@ -60,4 +60,4 @@ Pour plus d’informations sur les concepts propres à Service Fabric, consultez
 
 - [Définition et gestion de l'état](service-fabric-concepts-state.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0810_2016-->

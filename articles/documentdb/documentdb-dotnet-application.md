@@ -15,10 +15,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="hero-article" 
-	ms.date="08/01/2016" 
+	ms.date="08/11/2016" 
 	ms.author="anhoh"/>
 
-#<a name="_Toc395809351"></a>Didacticiel ASP.NET MVC : développement d’une application web avec DocumentDB.
+# <a name="_Toc395809351"></a>Didacticiel ASP.NET MVC : développement d’une application web avec DocumentDB.
 
 > [AZURE.SELECTOR]
 - [.NET](documentdb-dotnet-application.md)
@@ -204,11 +204,11 @@ Maintenant que nous en avons terminé avec le **M** de MVC, intéressons-nous au
 
 	![Capture d’écran de l’Explorateur de solutions présentant le dossier créé par Visual Studio avec les commandes Ajouter/Vue mises en surbrillance](./media/documentdb-dotnet-application/image17.png)
 
-2. Dans la boîte de dialogue **Ajouter une vue**, procédez comme suit :
+2. Dans la boîte de dialogue **Ajouter une vue**, procédez comme suit :
 	- Dans la zone **Nom de la vue**, tapez ***Index***.
 	- Dans la zone **Modèle**, sélectionnez ***Liste***.
 	- Dans la zone **Classe de modèle**, sélectionnez ***Élément (todo.Models)***.
-	- Laissez la zone **Classe du contexte de données** vide. 
+	- Laissez la zone **Classe du contexte de données** vide.
 	- Dans la zone de la page de disposition, tapez ***~/Views/Shared/\_Layout.cshtml***.
 	
 	![Capture d'écran présentant la boîte de dialogue Ajouter une vue](./media/documentdb-dotnet-application/image18.png)
@@ -221,7 +221,7 @@ De la même façon que nous avons créé une vue **Index de l'élément**, nous 
 
 1. Dans l'**Explorateur de solutions**, à nouveau, cliquez avec le bouton droit sur le dossier **Élément**, cliquez sur **Ajouter**, puis sur **Affichage**.
 
-2. Dans la boîte de dialogue **Ajouter une vue**, procédez comme suit :
+2. Dans la boîte de dialogue **Ajouter une vue**, procédez comme suit :
 	- Dans la zone **Nom de la vue**, tapez ***Create***.
 	- Dans la zone **Modèle**, sélectionnez ***Create***.
 	- Dans la zone **Classe de modèle**, sélectionnez ***Élément (todo.Models)***.
@@ -235,11 +235,11 @@ Pour terminer, ajoutons une dernière vue permettant de modifier un **Élément*
 
 1. Dans l'**Explorateur de solutions**, à nouveau, cliquez avec le bouton droit sur le dossier **Élément**, cliquez sur **Ajouter**, puis sur **Affichage**.
 
-2. Dans la boîte de dialogue **Ajouter une vue**, procédez comme suit :
+2. Dans la boîte de dialogue **Ajouter une vue**, procédez comme suit :
 	- Dans la zone **Nom de la vue**, tapez ***Edit***.
 	- Dans la zone **Modèle**, sélectionnez ***Edit***.
 	- Dans la zone **Classe de modèle**, sélectionnez ***Élément (todo.Models)***.
-	- Laissez la zone **Classe du contexte de données** vide. 
+	- Laissez la zone **Classe du contexte de données** vide.
 	- Dans la zone de la page de disposition, tapez ***~/Views/Shared/\_Layout.cshtml***.
 	- Cliquez sur **Ajouter**.
 
@@ -454,9 +454,9 @@ Ajoutons du code à DocumentDBRepository et ItemController pour rendre l'enregis
 
 	Ce code invoque le référentiel DocumentDB et utilise la méthode CreateItemAsync pour conserver la nouvelle tâche dans la base de données.
  
-	**Note de sécurité** : L’attribut **ValidateAntiForgeryToken** est utilisé ici pour protéger cette application contre les attaques de type falsification de requête intersites. En plus d'ajouter cet attribut, vous devez vérifier que vos vues fonctionnent avec ce jeton anti-falsification. Pour plus d’informations sur le sujet et pour obtenir des exemples illustrant une implémentation adéquate, consultez la rubrique [Prévention des falsifications de requête intersites][]. Le code source fourni sur [GitHub][] comporte l’implémentation complète.
+	**Note de sécurité** : L’attribut **ValidateAntiForgeryToken** est utilisé ici pour protéger cette application contre les attaques de type falsification de requête intersites. En plus d'ajouter cet attribut, vous devez vérifier que vos vues fonctionnent avec ce jeton anti-falsification. Pour plus d’informations sur le sujet et pour obtenir des exemples illustrant une implémentation adéquate, consultez la rubrique [Prévention des falsifications de requête intersites][]. Le code source fourni sur [GitHub][] comporte l’implémentation complète.
 
-	**Note de sécurité** : Nous utilisons également l’attribut **Bind** sur le paramètre de la méthode pour établir une protection contre les attaques par surcharge. Pour plus d’informations, consultez la rubrique [Opérations CRUD de base dans ASP.NET MVC.][]
+	**Note de sécurité** : Nous utilisons également l’attribut **Bind** sur le paramètre de la méthode pour établir une protection contre les attaques par surcharge. Pour plus d’informations, consultez la rubrique [Opérations CRUD de base dans ASP.NET MVC.][]
 
 Le code qui permet d'ajouter de nouveaux éléments à la base de données est à présent complet.
 
@@ -591,4 +591,4 @@ Pour ajouter des fonctionnalités supplémentaires à votre application, passez 
 [Opérations CRUD de base dans ASP.NET MVC.]: http://go.microsoft.com/fwlink/?LinkId=317598
 [GitHub]: https://github.com/Azure-Samples/documentdb-net-todo-app
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

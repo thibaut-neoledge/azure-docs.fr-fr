@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/19/2016"
+   ms.date="08/09/2016"
    ms.author="yurid"/>
 
 # Classification des données pour Azure
@@ -26,9 +26,9 @@ Une classification des données réussie au d’une organisation requiert une la
  
 Les données peuvent être :
 
-- Au repos 
-- En cours de traitement 
-- En transit 
+- Au repos
+- En cours de traitement
+- En transit
  
 Ces trois états nécessitent des solutions techniques uniques pour la classification des données, toutefois les principes appliqués doivent être identiques pour chacun. Les données classées comme confidentielles doivent le rester au repos, en cours de traitement et en transit.
  
@@ -70,7 +70,7 @@ Même si vous êtes responsable de la classification de vos données, les fourni
 
 - Les obligations des **fournisseurs IaaS** se limitent à s’assurer que l’environnement virtuel peut prendre en charge les fonctionnalités de classifications des données et les exigences de conformité des clients. Les fournisseurs IaaS jouent un rôle mineur dans la classification des données, dans la mesure où ils doivent s’assurer uniquement que les données du client sont conformes aux exigences de conformité. Toutefois, les fournisseurs doivent garantir la conformité de leurs environnements virtuels aux exigences de classification des données en plus de sécuriser leurs centres de données.
 - Les obligations des **fournisseurs PaaS** peuvent être diverses, car la plateforme peut être utilisée dans une approche en couche pour assurer la sécurité d’un outil de classification. Ils peuvent être chargés de l’authentification et éventuellement de certaines règles d’autorisation et doivent fournir des fonctionnalités de sécurité et de classification des données à leur couche d’application. À l’instar des fournisseurs IaaS, les fournisseurs PaaS doivent garantir que leur plateforme est conforme aux exigences de classification des données pertinentes.
-- Les **fournisseurs SaaS** sont souvent considérés comme faisant partie d’une chaîne d’autorisation et doivent s’assurer que les données stockées dans l’application SaaS peuvent être contrôlées par type de classification. Les applications SaaS peuvent être utilisées pour les applications métier et par leur besoin, de par leur nature, de fournir les moyens d’authentifier et d’autoriser les données utilisées et stockées. 
+- Les **fournisseurs SaaS** sont souvent considérés comme faisant partie d’une chaîne d’autorisation et doivent s’assurer que les données stockées dans l’application SaaS peuvent être contrôlées par type de classification. Les applications SaaS peuvent être utilisées pour les applications métier et par leur besoin, de par leur nature, de fournir les moyens d’authentifier et d’autoriser les données utilisées et stockées.
 
 ## Processus de classification 
 
@@ -78,10 +78,10 @@ De nombreuses organisations comprenant le besoin de classification des données 
 
 Une façon simple et efficace d’implémenter la classification des données consiste à procéder selon le modèle PLAN, DO, CHECK, ACT (PRÉVOIR, DÉPLOYER, VÉRIFIER, AGIR) à partir d’un fichier [MOF](https://technet.microsoft.com/solutionaccelerators/dd320379.aspx). La figure suivante présente les tâches qui sont requises pour implémenter la classification des données dans ce modèle.
 
-1. **PLAN (PRÉVOIR)**. Identifiez les ressources de données, un opérateur de données pour déployer le programme de classification et développez les profils de protection. 
-2. **DO (DÉPLOYER)**. Une fois les règles de classification des données acceptées, déployez le programme et implémentez des technologies de mise en œuvre pour les données confidentielles en fonction des besoins.  
-3. **CHECK (VÉRIFIER)**. Vérifiez et validez les rapports pour vous assurer que les outils et les méthodes utilisées répondent de manière efficace aux stratégies de classification. 
-4. **ACT (AGIR)**. Vérifiez l’état de l’accès aux données et consultez les fichiers et les données nécessitant une révision à l’aide d’une méthodologie de reclassification et de révision visant à adopter les modifications et à faire face aux nouveaux risques.  
+1. **PLAN (PRÉVOIR)**. Identifiez les ressources de données, un opérateur de données pour déployer le programme de classification et développez les profils de protection.
+2. **DO (DÉPLOYER)**. Une fois les règles de classification des données acceptées, déployez le programme et implémentez des technologies de mise en œuvre pour les données confidentielles en fonction des besoins.
+3. **CHECK (VÉRIFIER)**. Vérifiez et validez les rapports pour vous assurer que les outils et les méthodes utilisées répondent de manière efficace aux stratégies de classification.
+4. **ACT (AGIR)**. Vérifiez l’état de l’accès aux données et consultez les fichiers et les données nécessitant une révision à l’aide d’une méthodologie de reclassification et de révision visant à adopter les modifications et à faire face aux nouveaux risques.
 
 ![Plan, do, Check, Act (Prévoir, déployer, vérifier et agir)](./media/azure-security-data-classification/azure-security-data-classification-fig3.png)
  
@@ -95,7 +95,7 @@ Cet article présente deux modèles de terminologie généralisés reposant sur 
 
 | **Sensibilité** | **Modèle de terminologie 1** | **Modèle de terminologie 2** |
 |--------------------|---------------------------|-------------------------|
-| Élevée | Confidentiel | Restreint |
+| Élevé | Confidentiel | Restreint |
 | Moyenne | À usage interne uniquement | Sensible |
 | Faible | Public | Non restreint |
 
@@ -103,11 +103,11 @@ Cet article présente deux modèles de terminologie généralisés reposant sur 
 
 Les informations classées comme confidentielles ou restreintes incluent des données, dont la perte ou la compromission peuvent avoir des répercussions graves pour des individus ou des organisations. Ces informations sont souvent fournies en cas de besoin et peuvent inclure :
 
-- Des données personnelles, notamment des informations d’identification personnelle, telles que des numéros de sécurité sociale ou de carte d’identité, de passeport, de carte de crédit, de permis de conduire, de dossier médical et d’assurance maladie.  
-- Des données financières, notamment des numéros de compte financier, tels que des numéros de compte bancaire ou d’investissement. 
-- Des documents professionnels, tels que des documents ou des données uniques ou soumis à la propriété intellectuelle.  
-- Des données juridiques, notamment des documents d’avocat potentiellement confidentiels. 
-- Des données d’authentification, notamment des clés de chiffrement privées, des combinaisons nom d’utilisateur/mot de passe ou d’autres séquences d’identification, telles que des fichiers de clés biométriques privées. 
+- Des données personnelles, notamment des informations d’identification personnelle, telles que des numéros de sécurité sociale ou de carte d’identité, de passeport, de carte de crédit, de permis de conduire, de dossier médical et d’assurance maladie.
+- Des données financières, notamment des numéros de compte financier, tels que des numéros de compte bancaire ou d’investissement.
+- Des documents professionnels, tels que des documents ou des données uniques ou soumis à la propriété intellectuelle.
+- Des données juridiques, notamment des documents d’avocat potentiellement confidentiels.
+- Des données d’authentification, notamment des clés de chiffrement privées, des combinaisons nom d’utilisateur/mot de passe ou d’autres séquences d’identification, telles que des fichiers de clés biométriques privées.
 
 Les données classées comme confidentielles sont souvent soumises à des exigences réglementaires et de conformité en matière de gestion des données.
 
@@ -115,7 +115,7 @@ Les données classées comme confidentielles sont souvent soumises à des exigen
  
 Les informations classées comme étant de sensibilité moyenne incluent les fichiers et les données, dont la perte ou la destruction n’aurait pas d’impact majeur sur une organisation et/ou un individu. Ces informations peuvent inclure les éléments suivants :
 
-- Les e-mails, dont la suppression ou la diffusion n’entraînerait pas de situation de crise (à l’exclusion des boîtes aux lettres ou des e-mails provenant d’individus identifiés dans la classification confidentielle).  
+- Les e-mails, dont la suppression ou la diffusion n’entraînerait pas de situation de crise (à l’exclusion des boîtes aux lettres ou des e-mails provenant d’individus identifiés dans la classification confidentielle).
 - Les documents et les fichiers qui n’incluent pas de données confidentielles.
  
 En général, cette classification inclut tout ce qui n’est pas confidentiel. Cette classification peut inclure la plupart des données d’entreprise, dans la mesure où la plupart des fichiers gérés ou utilisés quotidiennement peuvent être classés comme sensibles. À l’exception des données rendues publiques ou confidentielles, toutes les données d’une entreprise peuvent être classées comme étant sensibles par défaut.
@@ -134,7 +134,7 @@ Il est important d’établir de manière claire une chaîne de surveillance de 
 | Opérateur | | | X | | |
 | Administrateur | | | | | X |
 | Utilisateur* | | X | | X | |
-**** Les utilisateurs peuvent également bénéficier de droits supplémentaires, comme la modification et la suppression par un opérateur*
+**Les utilisateurs peuvent également bénéficier de droits supplémentaires, comme la modification et la suppression par un opérateur*
 
 > [AZURE.NOTE] ce tableau ne fournit pas de liste exhaustive des rôles et des droits, mais simplement un échantillon représentatif.
 
@@ -144,12 +144,12 @@ Le **propriétaire de la ressource de données** est le créateur d’origine de
 
 L’**opérateur de la ressource de données** est affecté par le propriétaire de la ressource (ou son délégué) dans le but de gérer la ressource en fonction des accords conclus avec le propriétaire de la ressource ou conformément aux exigences de la stratégie applicable. Dans l’idéal, le rôle de l’opérateur peut être mis en œuvre dans un système automatisé. Un opérateur des ressources garantit que les contrôles d’accès nécessaires sont assurés et est chargé de la gestion et de la protection des ressources qui lui sont déléguées. Les responsabilités de l’opérateur des ressources sont les suivantes :
 
-- Protéger la ressource selon les directives du propriétaire de la ressource ou en accord avec ce dernier 
-- Garantir le respect des stratégies de classification 
-- Informer les propriétaires des ressources de toute modification apportée aux contrôles convenus et/ou aux procédures de protection préalables à la mise en application de ces modifications. 
-- Informer le propriétaire des ressources de la suppression ou de la modification des responsabilités de l’opérateur des ressources 
-- Un **administrateur** représente un utilisateur chargé de s’assurer du maintien de l’intégrité, mais n’est pas un propriétaire de la ressource de données, un opérateur ou un utilisateur. En fait, de nombreux rôles d’administrateur fournissent des services de gestion de conteneur de données sans avoir accès aux données. Le rôle d’administrateur inclut la sauvegarde et la restauration des données, la conservation des enregistrements des ressources, ainsi que le choix, l’acquisition et le fonctionnement des appareils et du stockage hébergeant les ressources. 
-- L’utilisateur de la ressource inclut toute personne ayant accès aux données ou à un fichier. L’attribution d’un accès est souvent déléguée par le propriétaire à l’opérateur des ressources.  
+- Protéger la ressource selon les directives du propriétaire de la ressource ou en accord avec ce dernier
+- Garantir le respect des stratégies de classification
+- Informer les propriétaires des ressources de toute modification apportée aux contrôles convenus et/ou aux procédures de protection préalables à la mise en application de ces modifications.
+- Informer le propriétaire des ressources de la suppression ou de la modification des responsabilités de l’opérateur des ressources
+- Un **administrateur** représente un utilisateur chargé de s’assurer du maintien de l’intégrité, mais n’est pas un propriétaire de la ressource de données, un opérateur ou un utilisateur. En fait, de nombreux rôles d’administrateur fournissent des services de gestion de conteneur de données sans avoir accès aux données. Le rôle d’administrateur inclut la sauvegarde et la restauration des données, la conservation des enregistrements des ressources, ainsi que le choix, l’acquisition et le fonctionnement des appareils et du stockage hébergeant les ressources.
+- L’utilisateur de la ressource inclut toute personne ayant accès aux données ou à un fichier. L’attribution d’un accès est souvent déléguée par le propriétaire à l’opérateur des ressources.
 
 ### Implémentation
   
@@ -167,8 +167,8 @@ Dans l’idéal, cet effort permettrait de s’assurer que les informations rela
  
 La reclassification automatique des données utilise la même règle générale que la classification manuelle. L’exception réside dans le fait que des solutions automatisées peuvent garantir que les règles sont suivies et appliquées en fonction des besoins. La classification des données peut être effectuée dans le cadre d’une stratégie de mise en œuvre de la classification de données, qui peut être appliquée lors du stockage, de l’utilisation et du transit des données à l’aide de la technologie d’autorisation.
 
-- En fonction d’une application. Un niveau de classification est défini à l’aide de certaines applications par défaut. Par exemple, les données du logiciel de gestion de la relation client (CRM), des ressources humaines et des outils de gestion des dossiers médicaux sont confidentiels par défaut. 
-- En fonction d’un emplacement. L’emplacement des données peut permettre d’identifier la sensibilité des données. Par exemple, les données stockées par un département des ressources humaines ou financier sont davantage susceptibles d’être confidentielles par nature.  
+- En fonction d’une application. Un niveau de classification est défini à l’aide de certaines applications par défaut. Par exemple, les données du logiciel de gestion de la relation client (CRM), des ressources humaines et des outils de gestion des dossiers médicaux sont confidentiels par défaut.
+- En fonction d’un emplacement. L’emplacement des données peut permettre d’identifier la sensibilité des données. Par exemple, les données stockées par un département des ressources humaines ou financier sont davantage susceptibles d’être confidentielles par nature.
  
 ### Rétention, récupération et élimination des données 
 
@@ -200,9 +200,9 @@ Le logiciel de gestion des droits est une solution permettant d’empêcher la p
 
 Voici certains avantages du logiciel de gestion des droits :
 
-- Sauvegarde des informations sensibles. Les utilisateurs peuvent protéger leurs données directement à l’aide d’applications compatibles avec la gestion des droits. Aucune étape supplémentaire n’est requise. La création de documents, l’envoi d’e-mails et la publication de données bénéficient d’une protection cohérente des données. 
-- Une protection qui suit les données. Les clients continuent de contrôler les personnes ayant accès à leurs données, que ce soit dans le cloud, dans une infrastructure informatique existante ou sur le bureau de l’utilisateur. Les organisations peuvent choisir de chiffrer leurs données et de restreindre l’accès en fonction de leurs besoins. 
-- Stratégies de protection des informations par défaut. Les administrateurs et les utilisateurs peuvent utiliser des stratégies standard pour de nombreux scénarios d’entreprise courants, de type « Confidentiel entreprise - Lecture seule » et « Ne pas transférer ». Un ensemble complet de droits d’utilisation est pris en charge, comme la lecture, la copie, l’impression, l’enregistrement, la modification et le transfert pour offrir plus de souplesse dans la définition de droits d’utilisation personnalisés. 
+- Sauvegarde des informations sensibles. Les utilisateurs peuvent protéger leurs données directement à l’aide d’applications compatibles avec la gestion des droits. Aucune étape supplémentaire n’est requise. La création de documents, l’envoi d’e-mails et la publication de données bénéficient d’une protection cohérente des données.
+- Une protection qui suit les données. Les clients continuent de contrôler les personnes ayant accès à leurs données, que ce soit dans le cloud, dans une infrastructure informatique existante ou sur le bureau de l’utilisateur. Les organisations peuvent choisir de chiffrer leurs données et de restreindre l’accès en fonction de leurs besoins.
+- Stratégies de protection des informations par défaut. Les administrateurs et les utilisateurs peuvent utiliser des stratégies standard pour de nombreux scénarios d’entreprise courants, de type « Confidentiel entreprise - Lecture seule » et « Ne pas transférer ». Un ensemble complet de droits d’utilisation est pris en charge, comme la lecture, la copie, l’impression, l’enregistrement, la modification et le transfert pour offrir plus de souplesse dans la définition de droits d’utilisation personnalisés.
 
 > [AZURE.TIP] Vous pouvez protéger les données dans Azure Storage à l’aide d’[Azure Storage Service Encryption](../storage/storage-service-encryption.md) pour les données au repos. Vous pouvez également utiliser [Azure Disk Encryption](azure-security-disk-encryption.md) pour protéger les données contenues sur les disques virtuels utilisés pour Azure Virtual Machines.
 
@@ -223,14 +223,14 @@ Les technologies de prévention contre la perte de données peuvent permettre de
  
 Les technologies DLP peuvent effectuer une analyse approfondie du contenu via des correspondances avec des mots-clés, des dictionnaires, une évaluation des expressions régulières et l’examen d’autres contenus pour détecter tout contenu violant les stratégies DLP d’une organisation. Par exemple, la technologie DLP permet d’éviter la perte des types de données suivants :
 
-- Numéros de sécurité sociale et de carte d’identité 
-- Informations bancaires 
-- Numéros de carte de crédit  
-- Adresses IP 
+- Numéros de sécurité sociale et de carte d’identité
+- Informations bancaires
+- Numéros de carte de crédit
+- Adresses IP
 
 Certaines technologies DLP permettent également de remplacer la configuration DLP (par exemple, si une organisation a besoin de transmettre des informations relatives au numéro de sécurité sociale à un responsable du traitement de la paie). En outre, il est possible de configurer DLP afin que les utilisateurs soient informés avant même de tenter d’envoyer des informations sensibles qui ne doivent pas être transmises.
 
-> [AZURE.TIP] vous pouvez utiliser les fonctionnalités DLP d’Office 365 pour protéger vos documents. Consultez [Office 365 compliance controls: Data Loss Prevention](https://blogs.office.com/2013/10/28/office-365-compliance-controls-data-loss-prevention/) (Contrôles de conformité Office 365 : prévention contre la perte de données pour en savoir plus.
+> [AZURE.TIP] vous pouvez utiliser les fonctionnalités DLP d’Office 365 pour protéger vos documents. Consultez [Office 365 compliance controls: Data Loss Prevention](https://blogs.office.com/2013/10/28/office-365-compliance-controls-data-loss-prevention/) (Contrôles de conformité Office 365 : prévention contre la perte de données) pour en savoir plus.
 
 ## Voir aussi
 
@@ -239,4 +239,4 @@ Certaines technologies DLP permettent également de remplacer la configuration D
 - [Blog de l’équipe de sécurité Azure](http://blogs.msdn.com/b/azuresecurity/)
 - [Centre de réponse aux problèmes de sécurité Microsoft](https://technet.microsoft.com/library/dn440717.aspx)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

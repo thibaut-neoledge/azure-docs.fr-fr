@@ -3,7 +3,7 @@
 	description="Lorsque vous planifiez votre solution d’identité hybride, vous devez identifier les exigences de protection des données pour votre entreprise et les options disponibles pour remplir au mieux ces exigences."
 	documentationCenter=""
 	services="active-directory"
-	authors="yuridio"
+	authors="billmath"
 	manager="stevenpo"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="04/28/2016"
-	ms.author="yuridio"/>
+	ms.date="08/08/2016"
+	ms.author="billmath"/>
 
 #Planifier l'amélioration de la sécurité des données grâce à une solution d'identité solide
 
@@ -69,7 +69,7 @@ Les données en transit entre l'appareil et le centre de données ou entre l'app
 Les règlements, les lois et les exigences de conformité aux réglementations varieront selon le secteur d'activité de votre entreprise. Les entreprises de secteurs très réglementés doivent résoudre les problèmes de gestion des identités liés à des problèmes de conformité. Les réglementations telles que Sarbanes-Oxley (SOX), Health Insurance Portability Accountability Act (HIPAA), la loi Gramm-Leach-Bliley (GLBA) et le paiement carte norme (PCI DSS) sont très strictes en ce qui concerne l'identité et l'accès. La solution d'identité hybride adoptée par votre entreprise doit avoir les fonctionnalités essentielles répondant aux exigences d'une ou plusieurs de ces règlements. Pour cette zone, assurez-vous que les questions suivantes sont posées :
 
 - La solution d'identité hybride est-elle conforme aux exigences réglementaires pour votre entreprise ?
-- La solution d'identité hybride intègre-t-elle des fonctionnalités qui permettront à votre entreprise d'être conforme aux exigences réglementaires ? 
+- La solution d'identité hybride intègre-t-elle des fonctionnalités qui permettront à votre entreprise d'être conforme aux exigences réglementaires ?
  
 >[AZURE.NOTE]
 Veillez à noter chaque réponse et à comprendre le raisonnement derrière la réponse. [Définir la stratégie de protection des données](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md) examinera les options disponibles et les avantages/inconvénients de chaque option. En répondant à chacune de ces questions, vous sélectionnerez l’option correspondant le mieux à vos besoins métier.
@@ -81,4 +81,4 @@ Veillez à noter chaque réponse et à comprendre le raisonnement derrière la r
 ## Voir aussi
 [Présentation des considérations relatives à la conception](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0810_2016-->

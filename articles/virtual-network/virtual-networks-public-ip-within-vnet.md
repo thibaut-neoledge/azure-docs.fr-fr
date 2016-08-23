@@ -3,7 +3,7 @@
    description="Apprenez à configurer un réseau virtuel pour utiliser des adresses IP publiques"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor="tysonn" />
 <tags 
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="04/27/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 # Espace d’adressage IP public dans un réseau virtuel
 
@@ -45,6 +45,6 @@ Certaines plages d'adresses IP ne sont pas autorisées :
 
 ## Étapes suivantes
 
-[Gestion des serveurs DNS utilisés par un réseau virtuel](../virtual-networks-manage-dns-in-vnet)
+[Gestion des serveurs DNS utilisés par un réseau virtuel](virtual-networks-manage-dns-in-vnet.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0810_2016-->

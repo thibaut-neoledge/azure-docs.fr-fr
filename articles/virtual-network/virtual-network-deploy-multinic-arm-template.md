@@ -3,7 +3,7 @@
    description="Apprenez à déployer des machines virtuelles à plusieurs cartes réseau à l’aide d’un modèle dans Resource Manager."
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor=""
    tags="azure-resource-manager"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/02/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 # Déployer des machines virtuelles avec plusieurs cartes réseau à l’aide d’un modèle
 
@@ -292,4 +292,4 @@ Pour déployer le modèle à l’aide de l’interface de ligne de commande Azur
 		data:
 		info:    group create command OK
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0810_2016-->

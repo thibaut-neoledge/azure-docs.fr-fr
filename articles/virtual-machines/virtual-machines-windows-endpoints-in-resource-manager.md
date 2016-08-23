@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="infrastructure-services"
-   ms.date="05/26/2016"
+   ms.date="08/09/2016"
    ms.author="iainfou"/>
 
 # Points de terminaison classiques dans Resource Manager
@@ -22,10 +22,10 @@
 ## Étapes suivantes
 Vous pouvez consulter des informations plus détaillées sur les technologies abordées ici, ainsi que des guides de démarrage rapide pour l’utilisation de groupes de sécurité réseau, dans les articles suivants :
 
-- [Démarrage rapide : créer un groupe de sécurité réseau et des règles ACL à l’aide du portail Azure](virtual-machines-windows-nsg-quickstart-portal.md)  
-- [Démarrage rapide : créer un groupe de sécurité réseau et des règles ACL à l’aide d’Azure PowerShell](virtual-machines-windows-nsg-quickstart-powershell.md)  
-- [Présentation d’Azure Resource Manager](../resource-group-overview.md)  
-- [Présentation du groupe de sécurité réseau](../virtual-network/virtual-networks-nsg.md)  
-- [Présentation d’Azure Resource Manager](../load-balancer/load-balancer-arm.md) 
+- [Démarrage rapide : créer un groupe de sécurité réseau et des règles ACL à l’aide du portail Azure](virtual-machines-windows-nsg-quickstart-portal.md)
+- [Démarrage rapide : créer un groupe de sécurité réseau et des règles ACL à l’aide d’Azure PowerShell](virtual-machines-windows-nsg-quickstart-powershell.md)
+- [Présentation d’Azure Resource Manager](../resource-group-overview.md)
+- [Présentation du groupe de sécurité réseau](../virtual-network/virtual-networks-nsg.md)
+- [Présentation d’Azure Resource Manager](../load-balancer/load-balancer-arm.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0810_2016-->

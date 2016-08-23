@@ -1,10 +1,10 @@
 
 <properties
-	pageTitle="Considérations relatives à la conception d'identités hybrides Azure Active Directory : déterminer les exigences de réponse aux incidents | Microsoft Azure"
+	pageTitle="Considérations relatives à la conception d'identités hybrides Azure Active Directory : déterminer les exigences de réponse aux incidents | Microsoft Azure "
 	description="Déterminer les fonctionnalités de surveillance et de création de rapports pour la solution d'identité hybride pouvant être exploitées par les services informatiques pour prendre des mesures permettant d'identifier et d'atténuer les menaces."
 	documentationCenter=""
 	services="active-directory"
-	authors="yuridio"
+	authors="billmath"
 	manager="stevenpo"
 	editor=""/>
 
@@ -14,8 +14,8 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="04/28/2016"
-	ms.author="yuridio"/>
+	ms.date="08/08/2016"
+	ms.author="billmath"/>
 
 # Déterminer les exigences de réponse aux incidents pour votre solution d'identité hybride
 
@@ -52,7 +52,7 @@ Pendant la phase de réduction des risques et de contrôle des dommages, il est 
 
 - Votre entreprise a-t-elle mis en place des stratégies pour empêcher les utilisateurs d'accéder au réseau si nécessaire ?
  - Si oui, la solution actuelle pourra-t-elle être intégrée dans le système de gestion d'identité hybride que vous vous apprêtez à adopter ?
-- Votre entreprise a-t-elle besoin d'appliquer des conditions d'accès pour les utilisateurs qui sont en quarantaine ? 
+- Votre entreprise a-t-elle besoin d'appliquer des conditions d'accès pour les utilisateurs qui sont en quarantaine ?
  
 >[AZURE.NOTE]
 Veillez à noter chaque réponse et à comprendre le raisonnement derrière la réponse. [Définir la stratégie de protection des données](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md) examinera les options disponibles et les avantages/inconvénients de chaque option. En répondant à chacune de ces questions, vous sélectionnerez l’option correspondant le mieux à vos besoins métier.
@@ -63,4 +63,4 @@ Veillez à noter chaque réponse et à comprendre le raisonnement derrière la r
 ## Voir aussi
 [Présentation des considérations relatives à la conception](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0810_2016-->

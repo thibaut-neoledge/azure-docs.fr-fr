@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/17/2016"
+	ms.date="08/10/2016"
 	ms.author="nicking"/>
 # Utilisation de PowerShell pour sauvegarder et restaurer des applications App Service
 
@@ -26,10 +26,24 @@ Apprenez à utiliser PowerShell pour sauvegarder et restaurer des [applications 
 ## Composants requis
 Pour pouvoir utiliser PowerShell afin de gérer les sauvegardes de votre application, vous avez besoin des éléments suivants :
 
-- **Une URL SAP** autorisant un accès en lecture et en écriture à un conteneur de stockage Azure. Pour plus d’informations sur les URL SAP, voir [Présentation du modèle SAP](../storage/storage-dotnet-shared-access-signature-part-1.md).
+- **Une URL SAP** autorisant un accès en lecture et en écriture à un conteneur de stockage Azure. Pour une explication sur les URL SAP, voir [Présentation du modèle SAP](../storage/storage-dotnet-shared-access-signature-part-1.md). Consultez la page [Utilisation d’Azure PowerShell avec Azure Storage](../storage/storage-powershell-guide-full.md) pour obtenir des exemples de gestion d'Azure Storage à l’aide de PowerShell.
 - **Une chaîne de connexion de base de données** si vous souhaitez sauvegarder une base de données avec votre application web.
 
-##Installer Azure PowerShell 1.3.2 ou versions ultérieures
+### Comment générer une URL SAP à utiliser avec les applets de commande de sauvegarde d’application web
+Une URL SAP peut être générée avec PowerShell. Voici un exemple montrant comment générer une URL qui peut être utilisée avec les applets de commande décrites dans cet article.
+
+		$storageAccountName = "<your storage account's name>"
+		$storageAccountRg = "<your storage account's resource group>"
+
+		# This returns an array of keys for your storage account. Be sure to select the appropriate key. Here we select the first key as a default.
+		$storageAccountKey = Get-AzureRmStorageAccountKey -ResourceGroupName $storageAccountRg -Name $storageAccountName
+		$context = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey[0].Value
+
+		$blobContainerName = "<name of blob container for app backups>"
+		$token = New-AzureStorageContainerSASToken -Name $blobContainerName -Permission rwdl -Context $context -ExpiryTime (Get-Date).AddMonths(1)
+		$sasUrl = $context.BlobEndPoint + $blobContainerName + $token
+
+## Installer Azure PowerShell 1.3.2 ou versions ultérieures
 
 Pour obtenir des instructions sur l’installation et l’utilisation d’Azure PowerShell, consultez [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md).
 
@@ -43,11 +57,11 @@ Utilisez l’applet de commande New-AzureRmWebAppBackup pour créer une sauvegar
 
 		$backup = New-AzureRmWebAppBackup -ResourceGroupName $resourceGroupName -Name $appName -StorageAccountUrl $sasUrl
 
-Vous obtiendrez une sauvegarde avec un nom généré automatiquement. Si vous souhaitez attribuer vous-même un nom à votre sauvegarde, utilisez le paramètre facultatif BackupName.
+Vous obtenez une sauvegarde avec un nom généré automatiquement. Si vous souhaitez attribuer vous-même un nom à votre sauvegarde, utilisez le paramètre facultatif BackupName.
 
 		$backup = New-AzureRmWebAppBackup -ResourceGroupName $resourceGroupName -Name $appName -StorageAccountUrl $sasUrl -BackupName MyBackup
 
-Si vous souhaitez inclure une base de données dans votre sauvegarde, commencez par créer un paramètre de sauvegarde de base de données à l’aide de l’applet de commande New-AzureRmWebAppDatabaseBackupSetting, puis renseignez ce paramètre dans le paramètre Databases de l’applet de commande New-AzureRmWebAppBackup. Le paramètre Databases accepte un tableau de paramètres de base de données, ce qui vous permet de sauvegarder plusieurs bases de données.
+Pour inclure une base de données dans votre sauvegarde, commencez par créer un paramètre de sauvegarde de base de données à l’aide de l’applet de commande New-AzureRmWebAppDatabaseBackupSetting, puis renseignez ce paramètre dans le paramètre Databases de l’applet de commande New-AzureRmWebAppBackup. Le paramètre Databases accepte un tableau de paramètres de base de données, ce qui vous permet de sauvegarder plusieurs bases de données.
 
 		$dbSetting1 = New-AzureRmWebAppDatabaseBackupSetting -Name DB1 -DatabaseType SqlAzure -ConnectionString "<connection_string>"
 		$dbSetting2 = New-AzureRmWebAppDatabaseBackupSetting -Name DB2 -DatabaseType SqlAzure -ConnectionString "<connection_string>"
@@ -76,7 +90,7 @@ Pour des raisons pratiques, vous pouvez également diriger un objet d’applicat
 Vous pouvez planifier l’exécution automatique des sauvegardes à un intervalle spécifié. Pour configurer une planification de sauvegarde, utilisez l’applet de commande Edit-AzureRmWebAppBackupConfiguration. Cette applet de commande accepte plusieurs paramètres :
 
 - **Name** : nom de l’application web.
-- **ResourceGroupName** : nom du groupe de ressources contenant l’application web
+- **ResourceGroupName** : nom du groupe de ressources contenant l’application web.
 - **Slot** : facultatif. Nom de l’emplacement de l’application web.
 - **StorageAccountUrl** : URL SAP du conteneur de stockage Azure utilisé pour le stockage des sauvegardes.
 - **FrequencyInterval** : valeur numérique indiquant la fréquence à laquelle les sauvegardes doivent être effectuées. Cette valeur doit être un entier positif.
@@ -112,7 +126,7 @@ Pour obtenir la dernière planification de sauvegarde, utilisez l’applet de co
 
 Pour restaurer une application web à partir d’une sauvegarde, utilisez l’applet de commande Restore-AzureRmWebAppBackup. Le moyen le plus simple d’utiliser cette applet de commande consiste à transmettre un objet de sauvegarde récupéré à partir de l’applet de commande Get-AzureRmWebAppBackup ou de l’applet de commande Get-AzureRmWebAppBackupList.
 
-Une fois que vous obtenez un objet de sauvegarde, vous pouvez le diriger dans l’applet de commande Restore-AzureRmWebAppBackup. Vous devez spécifier le paramètre à bascule Overwrite pour indiquer que vous souhaitez remplacer le contenu de votre application web par le contenu de la sauvegarde. Si la sauvegarde contient des bases de données, ces bases de données seront également restaurées.
+Une fois que vous obtenez un objet de sauvegarde, vous pouvez le diriger dans l’applet de commande Restore-AzureRmWebAppBackup. Spécifiez le paramètre à bascule Overwrite pour indiquer que vous souhaitez remplacer le contenu de votre application web par le contenu de la sauvegarde. Si la sauvegarde contient des bases de données, ces bases de données sont également restaurées.
 
 		$backup | Restore-AzureRmWebAppBackup -Overwrite
 
@@ -128,7 +142,7 @@ Voici un exemple d’utilisation de l’applet de commande Restore-AzureRmWebApp
 
 ## Supprimer une sauvegarde
 
-Pour supprimer une sauvegarde, utilisez l’applet de commande Remove-AzureRmWebAppBackup. La sauvegarde est alors supprimée de votre compte de stockage. Vous devez spécifier le nom de votre application, son groupe de ressources et l’ID de la sauvegarde que vous souhaitez supprimer.
+Pour supprimer une sauvegarde, utilisez l’applet de commande Remove-AzureRmWebAppBackup. La sauvegarde est alors supprimée de votre compte de stockage. Spécifiez le nom de votre application, son groupe de ressources et l’ID de la sauvegarde que vous souhaitez supprimer.
 
 		$resourceGroupName = "Default-Web-WestUS"
 		$appName = "ContosoApp"
@@ -139,4 +153,4 @@ Vous pouvez également diriger un objet de sauvegarde dans l’applet de command
 		$backup = Get-AzureRmWebAppBackup -Name $appName -ResourceGroupName $resourceGroupName -BackupId 10102
 		$backup | Remove-AzureRmWebAppBackup -Overwrite
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0810_2016-->

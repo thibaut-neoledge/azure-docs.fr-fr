@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/25/2016" 
+	ms.date="08/09/2016" 
 	ms.author="antonba"/>
 
 # Délégation de l'inscription des utilisateurs et des abonnements aux produits
@@ -36,7 +36,7 @@ Pour commencer, configurons Gestion des API pour que les demandes soient achemin
 
 ![Delegation page][api-management-delegation-signin-up]
 
-* Décidez de l'URL de votre point de terminaison de délégation spécial, puis entrez-la dans le champ **URL du point de terminaison de délégation**. 
+* Décidez de l'URL de votre point de terminaison de délégation spécial, puis entrez-la dans le champ **URL du point de terminaison de délégation**.
 
 * Dans le champ **Clé d'authentification de la délégation**, entrez le secret utilisé pour calculer une signature qui vous sera fournie pour vérification afin de vous assurer que la demande provient bien de Gestion des API Azure. Vous pouvez cliquer sur le bouton **Générer** pour que la gestion des API génère de manière aléatoire une clé pour vous.
 
@@ -47,10 +47,10 @@ Pour commencer, configurons Gestion des API pour que les demandes soient achemin
 	> *http://www.yourwebsite.com/apimdelegation?operation=SignIn&returnUrl={URL of source page}&salt={string}&sig={string}*
 
 	Paramètres de requête pour le cas connexion/inscription :
-	- **operation** : identifie le type de demande de délégation. Il ne peut s’agir ici que de **SignIn**
-	- **returnUrl** : URL de la page dans laquelle l’utilisateur a cliqué sur un lien de connexion ou d’inscription
-	- **salt** : chaîne salt spéciale utilisée pour calculer un code de hachage de sécurité.
-	- **sig** : code de hachage de sécurité calculé à comparer avec votre propre code de hachage calculé.
+	- **operation** : identifie le type de demande de délégation. Il ne peut s’agir ici que de **SignIn**
+	- **returnUrl** : URL de la page dans laquelle l’utilisateur a cliqué sur un lien de connexion ou d’inscription
+	- **salt** : chaîne salt spéciale utilisée pour calculer un code de hachage de sécurité.
+	- **sig** : code de hachage de sécurité calculé à comparer avec votre propre code de hachage calculé.
 
 2. Vérifiez si la demande émane bien de Gestion des API Azure (facultatif, mais fortement recommandé pour assurer la sécurité).
 
@@ -59,7 +59,7 @@ Pour commencer, configurons Gestion des API pour que les demandes soient achemin
 		 
 	* Comparez le code de hachage calculé plus haut avec la valeur du paramètre de requête **sig**. Si les deux codes de hachage correspondent, passez à l'étape suivante. Sinon, rejetez la demande.
 
-2. Vérifiez que vous recevez une demande de connexion/d’inscription : le paramètre de requête **operation** sera défini sur « **SignIn** ».
+2. Vérifiez que vous recevez une demande de connexion/d’inscription : le paramètre de requête **operation** sera défini sur « **SignIn** ».
 
 3. Présentez à l'utilisateur l'interface de connexion ou d'inscription.
 
@@ -82,10 +82,10 @@ En plus de l’opération **SignIn**, vous pouvez également effectuer la gestio
 
 Vous devez transmettre les paramètres de requête suivants pour les opérations de gestion de compte.
 
--	**operation** : identifie le type de demande de délégation dont il s’agit (ChangePassword, ChangeProfile ou CloseAccount)
--	**userId** : id d’utilisateur du compte à gérer
--	**salt** : chaîne salt spéciale utilisée pour calculer un code de hachage de sécurité.
--	**sig** : code de hachage de sécurité calculé à comparer avec votre propre code de hachage calculé.
+-	**operation** : identifie le type de demande de délégation dont il s’agit (ChangePassword, ChangeProfile ou CloseAccount)
+-	**userId** : id d’utilisateur du compte à gérer
+-	**salt** : chaîne salt spéciale utilisée pour calculer un code de hachage de sécurité.
+-	**sig** : code de hachage de sécurité calculé à comparer avec votre propre code de hachage calculé.
 
 ## <a name="delegate-product-subscription"> </a>Délégation de l’abonnement aux produits
 
@@ -106,19 +106,19 @@ Assurez-vous ensuite que le point de terminaison de délégation effectue bien l
 	> *http://www.yourwebsite.com/apimdelegation?operation={operation}&productId={product to subscribe to}&userId={user making request}&salt={string}&sig={string}*
 
 	Paramètres de requête pour le cas abonnement à un produit :
-	- **operation** : identifie le type de demande de délégation. Pour l'abonnement à un produit, les options valides sont les suivantes :
+	- **operation** : identifie le type de demande de délégation. Pour l'abonnement à un produit, les options valides sont les suivantes :
 		- « Subscribe » : une demande d’abonnement de l’utilisateur à un produit donné avec l’identifiant fourni (voir ci-dessous).
 		- « Unsubscribe » : une demande de désabonnement de l’utilisateur pour un produit.
 		- « Renew » : une demande de renouvellement d’abonnement (par exemple en cas d'expiration).
-	- **productId** : l’ID du produit auquel l’utilisateur demande l’abonnement
-	- **userId** : l’ID de l’utilisateur pour qui la demande est envoyée
-	- **salt** : chaîne salt spéciale utilisée pour calculer un code de hachage de sécurité.
-	- **sig** : code de hachage de sécurité calculé à comparer avec votre propre code de hachage calculé.
+	- **productId** : l’ID du produit auquel l’utilisateur demande l’abonnement
+	- **userId** : l’ID de l’utilisateur pour qui la demande est envoyée
+	- **salt** : chaîne salt spéciale utilisée pour calculer un code de hachage de sécurité.
+	- **sig** : code de hachage de sécurité calculé à comparer avec votre propre code de hachage calculé.
 
 
 2. Vérifiez si la demande émane bien de Gestion des API Azure (facultatif, mais fortement recommandé pour assurer la sécurité).
 
-	* Calculez un code de hachage HMAC-SHA512 d'une chaîne basée sur les paramètres de requête **ProductId**, **userId** et **salt** :
+	* Calculez un code de hachage HMAC-SHA512 d'une chaîne basée sur les paramètres de requête **ProductId**, **userId** et **salt** :
 		> HMAC(**salt** + '\\n' + **productId** + '\\n' + **userId**)
 		 
 	* Comparez le code de hachage calculé plus haut avec la valeur du paramètre de requête **sig**. Si les deux codes de hachage correspondent, passez à l'étape suivante. Sinon, rejetez la demande.
@@ -147,7 +147,7 @@ Ces exemples de code montrent comment prendre la *clé de validation de déléga
     }
 
 
-**Code NodeJS pour générer le hachage de returnUrl**
+****Code NodeJS pour générer le hachage de returnUrl****
 
 	var crypto = require('crypto');
 	
@@ -178,4 +178,4 @@ Pour plus d’informations sur la délégation, regardez la vidéo suivante.
 
 [api-management-delegation-signin-up]: ./media/api-management-howto-setup-delegation/api-management-delegation-signin-up.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -137,7 +137,7 @@ Avant d’enregistrer la machine virtuelle dans un coffre, lancez le processus d
 
 ## Étape 3 : installation de l’agent de machine virtuelle sur la machine virtuelle
 
-L’agent de machine virtuelle Azure doit être installé sur la machine virtuelle Azure pour permettre la prise en charge de l’extension Backup. Si votre machine virtuelle a été créée à partir de la galerie Azure, l’agent est déjà installé sur la machine virtuelle ! Vous pouvez passer à la [protection de vos machines virtuelles](backup-azure-vms-first-look.md#step-4---protect-azure-virtual-machines).
+L’agent de machine virtuelle Azure doit être installé sur la machine virtuelle Azure pour permettre la prise en charge de l’extension Backup. Si votre machine virtuelle a été créée à partir de la galerie Azure, l’agent est déjà installé sur la machine virtuelle ! Vous pouvez passer à la [protection de vos machines virtuelles](backup-azure-vms-first-look.md#step-4-protect-azure-virtual-machines).
 
 Si votre machine virtuelle a migré à partir d'un centre de données local, il est probable que l’agent de machine virtuelle n’y soit pas installé. Vous devez installer l'agent sur la machine virtuelle avant de passer à l’étape de protection de la machine virtuelle. Pour obtenir des instructions détaillées sur l’installation de l’agent de machine virtuelle, consultez la [section Agent VM de l’article sur la sauvegarde des machines virtuelles](backup-azure-vms-prepare.md#vm-agent).
 
@@ -213,4 +213,4 @@ Maintenant que vous êtes parvenu à sauvegarder une machine virtuelle, d’autr
 ## Des questions ?
 Si vous avez des questions ou si vous souhaitez que certaines fonctionnalités soient incluses, [envoyez-nous vos commentaires](http://aka.ms/azurebackup_feedback).
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

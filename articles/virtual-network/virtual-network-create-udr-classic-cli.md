@@ -3,7 +3,7 @@
    description="Apprenez à contrôler le routage dans des réseaux VNet à l'aide de l'Interface de ligne de commande Azure dans le modèle de déploiement classique"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor=""
    tags="azure-service-management"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/15/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 #Contrôle du routage et utilisation des appliances virtuelles (classiques) à l'aide de l'Interface de ligne de commande Azure
 
@@ -23,7 +23,7 @@
 
 [AZURE.INCLUDE [virtual-network-create-udr-intro-include.md](../../includes/virtual-network-create-udr-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]Cet article traite du modèle de déploiement classique. Vous pouvez également [contrôler le routage et utiliser des appliances virtuelles dans le modèle de déploiement Resource Manager](virtual-network-create-udr-arm-cli.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)] Cet article traite du modèle de déploiement classique. Vous pouvez également [contrôler le routage et utiliser des appliances virtuelles dans le modèle de déploiement Resource Manager](virtual-network-create-udr-arm-cli.md).
 
 [AZURE.INCLUDE [virtual-network-create-udr-scenario-include.md](../../includes/virtual-network-create-udr-scenario-include.md)]
 
@@ -55,7 +55,7 @@ Pour créer la table de routage et l'itinéraire nécessaires pour le sous-rése
 		data:    Location                        : West US
 		info:    network route-table create command OK
 
-	Paramètres :
+	Paramètres :
 	- **-l (ou --location)**. Région Azure où le groupe de sécurité réseau sera créé. Pour notre scénario, *westus*.
 	- **-n (ou --name)**. Nom du nouveau groupe de sécurité réseau. Pour notre scénario, *NSG-FrontEnd*.
 
@@ -70,7 +70,7 @@ Pour créer la table de routage et l'itinéraire nécessaires pour le sous-rése
 		info:    Setting route "RouteToBackEnd" in a route table "UDR-FrontEnd"
 		info:    network route-table route set command OK
 
-	Paramètres :
+	Paramètres :
 	- **-r (ou --route-table-name)**. Nom de la table de routage où l'itinéraire sera ajouté. Pour notre scénario, *UDR-FrontEnd*.
 	- **-a (ou --address-prefix)**. Préfixe d'adresse pour le sous-réseau auquel les paquets sont destinés. Pour notre scénario, *192.168.2.0/24*.
 	- **-t (ou --next-hop-type)**. Type d'objet vers lequel le trafic sera envoyé. Les valeurs possibles sont *VirtualAppliance*, *VirtualNetworkGateway*, *VNETLocal*, *Internet* ou *None*.
@@ -93,7 +93,7 @@ Pour créer la table de routage et l'itinéraire nécessaires pour le sous-rése
 		data:      Routes:
 		info:    network vnet subnet route-table add command OK	
 
-	Paramètres :
+	Paramètres :
 	- **-t (ou --vnet-name)**. Nom du réseau virtuel où le sous-réseau est situé. Pour notre scénario, *TestVNet*.
 	- **-n (ou --subnet-name)**. Nom du sous-réseau auquel la table de routage sera ajoutée. Pour notre scénario, *FrontEnd*.
  
@@ -112,4 +112,4 @@ Pour créer la table de routage et l'itinéraire nécessaires pour le sous-rése
 
 		azure network vnet subnet route-table add -t TestVNet -n BackEnd -r UDR-BackEnd
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0810_2016-->

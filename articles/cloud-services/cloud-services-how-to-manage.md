@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/26/2016"
+	ms.date="08/10/2016"
 	ms.author="adegeo"/>
 
 
@@ -164,4 +164,4 @@ Si la surveillance détaillée est configurée pour votre service cloud, Azure n
 * Configurez un [nom de domaine personnalisé](cloud-services-custom-domain-name.md).
 * Configurez des [certificats SSL](cloud-services-configure-ssl-certificate.md).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0810_2016-->

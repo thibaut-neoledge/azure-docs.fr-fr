@@ -20,8 +20,8 @@
 #Acheter et configurer un certificat SSL pour votre service Azure App Service
 
 > [AZURE.SELECTOR]
-- [Acheter un certificat SSL pour Web Apps](web-sites-purchase-ssl-web-site.md)
-- [Activer le chiffrement SSL pour votre domaine personnalisé](web-sites-configure-ssl-certificate.md)
+- [Acheter un certificat SSL dans Azure](web-sites-purchase-ssl-web-site.md)
+- [Utiliser un certificat SSL depuis autre emplacement](web-sites-configure-ssl-certificate.md)
 
 Par défaut, **[Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)** active déjà le protocole HTTPS pour votre application web grâce à un certificat générique pour le domaine *.azurewebsites.net. Si vous ne souhaitez pas configurer de domaine personnalisé, vous pouvez utiliser le certificat HTTPS par défaut. Comme *[tous les domaines génériques](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates), il n’est cependant pas aussi sécurisé qu’un domaine personnalisé avec votre propre certificat. Azure App Service vous fournit désormais un moyen simple d’acheter et de gérer un certificat SSL directement à partir du portail Azure sans jamais quitter le portail. Cet article explique comment acheter et configurer un certificat SSL pour votre service **[Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)** en 3 étapes simples.
 
@@ -146,7 +146,7 @@ Dans cette étape, vous allez apprendre à effectuer la vérification de la prop
             
             * Cliquez sur **« Actualiser »** pour mettre à jour l’état du certificat une fois la vérification terminée. Cette vérification peut prendre quelques minutes.
                               
-            Par exemple, pour effectuer la validation d’un certificat générique portant le nom d’hôte **\*.contosocertdemo.com** ou **\*.sousdomaine.contosocertdemo.com** et le jeton de vérification du domaine **cAGgQrKc**, vous devez créer un enregistrement TXT sur dzc.contosocertdemo.com avec la valeur **cAGgQrKc.**
+            Par exemple, pour effectuer la validation d’un certificat générique portant le nom d’hôte ***.contosocertdemo.com** ou ***.sousdomaine.contosocertdemo.com** et le jeton de vérification du domaine **cAGgQrKc**, vous devez créer un enregistrement TXT sur dzc.contosocertdemo.com avec la valeur **cAGgQrKc.**
 
 
 ##<a name="bkmk_AssignCertificate"></a>Étape 3 : Attribuer un certificat à une application App Service
@@ -174,7 +174,7 @@ Avant de suivre les étapes de cette section, vous devez avoir associé un nom d
 
 
 
-Si vous avez sélectionné **SSL basé sur IP** et que votre domaine personnalisé est configuré à l’aide d’un enregistrement A, vous devez effectuer les étapes supplémentaires suivantes :
+Si vous avez sélectionné **SSL basé sur IP** et que votre domaine personnalisé est configuré à l’aide d’un enregistrement A, vous devez effectuer les étapes supplémentaires suivantes :
 
 * Une fois la liaison SSL basée sur IP configurée, une adresse IP dédiée est attribuée à votre application. Celle-ci figure dans la page **Tableau de bord** de votre application, dans la section **Aperçu rapide**. Elle est répertoriée en tant qu’**Adresse IP virtuelle :**
     
@@ -208,4 +208,4 @@ Si vous avez sélectionné **SSL basé sur IP** et que votre domaine personnal
 
 >[AZURE.NOTE] Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement et gratuitement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -3,7 +3,7 @@
    description="Apprenez à contrôler le routage dans des réseaux VNet à l'aide de PowerShell dans le modèle de déploiement classique"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor=""
    tags="azure-service-management"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/02/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 #Contrôle du routage et utilisation des appliances virtuelles (classiques) à l'aide de PowerShell
 
@@ -110,4 +110,4 @@ Pour activer le transfert IP sur la machine virtuelle FW1, suivez les étapes ci
 		Get-AzureVM -Name FW1 -ServiceName TestRGFW `
 			| Set-AzureIPForwarding -Enable
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0810_2016-->

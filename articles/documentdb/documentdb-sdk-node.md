@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Kit de développement logiciel (SDK) Node.js de DocumentDB | Microsoft Azure" 
-	description="Découvrez le Kit de développement logiciel (SDK) Node.js, y compris les dates de lancement, les dates de suppression et les modifications apportées entre chaque version du Kit de développement logiciel (SDK) Node.js DocumentDB." 
+	pageTitle="API et Kit de développement logiciel (SDK) Node.js de DocumentDB | Microsoft Azure" 
+	description="Découvrez l'API et le Kit de développement logiciel (SDK) Node.js, y compris les dates de lancement, les dates de suppression et les modifications apportées entre chaque version du Kit de développement logiciel (SDK) Node.js DocumentDB." 
 	services="documentdb" 
 	documentationCenter="nodejs" 
-	authors="aliuy" 
+	authors="rnagpal" 
 	manager="jhubbard" 
 	editor="cgronlun"/>
 
@@ -13,25 +13,29 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="07/07/2016" 
-	ms.author="andrl"/>
+	ms.date="08/09/2016" 
+	ms.author="rnagpal"/>
 
-# Kit SDK DocumentDB
+# API DocumentDB et Kits de développement logiciel (SDK)
 
 > [AZURE.SELECTOR]
-- [Kit SDK .NET](documentdb-sdk-dotnet.md)
-- [Kit SDK Node.js](documentdb-sdk-node.md)
-- [Kit SDK Java](documentdb-sdk-java.md)
-- [Kit de développement logiciel (SDK) Python](documentdb-sdk-python.md)
+- [.NET](documentdb-sdk-dotnet.md)
+- [Node.JS](documentdb-sdk-node.md)
+- [Java](documentdb-sdk-java.md)
+- [Python](documentdb-sdk-python.md)
+- [REST](https://go.microsoft.com/fwlink/?LinkId=402413)
+- [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 
-##Kit de développement logiciel (SDK) DocumentDB Node.js
+##API et Kit de développement logiciel (SDK) DocumentDB Node.js
 
 <table>
-<tr><td>**Télécharger**</td><td>[NPM](https://www.npmjs.com/package/documentdb)</td></tr>
-<tr><td>**Participer**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-node/tree/master/source)</td></tr>
-<tr><td>**Documentation**</td><td>[Documentation de référence du SKD Node.js](http://azure.github.io/azure-documentdb-node/)</td></tr>
-<tr><td>**Exemples**</td><td>[Exemples de code Node.js](https://github.com/Azure/azure-documentdb-node/tree/master/samples)</td></tr>
-<tr><td>**Prise en main**</td><td>[Prise en main du SDK Node.js] (documentdb-nodejs-get-started.md)</td></tr>
+<tr><td>**Téléchargement du Kit de développement logiciel (SDK)**</td><td>[NPM](https://www.npmjs.com/package/documentdb)</td></tr>
+<tr><td>**Documentation de l'API**</td><td>[Documentation de référence de l'API Node.js](http://azure.github.io/azure-documentdb-node/DocumentClient.html)</td></tr>
+<tr><td>**Instructions d’installation du Kit de développement logiciel (SDK)**</td><td>[Instructions d'installation](http://azure.github.io/azure-documentdb-node/)</td></tr>
+<tr><td>**Contribution au Kit de développement logiciel (SDK)**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-node/tree/master/source)</td></tr>
+<tr><td>**Exemples**</td><td>[Exemples de codes Node.js](documentdb-nodejs-samples.md)</td></tr>
+<tr><td>**Didacticiel de prise en main**</td><td>[Prise en main du SDK Node.js] (documentdb-nodejs-get-started.md)</td></tr>
+<tr><td>** Didacticiel d’application web **</td><td>[Créer une application web Node.js à l'aide de DocumentDB](documentdb-nodejs-application.md)</td></tr>
 <tr><td>**Plateforme actuellement prise en charge**</td><td>[Node.js v0.10](https://nodejs.org/en/blog/release/v0.10.0/)<br/>[Node.js v0.12](https://nodejs.org/en/blog/release/v0.12.0/)<br/>[Node.js v4.2.0](https://nodejs.org/en/blog/release/v4.2.0/)</td></tr>
 </table></br>
 
@@ -136,10 +140,10 @@ Microsoft fournira une notification au moins **12 mois** avant le retrait d’u
 
 Les nouvelles fonctionnalités et fonctions, et les optimisations sont uniquement ajoutées au Kit SDK actuel. Par conséquent, il est recommandé de toujours passer à la dernière version du SDK dès que possible.
 
-Toute requête à DocumentDB utilisant un Kit de développement logiciel (SDK) supprimé est rejetée par le service.
+Toute requête à DocumentDB utilisant un Kit SDK supprimé est rejetée par le service.
 
 > [AZURE.WARNING]
-Toutes les versions du Kit de développement logiciel (SDK) Azure DocumentDB pour Node.js antérieures à la version **1.0.0** seront supprimées le **29 février 2016**.
+Toutes les versions du Kit de développement logiciel (SDK) Azure DocumentDB pour Node.js antérieures à la version **1.0.0** seront supprimées le **29 février 2016**.
 
 <br/>
 
@@ -180,4 +184,4 @@ Toutes les versions du Kit de développement logiciel (SDK) Azure DocumentDB pou
 
 Pour en savoir plus sur DocumentDB, consultez la page du service [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0810_2016-->

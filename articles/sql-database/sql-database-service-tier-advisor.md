@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management" 
-   ms.date="05/09/2016"
+   ms.date="08/08/2016"
    ms.author="sstein"/>
 
 # Recommandations relatives aux niveaux tarifaires des bases de données SQL
 
- Bénéficiez de recommandations sur les niveaux tarifaires, notamment les niveaux de service et de performances les mieux adaptés à l’exécution d’une charge de travail d’une base de données SQL Azure existante.
+ Les recommandations sur les niveaux tarifaires proposent le niveau de service et de performances le mieux adapté à l’exécution de la charge de travail d’une base de données SQL Azure existante.
 
 > [AZURE.NOTE] Ces recommandations sont disponibles uniquement pour les bases de données Web et Business et les pools de bases de données élastiques. Elles sont disponibles uniquement sur le [portail Azure](https://portal.azure.com/).
 
@@ -96,4 +96,4 @@ Selon les informations de votre base de données spécifique, l’exécution d�
 
  
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -1,9 +1,9 @@
 <properties 
-   pageTitle="Déployer une machine virtuelle avec une adresse IP publique statique à l’aide de l’interface de ligne de commande Azure dans Resource Manager | Microsoft Azure"
-   description="Découvrir comment déployer des machines virtuelles avec une adresse IP publique statique à l’aide de l’interface de ligne de commande Azure dans Resource Manager"
+   pageTitle="Déployer une machine virtuelle avec une adresse IP publique statique à l’aide de l’interface de ligne de commande Azure dans Resource Manager | Microsoft Azure"
+   description="Découvrir comment déployer des machines virtuelles avec une adresse IP publique statique à l’aide de l’interface de ligne de commande Azure dans Resource Manager"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor=""
    tags="azure-resource-manager"
@@ -15,21 +15,21 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/15/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
-# Déployer une machine virtuelle avec une adresse IP publique statique à l’aide de l’interface de ligne de commande Azure
+# Déployer une machine virtuelle avec une adresse IP publique statique à l’aide de l’interface de ligne de commande Azure
 
 [AZURE.INCLUDE [virtual-network-deploy-static-pip-arm-selectors-include.md](../../includes/virtual-network-deploy-static-pip-arm-selectors-include.md)]
 
 [AZURE.INCLUDE [virtual-network-deploy-static-pip-intro-include.md](../../includes/virtual-network-deploy-static-pip-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)]Modèle de déploiement classique
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] le modèle de déploiement classique.
 
 [AZURE.INCLUDE [virtual-network-deploy-static-pip-scenario-include.md](../../includes/virtual-network-deploy-static-pip-scenario-include.md)]
 
 [AZURE.INCLUDE [azure-cli-prerequisites-include.md](../../includes/azure-cli-prerequisites-include.md)]
 
-## Étape 1 : démarrage de votre script
+## Étape 1 : démarrage de votre script
 
 Vous pouvez télécharger le script d'interpréteur de commandes complet utilisé [ici](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/03-Static-public-IP/virtual-network-deploy-static-pip-arm-cli.sh). Suivez les étapes ci-dessous pour modifier le script afin qu’il fonctionne dans votre environnement.
 
@@ -64,9 +64,9 @@ Vous pouvez télécharger le script d'interpréteur de commandes complet utilis�
 		pipName="PIPWEB1"
 		dnsName="iaasstoryws1"
 
-## Étape 2 : créer les ressources nécessaires pour vos machines virtuelles
+## Étape 2 : créer les ressources nécessaires pour vos machines virtuelles
 
-Avant de créer une machine virtuelle, vous devez mettre à sa disposition un groupe de ressources, un réseau virtuel, une adresse IP publique et une carte réseau.
+Avant de créer une machine virtuelle, vous devez mettre à sa disposition un groupe de ressources, un réseau virtuel, une adresse IP publique et une carte réseau.
 
 1. Créez un groupe de ressources.
 
@@ -83,7 +83,7 @@ Avant de créer une machine virtuelle, vous devez mettre à sa disposition un gr
 		    --name $subnetName \
 		    --address-prefix $subnetPrefix
 
-3. Créez la ressource IP publique.
+3. Créez la ressource IP publique.
 
 		azure network public-ip create --resource-group $rgName \
 		    --name $pipName \
@@ -91,7 +91,7 @@ Avant de créer une machine virtuelle, vous devez mettre à sa disposition un gr
 		    --allocation-method Static \
 		    --domain-name-label $dnsName 
 
-4. Créez la carte réseau pour la machine virtuelle dans le sous-réseau créé ci-dessus, avec l’adresse IP publique. Notez que le premier jeu de commandes permet de récupérer l’**Id** du sous-réseau créé ci-dessus.
+4. Créez la carte réseau pour la machine virtuelle dans le sous-réseau créé ci-dessus, avec l’adresse IP publique. Notez que le premier jeu de commandes permet de récupérer l’**Id** du sous-réseau créé ci-dessus.
 
 		subnetId="$(azure network vnet subnet show --resource-group $rgName \
 		                --vnet-name $vnetName \
@@ -114,7 +114,7 @@ Avant de créer une machine virtuelle, vous devez mettre à sa disposition un gr
 		    --resource-group $rgName \
 		    --location $location --type LRS 
 
-## Étape 3 : créer la machine virtuelle 
+## Étape 3 : créer la machine virtuelle 
 
 Une fois toutes les ressources nécessaires en place, vous pouvez créer une machine virtuelle.
 
@@ -136,7 +136,7 @@ Une fois toutes les ressources nécessaires en place, vous pouvez créer une mac
 
 2. Enregistrez le fichier de script.
 
-## Étape 4 : exécution du script
+## Étape 4 : exécution du script
 
 Une fois que vous avez effectué les modifications nécessaires et compris le script ci-dessus, exécutez le script.
 
@@ -227,4 +227,4 @@ Une fois que vous avez effectué les modifications nécessaires et compris le sc
 		info:    Creating VM "WEB1"
 		info:    vm create command OK
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0810_2016-->

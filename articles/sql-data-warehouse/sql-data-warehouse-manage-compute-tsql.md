@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/06/2016"
+   ms.date="08/08/2016"
    ms.author="barbkess;sonyama"/>
 
 # Gestion de la puissance de calcul dans Azure SQL Data Warehouse (T-SQL)
@@ -45,7 +45,7 @@ Pour afficher les paramètres d’unités DWU actuels pour vos bases de données
 
 1. Ouvrez l’Explorateur d’objets SQL Server dans Visual Studio 2015.
 2. Connectez-vous à la base de données associée au serveur de base de données SQL logique.
-2. Sélectionnez dans la vue de gestion dynamique sys.database\_service\_objectives. Voici un exemple : 
+2. Sélectionnez dans la vue de gestion dynamique sys.database\_service\_objectives. Voici un exemple :
 
 ```
 SELECT
@@ -67,7 +67,7 @@ Pour modifier les unités DWU :
 
 
 1. Connectez-vous à la base de données associée à votre serveur de base de données SQL logique.
-2. Utilisez l’instruction TSQL [ALTER DATABASE][]. L'exemple suivant définit l'objectif de niveau de service sur DW1000 pour la base de données MySQLDW. 
+2. Utilisez l’instruction TSQL [ALTER DATABASE][]. L'exemple suivant définit l'objectif de niveau de service sur DW1000 pour la base de données MySQLDW.
 
 ```Sql
 ALTER DATABASE MySQLDW
@@ -97,4 +97,4 @@ Pour d’autres tâches de gestion, consultez la [vue d’ensemble de la gestion
 
 [Azure portal]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/14/2016"
+   ms.date="08/08/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Migration de votre schéma vers SQL Data Warehouse#
@@ -23,19 +23,19 @@ Les synthèses suivantes vous permettront de mieux comprendre les différences e
 ### Fonctionnalités de tables
 SQL Data Warehouse n’utilise ou ne prend pas en charge les fonctionnalités suivantes :
 
-- Clés primaires  
-- Clés étrangères  
-- Contraintes CHECK  
-- Contraintes uniques  
-- Index uniques  
-- Colonnes calculées  
-- Colonnes éparses  
-- Types définis par l’utilisateur  
-- Vues indexées  
-- Identités  
-- Séquences  
-- Déclencheurs  
-- Synonymes  
+- Clés primaires
+- Clés étrangères
+- Contraintes CHECK
+- Contraintes uniques
+- Index uniques
+- Colonnes calculées
+- Colonnes éparses
+- Types définis par l’utilisateur
+- Vues indexées
+- Identités
+- Séquences
+- Déclencheurs
+- Synonymes
 
 
 ### Différences entre les types de données
@@ -142,4 +142,4 @@ Pour obtenir des conseils supplémentaires sur le développement, consultez la [
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

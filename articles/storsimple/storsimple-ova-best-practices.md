@@ -12,16 +12,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/08/2016"
+   ms.date="08/09/2016"
    ms.author="alkohli" />
 
 # Bonnes pratiques liées à StorSimple Virtual Array
 
 ## Vue d'ensemble
 
-Microsoft Azure StorSimple Virtual Array est une solution de stockage intégrée qui gère les tâches de stockage entre un appareil virtuel local exécuté dans un hyperviseur et le stockage cloud Microsoft Azure. StorSimple Virtual Array représente une alternative efficace et économique à la baie de stockage physique de la gamme 8000. La baie virtuelle peut s’exécuter sur votre infrastructure de l’hyperviseur, prend en charge les protocoles SMB et iSCSI, et est particulièrement adaptée aux scénarios de bureaux distants. Pour plus d’informations sur les solutions StorSimple, consultez [Vue d’ensemble de Microsoft Azure StorSimple](https://www.microsoft.com/fr-FR/server-cloud/products/storsimple/overview.aspx).
+Microsoft Azure StorSimple Virtual Array est une solution de stockage intégrée qui gère les tâches de stockage entre un appareil virtuel local exécuté dans un hyperviseur et le stockage cloud Microsoft Azure. StorSimple Virtual Array représente une alternative efficace et économique à la baie de stockage physique de la gamme 8000. La baie virtuelle peut s’exécuter sur votre infrastructure de l’hyperviseur, prend en charge les protocoles SMB et iSCSI, et est adaptée aux scénarios de bureaux distants. Pour plus d’informations sur les solutions StorSimple, consultez [Vue d’ensemble de Microsoft Azure StorSimple](https://www.microsoft.com/fr-FR/server-cloud/products/storsimple/overview.aspx).
 
-Cet article aborde les bonnes pratiques à implémenter au cours de l’installation initiale, du déploiement et de la gestion de la baie virtuelle StorSimple Virtual Array. Ces bonnes pratiques fournissent des instructions validées pour l’installation et la gestion de votre baie virtuelle. Cet article est destiné aux administrateurs informatiques chargés de déployer et de gérer les baies virtuelles dans leurs centres de données.
+Cet article aborde les bonnes pratiques à implémenter au cours de l’installation initiale, du déploiement et de la gestion de la baie virtuelle StorSimple Virtual Array. Ces bonnes pratiques fournissent des instructions validées pour l’installation et la gestion de votre baie virtuelle. Cet article est destiné aux administrateurs informatiques qui déploient et gèrent les baies virtuelles dans leurs centres de données.
 
 Nous vous recommandons une révision périodique des bonnes pratiques afin de garantir que votre périphérique est toujours en conformité lorsque des modifications sont apportées au flux des opérations ou au flux d’installation. Si vous rencontrez des problèmes lors de l’implémentation de ces bonnes pratiques sur votre baie virtuelle, [contactez le support Microsoft](storsimple-contact-microsoft-support.md) pour obtenir une assistance.
 
@@ -40,19 +40,19 @@ Implémentez les bonnes pratiques suivantes lors de l’approvisionnement de la 
 |------------------------|------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------|
 | **Type de machine virtuelle** | Machine virtuelle de **génération 2** à utiliser avec Windows Server 2012 ou version ultérieure et une image *.vhdx*. <br></br> Machine virtuelle de **génération 1** à utiliser avec un serveur Windows Server 2008 ou version ultérieure et une image *.vhd*. | Utilisez la machine virtuelle version 8 - 11 lorsque vous utilisez une image *.vmdk*. |
 | **Type de mémoire** | Configurez-la en tant que **mémoire statique**. <br></br> N’utilisez pas l’option de **mémoire dynamique**. | |
-| **Type de disque de données** | Sélectionnez **Taille dynamique**.<br></br> L’option **Taille fixe** prend beaucoup de temps. <br></br> N’utilisez pas l’option de **différenciation**. | Utilisez l’option **Allocation dynamique**. |
-| **Modification du disque de données** | L’expansion et la réduction ne sont pas autorisées. Une tentative dans ce sens entraînerait la perte de toutes les données locales sur l’appareil. | L’expansion et la réduction ne sont pas autorisées. Une tentative dans ce sens entraînerait la perte de toutes les données locales sur l’appareil. |
+| **Type de disque de données** | Sélectionnez **Taille dynamique**.<br></br> **Taille fixe** prend beaucoup de temps. <br></br> N’utilisez pas l’option de **différenciation**. | Utilisez l’option **Allocation dynamique**. |
+| **Modification du disque de données** | L’expansion et la réduction ne sont pas autorisées. Une tentative dans ce sens entraîne la perte de toutes les données locales sur l’appareil. | L’expansion et la réduction ne sont pas autorisées. Une tentative dans ce sens entraîne la perte de toutes les données locales sur l’appareil. |
 
 ### Dimensionnement
 
-Lorsque vous dimensionnez votre baie virtuelle StorSimple Virtual Array, vous devez tenir compte des facteurs suivants :
+Lorsque vous dimensionnez votre baie virtuelle StorSimple Virtual Array, tenez compte des facteurs suivants :
 
-- Réservation locale pour des volumes ou des partages. Environ 12 % de l’espace est réservé au niveau local pour chaque partage ou volume hiérarchisé mis en service. Environ 10 % de l’espace est également réservé pour un volume épinglé localement pour le système de fichiers.
+- Réservation locale pour des volumes ou des partages. Environ 12 % de l’espace est réservé au niveau local pour chaque volume hiérarchisé et chaque partage à plusieurs niveaux alloué. Environ 10 % de l’espace est également réservé pour un volume épinglé localement pour le système de fichiers.
 - Charge des instantanés. Environ 15 % de l’espace au niveau local est réservé pour les instantanés.
-- Besoins liés aux restaurations. Le dimensionnement doit prendre en compte l’espace nécessaire pour la restauration si la restauration s’effectue en tant que nouvelle opération. Notez que la restauration s’effectue sur un partage ou un volume de taille identique ou supérieure.
+- Besoins liés aux restaurations. Si la restauration s’effectue en tant que nouvelle opération, le dimensionnement doit prendre en compte l’espace nécessaire pour la restauration. La restauration s’effectue sur un partage ou un volume de taille identique ou supérieure.
 - Une certaine mémoire tampon doit être allouée pour toute croissance inattendue.
 
-En fonction des facteurs ci-dessus, les exigences de dimensionnement peuvent être représentées par l’équation suivante :
+En fonction des facteurs précédents, les exigences de dimensionnement peuvent être représentées par l’équation suivante :
 
 `Total usable local disk size = (Total provisioned locally pinned volume/share size including space for file system) + (Max (local reservation for a volume/share) for all tiered volumes/share) + (Local reservation for all tiered volumes/shares)`
 
@@ -69,7 +69,7 @@ Sur votre baie virtuelle, vous souhaitez être en mesure de
 - configurer un partage ou un volume épinglé localement de 300 Go.
 
 
-Pour les partages ou volumes ci-dessus, calculons l’espace nécessaire au niveau local.
+Pour les partages ou volumes précédents, calculons l’espace nécessaire au niveau local.
 
 Tout d’abord, pour chaque partage/volume hiérarchisé, la réservation locale serait égale à 12 % de la taille du partage/volume. Pour le partage/volume épinglé localement, la réservation locale serait égale à 10 % de la taille du partage/volume. Dans cet exemple, vous avez besoin
 
@@ -81,11 +81,11 @@ L’espace total requis à ce stade au niveau local est de : 240 Go + 120 Go + 3
 
 Deuxièmement, nous avons besoin d’au moins autant d’espace au niveau local que la réservation unique la plus grande. Ce montant supplémentaire est utilisé au cas où il serait nécessaire d’effectuer une restauration à partir d’un instantané cloud. Dans cet exemple, la plus grande réservation locale est de 330 Go (y compris la réservation pour le système de fichiers), donc vous devez l’ajouter aux 660 Go : 660 Go + 330 Go = 990 Go. Si nous avons effectué des restaurations supplémentaires ultérieures, nous pouvons toujours libérer l’espace utilisé pour l’opération de restauration précédente.
 
-Troisièmement, nous aurons besoin de 15 % de votre espace local total jusqu’ici pour stocker les instantanés locaux, si bien que 85 % de celui-ci sera disponible. Dans cet exemple, cela représente environ 990 Go = 0,85*To du disque de données configuré. Par conséquent, le disque de données configuré aurait une taille de (990*(1/0,85)) = 1164 Go = 1,16 To ~ 1,25 To (en arrondissant au quartile le plus proche)
+Troisièmement, nous avons besoin de 15 % de votre espace local total jusqu’ici pour stocker les instantanés locaux, si bien que 85 % de celui-ci est disponible. Dans cet exemple, cela représente environ 990 Go = 0,85&ast;To du disque de données configuré. Par conséquent, le disque de données configuré aurait une taille de (990&ast;(1/0,85)) = 1164 Go = 1,16 To ~ 1,25 To (en arrondissant au quartile le plus proche)
 
 En tenant compte de la croissance inattendue et de nouvelles restaurations, vous devez configurer un disque local d’environ 1,25 - 1,5 To.
 
-> [AZURE.NOTE] Nous vous recommandons également de configurer dynamiquement le disque local. Cela est dû au fait que l’espace de restauration est nécessaire uniquement lorsque vous souhaitez restaurer des données datant de plus de 5 jours. La récupération au niveau de l’élément vous permet de restaurer les données des 5 derniers jours sans nécessiter d’espace supplémentaire pour la restauration.
+> [AZURE.NOTE] Nous vous recommandons également de configurer dynamiquement le disque local. Cette recommandation est due au fait que l’espace de restauration est nécessaire uniquement lorsque vous souhaitez restaurer des données datant de plus de cinq jours. La récupération au niveau de l’élément vous permet de restaurer les données des cinq derniers jours sans nécessiter d’espace supplémentaire pour la restauration.
 
 #### Exemple 2 : 
 Sur votre baie virtuelle, vous souhaitez être en mesure de
@@ -100,9 +100,9 @@ En tenant compte des 12 % de réservation de l’espace local pour les partages/
 
 L’espace total requis au niveau local est de : 240 Go + 330 Go = 570 Go.
 
-L’espace local minimal requis pour la restauration serait de 330 Go.
+L’espace local minimal requis pour la restauration est de 330 Go.
 
-15 % de votre disque total seraient utilisés pour stocker les instantanés, si bien que seuls 85 % seraient disponibles. Ainsi, la taille du disque serait de (900*(1/0,85)) = 1,06 To ~ 1,25 To (en arrondissant au quartile le plus proche)
+15 % de votre disque total sont utilisés pour stocker les instantanés, si bien que seuls 85 % sont disponibles. Ainsi, la taille du disque est de (900&ast;(1/0,85)) = 1,06 To ~ 1,25 To (en arrondissant au quartile le plus proche)
 
 En tenant compte d’une éventuelle croissance inattendue, vous pouvez configurer un disque local de 1,25 - 1,5 To.
 
@@ -117,7 +117,7 @@ Par conséquent, nous vous recommandons de :
 
 -   vous assurer que votre baie virtuelle figure dans sa propre unité d’organisation (UO) pour Active Directory ;
 
--   vous assurer qu’aucun objet de stratégie de groupe (GPO) n’est appliqué à votre baie virtuelle. Vous pouvez bloquer l’héritage pour vous assurer que la baie virtuelle (nœud enfant) n’héritera pas automatiquement les objets de stratégie de groupe du parent. Pour plus d'informations, consultez la page [Bloquer l’héritage](https://technet.microsoft.com/library/cc731076.aspx).
+-   vous assurer qu’aucun objet de stratégie de groupe (GPO) n’est appliqué à votre baie virtuelle. Vous pouvez bloquer l’héritage pour vous assurer que la baie virtuelle (nœud enfant) n’hérite pas automatiquement des objets de stratégie de groupe du parent. Pour plus d'informations, consultez la page [Bloquer l’héritage](https://technet.microsoft.com/library/cc731076.aspx).
 
 
 ### Mise en réseau
@@ -126,7 +126,7 @@ La configuration réseau de votre baie virtuelle s’effectue via l’interface 
 
 Lorsque vous déployez une baie virtuelle, nous vous recommandons d’appliquer les bonnes pratiques suivantes :
 
--   Assurez-vous que le réseau dans lequel la baie virtuelle est déployée a la capacité de dédier une bande passante Internet de 5 Mbits/s (ou plus) à tout moment.
+-   Assurez-vous que le réseau dans lequel la baie virtuelle est déployée a toujours la capacité de dédier une bande passante Internet de 5 Mbits/s (ou plus).
 
     -   La bande passante Internet requise varie selon les caractéristiques de votre charge de travail et le taux de modification des données.
 
@@ -136,9 +136,9 @@ Lorsque vous déployez une baie virtuelle, nous vous recommandons d’appliquer 
 
 -   Si vous envisagez de déployer votre appareil en tant que serveur iSCSI :
 	-   Nous vous recommandons de désactiver l’option **Obtenir automatiquement une adresse IP** (DHCP).
-	-   Configurez des adresses IP statiques. Vous devez également configurer un serveur DNS principal et un serveur DNS secondaire.
+	-   Configurez des adresses IP statiques. Vous devez configurer un serveur DNS principal et un serveur DNS secondaire.
 
-	-   Si vous définissez plusieurs interfaces réseau sur votre baie virtuelle, notez que seule la première interface réseau (par défaut, il s’agit d’**Ethernet**) peut atteindre le cloud. Pour contrôler le type de trafic, vous pouvez créer plusieurs interfaces réseau virtuelles sur votre baie virtuelle (configurée comme un serveur iSCSI) et les connecter aux différents sous-réseaux.
+	-   Si vous définissez plusieurs interfaces réseau sur votre baie virtuelle, seule la première interface réseau (par défaut, il s’agit d’**Ethernet**) peut atteindre le cloud. Pour contrôler le type de trafic, vous pouvez créer plusieurs interfaces réseau virtuelles sur votre baie virtuelle (configurée comme un serveur iSCSI) et les connecter aux différents sous-réseaux.
 
 -   Pour limiter uniquement la bande passante cloud (utilisée par la baie virtuelle), configurez la limitation sur le routeur ou le pare-feu. Si vous définissez la limitation dans votre hyperviseur, il limite tous les protocoles, y compris iSCSI et SMB, et non pas simplement la bande passante cloud.
 
@@ -162,23 +162,23 @@ Utilisez les recommandations suivantes pour les comptes de stockage associés à
 
 ### Partages et volumes
 
-Pour votre baie virtuelle StorSimple Virtual Array, vous pouvez mettre en service des partages lorsqu’elle est configurée comme un serveur de fichiers et des volumes lorsqu’elle est configurée comme un serveur iSCSI. Les bonnes pratiques permettant la création de partages et de volumes sont associées à la taille, ainsi qu’au type configuré.
+Pour votre baie virtuelle StorSimple Virtual Array, vous pouvez mettre en service des partages lorsqu’elle est configurée comme un serveur de fichiers et des volumes lorsqu’elle est configurée comme un serveur iSCSI. Les bonnes pratiques permettant la création de partages et de volumes sont associées à la taille et au type configuré.
 
 #### Taille des volumes/partages
 
-Sur votre baie virtuelle, vous pouvez mettre en service des partages lorsqu’elle est configurée comme un serveur de fichiers et des volumes lorsqu’elle est configurée comme un serveur iSCSI. Les bonnes pratiques permettant la création de partages et de volumes se rapportent à la taille, ainsi qu’au type configuré.
+Sur votre baie virtuelle, vous pouvez mettre en service des partages lorsqu’elle est configurée comme un serveur de fichiers et des volumes lorsqu’elle est configurée comme un serveur iSCSI. Les bonnes pratiques permettant la création de partages et de volumes sont associées à la taille et au type configuré.
 
 Gardez à l’esprit les bonnes pratiques suivantes lors de l’approvisionnement des partages ou des volumes sur votre appareil virtuel.
 
--   La taille des fichiers par rapport à la taille configurée d’un partage hiérarchisé peut affecter les performances de hiérarchisation. L'utilisation de fichiers volumineux peut entraîner une montée en charge lente. Lorsque vous utilisez des fichiers volumineux, nous recommandons que la taille du plus grand fichier soit inférieure à 3 % de la taille du partage.
+-   La taille des fichiers par rapport à la taille configurée d’un partage hiérarchisé peut affecter les performances de hiérarchisation. L'utilisation de fichiers volumineux peut entraîner une montée en charge lente. Lorsque vous utilisez des fichiers volumineux, vérifiez que la taille du plus grand fichier est inférieure à 3 % de la taille du partage.
 
 -   Au plus, 16 volumes/partages peuvent être créés sur la baie virtuelle. S’ils sont épinglés localement, les volumes/partages peuvent avoir une taille comprise entre 50 Go et 2 To. S’ils sont hiérarchisés, les volumes/partages doivent avoir une taille comprise entre 500 Go et 20 To.
 
--   Lorsque vous créez un volume, tenez compte de la consommation des données attendue, ainsi que de la croissance future. Notez que le volume ne peut pas être développé ultérieurement, mais que vous pouvez toujours effectuer une restauration sur un volume plus important.
+-   Lorsque vous créez un volume, tenez compte de la consommation des données attendue, ainsi que de la croissance future. Le volume ne peut pas être développé ultérieurement, mais vous pouvez toujours effectuer une restauration sur un volume plus important.
 
 -   Une fois que le volume a été créé, vous ne pouvez pas réduire la taille du volume sur StorSimple.
    
--   Lors de l’écriture sur un volume hiérarchisé sur StorSimple, notez que lorsque les données du volume atteignent un certain seuil (par rapport à l’espace local réservé pour le volume), les E/S sont limitées. Continuer à écrire sur ce volume ralentira considérablement les E/S. Bien que vous puissiez écrire sur un volume hiérarchisé au-delà de sa capacité déployée (nous n’empêchons pas activement l’utilisateur d’écrire au-delà de la capacité déployée), une notification d’alerte apparaît lorsque vous effectuez une demande trop importante. Quand cette alerte apparaît, il est impératif que vous preniez des mesures correctives, en supprimant par exemple les données du volume ou en restaurant le volume sur un plus grand volume (l’expansion des volumes n’est pas prise en charge actuellement).
+-   Lors de l’écriture sur un volume hiérarchisé sur StorSimple, lorsque les données du volume atteignent un certain seuil (par rapport à l’espace local réservé pour le volume), les E/S sont limitées. Continuer à écrire sur ce volume ralentit considérablement les E/S. Bien que vous puissiez écrire sur un volume hiérarchisé au-delà de sa capacité déployée (nous n’empêchons pas activement l’utilisateur d’écrire au-delà de la capacité déployée), une notification d’alerte apparaît lorsque vous effectuez une demande trop importante. Quand cette alerte apparaît, il est impératif que vous preniez des mesures correctives, en supprimant par exemple les données du volume ou en restaurant le volume sur un plus grand volume (l’expansion des volumes n’est pas prise en charge actuellement).
 
 -   Pour les cas d’utilisation liés à la récupération d’urgence, comme le nombre de partages/volumes autorisés est de 16 et que le nombre maximal de partages/volumes pouvant être traités en parallèle est également de 16, le nombre de partages/volumes n’a pas d’incidence sur vos RPO et RTO.
 
@@ -190,7 +190,6 @@ Nous vous recommandons d’implémenter les bonnes pratiques suivantes lors de l
 
 -   Identifiez le type de volume en fonction des charges de travail que vous envisagez de déployer avant de créer un volume. Utilisez des volumes épinglés localement pour les charges de travail qui requièrent des garanties locales de données (même pendant une panne du cloud) et qui nécessitent de faibles temps de latence du cloud. Une fois que vous avez créé un volume sur votre baie virtuelle, vous ne pouvez pas modifier le type de volume en remplaçant le type épinglé localement par le type hiérarchisé, ou *inversement*. Par exemple, créez des volumes épinglés localement lors du déploiement de charges de travail SQL ou de charges de travail hébergeant des machines virtuelles ; utilisez des volumes hiérarchisés pour des charges de travail de partage de fichiers.
 
-
 -   Activez l’option pour les données d’archivage moins fréquemment utilisées lors du traitement de fichiers volumineux. Une plus grande taille de segment de déduplication de 512 Ko est utilisée lorsque cette option est activée, afin d’accélérer le transfert des données vers le cloud.
 
 #### Format des volumes
@@ -199,7 +198,7 @@ Après avoir créé des volumes StorSimple sur votre serveur iSCSI, vous devez i
 
 -   Effectuez un formatage rapide sur tous les volumes StorSimple.
 
--   Lorsque vous formatez un volume StorSimple, utilisez une taille d’unité d’allocation de 64 Ko (la valeur par défaut est de 4 Ko). La taille d’unité d’allocation de 64 Ko est basée sur les tests effectués en interne pour les charges de travail StorSimple courantes ainsi que d’autres charges de travail.
+-   Lorsque vous formatez un volume StorSimple, utilisez une taille d’unité d’allocation de 64 Ko (la valeur par défaut est de 4 Ko). La taille d’unité d’allocation de 64 Ko est basée sur les tests effectués en interne pour les charges de travail StorSimple courantes et d’autres charges de travail.
 
 -   Lorsque vous utilisez la baie virtuelle StorSimple Virtual Array configurée comme un serveur iSCSI, n’utilisez pas de volumes fractionnés ni de disques dynamiques, car ceux-ci ne sont pas pris en charge par StorSimple.
 
@@ -213,13 +212,13 @@ Lorsque vous créez des partages sur le serveur de fichiers de votre baie virtue
 
 #### Accès aux volumes
 
-Lorsque vous configurez les volumes iSCSI sur votre baie virtuelle StorSimple Virtual Array, il est important de contrôler l’accès chaque fois que nécessaire. Créez et associez des enregistrements de contrôle d’accès (ACR) aux volumes StorSimple afin de déterminer quels serveurs hôtes peuvent accéder aux volumes.
+Lorsque vous configurez les volumes iSCSI sur votre baie virtuelle StorSimple Virtual Array, il est important de contrôler l’accès chaque fois que nécessaire. Afin de déterminer quels serveurs hôtes peuvent accéder aux volumes, créez et associez des enregistrements de contrôle d’accès (ACR) aux volumes StorSimple.
 
 Utilisez les bonnes pratiques suivantes lors de la configuration d’ACR pour les volumes StorSimple :
 
 -   Associez toujours au moins un ACR à un volume.
 
--   Plusieurs ACR doivent être définis uniquement dans un environnement en cluster.
+-   Définissez plusieurs ACR uniquement dans un environnement en cluster.
 
 -   Lorsque vous attribuez plusieurs ACR à un volume, veillez à ce que ce volume ne soit pas exposé de façon à ce que plusieurs hôtes non-cluster puissent y accéder simultanément. Si vous avez affecté plusieurs ACR à un volume, un message d’avertissement s’affiche pour vous inviter à vérifier votre configuration.
 
@@ -258,7 +257,7 @@ Lorsque vous effectuez une restauration, gardez à l’esprit les instructions s
 
 -   Votre baie virtuelle StorSimple Virtual Array ne prend pas en charge la restauration sur place. Celle-ci peut néanmoins être réalisée facilement via un processus en deux étapes : libérez de l’espace sur la baie virtuelle, puis restaurez vers un autre volume/partage.
 
--   Lors de la restauration à partir d’un volume local, n’oubliez pas que la restauration est une opération longue. Le volume peut être mis en ligne rapidement, mais l’alimentation des données continuera en arrière-plan.
+-   Lors de la restauration à partir d’un volume local, n’oubliez pas que la restauration est une opération longue. Le volume peut être mis en ligne rapidement, mais l’alimentation des données continue en arrière-plan.
 
 -   Le type de volume reste le même pendant le processus de restauration. Un volume hiérarchisé est restauré vers un autre volume hiérarchisé, et un volume épinglé localement vers un autre volume épinglé localement.
 
@@ -284,7 +283,7 @@ Lorsque vous effectuez un basculement pour votre baie virtuelle, gardez à l’e
 
     -   Une erreur s’est produite pendant le processus de basculement lui-même. Dans ce cas, l’appareil cible est marqué comme inutilisable. Vous devez mettre en service et configurer une autre baie virtuelle cible, et l’utiliser pour le basculement.
 
-    -   Le basculement a été effectué, après quoi l’appareil source a été supprimé, mais l’appareil cible a des problèmes et l’utilisateur ne peut pas accéder aux données. Les données sont toujours sûres dans le cloud et il est aisé de les récupérer en créant une autre baie virtuelle, puis en l’utilisant comme appareil cible pour la récupération d’urgence.
+    -   Le basculement a été effectué, après quoi l’appareil source a été supprimé, mais l’appareil cible a des problèmes et vous ne pouvez pas accéder aux données. Les données sont toujours sûres dans le cloud et il est aisé de les récupérer en créant une autre baie virtuelle, puis en l’utilisant comme appareil cible pour la récupération d’urgence.
 
 ### Désactivation
 
@@ -326,22 +325,22 @@ Si vous utilisez le processus d’indexation de Windows, suivez ces instructions
 
 ### Verrouillage de plage d’octets
 
-Les applications peuvent verrouiller une plage d’octets donnée au sein des fichiers. Si le verrouillage de plage d’octets est activé sur les applications qui écrivent sur votre appareil StorSimple, la hiérarchisation ne fonctionnera pas sur votre baie virtuelle. Pour que la hiérarchisation fonctionne, toutes les zones des fichiers auxquels vous accédez doivent être déverrouillées. Le verrouillage de plage d’octets n’est pas pris en charge avec les volumes hiérarchisés sur votre baie virtuelle.
+Les applications peuvent verrouiller une plage d’octets donnée au sein des fichiers. Si le verrouillage de plage d’octets est activé sur les applications qui écrivent sur votre appareil StorSimple, la hiérarchisation ne fonctionne pas sur votre baie virtuelle. Pour que la hiérarchisation fonctionne, toutes les zones des fichiers auxquels vous accédez doivent être déverrouillées. Le verrouillage de plage d’octets n’est pas pris en charge avec les volumes hiérarchisés sur votre baie virtuelle.
 
-Les mesures recommandées incluent :
+Les mesures recommandées pour éviter le verrouillage de plage d’octets incluent :
 
 -   Désactivez le verrouillage de plage d'octets dans la logique de votre application.
 
 -   Utilisez des volumes épinglés localement (à la place de volumes hiérarchisés) pour les données associées à cette application. Les volumes épinglés localement ne hiérarchisent pas les données dans le cloud.
 
--   Lorsque vous utilisez des volumes épinglés localement avec le verrouillage de plage d’octets activé, notez qu’un volume peut être mis en ligne avant la fin de la restauration. Dans ce cas, vous devez attendre la fin de la restauration.
+-   Lorsque vous utilisez des volumes épinglés localement avec le verrouillage de plage d’octets activé, un volume peut être mis en ligne avant la fin de la restauration. Dans ce cas, vous devez attendre la fin de la restauration.
 
 ## Baies multiples
 
 Il peut être nécessaire de déployer plusieurs baies virtuelles pour prendre en compte un ensemble de données de travail croissant, susceptible de déborder dans le cloud et d’affecter ainsi les performances de l’appareil. Dans ce cas, l’idéal est de dimensionner les appareils à mesure que l’ensemble de données de travail augmente. Cette opération nécessite l’ajout d’un ou de plusieurs appareils dans le centre de données local. Lors de l’ajout des appareils, vous pouvez procéder comme suit :
 
 -   Fractionnez le jeu de données actuel.
--   Déployez les nouvelles charges de travail sur le ou les nouveaux équipements.
+-   Déployez de nouvelles charges de travail sur un ou plusieurs nouveaux périphériques.
 -   Si vous déployez plusieurs baies virtuelles, nous vous recommandons, du point de vue de l’équilibrage de charge, de distribuer une baie entre différents hôtes de l’hyperviseur.
 
 -  Plusieurs baies virtuelles (lorsqu’elles sont configurées en tant que serveur de fichiers ou serveur iSCSI) peuvent être déployées dans un espace de noms de système de fichiers distribué. Pour des instructions détaillées, consultez la page [Guide de déploiement d’une solution d’espace de noms de système de fichiers distribué avec stockage cloud hybride](https://www.microsoft.com/download/details.aspx?id=45507). La réplication du système de fichiers distribué n’est actuellement pas recommandée avec la baie virtuelle.
@@ -350,4 +349,4 @@ Il peut être nécessaire de déployer plusieurs baies virtuelles pour prendre e
 ## Voir aussi
 Découvrez la [gestion de votre baie virtuelle StorSimple Virtual Array](storsimple-ova-manager-service-administration.md) par le biais du service StorSimple Manager.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0810_2016-->

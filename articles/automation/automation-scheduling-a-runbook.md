@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Planification d'un Runbook dans Azure Automation"
+   pageTitle="Planification d’un Runbook dans Azure Automation| Microsoft Azure"
    description="Décrit comment créer une planification dans Azure Automation afin de pouvoir démarrer automatiquement un Runbook à un instant donné ou selon une planification périodique."
    services="automation"
    documentationCenter=""
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/12/2016"
+   ms.date="08/05/2016"
    ms.author="bwren" />
 
 # Planification d'un Runbook dans Azure Automation
@@ -32,7 +32,7 @@ Vous pouvez utiliser le portail Azure, le portail Azure Classic ou Windows Power
 1. Sélectionnez l'onglet **Ressources**.
 1. En bas de la fenêtre, cliquez sur **Ajouter un paramètre**.
 1. Cliquez sur **Ajouter une planification**.
-1. Saisissez un **Nom** et éventuellement une **Description** pour votre planification, qui s’exécutera **Une fois**, **Toutes les heures** ou **Tous les jours**.
+1. Saisissez un **Nom** et éventuellement une **Description** pour votre planification, qui s’exécutera **Une fois**, **Toutes les heures**, **Tous les jours**, **Toutes les semaines** ou **Tous les mois**.
 1. Spécifiez une **Heure de début** et d'autres options en fonction du type de planification que vous avez sélectionné.
 
 ### Pour créer une planification à l’aide du portail Azure
@@ -151,4 +151,4 @@ Les exemples de commandes suivants montrent comment désactiver une planificatio
 - Pour en savoir plus sur l’utilisation des planifications, consultez [Planifications dans Azure Automation](http://msdn.microsoft.com/library/azure/dn940016.aspx)
 - Pour vous familiariser avec les Runbooks dans Azure Automation, consultez [Démarrage d’un Runbook dans Azure Automation](automation-starting-a-runbook.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0810_2016-->

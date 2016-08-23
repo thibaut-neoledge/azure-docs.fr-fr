@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/12/2016"
+	ms.date="08/08/2016"
 	ms.author="billmath"/>
 
 
@@ -136,11 +136,11 @@ Sur la page **Connexion utilisateur**, sélectionnez **Synchronisation de mot de
 
 ![Se connecter à Azure AD](./media/active-directory-aadconnect-user-signin/changeusersignin3.png)
 
->[AZURE.NOTE] Si vous passez à la synchronisation de mot de passe de façon temporaire, cochez **Ne pas convertir les comptes utilisateurs**. Si vous ne cochez pas l’option, chaque utilisateur devient fédéré, ce qui peut prendre
+>[AZURE.NOTE] Si vous passez à la synchronisation de mot de passe de façon temporaire, cochez **Ne pas convertir les comptes utilisateurs**. Si vous ne cochez pas l’option, chaque utilisateur devient fédéré, ce qui peut prendre plusieurs heures.
   
 ## Étapes suivantes
 En savoir plus sur l’[intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).
 
 En savoir plus sur [Azure AD Connect : principes de conception](active-directory-aadconnect-design-concepts.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

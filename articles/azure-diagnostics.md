@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Vue d’ensemble des diagnostics Azure"
+	pageTitle="Vue d’ensemble d’Azure Diagnostics | Microsoft Azure"
 	description="Utilisation des diagnostics Azure pour le débogage, la mesure des performances, la surveillance, l’analyse du trafic dans Cloud Services, Virtual Machines et Service Fabric"
 	services="multiple"
 	documentationCenter=".net"
@@ -47,7 +47,7 @@ Voir [Historique de contrôle de version des diagnostics Azure](azure-diagnostic
 ## Étapes suivantes
 Choisissez le service sur lequel vous voulez collecter des diagnostics et utilisez les articles suivants pour commencer. Utilisez les liens des diagnostics Azure généraux comme référence pour des tâches spécifiques.
 
-## Applications Web
+## Web Apps
 Notez que Web Apps n'utilise pas les diagnostics Azure. Trouver les informations équivalentes sur [Web Apps](./app-service-web/web-sites-enable-diagnostic-log.md)
 
 ## Cloud Services avec les diagnostics Azure
@@ -81,4 +81,4 @@ Commencez avec [Surveillance d’une application Service Fabric](./service-fabri
 - Apprenez à [acheminer les informations des diagnostics Azure vers Application Insights](./azure-diagnostics-configure-applicationinsights.md)
 - Si vous rencontrez des difficultés avec le lancement des diagnostics ou la recherche des données dans les tables Azure Storage, voir [Résolution des problèmes des diagnostics Azure](./azure-diagnostics-troubleshooting.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0810_2016-->

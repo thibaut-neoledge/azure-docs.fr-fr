@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/25/2016" 
+	ms.date="08/09/2016" 
 	ms.author="sdanie"/>
 
 
@@ -73,7 +73,7 @@ Pour limiter les demandes entrantes et n'accepter que celles venant de l'adresse
 		<address>1.2.3.4</address>
 	</ip-filter>
 
-![Enregistrer][policies-save]
+![Save][policies-save]
 
 Lorsque vous avez terminé la configuration des instructions de la stratégie, cliquez sur **Enregistrer**. Les modifications sont ajoutées immédiatement à la passerelle Gestion des API.
 
@@ -151,4 +151,4 @@ Découvrez la vidéo suivante sur les expressions de stratégie.
 [policies-restrict]: ./media/api-management-howto-policies/api-management-policies-restrict.png
 [policies-save]: ./media/api-management-howto-policies/api-management-policies-save.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

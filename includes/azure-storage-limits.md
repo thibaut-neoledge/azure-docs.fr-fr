@@ -1,6 +1,6 @@
 Ressource|Limite par défaut
 ---|---
-Nombre maximal de comptes de stockage par abonnement|100<sup>1</sup>
+Nombre de comptes de stockage par abonnement|200<sup>1</sup>
 To par compte de stockage|500 To
 Nombre maximal de conteneurs d'objets blob, de partages de fichiers, de tables, de files d'attente, d'entités ou de messages par compte de stockage|La seule limite est celle de 500 To de la capacité du compte de stockage
 Taille maximale d'un conteneur d'objets blob, d'une table ou d'une file d'attente|500 To
@@ -28,15 +28,15 @@ Sortie max.<sup>2</sup> par compte de stockage (régions des États-Unis)|20 Gb
 Entrée max.<sup>2</sup> par compte de stockage (régions d'Europe et d'Asie)|5 Gbit/s si GRS/ZRS<sup>3</sup> est activé, 10 Gbit/s pour LRS
 Sortie max.<sup>2</sup> par compte de stockage (régions d'Europe et d'Asie)|10 Gbit/s si RA-GRS/GRS/ZRS<sup>3</sup> est activé, 15 Gbit/s pour LRS
 
-<sup>1</sup>Cela inclut à la fois les comptes de stockage standard et Premium. Si vous avez besoin de plus de 100 comptes de stockage, sollicitez le [Support Azure](https://azure.microsoft.com/support/faq/) pour obtenir une assistance. L’équipe Azure Storage examinera votre cas d’entreprise et pourra approuver jusqu’à 250 comptes de stockage.
+<sup>1</sup>Cela inclut à la fois les comptes de stockage standard et Premium. Si vous avez besoin de plus de 200 comptes de stockage, sollicitez le [Support Azure](https://azure.microsoft.com/support/faq/) pour obtenir une assistance. L’équipe Azure Storage examinera votre cas d’entreprise et pourra approuver jusqu’à 250 comptes de stockage.
 
 <sup>2</sup>*Entrée* désigne toutes les données (requêtes) envoyées à un compte de stockage. *Sortie* désigne toutes les données (réponses) reçues d'un compte de stockage.
 
 <sup>3</sup>Les options de réplication Azure Storage sont les suivantes :
 
-- **RA-GRS** : stockage géo-redondant avec accès en lecture. Si RA-GRS est activé, les cibles de sortie pour l’emplacement secondaire sont identiques à celles de l’emplacement principal.
-- **GRS** : stockage géo-redondant. 
-- **ZRS** : stockage redondant dans une zone. Uniquement disponible pour les objets blob de blocs. 
-- **LRS** : stockage localement redondant. 
+- **RA-GRS** : stockage géo-redondant avec accès en lecture. Si RA-GRS est activé, les cibles de sortie pour l’emplacement secondaire sont identiques à celles de l’emplacement principal.
+- **GRS** : stockage géo-redondant.
+- **ZRS** : stockage redondant dans une zone. Uniquement disponible pour les objets blob de blocs.
+- **LRS** : stockage localement redondant.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0810_2016-->

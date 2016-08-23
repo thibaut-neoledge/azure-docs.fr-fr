@@ -3,7 +3,7 @@
    description="Apprenez à créer une sonde personnalisée pour la passerelle Application Gateway à l'aide de PowerShell dans Resource Manager"
    services="application-gateway"
    documentationCenter="na"
-   authors="joaoma"
+   authors="georgewallace"
    manager="carmonm"
    editor=""
    tags="azure-resource-manager"
@@ -14,10 +14,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/07/2016"
-   ms.author="joaoma" />
+   ms.date="08/09/2016"
+   ms.author="gwallace" />
 
 # Création d'une sonde personnalisée pour Azure Application Gateway avec PowerShell pour Azure Resource Manager
+
+> [AZURE.SELECTOR]
+- [Portail Azure](application-gateway-create-probe-portal.md)
+- [Commandes PowerShell pour Azure Resource Manager](application-gateway-create-probe-ps.md)
+- [Azure Classic PowerShell](application-gateway-create-probe-classic-ps.md)
+
+<BR>
 
 [AZURE.INCLUDE [azure-probe-intro-include](../../includes/application-gateway-create-probe-intro-include.md)]
 
@@ -40,7 +47,7 @@ Vérifiez les abonnements associés au compte.
 
 		get-AzureRmSubscription
 
-Vous devez indiquer vos informations d'identification.<BR>
+Vous êtes invité à saisir vos informations d’identification.<BR>
 
 ### Étape 3
 
@@ -58,7 +65,7 @@ Créez un groupe de ressources (ignorez cette étape si vous utilisez un groupe 
 
 Azure Resource Manager requiert que tous les groupes de ressources spécifient un emplacement. Ce dernier est utilisé comme emplacement par défaut des ressources de ce groupe. Assurez-vous que toutes les commandes pour la création d'une passerelle Application Gateway utiliseront le même groupe de ressources.
 
-Dans l'exemple ci-dessus, nous avons créé un groupe de ressources appelé « appgw-RG », ainsi que l'emplacement « West US ».
+Dans l’exemple ci-dessus, nous avons créé un groupe de ressources appelé « appgw-RG », ainsi que l’emplacement « West US ».
 
 ## Création d'un réseau virtuel et d'un sous-réseau pour la passerelle Application Gateway
 
@@ -99,7 +106,7 @@ Avant de créer la passerelle Application Gateway, vous devez installer tous les
 
 ### Étape 1 :
 
-Créez une configuration IP de passerelle Application Gateway nommée « gatewayIP01 ». Lorsque la passerelle Application Gateway démarre, elle sélectionne une adresse IP à partir du sous-réseau configuré et achemine le trafic réseau vers les adresses IP du pool IP principal. Gardez à l'esprit que chaque instance utilise une adresse IP unique.
+Créez une configuration IP de passerelle Application Gateway nommée « gatewayIP01 ». Lorsque la passerelle Application Gateway démarre, elle sélectionne une adresse IP à partir du sous-réseau configuré et achemine le trafic réseau vers les adresses IP du pool IP principal. Gardez à l'esprit que chaque instance utilise une adresse IP unique.
 
 	$gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name gatewayIP01 -Subnet $subnet
 
@@ -107,7 +114,7 @@ Créez une configuration IP de passerelle Application Gateway nommée « gatewa
 ### Étape 2 :
 
 
-Configurez le pool d'adresses IP principal nommé « pool01 » avec les adresses IP « 134.170.185.46, 134.170.188.221, 134.170.185.50 ». Il s'agit des adresses IP qui recevront le trafic réseau provenant du point de terminaison IP frontal. Vous remplacerez les adresses IP ci-dessus afin d’ajouter vos propres points de terminaison d’adresse IP d’application.
+Configurez le pool d'adresses IP principal nommé « pool01 » avec les adresses IP « 134.170.185.46, 134.170.188.221, 134.170.185.50 ». Il s'agit des adresses IP qui recevront le trafic réseau provenant du point de terminaison IP frontal. Vous remplacez les adresses IP ci-dessus afin d’ajouter vos propres points de terminaison d’adresse IP d’application.
 
 	$pool = New-AzureRmApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 134.170.185.46, 134.170.188.221,134.170.185.50
 
@@ -119,10 +126,10 @@ La sonde personnalisée est configurée pendant cette opération.
 
 Les paramètres utilisés sont :
 
-- **-Intervalle** : configure les vérifications d'intervalle de sonde en secondes.
-- **-Délai d'expiration** : définit le délai d'expiration d'un contrôle de réponse HTTP.
-- **-Nom d'hôte et -chemin d'accès** : chemin d'accès complet à l'URL qui est appelé par Application Gateway pour déterminer l'état de l'instance. Par exemple : avec un site web http://contoso.com/, la sonde personnalisée peut être configurée pour « http://contoso.com/path/custompath.htm » afin que les contrôles de sonde renvoient une réponse HTTP réussie.
-- **-Seuil de défaillance sur le plan de l'intégrité** : le nombre d'échecs de réponses HTTP nécessaires pour marquer l'instance de serveur principal comme *défectueuse*.
+- **-Intervalle** : configure les vérifications d’intervalle de sonde en secondes.
+- **-Délai d’expiration** : définit le délai d’expiration d’un contrôle de réponse HTTP.
+- **-Nom d'hôte et -chemin d'accès** : chemin d'accès complet à l'URL qui est appelé par Application Gateway pour déterminer l'état de l'instance. Par exemple : avec un site web http://contoso.com/, la sonde personnalisée peut être configurée pour « http://contoso.com/path/custompath.htm » afin que les contrôles de sonde renvoient une réponse HTTP réussie.
+- **-Seuil de défaillance sur le plan de l’intégrité** : le nombre d’échecs de réponses HTTP nécessaires pour marquer l’instance de serveur principal comme *défectueuse*.
 
 <BR>
 
@@ -168,7 +175,7 @@ Configurez la taille d'instance de la passerelle Application Gateway.
 	$sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2
 
 
->[AZURE.NOTE]  La valeur par défaut pour *InstanceCount* est 2, avec une valeur maximale de 10. La valeur par défaut du paramètre *GatewaySize* est Medium. Vous pouvez choisir entre Standard\_Small, Standard\_Medium et Standard\_Large.
+>[AZURE.NOTE]  La valeur par défaut du paramètre *InstanceCount* est de 2, avec une valeur maximale de 10. La valeur par défaut du paramètre *GatewaySize* est Medium. Vous pouvez choisir entre Standard\_Small, Standard\_Medium et Standard\_Large.
 
 ## Création d'une passerelle Application Gateway avec New-AzureRmApplicationGateway
 
@@ -238,4 +245,4 @@ Enregistrer la configuration dans la passerelle Application Gateway à l’aide 
 
 	Set-AzureRmApplicationGateway -ApplicationGateway $getgw -verbose
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0810_2016-->

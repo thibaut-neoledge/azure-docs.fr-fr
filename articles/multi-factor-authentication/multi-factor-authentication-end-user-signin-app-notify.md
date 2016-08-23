@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/12/2016"
+	ms.date="08/04/2016"
 	ms.author="billmath"/>
 
 # Connexion à l'application mobile par notification avec Azure Multi-Factor Authentication
@@ -41,4 +41,4 @@ Les informations suivantes décrivent l'utilisation de l'authentification multif
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

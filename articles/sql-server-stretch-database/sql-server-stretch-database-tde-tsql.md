@@ -19,7 +19,7 @@
 # Activer le chiffrement transparent des données (TDE) pour Stretch Database sur Azure (Transact-SQL)
 > [AZURE.SELECTOR]
 - [Portail Azure](sql-server-stretch-database-encryption-tde.md)
-- [TSQL](sql-server-stretch-database-encryption-tde-tsql.md)
+- [TSQL](sql-server-stretch-database-tde-tsql.md)
 
 Le chiffrement transparent des données (Transparent Data Encryption, TDE) protège le système contre toute menace d’activité malveillante, en effectuant un chiffrement et un déchiffrement en temps réel de la base de données, des sauvegardes associées et des fichiers journaux de transactions au repos, sans qu’il soit nécessaire de modifier l’application.
 
@@ -73,4 +73,4 @@ Un résultat de ```1``` indique une base de données chiffrée, ```0``` indique 
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0810_2016-->

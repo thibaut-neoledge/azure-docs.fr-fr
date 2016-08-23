@@ -3,7 +3,7 @@
    description="Apprenez à déployer des machines virtuelles à plusieurs cartes réseau à l'aide de l'Interface de ligne de commande Azure dans Resource Manager."
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor=""
    tags="azure-resource-manager"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/02/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 #Déploiement de plusieurs machines virtuelles à cartes réseau (classiques) à l'aide de l'interface de ligne de commande d’Azure
 
@@ -49,7 +49,7 @@ Les machines virtuelles principales dépendent de la création de ressources ré
 - **Cartes réseau**. Chaque machine virtuelle a deux cartes réseau, une pour l’accès à la base de données et l’autre pour la gestion.
 - **Groupe à haute disponibilité**. Tous les serveurs de base de données sont ajoutés à un groupe à haute disponibilité, afin de garantir qu’au moins une des machines virtuelles est en cours d’exécution lors de la maintenance.
 
-### Étape 1 : démarrage de votre script
+### Étape 1 : démarrer votre script
 
 Vous pouvez télécharger le script d'interpréteur de commandes complet utilisé [ici](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/arm/virtual-network-deploy-multinic-arm-cli.sh). Suivez les étapes ci-dessous pour modifier le script afin qu’il fonctionne dans votre environnement.
 
@@ -330,4 +330,4 @@ Maintenant que vous avez téléchargé et modifié le script selon vos besoins, 
 		info:    Updating VM "DB2"
 		info:    vm disk attach-new command OK
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0810_2016-->

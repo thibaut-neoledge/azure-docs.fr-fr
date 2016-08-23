@@ -3,7 +3,7 @@
    description="En savoir plus sur la gestion des listes ACL avec PowerShell"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor="tysonn" />
 <tags
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/15/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 # Comment gérer les listes de contrôle d’accès (ACL) pour les points de terminaison à l’aide de PowerShell
 
@@ -36,7 +36,7 @@ L’exemple suivant illustre un moyen de créer une liste ACL contenant des règ
 
 		$acl1 = New-AzureAclConfig
 
-1. Définissez une règle qui autorise l’accès depuis un sous-réseau distant. Dans l’exemple ci-dessous, vous définissez la règle *100* (qui est prioritaire sur la règle 200 et supérieure) pour autoriser le sous-réseau distant *10.0.0.0/8* à accéder au point de terminaison de machine virtuelle. Remplacez les valeurs en fonction de votre propre configuration. Le nom « SharePoint ACL config » doit être remplacé par le nom convivial que vous attribuez à cette règle.
+1. Définissez une règle qui autorise l’accès depuis un sous-réseau distant. Dans l’exemple ci-dessous, vous définissez la règle *100* (qui est prioritaire sur la règle 200 et supérieure) pour autoriser le sous-réseau distant *10.0.0.0/8* à accéder au point de terminaison de machine virtuelle. Remplacez les valeurs en fonction de votre propre configuration. Le nom « SharePoint ACL config » doit être remplacé par le nom convivial que vous attribuez à cette règle.
 
 		Set-AzureAclConfig –AddRule –ACL $acl1 –Order 100 `
 			–Action permit –RemoteSubnet "10.0.0.0/8" `
@@ -95,4 +95,4 @@ Dans certains scénarios, vous voudrez peut-être supprimer un objet de liste de
 
 [Qu’est-ce qu’une liste de contrôle d’accès (ACL) réseau ?](virtual-networks-acl.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0810_2016-->

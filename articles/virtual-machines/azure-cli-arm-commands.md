@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/05/2016"
+	ms.date="08/05/2016"
 	ms.author="danlep"/>
 
 # Commandes de l’interface de ligne de commande Azure en mode Resource Manager
 
-Cet article fournit la syntaxe et les options des commandes de l’interface de ligne de commande Azure régulièrement utilisées pour créer et gérer les ressources Azure dans le modèle de déploiement Azure Resource Manager. Pour accéder à ces commandes, exécutez l’interface de ligne de commande en mode Resource Manager (arm). Il ne s’agit pas d’une référence complète, et votre version de l’interface de ligne de commande peut présenter des commandes ou paramètres légèrement différents.
+Cet article fournit la syntaxe et les options des commandes de l’interface de ligne de commande Azure régulièrement utilisées pour créer et gérer les ressources Azure dans le modèle de déploiement Azure Resource Manager. Pour accéder à ces commandes, exécutez l’interface de ligne de commande en mode Resource Manager (arm). Il ne s’agit pas d’une référence complète, et votre version de l’interface de ligne de commande peut présenter des commandes ou paramètres légèrement différents. Pour obtenir une vue d'ensemble des ressources et groupes de ressources Azure, consultez [Vue d'ensemble d'Azure Resource Manager](../resource-group-overview.md).
 
 Pour commencer, [installez l’interface de ligne de commande Azure](../xplat-cli-install.md) et [connectez-vous à votre abonnement Azure](../xplat-cli-connect.md) à l’aide d’un compte professionnel ou scolaire ou d’une identité de compte Microsoft.
 
@@ -36,12 +36,6 @@ Utilisez la commande suivante pour activer les commandes Resource Manager de l�
 	azure config mode arm
 
 >[AZURE.NOTE] Le mode Azure Resource Manager et le mode Azure Service Management s'excluent mutuellement. En d'autres termes, les ressources créées dans un mode ne peuvent pas être gérées dans l'autre mode.
-
-## Approches impératives et déclaratives
-
-Comme avec le [mode Azure Service Management](../virtual-machines-command-line-tools.md), le mode Resource Manager de l’interface CLI Azure fournit des commandes qui créent des ressources de manière impérative sur la ligne de commande. Par exemple, si vous tapez `azure group create <groupname> <location>`, vous demandez à Azure de créer un groupe de ressources et si vous tapez `azure group deployment create <resourcegroup> <deploymentname>`, vous indiquez à Azure de créer un déploiement d'un nombre quelconque d'éléments et de les placer dans un groupe. Chaque type de ressource étant associé à des commandes impératives, vous pouvez les chaîner pour créer des déploiements assez complexes.
-
-Toutefois, l'utilisation de _modèles_ de groupe de ressources, qui décrivent un groupe de ressources, est une approche déclarative beaucoup plus puissante, car elle vous permet d'automatiser des déploiements complexes de (presque) n'importe quel nombre de ressources à (presque) toutes les fins. Quand vous utilisez des modèles, la seule commande impérative est d'en déployer un. Pour obtenir une vue d'ensemble des modèles, ressources et groupes de ressources, consultez [Vue d'ensemble des groupes de ressources Azure](../resource-group-overview.md).
 
 
 ## compte azure : gérer vos informations de compte
@@ -326,7 +320,7 @@ Options de paramètre :
 **Commandes pour gérer les réseaux virtuels**
 
 	network vnet create [options] <resource-group> <name> <location>
-Permet de créer un réseau virtuel. Dans l'exemple suivant, nous créons un réseau virtuel nommé newvnet pour le groupe de ressources myresourcegroup dans la région Ouest des États-Unis.
+Crée un réseau virtuel. Dans l'exemple suivant, nous créons un réseau virtuel nommé newvnet pour le groupe de ressources myresourcegroup dans la région Ouest des États-Unis.
 
 
 	azure network vnet create myresourcegroup newvnet "west us"
@@ -1056,7 +1050,7 @@ Options de paramètre :
  	-l, --lb-name <lb-name>                the name of the load balancer
  	-s, --subscription <subscription>      the subscription identifier
 
-<BR> network lb address-pool delete [options] <resource-group> <lb-name> <name>
+<BR> network lb address-pool delete [options] <groupe-ressources> <nom-lb> <nom>
 
 Supprime la ressource de la plage du pool d'adresses IP principales dans l'équilibrage de charge.
 
@@ -1420,7 +1414,7 @@ Options de paramètre :
 	--no-tags                                    remove all existing tags
 	-s, --subscription <subscription>            the subscription identifier
 
-<br> network public-ip list [options] <resource-group> Répertorie toutes les ressources IP publiques au sein d'un groupe de ressources.
+<br> network public-ip list [options] <groupe-ressources> Répertorie toutes les ressources IP publiques au sein d'un groupe de ressources.
 
 	azure network public-ip list -g myresourcegroup
 
@@ -1440,7 +1434,7 @@ Options de paramètre :
 	--json                                 use json output
 	-g, --resource-group <resource-group>  the name of the resource group
 	-s, --subscription <subscription>      the subscription identifier
-<BR> network public-ip show [options] <resource-group> <name> Affiche les propriétés d'adresse IP publique pour une ressource IP publique au sein d'un groupe de ressources.
+<BR> network public-ip show [options] <groupe-ressources> <nom> Affiche les propriétés d'adresse IP publique pour une ressource IP publique au sein d'un groupe de ressources.
 
 	azure network public-ip show -g myresourcegroup -n mytestpublicip
 
@@ -1590,7 +1584,7 @@ Options de paramètre :
 
 ## azure provider : commandes pour gérer les enregistrements de fournisseur de ressources
 
-**Répertorier les fournisseurs actuellement enregistrés dans ARM**
+**Répertorier les fournisseurs actuellement enregistrés dans Resource Manager**
 
 	provider list [options]
 
@@ -1872,4 +1866,4 @@ Options de paramètre :
 	vm image list-skus [options] <location> <publisher> <offer>
 	vm image list [options] <location> <publisher> [offer] [sku]
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0810_2016-->

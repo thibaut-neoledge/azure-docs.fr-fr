@@ -25,13 +25,13 @@
 
 Au sein de nombreuses solutions à grande échelle, les données sont divisées en partitions distinctes qui peuvent être gérées et accessibles séparément. La stratégie de partitionnement doit être choisie avec soin afin d’optimiser les avantages tout en réduisant les effets négatifs. Le partitionnement peut aider à améliorer l’extensibilité, à réduire la contention et à optimiser les performances. Autre avantage du partitionnement, il peut fournir un mécanisme permettant de diviser les données selon le modèle d’utilisation. Par exemple, vous pouvez archiver les données (froides) anciennes et moins actives dans le stockage de données le plus économique.
 
-## Pourquoi partitionner les données ?
+## Pourquoi partitionner les données ?
 
 La plupart des services et applications cloud stockent et récupèrent des données dans le cadre de leurs opérations. La conception des magasins de données utilisés par une application peut avoir une incidence considérable sur les performances, le débit et l’évolutivité d’un système. Une technique couramment appliquée dans les systèmes à grande échelle consiste à diviser les données en partitions distinctes.
 
-> Le terme _partitionnement_ utilisé dans ces recommandations désigne le processus de division physique des données au sein de magasins de données distincts. Il convient de le distinguer du partitionnement de tables SQL Server, qui est un concept différent.
+> Le terme _partitionnement_ utilisé dans ces recommandations désigne le processus de division physique des données au sein de magasins de données distincts. Il convient de le distinguer du partitionnement de tables SQL Server, qui est un concept différent.
 
-Le partitionnement des données présente un certain nombre d’avantages. Par exemple, il peut être utilisé pour :
+Le partitionnement des données présente un certain nombre d’avantages. Par exemple, il peut être utilisé pour :
 
 - **Améliorer l’évolutivité** : Quand vous procédez à la montée en puissance d’un système de base de données unique, celui-ci finit par atteindre une limite liée au matériel physique. Si vous divisez les données en plusieurs partitions, chacune étant hébergée sur un serveur distinct, vous pouvez faire évoluer le système presque indéfiniment.
 - **Améliorer les performances** : Les opérations d’accès aux données présentes au sein de chaque partition interviennent sur un plus petit volume de données. Sous réserve que les données sont partitionnées convenablement, le partitionnement peut améliorer l’efficacité de votre système. Les opérations qui affectent plusieurs partitions peuvent s’exécuter en parallèle. Chaque partition peut être située près de l’application qui l’utilise afin de réduire la latence du réseau.
@@ -40,7 +40,7 @@ Le partitionnement des données présente un certain nombre d’avantages. Par e
 - **Disposer d’une flexibilité opérationnelle** : Le partitionnement offre de nombreuses possibilités de réglage des opérations, d’optimisation de l’efficacité de l’administration et de réduction des coûts. Par exemple, vous pouvez définir différentes stratégies de gestion, surveillance, sauvegarde et restauration et autres tâches d’administration en fonction de l’importance des données présentes dans chaque partition.
 - **Faire correspondre le magasin de données au modèle d’utilisation** : Le partitionnement permet le déploiement de chaque partition sur un type de magasin de données différent, en fonction du coût et des fonctionnalités intégrées proposées par le magasin de données. Par exemple, il est possible de stocker les données binaires volumineuses dans un magasin de données blob et de stocker les données plus structurées dans une base de données de documents. Pour plus d’informations, consultez [Création d’une solution polyglotte] dans le guide des modèles et pratiques, et [Accès aux données pour des solutions hautement extensibles : utilisation de la persistance SQL, NoSQL et polyglotte] sur le site web Microsoft.
 
-Certains systèmes n’implémentent pas le partitionnement, car cette technique est considérée comme un coût plutôt qu’un avantage. Les arguments courants motivant ce point de vue sont les suivants :
+Certains systèmes n’implémentent pas le partitionnement, car cette technique est considérée comme un coût plutôt qu’un avantage. Les arguments courants motivant ce point de vue sont les suivants :
 
 - De nombreux systèmes de stockage de données ne prennent pas en charge les jointures entre les partitions, et il peut s’avérer difficile de maintenir l’intégrité référentielle au sein d’un système partitionné. Il est souvent nécessaire de mettre en œuvre des jointures et vérifications de l’intégrité dans le code applicatif (au niveau de la couche de partitionnement), ce qui peut conduire à une augmentation des E/S et une complexité applicative supplémentaire.
 - La maintenance des partitions ne se révèle pas toujours aisée. Dans un système où les données sont volatiles, vous serez peut-être amené à rééquiliber régulièrement les partitions pour réduire la contention et les zones sensibles.
@@ -48,15 +48,15 @@ Certains systèmes n’implémentent pas le partitionnement, car cette technique
 
 ## Concevoir des partitions
 
-Il est possible de partitionner les données de différentes manières : horizontale, verticale ou fonctionnelle. La stratégie que vous choisissez dépend des motifs du partitionnement des données et des besoins des applications et services qui utilisent ces données.
+Il est possible de partitionner les données de différentes manières : horizontale, verticale ou fonctionnelle. La stratégie que vous choisissez dépend des motifs du partitionnement des données et des besoins des applications et services qui utilisent ces données.
 
 > [AZURE.NOTE] Les schémas de partitionnement décrits dans ces recommandations sont expliqués indépendamment de la technologie de stockage de données sous-jacente. Ces schémas peuvent être appliqués à de nombreux types de magasins de données, notamment les bases de données relationnelles et NoSQL.
 
 ### Stratégies de partitionnement
 
-Les trois stratégies de partitionnement des données habituelles sont les suivantes :
+Les trois stratégies de partitionnement des données habituelles sont les suivantes :
 
-- **Partitionnement horizontal** (souvent appelé _sharding_) : Dans cette stratégie, chaque partition est un magasin de données à part entière, mais toutes les partitions ont le même schéma. Chaque partition est appelée _shard_ et comporte une partie spécifique des données, par exemple, toutes les commandes d’un groupe spécifique de clients dans une application de commerce électronique.
+- **Partitionnement horizontal** (souvent appelé _sharding_) : Dans cette stratégie, chaque partition est un magasin de données à part entière, mais toutes les partitions ont le même schéma. Chaque partition est appelée _shard_ et comporte une partie spécifique des données, par exemple, toutes les commandes d’un groupe spécifique de clients dans une application de commerce électronique.
 - **Partitionnement vertical** : Dans cette stratégie, chaque partition comporte une partie des champs des éléments présents dans le magasin de données. Les champs sont divisés selon leur modèle d’utilisation. Par exemple, les champs fréquemment utilisés peuvent être placés dans une partition verticale et les champs moins fréquemment utilisés dans une autre.
 - **Partitionnement fonctionnel** : Dans cette stratégie, les données sont agrégées en fonction de leur utilisation par chaque contexte limité au sein du système. Par exemple, un système de commerce électronique qui implémente des fonctions d’entreprise distinctes pour la facturation et la gestion de l’inventaire des produits peut stocker les données de facturation dans une partition et les données d’inventaire des produits dans une autre.
 
@@ -66,11 +66,11 @@ Cependant, les différentes exigences de chaque stratégie peuvent présenter un
 
 ### Partitionnement horizontal (sharding)
 
-La figure 1 présente une vue d’ensemble du partitionnement horizontal ou sharding. Dans cet exemple, les données relatives à l’inventaire des produits sont divisées en partitions en fonction de la clé du produit. Chaque partition comporte les données relatives à une plage contiguë de clés de partition (A à G et H à Z), classées par ordre alphabétique.
+La figure 1 présente une vue d’ensemble du partitionnement horizontal ou sharding. Dans cet exemple, les données relatives à l’inventaire des produits sont divisées en partitions en fonction de la clé du produit. Chaque partition comporte les données relatives à une plage contiguë de clés de partition (A à G et H à Z), classées par ordre alphabétique.
 
 ![Partitionnement horizontal des données (sharding) en fonction d’une clé de partition](media/best-practices-data-partitioning/DataPartitioning01.png)
 
-_Figure 1. Partitionnement horizontal des données (sharding) en fonction d’une clé de partition_
+_Figure 1. Partitionnement horizontal des données (sharding) en fonction d’une clé de partition_
 
 Le partitionnement vous permet de répartir la charge sur davantage d’ordinateurs, ce qui réduit la contention et améliore les performances. Vous pouvez faire évoluer le système en ajoutant des partitions qui s’exécutent sur des serveurs supplémentaires.
 
@@ -92,7 +92,7 @@ L’utilisation la plus courante du partitionnement vertical vise à réduire le
 
 ![Partitionnement vertical des données en fonction du modèle d’utilisation](media/best-practices-data-partitioning/DataPartitioning02.png)
 
-_Figure 2. Partitionnement vertical des données en fonction du modèle d’utilisation_
+_Figure 2. Partitionnement vertical des données en fonction du modèle d’utilisation_
 
 Dans cet exemple, l’application émet des requêtes à intervalles réguliers concernant le nom, la description et le prix du produit quand il s’agit d’afficher les détails du produit aux clients. Le niveau des stocks et la date de dernière commande du produit auprès du fabricant sont stockés au sein d’une partition distincte, ces deux éléments étant généralement utilisés conjointement.
 
@@ -102,15 +102,15 @@ Un autre scénario habituel concernant cette stratégie de partitionnement consi
 
 Le partitionnement vertical peut aussi limiter le nombre d’accès simultanés aux données nécessaires.
 
-> Le partitionnement vertical fonctionne au niveau de l’entité au sein d’un magasin de données, en normalisant partiellement une entité pour organiser un _large_ élément en un jeu d’éléments _restreints_. Il est parfaitement adapté aux magasins de données organisés en colonnes, tels que HBase et Cassandra. Si les données présentes au sein d’une collection de colonnes sont peu susceptibles d’être modifiées, vous pouvez également envisager d’utiliser des magasins organisés en colonnes dans SQL Server.
+> Le partitionnement vertical fonctionne au niveau de l’entité au sein d’un magasin de données, en normalisant partiellement une entité pour organiser un _large_ élément en un jeu d’éléments _restreints_. Il est parfaitement adapté aux magasins de données organisés en colonnes, tels que HBase et Cassandra. Si les données présentes au sein d’une collection de colonnes sont peu susceptibles d’être modifiées, vous pouvez également envisager d’utiliser des magasins organisés en colonnes dans SQL Server.
 
 ### Partitionnement fonctionnel
 
-Concernant les systèmes au sein desquels il est possible d’identifier un contexte limité pour chaque secteur d’activité ou service au sein de l’application, le partitionnement fonctionnel constitue une technique permettant d’améliorer les performances en matière d’isolement et d’accès aux données. Une autre utilisation courante du partitionnement fonctionnel consiste à séparer les données en lecture-écriture des données en lecture seule utilisées pour générer des rapports. La figure 3 présente une vue d’ensemble du partitionnement fonctionnel au sein duquel les données d’inventaire sont séparées des données relatives aux clients.
+Concernant les systèmes au sein desquels il est possible d’identifier un contexte limité pour chaque secteur d’activité ou service au sein de l’application, le partitionnement fonctionnel constitue une technique permettant d’améliorer les performances en matière d’isolement et d’accès aux données. Une autre utilisation courante du partitionnement fonctionnel consiste à séparer les données en lecture-écriture des données en lecture seule utilisées pour générer des rapports. La figure 3 présente une vue d’ensemble du partitionnement fonctionnel au sein duquel les données d’inventaire sont séparées des données relatives aux clients.
 
 ![Partitionnement fonctionnel des données en fonction du contexte limité ou du sous-domaine](media/best-practices-data-partitioning/DataPartitioning03.png)
 
-_Figure 3. Partitionnement fonctionnel des données en fonction du contexte limité ou du sous-domaine_
+_Figure 3. Partitionnement fonctionnel des données en fonction du contexte limité ou du sous-domaine_
 
 Cette stratégie de partitionnement peut contribuer à réduire la contention d’accès aux données entre les différentes parties d’un système.
 
@@ -118,7 +118,7 @@ Cette stratégie de partitionnement peut contribuer à réduire la contention d�
 
 Il est essentiel de tenir compte de la taille et de la charge de travail de chaque partition et de les équilibrer de sorte que les données soient réparties de manière à assurer une extensibilité maximale. Cependant, vous devez également partitionner les données de sorte qu’elles ne dépassent pas les limites d’échelle d’un magasin de partitions.
 
-Pour concevoir des partitions extensibles, procédez comme suit :
+Pour concevoir des partitions extensibles, procédez comme suit :
 
 1. Analysez l’application pour comprendre les modèles d’accès aux données, telles que la taille du jeu de résultats retourné par chaque requête, la fréquence d’accès, la latence inhérente et les exigences de traitement de calcul côté serveur. Dans de nombreux cas, seules quelques entités principales nécessitent la majorité des ressources de traitement.
 2. Servez-vous de cette analyse pour déterminer les objectifs d’extensibilité actuels et futurs, tels que la taille des données et la charge de travail. Répartissez ensuite les données entre les partitions pour satisfaire aux objectifs d’extensibilité. Concernant la stratégie de partitionnement horizontal, le choix de la clé de partitionnement appropriée est important pour s’assurer de l’homogénéité de la répartition. Pour plus d’informations, consultez [Modèle de partitionnement].
@@ -135,13 +135,13 @@ Par exemple, si vous utilisez le stockage de table Azure, une partition occupée
 
 La performance des requêtes peut souvent être améliorée en utilisant des jeux de données plus petits et en exécutant des requêtes parallèles. Chaque partition doit contenir une petite proportion du jeu de données entier. Cette réduction de volume peut améliorer la performance des requêtes. Cependant, le partitionnement n’est pas une alternative permettant de concevoir et de configurer une base de données de manière appropriée. Assurez-vous, par exemple, que vous disposez des index nécessaires si vous utilisez une base de données relationnelle.
 
-Pour concevoir des partitions qui favorisent la performance des requêtes, procédez comme suit :
+Pour concevoir des partitions qui favorisent la performance des requêtes, procédez comme suit :
 
-1. Examinez les exigences et les performances applicatives :
+1. Examinez les exigences et les performances applicatives :
 	- En fonction des exigences opérationnelles, identifiez les requêtes importantes qui doivent toujours être exécutées avec rapidité.
 	- Surveillez le système afin d’identifier les requêtes s’exécutant lentement.
 	- Identifiez les requêtes les plus fréquemment exécutées. Une seule instance de chaque requête peut correspondre à un coût minime, mais la consommation cumulée de ressources peut être considérable. Il peut être avantageux de séparer les données récupérées par ces requêtes dans une partition distincte, voire dans un cache.
-2. Partitionnez les données à l’origine du ralentissement des performances :
+2. Partitionnez les données à l’origine du ralentissement des performances :
 	- Limitez la taille de chaque partition afin que le temps de réponse aux requêtes corresponde à l’objectif.
 	- Concevez la clé de partitionnement de sorte que l’application puisse aisément trouver la partition si vous implémentez un partitionnement horizontal. La requête n’est alors pas contrainte de parcourir chaque partition.
 	- Tenez compte de l’emplacement d’une partition. Si possible, essayez de conserver les données au sein de partitions physiquement proches des applications et utilisateurs qui y accèdent.
@@ -152,12 +152,12 @@ Pour concevoir des partitions qui favorisent la performance des requêtes, proc�
 
 Le fait de partitionner des données peut améliorer la disponibilité des applications en veillant à ce que l’ensemble du jeu de données ne constitue pas un point de défaillance unique et que les sous-ensembles individuels du jeu de données puissent être gérés indépendamment. Le fait de répliquer des partitions qui contiennent des données critiques peut aussi contribuer à améliorer la disponibilité.
 
-Lors de la conception et de la mise en œuvre des partitions, tenez compte des facteurs suivants qui affectent la disponibilité :
+Lors de la conception et de la mise en œuvre des partitions, tenez compte des facteurs suivants qui affectent la disponibilité :
 
-- **Importance des données concernant les opérations d’exploitation**. Certaines données peuvent comporter des informations d’entreprise importantes, telles que des détails de facture ou des transactions bancaires. D’autres données peuvent inclure des données opérationnelles moins importantes, comme des fichiers journaux, des suivis de performances, etc. Après avoir identifié le type des données, considérez les points suivants :
+- **Importance des données concernant les opérations d’exploitation**. Certaines données peuvent comporter des informations d’entreprise importantes, telles que des détails de facture ou des transactions bancaires. D’autres données peuvent inclure des données opérationnelles moins importantes, comme des fichiers journaux, des suivis de performances, etc. Après avoir identifié le type des données, considérez les points suivants :
 	- Stockage des données critiques au sein de partitions hautement disponibles avec un plan de sauvegarde approprié.
 	- Établissement de mécanismes ou procédures de gestion et de surveillance distincts selon l’importance de chaque jeu de données. Placez les données présentant le même niveau d’importance dans la même partition pour qu’elles puissent être sauvegardées ensemble selon une fréquence appropriée. Par exemple, les partitions qui comportent des données de transactions bancaires doivent être sauvegardées plus fréquemment que les partitions qui comportent des informations de journalisation ou de suivi.
-- **Gestion des partitions individuelles**. Le fait de créer des partitions venant favoriser une gestion et une maintenance indépendantes présente plusieurs avantages. Par exemple :
+- **Gestion des partitions individuelles**. Le fait de créer des partitions venant favoriser une gestion et une maintenance indépendantes présente plusieurs avantages. Par exemple :
 	- En cas de défaillance d’une partition, elle peut être récupérée de manière indépendante, sans affecter les instances des applications accédant aux données présentes au sein des autres partitions.
 	- Le partitionnement des données par zone géographique permet l’exécution des tâches de maintenance planifiée à des heures creuses pour chaque emplacement. Assurez-vous que les partitions ne sont pas trop volumineuses pour empêcher l’exécution de toute maintenance planifiée au cours de cette période.
 - **Réplication des données importantes dans plusieurs partitions**. Cette stratégie peut améliorer la disponibilité et les performances, bien qu’elle puisse également présenter certains problèmes de cohérence. Synchroniser les modifications apportées aux données contenues dans une partition avec chaque réplica prend du temps. Au cours de cette période, les différentes partitions contiennent des valeurs de données différentes.
@@ -172,10 +172,10 @@ Dans certains cas, le partitionnement n’est pas considéré comme un élément
 
 De même, il est important de comprendre que le partitionnement n’est pas toujours réservé aux magasins de données volumineux. Par exemple, un magasin de données de petite taille peut faire l’objet d’accès de la part de centaines de clients simultanés. Le fait de partitionner les données dans une telle situation peut aider à réduire la contention et améliorer le débit.
 
-Au moment de concevoir un schéma de partitionnement de données, tenez compte des points suivants :
+Au moment de concevoir un schéma de partitionnement de données, tenez compte des points suivants :
 
 - **Si possible, conservez les données relatives aux opérations de base de données les plus courantes dans chaque partition afin de réduire les opérations d’accès aux données entre partitions**. Le fait d’interroger plusieurs partitions peut se révéler plus long que d’interroger une seule partition, mais l’optimisation des partitions d’un jeu de requêtes peut, au contraire, affecter les autres jeux de requêtes. Quand vous ne pouvez pas éviter d’interroger plusieurs partitions, limitez la durée des requêtes en exécutant des requêtes parallèles et en agrégeant les résultats dans l’application. Il se peut néanmoins que cette approche ne soit pas possible dans certains cas, par exemple quand le résultat d’une requête doit être obtenu et utilisé dans la requête suivante.
-- **Si les requêtes utilisent des données de référence relativement statiques, telles que des tables de codes postaux ou des listes de produits, envisagez de répliquer ces données dans toutes les partitions de façon à réduire le recours à des opérations de recherche distinctes dans différentes partitions**. Cette approche peut aussi limiter les chances de voir les données de référence devenir un jeu de données « sensible » soumis à un trafic dense à l’échelle du système entier. Cependant, la synchronisation des modifications pouvant intervenir sur ces données de référence s’accompagnent de coûts supplémentaires.
+- **Si les requêtes utilisent des données de référence relativement statiques, telles que des tables de codes postaux ou des listes de produits, envisagez de répliquer ces données dans toutes les partitions de façon à réduire le recours à des opérations de recherche distinctes dans différentes partitions**. Cette approche peut aussi limiter les chances de voir les données de référence devenir un jeu de données « sensible » soumis à un trafic dense à l’échelle du système entier. Cependant, la synchronisation des modifications pouvant intervenir sur ces données de référence s’accompagnent de coûts supplémentaires.
 - **Dans la mesure du possible, réduisez les exigences en matière d’intégrité référentielle dans les partitions verticales et fonctionnelles**. Dans ces schémas, l’application elle-même est chargée de maintenir l’intégrité référentielle au sein des partitions lorsque les données sont mises à jour et utilisées. Les requêtes qui doivent joindre les données de plusieurs partitions s’exécutent plus lentement que celles qui joignent les données d’une même partition, car l’application doit généralement exécuter des requêtes consécutives basées sur une clé, puis sur une clé étrangère. Envisagez plutôt de répliquer ou de dénormaliser les données pertinentes. Pour réduire le durée des requêtes consultant plusieurs partitions, exécutez des requêtes parallèles sur les partitions et joignez les données dans l’application.
 - **Considérez l’effet possible du schéma de partitionnement sur la cohérence des données au sein des partitions.** Déterminez si une forte cohérence est un élément indispensable. Une approche courante alternative dans le cloud consiste à mettre en œuvre une cohérence finale. Les données de chaque partition sont mises à jour séparément, et la logique d’application vérifie que toutes les mises à jour aboutissent. De même, elle gère les incohérences qui peuvent découler de l’interrogation de données pendant l’exécution d’une opération finalement cohérente. Pour plus d’informations sur l’implémentation de la cohérence finale, consultez [Data Consistency Primer] \(Manuel d’introduction à la cohérence des données).
 - **Tenez compte de la façon dont les requêtes localisent la partition appropriée**. Si une requête doit parcourir toutes les partitions pour localiser les données souhaitées, cela affecte considérablement les performances, même si plusieurs requêtes en parallèle sont exécutées. Les requêtes utilisées avec des stratégies de partitionnement vertical et fonctionnel peuvent spécifier naturellement les partitions. Cependant, le partitionnement horizontal (sharding) peut contrarier la localisation d’un élément, car chaque partition a le même schéma. Une solution de partitionnement classique consiste à actualiser une carte pouvant être utilisée pour rechercher l’emplacement de la partition afin de consulter des éléments de données spécifiques. Cette carte peut être implémentée dans la logique de partitionnement de l’application ou tenue à jour par le magasin de données s’il prend en charge le partitionnement transparent.
@@ -186,7 +186,7 @@ Au moment de concevoir un schéma de partitionnement de données, tenez compte d
 
 Tous les magasins de données nécessitent une certaine gestion opérationnelle et une certaine surveillance. Les tâches associées peuvent aller du chargement, de sauvegarde, de la restauration et de la réorganisation des données à la vérification du fonctionnement correct et efficace du système.
 
-Tenez compte des facteurs suivants qui affectent la gestion des opérations :
+Tenez compte des facteurs suivants qui affectent la gestion des opérations :
 
 - **Implémentation des tâches opérationnelles et de gestion appropriées quand les données sont partitionnées**. Ces tâches peuvent inclure la sauvegarde et la restauration, l’archivage de données, la surveillance du système et d’autres tâches d’administration. Par exemple, la maintenance de la cohérence logique au cours des opérations de sauvegarde et de restauration peut se révéler compliquée.
 - **Chargement des données dans plusieurs partitions et ajout de nouvelles données en provenance d’autres sources**. Il peut arriver que certains outils et utilitaires ne prennent pas en charge certaines opérations de données partitionnées, telles que le chargement des données dans la partition appropriée. Cela signifie que vous serez peut-être amené à créer ou à vous procurer de nouveaux outils et utilitaires.
@@ -197,7 +197,7 @@ Les différentes technologies de stockage de données fournissent généralement
 
 ## Stratégies de partitionnement pour Azure SQL Database
 
-Azure SQL Database est une base de données relationnelle sour forme de service qui s’exécute dans le cloud. Ce service est basé sur Microsoft SQL Server. Une base de données relationnelle divise les informations en différentes tables, chacune de ces tables comprenant des informations relatives aux entités sous forme de séries de lignes. Chaque ligne comporte des colonnes qui contiennent les données relatives aux champs individuels d’une entité. La page [Qu’est-ce qu’Azure SQL Database ?] sur le site web de Microsoft présente des informations détaillées concernant la création et l’utilisation de bases de données SQL.
+Azure SQL Database est une base de données relationnelle sour forme de service qui s’exécute dans le cloud. Ce service est basé sur Microsoft SQL Server. Une base de données relationnelle divise les informations en différentes tables, chacune de ces tables comprenant des informations relatives aux entités sous forme de séries de lignes. Chaque ligne comporte des colonnes qui contiennent les données relatives aux champs individuels d’une entité. La page [Qu’est-ce qu’Azure SQL Database ?] sur le site web de Microsoft présente des informations détaillées concernant la création et l’utilisation de bases de données SQL.
 
 ## Partitionnement horizontal avec la fonction Base de données élastique
 
@@ -205,7 +205,7 @@ Une base de données SQL est limitée quant au volume de données qu’elle peut
 
 > [AZURE.NOTE] La fonctionnalité de base de données élastique remplace la fonctionnalité de fédérations d’Azure SQL Database. Les installations existantes de Fédération pour SQL Database peuvent être migrées vers une base de données élastique à l’aide de l’utilitaire de migration de fédérations. Vous pouvez également implémenter votre propre mécanisme de partitionnement si votre système ne se prête pas naturellement aux fonctionnalités offertes par les bases de données élastiques.
 
-Chaque partition est mise en œuvre sous forme de base de données SQL. Une partition peut contenir plusieurs jeux de données (appelés _shardlets_). Chaque base de données tient à jour des métadonnées qui décrivent les shardlets qu’elle contient. Un shardlet peut correspondre à un seul élément de données ou à un groupe d’éléments partageant la même clé de shardlet. Par exemple, si vous procédez au partitionnement de données au sein d’une application mutualisée, la clé de shardlet peut correspondre à l’ID client, et toutes les données relatives à un client seront stockées au sein du même shardlet. Les données relatives aux autres clients seront stockées au sein de différents shardlets.
+Chaque partition est mise en œuvre sous forme de base de données SQL. Une partition peut contenir plusieurs jeux de données (appelés _shardlets_). Chaque base de données tient à jour des métadonnées qui décrivent les shardlets qu’elle contient. Un shardlet peut correspondre à un seul élément de données ou à un groupe d’éléments partageant la même clé de shardlet. Par exemple, si vous procédez au partitionnement de données au sein d’une application mutualisée, la clé de shardlet peut correspondre à l’ID client, et toutes les données relatives à un client seront stockées au sein du même shardlet. Les données relatives aux autres clients seront stockées au sein de différents shardlets.
 
 Il incombe au programmeur d’associer un groupe de données à une clé de shardlet. Une base de données SQL distincte fonctionne comme un gestionnaire global des cartes des partitions. Cette base de données contient une liste de l’ensemble des partitions et shardlets dans le système. Une application cliente qui accède aux données se connecte d’abord à la base de données du gestionnaire global des cartes des partitions pour obtenir une copie de la carte (répertoriant les partitions et les shardlets), qu’elle place ensuite en mémoire cache locale.
 
@@ -215,25 +215,25 @@ L’application utilise ensuite ces informations pour acheminer les demandes de 
 
 > Une autre approche consiste à utiliser la Synchronisation des données SQL Azure ou un pipeline Azure Data Factory pour répliquer la base de données du gestionnaire des cartes des partitions dans les différentes régions. Cette forme de réplication s’exécute périodiquement et est plus appropriée si la carte des partitions change peu fréquemment. En outre, vous n’êtes pas obligé de créer la base de données du gestionnaire des cartes des partitions à l’aide d’un niveau tarifaire Premium.
 
-La fonction Base de données élastique présente deux schémas de mappage des données vers les shardlets et de stockage dans ces derniers :
+La fonction Base de données élastique présente deux schémas de mappage des données vers les shardlets et de stockage dans ces derniers :
 
 - Une **carte de partitions de liste** décrit une association entre une clé unique et un shardlet. Par exemple, dans un système mutualisé, les données relatives à chaque client peuvent être associées à une clé unique et stockées dans leur propre shardlet. Pour garantir la confidentialité et l’isolement (autrement dit, pour empêcher un client d’épuiser les ressources de stockage de données disponibles pour d’autres), chaque shardlet peut être stocké dans sa propre partition.
 
 ![Utilisation d’une carte de partitions de liste pour stocker les données d’un client dans des partitions distinctes](media/best-practices-data-partitioning/PointShardlet.png)
 
-_Figure 4. Utilisation d’une carte de partitions de liste pour stocker les données d’un client dans des partitions distinctes_
+_Figure 4. Utilisation d’une carte de partitions de liste pour stocker les données d’un client dans des partitions distinctes_
 
 - Une **carte de partitions de plage** décrit une association entre un jeu de valeurs de clé contiguës et un shardlet. Dans l’exemple d’architecture mutualisée décrit précédemment, vous pouvez, comme alternative à la mise en œuvre de shardlets dédiés, regrouper les données d’un jeu de clients (chacun présentant sa propre clé) au sein du même shardlet. Ce schéma est moins onéreux que le premier (car les clients partagent les ressources de stockage de données), mais il présente un risque de baisse de la confidentialité et de l’isolement des données.
 
 ![Utilisation d’une carte de partitions de plage pour stocker des données relatives à une plage de clients dans une partition](media/best-practices-data-partitioning/RangeShardlet.png)
 
-_Figure 5. Utilisation d’une carte de partitions de plage pour stocker des données relatives à une plage de clients dans une partition_
+_Figure 5. Utilisation d’une carte de partitions de plage pour stocker des données relatives à une plage de clients dans une partition_
 
-Remarquez qu’une même partition peut comporter des données relatives à plusieurs shardlets. Par exemple, vous pouvez utiliser des shardlets de liste pour stocker des données relatives à différents clients non contigus dans la même partition. Vous pouvez aussi associer des shardlets de plage et des shardlets de liste dans une même partition, bien qu’ils soient interrogés par le biais de différentes cartes au sein de la base de données du gestionnaire global des cartes des partitions. (La base de données du gestionnaire global des cartes des partitions peut contenir plusieurs cartes des partitions.) La figure 6 illustre cette approche.
+Remarquez qu’une même partition peut comporter des données relatives à plusieurs shardlets. Par exemple, vous pouvez utiliser des shardlets de liste pour stocker des données relatives à différents clients non contigus dans la même partition. Vous pouvez aussi associer des shardlets de plage et des shardlets de liste dans une même partition, bien qu’ils soient interrogés par le biais de différentes cartes au sein de la base de données du gestionnaire global des cartes des partitions. (La base de données du gestionnaire global des cartes des partitions peut contenir plusieurs cartes des partitions.) La figure 6 illustre cette approche.
 
 ![Implémentation de plusieurs cartes des partitions](media/best-practices-data-partitioning/MultipleShardMaps.png)
 
-_Figure 6 : Implémentation de plusieurs cartes des partitions_
+_Figure 6 : Implémentation de plusieurs cartes des partitions_
 
 Le schéma de partitionnement que vous implémentez peut avoir une incidence significative sur les performances de votre système. Il peut également affecter la vitesse à laquelle les partitions doivent être ajoutées ou supprimées, ou la vitesse à laquelle les données doivent être repartitionnées entre les partitions. Considérez les points suivants quand vous utilisez la fonction Base de données élastique pour partitionner des données :
 
@@ -249,15 +249,15 @@ Le schéma de partitionnement que vous implémentez peut avoir une incidence sig
 - Disposez les partitions à proximité des utilisateurs qui accèdent aux données stockées dans ces partitions (autrement dit, géolocalisez les partitions). Cette stratégie aide à réduire la latence.
 - Évitez de disposer de diverses partitions très actives (zones sensibles) et de partitions relativement inactives. Essayez de répartir la charge de manière homogène parmi les partitions. Cela peut nécessiter un hachage des clés de shardlet.
 - Si vous géolocalisez des partitions, assurez-vous que la carte des clés hachées renvoie vers les shardlets stockés au sein des partitions stockées à proximité des utilisateurs qui accèdent à ces données.
-- Actuellement, seul un jeu limité de types de données SQL est pris en charge en tant que clés de shardlet : _int, bigint, varbinary,_ et _uniqueidentifier_. Les types SQL _int_ et _bigint_ correspondent aux types de données _int_ et _long_ en C# ; ils présentent les mêmes plages. Le type SQL _varbinary_ peut être géré à l’aide d’un tableau _Byte_ en C# et le type SQL _uniqueidentier_ correspond à la classe _Guid_ de .NET Framework.
+- Actuellement, seul un jeu limité de types de données SQL est pris en charge en tant que clés de shardlet : _int, bigint, varbinary,_ et _uniqueidentifier_. Les types SQL _int_ et _bigint_ correspondent aux types de données _int_ et _long_ en C# ; ils présentent les mêmes plages. Le type SQL _varbinary_ peut être géré à l’aide d’un tableau _Byte_ en C# et le type SQL _uniqueidentier_ correspond à la classe _Guid_ de .NET Framework.
 
 Comme son nom l’indique, la fonctionnalité de base de données élastique permet à un système d’ajouter et de supprimer des partitions à mesure que le volume de données augmente et diminue. Les API de la Bibliothèque cliente Base de données élastique Azure SQL Database permettent à une application de créer et de supprimer des partitions de manière dynamique (et de mettre à jour le gestionnaire des cartes des partitions de manière transparente). Toutefois, la suppression d’une partition est une opération destructive qui nécessite également la suppression de toutes les données présentes dans cette partition.
 
 Si une application doit fractionner une partition en deux partitions distinctes ou combiner des partitions, la fonction Base de données élastique propose un service distinct de fractionnement et de fusion. Ce service s’exécute dans un service hébergé dans le cloud (qui doit être créé par le développeur) et migre les données en toute sécurité entre les partitions. Pour plus d'informations, consultez la rubrique [Mise à l'échelle à l’aide de l'outil de fractionnement et de fusion de bases de données élastiques] sur le site Web de Microsoft.
 
-## Stratégies de partitionnement pour Azure Storage
+## Stratégies de partitionnement pour Azure Storage
 
-Azure Storage présente trois abstractions concernant la gestion des données :
+Azure Storage présente trois abstractions concernant la gestion des données :
 
 - Le stockage de tables, qui implémente un stockage à structure extensible. Une table contient une collection d’entités, dont chacune peut inclure un jeu de propriétés et de valeurs.
 - Le stockage d’objets blob, qui permet de stocker des fichiers et des objets de grande taille.
@@ -290,7 +290,7 @@ Dans la table des informations relatives aux clients, les données sont partitio
 
 ![Tables et partitions dans un exemple de compte de stockage](media/best-practices-data-partitioning/TableStorage.png)
 
-_Figure 7 : Tables et partitions dans un exemple de compte de stockage_
+_Figure 7 : Tables et partitions dans un exemple de compte de stockage_
 
 > [AZURE.NOTE] Le stockage de tables Azure ajoute également un champ d’horodatage à chaque entité. Le champ d’horodatage est géré par le stockage de tables et actualisé à chaque modification et réinscription de l’entité dans une partition. Le service de stockage de table utilise ce champ pour implémenter l’accès concurrentiel optimiste. Chaque fois qu’une application écrit une entité dans le stockage de table, le service de stockage de table compare la valeur de l’horodatage de l’entité qui est écrite à la valeur contenue dans le stockage de table. Si les valeurs sont différentes, cela signifie qu’une autre application a dû modifier l’entité depuis sa dernière récupération, et l’opération d’écriture échoue. Ne modifiez pas ce champ dans votre propre code et ne spécifiez pas de valeur pour ce champ quand vous créez une entité.
 
@@ -314,21 +314,21 @@ Considérez les points suivants quand vous concevez vos entités pour le stockag
 
 Pour plus d’informations sur le partitionnement des données dans le stockage de tables Azure, consultez l’article [Guide de conception de table Azure Storage] sur le site web Microsoft.
 
-## Partitionner le stockage d’objets blob Azure 
+## Partitionner le stockage d’objets blob Azure 
 
-Grâce au stockage d’objets blob Azure, il est possible de stocker des objets binaires volumineux, allant actuellement jusqu’à 200 Go pour les objets blob de blocs ou 1 To pour les objets blob de page. (Pour obtenir les informations les plus récentes, consultez la page [Objectifs de performance et évolutivité d’Azure Storage] sur le site web Microsoft.) Utilisez des objets blob de blocs dans des situations telles que la diffusion en continu, lorsque vous devez téléverser ou télécharger rapidement d’importants volumes de données. Utilisez des objets blob de pages pour les applications nécessitant un accès aléatoire plutôt qu’en série à certaines parties des données.
+Grâce au stockage d’objets blob Azure, il est possible de stocker des objets binaires volumineux, allant actuellement jusqu’à 200 Go pour les objets blob de blocs ou 1 To pour les objets blob de page. (Pour obtenir les informations les plus récentes, consultez la page [Objectifs de performance et évolutivité d’Azure Storage] sur le site web Microsoft.) Utilisez des objets blob de blocs dans des situations telles que la diffusion en continu, lorsque vous devez téléverser ou télécharger rapidement d’importants volumes de données. Utilisez des objets blob de pages pour les applications nécessitant un accès aléatoire plutôt qu’en série à certaines parties des données.
 
-Chaque objet blob (de blocs ou de pages) est stocké au sein d’un conteneur dans un compte de stockage Azure. Vous pouvez utiliser des conteneurs pour regrouper des objets blob associés présentant les mêmes exigences de sécurité, bien que ce regroupement soit plus logique que physique. Dans un conteneur, chaque objet blob a un nom unique.
+Chaque objet blob (de blocs ou de pages) est stocké au sein d’un conteneur dans un compte de stockage Azure. Vous pouvez utiliser des conteneurs pour regrouper des objets blob associés présentant les mêmes exigences de sécurité, bien que ce regroupement soit plus logique que physique. Dans un conteneur, chaque objet blob a un nom unique.
 
-Le stockage d’objets blob est automatiquement partitionné en fonction du nom de l’objet blob. Chaque objet blob est stocké dans sa propre partition. Les objets blob du même conteneur ne partagent pas une partition. Cette architecture permet au stockage d’objets blob Azure d’équilibrer la charge entre les serveurs en toute transparence, car différents objets blob présents dans le même conteneur peuvent être répartis sur différents serveurs.
+Le stockage d’objets blob est automatiquement partitionné en fonction du nom de l’objet blob. Chaque objet blob est stocké dans sa propre partition. Les objets blob du même conteneur ne partagent pas une partition. Cette architecture permet au stockage d’objets blob Azure d’équilibrer la charge entre les serveurs en toute transparence, car différents objets blob présents dans le même conteneur peuvent être répartis sur différents serveurs.
 
-Les actions d’écriture d’un seul bloc (objet blob de blocs) ou page (objet blob de pages) sont atomiques, mais pas les opérations intervenant sur des blocs, des pages ou des objets blob. S’il vous faut garantir la cohérence quand vous réalisez des opérations d’écriture entre des blocs, des pages et des objets blob, désactivez un verrou d’écriture à l’aide d’un bail d’objet blob.
+Les actions d’écriture d’un seul bloc (objet blob de blocs) ou page (objet blob de pages) sont atomiques, mais pas les opérations intervenant sur des blocs, des pages ou des objets blob. S’il vous faut garantir la cohérence quand vous réalisez des opérations d’écriture entre des blocs, des pages et des objets blob, désactivez un verrou d’écriture à l’aide d’un bail d’objet blob.
 
 Le stockage d’objets blob Azure prend en charge des taux de transfert allant jusqu’à 60 Mo par seconde ou 500 demandes par seconde pour chaque objet blob. Si vous prévoyez de dépasser ces limites et que les données d’objets blob sont relativement statiques, répliquez les objets blob à l’aide du réseau de distribution de contenu Azure. Pour plus d’informations, consultez la page [Utilisation du réseau de distribution de contenu (CDN) Azure] sur le site web de Microsoft. Pour obtenir des instructions et des considérations supplémentaires, consultez [Utilisation du réseau de distribution de contenu pour Azure].
 
 ## Partitionner les files d’attente de stockage
 
-Les files d’attente de stockage Azure vous permettent de mettre en œuvre une messagerie asynchrone entre les processus. Un compte de stockage Azure peut contenir un nombre illimité de files d’attente, et chaque file d’attente peut contenir un nombre illimité de messages. La seule limite concerne l’espace disponible dans le compte de stockage. La taille maximale d’un message est de 64 Ko. Si vous devez utiliser des messages dont la taille est supérieure, envisagez plutôt d’utiliser des files d’attente Service Bus Azure.
+Les files d’attente de stockage Azure vous permettent de mettre en œuvre une messagerie asynchrone entre les processus. Un compte de stockage Azure peut contenir un nombre illimité de files d’attente, et chaque file d’attente peut contenir un nombre illimité de messages. La seule limite concerne l’espace disponible dans le compte de stockage. La taille maximale d’un message est de 64 Ko. Si vous devez utiliser des messages dont la taille est supérieure, envisagez plutôt d’utiliser des files d’attente Service Bus Azure.
 
 Chaque file d’attente de stockage a un nom unique au sein du compte de stockage qui la contient. Azure partitionne les files d’attente en fonction du nom. Tous les messages de la même file d’attente sont stockés dans la même partition, qui est contrôlée par un serveur unique. Différentes files d’attente peuvent être gérées par différents serveurs afin d’équilibrer la charge. La répartition des files d’attente entre les serveurs est transparente pour les applications et les utilisateurs.
 
@@ -340,22 +340,22 @@ Une file d’attente de stockage Azure peut gérer jusqu’à 2 000 messages par
 
 Azure Service Bus utilise un courtier de messages pour gérer les messages envoyés à une file d’attente ou une rubrique Service Bus. Par défaut, tous les messages envoyés à une file d’attente ou une rubrique sont gérés par le même processus de courtier de messages. Cette architecture peut imposer une limite concernant le débit global de la file d’attente des messages. Toutefois, vous pouvez également partitionner une file d’attente ou une rubrique quand elle est créée. Pour cela, affectez la valeur _true_ à la propriété _EnablePartitioning_ de la description de file d’attente ou de rubrique.
 
-Une file d’attente ou une rubrique partitionnée est divisée en plusieurs fragments, chacun d’eux étant secondé par une banque de messages et un courtier de messages distincts. Service Bus prend en charge la création et la gestion de ces fragments. Lorsqu’une application publie un message à destination d’une file d’attente ou d’une rubrique partitionnée, Service Bus attribue ce message à un fragment de cette file d’attente ou rubrique. Lorsqu’une application reçoit un message à partir d’une file d’attente ou d’un abonnement, Service Bus vérifie chaque fragment pour identifier le message suivant disponible et le transmet ensuite à l’application pour le traiter.
+Une file d’attente ou une rubrique partitionnée est divisée en plusieurs fragments, chacun d’eux étant secondé par une banque de messages et un courtier de messages distincts. Service Bus prend en charge la création et la gestion de ces fragments. Lorsqu’une application publie un message à destination d’une file d’attente ou d’une rubrique partitionnée, Service Bus attribue ce message à un fragment de cette file d’attente ou rubrique. Lorsqu’une application reçoit un message à partir d’une file d’attente ou d’un abonnement, Service Bus vérifie chaque fragment pour identifier le message suivant disponible et le transmet ensuite à l’application pour le traiter.
 
 Cette structure permet de répartir la charge parmi les courtiers de messages et les banques de messages, ce qui améliore l’extensibilité et la disponibilité. Si la banque de messages ou le courtier de messages pour un fragment est temporairement indisponible, Service Bus peut récupérer des messages à partir de l’un des fragments restants disponibles.
 
-Service Bus attribue un message à un fragment comme suit :
+Service Bus attribue un message à un fragment comme suit :
 
 - Si le message appartient à une session, tous les messages présentant la même valeur concernant la propriété _SessionId_ sont envoyés au même fragment.
 - Si le message n’appartient pas à une session, mais que l’expéditeur a spécifié une valeur pour la propriété _PartitionKey_, tous les messages ayant la même valeur _PartitionKey_ sont envoyés au même fragment.
 
 	> [AZURE.NOTE] Si les propriétés _SessionId_ et _PartitionKey_ sont toutes deux spécifiées, elles doivent être définies sur la même valeur, sinon le message est rejeté.
 - Si les propriétés _SessionId_ et _PartitionKey_ d’un message ne sont pas spécifiées, mais que la détection des doublons est activée, la propriété _MessageId_ est utilisée. Tous les messages présentant la même propriété _MessageId_ sont dirigés vers le même fragment.
-- Si des messages ne présentent aucune propriété _SessionId, PartitionKey_ ou _MessageId_, Service Bus les attribue aux fragments de manière séquentielle. Si un fragment n’est pas disponible, Service Bus passe au suivant. Ainsi, une défaillance temporaire de l’infrastructure de messagerie n’entraîne pas de défaillance de l’opération d’envoi des messages.
+- Si des messages ne présentent aucune propriété _SessionId, PartitionKey_ ou _MessageId_, Service Bus les attribue aux fragments de manière séquentielle. Si un fragment n’est pas disponible, Service Bus passe au suivant. Ainsi, une défaillance temporaire de l’infrastructure de messagerie n’entraîne pas de défaillance de l’opération d’envoi des messages.
 
 Considérez les points suivants quand vous décidez ou non de partitionner une rubrique ou une file d’attente de messages Service Bus, et à l’aide de quelle méthode :
 
-- Les rubriques et files d’attente Service Bus sont créées dans l’étendue d’un espace de noms Service Bus. Service Bus permet actuellement de disposer jusqu’à 100 rubriques ou files d’attente par espace de noms.
+- Les rubriques et files d’attente Service Bus sont créées dans l’étendue d’un espace de noms Service Bus. Service Bus permet actuellement de disposer jusqu’à 100 rubriques ou files d’attente par espace de noms.
 - Chaque espace de noms Service Bus impose des quotas sur les ressources disponibles, telles que le nombre d’abonnements par rubrique, le nombre d’envois et de réceptions simultanés de demandes par seconde, et le nombre maximal de connexions simultanées pouvant être établies. Ces quotas sont documentés sur la page [Quotas de Service Bus] sur le site Web de Microsoft. Si vous pensez dépasser ces valeurs, créez des espaces de nom supplémentaires disposant de leurs propres rubriques et files d’attente, puis répartissez le travail entre ces espaces de nom. Par exemple, au sein d’une application globale, créez des espaces de noms distincts dans chaque région et configurez les instances applicatives pour utiliser les rubriques et les files d’attente présentes au sein de l’espace de nom le plus proche.
 - Les messages envoyés dans le cadre d’une transaction doivent spécifier une clé de partition. Il peut s’agir d’une propriété _SessionId_, _PartitionKey_ ou _MessageId_. Tous les messages envoyés dans le cadre de la même transaction doivent spécifier la même clé de partition, car ils doivent être gérés par le même processus Broker de messages. Vous ne pouvez pas envoyer des messages à différentes files d’attente ou rubriques au sein de la même transaction.
 - Vous ne pouvez pas configurer les rubriques et les files d’attente partitionnées pour qu’elles soient supprimées automatiquement quand elles deviennent inactives.
@@ -363,7 +363,7 @@ Considérez les points suivants quand vous décidez ou non de partitionner une r
 
 ## Stratégies de partitionnement pour des bases de données Azure DocumentDB
 
-Azure DocumentDB correspond à une base de données NoSQL pouvant stocker des documents. Un document de base de données DocumentDB correspond à une représentation sérialisée JSON d’un objet ou autre élément de données. Aucun schéma fixe n’est appliqué, mais chaque document doit contenir un ID unique.
+Azure DocumentDB correspond à une base de données NoSQL pouvant stocker des documents. Un document de base de données DocumentDB correspond à une représentation sérialisée JSON d’un objet ou autre élément de données. Aucun schéma fixe n’est appliqué, mais chaque document doit contenir un ID unique.
 
 Les documents sont organisés en collections. Vous pouvez regrouper des documents connexes dans une collection. Par exemple, dans un système gérant des publications de blog, vous pouvez stocker le contenu de chaque publication de blog sous forme de document dans une collection. Vous pouvez également créer des collections pour chaque type d’objet. Sinon, dans une application mutualisée (telle qu’un système dans lequel différents auteurs contrôlent et gèrent leurs propres publications de blog), vous pouvez partitionner les blogs par auteur et créer des collections distinctes pour chaque auteur. L’espace de stockage alloué aux collections est flexible et peut évoluer à la hausse ou à la baisse en fonction des besoins.
 
@@ -377,22 +377,22 @@ Chaque compte DocumentDB a un quota limitant le nombre de bases de données et d
 
 Dans ce cas, vous devrez peut-être créer des comptes et des bases de données DocumentDB supplémentaires, et répartir les partitions parmi ces bases de données. Toutefois, même s’il est peu probable que vous atteignez la capacité de stockage d’une base de données, nous vous recommandons d’utiliser plusieurs bases de données. En effet, chaque base de données a son propre ensemble d’utilisateurs et d’autorisations, et vous pouvez utiliser ce mécanisme pour isoler l’accès aux collections en fonction des différentes bases de données.
 
-La figure 8 illustre la structure de haut niveau de l’architecture DocumentDB.
+La figure 8 illustre la structure de haut niveau de l’architecture DocumentDB.
 
 ![La structure de DocumentDB](media/best-practices-data-partitioning/DocumentDBStructure.png)
 
-_Figure 8 : Structure de l’architecture DocumentDB_
+_Figure 8 : Structure de l’architecture DocumentDB_
 
 Il incombe à l’application cliente d’envoyer les requêtes vers la partition appropriée, généralement en implémentant son propre mécanisme de mappage en fonction de certains attributs des données qui définissent la clé de partitionnement. La figure 9 illustre deux bases de données DocumentDB, chacune contenant deux collections fonctionnant en tant que partitions. Les données sont partitionnées par ID de locataire et concernent un locataire spécifique. Les bases de données sont créées dans des comptes DocumentDB distincts. Ces comptes sont situés dans la même région que les locataires pour lesquels ils contiennent des données. La logique de routage de l’application cliente utilise l’ID de locataire en tant que clé de partition.
 
 ![Implémentation du partitionnement à l’aide d’Azure DocumentDB](media/best-practices-data-partitioning/DocumentDBPartitions.png)
 
-_Figure 9 : Implémentation du partitionnement à l’aide d’une base de données Azure DocumentDB_
+_Figure 9 : Implémentation du partitionnement à l’aide d’une base de données Azure DocumentDB_
 
 Considérez les points suivants quand vous décidez de partitionner des données à l’aide d’une base de données DocumentDB :
 
 - **Les ressources disponibles pour une base de données DocumentDB sont soumises aux limites de quota du compte DocumentDB**. Chaque base de données peut contenir un certain nombre de collections (là encore, dans une certaine limite) et chaque collection est associée à un niveau de performances qui régit le taux limite d’unités de demande (débit réservé) pour cette collection. Pour plus d’informations, consultez la page [Limites et quotas de DocumentDB] sur le site web de Microsoft.
-- **Chaque document doit avoir un attribut pouvant être utilisé pour identifier de manière unique ce document dans la collection dans laquelle il est stocké**. Cet attribut est différent de la clé de partition, qui définit la collection dans laquelle le document est stocké. Une collection peut contenir un grand nombre de documents. En théorie, ce nombre est limité uniquement par la longueur maximale de l’ID de document. L’ID du document peut comprendre jusqu’à 255 caractères.
+- **Chaque document doit avoir un attribut pouvant être utilisé pour identifier de manière unique ce document dans la collection dans laquelle il est stocké**. Cet attribut est différent de la clé de partition, qui définit la collection dans laquelle le document est stocké. Une collection peut contenir un grand nombre de documents. En théorie, ce nombre est limité uniquement par la longueur maximale de l’ID de document. L’ID du document peut comprendre jusqu’à 255 caractères.
 - **Toutes les opérations sur un document sont exécutées dans le contexte d’une transaction. Les transactions dans les bases de données DocumentDB ont comme portée la collection dans laquelle se trouve le document.** Si une opération échoue, la tâche réalisée est annulée. Quand un document est sujet à une opération, toutes les modifications apportées sont soumises à un isolement de niveau capture instantanée. Ce mécanisme garantit que si, par exemple, une requête visant à créer un document échoue, un autre utilisateur qui interroge la base de données simultanément ne verra pas un document partiel supprimé par la suite.
 - **Les requêtes de base de données DocumentDB sont également limitées au niveau de la collection**. Une seule requête peut récupérer les données issues d’une seule collection. Si vous devez récupérer des données issues de plusieurs collections, vous devez interroger chaque collection individuellement et fusionner les résultats dans votre code d’application.
 - **Les bases de données DocumentDB prennent en charge les éléments programmables, qui peuvent tous être stockés dans une collection avec des documents**. Il s’agit notamment des procédures stockées, des fonctions définies par l’utilisateur et des déclencheurs (écrits en JavaScript). Ces éléments peuvent accéder à n’importe quel document au sein de la même collection. En outre, ces éléments s’exécutent soit dans le cadre de la portée de la transaction actuelle (dans le cas d’un déclencheur intervenant suite à une opération de création, de suppression ou de remplacement effectuée sur un document), soit en démarrant une nouvelle transaction (dans le cas d’une procédure stockée exécutée suite à une demande client explicite). Si le code d’un élément programmable lève une exception, la transaction est annulée. Vous pouvez utiliser des procédures stockées et des déclencheurs pour maintenir l’intégrité et la cohérence entre des documents, mais ces documents doivent tous faire partie de la même collection.
@@ -400,7 +400,7 @@ Considérez les points suivants quand vous décidez de partitionner des données
 
 ## Stratégies de partitionnement pour Azure Search
 
-La capacité à rechercher des données est souvent la méthode principale de navigation et d’exploration fournie par de nombreuses applications web. Elle permet aux utilisateurs de trouver des ressources rapidement (par exemple, des produits dans une application de commerce électronique) en fonction de combinaisons de critères de recherche. Le service de recherche Azure Search propose des fonctionnalités de recherche en texte intégral dans le contenu Web, ainsi que des fonctionnalités telles que les requêtes prédictives, les requêtes suggérées en fonction des correspondances suivantes et la navigation à facettes. Une description complète de ces fonctionnalités est disponible dans la page [Présentation d’Azure Search] sur le site web de Microsoft.
+La capacité à rechercher des données est souvent la méthode principale de navigation et d’exploration fournie par de nombreuses applications web. Elle permet aux utilisateurs de trouver des ressources rapidement (par exemple, des produits dans une application de commerce électronique) en fonction de combinaisons de critères de recherche. Le service de recherche Azure Search propose des fonctionnalités de recherche en texte intégral dans le contenu Web, ainsi que des fonctionnalités telles que les requêtes prédictives, les requêtes suggérées en fonction des correspondances suivantes et la navigation à facettes. Une description complète de ces fonctionnalités est disponible dans la page [Présentation d’Azure Search] sur le site web de Microsoft.
 
 Azure Search stocke le contenu pouvant faire l’objet d’une recherche sous forme de documents JSON dans une base de données. Vous définissez des index qui spécifient les champs de recherche dans ces documents et fournissez ces définitions à Azure Search. Quand un utilisateur soumet une demande de recherche, Azure Search utilise les index appropriés pour trouver les éléments correspondants.
 
@@ -408,7 +408,7 @@ Pour réduire la contention, le stockage utilisé par Azure Search peut être di
 
 La facturation se fait en fonction de chaque unité de recherche allouée à votre service. À mesure que le volume de contenu pouvant faire l’objet d’une recherche ou que le taux des demandes de recherche augmente, vous pouvez ajouter des unités de recherche à une instance existante d’Azure Search pour gérer la charge supplémentaire. Azure Search distribue uniformément les documents parmi les partitions. Aucune stratégie de partitionnement manuel n’est actuellement prise en charge.
 
-Chaque partition peut contenir un maximum de 15 millions de documents ou occuper 300 Go d’espace de stockage (la valeur la plus petite étant retenue). Vous pouvez créer jusqu’à 50 index. Les performances du service varient et dépendent de la complexité des documents, des index disponibles et de la latence du réseau. En moyenne, un réplica (1 unité de recherche) doit pouvoir gérer 15 requêtes par seconde, même s’il convient de réaliser une mesure à l’aide de vos propres données pour obtenir un résultat plus précis du débit. Pour plus d’informations, consultez la page [Limites de service d’Azure Search] sur le site web de Microsoft.
+Chaque partition peut contenir un maximum de 15 millions de documents ou occuper 300 Go d’espace de stockage (la valeur la plus petite étant retenue). Vous pouvez créer jusqu’à 50 index. Les performances du service varient et dépendent de la complexité des documents, des index disponibles et de la latence du réseau. En moyenne, un réplica (1 unité de recherche) doit pouvoir gérer 15 requêtes par seconde, même s’il convient de réaliser une mesure à l’aide de vos propres données pour obtenir un résultat plus précis du débit. Pour plus d’informations, consultez la page [Limites de service d’Azure Search] sur le site web de Microsoft.
 
 > [AZURE.NOTE] Vous pouvez stocker un jeu de types de données limité dans les documents pouvant faire l’objet d’une recherche, notamment des chaînes, des valeurs booléennes, des données numériques, des données d’horodatage et certaines données géographiques. Pour plus d’informations, consultez la page [Types de données pris en charge (Azure Search)] sur le site web de Microsoft.
 
@@ -436,7 +436,7 @@ Les applications clientes envoient simplement les demandes à l’un des serveur
 
 Ce modèle est mis en œuvre à l’aide du clustering Redis et est décrit plus en détail sur la page [Redis cluster tutorial] sur le site web de Redis. Le clustering Redis est transparent pour les applications clientes. Vous pouvez ajouter des serveurs Redis supplémentaires au cluster (et repartitionner les données) sans avoir à reconfigurer les clients.
 
-> [AZURE.IMPORTANT] Le cache Redis Azure ne prend pas en charge le clustering Redis. Si vous souhaitez implémenter cette approche avec Azure, vous devez implémenter vos propres serveurs Redis en installant Redis sur un ensemble de machines virtuelles Azure et en les configurant manuellement. Le billet de blog [Running Redis on a CentOS Linux VM in Microsoft Azure] sur le site web de Microsoft présente un exemple décrivant comment créer et configurer un nœud Redis exécuté en tant que machine virtuelle Azure.
+> [AZURE.IMPORTANT] Le cache Redis Azure ne prend pas en charge le clustering Redis. Si vous souhaitez implémenter cette approche avec Azure, vous devez implémenter vos propres serveurs Redis en installant Redis sur un ensemble de machines virtuelles Azure et en les configurant manuellement. Le billet de blog [Running Redis on a CentOS Linux VM in Windows Azure] sur le site web de Microsoft présente un exemple décrivant comment créer et configurer un nœud Redis exécuté en tant que machine virtuelle Azure.
 
 La page [Partitioning: how to split data among multiple Redis instances] sur le site web de Redis fournit des informations supplémentaires sur l’implémentation du partitionnement avec Redis. Le reste de cette section part du principe que vous mettez en œuvre le partitionnement côté client ou assisté par proxy.
 
@@ -449,11 +449,11 @@ Considérez les points suivants quand vous décidez de partitionner des données
     - Ensembles (triés et non triés)
     - Hachages (qui peuvent regrouper des champs associés, tels que des éléments qui représentent les champs d’un objet)
 
-- Les types d’agrégation permettent d’associer de nombreuses valeurs connexes avec la même clé. Une clé Redis identifie une liste, un ensemble ou un hachage plutôt que les éléments de données qu’elle contient. Ces types sont tous disponibles avec le cache Redis Azure et sont décrits dans la page [Data types] sur le site web de Redis. Par exemple, dans le cadre d’un système de commerce électronique qui assure le suivi des commandes passées par les clients, les détails de chaque client peuvent être stockés dans un hachage Redis indexé à l’aide de l’ID du client. Chaque hachage peut contenir une collection d’ID de commande relatifs au client. Un jeu Redis distinct peut contenir les commandes, à nouveau structurées sous forme de hachages, indexées à l’aide de l’ID de la commande. La figure 10 illustre cette structure. Remarquez que Redis ne met pas en œuvre toutes les formes d’intégrité référentielle ; il incombe au développeur de maintenir les relations entre les clients et commandes.
+- Les types d’agrégation permettent d’associer de nombreuses valeurs connexes avec la même clé. Une clé Redis identifie une liste, un ensemble ou un hachage plutôt que les éléments de données qu’elle contient. Ces types sont tous disponibles avec le cache Redis Azure et sont décrits dans la page [Data types] sur le site web de Redis. Par exemple, dans le cadre d’un système de commerce électronique qui assure le suivi des commandes passées par les clients, les détails de chaque client peuvent être stockés dans un hachage Redis indexé à l’aide de l’ID du client. Chaque hachage peut contenir une collection d’ID de commande relatifs au client. Un jeu Redis distinct peut contenir les commandes, à nouveau structurées sous forme de hachages, indexées à l’aide de l’ID de la commande. La figure 10 illustre cette structure. Remarquez que Redis ne met pas en œuvre toutes les formes d’intégrité référentielle ; il incombe au développeur de maintenir les relations entre les clients et commandes.
 
 ![Structure suggérée au sein du stockage Redis pour enregistrer les commandes des clients et les détails associés](media/best-practices-data-partitioning/RedisCustomersandOrders.png)
 
-_Figure 10 : Structure suggérée au sein du stockage Redis pour enregistrer les commandes des clients et les détails associés_
+_Figure 10 : Structure suggérée au sein du stockage Redis pour enregistrer les commandes des clients et les détails associés_
 
 > [AZURE.NOTE] Dans Redis, toutes les clés sont des valeurs de données binaires (telles que des chaînes Redis) pouvant contenir jusqu’à 512 Mo de données. En théorie, une clé peut contenir pratiquement n’importe quelle information. Cependant, nous vous recommandons d’adopter une convention d’affectation de noms cohérente concernant les clés et permettant de décrire le type de données et d’identifier l’entité, sans pour autant que le nom soit trop long. Une approche courante consiste à utiliser des clés au format « type\_entité:ID ». Par exemple, vous pouvez utiliser « client:99 » pour indiquer la clé pour un client avec l’ID 99.
 
@@ -472,7 +472,7 @@ _Figure 10 : Structure suggérée au sein du stockage Redis pour enregistrer les
 
 À mesure que le système évolue et que vous comprenez mieux les modèles d’utilisation, vous devrez peut-être ajuster le schéma de partitionnement. Par exemple, des partitions spécifiques peuvent commencer à concentrer un volume de trafic disproportionné et devenir sensibles, provoquant une contention excessive. De plus, il se peut que vous ayez sous-évalué le volume des données stockées dans certaines partitions et que celles-ci atteignent leurs limites de capacité de stockage. Quelle que soit la cause, il est parfois nécessaire de rééquilibrer des partitions pour répartir la charge de manière plus homogène.
 
-Dans certains cas, les systèmes de stockage de données qui n’indiquent pas explicitement comment les données sont allouées aux serveurs peuvent rééquilibrer automatiquement les partitions dans les limites des ressources disponibles. Dans d’autres cas, le rééquilibrage correspond à une tâche administrative qui se compose de deux étapes :
+Dans certains cas, les systèmes de stockage de données qui n’indiquent pas explicitement comment les données sont allouées aux serveurs peuvent rééquilibrer automatiquement les partitions dans les limites des ressources disponibles. Dans d’autres cas, le rééquilibrage correspond à une tâche administrative qui se compose de deux étapes :
 
 1. Détermination de la nouvelle stratégie de partitionnement pour identifier :
     - Les partitions qu’il faudrait fractionner (ou éventuellement combiner)
@@ -499,7 +499,7 @@ Pour conserver une certaine disponibilité, vous pouvez mettre la partition d’
 
 ## Migration en ligne
 
-La migration en ligne est plus complexe à réaliser, mais entraîne moins de perturbations pour les utilisateurs, car les données restent disponibles pendant toute la procédure. Le processus est similaire à celui utilisé pour la migration hors connexion, à ceci près que la partition d’origine n’est pas mise hors connexion (étape 1). En fonction de la précision du processus de migration (par exemple, élément par élément ou partition par partition), le code d’accès aux données présent dans les applications clientes devra peut-être gérer la lecture et l’écriture des données stockées dans deux emplacements (la partition d’origine et la nouvelle partition).
+La migration en ligne est plus complexe à réaliser, mais entraîne moins de perturbations pour les utilisateurs, car les données restent disponibles pendant toute la procédure. Le processus est similaire à celui utilisé pour la migration hors connexion, à ceci près que la partition d’origine n’est pas mise hors connexion (étape 1). En fonction de la précision du processus de migration (par exemple, élément par élément ou partition par partition), le code d’accès aux données présent dans les applications clientes devra peut-être gérer la lecture et l’écriture des données stockées dans deux emplacements (la partition d’origine et la nouvelle partition).
 
 Pour obtenir un exemple de solution prenant en charge la migration en ligne, consultez la page [Mise à l’échelle utilisant l’outil de fractionnement et de fusion de bases de données élastiques] sur le site web de Microsoft.
 
@@ -568,4 +568,4 @@ Quand vous étudiez des stratégies d’implémentation de la cohérence des don
 [Présentation d’Azure SQL Database]: sql-database/sql-database-technical-overview.md
 [Qu’est-ce qu’Azure SQL Database ?]: sql-database/sql-database-technical-overview.md
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0810_2016-->

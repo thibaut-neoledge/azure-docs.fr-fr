@@ -14,16 +14,18 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/18/2016" 
+	ms.date="08/07/2016" 
 	ms.author="byvinyal"/>
 
-#Présentation détaillée des plans Azure App Service#
+# Présentation détaillée des plans Azure App Service#
 
-Un **plan App Service** représente un ensemble de fonctionnalités et de capacités que vous pouvez partager entre plusieurs applications dans [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714), y compris Web Apps, Mobile Apps, Logic Apps et API Apps. Ces plans prennent en charge 5 niveaux de tarification (**Gratuit**, **Partagé**, **De base**, **Standard** et **Premium**) qui possèdent chacun leurs propres fonctionnalités et capacités. Les applications comprises dans un même abonnement et situées au même emplacement peuvent partager un plan. Toutes les applications qui partagent un plan peuvent tirer profit de l'ensemble des fonctionnalités définies par ce plan. Toutes les applications web associées à un plan donné utilisent les ressources définies par ce plan. Par exemple, si votre plan est configuré pour utiliser deux « petites » instances d'un niveau de service standard, toutes les applications associées à ce plan seront exécutées sur ces deux instances et auront accès aux fonctionnalités du niveau de service standard. Les instances de plans sur lesquelles sont exécutées des applications sont entièrement gérées et hautement disponibles.
+Un **plan App Service** représente un ensemble de fonctionnalités et de capacités que vous pouvez partager entre plusieurs applications dans [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714), y compris Web Apps, Mobile Apps, Logic Apps et API Apps. Ces plans prennent en charge 5 niveaux de tarification (**Gratuit**, **Partagé**, **De base**, **Standard** et **Premium**) qui possèdent chacun leurs propres fonctionnalités et capacités. Les applications comprises dans un même abonnement et situées au même emplacement peuvent partager un plan. Toutes les applications qui partagent un plan peuvent tirer profit de l'ensemble des fonctionnalités définies par ce plan. Toutes les applications web associées à un plan donné utilisent les ressources définies par ce plan.
+
+Par exemple, si votre plan est configuré pour utiliser deux « petites » instances d'un niveau de service standard, toutes les applications associées à ce plan seront exécutées sur ces deux instances et auront accès aux fonctionnalités du niveau de service standard. Les instances de plans sur lesquelles sont exécutées des applications sont entièrement gérées et hautement disponibles.
 
 Dans cet article, nous allons explorer les principales caractéristiques telles que le niveau et l'échelle d'un plan App  Service, et comment elles entrent en jeu lors de la gestion de vos applications.
 
-##Applications et plans App Service
+## Applications et plans App Service
 
 Une application App Service ne peut être associée qu'à un seul plan App Service à la fois.
 
@@ -35,13 +37,13 @@ Avoir plusieurs plans au sein d'un même groupe de ressources permet également 
 
 ## Création d'un plan App Service contre utilisation d'un plan existant
 
-Quand vous créez une application, vous devez envisager de créer un groupe de ressources quand l'application qui va être créée correspond à un tout nouveau projet. Dans ce cas, la bonne option consiste à créer un groupe de ressources, un plan et une application.
+Lorsque vous créez une nouvelle application, vous devez pensez à créer un groupe de ressources. En revanche, si l'application que vous allez créer est un composant d'une application plus importante, elle doit être créée au sein du groupe de ressources alloué pour l'application en question.
 
-Si l'application que vous allez créer est un composant d'une autre application, elle doit être créée au sein du groupe de ressources alloué pour l'application en question.
+Que la nouvelle application soit autonome ou fasse partie d'une autre application, vous pouvez choisir d'utiliser un plan App Service existant pour l'héberger ou bien en créer un. C'est plus une question de capacité et de charge attendue.
 
-Que la nouvelle application soit autonome ou fasse partie d'une autre application, vous pouvez choisir d'utiliser un plan App Service existant pour l'héberger ou bien en créer un. C'est plus une question de capacité et de charge attendue. Si la nouvelle application consommera beaucoup de ressources et aura des facteurs d'échelle différents des autres applications hébergées dans un plan existant, il est recommandé de l'isoler dans son propre plan.
+Si la nouvelle application consommera beaucoup de ressources et aura des facteurs d'échelle différents des autres applications hébergées dans un plan existant, il est recommandé de l'isoler dans son propre plan.
 
-La création d'un plan permet d'allouer un nouvel ensemble de ressources aux applications web et de mieux contrôler l'allocation de ressources, car chaque plan obtient son propre ensemble d'instances.
+La création d'un plan permet d'allouer un nouvel ensemble de ressources à votre application et de mieux contrôler l'allocation de ressources, car chaque plan obtient son propre ensemble d'instances.
  
 La capacité à déplacer des applications d'un plan à un autre permet également de modifier la façon dont les ressources sont allouées dans toute l'application principale.
  
@@ -51,13 +53,13 @@ Si vous souhaitez créer une application dans une autre région et que celle-ci 
 
 Vous pouvez créer un **plan App Service** vide à partir de l’expérience de navigation du **plan App Service** ou dans le cadre de la création d'applications.
 
-Pour ce faire, cliquez dans le [portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715), sur **Nouveau**, sélectionnez **Web + mobile**, puis **Web Apps**, **Mobile Apps**, **Logic Apps** ou **API Apps**. ![][createWebApp]
+Dans le [portail Azure](https://portal.azure.com), cliquez sur **Nouveau**, sélectionnez **Web + mobile**, puis **Web Apps**, **Mobile Apps**, **API Apps** ou **Function Apps**. ![][createWebApp]
 
 Vous pouvez ensuite sélectionner ou créer le plan App Service pour la nouvelle application.
   
  ![][createASP]
 
-Pour créer un nouveau plan App Service, cliquez sur **+ Créer nouveau**, saisissez le nom du **plan App Service**, puis sélectionnez un **emplacement**. Cliquez sur **Niveau de tarification**, puis sélectionnez un niveau de tarification approprié pour le service. Sélectionnez **Afficher tout** pour afficher davantage d'options de tarification, telles que **Gratuit** et **Partagé**. Une fois que vous avez sélectionné le niveau de tarification, cliquez sur le bouton **Sélectionner**.
+Pour créer un nouveau plan App Service, cliquez sur **[+] Créer nouveau**, saisissez le nom du **plan App Service**, puis sélectionnez un **emplacement**. Cliquez sur **Niveau de tarification**, puis sélectionnez un niveau de tarification approprié pour le service. Sélectionnez **Afficher tout** pour afficher davantage d'options de tarification, telles que **Gratuit** et **Partagé**. Une fois que vous avez sélectionné le niveau de tarification, cliquez sur le bouton **Sélectionner**.
  
 ## Déplacer une application vers un autre plan App Service
 
@@ -92,7 +94,7 @@ Vous pouvez modifier le niveau tarifaire et la taille de l’instance en cliquan
  
  ![][pricingtier]
 
-##Résumé
+## Résumé
 
 Les plans App Service représentent un ensemble de fonctionnalités et de capacités que vous pouvez partager entre vos différentes applications. Les plans App Service vous donnent la possibilité d'allouer des applications spécifiques à un ensemble donné de ressources, et d'optimiser davantage l'utilisation des ressources Azure. Ainsi, si vous souhaitez faire des économies sur votre environnement de test, vous pouvez partager un même plan entre plusieurs applications. Vous pouvez également augmenter le débit de votre environnement de production en le mettant à l'échelle dans plusieurs régions et plusieurs plans.
 
@@ -107,4 +109,4 @@ Les plans App Service représentent un ensemble de fonctionnalités et de capac
 [createWebApp]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-web-app.png
 [appclone]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/app-clone.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

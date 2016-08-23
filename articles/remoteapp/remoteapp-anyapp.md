@@ -13,10 +13,13 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="07/02/2016"
+   ms.date="08/15/2016"
    ms.author="elizapo"/>
 
 # Exécuter n’importe quelle application Windows sur n’importe quel appareil avec Azure RemoteApp
+
+> [AZURE.IMPORTANT]
+Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148).
 
 Vous pouvez exécuter une application Windows n’importe où et sur n’importe quel appareil. Pour cela, il vous suffit d’utiliser Azure RemoteApp. Qu’il s’agisse d’une application personnalisée écrite il y a 10 ans ou d’une application Office, vos utilisateurs n’ont plus besoin d’être rattachés à un système d’exploitation spécifique (comme Windows XP) pour accéder à ces applications.
 
@@ -35,7 +38,7 @@ Veuillez noter que, comme Access est une base de données, et comme nous voulons
 
 ## Création d’une collection dans RemoteApp
 
-Commencez par créer une collection. La collection sert à répertorier vos applications et vos utilisateurs. Chaque collection est basée sur une image, vous pouvez créer votre propre image ou utiliser celle fournie avec votre abonnement. Pour ce didacticiel, nous allons utiliser l’image d’évaluation d’Office 2013. Elle contient l’application que nous voulons partager.
+Commencez par créer une collection. La collection sert à répertorier vos applications et vos utilisateurs. Chaque collection est basée sur une image ; vous pouvez créer votre propre image ou utiliser celle fournie avec votre abonnement. Pour ce didacticiel, nous allons utiliser l’image d’évaluation d’Office 2013. Elle contient l’application que nous voulons partager.
 
 1. Sur le portail Azure, faites défiler le volet de navigation de gauche jusqu’à ce que RemoteApp apparaisse. Ouvrez cette page.
 2. Cliquez sur **Créer une collection RemoteApp**.
@@ -113,4 +116,4 @@ Maintenant que vous maîtrisez la création d’une collection, essayez de crée
 <!--Image references-->
  
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0817_2016-->

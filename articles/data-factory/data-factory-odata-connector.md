@@ -19,6 +19,8 @@
 # Déplacer des données depuis une source OData à l’aide d’Azure Data Factory
 Cet article explique comment utiliser l'activité de copie d’une fabrique de données Azure pour déplacer des données d’OData vers un autre magasin de données. Cet article s’appuie sur l’article des [activités de déplacement des données](data-factory-data-movement-activities.md) qui présente une vue d’ensemble du déplacement des données avec l’activité de copie et les combinaisons de magasins de données prises en charge.
 
+> [AZURE.NOTE] Ce connecteur OData prend en charge la copie de données à partir de sources OData cloud et locales. Dans le second cas, vous devez installer la passerelle de gestion des données. Pour plus d’informations sur la passerelle de gestion de données, consultez l’article [Déplacement de données entre des sources locales et le cloud à l’aide de la passerelle de gestion des données](data-factory-move-data-between-onprem-and-cloud.md).
+
 ## Exemple : copie de données d’une source OData vers Azure Blob
 
 Cet exemple indique comment copier des données depuis une source OData vers un système Blob Storage Microsoft Azure. Toutefois, les données peuvent être copiées **directement** vers l’un des récepteurs indiqués [ici](data-factory-data-movement-activities.md#supported-data-stores), via l’activité de copie de Microsoft Azure Data Factory.
@@ -33,7 +35,7 @@ L’exemple contient les entités de fabrique de données suivantes :
 
 L'exemple copie toutes les heures les données provenant de l’interrogation d'une source OData vers un objet blob Azure. Les propriétés JSON utilisées dans ces exemples sont décrites dans les sections suivant les exemples.
 
-**Service lié OData** : cet exemple utilise l’authentification de base. Consultez la section [Service lié OData](#odata-linked-service-properties) pour connaître les différents types d’authentification que vous pouvez utiliser.
+**Service lié OData** : cet exemple utilise l’authentification de base. Consultez la section [Service lié OData](#odata-linked-service-properties) pour connaître les différents types d’authentification que vous pouvez utiliser.
 
     {
 		"name": "ODataLinkedService",
@@ -209,17 +211,18 @@ Le tableau suivant fournit la description des éléments JSON spécifiques au se
 
 | Propriété | Description | Requis |
 | -------- | ----------- | -------- | 
-| type | La propriété de type doit être définie sur **OData**. | Oui |
+| type | La propriété de type doit être définie sur **OData** | Oui |
 | url| URL du service OData. | Oui |
-| authenticationType | Type d’authentification utilisé pour se connecter à la source OData. Les valeurs possibles sont : Anonyme et De base. | Oui | 
+| authenticationType | Type d’authentification utilisé pour se connecter à la source OData. <br/><br/> Pour la source OData cloud, les valeurs possibles sont Anonyme et De Base ; pour la source OData locale, les valeurs possibles sont Anonyme, De base et Windows. | Oui | 
 | username | Spécifiez le nom d’utilisateur si vous utilisez l’authentification de base. | Oui (uniquement si vous utilisez l’authentification de base) | 
 | password | Spécifiez le mot de passe du compte d’utilisateur que vous avez spécifié pour le nom d’utilisateur. | Oui (uniquement si vous utilisez l’authentification de base) | 
+| gatewayName | Nom de la passerelle que le service Data Factory doit utiliser pour se connecter au service OData local. Indiquez uniquement si vous copiez des données à partir de la source OData locale. | Non |
 
 ### Utilisation de l’authentification de base
 
     {
         "name": "inputLinkedService",
-       "properties": 
+        "properties": 
         {
             "type": "OData",
            	"typeProperties": 
@@ -239,10 +242,28 @@ Le tableau suivant fournit la description des éléments JSON spécifiques au se
        	"properties": 
         {
             "type": "OData",
-           "typeProperties": 
+            "typeProperties": 
             {
                "url": "http://services.odata.org/OData/OData.svc",
                "authenticationType": "Anonymous"
+           }
+       }
+    }
+
+### Utilisation de l’authentification Windows pour accéder à la source OData locale
+
+    {
+        "name": "inputLinkedService",
+        "properties": 
+        {
+            "type": "OData",
+           	"typeProperties": 
+            {
+               "url": "<endpoint of on-premises OData source e.g. Dynamics CRM>",
+               "authenticationType": "Windows",
+                "username": "domain\\user",
+               "password": "password",
+               "gatewayName": "mygateway"
            }
        }
     }
@@ -253,7 +274,7 @@ Le tableau suivant fournit la description des éléments JSON spécifiques au se
 
 Pour obtenir une liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l’article [Création de jeux de données](data-factory-create-datasets.md). Les sections comme la structure, la disponibilité et la stratégie d'un jeu de données JSON sont similaires pour tous les types de jeux de données (SQL Azure, Azure Blob, Azure Table, etc.).
 
-La section **typeProperties** est différente pour chaque type de jeu de données et fournit des informations sur l’emplacement des données dans le magasin de données. La section typeProperties du jeu de données de type **ODataResource** (qui inclut le jeu de données OData) présente les propriétés suivantes.
+La section **typeProperties** est différente pour chaque type de jeu de données et fournit des informations sur l’emplacement des données dans le magasin de données. La section typeProperties du jeu de données de type **ODataResource** (qui inclut le jeu de données OData) présente les propriétés suivantes
 
 | Propriété | Description | Requis |
 | -------- | ----------- | -------- |
@@ -290,4 +311,4 @@ Lorsque que déplacez des données à partir de magasins de données OData, les 
 ## Performances et réglage  
 Consultez l’article [Guide sur les performances et le réglage de l’activité de copie](data-factory-copy-activity-performance.md) pour en savoir plus sur les facteurs clés affectant les performances de déplacement des données (activité de copie) dans Azure Data Factory et les différentes manières de les optimiser.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0810_2016-->

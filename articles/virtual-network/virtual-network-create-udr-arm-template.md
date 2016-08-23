@@ -3,7 +3,7 @@
    description="Découvrez comment contrôler le routage et utiliser des appliances virtuelles dans Azure Resource Manager à l’aide d’un modèle"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor=""
    tags="azure-resource-manager"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/23/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 #Création d’itinéraires définis par l’utilisateur (UDR) dans Resource Manager à l’aide d’un modèle
 
@@ -23,7 +23,7 @@
 
 [AZURE.INCLUDE [virtual-network-create-udr-intro-include.md](../../includes/virtual-network-create-udr-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]Cet article traite du modèle de déploiement de Resource Manager.
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)] Cet article traite du modèle de déploiement de Resource Manager.
 
 [AZURE.INCLUDE [virtual-network-create-udr-scenario-include.md](../../includes/virtual-network-create-udr-scenario-include.md)]
 
@@ -128,7 +128,7 @@ Pour déployer le modèle ARM téléchargé à l'aide de PowerShell, suivez les 
 		    -TemplateUri https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.json `
 		    -TemplateParameterUri https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.parameters.json	    	
 
-	Sortie attendue :
+	Sortie attendue :
 
 		ResourceGroupName : TestRG
 		Location          : westus
@@ -179,11 +179,11 @@ Pour déployer le modèle ARM à l’aide de l’interface de ligne de commande 
 
 		azure config mode arm
 
-	Voici le résultat attendu pour la commande ci-dessus :
+	Voici le résultat attendu pour la commande ci-dessus :
 
 		info:    New mode is arm
 
-3. Dans votre navigateur, accédez à ****https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.parameters.json**, copiez le contenu du fichier json et collez-le dans un nouveau fichier sur votre ordinateur. Pour ce scénario, vous allez copier les valeurs ci-dessous dans un fichier nommé **c:\\udr\\azuredeploy.parameters.json**.
+3. Dans votre navigateur, accédez à **https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.parameters.json**, copiez le contenu du fichier json et collez-le dans un nouveau fichier sur votre ordinateur. Pour ce scénario, vous copiez les valeurs ci-dessous dans un fichier nommé **c:\\udr\\azuredeploy.parameters.json**.
 
 		{
 		  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
@@ -205,7 +205,7 @@ Pour déployer le modèle ARM à l’aide de l’interface de ligne de commande 
 
 		azure group create -n TestRG -l westus --template-uri 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.json' -e 'c:\udr\azuredeploy.parameters.json'
 
-	Sortie attendue :
+	Sortie attendue :
 
 		info:    Executing command group create
 		info:    Getting resource group TestRG
@@ -396,4 +396,4 @@ Pour déployer le modèle ARM à l’aide de l’interface de ligne de commande 
 
 >[AZURE.TIP] Si vous ne voyez pas toutes les ressources, exécutez la commande `azure group deployment show` pour vérifier que l’état d’approvisionnement du déploiement est défini sur *Succeded*.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0810_2016-->

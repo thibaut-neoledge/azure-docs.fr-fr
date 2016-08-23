@@ -13,7 +13,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
-	ms.date="05/31/2016"
+	ms.date="08/16/2016"
 	ms.author="sdanie"/>
 
 # Utilisation du Cache Redis Azure avec Node.js
@@ -30,13 +30,13 @@ Le Cache Redis Azure permet d'accéder à un cache Redis sécurisé et dédié, 
 Cette rubrique montre comment utiliser le Cache Redis Azure avec Node.js. Pour obtenir un autre exemple d'utilisation du Cache Redis Azure avec Node.js, consultez la rubrique [Créer une application de conversation instantanée Node.js avec Socket.IO sur un site web Azure](../app-service-web/web-sites-nodejs-chat-app-socketio.md).
 
 
-## Conditions préalables
+## Composants requis
 
 Installez [node\_redis](https://github.com/mranney/node_redis) :
 
     npm install redis
 
-Ce didacticiel utilise [node\_redis](https://github.com/mranney/node_redis), mais vous pouvez utiliser n'importe quel client Node.js parmi ceux répertoriés ici : [http://redis.io/clients](http://redis.io/clients).
+Ce didacticiel utilise [node\_redis](https://github.com/mranney/node_redis). Pour obtenir des exemples d’utilisation des autres clients Node.js, consultez la documentation individuelle pour les [clients Redis Node.js](http://redis.io/clients#nodejs) répertoriés.
 
 ## Créer un Cache Redis sur Azure
 
@@ -46,17 +46,21 @@ Ce didacticiel utilise [node\_redis](https://github.com/mranney/node_redis), mai
 
 [AZURE.INCLUDE [redis-cache-create](../../includes/redis-cache-access-keys.md)]
 
+## Connexion au cache en toute sécurité à l’aide de SSL
 
-## Activer le point de terminaison non SSL
+Les dernières versions de [node\_redis](https://github.com/mranney/node_redis) prennent en charge la connexion au Cache Redis Azure avec SSL. L’exemple suivant montre comment se connecter au Cache Redis Azure à l’aide du point de terminaison SSL 6380. Remplacez `<name>` par le nom de votre cache et `<key>` avec votre clé primaire ou secondaire tel que décrit dans la section précédente [Récupérer les clés d’accès et le nom hôte](#retrieve-the-host-name-and-access-keys).
 
-Certains clients Redis ne prennent pas en charge SSL. Le [port non-SSL est désactivé par défaut pour les nouvelles instances Cache Redis Azure.](cache-configure.md#access-ports) Au moment de la rédaction de cet article, le client [node\_redis](https://github.com/mranney/node_redis) ne prend pas en charge SSL.
-
-[AZURE.INCLUDE [redis-cache-create](../../includes/redis-cache-non-ssl-port.md)]
+	 var redis = require("redis");
+	
+	  // Add your cache name and access key.
+	var client = redis.createClient(6380,'<name>.redis.cache.windows.net', {auth_pass: '<key>', tls: {servername: '<name>.redis.cache.windows.net'}});
 
 
 ## Ajouter un élément au cache et le récupérer
 
-	  var redis = require("redis");
+L’exemple suivant montre comment se connecter à une instance du Cache Redis Azure et de stocker ou récupérer un élément dans le cache. Pour plus d’exemples d’utilisation de Redis avec le client [node\_redis](https://github.com/mranney/node_redis), consultez [http://redis.js.org/](http://redis.js.org/).
+
+	 var redis = require("redis");
 	
 	  // Add your cache name and access key.
 	var client = redis.createClient(6380,'<name>.redis.cache.windows.net', {auth_pass: '<key>', tls: {servername: '<name>.redis.cache.windows.net'}});
@@ -80,4 +84,4 @@ Output:
 - [Activez les diagnostics du cache](cache-how-to-monitor.md#enable-cache-diagnostics) afin de pouvoir [surveiller](cache-how-to-monitor.md) l’intégrité de votre cache.
 - Lisez la [documentation Redis](http://redis.io/documentation) officielle.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0817_2016-->

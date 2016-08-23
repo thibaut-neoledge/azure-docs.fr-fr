@@ -43,6 +43,6 @@ Pour obtenir des instructions sur la manière de changer de moyen de paiement da
 
 **Scénario 3** : Si vous n'avez pas reçu l'avis de paiement car l'administrateur de compte a quitté l’entreprise ou assume un autre rôle, contactez le [support Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour résoudre le problème.
 
-> [AZURE.NOTE] Si votre abonnement Azure est désactivé, vous pouvez suivre les étapes de l’article suivant pour le réactiver : [Que faire si mon abonnement Azure est annulé ?](billing-subscription-become-disable.md)
+> [AZURE.NOTE] Si votre abonnement Azure est désactivé, vous pouvez suivre les étapes de l’article suivant pour le réactiver : [Que faire si mon abonnement Azure est désactivé ?](billing-subscription-become-disable.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

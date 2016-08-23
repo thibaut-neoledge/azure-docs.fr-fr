@@ -27,12 +27,15 @@ Un mappage est un document XML qui définit les données d’un document qui doi
 ## Pourquoi utiliser des mappages ?
 Imaginons que vous recevez régulièrement des commandes ou des factures B2B de la part d'un client qui utilise le format AAAMMJJ pour les dates. Mais dans votre entreprise, les dates sont enregistrées au format MMJJAAA. Vous pouvez utiliser un mappage pour *convertir* le format de date AAAMMJJ vers MMJJAAA avant d'enregistrer les détails de la commande ou de la facture dans votre base de données clients.
 
+## Comment créer un groupe ?
+[Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md "En savoir plus sur Enterprise Integration Pack") pour Visual Studio 2015 permet la création de projets d’intégration BizTalk. La création d’un fichier de mappage d’intégration vous permet de représenter graphiquement les éléments entre les deux fichiers de schéma XML. Après la création de ce projet, un document XSLT est produit.
+
 ## Comment charger un mappage ?
 À partir du portail Azure :
 1. Sélectionnez **Parcourir** ![](./media/app-service-logic-enterprise-integration-overview/overview-1.png)
 2. Entrez **intégration** dans la zone de recherche de filtre et sélectionnez **Integration Accounts** (Comptes d’intégration) dans la liste des résultats ![](./media/app-service-logic-enterprise-integration-overview/overview-2.png)
 3. Sélectionnez le **compte d’intégration** auquel vous ajouterez le mappage ![](./media/app-service-logic-enterprise-integration-overview/overview-3.png)
-4.  Sélectionnez la mosaïque **Mappages** ![](./media/app-service-logic-enterprise-integration-maps/map-1.png)
+4.  Sélectionnez la mosaïque **Mappages**![](./media/app-service-logic-enterprise-integration-maps/map-1.png)
 5. Sélectionnez le bouton **Ajouter** dans le panneau Mappages qui s’affiche ![](./media/app-service-logic-enterprise-integration-maps/map-2.png)
 6. Entrez un **nom** pour votre mappage, puis sélectionnez l’icône de dossier située à droite de la zone de texte **Mappage** pour télécharger le fichier de mappage. Une fois le processus de téléchargement terminé, sélectionnez le bouton **OK**. ![](./media/app-service-logic-enterprise-integration-maps/map-3.png)
 7. Le mappage est désormais ajouté à votre compte d’intégration. Vous recevrez une notification à l’écran indiquant si l'ajout du fichier de mappage a réussi ou échoué. Après avoir reçu la notification, sélectionnez la mosaïque **Mappages** ; le mappage que vous venez d'ajouter apparaît dans le panneau Mappages : ![](./media/app-service-logic-enterprise-integration-maps/map-4.png)
@@ -58,4 +61,4 @@ Procédez comme suit pour télécharger un nouveau mappage remplaçant un mappag
 - [En savoir plus sur les contrats](./app-service-logic-enterprise-integration-agreements.md "Découvrez les contrats d’intégration d’entreprise")
 - [En savoir plus sur les transformations](./app-service-logic-enterprise-integration-transform.md "Découvrez les transformations d’intégration d’entreprise")
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

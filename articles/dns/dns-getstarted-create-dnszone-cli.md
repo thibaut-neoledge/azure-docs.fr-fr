@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/09/2016"
+   ms.date="08/16/2016"
    ms.author="cherylmc"/>
 
 # Création d’une zone Azure DNS à l’aide de l’interface de ligne de commande
@@ -73,7 +73,7 @@ Ignorez cette étape si vous utilisez un groupe de ressources existant.
 
 ### 6\. S’inscrire
 
-Le service Azure DNS est géré par le fournisseur de ressources Microsoft.Network. Votre abonnement Azure doit être inscrit auprès de ce fournisseur de ressources pour pouvoir utiliser Azure DNS. Cette opération n’est à effectuer qu’une fois pour chaque abonnement.
+Le service Azure DNS est géré par le fournisseur de ressources Microsoft.Network. Votre abonnement Azure doit être enregistré auprès de ce fournisseur de ressources, pour que vous puissiez utiliser Azure DNS. Cette opération n’est à effectuer qu’une fois par abonnement.
 
 	Azure provider register --namespace Microsoft.Network
 
@@ -109,10 +109,10 @@ La création d’une zone DNS crée également les enregistrements DNS suivants�
 
 - Les enregistrements de serveur de noms faisant autorité (NS). Ceux-ci indiquent quels serveurs de noms hébergent la zone. Azure DNS utilise un pool de serveurs de noms. Il se peut donc que différents serveurs de noms soient attribués à différentes zones dans Azure DNS. Pour plus d’informations, consultez la page [Délégation d’un domaine à Azure DNS](dns-domain-delegation.md).
 
-Pour afficher ces enregistrements, utilisez `azure network dns-record-set show`.<BR> *Utilisation : network dns record-set show <resource-group> <dns-zone-name> <name> <type>*
+Pour afficher ces enregistrements, utilisez `azure network dns-record-set show`.<BR> *Syntaxe : network dns record-set show <groupe\_ressources> <nom\_zone\_dns> <nome> <type>*
 
 
-Dans l’exemple ci-dessous, si vous exécutez la commande correspondant au groupe de ressources *myresourcegroup*, au nom de jeu d’enregistrements *« @ »* (pour un enregistrement racine) et au type *SOA*, vous obtiendrez la sortie suivante :
+Dans l’exemple ci-dessous, si vous exécutez la commande avec le groupe de ressources *myresourcegroup*, le nom du jeu d’enregistrements *"@"* (pour un enregistrement racine) et au type *SOA*, vous obtenez la sortie suivante :
 
 
 	azure network dns record-set show myresourcegroup "contoso.com" "@" SOA
@@ -149,7 +149,7 @@ Dans l’exemple ci-dessous, si vous exécutez la commande correspondant au grou
 	data:
 	info:    network dns-record-set show command OK
 
->[AZURE.NOTE] Les jeux d’enregistrements à la racine (ou *apex*) d’une zone DNS utilisent **@** comme nom de jeu d’enregistrements.
+>[AZURE.NOTE] Les jeux d’enregistrements à la racine (ou *apex*) d’une zone DNS utilisent **@** comme nom.
 
 ## Test
 
@@ -157,7 +157,7 @@ Vous pouvez tester votre zone DNS à l’aide d’outils DNS comme nslookup, DIG
 
 Si vous n’avez pas encore délégué votre domaine pour qu’il utilise la nouvelle zone Azure DNS, vous devez diriger la requête DNS directement vers l’un des serveurs de noms pour votre zone. Les serveurs de noms de votre zone figurent dans les enregistrements NS, comme indiqué ci-dessus par « azure network dns record-set show ». Veillez à indiquer les valeurs correctes pour votre zone dans la commande ci-dessous.
 
-L’exemple suivant utilise DIG pour interroger le domaine contoso.com à l’aide des serveurs de noms attribués à la zone DNS. La requête doit pointer vers un serveur de noms pour lequel nous avons utilisé *@<name server for the zone>* et vers le nom de la zone à l’aide de DIG.
+L’exemple suivant utilise DIG pour interroger le domaine contoso.com à l’aide des serveurs de noms attribués à la zone DNS. La requête doit pointer vers un serveur de noms pour lequel nous avons utilisé *@<serveur de noms pour la zone>* et vers le nom de la zone à l’aide de DIG.
 
 	 <<>> DiG 9.10.2-P2 <<>> @ns1-05.azure-dns.com contoso.com
 	(1 server found)
@@ -183,6 +183,6 @@ L’exemple suivant utilise DIG pour interroger le domaine contoso.com à l’ai
 
 ## Étapes suivantes
 
-Après avoir créé une zone DNS, créez des [jeux d’enregistrements et des enregistrements](dns-getstarted-create-recordset-cli.md) pour lancer la résolution de noms pour votre domaine Internet.
+Après avoir créé une zone DNS, créez [des jeux d’enregistrements et des enregistrements](dns-getstarted-create-recordset-cli.md) pour démarrer la résolution des noms pour votre domaine Internet.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0817_2016-->

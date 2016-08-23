@@ -385,7 +385,7 @@ Utilisez le tableau de terminologie comme référence pour comprendre certains d
 | Terminologie | Définition |
 |-----------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Azure AD | Azure AD est [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/). Le compte Azure est requis pour l’authentification, le stockage et l’extraction des secrets du coffre de clés. |
-| Azure Key Vault [AKV] | Azure Key Vault est un service de gestion de clés de chiffrement basé sur des modules de sécurité matériels FIPS pour sauvegarder vos clés de chiffrement et les secrets sensibles en toute sécurité. Pour plus de détails, consultez la documentation sur le [coffre de clés](https://azure.microsoft.com/services/key-vault/). |
+| Azure Key Vault [AKV] | Azure Key Vault est un service de gestion de clés de chiffrement basé sur des modules de sécurité matériels FIPS pour sauvegarder vos clés de chiffrement et les secrets sensibles en toute sécurité. Pour plus d’informations, consultez la documentation relative au [coffre de clés](https://azure.microsoft.com/services/key-vault/). |
 | ARM | Azure Resource Manager |
 | BitLocker | [BitLocker](https://technet.microsoft.com/library/hh831713.aspx) est une technologie de chiffrement de volume Windows qui permet d’activer le chiffrement de disque sur des machines virtuelles IaaS Windows. |
 | BEK | Les clés de chiffrement BitLocker servent à chiffrer le volume de démarrage du système d’exploitation et les volumes de données. Les clés BitLocker sont sauvegardées dans le coffre de clés Azure du client en tant que secrets. |
@@ -845,4 +845,4 @@ Vous pouvez télécharger ce guide à partir de la [Galerie TechNet](https://gal
 
 [Explorer Azure Disk Encryption avec Azure PowerShell - partie 2](http://blogs.msdn.com/b/azuresecurity/archive/2015/11/21/explore-azure-disk-encryption-with-azure-powershell-part-2.aspx)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

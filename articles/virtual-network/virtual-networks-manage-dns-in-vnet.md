@@ -3,7 +3,7 @@
    description="En savoir plus sur l’ajout et la suppression de serveurs DNS dans un réseau virtuel"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor="tysonn" />
 <tags 
@@ -13,11 +13,11 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/15/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 # Gestion des serveurs DNS utilisés par un réseau virtuel
 
-Vous pouvez gérer la liste des serveurs DNS utilisés dans un réseau virtuel à partir du portail de gestion ou du fichier de configuration réseau. Vous pouvez ajouter jusqu’à 12 serveurs DNS pour chaque réseau virtuel. Quand vous spécifiez des serveurs DNS, assurez-vous de les indiquer dans l’ordre approprié pour votre environnement. Les listes de serveurs DNS ne fonctionnent pas sur le modèle du tourniquet (round-robin). Elles sont utilisées dans l’ordre où elles sont spécifiées. Si le premier serveur DNS sur la liste est accessible, le client utilise ce serveur DNS, que le serveur DNS fonctionne correctement ou non. Pour modifier l’ordre des serveurs DNS de votre réseau virtuel, supprimez-les de la liste et rajoutez-les dans l’ordre souhaité.
+Vous pouvez gérer la liste des serveurs DNS utilisés dans un réseau virtuel à partir du portail de gestion ou du fichier de configuration réseau. Vous pouvez ajouter jusqu’à 12 serveurs DNS pour chaque réseau virtuel. Quand vous spécifiez des serveurs DNS, assurez-vous de les indiquer dans l’ordre approprié pour votre environnement. Les listes de serveurs DNS ne fonctionnent pas sur le modèle du tourniquet (round-robin). Elles sont utilisées dans l’ordre où elles sont spécifiées. Si le premier serveur DNS sur la liste est accessible, le client utilise ce serveur DNS, que le serveur DNS fonctionne correctement ou non. Pour modifier l’ordre des serveurs DNS de votre réseau virtuel, supprimez-les de la liste et rajoutez-les dans l’ordre souhaité.
 
 >[AZURE.WARNING] Une fois la liste DNS mise à jour, vous devez redémarrer les machines virtuelles de votre réseau virtuel pour qu’elles adoptent les nouveaux paramètres de serveur DNS. Les machines virtuelles continueront à utiliser la configuration actuelle jusqu’à ce qu’elles soient redémarrées.
 
@@ -29,7 +29,7 @@ Vous pouvez gérer la liste des serveurs DNS utilisés dans un réseau virtuel �
 
 1. Cliquez sur **Configurer**.
 
-1. Dans **Serveurs DNS**, vous pouvez configurer les éléments suivants :
+1. Dans **Serveurs DNS**, vous pouvez configurer les éléments suivants :
 
 	- **Pour enregistrer (ajouter) un nouveau serveur DNS** : tapez simplement le nom et l’adresse IP dans les zones. Un serveur DNS est ajouté à votre liste de serveurs DNS du réseau virtuel et est enregistré auprès d’Azure.
 
@@ -57,12 +57,4 @@ Pour modifier une liste de serveurs DNS à l’aide d’un fichier de configurat
 
 1. Redémarrez les machines virtuelles situées sur le réseau virtuel pour leur permettre d’acquérir les nouveaux paramètres DNS.
 
-## Étapes suivantes
-
-[Gestion des propriétés du réseau virtuel](../virtual-networks-settings)
-
-[Utilisation d’adresses IP publiques dans un réseau virtuel](../virtual-networks-public-ip-within-vnet)
-
-[Suppression d’un réseau virtuel](../virtual-networks-delete-vnet)
-
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0810_2016-->

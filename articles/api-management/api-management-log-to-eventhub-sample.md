@@ -13,8 +13,8 @@
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
     ms.topic="article"
-    ms.date="05/25/2016"
-    ms.author="v-darmi"/>
+    ms.date="08/09/2016"
+    ms.author="darrmi"/>
 
 # Surveiller vos API avec gestion des API Azure, les hubs d’événements et Runscope
 
@@ -156,7 +156,7 @@ Dans cet exemple, nous allons utiliser `EventProcessorHost` par souci de simplic
 ### IEventProcessor
 Le concept central lors de l’utilisation `EventProcessorHost` consiste à créer une implémentation de l’interface `IEventProcessor` qui contient la méthode `ProcessEventAsync`. La fondation de cette méthode est indiquée ici :
 
-  async Task IEventProcessor.ProcessEventsAsync(PartitionContext context, IEnumerable<EventData> messages)
+  async Task IEventProcessor.ProcessEventsAsync(PartitionContext context, IEnumerable<EventData> messages) {
 
            foreach (EventData eventData in messages)
            {
@@ -268,4 +268,4 @@ Le service de gestion des API Azure fournit un emplacement idéal pour capturer 
 	-	[Référence de stratégie log-to-eventhub](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub)
 	
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

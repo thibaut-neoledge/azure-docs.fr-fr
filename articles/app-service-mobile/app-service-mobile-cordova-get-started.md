@@ -15,7 +15,7 @@
     ms.tgt_pltfrm="mobile-html"
     ms.devlang="javascript"
     ms.topic="hero-article"
-    ms.date="05/02/2016"
+    ms.date="08/11/2016"
     ms.author="glenga"/>
 
 #Créer une application Apache Cordova
@@ -32,7 +32,7 @@ Le suivi de ce didacticiel est un prérequis pour tous les autres didacticiels A
 
 Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
-* Un PC avec [Visual Studio Community 2015] ou version ultérieure.
+* Un PC avec [Visual Studio Community 2015] ou version ultérieure.
 * [Visual Studio Tools pour Apache Cordova].
 * Un [compte Azure actif](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -66,7 +66,7 @@ En savoir plus sur les concepts clés avec Azure App Service.
 
 Découvrez comment utiliser les Kits de développement logiciel.
 
-* [Kit de développement logiciel d’Apache Cordova]
+* [Kit de développement logiciel (SDK) Apache Cordova]
 * [Kit de développement logiciel du serveur ASP.NET]
 * [Kit de développement logiciel du serveur Node.js]
 
@@ -74,14 +74,14 @@ Découvrez comment utiliser les Kits de développement logiciel.
 
 <!-- URLs -->
 [Azure portal]: https://portal.azure.com/
-[Visual Studio Community 2015]: http://www.visualstudio.com/
+[Visual Studio Community 2015]: http://www.visualstudio.com/
 [Visual Studio Tools pour Apache Cordova]: https://www.visualstudio.com/fr-FR/features/cordova-vs.aspx
 [Ajout de l’authentification]: app-service-mobile-cordova-get-started-users.md
 [Ajout de notifications Push]: app-service-mobile-cordova-get-started-push.md
 [Authentification]: app-service-mobile-auth.md
 [Notifications Push]: ../notification-hubs/notification-hubs-overview.md
-[Kit de développement logiciel d’Apache Cordova]: app-service-mobile-cordova-how-to-use-client-library.md
+[Kit de développement logiciel (SDK) Apache Cordova]: app-service-mobile-cordova-how-to-use-client-library.md
 [Kit de développement logiciel du serveur ASP.NET]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Kit de développement logiciel du serveur Node.js]: app-service-mobile-node-backend-how-to-use-server-sdk.md
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

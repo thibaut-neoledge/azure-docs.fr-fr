@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/10/2016"
-	ms.author="trinadhk;giridham;jimpark;markgal"/>
+	ms.date="08/08/2016"
+	ms.author="trinadhk;giridham;jimpark;markgal;adigan"/>
 
 # Préparation de la sauvegarde des charges de travail dans Azure avec DPM
 
@@ -39,22 +39,20 @@ System Center DPM sauvegarde les données des fichiers et des applications. Les 
 - **DPM déployé comme un serveur physique ou une machine virtuelle en local** : si DPM est déployé comme un serveur physique ou comme une machine virtuelle Hyper-V en local, vous pouvez sauvegarder les données dans un coffre Recovery Services en plus d’une sauvegarde sur disque et sur bande.
 - **DPM déployé comme une machine virtuelle Azure** : depuis la mise à jour 3 de System Center 2012 R2, DPM peut être déployé comme une machine virtuelle Azure. Si DPM est déployé comme une machine virtuelle Azure, vous pouvez sauvegarder les données sur des disques Azure connectés à la machine virtuelle DPM Azure, ou décharger le stockage de données en les sauvegardant dans un coffre Recovery Services.
 
-## Pourquoi sauvegarder vos serveurs DPM ?
+## Pourquoi effectuer une sauvegarde de DPM vers Azure ?
 
 Les avantages commerciaux de l'utilisation d'Azure Backup pour la sauvegarde de serveurs DPM sont les suivants :
 
 - Pour le déploiement DPM en local, vous pouvez utiliser Azure au lieu d’un déploiement à long terme sur bande.
 - Pour les déploiements DPM dans Azure, Azure Backup vous permet de décharger le stockage du disque Azure et ainsi d’évoluer en stockant les données plus anciennes dans un coffre Recovery Services et les nouvelles données sur un disque.
 
-## Comment fonctionne la sauvegarde d'un serveur DPM ?
-Pour fournir une protection des données basée sur disque, le serveur DPM crée et gère un réplica, ou une copie, des données sur les serveurs protégés. Les réplicas sont stockés dans le pool de stockage qui se compose d’un ensemble de disques sur le serveur DPM ou sur un volume personnalisé. Que vous protégiez des données de fichier ou des données d’application, la protection commence par la création du réplica de la source de données. Le réplica est synchronisé, ou mis à jour, à intervalles réguliers conformément aux paramètres que vous configurez. Lorsque vous utilisez la protection basée sur disque à court terme et à long terme dans le cloud, DPM peut sauvegarder des données du volume de réplica dans le coffre Recovery Services afin qu’il n’existe aucun impact sur l’ordinateur protégé.
-
 ## Composants requis
 Préparer Azure Backup pour sauvegarder des données DPM comme suit :
 
 1. **Créer un coffre Recovery Services** : créez un coffre dans le portail Azure.
 2. **Télécharger les informations d’identification de coffre** : télécharger les informations d’identification qui vous permettent d’enregistrer le serveur DPM dans le coffre Recovery Services.
-3. **Installer l’Agent Azure Backup et inscrire le serveur** : à partir d’Azure Backup, installez l’agent sur chaque serveur DPM et inscrivez le serveur DPM dans le coffre Recovery Services.
+3. **Installer l’agent Azure Backup** : dans Azure Backup, installez l’agent sur chaque serveur DPM.
+4. **Inscrire le serveur** : inscrivez le serveur DPM dans le coffre Recovery Services.
 
 ### 1\. Créer un coffre Recovery Services
 Pour créer un coffre Recovery Services :
@@ -87,13 +85,13 @@ Pour créer un coffre Recovery Services :
 
 ### Définir la réplication du stockage
 
-L’option de réplication du stockage vous permet de choisir entre stockage géo-redondant et stockage localement redondant. Par défaut, votre archivage utilise un stockage géo-redondant. Si vous utilisez Azure comme sauvegarde principale, laissez cette option inchangée. Choisissez Stockage localement redondant si vous souhaitez une option plus économique, mais moins durable. Pour en savoir plus sur les options de stockage [géo-redondant](../storage/storage-redundancy.md#locally-redundant-storage) et [localement redondant](../storage/storage-redundancy.md), consultez l’article [Réplication Azure Storage](../storage/storage-redundancy.md#geo-redundant-storage).
+L’option de réplication du stockage vous permet de choisir entre stockage géo-redondant et stockage localement redondant. Par défaut, votre archivage utilise un stockage géo-redondant. Si vous utilisez Azure comme sauvegarde principale, laissez cette option inchangée. Choisissez Stockage localement redondant si vous souhaitez une option plus économique, mais moins durable. Pour en savoir plus sur les options de stockage [géoredondant](../storage/storage-redundancy.md#locally-redundant-storage) et [localement redondant](../storage/storage-redundancy.md), consultez l’article [Réplication Azure Storage](../storage/storage-redundancy.md#geo-redundant-storage).
 
 Pour modifier le paramètre de réplication du stockage :
 
 1. Sélectionnez votre archivage pour ouvrir le tableau de bord associé et le panneau Paramètres. Si le panneau **Paramètres** ne s’ouvre pas, cliquez sur **Tous les paramètres** dans le tableau de bord du coffre.
 
-2. Dans le panneau **Paramètres**, cliquez sur **Backup Infrastructure** (Infrastructure de sauvegarde) > **Configuration de la sauvegarde** pour ouvrir le panneau **Configuration de la sauvegarde**. Dans le panneau **Configuration de la sauvegarde**, choisissez l’option de réplication du stockage à appliquer à votre coffre.
+2. Dans le panneau **Paramètres**, cliquez sur **Infrastructure de sauvegarde** > **Configuration de la sauvegarde** pour ouvrir le panneau **Configuration de la sauvegarde**. Dans le panneau **Configuration de la sauvegarde**, choisissez l’option de réplication du stockage à appliquer à votre coffre.
 
     ![Liste des archivages de sauvegarde](./media/backup-azure-vms-first-look-arm/choose-storage-configuration-rs-vault.png)
 
@@ -149,13 +147,19 @@ Après avoir créé l’archivage de sauvegarde Azure, un agent doit être insta
 
 5.	L’agent Azure Backup installe .NET Framework 4.5 et Windows PowerShell (s’il n’est pas déjà disponible) pour terminer l’installation.
 
-6.	Une fois l’agent installé, cliquez sur le bouton **Procéder à l’inscription** pour continuer le flux de travail.
+6.	Une fois l’agent installé, **fermez** la fenêtre.
 
-    ![S’inscrire](../../includes/media/backup-install-agent/register.png)
+    ![Fermer](../../includes/media/backup-install-agent/dpm_FinishInstallation.png)
 
-7. Dans l’écran d’informations d’identification de l’archivage, recherchez et sélectionnez le fichier d’informations d’identification d’archivage téléchargé précédemment.
+7. Pour **inscrire le serveur DPM** dans le coffre, dans l'onglet **Gestion**, cliquez sur **Online**. Sélectionnez ensuite **Inscription**. L’Assistant Inscription d’un programme d’installation s'ouvre.
 
-    ![Informations d’identification du coffre](../../includes/media/backup-install-agent/vc.png)
+8. Si vous utilisez un serveur proxy pour vous connecter à Internet, dans l’écran **Configuration du proxy**, entrez les détails du serveur proxy. Si vous utilisez un proxy authentifié, entrez les informations de nom d’utilisateur et mot de passe dans cet écran.
+
+	![Configuration du proxy](../../includes/media/backup-install-agent/DPM_SetupOnlineBackup_Proxy.png)
+
+9. Dans l’écran d’informations d’identification de l’archivage, recherchez et sélectionnez le fichier d’informations d’identification d’archivage téléchargé précédemment.
+
+    ![Informations d’identification du coffre](../../includes/media/backup-install-agent/DPM_SetupOnlineBackup_Credentials.jpg)
 
     Le fichier d’informations d’identification d’archivage est valide uniquement pendant 48 heures (à partir de son téléchargement depuis le portail). Si vous rencontrez une erreur dans cet écran (par exemple, « Le fichier d’informations d’identification de coffre fourni a expiré »), connectez-vous au portail Azure et téléchargez de nouveau le fichier d’informations d’identification du coffre.
 
@@ -163,21 +167,23 @@ Après avoir créé l’archivage de sauvegarde Azure, un agent doit être insta
 
     Si vous rencontrez une erreur d’informations d’identification de coffre non valides (par exemple, « Les informations d’identification de coffre fournies ne sont pas valides »), cela signifie que le fichier est endommagé ou qu’il ne possède pas les dernières informations d’identification associées au service de récupération. Recommencez l’opération après avoir téléchargé un nouveau fichier d’informations d’identification de coffre à partir du portail. Cette erreur se produit généralement si l’utilisateur clique sur l’option **Télécharger les informations d’identification de coffre** trop rapidement dans le portail Azure. Dans ce cas, seul le deuxième fichier d’informations d’identification de coffre est valide.
 
-8. Sur l’écran **Paramètre de chiffrement**, vous pouvez générer ou fournir une phrase secrète (16 caractères minimum). Pensez à enregistrer le mot de passe dans un emplacement sécurisé.
+10. Pour contrôler l’utilisation de la bande passante réseau pendant les heures de travail et les heures chômées, dans l'écran **Paramètre de limitation**, vous pouvez définir les limites d’utilisation de la bande passante ainsi que les heures de travail et les heures chômées.
 
-    ![Chiffrement](../../includes/media/backup-install-agent/encryption.png)
+    ![Paramètre de limitation](../../includes/media/backup-install-agent/DPM_SetupOnlineBackup_Throttling.png)
+
+11. Dans l'écran **Paramètre de dossier de récupération**, recherchez le dossier où les fichiers téléchargés à partir d’Azure seront temporairement stockés.
+
+    ![Paramètre de dossier de récupération](../../includes/media/backup-install-agent/DPM_SetupOnlineBackup_RecoveryFolder.png)
+
+12. Sur l’écran **Paramètre de chiffrement**, vous pouvez générer ou fournir une phrase secrète (16 caractères minimum). Pensez à enregistrer le mot de passe dans un emplacement sécurisé.
+
+    ![Chiffrement](../../includes/media/backup-install-agent/DPM_SetupOnlineBackup_Encryption.png)
 
     > [AZURE.WARNING] Si la phrase secrète est perdue ou oubliée, Microsoft ne peut pas vous aider à récupérer les données de sauvegarde. L’utilisateur final détient la phrase secrète de chiffrement et Microsoft n’a aucune visibilité sur cette dernière. Enregistrez le fichier dans un emplacement sécurisé, car il vous sera demandé pour les opérations de récupération.
 
-9. Quand vous cliquez sur le bouton **Terminer**, l’ordinateur est correctement inscrit dans l’archivage et vous êtes désormais prêt à démarrer la sauvegarde dans Microsoft Azure.
+13. Quand vous cliquez sur le bouton **Inscrire**, l’ordinateur est correctement inscrit dans l’archivage et vous êtes désormais prêt à démarrer la sauvegarde dans Microsoft Azure.
 
-10. Lorsque vous utilisez Microsoft Azure Backup en autonome, vous pouvez modifier les paramètres spécifiés pendant le flux de travail d’inscription en cliquant sur l’option **Modifier les propriétés** dans le composant logiciel enfichable MMC d’Azure Backup.
-
-    ![Modifier les propriétés](../../includes/media/backup-install-agent/change.png)
-
-    Lorsque vous utilisez Data Protection Manager, vous pouvez également modifier les paramètres spécifiés pendant le flux de travail d’inscription en cliquant sur l’option **Configurer** et en sélectionnant **En ligne** sous l’onglet **Gestion**.
-
-    ![Configurer la sauvegarde Azure](../../includes/media/backup-install-agent/configure.png)
+14. Lorsque vous utilisez Data Protection Manager, vous pouvez modifier les paramètres spécifiés pendant le flux de travail d’inscription en cliquant sur l’option **Configurer** et en sélectionnant **En ligne** sous l’onglet **Gestion**.
 
 ## Spécifications (et limitations)
 
@@ -209,4 +215,4 @@ Et les types suivants ne sont pas pris en charge :
 
 >[AZURE.NOTE] À partir de System Center 2012 DPM avec SP1, vous pouvez sauvegarder dans Azure des charges de travail protégées par DPM grâce à Microsoft Azure Backup.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

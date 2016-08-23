@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Gestion du Contrôle d'accès en fonction du rôle avec l'interface de ligne de commande Azure | Microsoft Azure"
-	description="Découvrez comment gérer l'accès en fonction du rôle avec l'interface de ligne de commande Azure en répertoriant les rôles et les actions de rôle, l'affectation de rôles pour l'abonnement et l'application."
+	description="Découvrez comment gérer le contrôle d'accès en fonction du rôle avec l'interface de ligne de commande Azure en répertoriant les rôles et les actions de rôle, et en affectant des rôles pour l'abonnement et l'application."
 	services="active-directory"
 	documentationCenter=""
 	authors="kgremban"
@@ -25,7 +25,7 @@
 
 Le contrôle d’accès en fonction du rôle (RBAC) disponible dans le portail Azure et l’API Azure Resource Manager permet une gestion très fine de l’accès à votre abonnement et à vos ressources. Cette fonctionnalité vous permet d’accorder l’accès aux utilisateurs, groupes et principaux du service Active Directory en leur affectant certains rôles avec une étendue spécifique.
 
-Pour pouvoir utiliser Azure CLI pour gérer le contrôle d’accès en fonction du rôle, vous devez disposer des composants suivants :
+Pour pouvoir utiliser l'interface de ligne de commande Azure (CLI) pour gérer le contrôle d’accès en fonction du rôle, vous devez disposer des composants suivants :
 
 - Azure CLI version 0.8.8 ou ultérieure. Pour installer la dernière version et l’associer à votre abonnement Azure, consultez [Installer et configurer Azure CLI](../xplat-cli-install.md).
 - Azure Resource Manager dans l’interface de ligne de commande Azure. Pour plus d’informations, consultez [Utilisation de l’interface de ligne de commande Azure avec Azure Resource Manager](../xplat-cli-azure-resource-manager.md).
@@ -74,8 +74,8 @@ azure role assignment list --resource-group pharma-sales-projecforcast --json | 
 
 ![Ligne de commande Azure RBAC - liste des affectations de rôle azure par groupe - capture d’écran](./media/role-based-access-control-manage-access-azure-cli/4-azure-role-assignment-list-1.png)
 
-###	Répertorier les affectations de rôles d'un utilisateur, notamment les rôles affectés à des groupes d'utilisateurs
-Pour répertorier les affectations de rôles d’un utilisateur spécifique, utilisez :
+###	Répertorier les attributions de rôles pour un utilisateur
+Pour répertorier les attributions de rôle pour un utilisateur spécifique et les attributions affectées aux groupes d’un utilisateur, utilisez :
 
 	azure role assignment list --signInName <user email>
 
@@ -83,7 +83,7 @@ Vous pouvez également afficher les affectations de rôles héritées de groupes
 
 	azure role assignment list --expandPrincipalGroups --signInName <user email>
 
-L’exemple suivant montre les attributions de rôles octroyées à l’utilisateur *sameert@aaddemo.com*. Cela inclut les rôles attribués directement à l’utilisateur, mais également les rôles hérités des groupes.
+L’exemple suivant montre les attributions de rôles octroyées à l’utilisateur *sameert@aaddemo.com*. Cela inclut les rôles attribués directement à l’utilisateur et ceux hérités des groupes.
 
 ```
 azure role assignment list --signInName sameert@aaddemo.com --json | jq '.[] | {"DisplayName":.properties.aADObject.DisplayName,"RoleDefinitionName":.properties.roleName,"Scope":.properties.scope}'
@@ -94,11 +94,11 @@ azure role assignment list --expandPrincipalGroups --signInName sameert@aaddemo.
 ![Ligne de commande Azure RBAC - liste des affectations de rôle azure par utilisateur - capture d’écran](./media/role-based-access-control-manage-access-azure-cli/4-azure-role-assignment-list-2.png)
 
 ##	Accorder l'accès
-Une fois que vous avez identifié le rôle que vous souhaitez affecter, utilisez la commande suivante pour accorder l'accès :
+Pour accorder l'accès après avoir identifié le rôle que vous souhaitez affecter, utilisez :
 
     azure role assignment create
 
-###	Affectation d'un rôle à un groupe pour l'abonnement
+###	Affecter un rôle à un groupe pour l'abonnement
 Pour affecter un rôle à un groupe pour l'abonnement, utilisez :
 
 	azure role assignment create --objectId  <group object id> --roleName <name of role> --subscription <subscription> --scope <subscription/subscription id>
@@ -126,7 +126,7 @@ L’exemple suivant affecte le rôle *Collaborateur de machine virtuelle* à l�
 
 ![Ligne de commande Azure RBAC - création d’affectation de rôle azure par utilisateur - capture d’écran](./media/role-based-access-control-manage-access-azure-cli/2-azure-role-assignment-create-3.png)
 
-###	Affectation d'un rôle à un groupe au niveau des ressources
+###	Affectation d'un rôle à un utilisateur pour des ressources
 Pour affecter un rôle à un groupe au niveau des ressources, utilisez :
 
     azure role assignment create --objectId <group id> --role "<name of role>" --resource-name <resource group name> --resource-type <resource group type> --parent <resource group parent> --resource-group <resource group>
@@ -140,16 +140,16 @@ Pour supprimer une affectation de rôle
 
     azure role assignment delete --objectId <object id to from which to remove role> --roleName "<role name>"
 
-L’exemple suivant supprime l’affectation du rôle *Collaborateur de machine virtuelle* de *sammert@aaddemo.com* pour le groupe de ressources *Pharma-Sales-ProjectForcast*. Il supprime ensuite l'affectation de rôle du groupe pour l'abonnement.
+L’exemple suivant supprime l’affectation du rôle *Collaborateur de machine virtuelle* de *sammert@aaddemo.com* pour le groupe de ressources *Pharma-Sales-ProjectForcast*. L'exemple supprime ensuite l'affectation de rôle du groupe pour l'abonnement.
 
 ![Ligne de commande Azure RBAC - suppression d’affectation de rôle - capture d’écran](./media/role-based-access-control-manage-access-azure-cli/3-azure-role-assignment-delete.png)
 
 ## Créer un rôle personnalisé
-Pour créer un rôle personnalisé, utilisez la commande :
+Pour créer un rôle personnalisé, utilisez :
 
 	azure role create --inputfile <file path>
 
-L’exemple suivant crée un rôle personnalisé appelé *Opérateur de machine virtuelle* qui accorde l’accès à toutes les opérations de lecture des fournisseurs de ressources *Microsoft.Compute*, *Microsoft.Storage* et *Microsoft.Network*, ainsi que l’accès pour démarrer, redémarrer et surveiller des machines virtuelles. Le rôle personnalisé peut être utilisé dans deux abonnements. Cet exemple utilise un fichier JSON en tant qu’entrée.
+L’exemple suivant crée un rôle personnalisé appelé *Opérateur de machine virtuelle*. Le rôle personnalisé accorde l’accès à toutes les opérations des fournisseurs de ressources *Microsoft.Compute*, *Microsoft.Storage* et *Microsoft.Network* ainsi que l’accès pour démarrer, redémarrer et surveiller des machines virtuelles. Le rôle personnalisé peut être utilisé dans deux abonnements. Cet exemple utilise un fichier JSON en tant qu’entrée.
 
 ![JSON - définition de rôle personnalisé - capture d’écran](./media/role-based-access-control-manage-access-azure-cli/2-azure-role-create-1.png)
 
@@ -161,7 +161,7 @@ Pour modifier un rôle personnalisé, utilisez d’abord la commande `azure role
 
 	azure role set --inputfile <file path>
 
-L’exemple suivant ajoute l’opération Microsoft.Insights/diagnosticSettings/* à **Actions** et un abonnement Azure à **AssignableScopes** du rôle personnalisé Opérateur de machine virtuelle.
+L’exemple suivant ajoute l’opération Microsoft.Insights/diagnosticSettings/* à ***Actions** et un abonnement Azure à **AssignableScopes** du rôle personnalisé Opérateur de machine virtuelle.
 
 ![JSON - modifier la définition de rôle personnalisé - capture d’écran](./media/role-based-access-control-manage-access-azure-cli/3-azure-role-set-1.png)
 
@@ -169,7 +169,7 @@ L’exemple suivant ajoute l’opération Microsoft.Insights/diagnosticSettings/
 
 ## Supprimer un rôle personnalisé
 
-Pour supprimer un rôle personnalisé, utilisez tout d’abord la commande `azure role show` afin de déterminer la propriété **Id** du rôle. Ensuite, utilisez la commande `azure role delete` pour supprimer le rôle en spécifiant la propriété **Id**.
+Pour supprimer un rôle personnalisé, utilisez tout d’abord la commande `azure role show` afin de déterminer la propriété **ID** du rôle. Ensuite, utilisez la commande `azure role delete` pour supprimer le rôle en spécifiant la propriété **ID**.
 
 L’exemple suivant supprime le rôle personnalisé *Opérateur de machine virtuelle*.
 
@@ -187,7 +187,7 @@ azure role list --json | jq '.[] | {"name":.properties.roleName, type:.propertie
 
 ![Ligne de commande Azure RBAC - liste des rôles azure - capture d’écran](./media/role-based-access-control-manage-access-azure-cli/5-azure-role-list1.png)
 
-Dans l’exemple suivant, le rôle personnalisé *Opérateur de machine virtuelle* n’est pas disponible dans l’abonnement *Production4*, car cet abonnement ne figure pas dans la propriété **AssignableScopes** du rôle.
+Dans l’exemple suivant, le rôle personnalisé *Opérateur de machine virtuelle* n’est pas disponible dans l’abonnement *Production4*, car cet abonnement ne figure pas dans l’élément **AssignableScopes** du rôle.
 
 ```
 azure role list --json | jq '.[] | if .properties.type == "CustomRole" then .properties.roleName else empty end'
@@ -202,4 +202,4 @@ azure role list --json | jq '.[] | if .properties.type == "CustomRole" then .pro
 ## Rubriques RBAC
 [AZURE.INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0810_2016-->

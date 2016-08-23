@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/06/2016" 
+	ms.date="08/04/2016" 
 	ms.author="raynew"/>
 
 
@@ -105,42 +105,41 @@ Les instructions fournies dans ce document supposent qu'un contrôleur de domain
 
 ## Intégrer la protection à SQL Server Always-On (localement vers Azure)
 
-### Protection des machines virtuelles Hyper-V dans les clouds VMM
 
 Site Recovery prend en charge SQL AlwaysOn en mode natif. Si vous avez créé un groupe de disponibilité SQL avec une machine virtuelle Azure configurée comme « Secondaire », vous pouvez utiliser Site Recovery pour gérer le basculement des groupes de disponibilité.
 
->[AZURE.NOTE] Cette fonctionnalité est actuellement en version préliminaire et disponible quand les serveurs hôtes Hyper-V dans le centre de données principal sont gérés dans des clouds VMM.
+>[AZURE.NOTE] Cette fonctionnalité est actuellement en version préliminaire et disponible quand les serveurs hôtes Hyper-V du centre de données principal sont gérés dans des clouds VMM et quand la configuration VMware est gérée par un [Serveur de configuration](site-recovery-vmware-to-azure.md#configuration-server-prerequisites). Actuellement, cette fonctionnalité n’est pas disponible dans le nouveau portail Azure.
 
-#### Configuration requise
+#### Composants requis
 
-Voici ce dont vous avez besoin pour intégrer SQL AlwaysOn à Site Recovery quand vous effectuez une réplication à partir de VMM :
+Voici ce dont vous avez besoin pour intégrer SQL AlwaysOn à Site Recovery :
 
 - Un serveur SQL Server local (serveur autonome ou cluster de basculement)
 - Une ou plusieurs machines virtuelles Azure sur lesquelles est installé SQL Server.
 - Groupe de disponibilité SQL configuré entre un serveur SQL Server local et celui exécuté dans Azure
-- La communication à distance PowerShell doit être activée sur l’ordinateur SQL Server local. Le serveur VMM doit pouvoir effectuer des appels PowerShell distants vers le serveur SQL Server.
+- La communication à distance PowerShell doit être activée sur l’ordinateur SQL Server local. Le serveur VMM ou de configuration doit pouvoir effectuer des appels PowerShell distants vers le serveur SQL Server.
 - Un compte d’utilisateur doit être ajouté sur le serveur SQL Server local, dans les groupes d’utilisateurs SQL avec au minimum les autorisations suivantes :
-	- ALTER AVAILABILITY GROUP : autorisations [ici](https://msdn.microsoft.com/library/hh231018.aspx) et [ici](https://msdn.microsoft.com/library/ff878601.aspx#Anchor_3)
-	- ALTER DATABASE : autorisations [ici](https://msdn.microsoft.com/library/ff877956.aspx#Security)
-- Un compte d’identification doit être créé sur le serveur VMM du compte à l’étape précédente.
+	- ALTER AVAILABILITY GROUP : autorisations [ici](https://msdn.microsoft.com/library/hh231018.aspx) et [ici](https://msdn.microsoft.com/library/ff878601.aspx#Anchor_3)
+	- ALTER DATABASE : autorisations [ici](https://msdn.microsoft.com/library/ff877956.aspx#Security)
+- Un compte d’identification doit être créé sur le serveur VMM ou un compte doit être créé sur le serveur de configuration à l’aide de CSPSConfigtool.exe pour l’utilisateur indiqué dans l’étape précédente
 - Le module SQL PS doit être installé sur les serveurs SQL Server exécutés en local et sur des machines virtuelles Azure.
 - L’agent de machine virtuelle doit être installé sur les machines virtuelles exécutées dans Azure.
 - NTAUTHORITY\\System doit comporter les autorisations suivantes sur le serveur SQL Server exécuté sur les machines virtuelles dans Azure :
-	- ALTER AVAILABILITY GROUP : autorisations [ici](https://msdn.microsoft.com/library/hh231018.aspx) et [ici](https://msdn.microsoft.com/library/ff878601.aspx#Anchor_3)
-	- ALTER DATABASE : autorisations [ici](https://msdn.microsoft.com/library/ff877956.aspx#Security)
+	- ALTER AVAILABILITY GROUP : autorisations [ici](https://msdn.microsoft.com/library/hh231018.aspx) et [ici](https://msdn.microsoft.com/library/ff878601.aspx#Anchor_3)
+	- ALTER DATABASE : autorisations [ici](https://msdn.microsoft.com/library/ff877956.aspx#Security)
 
 ####  Étape 1 : ajouter un serveur SQL Server
 
 
-1. Cliquez sur **Ajouter un serveur SQL** pour ajouter un nouveau serveur SQL Server.
+1. Cliquez sur **Ajouter un serveur SQL** pour ajouter un nouveau serveur SQL Server.
 
 	![Ajouter un serveur SQL](./media/site-recovery-sql/add-sql.png)
 
 2. Dans **Configurer les paramètres SQL** > **Nom**, indiquez un nom convivial pour le serveur SQL Server.
-3. Dans **SQL Server (nom de domaine complet)**, indiquez le nom de domaine complet du serveur SQL Server source que vous souhaitez ajouter. Si le serveur SQL Server est installé sur un cluster de basculement, indiquez le nom de domaine complet du cluster et non celui des nœuds de cluster.
-4. Dans **Instance SQL Server**, choisissez l’instance par défaut ou indiquez le nom de l’instance personnalisée.
-5. Dans **Serveur VMM**, sélectionnez un serveur VMM inscrit dans le coffre Site Recovery. Site Recovery utilise ce serveur VMM pour communiquer avec le serveur SQL Server.
-6. Dans **Compte d’identification**, indiquez le nom d’un compte d’identification qui a été créé sur le serveur VMM spécifié. Ce compte est utilisé pour accéder au serveur SQL Server et doit être doté des autorisations Lecture et Basculement sur les groupes de disponibilité présents sur l’ordinateur SQL Server.
+3. Dans **SQL Server (nom de domaine complet)**, indiquez le nom de domaine complet du serveur SQL Server source que vous souhaitez ajouter. Si le serveur SQL Server est installé sur un cluster de basculement, indiquez le nom de domaine complet du cluster et non celui des nœuds de cluster.
+4. Dans **Instance SQL Server**, choisissez l’instance par défaut ou indiquez le nom de l’instance personnalisée.
+5. Dans **Serveur de gestion**, sélectionnez un serveur VMM ou un serveur de configuration inscrit dans le coffre Site Recovery. Site Recovery utilise ce serveur de gestion pour communiquer avec le serveur SQL Server.
+6. Dans **Compte d’identification**, indiquez le nom d’un compte d’identification créé sur le serveur VMM spécifié ou du compte créé sur le serveur de configuration. Ce compte est utilisé pour accéder au serveur SQL Server et doit être doté des autorisations Lecture et Basculement sur les groupes de disponibilité présents sur l’ordinateur SQL Server.
 
 	![Boîte de dialogue Ajouter un serveur SQL](./media/site-recovery-sql/add-sql-dialog.png)
 
@@ -165,7 +164,7 @@ Une fois ajouté, le serveur SQL Server apparaît sous l’onglet **Serveurs SQL
 
 #### Étape 3 : créer un plan de récupération
 
-L’étape suivante consiste à créer un plan de récupération à l’aide des machines virtuelles et des groupes de disponibilité. Sélectionnez le serveur VMM utilisé à l’étape 1 comme source, et Microsoft Azure comme cible.
+L’étape suivante consiste à créer un plan de récupération à l’aide des machines virtuelles et des groupes de disponibilité. Sélectionnez le serveur VMM ou de configuration utilisé à l’étape 1 comme source, et Microsoft Azure comme cible.
 
 ![Créer un plan de récupération](./media/site-recovery-sql/create-rp1.png)
 
@@ -193,7 +192,7 @@ Considérez les options de basculement ci-dessous.
 Option | Détails
 --- | ---
 **Option 1 :** | 1\. Effectuez un test de basculement de l’application et des couches frontales.<br/><br/>2. Mettez à jour la couche applicative pour accéder à la copie du réplica en lecture seule et effectuez un test en lecture seule de l'application.
-**Option 2 :** | 1\. Créez une copie de l’instance de machine virtuelle SQL Server répliquée (à l’aide de clone VMM pour la sauvegarde Azure ou de site à site), et copiez-la dans un réseau de test<br/><br/> 2. Testez le basculement à l'aide du plan de récupération.
+**Option 2 :** | 1\. Créez une copie de l’instance de machine virtuelle SQL Server répliquée (à l’aide du clone VMM pour la sauvegarde Azure ou de site à site), et copiez-la dans un réseau de test<br/><br/> 2. Testez le basculement à l'aide du plan de récupération.
 
 Étape 5 : effectuer une restauration automatique
 
@@ -203,9 +202,9 @@ Si vous voulez définir de nouveau le groupe de disponibilité comme principal s
 
 
 
-### Protéger les ordinateurs sans VMM
+### Protéger des ordinateurs sans serveur VMM ou de configuration
 
-Pour les environnements qui ne sont pas gérés par un serveur VMM, les runbooks Azure Automation peuvent être utilisés pour configurer un basculement de groupes de disponibilité SQL par script. Pour configurer cela, procédez comme suit :
+Pour les environnements qui ne sont pas gérés par un serveur VMM ou de configuration, les runbooks Azure Automation peuvent être utilisés pour configurer un basculement de groupes de disponibilité SQL par script. Pour configurer cela, procédez comme suit :
 
 1.	Créez un fichier local pour le script qui bascule un groupe de disponibilité. Cet exemple de script spécifie le chemin d'accès au groupe de disponibilité sur le réplica Azure et le bascule vers cette instance de réplica. Ce script s’exécutera sur l’ordinateur virtuel du réplica SQL Server par l’intermédiaire de l'extension de script personnalisé.
 
@@ -353,4 +352,4 @@ Pour les clusters SQL standard, la restauration automatique après un basculemen
 
  
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/19/2016"
+	ms.date="08/08/2016"
 	ms.author="billmath"/>
 
 # Ports et protocoles nécessaires à l’identité hybride
@@ -84,4 +84,4 @@ Azure Service Bus|5671 (TCP/UDP)| Règle de trafic sortant
 ### 6b - Points de terminaison pour l’agent Azure AD Connect Health pour (AD FS/Sync) et Azure AD
 Pour obtenir la liste des points de terminaison, consultez la [section Configuration requise pour l’agent Azure AD Connect Health](active-directory-aadconnect-health.md#requirements)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->
