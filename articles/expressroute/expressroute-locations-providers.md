@@ -44,7 +44,7 @@ Le tableau ci-dessous fournit des informations sur les régions et les limites g
 |**Région géopolitique**|**Régions Azure**|**Emplacements ExpressRoute**|
 |---|---|---|---|
 |**Cloud du gouvernement des États-Unis**|Gouvernement américain - Iowa, Gouvernement américain - Virginie|Chicago, Dallas+, New York, Washington DC|
-|**Chine**|Chine du Nord, Chine orientale|Pékin, Shanghai +|
+|**Chine**|Chine du Nord, Chine orientale|Beijing, Shanghai +|
 |**Allemagne**|Allemagne centrale, Allemagne de l’est|Berlin, Francfort|
 
 
@@ -85,7 +85,7 @@ La connectivité entre les régions géopolitiques n’est pas prise en charge d
 | **Toronto** | Cologix, Equinix, Zayo Group |
 | **Washington DC** | Aryaka Networks, AT&T NetBond, British Telecom, Comcast, Equinix, InterCloud, Level 3 Communications, Megaport, Orange, Tata Communications, Verizon, Zayo Group |
 
- **+** = bientôt disponible
+ **+** = bientôt disponible
 
 ### Environnements de cloud national
 
