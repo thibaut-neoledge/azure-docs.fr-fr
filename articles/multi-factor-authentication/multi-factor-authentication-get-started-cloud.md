@@ -4,7 +4,7 @@
 	services="multi-factor-authentication" 
 	documentationCenter="" 
 	authors="billmath" 
-	manager="stevenpo" 
+	manager="femila" 
 	editor="curtand"/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="08/04/2016" 
+	ms.date="08/15/2016" 
 	ms.author="billmath"/>
 
 # Prise en main avec Azure Multi-Factor Authentication dans le cloud
@@ -29,7 +29,7 @@ Les conditions préalables suivantes sont requises pour pouvoir activer Azure Mu
 
 
 
-- [Souscrivez un abonnement Azure](https://azure.microsoft.com/pricing/free-trial/) : si vous n’avez pas encore d’abonnement Azure, vous devez vous inscrire. Si vous êtes nouveau et utilisez Azure MFA, vous pouvez utiliser un abonnement d’évaluation
+- [Souscrivez un abonnement Azure](https://azure.microsoft.com/pricing/free-trial/) : si vous n’avez pas encore d’abonnement Azure, vous devez en souscrire un. Si vous êtes nouveau et que vous utilisez Azure MFA, vous pouvez utiliser un abonnement d’évaluation.
 2. [Créez un fournisseur Multi-Factor Auth](multi-factor-authentication-get-started-auth-provider.md) et attribuez-le à votre répertoire ou [attribuez des licences à vos utilisateurs](multi-factor-authentication-get-started-assign-licenses.md).
 
 > [AZURE.NOTE]  Les licences sont disponibles pour les utilisateurs qui disposent d’Azure MFA, d’Azure AD Premium ou d’Enterprise Mobility Suite (EMS). MFA est inclus dans Azure AD Premium et dans l’EMS. Si vous avez suffisamment de licences, il est inutile de créer un fournisseur d’authentification.
@@ -90,4 +90,4 @@ Pour plus d’informations sur les états des utilisateurs, consultez [User Stat
 ## Étapes suivantes
 Maintenant que vous avez configuré l’authentification multifacteur dans le cloud, vous pouvez configurer et installer votre déploiement. Consultez [Configuration d’Azure Multi-Factor Authentication.]
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

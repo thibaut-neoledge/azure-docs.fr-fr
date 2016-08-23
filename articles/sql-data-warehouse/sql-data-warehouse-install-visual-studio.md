@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/23/2016"
+   ms.date="08/16/2016"
    ms.author="sonyama;barbkess"/>
 
 # Installer Visual Studio 2015 et SSDT pour SQL Data Warehouse
@@ -49,11 +49,11 @@ Maintenant que vous disposez de la dernière version de SSDT, vous êtes prêt �
 <!--Image references-->
 
 <!--Articles-->
-[connecter]: ./sql-data-warehouse-get-started-connect.md
+[connecter]: ./sql-data-warehouse-query-visual-studio.md
 
 <!--Other-->
 [Téléchargez Visual Studio 2015]: https://www.visualstudio.com/downloads/
 [d’installation de Visual Studio]: https://msdn.microsoft.com/library/e2h7fzkw.aspx
 [Télécharger SSDT]: https://msdn.microsoft.com/library/mt204009.aspx
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

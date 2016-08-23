@@ -124,8 +124,8 @@ Microsoft marquera les préfixes publiés via l'homologation publique et l’hom
 | | Est des États-Unis | 12076:51004 |
 | | Est des États-Unis 2 | 12076:51005 |
 | | Ouest des États-Unis | 12076:51006 |
-| | Ouest des États-Unis 2 | 12076:51022 |
-| | Centre-Ouest des États-Unis | 12076:51023 |
+| | Ouest des États-Unis 2 | 12076:51026 |
+| | Centre-Ouest des États-Unis | 12076:51027 |
 | | États-Unis - partie centrale septentrionale | 12076:51007 |
 | | États-Unis - partie centrale méridionale | 12076:51008 |
 | | Centre des États-Unis | 12076:51009 |
@@ -175,4 +175,4 @@ Par ailleurs, Microsoft marquera également des préfixes basés sur le service 
 	- [Configurer le routage à l’aide du modèle de déploiement classique](expressroute-howto-routing-classic.md) ou [Configurer le routage à l’aide du modèle de déploiement Resource Manager](expressroute-howto-routing-arm.md)
 	- [Lier un réseau virtuel classique à un circuit ExpressRoute](expressroute-howto-linkvnet-classic.md) ou [Lier un réseau virtuel Resource Manager à un circuit ExpressRoute](expressroute-howto-linkvnet-arm.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

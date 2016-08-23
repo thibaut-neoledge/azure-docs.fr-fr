@@ -13,10 +13,13 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="05/31/2016"
+   ms.date="08/15/2016"
    ms.author="piotrci"/>
 
 # Publier des applications pour des utilisateurs individuels dans une collection Azure RemoteApp (version préliminaire)
+
+> [AZURE.IMPORTANT]
+Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148).
 
 Cet article explique comment publier des applications pour des utilisateurs individuels dans une collection Azure RemoteApp. Cette nouvelle fonctionnalité d’Azure RemoteApp, actuellement disponible en « version préliminaire privée », est réservée uniquement aux utilisateurs précoces à des fins d’évaluation.
 
@@ -80,7 +83,7 @@ Exécutez l’applet de commande suivante :
 
 Cette commande permet de répertorier tous les utilisateurs pouvant visualiser l’application.
 
-Remarque : vous pouvez voir les alias de l’application (appelés « app alias » dans la syntaxe ci-dessus) en exécutant l’applet de commande Get-AzureRemoteAppProgram - CollectionName <collectionName>.
+Remarque : vous pouvez voir les alias de l’application (appelés « app alias » dans la syntaxe ci-dessus) en exécutant l’applet de commande Get-AzureRemoteAppProgram - CollectionName <collectionName>.
 
 ## Comment affecter une application à un utilisateur
 
@@ -102,4 +105,4 @@ Nous vous remercions de nous faire part de vos commentaires et suggestions conce
 ## Vous n’avez pas eu l’occasion de tester la fonctionnalité en version préliminaire ?
 Si vous n’avez pas encore participé à l’évaluation, utilisez cette [enquête](http://www.instant.ly/s/AY83p) pour demander l’accès à la fonctionnalité.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -14,14 +14,14 @@
  ms.topic="get-started-article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="05/16/2016"
+ ms.date="08/17/2016"
  ms.author="araguila"/>
 
 # Procédure pas à pas de la solution préconfigurée de maintenance prédictive
 
 ## Introduction
 
-La solution préconfigurée de maintenance prédictive IoT Suite est une solution de bout en bout pour un scénario d’entreprise qui prévoit le moment où une défaillance est susceptible de se produire. Vous pouvez utiliser cette solution préconfigurée de manière proactive pour les activités telles que l’optimisation de la maintenance. La solution combine des services Azure IoT Suite clés, y compris un espace de travail [Azure Machine Learning][lnk_machine_learning] doté d’expériences permettant de prédire la durée de vie utile restante d’un moteur d’avion en s’appuyant sur un exemple de jeu de données publiques. La solution fournit une implémentation complète du scénario d’entreprise en guise de point de départ afin de vous permettre de planifier et d’implémenter ce type de solution IoT pour répondre à vos propres besoins professionnels spécifiques.
+La solution préconfigurée de maintenance prédictive IoT Suite est une solution de bout en bout pour un scénario d’entreprise qui prévoit le moment où une défaillance est susceptible de se produire. Vous pouvez utiliser cette solution préconfigurée de manière proactive pour des activités telles que l’optimisation de la maintenance. La solution combine des services Azure IoT Suite clés et un espace de travail [Azure Machine Learning][lnk_machine_learning]. Cet espace de travail contient des expériences basées sur un échantillon de données publiques, permettant de prédire la durée de vie utile restante (VUR) d’un moteur d’avion. La solution implémente complètement le scénario professionnel IoT comme point de départ, pour vous permettre de planifier et de mettre en œuvre une solution qui réponde à vos besoins professionnels.
 
 ## Architecture logique
 
@@ -33,17 +33,17 @@ Les éléments en bleu sont des services Azure configurés dans l’emplacement 
 
 Certaines ressources ne sont pas disponibles dans les régions où vous provisionnez la solution préconfigurée. Les éléments en orange dans le schéma représentent les services Azure provisionnés dans la région la plus proche disponible (Sud-Centre des États-Unis, Europe occidentale ou Asie du Sud-Est) d’après la région sélectionnée.
 
-L’élément en vert est un appareil simulé qui représente un moteur d’avion. Des informations supplémentaires sur ces appareils simulés sont disponibles ci-dessous.
+L’élément en vert est un appareil simulé qui représente un moteur d’avion. Des informations supplémentaires sur ces appareils simulés sont disponibles dans la section suivante.
 
 Les éléments en gris représentent des composants qui implémentent les fonctionnalités d’*administration des appareils*. La version actuelle de la solution préconfigurée de maintenance prédictive ne provisionne pas ces ressources. Pour en savoir plus sur l’administration des appareils, reportez-vous à la [solution préconfigurée de surveillance à distance][lnk-remote-monitoring].
 
 ## Simulations d’appareils
 
-Dans la solution préconfigurée, un appareil simulé représente un moteur d’avion. La solution est provisionnée avec 2 moteurs qui mappent vers un seul avion. Chaque moteur émet 4 types de télémétrie (Capteur 9, Capteur 11, Capteur 14 et Capteur 15) qui fournissent les données requises par le modèle Machine Learning pour calculer la durée de vie utile restante de ce moteur. Chaque appareil simulé envoie les messages de télémétrie suivants à l’IoT Hub :
+Dans la solution préconfigurée, un appareil simulé représente un moteur d’avion. La solution est configurée avec deux moteurs correspondant à un même avion. Chaque moteur émet quatre types de télémétrie (Capteur 9, Capteur 11, Capteur 14 et Capteur 15) qui fournissent les données requises par le modèle Machine Learning pour calculer la durée de vie utile restante du moteur. Chaque appareil simulé envoie les messages de télémétrie suivants à l’IoT Hub :
 
-*Nombre de cycles*. Un cycle représente un vol effectué d’une durée variable de 2 à 10 heures, dans lequel les données de télémétrie sont capturées toutes les demi-heures pendant la durée du vol.
+*Nombre de cycles*. Un cycle représente un vol d’une durée comprise entre 2 et 10 heures, dans lequel les données de télémétrie sont collectées toutes les demi-heures.
 
-*Télémétrie*. Il existe 4 capteurs qui représentent les attributs du moteur. Les capteurs sont nommés de manière générique Capteur 9, Capteur 11, Capteur 14 et Capteur 15. Ces 4 capteurs constituent une télémétrie suffisante pour obtenir des résultats utiles à partir du modèle Machine Learning pour la durée de vie utile restante. Ce modèle est créé à partir d’un jeu de données publiques qui inclut des données réelles de capteurs de moteurs. Pour plus d’informations sur la création du modèle à partir du jeu de données d’origine, consultez le [modèle de maintenance prédictive de la galerie Cortana Intelligence][lnk-cortana-analytics].
+*Télémétrie*. Quatre capteurs représentent les attributs du moteur. Les capteurs sont nommés de manière générique Capteur 9, Capteur 11, Capteur 14 et Capteur 15. Ces 4 capteurs constituent une télémétrie suffisante pour obtenir des résultats utiles à partir du modèle Machine Learning pour la durée de vie utile restante. Ce modèle est créé à partir d’un jeu de données publiques qui inclut des données réelles de capteurs de moteurs. Pour plus d’informations sur la création du modèle à partir du jeu de données d’origine, consultez le [modèle de maintenance prédictive de la galerie Cortana Intelligence][lnk-cortana-analytics].
 
 Les appareils simulés peuvent gérer les commandes suivantes envoyées à partir d’un IoT Hub :
 
@@ -60,7 +60,7 @@ La **Tâche : Télémétrie** agit sur le flux de télémétrie de l’appareil
 
 ## Processeur d’événements
 
-Le **processeur d’événements** prend les valeurs de capteurs moyennes d’un cycle terminé et les transmet à une API qui expose le modèle formé Machine Learning pour calculer la durée de vie utile restante d’un moteur.
+Le **processeur d’événements** mémorise les valeurs moyennes des capteurs sur un cycle terminé. Il les transmet à une API qui exécute le modèle Machine Learning pour calculer la durée de vie utile restante d’un moteur.
 
 ## Azure Machine Learning
 
@@ -79,23 +79,23 @@ Cette page de l’application web utilise des contrôles Power BI JavaScript (c
 
 ### Observer le comportement de la solution cloud
 
-Vous pouvez afficher vos ressources approvisionnées depuis le portail Azure, en accédant au groupe de ressources associé au nom de solution que vous avez choisi.
+Dans le portail Azure, accédez au groupe de ressources portant le nom de solution que vous avez choisi, pour afficher vos ressources configurées.
 
 ![][img-resource-group]
 
-Lorsque vous approvisionnez la solution préconfigurée, vous recevez un e-mail contenant un lien vers l’espace de travail Machine Learning. Vous pouvez également accéder à cet espace de travail Machine Learning à partir de la page [azureiotsuite.com][lnk-azureiotsuite] de votre solution approvisionnée lorsqu’elle est à l’état **Prêt**.
+Lorsque vous approvisionnez la solution préconfigurée, vous recevez un e-mail contenant un lien vers l’espace de travail Machine Learning. Vous pouvez également accéder à l’espace de travail Machine Learning à partir de la page [azureiotsuite.com][lnk-azureiotsuite] de votre solution configurée, lorsqu’elle est à l’état **Prêt**.
 
 ![][img-machine-learning]
 
-Dans le portail de la solution, vous pouvez voir que l’exemple est approvisionné avec quatre appareils simulés pour représenter 2 avions comptant 2 moteurs chacun, et 4 capteurs par moteur. Lorsque vous accédez au portail de la solution pour la première fois, la simulation est arrêtée.
+Dans le portail de la solution, vous pouvez voir que l’exemple est configuré avec quatre appareils simulés, correspondant à deux avions avec deux moteurs chacun et quatre capteurs par moteur. Lorsque vous accédez au portail de la solution pour la première fois, la simulation est arrêtée.
 
 ![][img-simulation-stopped]
 
-Cliquez sur **Démarrer la simulation** pour commencer la simulation dans laquelle vous verrez l’historique des capteurs, la durée de vie utile restante, les cycles et l’historique de durée de vie utile restante remplir le tableau de bord.
+Cliquez sur **Démarrer la simulation** pour commencer la simulation dans laquelle vous verrez l’historique des capteurs, la durée de vie utile restante, les cycles et l’historique de durée de vie utile restante s’afficher dans le tableau de bord.
 
 ![][img-simulation-running]
 
-Lorsque la durée de vie utile restante est inférieure à 160 (seuil arbitraire choisi pour la démonstration), le portail de la solution affiche un symbole d’avertissement en regard de l’affichage de la durée de vie utile restante et colore le moteur d’avion dans l’image en jaune. Vous remarquerez que les valeurs de durée de vie utile restante tendent globalement à diminuer, mais avec des rebonds à la hausse ou à la baisse. Ce phénomène provient des durées de cycle et précisions de modèles variables.
+Lorsque la durée de vie utile restante est inférieure à 160 (seuil arbitraire choisi pour les besoins de la démonstration), le portail de la solution affiche un symbole d’avertissement en regard de la valeur correspondante et colore le moteur d’avion en jaune. Vous remarquerez que les valeurs de durée de vie utile restante tendent globalement à diminuer, mais avec des rebonds à la hausse ou à la baisse. Ce phénomène provient de la variabilité de la durée des cycles et de la précision du modèle.
 
 ![][img-simulation-warning]
 
@@ -133,4 +133,4 @@ Vous pouvez également explorer certaines des autres fonctionnalités et capacit
 [lnk-faq]: iot-suite-faq.md
 [lnk-security-groundup]: securing-iot-ground-up.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article"
-	ms.date="06/22/2016"   
+	ms.date="08/11/2016"   
 	ms.author="robmcm"/>
 
 #Utilisation de Media Services avec Java
@@ -22,15 +22,15 @@
 
 ##Configuration d'un compte Azure pour Media Services
 
-Pour configurer votre compte Media Services, utilisez le portail Azure Classic. Consultez la rubrique [Création d'un compte Media Services](media-services-create-account.md). Une fois votre compte créé dans le portail Azure Classic, vous êtes prêt à configurer votre ordinateur pour le développement Media Services.
+Pour configurer votre compte Media Services, utilisez le portail Azure Classic. Consultez la rubrique [Créer un compte Azure Media Services](media-services-create-account.md). Une fois votre compte créé dans le portail Azure Classic, vous êtes prêt à configurer votre ordinateur pour le développement Media Services.
 
 ##Configuration pour le développement de Media Services
 
 Cette section contient les conditions préalables générales pour le développement de Media Services à l'aide du Kit de développement logiciel (SDK) Media Services pour Java.
 
-###Conditions préalables
+###Composants requis
 
--   Un compte Media Services dans un abonnement Azure nouveau ou existant. Consultez la rubrique [Création d'un compte Media Services](media-services-create-account.md).
+-   Un compte Media Services dans un abonnement Azure nouveau ou existant. Consultez la rubrique [Créer un compte Azure Media Services](media-services-create-account.md).
 -   Les bibliothèques Azure pour Java, que vous pouvez installer à partir du [Centre de développement Java d’Azure][].
 
 ##Procédure d’utilisation de Media Services avec Java
@@ -223,7 +223,7 @@ Remplacez les valeurs des variables `clientId` et `clientSecret`. Le code repose
 	        LocatorInfo originLocator = null;
 	
 	        // Create a 30-day readonly AccessPolicy
-	        double durationInMinutes = 60 * 24 * 30;
+	        double durationInMinutes = 60* 24* 30;
 	        originAccessPolicy = mediaService.create(
 	                AccessPolicy.create("Streaming policy", durationInMinutes, EnumSet.of(AccessPolicyPermission.READ)));
 	
@@ -276,4 +276,4 @@ Pour obtenir une documentation Javadoc sur Media Services, voir [Bibliothèques 
 
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

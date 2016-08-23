@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/18/2016"
+	ms.date="08/15/2016"
 	ms.author="awills"/>
 
 # Application Insights pour les pages web
@@ -29,7 +29,7 @@ Vous devrez vous abonner à [Microsoft Azure](https://azure.com). Si votre équ
 
 ## Configurer Application Insights pour votre page web
 
-Application Insights est peut-être déjà configuré. Si votre application est un nouveau projet ASP.NET et vous avez choisi d’ajouter Application Insights dans la boîte de dialogue Nouveau projet de Visual Studio, le script a été ajouté à ce moment-là et vous n’avez rien à faire.
+Tout d’abord, devez-vous ajouter Application Insights à vos pages web ? Il se peut que vous l’ayez déjà fait. SI vous avez décidé d’ajouter Application Insights à votre application web, dans la boîte de dialogue Nouveau projet de Visual Studio, le script a été ajouté à ce moment-là. Dans ce cas, aucune autre action n’est requise.
 
 Si ce n’est pas le cas, vous devez ajouter un extrait de code à vos pages web en procédant comme suit.
 
@@ -71,7 +71,7 @@ Le script contient la clé d’instrumentation qui dirige les données vers votr
 
 ## Configuration détaillée
 
-Bien que vous puissiez définir plusieurs [paramètres](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config), vous ne devriez pas avoir besoin de le faire dans la plupart des cas. Par exemple, vous pouvez limiter le nombre d’appels Ajax signalés par affichage de page ou désactiver leur signalement (pour réduire le trafic), ou encore définir le mode débogage pour que les données de télémétrie transitent rapidement à travers le pipeline sans être traitées par lot.
+Bien que vous puissiez définir plusieurs [paramètres](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config), vous ne devriez pas avoir besoin de le faire dans la plupart des cas. Par exemple, vous pouvez désactiver ou limiter le nombre d’appels Ajax signalés par page vue (afin de réduire le trafic). Sinon, vous pouvez définir le mode de débogage pour que les données de télémétrie transitent rapidement à travers le pipeline sans être traitées par lot.
 
 Pour définir ces paramètres, recherchez cette ligne dans l’extrait de code et ajoutez des éléments séparés par des virgules à la suite de celle-ci :
 
@@ -205,17 +205,17 @@ Dans le volet Recherche de diagnostic, définissez Filtres sur Affichage de page
 
 Sélectionnez n'importe quel événement pour afficher plus de détails. Dans la page des détails, cliquez sur «... » pour voir davantage de détails.
 
-> [AZURE.NOTE] Si vous utilisez [Rechercher](app-insights-diagnostic-search.md), notez que vous devez faire correspondre les mots entiers : « à propo » et « propos » ne correspondent pas à « À propos », contrairement à « À propo* ». En outre, un terme de recherche ne peut pas commencer par un caractère générique. Par exemple, effectuer une recherche sur « *oncernan » ne correspondra pas à « Concernant ».
+> [AZURE.NOTE] Si vous utilisez [Rechercher](app-insights-diagnostic-search.md), notez que vous devez faire correspondre les mots entiers : « à propo » et « propos » ne correspondent pas à « À propos ».
 
-> [En savoir plus sur la recherche de diagnostic](app-insights-diagnostic-search.md)
+Vous pouvez également utiliser le puissant [langage des requêtes Analytics](app-insights-analytics-tour.md) pour effectuer des recherches dans les vues de pages.
 
 ### Propriétés d'affichage de la page
 
-* **Durée d’affichage de la page** 
+* **Durée d’affichage de la page**
 
- * Par défaut, le temps nécessaire au chargement de la page, depuis la requête du client jusqu’à son chargement complet (y compris les fichiers auxiliaires, mais à l’exception des tâches asynchrones telles que les appels Ajax).
- * Si vous définissez `overridePageViewDuration` dans la [configuration de la page](#detailed-configuration), il s’agit de l’intervalle entre la requête du client et l’exécution du premier `trackPageView`. Si vous avez déplacé trackPageView de sa position habituelle après l'initialisation du script, il affiche une autre valeur.
- * Si `overridePageViewDuration` est défini et qu’un argument Duration est fourni dans l’appel `trackPageView()`, la valeur d’argument sera utilisée à la place. 
+* Par défaut, le temps nécessaire au chargement de la page, depuis la requête du client jusqu’à son chargement complet (y compris les fichiers auxiliaires, mais à l’exception des tâches asynchrones telles que les appels Ajax).
+* Si vous définissez `overridePageViewDuration` dans la [configuration de la page](#detailed-configuration), il s’agit de l’intervalle entre la requête du client et l’exécution du premier `trackPageView`. Si vous avez déplacé trackPageView de sa position habituelle après l'initialisation du script, il affiche une autre valeur.
+* Si `overridePageViewDuration` est défini et qu’un argument Duration est fourni dans l’appel `trackPageView()`, la valeur d’argument sera utilisée à la place.
 
 
 ## Compteurs de page personnalisés
@@ -226,7 +226,7 @@ Insérez par exemple l'appel JavaScript suivant à l'emplacement approprié dans
 
     appInsights.trackPageView(myPageName);
 
-Le nom d'une page peut contenir les mêmes caractères qu'une URL, mais tout ce qui se trouve après « # » ou « ? » sera ignoré.
+Le nom d'une page peut contenir les mêmes caractères qu'une URL, mais tout ce qui se trouve après « # » ou « ? » sera ignoré.
 
 
 
@@ -249,4 +249,4 @@ Vous souhaitez savoir ce que vos utilisateurs font avec votre application ?
 * [Mesures et événements personnalisés](app-insights-api-custom-events-metrics.md)
 * [Développer-mesurer-apprendre](app-insights-overview-usage.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0817_2016-->

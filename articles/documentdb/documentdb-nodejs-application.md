@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="hero-article" 
-	ms.date="04/18/2016" 
+	ms.date="08/15/2016" 
 	ms.author="anhoh"/>
 
 # <a name="_Toc395783175"></a>Création d'une application web Node.js avec DocumentDB
@@ -118,7 +118,7 @@ Ceci concerne l'ensemble de l'installation et de la configuration initiales. Ven
 		var DocDBUtils = {
 		    getOrCreateDatabase: function (client, databaseId, callback) {
 		        var querySpec = {
-		            query: 'SELECT * FROM root r WHERE r.id= @id',
+		            query: 'SELECT* FROM root r WHERE r.id= @id',
 		            parameters: [{
 		                name: '@id',
 		                value: databaseId
@@ -148,7 +148,7 @@ Ceci concerne l'ensemble de l'installation et de la configuration initiales. Ven
 		
 		    getOrCreateCollection: function (client, databaseLink, collectionId, callback) {
 		        var querySpec = {
-		            query: 'SELECT * FROM root r WHERE r.id=@id',
+		            query: 'SELECT* FROM root r WHERE r.id=@id',
 		            parameters: [{
 		                name: '@id',
 		                value: collectionId
@@ -165,11 +165,7 @@ Ceci concerne l'ensemble de l'installation et de la configuration initiales. Ven
 		                        id: collectionId
 		                    };
 							
-				 			var requestOptions = {
-								offerType: 'S1'
-							};
-							
-		                    client.createCollection(databaseLink, collectionSpec, requestOptions, function (err, created) {
+		                    client.createCollection(databaseLink, collectionSpec, function (err, created) {
 		                        callback(null, created);
 		                    });
 		
@@ -183,7 +179,9 @@ Ceci concerne l'ensemble de l'installation et de la configuration initiales. Ven
 				
 		module.exports = DocDBUtils;
 
-> [AZURE.TIP] createCollection prend un paramètre facultatif requestOptions qui permet de spécifier le type d'offre de la collection. Si aucune valeur requestOptions.offerType n'est fournie, alors la collection est créée à l'aide du type d'offre par défaut. Pour plus d'informations sur les types d'offre DocumentDB, reportez-vous aux [Niveaux de performances dans DocumentDB](documentdb-performance-levels.md)
+    > [AZURE.TIP] createCollection prend un paramètre facultatif requestOptions qui permet de spécifier le type d'offre de la collection. Si aucune valeur requestOptions.offerType n'est fournie, alors la collection est créée à l'aide du type d'offre par défaut.
+    >
+    > Pour plus d'informations sur les types d'offre DocumentDB, reportez-vous aux [Niveaux de performances dans DocumentDB](documentdb-performance-levels.md)
 		
 3. Enregistrez et fermez le fichier **docdbUtils.js**.
 
@@ -283,7 +281,7 @@ Ceci concerne l'ensemble de l'installation et de la configuration initiales. Ven
 		        var self = this;
 		
 		        var querySpec = {
-		            query: 'SELECT * FROM root r WHERE r.id = @id',
+		            query: 'SELECT* FROM root r WHERE r.id = @id',
 		            parameters: [{
 		                name: '@id',
 		                value: itemId
@@ -317,14 +315,14 @@ Ceci concerne l'ensemble de l'installation et de la configuration initiales. Ven
 		
 		module.exports = TaskList;
 
-3. Continuez à modifier le fichier **tasklist.js** en ajoutant les méthodes utilisées pour **afficher les tâches (showTasks), ajouter les tâches (addTask)** et **marquer les tâches comme terminées (completeTasks)** :
+3. Continuez à modifier le fichier **tasklist.js** en ajoutant les méthodes utilisées pour **afficher les tâches (showTasks), ajouter les tâches (addTask)** et **marquer les tâches comme terminées (completeTasks)** :
 		
 		TaskList.prototype = {
 		    showTasks: function (req, res) {
 		        var self = this;
 		
 		        var querySpec = {
-		            query: 'SELECT * FROM root r WHERE r.completed=@completed',
+		            query: 'SELECT* FROM root r WHERE r.completed=@completed',
 		            parameters: [{
 		                name: '@completed',
 		                value: false
@@ -410,7 +408,7 @@ Ceci concerne l'ensemble de l'installation et de la configuration initiales. Ven
 		var TaskDao = require('./models/taskDao');
 
 3. Ce code définit le fichier de configuration à utiliser et procède à la lecture des valeurs de ce fichier dans des variables que nous utiliserons prochainement.
-4. Remplacez les deux lignes suivantes dans le fichier **app.js** :
+4. Remplacez les deux lignes suivantes dans le fichier **app.js** :
 
 		app.use('/', routes);
 		app.use('/users', users); 
@@ -545,7 +543,7 @@ Intéressons-nous à présent à la création de l'interface utilisateur pour pe
 
 ## <a name="_Toc395783182"></a>Étape 7 : Déploiement de votre projet de développement d’application sur Sites Web Azure
 
-1. Si vous ne l'avez pas encore fait, activez un référentiel git pour votre site web Azure. Vous trouverez des instructions sur la procédure à suivre dans la rubrique [Déploiement Git local vers Azure App Service](../app-service-web/app-service-deploy-local-git.md).
+1. Si vous ne l'avez pas encore fait, activez un référentiel git pour votre site web Azure. Vous trouverez des instructions sur la marche à suivre dans la rubrique [Déploiement Git local vers Azure App Service](../app-service-web/app-service-deploy-local-git.md).
 
 2. Ajoutez votre site web Azure en tant que git distant.
 
@@ -570,4 +568,4 @@ Pour plus d'informations, consultez le [Centre pour développeurs Node.js](https
 [Github]: https://github.com/Azure-Samples/documentdb-node-todo-app
  
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

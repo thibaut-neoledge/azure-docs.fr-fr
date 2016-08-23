@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/25/2016"
+	ms.date="08/16/2016"
 	ms.author="markvi"/>
 
 # Prise en main d’Azure Active Directory Premium
@@ -29,7 +29,7 @@ Vous disposez de plusieurs options pour vous inscrire à Active Directory Premiu
 **Programme de licence en volume Microsoft** : Azure Active Directory Premium est disponible via un [Contrat Entreprise Microsoft](https://www.microsoft.com/fr-FR/licensing/licensing-programs/enterprise.aspx) (au moins 250 licences) ou le programme de [licences en volume ouvert](https://www.microsoft.com/fr-FR/licensing/licensing-programs/open-license.aspx) (5 à 250 licences).
 
 
-Cette rubrique présente la prise en main d’Azure Active Directory Premium, que vous avez acheté via le programme de licences en volume. Si vous ne connaissez pas encore les différentes éditions d’Azure Active Directory, consultez la page [Éditions d’Azure Active Directory](active-directory-editions.md).
+Cette rubrique présente la prise en main d’Azure Active Directory Premium, que vous avez achetée via le programme de licences en volume. Si vous ne connaissez pas encore les différentes éditions d’Azure Active Directory, consultez la page [Éditions d’Azure Active Directory](active-directory-editions.md).
 
 > [AZURE.NOTE]
 Les clients vivant en Chine peuvent accéder aux éditions de base et Premium d’Azure Active Directory à l’aide de l’instance mondiale d’Azure Active Directory. Actuellement, les éditions De base et Premium d’Azure Active Directory ne sont pas prises en charge dans le service Microsoft Azure utilisé par 21Vianet en Chine. Pour plus d’informations, contactez-nous via le [Forum Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/).
@@ -160,4 +160,4 @@ La disponibilité des services et des fonctionnalités du service cloud Microsof
 [11]: ./media/active-directory-get-started-premium/Assignlicensespicker.png
 [12]: ./media/active-directory-get-started-premium/Usagelocation.png
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

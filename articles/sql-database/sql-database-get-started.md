@@ -27,15 +27,17 @@
 - [C#](sql-database-get-started-csharp.md)
 - [PowerShell](sql-database-get-started-powershell.md)
 
-Dans ce didacticiel, vous allez apprendre à utiliser le Portail Azure pour :
+Ce didacticiel vous montre comment utiliser le Portail Azure pour :
 
-- créer un serveur logique de base de données SQL pour héberger des bases de données SQL ;
+- créer un serveur logique de base de données SQL afin d’héberger des bases de données SQL ;
 - créer une base de données SQL sans données avec des exemples de données ou avec des données d’une sauvegarde de base de données SQL ;
 - créer une règle de pare-feu au niveau du serveur pour une seule adresse IP ou une plage d’adresses IP.
 
 Utilisez les liens proposés pour exécuter les mêmes tâches à l’aide de [c#](sql-database-get-started-csharp.md) ou [PowerShell](sql-database-get-started-powershell.md).
 
 [AZURE.INCLUDE [Connexion](../../includes/azure-getting-started-portal-login.md)]
+
+<a name="create-logical-server-bk"></a>
 
 [AZURE.INCLUDE [Création d’un serveur logique de base de données SQL](../../includes/sql-database-create-new-server-portal.md)]
 
@@ -61,4 +63,4 @@ Maintenant que vous avez terminé ce didacticiel sur la base de données SQL et 
 
 [Définition de la base de données SQL](sql-database-technical-overview.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

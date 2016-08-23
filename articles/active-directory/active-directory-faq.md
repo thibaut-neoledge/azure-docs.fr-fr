@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="markusvi"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/20/2016"
+	ms.date="08/16/2016"
 	ms.author="markusvi"/>
 
 # Forum Aux Questions sur Azure Active Directory
@@ -28,9 +28,9 @@ Pour plus d’informations, consultez [Qu’est-ce qu’Azure Active Directory ?
 ## Accès à Azure et Azure Active Directory
 
 
-**Q : Pourquoi le message « Aucun abonnement trouvé » s’affiche-t-il lorsque j’essaie d’accéder à Azure AD dans le portail Azure Classic (https://manage.windowsazure.com)?**
+** Q : Pourquoi le message « Aucun abonnement trouvé » s’affiche-t-il lorsque j’essaie d’accéder à Azure AD dans le portail Azure Classic (https://manage.windowsazure.com)?**
 
-**R :** pour accéder au portail Azure Classic, chaque utilisateur doit disposer d’autorisations sur un abonnement Azure. Si vous détenez une licence Office 365 ou Azure AD payante, accédez à [http://aka.ms/accessAAD](http://aka.ms/accessAAD) pour une étape d’activation unique, sinon vous devrez activer une [version d’essai Azure](https://azure.microsoft.com/pricing/free-trial/) complète ou un abonnement payant.
+**R :** Pour accéder au portail Azure Classic, chaque utilisateur doit disposer d’autorisations sur un abonnement Azure. Si vous détenez une licence Office 365 ou Azure AD payante, accédez à [http://aka.ms/accessAAD](http://aka.ms/accessAAD) pour une étape d’activation unique, sinon vous devrez activer une [version d’essai Azure](https://azure.microsoft.com/pricing/free-trial/) complète ou un abonnement payant.
 
 Pour plus d'informations, consultez la page suivante :
 
@@ -60,7 +60,7 @@ En outre, les services Azure AD payants (par exemple : Azure AD de base, Premium
 
 **R :** Vous pouvez connecter votre annuaire local à Azure AD à l’aide d’**Azure AD Connect**.
 
-Pour plus d’informations, consultez [Intégration des identités locales avec Azure Active Directory](active-directory-aadconnect.md).
+Pour plus d’informations, consultez [Intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).
 
 
 ---
@@ -72,7 +72,7 @@ Pour plus d’informations, consultez [Intégration des identités locales avec 
 L’implémentation du SSO à partir de l’emplacement local peut être facilement mise en œuvre à l’aide de solutions de fédération telles qu’ADFS ou en configurant la synchronisation du hachage de mot de passe. Vous pouvez facilement déployer les deux options à l’aide de l’Assistant de configuration Azure AD Connect.
   
 
-Pour plus d’informations, consultez [Intégration des identités locales avec Azure Active Directory](active-directory-aadconnect.md)
+Pour plus d’informations, consultez [Intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).
   
 
 ---
@@ -81,7 +81,7 @@ Pour plus d’informations, consultez [Intégration des identités locales avec 
 
 **R :** Oui, Azure Active Directory fournit le [Panneau d’accès Azure AD](http://myapps.microsoft.com) pour l’accès aux applications en libre-service. Si vous êtes un client Office 365, vous trouverez la plupart des mêmes fonctionnalités dans le portail Office 365.
 
-Pour plus d’informations, consultez la [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
+Pour plus d’informations, consultez la [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
 
 
 
@@ -99,7 +99,7 @@ Pour en savoir plus, consultez [Surveillez votre infrastructure d’identité lo
 
 **Q : Puis-je utiliser l’écriture différée de mot de passe Azure AD sans synchronisation de mot de passe ? (c’est-à-dire : j’aimerais utiliser la réinitialisation de mot de passe libre-service Azure AD avec l’écriture différée de mot de passe, mais je ne veux pas que mes mots de passe soient stockés dans le cloud)**
 
-**R :** vous n’avez pas besoin de synchroniser vos mots de passe AD sur Azure AD afin d’activer l’écriture différée. Dans un environnement fédéré,l’authentification unique Azure AD repose sur l’annuaire local pour authentifier l’utilisateur. Ce scénario ne nécessite pas le suivi du mot de passe local dans Azure AD.
+**R :** Vous n’avez pas besoin de synchroniser vos mots de passe AD sur Azure AD afin d’activer l’écriture différée. Dans un environnement fédéré,l’authentification unique Azure AD repose sur l’annuaire local pour authentifier l’utilisateur. Ce scénario ne nécessite pas le suivi du mot de passe local dans Azure AD.
 
 ---
 
@@ -139,14 +139,14 @@ Pour obtenir une liste complète des applications déjà intégrées, voir [Mark
 Pour plus d'informations, consultez la page suivante :
 
 - [Configuration de l'authentification unique pour les applications ne faisant pas partie de la galerie d'applications Azure Active Directory.](active-directory-saas-custom-apps.md)
-- [Utilisation de SCIM pour activer la configuration automatique des utilisateurs et des groupes d’Azure Active Directory sur des applications](active-directory-scim-provisioning.md) 
+- [Utilisation de SCIM pour activer la configuration automatique des utilisateurs et des groupes d’Azure Active Directory sur des applications](active-directory-scim-provisioning.md)
 
 
 ---
 
 **Q: Comment les utilisateurs peuvent-ils se connecter aux applications à l’aide d’Azure Active Directory ?**
  
-**R :** Azure Active Directory fournit aux utilisateurs plusieurs moyens pour afficher et accéder à leurs applications, tels que :
+**R :** Azure Active Directory fournit aux utilisateurs plusieurs moyens pour afficher leurs applications et y accéder, tels que :
 
 - Panneau d’accès Azure AD
 
@@ -198,8 +198,8 @@ Pour en savoir plus, voir [Sécurisation de l’accès à Office 365 et à d’a
 
 **R :** Azure Active Directory vous permet d’automatiser la création, la maintenance et la suppression d’identités utilisateur dans plusieurs applications cloud (SaaS) populaires comme Dropbox, Salesforce, ServiceNow et bien plus encore.
 
-Pour plus d’informations, voir [Automatisation de l’approvisionnement et de l’annulation de l’approvisionnement des utilisateurs pour les applications SaaS avec Azure Active Directory](active-directory-saas-app-provisioning.md)
+Pour plus d’informations, voir [Automatisation de l’approvisionnement et de l’annulation de l’approvisionnement des utilisateurs pour les applications SaaS avec Azure Active Directory](active-directory-saas-app-provisioning.md).
 
 ---
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0817_2016-->

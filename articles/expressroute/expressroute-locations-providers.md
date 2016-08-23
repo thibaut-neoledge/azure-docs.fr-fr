@@ -68,8 +68,8 @@ La connectivité entre les régions géopolitiques n’est pas prise en charge d
 | **Dublin** | Colt |
 | **Hong Kong** | British Telecom, China Telecom Global, Equinix, Megaport, Orange, PCCW Global Limited, Tata Communications, Verizon |
 | **Londres** | AT&T NetBond, British Telecom, Colt, Equinix, InterCloud, Internet Solutions - Cloud Connect, Interxion, Jisc+, Level 3 Communications, MTN, NTT Communications, Orange, Tata Communications, Telecity Group, Telenor, Verizon, Vodafone |
-| **Las Vegas** | Level 3 Communications+, Megaport+
-| **Los Angeles** | CoreSite, Equinix, Megaport, Zayo Group |
+| **Las Vegas** | Level 3 Communications+, Megaport
+| **Los Angeles** | CoreSite, Equinix, Megaport, NTT, Zayo Group |
 | **Melbourne** | Equinix, Megaport, NEXTDC, Telstra Corporation |
 | **New York** | Equinix, Megaport, Zayo Group |
 | **Montréal** | Cologix+ |
@@ -85,7 +85,7 @@ La connectivité entre les régions géopolitiques n’est pas prise en charge d
 | **Toronto** | Cologix, Equinix, Zayo Group |
 | **Washington DC** | Aryaka Networks, AT&T NetBond, British Telecom, Comcast, Equinix, InterCloud, Level 3 Communications, Megaport, Orange, Tata Communications, Verizon, Zayo Group |
 
- **+** = bientôt disponible
+ **+** = bientôt disponible
 
 ### Environnements de cloud national
 
@@ -156,4 +156,4 @@ L’activation de la connectivité privée pour l’adapter à vos besoins peut 
 <!--Image References-->
 [0]: ./media/expressroute-locations/expressroute-locations-map.png "Carte géographique"
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

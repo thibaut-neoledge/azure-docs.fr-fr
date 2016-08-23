@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="05/16/2016"
+	ms.date="08/15/2016"
 	ms.author="mandia"/>
 
 
@@ -28,9 +28,9 @@ Créez des services Azure BizTalk Services dans le portail Azure.
 Selon l'édition que vous choisissez, tous les paramètres du service BizTalk peuvent ne pas être disponibles.
 
 1. Connectez-vous au [portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=213885).
-2. En bas du volet de navigation, sélectionnez **NEW** : ![Sélectionner le bouton New][NEWButton]
+2. En bas du volet de navigation, sélectionnez **NEW** : ![Sélectionner le bouton New][NEWButton]
 
-3. Sélectionnez **APP SERVICES** > **SERVICE BIZTALK** > **CRÉATION PERSONNALISÉE** : ![Sélectionner BizTalk Services, puis Custom Create][NewBizTalkService]
+3. Sélectionnez **APP SERVICES** > **SERVICE BIZTALK** > **CRÉATION PERSONNALISÉE** : ![Sélectionner BizTalk Services, puis Custom Create][NewBizTalkService]
 
 4. Entrez les paramètres du service BizTalk :
 
@@ -139,15 +139,15 @@ Le certificat auto-signé qui est créé automatiquement lors de la création de
 
 1. Connectez-vous au [portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=213885).
 2. Cliquez sur **BIZTALK SERVICES** dans le volet de navigation gauche, puis sélectionnez votre service BizTalk.
-3. Dans la barre des tâches, sélectionnez **Informations de connexion** : ![Sélectionner les informations de connexion][ACSConnectInfo]
+3. Dans la barre des tâches, sélectionnez **Informations de connexion** : ![Sélectionner les informations de connexion][ACSConnectInfo]
 
 4. Copiez les valeurs Access Control.
 
-Lorsque vous déployez un projet BizTalk Services à partir de Visual Studio, vous entrez cet espace de noms Access Control. L’espace de noms Access Control est automatiquement créé pour votre service BizTalk.
+Lorsque vous déployez un projet BizTalk Services à partir de Visual Studio, vous entrez cet espace de noms de contrôle d'accès. L’espace de noms Access Control est automatiquement créé pour votre service BizTalk.
 
 Les valeurs Access Control values peuvent être utilisées avec n'importe quelle application. Lorsqu'Azure BizTalk Services est créé, cet espace de noms Access Control contrôle l'authentification avec votre déploiement de service BizTalk. Si vous souhaitez modifier l'abonnement ou gérer l'espace de noms, sélectionnez **ACTIVE DIRECTORY** dans le volet de navigation gauche, puis votre espace de noms. La barre des tâches affiche la liste des options.
 
-Cliquez sur **Manage** pour ouvrir le portail de gestion Access Control. Dans le portail de gestion Access Control, le service BizTalk utilise les **identités de service** : ![Identités de service ACS dans le portail de gestion de contrôle d'accès][ACSServiceIdentities]
+Cliquez sur **Manage** pour ouvrir le portail de gestion Access Control. Dans le portail de gestion Access Control, le service BizTalk utilise les **identités de service** : ![Identités de service ACS dans le portail de gestion de contrôle d'accès][ACSServiceIdentities]
 
 L'identité de service Access Control est un ensemble d'informations d'identification qui permet aux applications ou aux clients de s'authentifier directement auprès du contrôle d'accès et de recevoir un jeton.
 
@@ -190,11 +190,11 @@ La mise à l'échelle de la base de données SQL est automatiquement configurée
 </tr>
 <tr>
 <td>Espace de noms de contrôle d'accès Azure</td>
-<td>Permet de s'authentifier auprès d'Azure BizTalk Services. Lorsque vous déployez un projet BizTalk Services à partir de Visual Studio, vous entrez cet espace de noms Access Control. Lorsque vous créez un service BizTalk, l’espace de noms Access&#160;Control est automatiquement créé.</td>
+<td>Permet de s'authentifier auprès d'Azure BizTalk Services. Lorsque vous déployez un projet BizTalk Services à partir de Visual Studio, vous entrez cet espace de noms de contrôle d'accès. Lorsque vous créez un service BizTalk, l’espace de noms Access&#160;Control est automatiquement créé.</td>
 </tr>
 
 <tr>
-<td>un compte Azure Storage&#160;;</td>
+<td>un compte Azure Storage.</td>
 <td>Donne accès aux tables, objets blob et files d'attente utilisés par votre service BizTalk pour enregistrer ce qui suit&#160;:
 
 <ul>
@@ -271,4 +271,4 @@ Après avoir créé un service BizTalk, passez en revue les différents [onglets
 [ACSServiceIdentities]: ./media/biztalk-provision-services/WABS_ACSServiceIdentities.png
 [HybridConnectionTab]: ./media/biztalk-provision-services/WABS_HybridConnectionTab.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

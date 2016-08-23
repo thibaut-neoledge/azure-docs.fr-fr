@@ -14,7 +14,7 @@
   ms.tgt_pltfrm="na"
   ms.devlang="node"
   ms.topic="hero-article"
-  ms.date="04/26/2016"
+  ms.date="08/11/2016"
   ms.author="anhoh"/>
 
 # Didacticiel NoSQL Node.js : application console Node.js DocumentDB  
@@ -56,23 +56,23 @@ Créons un compte DocumentDB. Si vous avez déjà un compte que vous souhaitez u
 
 [AZURE.INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
-##<a id="SetupNode"></a> Étape 2 : Configuration de votre application Node.js
+## <a id="SetupNode"></a>Étape 2 : configurer votre application Node.js
 
 1. Ouvrez votre terminal préféré.
 2. Recherchez le dossier ou le répertoire où vous souhaitez enregistrer votre application Node.js.
 3. Créez deux fichiers JavaScript vides avec les commandes suivantes :
   - Windows :
-      * ```fsutil file createnew app.js 0```
-        * ```fsutil file createnew config.js 0```
+     * ```fsutil file createnew app.js 0```
+       * ```fsutil file createnew config.js 0```
   - Linux/OS X :
-      * ```touch app.js```
-        * ```touch config.js```
+     * ```touch app.js```
+       * ```touch config.js```
 4. Installez le module documentdb via npm. Utilisez la commande suivante :
-    * ```npm install documentdb --save```
+   * ```npm install documentdb --save```
 
 Parfait ! Vous avez terminé l’installation, nous pouvons donc passer à l’écriture du code.
 
-##<a id="Config"></a> Étape 3 : Définition des configurations de votre application
+## <a id="Config"></a>Étape 3 : définir les configurations de votre application
 
 Ouvrez ```config.js``` dans l’éditeur de texte de votre choix.
 
@@ -598,7 +598,7 @@ La sortie de votre application de prise en main doit s’afficher. La sortie doi
 
 Félicitations ! Vous avez créé et terminé le didacticiel Node.js et disposez à présent de votre première application de console DocumentDB !
 
-##<a id="GetSolution"></a> Obtenir la solution complète du didacticiel Node.js
+## <a id="GetSolution"></a>Obtenir la solution complète du didacticiel Node.js
 Pour générer la solution GetStarted qui contient tous les exemples de cet article, vous devez avoir les éléments suivants :
 
 -   [Un compte DocumentDB][documentdb-create-account].
@@ -621,4 +621,4 @@ Ensuite, dans le fichier ```config.js```, mettez à jour les valeurs de config.e
 
 [keys]: media/documentdb-nodejs-get-started/node-js-tutorial-keys.png
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0817_2016-->

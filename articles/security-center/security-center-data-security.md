@@ -13,15 +13,13 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/23/2016"
+   ms.date="08/08/2016"
    ms.author="yurid"/>
 
 # Sécurité des données du Centre de sécurité Azure
 Pour aider les clients à empêcher, détecter et répondre aux menaces, le Centre de sécurité Azure collecte et traite des données sur vos ressources Azure, notamment des informations de configuration, des métadonnées, des journaux des événements, des fichiers de vidage sur incident et plus encore. Nous prenons des engagements fermes pour protéger la confidentialité et la sécurité de ces données. Microsoft adhère aux recommandations strictes de conformité et de sécurité, du codage jusqu'à l'exploitation d'un service.
 
 Cet article explique comment les données sont gérées et protégées dans le Centre de sécurité Azure.
-
-> [AZURE.NOTE] Les informations contenues dans ce document s’appliquent à la version préliminaire du Centre de sécurité Azure.
 
 ## Sources de données
 Le Centre de sécurité Azure analyse les données provenant des sources suivantes :
@@ -36,9 +34,9 @@ En outre, les informations relatives aux alertes de sécurité, aux recommandati
 ## Protection des données
 **Ségrégation des données :** les données client sont maintenues séparées logiquement sur chaque composant, dans l’ensemble du service. Toutes les données sont balisées en fonction de l'organisation. Ce balisage est conservé tout au long du cycle de vie des données, et il est appliqué dans chaque couche du service. En outre, les données collectées à partir de vos machines virtuelles sont stockées dans vos comptes de stockage.
 
-**Accès aux données** : afin de fournir des recommandations de sécurité et d’examiner les menaces de sécurité potentielles, le personnel de Microsoft peut accéder aux informations collectées ou analysés par des services Azure, y compris aux fichiers de vidage sur incident. Les fichiers de vidage sur incident et les événements de création de processus peuvent inclure involontairement des données client ou des données personnelles de vos machines virtuelles. Nous respectons les [conditions des services en ligne Microsoft](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31) et la [Déclaration de confidentialité](https://www.microsoft.com/privacystatement/fr-FR/OnlineServices/Default.aspx), qui indiquent que Microsoft n’utilisera pas les données client ou ne tirera pas d’informations de ces derniers à des fins commerciales publicitaires ou similaires. Nous utilisons uniquement les données client en fonction des besoins pour vous proposer des services Azure, notamment des utilisations compatibles avec la fourniture de ces services. Vous conservez tous les droits sur les données client.
+**Accès aux données** : afin de fournir des recommandations de sécurité et d’examiner les menaces de sécurité potentielles, le personnel de Microsoft peut accéder aux informations collectées ou analysées par des services Azure, y compris aux fichiers de vidage sur incident. Les fichiers de vidage sur incident et les événements de création de processus peuvent inclure involontairement des données client ou des données personnelles de vos machines virtuelles. Nous respectons les [conditions des services en ligne Microsoft](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31) et la [Déclaration de confidentialité](https://www.microsoft.com/privacystatement/fr-FR/OnlineServices/Default.aspx), qui indiquent que Microsoft n’utilisera pas les données client ou ne tirera pas d’informations de ces dernières à des fins commerciales, publicitaires ou similaires. Nous utilisons uniquement les données client en fonction des besoins pour vous proposer des services Azure, notamment des utilisations compatibles avec la fourniture de ces services. Vous conservez tous les droits sur les données client.
 
-**Utilisation des données** : Microsoft utilise des modèles et des informations sur les menaces vus auprès de multiples locataires pour améliorer nos fonctionnalités de prévention et de détection. Cette utilisation s’effectue en accord avec les engagements de confidentialité décrits dans notre [Déclaration de confidentialité](https://www.microsoft.com/privacystatement/fr-FR/OnlineServices/Default.aspx).
+**Utilisation des données** : Microsoft utilise des modèles et des informations sur les menaces observées auprès de multiples locataires pour améliorer nos fonctionnalités de prévention et de détection. Cette utilisation s’effectue en accord avec les engagements de confidentialité décrits dans notre [Déclaration de confidentialité](https://www.microsoft.com/privacystatement/fr-FR/OnlineServices/Default.aspx).
 
 **Emplacement des données** : un compte de stockage est spécifié pour chaque région où des machines virtuelles sont en cours d’exécution. Cela vous permet de stocker des données dans la même région que la machine virtuelle à partir de laquelle les données sont collectées. Ces données, y compris les fichiers de vidage sur incident, seront stockés de manière permanente dans votre compte de stockage. Le service stocke également les informations relatives aux alertes de sécurité, notamment les alertes de solutions partenaires intégrées, les recommandations et l’intégrité de la sécurité dans le stockage du Centre de sécurité Azure, qui se trouve actuellement aux États-Unis.
 
@@ -60,8 +58,8 @@ Ce document explique comment les données sont gérées et protégées dans le C
 - [Guide des opérations et de planification d’Azure Security Center](security-center-planning-and-operations-guide.md) : découvrez comment planifier l’adoption d’Azure Security Center et prenez connaissance des considérations relatives à la conception.
 - [Surveillance de l’intégrité de la sécurité dans Azure Security Center](security-center-monitoring.md) : découvrez comment surveiller l’intégrité de vos ressources Azure.
 - [Gestion et résolution des alertes de sécurité dans Azure Security Center](security-center-managing-and-responding-alerts.md) : découvrez comment gérer et résoudre les alertes de sécurité.
-- [Surveillance des solutions de partenaire avec Azure Security Center](security-center-partner-solutions.md) : découvrez comment surveiller l’état d’intégrité de vos solutions de partenaire.
+- [Surveillance des solutions de partenaires avec Azure Security Center](security-center-partner-solutions.md) : découvrez comment surveiller l’état d’intégrité de vos solutions de partenaires.
 - [FAQ d’Azure Security Center](security-center-faq.md) : découvrez les réponses aux questions les plus souvent posées à propos de l’utilisation de ce service.
 - [Blog sur la sécurité Azure](http://blogs.msdn.com/b/azuresecurity/) : accédez à des billets de blog sur la sécurité et la conformité Azure.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

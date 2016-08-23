@@ -40,7 +40,7 @@ Entrez les informations suivantes :
 - **Abonnement** : sélectionnez un abonnement Azure.
 - **Groupe de ressources** : sélectionnez un groupe de ressources existant ou créez-en un.
 - **Emplacement** : sélectionnez une région Azure pour le déploiement d’Azure Container Service.
-- **Clé publique SSH** : ajoutez la clé publique qui sera utilisée pour l’authentification sur les machines virtuelles d’Azure Container Service. Vous devez absolument vérifier que cette clé ne contient aucun saut de ligne et qu’elle inclut le préfixe « ssh-rsa » et le suffixe « nom\_d’utilisateur@domaine ». Vous devriez obtenir quelque chose du type : **ssh-rsa AAAAB3Nz...<...>...UcyupgH azureuser@linuxvm**. Pour obtenir de l’aide sur la création de clés Secure Shell (SSH), voir les articles consacrés à [Linux](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-ssh-from-linux/) et [Windows](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-ssh-from-windows/).
+- **Clé publique SSH** : ajoutez la clé publique qui sera utilisée pour l’authentification sur les machines virtuelles d’Azure Container Service. Vous devez absolument vérifier que cette clé ne contient aucun saut de ligne et qu’elle inclut le préfixe « ssh-rsa » et le suffixe « nom\_d’utilisateur@domaine ». Vous devriez obtenir quelque chose du type : **ssh-rsa AAAAB3Nz...<...>...UcyupgH azureuser@linuxvm**. Pour obtenir de l’aide sur la création de clés Secure Shell (SSH), consultez les articles consacrés à [Linux](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-ssh-from-linux/) et [Windows](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-ssh-from-windows/).
 
 Cliquez sur **OK** lorsque vous souhaitez continuer.
 
@@ -58,7 +58,7 @@ Cliquez sur **OK** lorsque vous souhaitez continuer.
 Entrez les informations suivantes :
 
 - **Nombre de maîtres** : quantité de maîtres dans le cluster.
-- **Nombre d’agents** : pour Docker Swarm, il s’agira du nombre initial d’agents dans le jeu de mise à l’échelle d’agent. Pour DC/OS, ce sera le nombre initial d’agents dans un jeu de mise à l’échelle privé. En outre, un jeu de mise à l’échelle public est créé et contient un nombre prédéterminé d’agents. Le nombre d’agents dans ce jeu de mise à l’échelle public est déterminé par le nombre de maîtres créés dans le cluster : un agent public pour un maître, et deux agents publics pour trois ou cinq maîtres.
+- **Nombre d’agents** : pour Docker Swarm, il s’agit du nombre initial d’agents dans le jeu de mise à l’échelle d’agent. Pour DC/OS, ce sera le nombre initial d’agents dans un jeu de mise à l’échelle privé. En outre, un jeu de mise à l’échelle public est créé et contient un nombre prédéterminé d’agents. Le nombre d’agents dans ce jeu de mise à l’échelle public est déterminé par le nombre de maîtres créés dans le cluster : un agent public pour un maître, et deux agents publics pour trois ou cinq maîtres.
 - **Taille de la machine virtuelle de l’agent** : taille des machines virtuelles des agents.
 - **Préfixe DNS** : nom unique au monde qui sera utilisé comme préfixe pour les éléments clés des noms de domaine complets pour le service.
 
@@ -70,7 +70,7 @@ Cliquez sur **OK** une fois la validation du service terminée.
 
 ![Créer un déploiement 6](media/acs-portal6.png) <br />
 
-Cliquez sur **Créer** pour démarrer le processus de déploiement.
+Cliquez sur **Créer** pour entamer le processus de déploiement.
 
 ![Créer un déploiement 7](media/acs-portal7.png) <br />
 
@@ -82,7 +82,7 @@ Lorsque le déploiement est terminé, le cluster Azure Container Service est pr�
 
 ## Création d’un service à l’aide de l’interface de ligne de commande (CLI) Azure
 
-Pour créer une instance d’Azure Container Service à l’aide de l’interface de ligne de commande (CLI), vous avez besoin d’un abonnement Azure. Si vous n’en avez pas, vous pouvez vous inscrire pour bénéficier d’un [essai gratuit](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935). Vous devez également avoir installé et configuré la CLI Azure.
+Pour créer une instance d’Azure Container Service à l’aide de l’interface de ligne de commande (CLI), vous avez besoin d’un abonnement Azure. Si vous n’en avez pas, vous pouvez vous inscrire pour bénéficier d’un [essai gratuit](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935). Vous devez également avoir [installé](../xplat-cli-install.md) et [configuré](../xplat-cli-connect.md) la CLI Azure.
 
 Sélectionnez l’un des modèles GitHub suivants pour déployer un cluster DC/OS ou Docker Swarm. Notez que ces deux modèles sont identiques, à l’exception de la sélection de l’orchestrateur par défaut.
 
@@ -161,7 +161,7 @@ Si vous avez besoin de vous connecter à Azure, utilisez la commande `Login-Azur
 Login-AzureRmAccount
 ```
 
-Si vous effectuez un déploiement vers un nouveau groupe de ressources, vous devez commencer par créer ce dernier. Pour créer un groupe de ressources, utilisez la commande `New-AzureRmResourceGroup` et spécifiez un nom de groupe de ressources et une région de destination :
+Si vous effectuez un déploiement vers un nouveau groupe de ressources, vous devez commencer par créer ce dernier. Pour créer un groupe de ressources, utilisez la commande `New-AzureRmResourceGroup` et spécifiez un nom de groupe de ressources ainsi qu’une région de destination :
 
 ```powershell
 New-AzureRmResourceGroup -Name GROUP_NAME -Location REGION
@@ -195,4 +195,4 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName RESOURCE_GROUP_NAME-Templa
 - [Gestion de conteneur via l’API REST](container-service-mesos-marathon-rest.md)
 - [Gestion des conteneurs avec Docker Swarm](container-service-docker-swarm.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0817_2016-->
