@@ -23,7 +23,7 @@ Lorsqu’on examine les aspects relatifs à la sécurité pour vos modèles Azur
 
 Cette rubrique suppose que vous êtes familiarisé avec la notion de contrôle d’accès en fonction du rôle (RBAC) dans Azure Resource Manager. Pour plus d’informations, consultez la page [Contrôle d’accès en fonction du rôle Azure](./active-directory/role-based-access-control-configure.md).
 
-Cette rubrique fait partie d’un livre blanc plus volumineux. Pour lire tout le document, téléchargez World Class ARM Templates Considerations and Proven Practices (http://download.microsoft.com/download/8/E/1/8E1DBEFA-CECE-4DC9-A813-93520A5D7CFE/World Class ARM Templates - Considerations and Proven Practices.pdf).
+Cette rubrique fait partie d’un livre blanc plus volumineux. Pour lire tout le document, téléchargez [World Class ARM Templates Considerations and Proven Practices](http://download.microsoft.com/download/8/E/1/8E1DBEFA-CECE-4DC9-A813-93520A5D7CFE/World Class ARM Templates - Considerations and Proven Practices.pdf).
 
 ## Secrets et certificats
 
