@@ -12,14 +12,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/18/2016"
+	ms.date="08/03/2016"
 	ms.author="robinsh"/>
 
 # Utilisation d'Azure PowerShell avec Azure Storage
 
 ## Vue d'ensemble
 
-Azure PowerShell est un module fournissant des applets de commande pour gérer Azure via Windows PowerShell. Il s'agit d'un interpréteur de ligne de commande et d'un langage de script basé sur des tâches, conçu spécialement pour l'administration système. Avec PowerShell, vous pouvez facilement contrôler et automatiser l'administration de vos services et de vos applications Azure. Par exemple, les applets de commande permettent d'effectuer les mêmes tâches que celles exécutées dans le [portail Azure](https://portal.azure.com).
+Azure PowerShell est un module fournissant des cmdlets pour gérer Azure via Windows PowerShell. Il s'agit d'un interpréteur de ligne de commande et d'un langage de script basé sur des tâches, conçu spécialement pour l'administration système. Avec PowerShell, vous pouvez facilement contrôler et automatiser l'administration de vos services et de vos applications Azure. Par exemple, les applets de commande permettent d'effectuer les mêmes tâches que celles exécutées dans le [portail Azure](https://portal.azure.com).
 
 Dans ce guide, nous allons découvrir comment utiliser les [applets de commande Azure Storage](https://msdn.microsoft.com/library/azure/mt269418.aspx) afin d’effectuer diverses tâches de développement et d’administration avec Azure Storage.
 
@@ -114,15 +114,15 @@ Pour plus d’informations sur les abonnements Azure, consultez la section [Attr
 
 		![Portail Azure Classic][Image1]
 
-	- **$StorageAccountName** : utilisez le nom donné dans le script ou entrez un nouveau nom pour votre compte de stockage. **Important :** le nom du compte de stockage doit être unique dans Microsoft Azure. Il doit également inclure des minuscules uniquement.
+	- **$StorageAccountName** : utilisez le nom donné dans le script ou entrez un nouveau nom pour votre compte de stockage. **Important :** le nom du compte de stockage doit être unique dans Microsoft Azure. Il doit également inclure des minuscules uniquement.
 
-	- **$Location** : utilisez « Ouest des États-Unis » comme indiqué dans le script ou sélectionnez d’autres emplacements Azure, par exemple Est des États-Unis, Europe du Nord, etc.
+	- **$Location** : utilisez « Ouest des États-Unis » comme indiqué dans le script ou sélectionnez d’autres emplacements Azure, par exemple Est des États-Unis, Europe du Nord, etc.
 
 	- **$ContainerName :** utilisez le nom donné dans le script ou entrez un nouveau nom pour votre conteneur.
 
-	- **$ImageToUpload** : entrez le chemin d’accès à une image sur votre ordinateur local, par exemple « C:\\Images\\image.png ».
+	- **$ImageToUpload** : entrez le chemin d’accès à une image sur votre ordinateur local, par exemple « C:\\Images\\image.png ».
 
-	- **$DestinationFolder** : entrez un chemin d’accès à un répertoire local pour stocker les fichiers téléchargés d’Azure Storage, par exemple « C:\\DownloadImages ».
+	- **$DestinationFolder** : entrez un chemin d’accès à un répertoire local pour stocker les fichiers téléchargés d’Azure Storage, par exemple « C:\\DownloadImages ».
 
 7.	Après la mise à jour des variables de script dans le fichier « mystoragescript.ps1 », cliquez sur **Fichier** > **Enregistrer**. Cliquez ensuite sur **Déboguer** > **Exécuter** ou appuyez sur **F5** pour exécuter le script.
 
@@ -136,7 +136,7 @@ Après l’exécution du script, vous devez avoir un dossier local de destinatio
 ## Conditions préalables à l'utilisation d'Azure PowerShell avec Azure Storage
 Vous avez besoin d’un abonnement Azure et d’un compte pour exécuter les applets de commande PowerShell présentées dans ce guide, comme expliqué plus haut.
 
-Azure PowerShell est un module fournissant des applets de commande pour gérer Azure via Windows PowerShell. Pour plus d’informations sur l’installation et la configuration d’Azure PowerShell, consultez [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md). Nous vous recommandons de télécharger et d'installer le dernier module Azure PowerShell ou d'effectuer une mise à niveau vers celui-ci avant d'utiliser ce guide.
+Azure PowerShell est un module fournissant des cmdlets pour gérer Azure via Windows PowerShell. Pour plus d’informations sur l’installation et la configuration d’Azure PowerShell, consultez [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md). Nous vous recommandons de télécharger et d'installer le dernier module Azure PowerShell ou d'effectuer une mise à niveau vers celui-ci avant d'utiliser ce guide.
 
 Vous pouvez exécuter les applets de commande dans la console Windows PowerShell standard ou l’Environnement d’écriture de scripts intégré de Windows PowerShell (ISE). Par exemple, pour ouvrir **Windows PowerShell ISE**, accédez au menu Démarrer, tapez Outils d’administration, puis cliquez pour l’exécuter. Dans la fenêtre Outils d'administration, cliquez avec le bouton droit sur Windows PowerShell ISE, cliquez sur Exécuter en tant qu'administrateur.
 
@@ -224,7 +224,7 @@ Utilisez l'une des trois méthodes suivantes pour créer un contexte de stockage
     	$sasToken = New-AzureStorageContainerSASToken -Container abc -Permission rl
     	$Ctx = New-AzureStorageContext -StorageAccountName $StorageAccountName -SasToken $sasToken
 
-	Pour plus d’informations, consultez les pages [New-AzureStorageContainerSASToken](http://msdn.microsoft.com/library/azure/dn806416.aspx) et [Signatures d’accès partagé, partie 1 : présentation du modèle SAP](storage-dotnet-shared-access-signature-part-1.md).
+	Pour plus d’informations, consultez [New-AzureStorageContainerSASToken](http://msdn.microsoft.com/library/azure/dn806416.aspx) et [Signatures d’accès partagé, partie 1 : présentation du modèle SAP](storage-dotnet-shared-access-signature-part-1.md).
 
 - Dans certains cas, vous pouvez spécifier les points de terminaison de service lorsque vous créez un nouveau contexte de stockage. Cela peut être nécessaire lorsque vous avez enregistré un nom de domaine personnalisé pour votre compte de stockage avec le service BLOB ou que vous souhaitez utiliser une signature d'accès partagé pour l'accès aux ressources de stockage. Définissez les points de terminaison de service dans une chaîne de connexion et utilisez-la pour créer un nouveau contexte de stockage comme indiqué ci-dessous :
 
@@ -429,8 +429,8 @@ Actuellement, Azure PowerShell ne fournit aucune applet de commande pour gérer 
 #### Ajout d'entités de table
 Pour ajouter une entité à une table, commencez par créer un objet qui définit les propriétés de l'entité. Une entité peut comprendre jusqu’à 255 propriétés, notamment 3 propriétés système : **PartitionKey**, **RowKey** et **Timestamp**. Vous êtes chargé d’insérer et de mettre à jour les valeurs de **PartitionKey** et **RowKey**. Le serveur gère la valeur de **Timestamp**, qui ne peut pas être modifiée. Les propriétés **PartitionKey** et **RowKey** identifient de manière unique chaque entité d’une table.
 
--	**PartitionKey** : détermine la partition dans laquelle l’entité est stockée
--	**RowKey** : identifie de façon unique l’entité dans la partition
+-	**PartitionKey** : détermine la partition dans laquelle l’entité est stockée
+-	**RowKey** : identifie de façon unique l’entité dans la partition
 
 Vous pouvez définir au maximum 252 propriétés personnalisées par entité. Pour plus d'informations, consultez la rubrique [Présentation du modèle de données du service de Table](http://msdn.microsoft.com/library/azure/dd179338.aspx).
 
@@ -629,8 +629,8 @@ Les signatures d'accès partagé constituent une partie importante du modèle de
 
 Une signature d’accès partagé peut prendre deux formes :
 
-- **SAP ad hoc** : quand vous créez une SAP ad hoc, l’heure de début, l’heure d’expiration et les autorisations associées à cette SAP sont spécifiées sur l’URI de SAP. Ce type de signature d'accès partagé peut être créé sur un conteneur, un objet blob, une table ou une file d'attente, et il ne peut pas être révoqué.
-- **SAP avec stratégie d’accès stockée** : une stratégie d’accès stockée est définie sur un conteneur de ressource, un conteneur d’objets blob, une table ou une file d’attente. Vous pouvez l’utiliser pour gérer les contraintes pour une ou plusieurs signatures d’accès partagé. Lorsque vous associez une signature d'accès partagé à une stratégie d'accès stockée, la signature hérite des contraintes (heure de début, heure d'expiration et autorisations) définies pour la stratégie. Ce type de signature d'accès partagé peut être révoqué.
+- **SAP ad hoc** : quand vous créez une SAP ad hoc, l’heure de début, l’heure d’expiration et les autorisations associées à cette SAP sont spécifiées sur l’URI de SAP. Ce type de signature d'accès partagé peut être créé sur un conteneur, un objet blob, une table ou une file d'attente, et il ne peut pas être révoqué.
+- **SAP avec stratégie d’accès stockée** : une stratégie d’accès stockée est définie sur un conteneur de ressource, un conteneur d’objets blob, une table ou une file d’attente. Vous pouvez l’utiliser pour gérer les contraintes pour une ou plusieurs signatures d’accès partagé. Lorsque vous associez une signature d'accès partagé à une stratégie d'accès stockée, la signature hérite des contraintes (heure de début, heure d'expiration et autorisations) définies pour la stratégie. Ce type de signature d'accès partagé peut être révoqué.
 
 Pour plus d’informations, consultez [Signatures d’accès partagé : présentation du modèle SAP](storage-dotnet-shared-access-signature-part-1.md) et [Gestion de l’accès en lecture anonyme aux conteneurs et aux objets blob](storage-manage-access-to-resources.md).
 
@@ -752,4 +752,4 @@ Dans ce guide, vous avez appris comment gérer Azure Storage avec Azure PowerShe
 [How to use Azure Storage for U.S. government and Azure China]: #gov
 [Next Steps]: #next
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0810_2016-->

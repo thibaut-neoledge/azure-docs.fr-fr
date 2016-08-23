@@ -71,8 +71,8 @@ ORDER BY step_index;
 
 Vérifier la colonne *operation\_type* de l’exécution de l’étape de requête longue et notez l**’index des étapes** :
 
-- Passez à l’étape 3a pour les **opérations SQL** : OnOperation, RemoteOperation, ReturnOperation.
-- Passez à l’étape 3b pour **les opérations de déplacement des données** : ShuffleMoveOperation, BroadcastMoveOperation, TrimMoveOperation, PartitionMoveOperation, MoveOperation, CopyOperation.
+- Passez à l’étape 3a pour les **opérations SQL** : OnOperation, RemoteOperation, ReturnOperation.
+- Passez à l’étape 3b pour **les opérations de déplacement des données** : ShuffleMoveOperation, BroadcastMoveOperation, TrimMoveOperation, PartitionMoveOperation, MoveOperation, CopyOperation.
 
 ### ÉTAPE 3a : rechercher la progression de l’exécution d’une étape SQL
 
@@ -122,7 +122,7 @@ DBCC PDW_SHOWEXECUTIONPLAN(55, 238);
 <a name="waiting"></a>
 ## Surveillance des requêtes en attente
 
-Si vous constatez que votre requête ne progresse pas car elle attend une ressource, voici une requête qui vous indique toutes les ressources attendues par une requête. Repe
+Si vous constatez que votre requête ne progresse pas car elle attend une ressource, voici une requête qui vous indique toutes les ressources attendues par une requête.
 
 ```sql
 -- Find queries 
@@ -147,7 +147,8 @@ ORDER BY waits.object_name, waits.object_type, waits.state;
 Si la requête attend activement des ressources provenant d'une autre requête, l'état affichera **AcquireResources**. Si la requête possède toutes les ressources requises, l'état sera **Granted**.
 
 ## Étapes suivantes
-Pour plus d’informations sur les vues de gestion dynamique (DMV), consultez [Vues système][]. Pour obtenir des conseils sur la gestion de SQL Data Warehouse, voir [Vue d’ensemble de la gestion][]. Pour connaître les meilleures pratiques, voir [Meilleures pratiques relatives à SQL Data Warehouse][].
+Pour plus d’informations sur Transact-SQL et les vues de gestion dynamique (DMV), consultez la page [Vue d’ensemble de référence][].
+Pour plus d’informations sur la gestion de SQL Data Warehouse, consultez la page [Vue d’ensemble de la gestion][].
 
 <!--Image references-->
 
@@ -167,4 +168,4 @@ Pour plus d’informations sur les vues de gestion dynamique (DMV), consultez [V
 [DBCC PDW\_SHOWEXECUTIONPLAN]: http://msdn.microsoft.com/library/mt204017.aspx
 [DBCC PDW_SHOWSPACEUSED]: http://msdn.microsoft.com/library/mt204028.aspx
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0810_2016-->

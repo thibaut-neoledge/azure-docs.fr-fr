@@ -12,18 +12,18 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
     ms.workload="tbd"
-    ms.date="04/15/2016"
+    ms.date="08/16/2016"
     ms.author="sethm" />
 
 # Guide de programmation de concentrateurs d’événements
 
-Cette rubrique décrit la programmation des concentrateurs d’événements Azure à l'aide du Kit de développement logiciel (SDK) Azure .NET. Il suppose une connaissance préalable des concentrateurs d’événements. Pour une vue d’ensemble conceptuelle des concentrateurs d’événements, consultez [Vue d'ensemble des concentrateurs d’événements](event-hubs-overview.md).
+Cette rubrique décrit la programmation avec Azure Event Hubs à l’aide du Kit de développement logiciel (SDK) Azure .NET. Il suppose une connaissance préalable des concentrateurs d’événements. Pour une vue d’ensemble conceptuelle des concentrateurs d’événements, consultez [Vue d'ensemble des concentrateurs d’événements](event-hubs-overview.md).
 
 ## Éditeurs d'événements
 
 L’envoi d'événements à un concentrateur d'événements s'effectue à l'aide d'HTTP POST ou via une connexion AMQP 1.0. Le choix entre les deux méthodes à utiliser à quel moment dépend du scénario spécifique qui est adressé. Les connexions AMQP 1.0 sont limitées en tant que connexions réparties dans Service Bus et sont plus appropriées dans les scénarios avec des volumes de messages plus importants fréquents et des conditions de latence plus faible, car elles fournissent un canal de messagerie permanent.
 
-Les concentrateurs d'événements sont créés et gérés à l'aide de la classe [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx). L’utilisation des API gérées avec .NET, les constructions principales pour publier des données sur les concentrateurs d’événements sont les classes [EventHubClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.aspx) et [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx). [EventHubClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.aspx) fournit le canal de communication AMQP par le biais duquel les événements sont envoyés à Event Hub. La classe [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) représente un événement et est utilisée pour publier des messages sur un concentrateur d'événements. Cette classe inclut le corps, certaines métadonnées et les informations d'en-tête sur l'événement. D’autres propriétés sont ajoutées à l’objet [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) lorsqu’il traverse un Event Hub.
+Les hubs d’événements sont créés et gérés à l’aide de la classe [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx). L’utilisation des API gérées avec .NET, les constructions principales pour publier des données sur les concentrateurs d’événements sont les classes [EventHubClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.aspx) et [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx). [EventHubClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.aspx) fournit le canal de communication AMQP par le biais duquel les événements sont envoyés à Event Hub. La classe [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) représente un événement et sert à publier des messages sur un hub d’événements. Cette classe inclut le corps, certaines métadonnées et les informations d'en-tête sur l'événement. D’autres propriétés sont ajoutées à l’objet [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) lorsqu’il traverse un Event Hub.
 
 ## Prise en main
 
@@ -172,7 +172,7 @@ La classe [EventProcessorHost](https://msdn.microsoft.com/library/azure/microsof
 
 ## Révocation de l’éditeur
 
-Outre les fonctionnalités d’exécution avancées de [EventProcessorHost](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost.aspx), les concentrateurs d’événements permettent la révocation de l’éditeur pour empêcher des éditeurs spécifiques d'envoyer des événements à un concentrateur d'événements. Ces fonctionnalités sont particulièrement utiles si le jeton d'un éditeur a été compromis ou une mise à jour de logiciel les fait se comporter de façon inappropriée. Dans ces situations, l’identité de l'éditeur, qui fait partie de leur jeton SAP, peut être bloquée à partir d'événements de publication.
+Outre les fonctionnalités d’exécution avancées de [EventProcessorHost](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost.aspx), les hubs d’événements permettent la révocation de l’éditeur pour empêcher certains éditeurs d’envoyer des événements à un hub d’événements. Ces fonctionnalités sont particulièrement utiles si le jeton d'un éditeur a été compromis ou une mise à jour de logiciel les fait se comporter de façon inappropriée. Dans ces situations, l’identité de l'éditeur, qui fait partie de leur jeton SAP, peut être bloquée à partir d'événements de publication.
 
 Pour plus d'informations sur la révocation de l’éditeur et l'envoi vers des concentrateurs d’événements en tant qu'éditeur, consultez l’exemple [Publication sécurisée à grande échelle des concentrateurs d’événements de Service Bus](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-99ce67ab).
 
@@ -185,4 +185,4 @@ Pour en savoir plus sur les scénarios des concentrateurs d’événements, cons
 - [Exemples de code des concentrateurs d’événements](http://code.msdn.microsoft.com/site/search?query=event hub&f[0].Value=event hub&f[0].Type=SearchText&ac=5)
 - [Informations de référence des API hôtes du processeur d’événements](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost.aspx)
 
-<!-----HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0817_2016-->

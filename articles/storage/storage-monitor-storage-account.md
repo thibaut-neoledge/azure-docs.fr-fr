@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/09/2016"
+	ms.date="08/03/2016"
 	ms.author="robinsh"/>
 
 # Surveiller un compte de stockage dans le portail Azure
 
-## Vue d’ensemble
+## Vue d'ensemble
 
 Vous pouvez surveiller votre compte de stockage à partir du [portail Azure](https://portal.azure.com). Lorsque vous configurez votre compte de stockage pour la surveillance via le portail, Azure Storage utilise [Storage Analytics](http://msdn.microsoft.com/library/azure/hh343270.aspx) pour effectuer le suivi des mesures pour votre compte et enregistrer les données de la demande.
 
@@ -43,11 +43,11 @@ Vous pouvez surveiller votre compte de stockage à partir du [portail Azure](htt
 
 	-  Pour définir le niveau de surveillance, sélectionnez l’une des options suivantes :
 
-      **Minimal** : collecte des mesures telles que l’entrée/sortie, la disponibilité, la latence et les pourcentages de réussite, qui sont agrégées pour les services BLOB, de Table et de File d’attente.
+      **Minimal** : collecte des mesures telles que l’entrée/sortie, la disponibilité, la latence et les pourcentages de réussite, qui sont agrégées pour les services BLOB, de Table et de File d’attente.
 
-      **Verbose** : outre les mesures minimales, collecte le même ensemble de mesures pour chaque opération de stockage de l’API Azure Storage Service. Les mesures détaillées permettent d'analyser plus précisément les problèmes survenant durant le fonctionnement d'une application.
+      **Verbose** : outre les mesures minimales, collecte le même ensemble de mesures pour chaque opération de stockage de l’API Azure Storage Service. Les mesures détaillées permettent d'analyser plus précisément les problèmes survenant durant le fonctionnement d'une application.
 
-      **Off** : désactive la surveillance. Les données de surveillance existantes sont conservées jusqu'au terme de la période de rétention.
+      **Off** : désactive la surveillance. Les données de surveillance existantes sont conservées jusqu'au terme de la période de rétention.
 
 - Pour définir la stratégie de rétention de données, dans **Rétention (en jours)**, tapez le nombre de jours durant lesquels les données sont conservées (de 1 à 365 jours). Si vous ne souhaitez pas définir de stratégie de rétention, entrez 0. Dans ce cas, il vous appartient de supprimer ou non les données de surveillance. Nous vous recommandons de définir une stratégie de rétention en fonction de la durée de conservation que vous souhaitez appliquer aux données d’analyse de votre compte, de sorte que les données d’analyse anciennes et non utilisées puissent être supprimées par le système sans frais.
 
@@ -57,7 +57,7 @@ Les données de surveillance doivent commencer à s’afficher dans le tableau d
 
 Tant que vous n’avez pas configuré la surveillance d’un compte de stockage, aucune collecte de données de surveillance n’intervient et les graphiques de mesures du tableau de bord et la page **Monitor** sont vides.
 
-Après avoir défini les niveaux de surveillance et les stratégies de rétention, vous pouvez choisir, parmi les métriques disponibles dans le [portail Azure](https://portal.azure.com), celles à surveiller et celles à représenter sur les graphiques de métriques. Un ensemble de mesures par défaut s’affiche à chaque niveau de surveillance. Vous pouvez utiliser **Add Metrics** pour ajouter ou supprimer des mesures dans la liste de mesures.
+Après avoir défini les niveaux de surveillance et les stratégies de rétention, vous pouvez choisir, parmi les métriques disponibles dans le [portail Azure](https://portal.azure.com), celles à surveiller et celles à représenter sur les graphiques de métriques. Un ensemble de métriques par défaut s’affiche à chaque niveau de surveillance. Vous pouvez utiliser **Add Metrics** pour ajouter ou supprimer des mesures dans la liste de mesures.
 
 Les mesures sont stockées dans le compte de stockage dans quatre tables nommées $MetricsTransactionsBlob, $MetricsTransactionsTable, $MetricsTransactionsQueue et $MetricsCapacityBlob. Pour plus d’informations, voir la page [À propos des mesures Storage Analytics](http://msdn.microsoft.com/library/azure/hh343258.aspx).
 
@@ -159,4 +159,4 @@ Pour chaque service de stockage accessible à votre compte de stockage (Blob, Ta
 
 Les journaux de diagnostic sont enregistrés dans un conteneur d’objets blob nommé $logs dans votre compte de stockage. Pour plus d’informations sur l’accès au conteneur $logs, voir la page [À propos de la journalisation Storage Analytics](http://msdn.microsoft.com/library/azure/hh343262.aspx).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0810_2016-->

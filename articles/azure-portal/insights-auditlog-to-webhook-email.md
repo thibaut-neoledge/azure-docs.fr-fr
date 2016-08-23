@@ -4,11 +4,11 @@
 	authors="kamathashwin"
 	manager=""
 	editor=""
-	services="monitoring"
-	documentationCenter="monitoring"/>
+	services="monitoring-and-diagnostics"
+	documentationCenter="monitoring-and-diagnostics"/>
 
 <tags
-	ms.service="monitoring"
+	ms.service="monitoring-and-diagnostics"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
@@ -101,7 +101,7 @@ Lorsqu’un nouvel événement est disponible, l’alerte sur les événements d
 |subscriptionId |GUID d’abonnement Azure|
 |timestamp|	Horodatage lorsque l’événement a été généré par le service Azure qui a traité la demande correspondant à l’événement|
 |resourceId |URI d’ID de ressource qui identifie la ressource de façon unique|
-|nom\_groupe\_ressources|Nom du groupe de ressources de la ressource affectée|
+|resourceGroupName|Nom du groupe de ressources de la ressource affectée|
 |properties |Ensemble de paires <Clé, Valeur> (c’est-à-dire Dictionary<String, String>) incluant des détails sur l’événement|
 |event|Élément qui contient des métadonnées relatives à l’événement|
 |autorisation|Capture les propriétés RBAC de l’événement. Il s’agit généralement de « action », « role » et « scope ».|
@@ -119,4 +119,4 @@ Lorsqu’un nouvel événement est disponible, l’alerte sur les événements d
 |status|Chaîne décrivant l’état de l’opération. Les valeurs courantes sont : Started, In Progress, Succeeded, Failed, Active, Resolved|
 |subStatus|	Inclut généralement le code d’état HTTP de l’appel REST correspondant. Il peut également inclure d’autres chaînes décrivant un sous-état. Les valeurs courantes sont : OK (Code d’état HTTP : 200), Created (Code d’état HTTP : 201), Accepted (Code d’état HTTP : 202), No content (Code d’état HTTP : 204), Bad Request (Code d’état HTTP : 400), Not found (Code d’état HTTP : 404), Conflict (Code d’état HTTP : 409), Internal Server Error (Code d’état HTTP : 500), Service unavailable (Code d’état HTTP : 503), Gateway Timeout (Code d’état HTTP : 504)|
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

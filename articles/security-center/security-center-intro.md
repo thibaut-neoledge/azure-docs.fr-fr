@@ -71,7 +71,7 @@ Dans le panneau **Stratégie de sécurité**, sélectionnez un abonnement pour a
 
 > [AZURE.NOTE] La collecte des données et le choix d’un compte de stockage par région sont configurés au niveau de l’abonnement.
 
-Sélectionnez **Stratégie de prévention** (voir ci-dessus) pour ouvrir le panneau **Stratégie de prévention**. **Afficher les recommandations pour** : vous permet de choisir les contrôles de sécurité que vous souhaitez surveiller et recommander selon les besoins en matière de sécurité des ressources au sein de l’abonnement.
+Sélectionnez **Stratégie de prévention** (voir ci-dessus) pour ouvrir le panneau **Stratégie de prévention**. **Afficher les recommandations pour** : vous permet de choisir les contrôles de sécurité que vous souhaitez surveiller et recommander selon les besoins en matière de sécurité des ressources au sein de l’abonnement.
 
 Ensuite, sélectionnez un groupe de ressources pour afficher les détails de la stratégie.
 
@@ -92,7 +92,7 @@ Ensuite, sélectionnez un groupe de ressources pour afficher les détails de la 
 - Configuration de groupes de sécurité réseau et de règles associées pour contrôler le trafic vers les machines virtuelles
 - Approvisionnement de pare-feu d’applications web pour protéger vos applications web contre les attaques ciblées
 - Déploiement de mises à jour système manquantes
-- Correction des configurations de système d’exploitation qui ne correspondent pas aux recommandations
+- Correction des configurations de système d’exploitation qui ne suivent pas les recommandations
 
 Cliquez sur la mosaïque **Recommandations** pour obtenir une liste de recommandations. Cliquez sur chaque recommandation pour afficher plus d’informations ou prendre des mesures pour résoudre le problème.
 
@@ -143,10 +143,10 @@ Ce document vous a donné un aperçu du Centre de sécurité, de ses fonctions c
 
 - [Définition des stratégies de sécurité dans Azure Security Center](security-center-policies.md) : découvrez comment configurer des stratégies de sécurité pour vos groupes de ressources et abonnements Azure.
 - [Gestion des recommandations de sécurité dans Azure Security Center](security-center-recommendations.md) : découvrez la façon dont les recommandations peuvent vous aider à protéger vos ressources Azure.
-- [Surveillance de l’intégrité de la sécurité dans le Centre de sécurité Azure](security-center-monitoring.md) : découvrez comment surveiller l’intégrité de vos ressources Azure.
+- [Surveillance de l’intégrité de la sécurité dans Azure Security Center](security-center-monitoring.md) : découvrez comment surveiller l’intégrité de vos ressources Azure.
 - [Gestion et résolution des alertes de sécurité dans Azure Security Center](security-center-managing-and-responding-alerts.md) : découvrez comment gérer et résoudre les alertes de sécurité.
 - [Surveillance des solutions de partenaires avec Azure Security Center](security-center-partner-solutions.md) : découvrez comment surveiller l’état d’intégrité de vos solutions de partenaires.
-- [FAQ du Centre de sécurité Azure](security-center-faq.md) : forum aux questions concernant l’utilisation de ce service.
+- [FAQ Azure Security Center](security-center-faq.md) : forum aux questions concernant l’utilisation de ce service.
 - [Blog sur la sécurité Azure](http://blogs.msdn.com/b/azuresecurity/) : découvrez les dernières nouvelles et informations sur la sécurité Azure.
 
 <!--Image references-->
@@ -160,4 +160,4 @@ Ce document vous a donné un aperçu du Centre de sécurité, de ses fonctions c
 [8]: ./media/security-center-intro/security-alert-detail.png
 [9]: ./media/security-center-intro/partner-solutions.png
 
-<!---HONumber=AcomDC_0727_2016----->
+<!----HONumber=AcomDC_0810_2016-->

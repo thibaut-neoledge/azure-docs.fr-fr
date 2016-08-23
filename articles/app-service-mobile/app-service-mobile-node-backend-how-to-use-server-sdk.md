@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="node"
 	ms.topic="article"
-	ms.date="05/27/2016"
+	ms.date="08/02/2016"
 	ms.author="adrianhall"/>
 
 # Comment utiliser le Kit de développement logiciel Node.js dans Azure Mobile Apps
@@ -125,6 +125,17 @@ Visual Studio 2015 requiert une extension pour développer les applications No
     Enregistrez le fichier .
 
 10. Exécutez l’application en local (l’API sera disponible sur http://localhost:3000) ou publiez-la dans Azure.
+
+### <a name="create-node-backend-portal"></a>Comment : créer un serveur principal Node.js à l’aide du portail Azure
+
+Vous pouvez créer un serveur principal d'application mobile dans le [portail Azure].
+
+Vous pouvez suivre la procédure ci-dessous, ou créer simultanément un client et un serveur en suivant le didacticiel [Créer une application mobile](app-service-mobile-ios-get-started.md). Ce didacticiel contient une version simplifiée de ces instructions et convient mieux aux projets de preuve de concept.
+
+[AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service-classic](../../includes/app-service-mobile-dotnet-backend-create-new-service-classic.md)]
+
+Dans le panneau _Prise en main_, sous **Créer une table API**, sélectionnez **Node.js** en tant que **langue du serveur principal**. Cochez la case indiquant **I acknowledge that this will overwrite all site contents.** (je reconnais que cette action écrasera tout le contenu du site), puis cliquez sur **Créer une table TodoItem**.
+
 
 ### <a name="download-quickstart"></a>Procédure : télécharger le projet de code quickstart du serveur principal Node.js à l’aide de Git
 
@@ -917,4 +928,4 @@ Le portail Azure vous permet de modifier les fichiers de script de votre serveur
 [ExpressJS Middleware]: http://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

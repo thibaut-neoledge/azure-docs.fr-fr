@@ -1,9 +1,9 @@
 <properties 
-   pageTitle="Gérer les groupes de sécurité réseau à l’aide de l’interface CLI Azure dans Resource Manager | Microsoft Azure"
+   pageTitle="Gérer les groupes de sécurité réseau à l’aide de l’interface CLI Azure dans Resource Manager | Microsoft Azure"
    description="Découvrez comment gérer des groupes de sécurité réseau existants à l’aide de l’Interface CLI Azure dans Resource Manager"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor=""
    tags="azure-resource-manager"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/14/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 # Gérer les groupes de sécurité réseau à l’aide de l’interface CLI Azure
 
@@ -23,7 +23,7 @@
 
 [AZURE.INCLUDE [virtual-network-manage-nsg-intro-include.md](../../includes/virtual-network-manage-nsg-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)]modèle de déploiement classique.
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] le modèle de déploiement classique.
 
 [AZURE.INCLUDE [virtual-network-manage-nsg-arm-scenario-include.md](../../includes/virtual-network-manage-nsg-arm-scenario-include.md)]
 
@@ -39,7 +39,7 @@ Pour afficher la liste des groupes de sécurité réseau dans un groupe de resso
 
 	azure network nsg list --resource-group RG-NSG
 
-Sortie attendue :
+Sortie attendue :
 
 	info:    Executing command network nsg list
 	+ Getting the network security groups
@@ -55,7 +55,7 @@ Pour afficher les règles d’un groupe de sécurité réseau nommé **NSG-Front
 
 	azure network nsg show --resource-group RG-NSG --name NSG-FrontEnd
 
-Sortie attendue :
+Sortie attendue :
 	
 	info:    Executing command network nsg show
 	+ Looking up the network security group "NSG-FrontEnd"
@@ -120,7 +120,7 @@ Pour ajouter une règle autorisant le trafic **entrant** vers le port **443** à
 		--priority 102 \
 		--direction Inbound		
 
-Sortie attendue :
+Sortie attendue :
 
 	info:    Executing command network nsg rule create
 	+ Looking up the network security rule "allow-https"
@@ -150,7 +150,7 @@ Pour modifier la règle créée précédemment qui permet d’autoriser le trafi
 		--name allow-https \
 		--source-address-prefix Internet
 
-Sortie attendue :
+Sortie attendue :
 
 	info:    Executing command network nsg rule set
 	+ Looking up the network security group "NSG-FrontEnd"
@@ -182,7 +182,7 @@ Pour supprimer la règle créée précédemment, exécutez la commande `azure ne
 
 >[AZURE.NOTE] Le paramètre **--quiet** garantit que vous n’avez pas besoin de confirmer la suppression.
 
-Sortie attendue :
+Sortie attendue :
 
 	info:    Executing command network nsg rule delete
 	+ Looking up the network security group "NSG-FrontEnd"
@@ -201,7 +201,7 @@ Pour associer le groupe de sécurité réseau **NSG-FrontEnd** à la carte rése
 		--name TestNICWeb1 \
 		--network-security-group-name NSG-FrontEnd
 
-Sortie attendue :
+Sortie attendue :
 
 	info:    Executing command network nic set
 	+ Looking up the network interface "TestNICWeb1"
@@ -270,7 +270,7 @@ Pour dissocier le groupe de sécurité réseau **NSG-FrontEnd** du sous-réseau 
 		--name FrontEnd \
 		--network-security-group-id ""
 
-Sortie attendue :
+Sortie attendue :
 
 	info:    Executing command network vnet subnet set
 	+ Looking up the subnet "FrontEnd"
@@ -298,7 +298,7 @@ Pour réassocier le groupe de sécurité réseau **NSG-FrontEnd** au sous-résea
 
 >[AZURE.NOTE] La commande ci-dessus fonctionne uniquement parce que le groupe de sécurité réseau **NSG-FrontEnd** est dans le même groupe de ressources que le réseau virtuel **TestVNet**. Si le groupe de sécurité réseau se trouve dans un autre groupe de ressources, vous devez utiliser le paramètre **--network-security-group-id** à la place et indiquer l’ID complet du groupe de sécurité réseau. Vous pouvez récupérer l’ID en exécutant **azure network nsg show --resource-group RG-NSG --name NSG-FrontEnd --json** et en recherchant la propriété **id**.
 
-Sortie attendue :
+Sortie attendue :
 
 		info:    Executing command network vnet subnet set
 		+ Looking up the subnet "FrontEnd"
@@ -322,13 +322,13 @@ Sortie attendue :
 Vous ne pouvez supprimer un groupe de sécurité réseau que s’il n’est associé à aucune ressource. Pour supprimer un groupe de sécurité réseau, procédez comme suit.
 
 1. Pour consulter les ressources associées à un groupe de sécurité réseau, exécutez `azure network nsg show` comme illustré dans [Afficher les associations de groupes de sécurité réseau](#View-NSGs-associations).
-2. Si le groupe de sécurité réseau est associé à des cartes réseau, exécutez `azure network nic set` comme illustré dans [Dissocier un groupe de sécurité réseau d’une carte réseau](#Dissociate-an-NSG-from-a-NIC) pour chaque carte réseau. 
+2. Si le groupe de sécurité réseau est associé à des cartes réseau, exécutez `azure network nic set` comme illustré dans [Dissocier un groupe de sécurité réseau d’une carte réseau](#Dissociate-an-NSG-from-a-NIC) pour chaque carte réseau.
 3. Si le groupe de sécurité réseau est associé à un sous-réseau, exécutez `azure network vnet subnet set` comme illustré dans [Dissocier un groupe de sécurité réseau d’un sous-réseau](#Dissociate-an-NSG-from-a-subnet) pour chaque sous-réseau.
 4. Pour supprimer le groupe de sécurité réseau, exécutez la commande `azure network nsg delete`, comme indiqué ci-dessous.
 
 		azure network nsg delete --resource-group RG-NSG --name NSG-FrontEnd --quiet
 
-	Sortie attendue :
+	Sortie attendue :
 
 		info:    Executing command network nsg delete
 		+ Looking up the network security group "NSG-FrontEnd"
@@ -339,4 +339,4 @@ Vous ne pouvez supprimer un groupe de sécurité réseau que s’il n’est asso
 
 - [Activez la journalisation](virtual-network-nsg-manage-log.md) des groupes de sécurité réseau.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0810_2016-->

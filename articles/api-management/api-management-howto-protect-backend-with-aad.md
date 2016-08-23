@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/24/2016"
+	ms.date="08/09/2016"
 	ms.author="sdanie"/>
 
 # Protection d’un serveur principal d’API web avec Azure Active Directory et Gestion des API
@@ -30,7 +30,7 @@ La vidéo suivante montre comment générer un serveur principal d’API web et 
 
 ## Création d’un répertoire Azure AD
 
-Pour protéger votre API web sauvegardée à l’aide d’Azure Active Directory, vous devez disposer d’un client AAD. Dans cette vidéo, on utilise un client nommé **APIMDemo**. Pour créer un client AAD, ouvrez une session dans le [portail Azure Classic](https://manage.windowsazure.com), puis cliquez sur **Nouveau** -> **App Services** -> **Active Directory** -> **Répertoire** -> **Création personnalisée**.
+Pour protéger votre API web sauvegardée à l’aide d’Azure Active Directory, vous devez disposer d’un client AAD. Dans cette vidéo, on utilise un client nommé **APIMDemo**. Pour créer un client AAD, ouvrez une session dans le [portail Azure Classic](https://manage.windowsazure.com), puis cliquez sur **Nouveau** -> **App Services** -> **Active Directory** -> **Répertoire** -> **Création personnalisée**.
 
 ![Azure Active Directory][api-management-create-aad-menu]
 
@@ -416,4 +416,4 @@ Pour une autre démonstration de la configuration et l’utilisation de cette st
 [Création d’une instance de service Gestion des API]: api-management-get-started.md#create-service-instance
 [Gérer votre première API]: api-management-get-started.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0810_2016-->

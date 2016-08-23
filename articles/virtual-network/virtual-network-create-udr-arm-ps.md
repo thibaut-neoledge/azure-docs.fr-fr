@@ -3,7 +3,7 @@
    description="Découvrez comment contrôler le routage et utiliser des appliances virtuelles dans Resource Manager à l’aide de PowerShell"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor=""
    tags="azure-resource-manager"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/23/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 #Création d’itinéraires définis par l’utilisateur (UDR) dans Resource Manager à l’aide de PowerShell
 
@@ -23,7 +23,7 @@
 
 [AZURE.INCLUDE [virtual-network-create-udr-intro-include.md](../../includes/virtual-network-create-udr-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]Cet article traite du modèle de déploiement de Resource Manager. Vous pouvez également [créer des itinéraires définis par l'utilisateur (UDR) dans le modèle de déploiement classique](virtual-network-create-udr-classic-ps.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)] Cet article traite du modèle de déploiement de Resource Manager. Vous pouvez également [créer des itinéraires définis par l'utilisateur (UDR) dans le modèle de déploiement classique](virtual-network-create-udr-classic-ps.md).
 
 [AZURE.INCLUDE [virtual-network-create-udr-scenario-include.md](../../includes/virtual-network-create-udr-scenario-include.md)]
 
@@ -62,7 +62,7 @@ Pour créer la table de routage et l'itinéraire nécessaires pour le sous-rése
 
 		Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 
-	Sortie attendue :
+	Sortie attendue :
 
 		Name              : TestVNet
 		ResourceGroupName : TestRG
@@ -133,7 +133,7 @@ Pour créer la table de routage et l'itinéraire nécessaires pour le sous-rése
 
 		Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 
-	Sortie attendue :
+	Sortie attendue :
 
 		Name              : TestVNet
 		ResourceGroupName : TestRG
@@ -181,7 +181,7 @@ Pour créer la table de routage et l'itinéraire nécessaires pour le sous-rése
 		                    ]
 
 ## Activer le transfert IP sur FW1
-Pour activer le transfert IP sur la carte réseau utilisée par **FW1**, suivez les étapes ci-dessous.
+Pour activer le transfert IP sur la carte réseau utilisée par **FW1**, suivez les étapes ci-dessous.
 
 1. Créez une variable qui contient les paramètres de la carte réseau utilisée par FW1. Dans notre scénario, la carte réseau est nommée **NICFW1**.
 
@@ -192,7 +192,7 @@ Pour activer le transfert IP sur la carte réseau utilisée par **FW1**, suivez 
 		$nicfw1.EnableIPForwarding = 1
 		Set-AzureRmNetworkInterface -NetworkInterface $nicfw1
 
-	Sortie attendue :
+	Sortie attendue :
 
 		Name                 : NICFW1
 		ResourceGroupName    : TestRG
@@ -236,4 +236,4 @@ Pour activer le transfert IP sur la carte réseau utilisée par **FW1**, suivez 
 		NetworkSecurityGroup : null
 		Primary              : True
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0810_2016-->

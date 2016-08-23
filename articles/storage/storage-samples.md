@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage"
-	ms.date="06/01/2016"
+	ms.date="08/03/2016"
 	ms.author="tamram" />
 
 # Exemples relatifs à Microsoft Azure Storage
@@ -90,4 +90,4 @@ Pour explorer les exemples C++, téléchargez la [bibliothèque cliente de stoc
 - [Code source de la bibliothèque cliente de stockage C++](https://github.com/Azure/azure-storage-cpp)
 - [Référence de la bibliothèque cliente C++](http://azure.github.io/azure-storage-cpp/)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0810_2016-->

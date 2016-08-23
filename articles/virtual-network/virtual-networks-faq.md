@@ -3,7 +3,7 @@
    description="FAQ réseau virtuel Azure (VNet)"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor="tysonn" />
 <tags 
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/15/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 # FAQ Virtual Network
 
@@ -23,4 +23,4 @@
 
 Pour les dernières questions sur les VPN du réseau virtuel, voir [FAQ sur la passerelle VPN](../vpn-gateway/vpn-gateway-vpn-faq.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0810_2016-->

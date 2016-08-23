@@ -4,11 +4,11 @@
 	authors="kamathashwin"
 	manager=""
 	editor=""
-	services="monitoring"
-	documentationCenter="monitoring"/>
+	services="monitoring-and-diagnostics"
+	documentationCenter="monitoring-and-diagnostics"/>
 
 <tags
-	ms.service="monitoring"
+	ms.service="monitoring-and-diagnostics"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
@@ -21,7 +21,7 @@
 Cet article vous montre des exemples de commandes d’interface de ligne de commande (CLI) qui vous permettent d’accéder aux fonctionnalités de surveillance d’Azure Insights. Azure Insights permet de mettre à l’échelle automatiquement des services cloud, des machines virtuelles et des applications web, et d’envoyer des notifications d’alerte ou d’appeler des URL web basées sur des valeurs de données de télémétrie configurées.
 
 
-## Configuration requise
+## Composants requis
 
 Si vous n’avez pas déjà installé l’interface de ligne de commande Azure, consultez [Installer l’interface de ligne de commande Azure](../xplat-cli-install.md). Si vous ne connaissez pas bien l’interface de ligne de commande Azure, découvrez-la plus en détails dans l’article [Utiliser l’interface de ligne de commande Azure pour Mac, Linux et Windows avec Azure Resource Manager](../xplat-cli-azure-resource-manager.md).
 
@@ -220,4 +220,4 @@ node bin\azure insights autoscale setting list montest2 -n setting2
 node bin\azure insights autoscale setting set montest2 -n setting2 --settingSpec
 ```
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

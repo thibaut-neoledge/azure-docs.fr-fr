@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="get-started-article"
-	ms.date="04/25/2016"
+	ms.date="08/17/2016"
 	ms.author="annemill"/>
 
 
@@ -27,13 +27,13 @@
 
 Découvrez comment vous connecter à une base de données SQL dans Visual Studio
 
-## Configuration requise
+## Composants requis
 
 
 Pour vous connecter à la base de données SQL à l’aide de Visual Studio, vous devez disposer des éléments suivants :
 
 
-- Un compte et un abonnement Azure. Vous pouvez vous inscrire à un [essai gratuit](https://azure.microsoft.com/pricing/free-trial/).
+- Un compte et un abonnement Azure. Vous pouvez vous inscrire à un [essai gratuit](https://azure.microsoft.com/pricing/free-trial/).
 
 
 - Une base de données de démonstration **AdventureWorksLT** sur le service de base de données SQL Azure.
@@ -43,7 +43,7 @@ Pour vous connecter à la base de données SQL à l’aide de Visual Studio, vou
 - Visual Studio 2013 Update 4 (ou version ultérieure). Microsoft propose désormais Visual Studio Community *gratuitement*.
  - [Visual Studio Community, téléchargement](http://www.visualstudio.com/products/visual-studio-community-vs)
  - [Plus d’options gratuites Visual Studio](http://www.visualstudio.com/products/free-developer-offers-vs.aspx)
- - Ou laissez l’[étape](#InstallVSForFree), plus loin dans cette rubrique, décrire comment le [portail Azure](https://portal.azure.com/) vous guide dans l’installation de Visual Studio.
+ - Ou laissez l’[étape](#InstallVSForFree), plus loin dans cette rubrique, décrire comment le [portail Azure](https://portal.azure.com/) vous guide dans l’installation de Visual Studio.
 
 
 <a name="InstallVSForFree" id="InstallVSForFree"></a>
@@ -64,7 +64,7 @@ Si vous devez installer Visual Studio, vous pouvez :
 
 1. Connectez-vous par le biais du [portail Azure](https://portal.azure.com/), http://portal.azure.com/.
 
-2. Cliquez sur **PARCOURIR* TOUT** > **Bases de données SQL**. Un volet s’ouvre pour la recherche des bases de données.
+2. Cliquez sur *PARCOURIR* TOUT* > **Bases de données SQL**. Un volet s’ouvre pour la recherche des bases de données.
 
 3. Dans la zone de texte de filtre près du haut, commencez à saisir le nom de votre base de données **AdventureWorksLT**.
 
@@ -82,7 +82,7 @@ Si vous devez installer Visual Studio, vous pouvez :
 
 9. Une fois que Visual Studio est installé, sur le panneau **Ouvrir dans Visual Studio**, cliquez sur le bouton **Ouvrir dans Visual Studio**. Visual Studio s’ouvre.
 
-10. Dans l’intérêt de son volet **Explorateur d’objets SQL Server **, Visual Studio vous demande de renseigner les champs de chaîne de connexion dans une boîte de dialogue.
+10. Visual Studio vous invitera à renseigner les champs de chaîne de connexion dans une boîte de dialogue.
  - Sélectionnez **Authentification SQL Server** et non **Authentification Windows**.
  - N’oubliez pas de spécifier votre base de données **AdventureWorksLT** (**Options** > **Propriétés de connexion** dans la boîte de dialogue).
 
@@ -121,4 +121,4 @@ Après vous être connecté à votre serveur logique, vous pouvez vous connecter
 
 [20-OpenInVisualStudioButton]: ./media/sql-database-connect-query/connqry-free-vs-e.png
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="big-compute"
-	ms.date="05/02/2016"
+	ms.date="08/03/2016"
 	ms.author="marsma"/>
 
 # Gérer les quotas et les comptes Azure Batch avec Batch Management .NET
@@ -34,22 +34,23 @@ Vous pouvez réduire la surcharge de maintenance dans vos applications Azure Bat
 
 ## Créer et supprimer des comptes Batch
 
-Comme mentionné ci-dessus, l'une des principales fonctionnalités de l'API Batch Management consiste à créer et à supprimer des comptes Batch dans une région Azure. Pour ce faire, vous allez utiliser [BatchManagementClient.Accounts.CreateAsync][net_create] et [DeleteAsync][net_delete], ou leurs équivalents synchrones.
+Comme mentionné ci-dessus, l'une des principales fonctionnalités de l'API Batch Management consiste à créer et à supprimer des comptes Batch dans une région Azure. Pour ce faire, vous allez utiliser [BatchManagementClient.Account.CreateAsync][net_create] et [DeleteAsync][net_delete], ou leurs équivalents synchrones.
 
 L’extrait de code suivant crée un compte, récupère le compte créé à partir du service Batch, puis le supprime. Dans cet extrait de code et les autres extraits de cet article, `batchManagementClient` est une instance entièrement initialisée de [BatchManagementClient][net_mgmt_client].
 
 ```csharp
 // Create a new Batch account
-await batchManagementClient.Accounts.CreateAsync("MyResourceGroup",
+await batchManagementClient.Account.CreateAsync("MyResourceGroup",
 	"mynewaccount",
 	new BatchAccountCreateParameters() { Location = "West US" });
 
 // Get the new account from the Batch service
-BatchAccountGetResponse getResponse = await batchManagementClient.Accounts.GetAsync("MyResourceGroup", "mynewaccount");
-AccountResource account = getResponse.Resource;
+AccountResource account = await batchManagementClient.Account.GetAsync(
+	"MyResourceGroup",
+	"mynewaccount");
 
 // Delete the account
-await batchManagementClient.Accounts.DeleteAsync("MyResourceGroup", account.Name);
+await batchManagementClient.Account.DeleteAsync("MyResourceGroup", account.Name);
 ```
 
 > [AZURE.NOTE] Les applications qui utilisent la bibliothèque Batch Management .NET et sa classe BatchManagementClient nécessitent un accès **administrateur de services fédérés** ou **coadministrateur** à l’abonnement qui possède le compte Batch à gérer. Consultez la section [Azure Active Directory](#azure-active-directory) ci-dessous et l’exemple de code [AccountManagement][acct_mgmt_sample] pour plus d’informations.
@@ -60,15 +61,21 @@ Récupérez les clés primaires et secondaires de n’importe quel compte Batch 
 
 ```csharp
 // Get and print the primary and secondary keys
-BatchAccountListKeyResponse accountKeys = await batchManagementClient.Accounts.ListKeysAsync("MyResourceGroup", "mybatchaccount");
-Console.WriteLine("Primary key:   {0}", accountKeys.PrimaryKey);
-Console.WriteLine("Secondary key: {0}", accountKeys.SecondaryKey);
+BatchAccountListKeyResult accountKeys =
+	await batchManagementClient.Account.ListKeysAsync(
+		"MyResourceGroup",
+		"mybatchaccount");
+Console.WriteLine("Primary key:   {0}", accountKeys.Primary);
+Console.WriteLine("Secondary key: {0}", accountKeys.Secondary);
 
 // Regenerate the primary key
-BatchAccountRegenerateKeyResponse newKeys = await batchManagementClient.Accounts.RegenerateKeyAsync(
-	"MyResourceGroup",
-	"mybatchaccount",
-	new BatchAccountRegenerateKeyParameters() { KeyName = AccountKeyType.Primary });
+BatchAccountRegenerateKeyResponse newKeys =
+	await batchManagementClient.Account.RegenerateKeyAsync(
+		"MyResourceGroup",
+		"mybatchaccount",
+		new BatchAccountRegenerateKeyParameters() {
+			KeyName = AccountKeyType.Primary
+			});
 ```
 
 > [AZURE.TIP] Vous pouvez créer un flux de travail de connexion rationalisé pour vos applications de gestion. Commencez par récupérer une clé de compte pour le compte Batch que vous souhaitez gérer avec [ListKeysAsync][net_list_keys]. Utilisez ensuite cette clé lors de l’initialisation de la classe [BatchSharedKeyCredentials][net_sharedkeycred] de la bibliothèque .NET de Batch, qui est utilisée lors de l’initialisation de [BatchClient][net_batch_client].
@@ -81,13 +88,16 @@ Les abonnements Azure et les services Azure, comme Batch, ont tous des quotas pa
 
 Avant de créer un compte Batch dans une région, vous pouvez vérifier dans votre abonnement Azure que vous êtes en mesure d'ajouter un compte dans cette région.
 
-Dans l’extrait de code ci-dessous, nous utilisons tout d’abord [BatchManagementClient.Accounts.ListAsync][net_mgmt_listaccounts] pour obtenir la liste de tous les comptes Batch d’un abonnement. Une fois que nous avons obtenu cette collection, nous pouvons déterminer le nombre de comptes qui se trouvent dans la région cible. Nous utilisons ensuite [BatchManagementClient.Subscriptions][net_mgmt_subscriptions] pour obtenir le quota de compte Batch et déterminer le nombre de comptes (le cas échéant) pouvant être créés dans cette région.
+Dans l’extrait de code ci-dessous, nous utilisons tout d’abord [BatchManagementClient.Account.ListAsync][net_mgmt_listaccounts] pour obtenir la liste de tous les comptes Batch d’un abonnement. Une fois que nous avons obtenu cette collection, nous pouvons déterminer le nombre de comptes qui se trouvent dans la région cible. Nous utilisons ensuite [BatchManagementClient.Subscriptions][net_mgmt_subscriptions] pour obtenir le quota de compte Batch et déterminer le nombre de comptes (le cas échéant) pouvant être créés dans cette région.
 
 ```csharp
 // Get a collection of all Batch accounts within the subscription
-BatchAccountListResponse listResponse = await batchManagementClient.Accounts.ListAsync(new AccountListParameters());
+BatchAccountListResponse listResponse =
+		await batchManagementClient.Account.ListAsync(new AccountListParameters());
 IList<AccountResource> accounts = listResponse.Accounts;
-Console.WriteLine("Total number of Batch accounts under subscription id {0}:  {1}", creds.SubscriptionId, accounts.Count);
+Console.WriteLine("Total number of Batch accounts under subscription id {0}:  {1}",
+	creds.SubscriptionId,
+	accounts.Count);
 
 // Get a count of all accounts within the target region
 string region = "westus";
@@ -110,7 +120,8 @@ Avant d’augmenter les ressources de calcul dans votre solution Batch, vous pou
 
 ```csharp
 // First obtain the Batch account
-BatchAccountGetResponse getResponse = await batchManagementClient.Accounts.GetAsync("MyResourceGroup", "mybatchaccount");
+BatchAccountGetResponse getResponse =
+	await batchManagementClient.Account.GetAsync("MyResourceGroup", "mybatchaccount");
 AccountResource account = getResponse.Resource;
 
 // Now print the compute resource quotas for the account
@@ -202,4 +213,4 @@ Avant de supprimer le compte Batch et le groupe de ressources créés, vous pouv
 [2]: ./media/batch-management-dotnet/portal-02.png
 [3]: ./media/batch-management-dotnet/portal-03.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -41,15 +41,15 @@ Avant de commencer les étapes de ce didacticiel, [installez l’interface de li
 
 ## Étape 1 : créer un groupe de ressources et un compte de stockage
 
-1. **Se connecter à Microsoft Azure** : dans votre interface de ligne de commande (interpréteur de commandes, terminal, invite de commandes), vérifiez que vous êtes en mode Resource Manager en tapant `azure config mode arm`. Ensuite, [connectez-vous avec votre ID de compte professionnel ou scolaire](../xplat-cli-connect.md#use-the-log-in-method) en tapant `azure login`, puis suivez les instructions pour vous connecter de manière interactive à votre compte Azure.
+1. **Se connecter à Microsoft Azure** : dans votre interface de ligne de commande (interpréteur de commandes, terminal, invite de commandes), vérifiez que vous êtes en mode Resource Manager en tapant `azure config mode arm`. Ensuite, [connectez-vous avec votre ID de compte professionnel ou scolaire](../xplat-cli-connect.md#use-the-log-in-method) en tapant `azure login`, puis suivez les instructions pour vous connecter de manière interactive à votre compte Azure.
 
 	> [AZURE.NOTE] Si vous disposez d’un ID professionnel ou scolaire et que vous savez que l’authentification à deux facteurs n’est pas activée, vous pouvez utiliser `azure login -u` avec l’ID professionnel ou scolaire pour vous connecter sans session interactive. Si vous ne disposez pas d’un ID professionnel ou scolaire, vous pouvez [créer un ID professionnel ou scolaire à partir de votre compte Microsoft personnel](../virtual-machines/resource-group-create-work-id-from-personal.md).
 
-2. **Créer un groupe de ressources** : toutes les ressources doivent être déployées dans un groupe de ressources. Pour les besoins de ce didacticiel, nommez le groupe de ressources **vmsstest1**.
+2. **Créer un groupe de ressources** : toutes les ressources doivent être déployées dans un groupe de ressources. Pour les besoins de ce didacticiel, nommez le groupe de ressources **vmsstest1**.
 
         azure group create vmsstestrg1 centralus
 
-3. **Déploie un compte de stockage dans le nouveau groupe de ressources** : ce didacticiel utilise plusieurs comptes de stockage afin de faciliter le jeu de mise à l’échelle de machine virtuelle. Créez un compte de stockage nommé **vmsstestsa**. Ne fermez pas la fenêtre d’interface de commande, car vous en aurez encore besoin pour effectuer d’autres étapes de ce didacticiel :
+3. **Déploie un compte de stockage dans le nouveau groupe de ressources** : ce didacticiel utilise plusieurs comptes de stockage afin de faciliter le jeu de mise à l’échelle de machine virtuelle. Créez un compte de stockage nommé **vmsstestsa**. Ne fermez pas la fenêtre d’interface de commande, car vous en aurez encore besoin pour effectuer d’autres étapes de ce didacticiel :
 
         azure storage account create -g vmsstestrg1 -l centralus --kind Storage --sku-name LRS vmsstestsa
 
@@ -240,7 +240,7 @@ Un modèle Azure Resource Manager permet de déployer et gérer des ressources
                   "protocol": "tcp",
                   "frontendPortRangeStart": 50000,
                   "frontendPortRangeEnd": 50500,
-                  "backendPort": 3389
+                  "backendPort": 22
                 }
               }
             ]
@@ -475,18 +475,18 @@ Un modèle Azure Resource Manager permet de déployer et gérer des ressources
     
     Pour ce didacticiel, il s’agit de valeurs importantes :
     
-    - **metricName** : il s’agit du même que le compteur de performance que nous avons défini dans la variable wadperfcounter. Grâce à cette variable, l’extension Diagnostics collecte le compteur **Processor\\PercentProcessorTime**.
-    - **metricResourceUri** : il s’agit de l’identificateur de ressource du jeu de mise à l’échelle de machine virtuelle.
-    - **timeGrain** : il s’agit de la granularité des mesures collectées. Dans ce modèle, il est défini à 1 minute.
-    - **statistiques** : ce paramètre détermine la façon dont les mesures sont combinées pour prendre en charge l’action de mise à l’échelle automatique. Les valeurs possibles sont : Moyenne, Min, Max. Dans ce modèle, nous recherchons le taux d’utilisation totale du processeur entre les machines virtuelles du groupe à échelle identique.
-    - **timeWindow** : il s’agit de la plage de temps pendant laquelle les données d’instance sont collectées. Elle doit être comprise entre 5 minutes et 12 heures.
-    - **timeAggregation** : ce paramètre détermine la façon dont les données recueillies doivent être combinées sur la durée. La valeur par défaut est Average. Les valeurs possibles sont : Moyenne, Minimum, Maximum, Dernier, Total, Nombre.
-    - **opérateur** : opérateur utilisé pour comparer les données de mesure et le seuil. Les valeurs possibles sont : est égal à -Equals), différent de (NotEquals), supérieur à (GreaterThan), égal ou supérieur à (GreaterThanOrEqual), Inférieur à (LessThan), Inférieur ou égal à (LessThanOrEqual).
-    - **seuil** : il s’agit de la valeur qui déclenche l’action de mise à l’échelle. Dans ce modèle, les machines sont ajoutées au jeu de mise à l’échelle défini lorsque l’utilisation moyenne du processeur dans le jeu de machines des est supérieur à 50 %.
-    - **direction** : ce paramètre détermine l’opération qui est effectuée lorsque la valeur de seuil est atteinte. Les valeurs possibles sont Augmenter ou Diminuer. Dans ce modèle, le nombre de machines virtuelles dans le jeu de mise à l’échelle est augmenté si le seuil est supérieur à 50 % dans la fenêtre de temps définie.
-    - **type** : il s’agit du type d’action qui doit se produire. Il doit être défini sur ChangeCount.
-    - **valeur** : il s’agit du nombre de machines virtuelles qui sont ajoutées ou supprimées du jeu de mise à l’échelle. Cette valeur doit être définie sur 1 ou supérieur. La valeur par défaut est 1. Dans ce modèle, le nombre d’ordinateurs présent dans le jeu de mise à l’échelle augmente de 1 lorsque le seuil est atteint.
-    - **ralentissement** : durée d’attente depuis la dernière opération de mise à l’échelle avant que l’action se produise. Elle peut être comprise entre 1 minute et 1 semaine.
+    - **metricName** : il s’agit du même que le compteur de performance que nous avons défini dans la variable wadperfcounter. Grâce à cette variable, l’extension Diagnostics collecte le compteur **Processor\\PercentProcessorTime**.
+    - **metricResourceUri** : il s’agit de l’identificateur de ressource du jeu de mise à l’échelle de machine virtuelle.
+    - **timeGrain** : il s’agit de la granularité des mesures collectées. Dans ce modèle, il est défini à 1 minute.
+    - **statistiques** : ce paramètre détermine la façon dont les mesures sont combinées pour prendre en charge l’action de mise à l’échelle automatique. Les valeurs possibles sont : Moyenne, Min, Max. Dans ce modèle, nous recherchons le taux d’utilisation totale du processeur entre les machines virtuelles du groupe à échelle identique.
+    - **timeWindow** : il s’agit de la plage de temps pendant laquelle les données d’instance sont collectées. Elle doit être comprise entre 5 minutes et 12 heures.
+    - **timeAggregation** : ce paramètre détermine la façon dont les données recueillies doivent être combinées sur la durée. La valeur par défaut est Average. Les valeurs possibles sont : Moyenne, Minimum, Maximum, Dernier, Total, Nombre.
+    - **opérateur** : opérateur utilisé pour comparer les données de mesure et le seuil. Les valeurs possibles sont : est égal à -Equals), différent de (NotEquals), supérieur à (GreaterThan), égal ou supérieur à (GreaterThanOrEqual), Inférieur à (LessThan), Inférieur ou égal à (LessThanOrEqual).
+    - **seuil** : il s’agit de la valeur qui déclenche l’action de mise à l’échelle. Dans ce modèle, les machines sont ajoutées au jeu de mise à l’échelle défini lorsque l’utilisation moyenne du processeur dans le jeu de machines des est supérieur à 50 %.
+    - **direction** : ce paramètre détermine l’opération qui est effectuée lorsque la valeur de seuil est atteinte. Les valeurs possibles sont Augmenter ou Diminuer. Dans ce modèle, le nombre de machines virtuelles dans le jeu de mise à l’échelle est augmenté si le seuil est supérieur à 50 % dans la fenêtre de temps définie.
+    - **type** : il s’agit du type d’action qui doit se produire. Il doit être défini sur ChangeCount.
+    - **valeur** : il s’agit du nombre de machines virtuelles qui sont ajoutées ou supprimées du jeu de mise à l’échelle. Cette valeur doit être définie sur 1 ou supérieur. La valeur par défaut est 1. Dans ce modèle, le nombre d’ordinateurs présent dans le jeu de mise à l’échelle augmente de 1 lorsque le seuil est atteint.
+    - **ralentissement** : durée d’attente depuis la dernière opération de mise à l’échelle avant que l’action se produise. Elle peut être comprise entre 1 minute et 1 semaine.
 
 12.	Enregistrez le fichier de modèle.
 
@@ -541,7 +541,7 @@ Vous pouvez obtenir des informations sur les jeux de mise à l’échelle de mac
 
 		azure resource show -n vmsstest1 -r Microsoft.Compute/virtualMachineScaleSets -o 2015-06-15 -g vmsstestrg1
 
- - Connectez-vous à la machine virtuelle jumpbox comme vous le feriez pour n’importe quel autre ordinateur et vous pouvez ensuite accéder à distance aux machines virtuelles du groupe à échelle identique pour surveiller les processus individuels.
+ - Connectez-vous à la machine virtuelle jumpbox comme vous le feriez pour n’importe quel autre ordinateur et vous pouvez ensuite accéder à distance aux machines virtuelles de l’ensemble de mise à l’échelle pour surveiller les processus individuels.
 
 >[AZURE.NOTE]Vous trouverez une API REST complète permettant d’obtenir des informations sur les jeux de mise à l’échelle dans les [groupes identiques de machines virtuelles](https://msdn.microsoft.com/library/mt589023.aspx).
 
@@ -557,4 +557,4 @@ Vous pouvez obtenir des informations sur les jeux de mise à l’échelle de mac
 - Pour en savoir plus sur les fonctionnalités de notification, consultez [Utilisation d’actions de mise à l’échelle automatique pour envoyer des notifications d’alerte webhook et par courrier électronique dans Azure Insights](../azure-portal/insights-autoscale-to-webhook-email.md) et [Utiliser les journaux d’audit pour envoyer des notifications webhook et par courrier électronique dans Azure Insights](../azure-portal/insights-auditlog-to-webhook-email.md)
 - Découvrez le modèle [Mettre à l’échelle automatiquement un groupe identique de machine virtuelle exécutant une application Ubuntu/Apache/PHP](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-lapstack-autoscale) qui configure une pile LAMP pour tester la fonctionnalité de mise à l’échelle automatique des groupes identiques de machines virtuelles.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0810_2016-->

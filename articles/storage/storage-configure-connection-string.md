@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/08/2016"
+	ms.date="08/03/2016"
 	ms.author="tamram"/>
 
 # Configuration des chaînes de connexion Azure Storage
@@ -163,4 +163,4 @@ Par exemple, votre chaîne de connexion doit être similaire à celle-ci :
 - [Utilisation de l'émulateur de stockage Azure pour le développement et le test](storage-use-emulator.md)
 - [Explorateurs du stockage Azure](storage-explorers.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0810_2016-->

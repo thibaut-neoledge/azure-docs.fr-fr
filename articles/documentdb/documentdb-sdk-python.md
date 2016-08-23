@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Kit de développement logiciel (SDK) Python DocumentDB | Microsoft Azure" 
-	description="Découvrez le Kit de développement logiciel (SDK) Python, y compris les dates de publication, les dates de suppression et les modifications apportées entre chaque version du Kit de développement logiciel (SDK) Python DocumentDB." 
+	pageTitle="API et Kit de développement logiciel (SDK) Python DocumentDB | Microsoft Azure" 
+	description="Découvrez l'API et le Kit de développement logiciel (SDK) Python, y compris les dates de publication, les dates de suppression et les modifications apportées entre chaque version du Kit de développement logiciel (SDK) Python DocumentDB." 
 	services="documentdb" 
 	documentationCenter="python" 
-	authors="aliuy" 
+	authors="rnagpal" 
 	manager="jhubbard" 
 	editor="cgronlun"/>
 
@@ -13,23 +13,26 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="07/07/2016" 
+	ms.date="08/09/2016" 
 	ms.author="rnagpal"/>
 
-# Kit SDK DocumentDB
+# API DocumentDB et Kits de développement logiciel (SDK)
 
 > [AZURE.SELECTOR]
-- [Kit SDK .NET](documentdb-sdk-dotnet.md)
-- [Kit SDK Node.js](documentdb-sdk-node.md)
-- [Kit SDK Java](documentdb-sdk-java.md)
-- [Kit de développement logiciel (SDK) Python](documentdb-sdk-python.md)
+- [.NET](documentdb-sdk-dotnet.md)
+- [Node.JS](documentdb-sdk-node.md)
+- [Java](documentdb-sdk-java.md)
+- [Python](documentdb-sdk-python.md)
+- [REST](https://go.microsoft.com/fwlink/?LinkId=402413)
+- [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 
-##Kit de développement logiciel (SDK) Python DocumentDB
+## API et Kit de développement logiciel (SDK) Python DocumentDB
 
 <table>
-<tr><td>**Télécharger**</td><td>[PyPI](https://pypi.python.org/pypi/pydocumentdb)</td></tr>
-<tr><td>**Participer**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-python)</td></tr>
-<tr><td>**Documentation**</td><td>[Documentation de référence du Kit de développement logiciel (SDK) Python](http://azure.github.io/azure-documentdb-python/)</td></tr>
+<tr><td>**Téléchargement du Kit de développement logiciel (SDK)**</td><td>[PyPI](https://pypi.python.org/pypi/pydocumentdb)</td></tr>
+<tr><td>**Documentation de l'API**</td><td>[Documentation de référence de l'API Python](http://azure.github.io/azure-documentdb-python/api/pydocumentdb.html)</td></tr>
+<tr><td>**Instructions d’installation du Kit de développement logiciel (SDK)**</td><td>[Instructions d'installation du Kit de développement logiciel (SDK) Python](http://azure.github.io/azure-documentdb-python/)</td></tr>
+<tr><td>**Contribution au Kit de développement logiciel (SDK)**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-python)</td></tr>
 <tr><td>**Prise en main**</td><td>[Prise en main du Kit de développement logiciel (SDK) Python](documentdb-python-application.md)</td></tr>
 <tr><td>**Plateforme actuellement prise en charge**</td><td>[Python 2.7](https://www.python.org/download/releases/2.7/)</td></tr>
 </table></br>
@@ -59,12 +62,12 @@
 - Ajoutez des programmes de résolution de partitions par hachage et par spécification de plages de valeurs pour vous aider lors du partitionnement des applications sur plusieurs partitions.
 
 ### <a name="1.4.2"/>[1\.4.2](https://pypi.python.org/pypi/pydocumentdb/1.4.2)
-- Implémenter l'opération Upsert. Nouvelles méthodes UpsertXXX ajoutées pour prendre en charge la fonctionnalité Upsert.
+- Implémentation de l’opération Upsert. Nouvelles méthodes UpsertXXX ajoutées pour prendre en charge la fonctionnalité Upsert.
 - Implémenter l'ID en fonction du routage. Aucune modification d'API publique, toutes les modifications en interne.
 
 ### <a name="1.2.0"/>[1\.2.0](https://pypi.python.org/pypi/pydocumentdb/1.2.0)
 - Prise en charge de l'index géospatial.
-- Valide la propriété ID pour toutes les ressources. Les ID des ressources ne peuvent pas contenir les caractères ?, /, #, \\ ou se terminer par un espace.
+- Validation de la propriété ID pour toutes les ressources. Les ID des ressources ne peuvent pas contenir les caractères ?, /, #, \\ ou se terminer par un espace.
 - Ajoute le nouvel en-tête « progression de la transformation de l'index » à ResourceResponse.
 
 ### <a name="1.1.0"/>[1\.1.0](https://pypi.python.org/pypi/pydocumentdb/1.1.0)
@@ -81,7 +84,7 @@ Microsoft fournira une notification au moins **12 mois** avant le retrait d’u
 
 Les nouvelles fonctionnalités et fonctions, et les optimisations sont uniquement ajoutées au Kit SDK actuel. Par conséquent, il est recommandé de toujours passer à la dernière version du SDK dès que possible.
 
-Toute requête à DocumentDB utilisant un Kit de développement logiciel (SDK) supprimé est rejetée par le service.
+Toute requête à DocumentDB utilisant un Kit SDK supprimé est rejetée par le service.
 
 > [AZURE.WARNING]
 Toutes les versions du Kit de développement logiciel (SDK) Azure DocumentDB pour Python antérieures à la version **1.0.0** seront supprimées le **29 février 2016**.
@@ -90,22 +93,16 @@ Toutes les versions du Kit de développement logiciel (SDK) Azure DocumentDB pou
 
 | Version | Date de lancement | Date de suppression 
 | ---	  | ---	         | ---
-| [1\.9.0](#1.9.0) | 7 juillet 2016 |--- 
-| [1\.8.0](#1.8.0) | 14 juin 2016 |--- 
-| [1\.7.0](#1.7.0) | 26 avril 2016 |--- 
-| [1\.6.1](#1.6.1) | 8 avril 2016 |--- 
-| [1\.6.0](#1.6.0) | 29 mars 2016 |--- 
-| [1\.5.0](#1.5.0) | 3 janvier 2016 |--- 
-| [1\.4.2](#1.4.2) | 6 octobre 2015 |--- 
-| [1\.4.1](#1.4.1) | 6 octobre 2015 |--- 
-| [1\.2.0](#1.2.0) | 6 août 2015 |--- 
-| [1\.1.0](#1.1.0) | 9 juillet 2015 |--- 
-| [1\.0.1](#1.0.1) | 25 mai 2015 |--- 
-| [1\.0.0](#1.0.0) | 7 avril 2015 |--- 
-| 0.9.4-version préliminaire | 14 janvier 2015 | 29 février 2016 
-| 0.9.3-version préliminaire | 9 décembre 2014 | 29 février 2016 
-| 0.9.2-version préliminaire | 25 novembre 2014 | 29 février 2016 
-| 0.9.1-version préliminaire | 23 septembre 2014 | 29 février 2016 
+| [1\.4.2](#1.4.2) | 6 octobre 2015 |---
+| [1\.4.1](#1.4.1) | 6 octobre 2015 |---
+| [1\.2.0](#1.2.0) | 6 août 2015 |---
+| [1\.1.0](#1.1.0) | 9 juillet 2015 |---
+| [1\.0.1](#1.0.1) | 25 mai 2015 |---
+| [1\.0.0](#1.0.0) | 7 avril 2015 |---
+| 0.9.4-version préliminaire | 14 janvier 2015 | 29 février 2016
+| 0.9.3-version préliminaire | 9 décembre 2014 | 29 février 2016
+| 0.9.2-version préliminaire | 25 novembre 2014 | 29 février 2016
+| 0.9.1-version préliminaire | 23 septembre 2014 | 29 février 2016
 | 0.9.0-version préliminaire | 21 août 2014 | 29 février 2016
 
 ## Forum Aux Questions
@@ -115,4 +112,4 @@ Toutes les versions du Kit de développement logiciel (SDK) Azure DocumentDB pou
 
 Pour en savoir plus sur DocumentDB, consultez la page du service [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0810_2016-->

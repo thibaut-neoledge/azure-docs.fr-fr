@@ -46,7 +46,7 @@ Les connecteurs EIP permettent de créer des applications logiques pour les scé
  
 |Connecteurs EIP ||||
 |-----------|-----------|-----------|-----------|
-|[![Icône API][as2icon]<br/>**Encodage/décodage</br>AS2**][as2doc]|[![Icône API][x12icon]<br/>**Encodage/décodage</br>X12**][x12Doc]|[![Icône API][xmlvalidateicon]<br/>**Validation<br/>XML**][xmlvalidatedoc]|[![Icône API][xmltransformicon]<br/>**Transformation<br/>XML**][xmltransformdoc]|
+|[![Icône API][as2icon]<br/>**Encodage/décodage</br>AS2**][as2doc]|[![Icône API][x12icon]<br/>**Encodage/décodage</br>X12**][x12Doc]|[![Icône API][xmlvalidateicon]<br/>**Validation <br/>XML**][xmlvalidatedoc]|[![Icône API][xmltransformicon]<br/>**Transformation<br/>XML**][xmltransformdoc]|
 |[![Icône API][flatfileicon]<br/>**Codage</br>du fichier plat**][flatfiledoc]|[![Icône API][flatfiledecodeicon]<br/>**Décodage</br>du fichier plat**][flatfiledecodedoc]|||
 
 <!-- TODO: Add Functions, App Service, and Nested Workflow Icons -->
@@ -102,8 +102,8 @@ Vous pouvez aussi utiliser des connecteurs comme des actions dans vos applicatio
 [as2doc]: ../app-service-logic/app-service-logic-enterprise-integration-as2.md "Découvrez l’intégration d’entreprise AS2."
 [x12doc]: ../app-service-logic/app-service-logic-enterprise-integration-x12.md "Découvrez l’intégration d’entreprise X12."
 [flatfiledoc]: ../app-service-logic/app-service-logic-enterprise-integration-flatfile.md "Découvrez le fichier plat d’intégration d’entreprise."
-[flatfiledecodedoc]: ../app-service-logic/app-service-logic-enterprise-integration-flatfile.md/#how-to-create-the-flat-file-decoding-connector "Découvrez le fichier plat d’intégration d’entreprise."
-[xmlvalidatedoc]: ../app-service-logic/app-service-logic-enterprise-integration-xml.md "Découvrez la validation XML d’intégration d’entreprise."
+[flatfiledecodedoc]: ../app-service-logic/app-service-logic-enterprise-integration-flatfile.md "Découvrez le fichier plat d’intégration d’entreprise."
+[xmlvalidatedoc]: ../app-service-logic/app-service-logic-enterprise-integration-xml-validation.md "Découvrez la validation XML d’intégration d’entreprise."
 [xmltransformdoc]: ../app-service-logic/app-service-logic-enterprise-integration-transform.md "Découvrez les transformations d’intégration d’entreprise."
 [httpdoc]: ./connectors-native-http.md "Connecteur HTTP permettant d’effectuer des appels HTTP."
 [http~requestdoc]: ./connectors-native-reqres.md "Actions de demande et de réponse."
@@ -183,4 +183,4 @@ Vous pouvez aussi utiliser des connecteurs comme des actions dans vos applicatio
 [xmlvalidateicon]: ./media/apis-list/xmlvalidation.png
 [xmltransformicon]: ./media/apis-list/xsltransform.png
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

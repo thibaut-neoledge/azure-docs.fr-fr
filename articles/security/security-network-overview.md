@@ -1,10 +1,10 @@
 <properties
    pageTitle="Présentation de la sécurité réseau Azure | Microsoft Azure"
-   description="Cet article vous aide à mieux comprendre l’offre de sécurité réseau de Microsoft Azure. Il décrit les notions de base sur les exigences et les concepts de la sécurité réseau et vous explique ce que propose Azure dans chacun de ces domaines."
+   description=" Cet article vous aide à mieux comprendre l’offre de sécurité réseau de Microsoft Azure. Il décrit les notions de base sur les exigences et les concepts de la sécurité réseau et vous explique ce que propose Azure dans chacun de ces domaines. "
    services="security"
    documentationCenter="na"
    authors="TomShinder"
-   manager="StevenPo"
+   manager="MBaldwin"
    editor="TomSh"/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/19/2016"
+   ms.date="08/09/2016"
    ms.author="terrylan"/>
 
 # Présentation de la sécurité réseau Azure
@@ -265,4 +265,4 @@ En savoir plus :
 
 - [Présentation du Centre de sécurité Azure](../security-center/security-center-intro.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

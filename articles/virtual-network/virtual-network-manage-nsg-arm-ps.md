@@ -1,9 +1,9 @@
 <properties 
-   pageTitle="Gérer des groupes de sécurité réseau à l’aide de PowerShell dans Resource Manager | Microsoft Azure"
+   pageTitle="Gérer des groupes de sécurité réseau à l’aide de PowerShell dans Resource Manager | Microsoft Azure"
    description="Découvrez comment gérer des groupes de sécurité réseau existants à l’aide de PowerShell dans Resource Manager"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor=""
    tags="azure-resource-manager"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/14/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 # Gérer les groupes de sécurité réseau avec PowerShell
 
@@ -23,7 +23,7 @@
 
 [AZURE.INCLUDE [virtual-network-manage-nsg-intro-include.md](../../includes/virtual-network-manage-nsg-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)]modèle de déploiement classique.
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] le modèle de déploiement classique.
 
 [AZURE.INCLUDE [virtual-network-manage-nsg-arm-scenario-include.md](../../includes/virtual-network-manage-nsg-arm-scenario-include.md)]
 
@@ -87,7 +87,7 @@ Pour afficher la liste des groupes de sécurité réseau dans un groupe de resso
 
 	Get-AzureRmNetworkSecurityGroup -ResourceGroupName RG-NSG
 
-Sortie attendue :
+Sortie attendue :
 
 	Name                 : NSG-BackEnd
 	ResourceGroupName    : RG-NSG
@@ -123,7 +123,7 @@ Pour afficher les règles d’un groupe de sécurité réseau nommé **NSG-Front
 
 	Get-AzureRmNetworkSecurityGroup -ResourceGroupName RG-NSG -Name NSG-FrontEnd | Select SecurityRules -ExpandProperty SecurityRules
 
-Sortie attendue :
+Sortie attendue :
 	
 	Name                     : rdp-rule
 	Id                       : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/RG-NSG/providers/						   Microsoft.Network/networkSecurityGroups/NSG-FrontEnd/securityRules/rdp-rule
@@ -204,7 +204,7 @@ Pour ajouter une règle autorisant le trafic **entrant** vers le port **443** à
 
 		Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
 
-	La sortie attendue affiche uniquement les règles de sécurité :
+	La sortie attendue affiche uniquement les règles de sécurité :
 
 		Name                 : NSG-FrontEnd
 		...
@@ -261,7 +261,7 @@ Pour modifier la règle créée précédemment qui permet d’autoriser le trafi
 
 		Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
 
-	La sortie attendue affiche uniquement les règles de sécurité :
+	La sortie attendue affiche uniquement les règles de sécurité :
 
 		Name                 : NSG-FrontEnd
 		...
@@ -472,7 +472,7 @@ Pour réassocier le groupe de sécurité réseau **NSG-FrontEnd** au sous-résea
 Vous ne pouvez supprimer un groupe de sécurité réseau que s’il n’est associé à aucune ressource. Pour supprimer un groupe de sécurité réseau, procédez comme suit.
 
 1. Pour consulter les ressources associées à un groupe de sécurité réseau, exécutez `azure network nsg show` comme illustré dans [Afficher les associations de groupes de sécurité réseau](#View-NSGs-associations).
-2. Si le groupe de sécurité réseau est associé à des cartes réseau, exécutez `azure network nic set` comme illustré dans [Dissocier un groupe de sécurité réseau d’une carte réseau](#Dissociate-an-NSG-from-a-NIC) pour chaque carte réseau. 
+2. Si le groupe de sécurité réseau est associé à des cartes réseau, exécutez `azure network nic set` comme illustré dans [Dissocier un groupe de sécurité réseau d’une carte réseau](#Dissociate-an-NSG-from-a-NIC) pour chaque carte réseau.
 3. Si le groupe de sécurité réseau est associé à un sous-réseau, exécutez `azure network vnet subnet set` comme illustré dans [Dissocier un groupe de sécurité réseau d’un sous-réseau](#Dissociate-an-NSG-from-a-subnet) pour chaque sous-réseau.
 4. Pour supprimer le groupe de sécurité réseau, exécutez l’applet de commande `Remove-AzureRmNetworkSecurityGroup`, comme indiqué ci-dessous.
 
@@ -484,4 +484,4 @@ Vous ne pouvez supprimer un groupe de sécurité réseau que s’il n’est asso
 
 - [Activez la journalisation](virtual-network-nsg-manage-log.md) des groupes de sécurité réseau.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0810_2016-->

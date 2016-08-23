@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/12/2016" 
+	ms.date="08/04/2016" 
 	ms.author="billmath"/>
 
 # Utilisation de l’application mobile comme méthode de contact avec Azure Multi-Factor Authentication
 
 Si vous souhaitez utiliser l’application mobile comme méthode de contact principale, vous pouvez utiliser cet article. Il vous guide dans la configuration de l’authentification multifacteur pour utiliser votre application mobile comme méthode de contact principale.
 
-L’application Azure Authenticator pour [Windows Phone](http://www.windowsphone.com/en-us/store/app/azure-authenticator/03a5b2bf-6066-418f-b569-e8aecbc06e50), [Android](https://play.google.com/store/apps/details?id=com.azure.authenticator) et [IOS](https://itunes.apple.com/us/app/azure-authenticator/id983156458).
+L’application Azure Authenticator pour [Windows Phone](http://www.windowsphone.com/fr-FR/store/app/azure-authenticator/03a5b2bf-6066-418f-b569-e8aecbc06e50), [Android](https://play.google.com/store/apps/details?id=com.azure.authenticator) et [IOS](https://itunes.apple.com/us/app/azure-authenticator/id983156458).
 
 ## Pour utiliser une application mobile comme méthode de contact
 
@@ -73,4 +73,4 @@ Si vous utilisez un compte tiers avec l'application mobile, entrez le nom du com
 >[AZURE.NOTE]Si la mention « Ajouter un compte professionnel » s'affiche, elle s'applique à la jonction d'espace de travail et non à l'authentification multifacteur. Vous pouvez l'ignorer.
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

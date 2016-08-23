@@ -3,7 +3,7 @@
    description="Apprenez à contrôler le routage et utiliser des appliances virtuelles à l'aide de l'Interface de ligne de commande Azure"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor=""
    tags="azure-resource-manager"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/15/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 #Création d'itinéraires définis par l'utilisateur (UDR) dans l'interface de ligne de commande (CLI) Azure
 
@@ -23,7 +23,7 @@
 
 [AZURE.INCLUDE [virtual-network-create-udr-intro-include.md](../../includes/virtual-network-create-udr-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]Cet article traite du modèle de déploiement de Resource Manager. Vous pouvez également [créer des itinéraires définis par l'utilisateur (UDR) dans le modèle de déploiement classique](virtual-network-create-udr-classic-cli.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)] Cet article traite du modèle de déploiement de Resource Manager. Vous pouvez également [créer des itinéraires définis par l'utilisateur (UDR) dans le modèle de déploiement classique](virtual-network-create-udr-classic-cli.md).
 
 [AZURE.INCLUDE [virtual-network-create-udr-scenario-include.md](../../includes/virtual-network-create-udr-scenario-include.md)]
 
@@ -52,7 +52,7 @@ Pour créer la table de routage et l'itinéraire nécessaires pour le sous-rése
 		data:    Provisioning state              : Succeeded
 		info:    network route-table create command OK
 
-	Paramètres :
+	Paramètres :
 	- **-g (ou --resource-group)**. Nom du groupe de ressources dans lequel sera créé le groupe de sécurité réseau. Pour notre scénario, *TestRG*.
 	- **-l (ou --location)**. Région Azure où le groupe de sécurité réseau sera créé. Pour notre scénario, *westus*.
 	- **-n (ou --name)**. Nom du nouveau groupe de sécurité réseau. Pour notre scénario, *NSG-FrontEnd*.
@@ -76,7 +76,7 @@ Pour créer la table de routage et l'itinéraire nécessaires pour le sous-rése
 		data:    Address prefix                  : 192.168.2.0/24
 		info:    network route-table route create command OK
 
-	Paramètres :
+	Paramètres :
 	- **-r (ou --route-table-name)**. Nom de la table de routage où l'itinéraire sera ajouté. Pour notre scénario, *UDR-FrontEnd*.
 	- **-a (ou --address-prefix)**. Préfixe d'adresse pour le sous-réseau auquel les paquets sont destinés. Pour notre scénario, *192.168.2.0/24*.
 	- **-y (ou --next-hop-type)**. Type d'objet vers lequel le trafic sera envoyé. Les valeurs possibles sont *VirtualAppliance*, *VirtualNetworkGateway*, *VNETLocal*, *Internet* ou *None*.
@@ -110,7 +110,7 @@ Pour créer la table de routage et l'itinéraire nécessaires pour le sous-rése
 		data:    
 		info:    network vnet subnet set command OK
 
-	Paramètres :
+	Paramètres :
 	- **-e (ou --vnet-name)**. Nom du réseau virtuel où le sous-réseau est situé. Pour notre scénario, *TestVNet*.
  
 ## Création des itinéraires définis par l'utilisateur (UDR) pour le sous-réseau Backend
@@ -195,8 +195,8 @@ Pour activer le transfert IP sur la carte réseau utilisée par **FW1**, suivez 
 		data:    
 		info:    network nic set command OK
 
-	Paramètres :
+	Paramètres :
 
 	- **-f (ou --enable-ip-forwarding)**. *true* ou *false*.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0810_2016-->

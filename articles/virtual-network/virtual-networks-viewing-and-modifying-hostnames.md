@@ -3,7 +3,7 @@
    description="Affichage et modification des noms d'hôtes pour les machines virtuelles, les rôles web et les rôles de travail pour la résolution de noms"
    services="virtual-network"
    documentationCenter="na"
-   authors="joaoma"
+   authors="jimdial"
    manager="carmonm"
    editor="tysonn" />
 <tags 
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="04/27/2016"
-   ms.author="joaoma" />
+   ms.author="jdial" />
 
 # Affichage et modification des noms d'hôtes
 
@@ -47,7 +47,7 @@ Une fois que vous avez activé le Bureau à distance (Windows), l’accès dist
 
 À partir d’un client REST. suivez ces instructions :
 
-1. Assurez-vous de disposer d’un certificat client pour vous connecter au portail Azure. Pour obtenir un certificat client, suivez la procédure présentée dans la section [Téléchargement et importation des paramètres de publication et des informations d’abonnement](https://msdn.microsoft.com/library/dn385850.aspx). 
+1. Assurez-vous de disposer d’un certificat client pour vous connecter au portail Azure. Pour obtenir un certificat client, suivez la procédure présentée dans la section [Téléchargement et importation des paramètres de publication et des informations d’abonnement](https://msdn.microsoft.com/library/dn385850.aspx).
 
 1. Définissez une entrée d’en-tête intitulée x-ms-version , présentant une valeur de 2013-11-01.
 
@@ -71,4 +71,4 @@ Pour modifier le nom d’hôte associé à une machine virtuelle ou à une insta
 
 [Définir les paramètres DNS à l'aide de fichiers de configuration réseau](virtual-networks-specifying-a-dns-settings-in-a-virtual-network-configuration-file.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0810_2016-->

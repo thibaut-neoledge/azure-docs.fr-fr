@@ -3,7 +3,7 @@
 	description="Avec le contrôle d’accès conditionnel, Azure Active Directory vérifie les conditions spécifiques que vous choisissez lors de l’authentification de l’utilisateur et avant d’autoriser l’accès à l’application. Une fois que ces conditions sont remplies, l’utilisateur est authentifié et autorisé à accéder à l’application."
 	documentationCenter=""
 	services="active-directory"
-	authors="femila"
+	authors="billmath"
 	manager="stevenpo"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="02/10/2016"
-	ms.author="femila"/>
+	ms.date="08/08/2016"
+	ms.author="billmath"/>
 
 # Planifier le cycle de vie des identités hybrides 
 
@@ -33,19 +33,19 @@ Pour définir les tâches de gestion d'identité hybride, vous devez comprendre 
 
 Lors de la définition de ces exigences, assurez-vous qu'au moins les questions suivantes soient traitées.
 
-- Options d’approvisionnement : 
+- Options d’approvisionnement :
  - La solution d'identité hybride prend-elle en charge un système robuste de gestion des accès et de l'approvisionnement pour les comptes ?
  - Comment les utilisateurs, les groupes et les mots de passe seront-ils gérés ?
- - La gestion du cycle de vie des identités est-elle réactive ? 
+ - La gestion du cycle de vie des identités est-elle réactive ?
       - Combien de temps prend la suspension du compte de mises à jour du mot de passe ?
       
 - Gestion des licences :
  - La solution d'identité hybride gère-t-elle les licences ?
      - Si oui, quelles sont les fonctionnalités disponibles ?
-- La solution gère-t-elle des licences basées sur des groupes ? 
-      - Si oui, est-il possible de lui affecter un groupe de sécurité ? 
-       - Si oui, l'annuaire de cloud affecte-t-il automatiquement des licences à tous les membres du groupe ? 
-        - Que se passera-t-il si un utilisateur est ultérieurement ajouté au groupe ou supprimé ? Une licence sera-t-elle automatiquement affectée ou supprimée selon le cas ? 
+- La solution gère-t-elle des licences basées sur des groupes ?
+      - Si oui, est-il possible de lui affecter un groupe de sécurité ?
+       - Si oui, l'annuaire de cloud affecte-t-il automatiquement des licences à tous les membres du groupe ?
+        - Que se passera-t-il si un utilisateur est ultérieurement ajouté au groupe ou supprimé ? Une licence sera-t-elle automatiquement affectée ou supprimée selon le cas ?
 
 - Intégration avec des fournisseurs d'identité tiers :
 - Cette solution hybride peut-elle être intégrée avec des fournisseurs d'identité tiers pour implémenter l'authentification unique ?
@@ -64,4 +64,4 @@ Un des objectifs d'un gestionnaire d'identités pour être en mesure de mettre t
 ## Voir aussi
 [Présentation des considérations relatives à la conception](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0810_2016-->

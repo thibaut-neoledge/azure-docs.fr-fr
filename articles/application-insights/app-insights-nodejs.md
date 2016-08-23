@@ -54,7 +54,7 @@ La clé identifie la ressource. Vous allez bientôt l’installer dans le Kit de
 ## <a name="sdk"></a> Installer le Kit de développement logiciel (SDK) dans votre application
 
 ```
-npm install applicationinsights
+npm install applicationinsights --save
 ```
 
 ## Utilisation
@@ -224,4 +224,4 @@ server.on("listening", () => {
 [qna]: app-insights-troubleshoot-faq.md
 [roles]: app-insights-resources-roles-access-control.md
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

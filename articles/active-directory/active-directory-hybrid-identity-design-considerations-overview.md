@@ -3,7 +3,7 @@
 	description="Vue d'ensemble et plan du contenu du guide des considérations relatives à la conception des identités hybrides"
 	documentationCenter=""
 	services="active-directory"
-	authors="yuridio"
+	authors="billmath"
 	manager="stevenpo"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="04/25/2016"
-	ms.author="yuridio"/>
+	ms.date="08/08/2016"
+	ms.author="billmath"/>
 
 # Considérations relatives à la conception d'identités hybrides Azure Active Directory
 
@@ -55,4 +55,4 @@ Vous pouvez télécharger une version pdf du guide sur les considérations pour 
 
                                                              
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0810_2016-->

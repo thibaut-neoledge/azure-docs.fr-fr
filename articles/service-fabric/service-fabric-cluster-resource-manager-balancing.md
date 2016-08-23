@@ -68,7 +68,7 @@ Dans l’exemple du bas, la charge maximale sur un nœud est 10 et la valeur min
 Notez que le but n’est pas explicitement de se trouver en-deçà du seuil d’équilibrage : les seuils d’équilibrage servent simplement de *déclencheurs* indiquant à Service Fabric Cluster Resource Manager qu’il serait judicieux d’examiner le cluster afin d’identifier les améliorations qu’il pourrait éventuellement apporter.
 
 ## Seuils d’activité
-Parfois, même si des nœuds sont relativement déséquilibrés, la quantité totale de charge dans le cluster est faible. Cela peut être simplement dû à l’heure de la journée ou au fait qu’il s’agit d’un nouveau cluster qui vient juste d’être amorcé. Dans les deux cas, ne consacrez pas trop de temps à l’équilibrage, car les gains liés au déplacement sont minimes. Ce qui est sûr, c’est que vous allez consommer des ressources réseau et de calcul. Resource Manager comprend un autre contrôle, appelé « seuil d’activité ». Celui-ci permet de spécifier une limite inférieure absolue pour une activité. Si aucun nœud ne dispose au moins de cette quantité de charge, l’équilibrage n’est pas déclenché, et ce même si le seuil d’équilibrage est atteint. Prenons un exemple : nos rapports indiquent les totaux de consommation suivants sur ces nœuds. Notre seuil d’équilibrage est toujours de 3, mais notre seuil d’activité est désormais de 1 536. Dans le premier cas, bien que le cluster soit déséquilibré selon le seuil d’équilibrage, aucun nœud ne répond au seuil minimum d’activité. Donc, nous ne changeons rien. Dans l’exemple du bas, Node1 dépasse largement le seuil d’activité : l’équilibrage a donc bien lieu.
+Parfois, même si des nœuds sont relativement déséquilibrés, la quantité totale de charge dans le cluster est faible. Cela peut être simplement dû à l’heure de la journée ou au fait qu’il s’agit d’un nouveau cluster qui vient juste d’être amorcé. Dans les deux cas, ne consacrez pas trop de temps à l’équilibrage, car les gains liés au déplacement sont minimes. Ce qui est sûr, c’est que vous allez consommer des ressources réseau et de calcul. Resource Manager comprend un autre contrôle, appelé « seuil d’activité ». Celui-ci permet de spécifier une limite inférieure absolue pour une activité. Si aucun nœud n’a une charge supérieure, l’équilibrage n’est pas déclenché, et ce même si le seuil d’équilibrage est atteint. Prenons un exemple : nos rapports indiquent les totaux de consommation suivants sur ces nœuds. Notre seuil d’équilibrage est toujours de 3, mais notre seuil d’activité est désormais de 1 536. Dans le premier cas, bien que le cluster soit déséquilibré selon le seuil d’équilibrage, aucun nœud ne répond au seuil minimum d’activité. Donc, nous ne changeons rien. Dans l’exemple du bas, Node1 dépasse largement le seuil d’activité : l’équilibrage a donc bien lieu.
 
 ![Exemple de seuil d’activité][Image3]
 
@@ -81,6 +81,8 @@ ClusterManifest.xml
       <Parameter Name="Memory" Value="1536"/>
     </Section>
 ```
+
+Notez que les seuils d’équilibrage et d’activité sont tous deux liés à la métrique : l’équilibrage ne sera déclenché que si les seuils d’équilibrage et d’activité sont tous deux dépassés pour la même métrique. Par conséquent, si nous dépassons le seuil d’équilibrage pour la mémoire et le seuil d’activité pour l’UC, l’équilibrage ne se déclenchera pas tant que les seuils restants (seuil d’équilibrage pour l’UC et seuil d’activité pour la mémoire) ne seront pas dépassés.
 
 ## Équilibrage de plusieurs services en même temps
 Il est intéressant de noter que l’état de déséquilibrage du cluster est une décision qui porte sur l’ensemble du cluster, mais que la procédure que nous suivons pour corriger cette situation consiste à déplacer individuellement des instances et des réplicas de service. Logique, n’est-ce pas ? Si la mémoire est empilée sur un nœud, plusieurs réplicas ou instances peuvent être impliqués. Il peut donc être nécessaire de déplacer l’ensemble des réplicas ou des instances qui utilisent la métrique déséquilibrée affectée.
@@ -109,4 +111,4 @@ Chaque fois qu’il s’exécute, Resource Manager détermine automatiquement le
 [Image4]: ./media/service-fabric-cluster-resource-manager-balancing/cluster-resource-manager-balancing-services-together1.png
 [Image5]: ./media/service-fabric-cluster-resource-manager-balancing/cluster-resource-manager-balancing-services-together2.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

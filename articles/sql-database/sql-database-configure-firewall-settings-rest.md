@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article" 
-	ms.date="06/15/2016"
+	ms.date="08/09/2016"
 	ms.author="sstein"/>
 
 
@@ -31,37 +31,38 @@
 
 Base de données SQL Microsoft Azure utilise des règles de pare-feu pour autoriser les connexions à vos serveurs et aux bases de données. Vous pouvez définir des paramètres de pare-feu au niveau du serveur et au niveau de la base de données pour le master ou une base de données utilisateur sur votre serveur de Base de données SQL Azure pour autoriser l’accès à la base de données de façon sélective.
 
-> [AZURE.IMPORTANT] Pour autoriser des applications d’Azure à se connecter à votre serveur de base de données, les connexions Azure doivent être activées. Pour plus d’informations sur les règles de pare-feu et l’activation des connexions à partir d’Azure, voir [Pare-feu de la base de données SQL Azure](sql-database-firewall-configure.md). Si vous effectuez des connexions dans la limite du cloud Azure, vous devez peut-être ouvrir des ports TCP supplémentaires. Pour plus d’informations, voir la section **V12 de SQL Database : exécution externe ou exécution interne** de [Ports au-delà de 1433 pour ADO.NET 4.5 et SQL Database V12](sql-database-develop-direct-route-ports-adonet-v12.md).
+> [AZURE.IMPORTANT] Pour autoriser des applications d’Azure à se connecter à votre serveur de base de données, les connexions Azure doivent être activées. Pour plus d’informations sur les règles de pare-feu et l’activation des connexions à partir d’Azure, voir [Pare-feu de la base de données SQL Azure](sql-database-firewall-configure.md). Si vous effectuez des connexions dans la limite du cloud Azure, vous devrez peut-être ouvrir des ports TCP supplémentaires. Pour plus d’informations, voir la section **V12 de SQL Database : exécution externe ou exécution interne** de [Ports au-delà de 1433 pour ADO.NET 4.5 et SQL Database V12](sql-database-develop-direct-route-ports-adonet-v12.md).
 
 
 ## Gestion des règles de pare-feu au niveau du serveur via un API REST
-1. La gestion des règles de pare-feu via l’API REST doit être authentifiée. Pour plus d’informations, consultez Authentification des requêtes de gestion de Service.
+1. La gestion des règles de pare-feu via l’API REST doit être authentifiée. Pour plus d’informations, consultez [Guide du développeur pour l’authentification avec l’API Azure Resource Manager](../resource-manager-api-authentication.md).
 2. Les règles au niveau du serveur peuvent être créées, mises à jour ou supprimées via API REST
 
-	Pour créer ou mettre à jour une règle de pare-feu au niveau du serveur, exécutez la méthode POST à l’aide des éléments suivants :
+	Pour créer ou mettre à jour une règle de pare-feu au niveau du serveur, exécutez la méthode PUT à l’aide des éléments suivants :
  
-		https://management.core.windows.net:8443/{subscriptionId}/services/sqlservers/servers/Contoso/firewallrules
+		https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/firewallRules/{rule-name}?api-version={api-version}
 	
 	Corps de la requête
 
-		<ServiceResource xmlns="http://schemas.microsoft.com/windowsazure">
-		  <Name>ContosoFirewallRule</Name>
-		  <StartIPAddress>192.168.1.4</StartIPAddress>
-		  <EndIPAddress>192.168.1.10</EndIPAddress>
-		</ServiceResource>
+		{
+         "properties": { 
+            "startIpAddress": "{start-ip-address}", 
+            "endIpAddress": "{end-ip-address}
+            }
+        } 
  
 
 	Pour supprimer une règle de pare-feu au niveau du serveur, exécutez la méthode DELETE à l’aide des éléments suivants :
 	 
-		https://management.core.windows.net:8443/{subscriptionId}/services/sqlservers/servers/Contoso/firewallrules/ContosoFirewallRule
+		https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/firewallRules/{rule-name}?api-version={api-version}
 
 
-## Gérer les règles de pare-feu à l’aide de l’API REST de gestion de Service
+## Gérer les règles de pare-feu à l’aide de l’API REST
 
-* [Créer une règle de pare-feu](https://msdn.microsoft.com/library/azure/dn505712.aspx)
-* [Supprimer une règle de pare-feu](https://msdn.microsoft.com/library/azure/dn505706.aspx)
-* [Obtenir une règle de pare-feu](https://msdn.microsoft.com/library/azure/dn505698.aspx)
-* [Répertorier les règles de pare-feu](https://msdn.microsoft.com/library/azure/dn505715.aspx)
+* [Créer ou mettre à jour une règle de pare-feu](https://msdn.microsoft.com/library/azure/mt445501.aspx)
+* [Supprimer une règle de pare-feu](https://msdn.microsoft.com/library/azure/mt445502.aspx)
+* [Obtenir une règle de pare-feu](https://msdn.microsoft.com/library/azure/mt445503.aspx)
+* [Répertorier toutes les règles de pare-feu](https://msdn.microsoft.com/library/azure/mt604478.aspx)
  
 ## Étapes suivantes
 
@@ -72,7 +73,7 @@ Pour lire des articles sur la création de règles de pare-feu de niveau du serv
 - [Configurer des règles de pare-feu au niveau du serveur sur une base de données SQL Azure à l’aide du portail Azure](sql-database-configure-firewall-settings.md)
 - [Configurer des règles de pare-feu au niveau du serveur sur une base de données SQL Azure à l’aide de PowerShell](sql-database-configure-firewall-settings-powershell.md)
 
-Pour obtenir un didacticiel sur la création d’une base de données, consultez [Créer une base de données SQL en quelques minutes à l’aide du portail Azure](sql-database-get-started.md). Pour obtenir de l’aide afin de vous connecter à une base de données SQL Azure à partir d’applications open source ou tierces, consultez [Exemples de code de démarrage rapide client pour SQL Database](https://msdn.microsoft.com/library/azure/ee336282.aspx). Pour comprendre comment naviguer dans les bases de données, consultez [Gérer la sécurité d’accès et de connexion aux bases de données](https://msdn.microsoft.com/library/azure/ee336235.aspx).
+Pour obtenir un didacticiel sur la création d’une base de données, consultez [Créer une base de données SQL en quelques minutes à l’aide du portail Azure](sql-database-get-started.md). Pour obtenir de l’aide afin de vous connecter à une base de données SQL Azure à partir d’applications open source ou tierces, consultez [Exemples de code de démarrage rapide client pour Base de données SQL](https://msdn.microsoft.com/library/azure/ee336282.aspx). Pour comprendre comment naviguer dans les bases de données, consultez [Gérer la sécurité d’accès et de connexion aux bases de données](https://msdn.microsoft.com/library/azure/ee336235.aspx).
 
 
 ## Ressources supplémentaires
@@ -87,4 +88,4 @@ Pour obtenir un didacticiel sur la création d’une base de données, consultez
 
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0810_2016-->

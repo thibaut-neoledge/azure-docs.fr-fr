@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"
+	ms.date="08/09/2016"
 	ms.author="juliako"/>
 
 
@@ -26,93 +26,475 @@
 
 > [AZURE.NOTE] Pour pouvoir créer un compte Azure Media Services, vous devez disposer d’un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Version d'évaluation gratuite d'Azure</a>.
 
-##Vue d’ensemble 
+##Vue d'ensemble 
 
-Cet article vous explique comment utiliser les applets de commande PowerShell pour gérer des comptes Azure Media Services.
+Cet article répertorie les applets de commande Azure PowerShell pour Azure Media Services (AMS) dans le framework Azure Resource Manager. Les applets de commande existent dans l'espace de noms **Microsoft.Azure.Commands.Media**.
 
->[AZURE.NOTE]
-Pour suivre ce didacticiel, vous avez besoin d'un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Version d'évaluation gratuite d'Azure</a>.
+## Versions
 
-##Installer les applets de commande Microsoft Azure PowerShell
+**ApiVersion** : "2015-10-01"
+               
 
-Pour installer les dernières applets de commande PowerShell Azure, consultez [Comment installer et configurer Azure PowerShell](../powershell-install-configure.md)
+## New-AzureRmMediaService
 
-##Sélectionner l’abonnement Azure
+Créez un service multimédia.
 
-Une fois les applets de commande PowerShell installées et configurées, vous devez spécifier l’abonnement dans lequel vous souhaitez travailler.
+### Syntaxe
 
-Pour obtenir la liste des abonnements disponibles, exécutez l’applet de commande suivante :
+Jeu de paramètres : StorageAccountIdParamSet
 
-	PS C:\> Get-AzureSubscription
+	New-AzureRmMediaService [-ResourceGroupName] <string> [-AccountName] <string> [-Location] <string> [-StorageAccountId] <string> [-Tags <hashtable>]  [<CommonParameters>]
 
-Ensuite, sélectionnez-en un en exécutant :
+Jeu de paramètres : StorageAccountsParamSet
 
-	PS C:\> Select-AzureSubscription "TestSubscription"
+	New-AzureRmMediaService [-ResourceGroupName] <string> [-AccountName] <string> [-Location] <string> [-StorageAccounts] <PSStorageAccount[]> [-Tags <hashtable>]  [<CommonParameters>]
 
- 
-##Obtenir le nom du compte de stockage
+### Paramètres
 
-Azure Media Services utilise Azure Storage pour stocker le contenu multimédia. Lorsque vous créez un compte Media Services, vous devez l’associer à un compte de stockage. Le compte de stockage doit appartenir au même abonnement que celui que vous prévoyez d’utiliser pour votre compte Media Services.
+**-ResourceGroupName &lt;String&gt;**
 
-Dans cet exemple, un compte de stockage existant est utilisé. La cmdlet [Get-AzureStorageAccount](https://msdn.microsoft.com/library/azure/dn495134.aspx) permet d’obtenir les comptes de stockage au sein de l’abonnement actuel. Obtenez le nom (StorageAccountName) du compte de stockage auquel vous souhaitez associer votre compte Media Services actuel.
+Spécifie le nom du groupe de ressources auquel appartient ce service multimédia.
 
-	StorageAccountDescription : 
-	AffinityGroup             :
-	Location                  : East US
-	GeoReplicationEnabled     : True
-	GeoPrimaryLocation        : East US
-	GeoSecondaryLocation      : West US
-	Label                     : storagetest001
-	StorageAccountStatus      : Created
-	StatusOfPrimary           : Available
-	StatusOfSecondary         : Available
-	Endpoints                 : {https://storagetest001.blob.core.windows.net/,
-	                            https://storagetest001.queue.core.windows.net/,
-	                            https://storagetest001.table.core.windows.net/}
-	AccountType               : Standard_GRS
-	StorageAccountName        : storatetest001
-	OperationDescription      : Get-AzureStorageAccount
-	OperationId               : e919dd56-7691-96db-8b3c-2ceee891ae5d
-	OperationStatus           : Succeeded
+Alias | (aucun)
+---|---
+Requis ? | true
+Position ? | 0
+Valeur par défaut |(aucun)
+Accepter l'entrée de pipeline ? |True(ByPropertyName)
+Accepter les caractères génériques ? |false
 
-##Créer un compte Media Services
+**-AccountName &lt;String&gt;**
 
-Pour créer un compte Azure Media Services, utilisez l’applet de commande [New-AzureMediaServicesAccount](https://msdn.microsoft.com/library/azure/dn495286.aspx) en fournissant le nom du compte Media Services, l’emplacement du centre de données où il sera créé et le nom du compte de stockage.
+Spécifie le nom du service multimédia.
 
+Alias |Name
+---|---
+Requis ? |true
+Position ? |1
+Valeur par défaut |(aucun)
+Accepter l'entrée de pipeline ? |false
+Accepter les caractères génériques ? |false
 
-	PS C:\> New-AzureMediaServicesAccount -Name "amstestaccount001" -StorageAccountName "storagetest001" -Location "East US"
+**-Location &lt;String&gt;**
 
-##Obtenir les comptes Media Services
+Spécifie l’emplacement de la ressource du service multimédia.
 
-Une fois que vous avez créé un ou plusieurs comptes Media Services, vous pouvez répertorier les informations associées à l’aide de [Get-AzureMediaServicesAccount](https://msdn.microsoft.com/library/azure/dn495286.aspx)
+Alias |(aucun)
+---|---
+Requis ? |true
+Position ? |2
+Valeur par défaut |(aucun)
+Accepter l'entrée de pipeline ? |True(ByPropertyName)
+Accepter les caractères génériques ? |false
 
-	
-	PS C:\> Get-AzureMediaServicesAccount
-	
-	AccountId		Name				State
-	---------       ----       			 -----
-	xxxxxxxxxx      amstestaccount001   Active
+**-StorageAccountId &lt;String&gt;**
 
-En fournissant le paramètre Name, vous obtiendrez des informations plus détaillées, notamment les clés des comptes.
+Spécifie un compte de stockage principal associé au service multimédia.
 
-	PS C:\> Get-AzureMediaServicesAccount -Name amstestaccount001
+- Seul le nouveau compte de stockage (créé avec l’API Resource Manager) est pris en charge.
 
-##Régénérer les clés d’accès Media Services
+- Le compte de stockage doit exister et figurer dans le même emplacement que le service multimédia.
 
-Si vous souhaitez mettre à jour la clé d’accès primaire ou secondaire Media Services, utilisez [New-AzureMediaServicesKey](https://msdn.microsoft.com/library/azure/dn495215.aspx). Vous devez fournir le nom du compte et indiquer quelle clé vous souhaitez régénérer (primaire ou secondaire).
+Alias |(aucun)
+---|---
+Requis ? |true
+Position ? |3
+Valeur par défaut |(aucun)
+Accepter l'entrée de pipeline ? |True(ByPropertyName)
+Nom du jeu de paramètres |StorageAccountIdParamSet
+Accepter les caractères génériques ?|false
 
-Spécifiez un commutateur -Force si vous ne souhaitez pas que PowerShell pose de questions de confirmation.
+**-StorageAccounts &lt;PSStorageAccount[]&gt;**
 
-	PS C:\> New-AzureMediaServicesKey -Name "amstestaccount001" -KeyType "Primary" -Force
+Spécifie les comptes de stockage associés au service multimédia.
 
-##Supprimer le compte Media Services
+- Seul le nouveau compte de stockage (créé avec l’API Resource Manager) est pris en charge.
 
-Quand vous êtes prêt à supprimer le compte Azure Media, utilisez [Remove-AzureMediaServicesAccount](https://msdn.microsoft.com/library/azure/dn495220.aspx).
+- Le compte de stockage doit exister et figurer dans le même emplacement que le service multimédia.
 
-	PS C:\> Remove-AzureMediaServicesAccount -Name "amstestaccount001" -Force
+- Un seul compte de stockage peut être spécifié comme compte principal.
 
+Alias |(aucun)
+---|---
+Requis ? |true
+Position ? |3
+Valeur par défaut |(aucun)
+Accepter l'entrée de pipeline ? |True(ByPropertyName)
+Nom du jeu de paramètres |StorageAccountsParamSet
+Accepter les caractères génériques ? |false
 
-##Parcours d’apprentissage de Media Services
+**-Tags &lt;Hashtable&gt;**
+
+Spécifie une table de hachage des balises qui sont associées au service multimédia.
+
+- Exemple : @{"tag1"="value1";"tag2"=:value2"}
+
+Alias |(aucun)
+---|---
+Requis ? |false
+Position ? |named
+Valeur par défaut |(aucun)
+Accepter l'entrée de pipeline ? |false
+Accepter les caractères génériques ? |false
+
+**&lt;CommandParameters&gt;**
+
+Cette applet de commande prend en charge les paramètres courants : -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction et -WarningVariable.
+
+### Entrées
+
+Le type d’entrée est le type des objets que vous pouvez envoyer à l’applet de commande.
+
+### Sorties
+
+Le type de sortie est le type des objets émis par l'applet de commande.
+
+## Set-AzureRmMediaService
+
+Met à jour un service multimédia.
+
+### Syntaxe
+
+	Set-AzureRmMediaService [-ResourceGroupName] <string> [-AccountName] <string> [-Tags <hashtable>] [-StorageAccounts <PSStorageAccount[]>]  [<CommonParameters>]
+
+### Paramètres
+
+**-ResourceGroupName &lt;String&gt;**
+
+Spécifie le nom du groupe de ressources auquel appartient ce service multimédia.
+
+Alias |(aucun)
+---|---
+Requis ? |true
+Position ? |0
+Valeur par défaut |(aucun)
+Accepter l'entrée de pipeline ? |True(ByPropertyName)
+Accepter les caractères génériques ? |false
+
+**-AccountName &lt;String&gt;**
+
+Spécifie le nom du service multimédia.
+
+Alias |Name
+---|---
+Requis ? |True
+Position ? |1
+Valeur par défaut |Aucun
+Accepter l'entrée de pipeline ? |True(ByPropertyName)
+Accepter les caractères génériques ? |False
+
+**-StorageAccounts &lt;PSStorageAccount[]&gt;**
+
+Spécifie les comptes de stockage associés au service multimédia.
+
+- Seul le nouveau compte de stockage (créé avec l’API Resource Manager) est pris en charge.
+
+- Le compte de stockage doit exister et figurer dans le même emplacement que le service multimédia.
+
+- Un seul compte de stockage peut être spécifié comme compte principal.
+
+Alias |(aucun)
+---|---
+Requis ? |false
+Position ? |Nommé
+Valeur par défaut |(aucun)
+Accepter l'entrée de pipeline ? |True(ByPropertyName)
+Nom du jeu de paramètres |StorageAccountsParamSet
+Accepter les caractères génériques ? |false
+
+**-Tags &lt;Hashtable&gt;**
+
+Spécifie une table de hachage des balises qui sont associées à ce service multimédia.
+
+- Les balises associées au service multimédia sont remplacées par la valeur spécifiée par le client.
+
+Alias |(aucun)
+---|---
+Requis ? |False
+Position ? |Nommé
+Valeur par défaut |Aucun
+Accepter l'entrée de pipeline ? |True(ByPropertyName)
+Accepter les caractères génériques ? |false
+
+**&lt;CommandParameters&gt;**
+
+Cette applet de commande prend en charge les paramètres courants : -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction et -WarningVariable.
+
+### Entrées
+
+Le type d’entrée est le type des objets que vous pouvez envoyer à l’applet de commande.
+
+### Sorties
+
+Le type de sortie est le type des objets émis par l'applet de commande.
+
+## Remove-AzureRmMediaService
+
+Supprime un service multimédia.
+
+### Syntaxe
+
+	Remove-AzureRmMediaService [-ResourceGroupName] <string> [-AccountName] <string>  [<CommonParameters>]
+
+### Paramètres
+
+**-ResourceGroupName &lt;String&gt;**
+
+Spécifie le nom du groupe de ressources auquel appartient ce service multimédia.
+
+Alias |(aucun)
+---|---
+Requis ? |true
+Position ? |0
+Valeur par défaut |(aucun)
+Accepter l'entrée de pipeline ? |True(ByPropertyName)
+Accepter les caractères génériques ? |false
+
+**-AccountName &lt;String&gt;**
+
+Spécifie le nom du service multimédia.
+
+Alias |(aucun)
+---|---
+Requis ? |true
+Position ? |2
+Valeur par défaut |Aucun
+Accepter l'entrée de pipeline ? |True(ByPropertyName)
+Accepter les caractères génériques ? |False
+
+**&lt;CommandParameters&gt;**
+
+Cette applet de commande prend en charge les paramètres courants : -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction et -WarningVariable.
+
+### Entrées
+
+Le type d’entrée est le type des objets que vous pouvez envoyer à l’applet de commande.
+
+### Sorties
+
+Le type de sortie est le type des objets émis par l'applet de commande.
+
+## Get-AzureRmMediaService
+
+Obtient tous les services multimédia d'un groupe de ressources ou un service multimédia avec un nom donné.
+
+### Syntaxe
+
+Jeu de paramètres : ResourceGroupParameterSet
+
+	Get-AzureRmMediaService [-ResourceGroupName] <string>  [<CommonParameters>]	
+
+Jeu de paramètres : AccountNameParameterSet
+
+	Get-AzureRmMediaService [-ResourceGroupName] <string> [-AccountName] <string>  [<CommonParameters>]
+
+### Paramètres
+
+**-ResourceGroupName &lt;String&gt;**
+
+Spécifie le nom du groupe de ressources auquel appartient ce service multimédia.
+
+Alias |(aucun)
+---|---
+Requis ? |true
+Position ? |0
+Valeur par défaut |(aucun)
+Accepter l'entrée de pipeline ? |True(ByPropertyName)
+Nom du jeu de paramètres |ResourceGroupParameterSet, AccountNameParameterSet
+Accepter les caractères génériques ? false
+
+**-AccountName &lt;String&gt;**
+
+Spécifie le nom du service multimédia.
+
+Alias |(aucun)
+---|---
+Requis ? |true
+Position ? |1
+Valeur par défaut |(aucun)
+Accepter l'entrée de pipeline ? |True(ByPropertyName)
+Nom du jeu de paramètres |AccountNameParameterSet
+Accepter les caractères génériques ? |false
+
+**&lt;CommandParameters&gt;**
+
+Cette applet de commande prend en charge les paramètres courants : -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction et -WarningVariable.
+
+### Entrées
+
+Le type d’entrée est le type des objets que vous pouvez envoyer à l’applet de commande.
+
+### Sorties
+
+Le type de sortie est le type des objets émis par l'applet de commande.
+
+## Get-AzureRmMediaServiceKeys
+
+Obtient les clés d’un service multimédia.
+
+### Syntaxe
+
+	Get-AzureRmMediaServiceKeys [-ResourceGroupName] <string> [-AccountName] <string>  [<CommonParameters>]
+
+### Paramètres
+
+**-ResourceGroupName &lt;String&gt;**
+
+Spécifie le nom du groupe de ressources auquel appartient ce service multimédia.
+
+Alias |(aucun)
+---|---
+Requis ? |true
+Position ? |0
+Valeur par défaut |(aucun)
+Accepter l'entrée de pipeline ? |True(ByPropertyName)
+Accepter les caractères génériques ? |false
+
+**-AccountName &lt;String&gt;**
+
+Spécifie le nom du service multimédia.
+
+Alias |(aucun)
+---|---
+Requis ? |true
+Position ? |1
+Valeur par défaut |(aucun)
+Accepter l'entrée de pipeline ? |True(ByPropertyName)
+Accepter les caractères génériques ? |false
+
+**&lt;CommandParameters&gt;**
+
+Cette applet de commande prend en charge les paramètres courants : -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction et -WarningVariable.
+
+### Entrées
+
+Le type d’entrée est le type des objets que vous pouvez envoyer à l’applet de commande.
+
+### Sorties
+
+Le type de sortie est le type des objets émis par l'applet de commande.
+
+## Set-AzureRmMediaServiceKey
+
+Régénère une clé primaire ou secondaire d’un service multimédia.
+
+### Syntaxe
+
+	Set-AzureRmMediaServiceKey [-ResourceGroupName] <string> [-AccountName] <string> [-KeyType] <KeyType> {Primary | Secondary}  [<CommonParameters>]
+
+### Paramètres
+
+**-ResourceGroupName &lt;String&gt;**
+
+Spécifie le nom du groupe de ressources auquel appartient ce service multimédia.
+
+Alias |(aucun)
+---|---
+Requis ? |true
+Position ? |0
+Valeur par défaut |(aucun)
+Accepter l'entrée de pipeline ? |True(ByPropertyName)
+Accepter les caractères génériques ? |false
+
+**-AccountName &lt;String&gt;**
+
+Spécifie le nom du service multimédia.
+
+Alias |(aucun)
+---|---
+Requis ? |true
+Position ? |1
+Valeur par défaut |(aucun)
+Accepter l'entrée de pipeline ? |True(ByPropertyName)
+Accepter les caractères génériques ? |false
+
+**-KeyType &lt;KeyType&gt;**
+
+Spécifie le type de clé du service multimédia.
+
+- Principal ou secondaire
+
+Alias |(aucun)
+---|---
+Requis ? |true
+Position ? |2
+Valeur par défaut |(aucun)
+Accepter l'entrée de pipeline ? |false
+Accepter les caractères génériques ? |false
+
+**&lt;CommandParameters&gt;**
+
+Cette applet de commande prend en charge les paramètres courants : -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction et -WarningVariable.
+
+### Entrées
+
+Le type d’entrée est le type des objets que vous pouvez envoyer à l’applet de commande.
+
+### Sorties
+
+Le type de sortie est le type des objets émis par l'applet de commande.
+
+## Sync-AzureRmMediaServiceStorageKeys
+
+Synchronise les clés de compte de stockage pour un compte de stockage associé au service multimédia.
+
+### Syntaxe
+
+	Sync-AzureRmMediaServiceStorageKeys [-ResourceGroupName] <string> [-MediaServiceAccountName] <string>    [-StorageAccountName] <string>  [<CommonParameters>]
+
+### Paramètres
+
+**-ResourceGroupName &lt;String&gt;**
+
+Spécifie le nom du groupe de ressources auquel appartient ce service multimédia.
+
+Alias |(aucun)
+---|---
+Requis ? |true
+Position ? |0
+Valeur par défaut |(aucun)
+Accepter l'entrée de pipeline ? |True(ByPropertyName)
+Accepter les caractères génériques ? |false
+
+**-AccountName &lt;String&gt;**
+
+Spécifie le nom du service multimédia.
+
+Alias |(aucun)
+---|---
+Requis ? |true
+Position ? |1
+Valeur par défaut |(aucun)
+Accepter l'entrée de pipeline ? |True(ByPropertyName)
+Accepter les caractères génériques ? |false
+
+**-StorageAccountId &lt;String&gt;**
+
+Spécifie le compte de stockage associé au service multimédia.
+
+Alias |ID
+---|---
+Requis ? |true
+Position ? |2
+Valeur par défaut |(aucun)
+Accepter l'entrée de pipeline ? | True(ByPropertyName)
+Accepter les caractères génériques ? |false
+
+**&lt;CommandParameters&gt;**
+
+Cette applet de commande prend en charge les paramètres courants : -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction et -WarningVariable.
+
+### Entrées
+
+Le type d’entrée est le type des objets que vous pouvez envoyer à l’applet de commande.
+
+### Sorties
+
+Le type de sortie est le type des objets émis par l'applet de commande.
+
+## Étape suivante 
+
+Consultez les chemins d’apprentissage de Media Services.
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -122,4 +504,4 @@ Quand vous êtes prêt à supprimer le compte Azure Media, utilisez [Remove-Azur
 
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0810_2016-->

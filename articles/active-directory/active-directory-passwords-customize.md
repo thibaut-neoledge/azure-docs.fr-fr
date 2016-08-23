@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/12/2016"
+	ms.date="08/03/2016"
 	ms.author="asteen"/>
 
 # Personnalisation de la gestion des mots de passe en fonction des besoins de votre organisation
@@ -851,7 +851,7 @@ Le tableau suivant décrit comment chaque contrôle affecte l’expérience des 
                   <li class="unordered">
 												Si la valeur est définie sur Oui, chaque fois qu’un utilisateur ou qu’un administrateur réinitialise son propre mot de passe, il reçoit une notification indiquant que son mot de passe a été réinitialisé.<br><br></li>
                   <li class="unordered">
-												Cette notification est envoyée via un courrier électronique à l’adresse principale et à l’autre adresse électronique (ou adresse électronique d’authentification) de l’utilisateur qui réinitialise son mot de passe.<br><br></li>
+												Cette notification est envoyée via un courrier électronique au nom d’utilisateur principal et à l’autre adresse électronique (ou adresse électronique d’authentification) de l’utilisateur qui réinitialise son mot de passe.<br><br></li>
                 </ul>
               </td>
             </tr>
@@ -875,4 +875,4 @@ Voici les liens vers toutes les pages de la documentation sur la réinitialisati
 
 [001]: ./media/active-directory-passwords-customize/001.jpg "Image_001.jpg"
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0810_2016-->

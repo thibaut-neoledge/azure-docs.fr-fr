@@ -15,7 +15,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="05/25/2016"
+	ms.date="08/10/2016"
 	ms.author="jgao"/>
 
 # Prise en main des outils Hadoop de Visual Studio pour HDInsight pour exécuter une requête Hive
@@ -64,14 +64,14 @@ Avec HDInsight Tools pour Visual Studio, vous pouvez vous connecter à vos clust
 2.	Dans le menu **Affichage**, cliquez sur **Explorateur de serveurs** pour ouvrir la fenêtre du même nom.
 3.	Développez **Azure**, puis **HDInsight**.
 
-	>[AZURE.NOTE]Notez que la fenêtre **Liste des tâches HDInsight** doit s’ouvrir. Si vous ne la voyez pas, cliquez sur **Autres fenêtres** dans le menu **Affichage**, puis cliquez sur **Fenêtre de liste des tâches HDInsight**.  
-4.	Entrez les informations d’identification de votre abonnement Azure, puis cliquez sur **Connexion**. Cette étape n’est nécessaire que si vous ne vous êtes jamais connecté à l’abonnement Azure à partir de Visual Studio sur cette station de travail.
+	>[AZURE.NOTE]Notez que la fenêtre **Liste des tâches HDInsight** doit s’ouvrir. Si vous ne la voyez pas, cliquez sur **Autres fenêtres** dans le menu **Affichage**, puis cliquez sur **Fenêtre de liste des tâches HDInsight**.
+4.	Entrez les informations d’identification de votre abonnement Azure, puis cliquez sur **Se connecter**. Cette étape n’est obligatoire que si vous ne vous êtes jamais connecté à l’abonnement Azure à partir de Visual Studio sur ce poste de travail.
 5.	Dans l’explorateur de serveurs, vous verrez une liste des clusters HDInsight existants. Si vous ne possédez aucun cluster, vous pouvez en approvisionner un dans le portail Azure, avec Azure PowerShell ou à l’aide du Kit de développement logiciel (SDK) HDInsight. Pour plus d’informations, consultez la rubrique [Configuration de clusters HDInsight][hdinsight-provision].
 
 	![Outils Hadoop : liste de clusters de l’explorateur de serveurs de HDInsight Tools pour Visual Studio][5]
 6.	Développez un cluster HDInsight. Vous devez voir les **bases de données Hive**, un compte de stockage par défaut, les comptes de stockage liés et le **journal Hadoop Service**. Vous pouvez développer davantage les entités.
 
-Une fois connecté à votre abonnement Azure, vous serez en mesure d’effectuer les opérations suivantes :
+Une fois connecté à votre abonnement Azure, vous serez en mesure d’effectuer les opérations suivantes :
 
 **Pour vous connecter au Portail de gestion à partir de Visual Studio**
 
@@ -86,6 +86,11 @@ Une fois connecté à votre abonnement Azure, vous serez en mesure d’effectuer
 Dans l’Explorateur de serveurs, vous pouvez voir le compte de stockage par défaut et les éventuels comptes de stockage liés. Développez le compte de stockage par défaut pour afficher les conteneurs dans le compte de stockage. Le compte de stockage par défaut et le conteneur par défaut sont marqués. Vous pouvez aussi cliquer avec le bouton droit sur n’importe quel conteneur pour afficher son contenu.
 
 ![Liste de clusters de l’explorateur de serveurs de HDInsight Tools pour Visual Studio][2]
+
+Après l’ouverture du conteneur, vous pouvez utiliser les boutons suivants pour charger, supprimer et télécharger des objets blob :
+
+![Opérations blob de l’explorateur de serveurs de HDInsight Tools pour Visual Studio](./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.blob.operations.png)
+
 
 ## Exécution d'une tâche Hive
 [Apache Hive][apache.hive] est une infrastructure d’entrepôt de données basée sur Hadoop qui permet de synthétiser, d’interroger et d’analyser des données. HDInsight Tools pour Visual Studio prend en charge l’exécution de requêtes Hive à partir de Visual Studio. Pour plus d'informations sur Hive, consultez l'article [Utilisation de Hive avec HDInsight][hdinsight.hive].
@@ -104,7 +109,7 @@ Les clusters HDInsight sont fournis avec un exemple de table Hive qui porte le n
 1.	À partir de l’**Explorateur de serveurs**, développez **Azure** > **HDInsight** > le cluster de votre choix > **Bases de données Hive** > **Par défaut** > **hivesampletable** pour afficher le schéma de table.
 4.	Cliquez avec le bouton droit sur **hivesampletable**, puis cliquez sur **Afficher les 100 premières lignes** pour répertorier les lignes. Cela revient à exécuter la requête Hive suivante à l’aide du pilote ODBC Hive :
 
-		SELECT * FROM hivesampletable LIMIT 100
+		SELECT* FROM hivesampletable LIMIT 100
 
 	Vous pouvez personnaliser le nombre de lignes.
 
@@ -132,7 +137,7 @@ Vous pouvez créer et exécuter des requêtes Hive de deux manières :
 
 1. Dans l’**Explorateur de serveurs**, développez **Azure**, puis **Clusters HDInsight**.
 2. Cliquez avec le bouton droit sur le cluster dans lequel vous souhaitez exécuter la requête, puis cliquez sur **Écrire une requête Hive**.
-3. Entrez les requêtes Hive. Notez que l’éditeur Hive prend en charge IntelliSense. Les outils HDInsight pour Visual Studio prennent en charge le chargement des métadonnées distantes pendant la modification d’un script Hive. Par exemple, lorsque vous tapez « SELECT * FROM », IntelliSense répertorie tous les noms de table suggérés. Lorsqu’un nom de table est spécifié, les noms de colonne sont répertoriés par IntelliSense. L’outil prend en charge quasiment toutes les instructions DML, sous-requêtes et fonctions définies par l’utilisateur intégrées de Hive.
+3. Entrez les requêtes Hive. Notez que l’éditeur Hive prend en charge IntelliSense. Les outils HDInsight pour Visual Studio prennent en charge le chargement des métadonnées distantes pendant la modification d’un script Hive. Par exemple, lorsque vous tapez « SELECT* FROM », IntelliSense répertorie tous les noms de table suggérés. Lorsqu’un nom de table est spécifié, les noms de colonne sont répertoriés par IntelliSense. L’outil prend en charge quasiment toutes les instructions DML, sous-requêtes et fonctions définies par l’utilisateur intégrées de Hive.
 
 	![Outils Hadoop : IntelliSense dans Visual Studio Tools pour HDInsight][13]
 
@@ -184,7 +189,7 @@ La version la plus récente de l’outil permet de consulter le contenu de vos t
 
 HDInsight Tools utilisé pour envoyer des tâches Hive via [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) (également appelé Templeton). Il fallait auparavant beaucoup de temps pour renvoyer les détails d’une tâche et les informations d’erreur. Pour résoudre ce problème de performances, HDInsight Tools exécute dorénavant les tâches Hive directement dans le cluster via HiveServer2, de manière à contourner RDP/SSH. En plus de bénéficier de meilleures performances, les utilisateurs peuvent afficher Hive sur des graphiques Tez et consulter les détails de la tâche.
 
-Pour le cluster HDInsight version 3.2 ou ultérieure, vous pouvez voir un bouton **Exécuter via HiveServer2** :
+Pour le cluster HDInsight version 3.2 ou ultérieure, vous pouvez voir un bouton **Exécuter via HiveServer2** :
 
 ![hdinsight visual studio exécution de tools via hiveserver2](./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.execute.via.hiveserver2.png)
 
@@ -232,7 +237,7 @@ Les outils HDInsight pour Visual Studio prennent en charge la création et la s
 
 - Le script HQL créé par Visual Studio est encodé selon le paramètre de région locale de l’utilisateur. Il peut ne pas s’exécuter correctement si l’utilisateur charge le script dans le cluster sous forme binaire.
 
-Si vous avez des suggestions ou des commentaires, ou si vous rencontrez des problèmes lors de l'utilisation de cet outil, n'hésitez pas à nous envoyer un e-mail à microsoft point com.
+Si vous avez des suggestions ou des commentaires, ou que vous rencontrez des problèmes lors de l’utilisation de cet outil, n’hésitez pas à nous envoyer un e-mail à l’adresse hdivstool@microsoft.com.
 
 ## Étapes suivantes
 Dans cet article, vous avez appris à établir une connexion à des clusters HDInsight à partir de Visual Studio, à l’aide du package d’outils Hadoop, et à exécuter des requêtes Hive. Pour plus d'informations, consultez les pages suivantes :
@@ -277,4 +282,4 @@ Dans cet article, vous avez appris à établir une connexion à des clusters HDI
 
 [apache.hive]: http://hive.apache.org
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0817_2016-->

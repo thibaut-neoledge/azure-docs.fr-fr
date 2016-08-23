@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/06/2016"
+   ms.date="08/16/2016"
    ms.author="cherylmc"/>
 
 # Création de jeux d’enregistrements et d’enregistrements DNS à l’aide de l’interface de ligne de commande
@@ -38,7 +38,7 @@ Pour créer un jeu d’enregistrements à l’apex de la zone (dans cet exemple,
 
 Pour créer un jeu d’enregistrements, utilisez `azure network dns record-set create`. Spécifiez le groupe de la ressource, le nom de la zone, le nom relatif du jeu d’enregistrements, le type d’enregistrement et la durée de vie. Si le paramètre `--ttl` n’est pas défini, la valeur par défaut est quatre (en secondes). À la fin de cette étape, vous obtiendrez un jeu d’enregistrements « www » vide.
 
-*Utilisation : network dns record-set create <resource-group> <dns-zone-name> <name> <type> <ttl>*
+*Syntaxe : network dns record-set create <groupe\_ressources> <nom\_zone\_dns> <nom> <type> <ttl>*
 
 	azure network dns record-set create myresourcegroup  contoso.com  www A  60
 
@@ -46,11 +46,11 @@ Pour créer un jeu d’enregistrements, utilisez `azure network dns record-set c
 
 Pour utiliser le jeu d’enregistrements « www » que vous venez de créer, vous devez y ajouter des enregistrements. Pour ajouter des enregistrements aux jeux d’enregistrements, utilisez `azure network dns record-set add-record`.
 
-Les paramètres pour ajouter des enregistrements à un jeu d'enregistrements varient selon le type de jeu d'enregistrements. Par exemple, lors de l’utilisation d’un jeu d’enregistrements de type « A », vous ne pourrez spécifier que les enregistrements avec le paramètre `-a <IPv4 address>`.
+Les paramètres pour ajouter des enregistrements à un jeu d'enregistrements varient selon le type de jeu d'enregistrements. Par exemple, lors de l’utilisation d’un jeu d’enregistrements de type « A », vous ne pouvez spécifier que les enregistrements avec le paramètre `-a <IPv4 address>`.
 
-Ajoutez les enregistrements IPv4 *A* au jeu d’enregistrements « www » à l’aide de la commande suivante :
+Ajoutez des enregistrements *A* IPv4 au jeu d’enregistrements « www » à l’aide de la commande suivante :
 
-*Utilisation : network dns record-set add-record <resource-group> <dns-zone-name> <record-set-name> <type>*
+*Syntaxe : network dns record-set add-record <groupe\_ressources> <nom\_zone\_dns> <nom\_jeu\_enregistrements> <type>*
 
 	azure network dns record-set add-record myresourcegroup contoso.com  www A  -a 134.170.185.46
 
@@ -62,8 +62,8 @@ Les exemples suivants montrent comment créer un jeu d’enregistrements de chaq
 
 ## Étapes suivantes
 
-Pour gérer votre jeu d’enregistrements et vos enregistrements, consultez [Gestion des enregistrements DNS à l’aide de l’interface de ligne de commande](dns-operations-recordsets-portal.md).
+Pour gérer votre jeu d’enregistrements et vos enregistrements, consultez [Gestion d’enregistrements et de jeux d’enregistrements DNS à l’aide du portail Azure](dns-operations-recordsets-portal.md).
 
-Pour plus d’informations sur Azure DNS, consultez [Vue d’ensemble d’Azure DNS](dns-overview.md).
+Pour plus d’informations sur Azure DNS, consultez la [Vue d’ensemble d’Azure DNS](dns-overview.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0817_2016-->

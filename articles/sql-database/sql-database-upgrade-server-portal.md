@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="05/09/2016"
+	ms.date="08/08/2016"
 	ms.author="sstein"/>
 
 
@@ -25,7 +25,7 @@
 - [PowerShell](sql-database-upgrade-server-powershell.md)
 
 
-SQL Database V12 est la version la plus récente. Il est donc recommandé d’effectuer une mise à niveau vers SQL Database V12. SQL Database V12 dispose de nombreux [avantages par rapport à la version précédente](sql-database-v12-whats-new.md), notamment :
+La base de données SQL V12 est la version la plus récente. Il est donc recommandé d’effectuer une mise à niveau des serveurs existants vers la base de données SQL V12. SQL Database V12 dispose de nombreux [avantages par rapport à la version précédente](sql-database-v12-whats-new.md), notamment :
 
 - Compatibilité améliorée avec SQL Server.
 - Plus de performances pour le niveau Premium, nouveaux niveaux de performances.
@@ -45,18 +45,20 @@ Après la mise à niveau vers la version V12, les [recommandations du niveau de
 
 ## Préparation de la mise à niveau
 
-- **Mise à niveau de toutes les bases de données Web et Business** : consultez la section [Mise à niveau de toutes les bases de données Web et Business](sql-database-upgrade-server-portal.md#upgrade-all-web-and-business-databases) ci-dessous ou [Surveiller et gérer un pool de bases de données élastique (PowerShell)](sql-database-elastic-pool-manage-powershell.md).
+- **Mise à niveau de toutes les bases de données Web et Business** : consultez la section [Mise à niveau de toutes les bases de données Web et Business](sql-database-upgrade-server-portal.md#upgrade-all-web-and-business-databases) ci-dessous ou [Surveiller et gérer un pool de bases de données élastique (PowerShell)](sql-database-elastic-pool-manage-powershell.md).
 - **Vérifier et suspendre la géoréplication** : si votre base de données SQL Azure est configurée pour la géoréplication, vous devez documenter la configuration actuelle et [arrêter la géoréplication](sql-database-geo-replication-portal.md#remove-secondary-database). Une fois la mise à niveau terminée, reconfigurez votre base de données pour la géoréplication.
-- **Ouvrez ces ports si vous avez des clients sur une machine virtuelle Azure** : si votre programme client se connecte à SQL Database V12 pendant que votre client s’exécute sur une machine virtuelle Azure, vous devez ouvrir les plages de ports 11000-11999 et 14000-14999 sur la machine virtuelle. Pour plus d'informations, consultez [Ports pour SQL Database V12](sql-database-develop-direct-route-ports-adonet-v12.md).
+- **Ouvrez ces ports si vous avez des clients sur une machine virtuelle Azure** : si votre programme client se connecte à SQL Database V12 pendant que votre client s’exécute sur une machine virtuelle Azure, vous devez ouvrir les plages de ports 11000-11999 et 14000-14999 sur la machine virtuelle. Pour plus d'informations, consultez [Ports pour SQL Database V12](sql-database-develop-direct-route-ports-adonet-v12.md).
 
 
 
 ## Lancer la mise à niveau
 
-1. Dans le [portail Azure](https://portal.azure.com/), accédez au serveur que vous souhaitez mettre à niveau en sélectionnant **PARCOURIR TOUT** > **Serveurs SQL**, puis en sélectionnant le serveur souhaité.
-2. Sélectionnez **Dernière mise à jour de la base de données SQL**, puis **Mettre à niveau ce serveur**.
+1. Dans le [portail Azure](https://portal.azure.com/), accédez au serveur que vous souhaitez mettre à niveau en sélectionnant **PARCOURIR** > **Serveurs SQL**, puis en sélectionnant le serveur v2.0 que vous souhaitez mettre à niveau.
+2. Sélectionnez **Dernière mise à jour de la base de données SQL**, puis **Mettre à niveau ce serveur**.
 
       ![mettre à niveau le serveur][1]
+
+3. La mise à niveau d’un serveur vers la dernière mise à jour de la base de données SQL est permanente et irréversible. Pour confirmer la mise à niveau, tapez le nom de votre serveur et cliquez sur **OK**.
 
 ## Mettre à niveau toutes les bases de données Web et Business
 
@@ -102,7 +104,7 @@ Dans le [portail Azure](https://portal.azure.com/), accédez au serveur V12 et
 
  -ou-
 
-Si vous voyez un message indiquant **Cliquez ici pour afficher le pool de base de données élastique recommandé pour votre serveur**, cliquez dessus pour créer facilement un pool qui est optimisé pour les bases de données de votre serveur. Pour plus d’informations, consultez [Considérations sur les prix et performances pour un pool de bases de données élastique](sql-database-elastic-pool-guidance.md).
+Si vous voyez un message indiquant **Cliquez ici pour afficher le pool de base de données élastique recommandé pour votre serveur**, cliquez dessus pour créer facilement un pool qui est optimisé pour les bases de données de votre serveur. Pour plus d’informations, consultez [Considérations sur les prix et performances pour un pool de base de données élastique](sql-database-elastic-pool-guidance.md).
 
 ![Ajouter un pool à un serveur][7]
 
@@ -114,10 +116,10 @@ Suivez les instructions de l’article [Créer un pool de base de données élas
 
 Après la mise à niveau, surveillez activement la base de données pour vous assurer que les applications s’exécutent au niveau de performances souhaité, puis optimisez les paramètres en fonction des besoins.
 
-Outre les bases de données individuelles, vous pouvez surveiller les pools de base de données élastique [Surveiller, gérer et dimensionner un pool de bases de données élastique avec le portail Azure](sql-database-elastic-pool-manage-portal.md) ou avec [PowerShell](sql-database-elastic-pool-powershell.md#monitoring-elastic-databases-and-elastic-database-pools).
+Outre les bases de données individuelles, vous pouvez surveiller les pools de base de données élastique [Surveiller, gérer et dimensionner un pool de base de données élastique avec le portail Azure](sql-database-elastic-pool-manage-portal.md) ou avec [PowerShell](sql-database-elastic-pool-powershell.md#monitoring-elastic-databases-and-elastic-database-pools).
 
 
-**Données sur la consommation de ressources :** pour les bases de données De base, Standard et Premium, des données sur la consommation des ressources sont disponibles par le biais de la vue de gestion dynamique (DMV) [sys.dm\_ db\_ resource\_stats](http://msdn.microsoft.com/library/azure/dn800981.aspx) dans la base de données utilisateur. Cette vue offre presque en temps réel les informations de consommation des ressources avec un niveau de granularité de 15 secondes pour l’heure précédente de l’opération. La consommation de pourcentage DTU pour un intervalle est calculée comme la consommation de pourcentage maximal des dimensions UC, E/S et journal. Voici une requête pour calculer la moyenne de pourcentage DTU sur la dernière heure :
+**Données sur la consommation de ressources :** pour les bases de données De base, Standard et Premium, des données sur la consommation des ressources sont disponibles par le biais de la vue de gestion dynamique (DMV) [sys.dm_ db_ resource\_stats](http://msdn.microsoft.com/library/azure/dn800981.aspx) dans la base de données utilisateur. Cette vue offre presque en temps réel les informations de consommation des ressources avec un niveau de granularité de 15 secondes pour l’heure précédente de l’opération. La consommation de pourcentage DTU pour un intervalle est calculée comme la consommation de pourcentage maximal des dimensions UC, E/S et journal. Voici une requête pour calculer la moyenne de pourcentage DTU sur la dernière heure :
 
     SELECT end_time
     	 , (SELECT Max(v)
@@ -167,4 +169,4 @@ Par exemple, vous pouvez configurer une alerte par courrier électronique sur «
 [6]: ./media/sql-database-upgrade-server-portal/recommendations.png
 [7]: ./media/sql-database-upgrade-server-portal/new-elastic-pool.png
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0810_2016-->

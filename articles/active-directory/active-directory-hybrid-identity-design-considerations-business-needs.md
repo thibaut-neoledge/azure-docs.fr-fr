@@ -13,7 +13,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="05/02/2016"
+	ms.date="08/08/2016"
 	ms.author="billmath"/>
 
 # Déterminer les besoins d’identité pour votre solution d’identités hybrides
@@ -40,7 +40,7 @@ Veillez à répondre aux questions suivantes pour identifier vos besoins métier
 ## Analyser votre infrastructure d’identité locale
 Maintenant que vous avez une idée des exigences de votre entreprise, vous devez évaluer votre infrastructure locale d’identités. Cette évaluation revêt une importance capitale à l’heure de définir les exigences techniques pour intégrer votre solution actuelle d’identités au système de gestion des identités dans le cloud. Veillez à répondre aux questions suivantes :
 
-- Quelle solution d’authentification et d’autorisation votre entreprise utilise-t-elle en local ? 
+- Quelle solution d’authentification et d’autorisation votre entreprise utilise-t-elle en local ?
 - Votre entreprise dispose-t-elle actuellement de services de synchronisation en local ?
 - Votre entreprise utilise-t-elle des fournisseurs d’identité tiers ?
 
@@ -72,7 +72,7 @@ Ensuite, vous devez évaluer les exigences d’intégration des identités. Cett
 - L’organisation dispose-t-elle d’un domaine personnalisé ?
     1. Ce domaine est-il public et facilement vérifiable via DNS ?
     1. Si ce n’est pas le cas, disposez-vous d’un domaine public qui peut être utilisé pour inscrire un autre UPN dans Active Directory ?
-- Les identificateurs d’utilisateur sont-ils cohérents dans la représentation du cloud ? 
+- Les identificateurs d’utilisateur sont-ils cohérents dans la représentation du cloud ?
 - L’organisation dispose d’applications qui requièrent l’intégration avec les services cloud ?
 - L’organisation dispose-elle de plusieurs domaines et ceux-ci vont-ils utiliser l’authentification standard ou fédérée ?
 
@@ -101,4 +101,4 @@ Veillez à noter chaque réponse et à comprendre le raisonnement derrière la r
 ## Voir aussi
 [Présentation des considérations relatives à la conception](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0810_2016-->

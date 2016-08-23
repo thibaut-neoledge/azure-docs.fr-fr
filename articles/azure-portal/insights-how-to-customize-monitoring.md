@@ -1,20 +1,20 @@
 <properties
 	pageTitle="Surveiller les métriques de service dans Microsoft Azure | Microsoft Azure"
 	description="Découvrez comment personnaliser les graphiques d'analyse dans Azure."
-	authors="stepsic-microsoft-com"
-	manager="ronmart"
+	authors="rboucher"
+	manager=""
 	editor=""
-	services="monitoring"
-    documentationCenter="monitoring"/>
+	services="monitoring-and-diagnostics"
+	documentationCenter="monitoring-and-diagnostics"/>
 
 <tags
-	ms.service="monitoring"
+	ms.service="monitoring-and-diagnostics"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/08/2015"
-	ms.author="stepsic"/>
+	ms.author="robb"/>
 
 # Surveillance des mesures de service
 
@@ -59,7 +59,7 @@ La plupart des mesures vous indiquent les tendances au fil du temps, mais certai
 
 Vous pouvez également découvrir les quotas d'utilisation sur le panneau des ressources qui disposent de quotas :
 
-![Usage](./media/insights-how-to-customize-monitoring/Insights_UsageChart.png)
+![Utilisation](./media/insights-how-to-customize-monitoring/Insights_UsageChart.png)
 
 Comme avec les mesures, vous pouvez utiliser l’[API REST](https://msdn.microsoft.com/library/azure/dn931963.aspx) ou le [Kit de développement logiciel (SDK) .NET](https://www.nuget.org/packages/Microsoft.Azure.Insights/) pour accéder à l'ensemble des quotas d'utilisation par programmation.
 
@@ -72,4 +72,4 @@ Comme avec les mesures, vous pouvez utiliser l’[API REST](https://msdn.micros
 * Utilisez [Application Insights pour les pages Web et les applications JavaScript](../application-insights/app-insights-web-track-usage.md) pour obtenir une analyse client des navigateurs qui consultent une page Web.
 * [Surveillance de la disponibilité et de la réactivité des pages Web](../application-insights/app-insights-monitor-web-app-availability.md) avec Application Insights pour déterminer si vos pages sont inactives.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

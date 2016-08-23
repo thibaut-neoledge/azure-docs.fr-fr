@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/16/2016"
+	ms.date="08/03/2016"
 	ms.author="robinsh"/>
 
 #Guide de sécurité Azure Storage
 
-##Vue d’ensemble
+##Vue d'ensemble
 
 Azure Storage propose un ensemble complet de fonctionnalités de sécurité dont l’utilisation combinée permet aux développeurs de créer des applications sécurisées. Le compte de stockage proprement dit peut être sécurisé à l’aide du contrôle d’accès en fonction du rôle et d’Azure Active Directory. Les données peuvent être sécurisées en transit entre une application et Azure au moyen du [chiffrement côté client](storage-client-side-encryption.md), de HTTPS ou de SMB 3.0. Les données peuvent être définies de façon à être automatiquement chiffrées du moment où elles sont écrites dans Azure Storage en utilisant [Storage Service Encryption (SSE)](storage-service-encryption.md). Les disques de système d’exploitation et de données utilisés par les machines virtuelles peuvent être définis de façon à être chiffrés à l’aide d’[Azure Disk Encryption](../azure-security-disk-encryption.md). Il est possible d’accorder un accès délégué aux objets de données d’Azure Storage en utilisant des [signatures d’accès partagé](storage-dotnet-shared-access-signature-part-1.md).
 
@@ -634,4 +634,4 @@ Pour plus d’informations sur CORS et sur la façon de l’activer, consultez l
 
 	Cet article traite de l’utilisation du mode FIPS sur des ordinateurs Windows anciens.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0810_2016-->

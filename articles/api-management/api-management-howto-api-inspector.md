@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/25/2016" 
+	ms.date="08/09/2016" 
 	ms.author="sdanie"/>
 
 # Utilisation de l'inspecteur d'API pour le suivi des appels dans Gestion des API Azure
@@ -261,4 +261,4 @@ Pour examiner les valeurs du suivi, téléchargez le fichier de suivi à partir 
 
  
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

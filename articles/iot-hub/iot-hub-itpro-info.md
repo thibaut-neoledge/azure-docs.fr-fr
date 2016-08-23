@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="04/29/2016"
+ ms.date="08/09/2016"
  ms.author="dobett"/>
 
 # Configuration et gestion de l’accès à IoT Hub
@@ -22,7 +22,7 @@ Cet article fournit des informations pour aider les professionnels de l’inform
 
 ## Connectivité réseau
 
-Les appareils peuvent communiquer avec IoT Hub dans Azure à l’aide de divers protocoles. En règle générale, le choix du protocole dépend des exigences spécifiques de la solution. Le tableau suivant répertorie les ports de sortie qui doivent être ouverts pour qu’un appareil puisse utiliser un protocole spécifique :
+Les appareils peuvent communiquer avec IoT Hub dans Azure à l’aide de divers protocoles. En règle générale, le choix du protocole dépend des exigences spécifiques de la solution. Le tableau suivant répertorie les ports de sortie qui doivent être ouverts pour qu’un appareil puisse utiliser un protocole spécifique :
 
 | Protocole | Port(s) |
 | -------- | ------- |
@@ -38,7 +38,7 @@ Lorsque vous avez créé un hub IoT dans une région Azure, le hub conserve la m
 
 Seuls les appareils inscrits avec un hub IoT sont autorisés à communiquer avec ce hub IoT. Un appareil enregistré doit disposer de l’autorisation *DeviceConnect*. Un appareil s’identifie en incluant un jeton qui encapsule l’ID unique des appareils dans chaque demande effectuée, tandis que le concentrateur vérifie que le jeton est valide et que l’appareil n’est pas sur liste noire (autorisation *DeviceConnect* révoquée). Pour plus d’informations sur les jetons pris en charge par l’IoT Hub, consultez [Utilisation des jetons de sécurité IoT Hub et des certificats X.509][lnk-tokens]
 
-L’accès aux autres points de terminaison de gestion dans un concentrateur IoT est également contrôlé par un ensemble d’autorisations : *iothubowner*, *service*, *registryRead* et *registryReadWrite*. Une application de gestion de client qui se connecte à un hub IoT doit inclure un jeton avec les autorisations appropriées.
+L’accès aux autres points de terminaison de gestion dans un concentrateur IoT est également contrôlé par un ensemble d’autorisations : *iothubowner*, *service*, *registryRead* et *registryReadWrite*. Une application de gestion de client qui se connecte à un hub IoT doit inclure un jeton avec les autorisations appropriées.
 
 ## Étapes suivantes
 
@@ -59,4 +59,4 @@ Pour explorer davantage les capacités de IoT Hub, consultez :
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
 [lnk-tokens]: iot-hub-sas-tokens.md
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0810_2016-->

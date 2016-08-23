@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/23/2016"
+	ms.date="08/03/2016"
 	ms.author="tamram"/>
 
 # Réplication Azure Storage
@@ -34,7 +34,7 @@ Le tableau suivant fournit une vue d’ensemble rapide des différences entre LR
 |:----------------------------------------------------------------------------------|:---|:---|:---|:------|
 | Les données sont répliquées entre plusieurs installations. | Non | Oui | Oui | Oui |
 | Les données peuvent être lues à partir de l’emplacement secondaire et principal. | Non | Non | Non | Oui |
-| Nombre de copies de données conservées sur des nœuds distincts. | 3 | 3 | 6 | 6\. |
+| Nombre de copies de données conservées sur des nœuds distincts. | 3 | 3 | 6 | 6 |
 
 Consultez [Tarification Azure Storage](https://azure.microsoft.com/pricing/details/storage/) pour connaître les informations de tarification des différentes options de redondance.
 
@@ -71,8 +71,8 @@ Lorsque vous créez un compte de stockage, vous sélectionnez la région primair
 
 | Primaire | Secondaire |
 |---------------------|---------------------|
-| États-Unis - partie centrale septentrionale | États-Unis - partie centrale méridionale |
-| États-Unis - partie centrale méridionale | États-Unis - partie centrale septentrionale |
+| États-Unis - partie centrale septentrionale | Centre-Sud des États-Unis |
+| Centre-Sud des États-Unis | États-Unis - partie centrale septentrionale |
 | Est des États-Unis | Ouest des États-Unis |
 | Ouest des États-Unis | Est des États-Unis |
 | Est des États-Unis 2 | Centre des États-Unis |
@@ -83,11 +83,11 @@ Lorsque vous créez un compte de stockage, vous sélectionnez la région primair
 | Est de l'Asie | Asie du Sud-Est |
 | Chine orientale | Chine du Nord |
 | Chine du Nord | Chine orientale |
-| Japon de l’Est | Ouest du Japon |
-| Ouest du Japon | Japon de l’Est |
-| Sud du Brésil | États-Unis - partie centrale méridionale |
-| Est de l’Australie | Sud-Est de l’Australie |
-| Sud-Est de l’Australie | Est de l’Australie |
+| Est du Japon | Ouest du Japon |
+| Ouest du Japon | Est du Japon |
+| Sud du Brésil | Centre-Sud des États-Unis |
+| Est de l’Australie | Sud-est de l’Australie |
+| Sud-est de l’Australie | Est de l’Australie |
 | Sud de l'Inde | Inde-Centre |
 | Inde-Centre | Sud de l'Inde |
 | Gouvernement américain - Iowa | Gouvernement américain - Virginie |
@@ -117,4 +117,4 @@ Lorsque vous activez l’accès en lecture seule à vos données dans la région
 - [Options de redondance de Microsoft Azure Storage et stockage géo-redondant avec accès en lecture](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx)
 - [Document SOSP - Azure Storage : service de stockage sur le cloud à haute disponibilité et à cohérence forte](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0810_2016-->

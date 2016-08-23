@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/08/2016"
+   ms.date="08/08/2016"
    ms.author="lodipalm;sonyama;barbkess"/>
 
 # Charger des données à partir de SQL Server dans Azure SQL Data Warehouse (SSIS)
@@ -54,22 +54,22 @@ Pour parcourir ce didacticiel, vous avez besoin des éléments suivants :
 1. **SQL Server Integration Services (SSIS)**. SSIS est un composant de SQL Server qui nécessite une version d’évaluation ou une version sous licence de SQL Server. Pour obtenir une version d’évaluation de SQL Server 2016 Preview, consultez la page [SQL Server Évaluations][].
 2. **Visual Studio**. Pour obtenir gratuitement Visual Studio 2015 Community Edition, consultez la page [Visual Studio Community][].
 3. **SQL Server Data Tools pour Visual Studio (SSDT)**. Pour obtenir SQL Server Data Tools pour Visual Studio 2015, consultez la page [Télécharger la dernière version de SQL Server Data Tools][].
-4. **Exemples de données**. Des exemples de données stockées dans SQL Server, dans l’exemple de base de données AdventureWorks, sont ici utilisés comme sources de données à charger dans SQL Data Warehouse. Pour obtenir l’exemple de base de données AdventureWorks, consultez [AdventureWorks 2014 Sample Databases][] (Exemples de bases de données AdventureWorks 2014).
+4. **Exemples de données**. Des exemples de données stockées dans SQL Server, dans l’exemple de base de données AdventureWorks, sont ici utilisés comme sources de données à charger dans SQL Data Warehouse. Pour obtenir l’exemple de base de données AdventureWorks, consultez [AdventureWorks 2014 Sample Databases][] \(Exemples de bases de données AdventureWorks 2014).
 5. **Une base de données SQL Data Warehouse avec les autorisations requises**. Ce didacticiel se connecte à une instance SQL Data Warehouse dans laquelle sont chargées des données. Vous devez disposer des autorisations requises pour créer une table et charger des données.
 6. **Une règle de pare-feu**. Vous devez créer une règle de pare-feu sur SQL Data Warehouse avec l’adresse IP de votre ordinateur local avant de pouvoir charger des données dans SQL Data Warehouse.
 
 ## Étape 1 : créer un nouveau projet Integration Services
 
 1. Lancez Visual Studio 2015.
-2. Dans le menu **Fichier**, sélectionnez **Nouveau | Projet**.
-3. Accédez aux types de projet **Installé | Modèles | Business Intelligence | Integration Services**.
+2. Dans le menu **Fichier**, sélectionnez **Nouveau| Project**.
+3. Accédez à **Installé| Templates | Business Intelligence | Integration Services** project types.
 4. Sélectionnez **Projet Integration Services**. Renseignez les champs **Nom** et **Emplacement**, puis cliquez sur **OK**.
 
 Visual Studio s’ouvre et crée un nouveau projet Integration Services (SSIS). Visual Studio ouvre ensuite le concepteur pour le seul nouveau package SSIS (Package.dtsx) du projet. L’écran se décompose de la manière suivante :
 
 - À gauche, la **Boîte à outils** des composants SSIS.
 - Au centre, l’aire de conception, contenant plusieurs onglets. En règle générale, vous serez amené à utiliser au moins les onglets **Flux de contrôle** et **Flux de données**.
-- À droite, l’**Explorateur de solutions** et le volet **Propriétés**.
+- À droite, **l’Explorateur de solutions** et le volet **Propriétés**.
 
     ![][01]
 
@@ -87,15 +87,15 @@ Visual Studio s’ouvre et crée un nouveau projet Integration Services (SSIS). 
 
 ## Étape 3 : configurer l’adaptateur de source
 
-1. Double-cliquez sur l’adaptateur de source pour ouvrir l’**Éditeur de source ADO.NET**.
+1. Double-cliquez sur l’adaptateur de source pour ouvrir **l’Éditeur de source ADO.NET**.
 
     ![][03]
 
-2. Sous l’onglet **Gestionnaire de connexions** de l’**Éditeur de source ADO.NET**, cliquez sur le bouton **Nouveau** situé en regard de la liste **Gestionnaire de connexions ADO.NET** pour ouvrir la boîte de dialogue **Configurer le gestionnaire de connexions ADO.NET** et créer les paramètres de connexion pour la base de données SQL Server à partir de laquelle les données seront chargées.
+2. Sous l’onglet **Gestionnaire de connexions** de **l’Éditeur de source ADO.NET**, cliquez sur le bouton **Nouveau** situé en regard de la liste **Gestionnaire de connexions ADO.NET** pour ouvrir la boîte de dialogue **Configurer le gestionnaire de connexions ADO.NET** et créer les paramètres de connexion pour la base de données SQL Server à partir de laquelle les données seront chargées.
 
     ![][04]
 
-3. Dans la boîte de dialogue **Configurer le gestionnaire de connexions ADO.NET**, cliquez sur le bouton **Nouveau** bouton pour ouvrir la boîte de dialogue **Gestionnaire de connexions** et créer une connexion de données.
+3. Dans la boîte de dialogue **Configurer le gestionnaire de connexions ADO.NET**, cliquez sur le bouton **Nouveau** pour ouvrir la boîte de dialogue **Gestionnaire de connexions** et créer une connexion de données.
 
     ![][05]
 
@@ -112,8 +112,8 @@ Visual Studio s’ouvre et crée un nouveau projet Integration Services (SSIS). 
     6. Dans la boîte de dialogue qui affiche les résultats du test de connexion, cliquez sur **OK** pour revenir à la boîte de dialogue **Gestionnaire de connexions**.
     7. Dans la boîte de dialogue **Gestionnaire de connexions**, cliquez sur **OK** pour revenir à la boîte de dialogue **Configurer le gestionnaire de connexions ADO.NET**.
  
-5. Dans la boîte de dialogue **Configurer le gestionnaire de connexions ADO.NET**, cliquez sur **OK** pour revenir à l’**Éditeur de source ADO.NET**.
-6. Dans la liste **Nom de la table ou de la vue** de l’**Éditeur de source ADO.NET**, sélectionnez la table **Sales.SalesOrderDetail**.
+5. Dans la boîte de dialogue **Configurer le gestionnaire de connexions ADO.NET**, cliquez sur **OK** pour revenir à **l’Éditeur de source ADO.NET**.
+6. Dans la liste **Nom de la table ou de la vue** de **l’Éditeur de source ADO.NET**, sélectionnez la table **Sales.SalesOrderDetail**.
 
     ![][07]
 
@@ -121,8 +121,8 @@ Visual Studio s’ouvre et crée un nouveau projet Integration Services (SSIS). 
 
     ![][08]
 
-8. Dans la boîte de dialogue **Visualiser les résultats de la requête**, cliquez sur **Fermer** pour revenir à l’**Éditeur de source ADO.NET**.
-9. Dans l’**Éditeur de source ADO.NET**, cliquez sur **OK** pour terminer la configuration de la source de données.
+8. Dans la boîte de dialogue **Visualiser les résultats de la requête**, cliquez sur **Fermer** pour revenir à **l’Éditeur de source ADO.NET**.
+9. Dans **l’Éditeur de source ADO.NET**, cliquez sur **OK** pour terminer la configuration de la source de données.
 
 ## Étape 4 : connecter l’adaptateur de source à l’adaptateur de destination
 
@@ -135,12 +135,12 @@ Visual Studio s’ouvre et crée un nouveau projet Integration Services (SSIS). 
 
 ## Étape 5 : configurer l’adaptateur de destination
 
-1. Double-cliquez sur l’adaptateur de destination pour ouvrir l’**Éditeur de destination ADO.NET**.
+1. Double-cliquez sur l’adaptateur de destination pour ouvrir **l’Éditeur de destination ADO.NET**.
 
     ![][11]
 
-2. Sous l’onglet **Gestionnaire de connexions** de l’**Éditeur de destination ADO.NET**, cliquez sur le bouton **Nouveau** situé en regard de la liste **Gestionnaire de connexions** pour ouvrir la boîte de dialogue **Configurer le gestionnaire de connexions ADO.NET** et créer les paramètres de connexion pour la base de données Azure SQL Data Warehouse dans laquelle les données seront chargées.
-3. Dans la boîte de dialogue **Configurer le gestionnaire de connexions ADO.NET**, cliquez sur le bouton **Nouveau** bouton pour ouvrir la boîte de dialogue **Gestionnaire de connexions** et créer une connexion de données.
+2. Sous l’onglet **Gestionnaire de connexions** de **l’Éditeur de destination ADO.NET**, cliquez sur le bouton **Nouveau** situé en regard de la liste **Gestionnaire de connexions** pour ouvrir la boîte de dialogue **Configurer le gestionnaire de connexions ADO.NET** et créer les paramètres de connexion pour la base de données Azure SQL Data Warehouse dans laquelle les données seront chargées.
+3. Dans la boîte de dialogue **Configurer le gestionnaire de connexions ADO.NET**, cliquez sur le bouton **Nouveau** pour ouvrir la boîte de dialogue **Gestionnaire de connexions** et créer une connexion de données.
 4. Dans la boîte de dialogue **Gestionnaire de connexions**, procédez comme suit.
     1. Dans la zone **Fournisseur**, sélectionnez le fournisseur de données SqlClient.
     2. Dans la zone **Nom du serveur**, entrez le nom de la base de données SQL Data Warehouse.
@@ -149,22 +149,22 @@ Visual Studio s’ouvre et crée un nouveau projet Integration Services (SSIS). 
     5. Cliquez sur **Tester la connexion**.
     6. Dans la boîte de dialogue qui affiche les résultats du test de connexion, cliquez sur **OK** pour revenir à la boîte de dialogue **Gestionnaire de connexions**.
     7. Dans la boîte de dialogue **Gestionnaire de connexions**, cliquez sur **OK** pour revenir à la boîte de dialogue **Configurer le gestionnaire de connexions ADO.NET**.
-5. Dans la boîte de dialogue **Configurer le gestionnaire de connexions ADO.NET**, cliquez sur **OK** pour revenir à l’**Éditeur de destination ADO.NET**.
-6. Dans l’**Éditeur de destination ADO.NET**, cliquez sur **Nouveau** en regard de la liste **Utiliser une table ou une vue** pour ouvrir la boîte de dialogue **Créer une table** afin de créer une table de destination contenant une liste de colonnes correspondant à la table source.
+5. Dans la boîte de dialogue **Configurer le gestionnaire de connexions ADO.NET**, cliquez sur **OK** pour revenir à **l’Éditeur de destination ADO.NET**.
+6. Dans **l’Éditeur de destination ADO.NET**, cliquez sur **Nouveau** en regard de la liste **Utiliser une table ou une vue** pour ouvrir la boîte de dialogue **Créer une table** afin de créer une table de destination contenant une liste de colonnes correspondant à la table source.
 
     ![][12a]
 
-7. Dans la boîte de dialogue **Créer une table**, procédez comme suit :
+7. Dans la boîte de dialogue **Créer une table**, procédez comme suit.
 
     1. Renommez la table de destination **SalesOrderDetail**.
     2. Supprimez la colonne **rowguid**. Le type de données **uniqueidentifier** n’est pas pris en charge dans SQL Data Warehouse.
-    3. Remplacez le type de données de la colonne **LineTotal** par **money**. Le type de données **decimal** n’est pas pris en charge dans SQL Data Warehouse. Pour plus d’informations sur les types de données pris en charge, consultez la page [CREATE TABLE (Azure SQL Data Warehouse, Parallel Data Warehouse)][] (CRÉER UNE TABLE (Azure SQL Data Warehouse, Parallel Data Warehouse).
+    3. Remplacez le type de données de la colonne **LineTotal** par **money**. Le type de données **decimal** n’est pas pris en charge dans SQL Data Warehouse. Pour plus d’informations sur les types de données pris en charge, consultez [CREATE TABLE (Azure SQL Data Warehouse, Parallel Data Warehouse)][].
     
         ![][12b]
     
-    4. Cliquez sur **OK** pour créer la table et revenir à l’**Éditeur de destination ADO.NET**.
+    4. Cliquez sur **OK** pour créer la table et revenir à **l’Éditeur de destination ADO.NET**.
 
-8. Dans l’**Éditeur de destination ADO.NET**, sélectionnez l’onglet **Mappages** pour voir comment les colonnes de la source sont mappées aux colonnes de la destination.
+8. Dans **l’Éditeur de destination ADO.NET**, sélectionnez l’onglet **Mappages** pour voir comment les colonnes de la source sont mappées aux colonnes de la destination.
 
     ![][13]
 
@@ -220,8 +220,8 @@ Félicitations ! Vous savez à présent comment utiliser SQL Server Integration
 
 <!--Other Web references-->
 [Microsoft SQL Server 2016 Integration Services Feature Pack pour Azure]: http://go.microsoft.com/fwlink/?LinkID=626967
-[SQL Server Évaluations]: https://www.microsoft.com/en-us/evalcenter/evaluate-sql-server-2016
-[Visual Studio Community]: https://www.visualstudio.com/en-us/products/visual-studio-community-vs.aspx
+[SQL Server Évaluations]: https://www.microsoft.com/fr-FR/evalcenter/evaluate-sql-server-2016
+[Visual Studio Community]: https://www.visualstudio.com/fr-FR/products/visual-studio-community-vs.aspx
 [AdventureWorks 2014 Sample Databases]: https://msftdbprodsamples.codeplex.com/releases/view/125550
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/28/2016" 
+	ms.date="08/03/2016" 
 	ms.author="tamram"/>
 
 # Utilisation de l'émulateur de stockage Azure pour le développement et le test
@@ -247,4 +247,4 @@ Le stockage de files d’attente dans l’émulateur ne présente aucune différ
 
 - La version 2013-08-15 des services de stockage Azure est maintenant entièrement prise en charge. (Auparavant, cette version était uniquement prise en charge par la version préliminaire de l’émulateur de stockage version 2.2.1.)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0810_2016-->

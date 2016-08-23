@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.date="07/25/2016"
+	ms.date="08/08/2016"
 	ms.author="heidist"/>
 
 # Choisir une référence (SKU) ou un niveau tarifaire pour Azure Search
@@ -51,10 +51,10 @@ Niveau|Principaux scénarios
 ----|-----------------
 **Gratuit**|Un service partagé, sans frais, utilisé pour l’évaluation, l’investigation ou de petites charges de travail. Dans la mesure où ils sont partagés avec d’autres abonnés, le débit des requêtes et l’indexation varient en fonction des autres utilisateurs ayant recours au service. Faible capacité (50 Mo ou 3 index contenant jusqu’à 10 000 documents chacun).
 **De base**|Charges de travail de production de petite taille sur du matériel dédié. Hautement disponible. Capacité maximale de 3 réplicas et 1 partition (2 Go).
-Standard 1 (**S1**)|Prend en charge les combinaisons flexibles de partitions (12) et de réplicas (12), utilisées pour des charges de travail de taille moyenne sur du matériel dédié. Vous pouvez allouer des partitions et des réplicas dans des combinaisons prises en charge par un nombre maximal de 36 unités de recherche facturables. À ce niveau, les partitions sont de 25 Go chacune et le RPS est d’environ 15 requêtes par seconde.
-Standard 2 (**S2**)|Exécute les grandes charges de travail de production à l’aide des mêmes 36 unités de recherche que S1, mais avec des partitions et des réplicas plus importants. À ce niveau, les partitions sont de 100 Go chacune et le RPS est d’environ 60 requêtes par seconde.
-Version préliminaire Standard 3 (**S3**)|Exécute les charges de production proportionnellement plus importantes sur les systèmes haut de gamme, dans des configurations allant jusqu’à 12 partitions ou 12 réplicas sous 36 unités de recherche. À ce niveau, les partitions sont de 200 Go chacune et le RPS est d’environ 60 requêtes par seconde. S3 est disponible en version préliminaire à un prix préférentiel.
-Version préliminaire Standard 3 Haute densité (**S3 HD**)|Un grand nombre d’index plus petits. Une partition unique à 200 Go. Le RPS est supérieur à 60 requêtes par seconde. S3 est disponible en version préliminaire à un prix préférentiel.
+**S1**|Standard 1 prend en charge les combinaisons flexibles de partitions (12) et de réplicas (12), utilisées pour des charges de travail de taille moyenne sur du matériel dédié. Vous pouvez allouer des partitions et des réplicas dans des combinaisons prises en charge par un nombre maximal de 36 unités de recherche facturables. À ce niveau, les partitions sont de 25 Go chacune et le RPS est d’environ 15 requêtes par seconde.
+**S2**|Standard 2 exécute les grandes charges de travail de production à l’aide des mêmes 36 unités de recherche que S1, mais avec des partitions et des réplicas plus importants. À ce niveau, les partitions sont de 100 Go chacune et le RPS est d’environ 60 requêtes par seconde.
+**S3** (version préliminaire)|Standard 3 exécute les charges de production proportionnellement plus importantes sur les systèmes haut de gamme, dans des configurations allant jusqu’à 12 partitions ou 12 réplicas sous 36 unités de recherche. À ce niveau, les partitions sont de 200 Go chacune et le RPS est d’environ 60 requêtes par seconde. S3 est disponible en version préliminaire à un prix préférentiel.
+**S3 HD** (version préliminaire)|Standard 3 haute densité est conçu pour un grand nombre d’index plus petits. Une partition unique à 200 Go. Le RPS est supérieur à 60 requêtes par seconde. S3 est disponible en version préliminaire à un prix préférentiel.
 
 > [AZURE.NOTE] Les valeurs maximales de réplica et de partition sont facturées en tant qu’unités de recherche (36 unités maximum par service), ce qui impose une limite effective inférieure à ce que la valeur maximale indique au premier abord. Par exemple, pour utiliser le nombre maximal de 12 réplicas, vous pouvez avoir au maximum 3 partitions (3 * 12 = 36 unités). De même, pour utiliser le nombre maximal de partitions, vous devez réduire les réplicas à 3. Pour accéder à un graphique sur les combinaisons autorisées, voir [Mettre à l’échelle les niveaux de ressources pour interroger et indexer les charges de travail dans Azure Search](search-capacity-planning.md).
 
@@ -101,4 +101,4 @@ Une fois que vous avez déterminé la référence (SKU) qui convient le mieux, p
 - [Créer un service de recherche dans le portail](search-create-service-portal.md)
 - [Modifier l’allocation des partitions et des réplicas à l’échelle de votre service](search-capacity-planning.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0810_2016-->

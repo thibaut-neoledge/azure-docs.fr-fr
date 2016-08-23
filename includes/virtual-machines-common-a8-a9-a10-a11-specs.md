@@ -43,11 +43,11 @@ Les instances A10 et A11 ont une seule carte réseau Ethernet 10 Gbits/s qui se
 
 * **Abonnement Azure** : pour déployer un plus grand nombre d’instances de calcul intensif, envisagez de souscrire un abonnement de paiement à l’utilisation ou d’autres options d’achat. Si vous utilisez un [compte gratuit Azure](https://azure.microsoft.com/free/), vous pouvez seulement utiliser un nombre limité de cœurs de calcul Azure.
 
-* **Quota de cœurs** : vous devrez peut-être augmenter le quota de cœurs de votre abonnement Azure, qui est, par défaut, de 20 cœurs par abonnement (si vous utilisez le modèle de déploiement classique) ou de 20 cœurs par région (si vous utilisez le modèle de déploiement Resource Manager). Pour obtenir une augmentation du quota, ouvrez un ticket de support gratuit comme indiqué dans [Présentation des limites et des augmentations Azure](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/).
+* **Quota de cœurs** : vous devrez peut-être augmenter le quota de cœurs de votre abonnement Azure, qui est, par défaut, de 20 cœurs par abonnement (si vous utilisez le modèle de déploiement classique) ou de 20 cœurs par région (si vous utilisez le modèle de déploiement Resource Manager). Pour obtenir une augmentation du quota, ouvrez un ticket de support gratuit comme indiqué dans [Présentation des limites et des augmentations Azure](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). (Les limites par défaut peuvent varier en fonction de la catégorie de votre abonnement.)
 
     >[AZURE.NOTE]Si vous avez des besoins de capacité à grande échelle, contactez le support Azure. Les quotas d’Azure sont des limites de crédit et non des garanties de capacité. Quel que soit votre quota, vous êtes facturé seulement pour les cœurs que vous utilisez.
 
-* **Réseau virtuel** : aucun [réseau virtuel](https://azure.microsoft.com/documentation/services/virtual-network/) Azure n’est requis pour utiliser les instances qui nécessitent beaucoup de ressources système. Cependant, vous pouvez avoir besoin d’au moins un réseau virtuel Azure dans le cloud pour bon nombre de scénarios, ou d’une connexion de site à site si vous devez accéder à des ressources locales, par exemple à un serveur de licences d’application. Vous devrez créer un réseau virtuel avant de déployer les instances. L’ajout d’une machine virtuelle A8, A9, A10 ou A11 à un réseau virtuel dans un groupe d’affinités n’est pas pris en charge.
+* **Réseau virtuel** : aucun [réseau virtuel](https://azure.microsoft.com/documentation/services/virtual-network/) Azure n’est requis pour utiliser les instances qui nécessitent beaucoup de ressources système. Cependant, vous pouvez avoir besoin d’au moins un réseau virtuel Azure dans le cloud pour bon nombre de scénarios, ou d’une connexion de site à site si vous devez accéder à des ressources locales, par exemple à un serveur de licences d’application. Si nécessaire, créez un réseau virtuel avant de déployer les instances. L’ajout d’une machine virtuelle A8, A9, A10 ou A11 à un réseau virtuel dans un groupe d’affinités n’est pas pris en charge.
 
 * **Service cloud ou groupe à haute disponibilité** : pour vous connecter via le réseau RDMA, les machines virtuelles de taille A8 et A9 doivent être déployées dans le même service cloud (si vous utilisez le modèle de déploiement classique) ou le même groupe à haute disponibilité (si vous utilisez le modèle de déploiement Azure Resource Manager).
 
@@ -57,4 +57,4 @@ Les instances A10 et A11 ont une seule carte réseau Ethernet 10 Gbits/s qui se
 
 * **Espace d’adressage réseau RDMA** : le réseau RDMA dans Azure réserve l’espace d’adressage 172.16.0.0/16. Si vous envisagez d'exécuter des applications MPI sur des instances A8 et A9 dans un réseau virtuel Azure, assurez-vous que l'espace d'adressage du réseau virtuel ne chevauche pas le réseau RDMA.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0810_2016-->

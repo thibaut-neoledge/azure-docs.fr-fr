@@ -50,18 +50,18 @@ Dans votre ressource Application Insights, recherchez la vignette de disponibili
 ![Fill at least the URL of your website](./media/app-insights-monitor-web-app-availability/13-availability.png)
 
 - **L’URL** doit être visible à partir de l’Internet public. Elle peut inclure une chaîne de requête, par exemple pour vous permettre de tester un peu votre base de données. Si l’URL correspond à une redirection, nous allons la suivre, jusqu’à 10 redirections.
-- **Analyser les demandes dépendantes** : les images, scripts, fichiers de style et autres ressources de la page sont demandés dans le cadre du test. Le test échoue si toutes ces ressources ne peuvent pas être téléchargées avec succès dans le délai imparti pour l’ensemble du test.
-- **Autoriser de nouvelles tentatives** : une nouvelle tentative de test sera effectuée après un court intervalle en cas d’échec du test. L’échec est signalé uniquement après trois tentatives infructueuses. Les tests suivants sont ensuite effectués selon la fréquence de test habituelle. La nouvelle tentative est temporairement suspendue jusqu’à la réussite de la tentative suivante. Cette règle est appliquée indépendamment à chaque emplacement de test. (Nous recommandons ce paramètre. En moyenne, environ 80 % des échecs disparaissent lors de la nouvelle tentative.)
-- **Fréquence de test** : définit la fréquence selon laquelle le test est exécuté à partir de chaque emplacement de test. Avec une fréquence de 5 minutes et 5 emplacements de test, votre site sera testé en moyenne une fois par minute.
+- **Analyser les demandes dépendantes** : les images, scripts, fichiers de style et autres ressources de la page sont demandés dans le cadre du test. Le test échoue si toutes ces ressources ne peuvent pas être téléchargées avec succès dans le délai imparti pour l’ensemble du test.
+- **Autoriser de nouvelles tentatives** : une nouvelle tentative de test sera effectuée après un court intervalle en cas d’échec du test. L’échec est signalé uniquement après trois tentatives infructueuses. Les tests suivants sont ensuite effectués selon la fréquence de test habituelle. La nouvelle tentative est temporairement suspendue jusqu’à la réussite de la tentative suivante. Cette règle est appliquée indépendamment à chaque emplacement de test. (Nous recommandons ce paramètre. En moyenne, environ 80 % des échecs disparaissent lors de la nouvelle tentative.)
+- **Fréquence de test** : définit la fréquence selon laquelle le test est exécuté à partir de chaque emplacement de test. Avec une fréquence de 5 minutes et 5 emplacements de test, votre site sera testé en moyenne une fois par minute.
 - Les **emplacements de test** sont les lieux d’où nos serveurs envoient des requêtes web à votre URL. Choisissez-en plusieurs de façon à distinguer les problèmes de votre site web des problèmes de réseau. Vous pouvez sélectionner jusqu’à 16 emplacements.
 
-- **Critères de réussite** :
+- **Critères de réussite** :
 
     **Délai d’expiration de test** : diminuez cette valeur pour être averti des réponses lentes. Le test est compté comme une erreur si des réponses de votre site n’ont pas été reçues pendant cette période. Si vous avez sélectionné **Analyser les demandes dépendantes**, l’ensemble des images, fichiers de style, scripts et autres ressources dépendantes ont dû être reçus pendant cette période.
 
-    **Réponse HTTP** : le code d’état retourné est comptabilisé comme un succès. 200 est le code qui indique qu’une page web normale a été retournée.
+    **Réponse HTTP** : le code d’état retourné est comptabilisé comme un succès. 200 est le code qui indique qu’une page web normale a été retournée.
 
-    **Correspondance de contenu** : une chaîne telle que « Bienvenue ! » Nous vérifions qu’elle est présente dans chaque réponse. Il doit s'agir d'une chaîne standard sans caractère générique. N'oubliez pas que si votre contenu change, vous devrez peut-être l'actualiser.
+    **Correspondance de contenu** : une chaîne telle que « Bienvenue ! » Nous vérifions qu’elle est présente dans chaque réponse. Il doit s'agir d'une chaîne standard sans caractère générique. N'oubliez pas que si votre contenu change, vous devrez peut-être l'actualiser.
 
 
 - Des **alertes** vous sont envoyées par défaut, en cas de défaillance dans trois emplacements en cinq minutes. Une défaillance dans un emplacement est susceptible d’être un problème réseau et non un problème relatif à votre site. Cependant, vous pouvez modifier le seuil de manière à ce qu’il soit plus ou moins sensible. Vous pouvez également modifier les destinataires des courriers électroniques.
@@ -208,23 +208,47 @@ Les plug-ins de test web vous permettent de paramétrer les heures.
 
     ![Dans le paramètre de test, utilisez {{nom du plug-in}}.](./media/app-insights-monitor-web-app-availability/appinsights-72webtest-plugin-name.png)
 
-Maintenant, téléchargez votre test sur le portail. Il va utiliser les valeurs dynamiques à chaque exécution du test.
+Maintenant, téléchargez votre test sur le portail. Il utilise les valeurs dynamiques à chaque exécution du test.
 
 ## Gestion de la connexion
 
 Si vos utilisateurs se connectent à votre application, vous disposez de différentes options pour simuler la connexion et tester les pages suivant la connexion. L’approche que vous utilisez dépend du type de sécurité fourni par l’application.
 
-Dans tous les cas, vous devez créer un compte uniquement à des fins de test. Si possible, limitez les autorisations afin qu’il soit accessible en lecture seulement.
+Dans tous les cas, vous devez créer un compte dans votre application uniquement à des fins de test. Si possible, limitez les autorisations de ce compte de test afin que les tests web n’affectent aucunement les utilisateurs réels.
 
-* Nom d’utilisateur et mot de passe simples : enregistrez simplement un test web de la manière habituelle. Supprimez d’abord les cookies
-* Authentification SAML. Utilisez le plug-in SAML qui est disponible pour les tests web.
-* Clé secrète client : si votre application présente un mode de connexion impliquant une clé secrète client, utilisez ce mode. Azure Active Directory fournit une connexion avec une clé secrète client.
-* Authentification ouverte - par exemple, connexion à l’aide de votre compte Microsoft ou Google. De nombreuses applications utilisant OAuth fournissent l’alternative de la clé secrète client. Donc, commencez par rechercher cela. Si votre test doit se connecter à l’aide d’OAuth, l’approche générale est la suivante :
- * Utilisez un outil tel que Fiddler pour examiner le trafic entre votre navigateur web, le site d’authentification et votre application.
- * Effectuez deux connexions ou plus à l’aide d’ordinateurs ou de navigateurs différents, ou à des intervalles longs (pour que les jetons arrivent à expiration).
- * En comparant les différentes sessions, identifiez le jeton retransmis à partir du site d’authentification, qui est ensuite transmis à votre serveur d’application après la connexion.
- * Enregistrez un test web à l’aide de Visual Studio.
- * Paramétrez les jetons, en définissant le paramètre lorsque le jeton est retourné par l’authentificateur et en l’utilisant dans la requête soumise sur le site. (Visual Studio tente de paramétrer le test, mais ne paramètre pas correctement les jetons.)
+### Nom d’utilisateur et mot de passe simples
+
+Enregistrez un test web de la façon habituelle. Supprimez d’abord les cookies
+
+### Authentication SAML
+
+Utilisez le plug-in SAML qui est disponible pour les tests web.
+
+### Clé secrète client
+
+Si votre application présente un mode de connexion impliquant une clé secrète client, utilisez ce mode. Azure Active Directory (AAD) est un exemple de service fournissant une connexion avec clé secrète client. Dans AAD, la clé secrète client est la clé d’application.
+
+Voici un exemple de test web d’une application web Azure à l’aide d’une clé d’application :
+
+![Exemple de clé secrète client](./media/app-insights-monitor-web-app-availability/110.png)
+
+1. Récupérez le jeton d’ADD à l’aide de la clé secrète client (clé d’application).
+2. Extrayez le jeton porteur de la réponse.
+3. Appelez l’API à l’aide du jeton porteur de l’en-tête d’autorisation.
+
+Assurez-vous que le test web est un client réel, qu’il possède sa propre application dans AAD, puis utilisé son ID client et sa clé d’application. Votre service soumis à un test possède également sa propre application dans AAD : l’URI ID d’application se retrouve dans le champ dédié aux ressources du test web.
+
+### Authentification ouverte
+
+Comme exemple d’authentification ouverte, citons la connexion avec votre compte Microsoft ou Google. De nombreuses applications utilisant OAuth fournissent l’alternative de la clé secrète client ; commencez donc par rechercher cet élément.
+
+Si votre test doit se connecter à l’aide d’OAuth, l’approche générale est la suivante :
+
+* Utilisez un outil tel que Fiddler pour examiner le trafic entre votre navigateur web, le site d’authentification et votre application.
+* Effectuez deux connexions ou plus à l’aide d’ordinateurs ou de navigateurs différents, ou à des intervalles longs (pour que les jetons arrivent à expiration).
+* En comparant les différentes sessions, identifiez le jeton retransmis à partir du site d’authentification, qui est ensuite transmis à votre serveur d’application après la connexion.
+* Enregistrez un test web à l’aide de Visual Studio.
+* Paramétrez les jetons, en définissant le paramètre lorsque le jeton est retourné par l’authentificateur et en l’utilisant dans la requête soumise sur le site. (Visual Studio tente de paramétrer le test, mais ne paramètre pas correctement les jetons.)
 
 
 ## <a name="edit"></a>Modification ou désactivation d’un test
@@ -309,4 +333,4 @@ Une fois le test terminé, les temps de réponse et les taux de réussite s’af
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="Azure"
    ms.workload="na"
-   ms.date="08/01/2016"
+   ms.date="08/08/2016"
    ms.author="hascipio"/>
 
 # Compléter la création d’offre avec du contenu marketing
@@ -123,7 +123,6 @@ Pour les offres de machines virtuelles, une fois qu’une offre/référence est 
 |---|---|---|---|
 | Image de machine virtuelle | Non | Oui | Non|
 | Service de développement | Oui | Oui | Oui |
-| Service de données | Oui | Non | Non |
 
 ### 2\.1. Définir les prix de votre machine virtuelle
 Actuellement, nous proposons les **3 types de modèles de facturation** suivants pour les machines virtuelles :
@@ -142,8 +141,8 @@ Actuellement, nous proposons les **3 types de modèles de facturation** suivants
 - **Suppression des régions de facturation des références répertoriées**
 - **Modification du nombre de disques de données des références répertoriées**
 - **Identificateur de l’offre :** [Portail de publication -> Machines virtuelles -> Sélectionnez votre offre -> Images de machines virtuelles -> Identificateur de l’offre]
-- **Identificateur de référence :** [Portail de publication -> Machines virtuelles -> Sélectionnez votre offre -> Onglet Références -> Ajouter une référence]
-- **Espace de noms d’éditeur :** [Portail de publication -> Machines virtuelles -> Onglet Procédure pas à pas (en Étape 2 : inscription) -> Espace de noms d’éditeur -> Espace de noms]
+- **Identificateur de référence :** [Portail de publication -> Machines virtuelles -> Sélectionnez votre offre -> Onglet Références -> Ajouter une référence]
+- **Espace de noms d’éditeur :** [Portail de publication -> Machines virtuelles -> Onglet Procédure pas à pas (en Étape 2 : inscription) -> Espace de noms d’éditeur -> Espace de noms]
 - **Ports :** [Portail de publication -> Machines virtuelles -> Votre offre -> Onglet Images de machines virtuelles -> Ports ouverts]
 
 ### Pays cibles de la référence
@@ -160,7 +159,7 @@ Suivez les étapes ci-dessous pour configurer un modèle de tarification horaire
 1.	Connectez-vous au [portail de publication](https://publish.windowsazure.com).
 2.	Accédez à l’onglet **MACHINES VIRTUELLES** et sélectionnez votre offre.
 3.	Dans le menu de gauche, cliquez sur l’onglet **RÉFÉRENCES (SKU)**.
-4.	Assurez-vous que la référence est marquée comme « Modèle de facturation horaire ». Dans le cas contraire, cliquez sur le bouton **Modifier** pour rétablir le modèle de facturation. Une fenêtre s’affiche. Décochez la case « La facturation et la gestion des licences sont traitées à l’extérieur d’Azure (apportez votre propre licence) » et enregistrez les modifications.
+4.	Assurez-vous que la référence est marquée comme « Modèle de facturation horaire ». Dans le cas contraire, cliquez sur le bouton **MODIFIER** pour rétablir le modèle de facturation. Une fenêtre s’affiche. Décochez la case « La facturation et la gestion des licences sont traitées à l’extérieur d’Azure (apportez votre propre licence) » et enregistrez les modifications.
 5.	Si vous souhaitez activer l’évaluation gratuite pour les 30 premiers jours du déploiement de la référence, sélectionnez l’option « Un mois » à la question « Une version d’évaluation gratuite est-elle disponible ? » Sinon, sélectionnez l’option « Aucune version d’évaluation ». Suivez maintenant les étapes indiquées ci-dessous.
 6.	Dans le menu de gauche, cliquez sur l’onglet **TARIFICATION**.
 7.	Sélectionnez votre région de base.
@@ -183,7 +182,7 @@ Suivez les étapes ci-dessous pour configurer un modèle de tarification horaire
 
     ![dessin](media/marketplace-publishing-push-to-staging/img2.1.1_11.png)
 
-12.	La page 3 affiche les marchés et régions. Cliquez sur le bouton **Activer/désactiver tout** bouton pour sélectionner toutes les régions, ou cochez-les manuellement. Cliquez sur le bouton « -> » pour passer à la page suivante. **Remarque :** les pays pour lesquels Microsoft verse les taxes sont indiqués par un symbole de maison. Pour plus d’informations, consultez la section Pays cibles de la référence sur cette page.
+12.	La page 3 affiche les marchés et régions. Cliquez sur le bouton **Activer/désactiver tout** pour sélectionner toutes les régions, ou cochez-les manuellement. Cliquez sur le bouton « -> » pour passer à la page suivante. **Remarque :** les pays pour lesquels Microsoft verse les taxes sont indiqués par un symbole de maison. Pour plus d’informations, consultez la section Pays cibles de la référence sur cette page.
 
     ![dessin](media/marketplace-publishing-push-to-staging/img2.1.1_12.png)
 
@@ -278,4 +277,4 @@ Votre contenu Marketplace étant chargé, nous allons maintenant tester votre of
 [link-pubportal]: https://publish.windowsazure.com
 [link-push-to-production]: marketplace-publishing-push-to-production.md
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

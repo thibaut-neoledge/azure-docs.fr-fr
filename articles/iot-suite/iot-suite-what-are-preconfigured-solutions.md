@@ -37,11 +37,11 @@ Le tableau suivant montre le mappage entre les solutions et des fonctionnalités
 | [Surveillance à distance][lnk-getstarted-preconfigured] | Oui | Oui | Oui | Oui | - |
 | [Maintenance prédictive][lnk-predictive-maintenance] | Oui | Oui | Oui | Oui | Oui |
 
-- *Données* : entrer des données à l'échelle dans le cloud.
-- *Identité d'appareil* : gérer les identités uniques de chaque appareil connecté.
-- *Commande et contrôle* : envoyer des messages à un appareil à partir du cloud pour lui demander de prendre des mesures.
-- *Règles et actions* : le serveur principal utilise des règles pour agir sur des données d’appareil spécifiques vers le cloud.
-- *Analyse prédictive* : le serveur principal applique des analyse de données d’appareil vers le cloud afin de prédire le moment où des actions spécifiques devraient se produire. Par exemple, l’analyse de la télémétrie d’un moteur d'avion permet de déterminer le moment où la maintenance doit avoir lieu.
+- *Données* : entrer des données à l'échelle dans le cloud.
+- *Identité d'appareil* : gérer les identités uniques de chaque appareil connecté.
+- *Commande et contrôle* : envoyer des messages à un appareil à partir du cloud pour lui demander de prendre des mesures.
+- *Règles et actions* : le serveur principal utilise des règles pour agir sur des données d’appareil spécifiques vers le cloud.
+- *Analyse prédictive* : le serveur principal applique des analyse de données d’appareil vers le cloud afin de prédire le moment où des actions spécifiques devraient se produire. Par exemple, l’analyse de la télémétrie d’un moteur d'avion permet de déterminer le moment où la maintenance doit avoir lieu.
 
 ## Présentation de la solution préconfigurée de surveillance à distance
 
@@ -57,12 +57,12 @@ Lorsque vous déployez la solution préconfigurée de surveillance à distance, 
 
 Lorsqu’un appareil se connecte pour la première fois à IoT Hub dans la solution préconfigurée de surveillance à distance, le message d’informations sur l’appareil envoyé à IoT Hub énumère la liste des commandes auxquelles l’appareil peut répondre. La solution préconfigurée de surveillance à distance prend en charge les commandes suivantes :
 
-- *Effectuer un test Ping* : l’appareil répond à cette commande par un accusé de réception. Cela est utile pour vérifier que l’appareil est toujours actif et en mode écoute.
-- *Démarrer la télémétrie* : demande à l’appareil de démarrer l’envoi des données de télémétrie.
-- *Démarrer la télémétrie* : demande à l’appareil d’arrêter l’envoi des données de télémétrie.
-- *Modifier la température nominale* : contrôle les valeurs de télémétrie reflétant la température simulée envoyées par l’appareil. Cette commande est utile dans le cadre de tests de logique Back-end.
-- *Diagnostiquer la télémétrie* : détermine si l’appareil doit envoyer les données de température externe sous la forme de données de télémétrie.
-- *Modifier l’état de l’appareil* : définit la propriété des métadonnées d’état de l’appareil renvoyée par l’appareil. Cette commande est utile dans le cadre de tests de logique Back-end.
+- *Effectuer un test Ping* : l’appareil répond à cette commande par un accusé de réception. Cela est utile pour vérifier que l’appareil est toujours actif et en mode écoute.
+- *Démarrer la télémétrie* : demande à l’appareil de démarrer l’envoi des données de télémétrie.
+- *Démarrer la télémétrie* : demande à l’appareil d’arrêter l’envoi des données de télémétrie.
+- *Modifier la température nominale* : contrôle les valeurs de télémétrie reflétant la température simulée envoyées par l’appareil. Cette commande est utile dans le cadre de tests de logique Back-end.
+- *Diagnostiquer la télémétrie* : détermine si l’appareil doit envoyer les données de température externe sous la forme de données de télémétrie.
+- *Modifier l’état de l’appareil* : définit la propriété des métadonnées d’état de l’appareil renvoyée par l’appareil. Cette commande est utile dans le cadre de tests de logique Back-end.
 
 Vous pouvez ajouter à la solution d’autres appareils de simulation qui génèrent les mêmes données de télémétrie et répondent aux mêmes commandes.
 

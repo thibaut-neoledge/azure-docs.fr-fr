@@ -12,7 +12,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="tbd"
- ms.date="05/25/2016"
+ ms.date="08/10/2016"
  ms.author="adegeo"/>
 
 # Tailles de services cloud
@@ -27,7 +27,7 @@ Cloud Services est l’un des nombreux types de ressources de calcul proposés p
 
 Les considérations ci-dessous peuvent vous aider à choisir une taille :
 
-* Les instances de machines virtuelles de la série D sont conçues pour exécuter des applications qui nécessitent une puissance de calcul et des performances de disque temporaire supérieures. Ces machines virtuelles se caractérisent par des processeurs plus rapides, un rapport mémoire-cœur plus élevé et un disque SSD pour le disque temporaire. Pour plus d’informations, voir l’annonce suivante sur le blog Azure : [Nouvelles tailles de machines virtuelles de la série D](https://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/) (en anglais).  
+* Les instances de machines virtuelles de la série D sont conçues pour exécuter des applications qui nécessitent une puissance de calcul et des performances de disque temporaire supérieures. Ces machines virtuelles se caractérisent par des processeurs plus rapides, un rapport mémoire-cœur plus élevé et un disque SSD pour le disque temporaire. Pour plus d’informations, voir l’annonce suivante sur le blog Azure : [Nouvelles tailles de machines virtuelles de la série D](https://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/) (en anglais).
 
 * La série Dv2, suite de la série D d’origine, comprend un processeur plus puissant. Le processeur de la série Dv2 est environ 35 % plus rapide que le processeur de la série D. Il est basé sur la dernière génération de processeur 2,4 GHz Intel Xeon® E5-2673 v3 (Haswell) et comporte la technologie 2.0 Intel Turbo Boost, et peut atteindre 3,1 GHz. La série Dv2 a les mêmes configurations de disque et de mémoire que la série D.
 
@@ -58,8 +58,8 @@ Pour les sites web, les bases de données de taille petite à moyenne, et les au
 | Très petite | 1 | 0,75 Go | Faible | 19 Go |
 | Petite | 1 | 1,75 Go | Modéré | 224 Go |
 | Moyenne | 2 | 3,5 Go | Modéré | 489 Go |
-| Grande | 4 | 7 Go | Élevée | 999 Go |
-| Très grande | 8 | 14 Go | Élevée | 2 039 Go |
+| Grande | 4 | 7 Go | Élevé | 999 Go |
+| Très grande | 8 | 14 Go | Élevé | 2 039 Go |
 
 >[AZURE.NOTE] **ExtraSmall** à **ExtraLarge** peuvent également être nommés **A0-A4** respectivement.
 
@@ -70,8 +70,8 @@ Pour les grandes bases de données, les batteries de serveurs SharePoint et les 
 | Taille (ID) | Cœurs | RAM | Bande passante réseau | Taille totale du disque |
 | --------------- | :-------: | ------: | :-----------: | ------:  |
 | A5 | 2 | 14 Go | Modéré | 489 Go |
-| A6 | 4 | 28 Go | Élevée | 999 Go |
-| A7 | 8 | 56 Go | Élevée | 2 039 Go |
+| A6 | 4 | 28 Go | Élevé | 999 Go |
+| A7 | 8 | 56 Go | Élevé | 2 039 Go |
 
 ## Optimisé pour le réseau avec prise en charge InfiniBand
 
@@ -79,7 +79,7 @@ Disponible dans certains centres de données. Les machines virtuelles A8 et A9 s
 
 | Taille (ID) | Cœurs | RAM | Bande passante réseau | Taille totale du disque |
 | --------------- | :-------: | ------: | :-----------: | ------: |
-| A8 | 8 | 56 Go | Élevée | 382 Go |
+| A8 | 8 | 56 Go | Élevé | 382 Go |
 | A9 | 16 | 112 Go | Très élevée | 382 Go |
 
 ## Calcul intensif
@@ -88,7 +88,7 @@ Disponible dans certains centres de données. Les machines virtuelles A10 et A11
 
 | Taille (ID) | Cœurs | RAM | Bande passante réseau | Taille totale du disque |
 | --------------- | :-------: | ------: | :-----------: | ------: |
-| A10 | 8 | 56 Go | Élevée | 382 Go |
+| A10 | 8 | 56 Go | Élevé | 382 Go |
 | A11 | 16 | 112 Go | Très élevée | 382 Go |
 
 ## Série D : calcul optimisé
@@ -101,10 +101,10 @@ Pour les sites web, les bases de données de taille petite à moyenne, et les au
 
 | Taille (ID) | Cœurs | RAM | Bande passante réseau | Taille totale du disque |
 | --------------- | :-------: | ------: | :-----------: | ------: |
-| D1 standard | 1 | 3,5 Go | Modéré | 50 Go |
+| D1 standard | 1 | 3,5 Go | Modéré | 50 Go |
 | D2 standard | 2 | 7 Go | Élevée | 100 Go |
-| D3 standard | 4 | 14 Go | Élevée | 200 Go |
-| D4 standard | 8 | 28 Go | Élevée | 400 Go |
+| D3 standard | 4 | 14 Go | Élevé | 200 Go |
+| D4 standard | 8 | 28 Go | Élevé | 400 Go |
 
 ## Utilisation intensive de la mémoire (D)
 
@@ -112,9 +112,9 @@ Pour les grandes bases de données, les batteries de serveurs SharePoint et les 
 
 | Taille (ID) | Cœurs | RAM | Bande passante réseau | Taille totale du disque |
 | --------------- | :-------: | ------: | :-----------: | ------: |
-| D11 standard | 2 | 14 Go | Élevée | 100 Go |
-| D12 standard | 4 | 28 Go | Élevée | 200 Go |
-| D13 standard | 8 | 56 Go | Élevée | 400 Go |
+| D11 standard | 2 | 14 Go | Élevé | 100 Go |
+| D12 standard | 4 | 28 Go | Élevé | 200 Go |
+| D13 standard | 8 | 56 Go | Élevé | 400 Go |
 | D14 standard | 16 | 112 Go | Très élevée | 800 Go |
 
 ## Série Dv2 : calcul optimisé
@@ -127,10 +127,10 @@ Pour les sites web, les bases de données de taille petite à moyenne, et les au
 
 | Taille (ID) | Cœurs | RAM | Bande passante réseau | Taille totale du disque |
 | --------------- | :-------: | ------: | :-----------: | ------: |
-| Standard\_D1\_v2 | 1 | 3,5 Go | Modéré | 50 Go |
+| Standard\_D1\_v2 | 1 | 3,5 Go | Modéré | 50 Go |
 | Standard\_D2\_v2 | 2 | 7 Go | Élevée | 100 Go |
-| Standard\_D3\_v2 | 4 | 14 Go | Élevée | 200 Go |
-| Standard\_D4\_v2 | 8 | 28 Go | Élevée | 400 Go |
+| Standard\_D3\_v2 | 4 | 14 Go | Élevé | 200 Go |
+| Standard\_D4\_v2 | 8 | 28 Go | Élevé | 400 Go |
 | Standard\_D5\_v2 | 16 | 56 Go | Très élevée | 800 Go |
 
 ## Utilisation intensive de la mémoire (Dv2)
@@ -139,9 +139,9 @@ Pour les grandes bases de données, les batteries de serveurs SharePoint et les 
 
 | Taille (ID) | Cœurs | RAM | Bande passante réseau | Taille totale du disque |
 | --------------- | :-------: | ------: | :-----------: | -------: |
-| Standard\_D11\_v2 | 2 | 14 Go | Élevée | 100 Go |
-| Standard\_D12\_v2 | 4 | 28 Go | Élevée | 200 Go |
-| Standard\_D13\_v2 | 8 | 56 Go | Élevée | 400 Go |
+| Standard\_D11\_v2 | 2 | 14 Go | Élevé | 100 Go |
+| Standard\_D12\_v2 | 4 | 28 Go | Élevé | 200 Go |
+| Standard\_D13\_v2 | 8 | 56 Go | Élevé | 400 Go |
 | Standard\_D14\_v2 | 16 | 112 Go | Très élevée | 800 Go |
 
 ## Configurer les tailles pour les Cloud Services
@@ -156,4 +156,4 @@ Voici un exemple qui montre comment configurer un rôle avec la taille [Standard
 </WebRole>
 ```
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0810_2016-->

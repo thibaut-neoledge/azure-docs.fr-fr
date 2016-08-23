@@ -4,7 +4,7 @@
 	description="Permet de définir les tâches de gestion des identités hybrides selon les options disponibles pour chaque phase du cycle de vie."
 	documentationCenter=""
 	services="active-directory"
-	authors="femila"
+	authors="billmath"
 	manager="stevenpo"
 	editor=""/>
 
@@ -14,8 +14,8 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-	ms.date="12/07/2015"
-	ms.author="femila"/>
+	ms.date="08/08/2016"
+	ms.author="billmath"/>
 
 
 # Déterminer la stratégie d’adoption du cycle de vie des identités hybrides
@@ -95,4 +95,4 @@ Pour plus d’informations, consultez [Intégration des identités locales avec 
 ## Voir aussi
 [Présentation des considérations relatives à la conception](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0810_2016-->

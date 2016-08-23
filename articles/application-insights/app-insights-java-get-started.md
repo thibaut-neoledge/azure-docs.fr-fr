@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/12/2016"
+	ms.date="08/17/2016"
 	ms.author="awills"/>
 
 # Prise en main d'Application Insights dans un projet web Java
@@ -27,21 +27,18 @@
 
 Application Insights prend en charge les applications Java exécutées sur Linux, Unix ou Windows.
 
-Vous devez avoir :
+Ce dont vous avez besoin :
 
 * Oracle JRE 1.6 ou version ultérieure ou Zoulou JRE 1.6 ou version ultérieure
-* Un abonnement [Microsoft Azure](https://azure.microsoft.com/). (Vous pouvez commencer par l'[essai gratuit](https://azure.microsoft.com/pricing/free-trial/).)
+* Un abonnement à [Microsoft Azure](https://azure.microsoft.com/). (Vous pouvez commencer par l'[essai gratuit](https://azure.microsoft.com/pricing/free-trial/).)
 
 *Si vous disposez d’une application web déjà active, vous pouvez suivre la procédure alternative destinée à [ajouter le Kit de développement logiciel (SDK) au moment de l’exécution dans le serveur web](app-insights-java-live.md). Cette alternative évite la régénération du code, mais ne vous permet pas d’écrire du code pour effectuer le suivi de l’activité des utilisateurs.*
 
 
 ## 1\. Obtenir une clé d'instrumentation Application Insights
 
-1. Connectez-vous au [portail Microsoft Azure.](https://portal.azure.com)
-2. Créez une ressource Application Insights.
-
-    ![Cliquez sur + et choisissez Ajouter Application Insights](./media/app-insights-java-get-started/01-create.png)
-3. Définissez le type d’application sur Application web Java.
+1. Connectez-vous au [portail Microsoft Azure](https://portal.azure.com).
+2. Créez une ressource Application Insights. Définissez le type d’application sur Application web Java.
 
     ![Indiquez le nom, choisissez l’application web Java, puis cliquez sur Créer.](./media/app-insights-java-get-started/02-create.png)
 4. Obtenez la clé d'instrumentation de la nouvelle ressource. Vous devrez la coller rapidement dans le code de votre projet.
@@ -100,25 +97,25 @@ Actualisez ensuite les dépendances du projet pour télécharger les fichiers bi
 
 * *Erreurs de validation de build ou de somme de contrôle ? Essayez d’utiliser une version spécifique, telle que :* `version:'1.0.n'`. *Vous trouverez la version la plus récente dans les [notes de publication du kit de développement logiciel (SDK)](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).*
 * *Pour effecteur la mise à jour vers un nouveau kit de développement logiciel (SDK)*
- * Actualisez les dépendances de votre projet.
+* Actualisez les dépendances de votre projet.
 
 #### Sinon...
 
 Ajouter manuellement le Kit de développement logiciel :
 
-1. Téléchargez le [Kit de développement logiciel (SDK) Application Insights pour Java](https://azuredownloads.blob.core.windows.net/applicationinsights/sdk.html).
+1. Téléchargez le [Kit de développement logiciel (SDK) Application Insights pour Java](https://aka.ms/aijavasdk).
 2. Décompressez les fichiers binaires du fichier zip et ajoutez-les à votre projet.
 
 ### Questions...
 
 * *Quelle est la relation entre les composants `-core` et `-web` du fichier zip ?*
 
- * `applicationinsights-core` vous fournit l’API seule. Cet élément est toujours requis.
- * `applicationinsights-web` fournit des mesures qui permettent d’effectuer le suivi du nombre de requêtes HTTP et des temps de réponse. Vous pouvez omettre cet élément si vous ne souhaitez pas recueillir automatiquement ces données de télémétrie. Par exemple, si vous préférez écrire vos propres mesures.
+* `applicationinsights-core` vous fournit l’API seule. Ce composant est toujours requis.
+* `applicationinsights-web` fournit des mesures qui permettent d’effectuer le suivi du nombre de requêtes HTTP et des temps de réponse. Vous pouvez omettre ce composant si vous ne souhaitez pas recueillir automatiquement ces données de télémétrie. Par exemple, si vous préférez écrire vos propres mesures.
 
 * *Pour mettre à jour le Kit de développement logiciel lorsque nous publions des modifications*
- * Téléchargez le dernier [Kit de développement logiciel Application Insights pour Java](https://azuredownloads.blob.core.windows.net/applicationinsights/sdk.zip) et remplacez les anciens Kits.
- * Les modifications sont décrites dans le [notes de publication du kit de développement logiciel (SDK)](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).
+* Téléchargez le dernier [Kit de développement logiciel Application Insights pour Java](https://aka.ms/qqkaq6) et remplacez les anciens Kits.
+* Les modifications sont décrites dans le [notes de publication du kit de développement logiciel (SDK)](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).
 
 
 
@@ -162,7 +159,7 @@ Remplacez la clé d'instrumentation que avez obtenue sur le portail Azure.
 * La clé d'instrumentation est envoyée avec chaque élément de télémétrie et indique à Application Insights de l'afficher dans votre ressource.
 * Le composant de demande HTTP est facultatif. Il envoie automatiquement la télémétrie concernant les demandes et les temps de réponse au portail.
 * La corrélation des événements est un complément au composant de demande HTTP. Il assigne un identificateur à chaque demande reçue par le serveur et l'ajoute comme propriété de chaque élément de télémétrie en tant que propriété « Operation.Id ». Il vous permet de mettre en corrélation la télémétrie associée à chaque demande en définissant un filtre dans [recherche de diagnostic][diagnostic].
-* La clé Application Insights peut être transmise de manière dynamique à partir du Portail Azure sous la forme d’une propriété système (-DAPPLICATION\_INSIGHTS\_IKEY=votre\_iKey). Si aucune propriété n’est définie, la variable d’environnement (APPLICATION\_INSIGHTS\_IKEY) est recherchée dans les paramètres d’application Azure. Si aucune de ces deux propriétés n’est définie, la clé InstrumentationKey par défaut est utilisée à partir d’ApplicationInsights.xml. Cette approche facilite la gestion dynamique de clés InstrumentationKey distinctes pour différents environnements.
+* La clé Application Insights peut être transmise de manière dynamique à partir du Portail Azure sous la forme d’une propriété système (-DAPPLICATION\_INSIGHTS\_IKEY=votre\_iKey). Si aucune propriété n’est définie, la variable d’environnement (APPLICATION\_INSIGHTS\_IKEY) est recherchée dans les paramètres d’application Azure. Si aucune de ces deux propriétés n’est définie, la clé InstrumentationKey par défaut est utilisée à partir d’ApplicationInsights.xml. Cette séquence vous aide à gérer dynamiquement divers éléments InstrumentationKeys pour différents environnements.
 
 ### Autres méthodes pour définir la clé d’instrumentation
 
@@ -196,7 +193,7 @@ Pour obtenir des résultats plus précis, le filtre doit être mappé avant tous
        <url-pattern>/*</url-pattern>
     </filter-mapping>
 
-#### Si vous utilisez MVC 3.1 ou version ultérieure
+#### Si vous utilisez Spring Web MVC 3.1 ou une version ultérieure
 
 Modifiez ces éléments pour inclure le package Application Insights :
 
@@ -241,7 +238,7 @@ Cliquez sur un des graphiques pour afficher des métriques agrégées plus déta
 
 ![](./media/app-insights-java-get-started/6-barchart.png)
 
-> Application Insights repose sur l’hypothèse que le format des requêtes HTTP pour les applications MVC est le suivant : `VERB controller/action`. Par exemple, `GET Home/Product/f9anuh81`, `GET Home/Product/2dffwrf5` et `GET Home/Product/sdf96vws` seront regroupés dans `GET Home/Product`. Ceci permet l'agrégation correcte des demandes, par exemple le nombre de demandes et le temps moyen d'exécution des demandes.
+> Application Insights repose sur l’hypothèse que le format des requêtes HTTP pour les applications MVC est le suivant : `VERB controller/action`. Par exemple, `GET Home/Product/f9anuh81`, `GET Home/Product/2dffwrf5` et `GET Home/Product/sdf96vws` sont regroupés dans `GET Home/Product`. Ceci permet l'agrégation correcte des demandes, par exemple le nombre de demandes et le temps moyen d'exécution des demandes.
 
 
 ### Données d’instance 
@@ -268,13 +265,13 @@ Publiez maintenant votre application sur le serveur, laissez le temps aux usager
 
 * Assurez-vous que votre pare-feu autorise votre application à envoyer les données de télémétrie vers ces ports :
 
- * dc.services.VisualStudio.com:443
- * f5.services.visualstudio.com:443
+* dc.services.VisualStudio.com:443
+* f5.services.visualstudio.com:443
 
 
 * Sur les serveurs Windows, installez :
 
- * [Redistribuable Microsoft Visual C++](http://www.microsoft.com/download/details.aspx?id=40784)
+* [Redistribuable Microsoft Visual C++](http://www.microsoft.com/download/details.aspx?id=40784)
 
     (Cette opération active les compteurs de performances.)
 
@@ -282,7 +279,7 @@ Publiez maintenant votre application sur le serveur, laissez le temps aux usager
 
 Les exceptions non gérées sont collectées automatiquement :
 
-![Faites défiler et cliquez sur la vignette Défaillances](./media/app-insights-java-get-started/21-exceptions.png)
+![Ouvrez Paramètres, Défaillances.](./media/app-insights-java-get-started/21-exceptions.png)
 
 Pour collecter les données concernant d’autres exceptions, vous disposez de deux options :
 
@@ -297,7 +294,7 @@ Pour collecter les données concernant d’autres exceptions, vous disposez de d
 
 ## Compteurs de performances
 
-Cliquez sur la mosaïque **Serveurs** et vous verrez un ensemble de compteurs de performances.
+Ouvrez **Paramètres**, **Serveurs** afin d’afficher une gamme de compteurs de performances.
 
 
 ![](./media/app-insights-java-get-started/11-perf-counters.png)
@@ -379,17 +376,15 @@ Maintenant que vous avez installé le Kit de développement logiciel (SDK), vous
 
 ## Tests web de disponibilité
 
-Application Insights peut tester votre site web à intervalles réguliers pour vérifier qu’il fonctionne et répond correctement. Pour exécuter la [configuration][availability], faites défiler la liste vers le bas pour cliquer sur Disponibilité.
+Application Insights peut tester votre site web à intervalles réguliers pour vérifier qu’il fonctionne et répond correctement. [Pour configurer][availability], cliquez sur Tests web.
 
-![Faites défiler vers le bas, cliquez sur Disponibilité, puis sur Ajouter un test web](./media/app-insights-java-get-started/31-config-web-test.png)
+![Cliquez sur Tests web, puis sur Ajouter un test web](./media/app-insights-java-get-started/31-config-web-test.png)
 
 Vous obtenez des graphiques du temps de réponse, ainsi que des notifications par courrier électronique si votre site ne fonctionne plus.
 
 ![Exemple de test web](./media/app-insights-java-get-started/appinsights-10webtestresult.png)
 
 [En savoir plus sur les tests de disponibilité web.][availability]
-
-
 
 
 
@@ -413,4 +408,4 @@ Pour plus d’informations, consultez le [Centre pour développeurs Java](/devel
 [metrics]: app-insights-metrics-explorer.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -43,9 +43,9 @@ Plusieurs étapes importantes doivent être effectuées avant de déplacer une r
 
 Pour l’instant, les services à partir desquels il est possible de déplacer les ressources vers un nouveau groupe de ressources et un nouvel abonnement sont les suivants :
 
-- API Management
+- Gestion des API
 - Applications App Service (applications web) : consultez [Limitations d’App Service](#app-service-limitations)
-- Automation
+- Automatisation
 - Batch
 - CDN
 - Cloud Services : consultez [Limitations relatives au déploiement Classic](#classic-deployment-limitations)
@@ -54,18 +54,19 @@ Pour l’instant, les services à partir desquels il est possible de déplacer l
 - Base de données de documents
 - Clusters HDInsight
 - Key Vault
+- Media Services
 - Mobile Engagement
 - Notification Hubs
 - Operational Insights
 - Cache Redis
 - Scheduler
-- Recherche
+- Search
 - Storage
 - Storage (classique) : consultez [Limitations relatives au déploiement classique](#classic-deployment-limitations)
 - Serveur de base de données SQL : la base de données et le serveur doivent résider dans le même groupe de ressources. Lorsque vous déplacez un serveur SQL, toutes ses bases de données sont également déplacées.
 - Machines virtuelles
 - Virtual Machines (classique) : consultez [Limitations relatives au déploiement classique](#classic-deployment-limitations)
-- Réseaux virtuels
+- Virtual Network
 
 ## Services qui ne prennent pas en charge le déplacement
 
@@ -272,4 +273,4 @@ Avec le corps de requête :
 - Pour plus d’informations sur les fonctionnalités du portail permettant de gérer votre abonnement, consultez [Utilisation du Portail Azure pour gérer les ressources](./azure-portal/resource-group-portal.md).
 - Pour plus d’informations sur l’application d’une organisation logique à vos ressources, consultez [Organisation des ressources Azure à l’aide de balises](resource-group-using-tags.md).
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0810_2016-->

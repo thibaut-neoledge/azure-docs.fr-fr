@@ -13,7 +13,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-compute"
-	ms.date="06/29/2016"
+	ms.date="08/12/2016"
 	ms.author="marsma"/>
 
 # Présentation des fonctionnalités du service Batch pour les développeurs
@@ -145,7 +145,7 @@ Lorsque vous créez un pool, vous pouvez spécifier les attributs suivants :
 
 > [AZURE.IMPORTANT] Tous les comptes Batch ont un **quota** par défaut qui limite le nombre de **cœurs** (et par conséquent, celui des nœuds de calcul) dans un compte Batch. Pour en savoir plus sur les quotas par défaut et obtenir des instructions sur comment [augmenter un quota](batch-quota-limit.md#increase-a-quota) (par exemple, le nombre maximal de cœurs dans votre compte Batch), consultez l’article [Quotas et limites pour le service Azure Batch](batch-quota-limit.md). Si vous vous demandez pourquoi votre pool n’atteint pas plus de X nœuds, ce quota de cœurs en est peut-être la raison.
 
-## Job
+## Travail
 
 Un travail est une collection de tâches. Il gère la façon dont le calcul est effectué par ses tâches sur les nœuds de calcul d’un pool.
 
@@ -432,6 +432,11 @@ Quand certaines de vos tâches échouent, votre application cliente Batch ou un 
 
 - Passez en revue un exemple d’application Batch détaillée dans [Prise en main de la bibliothèque Azure Batch pour .NET.](batch-dotnet-get-started.md). Il existe également une [version Python](batch-python-tutorial.md) du didacticiel qui exécute une charge de travail sur des nœuds de calcul Linux.
 
+- Téléchargez et créez l’exemple de projet [Batch Explorer][github_batchexplorer] à utiliser lors du développement de vos solutions Batch. En utilisant l’explorateur Batch, vous pouvez effectuer ce qui suit, et bien plus encore :
+  - Analysez et manipulez les pools, les travaux et les tâches au sein de votre compte Batch
+  - Téléchargez `stdout.txt`, `stderr.txt` et d’autres fichiers à partir des nœuds
+  - Créez des utilisateurs sur les nœuds et téléchargez les fichiers RDP pour la connexion à distance
+
 - Découvrez comment [créer des pools de nœuds de calcul Linux](batch-linux-nodes.md).
 
 - Consultez le [forum Azure Batch][batch_forum] sur MSDN. Le forum est parfait pour poser des questions, que vous soyez débutant ou expert dans l’utilisation du service Batch.
@@ -444,7 +449,7 @@ Quand certaines de vos tâches échouent, votre application cliente Batch ou un 
 [msmpi]: https://msdn.microsoft.com/library/bb524831.aspx
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [github_sample_taskdeps]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/TaskDependencies
-
+[github_batchexplorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
 [batch_net_api]: https://msdn.microsoft.com/library/azure/mt348682.aspx
 [net_cloudjob_jobmanagertask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.jobmanagertask.aspx
 [net_cloudjob_priority]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.priority.aspx
@@ -487,4 +492,4 @@ Quand certaines de vos tâches échouent, votre application cliente Batch ou un 
 
 [vm_marketplace]: https://azure.microsoft.com/marketplace/virtual-machines/
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0817_2016-->

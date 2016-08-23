@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/09/2016"
+	ms.date="08/03/2016"
 	ms.author="robinsh"/>
 
 
@@ -51,7 +51,7 @@ Pour résoudre les problèmes des applications clientes utilisant Microsoft Azur
 
 Pour ce didacticiel, nous allons examiner un scénario où les métriques Azure Storage indiquent un faible taux de réussite pour une application qui appelle le stockage Azure. La métrique de taux faible de réussite (indiquée en tant que **PercentSuccess** dans le [portail Azure](https://portal.azure.com) et dans les tables de mesures) assure le suivi des opérations qui réussissent, mais qui retournent un code d’état HTTP supérieur à 299. Dans les fichiers journaux de stockage côté serveur, ces opérations sont enregistrées avec un statut de transaction **ClientOtherErrors**. Pour plus d'informations sur les métriques de faible taux de réussite, consultez la rubrique [Les métriques indiquent une valeur PercentSuccess faible ou les entrées du journal d'analyse incluent des opérations avec un statut de transaction ClientOtherErrors](storage-monitoring-diagnosing-troubleshooting.md#metrics-show-low-percent-success).
 
-Les opérations d'Azure Storage peuvent renvoyer les codes d'état HTTP supérieurs à 299 dans le cadre de leur fonctionnement normal. Mais dans certains cas, ces erreurs indiquent que vous pouvez peut-être optimiser votre application cliente pour améliorer les performances.
+Les opérations d’Azure Storage peuvent renvoyer les codes d’état HTTP supérieurs à 299 dans le cadre de leur fonctionnement normal. Mais dans certains cas, ces erreurs indiquent que vous pouvez peut-être optimiser votre application cliente pour améliorer les performances.
 
 Dans ce scénario, nous allons considérer comme un faible taux de réussite tout ce qui est inférieur à 100 %. Vous pouvez cependant choisir un autre niveau de métrique, en fonction de vos besoins. Nous vous recommandons, pendant le test de votre application, d'établir une tolérance de référence pour les métriques de performances clés. Par exemple, vous pouvez déterminer, sur la base de tests, que votre application doit avoir un taux de réussite de 90 % ou 85 %. Si vos données métriques montrent que l'application s'écarte de cette valeur, vous pouvez rechercher ce qui est susceptible de provoquer l'augmentation.
 
@@ -91,7 +91,7 @@ Dans ce didacticiel, nous allons utiliser Message Analyzer pour travailler avec 
 
 ### Configuration de la journalisation et des métriques côté serveur
 
-Tout d'abord, nous allons devoir configurer la journalisation et les métriques Azure Storage afin d'avoir des données de l'application cliente à analyser. Vous pouvez configurer la journalisation et les métriques de plusieurs manières : via le [portail Azure](https://portal.azure.com), à l’aide de PowerShell ou par programme. Pour plus d'informations sur la configuration de la journalisation et des métriques, consultez les pages [Activation de Storage Metrics et affichage des données de métriques](http://msdn.microsoft.com/library/azure/dn782843.aspx) et [Activation de la journalisation du stockage et accès aux données de journal](http://msdn.microsoft.com/library/azure/dn782840.aspx) sur MSDN.
+Tout d’abord, nous allons devoir configurer la journalisation et les métriques Azure Storage afin d’avoir des données de l’application cliente à analyser. Vous pouvez configurer la journalisation et les métriques de plusieurs manières : via le [portail Azure](https://portal.azure.com), à l’aide de PowerShell ou par programme. Pour plus d'informations sur la configuration de la journalisation et des métriques, consultez les pages [Activation de Storage Metrics et affichage des données de métriques](http://msdn.microsoft.com/library/azure/dn782843.aspx) et [Activation de la journalisation du stockage et accès aux données de journal](http://msdn.microsoft.com/library/azure/dn782840.aspx) sur MSDN.
 
 **Via le portail Azure**
 
@@ -145,14 +145,14 @@ Vous pouvez utiliser Message Analyzer pour collecter un suivi réseau HTTP/HTTPS
 
 1. Installez [Fiddler](http://www.telerik.com/download/fiddler).
 2. Lancez Fiddler.
-2. Sélectionnez **Outils | Options de Fiddler**.
+2. Sélectionnez **Outils| Fiddler Options**.
 3. Dans la boîte de dialogue Options, vérifiez que **Capturer les CONNECT HTTPS** et **Déchiffrer le trafic HTTPS** sont tous deux activés, comme illustré ci-dessous.
 
 ![Configuration des options de Fiddler](./media/storage-e2e-troubleshooting/fiddler-options-1.png)
 
 Dans le didacticiel, collectez et enregistrez d'abord un suivi réseau dans Message Analyzer, puis créez une session d'analyse pour analyser le suivi et les journaux. Pour collecter un suivi réseau dans Message Analyzer :
 
-1. Dans Message Analyzer, sélectionnez **Fichier | Suivi rapide | HTTPS non chiffré**.
+1. Dans Message Analyzer, sélectionnez **Fichier| Quick Trace | Unencrypted HTTPS**.
 2. Le suivi commence immédiatement. Cliquez sur **Arrêter** pour arrêter le suivi afin que nous puissions le configurer pour le suivi du trafic de stockage uniquement.
 3. Cliquez sur **Modifier** pour modifier la session de suivi.
 4. Cliquez sur le lien **Configurer** à droite du fournisseur ETW **Microsoft-performance-WebProxy**.
@@ -167,7 +167,7 @@ Dans le didacticiel, collectez et enregistrez d'abord un suivi réseau dans Mess
 
 >[AZURE.NOTE] Après avoir terminé la collecte de votre suivi réseau, nous vous recommandons fortement de rétablir les paramètres que vous avez éventuellement modifiés dans Fiddler pour déchiffrer le trafic HTTPS. Dans la boîte de dialogue Options de Fiddler, désactivez les cases à cocher **Capturer les CONNECT HTTPS** et **Déchiffrer le trafic HTTPS**.
 
-Pour plus de détails, consultez la page [Utilisation des fonctionnalités de suivi réseau](http://technet.microsoft.com/library/jj674819.aspx) sur Technet.
+Pour plus de détails, voir la page [Utilisation des fonctionnalités de suivi réseau](http://technet.microsoft.com/library/jj674819.aspx) sur Technet.
 
 ## Revue des données des métriques dans le portail Azure
 
@@ -177,7 +177,7 @@ Dans le portail Azure, **Pourcentage de réussite** apparaît désormais dans le
 
 Pour plus d'informations sur l'ajout de métriques à la page de surveillance, consultez la page [Ajout de mesures au tableau des mesures](storage-monitor-storage-account.md#how-to-add-metrics-to-the-metrics-table).
 
-> [AZURE.NOTE] Les données de vos mesures peuvent mettre un certain temps pour apparaître dans le portail Azure une fois que vous avez activé les mesures de stockage. C’est parce que les métriques horaires correspondant à l’heure précédente ne sont pas affichées dans le portail Azure tant que l’heure courante n’est pas écoulée. En outre, les mesures par minute ne sont pas actuellement affichées dans le portail Azure. Donc, selon le moment où vous activez des métriques, l'affichage des données correspondantes peut prendre jusqu'à deux heures.
+> [AZURE.NOTE] Les données de vos mesures peuvent mettre un certain temps pour apparaître dans le portail Azure une fois que vous avez activé les mesures de stockage. C’est parce que les métriques horaires correspondant à l’heure précédente ne sont pas affichées dans le portail Azure tant que l’heure courante n’est pas écoulée. En outre, les mesures par minute ne sont pas actuellement affichées dans le portail Azure. Donc, selon le moment où vous activez des métriques, l’affichage des données correspondantes peut prendre jusqu’à deux heures.
 
 ## Utiliser AzCopy pour copier les journaux de serveur dans un répertoire local
 
@@ -201,7 +201,7 @@ Message Analyzer inclut des ressources pour Azure Storage qui vous aident à ana
 
 1. Téléchargez [Message Analyzer](http://www.microsoft.com/download/details.aspx?id=44226) depuis le Centre de téléchargement de Microsoft et exécutez le programme d'installation.
 2. Lancez Message Analyzer.
-3. Dans le menu **Outils**, sélectionnez **Gestionnaire de biens**. Dans la boîte de dialogue **Gestionnaire de biens**, sélectionnez **Téléchargements**, puis filtrez sur **Azure Storage**. Vous verrez les ressources Azure Storage, comme illustré ci-après.
+3. Dans le menu **Outils**, sélectionnez **Gestionnaire de biens**. Dans la boîte de dialogue **Gestionnaire de biens**, sélectionnez **Téléchargements**, puis filtrez sur **Azure Storage**. Vous verrez les ressources Azure Storage, comme illustré ci-après.
 4. Cliquez sur **Synchroniser tous les éléments affichés** pour installer les ressources Azure Storage. Les ressources disponibles sont les suivantes :
 	- **Règles de couleur Azure Storage :** celles-ci permettent de définir des filtres spéciaux qui utilisent des styles de texte, de couleur et de police pour mettre en surbrillance les messages contenant des informations spécifiques dans une trace.
 	- **Graphiques Azure Storage :** il s’agit de représentations graphiques prédéfinies des données du journal du serveur. Notez que pour utiliser des graphiques Azure Storage à ce stade, vous pouvez uniquement charger le journal du serveur dans la grille d'analyse.
@@ -277,7 +277,7 @@ Nous allons ensuite regrouper et filtrer les données de journal pour rechercher
 1. Recherchez la colonne **StatusCode** dans la grille d’analyse, cliquez avec le bouton droit sur le titre de la colonne et sélectionnez **Grouper**.
 2. Effectuez ensuite un regroupement sur la colonne **ClientRequestId**. Vous pouvez constater que les données dans la grille d'analyse sont désormais organisées par code d'état et par ID de demande client.
 1. Affichez la fenêtre d'outil Filtre d'affichage si elle n'est pas déjà affichée. Sur le ruban de la barre d'outils, sélectionnez **Fenêtres d'outil**, puis **Filtre d'affichage**.
-2. Pour filtrer les données de journal de manière à afficher uniquement les erreurs de la plage 400, ajoutez les critères de filtre suivants dans la fenêtre **Filtre d’affichage**, puis cliquez sur **Appliquer** :
+2. Pour filtrer les données de journal de manière à afficher uniquement les erreurs de la plage 400, ajoutez les critères de filtre suivants dans la fenêtre **Filtre d’affichage**, puis cliquez sur **Appliquer** :
 
 		(AzureStorageLog.StatusCode >= 400 && AzureStorageLog.StatusCode <=499) || (HTTP.StatusCode >= 400 && HTTP.StatusCode <= 499)
 
@@ -329,7 +329,7 @@ Message Analyzer localise et sélectionne la première entrée de journal dans l
 
 ![Journal client affichant des erreurs 404](./media/storage-e2e-troubleshooting/client-log-analysis-grid1.png)
 
-À l'aide des données affichées dans les dispositions de vue sous ces deux onglets, vous pouvez analyser les données de la demande pour déterminer ce qui peut avoir provoqué l'erreur. Vous pouvez également consulter les demandes qui ont précédé celle-ci pour voir si un événement antérieur a pu conduire à l'erreur 404. Par exemple, vous pouvez consulter les entrées du journal du client précédant cet ID de demande client pour déterminer si l'objet blob a été supprimé, ou si l'erreur est due à l'appel par l'application cliente d'une API CreateIfNotExists sur un conteneur ou un objet blob. Dans le journal du client, vous pouvez trouver l'adresse de l'objet blob dans le champ **Description** ; dans les journaux de suivi du serveur et du réseau, ces informations s'affichent dans le champ **Résumé**.
+À l'aide des données affichées dans les dispositions de vue sous ces deux onglets, vous pouvez analyser les données de la demande pour déterminer ce qui peut avoir provoqué l'erreur. Vous pouvez également consulter les demandes qui ont précédé celle-ci pour voir si un événement antérieur a pu conduire à l'erreur 404. Par exemple, vous pouvez consulter les entrées du journal du client précédant cet ID de demande client pour déterminer si l'objet blob a été supprimé, ou si l'erreur est due à l'appel par l'application cliente d'une API CreateIfNotExists sur un conteneur ou un objet blob. Dans le journal du client, vous pouvez trouver l'adresse de l'objet blob dans le champ **Description** ; dans les journaux de suivi du serveur et du réseau, ces informations s'affichent dans le champ **Résumé**.
 
 Une fois que vous connaissez l'adresse de l'objet blob qui a généré l'erreur 404, vous pouvez effectuer un examen plus approfondi. Si vous recherchez les entrées du journal pour les autres messages associés à des opérations sur le même objet blob, vous pouvez vérifier si le client a précédemment supprimé l'entité.
 
@@ -342,18 +342,18 @@ Maintenant que vous êtes familiarisé avec Message Analyzer pour analyser vos d
 | Retards inattendus de la remise des messages dans une file d'attente | AzureStorageClientDotNetV4.Description contient "Retrying failed operation." | Client |
 | HTTP, augmentation de la valeur PercentThrottlingError | HTTP.Response.StatusCode == 500 &#124;&#124; HTTP.Response.StatusCode == 503 | Réseau |
 | Augmentation de la valeur PercentTimeoutError | HTTP.Response.StatusCode == 500 | Réseau |
-| Augmentation de la valeur PercentTimeoutError (tous) |    *StatusCode == 500 | All | 
-| Increase in PercentNetworkError | AzureStorageClientDotNetV4.EventLogEntry.Level < 2 | Client | 
-| HTTP 403 (Forbidden) messages | HTTP.Response.StatusCode == 403 | Network | 
-| HTTP 404 (Not found) messages | HTTP.Response.StatusCode == 404 | Network | 
-| 404 (all) | *StatusCode == 404 | All | 
-| Shared Access Signature (SAS) authorization issue | AzureStorageLog.RequestStatus == "SASAuthorizationError" | Network | 
-| HTTP 409 (Conflict) messages | HTTP.Response.StatusCode == 409 | Network | 
-| 409 (all) | *StatusCode == 409 | All | 
-| Low PercentSuccess or analytics log entries have operations with transaction status of ClientOtherErrors | AzureStorageLog.RequestStatus == "ClientOtherError" | Server | 
-| Nagle Warning | ((AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS) > (AzureStorageLog.ServerLatencyMS * 1.5)) and (AzureStorageLog.RequestPacketSize <1460) and (AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS >= 200) | Server | 
-| Range of time in Server and Network logs | #Timestamp >= 2014-10-20T16:36:38 and #Timestamp <= 2014-10-20T16:36:39 | Server, Network | 
-| Range of time in Server logs | AzureStorageLog.Timestamp >= 2014-10-20T16:36:38 and AzureStorageLog.Timestamp <= 2014-10-20T16:36:39 | Server |
+| Augmentation de la valeur PercentTimeoutError (tous) | *StatusCode == 500 | Tout |
+| Augmentation de la valeur PercentNetworkError | AzureStorageClientDotNetV4.EventLogEntry.Level < 2 | Client |
+| Messages HTTP 403 (refusé) | HTTP.Response.StatusCode == 403 | Réseau |
+| Messages HTTP 404 (non trouvé) | HTTP.Response.StatusCode == 404 | Réseau |
+| 404 (tous) | *StatusCode == 404 | Tout |
+| Problème d'autorisation de la signature d'accès partagé (SAS) | AzureStorageLog.RequestStatus == "SASAuthorizationError" | Réseau |
+| Messages HTTP 409 (conflit) | HTTP.Response.StatusCode == 409 | Réseau |
+| 409 (tous) | *StatusCode == 409 | Tout |
+| Les entrées à faible valeur PercentSuccess ou du journal d’analyse incluent des opérations avec un statut de transaction ClientOtherErrors | AzureStorageLog.RequestStatus == "ClientOtherError" | Serveur |
+| Avertissement de Nagle | ((AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS) > (AzureStorageLog.ServerLatencyMS * 1.5)) and (AzureStorageLog.RequestPacketSize <1460) and (AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS >= 200) | Serveur |
+| Plage horaire dans les journaux serveur et réseau | #Timestamp >= 2014-10-20T16:36:38 and #Timestamp <= 2014-10-20T16:36:39 | Serveur, réseau |
+| Plage horaire dans les journaux serveur | AzureStorageLog.Timestamp >= 2014-10-20T16:36:38 and AzureStorageLog.Timestamp <= 2014-10-20T16:36:39 | Serveur |
 
 
 ## Étapes suivantes
@@ -366,4 +366,4 @@ Pour plus d'informations sur les scénarios de résolution des problèmes de bou
 - [Transfert de données avec l'utilitaire de ligne de commande AzCopy](storage-use-azcopy.md)
 - [Guide d'exploitation de Microsoft Message Analyzer](http://technet.microsoft.com/library/jj649776.aspx)
 
-<!----HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0810_2016-->

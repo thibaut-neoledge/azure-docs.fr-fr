@@ -64,9 +64,9 @@ Dans les échantillons de lignes ci-dessus, la première (avec 2014-01-01) sera 
 ## Conditions préalables
 Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
-1.	**Un abonnement Azure** : si vous n’en avez pas, vous pouvez créer un compte en quelques minutes pour une évaluation gratuite. Consultez l’article [Évaluation gratuite](https://azure.microsoft.com/pricing/free-trial/) pour savoir comment obtenir un compte d’évaluation gratuite.
+1.	**Un abonnement Azure** : si vous n’en avez pas, vous pouvez créer un compte en quelques minutes pour une évaluation gratuite. Consultez l’article [Évaluation gratuite](https://azure.microsoft.com/pricing/free-trial/) pour savoir comment obtenir un compte d’évaluation gratuite.
 
-2.	**Stockage Azure** : dans ce didacticiel, vous allez utiliser un compte de stockage Azure pour stocker les données. Si vous n’avez pas de compte de stockage Azure, consultez l’article [Créer un compte de stockage](../storage/storage-create-storage-account.md#create-a-storage-account). Après avoir créé le compte de stockage, vous devrez obtenir la clé du compte utilisée pour accéder au stockage. Consultez [Affichage, copie et régénération de clés d’accès de stockage](../storage/storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
+2.	**Stockage Azure** : dans ce didacticiel, vous allez utiliser un compte de stockage Azure pour stocker les données. Si vous n’avez pas de compte de stockage Azure, consultez l’article [Créer un compte de stockage](../storage/storage-create-storage-account.md#create-a-storage-account). Après avoir créé le compte de stockage, vous devrez obtenir la clé du compte utilisée pour accéder au stockage. Consultez [Affichage, copie et régénération de clés d’accès de stockage](../storage/storage-create-storage-account.md#view-and-copy-storage-access-keys).
 
 ## Charger des fichiers dans Azure Storage pour le didacticiel
 En premier lieu, vous devez préparer le compte de stockage Azure et ses fichiers nécessaires pour commencer ce didacticiel.
@@ -227,4 +227,4 @@ Vous êtes maintenant prêt à démarrer le didacticiel. Cliquez sur l’un des 
 - [Utiliser PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 - [Utilisation du modèle Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0810_2016-->

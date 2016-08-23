@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/18/2016"
+   ms.date="08/08/2016"
    ms.author="sonyama;barbkess;mausher"/>
 
 # Applets de commande PowerShell et API REST pour SQL Data Warehouse
@@ -24,7 +24,7 @@ De nombreuses tâches d’administration de SQL Data Warehouse peuvent être gé
 
 ## Prise en main des applets de commande Azure PowerShell
 
-1. Ouvrez Windows PowerShell. 
+1. Ouvrez Windows PowerShell.
 2. À l’invite de PowerShell, exécutez les commandes suivantes pour vous connecter à Azure Resource Manager et sélectionnez votre abonnement.
 
     ```PowerShell
@@ -74,7 +74,7 @@ Ces applets de commande PowerShell sont souvent utilisées avec Azure SQL Data W
 - [Get-AzureRmSqlDatabaseRestorePoints][]
 - [New-AzureRmSqlDatabase][]
 - [Remove-AzureRmSqlDatabase][]
-- [Restore-AzureRmSqlDatabase][] 
+- [Restore-AzureRmSqlDatabase][]
 - [Resume-AzureRmSqlDatabase][]
 - [Select-AzureRmSubscription][]
 - [Set-AzureRmSqlDatabase][]
@@ -114,4 +114,4 @@ Pour obtenir la liste de toutes les tâches pouvant être automatisées avec Pow
 <!--Other Web references-->
 [Microsoft Web Platform Installer]: https://aka.ms/webpi-azps
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0810_2016-->

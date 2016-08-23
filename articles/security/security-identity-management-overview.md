@@ -1,10 +1,10 @@
 <properties
    pageTitle="Vue d’ensemble de la sécurité et de la gestion des identités Azure | Microsoft Azure"
-   description="Les solutions de gestion des identités et accès de Microsoft aident les services informatiques à protéger l’accès aux applications et ressources dans le centre de données d’entreprise comme dans le cloud, en activant des niveaux supplémentaires de validation telles que l’authentification multifacteur et les stratégies d’accès conditionnel. Cet article fournit une vue d’ensemble des principales fonctionnalités de sécurité Azure liées à la gestion des identités."
+   description=" Les solutions de gestion des identités et accès de Microsoft aident les services informatiques à protéger l’accès aux applications et ressources dans le centre de données d’entreprise comme dans le cloud, en activant des niveaux supplémentaires de validation telles que l’authentification multifacteur et les stratégies d’accès conditionnel. Cet article fournit une vue d’ensemble des principales fonctionnalités de sécurité Azure liées à la gestion des identités. "
    services="security"
    documentationCenter="na"
    authors="TerryLanfear"
-   manager="StevenPo"
+   manager="MBaldwin"
    editor="TomSh"/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/22/2016"
+   ms.date="08/09/2016"
    ms.author="terrylan"/>
 
 # Vue d’ensemble de la sécurité et de la gestion des identités Azure
@@ -111,7 +111,7 @@ En savoir plus :
 
 ## Enregistrement de l’appareil
 
-Azure AD Device Registration est la base des scénarios d’[accès conditionnel](../active-directory/active-directory-conditional-access-on-premises-setup.md) en fonction de l’appareil. Lors de l’inscription d’un appareil, Azure Active Directory Device Registration fournit une identité à l’appareil qui sera utilisée pour authentifier l’appareil lors de la connexion de l’utilisateur. L’appareil authentifié et les attributs de l'appareil peuvent alors être utilisés pour appliquer des stratégies d'accès conditionnel pour les applications qui sont hébergées sur le cloud et localement.
+Azure AD Device Registration est la base des scénarios d’[accès conditionnel](../active-directory/active-directory-conditional-access-on-premises-setup.md) en fonction de l’appareil. Lors de l’inscription d’un appareil, Azure Active Directory Device Registration fournit une identité à l’appareil qui sera utilisée pour authentifier l’appareil lors de la connexion de l’utilisateur. L’appareil authentifié et les attributs de l’appareil peuvent alors être utilisés pour appliquer des stratégies d’accès conditionnel pour les applications qui sont hébergées sur le cloud et localement.
 
 Quand ils sont associés à une solution de gestion des appareils mobiles comme Intune, les attributs de l’appareil dans Azure Active Directory sont mis à jour avec des informations supplémentaires sur l’appareil. Cela vous permet de créer des règles d’accès conditionnel qui imposent que l’accès à partir des appareils réponde à vos normes de sécurité et de conformité.
 
@@ -157,4 +157,4 @@ En savoir plus :
 - [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/)
 - [Blog de l’équipe Active Directory](https://blogs.technet.microsoft.com/ad/)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->
