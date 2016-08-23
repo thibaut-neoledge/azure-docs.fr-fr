@@ -21,7 +21,7 @@ Créez un hub IoT pour que votre périphérique simulé puisse se connecter. Les
 
     ![Nouveau statut IoT Hub][3]
 
-5. Lorsque l’IoT hub a été créé avec succès, cliquez sur la nouvelle vignette représentant votre IoT hub dans le portail pour ouvrir le panneau du nouveau IoT hub. Notez la valeur **Hostname**, puis cliquez sur l'icône **Keys**.
+5. Lorsque l’IoT hub a été créé avec succès, cliquez sur la nouvelle vignette représentant votre IoT hub dans le portail pour ouvrir le panneau du nouveau IoT hub. Notez la valeur **Hostname**, puis cliquez sur **Stratégies d’accès partagé**.
 
     ![Nouveau panneau IoT Hub][4]
 
@@ -43,4 +43,4 @@ Créez un hub IoT pour que votre périphérique simulé puisse se connecter. Les
 [lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub/
 [lnk-access-control]: ../articles/iot-hub/iot-hub-devguide.md#accesscontrol
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0817_2016-->

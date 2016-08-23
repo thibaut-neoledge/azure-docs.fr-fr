@@ -84,7 +84,7 @@ Pour envoyer des notifications Push à des applications UWP, vous devez associer
 
    	![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-associate-app-name.png)
 
-   	Cela ajoute les informations d'inscription Windows Store requises au manifeste de l'application.
+   	Les informations d'inscription au Windows Store requises sont ajoutées au manifeste de l'application.
 
 8. De retour dans la page [Centre de développement Windows](http://go.microsoft.com/fwlink/p/?LinkID=266582) de votre nouvelle application, cliquez sur **Services**, sur **Notifications Push**, puis sur **Site des services Microsoft Live** sous **Windows Push Notification Services (WNS) and Microsoft Azure Mobile Apps** (Services de notifications Push Windows (WNS) et Microsoft Azure Mobile Apps).
 
@@ -102,7 +102,7 @@ Pour envoyer des notifications Push à des applications UWP, vous devez associer
 
 [AZURE.INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
-<ol start="7">
+<ol start="6">
 <li><p>Sélectionnez les options <b>Services de notification</b> et <b>Windows (WNS)</b>. Puis entrez le mot de passe <b>Clé secrète d’application</b> dans le champ <b>Clé de sécurité</b>. Entrez la valeur <b>SID du package</b> que vous avez obtenue auprès de WNS à la section précédente, puis cliquez sur <b>Enregistrer</b>.</p>
 </li>
 </ol>
@@ -244,7 +244,7 @@ Procédez comme suit pour envoyer des notifications à l’aide d’une applicat
 
 	Vous recevrez une notification toast sur tous les appareils enregistrés. Cliquez sur la bannière toast ou appuyez dessus pour charger l’application.
 
-Vous trouverez toutes les charges utiles prises en charge dans les rubriques du [catalogue toast], du [catalogue de vignettes] et de la [vue d'ensemble des badges] sur MSDN.
+Vous trouverez toutes les charges utiles prises en charge dans les rubriques [Catalogue de modèles de toast], [Catalogue de modèles de vignette] et [Vue d’ensemble des badges] sur MSDN.
 
 ##Étapes suivantes
 
@@ -270,8 +270,8 @@ Pour obtenir des informations générales sur Notification Hubs, consultez la se
 [Utiliser Notification Hubs pour envoyer des notifications Push aux utilisateurs]: notification-hubs-aspnet-backend-windows-dotnet-notify-users.md
 [Utilisation des Notification Hubs pour diffuser les dernières nouvelles]: notification-hubs-windows-store-dotnet-send-breaking-news.md
 
-[catalogue toast]: http://msdn.microsoft.com/library/windows/apps/hh761494.aspx
-[catalogue de vignettes]: http://msdn.microsoft.com/library/windows/apps/hh761491.aspx
-[vue d'ensemble des badges]: http://msdn.microsoft.com/library/windows/apps/hh779719.aspx
+[Catalogue de modèles de toast]: http://msdn.microsoft.com/library/windows/apps/hh761494.aspx
+[Catalogue de modèles de vignette]: http://msdn.microsoft.com/library/windows/apps/hh761491.aspx
+[Vue d’ensemble des badges]: http://msdn.microsoft.com/library/windows/apps/hh779719.aspx
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

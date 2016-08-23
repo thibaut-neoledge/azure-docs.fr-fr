@@ -12,10 +12,13 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="07/20/2016"
+    ms.date="08/15/2016"
     ms.author="elizapo" />
 
 # Utilisation de Microsoft Outlook dans Azure RemoteApp
+
+> [AZURE.IMPORTANT]
+Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148).
 
 Azure RemoteApp prend en charge Microsoft Outlook O365. En savoir plus sur la façon dont [Office fonctionne dans Azure RemoteApp](remoteapp-officesubscription.md). Il existe quelques paramètres recommandés pour Outlook lors de l’utilisation dans Azure RemoteApp.
 
@@ -31,4 +34,4 @@ Dans Azure RemoteApp, l’utilisation de la recherche dans Outlook présente des
 
 Outlook 2016 propose une solution pour contrer ce problème en mode mis en cache, en offrant une nouvelle expérience de recherche de service pour les boîtes aux lettres hébergées sur Exchange 2016 (ou dans Office 365). Cette solution utilise les résultats de la recherche de service sur le cache local (OST). Outlook peut revenir à l’utilisation de l’indexeur de recherche local dans certains scénarios, mais la plupart des recherches utiliseront cette nouvelle fonctionnalité de recherche de service. Recommandation d’Azure RemoteApp : utiliser Outlook 2016 si la recherche d’e-mails est un scénario très important.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

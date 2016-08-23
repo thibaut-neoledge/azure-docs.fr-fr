@@ -14,7 +14,7 @@
     ms.workload="search"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
-    ms.date="05/23/2016"
+    ms.date="08/15/2016"
     ms.author="brjohnst"/>
 
 # Charger des données dans Azure Search à l’aide du Kit de développement logiciel (SDK) .NET
@@ -53,8 +53,7 @@ Action | Description | Champs requis pour chaque document | Remarques
 --- | --- | --- | ---
 `Upload` | Une action `Upload` est similaire à celle d’un « upsert », où le document est inséré s’il est nouveau et mis à jour/remplacé s’il existe déjà. | une clé, ainsi que tout autre champ que vous souhaitez définir | Lors de la mise à jour ou du remplacement d’un document existant, un champ qui n’est pas spécifié dans la requête sera défini sur la valeur `null`, y compris lorsque le champ a été précédemment défini sur une valeur non null.
 `Merge` | Met à jour un document existant avec les champs spécifiés. Si le document n’existe pas dans l’index, la fusion échoue. | une clé, ainsi que tout autre champ que vous souhaitez définir | N'importe quel champ que vous spécifiez dans une fusion remplace le champ existant dans le document. Cela inclut les champs de type `DataType.Collection(DataType.String)`. Par exemple, si le document contient un champ `tags` avec la valeur `["budget"]` et que vous exécutez une fusion avec la valeur `["economy", "pool"]` pour le champ `tags`, la valeur finale du champ `tags` sera `["economy", "pool"]`, et non `["budget", "economy", "pool"]`.
-`MergeOrUpload` | Cette action est similaire à celle d’une action `Merge` s’il existe déjà dans l’index un document comportant la clé spécifiée. Dans le cas contraire, elle exécutera une action `Upload` avec un nouveau document. | une clé, ainsi que tout autre champ que vous souhaitez définir |-
-`Delete` | Supprime le document spécifié de l’index. | une clé uniquement | Tous les champs que vous spécifiez seront ignorés, à l’exception du champ clé. Si vous souhaitez supprimer un champ individuel dans un document, utilisez plutôt `Merge` et définissez simplement le champ de manière explicite sur la valeur null.
+`MergeOrUpload` | Cette action est similaire à celle d’une action `Merge` s’il existe déjà dans l’index un document comportant la clé spécifiée. Dans le cas contraire, elle exécutera une action `Upload` avec un nouveau document. | une clé, ainsi que tout autre champ que vous souhaitez définir |- `Delete` | Supprime le document spécifié de l’index. | une clé uniquement | Tous les champs que vous spécifiez seront ignorés, à l’exception du champ clé. Si vous souhaitez supprimer un champ individuel dans un document, utilisez plutôt `Merge` et définissez simplement le champ de manière explicite sur la valeur null.
 
 Vous pouvez spécifier quelle action vous souhaitez utiliser avec les différentes méthodes statiques des classes `IndexBatch` et `IndexAction`, comme indiqué dans la section suivante.
 
@@ -205,4 +204,4 @@ Pour cette raison, nous vous recommandons d'utiliser des types pour lesquels la 
 ## Suivant
 Une fois votre index Azure Search renseigné, vous pouvez commencer à exécuter des requêtes de recherche de documents. Pour plus d’informations, consultez l’article [Interroger votre index Azure Search](search-query-overview.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -35,11 +35,11 @@ Cet article vous guide tout au long des étapes de création et de gestion d'une
 
 ## Conditions préalables à la configuration
 
-- Vous devez utiliser la dernière version des modules Azure PowerShell version 1.0 ou ultérieure.
+- Vous devez utiliser la dernière version des modules Azure PowerShell version 1.0 ou ultérieure.
 - Veillez à consulter les pages relatives aux [conditions préalables](expressroute-prerequisites.md), à la [configuration requise pour le routage](expressroute-routing.md) et aux [flux de travail](expressroute-workflows.md) avant de commencer la configuration.
 - Vous devez disposer d’un circuit ExpressRoute actif. Suivez les instructions permettant de [créer un circuit ExpressRoute](expressroute-howto-circuit-arm.md) et faites-le activer par votre fournisseur de connectivité avant de poursuivre. Le circuit ExpressRoute doit être dans un état approvisionné et activé pour être en mesure d'exécuter les applets de commande décrites ci-dessous.
 
-Ces instructions s'appliquent uniquement aux circuits créés avec des fournisseurs de services proposant des services de connectivité de couche 2. Si vous utilisez un fournisseur de services proposant des services gérés de couche 3 (généralement IPVPN, à l’image de MPLS), votre fournisseur de connectivité configure et gère le routage pour vous.
+Ces instructions s'appliquent uniquement aux circuits créés avec des fournisseurs de services proposant des services de connectivité de couche 2. Si vous utilisez un fournisseur de services proposant des services gérés de couche 3 (généralement IPVPN, à l’image de MPLS), votre fournisseur de connectivité configure et gère le routage pour vous.
 
 >[AZURE.IMPORTANT] Nous n'annonçons pas d’homologations configurées par les fournisseurs de services via le portail de gestion des services. Nous travaillons sur la prochaine activation de cette fonctionnalité. Contactez votre fournisseur de services avant de configurer des homologations BGP.
 
@@ -71,7 +71,7 @@ Cette section fournit des instructions sur la façon de créer, obtenir, mettre 
 
 		Login-AzureRmAccount
 
-	Sélectionnez l'abonnement pour lequel vous souhaitez créer le circuit ExpressRoute
+	Sélectionnez l’abonnement pour lequel vous souhaitez créer le circuit ExpressRoute.
 		
 		Select-AzureRmSubscription -SubscriptionId "<subscription ID>"
 
@@ -87,7 +87,7 @@ Cette section fournit des instructions sur la façon de créer, obtenir, mettre 
 
 		Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 
-	La réponse ressemblera à l'exemple ci-dessous :
+	La réponse ressemblera à l'exemple ci-dessous :
 
 		Name                             : ExpressRouteARMCircuit
 		ResourceGroupName                : ExpressRouteResourceGroup
@@ -149,7 +149,7 @@ Vous pouvez obtenir les détails de la configuration à l'aide de l'applet de co
 
 Vous pouvez mettre à jour toute partie de la configuration à l'aide de l’applet de commande suivante. Dans l'exemple ci-dessous, l'ID VLAN du circuit est mis à jour de 100 à 500.
 
-	Set-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -Circuit $ckt -PeeringType AzurePrivatePeering -PeerASN 100 -PrimaryPeerAddressPrefix "10.0.0.0/30" -SecondaryPeerAddressPrefix "10.0.0.4/30" -VlanId 200
+	Set-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt -PeeringType AzurePrivatePeering -PeerASN 100 -PrimaryPeerAddressPrefix "10.0.0.0/30" -SecondaryPeerAddressPrefix "10.0.0.4/30" -VlanId 200
 
 	Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 
@@ -191,7 +191,7 @@ Cette section fournit des instructions sur la façon de créer, obtenir, mettre 
 
 		Login-AzureRmAccount
 
-	Sélectionnez l'abonnement pour lequel vous souhaitez créer le circuit ExpressRoute
+	Sélectionnez l’abonnement pour lequel vous souhaitez créer le circuit ExpressRoute.
 		
 		Select-AzureRmSubscription -SubscriptionId "<subscription ID>"
 
@@ -207,7 +207,7 @@ Cette section fournit des instructions sur la façon de créer, obtenir, mettre 
 
 		Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 
-	La réponse ressemblera à l'exemple ci-dessous :
+	La réponse ressemblera à l'exemple ci-dessous :
 
 		Name                             : ExpressRouteARMCircuit
 		ResourceGroupName                : ExpressRouteResourceGroup
@@ -308,7 +308,7 @@ Cette section fournit des instructions sur la façon de créer, obtenir, mettre 
 
 		Login-AzureRmAccount
 
-	Sélectionnez l'abonnement pour lequel vous souhaitez créer le circuit ExpressRoute
+	Sélectionnez l’abonnement pour lequel vous souhaitez créer le circuit ExpressRoute.
 		
 		Select-AzureRmSubscription -SubscriptionId "<subscription ID>"
 
@@ -324,7 +324,7 @@ Cette section fournit des instructions sur la façon de créer, obtenir, mettre 
 
 		Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 
-	La réponse ressemblera à l'exemple ci-dessous :
+	La réponse ressemblera à l'exemple ci-dessous :
 
 		Name                             : ExpressRouteARMCircuit
 		ResourceGroupName                : ExpressRouteResourceGroup
@@ -355,9 +355,9 @@ Cette section fournit des instructions sur la façon de créer, obtenir, mettre 
 	- Un sous-réseau /30 pour le lien secondaire. Il doit s’agir d’un préfixe IPv4 public valide vous appartenant et enregistré dans un registre RIR / IRR.
 	- Un ID VLAN valide pour établir cette homologation. Assurez-vous qu'aucune autre homologation sur le circuit n'utilise le même ID VLAN.
 	- Un numéro AS pour l'homologation. Vous pouvez utiliser des numéros à 2 et 4 octets.
-	- Préfixes publiés : vous devez fournir une liste de tous les préfixes que vous prévoyez de publier sur la session BGP. Seuls les préfixes d'adresses IP publiques sont acceptés. Vous pouvez envoyer une liste séparée par des virgules si vous prévoyez d'envoyer un jeu de préfixes. Ces préfixes doivent être enregistrés en votre nom dans un registre RIR / IRR.
-	- ASN client : si vous publiez des préfixes non enregistrés dans le numéro AS d’homologation, vous pouvez spécifier le numéro AS avec lequel ils sont enregistrés. **Cette étape est facultative**.
-	- Nom du registre de routage : vous pouvez spécifier les registres RIR/IRR par rapport auxquels le numéro AS et les préfixes sont enregistrés.
+	- Préfixes publiés : vous devez fournir une liste de tous les préfixes que vous prévoyez de publier sur la session BGP. Seuls les préfixes d'adresses IP publiques sont acceptés. Vous pouvez envoyer une liste séparée par des virgules si vous prévoyez d'envoyer un jeu de préfixes. Ces préfixes doivent être enregistrés en votre nom dans un registre RIR / IRR.
+	- ASN client : si vous publiez des préfixes non enregistrés dans le numéro AS d’homologation, vous pouvez spécifier le numéro AS avec lequel ils sont enregistrés. **Cette étape est facultative**.
+	- Nom du registre de routage : vous pouvez spécifier les registres RIR/IRR par rapport auxquels le numéro AS et les préfixes sont enregistrés.
 	- Utilisez un hachage MD5, le cas échéant. **Cette étape est facultative.**
 	
 	Vous pouvez exécuter l'applet de commande suivante afin de configurer l’homologation Microsoft pour votre circuit
@@ -403,4 +403,4 @@ Ensuite, [liez un réseau virtuel à un circuit ExpressRoute](expressroute-howto
 
 -  Pour plus d’informations sur l’utilisation des réseaux virtuels, consultez la page [Présentation du réseau virtuel](../virtual-network/virtual-networks-overview.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

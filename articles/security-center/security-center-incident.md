@@ -34,7 +34,7 @@ Vous pouvez connaître vos incidents de sécurité en cours en consultant la mos
 
     ![Vignette Alertes de sécurité dans le Centre de sécurité](./media/security-center-incident/security-center-incident-fig1.png)
 
-2.  Cliquez sur cette vignette pour la développer si un incident de sécurité a été détecté. Il apparaîtra sous le graphique des alertes de sécurité comme indiqué dans cette image.
+2.  Cliquez sur cette mosaïque pour la développer si un incident de sécurité a été détecté. Il apparaîtra sous le graphique des alertes de sécurité comme indiqué ci-dessous :
 
     ![Incident de sécurité](./media/security-center-incident/security-center-incident-fig2.png)
 
@@ -42,7 +42,7 @@ Vous pouvez connaître vos incidents de sécurité en cours en consultant la mos
 
 	![Incident de sécurité](./media/security-center-incident/security-center-incident-fig3.png)
 
-4. 	Sur le panneau **Incident de sécurité détecté**, vous trouverez davantage d’informations sur cet incident de sécurité, ce qui inclut la description complète de l’incident, son niveau de gravité (qui, dans ce cas, est élevé), l’état actuel de l’incident (dans ce cas, il est toujours *actif*), la ressource attaquée (dans ce cas, *VM1*), les étapes de résolution et, enfin, les alertes qui ont été affichées au cours de l’incident. Si vous souhaitez obtenir plus d’informations sur chaque alerte, il vous suffit de cliquer dessus pour ouvrir un autre panneau, comme indiqué ci-dessous.
+4. 	Sur le panneau de l’**incident**, vous trouverez davantage d’informations sur cet incident de sécurité, notamment sa description complète, son niveau de gravité (qui, dans ce cas, est élevé), son état actuel (dans ce cas, il est toujours *actif*, ce qui signifie que l’utilisateur n’a pris aucune mesure pour l’*ignorer*, ce qui peut se faire en cliquant sur l’incident avec le bouton droit dans le panneau **Alertes de sécurité**), la ressource attaquée (dans ce cas, *VM1*), les étapes de résolution de l’incident et, dans le panneau inférieur, les alertes qui ont été affichées au cours de l’incident. Si vous souhaitez obtenir plus d’informations sur chaque alerte, il vous suffit de cliquer dessus pour ouvrir un autre panneau, comme indiqué ci-dessous :
 
 	![Incident de sécurité](./media/security-center-incident/security-center-incident-fig4.png)
 
@@ -63,4 +63,4 @@ Dans ce document, vous avez vu comment utiliser la fonctionnalité de gestion de
 - [FAQ de Azure Security Center](security-center-faq.md) : forum aux questions concernant l’utilisation de ce service.
 - [Blog sur la sécurité Azure](http://blogs.msdn.com/b/azuresecurity/) : trouvez des billets de blog sur la sécurité et la conformité Azure.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

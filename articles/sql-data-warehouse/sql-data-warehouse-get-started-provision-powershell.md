@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/20/2016"
+   ms.date="08/16/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Création de SQL Data Warehouse à l’aide de PowerShell
@@ -25,7 +25,7 @@
 
 Cet article vous explique comment créer un entrepôt SQL Data Warehouse à l’aide de PowerShell.
 
-## Configuration requise
+## Conditions préalables
 
 Pour commencer, vous avez besoin des éléments suivants :
 
@@ -80,7 +80,7 @@ Si vous souhaitez en savoir plus sur la gestion de l’entrepôt SQL Data Wareho
 [migrer]: ./sql-data-warehouse-overview-migrate.md
 [développer]: ./sql-data-warehouse-overview-develop.md
 [charger]: ./sql-data-warehouse-load-with-bcp.md
-[charger les données d’exemple]: ./sql-data-warehouse-get-started-load-sample-databases.md
+[charger les données d’exemple]: ./sql-data-warehouse-load-sample-databases.md
 [applets de commande PowerShell et des API REST]: ./sql-data-warehouse-reference-powershell-cmdlets.md
 [firewall rules]: ../sql-database-configure-firewall-settings.md
 
@@ -101,4 +101,4 @@ Si vous souhaitez en savoir plus sur la gestion de l’entrepôt SQL Data Wareho
 [Évaluation gratuite d’Azure]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
 [Crédits Azure MSDN]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

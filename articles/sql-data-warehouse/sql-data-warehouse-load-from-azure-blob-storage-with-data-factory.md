@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/08/2016"
+   ms.date="08/16/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Charger les données conservées dans un stockage d’objets blob Azure dans Azure SQL Data Warehouse. (Azure Data Factory)
@@ -212,7 +212,7 @@ Ces rubriques fournissent des informations détaillées sur Azure Data Factory. 
 
 - [Didacticiel : Créer votre première fabrique de données (vue d’ensemble)][] Ce didacticiel est consacré au traitement des données avec Azure Data Factory. Dans ce didacticiel, vous allez apprendre à créer votre premier pipeline qui fait appel à HDInsight pour transformer et analyser des journaux web tous les mois. Notez que ce didacticiel ne couvre aucune activité de copie.
 - [Didacticiel : Copie de données d’Azure Blob Storage vers une base de données SQL Azure][]. Ce didacticiel crée un pipeline dans Azure Data Factory pour copier des données d’un objet blob Azure Storage dans une base de données SQL Azure.
-- [Didacticiel présentant un scénario réel][]. Ce didacticiel décrit de manière approfondie l’utilisation d’Azure Data Factory.
+
 
 <!--Image references-->
 
@@ -228,8 +228,7 @@ Ces rubriques fournissent des informations détaillées sur Azure Data Factory. 
 [Load sample data into SQL Data Warehouse]: sql-data-warehouse-load-sample-databases.md
 [Move data to and from Azure SQL Data Warehouse using Azure Data Factory]: ../data-factory/data-factory-azure-sql-data-warehouse-connector.md
 [PolyBase]: sql-data-warehouse-get-started-load-with-polybase.md
-[Didacticiel présentant un scénario réel]: ../data-factory/data-factory-tutorial.md
-[Didacticiel : Copie de données d’Azure Blob Storage vers une base de données SQL Azure]: ../data-factory/data-factory-get-started
+[Didacticiel : Copie de données d’Azure Blob Storage vers une base de données SQL Azure]: ../data-factory/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
 [Didacticiel : Créer votre première fabrique de données (vue d’ensemble)]: ../data-factory/data-factory-build-your-first-pipeline.md
 
 <!--MSDN references-->
@@ -239,4 +238,4 @@ Ces rubriques fournissent des informations détaillées sur Azure Data Factory. 
 [portail Azure]: https://portal.azure.com
 [Téléchargez les exemples de données]: https://migrhoststorage.blob.core.windows.net/adfsample/FactInternetSales.csv
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

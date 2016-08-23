@@ -14,20 +14,20 @@
      ms.topic="hero-article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="05/25/2016"
+     ms.date="08/16/2016"
      ms.author="dobett"/>
 
 # Didacticiel : prise en main des solutions préconfigurées
 
 ## Introduction
 
-Les [solutions préconfigurées][lnk-preconfigured-solutions] d’Azure IoT Suite regroupent plusieurs services Azure IoT pour offrir des solutions de bout en bout permettant d’implémenter des scénarios IoT d’entreprise. La solution préconfigurée de *surveillance à distance* se connecte et surveille vos appareils. Cela vous permet d’analyser le flux de données de vos appareils et d’améliorer les résultats de l’entreprise du fait que les processus répondent automatiquement à ce flux de données.
+Les [solutions préconfigurées][lnk-preconfigured-solutions] d’Azure IoT Suite regroupent plusieurs services Azure IoT pour offrir des solutions de bout en bout permettant d’implémenter des scénarios IoT d’entreprise. La solution préconfigurée de *surveillance à distance* se connecte et surveille vos appareils. Cela vous permet d’analyser le flux de données de vos appareils et d’améliorer les résultats de l’entreprise grâce à des processus qui répondent automatiquement à ce flux de données.
 
-Ce didacticiel montre comment configurer la solution préconfigurée de surveillance à distance. Il présente également les fonctionnalités de base de la solution préconfigurée de surveillance à distance. Vous pouvez accéder à la plupart de ces fonctionnalités via le tableau de bord de solution déployé avec la solution préconfigurée :
+Ce didacticiel montre comment configurer la solution préconfigurée de surveillance à distance. Il présente également les fonctionnalités de base de la solution de surveillance à distance. Vous pouvez accéder à la plupart de ces fonctionnalités via le tableau de bord de solution déployé avec la solution préconfigurée :
 
 ![Tableau de bord de solution préconfigurée de surveillance à distance][img-dashboard]
 
-Pour suivre le didacticiel, vous devez disposer d’un abonnement Azure actif.
+Pour suivre ce didacticiel, vous avez besoin d’un compte Azure actif.
 
 > [AZURE.NOTE]  Si vous ne possédez pas de compte, vous pouvez créer un compte d’évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure][lnk_free_trial].
 
@@ -67,7 +67,7 @@ La liste des appareils montre tous les appareils inscrits dans la solution. Vous
 
 Le panneau **Détails de l’appareil** comprend trois sections :
 
-- La section **Actions** répertorie les actions que vous pouvez exécuter sur l’appareil. Si vous désactivez l’appareil, il ne sera plus autorisé à envoyer des données de télémétrie ou à recevoir des commandes. Si vous désactivez un appareil, vous pourrez le réactiver ensuite. Vous pouvez ajouter une règle associée à l'appareil qui déclenche une alerte lorsqu'une valeur de télémétrie dépasse un seuil défini. Vous pouvez également envoyer une commande à un appareil. Lorsqu’un appareil se connecte pour la première fois, il indique à la solution à quelles commandes il peut répondre.
+- La section **Actions** répertorie les actions que vous pouvez exécuter sur l’appareil. Si vous désactivez l’appareil, il ne sera plus autorisé à envoyer des données de télémétrie ou à recevoir des commandes. Si vous désactivez un appareil, vous pourrez le réactiver ensuite. Vous pouvez ajouter une règle associée à l'appareil qui déclenche une alerte lorsqu'une valeur de télémétrie dépasse un seuil défini. Vous pouvez également envoyer une commande à un appareil. Lorsqu’un appareil se connecte pour la première fois, il indique à la solution les commandes auxquelles il peut répondre.
 - La section **Propriétés d’un appareil** répertorie les métadonnées de l’appareil. Certaines de ces métadonnées proviennent de l'appareil proprement dit (par exemple, le fabricant) et certaines sont générées par la solution (par exemple, l'heure de création). Vous pouvez modifier les métadonnées de l'appareil à partir d'ici.
 - La section **Clés d’authentification** répertorie les clés que l’appareil peut utiliser pour s’authentifier avec la solution.
 
@@ -91,13 +91,13 @@ La solution effectue le suivi de l'état de chaque commande qu'elle envoie. Init
 
 ## Ajouter un nouvel appareil simulé
 
-Lorsque vous déployez la solution préconfigurée, vous approvisionnez automatiquement les quatre exemples d’appareils que vous pouvez voir dans la liste des appareils. Ces appareils sont des *simulations d’appareils* en cours d’exécution dans un Azure WebJob. Les appareils simulés vous permettent d’expérimenter plus facilement la solution préconfigurée sans avoir à déployer des appareils physiques réels. Si vous ne souhaitez pas connecter un appareil réel à la solution, consultez le didacticiel [Connexion de votre appareil à la solution préconfigurée de surveillance à distance][lnk-connect-rm].
+Lorsque vous déployez la solution préconfigurée, vous approvisionnez automatiquement les quatre exemples d’appareils que vous pouvez voir dans la liste des appareils. Ces appareils sont des *simulations d’appareils* en cours d’exécution dans un Azure WebJob. Les appareils simulés vous permettent d’expérimenter plus facilement la solution préconfigurée sans avoir à déployer des appareils physiques réels. Si vous ne souhaitez pas connecter un appareil physique à la solution, consultez le didacticiel [Connexion de votre appareil à la solution préconfigurée de surveillance à distance][lnk-connect-rm].
 
-Les étapes suivantes vous montrent comment ajouter un nouvel appareil simulé à la solution :
+Les étapes suivantes vous montrent comment ajouter un appareil simulé à la solution :
 
 1.  Retournez à la liste des appareils.
 
-2.  Cliquez sur **+ Ajouter un appareil** dans le coin inférieur gauche pour ajouter un nouvel appareil.
+2.  Cliquez sur **+ Ajouter un appareil** dans le coin inférieur gauche pour ajouter un appareil.
 
     ![Ajouter un appareil à la solution préconfigurée][img-adddevice]
 
@@ -105,7 +105,7 @@ Les étapes suivantes vous montrent comment ajouter un nouvel appareil simulé �
 
     ![Définir les détails du nouvel appareil dans le tableau de bord][img-addnew]
     
-    Outre la création d’un appareil simulé, vous pouvez également ajouter un appareil physique si vous choisissez de créer un **appareil personnalisé**. Pour plus d’informations à ce sujet, voir [Connexion de votre appareil à la solution préconfigurée de surveillance à distance IoT Suite][lnk-connect-rm].
+    Outre la création d’un appareil simulé, vous pouvez également ajouter un appareil physique si vous choisissez de créer un **appareil personnalisé**. Pour plus d’informations sur la connexion d’appareils physiques à la solution, consultez [Connexion de votre appareil à la solution préconfigurée de surveillance à distance][lnk-connect-rm].
 
 4.  Sélectionnez **Me laisser définir mon propre ID d’appareil** et ajoutez un nom unique d’ID d’appareil, par exemple **monappareil\_01**.
 
@@ -125,7 +125,7 @@ Les étapes suivantes vous montrent comment ajouter un nouvel appareil simulé �
 
 ## Modifier les métadonnées de l’appareil
 
-Lors de la première connexion d’un appareil à la solution, il envoie ses métadonnées à la solution. Lorsque vous modifiez les métadonnées de l’appareil via le tableau de bord de solution, cette dernière envoie les nouvelles valeurs de métadonnées à l’appareil et stocke les nouvelles valeurs dans la base de données DocumentDB de la solution. Pour plus d’informations, consultez [Registre d’identité des appareils et DocumentDB][lnk-devicemetadata].
+Lors de sa première connexion à la solution, un appareil envoie ses métadonnées à la solution. Lorsque vous modifiez les métadonnées de l’appareil via le tableau de bord de solution, cette dernière envoie les nouvelles valeurs de métadonnées à l’appareil et stocke les nouvelles valeurs dans la base de données DocumentDB de la solution. Pour plus d’informations, consultez [Registre d’identité des appareils et DocumentDB][lnk-devicemetadata].
 
 1.  Retournez à la liste des appareils.
 
@@ -147,7 +147,7 @@ Il n'existe aucune règle pour le nouvel appareil que vous venez d'ajouter. Dans
 
 1.  Retournez à la liste des appareils.
 
-2.  Sélectionnez votre nouvel appareil dans la **Liste des appareils**, puis cliquez sur **Ajouter une règle** pour ajouter une nouvelle règle pour l’appareil.
+2.  Sélectionnez votre nouvel appareil dans la **Liste des appareils**, puis cliquez sur **Ajouter une règle** pour ajouter une règle le concernant.
 
 3. Créez une règle qui utilise **Température** comme champ de données et **AlarmTemp** en tant que sortie lorsque la température dépasse 47 degrés :
 
@@ -163,7 +163,7 @@ Il n'existe aucune règle pour le nouvel appareil que vous venez d'ajouter. Dans
 
     ![Ajouter une règle d’appareil][img-adddevicerule3]
 
-7.  Retournez au tableau de bord de la solution. Après un bref instant, vous verrez une nouvelle entrée dans le volet **Historique des alertes** lorsque la température signalée par votre nouvel appareil dépassera le seuil de 47 degrés :
+7.  Retournez au tableau de bord de la solution. Rapidement s’affiche une nouvelle entrée dans le volet **Historique des alarmes**, lorsque la température signalée par votre nouvel appareil dépasse le seuil de 47 degrés :
 
     ![Ajouter une règle d’appareil][img-adddevicerule4]
 
@@ -189,11 +189,11 @@ Vous pouvez désactiver un appareil puis le supprimer :
 
 ## Dans les coulisses
 
-Lorsque vous déployez une solution préconfigurée, le processus de déploiement crée plusieurs ressources dans l'abonnement Azure que vous avez sélectionné. Vous pouvez afficher ces ressources dans le [portail][lnk-portal] Azure. Le processus de déploiement crée un **groupe de ressources** avec un nom basé sur celui que vous avez choisi pour votre solution préconfigurée :
+Lorsque vous déployez une solution préconfigurée, le processus de déploiement crée plusieurs ressources dans l’abonnement Azure sélectionné. Vous pouvez afficher ces ressources dans le [portail][lnk-portal] Azure. Le processus de déploiement crée un **groupe de ressources** avec un nom basé sur celui que vous avez choisi pour votre solution préconfigurée :
 
 ![Solution préconfigurée dans le portail Azure][img-portal]
 
-Vous pouvez afficher les paramètres de chaque ressource en la sélectionnant dans la liste des ressources dans le groupe de ressources. La capture d'écran ci-dessus illustre les paramètres pour l’IoT Hub utilisé dans la solution préconfigurée.
+Vous pouvez afficher les paramètres de chaque ressource en la sélectionnant dans la liste des ressources dans le groupe de ressources.
 
 Vous pouvez également afficher le code source pour la solution préconfigurée. Le code source de la solution préconfigurée de surveillance à distance se trouve dans le référentiel GitHub [azure-iot-remote-monitoring][lnk-rmgithub] \:
 
@@ -201,7 +201,7 @@ Vous pouvez également afficher le code source pour la solution préconfigurée.
 - Le dossier **Simulator** contient le code source pour l’appareil simulé.
 - Le dossier **EventProcessor** contient le code source pour le processus principal qui gère les données de télémétrie entrantes.
 
-Lorsque vous avez terminé, vous pouvez supprimer la solution préconfigurée de votre abonnement Azure sur le site [azureiotsuite.com][lnk-azureiotsuite]. Ceci vous permet de supprimer toutes les ressources qui ont été approvisionnées lors de la création de la solution préconfigurée.
+Lorsque vous avez terminé, vous pouvez supprimer la solution préconfigurée à partir de votre abonnement Azure sur le site [azureiotsuite.com][lnk-azureiotsuite]. Ce site vous permet de supprimer facilement toutes les ressources qui ont été configurées lors de la création de la solution préconfigurée.
 
 > [AZURE.NOTE] Pour vous assurer que vous supprimez tout ce qui concerne la solution préconfigurée, supprimez cette dernière sur le site [azureiotsuite.com][lnk-azureiotsuite] ; ne vous contentez pas de supprimer le groupe de ressources dans le portail.
 
@@ -249,4 +249,4 @@ Lorsque vous avez terminé, vous pouvez supprimer la solution préconfigurée de
 [lnk-connect-rm]: iot-suite-connecting-devices.md
 [lnk-permissions]: iot-suite-permissions.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="08/04/2016"
+	ms.date="08/11/2016"
 	ms.author="glenga"/>
 
 #Créer une application Xamarin.Forms
@@ -180,4 +180,4 @@ Vous trouverez le code qui vous permet d’accéder à votre serveur principal d
 [Mobile app SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [portail Azure]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -79,10 +79,10 @@ La connectivité entre les régions géopolitiques n’est pas prise en charge d
 | **Interxion** | Pris en charge | Pris en charge | Amsterdam, Londres, Paris |
 | **Jisc** | Bientôt disponible | Bientôt disponible | Londres+ | 
 | **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | Pris en charge | Pris en charge | Amsterdam, Chicago, Dallas, Las Vegas+, Londres, Seattle, Silicon Valley, Washington DC |
-| **Megaport** | Pris en charge | Pris en charge | Dallas, Hong Kong, Las Vegas+, Los Angeles, Melbourne, New York, Seattle, Singapour, Sydney, Washington DC |
+| **Megaport** | Pris en charge | Pris en charge | Dallas, Hong Kong, Las Vegas, Los Angeles, Melbourne, New York, Seattle, Singapour, Sydney, Washington DC |
 | **MTN** | Pris en charge | Pris en charge | Londres |
 | **NEXTDC** | Pris en charge | Pris en charge | Melbourne, Sydney |
-| **NTT Communications** | Pris en charge | Pris en charge | Londres, Osaka, Tokyo |
+| **NTT Communications** | Pris en charge | Pris en charge | Londres, Los Angeles, Osaka, Tokyo |
 | **[Orange](http://www.orange-business.com/en/products/business-vpn-galerie)** | Pris en charge | Pris en charge | Amsterdam, Hong Kong, Londres, Silicon Valley, Singapour, Washington DC |
 | **PCCW Global Limited** | Pris en charge | Pris en charge | Hong Kong |
 | **[SingTel](http://info.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** | Pris en charge | Pris en charge | Singapour |
@@ -106,7 +106,7 @@ La connectivité entre les régions géopolitiques n’est pas prise en charge d
 |-----------------------|--------------------|----------------|---------------|
 | **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** | Pris en charge | Pris en charge | Chicago, Washington DC |
 | **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | Pris en charge | Pris en charge | Chicago, Dallas+, New York, Washington DC |
-| **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | Pris en charge | Bientôt disponible | Chicago, New York+, Washington DC |
+| **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | Pris en charge | Pris en charge | Chicago, New York+, Washington DC |
 | **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** | Pris en charge | Pris en charge | Chicago, Dallas+, New York, Washington DC |
 
 #### Chine
@@ -171,4 +171,4 @@ L’activation de la connectivité privée pour l’adapter à vos besoins peut 
 <!--Image References-->
 [0]: ./media/expressroute-locations/expressroute-locations-map.png "Carte géographique"
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

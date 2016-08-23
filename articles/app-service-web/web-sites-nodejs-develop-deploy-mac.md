@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="hero-article"
-	ms.date="06/24/2016"
+	ms.date="08/11/2016"
 	ms.author="robmcm"/>
 
 # Créer une application web Node.js dans Azure App Service
@@ -40,7 +40,7 @@ L’application terminée écrit une courte chaîne « Hello World » dans le 
 Pour des didacticiels et exemples de code avec des applications Node.js plus complexes, ou pour d’autres rubriques sur l’utilisation de Node.js dans Azure, consultez le [Centre de développement Node.js](/develop/nodejs/).
 
 > [AZURE.NOTE]
-Pour effectuer ce didacticiel, vous avez besoin d’un compte Microsoft Azure. Si vous ne possédez pas d’un compte, vous pouvez [activer les avantages de votre abonnement Visual Studio](/fr-FR/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) ou [obtenir un essai gratuit](/fr-FR/pricing/free-trial/?WT.mc_id=A261C142F).
+Pour suivre ce didacticiel, vous avez besoin d'un compte Microsoft Azure. Si vous ne possédez pas d’un compte, vous pouvez [activer les avantages de votre abonnement Visual Studio](/fr-FR/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) ou [obtenir un essai gratuit](/fr-FR/pricing/free-trial/?WT.mc_id=A261C142F).
 >
 > Si vous souhaitez commencer à utiliser Azure App Service avant d’ouvrir un compte Azure, accédez à [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Là, vous pouvez créer immédiatement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ni aucun engagement.
 
@@ -185,7 +185,7 @@ Dans cette section, vous allez créer un fichier **server.js** contenant une ver
 
 1. Ouvrez le fichier **server.js** dans un éditeur de texte, puis remplacez « Hello World\\n » par « Hello Azure\\n ».
 
-2. Enregistrez le fichier.
+2. Enregistrez le fichier .
 
 2. Dans la ligne de commande, remplacez les répertoires par le répertoire **helloworld** et exécutez les commandes suivantes :
 
@@ -225,4 +225,4 @@ Pour plus d’informations sur le développement d’applications Node.js dans A
 [deployment-credentials]: ./media/web-sites-nodejs-develop-deploy-mac/deployment-credentials.png
 [git-url]: ./media/web-sites-nodejs-develop-deploy-mac/git-url.png
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -14,7 +14,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="NA"
 	ms.workload="data-services"
-	ms.date="03/10/2016"
+	ms.date="08/11/2016"
 	ms.author="anhoh"/>
 
 # Créer une application web Java avec DocumentDB
@@ -25,7 +25,7 @@
 - [Java](documentdb-java-application.md)
 - [Python](documentdb-python-application.md)
 
-Ce didacticiel d’application web Java vous montre comment utiliser le service [Microsoft Azure DocumentDB](https://portal.azure.com/#gallery/Microsoft.DocumentDB) pour stocker les données et y accéder à partir d’une application Java hébergée sur Sites web Azure. Dans cette rubrique, vous allez apprendre à :
+Ce didacticiel d’application web Java vous montre comment utiliser le service [Microsoft Azure DocumentDB](https://portal.azure.com/#gallery/Microsoft.DocumentDB) pour stocker les données et y accéder à partir d’une application Java hébergée sur Sites web Azure. Dans cette rubrique, vous allez apprendre à :
 
 - Créer une application de base JSP dans Eclipse.
 - Utiliser le service Azure DocumentDB avec le [Kit de développement logiciel (SDK) Java de DocumentDB](https://github.com/Azure/azure-documentdb-java).
@@ -784,4 +784,4 @@ Tous les exemples de ce didacticiel sont inclus dans le projet [todo](https://gi
 
 [1]: media/documentdb-java-application/keys.png
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

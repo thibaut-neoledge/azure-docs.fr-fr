@@ -22,7 +22,7 @@
 - [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
 - [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
 - [Visual Studio](sql-data-warehouse-query-visual-studio.md)
-- [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) 
+- [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md)
 
 Ce didacticiel utilise Azure Machine Learning pour générer un modèle Machine Learning prédictif basé sur les données stockées dans Azure SQL Data Warehouse. Plus précisément, il crée une campagne marketing ciblée pour Adventure Works, le magasin de vélos, en prévoyant si un client est susceptible d’acheter ou non un vélo.
 
@@ -32,7 +32,7 @@ Ce didacticiel utilise Azure Machine Learning pour générer un modèle Machine 
 ## Composants requis
 Pour parcourir ce didacticiel, vous avez besoin des éléments suivants :
 
-- un entrepôt SQL Data Warehouse préchargé avec les exemples de données AdventureWorksDW. Pour le configurer, consultez [Créer un Azure SQL Data Warehouse][] et chargez les exemples de données. Si vous disposez déjà d’un entrepôt de données sans exemples de données, vous pouvez [charger manuellement des exemples de données][].
+- un entrepôt SQL Data Warehouse préchargé avec les exemples de données AdventureWorksDW. Pour le configurer, consultez [Créer un Azure SQL Data Warehouse][] et chargez les exemples de données. Si vous disposez déjà d’un entrepôt de données, mais sans disposer d’exemples de données, vous pouvez [charger manuellement des exemples de données][].
 
 ## 1\. Obtention des données
 Les données sont indiquées dans la vue dbo.vTargetMail de la base de données AdventureWorksDW. Pour lire ces données :
@@ -132,7 +132,7 @@ Pour en savoir plus sur la création de modèles Machine Learning prédictifs, r
 <!--Article references-->
 [Azure Machine Learning studio]: https://studio.azureml.net/
 [Introduction à Machine Learning sur Azure]: https://azure.microsoft.com/documentation/articles/machine-learning-what-is-machine-learning/
-[charger manuellement des exemples de données]: sql-data-warehouse-get-started-load-sample-databases.md
+[charger manuellement des exemples de données]: sql-data-warehouse-load-sample-databases.md
 [Créer un Azure SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0817_2016-->

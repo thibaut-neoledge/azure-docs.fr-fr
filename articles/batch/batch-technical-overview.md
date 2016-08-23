@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="07/06/2016"
+	ms.date="08/15/2016"
 	ms.author="marsma"/>
 
 # Notions de base d’Azure Batch
@@ -40,7 +40,7 @@ Voici quelques exemples de charges de travail communément traitées à l’aide
 * Analyse des contraintes en ingénierie
 * Test de logiciels
 
-Batch peut également effectuer des calculs parallèles qui se terminent par une opération de réduction, tout en exécutant des charges de travail HPC plus complexes, telles que les applications [MPI (Message Passing Interface)](batch-mpi.md).
+Batch peut également effectuer des calculs parallèles avec une opération de réduction à la fin, et des charges de travail HPC plus complexes telles que les applications [MPI (Interface de transfert de message)](batch-mpi.md).
 
 Pour obtenir une comparaison entre Batch et d’autres solutions HPC utilisées dans Azure, consultez la page [Solutions Batch et HPC](batch-hpc-solutions.md).
 
@@ -56,7 +56,7 @@ Vous pouvez efficacement traiter des charges de travail à grande échelle pour 
 
 Lorsque vous développez des solutions Batch, vous devrez utiliser les comptes suivants dans Microsoft Azure.
 
-- **Compte et abonnement Azure** : si vous ne possédez pas encore d’abonnement Azure, vous pouvez activer les [avantages de votre abonnement MSDN][msdn_benefits] ou vous inscrire pour obtenir un [compte Azure gratuit][free_account]. Lorsque vous créez un compte, un abonnement par défaut sera automatiquement créé.
+- **Compte et abonnement Azure** : si vous ne possédez pas encore d’abonnement Azure, vous pouvez activer les [avantages de votre abonnement MSDN][msdn_benefits] ou vous inscrire pour obtenir un [compte Azure gratuit][free_account]. Lorsque vous créez un compte, un abonnement par défaut est automatiquement créé.
 
 - **Compte Batch** : lorsque vos applications interagissent avec le service Batch, le nom du compte, l’URL du compte et une clé d’accès sont utilisés comme informations d’identification. Toutes vos ressources Batch, telles que les pools, les nœuds de calcul, les travaux et les tâches, sont associées à un compte Batch. Vous pouvez [créer et gérer un compte Batch](batch-account-create-portal.md) dans le portail Azure.
 
@@ -71,8 +71,7 @@ Vos applications et services peuvent émettre des appels d’API REST directs, u
 | **Batch REST** | [MSDN][batch_rest] | N/A | [MSDN][batch_rest] |
 | **Batch .NET** | [MSDN][api_net] | [NuGet][api_net_nuget] | [GitHub][api_sample_net] |
 | **Python Batch** | [readthedocs.IO][api_python] | [PyPI][api_python_pypi] |[GitHub][api_sample_python] |
-| **Batch Node.js** | [github.io][api_nodejs] | [npm][api_nodejs_npm] | - | 
-| **Batch Java** (version préliminaire) | [github.io][api_java] | [Maven snapshot repo][api_java_jar] | [GitHub][api_sample_java] |
+| **Batch Node.js** | [github.io][api_nodejs] | [npm][api_nodejs_npm] | - | | **Batch Java** (version préliminaire) | [github.io][api_java] | [Maven][api_java_jar] | [GitHub][api_sample_java] |
 
 ### Gestion des ressources Batch
 
@@ -83,6 +82,16 @@ Outre les API clientes, vous pouvez utiliser les éléments suivants pour gérer
 - [CLI Azure](../xplat-cli-install.md) : l’interface de ligne de commande Azure est un ensemble d’outils multiplateforme qui fournit des commandes d’environnement permettant d’interagir avec de nombreux services Azure, y compris le service Batch.
 
 - Bibliothèque cliente [.NET Batch Management](batch-management-dotnet.md) : également disponible via [NuGet][api_net_mgmt_nuget], la bibliothèque cliente .NET Batch Management permet de gérer les comptes Batch, les quotas et les packages d’application par programme. Consultez les références pour la bibliothèque de gestion sur [MSDN][api_net_mgmt].
+
+### Outils du service Batch
+
+Même si ces outils ne sont pas indispensables pour créer des solutions à l’aide du service Batch, ils peuvent s’avérer utiles lors de la création et le débogage des services et applications Batch.
+
+ - [Portail Azure][portal] \: vous pouvez créer, surveiller et supprimer des pools, des travaux et des tâches dans les panneaux Batch du portail Azure. Vous pouvez consulter les informations d’état de ces éléments et d’autres ressources pendant que vous exécutez vos travaux, et même télécharger des fichiers des nœuds de calcul de vos pools (télécharger un élément `stderr.txt` d’une tâche mise en échec pendant la résolution des problèmes, par exemple). Vous pouvez également télécharger des fichiers du Bureau à distance (RDP), à utiliser pour vous connecter aux nœuds de calcul.
+
+ - [Azure Batch Explorer][batch_explorer] \: Batch Explorer fournit une fonctionnalité de gestion des ressources Batch similaire à celle du portail Azure, mais dans une application cliente Windows Presentation Foundation (WPF) autonome. Il s’agit de l’un des exemples d’applications Batch .NET disponibles sur [GitHub][github_samples]. Vous pouvez le générer avec Visual Studio 2015 ou une version ultérieure et l’utiliser pour accéder aux ressources et de votre compte Batch et les gérer pendant que vous développez et déboguez vos solutions Batch. Consultez les détails sur les travaux, les pools et les tâches, téléchargez des fichiers des nœuds de calcul et connectez-vous à distance aux nœuds à l’aide des fichiers du Bureau à distance (RDP) téléchargeables avec Batch Explorer.
+
+ - [Microsoft Azure Storage Explorer][storage_explorer] \: bien qu’il ne s’agisse pas à proprement parler d’un outil Azure Batch, l’Explorateur de stockage est l’un de vos meilleurs alliés pendant le développement et le débogage de vos solutions Batch.
 
 ## Scénario : Montée en charge d’une charge de travail parallèle
 
@@ -96,15 +105,15 @@ Dans ce scénario courant, votre application ou service traite une charge de tra
 
 1. Chargement des **fichiers d’entrée** et de **l’application** qui traitera ces fichiers dans votre compte Azure Storage. Les fichiers d’entrée peuvent correspondre à des données que votre application va traiter (par exemple, des données de modélisation financière ou des fichiers vidéo à transcoder). Les fichiers d’application peuvent être n’importe quelle application pour traiter les données, telle qu’une application de rendu 3D ou un transcodeur multimédia.
 
-2. Création d’un **pool** de nœuds de calcul Batch dans votre compte Batch : il s’agit des machines virtuelles qui exécuteront les tâches. Vous devez spécifier des propriétés, telles que la [taille du nœud](./../cloud-services/cloud-services-sizes-specs.md), le système d’exploitation et l’emplacement d’installation de l’application dans Azure Storage lorsque les nœuds rejoignent le pool (c’est-à-dire l’application que vous avez chargée à l’étape 1). Vous pouvez également configurer la [mise à l’échelle automatique](batch-automatic-scaling.md) du pool (ajustement dynamique du nombre de nœuds de calcul dans le pool) en réponse à la charge de travail que génèrent vos tâches.
+2. Création d’un **pool** de nœuds de calcul dans votre compte Batch : il s’agit des machines virtuelles qui exécuteront les tâches. Vous devez spécifier des propriétés, telles que la [taille du nœud](./../cloud-services/cloud-services-sizes-specs.md), le système d’exploitation et l’emplacement d’installation de l’application dans Azure Storage lorsque les nœuds rejoignent le pool (c’est-à-dire l’application que vous avez chargée à l’étape 1). Vous pouvez également configurer la [mise à l’échelle automatique](batch-automatic-scaling.md) du pool (ajustement dynamique du nombre de nœuds de calcul dans le pool) en réponse à la charge de travail que génèrent vos tâches.
 
 3. Création d’un **travail** Batch pour exécuter la charge de travail sur le pool de nœuds de calcul. Lorsque vous créez un travail, vous devez l’associer à un pool Batch.
 
-4. Ajoutez des **Tâches** au travail. Lorsque vous ajoutez des tâches à un travail, le service Batch planifie automatiquement l’exécution des tâches sur les nœuds de calcul du pool. Chaque tâche utilise l’application que vous avez téléchargée pour traiter les fichiers d’entrée.
+4. Ajoutez des **tâches** au travail. Lorsque vous ajoutez des tâches à un travail, le service Batch planifie automatiquement l’exécution des tâches sur les nœuds de calcul du pool. Chaque tâche utilise l’application que vous avez téléchargée pour traiter les fichiers d’entrée.
 
     - 4a. Avant son exécution, la tâche peut charger les données (les fichiers d’entrée) qu’elle devra traiter dans le nœud de calcul auquel elle est affectée. Si l’application n’a pas déjà été installée sur le nœud (voir l’étape 2), vous pouvez la télécharger à cet emplacement. Lorsque les téléchargements sont terminés, les tâches s’exécutent sur les nœuds qui leur sont attribués.
 
-5. Au cours de l’exécution des tâches, vous pouvez interroger le service Batch pour surveiller la progression du travail et des tâches associées. Votre application cliente ou votre service communique avec le service Batch via HTTPS ; si vous souhaitez surveiller des milliers de tâches exécutées sur des milliers de nœuds de calcul, veillez donc à [interroger efficacement le service Batch](batch-efficient-list-queries.md).
+5. Au cours de l’exécution des tâches, vous pouvez interroger le service Batch pour surveiller la progression du travail et des tâches associées. Votre application cliente ou votre service communiquent avec le service Batch via HTTPS ; si vous souhaitez surveiller des milliers de tâches exécutées sur des milliers de nœuds de calcul, veillez donc à [interroger efficacement le service Batch](batch-efficient-list-queries.md).
 
 6. Une fois les tâches exécutées, elles peuvent chargent leurs données de sortie dans Azure Storage. Vous pouvez également extraire des fichiers directement à partir des nœuds de calcul.
 
@@ -116,7 +125,7 @@ N’oubliez pas qu’il ne s’agit ici que d’une des nombreuses façons d’u
 
 Maintenant que vous disposez d’une vue d’ensemble du service Batch, le moment est venu d’approfondir cette première approche pour découvrir comment utiliser ce service dans le traitement de charges de travail parallèles nécessitant beaucoup de ressources système.
 
-- Lisez l’article [Vue d’ensemble des fonctionnalités d’Azure Batch](batch-api-basics.md) pour obtenir des informations plus détaillées sur les fonctionnalités d’API du service Batch dans le cadre du traitement des charges de travail. Cette lecture est essentielle pour tous ceux qui se préparent à utiliser le service Batch.
+- Lisez l’article [Présentation des fonctionnalités du service Batch pour les développeurs](batch-api-basics.md) pour obtenir des informations plus détaillées sur les fonctionnalités d’API du service Batch dans le cadre du traitement des charges de travail. Cet article est essentiel pour tous ceux qui se préparent à utiliser le service Batch.
 
 - Consultez la page [Prise en main de la bibliothèque Azure Batch pour .NET](batch-dotnet-get-started.md) pour apprendre à utiliser C# et la bibliothèque .NET Batch pour exécuter une charge de travail simple à l’aide d’un flux de travail Batch courant. Cet article servira de référence essentielle dans la découverte de l’utilisation du service Batch. Il existe également une [version Python](batch-python-tutorial.md) du didacticiel.
 
@@ -126,7 +135,7 @@ Maintenant que vous disposez d’une vue d’ensemble du service Batch, le momen
 
 [azure_storage]: https://azure.microsoft.com/services/storage/
 [api_java]: http://azure.github.io/azure-sdk-for-java/
-[api_java_jar]: http://adxsnapshots.azurewebsites.net/?dir=com%5cmicrosoft%5cazure%5cazure-batch
+[api_java_jar]: http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-batch%22
 [api_net]: https://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_net_nuget]: https://www.nuget.org/packages/Azure.Batch/
 [api_net_mgmt]: https://msdn.microsoft.com/library/azure/mt463120.aspx
@@ -144,8 +153,11 @@ Maintenant que vous disposez d’une vue d’ensemble du service Batch, le momen
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [learning_path]: https://azure.microsoft.com/documentation/learning-paths/batch/
 [msdn_benefits]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/
+[batch_explorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
+[storage_explorer]: http://storageexplorer.com/
+[portal]: https://portal.azure.com
 
 [1]: ./media/batch-technical-overview/tech_overview_01.png
 [2]: ./media/batch-technical-overview/tech_overview_02.png
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -14,8 +14,8 @@
  ms.topic="get-started-article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="05/24/2016"
- ms.author="stevehob"/>
+ ms.date="08/17/2016"
+ ms.author="araguila"/>
 
 # Présentation de la solution préconfigurée de maintenance prédictive
 
@@ -40,7 +40,7 @@ Pour comprendre comment les fonctionnalités d’[Azure IoT Suite][lnk_iot_suite
 
 La solution s’appuie sur un modèle Microsoft Azure Machine Learning existant pour afficher ces fonctionnalités en s’appuyant sur les données télémétriques de l’appareil recueillies via les services IoT Suite. Microsoft a créé un [modèle de régression][lnk_regression_model] d’un moteur d’avion, pour lequel ont été publiés un modèle complet, des données<sup>[1]</sup> et des instructions d’utilisation détaillées.
 
-La solution préconfigurée de maintenance prédictive Azure IoT utilise le modèle de régression créé à partir de ce modèle ; il est déployé dans votre abonnement Azure et présenté via une API générée automatiquement. La solution inclut un sous-ensemble des données de tests représentant 4 (sur un total 100) moteurs et 4 (sur un total 21) flux de données de capteurs, pour fournir un résultat exact du modèle formé.
+La solution préconfigurée de maintenance prédictive Azure IoT utilise le modèle de régression créé à partir de ce modèle ; il est déployé dans votre abonnement Azure et présenté via une API générée automatiquement. La solution inclut un sous-ensemble des données de tests représentant 4 (sur un total 100) moteurs et 4 (sur un total 21) flux de données de capteurs, pour fournir un résultat exact du modèle formé.
 
 *[1] A. Saxena and K. Goebel (2008). « Turbofan Engine Degradation Simulation Data Set », NASA Ames Prognostics Data Repository (http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/, NASA Ames Research Center, Moffett Field, CA*
 
@@ -66,4 +66,4 @@ Vous pouvez également explorer certaines des autres fonctionnalités et capacit
 [lnk-faq]: iot-suite-faq.md
 [lnk-security-groundup]: securing-iot-ground-up.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -12,7 +12,7 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
     ms.workload="na"
-    ms.date="04/15/2016"
+    ms.date="08/16/2016"
     ms.author="sethm" />
 
 # Vue d'ensemble des hubs d'événements Azure
@@ -21,15 +21,15 @@ De nombreuses solutions modernes ont pour but de proposer des expériences clien
 
 ![Event Hubs](./media/event-hubs-overview/IC759856.png)
 
-Les hubs d'événements Azure constituent un service de traitement des événements. Celui-ci fournit des entrées d'événements et de télémétrie vers le cloud à grande échelle, avec une faible latence et une grande fiabilité. Ce service, utilisé avec d'autres services en aval, est particulièrement utile pour l'instrumentation de l'application, le traitement du workflow ou de l'expérience utilisateur, et les scénarios de l'Internet des Objets (IoT). Event Hubs fournit une fonctionnalité de gestion du flux de messages et, bien qu'un hub d'événements soit une entité similaire aux files d'attente et aux rubriques, il présente des caractéristiques très différentes de la messagerie d'entreprise traditionnelle. Les scénarios de messagerie d'entreprise nécessitent généralement plusieurs fonctionnalités sophistiquées, comme le séquençage, la lettre morte, la prise en charge des transactions, des garanties de livraison élevées, tandis que la préoccupation principale pour l'admission d'événements est un débit élevé et la flexibilité de traitement pour les flux d'événements. Par conséquent, les capacités des hubs d'événements diffèrent des rubriques Service Bus dans la mesure où elles sont fortement orientées vers le débit élevé et les scénarios de traitement des événements. Par conséquent, les hubs d'événements n'implémentent pas certaines des fonctionnalités de messagerie qui sont disponibles pour les rubriques. Si vous avez besoin de ces fonctionnalités, les rubriques constituent le meilleur choix.
+Les hubs d'événements Azure constituent un service de traitement des événements. Celui-ci fournit des entrées d'événements et de télémétrie vers le cloud à grande échelle, avec une faible latence et une grande fiabilité. Ce service, utilisé avec d'autres services en aval, est particulièrement utile pour l'instrumentation de l'application, le traitement du workflow ou de l'expérience utilisateur, et les scénarios de l'Internet des Objets (IoT). Event Hubs fournit une fonctionnalité de gestion du flux de messages. Bien qu’un hub d’événements soit une entité similaire aux files d’attente et aux rubriques, il présente des caractéristiques très différentes de la messagerie d’entreprise traditionnelle. Les scénarios de messagerie d’entreprise nécessitent généralement des fonctionnalités sophistiquées, comme le séquençage, la lettre morte, la prise en charge des transactions, des garanties de livraison élevées, tandis que la préoccupation principale pour l’admission d’événements est un débit élevé et la flexibilité de traitement des flux d’événements. Par conséquent, les capacités des hubs d’événements diffèrent des rubriques Service Bus, dans la mesure où elles sont fortement orientées vers le débit élevé et les scénarios de traitement des événements. Par conséquent, les hubs d’événements n’implémentent pas certaines des fonctionnalités de messagerie qui sont disponibles pour les rubriques. Si vous avez besoin de ces fonctionnalités, les rubriques constituent le meilleur choix.
 
-Un hub d'événements est créé au niveau de l'espace de noms dans Service Bus, comme les files d'attente et les rubriques. Les hubs d'événements utilisent HTTP et AMQP comme interfaces API principales. Le diagramme suivant montre la relation entre les hubs d'événements et Service Bus.
+Un hub d’événements est créé au niveau de l’espace de noms Event Hubs, comme pour les files d’attente et rubriques Service Bus. Les hubs d'événements utilisent HTTP et AMQP comme interfaces API principales. Le diagramme suivant montre la relation entre les hubs d'événements et Service Bus.
 
 ![Event Hubs](./media/event-hubs-overview/IC741188.png)
 
 ## Vue d'ensemble conceptuelle
 
-Les hubs d'événements fournissent la diffusion de messages via un modèle de consommateur partitionné. Les files d'attente et les rubriques utilisent un modèle [consommateur concurrent](https://msdn.microsoft.com/library/dn568101.aspx) dans lequel chaque consommateur tente de lire à partir de la même file d'attente ou ressource. Cette concurrence pour les ressources cause des limites en termes de complexité et de mise à l'échelle pour les applications de traitement de flux. Les hubs d'événements utilisent un modèle de consommateur partitionné dans lequel chaque consommateur lit uniquement un sous-ensemble spécifique, ou partition, du flux de messages. Ce modèle permet la mise à l'échelle horizontale pour le traitement des événements et fournit d'autres fonctionnalités axées sur le flux qui ne sont pas disponibles dans les rubriques et les files d'attente.
+Les hubs d'événements fournissent la diffusion de messages via un modèle de consommateur partitionné. Les files d’attente et les rubriques utilisent un modèle de [consommateur concurrent](https://msdn.microsoft.com/library/dn568101.aspx), dans lequel chaque consommateur tente de lire à partir de la même file d’attente ou ressource. Cette concurrence pour les ressources cause des limites en termes de complexité et de mise à l'échelle pour les applications de traitement de flux. Les hubs d'événements utilisent un modèle de consommateur partitionné dans lequel chaque consommateur lit uniquement un sous-ensemble spécifique, ou partition, du flux de messages. Ce modèle permet la mise à l’échelle horizontale pour le traitement des événements et fournit d’autres fonctionnalités de flux qui ne sont pas disponibles dans les rubriques et les files d’attente.
 
 ### Partitions
 
@@ -43,7 +43,7 @@ Les partitions conservent les données pendant une durée de conservation config
 
 Le nombre de partitions est spécifié pendant la création du hub d’événements. Ce nombre doit être compris entre 2 et 32 (la valeur par défaut est 4). Les partitions constituent un mécanisme d'organisation des données. Elles sont davantage liées au degré de parallélisme en aval requis lors de la consommation des applications qu'au débit des hubs d'événements. Par conséquent, le choix du nombre de partitions dans un hub d'événements est directement lié au nombre de lecteurs simultanés que vous prévoyez d'avoir. Après la création du hub d'événements, le nombre de partitions n'est pas modifiable. Vous devez considérer ce nombre en termes d'échelle attendue à long terme. Vous pouvez augmenter la limite de 32 partitions en contactant l'équipe Service Bus.
 
-Bien que les partitions soient identifiables et qu'il soit possible de leur envoyer du contenu directement, il est préférable d'éviter d'envoyer des données à des partitions spécifiques. Au lieu de cela, vous pouvez utiliser des constructions de niveau supérieur présentées dans les sections [Éditeur d'événements](#event-publisher) et [Stratégie de l'éditeur](#capacity-and-security).
+Bien que les partitions soient identifiables et qu’il soit possible de leur envoyer du contenu directement, il est préférable d’éviter d’envoyer des données à certaines partitions. Au lieu de cela, vous pouvez utiliser des constructions de niveau supérieur présentées dans les sections [Éditeur d'événements](#event-publisher) et [Stratégie de l'éditeur](#capacity-and-security).
 
 Dans le contexte des hubs d'événements, les messages sont appelés *données d'événement*. Les données d'événement contiennent le corps de l'événement, un conteneur de propriétés défini par l'utilisateur et diverses métadonnées sur l'événement, comme son décalage dans la partition et son numéro dans la séquence de flux. Les partitions sont remplies d'une séquence de données d'événement.
 
@@ -118,7 +118,7 @@ Après l'ouverture d'une session AMQP 1.0 et d'une liaison pour une partition s
 
 ![Event Hubs](./media/event-hubs-overview/IC759862.png)
 
-L'utilisateur a la responsabilité de gérer ce décalage de façon à permettre la progression de la gestion dans le traitement du flux.
+L’utilisateur doit gérer ce décalage pour optimiser la gestion du traitement du flux.
 
 ## Capacité et sécurité
 
@@ -128,17 +128,17 @@ Event Hubs est une architecture parallèle hautement évolutive pour l'entrée 
 
 La capacité de débit des hubs d'événements est contrôlée par les unités de débit. Les unités de débit sont des unités de capacité achetées préalablement. Une unité de débit unique inclut les éléments suivants :
 
-- Entrée : jusqu'à 1 Mo par seconde ou 1 000 événements par seconde.
+- Entrée : jusqu’à 1 Mo par seconde ou 1000 événements par seconde.
 
-- Sortie : jusqu'à 2 Mo par seconde.
+- Sortie : jusqu’à 2 Mo par seconde.
 
 L'entrée est limitée à la quantité de capacité offerte par le nombre d'unités de débit achetées. L'envoi de données au-delà de cette quantité résulte en une exception de « quota dépassé ». Cette quantité est soit 1 Mo par seconde ou 1 000 événements par seconde, selon ce qui se produit en premier. La sortie ne produit pas d'exceptions de limitation, mais elle est limitée à la quantité de transfert de données prévu par les unités de débit achetées : 2 Mo par seconde par unité de débit. Si vous recevez des exceptions de vitesse de publication ou si vous attendez une sortie plus élevée, vérifiez le nombre d'unités de débit achetées pour l'espace de noms dans lequel le hub d'événements a été créé. Pour obtenir plus d’unités de débit, vous pouvez ajuster le paramètre dans la page **Espaces de noms** sous l’onglet **Mettre à l’échelle** du [portail Azure Classic][]. Vous pouvez également modifier ce paramètre à l'aide des API Azure.
 
-Les partitions sont un concept d'organisation de données, alors que les unités de débit sont purement un concept de capacité. Les unités de débit sont facturées par heure et sont préalablement acquises. Une fois achetées, les unités de débit sont facturées au moins une heure. Il est possible d'acheter jusqu'à 20 unités de débit pour un espace de noms Service Bus. Un compte Azure est limité à 20 unités de débit. Ces unités de débit sont partagées par tous les hubs d'événements dans un espace de noms donné.
+Les partitions sont un concept d'organisation de données, alors que les unités de débit sont purement un concept de capacité. Les unités de débit sont facturées par heure et sont préalablement acquises. Une fois achetées, les unités de débit sont facturées au moins une heure. Il est possible d’acheter jusqu’à 20 unités de débit pour un espace de noms Event Hubs. Un compte Azure est limité à 20 unités de débit. Ces unités de débit sont partagées par tous les hubs d'événements dans un espace de noms donné.
 
-Les unités de débit sont allouées le plus tôt possible et elles peuvent ne pas être toujours disponibles pour un achat immédiat. Si vous avez besoin d'une capacité spécifique, nous vous recommandons d'acheter ces unités de débit à l'avance. Si vous avez besoin de plus de 20 unités de débit, vous pouvez contacter le support Service Bus pour acheter davantage d'unités de débit sur une base d'engagement dans des blocs de 20, jusqu'aux 100 premières unités de débit. Ensuite, vous pouvez également acheter des blocs de 100 unités de débit.
+Les unités de débit sont allouées le plus tôt possible et elles peuvent ne pas être toujours disponibles pour un achat immédiat. Si vous avez besoin d'une capacité spécifique, nous vous recommandons d'acheter ces unités de débit à l'avance. Si vous avez besoin de plus de 20 unités de débit, vous pouvez contacter le support Service Bus pour acheter des blocs de 20 unités, jusqu’aux 100 premières. Ensuite, vous pouvez également acheter des blocs de 100 unités de débit.
 
-Nous vous recommandons d'équilibrer soigneusement les partitions et les unités de débit pour atteindre une échelle optimale avec les hubs d'événements. Une partition unique a une échelle maximale d'une unité de débit. Le nombre d'unités de débit doit être inférieur ou égal au nombre de partitions dans un hub d'événements.
+Nous vous recommandons d’équilibrer soigneusement les partitions et les unités de débit pour obtenir un dimensionnement optimal avec Event Hubs. Une partition unique a une échelle maximale d'une unité de débit. Le nombre d'unités de débit doit être inférieur ou égal au nombre de partitions dans un hub d'événements.
 
 Pour obtenir des informations de tarification détaillées, consultez [Tarification des hubs d'événements](https://azure.microsoft.com/pricing/details/event-hubs/).
 
@@ -168,4 +168,4 @@ Les hubs d'événements Azure fournissent un service évolutif de traitement de 
 [solution de messages de file d'attente]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!-----HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="05/16/2016"
+	ms.date="08/16/2016"
 	ms.author="anhoh"/>
 
 # Didacticiel NoSQL : générer une application de console C# DocumentDB
@@ -57,7 +57,7 @@ Créons un compte DocumentDB. Si vous avez déjà un compte que vous souhaitez u
 
 [AZURE.INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
-##<a id="SetupVS"></a> Étape 2 : Configuration de votre solution Visual Studio
+## <a id="SetupVS"></a> Étape 2 : configurer votre solution Visual Studio
 
 1. Ouvrez **Visual Studio 2015** sur votre ordinateur.
 2. Dans le menu **Fichier**, sélectionnez **Nouveau**, puis choisissez **Projet**.
@@ -69,7 +69,7 @@ Créons un compte DocumentDB. Si vous avez déjà un compte que vous souhaitez u
 
 Parfait ! L’installation étant terminée, nous pouvons passer à l’écriture du code. Vous trouverez le projet de code complet de ce didacticiel dans [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started/blob/master/src/Program.cs).
 
-##<a id="Connect"></a>Étape 3 : se connecter à un compte DocumentDB
+## <a id="Connect"></a> Étape 3 : se connecter à un compte DocumentDB
 
 Tout d’abord, ajoutez ces références au début de votre application C#, dans le fichier Program.cs :
 
@@ -94,11 +94,11 @@ Maintenant, ajoutez ces deux constantes et votre variable *client* dans votre cl
 		private const string PrimaryKey = "<your key>";
 		private DocumentClient client;
 
-Ensuite, accédez au [portail Azure](https://portal.azure.com) pour récupérer votre URI et votre clé primaire. L'URI de DocumentDB et la clé primaire sont nécessaires pour que votre application puisse se connecter et que DocumentDB approuve la connexion de votre application.
+Ensuite, accédez au [portail Azure](https://portal.azure.com) pour récupérer votre URI et votre clé primaire. L’URI et la clé primaire de DocumentDB sont nécessaires pour que votre application puisse se connecter et que DocumentDB approuve la connexion de votre application.
 
-Dans le portail Azure, accédez à votre compte DocumentDB à partir de l'étape 1.
+Dans le portail Azure, accédez à votre compte DocumentDB à partir de l’étape 1, puis cliquez sur **Clés**.
 
-Cliquez sur l’icône de **clés** dans la barre **Essentials**. Copiez l’URI et remplacez *<your endpoint URI>* par l’URI copié dans votre programme. Copiez la clé primaire et remplacez *<your key>* par la clé copiée dans votre programme.
+Copiez l’URI et remplacez *<your endpoint URI>* par l’URI copié dans votre programme. Copiez la clé primaire et remplacez *<your key>* par la clé copiée dans votre programme.
 
 ![Capture d’écran du portail Azure utilisée par le didacticiel NoSQL pour créer une application de console C#. Présente un compte DocumentDB, avec le hub ACTIF et le bouton CLÉS mis en surbrillance dans le panneau du compte DocumentDB, et les valeurs d’URI, de CLÉ PRIMAIRE et de CLÉ SECONDAIRE mises en surbrillance dans le panneau Clés][keys]
 
@@ -116,7 +116,7 @@ Sous la méthode **Main**, ajoutez la nouvelle tâche asynchrone appelée **GetS
 		this.client = new DocumentClient(new Uri(EndpointUri), PrimaryKey);
 	}
 
-Ajoutez le code suivant pour exécuter votre tâche asynchrone à partir de la méthode **Main**. La méthode **Main** intercepte les exceptions et les consigne dans la console.
+Ajoutez le code suivant pour exécuter votre tâche asynchrone à partir de la méthode **Main**. La méthode **Main** va intercepter les exceptions et les consigner dans la console.
 
 	static void Main(string[] args)
 	{
@@ -200,7 +200,7 @@ Appuyez sur **F5** pour exécuter votre application.
 
 Félicitations ! Vous avez créé une base de données DocumentDB.
 
-##<a id="CreateColl"></a>Étape 5 : créer une collection  
+## <a id="CreateColl"></a>Étape 5 : créer une collection  
 
 > [AZURE.WARNING] **CreateDocumentCollectionAsync** crée une collection avec un débit réservé, ce qui a des conséquences sur la tarification. Pour plus d'informations, visitez notre [page de tarification](https://azure.microsoft.com/pricing/details/documentdb/).
 
@@ -255,7 +255,7 @@ Appuyez sur **F5** pour exécuter votre application.
 
 Félicitations ! Vous avez créé une collection de documents DocumentDB.
 
-##<a id="CreateDoc"></a>Étape 6 : Création de documents JSON
+## <a id="CreateDoc"></a>Étape 6 : Création de documents JSON
 Vous pouvez créer un [document](documentdb-resources.md#documents) à l'aide de la méthode [CreateDocumentAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentasync.aspx) de la classe **DocumentClient**. Les documents correspondent à du contenu JSON (arbitraire) défini par l'utilisateur. Nous pouvons maintenant insérer un ou plusieurs documents. Si vous disposez déjà de données que vous souhaitez stocker dans votre base de données, vous pouvez utiliser de l’[outil de migration de données](documentdb-import-data.md) de DocumentDB.
 
 Nous devons tout d’abord créer une classe **Family** représentant les objets stockés dans DocumentDB dans cet exemple. Nous allons également créer les sous-classes **Parent**, **Child**, **Pet** et **Address** qui seront utilisées dans **Family**. Notez que les documents doivent avoir une propriété **Id** sérialisée comme un **id** dans JSON. Créez ces classes en ajoutant les sous-classes internes suivantes après la méthode **GetStartedDemo**.
@@ -443,7 +443,7 @@ Copiez et collez la méthode **ExecuteSimpleQuery** sous votre méthode **Create
 			// Now execute the same query via direct SQL
 			IQueryable<Family> familyQueryInSql = this.client.CreateDocumentQuery<Family>(
 					UriFactory.CreateDocumentCollectionUri(databaseName, collectionName),
-					"SELECT * FROM Family WHERE Family.lastName = 'Andersen'",
+					"SELECT * FROM Family WHERE Family.LastName = 'Andersen'",
 					queryOptions);
 
 			Console.WriteLine("Running direct SQL query...");
@@ -473,7 +473,7 @@ Le diagramme suivant montre comment la syntaxe de requête SQL de DocumentDB est
 
 Le mot clé [FROM](documentdb-sql-query.md#from-clause) est facultatif dans la requête, car les requêtes DocumentDB sont déjà étendues à une collection unique. Par conséquent, « FROM Families f » peut être remplacé par «FROM root r » ou par tout autre nom de variable que vous choisissez. DocumentDB déduira que Families, root ou le nom de variable choisi fait par défaut référence à la collection actuelle.
 
-##<a id="ReplaceDocument"></a>Étape 8 : Remplacement d’un document JSON
+##<a id="ReplaceDocument"></a>Étape 8 : remplacer le document JSON
 
 DocumentDB prend en charge le remplacement des documents JSON.
 
@@ -511,7 +511,7 @@ Appuyez sur **F5** pour exécuter votre application.
 
 Félicitations ! Vous avez remplacé un document DocumentDB.
 
-##<a id="DeleteDocument"></a>Étape 9 : Suppression d’un document JSON
+##<a id="DeleteDocument"></a>Étape 9 : supprimer le document JSON
 
 DocumentDB prend en charge la suppression des documents JSON.
 
@@ -544,11 +544,11 @@ Appuyez sur **F5** pour exécuter votre application.
 
 Félicitations ! Vous avez supprimé un document DocumentDB.
 
-##<a id="DeleteDatabase"></a>Étape 10 : Suppression de la base de données
+##<a id="DeleteDatabase"></a>Étape 10 : supprimer la base de données
 
 Supprimer la base de données créée revient à supprimer la base de données et toutes les ressources enfants (collections, documents, etc.).
 
-Copiez et collez le code suivant dans votre méthode **GetStartedDemo** sous la suppression de document pour supprimer la base de données et toutes ses ressources enfants.
+Copiez et collez le code suivant dans votre méthode **GetStartedDemo** sous la suppression du document, pour supprimer la base de données et toutes ses ressources enfants.
 
 	this.ExecuteSimpleQuery("FamilyDB", "FamilyCollection");
 
@@ -562,7 +562,7 @@ Appuyez sur **F5** pour exécuter votre application.
 
 Félicitations ! Vous avez supprimé une base de données DocumentDB.
 
-##<a id="Run"></a>Étape 11 : Exécution de votre application de console C#
+##<a id="Run"></a>Étape 11 : exécuter votre application de console C#
 
 Appuyez sur F5 dans Visual Studio pour générer l'application en mode débogage.
 
@@ -612,4 +612,4 @@ Pour restaurer les références au Kit de développement logiciel (SDK) .NET de 
 [documentdb-manage]: documentdb-manage.md
 [keys]: media/documentdb-get-started/nosql-tutorial-keys.png
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0817_2016-->

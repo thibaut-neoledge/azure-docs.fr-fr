@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Prise en main de l’explorateur de stockage (version préliminaire) | Microsoft Azure"
 	description="Gérer les ressources de stockage Azure avec l’Explorateur de stockage (version préliminaire)"
-	services="visual-studio-online"
+	services="storage"
 	documentationCenter="na"
 	authors="TomArcher"
 	manager="douge"
@@ -13,7 +13,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="07/30/2016"
+	ms.date="08/17/2016"
 	ms.author="tarcher" />
 
 # Prise en main de l’explorateur de stockage (version préliminaire)
@@ -229,4 +229,4 @@ Pour effacer la recherche, sélectionnez le bouton **x** dans la zone de recherc
 [23]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/connect-to-azure-storage-icon.png
 [24]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/connect-to-azure-storage-next.png
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

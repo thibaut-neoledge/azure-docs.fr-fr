@@ -15,7 +15,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="05/25/2016"
+	ms.date="08/10/2016"
 	ms.author="jgao"/>
 
 # Prise en main des outils Hadoop de Visual Studio pour HDInsight pour exécuter une requête Hive
@@ -64,14 +64,14 @@ Avec HDInsight Tools pour Visual Studio, vous pouvez vous connecter à vos clust
 2.	Dans le menu **Affichage**, cliquez sur **Explorateur de serveurs** pour ouvrir la fenêtre du même nom.
 3.	Développez **Azure**, puis **HDInsight**.
 
-	>[AZURE.NOTE]Notez que la fenêtre **Liste des tâches HDInsight** doit s’ouvrir. Si vous ne la voyez pas, cliquez sur **Autres fenêtres** dans le menu **Affichage**, puis cliquez sur **Fenêtre de liste des tâches HDInsight**.  
-4.	Entrez les informations d’identification de votre abonnement Azure, puis cliquez sur **Connexion**. Cette étape n’est nécessaire que si vous ne vous êtes jamais connecté à l’abonnement Azure à partir de Visual Studio sur cette station de travail.
+	>[AZURE.NOTE]Notez que la fenêtre **Liste des tâches HDInsight** doit s’ouvrir. Si vous ne la voyez pas, cliquez sur **Autres fenêtres** dans le menu **Affichage**, puis cliquez sur **Fenêtre de liste des tâches HDInsight**.
+4.	Entrez les informations d’identification de votre abonnement Azure, puis cliquez sur **Se connecter**. Cette étape n’est obligatoire que si vous ne vous êtes jamais connecté à l’abonnement Azure à partir de Visual Studio sur ce poste de travail.
 5.	Dans l’explorateur de serveurs, vous verrez une liste des clusters HDInsight existants. Si vous ne possédez aucun cluster, vous pouvez en approvisionner un dans le portail Azure, avec Azure PowerShell ou à l’aide du Kit de développement logiciel (SDK) HDInsight. Pour plus d’informations, consultez la rubrique [Configuration de clusters HDInsight][hdinsight-provision].
 
 	![Outils Hadoop : liste de clusters de l’explorateur de serveurs de HDInsight Tools pour Visual Studio][5]
 6.	Développez un cluster HDInsight. Vous devez voir les **bases de données Hive**, un compte de stockage par défaut, les comptes de stockage liés et le **journal Hadoop Service**. Vous pouvez développer davantage les entités.
 
-Une fois connecté à votre abonnement Azure, vous serez en mesure d’effectuer les opérations suivantes :
+Une fois connecté à votre abonnement Azure, vous serez en mesure d’effectuer les opérations suivantes :
 
 **Pour vous connecter au Portail de gestion à partir de Visual Studio**
 
@@ -86,6 +86,11 @@ Une fois connecté à votre abonnement Azure, vous serez en mesure d’effectuer
 Dans l’Explorateur de serveurs, vous pouvez voir le compte de stockage par défaut et les éventuels comptes de stockage liés. Développez le compte de stockage par défaut pour afficher les conteneurs dans le compte de stockage. Le compte de stockage par défaut et le conteneur par défaut sont marqués. Vous pouvez aussi cliquer avec le bouton droit sur n’importe quel conteneur pour afficher son contenu.
 
 ![Liste de clusters de l’explorateur de serveurs de HDInsight Tools pour Visual Studio][2]
+
+Après l’ouverture du conteneur, vous pouvez utiliser les boutons suivants pour charger, supprimer et télécharger des objets blob :
+
+![Opérations blob de l’explorateur de serveurs de HDInsight Tools pour Visual Studio](./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.blob.operations.png)
+
 
 ## Exécution d'une tâche Hive
 [Apache Hive][apache.hive] est une infrastructure d’entrepôt de données basée sur Hadoop qui permet de synthétiser, d’interroger et d’analyser des données. HDInsight Tools pour Visual Studio prend en charge l’exécution de requêtes Hive à partir de Visual Studio. Pour plus d'informations sur Hive, consultez l'article [Utilisation de Hive avec HDInsight][hdinsight.hive].
@@ -232,7 +237,7 @@ Les outils HDInsight pour Visual Studio prennent en charge la création et la s
 
 - Le script HQL créé par Visual Studio est encodé selon le paramètre de région locale de l’utilisateur. Il peut ne pas s’exécuter correctement si l’utilisateur charge le script dans le cluster sous forme binaire.
 
-Si vous avez des suggestions ou des commentaires, ou si vous rencontrez des problèmes lors de l'utilisation de cet outil, n'hésitez pas à nous envoyer un e-mail à microsoft point com.
+Si vous avez des suggestions ou des commentaires, ou que vous rencontrez des problèmes lors de l’utilisation de cet outil, n’hésitez pas à nous envoyer un e-mail à l’adresse hdivstool@microsoft.com.
 
 ## Étapes suivantes
 Dans cet article, vous avez appris à établir une connexion à des clusters HDInsight à partir de Visual Studio, à l’aide du package d’outils Hadoop, et à exécuter des requêtes Hive. Pour plus d'informations, consultez les pages suivantes :
@@ -277,4 +282,4 @@ Dans cet article, vous avez appris à établir une connexion à des clusters HDI
 
 [apache.hive]: http://hive.apache.org
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -13,10 +13,13 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="07/02/2016"
+   ms.date="08/15/2016"
    ms.author="elizapo"/>
 
 # Exécuter n’importe quelle application Windows sur n’importe quel appareil avec Azure RemoteApp
+
+> [AZURE.IMPORTANT]
+Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148).
 
 Vous pouvez exécuter une application Windows n’importe où et sur n’importe quel appareil. Pour cela, il vous suffit d’utiliser Azure RemoteApp. Qu’il s’agisse d’une application personnalisée écrite il y a 10 ans ou d’une application Office, vos utilisateurs n’ont plus besoin d’être rattachés à un système d’exploitation spécifique (comme Windows XP) pour accéder à ces applications.
 
@@ -35,7 +38,7 @@ Veuillez noter que, comme Access est une base de données, et comme nous voulons
 
 ## Création d’une collection dans RemoteApp
 
-Commencez par créer une collection. La collection sert à répertorier vos applications et vos utilisateurs. Chaque collection est basée sur une image, vous pouvez créer votre propre image ou utiliser celle fournie avec votre abonnement. Pour ce didacticiel, nous allons utiliser l’image d’évaluation d’Office 2013. Elle contient l’application que nous voulons partager.
+Commencez par créer une collection. La collection sert à répertorier vos applications et vos utilisateurs. Chaque collection est basée sur une image ; vous pouvez créer votre propre image ou utiliser celle fournie avec votre abonnement. Pour ce didacticiel, nous allons utiliser l’image d’évaluation d’Office 2013. Elle contient l’application que nous voulons partager.
 
 1. Sur le portail Azure, faites défiler le volet de navigation de gauche jusqu’à ce que RemoteApp apparaisse. Ouvrez cette page.
 2. Cliquez sur **Créer une collection RemoteApp**.
@@ -78,8 +81,7 @@ Dans un premier temps, vous allez être mis à contribution en tant qu’adminis
 1. Commencez par publier l’interface de ligne de commande (cmd.exe). Dans l’onglet **Publication**, sélectionnez **cmd**, puis cliquez sur **Publier > Publier le programme à l’aide d’un chemin d’accès**.
 2. Entrez le nom de l’application et le chemin d’accès. Dans notre cas, utilisez « Explorateur de fichiers » comme nom et « %SYSTEMDRIVE%\\windows\\explorer.exe » comme chemin d’accès. ![Publiez le fichier cmd.exe.](./media/remoteapp-anyapp/ra-publishcmd.png)
 3. Vous devez à présent créer un [compte de stockage](../storage/storage-create-storage-account.md) Azure. Nous avons appelé le nôtre « accessstorage », choisissez donc un nom significatif pour vous. (Pour reprendre Highlander, il peut n’y avoir qu’un seul « accessstorage ».) ![Notre compte de stockage Azure](./media/remoteapp-anyapp/ra-anyappazurestorage.png)
-4. Revenez maintenant à votre tableau de bord afin d’obtenir le chemin d’accès vers votre espace de stockage (emplacement de point de terminaison). Vous allez l’utiliser dans peu de temps, veillez donc à le copier quelque part. 
-![Chemin d’accès au compte de stockage](./media/remoteapp-anyapp/ra-anyappstoragelocation.png)
+4. Revenez maintenant à votre tableau de bord afin d’obtenir le chemin d’accès vers votre espace de stockage (emplacement de point de terminaison). Vous allez l’utiliser dans peu de temps, veillez donc à le copier quelque part. ![Chemin d’accès au compte de stockage](./media/remoteapp-anyapp/ra-anyappstoragelocation.png)
 5. Une fois le compte de stockage créé, vous allez avoir besoin de la clé d’accès primaire. Cliquez sur **Gérer les clés d’accès**, puis copiez la clé d’accès primaire.
 6. À présent, définissez le contexte du compte de stockage et créez un partage de fichiers pour Access. Dans une fenêtre Windows PowerShell exécutée avec des privilèges élevés, exécutez les applets de commande suivantes :
 
@@ -113,4 +115,4 @@ Maintenant que vous maîtrisez la création d’une collection, essayez de crée
 <!--Image references-->
  
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0817_2016-->

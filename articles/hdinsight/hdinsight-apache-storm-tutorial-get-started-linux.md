@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/31/2016"
+   ms.date="08/16/2016"
    ms.author="larryfr"/>
 
 
@@ -40,13 +40,13 @@ Vous devez disposer de ce qui suit pour suivre jusqu’au bout ce didacticiel St
 
 ## Créer un cluster Storm
 
-Dans cette section, vous allez créer un cluster HDInsight version 3.2 (Storm version 0.9.3) à l’aide d’un modèle Azure ARM. Pour en savoir plus sur les différentes versions de HDInsight et leurs contrats SLA, consultez la page [Contrôle de version des composants HDInsight](hdinsight-component-versioning.md). Pour obtenir d’autres méthodes de création de cluster, consultez [Création de clusters HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
+Dans cette section, vous allez créer un cluster HDInsight version 3.2 (Storm version 0.9.3) à l’aide d’un modèle Azure Resource Manager. Pour en savoir plus sur les différentes versions de HDInsight et leurs contrats SLA, consultez la page [Contrôle de version des composants HDInsight](hdinsight-component-versioning.md). Pour obtenir d’autres méthodes de création de cluster, consultez [Création de clusters HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
-1. Cliquez sur l’image suivante pour ouvrir un modèle ARM dans le portail Azure.         
+1. Cliquez sur l’image suivante pour ouvrir le modèle dans le portail Azure.
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-storm-cluster-in-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/fr-FR/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
     
-    Le modèle ARM est situé dans un conteneur blob public, *https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-storm-cluster-in-hdinsight.json*.
+    Le modèle est situé dans un conteneur d’objets blob public, *https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-storm-cluster-in-hdinsight.json*.
    
 2. À partir du panneau Paramètres, saisissez les informations suivantes :
 
@@ -93,11 +93,11 @@ Les exemples [storm-starter](https://github.com/apache/storm/tree/master/example
 
 2. Utilisez la commande suivante pour démarrer un exemple de topologie :
 
-        storm jar /usr/hdp/current/storm-client/contrib/storm-starter/storm-starter-topologies-0.9.3.2.2.4.9-1.jar storm.starter.WordCountTopology wordcount
+        storm jar /usr/hdp/current/storm-client/contrib/storm-starter/storm-starter-topologies-0.10.0.2.4.2.4-5.jar storm.starter.WordCountTopology wordcount
 		
-	> [AZURE.NOTE] La partie `0.9.3.2.2.4.9-1` du nom de fichier peut varier si HDinsight est mis à jour avec des versions plus récentes de Storm.
+	> [AZURE.NOTE] La partie `0.10.0.2.4.2.4-5` du nom de fichier peut varier si HDinsight est mis à jour avec des versions plus récentes de Storm.
 
-    Cette opération va démarrer l’exemple de topologie WordCount sur le cluster, avec le nom convivial « wordcount ». Elle va générer de manière aléatoire des phrases et compter les occurrences de chaque mot dans les phrases.
+    Cette opération va démarrer l’exemple de topologie WordCount sur le cluster, avec le nom convivial « wordcount ». Elle va générer des phrases de manière aléatoire et compter les occurrences de chaque mot dans ces phrases.
 
     > [AZURE.NOTE] Pendant l’envoi de la topologie au cluster, vous devez d’abord copier le fichier jar contenant le cluster avant d’utiliser la commande `storm`. Pour ce faire, vous pouvez utiliser la commande `scp` à partir du client où se trouve le fichier. Par exemple, `scp FILENAME.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:FILENAME.jar`
     >
@@ -192,4 +192,4 @@ Si vous êtes déjà familiarisé avec le développement de topologies basées s
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0817_2016-->
