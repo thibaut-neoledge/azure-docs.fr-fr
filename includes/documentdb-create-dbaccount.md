@@ -18,7 +18,9 @@
 	
     - Pour fournir un accès facile à votre compte et aux ressources que vous allez créer, cochez la case **Épingler au tableau de bord**.
 
-4.	Une fois les options du nouveau compte DocumentDB configurées, cliquez sur **Créer**. Pour vérifier l’état du déploiement, vous pouvez suivre l’avancement sur le Tableau d’accueil. ![Capture d’écran de la vignette Création dans le Tableau d’accueil - créateur de base de données en ligne](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-3.png)
+4.	Une fois les options du nouveau compte DocumentDB configurées, cliquez sur **Créer**. Pour vérifier l’état du déploiement, vous pouvez suivre l’avancement sur le Tableau d’accueil.
+
+	![Capture d’écran de la vignette Création dans le Tableau d’accueil - créateur de base de données en ligne](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-3.png)
 
 	Vous pouvez aussi surveiller l’avancement depuis le hub de notifications.
 

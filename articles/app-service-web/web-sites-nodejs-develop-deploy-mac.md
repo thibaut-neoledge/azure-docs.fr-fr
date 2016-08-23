@@ -173,7 +173,7 @@ Dans cette section, vous allez créer un fichier **server.js** contenant une ver
 		remote: Deploying Web.config to enable Node.js activation.
 		remote: Deployment successful.
 		To https://user@testsite.scm.azurewebsites.net/testsite.git
-		 * [new branch]      master -> master
+		* [new branch]      master -> master
 
 5. Pour afficher votre application, cliquez sur le bouton **Parcourir** dans la partie **Application web** du portail Azure.
 

@@ -454,9 +454,9 @@ Ajoutons du code à DocumentDBRepository et ItemController pour rendre l'enregis
 
 	Ce code invoque le référentiel DocumentDB et utilise la méthode CreateItemAsync pour conserver la nouvelle tâche dans la base de données.
  
-	**Note de sécurité** : L’attribut **ValidateAntiForgeryToken** est utilisé ici pour protéger cette application contre les attaques de type falsification de requête intersites. En plus d'ajouter cet attribut, vous devez vérifier que vos vues fonctionnent avec ce jeton anti-falsification. Pour plus d’informations sur le sujet et pour obtenir des exemples illustrant une implémentation adéquate, consultez la rubrique [Prévention des falsifications de requête intersites][]. Le code source fourni sur [GitHub][] comporte l’implémentation complète.
+	**Note de sécurité** : L’attribut **ValidateAntiForgeryToken** est utilisé ici pour protéger cette application contre les attaques de type falsification de requête intersites. En plus d'ajouter cet attribut, vous devez vérifier que vos vues fonctionnent avec ce jeton anti-falsification. Pour plus d’informations sur le sujet et pour obtenir des exemples illustrant une implémentation adéquate, consultez la rubrique [Prévention des falsifications de requête intersites][]. Le code source fourni sur [GitHub][] comporte l’implémentation complète.
 
-	**Note de sécurité** : Nous utilisons également l’attribut **Bind** sur le paramètre de la méthode pour établir une protection contre les attaques par surcharge. Pour plus d’informations, consultez la rubrique [Opérations CRUD de base dans ASP.NET MVC.][]
+	**Note de sécurité** : Nous utilisons également l’attribut **Bind** sur le paramètre de la méthode pour établir une protection contre les attaques par surcharge. Pour plus d’informations, consultez la rubrique [Opérations CRUD de base dans ASP.NET MVC.][]
 
 Le code qui permet d'ajouter de nouveaux éléments à la base de données est à présent complet.
 

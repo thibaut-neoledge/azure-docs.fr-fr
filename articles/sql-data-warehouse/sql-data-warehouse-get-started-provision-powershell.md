@@ -60,10 +60,10 @@ Pour commencer, vous avez besoin des éléments suivants :
 Cette applet de commande requiert les paramètres suivants :
 
 - **RequestedServiceObjectiveName** : quantité de [DWU][] que vous demandez. Les valeurs prises en charge sont les suivantes : DW100, DW200, DW300, DW400, DW500, DW600, DW1000, DW1200, DW1500, DW2000, DW3000 et DW6000.
-- **DatabaseName** : nom de l’entrepôt SQL Data Warehouse que vous créez.
-- **ServerName** : nom du serveur que vous utilisez pour la création (doit être V12).
-- **ResourceGroupName** : groupe de ressources que vous utilisez. Pour trouver des groupes de ressources disponibles dans votre abonnement, utilisez Get-AzureResource.
-- **Edition** : vous devez définir l'édition sur « DataWarehouse » pour créer un entrepôt SQL Data Warehouse.
+- **DatabaseName** : nom de l’entrepôt SQL Data Warehouse que vous créez.
+- **ServerName** : nom du serveur que vous utilisez pour la création (doit être V12).
+- **ResourceGroupName** : groupe de ressources que vous utilisez. Pour trouver des groupes de ressources disponibles dans votre abonnement, utilisez Get-AzureResource.
+- **Edition** : vous devez définir l'édition sur « DataWarehouse » pour créer un entrepôt SQL Data Warehouse.
 
 Pour plus d’informations sur les options de paramètre, consultez [Créer une base de données (Azure SQL Data Warehouse)][]. Pour accéder aux informations de référence sur la commande, consultez [New-AzureRmSqlDatabase][].
 

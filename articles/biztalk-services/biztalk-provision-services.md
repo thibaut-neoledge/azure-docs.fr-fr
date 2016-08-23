@@ -28,9 +28,9 @@ Créez des services Azure BizTalk Services dans le portail Azure.
 Selon l'édition que vous choisissez, tous les paramètres du service BizTalk peuvent ne pas être disponibles.
 
 1. Connectez-vous au [portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=213885).
-2. En bas du volet de navigation, sélectionnez **NEW** : ![Sélectionner le bouton New][NEWButton]
+2. En bas du volet de navigation, sélectionnez **NEW** : ![Sélectionner le bouton New][NEWButton]
 
-3. Sélectionnez **APP SERVICES** > **SERVICE BIZTALK** > **CRÉATION PERSONNALISÉE** : ![Sélectionner BizTalk Services, puis Custom Create][NewBizTalkService]
+3. Sélectionnez **APP SERVICES** > **SERVICE BIZTALK** > **CRÉATION PERSONNALISÉE** : ![Sélectionner BizTalk Services, puis Custom Create][NewBizTalkService]
 
 4. Entrez les paramètres du service BizTalk :
 
@@ -139,7 +139,7 @@ Le certificat auto-signé qui est créé automatiquement lors de la création de
 
 1. Connectez-vous au [portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=213885).
 2. Cliquez sur **BIZTALK SERVICES** dans le volet de navigation gauche, puis sélectionnez votre service BizTalk.
-3. Dans la barre des tâches, sélectionnez **Informations de connexion** : ![Sélectionner les informations de connexion][ACSConnectInfo]
+3. Dans la barre des tâches, sélectionnez **Informations de connexion** : ![Sélectionner les informations de connexion][ACSConnectInfo]
 
 4. Copiez les valeurs Access Control.
 
@@ -147,7 +147,7 @@ Lorsque vous déployez un projet BizTalk Services à partir de Visual Studio, vo
 
 Les valeurs Access Control values peuvent être utilisées avec n'importe quelle application. Lorsqu'Azure BizTalk Services est créé, cet espace de noms Access Control contrôle l'authentification avec votre déploiement de service BizTalk. Si vous souhaitez modifier l'abonnement ou gérer l'espace de noms, sélectionnez **ACTIVE DIRECTORY** dans le volet de navigation gauche, puis votre espace de noms. La barre des tâches affiche la liste des options.
 
-Cliquez sur **Manage** pour ouvrir le portail de gestion Access Control. Dans le portail de gestion Access Control, le service BizTalk utilise les **identités de service** : ![Identités de service ACS dans le portail de gestion de contrôle d'accès][ACSServiceIdentities]
+Cliquez sur **Manage** pour ouvrir le portail de gestion Access Control. Dans le portail de gestion Access Control, le service BizTalk utilise les **identités de service** : ![Identités de service ACS dans le portail de gestion de contrôle d'accès][ACSServiceIdentities]
 
 L'identité de service Access Control est un ensemble d'informations d'identification qui permet aux applications ou aux clients de s'authentifier directement auprès du contrôle d'accès et de recevoir un jeton.
 

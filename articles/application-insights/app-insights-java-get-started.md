@@ -97,7 +97,7 @@ Actualisez ensuite les dépendances du projet pour télécharger les fichiers bi
 
 * *Erreurs de validation de build ou de somme de contrôle ? Essayez d’utiliser une version spécifique, telle que :* `version:'1.0.n'`. *Vous trouverez la version la plus récente dans les [notes de publication du kit de développement logiciel (SDK)](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).*
 * *Pour effecteur la mise à jour vers un nouveau kit de développement logiciel (SDK)*
- * Actualisez les dépendances de votre projet.
+* Actualisez les dépendances de votre projet.
 
 #### Sinon...
 
@@ -110,12 +110,12 @@ Ajouter manuellement le Kit de développement logiciel :
 
 * *Quelle est la relation entre les composants `-core` et `-web` du fichier zip ?*
 
- * `applicationinsights-core` vous fournit l’API seule. Ce composant est toujours requis.
- * `applicationinsights-web` fournit des mesures qui permettent d’effectuer le suivi du nombre de requêtes HTTP et des temps de réponse. Vous pouvez omettre ce composant si vous ne souhaitez pas recueillir automatiquement ces données de télémétrie. Par exemple, si vous préférez écrire vos propres mesures.
+* `applicationinsights-core` vous fournit l’API seule. Ce composant est toujours requis.
+* `applicationinsights-web` fournit des mesures qui permettent d’effectuer le suivi du nombre de requêtes HTTP et des temps de réponse. Vous pouvez omettre ce composant si vous ne souhaitez pas recueillir automatiquement ces données de télémétrie. Par exemple, si vous préférez écrire vos propres mesures.
 
 * *Pour mettre à jour le Kit de développement logiciel lorsque nous publions des modifications*
- * Téléchargez le dernier [Kit de développement logiciel Application Insights pour Java](https://aka.ms/qqkaq6) et remplacez les anciens Kits.
- * Les modifications sont décrites dans le [notes de publication du kit de développement logiciel (SDK)](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).
+* Téléchargez le dernier [Kit de développement logiciel Application Insights pour Java](https://aka.ms/qqkaq6) et remplacez les anciens Kits.
+* Les modifications sont décrites dans le [notes de publication du kit de développement logiciel (SDK)](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).
 
 
 
@@ -265,13 +265,13 @@ Publiez maintenant votre application sur le serveur, laissez le temps aux usager
 
 * Assurez-vous que votre pare-feu autorise votre application à envoyer les données de télémétrie vers ces ports :
 
- * dc.services.VisualStudio.com:443
- * f5.services.visualstudio.com:443
+* dc.services.VisualStudio.com:443
+* f5.services.visualstudio.com:443
 
 
 * Sur les serveurs Windows, installez :
 
- * [Redistribuable Microsoft Visual C++](http://www.microsoft.com/download/details.aspx?id=40784)
+* [Redistribuable Microsoft Visual C++](http://www.microsoft.com/download/details.aspx?id=40784)
 
     (Cette opération active les compteurs de performances.)
 

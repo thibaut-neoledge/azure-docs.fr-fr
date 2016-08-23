@@ -217,7 +217,7 @@ La section **defines** est utilisée pour spécifier les paramètres d’exécut
 
 Les propriétés **start** et **end** du pipeline spécifient la période active du pipeline.
 
-Dans l’activité JSON, vous spécifiez que le script Hive s’exécute sur le calcul spécifié par le service **linkedServiceName** – **HDInsightOnDemandLinkedService**.
+Dans l’activité JSON, vous spécifiez que le script Hive s’exécute sur le calcul spécifié par le service **linkedServiceName** – **HDInsightOnDemandLinkedService**.
 
 > [AZURE.NOTE] Consultez [Anatomie d’un pipeline](data-factory-create-pipelines.md#anatomy-of-a-pipeline) pour plus d’informations sur les propriétés JSON utilisées dans l’exemple ci-dessus.
 

@@ -42,7 +42,7 @@ Vous pouvez configurer des stratégies de sécurité pour chaque abonnement ou g
 
     >[AZURE.NOTE] Il est fortement recommandé d’activer la collecte des données pour chacun de vos abonnements, car cela garantit que la surveillance de la sécurité est disponible pour toutes les machines virtuelles (nouvelles et existantes). L’activation de la collecte des données installe l’agent de surveillance. Si vous ne voulez pas activer la collecte des données depuis cet emplacement, vous pourrez le faire ultérieurement dans les panneaux Intégrité des ressources et Recommandations. Vous pouvez également activer la collecte des données pour l’abonnement seulement, ou pour certaines machines virtuelles. Pour plus d’informations sur les machines virtuelles prises en charge, consultez [FAQ du Centre de sécurité Azure](security-center-faq.md).
 
-5. Si votre compte de stockage n’est pas encore configuré, un avertissement similaire à celui de la figure ci-dessous peut s’afficher quand vous ouvrez la **stratégie de sécurité** :
+5. Si votre compte de stockage n’est pas encore configuré, un avertissement similaire à celui de la figure ci-dessous peut s’afficher quand vous ouvrez la **stratégie de sécurité** :
 
     ![Sélection du stockage](./media/security-center-policies/security-center-policies-fig2.png)
 

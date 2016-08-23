@@ -170,7 +170,7 @@ Pour ce faire, vous devez convertir votre projet en projet Maven en procédant c
 		            // Get the database if it exists
 		            List<Database> databaseList = documentClient
 		                    .queryDatabases(
-		                            "SELECT * FROM root r WHERE r.id='" + DATABASE_ID
+		                            "SELECT* FROM root r WHERE r.id='" + DATABASE_ID
 		                                    + "'", null).getQueryIterable().toList();
 
 		            if (databaseList.size() > 0) {
@@ -203,7 +203,7 @@ Pour ce faire, vous devez convertir votre projet en projet Maven en procédant c
 		            List<DocumentCollection> collectionList = documentClient
 		                    .queryCollections(
 		                            getTodoDatabase().getSelfLink(),
-		                            "SELECT * FROM root r WHERE r.id='" + COLLECTION_ID
+		                            "SELECT* FROM root r WHERE r.id='" + COLLECTION_ID
 		                                    + "'", null).getQueryIterable().toList();
 
 		            if (collectionList.size() > 0) {
@@ -271,7 +271,7 @@ Pour ce faire, vous devez convertir votre projet en projet Maven en procédant c
 	        // Retrieve the document using the DocumentClient.
 	        List<Document> documentList = documentClient
 	                .queryDocuments(getTodoCollection().getSelfLink(),
-	                        "SELECT * FROM root r WHERE r.id='" + id + "'", null)
+	                        "SELECT* FROM root r WHERE r.id='" + id + "'", null)
 	                .getQueryIterable().toList();
 
 	        if (documentList.size() > 0) {
@@ -305,7 +305,7 @@ Pour ce faire, vous devez convertir votre projet en projet Maven en procédant c
 	        // Retrieve the TodoItem documents
 	        List<Document> documentList = documentClient
 	                .queryDocuments(getTodoCollection().getSelfLink(),
-	                        "SELECT * FROM root r WHERE r.entityType = 'todoItem'",
+	                        "SELECT* FROM root r WHERE r.entityType = 'todoItem'",
 	                        null).getQueryIterable().toList();
 
 	        // De-serialize the documents in to TodoItems.
@@ -567,7 +567,7 @@ Maintenant que nous avons terminé l'aspect amusant, il nous reste à créer une
 
 		var todoApp = {
 		  /*
-		   * API methods to call Java backend.
+		  * API methods to call Java backend.
 		   */
 		  apiEndpoint: "api",
 
@@ -609,7 +609,7 @@ Maintenant que nous avons terminé l'aspect amusant, il nous reste à créer une
 		  },
 
 		  /*
-		   * UI Methods
+		  * UI Methods
 		   */
 		  addTodoItemToTable: function(id, name, category, isComplete) {
 		    var rowColor = isComplete ? "active" : "warning";
@@ -629,7 +629,7 @@ Maintenant que nous avons terminé l'aspect amusant, il nous reste à créer une
 		  },
 
 		  /*
-		   * UI Bindings
+		  * UI Bindings
 		   */
 		  bindCreateButton: function() {
 		    todoApp.ui_createButton().click(function() {
@@ -690,7 +690,7 @@ Maintenant que nous avons terminé l'aspect amusant, il nous reste à créer une
 		  },
 
 		  /*
-		   * UI Elements
+		  * UI Elements
 		   */
 		  ui_createNameInput: function() {
 		    return $(".todoForm #inputItemName");
@@ -721,7 +721,7 @@ Maintenant que nous avons terminé l'aspect amusant, il nous reste à créer une
 		  },
 
 		  /*
-		   * Install the TodoApp
+		  * Install the TodoApp
 		   */
 		  install: function() {
 		    todoApp.bindCreateButton();

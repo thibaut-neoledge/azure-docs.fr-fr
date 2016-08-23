@@ -443,7 +443,7 @@ Copiez et collez la méthode **ExecuteSimpleQuery** sous votre méthode **Create
 			// Now execute the same query via direct SQL
 			IQueryable<Family> familyQueryInSql = this.client.CreateDocumentQuery<Family>(
 					UriFactory.CreateDocumentCollectionUri(databaseName, collectionName),
-					"SELECT * FROM Family WHERE Family.LastName = 'Andersen'",
+					"SELECT* FROM Family WHERE Family.LastName = 'Andersen'",
 					queryOptions);
 
 			Console.WriteLine("Running direct SQL query...");

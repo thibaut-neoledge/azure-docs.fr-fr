@@ -62,13 +62,13 @@ Créons un compte DocumentDB. Si vous avez déjà un compte que vous souhaitez u
 2. Recherchez le dossier ou le répertoire où vous souhaitez enregistrer votre application Node.js.
 3. Créez deux fichiers JavaScript vides avec les commandes suivantes :
   - Windows :
-      * ```fsutil file createnew app.js 0```
-        * ```fsutil file createnew config.js 0```
+     * ```fsutil file createnew app.js 0```
+       * ```fsutil file createnew config.js 0```
   - Linux/OS X :
-      * ```touch app.js```
-        * ```touch config.js```
+     * ```touch app.js```
+       * ```touch config.js```
 4. Installez le module documentdb via npm. Utilisez la commande suivante :
-    * ```npm install documentdb --save```
+   * ```npm install documentdb --save```
 
 Parfait ! Vous avez terminé l’installation, nous pouvons donc passer à l’écriture du code.
 

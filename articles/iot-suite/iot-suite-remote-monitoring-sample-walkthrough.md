@@ -89,12 +89,12 @@ L’accusé de réception de la commande de l’appareil au serveur principal de
 
 ## Azure Stream Analytics
 
-Dans la solution de surveillance à distance, [Azure Stream Analytics][lnk-asa] (ASA) distribue les messages reçus par IoT Hub à d’autres composants du serveur principal, en vue de leur traitement ou de leur stockage. Différentes tâches ASA exécutent des fonctions spécifiques en fonction du contenu des messages.
+Dans la solution de surveillance à distance, [Azure Stream Analytics][lnk-asa] \(ASA) distribue les messages reçus par IoT Hub à d’autres composants du serveur principal, en vue de leur traitement ou de leur stockage. Différentes tâches ASA exécutent des fonctions spécifiques en fonction du contenu des messages.
 
 La **tâche 1 : informations de l’appareil** filtre les messages d’information de l’appareil provenant du flux de messages entrants et les envoie à un point de terminaison du hub d’événements. Un appareil envoie des messages d’information au démarrage et en réponse à une commande **SendDeviceInfo**. Cette tâche utilise la définition de requête suivante pour identifier les messages **device-info** :
 
 ```
-SELECT * FROM DeviceDataStream Partition By PartitionId WHERE  ObjectType = 'DeviceInfo'
+SELECT* FROM DeviceDataStream Partition By PartitionId WHERE  ObjectType = 'DeviceInfo'
 ```
 
 Cette tâche envoie ses résultats à un Event Hub pour un traitement ultérieur.
@@ -163,7 +163,7 @@ SELECT
     EventProcessedUtcTime,
     PartitionId,
     EventEnqueuedUtcTime,
-    * 
+   * 
 INTO
     [Telemetry]
 FROM

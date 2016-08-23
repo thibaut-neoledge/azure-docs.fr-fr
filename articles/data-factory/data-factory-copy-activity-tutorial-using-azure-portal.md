@@ -46,7 +46,7 @@ Dans cette étape, vous utilisez le portail Azure pour créer une fabrique de do
 
 	![Nouveau -> DataFactory][image-data-factory-new-datafactory-menu]
 
-6. Dans le panneau **Nouvelle fabrique de données** :
+6. Dans le panneau **Nouvelle fabrique de données** :
 	1. Entrez **ADFTutorialDataFactory** comme **nom**.
 	
   		![Panneau Nouvelle fabrique de données][image-data-factory-getstarted-new-data-factory-blade]
@@ -68,7 +68,7 @@ Dans cette étape, vous utilisez le portail Azure pour créer une fabrique de do
 	> 
 	> Pour créer des instances de fabrique de données, vous devez avoir le statut d’administrateur/collaborateur de l’abonnement Azure
 
-9. Cliquez sur le hub **NOTIFICATIONS** situé à gauche et recherchez les notifications relatives au processus de création. Cliquez sur **X** pour fermer le panneau **NOTIFICATIONS** si celui-ci est ouvert.
+9. Cliquez sur le hub **NOTIFICATIONS** situé à gauche et recherchez les notifications relatives au processus de création. Cliquez sur **X** pour fermer le panneau **NOTIFICATIONS** si celui-ci est ouvert.
 10. Une fois la création terminée, le panneau **FABRIQUE DE DONNÉES** apparaît de la manière suivante.
 
     ![Page d'accueil Data Factory][image-data-factory-get-stated-factory-home-page]
@@ -283,7 +283,7 @@ Dans cette étape, vous créez un pipeline avec une **activité de copie** qui u
 	
 	Les dates/heures de début et de fin doivent toutes deux être au [format ISO](http://en.wikipedia.org/wiki/ISO_8601). Par exemple : 2014-10-14T16:32:41Z. L’heure de fin (**end**) est facultative, mais nous allons l’utiliser dans ce didacticiel.
 	
-	Si vous ne spécifiez aucune valeur pour la propriété **end**, cette dernière est calculée comme suit : « **start + 48 heures** ». Pour exécuter le pipeline indéfiniment, spécifiez **9999-09-09** comme valeur pour la propriété **end**.
+	Si vous ne spécifiez aucune valeur pour la propriété **end**, cette dernière est calculée comme suit : « **start + 48 heures** ». Pour exécuter le pipeline indéfiniment, spécifiez **9999-09-09** comme valeur pour la propriété **end**.
 	
 	Dans l’exemple ci-dessus, il existe 24 tranches de données, car une tranche de données est générée toutes les heures.
 	
@@ -367,7 +367,7 @@ Dans cette étape, vous utilisez le portail Azure pour surveiller ce qui se pass
 	![Détails de l'exécution d'activité][image-data-factory-get-started-activity-run-details]
 
 	
-12. Cliquez sur **X** pour fermer tous les panneaux et revenir au panneau d'accueil d'**ADFTutorialDataFactory**.
+12. Cliquez sur **X** pour fermer tous les panneaux et revenir au panneau d'accueil d'**ADFTutorialDataFactory**.
 14. (facultatif) Cliquez sur **Pipelines** dans la page d’accueil d’**ADFTutorialDataFactory**, cliquez ensuite sur **ADFTutorialPipeline** dans le panneau **Pipelines**, puis extrayez les tables d’entrée (**Consumed**) ou les tables de sortie (**Produced**).
 15. Lancez **SQL Server Management Studio**, connectez-vous à la base de données SQL Azure, puis vérifiez que les lignes sont insérées dans la table **emp** de la base de données.
 

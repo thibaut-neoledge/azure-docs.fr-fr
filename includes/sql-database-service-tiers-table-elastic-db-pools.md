@@ -1,5 +1,5 @@
 
-> [AZURE.IMPORTANT] * Les bases de données élastiques se partagent l’espace de stockage du pool. Par conséquent, le stockage de base de données est limité au stockage de pool minimal restant ou au stockage maximal par base de données
+> [AZURE.IMPORTANT]* Les bases de données élastiques se partagent l’espace de stockage du pool. Par conséquent, le stockage de base de données est limité au stockage de pool minimal restant ou au stockage maximal par base de données
 
 ### Limites du pool élastique de base
 

@@ -223,7 +223,7 @@ Remplacez les valeurs des variables `clientId` et `clientSecret`. Le code repose
 	        LocatorInfo originLocator = null;
 	
 	        // Create a 30-day readonly AccessPolicy
-	        double durationInMinutes = 60 * 24 * 30;
+	        double durationInMinutes = 60* 24* 30;
 	        originAccessPolicy = mediaService.create(
 	                AccessPolicy.create("Streaming policy", durationInMinutes, EnumSet.of(AccessPolicyPermission.READ)));
 	

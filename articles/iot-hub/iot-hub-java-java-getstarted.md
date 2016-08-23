@@ -379,7 +379,7 @@ Dans cette section, vous allez créer une application console Java qui simule un
           Random rand = new Random();
           
           while (!stopThread) {
-            double currentWindSpeed = avgWindSpeed + rand.nextDouble() * 4 - 2;
+            double currentWindSpeed = avgWindSpeed + rand.nextDouble()* 4 - 2;
             TelemetryDataPoint telemetryDataPoint = new TelemetryDataPoint();
             telemetryDataPoint.deviceId = deviceId;
             telemetryDataPoint.windSpeed = currentWindSpeed;

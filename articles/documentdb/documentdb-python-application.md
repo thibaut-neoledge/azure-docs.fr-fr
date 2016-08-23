@@ -199,7 +199,7 @@ def create():
         message='You just created a new database, collection, and document.  Your old votes have been deleted')
 ```
 
-> [AZURE.TIP] La méthode **CreateCollection** prend un paramètre **RequestOptions** facultatif en tant que troisième paramètre. Il peut être utilisé pour spécifier le type d’offre de la collection. Si aucune valeur offerType n’est fournie, alors la collection est créée à l’aide du type d’offre par défaut. Pour plus d’informations sur les types d’offres DocumentDB, consultez [Niveaux de performances dans DocumentDB](documentdb-performance-levels.md).
+> [AZURE.TIP] La méthode **CreateCollection** prend un paramètre **RequestOptions** facultatif en tant que troisième paramètre. Il peut être utilisé pour spécifier le type d’offre de la collection. Si aucune valeur offerType n’est fournie, alors la collection est créée à l’aide du type d’offre par défaut. Pour plus d’informations sur les types d’offres DocumentDB, consultez [Niveaux de performances dans DocumentDB](documentdb-performance-levels.md).
 
 
 ### Lecture de la base de données, de la collection et du document, et envoi du formulaire

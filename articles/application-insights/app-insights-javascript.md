@@ -213,9 +213,9 @@ Vous pouvez également utiliser le puissant [langage des requêtes Analytics](ap
 
 * **Durée d’affichage de la page**
 
- * Par défaut, le temps nécessaire au chargement de la page, depuis la requête du client jusqu’à son chargement complet (y compris les fichiers auxiliaires, mais à l’exception des tâches asynchrones telles que les appels Ajax).
- * Si vous définissez `overridePageViewDuration` dans la [configuration de la page](#detailed-configuration), il s’agit de l’intervalle entre la requête du client et l’exécution du premier `trackPageView`. Si vous avez déplacé trackPageView de sa position habituelle après l'initialisation du script, il affiche une autre valeur.
- * Si `overridePageViewDuration` est défini et qu’un argument Duration est fourni dans l’appel `trackPageView()`, la valeur d’argument sera utilisée à la place.
+* Par défaut, le temps nécessaire au chargement de la page, depuis la requête du client jusqu’à son chargement complet (y compris les fichiers auxiliaires, mais à l’exception des tâches asynchrones telles que les appels Ajax).
+* Si vous définissez `overridePageViewDuration` dans la [configuration de la page](#detailed-configuration), il s’agit de l’intervalle entre la requête du client et l’exécution du premier `trackPageView`. Si vous avez déplacé trackPageView de sa position habituelle après l'initialisation du script, il affiche une autre valeur.
+* Si `overridePageViewDuration` est défini et qu’un argument Duration est fourni dans l’appel `trackPageView()`, la valeur d’argument sera utilisée à la place.
 
 
 ## Compteurs de page personnalisés

@@ -36,7 +36,7 @@ Dans cette étape, vous allez utiliser le portail Azure pour créer une fabrique
 
 	![Nouveau -> DataFactory](./media/data-factory-copy-data-wizard-tutorial/new-data-factory-menu.png)
 
-6. Dans le panneau **Nouvelle fabrique de données** :
+6. Dans le panneau **Nouvelle fabrique de données** :
 	1. Entrez **ADFTutorialDataFactory** comme **nom**.
 	
   		![Panneau Nouvelle fabrique de données](./media/data-factory-copy-data-wizard-tutorial/getstarted-new-data-factory.png)
@@ -56,7 +56,7 @@ Dans cette étape, vous allez utiliser le portail Azure pour créer une fabrique
 	
 	> [AZURE.NOTE] Le nom de la fabrique de données pourra être enregistré en tant que nom DNS et devenir ainsi visible publiquement.
 
-9. Cliquez sur le hub **NOTIFICATIONS** situé à gauche et recherchez les notifications relatives au processus de création. Cliquez sur **X** pour fermer le panneau **NOTIFICATIONS** si celui-ci est ouvert.
+9. Cliquez sur le hub **NOTIFICATIONS** situé à gauche et recherchez les notifications relatives au processus de création. Cliquez sur **X** pour fermer le panneau **NOTIFICATIONS** si celui-ci est ouvert.
 10. Une fois la création terminée, le panneau **FABRIQUE DE DONNÉES** apparaît de la manière suivante :
 
     ![Page d'accueil Data Factory](./media/data-factory-copy-data-wizard-tutorial/getstarted-data-factory-home-page.png)

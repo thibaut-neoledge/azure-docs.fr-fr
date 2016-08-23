@@ -12,10 +12,10 @@ Créez un hub IoT pour que votre périphérique simulé puisse se connecter. Les
 
     ![Panneau IoT Hub][2]
 
-    * Dans la zone **Nom**, saisissez un nom pour identifier votre hub IoT. Une fois le **Nom** validé et disponible, une coche verte apparaît dans la case **Nom**.
-    * Sélectionnez une [tarification et un niveau de mise à l’échelle][lnk-pricing]. Ce didacticiel ne nécessite pas un niveau spécifique. Pour ce didacticiel, utilisez le niveau F1 gratuit.
-    * Dans **Groupe de ressources**, créez un groupe de ressources Azure ou sélectionnez un groupe existant. Pour plus d’informations, consultez [Utilisation des groupes de ressources pour gérer vos ressources Azure][lnk-resource-groups].
-    * Dans **Emplacement**, sélectionnez l’emplacement destiné à héberger votre concentrateur IoT. Pour ce didacticiel, choisissez l’emplacement le plus proche.
+   * Dans la zone **Nom**, saisissez un nom pour identifier votre hub IoT. Une fois le **Nom** validé et disponible, une coche verte apparaît dans la case **Nom**.
+   * Sélectionnez une [tarification et un niveau de mise à l’échelle][lnk-pricing]. Ce didacticiel ne nécessite pas un niveau spécifique. Pour ce didacticiel, utilisez le niveau F1 gratuit.
+   * Dans **Groupe de ressources**, créez un groupe de ressources Azure ou sélectionnez un groupe existant. Pour plus d’informations, consultez [Utilisation des groupes de ressources pour gérer vos ressources Azure][lnk-resource-groups].
+   * Dans **Emplacement**, sélectionnez l’emplacement destiné à héberger votre concentrateur IoT. Pour ce didacticiel, choisissez l’emplacement le plus proche.
 
 4. Une fois que vous avez choisi les options de configuration de votre hub IoT, cliquez sur **Créer**. La création du hub IoT par Azure peut prendre plusieurs minutes. Pour vérifier l’état d’avancement de l’opération, vous pouvez consulter le tableau d’accueil ou le panneau Notifications.
 

@@ -80,7 +80,7 @@ Vous avez créé un projet d’application universelle Windows, dans lequel vous
 			 //... rest of the code
            }
 
-    c. Initialisez le kit de développement logiciel (SDK) dans la méthode **OnLaunched** :
+    c. Initialisez le kit de développement logiciel (SDK) dans la méthode **OnLaunched** :
 
 			protected override void OnLaunched(LaunchActivatedEventArgs e)
 			{
