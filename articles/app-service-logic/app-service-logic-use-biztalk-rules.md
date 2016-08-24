@@ -159,38 +159,38 @@ Une fois que le développeur a créé les vocabulaires nécessaires, il incombe 
 
 ##Création de règles
 Une règle est une collection d'instructions de condition et d'action. Les actions sont exécutées si la condition est remplie. Dans le panneau Créer une règle, donnez un nom unique à la règle (pour cette stratégie) et une description (facultative). 
-La zone Condition (IF) peut servir à créer des instructions conditionnelles complexes. Voici les mots clés pris en charge :
-1. 	And : opérateur conditionnel
-2. 	Or : opérateur conditionnel
-3. 	does\_not\_exist
-4. 	exists
-5. 	false
-6. 	is\_equal\_to
-7. 	is\_greater\_than
-8. 	is\_greater\_than\_equal\_to
-9. 	is\_in
-10. is\_less\_than
-11. is\_less\_than\_equal\_to
-12. is\_not\_in
-13. is\_not\_equal\_to
-14. mod
-15. true
+La zone Condition (IF) peut servir à créer des instructions conditionnelles complexes. Voici les mots clés pris en charge :  
+1. 	And : opérateur conditionnel  
+2. 	Or : opérateur conditionnel  
+3. 	does\_not\_exist  
+4. 	exists  
+5. 	false  
+6. 	is\_equal\_to  
+7. 	is\_greater\_than  
+8. 	is\_greater\_than\_equal\_to  
+9. 	is\_in  
+10. is\_less\_than  
+11. is\_less\_than\_equal\_to  
+12. is\_not\_in  
+13. is\_not\_equal\_to  
+14. mod  
+15. true  
 
-La zone Action (THEN) peut contenir plusieurs instructions, une par ligne, pour créer des actions à exécuter. Voici les mots clés pris en charge :
-1.	equals
-2.	false
-3.	true
-4.	halt
-5.	mod
-6.	null
-7.	update
+La zone Action (THEN) peut contenir plusieurs instructions, une par ligne, pour créer des actions à exécuter. Voici les mots clés pris en charge :  
+1.	equals  
+2.	false  
+3.	true  
+4.	halt  
+5.	mod  
+6.	null  
+7.	update  
 
 Les zones de condition et d'action offrent des fonctionnalités Intellisense pour vous aider à créer une règle rapidement. Vous pouvez les déclencher en appuyant sur Ctrl+Espace ou simplement en commençant à taper. Les mots clés correspondant aux caractères tapés sont automatiquement filtrés et affichés. La fenêtre Intellisense affiche tous les mots clés et les définitions de vocabulaire. 
 ![Alt text][9]
 
 ##Chaînage avant explicite
-Les Règles BizTalk prennent en charge le chaînage avant explicite, donc si des utilisateurs souhaitent réévaluer des règles en réponse à certaines actions, ils peuvent déclencher cette réévaluation en utilisant certains mots clés. Les mots clés pris en charge sont les suivants :
-   1.	update <définition de vocabulaire> : ce mot clé réévalue toutes les règles qui utilisent la définition de vocabulaire spécifiée dans sa condition.
+Les Règles BizTalk prennent en charge le chaînage avant explicite, donc si des utilisateurs souhaitent réévaluer des règles en réponse à certaines actions, ils peuvent déclencher cette réévaluation en utilisant certains mots clés. Les mots clés pris en charge sont les suivants :  
+   1.	update <définition de vocabulaire> : ce mot clé réévalue toutes les règles qui utilisent la définition de vocabulaire spécifiée dans sa condition.  
    2.	Halt : ce mot clé arrête toutes les exécutions de règles.
 
 ##Activer/désactiver des règles
