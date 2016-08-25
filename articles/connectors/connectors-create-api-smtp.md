@@ -37,13 +37,17 @@ Un déclencheur est un événement qui peut être utilisé pour lancer le flux d
 
 Dans cet exemple, étant donné que SMTP ne comporte aucun déclencheur, nous utiliserons le déclencheur **Salesforce - Quand un objet est créé**. Ce déclencheur s’active lorsqu’un objet est créé dans Salesforce. Dans notre exemple, nous allons le configurer pour que chaque fois qu’un prospect est créé dans Salesforce, une action *Envoyer un message électronique* s’exécute par le biais du connecteur SMTP avec une notification signalant la création du prospect.
 
-1. Entrez *salesforce* dans la zone de recherche du concepteur d’applications logiques, puis sélectionnez le déclencheur **Salesforce - Quand un objet est créé**. ![](../../includes/media/connectors-create-api-salesforce/trigger-1.png)
+1. Entrez *salesforce* dans la zone de recherche du concepteur d’applications logiques, puis sélectionnez le déclencheur **Salesforce - Quand un objet est créé**.  
+ ![](../../includes/media/connectors-create-api-salesforce/trigger-1.png)  
 
-2. Le contrôle **Quand un objet est créé** s’affiche. ![](../../includes/media/connectors-create-api-salesforce/trigger-2.png)
+2. Le contrôle **Quand un objet est créé** s’affiche.  
+ ![](../../includes/media/connectors-create-api-salesforce/trigger-2.png)  
 
-3. Sélectionnez le champ **Type d’objet**, puis sélectionnez *Prospect* dans la liste d’objets. Dans le cadre de cette étape, vous indiquez que vous créez un déclencheur qui informera votre application logique de toute nouvelle création d’un prospect dans Salesforce. ![](../../includes/media/connectors-create-api-salesforce/trigger3.png)
+3. Sélectionnez le champ **Type d’objet**, puis sélectionnez *Prospect* dans la liste d’objets. Dans le cadre de cette étape, vous indiquez que vous créez un déclencheur qui informera votre application logique de toute nouvelle création d’un prospect dans Salesforce.  
+ ![](../../includes/media/connectors-create-api-salesforce/trigger3.png)  
 
-4. Le déclencheur a été créé. ![](../../includes/media/connectors-create-api-salesforce/trigger-4.png)
+4. Le déclencheur a été créé.  
+ ![](../../includes/media/connectors-create-api-salesforce/trigger-4.png)  
 
 ## Utiliser une action SMTP
 
@@ -51,15 +55,19 @@ Une action est une opération effectuée par le flux de travail défini dans une
 
 Une fois le déclencheur ajouté, procédez comme suit pour ajouter une action SMTP qui se produira chaque fois qu’un prospect sera créé dans Salesforce.
 
-1. Sélectionnez **+ Nouvelle étape** pour ajouter l’action à exécuter lorsqu’un prospect est créé. ![](../../includes/media/connectors-create-api-salesforce/trigger4.png)
+1. Sélectionnez **+ Nouvelle étape** pour ajouter l’action à exécuter lorsqu’un prospect est créé.  
+ ![](../../includes/media/connectors-create-api-salesforce/trigger4.png)  
 
-2. Sélectionnez **Ajouter une action**. Cette opération ouvre la zone de recherche vous permettant de rechercher l’action que vous souhaitez exécuter. ![](../../includes/media/connectors-create-api-smtp/using-smtp-action-2.png)
+2. Sélectionnez **Ajouter une action**. Cette opération ouvre la zone de recherche vous permettant de rechercher l’action que vous souhaitez exécuter.  
+ ![](../../includes/media/connectors-create-api-smtp/using-smtp-action-2.png)  
 
 3. Entrez *smtp* pour rechercher les actions associées à SMTP.
 
-4. Sélectionnez **SMTP - Envoyer un message électronique** comme action à exécuter lorsque le prospect est créé. Le bloc de contrôles de l’action s’affiche. Vous devrez établir votre connexion smtp dans le bloc du concepteur, si vous n’avez pas fait précédemment. ![](../../includes/media/connectors-create-api-smtp/smtp-2.png)
+4. Sélectionnez **SMTP - Envoyer un message électronique** comme action à exécuter lorsque le prospect est créé. Le bloc de contrôles de l’action s’affiche. Vous devrez établir votre connexion smtp dans le bloc du concepteur, si vous n’avez pas fait précédemment.  
+ ![](../../includes/media/connectors-create-api-smtp/smtp-2.png)  
 
-5. Entrez les informations de messagerie de votre choix dans le bloc **SMTP - Envoyer un message électronique**. ![](../../includes/media/connectors-create-api-smtp/using-smtp-action-4.PNG)
+5. Entrez les informations de messagerie de votre choix dans le bloc **SMTP - Envoyer un message électronique**.  
+ ![](../../includes/media/connectors-create-api-smtp/using-smtp-action-4.PNG)  
 
 6. Enregistrez votre travail afin d’activer votre workflow.
 
@@ -126,4 +134,4 @@ Les actions et déclencheurs ci-dessus peuvent renvoyer un ou plusieurs des code
 ## Étapes suivantes
 [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!----HONumber=AcomDC_0803_2016-->
