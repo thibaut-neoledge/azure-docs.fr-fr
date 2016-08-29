@@ -43,7 +43,7 @@ Avant de commencer à suivre les instructions de cet article, vous devez dispose
 	- Le champ doit être une chaîne comportant entre 3 et 63 caractères.
 	- Le champ ne peut contenir que des lettres, des chiffres et des traits d'union.
 
-- **Nom d'abonnement**
+- **Nom d’abonnement**
 
 	Un cluster HDInsight est lié à un abonnement Azure.
  
@@ -51,7 +51,7 @@ Avant de commencer à suivre les instructions de cet article, vous devez dispose
 
 	Vous pouvez configurer des clusters HDInsight sur l’un des deux systèmes d’exploitation suivants :
 	- **HDInsight sous Windows (Windows Server 2012 R2 Datacenter)** :
-	- **HDInsight sous Linux (Ubuntu 12.04 LTS pour Linux)** : HDInsight offre la possibilité de configurer des clusters Linux sur Azure. Configurez un cluster Linux si vous maîtrisez Linux ou Unix, en effectuant une migration à partir d’une solution Hadoop Linux existante, ou si vous souhaitez intégrer facilement des composants de l’écosystème Hadoop conçus pour Linux. Pour plus d’informations, consultez [Prise en main de Hadoop sur Linux dans HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
+	- **HDInsight sous Linux** : HDInsight offre la possibilité de configurer des clusters Linux sur Azure. Configurez un cluster Linux si vous maîtrisez Linux ou Unix, en effectuant une migration à partir d’une solution Hadoop Linux existante, ou si vous souhaitez intégrer facilement des composants de l’écosystème Hadoop conçus pour Linux. Pour plus d’informations, consultez [Prise en main de Hadoop sur Linux dans HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
 
 
 - **Version de HDInsight**
@@ -105,7 +105,7 @@ Avant de commencer à suivre les instructions de cet article, vous devez dispose
 	L’utilisation de ces nœuds est facturée aux clients pendant toute la durée de vie du cluster. Cette facturation démarre une fois qu'un cluster est créé et s'arrête lorsque le cluster est supprimé (les clusters ne peuvent pas être désalloués ou mis en suspens). La taille du cluster a une incidence sur le prix du cluster. À des fins d’apprentissage, il est recommandé d'utiliser le nœud de données 1. Pour plus d'informations sur la tarification de HDInsight, consultez la rubrique [Tarification HDInsight](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409).
 
 
-	>[AZURE.NOTE] La limite de taille de cluster varie selon les abonnements Azure. Contactez le support de facturation pour augmenter la limite.
+	>[AZURE.NOTE] La limite de taille du cluster varie selon les abonnements Azure. Contactez le support de facturation pour augmenter la limite.
 	
 - **Région/réseau virtuel (également appelé emplacement)**
 
@@ -253,9 +253,9 @@ Vous pouvez vous référer aux [options de configuration de base] et aux [option
 3. Sur la page **Détails du cluster**, entrez ou sélectionnez les valeurs suivantes :
 
 	- Nom du cluster
-	- Nom d'abonnement
+	- Nom d’abonnement
 	- Type du cluster
-	- Système d'exploitation
+	- Système d’exploitation
 	- Version de HDInsight
 
 4. Sur la page **Configurer le cluster**, entrez ou sélectionnez les valeurs suivantes :
@@ -380,7 +380,7 @@ Une fois que le compte de stockage et le conteneur d’objets blob sont prêts, 
 
 	>[AZURE.NOTE] Les commandes $hadoopUserName et $hadoopUserPassword sont utilisées pour créer le compte d’utilisateur Hadoop pour le cluster. Vous utiliserez ce compte pour vous connecter au cluster et exécuter des tâches. Si vous utilisez l’option Création rapide à partir du portail Azure Classic pour approvisionner un cluster, le nom d’utilisateur Hadoop par défaut est « admin ». Ne confondez pas ce compte avec le compte d’utilisateur de protocole RDP (Remote Desktop Protocol) Le compte d’utilisateur RDP doit être différent du compte d’utilisateur Hadoop. Pour plus d’informations, consultez la rubrique [Gestion des clusters Hadoop dans HDInsight au moyen du portail Azure Classic][hdinsight-admin-portal].
 
-	La mise en service du cluster peut prendre plusieurs minutes.
+	L’approvisionnement du cluster peut prendre plusieurs minutes.
 
 	![HDI.CLI.Provision][image-hdi-ps-provision]
 
@@ -480,13 +480,13 @@ Pour configurer votre ordinateur Linux à l’aide de l’interface de ligne de 
 
 **Pour vous connecter à votre abonnement Azure**
 
-Avant d’utiliser l’interface de ligne de commande Azure, vous devez configurer la connectivité entre votre poste de travail et Azure. L’interface de ligne de commande se sert des informations sur votre abonnement Azure pour se connecter à votre compte. Ces informations peuvent être obtenues d’Azure dans un fichier de paramètres de publication. Le fichier de paramètres de publication peut ensuite être importé en tant que paramètre de configuration local persistant dont l’interface de ligne de commande Azure se servira pour les opérations ultérieures. Vous n’avez besoin d’importer vos paramètres de publication qu’une seule fois.
+Avant d’utiliser l’interface de ligne de commande Azure, vous devez configurer la connectivité entre votre poste de travail et Azure. L’interface de ligne de commande Azure se sert des informations sur votre abonnement Azure pour se connecter à votre compte. Ces informations peuvent être obtenues d’Azure dans un fichier de paramètres de publication. Le fichier de paramètres de publication peut ensuite être importé en tant que paramètre de configuration local persistant dont l’interface de ligne de commande Azure se servira pour les opérations ultérieures. Vous n’avez besoin d’importer vos paramètres de publication qu’une seule fois.
 
 > [AZURE.NOTE] Le fichier de paramètres de publication contient des informations critiques. Microsoft vous recommande de supprimer le fichier ou de prendre des mesures supplémentaires pour chiffrer le dossier utilisateur contenant le fichier. Sous Windows, modifiez les propriétés du dossier ou utilisez le chiffrement du lecteur BitLocker.
 
 
 1.	Ouvrez une fenêtre de terminal.
-2.	Exécutez la commande suivante pour vous connecter à votre abonnement Azure :
+2.	Exécutez la commande suivante pour vous connecter à votre abonnement Azure :
 
 		azure account download
 
@@ -539,7 +539,7 @@ L’interface de ligne de commande Azure peut être installée à l’aide de NP
 
 **Pour télécharger et importer des paramètres de publication**
 
-Avant d’utiliser l’interface de ligne de commande Azure, vous devez configurer la connectivité entre votre poste de travail et Azure. L’interface de ligne de commande se sert des informations sur votre abonnement Azure pour se connecter à votre compte. Ces informations peuvent être obtenues d’Azure dans un fichier de paramètres de publication. Le fichier de paramètres de publication peut ensuite être importé en tant que paramètre de configuration local persistant dont l’interface de ligne de commande Azure se servira pour les opérations ultérieures. Vous n’avez besoin d’importer vos paramètres de publication qu’une seule fois.
+Avant d’utiliser l’interface de ligne de commande Azure, vous devez configurer la connectivité entre votre poste de travail et Azure. L’interface de ligne de commande Azure se sert des informations sur votre abonnement Azure pour se connecter à votre compte. Ces informations peuvent être obtenues d’Azure dans un fichier de paramètres de publication. Le fichier de paramètres de publication peut ensuite être importé en tant que paramètre de configuration local persistant dont l’interface de ligne de commande Azure se servira pour les opérations ultérieures. Vous n’avez besoin d’importer vos paramètres de publication qu’une seule fois.
 
 > [AZURE.NOTE] Le fichier de paramètres de publication contient des informations critiques. Microsoft vous recommande de supprimer le fichier ou de prendre des mesures supplémentaires pour chiffrer le dossier utilisateur contenant le fichier. Sous Windows, modifiez les propriétés de dossier ou utilisez BitLocker.
 
@@ -554,7 +554,7 @@ Avant d’utiliser l’interface de ligne de commande Azure, vous devez configur
 	La commande ouvre la page web sur laquelle télécharger le fichier de paramètres de publication.
 
 3.	À l'invite d'enregistrement du fichier, cliquez sur **Enregistrer** et indiquez un emplacement pour l'enregistrement du fichier.
-5.	À partir de la fenêtre d'invite de commandes, exécutez la commande suivante pour importer le fichier de paramètres de publication :
+5.	À partir de la fenêtre d’invite de commandes, exécutez la commande suivante pour importer le fichier de paramètres de publication :
 
 		azure account import <path/to/the/file>
 
@@ -651,7 +651,7 @@ Généralement, vous approvisionnez un cluster HDInsight, vous exécutez les tâ
 
 **Pour supprimer un cluster**
 
-- Utilisez les commandes suivantes pour supprimer un cluster :
+- Utilisez la commande suivante pour supprimer un cluster :
 
 		azure hdinsight cluster delete <ClusterName>
 
@@ -664,7 +664,7 @@ Les procédures suivantes sont nécessaires pour approvisionner un cluster HDIns
 
 - Installation du Kit de développement logiciel (SDK) HDInsight
 - Créer un certificat auto-signé
-- Création d'une application console
+- Création d’une application console
 - Exécution de l'application
 
 
@@ -674,7 +674,7 @@ Vous pouvez installer la dernière version publiée du Kit de développement log
 
 **Pour créer un certificat auto-signé**
 
-Créez un certificat auto-signé, installez-le sur votre poste de travail et téléchargez-le dans votre abonnement Azure. Pour obtenir des instructions, consultez la page [Création d'un certificat auto-signé](http://go.microsoft.com/fwlink/?LinkId=511138).
+Créez un certificat auto-signé, installez-le sur votre station de travail et chargez-le dans votre abonnement Azure. Pour obtenir des instructions, consultez la page [Création d'un certificat auto-signé](http://go.microsoft.com/fwlink/?LinkId=511138).
 
 
 **Pour créer une application console Visual Studio**
@@ -688,7 +688,7 @@ Créez un certificat auto-signé, installez-le sur votre poste de travail et té
 	|Propriété|Valeur|
 	|--------|-----|
 	|Modèle|Templates/Visual C#/Windows/Console Application|
-	|Nom|CreateHDICluster|
+	|Name|CreateHDICluster|
 
 4. Cliquez sur **OK** pour créer le projet.
 
@@ -815,4 +815,4 @@ Cet article vous a présenté différentes méthodes pour configurer un cluster 
 [hdinsight-sdk-documentation]: http://msdn.microsoft.com/library/dn479185.aspx
 [azure-management-portal]: https://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

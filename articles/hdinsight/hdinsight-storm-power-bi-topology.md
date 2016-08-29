@@ -14,7 +14,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
- ms.date="05/27/2016"
+ ms.date="08/16/2016"
  ms.author="larryfr"/>
 
 # Utilisation de Power BI pour visualiser les données d'une topologie Apache Storm
@@ -83,7 +83,7 @@ Téléchargez l’[exemple HDInsight C# Storm Power BI](https://github.com/Azure
 
     > [AZURE.NOTE] L'affichage des noms de serveur dans la liste déroulante **Cluster Storm** peut prendre plusieurs secondes.
     >
-    > Si vous y êtes invité, entrez les informations d'identification de connexion à votre abonnement Azure. Si vous disposez de plusieurs abonnements, connectez-vous à celui qui contient votre cluster Storm dans HDInsight.
+    > Si vous y êtes invité, entrez les informations d’identification de connexion pour votre abonnement Azure. Si vous disposez de plusieurs abonnements, connectez-vous à celui qui contient votre cluster Storm dans HDInsight.
 
 2. Une fois la topologie correctement envoyée, les topologies Storm du cluster doivent s'afficher. Sélectionnez l’entrée SqlAzureWriterTopology à partir de la liste pour afficher des informations sur la topologie en cours d’exécution.
 
@@ -158,4 +158,4 @@ Dans ce document, vous avez appris à envoyer des données d’une topologie Sto
 
 * [Exemples de topologies pour Storm dans HDInsight](hdinsight-storm-example-topology.md)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0817_2016-->

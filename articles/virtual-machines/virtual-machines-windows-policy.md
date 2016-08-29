@@ -3,7 +3,7 @@
 	description="Comment appliquer une stratégie à une machine virtuelle Azure Resource Manager Windows"
 	services="virtual-machines-windows"
 	documentationCenter=""
-	authors="singhkay"
+	authors="singhkays"
 	manager="drewm"
 	editor=""
 	tags="azure-resource-manager"/>
@@ -106,4 +106,4 @@ Après avoir créé la stratégie, vous devez l’appliquer sur une étendue dé
 
 * [Création d’une stratégie](../resource-manager-policy.md#applying-a-policy)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0817_2016-->

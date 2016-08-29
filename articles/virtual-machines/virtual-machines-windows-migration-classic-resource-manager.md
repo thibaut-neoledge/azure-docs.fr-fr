@@ -36,7 +36,7 @@ Dans le cadre de la migration de vos ressources à partir du modèle Classic ver
 Avant d’entrer dans les détails, commençons par examiner brièvement les différences entre les opérations du plan de données et celles du plan de gestion pour les ressources IaaS. Il est indispensable de bien comprendre ces différences, car elles sous-tendent l’approche que nous avons choisi de suivre pour prendre en charge cette migration.
 
 - Le *Plan de gestion* décrit l’ensemble des appels destinés au plan de gestion ou à l’API en vue de modifier les ressources. Par exemple, les opérations telles que la création d’une machine virtuelle, le redémarrage d’une machine virtuelle et la mise à jour d’un réseau virtuel avec un nouveau sous-réseau permettent de gérer les ressources en cours d’exécution. Elles n’affectent pas directement la connexion à des instances.
-- Le *Plan de données* (application) décrit le runtime de l’application proprement dite et implique une interaction avec les instances qui ne passent pas par l’API Azure. Par exemple, l’accès à votre site web ou l’extraction de données à partir d’une instance de serveur SQL ou d’un serveur MongoDB en cours d’exécution sont considérés comme des interactions d’application ou de plan de données. La copie d’un objet blob à partir d’un compte de stockage et l’accès à une adresse IP publique sur RDP ou SSH dans la machine virtuelle constituent également des opérations du plan de données. Ces opérations garantissent le fonctionnement continu de l’application dans l’ensemble des services de calcul, de mise en réseau et de stockage.
+- Le *Plan de données* (application) décrit le runtime de l’application proprement dite et implique une interaction avec les instances qui ne passent pas par l’API Azure. Par exemple, l’accès à votre site web ou l’extraction de données à partir d’une instance de serveur SQL ou d’un serveur MongoDB en cours d’exécution sont considérés comme des interactions d’application ou de plan de données. La copie d’un objet blob à partir d’un compte de stockage et l’accès à une adresse IP publique sur RDP ou SSH dans la machine virtuelle constituent également des opérations du plan de données. Ces opérations garantissent le fonctionnement continu de l’application dans l’ensemble des services de calcul, de mise en réseau et de stockage.
 
 >[AZURE.NOTE] Dans certains scénarios de migration, nous arrêtons, libérons et redémarrons vos machines virtuelles. Cela entraîne un bref temps d’arrêt du plan de données.
 
@@ -82,16 +82,16 @@ Fournisseur de ressources | Fonctionnalité
 ---------- | ------------
 Calcul | Disques de machine virtuelle non associés.
 Calcul | Images de machine virtuelle.
-Réseau | IP réservées non associées (si elles ne sont pas attachées à une machine virtuelle) Les IP réservées attachées à des machines virtuelles sont prises en charge.
-Réseau | Groupes de sécurité réseau non associés (s’ils ne sont pas attachés à un réseau virtuel ou à une interface réseau). Les groupes de sécurité réseau référencés par les réseaux virtuels sont pris en charge.
 Réseau | Listes de contrôle d’accès de points de terminaison.
-Réseau | Passerelles de réseau virtuel (de site à site, Azure ExpressRoute, de point à site).
+Réseau | Passerelles de réseau virtuel (de site à site, Azure ExpressRoute, Application Gateway, de point à site).
+Réseau | Réseaux virtuels à l’aide de l’homologation de réseaux virtuels (VNet Peering). (Migrer de réseau virtuel vers ARM, puis l’homologue) En savoir plus sur [l’homologation de réseaux virtuels (VNet Peering)](../virtual-network/virtual-network-peering-overview.md).
+Réseau | Profils Traffic Manager.
 
 ### Configurations non prises en charge
 
 Les configurations non prises en charge actuellement sont les suivantes.
 
-Service | Configuration | Recommandation
+de diffusion en continu | Configuration | Recommandation
 ---------- | ------------ | ------------
 Gestionnaire de ressources | Contrôle d’accès en fonction du rôle (RBAC) pour les ressources Classic | L’URI des ressources étant modifié après la migration, nous vous recommandons de planifier les mises à jour de stratégie RBAC à exécuter après la migration.
 Calcul | Plusieurs sous-réseaux associés à une machine virtuelle | Vous devez mettre à jour la configuration de sous-réseaux pour ne référencer que les sous-réseaux.
@@ -102,7 +102,7 @@ Calcul | Diagnostics de démarrage avec le stockage Premium | Désactivez la fon
 Calcul | Services cloud contenant des rôles Web/de travail | Non pris en charge actuellement.
 Réseau | Réseaux virtuels contenant des machines virtuelles et des rôles Web/de travail | Non pris en charge actuellement.
 Azure App Service | Réseaux virtuels contenant des environnements App Service | Non pris en charge actuellement.
-Azure HDInsight | Réseaux virtuels contenant des services HDInsight | Non pris en charge actuellement.
+Azure HDInsight | Réseaux virtuels contenant des services HDInsight | Non pris en charge actuellement.
 Services de cycle de vie Microsoft Dynamics | Réseaux virtuel contenant des machines virtuelles gérées par Dynamics Lifecycle Services | Non pris en charge actuellement.
 
 ## Expérience de migration
@@ -197,7 +197,7 @@ Vous ne pouvez pas abandonner la migration si l’opération de validation écho
 
 **Dois-je acheter un autre circuit ExpressRoute si je dois utiliser la ressource IaaS sous Resource Manager ?**
 
-Non. Nous avons récemment rendu possible la [coexistence d’un circuit ExpressRoute dans des environnements Classic et Resource Manager](../expressroute/expressroute-howto-coexist-resource-manager.md). Vous n’avez pas besoin d’acheter de nouveau circuit ExpressRoute si vous en possédez déjà un.
+Non. Nous avons récemment rendue possible la [coexistence d’un circuit ExpressRoute dans des environnements Classic et Resource Manager](../expressroute/expressroute-howto-coexist-resource-manager.md). Vous n’avez pas besoin d’acheter de nouveau circuit ExpressRoute si vous en possédez déjà un.
 
 **Que se passera-t-il si j’ai configuré des stratégies de contrôle d’accès en fonction du rôle (RBAC) pour mes ressources IaaS Classic ?**
 
@@ -223,7 +223,7 @@ Publiez vos problèmes et questions concernant la migration sur notre [forum con
 
 Les noms de toutes les ressources que vous avez explicitement fournis dans le modèle de déploiement sont conservés pendant la migration. Dans certains cas, de nouvelles ressources seront créées. Par exemple, une interface réseau sera créée pour chaque machine virtuelle. À ce stade, nous ne prenons pas en charge la possibilité de contrôler les noms de ces ressources créées pendant la migration. Évaluez cette fonctionnalité sur le [forum de commentaires Azure](http://feedback.azure.com).
 
-**J’ai reçu un message *« La machine virtuelle indique l’état global de l’agent comme Pas prêt. Par conséquent, la machine virtuelle ne peut pas être migrée. Vérifiez que l’agent de la machine virtuelle indique l’état global de l’agent comme Prêt »* ou *« La machine virtuelle contient une extension dont l’état n’est pas indiqué à partir de la machine virtuelle. Par conséquent, cette machine virtuelle ne peut pas être migrée. »***
+**J’ai reçu un message *« La machine virtuelle signale que l’agent est dans l’état général Pas prêt. Par conséquent, la machine virtuelle ne peut pas être migrée. Assurez-vous que l’état général de l’agent signalé par l’agent de machine virtuelle est Prêt »* ou *« La machine virtuelle contient une extension dont l’état n’est pas indiqué à partir de la machine virtuelle. Par conséquent, cette machine virtuelle ne peut pas être migrée. »***
 
 Ce message est affiché lorsque la machine virtuelle n’a pas de connectivité sortante à Internet. L’agent de machine virtuelle utilise la connectivité sortante pour atteindre le compte de stockage Azure afin de mettre à jour l’état de l’agent toutes les 5 minutes.
 
@@ -235,4 +235,4 @@ Ce message est affiché lorsque la machine virtuelle n’a pas de connectivité 
 - [Faire migrer des ressources IaaS Classic vers Azure Resource Manager à l’aide de l’interface de ligne de commande Azure](virtual-machines-linux-cli-migration-classic-resource-manager.md)
 - [Cloner une machine virtuelle Classic vers Azure Resource Manager à l’aide de scripts PowerShell](virtual-machines-windows-migration-scripts.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0817_2016-->

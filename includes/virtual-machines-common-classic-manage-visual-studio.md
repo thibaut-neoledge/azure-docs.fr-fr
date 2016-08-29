@@ -14,9 +14,9 @@ Vous pouvez créer une machine virtuelle depuis le [Portail de gestion Azure](ht
 
     ![Commande Créer une machine virtuelle](./media/virtual-machines-common-classic-create-manage-visual-studio/IC718342.png)
 
-1. Dans la page **Choisir un abonnement**, sélectionnez l’abonnement à utiliser lors de la création de la machine virtuelle, puis cliquez sur **Suivant**.
+1. Dans la page **Choisir un abonnement**, sélectionnez l’abonnement à utiliser au moment de la création de la machine virtuelle, puis cliquez sur **Suivant**.
 
-    Si vous n’êtes pas connecté à Azure, cliquez sur **Connexion** pour vous connecter. Ensuite, sélectionnez votre abonnement Azure dans la liste déroulante s’il n’est pas déjà sélectionné.
+    Si vous n’êtes pas connecté à Azure, cliquez sur **Connexion** pour vous connecter. Ensuite, sélectionnez votre abonnement Azure dans la liste déroulante s’il n’est pas sélectionné.
 
 1. Dans la page **Sélectionner une image de machine virtuelle**, sélectionnez un type d’image dans la liste déroulante **Type d’image**, puis sélectionnez une image de machine virtuelle dans la liste déroulante **Nom de l’image**. Quand vous avez terminé, cliquez sur **Suivant**.
 
@@ -36,7 +36,7 @@ Vous pouvez créer une machine virtuelle depuis le [Portail de gestion Azure](ht
 
     >[AZURE.NOTE] Vous ne pouvez pas ajouter d’images de machines virtuelles aux listes **Images publiques** et **Images MSDN**, car elles sont en lecture seule. Toutes les machines virtuelles que vous créez sont ajoutées à la liste **Images privées**.
 
-    Si vous êtes un abonné MSDN avec un abonnement de niveau Visual Studio, vous pouvez créer une machine virtuelle Azure préconfigurée contenant Visual Studio, ainsi que plusieurs autres images. Pour plus d’informations, consultez [Créer une machine virtuelle dans Visual Studio à l’aide de la galerie d’images Visual Studio 2013 pour les abonnés MSDN](http://visualstudio2013msdngalleryimage.azurewebsites.net) et [Abonnements MSDN](https://www.visualstudio.com/products/msdn-subscriptions-vs).|
+    Si vous êtes un abonné MSDN avec un abonnement de niveau Visual Studio, vous pouvez créer une machine virtuelle Azure préconfigurée contenant Visual Studio, ainsi que plusieurs autres images. Pour plus d’informations, consultez [Créer une machine virtuelle dans Visual Studio à l’aide de la galerie d’images Visual Studio 2013 pour les abonnés MSDN](http://visualstudio2013msdngalleryimage.azurewebsites.net) et [Abonnements MSDN](https://www.visualstudio.com/products/msdn-subscriptions-vs).
 
 1. Dans la page **Paramètres de base de la machine virtuelle**, entrez un nom de machine virtuelle, puis ajoutez les informations associées à celle-ci, telles que sa taille, le nom d’utilisateur et le mot de passe. Quand vous avez terminé, cliquez sur **Suivant**.
 
@@ -44,7 +44,7 @@ Vous pouvez créer une machine virtuelle depuis le [Portail de gestion Azure](ht
 
     >[AZURE.NOTE] Si vous choisissez des tailles importantes pour vos machines virtuelles, des frais supplémentaires peuvent s’appliquer. Pour plus d’informations, consultez [Tarification des machines virtuelles](https://azure.microsoft.com/pricing/details/virtual-machines/).
 
-1. Les machines virtuelles créées dans Visual Studio nécessitent un service cloud. Dans la page **Paramètres du service cloud**, sélectionnez un service cloud pour la machine virtuelle ou cliquez sur **<Créer…>** dans la liste déroulante si vous ne disposez pas d’un service cloud ou pour en utiliser un autre. Un compte de stockage est également requis. Choisissez donc un compte de stockage (ou créez-en un) dans la liste déroulante **Compte de stockage**. Pour plus d’informations, consultez [Introduction à Microsoft Azure Storage](../articles/storage/storage-introduction/).
+1. Les machines virtuelles créées dans Visual Studio nécessitent un service cloud. Dans la page **Paramètres du service cloud**, sélectionnez un service cloud pour la machine virtuelle ou cliquez sur **<Créer…>** dans la liste déroulante si vous ne disposez pas d’un service cloud ou pour en utiliser un autre. Un compte de stockage est également requis. Choisissez donc un compte de stockage (ou créez-en un) dans la liste déroulante **Compte de stockage**. Pour plus d’informations, consultez [Introduction à Microsoft Azure Storage](../articles/storage/storage-introduction.md).
 
 1. Si vous voulez spécifier un réseau virtuel (ce qui est facultatif), sélectionnez-le dans les listes déroulantes Réseau virtuel et Sous-réseau.
 
@@ -157,3 +157,5 @@ Dans la page de configuration des machines virtuelles, en plus des fonctions d�
 ## Étapes suivantes
 
 Pour en savoir plus sur la création de machines virtuelles, consultez [Créer une machine virtuelle exécutant Linux](../articles/virtual-machines/virtual-machines-linux-quick-create-cli.md) et [Créer une machine virtuelle exécutant Windows dans le portail Azure en version préliminaire](../articles/virtual-machines/virtual-machines-windows-hero-tutorial.md).
+
+<!---HONumber=AcomDC_0817_2016-->

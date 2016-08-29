@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="06/24/2016"
+	ms.date="08/11/2016"
 	ms.author="robmcm"/>
 
 # Utilisation du stockage d'objets blob à partir de Java
 
-[AZURE.INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)]
+[AZURE.INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)] <br/> [AZURE.INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-blobs.md)]
 
 ## Vue d'ensemble
 
@@ -62,9 +62,9 @@ Dans une application exécutée au sein d'un rôle dans Microsoft Azure, cette c
     String storageConnectionString =
         RoleEnvironment.getConfigurationSettings().get("StorageConnectionString");
 
-Les exemples ci-dessous partent du principe que vous avez utilisé l'une de ces deux méthodes pour obtenir la chaîne de connexion de stockage.
+Les exemples ci-dessous partent du principe que vous avez utilisé l’une de ces deux méthodes pour obtenir la chaîne de connexion de stockage.
 
-## Créez un conteneur.
+## Créer un conteneur
 
 Un objet **CloudBlobClient** vous permet d’obtenir les objets de référence des conteneurs et objets blob. Le code suivant crée un objet **CloudBlobClient**.
 
@@ -108,7 +108,7 @@ Par défaut, les autorisations d’un conteneur sont configurées pour un accès
     // Set the permissions on the container.
     container.uploadPermissions(containerPermissions);
 
-## Chargement d’un objet blob dans un conteneur
+## Charger un objet blob dans un conteneur
 
 Pour télécharger un fichier vers un objet blob, obtenez une référence de conteneur et utilisez-la pour obtenir une référence d'objet blob. Dès lors que vous disposez d'une référence d'objet blob, vous pouvez télécharger un flux vers cet objet. Si l'objet blob n'existe pas, cette opération entraîne sa création. S'il existe, il est remplacé. Cet exemple de code illustre ce point, en supposant que le conteneur existe.
 
@@ -137,7 +137,7 @@ Pour télécharger un fichier vers un objet blob, obtenez une référence de con
         e.printStackTrace();
     }
 
-## Création d'une liste d'objets blob dans un conteneur
+## Création d’une liste d’objets blob dans un conteneur
 
 Pour créer une liste d'objets blob dans un conteneur, commencez par obtenir une référence pointant vers un conteneur comme pour le téléchargement d'un objet blob. Vous pouvez utiliser la méthode **listBlobs** du conteneur avec une boucle **for**. Le code suivant génère l'URI de chaque objet blob d'un conteneur sur la console.
 
@@ -169,7 +169,7 @@ Par exemple, vous pouvez avoir un conteneur nommé « photos », dans lequel v
 
 Vous pouvez également transmettre les paramètres à la méthode **listBlobs** avec le paramètre **useFlatBlobListing** défini sur true. Cela permet de renvoyer chaque objet blob, indépendamment du répertoire. Pour plus d’informations, consultez la section **CloudBlobContainer.listBlobs** dans la page [Référence du Kit de développement logiciel (SDK) du client Azure Storage].
 
-## Téléchargement d'un objet blob
+## Téléchargement d’un objet blob
 
 Pour télécharger des objets blob, procédez comme pour le chargement d'un objet blob afin d'obtenir une référence d'objet blob. Dans l'exemple de chargement, vous avez appelé la méthode upload sur l'objet blob. Dans l'exemple suivant, appelez la méthode download pour transférer les contenus d'objets blob vers un objet de flux tel que **FileOutputStream** pouvant être utilisé pour rendre l'objet blob persistant dans un fichier local.
 
@@ -200,7 +200,7 @@ Pour télécharger des objets blob, procédez comme pour le chargement d'un obje
         e.printStackTrace();
     }
 
-## Supprimer un blob.
+## Supprimer un objet blob
 
 Pour supprimer un objet blob, obtenez une référence d'objet blob et appelez la méthode **deleteIfExists**.
 
@@ -227,7 +227,7 @@ Pour supprimer un objet blob, obtenez une référence d'objet blob et appelez la
         e.printStackTrace();
     }
 
-## Suppression d'un conteneur d'objets blob
+## Suppression d’un conteneur d’objets blob
 
 Enfin, pour supprimer un conteneur d’objets blob, obtenez sa référence, puis appelez la méthode **deleteIfExists**.
 
@@ -271,4 +271,4 @@ Pour plus d’informations, consultez également le [Centre pour développeurs J
 [API REST d’Azure Storage]: https://msdn.microsoft.com/library/azure/dd179355.aspx
 [Blog de l'équipe Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage/
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

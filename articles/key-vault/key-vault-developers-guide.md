@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="07/07/2016"
+   ms.date="08/16/2016"
    ms.author="bruceper" />
 
 # Guide du développeur de coffre de clés Azure
@@ -83,7 +83,7 @@ Les articles et scénarios suivants fournissent des conseils spécifiques sur l�
 - [Transmission de valeurs sécurisées (par exemple des mots de passe) lors du déploiement](../resource-manager-keyvault-parameter.md) - Lorsque vous devez passer une valeur sécurisée (par exemple un mot de passe) en tant que paramètre au cours du déploiement, vous pouvez stocker cette valeur en tant que clé secrète dans un coffre de clés Azure et faire référence à la valeur dans d'autres modèles Resource Manager.
 - [Utilisation de Key Vault pour la gestion extensible de clés avec SQL Server](https://msdn.microsoft.com/library/dn198405.aspx) : le connecteur SQL Server pour Azure Key Vault permet à SQL Server et à SQL-in-a-VM d'exploiter le service Azure Key Vault comme un fournisseur de gestion extensible de clés (EKM) afin de protéger ses clés de chiffrement pour le lien des applications ; chiffrement transparent des données, chiffrement de sauvegarde et chiffrement au niveau des colonnes.
 - [Comment déployer des certificats sur des machines virtuelles à partir du coffre de clés](https://blogs.technet.microsoft.com/kv/2015/07/14/deploy-certificates-to-vms-from-customer-managed-key-vault/) - Une application cloud s’exécutant sur une machine virtuelle sur Azure a besoin d’un certificat. Comment obtenir ce certificat sur cette machine virtuelle dès aujourd’hui ?
-- [Comment intégrer le coffre de clés à Azure Disk Encryption pour des machines virtuelles Iaas Windows et Linux](../azure-security-disk-encryption.md) - La solution est intégrée au coffre de clés Azure pour vous aider à contrôler et à gérer les clés de chiffrement de disque et les secrets de votre abonnement au coffre de clés, tout en vous assurant que toutes les données des disques virtuels sont chiffrées au repos dans le stockage Azure.
+- [Comment intégrer le coffre de clés à Azure Disk Encryption pour des machines virtuelles Iaas Windows et Linux](../security/azure-security-disk-encryption.md) - La solution est intégrée au coffre de clés Azure pour vous aider à contrôler et à gérer les clés de chiffrement de disque et les secrets de votre abonnement au coffre de clés, tout en vous assurant que toutes les données des disques virtuels sont chiffrées au repos dans le stockage Azure.
 - [Configuration du coffre de clés avec une rotation des clés et un audit de bout en bout](key-vault-key-rotation-log-monitoring.md) - Cet article décrit comment configurer la rotation des clés et l’audit avec Azure Key Vault.
 
 Pour obtenir des conseils plus spécifiques sur certaines tâches, en relation avec l’intégration et l’utilisation de coffres de clés avec Azure, voir les [exemples de modèles ARM de Ryan Jones pour le coffre de clés](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples).
@@ -105,4 +105,4 @@ Ces articles concernent d’autres scénarios et services qui utilisent ou intè
 - [Blog de Key Vault](http://aka.ms/kvblog)
 - [Forum de Key Vault](http://aka.ms/kvforum)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0817_2016-->

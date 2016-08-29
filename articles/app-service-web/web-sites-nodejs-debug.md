@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="06/24/2016"
+	ms.date="08/11/2016"
 	ms.author="robmcm"/>
 
 # Débogage d’une application web Node.js dans Azure Web Service
@@ -63,7 +63,7 @@ Il existe trois manières d'accéder aux journaux de diagnostic : à l'aide du 
 
 	npm install azure-cli -g
 
-Une fois installés, ils sont accessibles à l'aide de la commande « azure ». Les outils en ligne de commande doivent d'abord être configurés pour utiliser votre abonnement Azure. Pour plus d'informations sur la réalisation de cette tâche, consultez la section **Téléchargement et importation des paramètres de publication** de l'article [Utilisation des outils en ligne de commande Azure](../xplat-cli-connect.md).
+Une fois installés, ils sont accessibles à l'aide de la commande « azure ». Les outils en ligne de commande doivent d’abord être configurés pour utiliser votre abonnement Azure. Pour plus d'informations sur la réalisation de cette tâche, consultez la section **Téléchargement et importation des paramètres de publication** de l'article [Utilisation des outils en ligne de commande Azure](../xplat-cli-connect.md).
 
 ###FTP
 
@@ -126,4 +126,4 @@ Pour plus d'informations, consultez aussi le [Centre pour développeurs Node.js]
 [restart-button]: ./media/web-sites-nodejs-debug/restartbutton.png
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

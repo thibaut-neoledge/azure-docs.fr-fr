@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="06/24/2016"
+	ms.date="08/11/2016"
 	ms.author="robmcm"/>
 
 # Créer une application de conversation instantanée Node.js avec Socket.IO dans Azure App Service
@@ -159,7 +159,7 @@ Où __#__ correspond au nombre d'instances à créer.
 
 Vous pouvez vous connecter à votre application web à partir de plusieurs navigateurs ou ordinateurs pour vérifier que les messages sont correctement envoyés à tous les clients.
 
-## Résolution des problèmes
+## Résolution de problèmes
 
 ### Limites de connexions
 
@@ -292,4 +292,4 @@ Pour plus d'informations, consultez aussi le [Centre pour développeurs Node.js]
 [npm-output]: ./media/web-sites-nodejs-chat-app-socketio/socketio-7.png
 [completed-app]: ./media/web-sites-nodejs-chat-app-socketio/websitesocketcomplete.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Types de point de terminaison Traffic Manager | Microsoft Azure"
    description="Cet article explique les différents types de points de terminaison pouvant être utilisés avec Azure Traffic Manager."
    services="traffic-manager"
@@ -6,7 +6,7 @@
    authors="jtuliani"
    manager="carmonm"
    editor="tysonn" />
-<tags 
+<tags
    ms.service="traffic-manager"
    ms.devlang="na"
    ms.topic="article"
@@ -40,8 +40,8 @@ Les sections suivantes décrivent de manière plus approfondie chaque type de po
 Les points de terminaison Azure sont utilisés pour configurer des services Azure dans Traffic Manager. Les points de terminaison Azure prennent actuellement en charge les types de ressources Azure suivantes :
 
 - Machines virtuelles IaaS « classiques » et services cloud PaaS
-- Applications Web
-- Ressources PublicIPAddress (pouvant être connectées aux machines virtuelles directement ou via Azure Load Balancer)
+- Web Apps
+- Ressources PublicIPAddress (pouvant être connectées aux machines virtuelles directement ou par le biais de l’Azure Load Balancer). Notez que publicIpAddress doit se voir affecter un nom DNS pour être utilisé dans Traffic Manager.
 
 Les ressources PublicIPAddress sont des ressources Azure Resource Manager ; elles ne sont pas liées aux API Gestion des services Azure. Elles sont donc uniquement prises en charge dans les expériences Azure Resource Manager de Traffic Manager. Les autres types de points de terminaison sont pris en charge via les expériences Resource Manager et Gestion des services dans Traffic Manager.
 
@@ -104,7 +104,7 @@ Pour les autres types de point de terminaison, il est possible d’utiliser Traf
 
 Dans Resource Manager, vous pouvez ajouter à Traffic Manager des points de terminaison de n’importe quel abonnement tant que la personne qui configure le profil Traffic Manager dispose d’un accès en lecture au point de terminaison. Ces autorisations peuvent être accordées à l’aide du [contrôle d’accès en fonction du rôle Azure Resource Manager (RBAC)](../active-directory/role-based-access-control-configure.md).
 
-Dans Gestion des services, Traffic Manager exige que n’importe quel(-le) service cloud ou application web configuré(e) en tant que point de terminaison Azure réside dans le même abonnement que le profil Traffic Manager. Les points de terminaison de service cloud associés à d’autres abonnements peuvent être ajoutés à Traffic Manager en tant que points de terminaison « externes », auquel cas ils seront toujours facturés au tarif d’un point de terminaison « interne ».
+Dans la Gestion des services, Traffic Manager exige que n’importe quel(-le) service cloud ou application web configuré(e) en tant que point de terminaison Azure réside dans le même abonnement que le profil Traffic Manager. Les points de terminaison de service cloud dans d’autres abonnements peuvent être ajoutés à Traffic Manager en tant que points de terminaison « externes », auquel cas ils seront toujours facturés au tarif d’un point de terminaison « interne ».
 
 ### Puis-je utiliser Traffic Manager avec les emplacements intermédiaires de services cloud ?
 Oui. Les emplacements intermédiaires de services cloud peuvent être configurés dans Traffic Manager en tant que points de terminaison externes.
@@ -144,4 +144,4 @@ Dans le cas des applications web, les points de terminaison Azure Traffic Manage
 
 - En savoir plus sur les [méthodes de routage du trafic](traffic-manager-routing-methods.md) avec Traffic Manager.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0817_2016-->

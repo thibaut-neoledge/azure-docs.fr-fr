@@ -1,7 +1,8 @@
 <properties 
    pageTitle="Vue d'ensemble d'Azure Government | Microsoft Azure" 
    description="Cet article fournit une vue d'ensemble des fonctionnalités Azure Government Cloud ainsi que de la conception et de la sécurité sans faille utilisées pour prendre en charge la conformité applicable aux organisations gouvernementales fédérales, d'état et locales et à leurs partenaires. " 
-   services="Azure-Government" 
+   services="Azure-Government"
+   cloud="gov" 
    documentationCenter="" 
    authors="joharve2" 
    manager="chrisnie" 
@@ -117,4 +118,4 @@ Si vous souhaitez en savoir plus sur Azure Governement, consultez certains des l
 [Link 2 to another azure.microsoft.com documentation topic]: app-service-web/web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: storage-whatis-account.md
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/24/2016"
+	ms.date="08/10/2016"
 	ms.author="jgao"/>
 
 # Gestion des clusters Hadoop dans HDInsight à l'aide du portail Azure
@@ -27,7 +27,7 @@ Cet article aborde uniquement l’utilisation de l’interface de ligne de comma
 
 [AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
-##Configuration requise
+##Conditions préalables
 
 Avant de commencer cet article, vous devez disposer des éléments suivants :
 
@@ -37,7 +37,7 @@ Avant de commencer cet article, vous devez disposer des éléments suivants :
 
 		azure login
 
-	Pour plus d'informations sur l'authentification à l'aide d'un compte professionnel ou scolaire, consultez la rubrique [Se connecter à un abonnement Azure à partir de l'interface de ligne de commande Azure](xplat-cli-connect.md).
+	Pour plus d’informations sur l’authentification à l’aide d’un compte professionnel ou scolaire, consultez la section [Se connecter à un abonnement Azure à partir de l’interface de ligne de commande Azure](xplat-cli-connect.md).
 	
 - **Passez en mode Azure Resource Manager** en exécutant la commande suivante :
 
@@ -62,7 +62,7 @@ Utilisez les commandes suivantes pour énumérer et afficher les détails de clu
 
 ##Suppression des clusters
 
-Utilisez les commandes suivantes pour supprimer un cluster :
+Utilisez la commande suivante pour supprimer un cluster :
 
 	azure hdinsight cluster delete <Cluster Name>
 
@@ -113,4 +113,4 @@ Dans cet article, vous avez appris comment effectuer différentes tâches d'admi
 [image-cli-clustercreation-config]: ./media/hdinsight-administer-use-command-line/HDI.CLIClusterCreationConfig.png
 [image-cli-clusterlisting]: ./media/hdinsight-administer-use-command-line/HDI.CLIListClusters.png "Énumération et affichage des clusters"
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0817_2016-->

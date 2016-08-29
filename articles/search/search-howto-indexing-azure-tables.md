@@ -12,18 +12,18 @@ ms.service="search"
 ms.devlang="rest-api"
 ms.workload="search" ms.topic="article"  
 ms.tgt_pltfrm="na"
-ms.date="05/28/2016"
+ms.date="08/16/2016"
 ms.author="eugenesh" />
 
 # Indexation du stockage de tables Azure avec Azure Search
 
 Cet article montre comment utiliser Azure Search pour indexer les données stockées dans le stockage de tables Azure. Le nouvel indexeur de table Azure Search rend ce processus rapide et transparent.
 
-> [AZURE.IMPORTANT] Pour l’instant, cette fonctionnalité n’existe qu’en version préliminaire. Elle est uniquement disponible dans l’API REST utilisant la version **2015-02-28-Preview**. N’oubliez pas que les API d’évaluation sont destinées à être utilisées à des fins de test et d’évaluation, et non dans les environnements de production.
+> [AZURE.IMPORTANT] Pour l’instant, cette fonctionnalité n’existe qu’en version préliminaire. Elle est uniquement disponible dans l’API REST utilisant la version **2015-02-28-Preview** et dans la version 2.0-preview du SDK .NET. N’oubliez pas que les API d’évaluation sont destinées à être utilisées à des fins de test et d’évaluation, et non dans les environnements de production.
 
 ## Configuration de l’indexation de tables Azure
 
-Pour installer et configurer un indexeur de table Azure, vous pouvez appeler l’API REST Azure Search afin de créer et de gérer des **indexeurs** et des **sources de données** en suivant les procédures décrites dans la rubrique [Opérations d'indexeur](https://msdn.microsoft.com/library/azure/dn946891.aspx). À l’avenir, la prise en charge de l’indexation de table sera ajoutée au Kit de développement logiciel (SDK) .NET Azure Search et au portail Azure.
+Pour installer et configurer un indexeur de table Azure, vous pouvez appeler l’API REST Azure Search afin de créer et de gérer des **indexeurs** et des **sources de données** en suivant les procédures décrites dans la rubrique [Opérations d'indexeur](https://msdn.microsoft.com/library/azure/dn946891.aspx). Vous pouvez également utiliser la [version 2.0-preview](https://msdn.microsoft.com/library/mt761536%28v=azure.103%29.aspx) du SDK .NET. À l’avenir, la prise en charge de l’indexation de tables sera ajoutée au Portail Azure.
 
 Une source de données spécifie les données à indexer, les informations d’identification nécessaires pour accéder aux données et les stratégies qui permettent à Azure Search d’identifier efficacement les changements dans les données (tels que des lignes ajoutées, modifiées ou supprimées).
 
@@ -32,11 +32,11 @@ Un indexeur lit les données d'une source de données et les charge dans un inde
 Pour configurer l’indexation de tables :
 
 1. Création d'une source de données
-	- Définissez le paramètre `type` sur `azuretable`
+	- Définissez le paramètre `type` sur `azuretable`.
 	- Transmettez la chaîne de connexion du compte de stockage en tant que paramètre `credentials.connectionString`.
-	- Spécifiez le nom de la table à l’aide du paramètre `container.name`
+	- Spécifiez le nom de la table à l’aide du paramètre `container.name`.
 	- Si vous le souhaitez, spécifiez une requête en utilisant le paramètre `container.query`. Si possible, utilisez un filtre sur PartitionKey pour optimiser les performances ; toute autre requête entraîne une analyse complète des tables, ce qui peut entraîner une baisse des performances pour les tables volumineuses.
-2. Créez un index de recherche avec le schéma correspondant aux colonnes de la table que vous souhaitez indexer. 
+2. Créez un index de recherche avec le schéma correspondant aux colonnes de la table que vous souhaitez indexer.
 3. Créez l’indexeur en connectant votre source de données à l’index de recherche.
 
 ### Créer une source de données
@@ -124,4 +124,4 @@ Pour indiquer que certains documents doivent être supprimés de l’index, vous
 
 Si vous souhaitez nous soumettre des demandes d’ajout de fonctionnalités ou des idées d’amélioration, n’hésitez pas à nous contacter sur notre [site UserVoice](https://feedback.azure.com/forums/263029-azure-search/).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0817_2016-->

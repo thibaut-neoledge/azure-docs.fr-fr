@@ -50,7 +50,7 @@ Votre cluster peut avoir plusieurs types de nœuds, mais le type de nœud princi
 ### Type de nœud principal
 Pour un cluster avec plusieurs types de nœuds, vous devez en choisir un comme nœud principal. Voici les caractéristiques d’un type de nœud principal :
 
-- La taille minimale des machines virtuelles pour le type de nœud principal est déterminée par le niveau de durabilité que vous choisissez. La valeur par défaut du niveau de durabilité est Bronze. Faites défiler vers le bas pour plus d’informations sur le niveau de durabilité et sur les valeurs qu’il peut prendre.  
+- La taille minimale des machines virtuelles pour le type de nœud principal est déterminée par le niveau de durabilité que vous choisissez. La valeur par défaut du niveau de durabilité est Bronze. Faites défiler vers le bas pour plus d’informations sur le niveau de durabilité et sur les valeurs qu’il peut prendre.
 
 - Le nombre minimal de machines virtuelles pour le type de nœud principal est déterminé par le niveau de fiabilité que vous choisissez. La valeur par défaut du niveau de fiabilité est Silver. Faites défiler vers le bas pour plus d’informations sur le niveau de fiabilité et sur les valeurs qu’il peut prendre.
 
@@ -62,7 +62,7 @@ Pour un cluster avec plusieurs types de nœuds, vous devez en choisir un comme n
 ### Type de nœud non principal
 Un cluster avec plusieurs types de nœud comprend un type de nœud principal et les autres types de nœud. Voici les caractéristiques d’un type de nœud non principal :
 
-- La taille minimale des machines virtuelles pour ce type de nœud est déterminée par le niveau de durabilité que vous choisissez. La valeur par défaut du niveau de durabilité est Bronze. Faites défiler vers le bas pour plus d’informations sur le niveau de durabilité et sur les valeurs qu’il peut prendre.  
+- La taille minimale des machines virtuelles pour ce type de nœud est déterminée par le niveau de durabilité que vous choisissez. La valeur par défaut du niveau de durabilité est Bronze. Faites défiler vers le bas pour plus d’informations sur le niveau de durabilité et sur les valeurs qu’il peut prendre.
 
 - Le nombre minimal de machines virtuelles pour ce type de nœud peut être un seul. Toutefois, vous devez choisir ce nombre en fonction du nombre de réplicas des applications/services que vous voulez exécuter dans ce type de nœud. Le nombre de machines virtuelles dans un type de nœud peut être augmenté une fois le cluster déployé.
 
@@ -107,4 +107,4 @@ Une fois que vous avez terminé la planification de votre capacité et que vous 
 <!--Image references-->
 [SystemServices]: ./media/service-fabric-cluster-capacity/SystemServices.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -1,58 +1,57 @@
-<properties 
-    pageTitle="Journalisation et gestion des erreurs dans Logic Apps | Microsoft Azure" 
-    description="Afficher un cas d’utilisation réel des fonctionnalités avancées de journalisation et de gestion des erreurs avec Logic Apps" 
+<properties
+    pageTitle="Journalisation et gestion des erreurs dans Logic Apps | Microsoft Azure"
+    description="Afficher un cas d’utilisation réel des fonctionnalités avancées de journalisation et de gestion des erreurs avec Logic Apps"
     keywords=""
-    services="logic-apps" 
-    authors="hedidin" 
-    manager="" 
-    editor="" 
+    services="logic-apps"
+    authors="hedidin"
+    manager=""
+    editor=""
     documentationCenter=""/>
-    
-<tags 
-    ms.service="logic-apps" 
-    ms.workload="na" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="07/29/2016" 
+
+<tags
+    ms.service="logic-apps"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="07/29/2016"
     ms.author="b-hoedid"/>
-    
-# Journalisation et gestion des erreurs dans Logic Apps 
 
-Cet article décrit en détail comment vous pouvez étendre une application logique pour assurer une meilleure prise en charge de la gestion des exceptions. Il s’agit d’un cas d’utilisation réel, et cet article répond à la question **Logic Apps prend-elle en charge la gestion des exceptions et des erreurs ?**.
+# Journalisation et gestion des erreurs dans Logic Apps
 
->[AZURE.NOTE] La version actuelle de Logic Apps fournit un modèle standard pour les réponses aux actions. Cela inclut les réponses de type validation interne et de type erreur retournées depuis une application API.
+Cet article décrit comment vous pouvez étendre une application logique pour assurer une meilleure prise en charge de la gestion des exceptions. Il s’agit d’un cas d’utilisation réel, et cet article répond à la question « Logic Apps prend-elle en charge la gestion des exceptions et des erreurs ? ».
+
+>[AZURE.NOTE] La version actuelle de la fonctionnalité Logic Apps de Microsoft Azure App Service fournit un modèle standard pour les réponses d’action. Cela inclut les réponses de type validation interne et de type erreur retournées depuis une application API.
 
 ## Vue d’ensemble du cas d’utilisation et du scénario
 
-Voici le cas d’utilisation sur lequel porte cet article.
+Voici le cas d’utilisation sur lequel porte cet article. Un fameux organisme de santé nous a engagés pour développer une solution Azure afin de mettre en place un portail pour les patients à l’aide de Microsoft Dynamics CRM Online. L’organisme avait besoin d’envoyer des enregistrements de rendez-vous entre le portail patient Dynamics CRM Online et Salesforce. Il nous a été demandé d’utiliser la norme [HL7 FHIR](http://www.hl7.org/implement/standards/fhir/) pour tous les dossiers des patients.
 
-> Un fameux organisme de santé nous a engagés pour créer une solution Azure afin de mettre en place un portail pour les patients à l’aide de Dynamics CRM Online (CRMOL). Jusqu’à présent, cet organisme utilisait Salesforce, et nous avons dû envoyer les enregistrements des rendez-vous entre le portail pour les patients CRMOL et Salesforce. L’organisme nous a demandé d’utiliser la norme [HL7 FHIR](http://www.hl7.org/implement/standards/fhir/) pour tous les dossiers des patients.
+Le projet comportait deux exigences principales :
 
-> Nous avons dû également appliquer deux conditions importantes :
-> -  Journalisation des enregistrements envoyés à partir du portail CRMOL.
-> -  L’organisme souhaitait pouvoir visualiser les erreurs qui se produisent dans le flux de travail.
+ -  Une méthode pour journaliser les enregistrements envoyés à partir du portail Dynamics CRM Online.
+ -  La possibilité de visualiser les erreurs susceptibles de se produire dans le flux de travail.
 
 
 ## Comment nous avons résolu le problème
 
->[AZURE.TIP] Vous pouvez visionner une vidéo sur le site [Integration User Group](http://www.integrationusergroup.com/do-logic-apps-support-error-handling/ "Groupe d’utilisateurs d’intégration").
+>[AZURE.TIP] Vous pouvez visionner une vidéo à propos de ce projet sur le site [Integration User Group](http://www.integrationusergroup.com/do-logic-apps-support-error-handling/ "Groupe d’utilisateurs d’intégration").
 
-Nous avons décidé d’utiliser **[Azure DocumentDB](https://azure.microsoft.com/services/documentdb/ "Document DB Azure")** comme référentiel pour les enregistrements de journal et d’erreur. (DocumentDB fait référence aux enregistrements sous forme de documents). Comme Logic Apps dispose d’un modèle standard pour toutes les réponses, nous n’avons pas à créer un schéma personnalisé. Nous pouvons créer une application API pour insérer et interroger les enregistrements d’erreur et de journal. Nous pouvons également définir un schéma pour chaque enregistrement au sein de l’application API.
+Nous avons choisi [Azure DocumentDB](https://azure.microsoft.com/services/documentdb/ "Document DB Azure") comme référentiel pour les enregistrements de journal et d’erreur (DocumentDB fait référence aux enregistrements en tant que documents). Comme Logic Apps dispose d’un modèle standard pour toutes les réponses, nous n’avons pas à créer un schéma personnalisé. Nous pouvons créer une application API pour **insérer** et **interroger** les enregistrements d’erreur et de journal. Nous pouvons également définir un schéma pour chaque enregistrement au sein de l’application API.
 
-L’organisme nous également demandé de vider les enregistrements au-delà d’une certaine date. DocumentDB possède une propriété [Durée de vie](https://azure.microsoft.com/blog/documentdb-now-supports-time-to-live-ttl/ "Durée de vie") (TTL, Time To Live), qui nous a permis de définir une valeur **Durée de vie** pour chaque enregistrement ou pour toute une collection. Ainsi, nous n’avons plus à supprimer manuellement les enregistrements dans DocumentDB.
+Une autre exigence consistait à vider les enregistrements au-delà d’une certaine date. DocumentDB possède une propriété [Durée de vie](https://azure.microsoft.com/blog/documentdb-now-supports-time-to-live-ttl/ "Durée de vie") (TTL, Time To Live), qui nous a permis de définir une valeur **Durée de vie** pour chaque enregistrement ou pour toute une collection. Ainsi, nous n’avons plus à supprimer manuellement les enregistrements dans DocumentDB.
 
-### Notre approche
+### Création de l’application logique
 
-La première étape consiste à créer notre application logique et à la charger dans le concepteur. Dans cet exemple, nous utilisons des applications logiques parent-enfant. Nous supposons que nous avons déjà créé l’application parente. Nous allons créer une application logique enfant.
+La première étape consiste à créer l’application logique et à la charger dans le concepteur. Dans cet exemple, nous utilisons des applications logiques parent-enfant. Supposons que nous avons déjà créé le parent et que nous allons créer une application logique enfant.
 
-Étant donné que nous allons journaliser les enregistrements provenant de CRMOL, nous allons commencer par le haut. Nous devons utiliser un déclencheur de requête, car l’application logique parente déclenche cet enfant.
+Étant donné que nous allons journaliser les enregistrements provenant de Dynamics CRM Online, nous allons commencer par le haut. Nous devons utiliser un déclencheur de requête, car l’application logique parente déclenche cet enfant.
 
 > [AZURE.IMPORTANT] Pour suivre ce didacticiel, vous devez créer une base de données DocumentDB et deux collections (Journalisation et Erreurs).
 
-### Déclencheur d’application logique 
+### Déclencheur d’application logique
 
-**Nous utilisons un déclencheur de requête comme indiqué ci-dessous**
+Nous utilisons un déclencheur de requête comme indiqué dans l’exemple ci-dessous.
 
 ```` json
 "triggers": {
@@ -90,12 +89,12 @@ La première étape consiste à créer notre application logique et à la charge
 ````
 
 
-### Étapes 
+### Étapes
 
-Commençons par la journalisation. Nous devons journaliser la source (requête) du dossier du patient à partir du portail CRMOL.
+Nous devons journaliser la source (requête) du dossier du patient à partir du portail Dynamics CRM Online.
 
-1. Nous devons d’abord **Obtenir un nouvel enregistrement de rendez-vous** de CRMOL. Le déclencheur provenant de CRM nous fournit les paramètres **ID de patient CRM**, **Type d’enregistrement**, **Enregistrement nouveau ou mis à jour** (valeur booléenne nouvelle ou mise à jour) et **ID Salesforce**. L’ID Salesforce peut être défini sur la valeur Null, car il est utilisé uniquement pour une mise à jour. Nous allons obtenir l’enregistrement CRM à l’aide des paramètres CRM, ID de patient et Type d’enregistrement.
-1. Nous devons ensuite ajouter l’opération **InsertLogEntry** de notre application API DocumentDB, comme indiqué sur les figures suivantes :
+1. Nous devons d’abord obtenir un nouvel enregistrement de rendez-vous de Dynamics CRM Online. Le déclencheur provenant de CRM nous fournit les paramètres **ID de patient CRM**, **Type d’enregistrement**, **Enregistrement nouveau ou mis à jour** (valeur booléenne nouvelle ou mise à jour) et **ID Salesforce**. **L’ID Salesforce** peut être défini sur la valeur Null, car il est utilisé uniquement pour une mise à jour. Nous allons obtenir l’enregistrement CRM à l’aide des paramètres CRM, **ID de patient** et **Type d’enregistrement**.
+1. Nous devons ensuite ajouter l’opération **InsertLogEntry** de notre application API DocumentDB, comme indiqué sur les figures suivantes.
 
 
 #### Vue du concepteur Insérer une entrée de journal
@@ -105,19 +104,19 @@ Commençons par la journalisation. Nous devons journaliser la source (requête) 
 #### Vue du concepteur Insérer une entrée d’erreur
 ![Insérer une entrée de journal](./media/app-service-logic-scenario-error-and-exception-handling/insertlogentry.png)
 
-#### Condition - Recherche d’échec de création d’enregistrement 
+#### Recherche d’échec de création d’enregistrement
 
 ![Condition](./media/app-service-logic-scenario-error-and-exception-handling/condition.png)
 
 
-## Code source d’application logique 
+## Code source d’application logique
 
->[AZURE.NOTE]  Les extraits de code ci-dessous correspondent uniquement à des exemples. Comme le didacticiel est basé sur une implémentation réelle actuellement en production, la valeur d’un **Nœud source** peut ne pas afficher les propriétés qui sont liées à la planification d’un rendez-vous.
+>[AZURE.NOTE]  Les extraits de code ci-dessous correspondent uniquement à des exemples. Comme le didacticiel est basé sur une implémentation actuellement en production, la valeur d’un **Nœud source** peut ne pas afficher les propriétés qui sont liées à la planification d’un rendez-vous.
 
 ### Journalisation
 L’exemple de code d’application logique suivant indique comment gérer la journalisation.
 
-#### Insérer une entrée de journal
+#### Entrée de journal
 Il s’agit du code source de l’application logique permettant d’insérer une entrée de journal.
 
 ``` json
@@ -160,7 +159,7 @@ Il s’agit du message de journalisation de requête publié dans l’applicatio
 	    "source": "{"Pragma":"no-cache","x-ms-request-id":"e750c9a9-bd48-44c4-bbba-1688b6f8a132","OData-Version":"4.0","Cache-Control":"no-cache","Date":"Fri, 10 Jun 2016 22:31:56 GMT","Set-Cookie":"ARRAffinity=785f4334b5e64d2db0b84edcc1b84f1bf37319679aefce206b51510e56fd9770;Path=/;Domain=127.0.0.1","Server":"Microsoft-IIS/8.0,Microsoft-HTTPAPI/2.0","X-AspNet-Version":"4.0.30319","X-Powered-By":"ASP.NET","Content-Length":"1935","Content-Type":"application/json; odata.metadata=minimal; odata.streaming=true","Expires":"-1"}"
     	}
     }
-    
+
 ```
 
 
@@ -197,13 +196,12 @@ Il s’agit du message de journalisation de réponse provenant de l’applicatio
 	    "expired": false
     }
 }
-    
+
 ```
 
-Nous maintenant examiner les étapes de gestion des erreurs :
+Nous allons maintenant examiner les étapes de gestion des erreurs.
 
-----------    
-    
+
 ### Gestion des erreurs
 
 L’exemple de code d’application logique suivant indique comment vous pouvez implémenter la gestion des erreurs.
@@ -237,7 +235,7 @@ Il s’agit du code source de l’application logique permettant de créer un en
         "method": "post",
         "uri": "https://.../api/CrMtoSfError"
         },
-        "runAfter": 
+        "runAfter":
         {
             "Create_NewPatientRecord": ["Failed" ]
         }
@@ -245,10 +243,10 @@ Il s’agit du code source de l’application logique permettant de créer un en
 }  	       
 ```
 
-#### Erreur d’insertion dans DocumentDB - Requête
+#### Erreur d’insertion dans DocumentDB--Requête
 
 ``` json
-  
+
 {
     "uri": "https://.../api/CrMtoSfError",
     "method": "post",
@@ -268,7 +266,7 @@ Il s’agit du code source de l’application logique permettant de créer un en
 }
 ```
 
-#### Erreur d’insertion dans DocumentDB - Réponse
+#### Erreur d’insertion dans DocumentDB--Réponse
 
 
 ``` json
@@ -334,7 +332,7 @@ Il s’agit du code source de l’application logique permettant de créer un en
         "errors": []
     }
 }
-    
+
 ```
 
 ### Renvoi de la réponse à l’application logique parente
@@ -345,7 +343,7 @@ Lorsque vous disposez de la réponse, vous pouvez la transmettre à l’applicat
 
 ``` json
 "SuccessResponse": {
-    "runAfter": 
+    "runAfter":
         {
             "UpdateNew_CRMPatientResponse": ["Succeeded"]
         },
@@ -383,56 +381,56 @@ Lorsque vous disposez de la réponse, vous pouvez la transmettre à l’applicat
     },
     "type": "Response"
 }
-  
+
 ```
 
-----------
-  
+
 ## Référentiel et portail DocumentDB
 
 Notre solution a permis d’ajouter des fonctionnalités avec [DocumentDB](https://azure.microsoft.com/services/documentdb).
 
 ### Portail de gestion des erreurs
 
-Vous pouvez créer une application web MVC pour afficher les enregistrements d’erreur à partir de DocumentDB. Les opérations **Liste**, **Détails**, **Modifier** et **Supprimer** sont incluses dans la version actuelle.
+Pour afficher les erreurs, vous pouvez créer une application web MVC afin d’afficher les enregistrements d’erreur à partir de DocumentDB. Les opérations **Liste**, **Détails**, **Modifier** et **Supprimer** sont incluses dans la version actuelle.
 
-> [AZURE.NOTE] Opération Modifier : DocumentDB effectue un remplacement de l’ensemble du document. Les enregistrements affichés dans les vues Liste et Détail représentent uniquement des exemples. Il ne s’agit pas d’enregistrements de rendez-vous de patients réels.
-        
-Vous trouverez ci-après des exemples des détails de notre application MVC utilisant l’approche décrite plus haut.
+> [AZURE.NOTE] Opération Modifier : DocumentDB effectue un remplacement de l’ensemble du document. Les enregistrements affichés dans les vues **Liste** et **Détail** représentent uniquement des exemples. Il ne s’agit pas d’enregistrements de rendez-vous de patients réels.
+
+Voici quelques exemples des détails de notre application MVC créée à l’aide de l’approche décrite précédemment.
 
 #### Liste de gestion des erreurs
 
 ![Liste d'erreurs](./media/app-service-logic-scenario-error-and-exception-handling/errorlist.png)
-        
+
 #### Vue détaillée de gestion des erreurs
 
 ![Détails de l’erreur](./media/app-service-logic-scenario-error-and-exception-handling/errordetails.png)
 
 ### Portail de gestion des journaux
 
-Pour afficher les journaux, nous avons également créé une application web MVC. Vous trouverez ci-après des exemples des détails de notre application MVC utilisant l’approche décrite plus haut.
+Pour afficher les journaux, nous avons également créé une application web MVC. Voici quelques exemples des détails de notre application MVC créée à l’aide de l’approche décrite précédemment.
 
 #### Exemple de vue détaillée de journal
 
 ![Vue détaillée de journal](./media/app-service-logic-scenario-error-and-exception-handling/samplelogdetail.png)
-    
+
 ### Détails de l’application API
 
 #### API de gestion des exceptions Logic Apps
 
 Notre application API de gestion des exceptions Logic Apps en open source fournit les fonctionnalités ci-dessous.
 
-Elle compte deux contrôleurs
-- ErrorController insère un enregistrement d’erreur (document) dans une collection DocumentDB.
-- LogController insère un enregistrement de journal (document) dans une collection DocumentDB.
+Elle compte deux contrôleurs :
+
+- **ErrorController** insère un enregistrement d’erreur (document) dans une collection DocumentDB.
+- **LogController** insère un enregistrement de journal (document) dans une collection DocumentDB.
 
 > [AZURE.TIP] Les deux contrôleurs utilisent des opérations `async Task<dynamic>`. Les opérations peuvent ainsi être résolues lors de l’exécution. Nous pouvons donc créer le schéma DocumentDB dans le corps de l’opération.
 
 Chaque document de DocumentDB doit posséder un ID unique. Nous utilisons le paramètre `PatientId` et ajoutons un horodatage qui est converti en valeur d’horodatage Unix (double). Nous la tronquons pour supprimer la valeur fractionnaire.
 
-Vous pouvez afficher le code source de notre API de contrôleur d’erreurs [dans GitHub ici](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi/blob/master/Logic App Exception Management API/Controllers/ErrorController.cs)
+Vous pouvez afficher le code source de notre API de contrôleur d’erreurs [dans GitHub](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi/blob/master/Logic App Exception Management API/Controllers/ErrorController.cs).
 
-Nous appelons l’API à partir d’une application logique à l’aide de la syntaxe suivante :
+Nous appelons l’API à partir d’une application logique à l’aide de la syntaxe suivante.
 
 ``` json
  "actions": {
@@ -467,7 +465,7 @@ Nous appelons l’API à partir d’une application logique à l’aide de la sy
 
 L’expression de l’exemple de code ci-dessus vérifie que l’état de l’enregistrement *Create\_NewPatientRecord* est défini sur **Failed**.
 
-## Résumé 
+## Résumé
 
 - Vous pouvez facilement implémenter la journalisation et la gestion des erreurs dans une application logique.
 - Vous pouvez utiliser DocumentDB comme référentiel pour les enregistrements de journal et d’erreur (documents).
@@ -477,9 +475,9 @@ L’expression de l’exemple de code ci-dessus vérifie que l’état de l’en
 Le code source de l’application API de gestion des exceptions Logic Apps est disponible dans ce [référentiel GitHub](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi "API de gestion des exceptions Logic Apps").
 
 
-## Étapes suivantes 
+## Étapes suivantes
 - [View more Logic Apps examples and scenarios (Afficher d’autres exemples et scénarios Logic Apps)](app-service-logic-examples-and-scenarios.md)
 - [Learn about Logic Apps monitoring tools (En savoir plus sur les outils de surveillance des applications logiques)](app-service-logic-monitor-your-logic-apps.md)
 - [Création d’un modèle de déploiement d’applications logiques](app-service-logic-create-deploy-template.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

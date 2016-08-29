@@ -13,17 +13,17 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="06/24/2016"
+	ms.date="08/11/2016"
 	ms.author="robmcm"/>
 
 
 # Utilisation du stockage de tables à partir de Java
 
-[AZURE.INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
+[AZURE.INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)] <br/> [AZURE.INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-tables.md)]
 
 ## Vue d'ensemble
 
-Ce guide décrit le déroulement de scénarios courants dans le cadre de l'utilisation du service de stockage de table Azure. Les exemples sont écrits en Java et utilisent le [Kit de développement logiciel (SDK) Azure Storage pour Java][]. Les scénarios abordés sont les suivants : **création**, **suppression** et **affichage d'une liste** de tables, **insertion**, **interrogation**, **modification** et **suppression** des entités d'une table. Pour plus d'informations sur les tables, consultez la section [Étapes suivantes](#Next-Steps).
+Ce guide décrit le déroulement de scénarios courants dans le cadre de l'utilisation du service de stockage de table Azure. Les exemples sont écrits en Java et utilisent le [Kit de développement logiciel (SDK) Azure Storage pour Java][]. Les scénarios abordés sont les suivants : **création**, **suppression** et **affichage d'une liste** de tables, **insertion**, **interrogation **, **modification** et **suppression** des entités d'une table. Pour plus d'informations sur les tables, consultez la section [Étapes suivantes](#Next-Steps).
 
 Remarque : un Kit de développement logiciel (SDK) est disponible pour les développeurs qui utilisent Azure Storage sur des appareils Android. Pour plus d'informations, consultez la page [Kit de développement logiciel (SDK) Azure Storage pour Android][].
 
@@ -48,7 +48,7 @@ Ajoutez l'instruction import suivante au début du fichier Java dans lequel vous
 
 ## Configuration d’une chaîne de connexion de stockage Azure
 
-Un client de stockage Azure utilise une chaîne de connexion de stockage pour stocker des points de terminaison et des informations d'identification permettant d'accéder aux services de gestion des données. Lors de l’exécution dans une application cliente, vous devez spécifier la chaîne de connexion au stockage au format suivant, en indiquant le nom de votre compte de stockage et sa clé d’accès primaire, correspondant aux valeurs *AccountName* et *AccountKey*, sur le [portail Azur](https://portal.azure.com)e. Cet exemple vous montre comment déclarer un champ statique pour qu'il contienne une chaîne de connexion :
+Un client de stockage Azure utilise une chaîne de connexion de stockage pour stocker des points de terminaison et des informations d’identification permettant d’accéder aux services de gestion des données. Lors de l’exécution dans une application cliente, vous devez spécifier la chaîne de connexion au stockage au format suivant, en indiquant le nom de votre compte de stockage et sa clé d’accès primaire, correspondant aux valeurs *AccountName* et *AccountKey*, sur le [portail Azur](https://portal.azure.com)e. Cet exemple vous montre comment déclarer un champ statique pour qu’il contienne une chaîne de connexion :
 
     // Define the connection-string with your values.
     public static final String storageConnectionString =
@@ -62,7 +62,7 @@ Dans une application exécutée au sein d'un rôle dans Microsoft Azure, cette c
     String storageConnectionString =
         RoleEnvironment.getConfigurationSettings().get("StorageConnectionString");
 
-Les exemples ci-dessous partent du principe que vous avez utilisé l'une de ces deux méthodes pour obtenir la chaîne de connexion de stockage.
+Les exemples ci-dessous partent du principe que vous avez utilisé l’une de ces deux méthodes pour obtenir la chaîne de connexion de stockage.
 
 ## Création d'une table
 
@@ -116,7 +116,7 @@ Pour obtenir une liste de tables, appelez la méthode **CloudTableClient.listTab
 
 ## Ajout d'une entité à une table
 
-Les entités mappent vers les objets Java en utilisant une implémentation de classe personnalisée **TableEntity**. Par souci pratique, la classe **TableServiceEntity** implémente **TableEntity** et utilise les reflets pour mapper les propriétés vers les méthodes « getter » et « setter » nommées pour les propriétés. Pour ajouter une entité à une table, commencez par créer une classe définissant les propriétés de votre entité. Le code suivant définit une classe d'entité utilisant le prénom du client en tant que clé de ligne et son nom de famille en tant que clé de partition. Ensemble, les clés de partition et de ligne d'une entité identifient l'entité de façon unique dans la table. Les requêtes d'entités dont les clés de partition sont identiques sont plus rapides que celles d'entités dont les clés de partition sont différentes.
+Les entités mappent vers les objets Java en utilisant une implémentation de classe personnalisée **TableEntity**. Par souci pratique, la classe **TableServiceEntity** implémente **TableEntity** et utilise les reflets pour mapper les propriétés vers les méthodes « getter » et « setter » nommées pour les propriétés. Pour ajouter une entité à une table, commencez par créer une classe définissant les propriétés de votre entité. Le code suivant définit une classe d'entité utilisant le prénom du client en tant que clé de ligne et son nom de famille en tant que clé de partition. Ensemble, les clés de partition et de ligne d’une entité identifient l’entité de façon unique dans la table. Les requêtes d'entités dont les clés de partition sont identiques sont plus rapides que celles d'entités dont les clés de partition sont différentes.
 
     public class CustomerEntity extends TableServiceEntity {
         public CustomerEntity(String lastName, String firstName) {
@@ -223,16 +223,16 @@ Vous pouvez insérer un lot d'entités dans le service de Table en une seule op�
         e.printStackTrace();
     }
 
-Quelques remarques sur les opérations par lot :
+Quelques remarques sur les opérations par lots :
 
 - Vous pouvez effectuer jusqu'à 100 opérations d'insertion, de suppression, de fusion, de remplacement, d'insertion ou fusion et d'insertion ou de remplacement dans n'importe quelle combinaison en un seul lot.
-- Une opération par lot peut comporter une opération d'extraction, s'il s'agit de la seule opération du lot.
+- Une opération par lot peut comporter une opération d’extraction, s’il s’agit de la seule opération du lot.
 - Toutes les entités d'une opération par lot doivent avoir la même clé de partition.
 - Une opération par lot est limitée à une charge utile de données de 4 Mo.
 
 ## Extraction de toutes les entités dans une partition
 
-Pour exécuter une requête de table pour les entités d'une partition, utilisez une requête **TableQuery**. Appelez **TableQuery.from** pour créer une requête sur une table donnée qui renvoie un type de résultat spécifique. Le code suivant indique un filtre pour les entités où ’Smith’ est la clé de partition. **TableQuery.generateFilterCondition** est une méthode d'aide à la création de filtres pour requêtes. Appelez **where** sur la référence renvoyée par la méthode **TableQuery.from** pour appliquer le filtre à la requête. Lorsque la requête est exécutée avec un appel vers **execute** sur l'objet **CloudTable**, elle renvoie un élément **Iterator** avec le type de résultat **CustomerEntity** spécifié. Vous pouvez ensuite utiliser l'élément **Iterator** renvoyé dans une boucle foreach pour traiter les résultats. Ce code imprime les champs de chaque entité dans les résultats de requête vers la console.
+Pour exécuter une requête de table pour les entités d'une partition, utilisez une requête **TableQuery**. Appelez **TableQuery.from** pour créer une requête sur une table donnée qui renvoie un type de résultat spécifique. Le code suivant indique un filtre pour les entités où 'Smith' est la clé de partition. **TableQuery.generateFilterCondition** est une méthode d'aide à la création de filtres pour requêtes. Appelez **where** sur la référence renvoyée par la méthode **TableQuery.from** pour appliquer le filtre à la requête. Lorsque la requête est exécutée avec un appel vers **execute** sur l'objet **CloudTable**, elle renvoie un élément **Iterator** avec le type de résultat **CustomerEntity** spécifié. Vous pouvez ensuite utiliser l'élément **Iterator** renvoyé dans une boucle foreach pour traiter les résultats. Ce code imprime les champs de chaque entité dans les résultats de requête vers la console.
 
     try
     {
@@ -413,7 +413,7 @@ Pour modifier une entité, extrayez-la dans le service de Table, apportez les mo
 
 ## Envoi d’une requête de sous-ensemble de propriétés d’entité
 
-Vous pouvez utiliser une requête de table pour extraire uniquement quelques propriétés d'une entité. Cette technique, nommée « projection », réduit la consommation de bande passante et peut améliorer les performances des requêtes, notamment pour les entités volumineuses. La requête contenue dans le code suivant utilise la méthode **select** pour renvoyer uniquement les adresses de messagerie des entités dans la table. Les résultat sont projetés dans un ensemble d'éléments **String** avec l'aide d'un élément **EntityResolver**, qui effectue la conversion de type des entités renvoyées depuis le serveur. Pour plus d’informations sur la projection, consultez le billet de blog [Azure Tables: Introducing Upsert and Query Projection][]. Notez que la projection n'est pas prise en charge sur l'émulateur de stockage local : ce code s'exécute donc uniquement lors de l'utilisation d'un compte sur le service de Table.
+Vous pouvez utiliser une requête de table pour extraire uniquement quelques propriétés d’une entité. Cette technique, nommée « projection », réduit la consommation de bande passante et peut améliorer les performances des requêtes, notamment pour les entités volumineuses. La requête contenue dans le code suivant utilise la méthode **select** pour renvoyer uniquement les adresses de messagerie des entités dans la table. Les résultat sont projetés dans un ensemble d'éléments **String** avec l'aide d'un élément **EntityResolver**, qui effectue la conversion de type des entités renvoyées depuis le serveur. Pour plus d’informations sur la projection, consultez le billet de blog [Azure Tables: Introducing Upsert and Query Projection][]. Notez que la projection n'est pas prise en charge sur l'émulateur de stockage local : ce code s'exécute donc uniquement lors de l'utilisation d'un compte sur le service de table.
 
     try
     {
@@ -487,7 +487,7 @@ Il arrive souvent de vouloir ajouter une entité à une table sans savoir si ell
 
 ## Suppression d'une entité
 
-Il est facile de supprimer une entité après l'avoir récupérée. Une fois que l'entité est extraite, appelez **TableOperation.delete** avec l'entité à supprimer. Appelez ensuite la commande **execute** sur l'élément **CloudTable**. Le code suivant extrait et supprime une entité de client.
+Il est facile de supprimer une entité après l’avoir récupérée. Une fois que l'entité est extraite, appelez **TableOperation.delete** avec l'entité à supprimer. Appelez ensuite la commande **execute** sur l'élément **CloudTable**. Le code suivant extrait et supprime une entité de client.
 
     try
     {
@@ -545,7 +545,7 @@ Pour finir, le code suivant supprime une table d'un compte de stockage. Une tabl
 
 ## Étapes suivantes
 
-Maintenant que vous connaissez les bases du stockage de tables, consultez les liens suivants pour apprendre à exécuter les tâches de stockage plus complexes.
+Maintenant que vous avez appris les bases du stockage de tables, suivez ces liens pour apprendre des tâches de stockage plus complexes.
 
 - [Kit de développement logiciel (SDK) Azure Storage pour Java][]
 - [Référence du Kit de développement logiciel (SDK) du client Azure Storage][]
@@ -564,4 +564,4 @@ Pour plus d’informations, consultez également le [Centre pour développeurs J
 [Blog de l'équipe Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage/
 [Azure Tables: Introducing Upsert and Query Projection]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

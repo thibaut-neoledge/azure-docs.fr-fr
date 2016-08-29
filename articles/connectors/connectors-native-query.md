@@ -1,8 +1,8 @@
 <properties
 	pageTitle="Ajout de l’action de requête dans des applications logiques | Microsoft Azure"
-	description="Vue d’ensemble de l’action de requête permettant d’effectuer des actions comme Filtrer le tableau."
+	description="Vue d’ensemble de l’action de requête pour les actions comme Filtrer le tableau."
 	services=""
-	documentationCenter="" 
+	documentationCenter=""
 	authors="jeffhollan"
 	manager="erikre"
 	editor=""
@@ -13,82 +13,72 @@
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="na" 
+   ms.workload="na"
    ms.date="07/20/2016"
    ms.author="jehollan"/>
 
 # Prise en main de l’action de requête
 
-L’action de requête vous permet d’utiliser des lots et des tableaux pour obtenir des flux de travail afin d’effectuer les tâches suivantes :
+L’action de requête vous permet d’utiliser des lots et des tableaux pour obtenir des flux de travail afin d’effectuer les tâches suivantes :
 
 - Créer une tâche pour tous les enregistrements à priorité élevée à partir d’une base de données.
 - Enregistrer toutes les pièces jointes PDF pour les messages électroniques dans l’objet blob Azure.
 
 Pour commencer à utiliser l’action de requête dans une application logique, consultez [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
----
-
 ## Utilisation de l’action de requête
-	
-Une action est une opération effectuée par le flux de travail défini dans une application logique. [En savoir plus sur les actions.](connectors-overview.md) L’action de requête a actuellement une opération exposée dans le concepteur : filtrer le tableau. Celle-ci vous permet d’interroger un tableau et de retourner un jeu de résultats filtrés. Voici comment vous pouvez l’ajouter dans une application logique :
 
-1. Sélectionnez le bouton **Nouvelle étape**
-1. Choisissez **Ajouter une action**
-1. Dans la zone de recherche d’action, tapez « Filtrer » pour afficher l’action **Filtrer le tableau**
+Une action est une opération effectuée par le flux de travail défini dans une application logique. [En savoir plus sur les actions](connectors-overview.md).
+
+L’action de requête a actuellement une opération, appelée Filtrer le tableau, exposée dans le concepteur. Celle-ci vous permet d’interroger un tableau et de retourner un jeu de résultats filtrés.
+
+Voici comment vous pouvez l’ajouter dans une application logique :
+
+1. Sélectionnez le bouton **Nouvelle étape**.
+2. Choisissez **Ajouter une action**.
+3. Dans la zone de recherche d’action, tapez **Filtrer** pour afficher l’action **Filtrer le tableau**.
 
 	![Sélectionner l’action de requête](./media/connectors-native-query/using-action-1.png)
 
-1. Sélectionnez un tableau à filtrer (la capture d’écran ci-dessous illustre le tableau des résultats d’une recherche sur Twitter)
-1. Créez une condition à évaluer pour chaque élément (la capture d’écran ci-dessous filtre les tweets provenant d’utilisateurs ayant plus de 100 abonnés)
+4. Sélectionnez un tableau à filtrer. (La capture d’écran suivante affiche le tableau des résultats de la recherche Twitter.)
+5. Créez une condition à évaluer pour chaque élément. (La capture d’écran suivante filtre les tweets publiés par les utilisateurs ayant plus de 100 abonnés.)
 
 	![Terminer l’action de requête](./media/connectors-native-query/using-action-2.png)
 
-1. L’action génère un nouveau tableau qui contient uniquement les résultats respectant les exigences du filtre
-1. Cliquez sur Enregistrer dans le coin supérieur gauche de la barre d’outils, et votre application logique est à la fois enregistrée et publiée (activation)
+	L’action génère un nouveau tableau qui contient uniquement les résultats respectant les exigences du filtre.
+6. Cliquez dans le coin supérieur gauche de la barre d’outils pour enregistrer, et votre application logique est à la fois enregistrée et publiée (activation).
 
----
+## Action de requête
 
-## Détails techniques
-
-Vous trouverez ci-dessous les détails des actions que ce connecteur prend en charge.
-
-## Actions de requête
-
-Une action est une opération effectuée par le flux de travail défini dans une application logique. [En savoir plus sur les actions.](connectors-overview.md) Le connecteur a 1 action possible.
+Voici les détails de l’action que ce connecteur prend en charge. Le connecteur n’a qu’une seule action possible.
 
 |Action|Description|
 |---|---|
-|Filtrer le tableau|Évaluer une condition pour chaque élément d’un tableau et retourner les résultats|
+|Filtrer le tableau|Évalue une condition pour chaque élément d’un tableau et renvoie les résultats|
 
-### Détails de l’action
+## Détails de l’action
 
-L’action de requête est créée avec 1 action possible. Vous trouverez ci-dessous plus d’informations sur chacune des actions, leurs champs obligatoires et facultatifs, et les détails des résultats correspondants associés à leur utilisation.
+L’action de requête est créée avec une action possible. Les tableaux suivants décrivent les champs de saisie obligatoires et facultatifs pour l’action, ainsi que les détails des résultats correspondants associés à son utilisation.
 
-#### Filtrer le tableau
-Exécuter une requête HTTP sortante. Une * signifie que le champ est obligatoire.
+### Filtrer le tableau
+Vous trouverez ci-dessous les champs de saisie de l’action permettant de générer une demande HTTP sortante. Le symbole * désigne est un champ obligatoire.
 
-|Display Name|Nom de la propriété|Description|
+|Nom complet|Nom de la propriété|Description|
 |---|---|---|
 |De*|from|Le tableau à filtrer|
 |Condition*|où|La condition à évaluer pour chaque élément|
 <br>
 
-**Détails des résultats**
+### Détails des résultats
 
-Réponse HTTP
+Vous trouverez ci-dessous les détails de sortie correspondant à la requête HTTP.
 
 |Nom de la propriété|Type de données|Description|
 |---|---|---|
 |Tableau filtré|array|Tableau contenant un objet pour chaque résultat filtré|
 
----
-
 ## Étapes suivantes
 
-Vous trouverez ci-dessous plus d’informations sur la manière d’avancer le développement de vos applications logiques, ainsi que sur notre communauté.
+Essayez maintenant la plateforme et [créez une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md). Vous pouvez explorer les autres connecteurs disponibles dans les applications logiques en examinant notre [liste d’API](apis-list.md).
 
-## Créer une application logique
-
-Essayez la plateforme et [créez une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md) dès maintenant. Vous pouvez explorer les autres connecteurs disponibles dans les applications logiques en examinant notre [liste d’API](apis-list.md).
-
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

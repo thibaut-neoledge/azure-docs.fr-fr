@@ -12,7 +12,7 @@ ms.service="search"
 ms.devlang="rest-api"
 ms.workload="search" ms.topic="article"  
 ms.tgt_pltfrm="na"
-ms.date="08/08/2016"
+ms.date="08/16/2016"
 ms.author="eugenesh" />
 
 # Indexation de documents dans Azure Blob Storage avec Azure Search
@@ -37,7 +37,7 @@ L’indexeur d’objets blob peut extraire du texte à partir des formats de doc
 
 ## Configuration de l’indexation d’objets blob
 
-Pour installer et configurer un indexeur Azure Blob Storage, vous pouvez appeler l’API REST Azure Search afin de créer et de gérer des **indexeurs** et des **sources de données** en suivant les procédures décrites dans [cet article](https://msdn.microsoft.com/library/azure/dn946891.aspx). À l’avenir, la prise en charge de l’indexation d’objets blob sera ajoutée au Kit de développement logiciel (SDK) .NET Azure Search et au portail Azure.
+Pour installer et configurer un indexeur Azure Blob Storage, vous pouvez appeler l’API REST Azure Search afin de créer et de gérer des **indexeurs** et des **sources de données** en suivant les procédures décrites dans [cet article](https://msdn.microsoft.com/library/azure/dn946891.aspx). Vous pouvez également utiliser la [version 2.0-preview](https://msdn.microsoft.com/library/mt761536%28v=azure.103%29.aspx) du SDK .NET. À l’avenir, la prise en charge de l’indexation d’objets blob sera ajoutée au Portail Azure.
 
 Pour configurer un indexeur, effectuez les opérations suivantes : créez une source de données, créez un index, configurez l’indexeur.
 
@@ -146,9 +146,9 @@ Dans Azure Search, la clé de document identifie un document de manière unique.
    
 Vous devez déterminer avec soin le champ extrait que vous souhaitez mapper sur le champ de clé de votre index. Les candidats sont les suivants :
 
-- **metadata\_storage\_name** : ce champ pourrait se révéler un choix commode, mais notez que (1) les noms ne sont pas forcément uniques, car vous pouvez disposer d’objets blob portant le même nom dans différents dossiers, et (2) le nom peut contenir des caractères qui ne sont pas valides dans les clés de document, comme des tirets. Vous pouvez gérer les caractères non valides en activant l’option `base64EncodeKeys` dans les propriétés de l’indexeur. Dans ce cas, pensez à encoder les clés de document lorsque vous les transmettez dans des appels d’API, comme l’API Lookup. (Par exemple, dans .NET, vous pouvez utiliser la [méthode UrlTokenEncode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx) à cet effet).
+- **metadata\_storage\_name** : ce champ pourrait se révéler un choix commode, mais notez que (1) les noms ne sont pas forcément uniques, car vous pouvez disposer d’objets blob portant le même nom dans différents dossiers, et (2) le nom peut contenir des caractères qui ne sont pas valides dans les clés de document, comme des tirets. Vous pouvez gérer les caractères non valides en activant l’option `base64EncodeKeys` dans les propriétés de l’indexeur. Dans ce cas, pensez à encoder les clés de document lorsque vous les transmettez dans des appels d’API, comme l’API Lookup. (Par exemple, dans .NET, vous pouvez utiliser la [méthode UrlTokenEncode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx) à cet effet).
 
-- **metadata\_storage\_path** : l’utilisation du chemin d’accès complet garantit l’unicité, mais le chemin d’accès contient invariablement des caractères `/` qui ne sont [pas valides dans une clé de document](https://msdn.microsoft.com/library/azure/dn857353.aspx). Comme ci-dessus, vous avez la possibilité d’encoder les clés à l’aide de l’option `base64EncodeKeys`.
+- **metadata\_storage\_path** : l’utilisation du chemin d’accès complet garantit l’unicité, mais le chemin d’accès contient invariablement des caractères `/` qui ne sont [pas valides dans une clé de document](https://msdn.microsoft.com/library/azure/dn857353.aspx). Comme ci-dessus, vous avez la possibilité d’encoder les clés à l’aide de l’option `base64EncodeKeys`.
 
 - Si aucune des solutions ci-dessus n’est adaptée à votre cas, vous pouvez en dernier recours ajouter une propriété de métadonnées personnalisée aux objets blob. Toutefois, cette approche contraint votre processus de chargement d’objets blob à ajouter cette propriété de métadonnées à tous les objets blob. Étant donné que la clé est une propriété obligatoire, tous les objets blob dépourvus de cette propriété ne seront pas indexés.
 
@@ -303,4 +303,4 @@ Si vous devez extraire toutes les métadonnées, mais ignorer l’extraction de 
 
 Si vous souhaitez nous soumettre des demandes d’ajout de fonctionnalités ou des idées d’amélioration, n’hésitez pas à nous contacter sur notre [site UserVoice](https://feedback.azure.com/forums/263029-azure-search/).
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

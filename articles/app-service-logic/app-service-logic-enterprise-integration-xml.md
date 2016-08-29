@@ -26,8 +26,12 @@ Enterprise Integration Pack facilite la validation et le traitement des document
 - [Encodage et décodage de fichier plat](./app-service-logic-enterprise-integration-flatfile.md "En savoir plus sur l’encodage/décodage de fichier plat") -L’encodage/décodage de fichier plat permet de coder ou décoder un fichier plat.
 - [XPath](https://msdn.microsoft.com/library/mt643789.aspx) - permet d’enrichir un message et d’extraire des propriétés spécifiques du message. Les propriétés extraites peuvent ensuite servir à acheminer le message vers une destination ou un point de terminaison intermédiaire.
 
+## Essayez par vous-même
+
+Prêt à vous lancer ? Cliquez [ici](https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-veter-pipeline) pour déployer votre propre application logique entièrement fonctionnelle à l’aide des fonctionnalités XML de Logic Apps.
+
 ## En savoir plus
 
 [En savoir plus sur Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md "En savoir plus sur Enterprise Integration Pack")
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

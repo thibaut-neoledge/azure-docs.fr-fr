@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="06/24/2016" 
+	ms.date="08/11/2016" 
 	ms.author="robmcm"/>
 
 # Créer une application web « Hello World » pour Azure dans Eclipse
@@ -24,7 +24,7 @@ Ce didacticiel explique comment créer une application Hello World de base et la
 
 ![][01]
  
-## Composants requis
+## Conditions préalables
 
 * JDK (Java Development Kit) version 1.7 ou ultérieure.
 * IDE (environnement de développement intégré) Eclipse pour développeurs Java EE, Indigo ou ultérieur, Vous pouvez le télécharger à partir de <http://www.eclipse.org/downloads/>.
@@ -226,4 +226,4 @@ Pour plus d’informations, consultez les liens suivants :
 [13]: ./media/create-a-hello-world-web-app-for-azure-in-eclipse/13-Azure-Explorer-Web-App.png
 [14]: ./media/create-a-hello-world-web-app-for-azure-in-eclipse/publishDropdownButton.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

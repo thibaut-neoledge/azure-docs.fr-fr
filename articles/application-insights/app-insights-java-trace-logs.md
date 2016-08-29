@@ -87,9 +87,9 @@ Téléchargez et décompressez l’appender approprié, puis ajoutez la biblioth
 
 Enregistreur | Télécharger | Bibliothèque
 ----|----|----
-Logback|[Kit de développement logiciel (SDK) avec appender Logback](https://azuredownloads.blob.core.windows.net/applicationinsights/logbackAppender.zip)|applicationinsights-logging-logback
-Log4J v2.0|[Kit de développement logiciel (SDK) avec appender Log4J v2](https://azuredownloads.blob.core.windows.net/applicationinsights/log4j2Appender.zip)|applicationinsights-logging-log4j2 
-Log4j v1.2|[Kit de développement logiciel (SDK) avec appender Log4J v1.2](https://azuredownloads.blob.core.windows.net/applicationinsights/log4j1_2Appender.zip)|applicationinsights-logging-log4j1\_2 
+Logback|[Kit de développement logiciel (SDK) avec appender Logback](https://aka.ms/xt62a4)|applicationinsights-logging-logback
+Log4J v2.0|[Kit de développement logiciel (SDK) avec appender Log4J v2](https://aka.ms/qypznq)|applicationinsights-logging-log4j2 
+Log4j v1.2|[Kit de développement logiciel (SDK) avec appender Log4J v1.2](https://aka.ms/ky9cbo)|applicationinsights-logging-log4j1\_2 
 
 
 
@@ -151,4 +151,4 @@ Maintenant que vous avez configuré votre projet pour qu’il envoie le suivi à
 
  
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0817_2016-->

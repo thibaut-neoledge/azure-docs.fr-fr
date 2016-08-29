@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="ruby"
 	ms.topic="article"
-    ms.date="06/24/2016"
+    ms.date="08/11/2016"
 	ms.author="robmcm"/>
 
 
 # Utilisation du stockage d'objets blob à partir de Ruby
 
-[AZURE.INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)]
+[AZURE.INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)] <br/> [AZURE.INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-blobs.md)]
 
 ## Vue d'ensemble
 
@@ -65,7 +65,7 @@ Pour obtenir ces valeurs à partir d’un compte de stockage classique ou Resour
 2. Accédez au compte de stockage que vous souhaitez utiliser.
 3. Dans le panneau Paramètres à droite, cliquez sur **Clés d’accès**.
 4. Dans le panneau Clés d’accès qui apparaît, la clé d’accès 1 et la clé d’accès 2 sont affichées. Vous pouvez utiliser les deux.
-5. Cliquez sur l’icône de copie pour copier la clé dans le Presse-papiers.
+5. Cliquez sur l'icône de copie pour copier la clé dans le Presse-papiers.
 
 Pour obtenir ces valeurs à partir d’un compte de stockage classique sur le portail Azure Classic :
 
@@ -73,9 +73,9 @@ Pour obtenir ces valeurs à partir d’un compte de stockage classique sur le po
 2. Accédez au compte de stockage que vous souhaitez utiliser.
 3. Cliquez sur **GÉRER LES CLÉS D’ACCÈS** en bas du volet de navigation.
 4. Dans la boîte de dialogue contextuelle, vous voyez le nom du compte de stockage et la clé d'accès primaire ou secondaire. Vous pouvez utiliser soit la clé d'accès primaire, soit la clé d'accès secondaire.
-5. Cliquez sur l’icône de copie pour copier la clé dans le Presse-papiers.
+5. Cliquez sur l'icône de copie pour copier la clé dans le Presse-papiers.
 
-## Création d'un conteneur
+## Créer un conteneur
 
 [AZURE.INCLUDE [storage-container-naming-rules-include](../../includes/storage-container-naming-rules-include.md)]
 
@@ -102,7 +102,7 @@ Les valeurs valides pour l'option **:public\_access\_level** sont les suivantes�
 
 * **blob** : spécifie un accès public total en lecture pour le conteneur et les données d’objets blob. Les clients peuvent énumérer les objets blob à l’intérieur du conteneur via une demande anonyme, mais ne peuvent pas énumérer les conteneurs dans le compte de stockage.
 
-* **container** : spécifie un accès public en lecture pour les objets blob. les données d’objets blob à l’intérieur de ce conteneur peuvent être lues via une demande anonyme, mais les données du conteneur ne sont pas disponibles. Les clients ne peuvent pas énumérer les objets blob à l'intérieur du conteneur via une demande anonyme.
+* **container** : spécifie un accès public en lecture pour les objets blob. Les données d'objets blob à l'intérieur de ce conteneur peuvent être lues via une demande anonyme, mais les données du conteneur ne sont pas disponibles. Les clients ne peuvent pas énumérer les objets blob à l'intérieur du conteneur via une demande anonyme.
 
 Vous pouvez également modifier le niveau d'accès public d'un conteneur en utilisant la méthode **set\_container\_acl()** afin de spécifier le niveau d'accès public.
 
@@ -135,7 +135,7 @@ Cette action génère les URL de tous les objets blob de tous les conteneurs pou
 	  end
 	end
 
-## Télécharger des blobs.
+## Télécharger des objets blob
 
 Pour télécharger des objets blob, utilisez la méthode **get\_blob()** afin d'extraire le contenu.
 
@@ -157,4 +157,4 @@ Pour en savoir plus sur les tâches de stockage plus complexes, cliquez sur les 
 - Référentiel du [Kit de développement logiciel (SDK) Azure pour Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) sur GitHub
 - [Transfert de données avec l'utilitaire de ligne de commande AzCopy](storage-use-azcopy.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

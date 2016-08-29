@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="multiple"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="06/24/2016" 
+    ms.date="08/11/2016" 
     ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690949.aspx -->
@@ -26,7 +26,7 @@ La Boîte à outils Azure pour Eclipse vous permet de déboguer vos applications
 
 Ce didacticiel part du principe que vous avez déjà créé une application et que vous savez utiliser l’émulateur de calcul et effectuer un déploiement sur Azure.
 
-Nous allons utiliser l’application du didacticiel [Utilisation de la bibliothèque Runtime du service Azure dans JSP][] comme point de départ pour cette rubrique. Avant de commencer, créez cette application si ce n’est déjà fait.
+Nous allons utiliser l’application du didacticiel [Utilisation de la bibliothèque Azure Service Runtime en JSP][] comme point de départ pour cette rubrique. Avant de commencer, créez cette application si ce n’est déjà fait.
 
 ## Pour déboguer votre application pendant son exécution dans Azure ##
 
@@ -53,8 +53,7 @@ Nous allons utiliser l’application du didacticiel [Utilisation de la biblioth�
 1. Cliquez sur **OK** pour fermer la boîte de dialogue **Propriétés de débogage pour WorkerRole1**.
 1. Si vous n’avez pas encore défini de point d’arrêt dans index.jsp, faites-le maintenant :
     1. Dans l’Explorateur de projets d’Eclipse, développez **MyHelloWorld**, puis **WebContent**, puis double-cliquez sur **index.jsp**.
-    1. Dans index.jsp, cliquez avec le bouton droit dans la barre bleue à gauche de votre code Java et cliquez sur **Activer/désactiver les points d’arrêt**, comme illustré ci-dessous :
-        ![][ic551537]
+    1. Dans index.jsp, cliquez avec le bouton droit dans la barre bleue à gauche de votre code Java et cliquez sur **Activer/désactiver les points d’arrêt**, comme illustré ci-dessous : ![][ic551537]
 1. Dans le menu Eclipse, cliquez sur **Exécuter** puis sur **Configurations de débogage**.
 1. Dans la boîte de dialogue **Configurations de débogage**, développez **Application Java distante** dans le volet gauche, sélectionnez **Cloud Azure (WorkerRole1)**, puis cliquez sur **Déboguer**.
 1. Dans votre navigateur, exécutez votre application intermédiaire, **http://***&lt;guid&gt;***.cloudapp.net/MyHelloWorld**, en remplaçant *&lt;guid&gt;* par le GUID de votre nom DNS. Si la boîte de dialogue **Confirmer la commutation de perspective** s’affiche, cliquez sur **Oui**. Votre session de débogage doit maintenant s’exécuter jusqu’à la ligne de code où le point d’arrêt a été défini.
@@ -95,8 +94,8 @@ Une fois que vous connaissez le numéro de port public qui a été attribué à 
 1. Cliquez sur **OK** pour fermer la boîte de dialogue **Propriétés de débogage pour WorkerRole1**.
 1. Définissez un point d’arrêt dans index.jsp :
     1. Dans l’Explorateur de projets d’Eclipse, développez **MyHelloWorld**, puis **WebContent**, puis double-cliquez sur **index.jsp**.
-    1. Dans index.jsp, cliquez avec le bouton droit dans la barre bleue à gauche de votre code Java et cliquez sur **Activer/désactiver les points d’arrêt**, comme illustré ci-dessous :
-        ![][ic551537]
+    1. Dans index.jsp, cliquez avec le bouton droit dans la barre bleue à gauche de votre code Java et cliquez sur **Activer/désactiver les points d’arrêt**, comme illustré ci-dessous : ![][ic551537]
+
        Un point d’arrêt est défini si une icône de point d’arrêt s’affiche dans la barre bleue à gauche du code Java.
 1. Démarrez l’application dans l’émulateur de calcul en cliquant sur le bouton **Exécuter dans l’émulateur Azure** dans la barre d’outils Azure.
 1. Dans le menu Eclipse, cliquez sur **Exécuter** puis sur **Configurations de débogage**.
@@ -127,11 +126,11 @@ Pour plus d’informations sur l’utilisation d’Azure avec Java, consultez le
 [Kit de ressources Azure pour Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
 [Création d’une application « Hello World » pour Azure dans Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
 [Installation de la Boîte à outils Azure pour Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
-[Utilisation de la bibliothèque Runtime du service Azure dans JSP]: http://go.microsoft.com/fwlink/?LinkID=699551
+[Utilisation de la bibliothèque Azure Service Runtime en JSP]: http://go.microsoft.com/fwlink/?LinkID=699551
 
 <!-- IMG List -->
 
 [ic719504]: ./media/azure-toolkit-for-eclipse-debugging-azure-applications/ic719504.png
 [ic551537]: ./media/azure-toolkit-for-eclipse-debugging-azure-applications/ic551537.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

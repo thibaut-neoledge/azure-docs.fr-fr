@@ -11,3 +11,5 @@ Sélectionnez le cache souhaité pour afficher ses propriétés.
 Cliquez sur **Paramètres** ou **Tous les paramètres** pour afficher et configurer votre cache.
 
 ![Tous les paramètres de Cache Redis](media/redis-cache-browse/redis-cache-blade.png)
+
+<!---HONumber=AcomDC_0817_2016-->

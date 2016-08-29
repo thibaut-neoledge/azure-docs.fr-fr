@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ruby" 
 	ms.topic="article" 
-	ms.date="06/24/2016" 
+	ms.date="08/11/2016" 
 	ms.author="robmcm"/>
 
 
 # Utilisation du stockage de files d'attente à partir de Ruby
 
-[AZURE.INCLUDE [storage-selector-queue-include](../../includes/storage-selector-queue-include.md)]
+[AZURE.INCLUDE [storage-selector-queue-include](../../includes/storage-selector-queue-include.md)] <br/> [AZURE.INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
 
 ## Vue d'ensemble
 
@@ -31,7 +31,7 @@ Ce guide décrit le déroulement de scénarios courants dans le cadre de l’uti
 
 ## Création d'une application Ruby
 
-Créez une application Ruby. Pour des instructions, consultez [Application web Ruby on Rails sur une machine virtuelle Azure](../virtual-machines/virtual-machines-linux-classic-ruby-rails-web-app.md).
+Créez une application Ruby. Pour obtenir des instructions, consultez [Application web Ruby on Rails sur une machine virtuelle Azure](../virtual-machines/virtual-machines-linux-classic-ruby-rails-web-app.md).
 
 ## Configuration de votre application pour accéder au stockage
 
@@ -63,7 +63,7 @@ Pour obtenir ces valeurs à partir d’un compte de stockage classique ou Resour
 2. Accédez au compte de stockage que vous souhaitez utiliser.
 3. Dans le panneau Paramètres à droite, cliquez sur **Clés d’accès**.
 4. Dans le panneau Clés d’accès qui apparaît, la clé d’accès 1 et la clé d’accès 2 sont affichées. Vous pouvez utiliser les deux.
-5. Cliquez sur l’icône de copie pour copier la clé dans le Presse-papiers.
+5. Cliquez sur l'icône de copie pour copier la clé dans le Presse-papiers.
 
 Pour obtenir ces valeurs à partir d’un compte de stockage classique sur le portail Azure Classic :
 
@@ -71,7 +71,7 @@ Pour obtenir ces valeurs à partir d’un compte de stockage classique sur le po
 2. Accédez au compte de stockage que vous souhaitez utiliser.
 3. Cliquez sur **GÉRER LES CLÉS D’ACCÈS** en bas du volet de navigation.
 4. Dans la boîte de dialogue contextuelle, vous voyez le nom du compte de stockage et la clé d'accès primaire ou secondaire. Vous pouvez utiliser soit la clé d'accès primaire, soit la clé d'accès secondaire.
-5. Cliquez sur l’icône de copie pour copier la clé dans le Presse-papiers.
+5. Cliquez sur l'icône de copie pour copier la clé dans le Presse-papiers.
 
 ## Création d'une file d'attente
 
@@ -108,7 +108,7 @@ Vous pouvez supprimer un message d'une file d'attente en deux étapes.
 
 2. Pour finaliser la suppression du message de la file d'attente, vous devez aussi appeler **delete\_message()**.
 
-Ce processus de suppression d'un message en deux étapes garantit que, si votre code ne parvient pas à traiter un message à cause d'une défaillance matérielle ou logicielle, une autre instance de votre code peut obtenir le même message et réessayer. Votre code appelle **delete\_message()** juste après le traitement du message.
+Ce processus de suppression d’un message en deux étapes garantit que, si votre code ne parvient pas à traiter un message à cause d’une défaillance matérielle ou logicielle, une autre instance de votre code peut obtenir le même message et réessayer. Votre code appelle **delete\_message()** juste après le traitement du message.
 
 	messages = azure_queue_service.list_messages("test-queue", 30)
 	azure_queue_service.delete_message("test-queue", 
@@ -125,7 +125,7 @@ Vous pouvez modifier le contenu d'un message placé dans la file d'attente. Le c
 
 ## Options supplémentaires pour la suppression des messages dans la file d'attente
 
-Il existe deux façons de personnaliser la récupération des messages à partir d'une file d'attente.
+Il existe deux façons de personnaliser l'extraction des messages à partir d'une file d'attente.
 
 1. Vous pouvez obtenir un lot de messages.
 
@@ -159,7 +159,7 @@ Maintenant que vous connaissez les bases du stockage des files d'attente, consul
 - Consultez le [blog de l'équipe Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/)
 - Accédez au référentiel du [Kit de développement logiciel (SDK) Azure pour Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) sur GitHub.
 
-Pour obtenir une comparaison entre le service de File d’attente Azure abordé dans cette rubrique et les files d’attente Azure Service Bus abordées dans la rubrique [Utilisation des files d’attente Service Bus](/develop/ruby/how-to-guides/service-bus-queues/), consultez la page [Files d’attente Microsoft Azure et files d’attente Azure Service Bus - comparaison et différences](../service-bus/service-bus-azure-and-service-bus-queues-compared-contrasted.md).
+Pour obtenir une comparaison entre le service de File d’attente Azure abordé dans cette rubrique et les files d’attente Azure Service Bus abordées dans la rubrique [Utilisation des files d’attente Service Bus](/develop/ruby/how-to-guides/service-bus-queues/), consultez la page [Files d’attente Microsoft Azure et files d’attente Azure Service Bus : comparaison et différences](../service-bus/service-bus-azure-and-service-bus-queues-compared-contrasted.md).
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

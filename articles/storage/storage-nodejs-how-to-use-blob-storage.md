@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-    ms.date="06/24/2016"
+    ms.date="08/11/2016"
 	ms.author="micurd"/>
 
 
 
 # Utilisation du stockage d'objets blob à partir de Node.js
 
-[AZURE.INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)]
+[AZURE.INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)] <br/> [AZURE.INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-blobs.md)]
 
-## Vue d’ensemble
+## Vue d'ensemble
 
 Cet article décrit le déroulement de scénarios courants dans le cadre de l’utilisation de Blob Storage. Les exemples sont écrits en utilisant l'API Node.js. Les scénarios traités incluent comment transférer, lister, télécharger et supprimer des objets blob.
 
@@ -32,7 +32,7 @@ Cet article décrit le déroulement de scénarios courants dans le cadre de l’
 
 ## Création d’une application Node.js
 
-Pour obtenir des instructions sur la création d’une application Node.js, consultez [Créer une application web Node.js dans Azure App Service], [Créer et déployer une application Node.js dans Azure Cloud Service] (avec Windows PowerShell) ou [Créer et déployer une application web Node.js dans Azure à l’aide de WebMatrix].
+Pour obtenir des instructions sur la création d’une application Node.js, consultez [Créer une application web Node.js dans Azure App Service], [Création et déploiement d'une application Node.js dans Azure Cloud Services] (à l’aide de Windows PowerShell) ou [Créer et déployer une application web Node.js dans Azure à l’aide de WebMatrix].
 
 ## Configuration de votre application pour accéder au stockage
 
@@ -69,7 +69,7 @@ Le module Azure lit les variables d'environnement `AZURE_STORAGE_ACCOUNT` et `AZ
 
 Pour obtenir un exemple de configuration des variables d’environnement dans le [portail Azure](https://portal.azure.com) pour une application web Azure, consultez [Application web Node.js avec le service de Table Azure].
 
-## Création d'un conteneur
+## Créer un conteneur
 
 L'objet **BlobService** permet d'utiliser des conteneurs et des objets blob. Le code suivant crée un objet **BlobService**. Ajoutez le code suivant vers le début du fichier **server.js** :
 
@@ -89,7 +89,7 @@ Pour créer un conteneur, utilisez **createContainerIfNotExists**. Le code suiva
 	    }
 	});
 
-Si le conteneur est nouvellement créé, `result.created` a la valeur true. Si le conteneur existe déjà, `result.created` a la valeur false. `response` contient des informations sur l’opération, y compris les informations ETag du conteneur.
+Si le conteneur est nouvellement créé, `result.created` a la valeur true. Si le conteneur existe déjà, `result.created` a la valeur false. `response` contient des informations sur l’opération, notamment les informations ETag du conteneur.
 
 ### Sécurité du conteneur
 
@@ -164,13 +164,13 @@ Le `result` renvoyé par ces méthodes contient les informations sur l'opératio
 
 Pour télécharger des données dans un nouvel objet blob d’ajout, utilisez :
 
-* **createAppendBlobFromLocalFile** : permet de créer un objet blob d’ajout et de télécharger le contenu d’un fichier
+* **createAppendBlobFromLocalFile** : permet de créer un objet blob d’ajout et de charger le contenu d’un fichier
 
-* **createAppendBlobFromStream** : permet de créer un objet blob d’ajout et de télécharger le contenu d’un flux
+* **createAppendBlobFromStream** : permet de créer un objet blob d’ajout et de charger le contenu d’un flux
 
-* **createAppendBlobFromText** : permet de créer un objet blob d’ajout et de télécharger le contenu d’une chaîne
+* **createAppendBlobFromText** : permet de créer un objet blob d’ajout et de charger le contenu d’une chaîne
 
-* **createWriteStreamToNewAppendBlob** : permet de créer un objet blob d’ajout et de fournir un flux pour y écrire
+* **createWriteStreamToNewAppendBlob** : permet de créer un objet blob d’ajout et fournit un flux pour y écrire
 
 L’exemple de code suivant charge le contenu du fichier **test.txt** dans **myappendblob**.
 
@@ -182,15 +182,15 @@ L’exemple de code suivant charge le contenu du fichier **test.txt** dans **mya
 
 Pour ajouter un bloc à un objet blob d’ajout existant, procédez comme suit :
 
-* **appendFromLocalFile** : ajouter le contenu d’un fichier à un objet blob d’ajout existant
+* **appendFromLocalFile** : permet d’ajouter le contenu d’un fichier à un objet blob d’ajout existant
 
-* **appendFromStream** : ajouter le contenu d’un flux à un objet blob d’ajout existant
+* **appendFromStream** : permet d’ajouter le contenu d’un flux à un objet blob d’ajout existant
 
-* **appendFromText** : ajouter le contenu d’une chaîne à un objet blob d’ajout existant
+* **appendFromText** : permet d’ajouter le contenu d’une chaîne à un objet blob d’ajout existant
 
-* **appendBlockFromStream** : ajouter le contenu d’un flux à un objet blob d’ajout existant
+* **appendBlockFromStream** : permet d’ajouter le contenu d’un flux à un objet blob d’ajout existant
 
-* **appendBlockFromText** : ajouter le contenu d’une chaîne à un objet blob d’ajout existant
+* **appendBlockFromText** : permet d’ajouter le contenu d’une chaîne à un objet blob d’ajout existant
 
 > [AZURE.NOTE] Les API appendFromXXX API effectuent une validation côté client pour échouer rapidement afin d’éviter tout appel inutile au serveur. Ce n’est pas le cas des API appendBlockFromXXX.
 
@@ -215,7 +215,7 @@ Pour télécharger des données dans un objet blob de pages, utilisez :
 
 * **createWriteStreamToExistingPageBlob** : fournit un flux d’écriture à un objet blob de pages existant
 
-* **createWriteStreamToNewPageBlob** : permet de créer un objet blob de pages et de fournir un flux pour y écrire
+* **createWriteStreamToNewPageBlob** : permet de créer un objet blob de pages et fournit un flux pour y écrire
 
 L’exemple de code suivant charge le contenu du fichier **test.txt** dans **mypageblob**.
 
@@ -227,7 +227,7 @@ L’exemple de code suivant charge le contenu du fichier **test.txt** dans **myp
 
 > [AZURE.NOTE] Les objets blob de pages sont constitués de « pages » de 512 octets. Une erreur se produit lors du téléchargement de données lorsque leur taille n’est pas un multiple de 512.
 
-## Création d'une liste d'objets blob dans un conteneur
+## Création d’une liste d’objets blob dans un conteneur
 
 Pour créer une liste d'objets blob dans un conteneur, utilisez la méthode **listBlobsSegmented**. Pour renvoyer les objets blob avec un préfixe donné, utilisez **listBlobsSegmentedWithPrefix**.
 
@@ -411,8 +411,8 @@ Pour plus d'informations, consultez les ressources suivantes.
 [Créer et déployer une application web Node.js dans Azure à l’aide de WebMatrix]: ../app-service-web/web-sites-nodejs-use-webmatrix.md
 [Using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx
 [Azure Portal]: https://portal.azure.com
-[Créer et déployer une application Node.js dans Azure Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
+[Création et déploiement d'une application Node.js dans Azure Cloud Services]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
 [Blog de l'équipe Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage/
 [Kit de développement logiciel (SDK) Azure Storage pour la référence de l'API Node]: http://dl.windowsazure.com/nodestoragedocs/index.html
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="na"
   ms.workload="data-services"
-  ms.date="07/06/2016"
+  ms.date="08/17/2016"
   ms.author="andrl"/>
 
 # Portail de la communauté
@@ -120,7 +120,9 @@ Pour vous tenir informé des dernières nouveautés et fonctionnalités Document
 
 | Nom de l'événement | Intervenant | Emplacement | Date | Hashtag |
 | -------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | -------------------- | ------------------------ | ------- |
+| [Groupe d’utilisateurs .NET Capitale](https://www.meetup.com/tally-dot-net/events/233070827/) | Santosh Hari | Tallahassee, Floride | 1er septembre 2016 | n/a |
 | [Ignite 2016](https://myignite.microsoft.com/sessions?q=documentdb) | Andrew Liu et Tara Jana | Atlanta, GA | 26-30 septembre 2016 | [#MSIgnite](https://twitter.com/MS_Ignite) |
+| [Strata + Hadoop World](http://conferences.oreilly.com/strata/hadoop-big-data-ny/?cmp=kn-data-confreg-home-stny16_bing_branded) | TBD | New York | 26-29 septembre 2016 | [#StrataConf](https://twitter.com/strataconf) |
 
 
 *Vous accueillez un événement ou y participez ? [Dites-nous](mailto:askdocdb@microsoft.com) en quoi nous pouvons vous aider !*
@@ -129,7 +131,7 @@ Pour vous tenir informé des dernières nouveautés et fonctionnalités Document
 
 | Nom de l'événement | Intervenant | Emplacement | Date | Enregistrement |
 | -------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | -------------------- | ---------------------- | --------- |
-| [DevTeach](http://devteach.com/) | Ken Cenerelli | Montréal, Canada | 4-8 juillet 2016 | [NoSQL, No Problem, Using Azure DocumentDB](http://www.slideshare.net/KenCenerelli) (NoSQL, aucun problème avec Azure DocumentDB) |
+| [DevTeach](http://devteach.com/) | Ken Cenerelli | Montréal, Canada | 4-8 juillet 2016 | [NoSQL, No Problem, Using Azure DocumentDB (NoSQL, aucun problème avec Azure DocumentDB)](http://www.slideshare.net/KenCenerelli) |
 | [Intégration et IoT ](http://www.btug.be/events) | Eldert Grootenboer | Kontich, Belgique | 30 juin 2016 | n/a |
 | [MongoDB World 2016](https://www.mongodb.com/world16) | Kirill Gavrylyuk | New York, New York | 28-29 juin 2016 | n/a |
 | [Groupe d’utilisateurs d’intégration](http://www.integrationusergroup.com/do-logic-apps-support-error-handling/) | Howard S. Edidin | Émission web | 20 juin 2016 | [Les applications logiques prennent-elles en charge la gestion des erreurs ?](http://www.integrationusergroup.com/do-logic-apps-support-error-handling/) |
@@ -161,7 +163,7 @@ Pour vous tenir informé des dernières nouveautés et fonctionnalités Document
 | [@Scale Seattle](http://www.atscaleconference.com/) | Dharma Shukla | Seattle, WA | 17 juin 2015 | [Indexation indépendante d’un schéma avec Azure DocumentDB](https://www.youtube.com/watch?v=VJQ_5qFFVP4) |
 | [Tech Refresh 2015](https://channel9.msdn.com/Events/DXPortugal/Tech-Refresh-2015) | Bruno Lopes | Lisbonne, Portugal | 15 juin 2015 | [DocumentDB 101](https://channel9.msdn.com/Events/DXPortugal/Tech-Refresh-2015/DPDEV01) |
 | [SQL Saturday #417 - Sri Lanka 2015](http://www.sqlsaturday.com/417/Sessions/Details.aspx?sid=21415) | Mihail Mateev | Colombo, Sri Lanka | 6 juin 2015 | n/a |
-| [Meetup :Seattle Scalability Meetup](http://www.meetup.com/Seattle-Scalability-Meetup/events/204010442/) | Dharma Shukla | Seattle, WA | 27 mai 2015 | n/a |
+| [Meetup : Seattle Scalability Meetup](http://www.meetup.com/Seattle-Scalability-Meetup/events/204010442/) | Dharma Shukla | Seattle, WA | 27 mai 2015 | n/a |
 | [SQL Saturday #377 - Kiev 2015](http://www.sqlsaturday.com/377/Sessions/Details.aspx?sid=20322) | Mihail Mateev | Kiev, Ukraine | 23 mai 2015 | n/a |
 | [Mois de la base de données](http://www.databasemonth.com/database/azure-documentdb) | Dharma Shukla | New York | 19 mai 2015 | [Azure Document : Service de base de données de documents mutualisés hautement évolutif](https://www.youtube.com/watch?v=iZsqBc3Dkbk) |
 | [Meetup: London SQL Server User Group](http://www.meetup.com/London-SQL-Server-User-Group/events/221525058/) | Allan Mitchell | Londres, Royaume-Uni | 19 mai 2015 | n/a |
@@ -245,7 +247,7 @@ Ces projets sont activement développés par l’équipe Azure DocumentDB, en co
 
 ### Autres projets
 
-| Nom | Github | Site Web |
+| Name | Github | Site Web |
 | ------------------- | ------------------------------------------------------------------------------------------------- | ------- |
 | Documentation | [azure-content](https://github.com/Azure/azure-content/tree/master/articles/documentdb) | [Site web de documentation](https://azure.microsoft.com/documentation/services/documentdb/) |
 | Connecteur Hadoop | [Azure-documentdb-hadoop](https://github.com/Azure/azure-documentdb-hadoop) | [Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-documentdb-hadoop%22) |
@@ -266,4 +268,4 @@ Assistant | Photo
 
 Vous voulez devenir assistant DocumentDB ? Il n’existe aucun critère défini pour devenir assistant DocumentDB. Nous évaluons entre autres l’intérêt des contributions des candidats aux forums en ligne tels que StackOverflow et MSDN, les wikis et le contenu en ligne, les conférences et les groupes d’utilisateurs, les podcasts, les sites web, les blogs et les réseaux sociaux, et enfin les articles et les livres. Vous pouvez vous porter vous-même candidat ou désigner quelqu’un d’autre en [nous envoyant un message](mailto:askdocdb@microsoft.com).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0817_2016-->

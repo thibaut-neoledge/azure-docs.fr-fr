@@ -13,16 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="08/01/2016"
+   ms.date="08/11/2016"
    ms.author="jehollan"/>
 
 # Scénarios courants et exemples d’applications logiques
 
 Ce document présente des scénarios courants et des exemples afin de vous aider à comprendre comment utiliser les applications logiques pour automatiser les processus d’entreprise.
 
-## Déclencheurs et actions
+## Déclencheurs et actions personnalisés
 
-Il existe plusieurs moyens de déclencher une application logique à partir d’une autre application. En voici quelques-uns :
+Il existe plusieurs moyens de déclencher une application logique à partir d’une autre application. Voici quelques exemples courants :
 
 - [Création d’un déclencheur ou d’une action personnalisés](app-service-logic-create-api-app.md)
 - [Actions de longue durée](app-service-logic-create-api-app.md)
@@ -33,9 +33,11 @@ Il existe plusieurs moyens de déclencher une application logique à partir d’
 ### Scénarios
 
 - [Réponse synchrone à une requête](app-service-logic-http-endpoint.md)
+- [Demande/réponse avec SMS](https://channel9.msdn.com/Blogs/Windows-Azure/Azure-Logic-Apps-Walkthrough-Webhook-Functions-and-an-SMS-Bot)
 
 ## Gestion et journalisation des erreurs
 
+- [Gestion des erreurs et des exceptions](app-service-logic-exception-handling.md)
 - [Configurer les alertes et diagnostics Azure](app-service-logic-monitor-your-logic-apps.md)
 
 ### Scénarios
@@ -77,4 +79,4 @@ Le [langage de définition de flux de travail](http://aka.ms/logicappsdocs) Logi
 
 Nous continuerons à ajouter des exemples et des scénarios dans ce document. Utilisez la section de commentaires ci-dessous pour nous faire savoir quels exemples ou scénarios vous aimeriez découvrir.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

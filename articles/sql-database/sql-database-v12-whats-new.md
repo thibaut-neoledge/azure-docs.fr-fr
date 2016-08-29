@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/19/2016"
+	ms.date="08/15/2016"
 	ms.author="genemi"/>
 
 
 # Nouveautés de SQL Database V12
 
 
-Cette rubrique décrit les nombreux avantages de la nouvelle version 12 (V12) d’Azure SQL Database par rapport à la version 11.
+Cette rubrique décrit les nombreux avantages de la nouvelle version 12 (V12) de la base de données SQL Azure par rapport à la version 11.
 
 
 Nous continuons d’ajouter des fonctionnalités à la version 12 (V12). Par conséquent, nous vous encourageons à consulter notre page web sur les mises à jour des services pour Azure et à utiliser ses filtres :
@@ -53,7 +53,7 @@ Un objectif clé de SQL Database V12 était d’améliorer la compatibilité ave
 
 - [ALTER DATABASE SCOPED CONFIGURATION (Transact-SQL)](http://msdn.microsoft.com/library/mt629158.aspx)
 
-Consultez [cette page](sql-database-transact-sql-information.md) pour découvrir les quelques fonctionnalités non prises en charge par Base de données SQL.
+Consultez [cette page](sql-database-transact-sql-information.md) pour découvrir les quelques fonctionnalités non prises en charge par la base de données SQL.
 
 
 ### Niveau de compatibilité 130
@@ -61,7 +61,7 @@ Consultez [cette page](sql-database-transact-sql-information.md) pour découvrir
 
 > [AZURE.IMPORTANT] À compter de **juin 2016**, le niveau de compatibilité des bases de données *créées* sur la base de données SQL Azure V12 commence à 130, ce qui correspond à Microsoft SQL Server 2016 GA.
 > 
-> Bien sûr, vous pouvez utiliser `ALTER DATABASE YourDatabase SET COMPATIBILITY_LEVEL = 120` si vous préférez.
+> Vous pouvez utiliser `ALTER DATABASE YourDatabase SET COMPATIBILITY_LEVEL = 120` si vous préférez.
 > 
 > Le niveau de compatibilité des bases de données créées avant juin 2016 ne sera pas modifié par ce changement de valeur par défaut. Le niveau des bases de données mises à niveau de V11 à V12 ne sera pas non plus modifié.
 
@@ -99,10 +99,10 @@ Cliquez [ici](sql-database-develop-direct-route-ports-adonet-v12.md) pour plus d
 ## Une meilleure prise en charge des fournisseurs SaaS cloud
 
 
-Uniquement dans la version 12 (V12), nous avons publié le nouveau niveau de performances Standard S3 et la version préliminaire publique des [pools de base de données élastiques](sql-database-elastic-pool.md). Il s’agit d’une solution spécialement conçue pour les fournisseurs SaaS cloud. Avec les pools de bases de données élastiques, vous pouvez :
+Uniquement dans la version 12 (V12), nous avons publié le nouveau niveau de performances Standard S3 et la version préliminaire publique des [pools de base de données élastiques](sql-database-elastic-pool.md). Les pools de base de données élastique représentent une solution conçue pour les fournisseurs SaaS cloud. Avec les pools de bases de données élastiques, vous pouvez :
 
 
-- Partager les unités de base de données (UDBD) entre les bases de données pour réduire les coûts pour un grand nombre de bases de données.
+- Partager les DTU entre les bases de données pour réduire les coûts pour un grand nombre de bases de données.
 - Exécuter des [tâches de base de données élastique](sql-database-elastic-jobs-overview.md) pour gérer les bases de données à grande échelle.
 
 
@@ -125,7 +125,7 @@ La sécurité est une préoccupation essentielle pour quiconque mène ses activi
 ## Continuité d’activité améliorée lors de la récupération
 
 
-La version 12 (V12) offre des valeurs sensiblement améliorées pour les objectifs de point de récupération (RPO) et les temps de récupération estimés (ERT) :
+La version 12 (V12) offre des valeurs améliorées pour les objectifs de point de récupération (RPO) et les temps de récupération estimés (ERT) :
 
 
 | Fonctionnalité de continuité des activités | Version antérieure | Version 12 (V12) |
@@ -143,7 +143,7 @@ Pour plus d’informations, consultez la rubrique [Continuité de l’activité 
 Il y a de nombreuses bonnes raisons pour lesquelles les clients doivent passer de la version 11 à la version 12 (V12) d’Azure SQL Database :
 
 
-- SQL Database V12 présente une longue liste de fonctionnalités, bien plus longue que celle de la version 11.
+- La base de données SQL V12 présente une longue liste de fonctionnalités, bien plus longue que celle de la version 11.
 - Nous continuons à ajouter de nouvelles fonctionnalités à la version 12 (V12), mais aucune nouvelle fonctionnalité ne sera ajoutée à la 11.
 - La plupart des nouvelles fonctionnalités sont publiées dans SQL Database V12 avant qu’elles ne soient intégrées à Microsoft SQL Server.
 
@@ -183,4 +183,4 @@ Si vous n’utilisez pas encore la version 12 (V12), vous pouvez mettre à nive
 
 [Conditions d’utilisation supplémentaires des versions préliminaires de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0817_2016-->

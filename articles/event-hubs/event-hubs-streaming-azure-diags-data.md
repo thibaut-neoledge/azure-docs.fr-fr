@@ -34,12 +34,12 @@ Cet article vous montre la procédure complète de configuration de diagnostics 
 - Comment afficher les données de flux Event Hubs
 - Comment résoudre les problèmes de connexion
 
-## Configuration requise
+## Conditions préalables
 
 La réception Event Hubs dans Azure Diagnostics est prise en charge dans les services cloud, dans les jeux de mise à l’échelle de machines virtuelles, dans Service Fabric à partir du Kit de développement logiciel (SDK) 2.9 Azure, ainsi que dans les outils Azure correspondants pour Visual Studio.
 
 - Extension Azure Diagnostics 1.6 (ciblée par défaut par le [Kit de développement logiciel (SDK) Azure pour .NET 2.9 ou ultérieur](https://azure.microsoft.com/downloads/))
-- [Visual Studio 2013 ou une version ultérieure](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)
+- [Visual Studio 2013 ou une version ultérieure](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)
 - Configurations existantes d’Azure Diagnostics dans une application à l’aide d’un fichier *.wadcfgx* et de l’une des méthodes suivantes :
 	- Visual Studio : [Configuration de Diagnostics pour les services cloud et les machines virtuelles Azure](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md)
 	- Windows PowerShell : [Activer les diagnostics dans Azure Cloud Services à l’aide de PowerShell](../cloud-services/cloud-services-diagnostics-powershell.md)
@@ -57,7 +57,7 @@ Azure Diagnostics transmet toujours par défaut des journaux et des mesures à u
 </SinksConfig>
 ```
 
-Dans cet exemple, l’URL Event Hubs est définie sur l’espace de noms complet de l’Event Hub (espace de noms ServiceBus + « / » + nom de l’Event Hub).
+Dans cet exemple, l’URL de l’Event Hub est définie sur l’espace de noms complet de l’Event Hub (espace de noms Event Hubs + « / » + nom de l’Event Hub).
 
 L’URL de l’Event Hub s’affiche dans le [portail Azure](http://go.microsoft.com/fwlink/?LinkID=213885) dans le tableau de bord Event Hubs.
 
@@ -74,7 +74,7 @@ Le récepteur Event Hubs doit également être déclaré et défini dans la sect
 </PrivateConfig>
 ```
 
-La valeur `SharedAccessKeyName` doit correspondre à une clé de signature d’accès partagé (SAS) et à une stratégie définie dans l’espace de noms **ServiceBus/EventHub**. Dans le [portail Azure](https://manage.windowsazure.com), accédez au tableau de bord Event Hubs, cliquez sur l’onglet **Configurer** et définissez une stratégie nommée (par exemple, « SendRule ») qui possède des autorisations *d’envoi*. L’élément **StorageAccount** est également déclaré dans le fichier **PrivateConfig**. Il est inutile de modifier les valeurs ici si elles fonctionnent correctement. Dans cet exemple, nous ne renseignons pas les valeurs afin d’indiquer que ces valeurs seront définies par une ressource en aval. Par exemple, le fichier de configuration d’environnement *ServiceConfiguration.Cloud.cscfg* définit les noms et les clés appropriés à l’environnement.
+La valeur `SharedAccessKeyName` doit correspondre à une clé de signature d’accès partagé (SAS) et à une stratégie définie dans l’espace de noms **Event Hubs**. Dans le [portail Azure](https://manage.windowsazure.com), accédez au tableau de bord Event Hubs, cliquez sur l’onglet **Configurer** et définissez une stratégie nommée (par exemple, « SendRule ») qui possède des autorisations *d’envoi*. L’élément **StorageAccount** est également déclaré dans le fichier **PrivateConfig**. Il est inutile de modifier les valeurs ici si elles fonctionnent correctement. Dans cet exemple, nous ne renseignons pas les valeurs afin d’indiquer que ces valeurs seront définies par une ressource en aval. Par exemple, le fichier de configuration d’environnement *ServiceConfiguration.Cloud.cscfg* définit les noms et les clés appropriés à l’environnement.
 
 > [AZURE.WARNING] La clé SAS Event Hubs est stockée en texte brut dans le fichier *.wadcfgx*. Cette clé est souvent intégrée au contrôle du code source ou est disponible en tant que ressource dans votre serveur de builds. Vous devez donc la protéger en conséquence. Nous vous recommandons d’utiliser ici une clé SAS avec les autorisations *Envoyer uniquement* afin qu’un utilisateur malveillant puisse écrire dans l’Event Hub, mais sans l’écouter ou le gérer.
 
@@ -319,4 +319,4 @@ Le fichier complémentaire *ServiceConfiguration.Cloud.cscfg* pour cet exemple s
 <!-- Images. -->
 [0]: ./media/event-hubs-streaming-azure-diags-data/dashboard.png
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0817_2016-->

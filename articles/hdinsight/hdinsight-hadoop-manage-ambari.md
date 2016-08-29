@@ -25,8 +25,6 @@ Apache Ambari simplifie la gestion et la surveillance d'un cluster Hadoop en fou
 
 Dans ce document, vous allez apprendre à utiliser l’interface utilisateur Web d’Ambari avec un cluster HDInsight.
 
-> [AZURE.NOTE] Les informations mentionnées dans cet article s’appliquent uniquement aux clusters HDInsight sous Linux. Pour les clusters HDInsight Windows, seule la surveillance via l'API REST d'Ambari est disponible. Consultez la page [Surveillance d'Hadoop Windows sur HDInsight à l'aide de l'API Ambari](hdinsight-monitor-use-ambari-api.md).
-
 ##<a id="whatis"></a>Présentation d'Ambari
 
 <a href="http://ambari.apache.org" target="_blank">Apache Ambari</a> simplifie la gestion de Hadoop en fournissant une interface utilisateur web conviviale qui peut être utilisée pour approvisionner, gérer et surveiller les clusters Hadoop. Les développeurs peuvent intégrer ces fonctionnalités dans leurs applications à l'aide des <a href="https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md" target="_blank">API REST Ambari</a>.
@@ -71,7 +69,7 @@ Lorsque la page s'ouvre, vérifiez la barre située en haut de l'écran. Elle co
 
 * **Bouton Administrateur** : gestion d'Ambari, paramètres utilisateur et déconnexion.
 
-##Analyse
+##Surveillance
 
 ###Alertes
 
@@ -141,7 +139,7 @@ La sélection de l'un de ces liens ouvrira un nouvel onglet dans votre navigateu
 >
 > Pour plus d’informations sur l’utilisation d’un tunnel SSL avec HDInsight, consultez [Utilisation de SSL Tunneling pour accéder à l’interface utilisateur Web d’Ambari, ResourceManager, JobHistory, NameNode, Oozie et d’autres interfaces Web](hdinsight-linux-ambari-ssh-tunnel.md).
 
-##gestion
+##Gestion
 
 ###Utilisateurs d'Ambari, groupes et autorisations
 
@@ -224,4 +222,4 @@ Les affichages Ambari permettent aux développeurs d’incorporer des éléments
 * Affichage Hive : l’affichage Hive vous permet d’exécuter des requêtes Hive directement à partir du navigateur web. Vous pouvez enregistrer des requêtes, afficher les résultats, enregistrer les résultats dans le stockage de cluster ou les télécharger sur votre système local. Pour plus d’informations sur l’utilisation des affichages Hive, consultez [Utiliser des affichages Hive avec HDInsight](hdinsight-hadoop-use-hive-ambari-view.md).
 * Affichage Tez : l’affichage Tez vous permet de mieux comprendre et optimiser les tâches en affichant des informations sur le mode d’exécution des tâches Tez et les ressources utilisées par la tâche.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0817_2016-->

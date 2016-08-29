@@ -13,12 +13,12 @@
     ms.tgt_pltfrm="na"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="06/24/2016" 
+    ms.date="08/11/2016" 
     ms.author="robmcm" />
 
 # Affichage des données SAML (Security Assertion Markup Language) renvoyées par Azure Access Control Service
 
-Ce guide explique comment afficher les données SAML (Security Assertion Markup Language) sous-jacentes renvoyées à votre application par Azure Access Control Service (ACS). Ce guide s'appuie sur la rubrique [Authentification des utilisateurs Web auprès d'Azure Access Control Service à l'aide d'Eclipse][] en fournissant le code nécessaire à l'affichage des données SAML. L'application terminée sera semblable à ce qui suit.
+Ce guide explique comment afficher les données SAML (Security Assertion Markup Language) sous-jacentes renvoyées à votre application par Azure Access Control Service (ACS). Ce guide s’appuie sur la rubrique [Authentification des utilisateurs web auprès d’Azure Access Control Service à l’aide d’Eclipse][] en fournissant le code nécessaire à l’affichage des données SAML. L'application terminée sera semblable à ce qui suit.
 
 ![Exemple de sortie SAML][saml_output]
 
@@ -193,7 +193,8 @@ Pour en savoir plus sur les fonctionnalités ACS et découvrir des scénarios pl
 [Next steps]: #next_steps
 [Access Control Service 2.0]: http://go.microsoft.com/fwlink/?LinkID=212360
 [Authentification des utilisateurs Web auprès d'Azure Access Control Service à l'aide d'Eclipse]: ../active-directory-java-authenticate-users-access-control-eclipse
+[Authentification des utilisateurs web auprès d’Azure Access Control Service à l’aide d’Eclipse]: ../active-directory-java-authenticate-users-access-control-eclipse
 [saml_output]: ./media/active-directory-java-view-saml-returned-by-access-control/SAML_Output.png
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

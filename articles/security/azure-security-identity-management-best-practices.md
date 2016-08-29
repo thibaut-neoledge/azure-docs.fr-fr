@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/26/2016"
+   ms.date="08/16/2016"
    ms.author="yurid"/>
 
 # Meilleures pratiques en matière de sécurité du contrôle d’accès et de la gestion des identités Azure
@@ -134,4 +134,4 @@ En revanche, la protection d’identité Azure AD est un système de surveillanc
 
 Les organisations qui ne surveillent pas activement leurs systèmes d’identité risquent de compromettre les informations d’identification des utilisateurs. Si elles n’ont pas connaissance des activités suspectes se déroulant avec ces informations d’identification, elles ne seront pas en mesure de limiter ce type de menace. Pour en savoir plus sur la protection d’identité Azure, lisez l’article [Azure Active Directory Identity Protection](../active-directory/active-directory-identityprotection.md) (Protection de l’identité Azure Active Directory).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0817_2016-->

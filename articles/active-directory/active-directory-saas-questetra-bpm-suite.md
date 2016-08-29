@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/19/2016"
+	ms.date="08/12/2016"
 	ms.author="jeedes"/>
 
 
@@ -21,7 +21,7 @@
 
 L’objectif de ce didacticiel est de vous montrer comment intégrer Questetra BPM Suite à Azure Active Directory (Azure AD). L’intégration de Questetra BPM Suite à Azure AD offre les avantages suivants :
 
-- Dans Azure AD, vous pouvez contrôler qui a accès à Questetra BPM Suite. 
+- Dans Azure AD, vous pouvez contrôler qui a accès à Questetra BPM Suite.
 - Vous pouvez autoriser les utilisateurs à se connecter automatiquement à Questetra BPM Suite (via l'authentification unique) avec leur compte Azure AD.
 - Vous pouvez gérer vos comptes à un emplacement central : le portail Azure Classic.
 
@@ -32,7 +32,7 @@ Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, co
 Pour configurer l'intégration d'Azure AD avec Questetra BPM Suite, vous avez besoin des éléments suivants :
 
 - Un abonnement Azure AD
-- Un abonnement [Questetra BPM Suite](https://senbon-imadegawa-988.questetra.net/) pour lequel l'authentification unique est activée
+- Un abonnement [Questetra BPM Suite](https://senbon-imadegawa-988.questetra.net/) pour lequel l’authentification unique est activée
 
 
 > [AZURE.NOTE] Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production.
@@ -41,13 +41,13 @@ Pour configurer l'intégration d'Azure AD avec Questetra BPM Suite, vous avez b
 Vous devez en outre suivre les recommandations ci-dessous :
 
 - Vous ne devez pas utiliser votre environnement de production, sauf si cela est nécessaire.
-- Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/). 
+- Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
 
  
 ## Description du scénario
 Ce didacticiel vise à vous permettre de tester l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
-1. Ajout de Questetra BPM Suite à partir de la galerie 
+1. Ajout de Questetra BPM Suite à partir de la galerie
 2. Configuration et test de l’authentification unique Azure AD
 
 
@@ -56,7 +56,7 @@ Pour configurer l'intégration de Questetra BPM Suite avec Azure AD, vous devez
 
 **Pour ajouter Questetra BPM Suite à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **portail Azure Classic**, cliquez sur **Active Directory**. 
+1. Dans le volet de navigation gauche du **portail Azure Classic**, cliquez sur **Active Directory**.
 
 	![Active Directory][1]
 
@@ -160,7 +160,7 @@ L’objectif de cette section est d’activer l’authentification unique Azure 
 
     g. Ouvrez votre certificat encodé en base 64 dans le Bloc-notes, copiez son contenu dans le Presse-papiers et collez-le dans la zone de texte **Certificat de validation**.
 
-    h. Cliquez sur **Enregistrer**.
+    h. Cliquez sur **Save**.
 
 
 9. Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Suivant**.
@@ -186,15 +186,15 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
 2. Dans la liste **Annuaire**, sélectionnez l'annuaire pour lequel vous voulez activer l'intégration d'annuaire.
 
-3. Pour afficher la liste des utilisateurs, dans le menu situé en haut, cliquez sur **Utilisateurs**.
+3. Pour afficher la liste des utilisateurs, dans le menu du haut, cliquez sur **Utilisateurs**.
 
 	![Créer un utilisateur de test Azure AD][101]
 
-4. Pour ouvrir la boîte de dialogue **Ajouter un utilisateur**, cliquez sur **Ajouter un utilisateur** dans la barre d’outils située en bas.
+4. Pour ouvrir la boîte de dialogue **Ajouter un utilisateur**, cliquez sur l’option **Ajouter un utilisateur** figurant dans la barre d’outils du bas.
 
 	![Créer un utilisateur de test Azure AD][102]
 
-5. Dans la page de boîte de dialogue **Dites-nous en plus sur cet utilisateur**, procédez comme suit :
+5. Sur la page de boîte de dialogue **Dites-nous en plus sur cet utilisateur**, procédez comme suit :
 
 	![Créer un utilisateur de test Azure AD][103]
  
@@ -204,7 +204,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     c. Cliquez sur Suivant.
 
-6.  Dans la page de boîte de dialogue **Profil utilisateur**, procédez comme suit :
+6.  Sur la page **Profil utilisateur**, procédez comme suit :
 
 	![Créer un utilisateur de test Azure AD][104]
   
@@ -218,11 +218,11 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     e. Cliquez sur **Next**.
 
-7. Dans la page de boîte de dialogue **Obtenir un mot de passe temporaire**, cliquez sur **créer**.
+7. Sur la page de boîte de dialogue **Obtenir un mot de passe temporaire**, cliquez sur **créer**.
 
 	![Créer un utilisateur de test Azure AD][105]
 
-8. Dans la page de boîte de dialogue **Obtenir un mot de passe temporaire**, procédez comme suit :
+8. Sur la page de boîte de dialogue **Obtenir un mot de passe temporaire**, procédez comme suit :
 
 	![Créer un utilisateur de test Azure AD][106]
   
@@ -238,8 +238,8 @@ L'objectif de cette section est de créer un utilisateur appelé Britta Simon da
 **Pour créer un utilisateur appelé Britta Simon dans Questetra BPM Suite, procédez comme suit :**
 
 1.	Connectez-vous à votre site d'entreprise Questetra BPM Suite en tant qu'administrateur.
-2.	Accédez à **Paramètres système > Liste des utilisateurs > Nouvel utilisateur**. 
-3.	Dans la boîte de dialogue Nouvel utilisateur, procédez comme suit : 
+2.	Accédez à **Paramètres système > Liste des utilisateurs > Nouvel utilisateur**.
+3.	Dans la boîte de dialogue Nouvel utilisateur, procédez comme suit :
 
 	![Créer un utilisateur de test][300]
 
@@ -285,7 +285,7 @@ L’objectif de cette section est de permettre à Britta Simon d’utiliser l’
 
 ### Test de l’authentification unique
 
-L’objectif de cette section est de tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès. Lorsque vous cliquez sur la vignette Questetra BPM Suite dans le volet d'accès, vous devez être connecté automatiquement à votre application Questetra BPM Suite.
+L’objectif de cette section est de tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès. Lorsque vous cliquez sur la vignette Questetra BPM Suite dans le volet d'accès, vous devez être connecté automatiquement à votre application Questetra BPM Suite.
 
 
 ## Ressources supplémentaires
@@ -332,4 +332,4 @@ L’objectif de cette section est de tester la configuration de l’authentifica
 
 [300]: ./media/active-directory-saas-questetra-bpm-suite/questera_bpm_suite_11.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0817_2016-->

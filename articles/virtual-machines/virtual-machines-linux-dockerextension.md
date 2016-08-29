@@ -35,9 +35,9 @@ Grâce à Azure Resource Manager, vous pouvez créer et déployer des modèles q
 
 ## Déployer un modèle avec l’extension de machine virtuelle Docker :
 
-Nous allons utiliser un modèle existant de démarrage rapide pour montrer comment déployer une machine virtuelle Ubuntu comportant une installation de l’extension de machine virtuelle Docker. Vous pouvez voir le modèle ici : [Simple deployment of an Ubuntu VM with Docker (Déploiement simple d’une machine virtuelle Ubuntu avec Docker)](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu)
+Nous allons utiliser un modèle existant de démarrage rapide pour montrer comment déployer une machine virtuelle Ubuntu comportant une installation de l’extension de machine virtuelle Docker. Vous pouvez voir le modèle ici : [Simple deployment of an Ubuntu VM with Docker (Déploiement simple d’une machine virtuelle Ubuntu avec Docker)](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). Vous avez également besoin de la [dernière version de l’interface de ligne de commande Azure](../xplat-cli-install.md) en mode Resource Manager (`azure config mode arm`).
 
-Déployez le modèle à l’aide de l’interface de ligne de commande Azure en spécifiant un nom pour le nouveau groupe de ressources (ici `myDockerResourceGroup`) ainsi que l’URI du modèle :
+Déployez le modèle à l’aide de l’interface de ligne de commande Azure en spécifiant un nom pour le nouveau groupe de ressources (ici `myDockerResourceGroup`), ainsi que l’URI du modèle :
 
 ```
 azure group create --name myDockerResourceGroup --location "West US" \
@@ -127,7 +127,7 @@ Cet exemple utilise un modèle de démarrage rapide. Pour déployer l’extensio
 }
 ```
 
-Pour découvrir la procédure détaillée d’utilisation de modèles Resource Manager, voir la [présentation d’Azure Resource Manager](../resource-group-overview.md)
+Pour découvrir la procédure pas à pas d’utilisation de modèles Resource Manager, voir la [Vue d’ensemble d’Azure Resource Manager](../resource-group-overview.md)
 
 ## Étapes suivantes
 
@@ -138,4 +138,4 @@ Lire des étapes plus détaillées pour les différentes options de déploiement
 3. [Prise en main de Docker et Compose pour définir et exécuter une application à conteneurs multiples sur une machine virtuelle Azure](virtual-machines-linux-docker-compose-quickstart.md).
 3. [Déploiement d’un cluster Azure Container Service](../container-service/container-service-deployment.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

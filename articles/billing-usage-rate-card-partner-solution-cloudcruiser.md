@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="billing"
-   ms.date="02/19/2016"
+   ms.date="08/16/2016"
    ms.author="mobandyo;sirishap;bryanla"/>
 
 # Intégration des API Microsoft Azure Billing par Cloud Cruiser
@@ -46,9 +46,9 @@ Cloud Cruiser peut tirer parti des informations de l’API RateCard de différe
 
 Pour illustrer ce cas d’utilisation, imaginons une charge de travail de plusieurs instances en cours d’exécution sur Microsoft Azure Pack (WAP). L’objectif est de simuler cette même charge de travail sur Azure et d’estimer les coûts liés à cette migration. La création de cette simulation nécessite l’exécution de deux tâches principales :
 
-1. **Importation et traitement des informations de service collectées à partir de l’API RateCard** : cette tâche est également effectuée sur les classeurs, dans lesquels les informations extraites de l’API RateCard sont transformées et publiées sous la forme d’une nouvelle formule tarifaire. Cette nouvelle formule sera appliquée aux simulations pour estimer les prix Azure.
+1. **Importation et traitement des informations de service collectées à partir de l’API RateCard** : cette tâche est également effectuée sur les classeurs, dans lesquels les informations extraites de l’API RateCard sont transformées et publiées sous la forme d’une nouvelle formule tarifaire. Cette nouvelle formule sera appliquée aux simulations pour estimer les prix Azure.
 
-2. **Normalisation des services WAP et des services Azure pour IaaS** : par défaut, les services WAP reposent sur des ressources individuelles (unité centrale, taille de la mémoire, taille de disque, etc.), alors que les services Azure sont basés sur la taille d’instance (A0, A1, A2, etc.). Cette première tâche peut être effectuée par le moteur ETL (extraction, transformation et chargement) de Cloud Cruiser, désigné sous le terme de classeurs, dans lesquels ces ressources peuvent être regroupées dans des tailles d’instance, analogues aux services d’instance d’Azure.
+2. **Normalisation des services WAP et des services Azure pour IaaS** : par défaut, les services WAP reposent sur des ressources individuelles (unité centrale, taille de la mémoire, taille de disque, etc.), alors que les services Azure sont basés sur la taille d’instance (A0, A1, A2, etc.). Cette première tâche peut être effectuée par le moteur ETL (extraction, transformation et chargement) de Cloud Cruiser, désigné sous le terme de classeurs, dans lesquels ces ressources peuvent être regroupées dans des tailles d’instance, analogues aux services d’instance d’Azure.
 
 ### Importer les données de l’API RateCard
 
@@ -144,11 +144,11 @@ Pour ce qui est de la tarification Cloud Cruiser automatise le processus de réc
  
 
 ### Création d'un groupe de ressources avec des balises dans Microsoft Azure
-La première étape de ce didacticiel consiste à créer un nouveau groupe de ressources dans le portail Azure et à créer ensuite des balises à associer aux ressources. Pour cet exemple, nous allons créer les balises suivantes : département, environnement, propriétaire, projet.
+La première étape de ce didacticiel consiste à créer un groupe de ressources dans le portail Azure et à créer ensuite des balises à associer aux ressources. Pour cet exemple, nous allons créer les balises suivantes : département, environnement, propriétaire, projet.
 
-La capture d'écran du portail Azure ci-dessous montre un exemple de groupe de ressources avec les balises associées.
+La capture d’écran du portail Azure ci-dessous montre un exemple de groupe de ressources avec les balises associées.
 
-![Figure 11 : groupe de ressources avec des balises associées dans le portail Azure][11]
+![Figure 11 : groupe de ressources avec des balises associées dans le portail Azure][11]
 
 L'étape suivante consiste à transmettre les informations de l'API d'utilisation à Cloud Cruiser. L'API d'utilisation fournit actuellement des réponses au format JSON. Voici un exemple des données récupérées :
 
@@ -232,9 +232,9 @@ Et vous n'avez à exécuter ce processus qu'une seule fois ! Lorsque le classeu
 [8]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Workbook-Scheduling.png "Figure 8 : planification du classeur"
 [9]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Workload-Cost-Simulation-Report.png "Figure 9 : exemple de rapport pour le scénario de comparaison des coûts de la charge de travail"
 [10]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/1_ReportWithTags.png "Figure 10 : rapport avec répartitions à l'aide de balises"
-[11]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/2_ResourceGroupsWithTags.png "Figure 11 : groupe de ressources avec des balises associées dans le portail Azure"
+[11]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/2_ResourceGroupsWithTags.png "Figure 11 : groupe de ressources avec des balises associées dans le portail Azure"
 [12]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/3_ImportIntoUsageAPISheet.png "Figure 12 : données de l'API d'utilisation importées dans la feuille UsageAPI"
 [13]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/4_NewTagField.png "Figure 13 : créer des champs pour les informations de balise"
 [14]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/5_PopulateAccountStructure.png "Figure 14 : remplissage de la structure de compte avec les informations des recherches"
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

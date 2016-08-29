@@ -13,14 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="06/24/2016"
+	ms.date="08/11/2016"
 	ms.author="micurd"/>
 
 
 # Utilisation du stockage de tables Azure à partir de Node.js
 
-[AZURE.INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
-
+[AZURE.INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)] <br/> [AZURE.INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-tables.md)]
 
 ## Vue d'ensemble
 
@@ -73,7 +72,7 @@ Le module Azure lit les variables d'environnement AZURE\_STORAGE\_ACCOUNT et AZU
 
 Pour obtenir un exemple de configuration des variables d’environnement dans le [portail Azure](https://portal.azure.com) pour un site web Azure, consultez [Application web Node.js avec le service de Table Azure].
 
-## Création d'une table
+## Création d’une table
 
 Le code suivant crée un objet **TableService** et l'utilise pour créer une table. Ajoutez le code suivant vers le début du fichier **server.js** :
 
@@ -106,7 +105,7 @@ Deux filtres qui implémentent la logique de relance sont inclus dans le Kit de 
 	var retryOperations = new azure.ExponentialRetryPolicyFilter();
 	var tableSvc = azure.createTableService().withFilter(retryOperations);
 
-## Ajout d'une entité à une table
+## Ajout d’une entité à une table
 
 Pour ajouter une entité, commencez par créer un objet qui définit les propriétés de l'entité. Toutes les entités doivent contenir une propriété **PartitionKey** et **RowKey**, qui sont des identificateurs uniques de l'entité.
 
@@ -185,7 +184,7 @@ L’exemple suivant illustre la mise à jour d’une entité avec **replaceEntit
 >
 > 3. Effectuez l'opération de mise à jour. Si l’entité a été modifiée depuis que vous avez extrait la valeur ETag, par exemple avec une autre instance de votre application, une `error` est renvoyée, indiquant que la condition de mise à jour spécifiée dans la requête n’est pas remplie.
 
-Avec **replaceEntity** et **mergeEntity**, si l’entité mise à jour n’existe pas, l’opération échoue. Si vous voulez stocker une entité, qu’elle existe déjà ou non, utilisez **insertOrReplaceEntity** ou **insertOrMergeEntity**.
+Avec **replaceEntity** et **mergeEntity**, l’opération échoue si l’entité mise à jour n’existe pas. Si vous voulez stocker une entité, qu’elle existe déjà ou non, utilisez **insertOrReplaceEntity** ou **insertOrMergeEntity**.
 
 Le `result` des opérations de mise à jour réussies contient l’**Etag** de l’entité mise à jour.
 
@@ -278,7 +277,7 @@ Comme **select** n'est pas utilisé, tous les champs sont renvoyés. Pour exécu
 
 En cas de réussite, `result.entries` contient un tableau d’entités qui correspondent à la requête. Si la requête n’a pas pu renvoyer toutes les entités, `result.continuationToken` est non *null* et peut servir de troisième paramètre de **queryEntities** pour obtenir davantage de résultats. Pour la requête initiale, utilisez *null* comme troisième paramètre.
 
-### Interrogation d'un sous-ensemble de propriétés d'entité
+### Interrogation d’un sous-ensemble de propriétés d’entité
 
 Vous pouvez utiliser une requête de table pour extraire uniquement quelques champs d'une entité. Ceci permet de réduire la consommation de bande passante et peut améliorer les performances des requêtes, notamment pour les entités volumineuses. Utilisez la clause **select** et transmettez les noms des champs à renvoyer. Par exemple, la requête suivante renvoie uniquement les champs **description** et **dueDate**.
 
@@ -287,7 +286,7 @@ Vous pouvez utiliser une requête de table pour extraire uniquement quelques cha
 	  .top(5)
 	  .where('PartitionKey eq ?', 'hometasks');
 
-## Suppression d'une entité
+## Suppression d’une entité
 
 Vous pouvez supprimer une entité en utilisant ses clés de partition et de ligne. Dans cet exemple, l'objet **task1** contient les valeurs **RowKey** et **PartitionKey** de l'entité à supprimer. L'objet est transmis à la méthode **deleteEntity**.
 
@@ -304,7 +303,7 @@ Vous pouvez supprimer une entité en utilisant ses clés de partition et de lign
 
 > [AZURE.NOTE] Vous avez intérêt à utiliser les ETag pour supprimer des éléments afin de vous assurer que les éléments n'ont pas été modifiés par un autre processus. Consultez [Mise à jour d’une entité](#update-an-entity) pour plus d’informations sur l’utilisation des ETags.
 
-## Suppression d'une table
+## Suppression d’une table
 
 Le code suivant permet de supprimer une table d'un compte de stockage.
 
@@ -424,7 +423,7 @@ Lorsque la liste de contrôle d'accès est définie, vous pouvez créer une sign
 
 ## Étapes suivantes
 
-Pour plus d’informations, consultez les ressources suivantes.
+Pour plus d'informations, consultez les ressources suivantes.
 
 -   [Blog de l’équipe Azure Storage][].
 -   Référentiel [Kit de développement logiciel (SDK) Azure Storage pour Node][] sur GitHub.
@@ -442,4 +441,4 @@ Pour plus d’informations, consultez les ressources suivantes.
   [Application web Node.js avec le service de Table Azure]: ../storage-nodejs-use-table-storage-web-site.md
   [Create and deploy a Node.js application to an Azure website]: ../web-sites-nodejs-develop-deploy-mac.md
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

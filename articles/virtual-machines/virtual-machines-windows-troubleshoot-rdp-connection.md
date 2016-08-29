@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Résolution de problèmes de connexion Bureau à distance vers une machine virtuelle Azure | Microsoft Azure"
-	description="Résolvez des erreurs concernant la connexion Bureau à distance pour une machine virtuelle Windows. Accédez à une procédure de prévention rapide, à une aide par message d'erreur et à un dépannage réseau détaillé."
-	keywords="erreur bureau à distance, erreur de connexion bureau à distance, impossible se connecter à la machine virtuelle,résolution des problèmes de connexion bureau à distance, impossible de se connecter à la machine virtuelle azure, impossible d’utiliser rdp pour la machine virtuelle azure"
+	description="Si votre machine virtuelle Azure est inaccessible, vous pouvez suivre des étapes rapides de résolution des problèmes RDP, exploiter les messages d’erreur et effectuer des étapes de dépannage de réseau détaillées."
+	keywords="erreur bureau à distance,erreur de connexion bureau à distance,impossible se connecter à la machine virtuelle,résolution des problèmes de connexion bureau à distance"
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="iainfoulds"
@@ -20,7 +20,7 @@
 
 # Résolution des problèmes de connexion Bureau à distance avec une machine virtuelle Azure exécutant Windows
 
-La connexion RDP (Remote Desktop Protocol) à votre machine virtuelle Azure Windows peut échouer pour diverses raisons. Le problème peut être lié au service Bureau à distance sur la machine virtuelle, à la connexion réseau ou encore au client Bureau à distance sur votre ordinateur hôte. Cet article vous guide à travers certaines des méthodes plus courantes pour résoudre les problèmes de connexion RDP. Si votre problème n’est pas répertorié ici, ou si vous ne pouvez toujours pas vous connecter à votre machine virtuelle à l’aide du le protocole RDP, vous pouvez également lire [des concepts et des étapes de résolution des problèmes RDP plus détaillés](virtual-machines-windows-detailed-troubleshoot-rdp.md).
+La connexion RDP (Remote Desktop Protocol) à votre machine virtuelle Azure Windows peut échouer pour diverses raisons, rendant votre machine virtuelle inaccessible. Le problème peut être lié au service Bureau à distance sur la machine virtuelle, à la connexion réseau ou encore au client Bureau à distance sur votre ordinateur hôte. Cet article vous guide à travers certaines des méthodes plus courantes pour résoudre les problèmes de connexion RDP. Si votre problème n’est pas répertorié ici, ou si vous ne pouvez toujours pas vous connecter à votre machine virtuelle à l’aide du le protocole RDP, vous pouvez également lire [des concepts et des étapes de résolution des problèmes RDP plus détaillés](virtual-machines-windows-detailed-troubleshoot-rdp.md).
 
 Si vous avez besoin d’une aide supplémentaire à quelque étape que ce soit dans cet article, vous pouvez contacter les experts Azure sur les [forums MSDN Azure et Stack Overflow](https://azure.microsoft.com/support/forums/). Vous pouvez également signaler un incident au support Azure. Accédez au [site du support Azure](https://azure.microsoft.com/support/options/), puis cliquez sur **Obtenir un support**.
 
@@ -29,13 +29,13 @@ Si vous avez besoin d’une aide supplémentaire à quelque étape que ce soit d
 ## Étapes de dépannage rapide
 Après chaque étape de résolution des problèmes, essayez de vous reconnecter à la machine virtuelle :
 
-1. Réinitialisez l’accès à distance à l’aide du portail Azure ou Azure PowerShell ;
-2. redémarrez la machine virtuelle. ;
-3. redéployez la machine virtuelle ;
-4. vérifiez les règles de groupe de sécurité réseau / de point de terminaison de services cloud ;
-5. révisez les journaux de console de machine virtuelle dans le portail Azure ou Azure PowerShell ;
-6. vérifiez l’intégrité des ressources de machine virtuelle dans le portail Azure ;
-7. réinitialisez le mot de passe de votre machine virtuelle.
+1. Réinitialisez l’accès à distance à l’aide du portail Azure ou Azure PowerShell.
+2. Redémarrez la machine virtuelle.
+3. Redéployez la machine virtuelle.
+4. Vérifiez les règles de groupe de sécurité réseau / de point de terminaison de services cloud.
+5. Examinez les journaux de console de machine virtuelle dans le portail Azure ou Azure PowerShell.
+6. Vérifiez l’intégrité des ressources de machine virtuelle dans le portail Azure.
+7. Réinitialisez le mot de passe de votre machine virtuelle.
 
 Si vous avez besoin de procédures et d’explications plus détaillées pour les modèles de déploiement Classic et Resource Manager, poursuivez la lecture.
 
@@ -45,7 +45,7 @@ Si vous avez besoin de procédures et d’explications plus détaillées pour le
 
 Après chaque étape de résolution des problèmes, essayez de vous reconnecter à la machine virtuelle.
 
-> [AZURE.TIP] Si le bouton Connecter du portail est grisé et si vous n’êtes pas connecté à Azure avec une connexion [Express Route](../expressroute/expressroute-introduction.md) ou [réseau privé virtuel de site à site](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md), vous devez créer votre machine virtuelle et lui attribuer une adresse IP publique pour pouvoir utiliser le protocole RDP. Pour en savoir plus sur les adresses IP publiques dans Azure, consultez [cet article](../virtual-network/virtual-network-ip-addresses-overview-arm.md).
+> [AZURE.TIP] Si le bouton Connecter du portail est grisé et que vous n’êtes pas connecté à Azure avec une connexion [Express Route](../expressroute/expressroute-introduction.md) ou [réseau privé virtuel de site à site](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md), vous devez créer votre machine virtuelle et lui attribuer une adresse IP publique pour pouvoir utiliser le protocole RDP. Pour en savoir plus sur les adresses IP publiques dans Azure, consultez [cet article](../virtual-network/virtual-network-ip-addresses-overview-arm.md).
 
 1. Réinitialisez l’accès à distance à l’aide de Powershell.
 	- Si vous ne l’avez pas déjà fait, [installez et configurez la dernière version d’Azure PowerShell](../powershell-install-configure.md).
@@ -156,7 +156,7 @@ La partie adresse de ce fichier RDP comporte :
 
 Cause : La machine virtuelle cible n’a pas pu localiser l’autorité de sécurité dans la partie nom d’utilisateur de vos informations d’identification.
 
-Lorsque votre nom d’utilisateur est au format *AutoritéSécurité*\\*NomUtilisateur* (par exemple, CORP\\User1), la partie *AutoritéSécurité* est soit le nom d’ordinateur de la machine virtuelle (pour l’autorité de sécurité locale), soit un nom de domaine Active Directory.
+Lorsque votre nom d’utilisateur est au format *SecurityAuthority*\*UserName* (par exemple, CORP\\User1), la partie *SecurityAuthority* est soit le nom d’ordinateur de la machine virtuelle (pour l’autorité de sécurité locale), soit un nom de domaine Active Directory.
 
 Solutions possibles :
 
@@ -173,8 +173,8 @@ Cause : La machine virtuelle cible ne peut pas valider le nom et le mot de passe
 
 Un ordinateur Windows peut valider les informations d’identification d’un compte local ou d’un compte de domaine.
 
-- Pour les comptes locaux, utilisez la syntaxe *ComputerName*\\*UserName* (par exemple : SQL1\\Admin4798).
-- Pour les comptes de domaine, utilisez la syntaxe *NomDomaine*\\*NomUtilisateur* (par exemple, CONTOSO\\johndoe).
+- Pour les comptes locaux, utilisez la syntaxe *ComputerName*\*UserName* (par exemple : SQL1\\Admin4798).
+- Pour les comptes de domaine, utilisez la syntaxe *DomainName*\*UserName* (par exemple, CONTOSO\\johndoe).
 
 Si vous avez promu votre machine virtuelle en tant que contrôleur de domaine d’une nouvelle forêt Active Directory, le compte d’administrateur local auquel vous êtes connecté est converti en un compte équivalent avec le même mot de passe dans la nouvelle forêt et le nouveau domaine. Le compte local est alors supprimé.
 
@@ -191,7 +191,7 @@ Cause : Le compte utilisé pour vous connecter ne dispose pas des droits de con
 
 Chaque ordinateur Windows dispose d’un groupe local d’utilisateurs du Bureau à distance, qui contient les comptes et groupes autorisés à s’y connecter à distance. Les membres du groupe local d’administrateurs y ont également accès, même si ces comptes ne sont pas répertoriés dans le groupe local des utilisateurs du Bureau à distance. Pour les ordinateurs associés à un domaine, le groupe local d’administrateurs contient également les administrateurs du domaine en question.
 
-Vérifiez que le compte que vous utilisez pour vous connecter dispose des droits de connexion au Bureau à distance. Pour résoudre ce problème, utilisez un compte d’administrateur local ou de domaine pour vous connecter via le Bureau à distance. Puis utilisez le composant logiciel enfichable Microsoft Management Console (**Outils système > Utilisateurs et groupes locaux > Groupes > Utilisateurs du Bureau à distance**) pour ajouter le compte de votre choix au groupe local des utilisateurs du Bureau à distance.
+Vérifiez que le compte que vous utilisez pour vous connecter dispose des droits de connexion au Bureau à distance. Pour résoudre ce problème, utilisez un compte d’administrateur local ou de domaine pour vous connecter via le Bureau à distance. Pour ajouter le compte de votre choix au groupe local des utilisateurs du Bureau à distance, utilisez le composant logiciel enfichable Microsoft Management Console (**Outils système > Utilisateurs et groupes locaux > Groupes > Utilisateurs du Bureau à distance**).
 
 ## Résolution des erreurs génériques du Bureau à distance
 
@@ -210,4 +210,4 @@ Si aucune de ces erreurs ne s’est produite et que vous ne parvenez toujours pa
 
 [Résoudre les problèmes d’accès à une application exécutée sur une machine virtuelle Azure](virtual-machines-linux-troubleshoot-app-connection.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

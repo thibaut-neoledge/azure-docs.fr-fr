@@ -22,25 +22,25 @@
 
 Les rôles d’administrateur disponibles sont les suivants :
 
-- **Administrateur de facturation** : effectue des achats, gère les abonnements, gère les tickets de support et surveille l’état des services.
+- **Administrateur de facturation** : effectue les achats, gère les abonnements ainsi que les tickets de support et surveille l’état des services.
 
-- **Administrateur général** : peut accéder à toutes les fonctionnalités d’administration. La personne qui s’inscrit pour le compte Azure devient administrateur général. Seuls les administrateurs généraux peuvent affecter d’autres rôles d’administrateur. Une entreprise peut comprendre plusieurs administrateurs généraux.
+- **Administrateur général** : peut accéder à toutes les fonctionnalités d’administration. La personne qui s’inscrit pour le compte Azure devient administrateur général. Seuls les administrateurs généraux peuvent affecter d’autres rôles d’administrateur. Une entreprise peut comprendre plusieurs administrateurs généraux.
 
 	> [AZURE.NOTE] Dans l’API Microsoft Graph, l’API Azure AD Graph et Azure AD PowerShell, ce rôle est identifié comme « Administrateur de l’entreprise ».
 
-- **Administrateur de mots de passe** : réinitialise les mots de passe, gère les demandes de service et surveille l’état des services. Les administrateurs de mots de passe peuvent réinitialiser uniquement les mots de passe des utilisateurs et des autres administrateurs de mots de passe.
+- **Administrateur de mots de passe** : réinitialise les mots de passe, gère les demandes de service et surveille l’état des services. Les administrateurs de mots de passe peuvent réinitialiser uniquement les mots de passe des utilisateurs et des autres administrateurs de mots de passe.
 
 	> [AZURE.NOTE] Dans l’API Microsoft Graph, l’API Azure AD Graph et Azure AD PowerShell, ce rôle est identifié comme « Administrateur Helpdesk ».
 
-- **Administrateur de services fédérés** : gère les demandes de service et surveille l’état des services.
+- **Administrateur de services fédérés** : gère les demandes de service et surveille l’état des services.
 
 	> [AZURE.NOTE] Pour assigner le rôle d’administrateur du service à un utilisateur, l’administrateur général doit d’abord assigner des autorisations administratives à l’utilisateur du service, comme Exchange Online, puis lui assigner le rôle d’administrateur du service dans le portail Azure Classic.
 
-- **Administrateur d’utilisateurs** : réinitialise les mots de passe, surveille l’état des services et gère les comptes d’utilisateur, les groupes d’utilisateurs et les demandes de service. Certaines limitations s’appliquent aux autorisations des administrateurs d’utilisateurs. Par exemple, ils ne peuvent pas supprimer un administrateur général, ni créer d’autres administrateurs. Ils ne peuvent pas non plus réinitialiser les mots de passe des administrateurs de facturation, généraux et de services fédérés.
+- **Administrateur d’utilisateurs** : réinitialise les mots de passe, surveille l’état des services et gère les comptes d’utilisateur, les groupes d’utilisateurs et les demandes de service. Certaines limitations s’appliquent aux autorisations des administrateurs d’utilisateurs. Par exemple, ils ne peuvent pas supprimer un administrateur général, ni créer d’autres administrateurs. Ils ne peuvent pas non plus réinitialiser les mots de passe des administrateurs de facturation, généraux et de services fédérés.
 
-- **Security Reader** : accès en lecture seule à certaines fonctionnalités des services Identity Protection Center, Privileged Identity Management, Monitor Office 365 Service Health et Office 365 Protection Center.
+- **Lecteur de sécurité** : accès en lecture seule à certaines fonctionnalités de sécurité des services Identity Protection Center, Privileged Identity Management, Monitor Office 365 Service Health et Centre de sécurité et conformité Office 365.
 
-- **Administrateur de sécurité** : toutes les autorisations en lecture seule du rôle **Security Reader** ainsi que certaines autorisations d’administration supplémentaires pour les mêmes services : Identity Protection Center, Privileged Identity Management, Monitor Office 365 Service Health et Office 365 Protection Center.
+- **Administrateur de sécurité** : toutes les autorisations en lecture seule du rôle **Lecteur de sécurité** plus certaines autorisations d’administration supplémentaires pour les mêmes services : Identity Protection Center, Privileged Identity Management, Monitor Office 365 Service Health et Centre de sécurité et conformité Office 365.
 
 ## Autorisations des administrateurs
 
@@ -80,7 +80,7 @@ Dans | Peut
 ------------- | -------------
 Identity Protection Center | Lire tous les rapports de sécurité et informations de paramètres pour les fonctionnalités de sécurité<ul><li>Anti-spam<li>Chiffrement<li>Prévention contre la perte de données<li>Anti-programme malveillant<li>Protection avancée contre les menaces<li>Anti-hameçonnage<li>Règles du flux de messagerie
 Privileged Identity Management | <p>Dispose d’un accès en lecture seule à toutes les informations présentées dans Azure AD PIM : stratégies et rapports pour les attributions de rôle Azure AD, révisions de sécurité et prochainement accès en lecture aux données et rapports de stratégie pour les scénarios en plus de l’attribution de rôle Azure AD.<p>**Ne peut pas** s’inscrire auprès d’AD PIM ou y apporter des modifications. Dans le portail PIM ou via PowerShell, un membre ayant ce rôle peut activer des rôles supplémentaires (par exemple, un administrateur général ou un administrateur de rôle privilégié), s’il est éligible.
-<p>Monitor Office 365 Service Health</p><p>Office 365 Protection Center</p> | <ul><li>Lecture et gestion des alertes<li>Lecture des stratégies de sécurité<li>Lecture des informations sur les menaces, Cloud App Discovery et mise en quarantaine dans la recherche et l’examen<li>Lecture de tous les rapports
+<p>Monitor Office 365 Service Health</p><p>Centre de sécurité et conformité Office 365</p> | <ul><li>Lecture et gestion des alertes<li>Lecture des stratégies de sécurité<li>Lecture des informations sur les menaces, Cloud App Discovery et mise en quarantaine dans la recherche et l’examen<li>Lecture de tous les rapports
 
 ### Security Administrator
 
@@ -88,7 +88,7 @@ Dans | Peut
 ------------- | -------------
 Identity Protection Center | <ul><li>Toutes les autorisations du Security Reader.<li>En outre, possibilité d’effectuer toutes les opérations IPC à l’exception de la réinitialisation des mots de passe.
 Privileged Identity Management | <ul><li>Toutes les autorisations du rôle Security Reader.<li>**Ne peut pas** gérer les appartenances aux rôles Azure AD ou les paramètres.
-<p>Monitor Office 365 Service Health</p><p>Office 365 Protection | <ul><li>Toutes les autorisations du rôle Security Reader.<li>Peut configurer tous les paramètres de la fonctionnalité de protection avancée contre les menaces (protection contre les virus et logiciels malveillants, configuration des URL malveillantes, suivi des ’URL, etc.).
+<p>Monitor Office 365 Service Health</p><p>Centre de sécurité et conformité Office 365 | <ul><li>Toutes les autorisations du rôle Security Reader.<li>Peut configurer tous les paramètres de la fonctionnalité de protection avancée contre les menaces (protection contre les virus et logiciels malveillants, configuration des URL malveillantes, suivi des ’URL, etc.).
 
 ## Informations sur le rôle d’administrateur général
 
@@ -112,11 +112,11 @@ L’administrateur général a accès à toutes les fonctionnalités d’adminis
 
 ## Étapes suivantes
 
-- Pour plus d’informations sur la façon de modifier les administrateurs pour un abonnement Azure, voir [Comment ajouter ou modifier les rôles d’administrateur Azure](../billing-add-change-azure-subscription-administrator.md)
+- Pour plus d’informations sur la modification des administrateurs d’un abonnement Azure, consultez [Ajout ou modification de rôles d’administrateur Azure](../billing-add-change-azure-subscription-administrator.md)
 
 - Pour plus d’informations sur la façon dont l’accès aux ressources est contrôlé dans Microsoft Azure, voir [Présentation de l’accès aux ressources dans Azure](active-directory-understanding-resource-access.md)
 
-- Pour plus d’informations sur la façon dont le service Azure Active Directory est lié à votre abonnement Azure, voir [Association des abonnements Azure avec Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)
+- Pour plus d’informations sur l’association entre Azure Active Directory et votre abonnement Azure, consultez [Association des abonnements Azure avec Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)
 
 - [Gestion des utilisateurs](active-directory-create-users.md)
 
@@ -124,4 +124,4 @@ L’administrateur général a accès à toutes les fonctionnalités d’adminis
 
 - [Gestion des groupes](active-directory-manage-groups.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0817_2016-->

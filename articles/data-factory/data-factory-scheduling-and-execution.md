@@ -203,14 +203,14 @@ Supposez que les données d’Azure SQL soient les suivantes :
 
 En déployant le pipeline ci-dessus, l’objet blob Azure sera renseigné comme suit :
 
-1.	Fichier mypath/2015/1/1/8/Data.<Guid>.txt avec données 
+1.	Fichier mypath/2015/1/1/8/Data.<Guid>.txt avec données
 
 		10002345,334,2,2015-01-01 08:24:00.3130000
 		10002345,347,15,2015-01-01 08:24:00.6570000
 		10991568,2,7,2015-01-01 08:56:34.5300000
 
-	**Remarque :** <Guid>sera remplacé par un guid actuel. Exemple de nom de fichier : Data.bcde1348-7620-4f93-bb89-0eed3455890b.txt
-2.	Fichier mypath/2015/1/1/9/Data.<Guid>.txt avec données :
+	**Remarque :** <Guid> sera remplacé par un guid actuel. Exemple de nom de fichier : Data.bcde1348-7620-4f93-bb89-0eed3455890b.txt
+2.	Fichier mypath/2015/1/1/9/Data.<Guid>.txt avec données :
 
 		10002345,334,1,2015-01-01 09:13:00.3900000
 		24379245,569,23,2015-01-01 09:25:00.3130000
@@ -224,7 +224,7 @@ L’article [Création de Pipelines](data-factory-create-pipelines.md) a présen
  
 Vous pouvez définir la date de début de la période active de pipeline dans le passé et Data Factory calcule automatiquement (remplissage de l’arrière-plan) toutes les tranches de données du passé et commence à les traiter.
 
-Les tranches de données renseignées en arrière-plan permettent leur configuration en parallèle. Vous pouvez le faire en définissant la propriété **concurrency** dans la section **policy** de l’activité JSON, comme indiqué dans l’article [Création de pipelines](data-factory-create-pipelines.md).
+Les tranches de données renseignées en arrière-plan permettent leur configuration en parallèle. Vous pouvez le faire en définissant la propriété **concurrency** dans la section **policy** de l’activité JSON, comme indiqué dans l’article [Création de pipelines](data-factory-create-pipelines.md).
 
 ## Réexécution des tranches de données ayant échoué et suivi de la dépendance de données automatique
 
@@ -252,8 +252,8 @@ Vous pouvez chaîner deux activités en utilisant le jeu de données de sortie d
 
 Considérez l’exemple suivant :
  
-1.	Le pipeline P1 contient l’activité A1 nécessitant le jeu de données d’entrée externe D1 et produit le jeu de données de **sortie** **D2**.
-2.	Le pipeline P2 contient l’activité A2 nécessitant le jeu de données d’**entrée** **D2** et produit le jeu de données de sortie D3.
+1.	Le pipeline P1 contient l’activité A1 nécessitant le jeu de données d’entrée externe D1 et produit le jeu de données de **sortie** **D2**.
+2.	Le pipeline P2 contient l’activité A2 nécessitant le jeu de données **d’entrée** **D2** et produit le jeu de données de sortie D3.
  
 Dans ce scénario, l’activité A1 s’exécutera lorsque les données externes seront disponibles et que la fréquence de disponibilité planifiée sera atteinte. L’activité A2 s’exécutera lorsque les tranches planifiées de D2 seront disponibles et que la fréquence de disponibilité planifiée sera atteinte. S’il existe une erreur dans l’une des tranches du jeu de données D2, A2 ne sera pas exécutée pour cette tranche jusqu’à ce que celle-ci devienne disponible.
 
@@ -282,8 +282,8 @@ ActivitédeCopie2 : Entrées : JeudeDonnées3 Sortie JeudeDonnées2 : JeudeDonn�
 
 Quand plusieurs entrées sont spécifiées, seul le premier jeu de données d’entrée est utilisé pour copier des données, mais les autres jeux de données sont utilisés en tant que dépendances. L’exécution d’ActivitédeCopie2 démarre uniquement quand les conditions suivantes sont remplies :
 
-- ActivitédeCopie1 s’est terminée avec succès et JeudeDonnées2 est disponible. Ce jeu de données n’est pas utilisé lors de la copie des données vers JeudeDonnées4. Il sert uniquement de dépendance de planification pour ActivitédeCopie2.   
-- JeudeDonnées3 est disponible. Ce jeu de données représente les données qui sont copiées vers la destination.  
+- ActivitédeCopie1 s’est terminée avec succès et JeudeDonnées2 est disponible. Ce jeu de données n’est pas utilisé lors de la copie des données vers JeudeDonnées4. Il sert uniquement de dépendance de planification pour ActivitédeCopie2.
+- JeudeDonnées3 est disponible. Ce jeu de données représente les données qui sont copiées vers la destination.
 
 
 
@@ -382,7 +382,7 @@ Le script Hive reçoit les informations de date en tant que paramètres et utili
 		                "scriptPath": "adftutorial\\hivequery.hql",
 		                "scriptLinkedService": "StorageLinkedService",
 		                "defines": {
-		                    "Year": "$$Text.Format('{0:yyyy}',WindowsStart)",
+		                    "Year": "$$Text.Format('{0:yyyy}',WindowStart)",
 		                    "Month": "$$Text.Format('{0:%M}',WindowStart)",
 		                    "Day": "$$Text.Format('{0:%d}',WindowStart)"
 		                }
@@ -534,7 +534,7 @@ L’activité Hive accepte les 2 entrées et génère une tranche de sortie tous
 	          "scriptPath": "adftutorial\\hivequery.hql",
 	          "scriptLinkedService": "StorageLinkedService",
 	          "defines": {
-	            "Year": "$$Text.Format('{0:yyyy}',WindowsStart)",
+	            "Year": "$$Text.Format('{0:yyyy}',WindowStart)",
 	            "Month": "$$Text.Format('{0:%M}',WindowStart)",
 	            "Day": "$$Text.Format('{0:%d}',WindowStart)"
 	          }
@@ -557,7 +557,7 @@ L’activité Hive accepte les 2 entrées et génère une tranche de sortie tous
 
 ## Variables système et fonctions Data Factory   
 
-Pour obtenir la liste des fonctions et variables système prises en charge par Azure Data Factory, consultez [Variables système et fonctions Data Factory](data-factory-functions-variables.md)
+Pour obtenir la liste des fonctions et variables système prises en charge par Azure Data Factory, consultez [Variables système et fonctions Data Factory](data-factory-functions-variables.md).
 
 ## Examen approfondi de la dépendance de données
 
@@ -664,10 +664,10 @@ Vous pouvez créer et planifier un pipeline pour qu’il s’exécute périodiqu
 
 Notez les points suivants :
  
-- Vous n’avez pas besoin de spécifier une heure de **début** et de **fin** pour le pipeline. 
-- Vous devez spécifier la disponibilité des jeux de données d’entrée et de sortie (fréquence et intervalle) à ce stade, même si les valeurs ne sont pas utilisées par Data Factory.  
-- La vue schématique n’affiche pas les pipelines à usage unique (onetime). C’est normal. 
-- Les pipelines à usage unique ne peuvent pas être mis à jour. Vous pouvez cloner un pipeline à usage unique, le renommer, mettre à jour ses propriétés et le déployer pour en créer un autre. 
+- Vous n’avez pas besoin de spécifier une heure de **début** et de **fin** pour le pipeline.
+- Vous devez spécifier la disponibilité des jeux de données d’entrée et de sortie (fréquence et intervalle) à ce stade, même si les valeurs ne sont pas utilisées par Data Factory.
+- La vue schématique n’affiche pas les pipelines à usage unique (onetime). C’est normal.
+- Les pipelines à usage unique ne peuvent pas être mis à jour. Vous pouvez cloner un pipeline à usage unique, le renommer, mettre à jour ses propriétés et le déployer pour en créer un autre.
 
   
 
@@ -702,4 +702,4 @@ Notez les points suivants :
 
   
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0817_2016-->

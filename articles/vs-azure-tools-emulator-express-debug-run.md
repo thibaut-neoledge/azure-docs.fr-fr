@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="04/19/2016"
+   ms.date="08/15/2016"
    ms.author="tarcher" />
 
 
@@ -28,7 +28,7 @@ Quand vous créez un projet dans le Kit de développement logiciel (SDK) Azure 
 
 1. Dans le menu contextuel du projet Azure, choisissez **Propriétés**, puis l’onglet **Web**.
 
-1. Sous **Serveur de développement local**, choisissez la case d’option **Utiliser IIS Express**. L’émulateur express n’est pas compatible avec le serveur web IIS.
+1. Sous ** Serveur de développement local**, choisissez la case d’option ** Utiliser IIS Express**. L’émulateur express n’est pas compatible avec le serveur web IIS.
 
 1. Sous **Émulateur**, choisissez la case d’option **Utiliser l’émulateur express**.
 
@@ -54,4 +54,4 @@ Avant d’utiliser l’émulateur express, prenez connaissance des limitations c
 
 [Débogage de Cloud Services](https://msdn.microsoft.com/library/azure/ee405479.aspx)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -13,10 +13,13 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="06/30/2016" 
+    ms.date="08/15/2016" 
     ms.author="elizapo" />
 
 # Comment Azure RemoteApp enregistre-t-il les paramètres et les données utilisateur ?
+
+> [AZURE.IMPORTANT]
+Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148).
 
 Azure RemoteApp enregistre l'identité de l'utilisateur et les personnalisations entre les périphériques et les sessions. Ces données utilisateur sont stockées dans un disque par utilisateur et par collection, appelé disque de profil utilisateur (UPD). Le disque suit l'utilisateur et s’assure que l'utilisateur bénéficie d’une expérience cohérente, quel que soit l’endroit où il se connecte.
 
@@ -31,7 +34,7 @@ Continuez votre lecture pour obtenir des détails spécifiques sur les données 
 
 ## Comment un administrateur peut-il accéder aux données ?
 
-Si vous avez besoin d’accéder aux données pour l'un de vos utilisateurs (pour la récupération d'urgence ou si l'utilisateur quitte l'entreprise), contactez [Azure RemoteApp](mailto:remoteappforum@microsoft.com) et fournissez les informations d'abonnement de la collection et l'identité de l'utilisateur. L’équipe Azure RemoteApp vous fournira une URL pour accéder au disque dur virtuel. Téléchargez ce disque dur virtuel et récupérez les documents ou fichiers dont vous avez besoin. Notez que le disque dur virtuel est de 50 Go, il prendra donc un peu de temps à télécharger.
+Si vous avez besoin d’accéder aux données pour l’un de vos utilisateurs (pour la récupération d’urgence ou si l’utilisateur quitte l’entreprise), contactez le support Azure et fournissez les informations d’abonnement de la collection et l’identité de l’utilisateur. L’équipe Azure RemoteApp vous fournira une URL pour accéder au disque dur virtuel. Téléchargez ce disque dur virtuel et récupérez les documents ou fichiers dont vous avez besoin. Notez que le disque dur virtuel est de 50 Go, il prendra donc un peu de temps à télécharger.
 
 
 ## Les données sont-elles sauvegardées ?
@@ -75,7 +78,7 @@ Oui, tout ce qui écrit dans la clé HKEY\_Current\_User fait partie de l’UPD.
 
 ## Puis-je désactiver les UPD d’une collection ?
 
-Oui, vous pouvez demander à Azure RemoteApp de désactiver les UPD d’un abonnement, mais vous ne pouvez pas effectuer cette opération vous-même. Cela signifie que les UPD seront désactivés pour toutes les collections de l'abonnement.
+Oui, vous pouvez demander à Azure RemoteApp de désactiver les UPD d’un abonnement, mais vous ne pouvez pas effectuer cette opération vous-même. Cela signifie que les UPD seront désactivés pour toutes les collections de l’abonnement.
 
 Vous souhaiterez peut-être désactiver les UPD dans les situations suivantes :
 
@@ -117,7 +120,7 @@ Si vous souhaitez exécuter un script de démarrage, commencez par créer une t�
 
 ![Création d’une tâche système qui s'exécute lorsqu'un utilisateur ouvre une session](./media/remoteapp-upd/upd2.png)
 
-Dans l’onglet **Général**, veillez à choisir « BUILTIN\\Users » comme **compte utilisateur** sous Sécurité.
+Dans l'onglet **Général**, veillez à choisir "BUILTIN\\Users" comme **compte utilisateur** sous Sécurité.
 
 ![Remplacement du compte d'utilisateur par un groupe](./media/remoteapp-upd/upd4.png)
 
@@ -155,4 +158,4 @@ Vous pouvez également enregistrer vos informations d'identification en exécuta
 
 Vous pouvez ainsi ignorer le paramètre -Credential dans l'applet de commande New-PSDrive.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0817_2016-->

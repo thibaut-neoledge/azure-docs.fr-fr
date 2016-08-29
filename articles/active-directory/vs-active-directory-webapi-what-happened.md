@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Qu’est-il arrivé à mon projet WebApi (service connecté Azure Active Directory Visual Studio) ? | Microsoft Azure"
+	pageTitle="Qu’est-il arrivé à mon projet WebApi (service connecté Azure Active Directory Visual Studio) ? | Microsoft Azure "
 	description="Décrit ce qui se passe dans votre projet WebApi que vous connectez à Azure AD en utilisant Visual Studio"
   services="active-directory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-what-happened"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/01/2016"
+	ms.date="08/15/2016"
 	ms.author="tarcher"/>
 
 # Qu’est-il arrivé à mon projet WebApi (service connecté Azure Active Directory de Visual Studio) ?
@@ -70,7 +70,7 @@ Les entrées de configuration ci-dessous ont été ajoutées.
 
 ###Une application Azure AD App a été créée
 
-Une application Azure AD a été créée dans le répertoire que vous avez sélectionné dans l’Assistant.
+Une application Azure AD a été créée dans le répertoire que vous avez sélectionné dans l'Assistant.
 
 [En savoir plus sur Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
 
@@ -117,4 +117,4 @@ Votre application Azure Active Directory a été mise à jour pour inclure l’a
 
 [En savoir plus sur Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0817_2016-->

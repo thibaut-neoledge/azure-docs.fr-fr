@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/15/2016"
+	ms.date="08/11/2016"
 	ms.author="mimig"/>
 
 # Niveaux de cohérence dans DocumentDB
@@ -87,15 +87,12 @@ Le tableau suivant répertorie les différentes garanties de cohérence correspo
 
 2. Dans le panneau **Comptes DocumentDB**, sélectionnez le compte de base de données à modifier.
 
-3. Dans le panneau du compte, si le panneau **Tous les paramètres** n’est pas déjà ouvert, cliquez sur l’icône **Paramètres** dans la barre de commandes supérieure.
+3. Dans le panneau du compte, cliquez sur **Cohérence par défaut**.
 
-4. Dans le panneau **Tous les paramètres**, cliquez sur l’entrée **Cohérence par défaut** sous **Fonctionnalité**.
+
+4. Dans le panneau **Cohérence par défaut**, sélectionnez le nouveau niveau de cohérence et cliquez sur **OK**.
 
 	![Capture d’écran montrant l’icône Paramètres et l’entrée Cohérence par défaut](./media/documentdb-consistency-levels/database-consistency-level-1.png)
-
-5. Dans le panneau **Cohérence par défaut**, sélectionnez le nouveau niveau de cohérence et cliquez sur **OK**.
-
-	![Capture d’écran montrant le niveau de cohérence et le bouton OK](./media/documentdb-consistency-levels/database-consistency-level-2.png)
 
 ## Niveaux de cohérence des requêtes
 
@@ -122,4 +119,4 @@ Si vous souhaitez en lire plus sur les niveaux de cohérence et les différents 
 
 [1]: ./media/documentdb-consistency-levels/consistency-tradeoffs.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

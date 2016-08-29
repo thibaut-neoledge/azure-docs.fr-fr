@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/03/2016"
+   ms.date="08/15/2016"
    ms.author="kipandya"/>
    
    
@@ -26,7 +26,7 @@ Azure DocumentDB est conçu pour satisfaire les exigences des applications IoT, 
   
 ## Configuration de comptes dans plusieurs régions
 
-La configuration de votre compte DocumentDB pour une mise à l’échelle mondiale peut être effectuée en moins d’une minute via le Portail Azure. Il vous suffit de sélectionner le niveau de cohérence adéquat parmi plusieurs niveaux de cohérence bien définis pris en charge et d’associer le nombre de régions Azure de votre choix à votre compte de base de données. Les niveaux de cohérence de DocumentDB fournissent des compromis clairs entre les performances et la garantie de cohérence spécifique.
+La configuration de votre compte DocumentDB pour une mise à l’échelle mondiale peut être effectuée en moins d’une minute via le [portail Azure](documentdb-portal-global-replication.md). Il vous suffit de sélectionner le niveau de cohérence adéquat parmi plusieurs niveaux de cohérence bien définis pris en charge et d’associer le nombre de régions Azure de votre choix à votre compte de base de données. Les niveaux de cohérence de DocumentDB fournissent des compromis clairs entre les performances et la garantie de cohérence spécifique.
 
 ![DocumentDB offre le choix entre plusieurs modèles de cohérence bien définis (souples)][1]
 
@@ -37,7 +37,7 @@ La sélection du niveau de cohérence adéquat dépend de la garantie de cohére
 
 ## Utilisation du basculement entre plusieurs régions 
 
-Azure DocumentDB est en mesure de basculer en toute transparence d’un compte de base de données à l’autre entre plusieurs régions Azure. Les nouvelles [API multihébergement][developingwithmultipleregions] garantissent que votre application peut continuer à utiliser un point de terminaison logique et n’est pas interrompue par le basculement. Vous contrôlez le basculement, ce qui vous laisse la possibilité de modifier l’hébergement de votre compte de base de base de données dans l’éventualité où des conditions de défaillance potentielle se produiraient, notamment la défaillance (réelle ou simulée) d’une application, d’une infrastructure, d’un service ou d’une région. En cas de défaillance d’une région DocumentDB, le service bascule en toute transparence votre compte de base de données et votre application continue à accéder aux données sans aucune perte de disponibilité. Alors que DocumentDB offre un [SLA de disponibilité à 99,99 %][sla], vous pouvez tester les propriétés de disponibilité de l’application de bout en bout en simulant une défaillance de région [par programme][arm] et via le Portail Azure.
+Azure DocumentDB est en mesure de basculer en toute transparence d’un compte de base de données à l’autre entre plusieurs régions Azure. Les nouvelles [API multihébergement][developingwithmultipleregions] garantissent que votre application peut continuer à utiliser un point de terminaison logique et n’est pas interrompue par le basculement. Vous contrôlez le basculement, ce qui vous laisse la possibilité de modifier l’hébergement de votre compte de base de base de données dans l’éventualité où des conditions de défaillance potentielle se produiraient, notamment la défaillance (réelle ou simulée) d’une application, d’une infrastructure, d’un service ou d’une région. En cas de défaillance d’une région DocumentDB, le service bascule en toute transparence votre compte de base de données et votre application continue à accéder aux données sans aucune perte de disponibilité. Alors que DocumentDB offre un [SLA de disponibilité à 99,99 %][sla], vous pouvez tester les propriétés de disponibilité de l’application de bout en bout en simulant une défaillance de région [par programme][arm] et via le portail Azure.
 
 
 ## Mise à l’échelle mondiale
@@ -54,7 +54,7 @@ Enfin, dans la mesure où DocumentDB est complètement [indépendant du schéma]
 
 ## Activation de la distribution mondiale 
 
-Vous pouvez décider de distribuer vos données localement ou mondialement en associant une ou plusieurs régions Azure à un compte de base de données DocumentDB. Vous pouvez ajouter ou supprimer des régions dans votre compte de base de données à tout moment.
+Vous pouvez décider de distribuer vos données localement ou mondialement en associant une ou plusieurs régions Azure à un compte de base de données DocumentDB. Vous pouvez ajouter ou supprimer des régions dans votre compte de base de données à tout moment. Pour activer la distribution mondiale à l’aide du portail, consultez la section [Comment effectuer la réplication de base de données mondiale DocumentDB à l’aide du portail Azure](documentdb-portal-global-replication.md). Pour activer la distribution mondiale par programme, consultez la section [Développement avec des comptes DocumentDB à plusieurs régions](documentdb-developing-with-multiple-regions.md).
 
 ## Étapes suivantes
 
@@ -70,21 +70,20 @@ Apprenez-en plus sur la distribution mondiale de données avec DocumentDB dans l
 [2]: ./media/documentdb-distribute-data-globally/collection-regions.png
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
-[pcolls]: https://azure.microsoft.com/documentation/articles/documentdb-partition-data/
-[consistency]: https://azure.microsoft.com/documentation/articles/documentdb-consistency-levels/
+[pcolls]: documentdb-partition-data.md
+[consistency]: documentdb-consistency-levels.md
 [consistencytradeooffs]: ./documentdb-consistency-levels/#consistency-levels-and-tradeoffs
-[developingwithmultipleregions]: https://azure.microsoft.com/documentation/articles/documentdb-developing-with-multiple-regions/
-[createaccount]: https://azure.microsoft.com/documentation/articles/documentdb-create-account/
-[manageaccount]: https://azure.microsoft.com/documentation/articles/documentdb-manage-account/
-[manageaccount-consistency]: https://azure.microsoft.com/documentation/articles/documentdb-manage-account/#consistency
-[manageaccount-addregion]: https://azure.microsoft.com/documentation/articles/documentdb-manage-account/#addregion
-[throughputandstorage]: https://azure.microsoft.com/documentation/articles/documentdb-manage/
-[arm]: https://azure.microsoft.com/documentation/articles/documentdb-automation-resource-manager-cli/
+[developingwithmultipleregions]: documentdb-developing-with-multiple-regions.md
+[createaccount]: documentdb-create-account.md
+[manageaccount]: documentdb-manage-account.md
+[manageaccount-consistency]: documentdb-manage-account.md#consistency
+[throughputandstorage]: documentdb-manage.md
+[arm]: documentdb-automation-resource-manager-cli.md
 [regions]: https://azure.microsoft.com/regions/
-[serviceregions]: https://azure.microsoft.com/regions/#services
+[serviceregions]: https://azure.microsoft.com/fr-FR/regions/#services
 [pricing]: https://azure.microsoft.com/pricing/details/documentdb/
 [sla]: https://azure.microsoft.com/support/legal/sla/documentdb/
 [vldb]: http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf
-[sqlqueries]: https://azure.microsoft.com/documentation/articles/documentdb-sql-query/
+[sqlqueries]: documentdb-sql-query.md
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

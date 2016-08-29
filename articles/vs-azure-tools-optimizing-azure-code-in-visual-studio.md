@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="04/19/2016"
+   ms.date="08/15/2016"
    ms.author="tarcher" />
 
 # Optimisation de votre code Azure
@@ -259,7 +259,7 @@ Voir [Classe QueueClient (Microsoft.ServiceBus.Messaging)](https://msdn.microsof
 
 Pour améliorer les performances de l’infrastructure de messagerie Azure, consultez le modèle de conception [Notions fondamentales sur la messagerie asynchrone](https://msdn.microsoft.com/library/dn589781.aspx).
 
-## Envisagez de partitionner les files d'attente et les rubriques Service Bus
+## Envisagez de partitionner les files d’attente et les rubriques Service Bus
 
 ### ID
 
@@ -273,7 +273,7 @@ Pensez à partager vos idées et vos commentaires sur la page [Commentaires d’
 
 ### Motif
 
-Le partitionnement des rubriques et des files d’attente Service Bus améliore les performances et la disponibilité du service, car le débit global d’une file d’attente ou d’une rubrique partitionnée n’est plus limité par les performances d’un seul broker ou magasin de messagerie. En outre, la panne temporaire d’une banque de messages ne rend pas une rubrique ou une file d’attente partitionnée indisponible. Pour plus d’informations, consultez la rubrique [Partitionnement des entités de messagerie](https://msdn.microsoft.com/library/azure/dn520246.aspx).
+Le partitionnement des rubriques et des files d’attente Service Bus améliore les performances et la disponibilité du service, car le débit global d’une file d’attente ou d’une rubrique partitionnée n’est plus limité par les performances d’un seul répartiteur ou magasin de messagerie. En outre, la panne temporaire d’un magasin de messagerie ne rend pas une rubrique ou une file d’attente partitionnée indisponible. Pour plus d’informations, consultez la rubrique [Partitionnement des entités de messagerie](https://msdn.microsoft.com/library/azure/dn520246.aspx).
 
 ### Solution
 
@@ -449,7 +449,7 @@ Stocker les chaînes de connexion dans les fichiers de configuration ou dans les
 
 - Pour les applications ASP.NET vNext, utilisez configuration.json pour stocker les chaînes de connexion.
 
-Pour plus d’informations sur l’utilisation de fichiers de configuration comme web.config ou app.config, consultez la page Conseils de [configuration ASP.NET web ](https://msdn.microsoft.com/library/vstudio/ff400235(v=vs.100).aspx). Pour plus d’informations sur le fonctionnement des variables d’environnement Azure, consultez [Sites web Microsoft Azure : Fonctionnement des chaînes d’application et des chaînes de connexion.](https://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/) Pour plus d’informations sur le stockage de la chaîne de connexion dans le contrôle de code source, consultez la rubrique [Éviter de placer des informations sensibles (par exemple, des chaînes de connexion) dans des fichiers stockés dans des référentiels de code source.](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control)
+Pour plus d’informations sur l’utilisation de fichiers de configuration comme web.config ou app.config, consultez la page Conseils de configuration ASP.NET web https://msdn.microsoft.com/library/vstudio/ff400235(v=vs.100).aspx). Pour plus d’informations sur le fonctionnement des variables d’environnement Azure, consultez [Sites web Microsoft Azure : Fonctionnement des chaînes d’application et des chaînes de connexion.](https://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/) Pour plus d’informations sur le stockage de la chaîne de connexion dans le contrôle de code source, consultez la rubrique [Éviter de placer des informations sensibles (par exemple, des chaînes de connexion) dans des fichiers stockés dans des référentiels de code source.](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control)
 
 ## Utiliser le fichier de configuration des diagnostics
 
@@ -532,4 +532,4 @@ public class BlogsController : Controller
 
 Pour plus d’informations sur l’optimisation et le dépannage des applications Azure, consultez [Dépanner une application web dans le Service d’application Microsoft Azure à l’aide de Visual Studio](./app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0817_2016-->

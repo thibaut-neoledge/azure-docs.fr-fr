@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Sécurité dans Azure App Service"
-	description="Découvrez comment sécuriser des applications logiques, API, web et mobiles dans Azure App Service."
+	description="Découvrez comment sécuriser des applications logiques, API, web et mobiles dans Azure App Service."
 	services="app-service"
 	documentationCenter=""
 	authors="naziml"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/10/2015"
+	ms.date="08/16/2015"
 	ms.author="naziml"/>
 
 # Sécurité dans Azure App Service
@@ -22,6 +22,6 @@ Azure App Service respecte les principaux standards du secteur en termes de séc
 
 [AZURE.INCLUDE [app-service-blueprint-security](../../includes/app-service-blueprint-security.md)]
 
-Azure App Service utilise la même solution anti-programme malveillant qu’Azure Cloud Services et que les ordinateurs virtuels. Pour en savoir plus à ce sujet, consultez notre [documentation sur les logiciels anti-programme malveillant](../azure-security-antimalware.md)
+Azure App Service utilise la même solution anti-programme malveillant qu’Azure Cloud Services et que les ordinateurs virtuels. Pour en savoir plus à ce sujet, consultez notre [documentation sur les logiciels anti-programme malveillant](../security/azure-security-antimalware.md).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0817_2016-->

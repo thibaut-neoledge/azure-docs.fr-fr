@@ -14,7 +14,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="08/08/2016"
+	ms.date="08/17/2016"
 	ms.author="markvi"/>
 
 
@@ -105,11 +105,13 @@ Le plan de contenu suivant répertorie les documents auxquels vous devez vous r�
 - [Quels sont les types d’applications pris en charge](active-directory-conditional-access-supported-apps.md)
 
 
-### Stratégies d’appareils
+### Accès conditionnel basé sur les appareils
 
 - [Comment définir la stratégie d’accès conditionnel basé sur les appareils pour contrôler aux applications connectées à Azure Active Directory](active-directory-conditional-access-policy-connected-applications.md)
 
 - [Configuration de l’inscription automatique auprès d’Azure Active Directory d’appareils Windows joints à un domaine](active-directory-conditional-access-automatic-device-registration-setup.md)
+
+- [Correction des utilisateurs lors de l’accès aux applications protégées à accès conditionnel en fonction des appareils Azure AD](active-directory-conditional-access-device-remediation.md)
 
 - [Protégez vos données nécessitant Microsoft Intune](https://docs.microsoft.com/intune/deploy-use/use-remote-wipe-to-help-protect-data-using-microsoft-intune)
 
@@ -123,4 +125,4 @@ Le plan de contenu suivant répertorie les documents auxquels vous devez vous r�
 - [FAQ sur l’accès conditionnel](active-directory-conditional-faqs.md)
 - [Référence technique](active-directory-conditional-access-technical-reference.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

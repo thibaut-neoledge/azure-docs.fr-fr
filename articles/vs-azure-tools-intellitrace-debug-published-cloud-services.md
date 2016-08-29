@@ -12,12 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="04/18/2016"
+   ms.date="08/15/2016"
    ms.author="tarcher" />
 
 # Débogage d’un service cloud publié avec IntelliTrace et Visual Studio
 
-##Vue d’ensemble
+##Vue d'ensemble
 
 Avec IntelliTrace, vous pouvez enregistrer des informations de débogage détaillées pour une instance de rôle exécutée dans Azure. Si vous devez identifier la cause d’un problème, utilisez les journaux IntelliTrace pour exécuter pas à pas votre code à partir de Visual Studio comme s’il était exécuté dans Azure. En effet, IntelliTrace enregistre les principales données sur l’exécution du code et sur l’environnement quand votre application Azure est exécutée en tant que service cloud dans Azure. IntelliTrace vous permet d’examiner les données enregistrées à partir de Visual Studio. Vous pouvez également utiliser le débogage distant pour l’attachement direct à un service cloud exécuté dans Azure. Consultez [Débogage de Cloud Services](http://go.microsoft.com/fwlink/p/?LinkId=623041).
 
@@ -67,4 +67,4 @@ Vous pouvez continuer à utiliser Visual Studio pendant le téléchargement des 
 
 [Débogage de Cloud Services](https://msdn.microsoft.com/library/ee405479.aspx)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0817_2016-->

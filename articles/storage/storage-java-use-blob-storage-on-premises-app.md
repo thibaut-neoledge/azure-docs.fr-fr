@@ -13,20 +13,20 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="06/24/2016"
+	ms.date="08/11/2016"
 	ms.author="rmcmurray"/>
 
 # Application locale avec stockage d’objets blob
 
 ## Vue d'ensemble
 
-L’exemple suivant montre comment utiliser le stockage Azure pour stocker des images dans Azure. Le code figurant dans cet article concerne une application de console qui charge une image dans Azure, puis crée un fichier HTML affichant cette image dans votre navigateur.
+L'exemple suivant montre comment utiliser le stockage Azure pour stocker des images dans Azure. Le code figurant dans cet article concerne une application de console qui charge une image dans Azure, puis crée un fichier HTML affichant cette image dans votre navigateur.
 
 ## Composants requis
 
 - Le Kit de développement logiciel Java (JDK) version 1.6 ou ultérieure est installé.
 - Le Kit de développement logiciel (SDK) Azure est installé.
-- L'archive Java (JAR) des bibliothèques Azure pour Java et les dépendances applicables JAR sont installées et se trouvent dans le chemin d'accès de build utilisé par votre compilateur Java. Pour plus d’informations sur l’installation des bibliothèques Azure pour Java, consultez la page [Téléchargement du Kit de développement logiciel SDK Azure pour Java](../../articles/java-download-azure-sdk.md).
+- L'archive Java (JAR) des bibliothèques Azure pour Java et les dépendances applicables JAR sont installées et se trouvent dans le chemin d'accès de build utilisé par votre compilateur Java. Pour plus d’informations sur l’installation des bibliothèques Azure pour Java, consultez la page [Téléchargement du Kit de développement logiciel (SDK) Azure pour Java](java-download-azure-sdk.md).
 - Un compte de stockage Azure a été configuré. Le nom et la clé du compte de stockage sont utilisés par le code figurant dans cet article. Consultez la page [Création d’un compte de stockage](storage-create-storage-account.md#create-a-storage-account) pour des informations sur la création d’un compte de stockage et la page [Afficher et copier les clés d’accès de stockage](storage-create-storage-account.md#view-and-copy-storage-access-keys) pour des informations sur la récupération de la clé de compte.
 
 - Vous avez créé un fichier image local nommé et stocké sous le chemin d'accès c:\\myimages\\image1.jpg. Vous pouvez également modifier le constructeur **FileInputStream** dans l'exemple pour utiliser un chemin d'accès à l'image et un nom de fichier différents.
@@ -117,7 +117,7 @@ Appelez une fonction d’assistance nommée **MakeHTMLPage** pour créer une pag
 
     MakeHTMLPage(container);
 
-Imprimez un message d’état et des informations sur la page HTML créée.
+Imprimez un message d'état et des informations sur la page HTML créée.
 
     System.out.println("Processing complete.");
     System.out.println("Open index.html to see the images stored in your storage account.");
@@ -176,9 +176,9 @@ Dans le fichier local, ajoutez du contenu aux éléments **&lt;html&gt;**, **&lt
     stream.println("<header/>");
     stream.println("<body>");
 
-Effectuez une itération dans la liste des objets blob chargés. Pour chaque objet blob, créez dans la page HTML un élément **&lt;img&gt;** dont l’attribut **src** est envoyé à l’URI de l’objet blob tel qu’il existe dans votre compte de stockage Azure. Dans cet exemple, vous avez ajouté une seule image, mais si vous en ajoutiez plus, ce code effectuerait une itération pour chacune d’entre elles.
+Effectuez une itération dans la liste des objets blob chargés. Pour chaque objet blob, créez dans la page HTML un élément **&lt;img&gt;** dont l’attribut **src** est envoyé à l’URI de l’objet blob tel qu’il existe dans votre compte de stockage Azure. Dans cet exemple, vous avez ajouté une seule image, mais si vous en ajoutiez plus, ce code effectuerait une itération pour chacune d'entre elles.
 
-Par souci de simplification, cet exemple part du principe que chaque objet blob chargé est une image. Si vous avez chargé des objets blob qui ne sont pas des images ou des objets blob de pages au lieu d’objets blob de blocs, modifiez le code en conséquence.
+Par souci de simplification, cet exemple part du principe que chaque objet blob chargé est une image. Si vous avez chargé des objets blob qui ne sont pas des images ou des objets blob de pages au lieu d'objets blob de blocs, modifiez le code en conséquence.
 
     // Enumerate the uploaded blobs.
     for (ListBlobItem blobItem : container.listBlobs()) {
@@ -359,4 +359,4 @@ Pour en savoir plus sur les tâches de stockage plus complexes, cliquez sur les 
 - [API REST des services d’Azure Storage](https://msdn.microsoft.com/library/azure/dd179355.aspx)
 - [Blog de l'équipe Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

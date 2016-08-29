@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/24/2016"
+	ms.date="08/10/2016"
 	ms.author="jgao"/>
 
 # Gestion des clusters Hadoop dans HDInsight au moyen d’Azure PowerShell
@@ -49,19 +49,19 @@ Pour désinstaller l’ancienne version, exécutez Programmes et fonctionnalité
 Consultez [Créer des clusters basés sur Linux dans HDInsight à l’aide d’Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md).
 
 ##Énumérer les clusters
-Utilisez la commande suivante pour afficher la liste de tous les clusters de l’abonnement actif :
+Utilisez la commande suivante pour afficher la liste de tous les clusters de l’abonnement actif :
 
 	Get-AzureRmHDInsightCluster
 
 ##Afficher le cluster
 
-Utilisez la commande suivante pour afficher les détails d’un cluster spécifique dans l’abonnement actif :
+Utilisez la commande suivante pour afficher les détails d’un cluster spécifique dans l’abonnement actif :
 
 	Get-AzureRmHDInsightCluster -ClusterName <Cluster Name>
 
 ##Suppression des clusters
 
-Utilisez les commandes suivantes pour supprimer un cluster :
+Utilisez la commande suivante pour supprimer un cluster :
 
 	Remove-AzureRmHDInsightCluster -ClusterName <Cluster Name>
 
@@ -84,7 +84,7 @@ Impact de la modification du nombre de nœuds de données pour chaque type de cl
 
 - HBase
 
-	Vous pouvez ajouter ou supprimer des nœuds en continu dans votre cluster HBase lorsque celui-ci s’exécute. Les serveurs régionaux sont équilibrés automatiquement quelques minutes après la fin de l’opération de mise à l’échelle. Cependant, vous pouvez équilibrer manuellement des serveurs régionaux en vous connectant au nœud principal du cluster et en exécutant les commandes suivantes à partir d’une fenêtre d’invite de commandes :
+	Vous pouvez ajouter ou supprimer des nœuds en continu dans votre cluster HBase lorsque celui-ci s’exécute. Les serveurs régionaux sont équilibrés automatiquement quelques minutes après la fin de l’opération de mise à l’échelle. Cependant, vous pouvez équilibrer manuellement des serveurs régionaux en vous connectant au nœud principal du cluster et en exécutant les commandes suivantes à partir d’une fenêtre d’invite de commandes :
 
 		>pushd %HBASE_HOME%\bin
 		>hbase shell
@@ -103,7 +103,7 @@ Impact de la modification du nombre de nœuds de données pour chaque type de cl
 
 	L’interface utilisateur web de Storm est disponible dans le cluster HDInsight :
 
-	![hdinsight storm mise à l’échelle rééquilibrage](./media/hdinsight-administer-use-management-portal/hdinsight.portal.scale.cluster.storm.rebalance.png)
+	![HDInsight storm mise à l’échelle rééquilibrage](./media/hdinsight-administer-use-management-portal/hdinsight.portal.scale.cluster.storm.rebalance.png)
 
 	Voici un exemple relatif à l'utilisation de la commande de l'interface en ligne de commande pour rééquilibrer la topologie Storm :
 
@@ -150,7 +150,7 @@ Pour octroyer :
 
 >[AZURE.NOTE] En octroyant/révoquant l’accès, vous réinitialisez le nom d’utilisateur et le mot de passe du cluster.
 
-Vous pouvez également le faire via le portail Azure. Consultez [Administration de HDInsight à l’aide du portail Azure][hdinsight-admin-portal].
+Vous pouvez également le faire via le portail Azure. Consultez la rubrique [Administration de HDInsight à l’aide du portail Azure][hdinsight-admin-portal].
 
 ##Mettre à jour les informations d’identification de l’utilisateur HTTP
 
@@ -172,7 +172,7 @@ Le script Powershell suivant montre comment obtenir le nom de compte de stockage
 
 ##Trouvez le groupe de ressources
 
-En mode ARM, chaque cluster HDInsight appartient à un groupe de ressources Azure. Pour rechercher le groupe de ressources :
+En mode Resource Manager, chaque cluster HDInsight appartient à un groupe de ressources Azure. Pour rechercher le groupe de ressources :
 
 	$clusterName = "<HDInsight Cluster Name>"
 	
@@ -239,4 +239,4 @@ Consultez la rubrique [Téléchargement de données vers HDInsight][hdinsight-up
 
 [image-hdi-ps-provision]: ./media/hdinsight-administer-use-powershell/HDI.PS.Provision.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0817_2016-->

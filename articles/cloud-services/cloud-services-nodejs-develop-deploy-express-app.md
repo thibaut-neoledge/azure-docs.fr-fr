@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="06/24/2016" 
+	ms.date="08/11/2016" 
 	ms.author="robmcm"/>
 
 
@@ -25,7 +25,7 @@
 
 Node.js inclut un ensemble minimal de fonctionnalités dans le runtime principal. Les développeurs utilisent souvent des modules tiers pour fournir des fonctionnalités supplémentaires lors du développement d'une application Node.js. Dans ce didacticiel, vous allez créer une application en utilisant le module [Express][], qui fournit une infrastructure MVC pour créer des applications Web Node.js.
 
-Voici une capture d'écran de l'application terminée :
+Voici une capture d’écran de l’application terminée :
 
 ![Navigateur Web affichant Bienvenue sur Express dans Azure](./media/cloud-services-nodejs-develop-deploy-express-app/node36.png)
 
@@ -124,7 +124,7 @@ Dans la fenêtre Azure PowerShell, utilisez la cmdlet **Publish-AzureServiceProj
 
     PS C:\node\expressapp\WebRole1> Publish-AzureServiceProject -ServiceName myexpressapp -Location "East US" -Launch
 
-Une fois le déploiement terminé, votre navigateur s'ouvre et affiche la page Web.
+Une fois le déploiement terminé, votre navigateur s'ouvre et affiche la page web.
 
 ![Navigateur web affichant la page Express. L'URL indique que la page est maintenant hébergée sur Azure.](./media/cloud-services-nodejs-develop-deploy-express-app/node36.png)
 
@@ -138,4 +138,4 @@ Pour plus d'informations, consultez le [Centre pour développeurs Node.js](/deve
 
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -3,7 +3,7 @@
    description="Découvrez les commandes que vous pouvez utiliser pour automatiser les tâches de gestion des machines virtuelles."
    services="virtual-machines-windows"
    documentationCenter="windows"
-   authors="singhkay"
+   authors="singhkays"
    manager="timlt"
    editor=""
    tags="azure-service-management"/>
@@ -32,7 +32,7 @@ Vous devrez remplacer une partie du texte des commandes par un texte approprié 
 ## Obtenir une machine virtuelle
 Il s’agit d’une tâche de base que vous utiliserez souvent. Utilisez-la pour obtenir des informations sur une machine virtuelle, effectuer des tâches sur cette dernière ou pour obtenir un résultat à stocker dans une variable.
 
-Pour obtenir des informations sur la machine virtuelle, exécutez cette commande en remplaçant tous les éléments entre guillemets notamment les caractères < et > :
+Pour obtenir des informations sur la machine virtuelle, exécutez cette commande en remplaçant tous les éléments entre guillemets notamment les caractères < et > :
 
      Get-AzureVM -ServiceName "<cloud service name>" -Name "<virtual machine name>"
 
@@ -67,7 +67,7 @@ Exécutez cette commande :
     Start-AzureVM -ServiceName "<cloud service name>" -Name "<virtual machine name>"
 
 ## Association d’un disque de données
-Cette tâche nécessite de réaliser quelques étapes. Tout d’abord, utilisez l’applet de commande ***Add-AzureDataDisk*** pour ajouter le disque à l’objet $vm. Utilisez ensuite l’applet de commande **Update-AzureVM** pour mettre à jour la configuration de la machine virtuelle.
+Cette tâche nécessite de réaliser quelques étapes. Tout d’abord, utilisez l’applet de commande ****Add-AzureDataDisk**** pour ajouter le disque à l’objet $vm. Utilisez ensuite l’applet de commande **Update-AzureVM** pour mettre à jour la configuration de la machine virtuelle.
 
 Vous devez également décider d’associer un nouveau disque ou un disque existant, qui contient des données. Dans le cas d’un nouveau disque, la commande entraîne la création du fichier .vhd et son association.
 
@@ -95,4 +95,4 @@ Pour créer une nouvelle machine virtuelle Windows dans Azure, consultez [Utilis
 - une appartenance à un jeu d’équilibrage de la charge ;
 - une adresse IP statique.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Créer une solution IoT à l’aide de Stream Analytics | Microsoft Azure" 
 	description="prise en main du didacticiel de la solution iot Stream Analytics d’un scénario de station de péage"
-	keywords=""
+	keywords="solution IOT, fonctions de fenêtre"
 	documentationCenter=""
 	services="stream-analytics"
 	authors="jeffstokes72" 
@@ -15,7 +15,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="07/27/2016" 
+	ms.date="08/11/2016" 
 	ms.author="jeffstok"
 />
 
@@ -33,7 +33,7 @@ Après avoir effectué ce didacticiel, vous pourrez :
 -   développer des solutions de diffusion en continu pour vos clients à l’aide d’Azure Stream Analytics en toute confiance ;
 -   vous appuyer sur l’expérience de surveillance et de journalisation pour résoudre les problèmes.
 
-## Configuration requise
+## Composants requis
 
 Ce didacticiel nécessite les éléments suivants :
 
@@ -42,7 +42,7 @@ Ce didacticiel nécessite les éléments suivants :
 -   [Abonnement Azure](https://azure.microsoft.com/pricing/free-trial/)
 -   Des privilèges d’administrateur sur l’ordinateur
 -   Téléchargez [TollApp.zip](http://download.microsoft.com/download/D/4/A/D4A3C379-65E8-494F-A8C5-79303FD43B0A/TollApp.zip) à partir du Centre de téléchargement Microsoft
--   Facultatif : Code source du générateur d'événements TollApp dans [GitHub](https://github.com/streamanalytics/samples/tree/master/TollApp)
+-   Facultatif : Code source du générateur d'événements TollApp dans [GitHub](https://aka.ms/azure-stream-analytics-toll-source)
 
 ## Présentation du scénario - « Hello, Toll ! »
 
@@ -58,8 +58,8 @@ Nous allons utiliser deux flux de données générés par des capteurs installé
 ### Flux des données d’entrée
 
 Le flux des données d’entrée contient des informations sur les véhicules qui arrivent aux stations de péage.
-  
-  
+
+
 | TollId | EntryTime | LicensePlate | State | Make | Model | VehicleType | VehicleWeight | Toll | Tag |
 |---------|-------------------------|--------------|-------|--------|---------|--------------|----------------|------|-----------|
 | 1 | 2014-09-10 12:01:00.000 | JNB 7001 | NY | Honda | CRV | 1 | 0 | 7 | |
@@ -68,18 +68,18 @@ Le flux des données d’entrée contient des informations sur les véhicules qu
 | 2 | 2014-09-10 12:03:00.000 | XYZ 1003 | CT | Toyota | Corolla | 1 | 0 | 4 | |
 | 1 | 2014-09-10 12:03:00.000 | BNJ 1007 | NY | Honda | CRV | 1 | 0 | 5 | 789123456 |
 | 2 | 2014-09-10 12:05:00.000 | CDE 1007 | NJ | Toyota | 4x4 | 1 | 0 | 6 | 321987654 |
-  
+
 
 Voici une brève description des colonnes :
-  
-  
+
+
 | TollID | Identifiant de la station de péage |
 |--------------|----------------------------------------------------------------|
 | EntryTime | Date et heure UTC auxquelles le véhicule arrive à la station de péage |
 | LicensePlate | Numéro de plaque d’immatriculation du véhicule |
 | State | État des États-Unis |
 | Make | Fabricant du véhicule |
-| Model | Numéro de modèle du véhicule |
+| Modèle | Numéro de modèle du véhicule |
 | VehicleType | 1 pour véhicule de tourisme, 2 pour véhicule commercial |
 | WeightType | Poids du véhicule en tonnes ; 0 pour les véhicules de tourisme |
 | Toll | Prix du péage en dollar américain |
@@ -89,8 +89,8 @@ Voici une brève description des colonnes :
 ### Flux des données de sortie
 
 Le flux des données de sortie contient des informations sur les véhicules qui quittent la station de péage.
-  
-  
+
+
 | **TollId** | **ExitTime** | **LicensePlate** |
 |------------|------------------------------|------------------|
 | 1 | 2014-09-10T12:03:00.0000000Z | JNB 7001 |
@@ -101,9 +101,9 @@ Le flux des données de sortie contient des informations sur les véhicules qui 
 | 2 | 2014-09-10T12:07:00.0000000Z | CDE 1007 |
 
 Voici une brève description des colonnes :
-  
-  
-| des colonnes | Description |
+
+
+| Colonne | Description |
 |--------------|-----------------------------------------------------------------|
 | TollID | Identifiant de la station de péage |
 | ExitTime | Date et heure UTC auxquelles le véhicule quitte la station de péage |
@@ -112,21 +112,21 @@ Voici une brève description des colonnes :
 ### Données d’inscription des véhicules commerciaux
 
 Nous allons utiliser un instantané de la base de données d’inscription des véhicules commerciaux.
-  
-  
-| LicensePlate | RegistrationId | Expired |
+
+
+| LicensePlate | ID d’inscription | Expiré |
 |--------------|----------------|---------|
 | SVT 6023 | 285429838 | 1 |
 | XLZ 3463 | 362715656 | 0 |
 | BAC 1005 | 876133137 | 1 |
 | RIV 8632 | 992711956 | 0 |
 | SNY 7188 | 592133890 | 0 |
-| ELH 9896 | 678427724 | 1 |                      
+| ELH 9896 | 678427724 | 1 |
 
 Voici une brève description des colonnes :
-  
-  
-| des colonnes | Description |
+
+
+| Colonne | Description |
 |--------------|-----------------------------------------------------------------|
 | LicensePlate | Numéro de plaque d’immatriculation du véhicule |
 | RegistrationId | ID d’inscription |
@@ -185,7 +185,7 @@ Vous obtenez également une autre fenêtre, similaire à la capture d’écran c
 
 Normalement, toutes les ressources créées doivent maintenant apparaître dans le Portail de gestion Azure. Accédez à <https://manage.windowsazure.com> et connectez-vous avec les informations d’identification de votre compte.
 
-### Hubs d'événements
+### Event Hubs
 
 Cliquez sur l’élément de menu « Service Bus » sur le côté gauche du Portail de gestion Azure pour voir les hubs d’événements créés par le script de la section précédente.
 
@@ -246,22 +246,22 @@ Connectez-vous à la base de données Azure (destination) à partir de Visual St
 6) Choisissez TollDataDB comme base de données.
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image17.jpg)
-    
+
 7) Cliquez sur OK.
 
 8) Ouvrez l’Explorateur de serveurs.
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image18.png)
-  
+
 9) Observez les 4 tables créées dans la base de données TollDataDB.
-  
+
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image19.jpg)
-  
+
 ## Générateur d’événements - Exemple de projet TollApp
 
 Le script PowerShell démarre automatiquement l’envoi d’événements à l’aide de l’exemple de programme d’application TollApp. Vous n’avez pas besoin d’effectuer d’étapes supplémentaires.
 
-Toutefois, si vous êtes intéressé par les détails de l’implémentation, le code source de l’application TollApp est disponible à la page [samples/TollApp](https://github.com/streamanalytics/samples/tree/master/TollApp) de GitHub
+Toutefois, si vous êtes intéressé par les détails de l’implémentation, le code source de l’application TollApp est disponible à la page [samples/TollApp](https://aka.ms/azure-stream-analytics-toll-source) de GitHub
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image20.png)
 
@@ -376,9 +376,7 @@ Supposons que nous devons compter le nombre de véhicules qui arrivent à une st
 
 Examinons la requête d’Azure Stream Analytics qui répond à cette question :
 
-    SELECT TollId, System.Timestamp AS WindowEnd, COUNT(*) AS Count
-    FROM EntryStream TIMESTAMP BY EntryTime
-    GROUP BY TUMBLINGWINDOW(minute, 3), TollId
+SELECT TollId, System.Timestamp AS WindowEnd, COUNT(*) AS Count FROM EntryStream TIMESTAMP BY EntryTime GROUP BY TUMBLINGWINDOW(minute, 3), TollId
 
 Comme vous pouvez le voir, Azure Stream Analytics utilise un langage de requête semblable à SQL avec quelques extensions supplémentaires pour spécifier les aspects de la requête liés au temps.
 
@@ -418,11 +416,7 @@ Afin d’évaluer l’efficacité et l’expérience client, nous souhaitons dé
 
 Pour cela, nous devons joindre le flux contenant EntryTime au flux contenant ExitTime. Nous joignons les flux sur les colonnes TollId et LicencePlate. L’opérateur JOIN nécessite de spécifier une marge de manœuvre temporelle décrivant la différence de temps acceptable entre les événements joints. Nous allons utiliser la fonction DATEDIFF pour spécifier que les événements ne doivent pas être séparés de plus de 15 minutes. Nous allons également appliquer la fonction DATEDIFF aux heures de sortie et d’entrée pour calculer le temps réel qu’un véhicule passe au péage. Notez que la fonction DATEDIFF n’est pas utilisée de la même façon dans une instruction SELECT et dans une condition JOIN.
 
-    SELECT EntryStream.TollId, EntryStream.EntryTime, ExitStream.ExitTime, EntryStream.LicensePlate, DATEDIFF (minute , EntryStream.EntryTime, ExitStream.ExitTime) AS DurationInMinutes
-    FROM EntryStream TIMESTAMP BY EntryTime
-    JOIN ExitStream TIMESTAMP BY ExitTime
-    ON (EntryStream.TollId= ExitStream.TollId AND EntryStream.LicensePlate = ExitStream.LicensePlate)
-    AND DATEDIFF (minute, EntryStream, ExitStream ) BETWEEN 0 AND 15
+SELECT EntryStream.TollId, EntryStream.EntryTime, ExitStream.ExitTime, EntryStream.LicensePlate, DATEDIFF (minute , EntryStream.EntryTime, ExitStream.ExitTime) AS DurationInMinutes FROM EntryStream TIMESTAMP BY EntryTime JOIN ExitStream TIMESTAMP BY ExitTime ON (EntryStream.TollId= ExitStream.TollId AND EntryStream.LicensePlate = ExitStream.LicensePlate) AND DATEDIFF (minute, EntryStream, ExitStream ) BETWEEN 0 AND 15
 
 Pour tester cette requête, mettez à jour la requête sous l’onglet Requête de votre travail :
 
@@ -442,11 +436,7 @@ Azure Stream Analytics peut utiliser des instantanés de données pour joindre d
 
 Si un véhicule commercial est inscrit auprès de l’entreprise de péage, il franchit directement la station de péage. Nous allons utiliser la table de recherche d’inscription des véhicules commerciaux pour identifier tous les véhicules commerciaux dont l’inscription a expiré.
 
-    SELECT EntryStream.EntryTime, EntryStream.LicensePlate, EntryStream.TollId, Registration.RegistrationId
-    FROM EntryStream TIMESTAMP BY EntryTime
-    JOIN Registration
-    ON EntryStream.LicensePlate = Registration.LicensePlate
-    WHERE Registration.Expired = '1'
+SELECT EntryStream.EntryTime, EntryStream.LicensePlate, EntryStream.TollId, Registration.RegistrationId FROM EntryStream TIMESTAMP BY EntryTime JOIN Registration ON EntryStream.LicensePlate = Registration.LicensePlate WHERE Registration.Expired = '1'
 
 Notez que le test d’une requête avec des données de référence nécessite la définition d’une source d’entrée pour ces données, ce que nous avons fait à l’étape 5.
 
@@ -485,9 +475,7 @@ Ouvrez l’Explorateur de serveurs Visual Studio et cliquez avec le bouton droit
 
 Azure Stream Analytics est conçu pour pouvoir être mis à l’échelle en toute souplesse et gérer une charge de données élevée. La requête d’Azure Stream Analytics peut utiliser une clause **PARTITION BY** pour informer le système que cette étape doit faire l’objet d’une montée en charge. PartitionId est une colonne spéciale ajoutée par le système qui correspond à l’id de partition de l’entrée (hub d’événements).
 
-    SELECT TollId, System.Timestamp AS WindowEnd, COUNT(*)AS Count
-    FROM EntryStream TIMESTAMP BY EntryTime PARTITION BY PartitionId
-    GROUP BY TUMBLINGWINDOW(minute,3), TollId, PartitionId    
+SELECT TollId, System.Timestamp AS WindowEnd, COUNT(*)AS Count FROM EntryStream TIMESTAMP BY EntryTime PARTITION BY PartitionId GROUP BY TUMBLINGWINDOW(minute,3), TollId, PartitionId
 
 Arrêtez le travail en cours, mettez à jour la requête sous l’onglet Requête, puis ouvrez l’onglet Mettre à l’échelle.
 
@@ -501,7 +489,7 @@ Accédez à l’onglet Sortie et modifiez le nom de la table SQL en « TollData
 
 À présent, si vous démarrez le travail, Azure Stream Analytics peut répartir le travail sur plusieurs ressources de calcul et atteindre un meilleur débit. Notez que l’application TollApp envoie également des événements partitionnés par TollId.
 
-## Analyse
+## Surveillance
 
 L’onglet Surveillance contient des statistiques sur le travail en cours d’exécution.
 
@@ -535,4 +523,4 @@ Notez que les ressources sont identifiées par leur nom. Assurez-vous de vérifi
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image57.png)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

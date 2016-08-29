@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/08/2016"
+   ms.date="08/16/2016"
    ms.author="kevin;barbkess;sonyama"/>
 
 # Utiliser Azure Stream Analytics avec SQL Data Warehouse
@@ -48,18 +48,18 @@ Sélectionnez Base de données SQL, puis cliquez sur suivant.
 ### Étape 3
 Entrez les valeurs ci-dessous dans la page suivante :
 
-- *Alias de sortie* : entrez un nom convivial pour cette sortie de travail.
-- *Abonnement* :
+- *Alias de sortie* : entrez un nom convivial pour cette sortie de travail.
+- *Abonnement* :
 	- Si votre base de données SQL Data Warehouse se trouve dans le même abonnement que celui de la tâche Stream Analytics, sélectionnez Utiliser la base de données SQL de l’abonnement actuel.
 	- Si votre base de données se trouve dans un autre abonnement, sélectionnez Utiliser la base de données SQL d’un autre abonnement.
-- *Base de données* : spécifiez le nom d’une base de données de destination.
-- *Nom du serveur* : spécifiez le nom du serveur pour la base de données que vous venez d’indiquer. Vous pouvez obtenir cette information dans le portail Azure Classic.
+- *Base de données* : spécifiez le nom d’une base de données de destination.
+- *Nom du serveur* : spécifiez le nom du serveur pour la base de données que vous venez d’indiquer. Vous pouvez obtenir cette information dans le portail Azure Classic.
 
 ![][server-name]
 
-- *Nom d’utilisateur* : tapez le nom d’utilisateur d’un compte disposant d’autorisations en écriture sur la base de données.
-- *Mot de passe* : indiquez le mot de passe du compte d’utilisateur spécifié.
-- *Table* : spécifiez le nom de la table cible dans la base de données.
+- *Nom d’utilisateur* : tapez le nom d’utilisateur d’un compte disposant d’autorisations en écriture sur la base de données.
+- *Mot de passe* : indiquez le mot de passe du compte d’utilisateur spécifié.
+- *Table* : spécifiez le nom de la table cible dans la base de données.
 
 ![][add-database]
 
@@ -86,7 +86,7 @@ Pour obtenir des conseils supplémentaires en matière de développement, consul
 
 <!--Article references-->
 
-[Présentation d’Azure Stream Analytics]: ../stream-analytics/stream-analytics-introductiond.md
+[Présentation d’Azure Stream Analytics]: ../stream-analytics/stream-analytics-introduction.md
 [Prise en main d’Azure Stream Analytics]: ../stream-analytics/stream-analytics-get-started.md
 [Vue d’ensemble sur le développement SQL Data Warehouse]: ./sql-data-warehouse-overview-develop.md
 [Vue d’ensemble sur l’intégration de SQL Data Warehouse]: ./sql-data-warehouse-overview-integrate.md
@@ -96,4 +96,4 @@ Pour obtenir des conseils supplémentaires en matière de développement, consul
 <!--Other Web references-->
 [Azure Stream Analytics documentation]: http://azure.microsoft.com/documentation/services/stream-analytics/
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

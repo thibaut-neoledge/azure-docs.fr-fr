@@ -58,7 +58,7 @@ La procédure suivante explique comment créer une source de données ODBC Hive.
     Propriété|Description
     ---|---
     Data Source Name|Donnez un nom à votre source de données
-    Hôte|Entrez <NomClusterHDInsight>.azurehdinsight.net. Par exemple, myHDICluster.azurehdinsight.net
+    Host|Entrez &lt;HDInsightClusterName>.azurehdinsight.net. Par exemple, myHDICluster.azurehdinsight.net
     Port|Utilisez <strong>443</strong>. (ce port est passé de 563 à 443).
     Base de données|Utilisez <strong>Default</strong>.
     Hive Server Type|Sélectionnez <strong>Hive Server 2</strong>.
@@ -131,4 +131,4 @@ Dans cet article, vous avez appris à utiliser le pilote Microsoft Hive ODBC pou
 [img-hdi-simbahiveodbc-excel-connectionproperties]: ./media/hdinsight-connect-excel-hive-ODBC-driver/HDI.SimbaHiveODBC.Excel.ConnectionProperties1.png
 [img-hdi-simbahiveodbc.excel.dataconnection]: ./media/hdinsight-connect-excel-hive-ODBC-driver/HDI.SimbaHiveOdbc.Excel.DataConnection1.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

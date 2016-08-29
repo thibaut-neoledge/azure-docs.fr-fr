@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/25/2016"
+	ms.date="08/10/2016"
 	ms.author="jgao"/>
 
 
@@ -87,15 +87,15 @@ Le tableau suivant répertorie les versions de HDInsight actuellement disponible
 * Seuls les clusters à haute disponibilité avec deux nœuds principaux sont déployés par défaut pour les clusters HDInsight 2.1 et versions ultérieures. Ils ne sont pas disponibles pour les clusters HDInsight 1.6.
 * Une fois que la prise en charge a expiré pour une version particulière, elle n’est plus disponible par l’intermédiaire du portail Azure. Le tableau suivant indique quelles versions sont disponibles sur le portail Azure Classic. Les versions des clusters resteront disponibles avec le paramètre `Version` de la commande [New-AzureRmHDInsightCluster](https://msdn.microsoft.com/library/mt619331.aspx) Windows PowerShell et le Kit de développement logiciel (SDK) .NET jusqu’à leur date d’obsolescence.
 
-Version de HDInsight|Version de HDP|Haute disponibilité|Date de lancement|Disponible sur le portail Azure|Date d'expiration du support|Date d'obsolescence
----|---|---|---|---|---|---
-HDI 3.4|HDP 2.4|Oui|29/03/2016|Oui||
-HDI 3.3|HDP 2.3|Oui|02/12/2015|Oui||
-HDI 3.2|HDP 2.2|Oui|2/18/2015|Oui||
-HDI 3,1|HDP 2,1|Oui|6/24/2014|Oui||
-HDI 3,0|HDP 2,0|Oui|02/11/2014|Oui|09/17/2014|06/30/2015
-HDI 2,1|HDP 1,3|Oui|10/28/2013|Oui|05/12/2014|05/31/2015
-HDI 1.6|HDP 1.1|Non|10/28/2013|Oui|04/26/2014|05/31/2015
+Version de HDInsight|Version de HDP|SYSTÈME D’EXPLOITATION DE LA MACHINE VIRTUELLE|Haute disponibilité|Date de lancement|Disponible sur le portail Azure|Date d'expiration du support|Date d'obsolescence
+---|---|---|---|---|---|---|---
+HDI 3.4|HDP 2.4|Ubuntu 14.0.4 LTS|Oui|29/03/2016|Oui||
+HDI 3.3|HDP 2.3|Ubuntu 14.0.4 LTS ou Windows Server 2012R2|Oui|02/12/2015|Oui||
+HDI 3.2|HDP 2.2|Ubuntu 12.04 LTS ou Windows Server 2012R2|Oui|2/18/2015|Oui||
+HDI 3,1|HDP 2,1|Windows Server 2012 R2|Oui|6/24/2014|Oui||
+HDI 3,0|HDP 2,0|Windows Server 2012 R2|Oui|02/11/2014|Oui|09/17/2014|06/30/2015
+HDI 2,1|HDP 1,3|Windows Server 2012 R2|Oui|10/28/2013|Oui|05/12/2014|05/31/2015
+HDI 1.6|HDP 1.1||Non|10/28/2013|Oui|04/26/2014|05/31/2015
 
 **Déploiement des clusters autres que les clusters par défaut**
 
@@ -112,7 +112,7 @@ La **Date d’obsolescence** est la date après laquelle la version du cluster n
 
 ## Notes de publication de Hortonworks associées aux versions de HDInsight##
 
-* Le cluster HDInsight version 3.4 utilise une distribution Hadoop basée sur [Hortonworks Data Platform 2.4](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.4.0/bk_HDP_RelNotes/content/ch_relnotes_v240.html).
+* Le cluster HDInsight version 3.4 utilise une distribution Hadoop basée sur [Hortonworks Data Platform 2.4](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.4.0/bk_HDP_RelNotes/content/ch_relnotes_v240.html).
 
 
 
@@ -156,4 +156,4 @@ La **Date d’obsolescence** est la date après laquelle la version du cluster n
 
 [zookeeper]: http://zookeeper.apache.org/
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

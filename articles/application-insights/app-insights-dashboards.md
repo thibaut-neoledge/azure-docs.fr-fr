@@ -37,7 +37,7 @@ Cliquez sur :
 * **N’importe quel graphique ou mosaïque** pour plus de détails sur ce qui est affiché sur le graphique.
 * **Paramètres** pour obtenir des panneaux prédéfinis d’autres mesures, ainsi que des pages de configuration.
 * [**Metrics Explorer**](app-insights-metrics-explorer.md) pour créer des pages de mesures de votre choix ;
-* [**Rechercher**](app-insights-diagnostic-search.md) pour analyser des instances spécifiques d’événements tels que les demandes, les exceptions ou les suivis de journal.
+* [**Rechercher**](app-insights-diagnostic-search.md) pour analyser des instances spécifiques d’événements tels que les demandes, les exceptions ou les suivis du journal.
 * [**Analytics**](app-insights-analytics.md) pour des requêtes puissantes sur vos données de télémétrie.
 * [**Flux en direct**](app-insights-metrics-explorer.md#live-stream) pour un ensemble de mesures quasi instantanées, ce qui est utile lors du déploiement d’une nouvelle version ou du débogage.
 
@@ -77,6 +77,10 @@ Lorsque vous examinez un panneau ou un ensemble de graphiques qui est particuli�
 
 Notez que les graphiques sont regroupés en vignettes : une vignette peut contenir plusieurs graphiques. Vous épinglez la vignette entière au tableau de bord.
 
+### Graphiques Analytics
+
+Vous pouvez également [épingler des graphiques Analytics](app-insights-analytics-using.md#pin-to-dashboard) à un tableau de bord [partagé](#share-dashboards-with-your-team). Ainsi, vous pouvez ajouter les graphiques de toute requête arbitraire en parallèle des mesures standards.
+
 ## Ajustement d’une vignette sur le tableau de bord
 
 Lorsqu’une vignette se trouve sur le tableau de bord, vous pouvez l’ajuster.
@@ -110,7 +114,6 @@ Sur le tableau de bord, un panneau s’affiche sous forme de vignette : cliquez
 ## Partage de tableaux de bord avec votre équipe
 
 Lorsque vous avez créé un tableau de bord, vous pouvez le partager avec d’autres utilisateurs.
-
 
 ![Dans l’en-tête du tableau de bord, cliquez sur Partager](./media/app-insights-dashboards/41.png)
 
@@ -148,8 +151,8 @@ Le bouton Paramètres du panneau de la vue d’ensemble ne se limite pas à la c
 
 ||
 |---|---
-|[Metrics Explorer](app-insights-metrics-explorer.md)<br/>Filtrez et segmentez les métriques.|![Exemple de recherche](./media/app-insights-dashboards/64.png)
+|[Metrics Explorer](app-insights-metrics-explorer.md)<br/>Filtrez et segmentez les mesures.|![Exemple de recherche](./media/app-insights-dashboards/64.png)
 |[Recherche de diagnostic](app-insights-diagnostic-search.md)<br/>Recherchez et examinez des événements, ainsi que les événements associés, et créez des bogues. |![Exemple de recherche](./media/app-insights-dashboards/61.png)
 |[Analytics](app-insights-analytics.md)<br/>Tirez parti d’un puissant langage de requête.| ![Exemple de recherche](./media/app-insights-dashboards/63.png)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

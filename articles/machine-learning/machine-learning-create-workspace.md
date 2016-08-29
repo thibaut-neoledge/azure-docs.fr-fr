@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/23/2016"
+	ms.date="08/16/2016"
 	ms.author="garye;bradsev;ahgyger"/>
 
 
@@ -106,4 +106,4 @@ Voici une table permettant de clarifier la différence entre un administrateur d
 [Azure Machine Learning Studio]: https://studio.azureml.net/
 [portail Microsoft Azure Classic]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0817_2016-->

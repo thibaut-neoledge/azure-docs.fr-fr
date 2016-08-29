@@ -38,7 +38,7 @@ Créez un dossier pour stocker votre application. À partir d’une console cont
 	
 	npm init
 	
-Vous obtenez alors une série de questions qui vous permettront d’initialiser votre projet. Comme **point d’entrée**, ce didacticiel utilise *app.js*. Vous pouvez voir mes autres choix dans l’exemple ci-dessous.
+Vous obtenez alors une série de questions qui vous permettront d’initialiser votre projet. Comme **point d’entrée**, ce didacticiel utilise *app.js*. Vous pouvez voir mes autres choix dans l’exemple suivant.
 
 ![sortie init NPM](./media/cdn-app-dev-node/cdn-npm-init.png)
 
@@ -47,7 +47,7 @@ Notre projet est maintenant initialisé avec un fichier *packages.json*. Notre p
 	npm install --save ms-rest-azure
 	npm install --save azure-arm-cdn
 
-Une fois les packages installés, le fichier *package.json* doit se présenter comme suit (les numéros de version peuvent varier) :
+Une fois les packages installés, le fichier *package.json* doit se présenter comme dans cet exemple (les numéros de version peuvent varier) :
 
 ``` json
 {
@@ -117,7 +117,7 @@ Ouvrez *app.js* dans votre éditeur pour commencer à écrire la structure de ba
 4.  Notre application console Node.js va prendre quelques paramètres de ligne de commande. Vérifions qu’au moins un des paramètres a été transmis.
 
 	```javascript
-	//Collect command line parameters
+	//Collect command-line parameters
 	var parms = process.argv.slice(2);
 
 	//Do we have parameters?
@@ -129,7 +129,7 @@ Ouvrez *app.js* dans votre éditeur pour commencer à écrire la structure de ba
 	}
 	```
 
-5. Cela nous amène à la partie principale de notre programme, où nous allons créer des branches vers d’autres fonctions dépendant des paramètres qui ont été transmis.
+5. Cela nous amène à la partie principale de notre programme, où nous créons des branches vers d’autres fonctions dépendant des paramètres qui ont été transmis.
 
 	```javascript
 	switch(parms[0].toLowerCase())
@@ -213,7 +213,7 @@ Maintenant que nous avons écrit la structure de base de notre programme, nous d
 
 ## Répertorier les profils CDN et points de terminaison
 
-Commençons par répertorier les profils et les points de terminaison existants. Je commenterai le code avec la syntaxe appropriée pour nous permettre de savoir quel paramètre va à quel emplacement.
+Commençons par répertorier les profils et les points de terminaison existants. Les commentaires de mon code indiquent la syntaxe appropriée pour nous permettre de savoir quel paramètre va à quel emplacement.
 
 ```javascript
 // list profiles
@@ -367,4 +367,6 @@ Pour voir la référence du kit de développement logiciel Azure CDN pour Node.j
 
 Pour rechercher une documentation supplémentaire sur le kit de développement logiciel Azure pour Node.js, consultez la [référence complète](http://azure.github.io/azure-sdk-for-node/).
 
-<!---HONumber=AcomDC_0803_2016-->
+Gérez vos ressources CDN avec [PowerShell](./cdn-manage-powershell.md).
+
+<!---HONumber=AcomDC_0817_2016-->

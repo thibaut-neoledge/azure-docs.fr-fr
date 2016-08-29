@@ -337,4 +337,6 @@ Pour voir le projet achevé obtenu à partir de cette procédure pas à pas, [t�
 
 Pour trouver de la documentation supplémentaire sur la bibliothèque Azure CDN Management Library pour .NET, consultez la [référence sur MSDN](https://msdn.microsoft.com/library/mt657769.aspx).
 
-<!---HONumber=AcomDC_0803_2016-->
+Gérez vos ressources CDN avec [PowerShell](./cdn-manage-powershell.md).
+
+<!---HONumber=AcomDC_0817_2016-->

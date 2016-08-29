@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="05/25/2016" 
+    ms.date="08/16/2016" 
     ms.author="jeedes" />
 
 #Didacticiel : Intégration d’Azure AD à Zscaler
@@ -24,7 +24,7 @@ L’objectif de ce didacticiel est de montrer comment intégrer Azure et Zscaler
 Le scénario décrit dans ce didacticiel se compose des blocs de construction suivants :
 
 1.  Activation de l’intégration d’applications pour Zscaler
-2.  Configuration de l'authentification unique
+2.  Configuration de l’authentification unique
 3.  Configuration des paramètres de proxy
 4.  Configuration de l'approvisionnement des utilisateurs
 5.  Affectation d’utilisateurs
@@ -71,7 +71,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
 1.  Sur la page d’intégration d’applications **Zscaler** du portail Azure Classic, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
 
-    ![Activer l’authentification unique](./media/active-directory-saas-zscaler-tutorial/IC769229.png "Activer l’authentification unique")
+    ![Activer l'authentification unique](./media/active-directory-saas-zscaler-tutorial/IC769229.png "Activer l'authentification unique")
 
 2.  Dans la page **Comment voulez-vous que les utilisateurs se connectent à Zscaler**, sélectionnez **Authentification unique avec Microsoft Azure AD**, puis cliquez sur **Suivant**.
 
@@ -111,16 +111,16 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Téléchargement d’un certificat](./media/active-directory-saas-zscaler-tutorial/IC769489.png "Téléchargement d’un certificat")
 
-    1.  Dans la zone de texte **URL of the SAML Portal to which users are sent for authentication**, collez la valeur du champ **URL de la demande d’authentification** du portail Azure Classic.
+    1.  Dans la zone de texte **URL of the SAML Portal to which users are sent for authentication** (URL du portail SAML vers lequel les utilisateurs sont renvoyés pour l’authentification), collez la valeur du champ **URL de la demande d’authentification** à partir du portail Azure Classic.
     2.  Dans la zone de texte **Attribute containing Login Name**, tapez **NameID**.
-    3.  Dans le champ **Upload SSL Public Certificate**, chargez le certificat que vous avez téléchargé à partir du portail Azure Classic.
+    3.  Dans le champ **Upload SSL Public Certificate** (Télécharger le certificat SSL public), chargez le certificat que vous avez téléchargé à partir du portail Azure Classic.
     4.  Sélectionnez **Enable SAML Auto-Provisioning**.
 
 10. Dans la page **Configure User Authentication**, procédez comme suit :
 
     ![Modifier l’authentification utilisateur](./media/active-directory-saas-zscaler-tutorial/IC769490.png "Modifier l’authentification utilisateur")
 
-    1.  Cliquez sur **Enregistrer**.
+    1.  Cliquez sur **Save**.
     2.  Cliquez sur **Activate Now**.
 
 11. Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
@@ -200,6 +200,6 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
     ![Oui](./media/active-directory-saas-zscaler-tutorial/IC767830.png "Oui")
   
-Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
+Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d'informations sur le panneau d'accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0817_2016-->

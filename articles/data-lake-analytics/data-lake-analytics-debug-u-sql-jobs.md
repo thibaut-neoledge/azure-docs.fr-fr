@@ -25,7 +25,7 @@ Apprenez à déboguer des travaux U-SQL ayant échoué en raison de bogues dans 
 >[AZURE.NOTE] Visual Studio peut se bloquer si vous n’avez pas les deux mises à niveau Windows suivantes : [Microsoft Visual C++ 2015 Redistributable Update 2](https://www.microsoft.com/download/details.aspx?id=51682), [Universal C Runtime pour Windows](https://www.microsoft.com/download/details.aspx?id=50410&wa=wsignin1.0).
 
 
-##Configuration requise
+##Composants requis
 -	Avoir parcouru l’article [Prise en main](data-lake-analytics-data-lake-tools-get-started.md).
 
 ## Création et configuration de projets de débogage
@@ -84,4 +84,4 @@ Une fois que vous avez terminé de déboguer votre code U-SQL, vous pouvez renvo
 - [Didacticiel : Développer des scripts U-SQL avec Data Lake Tools pour Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 - [Développer des opérateurs définis par l’utilisateur U-SQL pour des travaux Azure Data Lake Analytics](data-lake-analytics-u-sql-develop-user-defined-operators.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

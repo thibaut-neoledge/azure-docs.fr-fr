@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/16/2016"
+	ms.date="08/15/2016"
 	ms.author="mandia"/>
 
 
@@ -60,7 +60,7 @@ BizTalk Services fournit une expérience de configuration facile à utiliser po
 
 1. Un message EDI est reçu du partenaire commercial Fabrikam. Pour recevoir les messages EDI des partenaires commerciaux, BizTalk Services prend en charge les protocoles de transport comme FTP, SFTP, AS2 et HTTP/S.
 
-2. Le traitement côté réception de l’accord de partenariat commercial désassemble le message EDI au format XML. Vous pouvez acheminer le message EDI désassemblé (au format XML) vers les points de terminaison Service Bus comme un point de terminaison Service Bus Relay, une rubrique Service Bus, une file d'attente Service Bus ou un pont BizTalk Services.
+2. Le traitement côté réception de l’accord de partenariat commercial désassemble le message EDI au format XML. Vous pouvez acheminer le message EDI désassemblé (au format XML) vers les points de terminaison Service Bus comme un point de terminaison Service Bus Relay, une rubrique Service Bus, une file d’attente Service Bus ou un pont BizTalk Services.
 
 3. Les messages XML désassemblés peuvent ensuite être reçus à partir du point de terminaison pour un traitement supplémentaire personnalisé. Ces points de terminaison peuvent être traités par un composant local ou une instance de calcul Microsoft Azure pour poursuivre le traitement du message dans un service Windows Workflow (WF) ou Windows Communication Foundation (WCF), par exemple.
 
@@ -76,7 +76,7 @@ Dans BizTalk Server, vous définissez les emplacements de réception et les por
 
 Dans l'EDI BizTalk Server, les pipelines sont des entités de traitement de message qui peuvent également inclure une logique personnalisée pour des fonctionnalités de traitement spécifiques, selon les besoins de l'application. Pour BizTalk Services, l'équivalent serait un pont EDI. Toutefois, dans BizTalk Services, les ponts EDI sont « fermés », pour le moment. Autrement dit, vous ne pouvez pas ajouter vos propres activités personnalisées à un pont EDI. Tout traitement personnalisé doit être effectué en dehors du pont EDI dans votre application, avant ou après que le message n'atteigne le pont configuré dans le cadre de l'accord de partenariat commercial. Les ponts IAE ont la possibilité d'effectuer un traitement personnalisé. Si vous souhaitez un traitement personnalisé, vous pouvez utiliser des ponts IAE avant ou après le traitement du message par le pont EDI. Pour plus d'informations, consultez [Intégration d'un code personnalisé dans les ponts](https://msdn.microsoft.com/library/azure/dn232389.aspx).
 
-Vous pouvez insérer un flux de publication/abonnement avec du code personnalisé et/ou à l'aide de files d'attente et rubriques de messagerie Service Bus avant réception du message par l’accord de partenariat commercial, ou après le traitement du message par l'accord et son acheminement vers un point de terminaison Service Bus.
+Vous pouvez insérer un flux de publication/abonnement avec du code personnalisé et/ou à l’aide de files d’attente et rubriques de messagerie Service Bus avant réception du message par l’accord de partenariat commercial, ou après le traitement du message par l’accord et son acheminement vers un point de terminaison Service Bus.
 
 Voir la section **Flux de messages/scénarios** dans cette rubrique pour le modèle de flux des messages.
 
@@ -112,7 +112,7 @@ Vous pouvez également consulter un exemple de Sandro Pereira, BizTalk MVP, sur
 
 Si vous avez besoin de migrer le traitement d'orchestration BizTalk Server vers Microsoft Azure, les orchestrations doivent être réécrites, car Microsoft Azure ne prend pas en charge les orchestrations BizTalk Server. Vous pouvez réécrire la fonctionnalité d'orchestration dans un service Windows Workflow Foundation 4.0 (WF4). C’est une réécriture complète, car il n'existe actuellement aucune migration des orchestrations BizTalk Server vers WF4. Voici quelques ressources pour Windows Workflow :
 
-- [*Intégration d’un service de workflow WCF aux files d’attente et aux rubriques Service Bus*](https://msdn.microsoft.com/library/azure/hh709041.aspx) par Paolo Salvatori. 
+- [*Intégration d’un service de workflow WCF aux files d’attente et aux rubriques Service Bus*](https://msdn.microsoft.com/library/azure/hh709041.aspx) par Paolo Salvatori.
 
 - [Session *Building apps with Windows Workflow Foundation and Azure*](http://go.microsoft.com/fwlink/p/?LinkId=237314) de la conférence Build 2011.
 
@@ -130,7 +130,7 @@ Le traitement EDI BizTalk Server comprend le concept d’« accords de secours
 
 ### Acheminement vers plusieurs destinations
 
-Les ponts de BizTalk Services, dans leur état actuel, ne prennent pas en charge le routage des messages vers plusieurs destinations à l'aide du modèle de publication-abonnement. Vous pouvez acheminer les messages d'un pont BizTalk Services vers une rubrique Service Bus, qui peut ensuite avoir plusieurs abonnements pour recevoir le message sur plus d'un point de terminaison.
+Les ponts de BizTalk Services, dans leur état actuel, ne prennent pas en charge le routage des messages vers plusieurs destinations à l'aide du modèle de publication-abonnement. Vous pouvez acheminer les messages d’un pont BizTalk Services vers une rubrique Service Bus, qui peut ensuite avoir plusieurs abonnements pour recevoir le message sur plus d’un point de terminaison.
 
 ## Conclusion
 
@@ -142,4 +142,4 @@ Microsoft Azure BizTalk Services est mis à jour régulièrement afin d'ajoute
 
 [EDImessageflow]: ./media/biztalk-migrating-to-edi-guide/IC719455.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

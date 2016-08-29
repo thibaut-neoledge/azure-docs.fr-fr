@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/25/2016" 
+	ms.date="08/17/2016"
 	ms.author="annemill"/>
 
 
 # Ports au-delà de 1433 pour ADO.NET 4.5 et SQL Database V12
 
 
-Cette rubrique décrit les modifications qu’apporte Azure SQL Database V12 au comportement de connexion des clients qui utilisent ADO.NET version 4.5 ou ultérieure.
+Cette rubrique décrit les modifications qu’apporte la base de données SQL Azure V12 au comportement de connexion des clients qui utilisent ADO.NET version 4.5 ou ultérieure.
 
 
 ## V11 de SQL Database : port 1433
@@ -37,7 +37,7 @@ Quand votre programme client utilise ADO.NET 4.5 pour se connecter à SQL Datab
 3. SQL Database envoie sa réponse à l’intergiciel, qui la transmet à ADO.NET sur le port 1433.
 
 
-**Terminologie :** dans la séquence précédente, ADO.NET interagit avec la base de données SQL en utilisant l’*itinéraire de proxy*. Si aucun intergiciel n’était impliqué, c’est l’*itinéraire direct* qui serait utilisé.
+**Terminologie :** dans la séquence précédente, ADO.NET interagit avec la base de données SQL en utilisant l’*itinéraire de proxy*. Si aucun intergiciel n’était impliqué, c’est *l’itinéraire direct* qui serait utilisé.
 
 
 ## V12 de SQL Database : exécution externe ou exécution interne
@@ -93,7 +93,7 @@ Cette section clarifie les monikers qui font référence aux versions du produit
 #### SQL Database V11 et SQL Database V12
 
 
-Les différences entre SQL Database V11 et SQL Database V12 pour la connexion cliente sont soulignées dans cette rubrique.
+Les différences entre les bases de données SQL V11 et V12 pour la connexion cliente sont soulignées dans cette rubrique.
 
 
 *Remarque :* l’instruction Transact-SQL `SELECT @@version;` retourne une valeur qui commence par un nombre, tel que « 11. » ou « 12. », qui correspond aux noms de version V11 et V12 de SQL Database.
@@ -120,4 +120,4 @@ Les différences entre SQL Database V11 et SQL Database V12 pour la connexion cl
 
 - [Configuration des paramètres du pare-feu sur une base de données SQL](sql-database-configure-firewall-settings.md)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0817_2016-->

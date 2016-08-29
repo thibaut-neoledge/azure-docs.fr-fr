@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="06/24/2016"
+	ms.date="08/11/2016"
 	ms.author="robmcm"/>
 
 # Création d’une application web PHP-MySQL dans Azure App Service et déploiement à l’aide de Git.
 
-Ce didacticiel vous explique comment créer une application web PHP-MySQL et déployer dans [App Service](http://go.microsoft.com/fwlink/?LinkId=529714) à l’aide de Git. Vous allez utiliser [PHP][install-php], l'outil de ligne de commande MySQL (inclus dans [MySQL][install-mysql]) et [Git][install-git] qui sont installés sur votre ordinateur. Les instructions de ce didacticiel s’appliquent à n’importe quel système d’exploitation, notamment Windows, Mac et Linux. À la fin de ce guide, vous disposerez d’une application web PHP/MySQL s’exécutant dans Azure.
+Ce didacticiel vous explique comment créer une application web PHP-MySQL et déployer dans [App Service](http://go.microsoft.com/fwlink/?LinkId=529714) à l’aide de Git. Vous allez utiliser [PHP][install-php], l'outil de ligne de commande MySQL (inclus dans [MySQL][install-mysql]) et [Git][install-git] qui sont installés sur votre ordinateur. Les instructions de ce didacticiel s'appliquent à n'importe quel système d'exploitation, notamment Windows, Mac et Linux. À la fin de ce guide, vous disposerez d’une application web PHP/MySQL s’exécutant dans Azure.
 
 Vous apprendrez à effectuer les opérations suivantes :
 
@@ -27,7 +27,7 @@ Vous apprendrez à effectuer les opérations suivantes :
 * publication et republication de votre application dans Azure en utilisant Git.
 * activation de l’extension du compositeur pour automatiser les tâches de compositeur à chaque `git push`.
 
-En suivant ce didacticiel, vous allez générer une application web d’inscription simple dans PHP. Cette application sera hébergée dans Web Apps. Voici une capture d'écran de l'application terminée :
+En suivant ce didacticiel, vous allez générer une application web d’inscription simple dans PHP. Cette application sera hébergée dans Web Apps. Voici une capture d’écran de l’application terminée :
 
 ![Site Web PHP Azure][running-app]
 
@@ -63,7 +63,7 @@ Pour créer une application web et une base de données MySQL, suivez la procéd
 
 7. Dans les **Paramètres**, cliquez sur **Déploiement continu**, puis cliquez sur _Configurer les paramètres requis_.
 
-	![Configuration de la publication Git][setup-publishing]
+	![Configurer la publication Git][setup-publishing]
 
 8. Sélectionnez **Référentiel Git local** comme source.
 
@@ -72,7 +72,7 @@ Pour créer une application web et une base de données MySQL, suivez la procéd
 
 9. Pour activer la publication Git, vous devez fournir un nom d'utilisateur et un mot de passe. Notez le nom d'utilisateur et le mot de passe que vous créez (si vous avez déjà configuré un référentiel Git, ignorez cette étape).
 
-	![Créer les informations d'identification de publication][credentials]
+	![Création des informations d’identification de publication][credentials]
 
 
 ## Obtention des informations de connexion MySQL distantes
@@ -319,4 +319,4 @@ Pour plus d’informations, consultez le [Centre pour développeurs PHP](/develo
 [composer-extension-view]: ./media/web-sites-php-mysql-deploy-use-git/composer-extension-view.png
 [composer-extension-success]: ./media/web-sites-php-mysql-deploy-use-git/composer-extension-success.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->
