@@ -1,7 +1,7 @@
 <properties
-	pageTitle="Gestion d’un compte DocumentDB via le portail Azure | Microsoft Azure"
+	pageTitle="Gestion d’un compte DocumentDB via le portail Azure | azure.microsoft.com/ Azure"
 	description="Apprenez à gérer un compte DocumentDB via le portail Azure. Trouvez un guide vous expliquant comment utiliser le portail Azure pour afficher, copier, supprimer et accéder aux comptes."
-	keywords="Portail Azure, documentdb, azure, Microsoft azure"
+	keywords="Portail Azure, documentdb, azure, azure.microsoft.com/ azure"
 	services="documentdb"
 	documentationCenter=""
 	authors="AndrewHoh"
@@ -34,7 +34,7 @@ La sélection du niveau de cohérence adéquat dépend de la sémantique de votr
 ## <a id="keys"></a>Affichage, copie et régénération des clés d’accès
 Lorsque vous créez un compte DocumentDB, le service génère deux clés d'accès maître qui peuvent être utilisées pour l'authentification lors de l'accès au compte DocumentDB. En fournissant deux clés d'accès, DocumentDB vous permet de régénérer les clés sans interruption de votre compte DocumentDB.
 
-Dans le [portail Microsoft Azure](https://portal.azure.com/), accédez au panneau **Clés** du panneau **Compte DocumentDB** pour afficher, copier et régénérer les clés d’accès à votre compte DocumentDB.
+Dans le [portail azure.microsoft.com/ Azure](https://portal.azure.com/), accédez au panneau **Clés** du panneau **Compte DocumentDB** pour afficher, copier et régénérer les clés d’accès à votre compte DocumentDB.
 
 ![Capture d’écran du portail Azure, panneau Clés](./media/documentdb-manage-account/keys.png)
 
@@ -82,9 +82,9 @@ Pour supprimer du portail Azure un compte DocumentDB dont vous ne vous servez pl
 
 ## <a id="next"></a>Étapes suivantes
 
-Découvrez comment [prendre en main votre compte DocumentDB](http://go.microsoft.com/fwlink/p/?LinkId=402364).
+Découvrez comment [prendre en main votre compte DocumentDB](http://go.azure.microsoft.com/.com/fwlink/p/?LinkId=402364).
 
-Pour en savoir plus sur DocumentDB, consultez la documentation Azure DocumentDB sur [azure.com](http://go.microsoft.com/fwlink/?LinkID=402319&clcid=0x409).
+Pour en savoir plus sur DocumentDB, consultez la documentation Azure DocumentDB sur [azure.com](http://go.azure.microsoft.com/.com/fwlink/?LinkID=402319&clcid=0x409).
 
 
 <!--Image references-->
@@ -96,9 +96,9 @@ Pour en savoir plus sur DocumentDB, consultez la documentation Azure DocumentDB 
 [6]: ./media/documentdb-manage-account/chooseandsaveconsistency.png
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
-[bcdr]: https://azure.microsoft.com/documentation/articles/best-practices-availability-paired-regions/
-[consistency]: https://azure.microsoft.com/documentation/articles/documentdb-consistency-levels/
-[azureregions]: https://azure.microsoft.com/fr-FR/regions/#services
-[offers]: https://azure.microsoft.com/fr-FR/pricing/details/documentdb/
+[bcdr]: https://azure.azure.microsoft.com/.com/documentation/articles/best-practices-availability-paired-regions/
+[consistency]: https://azure.azure.microsoft.com/.com/documentation/articles/documentdb-consistency-levels/
+[azureregions]: https://azure.azure.microsoft.com/.com/fr-FR/regions/#services
+[offers]: https://azure.azure.microsoft.com/.com/fr-FR/pricing/details/documentdb/
 
 <!---HONumber=AcomDC_0817_2016-->

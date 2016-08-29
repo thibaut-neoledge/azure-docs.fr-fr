@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Utilisation du stockage d’objets blob à partir de Node.js | Microsoft Azure"
+	pageTitle="Utilisation du stockage d’objets blob à partir de Node.js | azure.microsoft.com/ Azure"
 	description="Stockez des données non structurées dans le cloud avec Azure Blob Storage (stockage d’objets)."
 	services="storage"
 	documentationCenter="nodejs"
@@ -32,7 +32,7 @@ Cet article décrit le déroulement de scénarios courants dans le cadre de l’
 
 ## Création d’une application Node.js
 
-Pour obtenir des instructions sur la création d’une application Node.js, consultez [Créer une application web Node.js dans Azure App Service], [Création et déploiement d'une application Node.js dans Azure Cloud Services] (à l’aide de Windows PowerShell) ou [Créer et déployer une application web Node.js dans Azure à l’aide de WebMatrix].
+Pour obtenir des instructions sur la création d’une application Node.js, consultez [Créer une application web Node.js dans Azure App Service], [Création et déploiement d'une application Node.js dans Azure Cloud Services] \(à l’aide de Windows PowerShell) ou [Créer et déployer une application web Node.js dans Azure à l’aide de WebMatrix].
 
 ## Configuration de votre application pour accéder au stockage
 
@@ -71,7 +71,7 @@ Pour obtenir un exemple de configuration des variables d’environnement dans le
 
 ## Créer un conteneur
 
-L'objet **BlobService** permet d'utiliser des conteneurs et des objets blob. Le code suivant crée un objet **BlobService**. Ajoutez le code suivant vers le début du fichier **server.js** :
+L'objet **BlobService** permet d'utiliser des conteneurs et des objets blob. Le code suivant crée un objet **BlobService**. Ajoutez le code suivant vers le début du fichier **server.js** :
 
     var blobSvc = azure.createBlobService();
 
@@ -95,11 +95,11 @@ Si le conteneur est nouvellement créé, `result.created` a la valeur true. Si l
 
 Par défaut, les nouveaux conteneurs sont privés et ne sont pas accessibles de façon anonyme. Pour rendre le conteneur public afin de permettre l’accès anonyme, définissez le niveau d’accès au conteneur sur **blob** ou **container**.
 
-* **blob** : permet l'accès en lecture anonyme au contenu de l'objet blob et aux métadonnées de ce conteneur, mais pas aux métadonnées du conteneur, comme la liste de tous les objets blob d'un conteneur.
+* **blob** : permet l'accès en lecture anonyme au contenu de l'objet blob et aux métadonnées de ce conteneur, mais pas aux métadonnées du conteneur, comme la liste de tous les objets blob d'un conteneur.
 
-* **container** : permet l’accès en lecture anonyme au contenu et aux métadonnées de l’objet blob, ainsi qu’aux métadonnées de conteneur.
+* **container** : permet l’accès en lecture anonyme au contenu et aux métadonnées de l’objet blob, ainsi qu’aux métadonnées de conteneur.
 
-L’exemple de code suivant montre la définition du niveau d’accès sur **blob** :
+L’exemple de code suivant montre la définition du niveau d’accès sur **blob** :
 
 	blobSvc.createContainerIfNotExists('mycontainer', {publicAccessLevel : 'blob'}, function(error, result, response){
 	    if(!error){
@@ -129,26 +129,26 @@ Après le prétraitement des options de la requête, la méthode doit appeler «
 
 Dans ce rappel, et après le traitement de returnObject (la réponse à la requête du serveur), le rappel doit appeler next, s'il existe, pour continuer à traiter d'autres filtres ou appeler finalCallback pour terminer l'appel du service.
 
-Deux filtres qui implémentent la logique de relance sont inclus dans le Kit de développement logiciel (SDK) Azure pour Node.js : **ExponentialRetryPolicyFilter** et **LinearRetryPolicyFilter**. Le code suivant crée un objet **BlobService** qui utilise le filtre **ExponentialRetryPolicyFilter** :
+Deux filtres qui implémentent la logique de relance sont inclus dans le Kit de développement logiciel (SDK) Azure pour Node.js : **ExponentialRetryPolicyFilter** et **LinearRetryPolicyFilter**. Le code suivant crée un objet **BlobService** qui utilise le filtre **ExponentialRetryPolicyFilter** :
 
 	var retryOperations = new azure.ExponentialRetryPolicyFilter();
 	var blobSvc = azure.createBlobService().withFilter(retryOperations);
 
 ## Charger un objet blob dans un conteneur
 
-Il existe trois types d’objets blob : les objets blob de blocs, les objets blob d’ajouts et les objets blob de pages. Les objets blob de blocs vous permettent de télécharger plus efficacement les données volumineuses. Les objets blob d’ajout sont optimisés pour les opérations d’ajout. Les objets blob de pages sont optimisés pour les opérations de lecture/écriture. Pour plus d’informations, consultez [Présentation des objets blob de blocs, des objets blob d’ajout et des objets blob de pages](http://msdn.microsoft.com/library/azure/ee691964.aspx).
+Il existe trois types d’objets blob : les objets blob de blocs, les objets blob d’ajouts et les objets blob de pages. Les objets blob de blocs vous permettent de télécharger plus efficacement les données volumineuses. Les objets blob d’ajout sont optimisés pour les opérations d’ajout. Les objets blob de pages sont optimisés pour les opérations de lecture/écriture. Pour plus d’informations, consultez [Présentation des objets blob de blocs, des objets blob d’ajout et des objets blob de pages](http://msdn.azure.microsoft.com/.com/library/azure/ee691964.aspx).
 
 ### Objets blob de blocs
 
 Pour télécharger des données dans un objet blob de blocs, utilisez :
 
-* **createBlockBlobFromLocalFile** : permet de créer un objet blob de blocs et de télécharger le contenu d'un fichier
+* **createBlockBlobFromLocalFile** : permet de créer un objet blob de blocs et de télécharger le contenu d'un fichier
 
-* **createBlockBlobFromStream** : permet de créer un objet blob de blocs et de télécharger le contenu d'un flux
+* **createBlockBlobFromStream** : permet de créer un objet blob de blocs et de télécharger le contenu d'un flux
 
-* **createBlockBlobFromText** : permet de créer un objet blob de blocs et de télécharger le contenu d'une chaîne
+* **createBlockBlobFromText** : permet de créer un objet blob de blocs et de télécharger le contenu d'une chaîne
 
-* **createWriteStreamToBlockBlob** : fournit un flux d’écriture vers un objet blob de blocs
+* **createWriteStreamToBlockBlob** : fournit un flux d’écriture vers un objet blob de blocs
 
 L’exemple de code suivant charge le contenu du fichier **test.txt** dans **myblob**.
 
@@ -164,13 +164,13 @@ Le `result` renvoyé par ces méthodes contient les informations sur l'opératio
 
 Pour télécharger des données dans un nouvel objet blob d’ajout, utilisez :
 
-* **createAppendBlobFromLocalFile** : permet de créer un objet blob d’ajout et de charger le contenu d’un fichier
+* **createAppendBlobFromLocalFile** : permet de créer un objet blob d’ajout et de charger le contenu d’un fichier
 
-* **createAppendBlobFromStream** : permet de créer un objet blob d’ajout et de charger le contenu d’un flux
+* **createAppendBlobFromStream** : permet de créer un objet blob d’ajout et de charger le contenu d’un flux
 
-* **createAppendBlobFromText** : permet de créer un objet blob d’ajout et de charger le contenu d’une chaîne
+* **createAppendBlobFromText** : permet de créer un objet blob d’ajout et de charger le contenu d’une chaîne
 
-* **createWriteStreamToNewAppendBlob** : permet de créer un objet blob d’ajout et fournit un flux pour y écrire
+* **createWriteStreamToNewAppendBlob** : permet de créer un objet blob d’ajout et fournit un flux pour y écrire
 
 L’exemple de code suivant charge le contenu du fichier **test.txt** dans **myappendblob**.
 
@@ -207,15 +207,15 @@ L’exemple de code suivant charge le contenu du fichier **test.txt** dans **mya
 
 Pour télécharger des données dans un objet blob de pages, utilisez :
 
-* **createPageBlob** : permet de créer un objet blob de pages d’une longueur spécifique
+* **createPageBlob** : permet de créer un objet blob de pages d’une longueur spécifique
 
-* **createPageBlobFromLocalFile** : permet de créer un objet blob de pages et de charger le contenu d’un fichier
+* **createPageBlobFromLocalFile** : permet de créer un objet blob de pages et de charger le contenu d’un fichier
 
-* **createPageBlobFromStream** : permet de créer un objet blob de pages et de charger le contenu d’un flux
+* **createPageBlobFromStream** : permet de créer un objet blob de pages et de charger le contenu d’un flux
 
-* **createWriteStreamToExistingPageBlob** : fournit un flux d’écriture à un objet blob de pages existant
+* **createWriteStreamToExistingPageBlob** : fournit un flux d’écriture à un objet blob de pages existant
 
-* **createWriteStreamToNewPageBlob** : permet de créer un objet blob de pages et fournit un flux pour y écrire
+* **createWriteStreamToNewPageBlob** : permet de créer un objet blob de pages et fournit un flux pour y écrire
 
 L’exemple de code suivant charge le contenu du fichier **test.txt** dans **mypageblob**.
 
@@ -244,13 +244,13 @@ Le `result` contient une collection `entries`, qui est un tableau d’objets dé
 
 Pour télécharger les données d'un objet blob, utilisez :
 
-* **getBlobToLocalFile** : permet d’écrire le contenu de l’objet blob dans un fichier
+* **getBlobToLocalFile** : permet d’écrire le contenu de l’objet blob dans un fichier
 
-* **getBlobToStream** : permet d’écrire le contenu de l’objet blob dans un flux
+* **getBlobToStream** : permet d’écrire le contenu de l’objet blob dans un flux
 
-* **getBlobToText** : permet d’écrire le contenu de l’objet blob dans une chaîne
+* **getBlobToText** : permet d’écrire le contenu de l’objet blob dans une chaîne
 
-* **createReadStream** : fournit un flux pour lire à partir de l'objet blob.
+* **createReadStream** : fournit un flux pour lire à partir de l'objet blob.
 
 L’exemple de code suivant montre l’utilisation de **getBlobToStream** pour télécharger le contenu de l’objet blob **myblob** et le stocker dans le fichier **output.txt** en utilisant un flux :
 
@@ -277,9 +277,9 @@ Pour supprimer un objet blob, appelez **deleteBlob**. L’exemple de code suivan
 
 Pour activer la prise en charge de l'accès simultané à un objet blob par plusieurs clients ou instances de processus, vous pouvez utiliser **ETags** ou **leases**.
 
-* **Etag** : permet de détecter la modification de l’objet blob ou du conteneur par un autre processus
+* **Etag** : permet de détecter la modification de l’objet blob ou du conteneur par un autre processus
 
-* **Lease** : permet d’obtenir l’accès exclusif, renouvelable, en écriture ou en suppression à un objet blob pour une période donnée
+* **Lease** : permet d’obtenir l’accès exclusif, renouvelable, en écriture ou en suppression à un objet blob pour une période donnée
 
 ### ETag
 
@@ -409,7 +409,7 @@ Pour plus d'informations, consultez les ressources suivantes.
 [Node.js Cloud Service with Storage]: ../cloud-services/storage-nodejs-use-table-storage-cloud-service-app.md
 [Application web Node.js avec le service de Table Azure]: ../app-service-web/storage-nodejs-use-table-storage-web-site.md
 [Créer et déployer une application web Node.js dans Azure à l’aide de WebMatrix]: ../app-service-web/web-sites-nodejs-use-webmatrix.md
-[Using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx
+[Using the REST API]: http://msdn.azure.microsoft.com/.com/library/azure/hh264518.aspx
 [Azure Portal]: https://portal.azure.com
 [Création et déploiement d'une application Node.js dans Azure Cloud Services]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
 [Blog de l'équipe Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage/

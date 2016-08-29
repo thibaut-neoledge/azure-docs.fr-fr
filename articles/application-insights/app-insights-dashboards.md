@@ -53,7 +53,7 @@ Choisissez ce que vous souhaitez afficher sur le panneau Vue d’ensemble. Dans 
 
 ## Tableaux de bord
 
-La première chose que vous voyez après vous être connecté au [portail Microsoft Azure](https://portal.azure.com) est un tableau de bord. Celui-ci vous permet de rassembler les graphiques les plus importants pour vous pour toutes vos ressources Azure, notamment les données de télémétrie de [Visual Studio Application Insights](app-insights-overview.md).
+La première chose que vous voyez après vous être connecté au [portail azure.microsoft.com/ Azure](https://portal.azure.com) est un tableau de bord. Celui-ci vous permet de rassembler les graphiques les plus importants pour vous pour toutes vos ressources Azure, notamment les données de télémétrie de [Visual Studio Application Insights](app-insights-overview.md).
  
 
 ![Un tableau de bord personnalisé.](./media/app-insights-dashboards/31.png)

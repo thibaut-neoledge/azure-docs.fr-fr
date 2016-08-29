@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Application web avec Express (Node.js) | Microsoft Azure" 
+	pageTitle="Application web avec Express (Node.js) | azure.microsoft.com/ Azure" 
 	description="Ce didacticiel poursuit le didacticiel relatif au service cloud et présente l’utilisation du module Express." 
 	services="cloud-services" 
 	documentationCenter="nodejs" 
@@ -39,7 +39,7 @@ Procédez comme suit pour créer un projet de service cloud nommé « expressap
 
 	[AZURE.INCLUDE [install-dev-tools](../../includes/install-dev-tools.md)]
 
-2. Remplacez les répertoires du répertoire **c:\\node**, puis entrez les commandes suivantes pour créer une solution nommée **expressapp** et un rôle Web nommé **WebRole1** :
+2. Remplacez les répertoires du répertoire **c:\\node**, puis entrez les commandes suivantes pour créer une solution nommée **expressapp** et un rôle Web nommé **WebRole1** :
 
 		PS C:\node> New-AzureServiceProject expressapp
 		PS C:\Node\expressapp> Add-AzureNodeWebRole

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Modifier l’algorithme de hachage de signature pour l’approbation de la partie de confiance Office 365 | Microsoft Azure"
+	pageTitle="Modifier l’algorithme de hachage de signature pour l’approbation de la partie de confiance Office 365 | azure.microsoft.com/ Azure"
 	description="Cette page fournit des instructions permettant de modifier l’algorithme SHA pour l’approbation de fédération avec Office 365"
     keywords="SHA1, SHA256, O365, fédération, aadconnect, adfs, ad fs, modifier sha, approbation de fédération, approbation de partie de confiance"
 	services="active-directory"
@@ -21,7 +21,7 @@
 
 ## Vue d'ensemble
 
-Azure Active Directory Federation Services (AD FS) signe ses jetons dans Microsoft Azure Active Directory pour vous assurer qu’ils sont infalsifiables. Cette signature peut reposer sur SHA1 ou SHA256. Azure Active Directory prend désormais en charge les jetons signés avec un algorithme SHA256 et recommande de configurer l’algorithme de signature de jetons SHA256 pour un niveau de sécurité optimal. Cet article décrit comment configurer l’algorithme de signature de jetons sur le niveau de sécurité le plus élevé, SHA256.
+Azure Active Directory Federation Services (AD FS) signe ses jetons dans azure.microsoft.com/ Azure Active Directory pour vous assurer qu’ils sont infalsifiables. Cette signature peut reposer sur SHA1 ou SHA256. Azure Active Directory prend désormais en charge les jetons signés avec un algorithme SHA256 et recommande de configurer l’algorithme de signature de jetons SHA256 pour un niveau de sécurité optimal. Cet article décrit comment configurer l’algorithme de signature de jetons sur le niveau de sécurité le plus élevé, SHA256.
 
 ## Modification de l’algorithme de signature de jetons
 
@@ -42,7 +42,7 @@ Une fois que vous avez défini l’algorithme de signature selon l’un des deux
 1. Sur un serveur AD FS, ouvrez PowerShell avec des privilèges d’administrateur.
 2. Définissez l’algorithme de hachage sécurisé avec l’applet de commande **Set-AdfsRelyingPartyTrust**.
 
- <code>Set-AdfsRelyingPartyTrust -TargetName 'Microsoft Office 365 Identity Platform' -SignatureAlgorithm 'http://www.w3.org/2001/04/xmldsig-more#rsa-sha256' </code>
+ <code>Set-AdfsRelyingPartyTrust -TargetName 'azure.microsoft.com/ Office 365 Identity Platform' -SignatureAlgorithm 'http://www.w3.org/2001/04/xmldsig-more#rsa-sha256' </code>
 
 ## À lire également
 

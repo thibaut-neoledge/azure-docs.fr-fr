@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Utilisation du stockage de files d’attente à partir de Java | Microsoft Azure"
+	pageTitle="Utilisation du stockage de files d’attente à partir de Java | azure.microsoft.com/ Azure"
 	description="Découvrez comment utiliser le service de File d'attente Azure pour créer et supprimer des files d'attente, ainsi que pour insérer, récupérer et supprimer des messages. Les exemples sont écrits en Java."
 	services="storage"
 	documentationCenter="java"
@@ -41,12 +41,12 @@ Pour ce faire, vous devez installer le Kit de développement Java (JDK) et crée
 Ajoutez les instructions import suivantes au début du fichier Java dans lequel vous voulez utiliser des API de stockage Azure pour accéder aux files d'attente :
 
     // Include the following imports to use queue APIs.
-    import com.microsoft.azure.storage.*;
-    import com.microsoft.azure.storage.queue.*;
+    import com.azure.microsoft.com/.azure.storage.*;
+    import com.azure.microsoft.com/.azure.storage.queue.*;
 
 ## Configuration d’une chaîne de connexion de stockage Azure
 
-Un client de stockage Azure utilise une chaîne de connexion de stockage pour stocker des points de terminaison et des informations d’identification permettant d’accéder aux services de gestion des données. Lors de l’exécution dans une application cliente, vous devez spécifier la chaîne de connexion au stockage au format suivant, en indiquant le nom de votre compte de stockage et sa clé d’accès primaire, correspondant aux valeurs *AccountName* et *AccountKey*, sur le [portail Azur](https://portal.azure.com)e. Cet exemple vous montre comment déclarer un champ statique pour qu’il contienne une chaîne de connexion :
+Un client de stockage Azure utilise une chaîne de connexion de stockage pour stocker des points de terminaison et des informations d’identification permettant d’accéder aux services de gestion des données. Lors de l’exécution dans une application cliente, vous devez spécifier la chaîne de connexion au stockage au format suivant, en indiquant le nom de votre compte de stockage et sa clé d’accès primaire, correspondant aux valeurs *AccountName* et *AccountKey*, sur le [portail Azure](https://portal.azure.com). Cet exemple vous montre comment déclarer un champ statique pour qu’il contienne une chaîne de connexion :
 
     // Define the connection-string with your values.
     public static final String storageConnectionString =
@@ -54,7 +54,7 @@ Un client de stockage Azure utilise une chaîne de connexion de stockage pour st
         "AccountName=your_storage_account;" +
         "AccountKey=your_storage_account_key";
 
-Dans une application exécutée au sein d'un rôle dans Microsoft Azure, cette chaîne peut être stockée dans le fichier de configuration de service *ServiceConfiguration.cscfg* et elle est accessible en appelant la méthode **RoleEnvironment.getConfigurationSettings**. Voici un exemple de code vous permettant d'extraire la chaîne de connexion à partir d'un élément **Setting** nommé *StorageConnectionString* dans le fichier de configuration de service :
+Dans une application exécutée au sein d'un rôle dans azure.microsoft.com/ Azure, cette chaîne peut être stockée dans le fichier de configuration de service *ServiceConfiguration.cscfg* et elle est accessible en appelant la méthode **RoleEnvironment.getConfigurationSettings**. Voici un exemple de code vous permettant d'extraire la chaîne de connexion à partir d'un élément **Setting** nommé *StorageConnectionString* dans le fichier de configuration de service :
 
     // Retrieve storage account from connection-string.
     String storageConnectionString =
@@ -384,12 +384,12 @@ Maintenant que vous connaissez les bases du stockage des files d'attente, consul
 - [API REST des services d’Azure Storage][]
 - [Blog de l'équipe Azure Storage][]
 
-[Azure SDK for Java]: http://go.microsoft.com/fwlink/?LinkID=525671
+[Azure SDK for Java]: http://go.azure.microsoft.com/.com/fwlink/?LinkID=525671
 [Kit de développement logiciel (SDK) Azure Storage pour Java]: https://github.com/azure/azure-storage-java
 [Kit de développement logiciel (SDK) Azure Storage pour Java]: https://github.com/azure/azure-storage-java
 [Kit de développement logiciel (SDK) Azure Storage pour Android]: https://github.com/azure/azure-storage-android
 [Référence du Kit de développement logiciel (SDK) du client Azure Storage]: http://dl.windowsazure.com/storage/javadoc/
-[API REST des services d’Azure Storage]: https://msdn.microsoft.com/library/azure/dd179355.aspx
+[API REST des services d’Azure Storage]: https://msdn.azure.microsoft.com/.com/library/azure/dd179355.aspx
 [Blog de l'équipe Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage/
 
 <!---HONumber=AcomDC_0817_2016-->

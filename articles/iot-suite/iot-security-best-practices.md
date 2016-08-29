@@ -1,5 +1,5 @@
 <properties
- pageTitle="IoT : meilleures pratiques en matière de sécurité | Microsoft Azure"
+ pageTitle="IoT : meilleures pratiques en matière de sécurité | azure.microsoft.com/ Azure"
  description="Meilleures pratiques en matière de sécurité pour sécuriser votre infrastructure IoT"
  services=""
  suite="iot-suite"

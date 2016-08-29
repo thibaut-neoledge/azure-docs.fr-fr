@@ -1,5 +1,5 @@
 <properties
-	 pageTitle="Création d’une demande de support Azure | Microsoft Azure"
+	 pageTitle="Création d’une demande de support Azure | azure.microsoft.com/ Azure"
 	 description="Création d’une demande de support Azure."
 	 services="Azure Supportability"
 	 documentationCenter=""
@@ -21,9 +21,9 @@
 ## Résumé
 Les clients Azure peuvent créer et gérer des demandes de support dans le portail Azure, [https://portal.azure.com](https://portal.azure.com). Suite aux commentaires des clients, nous avons mis à jour le processus de demande de support en fonction de trois objectifs principaux :
 
-- **Optimisation** : réduire le nombre de clics et de panneaux pour simplifier le processus d’envoi d’une demande de support.
-- **Intégration** : lorsque vous travaillez à la résolution d’un problème lié à une ressource Azure, il devrait être simple d’ouvrir une demande de support pour cette ressource, sans changer de contexte.
-- **Efficacité** : collecter les informations clé dont votre ingénieur de support a besoin pour résoudre votre problème.
+- **Optimisation** : réduire le nombre de clics et de panneaux pour simplifier le processus d’envoi d’une demande de support.
+- **Intégration** : lorsque vous travaillez à la résolution d’un problème lié à une ressource Azure, il devrait être simple d’ouvrir une demande de support pour cette ressource, sans changer de contexte.
+- **Efficacité** : collecter les informations clé dont votre ingénieur de support a besoin pour résoudre votre problème.
 
 ## Prise en main
 Vous pouvez créer une demande de support depuis le menu de navigation supérieur ou directement à partir d’un panneau de ressource.
@@ -43,7 +43,7 @@ Prenons un exemple : vous êtes face à des difficultés techniques avec votre 
 
 ![Panneau Informations de base](./media/how-to-create-azure-support-request/Basics.png)
 
->[AZURE.NOTE] Azure offre un support illimité pour la gestion de l’abonnement (facturation, ajustements de quota et transferts de compte). Pour bénéficier du support, vous devez disposer d’un plan de support. [En savoir plus sur les plans de support Azure](https://azure.microsoft.com/support/plans).
+>[AZURE.NOTE] Azure offre un support illimité pour la gestion de l’abonnement (facturation, ajustements de quota et transferts de compte). Pour bénéficier du support, vous devez disposer d’un plan de support. [En savoir plus sur les plans de support Azure](https://azure.azure.microsoft.com/.com/support/plans).
 
 ## Problème
 La deuxième étape de l’Assistant collecte des détails supplémentaires sur le problème. Le fait de disposer d’informations précises à cette étape nous permet de rediriger votre problème vers l’ingénieur de support le mieux à même de traiter le problème et de commencer à diagnostiquer le problème dès que possible.
@@ -75,14 +75,14 @@ Si vous souhaitez modifier le niveau de gravité de la demande, cliquez sur la m
 
 Cliquez sur la mosaïque pour voir la liste des niveaux de gravité que vous pouvez affecter à une demande de support.
 
->[AZURE.NOTE] Le niveau de gravité maximale dépend de votre plan de support. [En savoir plus sur les plans de support Azure](https://azure.microsoft.com/support/plans).
+>[AZURE.NOTE] Le niveau de gravité maximale dépend de votre plan de support. [En savoir plus sur les plans de support Azure](https://azure.azure.microsoft.com/.com/support/plans).
 
 ![VID-2](./media/how-to-create-azure-support-request/VID-2.png)
 
 ## Commentaires
-Nous sommes ouverts aux commentaires et suggestions ! Envoyez-nous vos [suggestions](https://feedback.azure.com/forums/266794-support-feedback). Vous pouvez aussi nous contacter via [Twitter](https://twitter.com/azuresupport) ou via les [forums MSDN](https://social.msdn.microsoft.com/Forums/azure).
+Nous sommes ouverts aux commentaires et suggestions ! Envoyez-nous vos [suggestions](https://feedback.azure.com/forums/266794-support-feedback). Vous pouvez aussi nous contacter via [Twitter](https://twitter.com/azuresupport) ou via les [forums MSDN](https://social.msdn.azure.microsoft.com/.com/Forums/azure).
 
 ## En savoir plus
-[FAQ du support Azure](https://azure.microsoft.com/support/faq)
+[FAQ du support Azure](https://azure.azure.microsoft.com/.com/support/faq)
 
 <!---HONumber=AcomDC_0817_2016-->

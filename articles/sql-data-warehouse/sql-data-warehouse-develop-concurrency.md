@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Gestion de la concurrence et des charges de travail dans SQL Data Warehouse | Microsoft Azure"
+   pageTitle="Gestion de la concurrence et des charges de travail dans SQL Data Warehouse | azure.microsoft.com/ Azure"
    description="Décrit la gestion de la concurrence et des charges de travail dans Azure SQL Data Warehouse pour le développement de solutions."
    services="sql-data-warehouse"
    documentationCenter="NA"
@@ -18,7 +18,7 @@
 
 # Gestion de la concurrence et des charges de travail dans SQL Data Warehouse
 
-Pour offrir des performances prévisibles à grande échelle, Microsoft Azure SQL Data Warehouse vous permet de contrôler les niveaux de concurrence, ainsi que les allocations de ressources telles que la définition des priorités du processeur et de la mémoire. Cet article vous présente les concepts de gestion de la concurrence et de gestion des charges de travail, en expliquant comment ces deux fonctionnalités ont été implémentées, ainsi que la procédure à suivre pour les contrôler dans votre entrepôt de données. La gestion des charges de travail SQL Data Warehouse a pour but de vous aider à prendre en charge des environnements multi-utilisateurs. Elle n’est pas destinée aux charges de travail mutualisées.
+Pour offrir des performances prévisibles à grande échelle, azure.microsoft.com/ Azure SQL Data Warehouse vous permet de contrôler les niveaux de concurrence, ainsi que les allocations de ressources telles que la définition des priorités du processeur et de la mémoire. Cet article vous présente les concepts de gestion de la concurrence et de gestion des charges de travail, en expliquant comment ces deux fonctionnalités ont été implémentées, ainsi que la procédure à suivre pour les contrôler dans votre entrepôt de données. La gestion des charges de travail SQL Data Warehouse a pour but de vous aider à prendre en charge des environnements multi-utilisateurs. Elle n’est pas destinée aux charges de travail mutualisées.
 
 ## Limites de concurrence
 
@@ -424,7 +424,7 @@ Pour plus d’informations sur la gestion de la sécurité et des utilisateurs d
 [Reconstruire des index pour améliorer la qualité de segment]: ./sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality
 
 <!--MSDN references-->
-[Authentification et autorisation de base de données SQL Azure : octroi de l’accès]: https://msdn.microsoft.com/library/azure/ee336235.aspx
+[Authentification et autorisation de base de données SQL Azure : octroi de l’accès]: https://msdn.azure.microsoft.com/.com/library/azure/ee336235.aspx
 
 <!--Other Web references-->
 

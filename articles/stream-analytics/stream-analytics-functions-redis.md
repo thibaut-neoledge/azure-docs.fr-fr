@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Sortie dans un cache Redis Azure depuis Azure Stream Analytics à l’aide d’Azure Functions | Microsoft Azure"
+	pageTitle="Sortie dans un cache Redis Azure depuis Azure Stream Analytics à l’aide d’Azure Functions | azure.microsoft.com/ Azure"
 	description="Découvrez comment utiliser une fonction Azure connectée à une file d’attente Service Bus pour remplir un cache Redis Azure à partir de la sortie d’une tâche Stream Analytics."
 	keywords="flux de données, cache redis, file d’attente Service Bus"
 	services="stream-analytics"
@@ -44,8 +44,8 @@ Pour créer une file d’attente Service Bus, suivez les étapes 1 et 2 de la se
 
 2. Choisissez **File d’attente Service Bus** comme **Récepteur** et suivez les instructions à l’écran. Veillez à choisir l’espace de noms de la file d’attente Service Bus que vous avez créé dans le cadre de la [Prise en main des files d’attente Service Bus][servicebus-getstarted]. Cliquez sur le bouton « Droite » lorsque vous avez terminé.
 3. Spécifiez les valeurs suivantes :
-	- **Format du sérialiseur d'événement** : JSON
-	- **Encodage** : UTF8
+	- **Format du sérialiseur d'événement** : JSON
+	- **Encodage** : UTF8
 	- **FORMAT** : séparé par une ligne
 
 4. Cliquez sur le bouton **Créer** pour ajouter cette source et vérifier que Stream Analytics peut se connecter au compte de stockage.
@@ -79,7 +79,7 @@ Suivez le didacticiel [Créer votre première fonction Azure][functions-getstart
 1. Dans le portail, sélectionnez App Services dans le volet de navigation gauche, puis cliquez sur le nom de votre application de fonction Azure pour accéder au site Web de l’application de fonction. ![Capture d’écran de la liste des applications App Services](./media/stream-analytics-functions-redis/app-services-function-list.png)
 
 2. Cliquez sur **Nouvelle fonction > ServiceBusQueueTrigger – C#**. Pour les champs suivants, suivez les instructions ci-dessous :
-	- **Nom de la file d’attente** : le même nom que le nom que vous avez entré lorsque vous avez créé la file d’attente dans [Prise en main des files d’attente Service Bus][servicebus-getstarted] (pas le nom du service bus). Vérifiez que vous utilisez la file d’attente qui est connectée à la sortie Stream Analytics.
+	- **Nom de la file d’attente** : le même nom que le nom que vous avez entré lorsque vous avez créé la file d’attente dans [Prise en main des files d’attente Service Bus][servicebus-getstarted] \(pas le nom du service bus). Vérifiez que vous utilisez la file d’attente qui est connectée à la sortie Stream Analytics.
 	- **Connexion Service Bus**: sélectionnez **Ajouter une chaîne de connexion**. Pour rechercher la chaîne de connexion, accédez au portail Classic, sélectionnez **Service Bus**, le bus de service que vous avez créé, et **INFORMATIONS DE CONNEXION** en bas de l’écran. Assurez-vous que vous êtes dans l’écran principal de cette page. Copiez et collez la chaîne de connexion. N’hésitez pas à entrer un nom de connexion.
 	
 		![Capture d’écran de la connexion Service Bus](./media/stream-analytics-functions-redis/servicebus-connection.png)
@@ -194,9 +194,9 @@ Vous pouvez maintenant écrire des commandes Redis pour confirmer que les donné
 ## Étapes suivantes
 Nous sommes heureux de ce que la combinaison d’Azure Functions et de Stream Analytics permet de réaliser, et nous espérons que vous pourrez y trouver de nouvelles opportunités. Si vous avez des commentaires sur la manière dont nous devons faire évoluer nos produits, n’hésitez pas à utiliser le [site Azure UserVoice](https://feedback.azure.com/forums/270577-stream-analytics).
 
-Si vous ne connaissez pas encore Microsoft Azure, nous vous invitons à le découvrir en vous connectant à un [compte d’évaluation Azure gratuit](https://azure.microsoft.com/pricing/free-trial/). Si vous ne connaissez pas encore Stream Analytics, nous vous invitons à [créer votre première tâche Stream Analytics](stream-analytics-create-a-job.md).
+Si vous ne connaissez pas encore azure.microsoft.com/ Azure, nous vous invitons à le découvrir en vous connectant à un [compte d’évaluation Azure gratuit](https://azure.azure.microsoft.com/.com/pricing/free-trial/). Si vous ne connaissez pas encore Stream Analytics, nous vous invitons à [créer votre première tâche Stream Analytics](stream-analytics-create-a-job.md).
 
-Si vous avez besoin d’aide ou avez des questions, postez-les sur les forums [MSDN](https://social.msdn.microsoft.com/Forums/fr-FR/home?forum=AzureStreamAnalytics) ou [Stackoverflow](http://stackoverflow.com/questions/tagged/azure-stream-analytics).
+Si vous avez besoin d’aide ou avez des questions, postez-les sur les forums [MSDN](https://social.msdn.azure.microsoft.com/.com/Forums/fr-FR/home?forum=AzureStreamAnalytics) ou [Stackoverflow](http://stackoverflow.com/questions/tagged/azure-stream-analytics).
 
 Vous pouvez également vous référer aux ressources suivantes :
 

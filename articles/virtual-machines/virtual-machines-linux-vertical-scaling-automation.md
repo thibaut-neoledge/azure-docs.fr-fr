@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Évolution verticale des machines virtuelles Azure avec Azure Automation | Microsoft Azure"
+	pageTitle="Évolution verticale des machines virtuelles Azure avec Azure Automation | azure.microsoft.com/ Azure"
 	description="Mettre à l’échelle une machine virtuelle Linux en réponse aux alertes avec Azure Automation"
 	services="virtual-machines-linux"
 	documentationCenter=""

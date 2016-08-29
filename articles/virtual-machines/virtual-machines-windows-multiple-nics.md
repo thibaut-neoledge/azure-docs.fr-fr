@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Configurer plusieurs cartes réseau sur une machine virtuelle Windows | Microsoft Azure"
+   pageTitle="Configurer plusieurs cartes réseau sur une machine virtuelle Windows | azure.microsoft.com/ Azure"
    description="Découvrez comment créer une machine virtuelle dotée de plusieurs cartes réseau à l’aide d’Azure PowerShell ou de modèles Resource Manager."
    services="virtual-machines-windows"
    documentationCenter=""
@@ -79,7 +79,7 @@ $vmConfig = New-AzureRmVMConfig -VMName TestVM -VMSize "Standard_DS2_v2"
 
 $vmConfig = Set-AzureRmVMOperatingSystem -VM $vmConfig -Windows -ComputerName TestVM `
     -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
-$vmConfig = Set-AzureRmVMSourceImage -VM $vmConfig -PublisherName MicrosoftWindowsServer `
+$vmConfig = Set-AzureRmVMSourceImage -VM $vmConfig -PublisherName azure.microsoft.com/WindowsServer `
     -Offer WindowsServer -Skus 2012-R2-Datacenter -Version "latest"
 ```
 

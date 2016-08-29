@@ -97,7 +97,7 @@ Suivez la procédure ci-après pour créer une application web Azure, activer la
 	>[AZURE.NOTE]
 	La commande ’azure site set -w’ ne fonctionne qu’avec la version 0.7.4 ou une version ultérieure de l’interface de ligne de commande Azure. Vous pouvez également activer la prise en charge de WebSocket à l’aide du [portail Azure](https://portal.azure.com).
 	>
-	>Pour activer WebSockets à l’aide du portail Azure, cliquez sur l’application web dans le panneau Web Apps, puis sur **Tous les paramètres** > **Paramètres de l’application**. Sous **Web Sockets**, cliquez sur **Activé**. Cliquez ensuite sur **Enregistrer**.
+	>Pour activer WebSockets à l’aide du portail Azure, cliquez sur l’application web dans le panneau Web Apps, puis sur **Tous les paramètres** > **Paramètres de l’application**. Sous **Web Sockets**, cliquez sur **Activé**. Cliquez ensuite sur **Enregistrer**.
 
 1. Pour visualiser l’application web sur Azure, utilisez la commande ci-après afin de lancer votre navigateur web et d’accéder à l’application web hébergée :
 
@@ -271,15 +271,15 @@ Pour plus d'informations, consultez aussi le [Centre pour développeurs Node.js]
 <!-- URL List -->
 
 [Cache Redis Azure]: /documentation/services/redis-cache/
-[App Service Web Apps]: http://go.microsoft.com/fwlink/?LinkId=529714
-[page de tarification de Web Apps]: http://go.microsoft.com/fwlink/?LinkId=511643
+[App Service Web Apps]: http://go.azure.microsoft.com/.com/fwlink/?LinkId=529714
+[page de tarification de Web Apps]: http://go.azure.microsoft.com/.com/fwlink/?LinkId=511643
 [Création d'une application de conversation instantanée Node.js avec Socket.IO sur un service cloud Azure]: ../cloud-services/cloud-services-nodejs-chat-app-socketio.md
 [Création d’une application de conversation instantanée Node.js avec Socket.IO sur un service cloud Azure]: ../cloud-services/cloud-services-nodejs-chat-app-socketio.md
 [Install and Configure the Azure CLI]: ../xplat-cli-install.md
-[Azure App Service et les services Azure existants]: http://go.microsoft.com/fwlink/?LinkId=529714
+[Azure App Service et les services Azure existants]: http://go.azure.microsoft.com/.com/fwlink/?LinkId=529714
 [Centre pour développeurs Node.js]: /develop/nodejs/
-[Essayer App Service]: http://go.microsoft.com/fwlink/?LinkId=523751
-[Affinité d'instance dans Sites Web Azure]: https://azure.microsoft.com/blog/2013/11/18/disabling-arrs-instance-affinity-in-windows-azure-web-sites/
+[Essayer App Service]: http://go.azure.microsoft.com/.com/fwlink/?LinkId=523751
+[Affinité d'instance dans Sites Web Azure]: https://azure.azure.microsoft.com/.com/blog/2013/11/18/disabling-arrs-instance-affinity-in-windows-azure-web-sites/
 [Création d'un cache dans le cache Azure Redis]: ../redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md
 
 [socket.io-redis]: https://github.com/socketio/socket.io-redis

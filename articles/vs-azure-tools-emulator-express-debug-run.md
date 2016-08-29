@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Utilisation de l’émulateur express pour exécuter et déboguer un service cloud sur une machine locale | Microsoft Azure"
+   pageTitle="Utilisation de l’émulateur express pour exécuter et déboguer un service cloud sur une machine locale | azure.microsoft.com/ Azure"
    description="Utilisation de l’émulateur express pour exécuter et déboguer un service cloud sur une machine locale"
    services="visual-studio-online"
    documentationCenter="n/a"
@@ -28,7 +28,7 @@ Quand vous créez un projet dans le Kit de développement logiciel (SDK) Azure 
 
 1. Dans le menu contextuel du projet Azure, choisissez **Propriétés**, puis l’onglet **Web**.
 
-1. Sous ** Serveur de développement local**, choisissez la case d’option ** Utiliser IIS Express**. L’émulateur express n’est pas compatible avec le serveur web IIS.
+1. Sous **Serveur de développement local**, choisissez la case d’option **Utiliser IIS Express**. L’émulateur express n’est pas compatible avec le serveur web IIS.
 
 1. Sous **Émulateur**, choisissez la case d’option **Utiliser l’émulateur express**.
 
@@ -48,10 +48,10 @@ Avant d’utiliser l’émulateur express, prenez connaissance des limitations c
 
 - Vous n’avez pas accès aux numéros de port inférieurs à 1 000. Par exemple, si vous faites appel à un fournisseur d’authentification qui utilise habituellement un numéro de port inférieur à 1 000, vous devrez peut-être remplacer cette valeur par un numéro de port supérieur à 1 000.
 
-- Les limitations qui s’appliquent à l’émulateur de calcul Azure s’appliquent aussi à l’émulateur express. Par exemple, il ne peut pas y avoir plus de 50 instances de rôle par déploiement. Consultez [Exécuter une application Azure dans l’émulateur de calcul](http://go.microsoft.com/fwlink/p/?LinkId=623050).
+- Les limitations qui s’appliquent à l’émulateur de calcul Azure s’appliquent aussi à l’émulateur express. Par exemple, il ne peut pas y avoir plus de 50 instances de rôle par déploiement. Consultez [Exécuter une application Azure dans l’émulateur de calcul](http://go.azure.microsoft.com/.com/fwlink/p/?LinkId=623050).
 
 ## Étapes suivantes
 
-[Débogage de Cloud Services](https://msdn.microsoft.com/library/azure/ee405479.aspx)
+[Débogage de Cloud Services](https://msdn.azure.microsoft.com/.com/library/azure/ee405479.aspx)
 
 <!---HONumber=AcomDC_0817_2016-->

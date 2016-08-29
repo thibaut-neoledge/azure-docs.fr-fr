@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Application Java nécessitant beaucoup de ressources sur une machine virtuelle | Microsoft Azure"
+	pageTitle="Application Java nécessitant beaucoup de ressources sur une machine virtuelle | azure.microsoft.com/ Azure"
 	description="Apprenez à créer une machine virtuelle Azure qui exécute une application de calcul intensif Java qu'une autre application Java peut surveiller."
 	services="virtual-machines-windows"
 	documentationCenter="java"
@@ -24,7 +24,7 @@
 
 Azure permet d'utiliser une machine virtuelle pour gérer les tâches nécessitant beaucoup de ressources. Par exemple, une machine virtuelle peut gérer des tâches et fournir des résultats à des ordinateurs clients ou à des applications mobiles. Après avoir lu cet article, vous serez en mesure de créer une machine virtuelle exécutée sur une application Java nécessitant beaucoup de ressources et pouvant être surveillée par une autre application Java.
 
-Ce didacticiel part du principe que vous savez créer des applications console Java, importer des bibliothèques dans votre application Java et générer une archive Java (JAR). Aucune connaissance de Microsoft Azure n'est nécessaire.
+Ce didacticiel part du principe que vous savez créer des applications console Java, importer des bibliothèques dans votre application Java et générer une archive Java (JAR). Aucune connaissance de azure.microsoft.com/ Azure n'est nécessaire.
 
 Vous apprendrez à effectuer les opérations suivantes :
 
@@ -52,7 +52,7 @@ Vous trouverez ci-dessous un exemple d'application Java qui surveille la tâche 
 2. Cliquez sur **New**, sur **Compute**, sur **Virtual machine**, puis sur **From Gallery**.
 3. Dans la boîte de dialogue **Sélectionner une image de machine virtuelle**, sélectionnez **Windows Server 2012 JDK 7**. Notez que **Windows Server 2012 JDK 6** est disponible si vous ne pouvez pas exécuter certaines de vos applications héritées dans JDK 7.
 4. Cliquez sur **Suivant**.
-4. Dans la boîte de dialogue **Configuration de la machine virtuelle** :
+4. Dans la boîte de dialogue **Configuration de la machine virtuelle** :
     1. Entrez un nom pour la machine virtuelle.
     2. Entrez la taille de la machine virtuelle.
     3. Entrez un nom pour l'administrateur dans le champ **Nom d'utilisateur**. Notez le nom et le mot de passe que vous allez entrer, car vous les utiliserez pour vous connecter à distance à votre machine virtuelle.
@@ -65,7 +65,7 @@ Vous trouverez ci-dessous un exemple d'application Java qui surveille la tâche 
     2. Pour **Storage Account**, sélectionnez **Use an automatically generated storage account**.
     3. Pour **Availability Set**, sélectionnez **(None)**.
     4. Cliquez sur **Next**.
-5. Dans la dernière boîte de dialogue **Configuration de la machine virtuelle** :
+5. Dans la dernière boîte de dialogue **Configuration de la machine virtuelle** :
     1. Validez les entrées de points de terminaison par défaut.
     2. Cliquez sur **Terminé**.
 
@@ -105,7 +105,7 @@ Pour pouvoir effectuer des opérations de gestion telles que la création d'une 
 
 ## Création d'une application Java exécutant une tâche qui nécessite beaucoup de ressources
 
-1. Sur votre ordinateur de développement (qui n'est pas forcément celui où se trouve la machine virtuelle que vous avez créée), téléchargez le [Kit de développement logiciel (SDK) Azure pour Java](https://azure.microsoft.com/develop/java/).
+1. Sur votre ordinateur de développement (qui n'est pas forcément celui où se trouve la machine virtuelle que vous avez créée), téléchargez le [Kit de développement logiciel (SDK) Azure pour Java](https://azure.azure.microsoft.com/.com/develop/java/).
 2. Créez une application console Java à l'aide de l'exemple de code disponible à la fin de cette section. Dans le cadre de ce didacticiel, nous utiliserons le nom de fichier Java **TSPSolver.java**. Modifiez les espaces réservés **your\_service\_bus\_namespace**, **your\_service\_bus\_owner** et **your\_service\_bus\_key** pour utiliser respectivement vos valeurs Service Bus **Espace de noms**, **Émetteur par défaut** et **Clé par défaut**.
 3. Après le codage, exportez l'application dans une archive Java exécutable (JAR) et créez un package contenant les bibliothèques requises dans le fichier JAR généré. Dans le cadre de ce didacticiel, nous utiliserons le nom **TSPSolver.jar** pour désigner le fichier JAR généré.
 
@@ -113,10 +113,10 @@ Pour pouvoir effectuer des opérations de gestion telles que la création d'une 
 
 	// TSPSolver.java
 
-	import com.microsoft.windowsazure.services.core.Configuration;
-	import com.microsoft.windowsazure.services.core.ServiceException;
-	import com.microsoft.windowsazure.services.serviceBus.*;
-	import com.microsoft.windowsazure.services.serviceBus.models.*;
+	import com.azure.microsoft.com/.windowsazure.services.core.Configuration;
+	import com.azure.microsoft.com/.windowsazure.services.core.ServiceException;
+	import com.azure.microsoft.com/.windowsazure.services.serviceBus.*;
+	import com.azure.microsoft.com/.windowsazure.services.serviceBus.models.*;
 	import java.io.*;
 	import java.text.DateFormat;
 	import java.text.SimpleDateFormat;
@@ -306,9 +306,9 @@ Pour pouvoir effectuer des opérations de gestion telles que la création d'une 
 	import java.util.Date;
 	import java.text.DateFormat;
 	import java.text.SimpleDateFormat;
-	import com.microsoft.windowsazure.services.serviceBus.*;
-	import com.microsoft.windowsazure.services.serviceBus.models.*;
-	import com.microsoft.windowsazure.services.core.*;
+	import com.azure.microsoft.com/.windowsazure.services.serviceBus.*;
+	import com.azure.microsoft.com/.windowsazure.services.serviceBus.models.*;
+	import com.azure.microsoft.com/.windowsazure.services.core.*;
 
 	public class TSPClient
 	{
@@ -419,7 +419,7 @@ Exécutez l'application nécessitant beaucoup de ressources pour créer la file 
 1. Connectez-vous à votre machine virtuelle.
 2. Créez un dossier où vous exécuterez votre application. Par exemple, **c:\\TSP**.
 3. Copiez **TSPSolver.jar** sous **c:\\TSP**.
-4. Créez un fichier intitulé **c:\\TSP\\cities.txt** avec le contenu ci-dessous.
+4. Créez un fichier intitulé **c:\\TSP\\cities.txt** avec le contenu ci-dessous.
 
 		City_1, 1002.81, -1841.35
 		City_2, -953.55, -229.6

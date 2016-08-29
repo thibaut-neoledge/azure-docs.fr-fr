@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Prise en main de la bibliothèque Azure CDN pour .NET | Microsoft Azure"
+	pageTitle="Prise en main de la bibliothèque Azure CDN pour .NET | azure.microsoft.com/ Azure"
 	description="Apprenez à écrire des applications .NET pour gérer Azure CDN à l’aide de Visual Studio."
 	services="cdn"
 	documentationCenter=".net"
@@ -22,11 +22,11 @@
 - [.NET](cdn-app-dev-net.md)
 - [Node.JS](cdn-app-dev-node.md)
 
-Vous pouvez utiliser la [bibliothèque Azure CDN pour .NET](https://msdn.microsoft.com/library/mt657769.aspx) pour automatiser la création et la gestion des points de terminaison et profils CDN. Ce didacticiel présente la création d’une application console .NET simple, qui exécute plusieurs des opérations disponibles. Il n’a pas vocation à décrire en détail tous les aspects de la bibliothèque Azure CDN pour .NET.
+Vous pouvez utiliser la [bibliothèque Azure CDN pour .NET](https://msdn.azure.microsoft.com/.com/library/mt657769.aspx) pour automatiser la création et la gestion des points de terminaison et profils CDN. Ce didacticiel présente la création d’une application console .NET simple, qui exécute plusieurs des opérations disponibles. Il n’a pas vocation à décrire en détail tous les aspects de la bibliothèque Azure CDN pour .NET.
 
 Pour suivre ce didacticiel, vous avez besoin de Visual Studio 2015. [Visual Studio Community 2015](https://www.visualstudio.com/products/visual-studio-community-vs.aspx) est disponible gratuitement en téléchargement.
 
-> [AZURE.TIP] Le [projet achevé de ce didacticiel](https://code.msdn.microsoft.com/Azure-CDN-Management-1f2fba2c) est disponible en téléchargement sur MSDN.
+> [AZURE.TIP] Le [projet achevé de ce didacticiel](https://code.msdn.azure.microsoft.com/.com/Azure-CDN-Management-1f2fba2c) est disponible en téléchargement sur MSDN.
 
 [AZURE.INCLUDE [cdn-app-dev-prep](../../includes/cdn-app-dev-prep.md)]
 
@@ -46,11 +46,11 @@ Notre projet va utiliser certaines bibliothèques Azure contenues dans des packa
 
 2. Dans la Console du Gestionnaire de package, exécutez la commande suivante pour installer la bibliothèque **ADAL (Active Directory Authentication Library)** :
 
-	`Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory`
+	`Install-Package azure.microsoft.com/.IdentityModel.Clients.ActiveDirectory`
 
 3. Exécutez la commande suivante pour installer la bibliothèque **Azure CDN Management Library** :
 
-	`Install-Package Microsoft.Azure.Management.Cdn`
+	`Install-Package azure.microsoft.com/.Azure.Management.Cdn`
 
 ## Directives, constantes, méthode principale et méthodes d’assistance
 
@@ -61,12 +61,12 @@ Rédigeons la structure de base de notre programme.
 	```csharp
 	using System;
 	using System.Collections.Generic;
-	using Microsoft.Azure.Management.Cdn;
-	using Microsoft.Azure.Management.Cdn.Models;
-	using Microsoft.Azure.Management.Resources;
-	using Microsoft.Azure.Management.Resources.Models;
-	using Microsoft.IdentityModel.Clients.ActiveDirectory;
-	using Microsoft.Rest;
+	using azure.microsoft.com/.Azure.Management.Cdn;
+	using azure.microsoft.com/.Azure.Management.Cdn.Models;
+	using azure.microsoft.com/.Azure.Management.Resources;
+	using azure.microsoft.com/.Azure.Management.Resources.Models;
+	using azure.microsoft.com/.IdentityModel.Clients.ActiveDirectory;
+	using azure.microsoft.com/.Rest;
 	```
 
 2. Nous devons définir certaines constantes que nos méthodes utiliseront. Dans la classe `Program` mais avant la méthode `Main`, ajoutez le code suivant. Veillez à remplacer les espaces réservés, y compris les **&lt;éléments entre chevrons&gt;** par vos propres valeurs, si nécessaire.
@@ -75,7 +75,7 @@ Rédigeons la structure de base de notre programme.
 	//Tenant app constants
 	private const string clientID = "<YOUR CLIENT ID>";
 	private const string clientSecret = "<YOUR CLIENT AUTHENTICATION KEY>"; //Only for service principals
-	private const string authority = "https://login.microsoftonline.com/<YOUR TENANT ID>/<YOUR TENANT DOMAIN NAME>";
+	private const string authority = "https://login.azure.microsoft.com/online.com/<YOUR TENANT ID>/<YOUR TENANT DOMAIN NAME>";
 
 	//Application constants
 	private const string subscriptionId = "<YOUR SUBSCRIPTION ID>";
@@ -333,9 +333,9 @@ Nous pouvons alors confirmer les invites pour exécuter le reste du programme.
 
 ## Étapes suivantes
 
-Pour voir le projet achevé obtenu à partir de cette procédure pas à pas, [téléchargez l’exemple](https://code.msdn.microsoft.com/Azure-CDN-Management-1f2fba2c).
+Pour voir le projet achevé obtenu à partir de cette procédure pas à pas, [téléchargez l’exemple](https://code.msdn.azure.microsoft.com/.com/Azure-CDN-Management-1f2fba2c).
 
-Pour trouver de la documentation supplémentaire sur la bibliothèque Azure CDN Management Library pour .NET, consultez la [référence sur MSDN](https://msdn.microsoft.com/library/mt657769.aspx).
+Pour trouver de la documentation supplémentaire sur la bibliothèque Azure CDN Management Library pour .NET, consultez la [référence sur MSDN](https://msdn.azure.microsoft.com/.com/library/mt657769.aspx).
 
 Gérez vos ressources CDN avec [PowerShell](./cdn-manage-powershell.md).
 

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Gestion des clusters Hadoop basés sur Linux dans HDInsight avec le portail Azure | Microsoft Azure"
+	pageTitle="Gestion des clusters Hadoop basés sur Linux dans HDInsight avec le portail Azure | azure.microsoft.com/ Azure"
 	description="Apprenez à créer et à gérer des clusters HDInsight basés sur Linux avec le portail Azure."
 	services="hdinsight"
 	documentationCenter=""
@@ -27,7 +27,7 @@
 
 Avant de commencer cet article, vous devez disposer des éléments suivants :
 
-- **Un abonnement Azure**. Consultez la rubrique [Obtenir une version d'évaluation gratuite d'Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- **Un abonnement Azure**. Consultez la rubrique [Obtenir une version d'évaluation gratuite d'Azure](https://azure.azure.microsoft.com/.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 ##Ouvrir le portail
 
@@ -58,25 +58,25 @@ HDInsight fonctionne avec un large éventail de composants Hadoop. Pour obtenir 
 3. Cliquez sur le nom du cluster. Si la liste de clusters est longue, vous pouvez utiliser le filtre en haut de la page.
 4. Double-cliquez sur un cluster dans la liste pour afficher les détails.
 
-	**Menu et essentials** :
+	**Menu et essentials** :
 
 	![essentials du cluster hdinsight du portail Azure](./media/hdinsight-administer-use-portal-linux/hdinsight-essentials.png)
 	
-	- **Paramètres** et **Tous les paramètres** : affichent le panneau **Paramètres** du cluster, ce qui vous permet d’accéder aux informations de configuration détaillées du cluster.
+	- **Paramètres** et **Tous les paramètres** : affichent le panneau **Paramètres** du cluster, ce qui vous permet d’accéder aux informations de configuration détaillées du cluster.
 	- **Tableau de bord**, **Tableau de bord du cluster** et **URL : il s’agit de toutes les façons d’accéder au tableau de bord de cluster, qui est une interface Ambari Web pour les clusters basés sur Linux.
-    - **Secure Shell** : affiche les instructions pour se connecter au cluster à l’aide d’une connexion Secure Shell (SSH).
-	- **Mise à l’échelle du cluster** : permet de modifier le nombre de nœuds de travail pour ce cluster.
-	- **Supprimer** : supprime le cluster.
-	- **Démarrage rapide (![icône nuage et foudre = démarrage rapide](./media/hdinsight-administer-use-portal-linux/quickstart.png))** : affiche des informations qui vous aideront à prendre en main HDInsight.
-	- **Utilisateurs(![icône d’utilisateurs](./media/hdinsight-administer-use-portal-linux/users.png))** : permet de définir des autorisations pour la _gestion via le portail_ de ce cluster pour d’autres utilisateurs dans votre abonnement Azure.
+	- **Secure Shell** : affiche les instructions pour se connecter au cluster à l’aide d’une connexion Secure Shell (SSH).
+	- **Mise à l’échelle du cluster** : permet de modifier le nombre de nœuds de travail pour ce cluster.
+	- **Supprimer** : supprime le cluster.
+	- **Démarrage rapide (![icône nuage et foudre = démarrage rapide](./media/hdinsight-administer-use-portal-linux/quickstart.png))** : affiche des informations qui vous aideront à prendre en main HDInsight.
+	- **Utilisateurs(![icône d’utilisateurs](./media/hdinsight-administer-use-portal-linux/users.png))** : permet de définir des autorisations pour la _gestion via le portail_ de ce cluster pour d’autres utilisateurs dans votre abonnement Azure.
 	
 		> [AZURE.IMPORTANT] Ce paramètre affecte _uniquement_ les autorisations d’accès à ce cluster dans le portail Azure et n’a aucun effet sur les personnes autorisées à se connecter ou à soumettre des tâches au cluster HDInsight.
-	- **Balises(![icône de balise](./media/hdinsight-administer-use-portal-linux/tags.png))** : permettent de spécifier des paires clé/valeur pour définir une classification personnalisée de vos Cloud Services. Vous pouvez par exemple créer une clé nommée __projet__, puis utiliser une valeur commune pour tous les services associés à un projet spécifique.
+	- **Balises(![icône de balise](./media/hdinsight-administer-use-portal-linux/tags.png))** : permettent de spécifier des paires clé/valeur pour définir une classification personnalisée de vos Cloud Services. Vous pouvez par exemple créer une clé nommée __projet__, puis utiliser une valeur commune pour tous les services associés à un projet spécifique.
 	- **Vues Ambari** : liens vers Ambari Web.
 	
 	> [AZURE.IMPORTANT] Pour gérer les services fournis par le cluster HDInsight, vous devez utiliser l’interface Ambari Web ou l’API Ambari REST. Pour plus d’informations sur l’utilisation d’Ambari, consultez [Gestion des clusters HDInsight à l’aide d’Ambari](hdinsight-hadoop-manage-ambari.md).
 
-	**Utilisation** :
+	**Utilisation** :
 	
 	![utilisation de cluster hdinsight du portail Azure](./media/hdinsight-administer-use-portal-linux/hdinsight-portal-cluster-usage.png)
 	
@@ -86,31 +86,31 @@ HDInsight fonctionne avec un large éventail de composants Hadoop. Pour obtenir 
 
 	- **Journaux d’audit** :
     - **Démarrage rapide** : affiche des informations qui vous aideront à prendre en main HDInsight.
-	- **Connexion de cluster** : modifie le nom d’utilisateur de cluster et le mot de passe HTTP.
-	- **Mise à l’échelle de cluster** : augmenter et diminuer le nombre de nœuds de travail de cluster.
+	- **Connexion de cluster** : modifie le nom d’utilisateur de cluster et le mot de passe HTTP.
+	- **Mise à l’échelle de cluster** : augmenter et diminuer le nombre de nœuds de travail de cluster.
     - **Secure Shell** : affiche les instructions pour se connecter au cluster à l’aide d’une connexion Secure Shell (SSH).
     - **Partenaire HDInsight** : permet d’ajouter ou de supprimer le partenaire HDInsight actuel.
-	- **Metastores externes** : affiche les metastores Hive et Oozie. Les metastores ne peuvent être configurés qu’au cours du processus de création de cluster.
+	- **Metastores externes** : affiche les metastores Hive et Oozie. Les metastores ne peuvent être configurés qu’au cours du processus de création de cluster.
     - **Actions de script** : exécutent des scripts Bash sur le cluster.
-    - **Propriétés** : affichez les propriétés du cluster
-	- **Clés de stockage Azure** : permet d’afficher le compte de stockage par défaut et sa clé. Le compte de stockage est configuré pendant le processus de création de cluster.
-	- **Identité AAS de cluster** :
+    - **Propriétés** : affichez les propriétés du cluster
+	- **Clés de stockage Azure** : permet d’afficher le compte de stockage par défaut et sa clé. Le compte de stockage est configuré pendant le processus de création de cluster.
+	- **Identité AAS de cluster** :
 	- **Utilisateurs** : permet de définir des autorisations pour la _gestion via le portail_ de ce cluster pour d’autres utilisateurs dans votre abonnement Azure.
 	- **Balises** : permet de spécifier des paires clé/valeur pour définir une taxonomie personnalisée de vos services cloud. Vous pouvez par exemple créer une clé nommée __projet__, puis utiliser une valeur commune pour tous les services associés à un projet spécifique.
     
     > [AZURE.NOTE] Ceci est une liste générique des paramètres disponibles. Ils ne sont pas tous présents pour tous les types de clusters.
 
-6. Cliquez sur **Propriétés** :
+6. Cliquez sur **Propriétés** :
 
 	Les propriétés sont les suivantes :
 	
-	- **Nom d’hôte** : nom du Cluster.
+	- **Nom d’hôte** : nom du Cluster.
 	- **URL de cluster**.
-	- **État** : inclut Abandonné, Accepté, ClusterStorageProvisioned, AzureVMConfiguration, HDInsightConfiguration, En fonctionnement, En cours d’exécution, Erreur, En cours de suppression, Supprimé, TimedOut, DeleteQueued, DeleteTimedOut, DeleteError, PatchQueued, CertRolloverQueued, ResizeQueued, ClusterCustomization
-	- **Région** : emplacement Azure. Pour obtenir la liste des emplacements Azure pris en charge, consultez la zone de liste déroulante **Région** sur [Tarification HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
+	- **État** : inclut Abandonné, Accepté, ClusterStorageProvisioned, AzureVMConfiguration, HDInsightConfiguration, En fonctionnement, En cours d’exécution, Erreur, En cours de suppression, Supprimé, TimedOut, DeleteQueued, DeleteTimedOut, DeleteError, PatchQueued, CertRolloverQueued, ResizeQueued, ClusterCustomization
+	- **Région** : emplacement Azure. Pour obtenir la liste des emplacements Azure pris en charge, consultez la zone de liste déroulante **Région** sur [Tarification HDInsight](https://azure.azure.microsoft.com/.com/pricing/details/hdinsight/).
 	- **Données créées**.
-	- **Système d’exploitation** : **Windows** ou **Linux**.
-	- **Type** : Hadoop, Hbase, Storm, Spark.
+	- **Système d’exploitation** : **Windows** ou **Linux**.
+	- **Type** : Hadoop, Hbase, Storm, Spark.
 	- **Version**. Voir [Versions HDInsight](hdinsight-component-versioning.md)
 	- **Abonnement** : nom de l’abonnement.
 	- **ID d’abonnement**.
@@ -191,10 +191,10 @@ Il existe de nombreuses façons de programmer le processus :
 
 - Utilisateur d’Azure Data Factory. Pour créer des services liés HDInsight à la demande, consultez la section [Création de clusters Hadoop à la demande basés sur Linux dans HDInsight avec Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md).
 - Utilisation d’Azure PowerShell Voir [Analyse des données sur les retards de vol](hdinsight-analyze-flight-delay-data.md).
-- Utiliser l’interface de ligne de commande Microsoft Azure Voir [Gestion des clusters HDInsight à l’aide de l’interface de ligne de commande Azure](hdinsight-administer-use-command-line.md)
+- Utiliser l’interface de ligne de commande azure.microsoft.com/ Azure Voir [Gestion des clusters HDInsight à l’aide de l’interface de ligne de commande Azure](hdinsight-administer-use-command-line.md)
 - Utilisation du kit de développement logiciel .NET. Voir [Envoyer des tâches Hadoop](hdinsight-submit-hadoop-jobs-programmatically.md).
 
-Pour les informations de tarification, consultez [Tarification HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/). Pour supprimer un cluster du portail, consultez [Supprimer les clusters](#delete-clusters)
+Pour les informations de tarification, consultez [Tarification HDInsight](https://azure.azure.microsoft.com/.com/pricing/details/hdinsight/). Pour supprimer un cluster du portail, consultez [Supprimer les clusters](#delete-clusters)
 
 ##Modifier les mots de passe
 

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Choix de conception et techniques de codage pour le développement avec SQL Data Warehouse | Microsoft Azure"
+   pageTitle="Choix de conception et techniques de codage pour le développement avec SQL Data Warehouse | azure.microsoft.com/ Azure"
    description="Concepts de développement, choix de conception, recommandations et des techniques de codage pour SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
@@ -71,7 +71,7 @@ Une fois que vous avez consulté les articles sur le développement, accédez à
 [informations de référence sur Transact-SQL]: ./sql-data-warehouse-overview-reference.md
 
 <!--MSDN references-->
-[renaming objects]: https://msdn.microsoft.com/library/mt631611.aspx
+[renaming objects]: https://msdn.azure.microsoft.com/.com/library/mt631611.aspx
 
 <!--Other Web references-->
 

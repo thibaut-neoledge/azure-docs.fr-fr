@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Ajout d'un certificat au magasin d'autorité de certification Java | Microsoft Azure" 
+	pageTitle="Ajout d'un certificat au magasin d'autorité de certification Java | azure.microsoft.com/ Azure" 
 	description="Découvrez comment ajouter un certificat d'autorité de certification au magasin de certificats (cacerts) de l'autorité de certification Java pour le service Twilio ou le Azure Service Bus." 
 	services="" 
 	documentationCenter="java" 

@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Changer vos mots de passe StorSimple | Microsoft Azure" 
+   pageTitle="Changer vos mots de passe StorSimple | azure.microsoft.com/ Azure" 
    description="Explique comment utiliser le service StorSimple Manager pour modifier vos mots de passe du Gestionnaire d'instantanés StorSimple et d’administrateur de l’appareil." 
    services="storsimple" 
    documentationCenter="NA" 
@@ -30,7 +30,7 @@ Le mot de passe qui a été défini initialement dans l’interface Windows Powe
 
 #### Pour modifier le mot de passe d’administrateur de l’appareil
 
-1. Dans le portail Classic, cliquez sur **Appareils** > **Configurer** pour votre appareil.
+1. Dans le portail Classic, cliquez sur **Appareils** > **Configurer** pour votre appareil.
 
 2. Faites défiler l’écran vers le bas jusqu’à la section **Mot de passe de l’administrateur de l’appareil**. Indiquez un mot de passe Administrateur contenant entre 8 et 15 caractères. Le mot de passe doit contenir une combinaison d’au moins 3 caractères en majuscules, en minuscules, numériques et spéciaux.
 
@@ -50,7 +50,7 @@ Le mot de passe qui a été défini initialement dans l’interface Windows Powe
 
 #### Pour modifier le mot de passe du Gestionnaire d’instantanés StorSimple
 
-1. Dans le portail Classic, cliquez sur **Appareils** > **Configurer** pour votre appareil.
+1. Dans le portail Classic, cliquez sur **Appareils** > **Configurer** pour votre appareil.
 
 2. Faites défiler l’écran vers le bas jusqu’à la section **Gestionnaire d’instantanés StorSimple**. Entrez un mot de passe 14 ou 15 caractères. Assurez-vous que le mot de passe contient une combinaison d’au moins 3 caractères en majuscules, en minuscules, numériques et spéciaux.
 

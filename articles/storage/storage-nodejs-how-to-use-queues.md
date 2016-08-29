@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Utilisation du stockage de files d’attente à partir de Node.js | Microsoft Azure"
+	pageTitle="Utilisation du stockage de files d’attente à partir de Node.js | azure.microsoft.com/ Azure"
 	description="Découvrez comment utiliser le service de File d'attente Azure pour créer et supprimer des files d'attente, ainsi que pour insérer, récupérer et supprimer des messages. Les exemples sont écrits en Node.js."
 	services="storage"
 	documentationCenter="nodejs"
@@ -23,7 +23,7 @@
 
 ## Vue d'ensemble
 
-Ce guide décrit le déroulement de scénarios courants dans le cadre de l’utilisation du service de File d’attente Microsoft Azure. Les exemples sont écrits en utilisant l'API Node.js. Les scénarios traités incluent l’**insertion**, la **lecture furtive**, la **récupération** et la **suppression** des messages de file d’attente, ainsi que la **création et suppression des files d’attente**.
+Ce guide décrit le déroulement de scénarios courants dans le cadre de l’utilisation du service de File d’attente azure.microsoft.com/ Azure. Les exemples sont écrits en utilisant l'API Node.js. Les scénarios traités incluent l’**insertion**, la **lecture furtive**, la **récupération** et la **suppression** des messages de file d’attente, ainsi que la **création et suppression des files d’attente**.
 
 [AZURE.INCLUDE [storage-queue-concepts-include](../../includes/storage-queue-concepts-include.md)]
 
@@ -31,7 +31,7 @@ Ce guide décrit le déroulement de scénarios courants dans le cadre de l’uti
 
 ## Création d'une application Node.js
 
-Créez une application Node.js vide. Pour obtenir des instructions sur la création d’une application Node.js, consultez [Créer une application web Node.js dans Azure App Service], [Création et déploiement d'une application Node.js dans Azure Cloud Services] (à l’aide de Windows PowerShell) ou [Créer et déployer une application web Node.js dans Azure à l’aide de WebMatrix].
+Créez une application Node.js vide. Pour obtenir des instructions sur la création d’une application Node.js, consultez [Créer une application web Node.js dans Azure App Service], [Création et déploiement d'une application Node.js dans Azure Cloud Services] \(à l’aide de Windows PowerShell) ou [Créer et déployer une application web Node.js dans Azure à l’aide de WebMatrix].
 
 ## Configuration de votre application pour accéder au stockage
 
@@ -96,7 +96,7 @@ Après le prétraitement des options de la requête, la méthode doit appeler «
 
 Dans ce rappel, et après le traitement de returnObject (la réponse de la requête au serveur), le rappel doit appeler la fonction next, si elle existe, pour continuer à traiter d’autres filtres ou simplement appeler finalCallback pour terminer l’utilisation du service.
 
-Deux filtres qui implémentent la logique de relance sont inclus dans le Kit de développement logiciel (SDK) Azure pour Node.js : **ExponentialRetryPolicyFilter** et **LinearRetryPolicyFilter**. Le code suivant crée un objet **QueueService** qui utilise le filtre **ExponentialRetryPolicyFilter** :
+Deux filtres qui implémentent la logique de relance sont inclus dans le Kit de développement logiciel (SDK) Azure pour Node.js : **ExponentialRetryPolicyFilter** et **LinearRetryPolicyFilter**. Le code suivant crée un objet **QueueService** qui utilise le filtre **ExponentialRetryPolicyFilter** :
 
 	var retryOperations = new azure.ExponentialRetryPolicyFilter();
 	var queueSvc = azure.createQueueService().withFilter(retryOperations);
@@ -308,7 +308,7 @@ Maintenant que vous connaissez les bases du stockage des files d'attente, consul
 -   Consultez le référentiel [Kit de développement logiciel (SDK) Azure Storage pour Node][] sur GitHub.
 
   [Kit de développement logiciel (SDK) Azure Storage pour Node]: https://github.com/Azure/azure-storage-node
-  [using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx
+  [using the REST API]: http://msdn.azure.microsoft.com/.com/library/azure/hh264518.aspx
   [Azure Portal]: https://portal.azure.com
   [Créer une application web Node.js dans Azure App Service]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
   [Node.js Cloud Service with Storage]: ../cloud-services/storage-nodejs-use-table-storage-cloud-service-app.md

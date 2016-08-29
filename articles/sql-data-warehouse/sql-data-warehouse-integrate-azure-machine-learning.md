@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Utilisation de Microsoft Azure Machine Learning avec SQL Data Warehouse | Microsoft Azure"
-   description="Didacticiel sur l’utilisation de Microsoft Azure Machine Learning avec Microsoft Azure SQL Data Warehouse, dans le cadre du développement de solutions."
+   pageTitle="Utilisation de azure.microsoft.com/ Azure Machine Learning avec SQL Data Warehouse | azure.microsoft.com/ Azure"
+   description="Didacticiel sur l’utilisation de azure.microsoft.com/ Azure Machine Learning avec azure.microsoft.com/ Azure SQL Data Warehouse, dans le cadre du développement de solutions."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="kevinvngo"
@@ -16,9 +16,9 @@
    ms.date="08/16/2016"
    ms.author="kevin;barbkess;sonyama"/>
 
-# Utilisation de Microsoft Azure Machine Learning avec SQL Data Warehouse
+# Utilisation de azure.microsoft.com/ Azure Machine Learning avec SQL Data Warehouse
 
-Azure Machine Learning est un service d’analyse prédictive entièrement géré qui vous permet de développer des modèles d’analyse prédictive de vos données dans SQL Data Warehouse et de les publier en tant que services Web prêts à l’emploi. Pour découvrir les principes de base de l’analyse prédictive et de Machine Learning, consultez l’[Introduction à Machine Learning sur Microsoft Azure][]. Vous pouvez ensuite apprendre comment créer, former, évaluer et tester un modèle Machine Learning à l’aide du [didacticiel consacré à la création d’une expérience][].
+Azure Machine Learning est un service d’analyse prédictive entièrement géré qui vous permet de développer des modèles d’analyse prédictive de vos données dans SQL Data Warehouse et de les publier en tant que services Web prêts à l’emploi. Pour découvrir les principes de base de l’analyse prédictive et de Machine Learning, consultez l’[Introduction à Machine Learning sur azure.microsoft.com/ Azure][]. Vous pouvez ensuite apprendre comment créer, former, évaluer et tester un modèle Machine Learning à l’aide du [didacticiel consacré à la création d’une expérience][].
 
 Dans cet article, vous allez apprendre à effectuer les opérations suivantes en utilisant [Azure Machine Learning Studio][] :
 
@@ -86,7 +86,7 @@ Vous pouvez désormais utiliser ce jeu de données pour effectuer les opération
 
 Pour en savoir plus sur la création, la formation, l’évaluation et le test d’un modèle Machine Learning, utilisez le [didacticiel consacré à la création d’une expérience][].
 
-## Écrire des données sur Microsoft Azure SQL Data Warehouse
+## Écrire des données sur azure.microsoft.com/ Azure SQL Data Warehouse
 
 Nous écrirons l’ensemble de résultats sur la table ProductPriceForecast de la base de données AdventureWorksDW.
 
@@ -100,7 +100,7 @@ Recherchez le module Lecteur dans la palette d’ensemble de données et de mod
 
 Sélectionnez le module Lecteur et renseignez le volet des propriétés.
 
-1. Sélectionnez la base de données SQL Microsoft Azure en tant que Destination des données.
+1. Sélectionnez la base de données SQL azure.microsoft.com/ Azure en tant que Destination des données.
 2. Nom du serveur de base de données : tapez le nom du serveur. Vous pouvez obtenir cette information dans le [portail Azure][].
 3. Nom de la base de données : tapez le nom d’une base de données sur le serveur que vous venez de définir.
 4. Nom du compte utilisateur du serveur : tapez le nom d’utilisateur d’un compte disposant des autorisations d’écriture sur la base de données.
@@ -135,8 +135,8 @@ Pour obtenir des conseils supplémentaires en matière de développement, consul
 <!--Article references-->
 
 [Vue d’ensemble sur le développement SQL Data Warehouse]: ./sql-data-warehouse-overview-develop.md
-[didacticiel consacré à la création d’une expérience]: https://azure.microsoft.com/documentation/articles/machine-learning-create-experiment/
-[Introduction à Machine Learning sur Microsoft Azure]: https://azure.microsoft.com/documentation/articles/machine-learning-what-is-machine-learning/
+[didacticiel consacré à la création d’une expérience]: https://azure.azure.microsoft.com/.com/documentation/articles/machine-learning-create-experiment/
+[Introduction à Machine Learning sur azure.microsoft.com/ Azure]: https://azure.azure.microsoft.com/.com/documentation/articles/machine-learning-what-is-machine-learning/
 [Azure Machine Learning Studio]: https://studio.azureml.net/Home
 [portail Azure]: https://portal.azure.com/
 
@@ -144,6 +144,6 @@ Pour obtenir des conseils supplémentaires en matière de développement, consul
 
 <!--Other Web references-->
 
-[Azure Machine Learning documentation]: http://azure.microsoft.com/documentation/services/machine-learning/
+[Azure Machine Learning documentation]: http://azure.azure.microsoft.com/.com/documentation/services/machine-learning/
 
 <!---HONumber=AcomDC_0817_2016-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Ajout de l’action de requête dans des applications logiques | Microsoft Azure"
+	pageTitle="Ajout de l’action de requête dans des applications logiques | azure.microsoft.com/ Azure"
 	description="Vue d’ensemble de l’action de requête pour les actions comme Filtrer le tableau."
 	services=""
 	documentationCenter=""

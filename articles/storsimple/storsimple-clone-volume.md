@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Clonage de votre volume StorSimple | Microsoft Azure"
+   pageTitle="Clonage de votre volume StorSimple | azure.microsoft.com/ Azure"
    description="Décrit les différents types de clone et les moments auxquels les utiliser et explique comment vous pouvez utiliser un jeu de sauvegarde pour cloner un volume individuel."
    services="storsimple"
    documentationCenter="NA"
@@ -41,15 +41,15 @@ Vous pouvez créer un clone sur le même appareil, sur un autre ou même une mac
 
 3. Cliquez sur **Cloner** pour commencer le clonage du volume sélectionné.
 
-4. Dans l’Assistant Cloner le volume, sous **Spécifier le nom et l’emplacement** :
+4. Dans l’Assistant Cloner le volume, sous **Spécifier le nom et l’emplacement** :
 
   1. Identifiez un appareil cible. Il s’agit de l’emplacement où sera créé le clone. Vous pouvez choisir le même appareil ou en spécifier un autre. Si vous choisissez un volume associé à d’autres fournisseurs de service cloud (autres qu’Azure), la liste déroulante pour l’appareil cible affiche uniquement des appareils physiques. Vous ne pouvez pas cloner un volume associé à d’autres fournisseurs de services cloud sur un appareil virtuel.
 
-        >  [AZURE.NOTE] Make sure that the capacity required for the clone is lower than the capacity available on the target device.
+        >  [AZURE.NOTE] Assurez-vous que la capacité requise pour le clone est inférieure à la capacité disponible sur le périphérique cible.
   2. Indiquez un nom de volume unique pour votre clone. Le nom doit contenir entre 3 et 127 caractères.
   3. Cliquez sur l'icône en forme de flèche ![icône-flèche](./media/storsimple-clone-volume/HCS_ArrowIcon.png) pour passer à la page suivante.
 
-5. Sous **Spécifier des hôtes qui peuvent utiliser ce volume** :
+5. Sous **Spécifier des hôtes qui peuvent utiliser ce volume** :
 
   1. Spécifiez un enregistrement de contrôle d’accès (ACR) pour le clone. Vous pouvez ajouter un nouvel ACR ou en choisir un dans la liste existante.
   2. Cliquez sur l’icône en forme de coche ![icône-coche](./media/storsimple-clone-volume/HCS_CheckIcon.png)pour terminer l’opération.
@@ -79,11 +79,11 @@ Les sections suivantes décrivent des exemples de situations dans lesquelles les
 
 ### Récupération au niveau de l’élément avec un clone temporaire
 
-Vous devez récupérer un fichier de présentation Microsoft PowerPoint datant d’un an. Votre administrateur informatique identifie la sauvegarde spécifique dans cette période et filtre ensuite le volume. Ensuite, l’administrateur clone le volume, trouve le fichier que vous recherchez et vous le fournit. Dans ce scénario, un clone temporaire est utilisé.
+Vous devez récupérer un fichier de présentation azure.microsoft.com/ PowerPoint datant d’un an. Votre administrateur informatique identifie la sauvegarde spécifique dans cette période et filtre ensuite le volume. Ensuite, l’administrateur clone le volume, trouve le fichier que vous recherchez et vous le fournit. Dans ce scénario, un clone temporaire est utilisé.
  
 ![Vidéo disponible](./media/storsimple-clone-volume/Video_icon.png) **Vidéo disponible**
 
-Pour visionner une vidéo expliquant comment utiliser les fonctionnalités de clonage et de restauration dans StorSimple pour récupérer des fichiers supprimés, cliquez [ici](https://azure.microsoft.com/documentation/videos/storsimple-recover-deleted-files-with-storsimple/).
+Pour visionner une vidéo expliquant comment utiliser les fonctionnalités de clonage et de restauration dans StorSimple pour récupérer des fichiers supprimés, cliquez [ici](https://azure.azure.microsoft.com/.com/documentation/videos/storsimple-recover-deleted-files-with-storsimple/).
 
 ### Test dans l’environnement de production avec un clone permanent
 

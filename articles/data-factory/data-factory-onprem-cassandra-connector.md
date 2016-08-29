@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Déplacer des données depuis Cassandra à l’aide de Data Factory | Microsoft Azure" 
+	pageTitle="Déplacer des données depuis Cassandra à l’aide de Data Factory | azure.microsoft.com/ Azure" 
 	description="Découvrez comment déplacer des données depuis une base de données Cassandra locale à l’aide d’Azure Data Factory." 
 	services="data-factory" 
 	documentationCenter="" 
@@ -26,7 +26,7 @@ Pour permettre au service Azure Data Factory de se connecter à votre base de do
 
 - Une passerelle de gestion de données version 2.0 ou ultérieure sur l’ordinateur qui héberge la base de données ou sur un autre ordinateur afin d’éviter toute mise en concurrence avec la base de données pour les ressources. La passerelle de gestion de données est un logiciel qui connecte des sources de données locales à des services cloud de manière gérée et sécurisée. Pour plus d’informations sur la passerelle de gestion de données, consultez l’article [Déplacement de données entre des sources locales et le cloud à l’aide de la passerelle de gestion des données](data-factory-move-data-between-onprem-and-cloud.md).
   
-	L’installation de la passerelle engendre automatiquement l’installation d’un pilote Microsoft ODBC Cassandra, utilisé pour se connecter à la base de données Cassandra.
+	L’installation de la passerelle engendre automatiquement l’installation d’un pilote azure.microsoft.com/ ODBC Cassandra, utilisé pour se connecter à la base de données Cassandra.
 
 > [AZURE.NOTE] Consultez [Résolution des problèmes de passerelle](data-factory-data-management-gateway.md#troubleshoot-gateway-issues) pour obtenir des conseils sur la résolution des problèmes de connexion/passerelle.
 
@@ -105,7 +105,7 @@ Cet exemple utilise le service lié **Cassandra**. Consultez la section [Service
 		}
 	}
 
-La définition de **external** sur **true** informe le service Data Factory qu’il s’agit d’un jeu de données qui est externe à la Data Factory et non produit par une activité dans la Data Factory.
+La définition de **external** sur **true** informe le service Data Factory qu’il s’agit d’un jeu de données qui est externe à la Data Factory et non produit par une activité dans la Data Factory.
 
 **Jeu de données de sortie d’objet Blob Azure**
 

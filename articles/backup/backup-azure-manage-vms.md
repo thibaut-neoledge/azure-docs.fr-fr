@@ -1,6 +1,6 @@
 
 <properties
-	pageTitle="Gestion des sauvegardes de machines virtuelles déployées via Resource Manager | Microsoft Azure"
+	pageTitle="Gestion des sauvegardes de machines virtuelles déployées via Resource Manager | azure.microsoft.com/ Azure"
 	description="Découvrez comment gérer et surveiller les sauvegardes d’une machine virtuelle déployée via Resource Manager"
 	services="backup"
 	documentationCenter=""
@@ -138,7 +138,7 @@ Si vous décidez d’arrêter la protection d’une machine virtuelle, vous devr
 - arrêter tous les travaux de sauvegarde à venir et supprimer tous les points de récupération, ou
 - arrêter tous les travaux de sauvegarde à venir en conservant les points de récupération <br/>
 
-La conservation des points de récupération dans le stockage présente un coût, mais elle a l’avantage de vous permettre de restaurer ultérieurement la machine virtuelle, si vous le souhaitez. Pour plus d’informations sur les coûts de conservation des points de récupération, consultez la [tarification](https://azure.microsoft.com/pricing/details/backup/). Si vous choisissez de supprimer tous les points de récupération, vous ne pourrez pas restaurer la machine virtuelle.
+La conservation des points de récupération dans le stockage présente un coût, mais elle a l’avantage de vous permettre de restaurer ultérieurement la machine virtuelle, si vous le souhaitez. Pour plus d’informations sur les coûts de conservation des points de récupération, consultez la [tarification](https://azure.azure.microsoft.com/.com/pricing/details/backup/). Si vous choisissez de supprimer tous les points de récupération, vous ne pourrez pas restaurer la machine virtuelle.
 
 Pour arrêter la protection d’une machine virtuelle :
 

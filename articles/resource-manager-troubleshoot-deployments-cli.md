@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Affichage des opérations de déploiement avec l’interface CLI Azure | Microsoft Azure"
+   pageTitle="Affichage des opérations de déploiement avec l’interface CLI Azure | azure.microsoft.com/ Azure"
    description="Explique comment utiliser l’interface CLI Azure pour détecter les problèmes de déploiement de Resource Manager."
    services="azure-resource-manager,virtual-machines"
    documentationCenter=""
@@ -53,24 +53,24 @@ Pour afficher les erreurs d’un déploiement, procédez comme suit :
           "nbf": "1442510510",
           "exp": "1442514410",
           "ver": "1.0",
-          "http://schemas.microsoft.com/identity/claims/tenantid": "{guid}",
-          "http://schemas.microsoft.com/identity/claims/objectidentifier": "{guid}",
+          "http://schemas.azure.microsoft.com/.com/identity/claims/tenantid": "{guid}",
+          "http://schemas.azure.microsoft.com/.com/identity/claims/objectidentifier": "{guid}",
           "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress": "someone@example.com",
           "puid": "XXXXXXXXXXXXXXXX",
-          "http://schemas.microsoft.com/identity/claims/identityprovider": "example.com",
+          "http://schemas.azure.microsoft.com/.com/identity/claims/identityprovider": "example.com",
           "altsecid": "1:example.com:XXXXXXXXXXX",
           "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "<hash string="">",
           "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname": "Tom",
           "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname": "FitzMacken",
           "name": "Tom FitzMacken",
-          "http://schemas.microsoft.com/claims/authnmethodsreferences": "pwd",
+          "http://schemas.azure.microsoft.com/.com/claims/authnmethodsreferences": "pwd",
           "groups": "{guid}",
           "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name": "example.com#someone@example.com",
           "wids": "{guid}",
           "appid": "{guid}",
           "appidacr": "0",
-          "http://schemas.microsoft.com/identity/claims/scope": "user_impersonation",
-          "http://schemas.microsoft.com/claims/authnclassreference": "1",
+          "http://schemas.azure.microsoft.com/.com/identity/claims/scope": "user_impersonation",
+          "http://schemas.azure.microsoft.com/.com/claims/authnclassreference": "1",
           "ipaddr": "000.000.000.000"
         },
         "properties": {

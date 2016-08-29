@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Fonctions des modèles Resource Manager | Microsoft Azure"
+   pageTitle="Fonctions des modèles Resource Manager | azure.microsoft.com/ Azure"
    description="Décrit les fonctions à utiliser dans un modèle Azure Resource Manager pour récupérer des valeurs, utiliser des chaînes et des valeurs numériques, et récupérer des informations sur le déploiement."
    services="azure-resource-manager"
    documentationCenter="na"
@@ -89,7 +89,7 @@ L’exemple suivant montre une boucle de copie ainsi que la valeur d’index inc
     "resources": [ 
       { 
         "name": "[concat('examplecopy-', copyIndex())]", 
-        "type": "Microsoft.Web/sites", 
+        "type": "azure.microsoft.com/.Web/sites", 
         "copy": { 
           "name": "websitescopy", 
           "count": "[parameters('count')]" 
@@ -322,7 +322,7 @@ L’exemple suivant montre comment combiner plusieurs valeurs pour retourner au 
     "outputs": {
         "siteUri": {
           "type": "string",
-          "value": "[concat('http://', reference(resourceId('Microsoft.Web/sites', parameters('siteName'))).hostNames[0])]"
+          "value": "[concat('http://', reference(resourceId('azure.microsoft.com/.Web/sites', parameters('siteName'))).hostNames[0])]"
         }
     }
 
@@ -662,7 +662,7 @@ L'exemple suivant montre comment créer un nom unique pour un compte de stockage
 
     "resources": [{ 
         "name": "[concat('contosostorage', uniqueString(resourceGroup().id))]", 
-        "type": "Microsoft.Storage/storageAccounts", 
+        "type": "azure.microsoft.com/.Storage/storageAccounts", 
         ...
 
 
@@ -914,7 +914,7 @@ L'exemple suivant montre une utilisation simplifiée de la fonction parameters.
        {
           "apiVersion": "2014-06-01",
           "name": "[parameters('siteName')]",
-          "type": "Microsoft.Web/Sites",
+          "type": "azure.microsoft.com/.Web/Sites",
           ...
        }
     ]
@@ -937,7 +937,7 @@ L’exemple suivant utilise une valeur de variable.
     },
     "resources": [
       {
-        "type": "Microsoft.Storage/storageAccounts",
+        "type": "azure.microsoft.com/.Storage/storageAccounts",
         "name": "[variables('storageName')]",
         ...
       }
@@ -984,7 +984,7 @@ L’exemple suivant montre comment renvoyer les clés primaires et secondaires �
 
     "outputs": { 
       "listKeysOutput": { 
-        "value": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2016-01-01')]", 
+        "value": "[listKeys(resourceId('azure.microsoft.com/.Storage/storageAccounts', parameters('storageAccountName')), '2016-01-01')]", 
         "type" : "object" 
       } 
     } 
@@ -1030,7 +1030,7 @@ L'exemple suivant montre comment utiliser la fonction provider :
 
     "outputs": {
 	    "exampleOutput": {
-		    "value": "[providers('Microsoft.Storage', 'storageAccounts')]",
+		    "value": "[providers('azure.microsoft.com/.Storage', 'storageAccounts')]",
 		    "type" : "object"
 	    }
     }
@@ -1064,7 +1064,7 @@ L’exemple ci-après référence un compte de stockage qui n’est pas déploy�
 
     "outputs": {
 		"ExistingStorage": {
-			"value": "[reference(concat('Microsoft.Storage/storageAccounts/', parameters('storageAccountName')), '2016-01-01')]",
+			"value": "[reference(concat('azure.microsoft.com/.Storage/storageAccounts/', parameters('storageAccountName')), '2016-01-01')]",
 			"type" : "object"
 		}
 	}
@@ -1073,7 +1073,7 @@ Vous pouvez récupérer une valeur spécifique à partir de l’objet renvoyé, 
 
     "outputs": {
 		"BlobUri": {
-			"value": "[reference(concat('Microsoft.Storage/storageAccounts/', parameters('storageAccountName')), '2016-01-01').primaryEndpoints.blob]",
+			"value": "[reference(concat('azure.microsoft.com/.Storage/storageAccounts/', parameters('storageAccountName')), '2016-01-01').primaryEndpoints.blob]",
 			"type" : "string"
 		}
 	}
@@ -1082,7 +1082,7 @@ L’exemple ci-après référence un compte de stockage figurant dans un autre g
 
     "outputs": {
 		"BlobUri": {
-			"value": "[reference(resourceId(parameters('relatedGroup'), 'Microsoft.Storage/storageAccounts/', parameters('storageAccountName')), '2016-01-01').primaryEndpoints.blob]",
+			"value": "[reference(resourceId(parameters('relatedGroup'), 'azure.microsoft.com/.Storage/storageAccounts/', parameters('storageAccountName')), '2016-01-01').primaryEndpoints.blob]",
 			"type" : "string"
 		}
 	}
@@ -1114,7 +1114,7 @@ L'exemple suivant utilise l'emplacement du groupe de ressources pour affecter l'
     "resources": [
        {
           "apiVersion": "2014-06-01",
-          "type": "Microsoft.Web/sites",
+          "type": "azure.microsoft.com/.Web/sites",
           "name": "[parameters('siteName')]",
           "location": "[resourceGroup().location]",
           ...
@@ -1142,8 +1142,8 @@ Vous utilisez cette fonction lorsque le nom de la ressource est ambigu ou non co
 
 L'exemple suivant montre comment récupérer les ID de ressources pour un site web et une base de données. Le site web se trouve dans un groupe de ressources nommé **myWebsitesGroup** et la base de données se trouve dans le groupe de ressources actuel pour ce modèle.
 
-    [resourceId('myWebsitesGroup', 'Microsoft.Web/sites', parameters('siteName'))]
-    [resourceId('Microsoft.SQL/servers/databases', parameters('serverName'), parameters('databaseName'))]
+    [resourceId('myWebsitesGroup', 'azure.microsoft.com/.Web/sites', parameters('siteName'))]
+    [resourceId('azure.microsoft.com/.SQL/servers/databases', parameters('serverName'), parameters('databaseName'))]
     
 Souvent, vous devez utiliser cette fonction lorsque vous utilisez un compte de stockage ou un réseau virtuel se trouvant dans un autre groupe de ressources. Le compte de stockage ou le réseau virtuel peut être utilisé sur plusieurs groupes de ressources. Par conséquent, vous ne voulez pas les supprimer lors de la suppression d'un seul groupe de ressources. L'exemple suivant montre comment une ressource d'un groupe de ressources externe peut être facilement utilisée :
 
@@ -1165,13 +1165,13 @@ Souvent, vous devez utiliser cette fonction lorsque vous utilisez un compte de s
           }
       },
       "variables": {
-          "vnetID": "[resourceId(parameters('virtualNetworkResourceGroup'), 'Microsoft.Network/virtualNetworks', parameters('virtualNetworkName'))]",
+          "vnetID": "[resourceId(parameters('virtualNetworkResourceGroup'), 'azure.microsoft.com/.Network/virtualNetworks', parameters('virtualNetworkName'))]",
           "subnet1Ref": "[concat(variables('vnetID'),'/subnets/', parameters('subnet1Name'))]"
       },
       "resources": [
       {
           "apiVersion": "2015-05-01-preview",
-          "type": "Microsoft.Network/networkInterfaces",
+          "type": "azure.microsoft.com/.Network/networkInterfaces",
           "name": "[parameters('nicName')]",
           "location": "[parameters('location')]",
           "properties": {

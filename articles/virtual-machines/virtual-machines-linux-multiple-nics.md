@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Configuration de plusieurs cartes réseau sur une machine virtuelle Linux | Microsoft Azure"
+   pageTitle="Configuration de plusieurs cartes réseau sur une machine virtuelle Linux | azure.microsoft.com/ Azure"
    description="Découvrez comment créer une machine virtuelle dotée de plusieurs cartes réseau à l’aide de l’interface de ligne de commande Azure ou de modèles Resource Manager."
    services="virtual-machines-linux"
    documentationCenter=""

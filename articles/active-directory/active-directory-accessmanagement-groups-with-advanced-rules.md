@@ -1,6 +1,6 @@
 
 <properties
-	pageTitle="Utilisation d’attributs pour créer des règles avancées | Microsoft Azure"
+	pageTitle="Utilisation d’attributs pour créer des règles avancées | azure.microsoft.com/ Azure"
 	description="Procédure de création de règles avancées pour un groupe incluant des paramètres et des opérateurs de règle d’expression pris en charge."
 	services="active-directory"
 	documentationCenter=""

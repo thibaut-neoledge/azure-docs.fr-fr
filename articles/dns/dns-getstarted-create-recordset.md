@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Création d’un jeu d’enregistrements et d’enregistrements pour une zone DNS à l’aide de PowerShell | Microsoft Azure"
+   pageTitle="Création d’un jeu d’enregistrements et d’enregistrements pour une zone DNS à l’aide de PowerShell | azure.microsoft.com/ Azure"
    description="Création d’enregistrements hôtes pour Azure DNS. Configuration d’enregistrements et de jeux d’enregistrements à l’aide de PowerShell"
    services="dns"
    documentationCenter="na"

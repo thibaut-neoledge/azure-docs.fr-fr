@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Rôles web et de travail PHP | Microsoft Azure"
+	pageTitle="Rôles web et de travail PHP | azure.microsoft.com/ Azure"
 	description="Guide pour la création de rôles web et de travail PHP dans un service cloud Azure et pour la configuration du runtime PHP."
 	services=""
 	documentationCenter="php"
@@ -30,7 +30,7 @@ Pour plus d’informations, consultez [Calcul des options d’hébergement fourn
 
 ## Téléchargement du Kit de développement logiciel (SDK) Azure pour PHP
 
-Le [Kit de développement logiciel (SDK) Azure pour PHP] est constitué de plusieurs composants. Cet article fait référence à deux d’entre eux : Azure PowerShell et les émulateurs Azure. Ceux-ci peuvent être installés par le biais de Microsoft Web Platform Installer : Pour plus d'informations, consultez [Comment installer et configurer Azure PowerShell](powershell-install-configure.md) :
+Le [Kit de développement logiciel (SDK) Azure pour PHP] est constitué de plusieurs composants. Cet article fait référence à deux d’entre eux : Azure PowerShell et les émulateurs Azure. Ceux-ci peuvent être installés par le biais de azure.microsoft.com/ Web Platform Installer : Pour plus d'informations, consultez [Comment installer et configurer Azure PowerShell](powershell-install-configure.md) :
 
 ## Création d'un projet Cloud Services
 
@@ -102,7 +102,7 @@ Pour configurer un rôle web pour utiliser un runtime PHP que vous fournissez, p
 
 1. Créez un projet de service Azure et ajoutez un rôle web PHP comme indiqué précédemment dans cette rubrique.
 2. Créez un dossier `php` dans le dossier `bin` se trouvant dans le répertoire racine de votre rôle web, puis ajoutez votre runtime PHP (tous les fichiers binaires, fichiers de configuration, sous-dossiers, etc.) dans le dossier `php`.
-3. (FACULTATIF) Si votre runtime PHP utilise les [pilotes Microsoft SQL Server pour PHP][sqlsrv drivers], une fois le rôle Web mis en service, il vous faudra le configurer pour installer [SQL Server Native Client 2012][sql native client]. Pour cela, ajoutez le [programme d’installation x64 sqlncli.msi] dans le dossier `bin` du répertoire racine de votre rôle web. Le script de démarrage décrit à l'étape suivante exécutera en silence le programme d'installation lorsque le rôle sera mis en service. Si votre runtime PHP n'utilise pas les pilotes Microsoft SQL Server pour PHP, vous pouvez supprimer la ligne suivante dans le script figurant à l'étape suivante :
+3. (FACULTATIF) Si votre runtime PHP utilise les [pilotes azure.microsoft.com/ SQL Server pour PHP][sqlsrv drivers], une fois le rôle Web mis en service, il vous faudra le configurer pour installer [SQL Server Native Client 2012][sql native client]. Pour cela, ajoutez le [programme d’installation x64 sqlncli.msi] dans le dossier `bin` du répertoire racine de votre rôle web. Le script de démarrage décrit à l'étape suivante exécutera en silence le programme d'installation lorsque le rôle sera mis en service. Si votre runtime PHP n'utilise pas les pilotes azure.microsoft.com/ SQL Server pour PHP, vous pouvez supprimer la ligne suivante dans le script figurant à l'étape suivante :
 
 		msiexec /i sqlncli.msi /qn IACCEPTSQLNCLILICENSETERMS=YES
 
@@ -136,7 +136,7 @@ Pour configurer un rôle de travail pour utiliser un runtime PHP que vous fourni
 
 1. Créez un projet de service Azure et ajoutez un rôle de travail PHP comme indiqué précédemment dans cette rubrique.
 2. Créez un dossier `php` dans le répertoire racine du rôle de travail, puis ajoutez votre runtime PHP (tous les fichiers binaires, fichiers de configuration, sous-dossiers, etc.) dans le dossier `php`.
-3. (FACULTATIF) Si votre runtime PHP utilise les [pilotes Microsoft SQL Server pour PHP][sqlsrv drivers], une fois le rôle de travail mis en service, il vous faudra le configurer pour installer [SQL Server Native Client 2012][sql native client]. Pour cela, ajoutez le [programme d’installation x64 sqlncli.msi] dans le répertoire racine du rôle de travail. Le script de démarrage décrit à l'étape suivante exécutera en silence le programme d'installation lorsque le rôle sera mis en service. Si votre runtime PHP n'utilise pas les pilotes Microsoft SQL Server pour PHP, vous pouvez supprimer la ligne suivante dans le script figurant à l'étape suivante :
+3. (FACULTATIF) Si votre runtime PHP utilise les [pilotes azure.microsoft.com/ SQL Server pour PHP][sqlsrv drivers], une fois le rôle de travail mis en service, il vous faudra le configurer pour installer [SQL Server Native Client 2012][sql native client]. Pour cela, ajoutez le [programme d’installation x64 sqlncli.msi] dans le répertoire racine du rôle de travail. Le script de démarrage décrit à l'étape suivante exécutera en silence le programme d'installation lorsque le rôle sera mis en service. Si votre runtime PHP n'utilise pas les pilotes azure.microsoft.com/ SQL Server pour PHP, vous pouvez supprimer la ligne suivante dans le script figurant à l'étape suivante :
 
 		msiexec /i sqlncli.msi /qn IACCEPTSQLNCLILICENSETERMS=YES
 
@@ -196,19 +196,19 @@ Pour arrêter les émulateurs, exécutez la commande suivante :
 
 ## Publication de votre application
 
-Pour publier votre application, vous devez d’abord importer vos paramètres de publication en utilisant l’applet de commande [Import-AzurePublishSettingsFile](https://msdn.microsoft.com/library/azure/dn790370.aspx). Vous pouvez ensuite publier votre application à l’aide de l’applet de commande [Publish-AzureServiceProject](https://msdn.microsoft.com/library/azure/dn495166.aspx). Pour plus d’informations sur la connexion, consultez [Installation et configuration d’Azure PowerShell](powershell-install-configure.md).
+Pour publier votre application, vous devez d’abord importer vos paramètres de publication en utilisant l’applet de commande [Import-AzurePublishSettingsFile](https://msdn.azure.microsoft.com/.com/library/azure/dn790370.aspx). Vous pouvez ensuite publier votre application à l’aide de l’applet de commande [Publish-AzureServiceProject](https://msdn.azure.microsoft.com/.com/library/azure/dn495166.aspx). Pour plus d’informations sur la connexion, consultez [Installation et configuration d’Azure PowerShell](powershell-install-configure.md).
 
 ## Étapes suivantes
 
 Pour plus d’informations, consultez le [Centre pour développeurs PHP](/develop/php/).
 
 [Kit de développement logiciel (SDK) Azure pour PHP]: /develop/php/common-tasks/download-php-sdk/
-[install ps and emulators]: http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409
-[définition de service (.csdef)]: http://msdn.microsoft.com/library/windowsazure/ee758711.aspx
-[configuration de service (.cscfg)]: http://msdn.microsoft.com/library/windowsazure/ee758710.aspx
+[install ps and emulators]: http://go.azure.microsoft.com/.com/fwlink/p/?linkid=320376&clcid=0x409
+[définition de service (.csdef)]: http://msdn.azure.microsoft.com/.com/library/windowsazure/ee758711.aspx
+[configuration de service (.cscfg)]: http://msdn.azure.microsoft.com/.com/library/windowsazure/ee758710.aspx
 [iis.net]: http://www.iis.net/
-[sql native client]: http://msdn.microsoft.com/sqlserver/aa937733.aspx
+[sql native client]: http://msdn.azure.microsoft.com/.com/sqlserver/aa937733.aspx
 [sqlsrv drivers]: http://php.net/sqlsrv
-[programme d’installation x64 sqlncli.msi]: http://go.microsoft.com/fwlink/?LinkID=239648
+[programme d’installation x64 sqlncli.msi]: http://go.azure.microsoft.com/.com/fwlink/?LinkID=239648
 
 <!---HONumber=AcomDC_0817_2016-->

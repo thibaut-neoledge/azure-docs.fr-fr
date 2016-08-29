@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Diffuser en continu le journal d’activité Azure sur les Event Hubs | Microsoft Azure"
+	pageTitle="Diffuser en continu le journal d’activité Azure sur les Event Hubs | azure.microsoft.com/ Azure"
 	description="Apprenez comment diffuser en continu le journal d’activité Azure sur les Event Hubs."
 	authors="johnkemnetz"
 	manager="rboucher"
@@ -23,7 +23,7 @@ Le [**journal d’activité Azure**](./monitoring-overview-activity-logs.md) peu
 Voici quelques façons d’utiliser la fonctionnalité de diffusion en continu pour le journal d’activité :
 
 - **Diffuser en continu sur des systèmes de journalisation et de télémétrie tiers** : au fil du temps, la diffusion en continu sur Event Hubs deviendra le mécanisme de diffusion de votre journal d’activité vers les SIEM et les solutions d’analyse de journaux tiers.
-- **Créer une plateforme de journalisation et de télémétrie personnalisée** : si vous disposez déjà d’une plate-forme de télémétrie personnalisée, ou si vous envisagez d’en créer une, la nature hautement évolutive de publication et d’abonnement d’Event Hubs vous permet d’intégrer avec souplesse le journal d’activité. [Consultez ici le guide de Dan Rosanova sur l’utilisation d’Event Hubs dans une plate-forme de télémétrie à échelle mondiale.](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/)
+- **Créer une plateforme de journalisation et de télémétrie personnalisée** : si vous disposez déjà d’une plate-forme de télémétrie personnalisée, ou si vous envisagez d’en créer une, la nature hautement évolutive de publication et d’abonnement d’Event Hubs vous permet d’intégrer avec souplesse le journal d’activité. [Consultez ici le guide de Dan Rosanova sur l’utilisation d’Event Hubs dans une plate-forme de télémétrie à échelle mondiale.](https://azure.azure.microsoft.com/.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/)
 
 ## Activer la diffusion en continu du journal d’activité
 Vous pouvez activer la diffusion en continu du journal d’activité soit par programmation, soit via le portail. Dans les deux cas, vous choisissez un espace de nom Service Bus (créez-en un si aucun n’existe). L’espace de noms sélectionné est l’endroit où l’Event Hub est créé (si c’est la première fois que vous diffusez le journal d’activité en continu) ou vers lequel il est diffusé (si vous avez déjà diffusé le journal d’activité sur cet espace de noms), et la stratégie définit les autorisations dont dispose le mécanisme de diffusion en continu. Aujourd’hui, la diffusion vers les Event Hubs requiert des autorisations **Gestion**, **Lecture** et **Envoi**. Vous pouvez créer ou modifier les stratégies d’accès partagé de l’espace de nom Service Bus dans le portail classique sous l’onglet « Configurer » pour votre espace de nom Service Bus. Pour mettre à jour le profil de journal d’activité afin d’inclure la diffusion en continu, le client doit avoir l’autorisation ListKey sur la règle d’autorisation Service Bus.
@@ -49,7 +49,7 @@ Si un profil de journal existe déjà, vous devez d’abord le supprimer.
 3. Utilisez `Set-AzureRmLogProfile` pour créer un profil :
 
 ```
-Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Locations global,westus,eastus -RetentionInDays 90 -Categories Write,Delete,Action
+Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/azure.microsoft.com/.Storage/storageAccounts/my_storage -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/azure.microsoft.com/.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Locations global,westus,eastus -RetentionInDays 90 -Categories Write,Delete,Action
 ```
 
 L’identifiant de règle Service Bus est une chaîne au format : {identifiant de ressource Service Bus}/authorizationrules/{nom de clé}, par exemple
@@ -62,7 +62,7 @@ Si un profil de journal existe déjà, vous devez d’abord le supprimer.
 3. Utilisez `azure insights logprofile add` pour créer un profil :
 
 ```
-azure insights logprofile add --name my_log_profile --storageId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Storage/storageAccounts/my_storage --serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey --locations global,westus,eastus,northeurope --retentionInDays 90 –categories Write,Delete,Action
+azure insights logprofile add --name my_log_profile --storageId /subscriptions/s1/resourceGroups/insights-integration/providers/azure.microsoft.com/.Storage/storageAccounts/my_storage --serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/azure.microsoft.com/.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey --locations global,westus,eastus,northeurope --retentionInDays 90 –categories Write,Delete,Action
 ```
 
 L’identifiant de règle Service Bus est une chaîne au format : `{service bus resource ID}/authorizationrules/{key name}`.

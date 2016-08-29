@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Configurer un projet de service cloud Azure avec Visual Studio | Microsoft Azure"
+   pageTitle="Configurer un projet de service cloud Azure avec Visual Studio | azure.microsoft.com/ Azure"
    description="Découvrez comment configurer un projet de service cloud Azure dans Visual Studio selon vos spécifications pour ce projet."
    services="visual-studio-online"
    documentationCenter="na"
@@ -33,7 +33,7 @@ Vous pouvez configurer un projet de service cloud Azure selon vos spécification
 
 L’illustration suivante montre comment sélectionner une configuration à utiliser quand vous exécutez ou que vous déboguez votre service cloud localement. Depuis cette fenêtre, vous pouvez définir n’importe laquelle des propriétés du projet dont vous avez besoin, comme indiqué dans l’illustration.
 
-![Configurer un projet Microsoft Azure](./media/vs-azure-tools-configuring-an-azure-project/IC713462.png)
+![Configurer un projet azure.microsoft.com/ Azure](./media/vs-azure-tools-configuring-an-azure-project/IC713462.png)
 
 ## Pour configurer un projet de service cloud Azure
 
@@ -49,7 +49,7 @@ L’illustration suivante montre comment sélectionner une configuration à util
 
   >[AZURE.NOTE] Si vous voulez créer une configuration de service à utiliser, consultez Procédure : gestion des configurations de service et des profils. Si vous voulez modifier une configuration de service pour un rôle, consultez [Comment configurer les rôles pour un service cloud Azure avec Visual Studio](vs-azure-tools-configure-roles-for-cloud-service.md).
 
-1. Pour démarrer l’émulateur de stockage Azure quand vous exécutez ou que vous déboguez localement votre service cloud, dans **Démarrer l’émulateur de stockage Microsoft Azure**, choisissez **Vrai**.
+1. Pour démarrer l’émulateur de stockage Azure quand vous exécutez ou que vous déboguez localement votre service cloud, dans **Démarrer l’émulateur de stockage azure.microsoft.com/ Azure**, choisissez **Vrai**.
 
 1. Pour vous assurer que vous ne pouvez pas publier s’il y a des erreurs de validation du package, dans **Considérer les avertissements comme des erreurs**, choisissez **Vrai**.
 

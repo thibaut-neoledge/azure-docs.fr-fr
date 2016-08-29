@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Science des données à l’aide de Scala et de Spark sur Azure | Microsoft Azure"
+	pageTitle="Science des données à l’aide de Scala et de Spark sur Azure | azure.microsoft.com/ Azure"
 	description="Comment utiliser Scala pour les tâches d’apprentissage automatique supervisées avec des packages MLlib et Spark ML sur un cluster Azure HDInsight Spark."  
 	services="machine-learning"
 	documentationCenter=""
@@ -39,7 +39,7 @@ Les étapes d’installation et le code présentés dans cet article s’appliqu
 
 ## Conditions préalables
 
--	Vous devez avoir un abonnement Azure. Si vous n’en avez pas, [obtenez une version d’évaluation gratuite Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+-	Vous devez avoir un abonnement Azure. Si vous n’en avez pas, [obtenez une version d’évaluation gratuite Azure](https://azure.azure.microsoft.com/.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 -	Vous avez besoin d’un cluster Azure HDInsight 3.4 Spark 1.6 pour effectuer les procédures suivantes. Pour créer un cluster, consultez les instructions de la rubrique dans [Prise en main : Créer Apache Spark sur Azure HDInsight](../hdinsight/hdinsight-apache-spark-jupyter-spark-sql.md). Spécifiez le type et la version du cluster à partir du menu **Sélectionner le type de cluster**.
 

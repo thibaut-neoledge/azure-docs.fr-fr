@@ -1,5 +1,5 @@
 <properties
-	 pageTitle="Séries de références (SKU) non disponibles | Microsoft Azure"
+	 pageTitle="Séries de références (SKU) non disponibles | azure.microsoft.com/ Azure"
 	 description="Certaines séries de références (SKU) ne sont pas disponibles pour l’abonnement sélectionné pour cette région."
 	 services="Azure Supportability"
 	 documentationCenter=""
@@ -18,9 +18,9 @@
 
 # Séries de références (SKU) non disponibles
 
-Dans certaines régions, certaines références (SKU) ne sont pas automatiquement disponibles pour les nouveaux abonnements. Cela peut se produire lorsque [de meilleures références sont commercialisées dans une région](https://azure.microsoft.com/updates/announcing-new-dv2-series-virtual-machine-size/) et que les anciennes références sont moins demandées. Le message « *Some SKU series are unavailable for the selected subscription for this region »* (Certaines séries de références ne sont pas disponibles pour l’abonnement sélectionné pour cette région) s’affiche lors de la création d’une demande de support pour augmenter le quota de cœurs de calcul.
+Dans certaines régions, certaines références (SKU) ne sont pas automatiquement disponibles pour les nouveaux abonnements. Cela peut se produire lorsque [de meilleures références sont commercialisées dans une région](https://azure.azure.microsoft.com/.com/updates/announcing-new-dv2-series-virtual-machine-size/) et que les anciennes références sont moins demandées. Le message « *Some SKU series are unavailable for the selected subscription for this region »* (Certaines séries de références ne sont pas disponibles pour l’abonnement sélectionné pour cette région) s’affiche lors de la création d’une demande de support pour augmenter le quota de cœurs de calcul.
 
-Vous pouvez consulter la disponibilité des références sur la page [Services Azure par région](https://azure.microsoft.com/regions/#services).
+Vous pouvez consulter la disponibilité des références sur la page [Services Azure par région](https://azure.azure.microsoft.com/.com/regions/#services).
 
 Pour avoir accès à une référence non disponible depuis votre abonnement, créez une demande de support « Gestion de l’abonnement ».
 
@@ -37,9 +37,9 @@ Pour avoir accès à une référence non disponible depuis votre abonnement, cr�
 ![Informations de contact](./media/SKU-series-unavailable/ContactInformation.png)
 
 ## Commentaires
-Nous sommes ouverts aux commentaires et suggestions ! Envoyez-nous vos [suggestions](https://feedback.azure.com/forums/266794-support-feedback). Vous pouvez aussi nous contacter via [Twitter](https://twitter.com/azuresupport) ou via les [forums MSDN](https://social.msdn.microsoft.com/Forums/azure).
+Nous sommes ouverts aux commentaires et suggestions ! Envoyez-nous vos [suggestions](https://feedback.azure.com/forums/266794-support-feedback). Vous pouvez aussi nous contacter via [Twitter](https://twitter.com/azuresupport) ou via les [forums MSDN](https://social.msdn.azure.microsoft.com/.com/Forums/azure).
 
 ## En savoir plus
-[FAQ du support Azure](https://azure.microsoft.com/support/faq)
+[FAQ du support Azure](https://azure.azure.microsoft.com/.com/support/faq)
 
 <!---HONumber=AcomDC_0817_2016-->

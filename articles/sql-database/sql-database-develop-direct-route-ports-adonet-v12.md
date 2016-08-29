@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Ports au-delà de 1433 pour SQL Database | Microsoft Azure"
+	pageTitle="Ports au-delà de 1433 pour SQL Database | azure.microsoft.com/ Azure"
 	description="Parfois, les connexions clientes entre ADO.NET et Azure SQL Database V12 ignorent le proxy et interagissent directement avec la base de données. Les ports autres que le port 1433 deviennent importants."
 	services="sql-database"
 	documentationCenter=""
@@ -74,7 +74,7 @@ Assurez-vous que les plages de ports 11000-11999 et 14000-14999 sur votre ordina
 - En particulier, les ports dans la plage doivent être libres de tout autre bloqueur sortant.
 
 - Sur votre machine virtuelle Azure, le **Pare-feu Windows avec fonctions avancées de sécurité** contrôle les paramètres des ports.
- - Vous pouvez utiliser l’[interface utilisateur du Pare-feu](http://msdn.microsoft.com/library/cc646023.aspx) pour ajouter une règle dans laquelle vous spécifiez le protocole **TCP** et une plage de ports avec une syntaxe semblable à **11000-11999**.
+ - Vous pouvez utiliser l’[interface utilisateur du Pare-feu](http://msdn.azure.microsoft.com/.com/library/cc646023.aspx) pour ajouter une règle dans laquelle vous spécifiez le protocole **TCP** et une plage de ports avec une syntaxe semblable à **11000-11999**.
 
 
 ## Précisions concernant les versions

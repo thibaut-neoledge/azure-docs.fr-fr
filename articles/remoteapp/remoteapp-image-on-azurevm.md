@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Créer une image RemoteApp Azure basée sur une machine virtuelle Azure | Microsoft Azure"
+    pageTitle="Créer une image RemoteApp Azure basée sur une machine virtuelle Azure | azure.microsoft.com/ Azure"
     description="Apprenez à créer une image Azure RemoteApp à partir d’une machine virtuelle Azure."
     services="remoteapp"
     documentationCenter=""
@@ -20,7 +20,7 @@
 # Création d’une image Azure RemoteApp basée sur une machine virtuelle Azure
 
 > [AZURE.IMPORTANT]
-Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148).
+Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.azure.microsoft.com/.com/fwlink/?linkid=821148).
 
 Vous pouvez créer des images Azure RemoteApp (qui contiennent les applications que vous partagez dans votre collection) à partir d'une machine virtuelle Azure. Vous pouvez également choisir d'utiliser une image de machine virtuelle que nous avons ajoutée à la galerie d’images de machines virtuelles Azure qui répond à toutes les exigences d’image Azure RemoteApp : vous pouvez utiliser cette image de machine virtuelle comme point de départ pour votre propre machine virtuelle, si vous le souhaitez. Recherchez simplement l’image « Hôte de session de Bureau à distance Windows Server » dans la bibliothèque.
 
@@ -30,7 +30,7 @@ La création de votre propre image basée sur une machine virtuelle Azure est un
 
 Utilisez ces étapes pour créer une image basée sur une machine virtuelle Azure.
 
-1. Créez une machine virtuelle Azure. Vous pouvez utiliser l’image « Hôte de session de Bureau à distance Windows Server » ou « Hôte de session de Bureau à distance Windows Server avec Microsoft Office 365 ProPlus » à partir de la galerie d’images de machine virtuelle Azure. Cette image répond à toutes les exigences d’image de modèle Azure RemoteApp.
+1. Créez une machine virtuelle Azure. Vous pouvez utiliser l’image « Hôte de session de Bureau à distance Windows Server » ou « Hôte de session de Bureau à distance Windows Server avec azure.microsoft.com/ Office 365 ProPlus » à partir de la galerie d’images de machine virtuelle Azure. Cette image répond à toutes les exigences d’image de modèle Azure RemoteApp.
 
 	Pour plus d’informations, consultez la section [Création d’une machine virtuelle exécutant Windows](../virtual-machines/virtual-machines-windows-hero-tutorial.md).
 
@@ -48,7 +48,7 @@ Utilisez ces étapes pour créer une image basée sur une machine virtuelle Azur
 
 Utilisez ces étapes pour importer la nouvelle image dans Azure RemoteApp :
 
-1. Dans l’onglet **Images de modèle** :
+1. Dans l’onglet **Images de modèle** :
 	- Si vous ne disposez pas d’images existantes, cliquez sur **Télécharger ou importer une image de modèle**.
 	- Si vous disposez déjà d’au moins une image, cliquez sur **+** pour ajouter une nouvelle image.
 

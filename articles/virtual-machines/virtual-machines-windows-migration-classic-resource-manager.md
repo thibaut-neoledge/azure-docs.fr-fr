@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Migration prise en charge par la plateforme de ressources IaaS Classic vers Azure Resource Manager | Microsoft Azure"
+	pageTitle="Migration prise en charge par la plateforme de ressources IaaS Classic vers Azure Resource Manager | azure.microsoft.com/ Azure"
 	description="Cet article décrit pas à pas la procédure de migration de ressources prise en charge par la plateforme de l’environnement Classic vers Azure Resource Manager."
 	services="virtual-machines-windows"
 	documentationCenter=""
@@ -103,7 +103,7 @@ Calcul | Services cloud contenant des rôles Web/de travail | Non pris en charge
 Réseau | Réseaux virtuels contenant des machines virtuelles et des rôles Web/de travail | Non pris en charge actuellement.
 Azure App Service | Réseaux virtuels contenant des environnements App Service | Non pris en charge actuellement.
 Azure HDInsight | Réseaux virtuels contenant des services HDInsight | Non pris en charge actuellement.
-Services de cycle de vie Microsoft Dynamics | Réseaux virtuel contenant des machines virtuelles gérées par Dynamics Lifecycle Services | Non pris en charge actuellement.
+Services de cycle de vie azure.microsoft.com/ Dynamics | Réseaux virtuel contenant des machines virtuelles gérées par Dynamics Lifecycle Services | Non pris en charge actuellement.
 
 ## Expérience de migration
 
@@ -167,13 +167,13 @@ L’abandon est une étape facultative qui vous permet d’abandonner la migrati
 
 Après avoir terminé la validation, vous pouvez valider la migration. Les ressources n’apparaissent plus que dans l’environnement Classic et sont disponibles uniquement dans le modèle de déploiement Resource Manager. Cela signifie également que les ressources migrées ne pourront être gérées que dans le nouveau portail.
 
->[AZURE.NOTE] Il s’agit d’une opération idempotente. Si elle échoue, nous vous recommandons de la relancer à plusieurs reprises. Si le problème persiste, créez un ticket de support ou publiez un billet avec la balise ClassicIaaSMigration dans notre [forum consacré aux machines virtuelles](https://social.msdn.microsoft.com/Forums/azure/fr-FR/home?forum=WAVirtualMachinesforWindows).
+>[AZURE.NOTE] Il s’agit d’une opération idempotente. Si elle échoue, nous vous recommandons de la relancer à plusieurs reprises. Si le problème persiste, créez un ticket de support ou publiez un billet avec la balise ClassicIaaSMigration dans notre [forum consacré aux machines virtuelles](https://social.msdn.azure.microsoft.com/.com/Forums/azure/fr-FR/home?forum=WAVirtualMachinesforWindows).
 
 ## Forum Aux Questions
 
 **Ce plan de migration affecte-t-il l’un de mes services ou applications existants qui s’exécutent sur des machines virtuelles Azure ?**
 
-Non. Les machines virtuelles (Classic) sont des services entièrement pris en charge des services à disponibilité générale. Vous pouvez continuer à utiliser ces ressources pour développer votre empreinte sur Microsoft Azure.
+Non. Les machines virtuelles (Classic) sont des services entièrement pris en charge des services à disponibilité générale. Vous pouvez continuer à utiliser ces ressources pour développer votre empreinte sur azure.microsoft.com/ Azure.
 
 **Que se passera-t-il pour mes machines virtuelles si je n’envisage pas de procéder à cette migration dans un avenir proche ?**
 
@@ -193,7 +193,7 @@ Vous pouvez abandonner la migration tant que vos ressources se trouvent à l’�
 
 **Puis-je restaurer ma migration en cas d’échec de l’opération de validation ?**
 
-Vous ne pouvez pas abandonner la migration si l’opération de validation échoue. Toutes les opérations de migration, notamment l’opération de validation, sont idempotentes. Nous vous recommandons donc de retenter l’opération après une courte période. Si l’erreur persiste, créez un ticket de support ou publiez un billet avec la balise ClassicIaaSMigration dans notre [forum consacré aux machines virtuelles](https://social.msdn.microsoft.com/Forums/azure/fr-FR/home?forum=WAVirtualMachinesforWindows).
+Vous ne pouvez pas abandonner la migration si l’opération de validation échoue. Toutes les opérations de migration, notamment l’opération de validation, sont idempotentes. Nous vous recommandons donc de retenter l’opération après une courte période. Si l’erreur persiste, créez un ticket de support ou publiez un billet avec la balise ClassicIaaSMigration dans notre [forum consacré aux machines virtuelles](https://social.msdn.azure.microsoft.com/.com/Forums/azure/fr-FR/home?forum=WAVirtualMachinesforWindows).
 
 **Dois-je acheter un autre circuit ExpressRoute si je dois utiliser la ressource IaaS sous Resource Manager ?**
 
@@ -217,7 +217,7 @@ Nous vous recommandons d’abandonner votre migration et de créer ensuite une d
 
 **Comment signaler un problème ?**
 
-Publiez vos problèmes et questions concernant la migration sur notre [forum consacré aux machines virtuelles](https://social.msdn.microsoft.com/Forums/azure/fr-FR/home?forum=WAVirtualMachinesforWindows) en utilisant le mot clé ClassicIaaSMigration. Nous vous recommandons de poster toutes vos questions sur ce forum. Si vous disposez d’un contrat de support, vous pouvez également créer un ticket de support.
+Publiez vos problèmes et questions concernant la migration sur notre [forum consacré aux machines virtuelles](https://social.msdn.azure.microsoft.com/.com/Forums/azure/fr-FR/home?forum=WAVirtualMachinesforWindows) en utilisant le mot clé ClassicIaaSMigration. Nous vous recommandons de poster toutes vos questions sur ce forum. Si vous disposez d’un contrat de support, vous pouvez également créer un ticket de support.
 
 **Comment procéder si je n’apprécie pas les noms que la plateforme a choisis pour mes ressources lors de la migration ?**
 

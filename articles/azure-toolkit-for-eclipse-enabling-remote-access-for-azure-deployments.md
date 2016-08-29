@@ -16,7 +16,7 @@
     ms.date="08/11/2016" 
     ms.author="robmcm"/>
 
-<!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690951.aspx -->
+<!-- Legacy MSDN URL = https://msdn.azure.microsoft.com/.com/library/azure/hh690951.aspx -->
 
 # Activation de l’accès à distance pour les déploiements Azure dans Eclipse
 
@@ -30,7 +30,7 @@ L’illustration suivante montre la boîte de dialogue de propriétés **Accès 
 
 ![][ic719494]
 
-Il existe deux manières d’afficher la boîte de dialogue de propriétés **Accès distant** :
+Il existe deux manières d’afficher la boîte de dialogue de propriétés **Accès distant** :
 
 * Cliquer sur le lien **Avancé** dans la section **Accès distant** de la boîte de dialogue **Publier sur Azure**.
 * Ouvrir la boîte de dialogue **Propriétés** de votre projet Azure.
@@ -96,9 +96,9 @@ Régénérez votre application, avec la build définie pour le déploiement dans
 
 Une fois votre instance de rôle prête, vous pouvez vous connecter à distance à la machine virtuelle hébergeant votre application.
 
-* Si vous utilisez Eclipse dans Windows et que vous avez sélectionné l’option **Démarrer le Bureau à distance lors du déploiement ** durant le déploiement dans Azure, l’écran d’ouverture de session Connexion Bureau à distance s’affiche au démarrage du déploiement. Lorsque vous êtes invité à entrer le nom d’utilisateur et le mot de passe, entrez les valeurs que vous avez spécifiées pour l’utilisateur distant pour établir la connexion.
+* Si vous utilisez Eclipse dans Windows et que vous avez sélectionné l’option **Démarrer le Bureau à distance lors du déploiement** durant le déploiement dans Azure, l’écran d’ouverture de session Connexion Bureau à distance s’affiche au démarrage du déploiement. Lorsque vous êtes invité à entrer le nom d’utilisateur et le mot de passe, entrez les valeurs que vous avez spécifiées pour l’utilisateur distant pour établir la connexion.
 
-* Une autre façon de se connecter à distance consiste à utiliser le <a href="http://go.microsoft.com/fwlink/?LinkID=512959">portail de gestion Azure</a> :
+* Une autre façon de se connecter à distance consiste à utiliser le <a href="http://go.azure.microsoft.com/.com/fwlink/?LinkID=512959">portail de gestion Azure</a> :
 
     * Dans l’affichage **Cloud Services** du portail de gestion Azure, cliquez sur votre service cloud, sur **Instances**, sur une instance spécifique, puis sur le bouton **Connexion**. Le bouton **Connexion** s’affiche comme suit dans la barre de commandes :
 
@@ -122,11 +122,11 @@ Pour plus d’informations sur l’utilisation d’Azure avec Java, consultez le
 
 <!-- URL List -->
 
-[Centre de développement Java pour Azure]: http://go.microsoft.com/fwlink/?LinkID=699547
-[Azure Management Portal]: http://go.microsoft.com/fwlink/?LinkID=512959
-[Kit de ressources Azure pour Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
-[Création d’une application « Hello World » pour Azure dans Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
-[Installation du kit de ressources Azure pour Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
+[Centre de développement Java pour Azure]: http://go.azure.microsoft.com/.com/fwlink/?LinkID=699547
+[Azure Management Portal]: http://go.azure.microsoft.com/.com/fwlink/?LinkID=512959
+[Kit de ressources Azure pour Eclipse]: http://go.azure.microsoft.com/.com/fwlink/?LinkID=699529
+[Création d’une application « Hello World » pour Azure dans Eclipse]: http://go.azure.microsoft.com/.com/fwlink/?LinkID=699533
+[Installation du kit de ressources Azure pour Eclipse]: http://go.azure.microsoft.com/.com/fwlink/?LinkId=699546
 
 <!-- IMG List -->
 

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Types de point de terminaison Traffic Manager | Microsoft Azure"
+   pageTitle="Types de point de terminaison Traffic Manager | azure.microsoft.com/ Azure"
    description="Cet article explique les différents types de points de terminaison pouvant être utilisés avec Azure Traffic Manager."
    services="traffic-manager"
    documentationCenter=""
@@ -17,7 +17,7 @@
 
 # Points de terminaison Traffic Manager
 
-Microsoft Azure Traffic Manager vous permet de contrôler la distribution du trafic utilisateur sur vos déploiements d’applications exécutés dans différents centres de données ou dans d’autres régions du monde entier.
+azure.microsoft.com/ Azure Traffic Manager vous permet de contrôler la distribution du trafic utilisateur sur vos déploiements d’applications exécutés dans différents centres de données ou dans d’autres régions du monde entier.
 
 Chaque déploiement d’application doit être configuré en tant que « point de terminaison » dans Traffic Manager. Lorsque Traffic Manager reçoit une demande DNS, il sélectionne parmi ces points de terminaison celui qu’il doit renvoyer dans la réponse DNS, en fonction de la disponibilité des points de terminaison et de la méthode de routage du trafic choisie. Pour plus d’informations, consultez l’article [Fonctionnement de Traffic Manager](traffic-manager-how-traffic-manager-works.md).
 

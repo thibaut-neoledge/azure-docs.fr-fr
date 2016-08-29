@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Utilisation de la redirection dans Azure RemoteApp | Microsoft Azure"
+    pageTitle="Utilisation de la redirection dans Azure RemoteApp | azure.microsoft.com/ Azure"
     description="En savoir plus sur la configuration et l'utilisation de la redirection dans RemoteApp"
     services="remoteapp"
     documentationCenter=""
@@ -18,7 +18,7 @@
 # Utilisation de la redirection dans Azure RemoteApp
 
 > [AZURE.IMPORTANT]
-Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148).
+Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.azure.microsoft.com/.com/fwlink/?linkid=821148).
 
 La redirection de périphériques permet à vos utilisateurs d'interagir avec des applications distantes à l'aide des périphériques connectés à leur ordinateur local, téléphone ou tablette. Par exemple, si vous avez fourni Skype via Azure RemoteApp, une caméra doit être installée sur l'ordinateur de votre utilisateur pour qu'il puisse utiliser Skype. Cela est également vrai pour les imprimantes, les haut-parleurs, les écrans et divers périphériques connectés à un port USB.
 
@@ -43,7 +43,7 @@ Deux options de redirection sont désactivées par défaut :
 - Redirection USB : vous pouvez utiliser les périphériques USB connectés à votre ordinateur local dans la session à distance.
 
 ## Modification de vos paramètres de redirection dans RemoteApp
-Vous pouvez modifier les paramètres de redirection de périphériques pour une collection à l'aide de Microsoft Azure PowerShell avec le Kit de développement logiciel (SDK). Après avoir installé le nouveau PowerShell avec le Kit de développement logiciel (SDK), commencez par le configurer pour gérer votre abonnement, comme décrit dans [Comment installer et configurer Azure PowerShell](../powershell-install-configure.md).
+Vous pouvez modifier les paramètres de redirection de périphériques pour une collection à l'aide de azure.microsoft.com/ Azure PowerShell avec le Kit de développement logiciel (SDK). Après avoir installé le nouveau PowerShell avec le Kit de développement logiciel (SDK), commencez par le configurer pour gérer votre abonnement, comme décrit dans [Comment installer et configurer Azure PowerShell](../powershell-install-configure.md).
 
 Utilisez ensuite une commande semblable à la suivante pour définir les propriétés RDP personnalisées :
 

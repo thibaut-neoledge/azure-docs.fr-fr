@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Surveillance des clusters Hadoop dans HDInsight à l’aide des API Ambari | Microsoft Azure"
+	pageTitle="Surveillance des clusters Hadoop dans HDInsight à l’aide des API Ambari | azure.microsoft.com/ Azure"
 	description="Utilisez les API Apache Ambari pour la création, la gestion et la surveillance des clusters Hadoop. Les outils intuitifs pour opérateurs et les API masquent la complexité de Hadoop."
 	services="hdinsight"
 	documentationCenter=""
@@ -73,7 +73,7 @@ Voici un script Azure PowerShell permettant d’obtenir des informations de suiv
 
 	$response.metrics.'yarn.queueMetrics'
 
-Voici un script Azure PowerShell permettant d’obtenir les informations de suivi de tâche MapReduce *dans un cluster HDInsight 2.1.* :
+Voici un script Azure PowerShell permettant d’obtenir les informations de suivi de tâche MapReduce *dans un cluster HDInsight 2.1.* :
 
 	$clusterName = "<HDInsightClusterName>"
 	$clusterUsername = "<HDInsightClusterUsername>"
@@ -116,9 +116,9 @@ La sortie est la suivante :
 	    "Hosts":{"cluster_name":"hdi0211v2.azurehdinsight.net",
 	             "host_name":"headnode0.{ClusterDNS}.azurehdinsight.net"}}]}
 
-**Pour la version du 8/10/2014** :
+**Pour la version du 8/10/2014** :
 
-Lors de l’utilisation du point de terminaison Ambari, « https://{clusterDns}.azurehdinsight.net/ambari/api/v1/clusters/{clusterDns}.azurehdinsight.net/services/{servicename}/components/{componentname} », le champ *host\_name* renvoie le nom de domaine complet du nœud au lieu du nom d’hôte. Avant la version du 8/10/2014, cet exemple renvoyait simplement « **headnode0** ». Après la version du 8/10/2014, vous obtenez le nom de domaine complet « **headnode0.{ClusterDNS}.azurehdinsight.net** », comme illustré dans l’exemple précédent. Cette modification était nécessaire pour permettre les scénarios dans lesquels plusieurs types de cluster tels que HBase et Hadoop sont déployés dans un réseau virtuel (VNET). Cela se produit, par exemple, lors de l'utilisation de HBase en tant que plateforme principale pour Hadoop.
+Lors de l’utilisation du point de terminaison Ambari, « https://{clusterDns}.azurehdinsight.net/ambari/api/v1/clusters/{clusterDns}.azurehdinsight.net/services/{servicename}/components/{componentname} », le champ *host\_name* renvoie le nom de domaine complet du nœud au lieu du nom d’hôte. Avant la version du 8/10/2014, cet exemple renvoyait simplement « **headnode0** ». Après la version du 8/10/2014, vous obtenez le nom de domaine complet « **headnode0.{ClusterDNS}.azurehdinsight.net** », comme illustré dans l’exemple précédent. Cette modification était nécessaire pour permettre les scénarios dans lesquels plusieurs types de cluster tels que HBase et Hadoop sont déployés dans un réseau virtuel (VNET). Cela se produit, par exemple, lors de l'utilisation de HBase en tant que plateforme principale pour Hadoop.
 
 ## API de surveillance Ambari
 
@@ -158,10 +158,10 @@ Vous avez appris à utiliser les appels d'API de surveillance Ambari. Pour plus 
 [curl]: http://curl.haxx.se
 [curl-download]: http://curl.haxx.se/download.html
 
-[microsoft-hadoop-SDK]: http://hadoopsdk.codeplex.com/wikipage?title=Ambari%20Monitoring%20Client
+[azure.microsoft.com/-hadoop-SDK]: http://hadoopsdk.codeplex.com/wikipage?title=Ambari%20Monitoring%20Client
 
 [powershell-install]: powershell-install-configure.md
-[powershell-script]: http://technet.microsoft.com/library/ee176949.aspx
+[powershell-script]: http://technet.azure.microsoft.com/.com/library/ee176949.aspx
 
 [hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
 [hdinsight-admin-portal]: hdinsight-administer-use-management-portal.md

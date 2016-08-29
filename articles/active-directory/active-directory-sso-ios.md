@@ -1,5 +1,5 @@
 <properties
-	pageTitle="En savoir plus sur l’activation d’une authentification unique entre applications sur iOS à l’aide de la bibliothèque ADAL | Microsoft Azure"
+	pageTitle="En savoir plus sur l’activation d’une authentification unique entre applications sur iOS à l’aide de la bibliothèque ADAL | azure.microsoft.com/ Azure"
 	description="En savoir plus sur l’utilisation des fonctionnalités de votre Kit de développement logiciel (SDK) ADAL pour activer l’authentification unique sur l’ensemble de vos applications. "
 	services="active-directory"
 	documentationCenter=""
@@ -22,9 +22,9 @@
 
 Les clients s’attendent désormais à profiter d’une authentification unique, nécessitant des utilisateurs une seule et unique saisie des informations d’identification, qui restent automatiquement actives sur l’ensemble des applications. La difficulté à saisir le nom d’utilisateur et le mot de passe sur des petits formats d’écrans, à laquelle s’ajoute souvent un facteur supplémentaire (2FA) tel qu’un appel ou un code par SMS, mécontente rapidement les utilisateurs contraints d’effectuer plusieurs fois l’opération pour votre produit.
 
-En outre, si vous valorisez une plateforme d’identité que d’autres applications peuvent utiliser, telle que les comptes Microsoft ou un compte professionnel d’Office365, les clients s’attendent à ce que ces informations d’identification soient disponibles sur l’ensemble de leurs applications, quel que soit le fournisseur.
+En outre, si vous valorisez une plateforme d’identité que d’autres applications peuvent utiliser, telle que les comptes azure.microsoft.com/ ou un compte professionnel d’Office365, les clients s’attendent à ce que ces informations d’identification soient disponibles sur l’ensemble de leurs applications, quel que soit le fournisseur.
 
-La plateforme Microsoft Identity, combinée à nos Kits de développement logiciel (SDK) Microsoft Identity, vous soulage de ces tâches complexes et vous permet d’offrir à vos utilisateurs l’authentification unique au sein de votre propre suite d’applications, ou comme avec nos applications de répartiteur et Authenticator, sur l’intégralité de l’appareil.
+La plateforme azure.microsoft.com/ Identity, combinée à nos Kits de développement logiciel (SDK) azure.microsoft.com/ Identity, vous soulage de ces tâches complexes et vous permet d’offrir à vos utilisateurs l’authentification unique au sein de votre propre suite d’applications, ou comme avec nos applications de répartiteur et Authenticator, sur l’intégralité de l’appareil.
 
 Cette procédure pas à pas vous décrit la configuration de notre Kit de développement logiciel (SDK) au sein de votre application afin d’offrir cet avantage à vos clients.
 
@@ -36,19 +36,19 @@ Cette procédure pas à pas s’applique aux éléments suivants :
 * Accès conditionnel Azure Active Directory
 
 
-Notez que le document ci-dessous prend pour acquis que vous savez comment [mettre en service des applications dans le portail hérité dédié à Azure Active Directory](active-directory-how-to-integrate.md) et que vous avez intégré votre application avec le [Kit de développement logiciel (SDK) Microsoft Identity iOS](https://github.com/AzureAD/azure-activedirectory-library-for-objc).
+Notez que le document ci-dessous prend pour acquis que vous savez comment [mettre en service des applications dans le portail hérité dédié à Azure Active Directory](active-directory-how-to-integrate.md) et que vous avez intégré votre application avec le [Kit de développement logiciel (SDK) azure.microsoft.com/ Identity iOS](https://github.com/AzureAD/azure-activedirectory-library-for-objc).
 
-## Concepts de l’authentification unique dans la plateforme Microsoft Identity
+## Concepts de l’authentification unique dans la plateforme azure.microsoft.com/ Identity
 
-### Répartiteurs Microsoft Identity
+### Répartiteurs azure.microsoft.com/ Identity
 
-Sur l’ensemble des plateformes mobiles, Microsoft fournit des applications qui prennent en charge le portage des informations d’identification entre les applications de différents fournisseurs, ainsi que des fonctionnalités spéciales avancées nécessitant un emplacement unique sécurisé de validation des informations d’identification. Nous appelons ces applications **répartiteurs**. Sur iOS et Android, ces composants sont offerts via des applications téléchargeables que les clients installent indépendamment ou sont transmis sur l’appareil par une entreprise qui gère certains ou la totalité des appareils des employés. Ces répartiteurs gèrent la sécurité d’une partie des applications ou de l’intégralité de l’appareil, en fonction des besoins des administrateurs informatiques. Dans Windows, cette fonctionnalité est fournie par un sélecteur de compte intégré au système d’exploitation, désigné techniquement sous l’appellation « Répartiteur d’authentification web ».
+Sur l’ensemble des plateformes mobiles, azure.microsoft.com/ fournit des applications qui prennent en charge le portage des informations d’identification entre les applications de différents fournisseurs, ainsi que des fonctionnalités spéciales avancées nécessitant un emplacement unique sécurisé de validation des informations d’identification. Nous appelons ces applications **répartiteurs**. Sur iOS et Android, ces composants sont offerts via des applications téléchargeables que les clients installent indépendamment ou sont transmis sur l’appareil par une entreprise qui gère certains ou la totalité des appareils des employés. Ces répartiteurs gèrent la sécurité d’une partie des applications ou de l’intégralité de l’appareil, en fonction des besoins des administrateurs informatiques. Dans Windows, cette fonctionnalité est fournie par un sélecteur de compte intégré au système d’exploitation, désigné techniquement sous l’appellation « Répartiteur d’authentification web ».
 
-Pour comprendre comment nous utilisons ces répartiteurs et la manière dont vos utilisateurs peuvent les afficher dans leurs flux de connexion associés à la plateforme Microsoft Identity, consultez les références suivantes.
+Pour comprendre comment nous utilisons ces répartiteurs et la manière dont vos utilisateurs peuvent les afficher dans leurs flux de connexion associés à la plateforme azure.microsoft.com/ Identity, consultez les références suivantes.
 
 ### Modèles de connexion sur les appareils mobiles
 
-L’accès aux informations d’identification sur les appareils respecte deux modèles de base pour la plateforme Microsoft Identity :
+L’accès aux informations d’identification sur les appareils respecte deux modèles de base pour la plateforme azure.microsoft.com/ Identity :
 
 * Connexions assistées sans répartiteur
 * Connexions assistées avec répartiteur
@@ -65,11 +65,11 @@ Ces connexions présentent les avantages suivants :
 
 Ces connexions présentent les inconvénients suivants :
 
-- L’utilisateur ne peut pas profiter de l’authentification unique sur l’ensemble des applications utilisant Microsoft Identity, uniquement sur celles que votre application détient et a configuré.
+- L’utilisateur ne peut pas profiter de l’authentification unique sur l’ensemble des applications utilisant azure.microsoft.com/ Identity, uniquement sur celles que votre application détient et a configuré.
 - Votre application ne peut pas être utilisée avec des fonctionnalités commerciales plus avancées, comme l’accès conditionnel ; elle ne peut pas non plus utiliser la suite de produits Intune.
 - Votre application ne peut pas prendre en charge l’authentification par certificat des utilisateurs professionnels.
 
-Voici une représentation de la manière dont les Kits de développement logiciel (SDK) Microsoft Identity fonctionnent avec le stockage partagé de vos applications, pour l’activation de l’authentification unique :
+Voici une représentation de la manière dont les Kits de développement logiciel (SDK) azure.microsoft.com/ Identity fonctionnent avec le stockage partagé de vos applications, pour l’activation de l’authentification unique :
 
 ```
 +------------+ +------------+  +-------------+
@@ -87,7 +87,7 @@ Voici une représentation de la manière dont les Kits de développement logicie
 
 #### Connexions assistées avec répartiteur
 
-Les connexions assistées avec répartiteur sont des expériences de connexion se produisant au sein de l’application de répartiteur, qui utilisent le stockage et la sécurité de ce composant pour partager l’ensemble des applications sur l’appareil qui valorise la plateforme Microsoft Identity. Concrètement, vos applications s’appuient sur le répartiteur pour connecter les utilisateurs. Sur iOS et Android, ces composants sont offerts via des applications téléchargeables que les clients installent indépendamment ou sont transmis sur l’appareil par une entreprise qui gère les appareils des utilisateurs. Comme exemple de ce type d’application, citons Azure Authenticator sur iOS. Dans Windows, cette fonctionnalité est fournie par un sélecteur de compte intégré au système d’exploitation, désigné techniquement sous l’appellation « Répartiteur d’authentification web ». L’expérience, qui varie en fonction des plateformes, peut parfois perturber les utilisateurs en cas de gestion inappropriée. Vous connaissez probablement davantage ce modèle si vous avez installé l’application Facebook et que vous utilisez sa fonctionnalité de connexion dans une autre application. La plateforme Microsoft Identity valorise le même modèle.
+Les connexions assistées avec répartiteur sont des expériences de connexion se produisant au sein de l’application de répartiteur, qui utilisent le stockage et la sécurité de ce composant pour partager l’ensemble des applications sur l’appareil qui valorise la plateforme azure.microsoft.com/ Identity. Concrètement, vos applications s’appuient sur le répartiteur pour connecter les utilisateurs. Sur iOS et Android, ces composants sont offerts via des applications téléchargeables que les clients installent indépendamment ou sont transmis sur l’appareil par une entreprise qui gère les appareils des utilisateurs. Comme exemple de ce type d’application, citons Azure Authenticator sur iOS. Dans Windows, cette fonctionnalité est fournie par un sélecteur de compte intégré au système d’exploitation, désigné techniquement sous l’appellation « Répartiteur d’authentification web ». L’expérience, qui varie en fonction des plateformes, peut parfois perturber les utilisateurs en cas de gestion inappropriée. Vous connaissez probablement davantage ce modèle si vous avez installé l’application Facebook et que vous utilisez sa fonctionnalité de connexion dans une autre application. La plateforme azure.microsoft.com/ Identity valorise le même modèle.
 
 Sur iOS, une animation de transition s’affiche. Votre application est transmise à l’arrière-plan, tandis que les applications Azure Authenticator sont mises en avant-plan, ce qui permet à l’utilisateur de choisir son compte de connexion.
 
@@ -95,9 +95,9 @@ Sur Android et Windows, le sélecteur de compte s’affiche dans la partie supé
 
 #### Appel du répartiteur
 
-Si un répartiteur compatible, tel que l’application Azure Authenticator, est installé sur l’appareil, les Kits de développement logiciel (SDK) Microsoft Identity effectuent automatiquement pour vous l’opération d’appel du répartiteur lorsqu’un utilisateur souhaite se connecter à l’aide d’un compte de la plateforme Microsoft Identity. Il peut s’agir d’un compte personnel Microsoft, d’un compte professionnel ou scolaire, ou d’un compte que vous fournissez et hébergez dans Microsoft Azure à l’aide de nos produits B2C et B2B. À l’aide d’algorithmes et d’un chiffrement extrêmement sécurisés, nous nous assurons que les informations d’identification sont sollicitées et transmises à votre application de manière sûre. Les détails techniques exacts de ces mécanismes ne sont pas publiés, mais ont été développés conjointement par Apple et Google.
+Si un répartiteur compatible, tel que l’application Azure Authenticator, est installé sur l’appareil, les Kits de développement logiciel (SDK) azure.microsoft.com/ Identity effectuent automatiquement pour vous l’opération d’appel du répartiteur lorsqu’un utilisateur souhaite se connecter à l’aide d’un compte de la plateforme azure.microsoft.com/ Identity. Il peut s’agir d’un compte personnel azure.microsoft.com/, d’un compte professionnel ou scolaire, ou d’un compte que vous fournissez et hébergez dans azure.microsoft.com/ Azure à l’aide de nos produits B2C et B2B. À l’aide d’algorithmes et d’un chiffrement extrêmement sécurisés, nous nous assurons que les informations d’identification sont sollicitées et transmises à votre application de manière sûre. Les détails techniques exacts de ces mécanismes ne sont pas publiés, mais ont été développés conjointement par Apple et Google.
 
-**Le développeur détermine si le kit de développement logiciel (SDK) appelle le répartiteur ou utilise un flux assisté sans répartiteur.** Toutefois, si le développeur choisit de ne pas avoir recours au flux assisté avec répartiteur, il ne peut pas utiliser les informations d’identification d’authentification unique déjà saisies par l’utilisateur sur l’appareil. Par ailleurs, il empêche toute utilisation de l’application avec des fonctions commerciales fournies par Microsoft à ses clients, comme l’accès conditionnel, les fonctionnalités de gestion Intune et l’authentification par certificat.
+**Le développeur détermine si le kit de développement logiciel (SDK) appelle le répartiteur ou utilise un flux assisté sans répartiteur.** Toutefois, si le développeur choisit de ne pas avoir recours au flux assisté avec répartiteur, il ne peut pas utiliser les informations d’identification d’authentification unique déjà saisies par l’utilisateur sur l’appareil. Par ailleurs, il empêche toute utilisation de l’application avec des fonctions commerciales fournies par azure.microsoft.com/ à ses clients, comme l’accès conditionnel, les fonctionnalités de gestion Intune et l’authentification par certificat.
 
 Ces connexions présentent les avantages suivants :
 
@@ -113,7 +113,7 @@ Ces connexions présentent les inconvénients suivants :
 
 
 
-Voici une représentation de la manière dont les Kits de développement logiciel (SDK) Microsoft Identity fonctionnent avec les applications de répartiteur pour prendre en charge l’authentification unique :
+Voici une représentation de la manière dont les Kits de développement logiciel (SDK) azure.microsoft.com/ Identity fonctionnent avec les applications de répartiteur pour prendre en charge l’authentification unique :
 
 ```
 +------------+ +------------+   +-------------+
@@ -127,7 +127,7 @@ Voici une représentation de la manière dont les Kits de développement logicie
       |              |                  |
       |       +------v------+           |
       |       |             |           |
-      |       | Microsoft   |           |
+      |       | azure.microsoft.com/   |           |
       +-------> Broker      |^----------+
               | Application
               |             |
@@ -139,7 +139,7 @@ Voici une représentation de la manière dont les Kits de développement logicie
               +-------------+
 ```
               
-En vous appuyant sur ces informations de base, vous devriez être en mesure de mieux comprendre et d’implémenter l’authentification unique au sein de votre application à l’aide de la plateforme et des Kits de développement logiciel (SDK) Microsoft Identity.
+En vous appuyant sur ces informations de base, vous devriez être en mesure de mieux comprendre et d’implémenter l’authentification unique au sein de votre application à l’aide de la plateforme et des Kits de développement logiciel (SDK) azure.microsoft.com/ Identity.
 
 
 ## Activation de l’authentification unique entre applications à l’aide de la bibliothèque ADAL
@@ -151,20 +151,20 @@ Ici, nous allons utiliser le Kit de développement logiciel ADAL iOS pour effect
 
 ### Activation de l’authentification unique assistée sans répartiteur
 
-Les Kits de développement logiciel (SDK) Microsoft Identity prennent en charge une grande partie de la complexité de l’authentification unique assistée sans répartiteur entre les applications. Cela inclut l’identification de l’utilisateur approprié dans le cache et la gestion d’une liste d’utilisateurs connectés dans laquelle effectuer votre recherche.
+Les Kits de développement logiciel (SDK) azure.microsoft.com/ Identity prennent en charge une grande partie de la complexité de l’authentification unique assistée sans répartiteur entre les applications. Cela inclut l’identification de l’utilisateur approprié dans le cache et la gestion d’une liste d’utilisateurs connectés dans laquelle effectuer votre recherche.
 
 Pour activer l’authentification unique sur l’ensemble des applications que vous possédez, vous devez effectuer les opérations suivantes :
 
 1. Vérifiez que l’ensemble de vos applications utilisent le même ID client ou ID d’application.
 * Vérifiez que l’ensemble de vos applications partagent le même certificat de signature fourni par Apple, de manière à ce que vous puissiez partager les trousseaux.
 * Demandez la même éligibilité de trousseau pour l’ensemble de vos applications.
-* Indiquez aux Kits de développement logiciel Microsoft Identity le trousseau partagé que vous souhaitez utiliser.
+* Indiquez aux Kits de développement logiciel azure.microsoft.com/ Identity le trousseau partagé que vous souhaitez utiliser.
 
 #### Utilisation du même ID client/ID d’application pour l’ensemble des applications de votre suite d’applications
 
-Pour que votre plateforme Microsoft Identity puisse savoir que le partage des jetons est autorisé entre vos applications, elles doivent toutes partager le même ID client ou d’application. Il s’agit de l’identificateur unique qui vous a été fourni lorsque vous avez inscrit votre première application dans le portail.
+Pour que votre plateforme azure.microsoft.com/ Identity puisse savoir que le partage des jetons est autorisé entre vos applications, elles doivent toutes partager le même ID client ou d’application. Il s’agit de l’identificateur unique qui vous a été fourni lorsque vous avez inscrit votre première application dans le portail.
 
-Vous vous demandez peut-être comment identifier différentes applications utilisant le même ID d’application sur un service Microsoft Identity. La réponse est à chercher du côté des **URI de redirection**. Chaque application peut posséder plusieurs URI de redirection inscrits sur le portail d’intégration. Chacune des applications de votre suite présente un URI de redirection propre. Voici une représentation possible :
+Vous vous demandez peut-être comment identifier différentes applications utilisant le même ID d’application sur un service azure.microsoft.com/ Identity. La réponse est à chercher du côté des **URI de redirection**. Chaque application peut posséder plusieurs URI de redirection inscrits sur le portail d’intégration. Chacune des applications de votre suite présente un URI de redirection propre. Voici une représentation possible :
 
 URI de redirection App1 : `x-msauth-mytestiosapp://com.myapp.mytestapp`
 
@@ -224,14 +224,14 @@ Une fois que vous disposez des droits appropriés, un fichier nommé `entitlemen
 </plist>
 ```
 
-Une fois que l’éligibilité au trousseau a été activée dans chacune de vos applications et que vous êtes prêt à utiliser l’authentification unique, communiquez votre trousseau au Kit de développement logiciel Microsoft Identity en utilisant le paramètre suivant dans votre `ADAuthenticationSettings`, à l’aide du paramètre ci-dessous :
+Une fois que l’éligibilité au trousseau a été activée dans chacune de vos applications et que vous êtes prêt à utiliser l’authentification unique, communiquez votre trousseau au Kit de développement logiciel azure.microsoft.com/ Identity en utilisant le paramètre suivant dans votre `ADAuthenticationSettings`, à l’aide du paramètre ci-dessous :
 
 ```
 defaultKeychainSharingGroup=@"com.myapp.mycache";
 ```
 
 > [AZURE.WARNING] 
-Lorsque vous partagez un trousseau entre vos applications, chaque application peut supprimer les utilisateurs, ou au pire l’ensemble des jetons de votre application. Cela aura un impact particulièrement désastreux si vous possédez des applications qui s’appuient sur les jetons pour exécuter les tâches d’arrière-plan. Le partage du trousseau nécessite de votre part une précaution infinie avec l’ensemble des opérations de suppression effectuées dans les kits de développement logiciel Microsoft Identity.
+Lorsque vous partagez un trousseau entre vos applications, chaque application peut supprimer les utilisateurs, ou au pire l’ensemble des jetons de votre application. Cela aura un impact particulièrement désastreux si vous possédez des applications qui s’appuient sur les jetons pour exécuter les tâches d’arrière-plan. Le partage du trousseau nécessite de votre part une précaution infinie avec l’ensemble des opérations de suppression effectuées dans les kits de développement logiciel azure.microsoft.com/ Identity.
 
 Et voilà ! Le Kit de développement logiciel (SDK) partage désormais les informations d’identification dans l’ensemble de vos applications. La liste des utilisateurs sera également partagée entre toutes les instances d’application.
 
@@ -254,10 +254,10 @@ La capacité de votre application à utiliser le répartiteur est activée lorsq
 /*! See the ADCredentialsType enumeration definition for details */
 @propertyADCredentialsType credentialsType;
 ```
-Le paramètre `AD_CREDENTIALS_AUTO` autorise le Kit de développement logiciel Microsoft Identity à essayer d’appeler le répartiteur, tandis que `AD_CREDENTIALS_EMBEDDED` l’empêche de le faire.
+Le paramètre `AD_CREDENTIALS_AUTO` autorise le Kit de développement logiciel azure.microsoft.com/ Identity à essayer d’appeler le répartiteur, tandis que `AD_CREDENTIALS_EMBEDDED` l’empêche de le faire.
 
 #### Étape 2 : Enregistrer un nouveau schéma d’URL.
-La plateforme Microsoft Identity utilise des URL pour appeler le répartiteur, avant de rendre le contrôle à votre application. Pour terminer cet aller-retour, vous devez disposer d’un schéma d’URL inscrit pour votre application et dont la plateforme Microsoft Identity a connaissance. Il peut s’agir d’un ajout à un autre schéma d’application précédemment inscrit avec votre application.
+La plateforme azure.microsoft.com/ Identity utilise des URL pour appeler le répartiteur, avant de rendre le contrôle à votre application. Pour terminer cet aller-retour, vous devez disposer d’un schéma d’URL inscrit pour votre application et dont la plateforme azure.microsoft.com/ Identity a connaissance. Il peut s’agir d’un ajout à un autre schéma d’application précédemment inscrit avec votre application.
 
 > [AZURE.WARNING] 
 Nous vous recommandons de personnaliser au maximum le schéma d’URL, ceci pour réduire la probabilité qu’une autre application utilise le même schéma d’URL. Apple n’applique pas l’unicité des schémas d’URL inscrits dans le magasin d’applications.
@@ -282,7 +282,7 @@ Voici un exemple de l’affichage dans votre configuration de projet. Vous pouve
 
 #### Étape 3 : Établissez un nouvel URI de redirection avec votre schéma d’URL
 
-Pour garantir que nous renvoyons toujours les jetons d’identification à l’application appropriée, nous devons nous assurer de respecter une procédure de rappel de votre application pouvant être vérifiée par votre système d’exploitation iOS. Le système d’exploitation iOS signale aux applications de répartiteur Microsoft l’ID d’offre de l’application appelante. Il ne peut pas être falsifié par une application non fiable. Par conséquent, nous tirons parti de cette donnée et de l’URI de notre application de répartiteur pour vérifier que les jetons sont renvoyés à l’application appropriée. Nous vous demandons d’établir cet URI de redirection unique dans votre application et de le définir en tant qu’URI de redirection dans notre portail des développeurs.
+Pour garantir que nous renvoyons toujours les jetons d’identification à l’application appropriée, nous devons nous assurer de respecter une procédure de rappel de votre application pouvant être vérifiée par votre système d’exploitation iOS. Le système d’exploitation iOS signale aux applications de répartiteur azure.microsoft.com/ l’ID d’offre de l’application appelante. Il ne peut pas être falsifié par une application non fiable. Par conséquent, nous tirons parti de cette donnée et de l’URI de notre application de répartiteur pour vérifier que les jetons sont renvoyés à l’application appropriée. Nous vous demandons d’établir cet URI de redirection unique dans votre application et de le définir en tant qu’URI de redirection dans notre portail des développeurs.
 
 Votre URI de redirection doit présenter la forme appropriée suivante :
 
@@ -310,6 +310,6 @@ La bibliothèque ADAL utilise –canOpenURL: pour vérifier si le répartiteur e
 
 ### Vous avez configuré l’authentification unique !
 
-Désormais, le Kit de développement logiciel (SDK) Microsoft Identity partage automatiquement les informations d’identification entre vos applications et appelle l’éventuel répartiteur existant sur l’appareil.
+Désormais, le Kit de développement logiciel (SDK) azure.microsoft.com/ Identity partage automatiquement les informations d’identification entre vos applications et appelle l’éventuel répartiteur existant sur l’appareil.
 
 <!---HONumber=AcomDC_0817_2016-->

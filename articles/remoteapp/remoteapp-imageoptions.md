@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Créer une image Azure RemoteApp | Microsoft Azure"
+    pageTitle="Créer une image Azure RemoteApp | azure.microsoft.com/ Azure"
     description="En savoir plus sur les options disponibles pour la création d’images pour Azure RemoteApp"
     services="remoteapp"
     documentationCenter=""
@@ -20,7 +20,7 @@
 # Création d’une image Azure RemoteApp
 
 > [AZURE.IMPORTANT]
-Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148).
+Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.azure.microsoft.com/.com/fwlink/?linkid=821148).
 
 Azure RemoteApp utilise des images pour conserver les applications que vous partagez avec vos utilisateurs. (Nous prenons votre image et nous l’utilisons pour créer des machines virtuelles auxquelles les utilisateurs accéderont lorsqu’ils se connecteront à Azure RemoteApp.) Pour créer une collection Azure RemoteApp avec un choix d’applications, de type cloud ou hybride, commencez par créer une image à partir des applications installées. Créez ensuite une collection utilisant cette image, affectez des utilisateurs à la collection et publiez des applications pour ces utilisateurs.
 

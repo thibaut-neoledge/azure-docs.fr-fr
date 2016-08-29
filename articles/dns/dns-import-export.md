@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Importer et exporter un fichier de zone de domaine vers Azure DNS avec l’interface CLI | Microsoft Azure"
+   pageTitle="Importer et exporter un fichier de zone de domaine vers Azure DNS avec l’interface CLI | azure.microsoft.com/ Azure"
    description="Apprenez à importer et exporter un fichier de zone DNS vers Azure DNS à l’aide de l’interface de ligne de commande Azure"
    services="dns"
    documentationCenter="na"
@@ -25,7 +25,7 @@ Cet article vous guide dans l’importation et l’exportation de fichiers de zo
 
 Un fichier de zone DNS est un fichier texte qui contient les détails de tous les enregistrements DNS contenus dans la zone. Il suit un format standard, ce qui permet le transfert d’enregistrements DNS entre différents systèmes DNS. L’utilisation d’un fichier de zone offre un moyen rapide, fiable et pratique de transférer une zone DNS vers ou depuis Azure DNS.
 
-Azure DNS prend en charge l’importation et l’exportation de fichiers de zone à l’aide de l’interface de ligne de commande (CLI). La CLI Azure est un outil de ligne de commande multiplateforme permettant de gérer des services Azure. Elles est disponible pour les plateformes Windows, Mac et Linux sur la [page des téléchargements d’Azure](https://azure.microsoft.com/downloads/). La prise en charge multiplateforme est particulièrement importante pour l’importation et l’exportation de fichiers de zone car le logiciel serveur de noms le plus courant, [BIND](https://www.isc.org/downloads/bind/), s’exécute en général sur Linux.
+Azure DNS prend en charge l’importation et l’exportation de fichiers de zone à l’aide de l’interface de ligne de commande (CLI). La CLI Azure est un outil de ligne de commande multiplateforme permettant de gérer des services Azure. Elles est disponible pour les plateformes Windows, Mac et Linux sur la [page des téléchargements d’Azure](https://azure.azure.microsoft.com/.com/downloads/). La prise en charge multiplateforme est particulièrement importante pour l’importation et l’exportation de fichiers de zone car le logiciel serveur de noms le plus courant, [BIND](https://www.isc.org/downloads/bind/), s’exécute en général sur Linux.
 
 ## Comment obtenir votre fichier de zone DNS existant
 
@@ -107,9 +107,9 @@ Pour importer un fichier de zone pour la zone **contoso.com**.
 
 		azure config mode arm
 
-4. Avant d’utiliser le service Azure DNS, vous devez inscrire votre abonnement pour utiliser le fournisseur de ressources Microsoft.Network. (Cette opération n’est à effectuer qu’une fois pour chaque abonnement.)
+4. Avant d’utiliser le service Azure DNS, vous devez inscrire votre abonnement pour utiliser le fournisseur de ressources azure.microsoft.com/.Network. (Cette opération n’est à effectuer qu’une fois pour chaque abonnement.)
 
-		azure provider register Microsoft.Network
+		azure provider register azure.microsoft.com/.Network
 
 5. Si ce n’est déjà fait, vous devez également créer un groupe de ressources Azure Resource Manager.
 
@@ -136,9 +136,9 @@ Pour vérifier la zone DNS après avoir importé le fichier, vous pouvez utilise
     	C:\>azure network dns record-set show myresourcegroup contoso.com @ NS
     	info:Executing command network dns record-set show
     	+ Looking up the DNS Record Set "@" of type "NS"
-    	data:Id: /subscriptions/…/resourceGroups/myresourcegroup/providers/Microsoft.Network/dnszones/contoso.com/NS/@
+    	data:Id: /subscriptions/…/resourceGroups/myresourcegroup/providers/azure.microsoft.com/.Network/dnszones/contoso.com/NS/@
     	data:Name: @
-    	data:Type: Microsoft.Network/dnszones/NS
+    	data:Type: azure.microsoft.com/.Network/dnszones/NS
     	data:Location: global
     	data:TTL : 3600
     	data:NS records

@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Utilisation du bureau à distance avec les rôles Azure | Microsoft Azure"
+   pageTitle="Utilisation du bureau à distance avec les rôles Azure | azure.microsoft.com/ Azure"
    description="Utilisation du Bureau à distance avec des rôles Azure"
    services="visual-studio-online"
    documentationCenter="na"
@@ -29,7 +29,7 @@ En utilisant le kit de développement logiciel (SDK) Azure et les Services Burea
 
     ![Commande Publier pour un projet de service cloud](./media/vs-azure-tools-remote-desktop-roles/IC799161.png)
 
-1. En bas de la page **Paramètres de publication Microsoft Azure** de l'Assistant, cochez la case **Activer le Bureau à distance** pour tous les rôles.
+1. En bas de la page **Paramètres de publication azure.microsoft.com/ Azure** de l'Assistant, cochez la case **Activer le Bureau à distance** pour tous les rôles.
 
     La boîte de dialogue **Configuration du Bureau à distance** s’affiche.
 
@@ -59,7 +59,7 @@ En utilisant le kit de développement logiciel (SDK) Azure et les Services Burea
     
         Plusieurs paramètres qui activent les Services d'accès à distance sont ajoutés aux fichiers .cscfg et .csdef.
 
-1. Dans l’Assistant **Paramètres de publication Microsoft Azure**, sélectionnez le bouton **OK** quand vous êtes prêt à publier votre service cloud.
+1. Dans l’Assistant **Paramètres de publication azure.microsoft.com/ Azure**, sélectionnez le bouton **OK** quand vous êtes prêt à publier votre service cloud.
 
     Si vous n’êtes pas prêt à le publier, sélectionnez le bouton **Annuler**. Les paramètres de configuration sont enregistrés, et vous pourrez publier votre service cloud ultérieurement.
 

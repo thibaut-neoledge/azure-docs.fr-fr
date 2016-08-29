@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Copie de données Blob Storage vers une base de données SQL à l’aide de Data Factory | Microsoft Azure"
+	pageTitle="Copie de données Blob Storage vers une base de données SQL à l’aide de Data Factory | azure.microsoft.com/ Azure"
 	description="Ce didacticiel vous montre comment utiliser l’activité de copie dans un pipeline Azure Data Factory pour copier des données depuis Blob Storage vers une base de données SQL Azure."
 	Keywords="blob sql, blob storage, copie de données"
 	services="data-factory"
@@ -49,7 +49,7 @@ Pour réaliser ce didacticiel, vous avez besoin du nom et de la clé de votre co
 4. Sélectionnez le lien **Clés d’accès** sous **PARAMÈTRES**.
 5.  Cliquez sur le bouton **copier** (image) situé en regard de la zone de texte **Nom du compte de stockage** et enregistrez/collez-la quelque part (dans un fichier texte, par exemple).
 6. Répétez l'étape précédente pour copier ou noter la **clé1**.
-7. Fermez tous les panneaux en cliquant sur **X**.
+7. Fermez tous les panneaux en cliquant sur **X**.
 
 ## Récupérer les noms de serveur SQL, de base de données et d’utilisateur
 Pour réaliser ce didacticiel, vous avez besoin des noms du serveur SQL Azure, de la base de données et de l’utilisateur. Notez les noms du **serveur**, de la **base de données** et de l'**utilisateur** pour votre base de données SQL Azure en suivant les instructions ci-dessous :
@@ -58,7 +58,7 @@ Pour réaliser ce didacticiel, vous avez besoin des noms du serveur SQL Azure, d
 2. Dans le panneau **Bases de données SQL**, sélectionnez la **base de données** que vous souhaitez utiliser dans le cadre de ce didacticiel. Notez le **nom de la base de données**.
 3. Dans le panneau **BASE DE DONNÉES SQL**, cliquez sur la vignette **PROPRIÉTÉS**.
 4. Notez les valeurs de **NOM DU SERVEUR** et de **CONNEXION D'ADMINISTRATEUR DU SERVEUR**.
-5. Fermez tous les panneaux en cliquant sur **X**.
+5. Fermez tous les panneaux en cliquant sur **X**.
 
 ## Autoriser les services Azure à accéder au serveur 
 Vérifiez que le paramètre **Autoriser l'accès aux services Azure** est **ACTIVÉ** pour votre serveur SQL Azure pour que le service Data Factory puisse accéder à votre serveur SQL Azure. Pour vérifier et activer ce paramètre, procédez comme suit :
@@ -67,7 +67,7 @@ Vérifiez que le paramètre **Autoriser l'accès aux services Azure** est **ACTI
 2. Sélectionnez **votre serveur**, puis cliquez sur **PARAMÈTRES** dans le panneau **SQL SERVER**.
 3. Dans le panneau **PARAMÈTRES**, cliquez sur **Pare-feu**.
 4. Dans le panneau **Paramètres de pare-feu**, cliquez sur **ACTIVER** pour **Autoriser l'accès aux services Azure**.
-5. Fermez tous les panneaux en cliquant sur **X**.
+5. Fermez tous les panneaux en cliquant sur **X**.
 
 ## Préparer Blob Storage et la Base de données SQL 
 À présent, préparez votre stockage d'objets blob Azure et votre base de données SQL Azure pour ce didacticiel, en procédant comme suit :
@@ -109,12 +109,12 @@ Pour plus d’informations sur l’activité de copie dans Azure Data Factory, c
 
 
 <!--Link references-->
-[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
+[azure-free-trial]: http://azure.azure.microsoft.com/.com/pricing/free-trial/
 [azure-portal]: https://portal.azure.com/
-[sql-management-studio]: http://azure.microsoft.com/documentation/articles/sql-database-manage-azure-ssms/#Step2
+[sql-management-studio]: http://azure.azure.microsoft.com/.com/documentation/articles/sql-database-manage-azure-ssms/#Step2
 
 [data-factory-introduction]: data-factory-introduction.md
-[data-factory-create-storage]: http://azure.microsoft.com/documentation/articles/storage-create-storage-account/#create-a-storage-account
+[data-factory-create-storage]: http://azure.azure.microsoft.com/.com/documentation/articles/storage-create-storage-account/#create-a-storage-account
 [data-factory-create-sql-database]: ../sql-database/sql-database-get-started.md
 
 <!---HONumber=AcomDC_0817_2016-->

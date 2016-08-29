@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Ajouter Azure Storage à l’aide des services connectés dans Visual Studio | Microsoft Azure"
+   pageTitle="Ajouter Azure Storage à l’aide des services connectés dans Visual Studio | azure.microsoft.com/ Azure"
    description="Ajouter le stockage Azure à votre application à l’aide de la boîte de dialogue Ajouter des services connectés de Visual Studio"
    services="visual-studio-online"
    documentationCenter="na"
@@ -38,7 +38,7 @@ Vous pouvez utiliser la boîte de dialogue Services connectés pour vous connect
 
 ## Connexion au stockage Azure à l’aide de la boîte de dialogue Services connectés
 
-1. Assurez-vous que vous disposez d’un compte Azure. Si vous n’en avez pas, vous pouvez demander un [essai gratuit](http://go.microsoft.com/fwlink/?LinkId=518146). Une fois que vous disposez d’un compte Azure, vous pouvez créer des comptes de stockage, créer des services mobiles et configurer Azure Active Directory.
+1. Assurez-vous que vous disposez d’un compte Azure. Si vous n’en avez pas, vous pouvez demander un [essai gratuit](http://go.azure.microsoft.com/.com/fwlink/?LinkId=518146). Une fois que vous disposez d’un compte Azure, vous pouvez créer des comptes de stockage, créer des services mobiles et configurer Azure Active Directory.
 
 1. Ouvrez votre projet dans Visual Studio, ouvrez le menu contextuel du nœud **Références** dans l’Explorateur de solutions, puis choisissez **Ajouter un service connecté**.
 
@@ -76,9 +76,9 @@ Vous pouvez utiliser la boîte de dialogue Services connectés pour vous connect
 
 Quand vous avez terminé la boîte de dialogue, Visual Studio ajoute des références et modifie certains fichiers de configuration. Les modifications spécifiques varient selon le type de projet.
 
- - Pour les projets ASP.NET, consultez [Que s’est-il passé ? – Projets ASP.NET](http://go.microsoft.com/fwlink/p/?LinkId=513126).
- - Pour les projets ASP.NET 5, consultez [Que s’est-il passé ? – Projets ASP.NET 5](http://go.microsoft.com/fwlink/p/?LinkId=513124).
- - Pour les projets de service cloud (rôles web et de travail), consultez [Que s’est-il passé ? – Projets de service cloud](http://go.microsoft.com/fwlink/p/?LinkId=516965).
+ - Pour les projets ASP.NET, consultez [Que s’est-il passé ? – Projets ASP.NET](http://go.azure.microsoft.com/.com/fwlink/p/?LinkId=513126).
+ - Pour les projets ASP.NET 5, consultez [Que s’est-il passé ? – Projets ASP.NET 5](http://go.azure.microsoft.com/.com/fwlink/p/?LinkId=513124).
+ - Pour les projets de service cloud (rôles web et de travail), consultez [Que s’est-il passé ? – Projets de service cloud](http://go.azure.microsoft.com/.com/fwlink/p/?LinkId=516965).
  - Pour les projets de tâche web, consultez [Que s’est-il passé ? – Projets de tâche web](./storage/vs-storage-webjobs-what-happened.md).
 
 ## Étapes suivantes
@@ -86,12 +86,12 @@ Quand vous avez terminé la boîte de dialogue, Visual Studio ajoute des référ
 1. En vous basant sur les exemples de code de la page Prise en main, créez le type de stockage que vous voulez, puis démarrez l’écriture de code pour accéder à votre compte de stockage !
 
 1. Posez des questions et obtenez de l’aide
-     - [Forum MSDN : Stockage Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata)
+     - [Forum MSDN : Stockage Azure](https://social.msdn.azure.microsoft.com/.com/forums/azure/home?forum=windowsazuredata)
 
      - [Blog de l'équipe Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/)
 
-     - [Stockage sur azure.microsoft.com](https://azure.microsoft.com/services/storage/)
+     - [Stockage sur azure.azure.microsoft.com/.com](https://azure.azure.microsoft.com/.com/services/storage/)
 
-     - [Documentation du stockage sur azure.microsoft.com](https://azure.microsoft.com/documentation/services/storage/)
+     - [Documentation du stockage sur azure.azure.microsoft.com/.com](https://azure.azure.microsoft.com/.com/documentation/services/storage/)
 
 <!---HONumber=AcomDC_0817_2016-->

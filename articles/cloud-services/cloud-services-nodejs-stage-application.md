@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Déploiement d'un service cloud dans un environnement intermédiaire (Node.js) | Microsoft Azure" 
+	pageTitle="Déploiement d'un service cloud dans un environnement intermédiaire (Node.js) | azure.microsoft.com/ Azure" 
 	description="Découvrez comment déployer votre application Azure vers un environnement intermédiaire, puis comment la déployer vers un environnement de production grâce à l'échange d'adresses IP virtuelles (VIP)." 
 	services="cloud-services" 
 	documentationCenter="nodejs" 
@@ -26,7 +26,7 @@ Une application packagée peut être déployée dans l'environnement intermédia
 
 ## Étape 1 : déploiement intermédiaire d'une application
 
-Cette tâche explique comment effectuer un déploiement intermédiaire d’une application au moyen de **Microsoft Azure PowerShell**.
+Cette tâche explique comment effectuer un déploiement intermédiaire d’une application au moyen de **azure.microsoft.com/ Azure PowerShell**.
 
 1.  Lorsque vous publiez un service, transmettez simplement le paramètre **-Slot** à la cmdlet **Publish-AzureServiceProject**.
 

@@ -73,7 +73,7 @@ Une fois que vous avez publié la définition de service de mise à jour, vous p
 
     ![Invite de sécurité Windows][5]
 
-4.  Cliquez sur **Connexion**. Une invite de sécurité vous permet d'entrer des informations d'identification pour accéder à l'instance. Entrez le mot de passe créé à l’[étape 1][Étape 1 : configuration du service pour l'accès au Bureau à distance à l’aide d'Azure PowerShell], puis cliquez sur **OK**.
+4.  Cliquez sur **Connexion**. Une invite de sécurité vous permet d'entrer des informations d'identification pour accéder à l'instance. Entrez le mot de passe créé à l’[étape 1]\[Étape 1 : configuration du service pour l'accès au Bureau à distance à l’aide d'Azure PowerShell], puis cliquez sur **OK**.
 
     ![invite du nom d'utilisateur/mot de passe][6]
 
@@ -99,7 +99,7 @@ Une fois que vous n'avez plus besoin des connexions Bureau à distance aux insta
 - [Utilisation du Bureau à distance avec des rôles Azure]
 - [Centre pour développeurs Node.js](/develop/nodejs/)
 
-  [Azure PowerShell]: http://go.microsoft.com/?linkid=9790229&clcid=0x409
+  [Azure PowerShell]: http://go.azure.microsoft.com/.com/?linkid=9790229&clcid=0x409
 
 [Portail Azure Classic]: http://manage.windowsazure.com
 [publish-project]: ./media/cloud-services-nodejs-enable-remote-desktop/publish-rdp.png
@@ -111,8 +111,8 @@ Une fois que vous n'avez plus besoin des connexions Bureau à distance aux insta
 [6]: ./media/cloud-services-nodejs-enable-remote-desktop/remote-desktop-13.png
 [7]: ./media/cloud-services-nodejs-enable-remote-desktop/remote-desktop-14.png
   
-[Accès à distance aux instances de rôle dans Azure]: http://msdn.microsoft.com/library/windowsazure/hh124107.aspx
-[Utilisation du Bureau à distance avec des rôles Azure]: http://msdn.microsoft.com/library/windowsazure/gg443832.aspx
+[Accès à distance aux instances de rôle dans Azure]: http://msdn.azure.microsoft.com/.com/library/windowsazure/hh124107.aspx
+[Utilisation du Bureau à distance avec des rôles Azure]: http://msdn.azure.microsoft.com/.com/library/windowsazure/gg443832.aspx
  
 
 <!---HONumber=AcomDC_0817_2016-->

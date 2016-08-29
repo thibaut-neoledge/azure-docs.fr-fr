@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Déploiement de services web Azure ML utilisant les modules d’importation et d’exportation des données | Microsoft Azure"
+	pageTitle="Déploiement de services web Azure ML utilisant les modules d’importation et d’exportation des données | azure.microsoft.com/ Azure"
 	description="Découvrez comment utiliser les modules Importer des données et Exporter des données pour envoyer et recevoir des données à partir d’un service web."
 	services="machine-learning"
 	documentationCenter=""
@@ -77,7 +77,7 @@ Vous configurez l’expérience prédictive à partir de laquelle vous allez dé
 9.	Dans le **champ du nom de la table de données**, tapez dbo.ScoredLabels. Si la table n’existe pas, elle est créée lors de l’exécution de l’expérience ou lors de l’appel du service web.
 10.	Dans le champ **Liste des colonnes de table de données séparées par des virgules**, tapez Étiquettes notées.
 
-Lorsque vous écrivez une application qui appelle le service web final, vous pouvez spécifier une autre requête d’entrée ou table de destination lors de l’exécution. Pour configurer ces entrées et sorties, vous pouvez utiliser la fonctionnalité des paramètres du service web afin de définir la propriété de *source de données* du module *Importer des données* ainsi que la propriété de destination des données du module *Exporter des données*. Pour plus d’informations sur les paramètres du service web, consultez l[’entrée Paramètres du service web AzureML](https://blogs.technet.microsoft.com/machinelearning/2014/11/25/azureml-web-service-parameters/) du blog Cortana Intelligence et Machine Learning.
+Lorsque vous écrivez une application qui appelle le service web final, vous pouvez spécifier une autre requête d’entrée ou table de destination lors de l’exécution. Pour configurer ces entrées et sorties, vous pouvez utiliser la fonctionnalité des paramètres du service web afin de définir la propriété de *source de données* du module *Importer des données* ainsi que la propriété de destination des données du module *Exporter des données*. Pour plus d’informations sur les paramètres du service web, consultez l[’entrée Paramètres du service web AzureML](https://blogs.technet.azure.microsoft.com/.com/machinelearning/2014/11/25/azureml-web-service-parameters/) du blog Cortana Intelligence et Machine Learning.
 
 Pour configurer les paramètres du service web pour la requête d’importation et la table de destination :
 

@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="Didacticiel : Intégration d’Azure AD à Zscaler | Microsoft Azure" 
+    pageTitle="Didacticiel : Intégration d’Azure AD à Zscaler | azure.microsoft.com/ Azure" 
     description="Découvrez comment utiliser Zscaler avec Azure AD pour activer l’authentification unique, l’approvisionnement automatisé et bien plus encore." 
     services="active-directory" 
     authors="jeevansd"  
@@ -73,11 +73,11 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Activer l'authentification unique](./media/active-directory-saas-zscaler-tutorial/IC769229.png "Activer l'authentification unique")
 
-2.  Dans la page **Comment voulez-vous que les utilisateurs se connectent à Zscaler**, sélectionnez **Authentification unique avec Microsoft Azure AD**, puis cliquez sur **Suivant**.
+2.  Dans la page **Comment voulez-vous que les utilisateurs se connectent à Zscaler**, sélectionnez **Authentification unique avec azure.microsoft.com/ Azure AD**, puis cliquez sur **Suivant**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-zscaler-tutorial/IC769230.png "Configurer l’authentification unique")
 
-3.  Dans la page **Configurer l’URL de l’application**, dans la zone de texte **URL de connexion à Zscaler**, tapez l’URL de connexion que vous avez obtenue de Zscaler, puis cliquez sur **Suivant** :
+3.  Dans la page **Configurer l’URL de l’application**, dans la zone de texte **URL de connexion à Zscaler**, tapez l’URL de connexion que vous avez obtenue de Zscaler, puis cliquez sur **Suivant** :
 
     >[AZURE.NOTE] Contactez l’équipe du support technique Zscaler si vous ne connaissez pas votre URL de connexion.
 
@@ -87,7 +87,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Configurer l’authentification unique](./media/active-directory-saas-zscaler-tutorial/IC769232.png "Configurer l’authentification unique")
 
-    1.  Cliquez sur **Télécharger le certificat**, puis enregistrez le fichier de certificat en local sous le nom **c:\\Zscaler.cer**.
+    1.  Cliquez sur **Télécharger le certificat**, puis enregistrez le fichier de certificat en local sous le nom **c:\\Zscaler.cer**.
     2.  Copiez l’**URL de demande d’authentification** dans le Presse-papiers.
 
 5.  Connectez-vous au client Zscaler.
@@ -107,7 +107,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
     1.  Sélectionnez **Authenticate using SAML Single Sign-On**.
     2.  Cliquez sur **Configure SAML Single Sign-On Parameters**.
 
-9.  Dans la boîte de dialogue **Configure SAML Single Sign-On Parameters**, procédez comme suit, puis cliquez sur **Done** :
+9.  Dans la boîte de dialogue **Configure SAML Single Sign-On Parameters**, procédez comme suit, puis cliquez sur **Done** :
 
     ![Téléchargement d’un certificat](./media/active-directory-saas-zscaler-tutorial/IC769489.png "Téléchargement d’un certificat")
 
@@ -148,12 +148,12 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
     ![Serveur proxy](./media/active-directory-saas-zscaler-tutorial/IC769494.png "Serveur proxy")
 
     1.  Sélectionnez Utiliser un serveur proxy pour votre réseau local.
-    2.  Dans la zone de texte Adresse, tapez **gateway.zscalertwo.net**.
-    3.  Dans la zone de texte Port, tapez **80**.
+    2.  Dans la zone de texte Adresse, tapez **gateway.zscalertwo.net**.
+    3.  Dans la zone de texte Port, tapez **80**.
     4.  Sélectionnez **Ne pas utiliser de serveur proxy pour les adresses locales**.
-    5.  Cliquez sur **OK** pour fermer la boîte de dialogue **Paramètres du réseau local**.
+    5.  Cliquez sur **OK** pour fermer la boîte de dialogue **Paramètres du réseau local**.
 
-6.  Cliquez sur **OK** pour fermer la boîte de dialogue **Options Internet**.
+6.  Cliquez sur **OK** pour fermer la boîte de dialogue **Options Internet**.
 
 ##Configuration de l'approvisionnement des utilisateurs
   

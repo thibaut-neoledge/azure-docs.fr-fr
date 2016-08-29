@@ -19,7 +19,7 @@
 
 Les données de télémétrie de différents composants et différentes versions de votre application doivent-elles être envoyées à différentes ressources Application Insights, ou combinées en une seule ? Cet article décrit les meilleures pratiques et les techniques nécessaires.
 
-Tout d’abord, essayons de comprendre la question. Les données reçues de votre application sont stockées et traitées par Application Insights dans une *ressource* Microsoft Azure. Chaque ressource est identifiée par une *clé d’instrumentation* (iKey). Dans votre application, la clé est fournie au SDK Application Insights afin qu'il puisse envoyer les données collectées à la ressource appropriée. La clé peut être fournie dans le code ou dans ApplicationInsights.config. En modifiant la clé dans le SDK, vous pouvez diriger les données vers différentes ressources.
+Tout d’abord, essayons de comprendre la question. Les données reçues de votre application sont stockées et traitées par Application Insights dans une *ressource* azure.microsoft.com/ Azure. Chaque ressource est identifiée par une *clé d’instrumentation* (iKey). Dans votre application, la clé est fournie au SDK Application Insights afin qu'il puisse envoyer les données collectées à la ressource appropriée. La clé peut être fournie dans le code ou dans ApplicationInsights.config. En modifiant la clé dans le SDK, vous pouvez diriger les données vers différentes ressources.
 
 Dans un cas simple, lorsque vous créez le code d’une nouvelle application, vous créez également une ressource dans Application Insights. Dans Visual Studio, la boîte de dialogue *Nouveau projet* le fait pour vous.
 
@@ -70,7 +70,7 @@ Définissez la clé dans une méthode d'initialisation, par exemple global.aspx.
 
     protected void Application_Start()
     {
-      Microsoft.ApplicationInsights.Extensibility.
+      azure.microsoft.com/.ApplicationInsights.Extensibility.
         TelemetryConfiguration.Active.InstrumentationKey = 
           // - for example -
           WebConfigurationManager.AppSettings["ikey"];
@@ -90,7 +90,7 @@ L'iKey est également utilisée dans les pages web de votre application, dans le
     // Modify this part:
     }({instrumentationKey:  
       // Generate from server property:
-      @Microsoft.ApplicationInsights.Extensibility.
+      @azure.microsoft.com/.ApplicationInsights.Extensibility.
          TelemetryConfiguration.Active.InstrumentationKey"
     }) // ...
 

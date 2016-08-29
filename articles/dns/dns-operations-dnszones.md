@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Gérer les zones DNS avec PowerShell | Microsoft Azure" 
+   pageTitle="Gérer les zones DNS avec PowerShell | azure.microsoft.com/ Azure" 
    description="Vous pouvez gérer des zones DNS à l’aide d’Azure Powershell. Mise à jour, suppression et création des zones DNS sur Azure DNS" 
    services="dns" 
    documentationCenter="na" 

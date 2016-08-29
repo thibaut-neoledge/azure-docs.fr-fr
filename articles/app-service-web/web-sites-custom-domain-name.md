@@ -25,7 +25,7 @@ Cet article vous indique comment mapper manuellement un nom de domaine personnal
 
 Votre application est fournie avec un sous-domaine unique d’azurewebsites.net. Par exemple, si le nom de votre application est **contoso**, son nom de domaine est donc **contoso.azurewebsites.net**. Toutefois, vous pouvez mapper un nom de domaine personnalisé à l’application afin que son URL, par exemple `www.contoso.com`, reflète votre marque.
 
->[AZURE.NOTE] Consultez les [forums Azure](https://azure.microsoft.com/support/forums/) pour y trouver l’aide des experts Azure. Pour obtenir un niveau de support encore supérieur, accédez au [site Support Azure](https://azure.microsoft.com/support/options/), puis cliquez sur **Obtenir un support**.
+>[AZURE.NOTE] Consultez les [forums Azure](https://azure.azure.microsoft.com/.com/support/forums/) pour y trouver l’aide des experts Azure. Pour obtenir un niveau de support encore supérieur, accédez au [site Support Azure](https://azure.azure.microsoft.com/.com/support/options/), puis cliquez sur **Obtenir un support**.
 
 [AZURE.INCLUDE [introfooter](../../includes/custom-dns-web-site-intro-notes.md)]
 
@@ -37,7 +37,7 @@ Pour connaître les instructions à suivre, voir l’article [Acheter et configu
 
 ## Mapper un domaine personnalisé acheté en externe
 
-Si vous avez déjà acheté un domaine personnalisé auprès de [DNS Azure](https://azure.microsoft.com/services/dns/) ou d’un fournisseur tiers, la procédure de mappage du domaine personnalisé à votre application compte trois étapes principales :
+Si vous avez déjà acheté un domaine personnalisé auprès de [DNS Azure](https://azure.azure.microsoft.com/.com/services/dns/) ou d’un fournisseur tiers, la procédure de mappage du domaine personnalisé à votre application compte trois étapes principales :
 
 1. [*(Un enregistrement uniquement)* Obtenez l’adresse IP de l’application](#vip).
 2. [Créez les enregistrements DNS qui mappent votre domaine à votre application](#createdns).
@@ -211,7 +211,7 @@ Une fois les étapes de configuration terminées, la propagation des modificatio
 ## Étapes suivantes
 Apprenez à sécuriser votre nom de domaine personnalisé avec HTTPS en [achetant un certificat SSL dans Azure](web-sites-purchase-ssl-web-site.md) ou [à l’aide d’un certificat SSL depuis un autre emplacement](web-sites-configure-ssl-certificate.md).
 
->[AZURE.NOTE] Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751), où vous pourrez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
+>[AZURE.NOTE] Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.azure.microsoft.com/.com/fwlink/?LinkId=523751), où vous pourrez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
 [Prise en main d’Azure DNS](../dns/dns-getstarted-create-dnszone.md) [Créer des enregistrements DNS pour une application web dans un domaine personnalisé](../dns/dns-web-sites-custom-domain.md) [Délégation de domaine à Azure DNS](../dns/dns-domain-delegation.md)
 

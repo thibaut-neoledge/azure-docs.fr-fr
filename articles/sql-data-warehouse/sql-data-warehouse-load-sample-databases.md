@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Charger des exemples de données dans SQL Data Warehouse | Microsoft Azure"
+   pageTitle="Charger des exemples de données dans SQL Data Warehouse | azure.microsoft.com/ Azure"
    description="Charger des exemples de données dans SQL Data Warehouse"
    services="sql-data-warehouse"
    documentationCenter="NA"

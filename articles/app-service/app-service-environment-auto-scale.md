@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Mise à l’échelle automatique et environnement App Service| Microsoft Azure"
+	pageTitle="Mise à l’échelle automatique et environnement App Service| azure.microsoft.com/ Azure"
 	description="Mise à l’échelle automatique et environnement App Service"
 	services="app-service"
 	documentationCenter=""

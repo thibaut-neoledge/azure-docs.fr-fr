@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Solutions de récupération d’urgence cloud - Géo-réplication active des bases de données SQL | Microsoft Azure"
+   pageTitle="Solutions de récupération d’urgence cloud - Géo-réplication active des bases de données SQL | azure.microsoft.com/ Azure"
    description="Apprenez à concevoir des solutions de récupération d’urgence cloud pour la planification de la continuité des activités à l’aide de la géo-réplication pour la sauvegarde de données d’application avec Azure SQL Database."
    keywords="récupération d’urgence cloud, solutions de récupération d’urgence, sauvegarde de données d’application, géo-réplication, planification de la continuité des activités"
    services="sql-database"
@@ -48,7 +48,7 @@ Le diagramme suivant illustre cette configuration avant une panne.
 
 Après une panne dans la région primaire, l’application de surveillance détecte que la base de données primaire n’est pas accessible et enregistre une alerte. En fonction du contrat de niveau de service de votre application, vous pouvez décider du nombre d’échecs consécutifs des sondages de surveillance avant qu’une base de données ne soit déclarée en panne. Pour obtenir un basculement coordonné du point de terminaison de l’application et de la base de données, l’application de surveillance doit effectuer les étapes suivantes :
 
-1. [Mettre à jour le statut du point de terminaison primaire](https://msdn.microsoft.com/library/hh758250.aspx) pour déclencher le basculement du point de terminaison.
+1. [Mettre à jour le statut du point de terminaison primaire](https://msdn.azure.microsoft.com/.com/library/hh758250.aspx) pour déclencher le basculement du point de terminaison.
 2. Appeler la base de données secondaire pour [lancer le basculement de la base de données](sql-database-geo-replication-portal.md).
 
 Après le basculement, l’application traite les demandes des utilisateurs dans la région secondaire mais reste colocalisée avec la base de données, car la base de données primaire se trouve désormais dans la région secondaire. Ce scénario est illustré par le diagramme suivant. Dans tous les diagrammes, des lignes pleines indiquent les connexions actives, des lignes en pointillé indiquent les connexions suspendues et les symboles « stop » indiquent les déclencheurs d’action.
@@ -129,7 +129,7 @@ En cas de panne dans la région secondaire, Traffic Manager marque le point de t
 
 ![Panne : base de données secondaire. Récupération d’urgence cloud.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/pattern3-3.png)
 
-Ce modèle de conception offre plusieurs **avantages** :
+Ce modèle de conception offre plusieurs **avantages** :
 
 + Il évite la perte de données pendant les pannes temporaires.
 + Il ne nécessite pas le déploiement d’une application de surveillance étant donné que la récupération est déclenchée par Traffic Manager.

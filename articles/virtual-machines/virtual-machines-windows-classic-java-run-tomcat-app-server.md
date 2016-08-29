@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Tomcat sur une machine virtuelle | Microsoft Azure"
+	pageTitle="Tomcat sur une machine virtuelle | azure.microsoft.com/ Azure"
 	description="Ce didacticiel utilise des ressources créées avec le modèle de déploiement classique, et montre comment créer une machine virtuelle Windows et la configurez pour exécuter un serveur d’applications Apache Tomcat."
 	services="virtual-machines-windows"
 	documentationCenter="java"
@@ -44,7 +44,7 @@ Ce didacticiel nécessite l’installation d’un serveur d’applications Apach
 2. Cliquez sur **New**, sur **Compute**, sur **Virtual machine**, puis sur **From Gallery**.
 3. Dans la boîte de dialogue **Sélectionner une image de machine virtuelle**, sélectionnez **Windows Server 2012 JDK 7**. Notez que **Windows Server 2012 JDK 6** est disponible si vous ne pouvez pas exécuter certaines de vos applications héritées dans la version JDK 7.
 4. Cliquez sur **Next**.
-5. Dans la boîte de dialogue **Configuration de la machine virtuelle** :
+5. Dans la boîte de dialogue **Configuration de la machine virtuelle** :
     1. Entrez un nom pour la machine virtuelle.
     2. Entrez la taille de la machine virtuelle.
     3. Entrez un nom pour l'administrateur dans le champ **Nom d'utilisateur**. Notez le nom et le mot de passe que vous allez saisir, car vous devrez les réutiliser pour vous connecter à distance à votre machine virtuelle.
@@ -57,7 +57,7 @@ Ce didacticiel nécessite l’installation d’un serveur d’applications Apach
     2. Pour **Storage Account**, sélectionnez **Use an automatically generated storage account**.
     3. Pour **Availability Set**, sélectionnez **(None)**.
     4. Cliquez sur **Next**.
-7. Dans la dernière boîte de dialogue **Configuration de la machine virtuelle** :
+7. Dans la dernière boîte de dialogue **Configuration de la machine virtuelle** :
     1. Validez les entrées de points de terminaison par défaut.
     2. Cliquez sur **Terminé**.
 
@@ -94,8 +94,8 @@ Pour démarrer Tomcat depuis des machines externes, vous devez créer un point d
 3. Cliquez sur le nom de la machine virtuelle exécutant votre serveur d'applications Java.
 4. Cliquez sur **Endpoints**.
 5. Cliquez sur **Ajouter**.
-6. Dans la boîte de dialogue **Ajouter un point de terminaison**, vérifiez que la case **Ajouter un point de terminaison autonome ** est cochée, puis cliquez sur **Suivant**.
-7. Dans la boîte de dialogue **Détails du nouveau point de terminaison** :
+6. Dans la boîte de dialogue **Ajouter un point de terminaison**, vérifiez que la case **Ajouter un point de terminaison autonome** est cochée, puis cliquez sur **Suivant**.
+7. Dans la boîte de dialogue **Détails du nouveau point de terminaison** :
     1. Entrez un nom pour le point de terminaison, par exemple **HttpIn**.
     2. Indiquez **TCP** pour le protocole.
     3. Indiquez **80** pour le port public.
@@ -125,7 +125,7 @@ Pour démarrer Tomcat depuis des machines externes, vous devez créer un point d
     L’activation du démarrage automatique de Tomcat lui permet de redémarrer en même temps que la machine virtuelle (par exemple, après des mises à jour logicielles nécessitant un redémarrage).
 
 ## Étapes suivantes
-Pour en savoir plus sur les autres services (Azure Storage, bus des services, base de données SQL) à inclure dans vos applications Java, voir les informations disponibles de [Java Developer Center](https://azure.microsoft.com/develop/java/).
+Pour en savoir plus sur les autres services (Azure Storage, bus des services, base de données SQL) à inclure dans vos applications Java, voir les informations disponibles de [Java Developer Center](https://azure.azure.microsoft.com/.com/develop/java/).
 
 [virtual_machine_tomcat]: ./media/virtual-machines-windows-classic-java-run-tomcat-app-server/WA_VirtualMachineRunningApacheTomcat.png
 

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Didacticiel : Intégration d'Azure Active Directory avec Questetra BPM Suite | Microsoft Aure"
+	pageTitle="Didacticiel : Intégration d'Azure Active Directory avec Questetra BPM Suite | azure.microsoft.com/ Aure"
 	description="Découvrez comment configurer l'authentification unique entre Azure Active Directory et Questetra BPM Suite."
 	services="active-directory"
 	documentationCenter=""
@@ -41,7 +41,7 @@ Pour configurer l'intégration d'Azure AD avec Questetra BPM Suite, vous avez b
 Vous devez en outre suivre les recommandations ci-dessous :
 
 - Vous ne devez pas utiliser votre environnement de production, sauf si cela est nécessaire.
-- Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
+- Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.azure.microsoft.com/.com/pricing/free-trial/).
 
  
 ## Description du scénario

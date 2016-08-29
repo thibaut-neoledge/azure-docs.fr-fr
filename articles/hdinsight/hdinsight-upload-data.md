@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Téléchargement de données pour les tâches Hadoop dans HDInsight | Microsoft Azure"
+	pageTitle="Téléchargement de données pour les tâches Hadoop dans HDInsight | azure.microsoft.com/ Azure"
 	description="Découvrez comment télécharger des données pour les tâches Hadoop et y accéder dans HDInsight avec l'interface CLI Azure, Azure Storage Explorer, Azure PowerShell, la ligne de commande Hadoop ou Sqoop."
 	services="hdinsight,storage"
 	documentationCenter=""
@@ -47,7 +47,7 @@ Pour cette raison, quand vous utilisez les outils d'Azure Explorer, vous pouvez
 
 ##Utilitaires de ligne de commande
 
-Microsoft fournit les utilitaires suivants pour utiliser le stockage d'objets blob Azure :
+azure.microsoft.com/ fournit les utilitaires suivants pour utiliser le stockage d'objets blob Azure :
 
 | Outil | Linux | OS X | Windows |
 | ---- |:-----:|:----:|:-------:|
@@ -98,9 +98,9 @@ L'interface CLI Azure est un outil interplateforme qui vous permet de gérer les
 
 > [AZURE.NOTE] Si vous utilisez toujours le même compte de stockage, vous pouvez définir les variables d'environnement suivantes au lieu de spécifier le compte et la clé de chaque commande :
 >
-> * **AZURE\_STORAGE\_ACCOUNT**  le nom du compte de stockage
+> * **AZURE\_STORAGE\_ACCOUNT**  le nom du compte de stockage
 >
-> * **AZURE\_STORAGE\_ACCESS\_KEY** : la clé du compte de stockage
+> * **AZURE\_STORAGE\_ACCESS\_KEY** : la clé du compte de stockage
 
 ###<a id="powershell"></a>Azure PowerShell
 
@@ -149,9 +149,9 @@ La ligne de commande Hadoop est utile uniquement pour stocker les données dans 
 
 Pour utiliser la commande Hadoop, vous devez d'abord vous connecter au nœud principal à l'aide de l'une des méthodes suivantes :
 
-* **HDInsight Windows** : [connexion à l'aide du Bureau à distance](hdinsight-administer-use-management-portal.md#connect-to-hdinsight-clusters-by-using-rdp)
+* **HDInsight Windows** : [connexion à l'aide du Bureau à distance](hdinsight-administer-use-management-portal.md#connect-to-hdinsight-clusters-by-using-rdp)
 
-* **HDInsight Linux** : connexion à l'aide de SSH ([commande SSH](hdinsight-hadoop-linux-use-ssh-unix.md#connect-to-a-linux-based-hdinsight-cluster) ou [PuTTY](hdinsight-hadoop-linux-use-ssh-windows.md#connect-to-a-linux-based-hdinsight-cluster))
+* **HDInsight Linux** : connexion à l'aide de SSH ([commande SSH](hdinsight-hadoop-linux-use-ssh-unix.md#connect-to-a-linux-based-hdinsight-cluster) ou [PuTTY](hdinsight-hadoop-linux-use-ssh-windows.md#connect-to-a-linux-based-hdinsight-cluster))
 
 Une fois connecté, vous pouvez utiliser la syntaxe suivante pour télécharger un fichier dans le stockage.
 
@@ -175,11 +175,11 @@ Plusieurs applications fournissent également une interface graphique pour utili
 
 | Client | Linux | OS X | Windows |
 | ------ |:-----:|:----:|:-------:|
-| [Outils Microsoft Visual Studio pour HDInsight](hdinsight-hadoop-visual-studio-tools-get-started.md#navigate-the-linked-resources) | ✔ | ✔ | ✔ |
+| [Outils azure.microsoft.com/ Visual Studio pour HDInsight](hdinsight-hadoop-visual-studio-tools-get-started.md#navigate-the-linked-resources) | ✔ | ✔ | ✔ |
 | [Azure Storage Explorer](http://storageexplorer.com/) | ✔ | ✔ | ✔ |
 | [Cloud Storage Studio 2](http://www.cerebrata.com/Products/CloudStorageStudio/) | | | ✔ |
 | [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer) | | | ✔ |
-| [Azure Explorer](http://www.cloudberrylab.com/free-microsoft-azure-explorer.aspx) | | | ✔ |
+| [Azure Explorer](http://www.cloudberrylab.com/free-azure.microsoft.com/-azure-explorer.aspx) | | | ✔ |
 | [Cyberduck](https://cyberduck.io/) | | ✔ | ✔ |
 
 ###Outils Visual Studio pour HDInsight
@@ -222,7 +222,7 @@ Le service Azure Data Factory est un service entièrement géré pour composer d
 
 Azure Data Factory permet de déplacer des données dans le stockage d'objets blob Azure ou de créer des pipelines de données qui utilisent directement des fonctionnalités HDInsight telles que Hive et Pig.
 
-Pour plus d'informations, consultez la [Documentation Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/).
+Pour plus d'informations, consultez la [Documentation Azure Data Factory](https://azure.azure.microsoft.com/.com/documentation/services/data-factory/).
 
 ###<a id="sqoop"></a>Apache Sqoop
 
@@ -241,7 +241,7 @@ Le stockage d'objets blob Azure est également accessible à l'aide d'un kit de 
 * Python
 * Ruby
 
-Pour plus d'informations sur l'installation des kits de développement logiciel (SDK) Azure, consultez [Téléchargements Azure](https://azure.microsoft.com/downloads/)
+Pour plus d'informations sur l'installation des kits de développement logiciel (SDK) Azure, consultez [Téléchargements Azure](https://azure.azure.microsoft.com/.com/downloads/)
 
 
 ## Étapes suivantes
@@ -256,7 +256,7 @@ Maintenant que vous savez comment obtenir des données avec HDInsight, consultez
 
 
 [azure-management-portal]: https://porta.azure.com
-[azure-powershell]: http://msdn.microsoft.com/library/windowsazure/jj152841.aspx
+[azure-powershell]: http://msdn.azure.microsoft.com/.com/library/windowsazure/jj152841.aspx
 
 [azure-storage-client-library]: /develop/net/how-to-guides/blob-storage/
 [azure-create-storage-account]: ../storage/storage-create-storage-account.md

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Surveillance des sauvegardes de machines virtuelles déployées via Resource Manager | Microsoft Azure"
+   pageTitle="Surveillance des sauvegardes de machines virtuelles déployées via Resource Manager | azure.microsoft.com/ Azure"
    description="Suivre les événements et les alertes des sauvegardes d’une machine virtuelle déployée via Resource Manager"
    services="backup"
    documentationCenter="dev-center-name"
@@ -164,13 +164,13 @@ Vous pouvez obtenir des notifications d’alerte personnalisées pour les travau
 Pour définir des notifications personnalisées pour signaler les échecs de sauvegarde, utilisez une commande ressemblant au script suivant :
 
 ```
-PS C:\> $actionEmail = New-AzureRmAlertRuleEmail -CustomEmail contoso@microsoft.com
-PS C:\> Add-AzureRmLogAlertRule -Name backupFailedAlert -Location "East US" -ResourceGroup RecoveryServices-DP2RCXUGWS3MLJF4LKPI3A3OMJ2DI4SRJK6HIJH22HFIHZVVELRQ-East-US -OperationName Microsoft.Backup/RecoveryServicesVault/Backup -Status Failed -TargetResourceId /subscriptions/86eeac34-eth9a-4de3-84db-7a27d121967e/resourceGroups/RecoveryServices-DP2RCXUGWS3MLJF4LKPI3A3OMJ2DI4SRJK6HIJH22HFIHZVVELRQ-East-US/providers/microsoft.backupbvtd2/RecoveryServicesVault/trinadhVault -Actions $actionEmail
+PS C:\> $actionEmail = New-AzureRmAlertRuleEmail -CustomEmail contoso@azure.microsoft.com/.com
+PS C:\> Add-AzureRmLogAlertRule -Name backupFailedAlert -Location "East US" -ResourceGroup RecoveryServices-DP2RCXUGWS3MLJF4LKPI3A3OMJ2DI4SRJK6HIJH22HFIHZVVELRQ-East-US -OperationName azure.microsoft.com/.Backup/RecoveryServicesVault/Backup -Status Failed -TargetResourceId /subscriptions/86eeac34-eth9a-4de3-84db-7a27d121967e/resourceGroups/RecoveryServices-DP2RCXUGWS3MLJF4LKPI3A3OMJ2DI4SRJK6HIJH22HFIHZVVELRQ-East-US/providers/azure.microsoft.com/.backupbvtd2/RecoveryServicesVault/trinadhVault -Actions $actionEmail
 ```
 
 **ResourceId** : vous pouvez obtenir le ResourceId à partir des journaux d’audit. L’élément ResourceId est une URL fournie dans la colonne Ressource des journaux d’opérations.
 
-**OperationName** : OperationName est au format « Microsoft.RecoveryServices/recoveryServicesVault/*EventName* » où *EventName* peut être :<br/>
+**OperationName** : OperationName est au format « azure.microsoft.com/.RecoveryServices/recoveryServicesVault/*EventName* » où *EventName* peut être :<br/>
 - Register <br/>
 - Unregister <br/>
 - ConfigureProtection <br/>

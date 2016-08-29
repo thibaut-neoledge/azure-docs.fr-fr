@@ -18,14 +18,14 @@
 
 # Création d’une application web PHP-SQL dans Azure App Service et déploiement à l’aide de Git
 
-Ce didacticiel vous explique comment créer une application web PHP dans [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) se connectant à la base de données SQL Azure et comment la déployer à l’aide de Git. Pour ce didacticiel, [PHP][install-php], [SQL Server Express][install-SQLExpress], les [pilotes Microsoft SQL Server pour PHP](http://www.microsoft.com/download/en/details.aspx?id=20098) et [Git][install-git] doivent être installés sur votre ordinateur. À la fin de ce guide, vous disposerez d’une application web PHP-SQL s’exécutant dans Azure.
+Ce didacticiel vous explique comment créer une application web PHP dans [Azure App Service](http://go.azure.microsoft.com/.com/fwlink/?LinkId=529714) se connectant à la base de données SQL Azure et comment la déployer à l’aide de Git. Pour ce didacticiel, [PHP][install-php], [SQL Server Express][install-SQLExpress], les [pilotes azure.microsoft.com/ SQL Server pour PHP](http://www.azure.microsoft.com/.com/download/en/details.aspx?id=20098) et [Git][install-git] doivent être installés sur votre ordinateur. À la fin de ce guide, vous disposerez d’une application web PHP-SQL s’exécutant dans Azure.
 
 > [AZURE.NOTE]
-Vous pouvez installer et configurer PHP, SQL Server Express et les pilotes Microsoft SQL Server pour PHP via [Microsoft Web Platform Installer](http://www.microsoft.com/web/downloads/platform.aspx).
+Vous pouvez installer et configurer PHP, SQL Server Express et les pilotes azure.microsoft.com/ SQL Server pour PHP via [azure.microsoft.com/ Web Platform Installer](http://www.azure.microsoft.com/.com/web/downloads/platform.aspx).
 
 Vous apprendrez à effectuer les opérations suivantes :
 
-* Création d’une application web Azure et d’une base de données SQL à l’aide du [portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715). (PHP étant activé par défaut dans App Service Web Apps, l’exécution de votre code PHP ne requiert aucune action particulière) ;
+* Création d’une application web Azure et d’une base de données SQL à l’aide du [portail Azure](http://go.azure.microsoft.com/.com/fwlink/?LinkId=529715). (PHP étant activé par défaut dans App Service Web Apps, l’exécution de votre code PHP ne requiert aucune action particulière) ;
 * publication et republication de votre application dans Azure en utilisant Git.
  
 En suivant ce didacticiel, vous allez générer une application Web d'inscription simple dans PHP. L'application est hébergée dans un site web Azure. Voici une capture d’écran de l’application terminée :
@@ -34,7 +34,7 @@ En suivant ce didacticiel, vous allez générer une application Web d'inscriptio
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
->[AZURE.NOTE] Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
+>[AZURE.NOTE] Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.azure.microsoft.com/.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
 ##Création d’une application web Azure et configuration de la publication Git
 
@@ -92,8 +92,8 @@ Pour établir la connexion à l’instance de base de données SQL liée à votr
 
 L'application d'inscription est une simple application PHP qui vous permet de vous inscrire à un événement en entrant votre nom et votre adresse électronique. Les informations relatives aux précédents inscrits sont affichées dans un tableau. Les informations d'inscription sont stockées dans une instance de base de données SQL. L’application se compose de deux fichiers (dont le code est disponible ci-dessous pour un copier/coller) :
 
-* **index.php** : affiche un formulaire d’inscription et un tableau contenant les informations des inscrits.
-* **createtable.php** : crée la table de base de données SQL pour l’application. Ce fichier sera utilisé une seule fois.
+* **index.php** : affiche un formulaire d’inscription et un tableau contenant les informations des inscrits.
+* **createtable.php** : crée la table de base de données SQL pour l’application. Ce fichier sera utilisé une seule fois.
 
 Pour exécuter l'application en local, procédez comme suit : notez que ces étapes partent du principe que PHP et SQL Server Express sont configurés sur votre machine locale, et que vous avez activé l'[extension PDO pour SQL Server][pdo-sqlsrv].
 
@@ -286,14 +286,14 @@ Pour publier des modifications apportées à votre application, procédez comme 
 3. Accédez à **http://[web app name].azurewebsites.net/index.php** pour voir vos modifications.
 
 ## Changements apportés
-* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
+* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.azure.microsoft.com/.com/fwlink/?LinkId=529714).
 
 
 
 
 [install-php]: http://www.php.net/manual/en/install.php
-[install-SQLExpress]: http://www.microsoft.com/download/details.aspx?id=29062
-[install-Drivers]: http://www.microsoft.com/download/details.aspx?id=20098
+[install-SQLExpress]: http://www.azure.microsoft.com/.com/download/details.aspx?id=29062
+[install-Drivers]: http://www.azure.microsoft.com/.com/download/details.aspx?id=20098
 [install-git]: http://git-scm.com/
 [pdo-sqlsrv]: http://php.net/pdo_sqlsrv
  

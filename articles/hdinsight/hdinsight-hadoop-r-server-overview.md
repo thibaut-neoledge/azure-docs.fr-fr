@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Qu’est-ce que R sur HDInsight ? Présentation de R Server sur HDInsight (version préliminaire) | Microsoft Azure"
+	pageTitle="Qu’est-ce que R sur HDInsight ? Présentation de R Server sur HDInsight (version préliminaire) | azure.microsoft.com/ Azure"
 	description="Qu’est-ce que R Server sur HDInsight (version préliminaire) et comment utiliser R Server pour créer des applications pour l’analyse du Big Data."
 	services="hdinsight"
 	documentationCenter=""
@@ -19,13 +19,13 @@
 
 # Vue d’ensemble de R Server sur HDInsight (version préliminaire)
 
-Avec Microsoft Azure HDInsight Premium, Microsoft R Server est désormais disponible en tant qu’option lorsque vous créez des clusters HDInsight dans Azure. Cette nouvelle fonctionnalité offre aux experts en science des données, aux statisticiens et aux programmeurs R un accès à la demande à des méthodes d’analyse extensibles et distribuées sur HDInsight.
+Avec azure.microsoft.com/ Azure HDInsight Premium, azure.microsoft.com/ R Server est désormais disponible en tant qu’option lorsque vous créez des clusters HDInsight dans Azure. Cette nouvelle fonctionnalité offre aux experts en science des données, aux statisticiens et aux programmeurs R un accès à la demande à des méthodes d’analyse extensibles et distribuées sur HDInsight.
 
 Les clusters peuvent être dimensionnés en fonction des projets et des tâches en cours, puis détruits lorsque vous n’en avez plus besoin. Étant donné que ces clusters font partie d’Azure HDInsight, ils bénéficient d’un support technique de niveau entreprise 24 heures sur 24, 7 jours sur 7, d’un contrat SLA garantissant 99,9 % de temps de fonctionnement, et de la flexibilité d’intégration avec d’autres composants de l’écosystème Azure.
 
 >[AZURE.NOTE] R Server est disponible uniquement avec HDInsight Premium. Actuellement, HDInsight Premium est disponible uniquement pour les clusters Hadoop et Spark. Par conséquent, vous pouvez actuellement utiliser R Server uniquement avec des clusters Hadoop et Spark sur HDInsight. Pour plus d’informations, voir [Quels sont les différents niveaux de service et les composants Hadoop disponibles avec HDInsight ?](hdinsight-component-versioning.md)
 
-R Server sur HDInsight fournit les dernières fonctionnalités d’analyse basée sur R sur des jeux de données volumineux qui sont chargés dans un Azure Blob Storage. Étant donné que R Server est basé sur du code R open source, les applications R que vous créez peuvent exploiter les plus de 8 000 packages open source disponibles, ainsi que les routines de ScaleR, package d’analyse du Big Data de Microsoft qui est inclus dans R Server.
+R Server sur HDInsight fournit les dernières fonctionnalités d’analyse basée sur R sur des jeux de données volumineux qui sont chargés dans un Azure Blob Storage. Étant donné que R Server est basé sur du code R open source, les applications R que vous créez peuvent exploiter les plus de 8 000 packages open source disponibles, ainsi que les routines de ScaleR, package d’analyse du Big Data de azure.microsoft.com/ qui est inclus dans R Server.
 
 Le nœud de périmètre des clusters Premium fournit un lieu d’accueil pratique pour la connexion au cluster et l’exécution de vos scripts R. Un nœud de périmètre vous permet d’exécuter des fonctions distribuées parallélisées de ScaleR sur les cœurs du serveur de nœud de périmètre. Vous avez également la possibilité de les exécuter sur les nœuds du cluster via l’utilisation des contextes de calcul Hadoop Map Reduce ou Spark de ScaleR.
 
@@ -39,7 +39,7 @@ Pour inclure R Server dans un cluster HDInsight, vous devez créer un cluster Ha
 
 Le stockage par défaut pour les clusters HDInsight est un objet Blob Storage avec le système de fichiers HDFS mappé à un conteneur d’objets blob. Cela garantit que toutes les données chargées dans le stockage en cluster ou écrites dans celui-ci au cours de l’analyse sont rendues persistantes. Vous pouvez utiliser l’utilitaire [AzCopy](../storage/storage-use-azcopy.md) pour copier des données vers et depuis l’objet blob.
 
-Outre l’utilisation de Blob Storage, vous avez la possibilité d’utiliser [Azure Data Lake Storage](https://azure.microsoft.com/services/data-lake-store/) avec votre cluster. Si vous utilisez Data Lake, vous pouvez utiliser Blob Storage et Data Lake pour le stockage HDFS.
+Outre l’utilisation de Blob Storage, vous avez la possibilité d’utiliser [Azure Data Lake Storage](https://azure.azure.microsoft.com/.com/services/data-lake-store/) avec votre cluster. Si vous utilisez Data Lake, vous pouvez utiliser Blob Storage et Data Lake pour le stockage HDFS.
 
 Vous pouvez également utiliser [Azure Files](../storage/storage-how-to-use-files-linux.md) comme option de stockage pour une utilisation sur le nœud de périphérie. Le service Azure Files vous permet de monter un partage de fichiers qui a été créé dans un compte Azure Storage sur le système de fichiers Linux. Pour plus d’informations concernant les options de stockage de données pour R Server sur un cluster HDInsight, voir les [options de stockage pour R Server sur des clusters HDInsight](hdinsight-hadoop-r-server-storage.md).
 
@@ -104,13 +104,13 @@ La maintenance est effectuée sur les machines virtuelles Linux sous-jacentes da
 
 Le nœud de périmètre Linux d’un cluster HDInsight Premium est la zone d’accueil pour l’analyse basée sur R. Une fois connecté au cluster, vous pouvez lancer l’interface de la console sur R Server en tapant **R** à l’invite de commande Linux. L’utilisation de l’interface de la console est améliorée si vous exécutez un éditeur de texte pour le développement de script R dans une autre fenêtre, et coupez et collez des sections de votre script dans la console R en fonction des besoins.
 
-Un outil plus sophistiqué pour le développement de votre script R est l’IDE basé sur R pour une utilisation sur le bureau, notamment [R Tools pour Visual Studio](https://www.visualstudio.com/fr-FR/features/rtvs-vs.aspx) (RTVS), dont la sortie a été récemment annoncée par Microsoft. Il s’agit d’une famille d’outils de bureau et de serveur de [RStudio](https://www.rstudio.com/products/rstudio-server/). Vous pouvez également utiliser [StatET](http://www.walware.de/goto/statet) basé sur Eclipse de Walware.
+Un outil plus sophistiqué pour le développement de votre script R est l’IDE basé sur R pour une utilisation sur le bureau, notamment [R Tools pour Visual Studio](https://www.visualstudio.com/fr-FR/features/rtvs-vs.aspx) (RTVS), dont la sortie a été récemment annoncée par azure.microsoft.com/. Il s’agit d’une famille d’outils de bureau et de serveur de [RStudio](https://www.rstudio.com/products/rstudio-server/). Vous pouvez également utiliser [StatET](http://www.walware.de/goto/statet) basé sur Eclipse de Walware.
 
 Une autre option consiste à installer un IDE sur le nœud de périmètre Linux proprement dit. [RStudio Server](https://www.rstudio.com/products/rstudio-server/) est largement répandu, car il fournit un IDE basé sur un navigateur pour une utilisation par des clients distants. L’installation de RStudio Server sur le nœud de périmètre d’un cluster HDInsight Premium offre une expérience d’IDE complète pour le développement et l’exécution de scripts R avec R Server sur le cluster. Elle peut être considérablement plus productive que la console R. Si vous souhaitez utiliser RStudio Server, consultez la section [Installation de RStudio Server sur des clusters HDInsight](hdinsight-hadoop-r-server-install-r-studio.md).
 
 ## En savoir plus sur la tarification
 
-Les frais associés à un cluster HDInsight Premium avec R Server sont structurés de manière similaire à ceux applicables à des clusters HDInsight standard. Ils sont basés sur le dimensionnement des machines virtuelles sous-jacentes pour le nom, les données et les nœuds de périmètre, avec l’ajout d’une extension pendant les heures normales pour l’édition Premium. Pour plus d’informations concernant la tarification de HDInsight Premium, notamment de la version préliminaire publique, et concernant la disponibilité de la version d’évaluation gratuite de 30 jours, consultez la section [Tarification HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
+Les frais associés à un cluster HDInsight Premium avec R Server sont structurés de manière similaire à ceux applicables à des clusters HDInsight standard. Ils sont basés sur le dimensionnement des machines virtuelles sous-jacentes pour le nom, les données et les nœuds de périmètre, avec l’ajout d’une extension pendant les heures normales pour l’édition Premium. Pour plus d’informations concernant la tarification de HDInsight Premium, notamment de la version préliminaire publique, et concernant la disponibilité de la version d’évaluation gratuite de 30 jours, consultez la section [Tarification HDInsight](https://azure.azure.microsoft.com/.com/pricing/details/hdinsight/).
 
 ## Étapes suivantes
 

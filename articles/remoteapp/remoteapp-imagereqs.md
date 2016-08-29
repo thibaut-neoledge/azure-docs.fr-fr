@@ -1,6 +1,6 @@
 
 <properties
-    pageTitle="Configuration requise pour les images Azure RemoteApp | Microsoft Azure"
+    pageTitle="Configuration requise pour les images Azure RemoteApp | azure.microsoft.com/ Azure"
     description="En savoir plus sur la configuration requise pour la création d’images à utiliser avec Azure RemoteApp"
     services="remoteapp"
 	documentationCenter=""
@@ -21,7 +21,7 @@
 # Configuration requise pour les images Azure RemoteApp
 
 > [AZURE.IMPORTANT]
-Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148).
+Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.azure.microsoft.com/.com/fwlink/?linkid=821148).
 
 Azure RemoteApp utilise une image Windows Server 2012 R2 pour héberger tous les programmes que vous souhaitez partager avec vos utilisateurs. Pour créer une image personnalisée, vous pouvez commencer avec une image existante ou en [créer une](remoteapp-create-custom-image.md).
 

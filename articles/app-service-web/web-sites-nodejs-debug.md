@@ -19,7 +19,7 @@
 
 # Débogage d’une application web Node.js dans Azure Web Service
 
-Azure fournit un outil de diagnostic intégré qui vous aide à déboguer les applications Node.js hébergées dans [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) Web Apps. Cet article vous explique comment activer la journalisation de stdout et de stderr, comment afficher les informations sur l'erreur dans le navigateur et comment télécharger et afficher les fichiers journaux.
+Azure fournit un outil de diagnostic intégré qui vous aide à déboguer les applications Node.js hébergées dans [Azure App Service](http://go.azure.microsoft.com/.com/fwlink/?LinkId=529714) Web Apps. Cet article vous explique comment activer la journalisation de stdout et de stderr, comment afficher les informations sur l'erreur dans le navigateur et comment télécharger et afficher les fichiers journaux.
 
 Le diagnostic des applications Node.js hébergées sur Azure est fourni par [IISNode]. Bien que les paramètres les plus courants pour la collecte des informations de diagnostic soient abordés, cet article ne fournit pas une référence complète sur l'utilisation de IISNode. Pour plus d'informations sur l'utilisation de IISNode, consultez le [fichier Lisez-moi IISNode] sur GitHub.
 
@@ -34,7 +34,7 @@ Pour activer la journalisation des flux stdout et stderr, vous devez créer un f
 
 Cela active la journalisation de stderr et stdout à partir de votre application Node.js.
 
-Le fichier **IISNode.yml** peut également être utilisé pour contrôler si les erreurs conviviales ou les erreurs de développement sont renvoyées au navigateur lorsqu'un échec se produit. Pour activer les erreurs de développement, ajoutez la ligne suivante au fichier **IISNode.yml** :
+Le fichier **IISNode.yml** peut également être utilisé pour contrôler si les erreurs conviviales ou les erreurs de développement sont renvoyées au navigateur lorsqu'un échec se produit. Pour activer les erreurs de développement, ajoutez la ligne suivante au fichier **IISNode.yml** :
 
 	devErrorsEnabled: true
 
@@ -46,7 +46,7 @@ Si le fichier **IISNode.yml** n’existe pas dans votre application, vous devez 
 
 > [AZURE.NOTE] Si votre application Web a été créée à l’aide des outils de ligne en commande Azure ou des applets de commande Azure PowerShell, un fichier **IISNode.yml** par défaut est automatiquement créé.
 
-Pour redémarrer l’application web, sélectionnez-la dans le [portail Azure](https://portal.azure.com), puis cliquez sur le bouton **REDÉMARRER** :
+Pour redémarrer l’application web, sélectionnez-la dans le [portail Azure](https://portal.azure.com), puis cliquez sur le bouton **REDÉMARRER** :
 
 ![bouton redémarrer][restart-button]
 
@@ -113,9 +113,9 @@ Pour plus d'informations sur la spécification d'une version Node.js de votre ap
 Pour plus d'informations, consultez aussi le [Centre pour développeurs Node.js](/develop/nodejs/).
 
 ## Changements apportés
-* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
+* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.azure.microsoft.com/.com/fwlink/?LinkId=529714).
 
->[AZURE.NOTE] Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement et gratuitement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
+>[AZURE.NOTE] Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.azure.microsoft.com/.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement et gratuitement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
 [IISNode]: https://github.com/tjanczuk/iisnode
 [fichier Lisez-moi IISNode]: https://github.com/tjanczuk/iisnode#readme

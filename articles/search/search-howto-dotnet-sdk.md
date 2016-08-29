@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Utilisation d'Azure Search à partir d'une application .NET | Microsoft Azure | Service de recherche cloud hébergé"
+   pageTitle="Utilisation d'Azure Search à partir d'une application .NET | azure.microsoft.com/ Azure | Service de recherche cloud hébergé"
    description="Comment utiliser Azure Search à partir d'une application .NET"
    services="search"
    documentationCenter=""
@@ -18,24 +18,24 @@
 
 # Comment utiliser Azure Search à partir d'une application .NET
 
-Cet article est une procédure pas à pas dont le but est de vous aider à utiliser le [SDK .NET Azure Search](https://msdn.microsoft.com/library/azure/dn951165.aspx). Vous pouvez utiliser le SDK .NET pour intégrer une expérience de recherche enrichie dans votre application à l'aide d’Azure Search.
+Cet article est une procédure pas à pas dont le but est de vous aider à utiliser le [SDK .NET Azure Search](https://msdn.azure.microsoft.com/.com/library/azure/dn951165.aspx). Vous pouvez utiliser le SDK .NET pour intégrer une expérience de recherche enrichie dans votre application à l'aide d’Azure Search.
 
 ## Contenu du SDK Azure Search
 
-Ce kit de développement se compose d'une bibliothèque cliente, `Microsoft.Azure.Search`. Il vous permet de gérer vos index, sources de données et indexeurs, ainsi que de télécharger et gérer des documents, et d'exécuter des requêtes, sans avoir à gérer les détails de HTTP et de JSON.
+Ce kit de développement se compose d'une bibliothèque cliente, `azure.microsoft.com/.Azure.Search`. Il vous permet de gérer vos index, sources de données et indexeurs, ainsi que de télécharger et gérer des documents, et d'exécuter des requêtes, sans avoir à gérer les détails de HTTP et de JSON.
 
 La bibliothèque cliente définit des classes comme `Index`, `Field` et `Document`, ainsi que des opérations telles que `Indexes.Create` et `Documents.Search` sur les classes `SearchServiceClient` et `SearchIndexClient`. Ces classes sont organisées dans les espaces de noms suivants :
 
-- [Microsoft.Azure.Search](https://msdn.microsoft.com/library/azure/microsoft.azure.search.aspx)
-- [Microsoft.Azure.Search.Models.](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.aspx)
+- [azure.microsoft.com/.Azure.Search](https://msdn.azure.microsoft.com/.com/library/azure/azure.microsoft.com/.azure.search.aspx)
+- [azure.microsoft.com/.Azure.Search.Models.](https://msdn.azure.microsoft.com/.com/library/azure/azure.microsoft.com/.azure.search.models.aspx)
 
 La version actuelle du Kit de développement logiciel (SDK) .NET Azure Search est désormais mise à la disposition générale. Si vous souhaitez fournir des commentaires que nous pourrons intégrer dans la prochaine version, consultez notre [page de commentaires](https://feedback.azure.com/forums/263029-azure-search/).
 
-Le SDK .NET prend en charge la version `2015-02-28` de l'API REST d’Azure Search, documentée sur [MSDN](https://msdn.microsoft.com/library/azure/dn798935.aspx). Cette version inclut désormais la prise en charge de la syntaxe de requête Lucene et des analyseurs de langage Microsoft. Les nouvelles fonctionnalités qui ne font *pas* partie de cette version, comme la prise en charge du paramètre de recherche `moreLikeThis`, ne sont [pas finalisées](search-api-2015-02-28-preview.md) et ne sont donc pas disponibles dans le Kit de développement logiciel (SDK). Consultez [Contrôle de version du service Search](https://msdn.microsoft.com/library/azure/dn864560.aspx) pour connaître les mises à jour disponibles sur chaque fonctionnalité.
+Le SDK .NET prend en charge la version `2015-02-28` de l'API REST d’Azure Search, documentée sur [MSDN](https://msdn.azure.microsoft.com/.com/library/azure/dn798935.aspx). Cette version inclut désormais la prise en charge de la syntaxe de requête Lucene et des analyseurs de langage azure.microsoft.com/. Les nouvelles fonctionnalités qui ne font *pas* partie de cette version, comme la prise en charge du paramètre de recherche `moreLikeThis`, ne sont [pas finalisées](search-api-2015-02-28-preview.md) et ne sont donc pas disponibles dans le Kit de développement logiciel (SDK). Consultez [Contrôle de version du service Search](https://msdn.azure.microsoft.com/.com/library/azure/dn864560.aspx) pour connaître les mises à jour disponibles sur chaque fonctionnalité.
 
 Les autres fonctionnalités non prises en charge dans ce SDK sont les suivantes :
 
-  - [Opérations de gestion](https://msdn.microsoft.com/library/azure/dn832684.aspx). Les opérations de gestion incluent l’approvisionnement de services Azure Search et la gestion des clés API. Elles seront prises en charge dans un prochain SDK .NET d’Azure Search.
+  - [Opérations de gestion](https://msdn.azure.microsoft.com/.com/library/azure/dn832684.aspx). Les opérations de gestion incluent l’approvisionnement de services Azure Search et la gestion des clés API. Elles seront prises en charge dans un prochain SDK .NET d’Azure Search.
 
 ## Mise à niveau vers la dernière version du Kit de développement logiciel (SDK)
 
@@ -47,7 +47,7 @@ Si vous utilisez déjà une version antérieure du Kit de développement logicie
 
 2. Votre propre service Azure Search. Pour utiliser le SDK, vous devez connaître le nom de votre service et une ou plusieurs clés API. [Créer un service dans le portail](search-create-service-portal.md) vous guidera à travers ces étapes.
 
-3. Téléchargez le [package NuGet](http://www.nuget.org/packages/Microsoft.Azure.Search) du SDK .NET Azure Search en utilisant « Gérer les packages NuGet » dans Visual Studio. Recherchez le package nommé `Microsoft.Azure.Search` sur NuGet.org.
+3. Téléchargez le [package NuGet](http://www.nuget.org/packages/azure.microsoft.com/.Azure.Search) du SDK .NET Azure Search en utilisant « Gérer les packages NuGet » dans Visual Studio. Recherchez le package nommé `azure.microsoft.com/.Azure.Search` sur NuGet.org.
 
 Le Kit de développement logiciel (SDK) .NET Azure Search prend en charge les applications qui ciblent .NET Framework version 4.5, ainsi que les applications Windows Store ciblant Windows 8.1 et Windows Phone 8.1. Silverlight n’est pas pris en charge.
 
@@ -123,7 +123,7 @@ Ensuite, l'index doit être rempli. Pour ce faire, nous avons besoin de `SearchI
 
         ISearchIndexClient indexClient = serviceClient.Indexes.GetClient("hotels");
 
-> [AZURE.NOTE] Dans une application de recherche classique, le remplissage et la gestion des index sont gérés par un composant séparé des requêtes de recherche. `Indexes.GetClient` est très pratique pour remplir un index, car cela évite de fournir un autre `SearchCredentials`. Pour ce faire, il transmet la clé d’administration que vous avez utilisée afin de créer le `SearchServiceClient` dans le nouveau `SearchIndexClient`. Toutefois, dans la partie de votre application qui exécute des requêtes, il vaut mieux créer le `SearchIndexClient` directement afin de transmettre une clé de requête au lieu d'une clé d'administration. Cela est conforme au principe du moindre privilège et vous permet de mieux sécuriser votre application. Pour en savoir plus sur les clés d’administration et les clés de requête, cliquez [ici](https://msdn.microsoft.com/library/azure/dn798935.aspx).
+> [AZURE.NOTE] Dans une application de recherche classique, le remplissage et la gestion des index sont gérés par un composant séparé des requêtes de recherche. `Indexes.GetClient` est très pratique pour remplir un index, car cela évite de fournir un autre `SearchCredentials`. Pour ce faire, il transmet la clé d’administration que vous avez utilisée afin de créer le `SearchServiceClient` dans le nouveau `SearchIndexClient`. Toutefois, dans la partie de votre application qui exécute des requêtes, il vaut mieux créer le `SearchIndexClient` directement afin de transmettre une clé de requête au lieu d'une clé d'administration. Cela est conforme au principe du moindre privilège et vous permet de mieux sécuriser votre application. Pour en savoir plus sur les clés d’administration et les clés de requête, cliquez [ici](https://msdn.azure.microsoft.com/.com/library/azure/dn798935.aspx).
 
 Maintenant que nous avons un `SearchIndexClient`, nous pouvons remplir l'index. Cette opération est exécutée par une autre méthode que nous étudierons ultérieurement.
 
@@ -204,7 +204,7 @@ Ensuite, `Main` crée un index « hotels » en appelant cette méthode :
         serviceClient.Indexes.Create(definition);
     }
 
-Cette méthode crée un objet `Index` avec une liste d’objets `Field` qui définit le schéma du nouvel index. Chaque champ a un nom, un type de données et plusieurs attributs qui définissent son comportement de recherche. En plus des champs, vous pouvez ajouter des profils de notation, des générateurs de suggestions ou des options CORS à l'index (éléments supprimés de l'exemple pour des raisons de concision). Vous trouverez plus d'informations sur l'objet Index et ses composants dans la référence du SDK sur [MSDN](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.index_members.aspx), ainsi que dans l’[API REST Azure Search](https://msdn.microsoft.com/library/azure/dn798935.aspx).
+Cette méthode crée un objet `Index` avec une liste d’objets `Field` qui définit le schéma du nouvel index. Chaque champ a un nom, un type de données et plusieurs attributs qui définissent son comportement de recherche. En plus des champs, vous pouvez ajouter des profils de notation, des générateurs de suggestions ou des options CORS à l'index (éléments supprimés de l'exemple pour des raisons de concision). Vous trouverez plus d'informations sur l'objet Index et ses composants dans la référence du SDK sur [MSDN](https://msdn.azure.microsoft.com/.com/library/azure/azure.microsoft.com/.azure.search.models.index_members.aspx), ainsi que dans l’[API REST Azure Search](https://msdn.azure.microsoft.com/.com/library/azure/dn798935.aspx).
 
 ### Remplissage de l'index
 
@@ -342,11 +342,11 @@ La première chose à remarquer est que chaque propriété publique de `Hotel` c
 
 > [AZURE.NOTE] Le SDK .NET Azure Search utilise la bibliothèque [NewtonSoft JSON.NET](http://www.newtonsoft.com/json/help/html/Introduction.htm) pour sérialiser et désérialiser vos objets de modèle personnalisés vers et à partir de JSON. Vous pouvez personnaliser cette sérialisation si nécessaire. Vous trouverez plus d’informations [ici](search-dotnet-sdk-migration.md#WhatsNew).
 
-La deuxième chose importante sur la classe `Hotel` concerne les types de données des propriétés publiques. Les types .NET de ces propriétés correspondent à leurs types de champ équivalents dans la définition de l'index. Par exemple, la propriété de chaîne `Category` correspond au champ `category`, qui est de type `Edm.String`. Il existe des mappages de type similaires entre `bool?` et `Edm.Boolean`, `DateTimeOffset?` et `Edm.DateTimeOffset`, etc. Les règles spécifiques pour le mappage de type sont documentées avec la `Documents.Get` méthode [MSDN](https://msdn.microsoft.com/library/azure/dn931291.aspx).
+La deuxième chose importante sur la classe `Hotel` concerne les types de données des propriétés publiques. Les types .NET de ces propriétés correspondent à leurs types de champ équivalents dans la définition de l'index. Par exemple, la propriété de chaîne `Category` correspond au champ `category`, qui est de type `Edm.String`. Il existe des mappages de type similaires entre `bool?` et `Edm.Boolean`, `DateTimeOffset?` et `Edm.DateTimeOffset`, etc. Les règles spécifiques pour le mappage de type sont documentées avec la `Documents.Get` méthode [MSDN](https://msdn.azure.microsoft.com/.com/library/azure/dn931291.aspx).
 
 Cette capacité à utiliser vos propres classes comme des documents fonctionne dans les deux sens. Vous pouvez également récupérer les résultats de la recherche et laisser le SDK les désérialiser automatiquement à un type de votre choix, comme nous le verrons dans la section suivante.
 
-> [AZURE.NOTE] Le SDK .NET Azure Search prend également en charge les documents dynamiquement typés à l’aide de la classe `Document`, qui est un mappage de type clé/valeur entre des noms de champ et des valeurs de champ. Cela est utile dans les cas où vous ne connaissez pas le schéma de l’index lors de sa conception et où il serait peu pratique d’établir une liaison à des classes de modèles spécifiques. Toutes les méthodes du SDK qui gèrent les documents ont des surcharges qui fonctionnent avec la classe `Document`, ainsi que des surcharges fortement typées qui acceptent un paramètre de type générique. Seules ces dernières sont utilisées dans l'exemple de code de ce didacticiel. Pour plus d’informations sur la classe `Document`, cliquez [ici](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.document.aspx).
+> [AZURE.NOTE] Le SDK .NET Azure Search prend également en charge les documents dynamiquement typés à l’aide de la classe `Document`, qui est un mappage de type clé/valeur entre des noms de champ et des valeurs de champ. Cela est utile dans les cas où vous ne connaissez pas le schéma de l’index lors de sa conception et où il serait peu pratique d’établir une liaison à des classes de modèles spécifiques. Toutes les méthodes du SDK qui gèrent les documents ont des surcharges qui fonctionnent avec la classe `Document`, ainsi que des surcharges fortement typées qui acceptent un paramètre de type générique. Seules ces dernières sont utilisées dans l'exemple de code de ce didacticiel. Pour plus d’informations sur la classe `Document`, cliquez [ici](https://msdn.azure.microsoft.com/.com/library/azure/azure.microsoft.com/.azure.search.models.document.aspx).
 
 **Remarque importante sur les types de données**
 
@@ -391,9 +391,9 @@ Examinons comment cette méthode est appelée :
 
     SearchDocuments(indexClient, searchText: "*", filter: "category eq 'Luxury'");
 
-Dans le premier appel, nous recherchons tous les documents contenant les termes « fancy » ou « wifi ». Dans le deuxième appel, le texte à rechercher est « * », ce qui signifie « rechercher tous les éléments ». Pour plus d’informations sur la syntaxe des requêtes de recherche, cliquez [ici](https://msdn.microsoft.com/library/azure/dn798920.aspx).
+Dans le premier appel, nous recherchons tous les documents contenant les termes « fancy » ou « wifi ». Dans le deuxième appel, le texte à rechercher est « * », ce qui signifie « rechercher tous les éléments ». Pour plus d’informations sur la syntaxe des requêtes de recherche, cliquez [ici](https://msdn.azure.microsoft.com/.com/library/azure/dn798920.aspx).
 
-Le deuxième appel utilise une expression `$filter` OData, `category eq 'Luxury'`. Celle-ci limite la recherche et ne renvoie que les documents dont le champ `category` correspond exactement à la chaîne « Luxury ». Pour plus d’informations sur la syntaxe OData prise en charge par Azure Search, cliquez [ici](https://msdn.microsoft.com/library/azure/dn798921.aspx).
+Le deuxième appel utilise une expression `$filter` OData, `category eq 'Luxury'`. Celle-ci limite la recherche et ne renvoie que les documents dont le champ `category` correspond exactement à la chaîne « Luxury ». Pour plus d’informations sur la syntaxe OData prise en charge par Azure Search, cliquez [ici](https://msdn.azure.microsoft.com/.com/library/azure/dn798921.aspx).
 
 Maintenant que vous savez ce que font ces deux appels, il est plus facile de comprendre pourquoi leur sortie se présente comme suit :
 
@@ -413,11 +413,11 @@ Cette étape termine le didacticiel, mais ne vous arrêtez pas en si bon chemin.
 
 ## Étapes suivantes
 
-- Explorez les références pour le [SDK .NET](https://msdn.microsoft.com/library/azure/dn951165.aspx) et [l’API REST](https://msdn.microsoft.com/library/azure/dn798935.aspx) sur MSDN.
+- Explorez les références pour le [SDK .NET](https://msdn.azure.microsoft.com/.com/library/azure/dn951165.aspx) et [l’API REST](https://msdn.azure.microsoft.com/.com/library/azure/dn798935.aspx) sur MSDN.
 - Approfondissez vos connaissances grâce aux [vidéos et autres exemples et didacticiels](search-video-demo-tutorial-list.md).
-- Découvrez les fonctionnalités et capacités de cette version du SDK Azure Search : [Présentation d’Azure Search](https://msdn.microsoft.com/library/azure/dn798933.aspx).
-- Consultez les [conventions d’affectation de noms](https://msdn.microsoft.com/library/azure/dn857353.aspx) pour apprendre les règles de dénomination des différents objets.
-- Faites connaissance avec les [types de données pris en charge](https://msdn.microsoft.com/library/azure/dn798938.aspx) par Azure Search.
+- Découvrez les fonctionnalités et capacités de cette version du SDK Azure Search : [Présentation d’Azure Search](https://msdn.azure.microsoft.com/.com/library/azure/dn798933.aspx).
+- Consultez les [conventions d’affectation de noms](https://msdn.azure.microsoft.com/.com/library/azure/dn857353.aspx) pour apprendre les règles de dénomination des différents objets.
+- Faites connaissance avec les [types de données pris en charge](https://msdn.azure.microsoft.com/.com/library/azure/dn798938.aspx) par Azure Search.
 
 
 ## Code source de l'exemple d'application
@@ -431,9 +431,9 @@ using System;
 using System.Configuration;
 using System.Linq;
 using System.Threading;
-using Microsoft.Azure.Search;
-using Microsoft.Azure.Search.Models;
-using Microsoft.Spatial;
+using azure.microsoft.com/.Azure.Search;
+using azure.microsoft.com/.Azure.Search.Models;
+using azure.microsoft.com/.Spatial;
 
 namespace AzureSearch.SDKHowTo
 {
@@ -608,8 +608,8 @@ Hotel.cs :
 
 ```csharp
 using System;
-using Microsoft.Azure.Search.Models;
-using Microsoft.Spatial;
+using azure.microsoft.com/.Azure.Search.Models;
+using azure.microsoft.com/.Spatial;
 
 namespace AzureSearch.SDKHowTo
 {

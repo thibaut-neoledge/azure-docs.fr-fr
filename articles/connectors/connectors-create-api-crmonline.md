@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Ajouter le connecteur Dynamics CRM Online à vos applications logiques | Microsoft Azure"
+	pageTitle="Ajouter le connecteur Dynamics CRM Online à vos applications logiques | azure.microsoft.com/ Azure"
 	description="Créez des applications logiques avec Azure App Service. Le fournisseur de connexion Dynamics CRM Online fournit une API permettant de travailler avec les entités sur Dynamics CRM Online."
 	services="logic-apps"    
 	documentationCenter=""     

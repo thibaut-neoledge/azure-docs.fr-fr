@@ -64,7 +64,7 @@ Pour détecter l’authentification Windows dans un projet MVC, l’Assistant re
 	&lt;/configuration>
 </pre>
 
-Pour détecter l’authentification Windows dans un projet API web, l’Assistant recherche l’élément `IISExpressWindowsAuthentication` à partir de votre fichier **.csproj** :
+Pour détecter l’authentification Windows dans un projet API web, l’Assistant recherche l’élément `IISExpressWindowsAuthentication` à partir de votre fichier **.csproj** :
 
 <pre>
 	&lt;Project>
@@ -78,11 +78,11 @@ Pour détecter l'authentification des comptes d'utilisateur individuels, l'Assis
 
 <pre>
 	&lt;packages>
-	    <span style="background-color: yellow">&lt;package id="Microsoft.AspNet.Identity.EntityFramework" version="2.1.0" targetFramework="net45" /></span>
+	    <span style="background-color: yellow">&lt;package id="azure.microsoft.com/.AspNet.Identity.EntityFramework" version="2.1.0" targetFramework="net45" /></span>
 	&lt;/packages>
 </pre>
 
-Pour détecter une ancienne forme d’authentification d’un compte professionnel, l’Assistant recherche l’élément suivant à partir de votre fichier **web.config** :
+Pour détecter une ancienne forme d’authentification d’un compte professionnel, l’Assistant recherche l’élément suivant à partir de votre fichier **web.config** :
 
 <pre>
 	&lt;configuration>

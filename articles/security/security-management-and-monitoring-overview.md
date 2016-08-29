@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Présentation de la gestion et surveillance de la sécurité Azure | Microsoft Azure"
+   pageTitle="Présentation de la gestion et surveillance de la sécurité Azure | azure.microsoft.com/ Azure"
    description=" Azure propose divers mécanismes de sécurité pour favoriser la gestion et surveillance des services cloud et des machines virtuelles Azure. Cet article fournit une vue d’ensemble de ces fonctionnalités et services clés de sécurité. "
    services="security"
    documentationCenter="na"
@@ -20,11 +20,11 @@
 
 Azure propose divers mécanismes de sécurité pour favoriser la gestion et surveillance des services cloud et des machines virtuelles Azure. Cet article fournit une vue d’ensemble de ces fonctionnalités et services clés de sécurité. Les liens renvoient à des articles qui fournissent des informations détaillées complémentaires sur chaque fonctionnalité ou service.
 
-La sécurité de vos services Microsoft Cloud est une collaboration et une responsabilité partagée entre vous et Microsoft. Une responsabilité partagée signifie que Microsoft est responsable de Microsoft Azure et de l’intégrité physique de ses centres de données (grâce à l’utilisation de mesures de protection telles que des portes sécurisées au moyen de badges, des clôtures et des gardes). En outre, Azure fournit des niveaux élevés de sécurité du cloud sur la couche logicielle, répondant aux attentes exigeantes de ses clients en matière de sécurité, de confidentialité et de conformité.
+La sécurité de vos services azure.microsoft.com/ Cloud est une collaboration et une responsabilité partagée entre vous et azure.microsoft.com/. Une responsabilité partagée signifie que azure.microsoft.com/ est responsable de azure.microsoft.com/ Azure et de l’intégrité physique de ses centres de données (grâce à l’utilisation de mesures de protection telles que des portes sécurisées au moyen de badges, des clôtures et des gardes). En outre, Azure fournit des niveaux élevés de sécurité du cloud sur la couche logicielle, répondant aux attentes exigeantes de ses clients en matière de sécurité, de confidentialité et de conformité.
 
-Vos données et identités vous appartiennent, ainsi que la responsabilité de les protéger, la sécurité de vos ressources locales et celle des composants cloud que vous contrôlez. Microsoft vous fournit des fonctionnalités et des contrôles de sécurité pour vous aider à protéger vos données et applications. Votre responsabilité en matière de sécurité dépend du type de service cloud.
+Vos données et identités vous appartiennent, ainsi que la responsabilité de les protéger, la sécurité de vos ressources locales et celle des composants cloud que vous contrôlez. azure.microsoft.com/ vous fournit des fonctionnalités et des contrôles de sécurité pour vous aider à protéger vos données et applications. Votre responsabilité en matière de sécurité dépend du type de service cloud.
 
-Le graphique suivant résume le partage de la responsabilité entre Microsoft et le client.
+Le graphique suivant résume le partage de la responsabilité entre azure.microsoft.com/ et le client.
 
 ![Responsabilité partagée][1]
 
@@ -52,9 +52,9 @@ En savoir plus :
 
 ## Logiciel anti-programme malveillant
 
-Azure met à votre disposition des logiciels anti-programmes malveillants provenant de fournisseurs de sécurité reconnus tels que Microsoft, Symantec, Trend Micro, McAfee et Kaspersky. Ceux-ci permettent de protéger vos machines virtuelles contre les fichiers malveillants, les logiciels de publicité et d’autres menaces.
+Azure met à votre disposition des logiciels anti-programmes malveillants provenant de fournisseurs de sécurité reconnus tels que azure.microsoft.com/, Symantec, Trend Micro, McAfee et Kaspersky. Ceux-ci permettent de protéger vos machines virtuelles contre les fichiers malveillants, les logiciels de publicité et d’autres menaces.
 
-Microsoft Antimalware vous offre la possibilité d’installer un agent anti-programmes malveillants pour les rôles PaaS et les machines virtuelles. Basée sur System Center Endpoint Protection, cette fonctionnalité offre une technologie de sécurité locale éprouvée sur le cloud.
+azure.microsoft.com/ Antimalware vous offre la possibilité d’installer un agent anti-programmes malveillants pour les rôles PaaS et les machines virtuelles. Basée sur System Center Endpoint Protection, cette fonctionnalité offre une technologie de sécurité locale éprouvée sur le cloud.
 
 Nous offrons également une intégration approfondie de produits Trend [Deep Security](http://www.trendmicro.com/us/enterprise/cloud-solutions/deep-security/)™ et [SecureCloud](http://www.trendmicro.com/us/enterprise/cloud-solutions/secure-cloud/)™ dans la plateforme Azure. DeepSecurity est une solution Antivirus et SecureCloud une solution de chiffrement. DeepSecurity sera déployé sur des machines virtuelles à l’aide d’un modèle d’extension. À l’aide de l’interface utilisateur du portail et de PowerShell, vous pouvez choisir d’utiliser DeepSecurity à l’intérieur de nouvelles machines virtuelles en cours de lancement, ou de machines virtuelles existantes déjà déployées.
 
@@ -62,11 +62,11 @@ Symantec Endpoint Protection (SEP) est également pris en charge sur Azure. Grâ
 
 En savoir plus :
 
-- [Déploiement de solutions anti-programmes malveillants sur des machines virtuelles Azure (en anglais)](https://azure.microsoft.com/blog/deploying-antimalware-solutions-on-azure-virtual-machines/)
-- [Microsoft Antimalware pour Azure Cloud Services et les machines virtuelles](../security/azure-security-antimalware.md)
+- [Déploiement de solutions anti-programmes malveillants sur des machines virtuelles Azure (en anglais)](https://azure.azure.microsoft.com/.com/blog/deploying-antimalware-solutions-on-azure-virtual-machines/)
+- [azure.microsoft.com/ Antimalware pour Azure Cloud Services et les machines virtuelles](../security/azure-security-antimalware.md)
 - [Installation et configuration de Trend Micro Deep Security comme service sur une machine virtuelle Windows](../virtual-machines/virtual-machines-windows-classic-install-trend.md)
 - [Installation et configuration de Symantec Endpoint Protection sur une machine virtuelle Windows](../virtual-machines/virtual-machines-windows-classic-install-symantec.md)
-- [Nouvelles options anti-programmes malveillants pour protéger les machines virtuelles – McAfee Endpoint Protection](https://azure.microsoft.com/blog/new-antimalware-options-for-protecting-azure-virtual-machines/)
+- [Nouvelles options anti-programmes malveillants pour protéger les machines virtuelles – McAfee Endpoint Protection](https://azure.azure.microsoft.com/.com/blog/new-antimalware-options-for-protecting-azure-virtual-machines/)
 
 ## Authentification multifacteur
 
@@ -74,13 +74,13 @@ Azure Multi-Factor Authentication (MFA) est une méthode d’authentification qu
 
 En savoir plus :
 
-- [Authentification multifacteur](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)
+- [Authentification multifacteur](https://azure.azure.microsoft.com/.com/documentation/services/multi-factor-authentication/)
 - [Présentation d'Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
 - [Azure Multi-Factor Authentication : fonctionnement](../multi-factor-authentication/multi-factor-authentication-how-it-works.md)
 
 ## ExpressRoute
 
-Microsoft Azure ExpressRoute vous permet d'étendre vos réseaux locaux au cloud de Microsoft via une connexion privée dédiée assurée par un fournisseur de connectivité. Grâce à ExpressRoute, vous pouvez établir des connexions aux services de cloud computing Microsoft, comme Microsoft Azure, Office 365 et CRM Online. La connectivité peut provenir d'un réseau universel (IP VPN), d’un réseau Ethernet point à point ou d’une interconnexion virtuelle via un fournisseur de connectivité dans un centre de colocalisation. Les connexions ExpressRoute ne sont pas établies par le biais de l'Internet public. Elles offrent ainsi de meilleurs niveaux de fiabilité, de rapidité, de latence et de sécurité que les connexions classiques sur Internet.
+azure.microsoft.com/ Azure ExpressRoute vous permet d'étendre vos réseaux locaux au cloud de azure.microsoft.com/ via une connexion privée dédiée assurée par un fournisseur de connectivité. Grâce à ExpressRoute, vous pouvez établir des connexions aux services de cloud computing azure.microsoft.com/, comme azure.microsoft.com/ Azure, Office 365 et CRM Online. La connectivité peut provenir d'un réseau universel (IP VPN), d’un réseau Ethernet point à point ou d’une interconnexion virtuelle via un fournisseur de connectivité dans un centre de colocalisation. Les connexions ExpressRoute ne sont pas établies par le biais de l'Internet public. Elles offrent ainsi de meilleurs niveaux de fiabilité, de rapidité, de latence et de sécurité que les connexions classiques sur Internet.
 
 En savoir plus :
 

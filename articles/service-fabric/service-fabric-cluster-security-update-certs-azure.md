@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Ajouter, substituer et supprimer des certificats utilisés dans un cluster Service Fabric dans Azure | Microsoft Azure"
+   pageTitle="Ajouter, substituer et supprimer des certificats utilisés dans un cluster Service Fabric dans Azure | azure.microsoft.com/ Azure"
    description="Décrit comment charger un certificat de cluster secondaire, puis le substituer à l’ancien certificat principal."
    services="service-fabric"
    documentationCenter=".net"
@@ -40,15 +40,15 @@ Contrairement au flux de travail de création du cluster, nous ne couvrons pas i
 
 Cliquez sur **Certificat**. Un déploiement est lancé et une barre d’état bleue apparaît dans le panneau Sécurité du cluster.
 
-![Capture d’écran des empreintes de certificat dans le portail][SecurityConfigurations\_02]
+![Capture d’écran des empreintes de certificat dans le portail][SecurityConfigurations_02]
 
 Une fois ce déploiement terminé, vous pouvez utiliser le certificat principal ou le certificat secondaire pour effectuer des opérations de gestion sur le cluster.
 
-![Capture d’écran du déploiement de certificat en cours] [SecurityConfigurations\_03]
+![Capture d’écran du déploiement de certificat en cours] [SecurityConfigurations_03]
 
 Voici une capture du panneau Sécurité une fois le déploiement terminé.
 
-![Capture d’écran des empreintes de certificat après le déploiement][SecurityConfigurations\_08]
+![Capture d’écran des empreintes de certificat après le déploiement][SecurityConfigurations_08]
 
 
 Vous pouvez maintenant utiliser le nouveau certificat que vous avez ajouté pour vous connecter et effectuer des opérations sur le cluster.
@@ -69,7 +69,7 @@ Si vous utilisez l’exemple du [référentiel-git](https://github.com/ChackDan/
 
 1. Ouvrez le modèle Resource Manager que vous avez utilisé pour déployer votre cluster.
 2. Ajoutez un nouveau paramètre « secCertificateThumbprint » de type « string ». Si vous utilisez le modèle Resource Manager que vous avez téléchargé à partir du portail pendant la création ou à partir des modèles de démarrage rapide, recherchez simplement ce paramètre ; il est normalement déjà défini.
-3. Recherchez la définition de ressource « Microsoft.ServiceFabric/clusters ». Sous Propriétés, vous trouverez la balise JSON « Certificat », qui doit ressembler à l’extrait de code JSON suivant.
+3. Recherchez la définition de ressource « azure.microsoft.com/.ServiceFabric/clusters ». Sous Propriétés, vous trouverez la balise JSON « Certificat », qui doit ressembler à l’extrait de code JSON suivant.
 ```JSON
       "properties": {
         "certificate": {

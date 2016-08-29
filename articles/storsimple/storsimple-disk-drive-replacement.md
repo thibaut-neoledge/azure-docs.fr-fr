@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Remplacer un lecteur de disque sur un appareil StorSimple | Microsoft Azure"
+   pageTitle="Remplacer un lecteur de disque sur un appareil StorSimple | azure.microsoft.com/ Azure"
    description="Explique comment remplacer un lecteur de disque sur un boîtier principal ou EBOD StorSimple."
    services="storsimple"
    documentationCenter=""
@@ -19,13 +19,13 @@
 
 ## Vue d'ensemble
 
-Ce didacticiel explique comment vous pouvez retirer et remplacer un lecteur de disque dur défectueux ou défaillant sur un appareil Microsoft Azure StorSimple. Pour remplacer un lecteur de disque, vous devez :
+Ce didacticiel explique comment vous pouvez retirer et remplacer un lecteur de disque dur défectueux ou défaillant sur un appareil azure.microsoft.com/ Azure StorSimple. Pour remplacer un lecteur de disque, vous devez :
 
 - Désengager le verrou anti-effraction
 
 - Retirer le lecteur de disque
 
--     Installez le lecteur de disque de remplacement
+- Installez le lecteur de disque de remplacement
 
 >[AZURE.IMPORTANT] Avant de retirer et de remplacer un lecteur de disque, passez en revue les informations de sécurité dans [Remplacement de composants matériels StorSimple](storsimple-hardware-component-replacement.md).
 
@@ -35,13 +35,13 @@ Cette procédure explique comment les verrous anti-effraction sur votre appareil
 
 #### Pour déverrouiller le verrou anti-effraction
 
-1. Insérez soigneusement la clé de verrouillage (un tournevis « anti-effraction » T10 fourni par Microsoft) dans l’ouverture de la poignée et dans son emplacement.
+1. Insérez soigneusement la clé de verrouillage (un tournevis « anti-effraction » T10 fourni par azure.microsoft.com/) dans l’ouverture de la poignée et dans son emplacement.
 
     >[AZURE.NOTE] Si le verrou anti-effraction est activé, l’indicateur rouge est visible dans l’ouverture.
 
     ![Lecteur de disque verrouillé](./media/storsimple-disk-drive-replacement/IC741056.png)
 
-    **Figure 1** : Verrou anti-effraction engagé
+    **Figure 1** : Verrou anti-effraction engagé
 
     |Étiquette|Description|
     |:----|:----------|
@@ -54,7 +54,7 @@ Cette procédure explique comment les verrous anti-effraction sur votre appareil
 
     ![Lecteur de disque déverrouillé](./media/storsimple-disk-drive-replacement/IC741057.png)
 
-    **Figure 2** : Lecteur de disque déverrouillé
+    **Figure 2** : Lecteur de disque déverrouillé
 
 4. Le lecteur de disque peut maintenant être retiré.
 
@@ -86,13 +86,13 @@ Les lecteurs peuvent être retirés et remplacés pendant que le système foncti
 
     ![Libération de la poignée du lecteur de disque](./media/storsimple-disk-drive-replacement/IC741051.png)
 
-    **Figure 3** : Libération de la poignée du lecteur
+    **Figure 3** : Libération de la poignée du lecteur
 
 5. Quand la poignée du support de lecteur est entièrement en extension, faites glisser le support de lecteur hors du châssis.
 
     ![Retrait du disque hors du lecteur de disque](./media/storsimple-disk-drive-replacement/IC741052.png)
     
-    **Figure 4** : Retrait du lecteur de disque hors du châssis
+    **Figure 4** : Retrait du lecteur de disque hors du châssis
 
 ##     Installez le lecteur de disque de remplacement
 
@@ -104,17 +104,17 @@ Quand un lecteur est défectueux dans votre appareil StorSimple et que vous l’
 
     ![Lecteur de disque avec la poignée en extension](./media/storsimple-disk-drive-replacement/IC741044.png)
 
-    **Figure 5** : Lecteur avec la poignée en extension
+    **Figure 5** : Lecteur avec la poignée en extension
 
 2. Faites glisser le support de lecteur jusqu’au bout dans le châssis.
 
     ![Insertion du disque dans le support de lecteur disque](./media/storsimple-disk-drive-replacement/IC741045.png)
 
-    **Figure 6** : Insertion du support de lecteur dans le châssis
+    **Figure 6** : Insertion du support de lecteur dans le châssis
 
 3. Le support de lecteur étant inséré, fermez la poignée du support de lecteur tout en continuant à pousser le support de lecteur dans le châssis, jusqu’à ce que la poignée du support de lecteur s’enclenche en position verrouillée.
 
-4. Utilisez la clé de verrouillage qui a été fournie par Microsoft (tournevis Torx anti-effraction) pour sécuriser la poignée du support à son emplacement en tournant la vis de verrouillage d’un quart de tour dans le sens des aiguilles d’une montre.
+4. Utilisez la clé de verrouillage qui a été fournie par azure.microsoft.com/ (tournevis Torx anti-effraction) pour sécuriser la poignée du support à son emplacement en tournant la vis de verrouillage d’un quart de tour dans le sens des aiguilles d’une montre.
 
 5. Vérifiez que le remplacement a réussi et que le lecteur est opérationnel en accédant au portail Azure Classic, puis à **Maintenance** > **État du matériel**. Sous **Composants partagés** ou **Composants partagés du boîtier EBOD**, l’état du disque doit être en vert, indiquant qu’il est sain.
 

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Création d’un jeu d’enregistrements et d’enregistrements pour une zone DNS à l’aide du portail Azure | Microsoft Azure"
+   pageTitle="Création d’un jeu d’enregistrements et d’enregistrements pour une zone DNS à l’aide du portail Azure | azure.microsoft.com/ Azure"
    description="Création d’enregistrements hôtes pour Azure DNS et création d’enregistrements et de jeux d’enregistrements à l’aide du portail Azure"
    services="dns"
    documentationCenter="na"

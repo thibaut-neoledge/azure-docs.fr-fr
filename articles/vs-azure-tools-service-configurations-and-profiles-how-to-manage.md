@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Gestion des configurations de service et des profils | Microsoft Azure"
+   pageTitle="Gestion des configurations de service et des profils | azure.microsoft.com/ Azure"
    description="Découvrez comment utiliser les configurations de service et les fichiers de configuration de profils | qui stockent les paramètres pour les environnements de déploiement et comment publier les paramètres pour les services cloud."
    services="visual-studio-online"
    documentationCenter="na"
@@ -69,7 +69,7 @@ Vous pouvez également ouvrir la boîte de dialogue **Gérer les configurations*
 
 ### Pour modifier une configuration de service
 
-- Pour modifier une configuration de service, ouvrez le menu contextuel du rôle que vous souhaitez modifier dans le projet Azure, puis sélectionnez **Propriétés**. Pour plus d’informations, consultez [Procédure : configuration des rôles pour un service cloud Azure avec Visual Studio](https://msdn.microsoft.com/library/azure/hh369931.aspx).
+- Pour modifier une configuration de service, ouvrez le menu contextuel du rôle que vous souhaitez modifier dans le projet Azure, puis sélectionnez **Propriétés**. Pour plus d’informations, consultez [Procédure : configuration des rôles pour un service cloud Azure avec Visual Studio](https://msdn.azure.microsoft.com/.com/library/azure/hh369931.aspx).
 
 ## Réaliser différentes combinaisons de paramètres à l'aide des profils
 
@@ -99,7 +99,7 @@ Lorsque vous exécutez l'Assistant pour la première fois, un profil par défaut
 
 1. Dans la liste **Profil cible**, sélectionnez le profil que vous venez de créer. Les paramètres de l'Assistant Publication sont renseignés avec les options de profil que vous avez sélectionnées.
 
-1. Sélectionnez les boutons **Précédent** et **Suivant** pour afficher chaque page de l’Assistant Publication, puis personnalisez les paramètres de ce profil. Pour plus d’informations, consultez [Assistant Publication d’application Azure](http://go.microsoft.com/fwlink/p/?LinkID=623085).
+1. Sélectionnez les boutons **Précédent** et **Suivant** pour afficher chaque page de l’Assistant Publication, puis personnalisez les paramètres de ce profil. Pour plus d’informations, consultez [Assistant Publication d’application Azure](http://go.azure.microsoft.com/.com/fwlink/p/?LinkID=623085).
 
 1. Une fois la personnalisation des paramètres terminée, sélectionnez **Suivant** pour revenir à la page Paramètres. Le profil est enregistré quand vous publiez le service avec ces paramètres ou si vous sélectionnez **Enregistrer** en regard de la liste de profils.
 
@@ -121,7 +121,7 @@ Lorsque vous exécutez l'Assistant pour la première fois, un profil par défaut
 
 1. Dans la liste **Profil cible**, sélectionnez le profil que vous voulez modifier.
 
-1. Sélectionnez les boutons **Précédent** et **Suivant** pour afficher chaque page de l’Assistant Publication, puis modifiez les paramètres de votre choix. Pour plus d’informations, consultez [Assistant Publication d’application Azure](http://go.microsoft.com/fwlink/p/?LinkID=623085).
+1. Sélectionnez les boutons **Précédent** et **Suivant** pour afficher chaque page de l’Assistant Publication, puis modifiez les paramètres de votre choix. Pour plus d’informations, consultez [Assistant Publication d’application Azure](http://go.azure.microsoft.com/.com/fwlink/p/?LinkID=623085).
 
 1. Une fois la modification des paramètres terminée, sélectionnez **Suivant** pour revenir à la page **Paramètres**.
 
@@ -129,6 +129,6 @@ Lorsque vous exécutez l'Assistant pour la première fois, un profil par défaut
 
 ## Étapes suivantes
 
-Pour en savoir plus sur la configuration des autres parties de votre projet Azure à partir de Visual Studio, consultez [Configuration d’un projet Azure](http://go.microsoft.com/fwlink/p/?LinkID=623075)
+Pour en savoir plus sur la configuration des autres parties de votre projet Azure à partir de Visual Studio, consultez [Configuration d’un projet Azure](http://go.azure.microsoft.com/.com/fwlink/p/?LinkID=623075)
 
 <!---HONumber=AcomDC_0817_2016-->

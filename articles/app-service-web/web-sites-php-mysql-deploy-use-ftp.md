@@ -30,7 +30,7 @@ En suivant ce didacticiel, vous allez générer une application web d’inscript
 
 ![Site Web PHP Azure][running-app]
 
->[AZURE.NOTE] Si vous souhaitez commencer à utiliser Azure App Service avant d’ouvrir un compte, accédez au site [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751), où vous pouvez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise, et vous ne prenez aucun engagement.
+>[AZURE.NOTE] Si vous souhaitez commencer à utiliser Azure App Service avant d’ouvrir un compte, accédez au site [Essayer App Service](http://go.azure.microsoft.com/.com/fwlink/?LinkId=523751), où vous pouvez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise, et vous ne prenez aucun engagement.
 
 
 ##Créer une application web et configurer la publication FTP
@@ -70,8 +70,8 @@ Pour créer une application web et une base de données MySQL, suivez la procéd
 
 L'application d'inscription est une simple application PHP qui vous permet de vous inscrire à un événement en entrant votre nom et votre adresse électronique. Les informations relatives aux précédents inscrits sont affichées dans un tableau. Les informations d'inscription sont stockées dans une base de données MySQL. L’application se compose de deux fichiers :
 
-* **index.php** : affiche un formulaire d’inscription et un tableau contenant les informations des inscrits.
-* **createtable.php** : crée la table MySQL de l’application. Ce fichier sera utilisé une seule fois.
+* **index.php** : affiche un formulaire d’inscription et un tableau contenant les informations des inscrits.
+* **createtable.php** : crée la table MySQL de l’application. Ce fichier sera utilisé une seule fois.
 
 Pour générer et exécuter l’application localement, suivez la procédure ci-après. notez que ces étapes partent du principe que PHP, MySQL et un serveur Web sont configurés sur votre machine locale, et que vous avez activé l'[extension PDO pour MySQL][pdo-mysql].
 

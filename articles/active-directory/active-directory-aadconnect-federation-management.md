@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Gestion des services AD FS (Active Directory Federation Services) et personnalisation avec Azure AD Connect | Microsoft Azure"
+	pageTitle="Gestion des services AD FS (Active Directory Federation Services) et personnalisation avec Azure AD Connect | azure.microsoft.com/ Azure"
 	description="Gestion d’AD FS avec Azure AD Connect et personnalisation de la connexion de l’utilisateur à AD FS avec Azure AD Connect et Powershell."
 	keywords="AD FS, ADFS, gestion AD FS, AAD Connect, Connect, connexion, personnalisation d’AD FS, réparer l’approbation, O365, fédération, partie de confiance"
 	services="active-directory"
@@ -19,7 +19,7 @@
 
 # Gestion des services AD FS (Active Directory Federation Services) et personnalisation avec Azure AD Connect
 
-Cet article présente différentes tâches associées à AD FS qu’il est possible d’effectuer à l’aide de Microsoft Azure Active Directory Connect, ainsi que d’autres tâches AD FS courantes qui peuvent être nécessaires pour configurer une batterie de serveurs AD FS.
+Cet article présente différentes tâches associées à AD FS qu’il est possible d’effectuer à l’aide de azure.microsoft.com/ Azure Active Directory Connect, ainsi que d’autres tâches AD FS courantes qui peuvent être nécessaires pour configurer une batterie de serveurs AD FS.
 
 | Rubrique | Sujet traité |
 |:------|:-------------|
@@ -138,7 +138,7 @@ Pour ajouter une description de la **page de connexion**, utilisez l’applet de
 
 ### Modification des règles de revendication AD FS <a name=modclaims></a>
 
-AD FS prend en charge un langage complet, qui permet de créer des règles de revendication personnalisées. Pour plus d’informations, consultez [Rôle du langage de règle de revendication](https://technet.microsoft.com/library/dd807118.aspx).
+AD FS prend en charge un langage complet, qui permet de créer des règles de revendication personnalisées. Pour plus d’informations, consultez [Rôle du langage de règle de revendication](https://technet.azure.microsoft.com/.com/library/dd807118.aspx).
 
 Les sections suivantes décrivent comment écrire des règles personnalisées pour certains scénarios se rapportant à la fédération des services Azure AD et AD FS.
 
@@ -148,7 +148,7 @@ Azure AD Connect vous permet de spécifier un attribut à utiliser comme ancre s
 
 **Règle 1 : attributs de la requête**
 
-    c:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname"]
+    c:[Type == "http://schemas.azure.microsoft.com/.com/ws/2008/06/identity/claims/windowsaccountname"]
     => add(store = "Active Directory", types = ("http://contoso.com/ws/2016/02/identity/claims/objectguid", "http://contoso.com/ws/2016/02/identity/claims/msdsconcistencyguid"), query = "; objectGuid,ms-ds-consistencyguid;{0}", param = c.Value);
 
 Dans cette règle, vous interrogez les valeurs de **ms-ds-consistencyguid** et **objectGuid** de l’utilisateur à partir d’Active Directory. Remplacez le nom du magasin par un nom de magasin approprié dans votre déploiement AD FS. Remplacez également le type de revendication par un type approprié à votre fédération, comme défini pour **objectGuid** et **ms-ds-consistencyguid**.
@@ -188,7 +188,7 @@ Par défaut, la règle de revendication pour l’ID de l’émetteur est défini
 	c:[Type
 	== “http://schemas.xmlsoap.org/claims/UPN“]
 
-	=> issue(Type = “http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid“, Value = regexreplace(c.Value, “.+@(?<domain>.+)“, “http://${domain}/adfs/services/trust/“));
+	=> issue(Type = “http://schemas.azure.microsoft.com/.com/ws/2008/06/identity/claims/issuerid“, Value = regexreplace(c.Value, “.+@(?<domain>.+)“, “http://${domain}/adfs/services/trust/“));
 
 ![Revendication de l’ID d’émetteur par défaut](media\active-directory-aadconnect-federation-management\issuer_id_default.png)
 
@@ -197,7 +197,7 @@ La règle par défaut prend simplement le suffixe UPN et l’utilise dans la rev
     c:[Type
     == “http://schemas.xmlsoap.org/claims/UPN“]
 
-    => issue(Type = “http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid“, Value = regexreplace(john@sub.contoso.com, “.+@(?<domain>.+)“, “http://${domain}/adfs/services/trust/“));
+    => issue(Type = “http://schemas.azure.microsoft.com/.com/ws/2008/06/identity/claims/issuerid“, Value = regexreplace(john@sub.contoso.com, “.+@(?<domain>.+)“, “http://${domain}/adfs/services/trust/“));
 
 **Valeur de la revendication :** http://sub.contoso.com/adfs/services/trust/
 
@@ -205,7 +205,7 @@ Pour n’avoir que le domaine racine dans la valeur de revendication de l’éme
 
 	c:[Type == “http://schemas.xmlsoap.org/claims/UPN“]
 
-	=> issue(Type = “http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid“, Value = regexreplace(c.Value, “^((.*)([.|@]))?(?<domain>[^.]*[.].*)$”, “http://${domain}/adfs/services/trust/“));
+	=> issue(Type = “http://schemas.azure.microsoft.com/.com/ws/2008/06/identity/claims/issuerid“, Value = regexreplace(c.Value, “^((.*)([.|@]))?(?<domain>[^.]*[.].*)$”, “http://${domain}/adfs/services/trust/“));
 
 ## Étapes suivantes
 

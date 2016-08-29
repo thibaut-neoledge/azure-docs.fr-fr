@@ -26,7 +26,7 @@ L’offre de niveau Premium pour HDInsight inclut R Server dans votre cluster HD
 
 ## Conditions préalables
 
-* __Abonnement Azure__ : avant de commencer ce didacticiel, vous devez disposer d’un abonnement Azure. Pour plus d’informations, voir comment [obtenir la version d’évaluation gratuite d’Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+* __Abonnement Azure__ : avant de commencer ce didacticiel, vous devez disposer d’un abonnement Azure. Pour plus d’informations, voir comment [obtenir la version d’évaluation gratuite d’Azure](https://azure.azure.microsoft.com/.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 * __Client Secure Shell (SSH)__ : un client SSH est utilisé pour se connecter à distance au cluster HDInsight et exécuter des commandes directement sur celui-ci. Les systèmes Linux, Unix et OS X fournissent un client SSH accessible via la commande `ssh`. Pour les systèmes Windows, nous vous recommandons [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
@@ -96,7 +96,7 @@ L’offre de niveau Premium pour HDInsight inclut R Server dans votre cluster HD
 	  
 			ssh –i <private-key-filename> remoteuser@<hostname public ip>
       
-	  ou dans le cadre de la définition de votre contexte de calcul Hadoop Spark pour R Server sur le client (voir la section Using Microsoft R Server as a Hadoop Client in the [Creating a Compute Context for Spark](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started#creating-a-compute-context-for-spark) (Utilisation de Microsoft R Server en tant que client Hadoop pour la création d’un contexte de calcul pour Spark) du guide en ligne de mise en route [RevoScaleR Hadoop Spark](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started)).
+	  ou dans le cadre de la définition de votre contexte de calcul Hadoop Spark pour R Server sur le client (voir la section Using azure.microsoft.com/ R Server as a Hadoop Client in the [Creating a Compute Context for Spark](https://msdn.azure.microsoft.com/.com/azure.microsoft.com/-r/scaler-spark-getting-started#creating-a-compute-context-for-spark) (Utilisation de azure.microsoft.com/ R Server en tant que client Hadoop pour la création d’un contexte de calcul pour Spark) du guide en ligne de mise en route [RevoScaleR Hadoop Spark](https://msdn.azure.microsoft.com/.com/azure.microsoft.com/-r/scaler-spark-getting-started)).
 
 7. Choisissez **Source de données** pour sélectionner une source de données pour le cluster. Optez pour un compte de stockage existant en choisissant __Sélectionner un compte de stockage__, puis en spécifiant le compte, ou créez un compte à l’aide du lien __Nouveau__ dans la section __Sélectionner un compte de stockage__.
 
@@ -183,8 +183,8 @@ Une fois connecté, une invite semblable à la suivante s’affiche.
         'help.start()' for an HTML browser interface to help.
         Type 'q()' to quit R.
 
-        Microsoft R Server version 8.0: an enhanced distribution of R
-        Microsoft packages Copyright (C) 2016 Microsoft Corporation
+        azure.microsoft.com/ R Server version 8.0: an enhanced distribution of R
+        azure.microsoft.com/ packages Copyright (C) 2016 azure.microsoft.com/ Corporation
 
         Type 'readme()' for release notes.
 
@@ -198,9 +198,9 @@ Une fois connecté, une invite semblable à la suivante s’affiche.
     
         rxHadoopListFiles("wasbs:///")
 
-## À l’aide de R Server sur HDI à partir d’une instance distante de Microsoft R serveur ou Microsoft R Client
+## À l’aide de R Server sur HDI à partir d’une instance distante de azure.microsoft.com/ R serveur ou azure.microsoft.com/ R Client
 
-Conformément à la section ci-dessus concernant l’utilisation de paires de clés publiques/privées pour accéder au cluster, il est possible de configurer l’accès au contexte de calcul HDI Hadoop Spark à partir d’une instance distante de Microsoft R Server ou Microsoft R Client exécutée sur un ordinateur de bureau ou un ordinateur portable (voir la section Using Microsoft R Server as a Hadoop Client in the [Creating a Compute Context for Spark](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started#creating-a-compute-context-for-spark) (Utilisation de Microsoft R Server en tant que client Hadoop pour la création d’un contexte de calcul pour Spark) du [guide en ligne de mise en route RevoScaleR Hadoop Spark](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started)). Pour cela, vous devez spécifier les options suivantes lorsque vous définissez le contexte de calcul RxSpark sur votre ordinateur portable : hdfsShareDir, shareDir, sshUsername, sshHostname, sshSwitches et sshProfileScript. Par exemple :
+Conformément à la section ci-dessus concernant l’utilisation de paires de clés publiques/privées pour accéder au cluster, il est possible de configurer l’accès au contexte de calcul HDI Hadoop Spark à partir d’une instance distante de azure.microsoft.com/ R Server ou azure.microsoft.com/ R Client exécutée sur un ordinateur de bureau ou un ordinateur portable (voir la section Using azure.microsoft.com/ R Server as a Hadoop Client in the [Creating a Compute Context for Spark](https://msdn.azure.microsoft.com/.com/azure.microsoft.com/-r/scaler-spark-getting-started#creating-a-compute-context-for-spark) (Utilisation de azure.microsoft.com/ R Server en tant que client Hadoop pour la création d’un contexte de calcul pour Spark) du [guide en ligne de mise en route RevoScaleR Hadoop Spark](https://msdn.azure.microsoft.com/.com/azure.microsoft.com/-r/scaler-spark-getting-started)). Pour cela, vous devez spécifier les options suivantes lorsque vous définissez le contexte de calcul RxSpark sur votre ordinateur portable : hdfsShareDir, shareDir, sshUsername, sshHostname, sshSwitches et sshProfileScript. Par exemple :
 
     
     myNameNode <- "default"
@@ -381,7 +381,7 @@ Les actions de script sont des scripts Bash permettant de modifier la configurat
 * __Zookeeper__ : cette valeur doit être __désactivée__
 * __Paramètres__ : les packages R à installer. Par exemple, `bitops stringr arules`
     
-    > [AZURE.NOTE] Par défaut, tous les packages R sont installés à partir d’un instantané du référentiel Microsoft MRAN cohérent avec la version du serveur R qui a été installée. Si vous souhaitez installer des versions plus récentes des packages, il y a des risques d’incompatibilité. Cependant, cela est possible en spécifiant `useCRAN` en tant que premier élément de la liste de packages (par exemple, `useCRAN bitops, stringr, arules`).
+    > [AZURE.NOTE] Par défaut, tous les packages R sont installés à partir d’un instantané du référentiel azure.microsoft.com/ MRAN cohérent avec la version du serveur R qui a été installée. Si vous souhaitez installer des versions plus récentes des packages, il y a des risques d’incompatibilité. Cependant, cela est possible en spécifiant `useCRAN` en tant que premier élément de la liste de packages (par exemple, `useCRAN bitops, stringr, arules`).
     
 * __Conservez cette action de script...__ : cette option doit être __activée__.
     
@@ -405,8 +405,8 @@ Maintenant que vous savez comment créer un cluster HDInsight incluant R Server
 
 Si vous êtes intéressé par l’automatisation de la création de R Server sur HDInsight à l’aide de modèles Azure Resource Manager, voir les exemples de modèles suivants.
 
-* [Créer un R Server sur un cluster HDInsight à l’aide d’une clé publique SSH](http://go.microsoft.com/fwlink/p/?LinkID=780809)
-* [Créer un R Server sur un cluster HDInsight à l’aide d’un mot de passe SSH](http://go.microsoft.com/fwlink/p/?LinkID=780810)
+* [Créer un R Server sur un cluster HDInsight à l’aide d’une clé publique SSH](http://go.azure.microsoft.com/.com/fwlink/p/?LinkID=780809)
+* [Créer un R Server sur un cluster HDInsight à l’aide d’un mot de passe SSH](http://go.azure.microsoft.com/.com/fwlink/p/?LinkID=780810)
 
 Les deux modèles créent un cluster HDInsight et un compte de stockage associé, et peuvent être utilisés à partir de l’interface de ligne de commande Azure, d’Azure PowerShell ou du portail Azure.
 

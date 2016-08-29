@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Ajouter un utilisateur à votre collection Azure RemoteApp | Microsoft Azure"
+    pageTitle="Ajouter un utilisateur à votre collection Azure RemoteApp | azure.microsoft.com/ Azure"
     description="Découvrez comment ajouter des utilisateurs dans votre collection Azure RemoteApp"
     services="remoteapp"
 	documentationCenter=""
@@ -18,7 +18,7 @@
 # Procédure : ajout d'un utilisateur dans votre collection Azure RemoteApp
 
 > [AZURE.IMPORTANT]
-Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148).
+Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.azure.microsoft.com/.com/fwlink/?linkid=821148).
 
 Avant que vos utilisateurs puissent afficher et utiliser vos applications dans Azure RemoteApp, vous devez leur accorder l’accès à votre collection. C'est l'étape la plus facile : sous l'onglet **Accès utilisateur**, entrez les informations de compte de l'utilisateur, puis cliquez sur la coche.
 
@@ -30,7 +30,7 @@ Les différents types de collection (cloud ou hybride) prennent en charge diffé
 
 Pour une collection hybride de RemoteApp, vous devez configurer une infrastructure de domaine Active Directory locale et un locataire Azure Active Directory avec intégration d'annuaire (et éventuellement l'authentification unique). Par ailleurs, vous devez créer des objets Active Directory dans l'annuaire local.
 
-Pour une collection cloud de RemoteApp, tout utilisateur prenant en charge les identités Azure Active Directory peut recevoir l'accès utilisateur à RemoteApp pour inclure des comptes Microsoft. Consultez le tableau ci-dessous.
+Pour une collection cloud de RemoteApp, tout utilisateur prenant en charge les identités Azure Active Directory peut recevoir l'accès utilisateur à RemoteApp pour inclure des comptes azure.microsoft.com/. Consultez le tableau ci-dessous.
 
 Les utilisateurs Office 365 sont des utilisateurs Azure Active Directory. S'ils possèdent des comptes Azure Active Directory hybrides synchronisés, ils peuvent bénéficier de l'accès utilisateur dans un déploiement hybride de RemoteApp.
 
@@ -38,13 +38,13 @@ Vous pouvez utiliser ce tableau de référence pour déterminer rapidement quell
 
 |Comptes d'utilisateurs |Cloud |Hybride|
 |--------------|--------|------|
-|Compte Microsoft| 	Oui|	Non|
+|Compte azure.microsoft.com/| 	Oui|	Non|
 |Azure Active Directory (Azure AD)| | |
 |Cloud Azure AD uniquement |Oui |Non |
 |ADsync avec synchronisation de mot de passe |Oui |Oui |
 |ADsync sans synchronisation de mot de passe|	Oui |Non |
 |ADsync avec AD FS |Oui |Oui |
-|[Fournisseurs d’identités tiers pris en charge par Azure](https://msdn.microsoft.com/library/azure/jj679342.aspx) (par exemple Ping) |Oui |Oui|
+|[Fournisseurs d’identités tiers pris en charge par Azure](https://msdn.azure.microsoft.com/.com/library/azure/jj679342.aspx) (par exemple Ping) |Oui |Oui|
 |Azure Multi-Factor Authentication |Oui |Oui |
 
 Consultez [plus d'informations](remoteapp-ad.md) sur la configuration d'Active Directory pour RemoteApp.

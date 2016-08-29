@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Présentation du journal d’activité Azure | Microsoft Azure"
+	pageTitle="Présentation du journal d’activité Azure | azure.microsoft.com/ Azure"
 	description="Découvrez le journal d’activités Azure et comment vous pouvez l’utiliser pour comprendre les événements qui se produisent dans votre abonnement Azure."
 	authors="johnkemnetz"
 	manager="rboucher"
@@ -30,7 +30,7 @@ Voici ce que vous pouvez faire avec le journal d’activité :
 - Interrogez-le via l’API REST, l’applet de commande PowerShell ou l’interface de ligne de commande.
 - [Créez une alerte via e-mail ou webhook qui déclenche un événement de journal d’activité.](./insights-auditlog-to-webhook-email.md)
 - Enregistrez-le dans un **compte de stockage** pour l’archivage ou l’inspection manuelle. Vous pouvez spécifier la durée de rétention (en jours) à l’aide des **profils de journal**.
-- Analysez-le dans PowerBI à l’aide du [**pack de contenu PowerBI**](https://powerbi.microsoft.com/fr-FR/documentation/powerbi-content-pack-azure-audit-logs/).
+- Analysez-le dans PowerBI à l’aide du [**pack de contenu PowerBI**](https://powerbi.azure.microsoft.com/.com/fr-FR/documentation/powerbi-content-pack-azure-audit-logs/).
 - [Diffusez-le en continu vers un **Event Hub**](./monitoring-stream-activity-logs-event-hubs.md) pour qu’un service tiers ou une solution d’analyse personnalisée (p. ex. PowerBI) l’ingère.
 
 ## Export du journal d’activité avec les profils de journal
@@ -41,7 +41,7 @@ Un **profil de journal** contrôle comment votre journal d’activité est expor
 - Les régions (emplacements) qui doivent être exportées.
 - La durée de rétention du journal d’activité dans un compte de stockage ; une durée de rétention de zéro jour signifie que les journaux sont conservés indéfiniment. Si des stratégies de rétention sont définies, mais que le stockage des journaux dans un compte de stockage est désactivé (p. ex. si seules les options Event Hubs ou OMS sont sélectionnées), les stratégies de rétention n’ont aucun effet.
 
-Ces paramètres peuvent être configurés via l’option d’export dans le panneau Journal d’activité dans le portail, ou par programme [à l’aide de l’API REST](https://msdn.microsoft.com/library/azure/dn931927.aspx), des applets de commande PowerShell ou de l’interface de ligne de commande. Un abonnement ne peut avoir qu’un seul profil de journal.
+Ces paramètres peuvent être configurés via l’option d’export dans le panneau Journal d’activité dans le portail, ou par programme [à l’aide de l’API REST](https://msdn.azure.microsoft.com/.com/library/azure/dn931927.aspx), des applets de commande PowerShell ou de l’interface de ligne de commande. Un abonnement ne peut avoir qu’un seul profil de journal.
 
 ### Configuration des profils de journal à l’aide du portail Azure
 Vous pouvez diffuser en continu le journal d’activité vers un Event Hub ou le stocker dans un compte de stockage à l’aide de l’option d’export dans le portail Azure.
@@ -65,7 +65,7 @@ Get-AzureRmLogProfile
 
 #### Ajout d’un profil de journal
 ```
-Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Locations global,westus,eastus -RetentionInDays 90 -Categories Write,Delete,Action
+Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/azure.microsoft.com/.Storage/storageAccounts/my_storage -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/azure.microsoft.com/.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Locations global,westus,eastus -RetentionInDays 90 -Categories Write,Delete,Action
 ```
 
 | Propriété | Requis | Description |
@@ -94,7 +94,7 @@ La propriété `name` doit être le nom de votre profil de journal.
 
 #### Ajout d’un profil de journal
 ``` 
-azure insights logprofile add --name my_log_profile --storageId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Storage/storageAccounts/my_storage --serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey --locations global,westus,eastus,northeurope --retentionInDays 90 –categories Write,Delete,Action
+azure insights logprofile add --name my_log_profile --storageId /subscriptions/s1/resourceGroups/insights-integration/providers/azure.microsoft.com/.Storage/storageAccounts/my_storage --serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/azure.microsoft.com/.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey --locations global,westus,eastus,northeurope --retentionInDays 90 –categories Write,Delete,Action
 ```
 
 | Propriété | Requis | Description |
@@ -118,9 +118,9 @@ Chaque événement dans le journal d’activité a un objet blob JSON comme celu
 {
   "value": [ {
     "authorization": {
-      "action": "microsoft.support/supporttickets/write",
+      "action": "azure.microsoft.com/.support/supporttickets/write",
       "role": "Subscription Admin",
-      "scope": "/subscriptions/s1/resourceGroups/MSSupportGroup/providers/microsoft.support/supporttickets/115012112305841"
+      "scope": "/subscriptions/s1/resourceGroups/MSSupportGroup/providers/azure.microsoft.com/.support/supporttickets/115012112305841"
     },
     "caller": "admin@contoso.com",
     "channels": "Operation",
@@ -131,9 +131,9 @@ Chaque événement dans le journal d’activité a un objet blob JSON comme celu
       "nbf": "1421876371",
       "exp": "1421880271",
       "ver": "1.0",
-      "http://schemas.microsoft.com/identity/claims/tenantid": "1e8d8218-c5e7-4578-9acc-9abbd5d23315 ",
-      "http://schemas.microsoft.com/claims/authnmethodsreferences": "pwd",
-      "http://schemas.microsoft.com/identity/claims/objectidentifier": "2468adf0-8211-44e3-95xq-85137af64708",
+      "http://schemas.azure.microsoft.com/.com/identity/claims/tenantid": "1e8d8218-c5e7-4578-9acc-9abbd5d23315 ",
+      "http://schemas.azure.microsoft.com/.com/claims/authnmethodsreferences": "pwd",
+      "http://schemas.azure.microsoft.com/.com/identity/claims/objectidentifier": "2468adf0-8211-44e3-95xq-85137af64708",
       "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn": "admin@contoso.com",
       "puid": "20030000801A118C",
       "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "9vckmEGF7zDKk1YzIY8k0t1_EAPaXoeHyPRn6f413zM",
@@ -144,8 +144,8 @@ Chaque événement dans le journal d’activité a un objet blob JSON comme celu
       "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name": " admin@contoso.com",
       "appid": "c44b4083-3bq0-49c1-b47d-974e53cbdf3c",
       "appidacr": "2",
-      "http://schemas.microsoft.com/identity/claims/scope": "user_impersonation",
-      "http://schemas.microsoft.com/claims/authnclassreference": "1"
+      "http://schemas.azure.microsoft.com/.com/identity/claims/scope": "user_impersonation",
+      "http://schemas.azure.microsoft.com/.com/claims/authnclassreference": "1"
     },
     "correlationId": "1e121103-0ba6-4300-ac9d-952bb5d0c80f",
     "description": "",
@@ -155,26 +155,26 @@ Chaque événement dans le journal d’activité a un objet blob JSON comme celu
       "localizedValue": "End request"
     },
     "eventSource": {
-      "value": "Microsoft.Resources",
-      "localizedValue": "Microsoft Resources"
+      "value": "azure.microsoft.com/.Resources",
+      "localizedValue": "azure.microsoft.com/ Resources"
     },
     "httpRequest": {
       "clientRequestId": "27003b25-91d3-418f-8eb1-29e537dcb249",
       "clientIpAddress": "192.168.35.115",
       "method": "PUT"
     },
-    "id": "/subscriptions/s1/resourceGroups/MSSupportGroup/providers/microsoft.support/supporttickets/115012112305841/events/44ade6b4-3813-45e6-ae27-7420a95fa2f8/ticks/635574752669792776",
+    "id": "/subscriptions/s1/resourceGroups/MSSupportGroup/providers/azure.microsoft.com/.support/supporttickets/115012112305841/events/44ade6b4-3813-45e6-ae27-7420a95fa2f8/ticks/635574752669792776",
     "level": "Informational",
     "resourceGroupName": "MSSupportGroup",
     "resourceProviderName": {
-      "value": "microsoft.support",
-      "localizedValue": "microsoft.support"
+      "value": "azure.microsoft.com/.support",
+      "localizedValue": "azure.microsoft.com/.support"
     },
-    "resourceUri": "/subscriptions/s1/resourceGroups/MSSupportGroup/providers/microsoft.support/supporttickets/115012112305841",
+    "resourceUri": "/subscriptions/s1/resourceGroups/MSSupportGroup/providers/azure.microsoft.com/.support/supporttickets/115012112305841",
     "operationId": "1e121103-0ba6-4300-ac9d-952bb5d0c80f",
     "operationName": {
-      "value": "microsoft.support/supporttickets/write",
-      "localizedValue": "microsoft.support/supporttickets/write"
+      "value": "azure.microsoft.com/.support/supporttickets/write",
+      "localizedValue": "azure.microsoft.com/.support/supporttickets/write"
     },
     "properties": {
       "statusCode": "Created"

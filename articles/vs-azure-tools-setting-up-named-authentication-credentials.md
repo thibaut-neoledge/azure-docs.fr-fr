@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Configuration des informations d’authentification nommées | Microsoft Azure"
+   pageTitle="Configuration des informations d’authentification nommées | azure.microsoft.com/ Azure"
    description="Découvrez comment fournir des informations d’identification que Visual Studio pourra utiliser pour authentifier les demandes effectuées auprès d’Azure dans le cadre de la publication d’une application dans Azure à partir de Visual Studio, ou de l’analyse d’un service cloud existant. "
    services="visual-studio-online"
    documentationCenter="na"
@@ -33,7 +33,7 @@ Visual Studio utilise votre ID d’abonnement et les données du certificat comm
 
 Vous pouvez modifier les informations d’abonnement à partir de la boîte de dialogue **Modifier l’abonnement/Nouvel abonnement**, comme expliqué plus loin dans cette rubrique.
 
-Si vous souhaitez créer vous-même un certificat, vous pouvez consulter les instructions fournies dans [Vue d’ensemble des certificats pour Azure Cloud Services](https://msdn.microsoft.com/library/windowsazure/gg551722.aspx), puis charger manuellement le certificat vers le [portail Azure Classic](http://go.microsoft.com/fwlink/?LinkID=213885).
+Si vous souhaitez créer vous-même un certificat, vous pouvez consulter les instructions fournies dans [Vue d’ensemble des certificats pour Azure Cloud Services](https://msdn.azure.microsoft.com/.com/library/windowsazure/gg551722.aspx), puis charger manuellement le certificat vers le [portail Azure Classic](http://go.azure.microsoft.com/.com/fwlink/?LinkID=213885).
 
 >[AZURE.NOTE] Les informations d’identification dont Visual Studio a besoin pour gérer vos services cloud ne sont pas les mêmes que celles nécessaires pour authentifier une demande effectuée auprès des services de stockage Azure.
 
@@ -53,15 +53,15 @@ La procédure suivante suppose que la boîte de dialogue **Nouvel abonnement** e
 
 1. Choisissez le bouton **Copier le chemin d’accès complet**. Le chemin d’accès du certificat (fichier .cer) est copié dans le Presse-papiers.
 
-    >[AZURE.IMPORTANT] Pour publier votre application Azure à partir de Visual Studio, vous devrez charger ce certificat vers le [portail Azure Classic](http://go.microsoft.com/fwlink/?LinkID=213885).
+    >[AZURE.IMPORTANT] Pour publier votre application Azure à partir de Visual Studio, vous devrez charger ce certificat vers le [portail Azure Classic](http://go.azure.microsoft.com/.com/fwlink/?LinkID=213885).
 
-1. Pour télécharger le certificat sur le [portail Azure Classic](http://go.microsoft.com/fwlink/?LinkID=213885) :
+1. Pour télécharger le certificat sur le [portail Azure Classic](http://go.azure.microsoft.com/.com/fwlink/?LinkID=213885) :
 
     1. Cliquez sur le lien du portail Azure.
 
-         Le [portail Azure Classic](http://go.microsoft.com/fwlink/?LinkID=213885) s’ouvre.
+         Le [portail Azure Classic](http://go.azure.microsoft.com/.com/fwlink/?LinkID=213885) s’ouvre.
 
-    1. Connectez-vous au [portail Azure Classic](http://go.microsoft.com/fwlink/?LinkID=213885), puis cliquez sur le bouton **Cloud Services**.
+    1. Connectez-vous au [portail Azure Classic](http://go.azure.microsoft.com/.com/fwlink/?LinkID=213885), puis cliquez sur le bouton **Cloud Services**.
 
     1. Sélectionnez le service cloud qui vous intéresse.
 

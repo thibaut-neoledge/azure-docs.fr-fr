@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Préparer et tester votre offre pour le déploiement sur Azure Marketplace | Microsoft Azure"
+   pageTitle="Préparer et tester votre offre pour le déploiement sur Azure Marketplace | azure.microsoft.com/ Azure"
    description="Instructions détaillées sur l’indication de contenu marketing, la configuration de plans de tarification et le test de votre offre avant le déploiement sur Azure Marketplace."
    services="marketplace-publishing"
    documentationCenter=""
@@ -127,7 +127,7 @@ Pour les offres de machines virtuelles, une fois qu’une offre/référence est 
 ### 2\.1. Définir les prix de votre machine virtuelle
 Actuellement, nous proposons les **3 types de modèles de facturation** suivants pour les machines virtuelles :
 
-- **Horaire :** les clients sont facturés à l’heure en fonction des tarifs définis par les éditeurs sur les tailles de machine virtuelle. Dans le cas du modèle de **facturation horaire** des références, le prix total est la somme du coût logiciel facturé par l’éditeur et du coût d’infrastructure facturé par Microsoft. Ce coût total s’affichera pour le client sous forme de tarif horaire et mensuel lorsqu’ils considéreront l’achat (voir la capture d’écran ci-dessous). **L’éditeur reçoit 80 % du coût logiciel qu’il facture.** Par conséquent, calculez vos tarifs en conséquence avant de définir les prix pour vos références.
+- **Horaire :** les clients sont facturés à l’heure en fonction des tarifs définis par les éditeurs sur les tailles de machine virtuelle. Dans le cas du modèle de **facturation horaire** des références, le prix total est la somme du coût logiciel facturé par l’éditeur et du coût d’infrastructure facturé par azure.microsoft.com/. Ce coût total s’affichera pour le client sous forme de tarif horaire et mensuel lorsqu’ils considéreront l’achat (voir la capture d’écran ci-dessous). **L’éditeur reçoit 80 % du coût logiciel qu’il facture.** Par conséquent, calculez vos tarifs en conséquence avant de définir les prix pour vos références.
 
     ![dessin](media/marketplace-publishing-push-to-staging/img2.1-01.png)
 
@@ -146,9 +146,9 @@ Actuellement, nous proposons les **3 types de modèles de facturation** suivants
 - **Ports :** [Portail de publication -> Machines virtuelles -> Votre offre -> Onglet Images de machines virtuelles -> Ports ouverts]
 
 ### Pays cibles de la référence
-Vous devez considérer soigneusement dans lesquels vous rendrez vos références disponibles. Certains pays sont classés comme « Versement par Microsoft » et d’autres comme « Versement par l’éditeur indépendant ».
+Vous devez considérer soigneusement dans lesquels vous rendrez vos références disponibles. Certains pays sont classés comme « Versement par azure.microsoft.com/ » et d’autres comme « Versement par l’éditeur indépendant ».
 
-- Dans les pays « Versement par Microsoft », Microsoft collecte les taxes auprès des clients et paie (verse) les taxes au gouvernement.
+- Dans les pays « Versement par azure.microsoft.com/ », azure.microsoft.com/ collecte les taxes auprès des clients et paie (verse) les taxes au gouvernement.
 - Dans les pays « Versement par l’éditeur indépendant », les partenaires sont responsables de la collecte des taxes et de leur versement aux gouvernements respectifs. Si vous choisissez de vendre dans des pays « Versement par l’éditeur indépendant », vous devez avoir les capacités de calculer et payer des taxes dans les pays que vous sélectionnez.
 
 >[AZURE.NOTE] Votre référence ne sera pas disponible dans un pays tant que vous ne définissez pas les tarifs dans le [Portail de publication](https://publish.windowsazure.com). Vous trouverez ci-dessous des instructions pour définir la tarification des références horaires et BYOL.
@@ -182,7 +182,7 @@ Suivez les étapes ci-dessous pour configurer un modèle de tarification horaire
 
     ![dessin](media/marketplace-publishing-push-to-staging/img2.1.1_11.png)
 
-12.	La page 3 affiche les marchés et régions. Cliquez sur le bouton **Activer/désactiver tout** pour sélectionner toutes les régions, ou cochez-les manuellement. Cliquez sur le bouton « -> » pour passer à la page suivante. **Remarque :** les pays pour lesquels Microsoft verse les taxes sont indiqués par un symbole de maison. Pour plus d’informations, consultez la section Pays cibles de la référence sur cette page.
+12.	La page 3 affiche les marchés et régions. Cliquez sur le bouton **Activer/désactiver tout** pour sélectionner toutes les régions, ou cochez-les manuellement. Cliquez sur le bouton « -> » pour passer à la page suivante. **Remarque :** les pays pour lesquels azure.microsoft.com/ verse les taxes sont indiqués par un symbole de maison. Pour plus d’informations, consultez la section Pays cibles de la référence sur cette page.
 
     ![dessin](media/marketplace-publishing-push-to-staging/img2.1.1_12.png)
 
@@ -221,7 +221,7 @@ Les offres peuvent constituer une combinaison quelconque de tarifs De base + Con
 |Gold|1 000 $ par mois|Quota de 10 000 pour la fonctionnalité X, 1 000 pour la fonctionnalité Y et illimité pour la fonctionnalité Z.|Permet de migrer vers toutes les offres sauf Gratuit|
 
 ## Étape 3 : Fournir les informations de support
-Les coordonnées sont utilisées uniquement pour les communications internes entre le partenaire et Microsoft. L’URL de support sera disponible pour les clients finaux.
+Les coordonnées sont utilisées uniquement pour les communications internes entre le partenaire et azure.microsoft.com/. L’URL de support sera disponible pour les clients finaux.
 
 1.	Accédez à l’en-tête **Support** à gauche du portail de publication.
 2.	Entrez les informations sous **Engineering Contact** (Contact Ingénieur).
@@ -232,7 +232,7 @@ Les coordonnées sont utilisées uniquement pour les communications internes ent
 L’onglet **Categories** (Catégories) offre diverses options. Votre offre peut appartenir à l’une d’elles et vous pouvez sélectionner jusqu’à cinq catégories.
 
 ## Présentation de votre contenu marketing
-Voici une vue détaillée de l’utilisation des informations marketing de l’offre sur le [site web Azure Marketplace](https://azure.microsoft.com/marketplace/) et dans le [portail Azure](https://portal.azure.com).
+Voici une vue détaillée de l’utilisation des informations marketing de l’offre sur le [site web Azure Marketplace](https://azure.azure.microsoft.com/.com/marketplace/) et dans le [portail Azure](https://portal.azure.com).
 
 ### Site web Azure Marketplace
 ![dessin](media/marketplace-publishing-push-to-staging/acom-catalog-01.png)

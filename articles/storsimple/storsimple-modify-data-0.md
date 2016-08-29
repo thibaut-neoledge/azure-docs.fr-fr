@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Modifier les paramètres DATA 0 sur un appareil StorSimple | Microsoft Azure"
+   pageTitle="Modifier les paramètres DATA 0 sur un appareil StorSimple | azure.microsoft.com/ Azure"
    description="Découvrez comment utiliser Windows PowerShell for StorSimple pour reconfigurer l'interface réseau DATA 0 sur votre appareil StorSimple."
    services="storsimple"
    documentationCenter=""
@@ -19,7 +19,7 @@
 
 ## Vue d'ensemble
 
-Votre appareil Microsoft Azure StorSimple dispose de six interfaces réseau, de DATA 0 à DATA 5. L’interface DATA 0 est toujours configurée via l'interface Windows PowerShell ou la console série, et elle est automatiquement activée pour le cloud. Vous ne pouvez pas configurer l’interface réseau DATA 0 via le portail Azure Classic.
+Votre appareil azure.microsoft.com/ Azure StorSimple dispose de six interfaces réseau, de DATA 0 à DATA 5. L’interface DATA 0 est toujours configurée via l'interface Windows PowerShell ou la console série, et elle est automatiquement activée pour le cloud. Vous ne pouvez pas configurer l’interface réseau DATA 0 via le portail Azure Classic.
 
 L’interface DATA 0 est d'abord configuré via l’Assistant Installation lors du déploiement initial de l’appareil StorSimple. Si l’appareil est en cours d’exécution, vous devrez peut-être reconfigurer les paramètres DATA 0. Ce didacticiel fournit deux méthodes permettant de modifier les paramètres de réseau DATA 0 via Windows PowerShell for StorSimple.
 
@@ -69,7 +69,7 @@ Vous pouvez également reconfigurer l’interface réseau DATA 0 via l’applet
 
 	- Adresse IPv4 fixe du contrôleur 1
 
-	Pour plus d’informations sur l’utilisation de cette applet de commande, consultez le [document de référence sur les applets de commande Windows PowerShell pour StorSimple](https://technet.microsoft.com/library/dn688161.aspx).
+	Pour plus d’informations sur l’utilisation de cette applet de commande, consultez le [document de référence sur les applets de commande Windows PowerShell pour StorSimple](https://technet.azure.microsoft.com/.com/library/dn688161.aspx).
 
 ## Étapes suivantes
 

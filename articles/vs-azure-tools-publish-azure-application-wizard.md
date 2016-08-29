@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Assistant de publication d’application Azure | Microsoft Azure"
+   pageTitle="Assistant de publication d’application Azure | azure.microsoft.com/ Azure"
    description="Assistant Publication d’application Azure"
    services="visual-studio-online"
    documentationCenter="na"
@@ -21,19 +21,19 @@
 
 Une fois que vous avez développé une application web dans Visual Studio, vous pouvez publier cette application plus facilement dans un service cloud Azure à l'aide de l’Assistant **Publication d’application Azure**. La première section décrit les étapes que vous devez effectuer avant d’utiliser l'Assistant, et les sections suivantes décrivent les fonctionnalités de l'Assistant.
 
->[AZURE.NOTE] Cette rubrique concerne le déploiement sur des services cloud, pas sur des sites web. Pour plus d'informations sur le déploiement sur des sites web, consultez [Déploiement d'un site web Azure](https://social.msdn.microsoft.com/Search/windowsazure?query=How%20to%20Deploy%20an%20Azure%20Web%20Site&Refinement=138&ac=4#refinementChanges=117&pageNumber=1&showMore=false).
+>[AZURE.NOTE] Cette rubrique concerne le déploiement sur des services cloud, pas sur des sites web. Pour plus d'informations sur le déploiement sur des sites web, consultez [Déploiement d'un site web Azure](https://social.msdn.azure.microsoft.com/.com/Search/windowsazure?query=How%20to%20Deploy%20an%20Azure%20Web%20Site&Refinement=138&ac=4#refinementChanges=117&pageNumber=1&showMore=false).
 
 ## Composants requis
 
-Avant de pouvoir publier votre application web sur Azure, vous devez disposer d’un compte Microsoft et d’un abonnement Azure, et vous devez associer votre application web à un service cloud Azure. Si vous avez déjà effectué ces tâches, vous pouvez passer à la section suivante.
+Avant de pouvoir publier votre application web sur Azure, vous devez disposer d’un compte azure.microsoft.com/ et d’un abonnement Azure, et vous devez associer votre application web à un service cloud Azure. Si vous avez déjà effectué ces tâches, vous pouvez passer à la section suivante.
 
-1. Obtenez un compte Microsoft et un abonnement Azure. Vous pouvez faire un essai gratuit de l’abonnement Azure pendant un mois [ici](https://azure.microsoft.com/pricing/free-trial/)
+1. Obtenez un compte azure.microsoft.com/ et un abonnement Azure. Vous pouvez faire un essai gratuit de l’abonnement Azure pendant un mois [ici](https://azure.azure.microsoft.com/.com/pricing/free-trial/)
 
-1. Créez un service cloud et un compte de stockage dans Azure. Vous pouvez le faire à partir de l’Explorateur de serveurs dans Visual Studio ou à l’aide du [portail Azure Classic](http://go.microsoft.com/fwlink/?LinkID=213885).
+1. Créez un service cloud et un compte de stockage dans Azure. Vous pouvez le faire à partir de l’Explorateur de serveurs dans Visual Studio ou à l’aide du [portail Azure Classic](http://go.azure.microsoft.com/.com/fwlink/?LinkID=213885).
 
 1. Activez votre application web pour Azure. Pour que votre application web puisse être publiée sur Azure à partir de Visual Studio, vous devez l’associer à un projet de service cloud Azure dans Visual Studio. Pour créer le projet de service cloud associé, ouvrez le menu contextuel du projet de votre application web, puis sélectionnez Convertir, **Convertir en projet de service cloud Azure**.
 
-1. Une fois le projet de service cloud ajouté à votre solution, ouvrez de nouveau le même menu contextuel, puis sélectionnez **Publier**. Pour plus d'informations sur l'activation des applications pour Azure, consultez [Migration et publication d’une application web sur un service cloud Azure à partir de Visual Studio](https://msdn.microsoft.com/library/azure/hh420322.aspx).
+1. Une fois le projet de service cloud ajouté à votre solution, ouvrez de nouveau le même menu contextuel, puis sélectionnez **Publier**. Pour plus d'informations sur l'activation des applications pour Azure, consultez [Migration et publication d’une application web sur un service cloud Azure à partir de Visual Studio](https://msdn.azure.microsoft.com/.com/library/azure/hh420322.aspx).
 
 >[AZURE.NOTE] Veillez à démarrer Visual Studio en tant qu'administrateur (Exécuter en tant qu'administrateur).
 
@@ -89,7 +89,7 @@ Vous pouvez modifier les paramètres courants et avancés du déploiement à l'a
 
     Cochez la case **Activer le Bureau à distance pour tous les rôles** si vous souhaitez pouvoir vous connecter à distance au service. Cette option est principalement utilisée pour le dépannage. Une fois cette case cochée, la boîte de dialogue **Configuration du Bureau à distance** s’affiche. Cliquez sur le lien Paramètres pour modifier la configuration.
 
-    Cochez la case **Activer Web Deploy pour tous les rôles web** pour activer le déploiement web pour le service. Vous devez activer le Bureau à distance pour pouvoir utiliser cette fonctionnalité. Pour plus d’informations, consultez [[Publication d’un service cloud à l’aide des outils Azure](https://msdn.microsoft.com/library/azure/ff683672.aspx)](https://msdn.microsoft.com/library/azure/ff683672.aspx). Pour plus d’informations sur Web Deploy, consultez [[Publication d’un service cloud à l’aide des outils Azure](https://msdn.microsoft.com/library/azure/ff683672.aspx)](https://msdn.microsoft.com/library/azure/ff683672.aspx).
+    Cochez la case **Activer Web Deploy pour tous les rôles web** pour activer le déploiement web pour le service. Vous devez activer le Bureau à distance pour pouvoir utiliser cette fonctionnalité. Pour plus d’informations, consultez [[Publication d’un service cloud à l’aide des outils Azure](https://msdn.azure.microsoft.com/.com/library/azure/ff683672.aspx)](https://msdn.azure.microsoft.com/.com/library/azure/ff683672.aspx). Pour plus d’informations sur Web Deploy, consultez [[Publication d’un service cloud à l’aide des outils Azure](https://msdn.azure.microsoft.com/.com/library/azure/ff683672.aspx)](https://msdn.azure.microsoft.com/.com/library/azure/ff683672.aspx).
 
 1. Sélectionnez l’onglet **Paramètres avancés**. Dans le champ **Étiquette de déploiement**, acceptez le nom par défaut ou entrez un nom de votre choix. Pour ajouter la date à l'étiquette de déploiement, laissez la case cochée.
 
@@ -105,7 +105,7 @@ Vous pouvez modifier les paramètres courants et avancés du déploiement à l'a
 
     Vous pouvez choisir une des deux options de déploiement d’une mise à jour : incrémentiel ou simultané. Un déploiement incrémentiel met à jour une instance déployée à la fois, afin que votre application reste en ligne et accessible aux utilisateurs. Un déploiement simultané met à jour toutes les instances déployées en même temps. La mise à jour simultanée est plus rapide que la mise à jour incrémentielle mais, si vous choisissez cette option, votre application peut ne pas être disponible pendant le processus de mise à jour.
 
-    Cochez la case Si le déploiement ne peut pas être mis à jour, effectuer un déploiement complet si vous souhaitez qu’un déploiement complet soit automatiquement lancé en cas d'échec du déploiement de la mise à jour. Un déploiement complet réinitialise l'adresse IP virtuelle (VIP) du service cloud. Pour plus d'informations, consultez [Conservation d’une adresse IP virtuelle constante pour un service cloud](https://msdn.microsoft.com/library/azure/jj614593.aspx).
+    Cochez la case Si le déploiement ne peut pas être mis à jour, effectuer un déploiement complet si vous souhaitez qu’un déploiement complet soit automatiquement lancé en cas d'échec du déploiement de la mise à jour. Un déploiement complet réinitialise l'adresse IP virtuelle (VIP) du service cloud. Pour plus d'informations, consultez [Conservation d’une adresse IP virtuelle constante pour un service cloud](https://msdn.azure.microsoft.com/.com/library/azure/jj614593.aspx).
 
 
 1. Pour déboguer votre service, cochez la case **Activer IntelliTrace** ou, si vous déployez une configuration **Débogage** et que vous souhaitez déboguer votre service cloud dans Azure, cochez la case **Activer le débogueur distant pour tous les rôles** pour déployer les services de débogage à distance.
@@ -115,7 +115,7 @@ Vous pouvez modifier les paramètres courants et avancés du déploiement à l'a
 
     >[AZURE.NOTE] Vous devez utiliser Visual Studio Ultimate pour activer IntelliTrace ou le profilage d'interaction de couche (TIP), et vous ne pouvez pas activer les deux en même temps.
 
-    Pour plus d’informations, consultez [Débogage d’un service cloud publié avec IntelliTrace et Visual Studio](https://msdn.microsoft.com/library/azure/ff683671.aspx) et [Test des performances d'un service cloud](https://msdn.microsoft.com/library/azure/hh369930.aspx).
+    Pour plus d’informations, consultez [Débogage d’un service cloud publié avec IntelliTrace et Visual Studio](https://msdn.azure.microsoft.com/.com/library/azure/ff683671.aspx) et [Test des performances d'un service cloud](https://msdn.azure.microsoft.com/.com/library/azure/hh369930.aspx).
 
 1. Sélectionnez **Suivant** pour afficher la page de résumé de l'application.
 
@@ -131,12 +131,12 @@ Vous pouvez modifier les paramètres courants et avancés du déploiement à l'a
 
 ## Voir aussi
 
-[Migration et publication d’une application web sur un service cloud Azure à partir de Visual Studio](https://msdn.microsoft.com/library/azure/hh420322.aspx)
+[Migration et publication d’une application web sur un service cloud Azure à partir de Visual Studio](https://msdn.azure.microsoft.com/.com/library/azure/hh420322.aspx)
 
-[Publication d’un service cloud à l’aide des outils Azure](https://msdn.microsoft.com/library/azure/ff683672.aspx)
+[Publication d’un service cloud à l’aide des outils Azure](https://msdn.azure.microsoft.com/.com/library/azure/ff683672.aspx)
 
-[Débogage d’un service cloud publié avec IntelliTrace et Visual Studio](https://msdn.microsoft.com/library/azure/ff683671.aspx)
+[Débogage d’un service cloud publié avec IntelliTrace et Visual Studio](https://msdn.azure.microsoft.com/.com/library/azure/ff683671.aspx)
 
-[Test des performances d'un service cloud](https://msdn.microsoft.com/library/azure/hh369930.aspx)
+[Test des performances d'un service cloud](https://msdn.azure.microsoft.com/.com/library/azure/hh369930.aspx)
 
 <!---HONumber=AcomDC_0817_2016-->

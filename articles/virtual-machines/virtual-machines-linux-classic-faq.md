@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Forum Aux Questions (FAQ) sur les machines virtuelles classiques | Microsoft Azure"
+	pageTitle="Forum Aux Questions (FAQ) sur les machines virtuelles classiques | azure.microsoft.com/ Azure"
 	description="Réponses à certaines questions courantes sur les machines virtuelles Linux Azure créées avec le modèle de déploiement classique."
 	services="virtual-machines-linux"
 	documentationCenter=""

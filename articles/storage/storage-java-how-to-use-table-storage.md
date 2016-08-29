@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Utilisation du stockage de tables à partir de Java | Microsoft Azure"
+	pageTitle="Utilisation du stockage de tables à partir de Java | azure.microsoft.com/ Azure"
 	description="Stockez des données structurées dans le cloud à l’aide du stockage de tables Azure, un magasin de données NoSQL."
 	services="storage"
 	documentationCenter="java"
@@ -23,7 +23,7 @@
 
 ## Vue d'ensemble
 
-Ce guide décrit le déroulement de scénarios courants dans le cadre de l'utilisation du service de stockage de table Azure. Les exemples sont écrits en Java et utilisent le [Kit de développement logiciel (SDK) Azure Storage pour Java][]. Les scénarios abordés sont les suivants : **création**, **suppression** et **affichage d'une liste** de tables, **insertion**, **interrogation **, **modification** et **suppression** des entités d'une table. Pour plus d'informations sur les tables, consultez la section [Étapes suivantes](#Next-Steps).
+Ce guide décrit le déroulement de scénarios courants dans le cadre de l'utilisation du service de stockage de table Azure. Les exemples sont écrits en Java et utilisent le [Kit de développement logiciel (SDK) Azure Storage pour Java][]. Les scénarios abordés sont les suivants : **création**, **suppression** et **affichage d'une liste** de tables, **insertion**, **interrogation**, **modification** et **suppression** des entités d'une table. Pour plus d'informations sur les tables, consultez la section [Étapes suivantes](#Next-Steps).
 
 Remarque : un Kit de développement logiciel (SDK) est disponible pour les développeurs qui utilisent Azure Storage sur des appareils Android. Pour plus d'informations, consultez la page [Kit de développement logiciel (SDK) Azure Storage pour Android][].
 
@@ -39,12 +39,12 @@ Pour ce faire, vous devez installer le Kit de développement Java (JDK) et crée
 
 ## Configuration de votre application pour accéder au stockage de table
 
-Ajoutez l'instruction import suivante au début du fichier Java dans lequel vous voulez utiliser des API de stockage Microsoft Azure pour accéder aux tables :
+Ajoutez l'instruction import suivante au début du fichier Java dans lequel vous voulez utiliser des API de stockage azure.microsoft.com/ Azure pour accéder aux tables :
 
     // Include the following imports to use table APIs
-    import com.microsoft.azure.storage.*;
-    import com.microsoft.azure.storage.table.*;
-    import com.microsoft.azure.storage.table.TableQuery.*;
+    import com.azure.microsoft.com/.azure.storage.*;
+    import com.azure.microsoft.com/.azure.storage.table.*;
+    import com.azure.microsoft.com/.azure.storage.table.TableQuery.*;
 
 ## Configuration d’une chaîne de connexion de stockage Azure
 
@@ -56,7 +56,7 @@ Un client de stockage Azure utilise une chaîne de connexion de stockage pour st
         "AccountName=your_storage_account;" +
         "AccountKey=your_storage_account_key";
 
-Dans une application exécutée au sein d'un rôle dans Microsoft Azure, cette chaîne peut être stockée dans le fichier de configuration de service *ServiceConfiguration.cscfg* et elle est accessible en appelant la méthode **RoleEnvironment.getConfigurationSettings**. Voici un exemple de code vous permettant d'extraire la chaîne de connexion à partir d'un élément **Setting** nommé *StorageConnectionString* dans le fichier de configuration de service :
+Dans une application exécutée au sein d'un rôle dans azure.microsoft.com/ Azure, cette chaîne peut être stockée dans le fichier de configuration de service *ServiceConfiguration.cscfg* et elle est accessible en appelant la méthode **RoleEnvironment.getConfigurationSettings**. Voici un exemple de code vous permettant d'extraire la chaîne de connexion à partir d'un élément **Setting** nommé *StorageConnectionString* dans le fichier de configuration de service :
 
     // Retrieve storage account from connection-string.
     String storageConnectionString =
@@ -555,12 +555,12 @@ Maintenant que vous avez appris les bases du stockage de tables, suivez ces lien
 Pour plus d’informations, consultez également le [Centre pour développeurs Java](/develop/java/).
 
 
-[Azure SDK for Java]: http://go.microsoft.com/fwlink/?LinkID=525671
+[Azure SDK for Java]: http://go.azure.microsoft.com/.com/fwlink/?LinkID=525671
 [Kit de développement logiciel (SDK) Azure Storage pour Java]: https://github.com/azure/azure-storage-java
 [Kit de développement logiciel (SDK) Azure Storage pour Java]: https://github.com/azure/azure-storage-java
 [Kit de développement logiciel (SDK) Azure Storage pour Android]: https://github.com/azure/azure-storage-android
 [Référence du Kit de développement logiciel (SDK) du client Azure Storage]: http://dl.windowsazure.com/storage/javadoc/
-[API REST d’Azure Storage]: https://msdn.microsoft.com/library/azure/dd179355.aspx
+[API REST d’Azure Storage]: https://msdn.azure.microsoft.com/.com/library/azure/dd179355.aspx
 [Blog de l'équipe Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage/
 [Azure Tables: Introducing Upsert and Query Projection]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
 

@@ -1,6 +1,6 @@
 
 <properties
-    pageTitle="Migrer des données utilisateur à partir d’Azure RemoteApp | Microsoft Azure"
+    pageTitle="Migrer des données utilisateur à partir d’Azure RemoteApp | azure.microsoft.com/ Azure"
     description="Apprenez à migrer vos données utilisateur dans et hors d’Azure RemoteApp."
     services="remoteapp"
     documentationCenter=""
@@ -21,7 +21,7 @@
 # Migration de données dans et hors d’Azure RemoteApp
 
 > [AZURE.IMPORTANT]
-Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148).
+Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.azure.microsoft.com/.com/fwlink/?linkid=821148).
 
 Vous pouvez utiliser de nombreux outils et méthodes différents pour transférer des [données utilisateur](remoteapp-upd.md) dans et hors d’Azure RemoteApp. Voici quelques méthodes :
 

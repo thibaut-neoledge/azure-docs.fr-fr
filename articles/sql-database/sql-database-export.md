@@ -30,12 +30,12 @@ Lorsque vous avez besoin d’archiver une base de données SQL Azure, vous pouve
 ***Considérations***
 
 - Pour qu’une archive soit cohérente au niveau transactionnel, vous devez vérifier qu’aucune activité d’écriture n’a lieu lors de l’exportation ou effectuer une exportation à partir d’une [copie cohérente au niveau transactionnel](sql-database-copy.md) de votre base de données SQL Azure.
-- La taille maximale d’un fichier BACPAC archivé dans Azure Blob Storage est de 200 Go. Pour archiver un fichier BACPAC plus volumineux dans un stockage local, utilisez l’utilitaire d’invite de commande [SqlPackage](https://msdn.microsoft.com/library/hh550080.aspx). Cet utilitaire est fourni avec Visual Studio et SQL Server. Vous pouvez également [télécharger](https://msdn.microsoft.com/library/mt204009.aspx) la dernière version de SQL Server Data Tools pour obtenir cet utilitaire.
+- La taille maximale d’un fichier BACPAC archivé dans Azure Blob Storage est de 200 Go. Pour archiver un fichier BACPAC plus volumineux dans un stockage local, utilisez l’utilitaire d’invite de commande [SqlPackage](https://msdn.azure.microsoft.com/.com/library/hh550080.aspx). Cet utilitaire est fourni avec Visual Studio et SQL Server. Vous pouvez également [télécharger](https://msdn.azure.microsoft.com/.com/library/mt204009.aspx) la dernière version de SQL Server Data Tools pour obtenir cet utilitaire.
 - L’archivage dans Azure Premium Storage à l’aide d’un fichier BACPAC n’est pas pris en charge.
 - Si l’opération d’exportation dure plus de 20 heures, elle peut être annulée. Pour améliorer les performances lors de l’exportation, vous pouvez :
  - Augmentez temporairement votre niveau de service.
  - Interrompez toutes les activités de lecture et d’écriture lors de l’exportation.
- - Utilisez un [index cluster](https://msdn.microsoft.com/library/ms190457.aspx) avec des valeurs non nulles sur toutes les tables de grande taille. Sans index cluster, une exportation peut échouer si elle dure plus de 6 à 12 heures. Cela est dû au fait que les services d’exportation doivent effectuer une analyse complète de la table pour tenter de l’exporter en entier. Une bonne méthode pour déterminer si vos tables sont optimisées pour l’exportation consiste à exécuter **DBCC SHOW\_STATISTICS** et à vérifier que *RANGE\_HI\_KEY* n’est pas nul et que sa valeur a une bonne distribution. Pour plus d’informations, consultez [DBCC SHOW\_STATISTICS](https://msdn.microsoft.com/library/ms174384.aspx).
+ - Utilisez un [index cluster](https://msdn.azure.microsoft.com/.com/library/ms190457.aspx) avec des valeurs non nulles sur toutes les tables de grande taille. Sans index cluster, une exportation peut échouer si elle dure plus de 6 à 12 heures. Cela est dû au fait que les services d’exportation doivent effectuer une analyse complète de la table pour tenter de l’exporter en entier. Une bonne méthode pour déterminer si vos tables sont optimisées pour l’exportation consiste à exécuter **DBCC SHOW\_STATISTICS** et à vérifier que *RANGE\_HI\_KEY* n’est pas nul et que sa valeur a une bonne distribution. Pour plus d’informations, consultez [DBCC SHOW\_STATISTICS](https://msdn.azure.microsoft.com/.com/library/ms174384.aspx).
 
 
 > [AZURE.NOTE] Les BACPAC ne sont pas conçus pour être utilisés pour les opérations de sauvegarde et de restauration. La base de données SQL Azure crée automatiquement des sauvegardes pour chaque base de données utilisateur. Pour plus d’informations, consultez [Vue d'ensemble de la continuité des activités](sql-database-business-continuity.md).
@@ -89,7 +89,7 @@ Ouvrez le panneau Base de données SQL de la base de données que vous voulez ex
 ## Étapes suivantes
 
 - Pour en savoir plus sur l’importation d’un fichier BACPAC dans une base de données SQL Azure, consultez [Importer un fichier BACPCAC dans une base de données SQL Azure](sql-database-import.md)
-- Pour en savoir plus sur l’importation d’un fichier BACPAC dans une base de données SQL Server, consultez [Importer un fichier BACPCAC dans une base de données SQL Server](https://msdn.microsoft.com/library/hh710052.aspx)
+- Pour en savoir plus sur l’importation d’un fichier BACPAC dans une base de données SQL Server, consultez [Importer un fichier BACPCAC dans une base de données SQL Server](https://msdn.azure.microsoft.com/.com/library/hh710052.aspx)
 
 
 

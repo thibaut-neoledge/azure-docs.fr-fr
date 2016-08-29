@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Migrer des bases de données existantes pour la montée en charge | Microsoft Azure"
+   pageTitle="Migrer des bases de données existantes pour la montée en charge | azure.microsoft.com/ Azure"
    description="Conversion de bases de données partitionnées pour utiliser les outils de base de données élastique en créant un gestionnaire de cartes de partitions"
    services="sql-database"
    documentationCenter=""
@@ -28,7 +28,7 @@ Pour migrer une base de données partitionnée existante :
 3. Préparer les partitions individuelles.
 2. Ajoutez les mappages à la carte de partitions.
 
-Ces techniques peuvent être implémentées à l’aide de la [bibliothèque cliente .NET Framework](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) ou des scripts PowerShell sur [Azure SQL DB - Scripts d’outils de base de données élastique](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db). Les exemples fournis ici utilisent les scripts PowerShell.
+Ces techniques peuvent être implémentées à l’aide de la [bibliothèque cliente .NET Framework](http://www.nuget.org/packages/azure.microsoft.com/.Azure.SqlDatabase.ElasticScale.Client/) ou des scripts PowerShell sur [Azure SQL DB - Scripts d’outils de base de données élastique](https://gallery.technet.azure.microsoft.com/.com/scriptcenter/Azure-SQL-DB-Elastic-731883db). Les exemples fournis ici utilisent les scripts PowerShell.
 
 Pour plus d’informations sur la classe ShardMapManager, consultez la page [Gestion des cartes de partitions](sql-database-elastic-scale-shard-map-management.md). Pour obtenir une présentation des outils de base de données élastique, consultez [Vue d’ensemble des fonctionnalités de base de données élastique](sql-database-elastic-scale-introduction.md).
 
@@ -167,7 +167,7 @@ Une fois que vous avez terminé l’installation, vous pouvez commencer à utili
 ## Étapes suivantes
 
 
-Obtenez les scripts PowerShell à partir de [scripts d’outils de base de données élastique Azure SQL DB](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db).
+Obtenez les scripts PowerShell à partir de [scripts d’outils de base de données élastique Azure SQL DB](https://gallery.technet.azure.microsoft.com/.com/scriptcenter/Azure-SQL-DB-Elastic-731883db).
 
 Les outils sont également disponibles sur GitHub : [Azure/elastic-db-tools](https://github.com/Azure/elastic-db-tools).
 
@@ -179,7 +179,7 @@ Pour plus d’informations sur les modèles d’architecture de données des app
 
 ## Questions et demandes de fonctionnalités
 
-Pour toute question, contactez-nous sur le [forum Base de données SQL](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted) et formulez vos demandes de fonctionnalités éventuelles sur le [forum de commentaires Base de données SQL](https://feedback.azure.com/forums/217321-sql-database/).
+Pour toute question, contactez-nous sur le [forum Base de données SQL](http://social.msdn.azure.microsoft.com/.com/forums/azure/home?forum=ssdsgetstarted) et formulez vos demandes de fonctionnalités éventuelles sur le [forum de commentaires Base de données SQL](https://feedback.azure.com/forums/217321-sql-database/).
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-convert-to-use-elastic-tools/listmapping.png

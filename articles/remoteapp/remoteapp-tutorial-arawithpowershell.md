@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Utiliser les applets de commande PowerShell avec Azure RemoteApp | Microsoft Azure"
+   pageTitle="Utiliser les applets de commande PowerShell avec Azure RemoteApp | azure.microsoft.com/ Azure"
    description="Apprenez à utiliser les applets de commande Windows PowerShell dans Azure RemoteApp."
    services="remoteapp"
    documentationCenter=""
@@ -21,15 +21,15 @@
 # Utiliser les applets de commande Windows PowerShell avec Azure RemoteApp
 
 > [AZURE.IMPORTANT]
-Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148).
+Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.azure.microsoft.com/.com/fwlink/?linkid=821148).
 
  Vous pouvez utiliser les applets de commande PowerShell pour Azure RemoteApp afin d’administrer et de gérer vos collections. Utilisez les informations suivantes pour commencer.
 
 ## Récupération des applets de commande 
 -------------
-Téléchargez d’abord les applets de commande Azure PowerShell [ici](http://go.microsoft.com/?linkid=9811175) ; les applets de commande RemoteApp sont incluses.
+Téléchargez d’abord les applets de commande Azure PowerShell [ici](http://go.azure.microsoft.com/.com/?linkid=9811175) ; les applets de commande RemoteApp sont incluses.
 
-Consultez [l’aide sur les applets de commande Azure RemoteApp](https://msdn.microsoft.com/library/mt428031.aspx).
+Consultez [l’aide sur les applets de commande Azure RemoteApp](https://msdn.azure.microsoft.com/.com/library/mt428031.aspx).
 
 ## Configuration des applets de commande Azure pour utiliser votre abonnement
 ------------------
@@ -37,8 +37,8 @@ Suivez [ce guide](../powershell-install-configure.md) pour apprendre à utiliser
 
 Vous pouvez utiliser ces étapes pour démarrer rapidement :
 
-1.	Téléchargez et installez les applets de commande [Azure PowerShell](http://go.microsoft.com/?linkid=9811175).
-2.	Lancez Microsoft Azure PowerShell.
+1.	Téléchargez et installez les applets de commande [Azure PowerShell](http://go.azure.microsoft.com/.com/?linkid=9811175).
+2.	Lancez azure.microsoft.com/ Azure PowerShell.
 3.	Exécutez **Add-AzureAccount** pour vous authentifier auprès de votre abonnement Azure. À l’invite, entrez le nom d’utilisateur et le mot de passe que vous utilisez pour vous connecter au portail Azure.
 4.	Exécutez **Get-AzureSubscription** pour répertorier les abonnements associés à votre compte utilisateur.
 5.	Exécutez **Select-AzureSubscription** et spécifiez le nom ou l’ID d’abonnement à utiliser dans la console PowerShell.
@@ -51,7 +51,7 @@ Exécutez simplement la commande suivante :
 
     New-AzureRemoteAppCollection -Collectionname RAppO365Col1 -ImageName "Office 365 ProPlus (Subscription required)" -Plan Basic -Location "West US" - Description "Office 365 Collection."
 
-La commande ci-dessus publie automatiquement les applications Microsoft Office 365 (Excel, OneNote, Outlook, PowerPoint, Visio et Word).
+La commande ci-dessus publie automatiquement les applications azure.microsoft.com/ Office 365 (Excel, OneNote, Outlook, PowerPoint, Visio et Word).
 
 La création de la collection peut prendre 30 minutes ou plus. Par conséquent, cette commande renvoie un ID de suivi que vous pouvez utiliser de la manière suivante :
 
@@ -60,7 +60,7 @@ La création de la collection peut prendre 30 minutes ou plus. Par conséquent,
 
 Une fois la collection terminée, vous pouvez ajouter des utilisateurs à la collection avec la commande suivante :
 
-    Add-AzureRemoteAppUser -CollectionName RAppO365Col1 -Type microsoftAccount -UserUpn someone@domain.com
+    Add-AzureRemoteAppUser -CollectionName RAppO365Col1 -Type azure.microsoft.com/Account -UserUpn someone@domain.com
 
 Vous avez terminé ! Cet utilisateur doit pouvoir se connecter à l’application à l’aide du client Azure RemoteApp disponible [ici](https://www.remoteapp.windowsazure.com/).
 

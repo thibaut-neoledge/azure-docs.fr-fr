@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure Insights : configuration avancée de la mise à l’échelle automatique à l’aide des modèles Resource Manager pour les jeux de mise à l’échelle de machines virtuelles | Microsoft Azure"
+	pageTitle="Azure Insights : configuration avancée de la mise à l’échelle automatique à l’aide des modèles Resource Manager pour les jeux de mise à l’échelle de machines virtuelles | azure.microsoft.com/ Azure"
 	description="Configurez la mise à l’échelle automatique pour des jeux de mise à l’échelle de machines virtuelles à partir de plusieurs règles et profils, en définissant des notifications par-email et par webhoook pour les actions de mise à l’échelle."
 	authors="kamathashwin"
 	manager=""

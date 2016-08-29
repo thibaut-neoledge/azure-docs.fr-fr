@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Déplacer des données vers/depuis Oracle à l’aide de Data Factory | Microsoft Azure" 
+	pageTitle="Déplacer des données vers/depuis Oracle à l’aide de Data Factory | azure.microsoft.com/ Azure" 
 	description="Découvrez comment déplacer des données vers et depuis une base de données Oracle locale à l’aide d’Azure Data Factory." 
 	services="data-factory" 
 	documentationCenter="" 
@@ -38,7 +38,7 @@ Le moyen le plus simple de créer un pipeline qui copie des données entre une b
 L’exemple suivant présente des exemples de définitions de JSON que vous pouvez utiliser pour créer un pipeline à l’aide [du Portail Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), [de Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou [d’Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Ils indiquent comment copier des données entre une base de données Oracle et Azure Blob Storage. Toutefois, les données peuvent être copiées vers l’un des récepteurs indiqués [ici](data-factory-data-movement-activities.md#supported-data-stores), via l’activité de copie d’Azure Data Factory.
 
 ## Exemple : copie de données d’Oracle vers Azure Blob
-Cet exemple indique comment copier des données à partir d’une base de données Oracle locale vers un système Blob Storage Microsoft Azure. Toutefois, les données peuvent être copiées **directement** vers l’un des récepteurs indiqués [ici](data-factory-data-movement-activities.md#supported-data-stores), via l’activité de copie d’Azure Data Factory.
+Cet exemple indique comment copier des données à partir d’une base de données Oracle locale vers un système Blob Storage azure.microsoft.com/ Azure. Toutefois, les données peuvent être copiées **directement** vers l’un des récepteurs indiqués [ici](data-factory-data-movement-activities.md#supported-data-stores), via l’activité de copie d’Azure Data Factory.
  
 L’exemple contient les entités de fabrique de données suivantes :
 
@@ -226,7 +226,7 @@ Vous devrez peut-être modifier la requête, comme indiqué ci-dessous (à l’a
 	"oracleReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= to_date(\\'{0:MM-dd-yyyy HH:mm}\\',\\'MM/DD/YYYY HH24:MI\\')  AND timestampcolumn < to_date(\\'{1:MM-dd-yyyy HH:mm}\\',\\'MM/DD/YYYY HH24:MI\\') ', WindowStart, WindowEnd)"
 
 ## Exemple : copie de données à partir d’un objet Blob Azure vers Oracle
-Cet exemple indique comment copier des données d’un stockage d’objets blob Azure vers une base de données Oracle locale. Toutefois, vous pouvez copier les données **directement** à partir des sources indiquées [ici](data-factory-data-movement-activities.md#supported-data-stores), via l’activité de copie de Microsoft Azure Data Factory.
+Cet exemple indique comment copier des données d’un stockage d’objets blob Azure vers une base de données Oracle locale. Toutefois, vous pouvez copier les données **directement** à partir des sources indiquées [ici](data-factory-data-movement-activities.md#supported-data-stores), via l’activité de copie de azure.microsoft.com/ Azure Data Factory.
  
 L’exemple contient les entités de fabrique de données suivantes :
 
@@ -430,7 +430,7 @@ Pour obtenir la liste complète des sections et des propriétés disponibles pou
 Par contre, les propriétés disponibles dans la section typeProperties de l'activité varient avec chaque type d'activité et dans le cas de l'activité de copie, elles varient selon les types de sources et de récepteurs.
 
 ### OracleSource
-Dans le cas d’une activité de copie, lorsque la source est de type **OracleSource**, les propriétés suivantes sont disponibles dans la section **typeProperties** :
+Dans le cas d’une activité de copie, lorsque la source est de type **OracleSource**, les propriétés suivantes sont disponibles dans la section **typeProperties** :
 
 Propriété | Description |Valeurs autorisées | Requis
 -------- | ----------- | ------------- | --------
@@ -486,7 +486,7 @@ XML | String
 
 ## Conseils de dépannage
 
-**Problème : ** Le **message d’erreur** suivant s’affiche : L’activité de copie a rencontré des paramètres non valides : « UnknownParameterName ». Message détaillé : Le fournisseur de données .Net Framework demandé est introuvable. Il n’est peut-être pas installé.
+**Problème:** Le **message d’erreur** suivant s’affiche : L’activité de copie a rencontré des paramètres non valides : « UnknownParameterName ». Message détaillé : Le fournisseur de données .Net Framework demandé est introuvable. Il n’est peut-être pas installé.
 
 **Causes possibles**
 
@@ -497,9 +497,9 @@ XML | String
 
 1. Si vous n’avez pas installé le fournisseur .NET pour Oracle, veuillez l’[installer](http://www.oracle.com/technetwork/topics/dotnet/downloads/), puis recommencez le scénario.
 2. Si vous obtenez le message d’erreur même après l’installation du fournisseur, procédez comme suit :
-	1. Ouvrez le fichier machine.config de .NET 2.0 à partir du dossier : <disque système>:\\Windows\\Microsoft.NET\\Framework64\\v2.0.50727\\CONFIG\\machine.config.
+	1. Ouvrez le fichier machine.config de .NET 2.0 à partir du dossier : <disque système>:\\Windows\\azure.microsoft.com/.NET\\Framework64\\v2.0.50727\\CONFIG\\machine.config.
 	2. Recherchez **Fournisseur de données Oracle pour .NET**, et vous devriez être en mesure de trouver une entrée semblable à celle indiquée ci-dessous sous **system.data** -> **DbProviderFactories**: « <add name="Oracle Data Provider for .NET" invariant="Oracle.DataAccess.Client" description="Oracle Data Provider for .NET" type="Oracle.DataAccess.Client.OracleClientFactory, Oracle.DataAccess, Version=2.112.3.0, Culture=neutral, PublicKeyToken=89b483f429c47342" /> »
-2.	Copiez cette entrée dans le fichier machine.config dans le dossier v4.0 suivant : <disque système>:\\Windows\\Microsoft.NET\\Framework64\\v4.0.30319\\Config\\machine.config, et remplacez la version par 4.xxx.x.x.
+2.	Copiez cette entrée dans le fichier machine.config dans le dossier v4.0 suivant : <disque système>:\\Windows\\azure.microsoft.com/.NET\\Framework64\\v4.0.30319\\Config\\machine.config, et remplacez la version par 4.xxx.x.x.
 3.	Installez « <Chemin d’installation d’ODP.NET>\\11.2.0\\client\_1\\odp.net\\bin\\4\\Oracle.DataAccess.dll » dans le Global Assembly Cache (GAC) en exécutant « gacutil /i [chemin d’accès du fournisseur] ».
 
 

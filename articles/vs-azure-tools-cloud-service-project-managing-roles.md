@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Gestion des rôles dans les projets de services cloud Azure avec Visual Studio | Microsoft Azure"
+   pageTitle="Gestion des rôles dans les projets de services cloud Azure avec Visual Studio | azure.microsoft.com/ Azure"
    description="Découvrez comment ajouter de nouveaux rôles à votre projet de service cloud Azure ou supprimer des rôles existants en utilisant Visual Studio."
    services="visual-studio-online"
    documentationCenter="na"

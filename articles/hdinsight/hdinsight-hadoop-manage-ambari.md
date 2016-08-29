@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Surveiller et gérer des clusters HDInsight à l’aide de l’interface utilisateur Web d’Apache Ambari | Microsoft Azure"
+   pageTitle="Surveiller et gérer des clusters HDInsight à l’aide de l’interface utilisateur Web d’Apache Ambari | azure.microsoft.com/ Azure"
    description="Découvrez comment utiliser Ambari pour gérer et surveiller des clusters HDInsight Linux. Dans ce document, vous allez apprendre à utiliser l’interface utilisateur Web d’Ambari incluse avec les clusters HDInsight."
    services="hdinsight"
    documentationCenter=""
@@ -51,23 +51,23 @@ Lorsque la page s'ouvre, vérifiez la barre située en haut de l'écran. Elle co
 
 ![ambari-nav](./media/hdinsight-hadoop-manage-ambari/ambari-nav.png)
 
-* **Logo d’Ambari** : ouvre le tableau de bord, qui peut être utilisé pour surveiller le cluster.
+* **Logo d’Ambari** : ouvre le tableau de bord, qui peut être utilisé pour surveiller le cluster.
 
-* **Nom du cluster # ops** : affiche le nombre d'opérations Ambari en cours. En sélectionnant le nom du cluster ou **ops #**, une liste des opérations effectuées en arrière-plan s’affiche.
+* **Nom du cluster # ops** : affiche le nombre d'opérations Ambari en cours. En sélectionnant le nom du cluster ou **ops #**, une liste des opérations effectuées en arrière-plan s’affiche.
 
-* **# alertes** : avertissements ou alertes critiques, le cas échéant, pour le cluster. Sa sélection fait apparaître une liste d'alertes.
+* **# alertes** : avertissements ou alertes critiques, le cas échéant, pour le cluster. Sa sélection fait apparaître une liste d'alertes.
 
-* **Tableau de bord** : affiche le tableau de bord.
+* **Tableau de bord** : affiche le tableau de bord.
 
-* **Services** : informations et paramètres de configuration des services sur le cluster
+* **Services** : informations et paramètres de configuration des services sur le cluster
 
-* **Hôtes** : informations et paramètres de configuration des nœuds sur le cluster
+* **Hôtes** : informations et paramètres de configuration des nœuds sur le cluster
 
-* **Alertes** : journal contenant informations, avertissements et alertes critiques.
+* **Alertes** : journal contenant informations, avertissements et alertes critiques.
 
-* **Administrateur** : pile logicielle/services installés sur le cluster, informations sur le compte de service et sécurité Kerberos.
+* **Administrateur** : pile logicielle/services installés sur le cluster, informations sur le compte de service et sécurité Kerberos.
 
-* **Bouton Administrateur** : gestion d'Ambari, paramètres utilisateur et déconnexion.
+* **Bouton Administrateur** : gestion d'Ambari, paramètres utilisateur et déconnexion.
 
 ##Surveillance
 
@@ -125,13 +125,13 @@ La sélection d'un service fait apparaître des informations détaillées sur le
 
 Certains services affichent un lien **Liens rapides** en haut de la page. Ils peuvent être utilisés pour accéder à des interfaces utilisateur web spécifiques des services, tels que :
 
-* **Historique des travaux** : historique des travaux MapReduce.
+* **Historique des travaux** : historique des travaux MapReduce.
 
-* **Gestionnaire des ressources** : interface utilisateur du gestionnaire des ressources YARN.
+* **Gestionnaire des ressources** : interface utilisateur du gestionnaire des ressources YARN.
 
-* **NameNode** : interface utilisateur NameNode HDFS.
+* **NameNode** : interface utilisateur NameNode HDFS.
 
-* **Interface utilisateur web Oozie** : interface utilisateur Oozie.
+* **Interface utilisateur web Oozie** : interface utilisateur Oozie.
 
 La sélection de l'un de ces liens ouvrira un nouvel onglet dans votre navigateur, qui affichera la page sélectionnée.
 
@@ -157,27 +157,27 @@ La page **Hôtes** répertorie tous les hôtes du cluster. Pour gérer des hôte
 
 2. Utilisez le menu **Actions** pour sélectionner l'action que vous souhaitez effectuer :
 
-	* **Démarrer tous les composants** : démarre tous les composants sur l'hôte.
+	* **Démarrer tous les composants** : démarre tous les composants sur l'hôte.
 
-	* **Arrêter tous les composants** : arrête tous les composants sur l'hôte.
+	* **Arrêter tous les composants** : arrête tous les composants sur l'hôte.
 
-	* **Redémarrer tous les composants** : redémarre tous les composants sur l’hôte.
+	* **Redémarrer tous les composants** : redémarre tous les composants sur l’hôte.
 
-	* **Activer le mode Maintenance** : supprime les alertes de l'hôte. Cette option doit être activée si vous effectuez des actions qui généreront des alertes, tel le redémarrage d'un service sur lequel s'appuient des services en cours d'exécution.
+	* **Activer le mode Maintenance** : supprime les alertes de l'hôte. Cette option doit être activée si vous effectuez des actions qui généreront des alertes, tel le redémarrage d'un service sur lequel s'appuient des services en cours d'exécution.
 
-	* **Désactiver le mode Maintenance** : rétablit les alertes normales de l'hôte.
+	* **Désactiver le mode Maintenance** : rétablit les alertes normales de l'hôte.
 
-	* **Arrêter** : arrête DataNode ou NodeManagers sur l'hôte.
+	* **Arrêter** : arrête DataNode ou NodeManagers sur l'hôte.
 
-	* **Démarrer** : démarre DataNode ou NodeManagers sur l'hôte.
+	* **Démarrer** : démarre DataNode ou NodeManagers sur l'hôte.
 
-	* **Redémarrer** : arrête et redémarre DataNode ou NodeManagers sur l'hôte.
+	* **Redémarrer** : arrête et redémarre DataNode ou NodeManagers sur l'hôte.
 
-	* **Désactiver** : supprime un hôte du cluster.
+	* **Désactiver** : supprime un hôte du cluster.
 
 		> [AZURE.NOTE] N'utilisez pas cette action sur les clusters HDInsight.
 
-	* **Réactiver** : ajoute un hôte préalablement désactivé au cluster.
+	* **Réactiver** : ajoute un hôte préalablement désactivé au cluster.
 
 		> [AZURE.NOTE] N'utilisez pas cette action sur les clusters HDInsight.
 

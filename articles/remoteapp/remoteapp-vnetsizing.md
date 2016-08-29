@@ -1,6 +1,6 @@
 
 <properties
-    pageTitle="Informations sur la taille des réseaux virtuels dans Azure RemoteApp | Microsoft Azure"
+    pageTitle="Informations sur la taille des réseaux virtuels dans Azure RemoteApp | azure.microsoft.com/ Azure"
     description="Découvrez le nombre d’adresses IP requises pour l’exécution d'Azure RemoteApp avec un réseau virtuel"
     services="remoteapp"
     documentationCenter=""
@@ -21,7 +21,7 @@
 # Informations sur la taille des réseaux virtuels dans Azure RemoteApp
 
 > [AZURE.IMPORTANT]
-Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148).
+Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.azure.microsoft.com/.com/fwlink/?linkid=821148).
 
 Lorsque vous utilisez Azure RemoteApp avec un réseau virtuel (VNET), RemoteApp utilise des adresses IP au sein du sous-réseau. En fonction de l’échelle de votre service RemoteApp, vous devez vous assurer que votre sous-réseau comprend suffisamment d’adresses IP pour les machines virtuelles RemoteApp. Bien que ces indications sur la taille ne soient pas parfaites, compte tenu de la manière dont RemoteApp monte ou descend dynamiquement les machines virtuelles au sein d’une collection, celles-ci vous aideront à évaluer votre plage de sous-réseau. Ceci est particulièrement important car, une fois qu’un service RemoteApp est placé dans un réseau virtuel, vous ne pouvez plus augmenter la taille du sous-réseau sans supprimer RemoteApp.
 

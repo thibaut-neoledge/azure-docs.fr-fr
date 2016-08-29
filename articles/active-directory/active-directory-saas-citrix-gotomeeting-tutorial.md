@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="Didacticiel : Intégration d’Azure Active Directory à Citrix GoToMeeting | Microsoft Azure" 
+    pageTitle="Didacticiel : Intégration d’Azure Active Directory à Citrix GoToMeeting | azure.microsoft.com/ Azure" 
     description="Apprenez à utiliser Citrix GoToMeeting avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore." 
     services="active-directory" 
     authors="jeevansd"  
@@ -18,7 +18,7 @@
 #Didacticiel : Intégration d’Azure Active Directory à Citrix GoToMeeting  
 S’applique à : Azure
 
->[AZURE.TIP]Pour envoyer des commentaires, cliquez [ici](http://go.microsoft.com/fwlink/?LinkId=522412).
+>[AZURE.TIP]Pour envoyer des commentaires, cliquez [ici](http://go.azure.microsoft.com/.com/fwlink/?LinkId=522412).
 
 L’objectif de ce didacticiel est de montrer comment intégrer Azure et Citrix GoToMeeting. Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
@@ -77,7 +77,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Activer l'authentification unique](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC768997.png "Activer l'authentification unique")
 
-2.  Dans la page **Comment voulez-vous que les utilisateurs se connectent à Citrix GoToMeeting**, sélectionnez **Authentification unique Microsoft Azure AD**.
+2.  Dans la page **Comment voulez-vous que les utilisateurs se connectent à Citrix GoToMeeting**, sélectionnez **Authentification unique azure.microsoft.com/ Azure AD**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC768998.png "Configurer l’authentification unique")
 
@@ -181,6 +181,6 @@ Si le cycle d’approvisionnement d’utilisateur a abouti, l’état associé s
 
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès.
 
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://msdn.microsoft.com/library/dn308586).
+Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://msdn.azure.microsoft.com/.com/library/dn308586).
 
 <!---HONumber=AcomDC_0817_2016-->

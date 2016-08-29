@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="Disponibilité et support des hubs d’événements | Microsoft Azure"
+    pageTitle="Disponibilité et support des hubs d’événements | azure.microsoft.com/ Azure"
     description="Forum Aux Questions sur la disponibilité et le support des hubs d’événements."
     services="event-hubs"
     documentationCenter="na"
@@ -17,13 +17,13 @@
 
 # Forum Aux Questions sur la disponibilité et le support des hubs d’événements
 
-Event Hubs permet l’admission , la persistance et le traitement à grande échelle de données d’événements provenant de sources de données à débit élevé et/ou de millions d’appareils. Combinés aux files d’attente et aux rubriques Service Bus, Event Hubs offre des déploiements persistants de commande et de contrôle des scénarios [Internet des objets (IoT)](https://azure.microsoft.com/services/iot-hub/).
+Event Hubs permet l’admission , la persistance et le traitement à grande échelle de données d’événements provenant de sources de données à débit élevé et/ou de millions d’appareils. Combinés aux files d’attente et aux rubriques Service Bus, Event Hubs offre des déploiements persistants de commande et de contrôle des scénarios [Internet des objets (IoT)](https://azure.azure.microsoft.com/.com/services/iot-hub/).
 
 Cet article traite de la disponibilité de Event Hubs et répond à certaines questions fréquemment posées :
 
 ## Informations sur la tarification
 
-Pour des informations complètes sur la tarification des hubs d’événements, consultez la rubrique [Tarification des hubs d’événements](https://azure.microsoft.com/pricing/details/event-hubs/).
+Pour des informations complètes sur la tarification des hubs d’événements, consultez la rubrique [Tarification des hubs d’événements](https://azure.azure.microsoft.com/.com/pricing/details/event-hubs/).
 
 ## Comment les événements d'entrée des hubs d'événements sont-ils calculés ?
 
@@ -73,11 +73,11 @@ Oui, à condition que la totalité des Event Hubs, files d’attente et rubrique
 
 ## Des frais de connexion répartie s'appliquent-ils aux hubs d'événements ?
 
-Pour les expéditeurs, des frais de connexion s'appliquent uniquement lorsque le protocole AMQP est utilisé. Il n'y a aucun frais de connexion pour l'envoi d'événements à l'aide de HTTP, quel que soit le nombre de systèmes ou de périphériques d’envoi. Si vous prévoyez d'utiliser AMQP (par exemple, pour améliorer le flux d'événements ou activer la communication bidirectionnelle sur des scénarios de commande et de contrôle IoT), reportez-vous à la page [Informations de tarification Service Bus](https://azure.microsoft.com/pricing/details/service-bus/) pour savoir ce qui constitue une connexion répartie et comment elle est mesurée.
+Pour les expéditeurs, des frais de connexion s'appliquent uniquement lorsque le protocole AMQP est utilisé. Il n'y a aucun frais de connexion pour l'envoi d'événements à l'aide de HTTP, quel que soit le nombre de systèmes ou de périphériques d’envoi. Si vous prévoyez d'utiliser AMQP (par exemple, pour améliorer le flux d'événements ou activer la communication bidirectionnelle sur des scénarios de commande et de contrôle IoT), reportez-vous à la page [Informations de tarification Service Bus](https://azure.azure.microsoft.com/.com/pricing/details/service-bus/) pour savoir ce qui constitue une connexion répartie et comment elle est mesurée.
 
 ## Quelle est la différence entre les niveaux De Base et Standard pour les hubs d’événements ?
 
-Le niveau Standard de Event Hubs fournit des fonctionnalités au-delà de ce qui est disponible au niveau De base, ainsi que dans certains systèmes concurrents. Ces fonctionnalités incluent des périodes de rétention de plus de 24 heures et la possibilité d’utiliser une connexion AMQP unique pour envoyer des commandes à un grand nombre d’appareils avec des latences de moins d’une seconde, ainsi que pour envoyer la télémétrie de ces appareils vers Event Hubs. Pour consulter la liste des fonctionnalités, voir [Tarification Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/).
+Le niveau Standard de Event Hubs fournit des fonctionnalités au-delà de ce qui est disponible au niveau De base, ainsi que dans certains systèmes concurrents. Ces fonctionnalités incluent des périodes de rétention de plus de 24 heures et la possibilité d’utiliser une connexion AMQP unique pour envoyer des commandes à un grand nombre d’appareils avec des latences de moins d’une seconde, ainsi que pour envoyer la télémétrie de ces appareils vers Event Hubs. Pour consulter la liste des fonctionnalités, voir [Tarification Event Hubs](https://azure.azure.microsoft.com/.com/pricing/details/event-hubs/).
 
 ## Disponibilité géographique
 
@@ -94,9 +94,9 @@ La fonctionnalité Hubs d’événements est disponible dans les régions suivan
 
 ## Prise en charge et contrats SLA
 
-Un support technique pour les hubs d'événements est disponible via les [forums de la communauté](https://social.msdn.microsoft.com/forums/azure/home). La gestion de la facturation et des abonnements est fournie gratuitement.
+Un support technique pour les hubs d'événements est disponible via les [forums de la communauté](https://social.msdn.azure.microsoft.com/.com/forums/azure/home). La gestion de la facturation et des abonnements est fournie gratuitement.
 
-Pour en savoir plus sur notre contrat SLA, consultez la section [Contrats de niveau de Service](https://azure.microsoft.com/support/legal/sla/).
+Pour en savoir plus sur notre contrat SLA, consultez la section [Contrats de niveau de Service](https://azure.azure.microsoft.com/.com/support/legal/sla/).
 
 ## Étapes suivantes
 
@@ -107,7 +107,7 @@ Pour plus d’informations sur les hubs d’événements, consultez les articles
 - Une [solution de messages de file d'attente][] utilisant les files d'attente Service Bus.
 
 [Vue d’ensemble des hubs d’événements]: event-hubs-overview.md
-[exemple d'application complet qui utilise des hubs d’événements]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
+[exemple d'application complet qui utilise des hubs d’événements]: https://code.msdn.azure.microsoft.com/.com/Service-Bus-Event-Hub-286fd097
 [solution de messages de file d'attente]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
 
 <!---HONumber=AcomDC_0817_2016-->

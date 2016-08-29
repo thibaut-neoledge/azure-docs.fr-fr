@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Comparaison d’Azure Data Lake Store avec Azure Storage Blob | Microsoft Azure"
+   pageTitle="Comparaison d’Azure Data Lake Store avec Azure Storage Blob | azure.microsoft.com/ Azure"
    description="Comparaison d’Azure Data Lake Store avec Azure Storage Blob"
    services="data-lake-store"
    documentationCenter=""
@@ -27,7 +27,7 @@ Le tableau de cet article résume les différences entre Azure Data Lake Store e
 | Concepts clés | Le compte Data Lake Store contient des dossiers, qui contiennent des données stockées sous forme de fichiers | Le compte de stockage a des conteneurs, qui possèdent des données sous la forme d’objets BLOB |
 | Structure | Système de fichiers hiérarchique | Magasin d’objets avec espace de noms plat |
 | API | API REST sur HTTPS | API REST sur HTTP/HTTPS |
-| API côté serveur | [API REST compatible WebHDFS](https://msdn.microsoft.com/library/azure/mt693424.aspx) | [API REST d’Azure Blob Storage](https://msdn.microsoft.com/library/azure/dd135733.aspx) |
+| API côté serveur | [API REST compatible WebHDFS](https://msdn.azure.microsoft.com/.com/library/azure/mt693424.aspx) | [API REST d’Azure Blob Storage](https://msdn.azure.microsoft.com/.com/library/azure/dd135733.aspx) |
 | Client de système de fichiers Hadoop | Oui | Oui |
 | Opérations de données - authentification | Basées sur les [Identités Azure Active Directory](../active-directory/active-directory-authentication-scenarios.md) | Basées sur les secrets partagés - [Clés d’accès au compte](../storage/storage-create-storage-account.md#manage-your-storage-account) et [Clés de signature d’accès partagé](../storage/storage-dotnet-shared-access-signature-part-1.md). |
 | Opérations de données - protocole d’authentification | OAuth 2.0. Les appels doivent contenir un JWT (jeton web JSON) valide émis par Azure Active Directory | Code d’authentification de message basé sur hachage (HMAC). Les appels doivent contenir un hachage SHA-256 codé en Base64 sur une partie de la requête HTTP. |
@@ -40,8 +40,8 @@ Le tableau de cet article résume les différences entre Azure Data Lake Store e
 | Limites de taille | Aucune limite de taille pour les comptes, les fichiers ou le nombre de fichiers | Limites spécifiques documentées [ici](../azure-subscription-service-limits.md#storage-limits) |
 | Géo-redondance | Localement redondant (plusieurs copies des données dans une région Azure) | Localement redondant (LRS), globalement redondant (GRS), accès en lecture redondant globalement (RA-GRS). Pour plus d’informations, voir [ici](../storage/storage-redundancy.md) |
 | État du service | Version préliminaire publique | Mise à la disposition générale |
-| Disponibilité régionale | Voir [ici](https://azure.microsoft.com/regions/#services)| Voir [ici](https://azure.microsoft.com/regions/#services) |
-| Prix | Consultez la page [Tarification](https://azure.microsoft.com/pricing/details/data-lake-store/)| Consultez la page [Tarification](https://azure.microsoft.com/pricing/details/storage/) |
+| Disponibilité régionale | Voir [ici](https://azure.azure.microsoft.com/.com/regions/#services)| Voir [ici](https://azure.azure.microsoft.com/.com/regions/#services) |
+| Prix | Consultez la page [Tarification](https://azure.azure.microsoft.com/.com/pricing/details/data-lake-store/)| Consultez la page [Tarification](https://azure.azure.microsoft.com/.com/pricing/details/storage/) |
 
 ### Étapes suivantes
 

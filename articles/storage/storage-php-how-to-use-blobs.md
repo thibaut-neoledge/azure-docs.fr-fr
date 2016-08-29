@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Utilisation du stockage d’objets blob à partir de PHP | Microsoft Azure"
+	pageTitle="Utilisation du stockage d’objets blob à partir de PHP | azure.microsoft.com/ Azure"
 	description="Stockez des données non structurées dans le cloud avec Azure Blob Storage (stockage d’objets)."
 	documentationCenter="php"
 	services="storage"
@@ -94,9 +94,9 @@ Un objet **BlobRestProxy** vous permet de créer un conteneur d'objets blob avec
 	require_once 'vendor\autoload.php';
 
 	use WindowsAzure\Common\ServicesBuilder;
-	use MicrosoftAzure\Storage\Blob\Models\CreateContainerOptions;
-	use MicrosoftAzure\Storage\Blob\Models\PublicAccessType;
-	use MicrosoftAzure\Storage\Common\ServiceException;
+	use azure.microsoft.com/Azure\Storage\Blob\Models\CreateContainerOptions;
+	use azure.microsoft.com/Azure\Storage\Blob\Models\PublicAccessType;
+	use azure.microsoft.com/Azure\Storage\Common\ServiceException;
 
 	// Create blob REST proxy.
 	$blobRestProxy = ServicesBuilder::getInstance()->createBlobService($connectionString);
@@ -133,7 +133,7 @@ Un objet **BlobRestProxy** vous permet de créer un conteneur d'objets blob avec
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here:
-		// http://msdn.microsoft.com/library/azure/dd179439.aspx
+		// http://msdn.azure.microsoft.com/.com/library/azure/dd179439.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -150,7 +150,7 @@ Pour télécharger un fichier en tant qu'objet blob, utilisez la méthode **Blob
 	require_once 'vendor/autoload.php';
 
 	use WindowsAzure\Common\ServicesBuilder;
-	use MicrosoftAzure\Storage\Common\ServiceException;
+	use azure.microsoft.com/Azure\Storage\Common\ServiceException;
 
 	// Create blob REST proxy.
 	$blobRestProxy = ServicesBuilder::getInstance()->createBlobService($connectionString);
@@ -166,7 +166,7 @@ Pour télécharger un fichier en tant qu'objet blob, utilisez la méthode **Blob
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here:
-		// http://msdn.microsoft.com/library/azure/dd179439.aspx
+		// http://msdn.azure.microsoft.com/.com/library/azure/dd179439.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -181,7 +181,7 @@ Pour répertorier les objets blob dans un conteneur, utilisez la méthode **Blob
 	require_once 'vendor/autoload.php';
 
 	use WindowsAzure\Common\ServicesBuilder;
-	use MicrosoftAzure\Storage\Common\ServiceException;
+	use azure.microsoft.com/Azure\Storage\Common\ServiceException;
 
 	// Create blob REST proxy.
 	$blobRestProxy = ServicesBuilder::getInstance()->createBlobService($connectionString);
@@ -200,7 +200,7 @@ Pour répertorier les objets blob dans un conteneur, utilisez la méthode **Blob
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here:
-		// http://msdn.microsoft.com/library/azure/dd179439.aspx
+		// http://msdn.azure.microsoft.com/.com/library/azure/dd179439.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -214,7 +214,7 @@ Pour télécharger un objet blob, appelez la méthode **BlobRestProxy->getBlob**
 	require_once 'vendor/autoload.php';
 
 	use WindowsAzure\Common\ServicesBuilder;
-	use MicrosoftAzure\Storage\Common\ServiceException;
+	use azure.microsoft.com/Azure\Storage\Common\ServiceException;
 
 	// Create blob REST proxy.
 	$blobRestProxy = ServicesBuilder::getInstance()->createBlobService($connectionString);
@@ -228,7 +228,7 @@ Pour télécharger un objet blob, appelez la méthode **BlobRestProxy->getBlob**
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here:
-		// http://msdn.microsoft.com/library/azure/dd179439.aspx
+		// http://msdn.azure.microsoft.com/.com/library/azure/dd179439.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -243,7 +243,7 @@ Pour supprimer un objet blob, passez le nom du conteneur et le nom de l'objet bl
 	require_once 'vendor/autoload.php';
 
 	use WindowsAzure\Common\ServicesBuilder;
-	use MicrosoftAzure\Storage\Common\ServiceException;
+	use azure.microsoft.com/Azure\Storage\Common\ServiceException;
 
 	// Create blob REST proxy.
 	$blobRestProxy = ServicesBuilder::getInstance()->createBlobService($connectionString);
@@ -256,7 +256,7 @@ Pour supprimer un objet blob, passez le nom du conteneur et le nom de l'objet bl
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here:
-		// http://msdn.microsoft.com/library/azure/dd179439.aspx
+		// http://msdn.azure.microsoft.com/.com/library/azure/dd179439.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -269,7 +269,7 @@ Enfin, pour supprimer un conteneur d'objets blob, passez le nom du conteneur à 
 	require_once 'vendor/autoload.php';
 
 	use WindowsAzure\Common\ServicesBuilder;
-	use MicrosoftAzure\Storage\Common\ServiceException;
+	use azure.microsoft.com/Azure\Storage\Common\ServiceException;
 
 	// Create blob REST proxy.
 	$blobRestProxy = ServicesBuilder::getInstance()->createBlobService($connectionString);
@@ -282,7 +282,7 @@ Enfin, pour supprimer un conteneur d'objets blob, passez le nom du conteneur à 
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here:
-		// http://msdn.microsoft.com/library/azure/dd179439.aspx
+		// http://msdn.azure.microsoft.com/.com/library/azure/dd179439.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -300,9 +300,9 @@ Maintenant que vous connaissez les principes de base du service blob Azure, suiv
 Pour plus d’informations, consultez également le [Centre de développement PHP](/develop/php/).
 
 
-[download]: http://go.microsoft.com/fwlink/?LinkID=252473
-[container-acl]: http://msdn.microsoft.com/library/azure/dd179391.aspx
-[error-codes]: http://msdn.microsoft.com/library/azure/dd179439.aspx
+[download]: http://go.azure.microsoft.com/.com/fwlink/?LinkID=252473
+[container-acl]: http://msdn.azure.microsoft.com/.com/library/azure/dd179391.aspx
+[error-codes]: http://msdn.azure.microsoft.com/.com/library/azure/dd179439.aspx
 [file_get_contents]: http://php.net/file_get_contents
 [require\_once]: http://php.net/require_once
 [fopen]: http://www.php.net/fopen

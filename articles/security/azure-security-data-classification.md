@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Classification des données pour Azure | Microsoft Azure"
-   description="Cet article fournit une présentation des principes fondamentaux de la classification des données et souligne la plus-value du processus, en particulier dans le contexte du cloud computing et de l’utilisation de Microsoft Azure."
+   pageTitle="Classification des données pour Azure | azure.microsoft.com/ Azure"
+   description="Cet article fournit une présentation des principes fondamentaux de la classification des données et souligne la plus-value du processus, en particulier dans le contexte du cloud computing et de l’utilisation de azure.microsoft.com/ Azure."
    services="security"
    documentationCenter="na"
    authors="YuriDio"
@@ -18,7 +18,7 @@
 
 # Classification des données pour Azure
 
-Cet article fournit une présentation des principes fondamentaux de la classification des données et souligne la plus-value du processus, en particulier dans le contexte du cloud computing et de l’utilisation de Microsoft Azure.
+Cet article fournit une présentation des principes fondamentaux de la classification des données et souligne la plus-value du processus, en particulier dans le contexte du cloud computing et de l’utilisation de azure.microsoft.com/ Azure.
 
 ## Principes fondamentaux de la classification des données
 
@@ -56,7 +56,7 @@ L’autorisation est le processus permettant à un utilisateur authentifié d’
 
 Une autorisation réussie nécessite l’implémentation d’un mécanisme permettant de valider les besoins de chaque utilisateur en termes d’accès aux fichiers et informations en se basant sur des considérations relatives au rôle, à la stratégie de sécurité et à la stratégie de risque. Par exemple, il n’est peut-être pas nécessaire que les données issues d’applications métier spécifiques soient accessibles par tous les employés. Seul un petit sous-ensemble d’employés aura probablement besoin d’accéder aux fichiers des ressources humaines (RH). Toutefois, il est nécessaire qu’un système efficace d’authentification des utilisateurs soit en place pour que les organisations puissent contrôler l’identité de la personne accédant aux données, y compris quand et comment elle y accède.
 
-> [AZURE.TIP] dans Microsoft Azure, veillez à utiliser le contrôle d’accès en fonction du rôle (RBAC) Azure pour accorder uniquement la quantité d’accès dont les utilisateurs ont besoin pour effectuer leur travail. Pour en savoir plus, consultez [Utiliser les attributions de rôle pour gérer l’accès à vos ressources Azure Active Directory](../active-directory/role-based-access-control-configure.md).
+> [AZURE.TIP] dans azure.microsoft.com/ Azure, veillez à utiliser le contrôle d’accès en fonction du rôle (RBAC) Azure pour accorder uniquement la quantité d’accès dont les utilisateurs ont besoin pour effectuer leur travail. Pour en savoir plus, consultez [Utiliser les attributions de rôle pour gérer l’accès à vos ressources Azure Active Directory](../active-directory/role-based-access-control-configure.md).
 
 ### Rôles et responsabilités du cloud computing 
 
@@ -76,7 +76,7 @@ Même si vous êtes responsable de la classification de vos données, les fourni
 
 De nombreuses organisations comprenant le besoin de classification des données et souhaitant la mettre en œuvre ne savent pas par où commencer.
 
-Une façon simple et efficace d’implémenter la classification des données consiste à procéder selon le modèle PLAN, DO, CHECK, ACT (PRÉVOIR, DÉPLOYER, VÉRIFIER, AGIR) à partir d’un fichier [MOF](https://technet.microsoft.com/solutionaccelerators/dd320379.aspx). La figure suivante présente les tâches qui sont requises pour implémenter la classification des données dans ce modèle.
+Une façon simple et efficace d’implémenter la classification des données consiste à procéder selon le modèle PLAN, DO, CHECK, ACT (PRÉVOIR, DÉPLOYER, VÉRIFIER, AGIR) à partir d’un fichier [MOF](https://technet.azure.microsoft.com/.com/solutionaccelerators/dd320379.aspx). La figure suivante présente les tâches qui sont requises pour implémenter la classification des données dans ce modèle.
 
 1. **PLAN (PRÉVOIR)**. Identifiez les ressources de données, un opérateur de données pour déployer le programme de classification et développez les profils de protection.
 2. **DO (DÉPLOYER)**. Une fois les règles de classification des données acceptées, déployez le programme et implémentez des technologies de mise en œuvre pour les données confidentielles en fonction des besoins.
@@ -180,7 +180,7 @@ Par exemple, pour les fournisseurs de services cloud, une stratégie de rétenti
 
 La stratégie de rétention des données doit répondre aux exigences réglementaires et de conformité, ainsi qu’aux exigences de rétention légales de l’entreprise. Les données classées peuvent susciter des questions sur la durée de rétention et les exceptions liées aux données stockées auprès d’un fournisseur. De telles questions se poseront plus probablement pour les données n’ayant pas fait l’objet d’une classification correcte.
 
-> [AZURE.TIP] pour en savoir plus sur les stratégies de rétention des données Azure, lisez l’article [Contrat d’abonnement en ligne Microsoft](https://azure.microsoft.com/support/legal/subscription-agreement/)
+> [AZURE.TIP] pour en savoir plus sur les stratégies de rétention des données Azure, lisez l’article [Contrat d’abonnement en ligne azure.microsoft.com/](https://azure.azure.microsoft.com/.com/support/legal/subscription-agreement/)
 
 ## Protection des données confidentielles
   
@@ -196,7 +196,7 @@ Comme le montre l’illustration suivante, ces technologies peuvent être déplo
 
 Le logiciel de gestion des droits est une solution permettant d’empêcher la perte de données. Contrairement aux approches qui tentent d’interrompre le flux d’informations sortant d’une organisation, le logiciel de gestion des droits fonctionne de manière approfondie au niveau des technologies de stockage. Les documents sont chiffrés et la vérification des personnes autorisées à les déchiffrer utilise les contrôles d’accès définis dans une solution de contrôle d’authentification, tel qu’un service d’annuaire.
 
-> [AZURE.TIP] Vous pouvez utiliser Azure Rights Management (Azure RMS) comme solution de protection des informations pour protéger les données dans divers scénarios. Consultez [What is Azure Rights Management?](https://docs.microsoft.com/rights-management/understand-explore/what-is-azure-rms) (Présentation d’Azure Rights Management) pour en savoir plus sur cette solution Azure.
+> [AZURE.TIP] Vous pouvez utiliser Azure Rights Management (Azure RMS) comme solution de protection des informations pour protéger les données dans divers scénarios. Consultez [What is Azure Rights Management?](https://docs.azure.microsoft.com/.com/rights-management/understand-explore/what-is-azure-rms) (Présentation d’Azure Rights Management) pour en savoir plus sur cette solution Azure.
 
 Voici certains avantages du logiciel de gestion des droits :
 
@@ -214,7 +214,7 @@ Les passerelles de chiffrement peuvent fournir un moyen de gérer et de sécuris
  
 Les passerelles de chiffrement sont placées dans le flux de données entre les appareils utilisateur et les centres de données des applications pour fournir des services de chiffrement/déchiffrement. Ces solutions, comme les réseaux privés virtuels, sont majoritairement des solutions sur site. Elles sont conçues pour fournir à un tiers un contrôle sur les clés de chiffrement, qui permet de réduire le risque de confier la gestion des données et des clés à un seul fournisseur. Ces solutions sont conçues, à l’instar du chiffrement, pour travailler de manière transparente entre les utilisateurs et le service.
 
-> [AZURE.TIP] Azure ExpressRoute vous permet d’étendre vos réseaux locaux au cloud de Microsoft via une connexion privée dédiée. Pour plus d’informations sur cette fonctionnalité, consultez la rubrique [ExpressRoute - Aperçu technique](../expressroute/expressroute-introduction.md). Une autre option pour une connectivité croisée entre votre réseau local et [Azure est une connexion VPN de site à site](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md).
+> [AZURE.TIP] Azure ExpressRoute vous permet d’étendre vos réseaux locaux au cloud de azure.microsoft.com/ via une connexion privée dédiée. Pour plus d’informations sur cette fonctionnalité, consultez la rubrique [ExpressRoute - Aperçu technique](../expressroute/expressroute-introduction.md). Une autre option pour une connectivité croisée entre votre réseau local et [Azure est une connexion VPN de site à site](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md).
 
 ### Prévention contre la perte de données 
 La perte de données (parfois appelée fuite de données) est un facteur important à prendre en considération, et la prévention contre la perte de données externes via des menaces accidentelles et malveillantes venant de l’intérieur est primordiale pour de nombreuses organisations.
@@ -237,6 +237,6 @@ Certaines technologies DLP permettent également de remplacer la configuration D
 - [Meilleures pratiques en matière de chiffrement des données Azure](azure-security-data-encryption-best-practices.md)
 - [Meilleures pratiques en matière de sécurité du contrôle d’accès et de la gestion des identités Azure](azure-security-identity-management-best-practices.md)
 - [Blog de l’équipe de sécurité Azure](http://blogs.msdn.com/b/azuresecurity/)
-- [Centre de réponse aux problèmes de sécurité Microsoft](https://technet.microsoft.com/library/dn440717.aspx)
+- [Centre de réponse aux problèmes de sécurité azure.microsoft.com/](https://technet.azure.microsoft.com/.com/library/dn440717.aspx)
 
 <!---HONumber=AcomDC_0817_2016-->

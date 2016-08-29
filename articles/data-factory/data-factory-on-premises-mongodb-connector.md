@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Déplacer des données depuis MongoDB à l’aide de Data Factory | Microsoft Azure" 
+	pageTitle="Déplacer des données depuis MongoDB à l’aide de Data Factory | azure.microsoft.com/ Azure" 
 	description="Découvrez comment déplacer des données depuis une base de données MongoDB à l’aide d’Azure Data Factory." 
 	services="data-factory" 
 	documentationCenter="" 
@@ -31,7 +31,7 @@ Pour permettre au service Azure Data Factory de se connecter à votre base de do
 
 - Une passerelle de gestion de données version 2.0 ou ultérieure sur l’ordinateur qui héberge la base de données ou sur un autre ordinateur afin d’éviter toute mise en concurrence avec la base de données pour les ressources. La passerelle de gestion de données est un logiciel qui connecte des sources de données locales à des services cloud de manière gérée et sécurisée. Consultez l’article [Passerelle de gestion des données](data-factory-data-management-gateway.md) pour obtenir des informations détaillées sur la passerelle de gestion des données.
   
-	L’installation de la passerelle engendre automatiquement l’installation d’un pilote Microsoft ODBC MongoDB, utilisé pour se connecter à MongoDB.
+	L’installation de la passerelle engendre automatiquement l’installation d’un pilote azure.microsoft.com/ ODBC MongoDB, utilisé pour se connecter à MongoDB.
 
 ## Assistant Copier des données
 Le moyen le plus simple de créer un pipeline qui copie des données à partir d’une base de données MongoDB vers n’importe quel magasin de données récepteur pris en charge consiste à utiliser l’Assistant Copier des données. Consultez la page [Didacticiel : Créer un pipeline avec l’activité de copie à l’aide de l’Assistant Data Factory Copy](data-factory-copy-data-wizard-tutorial.md) pour une procédure pas à pas rapide sur la création d’un pipeline à l’aide de l’Assistant Copier des données.

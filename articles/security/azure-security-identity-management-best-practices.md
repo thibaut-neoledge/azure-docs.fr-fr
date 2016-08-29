@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Meilleures pratiques en matière de sécurité du contrôle d’accès et de la gestion des identités Azure | Microsoft Azure"
+   pageTitle="Meilleures pratiques en matière de sécurité du contrôle d’accès et de la gestion des identités Azure | azure.microsoft.com/ Azure"
    description="Cet article détaille un ensemble de meilleures pratiques en matière de gestion des identités et du contrôle d’accès à l’aide de fonctionnalités Azure intégrées."
    services="security"
    documentationCenter="na"
@@ -50,7 +50,7 @@ Une étape importante vers la sécurisation de votre identité consiste à s’a
 Pour mettre en œuvre ce scénario d’[identité hybride](../active-directory/active-directory-hybrid-identity-design-considerations-overview.md), nous vous recommandons deux options :
 
 - Synchronisation de votre annuaire local avec votre annuaire de cloud à l’aide d’Azure AD Connect
-- Fédération de votre identité en local avec votre annuaire de cloud à l’aide des [Services ADFS](https://msdn.microsoft.com/library/bb897402.aspx)
+- Fédération de votre identité en local avec votre annuaire de cloud à l’aide des [Services ADFS](https://msdn.azure.microsoft.com/.com/library/bb897402.aspx)
 
 Les organisations qui ne parviennent pas à intégrer leur identité locale à leur identité de cloud vont être confrontées à une surcharge administrative en termes de gestion des comptes qui augmente la probabilité d’erreurs et de failles de sécurité.
 
@@ -58,9 +58,9 @@ Pour plus d’informations sur la synchronisation Azure AD, consultez l’articl
 
 ## Activation de l’authentification unique (SSO)
 
-La gestion de multiples annuaires pose un problème d’administration, non seulement pour l’informatique, mais également pour les utilisateurs finaux qui auront à mémoriser plusieurs mots de passe. L’utilisation de l’[authentification unique](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/) offre à vos utilisateurs la possibilité d’utiliser le même jeu d’informations d’identification pour s’authentifier et accéder aux ressources dont ils ont besoin, que cette ressource soit située en local ou dans le cloud.
+La gestion de multiples annuaires pose un problème d’administration, non seulement pour l’informatique, mais également pour les utilisateurs finaux qui auront à mémoriser plusieurs mots de passe. L’utilisation de l’[authentification unique](https://azure.azure.microsoft.com/.com/documentation/videos/overview-of-single-sign-on/) offre à vos utilisateurs la possibilité d’utiliser le même jeu d’informations d’identification pour s’authentifier et accéder aux ressources dont ils ont besoin, que cette ressource soit située en local ou dans le cloud.
 
-L’authentification unique permet aux utilisateurs d’accéder à leurs [applications SaaS](../active-directory/active-directory-appssoaccess-whatis.md) avec leur compte professionnel dans Azure AD. Ceci s’applique non seulement aux applications SaaS de Microsoft, mais également à d’autres applications, telles que [Google Apps](../active-directory/active-directory-saas-google-apps-tutorial.md) et [Salesforce](../active-directory/active-directory-saas-salesforce-tutorial.md). Votre application peut être configurée pour utiliser Azure AD en tant que fournisseur [d’identité SAML](../active-directory/fundamentals-identity.md). Pour contrôler la sécurité, Azure AD n'émettra pas de jeton permettant de se connecter à l'application avant que l'accès n'ait été octroyé par Azure AD. Les utilisateurs peuvent accorder un accès direct ou via un groupe dont ils sont membres.
+L’authentification unique permet aux utilisateurs d’accéder à leurs [applications SaaS](../active-directory/active-directory-appssoaccess-whatis.md) avec leur compte professionnel dans Azure AD. Ceci s’applique non seulement aux applications SaaS de azure.microsoft.com/, mais également à d’autres applications, telles que [Google Apps](../active-directory/active-directory-saas-google-apps-tutorial.md) et [Salesforce](../active-directory/active-directory-saas-salesforce-tutorial.md). Votre application peut être configurée pour utiliser Azure AD en tant que fournisseur [d’identité SAML](../active-directory/fundamentals-identity.md). Pour contrôler la sécurité, Azure AD n'émettra pas de jeton permettant de se connecter à l'application avant que l'accès n'ait été octroyé par Azure AD. Les utilisateurs peuvent accorder un accès direct ou via un groupe dont ils sont membres.
 
 > [AZURE.NOTE] la décision d’utiliser l’authentification unique aura un impact sur l’intégration de votre annuaire local à votre annuaire de cloud. Si vous souhaitez utiliser l’authentification unique, vous devez utiliser la fédération, étant donné que la synchronisation d’annuaires proposera la [même expérience d’authentification](../active-directory/active-directory-aadconnect.md).
 
@@ -86,7 +86,7 @@ En activant Azure MFA pour vos utilisateurs, vous ajoutez une deuxième couche d
 
 Par exemple : mettre en œuvre Azure Multi-Factor Authentication pour vos utilisateurs et la configurer de manière à utiliser un appel téléphonique ou un SMS à des fins de vérification. Si les informations d’identification sont compromises, la personne malveillante ne pourra accéder à aucune ressource, dans la mesure où elle n’a pas accès au téléphone de l’utilisateur. Les organisations qui n’ajoutent pas de couche supplémentaire de protection d’identité sont plus sensibles au vol d’informations d’identification, susceptible de compromettre des données.
 
-Les organisations souhaitant conserver le contrôle complet de l’authentification en local peuvent recourir au [serveur Microsoft Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication-get-started-server.md), ou « MFA local ». Grâce à cette méthode, vous pourrez toujours appliquer l’authentification multi-facteur, tout en conservant le serveur MFA en local.
+Les organisations souhaitant conserver le contrôle complet de l’authentification en local peuvent recourir au [serveur azure.microsoft.com/ Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication-get-started-server.md), ou « MFA local ». Grâce à cette méthode, vous pourrez toujours appliquer l’authentification multi-facteur, tout en conservant le serveur MFA en local.
 
 Pour en savoir plus sur Azure Multi-Factor Authentication, voir [Prise en main avec Azure Multi-Factor Authentication dans le cloud](../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md).
 
@@ -116,7 +116,7 @@ Pour en savoir plus sur la création de stratégies avec Azure Resource Manager,
 
 ## Aide aux développeurs pour tirer parti des fonctionnalités d’identité pour les applications SaaS
 
-L’identité de l’utilisateur est exploitée dans de nombreux scénarios lorsque les utilisateurs accèdent aux [applications SaaS](https://azure.microsoft.com/marketplace/active-directory/all/) qui peuvent être intégrées à l’annuaire local ou de cloud. Tout d’abord, nous conseillons aux développeurs d’utiliser une méthode sécurisée pour développer ces applications, telles que [Microsoft Security Development Lifecycle (SDL)](https://www.microsoft.com/sdl/default.aspx). Azure AD simplifie l’authentification pour les développeurs en fournissant l’identité en tant que service, avec la prise en charge des protocoles standard tels que [OAuth 2.0](http://oauth.net/2/) et [OpenID Connect](http://openid.net/connect/), ainsi que des bibliothèques open source pour différentes plateformes.
+L’identité de l’utilisateur est exploitée dans de nombreux scénarios lorsque les utilisateurs accèdent aux [applications SaaS](https://azure.azure.microsoft.com/.com/marketplace/active-directory/all/) qui peuvent être intégrées à l’annuaire local ou de cloud. Tout d’abord, nous conseillons aux développeurs d’utiliser une méthode sécurisée pour développer ces applications, telles que [azure.microsoft.com/ Security Development Lifecycle (SDL)](https://www.azure.microsoft.com/.com/sdl/default.aspx). Azure AD simplifie l’authentification pour les développeurs en fournissant l’identité en tant que service, avec la prise en charge des protocoles standard tels que [OAuth 2.0](http://oauth.net/2/) et [OpenID Connect](http://openid.net/connect/), ainsi que des bibliothèques open source pour différentes plateformes.
 
 Veillez à enregistrer toute application qui sous-traite l’authentification à Azure AD. Cette procédure est obligatoire. Cette obligation vient du fait qu’Azure AD a besoin de coordonner la communication avec l’application lors de la gestion de l’authentification unique ou de l’échange de jetons. La session utilisateur expire lorsque la durée de vie du jeton émis par Azure AD arrive à expiration. Évaluez toujours si votre application doit utiliser cette durée ou si vous pouvez réduire ce temps. La réduction de la durée de vie peut agir comme une mesure de sécurité qui oblige les utilisateurs à se déconnecter en fonction d’une période d’inactivité.
 

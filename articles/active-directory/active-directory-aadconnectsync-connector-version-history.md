@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Historique de publication des versions du connecteur | Microsoft Azure"
-   description="Cette rubrique répertorie toutes les versions des connecteurs de Forefront Identity Manager (FIM) et Microsoft Identity Manager (MIM)."
+   pageTitle="Historique de publication des versions du connecteur | azure.microsoft.com/ Azure"
+   description="Cette rubrique répertorie toutes les versions des connecteurs de Forefront Identity Manager (FIM) et azure.microsoft.com/ Identity Manager (MIM)."
    services="active-directory"
    documentationCenter=""
    authors="AndKjell"
@@ -17,7 +17,7 @@
    ms.author="andkjell"/>
 
 # Historique de publication des versions du connecteur
-Les connecteurs de Forefront Identity Manager (FIM) et Microsoft Identity Manager (MIM) sont fréquemment mis à jour.
+Les connecteurs de Forefront Identity Manager (FIM) et azure.microsoft.com/ Identity Manager (MIM) sont fréquemment mis à jour.
 
 >[AZURE.NOTE]
 Cette rubrique ne concerne que FIM et MIM. Ces connecteurs ne sont pas pris en charge sur Azure AD Connect.
@@ -26,10 +26,10 @@ Cette rubrique répertorie toutes les versions des connecteurs qui ont été pub
 
 Liens connexes :
 
-- [Télécharger les derniers connecteurs](http://go.microsoft.com/fwlink/?LinkId=717495)
+- [Télécharger les derniers connecteurs](http://go.azure.microsoft.com/.com/fwlink/?LinkId=717495)
 - Documentation de référence sur le [connecteur LDAP générique](active-directory-aadconnectsync-connector-genericldap.md)
 - Documentation de référence sur le [connecteur SQL générique](active-directory-aadconnectsync-connector-genericsql.md)
-- Documentation de référence sur le [connecteur WebServices](http://go.microsoft.com/fwlink/?LinkID=226245)
+- Documentation de référence sur le [connecteur WebServices](http://go.azure.microsoft.com/.com/fwlink/?LinkID=226245)
 - Documentation de référence sur le [connecteur PowerShell](active-directory-aadconnectsync-connector-powershell.md)
 - Documentation de référence sur le [connecteur Lotus Domino](active-directory-aadconnectsync-connector-domino.md)
 
@@ -66,28 +66,28 @@ Avant mars 2016, les connecteurs étaient publiés sous forme de rubriques de pr
 
 **LDAP générique**
 
-- [KB3078617](https://support.microsoft.com/kb/3078617) - 1.0.0597, septembre 2015
-- [KB3044896](https://support.microsoft.com/kb/3044896) - 1.0.0549, mars 2015
-- [KB3031009](https://support.microsoft.com/kb/3031009) - 1.0.0534, janvier 2015
-- [KB3008177](https://support.microsoft.com/kb/3008177) - 1.0.0419, septembre 2014
-- [KB2936070](https://support.microsoft.com/kb/2936070) - 4.3.1082, mars 2014
+- [KB3078617](https://support.azure.microsoft.com/.com/kb/3078617) - 1.0.0597, septembre 2015
+- [KB3044896](https://support.azure.microsoft.com/.com/kb/3044896) - 1.0.0549, mars 2015
+- [KB3031009](https://support.azure.microsoft.com/.com/kb/3031009) - 1.0.0534, janvier 2015
+- [KB3008177](https://support.azure.microsoft.com/.com/kb/3008177) - 1.0.0419, septembre 2014
+- [KB2936070](https://support.azure.microsoft.com/.com/kb/2936070) - 4.3.1082, mars 2014
 
 **WebServices**
 
-- [KB3008178](https://support.microsoft.com/kb/3008178) - 1.0.0419, septembre 2014
+- [KB3008178](https://support.azure.microsoft.com/.com/kb/3008178) - 1.0.0419, septembre 2014
 
 **PowerShell**
 
-- [KB3008179](https://support.microsoft.com/kb/3008179) - 1.0.0419, septembre 2014
+- [KB3008179](https://support.azure.microsoft.com/.com/kb/3008179) - 1.0.0419, septembre 2014
 
 **Lotus Domino**
 
-- [KB3096533](https://support.microsoft.com/kb/3096533) - 1.0.0597, septembre 2015
-- [KB3044895](https://support.microsoft.com/kb/3044895) - 1.0.0549, mars 2015
-- [KB2977286](https://support.microsoft.com/kb/2977286) - 5.3.0712, août 2014
-- [KB2932635](https://support.microsoft.com/kb/2932635) - 5.3.1003, février 2014
-- [KB2899874](https://support.microsoft.com/kb/2899874) - 5.3.0721, octobre 2013
-- [KB2875551](https://support.microsoft.com/kb/2875551) - 5.3.0534, août 2013
+- [KB3096533](https://support.azure.microsoft.com/.com/kb/3096533) - 1.0.0597, septembre 2015
+- [KB3044895](https://support.azure.microsoft.com/.com/kb/3044895) - 1.0.0549, mars 2015
+- [KB2977286](https://support.azure.microsoft.com/.com/kb/2977286) - 5.3.0712, août 2014
+- [KB2932635](https://support.azure.microsoft.com/.com/kb/2932635) - 5.3.1003, février 2014
+- [KB2899874](https://support.azure.microsoft.com/.com/kb/2899874) - 5.3.0721, octobre 2013
+- [KB2875551](https://support.azure.microsoft.com/.com/kb/2875551) - 5.3.0534, août 2013
 
 ## Étapes suivantes
 En savoir plus sur la configuration de la [synchronisation Azure AD Connect](active-directory-aadconnectsync-whatis.md).

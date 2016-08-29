@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Publish-WebApplicationVM | Microsoft Azure"
+   pageTitle="Publish-WebApplicationVM | azure.microsoft.com/ Azure"
    description="Découvrez comment déployer une application web sur une machine virtuelle. Ce script crée les ressources requises dans votre abonnement Azure si elles n’existent pas."
    services="visual-studio-online"
    documentationCenter="na"
@@ -56,7 +56,7 @@ Nom de l’abonnement Azure dans lequel vous souhaitez créer la machine virtuel
 
 ### WebDeployPackage
 
-Le chemin d’accès au package de déploiement web à publier sur la machine virtuelle. Vous pouvez créer ce package à l'aide de l'Assistant Publier le site web dans Visual Studio. Consultez [Création d’un package de déploiement web dans Visual Studio](https://msdn.microsoft.com/library/dd465323.aspx).
+Le chemin d’accès au package de déploiement web à publier sur la machine virtuelle. Vous pouvez créer ce package à l'aide de l'Assistant Publier le site web dans Visual Studio. Consultez [Création d’un package de déploiement web dans Visual Studio](https://msdn.azure.microsoft.com/.com/library/dd465323.aspx).
 
 |Alias|(aucun)|
 |---|---|

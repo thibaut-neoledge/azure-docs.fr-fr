@@ -20,7 +20,7 @@
 
 De nombreuses tâches d’administration de SQL Data Warehouse peuvent être gérées à l’aide d’applets de commande Azure PowerShell ou d’API REST. Voici quelques exemples d’utilisation des commandes PowerShell pour automatiser les tâches courantes dans SQL Data Warehouse. Pour obtenir de bons exemples REST, consultez l’article [Gérer l’évolutivité avec REST][].
 
-> [AZURE.NOTE]  Pour utiliser Azure PowerShell avec SQL Data Warehouse, vous devez installer Azure PowerShell version 1.0.3 ou supérieure. Vous pouvez vérifier la version en exécutant **Get-Module -ListAvailable -Name Azure**. La version la plus récente peut être installée à partir de [Microsoft Web Platform Installer][]. Pour plus d’informations sur l’installation de la dernière version, consultez la page [Installation et configuration d’Azure PowerShell][].
+> [AZURE.NOTE]  Pour utiliser Azure PowerShell avec SQL Data Warehouse, vous devez installer Azure PowerShell version 1.0.3 ou supérieure. Vous pouvez vérifier la version en exécutant **Get-Module -ListAvailable -Name Azure**. La version la plus récente peut être installée à partir de [azure.microsoft.com/ Web Platform Installer][]. Pour plus d’informations sur l’installation de la dernière version, consultez la page [Installation et configuration d’Azure PowerShell][].
 
 ## Prise en main des applets de commande Azure PowerShell
 
@@ -97,21 +97,21 @@ Pour obtenir la liste de toutes les tâches pouvant être automatisées avec Pow
 [Gérer l’évolutivité avec REST]: ./sql-data-warehouse-manage-compute-rest-api.md
 
 <!--MSDN references-->
-[Applets de commande de la base de données SQL Azure]: https://msdn.microsoft.com/library/mt574084.aspx
-[Opérations des bases de données SQL Azure]: https://msdn.microsoft.com/library/azure/dn505719.aspx
-[Get-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt603648.aspx
-[Get-AzureRmSqlDeletedDatabaseBackup]: https://msdn.microsoft.com/library/mt693387.aspx
-[Get-AzureRmSqlDatabaseRestorePoints]: https://msdn.microsoft.com/library/mt603642.aspx
-[New-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619339.aspx
-[Remove-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619368.aspx
-[Restore-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt693390.aspx
-[Resume-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619347.aspx
+[Applets de commande de la base de données SQL Azure]: https://msdn.azure.microsoft.com/.com/library/mt574084.aspx
+[Opérations des bases de données SQL Azure]: https://msdn.azure.microsoft.com/.com/library/azure/dn505719.aspx
+[Get-AzureRmSqlDatabase]: https://msdn.azure.microsoft.com/.com/library/mt603648.aspx
+[Get-AzureRmSqlDeletedDatabaseBackup]: https://msdn.azure.microsoft.com/.com/library/mt693387.aspx
+[Get-AzureRmSqlDatabaseRestorePoints]: https://msdn.azure.microsoft.com/.com/library/mt603642.aspx
+[New-AzureRmSqlDatabase]: https://msdn.azure.microsoft.com/.com/library/mt619339.aspx
+[Remove-AzureRmSqlDatabase]: https://msdn.azure.microsoft.com/.com/library/mt619368.aspx
+[Restore-AzureRmSqlDatabase]: https://msdn.azure.microsoft.com/.com/library/mt693390.aspx
+[Resume-AzureRmSqlDatabase]: https://msdn.azure.microsoft.com/.com/library/mt619347.aspx
 <!-- It appears that Select-AzureRmSubscription isn't documented, so this points to Select-AzureSubscription -->
-[Select-AzureRmSubscription]: https://msdn.microsoft.com/library/dn722499.aspx
-[Set-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619433.aspx
-[Suspend-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619337.aspx
+[Select-AzureRmSubscription]: https://msdn.azure.microsoft.com/.com/library/dn722499.aspx
+[Set-AzureRmSqlDatabase]: https://msdn.azure.microsoft.com/.com/library/mt619433.aspx
+[Suspend-AzureRmSqlDatabase]: https://msdn.azure.microsoft.com/.com/library/mt619337.aspx
 
 <!--Other Web references-->
-[Microsoft Web Platform Installer]: https://aka.ms/webpi-azps
+[azure.microsoft.com/ Web Platform Installer]: https://aka.ms/webpi-azps
 
 <!---HONumber=AcomDC_0817_2016-->

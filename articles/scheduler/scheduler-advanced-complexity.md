@@ -31,7 +31,7 @@ Grâce à cette flexibilité, Azure Scheduler vous permet de prendre en charge u
 -	Traitement des images : par exemple, tous les jours ouvrables, pendant les heures creuses, utiliser le cloud computing pour compresser les images téléchargées ce même jour.
 
 
-Dans cet article, nous traitons d'exemples de travaux que vous pouvez créer avec Azure Scheduler. Nous fournissons les données JSON qui décrivent chaque planification. Si vous utilisez l'[API REST Scheduler](https://msdn.microsoft.com/library/mt629143.aspx), vous pouvez utiliser les mêmes données JSON pour [créer un travail Azure Scheduler](https://msdn.microsoft.com/library/mt629145.aspx).
+Dans cet article, nous traitons d'exemples de travaux que vous pouvez créer avec Azure Scheduler. Nous fournissons les données JSON qui décrivent chaque planification. Si vous utilisez l'[API REST Scheduler](https://msdn.azure.microsoft.com/.com/library/mt629143.aspx), vous pouvez utiliser les mêmes données JSON pour [créer un travail Azure Scheduler](https://msdn.azure.microsoft.com/.com/library/mt629145.aspx).
 
 ## Scénarios pris en charge
 
@@ -52,7 +52,7 @@ Les références date-heure des travaux Azure Scheduler respectent la [spécifi
 
 ## Procédure : Utiliser JSON et l'API REST pour la création de planifications
 
-Pour créer une simple planification à l’aide de [l’API REST Azure Scheduler](https://msdn.microsoft.com/library/mt629143), [inscrivez votre abonnement auprès d’un fournisseur de ressources](https://msdn.microsoft.com/library/azure/dn790548.aspx) (le nom du fournisseur pour Scheduler est _Microsoft.Scheduler_), puis [créez une collection de travaux](https://msdn.microsoft.com/library/mt629159.aspx) et [un travail](https://msdn.microsoft.com/library/mt629145.aspx). Lorsque vous créez un travail, vous pouvez spécifier la planification et la périodicité à l'aide de JSON, comme indiqué dans l'extrait ci-dessous :
+Pour créer une simple planification à l’aide de [l’API REST Azure Scheduler](https://msdn.azure.microsoft.com/.com/library/mt629143), [inscrivez votre abonnement auprès d’un fournisseur de ressources](https://msdn.azure.microsoft.com/.com/library/azure/dn790548.aspx) (le nom du fournisseur pour Scheduler est _azure.microsoft.com/.Scheduler_), puis [créez une collection de travaux](https://msdn.azure.microsoft.com/.com/library/mt629159.aspx) et [un travail](https://msdn.azure.microsoft.com/.com/library/mt629145.aspx). Lorsque vous créez un travail, vous pouvez spécifier la planification et la périodicité à l'aide de JSON, comme indiqué dans l'extrait ci-dessous :
 
 	{
 	    "startTime": "2012-08-04T00:00Z", // optional
@@ -187,7 +187,7 @@ Les planifications ci-dessous supposent toutes que la valeur _interval_ est déf
 
  [Plans et facturation dans Azure Scheduler](scheduler-plans-billing.md)
 
- [Informations de référence sur l’API REST d’Azure Scheluler](https://msdn.microsoft.com/library/mt629143)
+ [Informations de référence sur l’API REST d’Azure Scheluler](https://msdn.azure.microsoft.com/.com/library/mt629143)
 
  [Informations de référence sur les applets de commande PowerShell d’Azure Scheluler](scheduler-powershell-reference.md)
 

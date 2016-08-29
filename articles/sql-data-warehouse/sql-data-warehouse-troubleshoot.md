@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Résolution des problèmes d’Azure SQL Data Warehouse | Microsoft Azure"
+   pageTitle="Résolution des problèmes d’Azure SQL Data Warehouse | azure.microsoft.com/ Azure"
    description="Résolution des problèmes d’Azure SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
@@ -40,7 +40,7 @@ Cette rubrique répertorie les questions les plus courantes relatives à la rés
 | Problème | Résolution : |
 | :----------------------------------| :---------------------------------------------- |
 | Résolution des problèmes de performances des requêtes | Si vous tentez de dépanner une requête spécifique, commencez avec l’article relatif à la [surveillance de vos requêtes][].|
-| Des performances des requêtes et des plans médiocres sont souvent le résultat de statistiques manquantes | La cause la plus courante de la médiocrité des performances est le manque de statistiques concernant vos tables. Consultez la page [Maintaining Table Statistics][Statistics] (Maintenance des statistiques de table) pour plus d’informations sur la façon de créer des statistiques et les raisons pour lesquelles celles-ci sont essentielles à vos performances.|
+| Des performances des requêtes et des plans médiocres sont souvent le résultat de statistiques manquantes | La cause la plus courante de la médiocrité des performances est le manque de statistiques concernant vos tables. Consultez la page [Maintaining Table Statistics][Statistics] \(Maintenance des statistiques de table) pour plus d’informations sur la façon de créer des statistiques et les raisons pour lesquelles celles-ci sont essentielles à vos performances.|
 | Concurrence faible / requêtes en file d’attente | Comprendre la [gestion des charges de travail][] est important pour comprendre comment équilibrer l’allocation de mémoire avec l’accès concurrentiel.|
 | Comment mettre en œuvre les meilleures pratiques | L’article [Meilleures pratiques relatives à SQL Data Warehouse][] est le point de départ idéal pour apprendre à améliorer les performances des requêtes.|
 | Comment améliorer les performances avec la mise à l’échelle | Pour améliorer les performances, il suffit parfois simplement d’ajouter davantage de puissance de calcul à vos requêtes en procédant à une [mise à l’échelle de votre base de données SQL Data Warehouse][].|
@@ -52,7 +52,7 @@ Cette rubrique répertorie les questions les plus courantes relatives à la rés
 | :----------------------------------| :---------------------------------------------- |
 | Msg 40847 : Impossible d’effectuer l’opération car le serveur risque de dépasser le quota d’unité de débit de base de données autorisé de 45 000. | Réduisez la [DWU][] de la base de données que vous essayez de créer ou [demandez une augmentation du quota][].|
 | Examen de l’utilisation de l’espace | Consultez la section relative aux [tailles des tables][] pour comprendre l’utilisation de l’espace de votre système.|
-| Aide concernant la gestion des tables | Consultez l’article [Table overview][Overview] (Vue d’ensemble des tables) pour obtenir de l’aide pour la gestion de vos tables. Cet article inclut également des liens vers des rubriques plus détaillées, notamment [Types de données de table][Data types], [Distribution d’une table][Distribute], [Indexation d’une table][Index], [Partitionnement d’une table][Partition], [Maintenance des statistiques de table][Statistics] et [Tables temporaires][Temporary].|
+| Aide concernant la gestion des tables | Consultez l’article [Table overview][Overview] \(Vue d’ensemble des tables) pour obtenir de l’aide pour la gestion de vos tables. Cet article inclut également des liens vers des rubriques plus détaillées, notamment [Types de données de table][Data types], [Distribution d’une table][Distribute], [Indexation d’une table][Index], [Partitionnement d’une table][Partition], [Maintenance des statistiques de table][Statistics] et [Tables temporaires][Temporary].|
 
 ## Polybase
 
@@ -122,17 +122,17 @@ Si les ressources ci-dessus ne vous ont pas permis de trouver une solution à vo
 [Contournement de la nécessité du codage UTF-8 de PolyBase]: ./sql-data-warehouse-load-polybase-guide.md#working-around-the-polybase-utf-8-requirement
 
 <!--MSDN references-->
-[SQL Server Native Client 10/11 (ODBC)]: https://msdn.microsoft.com/library/ms131415.aspx
-[sys.database\_principals]: https://msdn.microsoft.com/library/ms187328.aspx
-[CREATE FUNCTION]: https://msdn.microsoft.com/library/mt203952.aspx
+[SQL Server Native Client 10/11 (ODBC)]: https://msdn.azure.microsoft.com/.com/library/ms131415.aspx
+[sys.database\_principals]: https://msdn.azure.microsoft.com/.com/library/ms187328.aspx
+[CREATE FUNCTION]: https://msdn.azure.microsoft.com/.com/library/mt203952.aspx
 
 <!--Other Web references-->
-[Blogs]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/
-[Blogs de l’équipe CAT (Customer Advisory Team)]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
+[Blogs]: https://azure.azure.microsoft.com/.com/blog/tag/azure-sql-data-warehouse/
+[Blogs de l’équipe CAT (Customer Advisory Team)]: https://blogs.msdn.azure.microsoft.com/.com/sqlcat/tag/sql-dw/
 [Demandes de fonctionnalités]: https://feedback.azure.com/forums/307516-sql-data-warehouse
-[Forum MSDN]: https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse
+[Forum MSDN]: https://social.msdn.azure.microsoft.com/.com/Forums/home?forum=AzureSQLDataWarehouse
 [Forum Stack Overflow]: http://stackoverflow.com/questions/tagged/azure-sqldw
 [Twitter]: https://twitter.com/hashtag/SQLDW
-[Vidéos]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
+[Vidéos]: https://azure.azure.microsoft.com/.com/documentation/videos/index/?services=sql-data-warehouse
 
 <!---HONumber=AcomDC_0817_2016-->

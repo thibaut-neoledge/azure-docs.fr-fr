@@ -40,10 +40,10 @@ Cette rubrique montre comment utiliser Azure Media Services pour chiffrer dynami
 	- S’inscrire au programme [Apple Developer Program](https://developer.apple.com/).
 	- Apple exige que le propriétaire du contenu se procure le [package de déploiement](https://developer.apple.com/contact/fps/). Dans votre demande, indiquez que vous déjà implémenté le module de sécurité des clés (KSM) et que vous avez besoin du package FPS final. Le package FPS final contiendra les instructions à suivre pour générer la certification et obtenir la clé secrète de l’application (ASK), qui vous servira à configurer FairPlay.
 
-	- Kit de développement logiciel (SDK) .NET Azure Media Services version **3.6.0** ou ultérieure.
+	- Kit de développement logiciel (SDK) .NET Azure Media Services version **3.6.0** ou ultérieure.
 
 - Les éléments suivants doivent être définis du côté de la remise de clé AMS :
-	- **App Cert (AC)** : fichier .pfx qui contient la clé privée. Ce fichier est créé par le client et chiffré avec un mot de passe par le même client.
+	- **App Cert (AC)** : fichier .pfx qui contient la clé privée. Ce fichier est créé par le client et chiffré avec un mot de passe par le même client.
 		
 	 	Lorsque le client configure une stratégie de remise de clé, il doit fournir ce mot de passe et le fichier .pfx au format base64.
 
@@ -61,14 +61,14 @@ Cette rubrique montre comment utiliser Azure Media Services pour chiffrer dynami
 		
 			"C:\\OpenSSL-Win32\\bin\\openssl.exe" pkcs12 -export -out fairplay-out.pfx -inkey privatekey.pem -in fairplay-out.pem -passin file:privatekey-pem-pass.txt
 		
-	- **Mot de passe App Cert** : mot de passe du client pour créer le fichier .pfx.
-	- **ID de mot de passe App Cert** : le client doit télécharger le mot de passe de la même manière que les autres clés AMS, avec la valeur enum **ContentKeyType.FairPlayPfxPassword**. Dans le résultat, il obtiendra l’ID AMS qu'il doit utiliser dans l'option de stratégie de remise de clé.
-	- **iv** : valeur aléatoire de 16 octets, doit correspondre au vecteur d’initialisation de la stratégie de distribution de ressources. Le client génère le vecteur d'initialisation et le place aux deux endroits : la stratégie de distribution de ressources et l’option de stratégie de remise de clé.
-	- **ASK** : l’ASK (clé secrète de l’application) est reçue lorsque vous générez la certification à l’aide du portail des développeurs Apple. Chaque équipe de développement recevra une ASK unique. Enregistrez une copie de l’ASK et stockez-la dans un endroit sûr. Vous devrez configurer l’ASK comme FairPlayAsk pour Azure Media Services plus tard.
-	-  **ID d’ASK** : obtenu lorsque le client télécharge l’ASK dans AMS. Le client doit télécharger l’ASK avec la valeur enum **ContentKeyType.FairPlayASk**. L’ID AMS sera retourné dans le résultat. C’est cet ID qui doit être utilisé lors de la définition de l’option de stratégie de remise de clé.
+	- **Mot de passe App Cert** : mot de passe du client pour créer le fichier .pfx.
+	- **ID de mot de passe App Cert** : le client doit télécharger le mot de passe de la même manière que les autres clés AMS, avec la valeur enum **ContentKeyType.FairPlayPfxPassword**. Dans le résultat, il obtiendra l’ID AMS qu'il doit utiliser dans l'option de stratégie de remise de clé.
+	- **iv** : valeur aléatoire de 16 octets, doit correspondre au vecteur d’initialisation de la stratégie de distribution de ressources. Le client génère le vecteur d'initialisation et le place aux deux endroits : la stratégie de distribution de ressources et l’option de stratégie de remise de clé.
+	- **ASK** : l’ASK (clé secrète de l’application) est reçue lorsque vous générez la certification à l’aide du portail des développeurs Apple. Chaque équipe de développement recevra une ASK unique. Enregistrez une copie de l’ASK et stockez-la dans un endroit sûr. Vous devrez configurer l’ASK comme FairPlayAsk pour Azure Media Services plus tard.
+	-  **ID d’ASK** : obtenu lorsque le client télécharge l’ASK dans AMS. Le client doit télécharger l’ASK avec la valeur enum **ContentKeyType.FairPlayASk**. L’ID AMS sera retourné dans le résultat. C’est cet ID qui doit être utilisé lors de la définition de l’option de stratégie de remise de clé.
 
 - Les éléments suivants doivent être définis par FPS côté client :
- 	- **App Cert (AC)** : fichier .cer/.der contenant la clé publique que le système d’exploitation utilise pour chiffrer une charge utile. AMS doit le connaître, car il est requis par le lecteur. Le service de remise de clé le déchiffre à l'aide de la clé privée correspondante.
+ 	- **App Cert (AC)** : fichier .cer/.der contenant la clé publique que le système d’exploitation utilise pour chiffrer une charge utile. AMS doit le connaître, car il est requis par le lecteur. Le service de remise de clé le déchiffre à l'aide de la clé privée correspondante.
 
 - Pour lire un flux chiffré FairPlay, vous devez obtenir l’ASK réelle en premier, puis générer un certificat réel. Ce processus crée les 3 composants suivants :
 
@@ -76,7 +76,7 @@ Cette rubrique montre comment utiliser Azure Media Services pour chiffrer dynami
 	-  .pfx et
 	-  le mot de passe du fichier .pfx.
  
-- Clients qui prennent en charge HLS avec chiffrement **AES-128 CBC** : Safari sur OS X, Apple TV, iOS.
+- Clients qui prennent en charge HLS avec chiffrement **AES-128 CBC** : Safari sur OS X, Apple TV, iOS.
 
 ##Étapes de configuration du chiffrement dynamique FairPlay et des services de distribution de licences
 
@@ -155,10 +155,10 @@ L'exemple suivant illustre la fonctionnalité introduite dans le Kit de dévelop
 		using System.IO;
 		using System.Linq;
 		using System.Threading;
-		using Microsoft.WindowsAzure.MediaServices.Client;
-		using Microsoft.WindowsAzure.MediaServices.Client.ContentKeyAuthorization;
-		using Microsoft.WindowsAzure.MediaServices.Client.DynamicEncryption;
-		using Microsoft.WindowsAzure.MediaServices.Client.FairPlay;
+		using azure.microsoft.com/.WindowsAzure.MediaServices.Client;
+		using azure.microsoft.com/.WindowsAzure.MediaServices.Client.ContentKeyAuthorization;
+		using azure.microsoft.com/.WindowsAzure.MediaServices.Client.DynamicEncryption;
+		using azure.microsoft.com/.WindowsAzure.MediaServices.Client.FairPlay;
 		using Newtonsoft.Json;
 		using System.Security.Cryptography.X509Certificates;
 		
@@ -429,7 +429,7 @@ L'exemple suivant illustre la fonctionnalité introduite dans le Kit de dévelop
 		            var appCert = new X509Certificate2("path to the .pfx file created by the customer", pfxPassword, X509KeyStorageFlags.Exportable);
 		
 		            string FairPlayConfiguration =
-		                Microsoft.WindowsAzure.MediaServices.Client.FairPlay.FairPlayConfiguration.CreateSerializedFairPlayOptionConfiguration(
+		                azure.microsoft.com/.WindowsAzure.MediaServices.Client.FairPlay.FairPlayConfiguration.CreateSerializedFairPlayOptionConfiguration(
 		                    appCert,
 		                    pfxPassword,
 		                    pfxPasswordId,

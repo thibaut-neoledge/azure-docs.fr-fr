@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Vue d’ensemble d’Azure DNS | Microsoft Azure" 
-   description="Vue d’ensemble des services d’hébergement Azure DNS sur Microsoft Azure Héberger votre domaine sur Microsoft Azure" 
+   pageTitle="Vue d’ensemble d’Azure DNS | azure.microsoft.com/ Azure" 
+   description="Vue d’ensemble des services d’hébergement Azure DNS sur azure.microsoft.com/ Azure Héberger votre domaine sur azure.microsoft.com/ Azure" 
    services="dns" 
    documentationCenter="na" 
    authors="cherylmc" 
@@ -19,7 +19,7 @@
 # Vue d’ensemble d’Azure DNS
 
 
-Le DNS (Domain Name System) se charge de traduire (ou résoudre) un nom de site web ou de service en une adresse IP. Azure DNS est un service d'hébergement pour les domaines DNS et qui offre une résolution de noms à l'aide de l'infrastructure Microsoft Azure. En hébergeant vos domaines dans Azure, vous pouvez gérer vos enregistrements DNS avec les mêmes informations d’identification, les mêmes API, les mêmes outils et la même facturation que vos autres services Azure.
+Le DNS (Domain Name System) se charge de traduire (ou résoudre) un nom de site web ou de service en une adresse IP. Azure DNS est un service d'hébergement pour les domaines DNS et qui offre une résolution de noms à l'aide de l'infrastructure azure.microsoft.com/ Azure. En hébergeant vos domaines dans Azure, vous pouvez gérer vos enregistrements DNS avec les mêmes informations d’identification, les mêmes API, les mêmes outils et la même facturation que vos autres services Azure.
 
 
 Les domaines DNS dans Azure DNS sont hébergés sur un réseau global de serveurs de noms DNS. Nous utilisons la mise en réseau Anycast, afin que chaque requête DNS obtienne une réponse du serveur DNS disponible le plus proche. Cette technique offre des performances élevées et une haute disponibilité pour votre domaine.

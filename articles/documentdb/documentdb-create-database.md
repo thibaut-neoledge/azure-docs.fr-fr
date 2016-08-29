@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Comment créer une base de données dans DocumentDB | Microsoft Azure" 
+	pageTitle="Comment créer une base de données dans DocumentDB | azure.microsoft.com/ Azure" 
 	description="Découvrez comment créer une base de données à l’aide du portail du service en ligne pour Azure DocumentDB, votre base de données NoSQL globale et rapide." 
 	keywords="création d’une base de données" 
 	services="documentdb" 
@@ -19,7 +19,7 @@
 
 # Création d’une base de données pour DocumentDB à l’aide du portail Azure
 
-Pour utiliser Microsoft Azure DocumentDB, vous devez posséder un [compte DocumentDB](documentdb-create-account.md), une base de données, une collection et des documents. Cette rubrique décrit la procédure à suivre pour créer une base de données DocumentDB dans le portail Microsoft Azure. Pour plus d’informations sur la création d’une base de données à l’aide d’un des Kits de développement logiciel (SDK), consultez l’article [Autres méthodes de création d’une base de données DocumentDB](#other-ways-to-create-a-documentdb-database).
+Pour utiliser azure.microsoft.com/ Azure DocumentDB, vous devez posséder un [compte DocumentDB](documentdb-create-account.md), une base de données, une collection et des documents. Cette rubrique décrit la procédure à suivre pour créer une base de données DocumentDB dans le portail azure.microsoft.com/ Azure. Pour plus d’informations sur la création d’une base de données à l’aide d’un des Kits de développement logiciel (SDK), consultez l’article [Autres méthodes de création d’une base de données DocumentDB](#other-ways-to-create-a-documentdb-database).
 
 1.  Dans la barre de lancement du [portail Azure](https://portal.azure.com/), cliquez sur **Comptes DocumentDB**. Si l’option **Comptes DocumentDB** n’est pas affichée, cliquez sur **Plus de services**, puis sur **Comptes DocumentDB**.
 
@@ -42,7 +42,7 @@ Pour utiliser Microsoft Azure DocumentDB, vous devez posséder un [compte Docume
 
 ## Autres méthodes de création d'une base de données DocumentDB
 
-Les bases de données ne doivent pas nécessairement être créées avec le portail. Vous pouvez également les créer avec les [Kits de développement logiciel (SDK) DocumentDB](documentdb-sdk-dotnet.md) ou l’[API REST](https://msdn.microsoft.com/library/mt489072.aspx). Pour en savoir plus sur l’utilisation des bases de données à l’aide du Kit de développement logiciel (SDK) .NET, consultez les [exemples de base de données .NET](documentdb-dotnet-samples.md#database-examples). Pour en savoir plus sur l’utilisation des bases de données à l’aide du Kit de développement logiciel (SDK) Node.js, consultez les [exemples de base de données Node.js](documentdb-nodejs-samples.md#database-examples).
+Les bases de données ne doivent pas nécessairement être créées avec le portail. Vous pouvez également les créer avec les [Kits de développement logiciel (SDK) DocumentDB](documentdb-sdk-dotnet.md) ou l’[API REST](https://msdn.azure.microsoft.com/.com/library/mt489072.aspx). Pour en savoir plus sur l’utilisation des bases de données à l’aide du Kit de développement logiciel (SDK) .NET, consultez les [exemples de base de données .NET](documentdb-dotnet-samples.md#database-examples). Pour en savoir plus sur l’utilisation des bases de données à l’aide du Kit de développement logiciel (SDK) Node.js, consultez les [exemples de base de données Node.js](documentdb-nodejs-samples.md#database-examples).
 
 ## Étapes suivantes
 
@@ -50,6 +50,6 @@ Maintenant que vous savez comment créer une base de données DocumentDB, l’é
 
 Une fois votre collection créée, vous pouvez [ajouter des documents JSON](documentdb-view-json-document-explorer.md) à l’aide de l’Explorateur de documents du portail, [importer des documents](documentdb-import-data.md) dans la collection à l’aide de l’outil de migration de données DocumentDB ou encore utiliser l’un des [Kits de développement logiciel (SDK) DocumentDB](documentdb-sdk-dotnet.md) pour effectuer des opérations CRUD. DocumentDB possède les kits de développement logiciel (SDK) de .NET, Java, Python, Node.js et de l’API JavaScript. Pour obtenir des exemples de code .NET montrant comment créer, mettre à jour et supprimer des documents, consultez les [exemples de document .NET](documentdb-dotnet-samples.md#document-examples). Pour en savoir plus sur l’utilisation des documents à l’aide du Kit de développement logiciel (SDK) Node.js, consultez les [exemples de document Node.js](documentdb-nodejs-samples.md#document-examples).
 
-Une fois que chaque collection contient des documents, vous pouvez utiliser [DocumentDB SQL](documentdb-sql-query.md) pour [exécuter des requêtes](documentdb-sql-query.md#executing-sql-queries) sur vos documents à l’aide de l’[Explorateur de requête](documentdb-query-collections-query-explorer.md) du portail, de l’[API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) ou de l’un des [Kits de développement logiciel](documentdb-sdk-dotnet.md).
+Une fois que chaque collection contient des documents, vous pouvez utiliser [DocumentDB SQL](documentdb-sql-query.md) pour [exécuter des requêtes](documentdb-sql-query.md#executing-sql-queries) sur vos documents à l’aide de l’[Explorateur de requête](documentdb-query-collections-query-explorer.md) du portail, de l’[API REST](https://msdn.azure.microsoft.com/.com/library/azure/dn781481.aspx) ou de l’un des [Kits de développement logiciel](documentdb-sdk-dotnet.md).
 
 <!---HONumber=AcomDC_0817_2016-->

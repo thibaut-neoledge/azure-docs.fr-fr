@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Gestion d’Azure Search avec les scripts PowerShell | Microsoft Azure | Service de recherche cloud hébergé" 
+	pageTitle="Gestion d’Azure Search avec les scripts PowerShell | azure.microsoft.com/ Azure | Service de recherche cloud hébergé" 
 	description="Gérez votre service Azure Search avec des scripts PowerShell. Créez ou mettez à jour un service Azure Search et gérez les clés d’administration Azure Search" 
 	services="search" 
 	documentationCenter="" 
@@ -23,7 +23,7 @@
 - [PowerShell](search-manage-powershell.md)
 - [API REST](search-get-started-management-api.md)
 
-Cette rubrique décrit les commandes PowerShell permettant d’exécuter la plupart des tâches de gestion pour les services Azure Search. Nous allons étudier la création d’un service de recherche, sa mise à l’échelle et la gestion de ses clés d’API. Ces commandes reflètent les options de gestion disponibles dans l’[API REST de gestion Azure Search](http://msdn.microsoft.com/library/dn832684.aspx).
+Cette rubrique décrit les commandes PowerShell permettant d’exécuter la plupart des tâches de gestion pour les services Azure Search. Nous allons étudier la création d’un service de recherche, sa mise à l’échelle et la gestion de ses clés d’API. Ces commandes reflètent les options de gestion disponibles dans l’[API REST de gestion Azure Search](http://msdn.azure.microsoft.com/.com/library/dn832684.aspx).
 
 ## Composants requis
  
@@ -34,7 +34,7 @@ Tout d’abord, vous devez vous connecter à Azure avec cette commande :
 
 	Login-AzureRmAccount
 
-Spécifiez l’adresse de messagerie électronique et le mot de passe de votre compte Azure dans la boîte de dialogue de connexion à Microsoft Azure.
+Spécifiez l’adresse de messagerie électronique et le mot de passe de votre compte Azure dans la boîte de dialogue de connexion à azure.microsoft.com/ Azure.
 
 Vous pouvez également [vous connecter de manière non interactive avec un principal de service](../resource-group-authenticate-service-principal.md).
 
@@ -52,19 +52,19 @@ Pour spécifier l’abonnement, exécutez la commande suivante. Dans l’exemple
 	$sku = "free" # or "basic" or "standard" for paid services
 	$location = "West US"
 	# You can get a list of potential locations with
-	# (Get-AzureRmResourceProvider -ListAvailable | Where-Object {$_.ProviderNamespace -eq 'Microsoft.Search'}).Locations
+	# (Get-AzureRmResourceProvider -ListAvailable | Where-Object {$_.ProviderNamespace -eq 'azure.microsoft.com/.Search'}).Locations
 	$resourceGroupName = "YourResourceGroup" 
 	# If you don't already have this resource group, you can create it with 
 	# New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
 
 	# Register the ARM provider idempotently. This must be done once per subscription
-	Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Search" -Force
+	Register-AzureRmResourceProvider -ProviderNamespace "azure.microsoft.com/.Search" -Force
 
 	# Create a new search service
 	# This command will return once the service is fully created
 	New-AzureRmResourceGroupDeployment `
 		-ResourceGroupName $resourceGroupName `
-		-TemplateUri "https://gallery.azure.com/artifact/20151001/Microsoft.Search.1.0.9/DeploymentTemplates/searchServiceDefaultTemplate.json" `
+		-TemplateUri "https://gallery.azure.com/artifact/20151001/azure.microsoft.com/.Search.1.0.9/DeploymentTemplates/searchServiceDefaultTemplate.json" `
 		-NameFromTemplate $serviceName `
 		-Sku $sku `
 		-Location $location `
@@ -73,7 +73,7 @@ Pour spécifier l’abonnement, exécutez la commande suivante. Dans l’exemple
 	
 	# Get information about your new service and store it in $resource
 	$resource = Get-AzureRmResource `
-		-ResourceType "Microsoft.Search/searchServices" `
+		-ResourceType "azure.microsoft.com/.Search/searchServices" `
 		-ResourceGroupName $resourceGroupName `
 		-ResourceName $serviceName `
 		-ApiVersion 2015-08-19
@@ -89,7 +89,7 @@ Pour spécifier l’abonnement, exécutez la commande suivante. Dans l’exemple
 
 	# Regenerate the secondary admin API Key
 	$secondaryKey = (Invoke-AzureRmResourceAction `
-		-ResourceType "Microsoft.Search/searchServices/regenerateAdminKey" `
+		-ResourceType "azure.microsoft.com/.Search/searchServices/regenerateAdminKey" `
 		-ResourceGroupName $resourceGroupName `
 		-ResourceName $serviceName `
 		-ApiVersion 2015-08-19 `
@@ -98,7 +98,7 @@ Pour spécifier l’abonnement, exécutez la commande suivante. Dans l’exemple
 	# Create a query key for read only access to your indexes
 	$queryKeyDescription = "query-key-created-from-powershell"
 	$queryKey = (Invoke-AzureRmResourceAction `
-		-ResourceType "Microsoft.Search/searchServices/createQueryKey" `
+		-ResourceType "azure.microsoft.com/.Search/searchServices/createQueryKey" `
 		-ResourceGroupName $resourceGroupName `
 		-ResourceName $serviceName `
 		-ApiVersion 2015-08-19 `
@@ -109,7 +109,7 @@ Pour spécifier l’abonnement, exécutez la commande suivante. Dans l’exemple
 
 	# Delete query key
 	Remove-AzureRmResource `
-		-ResourceType "Microsoft.Search/searchServices/deleteQueryKey/$($queryKey)" `
+		-ResourceType "azure.microsoft.com/.Search/searchServices/deleteQueryKey/$($queryKey)" `
 		-ResourceGroupName $resourceGroupName `
 		-ResourceName $serviceName `
 		-ApiVersion 2015-08-19

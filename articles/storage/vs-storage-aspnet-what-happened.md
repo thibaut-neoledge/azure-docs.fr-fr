@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Qu’est-il arrivé à mon projet ASP.NET ? | Microsoft Azure | Services connectés de Visual Studio"
+	pageTitle="Qu’est-il arrivé à mon projet ASP.NET ? | azure.microsoft.com/ Azure | Services connectés de Visual Studio"
 	description="Décrit ce qui se produit quand Azure Storage est ajouté à un projet ASP.NET à l’aide des services connectés de Visual Studio"
 	services="storage"
 	documentationCenter=""
@@ -22,11 +22,11 @@
 
 Le package NuGet Azure Storage a été ajouté à votre projet Visual Studio. Ce package ajoute les références .NET suivantes :
 
-- **Microsoft.Data.Edm**
-- **Microsoft.Data.OData**
-- **Microsoft.Data.Services.Client**
-- **Microsoft.WindowsAzure.Configuration**
-- **Microsoft.WindowsAzure.Storage**
+- **azure.microsoft.com/.Data.Edm**
+- **azure.microsoft.com/.Data.OData**
+- **azure.microsoft.com/.Data.Services.Client**
+- **azure.microsoft.com/.WindowsAzure.Configuration**
+- **azure.microsoft.com/.WindowsAzure.Storage**
 - **Newtonsoft.Json**
 - **System.Data**
 - **System.Spatial**

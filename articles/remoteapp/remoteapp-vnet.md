@@ -1,6 +1,6 @@
 
 <properties
-    pageTitle="Valider le réseau virtuel Azure à utiliser avec Azure RemoteApp | Microsoft Azure"
+    pageTitle="Valider le réseau virtuel Azure à utiliser avec Azure RemoteApp | azure.microsoft.com/ Azure"
     description="Découvrez comment vous assurer que votre réseau virtuel Azure est prêt à être utilisé avec Azure RemoteApp"
     services="remoteapp"
     documentationCenter=""
@@ -21,7 +21,7 @@
 # Validation du réseau virtuel Azure à utiliser avec Azure RemoteApp
 
 > [AZURE.IMPORTANT]
-Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148).
+Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.azure.microsoft.com/.com/fwlink/?linkid=821148).
 
 Avant d'utiliser un réseau virtuel Azure avec Azure RemoteApp, vous pouvez valider le réseau virtuel. Cette action permet d'éviter les problèmes de connectivité.
 

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Vue d’ensemble du développement de base de données SQL | Microsoft Azure"
+	pageTitle="Vue d’ensemble du développement de base de données SQL | azure.microsoft.com/ Azure"
 	description="En savoir plus sur les bibliothèques de connectivité disponibles et les meilleures pratiques pour les applications qui utilisent une connexion à la base de données SQL."
 	services="sql-database"
 	documentationCenter=""
@@ -49,7 +49,7 @@ Lorsqu’une erreur temporaire se produit au moment de la connexion à la base d
 
 ## Gestion des connexions
 * Dans votre logique de connexion client, définissez le délai d’expiration sur 30 secondes. La valeur par défaut de 15 secondes est trop courte pour les connexions qui reposent sur Internet.
-* Si vous utilisez un [pool de connexions](http://msdn.microsoft.com/library/8xx3tyca.aspx), veillez à fermer la connexion dès que votre programme ne l’utilise plus activement et qu’il ne se prépare pas à le réutiliser.
+* Si vous utilisez un [pool de connexions](http://msdn.azure.microsoft.com/.com/library/8xx3tyca.aspx), veillez à fermer la connexion dès que votre programme ne l’utilise plus activement et qu’il ne se prépare pas à le réutiliser.
 
 ## Remarques relatives au réseau
 * Assurez-vous que le pare-feu de l’ordinateur qui héberge votre programme client autorise les communications TCP sortantes sur le port 1433. Pour en savoir plus, consultez [Configurer un pare-feu sur une base de données SQL Azure à l’aide du portail Azure](sql-database-configure-firewall-settings.md)
@@ -65,6 +65,6 @@ La mise à l’échelle élastique simplifie le processus d’évolutivité hori
 
 ## Étapes suivantes
 
-Explorez toutes les [fonctionnalités de la base de données SQL](https://azure.microsoft.com/services/sql-database/).
+Explorez toutes les [fonctionnalités de la base de données SQL](https://azure.azure.microsoft.com/.com/services/sql-database/).
 
 <!---HONumber=AcomDC_0817_2016-->

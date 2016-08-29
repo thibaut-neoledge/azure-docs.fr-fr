@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Création d’une collection de base de données DocumentDB | Microsoft Azure" 
+	pageTitle="Création d’une collection de base de données DocumentDB | azure.microsoft.com/ Azure" 
 	description="Apprenez à créer des collections de documents JSON avec le portail du service en ligne pour Azure DocumentDB, une base de données de documents NoSQL basée sur le cloud. Essayez gratuitement dès aujourd’hui." 
 	services="documentdb" 
 	authors="mimig1" 
@@ -18,7 +18,7 @@
 
 # Création d’une collection DocumentDB à l’aide du portail Azure
 
-Pour utiliser Microsoft Azure DocumentDB, vous devez posséder un [compte DocumentDB](documentdb-create-account.md), une [base de données](documentdb-create-database.md), une collection et des documents. Cette rubrique montre comment créer une collection DocumentDB dans le portail Azure.
+Pour utiliser azure.microsoft.com/ Azure DocumentDB, vous devez posséder un [compte DocumentDB](documentdb-create-account.md), une [base de données](documentdb-create-database.md), une collection et des documents. Cette rubrique montre comment créer une collection DocumentDB dans le portail Azure.
 
 Vous ne savez pas vraiment ce qu’est une collection ? Consultez [Qu’est-ce qu’une collection DocumentDB ?](#what-is-a-documentdb-collection)
 
@@ -75,7 +75,7 @@ Les collections ne doivent pas nécessairement être créées avec le portail. V
 - Pour obtenir un exemple de code C#, consultez [Exemples de collections C#](documentdb-dotnet-samples.md#collection-examples).
 - Pour obtenir un exemple de code Node.js, consultez [Exemples de collections Node.js](documentdb-nodejs-samples.md#collection-examples).
 - Pour obtenir un exemple de code Python, consultez [Exemples de collections Python](documentdb-python-samples.md#collection-examples).
-- Pour obtenir un exemple d’API REST, consultez [Créer une collection](https://msdn.microsoft.com/library/azure/mt489078.aspx).
+- Pour obtenir un exemple d’API REST, consultez [Créer une collection](https://msdn.azure.microsoft.com/.com/library/azure/mt489078.aspx).
 
 ## Résolution de problèmes
 
@@ -89,6 +89,6 @@ Maintenant que vous avez une collection, l'étape suivante consiste à ajouter o
 - Vous pouvez [importer des documents et des données](documentdb-import-data.md) à l'aide de l'outil de migration de données DocumentDB qui vous permet d'importer des fichiers JSON et CSV ainsi que des données depuis SQL Server, MongoDB, le stockage de table Azure et d’autres collections DocumentDB.
 - Vous pouvez également ajouter des documents en vous aidant des [kits de développement logiciel (SDK) DocumentDB](documentdb-sdk-dotnet.md). DocumentDB possède les kits de développement logiciel (SDK) de .NET, Java, Python, Node.js et de l’API JavaScript. Pour obtenir des exemples de code C# montrant comment utiliser des documents avec le SDK .NET DocumentDB, consultez les [exemples de documents C#](documentdb-dotnet-samples.md#document-examples). Pour obtenir des exemples de code Node.js montrant comment utiliser des documents avec le SDK Node.js DocumentDB, consultez les [exemples de documents Node.js](documentdb-nodejs-samples.md#document-examples).
 
-Une fois que chaque collection contient des documents, vous pouvez utiliser [DocumentDB SQL](documentdb-sql-query.md) pour [exécuter des requêtes](documentdb-sql-query.md#executing-queries) sur vos documents à l’aide de l’[Explorateur de requête](documentdb-query-collections-query-explorer.md) du portail, de l’[API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) ou de l’un des [Kits de développement logiciel](documentdb-sdk-dotnet.md).
+Une fois que chaque collection contient des documents, vous pouvez utiliser [DocumentDB SQL](documentdb-sql-query.md) pour [exécuter des requêtes](documentdb-sql-query.md#executing-queries) sur vos documents à l’aide de l’[Explorateur de requête](documentdb-query-collections-query-explorer.md) du portail, de l’[API REST](https://msdn.azure.microsoft.com/.com/library/azure/dn781481.aspx) ou de l’un des [Kits de développement logiciel](documentdb-sdk-dotnet.md).
 
 <!---HONumber=AcomDC_0817_2016-->

@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="Azure RemoteApp : test de votre bande passante réseau avec quelques scénarios courants | Microsoft Azure"
+    pageTitle="Azure RemoteApp : test de votre bande passante réseau avec quelques scénarios courants | azure.microsoft.com/ Azure"
 	description="Découvrez les scénarios d’utilisation courants qui peuvent vous aider à déterminer vos besoins en bande passante réseau pour Azure RemoteApp."
 	services="remoteapp"
 	documentationCenter="" 
@@ -18,7 +18,7 @@
 # Azure RemoteApp : test de l’utilisation de votre bande passante réseau avec quelques scénarios courants
 
 > [AZURE.IMPORTANT]
-Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148).
+Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.azure.microsoft.com/.com/fwlink/?linkid=821148).
 
 Comme expliqué dans [Estimation de l’utilisation de la bande passante réseau Azure RemoteApp](remoteapp-bandwidth.md), la meilleure façon de comprendre l’impact d’Azure RemoteApp sur votre réseau est d’exécuter des tests d’utilisation. Exécutez ces tests pour une période donnée et mesurez la bande passante nécessaire pour chaque scénario. Si vous en avez la possibilité, vous pouvez également mesurer la perte de paquets réseau et l’instabilité du réseau pour comprendre les modèles de réseau qui seront créés dans votre environnement spécifique.
 
@@ -35,13 +35,13 @@ Chaque test est exécuté pour une période différente et teste différentes fo
  
 ### Présentation PowerPoint complexe avec animations, exécutée pendant une durée allant de 900 et 1 000 secondes
 
-Un utilisateur présente entre 45 et 50 diapositives haute fidélité en utilisant Microsoft Office PowerPoint en mode plein écran. Les diapositives doivent contenir des images, des transitions (avec des animations) et des arrière-plans avec dégradé de couleur typiques de votre entreprise. L’utilisateur doit passer au moins 20 secondes sur chaque diapositive.
+Un utilisateur présente entre 45 et 50 diapositives haute fidélité en utilisant azure.microsoft.com/ Office PowerPoint en mode plein écran. Les diapositives doivent contenir des images, des transitions (avec des animations) et des arrière-plans avec dégradé de couleur typiques de votre entreprise. L’utilisateur doit passer au moins 20 secondes sur chaque diapositive.
     
 Ce scénario crée un trafic immense lorsqu’une diapositive passe à la diapositive suivante de la présentation.
     
 ### Présentation PowerPoint simple exécutée pendant environ 620 secondes
 
-Un utilisateur présente un simple fichier PowerPoint incluant environ 30 diapositives en utilisant Microsoft Office PowerPoint en mode plein écran. Les diapositives ont plus de texte que dans le scénario précédent et leurs arrière-plans et images (diagrammes noirs) sont plus simples.
+Un utilisateur présente un simple fichier PowerPoint incluant environ 30 diapositives en utilisant azure.microsoft.com/ Office PowerPoint en mode plein écran. Les diapositives ont plus de texte que dans le scénario précédent et leurs arrière-plans et images (diagrammes noirs) sont plus simples.
     
 ### Internet Explorer exécuté pendant environ 250 secondes
 
@@ -65,7 +65,7 @@ Un utilisateur consulte une vidéo au format Adobe Flash incorporée dans une pa
 Ce scénario présente des utilisateurs qui consultent le contenu multimédia de pages web. La plupart des données doivent être lues via VOBR.
 
 ### Saisie à distance sur Word pendant environ 1 800 secondes
-Un utilisateur tape un document au moyen d’une session Bureau à distance. Les séquences de touches sont envoyées de la session Bureau à distance du client vers un document dans Microsoft Word exécuté à distance. La vitesse de frappe est de 1 caractère toutes les 250 ms (7 050 caractères au total).
+Un utilisateur tape un document au moyen d’une session Bureau à distance. Les séquences de touches sont envoyées de la session Bureau à distance du client vers un document dans azure.microsoft.com/ Word exécuté à distance. La vitesse de frappe est de 1 caractère toutes les 250 ms (7 050 caractères au total).
 
 Il s’agit d’un des scénarios les plus courants pour un travailleur du savoir. Ce scénario teste la réactivité d’un utilisateur entrant du contenu dans un traitement de texte moderne. Ce scénario est sensible aux changements même mineurs dans l’utilisation de la bande passante.
 

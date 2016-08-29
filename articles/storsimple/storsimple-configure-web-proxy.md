@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Configurer un proxy web pour un appareil StorSimple | Microsoft Azure"
+   pageTitle="Configurer un proxy web pour un appareil StorSimple | azure.microsoft.com/ Azure"
    description="Découvrez comment utiliser Windows PowerShell for StorSimple pour configurer les paramètres du proxy web de votre appareil StorSimple."
    services="storsimple"
    documentationCenter=""
@@ -27,7 +27,7 @@ Le proxy web est une configuration facultative pour votre appareil StorSimple. V
 
 2. Puis, vous activez les paramètres du proxy web configurés via Windows PowerShell pour les applets de commande StorSimple.
 
-Une fois la configuration du proxy web terminée, vous pouvez afficher les paramètres du proxy web configurés dans le service Microsoft Azure StorSimple Manager et Windows PowerShell pour StorSimple.
+Une fois la configuration du proxy web terminée, vous pouvez afficher les paramètres du proxy web configurés dans le service azure.microsoft.com/ Azure StorSimple Manager et Windows PowerShell pour StorSimple.
 
 Après avoir lu ce didacticiel, vous pourrez :
 
@@ -132,13 +132,13 @@ Si les paramètres du proxy web ont été configurés correctement, les messages
 
 |Numéro de série|Code d’erreur HRESULT|Cause principale possible|Action recommandée|
 |:---|:---|:---|:---|
-|1\.|0x80070001|La commande est exécutée à partir du contrôleur passif et ne peut pas communiquer avec le contrôleur actif.|Exécutez cette commande depuis le contrôleur actif. Pour exécuter la commande à partir du contrôleur passif, vous devez résoudre la connectivité entre le contrôleur passif et le contrôleur actif. Vous devez contacter le support technique Microsoft si cette connectivité est interrompue.|
+|1\.|0x80070001|La commande est exécutée à partir du contrôleur passif et ne peut pas communiquer avec le contrôleur actif.|Exécutez cette commande depuis le contrôleur actif. Pour exécuter la commande à partir du contrôleur passif, vous devez résoudre la connectivité entre le contrôleur passif et le contrôleur actif. Vous devez contacter le support technique azure.microsoft.com/ si cette connectivité est interrompue.|
 |2\.|0x800710dd - L’identificateur de l’opération n’est pas valide|Les paramètres du proxy ne sont pas pris en charge sur un appareil virtuel StorSimple.|Les paramètres du proxy ne sont pas pris en charge sur un appareil virtuel StorSimple. Ils peuvent uniquement être configurés sur un appareil StorSimple physique.|
 |3\.|0x80070057 - Paramètre non valide|L’un des paramètres fournis pour les paramètres de proxy n’est pas valide.|L’URI n’est pas fourni dans le format correct. Utilisez le format suivant : `http://<IP address or FQDN of the web proxy server>:<TCP port number>`|
-|4\.|0x800706ba - Serveur RPC indisponible|La cause première est l’une des suivantes :</br></br>Le cluster n’est pas disponible.</br></br>Le service Datapath n’est pas en cours d’exécution.</br></br>La commande est exécutée à partir du contrôleur passif et ne peut pas communiquer avec le contrôleur actif.|Veuillez contacter le support technique Microsoft pour vous assurer que le cluster est disponible et que le service Datapath est en cours d’exécution.</br></br>Exécutez la commande à partir du contrôleur actif. Si vous souhaitez exécuter la commande à partir du contrôleur passif, vous devez vous assurer que le contrôleur passif peut communiquer avec le contrôleur actif. Vous devez contacter le support technique Microsoft si cette connectivité est interrompue.|
-|5\.|0x800706be - Échec de l’appel RPC|Le cluster est arrêté.|Veuillez contacter le support technique Microsoft pour vous assurer que le cluster est disponible.|
-|6\.|0x8007138f - Ressource de cluster introuvable|Impossible de trouver la ressource de cluster du service de plateforme. Cela peut se produire lorsque l’installation ne s’est pas déroulée correctement.|Vous devrez peut-être effectuer une réinitialisation de votre appareil aux paramètres d’usine. Vous devrez peut-être créer une ressource de plateforme. Pour les étapes suivantes, veuillez contacter le support technique Microsoft.|
-|7\.|0x8007138c - La ressource de cluster n’est pas en ligne|Les ressources de plateforme ou datapath ne sont pas en ligne.|Veuillez contacter le support technique Microsoft pour vous assurer que les ressources de service datapath et de plateforme sont en ligne.|
+|4\.|0x800706ba - Serveur RPC indisponible|La cause première est l’une des suivantes :</br></br>Le cluster n’est pas disponible.</br></br>Le service Datapath n’est pas en cours d’exécution.</br></br>La commande est exécutée à partir du contrôleur passif et ne peut pas communiquer avec le contrôleur actif.|Veuillez contacter le support technique azure.microsoft.com/ pour vous assurer que le cluster est disponible et que le service Datapath est en cours d’exécution.</br></br>Exécutez la commande à partir du contrôleur actif. Si vous souhaitez exécuter la commande à partir du contrôleur passif, vous devez vous assurer que le contrôleur passif peut communiquer avec le contrôleur actif. Vous devez contacter le support technique azure.microsoft.com/ si cette connectivité est interrompue.|
+|5\.|0x800706be - Échec de l’appel RPC|Le cluster est arrêté.|Veuillez contacter le support technique azure.microsoft.com/ pour vous assurer que le cluster est disponible.|
+|6\.|0x8007138f - Ressource de cluster introuvable|Impossible de trouver la ressource de cluster du service de plateforme. Cela peut se produire lorsque l’installation ne s’est pas déroulée correctement.|Vous devrez peut-être effectuer une réinitialisation de votre appareil aux paramètres d’usine. Vous devrez peut-être créer une ressource de plateforme. Pour les étapes suivantes, veuillez contacter le support technique azure.microsoft.com/.|
+|7\.|0x8007138c - La ressource de cluster n’est pas en ligne|Les ressources de plateforme ou datapath ne sont pas en ligne.|Veuillez contacter le support technique azure.microsoft.com/ pour vous assurer que les ressources de service datapath et de plateforme sont en ligne.|
 
 > [AZURE.NOTE] 
 > 

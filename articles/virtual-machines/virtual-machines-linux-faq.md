@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Forum aux questions sur les machines virtuelles Linux | Microsoft Azure"
+	pageTitle="Forum aux questions sur les machines virtuelles Linux | azure.microsoft.com/ Azure"
 	description="Fournit des réponses à certaines questions courantes sur les machines virtuelles Linux créées avec le modèle de déploiement Resource Manager."
 	services="virtual-machines-linux"
 	documentationCenter=""
@@ -31,7 +31,7 @@ Tous les abonnés peuvent exécuter des logiciels serveur sur une machine virtue
 
 Chaque disque de données peut avoir une capacité allant jusqu’à 1 To Le nombre de disques de données que vous pouvez utiliser dépend de la taille de la machine virtuelle. Pour en savoir plus, consultez la rubrique [Tailles de machines virtuelles](virtual-machines-linux-sizes.md).
 
-Un compte de stockage Azure fournit le stockage pour le disque du système d’exploitation et tout disque de données. Chaque disque est un fichier .vhd stocké sous la forme d’un objet blob de pages. Pour plus d’informations sur la tarification, voir [Tarification – Stockage](https://azure.microsoft.com/pricing/details/storage/).
+Un compte de stockage Azure fournit le stockage pour le disque du système d’exploitation et tout disque de données. Chaque disque est un fichier .vhd stocké sous la forme d’un objet blob de pages. Pour plus d’informations sur la tarification, voir [Tarification – Stockage](https://azure.azure.microsoft.com/.com/pricing/details/storage/).
 
 
 

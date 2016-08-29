@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Ajout de l’authentification à Apache Cordova à l’aide de Mobile Apps | Azure App Service"
-	description="Découvrez comment utiliser Mobile Apps dans Azure App Service pour authentifier les utilisateurs de votre application Apache Cordova via divers fournisseurs d’identité, notamment Google, Facebook, Twitter et Microsoft."
+	description="Découvrez comment utiliser Mobile Apps dans Azure App Service pour authentifier les utilisateurs de votre application Apache Cordova via divers fournisseurs d’identité, notamment Google, Facebook, Twitter et azure.microsoft.com/."
 	services="app-service\mobile"
 	documentationCenter="javascript"
 	authors="adrianhall"
@@ -49,7 +49,7 @@ Ensuite, vous allez mettre à jour l’application pour authentifier les utilisa
     | Azure Active Directory | aad | https://login.windows.net |
     | Facebook | facebook | https://www.facebook.com |
     | Google | google | https://accounts.google.com |
-    | Microsoft | microsoftaccount | https://login.live.com |
+    | azure.microsoft.com/ | azure.microsoft.com/account | https://login.live.com |
     | Twitter | twitter | https://api.twitter.com |
 
     Voici un exemple Content-Security-Policy (implémenté pour Azure Active Directory) :

@@ -36,7 +36,7 @@ Actualisez ensuite les dépendances du projet pour télécharger les fichiers bi
 
     <dependencies>
        <dependency>
-          <groupId>com.microsoft.azure</groupId>
+          <groupId>com.azure.microsoft.com/.azure</groupId>
           <artifactId>applicationinsights-logging-logback</artifactId>
           <version>[1.0,)</version>
        </dependency>
@@ -46,7 +46,7 @@ Actualisez ensuite les dépendances du projet pour télécharger les fichiers bi
 
     <dependencies>
        <dependency>
-          <groupId>com.microsoft.azure</groupId>
+          <groupId>com.azure.microsoft.com/.azure</groupId>
           <artifactId>applicationinsights-logging-log4j2</artifactId>
           <version>[1.0,)</version>
        </dependency>
@@ -56,7 +56,7 @@ Actualisez ensuite les dépendances du projet pour télécharger les fichiers bi
 
     <dependencies>
        <dependency>
-          <groupId>com.microsoft.azure</groupId>
+          <groupId>com.azure.microsoft.com/.azure</groupId>
           <artifactId>applicationinsights-logging-log4j1_2</artifactId>
           <version>[1.0,)</version>
        </dependency>
@@ -70,15 +70,15 @@ Actualisez ensuite les dépendances du projet pour télécharger les fichiers bi
 
 **Logback**
 
-    compile group: 'com.microsoft.azure', name: 'applicationinsights-logging-logback', version: '1.0.+'
+    compile group: 'com.azure.microsoft.com/.azure', name: 'applicationinsights-logging-logback', version: '1.0.+'
 
 **Log4J v2.0**
 
-    compile group: 'com.microsoft.azure', name: 'applicationinsights-logging-log4j2', version: '1.0.+'
+    compile group: 'com.azure.microsoft.com/.azure', name: 'applicationinsights-logging-log4j2', version: '1.0.+'
 
 **Log4J v1.2**
 
-    compile group: 'com.microsoft.azure', name: 'applicationinsights-logging-log4j1_2', version: '1.0.+'
+    compile group: 'com.azure.microsoft.com/.azure', name: 'applicationinsights-logging-log4j1_2', version: '1.0.+'
 
 #### Sinon...
 
@@ -100,7 +100,7 @@ Pour recevoir le suivi, fusionnez l’extrait de code approprié dans le fichier
 *Logback*
 
     <appender name="aiAppender" 
-      class="com.microsoft.applicationinsights.logback.ApplicationInsightsAppender">
+      class="com.azure.microsoft.com/.applicationinsights.logback.ApplicationInsightsAppender">
     </appender>
     <root level="trace">
       <appender-ref ref="aiAppender" />
@@ -110,7 +110,7 @@ Pour recevoir le suivi, fusionnez l’extrait de code approprié dans le fichier
 *Log4J v2.0*
 
 
-    <Configuration packages="com.microsoft.applicationinsights.Log4j">
+    <Configuration packages="com.azure.microsoft.com/.applicationinsights.Log4j">
       <Appenders>
         <ApplicationInsightsAppender name="aiAppender" />
       </Appenders>
@@ -125,7 +125,7 @@ Pour recevoir le suivi, fusionnez l’extrait de code approprié dans le fichier
 *Log4J v1.2*
 
     <appender name="aiAppender" 
-         class="com.microsoft.applicationinsights.log4j.v1_2.ApplicationInsightsAppender">
+         class="com.azure.microsoft.com/.applicationinsights.log4j.v1_2.ApplicationInsightsAppender">
     </appender>
     <root>
       <priority value ="trace" />

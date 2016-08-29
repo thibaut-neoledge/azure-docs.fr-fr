@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Charger les données de stockage d’objets blob Azure dans SQL Data Warehouse (PolyBase) | Microsoft Azure"
+   pageTitle="Charger les données de stockage d’objets blob Azure dans SQL Data Warehouse (PolyBase) | azure.microsoft.com/ Azure"
    description="Apprenez à utiliser PolyBase pour charger des données de stockage d’objets blob Azure dans SQL Data Warehouse. Chargez quelques tables à partir de données publiques dans le schéma d’entrepôt de données Contoso Retail."
    services="sql-data-warehouse"
    documentationCenter="NA"
@@ -25,7 +25,7 @@
 
 Utilisez PolyBase et les commandes T-SQL pour charger les données de stockage d’objets blob Azure dans Azure SQL Data Warehouse.
 
-En quelques mots, ce didacticiel charge deux tables de stockage d’objets blob Azure public dans le schéma d’entrepôt de données Contoso Retail. Pour charger le jeu de données, exécutez l’exemple [Load the full Contoso Retail Data Warehouse][] (Charger l’ensemble de l’entrepôt de données Contoso Retail) à partir du référentiel d’exemples Microsoft SQL Server.
+En quelques mots, ce didacticiel charge deux tables de stockage d’objets blob Azure public dans le schéma d’entrepôt de données Contoso Retail. Pour charger le jeu de données, exécutez l’exemple [Load the full Contoso Retail Data Warehouse][] \(Charger l’ensemble de l’entrepôt de données Contoso Retail) à partir du référentiel d’exemples azure.microsoft.com/ SQL Server.
 
 Ce didacticiel vous apprendra à effectuer les opérations suivantes :
 
@@ -360,14 +360,14 @@ Pour charger l’ensemble des données de l’entrepôt de données Contoso Reta
 [label]: sql-data-warehouse-develop-label.md
 
 <!--MSDN references-->
-[CREATE EXTERNAL DATA SOURCE]: https://msdn.microsoft.com/fr-FR/library/dn935022.aspx
-[CREATE EXTERNAL FILE FORMAT]: https://msdn.microsoft.com/fr-FR/library/dn935026.aspx
-[CREATE TABLE AS SELECT (Transact-SQL)]: https://msdn.microsoft.com/library/mt204041.aspx
-[sys.dm_pdw_exec_requests]: https://msdn.microsoft.com/library/mt203887.aspx
-[REBUILD]: https://msdn.microsoft.com/library/ms188388.aspx
+[CREATE EXTERNAL DATA SOURCE]: https://msdn.azure.microsoft.com/.com/fr-FR/library/dn935022.aspx
+[CREATE EXTERNAL FILE FORMAT]: https://msdn.azure.microsoft.com/.com/fr-FR/library/dn935026.aspx
+[CREATE TABLE AS SELECT (Transact-SQL)]: https://msdn.azure.microsoft.com/.com/library/mt204041.aspx
+[sys.dm_pdw_exec_requests]: https://msdn.azure.microsoft.com/.com/library/mt203887.aspx
+[REBUILD]: https://msdn.azure.microsoft.com/.com/library/ms188388.aspx
 
 <!--Other Web references-->
-[Microsoft Download Center]: http://www.microsoft.com/download/details.aspx?id=36433
-[Load the full Contoso Retail Data Warehouse]: https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/contoso-data-warehouse/readme.md
+[azure.microsoft.com/ Download Center]: http://www.azure.microsoft.com/.com/download/details.aspx?id=36433
+[Load the full Contoso Retail Data Warehouse]: https://github.com/azure.microsoft.com//sql-server-samples/tree/master/samples/databases/contoso-data-warehouse/readme.md
 
 <!---HONumber=AcomDC_0817_2016-->

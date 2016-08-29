@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Hébergement d’un Ruby sur le site web de Rails sur une machine virtuelle Linux | Microsoft Azure"
+	pageTitle="Hébergement d’un Ruby sur le site web de Rails sur une machine virtuelle Linux | azure.microsoft.com/ Azure"
 	description="Configuration et hébergement d'un Ruby sur le site web de Rails dans Azure en utilisant une machine virtuelle Linux."
 	services="virtual-machines-linux"
 	documentationCenter="ruby"
@@ -105,13 +105,13 @@ Le résultat ressemble à ce qui suit.
 
 3. Dans la page suivante de la boîte de dialogue, entrez les informations suivantes :
 
-	* **NOM** : HTTP
+	* **NOM** : HTTP
 
-	* **PROTOCOLE** : TCP
+	* **PROTOCOLE** : TCP
 
-	* **PORT PUBLIC** : 80
+	* **PORT PUBLIC** : 80
 
-	* **PORT PRIVÉ** : 3000
+	* **PORT PRIVÉ** : 3000
 
 	Ainsi, un port public 80 est créé pour acheminer le trafic vers le port privé 3000, où le serveur Rails écoute.
 
@@ -139,7 +139,7 @@ Pour utiliser des services Azure depuis votre application Ruby, consultez :
 
 <!-- WA.com links -->
 [blobs]: ../storage/storage-ruby-how-to-use-blob-storage.md
-[cdn-howto]: https://azure.microsoft.com/develop/ruby/app-services/
+[cdn-howto]: https://azure.azure.microsoft.com/.com/develop/ruby/app-services/
 [management-portal]: https://manage.windowsazure.com/
 [tables]: ../storage/storage-ruby-how-to-use-table-storage.md
 [vm-instructions]: virtual-machines-linux-classic-createportal.md

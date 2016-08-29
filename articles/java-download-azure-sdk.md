@@ -24,7 +24,7 @@ Cet article contient des instructions pour télécharger et installer les biblio
 
 ## Bibliothèques Azure pour Java - Téléchargement manuel
 
-Pour installer manuellement les bibliothèques Azure pour Java, cliquez sur <http://go.microsoft.com/fwlink/?LinkId=690320> pour télécharger un fichier ZIP contenant l’intégralité des bibliothèques et dépendances.
+Pour installer manuellement les bibliothèques Azure pour Java, cliquez sur <http://go.azure.microsoft.com/.com/fwlink/?LinkId=690320> pour télécharger un fichier ZIP contenant l’intégralité des bibliothèques et dépendances.
 
 Après avoir téléchargé le fichier zip sur votre ordinateur, extrayez son contenu et utilisez une des options suivantes pour ajouter les fichiers JAR à votre projet :
 
@@ -49,47 +49,47 @@ Une fois votre projet configuré afin d’utiliser Maven pour la génération, v
 > [AZURE.NOTE] Dans chaque élément `<version>` de l’exemple suivant, remplacez les espaces réservés « n.n.n » de cet exemple par des numéros de version valides, que vous pouvez obtenir dans le [référentiel des bibliothèques Azure sur Maven].
 
     <dependency>
-        <groupId>com.microsoft.azure</groupId>
+        <groupId>com.azure.microsoft.com/.azure</groupId>
         <artifactId>azure-svc-mgmt</artifactId>
         <version>n.n.n</version>
     </dependency>
     <dependency>
-        <groupId>com.microsoft.azure</groupId>
+        <groupId>com.azure.microsoft.com/.azure</groupId>
         <artifactId>azure-svc-mgmt-compute</artifactId>
         <version>n.n.n</version>
     </dependency>
     <dependency>
-        <groupId>com.microsoft.azure</groupId>
+        <groupId>com.azure.microsoft.com/.azure</groupId>
         <artifactId>azure-svc-mgmt-network</artifactId>
         <version>n.n.n</version>
     </dependency>
     <dependency>
-        <groupId>com.microsoft.azure</groupId>
+        <groupId>com.azure.microsoft.com/.azure</groupId>
         <artifactId>azure-svc-mgmt-sql</artifactId>
         <version>n.n.n</version>
     </dependency>
     <dependency>
-        <groupId>com.microsoft.azure</groupId>
+        <groupId>com.azure.microsoft.com/.azure</groupId>
         <artifactId>azure-svc-mgmt-storage</artifactId>
         <version>n.n.n</version>
     </dependency>
     <dependency>
-        <groupId>com.microsoft.azure</groupId>
+        <groupId>com.azure.microsoft.com/.azure</groupId>
         <artifactId>azure-svc-mgmt-websites</artifactId>
         <version>n.n.n</version>
     </dependency>
     <dependency>
-        <groupId>com.microsoft.azure</groupId>
+        <groupId>com.azure.microsoft.com/.azure</groupId>
         <artifactId>azure-svc-mgmt-media</artifactId>
         <version>n.n.n</version>
     </dependency>
     <dependency>
-        <groupId>com.microsoft.azure</groupId>
+        <groupId>com.azure.microsoft.com/.azure</groupId>
         <artifactId>azure-servicebus</artifactId>
         <version>n.n.n</version>
     </dependency>
     <dependency>
-        <groupId>com.microsoft.azure</groupId>
+        <groupId>com.azure.microsoft.com/.azure</groupId>
         <artifactId>azure-serviceruntime</artifactId>
         <version>n.n.n</version>
     </dependency>
@@ -107,10 +107,10 @@ Cette section contient des instructions de base pour l'installation du kit de re
 ### Procédure d’installation de base
 
 1. Dans Eclipse, à partir du menu **Aide**, sélectionnez **Installer un nouveau logiciel**.
-1. Saisissez l’emplacement du site <http://dl.microsoft.com/eclipse> et appuyez sur **Entrée**.
+1. Saisissez l’emplacement du site <http://dl.azure.microsoft.com/.com/eclipse> et appuyez sur **Entrée**.
 1. Sélectionnez les éléments à installer, puis cliquez sur **Terminer**.
 
-Le kit de ressources Azure pour Eclipse utilise la dernière version du Kit de développement logiciel (SDK) Azure. Il est possible de le télécharger avec WebPI (Web Platform Installer) à l’adresse <http://go.microsoft.com/fwlink/?LinkID=252838>. Toutefois, s’il n’est pas installé, lorsque vous créez le premier projet de déploiement Azure, le Kit de ressources Azure pour Eclipse installe automatiquement la version appropriée du Kit de développement logiciel (SDK) Azure.
+Le kit de ressources Azure pour Eclipse utilise la dernière version du Kit de développement logiciel (SDK) Azure. Il est possible de le télécharger avec WebPI (Web Platform Installer) à l’adresse <http://go.azure.microsoft.com/.com/fwlink/?LinkID=252838>. Toutefois, s’il n’est pas installé, lorsque vous créez le premier projet de déploiement Azure, le Kit de ressources Azure pour Eclipse installe automatiquement la version appropriée du Kit de développement logiciel (SDK) Azure.
 
 ## Voir aussi
 
@@ -124,16 +124,16 @@ Pour plus d'informations sur l'utilisation d'Azure avec Java, consultez le [Cent
 
 <!-- URL List -->
 
-[Centre de développement Java]: http://go.microsoft.com/fwlink/?LinkID=699547
-[référentiel des bibliothèques Azure sur Maven]: http://go.microsoft.com/fwlink/?LinkID=286274
-[Kit de ressources Azure pour Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
-[Création d'une application Hello World pour Azure dans Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
-[Installation du kit de ressources Azure pour Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
-[Installer le kit de ressources Azure pour Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
+[Centre de développement Java]: http://go.azure.microsoft.com/.com/fwlink/?LinkID=699547
+[référentiel des bibliothèques Azure sur Maven]: http://go.azure.microsoft.com/.com/fwlink/?LinkID=286274
+[Kit de ressources Azure pour Eclipse]: http://go.azure.microsoft.com/.com/fwlink/?LinkID=699529
+[Création d'une application Hello World pour Azure dans Eclipse]: http://go.azure.microsoft.com/.com/fwlink/?LinkID=699533
+[Installation du kit de ressources Azure pour Eclipse]: http://go.azure.microsoft.com/.com/fwlink/?LinkId=699546
+[Installer le kit de ressources Azure pour Eclipse]: http://go.azure.microsoft.com/.com/fwlink/?LinkId=699546
 [Java Build Path]: http://help.eclipse.org/luna/index.jsp?topic=%2Forg.eclipse.jdt.doc.user%2Freference%2Fref-properties-build-path.htm
 [license]: http://www.apache.org/licenses/LICENSE-2.0.html
-[maven-getting-started]: http://go.microsoft.com/fwlink/?LinkID=622998
-[zip-download]: http://go.microsoft.com/fwlink/?LinkId=690320
-[Nouveautés du Kit de ressources Azure pour Eclipse]: http://go.microsoft.com/fwlink/?LinkId=690333
+[maven-getting-started]: http://go.azure.microsoft.com/.com/fwlink/?LinkID=622998
+[zip-download]: http://go.azure.microsoft.com/.com/fwlink/?LinkId=690320
+[Nouveautés du Kit de ressources Azure pour Eclipse]: http://go.azure.microsoft.com/.com/fwlink/?LinkId=690333
 
 <!---HONumber=AcomDC_0817_2016-->

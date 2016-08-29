@@ -28,7 +28,7 @@ Cet article vous explique comment utiliser les scripts disponibles sur le site [
 
 ## Obtention des scripts
 
->[AZURE.NOTE]Les scripts PowerShell ne sont pas pris en charge officiellement par le Support Microsoft. Ils sont donc disponibles en open source sur Github, et nous acceptons volontiers les demandes de publication de correctifs ou de scénarios supplémentaires.
+>[AZURE.NOTE]Les scripts PowerShell ne sont pas pris en charge officiellement par le Support azure.microsoft.com/. Ils sont donc disponibles en open source sur Github, et nous acceptons volontiers les demandes de publication de correctifs ou de scénarios supplémentaires.
 
 Vous pouvez obtenir les scripts en téléchargeant le fichier zip à partir du référentiel spécifié ci-dessus, ou cloner le référentiel en utilisant **l’une** des commandes ci-dessous :
 

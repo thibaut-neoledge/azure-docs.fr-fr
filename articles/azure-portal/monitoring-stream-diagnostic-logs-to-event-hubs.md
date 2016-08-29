@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Stream Azure Diagnostic Logs to Event Hubs (Diffuser en continu les journaux de diagnostic vers Event Hubs) | Microsoft Azure"
+	pageTitle="Stream Azure Diagnostic Logs to Event Hubs (Diffuser en continu les journaux de diagnostic vers Event Hubs) | azure.microsoft.com/ Azure"
 	description="Découvrez comment diffuser en continu les journaux de diagnostic vers Event Hubs."
 	authors="johnkemnetz"
 	manager="rboucher"
@@ -39,10 +39,10 @@ FROM
 CROSS APPLY GetArrayElements(e.records) AS records
 ```
 
-- **Créer une plateforme de journalisation et de télémétrie personnalisée** : si vous disposez déjà d’une plateforme de télémétrie personnalisée, ou si vous envisagez d’en créer une, la nature hautement évolutive de publication et d’abonnement d’Event Hubs vous permet d’intégrer avec souplesse les journaux de diagnostic. [Consultez ici le guide de Dan Rosanova sur l’utilisation d’Event Hubs dans une plateforme de télémétrie à échelle mondiale.](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/)
+- **Créer une plateforme de journalisation et de télémétrie personnalisée** : si vous disposez déjà d’une plateforme de télémétrie personnalisée, ou si vous envisagez d’en créer une, la nature hautement évolutive de publication et d’abonnement d’Event Hubs vous permet d’intégrer avec souplesse les journaux de diagnostic. [Consultez ici le guide de Dan Rosanova sur l’utilisation d’Event Hubs dans une plateforme de télémétrie à échelle mondiale.](https://azure.azure.microsoft.com/.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/)
 
 ## Activer la diffusion en continu des journaux de diagnostic
-Vous pouvez activer la diffusion en continu des journaux de diagnostic par programme, via le portail ou à l’aide de [l’API REST Insights](https://msdn.microsoft.com/library/azure/dn931943.aspx). Dans les deux cas, vous choisissez un espace de noms Service Bus et un client Event Hubs est créé dans l’espace de noms pour chaque catégorie de journal que vous activez. Une **catégorie de journal** de diagnostic est un type de journal qu’une ressource peut collecter. Vous pouvez sélectionner les catégories de journaux que vous souhaitez collecter pour une ressource particulière dans le portail Azure sous le panneau Diagnostics.
+Vous pouvez activer la diffusion en continu des journaux de diagnostic par programme, via le portail ou à l’aide de [l’API REST Insights](https://msdn.azure.microsoft.com/.com/library/azure/dn931943.aspx). Dans les deux cas, vous choisissez un espace de noms Service Bus et un client Event Hubs est créé dans l’espace de noms pour chaque catégorie de journal que vous activez. Une **catégorie de journal** de diagnostic est un type de journal qu’une ressource peut collecter. Vous pouvez sélectionner les catégories de journaux que vous souhaitez collecter pour une ressource particulière dans le portail Azure sous le panneau Diagnostics.
 
 ![Catégories de journaux disponibles dans le portail](./media/monitoring-stream-diagnostic-logs-to-event-hubs/log-categories.png)
 
@@ -55,7 +55,7 @@ Pour activer la diffusion en continu via les [applets de commande Azure PowerShe
 Set-AzureRmDiagnosticSetting -ResourceId [your resource Id] -ServiceBusRuleId [your service bus rule id] -Enabled $true
 ```
 
-L’ID de règle Service Bus est une chaîne au format `{service bus resource ID}/authorizationrules/{key name}`, par exemple, `/subscriptions/{subscription ID}/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.ServiceBus/namespaces/{service bus namespace}/authorizationrules/RootManageSharedAccessKey`.
+L’ID de règle Service Bus est une chaîne au format `{service bus resource ID}/authorizationrules/{key name}`, par exemple, `/subscriptions/{subscription ID}/resourceGroups/Default-ServiceBus-WestUS/providers/azure.microsoft.com/.ServiceBus/namespaces/{service bus namespace}/authorizationrules/RootManageSharedAccessKey`.
 
 
 ### Via l’interface de ligne de commande Azure
@@ -82,11 +82,11 @@ Voici des exemples de données de sortie provenant d’Event Hubs :
     "records": [
         {
             "time": "2016-07-15T18:00:22.6235064Z",
-            "workflowId": "/SUBSCRIPTIONS/DF602C9C-7AA0-407D-A6FB-EB20C8BD1192/RESOURCEGROUPS/JOHNKEMTEST/PROVIDERS/MICROSOFT.LOGIC/WORKFLOWS/JOHNKEMTESTLA",
-            "resourceId": "/SUBSCRIPTIONS/DF602C9C-7AA0-407D-A6FB-EB20C8BD1192/RESOURCEGROUPS/JOHNKEMTEST/PROVIDERS/MICROSOFT.LOGIC/WORKFLOWS/JOHNKEMTESTLA/RUNS/08587330013509921957/ACTIONS/SEND_EMAIL",
+            "workflowId": "/SUBSCRIPTIONS/DF602C9C-7AA0-407D-A6FB-EB20C8BD1192/RESOURCEGROUPS/JOHNKEMTEST/PROVIDERS/azure.microsoft.com/.LOGIC/WORKFLOWS/JOHNKEMTESTLA",
+            "resourceId": "/SUBSCRIPTIONS/DF602C9C-7AA0-407D-A6FB-EB20C8BD1192/RESOURCEGROUPS/JOHNKEMTEST/PROVIDERS/azure.microsoft.com/.LOGIC/WORKFLOWS/JOHNKEMTESTLA/RUNS/08587330013509921957/ACTIONS/SEND_EMAIL",
             "category": "WorkflowRuntime",
             "level": "Error",
-            "operationName": "Microsoft.Logic/workflows/workflowActionCompleted",
+            "operationName": "azure.microsoft.com/.Logic/workflows/workflowActionCompleted",
             "properties": {
                 "$schema": "2016-04-01-preview",
                 "startTime": "2016-07-15T17:58:55.048482Z",
@@ -110,11 +110,11 @@ Voici des exemples de données de sortie provenant d’Event Hubs :
         },
         {
             "time": "2016-07-15T18:01:15.7532989Z",
-            "workflowId": "/SUBSCRIPTIONS/DF602C9C-7AA0-407D-A6FB-EB20C8BD1192/RESOURCEGROUPS/JOHNKEMTEST/PROVIDERS/MICROSOFT.LOGIC/WORKFLOWS/JOHNKEMTESTLA",
-            "resourceId": "/SUBSCRIPTIONS/DF602C9C-7AA0-407D-A6FB-EB20C8BD1192/RESOURCEGROUPS/JOHNKEMTEST/PROVIDERS/MICROSOFT.LOGIC/WORKFLOWS/JOHNKEMTESTLA/RUNS/08587330012106702630/ACTIONS/SEND_EMAIL",
+            "workflowId": "/SUBSCRIPTIONS/DF602C9C-7AA0-407D-A6FB-EB20C8BD1192/RESOURCEGROUPS/JOHNKEMTEST/PROVIDERS/azure.microsoft.com/.LOGIC/WORKFLOWS/JOHNKEMTESTLA",
+            "resourceId": "/SUBSCRIPTIONS/DF602C9C-7AA0-407D-A6FB-EB20C8BD1192/RESOURCEGROUPS/JOHNKEMTEST/PROVIDERS/azure.microsoft.com/.LOGIC/WORKFLOWS/JOHNKEMTESTLA/RUNS/08587330012106702630/ACTIONS/SEND_EMAIL",
             "category": "WorkflowRuntime",
             "level": "Information",
-            "operationName": "Microsoft.Logic/workflows/workflowActionStarted",
+            "operationName": "azure.microsoft.com/.Logic/workflows/workflowActionStarted",
             "properties": {
                 "$schema": "2016-04-01-preview",
                 "startTime": "2016-07-15T18:01:15.5828115Z",

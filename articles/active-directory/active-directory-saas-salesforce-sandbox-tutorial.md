@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="Didacticiel : Intégration d’Azure Active Directory à Salesforce Sandbox | Microsoft Azure"
+    pageTitle="Didacticiel : Intégration d’Azure Active Directory à Salesforce Sandbox | azure.microsoft.com/ Azure"
     description="Apprenez à utiliser Salesforce Sandbox avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore !" 
     services="active-directory" 
     authors="jeevansd"  
@@ -17,7 +17,7 @@
 
 
 #Didacticiel : Intégration d’Azure Active Directory à Salesforce Sandbox
->[AZURE.TIP]Pour envoyer des commentaires, cliquez [ici](http://go.microsoft.com/fwlink/?LinkId=521878).
+>[AZURE.TIP]Pour envoyer des commentaires, cliquez [ici](http://go.azure.microsoft.com/.com/fwlink/?LinkId=521878).
   
 L’objectif de ce didacticiel est de montrer comment intégrer Azure et Salesforce Sandbox. Les bacs à sable (sandbox) vous permettent de créer plusieurs copies de votre organisation dans des environnements distincts à des fins diverses, notamment le développement, le test et la formation, sans compromettre les données ou les applications de votre organisation de production Salesforce. Pour plus d’informations, consultez la page [Présentation de Sandbox](https://help.salesforce.com/HTViewHelpDoc?id=create_test_instance.htm&language=en_US)
   
@@ -74,7 +74,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Configurer l’authentification unique](./media/active-directory-saas-salesforce-sandbox-tutorial/IC749323.png "Configurer l’authentification unique")
 
-2.  Dans la page **Comment voulez-vous que les utilisateurs se connectent à Salesforce Sandbox**, sélectionnez **Authentification unique Microsoft Azure AD**, puis cliquez sur **Suivant**.
+2.  Dans la page **Comment voulez-vous que les utilisateurs se connectent à Salesforce Sandbox**, sélectionnez **Authentification unique azure.microsoft.com/ Azure AD**, puis cliquez sur **Suivant**.
 
     ![Salesforce Sandbox](./media/active-directory-saas-salesforce-sandbox-tutorial/IC746479.png "Salesforce Sandbox")
 
@@ -212,6 +212,6 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
   
 À présent, patientez 10 minutes et vérifiez que le compte est bien synchronisé avec Salesforce Sandbox.
   
-Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le panneau d’accès. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](https://msdn.microsoft.com/library/dn308586).
+Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le panneau d’accès. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](https://msdn.azure.microsoft.com/.com/library/dn308586).
 
 <!---HONumber=AcomDC_0817_2016-->

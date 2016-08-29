@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Remplacer le châssis sur un appareil StorSimple | Microsoft Azure"
+   pageTitle="Remplacer le châssis sur un appareil StorSimple | azure.microsoft.com/ Azure"
    description="Décrit comment retirer et remplacer le châssis pour votre boîtier principal StorSimple ou le boîtier EBOD."
    services="storsimple"
    documentationCenter=""
@@ -21,7 +21,7 @@
 
 Ce didacticiel explique comment retirer et remplacer un châssis dans un appareil de la gamme StorSimple 8000. Le modèle StorSimple 8100 est un appareil à boîtier unique (un châssis), alors que le modèle 8600 comprend deux boîtiers (deux châssis). Pour un modèle 8600, il existe deux châssis potentiellement défaillants dans l’appareil : le châssis du boîtier principal et le châssis du boîtier EBOD.
 
-Dans les deux cas, le châssis de remplacement livré par Microsoft est vide. Aucun module d’alimentation et de refroidissement (PCM), module de contrôleur, disque SSD, lecteur de disque dur (HDD) ni module EBOD ne seront inclus.
+Dans les deux cas, le châssis de remplacement livré par azure.microsoft.com/ est vide. Aucun module d’alimentation et de refroidissement (PCM), module de contrôleur, disque SSD, lecteur de disque dur (HDD) ni module EBOD ne seront inclus.
 
 >[AZURE.IMPORTANT] Avant le retrait et le remplacement du châssis, passez en revue les informations de sécurité dans [Remplacement des composants matériels StorSimple](storsimple-hardware-component-replacement.md).
 

@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Comment définir une adresse IP privée statique en mode classique à l’aide de PowerShell | Microsoft Azure"
+   pageTitle="Comment définir une adresse IP privée statique en mode classique à l’aide de PowerShell | azure.microsoft.com/ Azure"
    description="Présentation des adresses IP privées statiques (adresses IP dynamiques) et de leur gestion en mode classique et PowerShell"
    services="virtual-network"
    documentationCenter="na"
@@ -62,7 +62,7 @@ Sortie attendue :
 	New-AzureVM          3b99a86d-84f8-04e5-888e-b6fc3c73c4b9 Succeeded  
 
 ## Comment récupérer des informations d’adresse IP privée statique pour une machine virtuelle
-Pour visualiser les informations d’adresse IP privée statique concernant la machine virtuelle créée avec le script ci-dessus, exécutez la commande PowerShell ci-après et examinez les valeurs pour *IpAddress* :
+Pour visualiser les informations d’adresse IP privée statique concernant la machine virtuelle créée avec le script ci-dessus, exécutez la commande PowerShell ci-après et examinez les valeurs pour *IpAddress* :
 
 	Get-AzureVM -Name DNS01 -ServiceName TestService
 
@@ -71,7 +71,7 @@ Sortie attendue :
 	DeploymentName              : TestService
 	Name                        : DNS01
 	Label                       : 
-	VM                          : Microsoft.WindowsAzure.Commands.ServiceManagement.Model.PersistentVM
+	VM                          : azure.microsoft.com/.WindowsAzure.Commands.ServiceManagement.Model.PersistentVM
 	InstanceStatus              : Provisioning
 	IpAddress                   : 192.168.1.7
 	InstanceStateDetails        : Windows is preparing your computer for first use...
@@ -85,8 +85,8 @@ Sortie attendue :
 	AvailabilitySetName         : 
 	DNSName                     : http://testservice000.cloudapp.net/
 	Status                      : Provisioning
-	GuestAgentStatus            : Microsoft.WindowsAzure.Commands.ServiceManagement.Model.GuestAgentStatus
-	ResourceExtensionStatusList : {Microsoft.Compute.BGInfo}
+	GuestAgentStatus            : azure.microsoft.com/.WindowsAzure.Commands.ServiceManagement.Model.GuestAgentStatus
+	ResourceExtensionStatusList : {azure.microsoft.com/.Compute.BGInfo}
 	PublicIPAddress             : 
 	PublicIPName                : 
 	NetworkInterfaces           : {}
@@ -125,6 +125,6 @@ Sortie attendue :
 
 - En savoir plus sur les [adresses IP publiques réservées](virtual-networks-reserved-public-ip.md).
 - En savoir plus sur les [adresses IP publiques de niveau d’instance](virtual-networks-instance-level-public-ip.md).
-- Consultez les [API REST d’adresse IP réservée](https://msdn.microsoft.com/library/azure/dn722420.aspx)
+- Consultez les [API REST d’adresse IP réservée](https://msdn.azure.microsoft.com/.com/library/azure/dn722420.aspx)
 
 <!---HONumber=AcomDC_0817_2016-->

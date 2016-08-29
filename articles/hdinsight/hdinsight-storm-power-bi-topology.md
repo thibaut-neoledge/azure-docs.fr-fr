@@ -1,5 +1,5 @@
 <properties
- pageTitle="Utiliser Apache Storm avec Power BI | Microsoft Azure"
+ pageTitle="Utiliser Apache Storm avec Power BI | azure.microsoft.com/ Azure"
  description="Créez un rapport Power BI en utilisant les données d’une topologie C# s’exécutant sur un cluster Apache Storm dans HDInsight."
  services="hdinsight"
  documentationCenter=""
@@ -25,15 +25,15 @@ Ce document explique comment utiliser Power BI pour créer un rapport à partir 
 
 ## Composants requis
 
-- Un abonnement Azure. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- Un abonnement Azure. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.azure.microsoft.com/.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 * Un utilisateur Azure Active Directory avec un accès [Power BI](https://powerbi.com)
 
 * Visual Studio (l'une des versions suivantes)
 
-    * Visual Studio 2012 avec [Update 4](http://www.microsoft.com/download/details.aspx?id=39305)
+    * Visual Studio 2012 avec [Update 4](http://www.azure.microsoft.com/.com/download/details.aspx?id=39305)
 
-    * Visual Studio 2013 avec [Update 4](http://www.microsoft.com/download/details.aspx?id=44921) ou [Visual Studio 2013 Community](http://go.microsoft.com/fwlink/?linkid=517284&clcid=0x409)
+    * Visual Studio 2013 avec [Update 4](http://www.azure.microsoft.com/.com/download/details.aspx?id=44921) ou [Visual Studio 2013 Community](http://go.azure.microsoft.com/.com/fwlink/?linkid=517284&clcid=0x409)
 
     * [Visual Studio 2015](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)
 
@@ -112,9 +112,9 @@ Téléchargez l’[exemple HDInsight C# Storm Power BI](https://github.com/Azure
 
 2. Dans __Databases__ (Bases de données), sélectionnez __Get__ (Obtenir).
 
-3. Sélectionnez __Azure SQL Database__ (Base de données SQL Microsoft Azure), puis sélectionnez __Connect__ (Se connecter).
+3. Sélectionnez __Azure SQL Database__ (Base de données SQL azure.microsoft.com/ Azure), puis sélectionnez __Connect__ (Se connecter).
 
-4. Entrez les informations pour vous connecter à votre base de données SQL Microsoft Azure. Vous trouverez ces informations en accédant au [Portail Azure](https://portal.azure.com) et en sélectionnant votre base de données SQL.
+4. Entrez les informations pour vous connecter à votre base de données SQL azure.microsoft.com/ Azure. Vous trouverez ces informations en accédant au [Portail Azure](https://portal.azure.com) et en sélectionnant votre base de données SQL.
 
     > [AZURE.NOTE] Vous pouvez également définir l’intervalle d’actualisation et les filtres personnalisés à l’aide de l’option __Activer les options avancées__ de la boîte de dialogue de connexion.
 

@@ -1,7 +1,7 @@
 <properties
-	pageTitle="Niveaux de cohérence dans DocumentDB | Microsoft Azure"
+	pageTitle="Niveaux de cohérence dans DocumentDB | azure.microsoft.com/ Azure"
 	description="DocumentDB offre quatre niveaux de cohérence qui permettent de faire des compromis avisés entre cohérence éventuelle, disponibilité et latence."
-	keywords="cohérence éventuelle, documentdb, azure, Microsoft azure"
+	keywords="cohérence éventuelle, documentdb, azure, azure.microsoft.com/ azure"
 	services="documentdb"
 	authors="mimig1"
 	manager="jhubbard"
@@ -27,11 +27,11 @@ La granularité de la cohérence est limitée à la demande d’un utilisateur u
 
 ## Niveaux de cohérence
 
-Vous pouvez configurer le niveau de cohérence par défaut sur le compte de base de données qui s'applique à toutes les collections (parmi l'ensemble des bases de données) sous votre compte de base de données. Par défaut, toutes les lectures et requêtes émises vers les ressources définies par l'utilisateur utilisent le niveau de cohérence par défaut spécifié sur le compte de base de données. Vous pouvez néanmoins assouplir le niveau de cohérence d’une demande de lecture/requête donnée en spécifiant l’en-tête de demande [[x-ms-consistency-level]](https://msdn.microsoft.com/library/azure/mt632096.aspx). Quatre types de niveaux de cohérence sont pris en charge par le protocole de réplication de DocumentDB. Ils fournissent un compromis clair entre les garanties de cohérence spécifiques et les performances, comme décrit ci-dessous.
+Vous pouvez configurer le niveau de cohérence par défaut sur le compte de base de données qui s'applique à toutes les collections (parmi l'ensemble des bases de données) sous votre compte de base de données. Par défaut, toutes les lectures et requêtes émises vers les ressources définies par l'utilisateur utilisent le niveau de cohérence par défaut spécifié sur le compte de base de données. Vous pouvez néanmoins assouplir le niveau de cohérence d’une demande de lecture/requête donnée en spécifiant l’en-tête de demande [[x-ms-consistency-level]](https://msdn.azure.microsoft.com/.com/library/azure/mt632096.aspx). Quatre types de niveaux de cohérence sont pris en charge par le protocole de réplication de DocumentDB. Ils fournissent un compromis clair entre les garanties de cohérence spécifiques et les performances, comme décrit ci-dessous.
 
 ![DocumentDB offre le choix entre plusieurs modèles de cohérence bien définis (souples)][1]
 
-**Remarque** :
+**Remarque** :
 
 - La cohérence forte offre une garantie de [linéarisabilité](https://aphyr.com/posts/313-strong-consistency-models) qui permet de s’assurer que les lectures renvoient la version la plus récente d’un document.
 - la cohérence forte garantit qu'une écriture est visible uniquement après sa validation durable par le quorum majoritaire de réplicas. Une écriture est soit validée durablement de manière synchrone par les quorums principal et secondaire, soit abandonnée. Une lecture est toujours reconnue par le quorum de lecture majoritaire : un client ne voit jamais une écriture partielle ou non validée. Il est assuré de lire la toute dernière écriture reconnue.
@@ -50,7 +50,7 @@ Vous pouvez configurer le niveau de cohérence par défaut sur le compte de base
 - Les comptes DocumentDB configurés avec une cohérence Obsolescence limitée peuvent associer n’importe quel nombre de régions Azure avec leur compte DocumentDB.
 - Le coût d’une opération de lecture (en termes d’unités de requête consommées) en fonction de l’obsolescence limitée est supérieur à celui des niveaux de cohérence Session et Éventuel, mais identique au niveau de cohérence forte.
 
-**Session** :
+**Session** :
 
 - contrairement aux modèles de cohérence globaux offerts par les niveaux de cohérence Fort et Obsolescence limitée, le niveau Session s’étend à une session client spécifique.
 - La cohérence Session est idéale pour tous les scénarios dans lesquels une session utilisateur ou d’appareil est impliquée, car elle garantit des lectures unitones, des écritures unitones et des garanties de lecture de vos propres écritures.
@@ -59,7 +59,7 @@ Vous pouvez configurer le niveau de cohérence par défaut sur le compte de base
 - Le coût d’une opération de lecture (en termes d’unités de requête consommées) avec un niveau de cohérence Session est inférieur à celui des niveaux Fort et Obsolescence limitée, mais supérieur au niveau Éventuel.
  
 
-**Eventual (Éventuel)** :
+**Eventual (Éventuel)** :
 
 - Le niveau de cohérence Éventuel garantit qu’en l’absence d’autres écritures, les réplicas du groupe finiront par converger.
 - Il s’agit de la forme de cohérence la plus faible qui permet à un client d’obtenir des valeurs plus anciennes que celles qu’il a pu voir précédemment.
@@ -103,14 +103,14 @@ Mode d'indexation|	Lectures|	Requêtes
 Cohérence (par défaut)|	Choisir parmi Fort, Obsolescence limitée, Session et Éventuel|	Choisir parmi Fort, Obsolescence limitée, Session et Éventuel|
 Différé|	Choisir parmi Fort, Obsolescence limitée, Session et Éventuel|	Eventual (Éventuel)  
 
-À l’instar des demandes de lecture, vous pouvez réduire le niveau de cohérence d’une demande de requête donnée en spécifiant l’en-tête de demande [x-ms-consistency-level](https://msdn.microsoft.com/library/azure/mt632096.aspx).
+À l’instar des demandes de lecture, vous pouvez réduire le niveau de cohérence d’une demande de requête donnée en spécifiant l’en-tête de demande [x-ms-consistency-level](https://msdn.azure.microsoft.com/.com/library/azure/mt632096.aspx).
 
 ## Étapes suivantes
 
 Si vous souhaitez en lire plus sur les niveaux de cohérence et les différents compromis, nous vous recommandons les ressources suivantes :
 
 -	Doug Terry. La cohérence des données répliquées expliquée par le baseball (vidéo). [https://www.youtube.com/watch?v=gluIh8zd26I](https://www.youtube.com/watch?v=gluIh8zd26I)
--	Doug Terry. La cohérence des données répliquées basée sur l’exemple du baseball. [http://research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf](http://research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf)
+-	Doug Terry. La cohérence des données répliquées basée sur l’exemple du baseball. [http://research.azure.microsoft.com/.com/pubs/157411/ConsistencyAndBaseballReport.pdf](http://research.azure.microsoft.com/.com/pubs/157411/ConsistencyAndBaseballReport.pdf)
 -	Doug Terry. Le niveau Par session garantit des données répliquées peu cohérentes. [http://dl.acm.org/citation.cfm?id=383631](http://dl.acm.org/citation.cfm?id=383631)
 -	Daniel Abadi. Cohérence des compromis en termes de conception de systèmes de base de données distribuée moderne : CAP n’est qu’une partie de l’histoire. [http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html](http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html)
 -	Peter Bailis, Shivaram Venkataraman, Michael J. Franklin, Joseph M. Hellerstein, Ion Stoica. Probabilités en fonction de l’obsolescence (PBS) pour les quorums partiels pratiques. [http://vldb.org/pvldb/vol5/p776\_peterbailis\_vldb2012.pdf](http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf)

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Mise à niveau des projets vers la version actuelle d’Azure Tools | Microsoft Azure"
+   pageTitle="Mise à niveau des projets vers la version actuelle d’Azure Tools | azure.microsoft.com/ Azure"
    description="Découvrez comment mettre à niveau un projet Azure dans Visual Studio vers la version actuelle d’Azure Tools"
    services="visual-studio-online"
    documentationCenter="na"
@@ -25,9 +25,9 @@ Une fois installée la version actuelle d’Azure Tools (ou une autre version u
 
 Si un projet est mis à niveau automatiquement ou si vous spécifiez que vous voulez le mettre à niveau, il sera modifié en vue de fonctionner avec les versions actuelles de certains assemblys. En outre, certaines propriétés seront également modifiées, comme le décrit cette section. Si votre projet nécessite que d’autres modifications soient compatibles avec la version la plus récente d’Azure Tools, vous devrez apporter ces modifications manuellement.
 
-- Le fichier web.config pour les rôles web et le fichier app.config pour les rôles de travail sont mis à jour de manière à référencer la version la plus récente de Microsoft.WindowsAzure.Diagnostics.DiagnosticMonitoirTraceListener.dll.
+- Le fichier web.config pour les rôles web et le fichier app.config pour les rôles de travail sont mis à jour de manière à référencer la version la plus récente de azure.microsoft.com/.WindowsAzure.Diagnostics.DiagnosticMonitoirTraceListener.dll.
 
-- Les assemblys Microsoft.WindowsAzure.StorageClient.dll, Microsoft.WindowsAzure.Diagnostics.dll et Microsoft.WindowsAzure.ServiceRuntime.dll sont mis à niveau vers les nouvelles versions.
+- Les assemblys azure.microsoft.com/.WindowsAzure.StorageClient.dll, azure.microsoft.com/.WindowsAzure.Diagnostics.dll et azure.microsoft.com/.WindowsAzure.ServiceRuntime.dll sont mis à niveau vers les nouvelles versions.
 
 - Les profils de publication qui étaient stockés dans le fichier projet Azure (.ccproj) sont déplacés vers un autre fichier ayant une extension .azurePubXml, situé dans le sous-répertoire **Publier**.
 

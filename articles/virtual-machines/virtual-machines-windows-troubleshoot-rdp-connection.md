@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Résolution de problèmes de connexion Bureau à distance vers une machine virtuelle Azure | Microsoft Azure"
+	pageTitle="Résolution de problèmes de connexion Bureau à distance vers une machine virtuelle Azure | azure.microsoft.com/ Azure"
 	description="Si votre machine virtuelle Azure est inaccessible, vous pouvez suivre des étapes rapides de résolution des problèmes RDP, exploiter les messages d’erreur et effectuer des étapes de dépannage de réseau détaillées."
 	keywords="erreur bureau à distance,erreur de connexion bureau à distance,impossible se connecter à la machine virtuelle,résolution des problèmes de connexion bureau à distance"
 	services="virtual-machines-windows"
@@ -22,7 +22,7 @@
 
 La connexion RDP (Remote Desktop Protocol) à votre machine virtuelle Azure Windows peut échouer pour diverses raisons, rendant votre machine virtuelle inaccessible. Le problème peut être lié au service Bureau à distance sur la machine virtuelle, à la connexion réseau ou encore au client Bureau à distance sur votre ordinateur hôte. Cet article vous guide à travers certaines des méthodes plus courantes pour résoudre les problèmes de connexion RDP. Si votre problème n’est pas répertorié ici, ou si vous ne pouvez toujours pas vous connecter à votre machine virtuelle à l’aide du le protocole RDP, vous pouvez également lire [des concepts et des étapes de résolution des problèmes RDP plus détaillés](virtual-machines-windows-detailed-troubleshoot-rdp.md).
 
-Si vous avez besoin d’une aide supplémentaire à quelque étape que ce soit dans cet article, vous pouvez contacter les experts Azure sur les [forums MSDN Azure et Stack Overflow](https://azure.microsoft.com/support/forums/). Vous pouvez également signaler un incident au support Azure. Accédez au [site du support Azure](https://azure.microsoft.com/support/options/), puis cliquez sur **Obtenir un support**.
+Si vous avez besoin d’une aide supplémentaire à quelque étape que ce soit dans cet article, vous pouvez contacter les experts Azure sur les [forums MSDN Azure et Stack Overflow](https://azure.azure.microsoft.com/.com/support/forums/). Vous pouvez également signaler un incident au support Azure. Accédez au [site du support Azure](https://azure.azure.microsoft.com/.com/support/options/), puis cliquez sur **Obtenir un support**.
 
 <a id="quickfixrdp"></a>
 
@@ -55,7 +55,7 @@ Après chaque étape de résolution des problèmes, essayez de vous reconnecter 
 	```
 	Set-AzureRmVMExtension -ResourceGroupName "myRG" -VMName "myVM" `
 		-Name "myVMAccessExtension" -ExtensionType "VMAccessAgent" `
-		-Publisher "Microsoft.Compute" -typeHandlerVersion "2.0" `
+		-Publisher "azure.microsoft.com/.Compute" -typeHandlerVersion "2.0" `
 		-Location Westus
 	```
 	OU
@@ -79,7 +79,7 @@ Après chaque étape de résolution des problèmes, essayez de vous reconnecter 
 
 6. [Réinitialisez le mot de passe de votre machine virtuelle](virtual-machines-windows-reset-rdp.md).
 
-Si vous rencontrez toujours des problèmes liés au protocole RDP, vous pouvez [ouvrir une demande de support](https://azure.microsoft.com/support/options/) ou lire [des concepts et des étapes de résolution des problèmes RDP plus détaillés](virtual-machines-windows-detailed-troubleshoot-rdp.md).
+Si vous rencontrez toujours des problèmes liés au protocole RDP, vous pouvez [ouvrir une demande de support](https://azure.azure.microsoft.com/.com/support/options/) ou lire [des concepts et des étapes de résolution des problèmes RDP plus détaillés](virtual-machines-windows-detailed-troubleshoot-rdp.md).
 
 
 ## Résolution des problèmes des machines virtuelles créées à l’aide du modèle de déploiement classique
@@ -102,7 +102,7 @@ Après chaque étape de résolution des problèmes, essayez de vous reconnecter 
 
 7. [Réinitialisez le mot de passe de votre machine virtuelle](virtual-machines-windows-reset-rdp.md).
 
-Si vous rencontrez toujours des problèmes liés au protocole RDP, vous pouvez [ouvrir une demande de support](https://azure.microsoft.com/support/options/) ou lire [des concepts et des étapes de résolution des problèmes RDP plus détaillés](virtual-machines-windows-detailed-troubleshoot-rdp.md).
+Si vous rencontrez toujours des problèmes liés au protocole RDP, vous pouvez [ouvrir une demande de support](https://azure.azure.microsoft.com/.com/support/options/) ou lire [des concepts et des étapes de résolution des problèmes RDP plus détaillés](virtual-machines-windows-detailed-troubleshoot-rdp.md).
 
 
 ## Résoudre les erreurs de connexion Bureau à distance spécifiques
@@ -156,7 +156,7 @@ La partie adresse de ce fichier RDP comporte :
 
 Cause : La machine virtuelle cible n’a pas pu localiser l’autorité de sécurité dans la partie nom d’utilisateur de vos informations d’identification.
 
-Lorsque votre nom d’utilisateur est au format *SecurityAuthority*\*UserName* (par exemple, CORP\\User1), la partie *SecurityAuthority* est soit le nom d’ordinateur de la machine virtuelle (pour l’autorité de sécurité locale), soit un nom de domaine Active Directory.
+Lorsque votre nom d’utilisateur est au format *SecurityAuthority*\\*UserName* (par exemple, CORP\\User1), la partie *SecurityAuthority* est soit le nom d’ordinateur de la machine virtuelle (pour l’autorité de sécurité locale), soit un nom de domaine Active Directory.
 
 Solutions possibles :
 
@@ -191,7 +191,7 @@ Cause : Le compte utilisé pour vous connecter ne dispose pas des droits de con
 
 Chaque ordinateur Windows dispose d’un groupe local d’utilisateurs du Bureau à distance, qui contient les comptes et groupes autorisés à s’y connecter à distance. Les membres du groupe local d’administrateurs y ont également accès, même si ces comptes ne sont pas répertoriés dans le groupe local des utilisateurs du Bureau à distance. Pour les ordinateurs associés à un domaine, le groupe local d’administrateurs contient également les administrateurs du domaine en question.
 
-Vérifiez que le compte que vous utilisez pour vous connecter dispose des droits de connexion au Bureau à distance. Pour résoudre ce problème, utilisez un compte d’administrateur local ou de domaine pour vous connecter via le Bureau à distance. Pour ajouter le compte de votre choix au groupe local des utilisateurs du Bureau à distance, utilisez le composant logiciel enfichable Microsoft Management Console (**Outils système > Utilisateurs et groupes locaux > Groupes > Utilisateurs du Bureau à distance**).
+Vérifiez que le compte que vous utilisez pour vous connecter dispose des droits de connexion au Bureau à distance. Pour résoudre ce problème, utilisez un compte d’administrateur local ou de domaine pour vous connecter via le Bureau à distance. Pour ajouter le compte de votre choix au groupe local des utilisateurs du Bureau à distance, utilisez le composant logiciel enfichable azure.microsoft.com/ Management Console (**Outils système > Utilisateurs et groupes locaux > Groupes > Utilisateurs du Bureau à distance**).
 
 ## Résolution des erreurs génériques du Bureau à distance
 
@@ -200,7 +200,7 @@ Si aucune de ces erreurs ne s’est produite et que vous ne parvenez toujours pa
 
 ## Ressources supplémentaires
 
-[Package de diagnostic Azure IaaS (Windows)](https://home.diagnostics.support.microsoft.com/SelfHelp?knowledgebaseArticleFilter=2976864)
+[Package de diagnostic Azure IaaS (Windows)](https://home.diagnostics.support.azure.microsoft.com/.com/SelfHelp?knowledgebaseArticleFilter=2976864)
 
 [Réinitialisation d’un mot de passe ou du service Bureau à distance pour les machines virtuelles Windows](virtual-machines-windows-reset-rdp.md)
 

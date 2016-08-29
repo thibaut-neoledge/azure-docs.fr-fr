@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Runbooks enfants dans Azure Automation | Microsoft Azure"
+   pageTitle="Runbooks enfants dans Azure Automation | azure.microsoft.com/ Azure"
    description="Décrit les différentes méthodes permettant le démarrage d’un Runbook à partir d’un autre Runbook dans Azure Automation et le partage d’informations entre eux."
    services="automation"
    documentationCenter=""
@@ -61,7 +61,7 @@ Voici le même exemple utilisant un runbook PowerShell en tant qu’enfant.
 
 ##  Démarrage d’un Runbook enfant à l’aide d’une applet de commande
 
-Vous pouvez utiliser l’applet de commande [Start-AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603661.aspx) pour démarrer un runbook, comme décrit dans [Démarrage d’un Runbook avec Windows PowerShell](../automation-starting-a-runbook.md#starting-a-runbook-with-windows-powershell). Il existe deux modes d’utilisation pour cette applet de commande. Dans un mode, l’applet de commande renvoie l’ID de tâche dès que la tâche enfant est créée pour le runbook enfant. Dans l’autre mode, que vous activez en spécifiant le paramètre **-wait**, l’applet de commande attend que la tâche enfant se termine et renvoie la sortie du runbook enfant.
+Vous pouvez utiliser l’applet de commande [Start-AzureRmAutomationRunbook](https://msdn.azure.microsoft.com/.com/library/mt603661.aspx) pour démarrer un runbook, comme décrit dans [Démarrage d’un Runbook avec Windows PowerShell](../automation-starting-a-runbook.md#starting-a-runbook-with-windows-powershell). Il existe deux modes d’utilisation pour cette applet de commande. Dans un mode, l’applet de commande renvoie l’ID de tâche dès que la tâche enfant est créée pour le runbook enfant. Dans l’autre mode, que vous activez en spécifiant le paramètre **-wait**, l’applet de commande attend que la tâche enfant se termine et renvoie la sortie du runbook enfant.
 
 La tâche issue d’un Runbook enfant démarré avec une applet de commande est exécutée dans une tâche distincte du Runbook parent. Cela entraîne davantage de tâches que l’appel de runbook en ligne et rend leur suivi plus complexe. Le parent peut démarrer plusieurs Runbooks enfants de façon asynchrone, sans attendre la fin de leur exécution. Pour ce même type d’exécution en parallèle avec appel des runbooks enfants en ligne, le runbook parent doit utiliser le [mot clé parallèle](automation-powershell-workflow.md#parallel-processing).
 

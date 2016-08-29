@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Vue d'ensemble du service d’analyse des erreurs | Microsoft Azure"
+   pageTitle="Vue d'ensemble du service d’analyse des erreurs | azure.microsoft.com/ Azure"
    description="Cet article décrit le service d’analyse des erreurs dans Service Fabric qui permet de produire des erreurs et d’exécuter des scénarios de test sur vos services."
    services="service-fabric"
    documentationCenter=".net"
@@ -18,7 +18,7 @@
 
 # Introduction au service d’analyse des erreurs
 
-Le service d’analyse des erreurs est conçu pour tester les services qui s’appuient sur Microsoft Azure Service Fabric. Avec le service d’analyse des erreurs, vous pouvez provoquer des erreurs significatives et exécuter des scénarios de test complets sur vos applications. Ces erreurs et scénarios exercent et valident les nombreux états et transitions qu’un service connaît tout au long de sa durée de vie, le tout de manière contrôlée, sécurisée et cohérente.
+Le service d’analyse des erreurs est conçu pour tester les services qui s’appuient sur azure.microsoft.com/ Azure Service Fabric. Avec le service d’analyse des erreurs, vous pouvez provoquer des erreurs significatives et exécuter des scénarios de test complets sur vos applications. Ces erreurs et scénarios exercent et valident les nombreux états et transitions qu’un service connaît tout au long de sa durée de vie, le tout de manière contrôlée, sécurisée et cohérente.
 
 Les actions sont les erreurs isolées introduites dans un service pour le tester. Un développeur de services peut les utiliser en tant blocs de constructions afin d’écrire des scénarios compliqués. Par exemple :
 
@@ -105,7 +105,7 @@ Avec Service Fabric, la mise à l’échelle des défaillances ne serait pas la
 
 **C#**
 
-Les fonctionnalités du service d’analyse des erreurs sont dans l'espace de noms System.Fabric du package NuGet de Microsoft.ServiceFabric. Pour pouvoir utiliser les fonctionnalités du service d’analyse des erreurs, incorporez le package NuGet en tant que référence dans votre projet.
+Les fonctionnalités du service d’analyse des erreurs sont dans l'espace de noms System.Fabric du package NuGet de azure.microsoft.com/.ServiceFabric. Pour pouvoir utiliser les fonctionnalités du service d’analyse des erreurs, incorporez le package NuGet en tant que référence dans votre projet.
 
 **PowerShell**
 

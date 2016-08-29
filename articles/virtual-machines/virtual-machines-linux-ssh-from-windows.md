@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Utilisation de SSH sous Windows pour se connecter à des machines virtuelles Linux | Microsoft Azure" 
+	pageTitle="Utilisation de SSH sous Windows pour se connecter à des machines virtuelles Linux | azure.microsoft.com/ Azure" 
 description="Apprenez à créer et à utiliser des clés SSH sur un ordinateur Windows pour vous connecter à une machine virtuelle Linux dans Azure." 
 	services="virtual-machines-linux" 
 	documentationCenter="" 

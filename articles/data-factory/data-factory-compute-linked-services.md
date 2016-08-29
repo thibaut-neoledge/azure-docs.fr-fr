@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Services liés de calcul | Microsoft Azure"
+	pageTitle="Services liés de calcul | azure.microsoft.com/ Azure"
 	description="En savoir plus sur environnements de calcul que vous pouvez utiliser dans les pipelines Azure Data Factory pour transformer/traiter les données."
 	services="data-factory"
 	documentationCenter=""
@@ -59,7 +59,7 @@ Pour utiliser un cluster HDInsight Windows, définissez **osType** sur **windows
 > [AZURE.IMPORTANT] 
 Le cluster HDInsight crée un **conteneur par défaut** dans le stockage d’objets blob que vous avez spécifié dans le JSON (**linkedServiceName**). HDInsight ne supprime pas ce conteneur lorsque le cluster est supprimé. Ce comportement est normal. Avec le service lié HDInsight à la demande, un cluster HDInsight est créé dès qu’une tranche doit être traitée, sauf s’il existe un cluster activé (**timeToLive**), puis il est supprimé à la fin du traitement.
 > 
-> Comme un nombre croissant de tranches sont traitées, vous voyez un grand nombre de conteneurs dans votre stockage d’objets blob Azure. Si vous n’en avez pas besoin pour dépanner les travaux, il se peut que vous deviez les supprimer pour réduire les frais de stockage. Le nom de ces conteneurs suit un modèle : « adf**yourdatafactoryname**-**linkedservicename**-datetimestamp ». Utilisez des outils tels que [Microsoft Storage Explorer](http://storageexplorer.com/) pour supprimer des conteneurs dans votre stockage d’objets blob Azure.
+> Comme un nombre croissant de tranches sont traitées, vous voyez un grand nombre de conteneurs dans votre stockage d’objets blob Azure. Si vous n’en avez pas besoin pour dépanner les travaux, il se peut que vous deviez les supprimer pour réduire les frais de stockage. Le nom de ces conteneurs suit un modèle : « adf**yourdatafactoryname**-**linkedservicename**-datetimestamp ». Utilisez des outils tels que [azure.microsoft.com/ Storage Explorer](http://storageexplorer.com/) pour supprimer des conteneurs dans votre stockage d’objets blob Azure.
 
 ### Propriétés
 
@@ -200,8 +200,8 @@ Consultez les rubriques suivantes si vous ne connaissez pas le service Azure Bat
 
 
 - [Présentation de base d’Azure Batch](../batch/batch-technical-overview.md) pour une vue d’ensemble du service Azure Batch.
-- Applet de commande [New-AzureBatchAccount](https://msdn.microsoft.com/library/mt125880.aspx) pour créer un compte Azure Batch (ou) [Portail Azure](../batch/batch-account-create-portal.md) pour créer le compte Azure Batch à l’aide du portail Azure. Pour obtenir des instructions détaillées sur l'utilisation de l'applet de commande, consultez la rubrique [Utilisation de PowerShell pour gérer un compte Azure Batch](http://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx).
-- Applet de commande [New-AzureBatchPool](https://msdn.microsoft.com/library/mt125936.aspx) pour créer un pool Azure Batch.
+- Applet de commande [New-AzureBatchAccount](https://msdn.azure.microsoft.com/.com/library/mt125880.aspx) pour créer un compte Azure Batch (ou) [Portail Azure](../batch/batch-account-create-portal.md) pour créer le compte Azure Batch à l’aide du portail Azure. Pour obtenir des instructions détaillées sur l'utilisation de l'applet de commande, consultez la rubrique [Utilisation de PowerShell pour gérer un compte Azure Batch](http://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx).
+- Applet de commande [New-AzureBatchPool](https://msdn.azure.microsoft.com/.com/library/mt125936.aspx) pour créer un pool Azure Batch.
 
 ### Exemple
 
@@ -218,7 +218,7 @@ Consultez les rubriques suivantes si vous ne connaissez pas le service Azure Bat
 	  }
 	}
 
-Ajoutez « **.<nom région** » au nom de votre compte Batch pour la propriété **accountName**. Exemple :
+Ajoutez « **.<nom région** » au nom de votre compte Batch pour la propriété **accountName**. Exemple :
 
 			"accountName": "mybatchaccount.eastus"
 
@@ -238,7 +238,7 @@ poolName | Nom du pool de machines virtuelles. | Oui
 linkedServiceName | Nom du service lié Azure Storage associé à ce service lié Azure Batch. Ce service lié est utilisé pour présenter les fichiers nécessaires à l'exécution de l'activité et stocker les journaux d'exécution de l'activité. | Oui
 
 
-## Service lié Microsoft Azure Machine Learning
+## Service lié azure.microsoft.com/ Azure Machine Learning
 
 Vous créez un service lié Azure Machine Learning pour inscrire un point de terminaison de notation par lot Machine Learning pour une fabrique de données.
 
@@ -332,7 +332,7 @@ Le code suivant génère les valeurs des propriétés **sessionId** et **authori
         }
     }
 
-Pour plus d’informations sur les classes Data Factory utilisées dans le code, consultez les rubriques [AzureDataLakeStoreLinkedService, classe](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [AzureDataLakeAnalyticsLinkedService, classe](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx) et [AuthorizationSessionGetResponse, classe](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx). Vous devez ajouter une référence à Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll pour la classe WindowsFormsWebAuthenticationDialog.
+Pour plus d’informations sur les classes Data Factory utilisées dans le code, consultez les rubriques [AzureDataLakeStoreLinkedService, classe](https://msdn.azure.microsoft.com/.com/library/azure.microsoft.com/.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [AzureDataLakeAnalyticsLinkedService, classe](https://msdn.azure.microsoft.com/.com/library/azure.microsoft.com/.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx) et [AuthorizationSessionGetResponse, classe](https://msdn.azure.microsoft.com/.com/library/azure.microsoft.com/.azure.management.datafactories.models.authorizationsessiongetresponse.aspx). Vous devez ajouter une référence à azure.microsoft.com/.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll pour la classe WindowsFormsWebAuthenticationDialog.
  
 
 ## Service lié Azure SQL

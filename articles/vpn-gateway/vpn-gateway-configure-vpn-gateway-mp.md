@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Configurer une passerelle VPN dans le portail Azure Classic | Microsoft Azure"
+   pageTitle="Configurer une passerelle VPN dans le portail Azure Classic | azure.microsoft.com/ Azure"
    description="Cet article vous indique comment configurer votre passerelle VPN de réseau virtuel et comment modifier un type de routage VPN de passerelle."
    services="vpn-gateway"
    documentationCenter="na"

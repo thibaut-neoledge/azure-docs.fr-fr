@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Préparer un disque dur virtuel Windows à charger sur Azure | Microsoft Azure"
+	pageTitle="Préparer un disque dur virtuel Windows à charger sur Azure | azure.microsoft.com/ Azure"
 	description="Pratiques recommandées pour préparer un disque dur virtuel Windows avant de le charger sur Azure"
 	services="virtual-machines-windows"
 	documentationCenter=""
@@ -18,7 +18,7 @@
 	ms.author="genli"/>
 
 # Préparer un disque dur virtuel Windows à charger sur Azure
-Pour charger une machine virtuelle Windows locale sur Azure, vous devez préparer correctement le disque dur virtuel (VHD). Avant de charger un disque dur virtuel sur Azure, vous devez suivre une série d’étapes recommandées. L’exécution de `sysprep` est un processus courant, mais elle ne constitue qu’une seule étape de la généralisation d’une image. Cet article vous indique comment préparer un disque dur virtuel Windows à charger sur Microsoft Azure.
+Pour charger une machine virtuelle Windows locale sur Azure, vous devez préparer correctement le disque dur virtuel (VHD). Avant de charger un disque dur virtuel sur Azure, vous devez suivre une série d’étapes recommandées. L’exécution de `sysprep` est un processus courant, mais elle ne constitue qu’une seule étape de la généralisation d’une image. Cet article vous indique comment préparer un disque dur virtuel Windows à charger sur azure.microsoft.com/ Azure.
 
 ## Préparer le disque virtuel
 
@@ -39,23 +39,23 @@ Pour convertir votre disque virtuel au format exigé par Azure, utilisez une des
 	- Cliquez sur **Terminer** pour fermer la fenêtre.
 
 ### Convertir à l’aide de PowerShell
-Vous pouvez convertir un disque virtuel à l’aide de [l’applet de commande PowerShell Convert-VHD](http://technet.microsoft.com/library/hh848454.aspx). Dans l’exemple suivant, nous convertissons un disque VHDX au format VHD et un disque dynamique en disque de taille fixe :
+Vous pouvez convertir un disque virtuel à l’aide de [l’applet de commande PowerShell Convert-VHD](http://technet.azure.microsoft.com/.com/library/hh848454.aspx). Dans l’exemple suivant, nous convertissons un disque VHDX au format VHD et un disque dynamique en disque de taille fixe :
 
 ```powershell
 Convert-VHD –Path c:\test\MY-VM.vhdx –DestinationPath c:\test\MY-NEW-VM.vhd -VHDType Fixed
 ```
 
 ### Convertir à partir du format de disque VMDK VMware
-Si vous disposez d’une image de machine virtuelle Windows au [format de fichier VMDK](https://en.wikipedia.org/wiki/VMDK), convertissez-la au format VHD à l’aide de [Microsoft Virtual Machine Converter](https://www.microsoft.com/download/details.aspx?id=42497). Consultez le blog [How to Convert a VMWare VMDK to Hyper-V VHD](http://blogs.msdn.com/b/timomta/archive/2015/06/11/how-to-convert-a-vmware-vmdk-to-hyper-v-vhd.aspx) (en anglais) pour plus d’informations.
+Si vous disposez d’une image de machine virtuelle Windows au [format de fichier VMDK](https://en.wikipedia.org/wiki/VMDK), convertissez-la au format VHD à l’aide de [azure.microsoft.com/ Virtual Machine Converter](https://www.azure.microsoft.com/.com/download/details.aspx?id=42497). Consultez le blog [How to Convert a VMWare VMDK to Hyper-V VHD](http://blogs.msdn.com/b/timomta/archive/2015/06/11/how-to-convert-a-vmware-vmdk-to-hyper-v-vhd.aspx) (en anglais) pour plus d’informations.
 
 ## Préparer la configuration de Windows pour le chargement
 
-> [AZURE.NOTE] Exécutez toutes les commandes suivantes avec des [privilèges d’administrateur](https://technet.microsoft.com/library/cc947813.aspx).
+> [AZURE.NOTE] Exécutez toutes les commandes suivantes avec des [privilèges d’administrateur](https://technet.azure.microsoft.com/.com/library/cc947813.aspx).
 
 1. Supprimez tout itinéraire statique persistant de la table de routage :
 
 	- Pour afficher la table de routage, exécutez `route print`.
-	- Vérifiez les sections **Persistence Routes**. S’il existe un itinéraire persistant, utilisez [route delete](https://technet.microsoft.com/library/cc739598.apx) pour le supprimer.
+	- Vérifiez les sections **Persistence Routes**. S’il existe un itinéraire persistant, utilisez [route delete](https://technet.azure.microsoft.com/.com/library/cc739598.apx) pour le supprimer.
 
 2. Supprimez le proxy WinHTTP :
 
@@ -63,7 +63,7 @@ Si vous disposez d’une image de machine virtuelle Windows au [format de fichie
 	netsh winhttp reset proxy
 	```
 
-3. Définissez la stratégie SAN pour les disques sur [onlineall](https://technet.microsoft.com/library/gg252636.aspx) :
+3. Définissez la stratégie SAN pour les disques sur [onlineall](https://technet.azure.microsoft.com/.com/library/gg252636.aspx) :
 
 	```
 	dispart san policy=onlineall
@@ -132,14 +132,14 @@ Si vous disposez d’une image de machine virtuelle Windows au [format de fichie
 	REG DELETE "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp\SSLCertificateSHA1Hash”
 	```
 
-	Pour plus d’informations sur la configuration des certificats pour l’écouteur RDP, consultez [Listener Certificate Configurations in Windows Server](https://blogs.technet.microsoft.com/askperf/2014/05/28/listener-certificate-configurations-in-windows-server-2012-2012-r2/) (Configurations de certificats d’écouteur dans Windows Server).
+	Pour plus d’informations sur la configuration des certificats pour l’écouteur RDP, consultez [Listener Certificate Configurations in Windows Server](https://blogs.technet.azure.microsoft.com/.com/askperf/2014/05/28/listener-certificate-configurations-in-windows-server-2012-2012-r2/) (Configurations de certificats d’écouteur dans Windows Server).
 
-7. Configurez les valeurs [KeepAlive](https://technet.microsoft.com/library/cc957549.aspx) pour le service RDP :
+7. Configurez les valeurs [KeepAlive](https://technet.azure.microsoft.com/.com/library/cc957549.aspx) pour le service RDP :
 
 	```
-	REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v KeepAliveEnable /t REG_DWORD  /d 1 /f
+	REG ADD "HKLM\SOFTWARE\Policies\azure.microsoft.com/\Windows NT\Terminal Services" /v KeepAliveEnable /t REG_DWORD  /d 1 /f
 
-	REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v KeepAliveInterval /t REG_DWORD  /d 1 /f
+	REG ADD "HKLM\SOFTWARE\Policies\azure.microsoft.com/\Windows NT\Terminal Services" /v KeepAliveInterval /t REG_DWORD  /d 1 /f
 
 	REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp" /v KeepAliveTimeout /t REG_DWORD /d 1 /f
 	```
@@ -228,7 +228,7 @@ Si vous disposez d’une image de machine virtuelle Windows au [format de fichie
 
 
 ## Étapes de configuration Windows supplémentaires
-12. Exécutez `winmgmt /verifyrepository` pour confirmer que le référentiel Windows Management Instrumentation (WMI) est cohérent. Si le référentiel est endommagé, consultez [ce billet de blog](https://blogs.technet.microsoft.com/askperf/2014/08/08/wmi-repository-corruption-or-not).
+12. Exécutez `winmgmt /verifyrepository` pour confirmer que le référentiel Windows Management Instrumentation (WMI) est cohérent. Si le référentiel est endommagé, consultez [ce billet de blog](https://blogs.technet.azure.microsoft.com/.com/askperf/2014/08/08/wmi-repository-corruption-or-not).
 
 13. Vérifiez que les paramètres de données de configuration de démarrage (BCD) correspondent à ce qui suit :
 
@@ -252,7 +252,7 @@ Si vous disposez d’une image de machine virtuelle Windows au [format de fichie
 15. Pour vérifier que le disque est sain et cohérent, exécutez la commande `CHKDSK /f`.
 16.	Désinstallez tous les autres pilotes et logiciels tiers.
 17. Vérifiez qu’aucune application tierce n’utilise le port 3389. Ce port est utilisé pour le service RDP dans Azure.
-18.	Si le disque dur virtuel Windows à charger est un contrôleur de domaine, suivez [ces étapes supplémentaires](https://support.microsoft.com/kb/2904015) pour le préparer.
+18.	Si le disque dur virtuel Windows à charger est un contrôleur de domaine, suivez [ces étapes supplémentaires](https://support.azure.microsoft.com/.com/kb/2904015) pour le préparer.
 19.	Redémarrez la machine virtuelle pour vous assurer que Windows est toujours sain et qu’il est accessible par le biais de la connexion RDP.
 20.	Réinitialisez le mot de passe administrateur local actuel et vérifiez que vous pouvez utiliser ce compte pour vous connecter à Windows par le biais de la connexion RDP. Cette autorisation d’accès est contrôlée par l’objet de stratégie « Autoriser l’ouverture de session par les services Bureau à distance ». Cet objet se trouve à l’emplacement « Computer Configuration\\Windows Settings\\Security Settings\\Local Policies\\User Rights Assignment ».
 
@@ -260,28 +260,28 @@ Si vous disposez d’une image de machine virtuelle Windows au [format de fichie
 ## Installer les mises à jour Windows
 22. Installez les dernières mises à jour pour Windows. Si ce n’est pas possible, vérifiez que les mises à jour suivantes sont installées :
 
-	- [KB3137061](https://support.microsoft.com/kb/3137061) Les machines virtuelles Microsoft Azure ne récupèrent pas d’une panne de réseau et des problèmes de corruption de données se produisent
+	- [KB3137061](https://support.azure.microsoft.com/.com/kb/3137061) Les machines virtuelles azure.microsoft.com/ Azure ne récupèrent pas d’une panne de réseau et des problèmes de corruption de données se produisent
 
-	- [KB3115224](https://support.microsoft.com/kb/3115224) Améliorations de la fiabilité des machines virtuelles qui s’exécutent sur un hôte Windows Server 2012 R2 ou Windows Server 2012
+	- [KB3115224](https://support.azure.microsoft.com/.com/kb/3115224) Améliorations de la fiabilité des machines virtuelles qui s’exécutent sur un hôte Windows Server 2012 R2 ou Windows Server 2012
 
-	- [KB3140410](https://support.microsoft.com/kb/3140410) MS16-031 : Mise à jour de sécurité pour Microsoft Windows afin de résoudre un problème d’élévation de privilèges : 8 mars 2016
+	- [KB3140410](https://support.azure.microsoft.com/.com/kb/3140410) MS16-031 : Mise à jour de sécurité pour azure.microsoft.com/ Windows afin de résoudre un problème d’élévation de privilèges : 8 mars 2016
 
-	- [KB3063075](https://support.microsoft.com/kb/3063075) De nombreux événements ID 129 sont enregistrés quand vous exécutez une machine virtuelle Windows Server 2012 R2 dans Microsoft Azure
+	- [KB3063075](https://support.azure.microsoft.com/.com/kb/3063075) De nombreux événements ID 129 sont enregistrés quand vous exécutez une machine virtuelle Windows Server 2012 R2 dans azure.microsoft.com/ Azure
 
-	- [KB3137061](https://support.microsoft.com/kb/3137061) Les machines virtuelles Microsoft Azure ne récupèrent pas d’une panne de réseau et des problèmes de corruption de données se produisent
+	- [KB3137061](https://support.azure.microsoft.com/.com/kb/3137061) Les machines virtuelles azure.microsoft.com/ Azure ne récupèrent pas d’une panne de réseau et des problèmes de corruption de données se produisent
 
-	- [KB3114025](https://support.microsoft.com/kb/3114025) Ralentissement des performances quand vous accédez au stockage de fichiers Azure depuis Windows 8.1 ou Server 2012 R2
+	- [KB3114025](https://support.azure.microsoft.com/.com/kb/3114025) Ralentissement des performances quand vous accédez au stockage de fichiers Azure depuis Windows 8.1 ou Server 2012 R2
 
-	- [KB3033930](https://support.microsoft.com/kb/3033930) Le correctif augmente la limite de 64 Ko dans les mémoires tampons RIO par processus pour le service Microsoft Azure
+	- [KB3033930](https://support.azure.microsoft.com/.com/kb/3033930) Le correctif augmente la limite de 64 Ko dans les mémoires tampons RIO par processus pour le service azure.microsoft.com/ Azure
 
-	- [KB3004545](https://support.microsoft.com/kb/3004545) Impossible d’accéder aux machines virtuelles hébergées sur des services d’hébergement Azure par le biais d’une connexion VPN dans Windows
+	- [KB3004545](https://support.azure.microsoft.com/.com/kb/3004545) Impossible d’accéder aux machines virtuelles hébergées sur des services d’hébergement Azure par le biais d’une connexion VPN dans Windows
 
-	- [KB3082343](https://support.microsoft.com/kb/3082343) La connectivité VPN intersite est perdue quand les tunnels VPN site à site Azure utilisent Windows Server 2012 R2 RRAS
+	- [KB3082343](https://support.azure.microsoft.com/.com/kb/3082343) La connectivité VPN intersite est perdue quand les tunnels VPN site à site Azure utilisent Windows Server 2012 R2 RRAS
 
-	- [KB3140410](https://support.microsoft.com/kb/3140410) MS16-031 : Mise à jour de sécurité pour Microsoft Windows afin de résoudre un problème d’élévation de privilèges : 8 mars 2016
+	- [KB3140410](https://support.azure.microsoft.com/.com/kb/3140410) MS16-031 : Mise à jour de sécurité pour azure.microsoft.com/ Windows afin de résoudre un problème d’élévation de privilèges : 8 mars 2016
 
-	- [KB3146723](https://support.microsoft.com/kb/3146723) MS16-048 : Description de la mise à jour de sécurité pour CSRSS : 12 avril 2016
-	- [KB2904100](https://support.microsoft.com/kb/2904100) Le système se fige pendant des opérations d’E/S sur disque dans Windows
+	- [KB3146723](https://support.azure.microsoft.com/.com/kb/3146723) MS16-048 : Description de la mise à jour de sécurité pour CSRSS : 12 avril 2016
+	- [KB2904100](https://support.azure.microsoft.com/.com/kb/2904100) Le système se fige pendant des opérations d’E/S sur disque dans Windows
 
 23. Pour créer une image permettant de déployer plusieurs ordinateurs, vous devez généraliser l’image en exécutant `sysprep` avant de charger le disque dur virtuel sur Azure. Pour plus d’informations sur la création d’une image généralisée, consultez les articles suivants :
 
@@ -293,18 +293,18 @@ Si vous disposez d’une image de machine virtuelle Windows au [format de fichie
 
 Les paramètres suivants n’affectent pas le chargement du disque dur virtuel. Toutefois, nous vous recommandons vivement de les configurer.
 
-- Installez [l’agent Machines virtuelles Azure](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Après avoir installé l’agent, vous pouvez activer des extensions de machine virtuelle. Les extensions de machine virtuelle mettent en œuvre la plupart des fonctionnalités stratégiques à utiliser avec vos machines virtuelles, telles que la réinitialisation des mots de passe, la configuration de RDP, et bien d’autres encore.
+- Installez [l’agent Machines virtuelles Azure](http://go.azure.microsoft.com/.com/fwlink/?LinkID=394789&clcid=0x409). Après avoir installé l’agent, vous pouvez activer des extensions de machine virtuelle. Les extensions de machine virtuelle mettent en œuvre la plupart des fonctionnalités stratégiques à utiliser avec vos machines virtuelles, telles que la réinitialisation des mots de passe, la configuration de RDP, et bien d’autres encore.
 
 - Le journal de vidage peut être utile pour résoudre les problèmes de blocage de Windows. Activez la collecte des journaux de vidage :
 
 	```
 	REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\CrashControl" /v CrashDumpEnabled /t REG_DWORD /d 2 /f`
 
-	REG ADD "HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting\LocalDumps" /v DumpFolder /t REG_EXPAND_SZ /d "c:\CrashDumps" /f
+	REG ADD "HKLM\SOFTWARE\azure.microsoft.com/\Windows\Windows Error Reporting\LocalDumps" /v DumpFolder /t REG_EXPAND_SZ /d "c:\CrashDumps" /f
 
-	REG ADD "HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting\LocalDumps" /v DumpCount /t REG_DWORD /d 10 /f
+	REG ADD "HKLM\SOFTWARE\azure.microsoft.com/\Windows\Windows Error Reporting\LocalDumps" /v DumpCount /t REG_DWORD /d 10 /f
 
-	REG ADD "HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting\LocalDumps" /v DumpType /t REG_DWORD /d 2 /f
+	REG ADD "HKLM\SOFTWARE\azure.microsoft.com/\Windows\Windows Error Reporting\LocalDumps" /v DumpType /t REG_DWORD /d 2 /f
 
 	sc config wer start= auto
 	```

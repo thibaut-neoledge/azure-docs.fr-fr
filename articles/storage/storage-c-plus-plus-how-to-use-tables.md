@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Utilisation du stockage de table (C++) | Microsoft Azure"
+    pageTitle="Utilisation du stockage de table (C++) | azure.microsoft.com/ Azure"
 	description="Stockez des données structurées dans le cloud à l’aide du stockage de tables Azure, un magasin de données NoSQL."
     services="storage"
     documentationCenter=".net"
@@ -51,12 +51,12 @@ Un client de stockage Azure utilise une chaîne de connexion de stockage pour st
 	// Define the connection string with your values.
 	const utility::string_t storage_connection_string(U("DefaultEndpointsProtocol=https;AccountName=your_storage_account;AccountKey=your_storage_account_key"));
 
-Pour tester votre application sur votre ordinateur Windows local, vous pouvez utiliser l’[émulateur de stockage](storage-use-emulator.md) Azure installé avec le [Kit de développement logiciel (SDK) Azure](https://azure.microsoft.com/downloads/). L’émulateur de stockage est un utilitaire qui simule les services Azure d’objet blob, de file d’attente et de table disponibles sur votre ordinateur de développement local. L’exemple suivant vous montre comment déclarer un champ statique pour qu’il contienne une chaîne de connexion vers votre émulateur de stockage local :
+Pour tester votre application sur votre ordinateur Windows local, vous pouvez utiliser l’[émulateur de stockage](storage-use-emulator.md) Azure installé avec le [Kit de développement logiciel (SDK) Azure](https://azure.azure.microsoft.com/.com/downloads/). L’émulateur de stockage est un utilitaire qui simule les services Azure d’objet blob, de file d’attente et de table disponibles sur votre ordinateur de développement local. L’exemple suivant vous montre comment déclarer un champ statique pour qu’il contienne une chaîne de connexion vers votre émulateur de stockage local :
 
 	// Define the connection string with Azure storage emulator.
 	const utility::string_t storage_connection_string(U("UseDevelopmentStorage=true;"));  
 
-Pour démarrer l’émulateur de stockage Azure, cliquez sur le bouton **Démarrer** ou appuyez sur la touche Windows. Commencez à taper **Émulateur de stockage Azure**, puis sélectionnez **Émulateur de stockage Microsoft Azure** dans la liste des applications.
+Pour démarrer l’émulateur de stockage Azure, cliquez sur le bouton **Démarrer** ou appuyez sur la touche Windows. Commencez à taper **Émulateur de stockage Azure**, puis sélectionnez **Émulateur de stockage azure.microsoft.com/ Azure** dans la liste des applications.
 
 Les exemples ci-dessous partent du principe que vous avez utilisé l’une de ces deux méthodes pour obtenir la chaîne de connexion de stockage.
 
@@ -87,7 +87,7 @@ Un objet **cloud\_table\_client** vous permet d’obtenir les objets de référe
 	table.create_if_not_exists();  
 
 ## Ajout d’une entité à une table
-Pour ajouter une entité à une table, créez un objet **table\_entity** et transmettez-le à **table\_operation::insert\_entity**. Le code suivant utilise le prénom du client en tant que clé de ligne et son nom de famille en tant que clé de partition. Ensemble, les clés de partition et de ligne d’une entité identifient l’entité de façon unique dans la table. Les requêtes d’entités dont les clés de partition sont identiques sont plus rapides que celles d’entités dont les clés de partition sont différentes, mais le fait d’utiliser différentes clés de partition améliore l’extensibilité des opérations parallèles. Pour plus d’informations, consultez [Liste de contrôle des performances et de l’extensibilité de Microsoft Azure Storage](storage-performance-checklist.md).
+Pour ajouter une entité à une table, créez un objet **table\_entity** et transmettez-le à **table\_operation::insert\_entity**. Le code suivant utilise le prénom du client en tant que clé de ligne et son nom de famille en tant que clé de partition. Ensemble, les clés de partition et de ligne d’une entité identifient l’entité de façon unique dans la table. Les requêtes d’entités dont les clés de partition sont identiques sont plus rapides que celles d’entités dont les clés de partition sont différentes, mais le fait d’utiliser différentes clés de partition améliore l’extensibilité des opérations parallèles. Pour plus d’informations, consultez [Liste de contrôle des performances et de l’extensibilité de azure.microsoft.com/ Azure Storage](storage-performance-checklist.md).
 
 Le code suivant crée une instance de la classe **table\_entity** avec des données client à stocker. Le code appelle ensuite **table\_operation::insert\_entity** pour créer un objet **table\_operation** pour insérer une entité dans une table et y associer la nouvelle entité de table. Enfin, le code appelle la méthode execute sur l’objet **cloud\_table**. Puis le nouvel objet **table\_operation** envoie une demande au service de Table pour insérer la nouvelle entité de client dans la table « people ».
 
@@ -412,6 +412,6 @@ Les bases du stockage des tables étant assimilées, voir les liens suivants pou
 -	[Utilisation du service de stockage de files d’attente à partir de C++](storage-c-plus-plus-how-to-use-queues.md)
 -	[Listage des ressources Azure Storage en C++](storage-c-plus-plus-enumeration.md)
 -	[Référence de la bibliothèque cliente de stockage pour C++](http://azure.github.io/azure-storage-cpp)
--	[Documentation d’Azure Storage](https://azure.microsoft.com/documentation/services/storage/)
+-	[Documentation d’Azure Storage](https://azure.azure.microsoft.com/.com/documentation/services/storage/)
 
 <!---HONumber=AcomDC_0817_2016-->

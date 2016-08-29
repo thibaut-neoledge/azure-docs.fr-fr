@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Installation du kit de ressources Azure pour IntelliJ | Microsoft Azure"
+	pageTitle="Installation du kit de ressources Azure pour IntelliJ | azure.microsoft.com/ Azure"
 	description="Apprenez à installer le Kit de ressources Azure pour IntelliJ IDEA."
 	services=""
 	documentationCenter="java"
@@ -20,7 +20,7 @@
 
 Le kit de ressources Azure pour IntelliJ contient des modèles et des fonctionnalités qui vous permettent de créer, de développer, de tester et de déployer des applications Azure avec l’environnement de développement IntelliJ IDEA. Le kit de ressources Azure pour IntelliJ est un projet Open Source, dont le code source est disponible sous licence MIT sur le site du projet sur GitHub à l’adresse suivante :
 
-<https://github.com/microsoft/azure-tools-for-java>
+<https://github.com/azure.microsoft.com//azure-tools-for-java>
 
 Il existe deux méthodes d’installation du kit de ressources Azure pour IntelliJ : à partir de la boîte de dialogue Settings (Paramètres) et à partir du menu Configure (Configurer) de l’écran d’accueil ; les deux méthodes d’installation sont présentées dans les étapes suivantes.
 
@@ -112,7 +112,7 @@ Pour plus d’informations sur l’utilisation d’Azure avec Java, consultez le
 [Nouveautés du kit de ressources Azure pour Eclipse]: ./azure-toolkit-for-eclipse-whats-new.md
 [Nouveautés du Kit de ressources Azure pour IntelliJ]: ./azure-toolkit-for-intellij-whats-new.md
 
-[Centre de développement Java pour Azure]: https://azure.microsoft.com/develop/java/
+[Centre de développement Java pour Azure]: https://azure.azure.microsoft.com/.com/develop/java/
 
 <!-- IMG List -->
 

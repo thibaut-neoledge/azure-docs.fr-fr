@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Création de clusters Hadoop basés sur Windows dans HDInsight | Microsoft Azure"
+   pageTitle="Création de clusters Hadoop basés sur Windows dans HDInsight | azure.microsoft.com/ Azure"
    	description="Apprenez à créer des clusters pour Azure HDInsight."
    services="hdinsight"
    documentationCenter=""
@@ -74,7 +74,7 @@ Vous pouvez créer des clusters HDInsight sur l’un des deux systèmes d’expl
 
 ### Version de HDInsight###
 
-La version de HDInsight permet de déterminer la version de HDInsight qui doit être utilisée pour ce cluster. Pour plus d’informations, consultez [Quels sont les différents composants Hadoop disponibles avec HDInsight ?](https://go.microsoft.com/fwLink/?LinkID=320896&clcid=0x409).
+La version de HDInsight permet de déterminer la version de HDInsight qui doit être utilisée pour ce cluster. Pour plus d’informations, consultez [Quels sont les différents composants Hadoop disponibles avec HDInsight ?](https://go.azure.microsoft.com/.com/fwLink/?LinkID=320896&clcid=0x409).
 
 ### Nom d'abonnement###
 
@@ -123,13 +123,13 @@ Le cluster HDInsight et son compte de stockage par défaut doivent être situés
 
 ![Régions Azure](./media/hdinsight-provision-clusters/Azure.regions.png)
 
-Pour obtenir la liste des régions prises en charge, cliquez sur la liste déroulante **Région** de la rubrique [Tarification HDInsight](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409).
+Pour obtenir la liste des régions prises en charge, cliquez sur la liste déroulante **Région** de la rubrique [Tarification HDInsight](https://go.azure.microsoft.com/.com/fwLink/?LinkID=282635&clcid=0x409).
 
 ### Niveaux tarifaires des nœuds###
 
 L’utilisation de ces nœuds est facturée aux clients pendant toute la durée de vie du cluster. La facturation démarre une fois le cluster créé et ne s’arrête que lorsque le cluster est supprimé. Les clusters ne peuvent pas être désalloués ou mis en attente.
 
-Les différents types de cluster ont des types de nœuds, des nombres de nœuds et des tailles de nœud différents. Par exemple, un type de cluster Hadoop possède deux _nœuds principaux_ et une valeur par défaut de quatre _nœuds de données_, tandis qu’un type de cluster Storm possède deux _nœuds nimbus_, trois _nœuds ZooKeeper_ et une valeur par défaut de quatre _nœuds superviseur_. Le coût des clusters HDInsight est déterminé par le nombre de nœuds et par la taille de la machine virtuelle pour les nœuds. Par exemple, si vous savez que vous allez effectuer des opérations nécessitant un grand volume de mémoire, vous souhaitez sélectionner une ressource de calcul avec davantage de mémoire. À des fins d’apprentissage, nous vous recommandons d’utiliser un nœud de données. Pour plus d'informations sur la tarification de HDInsight, consultez la rubrique [Tarification HDInsight](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409).
+Les différents types de cluster ont des types de nœuds, des nombres de nœuds et des tailles de nœud différents. Par exemple, un type de cluster Hadoop possède deux _nœuds principaux_ et une valeur par défaut de quatre _nœuds de données_, tandis qu’un type de cluster Storm possède deux _nœuds nimbus_, trois _nœuds ZooKeeper_ et une valeur par défaut de quatre _nœuds superviseur_. Le coût des clusters HDInsight est déterminé par le nombre de nœuds et par la taille de la machine virtuelle pour les nœuds. Par exemple, si vous savez que vous allez effectuer des opérations nécessitant un grand volume de mémoire, vous souhaitez sélectionner une ressource de calcul avec davantage de mémoire. À des fins d’apprentissage, nous vous recommandons d’utiliser un nœud de données. Pour plus d'informations sur la tarification de HDInsight, consultez la rubrique [Tarification HDInsight](https://go.azure.microsoft.com/.com/fwLink/?LinkID=282635&clcid=0x409).
 
 >[AZURE.NOTE] La limite de taille de cluster varie selon les abonnements Azure. Contactez le support de facturation pour augmenter la limite.
 
@@ -177,11 +177,11 @@ Dans le modèle de déploiement classique, certaines tailles de machines virtuel
 |Standard\_D13\_v2 |8|56 Go|8|Temporaire (SSD) = 400 Go |16|16 x 500|
 |Standard\_D14\_v2 |16|112 Go|8|Temporaire (SSD) = 800 Go |32|32 x 500|     
 
-Pour connaître les points à prendre en considération pour le déploiement quand vous planifiez l’utilisation de ces ressources, consultez [Tailles des machines virtuelles dans Azure](../virtual-machines/virtual-machines-windows-sizes.md). Pour plus d’informations sur la tarification des différentes tailles, consultez [Tarification de HDInsight](https://azure.microsoft.com/pricing/details/hdinsight).
+Pour connaître les points à prendre en considération pour le déploiement quand vous planifiez l’utilisation de ces ressources, consultez [Tailles des machines virtuelles dans Azure](../virtual-machines/virtual-machines-windows-sizes.md). Pour plus d’informations sur la tarification des différentes tailles, consultez [Tarification de HDInsight](https://azure.azure.microsoft.com/.com/pricing/details/hdinsight).
 
 > [AZURE.IMPORTANT] Si vous envisagez d’avoir plus de 32 nœuds de travail lors de la création du cluster ou en faisant évoluer le cluster après sa création, vous devez sélectionner une taille de nœud principal avec au moins 8 cœurs et 14 Go de RAM.
 
-La facturation démarre une fois le cluster créé et ne s’arrête que lorsque le cluster est supprimé. Pour plus d’informations sur la tarification, consultez les [détails de tarification HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
+La facturation démarre une fois le cluster créé et ne s’arrête que lorsque le cluster est supprimé. Pour plus d’informations sur la tarification, consultez les [détails de tarification HDInsight](https://azure.azure.microsoft.com/.com/pricing/details/hdinsight/).
 
 
 |Taille |Cœurs d’unité centrale|Mémoire|Cartes réseau (max)|Taille maximale du disque|Nombre maximal de disques de données (1 023 Go chacun)|Bande passante Nombre maximal d’opérations d’E/S par seconde (500 par disque)|
@@ -192,11 +192,11 @@ La facturation démarre une fois le cluster créé et ne s’arrête que lorsque
 |Standard\_D13\_v2 |8|56 Go|8|Temporaire (SSD) = 400 Go |16|16 x 500|
 |Standard\_D14\_v2 |16|112 Go|8|Temporaire (SSD) = 800 Go |32|32 x 500|    
 
-Pour connaître les points à prendre en considération pour le déploiement quand vous planifiez l’utilisation de ces ressources, consultez [Tailles des machines virtuelles dans Azure](../virtual-machines/virtual-machines-windows-sizes.md). Pour plus d’informations sur la tarification des différentes tailles, consultez [Tarification de HDInsight](https://azure.microsoft.com/pricing/details/hdinsight).
+Pour connaître les points à prendre en considération pour le déploiement quand vous planifiez l’utilisation de ces ressources, consultez [Tailles des machines virtuelles dans Azure](../virtual-machines/virtual-machines-windows-sizes.md). Pour plus d’informations sur la tarification des différentes tailles, consultez [Tarification de HDInsight](https://azure.azure.microsoft.com/.com/pricing/details/hdinsight).
 
 > [AZURE.IMPORTANT] Si vous envisagez d’avoir plus de 32 nœuds de travail lors de la création du cluster ou en faisant évoluer le cluster après sa création, vous devez sélectionner une taille de nœud principal avec au moins 8 cœurs et 14 Go de RAM.
 
- La facturation démarre une fois le cluster créé et ne s’arrête que lorsque le cluster est supprimé. Pour plus d’informations sur la tarification, consultez les [détails de tarification HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
+ La facturation démarre une fois le cluster créé et ne s’arrête que lorsque le cluster est supprimé. Pour plus d’informations sur la tarification, consultez les [détails de tarification HDInsight](https://azure.azure.microsoft.com/.com/pricing/details/hdinsight/).
 
 
 ## Ajouter du stockage
@@ -220,7 +220,7 @@ La configuration Metastore n’est pas disponible pour les types de cluster HBas
 
 ## Utiliser un réseau virtuel Azure
 
-[Azure Virtual Network](https://azure.microsoft.com/documentation/services/virtual-network/) vous permet de créer un réseau sécurisé et persistant contenant les ressources dont vous avez besoin pour votre solution. Avec un réseau virtuel, vous pouvez :
+[Azure Virtual Network](https://azure.azure.microsoft.com/.com/documentation/services/virtual-network/) vous permet de créer un réseau sécurisé et persistant contenant les ressources dont vous avez besoin pour votre solution. Avec un réseau virtuel, vous pouvez :
 
 * Connecter différentes ressources de cloud dans un réseau privé (uniquement dans le cloud).
 
@@ -277,6 +277,6 @@ Grâce à cet article, vous avez acquis les informations de base sur la créatio
 | [Azure PowerShell](hdinsight-hadoop-create-windows-clusters-powershell.md) | &nbsp; | ✔ | &nbsp; | &nbsp; | ✔ | ✔ |
 | [cURL](hdinsight-hadoop-create-linux-clusters-curl-rest.md) | &nbsp; | ✔ | ✔ | &nbsp; | ✔ | ✔ |
 | [KIT DE DÉVELOPPEMENT LOGICIEL (SDK) .NET](hdinsight-hadoop-create-windows-clusters-dotnet-sdk.md) | &nbsp; | &nbsp; | &nbsp; | ✔ | ✔ | ✔ |
-| [Modèles Microsoft Azure Resource Manager](hdinsight-hadoop-create-windows-clusters-arm-templates.md) | &nbsp; | ✔ | &nbsp; | &nbsp; | ✔ | ✔ |
+| [Modèles azure.microsoft.com/ Azure Resource Manager](hdinsight-hadoop-create-windows-clusters-arm-templates.md) | &nbsp; | ✔ | &nbsp; | &nbsp; | ✔ | ✔ |
 
 <!---HONumber=AcomDC_0817_2016-->

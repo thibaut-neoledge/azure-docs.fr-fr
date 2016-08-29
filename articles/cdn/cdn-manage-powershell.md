@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Gérer Azure CDN avec PowerShell | Microsoft Azure"
+	pageTitle="Gérer Azure CDN avec PowerShell | azure.microsoft.com/ Azure"
 	description="Apprenez à utiliser des applets de commande Azure PowerShell pour gérer Azure CDN."
 	services="cdn"
 	documentationCenter=""

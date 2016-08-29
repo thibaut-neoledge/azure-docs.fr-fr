@@ -83,7 +83,7 @@ La figure ci-dessus illustre une machine virtuelle équipée de trois NIC connec
 ## Groupes de sécurité réseau (NSG)
 Dans un déploiement avec gestionnaire de ressources, les NIC d’une machine virtuelle peuvent être associées à un groupe de sécurité réseau (NSG), y compris les NIC d’une machine virtuelle sur laquelle la fonctionnalité Multi-NIC est activée. Si une NIC reçoit une adresse d’un sous-réseau associé à un NSG, les règles qui régissent le NSG du sous-réseau s’appliquent également à cette NIC. Outre l’association de sous-réseaux à des NSG, vous pouvez également associer une NIC à un NSG.
 
-Si un sous-réseau est associé à un NSG,et qu’une NIC de ce sous-réseau est liée individuellement à un NSG, les règles du NSG associé sont appliquées dans l’« **ordre du flux de trafic** » en fonction de la direction du trafic entrant ou sortant de la NIC :
+Si un sous-réseau est associé à un NSG,et qu’une NIC de ce sous-réseau est liée individuellement à un NSG, les règles du NSG associé sont appliquées dans l’« **ordre du flux de trafic** » en fonction de la direction du trafic entrant ou sortant de la NIC :
 
 - Le **trafic entrant** dont la destination est la NIC en question passe d’abord par le sous-réseau, en déclenchant les règles du NSG du sous-réseau, puis transite par la NIC et déclenche les règles du NSG de la NIC.
 - Le **trafic sortant** dont la source est la NIC en question commence par sortir de la NIC, en déclenchant les règles du NSG du sous-réseau, puis transite par le sous-réseau, et déclenche alors les règles du NSG du sous-réseau.
@@ -221,11 +221,11 @@ Pour ajouter un itinéraire par défaut à la carte réseau secondaire, suivez l
 		C:\Users\Administrator>route print
 		===========================================================================
 		Interface List
-		 29...00 15 17 d9 b1 6d ......Microsoft Virtual Machine Bus Network Adapter #16
-		 27...00 15 17 d9 b1 41 ......Microsoft Virtual Machine Bus Network Adapter #14
+		 29...00 15 17 d9 b1 6d ......azure.microsoft.com/ Virtual Machine Bus Network Adapter #16
+		 27...00 15 17 d9 b1 41 ......azure.microsoft.com/ Virtual Machine Bus Network Adapter #14
 		  1...........................Software Loopback Interface 1
 		 14...00 00 00 00 00 00 00 e0 Teredo Tunneling Pseudo-Interface
-		 20...00 00 00 00 00 00 00 e0 Microsoft ISATAP Adapter #2
+		 20...00 00 00 00 00 00 00 e0 azure.microsoft.com/ ISATAP Adapter #2
 		===========================================================================
 
 2. Vous remarquerez la seconde entrée de la table, avec un index de 27 (dans cet exemple).

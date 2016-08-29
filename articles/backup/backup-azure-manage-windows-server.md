@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Gérer les serveurs et les coffres Azure Recovery Services | Microsoft Azure"
+	pageTitle="Gérer les serveurs et les coffres Azure Recovery Services | azure.microsoft.com/ Azure"
 	description="Ce didacticiel vous apprend à gérer les serveurs et les coffres Azure Recovery Services."
 	services="backup"
 	documentationCenter=""
@@ -23,7 +23,7 @@
 - [Gestionnaire de ressources](backup-azure-manage-windows-server.md)
 - [Classique](backup-azure-manage-windows-server-classic.md)
 
-Cet article offre une vue d’ensemble des tâches de gestion des sauvegardes disponibles via le portail de gestion Azure et l’agent Microsoft Azure Backup.
+Cet article offre une vue d’ensemble des tâches de gestion des sauvegardes disponibles via le portail de gestion Azure et l’agent azure.microsoft.com/ Azure Backup.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] le modèle de déploiement classique.
 
@@ -152,11 +152,11 @@ Le panneau Serveurs de Production affiche une liste de tous vos serveurs de prod
 
 ![Éléments protégés](./media/backup-azure-manage-windows-server/production-server-list.png)
 
-## Tâches de l’agent Microsoft Azure Backup
+## Tâches de l’agent azure.microsoft.com/ Azure Backup
 
 ## Ouvrir l’agent Azure Backup
 
-Ouvrez **l’agent Microsoft Azure Backup** (vous pouvez le trouver en recherchant *Microsoft Azure Backup* sur votre ordinateur).
+Ouvrez **l’agent azure.microsoft.com/ Azure Backup** (vous pouvez le trouver en recherchant *azure.microsoft.com/ Azure Backup* sur votre ordinateur).
 
 ![Planifier une sauvegarde de Windows Server](./media/backup-azure-manage-windows-server/snap-in-search.png)
 
@@ -167,13 +167,13 @@ Dans les **Actions** disponibles à droite de la console de l’agent de sauvega
 - Sauvegarder maintenant
 - Modifier les propriétés
 
-![Actions de la console de l’agent Microsoft Azure Backup.](./media/backup-azure-manage-windows-server/console-actions.png)
+![Actions de la console de l’agent azure.microsoft.com/ Azure Backup.](./media/backup-azure-manage-windows-server/console-actions.png)
 
 >[AZURE.NOTE] Pour **Récupérer des données**, consultez [Restauration de fichiers sur un serveur Windows ou un ordinateur client Windows](backup-azure-restore-windows-server.md).
 
 ## Modifier une sauvegarde existante
 
-1. Dans l’agent Microsoft Azure Backup, cliquez sur **Planifier la sauvegarde**.
+1. Dans l’agent azure.microsoft.com/ Azure Backup, cliquez sur **Planifier la sauvegarde**.
 
     ![Planifier une sauvegarde de Windows Server](./media/backup-azure-manage-windows-server/schedule-backup.png)
 
@@ -226,11 +226,11 @@ Pour activer la limitation :
 
 ## Gérer les paramètres d’exclusion
 
-1. Ouvrez **l’agent Microsoft Azure Backup** (vous pouvez le trouver en recherchant *Microsoft Azure Backup* sur votre ordinateur).
+1. Ouvrez **l’agent azure.microsoft.com/ Azure Backup** (vous pouvez le trouver en recherchant *azure.microsoft.com/ Azure Backup* sur votre ordinateur).
 
     ![Planifier une sauvegarde de Windows Server](./media/backup-azure-manage-windows-server/snap-in-search.png)
 
-2. Dans l’agent Microsoft Azure Backup, cliquez sur **Planifier la sauvegarde**.
+2. Dans l’agent azure.microsoft.com/ Azure Backup, cliquez sur **Planifier la sauvegarde**.
 
     ![Planifier une sauvegarde de Windows Server](./media/backup-azure-manage-windows-server/schedule-backup.png)
 
@@ -284,6 +284,6 @@ R3 Si les notifications sont configurées sur une base horaire et qu’une alert
 ## Étapes suivantes
 - [Restaurer un serveur Windows Server ou un client Windows à partir d’Azure](backup-azure-restore-windows-server.md)
 - Pour en savoir plus sur Azure Backup, consultez la [vue d’ensemble d’Azure Backup](backup-introduction-to-azure-backup.md).
-- Consultez le [forum Azure Backup](http://go.microsoft.com/fwlink/p/?LinkId=290933).
+- Consultez le [forum Azure Backup](http://go.azure.microsoft.com/.com/fwlink/p/?LinkId=290933).
 
 <!---HONumber=AcomDC_0817_2016-->

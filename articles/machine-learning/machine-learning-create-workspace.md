@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Création d'un espace de travail Machine Learning | Microsoft Azure"
-	description="Création d’un espace de travail pour Microsoft Azure Machine Learning Studio."
+	pageTitle="Création d'un espace de travail Machine Learning | azure.microsoft.com/ Azure"
+	description="Création d’un espace de travail pour azure.microsoft.com/ Azure Machine Learning Studio."
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
@@ -29,11 +29,11 @@ Pour utiliser Azure Machine Learning Studio, vous devez disposer d’un espace d
 
 ## Pour créer un espace de travail
 
-1. Connectez-vous au [portail Microsoft Azure Classic].
+1. Connectez-vous au [portail azure.microsoft.com/ Azure Classic].
 
-> [AZURE.NOTE] Pour vous connecter, vous devez être un administrateur d’abonnement Azure. Le propriétaire d’un espace de travail Machine Learning ne vous donne pas accès au [portail Microsoft Azure Classic]. Consultez la page [Privileges of Azure subscription administrator and workspace owner (Privilèges de l’administrateur d’abonnement Azure et du propriétaire de l’espace de travail)](#subscriptionvsworkspace) pour plus de détails.
+> [AZURE.NOTE] Pour vous connecter, vous devez être un administrateur d’abonnement Azure. Le propriétaire d’un espace de travail Machine Learning ne vous donne pas accès au [portail azure.microsoft.com/ Azure Classic]. Consultez la page [Privileges of Azure subscription administrator and workspace owner (Privilèges de l’administrateur d’abonnement Azure et du propriétaire de l’espace de travail)](#subscriptionvsworkspace) pour plus de détails.
 
-2. Dans le volet des services Microsoft Azure, cliquez sur **MACHINE LEARNING**.
+2. Dans le volet des services azure.microsoft.com/ Azure, cliquez sur **MACHINE LEARNING**.
 
     ![Service Machine Learning][1]
 
@@ -63,7 +63,7 @@ Une fois l’espace de travail Machine Learning créé, vous pouvez y inviter le
 
     ![Inviter plus d’utilisateurs][4]
 
-5. Entrez une ou plusieurs adresses e-mail. L’utilisateur a seulement besoin d’un compte Microsoft valide (par exemple, name@outlook.com) ou d’un compte professionnel (issu d’Azure Active Directory).
+5. Entrez une ou plusieurs adresses e-mail. L’utilisateur a seulement besoin d’un compte azure.microsoft.com/ valide (par exemple, name@outlook.com) ou d’un compte professionnel (issu d’Azure Active Directory).
 6. Cliquez sur le bouton représentant une coche.
 
 Chaque utilisateur ajouté recevra un e-mail contenant des instructions de connexion à l’espace de travail partagé.
@@ -76,7 +76,7 @@ Voici une table permettant de clarifier la différence entre un administrateur d
 
 | Actions | Administrateur d’abonnement Azure | Propriétaire de l'espace de travail |
 | --------------			|:------------------------:| :----------------:|
-| Accéder au [portail Microsoft Azure Classic]| Oui | Non |
+| Accéder au [portail azure.microsoft.com/ Azure Classic]| Oui | Non |
 | Créer un espace de travail | Oui | Non |
 | Supprimer un espace de travail | Oui | Non |
 | Ajouter un point de terminaison à un service web | Oui | Non |
@@ -104,6 +104,6 @@ Voici une table permettant de clarifier la différence entre un administrateur d
 [Guide de résolution des problèmes : création et connexion à un espace de travail Machine Learning]: machine-learning-troubleshooting-creating-ml-workspace.md
 [Machine Learning Studio]: https://studio.azureml.net/
 [Azure Machine Learning Studio]: https://studio.azureml.net/
-[portail Microsoft Azure Classic]: https://manage.windowsazure.com/
+[portail azure.microsoft.com/ Azure Classic]: https://manage.windowsazure.com/
 
 <!---HONumber=AcomDC_0817_2016-->

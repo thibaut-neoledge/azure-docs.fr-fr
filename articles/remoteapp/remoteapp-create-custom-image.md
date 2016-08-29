@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Comment créer une image de modèle personnalisée pour Azure RemoteApp | Microsoft Azure"
+	pageTitle="Comment créer une image de modèle personnalisée pour Azure RemoteApp | azure.microsoft.com/ Azure"
 	description="Découvrez comment créer une image de modèle personnalisée pour Azure RemoteApp. Vous pouvez utiliser ce modèle avec une collection hybride ou cloud."
 	services="remoteapp"
 	documentationCenter=""
@@ -19,7 +19,7 @@
 # Création d’une image de modèle personnalisée pour Azure RemoteApp
 
 > [AZURE.IMPORTANT]
-Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148).
+Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.azure.microsoft.com/.com/fwlink/?linkid=821148).
 
 Azure RemoteApp utilise une image de modèle Windows Server 2012 R2 pour héberger tous les programmes que vous souhaitez partager avec vos utilisateurs. Pour créer une image de modèle RemoteApp personnalisée, vous pouvez commencer par une image existante ou en créer une.
 
@@ -47,11 +47,11 @@ Vous trouverez, ci-dessous, les exigences relatives à l’image qui peut être 
 
 Avant de créer le service, vous devez effectuer les étapes suivantes :
 
-- [S'inscrire](https://azure.microsoft.com/services/remoteapp/) à RemoteApp.
+- [S'inscrire](https://azure.azure.microsoft.com/.com/services/remoteapp/) à RemoteApp.
 - Créer un compte d'utilisateur dans Active Directory à utiliser comme compte de service RemoteApp. Limiter les autorisations pour ce compte, de telle sorte qu'il puisse uniquement joindre des ordinateurs au domaine. Consultez [Configuration d'Azure Active Directory pour RemoteApp](remoteapp-ad.md) pour plus d'informations.
 - Collecter des informations sur votre réseau local : adresse IP et périphérique VPN.
 - Installer le module [Azure PowerShell](../powershell-install-configure.md).
-- Collecter des informations sur les utilisateurs auxquels vous souhaitez accorder l'accès. Il peut s'agir d'informations sur le compte Microsoft ou sur le compte professionnel Active Directory pour les utilisateurs.
+- Collecter des informations sur les utilisateurs auxquels vous souhaitez accorder l'accès. Il peut s'agir d'informations sur le compte azure.microsoft.com/ ou sur le compte professionnel Active Directory pour les utilisateurs.
 
 
 
@@ -64,7 +64,7 @@ Voici les principales étapes à suivre pour créer une nouvelle image de modèl
 4.	Installez Windows Server 2012 R2.
 5.	Installez le rôle RDSH (Hôte de session Bureau à distance) et la fonctionnalité Expérience utilisateur.
 6.	Installez les fonctionnalités supplémentaires dont vos applications ont besoin.
-7.	Installez et configurez vos applications. Pour faciliter le partage d’applications, ajoutez les applications ou les programmes que vous souhaitez partager au menu **Démarrer** de l’image, en particulier dans **%systemdrive%\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs.
+7.	Installez et configurez vos applications. Pour faciliter le partage d’applications, ajoutez les applications ou les programmes que vous souhaitez partager au menu **Démarrer** de l’image, en particulier dans **%systemdrive%\\ProgramData\\azure.microsoft.com/\\Windows\\Start Menu\\Programs.
 8.	Exécutez les éventuelles opérations de configuration Windows supplémentaires requises par vos applications.
 9.	Désactivez le système de fichiers EFS.
 10.	**OBLIGATOIRE :** accédez à Windows Update et installez toutes les mises à jour importantes.
@@ -118,7 +118,7 @@ La procédure détaillée de création d'une image se présente comme suit :
 >
 >Installez le rôle RDSH avant les applications pour être sûr de détecter tout problème au niveau de la compatibilité des applications avant le téléchargement de l'image sur RemoteApp.
 >
->Assurez-vous qu’un raccourci vers votre application (fichier **.lnk**) apparaît dans le menu **Démarrer** de tous les utilisateurs (%systemdrive%\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs). Vérifiez également que l’icône qui s’affiche dans le menu **Démarrer** est correcte. Sinon, changez-la. (Vous n'êtes pas *obligé* d'ajouter l'application au menu Démarrer, mais cela facilite sa publication dans RemoteApp. Sinon, vous devez fournir le chemin d'installation de l'application quand vous publiez l'application.)
+>Assurez-vous qu’un raccourci vers votre application (fichier **.lnk**) apparaît dans le menu **Démarrer** de tous les utilisateurs (%systemdrive%\\ProgramData\\azure.microsoft.com/\\Windows\\Start Menu\\Programs). Vérifiez également que l’icône qui s’affiche dans le menu **Démarrer** est correcte. Sinon, changez-la. (Vous n'êtes pas *obligé* d'ajouter l'application au menu Démarrer, mais cela facilite sa publication dans RemoteApp. Sinon, vous devez fournir le chemin d'installation de l'application quand vous publiez l'application.)
 
 
 8.	Exécutez les éventuelles opérations de configuration Windows supplémentaires requises par vos applications.

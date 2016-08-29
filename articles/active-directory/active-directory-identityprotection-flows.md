@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Expériences de connexion avec Azure AD Identity Protection | Microsoft Azure"
+	pageTitle="Expériences de connexion avec Azure AD Identity Protection | azure.microsoft.com/ Azure"
 	description="Fournit une vue d’ensemble de l’expérience utilisateur lorsque Identity Protection a atténué ou corrigé la connexion d’un utilisateur ou lorsque l’authentification multifacteur est requise par une stratégie."
 	services="active-directory"
 	keywords="azure active directory identity protection, cloud app discovery, gestion d’applications, sécurité, risque, niveau de risque, vulnérabilité, stratégie de sécurité"

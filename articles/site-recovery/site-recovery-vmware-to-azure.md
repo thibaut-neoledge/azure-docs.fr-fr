@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Répliquer des machines virtuelles VMware et des serveurs physiques sur Azure avec Azure Site Recovery dans le portail Azure | Microsoft Azure"
+	pageTitle="Répliquer des machines virtuelles VMware et des serveurs physiques sur Azure avec Azure Site Recovery dans le portail Azure | azure.microsoft.com/ Azure"
 	description="Décrit comment déployer Azure Site Recovery pour orchestrer la réplication, le basculement et la récupération de machines virtuelles VMware ou des serveurs physiques Windows/Linux locaux vers Azure avec le portail Azure."
 	services="site-recovery"
 	documentationCenter=""
@@ -34,7 +34,7 @@ Sur le portail Azure, Site Recovery fournit plusieurs nouvelles fonctionnalités
 - Dans le portail Azure, Site Recovery peut répliquer des machines sur des comptes de stockage ARM. Lors du basculement, le logiciel Site Recovery crée des machines virtuelles basées sur ARM dans Azure.
 - Il continue de prendre en charge la réplication sur les comptes de stockage classiques. Lors du basculement, Site Recovery crée des machines virtuelles en utilisant le modèle classique.
 
-Après avoir lu cet article, n’hésitez pas à poster un commentaire dans la partie inférieure de la page, dans la section des commentaires de Disqus. Publiez vos questions techniques sur le [Forum Azure Recovery Services](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+Après avoir lu cet article, n’hésitez pas à poster un commentaire dans la partie inférieure de la page, dans la section des commentaires de Disqus. Publiez vos questions techniques sur le [Forum Azure Recovery Services](https://social.msdn.azure.microsoft.com/.com/forums/azure/home?forum=hypervrecovmgr).
 
 ## Vue d'ensemble
 
@@ -90,10 +90,10 @@ Voici les éléments requis pour vous permettre de déployer ce scénario dans A
 
 **Configuration requise** | **Détails**
 --- | ---
-**Compte Azure**| Vous aurez besoin d’un compte [Microsoft Azure](http://azure.microsoft.com/). Vous pouvez commencer par une version d’[essai gratuit](https://azure.microsoft.com/pricing/free-trial/). [En savoir plus](https://azure.microsoft.com/pricing/details/site-recovery/) sur la tarification Site Recovery.
+**Compte Azure**| Vous aurez besoin d’un compte [azure.microsoft.com/ Azure](http://azure.azure.microsoft.com/.com/). Vous pouvez commencer par une version d’[essai gratuit](https://azure.azure.microsoft.com/.com/pricing/free-trial/). [En savoir plus](https://azure.azure.microsoft.com/.com/pricing/details/site-recovery/) sur la tarification Site Recovery.
 **Stockage Azure** | Les données répliquées sont stockées dans Azure Storage et les machines virtuelles Azure sont créées au moment du basculement. <br/><br/>Pour stocker des données, vous avez besoin d’un compte Standard Storage ou Premium Storage qui se trouve dans la même région que le coffre Recovery Services.<br/><br/>Vous pouvez utiliser un compte de stockage LRS ou GRS. Nous vous recommandons d’utiliser un compte GRS, afin que les données soient résilientes si une panne se produit au niveau régional, ou si la région principale ne peut pas être récupérée. [En savoir plus](../storage/storage-redundancy.md).<br/><br/> [Premium Storage](../storage/storage-premium-storage.md) est généralement utilisé pour les machines virtuelles nécessitant des performances d’E/S élevées et une faible latence pour héberger les charges de travail nécessitant beaucoup d’E/S.<br/><br/> Si vous souhaitez utiliser un compte Premium pour stocker les données répliquées, vous avez aussi besoin d’un compte Standard Storage afin de stocker les journaux de réplication qui capturent les modifications apportées en continu aux données locales.<br/><br/> Les comptes de stockage créés dans le portail Azure ne peuvent pas passer d’un groupe de ressources à l’autre. Par ailleurs, la protection des comptes Premium Storage au Centre de l’Inde et en Inde du Sud n’est actuellement pas prise en charge.<br/><br/> [En savoir plus](../storage/storage-introduction.md) sur Azure Storage.
 **Réseau Azure** | Vous aurez besoin d’un réseau virtuel Azure auquel les machines virtuelles Azure se connecteront au moment du basculement. Le réseau virtuel Azure doit se trouver dans la même région que le coffre Recovery Services.
-**Restauration automatique à partir de Microsoft Azure** | Vous avez besoin d’un serveur de processus temporaire qui sera configuré comme une machine virtuelle Azure. Vous pouvez le créer lorsque vous êtes prêt à effectuer une restauration automatique, et le supprimer une fois la restauration automatique terminée.<br/><br/> Pour la restauration automatique, vous avez besoin d’une connexion VPN (ou Azure ExpressRoute) configurée à partir du réseau Azure sur le site local.
+**Restauration automatique à partir de azure.microsoft.com/ Azure** | Vous avez besoin d’un serveur de processus temporaire qui sera configuré comme une machine virtuelle Azure. Vous pouvez le créer lorsque vous êtes prêt à effectuer une restauration automatique, et le supprimer une fois la restauration automatique terminée.<br/><br/> Pour la restauration automatique, vous avez besoin d’une connexion VPN (ou Azure ExpressRoute) configurée à partir du réseau Azure sur le site local.
 
 ## Configuration requise du serveur
 
@@ -101,7 +101,7 @@ Vous allez définir une machine locale en tant que serveur de configuration.
 
 **Configuration requise** | **Détails**
 --- | ---
-**Serveur de configuration**| Vous avez besoin d’un serveur physique ou d’une machine virtuelle en local, qui exécute Windows Server 2012 R2. Tous les composants Site Recovery locaux sont installés sur cette machine<br/><br/> Pour la réplication de machine virtuelle VMware, nous vous conseillons de déployer le serveur en tant que machine virtuelle VMware hautement disponible. Si vous répliquez des machines physiques, la machine peut être un serveur physique.<br/><br/> La restauration automatique vers le site local à partir d’Azure doit toujours s’effectuer vers des machines virtuelles VMware, que vous ayez basculé sur des machines virtuelles ou des serveurs physiques. Si vous ne déployez pas le serveur de configuration en tant que machine virtuelle VMware, vous devez configurer un serveur cible maître distinct en tant que machine virtuelle VMware pour recevoir le trafic de la restauration automatique.<br/><br/>Si le serveur est une machine virtuelle VMware, la carte réseau doit être de type VMXNET3. Si vous utilisez un autre type de carte réseau, vous devez installer une [mise à jour de VMware](https://kb.vmware.com/selfservice/microsites/search.do?cmd=displayKC&docType=kc&externalId=2110245&sliceId=1&docTypeID=DT_KB_1_1&dialogID=26228401&stateId=1) sur le serveur vSphere 5.5.<br/><br/>Le serveur doit avoir une adresse IP statique.<br/><br/>Le serveur ne doit pas être un contrôleur de domaine.<br/><br/>Le nom d’hôte du serveur doit comporter 15 caractères au maximum.<br/><br/>Le système d’exploitation ne doit être qu’en anglais.<br/><br/> Vous devez installer VMware vSphere PowerCLI 6.0. sur le serveur de configuration.<br/><br/>Le serveur de configuration nécessite un accès à Internet. L’accès sortant suivant est requis :<br/><br/>Accès temporaire sur HTTP 80 pendant l’installation des composants de Site Recovery (pour télécharger MySQL)<br/><br/>Accès sortant permanent sur HTTPS 443 pour la gestion de la réplication<br/><br/>Accès sortant permanent sur HTTPS 9443 pour le trafic de réplication (port modifiable)<br/><br/>Le serveur devra aussi accéder aux URL suivantes pour pouvoir se connecter à Azure : *.hypervrecoverymanager.windowsazure.com; *.accesscontrol.windows.net ; *.backup.windowsazure.com ; *.blob.core.windows.net ; *.store.core.windows.net<br/><br/>Si vous avez des règles de pare-feu fondées sur l’adresse IP sur le serveur, vérifiez que ces règles autorisent la communication vers Azure. Vous devez autoriser les [plages d’adresses IP du centre de données Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653) et le protocole HTTPS (443).<br/><br/>Autorisez les plages d’adresses IP de la région Azure de votre abonnement et de l’Ouest des États-Unis.<br/><br/>Autorisez cette URL pour le téléchargement de MySQL : http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi
+**Serveur de configuration**| Vous avez besoin d’un serveur physique ou d’une machine virtuelle en local, qui exécute Windows Server 2012 R2. Tous les composants Site Recovery locaux sont installés sur cette machine<br/><br/> Pour la réplication de machine virtuelle VMware, nous vous conseillons de déployer le serveur en tant que machine virtuelle VMware hautement disponible. Si vous répliquez des machines physiques, la machine peut être un serveur physique.<br/><br/> La restauration automatique vers le site local à partir d’Azure doit toujours s’effectuer vers des machines virtuelles VMware, que vous ayez basculé sur des machines virtuelles ou des serveurs physiques. Si vous ne déployez pas le serveur de configuration en tant que machine virtuelle VMware, vous devez configurer un serveur cible maître distinct en tant que machine virtuelle VMware pour recevoir le trafic de la restauration automatique.<br/><br/>Si le serveur est une machine virtuelle VMware, la carte réseau doit être de type VMXNET3. Si vous utilisez un autre type de carte réseau, vous devez installer une [mise à jour de VMware](https://kb.vmware.com/selfservice/microsites/search.do?cmd=displayKC&docType=kc&externalId=2110245&sliceId=1&docTypeID=DT_KB_1_1&dialogID=26228401&stateId=1) sur le serveur vSphere 5.5.<br/><br/>Le serveur doit avoir une adresse IP statique.<br/><br/>Le serveur ne doit pas être un contrôleur de domaine.<br/><br/>Le nom d’hôte du serveur doit comporter 15 caractères au maximum.<br/><br/>Le système d’exploitation ne doit être qu’en anglais.<br/><br/> Vous devez installer VMware vSphere PowerCLI 6.0. sur le serveur de configuration.<br/><br/>Le serveur de configuration nécessite un accès à Internet. L’accès sortant suivant est requis :<br/><br/>Accès temporaire sur HTTP 80 pendant l’installation des composants de Site Recovery (pour télécharger MySQL)<br/><br/>Accès sortant permanent sur HTTPS 443 pour la gestion de la réplication<br/><br/>Accès sortant permanent sur HTTPS 9443 pour le trafic de réplication (port modifiable)<br/><br/>Le serveur devra aussi accéder aux URL suivantes pour pouvoir se connecter à Azure : *.hypervrecoverymanager.windowsazure.com; *.accesscontrol.windows.net ; *.backup.windowsazure.com ; *.blob.core.windows.net ; *.store.core.windows.net<br/><br/>Si vous avez des règles de pare-feu fondées sur l’adresse IP sur le serveur, vérifiez que ces règles autorisent la communication vers Azure. Vous devez autoriser les [plages d’adresses IP du centre de données Azure](https://www.azure.microsoft.com/.com/download/confirmation.aspx?id=41653) et le protocole HTTPS (443).<br/><br/>Autorisez les plages d’adresses IP de la région Azure de votre abonnement et de l’Ouest des États-Unis.<br/><br/>Autorisez cette URL pour le téléchargement de MySQL : http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi
 
 
 ## Configuration requise de l’hôte VMware vCenter/vSphere
@@ -159,7 +159,7 @@ Le serveur de processus Site Recovery peut découvrir automatiquement les machin
 
 	- Autorisez l’accès à ces URL: *.hypervrecoverymanager.windowsazure.com ; *.accesscontrol.windows.net ; *.backup.windowsazure.com ; *.blob.core.windows.net ; *.store.core.windows.net
 	- Autorisez l’accès à [http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi](http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi) pour télécharger MySQL.
-	- Autorisez la communication du pare-feu vers Azure avec les [plages IP du centre de données Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653) et le protocole HTTPS (443).
+	- Autorisez la communication du pare-feu vers Azure avec les [plages IP du centre de données Azure](https://www.azure.microsoft.com/.com/download/confirmation.aspx?id=41653) et le protocole HTTPS (443).
 
 2.	Téléchargez et installez [VMware vSphere PowerCLI 6.0](https://developercenter.vmware.com/tool/vsphere_powercli/6.0) sur le serveur de configuration. (Actuellement, les autres versions de PowerCLI ne sont pas prises en charge, y compris les versions R 6.0.)
 
@@ -172,7 +172,7 @@ Le serveur de processus Site Recovery peut découvrir automatiquement les machin
 	![Nouveau coffre](./media/site-recovery-vmware-to-azure/new-vault3.png)
 
 3. Dans **Nom**, spécifiez un nom convivial permettant d’identifier le coffre. Si vous avez plusieurs abonnements, sélectionnez-en un.
-4. [Créez un groupe de ressources](../resource-group-template-deploy-portal.md) ou sélectionnez-en un. Spécifiez une région Azure. Les machines seront répliquées dans cette région. Azure Storage et les réseaux utilisés pour Site Recovery doivent se trouver dans la même région. Pour découvrir les régions prises en charge, référez-vous à la disponibilité géographique de la page [Détails des prix d'Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/)
+4. [Créez un groupe de ressources](../resource-group-template-deploy-portal.md) ou sélectionnez-en un. Spécifiez une région Azure. Les machines seront répliquées dans cette région. Azure Storage et les réseaux utilisés pour Site Recovery doivent se trouver dans la même région. Pour découvrir les régions prises en charge, référez-vous à la disponibilité géographique de la page [Détails des prix d'Azure Site Recovery](https://azure.azure.microsoft.com/.com/pricing/details/site-recovery/)
 4. Si vous souhaitez accéder rapidement au coffre à partir du tableau de bord, cliquez sur **Épingler au tableau de bord**, puis sur **Créer**.
 
 	![Nouveau coffre](./media/site-recovery-vmware-to-azure/new-vault-settings.png)
@@ -284,7 +284,7 @@ Vous pouvez configurer le serveur de configuration à partir de la ligne de comm
 
 Lorsque l’installation est finie, pour terminer l’inscription :
 
-1. Lancez une application nommée « Microsoft Azure Recovery Services Shell » à partir du menu Démarrer de Windows.
+1. Lancez une application nommée « azure.microsoft.com/ Azure Recovery Services Shell » à partir du menu Démarrer de Windows.
 2. Dans la fenêtre de commande qui s’ouvre, exécutez l’ensemble suivant de commandes pour configurer les paramètres du serveur proxy.
 
 		PS C:\Windows\System32> $pwd = ConvertTo-SecureString -String ProxyUserPassword
@@ -458,12 +458,12 @@ Vous pouvez utiliser l’outil Capacity Planner pour calculer la bande passante 
 
 - **Limiter la bande passante** : le trafic VMware qui est répliqué sur Azure passe par un serveur de processus spécifique. Vous pouvez limiter la bande passante sur les machines qui s’exécutent en tant que serveurs de processus.
 - **Influer sur la bande passante** : vous pouvez influer sur la bande passante utilisée pour la réplication à l’aide de quelques clés de Registre :
-	- La valeur de Registre **HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Microsoft\\Windows Azure Backup\\UploadThreadsPerVM** détermine le nombre de threads utilisés pour le transfert des données (réplication initiale ou différentielle) sur un disque. Une valeur plus élevée permet d’augmenter la bande passante réseau utilisée pour la réplication.
-	- La valeur de Registre **HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Microsoft\\Windows Azure Backup\\DownloadThreadsPerVM** détermine le nombre de threads utilisés pour le transfert des données pendant la restauration automatique.
+	- La valeur de Registre **HKEY\_LOCAL\_MACHINE\\SOFTWARE\\azure.microsoft.com/\\Windows Azure Backup\\UploadThreadsPerVM** détermine le nombre de threads utilisés pour le transfert des données (réplication initiale ou différentielle) sur un disque. Une valeur plus élevée permet d’augmenter la bande passante réseau utilisée pour la réplication.
+	- La valeur de Registre **HKEY\_LOCAL\_MACHINE\\SOFTWARE\\azure.microsoft.com/\\Windows Azure Backup\\DownloadThreadsPerVM** détermine le nombre de threads utilisés pour le transfert des données pendant la restauration automatique.
 
 #### Limite de bande passante
 
-1. Ouvrez le composant logiciel enfichable MMC Microsoft Azure Backup sur la machine qui fait office de serveur de processus. Par défaut, un raccourci vers Microsoft Azure Backup est créé sur le Bureau. Vous pouvez également le trouver ici : C:\\Program Files\\Microsoft Azure Recovery Services Agent\\bin\\wabadmin.
+1. Ouvrez le composant logiciel enfichable MMC azure.microsoft.com/ Azure Backup sur la machine qui fait office de serveur de processus. Par défaut, un raccourci vers azure.microsoft.com/ Azure Backup est créé sur le Bureau. Vous pouvez également le trouver ici : C:\\Program Files\\azure.microsoft.com/ Azure Recovery Services Agent\\bin\\wabadmin.
 2. Dans le composant logiciel enfichable, cliquez sur **Modifier les propriétés**.
 
 	![Limite de bande passante](./media/site-recovery-vmware-to-azure/throttle1.png)
@@ -472,7 +472,7 @@ Vous pouvez utiliser l’outil Capacity Planner pour calculer la bande passante 
 
 	![Limite de bande passante](./media/site-recovery-vmware-to-azure/throttle2.png)
 
-Vous pouvez également utiliser l’applet de commande [Set-OBMachineSetting](https://technet.microsoft.com/library/hh770409.aspx) pour définir la limitation. Voici un exemple :
+Vous pouvez également utiliser l’applet de commande [Set-OBMachineSetting](https://technet.azure.microsoft.com/.com/library/hh770409.aspx) pour définir la limitation. Voici un exemple :
 
     $mon = [System.DayOfWeek]::Monday
     $tue = [System.DayOfWeek]::Tuesday
@@ -483,7 +483,7 @@ Le paramètre **Set-OBMachineSetting -NoThrottle** indique qu’aucune limitatio
 
 #### Influer sur la bande passante réseau
 
-1. Dans le Registre, accédez à **HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Microsoft\\Windows Azure Backup\\Replication**.
+1. Dans le Registre, accédez à **HKEY\_LOCAL\_MACHINE\\SOFTWARE\\azure.microsoft.com/\\Windows Azure Backup\\Replication**.
 	- Pour influer sur le trafic de la bande passante sur un disque de réplication, modifiez la valeur du paramètre **UploadThreadsPerVM**, ou créez la clé si elle n’existe pas.
 	- Pour influer sur la bande passante utilisée pour le trafic lié à la restauration automatique à partir d’Azure, modifiez la valeur du paramètre **DownloadThreadsPerVM**.
 2. La valeur par défaut est 4. Dans un réseau « surutilisé », ces clés de Registre doivent être modifiées par rapport aux valeurs par défaut. La valeur maximale est de 32. Surveillez le trafic pour optimiser la valeur.
@@ -507,7 +507,7 @@ Voici comment préparer les ordinateurs Windows afin que le service Mobilité pu
 
 1.  Créez un compte pouvant être utilisé par le serveur de traitement pour accéder à la machine. Le compte doit disposer de privilèges d’administrateur (local ou domaine) et il est utilisé uniquement pour l’installation Push.
 
-	>[AZURE.NOTE] Si vous n’utilisez pas un compte de domaine, vous devez désactiver le contrôle d’accès utilisateur distant sur l’ordinateur local. Pour ce faire, dans le registre situé sous HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System, ajoutez l’entrée de Registre DWORD LocalAccountTokenFilterPolicy avec une valeur de 1. Pour ajouter l’entrée de Registre à partir d’une interface de ligne de commande, tapez **`REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1`**.
+	>[AZURE.NOTE] Si vous n’utilisez pas un compte de domaine, vous devez désactiver le contrôle d’accès utilisateur distant sur l’ordinateur local. Pour ce faire, dans le registre situé sous HKEY\_LOCAL\_MACHINE\\SOFTWARE\\azure.microsoft.com/\\Windows\\CurrentVersion\\Policies\\System, ajoutez l’entrée de Registre DWORD LocalAccountTokenFilterPolicy avec une valeur de 1. Pour ajouter l’entrée de Registre à partir d’une interface de ligne de commande, tapez **`REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\azure.microsoft.com/\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1`**.
 
 2.  Sur le pare-feu Windows de la machine à protéger, sélectionnez **Autoriser une application ou une fonctionnalité à franchir le pare-feu**. Activez **Partage de fichiers et d’imprimantes** et **Infrastructure de gestion Windows**. Pour les machines qui appartiennent à un domaine, vous pouvez configurer les paramètres de pare-feu avec un objet de stratégie de groupe.
 
@@ -545,14 +545,14 @@ Voici comment préparer les ordinateurs Windows afin que le service Mobilité pu
 
 #### Installer le service de mobilité manuellement
 
-Sur le serveur de processus, les programmes d’installation sont disponibles à l’emplacement **C:\\Program Files (x86)\\Microsoft Azure Site Recovery\\home\\svsystems\\pushinstallsvc\\repository**.
+Sur le serveur de processus, les programmes d’installation sont disponibles à l’emplacement **C:\\Program Files (x86)\\azure.microsoft.com/ Azure Site Recovery\\home\\svsystems\\pushinstallsvc\\repository**.
 
 Système d’exploitation source | Fichier d’installation du service Mobilité
 --- | ---
-Windows Server (64 bits uniquement) | Microsoft-ASR\_UA\_9.*.0.0_Windows_* release.exe
-CentOS 6.4, 6.5, 6.6 (64 bits uniquement) | Microsoft-ASR\_UA\_9.*.0.0\_RHEL6-64\_*release.tar.gz
-SUSE Linux Enterprise Server 11 SP3 (64 bits uniquement) | Microsoft-ASR\_UA\_9.*.0.0\_SLES11-SP3-64\_*release.tar.gz
-Oracle Enterprise Linux 6.4, 6.5 (64 bits uniquement) | Microsoft-ASR\_UA\_9.*.0.0\_OL6-64\_*release.tar.gz
+Windows Server (64 bits uniquement) | azure.microsoft.com/-ASR\_UA\_9.*.0.0_Windows_* release.exe
+CentOS 6.4, 6.5, 6.6 (64 bits uniquement) | azure.microsoft.com/-ASR\_UA\_9.*.0.0\_RHEL6-64\_*release.tar.gz
+SUSE Linux Enterprise Server 11 SP3 (64 bits uniquement) | azure.microsoft.com/-ASR\_UA\_9.*.0.0\_SLES11-SP3-64\_*release.tar.gz
+Oracle Enterprise Linux 6.4, 6.5 (64 bits uniquement) | azure.microsoft.com/-ASR\_UA\_9.*.0.0\_OL6-64\_*release.tar.gz
 
 
 #### Installer manuellement sur un serveur Windows
@@ -585,8 +585,8 @@ Où :
 #### Installez manuellement sur un serveur Linux :
 
 1. Copiez l’archive tar appropriée en fonction du tableau ci-dessus vers la machine Linux à répliquer.
-2. Ouvrez un interpréteur de commandes et extrayez l’archive tar compressée dans un emplacement local en exécutant la commande suivante : `tar -xvzf Microsoft-ASR_UA_8.5.0.0*`
-3. Créez un fichier passphrase.txt dans le répertoire local. Vous y extrairez les contenus de l’archive tar. Pour cela, copiez la phrase secrète à partir de C:\\ProgramData\\Microsoft Azure Site Recovery\\private\\connection.passphrase sur le serveur de configuration et enregistrez-la dans le fichier passphrase.txt, en exécutant *`echo <passphrase> >passphrase.txt`* dans l’interpréteur de commandes.
+2. Ouvrez un interpréteur de commandes et extrayez l’archive tar compressée dans un emplacement local en exécutant la commande suivante : `tar -xvzf azure.microsoft.com/-ASR_UA_8.5.0.0*`
+3. Créez un fichier passphrase.txt dans le répertoire local. Vous y extrairez les contenus de l’archive tar. Pour cela, copiez la phrase secrète à partir de C:\\ProgramData\\azure.microsoft.com/ Azure Site Recovery\\private\\connection.passphrase sur le serveur de configuration et enregistrez-la dans le fichier passphrase.txt, en exécutant *`echo <passphrase> >passphrase.txt`* dans l’interpréteur de commandes.
 4. Installez le service Mobilité en exécutant *`sudo ./install -t both -a host -R Agent -d /usr/local/ASR -i <IP address> -p <port> -s y -c https -P passphrase.txt`*.
 5. Spécifiez l’adresse IP interne du serveur de configuration et assurez-vous que le port 443 est sélectionné. Après l’installation du service, la mise à jour de l’état sur le portail peut prendre environ 15 minutes.
 
@@ -700,7 +700,7 @@ Pour tester le déploiement, vous pouvez exécuter un basculement de test pour u
 ### Préparer un basculement
 
 - Pour exécuter un test de basculement, nous vous recommandons de créer un réseau Azure isolé de votre réseau de production Azure (comportement par défaut quand vous créez un réseau dans Azure). Découvrez plus d’informations sur [l’exécution des tests de basculement](site-recovery-failover.md#run-a-test-failover).
-- Pour obtenir les meilleures performances possibles lorsque vous effectuez un basculement vers Azure, assurez-vous que vous avez installé l’agent Azure sur l’ordinateur protégé. Cet agent permet de démarrer le système plus rapidement et facilite le dépannage. Installez l’agent [Linux](https://github.com/Azure/WALinuxAgent) ou [Windows](http://go.microsoft.com/fwlink/?LinkID=394789).
+- Pour obtenir les meilleures performances possibles lorsque vous effectuez un basculement vers Azure, assurez-vous que vous avez installé l’agent Azure sur l’ordinateur protégé. Cet agent permet de démarrer le système plus rapidement et facilite le dépannage. Installez l’agent [Linux](https://github.com/Azure/WALinuxAgent) ou [Windows](http://go.azure.microsoft.com/.com/fwlink/?LinkID=394789).
 - Pour tester entièrement votre déploiement, vous aurez besoin d’une infrastructure pour permettre à la machine répliquée de fonctionner comme prévu. Si vous souhaitez tester Active Directory et DNS, vous pouvez créer une machine virtuelle jouant le rôle de contrôleur de domaine avec DNS, puis la répliquer sur Azure, via Azure Site Recovery. Pour en savoir plus, lisez [Considérations en matière de test de basculement pour Active Directory](site-recovery-active-directory.md#considerations-for-test-failover).
 - Assurez-vous que le serveur de configuration est en cours d’exécution. Le basculement échouera dans le cas contraire.
 - Si vous avez exclu des disques de la réplication, vous devrez peut-être créer ces disques manuellement dans Azure après le basculement afin que l’application s’exécute comme prévu.
@@ -717,16 +717,16 @@ Si vous souhaitez vous connecter à des machines virtuelles Azure à l’aide de
 
 - Pour permettre l’accès par Internet, activez la fonction RDP, vérifiez que les règles TCP et UDP sont ajoutées pour **Public** et assurez-vous que RDP est autorisé dans le champ **Pare-feu Windows** -> **Applications et fonctionnalités autorisées** et ce, pour tous les profils.
 - Pour permettre l’accès via une connexion site à site, activez RDP sur la machine, en vérifiant que ce dernier est autorisé dans le champ **Pare-feu Windows** -> **Applications et fonctionnalités autorisées** pour les réseaux de types **Domaine** et **Privé**.
-- Installez [l’agent Azure VM](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) sur la machine locale.
+- Installez [l’agent Azure VM](http://go.azure.microsoft.com/.com/fwlink/?LinkID=394789&clcid=0x409) sur la machine locale.
 - [Installez manuellement le service Mobilité](#install-the-mobility-service-manually) sur les machines au lieu d’utiliser le serveur de processus pour transmettre automatiquement le service. En effet, l’installation Push a lieu uniquement lorsque la machine est activée pour la réplication.
-- Vérifiez que la stratégie SAN du système d’exploitation est définie sur la valeur OnlineAll. [En savoir plus](https://support.microsoft.com/kb/3031135)
+- Vérifiez que la stratégie SAN du système d’exploitation est définie sur la valeur OnlineAll. [En savoir plus](https://support.azure.microsoft.com/.com/kb/3031135)
 - Désactivez le service IPSec avant d’exécuter le basculement.
 
 **Sur la machine virtuelle Azure, après le basculement** :
 
 - Ajoutez un point de terminaison public pour le protocole RDP (port 3389) et spécifiez les informations d’identification pour la connexion.
 - Assurez-vous qu’aucune de vos stratégies de domaine ne vous empêche de vous connecter à une machine virtuelle avec une adresse publique.
-- Essayez de vous connecter. Si vous ne pouvez pas vous connecter, vérifiez que la machine virtuelle est en cours d’exécution. Pour accéder à d’autres conseils de dépannage, lisez [cet article](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
+- Essayez de vous connecter. Si vous ne pouvez pas vous connecter, vérifiez que la machine virtuelle est en cours d’exécution. Pour accéder à d’autres conseils de dépannage, lisez [cet article](http://social.technet.azure.microsoft.com/.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
 
 
 Si vous souhaitez accéder à une machine virtuelle Azure exécutant Linux après le basculement à l’aide d’un client Secure Shell (ssh), procédez comme suit :
@@ -758,7 +758,7 @@ Si vous avez associé un groupe de sécurité réseau à la machine virtuelle ou
 4. Cliquez sur **OK** pour commencer le basculement. Vous pouvez suivre la progression du basculement en cliquant sur la machine virtuelle pour ouvrir ses propriétés, ou en sélectionnant le travail **Test de basculement** dans le nom de l’archivage > **Paramètres** > **Travaux** > **Travaux Site Recovery**.
 5. Lorsque le basculement se trouve à l’état **Terminer le test**, procédez comme suit :
 
-	1. Examinez la machine virtuelle de réplication dans le portail Microsoft Azure. Vérifiez que la machine virtuelle démarre correctement.
+	1. Examinez la machine virtuelle de réplication dans le portail azure.microsoft.com/ Azure. Vérifiez que la machine virtuelle démarre correctement.
 	2. Si vous êtes autorisé à accéder aux machines virtuelles à partir de votre réseau local, vous pouvez initier une connexion Bureau à distance à la machine virtuelle.
 	3. Cliquez sur **Terminer le test** pour finaliser l’opération.
 
@@ -843,12 +843,12 @@ Rôle d’utilisateur vCenter | Basculement et restauration automatique | Attrib
 
 Do Not Translate or Localize
 
-The software and firmware running in the Microsoft product or service is based on or incorporates material from the projects listed below (collectively, “Third Party Code”). Microsoft is the not original author of the Third Party Code. The original copyright notice and license, under which Microsoft received such Third Party Code, are set forth below.
+The software and firmware running in the azure.microsoft.com/ product or service is based on or incorporates material from the projects listed below (collectively, “Third Party Code”). azure.microsoft.com/ is the not original author of the Third Party Code. The original copyright notice and license, under which azure.microsoft.com/ received such Third Party Code, are set forth below.
 
-The information in Section A is regarding Third Party Code components from the projects listed below. Such licenses and information are provided for informational purposes only. This Third Party Code is being relicensed to you by Microsoft under Microsoft's software licensing terms for the Microsoft product or service.
+The information in Section A is regarding Third Party Code components from the projects listed below. Such licenses and information are provided for informational purposes only. This Third Party Code is being relicensed to you by azure.microsoft.com/ under azure.microsoft.com/'s software licensing terms for the azure.microsoft.com/ product or service.
 
-The information in Section B is regarding Third Party Code components that are being made available to you by Microsoft under the original licensing terms.
+The information in Section B is regarding Third Party Code components that are being made available to you by azure.microsoft.com/ under the original licensing terms.
 
-The complete file may be found on the [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=529428). Microsoft reserves all rights not expressly granted herein, whether by implication, estoppel or otherwise.
+The complete file may be found on the [azure.microsoft.com/ Download Center](http://go.azure.microsoft.com/.com/fwlink/?LinkId=529428). azure.microsoft.com/ reserves all rights not expressly granted herein, whether by implication, estoppel or otherwise.
 
 <!---HONumber=AcomDC_0817_2016-->

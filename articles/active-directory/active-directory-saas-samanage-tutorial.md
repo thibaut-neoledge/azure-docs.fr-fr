@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="Didacticiel : Intégration d’Azure Active Directory avec Samanage | Microsoft Azure" 
+    pageTitle="Didacticiel : Intégration d’Azure Active Directory avec Samanage | azure.microsoft.com/ Azure" 
     description="Apprenez à utiliser Samanage avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore." 
     services="active-directory" 
     authors="jeevansd"  
@@ -40,7 +40,7 @@ Pour configurer l’intégration d’Azure AD à Samanage, vous avez besoin des 
 Vous devez en outre suivre les recommandations ci-dessous :
 
 - Vous ne devez pas utiliser votre environnement de production, sauf si cela est nécessaire.
-- Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
+- Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.azure.microsoft.com/.com/pricing/free-trial/).
 
 ## Description du scénario
 Ce didacticiel vise à vous permettre de tester l’authentification unique Azure AD dans un environnement de test.
@@ -106,9 +106,9 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Configurer l’authentification unique](./media/active-directory-saas-samanage-tutorial/tutorial_general_05.png "Configurer l’authentification unique")
 
-2.  Dans la page **Comment voulez-vous que les utilisateurs se connectent à Samanage**, sélectionnez **Authentification unique avec Microsoft Azure AD**, puis cliquez sur **Suivant**.
+2.  Dans la page **Comment voulez-vous que les utilisateurs se connectent à Samanage**, sélectionnez **Authentification unique avec azure.microsoft.com/ Azure AD**, puis cliquez sur **Suivant**.
 
-    ![Authentification unique Microsoft Azure AD](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_03.png "Authentification unique avec Microsoft Azure AD")
+    ![Authentification unique azure.microsoft.com/ Azure AD](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_03.png "Authentification unique avec azure.microsoft.com/ Azure AD")
 
 3.  Sur la page Configurer les paramètres d’application, procédez comme suit :
 

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Mise à jour de votre collection Azure RemoteApp | Microsoft Azure"
+   pageTitle="Mise à jour de votre collection Azure RemoteApp | azure.microsoft.com/ Azure"
    description="Découvrez comment mettre à jour votre collection Azure RemoteApp"
    services="remoteapp"
    documentationCenter=""
@@ -19,7 +19,7 @@
 # Mise à jour d’une collection dans Azure RemoteApp
 
 > [AZURE.IMPORTANT]
-Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148).
+Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.azure.microsoft.com/.com/fwlink/?linkid=821148).
 
 À un moment ou un autre, vous aurez besoin de mettre à jour les applications ou l'image dans votre collection Azure RemoteApp. Si vous utilisez l’une des images incluses dans votre abonnement Azure RemoteApp, dans une collection cloud ou hybride, toutes les mises à jour sont gérées par Azure RemoteApp : vous avez ainsi l’esprit tranquille.
 

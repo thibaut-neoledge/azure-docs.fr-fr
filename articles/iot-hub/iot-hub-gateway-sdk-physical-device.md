@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Utiliser un appareil réel avec le Kit de développement logiciel (SDK) de passerelle | Microsoft Azure"
+	pageTitle="Utiliser un appareil réel avec le Kit de développement logiciel (SDK) de passerelle | azure.microsoft.com/ Azure"
 	description="Procédure pas à pas pour le Kit de développement logiciel (SDK) de passerelle Azure IoT Hub utilisant un appareil Texas Instruments SensorTag pour envoyer des données à IoT Hub par le biais d’une passerelle exécutée sur un module Intel Edison Compute"
 	services="iot-hub"
 	documentationCenter=""
@@ -19,7 +19,7 @@
 
 # Kit de développement logiciel (SDK) de passerelle IoT (version bêta) : envoyer des messages appareil vers cloud avec un appareil réel à l’aide de Linux
 
-Cette procédure pas à pas sur l’[exemple à faible consommation d’énergie Bluetooth][lnk-ble-samplecode] vous montre comment utiliser le [Kit de développement logiciel (SDK) de passerelle IoT Microsoft Azure][lnk-sdk] pour transférer des données de télémétrie appareil vers cloud vers IoT Hub à partir d’un appareil physique et comment acheminer des commandes à partir d’IoT Hub vers un appareil physique.
+Cette procédure pas à pas sur l’[exemple à faible consommation d’énergie Bluetooth][lnk-ble-samplecode] vous montre comment utiliser le [Kit de développement logiciel (SDK) de passerelle IoT azure.microsoft.com/ Azure][lnk-sdk] pour transférer des données de télémétrie appareil vers cloud vers IoT Hub à partir d’un appareil physique et comment acheminer des commandes à partir d’IoT Hub vers un appareil physique.
 
 Cette procédure pas à pas inclut les étapes suivantes :
 
@@ -78,10 +78,10 @@ Ce didacticiel suppose que vous utilisez un appareil [Texas Instruments SensorTa
 
 Avant de commencer, vous devez vous assurer que vous pouvez connecter votre appareil Edison à votre réseau sans fil. Pour configurer votre appareil Edison, vous devez le connecter à un ordinateur hôte. Intel fournit des guides de démarrage pour les systèmes d’exploitation suivants :
 
-- [Get Started with the Intel Edison Development Board on Windows 64-bit][lnk-setup-win64] (Guide de démarrage de la carte Intel Edison Development sur Windows 64 bits).
-- [Get Started with the Intel Edison Development Board on Windows 32-bit][lnk-setup-win32] (Guide de démarrage de la carte Intel Edison Development sur Windows 32 bits).
-- [Get Started with the Intel Edison Development Board on Mac OS X][lnk-setup-osx] (Guide de démarrage de la carte Intel Edison Development sur Mac OS X).
-- [Getting Started with the Intel® Edison Board on Linux][lnk-setup-linux] (Guide de démarrage de la carte Intel® Edison sur Linux).
+- [Get Started with the Intel Edison Development Board on Windows 64-bit][lnk-setup-win64] \(Guide de démarrage de la carte Intel Edison Development sur Windows 64 bits).
+- [Get Started with the Intel Edison Development Board on Windows 32-bit][lnk-setup-win32] \(Guide de démarrage de la carte Intel Edison Development sur Windows 32 bits).
+- [Get Started with the Intel Edison Development Board on Mac OS X][lnk-setup-osx] \(Guide de démarrage de la carte Intel Edison Development sur Mac OS X).
+- [Getting Started with the Intel® Edison Board on Linux][lnk-setup-linux] \(Guide de démarrage de la carte Intel® Edison sur Linux).
 
 Pour configurer votre appareil Edison et vous familiariser avec celui-ci, vous devez effectuer toutes les étapes de ces articles « de démarrage », à l’exception de la dernière étape, « Choose IDE » (Sélection d’IDE), qui ne s’applique pas à ce didacticiel. À la fin du processus de configuration Edison, vous avez :
 
@@ -214,8 +214,8 @@ Lors de la rédaction du présent article, le Kit de développement logiciel (SD
 
 La version de **git** sur l’appareil Edison ne prend pas en charge les modules secondaires. Vous disposez de deux options pour télécharger la source complète du Kit de développement logiciel (SDK) de passerelle sur l’appareil Edison :
 
-- Option 1 : Clonez le référentiel [Kit de développement logiciel (SDK) de passerelle IoT Microsoft Azure][lnk-sdk] sur votre appareil Edison, puis clonez manuellement le référentiel pour chaque module secondaire.
-- Option 2 : Clonez le référentiel [Kit de développement logiciel (SDK) de passerelle IoT Microsoft Azure][lnk-sdk] sur un ordinateur de bureau où **git** prend en charge les modules secondaires, puis copiez le référentiel complet avec les modules secondaires sur votre appareil Edison.
+- Option 1 : Clonez le référentiel [Kit de développement logiciel (SDK) de passerelle IoT azure.microsoft.com/ Azure][lnk-sdk] sur votre appareil Edison, puis clonez manuellement le référentiel pour chaque module secondaire.
+- Option 2 : Clonez le référentiel [Kit de développement logiciel (SDK) de passerelle IoT azure.microsoft.com/ Azure][lnk-sdk] sur un ordinateur de bureau où **git** prend en charge les modules secondaires, puis copiez le référentiel complet avec les modules secondaires sur votre appareil Edison.
 
 Si vous choisissez l’option 2, utilisez les commandes **git** suivantes pour cloner le Kit de développement logiciel (SDK) de passerelle et tous ses modules secondaires :
 
@@ -442,7 +442,7 @@ Pour explorer davantage les capacités de IoT Hub, consultez :
 [lnk-ble-samplecode]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/samples/ble_gateway_hl
 [lnk-setupdevbox]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/doc/devbox_setup.md
 [lnk-create-hub]: iot-hub-manage-through-portal.md
-[lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
+[lnk-free-trial]: https://azure.azure.microsoft.com/.com/pricing/free-trial/
 [lnk-explorer-tools]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/manage_iot_hub.md
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk/
 [lnk-setup-win64]: https://software.intel.com/get-started-edison-windows

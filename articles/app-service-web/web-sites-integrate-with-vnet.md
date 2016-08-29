@@ -18,7 +18,7 @@
 
 # Intégrer une application à un réseau Azure Virtual Network #
 
-Ce document décrit la fonctionnalité d’intégration au réseau virtuel d’Azure App Service et explique comment la configurer avec des applications dans [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714). Si vous n’êtes pas familiarisé avec les réseaux Azure Virtual Network, cette fonctionnalité vous permet de placer la plupart de vos ressources Azure dans un réseau routable non-Internet dont vous contrôlez l’accès. Ces réseaux peuvent ensuite être connectés à vos réseaux locaux à l’aide d’une variété de technologies VPN. Pour en savoir plus sur les réseaux Azure Virtual Network, commencez par consulter la page [Vue d’ensemble d’Azure Virtual Network][VNETOverview].
+Ce document décrit la fonctionnalité d’intégration au réseau virtuel d’Azure App Service et explique comment la configurer avec des applications dans [Azure App Service](http://go.azure.microsoft.com/.com/fwlink/?LinkId=529714). Si vous n’êtes pas familiarisé avec les réseaux Azure Virtual Network, cette fonctionnalité vous permet de placer la plupart de vos ressources Azure dans un réseau routable non-Internet dont vous contrôlez l’accès. Ces réseaux peuvent ensuite être connectés à vos réseaux locaux à l’aide d’une variété de technologies VPN. Pour en savoir plus sur les réseaux Azure Virtual Network, commencez par consulter la page [Vue d’ensemble d’Azure Virtual Network][VNETOverview].
 
 Azure App Service se présente sous deux formes.
 
@@ -171,7 +171,7 @@ Deux actions clés sont possibles. D’une part, vous avez la possibilité d’a
 
 **Routage** Comme indiqué précédemment, les itinéraires définis dans votre réseau virtuel sont utilisés pour diriger le trafic vers votre réseau virtuel à partir de votre application. Cependant, dans certains cas, les clients veulent envoyer un trafic sortant supplémentaire à partir d’une application dans le réseau virtuel. Cette fonctionnalité leur est alors fournie. Ensuite, le traitement du trafic dépend de la façon dont le client configure son réseau virtuel.
 
-**Certificats** L’état des certificats reflète la vérification effectuée par App Service pour garantir que les certificats que nous utilisons pour la connexion VPN sont toujours valables. Lorsque l’intégration au réseau virtuel est activée, s’il s’agit de la première intégration à ce réseau virtuel à partir d’une application quelconque de cet ASP, un échange de certificats est nécessaire pour garantir la sécurité de la connexion. Avec les certificats, nous obtenons la configuration DNS, les itinéraires et d’autres éléments similaires qui décrivent le réseau. Si ces certificats ou informations réseau sont modifiés, vous devez cliquer sur « Synchronisation réseau ». **Remarque** : lorsque vous cliquez sur « Synchronisation réseau », la connectivité entre votre application et votre réseau virtuel est brièvement interrompue. Votre application ne sera pas redémarrée, et la perte de connectivité peut altérer le fonctionnement de votre site.
+**Certificats** L’état des certificats reflète la vérification effectuée par App Service pour garantir que les certificats que nous utilisons pour la connexion VPN sont toujours valables. Lorsque l’intégration au réseau virtuel est activée, s’il s’agit de la première intégration à ce réseau virtuel à partir d’une application quelconque de cet ASP, un échange de certificats est nécessaire pour garantir la sécurité de la connexion. Avec les certificats, nous obtenons la configuration DNS, les itinéraires et d’autres éléments similaires qui décrivent le réseau. Si ces certificats ou informations réseau sont modifiés, vous devez cliquer sur « Synchronisation réseau ». **Remarque** : lorsque vous cliquez sur « Synchronisation réseau », la connectivité entre votre application et votre réseau virtuel est brièvement interrompue. Votre application ne sera pas redémarrée, et la perte de connectivité peut altérer le fonctionnement de votre site.
 
 ##Accès aux ressources sur site##
 
@@ -290,14 +290,14 @@ Outre les différences fonctionnelles, il existe également des différences de 
 [8]: ./media/web-sites-integrate-with-vnet/vnetint-vnetp2s.png
 
 <!--Links-->
-[VNETOverview]: http://azure.microsoft.com/documentation/articles/virtual-networks-overview/
+[VNETOverview]: http://azure.azure.microsoft.com/.com/documentation/articles/virtual-networks-overview/
 [AzurePortal]: http://portal.azure.com/
-[ASPricing]: http://azure.microsoft.com/pricing/details/app-service/
-[VNETPricing]: http://azure.microsoft.com/pricing/details/vpn-gateway/
-[DataPricing]: http://azure.microsoft.com/pricing/details/data-transfers/
-[V2VNETP2S]: http://azure.microsoft.com/documentation/articles/vpn-gateway-howto-point-to-site-rm-ps/
-[IntPowershell]: http://azure.microsoft.com/documentation/articles/app-service-vnet-integration-powershell/
-[ASEintro]: http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-intro/
-[ILBASE]: http://azure.microsoft.com/documentation/articles/app-service-environment-with-internal-load-balancer/
+[ASPricing]: http://azure.azure.microsoft.com/.com/pricing/details/app-service/
+[VNETPricing]: http://azure.azure.microsoft.com/.com/pricing/details/vpn-gateway/
+[DataPricing]: http://azure.azure.microsoft.com/.com/pricing/details/data-transfers/
+[V2VNETP2S]: http://azure.azure.microsoft.com/.com/documentation/articles/vpn-gateway-howto-point-to-site-rm-ps/
+[IntPowershell]: http://azure.azure.microsoft.com/.com/documentation/articles/app-service-vnet-integration-powershell/
+[ASEintro]: http://azure.azure.microsoft.com/.com/documentation/articles/app-service-app-service-environment-intro/
+[ILBASE]: http://azure.azure.microsoft.com/.com/documentation/articles/app-service-environment-with-internal-load-balancer/
 
 <!---HONumber=AcomDC_0817_2016-->

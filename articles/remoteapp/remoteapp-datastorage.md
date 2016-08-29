@@ -1,6 +1,6 @@
 
 <properties
-    pageTitle="Ne stockez jamais de données sensibles sur des images personnalisées pour Azure RemoteApp | Microsoft Azure"
+    pageTitle="Ne stockez jamais de données sensibles sur des images personnalisées pour Azure RemoteApp | azure.microsoft.com/ Azure"
     description="En savoir plus sur les recommandations de stockage des données dans des images personnalisées dans Azure RemoteApp"
     services="remoteapp"
     documentationCenter=""
@@ -20,7 +20,7 @@
 # Ne stockez jamais de données sensibles sur des images personnalisées
 
 > [AZURE.IMPORTANT]
-Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148).
+Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.azure.microsoft.com/.com/fwlink/?linkid=821148).
 
 Lorsque vous hébergez votre propre application dans Azure RemoteApp, la première étape consiste à créer une image personnalisée. Nous utilisons cette image personnalisée pour créer des instances de machines virtuelles qui servent vos applications à vos utilisateurs. L'image personnalisée doit contenir UNIQUEMENT des applications et jamais des données sensibles qui peuvent être perdues, notamment des bases de données SQL, des fichiers du personnel ou des fichiers de données spéciaux tels que les fichiers d'entreprise QuickBooks. Toutes les données sensibles doivent être externes à Azure RemoteApp, sur un serveur de fichiers, une autre machine virtuelle Azure ou SQL Azure. L'image doit simplement héberger l'application qui se connecte à la source de données et présente les données. Consultez [Configuration requise pour les images Azure RemoteApp](remoteapp-imagereqs.md) pour plus d’informations.
 

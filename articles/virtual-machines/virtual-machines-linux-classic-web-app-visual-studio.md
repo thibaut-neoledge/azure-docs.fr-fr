@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Création d’une machine virtuelle pour une application web | Microsoft Azure"
+	pageTitle="Création d’une machine virtuelle pour une application web | azure.microsoft.com/ Azure"
 	description="Création d’une machine virtuelle pour un projet web avec Visual Studio et Linux."
 	services="virtual-machines-linux"
 	documentationCenter=""

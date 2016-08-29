@@ -97,7 +97,7 @@ Par défaut, le rapport d'emplacement en temps réel est uniquement actif quand 
 
 Si l’utilisateur redémarre son appareil, le rapport d’emplacement en arrière-plan est arrêté. Pour qu’il redémarre automatiquement au démarrage, ajoutez ce code.
 
-	<receiver android:name="com.microsoft.azure.engagement.EngagementLocationBootReceiver"
+	<receiver android:name="com.azure.microsoft.com/.azure.engagement.EngagementLocationBootReceiver"
 		   android:exported="false">
 		<intent-filter>
 		    <action android:name="android.intent.action.BOOT_COMPLETED" />

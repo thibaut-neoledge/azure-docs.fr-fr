@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Didacticiel : intégration d’Azure Active Directory à ICIMS | Microsoft Azure"
+	pageTitle="Didacticiel : intégration d’Azure Active Directory à ICIMS | azure.microsoft.com/ Azure"
 	description="Découvrez comment configurer l’authentification unique entre Azure Active Directory et ICIMS."
 	services="active-directory"
 	documentationCenter=""
@@ -42,7 +42,7 @@ Pour configurer l’intégration d’Azure AD avec ICIMS, vous avez besoin des 
 Vous devez en outre suivre les recommandations ci-dessous :
 
 - Vous ne devez pas utiliser votre environnement de production, sauf si cela est nécessaire.
-- Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
+- Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.azure.microsoft.com/.com/pricing/free-trial/).
 
 
 ## Description du scénario

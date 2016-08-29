@@ -21,13 +21,13 @@
 
 Le magasin de requêtes dans Azure est une fonctionnalité de base de données entièrement gérée qui recueille et présente des informations historiques détaillées sur toutes les requêtes. Le magasin de requêtes peut être comparé à l’enregistreur de données de vol d’un avion, qui simplifie considérablement le dépannage des problèmes de performances des requêtes à la fois pour les clients cloud et pour les clients locaux. Cet article présente certains aspects de l’utilisation du magasin de requêtes dans Azure. À l’aide des données de requête collectées au préalable, vous pouvez diagnostiquer et résoudre rapidement les problèmes de performances, ce qui vous permet de consacrer davantage de temps à vos activités.
 
-Le magasin de requêtes est [disponible dans le monde entier](https://azure.microsoft.com/updates/general-availability-azure-sql-database-query-store/) via la base de données SQL Azure depuis novembre 2015. Le magasin de requêtes constitue la base de l’analyse des performances et de l’ajustement des fonctionnalités, comme [SQL Database Advisor et le tableau de bord des performances](https://azure.microsoft.com/updates/sqldatabaseadvisorga/). Au moment de la publication de cet article, le magasin de requêtes est en cours d’exécution sur plus de 200 000 bases de données utilisateur dans Azure, et recueille les informations liées aux requêtes depuis plusieurs mois sans interruption.
+Le magasin de requêtes est [disponible dans le monde entier](https://azure.azure.microsoft.com/.com/updates/general-availability-azure-sql-database-query-store/) via la base de données SQL Azure depuis novembre 2015. Le magasin de requêtes constitue la base de l’analyse des performances et de l’ajustement des fonctionnalités, comme [SQL Database Advisor et le tableau de bord des performances](https://azure.azure.microsoft.com/.com/updates/sqldatabaseadvisorga/). Au moment de la publication de cet article, le magasin de requêtes est en cours d’exécution sur plus de 200 000 bases de données utilisateur dans Azure, et recueille les informations liées aux requêtes depuis plusieurs mois sans interruption.
 
-> [AZURE.IMPORTANT] Microsoft met actuellement en place le magasin de requêtes pour toutes les bases de données SQL Azure (existantes et nouvelles).
+> [AZURE.IMPORTANT] azure.microsoft.com/ met actuellement en place le magasin de requêtes pour toutes les bases de données SQL Azure (existantes et nouvelles).
 
 ## Configuration optimale du magasin de requêtes
 
-Cette section décrit les paramètres optimaux de configuration par défaut, conçus pour garantir un fonctionnement fiable du magasin de requêtes et des fonctionnalités liées, comme [SQL Database Advisor et le tableau de bord des performances](https://azure.microsoft.com/updates/sqldatabaseadvisorga/). La configuration par défaut est optimisée pour la collecte des données en continu, c’est-à-dire pour passer le moins de temps possible aux états OFF/READ\_ONLY.
+Cette section décrit les paramètres optimaux de configuration par défaut, conçus pour garantir un fonctionnement fiable du magasin de requêtes et des fonctionnalités liées, comme [SQL Database Advisor et le tableau de bord des performances](https://azure.azure.microsoft.com/.com/updates/sqldatabaseadvisorga/). La configuration par défaut est optimisée pour la collecte des données en continu, c’est-à-dire pour passer le moins de temps possible aux états OFF/READ\_ONLY.
 
 | Configuration | Description | Default | Commentaire |
 | ------------- | ----------- | ------- | ------- |
@@ -41,7 +41,7 @@ Cette section décrit les paramètres optimaux de configuration par défaut, con
 
 > [AZURE.IMPORTANT] Ces paramètres par défaut sont automatiquement appliqués à l’étape finale de l’activation du magasin de requêtes dans toutes les bases de données SQL Azure (voir la remarque importante précédente). Après cela, la base de données SQL Azure ne modifiera pas les valeurs de configuration définies par les clients, à moins qu’elles aient un impact négatif sur les charges de travail principales ou sur la fiabilité des opérations du magasin de requêtes.
 
-Si vous souhaitez conserver vos paramètres personnalisés, utilisez [ALTER DATABASE avec les options du magasin de requêtes](https://msdn.microsoft.com/library/bb522682.aspx) pour rétablir la configuration à l’état précédent. Découvrez les [meilleures pratiques liées au magasin de requêtes](https://msdn.microsoft.com/library/mt604821.aspx) pour savoir comment choisir des paramètres de configuration optimaux.
+Si vous souhaitez conserver vos paramètres personnalisés, utilisez [ALTER DATABASE avec les options du magasin de requêtes](https://msdn.azure.microsoft.com/.com/library/bb522682.aspx) pour rétablir la configuration à l’état précédent. Découvrez les [meilleures pratiques liées au magasin de requêtes](https://msdn.azure.microsoft.com/.com/library/mt604821.aspx) pour savoir comment choisir des paramètres de configuration optimaux.
 
 ## Étapes suivantes
 
@@ -51,12 +51,12 @@ Si vous souhaitez conserver vos paramètres personnalisés, utilisez [ALTER DATA
 
 Pour plus d’informations, consultez les articles suivants :
 
-- [Un enregistreur de données pour votre base de données](https://azure.microsoft.com/blog/query-store-a-flight-data-recorder-for-your-database)
+- [Un enregistreur de données pour votre base de données](https://azure.azure.microsoft.com/.com/blog/query-store-a-flight-data-recorder-for-your-database)
 
-- [Analyse des performances à l’aide du magasin de requêtes](https://msdn.microsoft.com/library/dn817826.aspx)
+- [Analyse des performances à l’aide du magasin de requêtes](https://msdn.azure.microsoft.com/.com/library/dn817826.aspx)
 
-- [Scénarios d’utilisation du magasin de requêtes](https://msdn.microsoft.com/library/mt614796.aspx)
+- [Scénarios d’utilisation du magasin de requêtes](https://msdn.azure.microsoft.com/.com/library/mt614796.aspx)
 
-- [Analyse des performances à l’aide du magasin de requêtes](https://msdn.microsoft.com/library/dn817826.aspx)
+- [Analyse des performances à l’aide du magasin de requêtes](https://msdn.azure.microsoft.com/.com/library/dn817826.aspx)
 
 <!---HONumber=AcomDC_0817_2016-->

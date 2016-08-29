@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Créer un IoT Hub à l’aide de l’API REST | Microsoft Azure"
+	pageTitle="Créer un IoT Hub à l’aide de l’API REST | azure.microsoft.com/ Azure"
 	description="Suivez ce didacticiel pour commencer à utiliser l’API REST pour créer un IoT Hub."
 	services="iot-hub"
 	documentationCenter=".net"
@@ -28,9 +28,9 @@ Vous pouvez utiliser l’[API REST du fournisseur de ressources IoT Hub][lnk-res
 
 Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
-- Microsoft Visual Studio 2015.
+- azure.microsoft.com/ Visual Studio 2015.
 - Un compte Azure actif. <br/>Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure][lnk-free-trial].
-- [Microsoft Azure PowerShell 1.0][lnk-powershell-install] ou une version ultérieure.
+- [azure.microsoft.com/ Azure PowerShell 1.0][lnk-powershell-install] ou une version ultérieure.
 
 [AZURE.INCLUDE [iot-hub-prepare-resource-manager](../../includes/iot-hub-prepare-resource-manager.md)]
 
@@ -40,9 +40,9 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
 2. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur votre projet, puis cliquez sur **Gérer les packages NuGet**.
 
-3. Dans le gestionnaire de packages NuGet, activez **Inclure la version préliminaire** et recherchez **Microsoft.Azure.Management.ResourceManager**. Cliquez sur **Installer**. Sous **Réviser les modifications**, cliquez sur **OK**, puis cliquez sur **J’accepte** pour accepter les licences.
+3. Dans le gestionnaire de packages NuGet, activez **Inclure la version préliminaire** et recherchez **azure.microsoft.com/.Azure.Management.ResourceManager**. Cliquez sur **Installer**. Sous **Réviser les modifications**, cliquez sur **OK**, puis cliquez sur **J’accepte** pour accepter les licences.
 
-4. Dans le gestionnaire de packages NuGet, recherchez **Microsoft.IdentityModel.Clients.ActiveDirectory**. Cliquez sur **INSTALLER**, dans **RÉVISER LES MODIFICATIONS**, cliquez sur **OK**, puis cliquez sur **J'ACCEPTE** pour accepter la licence.
+4. Dans le gestionnaire de packages NuGet, recherchez **azure.microsoft.com/.IdentityModel.Clients.ActiveDirectory**. Cliquez sur **INSTALLER**, dans **RÉVISER LES MODIFICATIONS**, cliquez sur **OK**, puis cliquez sur **J'ACCEPTE** pour accepter la licence.
 
 6. Dans Program.cs, remplacez les instructions **using** existantes par les instructions suivantes :
 
@@ -51,11 +51,11 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
     using System.Net.Http;
     using System.Net.Http.Headers;
     using System.Text;
-    using Microsoft.Azure.Management.ResourceManager;
-    using Microsoft.Azure.Management.ResourceManager.Models;
-    using Microsoft.IdentityModel.Clients.ActiveDirectory;
+    using azure.microsoft.com/.Azure.Management.ResourceManager;
+    using azure.microsoft.com/.Azure.Management.ResourceManager.Models;
+    using azure.microsoft.com/.IdentityModel.Clients.ActiveDirectory;
     using Newtonsoft.Json;
-    using Microsoft.Rest;
+    using azure.microsoft.com/.Rest;
     using System.Linq;
     using System.Threading;
     ```
@@ -116,7 +116,7 @@ Utilisez l’[API REST IoT Hub][lnk-rest-api] pour créer un IoT Hub dans votre 
 
     ```
     var content = new StringContent(JsonConvert.SerializeObject(description), Encoding.UTF8, "application/json");
-    var requestUri = string.Format("https://management.azure.com/subscriptions/{0}/resourcegroups/{1}/providers/Microsoft.devices/IotHubs/{2}?api-version=2016-02-03", subscriptionId, rgName, iotHubName);
+    var requestUri = string.Format("https://management.azure.com/subscriptions/{0}/resourcegroups/{1}/providers/azure.microsoft.com/.devices/IotHubs/{2}?api-version=2016-02-03", subscriptionId, rgName, iotHubName);
     var result = client.PutAsync(requestUri, content).Result;
       
     if (!result.IsSuccessStatusCode)
@@ -143,7 +143,7 @@ Utilisez l’[API REST IoT Hub][lnk-rest-api] pour créer un IoT Hub dans votre 
 6. Ajoutez le code suivant à la fin de la méthode **CreateIoTHub** pour récupérer les clés de l’IoT Hub que vous avez créé et les imprimer sur la console :
 
     ```
-    var listKeysUri = string.Format("https://management.azure.com/subscriptions/{0}/resourceGroups/{1}/providers/Microsoft.Devices/IotHubs/{2}/IoTHubKeys/listkeys?api-version=2015-08-15-preview", subscriptionId, rgName, iotHubName);
+    var listKeysUri = string.Format("https://management.azure.com/subscriptions/{0}/resourceGroups/{1}/providers/azure.microsoft.com/.Devices/IotHubs/{2}/IoTHubKeys/listkeys?api-version=2015-08-15-preview", subscriptionId, rgName, iotHubName);
     var keysresults = client.PostAsync(listKeysUri, null).Result;
     
     Console.WriteLine("Keys: {0}", keysresults.Content.ReadAsStringAsync().Result);
@@ -153,7 +153,7 @@ Utilisez l’[API REST IoT Hub][lnk-rest-api] pour créer un IoT Hub dans votre 
 
 Vous pouvez maintenant terminer l’application en appelant la méthode **CreateIoTHub** avant sa génération et son exécution.
 
-1. Ajoutez le code suivant à la fin de la méthode **Main** :
+1. Ajoutez le code suivant à la fin de la méthode **Main** :
 
     ```
     CreateIoTHub(token.AccessToken);
@@ -188,10 +188,10 @@ Pour explorer davantage les capacités de IoT Hub, consultez :
 - [Utilisation du portail Azure pour gérer IoT Hub][lnk-portal]
 
 <!-- Links -->
-[lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
+[lnk-free-trial]: https://azure.azure.microsoft.com/.com/pricing/free-trial/
 [lnk-azure-portal]: https://portal.azure.com/
 [lnk-powershell-install]: ../powershell-install-configure.md
-[lnk-rest-api]: https://msdn.microsoft.com/library/mt589014.aspx
+[lnk-rest-api]: https://msdn.azure.microsoft.com/.com/library/mt589014.aspx
 [lnk-azure-rm-overview]: ../resource-group-overview.md
 
 [lnk-c-sdk]: iot-hub-device-sdk-c-intro.md

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Verrouillage de ressources avec Resource Manager | Microsoft Azure" 
+	pageTitle="Verrouillage de ressources avec Resource Manager | azure.microsoft.com/ Azure" 
 	description="Empêchez les utilisateurs de mettre à jour ou de supprimer certaines ressources en appliquant une restriction à tous les utilisateurs et rôles." 
 	services="azure-resource-manager" 
 	documentationCenter="" 
@@ -31,7 +31,7 @@ Lorsque vous appliquez un verrou à une étendue parente, toutes les ressources 
 
 ## Personnes autorisées à créer ou supprimer des verrous dans votre organisation
 
-Pour créer ou supprimer des verrous de gestion, vous devez avoir accès aux actions **Microsoft.Authorization/*** ou **Microsoft.Authorization/locks/***. Parmi les rôles prédéfinis, seuls les rôles **Propriétaire** et **Administrateur de l'accès utilisateur** peuvent effectuer ces actions.
+Pour créer ou supprimer des verrous de gestion, vous devez avoir accès aux actions **azure.microsoft.com/.Authorization/*** ou **azure.microsoft.com/.Authorization/locks/***. Parmi les rôles prédéfinis, seuls les rôles **Propriétaire** et **Administrateur de l'accès utilisateur** peuvent effectuer ces actions.
 
 ## Création d’un verrou via le portail
 
@@ -39,9 +39,9 @@ Pour créer ou supprimer des verrous de gestion, vous devez avoir accès aux act
 
 ## Création d’un verrou dans un modèle
 
-L’exemple suivant représente un modèle créant un verrou sur un compte de stockage. Le compte de stockage auquel est appliqué le verrou est fourni en tant que paramètre. Le nom du verrou résulte de la concaténation du nom de la ressource, de **/Microsoft.Authorization/** et du nom du verrou, en l’occurrence **myLock**.
+L’exemple suivant représente un modèle créant un verrou sur un compte de stockage. Le compte de stockage auquel est appliqué le verrou est fourni en tant que paramètre. Le nom du verrou résulte de la concaténation du nom de la ressource, de **/azure.microsoft.com/.Authorization/** et du nom du verrou, en l’occurrence **myLock**.
 
-Le type fourni est spécifique au type de ressource. Pour le stockage, définissez le type suivant : « Microsoft.Storage/storageaccounts/providers/locks ».
+Le type fourni est spécifique au type de ressource. Pour le stockage, définissez le type suivant : « azure.microsoft.com/.Storage/storageaccounts/providers/locks ».
 
     {
       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -53,8 +53,8 @@ Le type fourni est spécifique au type de ressource. Pour le stockage, définiss
       },
       "resources": [
         {
-          "name": "[concat(parameters('lockedResource'), '/Microsoft.Authorization/myLock')]",
-          "type": "Microsoft.Storage/storageAccounts/providers/locks",
+          "name": "[concat(parameters('lockedResource'), '/azure.microsoft.com/.Authorization/myLock')]",
+          "type": "azure.microsoft.com/.Storage/storageAccounts/providers/locks",
           "apiVersion": "2015-01-01",
           "properties": {
             "level": "CannotDelete"
@@ -65,11 +65,11 @@ Le type fourni est spécifique au type de ressource. Pour le stockage, définiss
 
 ## Création d’un verrou avec l’API REST
 
-Vous pouvez verrouiller des ressources déployées à l’aide de l’[API REST pour les verrous de gestion](https://msdn.microsoft.com/library/azure/mt204563.aspx). L’API REST vous permet de créer et de supprimer des verrous, et de récupérer des informations relatives aux verrous existants.
+Vous pouvez verrouiller des ressources déployées à l’aide de l’[API REST pour les verrous de gestion](https://msdn.azure.microsoft.com/.com/library/azure/mt204563.aspx). L’API REST vous permet de créer et de supprimer des verrous, et de récupérer des informations relatives aux verrous existants.
 
 Pour créer un verrou, exécutez :
 
-    PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/locks/{lock-name}?api-version={api-version}
+    PUT https://management.azure.com/{scope}/providers/azure.microsoft.com/.Authorization/locks/{lock-name}?api-version={api-version}
 
 Le verrou peut être appliqué à un abonnement, à un groupe de ressources ou à une ressource. Le nom du verrou est personnalisable. Pour la version de l’API, utilisez **2015-01-01**.
 
@@ -82,13 +82,13 @@ Dans la demande, incluez un objet JSON spécifiant les propriétés du verrou.
       }
     } 
 
-Pour obtenir des exemples, consultez [API REST pour les verrous de gestion](https://msdn.microsoft.com/library/azure/mt204563.aspx).
+Pour obtenir des exemples, consultez [API REST pour les verrous de gestion](https://msdn.azure.microsoft.com/.com/library/azure/mt204563.aspx).
 
 ## Création d’un verrou à l’aide d’Azure PowerShell
 
 Vous pouvez verrouiller des ressources déployées avec Azure PowerShell en utilisant **New-AzureRmResourceLock**, comme indiqué ci-dessous.
 
-    New-AzureRmResourceLock -LockLevel CanNotDelete -LockName LockSite -ResourceName examplesite -ResourceType Microsoft.Web/sites -ResourceGroupName exampleresourcegroup
+    New-AzureRmResourceLock -LockLevel CanNotDelete -LockName LockSite -ResourceName examplesite -ResourceType azure.microsoft.com/.Web/sites -ResourceGroupName exampleresourcegroup
 
 Azure PowerShell fournit d'autres commandes d'utilisation des verrous, comme **Set-AzureRmResourceLock** pour mettre à jour un verrou et **Remove-AzureRmResourceLock** pour supprimer un verrou.
 

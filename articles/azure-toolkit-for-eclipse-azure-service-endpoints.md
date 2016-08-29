@@ -16,7 +16,7 @@
     ms.date="08/11/2016" 
     ms.author="robmcm"/>
 
-<!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/dn268600.aspx -->
+<!-- Legacy MSDN URL = https://msdn.azure.microsoft.com/.com/library/azure/dn268600.aspx -->
 
 # Points de terminaison de service Azure #
 
@@ -35,7 +35,7 @@ Dans la boîte de dialogue **Points de terminaison de service**, effectuez l’u
 * Si vous souhaitez utiliser une plateforme Azure privée :
     1. Cliquez sur **Modifier**.
     2. Une boîte de dialogue s’ouvre, vous informant que la boîte de dialogue **Points de terminaison de service** va être fermée et le fichier d’ensemble de préférences s’ouvre. Cliquez sur **OK**.
-    3. Dans le fichier preferencesets.xml, créez un nouvel élément `preferenceset`. Pour ce nouvel élément, créez les attributs `name`, `blob`, `management`, `portalURL` et `publishsettings`, puis ajoutez à ces dernières des valeurs qui correspondent à votre plateforme Azure privée. Vous pouvez utiliser les valeurs fournies pour les éléments `preferenceset` existants en tant que modèles. **Remarque** : la valeur utilisée pour l’attribut `blob`doit contenir le texte « blob » dans l’URL.
+    3. Dans le fichier preferencesets.xml, créez un nouvel élément `preferenceset`. Pour ce nouvel élément, créez les attributs `name`, `blob`, `management`, `portalURL` et `publishsettings`, puis ajoutez à ces dernières des valeurs qui correspondent à votre plateforme Azure privée. Vous pouvez utiliser les valeurs fournies pour les éléments `preferenceset` existants en tant que modèles. **Remarque** : la valeur utilisée pour l’attribut `blob`doit contenir le texte « blob » dans l’URL.
     4. Enregistrez et fermez preferencesets.xml.
     5. Rouvrez la boîte de dialogue **Points de terminaison de service**.
     6. À partir de la liste déroulante d’**ensembles d’actifs**, sélectionnez l’ensemble actif que vous avez créé, cliquez sur **OK**.
@@ -53,10 +53,10 @@ Pour plus d'informations sur l'utilisation d'Azure avec Java, consultez le [Cent
 
 <!-- URL List -->
 
-[Centre de développement Java]: http://go.microsoft.com/fwlink/?LinkID=699547
-[Kit de ressources Azure pour Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
-[Création d'une application Hello World pour Azure dans Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
-[Installation du kit de ressources Azure pour Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
+[Centre de développement Java]: http://go.azure.microsoft.com/.com/fwlink/?LinkID=699547
+[Kit de ressources Azure pour Eclipse]: http://go.azure.microsoft.com/.com/fwlink/?LinkID=699529
+[Création d'une application Hello World pour Azure dans Eclipse]: http://go.azure.microsoft.com/.com/fwlink/?LinkID=699533
+[Installation du kit de ressources Azure pour Eclipse]: http://go.azure.microsoft.com/.com/fwlink/?LinkId=699546
 
 <!-- IMG List -->
 

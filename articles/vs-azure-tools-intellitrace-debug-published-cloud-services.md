@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Débogage d’un service cloud publié avec IntelliTrace et Visual Studio | Microsoft Azure"
+   pageTitle="Débogage d’un service cloud publié avec IntelliTrace et Visual Studio | azure.microsoft.com/ Azure"
    description="Débogage d’un service cloud publié avec IntelliTrace et Visual Studio"
    services="visual-studio-online"
    documentationCenter="n/a"
@@ -19,7 +19,7 @@
 
 ##Vue d'ensemble
 
-Avec IntelliTrace, vous pouvez enregistrer des informations de débogage détaillées pour une instance de rôle exécutée dans Azure. Si vous devez identifier la cause d’un problème, utilisez les journaux IntelliTrace pour exécuter pas à pas votre code à partir de Visual Studio comme s’il était exécuté dans Azure. En effet, IntelliTrace enregistre les principales données sur l’exécution du code et sur l’environnement quand votre application Azure est exécutée en tant que service cloud dans Azure. IntelliTrace vous permet d’examiner les données enregistrées à partir de Visual Studio. Vous pouvez également utiliser le débogage distant pour l’attachement direct à un service cloud exécuté dans Azure. Consultez [Débogage de Cloud Services](http://go.microsoft.com/fwlink/p/?LinkId=623041).
+Avec IntelliTrace, vous pouvez enregistrer des informations de débogage détaillées pour une instance de rôle exécutée dans Azure. Si vous devez identifier la cause d’un problème, utilisez les journaux IntelliTrace pour exécuter pas à pas votre code à partir de Visual Studio comme s’il était exécuté dans Azure. En effet, IntelliTrace enregistre les principales données sur l’exécution du code et sur l’environnement quand votre application Azure est exécutée en tant que service cloud dans Azure. IntelliTrace vous permet d’examiner les données enregistrées à partir de Visual Studio. Vous pouvez également utiliser le débogage distant pour l’attachement direct à un service cloud exécuté dans Azure. Consultez [Débogage de Cloud Services](http://go.azure.microsoft.com/.com/fwlink/p/?LinkId=623041).
 
 >[AZURE.IMPORTANT] IntelliTrace est conçu uniquement pour des scénarios de débogage et ne doit pas être utilisé dans le cadre d’un déploiement de production.
 
@@ -27,7 +27,7 @@ Avec IntelliTrace, vous pouvez enregistrer des informations de débogage détail
 
 ## Pour configurer une application Azure pour IntelliTrace
 
-Pour activer IntelliTrace pour une application Azure, vous devez créer et publier l’application à partir d’un projet Azure Visual Studio. Configurez IntelliTrace pour votre application Azure avant de la publier dans Azure. Si vous publiez votre application sans configurer IntelliTrace, mais que vous décidez ensuite de le faire, vous devrez republier l’application à partir de Visual Studio. Pour plus d’informations, consultez [Publication d’un service cloud à l’aide d’Azure Tools](http://go.microsoft.com/fwlink/p/?LinkId=623012).
+Pour activer IntelliTrace pour une application Azure, vous devez créer et publier l’application à partir d’un projet Azure Visual Studio. Configurez IntelliTrace pour votre application Azure avant de la publier dans Azure. Si vous publiez votre application sans configurer IntelliTrace, mais que vous décidez ensuite de le faire, vous devrez republier l’application à partir de Visual Studio. Pour plus d’informations, consultez [Publication d’un service cloud à l’aide d’Azure Tools](http://go.azure.microsoft.com/.com/fwlink/p/?LinkId=623012).
 
 1. Quand vous êtes prêt à déployer votre application Azure, vérifiez que les cibles de publication de votre projet sont définies sur **Debug**.
 
@@ -41,7 +41,7 @@ Pour activer IntelliTrace pour une application Azure, vous devez créer et publi
 
 1. Pour personnaliser la configuration IntelliTrace initiale, choisissez le lien hypertexte **Paramètres**.
 
-    La boîte de dialogue Paramètres IntelliTrace s’affiche (voir l’illustration suivante). Vous pouvez spécifier les événements à enregistrer dans le journal, si les informations d’appel doivent être collectées ou non, pour quels modules et processus collecter les journaux, et la quantité d’espace à allouer à l’enregistrement. Pour plus d’informations sur IntelliTrace, consultez [Débogage avec IntelliTrace](http://go.microsoft.com/fwlink/?LinkId=214468).
+    La boîte de dialogue Paramètres IntelliTrace s’affiche (voir l’illustration suivante). Vous pouvez spécifier les événements à enregistrer dans le journal, si les informations d’appel doivent être collectées ou non, pour quels modules et processus collecter les journaux, et la quantité d’espace à allouer à l’enregistrement. Pour plus d’informations sur IntelliTrace, consultez [Débogage avec IntelliTrace](http://go.azure.microsoft.com/.com/fwlink/?LinkId=214468).
 
     ![VST\_IntelliTraceSettings](./media/vs-azure-tools-intellitrace-debug-published-cloud-services/IC519063.png)
 
@@ -65,6 +65,6 @@ Vous pouvez continuer à utiliser Visual Studio pendant le téléchargement des 
 
 ## Voir aussi
 
-[Débogage de Cloud Services](https://msdn.microsoft.com/library/ee405479.aspx)
+[Débogage de Cloud Services](https://msdn.azure.microsoft.com/.com/library/ee405479.aspx)
 
 <!---HONumber=AcomDC_0817_2016-->

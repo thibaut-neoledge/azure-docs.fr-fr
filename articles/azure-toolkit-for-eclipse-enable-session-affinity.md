@@ -16,7 +16,7 @@
     ms.date="08/11/2016" 
     ms.author="robmcm"/>
 
-<!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690950.aspx -->
+<!-- Legacy MSDN URL = https://msdn.azure.microsoft.com/.com/library/azure/hh690950.aspx -->
 
 # Activer l'affinité de session #
 
@@ -27,7 +27,7 @@ Dans le Kit de ressources Azure pour Eclipse, vous pouvez activer l'affinité 
 ## Pour activer l'affinité de session pour votre rôle ##
 
 1. Cliquez avec le bouton droit sur le rôle dans l'Explorateur de projet Eclipse, cliquez sur **Azure**, puis sur **Équilibrage de charge**.
-1. Dans la boîte de dialogue **Propriétés d'équilibrage de charge pour WorkerRole1** :
+1. Dans la boîte de dialogue **Propriétés d'équilibrage de charge pour WorkerRole1** :
     1. Cochez **Activer l'affinité de session HTTP (sessions temporaires) pour ce rôle.**
     1. Pour le **point de terminaison d'entrée à utiliser**, sélectionnez un point de terminaison d'entrée à utiliser, par exemple, **http (public:80, private:8080)**. Votre application doit utiliser ce point de terminaison en tant que point de terminaison HTTP. Vous pouvez activer plusieurs points de terminaison pour votre rôle, mais vous ne pouvez en sélectionner qu'un seul pour prendre en charge des sessions temporaires.
     1. Régénérez votre application.
@@ -59,11 +59,11 @@ Pour plus d'informations sur l'utilisation d'Azure avec Java, consultez le [Cent
 
 <!-- URL List -->
 
-[Centre de développement Java]: http://go.microsoft.com/fwlink/?LinkID=699547
-[Kit de ressources Azure pour Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
-[Création d’une application « Hello World » pour Azure dans Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
-[Comment gérer les données de session avec l'affinité de session]: http://go.microsoft.com/fwlink/?LinkID=699539
-[Installation du kit de ressources Azure pour Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
+[Centre de développement Java]: http://go.azure.microsoft.com/.com/fwlink/?LinkID=699547
+[Kit de ressources Azure pour Eclipse]: http://go.azure.microsoft.com/.com/fwlink/?LinkID=699529
+[Création d’une application « Hello World » pour Azure dans Eclipse]: http://go.azure.microsoft.com/.com/fwlink/?LinkID=699533
+[Comment gérer les données de session avec l'affinité de session]: http://go.azure.microsoft.com/.com/fwlink/?LinkID=699539
+[Installation du kit de ressources Azure pour Eclipse]: http://go.azure.microsoft.com/.com/fwlink/?LinkId=699546
 
 <!-- IMG List -->
 

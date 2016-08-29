@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Charger un disque dur virtuel (VHD) Windows pour Resource Manager | Microsoft Azure"
+	pageTitle="Charger un disque dur virtuel (VHD) Windows pour Resource Manager | azure.microsoft.com/ Azure"
 	description="Apprenez à télécharger une image de machine virtuelle Windows pour l’utiliser avec le modèle de déploiement Resource Manager."
 	services="virtual-machines-windows"
 	documentationCenter=""
@@ -31,9 +31,9 @@ Cet article suppose que vous avez :
 
 - **Azure PowerShell version 1.4 ou ultérieure** : si vous ne l’avez pas déjà installé, consultez [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md).
 
-- **Une machine virtuelle Windows** : il existe de nombreux outils pour créer des machines virtuelles en local. Pour obtenir des exemples, consultez [Installation du rôle Hyper-V et configuration d’une machine virtuelle](http://technet.microsoft.com/library/hh846766.aspx). Pour plus d’informations sur les systèmes d’exploitation Windows pris en charge sur Azure, consultez [Prise en charge du logiciel serveur Microsoft pour les machines virtuelles Microsoft Azure](https://support.microsoft.com/kb/2721672).
+- **Une machine virtuelle Windows** : il existe de nombreux outils pour créer des machines virtuelles en local. Pour obtenir des exemples, consultez [Installation du rôle Hyper-V et configuration d’une machine virtuelle](http://technet.azure.microsoft.com/.com/library/hh846766.aspx). Pour plus d’informations sur les systèmes d’exploitation Windows pris en charge sur Azure, consultez [Prise en charge du logiciel serveur azure.microsoft.com/ pour les machines virtuelles azure.microsoft.com/ Azure](https://support.azure.microsoft.com/.com/kb/2721672).
 
-- Vérifiez que les rôles serveur en cours d’exécution sur la machine virtuelle prennent en charge sysprep. Pour plus d’informations, consultez [Prise en charge de Sysprep pour les rôles serveur](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles).
+- Vérifiez que les rôles serveur en cours d’exécution sur la machine virtuelle prennent en charge sysprep. Pour plus d’informations, consultez [Prise en charge de Sysprep pour les rôles serveur](https://msdn.azure.microsoft.com/.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles).
 
 
 ## Vérifiez que la machine virtuelle utilise le bon format de fichier
@@ -44,14 +44,14 @@ Dans Azure, vous pouvez uniquement utiliser des [machines virtuelles de généra
 
 	- Hyper-V : ouvrez Hyper-V et sélectionnez votre ordinateur local sur la gauche. Puis, dans le menu du haut, cliquez sur **Action** > **Modifier le disque**. Parcourez les écrans en cliquant sur **Suivant** et en entrant ces options : *Chemin de votre fichier VHDX* > **Convertir** > **VHD** > **Taille fixe** > *Chemin du nouveau fichier VHD*. Cliquez sur **Terminer** pour fermer la fenêtre.
 
-	- [Applet de commande PowerShell convert-VHD](http://technet.microsoft.com/library/hh848454.aspx) : consultez le billet de blog [Conversion des formats de fichiers Hyper-V .vhdx en .vhd](https://blogs.technet.microsoft.com/cbernier/2013/08/29/converting-hyper-v-vhdx-to-vhd-file-formats-for-use-in-windows-azure/) pour plus d’informations.
+	- [Applet de commande PowerShell convert-VHD](http://technet.azure.microsoft.com/.com/library/hh848454.aspx) : consultez le billet de blog [Conversion des formats de fichiers Hyper-V .vhdx en .vhd](https://blogs.technet.azure.microsoft.com/.com/cbernier/2013/08/29/converting-hyper-v-vhdx-to-vhd-file-formats-for-use-in-windows-azure/) pour plus d’informations.
 
-- Si vous disposez d’une image de machine virtuelle Windows au [format de fichier VMDK](https://en.wikipedia.org/wiki/VMDK), convertissez-la au format VHD à l’aide de [Microsoft Virtual Machine Converter](https://www.microsoft.com/download/details.aspx?id=42497). Consultez le blog [How to Convert a VMWare VMDK to Hyper-V VHD](http://blogs.msdn.com/b/timomta/archive/2015/06/11/how-to-convert-a-vmware-vmdk-to-hyper-v-vhd.aspx) (en anglais) pour plus d’informations.
+- Si vous disposez d’une image de machine virtuelle Windows au [format de fichier VMDK](https://en.wikipedia.org/wiki/VMDK), convertissez-la au format VHD à l’aide de [azure.microsoft.com/ Virtual Machine Converter](https://www.azure.microsoft.com/.com/download/details.aspx?id=42497). Consultez le blog [How to Convert a VMWare VMDK to Hyper-V VHD](http://blogs.msdn.com/b/timomta/archive/2015/06/11/how-to-convert-a-vmware-vmdk-to-hyper-v-vhd.aspx) (en anglais) pour plus d’informations.
 
 
 ## Préparer le disque dur virtuel au chargement
 
-Cette section vous montre comment généraliser votre machine virtuelle Windows. Sysprep supprime toutes les informations personnelles de votre compte, entre autres. Pour plus d’informations sur Sysprep, voir [Introduction à l’utilisation de Sysprep](http://technet.microsoft.com/library/bb457073.aspx).
+Cette section vous montre comment généraliser votre machine virtuelle Windows. Sysprep supprime toutes les informations personnelles de votre compte, entre autres. Pour plus d’informations sur Sysprep, voir [Introduction à l’utilisation de Sysprep](http://technet.azure.microsoft.com/.com/library/bb457073.aspx).
 
 1. Connectez-vous à la machine virtuelle Windows
 
@@ -107,7 +107,7 @@ Si vous voulez créer un compte de stockage, procédez comme suit :
 
 		New-AzureRmResourceGroup -Name <resourceGroupName> -Location <location>
 
-3. Créez un compte de stockage dans ce groupe de ressources en utilisant l’applet de commande [New-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607148.aspx) :
+3. Créez un compte de stockage dans ce groupe de ressources en utilisant l’applet de commande [New-AzureRmStorageAccount](https://msdn.azure.microsoft.com/.com/library/mt607148.aspx) :
 
 		New-AzureRmStorageAccount -ResourceGroupName <resourceGroupName> -Name <storageAccountName> -Location "<location>" -SkuName "<skuName>" -Kind "Storage"
 			
@@ -123,7 +123,7 @@ Les valeurs valides pour -SkuName sont :
 
 ## Charger l’image de la machine virtuelle dans votre compte de stockage
 
-Utilisez l’applet de commande [Add-AzureRmVhd](https://msdn.microsoft.com/library/mt603554.aspx) pour charger l’image vers un conteneur de votre compte de stockage :
+Utilisez l’applet de commande [Add-AzureRmVhd](https://msdn.azure.microsoft.com/.com/library/mt603554.aspx) pour charger l’image vers un conteneur de votre compte de stockage :
 
 		$rgName = "<resourceGroupName>"
 		$urlOfUploadedImageVhd = "<storageAccount>/<blobContainer>/<targetVHDName>.vhd"
@@ -211,7 +211,7 @@ Le script PowerShell suivant montre comment définir les configurations de machi
 	# Name of the virtual machine
 	$vmName = "<vmName>"
 	
-	# Size of the virtual machine. See the VM sizes documentation for more information: https://azure.microsoft.com/documentation/articles/virtual-machines-windows-sizes/
+	# Size of the virtual machine. See the VM sizes documentation for more information: https://azure.azure.microsoft.com/.com/documentation/articles/virtual-machines-windows-sizes/
 	$vmSize = "<vmSize>"
 	
 	# Computer name for the VM

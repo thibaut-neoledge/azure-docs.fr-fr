@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Gestion des jeux d’enregistrements DNS et des enregistrements dans Azure DNS à l’aide de l’interface de ligne de commande Azure | Microsoft Azure"
+   pageTitle="Gestion des jeux d’enregistrements DNS et des enregistrements dans Azure DNS à l’aide de l’interface de ligne de commande Azure | azure.microsoft.com/ Azure"
    description="Gestion des jeux d'enregistrements DNS et des enregistrements dans Azure DNS lorsque votre domaine est hébergé dans Azure DNS. Toutes les commandes d’interface de ligne de commande pour les opérations sur les jeux d'enregistrements et les enregistrements."
    services="dns"
    documentationCenter="na"
@@ -95,9 +95,9 @@ Les exemples suivants montrent comment créer un jeu d’enregistrements de chaq
 	+ Looking up the dns zone "contoso.com"
 	+ Looking up the DNS record set "www"
 	+ Updating DNS record set "www"
-	data:    Id                              : /subscriptions/################################/resourceGroups/myresourcegroup/providers/Microsoft.Network/dnszones/contoso.com/a/www
+	data:    Id                              : /subscriptions/################################/resourceGroups/myresourcegroup/providers/azure.microsoft.com/.Network/dnszones/contoso.com/a/www
 	data:    Name                            : www
-	data:    Type                            : Microsoft.Network/dnszones/a
+	data:    Type                            : azure.microsoft.com/.Network/dnszones/a
 	data:    Location                        : global
 	data:    TTL                             : 4
 	data:    A records:
@@ -114,9 +114,9 @@ Les exemples suivants montrent comment créer un jeu d’enregistrements de chaq
 	+ Looking up the DNS record set "www"
 	Delete DNS record? [y/n] y
 	+ Updating DNS record set "www"
-	data:    Id                              : /subscriptions/################################/resourceGroups/myresourcegroup/providers/Microsoft.Network/dnszones/contoso.com/A/www
+	data:    Id                              : /subscriptions/################################/resourceGroups/myresourcegroup/providers/azure.microsoft.com/.Network/dnszones/contoso.com/A/www
 	data:    Name                            : www
-	data:    Type                            : Microsoft.Network/dnszones/A
+	data:    Type                            : azure.microsoft.com/.Network/dnszones/A
 	data:    Location                        : global
 	data:    TTL                             : 4
 	data:    A records:

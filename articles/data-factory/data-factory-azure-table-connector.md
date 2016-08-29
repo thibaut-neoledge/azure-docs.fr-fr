@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Déplacer des données vers/depuis Azure Table | Microsoft Azure" 
+	pageTitle="Déplacer des données vers/depuis Azure Table | azure.microsoft.com/ Azure" 
 	description="Découvrez comment déplacer des données depuis et vers le stockage Azure Table à l’aide d’Azure Data Factory." 
 	services="data-factory" 
 	documentationCenter="" 
@@ -23,7 +23,7 @@ Cet article décrit comment vous pouvez utiliser l’activité de copie dans une
 ## Assistant Copier des données
 Le moyen le plus simple de créer un pipeline qui copie les données vers/depuis Azure Table Storage consiste à utiliser l’Assistant Copier des données. Consultez la page [Didacticiel : Créer un pipeline avec l’activité de copie à l’aide de l’Assistant Data Factory Copy](data-factory-copy-data-wizard-tutorial.md) pour une procédure pas à pas rapide sur la création d’un pipeline à l’aide de l’Assistant Copier des données.
 
-Les exemples suivants présentent des exemples de définitions de JSON que vous pouvez utiliser pour créer un pipeline à l’aide [du Portail Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), [de Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou [d’Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Ils indiquent comment copier des données vers et depuis Azure Table Storage et une base de données Azure d’objets Blob. Toutefois, les données peuvent être copiées **directement** vers l’un des récepteurs indiqués [ici](data-factory-data-movement-activities.md#supported-data-stores), via l’activité de copie de Microsoft Azure Data Factory.
+Les exemples suivants présentent des exemples de définitions de JSON que vous pouvez utiliser pour créer un pipeline à l’aide [du Portail Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), [de Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou [d’Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Ils indiquent comment copier des données vers et depuis Azure Table Storage et une base de données Azure d’objets Blob. Toutefois, les données peuvent être copiées **directement** vers l’un des récepteurs indiqués [ici](data-factory-data-movement-activities.md#supported-data-stores), via l’activité de copie de azure.microsoft.com/ Azure Data Factory.
 
 ## Exemple : copie de données à partir de Table Azure vers un objet Blob Azure
 
@@ -404,7 +404,7 @@ Propriété | Description | Valeurs autorisées | Requis
 azureTableDefaultPartitionKeyValue | Valeur de clé de partition par défaut qui peut être utilisée par le récepteur. | Valeur de chaîne. | Non 
 azureTablePartitionKeyName | Nom de colonne spécifié par l'utilisateur, dont les valeurs de colonne sont utilisées comme clé de partition. Si aucune valeur n'est spécifiée, AzureTableDefaultPartitionKeyValue est utilisée comme clé de partition. | Nom de colonne. | Non |
 azureTableRowKeyName | Nom de colonne spécifié par l'utilisateur, dont les valeurs de colonne sont utilisées comme clé de ligne. Si aucune valeur n'est spécifiée, un GUID est utilisé pour chaque ligne. | Nom de colonne. | Non  
-azureTableInsertType | Le mode d’insertion des données dans une table Azure.<br/><br/>Cette propriété détermine le remplacement ou la fusion des valeurs des lignes existantes dans la table de sortie avec des clés de partition et de ligne correspondantes. <br/><br/>Consultez [Insertion ou fusion d’entité](https://msdn.microsoft.com/library/azure/hh452241.aspx) et [Insertion ou remplacement d’entité](https://msdn.microsoft.com/library/azure/hh452242.aspx) pour en savoir plus sur le fonctionnement de ces paramètres (fusion et remplacement). <br/><br> Notez que ce paramètre s’applique au niveau de la ligne, non au niveau de la table, et qu’aucune option ne supprimera des lignes de la table de sortie qui n’existent pas dans l’entrée. | fusionner (par défaut)<br/>remplacer | Non 
+azureTableInsertType | Le mode d’insertion des données dans une table Azure.<br/><br/>Cette propriété détermine le remplacement ou la fusion des valeurs des lignes existantes dans la table de sortie avec des clés de partition et de ligne correspondantes. <br/><br/>Consultez [Insertion ou fusion d’entité](https://msdn.azure.microsoft.com/.com/library/azure/hh452241.aspx) et [Insertion ou remplacement d’entité](https://msdn.azure.microsoft.com/.com/library/azure/hh452242.aspx) pour en savoir plus sur le fonctionnement de ces paramètres (fusion et remplacement). <br/><br> Notez que ce paramètre s’applique au niveau de la ligne, non au niveau de la table, et qu’aucune option ne supprimera des lignes de la table de sortie qui n’existent pas dans l’entrée. | fusionner (par défaut)<br/>remplacer | Non 
 writeBatchSize | Insère des données dans la table Azure lorsque la valeur de writeBatchSize ou writeBatchTimeout est atteinte. | Nombre entier (nombre de lignes)| Non (valeur par défaut : 10000) 
 writeBatchTimeout | Insère des données dans la table Azure lorsque la valeur de writeBatchSize ou writeBatchTimeout est atteinte | intervalle de temps<br/><br/>Exemple : « 00: 20:00 » (20 minutes) | Non (Valeur par défaut du délai d'attente du stockage client par défaut : 90 secondes)
 
@@ -437,7 +437,7 @@ Comme mentionné dans l’article consacré aux [activités de déplacement des 
 1. Conversion à partir de types de source natifs en types .NET
 2. Conversion à partir du type .NET en type de récepteur natif
 
-Pendant le déplacement de données à partir de et vers Table Azure, les [mappages suivants définis par le service de Table Azure](https://msdn.microsoft.com/library/azure/dd179338.aspx) sont utilisés à partir des types OData Table Azure vers le type .NET et vice versa.
+Pendant le déplacement de données à partir de et vers Table Azure, les [mappages suivants définis par le service de Table Azure](https://msdn.azure.microsoft.com/.com/library/azure/dd179338.aspx) sont utilisés à partir des types OData Table Azure vers le type .NET et vice versa.
 
 | Type de données OData | Type .NET | Détails |
 | --------------- | --------- | ------- |

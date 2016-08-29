@@ -1,6 +1,6 @@
 
 <properties 
-    pageTitle="Comment Azure RemoteApp enregistre-t-il les paramètres et les données utilisateur ? | Microsoft Azure"
+    pageTitle="Comment Azure RemoteApp enregistre-t-il les paramètres et les données utilisateur ? | azure.microsoft.com/ Azure"
 	description="Découvrez comment Azure RemoteApp enregistre les données utilisateur à l'aide du disque de profil utilisateur."
 	services="remoteapp"
 	documentationCenter="" 
@@ -19,7 +19,7 @@
 # Comment Azure RemoteApp enregistre-t-il les paramètres et les données utilisateur ?
 
 > [AZURE.IMPORTANT]
-Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148).
+Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.azure.microsoft.com/.com/fwlink/?linkid=821148).
 
 Azure RemoteApp enregistre l'identité de l'utilisateur et les personnalisations entre les périphériques et les sessions. Ces données utilisateur sont stockées dans un disque par utilisateur et par collection, appelé disque de profil utilisateur (UPD). Le disque suit l'utilisateur et s’assure que l'utilisateur bénéficie d’une expérience cohérente, quel que soit l’endroit où il se connecte.
 
@@ -29,7 +29,7 @@ Chaque UPD offre 50 Go de stockage persistant et contient à la fois les paramè
 
 Continuez votre lecture pour obtenir des détails spécifiques sur les données de profil utilisateur.
 
->[AZURE.NOTE] Vous avez besoin de désactiver le disque de profil utilisateur ? À présent, vous pouvez le faire. Consultez le billet de blog de Pavithra, [Désactiver les disques de profil utilisateur (UPD) dans Azure RemoteApp](https://blogs.technet.microsoft.com/enterprisemobility/2015/11/11/disable-user-profile-disks-upds-in-azure-remoteapp/), pour plus d’informations.
+>[AZURE.NOTE] Vous avez besoin de désactiver le disque de profil utilisateur ? À présent, vous pouvez le faire. Consultez le billet de blog de Pavithra, [Désactiver les disques de profil utilisateur (UPD) dans Azure RemoteApp](https://blogs.technet.azure.microsoft.com/.com/enterprisemobility/2015/11/11/disable-user-profile-disks-upds-in-azure-remoteapp/), pour plus d’informations.
 
 
 ## Comment un administrateur peut-il accéder aux données ?
@@ -67,7 +67,7 @@ Si vous devez supprimer un UPD d'une collection, contactez Azure RemoteApp - nou
 
 ## Puis-je accéder aux UPD de mes utilisateurs (utilisateurs actuels ou supprimés) ?
 
-Oui, si vous contactez [Azure RemoteApp](mailto:remoteappforum@microsoft.com), nous pouvons vous fournir une URL pour accéder aux données. Vous disposez environ de 10 heures pour télécharger les données ou les fichiers de l’UPD avant expiration de l'accès.
+Oui, si vous contactez [Azure RemoteApp](mailto:remoteappforum@azure.microsoft.com/.com), nous pouvons vous fournir une URL pour accéder aux données. Vous disposez environ de 10 heures pour télécharger les données ou les fichiers de l’UPD avant expiration de l'accès.
 
 ## Les UPD sont-ils disponibles hors connexion ?
 
@@ -86,7 +86,7 @@ Vous souhaiterez peut-être désactiver les UPD dans les situations suivantes :
 - Vous possédez des solutions tierces de gestion des profils utilisateur en local, et souhaitez continuer à les utiliser dans votre déploiement Azure RemoteApp joint à un domaine. Cela nécessiterait le chargement de l’agent de profil dans l’image Gold.
 - Vous n’avez pas besoin de stockage de données local, toutes vos données sont dans le cloud ou dans un partage de fichiers, et vous aimeriez contrôler l’enregistrement des données en local à l’aide d’Azure RemoteApp.
 
-Consultez [Désactiver les disques de profil utilisateur (UPD) dans Azure RemoteApp](https://blogs.technet.microsoft.com/enterprisemobility/2015/11/11/disable-user-profile-disks-upds-in-azure-remoteapp/) pour plus d’informations.
+Consultez [Désactiver les disques de profil utilisateur (UPD) dans Azure RemoteApp](https://blogs.technet.azure.microsoft.com/.com/enterprisemobility/2015/11/11/disable-user-profile-disks-upds-in-azure-remoteapp/) pour plus d’informations.
 
 ## Puis-je empêcher les utilisateurs d’enregistrer des données sur le lecteur système ?
 
@@ -128,11 +128,11 @@ La tâche planifiée lancera le script de démarrage à l'aide des informations 
 
 ![Définition du déclencheur pour la tâche sur « à l’ouverture de la session »](./media/remoteapp-upd/upd3.png)
 
-Vous pouvez également utiliser [des scripts de démarrage basés sur une stratégie de groupe](https://technet.microsoft.com/library/cc779329%28v=ws.10%29.aspx).
+Vous pouvez également utiliser [des scripts de démarrage basés sur une stratégie de groupe](https://technet.azure.microsoft.com/.com/library/cc779329%28v=ws.10%29.aspx).
 
 ## Qu’en est-il du placement d’un script de démarrage dans le menu Démarrer ? Cette méthode fonctionne-t-elle ?
 
-En d'autres termes, puis-je créer un fichier .bat qui exécute un script de fenêtre de configuration et l’enregistre dans le dossier c:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\StartUp, puis exécuter ce script chaque fois qu'un utilisateur démarre une session RemoteApp ?
+En d'autres termes, puis-je créer un fichier .bat qui exécute un script de fenêtre de configuration et l’enregistre dans le dossier c:\\ProgramData\\azure.microsoft.com/\\Windows\\Start Menu\\Programs\\StartUp, puis exécuter ce script chaque fois qu'un utilisateur démarre une session RemoteApp ?
 
 Non, cette opération n'est pas prise en charge dans Azure RemoteApp, qui utilise RDSH, qui ne prend pas en charge non plus les scripts de démarrage dans le menu Démarrer.
 

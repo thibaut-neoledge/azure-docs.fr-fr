@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Glossaire d’Azure Active Directory Identity Protection | Microsoft Azure"
+	pageTitle="Glossaire d’Azure Active Directory Identity Protection | azure.microsoft.com/ Azure"
 	description="Glossaire d’Azure Active Directory Identity Protection"
 	services="active-directory"
 	keywords="azure active directory identity protection, cloud app discovery, gestion d’applications, sécurité, risque, niveau de risque, vulnérabilité, stratégie de sécurité, glossaire"

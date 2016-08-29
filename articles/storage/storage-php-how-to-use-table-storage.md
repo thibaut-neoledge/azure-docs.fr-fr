@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Utilisation du stockage de tables à partir de PHP | Microsoft Azure"
+	pageTitle="Utilisation du stockage de tables à partir de PHP | azure.microsoft.com/ Azure"
 	description="Découvrez comment utiliser le service de Table de PHP pour créer, supprimer, insérer et interroger une table."
 	services="storage"
 	documentationCenter="php"
@@ -92,7 +92,7 @@ Vous pouvez créer une table avec un objet **TableRestProxy** via la méthode **
 	require_once 'vendor\autoload.php';
 
 	use WindowsAzure\Common\ServicesBuilder;
-	use MicrosoftAzure\Storage\Common\ServiceException;
+	use azure.microsoft.com/Azure\Storage\Common\ServiceException;
 
 	// Create table REST proxy.
 	$tableRestProxy = ServicesBuilder::getInstance()->createTableService($connectionString);
@@ -106,7 +106,7 @@ Vous pouvez créer une table avec un objet **TableRestProxy** via la méthode **
 		$error_message = $e->getMessage();
 		// Handle exception based on error codes and messages.
 		// Error codes and messages can be found here:
-		// http://msdn.microsoft.com/library/azure/dd179438.aspx
+		// http://msdn.azure.microsoft.com/.com/library/azure/dd179438.aspx
 	}
 
 Pour plus d’informations sur les restrictions au niveau des noms de table, consultez [Understanding the Table Service Data Model (Présentation du modèle de données du service de Table)][table-data-model].
@@ -118,9 +118,9 @@ Pour ajouter une entité à une table, créez un objet **Entity** et transmettez
 	require_once 'vendor/autoload.php';
 
 	use WindowsAzure\Common\ServicesBuilder;
-	use MicrosoftAzure\Storage\Common\ServiceException;
-	use MicrosoftAzure\Storage\Table\Models\Entity;
-	use MicrosoftAzure\Storage\Table\Models\EdmType;
+	use azure.microsoft.com/Azure\Storage\Common\ServiceException;
+	use azure.microsoft.com/Azure\Storage\Table\Models\Entity;
+	use azure.microsoft.com/Azure\Storage\Table\Models\EdmType;
 
 	// Create table REST proxy.
 	$tableRestProxy = ServicesBuilder::getInstance()->createTableService($connectionString);
@@ -140,7 +140,7 @@ Pour ajouter une entité à une table, créez un objet **Entity** et transmettez
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here:
-		// http://msdn.microsoft.com/library/azure/dd179438.aspx
+		// http://msdn.azure.microsoft.com/.com/library/azure/dd179438.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 	}
@@ -152,9 +152,9 @@ La classe **TableRestProxy** offre deux autres méthodes pour insérer des entit
 	require_once 'vendor/autoload.php';
 
 	use WindowsAzure\Common\ServicesBuilder;
-	use MicrosoftAzure\Storage\Common\ServiceException;
-	use MicrosoftAzure\Storage\Table\Models\Entity;
-	use MicrosoftAzure\Storage\Table\Models\EdmType;
+	use azure.microsoft.com/Azure\Storage\Common\ServiceException;
+	use azure.microsoft.com/Azure\Storage\Table\Models\Entity;
+	use azure.microsoft.com/Azure\Storage\Table\Models\EdmType;
 
 	// Create table REST proxy.
 	$tableRestProxy = ServicesBuilder::getInstance()->createTableService($connectionString);
@@ -181,7 +181,7 @@ La classe **TableRestProxy** offre deux autres méthodes pour insérer des entit
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here:
-		// http://msdn.microsoft.com/library/azure/dd179438.aspx
+		// http://msdn.azure.microsoft.com/.com/library/azure/dd179438.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -195,7 +195,7 @@ La méthode **TableRestProxy->getEntity** vous permet de récupérer une seule e
 	require_once 'vendor/autoload.php';
 
 	use WindowsAzure\Common\ServicesBuilder;
-	use MicrosoftAzure\Storage\Common\ServiceException;
+	use azure.microsoft.com/Azure\Storage\Common\ServiceException;
 
 	// Create table REST proxy.
 	$tableRestProxy = ServicesBuilder::getInstance()->createTableService($connectionString);
@@ -206,7 +206,7 @@ La méthode **TableRestProxy->getEntity** vous permet de récupérer une seule e
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here:
-		// http://msdn.microsoft.com/library/azure/dd179438.aspx
+		// http://msdn.azure.microsoft.com/.com/library/azure/dd179438.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -218,12 +218,12 @@ La méthode **TableRestProxy->getEntity** vous permet de récupérer une seule e
 
 ## Extraction de toutes les entités d'une partition
 
-Les requêtes d'entité sont construites à l'aide de filtres (pour plus d'informations, consultez la page [Interrogation de tables et d'entités][filters]). Pour extraire toutes les entités d'une partition, utilisez le filtre « PartitionKey eq *nom\_partition* ». L’exemple suivant montre comment récupérer toutes les entités de la partition `tasksSeattle` en passant un filtre à la méthode **queryEntities**.
+Les requêtes d'entité sont construites à l'aide de filtres (pour plus d'informations, consultez la page [Interrogation de tables et d'entités][filters]). Pour extraire toutes les entités d'une partition, utilisez le filtre « PartitionKey eq *nom\_partition* ». L’exemple suivant montre comment récupérer toutes les entités de la partition `tasksSeattle` en passant un filtre à la méthode **queryEntities**.
 
 	require_once 'vendor/autoload.php';
 
 	use WindowsAzure\Common\ServicesBuilder;
-	use MicrosoftAzure\Storage\Common\ServiceException;
+	use azure.microsoft.com/Azure\Storage\Common\ServiceException;
 
 	// Create table REST proxy.
 	$tableRestProxy = ServicesBuilder::getInstance()->createTableService($connectionString);
@@ -236,7 +236,7 @@ Les requêtes d'entité sont construites à l'aide de filtres (pour plus d'infor
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here:
-		// http://msdn.microsoft.com/library/azure/dd179438.aspx
+		// http://msdn.azure.microsoft.com/.com/library/azure/dd179438.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -255,7 +255,7 @@ Pour extraire un sous-ensemble d'entités dans une partition, il est possible d'
 	require_once 'vendor/autoload.php';
 
 	use WindowsAzure\Common\ServicesBuilder;
-	use MicrosoftAzure\Storage\Common\ServiceException;
+	use azure.microsoft.com/Azure\Storage\Common\ServiceException;
 
 	// Create table REST proxy.
 	$tableRestProxy = ServicesBuilder::getInstance()->createTableService($connectionString);
@@ -268,7 +268,7 @@ Pour extraire un sous-ensemble d'entités dans une partition, il est possible d'
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here:
-		// http://msdn.microsoft.com/library/azure/dd179438.aspx
+		// http://msdn.azure.microsoft.com/.com/library/azure/dd179438.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -287,8 +287,8 @@ Une requête peut extraire un sous-ensemble de propriétés d'entité. Cette tec
 	require_once 'vendor/autoload.php';
 
 	use WindowsAzure\Common\ServicesBuilder;
-	use MicrosoftAzure\Storage\Common\ServiceException;
-	use MicrosoftAzure\Storage\Table\Models\QueryEntitiesOptions;
+	use azure.microsoft.com/Azure\Storage\Common\ServiceException;
+	use azure.microsoft.com/Azure\Storage\Table\Models\QueryEntitiesOptions;
 
 	// Create table REST proxy.
 	$tableRestProxy = ServicesBuilder::getInstance()->createTableService($connectionString);
@@ -302,7 +302,7 @@ Une requête peut extraire un sous-ensemble de propriétés d'entité. Cette tec
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here:
-		// http://msdn.microsoft.com/library/azure/dd179438.aspx
+		// http://msdn.azure.microsoft.com/.com/library/azure/dd179438.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -325,9 +325,9 @@ Une entité existante peut être mise à jour en lui appliquant les méthodes **
 	require_once 'vendor/autoload.php';
 
 	use WindowsAzure\Common\ServicesBuilder;
-	use MicrosoftAzure\Storage\Common\ServiceException;
-	use MicrosoftAzure\Storage\Table\Models\Entity;
-	use MicrosoftAzure\Storage\Table\Models\EdmType;
+	use azure.microsoft.com/Azure\Storage\Common\ServiceException;
+	use azure.microsoft.com/Azure\Storage\Table\Models\Entity;
+	use azure.microsoft.com/Azure\Storage\Table\Models\EdmType;
 
 	// Create table REST proxy.
 	$tableRestProxy = ServicesBuilder::getInstance()->createTableService($connectionString);
@@ -348,7 +348,7 @@ Une entité existante peut être mise à jour en lui appliquant les méthodes **
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here:
-		// http://msdn.microsoft.com/library/azure/dd179438.aspx
+		// http://msdn.azure.microsoft.com/.com/library/azure/dd179438.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -361,7 +361,7 @@ Pour supprimer une entité, passez le nom de la table ainsi que les clés `Parti
 	require_once 'vendor/autoload.php';
 
 	use WindowsAzure\Common\ServicesBuilder;
-	use MicrosoftAzure\Storage\Common\ServiceException;
+	use azure.microsoft.com/Azure\Storage\Common\ServiceException;
 
 	// Create table REST proxy.
 	$tableRestProxy = ServicesBuilder::getInstance()->createTableService($connectionString);
@@ -373,7 +373,7 @@ Pour supprimer une entité, passez le nom de la table ainsi que les clés `Parti
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here:
-		// http://msdn.microsoft.com/library/azure/dd179438.aspx
+		// http://msdn.azure.microsoft.com/.com/library/azure/dd179438.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -397,10 +397,10 @@ L'exemple suivant montre comment exécuter des opérations **insertEntity** et *
 	require_once 'vendor/autoload.php';
 
 	use WindowsAzure\Common\ServicesBuilder;
-	use MicrosoftAzure\Storage\Common\ServiceException;
-	use MicrosoftAzure\Storage\Table\Models\Entity;
-	use MicrosoftAzure\Storage\Table\Models\EdmType;
-	use MicrosoftAzure\Storage\Table\Models\BatchOperations;
+	use azure.microsoft.com/Azure\Storage\Common\ServiceException;
+	use azure.microsoft.com/Azure\Storage\Table\Models\Entity;
+	use azure.microsoft.com/Azure\Storage\Table\Models\EdmType;
+	use azure.microsoft.com/Azure\Storage\Table\Models\BatchOperations;
 
  	// Create table REST proxy.
 	$tableRestProxy = ServicesBuilder::getInstance()->createTableService($connectionString);
@@ -429,7 +429,7 @@ L'exemple suivant montre comment exécuter des opérations **insertEntity** et *
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here:
-		// http://msdn.microsoft.com/library/azure/dd179438.aspx
+		// http://msdn.azure.microsoft.com/.com/library/azure/dd179438.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -444,7 +444,7 @@ Enfin, pour supprimer une table, transmettez son nom à la méthode **TableRestP
 	require_once 'vendor/autoload.php';
 
 	use WindowsAzure\Common\ServicesBuilder;
-	use MicrosoftAzure\Storage\Common\ServiceException;
+	use azure.microsoft.com/Azure\Storage\Common\ServiceException;
 
 	// Create table REST proxy.
 	$tableRestProxy = ServicesBuilder::getInstance()->createTableService($connectionString);
@@ -456,7 +456,7 @@ Enfin, pour supprimer une table, transmettez son nom à la méthode **TableRestP
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here:
-		// http://msdn.microsoft.com/library/azure/dd179438.aspx
+		// http://msdn.azure.microsoft.com/.com/library/azure/dd179438.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -470,12 +470,12 @@ Maintenant que vous avez appris les principes de base du service de Table Azure,
 
 Pour plus d’informations, consultez également le [Centre de développement PHP](/develop/php/).
 
-[download]: http://go.microsoft.com/fwlink/?LinkID=252473
+[download]: http://go.azure.microsoft.com/.com/fwlink/?LinkID=252473
 [require_once]: http://php.net/require_once
-[table-service-timeouts]: http://msdn.microsoft.com/library/azure/dd894042.aspx
+[table-service-timeouts]: http://msdn.azure.microsoft.com/.com/library/azure/dd894042.aspx
 
-[table-data-model]: http://msdn.microsoft.com/library/azure/dd179338.aspx
-[filters]: http://msdn.microsoft.com/library/azure/dd894031.aspx
-[entity-group-transactions]: http://msdn.microsoft.com/library/azure/dd894038.aspx
+[table-data-model]: http://msdn.azure.microsoft.com/.com/library/azure/dd179338.aspx
+[filters]: http://msdn.azure.microsoft.com/.com/library/azure/dd894031.aspx
+[entity-group-transactions]: http://msdn.azure.microsoft.com/.com/library/azure/dd894038.aspx
 
 <!---HONumber=AcomDC_0817_2016-->

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Utilisation de scripts Windows PowerShell pour publier dans des environnements de développement et de test | Microsoft Azure"
+   pageTitle="Utilisation de scripts Windows PowerShell pour publier dans des environnements de développement et de test | azure.microsoft.com/ Azure"
    description="Découvrez comment utiliser les scripts Windows PowerShell à partir de Visual Studio pour la publication dans des environnements de développement et de test."
    services="visual-studio-online"
    documentationCenter="na"
@@ -23,17 +23,17 @@ Lorsque vous créez une application web dans Visual Studio, vous pouvez génér
 
 ## Ce dont vous avez besoin
 
-- Kit de développement logiciel (SDK) Azure 2.3 ou version ultérieure. Pour plus d’informations, consultez [Téléchargements Visual Studio](http://go.microsoft.com/fwlink/?LinkID=624384).
+- Kit de développement logiciel (SDK) Azure 2.3 ou version ultérieure. Pour plus d’informations, consultez [Téléchargements Visual Studio](http://go.azure.microsoft.com/.com/fwlink/?LinkID=624384).
 
 Vous n’avez pas besoin du kit de développement logiciel (SDK) Azure pour générer les scripts pour les projets web. Cette fonctionnalité s’adresse aux projets web, et non aux rôles web dans les services cloud.
 
 - Azure PowerShell 0.7.4 ou version ultérieure. Pour plus d’informations, consultez [Installation et configuration d’Azure PowerShell](powershell-install-configure.md).
 
-- [Windows PowerShell 3.0](http://go.microsoft.com/?linkid=9811175) ou version ultérieure.
+- [Windows PowerShell 3.0](http://go.azure.microsoft.com/.com/?linkid=9811175) ou version ultérieure.
 
 ## Outils supplémentaires
 
-Des outils et ressources supplémentaires sont disponibles pour l’utilisation de PowerShell dans Visual Studio pour le développement Azure. Consultez [Outils PowerShell pour Visual Studio](http://go.microsoft.com/fwlink/?LinkId=404012).
+Des outils et ressources supplémentaires sont disponibles pour l’utilisation de PowerShell dans Visual Studio pour le développement Azure. Consultez [Outils PowerShell pour Visual Studio](http://go.azure.microsoft.com/.com/fwlink/?LinkId=404012).
 
 ## Génération de scripts de publication
 
@@ -149,7 +149,7 @@ Lorsque vous créez une machine virtuelle, le fichier de configuration JSON ress
 
 Vous pouvez modifier la configuration JSON pour changer ce qui se passe lorsque vous exécutez les scripts de publication. Les sections `cloudService` et `virtualMachine` sont obligatoires, mais vous pouvez supprimer la section `databases` si vous n’en avez pas besoin. Les propriétés qui sont vides dans le fichier de configuration par défaut généré par Visual Studio sont facultatives ; celles qui ont des valeurs dans le fichier de configuration par défaut sont obligatoires.
 
-Si vous possédez un site web qui compte plusieurs environnements de déploiement (appelés emplacements) au lieu d’un site de production unique dans Azure, vous pouvez inclure le nom de l’emplacement dans le nom du site web dans le fichier de configuration JSON. Par exemple, si votre site web est nommé **monsite** et que son emplacement est nommé **test**, l’URI est monsite-test.cloudapp.net, mais le nom correct à utiliser dans le fichier de configuration est monsite(test). Vous pouvez uniquement effectuer cette opération si le site web et les emplacements existent déjà dans votre abonnement. S’ils n’existent pas, créez le site web en exécutant le script sans spécifier l’emplacement, puis créez l’emplacement dans le [portail Azure Classic](http://go.microsoft.com/fwlink/?LinkID=213885). Ensuite, exécutez le script avec le nom de site web modifié. Pour plus d’informations sur les emplacements de déploiement pour les applications web, consultez [Configurer des environnements intermédiaires pour les applications web dans Azure App Service](./app-service-web/web-sites-staged-publishing.md).
+Si vous possédez un site web qui compte plusieurs environnements de déploiement (appelés emplacements) au lieu d’un site de production unique dans Azure, vous pouvez inclure le nom de l’emplacement dans le nom du site web dans le fichier de configuration JSON. Par exemple, si votre site web est nommé **monsite** et que son emplacement est nommé **test**, l’URI est monsite-test.cloudapp.net, mais le nom correct à utiliser dans le fichier de configuration est monsite(test). Vous pouvez uniquement effectuer cette opération si le site web et les emplacements existent déjà dans votre abonnement. S’ils n’existent pas, créez le site web en exécutant le script sans spécifier l’emplacement, puis créez l’emplacement dans le [portail Azure Classic](http://go.azure.microsoft.com/.com/fwlink/?LinkID=213885). Ensuite, exécutez le script avec le nom de site web modifié. Pour plus d’informations sur les emplacements de déploiement pour les applications web, consultez [Configurer des environnements intermédiaires pour les applications web dans Azure App Service](./app-service-web/web-sites-staged-publishing.md).
 
 ## Exécution de scripts de publication
 
@@ -161,7 +161,7 @@ Si vous n’avez jamais exécuté de script Windows PowerShell auparavant, vous
 
 ![Créer un package Web Deploy](./media/vs-azure-tools-publishing-using-powershell-scripts/IC767885.png)
 
-Pour plus d’informations, consultez [Comment : créer un package de déploiement web dans Visual Studio](https://msdn.microsoft.com/library/dd465323.aspx). Vous pouvez également automatiser la création de votre package Web Deploy, comme décrit dans la section **Personnalisation et extension des scripts de publication** plus loin dans cette rubrique.
+Pour plus d’informations, consultez [Comment : créer un package de déploiement web dans Visual Studio](https://msdn.azure.microsoft.com/.com/library/dd465323.aspx). Vous pouvez également automatiser la création de votre package Web Deploy, comme décrit dans la section **Personnalisation et extension des scripts de publication** plus loin dans cette rubrique.
 
 1. Dans l’**Explorateur de solutions**, ouvrez le menu contextuel du script, puis choisissez **Ouvrir avec PowerShell ISE**.
 
@@ -231,7 +231,7 @@ function Get-MSBuildCmd
         process
 {
 
-             $path =  Get-ChildItem "HKLM:\SOFTWARE\Microsoft\MSBuild\ToolsVersions" |
+             $path =  Get-ChildItem "HKLM:\SOFTWARE\azure.microsoft.com/\MSBuild\ToolsVersions" |
                                    Sort-Object {[double]$_.PSChildName} -Descending |
                                    Select-Object -First 1 |
                                    Get-ItemProperty -Name MSBuildToolsPath |
@@ -251,7 +251,7 @@ function New-WebDeployPackage
 {
     #Write a function to build and package your web application
       
-#To build your web application, use MsBuild.exe. For help, see MSBuild Command-Line Reference at: http://go.microsoft.com/fwlink/?LinkId=391339
+#To build your web application, use MsBuild.exe. For help, see MSBuild Command-Line Reference at: http://go.azure.microsoft.com/.com/fwlink/?LinkId=391339
       
 Write-VerboseWithTime 'Build-WebDeployPackage: Start'
       
@@ -322,7 +322,7 @@ Pour obtenir de l’aide pour les fonctions que vous pouvez utiliser à l’invi
 |Find-AzureVM|Obtient la machine virtuelle Azure spécifiée.|
 |Format-DevTestMessageWithTime|Indique la date et l’heure avant un message. Cette fonction est conçue pour les messages écrits dans les flux Error et Verbose.|
 |Get-AzureSQLDatabaseConnectionString|Assemble une chaîne de connexion pour se connecter à une base de données SQL Azure.|
-|Get-AzureVMStorage|Renvoie le nom du premier compte de stockage avec le modèle de nom devtest* (non sensible à la casse) dans l’emplacement ou le groupe d’affinités spécifié. Si le compte de stockage devtest* ne correspond pas à l’emplacement ou au groupe d’affinités, la fonction l’ignore. Vous devez spécifier un emplacement ou un groupe d’affinités.|
+|Get-AzureVMStorage|Renvoie le nom du premier compte de stockage avec le modèle de nom devtest *(non sensible à la casse) dans l’emplacement ou le groupe d’affinités spécifié. Si le compte de stockage devtest* ne correspond pas à l’emplacement ou au groupe d’affinités, la fonction l’ignore. Vous devez spécifier un emplacement ou un groupe d’affinités.|
 |Get-MSDeployCmd|Renvoie une commande pour exécuter l’outil MsDeploy.exe.|
 |New-AzureVMEnvironment|Recherche ou crée une machine virtuelle dans l’abonnement qui correspond aux valeurs dans le fichier de configuration JSON.|
 |Publish-WebPackage|Utilise MsDeploy.exe et un fichier. zip de package de publication web pour déployer des ressources sur un site web. Cette fonction ne génère aucune sortie. Si l’appel de MSDeploy.exe échoue, la fonction lève une exception. Pour obtenir une sortie plus détaillée, utilisez l’option **-Verbose**.|
@@ -349,6 +349,6 @@ Pour obtenir de l’aide pour les fonctions que vous pouvez utiliser à l’invi
 
 ## Étapes suivantes
 
-Pour en savoir plus sur l’écriture de scripts PowerShell lisez [Écriture de scripts avec Windows PowerShell](https://technet.microsoft.com/library/bb978526.aspx) et consultez d’autres scripts Azure PowerShell sur le [Centre de scripts](https://azure.microsoft.com/documentation/scripts/).
+Pour en savoir plus sur l’écriture de scripts PowerShell lisez [Écriture de scripts avec Windows PowerShell](https://technet.azure.microsoft.com/.com/library/bb978526.aspx) et consultez d’autres scripts Azure PowerShell sur le [Centre de scripts](https://azure.azure.microsoft.com/.com/documentation/scripts/).
 
 <!---HONumber=AcomDC_0817_2016-->

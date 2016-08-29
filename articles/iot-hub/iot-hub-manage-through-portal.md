@@ -1,5 +1,5 @@
 <properties
-	 pageTitle="Utilisation du portail Azure pour gérer IoT Hub | Microsoft Azure"
+	 pageTitle="Utilisation du portail Azure pour gérer IoT Hub | azure.microsoft.com/ Azure"
 	 description="Une vue d'ensemble de la façon de créer et gérer les hubs IoT Azure via le portail Azure"
 	 services="iot-hub"
 	 documentationCenter=""
@@ -26,7 +26,7 @@ Cet article décrit comment démarrer avec Azure IoT Hub via le portail Azure, c
 
 Il existe divers emplacements où vous pouvez trouver des hubs IoT.
 
-1. **+ New** : **Azure IoT Hub** est un service IoT qui se trouve dans la catégorie **Internet des objets** sous **+ New**, comme d'autres services.
+1. **+ New** : **Azure IoT Hub** est un service IoT qui se trouve dans la catégorie **Internet des objets** sous **+ New**, comme d'autres services.
 
 2. Les hubs IoT sont également accessibles via Marketplace en tant que héros de service sous **Internet des objets**.
 
@@ -88,7 +88,7 @@ Vous pouvez modifier les paramètres d’un hub IoT existant après sa création
 
 ![][8]
 
-**Stratégies d'accès partagé** : ces stratégies définissent les autorisations pour que les périphériques et services se connectent au hub IoT. Vous pouvez accéder à ces stratégies en cliquant sur **Stratégies d'accès partagé** sous **Général**. Dans ce panneau, vous pouvez soit modifier les stratégies existantes, soit ajouter une nouvelle stratégie.
+**Stratégies d'accès partagé** : ces stratégies définissent les autorisations pour que les périphériques et services se connectent au hub IoT. Vous pouvez accéder à ces stratégies en cliquant sur **Stratégies d'accès partagé** sous **Général**. Dans ce panneau, vous pouvez soit modifier les stratégies existantes, soit ajouter une nouvelle stratégie.
 
 ### Créer une nouvelle stratégie
 
@@ -106,17 +106,17 @@ Vous pouvez modifier les paramètres d’un hub IoT existant après sa création
 
 Cliquez **Messagerie** pour afficher une liste des messages de propriétés pour le concentrateur IoT en cours de modification. Il existe deux types principaux de propriétés que vous pouvez modifier ou copier : **Cloud vers appareil** et **Appareil vers cloud**.
 
-- Paramètres **Cloud vers appareil** : ce paramètre contient deux configurations secondaires : **Cloud vers appareil TTL** (durée de vie) et **Durée de rétention** pour les messages. Lorsque le hub IoT est créé, ces deux paramètres sont créés avec une valeur par défaut d’une heure. Pour ajuster ces valeurs, utilisez les curseurs ou tapez les valeurs.
+- Paramètres **Cloud vers appareil** : ce paramètre contient deux configurations secondaires : **Cloud vers appareil TTL** (durée de vie) et **Durée de rétention** pour les messages. Lorsque le hub IoT est créé, ces deux paramètres sont créés avec une valeur par défaut d’une heure. Pour ajuster ces valeurs, utilisez les curseurs ou tapez les valeurs.
 
-- Paramètres **Appareil vers cloud** : ce paramètre contient plusieurs paramètres secondaires, dont certains sont nommés/affectés lorsque le concentrateur IoT est créé et ne peut être copié vers d'autres paramètres secondaires qui sont personnalisables. Ces paramètres sont répertoriés dans la section suivante.
+- Paramètres **Appareil vers cloud** : ce paramètre contient plusieurs paramètres secondaires, dont certains sont nommés/affectés lorsque le concentrateur IoT est créé et ne peut être copié vers d'autres paramètres secondaires qui sont personnalisables. Ces paramètres sont répertoriés dans la section suivante.
 
-**Partitions** : cette valeur est définie lorsque le concentrateur IoT est créé et peut être modifié via ce paramètre.
+**Partitions** : cette valeur est définie lorsque le concentrateur IoT est créé et peut être modifié via ce paramètre.
 
-**Nom compatible et point de terminaison Concentrateur d'événements** : lorsque le concentrateur IoT est créé, un Concentrateur d'événements est créé en interne, et vous pouvez nécessiter l'accès dans certaines circonstances. Ce nom Event Hub et le point de terminaison ne peuvent pas être personnalisés, mais sont disponibles à l’utilisation via le bouton **Copier**.
+**Nom compatible et point de terminaison Concentrateur d'événements** : lorsque le concentrateur IoT est créé, un Concentrateur d'événements est créé en interne, et vous pouvez nécessiter l'accès dans certaines circonstances. Ce nom Event Hub et le point de terminaison ne peuvent pas être personnalisés, mais sont disponibles à l’utilisation via le bouton **Copier**.
 
-**Durée de rétention** : la valeur par défaut est un jour, mais elle peut être personnalisée sur d’autres valeurs à l’aide de la liste déroulante. Notez que pour appareil-à-cloud, la valeur est exprimée en jours et non en heures, de même que le paramètre similaire pour cloud-à-appareil.
+**Durée de rétention** : la valeur par défaut est un jour, mais elle peut être personnalisée sur d’autres valeurs à l’aide de la liste déroulante. Notez que pour appareil-à-cloud, la valeur est exprimée en jours et non en heures, de même que le paramètre similaire pour cloud-à-appareil.
 
-**Groupes de consommateurs** : les groupes de consommateurs sont similaires aux systèmes de messagerie qui peuvent être utilisés pour extraire des données de façon spécifique afin de connecter des applications ou des services IoT Hub. Chaque hub IoT est créé avec un groupe de consommateurs par défaut. Toutefois, vous pouvez ajouter ou supprimer des groupes de consommateurs de vos hubs IoT.
+**Groupes de consommateurs** : les groupes de consommateurs sont similaires aux systèmes de messagerie qui peuvent être utilisés pour extraire des données de façon spécifique afin de connecter des applications ou des services IoT Hub. Chaque hub IoT est créé avec un groupe de consommateurs par défaut. Toutefois, vous pouvez ajouter ou supprimer des groupes de consommateurs de vos hubs IoT.
 
 > [AZURE.NOTE] Le groupe de consommateurs par défaut ne peut être ni modifié ni supprimé.
 

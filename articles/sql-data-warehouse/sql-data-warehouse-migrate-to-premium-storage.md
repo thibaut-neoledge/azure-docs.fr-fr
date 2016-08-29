@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Migrer votre entrepôt Azure SQL Data Warehouse existant vers le stockage Premium | Microsoft Azure"
+   pageTitle="Migrer votre entrepôt Azure SQL Data Warehouse existant vers le stockage Premium | azure.microsoft.com/ Azure"
    description="Instructions de migration d’un entrepôt SQL Data Warehouse existant vers le stockage Premium"
    services="sql-data-warehouse"
    documentationCenter="NA"
@@ -52,17 +52,17 @@ Si vous avez créé un entrepôt de données avant les dates ci-dessous, cela si
 | Ouest des États-Unis 2 | Premium Storage non disponible pour l’instant |
 
 ## Détails sur la migration automatique
-Par défaut, nous allons migrer votre base de données pour vous entre 18:00 et 6 heures du matin (heure locale de votre région) à un moment pendant la [planification de la migration automatique][] (voir section ci-dessous). L’entrepôt de données existant est inutilisable lors de la migration. Nous estimons que la migration dure environ une heure par To de stockage, pour chaque entrepôt de données. Nous allons également nous assurer que vous n’êtes facturé à aucun moment de la migration automatique.
+Par défaut, nous allons migrer votre base de données pour vous entre 18:00 et 6 heures du matin (heure locale de votre région) à un moment pendant la [planification de la migration automatique][] \(voir section ci-dessous). L’entrepôt de données existant est inutilisable lors de la migration. Nous estimons que la migration dure environ une heure par To de stockage, pour chaque entrepôt de données. Nous allons également nous assurer que vous n’êtes facturé à aucun moment de la migration automatique.
 
 > [AZURE.NOTE] Vous ne serez pas en mesure d’utiliser votre entrepôt de données existant lors de la migration. Une fois la migration terminée, votre entrepôt de données sera remis en ligne.
 
-Les informations ci-dessous détaillent les étapes que Microsoft exécute pour vous afin d’effectuer la migration. Vous n’avez pas besoin d’intervenir. Dans cet exemple, imaginez que votre entrepôt de données existant sur le stockage standard est appelé « MyDW ».
+Les informations ci-dessous détaillent les étapes que azure.microsoft.com/ exécute pour vous afin d’effectuer la migration. Vous n’avez pas besoin d’intervenir. Dans cet exemple, imaginez que votre entrepôt de données existant sur le stockage standard est appelé « MyDW ».
 
-1.	Microsoft renomme l’élément « MyDW » ainsi : « MyDW\_ DO\_NOT\_USE\_ [Horodatage] ».
-2.	Microsoft interrompt « MyDW\_ DO\_NOT\_USE\_ [Horodatage] ». Une sauvegarde est effectuée pendant ce temps. En cas de problème, il se peut que le processus s’interrompe et se relance plusieurs fois.
-3.	Microsoft crée un entrepôt de données nommé « MyDW » dans Premium Storage en s’appuyant sur la sauvegarde effectuée à l’étape 2. L’entrepôt « MyDW » n’apparaît que lorsque la restauration est terminée.
+1.	azure.microsoft.com/ renomme l’élément « MyDW » ainsi : « MyDW\_ DO\_NOT\_USE\_ [Horodatage] ».
+2.	azure.microsoft.com/ interrompt « MyDW\_ DO\_NOT\_USE\_ [Horodatage] ». Une sauvegarde est effectuée pendant ce temps. En cas de problème, il se peut que le processus s’interrompe et se relance plusieurs fois.
+3.	azure.microsoft.com/ crée un entrepôt de données nommé « MyDW » dans Premium Storage en s’appuyant sur la sauvegarde effectuée à l’étape 2. L’entrepôt « MyDW » n’apparaît que lorsque la restauration est terminée.
 4.	Une fois la restauration terminée, « MyDW » renvoie les mêmes DWU et retrouve l’état actif ou interrompu qu’il présentait avant la migration.
-5.	Une fois la migration terminée, Microsoft supprime « MyDW\_DO\_NOT\_USE\_ [Horodatage] ».
+5.	Une fois la migration terminée, azure.microsoft.com/ supprime « MyDW\_DO\_NOT\_USE\_ [Horodatage] ».
 	
 > [AZURE.NOTE] Ces paramètres ne sont pas repris dans le cadre de la migration :
 > 
@@ -181,7 +181,7 @@ Si vous rencontrez des problèmes liés à votre entrepôt de données, [créez 
 
 
 <!--Other Web references-->
-[Premium Storage, afin d’optimiser la prévisibilité des performances]: https://azure.microsoft.com/fr-FR/blog/azure-sql-data-warehouse-introduces-premium-storage-for-greater-performance/
+[Premium Storage, afin d’optimiser la prévisibilité des performances]: https://azure.azure.microsoft.com/.com/fr-FR/blog/azure-sql-data-warehouse-introduces-premium-storage-for-greater-performance/
 [portail Azure]: https://portal.azure.com
 
 <!---HONumber=AcomDC_0817_2016-->

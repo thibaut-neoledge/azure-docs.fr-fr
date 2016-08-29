@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Hébergement haute densité sur Azure App Service | Microsoft Azure"
+	pageTitle="Hébergement haute densité sur Azure App Service | azure.microsoft.com/ Azure"
 	description="Hébergement haute densité sur Azure App Service"
 	authors="btardif"
 	manager="wpickett"
@@ -49,7 +49,7 @@ Pour ce faire, le plan App Service définit la propriété de **mise à l’éch
         "resources": [
         {
             "comments": "App Service Plan with per site perSiteScaling = true",
-            "type": "Microsoft.Web/serverFarms",
+            "type": "azure.microsoft.com/.Web/serverFarms",
             "sku": {
                 "name": "S1",
                 "tier": "Standard",
@@ -66,19 +66,19 @@ Pour ce faire, le plan App Service définit la propriété de **mise à l’éch
             }
         },
         {
-            "type": "Microsoft.Web/sites",
+            "type": "azure.microsoft.com/.Web/sites",
             "name": "[parameters('appName')]",
             "apiVersion": "2015-08-01-preview",
             "location": "West US",
-            "dependsOn": [ "[resourceId('Microsoft.Web/serverFarms', parameters('appServicePlanName'))]" ],
-            "properties": { "serverFarmId": "[resourceId('Microsoft.Web/serverFarms', parameters('appServicePlanName'))]" },
+            "dependsOn": [ "[resourceId('azure.microsoft.com/.Web/serverFarms', parameters('appServicePlanName'))]" ],
+            "properties": { "serverFarmId": "[resourceId('azure.microsoft.com/.Web/serverFarms', parameters('appServicePlanName'))]" },
             "resources": [ {
                     "comments": "",
                     "type": "config",
                     "name": "web",
                     "apiVersion": "2015-08-01",
                     "location": "West US",
-                    "dependsOn": [ "[resourceId('Microsoft.Web/Sites', parameters('appName'))]" ],
+                    "dependsOn": [ "[resourceId('azure.microsoft.com/.Web/Sites', parameters('appName'))]" ],
                     "properties": { "numberOfWorkers": "1" }
              } ]
          }]

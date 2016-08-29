@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Didacticiel : Intégration d’Azure Active Directory avec CS Stars | Microsoft Azure"
+	pageTitle="Didacticiel : Intégration d’Azure Active Directory avec CS Stars | azure.microsoft.com/ Azure"
 	description="Découvrez comment configurer l’authentification unique entre Azure Active Directory et CS Stars."
 	services="active-directory"
 	documentationCenter=""
@@ -41,7 +41,7 @@ Pour configurer l’intégration d’Azure AD avec CS Stars, vous avez besoin d
 Vous devez en outre suivre les recommandations ci-dessous :
 
 - Vous ne devez pas utiliser votre environnement de production, sauf si cela est nécessaire.
-- Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
+- Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.azure.microsoft.com/.com/pricing/free-trial/).
 
  
 ## Description du scénario
@@ -93,8 +93,8 @@ Pour configurer et tester l’authentification unique Azure AD avec CS Stars, v
 
 1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-4. **[Création d’un utilisateur de test CS Stars](#creating-a-cs-stars-test-user)** : pour avoir un équivalent de Britta Simon dans CS Stars lié à la représentation Azure AD associée.
-5. **[Affectation d’un utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** : permet à Britta Simon d’utiliser l’authentification unique Azure AD.
+4. **[Création d’un utilisateur de test CS Stars](#creating-a-cs-stars-test-user)** : pour avoir un équivalent de Britta Simon dans CS Stars lié à la représentation Azure AD associée.
+5. **[Affectation d’un utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** : permet à Britta Simon d’utiliser l’authentification unique Azure AD.
 5. **[Test de l’authentification unique](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 
 ### Configuration de l’authentification unique Azure AD

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Utiliser SSH sous Linux et Mac | Microsoft Azure" 
+	pageTitle="Utiliser SSH sous Linux et Mac | azure.microsoft.com/ Azure" 
 	description="Générez et utilisez des clés SSH sous Linux et Mac pour les modèles de déploiement du gestionnaire de ressources et classiques sur Azure." 
 	services="virtual-machines-linux" 
 	documentationCenter="" 
@@ -218,7 +218,7 @@ Examinez la section de profil réseau :
 	data:    Network Profile:
 	data:      Network Interfaces:
 	data:        Network Interface #1:
-	data:          Id                        :/subscriptions/<guid>/resourceGroups/testrg/providers/Microsoft.Network/networkInterfaces/testnic
+	data:          Id                        :/subscriptions/<guid>/resourceGroups/testrg/providers/azure.microsoft.com/.Network/networkInterfaces/testnic
 	data:          Primary                   :true
 	data:          MAC Address               :00-0D-3A-21-8E-AE
 	data:          Provisioning State        :Succeeded
@@ -237,9 +237,9 @@ Si vous n'avez pas utilisé le port par défaut SSH 22 lorsque vous avez créé 
 	azure network nsg show testrg testnsg
 	info:    Executing command network nsg show
 	+ Looking up the network security group "testnsg"
-	data:    Id                              : /subscriptions/<guid>/resourceGroups/testrg/providers/Microsoft.Network/networkSecurityGroups/testnsg
+	data:    Id                              : /subscriptions/<guid>/resourceGroups/testrg/providers/azure.microsoft.com/.Network/networkSecurityGroups/testnsg
 	data:    Name                            : testnsg
-	data:    Type                            : Microsoft.Network/networkSecurityGroups
+	data:    Type                            : azure.microsoft.com/.Network/networkSecurityGroups
 	data:    Location                        : westeurope
 	data:    Provisioning state              : Succeeded
 	data:    Security group rules:

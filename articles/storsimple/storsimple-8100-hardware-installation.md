@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Installation de votre appareil StorSimple 8100 | Microsoft Azure"
+   pageTitle="Installation de votre appareil StorSimple 8100 | azure.microsoft.com/ Azure"
    description="Explique comment déballer, monter en rack et câbler votre appareil StorSimple 8100 avant de déployer et de configurer le logiciel."
    services="storsimple"
    documentationCenter="NA"
@@ -19,7 +19,7 @@
 
 ## Vue d'ensemble
 
-Votre appareil Microsoft Azure StorSimple 8100 doit être monté en rack sur un boîtier unique. Ce didacticiel explique comment déballer, monter en rack et brancher les câbles de votre appareil StorSimple 8100 avant de configurer et de déployer l’appareil StorSimple.
+Votre appareil azure.microsoft.com/ Azure StorSimple 8100 doit être monté en rack sur un boîtier unique. Ce didacticiel explique comment déballer, monter en rack et brancher les câbles de votre appareil StorSimple 8100 avant de configurer et de déployer l’appareil StorSimple.
 
 ## Déballage de votre appareil StorSimple 8100
 
@@ -38,7 +38,7 @@ Ensuite, procédez comme suit pour déballer votre appareil.
 
 #### Pour déballer votre appareil
 
-1. Vérifiez que le carton et le polystyrène ne comportent pas de trace d’impacts, de coupures, d’infiltrations d’eau ou tout autre type de dégâts. Si le carton ou le reste de l’emballage vous semble trop endommagé, ne l’ouvrez pas. [Contactez le support technique Microsoft](storsimple-contact-microsoft-support.md) pour savoir si l’appareil est en état de marche.
+1. Vérifiez que le carton et le polystyrène ne comportent pas de trace d’impacts, de coupures, d’infiltrations d’eau ou tout autre type de dégâts. Si le carton ou le reste de l’emballage vous semble trop endommagé, ne l’ouvrez pas. [Contactez le support technique azure.microsoft.com/](storsimple-contact-azure.microsoft.com/-support.md) pour savoir si l’appareil est en état de marche.
 
 2. Déballez le carton. L’image suivante représente votre appareil StorSimple déballé.
 
@@ -67,7 +67,7 @@ Ensuite, procédez comme suit pour déballer votre appareil.
    - 1 kit de montage en rack (2 rails latéraux avec matériel de montage)
    - Documentation de mise en route
 
-    Si vous n’avez pas reçu l’un des éléments ci-dessus, [contactez le support technique Microsoft](storsimple-contact-microsoft-support.md).
+    Si vous n’avez pas reçu l’un des éléments ci-dessus, [contactez le support technique azure.microsoft.com/](storsimple-contact-azure.microsoft.com/-support.md).
 
 L’étape suivante consiste à monter votre appareil en rack.
 

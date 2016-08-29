@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="Didacticiel : Intégration d’Azure AD à Zscaler Two | Microsoft Azure" 
+    pageTitle="Didacticiel : Intégration d’Azure AD à Zscaler Two | azure.microsoft.com/ Azure" 
     description="Découvrez comment utiliser Zscaler Two avec Azure AD pour activer l’authentification unique, l’approvisionnement automatisé et bien plus encore." 
     services="active-directory" 
     authors="jeevansd"  
@@ -75,7 +75,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Configurer l’authentification unique](./media/active-directory-saas-zscaler-two-tutorial/IC800202.png "Configurer l’authentification unique")
 
-2.  Dans la page **Comment voulez-vous que les utilisateurs se connectent à Zscaler Two**, sélectionnez **Authentification unique avec Microsoft Azure AD**, puis cliquez sur **Suivant**.
+2.  Dans la page **Comment voulez-vous que les utilisateurs se connectent à Zscaler Two**, sélectionnez **Authentification unique avec azure.microsoft.com/ Azure AD**, puis cliquez sur **Suivant**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-zscaler-two-tutorial/IC800203.png "Configurer l’authentification unique")
 
@@ -106,7 +106,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
     1.  Sélectionnez **Authenticate using SAML Single Sign-On**.
     2.  Cliquez sur **Configure SAML Single Sign-On Parameters**.
 
-9.  Dans la boîte de dialogue **Configure SAML Single Sign-On Parameters**, procédez comme suit, puis cliquez sur **Done** :
+9.  Dans la boîte de dialogue **Configure SAML Single Sign-On Parameters**, procédez comme suit, puis cliquez sur **Done** :
 
     ![Authentification unique](./media/active-directory-saas-zscaler-two-tutorial/IC800209.png "Authentification unique")
 
@@ -147,12 +147,12 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
     ![Serveur proxy](./media/active-directory-saas-zscaler-two-tutorial/IC769494.png "Serveur proxy")
 
     1.  Sélectionnez Utiliser un serveur proxy pour votre réseau local.
-    2.  Dans la zone de texte Adresse, tapez **gateway.zscalerone.net**.
-    3.  Dans la zone de texte Port, tapez **80**.
+    2.  Dans la zone de texte Adresse, tapez **gateway.zscalerone.net**.
+    3.  Dans la zone de texte Port, tapez **80**.
     4.  Sélectionnez **Ne pas utiliser de serveur proxy pour les adresses locales**.
-    5.  Cliquez sur **OK** pour fermer la boîte de dialogue **Paramètres du réseau local**.
+    5.  Cliquez sur **OK** pour fermer la boîte de dialogue **Paramètres du réseau local**.
 
-6.  Cliquez sur **OK** pour fermer la boîte de dialogue **Options Internet**.
+6.  Cliquez sur **OK** pour fermer la boîte de dialogue **Options Internet**.
 
 ##Configuration de l'approvisionnement des utilisateurs
   

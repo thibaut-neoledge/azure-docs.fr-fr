@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Prise en main d’Azure DNS | Microsoft Azure"
+   pageTitle="Prise en main d’Azure DNS | azure.microsoft.com/ Azure"
    description="Apprenez à créer des zones DNS pour Azure DNS. Cette procédure étape par étape vous permettra de créer votre première zone DNS pour pouvoir héberger votre domaine DNS à l’aide de PowerShell."
    services="dns"
    documentationCenter="na"
@@ -57,7 +57,7 @@ Azure DNS PowerShell prend en charge les étiquettes sur les zones et sur les je
 
 Vérifiez que vous disposez des éléments ci-dessous avant de commencer votre configuration.
 	
-- Un abonnement Azure. Si vous ne disposez pas déjà d’un abonnement Azure, vous pouvez activer vos [avantages abonnés MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou créer un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/).
+- Un abonnement Azure. Si vous ne disposez pas déjà d’un abonnement Azure, vous pouvez activer vos [avantages abonnés MSDN](https://azure.azure.microsoft.com/.com/pricing/member-offers/msdn-benefits-details/) ou créer un [compte gratuit](https://azure.azure.microsoft.com/.com/pricing/free-trial/).
 	
 - Vous aurez besoin d’installer la dernière version des applets de commande PowerShell Azure Resource Manager (version 1.0 ou ultérieure). Pour plus d’informations sur l’installation des applets de commande PowerShell, consultez [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md).
 
@@ -88,9 +88,9 @@ Ignorez cette étape si vous utilisez un groupe de ressources existant.
 
 ## Étape 3 : S’inscrire
 
-Le service Azure DNS est géré par le fournisseur de ressources Microsoft.Network. Votre abonnement Azure doit être enregistré auprès de ce fournisseur de ressources, pour que vous puissiez utiliser Azure DNS. Cette opération n’est à effectuer qu’une fois par abonnement.
+Le service Azure DNS est géré par le fournisseur de ressources azure.microsoft.com/.Network. Votre abonnement Azure doit être enregistré auprès de ce fournisseur de ressources, pour que vous puissiez utiliser Azure DNS. Cette opération n’est à effectuer qu’une fois par abonnement.
 
-	Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
+	Register-AzureRmResourceProvider -ProviderNamespace azure.microsoft.com/.Network
 
 
 ## Étape 4 : Créer une zone DNS
@@ -129,7 +129,7 @@ Pour afficher ces enregistrements, utilisez `Get-AzureRmDnsRecordSet` :
 	Ttl               : 3600
 	Etag              : 2b855de1-5c7e-4038-bfff-3a9e55b49caf
 	RecordType        : SOA
-	Records           : {[ns1-01.azure-dns.com,msnhst.microsoft.com,900,300,604800,300]}
+	Records           : {[ns1-01.azure-dns.com,msnhst.azure.microsoft.com/.com,900,300,604800,300]}
 	Tags              : {}
 
 	Name              : @
@@ -148,7 +148,7 @@ Les jeux d’enregistrements à la racine (ou *apex*) d’une zone DNS utilisent
 
 ## Test
 
-Vous pouvez tester votre zone DNS à l’aide d’outils DNS comme nslookup, dig ou l’[applet de commande PowerShell Resolve-DnsName](https://technet.microsoft.com/library/jj590781.aspx).
+Vous pouvez tester votre zone DNS à l’aide d’outils DNS comme nslookup, dig ou l’[applet de commande PowerShell Resolve-DnsName](https://technet.azure.microsoft.com/.com/library/jj590781.aspx).
 
 Si vous n’avez pas encore délégué votre domaine pour qu’il utilise la nouvelle zone Azure DNS, vous devez diriger la requête DNS directement vers l’un des serveurs de noms pour votre zone. Les serveurs de noms de votre zone figurent dans les enregistrements NS, répertoriés ci-dessus par `Get-AzureRmDnsRecordSet`. Veillez à indiquer les valeurs correctes pour votre zone dans la commande ci-dessous.
 
@@ -162,7 +162,7 @@ Si vous n’avez pas encore délégué votre domaine pour qu’il utilise la nou
 
 	contoso.com
         	primary name server = ns1-01.azure-dns.com
-        	responsible mail addr = msnhst.microsoft.com
+        	responsible mail addr = msnhst.azure.microsoft.com/.com
         	serial  = 1
         	refresh = 900 (15 mins)
         	retry   = 300 (5 mins)

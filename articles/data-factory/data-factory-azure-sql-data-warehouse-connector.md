@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Déplacer des données vers/depuis Azure SQL Data Warehouse | Microsoft Azure" 
+	pageTitle="Déplacer des données vers/depuis Azure SQL Data Warehouse | azure.microsoft.com/ Azure" 
 	description="Découvrez comment déplacer des données depuis et vers Azure SQL Data Warehouse à l’aide d’Azure Data Factory." 
 	services="data-factory" 
 	documentationCenter="" 
@@ -26,7 +26,7 @@ Vous pouvez spécifier si vous souhaitez utiliser PolyBase lors du chargement de
 ## Assistant Copier des données
 Le moyen le plus simple de créer un pipeline qui copie les données vers/depuis le Azure SQL Data Warehouse consiste à utiliser l’Assistant Copier des données. Consultez la page [Didacticiel : Créer un pipeline avec l’activité de copie à l’aide de l’Assistant Data Factory Copy](data-factory-copy-data-wizard-tutorial.md) pour une procédure pas à pas rapide sur la création d’un pipeline à l’aide de l’Assistant Copier des données.
 
-Les exemples suivants présentent des exemples de définitions de JSON que vous pouvez utiliser pour créer un pipeline à l’aide [du Portail Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), [de Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou [d’Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Ils indiquent comment copier des données vers et depuis Azure SQL Data Warehouse et Azure Blob Storage. Toutefois, les données peuvent être copiées **directement** vers l’un des récepteurs indiqués [ici](data-factory-data-movement-activities.md#supported-data-stores), via l’activité de copie de Microsoft Azure Data Factory.
+Les exemples suivants présentent des exemples de définitions de JSON que vous pouvez utiliser pour créer un pipeline à l’aide [du Portail Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), [de Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou [d’Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Ils indiquent comment copier des données vers et depuis Azure SQL Data Warehouse et Azure Blob Storage. Toutefois, les données peuvent être copiées **directement** vers l’un des récepteurs indiqués [ici](data-factory-data-movement-activities.md#supported-data-stores), via l’activité de copie de azure.microsoft.com/ Azure Data Factory.
 
 
 > [AZURE.NOTE] 
@@ -397,7 +397,7 @@ Propriété | Description | Requis
 type | La propriété de type doit être définie sur **AzureSqlDW**. | Oui
 **connectionString** | Spécifier les informations requises pour la connexion à l’instance Azure SQL Data Warehouse pour la propriété connectionString. | Oui
 
-Remarque : vous devez configurer le [pare-feu Azure SQL Database](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). Vous devez configurer le serveur de base de données pour [autoriser les services Azure à accéder au serveur](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). En outre, si vous copiez des données vers Azure SQL Data Warehouse à partir d'un emplacement situé en dehors d'Azure, y compris à partir de sources de données sur site avec la passerelle Data Factory, vous devez configurer la plage d'adresses IP appropriée pour l'ordinateur qui envoie des données à Azure SQL Data Warehouse.
+Remarque : vous devez configurer le [pare-feu Azure SQL Database](https://msdn.azure.microsoft.com/.com/library/azure/ee621782.aspx#ConnectingFromAzure). Vous devez configurer le serveur de base de données pour [autoriser les services Azure à accéder au serveur](https://msdn.azure.microsoft.com/.com/library/azure/ee621782.aspx#ConnectingFromAzure). En outre, si vous copiez des données vers Azure SQL Data Warehouse à partir d'un emplacement situé en dehors d'Azure, y compris à partir de sources de données sur site avec la passerelle Data Factory, vous devez configurer la plage d'adresses IP appropriée pour l'ordinateur qui envoie des données à Azure SQL Data Warehouse.
 
 ## Propriétés de type du jeu de données Azure SQL Data Warehouse
 
@@ -419,7 +419,7 @@ Par contre, les propriétés disponibles dans la section typeProperties de l'act
 
 ### SqlDWSource
 
-Dans le cas d’une activité de copie, quand la source est de type **SqlDWSource**, les propriétés suivantes sont disponibles dans la section **typeProperties** :
+Dans le cas d’une activité de copie, quand la source est de type **SqlDWSource**, les propriétés suivantes sont disponibles dans la section **typeProperties** :
 
 | Propriété | Description | Valeurs autorisées | Requis |
 | -------- | ----------- | -------------- | -------- |
@@ -472,10 +472,10 @@ Si vous ne spécifiez pas sqlReaderQuery ou sqlReaderStoredProcedureName, les co
 | sqlWriterCleanupScript | Requête spécifiée par l'utilisateur pour exécuter l'activité de copie de sorte que les données d'un segment spécifique seront nettoyées. Consultez la section de répétition ci-dessous pour plus de détails. | Une instruction de requête. | Non |
 | allowPolyBase | Indique s’il faut utiliser PolyBase (le cas échéant) au lieu du mécanisme BULKINSERT pour charger des données dans Azure SQL Data Warehouse. <br/><br/>Notez que seul le jeu de données **objet blob Azure** dont le **format** est défini sur **TextFormat** comme jeu de données source est pris en charge pour le moment. La prise en charge des autres types de source sera bientôt disponible. <br/><br/>Reportez-vous à la section [Utiliser PolyBase pour charger des données dans Azure SQL Data Warehouse](#use-polybase-to-load-data-into-azure-sql-data-warehouse) pour connaître les contraintes et les détails. | True <br/>False (par défaut) | Non |  
 | polyBaseSettings | Groupe de propriétés pouvant être spécifié lorsque la propriété **allowPolybase** est définie sur **true**. | &nbsp; | Non |  
-| rejectValue | Spécifie le nombre ou le pourcentage de lignes pouvant être rejetées avant l’échec de la requête. <br/><br/>Pour en savoir plus sur les options de rejet de PolyBase dans la section **Arguments** de la rubrique [CREATE EXTERNAL TABLE (Transact-SQL)](https://msdn.microsoft.com/library/dn935021.aspx) (Créer une table externe (Transact-SQL)). | 0 (par défaut), 1, 2, … | Non |  
+| rejectValue | Spécifie le nombre ou le pourcentage de lignes pouvant être rejetées avant l’échec de la requête. <br/><br/>Pour en savoir plus sur les options de rejet de PolyBase dans la section **Arguments** de la rubrique [CREATE EXTERNAL TABLE (Transact-SQL)](https://msdn.azure.microsoft.com/.com/library/dn935021.aspx) (Créer une table externe (Transact-SQL)). | 0 (par défaut), 1, 2, … | Non |  
 | rejectType | Spécifie si l’option rejectValue est spécifiée comme une valeur littérale ou un pourcentage. | Value (par défaut), Percentage | Non |   
 | rejectSampleValue | Détermine le nombre de lignes à extraire avant que PolyBase recalcule le pourcentage de lignes rejetées. | 1, 2, … | Oui, si le **rejectType** est **percentage** |  
-| useTypeDefault | Spécifie comment gérer les valeurs manquantes dans les fichiers texte délimités lorsque PolyBase extrait des données à partir du fichier texte.<br/><br/>Pour plus d’informations sur cette propriété, consultez la section Arguments dans [CREATE EXTERNAL FILE FORMAT (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx) (Créer un format de fichier externe (Transact-SQL)). | True, False (par défaut) | Non | 
+| useTypeDefault | Spécifie comment gérer les valeurs manquantes dans les fichiers texte délimités lorsque PolyBase extrait des données à partir du fichier texte.<br/><br/>Pour plus d’informations sur cette propriété, consultez la section Arguments dans [CREATE EXTERNAL FILE FORMAT (Transact-SQL)](https://msdn.azure.microsoft.com/.com/library/dn935026.aspx) (Créer un format de fichier externe (Transact-SQL)). | True, False (par défaut) | Non | 
 
 
 #### Exemple SqlDWSink
@@ -540,7 +540,7 @@ Notez qu’Azure Data Factory contrôle les paramètres et rétablit automatique
 ### Copie intermédiaire à l’aide de PolyBase
 Si vous données source ne répondent pas aux critères présentés dans la section ci-dessus, vous pouvez activer la copie des données par le biais d’une instance du stockage d’objets blob Azure intermédiaire, auquel cas Azure Data Factory effectue les transformations nécessaires sur les données pour faire en sorte qu’elles répondent aux exigences de PolyBase en matière de format de données, avant d’utiliser PolyBase pour charger les données dans SQL Data Warehouse. Consultez la rubrique [Copie intermédiaire](data-factory-copy-activity-performance.md#staged-copy) pour plus d’informations sur le fonctionnement général de la copie des données par le biais d’un Blob Azure.
 
-> [AZURE.IMPORTANT] Si vous copiez des données à partir d’un magasin de données local dans Azure SQL Data Warehouse à l’aide de PolyBase pour une copie intermédiaire, vous devez installer JRE 8 (Java Runtime Environment) sur votre ordinateur passerelle qui sera utilisé pour transformer vos données source dans un format correct. Notez qu’une passerelle 64 bits requiert un environnement JRE 64 bits et qu’une passerelle 32 bits nécessite un environnement JRE 32 bits. Téléchargez la version appropriée à partir de [l’emplacement de téléchargements Java](http://go.microsoft.com/fwlink/?LinkId=808605).
+> [AZURE.IMPORTANT] Si vous copiez des données à partir d’un magasin de données local dans Azure SQL Data Warehouse à l’aide de PolyBase pour une copie intermédiaire, vous devez installer JRE 8 (Java Runtime Environment) sur votre ordinateur passerelle qui sera utilisé pour transformer vos données source dans un format correct. Notez qu’une passerelle 64 bits requiert un environnement JRE 64 bits et qu’une passerelle 32 bits nécessite un environnement JRE 32 bits. Téléchargez la version appropriée à partir de [l’emplacement de téléchargements Java](http://go.azure.microsoft.com/.com/fwlink/?LinkId=808605).
 
 Pour utiliser cette fonctionnalité, vous devez créer un [service lié Azure Storage](data-factory-azure-blob-connector.md#azure-storage-linked-service) qui fait référence au compte de stockage Azure qui comprend le stockage d’objets blob intermédiaire, puis spécifier les propriétés **enableStaging** et **stagingSettings** de l’activité de copie, comme indiqué ci-dessous :
 
@@ -611,7 +611,7 @@ Comme mentionné dans l’article consacré aux [activités de déplacement des 
 
 Lors du déplacement de données vers et à partir de SQL Azure, SQL Server, Sybase, les mappages suivants seront utilisés à partir du type SQL en type .NET et vice versa.
 
-Le mappage est identique au [mappage du type de données SQL Server pour ADO.NET](https://msdn.microsoft.com/library/cc716729.aspx) (article en anglais).
+Le mappage est identique au [mappage du type de données SQL Server pour ADO.NET](https://msdn.azure.microsoft.com/.com/library/cc716729.aspx) (article en anglais).
 
 | Type de moteur de base de données SQL Server | Type de .NET Framework |
 | ------------------------------- | ------------------- |

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Configurer PHP dans Azure App Service Web Apps | Microsoft Azure"
+	pageTitle="Configurer PHP dans Azure App Service Web Apps | azure.microsoft.com/ Azure"
 	description="Découvrez comment configurer l’installation PHP par défaut ou ajouter une installation PHP personnalisée pour Web Apps dans Azure App Service."
 	services="app-service"
 	documentationCenter="php"
@@ -20,7 +20,7 @@
 
 ## Introduction
 
-Ce guide vous explique comment configurer le runtime PHP intégré pour Web Apps dans [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714), fournir un runtime PHP personnalisé et activer des extensions. Pour utiliser App Service, souscrivez à la [version d’évaluation gratuite]. Pour tirer le meilleur parti de ce guide, commencez par créer une application web PHP dans App Service.
+Ce guide vous explique comment configurer le runtime PHP intégré pour Web Apps dans [Azure App Service](http://go.azure.microsoft.com/.com/fwlink/?LinkId=529714), fournir un runtime PHP personnalisé et activer des extensions. Pour utiliser App Service, souscrivez à la [version d’évaluation gratuite]. Pour tirer le meilleur parti de ce guide, commencez par créer une application web PHP dans App Service.
 
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -187,7 +187,7 @@ Par défaut, App Service ne fait rien avec composer.json, si vous en avez un dan
 
 Pour plus d’informations, consultez le [Centre pour développeurs PHP](/develop/php/).
 
->[AZURE.NOTE] Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement et gratuitement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
+>[AZURE.NOTE] Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.azure.microsoft.com/.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement et gratuitement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
 [version d’évaluation gratuite]: https://www.windowsazure.com/pricing/free-trial/
 [phpinfo()]: http://php.net/manual/en/function.phpinfo.php

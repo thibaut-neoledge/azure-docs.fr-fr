@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Application Node.js avec Socket.io | Microsoft Azure" 
+	pageTitle="Application Node.js avec Socket.io | azure.microsoft.com/ Azure" 
 	description="Découvrez comment utiliser socket.io dans une application node.js hébergée sur Azure." 
 	services="cloud-services" 
 	documentationCenter="nodejs" 
@@ -48,7 +48,7 @@ La procédure suivante permet de créer un projet de service cloud hébergeant l
  
 		PS C:\> cd node
 
-4. Entrez les commandes suivantes pour créer une solution nommée **chatapp** et un rôle de travail nommé **WorkerRole1** :
+4. Entrez les commandes suivantes pour créer une solution nommée **chatapp** et un rôle de travail nommé **WorkerRole1** :
 
 		PS C:\node> New-AzureServiceProject chatapp
 		PS C:\Node> Add-AzureNodeWorkerRole
@@ -131,11 +131,11 @@ Après avoir enregistré vos modifications dans le fichier **server.js**, procé
 
 	> [AZURE.IMPORTANT] Veillez à utiliser un nom unique, sans quoi le processus de publication échoue. Une fois le déploiement terminé, le navigateur s'ouvre et accède au service déployé.
 	> 
-	> Si vous recevez une erreur indiquant que le nom d’abonnement fourni n’existe pas dans le profil de publication importé, vous devez télécharger et importer le profil de publication de votre abonnement avant de le déployer dans Azure. Consultez la section **Déploiement de l'application dans Azure** du didacticiel [Création et déploiement d'une application Node.js dans Azure Cloud Services](https://azure.microsoft.com/develop/nodejs/tutorials/getting-started/)
+	> Si vous recevez une erreur indiquant que le nom d’abonnement fourni n’existe pas dans le profil de publication importé, vous devez télécharger et importer le profil de publication de votre abonnement avant de le déployer dans Azure. Consultez la section **Déploiement de l'application dans Azure** du didacticiel [Création et déploiement d'une application Node.js dans Azure Cloud Services](https://azure.azure.microsoft.com/.com/develop/nodejs/tutorials/getting-started/)
 
     ![Fenêtre de navigateur affichant le service hébergé sur Azure][completed-app]
 
-	> [AZURE.NOTE] Si vous recevez une erreur indiquant que le nom d’abonnement fourni n’existe pas dans le profil de publication importé, vous devez télécharger et importer le profil de publication de votre abonnement avant de le déployer dans Azure. Consultez la section **Déploiement de l'application dans Azure** du didacticiel [Création et déploiement d'une application Node.js dans Azure Cloud Services](https://azure.microsoft.com/develop/nodejs/tutorials/getting-started/)
+	> [AZURE.NOTE] Si vous recevez une erreur indiquant que le nom d’abonnement fourni n’existe pas dans le profil de publication importé, vous devez télécharger et importer le profil de publication de votre abonnement avant de le déployer dans Azure. Consultez la section **Déploiement de l'application dans Azure** du didacticiel [Création et déploiement d'une application Node.js dans Azure Cloud Services](https://azure.azure.microsoft.com/.com/develop/nodejs/tutorials/getting-started/)
 
 Votre application s'exécute à présent dans Azure, et peut transmettre des messages de conversation instantanée entre différents clients en utilisant Socket.IO.
 

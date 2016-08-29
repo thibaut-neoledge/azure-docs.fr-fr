@@ -19,7 +19,7 @@
 # Configuration d'un pare-feu d'applications Web (WAF) pour un environnement App Service
 
 ## Vue d'ensemble ##
-Les pare-feu d'applications Web comme le [WAF Barracuda pour Azure](https://www.barracuda.com/programs/azure) qui est disponible sur [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/barracudanetworks/waf-byol/) permettent de sécuriser vos applications Web en inspectant le trafic Web entrant pour bloquer les injections SQL, l'exécution de scripts de site à site, les téléchargements de logiciels malveillants, les attaques DDoS d'application et d'autres attaques. Ce type de pare-feu inspecte également les réponses des serveurs Web principaux pour prévention de perte de données (DLP). En association avec l'isolement et la mise à l'échelle supplémentaire fournis par les environnements App Service, ceci fournit un environnement idéal pour héberger des applications Web professionnelles critiques qui doivent résister aux requêtes malveillantes et à un volume de trafic élevé.
+Les pare-feu d'applications Web comme le [WAF Barracuda pour Azure](https://www.barracuda.com/programs/azure) qui est disponible sur [Azure Marketplace](https://azure.azure.microsoft.com/.com/marketplace/partners/barracudanetworks/waf-byol/) permettent de sécuriser vos applications Web en inspectant le trafic Web entrant pour bloquer les injections SQL, l'exécution de scripts de site à site, les téléchargements de logiciels malveillants, les attaques DDoS d'application et d'autres attaques. Ce type de pare-feu inspecte également les réponses des serveurs Web principaux pour prévention de perte de données (DLP). En association avec l'isolement et la mise à l'échelle supplémentaire fournis par les environnements App Service, ceci fournit un environnement idéal pour héberger des applications Web professionnelles critiques qui doivent résister aux requêtes malveillantes et à un volume de trafic élevé.
 
 \+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -65,7 +65,7 @@ Cliquez sur l'onglet Services pour configurer votre WAF pour les services qu'il 
 
 > Remarque : selon la configuration de vos applications et les fonctionnalités utilisées dans votre environnement App Service, vous devrez transférer le trafic pour les ports TCP autres que 80 et 443 ; par exemple, si vous avez configuré SSL IP pour une application Web. Pour obtenir la liste des ports réseau utilisés dans les environnements App Service, consultez la section Ports réseau de la [documentation relative au contrôle du trafic entrant](app-service-app-service-environment-control-inbound-traffic.md).
 
-## Configuration de Microsoft Azure Traffic Manager (FACULTATIF) ##
+## Configuration de azure.microsoft.com/ Azure Traffic Manager (FACULTATIF) ##
 Si votre application est disponible dans plusieurs régions, vous devez en équilibrer la charge derrière [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md). Pour ce faire, vous pouvez ajouter un point de terminaison dans le [portail Azure Classic](https://manage.azure.com) en utilisant le nom du service cloud de votre WAF dans le profil Traffic Manager, comme indiqué dans l’image ci-dessous.
 
 ![Point de terminaison Traffic Manager][TrafficManagerEndpoint]

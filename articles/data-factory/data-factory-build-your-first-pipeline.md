@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Didacticiel Data Factory : premier pipeline de données | Microsoft Azure"
+	pageTitle="Didacticiel Data Factory : premier pipeline de données | azure.microsoft.com/ Azure"
 	description="Ce didacticiel Azure Data Factory vous montre comment créer et planifier une fabrique de données qui traite les données à l’aide du script Hive sur un cluster Hadoop."
 	services="data-factory"
 	keywords="didacticiel azure data factory, cluster hadoop, hadoop hive"
@@ -65,7 +65,7 @@ Dans les échantillons de lignes ci-dessus, la première (avec 2014-01-01) est �
 ## Conditions préalables
 Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
-1.	**Un abonnement Azure** : si vous n’en avez pas, vous pouvez créer un compte en quelques minutes pour une évaluation gratuite. Consultez l’article [Évaluation gratuite](https://azure.microsoft.com/pricing/free-trial/) pour savoir comment obtenir un compte d’évaluation gratuite.
+1.	**Un abonnement Azure** : si vous n’en avez pas, vous pouvez créer un compte en quelques minutes pour une évaluation gratuite. Consultez l’article [Évaluation gratuite](https://azure.azure.microsoft.com/.com/pricing/free-trial/) pour savoir comment obtenir un compte d’évaluation gratuite.
 
 2.	**Stockage Azure** : dans ce didacticiel, vous utilisez un compte de stockage Azure pour stocker les données. Si vous n’avez pas de compte de stockage Azure, consultez l’article [Créer un compte de stockage](../storage/storage-create-storage-account.md#create-a-storage-account). Après avoir créé le compte de stockage, vous devez obtenir la clé du compte utilisée pour accéder au stockage. Consultez [Affichage, copie et régénération de clés d’accès de stockage](../storage/storage-create-storage-account.md#view-and-copy-storage-access-keys).
 
@@ -168,7 +168,7 @@ Lors de l’exécution, l’activité Hive dans le pipeline Data Factory transme
 ### Créer un exemple de fichier d’entrée
 Dans le Bloc-notes, créez un fichier nommé **input.log** dans le dossier **c:\\adfgetstarted** avec le contenu suivant :
 
-	#Software: Microsoft Internet Information Services 8.0
+	#Software: azure.microsoft.com/ Internet Information Services 8.0
 	#Fields: date time s-sitename cs-method cs-uri-stem cs-uri-query s-port cs-username c-ip cs(User-Agent) cs(Cookie) cs(Referer) cs-host sc-status sc-substatus sc-win32-status sc-bytes cs-bytes time-taken
 	2014-01-01 02:01:09 SAMPLEWEBSITE GET /blogposts/mvc4/step2.png X-ARR-LOG-ID=2ec4b8ad-3cf0-4442-93ab-837317ece6a1 80 - 1.54.23.196 Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/31.0.1650.63+Safari/537.36 - http://weblogs.asp.net/sample/archive/2007/12/09/asp-net-mvc-framework-part-4-handling-form-edit-and-post-scenarios.aspx www.sample.com 200 0 0 53175 871 46
 	2014-01-01 02:01:09 SAMPLEWEBSITE GET /blogposts/mvc4/step3.png X-ARR-LOG-ID=9eace870-2f49-4efd-b204-0d170da46b4a 80 - 1.54.23.196 Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/31.0.1650.63+Safari/537.36 - http://weblogs.asp.net/sample/archive/2007/12/09/asp-net-mvc-framework-part-4-handling-form-edit-and-post-scenarios.aspx www.sample.com 200 0 0 51237 871 32
@@ -192,13 +192,13 @@ Dans le Bloc-notes, créez un fichier nommé **input.log** dans le dossier **c:\
 
 ### Charger le fichier d’entrée et le fichier HQL dans votre stockage d’objets blob Azure
 
-Cette section explique comment utiliser l’outil **AzCopy** pour copier des fichiers dans le stockage d’objets Blob Azure. Vous pouvez utiliser n’importe quel outil de votre choix (par exemple [l’Explorateur de stockage Microsoft Azure](http://storageexplorer.com/), [CloudXPlorer de ClumsyLeaf Software](http://clumsyleaf.com/products/cloudxplorer)) pour effectuer cette tâche.
+Cette section explique comment utiliser l’outil **AzCopy** pour copier des fichiers dans le stockage d’objets Blob Azure. Vous pouvez utiliser n’importe quel outil de votre choix (par exemple [l’Explorateur de stockage azure.microsoft.com/ Azure](http://storageexplorer.com/), [CloudXPlorer de ClumsyLeaf Software](http://clumsyleaf.com/products/cloudxplorer)) pour effectuer cette tâche.
 	 
 2. Pour préparer le stockage Azure en vue du didacticiel, procédez comme suit :
 	1. Téléchargez la [dernière version d’**AzCopy**](http://aka.ms/downloadazcopy) ou la [dernière version Preview](http://aka.ms/downloadazcopypr). Consultez l’article [Utilisation d’AzCopy](../storage/storage-use-azcopy.md) pour obtenir des instructions sur l’utilisation de l’utilitaire.
 	2. Après l’installation d’AzCopy, vous pouvez l’ajouter au chemin système en exécutant la commande suivante à une invite de commandes.
 	
-			set path=%path%;C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy
+			set path=%path%;C:\Program Files (x86)\azure.microsoft.com/ SDKs\Azure\AzCopy
 
 	3. Accédez au dossier c:\\adfgettingstarted et exécutez la commande suivante pour charger le fichier **input.log** dans le compte de stockage (conteneur **adfgetstarted** et dossier **inputdata**). Remplacez **StorageAccountName** par le nom de votre compte de stockage et **Storage Key** par la clé du compte de stockage.
 

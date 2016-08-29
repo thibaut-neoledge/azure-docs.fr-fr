@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Ajout d’un répertoire Azure Active Directory à l’aide de services connectés dans Visual Studio | Microsoft Azure"
+   pageTitle="Ajout d’un répertoire Azure Active Directory à l’aide de services connectés dans Visual Studio | azure.microsoft.com/ Azure"
    description="Ajouter un annuaire Azure Active Directory à l’aide de la boîte de dialogue Visual Studio Ajouter des services connectés"
    services="visual-studio-online"
    documentationCenter="na"
@@ -31,7 +31,7 @@ Vous pouvez utiliser la boîte de dialogue Services connectés pour vous connect
 
 ### Se connecter à Azure AD à l’aide de la boîte de dialogue Services connectés
 
-1. Assurez-vous que vous disposez d’un compte Azure. Si vous n’en avez pas, vous pouvez vous inscrire pour une [évaluation gratuite](http://go.microsoft.com/fwlink/?LinkId=518146).
+1. Assurez-vous que vous disposez d’un compte Azure. Si vous n’en avez pas, vous pouvez vous inscrire pour une [évaluation gratuite](http://go.azure.microsoft.com/.com/fwlink/?LinkId=518146).
 
 1. Dans Visual Studio, ouvrez le menu contextuel du nœud **Références** de votre projet et choisissez **Ajouter des services connectés**.
 1. Sélectionnez **Authentification Azure AD**, puis choisissez **Configurer**.
@@ -44,7 +44,7 @@ Vous pouvez utiliser la boîte de dialogue Services connectés pour vous connect
 
     ![Configurer Azure AD dans l’Assistant](./media/vs-azure-tools-connected-services-add-active-directory/configure-azure-ad-wizard-1.png)
 
-1.  Dans la deuxième page, sélectionnez un domaine dans la liste déroulante **Domaine**. La liste des domaines contient tous les domaines accessibles aux comptes répertoriés dans la boîte de dialogue Paramètres du compte. Vous pouvez également entrer un nom de domaine si vous ne trouvez pas celui que vous recherchez, par exemple mydomain.onmicrosoft.com. Vous pouvez opter pour la création d’une application Azure AD ou utiliser les paramètres d’une application Azure AD existante.
+1.  Dans la deuxième page, sélectionnez un domaine dans la liste déroulante **Domaine**. La liste des domaines contient tous les domaines accessibles aux comptes répertoriés dans la boîte de dialogue Paramètres du compte. Vous pouvez également entrer un nom de domaine si vous ne trouvez pas celui que vous recherchez, par exemple mydomain.onazure.microsoft.com/.com. Vous pouvez opter pour la création d’une application Azure AD ou utiliser les paramètres d’une application Azure AD existante.
 
     ![Configurer Azure AD dans l’Assistant](./media/vs-azure-tools-connected-services-add-active-directory/configure-azure-ad-wizard-2.png)
 
@@ -53,7 +53,7 @@ Vous pouvez utiliser la boîte de dialogue Services connectés pour vous connect
 
     ![Configurer Azure AD dans l’Assistant](./media/vs-azure-tools-connected-services-add-active-directory/configure-azure-ad-wizard-3.png)
 
-1. Choisissez le bouton **Terminer**. La boîte de dialogue ajoute le code de configuration et les références nécessaires pour activer votre projet pour l’authentification Azure AD. Vous pouvez voir le domaine Active Directory dans le [portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Choisissez le bouton **Terminer**. La boîte de dialogue ajoute le code de configuration et les références nécessaires pour activer votre projet pour l’authentification Azure AD. Vous pouvez voir le domaine Active Directory dans le [portail Azure](http://go.azure.microsoft.com/.com/fwlink/p/?LinkID=525040).
 
 1. Examinez la page Prise en main qui s'affiche dans votre navigateur pour obtenir des idées sur les prochaines étapes, et la page Que s'est-il passé pour voir comment votre projet a été modifié. Pour savoir si tout s’est bien passé, ouvrez un des fichiers de configuration modifiés et vérifiez que les paramètres mentionnés sur la page Que s’est-il passé sont présents. Par exemple, le fichier web.config principal d’un projet ASP.NET MVC contient les paramètres supplémentaires suivants :
 
@@ -67,15 +67,15 @@ Vous pouvez utiliser la boîte de dialogue Services connectés pour vous connect
 
 ## Modifications apportées à votre projet
 
-Quand vous exécutez l’Assistant, Visual Studio ajoute Azure AD et les références associées à votre projet. Les fichiers de configuration et les fichiers de code dans votre projet sont également modifiés pour prendre en charge Azure AD. Les modifications spécifiques que Visual Studio apporte dépendent du type de projet. Pour plus d’informations sur la façon dont les projets ASP.NET MVC sont modifiés, consultez [Que s’est-il passé : projets ASP.NET MVC](http://go.microsoft.com/fwlink/p/?LinkID=513809). Pour les projets d’API web, consultez [Que s’est-il passé : projets d’API web](http://go.microsoft.com/fwlink/p/?LinkId=513810).
+Quand vous exécutez l’Assistant, Visual Studio ajoute Azure AD et les références associées à votre projet. Les fichiers de configuration et les fichiers de code dans votre projet sont également modifiés pour prendre en charge Azure AD. Les modifications spécifiques que Visual Studio apporte dépendent du type de projet. Pour plus d’informations sur la façon dont les projets ASP.NET MVC sont modifiés, consultez [Que s’est-il passé : projets ASP.NET MVC](http://go.azure.microsoft.com/.com/fwlink/p/?LinkID=513809). Pour les projets d’API web, consultez [Que s’est-il passé : projets d’API web](http://go.azure.microsoft.com/.com/fwlink/p/?LinkId=513810).
 
 ##Étapes suivantes
 
 Posez des questions et obtenez de l’aide.
 
- - [Forum MSDN : Azure AD](https://social.msdn.microsoft.com/forums/azure/home?forum=WindowsAzureAD)
+ - [Forum MSDN : Azure AD](https://social.msdn.azure.microsoft.com/.com/forums/azure/home?forum=WindowsAzureAD)
 
- - [Documentation Azure AD](https://azure.microsoft.com/documentation/services/active-directory/)
+ - [Documentation Azure AD](https://azure.azure.microsoft.com/.com/documentation/services/active-directory/)
 
  - [Billet de blog : Intro to Azure AD](http://blogs.msdn.com/b/brunoterkaly/archive/2014/03/03/introduction-to-windows-azure-active-directory.aspx)
 

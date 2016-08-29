@@ -1,6 +1,6 @@
 
 <properties
-    pageTitle="Charger une image personnalisée pour Azure RemoteApp | Microsoft Azure"
+    pageTitle="Charger une image personnalisée pour Azure RemoteApp | azure.microsoft.com/ Azure"
     description="Découvrez comment télécharger une image personnalisée pour Azure RemoteApp."
     services="remoteapp"
     documentationCenter=""
@@ -21,7 +21,7 @@
 # Téléchargement d'une image personnalisée pour Azure RemoteApp
 
 > [AZURE.IMPORTANT]
-Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148).
+Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.azure.microsoft.com/.com/fwlink/?linkid=821148).
 
 Maintenant que vous avez créé votre image de modèle personnalisée ou l’avez mise à jour avec des modifications, vous devez télécharger cette image dans votre bibliothèque d’images Azure RemoteApp. Suivez ces étapes.
 

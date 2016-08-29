@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Surveiller et gérer des clusters HDInsight à l'aide de l'API REST d'Apache Ambari | Microsoft Azure"
+   pageTitle="Surveiller et gérer des clusters HDInsight à l'aide de l'API REST d'Apache Ambari | azure.microsoft.com/ Azure"
    description="Découvrez comment utiliser Ambari pour gérer et surveiller des clusters HDInsight Linux. Dans ce document, vous allez apprendre à utiliser l'API REST d'Ambari incluse avec les clusters HDInsight."
    services="hdinsight"
    documentationCenter=""

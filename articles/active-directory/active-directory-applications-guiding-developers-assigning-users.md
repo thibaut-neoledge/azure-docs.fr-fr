@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure AD et applications : affectations d’utilisateurs à une application | Microsoft Azure"
+	pageTitle="Azure AD et applications : affectations d’utilisateurs à une application | azure.microsoft.com/ Azure"
 	description="Implémentation de l’attribution d’utilisateurs pour les applications Azure."
 	services="active-directory"
 	documentationCenter=""

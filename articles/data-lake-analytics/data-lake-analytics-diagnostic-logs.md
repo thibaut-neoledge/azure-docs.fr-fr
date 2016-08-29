@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Affichage des journaux de diagnostic d’Azure Data Lake Analytics | Microsoft Azure" 
+   pageTitle="Affichage des journaux de diagnostic d’Azure Data Lake Analytics | azure.microsoft.com/ Azure" 
    description="Comprendre comment configurer les journaux de diagnostic et y accéder pour Azure Data Lake Analytics " 
    services="data-lake-analytics" 
    documentationCenter="" 
@@ -28,7 +28,7 @@ Les organisations peuvent activer la journalisation de diagnostic pour leur comp
 
 ## Composants requis
 
-- **Un abonnement Azure**. Consultez la rubrique [Obtenir une version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/).
+- **Un abonnement Azure**. Consultez la rubrique [Obtenir une version d'évaluation gratuite d'Azure](https://azure.azure.microsoft.com/.com/pricing/free-trial/).
 - **Activation de votre abonnement Azure** pour la version préliminaire publique de Data Lake Analytics. Consultez les [instructions](data-lake-analytics-get-started-portal.md#signup).
 - **Compte Azure Data Lake Analytics**. Suivez les instructions de [Prise en main du service Azure Data Lake Analytics à l’aide du portail Azure](data-lake-analytics-get-started-portal.md).
 
@@ -88,7 +88,7 @@ Il existe deux manières d’afficher les données de journal de votre compte Da
               RESOURCEGROUPS/
                 <<RESOURCE_GRP_NAME>>/
                   PROVIDERS/
-                    MICROSOFT.DATALAKEANALYTICS/
+                    azure.microsoft.com/.DATALAKEANALYTICS/
                       ACCOUNTS/
                         <DATA_LAKE_ANALYTICS_NAME>>/
                           y=####/
@@ -102,11 +102,11 @@ Il existe deux manières d’afficher les données de journal de votre compte Da
 
 	Par exemple, le chemin d’accès complet à un journal d’audit peut être :
     
-        https://adllogs.blob.core.windows.net/insights-logs-audit/resourceId=/SUBSCRIPTIONS/<sub-id>/RESOURCEGROUPS/myresourcegroup/PROVIDERS/MICROSOFT.DATALAKEANALYTICS/ACCOUNTS/mydatalakeanalytics/y=2016/m=07/d=18/h=04/m=00/PT1H.json
+        https://adllogs.blob.core.windows.net/insights-logs-audit/resourceId=/SUBSCRIPTIONS/<sub-id>/RESOURCEGROUPS/myresourcegroup/PROVIDERS/azure.microsoft.com/.DATALAKEANALYTICS/ACCOUNTS/mydatalakeanalytics/y=2016/m=07/d=18/h=04/m=00/PT1H.json
 
 	De même, le chemin d’accès complet à un journal de demande peut être :
     
-        https://adllogs.blob.core.windows.net/insights-logs-requests/resourceId=/SUBSCRIPTIONS/<sub-id>/RESOURCEGROUPS/myresourcegroup/PROVIDERS/MICROSOFT.DATALAKEANALYTICS/ACCOUNTS/mydatalakeanalytics/y=2016/m=07/d=18/h=14/m=00/PT1H.json
+        https://adllogs.blob.core.windows.net/insights-logs-requests/resourceId=/SUBSCRIPTIONS/<sub-id>/RESOURCEGROUPS/myresourcegroup/PROVIDERS/azure.microsoft.com/.DATALAKEANALYTICS/ACCOUNTS/mydatalakeanalytics/y=2016/m=07/d=18/h=14/m=00/PT1H.json
 
 ## Structure journal
 
@@ -123,7 +123,7 @@ Voici un exemple d’entrée dans le journal de demande au format JSON. Chaque o
 		,
 		{
 			 "time": "2016-07-07T21:02:53.456Z",
-			 "resourceId": "/SUBSCRIPTIONS/<subscription_id>/RESOURCEGROUPS/<resource_group_name>/PROVIDERS/MICROSOFT.DATALAKEANALYTICS/ACCOUNTS/<data_lake_analytics_account_name>",
+			 "resourceId": "/SUBSCRIPTIONS/<subscription_id>/RESOURCEGROUPS/<resource_group_name>/PROVIDERS/azure.microsoft.com/.DATALAKEANALYTICS/ACCOUNTS/<data_lake_analytics_account_name>",
 			 "category": "Requests",
 			 "operationName": "GetAggregatedJobHistory",
 			 "resultType": "200",
@@ -180,7 +180,7 @@ Voici un exemple d’entrée dans le journal d’audit au format JSON. Chaque ob
 		,
 		{
 			 "time": "2016-07-28T19:15:16.245Z",
-			 "resourceId": "/SUBSCRIPTIONS/<subscription_id>/RESOURCEGROUPS/<resource_group_name>/PROVIDERS/MICROSOFT.DATALAKEANALYTICS/ACCOUNTS/<data_lake_ANALYTICS_account_name>",
+			 "resourceId": "/SUBSCRIPTIONS/<subscription_id>/RESOURCEGROUPS/<resource_group_name>/PROVIDERS/azure.microsoft.com/.DATALAKEANALYTICS/ACCOUNTS/<data_lake_ANALYTICS_account_name>",
 			 "category": "Audit",
 			 "operationName": "JobSubmitted",
 			 "identity": "user@somewhere.com",

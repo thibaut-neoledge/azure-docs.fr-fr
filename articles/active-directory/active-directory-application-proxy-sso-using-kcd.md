@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Authentification unique avec le proxy d’application | Microsoft Azure"
+	pageTitle="Authentification unique avec le proxy d’application | azure.microsoft.com/ Azure"
 	description="Explique comment fournir l’authentification unique à l’aide du proxy d’application Azure AD."
 	services="active-directory"
 	documentationCenter=""
@@ -38,7 +38,7 @@ Vous pouvez activer l’authentification unique pour vos applications avec l’a
 
 Ce diagramme explique le flux quand un utilisateur tente d’accéder à une application locale qui utilise I’authentification Windows intégrée.
 
-![Diagramme de flux de l’authentification Microsoft AAD](./media/active-directory-application-proxy-sso-using-kcd/AuthDiagram.png)
+![Diagramme de flux de l’authentification azure.microsoft.com/ AAD](./media/active-directory-application-proxy-sso-using-kcd/AuthDiagram.png)
 
 1. L’utilisateur entre l’URL pour accéder à l’application locale via le proxy d’application.
 2. Le proxy d’application redirige la demande vers les services d’authentification d’Azure AD pour effectuer la préauthentification. À ce stade, Azure AD applique les stratégies d’authentification et d’autorisation applicables, comme l’authentification multifacteur. Si l’utilisateur est validé, Azure AD crée un jeton et l’envoie à l’utilisateur.
@@ -53,13 +53,13 @@ Ce diagramme explique le flux quand un utilisateur tente d’accéder à une app
 
 Avant de commencer avec l’authentification unique pour le proxy d’application, vérifiez que votre environnement est prêt avec les paramètres et configurations suivants :
 
-- Vos applications, comme les applications web SharePoint, sont configurées pour utiliser l’authentification Windows intégrée. Pour plus d’informations, consultez [Activer la prise en charge de l’authentification Kerberos](https://technet.microsoft.com/library/dd759186.aspx) ou, pour SharePoint, consultez [Planifier l’authentification Kerberos dans SharePoint 2013](https://technet.microsoft.com/library/ee806870.aspx).
+- Vos applications, comme les applications web SharePoint, sont configurées pour utiliser l’authentification Windows intégrée. Pour plus d’informations, consultez [Activer la prise en charge de l’authentification Kerberos](https://technet.azure.microsoft.com/.com/library/dd759186.aspx) ou, pour SharePoint, consultez [Planifier l’authentification Kerberos dans SharePoint 2013](https://technet.azure.microsoft.com/.com/library/ee806870.aspx).
 
 - Toutes vos applications disposent de noms de principal de service.
 
-- Le serveur exécutant le connecteur et le serveur exécutant l’application sont joints au domaine et font partie du même domaine ou de domaines sécurisés. Pour plus d’informations sur la jonction à un domaine, consultez [Joindre un ordinateur à un domaine](https://technet.microsoft.com/library/dd807102.aspx).
+- Le serveur exécutant le connecteur et le serveur exécutant l’application sont joints au domaine et font partie du même domaine ou de domaines sécurisés. Pour plus d’informations sur la jonction à un domaine, consultez [Joindre un ordinateur à un domaine](https://technet.azure.microsoft.com/.com/library/dd807102.aspx).
 
-- Le serveur exécutant le connecteur est autorisé à lire le TokenGroupsGlobalAndUniversal des utilisateurs. Il s’agit d’un paramètre par défaut qui peut avoir été affecté par la sécurisation renforcée de l’environnement. Consultez l’article [KB2009157](https://support.microsoft.com/fr-FR/kb/2009157) pour en savoir plus sur ce paramètre.
+- Le serveur exécutant le connecteur est autorisé à lire le TokenGroupsGlobalAndUniversal des utilisateurs. Il s’agit d’un paramètre par défaut qui peut avoir été affecté par la sécurisation renforcée de l’environnement. Consultez l’article [KB2009157](https://support.azure.microsoft.com/.com/fr-FR/kb/2009157) pour en savoir plus sur ce paramètre.
 
 ### Configuration d’Active Directory
 
@@ -77,7 +77,7 @@ La configuration d’Active Directory varie selon que votre connecteur de proxy 
 
 #### Connecteur et serveur publié dans des domaines différents
 
-1. Pour obtenir la liste des conditions préalables à l’utilisation de la délégation Kerberos contrainte entre domaines, consultez [Délégation Kerberos contrainte entre domaines](https://technet.microsoft.com/library/hh831477.aspx).
+1. Pour obtenir la liste des conditions préalables à l’utilisation de la délégation Kerberos contrainte entre domaines, consultez [Délégation Kerberos contrainte entre domaines](https://technet.azure.microsoft.com/.com/library/hh831477.aspx).
 2. Dans Windows 2012 R2, utilisez la propriété `principalsallowedtodelegateto` sur le serveur du connecteur pour permettre au proxy d’application de déléguer pour le serveur de connecteur, où le serveur publié est `sharepointserviceaccount` et le serveur de délégation est `connectormachineaccount`.
 
 		$connector= Get-ADComputer -Identity connectormachineaccount -server dc.connectordomain.com

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Gérer vos machines virtuelles à l’aide d’Azure PowerShell | Microsoft Azure"
+   pageTitle="Gérer vos machines virtuelles à l’aide d’Azure PowerShell | azure.microsoft.com/ Azure"
    description="Découvrez les commandes que vous pouvez utiliser pour automatiser les tâches de gestion des machines virtuelles."
    services="virtual-machines-windows"
    documentationCenter="windows"

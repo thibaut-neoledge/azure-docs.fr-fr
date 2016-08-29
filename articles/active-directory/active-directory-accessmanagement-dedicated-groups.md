@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Groupes dédiés dans Azure Active Directory | Microsoft Azure"
+	pageTitle="Groupes dédiés dans Azure Active Directory | azure.microsoft.com/ Azure"
 	description="Vue d’ensemble du fonctionnement et de la création des groupes dédiés dans Azure Active Directory."
 	services="active-directory"
 	documentationCenter=""
@@ -33,7 +33,7 @@ Dans Azure Active Directory (Azure AD), la fonctionnalité des groupes dédiés 
 
 3. Sélectionnez l’onglet **Configurer**, puis définissez **Activer les groupes dédiés** sur **Oui**.
 
-Une fois que l’option Activer les groupes dédiés est définie sur **Oui**, vous pouvez configurer l’annuaire pour qu’il crée automatiquement le groupe dédié Tous les utilisateurs. Pour ce faire, définissez l’option **Activer le groupe Tous les utilisateurs** sur **Oui**. Vous pouvez ensuite également modifier le nom de ce groupe dédié, en effectuant votre saisie dans le champ **Nom d’affichage du groupe Tous les utilisateurs**.
+Une fois que l’option Activer les groupes dédiés est définie sur **Oui**, vous pouvez configurer l’annuaire pour qu’il crée automatiquement le groupe dédié Tous les utilisateurs. Pour ce faire, définissez l’option **Activer le groupe Tous les utilisateurs** sur **Oui**. Vous pouvez ensuite également modifier le nom de ce groupe dédié, en effectuant votre saisie dans le champ **Nom d’affichage du groupe Tous les utilisateurs**.
 
 Le groupe Tous les utilisateurs peut vous permettre d’attribuer les mêmes autorisations à l’ensemble des utilisateurs de votre répertoire. Par exemple, vous pouvez autoriser l’ensemble des utilisateurs de votre répertoire à accéder à l’application SaaS, en attribuant l’accès à cette application au groupe dédié Tous les utilisateurs.
 

@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Planifier votre réseau virtuel pour une collection RemoteApp Azure | Microsoft Azure"
+    pageTitle="Planifier votre réseau virtuel pour une collection RemoteApp Azure | azure.microsoft.com/ Azure"
     description="Planifier votre réseau virtuel pour une collection Azure RemoteApp"
     services="remoteapp"
     documentationCenter="" 
@@ -18,7 +18,7 @@
 # Comment planifier votre réseau virtuel pour Azure RemoteApp
 
 > [AZURE.IMPORTANT]
-Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148).
+Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.azure.microsoft.com/.com/fwlink/?linkid=821148).
 
 Ce document décrit comment configurer votre réseau virtuel Azure (réseau) et le sous-réseau pour Azure RemoteApp. Si vous n’êtes pas familiarisé avec les réseaux virtuels Azure, c’est une fonctionnalité qui vous permet de virtualiser votre infrastructure réseau vers le nuage et pour créer des solutions hybrides avec Azure et vos ressources locales. Pour plus d'informations à ce sujet, cliquez [ici](../virtual-network/virtual-networks-overview.md).
 

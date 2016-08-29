@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Créer des enregistrements DNS personnalisés pour une application web | Microsoft Azure " 
+   pageTitle="Créer des enregistrements DNS personnalisés pour une application web | azure.microsoft.com/ Azure " 
    description="Comment créer des enregistrements DNS de domaine personnalisés pour une application web à l’aide d’Azure DNS" 
    services="dns" 
    documentationCenter="na" 

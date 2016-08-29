@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Migration et publication d’une application web sur un service cloud Azure à partir de Visual Studio | Microsoft Azure"
+   pageTitle="Migration et publication d’une application web sur un service cloud Azure à partir de Visual Studio | azure.microsoft.com/ Azure"
    description="Découvrez comment migrer et publier une application web sur un service cloud Azure à partir de Visual Studio."
    services="visual-studio-online"
    documentationCenter="na"
@@ -25,9 +25,9 @@ Pour obtenir la liste des modèles spécifiques pris en charge par Visual C# et 
 
 Vous devez d'abord activer votre application web pour Azure à partir de Visual Studio. L'illustration suivante montre les étapes clés pour publier votre application web existante en ajoutant un projet Azure à utiliser pour le déploiement. Ce processus ajoute à votre solution un projet Azure avec le rôle web nécessaire. Selon le type de votre projet web, les propriétés du projet pour les assemblys sont également mises à jour si le package de services requiert des assemblys supplémentaires pour le déploiement.
 
-![Publication d’une application web dans Microsoft Azure](./media/vs-azure-tools-migrate-publish-web-app-to-cloud-service/IC748917.png)
+![Publication d’une application web dans azure.microsoft.com/ Azure](./media/vs-azure-tools-migrate-publish-web-app-to-cloud-service/IC748917.png)
 
->[AZURE.NOTE] La commande **Convertir**, **Convertir en projet service cloud Azure** s'affiche uniquement pour le projet web dans votre solution. Par exemple, la commande n'est pas disponible pour un projet Silverlight dans votre solution. Lorsque vous créez un package de services ou publiez votre application dans Azure, des avertissements ou des erreurs peuvent se produire. Ces avertissements et ces erreurs peuvent vous aider à résoudre les problèmes avant le déploiement vers Azure. Par exemple, vous pouvez recevoir un avertissement signalant un assembly manquant. Pour plus d’informations sur la façon de traiter les avertissements comme des erreurs, consultez [Configurer un projet de service cloud Azure avec Visual Studio](vs-azure-tools-configuring-an-azure-project.md). Si vous générez votre application, exécutez celle-ci localement à l’aide de l’émulateur de calcul ou publiez celle-ci sur Azure, vous pouvez voir l’erreur suivante dans la fenêtre **Liste d’erreurs** : **Le chemin d’accès ou le nom de fichier spécifié, ou les deux, sont trop longs**. Cette erreur se produit car le nom qualifié complet du projet Azure est trop long. La longueur du nom du projet, y compris le chemin d’accès complet, ne peut pas dépasser 146 caractères. Voici, par exemple, le nom de projet complet, y compris le chemin d’accès au fichier d’un projet Azure créé pour une application Silverlight : `c:\users<user name>\documents\visual studio 2015\Projects\SilverlightApplication4\SilverlightApplication4.Web.Azure.ccproj`. Afin de réduire la longueur du nom complet du projet, vous devrez peut-être déplacer votre solution vers un autre répertoire avec un chemin plus court.
+>[AZURE.NOTE] La commande **Convertir**, **Convertir en projet service cloud Azure** s'affiche uniquement pour le projet web dans votre solution. Par exemple, la commande n'est pas disponible pour un projet Silverlight dans votre solution. Lorsque vous créez un package de services ou publiez votre application dans Azure, des avertissements ou des erreurs peuvent se produire. Ces avertissements et ces erreurs peuvent vous aider à résoudre les problèmes avant le déploiement vers Azure. Par exemple, vous pouvez recevoir un avertissement signalant un assembly manquant. Pour plus d’informations sur la façon de traiter les avertissements comme des erreurs, consultez [Configurer un projet de service cloud Azure avec Visual Studio](vs-azure-tools-configuring-an-azure-project.md). Si vous générez votre application, exécutez celle-ci localement à l’aide de l’émulateur de calcul ou publiez celle-ci sur Azure, vous pouvez voir l’erreur suivante dans la fenêtre **Liste d’erreurs** : **Le chemin d’accès ou le nom de fichier spécifié, ou les deux, sont trop longs**. Cette erreur se produit car le nom qualifié complet du projet Azure est trop long. La longueur du nom du projet, y compris le chemin d’accès complet, ne peut pas dépasser 146 caractères. Voici, par exemple, le nom de projet complet, y compris le chemin d’accès au fichier d’un projet Azure créé pour une application Silverlight : `c:\users<user name>\documents\visual studio 2015\Projects\SilverlightApplication4\SilverlightApplication4.Web.Azure.ccproj`. Afin de réduire la longueur du nom complet du projet, vous devrez peut-être déplacer votre solution vers un autre répertoire avec un chemin plus court.
 
 Pour migrer et publier une application web vers Azure à partir de Visual Studio, suivez ces étapes :
 
@@ -55,17 +55,17 @@ Pour migrer et publier une application web vers Azure à partir de Visual Studio
 
 Si vous avez une chaîne de connexion pour votre application web qui utilise une base de données SQL Server sur site, vous devez modifier cette chaîne de connexion pour qu’elle utilise une instance de base de données SQL hébergée par Azure à la place.
 
->[AZURE.IMPORTANT] Votre abonnement vous permet d’utiliser la base de données SQL. Si vous accédez à votre abonnement à partir du [Portail Azure Classic](http://go.microsoft.com/fwlink/?LinkID=213885), vous pouvez déterminer quels services vos abonnements fournissent. Les instructions suivantes s’appliquent au [portail Azure Classic](http://go.microsoft.com/fwlink/?LinkID=213885). Si vous utilisez le [portail Azure](http://portal.microsoft.com), passez à la procédure suivante.|
+>[AZURE.IMPORTANT] Votre abonnement vous permet d’utiliser la base de données SQL. Si vous accédez à votre abonnement à partir du [Portail Azure Classic](http://go.azure.microsoft.com/.com/fwlink/?LinkID=213885), vous pouvez déterminer quels services vos abonnements fournissent. Les instructions suivantes s’appliquent au [portail Azure Classic](http://go.azure.microsoft.com/.com/fwlink/?LinkID=213885). Si vous utilisez le [portail Azure](http://portal.azure.microsoft.com/.com), passez à la procédure suivante.|
 
 ### Utiliser une instance de base de données SQL dans votre rôle web pour votre chaîne de connexion
 
-1. Pour créer une instance de base de données SQL dans le [portail Azure Classic](http://go.microsoft.com/fwlink/?LinkID=213885), suivez les étapes décrites dans l’article suivant : [Create a SQL Database Server](http://go.microsoft.com/fwlink/?LinkId=225109) (Créer un serveur de base de données SQL).
+1. Pour créer une instance de base de données SQL dans le [portail Azure Classic](http://go.azure.microsoft.com/.com/fwlink/?LinkID=213885), suivez les étapes décrites dans l’article suivant : [Create a SQL Database Server](http://go.azure.microsoft.com/.com/fwlink/?LinkId=225109) (Créer un serveur de base de données SQL).
 
     >[AZURE.NOTE] Quand vous configurez les règles de pare-feu pour votre instance de base de données SQL, vous devez cocher la case **Autoriser l’accès d’autres services Azure à ce serveur**.
 
-1. Pour créer une instance de base de données SQL à utiliser pour votre chaîne de connexion, suivez les étapes décrites dans la section suivante de cet article : [Créer une base de données SQL](http://go.microsoft.com/fwlink/?LinkId=225110).
+1. Pour créer une instance de base de données SQL à utiliser pour votre chaîne de connexion, suivez les étapes décrites dans la section suivante de cet article : [Créer une base de données SQL](http://go.azure.microsoft.com/.com/fwlink/?LinkId=225110).
 
-1. Pour copier la chaîne de connexion ADO.NET à utiliser pour votre chaîne de connexion, effectuez les opérations suivantes dans le [portail Azure Classic](http://go.microsoft.com/fwlink/?LinkID=213885).
+1. Pour copier la chaîne de connexion ADO.NET à utiliser pour votre chaîne de connexion, effectuez les opérations suivantes dans le [portail Azure Classic](http://go.azure.microsoft.com/.com/fwlink/?LinkID=213885).
 
   1. Choisissez le bouton **Base de données**, puis ouvrez le nœud pour l’abonnement que vous avez utilisé afin de créer votre instance de base de données SQL.
 
@@ -101,7 +101,7 @@ Si vous avez une chaîne de connexion pour votre application web qui utilise une
 
 ### Pour utiliser une instance de base de données SQL à l’aide du Portail Azure Classic
 
-1. Dans le [portail Azure Classic](http://go.microsoft.com/fwlink/?LinkID=213885), choisissez le nœud Base de données SQL.
+1. Dans le [portail Azure Classic](http://go.azure.microsoft.com/.com/fwlink/?LinkID=213885), choisissez le nœud Base de données SQL.
 
   - Si l'instance de base de données SQL que vous souhaitez utiliser s'affiche, ouvrez-la.
 
@@ -121,11 +121,11 @@ Si vous avez une chaîne de connexion pour votre application web qui utilise une
 
     La boîte de dialogue de **démarrage de l’environnement de débogage Azure** s’ouvre et l’application démarre dans le navigateur. Pour des informations spécifiques sur le démarrage de chaque type d'application web dans l'émulateur de calcul, consultez le tableau dans cette section.
 
-1. Pour configurer les services de sorte que votre application soit publiée sur Azure, vous devez disposer d’un compte Microsoft et d’un abonnement Azure. Utilisez les étapes de la rubrique suivante pour configurer vos services : [Préparer la publication ou le déploiement d’une application Azure à partir de Visual Studio](vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md).
+1. Pour configurer les services de sorte que votre application soit publiée sur Azure, vous devez disposer d’un compte azure.microsoft.com/ et d’un abonnement Azure. Utilisez les étapes de la rubrique suivante pour configurer vos services : [Préparer la publication ou le déploiement d’une application Azure à partir de Visual Studio](vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md).
 
 1. Pour publier l’application web sur Azure, ouvrez le menu contextuel du projet web et choisissez **Publier sur Azure**.
 
-    La boîte de dialogue **Publication d’application Azure** s’ouvre et Visual Studio démarre le processus de déploiement. Pour plus d’informations sur la publication de l’application, consultez la section **Publication d’une application Azure à partir de Visual Studio** dans [Publication d’un service cloud à l’aide de Microsoft Azure Tools](vs-azure-tools-publishing-a-cloud-service.md).
+    La boîte de dialogue **Publication d’application Azure** s’ouvre et Visual Studio démarre le processus de déploiement. Pour plus d’informations sur la publication de l’application, consultez la section **Publication d’une application Azure à partir de Visual Studio** dans [Publication d’un service cloud à l’aide de azure.microsoft.com/ Azure Tools](vs-azure-tools-publishing-a-cloud-service.md).
 
     >[AZURE.NOTE] Vous pouvez également publier l'application web à partir du projet Azure. Pour cela, ouvrez le menu contextuel du projet Azure, puis sélectionnez **Publier**.
 
@@ -135,7 +135,7 @@ Si vous avez une chaîne de connexion pour votre application web qui utilise une
 
 1. (Facultatif) Pour annuler le processus de déploiement, ouvrez le menu contextuel de cette ligne dans le journal des activités, puis choisissez **Annuler et supprimer**. Cela arrête le processus de déploiement et supprime l'environnement de déploiement d'Azure.
 
-    >[AZURE.NOTE] Pour supprimer cet environnement de déploiement après son déploiement, vous devez utiliser le [portail Azure Classic](http://go.microsoft.com/fwlink/?LinkID=213885).
+    >[AZURE.NOTE] Pour supprimer cet environnement de déploiement après son déploiement, vous devez utiliser le [portail Azure Classic](http://go.azure.microsoft.com/.com/fwlink/?LinkID=213885).
 
 1. (Facultatif) Une fois vos instances de rôle démarrées, Visual Studio affiche automatiquement l’environnement de déploiement dans le nœud **Calcul Azure** de **Cloud Explorer** ou de l’**Explorateur de serveurs**. À partir de là, vous pouvez consulter l'état de chaque instance de rôle.
 
@@ -153,7 +153,7 @@ Si vous avez une chaîne de connexion pour votre application web qui utilise une
     |Application Web ASP.NET MVC 2|Dans la barre de menus, choisissez **Déboguer**, **Démarrer le débogage** (clavier : appuyez sur la touche **F5**).|Choisissez le lien URL affiché sous l’onglet **Déploiement** du **Journal des activités Azure** pour charger la page de démarrage dans le navigateur.|
     |Application Web ASP.NET MVC 3|Dans la barre de menus, choisissez **Déboguer**, **Démarrer le débogage** (clavier : appuyez sur la touche **F5**).|Choisissez le lien URL affiché sous l’onglet **Déploiement** du **Journal des activités Azure** pour charger la page de démarrage dans le navigateur.|
     |Application Web ASP.NET MVC 4|Dans la barre de menus, choisissez **Déboguer**, **Démarrer le débogage** (clavier : appuyez sur la touche **F5**).|Choisissez le lien URL affiché sous l’onglet **Déploiement** du **Journal des activités Azure** pour charger la page de démarrage dans le navigateur.|
-    |Application Web vide ASP.NET|Vous devez ajouter une page .aspx dans votre application et la définir comme page de démarrage pour votre projet web. Puis, dans la barre de menus, choisissez **Déboguer**, **Démarrer le débogage** (clavier : appuyez sur la touche **F5**).|Si votre application contient une page .aspx par défaut, choisissez le lien URL affiché sous l’onglet **Déploiement** du **Journal des activités Azure** ; cette page est chargée dans le navigateur. Si vous avez une page .aspx différente, vous devez naviguer jusqu’à cette page spécifique en utilisant le format suivant pour votre URL : `<url for deployment>/<name of page>.aspx`|
+    |Application Web vide ASP.NET|Vous devez ajouter une page .aspx dans votre application et la définir comme page de démarrage pour votre projet web. Puis, dans la barre de menus, choisissez **Déboguer**, **Démarrer le débogage** (clavier : appuyez sur la touche **F5**).|Si votre application contient une page .aspx par défaut, choisissez le lien URL affiché sous l’onglet **Déploiement** du **Journal des activités Azure** ; cette page est chargée dans le navigateur. Si vous avez une page .aspx différente, vous devez naviguer jusqu’à cette page spécifique en utilisant le format suivant pour votre URL : `<url for deployment>/<name of page>.aspx`|
     |Application Silverlight|Dans la barre de menus, choisissez **Déboguer**, **Démarrer le débogage** (clavier : appuyez sur la touche **F5**).|Vous devez accéder à la page spécifique de votre application en utilisant le format suivant pour votre URL : `<url for deployment>/<name of page>.aspx`|
     |Silverlight Business Application|Dans la barre de menus, choisissez **Déboguer**, **Démarrer le débogage** (clavier : appuyez sur la touche **F5**).|Vous devez accéder à la page spécifique de votre application en utilisant le format suivant pour votre URL : `<url for deployment>/<name of page>.aspx`|
     |Silverlight Navigation Application|Dans la barre de menus, choisissez **Déboguer**, **Démarrer le débogage** (clavier : appuyez sur la touche **F5**).|Vous devez accéder à la page spécifique de votre application en utilisant le format suivant pour votre URL : `<url for deployment>/<name of page>.aspx`|
@@ -168,7 +168,7 @@ Si vous avez une chaîne de connexion pour votre application web qui utilise une
 
 1. Pour créer une base de données SQL Azure qui peut être utilisée pour une application web ASP.NET Dynamic Entities, vous devez suivre les étapes de la procédure **Utilisation d’une base de données SQL Azure pour votre application** plus haut dans cette rubrique.
 
-1. Ajoutez les tables et les champs dont vous avez besoin pour cette base de données à partir du [Portail Azure Classic](http://go.microsoft.com/fwlink/?LinkID=213885).
+1. Ajoutez les tables et les champs dont vous avez besoin pour cette base de données à partir du [Portail Azure Classic](http://go.azure.microsoft.com/.com/fwlink/?LinkID=213885).
 
 1. La chaîne de connexion pour ce type d'application a le format suivant dans le fichier web.config :
 

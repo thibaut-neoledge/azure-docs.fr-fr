@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Application web avec stockage de tables (Node.js) | Microsoft Azure" 
+	pageTitle="Application web avec stockage de tables (Node.js) | azure.microsoft.com/ Azure" 
 	description="Ce didacticiel ajoute les services Azure Storage et le module Azure au didacticiel Application web avec Express." 
 	services="cloud-services, storage" 
 	documentationCenter="nodejs" 
@@ -20,7 +20,7 @@
 
 ## Vue d'ensemble
 
-Dans ce didacticiel, vous allez enrichir l'application créée dans le didacticiel [Application Web Node.js avec Express] à l'aide des bibliothèques clientes Microsoft Azure pour Node.js afin qu'elle fonctionne avec les services de gestion de données. Vous allez étendre les fonctionnalités de votre application en vue de créer une application de liste de tâches Web que vous pouvez déployer sur Azure. La liste de tâches permet à un utilisateur d'extraire des tâches, d'en ajouter de nouvelles et de marquer celles qui sont terminées.
+Dans ce didacticiel, vous allez enrichir l'application créée dans le didacticiel [Application Web Node.js avec Express] à l'aide des bibliothèques clientes azure.microsoft.com/ Azure pour Node.js afin qu'elle fonctionne avec les services de gestion de données. Vous allez étendre les fonctionnalités de votre application en vue de créer une application de liste de tâches Web que vous pouvez déployer sur Azure. La liste de tâches permet à un utilisateur d'extraire des tâches, d'en ajouter de nouvelles et de marquer celles qui sont terminées.
 
 Les éléments de tâches sont stockés dans Azure Storage, qui offre le stockage de données non structurées à tolérance de panne et haute disponibilité. Azure Storage inclut plusieurs structures de données dans lesquelles vous pouvez stocker des données et y accéder. Vous pouvez également exploiter les services de stockage à partir des API incluses dans le Kit de développement logiciel (SDK) Azure pour Node.js ou via les API REST. Pour plus d'informations, consultez la page [Stockage et accessibilité des données dans Azure].
 
@@ -70,7 +70,7 @@ Procédez comme suit pour extraire les informations d'identification de stockage
 
 ### Installation de modules supplémentaires
 
-2. Utilisez la commande suivante pour installer les modules [azure], [node-uuid], [nconf] et [async] en local et pour enregistrer une entrée leur correspondant dans le fichier **package.json** :
+2. Utilisez la commande suivante pour installer les modules [azure], [node-uuid], [nconf] et [async] en local et pour enregistrer une entrée leur correspondant dans le fichier **package.json** :
 
 		PS C:\node\tasklist\WebRole1> npm install azure-storage node-uuid async nconf --save
 
@@ -358,7 +358,7 @@ Remplacez **myuniquename** par un nom unique pour cette application. Remplacez *
 Une fois le déploiement terminé, une réponse similaire à celle présentée ci-dessous doit s'afficher :
 
 	PS C:\node\tasklist> publish-azureserviceproject -servicename tasklist -location "West US"
-	WARNING: Publishing tasklist to Microsoft Azure. This may take several minutes...
+	WARNING: Publishing tasklist to azure.microsoft.com/ Azure. This may take several minutes...
 	WARNING: 2:18:42 PM - Preparing runtime deployment for service 'tasklist'
 	WARNING: 2:18:42 PM - Verifying storage account 'tasklist'...
 	WARNING: 2:18:43 PM - Preparing deployment for tasklist with Subscription ID: 65a1016d-0f67-45d2-b838-b8f373d6d52e...
@@ -396,10 +396,10 @@ La procédure suivante présente l'arrêt et la suppression de l'application.
 
 	La suppression du service peut prendre plusieurs minutes. Une fois le service supprimé, vous recevez un message confirmant la suppression du service.
 
-  [Node.js Web Application using Express]: http://azure.microsoft.com/develop/nodejs/tutorials/web-app-with-express/
-  [Application Web Node.js avec Express]: http://azure.microsoft.com/develop/nodejs/tutorials/web-app-with-express/
-  [Stockage et accessibilité des données dans Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
-  [Application Web Node.js]: http://azure.microsoft.com/develop/nodejs/tutorials/getting-started/
+  [Node.js Web Application using Express]: http://azure.azure.microsoft.com/.com/develop/nodejs/tutorials/web-app-with-express/
+  [Application Web Node.js avec Express]: http://azure.azure.microsoft.com/.com/develop/nodejs/tutorials/web-app-with-express/
+  [Stockage et accessibilité des données dans Azure]: http://msdn.azure.microsoft.com/.com/library/azure/gg433040.aspx
+  [Application Web Node.js]: http://azure.azure.microsoft.com/.com/develop/nodejs/tutorials/getting-started/
  
  
 

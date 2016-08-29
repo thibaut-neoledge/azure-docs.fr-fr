@@ -16,7 +16,7 @@
     ms.date="08/11/2016" 
     ms.author="robmcm"/>
 
-<!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690945.aspx -->
+<!-- Legacy MSDN URL = https://msdn.azure.microsoft.com/.com/library/azure/hh690945.aspx -->
 
 # Propriétés du rôle Azure #
 
@@ -24,7 +24,7 @@ Vous avez la possibilité de définir différents paramètres de configuration p
 
 ## Configuration des propriétés de rôle Azure ##
 
-La configuration des propriétés de votre rôle Azure s’effectue via les boîtes de dialogue de propriété du rôle de travail. Ouvrez le menu contextuel correspondant au rôle dans le volet de l’Explorateur de projets Eclipse, puis sélectionnez le sous-menu **Azure**. (Si le rôle n’apparaît pas dans l’Explorateur de projets Eclipse, développez votre projet dans l’Explorateur de projets Microsoft Azure).
+La configuration des propriétés de votre rôle Azure s’effectue via les boîtes de dialogue de propriété du rôle de travail. Ouvrez le menu contextuel correspondant au rôle dans le volet de l’Explorateur de projets Eclipse, puis sélectionnez le sous-menu **Azure**. (Si le rôle n’apparaît pas dans l’Explorateur de projets Eclipse, développez votre projet dans l’Explorateur de projets azure.microsoft.com/ Azure).
 
 ![][ic789599]
 
@@ -77,7 +77,7 @@ La boîte de dialogue suivante présente les propriétés d’une mémoire cache
 * **Stratégie d’expiration :** une des valeurs qui suivent indique le moment où clé de mise en cache expire.
     * **Absolu :** la clé expire lorsque le délai spécifié par **Minutes de vie** est atteint.
     * **N’expire jamais :** la clé n’a pas de date d’expiration.
-    * **Fenêtre coulissante :** la clé expire si aucun accès n’a duré le temps spécifié dans **Minutes de validité** ; à chaque accès, l’heure d’expiration est réinitialisée.
+    * **Fenêtre coulissante :** la clé expire si aucun accès n’a duré le temps spécifié dans **Minutes de validité** ; à chaque accès, l’heure d’expiration est réinitialisée.
 * **Minutes de validité :** nombre maximal de minutes de validité d’une clé, en fonction de la stratégie d’expiration.
 * **Haute disponibilité avec sauvegardes répliquées sur des instances de rôle différentes :** si cette option est activée, elle offre la haute disponibilité en utilisant des sauvegardes répliquées sur différentes instances de rôle. Notez qu’au moins deux instances de rôles doivent fonctionner pour que le déploiement de cette fonctionnalité fonctionne.
 
@@ -190,7 +190,7 @@ Selon le type de point de terminaison, vous pouvez utiliser des plages de ports 
 
 Si vous souhaitez utiliser un numéro de port unique et non une plage de numéros, laissez la zone de texte de la fin de plage vide.
 
-Pour les ports qui ont pour valeur Automatique, si vous devez déterminer le port effectivement utilisé lors de l’exécution, votre application peut utiliser l’API Azure Service Runtime, qui est décrit dans le [résumé de package com.microsoft.windowsazure.serviceruntime][].
+Pour les ports qui ont pour valeur Automatique, si vous devez déterminer le port effectivement utilisé lors de l’exécution, votre application peut utiliser l’API Azure Service Runtime, qui est décrit dans le [résumé de package com.azure.microsoft.com/.windowsazure.serviceruntime][].
 
 Pour voir comment les points de terminaison d’entrée d’instance peuvent être utilisés le débogage d’un déploiement à plusieurs instances, consultez [Débogage d’une instance de rôle spécifique dans un déploiement à plusieurs instances][].
 
@@ -282,7 +282,7 @@ Quel que soit le système d’exploitation que vous utilisez, vous disposez des 
 * **Déployer un package JDK tiers disponible Azure**
 * **Déploiement depuis un téléchargement personnalisé**
 
-Si vous utilisez l’option **Déployer un package JDK tiers disponible dans Azure** :
+Si vous utilisez l’option **Déployer un package JDK tiers disponible dans Azure** :
 
 1. Cochez la case **Déployer un package JDK tiers disponible dans Azure**.
 1. Dans la liste déroulante, sélectionnez le package JDK tiers disponible sur Azure.
@@ -290,7 +290,7 @@ Si vous utilisez l’option **Déployer un package JDK tiers disponible dans Azu
 1. Cliquez sur **OK** pour enregistrer vos modifications.
 1. Lorsque vous êtes invité à accepter le contrat de licence d’un fournisseur de package JDK tiers, prenez connaissance des termes du contrat de licence. Si vous les acceptez, cliquez sur **Oui** pour fermer la boîte de dialogue **Accepter le contrat de licence**. Notez que la logique sous-jacente des éléments apparaissant dans la liste déroulante pour l’option **Déployer un package JDK tiers disponible dans Azure** peut être personnalisée. Pour personnaliser les éléments, dans la boîte de dialogue **JDK**, cliquez sur le lien **Personnaliser**. Cela fermera la page de propriété **JDK** et ouvrira le fichier **componentsets.xml** dans Eclipse, et vous pourrez le modifier par la suite si nécessaire. La documentation relative à **componentsets.xml** est incluse dans le fichier **componentsets.xml** lui-même.
 
-Si vous utilisez l’option **Déployer un JDK à partir d’un téléchargement personnalisé** :
+Si vous utilisez l’option **Déployer un JDK à partir d’un téléchargement personnalisé** :
 
 1. Créez un fichier zip de votre répertoire d’installation JDK, en vous assurant que le nœud du répertoire lui-même est enfant de la structure du fichier zip, mais que son contenu ne l’est pas. Prenez note du nom de l’annuaire, car vous en aurez besoin plus tard, et n’oubliez pas que cette installation de JDK sera déployée sur une machine virtuelle Windows.
 1. Téléchargez le fichier zip dans votre compte de stockage Azure en tant qu’objet blob. Vous pouvez effectuer cette opération en utilisant un outil externe disponible pour télécharger des objets blob dans le stockage Azure. Il est recommandé d’utiliser un objet blob privé. Prenez note de l’URL d’objet blob du contenu du zip.
@@ -310,17 +310,17 @@ Vérifiez que la case à cocher **Déployer un serveur de ce type** est sélecti
 
 Pour spécifier un serveur à utiliser pour le déploiement cloud, vous pouvez utiliser les options suivantes :
 
-1. **Déployer un serveur tiers disponible sur Azure** : cela s’applique en particulier dans les scénarios de développement/test où l’efficacité du déploiement et la simplicité sont une priorité et lorsque le serveur ne nécessite pas une configuration personnalisée. C’est également le cas lorsque vous souhaitez utiliser un de ces serveurs comme point de départ, mais que vous intégrez les étapes de personnalisation du serveur appropriées dans le programme de démarrage de votre déploiement.
-1. **Déployer à partir d’un téléchargement personnalisé** : cette option s’applique en particulier à des scénarios de production lorsque vous disposez d’un serveur spécialement préparé et configuré à utiliser dans le cloud.
-1. **Déployer l’installation de mon serveur local** : cette option s’applique plus particulièrement si l’installation de votre serveur local est déjà configurée et personnalisée pour vous. Si vous choisissez cette option, vous devez également spécifier le chemin d’accès de votre serveur local dans la zone de texte **Chemin d’accès au serveur Local** ci-dessous.
+1. **Déployer un serveur tiers disponible sur Azure** : cela s’applique en particulier dans les scénarios de développement/test où l’efficacité du déploiement et la simplicité sont une priorité et lorsque le serveur ne nécessite pas une configuration personnalisée. C’est également le cas lorsque vous souhaitez utiliser un de ces serveurs comme point de départ, mais que vous intégrez les étapes de personnalisation du serveur appropriées dans le programme de démarrage de votre déploiement.
+1. **Déployer à partir d’un téléchargement personnalisé** : cette option s’applique en particulier à des scénarios de production lorsque vous disposez d’un serveur spécialement préparé et configuré à utiliser dans le cloud.
+1. **Déployer l’installation de mon serveur local** : cette option s’applique plus particulièrement si l’installation de votre serveur local est déjà configurée et personnalisée pour vous. Si vous choisissez cette option, vous devez également spécifier le chemin d’accès de votre serveur local dans la zone de texte **Chemin d’accès au serveur Local** ci-dessous.
 
-Si vous utilisez l’option **Déployer un serveur tiers disponible sur Azure** :
+Si vous utilisez l’option **Déployer un serveur tiers disponible sur Azure** :
 
 1. Cochez la case **Déployer un serveur tiers disponible sur Azure**.
 1. Dans le menu déroulant, sélectionnez le logiciel de serveur à utiliser avec votre déploiement dans le cloud. Notez que si vous avez déjà spécifié un type de serveur à utiliser, vous ne pourrez sélectionner qu’un serveur cloud qui se trouve dans la même famille que ce type de serveur. Mais si vous n’avez pas choisi de type de serveur, vous pouvez choisir parmi tous les serveurs actuellement disponibles sur Azure et le type de serveur est automatiquement sélectionné pour vous.
 1. Cliquez sur **OK** pour enregistrer vos modifications.
 
-Si vous utilisez l’option **Déployer à partir d’un téléchargement personnalisé** :
+Si vous utilisez l’option **Déployer à partir d’un téléchargement personnalisé** :
 
 1. Assurez-vous que vous avez sélectionné le type de serveur en respectant les étapes qui précèdent. Cette option déterminera la façon dont le plug-in déploiera le serveur à partir de votre téléchargement personnalisé, car il doit être de la même famille que le type de serveur sélectionné.
 1. Cochez la case **Déployer à partir d’un téléchargement personnalisé**. Si vous souhaitez effectuer le téléchargement à partir de votre compte de stockage Azure, sélectionnez le compte de stockage dans la liste déroulante **Compte de stockage** (vous pouvez cliquer sur le lien **Comptes** pour modifier le contenu de la liste). Le champ **URL** est partiellement renseigné. Remplissez la partie restante de l’URL vers le fichier zip de téléchargement serveur (lors de l’utilisation du stockage Azure, les noms d’objets blob dans l’URL doivent être en minuscules). Si vous ne souhaitez pas utiliser le stockage Azure, sélectionnez **(aucun)** dans la liste déroulante **Compte de stockage**, puis saisissez l’URL de votre fichier zip de téléchargement serveur dans le champ **URL**. Le fichier zip contient un dossier enfant représentant votre répertoire d’installation de serveur d’applications. Par exemple, si vous utilisez un fichier zip pour Apache Tomcat 7.0.35, vous devez trouver à l’intérieur un dossier enfant représentant le répertoire d’installation, par exemple **apache-tomcat-7.0.35**.
@@ -329,7 +329,7 @@ Si vous utilisez l’option **Déployer à partir d’un téléchargement person
 
 La logique sous-jacente pour laquelle les éléments apparaissent dans l’onglet **Serveur** de la page de propriété **Configuration du serveur** peut être personnalisée. Il s’agit d’une fonctionnalité avancée dont vous pourriez avoir besoin si vos besoins dépassent les valeurs par défaut ou si vous souhaitez ajouter d’autres serveurs. Pour personnaliser le programme, dans la boîte de dialogue **Serveur**, cliquez sur le lien **Personnaliser**. Cette opération ferme la page de propriété **Configuration du serveur** et ouvrez le fichier **componentsets.xml** dans Eclipse. Vous pourrez par la suite le modifier si nécessaire pour étendre le modèle de configuration serveur. La documentation pour **componentsets.xml** est incluse dans le fichier **componentsets.xml** lui-même.
 
-Si vous utilisez l’option **Déployer mon serveur local (chargement automatique vers un stockage cloud)** :
+Si vous utilisez l’option **Déployer mon serveur local (chargement automatique vers un stockage cloud)** :
 
 1. Cochez la case nommée **Déployer mon serveur local (chargement automatique dans un stockage cloud)**.
 1. Avec la liste déroulante **Compte de stockage**, sélectionnez **(auto)**. Si vous spécifiez **(auto)** à ce stade, la boîte à outils Eclipse utilisera pour votre serveur le même compte de stockage que celui que vous sélectionnez pour votre déploiement dans la boîte de dialogue **Publier sur Azure**.
@@ -398,21 +398,21 @@ Pour plus d’informations sur l’utilisation d’Azure avec Java, consultez le
 
 <!-- URL List -->
 
-[Centre de développement Azure avec Java]: http://go.microsoft.com/fwlink/?LinkID=699547
-[portail de gestion]: http://go.microsoft.com/fwlink/?LinkID=512959
-[Kit de ressources Azure pour Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
-[Propriétés du projet Azure]: http://go.microsoft.com/fwlink/?LinkID=699524
-[Liste du compte de stockage Azure]: http://go.microsoft.com/fwlink/?LinkID=699528
-[résumé de package com.microsoft.windowsazure.serviceruntime]: http://azure.github.io/azure-sdk-for-java/com/microsoft/windowsazure/serviceruntime/package-summary.html
-[Création d’une application Hello World pour Azure dans Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
-[Débogage d’une instance de rôle spécifique dans un déploiement à plusieurs instances]: http://go.microsoft.com/fwlink/?LinkID=699535#debugging_specific_role_instance
-[Débogage des applications Azure dans Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699535
-[Déploiements à grande échelle]: http://go.microsoft.com/fwlink/?LinkID=699536
-[Utilisation de la mise en cache colocalisée]: http://go.microsoft.com/fwlink/?LinkID=699542
-[Comment utiliser le déchargement SSL]: http://go.microsoft.com/fwlink/?LinkID=699545
-[Installation du kit de ressources Azure pour Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
-[Affinité de session]: http://go.microsoft.com/fwlink/?LinkID=699548
-[Déchargement SSL]: http://go.microsoft.com/fwlink/?LinkID=699549
+[Centre de développement Azure avec Java]: http://go.azure.microsoft.com/.com/fwlink/?LinkID=699547
+[portail de gestion]: http://go.azure.microsoft.com/.com/fwlink/?LinkID=512959
+[Kit de ressources Azure pour Eclipse]: http://go.azure.microsoft.com/.com/fwlink/?LinkID=699529
+[Propriétés du projet Azure]: http://go.azure.microsoft.com/.com/fwlink/?LinkID=699524
+[Liste du compte de stockage Azure]: http://go.azure.microsoft.com/.com/fwlink/?LinkID=699528
+[résumé de package com.azure.microsoft.com/.windowsazure.serviceruntime]: http://azure.github.io/azure-sdk-for-java/com/azure.microsoft.com//windowsazure/serviceruntime/package-summary.html
+[Création d’une application Hello World pour Azure dans Eclipse]: http://go.azure.microsoft.com/.com/fwlink/?LinkID=699533
+[Débogage d’une instance de rôle spécifique dans un déploiement à plusieurs instances]: http://go.azure.microsoft.com/.com/fwlink/?LinkID=699535#debugging_specific_role_instance
+[Débogage des applications Azure dans Eclipse]: http://go.azure.microsoft.com/.com/fwlink/?LinkID=699535
+[Déploiements à grande échelle]: http://go.azure.microsoft.com/.com/fwlink/?LinkID=699536
+[Utilisation de la mise en cache colocalisée]: http://go.azure.microsoft.com/.com/fwlink/?LinkID=699542
+[Comment utiliser le déchargement SSL]: http://go.azure.microsoft.com/.com/fwlink/?LinkID=699545
+[Installation du kit de ressources Azure pour Eclipse]: http://go.azure.microsoft.com/.com/fwlink/?LinkId=699546
+[Affinité de session]: http://go.azure.microsoft.com/.com/fwlink/?LinkID=699548
+[Déchargement SSL]: http://go.azure.microsoft.com/.com/fwlink/?LinkID=699549
 
 <!-- IMG List -->
 

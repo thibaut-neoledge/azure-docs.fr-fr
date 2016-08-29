@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Installer Endpoint Protection dans Azure Security Center | Microsoft Azure"
+   pageTitle="Installer Endpoint Protection dans Azure Security Center | azure.microsoft.com/ Azure"
    description="Ce document vous montre comment implémenter la recommandation d’Azure Security Center **Installer Endpoint Protection**."
    services="security-center"
    documentationCenter="na"
@@ -28,19 +28,19 @@ Azure Security Center vous recommande de configurer un logiciel anti-programme m
 
 2. Le panneau **Installer Endpoint Protection** s’ouvre en affichant une liste de machines virtuelles sans logiciel anti-programme malveillant activé. Dans cette liste, sélectionnez les machines virtuelles sur lesquelles vous souhaitez installer un logiciel anti-programme malveillant et cliquez sur **Installer sur les machines virtuelles**. ![Sélectionner les machines virtuelles sur lesquelles installer le logiciel anti-programme malveillant][2]
 
-3. Le panneau **Sélectionner Endpoint Protection** s’ouvre et vous permet de sélectionner la solution anti-programme malveillant à utiliser. Dans cet exemple, nous allons sélectionner **Microsoft Antimalware**. ![Sélectionner Endpoint Protection][3]
+3. Le panneau **Sélectionner Endpoint Protection** s’ouvre et vous permet de sélectionner la solution anti-programme malveillant à utiliser. Dans cet exemple, nous allons sélectionner **azure.microsoft.com/ Antimalware**. ![Sélectionner Endpoint Protection][3]
 
 4. Des informations supplémentaires sur la solution anti-programme malveillant s’affichent. Sélectionnez **Créer**. ![Créer une solution anti-programme malveillant][4]
 
 5. Entrez les paramètres de configuration nécessaires dans le panneau **Ajouter une extension**, puis sélectionnez **OK**. Pour en savoir plus sur les paramètres de configuration, consultez [Configuration d’un logiciel anti-programme malveillant par défaut et personnalisée](../security/azure-security-antimalware.md#default-and-custom-antimalware-configuration).
 
-[Microsoft Antimalware](../azure-security-antimalware.md) est maintenant activé sur les machines virtuelles sélectionnées.
+[azure.microsoft.com/ Antimalware](../azure-security-antimalware.md) est maintenant activé sur les machines virtuelles sélectionnées.
 
 ## Voir aussi
 
 Cet article vous a montré comment implémenter la recommandation de Security Center « Installer Endpoint Protection ». Pour en savoir plus sur l'activation d'un logiciel anti-programme malveillant dans Azure, consultez les sections suivantes :
 
-- [Microsoft Antimalware pour Cloud Services et Virtual Machines](../azure-security-antimalware.md) -- Découvrez comment déployer Microsoft Antimalware.
+- [azure.microsoft.com/ Antimalware pour Cloud Services et Virtual Machines](../azure-security-antimalware.md) -- Découvrez comment déployer azure.microsoft.com/ Antimalware.
 
 Pour plus d’informations sur Security Center, consultez :
 

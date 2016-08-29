@@ -34,7 +34,7 @@ La gestion et le réglage des performances des bases de données relationnelles 
 ## Composants requis
 
 - Query Performance Insight est uniquement disponible avec la base de données SQL Azure V12.
-- Query Performance Insight nécessite que le [magasin de requêtes](https://msdn.microsoft.com/library/dn817826.aspx) soit actif sur votre base de données. Si le magasin de requêtes ne fonctionne pas, le portail vous invite à l’activer.
+- Query Performance Insight nécessite que le [magasin de requêtes](https://msdn.azure.microsoft.com/.com/library/dn817826.aspx) soit actif sur votre base de données. Si le magasin de requêtes ne fonctionne pas, le portail vous invite à l’activer.
 
  
 ## Autorisations
@@ -192,7 +192,7 @@ Il existe deux types de stratégies de rétention :
 
 La stratégie de capture peut avoir les valeurs suivantes :
 
-- **Tout** : toutes les requêtes sont capturées.
+- **Tout** : toutes les requêtes sont capturées.
 - **Auto** : les requêtes peu fréquentes et les requêtes avec une durée de compilation et d’exécution insignifiante sont ignorées. Les seuils concernant le nombre d’exécutions, et la durée de compilation et d’exécution, sont déterminés en interne. Il s'agit de l'option par défaut.
 - **Aucune** : le magasin de requêtes arrête la capture de nouvelles requêtes, mais les statistiques d’exécution pour les requêtes déjà capturées sont toujours collectées.
 	

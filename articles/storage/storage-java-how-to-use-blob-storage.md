@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Utilisation du stockage d’objets blob Azure à partir de Java | Microsoft Azure"
+	pageTitle="Utilisation du stockage d’objets blob Azure à partir de Java | azure.microsoft.com/ Azure"
 	description="Stockez des données non structurées dans le cloud avec Azure Blob Storage (stockage d’objets)."
 	services="storage"
 	documentationCenter="java"
@@ -24,7 +24,7 @@
 
 Le stockage d’objets blob Azure est un service qui stocke des données non structurées dans le cloud en tant qu’objets/blobs. Ce service peut stocker tout type de données texte ou binaires, par exemple, un document, un fichier multimédia ou un programme d’installation d’application. Le stockage d’objets blob est également appelé Blob Storage.
 
-Cet article décrit le déroulement de scénarios courants dans le cadre de l’utilisation du service de stockage d’objets blob Microsoft Azure. Les exemples sont écrits en Java et utilisent le [Kit de développement logiciel (SDK) Azure Storage pour Java][]. Les scénarios traités incluent le **téléchargement (vers une cible)**, la **création de listes**, le **téléchargement (à partir d'une source)** et la **suppression** d'objets blob. Pour plus d'informations sur les objets blob, consultez la section [Étapes suivantes](#Next-Steps).
+Cet article décrit le déroulement de scénarios courants dans le cadre de l’utilisation du service de stockage d’objets blob azure.microsoft.com/ Azure. Les exemples sont écrits en Java et utilisent le [Kit de développement logiciel (SDK) Azure Storage pour Java][]. Les scénarios traités incluent le **téléchargement (vers une cible)**, la **création de listes**, le **téléchargement (à partir d'une source)** et la **suppression** d'objets blob. Pour plus d'informations sur les objets blob, consultez la section [Étapes suivantes](#Next-Steps).
 
 > [AZURE.NOTE] un Kit de développement logiciel (SDK) est disponible pour les développeurs qui utilisent Azure Storage sur des appareils Android. Pour plus d'informations, consultez la page [Kit de développement logiciel (SDK) Azure Storage pour Android][].
 
@@ -43,8 +43,8 @@ Pour ce faire, vous devez installer le Kit de développement Java (JDK) et crée
 Ajoutez les instructions d’importation suivantes au début du fichier Java dans lequel vous voulez utiliser des API de stockage Azure pour accéder aux objets blob.
 
     // Include the following imports to use blob APIs.
-    import com.microsoft.azure.storage.*;
-    import com.microsoft.azure.storage.blob.*;
+    import com.azure.microsoft.com/.azure.storage.*;
+    import com.azure.microsoft.com/.azure.storage.blob.*;
 
 ## Configurer une chaîne de connexion au stockage Azure
 
@@ -56,7 +56,7 @@ Un client de stockage Azure utilise une chaîne de connexion au stockage pour st
         "AccountName=your_storage_account;" +
         "AccountKey=your_storage_account_key";
 
-Dans une application exécutée au sein d'un rôle dans Microsoft Azure, cette chaîne peut être stockée dans le fichier de configuration de service *ServiceConfiguration.cscfg* et elle est accessible en appelant la méthode **RoleEnvironment.getConfigurationSettings**. L’exemple suivant récupère la chaîne de connexion auprès d’un élément **Setting** nommé *StorageConnectionString* dans le fichier de configuration du service.
+Dans une application exécutée au sein d'un rôle dans azure.microsoft.com/ Azure, cette chaîne peut être stockée dans le fichier de configuration de service *ServiceConfiguration.cscfg* et elle est accessible en appelant la méthode **RoleEnvironment.getConfigurationSettings**. L’exemple suivant récupère la chaîne de connexion auprès d’un élément **Setting** nommé *StorageConnectionString* dans le fichier de configuration du service.
 
     // Retrieve storage account from connection-string.
     String storageConnectionString =
@@ -72,7 +72,7 @@ Un objet **CloudBlobClient** vous permet d’obtenir les objets de référence d
 
 [AZURE.INCLUDE [storage-container-naming-rules-include](../../includes/storage-container-naming-rules-include.md)]
 
-Utilisez l'objet **CloudBlobClient** pour obtenir une référence pointant vers le conteneur à utiliser. Si le conteneur n'existe pas, vous pouvez le créer en utilisant la méthode **createIfNotExists** ; sinon, le conteneur existant est renvoyé. Par défaut, le nouveau conteneur est privé. Vous devez donc indiquer votre clé d’accès au stockage (comme précédemment) pour télécharger des objets blob depuis ce conteneur.
+Utilisez l'objet **CloudBlobClient** pour obtenir une référence pointant vers le conteneur à utiliser. Si le conteneur n'existe pas, vous pouvez le créer en utilisant la méthode **createIfNotExists** ; sinon, le conteneur existant est renvoyé. Par défaut, le nouveau conteneur est privé. Vous devez donc indiquer votre clé d’accès au stockage (comme précédemment) pour télécharger des objets blob depuis ce conteneur.
 
 	try
     {
@@ -262,13 +262,13 @@ Maintenant que vous connaissez les bases du stockage d’objets blob, consultez 
 
 Pour plus d’informations, consultez également le [Centre pour développeurs Java](/develop/java/).
 
-[Azure SDK for Java]: http://go.microsoft.com/fwlink/?LinkID=525671
+[Azure SDK for Java]: http://go.azure.microsoft.com/.com/fwlink/?LinkID=525671
 [Kit de développement logiciel (SDK) Azure Storage pour Java]: https://github.com/azure/azure-storage-java
 [Kit de développement logiciel (SDK) Azure Storage pour Java]: https://github.com/azure/azure-storage-java
 [Kit de développement logiciel (SDK) Azure Storage pour Android]: https://github.com/azure/azure-storage-android
 [Référence du Kit de développement logiciel (SDK) du client Azure Storage]: http://dl.windowsazure.com/storage/javadoc/
 [Référence du Kit de développement logiciel (SDK) du client Azure Storage]: http://dl.windowsazure.com/storage/javadoc/
-[API REST d’Azure Storage]: https://msdn.microsoft.com/library/azure/dd179355.aspx
+[API REST d’Azure Storage]: https://msdn.azure.microsoft.com/.com/library/azure/dd179355.aspx
 [Blog de l'équipe Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage/
 
 <!---HONumber=AcomDC_0817_2016-->

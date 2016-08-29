@@ -54,7 +54,7 @@ Lorsqu'une requête est envoyée avec des informations d'authentification, la r�
 ## Exemple de requête REST pour l’authentification ClientCertificate
 
 ```
-PUT https://management.azure.com/subscriptions/1fe0abdf-581e-4dfe-9ec7-e5cb8e7b205e/resourceGroups/CS-SoutheastAsia-scheduler/providers/Microsoft.Scheduler/jobcollections/southeastasiajc/jobs/httpjob?api-version=2016-01-01 HTTP/1.1
+PUT https://management.azure.com/subscriptions/1fe0abdf-581e-4dfe-9ec7-e5cb8e7b205e/resourceGroups/CS-SoutheastAsia-scheduler/providers/azure.microsoft.com/.Scheduler/jobcollections/southeastasiajc/jobs/httpjob?api-version=2016-01-01 HTTP/1.1
 User-Agent: Fiddler
 Host: management.azure.com
 Authorization: Bearer sometoken
@@ -98,7 +98,7 @@ Content-Length: 858
 Content-Type: application/json; charset=utf-8
 Expires: -1
 x-ms-request-id: 56c7b40e-721a-437e-88e6-f68562a73aa8
-Server: Microsoft-IIS/8.5
+Server: azure.microsoft.com/-IIS/8.5
 X-AspNet-Version: 4.0.30319
 X-Powered-By: ASP.NET
 x-ms-ratelimit-remaining-subscription-resource-requests: 599
@@ -108,8 +108,8 @@ Strict-Transport-Security: max-age=31536000; includeSubDomains
 Date: Wed, 16 Mar 2016 19:04:23 GMT
 
 {
-  "id": "/subscriptions/1fe0abdf-581e-4dfe-9ec7-e5cb8e7b205e/resourceGroups/CS-SoutheastAsia-scheduler/providers/Microsoft.Scheduler/jobCollections/southeastasiajc/jobs/httpjob",
-  "type": "Microsoft.Scheduler/jobCollections/jobs",
+  "id": "/subscriptions/1fe0abdf-581e-4dfe-9ec7-e5cb8e7b205e/resourceGroups/CS-SoutheastAsia-scheduler/providers/azure.microsoft.com/.Scheduler/jobCollections/southeastasiajc/jobs/httpjob",
+  "type": "azure.microsoft.com/.Scheduler/jobCollections/jobs",
   "name": "southeastasiajc/httpjob",
   "properties": {
     "startTime": "2015-05-14T14:10:00Z",
@@ -169,7 +169,7 @@ Lorsqu'une requête est envoyée avec des informations d'authentification, la r�
 ## Exemple de requête REST pour l’authentification de base
 
 ```
-PUT https://management.azure.com/subscriptions/1d908808-e491-4fe5-b97e-29886e18efd4/resourceGroups/CS-SoutheastAsia-scheduler/providers/Microsoft.Scheduler/jobcollections/southeastasiajc/jobs/httpjob?api-version=2016-01-01 HTTP/1.1
+PUT https://management.azure.com/subscriptions/1d908808-e491-4fe5-b97e-29886e18efd4/resourceGroups/CS-SoutheastAsia-scheduler/providers/azure.microsoft.com/.Scheduler/jobcollections/southeastasiajc/jobs/httpjob?api-version=2016-01-01 HTTP/1.1
 User-Agent: Fiddler
 Host: management.azure.com
 Authorization: Bearer sometoken
@@ -214,7 +214,7 @@ Content-Length: 701
 Content-Type: application/json; charset=utf-8
 Expires: -1
 x-ms-request-id: a2dcb9cd-1aea-4887-8893-d81273a8cf04
-Server: Microsoft-IIS/8.5
+Server: azure.microsoft.com/-IIS/8.5
 X-AspNet-Version: 4.0.30319
 X-Powered-By: ASP.NET
 x-ms-ratelimit-remaining-subscription-resource-requests: 599
@@ -224,8 +224,8 @@ Strict-Transport-Security: max-age=31536000; includeSubDomains
 Date: Wed, 16 Mar 2016 19:05:06 GMT
 
 {  
-   "id":"/subscriptions/1d908808-e491-4fe5-b97e-29886e18efd4/resourceGroups/CS-SoutheastAsia-scheduler/providers/Microsoft.Scheduler/jobCollections/southeastasiajc/jobs/httpjob",
-   "type":"Microsoft.Scheduler/jobCollections/jobs",
+   "id":"/subscriptions/1d908808-e491-4fe5-b97e-29886e18efd4/resourceGroups/CS-SoutheastAsia-scheduler/providers/azure.microsoft.com/.Scheduler/jobCollections/southeastasiajc/jobs/httpjob",
+   "type":"azure.microsoft.com/.Scheduler/jobCollections/jobs",
    "name":"southeastasiajc/httpjob",
    "properties":{  
       "startTime":"2015-05-14T14:10:00Z",
@@ -291,7 +291,7 @@ Lorsqu'une requête est envoyée avec des informations d'authentification, la r�
 ## Exemple de requête REST pour l’authentification ActiveDirectoryOAuth
 
 ```
-PUT https://management.azure.com/subscriptions/1d908808-e491-4fe5-b97e-29886e18efd4/resourceGroups/CS-SoutheastAsia-scheduler/providers/Microsoft.Scheduler/jobcollections/southeastasiajc/jobs/httpjob?api-version=2016-01-01 HTTP/1.1
+PUT https://management.azure.com/subscriptions/1d908808-e491-4fe5-b97e-29886e18efd4/resourceGroups/CS-SoutheastAsia-scheduler/providers/azure.microsoft.com/.Scheduler/jobcollections/southeastasiajc/jobs/httpjob?api-version=2016-01-01 HTTP/1.1
 User-Agent: Fiddler
 Host: management.azure.com
 Authorization: Bearer sometoken
@@ -309,7 +309,7 @@ Content-Type: application/json; charset=utf-8
           "x-ms-version": "2013-03-01"
         },
 		"authentication": {
-          "tenant":"microsoft.onmicrosoft.com",
+          "tenant":"azure.microsoft.com/.onazure.microsoft.com/.com",
           "audience":"https://management.core.windows.net/",
           "clientId":"dc23e764-9be6-4a33-9b9a-c46e36f0c137",
           "secret": "G6u071r8Gjw4V4KSibnb+VK4+tX399hkHaj7LOyHuj5=",
@@ -338,7 +338,7 @@ Content-Length: 885
 Content-Type: application/json; charset=utf-8
 Expires: -1
 x-ms-request-id: 86d8e9fd-ac0d-4bed-9420-9baba1af3251
-Server: Microsoft-IIS/8.5
+Server: azure.microsoft.com/-IIS/8.5
 X-AspNet-Version: 4.0.30319
 X-Powered-By: ASP.NET
 x-ms-ratelimit-remaining-subscription-resource-requests: 599
@@ -348,8 +348,8 @@ Strict-Transport-Security: max-age=31536000; includeSubDomains
 Date: Wed, 16 Mar 2016 19:10:02 GMT
 
 {  
-   "id":"/subscriptions/1d908808-e491-4fe5-b97e-29886e18efd4/resourceGroups/CS-SoutheastAsia-scheduler/providers/Microsoft.Scheduler/jobCollections/southeastasiajc/jobs/httpjob",
-   "type":"Microsoft.Scheduler/jobCollections/jobs",
+   "id":"/subscriptions/1d908808-e491-4fe5-b97e-29886e18efd4/resourceGroups/CS-SoutheastAsia-scheduler/providers/azure.microsoft.com/.Scheduler/jobCollections/southeastasiajc/jobs/httpjob",
+   "type":"azure.microsoft.com/.Scheduler/jobCollections/jobs",
    "name":"southeastasiajc/httpjob",
    "properties":{  
       "startTime":"2015-05-14T14:10:00Z",
@@ -361,7 +361,7 @@ Date: Wed, 16 Mar 2016 19:10:02 GMT
                "x-ms-version":"2013-03-01"
             },
             "authentication":{  
-               "tenant":"microsoft.onmicrosoft.com",
+               "tenant":"azure.microsoft.com/.onazure.microsoft.com/.com",
                "audience":"https://management.core.windows.net/",
                "clientId":"dc23e764-9be6-4a33-9b9a-c46e36f0c137",
                "type":"ActiveDirectoryOAuth"
@@ -397,7 +397,7 @@ Date: Wed, 16 Mar 2016 19:10:02 GMT
 
  [Plans et facturation dans Azure Scheduler](scheduler-plans-billing.md)
 
- [Informations de référence sur l’API REST d’Azure Scheluler](https://msdn.microsoft.com/library/mt629143)
+ [Informations de référence sur l’API REST d’Azure Scheluler](https://msdn.azure.microsoft.com/.com/library/mt629143)
 
  [Informations de référence sur les applets de commande PowerShell d’Azure Scheluler](scheduler-powershell-reference.md)
 

@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Journalisation et gestion des erreurs dans Logic Apps | Microsoft Azure"
+    pageTitle="Journalisation et gestion des erreurs dans Logic Apps | azure.microsoft.com/ Azure"
     description="Afficher un cas d’utilisation réel des fonctionnalités avancées de journalisation et de gestion des erreurs avec Logic Apps"
     keywords=""
     services="logic-apps"
@@ -21,11 +21,11 @@
 
 Cet article décrit comment vous pouvez étendre une application logique pour assurer une meilleure prise en charge de la gestion des exceptions. Il s’agit d’un cas d’utilisation réel, et cet article répond à la question « Logic Apps prend-elle en charge la gestion des exceptions et des erreurs ? ».
 
->[AZURE.NOTE] La version actuelle de la fonctionnalité Logic Apps de Microsoft Azure App Service fournit un modèle standard pour les réponses d’action. Cela inclut les réponses de type validation interne et de type erreur retournées depuis une application API.
+>[AZURE.NOTE] La version actuelle de la fonctionnalité Logic Apps de azure.microsoft.com/ Azure App Service fournit un modèle standard pour les réponses d’action. Cela inclut les réponses de type validation interne et de type erreur retournées depuis une application API.
 
 ## Vue d’ensemble du cas d’utilisation et du scénario
 
-Voici le cas d’utilisation sur lequel porte cet article. Un fameux organisme de santé nous a engagés pour développer une solution Azure afin de mettre en place un portail pour les patients à l’aide de Microsoft Dynamics CRM Online. L’organisme avait besoin d’envoyer des enregistrements de rendez-vous entre le portail patient Dynamics CRM Online et Salesforce. Il nous a été demandé d’utiliser la norme [HL7 FHIR](http://www.hl7.org/implement/standards/fhir/) pour tous les dossiers des patients.
+Voici le cas d’utilisation sur lequel porte cet article. Un fameux organisme de santé nous a engagés pour développer une solution Azure afin de mettre en place un portail pour les patients à l’aide de azure.microsoft.com/ Dynamics CRM Online. L’organisme avait besoin d’envoyer des enregistrements de rendez-vous entre le portail patient Dynamics CRM Online et Salesforce. Il nous a été demandé d’utiliser la norme [HL7 FHIR](http://www.hl7.org/implement/standards/fhir/) pour tous les dossiers des patients.
 
 Le projet comportait deux exigences principales :
 
@@ -37,9 +37,9 @@ Le projet comportait deux exigences principales :
 
 >[AZURE.TIP] Vous pouvez visionner une vidéo à propos de ce projet sur le site [Integration User Group](http://www.integrationusergroup.com/do-logic-apps-support-error-handling/ "Groupe d’utilisateurs d’intégration").
 
-Nous avons choisi [Azure DocumentDB](https://azure.microsoft.com/services/documentdb/ "Document DB Azure") comme référentiel pour les enregistrements de journal et d’erreur (DocumentDB fait référence aux enregistrements en tant que documents). Comme Logic Apps dispose d’un modèle standard pour toutes les réponses, nous n’avons pas à créer un schéma personnalisé. Nous pouvons créer une application API pour **insérer** et **interroger** les enregistrements d’erreur et de journal. Nous pouvons également définir un schéma pour chaque enregistrement au sein de l’application API.
+Nous avons choisi [Azure DocumentDB](https://azure.azure.microsoft.com/.com/services/documentdb/ "Document DB Azure") comme référentiel pour les enregistrements de journal et d’erreur (DocumentDB fait référence aux enregistrements en tant que documents). Comme Logic Apps dispose d’un modèle standard pour toutes les réponses, nous n’avons pas à créer un schéma personnalisé. Nous pouvons créer une application API pour **insérer** et **interroger** les enregistrements d’erreur et de journal. Nous pouvons également définir un schéma pour chaque enregistrement au sein de l’application API.
 
-Une autre exigence consistait à vider les enregistrements au-delà d’une certaine date. DocumentDB possède une propriété [Durée de vie](https://azure.microsoft.com/blog/documentdb-now-supports-time-to-live-ttl/ "Durée de vie") (TTL, Time To Live), qui nous a permis de définir une valeur **Durée de vie** pour chaque enregistrement ou pour toute une collection. Ainsi, nous n’avons plus à supprimer manuellement les enregistrements dans DocumentDB.
+Une autre exigence consistait à vider les enregistrements au-delà d’une certaine date. DocumentDB possède une propriété [Durée de vie](https://azure.azure.microsoft.com/.com/blog/documentdb-now-supports-time-to-live-ttl/ "Durée de vie") (TTL, Time To Live), qui nous a permis de définir une valeur **Durée de vie** pour chaque enregistrement ou pour toute une collection. Ainsi, nous n’avons plus à supprimer manuellement les enregistrements dans DocumentDB.
 
 ### Création de l’application logique
 
@@ -156,7 +156,7 @@ Il s’agit du message de journalisation de requête publié dans l’applicatio
 	    "operation": "New Patient",
 	    "patientId": "6b115f6d-a7ee-e511-80f5-3863bb2eb2d0",
 	    "providerId": "",
-	    "source": "{"Pragma":"no-cache","x-ms-request-id":"e750c9a9-bd48-44c4-bbba-1688b6f8a132","OData-Version":"4.0","Cache-Control":"no-cache","Date":"Fri, 10 Jun 2016 22:31:56 GMT","Set-Cookie":"ARRAffinity=785f4334b5e64d2db0b84edcc1b84f1bf37319679aefce206b51510e56fd9770;Path=/;Domain=127.0.0.1","Server":"Microsoft-IIS/8.0,Microsoft-HTTPAPI/2.0","X-AspNet-Version":"4.0.30319","X-Powered-By":"ASP.NET","Content-Length":"1935","Content-Type":"application/json; odata.metadata=minimal; odata.streaming=true","Expires":"-1"}"
+	    "source": "{"Pragma":"no-cache","x-ms-request-id":"e750c9a9-bd48-44c4-bbba-1688b6f8a132","OData-Version":"4.0","Cache-Control":"no-cache","Date":"Fri, 10 Jun 2016 22:31:56 GMT","Set-Cookie":"ARRAffinity=785f4334b5e64d2db0b84edcc1b84f1bf37319679aefce206b51510e56fd9770;Path=/;Domain=127.0.0.1","Server":"azure.microsoft.com/-IIS/8.0,azure.microsoft.com/-HTTPAPI/2.0","X-AspNet-Version":"4.0.30319","X-Powered-By":"ASP.NET","Content-Length":"1935","Content-Type":"application/json; odata.metadata=minimal; odata.streaming=true","Expires":"-1"}"
     	}
     }
 
@@ -174,7 +174,7 @@ Il s’agit du message de journalisation de réponse provenant de l’applicatio
 	    "Pragma": "no-cache",
 	    "Cache-Control": "no-cache",
 	    "Date": "Fri, 10 Jun 2016 22:32:17 GMT",
-	    "Server": "Microsoft-IIS/8.0",
+	    "Server": "azure.microsoft.com/-IIS/8.0",
 	    "X-AspNet-Version": "4.0.30319",
 	    "X-Powered-By": "ASP.NET",
 	    "Content-Length": "964",
@@ -190,7 +190,7 @@ Il s’agit du message de journalisation de réponse provenant de l’applicatio
 	    "_etag": ""0400fc2f-0000-0000-0000-575b3ff00000"",
 	    "patientID": "6b115f6d-a7ee-e511-80f5-3863bb2eb2d0",
 	    "timestamp": "2016-06-10T22:31:56Z",
-	    "source": "{"Pragma":"no-cache","x-ms-request-id":"e750c9a9-bd48-44c4-bbba-1688b6f8a132","OData-Version":"4.0","Cache-Control":"no-cache","Date":"Fri, 10 Jun 2016 22:31:56 GMT","Set-Cookie":"ARRAffinity=785f4334b5e64d2db0b84edcc1b84f1bf37319679aefce206b51510e56fd9770;Path=/;Domain=127.0.0.1","Server":"Microsoft-IIS/8.0,Microsoft-HTTPAPI/2.0","X-AspNet-Version":"4.0.30319","X-Powered-By":"ASP.NET","Content-Length":"1935","Content-Type":"application/json; odata.metadata=minimal; odata.streaming=true","Expires":"-1"}",
+	    "source": "{"Pragma":"no-cache","x-ms-request-id":"e750c9a9-bd48-44c4-bbba-1688b6f8a132","OData-Version":"4.0","Cache-Control":"no-cache","Date":"Fri, 10 Jun 2016 22:31:56 GMT","Set-Cookie":"ARRAffinity=785f4334b5e64d2db0b84edcc1b84f1bf37319679aefce206b51510e56fd9770;Path=/;Domain=127.0.0.1","Server":"azure.microsoft.com/-IIS/8.0,azure.microsoft.com/-HTTPAPI/2.0","X-AspNet-Version":"4.0.30319","X-Powered-By":"ASP.NET","Content-Length":"1935","Content-Type":"application/json; odata.metadata=minimal; odata.streaming=true","Expires":"-1"}",
 	    "operation": "New Patient",
 	    "salesforceId": "",
 	    "expired": false
@@ -276,7 +276,7 @@ Il s’agit du code source de l’application logique permettant de créer un en
         "Pragma": "no-cache",
         "Cache-Control": "no-cache",
         "Date": "Fri, 10 Jun 2016 22:31:57 GMT",
-        "Server": "Microsoft-IIS/8.0",
+        "Server": "azure.microsoft.com/-IIS/8.0",
         "X-AspNet-Version": "4.0.30319",
         "X-Powered-By": "ASP.NET",
         "Content-Length": "1561",
@@ -318,7 +318,7 @@ Il s’agit du code source de l’application logique permettant de créer un en
         "Cache-Control": "no-cache",
         "Date": "Fri, 10 Jun 2016 22:31:56 GMT",
         "Set-Cookie": "ARRAffinity=785f4334b5e64d2db0b84edcc1b84f1bf37319679aefce206b51510e56fd9770;Path=/;Domain=127.0.0.1",
-        "Server": "Microsoft-IIS/8.0,Microsoft-HTTPAPI/2.0",
+        "Server": "azure.microsoft.com/-IIS/8.0,azure.microsoft.com/-HTTPAPI/2.0",
         "X-AspNet-Version": "4.0.30319",
         "X-Powered-By": "ASP.NET",
         "Content-Length": "205",
@@ -387,7 +387,7 @@ Lorsque vous disposez de la réponse, vous pouvez la transmettre à l’applicat
 
 ## Référentiel et portail DocumentDB
 
-Notre solution a permis d’ajouter des fonctionnalités avec [DocumentDB](https://azure.microsoft.com/services/documentdb).
+Notre solution a permis d’ajouter des fonctionnalités avec [DocumentDB](https://azure.azure.microsoft.com/.com/services/documentdb).
 
 ### Portail de gestion des erreurs
 
