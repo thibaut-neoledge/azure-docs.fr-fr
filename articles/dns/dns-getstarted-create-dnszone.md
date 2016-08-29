@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/09/2016"
+   ms.date="08/16/2016"
    ms.author="cherylmc"/>
 
 # Créer une zone DNS en utilisant PowerShell
@@ -46,7 +46,7 @@ Au niveau de l’API REST Azure DNS, les Etags sont spécifiés à l’aide d’
 |If-match * | PUT réussit seulement si la ressource existe|
 |If-none-match * |	PUT réussit seulement si la ressource n’existe pas|
 
-### <a name="tags"></a>Étiquettes
+### <a name="tags"></a>Balises
 
 Les balises sont différentes des Etags. Les balises sont une liste de paires nom-valeur. Elles sont utilisées par Azure Resource Manager pour identifier les ressources à des fins de facturation ou de regroupement. Pour plus d’informations sur les balises, voir [Organisation des ressources Azure à l’aide de balises](../resource-group-using-tags.md).
 
@@ -59,7 +59,7 @@ Vérifiez que vous disposez des éléments ci-dessous avant de commencer votre c
 	
 - Un abonnement Azure. Si vous ne disposez pas déjà d’un abonnement Azure, vous pouvez activer vos [avantages abonnés MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou créer un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/).
 	
-- Vous aurez besoin d’installer la dernière version des applets de commande PowerShell Azure Resource Manager (version 1.0 ou ultérieure). Pour plus d’informations sur l’installation des applets de commande PowerShell, consultez [Comment installer et configurer Azure PowerShell](../powershell-install-configure.md).
+- Vous aurez besoin d’installer la dernière version des applets de commande PowerShell Azure Resource Manager (version 1.0 ou ultérieure). Pour plus d’informations sur l’installation des applets de commande PowerShell, consultez [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md).
 
 ## Étape 1 : Connexion
 
@@ -73,7 +73,7 @@ Vérifiez les abonnements associés au compte.
 
 	Get-AzureRmSubscription 
 
-Spécifiez l’abonnement à utiliser.
+Spécifiez l’abonnement que vous souhaitez utiliser.
 
 	Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
 
@@ -88,7 +88,7 @@ Ignorez cette étape si vous utilisez un groupe de ressources existant.
 
 ## Étape 3 : S’inscrire
 
-Le service Azure DNS est géré par le fournisseur de ressources Microsoft.Network. Votre abonnement Azure doit être inscrit auprès de ce fournisseur de ressources pour pouvoir utiliser Azure DNS. Cette opération n’est à effectuer qu’une fois pour chaque abonnement.
+Le service Azure DNS est géré par le fournisseur de ressources Microsoft.Network. Votre abonnement Azure doit être enregistré auprès de ce fournisseur de ressources, pour que vous puissiez utiliser Azure DNS. Cette opération n’est à effectuer qu’une fois par abonnement.
 
 	Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
 
@@ -97,17 +97,17 @@ Le service Azure DNS est géré par le fournisseur de ressources Microsoft.Netwo
 
 Une zone DNS est créée à l’aide de l’applet de commande `New-AzureRmDnsZone`. Vous pouvez trouver ci-dessous des exemples de création d’une zone DNS avec ou sans étiquettes. Pour plus d’informations sur les étiquettes, consultez la section sur les [étiquettes](#tags) de cet article.
 
->[AZURE.NOTE] Dans Azure DNS, les noms de zone doivent être spécifiés sans point à la fin (**« . »**). Par exemple, spécifiez « **contoso.com**» au lieu de « **contoso.com.** ».
+>[AZURE.NOTE] Dans Azure DNS, les noms de zone doivent être spécifiés sans point à la fin (**« . »**). Par exemple, spécifiez « **contoso.com** » plutôt que « **contoso.com.** ».
 
 ### Création d’une zone DNS
 
-L’exemple ci-dessous crée une zone DNS appelée *contoso.com* dans le groupe de ressources *MyResourceGroup*. Utilisez l’exemple pour créer une zone DNS, en remplaçant les valeurs indiquées par vos propres valeurs.
+L’exemple ci-dessous permet de créer une zone DNS appelée *contoso.com* dans le groupe de ressources *MyResourceGroup*. Utilisez l’exemple pour créer une zone DNS, en remplaçant les valeurs indiquées par vos propres valeurs.
 
 	New-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup
 
 ### Pour créer une zone DNS avec des étiquettes
 
-L’exemple suivant montre comment créer une zone DNS avec deux étiquettes, *projet = demo* et *env = test*. Utilisez l’exemple pour créer une zone DNS, en remplaçant les valeurs indiquées par vos propres valeurs.
+L’exemple suivant montre comment créer une zone DNS avec deux balises, *projet = demo* et *env = test*. Utilisez l’exemple pour créer une zone DNS, en remplaçant les valeurs indiquées par vos propres valeurs.
 
 	New-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup -Tag @( @{ Name="project"; Value="demo" }, @{ Name="env"; Value="test" } )
 
@@ -115,9 +115,9 @@ L’exemple suivant montre comment créer une zone DNS avec deux étiquettes, *p
 
 La création d’une zone DNS crée également les enregistrements DNS suivants :
 
-- Enregistrement *SOA* (Start of Authority). Il est présent à la racine de chaque zone DNS.
+- L’enregistrement *SOA* (Start of Authority). Il est présent à la racine de chaque zone DNS.
 
-- Les enregistrements de serveur de noms faisant autorité (NS). Ceux-ci indiquent quels serveurs de noms hébergent la zone. Azure DNS utilise un pool de serveurs de noms. Il se peut donc que différents serveurs de noms soient attribués à différentes zones dans Azure DNS. Pour plus d’informations, consultez [Déléguer un domaine à Azure DNS](dns-domain-delegation.md).
+- Les enregistrements de serveur de noms faisant autorité (NS). Ceux-ci indiquent quels serveurs de noms hébergent la zone. Azure DNS utilise un pool de serveurs de noms. Il se peut donc que différents serveurs de noms soient attribués à différentes zones dans Azure DNS. Pour plus d’informations, consultez la page [Délégation d’un domaine à Azure DNS](dns-domain-delegation.md).
 
 Pour afficher ces enregistrements, utilisez `Get-AzureRmDnsRecordSet` :
 
@@ -143,7 +143,7 @@ Pour afficher ces enregistrements, utilisez `Get-AzureRmDnsRecordSet` :
 	Tags              : {}
 
 
-Les jeux d’enregistrements à la racine (ou *apex*) d’une zone DNS utilisent **@** comme nom de jeu d’enregistrements.
+Les jeux d’enregistrements à la racine (ou *apex*) d’une zone DNS utilisent **@** comme nom.
 
 
 ## Test
@@ -172,6 +172,6 @@ Si vous n’avez pas encore délégué votre domaine pour qu’il utilise la nou
 
 ## Étapes suivantes
 
-Après avoir créé une zone DNS, créez des [jeux d’enregistrements et des enregistrements](dns-getstarted-create-recordset.md) pour démarrer la résolution des noms pour votre domaine Internet.
+Après avoir créé une zone DNS, créez [des jeux d’enregistrements et des enregistrements](dns-getstarted-create-recordset.md) pour démarrer la résolution des noms pour votre domaine Internet.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0817_2016-->

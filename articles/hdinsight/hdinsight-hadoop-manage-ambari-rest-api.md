@@ -23,13 +23,11 @@
 
 Apache Ambari simplifie la gestion et la surveillance d'un cluster Hadoop en fournissant une interface utilisateur web et une API REST faciles à utiliser. Ambari est inclus dans les clusters HDInsight sous Linux et sert à surveiller le cluster et à apporter des modifications de configuration. Dans ce document, vous découvrirez les informations de base sur l'utilisation de l'API REST d'Ambari en effectuant les tâches courantes, par exemple trouver le nom de domaine complet des nœuds du cluster ou trouver le compte de stockage par défaut utilisé par le cluster.
 
-> [AZURE.NOTE] Les informations mentionnées dans cet article s'appliquent uniquement aux clusters HDInsight sous Linux. Pour les clusters HDInsight sous Windows, seul un sous-ensemble de la fonctionnalité de surveillance est disponible via l'API REST d'Ambari. Consultez la page [Surveillance d'Hadoop Windows sur HDInsight à l'aide de l'API Ambari](hdinsight-monitor-use-ambari-api.md).
-
-##Configuration requise
+##Conditions préalables
 
 * [cURL](http://curl.haxx.se/) : cURL est un utilitaire multiplateforme utilisable pour travailler en ligne de commande avec les API REST. Dans ce document, il est utilisé pour communiquer avec l'API REST d'Ambari.
 * [jq](https://stedolan.github.io/jq/) : jq est un utilitaire de ligne de commande multiplateforme conçu pour travailler avec des documents JSON. Dans ce document, il est utilisé pour analyser les documents JSON renvoyés par l'API REST d'Ambari.
-* [Interface de ligne de commande Azure](../xplat-cli-install.md) : utilitaire de ligne de commande multiplateforme conçu pour travailler avec des services Azure.
+* [Interface de ligne de commande Azure](../xplat-cli-install.md) : utilitaire de ligne de commande multiplateforme conçu pour travailler avec des services Azure.
 
     [AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
@@ -162,7 +160,7 @@ Vous pouvez ensuite utiliser ces informations avec [Azure CLI](../xplat-cli-inst
             "version" : 1
         }
 
-    Dans cette liste, vous devez copier le nom du composant (par exemple, __spark\_thrift\_sparkconf__ et la valeur __tag__.
+    Dans cette liste, vous devez copier le nom du composant (par exemple, __spark\_thrift\_sparkconf__ et la valeur __tag__).
     
 2. Récupérez la configuration du composant et de la balise à l’aide de la commande suivante. Remplacez __spark-thrift-sparkconf__ et __INITIAL__ par le composant et la balise dont vous souhaitez récupérer la configuration.
 
@@ -192,7 +190,7 @@ Vous pouvez ensuite utiliser ces informations avec [Azure CLI](../xplat-cli-inst
             }
         }
 
-3. Ouvrez le document __newconfig.json__ et modifier/ajouter des valeurs dans l’objet __properties__. Par exemple, changez la valeur de __spark.yarn.am.memory__ de __1g__ en __3g__ et ajoutez un nouvel élément pour __spark.kryoserializer.buffer.max__ avec une valeur de __256m__.
+3. Ouvrez le document __newconfig.json__ et modifiez/ajoutez des valeurs dans l’objet __properties__. Par exemple, changez la valeur de __spark.yarn.am.memory__ de __1g__ en __3g__ et ajoutez un nouvel élément pour __spark.kryoserializer.buffer.max__ avec une valeur de __256m__.
 
         "spark.yarn.am.memory": "3g",
         "spark.kyroserializer.buffer.max": "256m",
@@ -203,7 +201,7 @@ Vous pouvez ensuite utiliser ces informations avec [Azure CLI](../xplat-cli-inst
 
         cat newconfig.json | curl -u admin:PASSWORD -H "X-Requested-By: ambari" -X PUT -d "@-" "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME"
         
-    Cette commande dirige le contenu du fichier __newconfig.json__ vers la demande curl, qui l’envoie au cluster en tant que nouvelle configuration souhaitée. Cette commande renvoie un document JSON. L’élément __versionTag__ de ce document doit correspondre à la version que vous avez envoyée et l’objet __configs__ contient les modifications de configuration que vous avez demandées.
+    Cette commande dirige le contenu du fichier __newconfig.json__ vers la requête curl, qui l’envoie au cluster en tant que nouvelle configuration souhaitée. Cette commande renvoie un document JSON. L’élément __versionTag__ de ce document doit correspondre à la version que vous avez envoyée et l’objet __configs__ contient les modifications de configuration que vous avez demandées.
 
 ###Exemple : redémarrer un composant de service
 
@@ -237,7 +235,7 @@ Vous pouvez ensuite utiliser ces informations avec [Azure CLI](../xplat-cli-inst
     
         curl -u admin:PASSWORD -H "X-Requested-By: ambari" "https://CLUSTERNAME/api/v1/clusters/CLUSTERNAME/requests/29" | jq .Requests.request_status
     
-    Si cette valeur renvoie `"COMPLETED"`, la demande est terminée.
+    Si cette valeur renvoie `"COMPLETED"`, la requête est terminée.
 
 4. Une fois la demande précédente terminée, utilisez ce qui suit pour démarrer le service.
 
@@ -255,4 +253,4 @@ Pour obtenir une référence complète de l'API REST, consultez la page [Référ
 
 > [AZURE.NOTE] Certaines fonctionnalités d'Ambari, telles que l'ajout ou la suppression d'hôtes du cluster, ou l'ajout de nouveaux services, sont désactivées, puisqu'il est géré par le service cloud HDInsight.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

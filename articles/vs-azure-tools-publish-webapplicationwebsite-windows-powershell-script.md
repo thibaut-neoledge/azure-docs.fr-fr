@@ -1,6 +1,6 @@
 <properties
    pageTitle="Publish-WebApplicationWebSite (script Windows PowerShell) | Microsoft Azure"
-   description="Découvrez comment publier un projet web sur un site web Azure. Ce script crée les ressources requises dans votre abonnement Azure si elles n'existent pas."
+   description="Découvrez comment publier un projet web sur un site web Azure. Ce script crée les ressources requises dans votre abonnement Azure si elles n’existent pas."
    services="visual-studio-online"
    documentationCenter="na"
    authors="TomArcher"
@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="04/18/2016"
+   ms.date="08/15/2016"
    ms.author="tarcher" />
 
 # Publish-WebApplicationWebSite (script Windows PowerShell)
 
 ##Syntaxe
 
-Publie un projet web sur un site web Azure. Le script crée les ressources requises dans votre abonnement Azure si elles n'existent pas.
+Publie un projet web sur un site web Azure. Le script crée les ressources requises dans votre abonnement Azure si elles n’existent pas.
 
 	Publish-WebApplicationWebSite
 	–Configuration <configuration>
@@ -45,7 +45,7 @@ Le chemin d'accès au fichier de configuration JSON qui décrit les détails du 
 
 ## SubscriptionName
 
-Le nom de l'abonnement Azure dans lequel vous souhaitez créer le site web.
+Nom de l’abonnement Azure dans lequel vous souhaitez créer le site web.
 
 |Paramètre|Valeur par défaut|
 |---|---|
@@ -129,4 +129,4 @@ Vous pouvez modifier le fichier de configuration JSON pour modifier ce qui est d
 
 Pour plus d’informations, consultez [Publish-WebApplicationVM (script Windows PowerShell)](vs-azure-tools-publish-webapplicationvm.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0817_2016-->

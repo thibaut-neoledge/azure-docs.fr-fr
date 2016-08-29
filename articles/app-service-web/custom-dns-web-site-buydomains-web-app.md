@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/24/2016"
+	ms.date="08/11/2016"
 	ms.author="robmcm"/>
 
 # Acheter et configurer un nom de domaine personnalisé dans Azure App Service
@@ -39,7 +39,7 @@ Pour une application web de production, vous souhaitez probablement afficher un 
 
 ## Vue d'ensemble
 
-> [AZURE.NOTE] N'essayez pas d'acheter un domaine avec un abonnement qui n'est pas associé à une carte de crédit active. Cela pourrait entraîner la désactivation de votre abonnement.
+> [AZURE.NOTE] N’essayez pas d’acheter un domaine avec un abonnement qui n’est pas associé à une carte de crédit active. Cela pourrait entraîner la désactivation de votre abonnement.
 
 Si vous n’avez pas de nom de domaine pour votre application web, vous pouvez facilement en acheter un sur le [portail Azure](https://portal.azure.com/). Pendant le processus d'achat, vous pouvez choisir de mapper automatiquement les enregistrements DNS du domaine racine et WWW à votre application web. Vous pouvez également gérer votre domaine directement dans le portail Azure.
 
@@ -116,4 +116,4 @@ Si vous avez acheté le domaine personnalisé à partir du panneau **Domaines pe
 - Vous avez peut-être supprimé le domaine personnalisé à un moment donné. Vérifiez les journaux d’audit en cliquant sur **Paramètres** > **Journaux d’audit** dans le panneau principal de votre application.
 - Le panneau **Domaines personnalisés et SSL** que vous consultez appartient peut-être à une application qui est créée dans un autre abonnement Azure. Basculez vers une autre application dans un autre abonnement et vérifiez le panneau **Domaines personnalisés et SSL**. Dans le portail, vous ne pourrez pas voir ni gérer les domaines personnalisés créés dans un abonnement Azure différent de celui lié à l’application. Toutefois, si vous cliquez sur **Gestion avancée** dans le panneau **Gérer le domaine** du domaine, vous êtes redirigé vers le site web du fournisseur de domaine, où vous pourrez [configurer manuellement votre domaine personnalisé comme n’importe quel domaine personnalisé externe](web-sites-custom-domain-name.md) pour les applications créées dans un autre abonnement Azure.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

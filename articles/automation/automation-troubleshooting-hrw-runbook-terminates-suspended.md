@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/18/2016"
+   ms.date="08/17/2016"
    ms.author="magoedte" />
 
 # Runbook Worker hybride : une tâche de runbook se termine avec l’état suspendu
@@ -33,7 +33,7 @@ L’exécution du runbook échoue et l’erreur est retournée est « L’action
 Il existe plusieurs causes possibles pour cette erreur :
 
   1. Le worker hybride est derrière un pare-feu ou un proxy
-  2. L’ordinateur sur lequel le worker hybride s’exécute ne respecte pas les [exigences](automation-hybrid-runbook-worker.md#hybrid-runbook-worker-requirements) de la configuration matérielle minimale 
+  2. L’ordinateur sur lequel le worker hybride s’exécute ne respecte pas les [exigences](automation-hybrid-runbook-worker.md#hybrid-runbook-worker-requirements) de la configuration matérielle minimale
   3. Les runbooks ne peuvent pas s’authentifier auprès des ressources locales
 
 
@@ -57,9 +57,9 @@ Vérifiez tout d’abord que l’ordinateur désigné pour exécuter la fonction
 
 ### Solution
 
-Vérifiez dans le journal des événements **Microsoft-SMA** la présence d’un événement correspondant avec la description *Le processus Win32 s’est terminé avec le code [4294967295]*. La cause de cette erreur est que vous n’avez pas configuré l’authentification dans vos runbooks ou que vous n’avez pas spécifié les informations d’identification Exécuter en tant que pour le groupe Worker hybride. Veuillez consulter les [autorisations du runbook](automation-hybrid-runbook-worker#runbook-permissions) pour confirmer que l’authentification a été correctement configurée pour les runbooks.
+Vérifiez dans le journal des événements **Microsoft-SMA** la présence d’un événement correspondant avec la description *Le processus Win32 s’est terminé avec le code [4294967295]*. La cause de cette erreur est que vous n’avez pas configuré l’authentification dans vos runbooks ou que vous n’avez pas spécifié les informations d’identification Exécuter en tant que pour le groupe Worker hybride. Veuillez consulter les [autorisations du Runbook](automation-hybrid-runbook-worker.md#runbook-permissions) pour confirmer que l’authentification a été correctement configurée pour vos Runbooks.
 
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -83,7 +83,7 @@ Il existe d’autres méthodes pour limiter le nombre d’actions que peut réal
 - Des [rôles de base de données][] autres que « db\_datareader » et « db\_datawriter » peuvent être utilisés afin de créer des comptes d’utilisateur plus puissants ou des comptes de gestion moins puissants pour votre application. Les rôles de base de données fixes intégrés offrent un moyen facile d'accorder des autorisations, mais peuvent entraîner l'octroi d'autorisations excessives.
 - Grâce aux [procédures stockées][], vous pouvez limiter le nombre d’actions susceptibles d’être exécutées sur la base de données.
 
-La gestion des bases de données et serveurs logiques à partir du portail Azure Classic et l’utilisation de l’API Azure Resource Manager sont contrôlées par les affectations associées au rôle de votre compte d’utilisateur sur le portail. Pour en savoir plus à ce sujet, voir [Contrôle d’accès en fonction du rôle dans le portail Azure][].
+La gestion des bases de données et serveurs logiques à partir du portail Azure Classic et l’utilisation de l’API Azure Resource Manager sont contrôlées par les affectations associées au rôle de votre compte d’utilisateur sur le portail. Pour en savoir plus à ce sujet, voir [Contrôle d’accès en fonction du rôle dans le Portail Azure][].
 
 ## Chiffrement
 
@@ -103,15 +103,15 @@ Vous pouvez également activer le chiffrement transparent des données à partir
 Les fonctions d’audit et de suivi des événements de la base de données peuvent vous aider à assurer la conformité aux normes et à identifier toute activité suspecte. La fonction d’audit de SQL Data Warehouse vous permet d’enregistrer les événements survenus dans votre base de données dans un journal d’audit au sein de votre compte Microsoft Azure Storage. Cette fonction s’intègre également dans Microsoft Power BI, afin de faciliter la création d’analyses et de rapports approfondis. Pour en savoir plus, voir [Prise en main de l’audit de base de données SQL][].
 
 ## Étapes suivantes
-Pour plus d’informations sur la connexion à SQL Data Warehouse avec différents protocoles et voir des exemples, consultez [Se connecter à SQL Data Warehouse][].
+Pour plus d’informations et des exemples sur la connexion à SQL Data Warehouse avec différents protocoles, consultez [Se connecter à SQL Data Warehouse][].
 
 <!--Image references-->
 
 <!--Article references-->
-[Se connecter à SQL Data Warehouse]: ./sql-data-warehouse-develop-connections.md
-[Prise en main de l’audit de base de données SQL]: ./sql-data-warehouse-overview-auditing.md
+[Se connecter à SQL Data Warehouse]: ./sql-data-warehouse-connect-overview.md
+[Prise en main de l’audit de base de données SQL]: ./sql-data-warehouse-auditing-overview.md
 [Prise en main du chiffrement transparent des données (TDE)]: ./sql-data-warehouse-encryption-tde.md
-[Connexion à SQL Data Warehouse avec l’authentification Azure Active Directory]: ./sql-data-warehouse-get-started-connect-aad-authentication.md
+[Connexion à SQL Data Warehouse avec l’authentification Azure Active Directory]: ./sql-data-warehouse-authentication.md
 
 <!--MSDN references-->
 [Pare-feu de la base de données Azure SQL]: https://msdn.microsoft.com/library/ee621782.aspx
@@ -125,6 +125,6 @@ Pour plus d’informations sur la connexion à SQL Data Warehouse avec différen
 [portail Azure]: https://portal.azure.com/
 
 <!--Other Web references-->
-[Contrôle d’accès en fonction du rôle dans le portail Azure]: https://azure.microsoft.com/documentation/articles/role-based-access-control-configure
+[Contrôle d’accès en fonction du rôle dans le Portail Azure]: https://azure.microsoft.com/documentation/articles/role-based-access-control-configure
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

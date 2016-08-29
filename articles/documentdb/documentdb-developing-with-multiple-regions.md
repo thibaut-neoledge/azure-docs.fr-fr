@@ -128,7 +128,7 @@ Exemple de réponse
 
 
 -	Les requêtes PUT, POST et DELETE doivent accéder à l’URI d’écriture indiqué
--	Toutes les requêtes GET et autres demandes en lecture seule (par ex., Requêtes) peuvent accéder à n’importe quel point de terminaison choisi par le client.
+-	Toutes les requêtes GET et autres demandes en lecture seule (par ex., Requêtes) peuvent accéder à n’importe quel point de terminaison choisi par le client
 
 L’écriture de demandes dans les régions en lecture seule échoue avec le code d’erreur HTTP 403 (« Interdit »).
 
@@ -141,8 +141,8 @@ Apprenez-en plus sur la distribution mondiale de données avec DocumentDB dans l
 - [Distribution mondiale des données avec DocumentDB](documentdb-distribute-data-globally.md)
 - [Niveaux de cohérence](documentdb-consistency-levels.md)
 - [Fonctionnement du débit avec plusieurs régions](documentdb-manage.md#how-throughput-works-with-multiple-regions)
-- [Ajout de régions à l’aide du Portail Azure](documentdb-manage-account.md#addregion)
+- [Ajout de régions à l’aide du Portail Azure](documentdb-portal-global-replication.md)
 
 [regions]: https://azure.microsoft.com/regions/
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

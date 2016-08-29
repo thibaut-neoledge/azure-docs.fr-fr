@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="08/10/2016"
+   ms.date="08/11/2016"
    ms.author="larryfr"/>
 
 # Accès aux journaux de diagnostic d’Azure Data Lake Analytics
@@ -32,7 +32,7 @@ Les organisations peuvent activer la journalisation de diagnostic pour leur comp
 - **Activation de votre abonnement Azure** pour la version préliminaire publique de Data Lake Analytics. Consultez les [instructions](data-lake-analytics-get-started-portal.md#signup).
 - **Compte Azure Data Lake Analytics**. Suivez les instructions de [Prise en main du service Azure Data Lake Analytics à l’aide du portail Azure](data-lake-analytics-get-started-portal.md).
 
-## Activer la journalisation de diagnostic pour votre compte Data Lake Analytics
+## Activation de la journalisation
 
 1. Inscrivez-vous au nouveau [portail Azure](https://portal.azure.com).
 
@@ -52,7 +52,7 @@ Les organisations peuvent activer la journalisation de diagnostic pour leur comp
 
 Une fois que vous avez activé les paramètres de diagnostic, vous pouvez consulter les journaux dans l’onglet **Journaux de diagnostic**.
 
-## Afficher les journaux de diagnostic de votre compte Data Lake Analytics
+## afficher les journaux ;
 
 Il existe deux manières d’afficher les données de journal de votre compte Data Lake Analytics :
 
@@ -108,7 +108,7 @@ Il existe deux manières d’afficher les données de journal de votre compte Da
     
         https://adllogs.blob.core.windows.net/insights-logs-requests/resourceId=/SUBSCRIPTIONS/<sub-id>/RESOURCEGROUPS/myresourcegroup/PROVIDERS/MICROSOFT.DATALAKEANALYTICS/ACCOUNTS/mydatalakeanalytics/y=2016/m=07/d=18/h=14/m=00/PT1H.json
 
-## Comprendre la structure des données de journal
+## Structure journal
 
 Les journaux d’audit et de demande sont au format JSON. Dans cette section, nous examinons la structure JSON des journaux de demande et d’audit.
 
@@ -225,13 +225,13 @@ Voici un exemple d’entrée dans le journal d’audit au format JSON. Chaque ob
 
 > [AZURE.NOTE] __SubmitTime__, __StartTime__, __EndTime__ et __Parallélisme__ fournissent des informations sur une opération et contiennent uniquement une valeur si une opération a démarré ou s’est terminée. Par exemple, __SubmitTime__ contient une valeur après __qu’operationName__ indique __JobSubmitted__.
 
-## Exemples de traitement des données de journal
+## Traiter les données de journal
 
 Azure Data Lake Analytics fournit un exemple de traitement et d’analyse des données de journal. Vous trouverez l’exemple à l’adresse [https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample).
 
 
-## Voir aussi
+## Étapes suivantes
 
 - [Présentation d’Azure Data Lake Analytics](data-lake-analytics-overview.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

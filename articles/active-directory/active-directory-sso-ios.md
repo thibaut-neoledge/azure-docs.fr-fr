@@ -1,6 +1,6 @@
 <properties
 	pageTitle="En savoir plus sur l’activation d’une authentification unique entre applications sur iOS à l’aide de la bibliothèque ADAL | Microsoft Azure"
-	description="En savoir plus sur l’utilisation des fonctionnalités de votre Kit de développement logiciel (SDK) ADAL pour activer l’authentification unique sur l’ensemble de vos applications."
+	description="En savoir plus sur l’utilisation des fonctionnalités de votre Kit de développement logiciel (SDK) ADAL pour activer l’authentification unique sur l’ensemble de vos applications. "
 	services="active-directory"
 	documentationCenter=""
 	authors="brandwe"
@@ -33,9 +33,10 @@ Cette procédure pas à pas s’applique aux éléments suivants :
 * Azure Active Directory
 * Azure Active Directory B2C
 * Azure Active Directory B2B
+* Accès conditionnel Azure Active Directory
 
 
-Notez que le document ci-dessous prend pour acquis que vous savez comment [mettre en service des applications dans le portail hérité dédié à Azure Active Directory](active-directory-how-to-integrate.md) et que vous avez intégré votre application avec le [Kit de développement logiciel (SDK) Microsoft Identity iOS](https://github.com/AzureAD/azure-activedirectory-library-for-objc).
+Notez que le document ci-dessous prend pour acquis que vous savez comment [mettre en service des applications dans le portail hérité dédié à Azure Active Directory](active-directory-how-to-integrate.md) et que vous avez intégré votre application avec le [Kit de développement logiciel (SDK) Microsoft Identity iOS](https://github.com/AzureAD/azure-activedirectory-library-for-objc).
 
 ## Concepts de l’authentification unique dans la plateforme Microsoft Identity
 
@@ -59,7 +60,7 @@ Les connexions assistées sans répartiteur correspondent à des expériences de
 Ces connexions présentent les avantages suivants :
 
 -  L’expérience utilisateur existe intégralement au sein de l’application.
--  Les informations d’identification peuvent être partagées entre les applications qui sont signées par le même certificat, ce qui constitue une expérience de connexion unique à votre suite d’applications. 
+-  Les informations d’identification peuvent être partagées entre les applications qui sont signées par le même certificat, ce qui constitue une expérience de connexion unique à votre suite d’applications.
 -  Le contrôle de connexion est fourni à l’application avant et après la connexion.
 
 Ces connexions présentent les inconvénients suivants :
@@ -154,7 +155,7 @@ Les Kits de développement logiciel (SDK) Microsoft Identity prennent en charge 
 
 Pour activer l’authentification unique sur l’ensemble des applications que vous possédez, vous devez effectuer les opérations suivantes :
 
-1. Vérifiez que l’ensemble de vos applications utilisent le même ID client ou ID d’application. 
+1. Vérifiez que l’ensemble de vos applications utilisent le même ID client ou ID d’application.
 * Vérifiez que l’ensemble de vos applications partagent le même certificat de signature fourni par Apple, de manière à ce que vous puissiez partager les trousseaux.
 * Demandez la même éligibilité de trousseau pour l’ensemble de vos applications.
 * Indiquez aux Kits de développement logiciel Microsoft Identity le trousseau partagé que vous souhaitez utiliser.
@@ -223,7 +224,7 @@ Une fois que vous disposez des droits appropriés, un fichier nommé `entitlemen
 </plist>
 ```
 
-Une fois que l’éligibilité au trousseau a été activée dans chacune de vos applications et vous êtes prêt à utiliser l’authentification unique, communiquez votre trousseau au Kit de développement logiciel Microsoft Identity en utilisant le paramètre suivant dans votre `ADAuthenticationSettings`, à l’aide du paramètre ci-dessous :
+Une fois que l’éligibilité au trousseau a été activée dans chacune de vos applications et que vous êtes prêt à utiliser l’authentification unique, communiquez votre trousseau au Kit de développement logiciel Microsoft Identity en utilisant le paramètre suivant dans votre `ADAuthenticationSettings`, à l’aide du paramètre ci-dessous :
 
 ```
 defaultKeychainSharingGroup=@"com.myapp.mycache";
@@ -287,9 +288,9 @@ Votre URI de redirection doit présenter la forme appropriée suivante :
 
 `<app-scheme>://<your.bundle.id>`
 
-ex : *x-msauth-mytestiosapp://com.myapp.mytestapp*
+ex : *x-msauth-mytestiosapp://com.myapp.mytestapp*
 
-Cet URI de direction doit être spécifié dans l’inscription de votre application avec le [portail Azure Classic](https://manage.windowsazure.com/). Pour plus d’informations sur l’inscription des applications Azure AD, consultez la rubrique [Intégration avec Azure Active Directory](active-directory-how-to-integrate.md).
+Cet URI de direction doit être spécifié dans l’inscription de votre application avec le [portail Azure Classic](https://manage.windowsazure.com/). Pour plus d’informations sur l’inscription d’applications Azure AD, consultez [Intégration avec Azure Active Directory](active-directory-how-to-integrate.md).
 
 
 ##### Étape 3a : Ajouter un URI de redirection dans votre application et le portail de développement afin de prendre en charge l’authentification par certificat
@@ -298,7 +299,7 @@ Pour assurer la prise en charge de l’authentification par certificat, vous dev
 
 `msauth://code/<broker-redirect-uri-in-url-encoded-form>`
 
-ex : **msauth://code/x-msauth-mytestiosapp%3A%2F%2Fcom.myapp.mytestapp*
+ex : *msauth://code/x-msauth-mytestiosapp%3A%2F%2Fcom.myapp.mytestapp*
 
 
 #### Étape 4 : iOS9 : Ajouter un paramètre de configuration à votre application
@@ -311,4 +312,4 @@ La bibliothèque ADAL utilise –canOpenURL: pour vérifier si le répartiteur e
 
 Désormais, le Kit de développement logiciel (SDK) Microsoft Identity partage automatiquement les informations d’identification entre vos applications et appelle l’éventuel répartiteur existant sur l’appareil.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0817_2016-->

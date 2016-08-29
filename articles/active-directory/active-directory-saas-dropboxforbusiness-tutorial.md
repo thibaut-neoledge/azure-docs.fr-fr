@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="05/26/2016" 
+    ms.date="08/16/2016" 
     ms.author="jeedes" />
 
 #Didacticiel : Intégration d'Azure Active Directory à Dropbox for Business
@@ -61,7 +61,7 @@ Cette section décrit l'activation de l'intégration d'applications pour Dropbox
 
 6.  Dans la **zone de recherche**, saisissez **Dropbox for Business**.
 
-    ![Galerie d’applications](./media/active-directory-saas-dropboxforbusiness-tutorial/IC701010.png "Galerie d'applications")
+    ![Galerie d’applications](./media/active-directory-saas-dropboxforbusiness-tutorial/IC701010.png "Galerie d’applications")
 
 7.  Dans le volet des résultats, sélectionnez **Dropbox for Business**, puis cliquez sur **Terminer** pour ajouter l’application.
 
@@ -97,7 +97,7 @@ Dans le cadre de cette procédure, vous devez télécharger un certificat codé 
 
 	![Configurer l’authentification unique](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769511.png "Configurer l’authentification unique")
 
-	d. Dans la section **Authentification unique**, sélectionnez **Activer l’authentification unique**, puis cliquez sur **plus** pour développer cette section.
+	d. Dans la section **Authentification unique**, sélectionnez **Activer l’authentification unique**, puis cliquez sur **Plus** pour développer cette section.
 
 	![Configurer l’authentification unique](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769512.png "Configurer l’authentification unique")
 
@@ -204,7 +204,7 @@ Si le cycle d'approvisionnement d'utilisateur a abouti, l'état associé est ind
 ![Affecter des utilisateurs](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769523.png "Affecter des utilisateurs")
 
 
-Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
+Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d'informations sur le panneau d'accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
 
 
 
@@ -214,4 +214,4 @@ Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le 
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -12,10 +12,13 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="05/13/2016"
+    ms.date="08/15/2016"
     ms.author="elizapo" />
 
 # Utilisation de la redirection dans Azure RemoteApp
+
+> [AZURE.IMPORTANT]
+Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148).
 
 La redirection de périphériques permet à vos utilisateurs d'interagir avec des applications distantes à l'aide des périphériques connectés à leur ordinateur local, téléphone ou tablette. Par exemple, si vous avez fourni Skype via Azure RemoteApp, une caméra doit être installée sur l'ordinateur de votre utilisateur pour qu'il puisse utiliser Skype. Cela est également vrai pour les imprimantes, les haut-parleurs, les écrans et divers périphériques connectés à un port USB.
 
@@ -40,7 +43,7 @@ Deux options de redirection sont désactivées par défaut :
 - Redirection USB : vous pouvez utiliser les périphériques USB connectés à votre ordinateur local dans la session à distance.
 
 ## Modification de vos paramètres de redirection dans RemoteApp
-Vous pouvez modifier les paramètres de redirection de périphériques pour une collection à l'aide de Microsoft Azure PowerShell avec le Kit de développement logiciel (SDK). Après avoir installé le nouveau PowerShell avec le Kit de développement logiciel(SDK), commencez par le configurer pour gérer votre abonnement, comme décrit dans [Comment installer et configurer Azure PowerShell](../powershell-install-configure.md).
+Vous pouvez modifier les paramètres de redirection de périphériques pour une collection à l'aide de Microsoft Azure PowerShell avec le Kit de développement logiciel (SDK). Après avoir installé le nouveau PowerShell avec le Kit de développement logiciel (SDK), commencez par le configurer pour gérer votre abonnement, comme décrit dans [Comment installer et configurer Azure PowerShell](../powershell-install-configure.md).
 
 Utilisez ensuite une commande semblable à la suivante pour définir les propriétés RDP personnalisées :
 
@@ -102,6 +105,6 @@ Vous pouvez également utiliser l'outil de gestion des stratégie de groupe pour
 5. Ouvrez **Configuration ordinateur\\Stratégies\\Modèles d'administration\\Composants Windows\\Services Bureau à distance\\Client Connexion Bureau à distance\\Redirection des périphériques USB RemoteFX**.
 6. Double-cliquez sur **Autoriser la redirection RDP d'autres périphériques USB RemoteFX pris en charge à partir de cet ordinateur**.
 7. Sélectionnez **Activé**, puis sélectionnez **Administrateurs et utilisateurs dans les droits d'accès à la redirection USB RemoteFX**.
-8. Cliquez sur **OK**.  
+8. Cliquez sur **OK**.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

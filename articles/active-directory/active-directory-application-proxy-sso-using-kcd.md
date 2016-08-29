@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/19/2016"
+	ms.date="08/10/2016"
 	ms.author="kgremban"/>
 
 
@@ -23,7 +23,7 @@ L’authentification unique est un élément clé du proxy d’application Azure
 
 1. L’utilisateur se connecte au cloud.
 2. Toutes les validations de sécurité sont effectuées dans le cloud (pré-authentification)
-3. Quand la demande est envoyée à l’application locale, le connecteur de proxy d’application emprunte l’identité de l’utilisateur pour que l’application principale considère ce dernier comme un utilisateur normal provenant d’un appareil joint à un domaine.
+3. Lorsque la demande est envoyée à l’application locale, le connecteur proxy d’application emprunte l’identité de l’utilisateur. L’application principale pense qu’il s’agit d’un utilisateur standard qui se connecte depuis un appareil faisant partie du domaine.
 
 ![Diagramme d’accès de l’utilisateur final au réseau d’entreprise via le proxy d’application](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_diff_id_diagram.png)
 
@@ -49,7 +49,7 @@ Ce diagramme explique le flux quand un utilisateur tente d’accéder à une app
 7. Le connecteur envoie la demande d’origine au serveur d’applications, en utilisant le jeton Kerberos reçu d’Active Directory.
 8. L’application envoie la réponse au connecteur, qui est ensuite retournée au service de proxy d’application et enfin à l’utilisateur.
 
-### Configuration requise
+### Composants requis
 
 Avant de commencer avec l’authentification unique pour le proxy d’application, vérifiez que votre environnement est prêt avec les paramètres et configurations suivants :
 
@@ -57,7 +57,7 @@ Avant de commencer avec l’authentification unique pour le proxy d’applicatio
 
 - Toutes vos applications disposent de noms de principal de service.
 
-- Le serveur exécutant le connecteur et le serveur exécutant l’application sont joints au domaine et font partie du même domaine. Pour plus d’informations sur la jonction à un domaine, consultez [Joindre un ordinateur à un domaine](https://technet.microsoft.com/library/dd807102.aspx).
+- Le serveur exécutant le connecteur et le serveur exécutant l’application sont joints au domaine et font partie du même domaine ou de domaines sécurisés. Pour plus d’informations sur la jonction à un domaine, consultez [Joindre un ordinateur à un domaine](https://technet.microsoft.com/library/dd807102.aspx).
 
 - Le serveur exécutant le connecteur est autorisé à lire le TokenGroupsGlobalAndUniversal des utilisateurs. Il s’agit d’un paramètre par défaut qui peut avoir été affecté par la sécurisation renforcée de l’environnement. Consultez l’article [KB2009157](https://support.microsoft.com/fr-FR/kb/2009157) pour en savoir plus sur ce paramètre.
 
@@ -97,7 +97,7 @@ La configuration d’Active Directory varie selon que votre connecteur de proxy 
 3. Sous **Propriétés**, définissez **Méthode d’authentification interne** sur **Authentification Windows intégrée**. ![Configuration avancée des applications](./media/active-directory-application-proxy-sso-using-kcd/cwap_auth2.png)
 4. Entrez le **SPN d’application interne** du serveur d’applications. Dans cet exemple, le nom de principal du service pour notre application publiée est http/lob.contoso.com.
 
->[AZURE.IMPORTANT] Si votre UPN local et l’UPN dans Azure Active Directory ne sont pas identiques, vous devez configurer [l’identité de connexion déléguée](#delegated-login-identity) pour que la pré-authentification fonctionne.
+>[AZURE.IMPORTANT] Si votre UPN local et l’UPN dans Azure Active Directory ne sont pas identiques, vous devez configurer l’[identité de connexion déléguée](#delegated-login-identity) pour que la pré-authentification fonctionne.
 
 | | |
 | --- | --- |
@@ -169,4 +169,4 @@ Pour les dernières nouvelles et mises à jour, consultez le site [Application P
 [1]: ./media/active-directory-application-proxy-sso-using-kcd/AuthDiagram.png
 [2]: ./media/active-directory-application-proxy-sso-using-kcd/Properties.jpg
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

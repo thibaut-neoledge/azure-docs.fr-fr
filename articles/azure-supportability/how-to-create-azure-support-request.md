@@ -1,25 +1,25 @@
 <properties
-	 pageTitle="Création d’une demande de support Azure | Microsoft Azure"
+	 pageTitle="Création d’une demande de support Azure | Microsoft Azure"
 	 description="Création d’une demande de support Azure."
 	 services="Azure Supportability"
 	 documentationCenter=""
 	 authors="ganganarayanan"
 	 manager="scotthit"
 	 editor=""/>
-	 
+
 <tags
 	 ms.service="azure-supportability"
 	 ms.workload="na"
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="article"
-	 ms.date="03/24/2016"
+	 ms.date="07/25/2016"
 	 ms.author="gangan"/>
 
 # Création d’une demande de support Azure
 
 ## Résumé
-Les clients Azure peuvent créer et gérer des demandes de support dans le portail Azure, [https://portal.azure.com](https://portal.azure.com). Suite aux commentaires des clients, nous avons mis à jour le processus de demande de support en fonction de trois objectifs principaux :
+Les clients Azure peuvent créer et gérer des demandes de support dans le portail Azure, [https://portal.azure.com](https://portal.azure.com). Suite aux commentaires des clients, nous avons mis à jour le processus de demande de support en fonction de trois objectifs principaux :
 
 - **Optimisation** : réduire le nombre de clics et de panneaux pour simplifier le processus d’envoi d’une demande de support.
 - **Intégration** : lorsque vous travaillez à la résolution d’un problème lié à une ressource Azure, il devrait être simple d’ouvrir une demande de support pour cette ressource, sans changer de contexte.
@@ -39,7 +39,7 @@ Vous pouvez créer une demande de support depuis le menu de navigation supérieu
 ## Concepts de base
 La première étape du processus de demande de support collecte des informations sur votre problème et votre plan de support.
 
-Prenons un exemple : vous êtes face à des difficultés techniques avec votre machine virtuelle et vous soupçonnez un problème de connectivité réseau. La première étape de l’Assistant, la sélection du service (« Machine virtuelle exécutant Windows ») et de la ressource (le nom de votre machine virtuelle), lance le processus d’obtention d’aide pour résoudre ce problème.
+Prenons un exemple : vous êtes face à des difficultés techniques avec votre machine virtuelle et vous soupçonnez un problème de connectivité réseau. La première étape de l’Assistant, la sélection du service (« Machine virtuelle exécutant Windows ») et de la ressource (le nom de votre machine virtuelle), lance le processus d’obtention d’aide pour résoudre ce problème.
 
 ![Panneau Informations de base](./media/how-to-create-azure-support-request/Basics.png)
 
@@ -58,7 +58,7 @@ Pour certains problèmes, nous fournissons des liens d’aide connexes pour rés
 ## Informations de contact
 La dernière étape de l’Assistant confirme vos informations de contact pour pouvoir vous joindre. ![Informations de contact](./media/how-to-create-azure-support-request/ContactInformation.png)
 
-En fonction de la gravité du problème, vous pouvez être invité à indiquer si vous souhaitez être contacté au cours des heures de travail ou si vous préférez une réponse 24h sur 24, 7 jours sur 7, ce qui signifie que nous pouvons vous contacter à tout moment. ![Informations de contact 24h sur 24, 7 jours sur 7](./media/how-to-create-azure-support-request/ContactInformation-2.png)
+En fonction de la gravité du problème, vous pouvez être invité à indiquer si vous souhaitez être contacté au cours des heures de travail ou si vous préférez une réponse 24h sur 24, 7 jours sur 7, ce qui signifie que nous pouvons vous contacter à tout moment. ![Informations de contact 24h sur 24, 7 jours sur 7](./media/how-to-create-azure-support-request/ContactInformation-2.png)
 
 ## Gérer les demandes de support
 Après avoir créé la demande de support, vous pouvez afficher les détails sur la page **Gérer les demandes de support**.
@@ -71,7 +71,7 @@ Sur la page **Gérer les demandes de support**, vous pouvez consulter toutes les
 
 Sélectionnez une demande de support pour en afficher les détails, avec la gravité et l’estimation du temps dont l’ingénieur de support a besoin pour y répondre. ![VID](./media/how-to-create-azure-support-request/VID.png)
 
-Si vous souhaitez modifier le niveau de gravité de la demande, cliquez sur la mosaïque **Impact sur l’activité**. Dans l’exemple précédent, la demande est actuellement configurée pour le niveau de gravité C.
+Si vous souhaitez modifier le niveau de gravité de la demande, cliquez sur la mosaïque **Impact sur l’activité**. Dans l’exemple précédent, la demande est actuellement configurée pour le niveau de gravité C.
 
 Cliquez sur la mosaïque pour voir la liste des niveaux de gravité que vous pouvez affecter à une demande de support.
 
@@ -80,9 +80,9 @@ Cliquez sur la mosaïque pour voir la liste des niveaux de gravité que vous pou
 ![VID-2](./media/how-to-create-azure-support-request/VID-2.png)
 
 ## Commentaires
-Nous sommes ouverts aux commentaires et suggestions ! Envoyez-nous vos [suggestions](https://feedback.azure.com/forums/266794-support-feedback). Vous pouvez aussi nous contacter via [Twitter](https://twitter.com/azuresupport) ou via les [forums MSDN](https://social.msdn.microsoft.com/Forums/azure).
+Nous sommes ouverts aux commentaires et suggestions ! Envoyez-nous vos [suggestions](https://feedback.azure.com/forums/266794-support-feedback). Vous pouvez aussi nous contacter via [Twitter](https://twitter.com/azuresupport) ou via les [forums MSDN](https://social.msdn.microsoft.com/Forums/azure).
 
 ## En savoir plus
 [FAQ du support Azure](https://azure.microsoft.com/support/faq)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0817_2016-->

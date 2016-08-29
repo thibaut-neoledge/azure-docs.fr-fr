@@ -12,12 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="05/08/2016"
+   ms.date="08/15/2016"
    ms.author="tarcher" />
 
 # Accès à des clouds privés Azure avec Visual Studio
 
-##Vue d’ensemble
+##Vue d'ensemble
 
 Par défaut, Visual Studio prend en charge les points de terminaison REST du cloud public Azure. Cela peut être un problème, cependant, si vous utilisez Visual Studio avec un cloud privé Azure. Vous pouvez utiliser des certificats pour configurer Visual Studio afin d’accéder aux points de terminaison REST du cloud privé Azure. Vous pouvez obtenir ces certificats au moyen de votre fichier de paramètres de publication Azure.
 
@@ -25,7 +25,7 @@ Par défaut, Visual Studio prend en charge les points de terminaison REST du clo
 
 1. Dans le [portail classique Azure](http://go.microsoft.com/fwlink/?LinkID=213885) du cloud privé, téléchargez votre fichier de paramètres de publication, ou contactez votre administrateur pour obtenir un fichier de paramètres de publication. Sur la version publique d'Azure, le lien de téléchargement est [https://manage.windowsazure.com/publishsettings/](https://manage.windowsazure.com/publishsettings/). (Le fichier que vous téléchargez doit avoir une extension .publishsettings.)
 
-1. Dans l’**Explorateur de serveurs** dans Visual Studio, sélectionnez le nœud **Azure** et, dans le menu contextuel, sélectionnez la commande **Gérer les abonnements**.
+1. Dans l’**Explorateur de serveurs** de Visual Studio, sélectionnez le nœud **Azure** et, dans le menu contextuel, sélectionnez la commande **Gérer les abonnements**.
 
     ![Commande Gérer les abonnements](./media/vs-azure-tools-access-private-azure-clouds-with-visual-studio/IC790778.png)
 
@@ -41,6 +41,6 @@ Par défaut, Visual Studio prend en charge les points de terminaison REST du clo
 
 [Publication d’un service cloud Azure depuis Visual Studio](https://msdn.microsoft.com/library/azure/ee460772.aspx)
 
-[Téléchargement et importation des paramètres de publication et des informations d'abonnement] (https://msdn.microsoft.com/library/dn385850(v=nav.70).aspx)
+[Téléchargement et importation des paramètres de publication et des informations d’abonnement] (https://msdn.microsoft.com/library/dn385850(v=nav.70).aspx)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0817_2016-->

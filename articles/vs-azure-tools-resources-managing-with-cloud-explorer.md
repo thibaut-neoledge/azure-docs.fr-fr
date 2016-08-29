@@ -12,16 +12,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="05/08/2016"
+   ms.date="08/15/2016"
    ms.author="tarcher" />
 
 # Gestion des ressources Azure avec Cloud Explorer
 
-##Vue d’ensemble
+##Vue d'ensemble
 
 Cloud Explorer est conçu pour vous permettre de parcourir et de gérer vos ressources Azure dans l'IDE Visual Studio plus facilement et plus rapidement. Vous pouvez par exemple l’utiliser pour ouvrir une application web dans le [portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040) ou dans un navigateur, lui attacher un débogueur ou afficher les propriétés d’un conteneur d’objets blob et l’ouvrir dans l’éditeur de conteneur d’objets Blob.
 
-Cloud Explorer repose sur la pile Azure Resource Manager, tout comme le [portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040). Il comprend des ressources, notamment les groupes de ressources Azure, et des services Azure, notamment Logic Apps et API Apps, et il prend en charge le [contrôle d'accès en fonction du rôle](../role-based-access-control-configure/) (RBAC). Pour voir les ressources Azure ajoutées ou modifiées, sélectionnez le bouton **Actualiser** dans la barre d'outils Cloud Explorer.
+Cloud Explorer repose sur la pile Azure Resource Manager, tout comme le [portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040). Il comprend des ressources, notamment les groupes de ressources Azure, et des services Azure, notamment Logic Apps et API Apps, et il prend en charge le [contrôle d'accès en fonction du rôle](./active-directory/role-based-access-control-configure.md) (RBAC). Pour voir les ressources Azure ajoutées ou modifiées, sélectionnez le bouton **Actualiser** dans la barre d'outils Cloud Explorer.
 
 Cloud Explorer est installé au sein de Visual Studio Tools pour le kit de développement logiciel (SDK) Azure 2.7.
 
@@ -36,7 +36,7 @@ Cloud Explorer est installé au sein de Visual Studio Tools pour le kit de déve
 
 ## Gérer les abonnements et les comptes Azure
 
-Pour afficher vos ressources Azure dans Cloud Explorer, vous devez vous connecter à un compte Azure avec un ou plusieurs abonnements actifs. Si vous avez plus d'un compte Azure, vous pouvez les ajouter à Cloud Explorer, puis sélectionner les abonnements que vous souhaitez inclure dans l'affichage des ressources de Cloud Explorer.
+Pour afficher vos ressources Azure dans Cloud Explorer, vous devez vous connecter à un compte Azure avec un ou plusieurs abonnements actifs. Si vous avez plusieurs comptes Azure, vous pouvez les ajouter à Cloud Explorer, puis sélectionner les abonnements que vous souhaitez inclure dans l’affichage des ressources de Cloud Explorer.
 
 Si vous n'avez jamais utilisé Azure ou que vous n'avez pas ajouté les comptes nécessaires à Visual Studio, vous serez invité à le faire.
 
@@ -44,7 +44,7 @@ Si vous n'avez jamais utilisé Azure ou que vous n'avez pas ajouté les comptes 
 
 1. Cliquez sur l'icône Paramètres dans la barre d'outils Cloud Explorer.
 
-1. Sélectionnez le lien **Ajouter un compte**. Connectez-vous au compte Azure dont vous souhaitez parcourir les ressources. Le compte que vous venez d'ajouter doit être sélectionné dans la liste déroulante du sélecteur de compte. Les abonnements de ce compte apparaissent sous l'entrée du compte.
+1. Sélectionnez le lien **Ajouter un compte**. Connectez-vous au compte Azure dont vous souhaitez parcourir les ressources. Le compte que vous venez d'ajouter doit être sélectionné dans la liste déroulante du sélecteur de compte. Les abonnements de ce compte apparaissent sous l’entrée du compte.
 
     ![Ajout d’abonnements Azure](./media/vs-azure-tools-resources-managing-with-cloud-explorer/IC819514.png)
 
@@ -95,4 +95,4 @@ Pour trouver des ressources portant un nom spécifique dans les abonnements de v
 
 Lorsque vous entrez des caractères dans la zone de recherche, seules les ressources qui correspondent à ces caractères apparaissent dans l'arborescence de ressources.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0817_2016-->

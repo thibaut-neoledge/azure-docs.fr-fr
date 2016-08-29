@@ -13,7 +13,7 @@
 	 ms.topic="article"
 	 ms.tgt_pltfrm="na"
 	 ms.workload="na"
-	 ms.date="06/28/2016"
+	 ms.date="08/11/2016"
 	 ms.author="nasing"/>
 
 # Configuration de hubs IoT par le biais du portail Azure
@@ -24,9 +24,9 @@ Cet article décrit comment démarrer avec Azure IoT Hub via le portail Azure, c
 
 ## Où trouver les hubs IoT
 
-Vous pouvez trouver les hubs IoT à certains endroits.
+Il existe divers emplacements où vous pouvez trouver des hubs IoT.
 
-1. **+ New** : **Azure IoT Hub** est un service IoT qui se trouve dans la catégorie **Internet des objets** sous **+ New**, comme d'autres services.
+1. **+ New** : **Azure IoT Hub** est un service IoT qui se trouve dans la catégorie **Internet des objets** sous **+ New**, comme d'autres services.
 
 2. Les hubs IoT sont également accessibles via Marketplace en tant que héros de service sous **Internet des objets**.
 
@@ -36,7 +36,7 @@ Vous pouvez créer un hub IoT à l'aide des méthodes suivantes.
 
 1. La création d'un hub IoT via l'option **+ New** vous amène au panneau illustré dans la capture d'écran suivante. Les étapes de création du hub IoT via cette méthode et via le marketplace sont identiques.
 
-2. Création d'un hub IoT via Marketplace : un clic sur **Créer** ouvre un panneau identique au panneau précédent correspondant à l'expérience **+ New**. Plusieurs opérations intervenant dans la création d'un hub IoT figurent dans les sections qui suivent.
+2. Création d'un hub IoT via Marketplace : un clic sur **Créer** ouvre un panneau identique au panneau précédent correspondant à l'expérience **+ New**. Les sections suivantes répertorient les différentes étapes nécessaire à la création d’un hub IoT.
 
 ### Choisir le nom du hub IoT
 
@@ -44,7 +44,7 @@ Pour créer un hub IoT, vous devez nommer le hub. Veuillez noter que le nom doit
 
 ### Choisir le niveau tarifaire.
 
-Vous pouvez choisir entre 4 niveaux : **Gratuit**, **Standard S1**, **Standard S2** et**Standard S3**. Le niveau gratuit permet la connexion de seulement 500 appareils au IoT Hub, avec jusqu’à 8 000 messages par jour.
+Vous pouvez choisir entre quatre niveaux : **Gratuit**, **Standard S1**, **Standard S2** et**Standard S3**. Le niveau gratuit permet la connexion de seulement 500 appareils au IoT Hub, avec jusqu’à 8 000 messages par jour.
 
 **Standard S1** : l’édition IoT Hubs S1 est conçue pour les solutions IoT qui ont un grand nombre d’appareils générant de petites quantités de données par appareil. Chaque unité de l’édition S1 permet de transmettre au maximum 400 000 messages par jour sur l’ensemble des appareils connectés.
 
@@ -58,7 +58,7 @@ Vous pouvez choisir entre 4 niveaux : **Gratuit**, **Standard S1**, **Standard S
 
 ### Unités de hub IoT
 
-Une unité IoT Hub comprend un certain nombre de messages par jour. Le choix du nombre d’unités IoT signifie donc que le nombre total de messages pris en charge dans ce hub correspond au nombre d’unités multiplié par le nombre de messages par jour pour ce niveau. Par exemple, si vous souhaitez qu’IoT Hub prenne en charge l’arrivée de 700 000 messages, vous choisissez 2 unités de niveau S1.
+Une unité IoT Hub comprend un certain nombre de messages par jour. Le choix du nombre d’unités IoT signifie donc que le nombre total de messages pris en charge dans ce hub correspond au nombre d’unités multiplié par le nombre de messages par jour pour ce niveau. Par exemple, si vous souhaitez qu’IoT Hub prenne en charge l’arrivée de 700 000 messages, vous choisissez deux unités de niveau S1.
 
 ### Les partitions appareil-à-cloud et groupe de ressources
 
@@ -80,23 +80,23 @@ L’option d’emplacement fournit une liste des régions dans lesquelles IoT Hu
 
 Lorsque toutes les étapes précédentes sont terminées, le hub IoT est prêt à être créé. Cliquez sur **Créer** pour démarrer le processus principal de création du concentrateur IoT avec des options spécifiques et le déployer à l'emplacement spécifié.
 
-Veuillez noter que la création du hub IoT peut prendre quelques minutes, car le déploiement principal peut se produire dans les serveurs d’emplacement appropriés.
+Notez que la création du hub IoT peut prendre quelques minutes, car le déploiement principal peut se produire dans les serveurs d’emplacement appropriés.
 
 ## Modifier les paramètres du hub IoT
 
-Vous pouvez modifier les paramètres d’un hub IoT existant après sa création. Cliquez sur le nom du hub IoT pour ouvrir la page Paramètres.
+Vous pouvez modifier les paramètres d’un hub IoT existant après sa création, dans le panneau IoT Hub.
 
 ![][8]
 
-**Stratégies d'accès partagé** : ce sont les stratégies qui définissent les autorisations pour que les périphériques et services se connectent au concentrateur IoT. Vous pouvez accéder à ces stratégies en cliquant sur **Stratégies d'accès partagé** sous **Paramètres**. Dans ce panneau, vous pouvez soit modifier les stratégies existantes, soit ajouter une nouvelle stratégie.
+**Stratégies d'accès partagé** : ces stratégies définissent les autorisations pour que les périphériques et services se connectent au hub IoT. Vous pouvez accéder à ces stratégies en cliquant sur **Stratégies d'accès partagé** sous **Général**. Dans ce panneau, vous pouvez soit modifier les stratégies existantes, soit ajouter une nouvelle stratégie.
 
 ### Créer une nouvelle stratégie
 
 - Cliquez sur **Ajouter** pour ouvrir un panneau dans lequel vous pouvez saisir le nouveau nom de stratégie, et les autorisations que vous voulez associer à la stratégie, comme illustré dans la figure suivante.
 
-	Il existe plusieurs autorisations qui peuvent être associées à ces stratégies partagées. Les deux premières stratégies, **Lecture de registre** et **Écriture de registre**, accordent les autorisations en lecture et en écriture au stockage d’identité d’appareil ou au registre d’identité. Veuillez noter que le choix de l'option en écriture choisit automatiquement l'option en lecture également.
+	Il existe plusieurs autorisations qui peuvent être associées à ces stratégies partagées. Les deux premières stratégies, **Lecture de registre** et **Écriture de registre**, accordent les autorisations en lecture et en écriture au stockage d’identité d’appareil ou au registre d’identité. Notez que le choix de l'option en écriture choisit automatiquement l'option en lecture également.
 
- 	La stratégie de **connexion de service** octroie des autorisations d’accès aux points de terminaison côté cloud, tels que le groupe de consommateurs pour les services connectés à IoT Hub, tandis que la stratégie de **connexion d’appareil** octroie des autorisations pour l’envoi et la réception de messages sur les points de terminaison côté appareil d’IoT Hub.
+ 	La stratégie de **connexion de service** octroie des autorisations aux points de terminaison côté cloud, tels que le groupe de consommateurs pour les services connectés à IoT Hub. La stratégie de **connexion d’appareil** accorde des autorisations pour envoyer et recevoir des messages sur les points de terminaison côté périphérique du hub IoT.
 
 - Cliquez sur **Créer** pour ajouter la stratégie créée à la liste existante.
 
@@ -104,19 +104,19 @@ Vous pouvez modifier les paramètres d’un hub IoT existant après sa création
 
 ## Messagerie
 
-Cliquez sur les stratégies **Messagerie** pour afficher une liste des messages de propriétés pour le concentrateur IoT en cours de modification. Il existe deux types principaux de propriétés que vous pouvez modifier ou copier : **Cloud vers appareil** et **Appareil vers cloud**.
+Cliquez **Messagerie** pour afficher une liste des messages de propriétés pour le concentrateur IoT en cours de modification. Il existe deux types principaux de propriétés que vous pouvez modifier ou copier : **Cloud vers appareil** et **Appareil vers cloud**.
 
-- Paramètres **Cloud vers appareil** : contiennent 2 configurations secondaires : **Cloud vers appareil TTL** (durée de vie) et **Durée de rétention** pour les messages. Lorsque le hub IoT est créé, ces deux paramètres sont créés avec une valeur par défaut d’1 heure. Toutefois, vous pouvez les personnaliser en utilisant les curseurs ou en saisissant les valeurs.
+- Paramètres **Cloud vers appareil** : ce paramètre contient deux configurations secondaires : **Cloud vers appareil TTL** (durée de vie) et **Durée de rétention** pour les messages. Lorsque le hub IoT est créé, ces deux paramètres sont créés avec une valeur par défaut d’une heure. Pour ajuster ces valeurs, utilisez les curseurs ou tapez les valeurs.
 
-- Paramètres **Appareil vers cloud** : contiennent plusieurs paramètres secondaires, dont certains sont nommés/affectés lorsque le concentrateur IoT est créé et ne peut être copié vers d'autres paramètres secondaires qui sont personnalisables. Ces paramètres sont répertoriés dans la section suivante.
+- Paramètres **Appareil vers cloud** : ce paramètre contient plusieurs paramètres secondaires, dont certains sont nommés/affectés lorsque le concentrateur IoT est créé et ne peut être copié vers d'autres paramètres secondaires qui sont personnalisables. Ces paramètres sont répertoriés dans la section suivante.
 
-**Partitions** : cette valeur est définie lorsque le concentrateur IoT est créé et peut être modifié via ce paramètre.
+**Partitions** : cette valeur est définie lorsque le concentrateur IoT est créé et peut être modifié via ce paramètre.
 
-**Nom compatible et point de terminaison Concentrateur d'événements** : lorsque le concentrateur IoT est créé, un Concentrateur d'événements est créé en interne, et l'utilisateur peut nécessiter l'accès dans certaines circonstances. Ce nom Event Hub et le point de terminaison ne peuvent pas être personnalisés, mais sont disponibles à l’utilisation via le bouton **Copier**.
+**Nom compatible et point de terminaison Concentrateur d'événements** : lorsque le concentrateur IoT est créé, un Concentrateur d'événements est créé en interne, et vous pouvez nécessiter l'accès dans certaines circonstances. Ce nom Event Hub et le point de terminaison ne peuvent pas être personnalisés, mais sont disponibles à l’utilisation via le bouton **Copier**.
 
-**Durée de rétention** : la valeur par défaut est 1, mais elle peut être personnalisée sur d’autres valeurs à l’aide de la liste déroulante. Veuillez noter que pour appareil-à-cloud, la valeur est exprimée en jours et non en heures, de même que le paramètre similaire pour cloud-à-appareil.
+**Durée de rétention** : la valeur par défaut est un jour, mais elle peut être personnalisée sur d’autres valeurs à l’aide de la liste déroulante. Notez que pour appareil-à-cloud, la valeur est exprimée en jours et non en heures, de même que le paramètre similaire pour cloud-à-appareil.
 
-**Groupes de consommateurs** : les groupes de consommateurs sont similaires aux systèmes de messagerie qui peuvent être utilisés pour extraire des données de façon spécifique afin de connecter des applications ou des services IoT Hub. Chaque hub IoT est créé avec un groupe de consommateurs par défaut. Toutefois, vous pouvez ajouter ou supprimer des groupes de consommateurs de vos hubs IoT.
+**Groupes de consommateurs** : les groupes de consommateurs sont similaires aux systèmes de messagerie qui peuvent être utilisés pour extraire des données de façon spécifique afin de connecter des applications ou des services IoT Hub. Chaque hub IoT est créé avec un groupe de consommateurs par défaut. Toutefois, vous pouvez ajouter ou supprimer des groupes de consommateurs de vos hubs IoT.
 
 > [AZURE.NOTE] Le groupe de consommateurs par défaut ne peut être ni modifié ni supprimé.
 
@@ -132,9 +132,9 @@ Pour utiliser la fonctionnalité de chargement de fichiers dans IoT Hub, vous de
 
 **Recevoir des notifications pour les fichiers chargés** : activez ou désactivez les notifications de chargement de fichiers.
 
-**SAS TTL** : ce paramètre est la durée de vie des URI de signature d’accès partagé renvoyés à l’appareil par IoT Hub. Il est défini par défaut sur 1 heure, mais il peut être personnalisé avec d’autres valeurs à l’aide du curseur.
+**SAS TTL** : ce paramètre est la durée de vie des URI de signature d’accès partagé renvoyés à l’appareil par IoT Hub. Il est défini par défaut sur une heure, mais il peut être personnalisé avec d’autres valeurs à l’aide du curseur.
 
-**Durée de vie par défaut des paramètres de notification de fichiers** : la durée de vie d’une notification de chargement avant son expiration. Elle est définie par défaut sur 1 jour, mais elle peut être personnalisée avec d’autres valeurs à l’aide du curseur.
+**Durée de vie par défaut des paramètres de notification de fichiers** : la durée de vie d’une notification de chargement avant son expiration. Il est défini par défaut sur un jour, mais il peut être personnalisé avec d’autres valeurs à l’aide du curseur.
 
 **Nombre maximal de remises de notifications de fichier** : le nombre de tentatives de remise d’une notification de chargement de fichier par l’IoT Hub. Il est défini par défaut sur 10, mais il peut être personnalisé avec d’autres valeurs à l’aide du curseur.
 
@@ -149,7 +149,7 @@ La tarification d'un concentrateur IoT existant peut être modifiée via les par
 
 ![][12]
 
-Le déplacement d’un niveau élevé (S2 ou S3) vers un niveau inférieur (S1 ou S2) est autorisé uniquement lorsque le nombre de messages envoyés pour cette journée n’est pas en conflit. Par exemple, si le nombre de messages par jour dépasse 400 000, le niveau pour IoT Hub peut être modifié, mais si vous changez pour le niveau S1, le concentrateur sera limité pour cette journée.
+Le déplacement d’un niveau élevé (S2 ou S3) vers un niveau inférieur (S1 ou S2) est autorisé uniquement lorsque le nombre de messages envoyés pour cette journée n’est pas en conflit. Par exemple, si le nombre de messages par jour dépasse 400 000, le niveau pour IoT Hub peut être modifié, mais si vous changez pour le niveau S1, le concentrateur est limité pour cette journée.
 
 ## Supprimez IoT Hub
 
@@ -196,4 +196,4 @@ Pour explorer davantage les capacités de IoT Hub, consultez :
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
 [lnk-securing]: iot-hub-security-ground-up.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

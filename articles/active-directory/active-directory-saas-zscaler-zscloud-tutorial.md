@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="05/25/2016" 
+    ms.date="08/16/2016" 
     ms.author="jeedes" />
 
 
@@ -20,7 +20,7 @@
 L’objectif de ce didacticiel est de montrer comment intégrer Azure et Zscaler ZSCloud. Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
 -   Un abonnement Azure valide
--   Un abonnement Zscaler ZSCloud pour lequel l’authentification unique est activée
+-   Un abonnement Zscaler ZSCloud pour lequel l’authentification unique est activée
   
 À l’issue de ce didacticiel, les utilisateurs d’Azure AD que vous avez affectés à Zscaler ZSCloud pourront s’authentifier de manière unique dans l’application sur votre site d’entreprise Zscaler ZSCloud (connexion initiée par le fournisseur de services) ou à l’aide de la [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
   
@@ -72,7 +72,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
 ###Pour configurer l’authentification unique, procédez comme suit :
 
-1.  Sur la page d’intégration d’applications **Zscaler ZSCloud** du portail Azure Classic, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
+1.  Sur la page d’intégration d’applications **Zscaler ZSCloud** du portail Azure Classic, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-zscaler-zscloud-tutorial/IC800278.png "Configurer l’authentification unique")
 
@@ -107,11 +107,11 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
     1.  Sélectionnez **Authenticate using SAML Single Sign-On**.
     2.  Cliquez sur **Configure SAML Single Sign-On Parameters**.
 
-9.  Dans la boîte de dialogue **Configure SAML Single Sign-On Parameters**, procédez comme suit, puis cliquez sur **Done** :
+9.  Dans la boîte de dialogue **Configure SAML Single Sign-On Parameters**, procédez comme suit, puis cliquez sur **Done** :
 
     ![Authentification unique](./media/active-directory-saas-zscaler-zscloud-tutorial/IC800209.png "Authentification unique")
 
-    1.  Sur la page **Configurer l’authentification unique sur Zscaler ZSCloud** du portail Azure Classic, copiez la valeur **URL de la demande d’authentification**, puis collez-la dans la zone de texte **URL of the SAML Portal to which users are sent for authentication**.
+    1.  Sur la page **Configurer l’authentification unique sur ZScaler ZSCloud** du portail Azure Classic, copiez la valeur **URL de demande d’authentification**, puis collez-la dans la zone de texte **URL of the SAML Portal to which users are sent for authentication** (URL du portail SAML vers lequel les utilisateurs sont renvoyés pour l’authentification).
     2.  Dans la zone de texte **Attribute containing Login Name**, tapez **NameID**.
     3.  Pour charger le certificat téléchargé, cliquez sur **Zscaler pem**.
     4.  Sélectionnez **Enable SAML Auto-Provisioning**.
@@ -123,7 +123,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
     1.  Cliquez sur **Enregistrer**.
     2.  Cliquez sur **Activate Now**.
 
-11. Dans la boîte de dialogue **Configurer l’authentification unique sur Zscaler ZSCloud** du portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer**.
+11. Dans la boîte de dialogue **Configurer l’authentification unique sur Zscaler ZSCloud** du portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-zscaler-zscloud-tutorial/IC800282.png "Configurer l’authentification unique")
 
@@ -148,12 +148,12 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
     ![Serveur proxy](./media/active-directory-saas-zscaler-zscloud-tutorial/IC769494.png "Serveur proxy")
 
     1.  Sélectionnez Utiliser un serveur proxy pour votre réseau local.
-    2.  Dans la zone de texte Adresse, tapez **gateway.zscalerone.net**.
-    3.  Dans la zone de texte Port, tapez **80**.
+    2.  Dans la zone de texte Adresse, tapez **gateway.zscalerone.net**.
+    3.  Dans la zone de texte Port, tapez **80**.
     4.  Sélectionnez **Ne pas utiliser de serveur proxy pour les adresses locales**.
-    5.  Cliquez sur **OK** pour fermer la boîte de dialogue **Paramètres du réseau local**.
+    5.  Cliquez sur **OK** pour fermer la boîte de dialogue **Paramètres du réseau local**.
 
-6.  Cliquez sur **OK** pour fermer la boîte de dialogue **Options Internet**.
+6.  Cliquez sur **OK** pour fermer la boîte de dialogue **Options Internet**.
 
 ##Configuration de l'approvisionnement des utilisateurs
   
@@ -200,6 +200,6 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
     ![Oui](./media/active-directory-saas-zscaler-zscloud-tutorial/IC767830.png "Oui")
   
-Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
+Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d'informations sur le panneau d'accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0817_2016-->

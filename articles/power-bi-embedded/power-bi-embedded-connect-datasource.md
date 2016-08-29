@@ -22,9 +22,10 @@ Avec **Power BI Embedded**, vous pouvez incorporer des rapports dans votre propo
 
 Voici les différences entre **Import** et **DirectQuery**.
 
-|Importer | DirectQuery
+|Importation | DirectQuery
 |---|---
 |Les tables, colonnes *et données* sont importées ou copiées dans le jeu de données du rapport. Pour voir les modifications apportées aux données sous-jacentes, vous devez actualiser ou réimporter un jeu de données à jour et complet.|Seules les *tables et colonnes* sont importées ou copiées dans le jeu de données du rapport. Vous visualisez toujours les données les plus récentes.
+Power BI Embedded vous permet d’utiliser DirectQuery avec des sources de données cloud mais pas des sources de données locales, pour l’instant.
 
 ## Avantages de l'utilisation de DirectQuery
 
@@ -50,6 +51,6 @@ Pour garantir que les requêtes envoyées à la source de données sous-jacente 
 
 ## Voir aussi
 - [Prise en main de Microsoft Power BI Embedded](power-bi-embedded-get-started.md)
-- [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)
+- [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0817_2016-->

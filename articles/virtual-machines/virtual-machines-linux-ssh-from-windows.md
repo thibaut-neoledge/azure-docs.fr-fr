@@ -23,8 +23,10 @@ description="Apprenez à créer et à utiliser des clés SSH sur un ordinateur 
 - [Windows](virtual-machines-linux-ssh-from-windows.md)
 - [Linux/Mac](virtual-machines-linux-ssh-from-linux.md)
 
-Cette rubrique décrit comment créer et utiliser **ssh rsa** et le format **.pem** pour des fichiers de clé publics et privés sur Windows que vous pouvez utiliser pour vous connecter à vos machines virtuelles Linux sur Azure avec la commande **ssh**. Si vous avez déjà créé des fichiers **.pem**, vous pouvez les utiliser pour créer des machines virtuelles Linux auxquelles vous pouvez vous connecter à l'aide de **ssh**. Plusieurs autres commandes utilisent le protocole **SSH** et des fichiers de clés pour travailler en toute sécurité, notamment **scp** ou [Secure Copy](https://en.wikipedia.org/wiki/Secure_copy), qui peuvent copier des fichiers en toute sécurité vers et depuis des ordinateurs prenant en charge des connexions **SSH**.
 
+Cette rubrique décrit comment créer et utiliser **ssh rsa** et le format **.pem** pour des fichiers de clé publics et privés sur Windows, que vous pouvez utiliser pour vous connecter à vos machines virtuelles Linux sur Azure avec la commande **ssh**. Si vous avez déjà créé des fichiers **.pem**, vous pouvez les utiliser pour créer des machines virtuelles Linux auxquelles vous pouvez vous connecter à l'aide de **ssh**. Plusieurs autres commandes utilisent le protocole **SSH** et des fichiers de clés pour travailler en toute sécurité, notamment **scp** ou [Secure Copy](https://en.wikipedia.org/wiki/Secure_copy), qui peuvent copier des fichiers en toute sécurité vers et depuis des ordinateurs prenant en charge des connexions **SSH**.
+
+> [AZURE.NOTE] Si vous avez un moment, aidez-nous à améliorer la documentation relative aux machines virtuelles Azure Linux en répondant à cette [enquête rapide](https://aka.ms/linuxdocsurvey) concernant vos expériences. Chaque réponse nous aide à vous faciliter la tâche.
 
 ## De quels programmes SSH et de création de programmes avez-vous besoin ?
 
@@ -47,7 +49,7 @@ La configuration SSH de base pour Azure inclut une paire de clés publiques et p
 
 Voici les scénarios de déploiement et les types de fichiers que vous utilisez dans chacun d'eux
 
-1. Les clés **ssh rsa** sont requises pour tout déploiement à l’aide du [portail Azure](https://portal.azure.com), quel que soit le modèle de déploiement.
+1. Les clés **ssh rsa** sont nécessaires pour tout déploiement à l’aide du [portail Azure](https://portal.azure.com), quel que soit le modèle de déploiement.
 2. Les fichiers .pem sont nécessaires pour créer des machines virtuelles à l'aide du [portail classique](https://manage.windowsazure.com). Les fichiers .pem sont également pris en charge dans les déploiements classiques qui utilisent l'[interface de ligne de commande CLI](../xplat-cli-install.md).
 
 > [AZURE.NOTE] Si vous prévoyez de gérer des services déployés avec le modèle de déploiement classique, vous pouvez également créer un fichier au format **.cer** à télécharger sur le portail, bien que cela n'implique pas **ssh** ni la connexion à des machines virtuelles Linux (l'objet de cet article). Pour créer ces fichiers sous Windows, tapez : <br /> openssl.exe x509 -outform der -in myCert.pem -out myCert.cer
@@ -166,4 +168,4 @@ Le moyen le plus simple de résoudre le problème est de définir la variable d�
 5.	Cliquez sur **Ouvrir** pour vous connecter à la machine virtuelle.
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Créer des enregistrements DNS personnalisés pour une application web | Microsoft Azure" 
+   pageTitle="Créer des enregistrements DNS personnalisés pour une application web | Microsoft Azure " 
    description="Comment créer des enregistrements DNS de domaine personnalisés pour une application web à l’aide d’Azure DNS" 
    services="dns" 
    documentationCenter="na" 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="05/11/2016"
+   ms.date="08/16/2016"
    ms.author="cherylmc"/>
 
 # Créer des enregistrements DNS pour une application web dans un domaine personnalisé
@@ -31,8 +31,8 @@ N'oubliez pas que si vous créez un enregistrement A pour une application web d
 
 Avant de commencer, vous devez créer une zone DNS dans Azure DNS et déléguer cette zone de votre bureau d’enregistrement à Azure DNS.
  
-1. Pour créer une zone DNS, suivez la procédure décrite dans [Créer une zone DNS](dns-getstarted-create-dnszone.md). 
-2. Pour déléguer votre DNS à Azure DNS, suivez la procédure décrite dans [Délégation de domaine DNS](dns-domain-delegation.md). 
+1. Pour créer une zone DNS, suivez la procédure décrite dans [Créer une zone DNS](dns-getstarted-create-dnszone.md).
+2. Pour déléguer votre DNS à Azure DNS, suivez la procédure décrite dans [Délégation de domaine DNS](dns-domain-delegation.md).
 
 Après avoir créé une zone et l’avoir déléguée à Azure DNS, vous pouvez ensuite créer des enregistrements pour votre domaine personnalisé.
 
@@ -47,7 +47,7 @@ Créez un enregistrement A et assignez-le à une variable $rs
 	
 	$rs= New-AzureRMDnsRecordSet -Name "@" -RecordType "A" -ZoneName "contoso.com" -ResourceGroupName "MyAzureResourceGroup" -Ttl 600 
 
-### Étape 2
+### Étape 2 :
 
 Ajoutez la valeur IPv4 au jeu d’enregistrements précédemment créé « @ » en utilisant la variable $rs affectée. La valeur IPv4 attribuée sera l'adresse IP de votre application web.
 
@@ -81,7 +81,7 @@ Ouvrez PowerShell et créez un jeu d’enregistrements CNAME, puis affectez-le �
 	Tags              : {}
 
 
-### Étape 2
+### Étape 2 :
 
 Une fois le jeu d'enregistrements CNAME créé, vous devez créer une valeur d'alias qui pointe vers l'application web.
 
@@ -143,7 +143,7 @@ Créez l’enregistrement « awverify ». Dans l’exemple ci-dessous, nous cré
 	Tags              : {}
 
 
-### Étape 2
+### Étape 2 :
 
 Une fois le jeu d’enregistrements « awverify » créé, affectez l’alias du jeu d’enregistrements CNAME. Dans l’exemple ci-dessous, nous affectons l’alias de jeu d’enregistrements CNAME à awverify.contoso.azurewebsites.net.
 
@@ -179,4 +179,4 @@ Suivez la procédure décrite dans [Configuration d’un nom de domaine personna
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

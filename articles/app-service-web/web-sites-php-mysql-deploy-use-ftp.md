@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="06/24/2016" 
+	ms.date="08/11/2016" 
 	ms.author="robmcm"/>
 
 
@@ -26,7 +26,7 @@ Vous apprendrez à effectuer les opérations suivantes :
 * création d’une application web et d’une base de données MySQL à l’aide du portail Azure (PHP étant activé par défaut dans Web Apps, l’exécution de votre code PHP ne requiert aucune action particulière) ;
 * publier votre application sur Azure avec FTP.
  
-En suivant ce didacticiel, vous allez générer une application web d’inscription simple dans PHP. Cette application sera hébergée dans une application web. Voici une capture d'écran de l'application terminée :
+En suivant ce didacticiel, vous allez générer une application web d’inscription simple dans PHP. Cette application sera hébergée dans une application web. Voici une capture d’écran de l’application terminée :
 
 ![Site Web PHP Azure][running-app]
 
@@ -44,7 +44,7 @@ Pour créer une application web et une base de données MySQL, suivez la procéd
 
 3. Dans la recherche, tapez **Application web + MySQL**, puis cliquez sur **Application web + MySQL**.
 
-	![Création personnalisée d'un site Web][custom-create]
+	![Création personnalisée d'un site web][custom-create]
 
 4. Cliquez sur **Create**. Saisissez un nom de service d’application unique, un nom valide pour le groupe de ressources et un plan de service.
 
@@ -64,14 +64,14 @@ Pour créer une application web et une base de données MySQL, suivez la procéd
 
 7. Pour activer la publication FTP, vous devez fournir un nom d'utilisateur et un mot de passe. Enregistrez les informations d’identification et notez le nom d’utilisateur et le mot de passe que vous créez.
 
-	![Créer les informations d'identification de publication][portal-ftp-username-password]
+	![Création des informations d’identification de publication][portal-ftp-username-password]
 
 ##Générer et tester votre application localement
 
 L'application d'inscription est une simple application PHP qui vous permet de vous inscrire à un événement en entrant votre nom et votre adresse électronique. Les informations relatives aux précédents inscrits sont affichées dans un tableau. Les informations d'inscription sont stockées dans une base de données MySQL. L’application se compose de deux fichiers :
 
-* **index.php** : affiche un formulaire d’inscription et un tableau contenant les informations des inscrits.
-* **createtable.php** : crée la table MySQL de l’application. Ce fichier sera utilisé une seule fois.
+* **index.php** : affiche un formulaire d’inscription et un tableau contenant les informations des inscrits.
+* **createtable.php** : crée la table MySQL de l’application. Ce fichier sera utilisé une seule fois.
 
 Pour générer et exécuter l’application localement, suivez la procédure ci-après. notez que ces étapes partent du principe que PHP, MySQL et un serveur Web sont configurés sur votre machine locale, et que vous avez activé l'[extension PDO pour MySQL][pdo-mysql].
 
@@ -295,4 +295,4 @@ Pour plus d’informations, consultez le [Centre pour développeurs PHP](/develo
 [download-publish-profile]: ./media/web-sites-php-mysql-deploy-use-ftp/download_publish_profile_3.png
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

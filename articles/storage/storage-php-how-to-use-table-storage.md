@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="06/01/2016"
+	ms.date="08/11/2016"
 	ms.author="robmcm"/>
 
 
 # Utilisation du stockage de tables à partir de PHP
 
-[AZURE.INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
+[AZURE.INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)] <br/> [AZURE.INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-tables.md)]
 
-## Vue d’ensemble
+## Vue d'ensemble
 
 Ce guide décrit le déroulement de scénarios courants dans le cadre de l'utilisation du service de tables Azure. Les exemples sont écrits en PHP et utilisent le [Kit de développement logiciel (SDK) Azure pour PHP][download]. Les scénarios traités incluent la **création et la suppression d'une table, l'insertion, la suppression et l'interrogation d'entités dans une table**. Pour plus d'informations sur le service de Table Azure, consultez la section [Étapes suivantes](#next-steps).
 
@@ -64,7 +64,7 @@ Pour accéder à un service en ligne :
 
 	DefaultEndpointsProtocol=[http|https];AccountName=[yourAccount];AccountKey=[yourKey]
 
-Pour accéder au stockage de l'émulateur :
+Pour accéder au stockage de l’émulateur :
 
 	UseDevelopmentStorage=true
 
@@ -85,9 +85,9 @@ Dans les exemples ci-dessous, la chaîne de connexion est passée directement.
 	$tableRestProxy = ServicesBuilder::getInstance()->createTableService($connectionString);
 
 
-## Création d'une table
+## Création d’une table
 
-Vous pouvez créer une table avec un objet **TableRestProxy** via la méthode **createTable**. Au moment de créer une table, vous pouvez définir le délai d'expiration du service de Table. Pour plus d’informations sur le délai d’expiration du service de Table, consultez [Définition de délais d’expiration pour les opérations du service de Table][table-service-timeouts].
+Vous pouvez créer une table avec un objet **TableRestProxy** via la méthode **createTable**. Au moment de créer une table, vous pouvez définir le délai d'expiration du service de Table. Pour plus d’informations sur le délai d’expiration du service de Table, consultez [Setting Timeouts for Table Service Operations (Définition de délais d’expiration pour les opérations du service de Table)][table-service-timeouts].
 
 	require_once 'vendor\autoload.php';
 
@@ -109,9 +109,9 @@ Vous pouvez créer une table avec un objet **TableRestProxy** via la méthode **
 		// http://msdn.microsoft.com/library/azure/dd179438.aspx
 	}
 
-Pour plus d’informations sur les restrictions au niveau des noms de table, consultez [Présentation du modèle de données du service de Table][table-data-model].
+Pour plus d’informations sur les restrictions au niveau des noms de table, consultez [Understanding the Table Service Data Model (Présentation du modèle de données du service de Table)][table-data-model].
 
-## Ajout d'une entité à une table
+## Ajout d’une entité à une table
 
 Pour ajouter une entité à une table, créez un objet **Entity** et transmettez-le à **TableRestProxy->insertEntity**. Notez que lorsque vous créez une entité, vous devez spécifier une clé `PartitionKey` et `RowKey`. Il s’agit des identificateurs uniques d’une entité, dont les valeurs peuvent être interrogées bien plus rapidement que les autres propriétés d’entité. Le système utilise `PartitionKey` pour distribuer automatiquement les entités de la table sur plusieurs nœuds de stockage. Les entités partageant la même clé `PartitionKey` sont stockées sur le même nœud. (Les opérations réalisées sur plusieurs entités offrent de meilleures performances lorsque ces entités sont stockées sur un même nœud plutôt que sur différents nœuds.) La clé `RowKey` est l’ID unique d’une entité au sein d’une partition.
 
@@ -218,7 +218,7 @@ La méthode **TableRestProxy->getEntity** vous permet de récupérer une seule e
 
 ## Extraction de toutes les entités d'une partition
 
-Les requêtes d'entité sont construites à l'aide de filtres (pour plus d'informations, consultez la page [Interrogation de tables et d'entités][filters]). Pour extraire toutes les entités d'une partition, utilisez le filtre « PartitionKey eq *nom\_partition* ». L’exemple suivant montre comment récupérer toutes les entités de la partition `tasksSeattle` en passant un filtre à la méthode **queryEntities**.
+Les requêtes d'entité sont construites à l'aide de filtres (pour plus d'informations, consultez la page [Interrogation de tables et d'entités][filters]). Pour extraire toutes les entités d'une partition, utilisez le filtre « PartitionKey eq *nom\_partition* ». L’exemple suivant montre comment récupérer toutes les entités de la partition `tasksSeattle` en passant un filtre à la méthode **queryEntities**.
 
 	require_once 'vendor/autoload.php';
 
@@ -250,7 +250,7 @@ Les requêtes d'entité sont construites à l'aide de filtres (pour plus d'infor
 
 ## Extraction d'un sous-ensemble d'entités dans une partition
 
-Pour extraire un sous-ensemble d'entités dans une partition, il est possible d'utiliser le modèle de l'exemple précédent. Le sous-ensemble d’entités extrait varie en fonction du filtre utilisé (pour plus d’informations, consultez la page [Interrogation de tables et d’entités][filters]). L’exemple suivant montre comment utiliser un filtre pour extraire toutes les entités avec une valeur d’emplacement `Location` spécifique et une date d’échéance `DueDate` antérieure à une date spécifiée.
+Pour extraire un sous-ensemble d'entités dans une partition, il est possible d'utiliser le modèle de l'exemple précédent. Le sous-ensemble d’entités extrait varie en fonction du filtre utilisé (pour plus d’informations, consultez la page [Querying Tables and Entities (Interrogation de tables et d’entités)][filters]). L’exemple suivant montre comment utiliser un filtre pour extraire toutes les entités avec une valeur d’emplacement `Location` spécifique et une date d’échéance `DueDate` antérieure à une date spécifiée.
 
 	require_once 'vendor/autoload.php';
 
@@ -282,7 +282,7 @@ Pour extraire un sous-ensemble d'entités dans une partition, il est possible d'
 
 ## Extraction d'un sous-ensemble de propriétés d'entité
 
-Une requête peut extraire un sous-ensemble de propriétés d'entité. Cette technique, nommée *projection*, réduit la consommation de bande passante et peut améliorer les performances des requêtes, notamment pour les entités volumineuses. Pour spécifier une propriété à extraire, transmettez son nom à la méthode **Query->addSelectField**. Vous pouvez appeler cette méthode plusieurs fois pour ajouter des propriétés supplémentaires. Après avoir exécuté **TableRestProxy->queryEntities**, les entités renvoyées contiennent uniquement les propriétés sélectionnées (Si vous voulez renvoyer un sous-ensemble d'entités de table, utilisez un filtre comme indiqué dans les requêtes précédentes.)
+Une requête peut extraire un sous-ensemble de propriétés d'entité. Cette technique, nommée *projection*, réduit la consommation de bande passante et peut améliorer les performances des requêtes, notamment pour les entités volumineuses. Pour spécifier une propriété à extraire, transmettez son nom à la méthode **Query->addSelectField**. Vous pouvez appeler cette méthode plusieurs fois pour ajouter des propriétés supplémentaires. Après avoir exécuté **TableRestProxy->queryEntities**, les entités renvoyées contiennent uniquement les propriétés sélectionnées (si vous voulez renvoyer un sous-ensemble d'entités de table, utilisez un filtre comme indiqué dans les requêtes précédentes).
 
 	require_once 'vendor/autoload.php';
 
@@ -354,7 +354,7 @@ Une entité existante peut être mise à jour en lui appliquant les méthodes **
 		echo $code.": ".$error_message."<br />";
 	}
 
-## Suppression d'une entité
+## Suppression d’une entité
 
 Pour supprimer une entité, passez le nom de la table ainsi que les clés `PartitionKey` et `RowKey` à la méthode **TableRestProxy->deleteEntity**.
 
@@ -437,7 +437,7 @@ L'exemple suivant montre comment exécuter des opérations **insertEntity** et *
 
 Pour plus d'informations sur le traitement par lots d'opérations de table, consultez la page [Exécution de transactions de groupe d'entités][entity-group-transactions].
 
-## Suppression d'une table
+## Suppression d’une table
 
 Enfin, pour supprimer une table, transmettez son nom à la méthode **TableRestProxy->deleteTable**.
 
@@ -478,4 +478,4 @@ Pour plus d’informations, consultez également le [Centre de développement PH
 [filters]: http://msdn.microsoft.com/library/azure/dd894031.aspx
 [entity-group-transactions]: http://msdn.microsoft.com/library/azure/dd894038.aspx
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0817_2016-->

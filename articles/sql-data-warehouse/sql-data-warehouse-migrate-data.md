@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/31/2016"
+   ms.date="08/16/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Migration de vos données
@@ -22,15 +22,15 @@ Les données peuvent être déplacées à partir de différentes sources dans SQ
 Cet article s’intéresse tout d’abord aux scénarios simples de migration d’ADF Copy, de SSIS et de bcp. Nous évoquons ensuite de manière plus approfondie les différents moyens d’optimiser la migration.
 
 ## Azure Data Factory (ADF) Copy
-[ADF Copy][] fait partie intégrante d’[Azure Data Factory][]. ADF Copy peut être utilisée pour exporter vos données vers des fichiers plats hébergés sur un espace de stockage local, vers des fichiers plats distants conservés dans un espace de stockage d’objets Blob Microsoft Azure ou directement vers SQL Data Warehouse.
+[ADF Copy][] fait partie intégrante [d’Azure Data Factory][]. ADF Copy peut être utilisée pour exporter vos données vers des fichiers plats hébergés sur un espace de stockage local, vers des fichiers plats distants conservés dans un espace de stockage d’objets Blob Microsoft Azure ou directement vers SQL Data Warehouse.
 
-Si vos données sont hébergées initialement dans des fichiers plats, il vous faudra dans un premier temps les transférer vers un espace de stockage d’objets Blob Microsoft Azure avant de lancer le chargement vers SQL Data Warehouse. Une fois que les données sont transférées dans un espace de stockage d’objets Blob Microsoft Azure, vous pouvez utiliser de nouveau [ADF Copy][] pour les charger dans SQL Data Warehouse.
+Si vos données sont hébergées initialement dans des fichiers plats, il vous faudra dans un premier temps les transférer vers un espace de stockage d’objets Blob Microsoft Azure avant de lancer le chargement vers SQL Data Warehouse. Une fois que les données sont transférées dans Azure Blob Storage, vous pouvez utiliser de nouveau [ADF Copy][] pour les charger dans SQL Data Warehouse.
 
 PolyBase propose également une option à très hautes performances dédiée au chargement des données. Si vous optez pour cette solution, cela ne signifie pas que vous utilisez deux outils au lieu d’un. Si vous avez besoin de performances optimales, utilisez PolyBase. Si vous souhaitez profiter d’une expérience valorisant un outil unique (et que le volume de données n’est pas considérable), tournez-vous vers ADF.
 
 > [AZURE.NOTE] PolyBase nécessite d’utiliser des fichiers de données au format UTF-8. Il s’agit du codage par défaut d’ADF Copy ; aucune modification n’est à apporter. Il s’agit d’un simple rappel vous signalant que le comportement par défaut d’ADF Copy n’est pas à modifier.
 
-Consultez l’article suivant afin de découvrir de formidables [exemples d’utilisation d’ADF Copy][].
+Consultez l’article suivant afin de découvrir de formidables [exemples ADF][].
 
 ## Integration Services ##
 Integration Services (SSIS) est un outil puissant et flexible d’extraction, de transformation et de chargement (ETL, Extract Transform and Load) qui prend en charge des workflows complexes, la transformation des données et diverses options de chargement des données. Utilisez SSIS afin de procéder à un transfert simple de données vers Microsoft Azure, ou dans le cadre d’une migration plus importante.
@@ -75,7 +75,7 @@ Un processus de migration des données SQLDW peut être efficacement divisé en
 Chaque étape peut être optimisée de manière isolée afin de concevoir un processus fiable, redémarrable et résistant de migration qui génère de hautes performances à chaque phase.
 
 ## Optimisation du chargement des données
-Si nous prenons le processus dans l’ordre inverse, nous constatons que PolyBase procure le moyen le plus rapide de charger des données. L’optimisation nécessaire à un processus de chargement PolyBase ajoutant des phases préalables à l’exécution des étapes précédentes, vous avez tout intérêt à comprendre en amont ces phases supplémentaires. Il s’agit des étapes suivantes :
+Si nous prenons le processus dans l’ordre inverse, nous constatons que PolyBase procure le moyen le plus rapide de charger des données. L’optimisation nécessaire à un processus de chargement PolyBase ajoutant des phases préalables à l’exécution des étapes précédentes, vous avez tout intérêt à comprendre en amont ces phases supplémentaires. Les voici :
 
 1. Encodage des fichiers de données
 2. Formatage des fichiers de données
@@ -173,9 +173,9 @@ Pour en savoir plus sur la migration, consultez la section [Migration de votre s
 
 <!--Article references-->
 [AZCopy]: ../storage/storage-use-azcopy.md
-[ADF Copy]: ../data-factory/data-factory-copy-activity.md
-[exemples d’utilisation d’ADF Copy]: ../data-factory/data-factory-copy-activity-examples.md
-[vue d’ensemble sur le développement]: sql-data-warehouse-develop-overview.md
+[exemples ADF]: ../data-factory/data-factory-samples.md
+[ADF Copy examples]: ../data-factory/data-factory-copy-activity-tutorial-using-visual-studio.md
+[vue d’ensemble sur le développement]: sql-data-warehouse-overview-develop.md
 [Migration de votre solution vers SQL Data Warehouse]: sql-data-warehouse-overview-migrate.md
 [SQL Data Warehouse development overview]: sql-data-warehouse-overview-develop.md
 [Utilisation de bcp pour charger des données dans SQL Data Warehouse]: sql-data-warehouse-load-with-bcp.md
@@ -185,7 +185,7 @@ Pour en savoir plus sur la migration, consultez la section [Migration de votre s
 <!--MSDN references-->
 
 <!--Other Web references-->
-[Azure Data Factory]: http://azure.microsoft.com/services/data-factory/
+[d’Azure Data Factory]: http://azure.microsoft.com/services/data-factory/
 [ExpressRoute]: http://azure.microsoft.com/services/expressroute/
 [documentation ExpressRoute]: http://azure.microsoft.com/documentation/services/expressroute/
 
@@ -194,4 +194,4 @@ Pour en savoir plus sur la migration, consultez la section [Migration de votre s
 [Adaptateur de destination ADO.NET]: https://msdn.microsoft.com/library/bb934041.aspx
 [documentation relative à SSIS]: https://msdn.microsoft.com/library/ms141026.aspx
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -1,6 +1,6 @@
 <properties
    pageTitle="Présentation de la gestion et surveillance de la sécurité Azure | Microsoft Azure"
-   description="Azure propose divers mécanismes de sécurité pour favoriser la gestion et surveillance des services cloud et des machines virtuelles Azure. Cet article fournit une vue d’ensemble de ces fonctionnalités et services clés de sécurité."
+   description=" Azure propose divers mécanismes de sécurité pour favoriser la gestion et surveillance des services cloud et des machines virtuelles Azure. Cet article fournit une vue d’ensemble de ces fonctionnalités et services clés de sécurité. "
    services="security"
    documentationCenter="na"
    authors="TerryLanfear"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/26/2016"
+   ms.date="08/16/2016"
    ms.author="terrylan"/>
 
 # Présentation de la gestion et surveillance de la sécurité Azure
@@ -34,7 +34,7 @@ Voici les principales fonctionnalités abordées dans cet article :
 
 - Contrôle d’accès en fonction du rôle
 - Logiciel anti-programme malveillant
-- Authentification multifacteur
+- Azure Multi-Factor Authentication
 - ExpressRoute
 - Passerelles de réseau virtuel
 - Privileged Identity Management
@@ -63,7 +63,7 @@ Symantec Endpoint Protection (SEP) est également pris en charge sur Azure. Grâ
 En savoir plus :
 
 - [Déploiement de solutions anti-programmes malveillants sur des machines virtuelles Azure (en anglais)](https://azure.microsoft.com/blog/deploying-antimalware-solutions-on-azure-virtual-machines/)
-- [Microsoft Antimalware pour Azure Cloud Services et les machines virtuelles](../azure-security-antimalware.md)
+- [Microsoft Antimalware pour Azure Cloud Services et les machines virtuelles](../security/azure-security-antimalware.md)
 - [Installation et configuration de Trend Micro Deep Security comme service sur une machine virtuelle Windows](../virtual-machines/virtual-machines-windows-classic-install-trend.md)
 - [Installation et configuration de Symantec Endpoint Protection sur une machine virtuelle Windows](../virtual-machines/virtual-machines-windows-classic-install-symantec.md)
 - [Nouvelles options anti-programmes malveillants pour protéger les machines virtuelles – McAfee Endpoint Protection](https://azure.microsoft.com/blog/new-antimalware-options-for-protecting-azure-virtual-machines/)
@@ -134,4 +134,4 @@ En savoir plus :
 <!--Image references-->
 [1]: ./media/security-management-and-monitoring-overview/shared-responsibility.png
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="06/24/2016" 
+	ms.date="08/11/2016" 
 	ms.author="robmcm"/>
 
 # Application Web Node.js utilisant le stockage
 
-## Vue d’ensemble
+## Vue d'ensemble
 
 Dans ce didacticiel, vous allez enrichir l'application créée dans le didacticiel [Application Web Node.js avec Express] à l'aide des bibliothèques clientes Microsoft Azure pour Node.js afin qu'elle fonctionne avec les services de gestion de données. Vous allez étendre les fonctionnalités de votre application en vue de créer une application de liste de tâches Web que vous pouvez déployer sur Azure. La liste de tâches permet à un utilisateur d'extraire des tâches, d'en ajouter de nouvelles et de marquer celles qui sont terminées.
 
@@ -70,7 +70,7 @@ Procédez comme suit pour extraire les informations d'identification de stockage
 
 ### Installation de modules supplémentaires
 
-2. Utilisez la commande suivante pour installer les modules [azure], [node-uuid], [nconf] et [async] en local et pour enregistrer une entrée leur correspondant dans le fichier **package.json** :
+2. Utilisez la commande suivante pour installer les modules [azure], [node-uuid], [nconf] et [async] en local et pour enregistrer une entrée leur correspondant dans le fichier **package.json** :
 
 		PS C:\node\tasklist\WebRole1> npm install azure-storage node-uuid async nconf --save
 
@@ -403,4 +403,4 @@ La procédure suivante présente l'arrêt et la suppression de l'application.
  
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

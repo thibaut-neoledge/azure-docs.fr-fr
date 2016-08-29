@@ -20,19 +20,19 @@
 
 # Conception de jeux de mise à l’échelle de machine virtuelle pour la mise à l’échelle
 
-Cette rubrique présente les considérations à prendre en compte pour créer des jeux de mise à l'échelle de machine virtuelle. Pour plus d'informations sur les jeux de mise à l'échelle de machine virtuelle, reportez-vous à la rubrique [Vue d’ensemble des jeux de mise à l’échelle de machine virtuelle](virtual-machine-scale-sets-overview.md).
+Cette rubrique présente les considérations à prendre en compte pour créer des groupes identique de machines virtuelles. Pour plus d'informations sur les groupe identique de machines virtuelles, reportez-vous à la rubrique [Présentation des groupes de machines virtuelles identiques](virtual-machine-scale-sets-overview.md).
 
 
 ## Storage
 
-Un jeu de mise à l'échelle utilise des comptes de stockage pour stocker les disques du système d'exploitation des machines virtuelles dans le jeu. Nous recommandons un ratio maximum de 20 machines virtuelles par compte de stockage. Nous vous recommandons également de répartir dans l'alphabet les premiers caractères des noms de comptes de stockage. Cette méthode améliore la répartition sur les différents systèmes internes. Par exemple, dans le modèle suivant, nous utilisons la fonction de modèle ARM uniqueString pour générer des hachages de préfixe qui sont ajoutés aux noms de comptes de stockage : [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-linux-nat](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-linux-nat).
+Un jeu de mise à l'échelle utilise des comptes de stockage pour stocker les disques du système d'exploitation des machines virtuelles dans le jeu. Nous recommandons un ratio maximum de 20 machines virtuelles par compte de stockage. Nous vous recommandons également de répartir dans l'alphabet les premiers caractères des noms de comptes de stockage. Cette méthode améliore la répartition sur les différents systèmes internes. Par exemple, dans le modèle suivant, nous utilisons la fonction de modèle Resource Manager uniqueString pour générer des hachages de préfixe qui sont ajoutés aux noms de comptes de stockage : [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-linux-nat](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-linux-nat).
 
 
 ## Sur-approvisionnement
 
-À compter de la version d'API 2016-03-30, les jeux de mise à l'échelle de machines virtuelles sur-approvisionnent par défaut en machines virtuelles. Cela signifie que le jeu de mise à l'échelle activera davantage de machines virtuelles que vous n’en avez demandé, puis supprimera les machines virtuelles inutiles. Cela améliore le taux de réussite de l’approvisionnement car même si une machine virtuelle n’approvisionne pas correctement, la totalité du déploiement est considéré comme ayant « échoué » par Azure Resource Manager. Vous ne serez pas facturé pour ces machines virtuelles supplémentaires et elles ne seront pas comptabilisées dans vos limites de quotas.
+À compter de la version d'API « 2016-03-30 », les groupes identiques de machines virtuelles sur-approvisionnent par défaut les machines virtuelles. Avec le sur-approvisionnement activé, le groupe identique crée véritablement plus de machines virtuelles que vous avez demandé, puis supprime les dernières machines virtuelles supplémentaires créées. Le sur-approvisionnement améliore les taux de réussite de l’approvisionnement. Vous n’êtes pas facturé pour ces machines virtuelles supplémentaires et elles ne seront pas comptabilisées dans vos limites de quotas.
 
-Bien que cette méthode n'améliore pas les taux de réussite de l’approvisionnement, elle peut provoquer un comportement déroutant si une application n'est pas conçue pour gérer les machines virtuelles qui disparaissent sans avertissement. Pour désactiver le sur-approvisionnement, vérifiez que votre modèle contient la chaîne suivante : "overprovision": "false"
+Bien que le sur-approvisionnement n'améliore pas les taux de réussite de l’approvisionnement, il peut provoquer un comportement déroutant si une application n'est pas conçue pour gérer les machines virtuelles qui disparaissent sans avertissement. Pour désactiver le sur-approvisionnement, vérifiez que votre modèle contient la chaîne suivante : "overprovision": "false". Vous trouverez plus de détails dans la [documentation de l’API REST de groupes identiques de machines virtuelles](https://msdn.microsoft.com/library/azure/mt589035.aspx).
 
 Si vous désactivez le sur-approvisionnement, vous pouvez obtenir un ratio plus important de machines virtuelles par compte de stockage, mais nous déconseillons d’aller au-delà de 40.
 
@@ -42,6 +42,6 @@ Un groupe identique basé sur une image personnalisée (créée par vous-même) 
 
 Un groupe identique basé sur une image de plateforme est actuellement limité à 100 machines virtuelles (nous vous recommandons d’utiliser 5 comptes de stockage pour cette échelle).
 
-Si vous souhaitez avoir plus de machines virtuelles que ne l’autorisent ces limites, vous devez déployer plusieurs groupes identiques. [Pour obtenir un exemple de la procédure à suivre, consultez ce modèle.](https://github.com/Azure/azure-quickstart-templates/tree/master/301-custom-images-at-scale)
+Si vous souhaitez avoir plus de machines virtuelles que ne l’autorisent ces limites, vous devez déployer plusieurs groupes identiques, comme indiqué dans [ce modèle](https://github.com/Azure/azure-quickstart-templates/tree/master/301-custom-images-at-scale).
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

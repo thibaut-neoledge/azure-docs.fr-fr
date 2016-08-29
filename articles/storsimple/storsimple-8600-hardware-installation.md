@@ -12,12 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="04/25/2016"
+   ms.date="08/17/2016"
    ms.author="alkohli" />
 
 # Déballer, monter en rack et câbler votre appareil StorSimple 8600
 
-## Vue d’ensemble
+## Vue d'ensemble
 Microsoft Azure StorSimple 8600 est un appareil composé d’un boîtier principal et d’un boîtier EBOD. Ce didacticiel explique comment déballer, monter en rack et brancher les câbles de votre appareil StorSimple 8600 avant de configurer son logiciel.
 
 ## Déballage de votre appareil StorSimple 8600
@@ -189,7 +189,7 @@ L’étape suivante consiste à brancher l’alimentation, le réseau et l’acc
 
 Les procédures suivantes expliquent comment brancher les câbles d’alimentation, de réseau et d’accès en série sur votre appareil StorSimple 8600.
 
-### Composants requis
+### Conditions préalables
 
 Avant de commencer à raccorder votre appareil, vous devez disposer des éléments suivants :
 
@@ -302,4 +302,4 @@ Vous avez terminé le branchement des câbles d’alimentation, d’accès rése
 
 Vous êtes maintenant prêt à procéder au [déploiement et à la configuration de votre appareil StorSimple local](storsimple-deployment-walkthrough.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0817_2016-->

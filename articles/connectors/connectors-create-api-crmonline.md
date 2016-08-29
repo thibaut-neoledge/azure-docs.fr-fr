@@ -1,271 +1,278 @@
 <properties
-pageTitle="Ajouter le connecteur Dynamics CRM Online à PowerApps Enterprise ou à vos applications logiques | Microsoft Azure"
-description="Vue d’ensemble du connecteur CRM Online avec les paramètres de l’API REST"
-services=""    
-documentationCenter=""     
-authors="msftman"    
-manager="erikre"    
-editor="" tags="connectors" />
+	pageTitle="Ajouter le connecteur Dynamics CRM Online à vos applications logiques | Microsoft Azure"
+	description="Créez des applications logiques avec Azure App Service. Le fournisseur de connexion Dynamics CRM Online fournit une API permettant de travailler avec les entités sur Dynamics CRM Online."
+	services="logic-apps"    
+	documentationCenter=""     
+	authors="MandiOhlinger"    
+	manager="erikre"    
+	editor="" 
+	tags="connectors" />
 
 <tags
-ms.service="multiple"
+ms.service="logic-apps"
 ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="05/18/2016"
-ms.author="deonhe"/>
+ms.date="08/15/2016"
+ms.author="mandia"/>
 
-# Prise en main du connecteur CRM
-Connectez-vous à Dynamics CRM Online pour créer un enregistrement, mettre à jour un élément et bien plus encore. Le connecteur CRM Online peut être utilisé dans :
+# Prise en main du connecteur Dynamics CRM Online
+Connectez-vous à Dynamics CRM Online pour créer un enregistrement, mettre à jour un élément et bien plus encore. Avec CRM Online, vous pouvez effectuer les opérations suivantes :
 
-- Logic Apps
-- PowerApps
-
-> [AZURE.SELECTOR]
-- [Logic Apps](../articles/connectors/connectors-create-api-crmonline.md)
-- [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-crmonline.md)
-
-Avec CRM Online, vous pouvez effectuer les opérations suivantes :
-
-- Créer votre flux d’activité en fonction des données que vous obtenez de CRM Online. 
+- Créer votre flux d’activité en fonction des données que vous obtenez de CRM Online.
 - Utiliser des actions pour supprimer un enregistrement, obtenir des entités et bien plus encore. Ces actions obtiennent une réponse, puis mettent la sortie à la disposition d’autres actions. Par exemple, quand un élément est mis à jour dans CRM, vous pouvez envoyer un message électronique à l’aide d’Office 365.
 
+Cette rubrique décrit comment utiliser le connecteur Dynamics CRM Online dans une application logique et répertorie également les déclencheurs et les actions.
 
-Pour plus d’informations sur l’ajout d’un connecteur à PowerApps Enterprise, consultez [Register connector in PowerApps](../power-apps/powerapps-register-from-available-apis.md) (Inscrire un connecteur dans PowerApps).
+>[AZURE.NOTE] Cette version de l’article s’applique à la disponibilité générale des applications logiques.
 
-Pour ajouter une opération aux applications logiques, consultez [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Pour plus d’informations sur Logic Apps, voir [Qu’est-ce qu’une application logique ?](../app-service-logic/app-service-logic-what-are-logic-apps.md) et [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-## Déclencheurs et actions
-Le connecteur CRM inclut les actions suivantes. Il n'y a aucun déclencheur.
+## Se connecter à Dynamics CRM Online
 
-| Déclencheurs | Actions|
-| --- | --- |
-|Aucun| <ul><li>Créer un enregistrement</li><li>Obtenir des enregistrements</li><li>Supprimer un enregistrement</li><li>Obtenir un enregistrement</li><li>Obtenir des entités</li><li>Mettre à jour un élément</li></ul>
+Pour que votre application logique puisse accéder à un service, vous devez d’abord créer une *connexion* à celui-ci. Une connexion permet d’assurer la connectivité entre une application logique et un autre service. Par exemple, pour vous connecter à Dynamics, vous devez disposer d’une *connexion* Dynamics CRM Online. Pour créer une connexion, entrez les informations d’identification que vous utilisez généralement pour accéder au service auquel vous souhaitez vous connecter. Ensuite, dans Dynamics, entrez les informations d’identification à votre compte Dynamics CRM Online pour créer la connexion.
 
-Tous les connecteurs prennent en charge les données aux formats JSON et XML.
 
-## Créer une connexion à CRM Online
+### Créer la connexion
 
-Quand vous ajoutez ce connecteur à vos applications logiques, vous devez vous connecter à Dynamics CRM Online. Suivez ces étapes pour vous connecter à CRM Online et terminer la configuration de la **connexion** dans votre application logique :
+>[AZURE.INCLUDE [Étapes de création d’une connexion à un fournisseur de connexion Dynamics CRM Online](../../includes/connectors-create-api-crmonline.md)]
 
-1. Dans votre application logique, sélectionnez **Ajouter une action** : ![Configurer CRM Online][13]
-4. Entrez CRM dans la zone de recherche et attendez que la recherche renvoie toutes les entrées contenant CRM dans leur nom.
-5. Sélectionnez **Dynamics CRM Online : créer un enregistrement**.
-6. Sélectionnez **Connexion à Dynamics CRM Online** : ![Configurer CRM Online][14]
-7. Entrez vos informations d’identification CRM Online pour vous connecter et autoriser l’application : ![Configurer CRM Online][15]  
-8. Après vous être connecté, revenez à votre application logique pour la terminer en ajoutant les autres déclencheurs et actions dont vous avez besoin.
-9. Enregistrez votre travail en sélectionnant **Enregistrer** sur la barre de menu supérieure.
+## Utilisation d’un déclencheur
 
-Après avoir créé la connexion, vous entrez les propriétés CRM Online, telles que la table ou le jeu de données. La section **Informations de référence sur l’API REST** dans cette rubrique décrit ces propriétés.
+Un déclencheur est un événement qui peut être utilisé pour lancer le flux de travail défini dans une application logique. Les déclencheurs « interrogent » le service à l’intervalle et à la fréquence de votre choix. [En savoir plus sur les déclencheurs](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
 
->[AZURE.TIP] Vous pouvez utiliser cette connexion dans d’autres applications logiques.
+1. Dans l’application logique, saisissez « dynamics » pour obtenir la liste des déclencheurs :
 
-## Informations de référence sur l'API REST Swagger
-S’applique à la version 1.0.
+	![](./media/connectors-create-api-crmonline/dynamics-triggers.png)
 
-### Créer un enregistrement 
-Créer un enregistrement dans une entité. ```POST: /datasets/{dataset}/tables/{table}/items```
+2. Sélectionnez **Dynamics CRM Online - Lorsqu’un enregistrement est créé**. Si une connexion existe déjà, sélectionnez une organisation et une entité dans la liste déroulante.
 
-| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
-| ---|---|---|---|---|---|
-|dataset|string|yes|path|(aucun)|Nom unique de l’organisation CRM contoso.crm|
-|table|string|yes|path|(aucun)|Nom de l’entité|
-|item| |yes|body|(aucun)|Enregistrement à créer|
+	![](./media/connectors-create-api-crmonline/select-organization.png)
 
-#### Response
-|Nom|Description|
+	Si vous êtes invité à vous connecter, entrez les informations de connexion pour créer la connexion. La section [Créer la connexion](connectors-create-api-crmonline.md#create-the-connection) figurant dans cette rubrique répertorie les étapes.
+
+	> [AZURE.NOTE] Dans cet exemple, l’application logique s’exécute lorsqu’un enregistrement est créé. Pour consulter les résultats de ce déclencheur, ajoutez une autre action qui vous envoie un courrier électronique. Par exemple, ajoutez l’action Office 365 *Envoyer un courrier électronique* qui vous avertit par e-mail lorsqu’un enregistrement est ajouté.
+
+3. Sélectionnez le bouton **Modifier**, puis renseignez les champs **Fréquence** et **Intervalle**. Par exemple, si vous souhaitez que le déclencheur interroge le service toutes les 15 minutes, définissez le champ **Fréquence** sur **Minute**, et le champ **Intervalle** sur **15**.
+
+	![](./media/connectors-create-api-crmonline/edit-properties.png)
+
+4. **Enregistrez** vos modifications (dans le coin supérieur gauche de la barre d’outils). Votre application logique est enregistrée et peut être activée automatiquement.
+
+
+## Utilisation d’une action
+
+Une action est une opération effectuée par le flux de travail défini dans une application logique. [En savoir plus sur les actions](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
+
+1. Sélectionnez le signe plus. Vous disposez de plusieurs options : **Ajouter une action**, **Ajouter une condition** ou l’une des options **Plus**.
+
+	![](./media/connectors-create-api-crmonline/add-action.png)
+
+2. Choisissez **Ajouter une action**.
+
+3. Dans la zone de texte, saisissez « dynamics » pour obtenir la liste de toutes les actions disponibles.
+
+	![](./media/connectors-create-api-crmonline/dynamics-actions.png)
+
+4. Dans notre exemple, choisissez **Dynamics CRM Online - Mettre à jour un enregistrement**. Si une connexion existe déjà, choisissez le **Nom de l’organisation**, le **Nom de l’entité** et d’autres propriétés :
+
+	![](./media/connectors-create-api-crmonline/sample-action.png)
+
+	Si vous êtes invité à saisir les informations de connexion, entrez les informations requises pour créer la connexion. La section [Créer la connexion](connectors-create-api-crmonline.md#create-the-connection) figurant dans cette rubrique décrit ces propriétés.
+
+	> [AZURE.NOTE] Dans cet exemple, nous mettons à jour un enregistrement existant dans CRM Online. Vous pouvez utiliser la sortie d’un autre déclencheur pour mettre à jour l’enregistrement. Par exemple, ajoutez le déclencheur SharePoint *Lorsqu’un élément existant est modifié*. Ensuite, ajoutez l’action CRM Online *Mettre à jour un enregistrement* qui utilise les champs SharePoint pour mettre à jour l’enregistrement existant dans CRM Online.
+
+5. **Enregistrez** vos modifications (dans le coin supérieur gauche de la barre d’outils). Votre application logique est enregistrée et peut être activée automatiquement.
+
+
+## Détails techniques
+
+## Déclencheurs
+
+|Déclencheur | Description|
+|--- | ---|
+|[Lorsqu’un enregistrement est créé](connectors-create-api-crmonline.md#when-a-record-is-created)|Déclenche un flux quand un objet est créé dans CRM.|
+|[Lorsqu’un enregistrement est mis à jour](connectors-create-api-crmonline.md#when-a-record-is-updated)|Déclenche un flux quand un objet est modifié dans CRM.|
+|[Lorsqu’un enregistrement est supprimé](connectors-create-api-crmonline.md#when-a-record-is-deleted)|Déclenche un flux quand un objet est supprimé dans CRM.|
+
+
+## Actions
+
+|Action|Description|
+|--- | ---|
+|[Répertorier les enregistrements](connectors-create-api-crmonline.md#list-records)|Cette opération récupère les enregistrements d’une entité.|
+|[Créer un enregistrement](connectors-create-api-crmonline.md#create-a-new-record)|Cette opération crée un enregistrement pour une entité.|
+|[Obtenir l’enregistrement](connectors-create-api-crmonline.md#get-record)|Cette opération récupère l’enregistrement spécifié pour une entité.|
+|[Supprimer un enregistrement](connectors-create-api-crmonline.md#delete-a-record)|Cette opération supprime un enregistrement à partir d’une collection d’entités.|
+|[Mise à jour d’un enregistrement](connectors-create-api-crmonline.md#update-a-record)|Cette opération met à jour un enregistrement existant pour une entité.|
+
+### Détail des déclencheurs et des actions
+
+Dans cette section, consultez les détails relatifs à chacun des déclencheurs et actions, y compris toutes les propriétés d’entrée requises ou facultatives et toute sortie correspondante associée au connecteur.
+
+#### Lorsqu’un enregistrement est créé
+Déclenche un flux quand un objet est créé dans CRM.
+
+|Nom de la propriété| Nom complet|Description|
+| ---|---|---|
+|dataset*|Nom de l’organisation|Nom de l’organisation CRM, comme Contoso|
+|table*|Nom de l’entité|Nom de l’entité|
+|$skip|Nombre à ignorer|Nombre d’entrées à ignorer (valeur par défaut : 0)|
+|$top|Nombre maximal à récupérer|Nombre maximal d’entrées à récupérer (par défaut : 256)|
+|$filter|Requête de filtre|Requête de filtre ODATA pour limiter le nombre d’entrées renvoyées|
+|$orderby|Trier par|Requête orderBy ODATA pour spécifier l’ordre des entrées|
+
+Un astérisque (*) signifie que la propriété est requise.
+
+##### Détails des résultats
+ItemsList
+
+| Nom de la propriété | Type de données |
+|---|---|
+|value|array|
+
+
+#### Lorsqu’un enregistrement est mis à jour
+Déclenche un flux quand un objet est modifié dans CRM.
+
+|Nom de la propriété| Nom complet|Description|
+| ---|---|---|
+|dataset*|Nom de l’organisation|Nom de l’organisation CRM, comme Contoso|
+|table*|Nom de l’entité|Nom de l’entité|
+|$skip|Nombre à ignorer|Nombre d’entrées à ignorer (valeur par défaut : 0)|
+|$top|Nombre maximal à récupérer|Nombre maximal d’entrées à récupérer (par défaut : 256)|
+|$filter|Requête de filtre|Requête de filtre ODATA pour limiter le nombre d’entrées renvoyées|
+|$orderby|Trier par|Requête orderBy ODATA pour spécifier l’ordre des entrées|
+
+Un astérisque (*) signifie que la propriété est requise.
+
+##### Détails des résultats
+ItemsList
+
+| Nom de la propriété | Type de données |
+|---|---|
+|value|array|
+
+
+#### Lorsqu’un enregistrement est supprimé
+Déclenche un flux quand un objet est supprimé dans CRM.
+
+|Nom de la propriété| Nom complet|Description|
+| ---|---|---|
+|dataset*|Nom de l’organisation|Nom de l’organisation CRM, comme Contoso|
+|table*|Nom de l’entité|Nom de l’entité|
+|$skip|Nombre à ignorer|Nombre d’entrées à ignorer (valeur par défaut : 0)|
+|$top|Nombre maximal à récupérer|Nombre maximal d’entrées à récupérer (par défaut : 256)|
+|$filter|Requête de filtre|Requête de filtre ODATA pour limiter le nombre d’entrées renvoyées|
+|$orderby|Trier par|Requête orderBy ODATA pour spécifier l’ordre des entrées|
+
+Un astérisque (*) signifie que la propriété est requise.
+
+##### Détails des résultats
+ItemsList
+
+| Nom de la propriété | Type de données |
+|---|---|
+|value|array|
+
+
+#### Répertorier les enregistrements
+Cette opération récupère les enregistrements d’une entité.
+
+|Nom de la propriété| Nom complet|Description|
+| ---|---|---|
+|dataset*|Nom de l’organisation|Nom de l’organisation CRM, comme Contoso|
+|table*|Nom de l’entité|Nom de l’entité|
+|$skip|Nombre à ignorer|Nombre d’entrées à ignorer (valeur par défaut : 0)|
+|$top|Nombre maximal à récupérer|Nombre maximal d’entrées à récupérer (par défaut : 256)|
+|$filter|Requête de filtre|Requête de filtre ODATA pour limiter le nombre d’entrées renvoyées|
+|$orderby|Trier par|Requête orderBy ODATA pour spécifier l’ordre des entrées|
+
+Un astérisque (*) signifie que la propriété est requise.
+
+##### Détails des résultats
+ItemsList
+
+| Nom de la propriété | Type de données |
+|---|---|
+|value|array|
+
+
+#### Créer un enregistrement
+Cette opération crée un enregistrement pour une entité.
+
+|Nom de la propriété| Nom complet|Description|
+| ---|---|---|
+|dataset*|Nom de l’organisation|Nom de l’organisation CRM, comme Contoso|
+|table*|Nom de l’entité|Nom de l’entité|
+
+Un astérisque (*) signifie que la propriété est requise.
+
+##### Détails des résultats
+Aucune.
+
+
+#### Obtenir l’enregistrement
+Cette opération récupère l’enregistrement spécifié pour une entité.
+
+|Nom de la propriété| Nom complet|Description|
+| ---|---|---|
+|dataset*|Nom de l’organisation|Nom de l’organisation CRM, comme Contoso|
+|table*|Nom de l’entité|Nom de l’entité|
+|id*|Identificateur d’élément|Indiquez l’identificateur de l’enregistrement|
+
+Un astérisque (*) signifie que la propriété est requise.
+
+##### Détails des résultats
+Aucune.
+
+
+#### Supprimer un enregistrement
+Cette opération supprime un enregistrement à partir d’une collection d’entités.
+
+|Nom de la propriété| Nom complet|Description|
+| ---|---|---|
+|dataset*|Nom de l’organisation|Nom de l’organisation CRM, comme Contoso|
+|table*|Nom de l’entité|Nom de l’entité|
+|id*|Identificateur d’élément|Indiquez l’identificateur de l’enregistrement|
+
+Un astérisque (*) signifie que la propriété est requise.
+
+
+#### Mise à jour d’un enregistrement
+Cette opération met à jour un enregistrement existant pour une entité.
+
+|Nom de la propriété| Nom complet|Description|
+| ---|---|---|
+|dataset*|Nom de l’organisation|Nom de l’organisation CRM, comme Contoso|
+|table*|Nom de l’entité|Nom de l’entité|
+|id*|Identificateur de l’enregistrement|Indiquez l’identificateur de l’enregistrement|
+
+Un astérisque (*) signifie que la propriété est requise.
+
+##### Détails des résultats
+Aucune.
+
+
+## Réponses HTTP
+
+Les actions et déclencheurs peuvent renvoyer un ou plusieurs des codes d’état HTTP suivants :
+
+|Name|Description|
 |---|---|
 |200|OK|
+|202|Acceptée|
+|400|Demande incorrecte|
+|401|Non autorisé|
+|403|Interdit|
+|404|Introuvable|
+|500|Erreur interne du serveur. Une erreur inconnue s’est produite.|
 |default|L’opération a échoué.|
-
-
-### Obtenir des enregistrements 
- Obtenir les enregistrements d’une entité. ```GET: /datasets/{dataset}/tables/{table}/items```
-
-| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
-| ---|---|---|---|---|---|
-|dataset|string|yes|path|(aucun)|Nom unique de l’organisation CRM contoso.crm|
-|table|string|yes|path|(aucun)|Nom de l’entité|
-|$skip|integer|no|query|(aucun)|Nombre d’entrées à ignorer. La valeur par défaut est 0.|
-|$top|integer|no|query|(aucun)|Nombre maximal d’entrées à récupérer. La valeur par défaut est 100.|
-|$filter|string|no|query|(aucun)|Requête filter ODATA pour limiter le nombre d’entrées.|
-|$orderby|string|no|query|(aucun)|Requête orderBy ODATA pour spécifier l’ordre des entrées.|
-
-#### Response
-|Nom|Description|
-|---|---|
-|200|OK|
-|default|L’opération a échoué.|
-
-
-
-
-### Retourner les jeux de données 
- Retourner les jeux de données. ```GET: /datasets```
-
-Il n’existe aucun paramètre pour cet appel.
-
-#### Response
-|Nom|Description|
-|---|---|
-|200|OK|
-|default|L’opération a échoué.|
-
-
-
-### Obtenir un élément de table 
-Permet d’obtenir un enregistrement spécifique pour une entité CRM. ```GET: /datasets/{dataset}/tables/{table}/items/{id}```
-
-| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
-| ---|---|---|---|---|---|
-|dataset|string|yes|path|(aucun)|Nom unique de l’organisation CRM contoso.crm|
-|table|string|yes|path|(aucun)|Nom de l’entité|
-|id|string|yes|path|(aucun)|Identificateur de l’enregistrement|
-
-#### Response
-|Nom|Description|
-|---|---|
-|200|OK|
-|default|L’opération a échoué.|
-
-### Supprimer un élément d’une liste 
-Supprimer un élément d’une liste. ```DELETE: /datasets/{dataset}/tables/{table}/items/{id}```
-
-| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
-| ---|---|---|---|---|---|
-|dataset|string|yes|path|(aucun)|Nom unique de l’organisation CRM contoso.crm|
-|table|string|yes|path|(aucun)|Nom de l’entité|
-|id|string|yes|path|(aucun)|Identificateur de l’enregistrement|
-
-#### Response
-|Nom|Description|
-|---|---|
-|200|OK|
-|default|L’opération a échoué.|
-
-
-
-### Corrige un élément existant de la table 
-Permet de mettre partiellement à jour un enregistrement existant pour une entité CRM. ```PATCH: /datasets/{dataset}/tables/{table}/items/{id}```
-
-| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
-| ---|---|---|---|---|---|
-|dataset|string|yes|path|(aucun)|Nom unique de l’organisation CRM contoso.crm|
-|table|string|yes|path|(aucun)|Nom de l’entité|
-|id|string|yes|path|(aucun)|Identificateur de l’enregistrement|
-|item| |yes|body|(aucun)|Enregistrement à mettre à jour|
-
-#### Response
-|Nom|Description|
-|---|---|
-|200|OK|
-|default|L’opération a échoué.|
-
-### Obtenir des entités 
-Permet d’obtenir la liste des entités présentes dans une instance CRM. ```GET: /datasets/{dataset}/tables```
-
-| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
-| ---|---|---|---|---|---|
-|dataset|string|yes|path|(aucun)|Nom unique de l’organisation CRM contoso.crm|
-
-#### Response
-|Nom|Description|
-|---|---|
-|200|OK|
-|default|L’opération a échoué.|
-
-
-## Définitions d'objet
-
-#### DataSetsMetadata
-
-|Nom de la propriété | Type de données | Requis|
-|---|---|---|
-|tabular|non défini|no|
-|objet blob|non défini|no|
-
-#### TabularDataSetsMetadata
-
-|Nom de la propriété | Type de données |Requis|
-|---|---|---|
-|source|string|no|
-|displayName|string|no|
-|urlEncoding|string|no|
-|tableDisplayName|string|no|
-|tablePluralName|string|no|
-
-#### BlobDataSetsMetadata
-
-|Nom de la propriété | Type de données |Requis|
-|---|---|---|
-|source|string|no|
-|displayName|string|no|
-|urlEncoding|string|no|
-
-
-#### TableMetadata
-
-|Nom de la propriété | Type de données |Requis|
-|---|---|---|
-|name|string|no|
-|title|string|no|
-|x-ms-permission|string|no|
-|schema|non défini|no|
-
-#### DataSetsList
-
-|Nom de la propriété | Type de données |Requis|
-|---|---|---|
-|value|array|no|
-
-#### DataSet
-
-|Nom de la propriété | Type de données |Requis|
-|---|---|---|
-|Nom|string|no|
-|DisplayName|string|no|
-
-
-#### Table
-
-|Nom de la propriété | Type de données |Requis|
-|---|---|---|
-|Nom|string|no|
-|DisplayName|string|no|
-
-#### Item
-
-|Nom de la propriété | Type de données |Requis|
-|---|---|---|
-|ItemInternalId|string|no|
-
-#### ItemsList
-
-|Nom de la propriété | Type de données |Requis|
-|---|---|---|
-|value|array|no|
-
-
-#### TablesList
-
-|Nom de la propriété | Type de données |Requis|
-|---|---|---|
-|value|array|no|
 
 
 ## Étapes suivantes
 
-[Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Créez une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md). Explorez les autres connecteurs disponibles dans les applications logiques en consultant notre [liste d’API](apis-list.md).
 
-Revenir à la [liste des API](apis-list.md).
-
-
-[9]: ./media/connectors-create-api-crmonline/aad-tenant-applications-add-appinfo.png
-[10]: ./media/connectors-create-api-crmonline/aad-tenant-applications-add-app-properties.png
-[12]: ./media/connectors-create-api-crmonline/contoso-aad-app-configure.png
-[13]: ./media/connectors-create-api-crmonline/crmconfig1.png
-[14]: ./media/connectors-create-api-crmonline/crmconfig2.png
-[15]: ./media/connectors-create-api-crmonline/crmconfig3.png
-
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0817_2016-->

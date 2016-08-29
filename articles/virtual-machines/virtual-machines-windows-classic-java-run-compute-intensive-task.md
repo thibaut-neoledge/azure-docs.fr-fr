@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="06/24/2016"
+	ms.date="08/11/2016"
 	ms.author="robmcm"/>
 
 # Exécution d'une tâche nécessitant beaucoup de ressources en langage Java sur une machine virtuelle
@@ -30,7 +30,7 @@ Vous apprendrez à effectuer les opérations suivantes :
 
 * créer une machine virtuelle déjà dotée d'un kit de développement Java (JDK) ;
 * vous connecter à distance à votre machine virtuelle ;
-* créer un espace de noms Service Bus ;
+* création d'un espace de noms Service Bus ;
 * créer une application Java exécutant une tâche qui nécessite beaucoup de ressources ;
 * créer une application Java surveillant la progression de la tâche qui nécessite beaucoup de ressources ;
 * exécuter les applications Java ;
@@ -52,12 +52,12 @@ Vous trouverez ci-dessous un exemple d'application Java qui surveille la tâche 
 2. Cliquez sur **New**, sur **Compute**, sur **Virtual machine**, puis sur **From Gallery**.
 3. Dans la boîte de dialogue **Sélectionner une image de machine virtuelle**, sélectionnez **Windows Server 2012 JDK 7**. Notez que **Windows Server 2012 JDK 6** est disponible si vous ne pouvez pas exécuter certaines de vos applications héritées dans JDK 7.
 4. Cliquez sur **Suivant**.
-4. Dans la boîte de dialogue **Configuration de la machine virtuelle** :
+4. Dans la boîte de dialogue **Configuration de la machine virtuelle** :
     1. Entrez un nom pour la machine virtuelle.
     2. Entrez la taille de la machine virtuelle.
     3. Entrez un nom pour l'administrateur dans le champ **Nom d'utilisateur**. Notez le nom et le mot de passe que vous allez entrer, car vous les utiliserez pour vous connecter à distance à votre machine virtuelle.
     4. Entrez un mot de passe dans le champ **Nouveau mot de passe**, puis entrez-le de nouveau dans le champ **Confirmer**. Il s'agit du mot de passe du compte Administrateur.
-    5. Cliquez sur **Next**.
+    5. Cliquez sur **Suivant**.
 5. Dans la boîte de dialogue **Configuration de la machine virtuelle** suivante :
     1. Pour le **Service de cloud computing**, utilisez le paramètre par défaut **Créer un nouveau service de cloud computing**.
     2. La valeur du **Nom du cloud Service DNS** doit être unique sur cloudapp.net. Si nécessaire, modifiez cette valeur afin qu'Azure indique qu'elle est unique.
@@ -65,7 +65,7 @@ Vous trouverez ci-dessous un exemple d'application Java qui surveille la tâche 
     2. Pour **Storage Account**, sélectionnez **Use an automatically generated storage account**.
     3. Pour **Availability Set**, sélectionnez **(None)**.
     4. Cliquez sur **Next**.
-5. Dans la dernière boîte de dialogue **Configuration de la machine virtuelle** :
+5. Dans la dernière boîte de dialogue **Configuration de la machine virtuelle** :
     1. Validez les entrées de points de terminaison par défaut.
     2. Cliquez sur **Terminé**.
 
@@ -75,19 +75,19 @@ Vous trouverez ci-dessous un exemple d'application Java qui surveille la tâche 
 2. Cliquez sur **Machines virtuelles**.
 3. Cliquez sur le nom de la machine virtuelle à laquelle vous voulez vous connecter.
 4. Cliquez sur **Connecter**.
-5. Répondez aux invites pour vous connecter à la machine virtuelle. Lorsque vous y êtes invité, entrez le nom d'administrateur et le mot de passe fournis lors de la création de la machine virtuelle.
+5. Répondez aux invites pour vous connecter à la machine virtuelle. Lorsque vous y êtes invité, entrez le nom d’administrateur et le mot de passe fournis lors de la création de la machine virtuelle.
 
 Notez que la fonctionnalité Azure Service Bus requiert l'installation du certificat racine Baltimore CyberTrust dans le magasin **cacerts** de votre environnement JRE. Ce certificat est automatiquement inclus dans l'environnement JRE (Java Runtime Environment) utilisé par ce didacticiel. Si vous ne disposez pas de ce certificat dans le magasin **cacerts** de votre environnement JRE, consultez la rubrique [Ajout d'un certificat au magasin de certificats d'autorité de certification Java][add_ca_cert] pour plus d'informations sur l'ajout de celui-ci (et sur l'affichage des certificats de votre magasin cacerts).
 
 ## Création d’un espace de noms Service Bus
 
-Pour commencer à utiliser les files d'attente Service Bus dans Azure, vous devez d'abord créer un espace de noms de service. Ce dernier fournit un conteneur d’étendue pour l’adressage des ressources Service Bus au sein de votre application.
+Pour commencer à utiliser les files d'attente Service Bus dans Azure, vous devez d'abord créer un espace de noms de service. Ce dernier fournit un conteneur d'étendue pour l'adressage des ressources Service Bus au sein de votre application.
 
 Pour créer un espace de noms de service :
 
 1.  Connectez-vous au [portail Azure Classic](https://manage.windowsazure.com).
 2.  En bas du volet de navigation gauche du portail Azure Classic, cliquez sur **Service Bus, Contrôle d’accès et Cache**.
-3.  Dans le volet supérieur gauche du portail Azure Classic, cliquez sur le nœud **Service Bus**, puis sur le bouton **Nouveau**. ![Capture d’écran du nœud Service Bus][svc_bus_node]
+3.  Dans le volet supérieur gauche du portail Azure Classic, cliquez sur le nœud **Service Bus**, puis sur le bouton **Nouveau**. ![Capture d'écran du nœud Service Bus][svc_bus_node]
 4.  Dans la boîte de dialogue **Créer un espace de noms de service**, entrez un **Espace de noms**, puis vérifiez qu'il est unique en cliquant sur le bouton **Vérifier la disponibilité**. ![Capture d'écran Créer un espace de noms][create_namespace]
 5.  Après avoir vérifié que le nom de l'espace de noms est disponible, choisissez le pays ou la région où votre espace de noms sera hébergé, puis cliquez sur le bouton **Créer un espace de noms**.
 
@@ -95,12 +95,12 @@ Pour créer un espace de noms de service :
 
 ## Obtention d'informations d'identification de gestion par défaut pour l'espace de noms
 
-Pour pouvoir effectuer des opérations de gestion telles que la création d’une file d’attente sur le nouvel espace de noms, vous devez obtenir les informations d’identification de gestion associées.
+Pour pouvoir effectuer des opérations de gestion telles que la création d'une file d'attente sur le nouvel espace de noms, vous devez obtenir les informations d'identification de gestion associées.
 
 1.  Dans le volet de navigation gauche, cliquez sur le nœud **Service Bus** pour afficher la liste des espaces de noms disponibles. ![Capture d'écran Available Namespaces][avail_namespaces]
 2.  Sélectionnez l’espace de noms que vous venez de créer dans la liste affichée. ![Capture d'écran Liste d'espaces de noms][namespace_list]
 3.  Le volet **Propriétés** de droite répertorie les propriétés du nouvel espace de noms. ![Capture d'écran du volet Propriétés][properties_pane]
-4.  La **Clé par défaut** est masquée. Cliquez sur le bouton **Afficher** pour afficher les informations d'identification de sécurité. ![Capture d’écran Clé par défaut][default_key]
+4.  La **Clé par défaut** est masquée. Cliquez sur le bouton **Afficher** pour afficher les informations d'identification de sécurité. ![Capture d'écran Clé par défaut][default_key]
 5.  Notez l'**Émetteur par défaut** et la **Clé par défaut**, car vous devrez utiliser ces informations ci-dessous pour accomplir les opérations relatives à l'espace de noms.
 
 ## Création d'une application Java exécutant une tâche qui nécessite beaucoup de ressources
@@ -419,7 +419,7 @@ Exécutez l'application nécessitant beaucoup de ressources pour créer la file 
 1. Connectez-vous à votre machine virtuelle.
 2. Créez un dossier où vous exécuterez votre application. Par exemple, **c:\\TSP**.
 3. Copiez **TSPSolver.jar** sous **c:\\TSP**.
-4. Créez un fichier intitulé **c:\\TSP\\cities.txt** avec le contenu ci-dessous.
+4. Créez un fichier intitulé **c:\\TSP\\cities.txt** avec le contenu ci-dessous.
 
 		City_1, 1002.81, -1841.35
 		City_2, -953.55, -229.6
@@ -478,7 +478,7 @@ Exécutez l'application nécessitant beaucoup de ressources pour créer la file 
 
         java -jar TSPSolver.jar createqueue
 
-8. Maintenant que la file d'attente est créée, vous pouvez exécuter les permutations de solveur TSP. Par exemple, exécutez la commande suivante afin d'exécuter le solveur pour 8 villes.
+8. Maintenant que la file d’attente est créée, vous pouvez exécuter les permutations de solveur TSP. Par exemple, exécutez la commande suivante afin d’exécuter le solveur pour 8 villes.
 
         java -jar TSPSolver.jar 8
 
@@ -521,4 +521,4 @@ Pour quitter les applications solveur et cliente avant la fin normale, vous pouv
 [default_key]: ./media/virtual-machines-windows-classic-java-run-compute-intensive-task/SvcBusQueues_07_DefaultKey.jpg
 [add_ca_cert]: ../java-add-certificate-ca-store.md
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

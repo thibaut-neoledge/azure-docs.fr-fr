@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="05/08/2016"
+   ms.date="08/15/2016"
    ms.author="tarcher" />
 
 # Configuration de Diagnostics pour les services cloud et les machines virtuelles Azure
 
 Lorsque vous devez dépanner un service cloud ou une machine virtuelle Azure, vous pouvez configurer les diagnostics Azure plus facilement à l’aide de Visual Studio. Le service diagnostics Azure capture les données système et les données de journalisation sur les machines virtuelles et instances de machine virtuelle qui exécutent votre service cloud, puis les transfère vers un compte de stockage de votre choix. Pour plus d’informations sur la journalisation des diagnostics dans Azure, consultez [Activer la journalisation des diagnostics pour les applications web dans Azure App Service](./app-service-web/web-sites-enable-diagnostic-log.md).
 
-Cette rubrique explique comment activer et configurer le service diagnostics Azure dans Visual Studio, tant avant et qu’après le déploiement, ainsi que sur des machines virtuelles Azure. Elle explique également comment sélectionner les types d’informations de diagnostic à collecter et comment les afficher après leur collecte.
+Cette rubrique explique comment activer et configurer le service diagnostics Azure dans Visual Studio, avant et après le déploiement, ainsi que sur des machines virtuelles Azure. Elle explique également comment sélectionner les types d’informations de diagnostic à collecter et comment les afficher après leur collecte.
 
 Vous pouvez configurer les diagnostics Azure comme suit :
 
@@ -357,4 +357,4 @@ Maintenant, dans la fenêtre **Propriétés**, définissez la propriété **Copi
 
 Pour en savoir plus sur la journalisation des diagnostics dans Azure, consultez [Activation de Diagnostics dans les services cloud et les machines virtuelles Azure](./cloud-services/cloud-services-dotnet-diagnostics.md) et [Activer la journalisation des diagnostics pour les applications web dans Azure App Service](./app-service-web/web-sites-enable-diagnostic-log.md).
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

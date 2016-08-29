@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Business Intelligence de SQL Server | Microsoft Azure"
-	description="Cette rubrique utilise des ressources créées avec le modèle de déploiement classique et décrit les fonctionnalités de Business Intelligence (BI) disponibles pour SQL Server s’exécutant sur Azure Virtual Machines."
+	description="Cette rubrique utilise des ressources créées avec le modèle de déploiement Classic et décrit les fonctionnalités de Business Intelligence (BI) disponibles pour SQL Server exécutées dans les machines virtuelles Azure."
 	services="virtual-machines-windows"
 	documentationCenter="na"
 	authors="guyinacube"
@@ -20,7 +20,7 @@
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
-La galerie de machines virtuelles Microsoft Azure inclut des images qui contiennent des installations de SQL Server. Les éditions de SQL Server prises en charge dans les images de la galerie sont les mêmes fichiers d’installation que vous pouvez installer sur les ordinateurs locaux et sur les machines virtuelles. Cette rubrique résume les fonctionnalités de SQL Server Business Intelligence (BI) installées sur les images, et les étapes de configuration requises après la configuration d’une machine virtuelle. Elle décrit également les topologies de déploiement prises en charge pour les fonctionnalités et les meilleures pratiques en matière de décisionnel (BI).
+La galerie de machines virtuelles Microsoft Azure inclut des images qui contiennent des installations de SQL Server. Les éditions de SQL Server prises en charge dans les images de la galerie sont les mêmes fichiers d’installation que vous pouvez installer sur les ordinateurs locaux et sur les machines virtuelles. Cette rubrique résume les fonctionnalités de SQL Server Business Intelligence (BI) installées sur les images, et les étapes de configuration nécessaires après l’approvisionnement d’une machine virtuelle. Elle décrit également les topologies de déploiement prises en charge pour les fonctionnalités et les bonnes pratiques en matière de Business Intelligence (BI).
 
 ## Remarques sur la licence
 
@@ -175,13 +175,13 @@ Il existe deux flux de travail courants pour la connexion à une machine virtuel
 
 **Démarrez le Gestionnaire de configuration Reporting Services.**
 
-1. Dans **Windows Server 2012** :
+1. Dans **Windows Server 2012** :
 
 1. Dans l’écran de **démarrage**, tapez **Reporting Services** pour afficher une liste d’applications.
 
 1. Cliquez avec le bouton droit sur **Gestionnaire de configuration de Reporting Services**, puis cliquez sur **Exécuter en tant qu’administrateur**.
 
-1. Dans **Windows Server 2008 R2** :
+1. Dans **Windows Server 2008 R2** :
 
 1. Cliquez sur **Démarrer**, puis sur **Tous les programmes**.
 
@@ -289,9 +289,9 @@ Le tableau suivant résume certaines des options disponibles pour publier des ra
 
 	Pour plus d’informations, consultez [Démarrer le Générateur de rapports](https://msdn.microsoft.com/library/ms159221.aspx).
 
-- **SQL Server Data Tools : machines virtuelles** : SQL Server Data Tools est installé sur la machine virtuelle et peut être utilisé pour créer des **projets de serveur de rapports** et des rapports sur la machine virtuelle. SQL Server Data Tools peut publier les rapports vers le serveur de rapports sur la machine virtuelle.
+- **SQL Server Data Tools : machines virtuelles** : SQL Server Data Tools est installé sur la machine virtuelle et peut être utilisé pour créer des **projets de serveur de rapports** et des rapports sur la machine virtuelle. SQL Server Data Tools peut publier les rapports vers le serveur de rapports sur la machine virtuelle.
 
-- **SQL Server Data Tools : distant** : sur votre ordinateur local, créez un projet Reporting Services contenant des rapports Reporting Services dans SQL Server Data Tools. Configurez le projet pour la connexion à l’URL du service web.
+- **SQL Server Data Tools : distant** : sur votre ordinateur local, créez un projet Reporting Services contenant des rapports Reporting Services dans SQL Server Data Tools. Configurez le projet pour la connexion à l’URL du service web.
 
 	![propriétés de projet ssdt pour un projet SSRS](./media/virtual-machines-windows-classic-ps-sql-bi/IC650114.gif)
 
@@ -319,7 +319,7 @@ Vous pouvez également exécuter C:\\SQLServer\_13.0_full\\setup.exe, C:\\SQLSer
 
 >[AZURE.NOTE] La première fois que vous exécutez l’installation de SQL Server, davantage de fichiers d’installation peuvent être téléchargés et nécessiter un redémarrage de la machine virtuelle et un redémarrage de l’installation de SQL Server.
 >
->Si vous devez personnaliser de façon répétée l’image sélectionnée à partir de la machine virtuelle Microsoft Azure, envisagez de créer votre propre image SQL Server. La fonctionnalité d’Analysis Services SysPrep a été activée avec SQL Server 2012 SP1 CU2. Pour plus d’informations, consultez [Considérations relatives à l’installation de SQL Server à l’aide de SysPrep](https://msdn.microsoft.com/library/ee210754.aspx).
+>Si vous devez personnaliser de façon répétée l’image sélectionnée à partir de la machine virtuelle Microsoft Azure, envisagez de créer votre propre image SQL Server. La fonctionnalité d’Analysis Services SysPrep a été activée avec SQL Server 2012 SP1 CU2. Pour plus d’informations, consultez [Considérations relatives à l’installation de SQL Server à l’aide de SysPrep](https://msdn.microsoft.com/library/ee210754.aspx) et [Prise en charge de Sysprep pour les rôles serveur](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles).
 
 ### Pour installer Analysis Services en mode tabulaire
 
@@ -355,11 +355,11 @@ Les étapes de cette section **résument** l’installation d’Analysis Service
 
 Le serveur Analysis Services prend en charge uniquement l’authentification Windows. Pour accéder à Analysis Services à distance des applications clientes telles que SQL Server Management Studio ou SQL Server Data Tools, la machine virtuelle doit être jointe à votre domaine local à l’aide d’Azure Virtual Network. Pour plus d’informations, consultez [Azure Virtual Network](../virtual-network/virtual-networks-overview.md).
 
-Une **instance par défaut** d’Analysis Services écoute sur le port TCP **2383**. Ouvrez le port dans le pare-feu des machines virtuelles. Une instance en cluster nommée d’Analysis Services écoute également sur le port **2383**.
+Une **instance par défaut** d’Analysis Services écoute sur le port TCP **2383**. Ouvrez le port dans le pare-feu des machines virtuelles. Une instance en cluster nommée d’Analysis Services écoute également sur le port **2383**.
 
-Pour une **instance nommée** d’Analysis Services, le service SQL Server Browser est nécessaire pour gérer l’accès au port. La configuration par défaut de SQL Server Browser est le port **2382**.
+Pour une **instance nommée** d’Analysis Services, le service SQL Server Browser est nécessaire pour gérer l’accès au port. La configuration par défaut de SQL Server Browser est le port **2382**.
 
-Dans le pare-feu des machines virtuelles, ouvrez le port **2382** et créez un port d’instance nommée Analysis Services statique.
+Dans le pare-feu des machines virtuelles, ouvrez le port **2382** et créez un port d’instance nommée Analysis Services statique.
 
 1. Pour vérifier les ports qui sont déjà utilisés sur la machine virtuelle et connaître le processus qui les utilise, exécutez la commande suivante avec des privilèges d’administration :
 
@@ -436,4 +436,4 @@ Le schéma suivant montre les ports à ouvrir dans le pare-feu de la machine vir
 
 - [Gestion de base de données SQL Azure avec PowerShell](http://blogs.msdn.com/b/windowsazure/archive/2013/02/07/windows-azure-sql-database-management-with-powershell.aspx)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

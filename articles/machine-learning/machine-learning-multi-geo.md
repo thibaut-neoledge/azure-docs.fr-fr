@@ -14,14 +14,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/09/2016"
+   ms.date="08/16/2016"
    ms.author="tedway; neerajkh"/>
 
 # Documentation d'aide de zones géographiques multiples
 
 Cet article explique comment vous pouvez créer un espace de travail et publier un service web dans d'autres régions Azure.
 
-## Création d'un espace de travail
+## Créer un espace de travail
 
 1. Connectez-vous au portail Azure Classic.
 
@@ -59,4 +59,4 @@ Poser une question sur le [forum Azure Machine Learning](https://social.msdn.mic
 [3]: ./media/machine-learning-multi-geo/multi-geo_3.png
 [4a]: ./media/machine-learning-multi-geo/multi-geo_4a.png
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

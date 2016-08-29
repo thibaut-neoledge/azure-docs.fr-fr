@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Guide des performances de base de données SQL Azure pour les bases de données uniques"
-	description="Cette rubrique fournit des conseils pour vous aider à déterminer le niveau de service adapté à votre application et fournit des recommandations pour le paramétrage de votre application pour tirer le meilleur parti de votre base de données SQL Azure."
+	description="Cette rubrique fournit des conseils pour vous aider à déterminer le niveau de service adapté à votre application et fournit des recommandations pour le paramétrage de votre application afin de tirer le meilleur parti de votre base de données SQL Azure."
 	services="sql-database"
 	documentationCenter="na"
 	authors="CarlRabeler"
@@ -157,7 +157,7 @@ Le **nombre maximal de connexions simultanées** représente la limite du nombre
 
 >[AZURE.NOTE] Cette limite ne s'applique pas aux bases de données de pools de bases de données élastiques.
 
-Il n'existe aucune requête ou DMV capable d'afficher le nombre ou l'historique des connexions simultanées. Vous pouvez analyser vos modèles d'utilisateur et d'application pour avoir une idée de la fréquence des connexions. Vous pouvez également exécuter des charges réelles dans un environnement de test pour vous assurer que vous n'atteignez pas cette limite ou d'autres limites décrites dans cette rubrique.
+Il n'existe aucune requête ou DMV capable d'afficher le nombre ou l'historique des connexions simultanées. Vous pouvez analyser vos modèles d'utilisateur et d'application pour avoir une idée de la fréquence des connexions. Vous pouvez également exécuter des charges réelles dans un environnement de test pour vous assurer que vous n’atteignez pas cette limite ou d’autres limites décrites dans cette rubrique.
 
 ### Nombre maximal de sessions
 
@@ -368,7 +368,7 @@ La requête suivante peut être utilisée pour évaluer les index manquants éve
 
 Dans cet exemple, l’index suivant est suggéré.
 
-	CREATE INDEX missing_index_5006_5005 ON [dbo].[missingindex] \([col2])  
+	CREATE INDEX missing_index_5006_5005 ON [dbo].[missingindex] ([col2])  
 
 Une fois la création effectuée, cette même instruction SELECT sélectionne un autre plan qui utilise une recherche au lieu d’une analyse, s’exécutant plus efficacement comme indiqué dans le plan de requête suivant.
 
@@ -507,4 +507,4 @@ Certaines applications de base de données contiennent des charges de travail à
 
 Les niveaux de service dans la base de données SQL Azure vous permettent de placer la barre haut sur les types d’applications que vous créez dans le cloud. Associés à un paramétrage minutieux de l’application, ils vous permettent d’obtenir des performances puissantes et prévisibles pour votre application. Ce document décrit les techniques recommandées pour optimiser la consommation de ressources d’une base de données afin de l’adapter convenablement à l’un des niveaux de performances. Le paramétrage est un exercice continu dans le modèle de cloud, et les niveaux de service et leurs niveaux de performances permettent aux administrateurs d’optimiser les performances tout en réduisant les coûts sur la plateforme Microsoft Azure.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

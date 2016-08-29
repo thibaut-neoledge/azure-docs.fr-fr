@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/24/2016" 
+	ms.date="08/11/2016" 
 	ms.author="hanuk;robmcm"/>
 
-# exécution de Cassandra avec Linux sur Azure et accès au cluster depuis Node.js 
+# Exécution de Cassandra avec Linux sur Azure et accès au cluster depuis Node.js 
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Découvrez comment [effectuer ces étapes à l’aide du modèle Resource Manager](https://azure.microsoft.com/documentation/templates/datastax-on-ubuntu/).
 
@@ -151,7 +151,7 @@ Entrez les informations suivantes dans l'écran « Configuration de la machine 
 
 <table>
 <tr><th>Nom du champ             </th><th> Valeur du champ	                   </th><th> Remarques                                 </th></tr>
-<tr><td> Service cloud	</td><td> Créer un nouveau service de cloud computing	</td><td>Le service cloud est un conteneur qui calcule des ressources telles que des machines virtuelles</td></tr>
+<tr><td> SERVICE CLOUD	</td><td> Créer un nouveau service de cloud computing	</td><td>Le service cloud est un conteneur qui calcule des ressources telles que des machines virtuelles</td></tr>
 <tr><td> Nom du cloud Service DNS	</td><td>ubuntu-template.cloudapp.net	</td><td>Donnez un nom d'équilibrage de charge non spécifique à la machine.</td></tr>
 <tr><td> Région/Groupe d'affinités/Réseau virtuel </td><td>	Ouest des États-Unis	</td><td> Sélectionnez une région à partir de laquelle vos applications&#160;Web auront accès au cluster Cassandra.</td></tr>
 <tr><td>Compte de stockage </td><td>	Utiliser la valeur par défaut	</td><td>Utilisez le compte de stockage par défaut ou un compte de stockage créé au préalable dans une région particulière</td></tr>
@@ -303,7 +303,7 @@ Cela prendra quelques secondes et l'image devrait être disponible dans la secti
 
 <table>
 <tr><th>Nom d'attribut de machine virtuelle</th><th>Valeur</th><th>Remarques</th></tr>
-<tr><td>Nom</td><td>vnet-cass-west-us</td><td></td></tr>	
+<tr><td>Name</td><td>vnet-cass-west-us</td><td></td></tr>	
 <tr><td>Région</td><td>Ouest des États-Unis</td><td></td></tr>	
 <tr><td>Serveurs DNS	</td><td>Aucun</td><td>Ignorez cet attribut, car nous n'utilisons pas de serveur DNS</td></tr>
 <tr><td>Configurer un réseau VPN de point à site</td><td>Aucun</td><td> Ignorez cet attribut</td></tr>
@@ -424,7 +424,7 @@ Connectez-vous à l'un des nœuds (par exemple, hk-c1-west-us) et exécutez la c
 Vous devez obtenir un affichage semblable à celui ci-dessous pour un cluster à huit nœuds :
 
 <table>
-<tr><th>Statut</th></th>Adresse	</th><th>Charge	</th><th>Jetons	</th><th>Appartenance </th><th>ID de l'hôte	</th><th>Rack</th></tr>
+<tr><th>État</th></th>Adresse	</th><th>charger	</th><th>Jetons	</th><th>Appartenance </th><th>ID de l'hôte	</th><th>Rack</th></tr>
 <tr><th>UN	</td><td>10.1.2.4 	</td><td>87,81&#160;Ko	</td><td>256	</td><td>38,0%	</td><td>GUID (supprimé)</td><td>rack1</td></tr>
 <tr><th>UN	</td><td>10.1.2.5 	</td><td>41,08&#160;Ko	</td><td>256	</td><td>68,9&#160;%	</td><td>GUID (supprimé)</td><td>rack1</td></tr>
 <tr><th>UN	</td><td>10.1.2.6 	</td><td>55,29&#160;Ko	</td><td>256	</td><td>68,8&#160;%	</td><td>GUID (supprimé)</td><td>rack2</td></tr>
@@ -469,7 +469,7 @@ Connectez-vous au portail Azure Classic et créez un réseau virtuel avec les at
 
 <table>
 <tr><th>Nom de l'attribut    </th><th>Valeur	</th><th>Remarques</th></tr>
-<tr><td>Nom	</td><td>vnet-cass-east-us</td><td></td></tr>	
+<tr><td>Name	</td><td>vnet-cass-east-us</td><td></td></tr>	
 <tr><td>Région	</td><td>Est des États-Unis</td><td></td></tr>	
 <tr><td>Serveurs DNS		</td><td></td><td>Ignorez cet attribut, car nous n'utilisons pas de serveur DNS</td></tr>
 <tr><td>Configurer un réseau VPN de point à site</td><td></td><td>		Ignorez cet attribut</td></tr>
@@ -481,7 +481,7 @@ Connectez-vous au portail Azure Classic et créez un réseau virtuel avec les at
 
 Ajoutez les sous-réseaux suivants :
 <table>
-<tr><th>Nom    </th><th>Adresse IP de départ	</th><th>CIDR	</th><th>Remarques</th></tr>
+<tr><th>Name    </th><th>Adresse IP de départ	</th><th>CIDR	</th><th>Remarques</th></tr>
 <tr><td>web	</td><td>10.2.1.0	</td><td>/24 (251)	</td><td>Sous-réseau pour la batterie de serveurs</td></tr>
 <tr><td>données	</td><td>10.2.2.0	</td><td>/24 (251)	</td><td>Sous-réseau pour les nœuds de base de données</td></tr>
 </table>
@@ -705,4 +705,4 @@ Microsoft Azure est une plateforme flexible qui autorise l'exécution de logicie
 - [http://www.datastax.com](http://www.datastax.com)
 - [http://www.nodejs.org](http://www.nodejs.org)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

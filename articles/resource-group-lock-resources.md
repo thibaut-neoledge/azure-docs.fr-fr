@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/26/2016" 
+	ms.date="08/15/2016" 
 	ms.author="tomfitz"/>
 
 # Verrouiller des ressources avec Azure Resource Manager
@@ -21,11 +21,13 @@
 En tant qu’administrateur, vous pouvez avoir besoin de verrouiller un abonnement, une ressource ou un groupe de ressources afin d’empêcher d’autres utilisateurs de votre organisation de supprimer ou modifier de manière accidentelle des ressources critiques. Vous pouvez définir le niveau de verrouillage sur **CanNotDelete** ou **ReadOnly**.
 
 - **CanNotDelete** signifie que les utilisateurs autorisés peuvent toujours lire et modifier une ressource, mais qu’ils ne peuvent pas la supprimer.
-- **ReadOnly** signifie que les utilisateurs autorisés peuvent lire une ressource, mais qu’ils ne peuvent ni la supprimer ni y effectuer des actions. L’autorisation sur la ressource est limitée au rôle **Lecteur**. L’application de **ReadOnly** peut produire des résultats inattendus, car certaines opérations qui ressemblent à des opérations de lecture nécessitent en fait des actions supplémentaires. Par exemple, le placement d’un verrou **ReadOnly** sur un compte de stockage empêche tous les utilisateurs de répertorier les clés. L’opération de listage de clés est gérée via une demande POST, car les clés retournées sont disponibles pour les opérations d’écriture. Autre exemple : le placement d’un verrou **ReadOnly** sur une ressource App Service empêche l’Explorateur de serveurs Visual Studio d’afficher les fichiers de la ressource, car cette interaction requiert un accès en écriture.
+- **ReadOnly** signifie que les utilisateurs autorisés peuvent lire une ressource, mais qu’ils ne peuvent ni la supprimer ni y effectuer des actions. L’autorisation sur la ressource est limitée au rôle **Lecteur**.
+
+L’application de **ReadOnly** peut produire des résultats inattendus, car certaines opérations qui ressemblent à des opérations de lecture nécessitent en fait des actions supplémentaires. Par exemple, le placement d’un verrou **ReadOnly** sur un compte de stockage empêche tous les utilisateurs de répertorier les clés. L’opération de listage de clés est gérée via une demande POST, car les clés retournées sont disponibles pour les opérations d’écriture. Autre exemple : le placement d’un verrou **ReadOnly** sur une ressource App Service empêche l’Explorateur de serveurs Visual Studio d’afficher les fichiers de la ressource, car cette interaction requiert un accès en écriture.
 
 Contrairement au contrôle d'accès basé sur les rôles, vous utilisez des verrous de gestion pour appliquer une restriction à tous les utilisateurs et rôles. Pour en savoir plus sur la définition des autorisations pour les utilisateurs et les rôles, consultez [Contrôle d’accès basé sur un rôle Azure](./active-directory/role-based-access-control-configure.md).
 
-Lorsque vous appliquez un verrou à une étendue parente, toutes les ressources enfants héritent du même verrou. Le verrou le plus restrictif de l’héritage est prioritaire.
+Lorsque vous appliquez un verrou à une étendue parente, toutes les ressources enfants héritent du même verrou. Même les ressources que vous ajoutez par la suite héritent du verrou du parent. Le verrou le plus restrictif de l’héritage est prioritaire.
 
 ## Personnes autorisées à créer ou supprimer des verrous dans votre organisation
 
@@ -33,27 +35,13 @@ Pour créer ou supprimer des verrous de gestion, vous devez avoir accès aux act
 
 ## Création d’un verrou via le portail
 
-1. Dans le panneau Paramètres de la ressource, du groupe de ressources ou de l’abonnement que vous voulez verrouiller, sélectionnez **Verrous**.
-
-      ![sélectionner verrou](./media/resource-group-lock-resources/select-lock.png)
-
-2. Pour ajouter un verrou, sélectionnez **Ajouter**. Si vous souhaitez plutôt créer un verrou à un niveau parent qui sera hérité par la ressource actuellement sélectionnée, sélectionnez le parent (par exemple, l’abonnement illustré ci-dessous).
-
-      ![ajouter verrou](./media/resource-group-lock-resources/add-lock.png)
-
-3. Choisissez un nom et un niveau de verrouillage pour le verrou. Si vous le souhaitez, vous pouvez ajouter des notes décrivant la raison pour laquelle le verrou est nécessaire.
-
-      ![définir verrou](./media/resource-group-lock-resources/set-lock.png)
-
-4. Pour supprimer le verrou, sélectionnez les points de suspension, puis **Supprimer** parmi les options disponibles.
-
-      ![supprimer verrou](./media/resource-group-lock-resources/delete-lock.png)
+[AZURE.INCLUDE [resource-manager-lock-resources](../includes/resource-manager-lock-resources.md)]
 
 ## Création d’un verrou dans un modèle
 
-L’exemple ci-dessous représente un modèle créant un verrou sur un compte de stockage. Le compte de stockage auquel est appliqué le verrou est fourni en tant que paramètre. Le nom du verrou résulte de la concaténation du nom de la ressource, de **/Microsoft.Authorization/** et du nom du verrou, en l’occurrence **myLock**.
+L’exemple suivant représente un modèle créant un verrou sur un compte de stockage. Le compte de stockage auquel est appliqué le verrou est fourni en tant que paramètre. Le nom du verrou résulte de la concaténation du nom de la ressource, de **/Microsoft.Authorization/** et du nom du verrou, en l’occurrence **myLock**.
 
-Le type fourni est spécifique au type de ressource. Pour le stockage, ce type est « Microsoft.Storage/storageaccounts/providers/locks ».
+Le type fourni est spécifique au type de ressource. Pour le stockage, définissez le type suivant : « Microsoft.Storage/storageaccounts/providers/locks ».
 
     {
       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -83,7 +71,7 @@ Pour créer un verrou, exécutez :
 
     PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/locks/{lock-name}?api-version={api-version}
 
-Le verrou peut être appliqué à un abonnement, un groupe de ressources ou à une ressource. Le nom du verrou est personnalisable. Pour la version de l’API, utilisez **2015-01-01**.
+Le verrou peut être appliqué à un abonnement, à un groupe de ressources ou à une ressource. Le nom du verrou est personnalisable. Pour la version de l’API, utilisez **2015-01-01**.
 
 Dans la demande, incluez un objet JSON spécifiant les propriétés du verrou.
 
@@ -98,7 +86,7 @@ Pour obtenir des exemples, consultez [API REST pour les verrous de gestion](http
 
 ## Création d’un verrou à l’aide d’Azure PowerShell
 
-Vous pouvez verrouiller des ressources déployées avec Azure PowerShell en utilisant **New-AzureRmResourceLock**, comme indiqué ci-dessous.
+Vous pouvez verrouiller des ressources déployées avec Azure PowerShell en utilisant **New-AzureRmResourceLock**, comme indiqué ci-dessous.
 
     New-AzureRmResourceLock -LockLevel CanNotDelete -LockName LockSite -ResourceName examplesite -ResourceType Microsoft.Web/sites -ResourceGroupName exampleresourcegroup
 
@@ -111,4 +99,4 @@ Azure PowerShell fournit d'autres commandes d'utilisation des verrous, comme **S
 - Pour changer le groupe de ressources où se trouve une ressource, consultez [Déplacer des ressources vers un nouveau groupe de ressources](resource-group-move-resources.md)
 - Vous pouvez appliquer des restrictions et des conventions sur votre abonnement avec des stratégies personnalisées. Pour plus d'informations, consultez [Utiliser le service Policy pour gérer les ressources et contrôler l'accès](resource-manager-policy.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

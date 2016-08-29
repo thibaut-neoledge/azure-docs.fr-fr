@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="05/25/2016" 
+    ms.date="08/16/2016" 
     ms.author="jeedes" />
 
 #Didacticiel : Intégration d’Azure Active Directory à EmpCenter
@@ -51,7 +51,7 @@ Cette section décrit l'activation de l'intégration de l'application pour EmpCe
 
     ![Ajouter l’application](./media/active-directory-saas-empcenter-tutorial/IC749321.png "Ajouter l’application")
 
-5.  Dans la boîte de dialogue **Que voulez-vous faire ?**, cliquez sur **Ajouter une application à partir de la galerie**.
+5.  Dans la boîte de dialogue **Que voulez-vous faire ?**, cliquez sur **Ajouter une application à partir de la galerie**.
 
     ![Ajouter une application à partir de la galerie](./media/active-directory-saas-empcenter-tutorial/IC749322.png "Ajouter une application à partir de la galerie")
 
@@ -68,7 +68,7 @@ Cette section explique comment permettre aux utilisateurs de s'authentifier sur 
 
 ###Pour configurer l’authentification unique, procédez comme suit :
 
-1.  Dans le portail Azure Classic puis sur la page d’intégration d’applications **EmpCenter**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
+1.  Dans le portail Azure Classic, sur la page d’intégration d’applications **EmpCenter**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-empcenter-tutorial/IC802919.png "Configurer l’authentification unique")
 
@@ -89,7 +89,7 @@ Cette section explique comment permettre aux utilisateurs de s'authentifier sur 
 
 5.  Envoyez le fichier de métadonnées téléchargé à votre équipe de support technique EmpCenter.
 
-    >[AZURE.NOTE] Votre équipe de support technique EmpCenter doit se charger de la configuration de l’authentification unique. Vous recevrez une notification lorsque l’authentification unique aura été activée pour votre abonnement.
+    >[AZURE.NOTE] Votre équipe de support technique EmpCenter doit se charger de la configuration de l’authentification unique. Vous recevrez une notification dès que l’authentification unique aura été activée pour votre abonnement.
 
 6.  Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
 
@@ -117,6 +117,6 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
     ![Oui](./media/active-directory-saas-empcenter-tutorial/IC767830.png "Oui")
   
-Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
+Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d'informations sur le panneau d'accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0817_2016-->

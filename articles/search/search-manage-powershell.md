@@ -14,7 +14,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="powershell" 
-	ms.date="05/23/2016" 
+	ms.date="08/15/2016" 
 	ms.author="seasa"/>
 
 # Gérer votre service Azure Search avec PowerShell
@@ -129,9 +129,9 @@ Pour spécifier l’abonnement, exécutez la commande suivante. Dans l’exemple
 	
 Maintenant que votre service est créé, vous pouvez passer aux étapes suivantes : créer un [index](search-what-is-an-index.md), [interroger un index](search-query-overview.md), puis créer et gérer vos propres applications de recherche utilisant Azure Search.
 
-- [Création d’un index Azure Search dans le portail Azure](search-create-index-portal.md)
+- [Création d’un index Azure Search dans le portail Azure](search-create-index-portal.md)
 
-- [Interrogation d’un index Azure Search à l’aide de Search Explorer dans le portail Azure](search-explorer.md)
+- [Interrogation d’un index Azure Search à l’aide de Search Explorer dans le Portail Azure](search-explorer.md)
 
 - [Configuration d’un indexeur pour charger des données provenant d’autres services](search-indexer-overview.md)
 
@@ -139,4 +139,4 @@ Maintenant que votre service est créé, vous pouvez passer aux étapes suivante
 
 - [Analyse du trafic Azure Search](search-traffic-analytics.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0817_2016-->

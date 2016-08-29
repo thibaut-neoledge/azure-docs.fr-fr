@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="06/01/2016"
+   ms.date="08/15/2016"
    ms.author="tarcher" />
 
 # Publication d’un service cloud à l’aide des outils Azure
 
 Grâce aux outils Azure pour Microsoft Visual Studio, vous pouvez publier votre application Microsoft Azure directement depuis Visual Studio. Visual Studio prend en charge la publication intégrée dans l'environnement intermédiaire ou l'environnement de production d'un service cloud.
 
-Avant de pouvoir publier une application Azure, vous devez disposer d'un abonnement Azure. Vous devez également configurer un service cloud et un compte de stockage utilisable par votre application. Vous pouvez les définir dans le [portail Azure Classic](http://go.microsoft.com/fwlink/?LinkID=213885).
+Avant de pouvoir publier une application Azure, vous devez disposer d’un abonnement Azure. Vous devez également configurer un service cloud et un compte de stockage utilisable par votre application. Vous pouvez les définir dans le [portail Azure Classic](http://go.microsoft.com/fwlink/?LinkID=213885).
 
 >[AZURE.IMPORTANT] Lorsque vous publiez, vous pouvez sélectionner l'environnement de déploiement pour votre service cloud. Vous devez également sélectionner un compte de stockage permettant de stocker le package de l'application pour le déploiement. Après le déploiement, le package de l’application est supprimé du compte de stockage.
 
@@ -71,7 +71,7 @@ Lorsque vous publiez votre application Azure, vous pouvez effectuer l'une des t�
 
 Si l'infrastructure principale de votre application est stable, mais que les rôles web ont besoin d’une mise à jour plus fréquente, vous pouvez utiliser Web Deploy pour mettre à jour un seul rôle web dans votre projet. Cette méthode est pratique lorsque vous ne souhaitez pas recréer et redéployer les rôles de travail principaux, ou si vous avez plusieurs rôles web et souhaitez mettre à jour uniquement un des rôles web.
 
-### Conditions requises
+### Configuration requise
 
 Voici la configuration requise pour utiliser Web Deploy afin de mettre à jour votre rôle web :
 
@@ -103,7 +103,7 @@ La procédure suivante suppose que vous utilisez l’Assistant **Publication d�
 
 1. Pour utiliser Web Deploy, apportez des modifications au code du projet pour un des rôles web de Visual Studio que vous souhaitez publier, puis cliquez sur ce nœud de projet dans votre solution et pointez sur **Publier**. La boîte de dialogue **Publier le site Web** s’affiche.
 
-1. (Facultatif) Si vous avez ajouté un certificat SSL approuvé à utiliser pour les connexions à distance pour IIS, vous pouvez désactiver la case à cocher **Autoriser les certificats non approuvés**. Pour plus d'informations sur l'ajout d'un certificat pour sécuriser Web Deploy, consultez la section **Pour sécuriser Web Deploy** plus loin dans cette rubrique.
+1. (Facultatif) Si vous avez ajouté un certificat SSL approuvé à utiliser pour les connexions à distance pour IIS, vous pouvez désactiver la case à cocher **Autoriser les certificats non approuvés**. Pour plus d’informations sur l’ajout d’un certificat afin de sécuriser Web Deploy, consultez la section **Pour sécuriser Web Deploy** plus loin dans cette rubrique.
 
 1. Pour utiliser Web Deploy, le mécanisme de publication a besoin du nom d'utilisateur et du mot de passe que vous définissez pour votre connexion Bureau à distance lors de la publication initiale du package.
 
@@ -173,4 +173,4 @@ Vous devrez peut-être inclure des fichiers spécifiques dans votre package de s
 
 Pour en savoir plus sur la publication sur Azure depuis Visual Studio, consultez [Assistant Publication d’application Azure](vs-azure-tools-publish-azure-application-wizard.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0817_2016-->

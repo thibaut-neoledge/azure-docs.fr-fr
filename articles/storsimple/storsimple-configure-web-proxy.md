@@ -12,12 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/30/2016"
+   ms.date="08/17/2016"
    ms.author="alkohli" />
 
 # Configurer le proxy web pour votre appareil StorSimple
 
-## Vue d’ensemble
+## Vue d'ensemble
 
 Ce didacticiel explique comment utiliser Windows PowerShell for StorSimple afin de configurer et d’afficher les paramètres du proxy web pour votre appareil StorSimple. Les paramètres de proxy web sont utilisés par l’appareil StorSimple lors de la communication avec le cloud. Un serveur proxy web est utilisé pour ajouter une autre couche de sécurité, filtrer le contenu, mettre en cache les données afin d’alléger la bande passante voire faciliter l’analyse.
 
@@ -57,7 +57,7 @@ Vous pouvez utiliser l’assistant d’installation, qui vous guide dans les dif
 
     `Invoke-HcsSetupWizard`
 
-2. Si c’est la première fois que vous utilisez l’assistant d’installation pour inscrire un appareil, vous devez configurer tous les paramètres réseau requis jusqu’à atteindre la configuration du proxy web. Si votre périphérique est déjà inscrit, vous pouvez accepter tous les paramètres réseau configurés jusqu’à atteindre la configuration du proxy web. Dans l’assistant d’installation, lorsque vous êtes invité à configurer les paramètres du proxy web, tapez **Yes**.
+2. Si c’est la première fois que vous utilisez l’assistant d’installation pour inscrire un appareil, vous devez configurer tous les paramètres réseau requis jusqu’à atteindre la configuration du proxy web. Si votre périphérique est déjà inscrit, vous pouvez accepter tous les paramètres réseau configurés jusqu’à atteindre la configuration du proxy web. Dans l’assistant d’installation, lorsque vous êtes invité à configurer les paramètres du proxy web, entrez **Yes**.
 
 3. Pour l’option **Web Proxy URL**, spécifiez l’adresse IP ou le nom de domaine complet (FQDN) de votre serveur proxy web et le numéro de port TCP que vous souhaitez que votre appareil utilise lors de la communication avec le cloud. Utilisez le format suivant :
 
@@ -137,12 +137,12 @@ Si les paramètres du proxy web ont été configurés correctement, les messages
 |3\.|0x80070057 - Paramètre non valide|L’un des paramètres fournis pour les paramètres de proxy n’est pas valide.|L’URI n’est pas fourni dans le format correct. Utilisez le format suivant : `http://<IP address or FQDN of the web proxy server>:<TCP port number>`|
 |4\.|0x800706ba - Serveur RPC indisponible|La cause première est l’une des suivantes :</br></br>Le cluster n’est pas disponible.</br></br>Le service Datapath n’est pas en cours d’exécution.</br></br>La commande est exécutée à partir du contrôleur passif et ne peut pas communiquer avec le contrôleur actif.|Veuillez contacter le support technique Microsoft pour vous assurer que le cluster est disponible et que le service Datapath est en cours d’exécution.</br></br>Exécutez la commande à partir du contrôleur actif. Si vous souhaitez exécuter la commande à partir du contrôleur passif, vous devez vous assurer que le contrôleur passif peut communiquer avec le contrôleur actif. Vous devez contacter le support technique Microsoft si cette connectivité est interrompue.|
 |5\.|0x800706be - Échec de l’appel RPC|Le cluster est arrêté.|Veuillez contacter le support technique Microsoft pour vous assurer que le cluster est disponible.|
-|6\.|0x8007138f - Ressource de cluster introuvable|Impossible de trouver la ressource de cluster du service de plateforme. Cela peut se produire lorsque l’installation ne s’est pas déroulée correctement.|Vous devrez peut-être effectuer une réinitialisation aux paramètres d’usine sur votre appareil. Vous devrez peut-être créer une ressource de plateforme. Pour les étapes suivantes, veuillez contacter le support technique Microsoft.|
+|6\.|0x8007138f - Ressource de cluster introuvable|Impossible de trouver la ressource de cluster du service de plateforme. Cela peut se produire lorsque l’installation ne s’est pas déroulée correctement.|Vous devrez peut-être effectuer une réinitialisation de votre appareil aux paramètres d’usine. Vous devrez peut-être créer une ressource de plateforme. Pour les étapes suivantes, veuillez contacter le support technique Microsoft.|
 |7\.|0x8007138c - La ressource de cluster n’est pas en ligne|Les ressources de plateforme ou datapath ne sont pas en ligne.|Veuillez contacter le support technique Microsoft pour vous assurer que les ressources de service datapath et de plateforme sont en ligne.|
 
 > [AZURE.NOTE] 
 > 
-> -  La liste des messages d’erreur ci-dessus n’est pas exhaustive. 
+> -  La liste des messages d’erreur ci-dessus n’est pas exhaustive.
 > - Les erreurs liées aux paramètres du proxy web ne s’affichent pas dans le portail Azure Classic de votre service StorSimple Manager. Si un problème survient au niveau du proxy web après la configuration, l’état de l’appareil affiche **Hors connexion** dans le portail Azure Classic.|
 
 ## Étapes suivantes
@@ -151,4 +151,4 @@ Si les paramètres du proxy web ont été configurés correctement, les messages
 
 - Pour apprendre à utiliser le service StorSimple Manager, voir [Utilisation du service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0817_2016-->

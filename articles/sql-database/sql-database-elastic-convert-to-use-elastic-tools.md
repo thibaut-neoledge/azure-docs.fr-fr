@@ -3,7 +3,7 @@
    description="Conversion de bases de données partitionnées pour utiliser les outils de base de données élastique en créant un gestionnaire de cartes de partitions"
    services="sql-database"
    documentationCenter=""
-   authors="SilviaDoomra"
+   authors="ddove"
    manager="jhubbard"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
    ms.date="04/26/2016"
-   ms.author="SilviaDoomra"/>
+   ms.author="ddove"/>
 
 # Migration de bases de données existantes pour une mise à l’échelle
 
@@ -25,7 +25,7 @@ Pour migrer une base de données partitionnée existante :
 
 1. Préparez la [base de données pour le Gestionnaire de cartes de partitions](sql-database-elastic-scale-shard-map-management.md).
 2. Créer la carte de partitions.
-3. Préparer les partitions individuelles.  
+3. Préparer les partitions individuelles.
 2. Ajoutez les mappages à la carte de partitions.
 
 Ces techniques peuvent être implémentées à l’aide de la [bibliothèque cliente .NET Framework](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) ou des scripts PowerShell sur [Azure SQL DB - Scripts d’outils de base de données élastique](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db). Les exemples fournis ici utilisent les scripts PowerShell.
@@ -62,7 +62,7 @@ Après la création, vous pouvez récupérer le gestionnaire de cartes de partit
 
 Vous devez sélectionner le type de carte de partitions à créer. Votre choix dépend de l’architecture de la base de données :
 
-1. Client unique par base de données (Pour rechercher des termes spécifiques, consultez le [glossaire](sql-database-elastic-scale-glossary.md).) 
+1. Client unique par base de données (Pour rechercher des termes spécifiques, consultez le [glossaire](sql-database-elastic-scale-glossary.md).)
 2. Plusieurs clients par base de données (deux types) :
 	3. Mappage de liste
 	4. Mappage de plage
@@ -187,4 +187,4 @@ Pour toute question, contactez-nous sur le [forum Base de données SQL](http://s
 [3]: ./media/sql-database-elastic-convert-to-use-elastic-tools/multipleonsingledb.png
  
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0817_2016-->

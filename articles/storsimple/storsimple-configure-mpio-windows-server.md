@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/27/2016"
+   ms.date="08/17/2016"
    ms.author="alkohli" />
 
 # Configuration de Multipath I/O pour votre appareil StorSimple
@@ -21,7 +21,7 @@ Microsoft a créé la prise en charge de la fonctionnalité MPIO (Multipath I/O)
 
 Pour la haute disponibilité de votre solution StorSimple, MPIO doit être configuré sur votre appareil StorSimple. Lorsque MPIO est installé sur vos serveurs hôtes exécutant Windows Server 2012 R2, les serveurs peuvent tolérer une défaillance de lien, de réseau ou d’interface.
 
-MPIO est une fonctionnalité facultative sur Windows Server et n’est pas installé par défaut. Il doit être installé en tant que fonctionnalité via le Gestionnaire de serveur. Cette rubrique décrit les étapes que vous devez suivre pour installer et utiliser la fonctionnalité MPIO sur un ordinateur hôte exécutant Windows Server 2012 R2 et connecté à un appareil physique StorSimple.
+MPIO est une fonctionnalité facultative sur Windows Server et n’est pas installé par défaut. Il doit être installé en tant que fonctionnalité via le Gestionnaire de serveur. Cette rubrique décrit les étapes que vous devez suivre pour installer et utiliser la fonctionnalité MPIO sur un hôte exécutant Windows Server 2012 R2 et connecté à un appareil physique StorSimple.
 
 >[AZURE.NOTE] **Cette procédure est applicable pour la gamme StorSimple 8000 uniquement. La solution MPIO n’est actuellement pas prise en charge sur un appareil virtuel StorSimple.**
 
@@ -52,8 +52,10 @@ Pour installer cette fonctionnalité sur votre hôte Windows Server, effectuez l
 	- Sur la page **Sélectionner le serveur de destination**, choisissez **Sélectionner un serveur du pool de serveurs**. Votre serveur hôte doit être détecté automatiquement. Cliquez sur **Next**.
 	- Sur la page **Sélectionner des rôles de serveurs**, cliquez sur **Suivant**.
 	- Sur la page **Sélectionner des fonctionnalités**, sélectionnez **Multipath I/O** et cliquez sur **Suivant**.![Assistant Ajouter des rôles et fonctionnalités 5](./media/storsimple-configure-mpio-windows-server/IC741000.png)
-	- Sur la page **Confirmer les sélections pour l’installation**, confirmez la sélection, puis sélectionnez **Redémarrer automatiquement le serveur de destination, si nécessaire** tel qu’indiqué ci-dessous. Cliquez sur **Installer**.![Assistant Ajouter des rôles et fonctionnalités 8](./media/storsimple-configure-mpio-windows-server/IC741001.png)
-	- Vous recevrez une notification une fois l’installation terminée. Cliquez sur **Fermer** pour fermer l’Assistant.![Assistant Ajouter des rôles et fonctionnalités 9](./media/storsimple-configure-mpio-windows-server/IC741002.png)
+	- Sur la page **Confirmer les sélections pour l’installation**, confirmez la sélection, puis sélectionnez **Redémarrer automatiquement le serveur de destination, si nécessaire** tel qu’indiqué ci-dessous. Cliquez sur **Installer**.
+	![Assistant Ajouter des rôles et fonctionnalités 8](./media/storsimple-configure-mpio-windows-server/IC741001.png)
+	- Vous recevrez une notification une fois l’installation terminée. Cliquez sur **Fermer** pour fermer l’Assistant.
+	![Assistant Ajouter des rôles et fonctionnalités 9](./media/storsimple-configure-mpio-windows-server/IC741002.png)
 
 ## Étape 2 : configurer MPIO pour les volumes StorSimple
 
@@ -101,7 +103,7 @@ Une fois MPIO configuré sur Windows Server, le ou les volumes créés sur l’a
 
 9. Cliquez sur **Propriétés**. Dans la boîte de dialogue **Propriétés**, cliquez sur **Ajouter une session**.
 10. Dans la boîte de dialogue **Se connecter à la cible**, sélectionnez la case à cocher **Activer la prise en charge de plusieurs chemins d’accès**. Cliquez sur **Avancé**.
-11. Dans la boîte de dialogue **Paramètres avancés** :										
+11. Dans la boîte de dialogue **Paramètres avancés** :
 	-  Dans la liste déroulante **Adaptateur local**, sélectionnez Initiateur Microsoft iSCSI.
 	-  Dans la liste déroulante **IP de l’initiateur**, sélectionnez l’adresse IP correspondant à l’hôte. Dans ce cas, vous connectez deux interfaces réseau sur l’appareil à une seule interface réseau sur l’hôte. Par conséquent, cette interface est identique à celle fournie pour la première session.
 	-  Dans la liste déroulante **IP du portail cible**, sélectionnez l’adresse IP de la deuxième interface de données activée sur l’appareil.
@@ -173,4 +175,4 @@ La procédure suivante décrit comment ajouter des sessions lorsqu’un appareil
 En savoir plus sur l'[utilisation du service StorSimple Manager pour modifier la configuration de votre appareil StorSimple](storsimple-modify-device-config.md).
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0817_2016-->

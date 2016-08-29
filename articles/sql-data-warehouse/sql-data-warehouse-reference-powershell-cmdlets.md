@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/08/2016"
+   ms.date="08/16/2016"
    ms.author="sonyama;barbkess;mausher"/>
 
 # Applets de commande PowerShell et API REST pour SQL Data Warehouse
@@ -93,7 +93,7 @@ Pour obtenir la liste de toutes les tâches pouvant être automatisées avec Pow
 <!--Article references-->
 [Installation et configuration d’Azure PowerShell]: ./powershell-install-configure.md
 [Création de SQL Data Warehouse à l’aide de Powershell]: ./sql-data-warehouse-get-started-provision-powershell.md
-[Restauration de base de données]: ./sql-data-warehouse-manage-database-restore-powershell.md
+[Restauration de base de données]: ./sql-data-warehouse-restore-database-powershell.md
 [Gérer l’évolutivité avec REST]: ./sql-data-warehouse-manage-compute-rest-api.md
 
 <!--MSDN references-->
@@ -114,4 +114,4 @@ Pour obtenir la liste de toutes les tâches pouvant être automatisées avec Pow
 <!--Other Web references-->
 [Microsoft Web Platform Installer]: https://aka.ms/webpi-azps
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

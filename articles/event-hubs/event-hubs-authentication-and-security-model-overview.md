@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="na"
-    ms.date="05/03/2016"
+    ms.date="08/16/2016"
     ms.author="sethm;clemensv" />
 
 # Présentation du modèle de sécurité et de l'authentification Event Hubs
@@ -37,7 +37,7 @@ Tous les jetons sont signés avec une clé SAS. En règle générale, tous les j
 
 ### Créer la clé SAP
 
-Lorsque vous créez un espace de noms, Service Bus génère une clé SAS de 256 bits nommée **RootManageSharedAccessKey**. Cette clé accorde les droits d'envoi, d'écoute et de gestion pour l'espace de noms. Vous pouvez créer des clés supplémentaires. Nous vous recommandons de produire une clé qui accorde les droits d'envoi au hub d'événements spécifique. Pour le reste de cette rubrique, supposons que vous avez nommé cette clé `EventHubSendKey`.
+Lorsque vous créez un espace de noms Event Hubs, Azure Event Hubs génère une clé SAS de 256 bits nommée **RootManageSharedAccessKey**. Cette clé accorde les droits d'envoi, d'écoute et de gestion pour l'espace de noms. Vous pouvez créer des clés supplémentaires. Nous vous recommandons de produire une clé qui accorde les droits d'envoi au hub d'événements spécifique. Pour le reste de cette rubrique, supposons que vous avez nommé cette clé `EventHubSendKey`.
 
 L'exemple suivant crée une clé d'envoi uniquement lors de la création du hub d'événements :
 
@@ -95,9 +95,9 @@ Si un jeton est volé par un intrus, celui-ci peut emprunter l'identité de l'ap
 
 ## Authentification des applications principales
 
-Pour authentifier des applications principales qui consomment les données générées par les appareils, les hubs d’événements utilisent un modèle de sécurité qui est similaire au modèle utilisé pour les rubriques Service Bus. Un groupe de consommateurs de hubs d'événements est équivalent à un abonnement à une rubrique Service Bus. Un client peut créer un groupe de consommateurs si la requête de création du groupe de consommateurs est accompagnée d'un jeton qui accorde des droits de gestion pour le hub d'événements ou pour l'espace de noms auquel appartient le hub d'événements. Un client est autorisé à consommer des données à partir d'un groupe de consommateurs si la requête de réception est accompagnée d'un jeton qui accorde des droits de réception pour ce groupe de consommateurs, le hub d'événements ou l'espace de noms auquel appartient le hub d'événements.
+Pour authentifier des applications principales qui consomment les données générées par les appareils, Event Hubs utilise un modèle de sécurité qui est similaire au modèle utilisé pour les rubriques Service Bus. Un groupe de consommateurs Event Hubs est équivalent à un abonnement à une rubrique Service Bus. Un client peut créer un groupe de consommateurs si la requête de création du groupe de consommateurs est accompagnée d'un jeton qui accorde des droits de gestion pour le hub d'événements ou pour l'espace de noms auquel appartient le hub d'événements. Un client est autorisé à consommer des données à partir d'un groupe de consommateurs si la requête de réception est accompagnée d'un jeton qui accorde des droits de réception pour ce groupe de consommateurs, le hub d'événements ou l'espace de noms auquel appartient le hub d'événements.
 
-La version actuelle de Service Bus ne prend pas en charge les règles SAS pour les abonnements individuels. Il en va de même pour les groupes de consommateurs de hubs d'événements. La prise en charge SAS sera ajoutée ultérieurement pour ces deux fonctionnalités.
+La version actuelle de Service Bus ne prend pas en charge les règles SAS pour les abonnements individuels. Il en va de même pour les groupes de consommateurs de hubs d'événements. La prise en charge SAS sera ajoutée ultérieurement pour ces deux fonctionnalités.
 
 En l'absence d'authentification SAS pour les groupes de consommateurs individuels, vous pouvez utiliser des clés SAS pour sécuriser tous les groupes de consommateurs avec une clé commune. Cette approche permet à une application de consommer des données à partir de n'importe quel groupe de consommateurs d'un hub d'événements.
 
@@ -105,7 +105,7 @@ En l'absence d'authentification SAS pour les groupes de consommateurs individuel
 
 ACS prend en charge plusieurs façons de créer des identités de service, des parties de confiance et des règles, mais la méthode la plus simple est d'utiliser [SBAZTool](http://code.msdn.microsoft.com/Authorization-SBAzTool-6fd76d93). Par exemple :
 
-1. Créer une identité de service pour un **EventHubSender**. Ceci renvoie le nom de l'identité de service qui a été créée et sa clé :
+1. Créer une identité de service pour un **EventHubSender**. Cette opération renvoie le nom de l’identité de service qui a été créée et sa clé :
 
 	```
 	sbaztool.exe exe -n <namespace> -k <key>  makeid eventhubsender
@@ -123,19 +123,19 @@ ACS prend en charge plusieurs façons de créer des identités de service, des p
 	sbaztool.exe exe -n <namespace> -k <key> makeid consumergroup1receiver
 	```
 
-4. Accorder « Écouter les revendications » `consumergroup1receiver` au **groupe de consommateurs 1** :
+4. Accorder « Écouter les revendications » `consumergroup1receiver` au **groupe de consommateurs 1** :
 
 	```
 	sbaztool.exe -n <namespace> -k <key> grant Listen /AuthTestEventHub/ConsumerGroup1 consumergroup1receiver
 	```
 
-5. Créer une identité de service pour un récepteur au **groupe de consommateurs 2** :
+5. Créer une identité de service pour un récepteur au **groupe de consommateurs 2** :
 
 	```
 	sbaztool.exe exe -n <namespace> -k <key>  makeid consumergroup2receiver
 	```
 
-6. Accorder « Écouter les revendications » `consumergroup2receiver` au **groupe de consommateurs 2** :
+6. Accorder « Écouter les revendications » `consumergroup2receiver` au **groupe de consommateurs 2** :
 
 	```
 	sbaztool.exe -n <namespace> -k <key> grant Listen /AuthTestEventHub/ConsumerGroup2 consumergroup2receiver
@@ -143,7 +143,7 @@ ACS prend en charge plusieurs façons de créer des identités de service, des p
 
 ## Étapes suivantes
 
-Pour plus d'informations sur les hubs d'événements, consultez les rubriques suivantes :
+Pour plus d’informations sur Event Hubs, consultez les rubriques suivantes :
 
 - [Vue d’ensemble des concentrateurs d’événements]
 - Un [exemple d'application complet qui utilise des hubs d’événements].
@@ -154,4 +154,4 @@ Pour plus d'informations sur les hubs d'événements, consultez les rubriques su
 [solution de messages de file d'attente]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0817_2016-->

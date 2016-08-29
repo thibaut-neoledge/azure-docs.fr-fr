@@ -12,12 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/08/2016"
+   ms.date="08/15/2016"
    ms.author="tarcher" />
 
 # Génération en ligne de commande pour Azure
 
-## Vue d’ensemble
+## Vue d'ensemble
 
 Vous pouvez créer un package de déploiement Azure en exécutant MSBuild à partir de l'invite de commandes. Vous pouvez configurer et définir des builds pour le débogage, la gestion intermédiaire et la production, en plus de l'automatisation d’une partie du processus de génération.
 
@@ -26,7 +26,7 @@ Vous pouvez créer un package de déploiement Azure en exécutant MSBuild à par
 
 À l'aide de Microsoft Build Engine (MSBuild), vous pouvez générer des produits dans des environnements de build lab où Visual Studio n'est pas installé. MSBuild utilise pour les fichiers projet un format XML extensible et entièrement pris en charge par Microsoft. Dans ce format de fichier, vous pouvez décrire quels éléments doivent être générés pour une ou plusieurs plateformes et configurations.
 
-Vous pouvez également exécuter MSBuild à l'invite de commandes : c’est cette approche que décrit cette rubrique. En définissant des propriétés à l’invite de commandes, vous pouvez créer des configurations propres à un projet. De même, vous pouvez également définir les cibles que la commande MSBuild va générer. Pour plus d’informations sur les paramètres de ligne de commande et MSBuild, consultez la page [Référence de la ligne de commande MSBuild](https://msdn.microsoft.com/library/ms164311.aspx).
+Vous pouvez également exécuter MSBuild à l’invite de commande : c’est cette approche que décrit cette rubrique. En définissant des propriétés à l’invite de commandes, vous pouvez créer des configurations propres à un projet. De même, vous pouvez également définir les cibles que la commande MSBuild va générer. Pour plus d’informations sur les paramètres de ligne de commande et MSBuild, consultez la page [Référence de la ligne de commande MSBuild](https://msdn.microsoft.com/library/ms164311.aspx).
 
 ## Installation
 
@@ -62,4 +62,4 @@ Si vous souhaitez utiliser un autre répertoire pour les fichiers de configurati
 
 Une fois le package créé, vous pouvez le déployer sur Azure. Pour voir un didacticiel qui illustre ce processus, consultez le site web Azure. Pour plus d'informations sur la façon d'automatiser ce processus, consultez [Remise continue pour Cloud Services dans Azure](./cloud-services/cloud-services-dotnet-continuous-delivery.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0817_2016-->

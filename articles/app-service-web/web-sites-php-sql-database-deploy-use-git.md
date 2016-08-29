@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="06/24/2016" 
+	ms.date="08/11/2016" 
 	ms.author="robmcm"/>
 
 # Création d’une application web PHP-SQL dans Azure App Service et déploiement à l’aide de Git
@@ -30,7 +30,7 @@ Vous apprendrez à effectuer les opérations suivantes :
  
 En suivant ce didacticiel, vous allez générer une application Web d'inscription simple dans PHP. L'application est hébergée dans un site web Azure. Voici une capture d’écran de l’application terminée :
 
-![Azure PHP Web Site](./media/web-sites-php-sql-database-deploy-use-git/running_app_3.png)
+![Site Web PHP Azure](./media/web-sites-php-sql-database-deploy-use-git/running_app_3.png)
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
@@ -50,7 +50,7 @@ Suivez cette procédure pour créer une application web Azure et une base de don
 
 5. Après avoir lu la description de l’application web et de l’application SQL, sélectionnez **Créer**.
 
-6. Cliquez sur chaque partie (**Groupe de ressources**, **Application web**, **Base de données** et **Abonnement**), puis saisissez ou sélectionnez des valeurs pour les champs obligatoires :
+6. Cliquez sur chaque partie (**Groupe de ressources**, **Application web**, **Base de données** et **Abonnement**), puis saisissez ou sélectionnez des valeurs pour les champs obligatoires :
 	
 	- Entrez le nom d’URL de votre choix.
 	- Configuration des informations d’identification du serveur de bases de données
@@ -92,8 +92,8 @@ Pour établir la connexion à l’instance de base de données SQL liée à votr
 
 L'application d'inscription est une simple application PHP qui vous permet de vous inscrire à un événement en entrant votre nom et votre adresse électronique. Les informations relatives aux précédents inscrits sont affichées dans un tableau. Les informations d'inscription sont stockées dans une instance de base de données SQL. L’application se compose de deux fichiers (dont le code est disponible ci-dessous pour un copier/coller) :
 
-* **index.php** : affiche un formulaire d’inscription et un tableau contenant les informations des inscrits.
-* **createtable.php** : crée la table de base de données SQL pour l’application. Ce fichier sera utilisé une seule fois.
+* **index.php** : affiche un formulaire d’inscription et un tableau contenant les informations des inscrits.
+* **createtable.php** : crée la table de base de données SQL pour l’application. Ce fichier sera utilisé une seule fois.
 
 Pour exécuter l'application en local, procédez comme suit : notez que ces étapes partent du principe que PHP et SQL Server Express sont configurés sur votre machine locale, et que vous avez activé l'[extension PDO pour SQL Server][pdo-sqlsrv].
 
@@ -237,7 +237,7 @@ Vous pouvez à présent accéder à **http://localhost:8000/index.php** pour tes
 
 ##Publication de votre application
 
-Une fois votre application testée en local, vous pouvez la publier dans App Service Web Apps à l’aide de Git. Cependant, vous devez d’abord mettre à jour les informations de connexion à la base de données dans l’application. En utilisant les informations de connexion à la base de données obtenues précédemment (dans la section **Obtention des informations de connexion à la base de données SQL**), mettez à jour les informations suivantes dans les **deux** fichiers `createdatabase.php` et `index.php` avec les valeurs appropriées :
+Une fois votre application testée en local, vous pouvez la publier dans App Service Web Apps à l’aide de Git. Cependant, vous devez d'abord mettre à jour les informations de connexion à la base de données dans l'application. En utilisant les informations de connexion à la base de données obtenues précédemment (dans la section **Obtention des informations de connexion à la base de données SQL**), mettez à jour les informations suivantes dans les **deux** fichiers `createdatabase.php` et `index.php` avec les valeurs appropriées :
 
 	// DB connection info
 	$host = "tcp:<value of Server>";
@@ -298,4 +298,4 @@ Pour publier des modifications apportées à votre application, procédez comme 
 [pdo-sqlsrv]: http://php.net/pdo_sqlsrv
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

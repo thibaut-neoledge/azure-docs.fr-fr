@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/16/2016"
+   ms.date="08/11/2016"
    ms.author="tomfitz"/>
 
 # Fonctions des modèles Azure Resource Manager
 
 Cette rubrique décrit toutes les fonctions que vous pouvez utiliser dans un modèle Azure Resource Manager.
 
-Les fonctions des modèles et leurs paramètres ne respectent pas la casse. Par exemple, le Gestionnaire de ressources résout **variables('var1')** et **VARIABLES('VAR1')** de la même façon. Lors de l'évaluation, la fonction préservera la casse sauf si elle la modifie expressément (toUpper ou toLower, par exemple). Certains types de ressources peuvent avoir des exigences de casse, quelle que soit la manière dont les fonctions sont évaluées.
+Les fonctions des modèles et leurs paramètres ne respectent pas la casse. Par exemple, le Gestionnaire de ressources résout **variables('var1')** et **VARIABLES('VAR1')** de la même façon. Lors de l’évaluation, la fonction préserve la casse sauf si elle la modifie expressément (toUpper ou toLower, par exemple). Certains types de ressources peuvent avoir des exigences de casse, quelle que soit la manière dont les fonctions sont évaluées.
 
 ## Fonctions numériques
 
@@ -30,7 +30,6 @@ Resource Manager fournit les expressions ci-après pour travailler avec des enti
 - [copyIndex](#copyindex)
 - [div](#div)
 - [int](#int)
-- [length](#length)
 - [mod](#mod)
 - [mul](#mul)
 - [sub](#sub)
@@ -45,9 +44,32 @@ Retourne la somme des deux entiers fournis.
 
 | Paramètre | Requis | Description
 | :--------------------------------: | :------: | :----------
-| operand1 | Oui | Premier opérande à utiliser.
-| operand2 | Oui | Deuxième opérande à utiliser.
+| operand1 | Oui | Premier entier à ajouter.
+| operand2 | Oui | Deuxième entier à ajouter.
 
+L’exemple suivant ajoute deux paramètres.
+
+    "parameters": {
+      "first": {
+        "type": "int",
+        "metadata": {
+          "description": "First integer to add"
+        }
+      },
+      "second": {
+        "type": "int",
+        "metadata": {
+          "description": "Second integer to add"
+        }
+      }
+    },
+    ...
+    "outputs": {
+      "addResult": {
+        "type": "int",
+        "value": "[add(parameters('first'), parameters('second'))]"
+      }
+    }
 
 <a id="copyindex" />
 ### copyIndex
@@ -56,7 +78,25 @@ Retourne la somme des deux entiers fournis.
 
 Retourne l'index actuel d'une boucle d'itération.
 
-Cette expression est toujours utilisée avec un objet **copy**. Pour découvrir des exemples d’utilisation de l’expression **copyIndex**, voir [Création de plusieurs instances de ressources dans Azure Resource Manager](resource-group-create-multiple.md).
+| Paramètre | Requis | Description
+| :--------------------------------: | :------: | :----------
+| Offset | Non | Montant à ajouter à la valeur de l’itération actuelle.
+
+Cette fonction est toujours utilisée avec un objet **copy**. Pour obtenir une description complète d’exemples d’utilisation de l’expression **copyIndex**, voir [Création de plusieurs instances de ressources dans Azure Resource Manager](resource-group-create-multiple.md).
+
+L’exemple suivant montre une boucle de copie ainsi que la valeur d’index incluse dans le nom.
+
+    "resources": [ 
+      { 
+        "name": "[concat('examplecopy-', copyIndex())]", 
+        "type": "Microsoft.Web/sites", 
+        "copy": { 
+          "name": "websitescopy", 
+          "count": "[parameters('count')]" 
+        }, 
+        ...
+      }
+    ]
 
 
 <a id="div" />
@@ -68,9 +108,32 @@ Retourne la division entière des deux entiers fournis.
 
 | Paramètre | Requis | Description
 | :--------------------------------: | :------: | :----------
-| operand1 | Oui | Nombre à diviser.
-| operand2 | Oui | Nombre utilisé pour diviser. Doit être différent de 0.
+| operand1 | Oui | Entier à diviser.
+| operand2 | Oui | Entier utilisé pour diviser. Ne peut pas être 0.
 
+L’exemple suivant divise un paramètre par un autre paramètre.
+
+    "parameters": {
+      "first": {
+        "type": "int",
+        "metadata": {
+          "description": "Integer being divided"
+        }
+      },
+      "second": {
+        "type": "int",
+        "metadata": {
+          "description": "Integer used to divide"
+        }
+      }
+    },
+    ...
+    "outputs": {
+      "divResult": {
+        "type": "int",
+        "value": "[div(parameters('first'), parameters('second'))]"
+      }
+    }
 
 <a id="int" />
 ### int
@@ -102,10 +165,32 @@ Retourne le reste de la division entière des deux entiers fournis.
 
 | Paramètre | Requis | Description
 | :--------------------------------: | :------: | :----------
-| operand1 | Oui | Nombre à diviser.
-| operand2 | Oui | Nombre utilisé pour diviser. Doit être différent de 0.
+| operand1 | Oui | Entier à diviser.
+| operand2 | Oui | Entier utilisé pour diviser. Doit être différent de 0.
 
+L’exemple suivant renvoie le reste de la division d’un paramètre par un autre paramètre.
 
+    "parameters": {
+      "first": {
+        "type": "int",
+        "metadata": {
+          "description": "Integer being divided"
+        }
+      },
+      "second": {
+        "type": "int",
+        "metadata": {
+          "description": "Integer used to divide"
+        }
+      }
+    },
+    ...
+    "outputs": {
+      "modResult": {
+        "type": "int",
+        "value": "[mod(parameters('first'), parameters('second'))]"
+      }
+    }
 
 <a id="mul" />
 ### mul
@@ -116,9 +201,32 @@ Retourne la multiplication des deux entiers fournis.
 
 | Paramètre | Requis | Description
 | :--------------------------------: | :------: | :----------
-| operand1 | Oui | Premier opérande à utiliser.
-| operand2 | Oui | Deuxième opérande à utiliser.
+| operand1 | Oui | Premier entier à multiplier.
+| operand2 | Oui | Deuxième entier à multiplier.
 
+L’exemple suivant multiplie un paramètre par un autre paramètre.
+
+    "parameters": {
+      "first": {
+        "type": "int",
+        "metadata": {
+          "description": "First integer to multiply"
+        }
+      },
+      "second": {
+        "type": "int",
+        "metadata": {
+          "description": "Second integer to multiply"
+        }
+      }
+    },
+    ...
+    "outputs": {
+      "mulResult": {
+        "type": "int",
+        "value": "[mul(parameters('first'), parameters('second'))]"
+      }
+    }
 
 <a id="sub" />
 ### sub
@@ -129,9 +237,32 @@ Retourne la soustraction des deux entiers fournis.
 
 | Paramètre | Requis | Description
 | :--------------------------------: | :------: | :----------
-| operand1 | Oui | Nombre auquel sera appliquée la soustraction.
-| operand2 | Oui | Nombre à soustraire.
+| operand1 | Oui | Entier auquel est appliquée la soustraction.
+| operand2 | Oui | Entier soustrait.
 
+L’exemple suivant soustrait un paramètre à un autre paramètre.
+
+    "parameters": {
+      "first": {
+        "type": "int",
+        "metadata": {
+          "description": "Integer subtracted from"
+        }
+      },
+      "second": {
+        "type": "int",
+        "metadata": {
+          "description": "Integer to subtract"
+        }
+      }
+    },
+    ...
+    "outputs": {
+      "subResult": {
+        "type": "int",
+        "value": "[sub(parameters('first'), parameters('second'))]"
+      }
+    }
 
 ## Fonctions de chaîne
 
@@ -139,19 +270,20 @@ Resource Manager fournit les fonctions ci-après pour travailler avec des chaîn
 
 - [base64](#base64)
 - [concat](#concat)
-- [length](#length)
+- [length](#lengthstring)
 - [padLeft](#padleft)
 - [replace](#replace)
+- [skip](#skipstring)
 - [split](#split)
 - [string](#string)
 - [substring](#substring)
+- [take](#takestring)
 - [toLower](#tolower)
 - [toUpper](#toupper)
 - [découper](#trim)
 - [uniqueString](#uniquestring)
 - [URI](#uri)
 
-Pour obtenir le nombre de caractères d’une chaîne ou d’un tableau, consultez [length](#length).
 
 <a id="base64" />
 ### base64
@@ -164,7 +296,7 @@ Retourne la représentation en base 64 de la chaîne d'entrée.
 | :--------------------------------: | :------: | :----------
 | chaîne\_entrée | Oui | Valeur de chaîne à retourner sous la forme d'une représentation en base 64.
 
-L'exemple suivant montre comment utiliser la fonction base64.
+L’exemple suivant montre comment utiliser la fonction base64.
 
     "variables": {
       "usernameAndPassword": "[concat('parameters('username'), ':', parameters('password'))]",
@@ -172,11 +304,18 @@ L'exemple suivant montre comment utiliser la fonction base64.
     }
 
 <a id="concat" />
-### concat
+### concat - string
 
-**concat (arg1, arg2, arg3, ...)**
+**concat (string1, string2, string3, ...)**
 
-Combine plusieurs valeurs et retourne le résultat concaténé. Cette fonction peut prendre n’importe quel nombre d’arguments et accepter à la fois des chaînes ou des tableaux pour les paramètres.
+Combine plusieurs valeurs de chaîne et renvoie la chaîne concaténée.
+
+| Paramètre | Requis | Description
+| :--------------------------------: | :------: | :----------
+| string1 | Oui | Valeur de chaîne à concaténer.
+| chaînes supplémentaires | Non | Valeurs de chaîne à concaténer.
+
+Cette fonction peut prendre n’importe quel nombre d’arguments et accepter à la fois des chaînes ou des tableaux pour les paramètres. Pour obtenir un exemple de concaténation des tableaux, consultez [concat - array](#concatarray).
 
 L’exemple suivant montre comment combiner plusieurs valeurs pour retourner au final une chaîne concaténée.
 
@@ -187,19 +326,28 @@ L’exemple suivant montre comment combiner plusieurs valeurs pour retourner au 
         }
     }
 
-L’exemple suivant montre comment combiner deux tableaux.
+
+<a id="lengthstring" />
+### length - string
+
+**length(string)**
+
+Renvoie le nombre de caractères dans une chaîne.
+
+| Paramètre | Requis | Description
+| :--------------------------------: | :------: | :----------
+| string | Oui | Valeur de chaîne à utiliser pour l’obtention du nombre de caractères.
+
+Pour découvrir un exemple d’utilisation de longueur avec un tableau, consultez [length - array](#length).
+
+L’exemple suivant renvoie le nombre de caractères dans une chaîne.
 
     "parameters": {
-        "firstarray": {
-            type: "array"
-        }
-        "secondarray": {
-            type: "array"
-        }
-     },
-     "variables": {
-         "combinedarray": "[concat(parameters('firstarray'), parameters('secondarray'))]
-     }
+        "appName": { "type": "string" }
+    },
+    "variables": { 
+        "nameLength": "[length(parameters('appName'))]"
+    }
         
 
 <a id="padleft" />
@@ -233,7 +381,7 @@ Renvoie une nouvelle chaîne dans laquelle toutes les instances d’un caractèr
 
 | Paramètre | Requis | Description
 | :--------------------------------: | :------: | :----------
-| chaîne\_initiale | Oui | Chaîne pour laquelle toutes les instances d’un caractère seront remplacées par un autre caractère.
+| chaîne\_initiale | Oui | Chaîne pour laquelle toutes les instances d’un caractère sont remplacées par un autre caractère.
 | ancien\_caractère | Oui | Caractère à supprimer de la chaîne initiale.
 | nouveau\_caractère | Oui | Caractère à ajouter à la place du caractère supprimé.
 
@@ -246,12 +394,53 @@ L’exemple ci-après indique comment supprimer tous les tirets de la chaîne fo
         "newidentifier": "[replace(parameters('identifier'),'-','')]"
     }
 
+<a id="skipstring" />
+### skip - string
+**skip(originalValue, numberToSkip)**
+
+Renvoie une chaîne avec tous les caractères après le nombre spécifié dans la chaîne.
+
+| Paramètre | Requis | Description
+| :--------------------------------: | :------: | :----------
+| originalValue | Oui | Chaîne à utiliser pour ignorer les caractères.
+| numberToSkip | Oui | Nombre de caractères à ignorer. Si cette valeur est inférieure ou égale à 0, tous les caractères de la chaîne sont renvoyés. Si elle est supérieure à la longueur de la chaîne, une chaîne vide est renvoyée. 
+
+Pour découvrir un exemple de caractères ignorés avec un tableau, consultez [skip - array](#skip).
+
+L’exemple suivant ignore le nombre spécifié de caractères de la chaîne.
+
+    "parameters": {
+      "first": {
+        "type": "string",
+        "metadata": {
+          "description": "Value to use for skipping"
+        }
+      },
+      "second": {
+        "type": "int",
+        "metadata": {
+          "description": "Number of characters to skip"
+        }
+      }
+    },
+    "resources": [
+    ],
+    "outputs": {
+      "return": {
+        "type": "string",
+        "value": "[skip(parameters('first'),parameters('second'))]"
+      }
+    }
+
+
 <a id="split" />
 ### split
 
-**split(chaîne\_entrée, délimiteur)** **split(chaîne\_entrée, [délimiteurs])**
+**split(inputString, delimiterString)**
 
-Retourne un tableau de chaînes qui contient les sous-chaînes de la chaîne d'entrée séparées par les délimiteurs envoyés.
+**split(inputString, delimiterArray)**
+
+Renvoie un tableau de chaînes qui contient les sous-chaînes de la chaîne d’entrée séparées par les délimiteurs spécifiés.
 
 | Paramètre | Requis | Description
 | :--------------------------------: | :------: | :----------
@@ -265,6 +454,20 @@ L'exemple suivant fractionne la chaîne d'entrée en la séparant par une virgul
     },
     "variables": { 
         "stringPieces": "[split(parameters('inputString'), ',')]"
+    }
+
+L’exemple suivant fractionne la chaîne d’entrée par une virgule ou un point-virgule.
+
+    "variables": {
+      "stringToSplit": "test1,test2;test3",
+      "delimiters": [ ",", ";" ]
+    },
+    "resources": [ ],
+    "outputs": {
+      "exampleOutput": {
+        "value": "[split(variables('stringToSplit'), variables('delimiters'))]",
+        "type": "array"
+      }
     }
 
 <a id="string" />
@@ -323,6 +526,44 @@ L’exemple suivant extrait les trois premiers caractères d’un paramètre.
     },
     "variables": { 
         "prefix": "[substring(parameters('inputString'), 0, 3)]"
+    }
+
+<a id="takestring" />
+### take - string
+**take(originalValue, numberToTake)**
+
+Renvoie une chaîne avec le nombre de caractères spécifié à partir du début de la chaîne.
+
+| Paramètre | Requis | Description
+| :--------------------------------: | :------: | :----------
+| originalValue | Oui | Chaîne à partir de laquelle il faut tirer les caractères.
+| numberToTake | Oui | Nombre de caractères à tirer. Si cette valeur est inférieure ou égale à 0, une chaîne vide est renvoyée. Si elle est supérieure à la longueur de la chaîne donnée, tous les caractères de la chaîne sont renvoyés.
+
+Pour découvrir un exemple de caractères tirés avec un tableau, consultez [take - array](#take).
+
+L’exemple suivant tire le nombre spécifié de caractères de la chaîne.
+
+    "parameters": {
+      "first": {
+        "type": "string",
+        "metadata": {
+          "description": "Value to use for taking"
+        }
+      },
+      "second": {
+        "type": "int",
+        "metadata": {
+          "description": "Number of characters to take"
+        }
+      }
+    },
+    "resources": [
+    ],
+    "outputs": {
+      "return": {
+        "type": "string",
+        "value": "[take(parameters('first'), parameters('second'))]"
+      }
     }
 
 <a id="tolower" />
@@ -388,20 +629,24 @@ L’exemple suivant supprime les espaces à partir de la valeur de paramètre in
 <a id="uniquestring" />
 ### uniqueString
 
-**uniqueString (stringForCreatingUniqueString, ...)**
+**uniqueString (baseString, ...)**
 
-Crée une chaîne unique basée sur les valeurs fournies en tant que paramètres. Cette fonction est utile lorsque vous avez besoin de créer un nom unique pour une ressource. Vous fournissez des valeurs de paramètre qui représentent le niveau d'unicité pour le résultat. Vous pouvez spécifier si le nom est unique pour votre abonnement, le groupe de ressources ou le déploiement.
+Crée une chaîne unique basée sur les valeurs fournies en tant que paramètres.
 
 | Paramètre | Requis | Description
 | :--------------------------------: | :------: | :----------
-| stringForCreatingUniqueString | Oui | La chaîne de base utilisée dans la fonction de hachage pour créer une chaîne unique.
+| baseString | Oui | Chaîne utilisée dans la fonction de hachage pour créer une chaîne unique.
 | paramètres supplémentaires le cas échéant | Non | Vous pouvez ajouter autant de chaînes que nécessaire pour créer la valeur qui spécifie le niveau d’unicité.
 
-La valeur renvoyée n’est pas une chaîne aléatoire, mais plutôt le résultat d’une fonction de hachage. La valeur renvoyée comprend 13 caractères. Son unicité globale n'est pas garantie Il se peut que vous souhaitiez associer un préfixe de votre convention d’affectation de noms à la valeur pour créer un nom plus facile à reconnaître.
+Cette fonction est utile lorsque vous avez besoin de créer un nom unique pour une ressource. Vous fournissez des valeurs de paramètre qui représentent le niveau d'unicité pour le résultat. Vous pouvez spécifier si le nom est unique pour votre abonnement, le groupe de ressources ou le déploiement.
 
-Les exemples suivants montrent comment utiliser uniqueString pour créer une valeur unique pour différents niveaux couramment utilisés.
+La valeur renvoyée n’est pas une chaîne aléatoire, mais plutôt le résultat d’une fonction de hachage. La valeur renvoyée comprend 13 caractères. Son unicité globale n'est pas garantie Il se peut que vous souhaitiez associer un préfixe de votre convention d’affectation de noms à la valeur pour créer un nom plus facile à reconnaître. L’exemple suivant montre le format de la valeur renvoyée. Évidemment, la valeur réelle varie en fonction des paramètres fournis.
 
-Unique au niveau de l'abonnement
+    tcvhiyu5h2o5o
+
+Les exemples suivants montrent comment utiliser uniqueString afin de créer une valeur unique pour des niveaux couramment utilisés.
+
+Unique au niveau de l’abonnement
 
     "[uniqueString(subscription().subscriptionId)]"
 
@@ -420,6 +665,8 @@ L'exemple suivant montre comment créer un nom unique pour un compte de stockage
         "type": "Microsoft.Storage/storageAccounts", 
         ...
 
+
+
 <a id="uri" />
 ### URI
 
@@ -432,7 +679,7 @@ Crée un URI absolu en combinant le baseUri et la chaîne relativeUri.
 | baseUri | Oui | La chaîne d’URI de base.
 | relativeUri | Oui | La chaîne d’URI relatif à ajouter à la chaîne d’URI de base.
 
-La valeur du paramètre **baseUri** peut inclure un fichier spécifique, mais seul le chemin de base est utilisé lors de la construction de l’URI. Par exemple, si vous passez **http://contoso.com/resources/azuredeploy.json** comme paramètre baseUri, l’URI de base résultante est **http://contoso.com/resources/**.
+La valeur du paramètre **baseUri** peut inclure un fichier spécifique, mais seul le chemin de base est utilisé lors de la construction de l’URI. Par exemple, si vous passez **http://contoso.com/resources/azuredeploy.json** comme paramètre baseUri, l’URI de base résultant est **http://contoso.com/resources/**.
 
 L’exemple suivant montre comment créer un lien vers un modèle imbriqué en fonction de la valeur du modèle parent.
 
@@ -442,18 +689,54 @@ L’exemple suivant montre comment créer un lien vers un modèle imbriqué en f
 
 Resource Manager fournit les fonctions ci-après pour travailler avec des valeurs de tableau :
 
-- [concat](#concat)
+- [concat](#concatarray)
 - [length](#length)
 - [skip](#skip)
-- [split](#split)
 - [take](#take)
 
+Pour obtenir un tableau de valeurs de chaîne délimitée par une valeur, consultez [split](#split).
+
+<a id="concatarray" />
+### concat - array
+
+**concat (array1, array2, array3, ...)**
+
+Combine plusieurs tableaux et renvoie le tableau concaténé.
+
+| Paramètre | Requis | Description
+| :--------------------------------: | :------: | :----------
+| array1 | Oui | Tableau à concaténer.
+| tableaux supplémentaires | Non | Tableaux à concaténer.
+
+Cette fonction peut prendre n’importe quel nombre d’arguments et accepter à la fois des chaînes ou des tableaux pour les paramètres. Pour obtenir un exemple de concaténation des valeurs de chaîne, consultez [concat - string](#concat).
+
+L’exemple suivant montre comment combiner deux tableaux.
+
+    "parameters": {
+        "firstarray": {
+            type: "array"
+        }
+        "secondarray": {
+            type: "array"
+        }
+     },
+     "variables": {
+         "combinedarray": "[concat(parameters('firstarray'), parameters('secondarray'))]
+     }
+        
+
 <a id="length" />
-### length
+### length - array
 
-**length (tableau ou chaîne)**
+**length(array)**
 
-Retourne le nombre d’éléments dans un tableau ou le nombre de caractères dans une chaîne. Vous pouvez utiliser cette fonction avec un tableau pour spécifier le nombre d’itérations lors de la création de ressources. Dans l’exemple ci-après, le paramètre **siteNames** fait référence à un tableau de noms à utiliser lors de la création de sites web.
+Retourne le nombre d'éléments dans un tableau.
+
+| Paramètre | Requis | Description
+| :--------------------------------: | :------: | :----------
+| array | Oui | Tableau à utiliser pour obtenir le nombre d’éléments.
+
+Vous pouvez utiliser cette fonction avec un tableau pour spécifier le nombre d’itérations lors de la création de ressources. Dans l’exemple ci-après, le paramètre **siteNames** fait référence à un tableau de noms à utiliser lors de la création de sites web.
 
     "copy": {
         "name": "websitescopy",
@@ -462,35 +745,36 @@ Retourne le nombre d’éléments dans un tableau ou le nombre de caractères da
 
 Pour plus d’informations sur l’utilisation de cette fonction avec un tableau, voir [Création de plusieurs instances de ressources dans Azure Resource Manager](resource-group-create-multiple.md).
 
-Vous pouvez aussi l’utiliser avec une chaîne :
-
-    "parameters": {
-        "appName": { "type": "string" }
-    },
-    "variables": { 
-        "nameLength": "[length(parameters('appName'))]"
-    }
+Pour découvrir un exemple d’utilisation de longueur avec une valeur de chaîne, consultez [length - string](#lengthstring).
 
 <a id="skip" />
-### skip
+### skip - array
 **skip(originalValue, numberToSkip)**
 
-Retourne un tableau ou une chaîne avec l’ensemble des éléments ou des caractères se trouvant après le nombre spécifié dans la chaîne ou le tableau.
+Renvoie un tableau avec tous les éléments après le nombre spécifié dans le tableau.
 
 | Paramètre | Requis | Description
 | :--------------------------------: | :------: | :----------
-| originalValue | Oui | Le tableau ou la chaîne à utiliser pour ignorer les éléments ou les caractères.
-| numberToSkip | Oui | Le nombre d’éléments ou de caractères à ignorer. Si cette valeur est inférieure ou égale à 0, tous les éléments du tableau ou de la chaîne sont retournés. Si elle est supérieure à la longueur de la chaîne ou du tableau, un tableau ou une chaîne vide sont retournés. 
+| originalValue | Oui | Tableau à utiliser pour ignorer les éléments.
+| numberToSkip | Oui | Nombre d’éléments à ignorer. Si cette valeur est inférieure ou égale à 0, tous les éléments du tableau sont renvoyés. Si elle est supérieure à la longueur du tableau, un tableau vide est renvoyé. 
+
+Pour découvrir un exemple d’éléments ignorés avec une chaîne, consultez [skip - string](#skipstring).
 
 L’exemple suivant ignore le nombre spécifié d’éléments du tableau.
 
     "parameters": {
       "first": {
         "type": "array",
+        "metadata": {
+          "description": "Values to use for skipping"
+        },
         "defaultValue": [ "one", "two", "three" ]
       },
       "second": {
-        "type": "int"
+        "type": "int",
+        "metadata": {
+          "description": "Number of elements to skip"
+        }
       }
     },
     "resources": [
@@ -498,30 +782,38 @@ L’exemple suivant ignore le nombre spécifié d’éléments du tableau.
     "outputs": {
       "return": {
         "type": "array",
-        "value": "[skip(parameters('first'),parameters('second'))]"
+        "value": "[skip(parameters('first'), parameters('second'))]"
       }
     }
 
 <a id="take" />
-### take
+### take - array
 **take(originalValue, numberToTake)**
 
-Retourne un tableau ou une chaîne avec le nombre spécifié d’éléments ou de caractères depuis le début de la chaîne ou du tableau.
+Renvoie un tableau avec le nombre spécifié d’éléments depuis le début du tableau.
 
 | Paramètre | Requis | Description
 | :--------------------------------: | :------: | :----------
-| originalValue | Oui | Le tableau ou la chaîne à partir desquels les éléments ou les caractères doivent être pris.
-| numberToTake | Oui | Le nombre d’éléments ou de caractères à prendre. Si cette valeur est inférieure ou égale à 0, un tableau ou une chaîne vide sont retournés. Si elle est supérieure à la longueur de la chaîne ou du tableau donnés, tous les éléments du tableau ou de la chaîne sont retournés.
+| originalValue | Oui | Tableau à partir duquel les éléments sont tirés.
+| numberToTake | Oui | Nombre d’éléments à tirer. Si cette valeur est inférieure ou égale à 0, un tableau vide est renvoyé. Si elle est supérieure à la longueur du tableau donné, tous les éléments du tableau sont renvoyés.
+
+Pour découvrir un exemple d’éléments de ce type avec une chaîne, consultez [take - string](#takestring).
 
 L’exemple suivant prend le nombre spécifié d’éléments du tableau.
 
     "parameters": {
       "first": {
         "type": "array",
+        "metadata": {
+          "description": "Values to use for taking"
+        },
         "defaultValue": [ "one", "two", "three" ]
       },
       "second": {
-        "type": "int"
+        "type": "int",
+        "metadata": {
+          "description": "Number of elements to take"
+        }
       }
     },
     "resources": [
@@ -550,7 +842,9 @@ Pour obtenir des valeurs de ressources, de groupes de ressources ou d’abonneme
 
 Renvoie des informations sur l’opération de déploiement actuelle.
 
-Cette fonction retourne l’objet transmis au cours du déploiement. Les propriétés de l’objet retourné diffèrent selon que l’objet de déploiement est passé sous forme de lien ou d’objet inline. Quand l’objet de déploiement est passé inline, comme lors de l’utilisation du paramètre **-TemplateFile** dans Azure PowerShell pour pointer vers un fichier local, l’objet retourné a le format suivant :
+Cette fonction retourne l’objet transmis au cours du déploiement. Les propriétés de l’objet renvoyé diffèrent selon que l’objet de déploiement est passé sous forme de lien ou d’objet inline.
+
+Quand l’objet de déploiement est passé inline, comme lors de l’utilisation du paramètre **-TemplateFile** dans Azure PowerShell pour pointer vers un fichier local, l’objet renvoyé a le format suivant :
 
     {
         "name": "",
@@ -558,6 +852,8 @@ Cette fonction retourne l’objet transmis au cours du déploiement. Les propri�
             "template": {
                 "$schema": "",
                 "contentVersion": "",
+                "parameters": {},
+                "variables": {},
                 "resources": [
                 ],
                 "outputs": {}
@@ -574,9 +870,17 @@ Quand l’objet est passé comme lien, par exemple lors de l’utilisation du pa
         "name": "",
         "properties": {
             "templateLink": {
-                "uri": "",
-                "contentVersion": ""
+                "uri": ""
             },
+            "template": {
+                "$schema": "",
+                "contentVersion": "",
+                "parameters": {},
+                "variables": {},
+                "resources": [],
+                "outputs": {}
+            },
+            "parameters": {},
             "mode": "",
             "provisioningState": ""
         }
@@ -587,7 +891,6 @@ L’exemple suivant montre comment utiliser deployment() pour établir une liais
     "variables": {  
         "sharedTemplateUrl": "[uri(deployment().properties.templateLink.uri, 'shared-resources.json')]"  
     }  
-
 
 <a id="parameters" />
 ### parameters
@@ -627,69 +930,95 @@ Retourne la valeur de la variable. Le nom de variable spécifié doit être déf
 | :--------------------------------: | :------: | :----------
 | nom\_variable | Oui | Nom de la variable à retourner.
 
+L’exemple suivant utilise une valeur de variable.
 
+    "variables": {
+      "storageName": "[concat('storage', uniqueString(resourceGroup().id))]"
+    },
+    "resources": [
+      {
+        "type": "Microsoft.Storage/storageAccounts",
+        "name": "[variables('storageName')]",
+        ...
+      }
+    ],
 
 ## Fonctions de ressource
 
 Resource Manager offre les fonctions ci-après pour obtenir des valeurs de ressource :
 
-- [listkeys](#listkeys)
-- [list*](#list)
+- [listKeys and list{Value}](#listkeys)
 - [fournisseurs](#providers)
 - [reference](#reference)
 - [resourceGroup](#resourcegroup)
 - [resourceId](#resourceid)
-- [subscription](#subscription)
+- [abonnement](#subscription)
 
 Pour obtenir des valeurs de paramètres, de variables ou du déploiement actuel, consultez [Fonctions de valeur de déploiement](#deployment-value-functions).
 
-<a id="listkeys" />
-### listKeys
+<a id="listkeys" /> <a id="list" />
+### listKeys and list{Value}
 
 **listKeys (nom\_ressource ou identificateur\_ressource, version\_api)**
 
-Retourne les clés pour n’importe quel type de ressource qui prend en charge l’opération listKeys. L'identificateur de ressource peut être spécifié à l'aide de la [fonction resourceId](./#resourceid) ou en utilisant le format **espacedenoms\_fournisseur/type\_ressource/nom\_ressource**. Vous pouvez utiliser cette fonction pour obtenir les valeurs primaryKey et secondaryKey.
+**list{Value} (resourceName or resourceIdentifier, apiVersion)**
+
+Renvoie les valeurs pour n’importe quel type de ressource qui prend en charge l’opération list. L’utilisation la plus courante est **listKeys**.
   
 | Paramètre | Requis | Description
 | :--------------------------------: | :------: | :----------
 | nom\_ressource ou identificateur\_ressource | Oui | Identificateur unique pour la ressource.
 | apiVersion | Oui | Version d'API de l'état d'exécution des ressources.
 
-L'exemple suivant montre comment retourner les clés à partir d'un compte de stockage dans la section outputs.
+Toute opération qui commence par **list** peut être utilisée en tant que fonction dans votre modèle. Les opérations disponibles incluent **listKeys**, mais également les opérations telles que **list**, **listAdminKeys** et **listStatus**. Pour déterminer les types de ressources qui ont une opération de liste, utilisez la commande PowerShell suivante.
+
+    Get-AzureRmProviderOperation -OperationSearchString *  | where {$_.Operation -like "*list*"} | FT Operation
+
+Ou, récupérez la liste avec l’interface de ligne de commande Azure. L’exemple suivant récupère toutes les opérations pour **apiapps** et utilise l’utilitaire JSON [jq](http://stedolan.github.io/jq/download/) pour filtrer uniquement les opérations list.
+
+    azure provider operations show --operationSearchString */apiapps/* --json | jq ".[] | select (.operation | contains("list"))"
+
+L’identificateur de ressource peut être spécifié à l’aide de la [fonction resourceId](./#resourceid) ou en utilisant le format **{providerNamespace}/{resourceType}/{resourceName}**.
+
+L’exemple suivant montre comment renvoyer les clés primaires et secondaires à partir d’un compte de stockage dans la section outputs.
 
     "outputs": { 
-      "exampleOutput": { 
-        "value": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2015-05-01-preview')]", 
+      "listKeysOutput": { 
+        "value": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2016-01-01')]", 
         "type" : "object" 
       } 
     } 
 
-<a id="list" />
-### list*
+L’objet renvoyé par listKeys a le format suivant :
 
-**list* (nom\_ressource ou identificateur\_ressource, version\_api)**
-
-Toute opération qui commence par **list** peut être utilisée en tant que fonction dans votre modèle. Cela inclut **listKeys**, comme indiqué ci-dessus, mais également les opérations telles que **list**, **listAdminKeys** et **listStatus**. Lorsque vous appelez la fonction, utilisez le nom réel de la fonction et pas list*. Pour déterminer les types de ressources qui ont une opération de liste, utilisez la commande PowerShell suivante.
-
-    PS C:\> Get-AzureRmProviderOperation -OperationSearchString *  | where {$_.Operation -like "*list*"} | FT Operation
-
-Ou, récupérez la liste avec l’interface de ligne de commande Azure. L’exemple suivant récupère toutes les opérations pour **apiapps** et utilise l’utilitaire JSON [jq](http://stedolan.github.io/jq/download/) pour filtrer uniquement les opérations de liste.
-
-    azure provider operations show --operationSearchString */apiapps/* --json | jq ".[] | select (.operation | contains("list"))"
+    {
+      "keys": [
+        {
+          "keyName": "key1",
+          "permissions": "Full",
+          "value": "{value}"
+        },
+        {
+          "keyName": "key2",
+          "permissions": "Full",
+          "value": "{value}"
+        }
+      ]
+    }
 
 <a id="providers" />
 ### fournisseurs
 
 **fournisseurs (espacedenoms\_fournisseur, [type\_ressource])**
 
-Retourne des informations sur un fournisseur de ressources et les types de ressources qu'il prend en charge. Si aucun type n'est spécifié, tous les types pris en charge sont retournés.
+Renvoie des informations sur un fournisseur de ressources et les types de ressources qu’il prend en charge. Si vous ne fournissez pas un type de ressource, la fonction renvoie tous les types pris en charge pour le fournisseur de ressources.
 
 | Paramètre | Requis | Description
 | :--------------------------------: | :------: | :----------
 | espacedenoms\_fournisseur | Oui | Espace de noms du fournisseur.
-| type\_ressource | Non | Type de ressource dans l'espace de noms spécifié.
+| resourceType | Non | Type de ressource dans l'espace de noms spécifié.
 
-Chaque type pris en charge est retourné au format suivant et l'ordre du tableau n'est pas garanti :
+Chaque type pris en charge est renvoyé au format suivant. Le classement du tableau n’est pas garanti.
 
     {
         "resourceType": "",
@@ -711,12 +1040,12 @@ L'exemple suivant montre comment utiliser la fonction provider :
 
 **reference (nom\_ressource ou identificateur\_ressource, [version\_api])**
 
-Permet à une expression de dériver sa valeur de l'état d'exécution d'une autre ressource.
+Renvoie un objet représentant l’état d’exécution d’une autre ressource.
 
 | Paramètre | Requis | Description
 | :--------------------------------: | :------: | :----------
 | nom\_ressource ou identificateur\_ressource | Oui | Nom ou identificateur unique d’une ressource.
-| version\_api | Non | Version d’API de la ressource spécifiée. Vous devez inclure ce paramètre lorsque la ressource n’est pas approvisionnée dans le même modèle.
+| apiVersion | Non | Version d’API de la ressource spécifiée. Incluez ce paramètre lorsque la ressource n’est pas approvisionnée dans le même modèle.
 
 La fonction **reference** dérive sa valeur d'un état d'exécution, et ne peut donc pas être utilisée dans la section variables. Elle peut être utilisée dans la section outputs d'un modèle.
 
@@ -735,16 +1064,16 @@ L’exemple ci-après référence un compte de stockage qui n’est pas déploy�
 
     "outputs": {
 		"ExistingStorage": {
-			"value": "[reference(concat('Microsoft.Storage/storageAccounts/', parameters('storageAccountName')), '2015-06-15')]",
+			"value": "[reference(concat('Microsoft.Storage/storageAccounts/', parameters('storageAccountName')), '2016-01-01')]",
 			"type" : "object"
 		}
 	}
 
-Vous pouvez récupérer une valeur spécifique à partir de l’objet renvoyé, comme l’URI du point de terminaison d’objet blob, comme indiqué ci-dessous.
+Vous pouvez récupérer une valeur spécifique à partir de l’objet renvoyé, comme l’URI du point de terminaison d’objet blob, tel qu’indiqué dans l’exemple suivant.
 
     "outputs": {
 		"BlobUri": {
-			"value": "[reference(concat('Microsoft.Storage/storageAccounts/', parameters('storageAccountName')), '2015-06-15').primaryEndpoints.blob]",
+			"value": "[reference(concat('Microsoft.Storage/storageAccounts/', parameters('storageAccountName')), '2016-01-01').primaryEndpoints.blob]",
 			"type" : "string"
 		}
 	}
@@ -753,22 +1082,31 @@ L’exemple ci-après référence un compte de stockage figurant dans un autre g
 
     "outputs": {
 		"BlobUri": {
-			"value": "[reference(resourceId(parameters('relatedGroup'), 'Microsoft.Storage/storageAccounts/', parameters('storageAccountName')), '2015-06-15').primaryEndpoints.blob]",
+			"value": "[reference(resourceId(parameters('relatedGroup'), 'Microsoft.Storage/storageAccounts/', parameters('storageAccountName')), '2016-01-01').primaryEndpoints.blob]",
 			"type" : "string"
 		}
 	}
+
+Les propriétés de l’objet renvoyé varient en fonction du type de ressource.
 
 <a id="resourcegroup" />
 ### resourceGroup
 
 **resourceGroup()**
 
-Retourne un objet structuré qui représente le groupe de ressources actuel. L'objet se présente au format suivant :
+Renvoie un objet qui représente le groupe de ressources actuel.
+
+L’objet renvoyé présente le format suivant :
 
     {
       "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}",
       "name": "{resourceGroupName}",
       "location": "{resourceGroupLocation}",
+      "tags": {
+      },
+      "properties": {
+        "provisioningState": "{status}"
+      }
     }
 
 L'exemple suivant utilise l'emplacement du groupe de ressources pour affecter l'emplacement d'un site web.
@@ -788,17 +1126,19 @@ L'exemple suivant utilise l'emplacement du groupe de ressources pour affecter l'
 
 **resourceId ([ID\_abonnement], [nom\_groupe\_ressource], type\_ressource, nom\_ressource1, [nom\_ressource2]...)**
 
-Retourne l'identificateur unique d'une ressource. Vous utilisez cette fonction lorsque le nom de la ressource est ambigu ou non configuré dans le même modèle. L'identificateur est retourné au format suivant :
-
-    /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/{resourceProviderNamespace}/{resourceType}/{resourceName}
+Retourne l'identificateur unique d'une ressource.
       
 | Paramètre | Requis | Description
 | :---------------: | :------: | :----------
-| subscriptionId | Non | ID d’abonnement facultatif. La valeur par défaut est l’abonnement actuel. Spécifiez cette valeur lorsque vous récupérez une ressource se trouvant dans un autre abonnement.
-| nom\_groupe\_ressources | Non | Nom de groupe de ressources facultatif. La valeur par défaut est le groupe de ressources actuel. Spécifiez cette valeur lorsque vous récupérez une ressource se trouvant dans un autre groupe de ressources.
-| type\_ressource | Oui | Type de ressource, y compris l'espace de noms du fournisseur de ressources.
+| subscriptionId | Non | La valeur par défaut est l’abonnement actuel. Spécifiez cette valeur lorsque vous devez récupérer une ressource se trouvant dans un autre abonnement.
+| resourceGroupName | Non | La valeur par défaut est le groupe de ressources actuel. Spécifiez cette valeur lorsque vous devez récupérer une ressource se trouvant dans un autre groupe de ressources.
+| resourceType | Oui | Type de ressource, y compris l'espace de noms du fournisseur de ressources.
 | nom\_ressource1 | Oui | Nom de la ressource.
 | nom\_ressource2 | Non | Segment de nom de ressource suivant si la ressource est imbriquée.
+
+Vous utilisez cette fonction lorsque le nom de la ressource est ambigu ou non configuré dans le même modèle. L'identificateur est retourné au format suivant :
+
+    /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/{resourceProviderNamespace}/{resourceType}/{resourceName}
 
 L'exemple suivant montre comment récupérer les ID de ressources pour un site web et une base de données. Le site web se trouve dans un groupe de ressources nommé **myWebsitesGroup** et la base de données se trouve dans le groupe de ressources actuel pour ce modèle.
 
@@ -849,11 +1189,11 @@ Souvent, vous devez utiliser cette fonction lorsque vous utilisez un compte de s
     }
 
 <a id="subscription" />
-### subscription
+### abonnement
 
 **subscription()**
 
-Retourne des détails sur l'abonnement au format suivant.
+Renvoie des détails sur l’abonnement au format suivant.
 
     {
         "id": "/subscriptions/#####",
@@ -861,7 +1201,7 @@ Retourne des détails sur l'abonnement au format suivant.
         "tenantId": "#####"
     }
 
-L'exemple suivant montre la fonction subscription appelée dans la section outputs.
+L’exemple suivant montre la fonction subscription appelée dans la section outputs.
 
     "outputs": { 
       "exampleOutput": { 
@@ -877,4 +1217,4 @@ L'exemple suivant montre la fonction subscription appelée dans la section outpu
 - Pour effectuer une itération un nombre de fois spécifié pendant la création d'un type de ressource, consultez [Création de plusieurs instances de ressources dans Azure Resource Manager](resource-group-create-multiple.md).
 - Pour savoir comment déployer le modèle que vous avez créé, consultez [Déploiement d’une application avec un modèle Azure Resource Manager](resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0817_2016-->

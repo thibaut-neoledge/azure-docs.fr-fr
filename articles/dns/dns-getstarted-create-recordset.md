@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/06/2016"
+   ms.date="08/16/2016"
    ms.author="cherylmc"/>
 
 
@@ -32,7 +32,7 @@ Cet article vous guide dans le processus de création de jeux d’enregistrement
 
 ## Vérifiez que vous disposez de la dernière version de PowerShell
 
-Vérifiez que la dernière version des applets de commande PowerShell Azure Resource Manager est installée. Pour plus d’informations sur l’installation des applets de commande PowerShell, consultez [Comment installer et configurer Azure PowerShell](../powershell-install-configure.md).
+Vérifiez que la dernière version des applets de commande PowerShell Azure Resource Manager est installée. Pour plus d’informations sur l’installation des applets de commande PowerShell, consultez [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md).
 
 ## Création d’un jeu d’enregistrements et d’un enregistrement
 
@@ -49,7 +49,7 @@ Vérifiez les abonnements associés au compte.
 
 	Get-AzureRmSubscription
 
-Spécifiez l’abonnement à utiliser.
+Spécifiez l’abonnement que vous souhaitez utiliser.
 
 	Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
 
@@ -145,4 +145,4 @@ Les exemples suivants montrent comment créer un jeu d’enregistrements de chaq
 
 [Automatisation des opérations Azure avec le Kit de développement (SDK) .NET](dns-sdk.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0817_2016-->

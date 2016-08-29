@@ -12,7 +12,7 @@ ms.service="search"
 ms.devlang="rest-api"
 ms.workload="search" ms.topic="article"  
 ms.tgt_pltfrm="na"
-ms.date="08/08/2016"
+ms.date="08/16/2016"
 ms.author="eugenesh" />
 
 # Indexation de documents dans Azure Blob Storage avec Azure Search
@@ -37,7 +37,7 @@ L’indexeur d’objets blob peut extraire du texte à partir des formats de doc
 
 ## Configuration de l’indexation d’objets blob
 
-Pour installer et configurer un indexeur Azure Blob Storage, vous pouvez appeler l’API REST Azure Search afin de créer et de gérer des **indexeurs** et des **sources de données** en suivant les procédures décrites dans [cet article](https://msdn.microsoft.com/library/azure/dn946891.aspx). À l’avenir, la prise en charge de l’indexation d’objets blob sera ajoutée au Kit de développement logiciel (SDK) .NET Azure Search et au portail Azure.
+Pour installer et configurer un indexeur Azure Blob Storage, vous pouvez appeler l’API REST Azure Search afin de créer et de gérer des **indexeurs** et des **sources de données** en suivant les procédures décrites dans [cet article](https://msdn.microsoft.com/library/azure/dn946891.aspx). Vous pouvez également utiliser la [version 2.0-preview](https://msdn.microsoft.com/library/mt761536%28v=azure.103%29.aspx) du SDK .NET. À l’avenir, la prise en charge de l’indexation d’objets blob sera ajoutée au Portail Azure.
 
 Pour configurer un indexeur, effectuez les opérations suivantes : créez une source de données, créez un index, configurez l’indexeur.
 
@@ -303,4 +303,4 @@ Si vous devez extraire toutes les métadonnées, mais ignorer l’extraction de 
 
 Si vous souhaitez nous soumettre des demandes d’ajout de fonctionnalités ou des idées d’amélioration, n’hésitez pas à nous contacter sur notre [site UserVoice](https://feedback.azure.com/forums/263029-azure-search/).
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

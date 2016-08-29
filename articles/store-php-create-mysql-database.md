@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="06/03/2016"
+	ms.date="08/11/2016"
 	ms.author="robmcm;cephalin"/>
 
 # Création et connexion à une base de données MySQL dans Azure
@@ -37,10 +37,10 @@ Pour créer une base de données MySQL dans le portail Azure, procédez comme su
 
 	- **Nom de base de données** : entrez un nom d’identification unique
 	- **Abonnement** : choisissez l’abonnement à utiliser
-	- **Type de base de données** : sélectionnez **Partagé** pour les niveaux économiques ou gratuits, ou **Dédié** pour obtenir des ressources dédiées. 
+	- **Type de base de données** : sélectionnez **Partagé** pour les niveaux économiques ou gratuits, ou **Dédié** pour obtenir des ressources dédiées.
 	- **Groupe de ressources** : ajoutez la base de données MySQL à un [groupe de ressources](../resource-group-overview.md) existant ou placez-la dans un nouveau groupe. Les ressources du même groupe peuvent être facilement gérées ensemble.
 	- **Emplacement** : choisissez un emplacement proche. Lorsque vous ajoutez la base de données à un groupe de ressources existant, vous êtes limité à l’emplacement du groupe de ressources.
-	- **Niveau tarifaire** : cliquez sur **Niveau tarifaire**, puis sélectionnez une option de tarification (le niveau **Mercure** est gratuit), puis cliquez sur **Sélectionner**. 
+	- **Niveau tarifaire** : cliquez sur **Niveau tarifaire**, puis sélectionnez une option de tarification (le niveau **Mercure** est gratuit), puis cliquez sur **Sélectionner**.
 	- **Conditions juridiques** : cliquez sur **Conditions juridiques**, passez en revue les détails de l’achat, puis cliquez sur **Acheter**.
 	- **Épingler au tableau de bord** : sélectionnez cette option si vous souhaitez bénéficier d’un accès direct depuis le tableau de bord. Cette fonctionnalité est particulièrement utile si vous n’êtes pas encore tout à fait familiarisé avec la navigation dans le portail.
 	
@@ -139,4 +139,4 @@ Supposons que vous venez de terminer le didacticiel [Create, configure, and depl
 
 Pour plus d’informations, consultez le [Centre pour développeurs PHP](/develop/php/).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0817_2016-->

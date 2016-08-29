@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="billing"
-   ms.date="02/19/2016"
+   ms.date="08/16/2016"
    ms.author="mobandyo;sirishap;bryanla"/>
 
 # Intégration des API Microsoft Azure Billing par Cloud Cruiser
@@ -144,11 +144,11 @@ Pour ce qui est de la tarification Cloud Cruiser automatise le processus de réc
  
 
 ### Création d'un groupe de ressources avec des balises dans Microsoft Azure
-La première étape de ce didacticiel consiste à créer un nouveau groupe de ressources dans le portail Azure et à créer ensuite des balises à associer aux ressources. Pour cet exemple, nous allons créer les balises suivantes : département, environnement, propriétaire, projet.
+La première étape de ce didacticiel consiste à créer un groupe de ressources dans le portail Azure et à créer ensuite des balises à associer aux ressources. Pour cet exemple, nous allons créer les balises suivantes : département, environnement, propriétaire, projet.
 
-La capture d'écran du portail Azure ci-dessous montre un exemple de groupe de ressources avec les balises associées.
+La capture d’écran du portail Azure ci-dessous montre un exemple de groupe de ressources avec les balises associées.
 
-![Figure 11 : groupe de ressources avec des balises associées dans le portail Azure][11]
+![Figure 11 : groupe de ressources avec des balises associées dans le portail Azure][11]
 
 L'étape suivante consiste à transmettre les informations de l'API d'utilisation à Cloud Cruiser. L'API d'utilisation fournit actuellement des réponses au format JSON. Voici un exemple des données récupérées :
 
@@ -232,9 +232,9 @@ Et vous n'avez à exécuter ce processus qu'une seule fois ! Lorsque le classeu
 [8]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Workbook-Scheduling.png "Figure 8 : planification du classeur"
 [9]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Workload-Cost-Simulation-Report.png "Figure 9 : exemple de rapport pour le scénario de comparaison des coûts de la charge de travail"
 [10]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/1_ReportWithTags.png "Figure 10 : rapport avec répartitions à l'aide de balises"
-[11]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/2_ResourceGroupsWithTags.png "Figure 11 : groupe de ressources avec des balises associées dans le portail Azure"
+[11]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/2_ResourceGroupsWithTags.png "Figure 11 : groupe de ressources avec des balises associées dans le portail Azure"
 [12]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/3_ImportIntoUsageAPISheet.png "Figure 12 : données de l'API d'utilisation importées dans la feuille UsageAPI"
 [13]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/4_NewTagField.png "Figure 13 : créer des champs pour les informations de balise"
 [14]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/5_PopulateAccountStructure.png "Figure 14 : remplissage de la structure de compte avec les informations des recherches"
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->
