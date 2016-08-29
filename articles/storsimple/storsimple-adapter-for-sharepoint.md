@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="StorSimple Adapter for SharePoint | azure.microsoft.com/ Azure"
+   pageTitle="StorSimple Adapter for SharePoint | Microsoft Azure"
    description="Décrit comment installer et configurer ou supprimer StorSimple Adapter pour SharePoint dans une batterie de serveurs SharePoint."
    services="storsimple"
    documentationCenter="NA"
@@ -19,13 +19,13 @@
 
 ## Vue d'ensemble
 
-StorSimple Adapter for SharePoint est un composant qui vous permet de fournir un stockage azure.microsoft.com/ Azure StorSimple flexible et une protection des données aux batteries de serveurs SharePoint. Vous pouvez utiliser l’adaptateur pour déplacer le contenu d’un objet Binary Large Object (BLOB) des bases de données de contenu SQL Server vers le dispositif de stockage cloud hybride azure.microsoft.com/ Azure StorSimple.
+StorSimple Adapter for SharePoint est un composant qui vous permet de fournir un stockage Microsoft Azure StorSimple flexible et une protection des données aux batteries de serveurs SharePoint. Vous pouvez utiliser l’adaptateur pour déplacer le contenu d’un objet Binary Large Object (BLOB) des bases de données de contenu SQL Server vers le dispositif de stockage cloud hybride Microsoft Azure StorSimple.
 
 StorSimple Adapter for SharePoint fonctionne comme un fournisseur Remote BLOB Storage (RBS) et utilise la fonctionnalité SQL Server Remote BLOB Storage pour stocker le contenu SharePoint non structuré (sous la forme d’objets blob) sur un serveur de fichiers appuyé par un appareil StorSimple.
 
 >[AZURE.NOTE] StorSimple Adapter for SharePoint prend en charge SharePoint Server 2010 Remote BLOB Storage (RBS). Il ne prend pas en charge SharePoint Server 2010 External BLOB Storage (EBS).
 
-- Pour télécharger StorSimple Adapter for SharePoint, consultez la rubrique [StorSimple Adapter for SharePoint][1] dans le centre de téléchargement azure.microsoft.com/.
+- Pour télécharger StorSimple Adapter for SharePoint, consultez la rubrique [StorSimple Adapter for SharePoint][1] dans le centre de téléchargement Microsoft.
 
 - Pour plus d’informations sur la planification des limitations RBS et RBS, consultez la rubrique [Choix de l’utilisation de RBS dans SharePoint 2013][2] ou [Planification de RBS (SharePoint Server 2010)][3].
 
@@ -35,9 +35,9 @@ Le reste de cette présentation décrit brièvement le rôle de StorSimple Adapt
 
 Dans un site SharePoint, le contenu est stocké comme des données BLOB non structurées dans une ou plusieurs bases de données de contenu. Par défaut, ces bases de données sont hébergées sur des ordinateurs qui exécutent SQL Server et se trouvent dans la batterie de serveurs SharePoint. Les objets blob peuvent rapidement augmenter en taille, consommant ainsi une grande quantité de stockage local. Pour cette raison, vous souhaiterez sans doute trouver une autre solution de stockage moins onéreuse. SQL Server fournit une technologie appelée Remote Blob Storage (RBS) qui vous permet de stocker le contenu de l'objet blob dans le système de fichiers, en dehors de la base de données SQL Server. Avec RBS, des objets blob peuvent résider dans le système de fichiers sur l'ordinateur qui exécute SQL Server, ou être stockés dans le système de fichiers sur un autre serveur.
 
-Avec RBS, vous devez utiliser un fournisseur RBS comme StorSimple Adapter for SharePoint pour activer RBS dans SharePoint. StorSimple Adapter for SharePoint fonctionne avec RBS, vous permettant de déplacer des objets blob vers un serveur soutenu par le système azure.microsoft.com/ Azure StorSimple. azure.microsoft.com/ Azure StorSimple stocke ensuite les données d’objets blob localement ou dans le cloud, selon leur utilisation. Les objets blob très actifs (généralement appelés données à chaud ou de niveau 1) résident localement. Les données moins actives et les données archivées résident dans le cloud. Après avoir activé RBS sur une base de données de contenu, tout nouveau contenu bloc créé dans SharePoint est stocké sur l’appareil StorSimple et non dans la base de données de contenu.
+Avec RBS, vous devez utiliser un fournisseur RBS comme StorSimple Adapter for SharePoint pour activer RBS dans SharePoint. StorSimple Adapter for SharePoint fonctionne avec RBS, vous permettant de déplacer des objets blob vers un serveur soutenu par le système Microsoft Azure StorSimple. Microsoft Azure StorSimple stocke ensuite les données d’objets blob localement ou dans le cloud, selon leur utilisation. Les objets blob très actifs (généralement appelés données à chaud ou de niveau 1) résident localement. Les données moins actives et les données archivées résident dans le cloud. Après avoir activé RBS sur une base de données de contenu, tout nouveau contenu bloc créé dans SharePoint est stocké sur l’appareil StorSimple et non dans la base de données de contenu.
 
-L’implémentation azure.microsoft.com/ Azure StorSimple de RBS offre les avantages suivants :
+L’implémentation Microsoft Azure StorSimple de RBS offre les avantages suivants :
 
 - En déplaçant le contenu blob vers un serveur distinct, vous pouvez réduire la charge de requête sur SQL Server, ce qui peut améliorer la réactivité du serveur SQL.
 
@@ -55,7 +55,7 @@ Le déplacement du contenu blob vers le système de fichiers peut entraîner d�
 
 ### Limites de capacité et de performances
 
-Avant d'envisager l'utilisation de RBS dans votre solution SharePoint, vous devez être conscient des limites de performances et de capacité de SharePoint Server 2010 et de SharePoint Server 2013, et comment ces limites se situent par rapport à des performances acceptables. Pour plus d'informations, consultez la rubrique [Limites des logiciels et limites pour SharePoint 2013](https://technet.azure.microsoft.com/.com/library/cc262787.aspx).
+Avant d'envisager l'utilisation de RBS dans votre solution SharePoint, vous devez être conscient des limites de performances et de capacité de SharePoint Server 2010 et de SharePoint Server 2013, et comment ces limites se situent par rapport à des performances acceptables. Pour plus d'informations, consultez la rubrique [Limites des logiciels et limites pour SharePoint 2013](https://technet.microsoft.com/library/cc262787.aspx).
 
 Avant de configurer RBS, passez en revue les éléments suivants :
 
@@ -85,7 +85,7 @@ Avant de configurer RBS, passez en revue les éléments suivants :
 
     Utilisez les meilleures pratiques de migration SQL Server pour déplacer la base de données de contenu vers l’appareil StorSimple. Déplacez la base de données uniquement après que tout le contenu blob de la base de données a été transféré vers le partage de fichiers via RBS. Si vous décidez de déplacer la base de données de contenu vers l’appareil StorSimple, nous vous recommandons de configurer le stockage de base de données de contenu sur l’appareil en tant que volume principal.
 
-- Dans azure.microsoft.com/ Azure StorSimple, il n'existe aucun moyen de garantir que le contenu stocké localement sur l’appareil StorSimple ne sera pas stocké sur plusieurs niveaux dans le stockage en cloud azure.microsoft.com/ Azure si vous utilisez des volumes hiérarchisés. Par conséquent, nous recommandons d’utiliser des volumes StorSimple épinglés localement conjointement avec SharePoint RBS. Cela garantit que tout le contenu de l’objet BLOB est conservé localement sur l’appareil StorSimple et n’est pas déplacé vers azure.microsoft.com/ Azure.
+- Dans Microsoft Azure StorSimple, il n'existe aucun moyen de garantir que le contenu stocké localement sur l’appareil StorSimple ne sera pas stocké sur plusieurs niveaux dans le stockage en cloud Microsoft Azure si vous utilisez des volumes hiérarchisés. Par conséquent, nous recommandons d’utiliser des volumes StorSimple épinglés localement conjointement avec SharePoint RBS. Cela garantit que tout le contenu de l’objet BLOB est conservé localement sur l’appareil StorSimple et n’est pas déplacé vers Microsoft Azure.
 
 - Si vous ne stockez pas les bases de données de contenu sur l’appareil StorSimple, utilisez les meilleures pratiques à haute disponibilité SQL Server qui prennent en charge RBS. La gestion de clusters SQL Server prend en charge RBS, ce qui n’est pas le cas de la mise en miroir SQL Server.
 
@@ -197,7 +197,7 @@ Après avoir installé StorSimple Adapter for SharePoint, configurez RBS comme d
 
 Lorsque des objets sont supprimés d'un site SharePoint, ils ne sont pas automatiquement supprimés du volume de stockage RBS. Au lieu de cela, un programme de maintenance en arrière-plan asynchrone supprime les objets blob orphelins du magasin de fichiers. Les administrateurs système peuvent planifier ce processus pour une exécution périodique ou le démarrer chaque fois que cela est nécessaire.
 
-Ce programme de maintenance (azure.microsoft.com/.Data.SqlRemoteBlobs.Maintainer.exe) est automatiquement installé sur tous les serveurs WFE SharePoint et serveurs d'applications lorsque vous activez RBS. Le programme est installé à l'emplacement suivant : *disque de démarrage*:\\Program Files\\azure.microsoft.com/ SQL Remote Blob Storage 10.50\\Maintainer\\
+Ce programme de maintenance (Microsoft.Data.SqlRemoteBlobs.Maintainer.exe) est automatiquement installé sur tous les serveurs WFE SharePoint et serveurs d'applications lorsque vous activez RBS. Le programme est installé à l'emplacement suivant : *disque de démarrage*:\\Program Files\\Microsoft SQL Remote Blob Storage 10.50\\Maintainer\\
 
 Pour plus d'informations sur la configuration et l'utilisation du programme de maintenance, consultez la rubrique [Maintenance de RBS dans SharePoint Server 2013][8].
 
@@ -261,7 +261,7 @@ Avant de désinstaller le logiciel StorSimple Adapter pour SharePoint, vous deve
 
 5. Supprimez les objets de SharePoint et téléchargez-les à nouveau.
 
-Vous pouvez également utiliser l'applet de commande azure.microsoft.com/` RBS Migrate()` PowerShell inclus avec SharePoint. Pour plus d'informations, consultez [Migration du contenu vers ou à partir de RBS](https://technet.azure.microsoft.com/.com/library/ff628255.aspx).
+Vous pouvez également utiliser l'applet de commande Microsoft` RBS Migrate()` PowerShell inclus avec SharePoint. Pour plus d'informations, consultez [Migration du contenu vers ou à partir de RBS](https://technet.microsoft.com/library/ff628255.aspx).
 
 Après avoir déplacé les objets BLOB vers la base de données de contenu, passez à l'étape suivante : [Désinstallation de l'adaptateur](#uninstall-the-adapter).
 
@@ -301,11 +301,11 @@ Après avoir déplacé les objets BLOB vers les bases de données de contenu SQL
 [En savoir plus sur StorSimple](storsimple-overview.md).
 
 <!--Reference links-->
-[1]: https://www.azure.microsoft.com/.com/download/details.aspx?id=44073
-[2]: https://technet.azure.microsoft.com/.com/library/ff628583(v=office.15).aspx
-[3]: https://technet.azure.microsoft.com/.com/library/ff628583(v=office.14).aspx
-[4]: https://technet.azure.microsoft.com/.com/library/ff628569(v=office.14).aspx
-[5]: https://technet.azure.microsoft.com/.com/library/ff628583(v=office.15).aspx
-[8]: https://technet.azure.microsoft.com/.com/fr-FR/library/ff943565.aspx
+[1]: https://www.microsoft.com/download/details.aspx?id=44073
+[2]: https://technet.microsoft.com/library/ff628583(v=office.15).aspx
+[3]: https://technet.microsoft.com/library/ff628583(v=office.14).aspx
+[4]: https://technet.microsoft.com/library/ff628569(v=office.14).aspx
+[5]: https://technet.microsoft.com/library/ff628583(v=office.15).aspx
+[8]: https://technet.microsoft.com/fr-FR/library/ff943565.aspx
 
 <!---HONumber=AcomDC_0817_2016-->

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Publish-WebApplicationWebSite (script Windows PowerShell) | azure.microsoft.com/ Azure"
+   pageTitle="Publish-WebApplicationWebSite (script Windows PowerShell) | Microsoft Azure"
    description="Découvrez comment publier un projet web sur un site web Azure. Ce script crée les ressources requises dans votre abonnement Azure si elles n’existent pas."
    services="visual-studio-online"
    documentationCenter="na"
@@ -58,7 +58,7 @@ Nom de l’abonnement Azure dans lequel vous souhaitez créer le site web.
 
 ## WebDeployPackage
 
-Le chemin d'accès au package de déploiement web à publier sur le site web. Vous pouvez créer ce package à l'aide de l'Assistant Publier le site web dans Visual Studio. Pour plus d’informations, consultez [Prise en main des services cloud Azure et d'ASP.NET](http://go.azure.microsoft.com/.com/fwlink/p/?LinkID=623089).
+Le chemin d'accès au package de déploiement web à publier sur le site web. Vous pouvez créer ce package à l'aide de l'Assistant Publier le site web dans Visual Studio. Pour plus d’informations, consultez [Prise en main des services cloud Azure et d'ASP.NET](http://go.microsoft.com/fwlink/p/?LinkID=623089).
 
 |Paramètre|Valeur par défaut|
 |---|---|

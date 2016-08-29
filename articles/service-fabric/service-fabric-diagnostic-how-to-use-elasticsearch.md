@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Utilisation d’Elasticsearch en tant que magasin de trace d’applications Service Fabric | azure.microsoft.com/ Azure"
+   pageTitle="Utilisation d’Elasticsearch en tant que magasin de trace d’applications Service Fabric | Microsoft Azure"
    description="Cet article décrit comment les applications Service Fabric peuvent utiliser Elasticsearch et Kibana pour le stockage, l’indexation et la recherche dans les traces d’applications (journaux)."
    services="service-fabric"
    documentationCenter=".net"
@@ -14,11 +14,11 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="08/09/2016"
-   ms.author="karolz@azure.microsoft.com/.com"/>
+   ms.author="karolz@microsoft.com"/>
 
 # Utiliser Elasticsearch en tant que magasin de trace d’applications Service Fabric
 ## Introduction
-Cet article décrit comment les applications [Azure Service Fabric](https://azure.azure.microsoft.com/.com/documentation/services/service-fabric/) peuvent utiliser **Elasticsearch** et **Kibana** pour le stockage, l’indexation et la recherche de traces d’applications. [Elasticsearch](https://www.elastic.co/guide/index.html) est un moteur de recherche et d’analyse en temps réel open source, distribué et évolutif, qui convient parfaitement à cette tâche. Il peut être installé sur des machines virtuelles Windows ou Linux exécutées dans azure.microsoft.com/ Azure. Elasticsearch peut traiter efficacement les traces *structurées* produites à l’aide de technologies telles que **Event Tracing for Windows (ETW)**.
+Cet article décrit comment les applications [Azure Service Fabric](https://azure.microsoft.com/documentation/services/service-fabric/) peuvent utiliser **Elasticsearch** et **Kibana** pour le stockage, l’indexation et la recherche de traces d’applications. [Elasticsearch](https://www.elastic.co/guide/index.html) est un moteur de recherche et d’analyse en temps réel open source, distribué et évolutif, qui convient parfaitement à cette tâche. Il peut être installé sur des machines virtuelles Windows ou Linux exécutées dans Microsoft Azure. Elasticsearch peut traiter efficacement les traces *structurées* produites à l’aide de technologies telles que **Event Tracing for Windows (ETW)**.
 
 ETW est utilisé par le runtime Service Fabric pour sourcer les informations de diagnostic (traces). C’est la méthode recommandée pour le sourçage des informations de diagnostics des applications Service Fabric. L’utilisation du même mécanisme garantit une corrélation entre les traces fournies par le runtime et celles fournies par l’application, tout en facilitant la résolution des problèmes. Les modèles de projet Service Fabric dans Visual Studio incluent une API de journalisation (basée sur la classe .NET **EventSource**) qui émet des traces ETW par défaut. Pour obtenir une vue d’ensemble du traçage d’applications Service Fabric à l’aide d’ETW, consultez [Surveillance et diagnostic des services dans une configuration de développement d’ordinateur local](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md).
 
@@ -47,7 +47,7 @@ Le script `CreateElasticSearchCluster` est conçu pour être facilement utilisab
 
 2. L’outil **openssl** est inclus dans la distribution de [**Git pour Windows**](http://www.git-scm.com/downloads). Si vous ne l’avez pas déjà fait, installez [Git pour Windows](http://www.git-scm.com/downloads) maintenant. (Les options d’installation par défaut sont appropriées.)
 
-3. En supposant que Git a bien été installé mais n’a pas été inclus dans le chemin système, ouvrez une fenêtre azure.microsoft.com/ Azure PowerShell et exécutez les commandes suivantes :
+3. En supposant que Git a bien été installé mais n’a pas été inclus dans le chemin système, ouvrez une fenêtre Microsoft Azure PowerShell et exécutez les commandes suivantes :
 
     ```powershell
     $ENV:PATH += ";<Git installation folder>\usr\bin"
@@ -56,7 +56,7 @@ Le script `CreateElasticSearchCluster` est conçu pour être facilement utilisab
 
     Remplacez `<Git installation folder>` par l’emplacement de Git sur votre ordinateur ; la valeur par défaut est **C:\\Program Files\\Git**. Notez le point-virgule au début du premier chemin.
 
-4. Vérifiez que vous êtes connecté à Azure (avec l’applet de commande [`Add-AzureRmAccount`](https://msdn.azure.microsoft.com/.com/library/mt619267.aspx)) et que vous avez sélectionné l’abonnement que vous devez utiliser pour créer votre cluster Elasticsearch. Vous pouvez vérifier que l’abonnement sélectionné est correct à l’aide des applets de commande `Get-AzureRmContext` et `Get-AzureRmSubscription`.
+4. Vérifiez que vous êtes connecté à Azure (avec l’applet de commande [`Add-AzureRmAccount`](https://msdn.microsoft.com/library/mt619267.aspx)) et que vous avez sélectionné l’abonnement que vous devez utiliser pour créer votre cluster Elasticsearch. Vous pouvez vérifier que l’abonnement sélectionné est correct à l’aide des applets de commande `Get-AzureRmContext` et `Get-AzureRmSubscription`.
 
 5. Si vous ne l’avez pas déjà fait, accédez au répertoire actuel dans le dossier ES-MultiNode.
 
@@ -137,41 +137,41 @@ La **collecte de traces hors processus** comporte les avantages suivants :
 
 2. *Maturité, fiabilité et performances éprouvées*
 
-    * Un agent développé par un fournisseur de plateformes (tel qu’un agent de diagnostics azure.microsoft.com/ Azure) a été soumis à des tests rigoureux et difficiles.
+    * Un agent développé par un fournisseur de plateformes (tel qu’un agent de diagnostics Microsoft Azure) a été soumis à des tests rigoureux et difficiles.
 
     * Avec la méthode de collecte de traces dans le processus, il convient de veiller à ce que l’activité d’envoi de données de diagnostic à partir d’un processus d’application n’interfère pas avec les tâches principales de l’application ou n’introduise pas de problèmes de synchronisation ou de performances. Un agent exécuté indépendamment est moins sujet à ces problèmes et est conçu spécialement pour limiter l’impact sur le système.
 
 Il est possible de combiner ces deux approches et de tirer parti de leurs avantages respectifs. En effet, cela peut constituer la meilleure solution pour de nombreuses applications.
 
-Ici, nous utilisons la **bibliothèque azure.microsoft.com/.Diagnostic.Listeners** et la méthode de collecte de traces dans le processus pour transférer des données entre une application Service Fabric et un cluster Elasticsearch.
+Ici, nous utilisons la **bibliothèque Microsoft.Diagnostic.Listeners** et la méthode de collecte de traces dans le processus pour transférer des données entre une application Service Fabric et un cluster Elasticsearch.
 
 ## Utiliser la bibliothèque Listeners pour l’envoi de données de diagnostic à Elasticsearch
-La bibliothèque azure.microsoft.com/.Diagnostic.Listeners fait partie de l’application Service Fabric de l’exemple de PartyCluster. Pour l’utiliser :
+La bibliothèque Microsoft.Diagnostic.Listeners fait partie de l’application Service Fabric de l’exemple de PartyCluster. Pour l’utiliser :
 
 1. Téléchargez [l’exemple PartyCluster](https://github.com/Azure-Samples/service-fabric-dotnet-management-party-cluster) sur GitHub.
 
-2. Copiez les projets azure.microsoft.com/.Diagnostics.Listeners et azure.microsoft.com/.Diagnostics.Listeners.Fabric (dossiers entiers) du répertoire de l’exemple PartyCluster dans le dossier de solution de l’application supposée envoyer les données à Elasticsearch.
+2. Copiez les projets Microsoft.Diagnostics.Listeners et Microsoft.Diagnostics.Listeners.Fabric (dossiers entiers) du répertoire de l’exemple PartyCluster dans le dossier de solution de l’application supposée envoyer les données à Elasticsearch.
 
-3. Ouvrez la solution cible, cliquez avec le bouton droit de la souris sur le nœud de solution dans l’Explorateur de solutions et choisissez **Ajouter un projet existant**. Ajoutez le projet azure.microsoft.com/.Diagnostics.Listeners à la solution. Répétez la même procédure pour le projet azure.microsoft.com/.Diagnostics.Listeners.Fabric.
+3. Ouvrez la solution cible, cliquez avec le bouton droit de la souris sur le nœud de solution dans l’Explorateur de solutions et choisissez **Ajouter un projet existant**. Ajoutez le projet Microsoft.Diagnostics.Listeners à la solution. Répétez la même procédure pour le projet Microsoft.Diagnostics.Listeners.Fabric.
 
-4. Ajoutez aux deux projets ajoutés une référence de projet à partir de vos projets de service. (Chaque service censé envoyer des données à Elasticsearch devrait référencer les projets azure.microsoft.com/.Diagnostics.EventListeners et azure.microsoft.com/.Diagnostics.EventListeners.Fabric).
+4. Ajoutez aux deux projets ajoutés une référence de projet à partir de vos projets de service. (Chaque service censé envoyer des données à Elasticsearch devrait référencer les projets Microsoft.Diagnostics.EventListeners et Microsoft.Diagnostics.EventListeners.Fabric).
 
-    ![Références de projet aux bibliothèques azure.microsoft.com/.Diagnostics.EventListeners et azure.microsoft.com/.Diagnostics.EventListeners.Fabric][1]
+    ![Références de projet aux bibliothèques Microsoft.Diagnostics.EventListeners et Microsoft.Diagnostics.EventListeners.Fabric][1]
 
-### Disponibilité générale de la version de Service Fabric et package NuGet azure.microsoft.com/.Diagnostics.Tracing
-Les applications créées avec version à disponibilité générale de Service Fabric (2.0.135, publiée le 31 mars 2016) ciblent **.NET Framework 4.5.2**. Il s’agit de la version la plus récente de .NET Framework prise en charge par Azure au moment du lancement de la disponibilité générale de la version. Malheureusement, cette version du framework ne dispose pas de certaines API EventListener dont a besoin la bibliothèque azure.microsoft.com/.Diagnostics.Listeners. Étant donné qu’EventSource (le composant de base des API de journalisation dans les applications Fabric) et EventListener sont étroitement couplés, chaque projet qui utilise la bibliothèque azure.microsoft.com/.Diagnostics.Listeners doit utiliser une autre implémentation d’EventSource. Cette implémentation est fournie par le **package NuGet azure.microsoft.com/.Diagnostics.Tracing** créé par azure.microsoft.com/. Le package est entièrement rétrocompatible avec la version d’EventSource incluse dans le framework, ce qui signifie qu’aucune modification de code n’est nécessaire à l’exception des modifications de l’espace de noms référencé.
+### Disponibilité générale de la version de Service Fabric et package NuGet Microsoft.Diagnostics.Tracing
+Les applications créées avec version à disponibilité générale de Service Fabric (2.0.135, publiée le 31 mars 2016) ciblent **.NET Framework 4.5.2**. Il s’agit de la version la plus récente de .NET Framework prise en charge par Azure au moment du lancement de la disponibilité générale de la version. Malheureusement, cette version du framework ne dispose pas de certaines API EventListener dont a besoin la bibliothèque Microsoft.Diagnostics.Listeners. Étant donné qu’EventSource (le composant de base des API de journalisation dans les applications Fabric) et EventListener sont étroitement couplés, chaque projet qui utilise la bibliothèque Microsoft.Diagnostics.Listeners doit utiliser une autre implémentation d’EventSource. Cette implémentation est fournie par le **package NuGet Microsoft.Diagnostics.Tracing** créé par Microsoft. Le package est entièrement rétrocompatible avec la version d’EventSource incluse dans le framework, ce qui signifie qu’aucune modification de code n’est nécessaire à l’exception des modifications de l’espace de noms référencé.
 
-Pour commencer à utiliser l’implémentation azure.microsoft.com/.Diagnostics.Tracing de la classe EventSource, procédez comme suit pour chaque projet de service qui doit envoyer des données à Elasticsearch :
+Pour commencer à utiliser l’implémentation Microsoft.Diagnostics.Tracing de la classe EventSource, procédez comme suit pour chaque projet de service qui doit envoyer des données à Elasticsearch :
 
 1. Cliquez avec le bouton droit sur le projet de service et sélectionnez **Gérer les packages NuGet**.
 
-2. Basculez vers la source du package nuget.org (le cas échéant) et recherchez « **azure.microsoft.com/.Diagnostics.Tracing** ».
+2. Basculez vers la source du package nuget.org (le cas échéant) et recherchez « **Microsoft.Diagnostics.Tracing** ».
 
-3. Installez le package `azure.microsoft.com/.Diagnostics.Tracing.EventSource` (et ses dépendances).
+3. Installez le package `Microsoft.Diagnostics.Tracing.EventSource` (et ses dépendances).
 
-4. Ouvrez le fichier **ServiceEventSource.cs** ou **ActorEventSource.cs** dans votre projet de service et remplacez la directive `using System.Diagnostics.Tracing` sur le fichier par la directive `using azure.microsoft.com/.Diagnostics.Tracing`.
+4. Ouvrez le fichier **ServiceEventSource.cs** ou **ActorEventSource.cs** dans votre projet de service et remplacez la directive `using System.Diagnostics.Tracing` sur le fichier par la directive `using Microsoft.Diagnostics.Tracing`.
 
-Ces étapes ne seront pas nécessaires dès lors que **.NET Framework 4.6** est pris en charge par azure.microsoft.com/ Azure.
+Ces étapes ne seront pas nécessaires dès lors que **.NET Framework 4.6** est pris en charge par Microsoft Azure.
 
 ### Instanciation et configuration de l’écouteur Elasticsearch
 La dernière étape pour envoyer des données de diagnostic à Elasticsearch consiste à créer une instance de `ElasticSearchListener` et à la configurer avec les données de connexion Elasticsearch. L’écouteur capture automatiquement tous les événements déclenchés avec les classes EventSource définies dans le projet de service. Il doit être actif pendant la durée de vie du service ; autrement dit, l’idéal est de le créer dans le code d’initialisation du service. Voici comment se présenterait le code d’initialisation d’un service sans état une fois les modifications nécessaires introduites (les ajouts sont signalés dans les commentaires commençant par `****`) :
@@ -182,11 +182,11 @@ using System.Diagnostics;
 using System.Fabric;
 using System.Threading;
 using System.Threading.Tasks;
-using azure.microsoft.com/.ServiceFabric.Services.Runtime;
+using Microsoft.ServiceFabric.Services.Runtime;
 
 // **** Add the following directives
-using azure.microsoft.com/.Diagnostics.EventListeners;
-using azure.microsoft.com/.Diagnostics.EventListeners.Fabric;
+using Microsoft.Diagnostics.EventListeners;
+using Microsoft.Diagnostics.EventListeners.Fabric;
 
 namespace Stateless1
 {
@@ -243,7 +243,7 @@ Les données de connexion Elasticsearch doivent être placées dans une section 
   <Parameter Name="indexNamePrefix" Value="myapp" />
 </Section>
 ```
-Les valeurs des paramètres `serviceUri`, `userName` et `password` correspondent respectivement à l’adresse du point de terminaison du cluster Elasticsearch, au nom d’utilisateur et au mot de passe Elasticsearch. `indexNamePrefix` désigne le préfixe des index Elasticsearch ; la bibliothèque azure.microsoft.com/.Diagnostics.Listeners crée chaque jour un index pour ses données.
+Les valeurs des paramètres `serviceUri`, `userName` et `password` correspondent respectivement à l’adresse du point de terminaison du cluster Elasticsearch, au nom d’utilisateur et au mot de passe Elasticsearch. `indexNamePrefix` désigne le préfixe des index Elasticsearch ; la bibliothèque Microsoft.Diagnostics.Listeners crée chaque jour un index pour ses données.
 
 ### Vérification
 Et voilà ! Chaque fois que le service est exécuté, il commence à envoyer des traces au service Elasticsearch spécifié dans la configuration. Vous pouvez le vérifier en ouvrant l’UI Kibana associé à l’instance Elasticsearch cible. Dans notre exemple, l’adresse de la page est http://myBigCluster.westus.cloudapp.azure.com/. Vérifiez que les index possédant le préfixe du nom choisi pour l’instance `ElasticSearchListener` ont effectivement été créés et remplis avec des données.

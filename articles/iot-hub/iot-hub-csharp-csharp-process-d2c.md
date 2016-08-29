@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Traiter les messages des appareils vers le cloud IoT Hub | azure.microsoft.com/ Azure"
+	pageTitle="Traiter les messages des appareils vers le cloud IoT Hub | Microsoft Azure"
 	description="Suivez ce didacticiel pour découvrir des modèles utiles pour traiter les messages des appareils vers le cloud IoT Hub."
 	services="iot-hub"
 	documentationCenter=".net"
@@ -49,9 +49,9 @@ Ce didacticiel s’applique directement à d’autres manières de consommer des
 
 Pour réaliser ce didacticiel, vous aurez besoin des éléments suivants :
 
-+ azure.microsoft.com/ Visual Studio 2015.
++ Microsoft Visual Studio 2015.
 
-+ Un compte Azure actif. <br/>Si vous n’avez pas d’abonnement Azure, vous pouvez créer un [compte gratuit](https://azure.azure.microsoft.com/.com/free/) en quelques minutes.
++ Un compte Azure actif. <br/>Si vous n’avez pas d’abonnement Azure, vous pouvez créer un [compte gratuit](https://azure.microsoft.com/free/) en quelques minutes.
 
 Vous devez avoir une connaissance de base des services [Azure Storage] et [Azure Service Bus].
 
@@ -90,7 +90,7 @@ Dans cette section, vous allez modifier l’application de l’appareil simulé 
     SendDeviceToCloudInteractiveMessagesAsync();
     ````
 
-    > [AZURE.NOTE] Par souci de simplicité, ce didacticiel n’implémente aucune stratégie de nouvelle tentative. Dans le code de production, vous devez mettre en œuvre des stratégies de nouvelle tentative (par exemple, une interruption exponentielle), comme indiqué dans l’article MSDN [Transient Fault Handling] \(Gestion des erreurs temporaires).
+    > [AZURE.NOTE] Par souci de simplicité, ce didacticiel n’implémente aucune stratégie de nouvelle tentative. Dans le code de production, vous devez mettre en œuvre des stratégies de nouvelle tentative (par exemple, une interruption exponentielle), comme indiqué dans l’article MSDN [Transient Fault Handling] (Gestion des erreurs temporaires).
 
 ## Traitement des messages appareil-à-cloud
 
@@ -139,7 +139,7 @@ Vous avez également besoin d’une file d’attente Service Bus pour permettre 
 
 3. Recherchez **WindowsAzure.ServiceBus**, cliquez sur **Installer** et acceptez les conditions d’utilisation. Cette opération lance le téléchargement, l’installation et ajoute une référence au [package Azure Service Bus NuGet](https://www.nuget.org/packages/WindowsAzure.ServiceBus) avec toutes ses dépendances.
 
-4. Recherchez **azure.microsoft.com/ Azure Service Bus Event Hub - EventProcessorHost**, cliquez sur **Installer** et acceptez les conditions d’utilisation. Cette opération lance le téléchargement, l'installation et ajoute une référence au [Package NuGet Azure Service Bus Event Hub - EventProcessorHost](https://www.nuget.org/packages/azure.microsoft.com/.Azure.ServiceBus.EventProcessorHost), avec toutes les dépendances associées.
+4. Recherchez **Microsoft Azure Service Bus Event Hub - EventProcessorHost**, cliquez sur **Installer** et acceptez les conditions d’utilisation. Cette opération lance le téléchargement, l'installation et ajoute une référence au [Package NuGet Azure Service Bus Event Hub - EventProcessorHost](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost), avec toutes les dépendances associées.
 
 5. Cliquez avec le bouton droit sur le projet **ProcessDeviceToCloudMessages**, cliquez sur **Ajouter**, puis sur **Classe**. Nommez la nouvelle classe **StoreEventProcessor**, puis cliquez sur **OK** pour créer la classe.
 
@@ -149,9 +149,9 @@ Vous avez également besoin d’une file d’attente Service Bus pour permettre 
     using System.IO;
     using System.Diagnostics;
     using System.Security.Cryptography;
-    using azure.microsoft.com/.ServiceBus.Messaging;
-    using azure.microsoft.com/.WindowsAzure.Storage;
-    using azure.microsoft.com/.WindowsAzure.Storage.Blob;
+    using Microsoft.ServiceBus.Messaging;
+    using Microsoft.WindowsAzure.Storage;
+    using Microsoft.WindowsAzure.Storage.Blob;
     ```
 
 7. Insérez le code suivant dans le corps de la classe :
@@ -303,7 +303,7 @@ Vous avez également besoin d’une file d’attente Service Bus pour permettre 
 8. Dans la classe **Program**, ajoutez l’instruction **using** suivante en haut :
 
     ```
-    using azure.microsoft.com/.ServiceBus.Messaging;
+    using Microsoft.ServiceBus.Messaging;
     ```
 
 9. Modifiez la méthode **Main** dans la classe **Program** comme indiqué ci-dessous. Remplacez la chaîne de connexion d’IoT Hub **iothubowner** (voir le didacticiel [Prise en main d’Azure IoT Hub]), la chaîne de connexion de stockage et la chaîne de connexion Service Bus par des autorisations **Send** pour la file d’attente nommée **d2ctutorial** :
@@ -342,7 +342,7 @@ Dans cette section, vous écrirez une application de console Windows qui reçoit
 
     ```
     using System.IO;
-    using azure.microsoft.com/.ServiceBus.Messaging;
+    using Microsoft.ServiceBus.Messaging;
     ```
 
 5. Enfin, ajoutez les lignes suivantes à la méthode **Main**. Remplacez la chaîne de connexion par des autorisations **Listen** pour la file d’attente nommée **d2ctutorial** :
@@ -413,40 +413,40 @@ Pour en savoir plus sur le développement de solutions avec IoT Hub, consultez l
 <!-- Links -->
 
 [stockage d’objets blob Azure]: ../storage/storage-dotnet-how-to-use-blobs.md
-[Azure Data Factory]: https://azure.azure.microsoft.com/.com/documentation/services/data-factory/
-[HDInsight (Hadoop)]: https://azure.azure.microsoft.com/.com/documentation/services/hdinsight/
+[Azure Data Factory]: https://azure.microsoft.com/documentation/services/data-factory/
+[HDInsight (Hadoop)]: https://azure.microsoft.com/documentation/services/hdinsight/
 [Service Bus queue]: ../service-bus/service-bus-dotnet-get-started-with-queues.md
 [file d’attente Azure Service Bus]: ../service-bus/service-bus-dotnet-get-started-with-queues.md
 
 [Guide du développeur Azure IoT Hub - Appareil vers cloud]: iot-hub-devguide.md#d2c
 
-[Azure Storage]: https://azure.azure.microsoft.com/.com/documentation/services/storage/
-[Azure Service Bus]: https://azure.azure.microsoft.com/.com/documentation/services/service-bus/
+[Azure Storage]: https://azure.microsoft.com/documentation/services/storage/
+[Azure Service Bus]: https://azure.microsoft.com/documentation/services/service-bus/
 
 [Guide du développeur IoT Hub]: iot-hub-devguide.md
 [Prise en main de IoT Hub]: iot-hub-csharp-csharp-getstarted.md
 [Prise en main d’Azure IoT Hub]: iot-hub-csharp-csharp-getstarted.md
 [Prise en main d’IoT Hub]: iot-hub-csharp-csharp-getstarted.md
 [Prise en main d’IoT Hub]: iot-hub-csharp-csharp-getstarted.md
-[Centre de développement Azure IoT]: https://azure.azure.microsoft.com/.com/develop/iot
-[lnk-service-fabric]: https://azure.azure.microsoft.com/.com/documentation/services/service-fabric/
-[lnk-stream-analytics]: https://azure.azure.microsoft.com/.com/documentation/services/stream-analytics/
-[lnk-event-hubs]: https://azure.azure.microsoft.com/.com/documentation/services/event-hubs/
-[Transient Fault Handling]: https://msdn.azure.microsoft.com/.com/library/hh675232.aspx
+[Centre de développement Azure IoT]: https://azure.microsoft.com/develop/iot
+[lnk-service-fabric]: https://azure.microsoft.com/documentation/services/service-fabric/
+[lnk-stream-analytics]: https://azure.microsoft.com/documentation/services/stream-analytics/
+[lnk-event-hubs]: https://azure.microsoft.com/documentation/services/event-hubs/
+[Transient Fault Handling]: https://msdn.microsoft.com/library/hh675232.aspx
 
 <!-- Links -->
 [À propos des comptes de stockage Azure]: ../storage/storage-create-storage-account.md#create-a-storage-account
 [Prise en main des hubs d’événements]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md
 [Objectifs de performance et évolutivité d’Azure Storage]: ../storage/storage-scalability-targets.md
-[Azure Block Blobs]: https://msdn.azure.microsoft.com/.com/library/azure/ee691964.aspx
+[Azure Block Blobs]: https://msdn.microsoft.com/library/azure/ee691964.aspx
 [Event Hubs]: ../event-hubs/event-hubs-overview.md
-[EventProcessorHost]: http://msdn.azure.microsoft.com/.com/library/azure/azure.microsoft.com/.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
+[EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
 [Guide de programmation de concentrateurs d’événements]: ../event-hubs/event-hubs-programming-guide.md
-[Transient Fault Handling]: https://msdn.azure.microsoft.com/.com/library/hh680901(v=pandp.50).aspx
+[Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [Application multiniveau .NET avec les files d’attente Azure Service Bus]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
 
 [lnk-classic-portal]: https://manage.windowsazure.com
 [lnk-c2d]: iot-hub-csharp-csharp-process-d2c.md
-[lnk-suite]: https://azure.azure.microsoft.com/.com/documentation/suites/iot-suite/
+[lnk-suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
 
 <!---HONumber=AcomDC_0817_2016-->

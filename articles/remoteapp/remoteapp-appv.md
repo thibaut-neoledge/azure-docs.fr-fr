@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Utilisation d'applications App-V avec Azure RemoteApp | azure.microsoft.com/ Azure"
+    pageTitle="Utilisation d'applications App-V avec Azure RemoteApp | Microsoft Azure"
     description="Apprenez à utiliser des applications App-V dans Azure RemoteApp."
     services="remoteapp"
 	documentationCenter=""
@@ -20,7 +20,7 @@
 # Utilisation d'applications App-V dans Azure RemoteApp
 
 > [AZURE.IMPORTANT]
-Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.azure.microsoft.com/.com/fwlink/?linkid=821148).
+Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148).
 
 Vous pouvez utiliser des applications App-V dans une collection hybride Azure RemoteApp, ce qui nécessite la jonction de domaine.
 

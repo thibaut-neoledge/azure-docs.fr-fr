@@ -27,7 +27,7 @@ Généralement, vous utilisez collectd si vous avez déjà [instrumenté votre s
 
 ## Récupérer votre clé d’instrumentation
 
-Dans le [portail azure.microsoft.com/ Azure](https://portal.azure.com), ouvrez la ressource [Application Insights](app-insights-overview.md) dans laquelle vous souhaitez afficher les données. (Ou [créez une ressource](app-insights-create-new-resource.md).)
+Dans le [portail Microsoft Azure](https://portal.azure.com), ouvrez la ressource [Application Insights](app-insights-overview.md) dans laquelle vous souhaitez afficher les données. (Ou [créez une ressource](app-insights-create-new-resource.md).)
 
 Effectuez une copie de la clé d’instrumentation, qui identifie la ressource.
 
@@ -50,7 +50,7 @@ Sur vos ordinateurs serveur Unix :
 
 ```
 
-     LoadPlugin "com.azure.microsoft.com/.applicationinsights.collectd.ApplicationInsightsWriter"
+     LoadPlugin "com.microsoft.applicationinsights.collectd.ApplicationInsightsWriter"
      <Plugin ApplicationInsightsWriter>
         InstrumentationKey "Your key"
      </Plugin>
@@ -74,7 +74,7 @@ Voici une partie d’un exemple de fichier de configuration :
       JVMArg "-Djava.class.path=/usr/share/collectd/java/applicationinsights-collectd-1.0.5.jar:/usr/share/collectd/java/collectd-api.jar"
 
       # Enabling Application Insights plugin
-      LoadPlugin "com.azure.microsoft.com/.applicationinsights.collectd.ApplicationInsightsWriter"
+      LoadPlugin "com.microsoft.applicationinsights.collectd.ApplicationInsightsWriter"
                 
       # Configuring Application Insights plugin
       <Plugin ApplicationInsightsWriter>

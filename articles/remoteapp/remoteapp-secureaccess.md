@@ -1,6 +1,6 @@
 
 <properties 
-    pageTitle="Sécurisation de l’accès à Azure RemoteApp et au-delà | azure.microsoft.com/ Azure"
+    pageTitle="Sécurisation de l’accès à Azure RemoteApp et au-delà | Microsoft Azure"
 	description="Découvrir comment sécuriser l’accès à Azure RemoteApp à l’aide de l’accès conditionnel dans Azure Active Directory"
 	services="remoteapp"
 	documentationCenter="" 
@@ -19,7 +19,7 @@
 # Sécurisation de l’accès à Azure RemoteApp et au-delà
 
 > [AZURE.IMPORTANT]
-Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.azure.microsoft.com/.com/fwlink/?linkid=821148).
+Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148).
 
 Dans cet article, nous proposons une vue d’ensemble de la façon dont un administrateur peut configurer un canal d’accès sécurisé commençant à partir de l’utilisateur final, via Azure RemoteApp, et se terminant par une ressource sécurisée, comme une base de données SQL ou une autre application principale. L’objectif est de s’assurer que seuls les utilisateurs autorisés répondant aux conditions souhaitées peuvent accéder aux applications distantes, et que le serveur principal sécurisé est accessible uniquement à partir de l’environnement Azure RemoteApp contrôlé et non à partir d’autres emplacements.
 
@@ -30,7 +30,7 @@ L’administrateur doit examiner trois zones principales :
 Poursuivez la lecture pour prendre connaissance des informations et des réponses à ces questions.
 
 ## Qui peut accéder à la collection ?
-L’administrateur choisit les utilisateurs qui peuvent accéder aux applications distantes de la collection. Vous pouvez utiliser des comptes professionnels ou scolaires Azure Active Directory (Azure AD) (précédemment appelés « comptes professionnels ») ou des comptes azure.microsoft.com/ (par exemple @outlook.com). La plupart des scénarios d’entreprise utilisent des comptes Azure AD. Ils vous permettent d’utiliser les fonctionnalités d’accès conditionnel abordées plus loin et constituent également le seul choix pour les collections jointes au domaine. Le reste de cet article s’appuie sur l’hypothèse que vous utilisez des comptes Azure AD avec Azure RemoteApp.
+L’administrateur choisit les utilisateurs qui peuvent accéder aux applications distantes de la collection. Vous pouvez utiliser des comptes professionnels ou scolaires Azure Active Directory (Azure AD) (précédemment appelés « comptes professionnels ») ou des comptes Microsoft (par exemple @outlook.com). La plupart des scénarios d’entreprise utilisent des comptes Azure AD. Ils vous permettent d’utiliser les fonctionnalités d’accès conditionnel abordées plus loin et constituent également le seul choix pour les collections jointes au domaine. Le reste de cet article s’appuie sur l’hypothèse que vous utilisez des comptes Azure AD avec Azure RemoteApp.
 
 **Ce que nous avons accompli :**
 
@@ -53,7 +53,7 @@ Nous allons vous guider pas à pas dans un exemple de scénario : un administra
 
 	Rappel : l’accès conditionnel est une propriété de votre annuaire et non d’Azure RemoteApp. Par conséquent, toute la configuration est effectuée au niveau de l’annuaire. En d’autres termes, vous devez être administrateur d’annuaire pour effectuer ces modifications.
 
-2.	Cliquez sur **Applications**, puis sur **azure.microsoft.com/ Azure RemoteApp** pour configurer un accès conditionnel. Notez que vous pouvez configurer un accès conditionnel pour chaque application « logiciel en tant que service » séparément dans votre annuaire. ![Configuration de l’accès conditionnel pour Azure RemoteApp](./media/remoteapp-secureaccess/ra-conditionalaccessscreen.png)
+2.	Cliquez sur **Applications**, puis sur **Microsoft Azure RemoteApp** pour configurer un accès conditionnel. Notez que vous pouvez configurer un accès conditionnel pour chaque application « logiciel en tant que service » séparément dans votre annuaire. ![Configuration de l’accès conditionnel pour Azure RemoteApp](./media/remoteapp-secureaccess/ra-conditionalaccessscreen.png)
  
 
 3.	Dans l’onglet **Configurer**, définissez **Activer les règles d’accès** sur ACTIVÉ. ![Activer des règles d’accès pour Azure RemoteApp](./media/remoteapp-secureaccess/ra-enableaccessrules.png)

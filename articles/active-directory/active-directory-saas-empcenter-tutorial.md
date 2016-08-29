@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="Didacticiel : Intégration d’Azure Active Directory avec EmpCenter | azure.microsoft.com/ Azure" 
+    pageTitle="Didacticiel : Intégration d’Azure Active Directory avec EmpCenter | Microsoft Azure" 
     description="Apprenez à utiliser EmpCenter avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore." 
     services="active-directory" 
     authors="jeevansd"  
@@ -72,7 +72,7 @@ Cette section explique comment permettre aux utilisateurs de s'authentifier sur 
 
     ![Configurer l’authentification unique](./media/active-directory-saas-empcenter-tutorial/IC802919.png "Configurer l’authentification unique")
 
-2.  Dans la page **Comment voulez-vous que les utilisateurs se connectent à EmpCenter**, sélectionnez **Authentification unique azure.microsoft.com/ Azure AD**, puis cliquez sur **Suivant**.
+2.  Dans la page **Comment voulez-vous que les utilisateurs se connectent à EmpCenter**, sélectionnez **Authentification unique Microsoft Azure AD**, puis cliquez sur **Suivant**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-empcenter-tutorial/IC802920.png "Configurer l’authentification unique")
 

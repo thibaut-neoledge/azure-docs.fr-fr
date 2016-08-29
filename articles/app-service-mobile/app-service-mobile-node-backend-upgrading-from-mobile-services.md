@@ -18,7 +18,7 @@
 
 # Mettre à niveau votre application .NET Azure Mobile Services existante vers App Service
 
-App Service Mobile représente une nouvelle façon de créer des applications mobiles avec azure.microsoft.com/ Azure. Pour en savoir plus, voir [Que sont les applications Mobile Apps ?]
+App Service Mobile représente une nouvelle façon de créer des applications mobiles avec Microsoft Azure. Pour en savoir plus, voir [Que sont les applications Mobile Apps ?]
 
 Cette rubrique décrit comment mettre à niveau une application principale Node.js existante depuis Azure Mobile Services vers une nouvelle application App Service Mobile Apps. Pendant cette mise à niveau, votre application Mobile Services existante peut continuer à fonctionner. Si vous devez mettre à niveau une application principale .NET, voir [Upgrading your .NET Mobile Services](./app-service-mobile-net-upgrading-from-mobile-services.md) (Mise à niveau d’une application principale .NET à partir de Mobile Services).
 
@@ -106,7 +106,7 @@ Au cours du déploiement, vous devez effectuer les opérations suivantes :
  
 	Sélectionnez un autre plan App Service ou créez-en un. Pour plus d’informations sur les plans App Service et sur la création d’un plan à un autre niveau de tarification et à l’emplacement souhaité, voir [Présentation détaillée des plans Azure App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
 
-4. Pour le **plan App Service**, le plan par défaut (du [niveau Standard](https://azure.azure.microsoft.com/.com/pricing/details/app-service/)) est sélectionné. Vous pouvez également sélectionner un autre plan, ou en [créer un](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md#create-an-app-service-plan). Les paramètres du plan App Service déterminent [l’emplacement, les fonctionnalités, les coûts et les ressources de calcul](https://azure.azure.microsoft.com/.com/pricing/details/app-service/) associés à votre application.
+4. Pour le **plan App Service**, le plan par défaut (du [niveau Standard](https://azure.microsoft.com/pricing/details/app-service/)) est sélectionné. Vous pouvez également sélectionner un autre plan, ou en [créer un](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md#create-an-app-service-plan). Les paramètres du plan App Service déterminent [l’emplacement, les fonctionnalités, les coûts et les ressources de calcul](https://azure.microsoft.com/pricing/details/app-service/) associés à votre application.
 
 	Après avoir choisi le plan, cliquez sur **Créer**. Cette action crée le serveur principal Mobile App.
 
@@ -134,7 +134,7 @@ Vous trouverez le nom d’utilisateur et le mot de passe en affichant la chaîne
 
 ### Configurer l’authentification
 
-Azure Mobile Apps vous permet de configurer l’authentification Azure Active Directory, Facebook, Google, azure.microsoft.com/ et Twitter au sein du service. Une authentification personnalisée doit être développée séparément. Pour plus d’informations, reportez-vous aux documents [Authentication Concepts (Concepts d’authentification)] et [Authentication Quickstart (Démarrage rapide de l’authentification)].
+Azure Mobile Apps vous permet de configurer l’authentification Azure Active Directory, Facebook, Google, Microsoft et Twitter au sein du service. Une authentification personnalisée doit être développée séparément. Pour plus d’informations, reportez-vous aux documents [Authentication Concepts (Concepts d’authentification)] et [Authentication Quickstart (Démarrage rapide de l’authentification)].
 
 ## <a name="updating-clients"></a>Mettre à jour les clients mobiles
 
@@ -172,7 +172,7 @@ Une fois la nouvelle version cliente prête, essayez-la par rapport à votre pro
 [How to use the .NET server SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Migrate from Mobile Services to an App Service Mobile App]: app-service-mobile-migrating-from-mobile-services.md
 [Migrate your existing Mobile Service to App Service]: app-service-mobile-migrating-from-mobile-services.md
-[tarification App Service]: https://azure.azure.microsoft.com/.com/fr-FR/pricing/details/app-service/
+[tarification App Service]: https://azure.microsoft.com/pricing/details/app-service/
 [.NET server SDK overview]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Authentication Concepts (Concepts d’authentification)]: ../app-service/app-service-authentication-overview.md
 [Authentication Quickstart (Démarrage rapide de l’authentification)]: app-service-mobile-auth.md
@@ -185,9 +185,9 @@ Une fois la nouvelle version cliente prête, essayez-la par rapport à votre pro
 [samples directory on GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples
 [static-schema sample on GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/static-schema
 [QueryJS]: https://github.com/Azure/queryjs
-[Node.js Tools 1.1 for Visual Studio]: https://github.com/azure.microsoft.com//nodejstools/releases/tag/v1.1-RC.2.1
+[Node.js Tools 1.1 for Visual Studio]: https://github.com/Microsoft/nodejstools/releases/tag/v1.1-RC.2.1
 [mssql Node.js package]: https://www.npmjs.com/package/mssql
-[azure.microsoft.com/ SQL Server 2014 Express]: http://www.azure.microsoft.com/.com/fr-FR/server-cloud/Products/sql-server-editions/sql-server-express.aspx
+[Microsoft SQL Server 2014 Express]: http://www.microsoft.com/fr-FR/server-cloud/Products/sql-server-editions/sql-server-express.aspx
 [ExpressJS Middleware]: http://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston
 

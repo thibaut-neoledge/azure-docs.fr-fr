@@ -72,7 +72,7 @@ Pour atteindre le volume cible, certaines des données de télémétrie génér�
 
 Les données de mesure telles que le taux de demandes et le taux d’exceptions sont ajustées pour compenser le taux d’échantillonnage, afin qu’elles affichent des valeurs approximativement correctes dans Metrics Explorer.
 
-**Mettez à jour les packages NuGet** de votre projet vers la version *préliminaire* d’Application Insights la plus récente : cliquez avec le bouton droit sur le projet dans l’Explorateur de solutions, sélectionnez Gérer les packages NuGet, cochez **Inclure la version préliminaire** et recherchez azure.microsoft.com/.ApplicationInsights.Web.
+**Mettez à jour les packages NuGet** de votre projet vers la version *préliminaire* d’Application Insights la plus récente : cliquez avec le bouton droit sur le projet dans l’Explorateur de solutions, sélectionnez Gérer les packages NuGet, cochez **Inclure la version préliminaire** et recherchez Microsoft.ApplicationInsights.Web.
 
 Dans [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md), vous pouvez définir un certain nombre de paramètres dans le nœud `AdaptiveSamplingTelemetryProcessor`. Les chiffres indiqués correspondent aux valeurs par défaut :
 
@@ -120,10 +120,10 @@ Supprimer le nœud `AdaptiveSamplingTelemetryProcessor` du fichier .config.
 
 ```C#
 
-    using azure.microsoft.com/.ApplicationInsights;
-    using azure.microsoft.com/.ApplicationInsights.Extensibility;
-    using azure.microsoft.com/.ApplicationInsights.WindowsServer.Channel.Implementation;
-    using azure.microsoft.com/.ApplicationInsights.WindowsServer.TelemetryChannel;
+    using Microsoft.ApplicationInsights;
+    using Microsoft.ApplicationInsights.Extensibility;
+    using Microsoft.ApplicationInsights.WindowsServer.Channel.Implementation;
+    using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
     ...
 
     var adaptiveSamplingSettings = new SamplingPercentageEstimatorSettings();
@@ -196,7 +196,7 @@ L’algorithme d’échantillonnage conserve les éléments associés. Pour chaq
 
 Dans Metrics Explorer, les taux tels que le nombre de demandes et d’exceptions sont multipliés par un facteur pour compenser le taux d’échantillonnage, afin qu’ils soient approximativement corrects.
 
-1. **Mettez à jour les packages NuGet de votre projet** vers la dernière version *préliminaire* d’Application Insights. Cliquez avec le bouton droit sur le projet dans l’Explorateur de solutions, sélectionnez Gérer les packages NuGet, cochez **Inclure la version préliminaire** et recherchez azure.microsoft.com/.ApplicationInsights.Web.
+1. **Mettez à jour les packages NuGet de votre projet** vers la dernière version *préliminaire* d’Application Insights. Cliquez avec le bouton droit sur le projet dans l’Explorateur de solutions, sélectionnez Gérer les packages NuGet, cochez **Inclure la version préliminaire** et recherchez Microsoft.ApplicationInsights.Web.
 
 2. **Désactivez l’échantillonnage adaptatif** : dans [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md), supprimez ou commentez le nœud `AdaptiveSamplingTelemetryProcessor`.
 
@@ -204,7 +204,7 @@ Dans Metrics Explorer, les taux tels que le nombre de demandes et d’exceptions
 
     <TelemetryProcessors>
     <!-- Disabled adaptive sampling:
-      <Add Type="azure.microsoft.com/.ApplicationInsights.WindowsServer.TelemetryChannel.AdaptiveSamplingTelemetryProcessor, azure.microsoft.com/.AI.ServerTelemetryChannel">
+      <Add Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.AdaptiveSamplingTelemetryProcessor, Microsoft.AI.ServerTelemetryChannel">
         <MaxTelemetryItemsPerSecond>5</MaxTelemetryItemsPerSecond>
       </Add>
     -->
@@ -217,7 +217,7 @@ Dans Metrics Explorer, les taux tels que le nombre de demandes et d’exceptions
     ```XML
 
     <TelemetryProcessors>
-     <Add  Type="azure.microsoft.com/.ApplicationInsights.WindowsServer.TelemetryChannel.SamplingTelemetryProcessor, azure.microsoft.com/.AI.ServerTelemetryChannel">
+     <Add  Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.SamplingTelemetryProcessor, Microsoft.AI.ServerTelemetryChannel">
 
       <!-- Set a percentage close to 100/N where N is an integer. -->
      <!-- E.g. 50 (=100/2), 33.33 (=100/3), 25 (=100/4), 20, 1 (=100/100), 0.1 (=100/1000) -->
@@ -240,8 +240,8 @@ Au lieu de définir le paramètre d’échantillonnage dans le fichier .config, 
 
 ```C#
 
-    using azure.microsoft.com/.ApplicationInsights.Extensibility;
-    using azure.microsoft.com/.ApplicationInsights.WindowsServer.TelemetryChannel;
+    using Microsoft.ApplicationInsights.Extensibility;
+    using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
     ...
 
     var builder = TelemetryConfiguration.Active.GetTelemetryProcessorChainBuilder();

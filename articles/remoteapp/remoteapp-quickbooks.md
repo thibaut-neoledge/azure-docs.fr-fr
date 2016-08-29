@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="Déploiement de QuickBooks dans Azure RemoteApp | azure.microsoft.com/ Azure" 
+    pageTitle="Déploiement de QuickBooks dans Azure RemoteApp | Microsoft Azure" 
     description="Découvrez comment partager QuickBooks avec Azure RemoteApp." 
     services="remoteapp" 
 	documentationCenter="" 
@@ -20,7 +20,7 @@
 # Comment déployer QuickBooks dans Azure RemoteApp ?
 
 > [AZURE.IMPORTANT]
-Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.azure.microsoft.com/.com/fwlink/?linkid=821148).
+Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148).
 
 Utilisez les informations suivantes pour partager QuickBooks comme une application dans Azure RemoteApp.
 
@@ -41,7 +41,7 @@ Vous pouvez partager QuickBooks 2015 Enterprise avec Azure RemoteApp dans une co
 - QuickBooks - [Configurations prises en charge](http://enterprisesuite.intuit.com/products/enterprise-solutions/technical/#top)
 - QuickBooks - [Options de déploiement](http://enterprisesuite.intuit.com/everythingenterprise/launchpad/new-user/)
 
-Vous pouvez également consulter ma présentation Ignite, [Bases de la gestion et de l’administration de azure.microsoft.com/ Azure RemoteApp](https://channel9.msdn.com/Events/Ignite/2015/BRK3868) en avançant rapidement jusqu’à 1:02:45 pour accéder à la partie QuickBooks.
+Vous pouvez également consulter ma présentation Ignite, [Bases de la gestion et de l’administration de Microsoft Azure RemoteApp](https://channel9.msdn.com/Events/Ignite/2015/BRK3868) en avançant rapidement jusqu’à 1:02:45 pour accéder à la partie QuickBooks.
 
 ## Architecture de déploiement
 

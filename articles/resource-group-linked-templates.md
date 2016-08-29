@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Modèles liés avec Resource Manager | azure.microsoft.com/ Azure"
+   pageTitle="Modèles liés avec Resource Manager | Microsoft Azure"
    description="Décrit comment utiliser des modèles liés dans un modèle Azure Resource Manager afin de créer une solution de modèle modulaire. Indique comment transmettre des valeurs de paramètres, spécifier un fichier de paramètres et créer dynamiquement des URL."
    services="azure-resource-manager"
    documentationCenter="na"
@@ -30,7 +30,7 @@ Pour créer un lien entre deux modèles, ajoutez une ressource de déploiement 
       { 
          "apiVersion": "2015-01-01", 
          "name": "nestedTemplate", 
-         "type": "azure.microsoft.com/.Resources/deployments", 
+         "type": "Microsoft.Resources/deployments", 
          "properties": { 
            "mode": "incremental", 
            "templateLink": {
@@ -62,7 +62,7 @@ L’exemple suivant montre un modèle parent lié à un autre modèle. Le modèl
         {
             "apiVersion": "2015-01-01",
             "name": "nestedTemplate",
-            "type": "azure.microsoft.com/.Resources/deployments",
+            "type": "Microsoft.Resources/deployments",
             "properties": {
               "mode": "incremental",
               "templateLink": {
@@ -83,7 +83,7 @@ L’exemple suivant utilise la propriété **parametersLink** pour créer un lie
       { 
          "apiVersion": "2015-01-01", 
          "name": "nestedTemplate", 
-         "type": "azure.microsoft.com/.Resources/deployments", 
+         "type": "Microsoft.Resources/deployments", 
          "properties": { 
            "mode": "incremental", 
            "templateLink": {
@@ -162,7 +162,7 @@ Vous fournissez cette valeur de variable pour la ressource de déploiement.
         {
             "apiVersion": "2015-01-01",
             "name": "nestedTemplate",
-            "type": "azure.microsoft.com/.Resources/deployments",
+            "type": "Microsoft.Resources/deployments",
             "properties": {
                 "mode": "incremental",
                 "templateLink": {
@@ -194,7 +194,7 @@ L’exemple suivant illustre le modèle **existingStorageAccount.json**.
       "resources": [],
       "outputs": {
         "storageAccountInfo": {
-          "value": "[reference(concat('azure.microsoft.com/.Storage/storageAccounts/', parameters('storageAccountName')),providers('azure.microsoft.com/.Storage', 'storageAccounts').apiVersions[0])]",
+          "value": "[reference(concat('Microsoft.Storage/storageAccounts/', parameters('storageAccountName')),providers('Microsoft.Storage', 'storageAccounts').apiVersions[0])]",
           "type" : "object"
         }
       }
@@ -212,7 +212,7 @@ L’exemple suivant illustre le modèle **newStorageAccount.json**. Tout comme l
       },
       "resources": [
         {
-          "type": "azure.microsoft.com/.Storage/storageAccounts",
+          "type": "Microsoft.Storage/storageAccounts",
           "name": "[parameters('StorageAccountName')]",
           "apiVersion": "2016-01-01",
           "location": "[resourceGroup().location]",
@@ -226,7 +226,7 @@ L’exemple suivant illustre le modèle **newStorageAccount.json**. Tout comme l
       ],
       "outputs": {
         "storageAccountInfo": {
-          "value": "[reference(concat('azure.microsoft.com/.Storage/storageAccounts/', parameters('StorageAccountName')),providers('azure.microsoft.com/.Storage', 'storageAccounts').apiVersions[0])]",
+          "value": "[reference(concat('Microsoft.Storage/storageAccounts/', parameters('StorageAccountName')),providers('Microsoft.Storage', 'storageAccounts').apiVersions[0])]",
           "type" : "object"
         }
       }
@@ -248,7 +248,7 @@ Le fichier **parent.json** est composé de :
         {
           "apiVersion": "2015-01-01",
           "name": "nestedTemplate",
-          "type": "azure.microsoft.com/.Resources/deployments",
+          "type": "Microsoft.Resources/deployments",
           "properties": {
             "mode": "incremental",
             "templateLink": {

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Création d’une image de machine virtuelle à partir d’une machine virtuelle Azure | azure.microsoft.com/ Azure"
+	pageTitle="Création d’une image de machine virtuelle à partir d’une machine virtuelle Azure | Microsoft Azure"
 	description="Apprenez à créer une image de machine virtuelle généralisée à partir d’une machine virtuelle Azure existante créée dans le modèle de déploiement Resource Manager"
 	services="virtual-machines-windows"
 	documentationCenter=""
@@ -20,7 +20,7 @@
 # Comment créer une image de machine virtuelle à partir d’une machine virtuelle Azure existante
 
 
-Cet article vous montre comment utiliser Azure PowerShell pour créer une image généralisée d’une machine virtuelle Azure existante. Vous pouvez ensuite utiliser l’image pour créer une autre machine virtuelle. Cette image comprend le disque du système d’exploitation, ainsi que les disques de données attachés à la machine virtuelle. L’image n’inclut pas les ressources du réseau virtuel. Vous devez donc configurer les ressources lorsque vous créez une machine virtuelle à l’aide de l’image. Ce processus crée une [image généralisée Windows](https://technet.azure.microsoft.com/.com/library/hh824938.aspx).
+Cet article vous montre comment utiliser Azure PowerShell pour créer une image généralisée d’une machine virtuelle Azure existante. Vous pouvez ensuite utiliser l’image pour créer une autre machine virtuelle. Cette image comprend le disque du système d’exploitation, ainsi que les disques de données attachés à la machine virtuelle. L’image n’inclut pas les ressources du réseau virtuel. Vous devez donc configurer les ressources lorsque vous créez une machine virtuelle à l’aide de l’image. Ce processus crée une [image généralisée Windows](https://technet.microsoft.com/library/hh824938.aspx).
 
 
 ## Composants requis
@@ -29,7 +29,7 @@ Cet article vous montre comment utiliser Azure PowerShell pour créer une image 
 
 - Vous devez disposer d’une installation d'Azure PowerShell version 1.0.x. Si vous n’avez pas déjà installé PowerShell, consultez la rubrique [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md).
 
-- Vérifiez que les rôles serveur exécutés sur la machine sont pris en charge par Sysprep. Pour plus d’informations, consultez [Prise en charge de Sysprep pour les rôles serveur](https://msdn.azure.microsoft.com/.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles).
+- Vérifiez que les rôles serveur exécutés sur la machine sont pris en charge par Sysprep. Pour plus d’informations, consultez [Prise en charge de Sysprep pour les rôles serveur](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles).
 
 ## Préparation des données source de machine virtuelle 
 
@@ -45,7 +45,7 @@ Cette section vous montre comment généraliser votre machine virtuelle Windows 
 
 4. Dans la boîte de dialogue **Outil de préparation système**, procédez comme suit :
 
-	- Dans **Action de nettoyage du système**, sélectionnez **Enter System Out-of-Box Experience (OOBE)** et vérifiez que la case à cocher **Generalize** est activée. Pour plus d’informations sur l’utilisation de Sysprep, voir la page [Introduction à l’utilisation de Sysprep](http://technet.azure.microsoft.com/.com/library/bb457073.aspx).
+	- Dans **Action de nettoyage du système**, sélectionnez **Enter System Out-of-Box Experience (OOBE)** et vérifiez que la case à cocher **Generalize** est activée. Pour plus d’informations sur l’utilisation de Sysprep, voir la page [Introduction à l’utilisation de Sysprep](http://technet.microsoft.com/library/bb457073.aspx).
 
 	- Dans **Shutdown Options**, sélectionnez **Shutdown**.
 
@@ -97,13 +97,13 @@ Cette section vous montre comment généraliser votre machine virtuelle Windows 
 
 		Save-AzureRmVMImage -ResourceGroupName YourResourceGroup -Name YourWindowsVM -DestinationContainerName YourImagesContainer -VHDNamePrefix YourTemplatePrefix -Path Yourlocalfilepath\Filename.json
 
-	Vous pouvez obtenir l’URL de l’image à partir du modèle de fichier JSON. Accédez à la section **resources** > **storageProfile** > **osDisk** > **image** > **uri** pour obtenir le chemin d’accès complet de votre image. L’URL de l’image ressemble a le format suivant : `https://<storageAccountName>.blob.core.windows.net/system/azure.microsoft.com/.Compute/Images/<imagesContainer>/<templatePrefix-osDisk>.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd`.
+	Vous pouvez obtenir l’URL de l’image à partir du modèle de fichier JSON. Accédez à la section **resources** > **storageProfile** > **osDisk** > **image** > **uri** pour obtenir le chemin d’accès complet de votre image. L’URL de l’image ressemble a le format suivant : `https://<storageAccountName>.blob.core.windows.net/system/Microsoft.Compute/Images/<imagesContainer>/<templatePrefix-osDisk>.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd`.
 	
 	Vous pouvez également vérifier l’URI dans le portail. L’image est copiée dans un objet blob nommé **system** dans votre compte de stockage.
 
 2. Créez une variable pour le chemin d’accès à l’image.
 
-		$imageURI = "<https://<storageAccountName>.blob.core.windows.net/system/azure.microsoft.com/.Compute/Images/<imagesContainer>/<templatePrefix-osDisk>.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd>"
+		$imageURI = "<https://<storageAccountName>.blob.core.windows.net/system/Microsoft.Compute/Images/<imagesContainer>/<templatePrefix-osDisk>.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd>"
 
 
 ## Créez un réseau virtuel
@@ -160,7 +160,7 @@ Le script PowerShell suivant montre comment définir les configurations de machi
 	# Name of the virtual machine
 	$vmName = "<vmName>"
 	
-	# Size of the virtual machine. See the VM sizes documentation for more information: https://azure.azure.microsoft.com/.com/documentation/articles/virtual-machines-windows-sizes/
+	# Size of the virtual machine. See the VM sizes documentation for more information: https://azure.microsoft.com/documentation/articles/virtual-machines-windows-sizes/
 	$vmSize = "<vmSize>"
 	
 	# Computer name for the VM

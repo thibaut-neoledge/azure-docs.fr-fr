@@ -1,6 +1,6 @@
 
 <properties 
-    pageTitle="Utilisation de votre abonnement Office 365 avec Azure RemoteApp | azure.microsoft.com/ Azure"
+    pageTitle="Utilisation de votre abonnement Office 365 avec Azure RemoteApp | Microsoft Azure"
 	description="Découvrez comment vous pouvez utiliser votre abonnement Office 365 dans Azure RemoteApp pour partager des applications Office."
 	services="remoteapp"
 	documentationCenter="" 
@@ -21,7 +21,7 @@
 # Utilisation de votre abonnement Office 365 avec Azure RemoteApp
 
 > [AZURE.IMPORTANT]
-Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.azure.microsoft.com/.com/fwlink/?linkid=821148).
+Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148).
 
 Saviez-vous que vous pouvez utiliser votre abonnement Office 365 existant dans Azure RemoteApp pour partager des applications Office à partir du cloud ? Continuez votre lecture pour en savoir plus sur vos options Office 365 + Azure RemoteApp, notamment pour consulter des liens vers des articles sur Office 365 qui vous aideront à tirer le meilleur parti de votre abonnement.
 
@@ -32,14 +32,14 @@ Pour des informations détaillées, consultez le nouvel article de Peter : [comm
 
 Oui. En fait, l’utilisation de votre abonnement Office 365 est la seule façon d’importer vos applications Office dans Azure RemoteApp.
 
-(Remarque : si votre déploiement Azure RemoteApp est fourni par un partenaire d’hébergement, ce dernier peut éventuellement vous fournir des licences Office dans le cadre d’un [contrat de licence de fournisseur de services](http://www.azure.microsoft.com/.com/fr-FR/Licensing/licensing-programs/spla-program.aspx))
+(Remarque : si votre déploiement Azure RemoteApp est fourni par un partenaire d’hébergement, ce dernier peut éventuellement vous fournir des licences Office dans le cadre d’un [contrat de licence de fournisseur de services](http://www.microsoft.com/fr-FR/Licensing/licensing-programs/spla-program.aspx))
 
 
-L’avantage de votre abonnement Office 365 est qu’il vous permet d’utiliser la même licence utilisateur dans de nombreux environnements et plateformes, y compris dans le cloud Azure. Lorsque vous utilisez des applications Office dans Azure RemoteApp, vous n’avez pas besoin d’acheter des licences supplémentaires ou de configurer vos licences existantes d’une manière particulière. Il vous suffit de disposer d’un abonnement Office 365 qui inclut [Office 365 ProPlus](https://technet.azure.microsoft.com/.com/library/Gg702619.aspx).
+L’avantage de votre abonnement Office 365 est qu’il vous permet d’utiliser la même licence utilisateur dans de nombreux environnements et plateformes, y compris dans le cloud Azure. Lorsque vous utilisez des applications Office dans Azure RemoteApp, vous n’avez pas besoin d’acheter des licences supplémentaires ou de configurer vos licences existantes d’une manière particulière. Il vous suffit de disposer d’un abonnement Office 365 qui inclut [Office 365 ProPlus](https://technet.microsoft.com/library/Gg702619.aspx).
 
-Office 365 ProPlus permet [l’activation d’ordinateurs partagés](https://technet.azure.microsoft.com/.com/library/Dn782860.aspx) : cette fonctionnalité permet l’activation temporaire basée sur les utilisateurs pour Office dans les environnements virtuels et cloud comme Azure RemoteApp (et les Services Bureau à distance).
+Office 365 ProPlus permet [l’activation d’ordinateurs partagés](https://technet.microsoft.com/library/Dn782860.aspx) : cette fonctionnalité permet l’activation temporaire basée sur les utilisateurs pour Office dans les environnements virtuels et cloud comme Azure RemoteApp (et les Services Bureau à distance).
 
-Quels plans Office 365 incluent Office 365 ProPlus ? Consultez le tableau [Disponibilité des services de chaque plan](https://technet.azure.microsoft.com/.com/library/office-365-plan-options.aspx). Notez que les plans n’incluent pas tous Office 365 ProPlus (par exemple, le plan Office 365 Business). Si votre plan n’inclut pas Office 365 ProPlus, envisagez la mise à niveau vers un plan l’incluant (par exemple, Office 365 Éducation E3).
+Quels plans Office 365 incluent Office 365 ProPlus ? Consultez le tableau [Disponibilité des services de chaque plan](https://technet.microsoft.com/library/office-365-plan-options.aspx). Notez que les plans n’incluent pas tous Office 365 ProPlus (par exemple, le plan Office 365 Business). Si votre plan n’inclut pas Office 365 ProPlus, envisagez la mise à niveau vers un plan l’incluant (par exemple, Office 365 Éducation E3).
 
 ## Comment mes licences Office 365 ProPlus sont-elles utilisées avec Azure RemoteApp ?
 
@@ -80,7 +80,7 @@ Pour déployer Office 365 ProPlus sur une collection, le plus simple est de [dé
 
 ### Utilisation d’une image personnalisée
 
-Vous pouvez toujours créer une image personnalisée. Vous pouvez créer une [machine virtuelle Azure](remoteapp-image-on-azurevm.md) ou [créer l’image localement](remoteapp-create-custom-image.md) et la charger sur Azure. Dans les deux cas, veillez à installer Office 365 ProPlus à l’aide du nœud d’activation d’ordinateur partagé. Utilisez l’[outil Déploiement d’Office](http://blogs.technet.com/b/odsupport/archive/2014/07/11/using-the-office-deployment-tool.aspx) et suivez les [instructions](https://technet.azure.microsoft.com/.com/library/Dn782858.aspx) d’installation.
+Vous pouvez toujours créer une image personnalisée. Vous pouvez créer une [machine virtuelle Azure](remoteapp-image-on-azurevm.md) ou [créer l’image localement](remoteapp-create-custom-image.md) et la charger sur Azure. Dans les deux cas, veillez à installer Office 365 ProPlus à l’aide du nœud d’activation d’ordinateur partagé. Utilisez l’[outil Déploiement d’Office](http://blogs.technet.com/b/odsupport/archive/2014/07/11/using-the-office-deployment-tool.aspx) et suivez les [instructions](https://technet.microsoft.com/library/Dn782858.aspx) d’installation.
 
 ### Désactivation des mises à jour automatiques pour Office 365 ProPlus dans votre image personnalisée - IMPORTANT
 
@@ -110,7 +110,7 @@ Pour consulter la procédure de bout en bout de mise à jour de votre collection
 Deux options s’offrent à vous pour la mise à jour de votre image : remplacer votre image par une nouvelle image ou mettre à jour manuellement votre image existante.
 
 ### Remplacement de votre image avec la dernière image de galerie Azure et ajout de personnalisations
-Avec cette option, vous laissez azure.microsoft.com/ s’occuper des mises à jour de Windows Server et d’Office 365 ProPlus. Au lieu de mettre à jour votre image existante, vous allez créer une nouvelle image basée sur la dernière image de galerie. Ensuite, répétez toutes les étapes effectuées auparavant pour personnaliser l’image : installation des applications personnalisées, modification de la configuration de l’image, etc.
+Avec cette option, vous laissez Microsoft s’occuper des mises à jour de Windows Server et d’Office 365 ProPlus. Au lieu de mettre à jour votre image existante, vous allez créer une nouvelle image basée sur la dernière image de galerie. Ensuite, répétez toutes les étapes effectuées auparavant pour personnaliser l’image : installation des applications personnalisées, modification de la configuration de l’image, etc.
 
 Les images de galerie sont régulièrement mises à jour. Vous avez donc l’esprit tranquille puisque vous avez l’assurance que vos applications Windows Server et Office 365 ProPlus sont à jour. Bien entendu, en contrepartie, vous devez appliquer vos personnalisations à chaque fois que vous obtenez une nouvelle image. Vous pouvez créer des scripts pour automatiser la configuration de vos personnalisations.
 
@@ -122,8 +122,8 @@ Avec cette option, vous utilisez les outils Windows standard pour appliquer des 
 
 Vous avez besoin de plus d’informations sur l’utilisation de l’outil Déploiement d’Office pour les mises à jour ?
 
-- [Déployer des produits Office « Démarrer en un clic » pour Office 365 à l’aide de l’outil Déploiement d’Office](https://technet.azure.microsoft.com/.com/library/JJ219423.aspx)
+- [Déployer des produits Office « Démarrer en un clic » pour Office 365 à l’aide de l’outil Déploiement d’Office](https://technet.microsoft.com/library/JJ219423.aspx)
 - [Déploiement et mise à jour d’Office 365 ProPlus à l’aide de l’outil Déploiement d’Office](https://channel9.msdn.com/Events/Ignite/2015/BRK3168) (vidéo)
-- [Définir les paramètres de mise à jour pour Office 365 ProPlus](https://technet.azure.microsoft.com/.com/library/dn761708.aspx)
+- [Définir les paramètres de mise à jour pour Office 365 ProPlus](https://technet.microsoft.com/library/dn761708.aspx)
 
 <!---HONumber=AcomDC_0817_2016-->

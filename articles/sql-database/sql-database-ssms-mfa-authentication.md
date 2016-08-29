@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Prise en charge de SSMS pour Azure AD MFA avec la base de données SQL et SQL Data Warehouse | azure.microsoft.com/ Azure"
+   pageTitle="Prise en charge de SSMS pour Azure AD MFA avec la base de données SQL et SQL Data Warehouse | Microsoft Azure"
    description="Utilisez l’authentification multi-facteur avec SSMS pour la base de données SQL et SQL Data Warehouse."
    services="sql-database"
    documentationCenter=""
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
    ms.date="08/15/2016"
-   ms.author="rick.byham@azure.microsoft.com/.com"/>
+   ms.author="rick.byham@microsoft.com"/>
 
 # Prise en charge de SSMS pour Azure AD MFA avec la base de données SQL et SQL Data Warehouse
 
@@ -42,13 +42,13 @@ Lorsque le compte d’utilisateur est configuré pour MFA, le workflow d’authe
 
 L’implémentation de Multi-Factor Authentication implique quatre étapes de base.
 
-1. **Configurer un Azure Active Directory** : pour plus d’informations, consultez [Intégration des identités locales avec Azure Active Directory](../active-directory/active-directory-aadconnect.md), [Ajout de votre propre nom de domaine à Azure AD](https://azure.azure.microsoft.com/.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/), [azure.microsoft.com/ Azure prend désormais en charge la fédération avec Windows Server Active Directory](https://azure.azure.microsoft.com/.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/) (en anglais), [Administration de votre annuaire Azure AD](https://msdn.azure.microsoft.com/.com/library/azure/hh967611.aspx) et [Gestion d’Azure AD à l’aide de Windows PowerShell](https://msdn.azure.microsoft.com/.com/library/azure/jj151815.aspx).
+1. **Configurer un Azure Active Directory** : pour plus d’informations, consultez [Intégration des identités locales avec Azure Active Directory](../active-directory/active-directory-aadconnect.md), [Ajout de votre propre nom de domaine à Azure AD](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/), [Microsoft Azure prend désormais en charge la fédération avec Windows Server Active Directory](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/) (en anglais), [Administration de votre annuaire Azure AD](https://msdn.microsoft.com/library/azure/hh967611.aspx) et [Gestion d’Azure AD à l’aide de Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx).
 
 2. **Configurer MFA** : pour obtenir des instructions pas à pas, consultez la page [Configuration d’Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication-whats-next.md).
 
 3. **Configurer la base de données SQL ou SQL Data Warehouse pour l’authentification Azure AD** : pour obtenir des instructions pas à pas, consultez la page [Connexion au service Base de données SQL ou SQL Data Warehouse avec l’authentification Azure Active Directory](sql-database-aad-authentication.md).
 
-4. **Télécharger SSMS** : sur l’ordinateur client, téléchargez la dernière version de SSMS (au moins août 2016) depuis [Télécharger SQL Server Management Studio (SSMS)](https://msdn.azure.microsoft.com/.com/library/mt238290.aspx).
+4. **Télécharger SSMS** : sur l’ordinateur client, téléchargez la dernière version de SSMS (au moins août 2016) depuis [Télécharger SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx).
 
 ## Connexion à l’aide de l’authentification universelle avec SSMS
 

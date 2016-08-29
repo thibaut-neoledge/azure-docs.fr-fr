@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Gestion des ressources Azure avec Cloud Explorer | azure.microsoft.com/ Azure"
+   pageTitle="Gestion des ressources Azure avec Cloud Explorer | Microsoft Azure"
    description="Découvrez comment utiliser Cloud Explorer pour rechercher et gérer des ressources Azure dans Visual Studio."
    services="visual-studio-online"
    documentationCenter="na"
@@ -19,9 +19,9 @@
 
 ##Vue d'ensemble
 
-Cloud Explorer est conçu pour vous permettre de parcourir et de gérer vos ressources Azure dans l'IDE Visual Studio plus facilement et plus rapidement. Vous pouvez par exemple l’utiliser pour ouvrir une application web dans le [portail Azure](http://go.azure.microsoft.com/.com/fwlink/p/?LinkID=525040) ou dans un navigateur, lui attacher un débogueur ou afficher les propriétés d’un conteneur d’objets blob et l’ouvrir dans l’éditeur de conteneur d’objets Blob.
+Cloud Explorer est conçu pour vous permettre de parcourir et de gérer vos ressources Azure dans l'IDE Visual Studio plus facilement et plus rapidement. Vous pouvez par exemple l’utiliser pour ouvrir une application web dans le [portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040) ou dans un navigateur, lui attacher un débogueur ou afficher les propriétés d’un conteneur d’objets blob et l’ouvrir dans l’éditeur de conteneur d’objets Blob.
 
-Cloud Explorer repose sur la pile Azure Resource Manager, tout comme le [portail Azure](http://go.azure.microsoft.com/.com/fwlink/p/?LinkID=525040). Il comprend des ressources, notamment les groupes de ressources Azure, et des services Azure, notamment Logic Apps et API Apps, et il prend en charge le [contrôle d'accès en fonction du rôle](./active-directory/role-based-access-control-configure.md) (RBAC). Pour voir les ressources Azure ajoutées ou modifiées, sélectionnez le bouton **Actualiser** dans la barre d'outils Cloud Explorer.
+Cloud Explorer repose sur la pile Azure Resource Manager, tout comme le [portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040). Il comprend des ressources, notamment les groupes de ressources Azure, et des services Azure, notamment Logic Apps et API Apps, et il prend en charge le [contrôle d'accès en fonction du rôle](./active-directory/role-based-access-control-configure.md) (RBAC). Pour voir les ressources Azure ajoutées ou modifiées, sélectionnez le bouton **Actualiser** dans la barre d'outils Cloud Explorer.
 
 Cloud Explorer est installé au sein de Visual Studio Tools pour le kit de développement logiciel (SDK) Azure 2.7.
 
@@ -30,7 +30,7 @@ Cloud Explorer est installé au sein de Visual Studio Tools pour le kit de déve
 - Visual Studio 2015 RTM.
 
 - Visual Studio Tools pour le kit de développement logiciel (SDK) Azure.
-- Vous devez disposer également d’un compte Azure et être connecté pour afficher les ressources Azure dans Cloud Explorer. Si vous n'en possédez pas, vous pouvez créer un compte en quelques minutes. Si vous avez un abonnement MSDN, consultez la page [Avantage Azure pour les abonnés MSDN](https://azure.azure.microsoft.com/.com/pricing/member-offers/msdn-benefits-details/). Dans le cas contraire, consultez [créer un compte d'évaluation gratuit](https://azure.azure.microsoft.com/.com/pricing/free-trial/).
+- Vous devez disposer également d’un compte Azure et être connecté pour afficher les ressources Azure dans Cloud Explorer. Si vous n'en possédez pas, vous pouvez créer un compte en quelques minutes. Si vous avez un abonnement MSDN, consultez la page [Avantage Azure pour les abonnés MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Dans le cas contraire, consultez [créer un compte d'évaluation gratuit](https://azure.microsoft.com/pricing/free-trial/).
 
 - Si Cloud Explorer n'apparaît pas, vous pouvez l'afficher en sélectionnant **Affichage**, **Autres fenêtres,** **Cloud Explorer** dans la barre de menus.
 
@@ -66,7 +66,7 @@ Pour afficher vos ressources Azure, vous pouvez choisir l’affichage **Types de
 
 ![Liste déroulante d’affichage des ressources](./media/vs-azure-tools-resources-managing-with-cloud-explorer/IC819516.png)
 
-- L’affichage **Types de ressources**, qui est également l’affichage courant utilisé sur le [portail Azure](http://go.azure.microsoft.com/.com/fwlink/p/?LinkID=525040), affiche vos ressources Azure classées par type, par exemple applications web, comptes de stockage et machines virtuelles. Cette opération est semblable à l’affichage des ressources Azure dans l'Explorateur de serveurs.
+- L’affichage **Types de ressources**, qui est également l’affichage courant utilisé sur le [portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040), affiche vos ressources Azure classées par type, par exemple applications web, comptes de stockage et machines virtuelles. Cette opération est semblable à l’affichage des ressources Azure dans l'Explorateur de serveurs.
 
 - L’affichage Groupes de ressources organise les ressources Azure en fonction des groupes de ressources Azure auxquels elles sont associées.
 
@@ -83,7 +83,7 @@ Pour accéder à une ressource Azure et afficher ses informations dans Cloud Exp
 
 - L’onglet **Propriétés** affiche les propriétés de la ressource, notamment son type, ses paramètres régionaux et le groupe de ressources auquel elle est associée.
 
-Chaque ressource dispose de l'action **Ouvrir dans le portail**. Lorsque vous sélectionnez cette action, Cloud Explorer affiche la ressource sélectionnée dans le [portail Azure](http://go.azure.microsoft.com/.com/fwlink/p/?LinkID=525040). Cette fonctionnalité est particulièrement pratique pour parcourir des ressources profondément imbriquées.
+Chaque ressource dispose de l'action **Ouvrir dans le portail**. Lorsque vous sélectionnez cette action, Cloud Explorer affiche la ressource sélectionnée dans le [portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040). Cette fonctionnalité est particulièrement pratique pour parcourir des ressources profondément imbriquées.
 
 Des actions et des valeurs de propriétés supplémentaires peuvent également s’afficher en fonction de la ressource Azure. Par exemple, les applications web et les applications logiques ont également les actions **Ouvrir dans un navigateur** et **Attacher le débogueur** en plus de l’action **Ouvrir dans le portail**. Les actions d’ouverture des éditeurs apparaissent lorsque vous sélectionnez un objet Blob, File d'attente ou Table de compte de stockage. Les applications Azure ont des propriétés **URL** et **État**, tandis que les ressources de stockage ont des propriétés clé et chaîne de connexion.
 

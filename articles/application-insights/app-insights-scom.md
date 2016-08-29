@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Intégration de SCOM à Application Insights | azure.microsoft.com/ Azure" 
+	pageTitle="Intégration de SCOM à Application Insights | Microsoft Azure" 
 	description="Si vous êtes un utilisateur SCOM, analysez les performances et diagnostiquez les problèmes avec Application Insights. Tableaux de bord complets, alertes intelligentes, requêtes analytiques et outils de diagnostic efficaces." 
 	services="application-insights" 
     documentationCenter=""
@@ -28,7 +28,7 @@ Nous partons de l’hypothèse suivante :
 * Vous maîtrisez SCOM et vous utilisez SCOM 2012 R2 ou 2016 pour gérer vos serveurs web IIS.
 * Vous avez déjà installé sur vos serveurs une application web que vous souhaitez analyser avec Application Insights.
 * La version de l’infrastructure de l’application est .NET 4.5 ou une version ultérieure.
-* Vous avez accès à un abonnement dans [azure.microsoft.com/ Azure](https://azure.com) et vous pouvez vous connecter au [portail Azure](https://portal.azure.com). Votre organisation doit posséder un abonnement et peut y ajouter votre compte azure.microsoft.com/.
+* Vous avez accès à un abonnement dans [Microsoft Azure](https://azure.com) et vous pouvez vous connecter au [portail Azure](https://portal.azure.com). Votre organisation doit posséder un abonnement et peut y ajouter votre compte Microsoft.
 
 (L’équipe de développement peut créer le [kit de développement logiciel (SDK) Application Insights](app-insights-asp-net.md) dans l’application web. Cette instrumentation en cours de création lui donne plus de flexibilité dans l’écriture des données de télémétrie personnalisées. Toutefois, cela n’a aucune importance : vous pouvez suivre les étapes décrites ici, avec ou sans le kit de développement logiciel (SDK) intégré.)
 
@@ -55,7 +55,7 @@ Sur l’ordinateur sur lequel vous exécutez Operations Manager :
 
 3. Sur la même page de l’Assistant, créez un pack d’administration ou sélectionnez un pack que vous avez créé précédemment pour Application Insights.
 
-     (Le [pack d’administration](https://technet.azure.microsoft.com/.com/library/cc974491.aspx) Application Insights est un modèle à partir duquel vous créez une instance. Vous pouvez réutiliser la même instance ultérieurement.)
+     (Le [pack d’administration](https://technet.microsoft.com/library/cc974491.aspx) Application Insights est un modèle à partir duquel vous créez une instance. Vous pouvez réutiliser la même instance ultérieurement.)
 
 
     ![Dans l’onglet Propriétés générales, saisissez le nom de l’application. Cliquez sur Nouveau et saisissez un nom pour un pack d’administration. Cliquez sur OK, puis sur Suivant.](./media/app-insights-scom/040.png)
@@ -66,7 +66,7 @@ Sur l’ordinateur sur lequel vous exécutez Operations Manager :
 
     Le champ de portée Analyse facultatif peut être utilisé pour spécifier un sous-ensemble de vos serveurs, si vous ne souhaitez pas analyser l’application dans tous les serveurs.
 
-5. Sur la page suivante de l’Assistant, vous devez d’abord fournir vos informations d’identification pour vous connecter à azure.microsoft.com/ Azure.
+5. Sur la page suivante de l’Assistant, vous devez d’abord fournir vos informations d’identification pour vous connecter à Microsoft Azure.
 
     Sur cette page, vous choisissez la ressource Application Insights dans laquelle vous souhaitez que les données de télémétrie soient analysées et affichées.
 
@@ -75,7 +75,7 @@ Sur l’ordinateur sur lequel vous exécutez Operations Manager :
 
     Vous pouvez modifier ces paramètres plus tard.
 
-    ![Dans l’onglet Application Insights settings (Paramètres d’Application Insights), cliquez sur « se connecter » et indiquez vos informations d’identification de compte azure.microsoft.com/ pour Azure. Choisissez ensuite un abonnement, un groupe de ressources et une ressource.](./media/app-insights-scom/060.png)
+    ![Dans l’onglet Application Insights settings (Paramètres d’Application Insights), cliquez sur « se connecter » et indiquez vos informations d’identification de compte Microsoft pour Azure. Choisissez ensuite un abonnement, un groupe de ressources et une ressource.](./media/app-insights-scom/060.png)
 
 6. Terminez l’Assistant.
 

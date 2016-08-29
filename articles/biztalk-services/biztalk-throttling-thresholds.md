@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="En savoir plus sur la limitation dans BizTalk Services | azure.microsoft.com/ Azure" 
+	pageTitle="En savoir plus sur la limitation dans BizTalk Services | Microsoft Azure" 
 	description="En savoir plus sur les seuils de limitation et les comportements qui s'ensuivent lors de l'exécution pour BizTalk Services. La limitation est basée sur l'utilisation de la mémoire et le nombre de messages. MABS, WABS" 
 	services="biztalk-services" 
 	documentationCenter="" 
@@ -55,18 +55,18 @@ Lorsque Azure BizTalk Services passe en mode limitation, les actions suivantes s
 
 ## Autres rubriques Azure BizTalk Services
 
--  [Installation du Kit de développement logiciel (SDK) Azure BizTalk Services](http://go.azure.microsoft.com/.com/fwlink/p/?LinkID=241589)<br/>
--  [Didacticiels : Azure BizTalk Services](http://go.azure.microsoft.com/.com/fwlink/p/?LinkID=236944)<br/>
--  [Utilisation du Kit de développement logiciel (SDK) Azure BizTalk Services](http://go.azure.microsoft.com/.com/fwlink/p/?LinkID=302335)<br/>
--  [Azure BizTalk Services](http://go.azure.microsoft.com/.com/fwlink/p/?LinkID=303664)<br/>
+-  [Installation du Kit de développement logiciel (SDK) Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=241589)<br/>
+-  [Didacticiels : Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=236944)<br/>
+-  [Utilisation du Kit de développement logiciel (SDK) Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
+-  [Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=303664)<br/>
 
 ## Voir aussi
-- [Tableau comparatif des éditions Développeur, De base, Standard et Premium de BizTalk Services](http://go.azure.microsoft.com/.com/fwlink/p/?LinkID=302279)<br/>
-- [BizTalk Services : approvisionnement avec le portail Azure Classic](http://go.azure.microsoft.com/.com/fwlink/p/?LinkID=302280)<br/>
-- [Tableau comparatif des états d'approvisionnement BizTalk Services](http://go.azure.microsoft.com/.com/fwlink/p/?LinkID=329870)<br/>
-- [Onglets Tableau de bord, Surveiller et Mettre à l'échelle dans BizTalk Services](http://go.azure.microsoft.com/.com/fwlink/p/?LinkID=302281)<br/>
-- [Sauvegarde et restauration de BizTalk Services](http://go.azure.microsoft.com/.com/fwlink/p/?LinkID=329873)<br/>
-- [Nom et clé de l'émetteur dans BizTalk Services](http://go.azure.microsoft.com/.com/fwlink/p/?LinkID=303941)<br/>
+- [Tableau comparatif des éditions Développeur, De base, Standard et Premium de BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
+- [BizTalk Services : approvisionnement avec le portail Azure Classic](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
+- [Tableau comparatif des états d'approvisionnement BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=329870)<br/>
+- [Onglets Tableau de bord, Surveiller et Mettre à l'échelle dans BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
+- [Sauvegarde et restauration de BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
+- [Nom et clé de l'émetteur dans BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=303941)<br/>
  
 
 <!---HONumber=AcomDC_0817_2016-->

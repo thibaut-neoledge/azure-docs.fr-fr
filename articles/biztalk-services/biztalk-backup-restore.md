@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Créer et restaurer une sauvegarde dans BizTalk Services | azure.microsoft.com/ Azure" 
+	pageTitle="Créer et restaurer une sauvegarde dans BizTalk Services | Microsoft Azure" 
 	description="BizTalk Services offre des fonctionnalités de sauvegarde et de restauration. Apprenez à créer et à restaurer une sauvegarde et à déterminer les éléments sauvegardés. MABS, WABS" 
 	services="biztalk-services" 
 	documentationCenter="" 
@@ -21,7 +21,7 @@
 
 Azure BizTalk Services offre des fonctionnalités de sauvegarde et de restauration. Cette rubrique montre comment effectuer une sauvegarde et une restauration BizTalk Services à l’aide du portail Azure Classic.
 
-Vous pouvez également utiliser l'[API REST BizTalk Services](http://go.azure.microsoft.com/.com/fwlink/p/?LinkID=325584) pour sauvegarder BizTalk Services.
+Vous pouvez également utiliser l'[API REST BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=325584) pour sauvegarder BizTalk Services.
 
 > [AZURE.NOTE] Les connexions hybrides NE sont PAS sauvegardées, quelle que soit l’édition. Vous devez recréer vos connexions hybrides.
 
@@ -84,11 +84,11 @@ Si le tableau de bord du service BizTalk indique l'état **Échec** :
 
 ![Statut de la dernière sauvegarde planifiée][BackupStatus]
 
-Le lien ouvre les journaux des opérations des services de gestion pour vous aider à résoudre le problème. Consultez [BizTalk Services : résolution des problèmes à l'aide des journaux des opérations](http://go.azure.microsoft.com/.com/fwlink/p/?LinkId=391211).
+Le lien ouvre les journaux des opérations des services de gestion pour vous aider à résoudre le problème. Consultez [BizTalk Services : résolution des problèmes à l'aide des journaux des opérations](http://go.microsoft.com/fwlink/p/?LinkId=391211).
 
 ## Restauration
 
-Vous pouvez restaurer des sauvegardes depuis le portail Azure Classic ou l’[API REST Restaurer le service BizTalk](http://go.azure.microsoft.com/.com/fwlink/p/?LinkID=325582). Cette section répertorie les étapes à suivre pour restaurer une sauvegarde à l’aide du portail Azure Classic.
+Vous pouvez restaurer des sauvegardes depuis le portail Azure Classic ou l’[API REST Restaurer le service BizTalk](http://go.microsoft.com/fwlink/p/?LinkID=325582). Cette section répertorie les étapes à suivre pour restaurer une sauvegarde à l’aide du portail Azure Classic.
 
 #### Avant de restaurer une sauvegarde
 
@@ -216,18 +216,18 @@ Si la base de données de suivi est supprimée et qu'elle doit être récupéré
 
 ## Suivant
 
-Pour créer des services Azure BizTalk Services dans le portail Azure Classic, accédez à [BizTalk Services : approvisionnement à l’aide du portail Azure Classic](http://go.azure.microsoft.com/.com/fwlink/p/?LinkID=302280). Pour commencer à créer des applications, consultez la page [Azure BizTalk Services](http://go.azure.microsoft.com/.com/fwlink/p/?LinkID=235197).
+Pour créer des services Azure BizTalk Services dans le portail Azure Classic, accédez à [BizTalk Services : approvisionnement à l’aide du portail Azure Classic](http://go.microsoft.com/fwlink/p/?LinkID=302280). Pour commencer à créer des applications, consultez la page [Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=235197).
 
 ## Voir aussi
-- [Sauvegarde d'un service BizTalk](http://go.azure.microsoft.com/.com/fwlink/p/?LinkID=325584)
-- [Restauration d'un service BizTalk depuis une sauvegarde](http://go.azure.microsoft.com/.com/fwlink/p/?LinkID=325582)
-- [Tableau comparatif des éditions Développeur, De base, Standard et Premium de BizTalk Services](http://go.azure.microsoft.com/.com/fwlink/p/?LinkID=302279)
-- [BizTalk Services : approvisionnement à l’aide du portail Azure Classic](http://go.azure.microsoft.com/.com/fwlink/p/?LinkID=302280)
-- [Tableau comparatif des états d'approvisionnement BizTalk Services](http://go.azure.microsoft.com/.com/fwlink/p/?LinkID=329870)
-- [Onglets Tableau de bord, Surveiller et Mettre à l'échelle dans BizTalk Services](http://go.azure.microsoft.com/.com/fwlink/p/?LinkID=302281)
-- [Limitation dans BizTalk Services](http://go.azure.microsoft.com/.com/fwlink/p/?LinkID=302282)
-- [Nom et clé de l'émetteur dans BizTalk Services](http://go.azure.microsoft.com/.com/fwlink/p/?LinkID=303941)
-- [Utilisation du Kit de développement logiciel (SDK) Azure BizTalk Services](http://go.azure.microsoft.com/.com/fwlink/p/?LinkID=302335)
+- [Sauvegarde d'un service BizTalk](http://go.microsoft.com/fwlink/p/?LinkID=325584)
+- [Restauration d'un service BizTalk depuis une sauvegarde](http://go.microsoft.com/fwlink/p/?LinkID=325582)
+- [Tableau comparatif des éditions Développeur, De base, Standard et Premium de BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302279)
+- [BizTalk Services : approvisionnement à l’aide du portail Azure Classic](http://go.microsoft.com/fwlink/p/?LinkID=302280)
+- [Tableau comparatif des états d'approvisionnement BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=329870)
+- [Onglets Tableau de bord, Surveiller et Mettre à l'échelle dans BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302281)
+- [Limitation dans BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302282)
+- [Nom et clé de l'émetteur dans BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=303941)
+- [Utilisation du Kit de développement logiciel (SDK) Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302335)
 
 [BackupStatus]: ./media/biztalk-backup-restore/status-last-backup.png
 [Restore]: ./media/biztalk-backup-restore/restore-ui.png

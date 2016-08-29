@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Tâches autorisées dans les différents états ou statuts de BizTalk Services | azure.microsoft.com/ Azure" 
+	pageTitle="Tâches autorisées dans les différents états ou statuts de BizTalk Services | Microsoft Azure" 
 	description="Actions/opérations autorisées dans différents états MABS : arrêter, démarrer, redémarrer, suspendre, reprendre, supprimer, mettre à l'échelle, mettre à jour la configuration et sauvegarder" 
 	services="biztalk-services" 
 	documentationCenter="" 
@@ -25,7 +25,7 @@ Par exemple, vous approvisionnez un nouveau service BizTalk dans le portail Azur
 
 **Opération non autorisée**
 
-Pour approvisionner un service BizTalk, accédez à [Approvisionnement de BizTalk Services à l’aide du portail Azure Classic](http://go.azure.microsoft.com/.com/fwlink/p/?LinkID=302280).
+Pour approvisionner un service BizTalk, accédez à [Approvisionnement de BizTalk Services à l’aide du portail Azure Classic](http://go.microsoft.com/fwlink/p/?LinkID=302280).
 
 Les tableaux ci-dessous répertorient les opérations ou les actions qui peuvent être effectuées selon l'état du service BizTalk. Un ✔ signifie que l'opération peut être effectuée dans cet état. Une case vide signifie que l'opération ne peut pas être effectuée dans cet état.
 
@@ -256,13 +256,13 @@ RestoreFailed<br/></b></td>
 </table>
 
 ## Voir aussi
-- [Approvisionnement de BizTalk Services avec le portail Azure Classic](http://go.azure.microsoft.com/.com/fwlink/p/?LinkID=302280)<br/>
-- [Onglets Tableau de bord, Surveiller et Mettre à l'échelle dans BizTalk Services](http://go.azure.microsoft.com/.com/fwlink/p/?LinkID=302281)<br/>
-- [Tableau comparatif des éditions Développeur, De base, Standard et Premium de BizTalk Services](http://go.azure.microsoft.com/.com/fwlink/p/?LinkID=302279)<br/>
-- [Sauvegarde et restauration de BizTalk Services](http://go.azure.microsoft.com/.com/fwlink/p/?LinkID=329873)<br/>
-- [Limitation BizTalk Services](http://go.azure.microsoft.com/.com/fwlink/p/?LinkID=302282)<br/>
-- [Nom et clé de l'émetteur dans BizTalk Services](http://go.azure.microsoft.com/.com/fwlink/p/?LinkID=303941)<br/>
-- [Utilisation du Kit de développement logiciel (SDK) Azure BizTalk Services](http://go.azure.microsoft.com/.com/fwlink/p/?LinkID=302335)
+- [Approvisionnement de BizTalk Services avec le portail Azure Classic](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
+- [Onglets Tableau de bord, Surveiller et Mettre à l'échelle dans BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
+- [Tableau comparatif des éditions Développeur, De base, Standard et Premium de BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
+- [Sauvegarde et restauration de BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
+- [Limitation BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
+- [Nom et clé de l'émetteur dans BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=303941)<br/>
+- [Utilisation du Kit de développement logiciel (SDK) Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302335)
 
 
  

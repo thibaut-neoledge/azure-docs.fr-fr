@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Déployer des ressources avec le modèle et PowerShell | azure.microsoft.com/ Azure"
+   pageTitle="Déployer des ressources avec le modèle et PowerShell | Microsoft Azure"
    description="Utilisez Azure Resource Manager et Azure PowerShell pour déployer des ressources sur Azure. Les ressources sont définies dans un modèle Resource Manager."
    services="azure-resource-manager"
    documentationCenter="na"
@@ -23,11 +23,11 @@
 - [Interface de ligne de commande Azure](resource-group-template-deploy-cli.md)
 - [Portail](resource-group-template-deploy-portal.md)
 - [API REST](resource-group-template-deploy-rest.md)
-- [.NET](https://azure.azure.microsoft.com/.com/documentation/samples/resource-manager-dotnet-template-deployment/)
-- [Java](https://azure.azure.microsoft.com/.com/documentation/samples/resources-java-deploy-using-arm-template/)
-- [Python](https://azure.azure.microsoft.com/.com/documentation/samples/resource-manager-python-template-deployment/)
-- [Nœud](https://azure.azure.microsoft.com/.com/documentation/samples/resource-manager-node-template-deployment/)
-- [Ruby](https://azure.azure.microsoft.com/.com/documentation/samples/resource-manager-ruby-template-deployment/)
+- [.NET](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-template-deployment/)
+- [Java](https://azure.microsoft.com/documentation/samples/resources-java-deploy-using-arm-template/)
+- [Python](https://azure.microsoft.com/documentation/samples/resource-manager-python-template-deployment/)
+- [Nœud](https://azure.microsoft.com/documentation/samples/resource-manager-node-template-deployment/)
+- [Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-template-deployment/)
 
 
 Cette rubrique explique comment utiliser Azure PowerShell avec les modèles Resource Manager pour déployer vos ressources dans Azure.
@@ -128,7 +128,7 @@ Pour en savoir plus sur les options de déploiement mieux adaptées à votre sc�
         Mode              : Incremental
         ...
 
-     Si votre modèle inclut un paramètre avec le même nom que l’un des paramètres dans la commande PowerShell pour déployer le modèle, vous êtes invité à fournir une valeur pour ce paramètre avec le suffixe **FromTemplate**. Par exemple, un paramètre nommé **ResourceGroupName** dans votre modèle est en conflit avec le paramètre **ResourceGroupName** dans votre applet de commande [New-AzureRmResourceGroupDeployment](https://msdn.azure.microsoft.com/.com/library/azure/mt679003.aspx). Vous êtes invité à fournir une valeur pour **ResourceGroupNameFromTemplate**. En général, vous devez éviter cette confusion en ne nommant pas les paramètres avec un nom identique à celui des paramètres utilisés pour les opérations de déploiement.
+     Si votre modèle inclut un paramètre avec le même nom que l’un des paramètres dans la commande PowerShell pour déployer le modèle, vous êtes invité à fournir une valeur pour ce paramètre avec le suffixe **FromTemplate**. Par exemple, un paramètre nommé **ResourceGroupName** dans votre modèle est en conflit avec le paramètre **ResourceGroupName** dans votre applet de commande [New-AzureRmResourceGroupDeployment](https://msdn.microsoft.com/library/azure/mt679003.aspx). Vous êtes invité à fournir une valeur pour **ResourceGroupNameFromTemplate**. En général, vous devez éviter cette confusion en ne nommant pas les paramètres avec un nom identique à celui des paramètres utilisés pour les opérations de déploiement.
 
 6. Si vous souhaitez consigner des informations supplémentaires sur le déploiement qui peuvent vous aider à résoudre des erreurs de déploiement, utilisez le paramètre **DeploymentDebugLogLevel**. Vous pouvez demander à ce que le contenu de la demande et/ou de la réponse soit consigné avec l’opération de déploiement.
 
@@ -197,6 +197,6 @@ Pour plus d’informations sur l’utilisation d’une référence KeyVault afin
 ## Étapes suivantes
 - Pour découvrir un exemple de déploiement de ressources par le biais de la bibliothèque cliente .NET, consultez [Déployer des ressources à l’aide de bibliothèques .NET et d’un modèle](virtual-machines/virtual-machines-windows-csharp-template.md).
 - Pour définir des paramètres dans le modèle, consultez [Création de modèles Azure Resource Manager](resource-group-authoring-templates.md#parameters).
-- Pour obtenir des instructions sur le déploiement de votre solution dans des environnements différents, consultez [Environnements de développement et de test dans azure.microsoft.com/ Azure](solution-dev-test-environments.md).
+- Pour obtenir des instructions sur le déploiement de votre solution dans des environnements différents, consultez [Environnements de développement et de test dans Microsoft Azure](solution-dev-test-environments.md).
 
 <!---HONumber=AcomDC_0817_2016-->

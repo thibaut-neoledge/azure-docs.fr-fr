@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Didacticiel : Intégration d’Azure AD à MOVEit Transfer | azure.microsoft.com/ Azure"
+	pageTitle="Didacticiel : Intégration d’Azure AD à MOVEit Transfer | Microsoft Azure"
 	description="Découvrez comment configurer l’authentification unique entre Azure Active Directory et MOVEit Transfer."
 	services="active-directory"
 	documentationCenter=""
@@ -43,7 +43,7 @@ Pour configurer l’intégration de MOVEit Transfer à Azure AD, vous avez besoi
 Vous devez en outre suivre les recommandations ci-dessous :
 
 - Vous ne devez pas utiliser votre environnement de production, sauf si cela est nécessaire.
-- Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.azure.microsoft.com/.com/pricing/free-trial/).
+- Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
 
 
 ## Description du scénario
@@ -173,7 +173,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 	a. Sélectionnez **SAML NameID** comme **Nom de connexion**.
 
-	b. Sélectionnez **Autre** sous **Nom complet** puis, dans la zone de texte **Nom de l’attribut**, insérez la valeur : http://schemas.azure.microsoft.com/.com/identity/claims/displayname.
+	b. Sélectionnez **Autre** sous **Nom complet** puis, dans la zone de texte **Nom de l’attribut**, insérez la valeur : http://schemas.microsoft.com/identity/claims/displayname.
 
 	c. Sélectionnez **Autre** sous **E-mail** puis, dans la zone de texte **Nom de l’attribut**, insérez la valeur : http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress.
 

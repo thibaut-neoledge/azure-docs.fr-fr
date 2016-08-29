@@ -1,5 +1,5 @@
 <properties
-	 pageTitle="Création d’une demande de support Azure | azure.microsoft.com/ Azure"
+	 pageTitle="Création d’une demande de support Azure | Microsoft Azure"
 	 description="Création d’une demande de support Azure."
 	 services="Azure Supportability"
 	 documentationCenter=""
@@ -43,7 +43,7 @@ Prenons un exemple : vous êtes face à des difficultés techniques avec votre 
 
 ![Panneau Informations de base](./media/how-to-create-azure-support-request/Basics.png)
 
->[AZURE.NOTE] Azure offre un support illimité pour la gestion de l’abonnement (facturation, ajustements de quota et transferts de compte). Pour bénéficier du support, vous devez disposer d’un plan de support. [En savoir plus sur les plans de support Azure](https://azure.azure.microsoft.com/.com/support/plans).
+>[AZURE.NOTE] Azure offre un support illimité pour la gestion de l’abonnement (facturation, ajustements de quota et transferts de compte). Pour bénéficier du support, vous devez disposer d’un plan de support. [En savoir plus sur les plans de support Azure](https://azure.microsoft.com/support/plans).
 
 ## Problème
 La deuxième étape de l’Assistant collecte des détails supplémentaires sur le problème. Le fait de disposer d’informations précises à cette étape nous permet de rediriger votre problème vers l’ingénieur de support le mieux à même de traiter le problème et de commencer à diagnostiquer le problème dès que possible.
@@ -75,14 +75,14 @@ Si vous souhaitez modifier le niveau de gravité de la demande, cliquez sur la m
 
 Cliquez sur la mosaïque pour voir la liste des niveaux de gravité que vous pouvez affecter à une demande de support.
 
->[AZURE.NOTE] Le niveau de gravité maximale dépend de votre plan de support. [En savoir plus sur les plans de support Azure](https://azure.azure.microsoft.com/.com/support/plans).
+>[AZURE.NOTE] Le niveau de gravité maximale dépend de votre plan de support. [En savoir plus sur les plans de support Azure](https://azure.microsoft.com/support/plans).
 
 ![VID-2](./media/how-to-create-azure-support-request/VID-2.png)
 
 ## Commentaires
-Nous sommes ouverts aux commentaires et suggestions ! Envoyez-nous vos [suggestions](https://feedback.azure.com/forums/266794-support-feedback). Vous pouvez aussi nous contacter via [Twitter](https://twitter.com/azuresupport) ou via les [forums MSDN](https://social.msdn.azure.microsoft.com/.com/Forums/azure).
+Nous sommes ouverts aux commentaires et suggestions ! Envoyez-nous vos [suggestions](https://feedback.azure.com/forums/266794-support-feedback). Vous pouvez aussi nous contacter via [Twitter](https://twitter.com/azuresupport) ou via les [forums MSDN](https://social.msdn.microsoft.com/Forums/azure).
 
 ## En savoir plus
-[FAQ du support Azure](https://azure.azure.microsoft.com/.com/support/faq)
+[FAQ du support Azure](https://azure.microsoft.com/support/faq)
 
 <!---HONumber=AcomDC_0817_2016-->

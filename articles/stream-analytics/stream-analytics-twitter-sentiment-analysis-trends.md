@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Analyse de sentiments Twitter en temps réel avec Stream Analytics | azure.microsoft.com/ Azure"
+	pageTitle="Analyse de sentiments Twitter en temps réel avec Stream Analytics | Microsoft Azure"
 	description="Découvrez comment utiliser Stream Analytics pour l’analyse de sentiments Twitter en temps réel. Aide pas à pas allant de la génération d’événements à la gestion des données sur un tableau de bord en direct."
 	keywords="analyse de tendances twitter en temps réel, analyse de sentiments, analyse des réseaux sociaux, exemple d’analyse de tendances"
 	services="stream-analytics"
@@ -30,7 +30,7 @@ Un site web de médias souhaite obtenir un avantage sur ses concurrents en prés
 
 ## Composants requis
 1.	Compte Twitter et [jeton d’accès OAuth](https://dev.twitter.com/oauth/overview/application-owner-access-tokens)
-2.	[TwitterClient.zip](http://download.azure.microsoft.com/.com/download/1/7/4/1744EE47-63D0-4B9D-9ECF-E379D15F4586/TwitterClient.zip) à partir du Centre de téléchargement azure.microsoft.com/
+2.	[TwitterClient.zip](http://download.microsoft.com/download/1/7/4/1744EE47-63D0-4B9D-9ECF-E379D15F4586/TwitterClient.zip) à partir du Centre de téléchargement Microsoft
 3.	Facultatif : code source pour le client Twitter dans [Github](https://aka.ms/azure-stream-analytics-twitterclient)
 
 ## Création d’une entrée de hub d’événements et d’un groupe de consommateurs
@@ -56,14 +56,14 @@ Nous vous proposons une application client capable d’exploiter les données de
 
 Procédez comme suit pour configurer l’application :
 
-1.	[Téléchargez la solution TwitterClient](http://download.azure.microsoft.com/.com/download/1/7/4/1744EE47-63D0-4B9D-9ECF-E379D15F4586/TwitterClient.zip)
+1.	[Téléchargez la solution TwitterClient](http://download.microsoft.com/download/1/7/4/1744EE47-63D0-4B9D-9ECF-E379D15F4586/TwitterClient.zip)
 2.	Ouvrez le fichier TwitterClient.exe.config et remplacez oauth\_consumer\_key, oauth\_consumer\_secret, oauth\_token, oauth\_token\_secret par les jetons Twitter avec vos valeurs.
 
 	[Procédure de génération d’un jeton d’accès OAuth](https://dev.twitter.com/oauth/overview/application-owner-access-tokens)
 
 	Notez que vous devez créer une application vide pour générer un jeton.
 3.	Remplacez les valeurs EventHubConnectionString et EventHubName dans le fichier TwitterClient.exe.config par la chaîne de connexion et le nom de votre event hub. La chaîne de connexion copiée précédemment vous donne la chaîne de connexion et le nom du hub d’événements. Par conséquent, pensez à les séparer et à les placer dans le champ approprié.
-4.	*Facultatif :* définissez les mots clés à rechercher. Par défaut, cette application recherche « Azure, Skype, XBox, azure.microsoft.com/, Seattle ». Si vous le souhaitez, vous pouvez modifier ces mots clés en changeant les valeurs de twitter\_keywords dans TwitterClient.exe.config.
+4.	*Facultatif :* définissez les mots clés à rechercher. Par défaut, cette application recherche « Azure, Skype, XBox, Microsoft, Seattle ». Si vous le souhaitez, vous pouvez modifier ces mots clés en changeant les valeurs de twitter\_keywords dans TwitterClient.exe.config.
 5.	Exécutez **TwitterClient.exe** pour démarrer votre application. Vous voyez s’afficher les événements de Tweet tandis que les valeurs CreatedAt, Topic et SentimentScore sont transmises à votre hub d’événements :
 
 	![Analyse de sentiments : valeurs SentimentScore transmises à un hub d’événements.](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-twitter-sentiment-output-to-event-hub.png)
@@ -109,7 +109,7 @@ Maintenant que nous avons un flux d’événements Tweet diffusé en temps réel
 
 ### Spécification de la requête du travail
 
-Stream Analytics prend en charge un modèle de requête simple et déclaratif pour la description des transformations. Pour plus d’informations sur ce langage, consultez la page [Références sur le langage des requêtes d’Azure Stream Analytics](https://msdn.azure.microsoft.com/.com/library/azure/dn834998.aspx). Ce didacticiel aborde la création et le test de plusieurs requêtes sur des données Twitter.
+Stream Analytics prend en charge un modèle de requête simple et déclaratif pour la description des transformations. Pour plus d’informations sur ce langage, consultez la page [Références sur le langage des requêtes d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx). Ce didacticiel aborde la création et le test de plusieurs requêtes sur des données Twitter.
 
 #### Exemples d’entrée de données
 
@@ -137,7 +137,7 @@ Pour commencer, nous allons effectuer une simple requête directe qui projette t
 
 #### Nombre de tweets par sujet : fenêtre bascule avec agrégation
 
-Pour comparer le nombre de mentions entre les sujets, nous allons utiliser une [fenêtre bascule (TumblingWindow)](https://msdn.azure.microsoft.com/.com/library/azure/dn835055.aspx) pour obtenir le nombre de mentions par sujet toutes les 5 secondes.
+Pour comparer le nombre de mentions entre les sujets, nous allons utiliser une [fenêtre bascule (TumblingWindow)](https://msdn.microsoft.com/library/azure/dn835055.aspx) pour obtenir le nombre de mentions par sujet toutes les 5 secondes.
 
 1.	Modifiez la requête dans l’éditeur de code comme ceci :
 
@@ -145,7 +145,7 @@ Pour comparer le nombre de mentions entre les sujets, nous allons utiliser une [
 		FROM TwitterStream TIMESTAMP BY CreatedAt
 		GROUP BY TUMBLINGWINDOW(s, 5), Topic
 
-	Notez que cette requête utilise le mot clé **TIMESTAMP BY** pour spécifier un champ d’horodatage dans la charge utile à utiliser dans le calcul temporel. Si ce champ n’est pas spécifié, l’opération de fenêtrage est réalisée en utilisant l’heure d’arrivée de chaque événement dans le hub d’événements. Pour en savoir plus, consultez la rubrique « Heure d’arrivée par rapport à l’heure de l’application » dans la page [Référence du langage de requête d’Azure Stream Analytics](https://msdn.azure.microsoft.com/.com/library/azure/dn834998.aspx).
+	Notez que cette requête utilise le mot clé **TIMESTAMP BY** pour spécifier un champ d’horodatage dans la charge utile à utiliser dans le calcul temporel. Si ce champ n’est pas spécifié, l’opération de fenêtrage est réalisée en utilisant l’heure d’arrivée de chaque événement dans le hub d’événements. Pour en savoir plus, consultez la rubrique « Heure d’arrivée par rapport à l’heure de l’application » dans la page [Référence du langage de requête d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx).
 
 	Cette requête accède également à un horodatage pour la fin de chaque fenêtre en utilisant **System.Timestamp**.
 
@@ -153,7 +153,7 @@ Pour comparer le nombre de mentions entre les sujets, nous allons utiliser une [
 
 #### Identification des tendances : fenêtre glissante
 
-Pour identifier les tendances, nous allons rechercher des sujets dépassant une valeur de seuil de mention dans un laps de temps donné. Pour les besoins de ce didacticiel, nous allons consulter les rubriques mentionnées plus de 20 fois pendant les 5 dernières secondes en utilisant une [fenêtre glissante (SlidingWindow)](https://msdn.azure.microsoft.com/.com/library/azure/dn835051.aspx).
+Pour identifier les tendances, nous allons rechercher des sujets dépassant une valeur de seuil de mention dans un laps de temps donné. Pour les besoins de ce didacticiel, nous allons consulter les rubriques mentionnées plus de 20 fois pendant les 5 dernières secondes en utilisant une [fenêtre glissante (SlidingWindow)](https://msdn.microsoft.com/library/azure/dn835051.aspx).
 
 1.	Modifiez la requête dans l’éditeur de code comme ceci :
 
@@ -224,7 +224,7 @@ Une fois que votre travail en cours d’exécution traite le flux Twitter en tem
 ![Analyse des médias sociaux : sortie de l’analyse de sentiments Stream Analytics (exploration d’opinions) dans un tableau de bord Power BI.](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-output-power-bi.png)
 
 ## Obtenir de l'aide
-Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https://social.msdn.azure.microsoft.com/.com/Forums/fr-FR/home?forum=AzureStreamAnalytics)
+Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/fr-FR/home?forum=AzureStreamAnalytics)
 
 
 ## Étapes suivantes
@@ -232,8 +232,8 @@ Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https:/
 - [Présentation d’Azure Stream Analytics](stream-analytics-introduction.md)
 - [Prise en main d'Azure Stream Analytics](stream-analytics-get-started.md)
 - [Mise à l'échelle des travaux Azure Stream Analytics](stream-analytics-scale-jobs.md)
-- [Références sur le langage des requêtes d'Azure Stream Analytics](https://msdn.azure.microsoft.com/.com/library/azure/dn834998.aspx)
-- [Références sur l’API REST de gestion d’Azure Stream Analytics](https://msdn.azure.microsoft.com/.com/library/azure/dn835031.aspx)
+- [Références sur le langage des requêtes d'Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+- [Références sur l’API REST de gestion d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
 <!---HONumber=AcomDC_0817_2016-->

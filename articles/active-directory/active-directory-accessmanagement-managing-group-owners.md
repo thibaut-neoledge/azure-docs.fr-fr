@@ -1,6 +1,6 @@
 
 <properties
-	pageTitle="Étapes suivantes de la gestion des accès à l’aide de groupes | azure.microsoft.com/ Azure"
+	pageTitle="Étapes suivantes de la gestion des accès à l’aide de groupes | Microsoft Azure"
 	description="Procédures avancées concernant la gestion des groupes de sécurité et l’utilisation de ces groupes pour gérer l’accès à une ressource."
 	services="active-directory"
 	documentationCenter=""

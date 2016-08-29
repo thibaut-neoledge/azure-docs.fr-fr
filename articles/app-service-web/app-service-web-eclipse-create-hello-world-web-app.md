@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Créer une application web « Hello World » pour Azure dans Eclipse | azure.microsoft.com/ Azure" 
+	pageTitle="Créer une application web « Hello World » pour Azure dans Eclipse | Microsoft Azure" 
 	description="Ce didacticiel vous montre comment utiliser le Kit de ressources Azure pour Eclipse pour créer une application Web Hello World pour Azure." 
 	services="app-service\web" 
 	documentationCenter="java" 
@@ -29,7 +29,7 @@ Ce didacticiel explique comment créer une application Hello World de base et la
 * JDK (Java Development Kit) version 1.8 ou ultérieure.
 * IDE (environnement de développement intégré) Eclipse pour développeurs Java EE, Luna ou ultérieur. Vous pouvez le télécharger à partir de <http://www.eclipse.org/downloads/>.
 * Une distribution d’un serveur web ou d’un serveur d’applications basé sur Java, comme Apache Tomcat ou Jetty.
-* Un abonnement à Azure, pouvant être souscrit à l’adresse <https://azure.azure.microsoft.com/.com/free/> ou <http://azure.azure.microsoft.com/.com/pricing/purchase-options/>.
+* Un abonnement à Azure, pouvant être souscrit à l’adresse <https://azure.microsoft.com/free/> ou <http://azure.microsoft.com/pricing/purchase-options/>.
 * Kit de ressources Azure pour Eclipse. Pour plus d’informations, consultez [Installation du kit de ressources Azure pour Eclipse].
 
 ## Pour créer une application Hello World
@@ -222,7 +222,7 @@ Pour plus d’informations sur la création d’Azure Web Apps, consultez la [Vu
 [Nouveautés du kit de ressources Azure pour Eclipse]: ../azure-toolkit-for-eclipse-whats-new.md
 [Nouveautés du Kit de ressources Azure pour IntelliJ]: ../azure-toolkit-for-intellij-whats-new.md
 
-[Centre de développement Java pour Azure]: https://azure.azure.microsoft.com/.com/develop/java/
+[Centre de développement Java pour Azure]: https://azure.microsoft.com/develop/java/
 [Vue d’ensemble de Web Apps]: ./app-service-web-overview.md
 
 <!-- IMG List -->

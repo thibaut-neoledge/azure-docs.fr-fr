@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Installation de votre appareil StorSimple 8600 | azure.microsoft.com/ Azure"
+   pageTitle="Installation de votre appareil StorSimple 8600 | Microsoft Azure"
    description="Explique comment déballer, monter en rack et câbler votre appareil StorSimple 8600 avant de déployer et de configurer le logiciel."
    services="storsimple"
    documentationCenter="NA"
@@ -18,7 +18,7 @@
 # Déballer, monter en rack et câbler votre appareil StorSimple 8600
 
 ## Vue d'ensemble
-azure.microsoft.com/ Azure StorSimple 8600 est un appareil composé d’un boîtier principal et d’un boîtier EBOD. Ce didacticiel explique comment déballer, monter en rack et brancher les câbles de votre appareil StorSimple 8600 avant de configurer son logiciel.
+Microsoft Azure StorSimple 8600 est un appareil composé d’un boîtier principal et d’un boîtier EBOD. Ce didacticiel explique comment déballer, monter en rack et brancher les câbles de votre appareil StorSimple 8600 avant de configurer son logiciel.
 
 ## Déballage de votre appareil StorSimple 8600
 
@@ -38,7 +38,7 @@ Ensuite, procédez comme suit pour déballer votre appareil.
 
 #### Pour déballer votre appareil
 
-1. Vérifiez que le carton et le polystyrène ne comportent pas de trace d’impacts, de coupures, d’infiltrations d’eau ou tout autre type de dégâts. Si le carton ou le reste de l’emballage vous semble trop endommagé, ne l’ouvrez pas. Contactez le [support technique azure.microsoft.com/](storsimple-contact-azure.microsoft.com/-support.md) pour savoir si l’appareil est en état de marche.
+1. Vérifiez que le carton et le polystyrène ne comportent pas de trace d’impacts, de coupures, d’infiltrations d’eau ou tout autre type de dégâts. Si le carton ou le reste de l’emballage vous semble trop endommagé, ne l’ouvrez pas. Contactez le [support technique Microsoft](storsimple-contact-microsoft-support.md) pour savoir si l’appareil est en état de marche.
 
 2. Ouvrez la boîte externe, puis sortez les deux emballages correspondant aux boîtiers principal et EBOD. Vous pouvez maintenant déballer le boîtier principal et le boîtier EBOD. L’illustration suivante représente la vue de l’un des boîtiers déballé.
 
@@ -68,7 +68,7 @@ Ensuite, procédez comme suit pour déballer votre appareil.
   - 2 kits de montage en rack (4 rails latéraux avec matériel de montage, 2 pour chaque boîtier), 1 dans chaque carton
   - Documentation de mise en route
 
-    Si vous n’avez pas reçu l’un des éléments ci-dessus, [contactez le support technique azure.microsoft.com/](storsimple-contact-azure.microsoft.com/-support.md).
+    Si vous n’avez pas reçu l’un des éléments ci-dessus, [contactez le support technique Microsoft](storsimple-contact-microsoft-support.md).
 
 L’étape suivante consiste à monter votre appareil en rack.
 

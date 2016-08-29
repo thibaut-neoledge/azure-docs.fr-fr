@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Utilisation d’Azure Storage avec une solution d’intégration continue Jenkins | azure.microsoft.com/ Azure" 
+	pageTitle="Utilisation d’Azure Storage avec une solution d’intégration continue Jenkins | Microsoft Azure" 
 	description="Ce didacticiel décrit l’utilisation du service BLOB Azure comme référentiel d’artefacts de build créés par une solution d’intégration continue Jenkins." 
 	services="storage" 
 	documentationCenter="java" 
@@ -22,7 +22,7 @@
 
 Les informations suivantes expliquent comment utiliser Blob Storage comme dépôt pour les artefacts de build créés par une solution d’intégration continue (CI) Jenkins ou comme source de fichiers téléchargeables dans un processus de génération. Cela peut s'avérer utile dans plusieurs scénarios, notamment lorsque vous codez dans un environnement de développement agile (avec Java ou d'autres langages), que les builds s'exécutent sur la base d'une intégration continue et que vous avez besoin d'un référentiel pour vos artefacts de build, de manière, par exemple, à pouvoir les partager avec d'autres membres de l'organisation, vos clients, ou conserver une archive. Il existe un autre scénario dans lequel votre tâche de build proprement dite requiert d'autres fichiers, comme des dépendances à télécharger dans le cadre de l'entrée de génération.
 
-Dans ce didacticiel, vous allez utiliser le plug-in Azure Storage pour Jenkins CI mis à disposition par azure.microsoft.com/.
+Dans ce didacticiel, vous allez utiliser le plug-in Azure Storage pour Jenkins CI mis à disposition par Microsoft.
 
 ## Présentation de Jenkins ##
 
@@ -71,7 +71,7 @@ Pour utiliser le service BLOB avec Jenkins, vous devez installer le plug-in Azur
 1. Dans le tableau de bord Jenkins, cliquez sur **Manage Jenkins**.
 2. Sur la page **Manage Jenkins**, cliquez sur **Manage Plugins**.
 3. Cliquez sur l'onglet **Available**.
-4. Dans la section **Téléchargeurs d'artefacts**, activez la case à cocher **Plug-in azure.microsoft.com/ Azure Storage**.
+4. Dans la section **Téléchargeurs d'artefacts**, activez la case à cocher **Plug-in Microsoft Azure Storage**.
 5. Cliquez sur **Install without restart** ou sur **Download now and install after restart**.
 6. Redémarrez Jenkins.
 
@@ -79,7 +79,7 @@ Pour utiliser le service BLOB avec Jenkins, vous devez installer le plug-in Azur
 
 1. Dans le tableau de bord Jenkins, cliquez sur **Manage Jenkins**.
 2. Sur la page **Manage Jenkins**, cliquez sur **Configure System**.
-3. Dans la section **Configuration du compte azure.microsoft.com/ Azure Storage** :
+3. Dans la section **Configuration du compte Microsoft Azure Storage** :
     1. Entrez le nom de votre compte de stockage, que vous pouvez obtenir à partir du [portail Azure](https://portal.azure.com).
     2. Entrez la clé de votre compte de stockage, que vous pouvez obtenir à partir du [portail Azure](https://portal.azure.com).
     3. Utilisez la valeur par défaut pour **Blob Service Endpoint URL** si vous vous servez du cloud public Azure. Si vous vous servez d’un autre cloud Azure, utilisez le point de terminaison spécifié dans le [portail Azure](https://portal.azure.com) pour votre compte de stockage.
@@ -145,7 +145,7 @@ La section suivante présente les composants du service BLOB.
 
 - **Compte de stockage :** tout accès au stockage Azure s'effectue via un compte de stockage. Il s'agit du plus haut niveau d'espace de noms permettant d'accéder aux objets blob. Un compte peut contenir un nombre illimité de conteneurs, tant que sa taille totale ne dépasse pas 100 To.
 - **Conteneur** : conteneur regroupant un ensemble d’objets blob. Tous les objets blob doivent figurer dans un conteneur. Un compte peut contenir un nombre illimité de conteneurs. Un conteneur peut stocker un nombre illimité d’objets blob.
-- **Objet blob** : fichier de tout type et de toute taille. Il existe deux types d’objets blob qui peuvent être enregistrés dans un stockage Azure : les objets blob de blocs et les objets blob de pages. La plupart des fichiers sont des objets blob de blocs. Un seul objet blob de blocs peut avoir une taille maximale de 200 Go. Ce didacticiel utilise des objets blob de blocs. Les objets blob de pages, autre type d’objets blob, peuvent avoir une taille de 1 To et sont plus efficaces lorsque des plages d’octets dans un fichier sont modifiées fréquemment. Pour plus d’informations sur les objets blob, consultez [Présentation des objets blob de blocs, des objets blob d’ajout et des objets blob de pages](http://msdn.azure.microsoft.com/.com/library/azure/ee691964.aspx).
+- **Objet blob** : fichier de tout type et de toute taille. Il existe deux types d’objets blob qui peuvent être enregistrés dans un stockage Azure : les objets blob de blocs et les objets blob de pages. La plupart des fichiers sont des objets blob de blocs. Un seul objet blob de blocs peut avoir une taille maximale de 200 Go. Ce didacticiel utilise des objets blob de blocs. Les objets blob de pages, autre type d’objets blob, peuvent avoir une taille de 1 To et sont plus efficaces lorsque des plages d’octets dans un fichier sont modifiées fréquemment. Pour plus d’informations sur les objets blob, consultez [Présentation des objets blob de blocs, des objets blob d’ajout et des objets blob de pages](http://msdn.microsoft.com/library/azure/ee691964.aspx).
 - **Format d'URL** : les objets blob sont adressables à l'aide du format d'URL suivant :
 
     `http://storageaccount.blob.core.windows.net/container_name/blob_name`
@@ -161,9 +161,9 @@ La section suivante présente les composants du service BLOB.
 - [Présentation de Jenkins](https://wiki.jenkins-ci.org/display/JENKINS/Meet+Jenkins)
 - [Kit de développement logiciel (SDK) Azure Storage pour Java](https://github.com/azure/azure-storage-java)
 - [Référence du Kit de développement logiciel (SDK) du client Azure Storage](http://dl.windowsazure.com/storage/javadoc/)
-- [API REST des services d’Azure Storage](https://msdn.azure.microsoft.com/.com/library/azure/dd179355.aspx)
+- [API REST des services d’Azure Storage](https://msdn.microsoft.com/library/azure/dd179355.aspx)
 - [Blog de l'équipe Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/)
 
-Pour plus d’informations, consultez également le [Centre pour développeurs Java](https://azure.azure.microsoft.com/.com/develop/java/).
+Pour plus d’informations, consultez également le [Centre pour développeurs Java](https://azure.microsoft.com/develop/java/).
 
 <!---HONumber=AcomDC_0817_2016-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Chiffrement côté client avec Python pour azure.microsoft.com/ Azure Storage | azure.microsoft.com/ Azure"
+	pageTitle="Chiffrement côté client avec Python pour Microsoft Azure Storage | Microsoft Azure"
 	description="La bibliothèque cliente de stockage Azure pour Python prend en charge le chiffrement côté client pour assurer une sécurité maximale à vos applications Azure Storage."
 	services="storage"
 	documentationCenter="python"
@@ -17,7 +17,7 @@
 	ms.author="t-rickle"/>
 
 
-# Chiffrement côté client avec Python pour azure.microsoft.com/ Azure Storage
+# Chiffrement côté client avec Python pour Microsoft Azure Storage
 
 [AZURE.INCLUDE [storage-selector-client-side-encryption-include](../../includes/storage-selector-client-side-encryption-include.md)]
 
@@ -112,7 +112,7 @@ Pour effectuer des opérations de requête, vous devez spécifier un programme d
 >
 >- Activez l’indicateur **require\_encryption** dans l’objet de service pour les utilisateurs qui doivent recourir uniquement à des données chiffrées. Pour plus d’informations, consultez la section ci-dessous.
 
-La bibliothèque de stockage cliente attend l’utilisation de la clé de chiffrement de clés (KEK) et du programme de résolution de clé pour implémenter l’interface suivante. La prise en charge [d’Azure Key Vault](https://azure.azure.microsoft.com/.com/services/key-vault/) pour la gestion de la clé de chiffrement de clés (KEK) Python est en attente et sera intégrée ultérieurement à cette bibliothèque.
+La bibliothèque de stockage cliente attend l’utilisation de la clé de chiffrement de clés (KEK) et du programme de résolution de clé pour implémenter l’interface suivante. La prise en charge [d’Azure Key Vault](https://azure.microsoft.com/services/key-vault/) pour la gestion de la clé de chiffrement de clés (KEK) Python est en attente et sera intégrée ultérieurement à cette bibliothèque.
 
 
 ## API/Interface cliente

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Mise à niveau vers la version du Kit de développement logiciel Azure Search .NET SDK version 1.1 | azure.microsoft.com/ Azure | Service de recherche cloud hébergé"
+   pageTitle="Mise à niveau vers la version du Kit de développement logiciel Azure Search .NET SDK version 1.1 | Microsoft Azure | Service de recherche cloud hébergé"
    description="Mise à niveau vers la version du Kit de développement logiciel Azure Search .NET SDK version 1.1"
    services="search"
    documentationCenter=""
@@ -18,7 +18,7 @@
 
 # Mise à niveau vers la version préliminaire du Kit de développement logiciel (SDK) .NET version 2.0 d’Azure Search
 
-Si vous utilisez la version 1.1 ou une version antérieure du [Kit de développement logiciel (SDK) .NET Azure Search](https://msdn.azure.microsoft.com/.com/library/azure/dn951165.aspx), cet article vous aidera à mettre à niveau votre application pour utiliser la version majeure suivante, la version 2.0-preview.
+Si vous utilisez la version 1.1 ou une version antérieure du [Kit de développement logiciel (SDK) .NET Azure Search](https://msdn.microsoft.com/library/azure/dn951165.aspx), cet article vous aidera à mettre à niveau votre application pour utiliser la version majeure suivante, la version 2.0-preview.
 
 Pour avoir un aperçu général du kit de développement logiciel et avoir des exemples, voir [Comment utiliser Azure Search à partir d’une application .NET](search-howto-dotnet-sdk.md).
 
@@ -40,13 +40,13 @@ La version 2.0-preview est la première version du SDK .NET Azure Search qui cib
 <a name="UpgradeSteps"></a>
 ## Opérations de mise à niveau
 
-Tout d’abord, mettez à jour vos références NuGet `azure.microsoft.com/.Azure.Search`, soit en utilisant la console NuGet Package, soit en effectuant un clic droit sur les références de votre projet et en sélectionnant « Gérer les packages NuGet » dans Visual Studio. Veillez à activer les packages en version préliminaire en sélectionnant « Inclure la version préliminaire » dans la fenêtre « Gérer les packages » NuGet de Visual Studio ou en utilisant le commutateur `-IncludePrerelease` si vous utilisez la Console du gestionnaire de package NuGet.
+Tout d’abord, mettez à jour vos références NuGet `Microsoft.Azure.Search`, soit en utilisant la console NuGet Package, soit en effectuant un clic droit sur les références de votre projet et en sélectionnant « Gérer les packages NuGet » dans Visual Studio. Veillez à activer les packages en version préliminaire en sélectionnant « Inclure la version préliminaire » dans la fenêtre « Gérer les packages » NuGet de Visual Studio ou en utilisant le commutateur `-IncludePrerelease` si vous utilisez la Console du gestionnaire de package NuGet.
 
 Une fois que NuGet a téléchargé les nouveaux packages et leurs dépendances, recompilez votre projet. En fonction de la structure de votre code, la recompilation peut réussir. Si c’est le cas, vous êtes prêt !
 
 Si la compilation échoue, vous devriez voir une erreur de ce type :
 
-    Program.cs(31,45,31,86): error CS0266: Cannot implicitly convert type 'azure.microsoft.com/.Azure.Search.ISearchIndexClient' to 'azure.microsoft.com/.Azure.Search.SearchIndexClient'. An explicit conversion exists (are you missing a cast?)
+    Program.cs(31,45,31,86): error CS0266: Cannot implicitly convert type 'Microsoft.Azure.Search.ISearchIndexClient' to 'Microsoft.Azure.Search.SearchIndexClient'. An explicit conversion exists (are you missing a cast?)
 
 L’étape suivante consiste à corriger cette erreur de build. Consultez [Dernières modifications dans la version 2.0-preview](#ListOfChanges) pour plus d’informations sur la cause de l’erreur et les possibilités de correction.
 
@@ -80,7 +80,7 @@ ISearchIndexClient indexClient = serviceClient.Indexes.GetClient("hotels");
 ## Conclusion
 Si vous souhaitez plus d’informations sur l’utilisation du Kit de développement logiciel (SDK) Azure Search .NET, consultez les articles [Procédures](search-howto-dotnet-sdk.md) récemment mis à jour.
 
-N’hésitez pas à nous faire part de vos commentaires sur le kit de développement logiciel. Si vous rencontrez des problèmes, n’hésitez pas à nous demander de l’aide sur le [forum Azure Search MSDN](https://social.msdn.azure.microsoft.com/.com/Forums/azure/fr-FR/home?forum=azuresearch). Si vous trouvez un bogue, vous pouvez signaler un problème dans le [Référentiel GitHub du Kit de développement logiciel (SDK) Azure .NET ](https://github.com/Azure/azure-sdk-for-net/issues). N’oubliez pas de faire précéder le titre de votre problème du préfixe « Search SDK : ».
+N’hésitez pas à nous faire part de vos commentaires sur le kit de développement logiciel. Si vous rencontrez des problèmes, n’hésitez pas à nous demander de l’aide sur le [forum Azure Search MSDN](https://social.msdn.microsoft.com/Forums/azure/fr-FR/home?forum=azuresearch). Si vous trouvez un bogue, vous pouvez signaler un problème dans le [Référentiel GitHub du Kit de développement logiciel (SDK) Azure .NET ](https://github.com/Azure/azure-sdk-for-net/issues). N’oubliez pas de faire précéder le titre de votre problème du préfixe « Search SDK : ».
 
 Merci d’utiliser Azure Search !
 
@@ -89,7 +89,7 @@ Merci d’utiliser Azure Search !
 
 > [AZURE.NOTE] Cette section s’applique uniquement aux utilisateurs du SDK .NET Azure Search version 0.13-preview et versions antérieures.
 
-Tout d’abord, mettez à jour vos références NuGet `azure.microsoft.com/.Azure.Search`, soit en utilisant la console NuGet Package, soit en effectuant un clic droit sur les références de votre projet et en sélectionnant « Gérer les packages NuGet » dans Visual Studio.
+Tout d’abord, mettez à jour vos références NuGet `Microsoft.Azure.Search`, soit en utilisant la console NuGet Package, soit en effectuant un clic droit sur les références de votre projet et en sélectionnant « Gérer les packages NuGet » dans Visual Studio.
 
 Une fois que NuGet a téléchargé les nouveaux packages et leurs dépendances, recompilez votre projet.
 
@@ -97,9 +97,9 @@ Si vous utilisiez précédemment la version préliminaire 1.0.0-preview, 1.0.1-p
 
 Si vous utilisiez précédemment la version préliminaire 0.13.0-preview ou une version antérieure, vous obtiendrez sans doute les erreurs de build suivantes :
 
-    Program.cs(137,56,137,62): error CS0117: 'azure.microsoft.com/.Azure.Search.Models.IndexBatch' does not contain a definition for 'Create'
-    Program.cs(137,99,137,105): error CS0117: 'azure.microsoft.com/.Azure.Search.Models.IndexAction' does not contain a definition for 'Create'
-    Program.cs(146,41,146,54): error CS1061: 'azure.microsoft.com/.Azure.Search.IndexBatchException' does not contain a definition for 'IndexResponse' and no extension method 'IndexResponse' accepting a first argument of type 'azure.microsoft.com/.Azure.Search.IndexBatchException' could be found (are you missing a using directive or an assembly reference?)
+    Program.cs(137,56,137,62): error CS0117: 'Microsoft.Azure.Search.Models.IndexBatch' does not contain a definition for 'Create'
+    Program.cs(137,99,137,105): error CS0117: 'Microsoft.Azure.Search.Models.IndexAction' does not contain a definition for 'Create'
+    Program.cs(146,41,146,54): error CS1061: 'Microsoft.Azure.Search.IndexBatchException' does not contain a definition for 'IndexResponse' and no extension method 'IndexResponse' accepting a first argument of type 'Microsoft.Azure.Search.IndexBatchException' could be found (are you missing a using directive or an assembly reference?)
     Program.cs(163,13,163,42): error CS0246: The type or namespace name 'DocumentSearchResponse' could not be found (are you missing a using directive or an assembly reference?)
 
 L’étape suivante consiste à corriger les erreurs de build une par une. La plupart d’entre elles nécessitent la modification de certains noms de classe et de méthode qui ont été renommés dans le kit de développement logiciel. La [Liste des dernières modifications dans la version 1.1](#ListOfChangesV1) répertorie ces changements de nom.
@@ -216,7 +216,7 @@ Dans `IndexesOperationsExtensions` :
 
  - Les paramètres facultatifs sont désormais modélisés en tant que paramètres par défaut plutôt que les surcharges de méthode supplémentaires. Cela réduit le nombre de surcharges de méthode, parfois considérablement.
  - Les méthodes d’extension masquent maintenant un grand nombre des détails superflus de HTTP de la part de l’appelant. Par exemple, les versions antérieures du SDK ont renvoyé un objet de réponse avec un code d’état HTTP, que vous n’avez pas besoin de contrôler, car les méthodes de fonctionnement lèvent `CloudException` pour un code d’état qui signale une erreur. Les nouvelles méthodes d’extension ne retournent que des objets de modèle, ce qui vous évite de les désencapsuler dans votre code.
- - À l’inverse, les principales interfaces exposent maintenant les méthodes qui vous offrent davantage de contrôle au niveau HTTP si vous en avez besoin. Vous pouvez maintenant transférer des en-têtes HTTP personnalisés à inclure dans les demandes et le nouveau type de retour `AzureOperationResponse<T>` vous donne un accès direct à `HttpRequestMessage` et à `HttpResponseMessage` pour l’opération. `AzureOperationResponse` est défini dans l’espace de noms `azure.microsoft.com/.Rest.Azure` et remplace `Hyak.Common.OperationResponse`.
+ - À l’inverse, les principales interfaces exposent maintenant les méthodes qui vous offrent davantage de contrôle au niveau HTTP si vous en avez besoin. Vous pouvez maintenant transférer des en-têtes HTTP personnalisés à inclure dans les demandes et le nouveau type de retour `AzureOperationResponse<T>` vous donne un accès direct à `HttpRequestMessage` et à `HttpResponseMessage` pour l’opération. `AzureOperationResponse` est défini dans l’espace de noms `Microsoft.Rest.Azure` et remplace `Hyak.Common.OperationResponse`.
 
 #### Modifications ScoringParameters
 
@@ -243,7 +243,7 @@ vous pouvez le modifier pour résoudre les éventuelles erreurs de build :
 
 #### Modifications de modèles de classe
 
-En raison des modifications de signature décrites dans [Modifications des méthodes d’opération](#OperationMethodChanges), de nombreuses classes de l’espace de noms `azure.microsoft.com/.Azure.Search.Models` ont été renommées ou supprimées. Par exemple :
+En raison des modifications de signature décrites dans [Modifications des méthodes d’opération](#OperationMethodChanges), de nombreuses classes de l’espace de noms `Microsoft.Azure.Search.Models` ont été renommées ou supprimées. Par exemple :
 
  - `IndexDefinitionResponse` a été remplacé par `AzureOperationResponse<Index>`
  - `DocumentSearchResponse` a été renommé en `DocumentSearchResult`
@@ -342,7 +342,7 @@ Vous devrez rechercher ces cas dans votre code vous-même. **Le compilateur ne v
 
 #### Modifications CloudException
 
-La classe `CloudException` a été déplacée de l’espace de noms `Hyak.Common` à l’espace de noms `azure.microsoft.com/.Rest.Azure`. En outre, sa propriété `Error` a été renommée en `Body`.
+La classe `CloudException` a été déplacée de l’espace de noms `Hyak.Common` à l’espace de noms `Microsoft.Rest.Azure`. En outre, sa propriété `Error` a été renommée en `Body`.
 
 #### Modifications de SearchServiceClient et SearchIndexClient
 

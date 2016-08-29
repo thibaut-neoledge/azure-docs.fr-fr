@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Application de stratégies aux machines virtuelles Azure Resource Manager | azure.microsoft.com/ Azure"
+	pageTitle="Application de stratégies aux machines virtuelles Azure Resource Manager | Microsoft Azure"
 	description="Comment appliquer une stratégie à une machine virtuelle Azure Resource Manager Linux"
 	services="virtual-machines-linux"
 	documentationCenter=""
@@ -43,21 +43,21 @@ L'un des scénarios courants pour une entreprise peut consister à autoriser uni
   "allOf": [
     {
       "field": "type",
-      "equals": "azure.microsoft.com/.Compute/virtualMachines"
+      "equals": "Microsoft.Compute/virtualMachines"
     },
     {
       "not": {
         "allOf": [
           {
-            "field": "azure.microsoft.com/.Compute/virtualMachines/imagePublisher",
+            "field": "Microsoft.Compute/virtualMachines/imagePublisher",
             "equals": "Canonical"
           },
           {
-            "field": "azure.microsoft.com/.Compute/virtualMachines/imageOffer",
+            "field": "Microsoft.Compute/virtualMachines/imageOffer",
             "equals": "UbuntuServer"
           },
           {
-            "field": "azure.microsoft.com/.Compute/virtualMachines/imageSku",
+            "field": "Microsoft.Compute/virtualMachines/imageSku",
             "equals": "14.04.2-LTS"
           }
         ]
@@ -74,7 +74,7 @@ La stratégie ci-dessus peut facilement être modifiée pour un scénario dans l
 
 ```
 {
-  "field": "azure.microsoft.com/.Compute/virtualMachines/imageSku",
+  "field": "Microsoft.Compute/virtualMachines/imageSku",
   "like": "*LTS"
 }
 ```

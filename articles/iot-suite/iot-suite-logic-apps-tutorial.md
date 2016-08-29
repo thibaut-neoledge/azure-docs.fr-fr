@@ -1,5 +1,5 @@
 <properties
-  pageTitle="Azure IoT Suite et Logic Apps | azure.microsoft.com/ Azure"
+  pageTitle="Azure IoT Suite et Logic Apps | Microsoft Azure"
   description="Il s’agit d’un didacticiel expliquant comment raccorder des applications logiques à Azure IoT Suite pour les processus d’entreprise."
   services=""
   suite="iot-suite"
@@ -19,7 +19,7 @@
   
 # Didacticiel : Connecter Logic App à la solution préconfigurée de surveillance à distance IoT Suite
 
-La solution préconfigurée de surveillance à distance [azure.microsoft.com/ Azure IoT Suite][lnk-internetofthings] est un excellent moyen de commencer rapidement avec un ensemble de fonctionnalités de bout en bout illustrant une solution IoT. Ce didacticiel vous familiarise avec l’ajout de Logic App à votre solution préconfigurée de surveillance à distance azure.microsoft.com/ Azure IoT Suite. Ces étapes montrent comment tirer davantage parti de votre solution IoT en la connectant à un processus d’entreprise.
+La solution préconfigurée de surveillance à distance [Microsoft Azure IoT Suite][lnk-internetofthings] est un excellent moyen de commencer rapidement avec un ensemble de fonctionnalités de bout en bout illustrant une solution IoT. Ce didacticiel vous familiarise avec l’ajout de Logic App à votre solution préconfigurée de surveillance à distance Microsoft Azure IoT Suite. Ces étapes montrent comment tirer davantage parti de votre solution IoT en la connectant à un processus d’entreprise.
 
 _Si vous recherchez une procédure d’approvisionnement d’une solution préconfigurée de surveillance à distance, consultez [Didacticiel : prise en main des solutions préconfigurées][lnk-getstarted]._
 
@@ -173,7 +173,7 @@ Maintenant que vous avez utilisé une application logique pour connecter la solu
 [lnk-dynamic]: iot-suite-dynamic-telemetry.md
 [lnk-devinfo]: iot-suite-remote-monitoring-device-info.md
 
-[lnk-internetofthings]: https://azure.azure.microsoft.com/.com/documentation/suites/iot-suite/
+[lnk-internetofthings]: https://azure.microsoft.com/documentation/suites/iot-suite/
 [lnk-getstarted]: iot-suite-getstarted-preconfigured-solutions.md
 [lnk-azureportal]: https://portal.azure.com
 [lnk-logic-apps-actions]: ../connectors/apis-list.md

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Organisation des ressources Azure à l’aide de balises | azure.microsoft.com/ Azure"
+	pageTitle="Organisation des ressources Azure à l’aide de balises | Microsoft Azure"
 	description="Indique comment appliquer des balises afin d’organiser des ressources dédiées à la facturation et à la gestion."
 	services="azure-resource-manager"
 	documentationCenter=""
@@ -37,7 +37,7 @@ L’exemple suivant illustre un compte de stockage avec une balise.
 
     "resources": [
         {
-            "type": "azure.microsoft.com/.Storage/storageAccounts",
+            "type": "Microsoft.Storage/storageAccounts",
             "apiVersion": "2015-06-15",
             "name": "[concat('storage', uniqueString(resourceGroup().id))]",
             "location": "[resourceGroup().location]",
@@ -68,7 +68,7 @@ Actuellement, Resource Manager ne prend pas en charge le traitement d’un objet
       "resources": [
       {
         "apiVersion": "2015-06-15",
-        "type": "azure.microsoft.com/.Storage/storageAccounts",
+        "type": "Microsoft.Storage/storageAccounts",
         "name": "examplestorage",
         "tags": {
           "dept": "[parameters('tagvalues').dept]",
@@ -108,7 +108,7 @@ Ce qui renvoie des métadonnées sur le groupe de ressources, y compris toutes l
     data:    Tags: Dept=Finance;Environment=Production
     data:    Resources:
     data:
-    data:      Id      : /subscriptions/{guid}/resourceGroups/tag-demo-group/providers/azure.microsoft.com/.Sql/servers/tfsqlserver
+    data:      Id      : /subscriptions/{guid}/resourceGroups/tag-demo-group/providers/Microsoft.Sql/servers/tfsqlserver
     data:      Name    : tfsqlserver
     data:      Type    : servers
     data:      Location: eastus2
@@ -128,7 +128,7 @@ Ce qui renvoie les balises pour ce groupe de ressources.
 
 Vous affichez les balises d’une ressource spécifique avec **azure resource show**.
 
-    azure resource show -g tag-demo-group -n tfsqlserver -r azure.microsoft.com/.Sql/servers -o 2014-04-01-preview --json | jq ".tags"
+    azure resource show -g tag-demo-group -n tfsqlserver -r Microsoft.Sql/servers -o 2014-04-01-preview --json | jq ".tags"
     
 Ce qui renvoie les balises pour cette ressource.
     
@@ -164,16 +164,16 @@ Vous pouvez répertorier les balises existantes dans votre abonnement avec **azu
 
 ## API REST
 
-Le portail et PowerShell utilisent tous deux l'[API REST du Gestionnaire de ressources](https://msdn.azure.microsoft.com/.com/library/azure/dn848368.aspx) en arrière-plan. Si vous avez besoin intégrer le balisage dans un autre environnement, vous pouvez récupérer des balises avec une commande GET sur l'ID de ressource et mettre à jour l'ensemble des balises avec un appel PATCH.
+Le portail et PowerShell utilisent tous deux l'[API REST du Gestionnaire de ressources](https://msdn.microsoft.com/library/azure/dn848368.aspx) en arrière-plan. Si vous avez besoin intégrer le balisage dans un autre environnement, vous pouvez récupérer des balises avec une commande GET sur l'ID de ressource et mettre à jour l'ensemble des balises avec un appel PATCH.
 
 
 ## Balises et facturation
 
 Dans le cas des services pris en charge, vous pouvez utiliser des balises pour regrouper vos données de facturation. Par exemple, les [machines virtuelles intégrées à Azure Resource Manager](./virtual-machines/virtual-machines-windows-compare-deployment-models.md) vous permettent de définir et d’appliquer des balises pour organiser l’utilisation de la facturation pour les machines virtuelles. Si vous exécutez plusieurs machines virtuelles pour différentes organisations, vous pouvez recourir aux balises pour regrouper l’utilisation par centre de coûts. Vous pouvez également utiliser des balises pour catégoriser les coûts par environnement d’exécution ; par exemple, l’utilisation de la facturation pour les machines virtuelles en cours d’exécution dans l’environnement de production.
 
-Vous pouvez récupérer des informations sur les balises par le biais des [API Resource Usage et RateCard](billing-usage-rate-card-overview.md) ou du fichier de valeurs séparées par des virgules (CSV). Vous téléchargez le fichier d’utilisation à partir du [portail de comptes Azure](https://account.windowsazure.com/) ou du [portail EA](https://ea.azure.com). Pour plus d’informations sur l’accès par programme aux informations de facturation, consultez [Obtenir une vue d’ensemble de votre consommation des ressources azure.microsoft.com/ Azure](billing-usage-rate-card-overview.md). Pour plus d’informations sur les opérations de l’API REST, consultez [Informations de référence sur l’API REST Azure Billing](https://msdn.azure.microsoft.com/.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c).
+Vous pouvez récupérer des informations sur les balises par le biais des [API Resource Usage et RateCard](billing-usage-rate-card-overview.md) ou du fichier de valeurs séparées par des virgules (CSV). Vous téléchargez le fichier d’utilisation à partir du [portail de comptes Azure](https://account.windowsazure.com/) ou du [portail EA](https://ea.azure.com). Pour plus d’informations sur l’accès par programme aux informations de facturation, consultez [Obtenir une vue d’ensemble de votre consommation des ressources Microsoft Azure](billing-usage-rate-card-overview.md). Pour plus d’informations sur les opérations de l’API REST, consultez [Informations de référence sur l’API REST Azure Billing](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c).
 
-Lorsque vous téléchargez le fichier CSV d’utilisation pour les services qui prennent en charge les balises avec la facturation, les balises s’affichent dans la colonne **Balises**. Pour plus d’informations, voir [Comprendre votre facture azure.microsoft.com/ Azure](billing-understand-your-bill.md).
+Lorsque vous téléchargez le fichier CSV d’utilisation pour les services qui prennent en charge les balises avec la facturation, les balises s’affichent dans la colonne **Balises**. Pour plus d’informations, voir [Comprendre votre facture Microsoft Azure](billing-understand-your-bill.md).
 
 ![Voir les balises dans la facturation](./media/resource-group-using-tags/billing_csv.png)
 

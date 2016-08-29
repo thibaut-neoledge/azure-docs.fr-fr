@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Guide de sécurité Azure Storage | azure.microsoft.com/ Azure"
+	pageTitle="Guide de sécurité Azure Storage | Microsoft Azure"
 	description="Présente en détail les nombreuses méthodes de sécurisation d’Azure Storage, notamment (liste non exhaustive) RBAC, Storage Service Encryption, le chiffrement côté client, SMB 3.0 et Azure Disk Encryption."
 	services="storage"
 	documentationCenter=".net"
@@ -60,7 +60,7 @@ Ce guide porte essentiellement sur le modèle Resource Manager, qui est la méth
 
 ###Comment sécuriser un compte de stockage en utilisant le contrôle d’accès en fonction du rôle (RBAC)
 
-Pour commencer, expliquons ce qu’est RBAC et voyons comment l’utiliser. À chaque abonnement Azure correspond un annuaire Azure Active Directory. Les utilisateurs, les groupes et les applications de cet annuaire peuvent être autorisés à gérer les ressources de l’abonnement Azure qui reposent sur le modèle de déploiement Gestionnaire de ressources. C’est ce que l’on appelle le contrôle d’accès en fonction du rôle (RBAC). Pour gérer cet accès, vous pouvez utiliser le [portail Azure](https://portal.azure.com/), les [outils de l’interface de ligne de commande Azure](../xplat-cli-install.md), [PowerShell](../powershell-install-configure.md) ou les [API REST du fournisseur de ressources Azure Storage](https://msdn.azure.microsoft.com/.com/library/azure/mt163683.aspx).
+Pour commencer, expliquons ce qu’est RBAC et voyons comment l’utiliser. À chaque abonnement Azure correspond un annuaire Azure Active Directory. Les utilisateurs, les groupes et les applications de cet annuaire peuvent être autorisés à gérer les ressources de l’abonnement Azure qui reposent sur le modèle de déploiement Gestionnaire de ressources. C’est ce que l’on appelle le contrôle d’accès en fonction du rôle (RBAC). Pour gérer cet accès, vous pouvez utiliser le [portail Azure](https://portal.azure.com/), les [outils de l’interface de ligne de commande Azure](../xplat-cli-install.md), [PowerShell](../powershell-install-configure.md) ou les [API REST du fournisseur de ressources Azure Storage](https://msdn.microsoft.com/library/azure/mt163683.aspx).
 
 Avec le modèle Gestionnaire de ressources, vous devez placer le compte de stockage dans un groupe de ressources et contrôler l’accès au plan de gestion de ce compte de stockage spécifique à l’aide d’Azure Active Directory. Par exemple, vous pouvez permettre à certains utilisateurs d’accéder aux clés de compte de stockage, pendant que d’autres pourront voir les informations relatives au compte de stockage, mais pas accéder aux clés de compte de stockage.
 
@@ -122,7 +122,7 @@ Voici les principaux points à prendre en compte pour accéder aux opérations d
 
 	Cet article montre comment utiliser l’API REST pour gérer RBAC.
 
--   [Informations de référence sur l’API REST du fournisseur de ressources Azure Storage](https://msdn.azure.microsoft.com/.com/library/azure/mt163683.aspx)
+-   [Informations de référence sur l’API REST du fournisseur de ressources Azure Storage](https://msdn.microsoft.com/library/azure/mt163683.aspx)
 
 	Ces informations de référence portent sur l’API que vous pouvez utiliser pour gérer votre compte de stockage par programmation.
 
@@ -130,7 +130,7 @@ Voici les principaux points à prendre en compte pour accéder aux opérations d
 
 	Cet article explique l’authentification avec les API Resource Manager.
 
--   [Role-Based Access Control for azure.microsoft.com/ Azure from Ignite (Contrôle d’accès en fonction du rôle pour azure.microsoft.com/ Azure)](https://channel9.msdn.com/events/Ignite/2015/BRK2707)
+-   [Role-Based Access Control for Microsoft Azure from Ignite (Contrôle d’accès en fonction du rôle pour Microsoft Azure)](https://channel9.msdn.com/events/Ignite/2015/BRK2707)
 
     Ce lien donne accès à une vidéo sur Channel 9 enregistrée à l’occasion de la conférence MS Ignite en 2015. Cette session traite des fonctionnalités de gestion d’accès et de création de rapports d’Azure et explore les bonnes pratiques en ce qui concerne la sécurisation de l’accès aux abonnements Azure à l’aide d’Azure Active Directory.
 
@@ -168,7 +168,7 @@ Si vous utilisez actuellement la clé 2, vous pouvez utiliser le même processus
 
 Vous pouvez effectuer la migration sur deux jours, en modifiant chaque application pour utiliser la nouvelle clé et en la publiant. Quand vous avez traité l’ensemble des services et applications, vous devez revenir en arrière et régénérer l’ancienne clé pour qu’elle ne fonctionne plus.
 
-Une autre option consiste à placer la clé de compte de stockage dans [Azure Key Vault](https://azure.azure.microsoft.com/.com/services/key-vault/) en tant que clé secrète et à faire en sorte que vos applications la récupèrent à cet endroit. Ensuite, quand vous régénérez la clé et mettez à jour Azure Key Vault, vous n’avez pas à redéployer les applications, car elles choisissent automatiquement la nouvelle clé dans Azure Key Vault. Notez que vous pouvez faire en sorte que l’application lise la clé chaque fois que vous en avez besoin, ou vous pouvez la mettre en cache en mémoire et, en cas d’échec lors de son utilisation, vous pouvez de nouveau la récupérer dans Azure Key Vault.
+Une autre option consiste à placer la clé de compte de stockage dans [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) en tant que clé secrète et à faire en sorte que vos applications la récupèrent à cet endroit. Ensuite, quand vous régénérez la clé et mettez à jour Azure Key Vault, vous n’avez pas à redéployer les applications, car elles choisissent automatiquement la nouvelle clé dans Azure Key Vault. Notez que vous pouvez faire en sorte que l’application lise la clé chaque fois que vous en avez besoin, ou vous pouvez la mettre en cache en mémoire et, en cas d’échec lors de son utilisation, vous pouvez de nouveau la récupérer dans Azure Key Vault.
 
 L’utilisation d’Azure Key Vault ajoute également un autre niveau de sécurité pour les clés de stockage. Si vous utilisez cette méthode, la clé de stockage n’est jamais codée en dur dans un fichier de configuration, ce qui rend impossible l’accès aux clés par une personne sans autorisation spécifique.
 
@@ -182,11 +182,11 @@ Remarque : Il est recommandé d’utiliser uniquement l’une des clés dans tou
 
 	Cet article présente une vue d’ensemble des comptes de stockage et décrit l’affichage, la copie et la régénération des clés d’accès de stockage.
 
--   [Informations de référence sur l’API REST du fournisseur de ressources Azure Storage](https://msdn.azure.microsoft.com/.com/library/mt163683.aspx)
+-   [Informations de référence sur l’API REST du fournisseur de ressources Azure Storage](https://msdn.microsoft.com/library/mt163683.aspx)
 
 	Cet article contient des liens vers des articles spécifiques sur la récupération des clés de compte de stockage et la régénération des clés de compte de stockage pour un compte Azure à l’aide de l’API REST. Remarque : ceci concerne les comptes de stockage Resource Manager.
 
--   [Opérations sur les comptes de stockage](https://msdn.azure.microsoft.com/.com/library/ee460790.aspx)
+-   [Opérations sur les comptes de stockage](https://msdn.microsoft.com/library/ee460790.aspx)
 
     Cet article dans Informations de référence sur l’API REST du gestionnaire de service de stockage contient des liens vers des articles spécifiques sur la récupération et la régénération des clés de compte de stockage à l’aide de l’API REST. Remarque : Seuls les comptes de stockage classiques sont concernés.
 
@@ -280,13 +280,13 @@ Pour plus d’informations sur l’utilisation des signatures d’accès partag�
 
 -   Ce sont les articles de référence.
 
-	-	[Exemples d’associations de sécurité de service](https://msdn.azure.microsoft.com/.com/library/dn140256.aspx)
+	-	[Exemples d’associations de sécurité de service](https://msdn.microsoft.com/library/dn140256.aspx)
 
 		Cet article fournit des exemples d’utilisation d’une signature d’accès partagé de niveau service avec des objets blob, des messages de file d’attente, des plages de tables et des fichiers.
 
-	-	[Construction d’un service SAP](https://msdn.azure.microsoft.com/.com/library/dn140255.aspx)
+	-	[Construction d’un service SAP](https://msdn.microsoft.com/library/dn140255.aspx)
 
-	-	[Construction d’un compte SAP](https://msdn.azure.microsoft.com/.com/library/mt584140.aspx)
+	-	[Construction d’un compte SAP](https://msdn.microsoft.com/library/mt584140.aspx)
 
 -   Il s’agit de didacticiels pour l’utilisation de la bibliothèque cliente .NET pour créer des signatures d’accès partagé et des stratégies d’accès stockées.
 
@@ -302,17 +302,17 @@ Pour plus d’informations sur l’utilisation des signatures d’accès partag�
 
     -	[Qu’est-ce qu’une liste de contrôle d’accès de point de terminaison (ACL) ?](../virtual-network/virtual-networks-acl.md)
 
-    -	[Construction d’un service SAP](https://msdn.azure.microsoft.com/.com/library/azure/dn140255.aspx)
+    -	[Construction d’un service SAP](https://msdn.microsoft.com/library/azure/dn140255.aspx)
 
 		Il s’agit de l’article de référence pour les signatures d’accès partagé de niveau service ; il inclut un exemple de création de liste ACL IP.
 
-	-	[Construction d’un compte SAP](https://msdn.azure.microsoft.com/.com/library/azure/mt584140.aspx)
+	-	[Construction d’un compte SAP](https://msdn.microsoft.com/library/azure/mt584140.aspx)
 
     	Il s’agit de l’article de référence pour les signatures d’accès partagé de niveau compte ; il inclut un exemple de création de liste ACL IP.
 
 -   Authentification
 
-	-    [Authentification pour les services de stockage Azure](https://msdn.azure.microsoft.com/.com/library/azure/dd179428.aspx)
+	-    [Authentification pour les services de stockage Azure](https://msdn.microsoft.com/library/azure/dd179428.aspx)
 
 -   Didacticiel de prise en main des signatures d’accès partagé
 
@@ -348,7 +348,7 @@ Notez que les partages de fichiers Azure peuvent être utilisés avec Unix, mais
 
 	Cet article présente une vue d’ensemble des partages de fichiers Azure. Il explique aussi comment monter et utiliser ces partages avec PowerShell et .NET.
 
--   [Stockage de fichiers dans Azure](https://azure.azure.microsoft.com/.com/blog/inside-azure-file-storage/)
+-   [Stockage de fichiers dans Azure](https://azure.microsoft.com/blog/inside-azure-file-storage/)
 
     Cet article annonce la disponibilité générale d’Azure File Storage et fournit des informations techniques sur le chiffrement SMB 3.0.
 
@@ -370,7 +370,7 @@ SSE est une nouvelle fonctionnalité Azure Storage disponible en version prélim
 
 Il s’agit d’un paramètre qui s’applique à l’ensemble du compte de stockage. Vous pouvez activer ou désactiver cette fonctionnalité en modifiant la valeur du paramètre. Pour cela, vous utilisez le portail Azure, PowerShell, l’interface de ligne de commande Azure, l’API REST du fournisseur de ressources de stockage ou la bibliothèque cliente de stockage .NET. Par défaut, SSE est désactivé.
 
-Actuellement, les clés utilisées pour le chiffrement sont gérées par azure.microsoft.com/. Nous créons initialement les clés, puis nous gérons le stockage sécurisé des clés ainsi que leur rotation régulière, conformément à la politique interne de azure.microsoft.com/ en la matière. À l’avenir, vous pourrez gérer vos propres clés de chiffrement et fournir un chemin de migration des clés gérées par azure.microsoft.com/ en clés gérées par le client.
+Actuellement, les clés utilisées pour le chiffrement sont gérées par Microsoft. Nous créons initialement les clés, puis nous gérons le stockage sécurisé des clés ainsi que leur rotation régulière, conformément à la politique interne de Microsoft en la matière. À l’avenir, vous pourrez gérer vos propres clés de chiffrement et fournir un chemin de migration des clés gérées par Microsoft en clés gérées par le client.
 
 Cette fonctionnalité est disponible pour les comptes Standard Storage et Premium Storage qui ont été créés avec le modèle de déploiement Resource Manager après le 30/3/2016 12h00 (heure PST). SSE s’applique uniquement aux objets blob de blocs, aux objets blob de pages et aux objets blob d’ajout. Les autres types de données, y compris les tables, les files d’attente et les fichiers, ne sont pas chiffrés.
 
@@ -394,11 +394,11 @@ Pour le chiffrement proprement dit, vous pouvez créer et gérer vos propres cl�
 
 ####Ressources
 
--   [Chiffrement et déchiffrement d’objets blob dans azure.microsoft.com/ Azure Storage à l'aide d'Azure Key Vault](storage-encrypt-decrypt-blobs-key-vault.md)
+-   [Chiffrement et déchiffrement d’objets blob dans Microsoft Azure Storage à l'aide d'Azure Key Vault](storage-encrypt-decrypt-blobs-key-vault.md)
 
     Cet article montre comment utiliser le chiffrement côté client avec Azure Key Vault, notamment comment créer le certificat KEK et le stocker dans le coffre à l’aide de PowerShell.
 
--   [Chiffrement côté client et Azure Key Vault pour azure.microsoft.com/ Azure Storage](storage-client-side-encryption.md)
+-   [Chiffrement côté client et Azure Key Vault pour Microsoft Azure Storage](storage-client-side-encryption.md)
 
     Cet article explique le fonctionnement du chiffrement côté client. Il fournit des exemples d’utilisation de la bibliothèque cliente de stockage pour chiffrer et déchiffrer les ressources des quatre services de stockage. Il parle également d’Azure Key Vault.
 
@@ -416,21 +416,21 @@ Azure Disk Encryption convient pour les trois scénarios de chiffrement client s
 
 >[AZURE.NOTE] Pour les machines virtuelles Linux en cours d’exécution dans Azure ou les nouvelles machines virtuelles Linux créées à partir d’images dans Azure Marketplace, le chiffrement du disque du système d’exploitation n’est actuellement pas pris en charge. Le chiffrement du volume du système d’exploitation pour les machines virtuelles Linux est pris en charge uniquement pour les machines virtuelles qui ont été chiffrées sur site et téléchargées dans Azure. Cette restriction s’applique uniquement au disque du système d’exploitation ; le chiffrement des volumes de données pour une machine virtuelle Linux est pris en charge.
 
-La solution prend en charge les éléments de machines virtuelles IaaS en version préliminaire qui suivent lorsqu’elle est activée dans azure.microsoft.com/ Azure :
+La solution prend en charge les éléments de machines virtuelles IaaS en version préliminaire qui suivent lorsqu’elle est activée dans Microsoft Azure :
 
 -   Prise en main d’Azure Key Vault
 
--   [Machines virtuelles IaaS des séries A, D et G](https://azure.azure.microsoft.com/.com/pricing/details/virtual-machines/) standard
+-   [Machines virtuelles IaaS des séries A, D et G](https://azure.microsoft.com/pricing/details/virtual-machines/) standard
 
 -   Activer le chiffrement sur les machines virtuelles IaaS créées à l’aide du modèle [Azure Resource Manager](../resource-group-overview.md)
 
--   Toutes les [régions](https://azure.azure.microsoft.com/.com/regions/) publiques Azure
+-   Toutes les [régions](https://azure.microsoft.com/regions/) publiques Azure
 
 Cette fonctionnalité garantit que toutes les données sur les disques de vos machines virtuelles sont chiffrées au repos dans Azure Storage.
 
 ####Ressources
 
--   [Azure Disk Encryption pour des machines virtuelles IaaS Windows et Linux](https://gallery.technet.azure.microsoft.com/.com/Azure-Disk-Encryption-for-a0018eb0)
+-   [Azure Disk Encryption pour des machines virtuelles IaaS Windows et Linux](https://gallery.technet.microsoft.com/Azure-Disk-Encryption-for-a0018eb0)
 
     Cet article traite de la fonctionnalité Azure Disk Encryption en version préliminaire et fournit un lien de téléchargement du livre blanc.
 
@@ -520,7 +520,7 @@ Trois cas nous intéressent.
 
     1\.0;2015-11-16T18:32:24.3174537Z;GetBlob;**Success**;206;59;22;**authenticated**;mystorage…
 
-Vous pouvez utiliser azure.microsoft.com/ Message Analyzer pour afficher et analyser ces journaux. Il inclue des fonctions de recherche et de filtre. Par exemple, vous voulez peut-être rechercher les instances de GetBlob pour voir si l’utilisation répond à vos attentes, par exemple, pour vérifier que personne n’accède à votre compte de stockage de façon inappropriée.
+Vous pouvez utiliser Microsoft Message Analyzer pour afficher et analyser ces journaux. Il inclue des fonctions de recherche et de filtre. Par exemple, vous voulez peut-être rechercher les instances de GetBlob pour voir si l’utilisation répond à vos attentes, par exemple, pour vérifier que personne n’accède à votre compte de stockage de façon inappropriée.
 
 ####Ressources
 
@@ -528,7 +528,7 @@ Vous pouvez utiliser azure.microsoft.com/ Message Analyzer pour afficher et anal
 
 	Cet article est une vue d’ensemble de l’analyse du stockage et de la façon de l’activer.
 
--   [Format du journal de l’analyse de stockage](https://msdn.azure.microsoft.com/.com/library/azure/hh343259.aspx)
+-   [Format du journal de l’analyse de stockage](https://msdn.microsoft.com/library/azure/hh343259.aspx)
 
 	Cet article illustre le format du journal de l’analyse de stockage et présente les champs disponibles, notamment authentication-type, qui indique le type d’authentification utilisé pour la requête.
 
@@ -538,11 +538,11 @@ Vous pouvez utiliser azure.microsoft.com/ Message Analyzer pour afficher et anal
 
 -   [Résolution des problèmes de bout en bout avec les métriques et la journalisation Azure, AzCopy et Message Analyzer](storage-e2e-troubleshooting.md)
 
-	Cet article traite du dépannage à l’aide de l’analyse du stockage et montre comment utiliser azure.microsoft.com/ Message Analyzer.
+	Cet article traite du dépannage à l’aide de l’analyse du stockage et montre comment utiliser Microsoft Message Analyzer.
 
--   [azure.microsoft.com/ Message Analyzer Operating Guide (Guide des opérations azure.microsoft.com/ Message Analyzer)](https://technet.azure.microsoft.com/.com/library/jj649776.aspx)
+-   [Microsoft Message Analyzer Operating Guide (Guide des opérations Microsoft Message Analyzer)](https://technet.microsoft.com/library/jj649776.aspx)
 
-	Cet article de référence porte sur azure.microsoft.com/ Message Analyzer et inclut des liens vers un didacticiel, un démarrage rapide et un résumé des fonctionnalités.
+	Cet article de référence porte sur Microsoft Message Analyzer et inclut des liens vers un didacticiel, un démarrage rapide et un résumé des fonctionnalités.
 
 ##Partage des ressources cross-origin (CORS)
 
@@ -596,11 +596,11 @@ Pour plus d’informations sur CORS et sur la façon de l’activer, consultez l
 
 	Cet article fournit une vue d’ensemble de CORS et de la façon de définir les règles pour les différents services de stockage.
 
--   [Prise en charge du service Partage des ressources cross-origine (CORS) pour les services Azure Storage sur MSDN](https://msdn.azure.microsoft.com/.com/library/azure/dn535601.aspx)
+-   [Prise en charge du service Partage des ressources cross-origine (CORS) pour les services Azure Storage sur MSDN](https://msdn.microsoft.com/library/azure/dn535601.aspx)
 
 	Il s’agit de la documentation de référence pour la prise en charge de CORS pour les services Azure Storage. Elle propose des liens vers des articles concernant chaque service de stockage, et propose un exemple et une description de chaque élément du fichier CORS.
 
--   [azure.microsoft.com/ Azure Storage: Introducing CORS (azure.microsoft.com/ Azure Storage : Présentation de CORS)](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/02/03/windows-azure-storage-introducing-cors.aspx)
+-   [Microsoft Azure Storage: Introducing CORS (Microsoft Azure Storage : Présentation de CORS)](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/02/03/windows-azure-storage-introducing-cors.aspx)
 
 	Il s’agit d’un lien vers l’article de blog initial qui présente CORS et montre comment l’utiliser.
 
@@ -618,7 +618,7 @@ Pour plus d’informations sur CORS et sur la façon de l’activer, consultez l
 
 	Les normes FIPS (Federal Information Processing Standard) des États-Unis définissent les algorithmes de chiffrement qui sont approuvés pour une utilisation sur les systèmes informatiques de l’État fédéral américain dans le but de protéger les données sensibles. L’activation du mode FIPS sur un serveur ou un bureau Windows indique au système d’exploitation que seuls les algorithmes de chiffrement conformes aux normes FIPS doivent être utilisés. Si une application utilise des algorithmes non conformes, les applications s’arrêtent. Avec .NET Framework versions 4.5.2 ou ultérieures, l’application bascule automatiquement les algorithmes de chiffrement pour utiliser des algorithmes conformes aux normes FIPS quand l’ordinateur est en mode FIPS.
 
-	azure.microsoft.com/ laisse à chaque client le soin de décider si le mode FIPS doit être activé. Nous pensons qu’il n’existe aucune raison valable pour les clients qui ne sont pas soumis aux réglementations gouvernementales d’activer le mode FIPS par défaut.
+	Microsoft laisse à chaque client le soin de décider si le mode FIPS doit être activé. Nous pensons qu’il n’existe aucune raison valable pour les clients qui ne sont pas soumis aux réglementations gouvernementales d’activer le mode FIPS par défaut.
 
 	**Ressources**
 
@@ -626,11 +626,11 @@ Pour plus d’informations sur CORS et sur la façon de l’activer, consultez l
 
 	Cet article de blog donne une vue d’ensemble des normes FIPS et explique pourquoi le mode FIPS n’est plus activé par défaut.
 
--   [FIPS 140 Validation (Validation de la norme FIPS 140)](https://technet.azure.microsoft.com/.com/library/cc750357.aspx)
+-   [FIPS 140 Validation (Validation de la norme FIPS 140)](https://technet.microsoft.com/library/cc750357.aspx)
 
-	Cet article fournit des informations sur la façon dont les produits et les modules de chiffrement azure.microsoft.com/ sont conformes aux normes FIPS pour l’État fédéral américain.
+	Cet article fournit des informations sur la façon dont les produits et les modules de chiffrement Microsoft sont conformes aux normes FIPS pour l’État fédéral américain.
 
--   [Effets des paramètres de sécurité « Chiffrement système : utilisez des algorithmes compatibles FIPS pour le chiffrement, le hachage et la signature » dans Windows XP et les versions ultérieures de Windows](https://support.azure.microsoft.com/.com/kb/811833)
+-   [Effets des paramètres de sécurité « Chiffrement système : utilisez des algorithmes compatibles FIPS pour le chiffrement, le hachage et la signature » dans Windows XP et les versions ultérieures de Windows](https://support.microsoft.com/kb/811833)
 
 	Cet article traite de l’utilisation du mode FIPS sur des ordinateurs Windows anciens.
 

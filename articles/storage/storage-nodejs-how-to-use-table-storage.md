@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Utilisation du stockage de table Azure à partir de Node.js | azure.microsoft.com/ Azure"
+	pageTitle="Utilisation du stockage de table Azure à partir de Node.js | Microsoft Azure"
 	description="Stockez des données structurées dans le cloud à l’aide du stockage de tables Azure, un magasin de données NoSQL."
 	services="storage"
 	documentationCenter="nodejs"
@@ -113,7 +113,7 @@ Pour ajouter une entité, commencez par créer un objet qui définit les propri�
 
 * **RowKey** : identifie de façon unique l’entité dans la partition
 
-**PartitionKey** et **RowKey** doivent être des valeurs de chaîne. Pour plus d'informations, consultez la rubrique [Présentation du modèle de données du service de Table](http://msdn.azure.microsoft.com/.com/library/azure/dd179338.aspx).
+**PartitionKey** et **RowKey** doivent être des valeurs de chaîne. Pour plus d'informations, consultez la rubrique [Présentation du modèle de données du service de Table](http://msdn.microsoft.com/library/azure/dd179338.aspx).
 
 Voici un exemple de définition d'une entité. Notez que **dueDate** est définie comme un type de **Edm.DateTime**. L'indication du type est facultative et s'ils ne sont pas spécifiés, les types sont déduits.
 
@@ -431,7 +431,7 @@ Pour plus d'informations, consultez les ressources suivantes.
 
   [Kit de développement logiciel (SDK) Azure Storage pour Node]: https://github.com/Azure/azure-storage-node
   [OData.org]: http://www.odata.org/
-  [Using the REST API]: http://msdn.azure.microsoft.com/.com/library/azure/hh264518.aspx
+  [Using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx
   [Azure Portal]: portal.azure.com
 
   [Node.js Cloud Service]: ../cloud-services-nodejs-develop-deploy-app.md

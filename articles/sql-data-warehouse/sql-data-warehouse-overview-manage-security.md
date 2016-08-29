@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Sécuriser une base de données dans SQL Data Warehouse | azure.microsoft.com/ Azure"
-   description="Conseils relatifs à la sécurisation d’une base de données dans azure.microsoft.com/ Azure SQL Data Warehouse, dans le cadre du développement de solutions."
+   pageTitle="Sécuriser une base de données dans SQL Data Warehouse | Microsoft Azure"
+   description="Conseils relatifs à la sécurisation d’une base de données dans Microsoft Azure SQL Data Warehouse, dans le cadre du développement de solutions."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="ronortloff"
@@ -28,7 +28,7 @@
 
 
 
-Cet article présente les principes de base de la sécurisation de votre base de données azure.microsoft.com/ Azure SQL Data Warehouse. Plus spécifiquement, cet article vous offre un aperçu sur les ressources dédiées à la limitation de l’accès, à la protection des données et à la surveillance des activités sur une base de données.
+Cet article présente les principes de base de la sécurisation de votre base de données Microsoft Azure SQL Data Warehouse. Plus spécifiquement, cet article vous offre un aperçu sur les ressources dédiées à la limitation de l’accès, à la protection des données et à la surveillance des activités sur une base de données.
 
 ## Sécurité de la connexion
 
@@ -63,12 +63,12 @@ CREATE USER ApplicationUser FOR LOGIN ApplicationLogin;
 
 ```
 
-Pour en savoir plus sur l’authentification auprès d’une base de données SQL, voir [Gestion des bases de données et des connexions dans la base de données SQL azure.microsoft.com/ Azure][]. Pour plus de détails sur l’utilisation de la version préliminaire d’Azure AD pour SQL Data Warehouse, consultez [Connexion à SQL Data Warehouse avec l’authentification Azure Active Directory][].
+Pour en savoir plus sur l’authentification auprès d’une base de données SQL, voir [Gestion des bases de données et des connexions dans la base de données SQL Microsoft Azure][]. Pour plus de détails sur l’utilisation de la version préliminaire d’Azure AD pour SQL Data Warehouse, consultez [Connexion à SQL Data Warehouse avec l’authentification Azure Active Directory][].
 
 
 ## Autorisation
 
-Le terme « autorisation » fait référence aux actions que vous pouvez exécuter dans une base de données azure.microsoft.com/ Azure SQL Data Warehouse, actions contrôlées par les autorisations et l’appartenance au rôle de votre compte utilisateur. Nous vous recommandons, à titre de meilleure pratique, d’accorder aux utilisateurs des privilèges aussi réduits que possible. La base de données azure.microsoft.com/ Azure SQL Data Warehouse facilite la gestion des rôles dans T-SQL :
+Le terme « autorisation » fait référence aux actions que vous pouvez exécuter dans une base de données Microsoft Azure SQL Data Warehouse, actions contrôlées par les autorisations et l’appartenance au rôle de votre compte utilisateur. Nous vous recommandons, à titre de meilleure pratique, d’accorder aux utilisateurs des privilèges aussi réduits que possible. La base de données Microsoft Azure SQL Data Warehouse facilite la gestion des rôles dans T-SQL :
 
 ```sql
 EXEC sp_addrolemember 'db_datareader', 'ApplicationUser'; -- allows ApplicationUser to read data
@@ -77,7 +77,7 @@ EXEC sp_addrolemember 'db_datawriter', 'ApplicationUser'; -- allows ApplicationU
 
 Le compte d’administrateur du serveur avec lequel vous vous connectez appartient au groupe « db\_owner », qui est autorisé à effectuer tout type d’opérations dans la base de données. Enregistrez ce compte pour l’utiliser lors du déploiement des mises à niveau de schéma et d’autres opérations de gestion. Utilisez le compte « ApplicationUser », doté d’autorisations plus limitées, pour vous connecter à la base de données à partir de votre application, en bénéficiant du niveau de privilèges le moins élevé requis par cette dernière.
 
-Il existe d’autres méthodes pour limiter le nombre d’actions que peut réaliser un utilisateur avec la base de données SQL azure.microsoft.com/ Azure :
+Il existe d’autres méthodes pour limiter le nombre d’actions que peut réaliser un utilisateur avec la base de données SQL Microsoft Azure :
 
 - Des [autorisations][] granulaires vous permettent de contrôler les opérations que vous pouvez exécuter sur des colonnes, des tables, des vues, des procédures et d’autres objets individuels dans la base de données. Utilisez les autorisations granulaires pour avoir un contrôle optimal et accordez les autorisations minimales nécessaires. Le système d'autorisation granulaire est quelque peu compliqué et nécessitera un apprentissage avant de pouvoir l’utiliser efficacement.
 - Des [rôles de base de données][] autres que « db\_datareader » et « db\_datawriter » peuvent être utilisés afin de créer des comptes d’utilisateur plus puissants ou des comptes de gestion moins puissants pour votre application. Les rôles de base de données fixes intégrés offrent un moyen facile d'accorder des autorisations, mais peuvent entraîner l'octroi d'autorisations excessives.
@@ -100,7 +100,7 @@ Vous pouvez également activer le chiffrement transparent des données à partir
 
 ## Audit
 
-Les fonctions d’audit et de suivi des événements de la base de données peuvent vous aider à assurer la conformité aux normes et à identifier toute activité suspecte. La fonction d’audit de SQL Data Warehouse vous permet d’enregistrer les événements survenus dans votre base de données dans un journal d’audit au sein de votre compte azure.microsoft.com/ Azure Storage. Cette fonction s’intègre également dans azure.microsoft.com/ Power BI, afin de faciliter la création d’analyses et de rapports approfondis. Pour en savoir plus, voir [Prise en main de l’audit de base de données SQL][].
+Les fonctions d’audit et de suivi des événements de la base de données peuvent vous aider à assurer la conformité aux normes et à identifier toute activité suspecte. La fonction d’audit de SQL Data Warehouse vous permet d’enregistrer les événements survenus dans votre base de données dans un journal d’audit au sein de votre compte Microsoft Azure Storage. Cette fonction s’intègre également dans Microsoft Power BI, afin de faciliter la création d’analyses et de rapports approfondis. Pour en savoir plus, voir [Prise en main de l’audit de base de données SQL][].
 
 ## Étapes suivantes
 Pour plus d’informations et des exemples sur la connexion à SQL Data Warehouse avec différents protocoles, consultez [Se connecter à SQL Data Warehouse][].
@@ -114,17 +114,17 @@ Pour plus d’informations et des exemples sur la connexion à SQL Data Warehous
 [Connexion à SQL Data Warehouse avec l’authentification Azure Active Directory]: ./sql-data-warehouse-authentication.md
 
 <!--MSDN references-->
-[Pare-feu de la base de données Azure SQL]: https://msdn.azure.microsoft.com/.com/library/ee621782.aspx
-[sp\_set\_firewall\_rule]: https://msdn.azure.microsoft.com/.com/library/dn270017.aspx
-[sp\_set\_database\_firewall\_rule]: https://msdn.azure.microsoft.com/.com/library/dn270010.aspx
-[rôles de base de données]: https://msdn.azure.microsoft.com/.com/library/ms189121.aspx
-[Gestion des bases de données et des connexions dans la base de données SQL azure.microsoft.com/ Azure]: https://msdn.azure.microsoft.com/.com/library/ee336235.aspx
-[autorisations]: https://msdn.azure.microsoft.com/.com/library/ms191291.aspx
-[procédures stockées]: https://msdn.azure.microsoft.com/.com/library/ms190782.aspx
-[chiffrement transparent des données]: https://go.azure.microsoft.com/.com/fwlink/?LinkId=526242
+[Pare-feu de la base de données Azure SQL]: https://msdn.microsoft.com/library/ee621782.aspx
+[sp\_set\_firewall\_rule]: https://msdn.microsoft.com/library/dn270017.aspx
+[sp\_set\_database\_firewall\_rule]: https://msdn.microsoft.com/library/dn270010.aspx
+[rôles de base de données]: https://msdn.microsoft.com/library/ms189121.aspx
+[Gestion des bases de données et des connexions dans la base de données SQL Microsoft Azure]: https://msdn.microsoft.com/library/ee336235.aspx
+[autorisations]: https://msdn.microsoft.com/library/ms191291.aspx
+[procédures stockées]: https://msdn.microsoft.com/library/ms190782.aspx
+[chiffrement transparent des données]: https://go.microsoft.com/fwlink/?LinkId=526242
 [portail Azure]: https://portal.azure.com/
 
 <!--Other Web references-->
-[Contrôle d’accès en fonction du rôle dans le Portail Azure]: https://azure.azure.microsoft.com/.com/documentation/articles/role-based-access-control-configure
+[Contrôle d’accès en fonction du rôle dans le Portail Azure]: https://azure.microsoft.com/documentation/articles/role-based-access-control-configure
 
 <!---HONumber=AcomDC_0817_2016-->

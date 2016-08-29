@@ -1,5 +1,5 @@
 <properties
-  pageTitle="Suite IoT Azure et Azure Active Directory | azure.microsoft.com/ Azure"
+  pageTitle="Suite IoT Azure et Azure Active Directory | Microsoft Azure"
   description="Décrit comment Azure IoT Suite utilise Azure Active Directory pour gérer les autorisations."
   services=""
   suite="iot-suite"
@@ -144,14 +144,14 @@ Pour poursuivre votre formation concernant IoT Suite, découvrez comment [person
 [lnk-azureiotsuite]: https://www.azureiotsuite.com/
 [lnk-rm-github-repo]: https://github.com/Azure/azure-iot-remote-monitoring
 [lnk-pm-github-repo]: https://github.com/Azure/azure-iot-predictive-maintenance
-[lnk-aad-admin]: https://azure.azure.microsoft.com/.com/documentation/articles/active-directory-assign-admin-roles/
+[lnk-aad-admin]: https://azure.microsoft.com/documentation/articles/active-directory-assign-admin-roles/
 [lnk-classic-portal]: https://manage.windowsazure.com/
-[lnk-create-edit-users]: https://azure.azure.microsoft.com/.com/documentation/articles/active-directory-create-users/
-[lnk-assign-app-roles]: https://azure.azure.microsoft.com/.com/documentation/articles/active-directory-application-manifest/
-[lnk-service-admins]: https://azure.azure.microsoft.com/.com/support/changing-service-admin-and-co-admin/
-[lnk-admin-roles]: https://azure.azure.microsoft.com/.com/documentation/articles/billing-add-change-azure-subscription-administrator/
+[lnk-create-edit-users]: https://azure.microsoft.com/documentation/articles/active-directory-create-users/
+[lnk-assign-app-roles]: https://azure.microsoft.com/documentation/articles/active-directory-application-manifest/
+[lnk-service-admins]: https://azure.microsoft.com/support/changing-service-admin-and-co-admin/
+[lnk-admin-roles]: https://azure.microsoft.com/documentation/articles/billing-add-change-azure-subscription-administrator/
 [lnk-resource-cs]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/DeviceAdministration/Web/Security/RolePermissions.cs
-[lnk-help-support]: https://portal.azure.com/#blade/azure.microsoft.com/_Azure_Support/HelpAndSupportBlade
+[lnk-help-support]: https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade
 [lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
 
 <!---HONumber=AcomDC_0817_2016-->

@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Changer vos mots de passe StorSimple | azure.microsoft.com/ Azure" 
+   pageTitle="Changer vos mots de passe StorSimple | Microsoft Azure" 
    description="Explique comment utiliser le service StorSimple Manager pour modifier vos mots de passe du Gestionnaire d'instantanés StorSimple et d’administrateur de l’appareil." 
    services="storsimple" 
    documentationCenter="NA" 

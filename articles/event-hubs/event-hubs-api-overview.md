@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="Vue d’ensemble des API Azure Event Hubs | azure.microsoft.com/ Azure"
+    pageTitle="Vue d’ensemble des API Azure Event Hubs | Microsoft Azure"
     description="Résumé de certaines API clientes .NET Event Hubs."
     services="event-hubs"
     documentationCenter="na"
@@ -19,7 +19,7 @@
 
 Cet article passe en revue certaines des principales API clientes .NET Event Hubs. Il en existe deux catégories : les API de gestion et les API du runtime. Les API du runtime comportent toutes les opérations nécessaires pour envoyer et recevoir un message. Les opérations de gestion vous permettent de gérer l’état d’une entité Event Hubs en créant, modifiant et supprimant des entités.
 
-Les scénarios d’analyse couvrent la gestion et l’exécution. Pour obtenir une documentation de référence détaillée sur les API .NET, consultez les informations de référence de l’[API .NET Service Bus](https://msdn.azure.microsoft.com/.com/library/azure/mt419900.aspx) et de l’[API EventProcessorHost](https://msdn.azure.microsoft.com/.com/library/azure/mt445521.aspx).
+Les scénarios d’analyse couvrent la gestion et l’exécution. Pour obtenir une documentation de référence détaillée sur les API .NET, consultez les informations de référence de l’[API .NET Service Bus](https://msdn.microsoft.com/library/azure/mt419900.aspx) et de l’[API EventProcessorHost](https://msdn.microsoft.com/library/azure/mt445521.aspx).
 
 ## API de gestion
 
@@ -121,7 +121,7 @@ Ces API offrent une résilience aux processus de travail qui peuvent devenir ind
 // Checkpointing is done within the SimpleEventProcessor and on a per-consumerGroup per-partition basis, workers resume from where they last left off.
 // Use the EventData.Offset value for checkpointing yourself, this value is unique per partition.
 
-string eventHubConnectionString = System.Configuration.ConfigurationManager.AppSettings["azure.microsoft.com/.ServiceBus.ConnectionString"];
+string eventHubConnectionString = System.Configuration.ConfigurationManager.AppSettings["Microsoft.ServiceBus.ConnectionString"];
 string blobConnectionString = System.Configuration.ConfigurationManager.AppSettings["AzureStorageConnectionString"]; // Required for checkpoint/state
 
 EventHubDescription eventHubDescription = new EventHubDescription(EventHubName);
@@ -132,7 +132,7 @@ EventProcessorHost host = new EventProcessorHost(WorkerName, EventHubName, defau
 host.UnregisterEventProcessorAsync().Wait();   
 ```
 
-L’interface [IEventProcessor](https://msdn.azure.microsoft.com/.com/library/azure/azure.microsoft.com/.servicebus.messaging.ieventprocessor.aspx) est définie comme suit :
+L’interface [IEventProcessor](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.ieventprocessor.aspx) est définie comme suit :
 
 ```
 public class SimpleEventProcessor : IEventProcessor
@@ -182,11 +182,11 @@ Pour en savoir plus sur les scénarios des concentrateurs d’événements, cons
 - [Nouveautés des concentrateurs d'événements Azure ?](event-hubs-what-is-event-hubs.md)
 - [Vue d’ensemble des concentrateurs d’événements](event-hubs-overview.md)
 - [Guide de programmation Event Hubs](event-hubs-programming-guide.md)
-- [Exemples de code des concentrateurs d’événements](http://code.msdn.azure.microsoft.com/.com/site/search?query=event hub&f[0].Value=event hubs&f[0].Type=SearchText&ac=5)
+- [Exemples de code des concentrateurs d’événements](http://code.msdn.microsoft.com/site/search?query=event hub&f[0].Value=event hubs&f[0].Type=SearchText&ac=5)
 
 Les informations de référence de l'API .NET se trouvent ici :
 
-- [Références des API .NET Service Bus et Event Hubs](https://msdn.azure.microsoft.com/.com/library/azure/mt419900.aspx)
-- [Informations de référence des API hôtes du processeur d'événements](https://msdn.azure.microsoft.com/.com/library/azure/mt445521.aspx)
+- [Références des API .NET Service Bus et Event Hubs](https://msdn.microsoft.com/library/azure/mt419900.aspx)
+- [Informations de référence des API hôtes du processeur d'événements](https://msdn.microsoft.com/library/azure/mt445521.aspx)
 
 <!---HONumber=AcomDC_0817_2016-->

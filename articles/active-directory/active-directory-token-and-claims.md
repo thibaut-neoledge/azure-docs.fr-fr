@@ -1,5 +1,5 @@
  <properties
-   pageTitle="Informations de référence sur les jetons Azure AD | azure.microsoft.com/ Azure"
+   pageTitle="Informations de référence sur les jetons Azure AD | Microsoft Azure"
    description="Un guide pour la compréhension et l'évaluation des revendications dans les jetons SAML 2.0 et les jetons web JSON (JWT) émis par Azure Active Directory (AAD)"
    documentationCenter="na"
    authors="msmbaldwin"
@@ -53,26 +53,26 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctODkwYS0y
 | `appidacr`| Référence de classe du contexte d’authentification de l’application | Indique comment le client a été authentifié. Pour un client public, la valeur est 0. Si l'ID client et la clé secrète client sont utilisés, la valeur est 1. <br><br> **Exemple de valeur JWT **: <br> `"appidacr": "0"`|
 | `acr`| Référence de classe du contexte d'authentification | Indique comment le sujet a été authentifié, et non pas le client comme dans la revendication de référence de classe du contexte de l’authentification de l’application. La valeur « 0 » indique que l'authentification de l'utilisateur final ne répondait pas aux exigences de la norme ISO/IEC 29115. <br><br> **Exemple de valeur JWT **: <br> `"acr": "0"`|
 | | Moment d’authentification | Enregistre la date et l’heure de l’authentification. <br><br> **Exemple de valeur SAML **: <br> `<AuthnStatement AuthnInstant="2011-12-29T05:35:22.000Z">` |
-| `amr`| Méthode d'authentification | Identifie comment le sujet du jeton a été authentifié. <br><br> **Exemple de valeur SAML **: <br> `<AuthnContextClassRef>`<br>`http://schemas.azure.microsoft.com/.com/ws/2008/06/identity/claims/authenticationmethod/password`<br>`</AuthnContextClassRef>` <br><br> **Exemple de valeur JWT **: `“amr”: ["pwd"]` |
+| `amr`| Méthode d'authentification | Identifie comment le sujet du jeton a été authentifié. <br><br> **Exemple de valeur SAML **: <br> `<AuthnContextClassRef>`<br>`http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod/password`<br>`</AuthnContextClassRef>` <br><br> **Exemple de valeur JWT **: `“amr”: ["pwd"]` |
 | `given_name`| Prénom | Fournit le prénom de l’utilisateur tel que défini dans l’objet utilisateur Azure AD. <br><br> **Exemple de valeur SAML **: <br> `<Attribute Name=”http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname”>`<br>`<AttributeValue>Frank<AttributeValue>` <br><br> **Exemple de valeur JWT **: <br> `"given_name": "Frank"` |
-| `groups`| Groupes | Fournit les ID d’objet qui représentent les appartenances aux groupes du sujet. Ces valeurs sont uniques (voir l'ID objet) et peuvent être utilisées en toute sécurité pour la gestion des accès, telle que l'autorisation d'accéder à une ressource. Les groupes inclus dans la revendication des groupes sont configurés pour chaque application, via la propriété « groupMembershipClaims » du manifeste d'application. Une valeur Null exclut tous les groupes, une valeur « SecurityGroup » inclut uniquement les appartenances aux groupes de sécurité Active Directory et une valeur « All » inclut les groupes de sécurité et les listes de Distribution Office 365. <br><br> **Exemple de valeur SAML **: <br> `<Attribute Name="http://schemas.azure.microsoft.com/.com/ws/2008/06/identity/claims/groups">`<br>`<AttributeValue>07dd8a60-bf6d-4e17-8844-230b77145381</AttributeValue>` <br><br> **Exemple de valeur JWT **: <br> `“groups”: ["0e129f5b-6b0a-4944-982d-f776045632af", … ]` |
-| `idp` | Fournisseur d’identité | Enregistre le fournisseur d’identité qui a authentifié le sujet du jeton. Cette valeur est identique à la valeur de la revendication de l’émetteur sauf si le compte d'utilisateur est dans un autre client que l'émetteur. <br><br> **Exemple de valeur SAML **: <br> `<Attribute Name=” http://schemas.azure.microsoft.com/.com/identity/claims/identityprovider”>`<br>`<AttributeValue>https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/<AttributeValue>` <br><br> **Exemple de valeur JWT **: <br> `"idp":”https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/”` |
+| `groups`| Groupes | Fournit les ID d’objet qui représentent les appartenances aux groupes du sujet. Ces valeurs sont uniques (voir l'ID objet) et peuvent être utilisées en toute sécurité pour la gestion des accès, telle que l'autorisation d'accéder à une ressource. Les groupes inclus dans la revendication des groupes sont configurés pour chaque application, via la propriété « groupMembershipClaims » du manifeste d'application. Une valeur Null exclut tous les groupes, une valeur « SecurityGroup » inclut uniquement les appartenances aux groupes de sécurité Active Directory et une valeur « All » inclut les groupes de sécurité et les listes de Distribution Office 365. <br><br> **Exemple de valeur SAML **: <br> `<Attribute Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/groups">`<br>`<AttributeValue>07dd8a60-bf6d-4e17-8844-230b77145381</AttributeValue>` <br><br> **Exemple de valeur JWT **: <br> `“groups”: ["0e129f5b-6b0a-4944-982d-f776045632af", … ]` |
+| `idp` | Fournisseur d’identité | Enregistre le fournisseur d’identité qui a authentifié le sujet du jeton. Cette valeur est identique à la valeur de la revendication de l’émetteur sauf si le compte d'utilisateur est dans un autre client que l'émetteur. <br><br> **Exemple de valeur SAML **: <br> `<Attribute Name=” http://schemas.microsoft.com/identity/claims/identityprovider”>`<br>`<AttributeValue>https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/<AttributeValue>` <br><br> **Exemple de valeur JWT **: <br> `"idp":”https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/”` |
 | `iat` | IssuedAt | Enregistre l’heure à laquelle le jeton a été émis. Il est souvent utilisé pour mesurer l’actualisation du jeton. <br><br> **Exemple de valeur SAML **: <br> `<Assertion ID="_d5ec7a9b-8d8f-4b44-8c94-9812612142be" IssueInstant="2014-01-06T20:20:23.085Z" Version="2.0" xmlns="urn:oasis:names:tc:SAML:2.0:assertion">` <br><br> **Exemple de valeur JWT **: <br> `"iat": 1390234181` |
 | `iss` | Émetteur | Identifie le service d’émission de jeton de sécurité (STS) qui construit et retourne le jeton. Dans les jetons retournés par Azure AD, l'émetteur est sts.windows.net. Le GUID dans la valeur de revendication de l'émetteur est l'ID client de Azure AD Directory. L'ID client est un identificateur non modifiable et fiable du répertoire. <br><br> **Exemple de valeur SAML **: <br> `<Issuer>https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/</Issuer>` <br><br> **Exemple de valeur JWT **: <br> `"iss":”https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/”` |
 | `family_name` | Nom | Fournit le nom de famille de lutilisateur tel que défini dans l’objet utilisateur Azure AD. <br><br> **Exemple de valeur SAML **: <br> `<Attribute Name=” http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname”>`<br>`<AttributeValue>Miller<AttributeValue>` <br><br> **Exemple de valeur JWT **: <br> `"family_name": "Miller"` |
 | `unique_name`| Name | Fournit une valeur contrôlable de visu qui identifie le sujet du jeton. Il n’est pas certain que cette valeur soit unique au sein d'un client. Elle est conçue pour être utilisée uniquement à des fins d'affichage. <br><br> **Exemple de valeur SAML **: <br> `<Attribute Name=”http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name”>`<br>`<AttributeValue>frankm@contoso.com<AttributeValue>` <br><br> **Exemple de valeur JWT **: <br> `"unique_name": "frankm@contoso.com"` |
-| `oid` | ID objet | Contient un identificateur unique d’un objet dans Azure AD. Cette valeur est immuable et ne peut pas être réattribuée ou réutilisée. Utilisez l'ID objet pour identifier un objet dans les requêtes à Azure AD. <br><br> **Exemple de valeur SAML **: <br> `<Attribute Name="http://schemas.azure.microsoft.com/.com/identity/claims/objectidentifier">`<br>`<AttributeValue>528b2ac2-aa9c-45e1-88d4-959b53bc7dd0<AttributeValue>` <br><br> **Exemple de valeur JWT **: <br> `"oid":"528b2ac2-aa9c-45e1-88d4-959b53bc7dd0"` |
-| `roles` | contrôleur | Représente tous les rôles d’application qui ont été accordés au sujet directement et indirectement via l’appartenance au groupe, et peut être utilisée pour appliquer un contrôle d’accès basé sur les rôles. Les rôles d’application sont définis pour chaque application, via la propriété `appRoles` du manifeste d’application. La propriété `value` de chaque rôle d’application est la valeur qui s’affiche dans la revendication des rôles. <br><br> **Exemple de valeur SAML **: <br> `<Attribute Name="http://schemas.azure.microsoft.com/.com/ws/2008/06/identity/claims/role">`<br>`<AttributeValue>Admin</AttributeValue>` <br><br> **Exemple de valeur JWT **: <br> `“roles”: ["Admin", … ]` |
+| `oid` | ID objet | Contient un identificateur unique d’un objet dans Azure AD. Cette valeur est immuable et ne peut pas être réattribuée ou réutilisée. Utilisez l'ID objet pour identifier un objet dans les requêtes à Azure AD. <br><br> **Exemple de valeur SAML **: <br> `<Attribute Name="http://schemas.microsoft.com/identity/claims/objectidentifier">`<br>`<AttributeValue>528b2ac2-aa9c-45e1-88d4-959b53bc7dd0<AttributeValue>` <br><br> **Exemple de valeur JWT **: <br> `"oid":"528b2ac2-aa9c-45e1-88d4-959b53bc7dd0"` |
+| `roles` | contrôleur | Représente tous les rôles d’application qui ont été accordés au sujet directement et indirectement via l’appartenance au groupe, et peut être utilisée pour appliquer un contrôle d’accès basé sur les rôles. Les rôles d’application sont définis pour chaque application, via la propriété `appRoles` du manifeste d’application. La propriété `value` de chaque rôle d’application est la valeur qui s’affiche dans la revendication des rôles. <br><br> **Exemple de valeur SAML **: <br> `<Attribute Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/role">`<br>`<AttributeValue>Admin</AttributeValue>` <br><br> **Exemple de valeur JWT **: <br> `“roles”: ["Admin", … ]` |
 | `scp` | Scope | Indique les autorisations d’emprunt d’identité accordées à l’application cliente. L’autorisation par défaut est `user_impersonation`. Le propriétaire de la ressource sécurisée peut enregistrer des valeurs supplémentaires dans Azure AD. <br><br> **Exemple de valeur JWT **: <br> `"scp": "user_impersonation"`|
 | `sub` |Objet| Identifie l’objet principal sur lequel portent les assertions d’informations du jeton, comme l’utilisateur d’une application. Cette valeur n’est pas modifiable et ne peut pas être réassignée ou réutilisée. Vous pouvez donc l’utiliser pour effectuer des vérifications d’autorisation en toute sécurité. Étant donné que le sujet est toujours présent dans les jetons émis par Azure AD, vous êtes invité à utiliser cette valeur dans un but général de système d’autorisation. <br> `SubjectConfirmation` n’est pas une revendication. Cette valeur décrit comment le sujet du jeton est vérifié. `Bearer` indique que le sujet est confirmé par sa possession du jeton. <br><br> **Exemple de valeur SAML **: <br> `<Subject>`<br>`<NameID>S40rgb3XjhFTv6EQTETkEzcgVmToHKRkZUIsJlmLdVc</NameID>`<br>`<SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer" />`<br>`</Subject>` <br><br> **Exemple de valeur JWT **: <br> `"sub":"92d0312b-26b9-4887-a338-7b00fb3c5eab"`|
-| `tid` | ID client | Identificateur non modifiable et non réutilisable qui identifie le client du répertoire qui a émis le jeton. Vous pouvez utiliser cette valeur pour accéder à des ressources de répertoire spécifiques au client dans une application mutualisée. Par exemple, vous pouvez utiliser cette valeur pour identifier le client dans un appel à l'API Graph. <br><br> **Exemple de valeur SAML **: <br> `<Attribute Name=”http://schemas.azure.microsoft.com/.com/identity/claims/tenantid”>`<br>`<AttributeValue>cbb1a5ac-f33b-45fa-9bf5-f37db0fed422<AttributeValue>` <br><br> **Exemple de valeur JWT **: <br> `"tid":"cbb1a5ac-f33b-45fa-9bf5-f37db0fed422"`|
+| `tid` | ID client | Identificateur non modifiable et non réutilisable qui identifie le client du répertoire qui a émis le jeton. Vous pouvez utiliser cette valeur pour accéder à des ressources de répertoire spécifiques au client dans une application mutualisée. Par exemple, vous pouvez utiliser cette valeur pour identifier le client dans un appel à l'API Graph. <br><br> **Exemple de valeur SAML **: <br> `<Attribute Name=”http://schemas.microsoft.com/identity/claims/tenantid”>`<br>`<AttributeValue>cbb1a5ac-f33b-45fa-9bf5-f37db0fed422<AttributeValue>` <br><br> **Exemple de valeur JWT **: <br> `"tid":"cbb1a5ac-f33b-45fa-9bf5-f37db0fed422"`|
 | `nbf`, `exp`|Durée de vie du jeton | Définit l’intervalle de temps pendant lequel un jeton est valide. Le service qui valide le jeton doit vérifier que la date actuelle est comprise dans sa durée de vie, sans quoi le jeton doit être rejeté. Le service peut accorder une marge de cinq minutes au-delà de la plage de durée de vie du jeton pour prendre en compte tout écart de temps (« décalage horaire ») entre Azure AD et le service. <br><br> **Exemple de valeur SAML **: <br> `<Conditions`<br>`NotBefore="2013-03-18T21:32:51.261Z"`<br>`NotOnOrAfter="2013-03-18T22:32:51.261Z"`<br>`>` <br><br> **Exemple de valeur JWT **: <br> `"nbf":1363289634, "exp":1363293234` |
 | `upn`| Nom d’utilisateur principal | Enregistre le nom d’utilisateur de l’utilisateur principal.<br><br> **Exemple de valeur JWT **: <br> `"upn": frankm@contoso.com`|
 | `ver`| Version | Enregistre le numéro de version du jeton. <br><br> **Exemple de valeur JWT **: <br> `"ver": "1.0"`|
 
 ## Jetons d’accès
 
-Les jetons d’accès sont pour l’instant uniquement consommables par les services azure.microsoft.com/. Vos applications n’ont pas besoin de valider ou d’inspecter les jetons d’accès dans les scénarios actuellement pris en charge. Vous pouvez traiter les jetons d’accès comme étant totalement opaques ; il s’agit simplement de chaînes que votre application peut passer à azure.microsoft.com/ dans des requêtes HTTP.
+Les jetons d’accès sont pour l’instant uniquement consommables par les services Microsoft. Vos applications n’ont pas besoin de valider ou d’inspecter les jetons d’accès dans les scénarios actuellement pris en charge. Vous pouvez traiter les jetons d’accès comme étant totalement opaques ; il s’agit simplement de chaînes que votre application peut passer à Microsoft dans des requêtes HTTP.
 
 Quand vous demandez un jeton d’accès, Azure AD retourne également des métadonnées sur le jeton d’accès que votre application peut consommer. Ces informations incluent le délai d’expiration du jeton d’accès et les étendues dans lesquelles il est valide. Votre application peut ainsi effectuer une mise en cache intelligente des jetons d’accès sans avoir à les analyser.
 
@@ -113,7 +113,7 @@ La revendication `alg` indique l’algorithme utilisé pour signer le jeton, tan
 Pour acquérir les données de la clé de signature nécessaires pour valider la signature, utilisez le document de métadonnées OpenID Connect à l’emplacement suivant :
 
 ```
-https://login.azure.microsoft.com/online.com/common/.well-known/openid-configuration
+https://login.microsoftonline.com/common/.well-known/openid-configuration
 ```
 
 > [AZURE.TIP] Testez cette URL dans un navigateur !
@@ -152,7 +152,7 @@ Il s'agit d'un exemple de jeton SAML classique.
 	  </t:Lifetime>
 	  <wsp:AppliesTo xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy">
 		<EndpointReference xmlns="http://www.w3.org/2005/08/addressing">
-		  <Address>https://contoso.onazure.microsoft.com/.com/MyWebApp</Address>
+		  <Address>https://contoso.onmicrosoft.com/MyWebApp</Address>
 		</EndpointReference>
 	  </wsp:AppliesTo>
 	  <t:RequestedSecurityToken>
@@ -184,18 +184,18 @@ Il s'agit d'un exemple de jeton SAML classique.
 		  </Subject>
 		  <Conditions NotBefore="2014-12-24T05:15:47.060Z" NotOnOrAfter="2014-12-24T06:15:47.060Z">
 			<AudienceRestriction>
-			  <Audience>https://contoso.onazure.microsoft.com/.com/MyWebApp</Audience>
+			  <Audience>https://contoso.onmicrosoft.com/MyWebApp</Audience>
 			</AudienceRestriction>
 		  </Conditions>
 		  <AttributeStatement>
-			<Attribute Name="http://schemas.azure.microsoft.com/.com/identity/claims/objectidentifier">
+			<Attribute Name="http://schemas.microsoft.com/identity/claims/objectidentifier">
 			  <AttributeValue>a1addde8-e4f9-4571-ad93-3059e3750d23</AttributeValue>
 			</Attribute>
-			<Attribute Name="http://schemas.azure.microsoft.com/.com/identity/claims/tenantid">
+			<Attribute Name="http://schemas.microsoft.com/identity/claims/tenantid">
 			  <AttributeValue>b9411234-09af-49c2-b0c3-653adc1f376e</AttributeValue>
 			</Attribute>
 			<Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name">
-			  <AttributeValue>sample.admin@contoso.onazure.microsoft.com/.com</AttributeValue>
+			  <AttributeValue>sample.admin@contoso.onmicrosoft.com</AttributeValue>
 			</Attribute>
 			<Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname">
 			  <AttributeValue>Admin</AttributeValue>
@@ -203,7 +203,7 @@ Il s'agit d'un exemple de jeton SAML classique.
 			<Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname">
 			  <AttributeValue>Sample</AttributeValue>
 			</Attribute>
-			<Attribute Name="http://schemas.azure.microsoft.com/.com/ws/2008/06/identity/claims/groups">
+			<Attribute Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/groups">
 			  <AttributeValue>5581e43f-6096-41d4-8ffa-04e560bab39d</AttributeValue>
 			  <AttributeValue>07dd8a89-bf6d-4e81-8844-230b77145381</AttributeValue>
 			  <AttributeValue>0e129f4g-6b0a-4944-982d-f776000632af</AttributeValue>
@@ -218,7 +218,7 @@ Il s'agit d'un exemple de jeton SAML classique.
 			  <AttributeValue>0ba31460-44d0-42b5-b90c-47b3fcc48e35</AttributeValue>
 			  <AttributeValue>edd41703-8652-4948-94a7-2d917bba7667</AttributeValue>
 			</Attribute>
-			<Attribute Name="http://schemas.azure.microsoft.com/.com/identity/claims/identityprovider">
+			<Attribute Name="http://schemas.microsoft.com/identity/claims/identityprovider">
 			  <AttributeValue>https://sts.windows.net/b9411234-09af-49c2-b0c3-653adc1f376e/</AttributeValue>
 			</Attribute>
 		  </AttributeStatement>
@@ -254,7 +254,7 @@ Il s’agit d’un exemple de jeton web JSON (JWT) classique utilisé dans un fl
      x5t: "kriMPdmBvx68skT8-mPAB3BseeA"
     }.
     {
-     aud: "https://contoso.onazure.microsoft.com/.com/scratchservice",
+     aud: "https://contoso.onmicrosoft.com/scratchservice",
      iss: "https://sts.windows.net/b9411234-09af-49c2-b0c3-653adc1f376e/",
      iat: 1416968588,
      nbf: 1416968588,
@@ -268,8 +268,8 @@ Il s’agit d’un exemple de jeton web JSON (JWT) classique utilisé dans un fl
       "Admin"
      ],
      oid: "6526e123-0ff9-4fec-ae64-a8d5a77cf287",
-     upn: "sample.user@contoso.onazure.microsoft.com/.com",
-     unique_name: "sample.user@contoso.onazure.microsoft.com/.com",
+     upn: "sample.user@contoso.onmicrosoft.com",
+     unique_name: "sample.user@contoso.onmicrosoft.com",
      sub: "yf8C5e_VRkR1egGxJSDt5_olDFay6L5ilBA81hZhQEI",
      family_name: "User",
      given_name: "Sample",

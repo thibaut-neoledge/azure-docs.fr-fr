@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Configuration de votre projet Azure à l'aide de plusieurs configurations de service | azure.microsoft.com/ Azure"
+   pageTitle="Configuration de votre projet Azure à l'aide de plusieurs configurations de service | Microsoft Azure"
    description="Découvrez comment configurer un projet de service cloud Azure en modifiant les fichiers ServiceDefinition.csdef et ServiceConfiguration.cscfg."
    services="visual-studio-online"
    documentationCenter="na"
@@ -23,11 +23,11 @@ Un projet de service cloud Azure comprend deux fichiers de configuration : Servi
 
 - Le fichier **ServiceConfiguration.cscfg** définit des valeurs des paramètres de configuration définis dans le fichier de définition de service et spécifie le nombre d'instances à exécuter pour chaque rôle. Ce fichier peut être mis à jour lorsque votre service cloud est en cours d’exécution dans Azure.
 
-Les outils Azure pour azure.microsoft.com/ Visual Studio fournissent des pages de propriétés que vous pouvez utiliser pour définir les paramètres de configuration stockés dans ces fichiers. Pour accéder aux pages de propriétés, double-cliquez sur la référence de rôle sous le projet de service cloud Azure dans l'Explorateur de solutions, ou cliquez avec le bouton droit sur la référence de rôle et sélectionnez **Propriétés**, comme l’illustre la figure suivante.
+Les outils Azure pour Microsoft Visual Studio fournissent des pages de propriétés que vous pouvez utiliser pour définir les paramètres de configuration stockés dans ces fichiers. Pour accéder aux pages de propriétés, double-cliquez sur la référence de rôle sous le projet de service cloud Azure dans l'Explorateur de solutions, ou cliquez avec le bouton droit sur la référence de rôle et sélectionnez **Propriétés**, comme l’illustre la figure suivante.
 
 ![VS\_Solution\_Explorer\_Roles\_Properties](./media/vs-azure-tools-multiple-services-project-configurations/IC784076.png)
 
-Pour plus d'informations sur les schémas sous-jacents des fichiers de définition et de configuration de service, consultez la [Référence de schéma](https://msdn.azure.microsoft.com/.com/library/azure/dd179398.aspx). Pour plus d'informations sur la configuration de service, consultez [Configuration de Cloud Services](./cloud-services/cloud-services-how-to-configure.md).
+Pour plus d'informations sur les schémas sous-jacents des fichiers de définition et de configuration de service, consultez la [Référence de schéma](https://msdn.microsoft.com/library/azure/dd179398.aspx). Pour plus d'informations sur la configuration de service, consultez [Configuration de Cloud Services](./cloud-services/cloud-services-how-to-configure.md).
 
 ## Configuration des propriétés de rôle
 
@@ -59,7 +59,7 @@ Par défaut, le diagnostic est activé pour le rôle web. Le projet de service c
 
 ## Page Paramètres
 
-Sur la page **Paramètres**, vous pouvez ajouter des paramètres de configuration à votre service. Les paramètres de configuration sont des paires nom-valeur. Le code exécuté dans le rôle peut lire les valeurs de vos paramètres de configuration à l'exécution à l'aide des classes fournies par la [bibliothèque managée Azure](http://go.azure.microsoft.com/.com/fwlink?LinkID=171026). Plus précisément, la méthode [GetConfigurationSettingValue](https://msdn.azure.microsoft.com/.com/library/azure/azure.microsoft.com/.windowsazure.serviceruntime.roleenvironment.getconfigurationsettingvalue.aspx) renvoie la valeur d'un paramètre de configuration nommé à l'exécution.
+Sur la page **Paramètres**, vous pouvez ajouter des paramètres de configuration à votre service. Les paramètres de configuration sont des paires nom-valeur. Le code exécuté dans le rôle peut lire les valeurs de vos paramètres de configuration à l'exécution à l'aide des classes fournies par la [bibliothèque managée Azure](http://go.microsoft.com/fwlink?LinkID=171026). Plus précisément, la méthode [GetConfigurationSettingValue](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.getconfigurationsettingvalue.aspx) renvoie la valeur d'un paramètre de configuration nommé à l'exécution.
 
 ### Configuration d’une chaîne de connexion à un compte de stockage
 
@@ -91,7 +91,7 @@ Vous pouvez utiliser la page de propriétés du **Stockage local** pour réserve
 
 Dans la page **Certificats**, vous pouvez associer des certificats à votre rôle. Les certificats que vous ajoutez peuvent être utilisés pour configurer vos points de terminaison HTTPS dans la page de propriétés **Points de terminaison**.
 
-La page de propriétés **Certificats** ajoute des informations sur vos certificats à votre configuration de service. Notez que vos certificats ne sont pas empaquetés avec votre service. Vous devez les charger séparément sur Azure via le [portail Azure Classic](http://go.azure.microsoft.com/.com/fwlink/?LinkID=213885).
+La page de propriétés **Certificats** ajoute des informations sur vos certificats à votre configuration de service. Notez que vos certificats ne sont pas empaquetés avec votre service. Vous devez les charger séparément sur Azure via le [portail Azure Classic](http://go.microsoft.com/fwlink/?LinkID=213885).
 
 Pour associer un certificat à votre rôle, donnez un nom au certificat. Ce nom permet de faire référence au certificat lorsque vous configurez un point de terminaison HTTPS dans la page de propriétés **Points de terminaison**. Ensuite, spécifiez si le magasin de certificats est **Machine locale** ou **Utilisateur actuel** et le nom du magasin. Enfin, entrez l'empreinte du certificat. Si le certificat est dans Utilisateur actuel\\Mon magasin, vous pouvez entrer l'empreinte du certificat en sélectionnant le certificat à partir d'une liste. S'il se trouve à un autre emplacement, entrez la valeur de l'empreinte numérique à la main.
 

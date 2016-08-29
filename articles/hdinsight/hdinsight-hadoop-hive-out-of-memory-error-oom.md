@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Erreur de mémoire insuffisante - Paramètres Hive | azure.microsoft.com/ Azure"
+	pageTitle="Erreur de mémoire insuffisante - Paramètres Hive | Microsoft Azure"
 	description="Corrigez une erreur de mémoire insuffisante à partir d’une requête Hive dans Hadoop sous HDInsight. Le scénario client implique une requête sur de nombreuses tables de grande taille."
 	keywords="erreur de mémoire insuffisante, OOM, paramètres Hive"
 	services="hdinsight"

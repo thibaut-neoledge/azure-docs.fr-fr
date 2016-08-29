@@ -16,7 +16,7 @@
     ms.date="08/11/2016" 
     ms.author="robmcm"/>
 
-<!-- Legacy MSDN URL = https://msdn.azure.microsoft.com/.com/library/azure/hh698319.aspx -->
+<!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh698319.aspx -->
 
 # Affichage du contenu Javadoc dans Eclipse pour le package de bibliothèques Azure pour Java #
 
@@ -26,7 +26,7 @@ Cette procédure part du principe que vous avez déjà ajouté la bibliothèque 
 
 ## Pour afficher le contenu Javadoc dans Eclipse pour les bibliothèques Azure pour Java ##
 
-* Dans l’Explorateur de projets d’Eclipse, dans la section **Bibliothèques référencées** de votre projet, ouvrez le menu contextuel de la bibliothèque Azure pour Java JAR. Par exemple, **azure.microsoft.com/-azure.microsoft.com/ Azure-api-0.1.0.jar** (le numéro de version peut différer en fonction de la version que vous avez installée).
+* Dans l’Explorateur de projets d’Eclipse, dans la section **Bibliothèques référencées** de votre projet, ouvrez le menu contextuel de la bibliothèque Azure pour Java JAR. Par exemple, **microsoft-Microsoft Azure-api-0.1.0.jar** (le numéro de version peut différer en fonction de la version que vous avez installée).
 * Cliquez sur **Propriétés**.
 * Dans la boîte de dialogue **Propriétés**, dans le volet gauche, cliquez sur **Emplacement Javadoc**. La boîte de dialogue **Emplacement Javadoc** s’affiche.
 * Vous pouvez spécifier une **URL Javadoc** ou un **Javadoc dans archive**.
@@ -51,10 +51,10 @@ Pour plus d’informations sur l’utilisation d’Azure avec Java, consultez le
 
 <!-- URL List -->
 
-[Centre de développement Java pour Azure]: http://go.azure.microsoft.com/.com/fwlink/?LinkID=699547
-[Kit de ressources Azure pour Eclipse]: http://go.azure.microsoft.com/.com/fwlink/?LinkID=699529
-[Création d’une application « Hello World » pour Azure dans Eclipse]: http://go.azure.microsoft.com/.com/fwlink/?LinkID=699533
-[Installation du kit de ressources Azure pour Eclipse]: http://go.azure.microsoft.com/.com/fwlink/?LinkId=699546
+[Centre de développement Java pour Azure]: http://go.microsoft.com/fwlink/?LinkID=699547
+[Kit de ressources Azure pour Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
+[Création d’une application « Hello World » pour Azure dans Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
+[Installation du kit de ressources Azure pour Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
 
 <!-- IMG List -->
 

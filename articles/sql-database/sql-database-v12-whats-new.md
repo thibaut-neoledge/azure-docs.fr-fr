@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Nouveautés de SQL Database V12 | azure.microsoft.com/ Azure"
+	pageTitle="Nouveautés de SQL Database V12 | Microsoft Azure"
 	description="Explique pourquoi les systèmes d’entreprise qui utilisent Azure SQL Database dans le cloud profitent de la mise à niveau vers la version 12 (V12)."
 	services="sql-database"
 	documentationCenter=""
@@ -27,8 +27,8 @@ Cette rubrique décrit les nombreux avantages de la nouvelle version 12 (V12) de
 Nous continuons d’ajouter des fonctionnalités à la version 12 (V12). Par conséquent, nous vous encourageons à consulter notre page web sur les mises à jour des services pour Azure et à utiliser ses filtres :
 
 
-- Filtrez sur [Service SQL Database](https://azure.azure.microsoft.com/.com/updates/?service=sql-database).
-- Filtrez sur [annonces](http://azure.azure.microsoft.com/.com/updates/?service=sql-database&update-type=general-availability) de disponibilité générale pour les fonctionnalités SQL Database.
+- Filtrez sur [Service SQL Database](https://azure.microsoft.com/updates/?service=sql-database).
+- Filtrez sur [annonces](http://azure.microsoft.com/updates/?service=sql-database&update-type=general-availability) de disponibilité générale pour les fonctionnalités SQL Database.
 
 
 Les dernières informations sur les limites de ressources pour une base de données SQL se trouvent sur la page :<br/>[Limites de ressources d’une base de données SQL Azure](sql-database-resource-limits.md).
@@ -37,21 +37,21 @@ Les dernières informations sur les limites de ressources pour une base de donn�
 ## Compatibilité améliorée des applications avec SQL Server
 
 
-Un objectif clé de SQL Database V12 était d’améliorer la compatibilité avec azure.microsoft.com/ SQL Server 2014 et de maintenir la compatibilité au fur et à mesure de la publication de nouvelles versions de SQL Server. Entre autres, la version 12 (V12) est désormais équivalente à SQL Server dans le domaine de la programmabilité. Par exemple :
+Un objectif clé de SQL Database V12 était d’améliorer la compatibilité avec Microsoft SQL Server 2014 et de maintenir la compatibilité au fur et à mesure de la publication de nouvelles versions de SQL Server. Entre autres, la version 12 (V12) est désormais équivalente à SQL Server dans le domaine de la programmabilité. Par exemple :
 
-- [Prise en charge intégrée de JSON](https://msdn.azure.microsoft.com/.com/library/dn921897.aspx)
+- [Prise en charge intégrée de JSON](https://msdn.microsoft.com/library/dn921897.aspx)
 
-- [Fonctions Windows](http://msdn.azure.microsoft.com/.com/library/ms189798.aspx), avec [OVER](http://msdn.azure.microsoft.com/.com/library/ms189461.aspx)
+- [Fonctions Windows](http://msdn.microsoft.com/library/ms189798.aspx), avec [OVER](http://msdn.microsoft.com/library/ms189461.aspx)
 
-- [Index XML](http://msdn.azure.microsoft.com/.com/library/bb934097.aspx) et [index XML sélectifs](http://msdn.azure.microsoft.com/.com/library/jj670104.aspx)
+- [Index XML](http://msdn.microsoft.com/library/bb934097.aspx) et [index XML sélectifs](http://msdn.microsoft.com/library/jj670104.aspx)
 
-- [Suivi des modifications](http://msdn.azure.microsoft.com/.com/library/bb933875.aspx)
+- [Suivi des modifications](http://msdn.microsoft.com/library/bb933875.aspx)
 
-- [SELECT...INTO](http://msdn.azure.microsoft.com/.com/library/ms188029.aspx)
+- [SELECT...INTO](http://msdn.microsoft.com/library/ms188029.aspx)
 
-- [Recherche en texte intégral](http://msdn.azure.microsoft.com/.com/library/ms142571.aspx)
+- [Recherche en texte intégral](http://msdn.microsoft.com/library/ms142571.aspx)
 
-- [ALTER DATABASE SCOPED CONFIGURATION (Transact-SQL)](http://msdn.azure.microsoft.com/.com/library/mt629158.aspx)
+- [ALTER DATABASE SCOPED CONFIGURATION (Transact-SQL)](http://msdn.microsoft.com/library/mt629158.aspx)
 
 Consultez [cette page](sql-database-transact-sql-information.md) pour découvrir les quelques fonctionnalités non prises en charge par la base de données SQL.
 
@@ -59,7 +59,7 @@ Consultez [cette page](sql-database-transact-sql-information.md) pour découvrir
 ### Niveau de compatibilité 130
 
 
-> [AZURE.IMPORTANT] À compter de **juin 2016**, le niveau de compatibilité des bases de données *créées* sur la base de données SQL Azure V12 commence à 130, ce qui correspond à azure.microsoft.com/ SQL Server 2016 GA.
+> [AZURE.IMPORTANT] À compter de **juin 2016**, le niveau de compatibilité des bases de données *créées* sur la base de données SQL Azure V12 commence à 130, ce qui correspond à Microsoft SQL Server 2016 GA.
 > 
 > Vous pouvez utiliser `ALTER DATABASE YourDatabase SET COMPATIBILITY_LEVEL = 120` si vous préférez.
 > 
@@ -79,9 +79,9 @@ Pour savoir comment comparer vos requêtes les plus importantes entre le dernier
 Dans la version 12 (V12), nous avons augmenté les unités de transaction de base de données (DTU) affectées à tous les niveaux de performances Premium de 25 %, sans coût supplémentaire. Les gains de performances sont possibles grâce aux nouvelles fonctionnalités, comme :
 
 
-- La prise en charge des [index columnstore](http://msdn.azure.microsoft.com/.com/library/gg492153.aspx) en mémoire.
-- [Le partitionnement de table par lignes](http://msdn.azure.microsoft.com/.com/library/ms187802.aspx) grâce aux améliorations associées à [TRUNCATE TABLE](http://msdn.azure.microsoft.com/.com/library/ms177570.aspx).
-- La disponibilité des vues de gestion dynamique [(DMV)](http://msdn.azure.microsoft.com/.com/library/ms188754.aspx) pour aider à surveiller et affiner les performances.
+- La prise en charge des [index columnstore](http://msdn.microsoft.com/library/gg492153.aspx) en mémoire.
+- [Le partitionnement de table par lignes](http://msdn.microsoft.com/library/ms187802.aspx) grâce aux améliorations associées à [TRUNCATE TABLE](http://msdn.microsoft.com/library/ms177570.aspx).
+- La disponibilité des vues de gestion dynamique [(DMV)](http://msdn.microsoft.com/library/ms188754.aspx) pour aider à surveiller et affiner les performances.
 
 
 ### Performances fiables
@@ -112,14 +112,14 @@ Uniquement dans la version 12 (V12), nous avons publié le nouveau niveau de pe
 La sécurité est une préoccupation essentielle pour quiconque mène ses activités dans le cloud. Les dernières fonctionnalités de sécurité publiées dans la version 12 (V12) comprennent :
 
 
-- [Sécurité au niveau de la ligne](http://msdn.azure.microsoft.com/.com/library/dn765131.aspx) (RLS)
+- [Sécurité au niveau de la ligne](http://msdn.microsoft.com/library/dn765131.aspx) (RLS)
 - [Dynamic Data Masking (masquage des données dynamiques)](sql-database-dynamic-data-masking-get-started.md)
-- [Bases de données à relation contenant-contenu](http://msdn.azure.microsoft.com/.com/library/ff929188.aspx)
-- [Rôles d’application](http://msdn.azure.microsoft.com/.com/library/ms190998.aspx) gérés avec GRANT, DENY et REVOKE
-- [Chiffrement transparent des données](http://msdn.azure.microsoft.com/.com/library/0bf7e8ff-1416-4923-9c4c-49341e208c62.aspx) (TDE)
+- [Bases de données à relation contenant-contenu](http://msdn.microsoft.com/library/ff929188.aspx)
+- [Rôles d’application](http://msdn.microsoft.com/library/ms190998.aspx) gérés avec GRANT, DENY et REVOKE
+- [Chiffrement transparent des données](http://msdn.microsoft.com/library/0bf7e8ff-1416-4923-9c4c-49341e208c62.aspx) (TDE)
 - [Connexion à SQL Database avec l’authentification Azure Active Directory](sql-database-aad-authentication.md)
- - SQL Database prend désormais en charge l’authentification Azure Active Directory, un mécanisme servant à se connecter à SQL Database à l’aide d’identités dans Azure Active Directory (Azure AD). Avec l’authentification Azure Active Directory, vous pouvez gérer de manière centralisée les identités des utilisateurs de base de données et d’autres services azure.microsoft.com/ dans un emplacement centralisé.
-- Le [chiffrement intégral](https://msdn.azure.microsoft.com/.com/library/mt163865.aspx) (en version préliminaire) rend le chiffrement transparent pour les applications et permet aux clients de chiffrer les données sensibles dans les applications clientes sans partager les clés de chiffrement avec Base de données SQL.
+ - SQL Database prend désormais en charge l’authentification Azure Active Directory, un mécanisme servant à se connecter à SQL Database à l’aide d’identités dans Azure Active Directory (Azure AD). Avec l’authentification Azure Active Directory, vous pouvez gérer de manière centralisée les identités des utilisateurs de base de données et d’autres services Microsoft dans un emplacement centralisé.
+- Le [chiffrement intégral](https://msdn.microsoft.com/library/mt163865.aspx) (en version préliminaire) rend le chiffrement transparent pour les applications et permet aux clients de chiffrer les données sensibles dans les applications clientes sans partager les clés de chiffrement avec Base de données SQL.
 
 
 ## Continuité d’activité améliorée lors de la récupération
@@ -145,7 +145,7 @@ Il y a de nombreuses bonnes raisons pour lesquelles les clients doivent passer d
 
 - La base de données SQL V12 présente une longue liste de fonctionnalités, bien plus longue que celle de la version 11.
 - Nous continuons à ajouter de nouvelles fonctionnalités à la version 12 (V12), mais aucune nouvelle fonctionnalité ne sera ajoutée à la 11.
-- La plupart des nouvelles fonctionnalités sont publiées dans SQL Database V12 avant qu’elles ne soient intégrées à azure.microsoft.com/ SQL Server.
+- La plupart des nouvelles fonctionnalités sont publiées dans SQL Database V12 avant qu’elles ne soient intégrées à Microsoft SQL Server.
 
 
 ## Vous utilisez déjà la version 12 (V12) ?
@@ -181,6 +181,6 @@ Si vous n’utilisez pas encore la version 12 (V12), vous pouvez mettre à nive
 - Le 31 juillet 2015, toutes les régions avaient été promues en disponibilité générale.
 - La version 12 (V12) a été publiée en décembre 2014, mais uniquement à l’état de version préliminaire.
 
-[Conditions d’utilisation supplémentaires des versions préliminaires de azure.microsoft.com/ Azure](https://azure.azure.microsoft.com/.com/support/legal/preview-supplemental-terms/).
+[Conditions d’utilisation supplémentaires des versions préliminaires de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 <!---HONumber=AcomDC_0817_2016-->

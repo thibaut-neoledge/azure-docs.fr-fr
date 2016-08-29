@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Déploiement de l’extension Volet d’accès pour Internet Explorer à l’aide de la stratégie de groupe | azure.microsoft.com/ Azure"
+    pageTitle="Déploiement de l’extension Volet d’accès pour Internet Explorer à l’aide de la stratégie de groupe | Microsoft Azure"
     description="Comment utiliser la stratégie de groupe pour déployer le module complémentaire Internet Explorer du portail Mes applications."
     services="active-directory"
     documentationCenter=""
@@ -19,14 +19,14 @@
 
 Ce didacticiel montre comment utiliser la stratégie de groupe pour installer à distance l’extension Volet d’accès pour Internet Explorer sur les ordinateurs de vos utilisateurs. Cette extension est requise pour les utilisateurs d’Internet Explorer qui ont besoin de se connecter à des applications configurées à l’aide de l’[authentification unique par mot de passe](active-directory-appssoaccess-whatis.md#password-based-single-sign-on).
 
-Il est recommandé que les administrateurs automatisent le déploiement de cette extension. Dans le cas contraire, les utilisateurs devront télécharger et installer l’extension eux-mêmes, ce qui peut entraîner des erreurs des utilisateurs et nécessite des autorisations d’administrateur. Ce didacticiel présente une méthode d’automatisation des déploiements de logiciels à l’aide d’une stratégie de groupe. [En savoir plus sur la stratégie de groupe.](https://technet.azure.microsoft.com/.com/windowsserver/bb310732.aspx)
+Il est recommandé que les administrateurs automatisent le déploiement de cette extension. Dans le cas contraire, les utilisateurs devront télécharger et installer l’extension eux-mêmes, ce qui peut entraîner des erreurs des utilisateurs et nécessite des autorisations d’administrateur. Ce didacticiel présente une méthode d’automatisation des déploiements de logiciels à l’aide d’une stratégie de groupe. [En savoir plus sur la stratégie de groupe.](https://technet.microsoft.com/windowsserver/bb310732.aspx)
 
-L’extension Volet d’accès est également disponible pour [Chrome](https://go.azure.microsoft.com/.com/fwLink/?LinkID=311859) et [Firefox](https://go.azure.microsoft.com/.com/fwLink/?LinkID=626998) qui ne requièrent pas d’autorisations d’administrateur pour l’installation.
+L’extension Volet d’accès est également disponible pour [Chrome](https://go.microsoft.com/fwLink/?LinkID=311859) et [Firefox](https://go.microsoft.com/fwLink/?LinkID=626998) qui ne requièrent pas d’autorisations d’administrateur pour l’installation.
 
 ##Composants requis
 
-- Vous avez configuré les [services de domaine Active Directory](https://msdn.azure.microsoft.com/.com/library/aa362244%28v=vs.85%29.aspx) et vous avez joint les ordinateurs de vos utilisateurs à votre domaine.
-- Vous devez disposer de l’autorisation « Modifier les paramètres » pour modifier des objets de stratégie de groupe (GPO). Par défaut, les membres des groupes de sécurité suivants jouissent de cette autorisation : administrateurs de domaine, administrateurs d’entreprise et propriétaires créateurs de la stratégie de groupe. [En savoir plus.](https://technet.azure.microsoft.com/.com/library/cc781991%28v=ws.10%29.aspx)
+- Vous avez configuré les [services de domaine Active Directory](https://msdn.microsoft.com/library/aa362244%28v=vs.85%29.aspx) et vous avez joint les ordinateurs de vos utilisateurs à votre domaine.
+- Vous devez disposer de l’autorisation « Modifier les paramètres » pour modifier des objets de stratégie de groupe (GPO). Par défaut, les membres des groupes de sécurité suivants jouissent de cette autorisation : administrateurs de domaine, administrateurs d’entreprise et propriétaires créateurs de la stratégie de groupe. [En savoir plus.](https://technet.microsoft.com/library/cc781991%28v=ws.10%29.aspx)
 
 ##Étape 1 : Créer le point de distribution
 
@@ -42,9 +42,9 @@ Tout d’abord, vous devez placer le package d’installation sur un emplacement
 
 	![Ouvrir Services de fichiers et de stockage](./media/active-directory-saas-ie-group-policy/shares.png)
 
-4. Terminez l’**Assistant Nouveau partage** et définissez des autorisations pour garantir l’accès à partir des ordinateurs de vos utilisateurs. [En savoir plus sur les partages.](https://technet.azure.microsoft.com/.com/library/cc753175.aspx)
+4. Terminez l’**Assistant Nouveau partage** et définissez des autorisations pour garantir l’accès à partir des ordinateurs de vos utilisateurs. [En savoir plus sur les partages.](https://technet.microsoft.com/library/cc753175.aspx)
 
-5. Téléchargez le package azure.microsoft.com/ Windows Installer (fichier .msi) suivant : [Access Panel Extension.msi](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access Panel Extension.msi).
+5. Téléchargez le package Microsoft Windows Installer (fichier .msi) suivant : [Access Panel Extension.msi](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access Panel Extension.msi).
 
 6. Copiez le package d’installation vers l’emplacement souhaité sur le partage.
 
@@ -78,7 +78,7 @@ Tout d’abord, vous devez placer le package d’installation sur un emplacement
 
 ##Étape 3 : Assigner le package d’installation
 
-1. Déterminez si vous souhaitez déployer l’extension selon la **Configuration ordinateur** ou la **Configuration utilisateur**. Lorsque vous utilisez la [Configuration ordinateur](https://technet.azure.microsoft.com/.com/library/cc736413%28v=ws.10%29.aspx), l’extension est installée sur l’ordinateur, quels que soient les utilisateurs qui s’y connectent. Avec la [Configuration utilisateur](https://technet.azure.microsoft.com/.com/library/cc781953%28v=ws.10%29.aspx), l’extension est installée pour les utilisateurs, quels que soient les ordinateurs auxquels ils se connectent.
+1. Déterminez si vous souhaitez déployer l’extension selon la **Configuration ordinateur** ou la **Configuration utilisateur**. Lorsque vous utilisez la [Configuration ordinateur](https://technet.microsoft.com/library/cc736413%28v=ws.10%29.aspx), l’extension est installée sur l’ordinateur, quels que soient les utilisateurs qui s’y connectent. Avec la [Configuration utilisateur](https://technet.microsoft.com/library/cc781953%28v=ws.10%29.aspx), l’extension est installée pour les utilisateurs, quels que soient les ordinateurs auxquels ils se connectent.
 
 2. Dans le volet gauche de la fenêtre **Éditeur de gestion des stratégies de groupe **, accédez à l’un des chemins de dossier suivants, selon le type de configuration que vous avez choisi :
 	- `Computer Configuration/Policies/Software Settings/`
@@ -98,7 +98,7 @@ Tout d’abord, vous devez placer le package d’installation sur un emplacement
 
 	![Sélectionnez Affecté, puis cliquez sur OK.](./media/active-directory-saas-ie-group-policy/deployment-method.png)
 
-L’extension est désormais déployée sur l’UO que vous avez sélectionnée. [En savoir plus sur l’installation des logiciels de la stratégie de groupe.](https://technet.azure.microsoft.com/.com/library/cc738858%28v=ws.10%29.aspx)
+L’extension est désormais déployée sur l’UO que vous avez sélectionnée. [En savoir plus sur l’installation des logiciels de la stratégie de groupe.](https://technet.microsoft.com/library/cc738858%28v=ws.10%29.aspx)
 
 ##Étape 4 : Activer automatiquement l’extension pour Internet Explorer 
 
@@ -126,7 +126,7 @@ Outre l’exécution du programme d’installation, toutes les extensions pour I
 
 5. Cliquez sur **OK** pour appliquer vos modifications et fermer la fenêtre **Liste des modules complémentaires**.
 
-L’extension doit désormais être activée pour les ordinateurs dans l’UO sélectionnée. [En savoir plus sur l’utilisation de la stratégie de groupe pour activer ou désactiver les modules complémentaires d’Internet Explorer.](https://technet.azure.microsoft.com/.com/library/dn454941.aspx)
+L’extension doit désormais être activée pour les ordinateurs dans l’UO sélectionnée. [En savoir plus sur l’utilisation de la stratégie de groupe pour activer ou désactiver les modules complémentaires d’Internet Explorer.](https://technet.microsoft.com/library/dn454941.aspx)
 
 ##Étape 5 (Facultatif) : Désactiver l’invite « Mémoriser le mot de passe »
 

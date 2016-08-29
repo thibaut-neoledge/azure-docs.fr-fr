@@ -1,7 +1,7 @@
 
 <properties
-   pageTitle="Exporter une base de données SQL Server vers un fichier BACPAC à l’aide de SQL Server Management Studio | azure.microsoft.com/ Azure"
-   description="Base de données SQL azure.microsoft.com/ Azure, migration de base de données, exportation de base de données, exportation de fichier BACPAC, Assistant d’exportation d’application de couche Données"
+   pageTitle="Exporter une base de données SQL Server vers un fichier BACPAC à l’aide de SQL Server Management Studio | Microsoft Azure"
+   description="Base de données SQL Microsoft Azure, migration de base de données, exportation de base de données, exportation de fichier BACPAC, Assistant d’exportation d’application de couche Données"
    services="sql-database"
    documentationCenter=""
    authors="CarlRabeler"
@@ -24,11 +24,11 @@
 - [SqlPackage](sql-database-cloud-migrate-compatible-export-bacpac-sqlpackage.md)
 
  
-Cet article explique la procédure d’exportation d’une base de données SQL Server vers un fichier [BACPAC](https://msdn.azure.microsoft.com/.com/library/ee210546.aspx#Anchor_4) à l’aide de l’Assistant Exportation d’une Application de couche données dans SQL Server Management Studio.
+Cet article explique la procédure d’exportation d’une base de données SQL Server vers un fichier [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) à l’aide de l’Assistant Exportation d’une Application de couche données dans SQL Server Management Studio.
 
 1. Assurez-vous de disposer de la dernière version de SQL Server Management Studio. Les nouvelles versions de Management Studio sont mises à jour tous les mois afin de refléter les mises à jour publiées sur le portail Azure.
 
-	 > [AZURE.IMPORTANT] Nous vous recommandons d’utiliser systématiquement la dernière version de Management Studio afin de rester en cohérence avec les mises à jour de azure.microsoft.com/ Azure et Base de données SQL. [Mettre à jour SQL Server Management Studio](https://msdn.azure.microsoft.com/.com/library/mt238290.aspx).
+	 > [AZURE.IMPORTANT] Nous vous recommandons d’utiliser systématiquement la dernière version de Management Studio afin de rester en cohérence avec les mises à jour de Microsoft Azure et Base de données SQL. [Mettre à jour SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
 
 2. Ouvrez Management Studio et connectez-vous à votre base de données source dans l’Explorateur d’objets.
 
@@ -47,8 +47,8 @@ Cet article explique la procédure d’exportation d’une base de données SQL 
 
 ## Étapes suivantes
 
-- [Version la plus récente de SSDT](https://msdn.azure.microsoft.com/.com/library/mt204009.aspx)
-- [Version la plus récente de SQL Server Management Studio](https://msdn.azure.microsoft.com/.com/library/mt238290.aspx)
+- [Version la plus récente de SSDT](https://msdn.microsoft.com/library/mt204009.aspx)
+- [Version la plus récente de SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)
 - [Importer un fichier BACPAC vers une base de données SQL Azure à l’aide de SSMS](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md)
 - [Importer un fichier BACPAC vers une base de données SQL Azure à l’aide de SqlPackage](sql-database-cloud-migrate-compatible-import-bacpac-sqlpackage.md)
 - [Importer un fichier BACPAC vers une base de données SQL Azure à l’aide du Portail Azure](sql-database-import.md)

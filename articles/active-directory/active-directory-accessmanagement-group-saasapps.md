@@ -1,6 +1,6 @@
 
 <properties
-	pageTitle="Utilisation d’un groupe pour gérer l’accès aux applications SaaS| azure.microsoft.com/ Azure"
+	pageTitle="Utilisation d’un groupe pour gérer l’accès aux applications SaaS| Microsoft Azure"
 	description="Comment utiliser les groupes dans Azure Active Directory Premium ou Basic pour attribuer l’accès à des applications SaaS intégrées à Azure Active Directory."
 	services="active-directory"
 	documentationCenter=""

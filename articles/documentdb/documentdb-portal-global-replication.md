@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Réplication de base de données mondiale dans DocumentDB | azure.microsoft.com/ Azure"
+	pageTitle="Réplication de base de données mondiale dans DocumentDB | Microsoft Azure"
 	description="Apprenez à gérer la réplication mondiale de votre compte DocumentDB via le portail Azure."
 	services="documentdb"
     keywords="base de données mondiale, réplication"
@@ -23,7 +23,7 @@ Découvrez comment utiliser le portail Azure afin de répliquer les données dan
 
 Pour plus d’informations sur le fonctionnement de la réplication de base de données mondiale dans DocumentDB, consultez la section [Distribution mondiale des données avec DocumentDB](documentdb-distribute-data-globally.md). Pour plus d’informations sur l’exécution de la réplication de base de données mondiale par programme, consultez la section [Développement avec des comptes DocumentDB à plusieurs régions](documentdb-developing-with-multiple-regions.md).
 
-> [AZURE.NOTE] La distribution mondiale des bases de données DocumentDB est généralement disponible et activée automatiquement pour tous les comptes DocumentDB nouvellement créés. Nous travaillons à l’activation de la distribution mondiale sur tous les comptes existants, mais en attendant, si vous souhaitez que la distribution mondiale soit activée sur votre compte, veuillez [contacter le support technique](https://portal.azure.com/?#blade/azure.microsoft.com/_Azure_Support/HelpAndSupportBlade) et nous l’activerons pour vous.
+> [AZURE.NOTE] La distribution mondiale des bases de données DocumentDB est généralement disponible et activée automatiquement pour tous les comptes DocumentDB nouvellement créés. Nous travaillons à l’activation de la distribution mondiale sur tous les comptes existants, mais en attendant, si vous souhaitez que la distribution mondiale soit activée sur votre compte, veuillez [contacter le support technique](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) et nous l’activerons pour vous.
 
 ## <a id="addregion"></a>Ajouter des régions de base de données mondiale
 
@@ -33,7 +33,7 @@ DocumentDB est disponible dans la plupart des [régions Azure][azureregions]. Ap
 2. Dans le panneau **Compte DocumentDB**, sélectionnez le compte de base de données à modifier.
 3. Dans le panneau du compte, cliquez sur **Ajouter/Supprimer des régions** dans le menu. ![Ajoutez des régions sous Compte DocumentDB > Ajouter/supprimer des régions.][1]
 
-5. Dans le panneau **Ajouter/Supprimer des régions**, sélectionnez les régions à ajouter ou supprimer, puis cliquez sur **OK**. L’ajout de régions est payant. Consultez la [page de tarification](https://azure.azure.microsoft.com/.com/pricing/details/documentdb/) ou l’article [Distribution mondiale des données avec DocumentDB](documentdb-distribute-data-globally.md) pour plus d’informations.
+5. Dans le panneau **Ajouter/Supprimer des régions**, sélectionnez les régions à ajouter ou supprimer, puis cliquez sur **OK**. L’ajout de régions est payant. Consultez la [page de tarification](https://azure.microsoft.com/pricing/details/documentdb/) ou l’article [Distribution mondiale des données avec DocumentDB](documentdb-distribute-data-globally.md) pour plus d’informations.
 
     ![Cliquez sur les régions dans la carte pour les ajouter ou les supprimer.][2]
 
@@ -72,9 +72,9 @@ Pour plus d’informations sur le fonctionnement de la réplication de base de d
 [4]: ./media/documentdb-portal-global-replication/documentdb_change_write_region-2.png
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
-[bcdr]: https://azure.azure.microsoft.com/.com/documentation/articles/best-practices-availability-paired-regions/
-[consistency]: https://azure.azure.microsoft.com/.com/documentation/articles/documentdb-consistency-levels/
-[azureregions]: https://azure.azure.microsoft.com/.com/fr-FR/regions/#services
-[offers]: https://azure.azure.microsoft.com/.com/fr-FR/pricing/details/documentdb/
+[bcdr]: https://azure.microsoft.com/documentation/articles/best-practices-availability-paired-regions/
+[consistency]: https://azure.microsoft.com/documentation/articles/documentdb-consistency-levels/
+[azureregions]: https://azure.microsoft.com/regions/#services
+[offers]: https://azure.microsoft.com/pricing/details/documentdb/
 
 <!---HONumber=AcomDC_0817_2016-->

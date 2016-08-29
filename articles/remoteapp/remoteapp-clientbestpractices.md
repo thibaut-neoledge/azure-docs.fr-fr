@@ -1,6 +1,6 @@
 
 <properties
-    pageTitle="Meilleures pratiques pour les clients Azure RemoteApp | azure.microsoft.com/ Azure"
+    pageTitle="Meilleures pratiques pour les clients Azure RemoteApp | Microsoft Azure"
     description="En savoir plus sur les meilleures pratiques d'utilisation des clients RemoteApp"
     services="remoteapp"
     documentationCenter=""
@@ -21,7 +21,7 @@
 # Meilleures pratiques pour les clients Azure RemoteApp
 
 > [AZURE.IMPORTANT]
-Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.azure.microsoft.com/.com/fwlink/?linkid=821148).
+Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148).
 
 Les informations suivantes peuvent vous aider à utiliser des clients Azure RemoteApp :
 

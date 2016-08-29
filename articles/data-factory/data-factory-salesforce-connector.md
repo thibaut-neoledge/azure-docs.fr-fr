@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Déplacer des données depuis Salesforce à l’aide de Data Factory | azure.microsoft.com/ Azure"
+	pageTitle="Déplacer des données depuis Salesforce à l’aide de Data Factory | Microsoft Azure"
 	description="Découvrez comment déplacer des données depuis Salesforce à l’aide d’Azure Data Factory."
 	services="data-factory"
 	documentationCenter=""

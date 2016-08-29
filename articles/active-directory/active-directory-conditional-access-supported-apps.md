@@ -1,6 +1,6 @@
 
 <properties
-	pageTitle="Accès conditionnel - applications prises en charge | azure.microsoft.com/ Azure"
+	pageTitle="Accès conditionnel - applications prises en charge | Microsoft Azure"
 	description="Avec le contrôle d’accès conditionnel, Azure Active Directory vérifie les conditions spécifiques que vous choisissez lors de l’authentification de l’utilisateur et avant d’autoriser l’accès à l’application. Une fois que ces conditions sont remplies, l’utilisateur est authentifié et autorisé à accéder à l’application."
     services="active-directory"
 	documentationCenter=""
@@ -29,10 +29,10 @@ Les applications suivantes ont été testées avec l’authentification multifac
 
 | Application | Service cible | Plateforme |
 |--------------|-----------------|----------------------------------------------------------------|
-| Outlook 2016 | azure.microsoft.com/ Exchange | Windows 10, Windows Mobile 10, Windows 8.1, Windows 7, Mac |
-| Outlook 2013 (nécessite l’activation de l’authentification moderne)| azure.microsoft.com/ Exchange |Windows 10, Windows Mobile 10, Windows 8.1, Windows 7|
+| Outlook 2016 | Microsoft Exchange | Windows 10, Windows Mobile 10, Windows 8.1, Windows 7, Mac |
+| Outlook 2013 (nécessite l’activation de l’authentification moderne)| Microsoft Exchange |Windows 10, Windows Mobile 10, Windows 8.1, Windows 7|
 |Skype Entreprise (avec authentification moderne)|Exchange (pour le calendrier et l’historique des conversations)| Windows 10, Windows 8.1, Windows 7 |
-|Application Outlook Mobile|azure.microsoft.com/ Exchange| iOS et Android |
+|Application Outlook Mobile|Microsoft Exchange| iOS et Android |
 |Office 2016 ; Word, Excel, Sharepoint|SharePoint| Windows 10, Windows Mobile 10, Windows 8.1, Windows 7, Mac |
 |Office 2013 (nécessite l’activation de l’authentification moderne)|SharePoint|Windows 10, Windows Mobile 10, Windows 8.1, Windows 7|
 |Application Dynamics CRM|Dynamics CRM| Windows 10, Windows 8.1, Windows 7, iOS, Android|
@@ -47,10 +47,10 @@ Les applications suivantes prennent en charge la stratégie d’appareil défini
 
 | Application | Service cible | Plateforme |
 | :--                                     | :--            | :--      |
-| Messagerie/calendrier/personnes | azure.microsoft.com/ Exchange | Windows 10, Windows Mobile 10 |
+| Messagerie/calendrier/personnes | Microsoft Exchange | Windows 10, Windows Mobile 10 |
 | Office universel : Word/Excel/PowerPoint | SharePoint | Windows 10, Windows Mobile 10 |
-| Outlook 2016 | azure.microsoft.com/ Exchange | Windows 10, Windows Mobile 10, Windows 8.1, Windows 7 |
-|Outlook 2013 (nécessite l’activation de l’authentification moderne) | azure.microsoft.com/ Exchange | Windows 8.1, Windows 7 |
+| Outlook 2016 | Microsoft Exchange | Windows 10, Windows Mobile 10, Windows 8.1, Windows 7 |
+|Outlook 2013 (nécessite l’activation de l’authentification moderne) | Microsoft Exchange | Windows 8.1, Windows 7 |
 
 
 Les applications suivantes ne prennent pas en charge la stratégie d’appareil définie sur le service cible :
@@ -71,7 +71,7 @@ Les protocoles hérités peuvent être désactivés au niveau de SharePoint à l
 
 **Exemple de commande** : `Set-SPOTenant -LegacyAuthProtocolsEnabled $false`
  
-## azure.microsoft.com/ Exchange
+## Microsoft Exchange
 
 Dans Exchange, il existe principalement deux catégories de protocoles. Examinez et sélectionnez la stratégie appropriée à votre organisation :
 
@@ -84,50 +84,50 @@ Les règles suivantes peuvent être utilisées pour bloquer l’accès d’un pr
 
 ### Option 1 : autoriser Exchange ActiveSync et autoriser uniquement les applications héritées sur l’intranet
 
-En appliquant les trois règles suivantes à la partie de confiance AD FS de la plateforme d’identité azure.microsoft.com/ Office 365, le trafic Exchange ActiveSync sera autorisé, tout comme le trafic du navigateur et de l’authentification moderne. Les applications héritées ne pourront pas accéder à l’extranet.
+En appliquant les trois règles suivantes à la partie de confiance AD FS de la plateforme d’identité Microsoft Office 365, le trafic Exchange ActiveSync sera autorisé, tout comme le trafic du navigateur et de l’authentification moderne. Les applications héritées ne pourront pas accéder à l’extranet.
 
 Règle 1
 
     `@RuleName = “Allow all intranet traffic”
-	c1:[Type == "http://schemas.azure.microsoft.com/.com/ws/2012/01/insidecorporatenetwork", Value == "true"] 
-	=> issue(Type = "http://schemas.azure.microsoft.com/.com/authorization/claims/permit", Value = "true");`
+	c1:[Type == "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork", Value == "true"] 
+	=> issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "true");`
 
 Règle 2
 
     @RuleName = “Allow EAS”
-	c1:[Type == "http://schemas.azure.microsoft.com/.com/2012/01/requestcontext/claims/x-ms-client-application", Value == "azure.microsoft.com/.Exchange.ActiveSync"] 
-	=> issue(Type = "http://schemas.azure.microsoft.com/.com/authorization/claims/permit", Value = "true");
+	c1:[Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-client-application", Value == "Microsoft.Exchange.ActiveSync"] 
+	=> issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "true");
 
 Règle 3
 
 	@RuleName = “Allow Extranet browser or browser dialog traffic”
-	c1:[Type == " http://schemas.azure.microsoft.com/.com/ws/2012/01/insidecorporatenetwork", Value == "false"] && 
-	c2:[Type == "http://schemas.azure.microsoft.com/.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path", Value =~ "(/adfs/ls)|(/adfs/oauth2)"] 
-	=> issue(Type = "http://schemas.azure.microsoft.com/.com/authorization/claims/permit", Value = "true");
+	c1:[Type == " http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork", Value == "false"] && 
+	c2:[Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path", Value =~ "(/adfs/ls)|(/adfs/oauth2)"] 
+	=> issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "true");
 
 ### Option 2 : autoriser Exchange ActiveSync et bloquer les applications héritées 
-En appliquant les trois règles suivantes à la partie de confiance AD FS de la plateforme d’identité azure.microsoft.com/ Office 365, le trafic Exchange ActiveSync sera autorisé, tout comme le trafic du navigateur et de l’authentification moderne. Les applications héritées ne pourront accéder à aucun emplacement.
+En appliquant les trois règles suivantes à la partie de confiance AD FS de la plateforme d’identité Microsoft Office 365, le trafic Exchange ActiveSync sera autorisé, tout comme le trafic du navigateur et de l’authentification moderne. Les applications héritées ne pourront accéder à aucun emplacement.
 
 Règle 1
 
     @RuleName = “Allow all intranet traffic only for browser and modern authentication clients”
-	c1:[Type == "http://schemas.azure.microsoft.com/.com/ws/2012/01/insidecorporatenetwork", Value == "true"] && 
-	c2:[Type == "http://schemas.azure.microsoft.com/.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path", Value =~ "(/adfs/ls)|(/adfs/oauth2)"] 
-	=> issue(Type = "http://schemas.azure.microsoft.com/.com/authorization/claims/permit", Value = "true");
+	c1:[Type == "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork", Value == "true"] && 
+	c2:[Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path", Value =~ "(/adfs/ls)|(/adfs/oauth2)"] 
+	=> issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "true");
 
 
 Règle 2
 
     @RuleName = “Allow EAS”
-	c1:[Type == "http://schemas.azure.microsoft.com/.com/2012/01/requestcontext/claims/x-ms-client-application", Value == "azure.microsoft.com/.Exchange.ActiveSync"] 
-	=> issue(Type = "http://schemas.azure.microsoft.com/.com/authorization/claims/permit", Value = "true");
+	c1:[Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-client-application", Value == "Microsoft.Exchange.ActiveSync"] 
+	=> issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "true");
 
 
 Règle 3
 
     @RuleName = “Allow Extranet browser or browser dialog traffic”
-	c1:[Type == " http://schemas.azure.microsoft.com/.com/ws/2012/01/insidecorporatenetwork", Value == "false"] && 
-	c2:[Type == "http://schemas.azure.microsoft.com/.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path", Value =~ "(/adfs/ls)|(/adfs/oauth2)"] 
-	=> issue(Type = "http://schemas.azure.microsoft.com/.com/authorization/claims/permit", Value = "true");
+	c1:[Type == " http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork", Value == "false"] && 
+	c2:[Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path", Value =~ "(/adfs/ls)|(/adfs/oauth2)"] 
+	=> issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "true");
 
 <!---HONumber=AcomDC_0817_2016-->

@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Débogage de travaux U-SQL | azure.microsoft.com/ Azure" 
+   pageTitle="Débogage de travaux U-SQL | Microsoft Azure" 
    description="Apprenez à déboguer un vertex U-SQL ayant échoué à l’aide de Visual Studio. " 
    services="data-lake-analytics" 
    documentationCenter="" 
@@ -22,7 +22,7 @@
 
 Apprenez à déboguer des travaux U-SQL ayant échoué en raison de bogues dans le code utilisateur à l’aide des outils Azure Data Lake Visual Studio. L’outil Data Lake Visual Studio permet aux utilisateurs de télécharger le code compilé et les données du vertex nécessaires à partir du cluster pour tracer et déboguer des travaux ayant échoué.
 
->[AZURE.NOTE] Visual Studio peut se bloquer si vous n’avez pas les deux mises à niveau Windows suivantes : [azure.microsoft.com/ Visual C++ 2015 Redistributable Update 2](https://www.azure.microsoft.com/.com/download/details.aspx?id=51682), [Universal C Runtime pour Windows](https://www.azure.microsoft.com/.com/download/details.aspx?id=50410&wa=wsignin1.0).
+>[AZURE.NOTE] Visual Studio peut se bloquer si vous n’avez pas les deux mises à niveau Windows suivantes : [Microsoft Visual C++ 2015 Redistributable Update 2](https://www.microsoft.com/download/details.aspx?id=51682), [Universal C Runtime pour Windows](https://www.microsoft.com/download/details.aspx?id=50410&wa=wsignin1.0).
 
 
 ##Composants requis

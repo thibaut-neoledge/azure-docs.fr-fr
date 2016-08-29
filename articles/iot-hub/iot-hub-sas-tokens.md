@@ -1,5 +1,5 @@
 <properties
- pageTitle="Générer des jetons de sécurité IoT Hub | azure.microsoft.com/ Azure"
+ pageTitle="Générer des jetons de sécurité IoT Hub | Microsoft Azure"
  description="Description des différents types de jeton de sécurité (tels que SAP et X.509) utilisés par IoT Hub et de leur création."
  services="iot-hub"
  documentationCenter=".net"
@@ -213,7 +213,7 @@ Un appareil peut utiliser un certificat X.509 ou un jeton de sécurité pour l�
 
 ## Inscrire un certificat de client X.509 pour un appareil
 
-Le [SDK Azure IoT Service pour C#][lnk-service-sdk] \(version 1.0.8+) prend en charge l’inscription d’un appareil qui utilise un certificat client X.509 pour s’authentifier. D’autres API telles que l’importation/exportation d’appareils prennent également en charge les certificats clients X.509.
+Le [SDK Azure IoT Service pour C#][lnk-service-sdk] (version 1.0.8+) prend en charge l’inscription d’un appareil qui utilise un certificat client X.509 pour s’authentifier. D’autres API telles que l’importation/exportation d’appareils prennent également en charge les certificats clients X.509.
 
 ### Prise en charge de C#
 
@@ -240,7 +240,7 @@ await registryManager.AddDeviceAsync(device);
 
 ## Utiliser un certificat client X.509 pendant les opérations d’exécution
 
-Le [SDK Azure IoT Device pour .NET][lnk-client-sdk] \(version 1.0.11+) prend en charge l’utilisation de certificats clients X.509.
+Le [SDK Azure IoT Device pour .NET][lnk-client-sdk] (version 1.0.11+) prend en charge l’utilisation de certificats clients X.509.
 
 ### Prise en charge de C#
 
@@ -261,7 +261,7 @@ var deviceClient = DeviceClient.Create("<IotHub DNS HostName>", authMethod);
 [lnk-device-explorer]: https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/doc/how_to_use_device_explorer.md
 
 [OpenSSL]: https://www.openssl.org/
-[Windows SelfSignedCertificate]: https://technet.azure.microsoft.com/.com/library/hh848633
+[Windows SelfSignedCertificate]: https://technet.microsoft.com/library/hh848633
 [lnk-service-sdk]: https://github.com/Azure/azure-iot-sdks/tree/master/csharp/service
 [lnk-client-sdk]: https://github.com/Azure/azure-iot-sdks/tree/master/csharp/device
 

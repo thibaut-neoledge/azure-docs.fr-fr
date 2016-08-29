@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Créer et charger une image de machine virtuelle à l’aide de PowerShell | azure.microsoft.com/ Azure"
+	pageTitle="Créer et charger une image de machine virtuelle à l’aide de PowerShell | Microsoft Azure"
 	description="Découvrez comment créer et télécharger une image Windows Server (VHD) généralisée à l’aide du modèle de déploiement classique et d’Azure Powershell."
 	services="virtual-machines-windows"
 	documentationCenter=""
@@ -19,7 +19,7 @@
 
 # Création et téléchargement d’un disque dur virtuel Windows Server dans Azure
 
-Cet article vous montre comment télécharger votre propre image de machine virtuelle généralisée afin de l’utiliser comme disque dur virtuel (VHD) pour créer des machines virtuelles. Pour en savoir plus sur les disques et les disques durs virtuels dans azure.microsoft.com/ Azure, consultez la rubrique [À propos des disques et VHD pour machines virtuelles](virtual-machines-linux-about-disks-vhds.md).
+Cet article vous montre comment télécharger votre propre image de machine virtuelle généralisée afin de l’utiliser comme disque dur virtuel (VHD) pour créer des machines virtuelles. Pour en savoir plus sur les disques et les disques durs virtuels dans Microsoft Azure, consultez la rubrique [À propos des disques et VHD pour machines virtuelles](virtual-machines-linux-about-disks-vhds.md).
 
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]. Vous pouvez également [capturer](virtual-machines-windows-capture-image.md) et [télécharger](virtual-machines-windows-upload-image.md) une machine virtuelle à l'aide du modèle Resource Manager.
@@ -30,15 +30,15 @@ Cet article suppose que vous disposez de :
 
 - **Un abonnement Azure** : si vous n’en avez pas, vous pouvez [ouvrir un compte Azure gratuitement](/pricing/free-trial/?WT.mc_id=A261C142F).
 
-- **[azure.microsoft.com/ Azure PowerShell](../powershell-install-configure.md)** : le module azure.microsoft.com/ Azure PowerShell est installé et configuré de façon à utiliser votre abonnement.
+- **[Microsoft Azure PowerShell](../powershell-install-configure.md)** : le module Microsoft Azure PowerShell est installé et configuré de façon à utiliser votre abonnement.
 
-- **Un fichier .VHD** : système d’exploitation Windows pris en charge stocké dans un fichier .vhd et associé à une machine virtuelle. Vous devez également vérifier si les rôles serveur en cours d’exécution sur le disque dur virtuel sont pris en charge par Sysprep. Pour plus d’informations, consultez [Prise en charge de Sysprep pour les rôles serveur](https://msdn.azure.microsoft.com/.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles).
+- **Un fichier .VHD** : système d’exploitation Windows pris en charge stocké dans un fichier .vhd et associé à une machine virtuelle. Vous devez également vérifier si les rôles serveur en cours d’exécution sur le disque dur virtuel sont pris en charge par Sysprep. Pour plus d’informations, consultez [Prise en charge de Sysprep pour les rôles serveur](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles).
 
-> [AZURE.IMPORTANT] azure.microsoft.com/ Azure ne prend pas en charge le format VHDX. Vous pouvez convertir le disque au format VHD à l’aide de Hyper-V Manager ou de la [cmdlet Convert-VHD](http://technet.azure.microsoft.com/.com/library/hh848454.aspx). Pour plus de détail, voir [ce billet de blog](http://blogs.msdn.com/b/virtual_pc_guy/archive/2012/10/03/using-powershell-to-convert-a-vhd-to-a-vhdx.aspx).
+> [AZURE.IMPORTANT] Microsoft Azure ne prend pas en charge le format VHDX. Vous pouvez convertir le disque au format VHD à l’aide de Hyper-V Manager ou de la [cmdlet Convert-VHD](http://technet.microsoft.com/library/hh848454.aspx). Pour plus de détail, voir [ce billet de blog](http://blogs.msdn.com/b/virtual_pc_guy/archive/2012/10/03/using-powershell-to-convert-a-vhd-to-a-vhdx.aspx).
 
 ## Étape 1 : Préparer le disque dur virtuel 
 
-Avant de télécharger le disque dur virtuel vers Azure, vous devez le généraliser à l’aide de l’outil Sysprep. Cette opération prépare le disque dur virtuel à utiliser en tant qu’image. Pour plus d’informations sur Sysprep, voir [Introduction à l’utilisation de Sysprep](http://technet.azure.microsoft.com/.com/library/bb457073.aspx).
+Avant de télécharger le disque dur virtuel vers Azure, vous devez le généraliser à l’aide de l’outil Sysprep. Cette opération prépare le disque dur virtuel à utiliser en tant qu’image. Pour plus d’informations sur Sysprep, voir [Introduction à l’utilisation de Sysprep](http://technet.microsoft.com/library/bb457073.aspx).
 
 Depuis la machine virtuelle sur laquelle le système d’exploitation a été installé, effectuez la procédure suivante :
 
@@ -86,7 +86,7 @@ Vous avez besoin d’un compte de stockage dans Azure afin d’avoir un emplacem
 
 ## Étape 3 : téléchargement du fichier .vhd
 
-Utilisez l’applet de commande [Add-AzureVhd](http://msdn.azure.microsoft.com/.com/library/dn495173.aspx) pour charger le fichier VHD.
+Utilisez l’applet de commande [Add-AzureVhd](http://msdn.microsoft.com/library/dn495173.aspx) pour charger le fichier VHD.
 
 Dans la fenêtre Azure PowerShell que vous avez utilisée à l’étape précédente, tapez la commande suivante et remplacez les variables entre &lsaquo; crochets &rsaquo; par vos propres informations.
 
@@ -95,7 +95,7 @@ Dans la fenêtre Azure PowerShell que vous avez utilisée à l’étape précéd
 
 ## Étape 4 : ajout de l’image à votre liste d’images personnalisées
 
-Utilisez l’applet de commande [Add-AzureVMImage]) (https://msdn.azure.microsoft.com/.com/library/mt589167.aspx) pour ajouter l’image à la liste de vos images personnalisées.
+Utilisez l’applet de commande [Add-AzureVMImage]) (https://msdn.microsoft.com/library/mt589167.aspx) pour ajouter l’image à la liste de vos images personnalisées.
 
 		Add-AzureVMImage -ImageName <ImageName> -MediaLocation "https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/<vhdName>.vhd" -OS "Windows"
 

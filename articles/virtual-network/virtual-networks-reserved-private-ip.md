@@ -18,7 +18,7 @@
 # Comment définir une adresse IP privée interne statique à l’aide de PowerShell (Classic)
 Dans la plupart des cas, il n’est pas nécessaire de spécifier une adresse IP interne statique pour votre machine virtuelle. Les machines virtuelles dans un réseau virtuel recevront automatiquement une adresse IP interne à partir d'une plage que vous spécifiez. Toutefois, dans certains cas, il peut être bon de spécifier une adresse IP statique pour une machine virtuelle en particulier. Par exemple, si votre machine virtuelle doit exécuter DNS ou fait office de contrôleur de domaine. Une adresse IP interne statique reste associée à la machine virtuelle même lorsque cette dernière se trouve en état d'arrêt/annulation de l’approvisionnement.
 
-> [AZURE.IMPORTANT] Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [Resource Manager et classique](../resource-manager-deployment-model.md). Cet article traite du modèle de déploiement classique. Pour la plupart des nouveaux déploiements, azure.microsoft.com/ recommande d’utiliser le [modèle de déploiement Resource Manager](virtual-networks-static-private-ip-arm-ps.md).
+> [AZURE.IMPORTANT] Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [Resource Manager et classique](../resource-manager-deployment-model.md). Cet article traite du modèle de déploiement classique. Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le [modèle de déploiement Resource Manager](virtual-networks-static-private-ip-arm-ps.md).
 
 ## Vérification de la disponibilité d'une adresse IP particulière
 Pour vérifier si l'adresse IP *10.0.0.7* est disponible dans un réseau virtuel nommé *TestVnet*, exécutez la commande PowerShell suivante et vérifiez la valeur de *IsAvailable* :
@@ -52,7 +52,7 @@ Pour visualiser les informations d’adresse interne statique concernant la mac
 	DeploymentName              : TestService
 	Name                        : TestVM
 	Label                       : 
-	VM                          : azure.microsoft.com/.WindowsAzure.Commands.ServiceManagement.Model.PersistentVM
+	VM                          : Microsoft.WindowsAzure.Commands.ServiceManagement.Model.PersistentVM
 	InstanceStatus              : Provisioning
 	IpAddress                   : 10.0.0.7
 	InstanceStateDetails        : Windows is preparing your computer for first use...
@@ -66,8 +66,8 @@ Pour visualiser les informations d’adresse interne statique concernant la mac
 	AvailabilitySetName         : 
 	DNSName                     : http://testservice000.cloudapp.net/
 	Status                      : Provisioning
-	GuestAgentStatus            : azure.microsoft.com/.WindowsAzure.Commands.ServiceManagement.Model.GuestAgentStatus
-	ResourceExtensionStatusList : {azure.microsoft.com/.Compute.BGInfo}
+	GuestAgentStatus            : Microsoft.WindowsAzure.Commands.ServiceManagement.Model.GuestAgentStatus
+	ResourceExtensionStatusList : {Microsoft.Compute.BGInfo}
 	PublicIPAddress             : 
 	PublicIPName                : 
 	NetworkInterfaces           : {}
@@ -96,7 +96,7 @@ Pour ajouter une adresse IP interne statique à la machine virtuelle créée à 
 
 [Adresses IP publiques de niveau d’instance (ILPIP)](virtual-networks-instance-level-public-ip.md)
 
-[API REST d’adresse IP réservée](https://msdn.azure.microsoft.com/.com/library/azure/dn722420.aspx)
+[API REST d’adresse IP réservée](https://msdn.microsoft.com/library/azure/dn722420.aspx)
  
 
 <!---HONumber=AcomDC_0817_2016-->

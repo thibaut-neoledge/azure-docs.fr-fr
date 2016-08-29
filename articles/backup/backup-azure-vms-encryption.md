@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure Backup - Sauvegarde de machines virtuelles IaaS Azure avec disques chiffrés | azure.microsoft.com/ Azure"
+   pageTitle="Azure Backup - Sauvegarde de machines virtuelles IaaS Azure avec disques chiffrés | Microsoft Azure"
    description="Découvrez comment Azure Backup gère les données chiffrées à l'aide de BitLocker ou dmcrypt lors de la sauvegarde d'une machine virtuelle IaaS. Cet article vous présente les différences entre les expériences de sauvegarde et de restauration avec des disques chiffrés."
    services="backup"
    documentationCenter=""
@@ -61,7 +61,7 @@ Cette solution est composée de nombreuses parties qui doivent être configurés
 
 ## CloudLink SecureVM
 
-[CloudLink SecureVM](http://www.cloudlinktech.com/choose-your-cloud/azure.microsoft.com/-azure/) est une solution de chiffrement de machine virtuelle qui peut être utilisée pour sécuriser vos données de machine virtuelle IaaS Azure. CloudLink SecureVM est pris en charge pour une utilisation avec Azure Backup.
+[CloudLink SecureVM](http://www.cloudlinktech.com/choose-your-cloud/microsoft-azure/) est une solution de chiffrement de machine virtuelle qui peut être utilisée pour sécuriser vos données de machine virtuelle IaaS Azure. CloudLink SecureVM est pris en charge pour une utilisation avec Azure Backup.
 
 ### Informations de support
 

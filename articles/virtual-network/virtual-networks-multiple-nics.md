@@ -221,11 +221,11 @@ Pour ajouter un itinéraire par défaut à la carte réseau secondaire, suivez l
 		C:\Users\Administrator>route print
 		===========================================================================
 		Interface List
-		 29...00 15 17 d9 b1 6d ......azure.microsoft.com/ Virtual Machine Bus Network Adapter #16
-		 27...00 15 17 d9 b1 41 ......azure.microsoft.com/ Virtual Machine Bus Network Adapter #14
+		 29...00 15 17 d9 b1 6d ......Microsoft Virtual Machine Bus Network Adapter #16
+		 27...00 15 17 d9 b1 41 ......Microsoft Virtual Machine Bus Network Adapter #14
 		  1...........................Software Loopback Interface 1
 		 14...00 00 00 00 00 00 00 e0 Teredo Tunneling Pseudo-Interface
-		 20...00 00 00 00 00 00 00 e0 azure.microsoft.com/ ISATAP Adapter #2
+		 20...00 00 00 00 00 00 00 e0 Microsoft ISATAP Adapter #2
 		===========================================================================
 
 2. Vous remarquerez la seconde entrée de la table, avec un index de 27 (dans cet exemple).

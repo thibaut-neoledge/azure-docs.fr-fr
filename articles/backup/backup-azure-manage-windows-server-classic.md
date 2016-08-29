@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Gérer les serveurs et les coffres Azure Backup à l’aide du modèle de déploiement classique | azure.microsoft.com/ Azure"
+	pageTitle="Gérer les serveurs et les coffres Azure Backup à l’aide du modèle de déploiement classique | Microsoft Azure"
 	description="Ce didacticiel vous apprend à gérer les serveurs et les coffres Azure Backup."
 	services="backup"
 	documentationCenter=""
@@ -23,7 +23,7 @@
 - [Gestionnaire de ressources](backup-azure-manage-windows-server.md)
 - [Classique](backup-azure-manage-windows-server-classic.md)
 
-Cet article offre une vue d’ensemble des tâches de gestion des sauvegardes disponibles via le portail Azure Classic et l’agent azure.microsoft.com/ Azure Backup.
+Cet article offre une vue d’ensemble des tâches de gestion des sauvegardes disponibles via le portail Azure Classic et l’agent Microsoft Azure Backup.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Modèle de déploiement Resource Manager.
 
@@ -62,7 +62,7 @@ Le filtre **Type** permet de filtrer les valeurs par défaut sur une machine vir
 
 Exécutez ensuite les tâches suivantes :
 
-- **Autoriser la réinscription** : quand cette option est sélectionnée pour un serveur, vous pouvez utiliser l’**Assistant Inscription** dans l’agent azure.microsoft.com/ Azure Backup local pour inscrire à nouveau le serveur auprès du coffre de sauvegarde. Vous devrez peut-être effectuer cette nouvelle inscription en raison d'une erreur dans le certificat ou de la nécessité de régénérer un serveur.
+- **Autoriser la réinscription** : quand cette option est sélectionnée pour un serveur, vous pouvez utiliser l’**Assistant Inscription** dans l’agent Microsoft Azure Backup local pour inscrire à nouveau le serveur auprès du coffre de sauvegarde. Vous devrez peut-être effectuer cette nouvelle inscription en raison d'une erreur dans le certificat ou de la nécessité de régénérer un serveur.
 - **Supprimer** : permet de supprimer un serveur du coffre de sauvegarde. Toutes les données stockées associées au serveur sont immédiatement supprimées.
 
     ![Tâches d’éléments inscrits](./media/backup-azure-manage-windows-server-classic/registered-items-tasks.png)
@@ -82,11 +82,11 @@ Dans l’onglet **Configurer**, vous pouvez sélectionner l’option de redondan
 
 Consultez cet article pour plus d’informations sur la [redondance du stockage](../storage/storage-redundancy.md).
 
-## Tâches de l’agent azure.microsoft.com/ Azure Backup
+## Tâches de l’agent Microsoft Azure Backup
 
 ### Console
 
-Ouvrez l’**agent azure.microsoft.com/ Azure Backup** (vous pouvez le trouver en recherchant *azure.microsoft.com/ Azure Backup* sur votre ordinateur).
+Ouvrez l’**agent Microsoft Azure Backup** (vous pouvez le trouver en recherchant *Microsoft Azure Backup* sur votre ordinateur).
 
 ![Agent Backup](./media/backup-azure-manage-windows-server-classic/snap-in-search.png)
 
@@ -103,7 +103,7 @@ Dans les **Actions** disponibles à droite de la console de l’agent de sauvega
 
 ### Modifier une sauvegarde existante
 
-1. Dans l’agent azure.microsoft.com/ Azure Backup, cliquez sur **Planifier la sauvegarde**.
+1. Dans l’agent Microsoft Azure Backup, cliquez sur **Planifier la sauvegarde**.
 
     ![Planifier une sauvegarde de Windows Server](./media/backup-azure-manage-windows-server-classic/schedule-backup.png)
 
@@ -156,11 +156,11 @@ Pour activer la limitation :
 
 ## Paramètres d’exclusion
 
-1. Ouvrez **l’agent azure.microsoft.com/ Azure Backup** (vous pouvez le trouver en recherchant *azure.microsoft.com/ Azure Backup* sur votre ordinateur).
+1. Ouvrez **l’agent Microsoft Azure Backup** (vous pouvez le trouver en recherchant *Microsoft Azure Backup* sur votre ordinateur).
 
     ![Ouvrir l’agent Backup](./media/backup-azure-manage-windows-server-classic/snap-in-search.png)
 
-2. Dans l’agent azure.microsoft.com/ Azure Backup, cliquez sur **Planifier la sauvegarde**.
+2. Dans l’agent Microsoft Azure Backup, cliquez sur **Planifier la sauvegarde**.
 
     ![Planifier une sauvegarde de Windows Server](./media/backup-azure-manage-windows-server-classic/schedule-backup.png)
 
@@ -201,6 +201,6 @@ Pour activer la limitation :
 ## Étapes suivantes
 - [Restaurer un serveur Windows Server ou un client Windows à partir d’Azure](backup-azure-restore-windows-server.md)
 - Pour en savoir plus sur Azure Backup, consultez la [vue d’ensemble d’Azure Backup](backup-introduction-to-azure-backup.md).
-- Consultez le [forum Azure Backup](http://go.azure.microsoft.com/.com/fwlink/p/?LinkId=290933).
+- Consultez le [forum Azure Backup](http://go.microsoft.com/fwlink/p/?LinkId=290933).
 
 <!---HONumber=AcomDC_0817_2016-->

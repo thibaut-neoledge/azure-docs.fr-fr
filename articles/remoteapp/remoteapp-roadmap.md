@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Nouveautés à venir dans Azure RemoteApp | azure.microsoft.com/ Azure"
+    pageTitle="Nouveautés à venir dans Azure RemoteApp | Microsoft Azure"
     description="Découvrez quand les nouvelles fonctionnalités pour Azure RemoteApp seront disponibles"
     services="remoteapp"
     documentationCenter=""
@@ -18,7 +18,7 @@
 # Nouveautés à venir sur Azure RemoteApp
 
 > [AZURE.IMPORTANT]
-Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.azure.microsoft.com/.com/fwlink/?linkid=821148).
+Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148).
 
 Nous cherchons constamment à améliorer Azure RemoteApp sur la base de vos commentaires. Voici un calendrier général des nouvelles fonctionnalités à paraître.
 

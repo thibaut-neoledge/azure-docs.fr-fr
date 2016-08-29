@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Comment : modifier ou réinitialiser votre mot de passe Azure AD | azure.microsoft.com/ Azure"
+	pageTitle="Comment : modifier ou réinitialiser votre mot de passe Azure AD | Microsoft Azure"
 	description="Découvrez comment demander une réinitialisation du mot de passe, comment modifier votre mot de passe et comment réinitialiser votre mot de passe si vous l'avez oublié."
 	services="active-directory"
 	documentationCenter=""
@@ -48,7 +48,7 @@ Le moyen le plus rapide de vous inscrire pour demander une réinitialisation du 
     ![][014]
 
  6. Une fois que le code arrive, entrez-le dans la zone d'entrée, puis cliquez sur « Vérifier ».
- 7. Lorsque vous voyez **Merci**, et voilà ! Vous pouvez maintenant utiliser ce que vous avez enregistré pour réinitialiser votre mot de passe à tout moment en accédant à https://passwordreset.azure.microsoft.com/online.com.
+ 7. Lorsque vous voyez **Merci**, et voilà ! Vous pouvez maintenant utiliser ce que vous avez enregistré pour réinitialiser votre mot de passe à tout moment en accédant à https://passwordreset.microsoftonline.com.
 
     ![][015]
 
@@ -65,9 +65,9 @@ Suivez les étapes ci-dessous pour modifier le mot de passe de votre compte prof
 Vous pouvez en apprendre plus sur le [Centre de documentation Office 365](https://support.office.com/article/Change-my-password-in-Office-365-for-business-d1efbaee-63a7-4c08-ab1d-71bf932bbb5d).
 
 ## Comment modifier votre mot de passe à partir du panneau d'accès
-Suivez les étapes ci-dessous pour modifier le mot de passe de votre compte professionnel ou scolaire dans [Panneau d'accès](https://myapps.azure.microsoft.com/.com). Si vous avez oublié votre mot de passe et souhaitez le réinitialiser, suivez les étapes [ci-dessous](#how-to-reset-your-password).
+Suivez les étapes ci-dessous pour modifier le mot de passe de votre compte professionnel ou scolaire dans [Panneau d'accès](https://myapps.microsoft.com). Si vous avez oublié votre mot de passe et souhaitez le réinitialiser, suivez les étapes [ci-dessous](#how-to-reset-your-password).
 
- 1. Connectez-vous à https://myapps.azure.microsoft.com/.comvotre compte professionnel ou scolaire.
+ 1. Connectez-vous à https://myapps.microsoft.comvotre compte professionnel ou scolaire.
  2. Cliquez sur l'onglet **Profil**.
  3. Cliquez sur la mosaïque **Modifier mon mot de passe** sur le côté droit de l'écran.
  4. Tapez votre ancien mot de passe, puis tapez un nouveau mot de passe et confirmez-le.
@@ -85,7 +85,7 @@ Suivez les étapes ci-dessous pour réinitialiser le mot de passe de votre compt
 > Si votre administrateur vous a autorisé à utiliser cette fonctionnalité, vous devez d’abord vous avant de pouvoir l’utiliser. Vous pouvez le faire ici : http://aka.ms/ssprsetup.
 
 
- 1. Sur une page de connexion professionnelle ou scolaire, cliquez sur le lien « Vous ne pouvez pas accéder à votre compte ? » ou sur le lien « Vous avez oublié votre mot de passe ? », ou accédez directement à https://passwordreset.azure.microsoft.com/online.com.
+ 1. Sur une page de connexion professionnelle ou scolaire, cliquez sur le lien « Vous ne pouvez pas accéder à votre compte ? » ou sur le lien « Vous avez oublié votre mot de passe ? », ou accédez directement à https://passwordreset.microsoftonline.com.
 
     ![][001]
 
@@ -134,7 +134,7 @@ Suivez les étapes ci-dessous pour déverrouiller votre compte local depuis n'im
 > Si votre administrateur vous a autorisé à utiliser cette fonctionnalité, vous devez d’abord vous avant de pouvoir l’utiliser. Vous pouvez le faire ici : http://aka.ms/ssprsetup.
 
 
- 1. Sur une page de connexion professionnelle ou scolaire, cliquez sur le lien « Vous ne pouvez pas accéder à votre compte ? » ou sur le lien « Vous avez oublié votre mot de passe ? », ou accédez directement à https://passwordreset.azure.microsoft.com/online.com.
+ 1. Sur une page de connexion professionnelle ou scolaire, cliquez sur le lien « Vous ne pouvez pas accéder à votre compte ? » ou sur le lien « Vous avez oublié votre mot de passe ? », ou accédez directement à https://passwordreset.microsoftonline.com.
 
     ![][001]
 
@@ -200,7 +200,7 @@ Voici quelques cas d'erreur courants et leurs solutions :
               <p>J'obtiens une page « Veuillez contacter votre administrateur » après avoir entré mon identifiant utilisateur</p>
             </td>
             <td>
-              <p>Veuillez contacter votre administrateur <br><br>Nous avons détecté que votre mot de passe de compte d'utilisateur n'est pas géré par azure.microsoft.com/. Par conséquent, nous ne pouvons pas réinitialiser automatiquement votre mot de passe. <br><br>Vous devez contacter votre administrateur ou votre équipe de support technique pour obtenir de l'aide. </p>
+              <p>Veuillez contacter votre administrateur <br><br>Nous avons détecté que votre mot de passe de compte d'utilisateur n'est pas géré par Microsoft. Par conséquent, nous ne pouvons pas réinitialiser automatiquement votre mot de passe. <br><br>Vous devez contacter votre administrateur ou votre équipe de support technique pour obtenir de l'aide. </p>
             </td>
             <td>
               <p>Ce message s'affiche parce que votre administrateur gère votre mot de passe dans votre environnement local et ne vous autorise pas à réinitialiser votre mot de passe depuis le lien <b>Votre compte n'est pas accessible</b>. <br><br> Pour réinitialiser votre mot de passe, contactez directement votre administrateur pour obtenir de l'aide et informez-le que vous voulez réinitialiser votre mot de passe à partir d'Office 365 pour qu'il puisse activer cette fonctionnalité pour vous.</p>

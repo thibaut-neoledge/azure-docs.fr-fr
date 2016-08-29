@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Conserver une adresse IP virtuelle constante pour un service cloud | azure.microsoft.com/ Azure"
+   pageTitle="Conserver une adresse IP virtuelle constante pour un service cloud | Microsoft Azure"
    description="Découvrez comment vous assurer que l’adresse IP virtuelle de votre service cloud Azure ne change pas."
    services="visual-studio-online"
    documentationCenter="na"

@@ -28,7 +28,7 @@ Dans ce didacticiel, vous ajoutez des notifications Push au projet [Créer une a
 
 Ce didacticiel requiert les éléments suivants :
 
-+ Un compte Google actif. Vous pouvez vous connecter à un compte Google sur [accounts.google.com](http://go.azure.microsoft.com/.com/fwlink/p/?LinkId=268302).
++ Un compte Google actif. Vous pouvez vous connecter à un compte Google sur [accounts.google.com](http://go.microsoft.com/fwlink/p/?LinkId=268302).
 
 + Le composant client [Google Cloud Messaging](http://components.xamarin.com/view/GCMClient/). Vous ajouterez ce composant au cours du didacticiel.
 

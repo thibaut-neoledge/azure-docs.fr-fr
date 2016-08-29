@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Prise en main du kit de développement logiciel Azure CDN pour Node.js | azure.microsoft.com/ Azure"
+	pageTitle="Prise en main du kit de développement logiciel Azure CDN pour Node.js | Microsoft Azure"
 	description="Apprenez à écrire des applications Node.js pour gérer Azure CDN."
 	services="cdn"
 	documentationCenter="nodejs"
@@ -26,7 +26,7 @@ Vous pouvez utiliser le [kit de développement logiciel Azure CDN pour Node.js](
 
 Pour suivre ce didacticiel, vous devez avoir au préalable installé et configuré [Node.js](http://www.nodejs.org) **4.x.x** ou version ultérieure. Vous pouvez utiliser n’importe quel éditeur de texte pour créer votre application Node.js. Pour écrire ce didacticiel, j’ai utilisé [Visual Studio Code](https://code.visualstudio.com).
 
-> [AZURE.TIP] Le [projet achevé de ce didacticiel](https://code.msdn.azure.microsoft.com/.com/Azure-CDN-SDK-for-Nodejs-c712bc74) est disponible en téléchargement sur MSDN.
+> [AZURE.TIP] Le [projet achevé de ce didacticiel](https://code.msdn.microsoft.com/Azure-CDN-SDK-for-Nodejs-c712bc74) est disponible en téléchargement sur MSDN.
 
 [AZURE.INCLUDE [cdn-app-dev-prep](../../includes/cdn-app-dev-prep.md)]
 
@@ -361,7 +361,7 @@ Pour finir, nous allons supprimer notre profil.
 
 ## Étapes suivantes
 
-Pour voir le projet achevé obtenu à partir de cette procédure pas à pas, [téléchargez l’exemple](https://code.msdn.azure.microsoft.com/.com/Azure-CDN-SDK-for-Nodejs-c712bc74).
+Pour voir le projet achevé obtenu à partir de cette procédure pas à pas, [téléchargez l’exemple](https://code.msdn.microsoft.com/Azure-CDN-SDK-for-Nodejs-c712bc74).
 
 Pour voir la référence du kit de développement logiciel Azure CDN pour Node.js, consultez cette [référence](http://azure.github.io/azure-sdk-for-node/azure-arm-cdn/latest/).
 

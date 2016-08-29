@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Runbook Worker hybride : une tâche de runbook se termine avec l’état suspendu | azure.microsoft.com/ Azure"
+   pageTitle="Runbook Worker hybride : une tâche de runbook se termine avec l’état suspendu | Microsoft Azure"
    description="Causes des problèmes et résolutions en cas d’erreur provoquant la fin de la tâche Runbook Worker hybride."
    services="automation"
    documentationCenter=""
@@ -21,7 +21,7 @@
 
 Le runbook est interrompu peu après la tentative de l’exécuter trois fois. Il existe des conditions susceptibles d’interrompre l’exécution correcte du runbook et le message d’erreur lié n’inclut pas d’informations supplémentaires indiquant pourquoi. Cet article fournit des étapes de dépannage pour des problèmes concernant les échecs d’exécution du runbook worker hybride.
 
-Si le problème lié à Azure n’est pas traité dans cet article, parcourez les forums Azure sur [MSDN et Stack Overflow](https://azure.azure.microsoft.com/.com/support/forums/). Vous pouvez publier votre problème sur ces forums ou sur [Twitter (@AzureSupport)](https://twitter.com/AzureSupport). Vous pouvez également créer une demande de support Azure en sélectionnant **Obtenir de l’aide** sur le site du [support Azure](https://azure.azure.microsoft.com/.com/support/options/).
+Si le problème lié à Azure n’est pas traité dans cet article, parcourez les forums Azure sur [MSDN et Stack Overflow](https://azure.microsoft.com/support/forums/). Vous pouvez publier votre problème sur ces forums ou sur [Twitter (@AzureSupport)](https://twitter.com/AzureSupport). Vous pouvez également créer une demande de support Azure en sélectionnant **Obtenir de l’aide** sur le site du [support Azure](https://azure.microsoft.com/support/options/).
 
 ## Symptôme
 
@@ -57,7 +57,7 @@ Vérifiez tout d’abord que l’ordinateur désigné pour exécuter la fonction
 
 ### Solution
 
-Vérifiez dans le journal des événements **azure.microsoft.com/-SMA** la présence d’un événement correspondant avec la description *Le processus Win32 s’est terminé avec le code [4294967295]*. La cause de cette erreur est que vous n’avez pas configuré l’authentification dans vos runbooks ou que vous n’avez pas spécifié les informations d’identification Exécuter en tant que pour le groupe Worker hybride. Veuillez consulter les [autorisations du Runbook](automation-hybrid-runbook-worker.md#runbook-permissions) pour confirmer que l’authentification a été correctement configurée pour vos Runbooks.
+Vérifiez dans le journal des événements **Microsoft-SMA** la présence d’un événement correspondant avec la description *Le processus Win32 s’est terminé avec le code [4294967295]*. La cause de cette erreur est que vous n’avez pas configuré l’authentification dans vos runbooks ou que vous n’avez pas spécifié les informations d’identification Exécuter en tant que pour le groupe Worker hybride. Veuillez consulter les [autorisations du Runbook](automation-hybrid-runbook-worker.md#runbook-permissions) pour confirmer que l’authentification a été correctement configurée pour vos Runbooks.
 
 
  

@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Gérer les zones DNS avec l’interface CLI | azure.microsoft.com/ Azure" 
+   pageTitle="Gérer les zones DNS avec l’interface CLI | Microsoft Azure" 
    description="Vous pouvez gérer des zones DNS à l’aide de l’interface de ligne de commande Azure. Mise à jour, suppression et création des zones DNS sur Azure DNS" 
    services="dns" 
    documentationCenter="na" 
@@ -25,7 +25,7 @@
 
 Ce guide explique comment gérer vos ressources de zone DNS à l’aide de l’interface de ligne de commande multiplateforme.
 
-Ces instructions utilisent l’interface de ligne de commande azure.microsoft.com/ Azure. Veillez à effectuer une mise à jour vers la version la plus récente de l’interface de ligne de commande Azure (0.9.8 ou version ultérieure) pour utiliser les commandes Azure DNS. Tapez `azure -v` pour vérifier la version de l’interface CLI Azure actuellement installée sur votre ordinateur. Vous pouvez installer l’interface de ligne de commande Azure pour Windows, Linux ou Mac. Pour plus d’informations, consultez la page [Installation de l’interface de ligne de commande Azure](../xplat-cli-install.md).
+Ces instructions utilisent l’interface de ligne de commande Microsoft Azure. Veillez à effectuer une mise à jour vers la version la plus récente de l’interface de ligne de commande Azure (0.9.8 ou version ultérieure) pour utiliser les commandes Azure DNS. Tapez `azure -v` pour vérifier la version de l’interface CLI Azure actuellement installée sur votre ordinateur. Vous pouvez installer l’interface de ligne de commande Azure pour Windows, Linux ou Mac. Pour plus d’informations, consultez la page [Installation de l’interface de ligne de commande Azure](../xplat-cli-install.md).
 
 Azure DNS est un service Azure Resource Manager uniquement. Il ne possède aucune API ASM. Vous devez vérifier que l’interface CLI Azure est configurée pour utiliser le mode Resource Manager. Pour ce faire, utilisez la commande `azure config mode arm`.<BR> Si vous voyez le message « *Erreur : « dns » n’est pas une commande azure* », cela est probablement dû au fait que vous utilisez l’interface CLI Azure en mode ASM et non pas en mode Resource Manager.
 

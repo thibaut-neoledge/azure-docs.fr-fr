@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Configuration de MPIO pour votre appareil StorSimple | azure.microsoft.com/ Azure"
+   pageTitle="Configuration de MPIO pour votre appareil StorSimple | Microsoft Azure"
    description="Décrit comment configurer Multipath I/O (MPIO) pour votre appareil StorSimple connecté à un hôte exécutant Windows Server 2012 R2."
    services="storsimple"
    documentationCenter=""
@@ -17,7 +17,7 @@
 
 # Configuration de Multipath I/O pour votre appareil StorSimple
 
-azure.microsoft.com/ a créé la prise en charge de la fonctionnalité MPIO (Multipath I/O) dans Windows Server pour vous aider à créer des configurations SAN hautement disponibles et tolérantes aux pannes. MPIO utilise les composants de chemin d’accès physique redondants (adaptateurs, câbles et commutateurs) pour créer des chemins d’accès logiques entre le serveur et l’appareil de stockage. En cas de défaillance de composant à l’origine de l’échec du chemin d’accès logique, la logique de gestion multivoie utilise un autre chemin pour l’E/S afin que les applications puissent toujours accéder à leurs données. De plus, selon votre configuration, MPIO peut également améliorer les performances en rééquilibrant la charge sur ces chemins d’accès. Pour plus d’informations, consultez la [Présentation de MPIO](https://technet.azure.microsoft.com/.com/library/cc725907.aspx "Vue d’ensemble et fonctionnalités de MPIO").
+Microsoft a créé la prise en charge de la fonctionnalité MPIO (Multipath I/O) dans Windows Server pour vous aider à créer des configurations SAN hautement disponibles et tolérantes aux pannes. MPIO utilise les composants de chemin d’accès physique redondants (adaptateurs, câbles et commutateurs) pour créer des chemins d’accès logiques entre le serveur et l’appareil de stockage. En cas de défaillance de composant à l’origine de l’échec du chemin d’accès logique, la logique de gestion multivoie utilise un autre chemin pour l’E/S afin que les applications puissent toujours accéder à leurs données. De plus, selon votre configuration, MPIO peut également améliorer les performances en rééquilibrant la charge sur ces chemins d’accès. Pour plus d’informations, consultez la [Présentation de MPIO](https://technet.microsoft.com/library/cc725907.aspx "Vue d’ensemble et fonctionnalités de MPIO").
 
 Pour la haute disponibilité de votre solution StorSimple, MPIO doit être configuré sur votre appareil StorSimple. Lorsque MPIO est installé sur vos serveurs hôtes exécutant Windows Server 2012 R2, les serveurs peuvent tolérer une défaillance de lien, de réseau ou d’interface.
 
@@ -48,12 +48,10 @@ Pour installer cette fonctionnalité sur votre hôte Windows Server, effectuez l
 3. Dans l’Assistant **Ajouter des rôles et fonctionnalités**, procédez comme suit :
 
 	- Sur la page **Avant de commencer**, cliquez sur **Suivant**.
-	- Sur la page **Sélectionner le type d’installation**, acceptez le paramètre par défaut de l’installation **Installation basée sur un rôle ou sur une fonctionnalité**. Cliquez sur **Next**.
-	![Assistant Ajouter des rôles et fonctionnalités 2](./media/storsimple-configure-mpio-windows-server/IC740999.png)
+	- Sur la page **Sélectionner le type d’installation**, acceptez le paramètre par défaut de l’installation **Installation basée sur un rôle ou sur une fonctionnalité**. Cliquez sur **Next**.![Assistant Ajouter des rôles et fonctionnalités 2](./media/storsimple-configure-mpio-windows-server/IC740999.png)
 	- Sur la page **Sélectionner le serveur de destination**, choisissez **Sélectionner un serveur du pool de serveurs**. Votre serveur hôte doit être détecté automatiquement. Cliquez sur **Next**.
 	- Sur la page **Sélectionner des rôles de serveurs**, cliquez sur **Suivant**.
-	- Sur la page **Sélectionner des fonctionnalités**, sélectionnez **Multipath I/O** et cliquez sur **Suivant**.
-	![Assistant Ajouter des rôles et fonctionnalités 5](./media/storsimple-configure-mpio-windows-server/IC741000.png)
+	- Sur la page **Sélectionner des fonctionnalités**, sélectionnez **Multipath I/O** et cliquez sur **Suivant**.![Assistant Ajouter des rôles et fonctionnalités 5](./media/storsimple-configure-mpio-windows-server/IC741000.png)
 	- Sur la page **Confirmer les sélections pour l’installation**, confirmez la sélection, puis sélectionnez **Redémarrer automatiquement le serveur de destination, si nécessaire** tel qu’indiqué ci-dessous. Cliquez sur **Installer**.
 	![Assistant Ajouter des rôles et fonctionnalités 8](./media/storsimple-configure-mpio-windows-server/IC741001.png)
 	- Vous recevrez une notification une fois l’installation terminée. Cliquez sur **Fermer** pour fermer l’Assistant.
@@ -98,7 +96,7 @@ Une fois MPIO configuré sur Windows Server, le ou les volumes créés sur l’a
 7. Dans la boîte de dialogue **Se connecter à la cible**, sélectionnez la case à cocher **Activer la prise en charge de plusieurs chemins d’accès**. Cliquez sur **Avancé**.
 
 8. Dans la boîte de dialogue **Paramètres avancés**, procédez comme suit :
-	- 	 Dans la liste déroulante **Adaptateur local**, sélectionnez **Initiateur azure.microsoft.com/ iSCSI**.
+	- 	 Dans la liste déroulante **Adaptateur local**, sélectionnez **Initiateur Microsoft iSCSI**.
 	- 	 Dans la liste déroulante **IP de l’initiateur**, sélectionnez l’adresse IP de l’hôte.
 	- 	 Dans la liste déroulante **IP du portail cible** , sélectionnez l’adresse IP de l’interface de l’appareil.
 	- 	 Cliquez sur **OK** pour revenir à la boîte de dialogue **Propriétés de l’initiateur iSCSI**.
@@ -106,7 +104,7 @@ Une fois MPIO configuré sur Windows Server, le ou les volumes créés sur l’a
 9. Cliquez sur **Propriétés**. Dans la boîte de dialogue **Propriétés**, cliquez sur **Ajouter une session**.
 10. Dans la boîte de dialogue **Se connecter à la cible**, sélectionnez la case à cocher **Activer la prise en charge de plusieurs chemins d’accès**. Cliquez sur **Avancé**.
 11. Dans la boîte de dialogue **Paramètres avancés** :
-	-  Dans la liste déroulante **Adaptateur local**, sélectionnez Initiateur azure.microsoft.com/ iSCSI.
+	-  Dans la liste déroulante **Adaptateur local**, sélectionnez Initiateur Microsoft iSCSI.
 	-  Dans la liste déroulante **IP de l’initiateur**, sélectionnez l’adresse IP correspondant à l’hôte. Dans ce cas, vous connectez deux interfaces réseau sur l’appareil à une seule interface réseau sur l’hôte. Par conséquent, cette interface est identique à celle fournie pour la première session.
 	-  Dans la liste déroulante **IP du portail cible**, sélectionnez l’adresse IP de la deuxième interface de données activée sur l’appareil.
 	-  Cliquez sur **OK** pour revenir à la boîte de dialogue Propriétés de l’initiateur iSCSI. Vous avez ajouté une deuxième session à la cible.
@@ -151,7 +149,7 @@ La procédure suivante décrit comment ajouter des sessions lorsqu’un appareil
 	- Cliquez sur **Avancé**.
 
 6. Dans la boîte de dialogue **Paramètres avancés** :
-	- Dans la liste déroulante **Adaptateur local**, sélectionnez **Initiateur azure.microsoft.com/ iSCSI**.
+	- Dans la liste déroulante **Adaptateur local**, sélectionnez **Initiateur Microsoft iSCSI**.
 	- Dans la liste déroulante **IP de l’initiateur**, sélectionnez l’adresse IP de l’hôte.
 	- Dans la liste déroulante **IP du portail cible**, sélectionnez l’adresse IP de l’interface de données activée sur l’appareil.
 	- Cliquez sur **OK** pour revenir à la boîte de dialogue Propriétés de l’initiateur iSCSI.
@@ -161,7 +159,7 @@ La procédure suivante décrit comment ajouter des sessions lorsqu’un appareil
 8. Dans la boîte de dialogue **Se connecter à la cible**, sélectionnez la case à cocher **Activer la prise en charge de plusieurs chemins d’accès**, puis cliquez sur **Avancé**.
 
 9. Dans la boîte de dialogue **Paramètres avancés** :
-	1. Dans la liste déroulante **Adaptateur local**, sélectionnez **Initiateur azure.microsoft.com/ iSCSI**.
+	1. Dans la liste déroulante **Adaptateur local**, sélectionnez **Initiateur Microsoft iSCSI**.
 	2. Dans la liste déroulante **IP de l’initiateur**, sélectionnez l’adresse IP correspondant à la deuxième interface sur l’hôte.
 	3. Dans la liste déroulante **IP du portail cible**, sélectionnez l’adresse IP de la deuxième interface de données activée sur l’appareil.
 	4. Cliquez sur **OK** pour revenir à la boîte de dialogue **Propriétés de l’initiateur iSCSI**. Vous avez à présent ajouté une deuxième session à la cible.

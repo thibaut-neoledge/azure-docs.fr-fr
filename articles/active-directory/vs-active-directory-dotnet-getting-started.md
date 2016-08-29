@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Prise en main d’Azure Active Directory et des services connectés de Visual Studio (projets MVC) |azure.microsoft.com/ Azure" 
+	pageTitle="Prise en main d’Azure Active Directory et des services connectés de Visual Studio (projets MVC) |Microsoft Azure" 
 	description="Comment prendre en main Azure Active Directory dans les projets MVC après s’être connecté à un annuaire Azure AD ou avoir créé un annuaire Azure AD à l’aide des services connectés de Visual Studio" 
 	services="active-directory" 
 	documentationCenter="" 
@@ -75,6 +75,6 @@ Pour ajouter des contrôles SignIn/SignOut à l’une de vos vues, vous pouvez u
     &lt;/html>
 </pre>
 
-[En savoir plus sur Azure Active Directory](https://azure.azure.microsoft.com/.com/services/active-directory/)
+[En savoir plus sur Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
 
 <!---HONumber=AcomDC_0817_2016-->

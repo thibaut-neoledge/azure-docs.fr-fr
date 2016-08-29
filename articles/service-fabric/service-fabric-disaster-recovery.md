@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Récupération d’urgence Azure Service Fabric | azure.microsoft.com/ Azure"
+   pageTitle="Récupération d’urgence Azure Service Fabric | Microsoft Azure"
    description="Azure Service Fabric offre les fonctionnalités nécessaires pour gérer tous les types d’incidents. Cet article décrit les types d’incidents qui peuvent se produire et comment les gérer."
    services="service-fabric"
    documentationCenter=".net"
@@ -92,7 +92,7 @@ Parmi les causes de perte de données, les erreurs de code dans les services, le
 ## Étapes suivantes
 
 - Découvrez comment simuler différentes défaillances à l’aide de [l’infrastructure de testabilité](service-fabric-testability-overview.md).
-- Consultez les autres ressources de récupération d’urgence et de haute disponibilité. azure.microsoft.com/ a publié de nombreuses rubriques d’aide sur ces sujets. Même si certains de ces documents font référence à des techniques propres à d’autres produits, ils contiennent un grand nombre de bonnes pratiques générales que vous pouvez appliquer aussi dans le contexte de Service Fabric :
+- Consultez les autres ressources de récupération d’urgence et de haute disponibilité. Microsoft a publié de nombreuses rubriques d’aide sur ces sujets. Même si certains de ces documents font référence à des techniques propres à d’autres produits, ils contiennent un grand nombre de bonnes pratiques générales que vous pouvez appliquer aussi dans le contexte de Service Fabric :
  - [Liste de contrôle de disponibilité](../best-practices-availability-checklist.md)
  - [Exécution d’un exercice de récupération d’urgence](../sql-database/sql-database-disaster-recovery-drills.md)
  - [Récupération d’urgence et haute disponibilité pour les applications Azure][dr-ha-guide]
@@ -100,10 +100,10 @@ Parmi les causes de perte de données, les erreurs de code dans les services, le
 
 <!-- External links -->
 
-[repair-partition-ps]: https://msdn.azure.microsoft.com/.com/library/mt163522.aspx
-[azure-status-dashboard]: https://azure.azure.microsoft.com/.com/status/
-[azure-regions]: https://azure.azure.microsoft.com/.com/regions/
-[dr-ha-guide]: https://msdn.azure.microsoft.com/.com/library/azure/dn251004.aspx
+[repair-partition-ps]: https://msdn.microsoft.com/library/mt163522.aspx
+[azure-status-dashboard]: https://azure.microsoft.com/status/
+[azure-regions]: https://azure.microsoft.com/regions/
+[dr-ha-guide]: https://msdn.microsoft.com/library/azure/dn251004.aspx
 
 
 <!-- Images -->

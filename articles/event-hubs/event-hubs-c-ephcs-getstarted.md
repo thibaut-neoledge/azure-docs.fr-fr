@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Prise en main d’Event Hubs en C et C# | azure.microsoft.com/ Azure"
+	pageTitle="Prise en main d’Event Hubs en C et C# | Microsoft Azure"
 	description="Suivez ce didacticiel pour commencer à utiliser Azure Event Hubs, à envoyer des événements en C et à en recevoir en C# à l’aide d’EventProcessorHost."
 	services="event-hubs"
 	documentationCenter=""
@@ -32,9 +32,9 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
 + Un environnement de développement en C. Pour ce didacticiel, nous partirons du principe que la pile GCC se trouve sur une [machine virtuelle Linux Azure](../virtual-machines/virtual-machines-linux-quick-create-cli.md) dotée du système d’exploitation Ubuntu 14.04. Vous trouverez des instructions pour d’autres environnements en consultant les liens externes.
 
-+ azure.microsoft.com/ Visual Studio Express pour Windows
++ Microsoft Visual Studio Express pour Windows
 
-+ Un compte Azure actif. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.azure.microsoft.com/.com/pricing/free-trial/).
++ Un compte Azure actif. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 [AZURE.INCLUDE [event-hubs-create-event-hub](../../includes/event-hubs-create-event-hub.md)]
 
@@ -69,10 +69,10 @@ Vous avez conçu une application opérationnelle qui crée un hub d’événemen
 
 <!-- Links -->
 [Azure classic portal]: https://manage.windowsazure.com/
-[hôte du processeur d’événements]: https://www.nuget.org/packages/azure.microsoft.com/.Azure.ServiceBus.EventProcessorHost
+[hôte du processeur d’événements]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
 [Vue d’ensemble des hubs d’événements]: event-hubs-overview.md
-[exemple d'application complet qui utilise des hubs d’événements]: https://code.msdn.azure.microsoft.com/.com/Service-Bus-Event-Hub-286fd097
-[montée en puissance du traitement des événements avec Event Hubs]: https://code.msdn.azure.microsoft.com/.com/Service-Bus-Event-Hub-45f43fc3
+[exemple d'application complet qui utilise des hubs d’événements]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
+[montée en puissance du traitement des événements avec Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
 [solution de messages de file d'attente]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
 
 <!---HONumber=AcomDC_0817_2016-->

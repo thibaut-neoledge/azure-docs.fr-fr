@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Quels sont les différents composants disponibles avec un cluster HDInsight ? | azure.microsoft.com/ Azure"
+	pageTitle="Quels sont les différents composants disponibles avec un cluster HDInsight ? | Microsoft Azure"
 	description="HDInsight prend en charge plusieurs composants et versions de cluster Hadoop pouvant être déployés. Découvrez les versions de distributions prises en charge Hadoop et HortonWorks Data Platform (HDP)."
 	services="hdinsight"
 	editor="cgronlun"
@@ -30,7 +30,7 @@ Azure HDInsight propose deux catégories d’offres de cloud Big Data : **Standa
 
 | Fonctionnalité HDInsight Premium | Description |
 |--------------|---------------|
-| azure.microsoft.com/ R Server (version préliminaire) | azure.microsoft.com/ R Server est la plateforme d’analyse d’entreprise la plus largement déployée pour le langage R évolutif. Le langage R prend en charge une variété de statistiques de Big Data, de modélisation prédictive et de capacités Machine Learning. Dans le cadre de l’édition Premium de HDInsight, vous pouvez maintenant créer un cluster HDInsight avec R Server prêt à être utilisé avec des modèles et des jeux de données volumineux. Cette nouvelle fonctionnalité fournit aux scientifiques de données et aux statisticiens une interface R familière capable d’évoluer sur demande via HDInsight, sans les tâches de configuration du cluster et de maintenance. <br> <br>Pour plus d’informations, consultez la section [Prise en main de R Server sur HDInsight](hdinsight-hadoop-r-server-get-started.md).
+| Microsoft R Server (version préliminaire) | Microsoft R Server est la plateforme d’analyse d’entreprise la plus largement déployée pour le langage R évolutif. Le langage R prend en charge une variété de statistiques de Big Data, de modélisation prédictive et de capacités Machine Learning. Dans le cadre de l’édition Premium de HDInsight, vous pouvez maintenant créer un cluster HDInsight avec R Server prêt à être utilisé avec des modèles et des jeux de données volumineux. Cette nouvelle fonctionnalité fournit aux scientifiques de données et aux statisticiens une interface R familière capable d’évoluer sur demande via HDInsight, sans les tâches de configuration du cluster et de maintenance. <br> <br>Pour plus d’informations, consultez la section [Prise en main de R Server sur HDInsight](hdinsight-hadoop-r-server-get-started.md).
 
 ### Types de cluster pris en charge avec l’édition Premium
 
@@ -47,7 +47,7 @@ Ce tableau sera mis à jour au fur et à mesure que des types de cluster supplé
 
 ### Tarifs et contrat SLA
 
-Pour plus d’informations sur la tarification et le contrat SLA pour l’édition Premium de HDInsight, consultez [Tarification HDInsight](https://azure.azure.microsoft.com/.com/pricing/details/hdinsight/).
+Pour plus d’informations sur la tarification et le contrat SLA pour l’édition Premium de HDInsight, consultez [Tarification HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
 ## Composants Hadoop disponibles avec différentes versions de HDInsight
 
@@ -85,7 +85,7 @@ Pour d’autres notes de publication sur les dernières versions de HDInsight, c
 Le tableau suivant répertorie les versions de HDInsight actuellement disponibles, les versions correspondantes de la plateforme de données Hortonworks utilisées par ces dernières, ainsi que leurs dates de lancement. La date d’expiration de la prise en charge et la date d’obsolescence sont également indiquées. Notez les points suivants :
 
 * Seuls les clusters à haute disponibilité avec deux nœuds principaux sont déployés par défaut pour les clusters HDInsight 2.1 et versions ultérieures. Ils ne sont pas disponibles pour les clusters HDInsight 1.6.
-* Une fois que la prise en charge a expiré pour une version particulière, elle n’est plus disponible par l’intermédiaire du portail Azure. Le tableau suivant indique quelles versions sont disponibles sur le portail Azure Classic. Les versions des clusters resteront disponibles avec le paramètre `Version` de la commande [New-AzureRmHDInsightCluster](https://msdn.azure.microsoft.com/.com/library/mt619331.aspx) Windows PowerShell et le Kit de développement logiciel (SDK) .NET jusqu’à leur date d’obsolescence.
+* Une fois que la prise en charge a expiré pour une version particulière, elle n’est plus disponible par l’intermédiaire du portail Azure. Le tableau suivant indique quelles versions sont disponibles sur le portail Azure Classic. Les versions des clusters resteront disponibles avec le paramètre `Version` de la commande [New-AzureRmHDInsightCluster](https://msdn.microsoft.com/library/mt619331.aspx) Windows PowerShell et le Kit de développement logiciel (SDK) .NET jusqu’à leur date d’obsolescence.
 
 Version de HDInsight|Version de HDP|SYSTÈME D’EXPLOITATION DE LA MACHINE VIRTUELLE|Haute disponibilité|Date de lancement|Disponible sur le portail Azure|Date d'expiration du support|Date d'obsolescence
 ---|---|---|---|---|---|---|---
@@ -101,7 +101,7 @@ HDI 1.6|HDP 1.1||Non|10/28/2013|Oui|04/26/2014|05/31/2015
 
 ### Contrat de niveau de service pour les versions de cluster HDInsight
 
-Le contrat de niveau de service est défini en termes de « fenêtre de support ». Une fenêtre de support désigne la durée pendant laquelle une version de cluster HDInsight est prise en charge par le support technique et le service clientèle azure.microsoft.com/. Un cluster HDInsight est en dehors de la fenêtre de support si la **Date d'expiration du support** correspondant à la version de ce cluster est postérieure à la date actuelle. Le tableau ci-dessus contient une liste des versions de cluster HDInsight prises en charge. La date d'expiration du support pour une version donnée de HDInsight (lorsqu'une version X+1 plus récente est disponible) est calculée comme suit, la date la plus tardive prévalant :
+Le contrat de niveau de service est défini en termes de « fenêtre de support ». Une fenêtre de support désigne la durée pendant laquelle une version de cluster HDInsight est prise en charge par le support technique et le service clientèle Microsoft. Un cluster HDInsight est en dehors de la fenêtre de support si la **Date d'expiration du support** correspondant à la version de ce cluster est postérieure à la date actuelle. Le tableau ci-dessus contient une liste des versions de cluster HDInsight prises en charge. La date d'expiration du support pour une version donnée de HDInsight (lorsqu'une version X+1 plus récente est disponible) est calculée comme suit, la date la plus tardive prévalant :
 
 - Formule 1 : ajoutez 180 jours à la date de lancement du cluster HDInsight version X.
 - Formule 2 : ajoutez 90 jours à la date à laquelle le cluster HDInsight version X+1 (la version qui suit la version X) est mis à disposition dans le portail.
@@ -136,7 +136,7 @@ La **Date d’obsolescence** est la date après laquelle la version du cluster n
 
 [image-hdi-versioning-versionscreen]: ./media/hdinsight-component-versioning/hdi-versioning-version-screen.png
 
-[wa-forums]: http://azure.azure.microsoft.com/.com/support/forums/
+[wa-forums]: http://azure.microsoft.com/support/forums/
 
 [connect-excel-with-hive-ODBC]: hdinsight-connect-excel-hive-ODBC-driver.md
 

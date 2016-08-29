@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Notes de publication pour les composants Hadoop sur Azure HDInsight | azure.microsoft.com/ Azure"
+	pageTitle="Notes de publication pour les composants Hadoop sur Azure HDInsight | Microsoft Azure"
 	description="Dernières notes de publication et versions des composants Hadoop pour Azure HDInsight. Obtenez des conseils de développement et des informations détaillées pour Hadoop, Apache Storm et HBase."
 	services="hdinsight"
 	documentationCenter=""
@@ -22,7 +22,7 @@
 
 ## Notes relatives à la version du 17/08/2016 de R Server sur HDInsight
 
-• R Server 8.0.5 – principalement une version de résolution d’un bogue. Consultez les [notes de publication R Server](https://msdn.azure.microsoft.com/.com/azure.microsoft.com/-r/notes/r-server-notes) pour plus d’informations. • Package AzureML sur le nœud edge – [ce package R](https://cran.r-project.org/web/packages/AzureML/vignettes/getting_started.html) permet de publier et d’utiliser des modèles R en tant que services web Azure ML. Consultez la section [« Faire fonctionner un modèle »](hdinsight-hadoop-r-server-overview.md#operationalize-a-model) de notre article [« Vue d’ensemble : R Server sur HDInsight »](hdinsight-hadoop-r-server-overview.md) pour plus d’informations. • Dépendances Linux des [100 packages R les plus populaires](https://github.com/metacran/cranlogs) – ces dépendances de packages Linux sont désormais préinstallées. • Option permettant d’utiliser le référentiel CRAN lors de l’ajout de packages R aux nœuds de données. Consultez la section [« Installer des packages R »](hdinsight-hadoop-r-server-get-started.md#install-r-packages) de notre article [« Commencer à utiliser R Server sur HDInsight »](hdinsight-hadoop-r-server-get-started.md) pour plus d’informations. • Fiabilité améliorée de la configuration de R Server lors de la création des clusters.
+• R Server 8.0.5 – principalement une version de résolution d’un bogue. Consultez les [notes de publication R Server](https://msdn.microsoft.com/microsoft-r/notes/r-server-notes) pour plus d’informations. • Package AzureML sur le nœud edge – [ce package R](https://cran.r-project.org/web/packages/AzureML/vignettes/getting_started.html) permet de publier et d’utiliser des modèles R en tant que services web Azure ML. Consultez la section [« Faire fonctionner un modèle »](hdinsight-hadoop-r-server-overview.md#operationalize-a-model) de notre article [« Vue d’ensemble : R Server sur HDInsight »](hdinsight-hadoop-r-server-overview.md) pour plus d’informations. • Dépendances Linux des [100 packages R les plus populaires](https://github.com/metacran/cranlogs) – ces dépendances de packages Linux sont désormais préinstallées. • Option permettant d’utiliser le référentiel CRAN lors de l’ajout de packages R aux nœuds de données. Consultez la section [« Installer des packages R »](hdinsight-hadoop-r-server-get-started.md#install-r-packages) de notre article [« Commencer à utiliser R Server sur HDInsight »](hdinsight-hadoop-r-server-get-started.md) pour plus d’informations. • Fiabilité améliorée de la configuration de R Server lors de la création des clusters.
 
 
 ## Notes pour la version du 01/08/2016 de HDInsight
@@ -183,7 +183,7 @@ Cette version contient les mises à jour suivantes.
 |-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
 | Version 3.4 de HDInsight ajoutée et versions de HDP mises à jour pour tous les clusters HDInsight | Avec cette version, nous avons ajouté HDInsight version 3.4 (basée sur HDP 2.4) et avons également mis à jour d’autres versions de HDP. Les notes de publication de HDP 2.4 sont disponibles [ici](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.4.0/bk_HDP_RelNotes/content/ch_relnotes_v240.html). De plus amples informations sur les versions de HDInsight sont disponibles [ici](hdinsight-component-versioning.md).| de diffusion en continu | Tous les clusters Linux| N/A
 | HDInsight Premium | HDInsight est désormais disponible en deux catégories : Standard et Premium. HDInsight Premium est actuellement en version préliminaire, disponible uniquement pour les clusters Hadoop et Spark sur Linux. Vous trouverez plus d’informations [ici](hdinsight-component-versioning.md#hdinsight-standard-and-hdinsight-premium).| de diffusion en continu | Hadoop et Spark sur Linux| N/A
-| azure.microsoft.com/ R Server | HDInsight Premium fournit azure.microsoft.com/ R Server qui peut être inclus avec les clusters Hadoop et Spark sur Linux. Pour plus d’informations, consultez [Vue d’ensemble : R Server sur HDInsight](hdinsight-hadoop-r-server-overview.md).| de diffusion en continu | Hadoop et Spark sur Linux| N/A
+| Microsoft R Server | HDInsight Premium fournit Microsoft R Server qui peut être inclus avec les clusters Hadoop et Spark sur Linux. Pour plus d’informations, consultez [Vue d’ensemble : R Server sur HDInsight](hdinsight-hadoop-r-server-overview.md).| de diffusion en continu | Hadoop et Spark sur Linux| N/A
 | Spark 1.6.0 | Les clusters HDInsight 3.4 incluent désormais Spark 1.6.0| de diffusion en continu | Clusters Spark sur Linux| N/A
 | Améliorations du Bloc-notes Jupyter | Les blocs-notes Jupyter disponibles avec les clusters Spark fournissent désormais des noyaux Spark supplémentaires. Ils incluent également des améliorations comme l’utilisation de %%magic, la visualisation automatique et l’intégration avec les bibliothèques de visualisation Python (par exemple, matplotlib). Pour plus d’informations, consultez [Noyaux disponibles pour les blocs-notes Jupyter](hdinsight-apache-spark-jupyter-notebook-kernels.md). | de diffusion en continu | Clusters Spark sur Linux | N/A
 
@@ -1307,7 +1307,7 @@ Cette version comprend les nouveautés suivantes (fonctions, mises à jour de co
 <p>**Solutions opérationnelles sur vos données**&#160;:<br>
 Nous avons créé des tâches pour certains des scénarios d’analyse de données les plus courants afin de fournir un point de départ pour créer vos propres solutions. Vous pouvez utiliser vos propres données avec la tâche pour savoir comment elles fonctionnent. Lorsque vous êtes prêt, mettez en pratique ce que vous avez appris afin de créer votre propre solution sur la base de la tâche préconfigurée.</p>
 <p>**Solutions opérationnelles sur les exemples de données**&#160;:<br>
-Découvrez comment utiliser HDInsight en parcourant des scénarios de base, tels que l’analyse de journaux web et de données de capteur. Vous y apprendrez à utiliser HDInsight pour analyser de telles données et à connecter d’autres applications et services à ces données. La visualisation de données en se connectant à azure.microsoft.com/ Excel illustre parfaitement la puissance de cette méthode.</p></td>
+Découvrez comment utiliser HDInsight en parcourant des scénarios de base, tels que l’analyse de journaux web et de données de capteur. Vous y apprendrez à utiliser HDInsight pour analyser de telles données et à connecter d’autres applications et services à ces données. La visualisation de données en se connectant à Microsoft Excel illustre parfaitement la puissance de cette méthode.</p></td>
 <td>Console de requête</td>
 <td>Hadoop</td>
 <td>N/A</td>
@@ -1410,7 +1410,7 @@ Pour plus d’informations sur les paramètres de configuration de mémoire util
 
 En ce qui concerne Azure PowerShell et le message d’erreur du Kit de développement logiciel (SDK) HDInsight : « *Le cluster n’est pas configuré pour l’accès aux services HTTP* » :
 
-* Cette erreur est un [problème de compatibilité](https://social.msdn.azure.microsoft.com/.com/Forums/azure/a7de016d-8de1-4385-b89e-d2e7a1a9d927/hdinsight-powershellsdk-error-cluster-is-not-configured-for-http-services-access?forum=hdinsight) connu pouvant survenir en raison d’une différence entre la version du Kit de développement logiciel (SDK) HDInsight ou d’Azure PowerShell et la version du cluster. Les clusters créés le 15/08 ou ultérieurement prennent en charge la nouvelle capacité d’approvisionnement dans les réseaux virtuels. Mais cette capacité n’est pas interprétée correctement par les versions antérieures du Kit de développement logiciel (SDK) HDInsight ou Azure PowerShell. Il en résulte un échec dans certaines opérations de soumission de tâches. Si vous utilisez des API du Kit de développement logiciel (SDK) HDInsight ou des applets de commande Azure PowerShell **Use-AzureRmHDInsightCluster** ou **Invoke-AzureRmHDInsightHiveJob** pour envoyer des tâches, ces opérations peuvent échouer avec le message d’erreur « *Cluster <nom du cluster> is not configured for HTTP services access (Le cluster <nom du cluster> n’est pas configuré pour l’accès aux services HTTP)* ». Ou, en fonction de l’opération, vous pouvez recevoir d’autres types de message d’erreur tels que « *Impossible de se connecter au cluster* ».
+* Cette erreur est un [problème de compatibilité](https://social.msdn.microsoft.com/Forums/azure/a7de016d-8de1-4385-b89e-d2e7a1a9d927/hdinsight-powershellsdk-error-cluster-is-not-configured-for-http-services-access?forum=hdinsight) connu pouvant survenir en raison d’une différence entre la version du Kit de développement logiciel (SDK) HDInsight ou d’Azure PowerShell et la version du cluster. Les clusters créés le 15/08 ou ultérieurement prennent en charge la nouvelle capacité d’approvisionnement dans les réseaux virtuels. Mais cette capacité n’est pas interprétée correctement par les versions antérieures du Kit de développement logiciel (SDK) HDInsight ou Azure PowerShell. Il en résulte un échec dans certaines opérations de soumission de tâches. Si vous utilisez des API du Kit de développement logiciel (SDK) HDInsight ou des applets de commande Azure PowerShell **Use-AzureRmHDInsightCluster** ou **Invoke-AzureRmHDInsightHiveJob** pour envoyer des tâches, ces opérations peuvent échouer avec le message d’erreur « *Cluster <nom du cluster> is not configured for HTTP services access (Le cluster <nom du cluster> n’est pas configuré pour l’accès aux services HTTP)* ». Ou, en fonction de l’opération, vous pouvez recevoir d’autres types de message d’erreur tels que « *Impossible de se connecter au cluster* ».
 
 * Ces problèmes de compatibilité sont résolus dans les dernières versions du Kit de développement logiciel (SDK) HDInsight et Azure PowerShell. Nous vous recommandons de mettre à jour le Kit de développement logiciel (SDK) HDInsight vers la version 1.3.1.6 ou ultérieure et les outils Azure PowerShell vers la version 0.8.8 ou ultérieure. Vous pouvez accéder au dernier Kit de développement logiciel HDInsight à partir de [](http://nuget.codeplex.com/wikipage?title=Getting%20Started) et aux outils Azure PowerShell les plus récents sur la page [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md).
 
@@ -1444,7 +1444,7 @@ En ce qui concerne Azure PowerShell et le message d’erreur du Kit de développ
 
 Vous pouvez rencontrer une erreur de Kit de développement logiciel (SDK) HDInsight ou Azure PowerShell dont le message est « Le cluster <nom du cluster> n’est pas configuré pour l’accès aux services HTTP » (ou, en fonction de l’opération, d’autres messages comme : « Impossible de se connecter au cluster ») en raison d’une différence de version entre le Kit de développement logiciel (SDK) HDInsight ou Azure PowerShell et un cluster. Les clusters créés le 15/08 ou ultérieurement prennent en charge la nouvelle capacité d’approvisionnement dans les réseaux virtuels. Cette capacité n’est pas interprétée correctement par les versions antérieures du Kit de développement logiciel (SDK) HDinsight ou Azure PowerShell, ce qui entraîne des défaillances d’opérations d’envoi de tâche. Si vous utilisez des API de Kit de développement logiciel (SDK) HDInsight ou des applets de commande PowerShell (comme Use-AzureRmHDInsightCluster ou Invoke-AzureRmHDInsightHiveJob) pour envoyer des tâches, il est possible que ces opérations échouent en affichant l’un des messages d’erreur décrits plus haut.
 
-Ces problèmes de compatibilité sont résolus dans les dernières versions du Kit de développement logiciel (SDK) HDInsight et Azure PowerShell. Nous vous recommandons de mettre à jour le Kit de développement logiciel (SDK) HDInsight vers la version 1.3.1.6 ou ultérieure et les outils Azure PowerShell vers la version 0.8.8 ou ultérieure. Vous pouvez accéder au Kit de développement logiciel (SDK) HDInsight le plus récent depuis [NuGet][nuget-link]. Vous pouvez accéder à Azure PowerShell Tools à l’aide de [azure.microsoft.com/ Web Platform Installer][webpi-link].
+Ces problèmes de compatibilité sont résolus dans les dernières versions du Kit de développement logiciel (SDK) HDInsight et Azure PowerShell. Nous vous recommandons de mettre à jour le Kit de développement logiciel (SDK) HDInsight vers la version 1.3.1.6 ou ultérieure et les outils Azure PowerShell vers la version 0.8.8 ou ultérieure. Vous pouvez accéder au Kit de développement logiciel (SDK) HDInsight le plus récent depuis [NuGet][nuget-link]. Vous pouvez accéder à Azure PowerShell Tools à l’aide de [Microsoft Web Platform Installer][webpi-link].
 
 
 ## Notes pour la version du 28/07/14
@@ -1453,7 +1453,7 @@ Ces problèmes de compatibilité sont résolus dans les dernières versions du K
 	* Est de l'Asie
 	* États-Unis - partie centrale septentrionale
 	* Centre-Sud des États-Unis
-* Suppression en cours de HDInsight version 1.6 (HDP 1.1 et Hadoop 1.0.3) et de HDInsight version 2.1 (HDP 1.3 et Hadoop 1.2) du portail Azure. Vous pouvez continuer à créer des clusters Hadoop pour ces versions avec l’applet de commande Azure PowerShell [New-AzureRmHDInsightCluster](http://msdn.azure.microsoft.com/.com/library/dn593744.aspx) ou avec le [Kit de développement logiciel (SDK) HDInsight](http://msdn.azure.microsoft.com/.com/library/azure/dn469975.aspx). Pour plus d'informations, consultez la page [Contrôle de version des composants HDInsight](hdinsight-component-versioning.md).
+* Suppression en cours de HDInsight version 1.6 (HDP 1.1 et Hadoop 1.0.3) et de HDInsight version 2.1 (HDP 1.3 et Hadoop 1.2) du portail Azure. Vous pouvez continuer à créer des clusters Hadoop pour ces versions avec l’applet de commande Azure PowerShell [New-AzureRmHDInsightCluster](http://msdn.microsoft.com/library/dn593744.aspx) ou avec le [Kit de développement logiciel (SDK) HDInsight](http://msdn.microsoft.com/library/azure/dn469975.aspx). Pour plus d'informations, consultez la page [Contrôle de version des composants HDInsight](hdinsight-component-versioning.md).
 * Changements concernant Hortonworks Data Platform (HDP) dans cette version :
 
 <table border="1">
@@ -1497,7 +1497,7 @@ Hortonworks a publié une ventilation détaillée des améliorations apportées 
 Pour plus d’informations sur l’utilisation de Hive avec Tez, consultez [Hive sur Tez](https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez).
 
 ###Disponibilité générale
-Avec le lancement de HDInsight sur Hadoop 2.2, azure.microsoft.com/ a fait en sorte que HDInsight soit disponible dans les principales régions où Azure est disponible. Plus précisément, l’Europe de l’Ouest et le Sud-Est asiatique ont été mis en ligne. Cela permet aux clients de rechercher des clusters dans un centre de données proche et, potentiellement, dans une zone avec des exigences de conformité similaires.
+Avec le lancement de HDInsight sur Hadoop 2.2, Microsoft a fait en sorte que HDInsight soit disponible dans les principales régions où Azure est disponible. Plus précisément, l’Europe de l’Ouest et le Sud-Est asiatique ont été mis en ligne. Cela permet aux clients de rechercher des clusters dans un centre de données proche et, potentiellement, dans une zone avec des exigences de conformité similaires.
 
 
 ###À faire et ne pas faire entre les versions de clusters
@@ -1642,7 +1642,7 @@ Les changements de version suivants ont eu lieu entre HDInsight 2.x (HDP1.x) et
 
 
 ### Pilotes
-Le pilote JDBC pour SQL Server est utilisé en interne par HDInsight et n’est pas employé pour les opérations externes. Si vous voulez vous connecter à HDInsight avec ODBC, utilisez le pilote ODBC Hive de azure.microsoft.com/. Pour plus d’informations, consultez la page [Connexion d’Excel à HDInsight avec le pilote ODBC Hive de azure.microsoft.com/](../../articles/hdinsight/hdinsight-connect-excel-hive-odbc-driver.md).
+Le pilote JDBC pour SQL Server est utilisé en interne par HDInsight et n’est pas employé pour les opérations externes. Si vous voulez vous connecter à HDInsight avec ODBC, utilisez le pilote ODBC Hive de Microsoft. Pour plus d’informations, consultez la page [Connexion d’Excel à HDInsight avec le pilote ODBC Hive de Microsoft](../../articles/hdinsight/hdinsight-connect-excel-hive-odbc-driver.md).
 
 
 ### Résolution des bogues
@@ -1676,9 +1676,9 @@ Les notes de publication des plateformes de données Hortonworks (HDP) utilisée
 
 [hdp-1-1-0]: http://docs.hortonworks.com/HDPDocuments/HDP1/HDP-Win-1.1/bk_releasenotes_HDP-Win/content/ch_relnotes-hdp-win-1.1.0_1.html
 
-[nuget-link]: https://www.nuget.org/packages/azure.microsoft.com/.WindowsAzure.Management.HDInsight/
+[nuget-link]: https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.HDInsight/
 
-[webpi-link]: http://go.azure.microsoft.com/.com/?linkid=9811175&clcid=0x409
+[webpi-link]: http://go.microsoft.com/?linkid=9811175&clcid=0x409
 
 [hdinsight-install-spark]: ../hdinsight-hadoop-spark-install/
 [hdinsight-r-scripts]: ../hdinsight-hadoop-r-scripts/

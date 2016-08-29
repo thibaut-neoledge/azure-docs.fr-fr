@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Configuration d’alertes Azure à envoyer à d’autres systèmes | azure.microsoft.com/ Azure"
+	pageTitle="Configuration d’alertes Azure à envoyer à d’autres systèmes | Microsoft Azure"
 	description="Rediriger des alertes Azure vers d’autres systèmes non-Azure"
 	authors="kamathashwin"
 	manager=""
@@ -45,7 +45,7 @@ L’opération POST contient le schéma et la charge utile JSON suivants pour to
 "status": "Activated",
 "context": {
             "timestamp": "2015-08-14T22:26:41.9975398Z",
-            "id": "/subscriptions/s1/resourceGroups/useast/providers/azure.microsoft.com/.insights/alertrules/ruleName1",
+            "id": "/subscriptions/s1/resourceGroups/useast/providers/microsoft.insights/alertrules/ruleName1",
             "name": "ruleName1",
             "description": "some description",
             "conditionType": "Metric",
@@ -61,10 +61,10 @@ L’opération POST contient le schéma et la charge utile JSON suivants pour to
             "subscriptionId": "s1",
             "resourceGroupName": "useast",                                
             "resourceName": "mysite1",
-            "resourceType": "azure.microsoft.com/.foo/sites",
-            "resourceId": "/subscriptions/s1/resourceGroups/useast/providers/azure.microsoft.com/.foo/sites/mysite1",
+            "resourceType": "microsoft.foo/sites",
+            "resourceId": "/subscriptions/s1/resourceGroups/useast/providers/microsoft.foo/sites/mysite1",
             "resourceRegion": "centralus",
-            "portalLink": "https://portal.azure.com/#resource/subscriptions/s1/resourceGroups/useast/providers/azure.microsoft.com/.foo/sites/mysite1"
+            "portalLink": "https://portal.azure.com/#resource/subscriptions/s1/resourceGroups/useast/providers/microsoft.foo/sites/mysite1"
 },
 "properties": {
               "key1": "value1",
@@ -85,11 +85,11 @@ L’opération POST contient le schéma et la charge utile JSON suivants pour to
 |conditionType |O |"Metric", "Event" |Deux types d’alertes sont pris en charge. L’un est basé sur une métrique, l’autre sur un événement. À l’avenir, comme nous prendrons en charge les alertes liées aux événements, utilisez cette valeur pour vérifier si l’alerte est basée sur une métrique ou sur un événement.|
 |condition |O | |Les champs à vérifier associés à ce champ dépendent du champ conditionType.|
 |metricName |Pour les alertes de métrique | |Nom de la métrique qui définit ce que la règle surveille|
-|metricUnit |Pour les alertes de métrique |"Bytes", "BytesPerSecond" , "Count" , "CountPerSecond" , "Percent", "Seconds"|	 Unité autorisée dans la métrique Valeurs autorisées : https://msdn.azure.microsoft.com/.com/library/azure.microsoft.com/.azure.insights.models.unit.aspx|
+|metricUnit |Pour les alertes de métrique |"Bytes", "BytesPerSecond" , "Count" , "CountPerSecond" , "Percent", "Seconds"|	 Unité autorisée dans la métrique Valeurs autorisées : https://msdn.microsoft.com/library/microsoft.azure.insights.models.unit.aspx|
 |metricValue |Pour les alertes de métrique | |Valeur réelle de la métrique qui a provoqué l’alerte|
 |threshold |Pour les alertes de métrique | |Valeur de seuil qui active l’alerte|
 |windowSize |Pour les alertes de métrique | |Période de temps qui est utilisée pour surveiller l’activité d’alerte en fonction du seuil. Doit être comprise entre 5 minutes et 1 jour. Le format de la durée répond à la norme ISO 8601.|
-|timeAggregation |Pour les alertes de métrique |"Average", "Last" , "Maximum" , "Minimum" , "None", "Total" |	Détermine la façon dont les données collectées doivent être combinées au fil du temps. La valeur par défaut est Average. Valeurs autorisées : https://msdn.azure.microsoft.com/.com/library/azure.microsoft.com/.azure.insights.models.aggregationtype.aspx|
+|timeAggregation |Pour les alertes de métrique |"Average", "Last" , "Maximum" , "Minimum" , "None", "Total" |	Détermine la façon dont les données collectées doivent être combinées au fil du temps. La valeur par défaut est Average. Valeurs autorisées : https://msdn.microsoft.com/library/microsoft.azure.insights.models.aggregationtype.aspx|
 |operator |Pour les alertes de métrique | |Opérateur utilisé pour comparer les données et le seuil.|
 |subscriptionId |O | |GUID d’abonnement Azure|
 |resourceGroupName |O | |Nom du groupe de ressources de la ressource affectée|
@@ -105,13 +105,13 @@ L’opération POST contient le schéma et la charge utile JSON suivants pour to
 
 ## Étapes suivantes
 
-Pour plus d’informations générales, regardez la vidéo [Intégrer les alertes Azure à PagerDuty](http://go.azure.microsoft.com/.com/fwlink/?LinkId=627080), qui aborde les alertes Azure et les webhooks.
+Pour plus d’informations générales, regardez la vidéo [Intégrer les alertes Azure à PagerDuty](http://go.microsoft.com/fwlink/?LinkId=627080), qui aborde les alertes Azure et les webhooks.
 
-Pour savoir comment créer un webhook par programmation, consultez [Créer une alerte avec des webhooks à l’aide du Kit de développement logiciel (SDK) Azure Insights (C#)](https://code.msdn.azure.microsoft.com/.com/Create-Azure-Alerts-with-b938077a).
+Pour savoir comment créer un webhook par programmation, consultez [Créer une alerte avec des webhooks à l’aide du Kit de développement logiciel (SDK) Azure Insights (C#)](https://code.msdn.microsoft.com/Create-Azure-Alerts-with-b938077a).
 
 Une fois que vous avez configuré les webhooks et les alertes, explorez ces autres options pour lancer un script d’automatisation.
 
-[Exécuter des scripts Azure Automation (Runbooks)](http://go.azure.microsoft.com/.com/fwlink/?LinkId=627081)
+[Exécuter des scripts Azure Automation (Runbooks)](http://go.microsoft.com/fwlink/?LinkId=627081)
 
 Utilisez des alertes Azure pour envoyer des messages à d’autres services. Utilisez les exemples de modèles suivants pour commencer.
 

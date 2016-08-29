@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Conception de jeux de mise à l’échelle de machines virtuelles | azure.microsoft.com/ Azure"
+	pageTitle="Conception de jeux de mise à l’échelle de machines virtuelles | Microsoft Azure"
 	description="En savoir plus sur la conception de vos jeux de mise à l'échelle de machines virtuelles"
 	keywords="machine virtuelle linux, jeux de mise à l’échelle de machine virtuelle" 
 	services="virtual-machine-scale-sets"
@@ -32,7 +32,7 @@ Un jeu de mise à l'échelle utilise des comptes de stockage pour stocker les di
 
 À compter de la version d'API « 2016-03-30 », les groupes identiques de machines virtuelles sur-approvisionnent par défaut les machines virtuelles. Avec le sur-approvisionnement activé, le groupe identique crée véritablement plus de machines virtuelles que vous avez demandé, puis supprime les dernières machines virtuelles supplémentaires créées. Le sur-approvisionnement améliore les taux de réussite de l’approvisionnement. Vous n’êtes pas facturé pour ces machines virtuelles supplémentaires et elles ne seront pas comptabilisées dans vos limites de quotas.
 
-Bien que le sur-approvisionnement n'améliore pas les taux de réussite de l’approvisionnement, il peut provoquer un comportement déroutant si une application n'est pas conçue pour gérer les machines virtuelles qui disparaissent sans avertissement. Pour désactiver le sur-approvisionnement, vérifiez que votre modèle contient la chaîne suivante : "overprovision": "false". Vous trouverez plus de détails dans la [documentation de l’API REST de groupes identiques de machines virtuelles](https://msdn.azure.microsoft.com/.com/library/azure/mt589035.aspx).
+Bien que le sur-approvisionnement n'améliore pas les taux de réussite de l’approvisionnement, il peut provoquer un comportement déroutant si une application n'est pas conçue pour gérer les machines virtuelles qui disparaissent sans avertissement. Pour désactiver le sur-approvisionnement, vérifiez que votre modèle contient la chaîne suivante : "overprovision": "false". Vous trouverez plus de détails dans la [documentation de l’API REST de groupes identiques de machines virtuelles](https://msdn.microsoft.com/library/azure/mt589035.aspx).
 
 Si vous désactivez le sur-approvisionnement, vous pouvez obtenir un ratio plus important de machines virtuelles par compte de stockage, mais nous déconseillons d’aller au-delà de 40.
 

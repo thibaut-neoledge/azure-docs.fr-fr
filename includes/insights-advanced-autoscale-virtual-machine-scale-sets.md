@@ -7,11 +7,11 @@ Vous pouvez diminuer ou augmenter la taille des instances dans les groupes de ma
 
 
 ## Procédure pas à pas
-Dans cette procédure pas à pas, nous utilisons [Azure Resource Explorer](https://resources.azure.com/) pour configurer et mettre à jour le paramètre de mise à l’échelle automatique pour un groupe de machines virtuelles identiques. L’Explorateur de ressources Azure est un moyen simple de gérer des ressources Azure via des modèles Resource Manager. Si vous débutez avec l’Explorateur de ressources Azure, lisez [cette introduction](https://azure.azure.microsoft.com/.com/blog/azure-resource-explorer-a-new-tool-to-discover-the-azure-api/).
+Dans cette procédure pas à pas, nous utilisons [Azure Resource Explorer](https://resources.azure.com/) pour configurer et mettre à jour le paramètre de mise à l’échelle automatique pour un groupe de machines virtuelles identiques. L’Explorateur de ressources Azure est un moyen simple de gérer des ressources Azure via des modèles Resource Manager. Si vous débutez avec l’Explorateur de ressources Azure, lisez [cette introduction](https://azure.microsoft.com/blog/azure-resource-explorer-a-new-tool-to-discover-the-azure-api/).
 
 1. Déployez un nouveau groupe de machines virtuelles identiques avec un paramètre de mise à l’échelle automatique de base. Cet article utilise celui de la galerie de démarrage rapide Azure, qui comporte un groupe de machines virtuelles identiques Windows avec un modèle de mise à l’échelle automatique de base. Les groupes de machines virtuelles identiques Linux fonctionnent de la même façon.
 
-2. Une fois le groupe créé, accédez à la ressource du groupe à partir de l’Explorateur de ressources Azure. Le code suivant apparaît sous le nœud azure.microsoft.com/.Insights.
+2. Une fois le groupe créé, accédez à la ressource du groupe à partir de l’Explorateur de ressources Azure. Le code suivant apparaît sous le nœud Microsoft.Insights.
 
 	![Azure Explorer](./media/insights-advanced-autoscale-vmss/azure_explorer_navigate.png)
 
@@ -59,7 +59,7 @@ Dans cette procédure pas à pas, nous utilisons [Azure Resource Explorer](https
 	            "metricTrigger": {
 	              "metricName": "MessageCount",
 	              "metricNamespace": "",
-	              "metricResourceUri": "/subscriptions/s1/resourceGroups/rg1/providers/azure.microsoft.com/.ServiceBus/namespaces/mySB/queues/myqueue",
+	              "metricResourceUri": "/subscriptions/s1/resourceGroups/rg1/providers/Microsoft.ServiceBus/namespaces/mySB/queues/myqueue",
 	              "timeGrain": "PT5M",
 	              "statistic": "Average",
 	              "timeWindow": "PT5M",
@@ -78,7 +78,7 @@ Dans cette procédure pas à pas, nous utilisons [Azure Resource Explorer](https
 	            "metricTrigger": {
 	              "metricName": "MessageCount",
 	              "metricNamespace": "",
-	              "metricResourceUri": "/subscriptions/s1/resourceGroups/rg1/providers/azure.microsoft.com/.ServiceBus/namespaces/mySB/queues/myqueue",
+	              "metricResourceUri": "/subscriptions/s1/resourceGroups/rg1/providers/Microsoft.ServiceBus/namespaces/mySB/queues/myqueue",
 	              "timeGrain": "PT5M",
 	              "statistic": "Average",
 	              "timeWindow": "PT5M",
@@ -97,7 +97,7 @@ Dans cette procédure pas à pas, nous utilisons [Azure Resource Explorer](https
 	            "metricTrigger": {
 	              "metricName": "\\Processor(_Total)\\% Processor Time",
 	              "metricNamespace": "",
-	              "metricResourceUri": "/subscriptions/s1/resourceGroups/rg1/providers/azure.microsoft.com/.Compute/virtualMachineScaleSets/<this_vmss_name>",
+	              "metricResourceUri": "/subscriptions/s1/resourceGroups/rg1/providers/Microsoft.Compute/virtualMachineScaleSets/<this_vmss_name>",
 	              "timeGrain": "PT5M",
 	              "statistic": "Average",
 	              "timeWindow": "PT30M",
@@ -116,7 +116,7 @@ Dans cette procédure pas à pas, nous utilisons [Azure Resource Explorer](https
 	            "metricTrigger": {
 	              "metricName": "\\Processor(_Total)\\% Processor Time",
 	              "metricNamespace": "",
-	              "metricResourceUri": "/subscriptions/s1/resourceGroups/rg1/providers/azure.microsoft.com/.Compute/virtualMachineScaleSets/<this_vmss_name>",
+	              "metricResourceUri": "/subscriptions/s1/resourceGroups/rg1/providers/Microsoft.Compute/virtualMachineScaleSets/<this_vmss_name>",
 	              "timeGrain": "PT5M",
 	              "statistic": "Average",
 	              "timeWindow": "PT30M",
@@ -176,7 +176,7 @@ Dans cette procédure pas à pas, nous utilisons [Azure Resource Explorer](https
 	        }
 	      }
 	```
-	Pour les champs pris en charge et leurs valeurs, consultez la [documentation API REST de la mise à l’échelle automatique](https://msdn.azure.microsoft.com/.com/fr-FR/library/azure/dn931928.aspx).
+	Pour les champs pris en charge et leurs valeurs, consultez la [documentation API REST de la mise à l’échelle automatique](https://msdn.microsoft.com/fr-FR/library/azure/dn931928.aspx).
 
 	Votre paramètre de mise à l’échelle automatique contient à présent les trois profils expliqués précédemment.
 

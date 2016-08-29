@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Authentification sur Azure SQL Data Warehouse | azure.microsoft.com/ Azure"
+   pageTitle="Authentification sur Azure SQL Data Warehouse | Microsoft Azure"
    description="Authentification Azure Active Directory (AAD) et SQL Server sur Azure SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter=""
@@ -49,7 +49,7 @@ Il est important de noter que l’instruction Transact-SQL **USE <votre base de 
 
 ## Authentification Azure Active Directory (AAD)
 
-L’authentification [Azure Active Directory][What is Azure Active Directory] est un mécanisme servant à se connecter à azure.microsoft.com/ Azure SQL Data Warehouse à l’aide d’identités dans Azure Active Directory (Azure AD). Avec l’authentification Azure Active Directory, vous pouvez gérer de manière centralisée les identités des utilisateurs de base de données et d’autres services azure.microsoft.com/ dans un emplacement centralisé. La gestion centralisée des ID fournit un emplacement unique pour gérer les utilisateurs SQL Data Warehouse et elle simplifie la gestion des autorisations.
+L’authentification [Azure Active Directory][What is Azure Active Directory] est un mécanisme servant à se connecter à Microsoft Azure SQL Data Warehouse à l’aide d’identités dans Azure Active Directory (Azure AD). Avec l’authentification Azure Active Directory, vous pouvez gérer de manière centralisée les identités des utilisateurs de base de données et d’autres services Microsoft dans un emplacement centralisé. La gestion centralisée des ID fournit un emplacement unique pour gérer les utilisateurs SQL Data Warehouse et elle simplifie la gestion des autorisations.
 
 ### Avantages
 
@@ -76,11 +76,11 @@ Les étapes de configuration incluent les procédures suivantes pour configurer 
 5. Créer des utilisateurs de base de données à relation contenant-contenu dans votre base de données mappés sur les identités Azure AD
 6. Se connecter à l’entrepôt de données à l’aide des identités Azure AD
 
-Actuellement, les utilisateurs Azure Active Directory ne sont pas affichés dans l’Explorateur d’objets SSDT. Pour résoudre ce problème, affichez les utilisateurs dans [sys.database\_principals](https://msdn.azure.microsoft.com/.com/library/ms187328.aspx).
+Actuellement, les utilisateurs Azure Active Directory ne sont pas affichés dans l’Explorateur d’objets SSDT. Pour résoudre ce problème, affichez les utilisateurs dans [sys.database\_principals](https://msdn.microsoft.com/library/ms187328.aspx).
   
 ### Rechercher des informations détaillées
 - Effectuez les étapes détaillées. Les étapes détaillées de configuration et d’utilisation de l’authentification Azure Active Directory sont presque identiques pour Base de données SQL Azure et Azure SQL Data Warehouse. Suivez les étapes détaillées dans la rubrique [Connexion au service Base de données SQL ou SQL Data Warehouse avec l’authentification Azure Active Directory](../sql-database/sql-database-aad-authentication.md).
-- Créez des rôles de base de données personnalisés et ajoutez des utilisateurs aux rôles. Accordez ensuite des autorisations granulaires aux rôles. Pour plus d’informations, consultez [Prise en main des autorisations du moteur de base de données](https://msdn.azure.microsoft.com/.com/library/mt667986.aspx).
+- Créez des rôles de base de données personnalisés et ajoutez des utilisateurs aux rôles. Accordez ensuite des autorisations granulaires aux rôles. Pour plus d’informations, consultez [Prise en main des autorisations du moteur de base de données](https://msdn.microsoft.com/library/mt667986.aspx).
 
 ## Étapes suivantes
 

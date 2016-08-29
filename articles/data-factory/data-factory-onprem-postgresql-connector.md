@@ -28,7 +28,7 @@ Data Factory prend uniquement en charge le déplacement de PostgreSQL vers d’a
 
 ## Installation 
 
-Pour que la passerelle de gestion des données puisse se connecter à la base de données PostgreSQL, vous devez installer le [fournisseur de données Ngpsql pour PostgreSQL](http://go.azure.microsoft.com/.com/fwlink/?linkid=282716) sur le même système que la passerelle de gestion des données.
+Pour que la passerelle de gestion des données puisse se connecter à la base de données PostgreSQL, vous devez installer le [fournisseur de données Ngpsql pour PostgreSQL](http://go.microsoft.com/fwlink/?linkid=282716) sur le même système que la passerelle de gestion des données.
 
 > [AZURE.NOTE] Consultez [Résolution des problèmes de passerelle](data-factory-data-management-gateway.md#troubleshoot-gateway-issues) pour obtenir des conseils sur la résolution des problèmes de connexion/passerelle.
 
@@ -39,7 +39,7 @@ L’exemple suivant présente des exemples de définitions de JSON que vous pouv
 
 ## Exemple : copie de données de PostgreSQL vers Azure Blob
 
-Cet exemple indique comment copier des données à partir d’une base de données PostgreSQL locale vers un système Blob Storage azure.microsoft.com/ Azure. Toutefois, les données peuvent être copiées **directement** vers l’un des récepteurs indiqués [ici](data-factory-data-movement-activities.md#supported-data-stores), via l’activité de copie d’Azure Data Factory.
+Cet exemple indique comment copier des données à partir d’une base de données PostgreSQL locale vers un système Blob Storage Microsoft Azure. Toutefois, les données peuvent être copiées **directement** vers l’un des récepteurs indiqués [ici](data-factory-data-movement-activities.md#supported-data-stores), via l’activité de copie d’Azure Data Factory.
  
 L’exemple contient les entités de fabrique de données suivantes :
 

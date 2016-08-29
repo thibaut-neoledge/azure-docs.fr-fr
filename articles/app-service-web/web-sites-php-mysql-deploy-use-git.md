@@ -19,11 +19,11 @@
 
 # Création d’une application web PHP-MySQL dans Azure App Service et déploiement à l’aide de Git.
 
-Ce didacticiel vous explique comment créer une application web PHP-MySQL et déployer dans [App Service](http://go.azure.microsoft.com/.com/fwlink/?LinkId=529714) à l’aide de Git. Vous allez utiliser [PHP][install-php], l'outil de ligne de commande MySQL (inclus dans [MySQL][install-mysql]) et [Git][install-git] qui sont installés sur votre ordinateur. Les instructions de ce didacticiel s'appliquent à n'importe quel système d'exploitation, notamment Windows, Mac et Linux. À la fin de ce guide, vous disposerez d’une application web PHP/MySQL s’exécutant dans Azure.
+Ce didacticiel vous explique comment créer une application web PHP-MySQL et déployer dans [App Service](http://go.microsoft.com/fwlink/?LinkId=529714) à l’aide de Git. Vous allez utiliser [PHP][install-php], l'outil de ligne de commande MySQL (inclus dans [MySQL][install-mysql]) et [Git][install-git] qui sont installés sur votre ordinateur. Les instructions de ce didacticiel s'appliquent à n'importe quel système d'exploitation, notamment Windows, Mac et Linux. À la fin de ce guide, vous disposerez d’une application web PHP/MySQL s’exécutant dans Azure.
 
 Vous apprendrez à effectuer les opérations suivantes :
 
-* création d’une application web et d’une base de données MySQL à l’aide du [portail Azure][management-portal]. PHP étant activé par défaut dans [App Service Web Apps](http://go.azure.microsoft.com/.com/fwlink/?LinkId=529714), l’exécution de votre code PHP ne requiert aucune action particulière) ;
+* création d’une application web et d’une base de données MySQL à l’aide du [portail Azure][management-portal]. PHP étant activé par défaut dans [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714), l’exécution de votre code PHP ne requiert aucune action particulière) ;
 * publication et republication de votre application dans Azure en utilisant Git.
 * activation de l’extension du compositeur pour automatiser les tâches de compositeur à chaque `git push`.
 
@@ -254,7 +254,7 @@ Pour publier les modifications apportées à votre application, procédez comme 
 
 	![Site Web PHP Azure][running-app]
 
->[AZURE.NOTE] Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.azure.microsoft.com/.com/fwlink/?LinkId=523751), où vous pourrez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
+>[AZURE.NOTE] Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751), où vous pourrez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
 <a name="composer"></a>
 ## Activation de l’automatisation du Compositeur avec l’extension du Compositeur
@@ -284,13 +284,13 @@ Pour plus d’informations, consultez le [Centre pour développeurs PHP](/develo
 <!-- URL List -->
 
 [install-php]: http://www.php.net/manual/en/install.php
-[install-SQLExpress]: http://www.azure.microsoft.com/.com/download/details.aspx?id=29062
-[install-Drivers]: http://www.azure.microsoft.com/.com/download/details.aspx?id=20098
+[install-SQLExpress]: http://www.microsoft.com/download/details.aspx?id=29062
+[install-Drivers]: http://www.microsoft.com/download/details.aspx?id=20098
 [install-git]: http://git-scm.com/
 [install-mysql]: http://dev.mysql.com/downloads/mysql/
 [pdo-mysql]: http://www.php.net/manual/en/ref.pdo-mysql.php
 [management-portal]: https://portal.azure.com
-[sql-database-editions]: http://msdn.azure.microsoft.com/.com/library/windowsazure/ee621788.aspx
+[sql-database-editions]: http://msdn.microsoft.com/library/windowsazure/ee621788.aspx
 
 <!-- IMG List -->
 

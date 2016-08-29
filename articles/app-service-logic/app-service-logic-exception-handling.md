@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Gestion des exceptions Logic Apps | azure.microsoft.com/ Azure"
+   pageTitle="Gestion des exceptions Logic Apps | Microsoft Azure"
    description="Découvrez les modèles de gestion des erreurs et des exceptions avec Azure Logic Apps"
    services="logic-apps"
    documentationCenter=".net,nodejs,java"
@@ -172,7 +172,7 @@ Pour référence, voici un exemple d’un élément `@result()` unique. Vous pou
         "statusCode": 404,
         "headers": {
             "Date": "Thu, 11 Aug 2016 03:18:18 GMT",
-            "Server": "azure.microsoft.com/-IIS/8.0",
+            "Server": "Microsoft-IIS/8.0",
             "X-Powered-By": "ASP.NET",
             "Content-Length": "68",
             "Content-Type": "application/json"
@@ -195,7 +195,7 @@ Vous pouvez utiliser les expressions ci-dessus pour exécuter différents modèl
 
 ## Azure Diagnostics et télémétrie
 
-Les modèles ci-dessus sont très utiles pour gérer les erreurs et les exceptions d’une exécution, mais vous pouvez également identifier les erreurs et y répondre indépendamment de l’exécution elle-même. [Azure Diagnostics](app-service-logic-monitor-your-logic-apps.md) fournit un moyen simple d’envoyer tous les événements de flux de travail (y compris tous les états d’exécution et d’action) à un compte Azure Storage ou un concentrateur d’événements Azure. Vous pouvez surveiller les journaux et les mesures ou les publier dans n’importe quel outil de surveillance de votre choix pour évaluer les états d’exécution. Vous avez également la possibilité de transmettre tous les événements via le concentrateur d’événements Azure dans [Stream Analytics](https://azure.azure.microsoft.com/.com/services/stream-analytics/). Dans Stream Analytics, vous pouvez écrire des requêtes actives sans aucune anomalie, des moyennes ou des échecs dans les journaux de diagnostic. Stream Analytics peut facilement exporter ses résultats vers d’autres sources de données telles que les files d’attente, les rubriques, SQL, DocumentDB et Power BI.
+Les modèles ci-dessus sont très utiles pour gérer les erreurs et les exceptions d’une exécution, mais vous pouvez également identifier les erreurs et y répondre indépendamment de l’exécution elle-même. [Azure Diagnostics](app-service-logic-monitor-your-logic-apps.md) fournit un moyen simple d’envoyer tous les événements de flux de travail (y compris tous les états d’exécution et d’action) à un compte Azure Storage ou un concentrateur d’événements Azure. Vous pouvez surveiller les journaux et les mesures ou les publier dans n’importe quel outil de surveillance de votre choix pour évaluer les états d’exécution. Vous avez également la possibilité de transmettre tous les événements via le concentrateur d’événements Azure dans [Stream Analytics](https://azure.microsoft.com/services/stream-analytics/). Dans Stream Analytics, vous pouvez écrire des requêtes actives sans aucune anomalie, des moyennes ou des échecs dans les journaux de diagnostic. Stream Analytics peut facilement exporter ses résultats vers d’autres sources de données telles que les files d’attente, les rubriques, SQL, DocumentDB et Power BI.
 
 ## Étapes suivantes
 - [Découvrez comme un client a développé une gestion des erreurs robuste grâce à Logic Apps](app-service-logic-scenario-error-and-exception-handling.md)
@@ -205,6 +205,6 @@ Les modèles ci-dessus sont très utiles pour gérer les erreurs et les exceptio
 
 
 <!-- References -->
-[retryPolicyMSDN]: https://msdn.azure.microsoft.com/.com/library/azure/mt643939.aspx#Anchor_9
+[retryPolicyMSDN]: https://msdn.microsoft.com/library/azure/mt643939.aspx#Anchor_9
 
 <!---HONumber=AcomDC_0817_2016-->

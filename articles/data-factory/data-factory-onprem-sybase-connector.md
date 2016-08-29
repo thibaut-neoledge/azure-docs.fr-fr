@@ -28,7 +28,7 @@ Actuellement, Data Factory prend uniquement en charge le déplacement de donnée
 
 ## Installation
 
-Pour que la passerelle de gestion des données puisse se connecter à la base de données Sybase, vous devez installer le [fournisseur de données pour Sybase](http://go.azure.microsoft.com/.com/fwlink/?linkid=324846) sur le même système que la passerelle de gestion des données.
+Pour que la passerelle de gestion des données puisse se connecter à la base de données Sybase, vous devez installer le [fournisseur de données pour Sybase](http://go.microsoft.com/fwlink/?linkid=324846) sur le même système que la passerelle de gestion des données.
 
 > [AZURE.NOTE] Consultez [Résolution des problèmes de passerelle](data-factory-data-management-gateway.md#troubleshoot-gateway-issues) pour obtenir des conseils sur la résolution des problèmes de connexion/passerelle.
 
@@ -38,7 +38,7 @@ Le moyen le plus simple de créer un pipeline qui copie des données à partir d
 L’exemple suivant présente des exemples de définitions de JSON que vous pouvez utiliser pour créer un pipeline à l’aide [du Portail Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), [de Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou [d’Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Ils indiquent comment copier des données depuis une base de données Sybase vers Azure Blob Storage. Toutefois, les données peuvent être copiées vers l’un des récepteurs indiqués [ici](data-factory-data-movement-activities.md#supported-data-stores), via l’activité de copie d’Azure Data Factory.
 
 ## Exemple : copie de données de Sybase vers Azure Blob
-Cet exemple indique comment copier des données à partir d’une base de données Sybase locale vers un système Blob Storage azure.microsoft.com/ Azure. Toutefois, les données peuvent être copiées **directement** vers l’un des récepteurs indiqués [ici](data-factory-data-movement-activities.md#supported-data-stores), via l’activité de copie d’Azure Data Factory.
+Cet exemple indique comment copier des données à partir d’une base de données Sybase locale vers un système Blob Storage Microsoft Azure. Toutefois, les données peuvent être copiées **directement** vers l’un des récepteurs indiqués [ici](data-factory-data-movement-activities.md#supported-data-stores), via l’activité de copie d’Azure Data Factory.
  
 L’exemple contient les entités de fabrique de données suivantes :
 

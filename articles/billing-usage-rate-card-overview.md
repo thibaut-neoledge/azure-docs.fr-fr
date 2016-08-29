@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Obtenir une vue d'ensemble de votre consommation des ressources azure.microsoft.com/ Azure | azure.microsoft.com/ Azure"
+   pageTitle="Obtenir une vue d'ensemble de votre consommation des ressources Microsoft Azure | Microsoft Azure"
    description="Offre une présentation conceptuelle des API Azure Billing Usage et RateCard, qui fournissent des vues d’ensemble des tendances et de la consommation des ressources Azure."
    services=""
    documentationCenter=""
@@ -17,7 +17,7 @@
    ms.date="08/16/2016"
    ms.author="mobandyo;bryanla"/>
 
-# Obtenir une vue d’ensemble de votre consommation des ressources azure.microsoft.com/ Azure
+# Obtenir une vue d’ensemble de votre consommation des ressources Microsoft Azure
 
 Les clients et partenaires doivent se révéler en mesure de prédire et gérer leurs coûts Azure de manière efficace. Lorsqu’ils passent d’un modèle Capex (dépenses d’investissement) à un modèle Opex (dépenses d’exploitation), ils doivent également être à même d’effectuer une analyse de récupération des données de facturation et de rétrofacturation, ainsi que de fournir un mode d’estimation et de facturation cohérent, notamment dans le cas des déploiements cloud de grande taille.
 
@@ -57,7 +57,7 @@ Voici quelques-uns des scénarios autorisés par l’utilisation combinée des A
 
 - **Prédiction de facture** : les clients et partenaires peuvent obtenir une estimation de leur consommation et de leur dépense cloud et appliquer des algorithmes d’apprentissage automatique pour prédire le montant de leur facture à la fin du cycle de facturation.
 
-- **Analyse des coûts avant consommation** : les clients peuvent également utiliser l’API RateCard pour prédire le montant de leur facture s’ils choisissaient de déplacer leurs charges de travail vers Azure en fournissant les valeurs d’utilisation souhaitées. Si les clients disposent de charges de travail existantes dans d’autres clouds publics ou privés, ils peuvent également mapper leur utilisation sur les tarifs Azure afin d’obtenir une meilleure estimation de leur dépense Azure. Cette fonctionnalité offre une vue améliorée des informations qui peuvent être obtenues par le biais de la [Calculatrice de prix Azure](https://azure.azure.microsoft.com/.com/pricing/calculator/), étant donné (par exemple) que nos partenaires de facturation offrent la possibilité de s’axer sur une offre et de comparer/mettre en contraste différents types d’offre autres que Paiement à l’utilisation, notamment les offres Engagement monétaire et Crédit monétaire. Les API permettent également d’effectuer des modifications d’estimation de coûts par région, autorisant ainsi le type d’analyse de scénarios nécessaire pour la prise de décisions de déploiement, étant donné que le déploiement de ressources dans différents contrôleurs de domaine à travers le monde peut avoir un impact direct sur le coût total.
+- **Analyse des coûts avant consommation** : les clients peuvent également utiliser l’API RateCard pour prédire le montant de leur facture s’ils choisissaient de déplacer leurs charges de travail vers Azure en fournissant les valeurs d’utilisation souhaitées. Si les clients disposent de charges de travail existantes dans d’autres clouds publics ou privés, ils peuvent également mapper leur utilisation sur les tarifs Azure afin d’obtenir une meilleure estimation de leur dépense Azure. Cette fonctionnalité offre une vue améliorée des informations qui peuvent être obtenues par le biais de la [Calculatrice de prix Azure](https://azure.microsoft.com/pricing/calculator/), étant donné (par exemple) que nos partenaires de facturation offrent la possibilité de s’axer sur une offre et de comparer/mettre en contraste différents types d’offre autres que Paiement à l’utilisation, notamment les offres Engagement monétaire et Crédit monétaire. Les API permettent également d’effectuer des modifications d’estimation de coûts par région, autorisant ainsi le type d’analyse de scénarios nécessaire pour la prise de décisions de déploiement, étant donné que le déploiement de ressources dans différents contrôleurs de domaine à travers le monde peut avoir un impact direct sur le coût total.
 
 - **Analyse de scénarios** :
 
@@ -67,13 +67,13 @@ Voici quelques-uns des scénarios autorisés par l’utilisation combinée des A
 
 ## Solutions de partenaires
 
-L’article [Cloudyn assure des tâches de gestion financière informatique pour ses clients grâce aux API azure.microsoft.com/ Azure Usage et RateCard](billing-usage-rate-card-partner-solution-cloudyn.md) décrit l’expérience d’intégration offerte par [Cloudyn](https://www.cloudyn.com/azure.microsoft.com/-azure/), partenaire sur les API Azure Billing. Cet article décrit ces expériences en détail et inclut notamment une courte vidéo expliquant la façon dont un client Azure peut utiliser Cloudyn et les API Azure Billing pour obtenir une vue d’ensemble de ses données de consommation Azure.
+L’article [Cloudyn assure des tâches de gestion financière informatique pour ses clients grâce aux API Microsoft Azure Usage et RateCard](billing-usage-rate-card-partner-solution-cloudyn.md) décrit l’expérience d’intégration offerte par [Cloudyn](https://www.cloudyn.com/microsoft-azure/), partenaire sur les API Azure Billing. Cet article décrit ces expériences en détail et inclut notamment une courte vidéo expliquant la façon dont un client Azure peut utiliser Cloudyn et les API Azure Billing pour obtenir une vue d’ensemble de ses données de consommation Azure.
 
-L’article [Intégration des API azure.microsoft.com/ Azure Billing par Cloud Cruiser](billing-usage-rate-card-partner-solution-cloudcruiser.md) décrit la façon dont la solution [Express de Cloud Cruiser pour Azure Pack](http://www.cloudcruiser.com/partners/azure.microsoft.com//) fonctionne directement à partir du portail WAP, permettant ainsi aux clients de gérer en toute transparence les aspects opérationnels et financiers de leur cloud public hébergé ou privé azure.microsoft.com/ Azure à partir d’une même interface utilisateur.
+L’article [Intégration des API Microsoft Azure Billing par Cloud Cruiser](billing-usage-rate-card-partner-solution-cloudcruiser.md) décrit la façon dont la solution [Express de Cloud Cruiser pour Azure Pack](http://www.cloudcruiser.com/partners/microsoft/) fonctionne directement à partir du portail WAP, permettant ainsi aux clients de gérer en toute transparence les aspects opérationnels et financiers de leur cloud public hébergé ou privé Microsoft Azure à partir d’une même interface utilisateur.
 
 ## Étapes suivantes
-+ Pour plus d’informations sur ces deux API, qui font partie intégrante de l’ensemble d’API fourni par Azure Resource Manager, consultez la [Référence des API REST Azure Billing](https://msdn.azure.microsoft.com/.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c).
-+ Si vous souhaitez vous plonger directement dans l'exemple de code, consultez nos exemples de code d'API de facturation azure.microsoft.com/ Azure sur [Exemples de code Azure](https://azure.azure.microsoft.com/.com/documentation/samples/?term=billing).
++ Pour plus d’informations sur ces deux API, qui font partie intégrante de l’ensemble d’API fourni par Azure Resource Manager, consultez la [Référence des API REST Azure Billing](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c).
++ Si vous souhaitez vous plonger directement dans l'exemple de code, consultez nos exemples de code d'API de facturation Microsoft Azure sur [Exemples de code Azure](https://azure.microsoft.com/documentation/samples/?term=billing).
 
 ## En savoir plus
 + Pour plus d’informations sur Azure Resource Manager, voir l’article [Présentation d’Azure Resource Manager](resource-group-overview.md).

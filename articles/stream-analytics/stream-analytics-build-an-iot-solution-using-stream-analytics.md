@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Créer une solution IoT à l’aide de Stream Analytics | azure.microsoft.com/ Azure" 
+	pageTitle="Créer une solution IoT à l’aide de Stream Analytics | Microsoft Azure" 
 	description="prise en main du didacticiel de la solution iot Stream Analytics d’un scénario de station de péage"
 	keywords="solution IOT, fonctions de fenêtre"
 	documentationCenter=""
@@ -23,7 +23,7 @@
 
 ## Introduction
 
-Dans ce didacticiel, vous allez apprendre à obtenir des informations en temps réel de vos données à l’aide d’Azure Stream Analytics. Grâce au service de traitement de flux d’Azure, les développeurs peuvent facilement traiter l’espace de données en mouvement en combinant les flux de données tels que les flux de clics, les journaux et les événements générés par les appareils avec les enregistrements historiques ou les données de référence pour dégager des perspectives rapidement et facilement. En tant que service de calcul de flux en temps réel entièrement géré hébergé dans azure.microsoft.com/ Azure, Azure Stream Analytics offre la résilience, la faible latence et l’extensibilité nécessaires pour être opérationnel en quelques minutes.
+Dans ce didacticiel, vous allez apprendre à obtenir des informations en temps réel de vos données à l’aide d’Azure Stream Analytics. Grâce au service de traitement de flux d’Azure, les développeurs peuvent facilement traiter l’espace de données en mouvement en combinant les flux de données tels que les flux de clics, les journaux et les événements générés par les appareils avec les enregistrements historiques ou les données de référence pour dégager des perspectives rapidement et facilement. En tant que service de calcul de flux en temps réel entièrement géré hébergé dans Microsoft Azure, Azure Stream Analytics offre la résilience, la faible latence et l’extensibilité nécessaires pour être opérationnel en quelques minutes.
 
 Après avoir effectué ce didacticiel, vous pourrez :
 
@@ -39,9 +39,9 @@ Ce didacticiel nécessite les éléments suivants :
 
 -   Dernière version d’[Azure PowerShell](../powershell-install-configure.md)
 -   Visual Studio 2015 ou la version gratuite de [Visual Studio Community](https://www.visualstudio.com/products/visual-studio-community-vs.aspx)
--   [Abonnement Azure](https://azure.azure.microsoft.com/.com/pricing/free-trial/)
+-   [Abonnement Azure](https://azure.microsoft.com/pricing/free-trial/)
 -   Des privilèges d’administrateur sur l’ordinateur
--   Téléchargez [TollApp.zip](http://download.azure.microsoft.com/.com/download/D/4/A/D4A3C379-65E8-494F-A8C5-79303FD43B0A/TollApp.zip) à partir du Centre de téléchargement azure.microsoft.com/
+-   Téléchargez [TollApp.zip](http://download.microsoft.com/download/D/4/A/D4A3C379-65E8-494F-A8C5-79303FD43B0A/TollApp.zip) à partir du Centre de téléchargement Microsoft
 -   Facultatif : Code source du générateur d'événements TollApp dans [GitHub](https://aka.ms/azure-stream-analytics-toll-source)
 
 ## Présentation du scénario - « Hello, Toll ! »
@@ -135,9 +135,9 @@ Voici une brève description des colonnes :
 
 ## Configuration de l’environnement pour Azure Stream Analytics
 
-Pour effectuer ce didacticiel, vous devez disposer d’un abonnement azure.microsoft.com/ Azure. azure.microsoft.com/ propose un essai gratuit des services azure.microsoft.com/ Azure, comme décrit ci-après.
+Pour effectuer ce didacticiel, vous devez disposer d’un abonnement Microsoft Azure. Microsoft propose un essai gratuit des services Microsoft Azure, comme décrit ci-après.
 
-Si vous ne disposez pas d’un compte Azure, vous pouvez demander un essai gratuit en accédant à <http://azure.azure.microsoft.com/.com/pricing/free-trial/>.
+Si vous ne disposez pas d’un compte Azure, vous pouvez demander un essai gratuit en accédant à <http://azure.microsoft.com/pricing/free-trial/>.
 
 Remarque : pour vous inscrire pour un essai gratuit, vous devez disposer d’un appareil mobile pouvant recevoir des messages texte et d’une carte de crédit valide.
 
@@ -149,9 +149,9 @@ Ce didacticiel nécessite 2 hubs d’événements Azure pour la réception des 
 
 Le script Setup.ps1 dans le dossier TollApp sur GitHub permet de créer toutes les ressources nécessaires. Pour gagner du temps, nous vous recommandons de l’exécuter. Pour plus d’informations sur la configuration de ces ressources dans le portail Azure, consultez l’annexe « Configuration des ressources du didacticiel dans le portail Azure ».
 
-Téléchargez et enregistrez le dossier et les fichiers de support [TollApp](http://download.azure.microsoft.com/.com/download/D/4/A/D4A3C379-65E8-494F-A8C5-79303FD43B0A/TollApp.zip).
+Téléchargez et enregistrez le dossier et les fichiers de support [TollApp](http://download.microsoft.com/download/D/4/A/D4A3C379-65E8-494F-A8C5-79303FD43B0A/TollApp.zip).
 
-Ouvrez une fenêtre « azure.microsoft.com/ Azure PowerShell » **EN TANT QU’ADMINISTRATEUR**. Si vous ne disposez pas encore d’Azure PowerShell, installez-le en suivant les instructions de la section [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md)
+Ouvrez une fenêtre « Microsoft Azure PowerShell » **EN TANT QU’ADMINISTRATEUR**. Si vous ne disposez pas encore d’Azure PowerShell, installez-le en suivant les instructions de la section [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md)
 
 Windows bloque automatiquement les fichiers ps1, dll et exe téléchargés depuis Internet. Nous devons définir la stratégie d’exécution avant d’exécuter le script. Assurez-vous que la fenêtre Azure PowerShell s’exécute en tant qu’administrateur. Exécutez « Set-ExecutionPolicy unrestricted ». Quand vous y êtes invité, tapez « O ».
 
@@ -171,7 +171,7 @@ Tapez « .\\Setup.ps1 » pour configurer votre compte Azure, créer et configu
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image5.png)
 
-Le script ouvre la page de connexion à azure.microsoft.com/ Azure. Entrez les informations d’identification de votre compte.
+Le script ouvre la page de connexion à Microsoft Azure. Entrez les informations d’identification de votre compte.
 
 Si votre compte a accès à plusieurs abonnements, vous devez entrer le nom de l’abonnement à utiliser pour le didacticiel.
 
@@ -233,7 +233,7 @@ Connectez-vous à la base de données Azure (destination) à partir de Visual St
 
 1) Ouvrez Visual Studio et cliquez sur « Outils », puis sur l’élément de menu « Se connecter à la base de données...».
 
-2) Si vous y êtes invité, sélectionnez « azure.microsoft.com/ SQL Server » comme source de données.
+2) Si vous y êtes invité, sélectionnez « Microsoft SQL Server » comme source de données.
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image16.png)
 
@@ -380,7 +380,7 @@ SELECT TollId, System.Timestamp AS WindowEnd, COUNT(*) AS Count FROM EntryStream
 
 Comme vous pouvez le voir, Azure Stream Analytics utilise un langage de requête semblable à SQL avec quelques extensions supplémentaires pour spécifier les aspects de la requête liés au temps.
 
-Pour plus de détails, vous pouvez consulter les constructions de [Gestion du temps](https://msdn.azure.microsoft.com/.com/library/azure/mt582045.aspx) et de [Fenêtrage](https://msdn.azure.microsoft.com/.com/library/azure/dn835019.aspx) utilisées dans la requête à partir de MSDN.
+Pour plus de détails, vous pouvez consulter les constructions de [Gestion du temps](https://msdn.microsoft.com/library/azure/mt582045.aspx) et de [Fenêtrage](https://msdn.microsoft.com/library/azure/dn835019.aspx) utilisées dans la requête à partir de MSDN.
 
 ## Test des requêtes Azure Stream Analytics
 
@@ -509,7 +509,7 @@ Pour afficher des informations supplémentaires sur un événement particulier, 
 
 Dans ce didacticiel, nous avons présenté le service Azure Stream Analytics. Nous avons expliqué comment configurer les entrées et les sorties du travail Stream Analytics. À l’aide du scénario sur les données de péage, nous avons expliqué les types courants de problèmes qui surviennent dans l’espace de données en mouvement et comment les résoudre avec de simples requêtes de type SQL dans Azure Stream Analytics. Nous avons décrit des constructions d’extension SQL en vue d’une utilisation avec des données temporelles. Nous avons montré comment joindre des flux de données et comment enrichir le flux de données avec des données de référence statiques. Nous avons expliqué comment mettre à l’échelle une requête pour obtenir un débit plus élevé.
 
-Bien qu’il constitue une bonne présentation, ce didacticiel n’est pas pour autant complet. D’autres modèles de requête utilisant le langage SAQL sont disponibles [ici](stream-analytics-stream-analytics-query-patterns.md). Reportez-vous à la [documentation en ligne](https://azure.azure.microsoft.com/.com/documentation/services/stream-analytics/) pour en savoir plus sur Azure Stream Analytics.
+Bien qu’il constitue une bonne présentation, ce didacticiel n’est pas pour autant complet. D’autres modèles de requête utilisant le langage SAQL sont disponibles [ici](stream-analytics-stream-analytics-query-patterns.md). Reportez-vous à la [documentation en ligne](https://azure.microsoft.com/documentation/services/stream-analytics/) pour en savoir plus sur Azure Stream Analytics.
 
 ## Nettoyer votre compte Azure
 

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Utilisation d’Analytics, le puissant outil de recherche d’Application Insights | azure.microsoft.com/ Azure" 
+	pageTitle="Utilisation d’Analytics, le puissant outil de recherche d’Application Insights | Microsoft Azure" 
 	description="Utilisation d’Analytics, le puissant outil de recherche de diagnostic d’Application Insights. " 
 	services="application-insights" 
     documentationCenter=""

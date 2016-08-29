@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Gestion des contrôleurs d’appareil StorSimple | azure.microsoft.com/ Azure"
+   pageTitle="Gestion des contrôleurs d’appareil StorSimple | Microsoft Azure"
    description="Découvrez comment arrêter, redémarrer, éteindre ou réinitialiser vos contrôleurs d’appareil StorSimple."
    services="storsimple"
    documentationCenter=""
@@ -140,11 +140,11 @@ Cette section vous explique comment arrêter un appareil StorSimple en cours d�
 
 ## Rétablissement des paramètres d’usine de l’appareil
 
-> [AZURE.IMPORTANT] Si vous devez rétablir les paramètres d’usine de l’appareil, contactez le Support azure.microsoft.com/. La procédure décrite ci-dessous ne doit être effectuée qu’en coordination avec le Support azure.microsoft.com/.
+> [AZURE.IMPORTANT] Si vous devez rétablir les paramètres d’usine de l’appareil, contactez le Support Microsoft. La procédure décrite ci-dessous ne doit être effectuée qu’en coordination avec le Support Microsoft.
 
-Cette procédure explique comment rétablir les paramètres d’usine de votre appareil azure.microsoft.com/ Azure StorSimple à l’aide de Windows PowerShell pour StorSimple. La réinitialisation d’un appareil supprime toutes les données et tous les paramètres de l’ensemble du cluster par défaut.
+Cette procédure explique comment rétablir les paramètres d’usine de votre appareil Microsoft Azure StorSimple à l’aide de Windows PowerShell pour StorSimple. La réinitialisation d’un appareil supprime toutes les données et tous les paramètres de l’ensemble du cluster par défaut.
 
-Pour rétablir les paramètres d’usine de votre appareil azure.microsoft.com/ Azure StorSimple, procédez comme suit :
+Pour rétablir les paramètres d’usine de votre appareil Microsoft Azure StorSimple, procédez comme suit :
 
 ### Pour rétablir les paramètres d’usine de l’appareil dans Windows PowerShell pour StorSimple
 
@@ -156,7 +156,7 @@ Pour rétablir les paramètres d’usine de votre appareil azure.microsoft.com/�
 
 	`Reset-HcsFactoryDefault`
 
-    Pour réinitialiser un seul contrôleur, utilisez l’applet de commande [Reset-HcsFactoryDefault](http://technet.azure.microsoft.com/.com/library/dn688132.aspx) avec le paramètre `-scope`.)
+    Pour réinitialiser un seul contrôleur, utilisez l’applet de commande [Reset-HcsFactoryDefault](http://technet.microsoft.com/library/dn688132.aspx) avec le paramètre `-scope`.)
 
     Le système redémarrera plusieurs fois. Un message s’affichera une fois la réinitialisation terminée. Selon le modèle du système, l’opération peut prendre 45 à 60 minutes pour un appareil 8 100 et 60 à 90 minutes pour un appareil 8 600.
 
@@ -164,7 +164,7 @@ Pour rétablir les paramètres d’usine de votre appareil azure.microsoft.com/�
 
 	> - Si vous utilisez Update 1.2 ou une version antérieure, servez-vous du paramètre `–SkipFirmwareVersionCheck` pour ignorer la vérification de la version du microprogramme. Sinon, une erreur d’incompatibilité du microprogramme s’affiche : la réinitialisation aux paramètres d’usine ne peut pas se poursuivre en raison d’une incohérence dans les versions du microprogramme.
 
-	> - La procédure de réinitialisation aux paramètres d’usine peut échouer pour les appareils StorSimple qui exécutent la mise à jour 1 ou 1.1 sur le portail Government et ont effectué un remplacement d’un seul ou de deux contrôleurs avec succès (avec des contrôleurs de remplacement livrés avec un logiciel antérieur à la mise à jour 1). Cela se produit lorsque l’image de réinitialisation aux paramètres d’usine est validée pour la présence d'un fichier SHA1 sur le contrôleur qui n'existe pas pour un logiciel antérieur à la mise à jour 1. Si vous constatez l’échec de cette réinitialisation aux paramètres d’usine, contactez le support azure.microsoft.com/ pour obtenir de l’aide lors des étapes suivantes. Ce problème ne se produit pas avec des contrôleurs de remplacement sortis d’usine avec la mise à jour 1 ou une version ultérieure du logiciel.
+	> - La procédure de réinitialisation aux paramètres d’usine peut échouer pour les appareils StorSimple qui exécutent la mise à jour 1 ou 1.1 sur le portail Government et ont effectué un remplacement d’un seul ou de deux contrôleurs avec succès (avec des contrôleurs de remplacement livrés avec un logiciel antérieur à la mise à jour 1). Cela se produit lorsque l’image de réinitialisation aux paramètres d’usine est validée pour la présence d'un fichier SHA1 sur le contrôleur qui n'existe pas pour un logiciel antérieur à la mise à jour 1. Si vous constatez l’échec de cette réinitialisation aux paramètres d’usine, contactez le support Microsoft pour obtenir de l’aide lors des étapes suivantes. Ce problème ne se produit pas avec des contrôleurs de remplacement sortis d’usine avec la mise à jour 1 ou une version ultérieure du logiciel.
 
 
 ## Questions et réponses sur la gestion des contrôleurs d’appareil
@@ -211,7 +211,7 @@ Dans cette section, vous trouverez des réponses à certaines questions fréquem
 
 ## Étapes suivantes
 
-- Si vous rencontrez des problèmes avec vos contrôleurs d’appareil StorSimple, que vous ne pouvez pas résoudre en suivant les procédures décrites dans ce didacticiel, [contactez le support technique azure.microsoft.com/](storsimple-contact-azure.microsoft.com/-support.md).
+- Si vous rencontrez des problèmes avec vos contrôleurs d’appareil StorSimple, que vous ne pouvez pas résoudre en suivant les procédures décrites dans ce didacticiel, [contactez le support technique Microsoft](storsimple-contact-microsoft-support.md).
 
 - Pour en savoir plus sur l’utilisation du service StorSimple Manager, consultez [Utilisation du service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
 

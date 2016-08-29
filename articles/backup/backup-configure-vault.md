@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Sauvegarder un client Windows ou un serveur Windows Server dans Azure avec Azure Backup et le modèle de déploiement Resource Manager | azure.microsoft.com/ Azure"
+	pageTitle="Sauvegarder un client Windows ou un serveur Windows Server dans Azure avec Azure Backup et le modèle de déploiement Resource Manager | Microsoft Azure"
 	description="Sauvegardez des serveurs ou clients Windows sur Azure en créant un coffre de sauvegarde, en téléchargeant des informations d’identification, en installant l’agent de sauvegarde et en effectuant une sauvegarde initiale de vos fichiers et dossiers."
 	services="backup"
 	documentationCenter=""
@@ -31,7 +31,7 @@ Cet article explique comment sauvegarder vos fichiers et dossiers Windows Server
 
 
 ## Avant de commencer
-Pour sauvegarder un serveur ou un client sur Azure, vous devez disposer d’un compte Azure. Si vous n’en possédez pas, vous pouvez créer un [compte gratuit](https://azure.azure.microsoft.com/.com/free/) en quelques minutes.
+Pour sauvegarder un serveur ou un client sur Azure, vous devez disposer d’un compte Azure. Si vous n’en possédez pas, vous pouvez créer un [compte gratuit](https://azure.microsoft.com/free/) en quelques minutes.
 
 ## Étape 1 : Création du coffre Recovery Services
 
@@ -82,11 +82,11 @@ Lorsque vous créez un archivage de Recovery Services pour la première fois, vo
 
     Après avoir sélectionné l’option de stockage pour votre coffre, vous pouvez associer vos fichiers et dossiers à celui-ci.
 
-Maintenant que vous avez créé un coffre, vous devez préparer votre infrastructure de sauvegarde des fichiers et des dossiers en téléchargeant et en installant l’agent azure.microsoft.com/ Azure Recovery Services, en téléchargeant les informations d’identification du coffre et en utilisant ces informations pour enregistrer l’agent auprès du coffre.
+Maintenant que vous avez créé un coffre, vous devez préparer votre infrastructure de sauvegarde des fichiers et des dossiers en téléchargeant et en installant l’agent Microsoft Azure Recovery Services, en téléchargeant les informations d’identification du coffre et en utilisant ces informations pour enregistrer l’agent auprès du coffre.
 
 ## Étape 2 : Téléchargement des fichiers
 
->[AZURE.NOTE] La sauvegarde via le portail Azure sera disponible prochainement. Pour l’instant, vous devez utiliser l’agent azure.microsoft.com/ Azure Recovery Services en local pour sauvegarder vos fichiers et dossiers.
+>[AZURE.NOTE] La sauvegarde via le portail Azure sera disponible prochainement. Pour l’instant, vous devez utiliser l’agent Microsoft Azure Recovery Services en local pour sauvegarder vos fichiers et dossiers.
 
 1. Dans le tableau de bord du coffre Recovery Services, cliquez sur **Paramètres**.
 
@@ -122,7 +122,7 @@ Maintenant que vous avez créé un coffre, vous devez préparer votre infrastruc
 
 1. Recherchez et double-cliquez sur **MARSagentinstaller.exe** dans le dossier Téléchargements (ou tout autre emplacement d’enregistrement).
 
-2. Exécutez l’Assistant Installation de l’Agent azure.microsoft.com/ Azure Recovery Services. Pour terminer l’Assistant, vous devez :
+2. Exécutez l’Assistant Installation de l’Agent Microsoft Azure Recovery Services. Pour terminer l’Assistant, vous devez :
 
     - Choisir un emplacement pour le dossier d’installation et de cache.
     - Fournir les informations relatives au serveur proxy, si vous en utilisez un pour vous connecter à Internet.
@@ -130,7 +130,7 @@ Maintenant que vous avez créé un coffre, vous devez préparer votre infrastruc
     - Fournir les informations d’identification de l’archivage téléchargées.
     - Enregistrer la phrase secrète de chiffrement dans un emplacement sécurisé.
 
-    >[AZURE.NOTE] En cas de perte ou d’oubli de la phrase secrète, azure.microsoft.com/ ne pourra pas vous aider à récupérer les données de sauvegarde. Enregistrez le fichier dans un emplacement sécurisé. Il est nécessaire pour restaurer une sauvegarde.
+    >[AZURE.NOTE] En cas de perte ou d’oubli de la phrase secrète, Microsoft ne pourra pas vous aider à récupérer les données de sauvegarde. Enregistrez le fichier dans un emplacement sécurisé. Il est nécessaire pour restaurer une sauvegarde.
 
 L’agent est désormais installé et votre ordinateur est inscrit dans le coffre. Vous êtes prêt à configurer et à planifier votre sauvegarde.
 
@@ -167,11 +167,11 @@ La sauvegarde initiale comprend deux tâches principales :
 - Planifier la sauvegarde
 - Sauvegarder les fichiers et dossiers pour la première fois
 
-Pour effectuer la sauvegarde initiale, vous devez utiliser l’agent azure.microsoft.com/ Azure Backup.
+Pour effectuer la sauvegarde initiale, vous devez utiliser l’agent Microsoft Azure Backup.
 
 ### Pour planifier la sauvegarde
 
-1. Ouvrez l’agent azure.microsoft.com/ Azure Backup. Vous pouvez le trouver en recherchant **azure.microsoft.com/ Azure Backup** sur votre ordinateur.
+1. Ouvrez l’agent Microsoft Azure Backup. Vous pouvez le trouver en recherchant **Microsoft Azure Backup** sur votre ordinateur.
 
     ![Démarrer l’agent Azure Backup](./media/backup-configure-vault/snap-in-search.png)
 

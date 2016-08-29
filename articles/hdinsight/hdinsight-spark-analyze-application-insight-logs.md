@@ -1,5 +1,5 @@
 <properties
-pageTitle="Analyser les journaux d’Application Insight avec Spark sur HDInsight | azure.microsoft.com/ Azure"
+pageTitle="Analyser les journaux d’Application Insight avec Spark sur HDInsight | Microsoft Azure"
 description="Découvrez comment exporter des journaux d’Application Insight pour le stockage d’objets blob, puis comment analyser les journaux avec Spark sur HDInsight."
 services="hdinsight"
 documentationCenter=""

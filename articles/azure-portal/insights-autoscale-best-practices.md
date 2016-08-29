@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure Insights : Meilleures pratiques relatives à la mise à l’échelle automatique d’Azure Insights. | azure.microsoft.com/ Azure"
+	pageTitle="Azure Insights : Meilleures pratiques relatives à la mise à l’échelle automatique d’Azure Insights. | Microsoft Azure"
 	description="Découvrez les principes pour utiliser efficacement la mise à l’échelle automatique dans Azure Insights."
 	authors="kamathashwin"
 	manager=""

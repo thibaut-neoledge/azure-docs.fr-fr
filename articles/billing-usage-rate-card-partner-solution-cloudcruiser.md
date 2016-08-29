@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Intégration des API azure.microsoft.com/ Azure Billing par Cloud Cruiser | azure.microsoft.com/ Azure"
-   description="Décrit la façon dont Cloud Cruiser, un partenaire de facturation de azure.microsoft.com/ Azure, a intégré les API Azure Billing à son produit. Ces informations sont particulièrement utiles pour les clients Azure et Cloud Cruiser qui souhaitent utiliser ou essayer Cloud Cruiser pour azure.microsoft.com/ Azure Pack."
+   pageTitle="Intégration des API Microsoft Azure Billing par Cloud Cruiser | Microsoft Azure"
+   description="Décrit la façon dont Cloud Cruiser, un partenaire de facturation de Microsoft Azure, a intégré les API Azure Billing à son produit. Ces informations sont particulièrement utiles pour les clients Azure et Cloud Cruiser qui souhaitent utiliser ou essayer Cloud Cruiser pour Microsoft Azure Pack."
    services=""
    documentationCenter=""
    authors="BryanLa"
@@ -18,9 +18,9 @@
    ms.date="08/16/2016"
    ms.author="mobandyo;sirishap;bryanla"/>
 
-# Intégration des API azure.microsoft.com/ Azure Billing par Cloud Cruiser
+# Intégration des API Microsoft Azure Billing par Cloud Cruiser
 
-Cet article décrit la façon dont les informations collectées à partir des nouvelles API azure.microsoft.com/ Azure Billing sont utilisables dans Cloud Cruiser à des fins de simulation et d’analyse des coûts de flux de travail.
+Cet article décrit la façon dont les informations collectées à partir des nouvelles API Microsoft Azure Billing sont utilisables dans Cloud Cruiser à des fins de simulation et d’analyse des coûts de flux de travail.
 
 ## API Azure RateCard
 L’API RateCard fournit des informations sur les tarifs Azure. Après vous être authentifié avec les informations d’identification appropriées, vous pouvez interroger l’API pour collecter les métadonnées relatives aux services disponibles sur Azure, ainsi que les tarifs associés à votre ID d’offre.
@@ -44,7 +44,7 @@ Voici un exemple de réponse de l’API affichant les prix pour l’instance A0 
 ### Interaction entre Cloud Cruiser et l’API Azure RateCard
 Cloud Cruiser peut tirer parti des informations de l’API RateCard de différentes façons. Dans cet article, nous décrivons comment utiliser ces informations pour effectuer la simulation et l’analyse des coûts de la charge de travail IaaS (infrastructure as a service).
 
-Pour illustrer ce cas d’utilisation, imaginons une charge de travail de plusieurs instances en cours d’exécution sur azure.microsoft.com/ Azure Pack (WAP). L’objectif est de simuler cette même charge de travail sur Azure et d’estimer les coûts liés à cette migration. La création de cette simulation nécessite l’exécution de deux tâches principales :
+Pour illustrer ce cas d’utilisation, imaginons une charge de travail de plusieurs instances en cours d’exécution sur Microsoft Azure Pack (WAP). L’objectif est de simuler cette même charge de travail sur Azure et d’estimer les coûts liés à cette migration. La création de cette simulation nécessite l’exécution de deux tâches principales :
 
 1. **Importation et traitement des informations de service collectées à partir de l’API RateCard** : cette tâche est également effectuée sur les classeurs, dans lesquels les informations extraites de l’API RateCard sont transformées et publiées sous la forme d’une nouvelle formule tarifaire. Cette nouvelle formule sera appliquée aux simulations pour estimer les prix Azure.
 
@@ -119,7 +119,7 @@ Le graphique inférieur présente les mêmes données, mais réparties par dépa
 
 ### Introduction
 
-azure.microsoft.com/ a récemment introduit l'API Azure Usage qui permet aux abonnés d'extraire des données d'utilisation par programmation afin d'obtenir des informations sur leur consommation. Il s'agit d'une excellente nouvelle pour les clients Cloud Cruiser qui peuvent tirer parti du jeu de données plus riche disponible à l'aide de cette API.
+Microsoft a récemment introduit l'API Azure Usage qui permet aux abonnés d'extraire des données d'utilisation par programmation afin d'obtenir des informations sur leur consommation. Il s'agit d'une excellente nouvelle pour les clients Cloud Cruiser qui peuvent tirer parti du jeu de données plus riche disponible à l'aide de cette API.
 
 Cloud Cruiser peut exploiter l'intégration dans l'API d'utilisation de plusieurs manières. La granularité (informations d'utilisation par heure) et les informations de métadonnées de ressources disponibles via l'API fournissent le jeu de données nécessaire pour prendre en charge des modèles de récupération des données de facturation ou de facturation interne flexibles.
 
@@ -129,7 +129,7 @@ L'objectif final est de pouvoir créer des rapports comme celui figurant ci-dess
 
 ![Figure 10 : rapport avec répartitions à l'aide de balises][10]
 
-### Balises azure.microsoft.com/ Azure
+### Balises Microsoft Azure
 
 Les données disponibles à l'aide de l'API Azure Usage incluent des informations sur la consommation, mais également des métadonnées de ressources, notamment toutes les balises qui y sont associées. Les balises fournissent un moyen simple d'organiser vos ressources. Mais, pour les exploiter, vous devez vous assurer que :
 
@@ -143,7 +143,7 @@ Avec la nouvelle API Azure Usage, Cloud Cruiser peut extraire les informations s
 Pour ce qui est de la tarification Cloud Cruiser automatise le processus de récupération des données de facturation / de facturation interne et peut exploiter les informations de balisage pour associer l'utilisation au consommateur approprié (département, division, projet, etc.). Cette automatisation représente une amélioration majeure et garantit un processus de facturation cohérent et vérifiable.
  
 
-### Création d'un groupe de ressources avec des balises dans azure.microsoft.com/ Azure
+### Création d'un groupe de ressources avec des balises dans Microsoft Azure
 La première étape de ce didacticiel consiste à créer un groupe de ressources dans le portail Azure et à créer ensuite des balises à associer aux ressources. Pour cet exemple, nous allons créer les balises suivantes : département, environnement, propriétaire, projet.
 
 La capture d’écran du portail Azure ci-dessous montre un exemple de groupe de ressources avec les balises associées.
@@ -154,9 +154,9 @@ L'étape suivante consiste à transmettre les informations de l'API d'utilisatio
 
 
     {
-      "id": "/subscriptions/bb678b04-0e48-4b44-XXXX-XXXXXXX/providers/azure.microsoft.com/.Commerce/UsageAggregates/Daily_BRSDT_20150623_0000",
+      "id": "/subscriptions/bb678b04-0e48-4b44-XXXX-XXXXXXX/providers/Microsoft.Commerce/UsageAggregates/Daily_BRSDT_20150623_0000",
       "name": "Daily_BRSDT_20150623_0000",
-      "type": "azure.microsoft.com/.Commerce/UsageAggregate",
+      "type": "Microsoft.Commerce/UsageAggregate",
       "properties":
       {
         "subscriptionId": "bb678b04-0e48-4b44-XXXX-XXXXXXXXX",
@@ -167,7 +167,7 @@ L'étape suivante consiste à transmettre les informations de l'API d'utilisatio
         "meterCategory": "Virtual Machines",
         "meterSubCategory": "Standard_D1 VM (Non-Windows)",
         "unit": "Hours",
-        "instanceData": "{"azure.microsoft.com/.Resources":{"resourceUri":"/subscriptions/bb678b04-0e48-4b44-XXXX-XXXXXXXX/resourceGroups/DEMOUSAGEAPI/providers/azure.microsoft.com/.Compute/virtualMachines/MyDockerVM","location":"eastus","tags":{"Department":"Sales","Project":"Demo Usage API","Environment":"Test","Owner":"RSE"},"additionalInfo":{"ImageType":"Canonical","ServiceType":"Standard_D1"}}}",
+        "instanceData": "{"Microsoft.Resources":{"resourceUri":"/subscriptions/bb678b04-0e48-4b44-XXXX-XXXXXXXX/resourceGroups/DEMOUSAGEAPI/providers/Microsoft.Compute/virtualMachines/MyDockerVM","location":"eastus","tags":{"Department":"Sales","Project":"Demo Usage API","Environment":"Test","Owner":"RSE"},"additionalInfo":{"ImageType":"Canonical","ServiceType":"Standard_D1"}}}",
         "meterId": "e60caf26-9ba0-413d-a422-6141f58081d6",
         "infoFields": {},
         "quantity": 8
@@ -213,9 +213,9 @@ Et vous n'avez à exécuter ce processus qu'une seule fois ! Lorsque le classeu
 ### Étapes suivantes
 
 + Pour découvrir la procédure détaillée de création de classeurs et de rapports Cloud Cruiser, reportez-vous à la [documentation](http://docs.cloudcruiser.com/) en ligne de Cloud Cruiser (ID de connexion valide requis). Pour obtenir plus d’informations sur Cloud Cruiser, contactez [info@cloudcruiser.com](mailto:info@cloudcruiser.com).
-+ Pour découvrir une présentation des API Azure Resource Usage et RateCard, voir [Obtenir une vue d’ensemble de votre consommation des ressources azure.microsoft.com/ Azure](billing-usage-rate-card-overview.md).
-+ Pour plus d’informations sur ces deux API, qui font partie intégrante de l’ensemble d’API fourni par Azure Resource Manager, consultez la [Référence des API REST Azure Billing](https://msdn.azure.microsoft.com/.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c).
-+ Si vous souhaitez vous plonger directement dans l'exemple de code, consultez nos exemples de code d'API de facturation azure.microsoft.com/ Azure sur [Exemples de code Azure](https://azure.azure.microsoft.com/.com/documentation/samples/?term=billing).
++ Pour découvrir une présentation des API Azure Resource Usage et RateCard, voir [Obtenir une vue d’ensemble de votre consommation des ressources Microsoft Azure](billing-usage-rate-card-overview.md).
++ Pour plus d’informations sur ces deux API, qui font partie intégrante de l’ensemble d’API fourni par Azure Resource Manager, consultez la [Référence des API REST Azure Billing](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c).
++ Si vous souhaitez vous plonger directement dans l'exemple de code, consultez nos exemples de code d'API de facturation Microsoft Azure sur [Exemples de code Azure](https://azure.microsoft.com/documentation/samples/?term=billing).
 
 ### En savoir plus
 + Pour plus d’informations sur Azure Resource Manager, voir l’article [Présentation d’Azure Resource Manager](resource-group-overview.md).

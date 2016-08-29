@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Surveiller et gérer des clusters HDInsight à l’aide de l’interface utilisateur Web d’Apache Ambari | azure.microsoft.com/ Azure"
+   pageTitle="Surveiller et gérer des clusters HDInsight à l’aide de l’interface utilisateur Web d’Apache Ambari | Microsoft Azure"
    description="Découvrez comment utiliser Ambari pour gérer et surveiller des clusters HDInsight Linux. Dans ce document, vous allez apprendre à utiliser l’interface utilisateur Web d’Ambari incluse avec les clusters HDInsight."
    services="hdinsight"
    documentationCenter=""

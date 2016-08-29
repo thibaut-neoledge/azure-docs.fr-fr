@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Création de clusters Hadoop basés sur Windows dans HDInsight à l'aide d'Azure PowerShell | azure.microsoft.com/ Azure"
+   pageTitle="Création de clusters Hadoop basés sur Windows dans HDInsight à l'aide d'Azure PowerShell | Microsoft Azure"
    	description="Apprenez à créer des clusters pour Azure HDInsight à l'aide d'Azure PowerShell."
    services="hdinsight"
    documentationCenter=""
@@ -30,7 +30,7 @@ Apprenez à créer des clusters HDInsight à l'aide d'Azure PowerShell. Azure Po
 
 Avant de commencer à suivre les instructions de cet article, vous devez disposer des éléments suivants :
 
-- Abonnement Azure. Consultez [Obtenir une version d'évaluation gratuite d'Azure](https://azure.azure.microsoft.com/.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- Abonnement Azure. Consultez [Obtenir une version d'évaluation gratuite d'Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 - Azure PowerShell.
 
     [AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
@@ -38,7 +38,7 @@ Avant de commencer à suivre les instructions de cet article, vous devez dispose
 
 
 ## Créer des clusters
-Azure PowerShell est un environnement de création de scripts vous permettant de contrôler et d'automatiser le déploiement et la gestion de vos charges de travail dans Azure. Cette section fournit des instructions sur la création d'un cluster HDInsight à l'aide d'Azure PowerShell. Pour plus d’informations sur la configuration d’un poste de travail pour exécuter des cmdlets HDInsight Windows Powershell, consultez la rubrique [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md). Pour plus d’informations sur l’utilisation d’Azure PowerShell avec HDInsight, consultez [Administration de HDInsight avec PowerShell](hdinsight-administer-use-powershell.md). Pour la liste des applets de commande Windows PowerShell pour HDInsight, consultez la rubrique [Référence des applets de commande HDInsight](https://msdn.azure.microsoft.com/.com/library/azure/dn858087.aspx).
+Azure PowerShell est un environnement de création de scripts vous permettant de contrôler et d'automatiser le déploiement et la gestion de vos charges de travail dans Azure. Cette section fournit des instructions sur la création d'un cluster HDInsight à l'aide d'Azure PowerShell. Pour plus d’informations sur la configuration d’un poste de travail pour exécuter des cmdlets HDInsight Windows Powershell, consultez la rubrique [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md). Pour plus d’informations sur l’utilisation d’Azure PowerShell avec HDInsight, consultez [Administration de HDInsight avec PowerShell](hdinsight-administer-use-powershell.md). Pour la liste des applets de commande Windows PowerShell pour HDInsight, consultez la rubrique [Référence des applets de commande HDInsight](https://msdn.microsoft.com/library/azure/dn858087.aspx).
 
 
 Les procédures suivantes sont nécessaires pour créer un cluster HDInsight en utilisant Azure PowerShell :
@@ -151,11 +151,11 @@ Cet article vous a présenté différentes méthodes pour créer un cluster HDIn
 
 
 
-[hdinsight-sdk-documentation]: http://msdn.azure.microsoft.com/.com/library/dn479185.aspx
+[hdinsight-sdk-documentation]: http://msdn.microsoft.com/library/dn479185.aspx
 [azure-preview-portal]: https://manage.windowsazure.com
-[connectionmanager]: http://msdn.azure.microsoft.com/.com/library/mt146773(v=sql.120).aspx
-[ssispack]: http://msdn.azure.microsoft.com/.com/library/mt146770(v=sql.120).aspx
-[ssisclustercreate]: http://msdn.azure.microsoft.com/.com/library/mt146774(v=sql.120).aspx
-[ssisclusterdelete]: http://msdn.azure.microsoft.com/.com/library/mt146778(v=sql.120).aspx
+[connectionmanager]: http://msdn.microsoft.com/library/mt146773(v=sql.120).aspx
+[ssispack]: http://msdn.microsoft.com/library/mt146770(v=sql.120).aspx
+[ssisclustercreate]: http://msdn.microsoft.com/library/mt146774(v=sql.120).aspx
+[ssisclusterdelete]: http://msdn.microsoft.com/library/mt146778(v=sql.120).aspx
 
 <!---HONumber=AcomDC_0817_2016-->

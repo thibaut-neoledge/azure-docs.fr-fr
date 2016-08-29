@@ -16,7 +16,7 @@
     ms.date="08/11/2016" 
     ms.author="robmcm"/>
 
-<!-- Legacy MSDN URL = https://msdn.azure.microsoft.com/.com/library/azure/hh690949.aspx -->
+<!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690949.aspx -->
 
 # Débogage des applications Azure dans Eclipse #
 
@@ -123,12 +123,12 @@ Pour plus d’informations sur l’utilisation d’Azure avec Java, consultez le
 
 <!-- URL List -->
 
-[Centre de développement Java pour Azure]: http://go.azure.microsoft.com/.com/fwlink/?LinkID=699547
-[portail de gestion Azure]: http://go.azure.microsoft.com/.com/fwlink/?LinkID=512959
-[Kit de ressources Azure pour Eclipse]: http://go.azure.microsoft.com/.com/fwlink/?LinkID=699529
-[Création d’une application « Hello World » pour Azure dans Eclipse]: http://go.azure.microsoft.com/.com/fwlink/?LinkID=699533
-[Installation de la Boîte à outils Azure pour Eclipse]: http://go.azure.microsoft.com/.com/fwlink/?LinkId=699546
-[Utilisation de la bibliothèque Azure Service Runtime en JSP]: http://go.azure.microsoft.com/.com/fwlink/?LinkID=699551
+[Centre de développement Java pour Azure]: http://go.microsoft.com/fwlink/?LinkID=699547
+[portail de gestion Azure]: http://go.microsoft.com/fwlink/?LinkID=512959
+[Kit de ressources Azure pour Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
+[Création d’une application « Hello World » pour Azure dans Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
+[Installation de la Boîte à outils Azure pour Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
+[Utilisation de la bibliothèque Azure Service Runtime en JSP]: http://go.microsoft.com/fwlink/?LinkID=699551
 
 <!-- IMG List -->
 

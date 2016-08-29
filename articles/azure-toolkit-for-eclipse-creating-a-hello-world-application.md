@@ -16,7 +16,7 @@
     ms.date="08/11/2016" 
     ms.author="robmcm"/>
 
-<!-- Legacy MSDN URL = https://msdn.azure.microsoft.com/.com/library/azure/hh690944.aspx -->
+<!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690944.aspx -->
 
 # Créer un service cloud « Hello World » pour Azure dans Eclipse #
 
@@ -31,7 +31,7 @@ L’application sera semblable à ce qui suit :
 * JDK (Java Development Kit) version 1.7 ou ultérieure.
 * IDE (environnement de développement intégré) Eclipse pour développeurs Java EE, Indigo ou ultérieur, Vous pouvez le télécharger à partir de <http://www.eclipse.org/downloads/>.
 * Distribution d’un serveur web ou d’un serveur d’applications basé sur Java, tel qu’Apache Tomcat, GlassFish, JBoss Application Server, Jetty ou IBM® WebSphere® Application Server Liberty Core.
-* Un abonnement à Azure, pouvant être souscrit à l'adresse suivante : <http://azure.azure.microsoft.com/.com/pricing/purchase-options/>.
+* Un abonnement à Azure, pouvant être souscrit à l'adresse suivante : <http://azure.microsoft.com/pricing/purchase-options/>.
 * Kit de ressources Azure pour Eclipse. Pour plus d’informations, consultez [Installation du kit de ressources Azure pour Eclipse][].
 
 ## Pour créer une application Hello World ##
@@ -159,14 +159,14 @@ Pour plus d’informations sur l’utilisation d’Azure avec Java, consultez le
 
 <!-- URL List -->
 
-[Centre de développement Java pour Azure]: http://go.azure.microsoft.com/.com/fwlink/?LinkID=699547
-[portail de gestion Azure]: http://go.azure.microsoft.com/.com/fwlink/?LinkID=512959
-[Azure Role Properties]: http://go.azure.microsoft.com/.com/fwlink/?LinkID=699525
-[Kit de ressources Azure pour Eclipse]: http://go.azure.microsoft.com/.com/fwlink/?LinkID=699529
-[Activation de l’accès à distance pour les déploiements Azure dans Eclipse]: http://go.azure.microsoft.com/.com/fwlink/?LinkID=699538
-[Installation du kit de ressources Azure pour Eclipse]: http://go.azure.microsoft.com/.com/fwlink/?LinkId=699546
-[Propriétés de configuration de serveur]: http://go.azure.microsoft.com/.com/fwlink/?LinkID=699525#server_configuration_properties
-[Nouveautés du kit de ressources Azure pour Eclipse]: http://go.azure.microsoft.com/.com/fwlink/?LinkID=699552
+[Centre de développement Java pour Azure]: http://go.microsoft.com/fwlink/?LinkID=699547
+[portail de gestion Azure]: http://go.microsoft.com/fwlink/?LinkID=512959
+[Azure Role Properties]: http://go.microsoft.com/fwlink/?LinkID=699525
+[Kit de ressources Azure pour Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
+[Activation de l’accès à distance pour les déploiements Azure dans Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699538
+[Installation du kit de ressources Azure pour Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
+[Propriétés de configuration de serveur]: http://go.microsoft.com/fwlink/?LinkID=699525#server_configuration_properties
+[Nouveautés du kit de ressources Azure pour Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699552
 
 <!-- IMG List -->
 

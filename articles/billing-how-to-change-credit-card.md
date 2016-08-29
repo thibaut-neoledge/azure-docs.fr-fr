@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Modification de la carte de crédit utilisée pour payer un abonnement Azure | azure.microsoft.com/ Azure"
+	pageTitle="Modification de la carte de crédit utilisée pour payer un abonnement Azure | Microsoft Azure"
 	description="Décrit comment modifier la carte de crédit utilisée pour payer un abonnement Azure"
 	services=""
 	documentationCenter=""

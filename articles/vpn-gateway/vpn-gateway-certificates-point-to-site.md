@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Créer des certificats auto-signés pour les connexions intersite de réseau virtuel point à site à l’aide de makecert | azure.microsoft.com/ Azure"
+   pageTitle="Créer des certificats auto-signés pour les connexions intersite de réseau virtuel point à site à l’aide de makecert | Microsoft Azure"
    description="Cet article explique comment utiliser makecert pour créer des certificats auto-signés sur Windows 10."
    services="vpn-gateway"
    documentationCenter="na"

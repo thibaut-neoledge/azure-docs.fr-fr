@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Version préliminaire d’Azure Active Directory B2B Collaboration : intégration simple et sécurisée des partenaires au cloud | azure.microsoft.com/ Azure"
+   pageTitle="Version préliminaire d’Azure Active Directory B2B Collaboration : intégration simple et sécurisée des partenaires au cloud | Microsoft Azure"
    description="Azure Active Directory B2B Collaboration prend en charge les relations interentreprises en permettant aux partenaires commerciaux d’accéder de façon sélective à vos applications d’entreprise"
    services="active-directory"
    documentationCenter=""

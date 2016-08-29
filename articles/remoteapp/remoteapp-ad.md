@@ -1,6 +1,6 @@
 
 <properties 
-    pageTitle="Configuration requise d’Azure AD et d’Active Directory pour Azure RemoteApp | azure.microsoft.com/ Azure" 
+    pageTitle="Configuration requise d’Azure AD et d’Active Directory pour Azure RemoteApp | Microsoft Azure" 
     description="Découvrez comment configurer Active Directory pour l'utiliser avec Azure RemoteApp." 
     services="remoteapp" 
 	documentationCenter="" 
@@ -21,14 +21,14 @@
 # Configuration requise d’Azure AD et d’Active Directory pour Azure RemoteApp
 
 > [AZURE.IMPORTANT]
-Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.azure.microsoft.com/.com/fwlink/?linkid=821148).
+Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148).
 
 
 Si vous souhaitez fédérer une collection hybride RemoteApp Azure ou une collection cloud à l’aide d’AD Connect, vous devez procéder ainsi.
 
 ### Connexion à Azure AD et Active Directory
 
-Si vous souhaitez connecter votre locataire Azure AD et vos environnements Active Directory locaux, utilisez AD Connect. Il vous faudra simplement [cliquer 4 fois](https://blogs.technet.azure.microsoft.com/.com/enterprisemobility/2014/08/04/connecting-ad-and-azure-ad-only-4-clicks-with-azure-ad-connect/) pour connecter les deux annuaires.
+Si vous souhaitez connecter votre locataire Azure AD et vos environnements Active Directory locaux, utilisez AD Connect. Il vous faudra simplement [cliquer 4 fois](https://blogs.technet.microsoft.com/enterprisemobility/2014/08/04/connecting-ad-and-azure-ad-only-4-clicks-with-azure-ad-connect/) pour connecter les deux annuaires.
 
 Remarque : la synchronisation d’annuaires est requise pour les collections hybride.
 

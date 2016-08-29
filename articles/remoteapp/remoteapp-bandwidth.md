@@ -1,6 +1,6 @@
 
 <properties 
-    pageTitle="Estimation de l’utilisation de la bande passante réseau Azure RemoteApp | azure.microsoft.com/ Azure"
+    pageTitle="Estimation de l’utilisation de la bande passante réseau Azure RemoteApp | Microsoft Azure"
 	description="Obtenir des informations sur les besoins en bande passante pour vos applications et collections Azure RemoteApp."
 	services="remoteapp"
 	documentationCenter="" 
@@ -19,7 +19,7 @@
 # Estimation de l’utilisation de la bande passante réseau Azure RemoteApp 
 
 > [AZURE.IMPORTANT]
-Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.azure.microsoft.com/.com/fwlink/?linkid=821148).
+Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148).
 
 Azure RemoteApp utilise le protocole RDP (Bureau à distance) pour communiquer entre les applications qui s’exécutent dans le cloud Azure et vos utilisateurs. Cet article fournit des instructions de base que vous pouvez utiliser pour estimer l’utilisation du réseau et évaluer potentiellement l’utilisation de la bande passante réseau pour chaque utilisateur d’Azure RemoteApp.
 

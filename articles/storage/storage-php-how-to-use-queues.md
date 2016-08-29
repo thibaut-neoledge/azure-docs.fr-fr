@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Utilisation du stockage de files d’attente à partir de PHP | azure.microsoft.com/ Azure"
+	pageTitle="Utilisation du stockage de files d’attente à partir de PHP | Microsoft Azure"
 	description="Découvrez comment utiliser le service de stockage de files d’attente Azure pour créer et supprimer des files d’attente, ainsi que pour insérer, récupérer et supprimer des messages. Les exemples sont écrits en PHP."
 	documentationCenter="php"
 	services="storage"
@@ -92,8 +92,8 @@ Un objet **QueueRestProxy** vous permet de créer une file d’attente avec la m
 	require_once 'vendor/autoload.php';
 
 	use WindowsAzure\Common\ServicesBuilder;
-	use azure.microsoft.com/Azure\Storage\Common\ServiceException;
-	use azure.microsoft.com/Azure\Storage\Queue\Models\CreateQueueOptions;
+	use MicrosoftAzure\Storage\Common\ServiceException;
+	use MicrosoftAzure\Storage\Queue\Models\CreateQueueOptions;
 
 	// Create queue REST proxy.
 	$queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
@@ -110,7 +110,7 @@ Un objet **QueueRestProxy** vous permet de créer une file d’attente avec la m
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here:
-		// http://msdn.azure.microsoft.com/.com/library/azure/dd179446.aspx
+		// http://msdn.microsoft.com/library/azure/dd179446.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -126,8 +126,8 @@ Pour ajouter un message à une file d'attente, utilisez **QueueRestProxy->create
 	require_once 'vendor/autoload.php';
 
 	use WindowsAzure\Common\ServicesBuilder;
-	use azure.microsoft.com/Azure\Storage\Common\ServiceException;
-	use azure.microsoft.com/Azure\Storage\Queue\Models\CreateMessageOptions;
+	use MicrosoftAzure\Storage\Common\ServiceException;
+	use MicrosoftAzure\Storage\Queue\Models\CreateMessageOptions;
 
 	// Create queue REST proxy.
 	$queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
@@ -140,7 +140,7 @@ Pour ajouter un message à une file d'attente, utilisez **QueueRestProxy->create
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here:
-		// http://msdn.azure.microsoft.com/.com/library/azure/dd179446.aspx
+		// http://msdn.microsoft.com/library/azure/dd179446.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -153,8 +153,8 @@ Vous pouvez lire furtivement un ou plusieurs messages au début d'une file d'att
 	require_once 'vendor/autoload.php';
 
 	use WindowsAzure\Common\ServicesBuilder;
-	use azure.microsoft.com/Azure\Storage\Common\ServiceException;
-	use azure.microsoft.com/Azure\Storage\Queue\Models\PeekMessagesOptions;
+	use MicrosoftAzure\Storage\Common\ServiceException;
+	use MicrosoftAzure\Storage\Queue\Models\PeekMessagesOptions;
 
 	// Create queue REST proxy.
 	$queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
@@ -169,7 +169,7 @@ Vous pouvez lire furtivement un ou plusieurs messages au début d'une file d'att
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here:
-		// http://msdn.azure.microsoft.com/.com/library/azure/dd179446.aspx
+		// http://msdn.microsoft.com/library/azure/dd179446.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -198,7 +198,7 @@ Votre code supprime un message d'une file d'attente en deux étapes. Tout d’ab
 	require_once 'vendor/autoload.php';
 
 	use WindowsAzure\Common\ServicesBuilder;
-	use azure.microsoft.com/Azure\Storage\Common\ServiceException;
+	use MicrosoftAzure\Storage\Common\ServiceException;
 
 	// Create queue REST proxy.
 	$queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
@@ -223,7 +223,7 @@ Votre code supprime un message d'une file d'attente en deux étapes. Tout d’ab
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here:
-		// http://msdn.azure.microsoft.com/.com/library/azure/dd179446.aspx
+		// http://msdn.microsoft.com/library/azure/dd179446.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -236,7 +236,7 @@ Vous pouvez modifier le contenu d'un message placé dans la file d'attente en ap
 	require_once 'vendor/autoload.php';
 
 	use WindowsAzure\Common\ServicesBuilder;
-	use azure.microsoft.com/Azure\Storage\Common\ServiceException;
+	use MicrosoftAzure\Storage\Common\ServiceException;
 
 	// Create queue REST proxy.
 	$queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
@@ -265,7 +265,7 @@ Vous pouvez modifier le contenu d'un message placé dans la file d'attente en ap
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here:
-		// http://msdn.azure.microsoft.com/.com/library/azure/dd179446.aspx
+		// http://msdn.microsoft.com/library/azure/dd179446.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -278,8 +278,8 @@ Il existe deux façons de personnaliser la récupération des messages à partir
 	require_once 'vendor/autoload.php';
 
 	use WindowsAzure\Common\ServicesBuilder;
-	use azure.microsoft.com/Azure\Storage\Common\ServiceException;
-	use azure.microsoft.com/Azure\Storage\Queue\Models\ListMessagesOptions;
+	use MicrosoftAzure\Storage\Common\ServiceException;
+	use MicrosoftAzure\Storage\Queue\Models\ListMessagesOptions;
 
 	// Create queue REST proxy.
 	$queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
@@ -312,7 +312,7 @@ Il existe deux façons de personnaliser la récupération des messages à partir
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here:
-		// http://msdn.azure.microsoft.com/.com/library/azure/dd179446.aspx
+		// http://msdn.microsoft.com/library/azure/dd179446.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -325,7 +325,7 @@ Vous pouvez obtenir une estimation du nombre de messages dans une file d'attente
 	require_once 'vendor/autoload.php';
 
 	use WindowsAzure\Common\ServicesBuilder;
-	use azure.microsoft.com/Azure\Storage\Common\ServiceException;
+	use MicrosoftAzure\Storage\Common\ServiceException;
 
 	// Create queue REST proxy.
 	$queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
@@ -338,7 +338,7 @@ Vous pouvez obtenir une estimation du nombre de messages dans une file d'attente
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here:
-		// http://msdn.azure.microsoft.com/.com/library/azure/dd179446.aspx
+		// http://msdn.microsoft.com/library/azure/dd179446.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -353,7 +353,7 @@ Pour supprimer une file d’attente et tous les messages qu’elle contient, app
 	require_once 'vendor/autoload.php';
 
 	use WindowsAzure\Common\ServicesBuilder;
-	use azure.microsoft.com/Azure\Storage\Common\ServiceException;
+	use MicrosoftAzure\Storage\Common\ServiceException;
 
 	// Create queue REST proxy.
 	$queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
@@ -365,7 +365,7 @@ Pour supprimer une file d’attente et tous les messages qu’elle contient, app
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here:
-		// http://msdn.azure.microsoft.com/.com/library/azure/dd179446.aspx
+		// http://msdn.microsoft.com/library/azure/dd179446.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -380,7 +380,7 @@ Maintenant que vous connaissez les bases du stockage des files d’attente Azure
 
 Pour plus d’informations, consultez également le [Centre de développement PHP](/develop/php/).
 
-[download]: http://go.azure.microsoft.com/.com/fwlink/?LinkID=252473
+[download]: http://go.microsoft.com/fwlink/?LinkID=252473
 [require\_once]: http://www.php.net/manual/en/function.require-once.php
 [Azure Portal]: https://portal.azure.com
 

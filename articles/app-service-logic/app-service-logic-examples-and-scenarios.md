@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Scénarios et exemples d’applications logiques | azure.microsoft.com/ Azure"
+   pageTitle="Scénarios et exemples d’applications logiques | Microsoft Azure"
    description="Découvrez des exemples courants d’applications logiques et apprenez à implémenter des scénarios courants"
    services="logic-apps"
    documentationCenter=".net,nodejs,java"
@@ -74,7 +74,7 @@ Le [langage de définition de flux de travail](http://aka.ms/logicappsdocs) Logi
 
 ## HTTP, REST et SOAP
 
- - [Appel de SOAP](https://blogs.msdn.azure.microsoft.com/.com/logicapps/2016/04/07/using-soap-services-with-logic-apps/)
+ - [Appel de SOAP](https://blogs.msdn.microsoft.com/logicapps/2016/04/07/using-soap-services-with-logic-apps/)
 
 
 Nous continuerons à ajouter des exemples et des scénarios dans ce document. Utilisez la section de commentaires ci-dessous pour nous faire savoir quels exemples ou scénarios vous aimeriez découvrir.

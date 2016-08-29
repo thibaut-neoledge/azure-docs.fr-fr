@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Comment migrer un réseau virtuel RemoteApp vers un réseau virtuel Azure | azure.microsoft.com/ Azure"
+    pageTitle="Comment migrer un réseau virtuel RemoteApp vers un réseau virtuel Azure | Microsoft Azure"
     description="Découvrir comment migrer un réseau virtuel RemoteApp vers un réseau virtuel Azure"
     services="remoteapp"
 	documentationCenter=""
@@ -20,7 +20,7 @@
 # Comment migrer une collection hybride d’un réseau virtuel RemoteApp à un réseau virtuel Azure
 
 > [AZURE.IMPORTANT]
-Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.azure.microsoft.com/.com/fwlink/?linkid=821148).
+Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148).
 
 Bonne nouvelle ! Vous avez désormais la possibilité de déployer des collections RemoteApp hybrides directement sur vos réseaux virtuels (VNET) Azure existants au lieu de devoir créer des réseaux virtuels RemoteApp spécifiques. Cela vous permet de tirer parti des dernières fonctionnalités de réseau virtuel (comme ExpressRoute) et offre à vos collections hybrides un accès réseau direct à d’autres services Azure et ordinateurs virtuels déployés sur ce réseau virtuel. (Ceci améliore les performances et facilite l’installation par rapport aux configurations de réseau virtuel à réseau virtuel).
 
@@ -43,13 +43,13 @@ Vous avez terminé !
 
 Si vous DEVEZ migrer des informations utilisateur depuis la collection d’origine vers la nouvelle collection, suivez les étapes ci-dessous :
 
-6.	Envoyez un e-mail à [remoteappforum@azure.microsoft.com/.com](mailto:remoteappforum@azure.microsoft.com/.com?subject=Azure%20RemoteApp%20user%20information%20migration) avec votre ID d’abonnement Azure, le nom de votre collection d’origine et le nom de votre nouvelle collection, et demandez à migrer vos informations utilisateur.
+6.	Envoyez un e-mail à [remoteappforum@microsoft.com](mailto:remoteappforum@microsoft.com?subject=Azure%20RemoteApp%20user%20information%20migration) avec votre ID d’abonnement Azure, le nom de votre collection d’origine et le nom de votre nouvelle collection, et demandez à migrer vos informations utilisateur.
 7.	Dans les deux jours ouvrés, l’équipe RemoteApp déplace la liste d’accès utilisateur, ainsi que tous les documents et paramètres de l’utilisateur de la collection d’origine vers la nouvelle collection.
 8.	Supprimez *OriginalCollection*.
 9.	Supprimez *RemoteAppVNET*.
 
 Vous avez terminé !
 
-Si vous avez des questions ou que vous avez besoin d’aide, envoyez un e-mail [remoteappforum@azure.microsoft.com/.com](mailto:remoteappforum@azure.microsoft.com/.com?subject=Azure%20RemoteApp%20VNET%20migration%20help).
+Si vous avez des questions ou que vous avez besoin d’aide, envoyez un e-mail [remoteappforum@microsoft.com](mailto:remoteappforum@microsoft.com?subject=Azure%20RemoteApp%20VNET%20migration%20help).
 
 <!---HONumber=AcomDC_0817_2016-->

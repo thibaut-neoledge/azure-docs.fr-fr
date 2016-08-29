@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Créer des zones et des jeux d’enregistrements DNS pour Azure DNS à l’aide du SDK .NET | azure.microsoft.com/ Azure" 
+   pageTitle="Créer des zones et des jeux d’enregistrements DNS pour Azure DNS à l’aide du SDK .NET | Microsoft Azure" 
    description="Comment créer des zones et des jeux d’enregistrements DNS pour Azure DNS à l’aide du SDK .NET" 
    services="dns" 
    documentationCenter="na" 
@@ -19,7 +19,7 @@
 
 # Créer des zones et des jeux d’enregistrements DNS à l’aide du Kit de développement logiciel (SDK) .NET
 
-Vous pouvez automatiser les opérations de création, de suppression ou de mise à jour des zones , des jeux d’enregistrements et des enregistrements DNS à l’aide du Kit de développement logiciel (SDK) DNS avec la bibliothèque de gestion DNS de .NET. Un projet Visual Studio complet est disponible [ici.](http://download.azure.microsoft.com/.com/download/2/A/C/2AC64449-1747-49E9-B875-C71827890126/AzureDnsSDKExample_2015_05_05.zip)
+Vous pouvez automatiser les opérations de création, de suppression ou de mise à jour des zones , des jeux d’enregistrements et des enregistrements DNS à l’aide du Kit de développement logiciel (SDK) DNS avec la bibliothèque de gestion DNS de .NET. Un projet Visual Studio complet est disponible [ici.](http://download.microsoft.com/download/2/A/C/2AC64449-1747-49E9-B875-C71827890126/AzureDnsSDKExample_2015_05_05.zip)
 
 ## Packages NuGet et déclaration des espaces de noms
 
@@ -31,13 +31,13 @@ Pour pouvoir utiliser le client DNS, vous devez installer le package NuGet **Bib
 
 3. Téléchargez la bibliothèque de gestion Azure DNS.
 
-		using azure.microsoft.com/.Azure;
-		using azure.microsoft.com/.Azure.Management.Dns;
-		using azure.microsoft.com/.Azure.Management.Dns.Models;
+		using Microsoft.Azure;
+		using Microsoft.Azure.Management.Dns;
+		using Microsoft.Azure.Management.Dns.Models;
 
 ## Initialiser le client de gestion DNS
 
-Le *DnsManagementClient* contient les méthodes et les propriétés nécessaires à la gestion des zones et des jeux d’enregistrements DNS. Pour que le client puisse accéder à votre abonnement, vous devez configurer les autorisations appropriées et générer un jeton AWT. Pour plus d’informations, consultez [Demandes d’authentification Azure Resource Manager](https://msdn.azure.microsoft.com/.com/library/azure/dn790557.aspx).
+Le *DnsManagementClient* contient les méthodes et les propriétés nécessaires à la gestion des zones et des jeux d’enregistrements DNS. Pour que le client puisse accéder à votre abonnement, vous devez configurer les autorisations appropriées et générer un jeton AWT. Pour plus d’informations, consultez [Demandes d’authentification Azure Resource Manager](https://msdn.microsoft.com/library/azure/dn790557.aspx).
 
 	// get a token for the AAD application (see the article link above for code)
 	string jwt = GetAToken();
@@ -111,6 +111,6 @@ L’exemple suivant montre comment obtenir une liste de zones et de jeux d’enr
 
 ## Étapes suivantes
 
-[Exemple de projet du Kit de développement logiciel (SDLK) Visual Studio](http://download.azure.microsoft.com/.com/download/2/A/C/2AC64449-1747-49E9-B875-C71827890126/AzureDnsSDKExample_2015_05_05.zip)
+[Exemple de projet du Kit de développement logiciel (SDLK) Visual Studio](http://download.microsoft.com/download/2/A/C/2AC64449-1747-49E9-B875-C71827890126/AzureDnsSDKExample_2015_05_05.zip)
 
 <!---HONumber=AcomDC_0817_2016-->

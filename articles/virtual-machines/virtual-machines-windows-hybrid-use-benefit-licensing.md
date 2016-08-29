@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure Hybrid Use Benefit pour Windows Server | azure.microsoft.com/ Azure"
+   pageTitle="Azure Hybrid Use Benefit pour Windows Server | Microsoft Azure"
    description="Découvrez comment optimiser les avantages de votre contrat Software Assurance pour Windows Server pour mettre des licences locales sur Azure"
    services="virtual-machines-windows"
    documentationCenter=""
@@ -18,7 +18,7 @@
 
 # Azure Hybrid Use Benefit pour Windows Server
 
-Si vous utilisez Windows Server avec Software Assurance, vous pouvez mettre vos licences Windows Server locales sur Azure et exécuter des machines virtuelles Windows Server dans Azure à moindre coût. Azure Hybrid Use Benefit vous permet d’exécuter des machines virtuelles Windows Server dans Azure et de n’être facturé que pour la vitesse de calcul de base. Pour plus d’informations, consultez la [page web de la licence d’Azure Hybrid Use Benefit](https://azure.azure.microsoft.com/.com/pricing/hybrid-use-benefit/). Cet article explique comment déployer des machines virtuelles Windows Server dans Azure pour profiter de cette licence.
+Si vous utilisez Windows Server avec Software Assurance, vous pouvez mettre vos licences Windows Server locales sur Azure et exécuter des machines virtuelles Windows Server dans Azure à moindre coût. Azure Hybrid Use Benefit vous permet d’exécuter des machines virtuelles Windows Server dans Azure et de n’être facturé que pour la vitesse de calcul de base. Pour plus d’informations, consultez la [page web de la licence d’Azure Hybrid Use Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/). Cet article explique comment déployer des machines virtuelles Windows Server dans Azure pour profiter de cette licence.
 
 > [AZURE.NOTE] Vous ne pouvez pas utiliser les images Azure Marketplace pour déployer des machines virtuelles Windows Server utilisant Azure Hybrid Use Benefit. Vous devez déployer vos machines virtuelles à l’aide de PowerShell ou de modèles Resource Manager pour désigner correctement vos machines virtuelles comme éligibles à la remise sur la vitesse de calcul de base.
 
@@ -33,13 +33,13 @@ Pour plus d’informations sur l’installation de la dernière version d’Azur
 
 ### Téléchargement d’un disque dur virtuel Windows Server
 
-Pour déployer une machine virtuelle Windows Server dans Azure, vous devez d’abord créer un disque dur virtuel contenant votre build Windows Server de base. Ce disque dur virtuel doit être correctement préparé par Sysprep avant son téléchargement sur Azure. Découvrez [plus d’information sur la configuration requise du disque dur virtuel et le processus Sysprep](./virtual-machines-windows-upload-image.md) et la [prise en charge de Sysprep pour les rôles serveur](https://msdn.azure.microsoft.com/.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles). Une fois votre disque dur virtuel préparé, chargez-le dans votre compte Azure Storage en utilisant l’applet de commande `Add-AzureRmVhd` comme suit :
+Pour déployer une machine virtuelle Windows Server dans Azure, vous devez d’abord créer un disque dur virtuel contenant votre build Windows Server de base. Ce disque dur virtuel doit être correctement préparé par Sysprep avant son téléchargement sur Azure. Découvrez [plus d’information sur la configuration requise du disque dur virtuel et le processus Sysprep](./virtual-machines-windows-upload-image.md) et la [prise en charge de Sysprep pour les rôles serveur](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles). Une fois votre disque dur virtuel préparé, chargez-le dans votre compte Azure Storage en utilisant l’applet de commande `Add-AzureRmVhd` comme suit :
 
 ```
 Add-AzureRmVhd -ResourceGroupName MyResourceGroup -Destination "https://mystorageaccount.blob.core.windows.net/vhds/myvhd.vhd" -LocalFilePath 'C:\Path\To\myvhd.vhd'
 ```
 
-> [AZURE.NOTE] azure.microsoft.com/ SQL Server, SharePoint Server et Dynamics peuvent également utiliser vos licences Software Assurance. Vous devez encore préparer l’image Windows Server en installant vos composants d’application et en fournissant les clés de licence appropriées, puis en téléchargeant l’image de disque vers Azure. Passez en revue la documentation appropriée pour l’exécution de Sysprep avec votre application, telle que [Considérations relatives à l’installation de SQL Server à l’aide de Sysprep](https://msdn.azure.microsoft.com/.com/library/ee210754.aspx) ou [Build a SharePoint Server 2016 Reference Image (Sysprep)](http://social.technet.azure.microsoft.com/.com/wiki/contents/articles/33789.build-a-sharepoint-server-2016-reference-image-sysprep.aspx) (Créer une image de référence SharePoint Server 2016 (Sysprep)).
+> [AZURE.NOTE] Microsoft SQL Server, SharePoint Server et Dynamics peuvent également utiliser vos licences Software Assurance. Vous devez encore préparer l’image Windows Server en installant vos composants d’application et en fournissant les clés de licence appropriées, puis en téléchargeant l’image de disque vers Azure. Passez en revue la documentation appropriée pour l’exécution de Sysprep avec votre application, telle que [Considérations relatives à l’installation de SQL Server à l’aide de Sysprep](https://msdn.microsoft.com/library/ee210754.aspx) ou [Build a SharePoint Server 2016 Reference Image (Sysprep)](http://social.technet.microsoft.com/wiki/contents/articles/33789.build-a-sharepoint-server-2016-reference-image-sysprep.aspx) (Créer une image de référence SharePoint Server 2016 (Sysprep)).
 
 Pour en savoir plus sur le chargement du disque dur virtuel vers Azure, [cliquez ici](./virtual-machines-windows-upload-image.md#upload-the-vm-image-to-your-storage-account).
 
@@ -75,7 +75,7 @@ Get-AzureRmVM -ResourceGroup MyResourceGroup -Name MyVM
 Une sortie similaire à celle-ci s’affiche :
 
 ```
-Type                     : azure.microsoft.com/.Compute/virtualMachines
+Type                     : Microsoft.Compute/virtualMachines
 Location                 : westus
 LicenseType              : Windows_Server
 ```
@@ -83,7 +83,7 @@ LicenseType              : Windows_Server
 Ce cas de figure est différent de celui de la machine virtuelle suivante déployée sans la licence Azure Hybrid Use Benefit, comme une machine virtuelle déployée directement depuis la Galerie Azure :
 
 ```
-Type                     : azure.microsoft.com/.Compute/virtualMachines
+Type                     : Microsoft.Compute/virtualMachines
 Location                 : westus
 LicenseType              : 
 ```
@@ -161,7 +161,7 @@ New-AzureRmVM -ResourceGroupName $resourceGroupName -Location $location -VM $vm 
 
 ## Étapes suivantes
 
-En savoir plus sur les [licences Azure Hybrid Use Benefit](https://azure.azure.microsoft.com/.com/pricing/hybrid-use-benefit/).
+En savoir plus sur les [licences Azure Hybrid Use Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
 
 En savoir plus sur [l’utilisation de modèles Resource Manager](../resource-group-overview.md).
 

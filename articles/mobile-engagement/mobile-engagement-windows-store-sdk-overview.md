@@ -73,7 +73,7 @@ La superposition Reach a été améliorée. Elle fait partie des ressources du p
 Lors de la mise à niveau vers la nouvelle version du Kit de développement logiciel (SDK), vous pouvez choisir de conserver ou non les fichiers existants dans le dossier de superposition de vos ressources :
 
 * Si la superposition précédente vous convient ou que vous intégrez manuellement les éléments `WebView`, vous pouvez choisir de conserver vos fichiers existants car ils resteront opérationnels.
-* Pour effectuer la mise à jour vers la nouvelle superposition, remplacez l'ensemble du dossier `overlay` contenant vos ressources par le nouveau dossier contenant le package du Kit de développement logiciel (applications UWP : après la mise à niveau, vous trouverez le nouveau dossier de superposition sous %USERPROFILE%\\.nuget\\packages\\azure.microsoft.com/Azure.MobileEngagement\\3.4.0\\content\\win81\\Resources).
+* Pour effectuer la mise à jour vers la nouvelle superposition, remplacez l'ensemble du dossier `overlay` contenant vos ressources par le nouveau dossier contenant le package du Kit de développement logiciel (applications UWP : après la mise à niveau, vous trouverez le nouveau dossier de superposition sous %USERPROFILE%\\.nuget\\packages\\MicrosoftAzure.MobileEngagement\\3.4.0\\content\\win81\\Resources).
 
 > [AZURE.WARNING] L’utilisation de la nouvelle superposition remplace toutes les personnalisations apportées à la version précédente.
 

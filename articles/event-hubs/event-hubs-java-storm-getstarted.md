@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Prise en main d’Event Hubs dans Java avec Apache Storm | azure.microsoft.com/ Azure"
+	pageTitle="Prise en main d’Event Hubs dans Java avec Apache Storm | Microsoft Azure"
 	description="Suivez ce didacticiel pour commencer à utiliser Azure Event Hubs, à envoyer des événements en Java et à en recevoir dans un cluster Apache Storm."
 	services="event-hubs"
 	documentationCenter=""
@@ -32,7 +32,7 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
 + Un environnement de développement Java configuré pour exécuter [Maven](http://maven.apache.org/). Pour ce didacticiel, nous partons du principe que la solution utilisée est [Eclipse](https://www.eclipse.org/).
 
-+ Un compte Azure actif. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.azure.microsoft.com/.com/pricing/free-trial/).
++ Un compte Azure actif. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 [AZURE.INCLUDE [event-hubs-create-event-hub](../../includes/event-hubs-create-event-hub.md)]
 
@@ -65,7 +65,7 @@ Les ressources suivantes sont disponibles pour les applications de développemen
 
 <!-- Links -->
 [portail Azure Classic]: https://manage.windowsazure.com/
-[Event Processor Host]: https://www.nuget.org/packages/azure.microsoft.com/.Azure.ServiceBus.EventProcessorHost
+[Event Processor Host]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
 [Vue d'ensemble d’Event Hubs]: event-hubs-overview.md
 
 [Apache Storm]: https://storm.incubator.apache.org

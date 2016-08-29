@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Création d’un projet Azure avec Visual Studio | azure.microsoft.com/ Azure"
+   pageTitle="Création d’un projet Azure avec Visual Studio | Microsoft Azure"
    description="Création d'un projet Azure avec Visual Studio"
    services="visual-studio-online"
    documentationCenter="na"
@@ -42,11 +42,11 @@ Une solution de service cloud Azure contient les types de projets suivants :
 
 - **Rôle de travail avec file d'attente Service Bus**
 
-    Une file d’attente Service Bus qui fournit la fonctionnalité de mise en file d’attente des messages pour communiquer avec le processus de travail. Pour plus d'informations, consultez la page [Utilisation des files d'attente Service Bus](http://go.azure.microsoft.com/.com/fwlink/?LinkId=260560).
+    Une file d’attente Service Bus qui fournit la fonctionnalité de mise en file d’attente des messages pour communiquer avec le processus de travail. Pour plus d'informations, consultez la page [Utilisation des files d'attente Service Bus](http://go.microsoft.com/fwlink/?LinkId=260560).
 
 ## Pour créer un projet de service cloud Azure dans Visual Studio
 
-1. Lancez azure.microsoft.com/ Visual Studio en tant qu'administrateur.
+1. Lancez Microsoft Visual Studio en tant qu'administrateur.
 
 1. Dans le menu principal, sélectionnez **Fichier**, **Nouveau **, **Projet**.
 

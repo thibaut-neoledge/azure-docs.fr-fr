@@ -16,7 +16,7 @@
     ms.date="08/11/2016" 
     ms.author="robmcm"/>
 
-<!-- Legacy MSDN URL = https://msdn.azure.microsoft.com/.com/library/azure/hh690945.aspx -->
+<!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690945.aspx -->
 
 # Propriétés du rôle Azure #
 
@@ -24,7 +24,7 @@ Vous avez la possibilité de définir différents paramètres de configuration p
 
 ## Configuration des propriétés de rôle Azure ##
 
-La configuration des propriétés de votre rôle Azure s’effectue via les boîtes de dialogue de propriété du rôle de travail. Ouvrez le menu contextuel correspondant au rôle dans le volet de l’Explorateur de projets Eclipse, puis sélectionnez le sous-menu **Azure**. (Si le rôle n’apparaît pas dans l’Explorateur de projets Eclipse, développez votre projet dans l’Explorateur de projets azure.microsoft.com/ Azure).
+La configuration des propriétés de votre rôle Azure s’effectue via les boîtes de dialogue de propriété du rôle de travail. Ouvrez le menu contextuel correspondant au rôle dans le volet de l’Explorateur de projets Eclipse, puis sélectionnez le sous-menu **Azure**. (Si le rôle n’apparaît pas dans l’Explorateur de projets Eclipse, développez votre projet dans l’Explorateur de projets Microsoft Azure).
 
 ![][ic789599]
 
@@ -190,7 +190,7 @@ Selon le type de point de terminaison, vous pouvez utiliser des plages de ports 
 
 Si vous souhaitez utiliser un numéro de port unique et non une plage de numéros, laissez la zone de texte de la fin de plage vide.
 
-Pour les ports qui ont pour valeur Automatique, si vous devez déterminer le port effectivement utilisé lors de l’exécution, votre application peut utiliser l’API Azure Service Runtime, qui est décrit dans le [résumé de package com.azure.microsoft.com/.windowsazure.serviceruntime][].
+Pour les ports qui ont pour valeur Automatique, si vous devez déterminer le port effectivement utilisé lors de l’exécution, votre application peut utiliser l’API Azure Service Runtime, qui est décrit dans le [résumé de package com.microsoft.windowsazure.serviceruntime][].
 
 Pour voir comment les points de terminaison d’entrée d’instance peuvent être utilisés le débogage d’un déploiement à plusieurs instances, consultez [Débogage d’une instance de rôle spécifique dans un déploiement à plusieurs instances][].
 
@@ -398,21 +398,21 @@ Pour plus d’informations sur l’utilisation d’Azure avec Java, consultez le
 
 <!-- URL List -->
 
-[Centre de développement Azure avec Java]: http://go.azure.microsoft.com/.com/fwlink/?LinkID=699547
-[portail de gestion]: http://go.azure.microsoft.com/.com/fwlink/?LinkID=512959
-[Kit de ressources Azure pour Eclipse]: http://go.azure.microsoft.com/.com/fwlink/?LinkID=699529
-[Propriétés du projet Azure]: http://go.azure.microsoft.com/.com/fwlink/?LinkID=699524
-[Liste du compte de stockage Azure]: http://go.azure.microsoft.com/.com/fwlink/?LinkID=699528
-[résumé de package com.azure.microsoft.com/.windowsazure.serviceruntime]: http://azure.github.io/azure-sdk-for-java/com/azure.microsoft.com//windowsazure/serviceruntime/package-summary.html
-[Création d’une application Hello World pour Azure dans Eclipse]: http://go.azure.microsoft.com/.com/fwlink/?LinkID=699533
-[Débogage d’une instance de rôle spécifique dans un déploiement à plusieurs instances]: http://go.azure.microsoft.com/.com/fwlink/?LinkID=699535#debugging_specific_role_instance
-[Débogage des applications Azure dans Eclipse]: http://go.azure.microsoft.com/.com/fwlink/?LinkID=699535
-[Déploiements à grande échelle]: http://go.azure.microsoft.com/.com/fwlink/?LinkID=699536
-[Utilisation de la mise en cache colocalisée]: http://go.azure.microsoft.com/.com/fwlink/?LinkID=699542
-[Comment utiliser le déchargement SSL]: http://go.azure.microsoft.com/.com/fwlink/?LinkID=699545
-[Installation du kit de ressources Azure pour Eclipse]: http://go.azure.microsoft.com/.com/fwlink/?LinkId=699546
-[Affinité de session]: http://go.azure.microsoft.com/.com/fwlink/?LinkID=699548
-[Déchargement SSL]: http://go.azure.microsoft.com/.com/fwlink/?LinkID=699549
+[Centre de développement Azure avec Java]: http://go.microsoft.com/fwlink/?LinkID=699547
+[portail de gestion]: http://go.microsoft.com/fwlink/?LinkID=512959
+[Kit de ressources Azure pour Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
+[Propriétés du projet Azure]: http://go.microsoft.com/fwlink/?LinkID=699524
+[Liste du compte de stockage Azure]: http://go.microsoft.com/fwlink/?LinkID=699528
+[résumé de package com.microsoft.windowsazure.serviceruntime]: http://azure.github.io/azure-sdk-for-java/com/microsoft/windowsazure/serviceruntime/package-summary.html
+[Création d’une application Hello World pour Azure dans Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
+[Débogage d’une instance de rôle spécifique dans un déploiement à plusieurs instances]: http://go.microsoft.com/fwlink/?LinkID=699535#debugging_specific_role_instance
+[Débogage des applications Azure dans Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699535
+[Déploiements à grande échelle]: http://go.microsoft.com/fwlink/?LinkID=699536
+[Utilisation de la mise en cache colocalisée]: http://go.microsoft.com/fwlink/?LinkID=699542
+[Comment utiliser le déchargement SSL]: http://go.microsoft.com/fwlink/?LinkID=699545
+[Installation du kit de ressources Azure pour Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
+[Affinité de session]: http://go.microsoft.com/fwlink/?LinkID=699548
+[Déchargement SSL]: http://go.microsoft.com/fwlink/?LinkID=699549
 
 <!-- IMG List -->
 

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Clonage de votre volume StorSimple | azure.microsoft.com/ Azure"
+   pageTitle="Clonage de votre volume StorSimple | Microsoft Azure"
    description="Décrit les différents types de clone et les moments auxquels les utiliser et explique comment vous pouvez utiliser un jeu de sauvegarde pour cloner un volume individuel."
    services="storsimple"
    documentationCenter="NA"
@@ -79,11 +79,11 @@ Les sections suivantes décrivent des exemples de situations dans lesquelles les
 
 ### Récupération au niveau de l’élément avec un clone temporaire
 
-Vous devez récupérer un fichier de présentation azure.microsoft.com/ PowerPoint datant d’un an. Votre administrateur informatique identifie la sauvegarde spécifique dans cette période et filtre ensuite le volume. Ensuite, l’administrateur clone le volume, trouve le fichier que vous recherchez et vous le fournit. Dans ce scénario, un clone temporaire est utilisé.
+Vous devez récupérer un fichier de présentation Microsoft PowerPoint datant d’un an. Votre administrateur informatique identifie la sauvegarde spécifique dans cette période et filtre ensuite le volume. Ensuite, l’administrateur clone le volume, trouve le fichier que vous recherchez et vous le fournit. Dans ce scénario, un clone temporaire est utilisé.
  
 ![Vidéo disponible](./media/storsimple-clone-volume/Video_icon.png) **Vidéo disponible**
 
-Pour visionner une vidéo expliquant comment utiliser les fonctionnalités de clonage et de restauration dans StorSimple pour récupérer des fichiers supprimés, cliquez [ici](https://azure.azure.microsoft.com/.com/documentation/videos/storsimple-recover-deleted-files-with-storsimple/).
+Pour visionner une vidéo expliquant comment utiliser les fonctionnalités de clonage et de restauration dans StorSimple pour récupérer des fichiers supprimés, cliquez [ici](https://azure.microsoft.com/documentation/videos/storsimple-recover-deleted-files-with-storsimple/).
 
 ### Test dans l’environnement de production avec un clone permanent
 

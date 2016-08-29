@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Gérer Azure RemoteApp avec Azure Automation | azure.microsoft.com/ Azure"
+	pageTitle="Gérer Azure RemoteApp avec Azure Automation | Microsoft Azure"
 	description="Découvrez comment le service Azure Automation peut être utilisé pour gérer Azure RemoteApp."
 	services="automation"
 	documentationCenter=""
@@ -19,7 +19,7 @@
 #Gestion d'Azure RemoteApp à l'aide d'Azure Automation
 
 > [AZURE.IMPORTANT]
-Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.azure.microsoft.com/.com/fwlink/?linkid=821148).
+Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148).
 
 Ce guide vous présente le service Azure Automation et la manière de l'utiliser pour gérer plus simplement Azure RemoteApp.
 
@@ -34,7 +34,7 @@ Réduisez les coûts opérationnels et libérez du temps pour que votre équipe 
 
 ## Comment Azure Automation peut-il aider à gérer Azure RemoteApp ?
 
-RemoteApp peut être géré dans Azure Automation à l'aide des applets de commande PowerShell qui sont disponibles dans les [outils Azure PowerShell](https://msdn.azure.microsoft.com/.com/library/azure/jj156055.aspx). Azure Automation dispose dès le départ de ces applets de commande PowerShell pour RemoteApp, de sorte que vous pouvez effectuer toutes vos tâches de gestion de RemoteApp au sein du service. Dans Azure Automation, vous pouvez également associer ces applets de commande à des applets de commande d'autres services Azure, afin d'automatiser des tâches complexes entre des services Azure et des systèmes tiers.
+RemoteApp peut être géré dans Azure Automation à l'aide des applets de commande PowerShell qui sont disponibles dans les [outils Azure PowerShell](https://msdn.microsoft.com/library/azure/jj156055.aspx). Azure Automation dispose dès le départ de ces applets de commande PowerShell pour RemoteApp, de sorte que vous pouvez effectuer toutes vos tâches de gestion de RemoteApp au sein du service. Dans Azure Automation, vous pouvez également associer ces applets de commande à des applets de commande d'autres services Azure, afin d'automatiser des tâches complexes entre des services Azure et des systèmes tiers.
 
 
 ## Étapes suivantes

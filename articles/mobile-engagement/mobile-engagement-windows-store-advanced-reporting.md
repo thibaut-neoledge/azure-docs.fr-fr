@@ -61,7 +61,7 @@ Modifiez le fichier `.xaml.cs` de votre page :
 
 -   Ajoutez à vos instructions `using` :
 
-		using azure.microsoft.com/.Azure.Engagement;
+		using Microsoft.Azure.Engagement;
 
 -   Remplacez `Page` par `EngagementPage` :
 
@@ -77,7 +77,7 @@ Modifiez le fichier `.xaml.cs` de votre page :
 
 **Avec Engagement :**
 
-		using azure.microsoft.com/.Azure.Engagement;
+		using Microsoft.Azure.Engagement;
 
 		namespace Example
 		{
@@ -95,7 +95,7 @@ Modifiez le fichier `.xaml` de votre page :
 
 -   Ajoutez une déclaration d'espace de noms :
 
-		xmlns:engagement="using:azure.microsoft.com/.Azure.Engagement"
+		xmlns:engagement="using:Microsoft.Azure.Engagement"
 
 -   Remplacez `Page` par `engagement:EngagementPage` :
 
@@ -109,7 +109,7 @@ Modifiez le fichier `.xaml` de votre page :
 **Avec Engagement :**
 
 		<engagement:EngagementPage
-		    xmlns:engagement="using:azure.microsoft.com/.Azure.Engagement">
+		    xmlns:engagement="using:Microsoft.Azure.Engagement">
 		    <!-- layout -->
 		    ...
 		</engagement:EngagementPage >

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Déploiement d’applications Service Fabric | azure.microsoft.com/ Azure"
+   pageTitle="Déploiement d’applications Service Fabric | Microsoft Azure"
    description="Comment déployer et supprimer des applications dans Service Fabric"
    services="service-fabric"
    documentationCenter=".net"
@@ -28,12 +28,12 @@ Une fois qu’un [type d’application a été packagé][10], il est prêt à ê
 
 ## Télécharger le package d'application
 
-Quand vous chargez le package d’application, celui-ci est placé dans un dossier accessible aux composants internes de Service Fabric. Vous pouvez utiliser PowerShell pour effectuer le chargement. Avant d’exécuter des commandes PowerShell dans le cadre de cet article, commencez toujours par vous connecter au cluster Service Fabric à l’aide de la commande [Connect-ServiceFabricCluster](https://msdn.azure.microsoft.com/.com/library/mt125938.aspx).
+Quand vous chargez le package d’application, celui-ci est placé dans un dossier accessible aux composants internes de Service Fabric. Vous pouvez utiliser PowerShell pour effectuer le chargement. Avant d’exécuter des commandes PowerShell dans le cadre de cet article, commencez toujours par vous connecter au cluster Service Fabric à l’aide de la commande [Connect-ServiceFabricCluster](https://msdn.microsoft.com/library/mt125938.aspx).
 
-Supposons que vous ayez un dossier nommé *MonTypeApplication* qui contienne le manifeste de l’application, les manifestes de service et les packages de code/configuration/données. La commande [Copy-ServiceFabricApplicationPackage](https://msdn.azure.microsoft.com/.com/library/mt125905.aspx) charge le package dans le magasin d’images du cluster. L’applet de commande **Get-ImageStoreConnectionStringFromClusterManifest**, qui fait partie du module PowerShell du SDK de Service Fabric, sert à obtenir la chaîne de connexion au magasin d’images. Pour importer le module du Kit de développement logiciel (SDK), exécutez :
+Supposons que vous ayez un dossier nommé *MonTypeApplication* qui contienne le manifeste de l’application, les manifestes de service et les packages de code/configuration/données. La commande [Copy-ServiceFabricApplicationPackage](https://msdn.microsoft.com/library/mt125905.aspx) charge le package dans le magasin d’images du cluster. L’applet de commande **Get-ImageStoreConnectionStringFromClusterManifest**, qui fait partie du module PowerShell du SDK de Service Fabric, sert à obtenir la chaîne de connexion au magasin d’images. Pour importer le module du Kit de développement logiciel (SDK), exécutez :
 
 ```
-Import-Module "$ENV:ProgramFiles\azure.microsoft.com/ SDKs\Service Fabric\Tools\PSModule\ServiceFabricSDK\ServiceFabricSDK.psm1"
+Import-Module "$ENV:ProgramFiles\Microsoft SDKs\Service Fabric\Tools\PSModule\ServiceFabricSDK\ServiceFabricSDK.psm1"
 ```
 
 Vous pouvez copier un package d’application de *C:\\users\\ryanwi\\Documents\\Visual Studio 2015\\Projects\\MyApplication\\myapplication\\pkg\\debug* vers *C:\\temp\\MyApplicationType* (renommez « MyApplicationType » le répertoire « debug »). L’exemple suivant charge le package :
@@ -57,11 +57,11 @@ C:\TEMP\MyApplicationType
     |   ServiceManifest.xml
     │
     └───Code
-    │   │  azure.microsoft.com/.ServiceFabric.Data.dll
-    │   │  azure.microsoft.com/.ServiceFabric.Data.Interfaces.dll
-    │   │  azure.microsoft.com/.ServiceFabric.Internal.dll
-    │   │  azure.microsoft.com/.ServiceFabric.Internal.Strings.dll
-    │   │  azure.microsoft.com/.ServiceFabric.Services.dll
+    │   │  Microsoft.ServiceFabric.Data.dll
+    │   │  Microsoft.ServiceFabric.Data.Interfaces.dll
+    │   │  Microsoft.ServiceFabric.Internal.dll
+    │   │  Microsoft.ServiceFabric.Internal.Strings.dll
+    │   │  Microsoft.ServiceFabric.Services.dll
     │   │  ServiceFabricServiceModel.dll
     │   │  MyService.exe
     │   │  MyService.exe.config
@@ -70,7 +70,7 @@ C:\TEMP\MyApplicationType
     │   │  System.Fabric.Strings.dll
     │   │
     │   └───fr-FR
-    |         azure.microsoft.com/.ServiceFabric.Internal.Strings.resources.dll
+    |         Microsoft.ServiceFabric.Internal.Strings.resources.dll
     |         System.Fabric.Strings.resources.dll
     |
     ├───Config
@@ -87,7 +87,7 @@ PS D:\temp>
 
 ## Enregistrer le package d'application
 
-L’enregistrement du package d’application a pour effet de rendre disponibles le type et la version de l’application déclarés dans le manifeste d’application. Le système lit le package téléchargé à l’étape précédente, vérifie le package (équivaut à exécuter [Test-ServiceFabricApplicationPackage](https://msdn.azure.microsoft.com/.com/library/mt125950.aspx) localement), traite le contenu du package et copie le package traité dans un emplacement système interne.
+L’enregistrement du package d’application a pour effet de rendre disponibles le type et la version de l’application déclarés dans le manifeste d’application. Le système lit le package téléchargé à l’étape précédente, vérifie le package (équivaut à exécuter [Test-ServiceFabricApplicationPackage](https://msdn.microsoft.com/library/mt125950.aspx) localement), traite le contenu du package et copie le package traité dans un emplacement système interne.
 
 ~~~
 PS D:\temp> Register-ServiceFabricApplicationType MyApplicationType
@@ -102,13 +102,13 @@ DefaultParameters      : {}
 PS D:\temp>
 ~~~
 
-La commande [Register-ServiceFabricApplicationType](https://msdn.azure.microsoft.com/.com/library/mt125958.aspx) ne retourne un résultat que lorsque le package d’application a été correctement copié par le système. La durée de l'opération dépend du contenu du package d'application. Si nécessaire, le paramètre **-TimeoutSec** peut être utilisé pour fournir un délai d’attente plus long. (le délai d’attente par défaut est de 60 secondes).
+La commande [Register-ServiceFabricApplicationType](https://msdn.microsoft.com/library/mt125958.aspx) ne retourne un résultat que lorsque le package d’application a été correctement copié par le système. La durée de l'opération dépend du contenu du package d'application. Si nécessaire, le paramètre **-TimeoutSec** peut être utilisé pour fournir un délai d’attente plus long. (le délai d’attente par défaut est de 60 secondes).
 
-La commande [Get-ServiceFabricApplicationType](https://msdn.azure.microsoft.com/.com/library/mt125871.aspx) répertorie toutes les versions de types d’applications correctement inscrites.
+La commande [Get-ServiceFabricApplicationType](https://msdn.microsoft.com/library/mt125871.aspx) répertorie toutes les versions de types d’applications correctement inscrites.
 
 ## Création de l'application
 
-Vous pouvez instancier une application à l’aide de n’importe quelle version de type d’application correctement inscrite via la commande [New-ServiceFabricApplication](https://msdn.azure.microsoft.com/.com/library/mt125913.aspx). Le nom de chaque application doit commencer par le schéma *fabric:* et être unique pour chaque instance d'application. Les éventuels services par défaut définis dans le manifeste d’application du type d’application cible sont créés lors de cette étape.
+Vous pouvez instancier une application à l’aide de n’importe quelle version de type d’application correctement inscrite via la commande [New-ServiceFabricApplication](https://msdn.microsoft.com/library/mt125913.aspx). Le nom de chaque application doit commencer par le schéma *fabric:* et être unique pour chaque instance d'application. Les éventuels services par défaut définis dans le manifeste d’application du type d’application cible sont créés lors de cette étape.
 
 ~~~
 PS D:\temp> New-ServiceFabricApplication fabric:/MyApp MyApplicationType AppManifestVersion1
@@ -140,15 +140,15 @@ HealthState            : Ok
 PS D:\temp>
 ~~~
 
-La commande [Get-ServiceFabricApplication](https://msdn.azure.microsoft.com/.com/library/mt163515.aspx) répertorie toutes les instances d’applications qui ont été correctement créées, ainsi que leur état global.
+La commande [Get-ServiceFabricApplication](https://msdn.microsoft.com/library/mt163515.aspx) répertorie toutes les instances d’applications qui ont été correctement créées, ainsi que leur état global.
 
-La commande [Get-ServiceFabricService](https://msdn.azure.microsoft.com/.com/library/mt125889.aspx) répertorie toutes les instances de service qui ont été correctement créées dans une instance d'application donnée. Les services par défaut (le cas échéant) sont répertoriés ici.
+La commande [Get-ServiceFabricService](https://msdn.microsoft.com/library/mt125889.aspx) répertorie toutes les instances de service qui ont été correctement créées dans une instance d'application donnée. Les services par défaut (le cas échéant) sont répertoriés ici.
 
 Plusieurs instances d'application peuvent être créées pour une version donnée d'un type d'application enregistré. Chaque instance de l’application s’exécute en isolement, avec ses propres répertoire de travail et processus.
 
 ## Supprimer une application
 
-Quand une instance d’application n’est plus utile, elle peut être définitivement supprimée à l’aide de la commande [Remove-ServiceFabricApplication](https://msdn.azure.microsoft.com/.com/library/mt125914.aspx). Cette commande supprime automatiquement tous les services qui appartiennent à l’application, et supprime définitivement tous les états de service. Cette opération ne peut pas être annulée et l’état de l’application ne peut pas être récupéré.
+Quand une instance d’application n’est plus utile, elle peut être définitivement supprimée à l’aide de la commande [Remove-ServiceFabricApplication](https://msdn.microsoft.com/library/mt125914.aspx). Cette commande supprime automatiquement tous les services qui appartiennent à l’application, et supprime définitivement tous les états de service. Cette opération ne peut pas être annulée et l’état de l’application ne peut pas être récupéré.
 
 ~~~
 PS D:\temp> Remove-ServiceFabricApplication fabric:/MyApp
@@ -162,7 +162,7 @@ PS D:\temp> Get-ServiceFabricApplication
 PS D:\temp>
 ~~~
 
-Quand une version donnée d’un type d’application n’est plus utile, vous devez la désinscrire à l’aide de la commande [Unregister-ServiceFabricApplicationType](https://msdn.azure.microsoft.com/.com/library/mt125885.aspx). La désinscription des types inutilisés libère l’espace de stockage utilisé par le contenu du package d’application de ce type dans le magasin d’images. Vous pouvez désinscrire un type d’application s’il ne contient aucune instance d’application et s’il n’est référencé par aucune mise à niveau d’application en attente.
+Quand une version donnée d’un type d’application n’est plus utile, vous devez la désinscrire à l’aide de la commande [Unregister-ServiceFabricApplicationType](https://msdn.microsoft.com/library/mt125885.aspx). La désinscription des types inutilisés libère l’espace de stockage utilisé par le contenu du package d’application de ce type dans le magasin d’images. Vous pouvez désinscrire un type d’application s’il ne contient aucune instance d’application et s’il n’est référencé par aucune mise à niveau d’application en attente.
 
 ~~~
 PS D:\temp> Get-ServiceFabricApplicationType
@@ -199,7 +199,7 @@ PS D:\temp>
 
 ### Copy-ServiceFabricApplicationPackage demande un ImageStoreConnectionString
 
-L'environnement du SDK Service Fabric doit déjà être configuré avec les valeurs par défaut correctes. Toutefois, si besoin, l’ImageStoreConnectionString de toutes les commandes doit correspondre à celui utilisé par le cluster Service Fabric. Il se trouve dans le manifeste de cluster récupéré à l’aide de la commande [Get-ServiceFabricClusterManifest](https://msdn.azure.microsoft.com/.com/library/mt126024.aspx) :
+L'environnement du SDK Service Fabric doit déjà être configuré avec les valeurs par défaut correctes. Toutefois, si besoin, l’ImageStoreConnectionString de toutes les commandes doit correspondre à celui utilisé par le cluster Service Fabric. Il se trouve dans le manifeste de cluster récupéré à l’aide de la commande [Get-ServiceFabricClusterManifest](https://msdn.microsoft.com/library/mt126024.aspx) :
 
 ~~~
 PS D:\temp> Copy-ServiceFabricApplicationPackage .\MyApplicationType
@@ -209,7 +209,7 @@ Supply values for the following parameters:
 ImageStoreConnectionString:
 
 PS D:\temp> Get-ServiceFabricClusterManifest
-<ClusterManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Name="Server-Default-SingleNode" Version="1.0" xmlns="http://schemas.azure.microsoft.com/.com/2011/01/fabric">
+<ClusterManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Name="Server-Default-SingleNode" Version="1.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
 
     [...]
 

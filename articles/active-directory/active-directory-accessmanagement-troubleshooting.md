@@ -1,6 +1,6 @@
 
 <properties
-	pageTitle="Résolution des problèmes liés à l’appartenance dynamique des groupes | azure.microsoft.com/ Azure"
+	pageTitle="Résolution des problèmes liés à l’appartenance dynamique des groupes | Microsoft Azure"
 	description="Conseils pour résoudre les problèmes d’appartenance dynamique à des groupes dans Azure AD."
 	services="active-directory"
 	documentationCenter=""

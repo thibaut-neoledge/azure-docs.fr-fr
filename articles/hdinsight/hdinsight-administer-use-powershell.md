@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Gestion des clusters Hadoop dans HDInsight avec PowerShell | azure.microsoft.com/ Azure"
+	pageTitle="Gestion des clusters Hadoop dans HDInsight avec PowerShell | Microsoft Azure"
 	description="Découvrez comment effectuer des tâches d'administration pour les clusters Hadoop dans HDInsight au moyen d'Azure PowerShell."
 	services="hdinsight"
 	editor="cgronlun"
@@ -29,7 +29,7 @@ Azure PowerShell est un environnement de création de scripts vous permettant de
 
 Avant de commencer cet article, vous devez disposer des éléments suivants :
 
-- **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.azure.microsoft.com/.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 ##Installation d'Azure PowerShell
 
@@ -216,9 +216,9 @@ Consultez la rubrique [Téléchargement de données vers HDInsight][hdinsight-up
 * [Prise en main d’Azure HDInsight][hdinsight-get-started]
 
 
-[azure-purchase-options]: http://azure.azure.microsoft.com/.com/pricing/purchase-options/
-[azure-member-offers]: http://azure.azure.microsoft.com/.com/pricing/member-offers/
-[azure-free-trial]: http://azure.azure.microsoft.com/.com/pricing/free-trial/
+[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
+[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
+[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
 [hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
 [hdinsight-provision]: hdinsight-provision-clusters.md
@@ -233,7 +233,7 @@ Consultez la rubrique [Téléchargement de données vers HDInsight][hdinsight-up
 [hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-flight]: hdinsight-analyze-flight-delay-data.md
 
-[hdinsight-powershell-reference]: https://msdn.azure.microsoft.com/.com/library/dn858087.aspx
+[hdinsight-powershell-reference]: https://msdn.microsoft.com/library/dn858087.aspx
 
 [powershell-install-configure]: powershell-install-configure.md
 

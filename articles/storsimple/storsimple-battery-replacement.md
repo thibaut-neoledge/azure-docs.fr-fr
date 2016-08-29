@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Remplacer la batterie sur un appareil StorSimple | azure.microsoft.com/ Azure"
+   pageTitle="Remplacer la batterie sur un appareil StorSimple | Microsoft Azure"
    description="Décrit comment retirer, remplacer et entretenir le module de batterie de secours sur votre appareil StorSimple."
    services="storsimple"
    documentationCenter=""
@@ -19,7 +19,7 @@
 
 ## Vue d'ensemble
 
-Le module d’alimentation et de refroidissement (PCM) du boîtier principal de votre appareil azure.microsoft.com/ Azure StorSimple dispose d’une batterie supplémentaire. Celle-ci fournit l’alimentation pour que l’appareil StorSimple puisse enregistrer des données en cas de perte d’alimentation au niveau du boîtier principal. Cette batterie est appelée *module de batterie de secours*. Le module de batterie de secours existe uniquement pour le boîtier principal de votre appareil StorSimple (le boîtier EBOD ne contient pas de module de batterie de secours).
+Le module d’alimentation et de refroidissement (PCM) du boîtier principal de votre appareil Microsoft Azure StorSimple dispose d’une batterie supplémentaire. Celle-ci fournit l’alimentation pour que l’appareil StorSimple puisse enregistrer des données en cas de perte d’alimentation au niveau du boîtier principal. Cette batterie est appelée *module de batterie de secours*. Le module de batterie de secours existe uniquement pour le boîtier principal de votre appareil StorSimple (le boîtier EBOD ne contient pas de module de batterie de secours).
 
 Ce didacticiel explique comment :
 
@@ -75,7 +75,7 @@ Le module de batterie de secours pour votre appareil StorSimple est une unité r
 
 5. Placez le module dans l’emballage de l’unité remplaçable sur site.
 
-6. Renvoyez l’unité défectueuse à azure.microsoft.com/ qui en assurera l’entretien et la manutention.
+6. Renvoyez l’unité défectueuse à Microsoft qui en assurera l’entretien et la manutention.
 
 ## Installer un nouveau module de batterie de secours
 
@@ -103,11 +103,11 @@ Si l’état **DÉTÉRIORÉ** s’affiche, nous vous recommandons de procéder a
 
 - Le système a peut-être récemment subi une panne ou des opérations de maintenance peuvent être en cours sur les batteries. Observez le système pendant 12 heures avant de continuer.
 
-    - Si l’état est toujours **DÉTÉRIORÉ** après 12 heures de branchement sur secteur alors que les contrôleurs et les PCM sont en cours d’exécution, vous devez changer la batterie. Veuillez [contacter le support azure.microsoft.com/](storsimple-contact-azure.microsoft.com/-support.md) pour obtenir un module de batterie de secours de remplacement.
+    - Si l’état est toujours **DÉTÉRIORÉ** après 12 heures de branchement sur secteur alors que les contrôleurs et les PCM sont en cours d’exécution, vous devez changer la batterie. Veuillez [contacter le support Microsoft](storsimple-contact-microsoft-support.md) pour obtenir un module de batterie de secours de remplacement.
 
     - Si l’état redevient opérationnel après 12 heures, cela veut dire que la batterie fonctionne et qu’elle avait juste besoin d’être chargée dans le cadre de la maintenance.
 
-- Si aucune panne n’est survenue et que le PCM est activé et branché sur secteur, la batterie doit être remplacée. Veuillez [contacter le support azure.microsoft.com/](storsimple-contact-azure.microsoft.com/-support.md) pour commander un module de batterie de secours de remplacement.
+- Si aucune panne n’est survenue et que le PCM est activé et branché sur secteur, la batterie doit être remplacée. Veuillez [contacter le support Microsoft](storsimple-contact-microsoft-support.md) pour commander un module de batterie de secours de remplacement.
 
 >[AZURE.IMPORTANT] Jetez la batterie en panne en respectant les réglementations nationales et locales applicables.
 

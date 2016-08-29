@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="Didacticiel : Intégration d’Azure Active Directory à ClickTime | azure.microsoft.com/ Azure" 
+    pageTitle="Didacticiel : Intégration d’Azure Active Directory à ClickTime | Microsoft Azure" 
     description="Apprenez à utiliser ClickTime avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore." 
     services="active-directory" 
     authors="jeevansd"
@@ -40,7 +40,7 @@ Pour configurer l’intégration d’Azure AD avec ClickTime, vous avez besoin d
 Vous devez en outre suivre les recommandations ci-dessous :
 
 - Vous ne devez pas utiliser votre environnement de production, sauf si cela est nécessaire.
-- Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.azure.microsoft.com/.com/pricing/free-trial/).
+- Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
 
 
 ## Description du scénario
@@ -112,7 +112,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Activer l'authentification unique](./media/active-directory-saas-clicktime-tutorial/tic777277.png "Activer l'authentification unique")
 
-2.  Dans la page **Comment voulez-vous que les utilisateurs se connectent à ClickTime**, sélectionnez **Authentification unique avec azure.microsoft.com/ Azure AD**, puis cliquez sur **Suivant**.
+2.  Dans la page **Comment voulez-vous que les utilisateurs se connectent à ClickTime**, sélectionnez **Authentification unique avec Microsoft Azure AD**, puis cliquez sur **Suivant**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-clicktime-tutorial/tic777278.png "Configurer l’authentification unique")
 

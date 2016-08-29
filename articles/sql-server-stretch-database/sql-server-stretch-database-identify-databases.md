@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Identifier des bases de données et des tables pour Stretch Database en exécutant Stretch Database Advisor | azure.microsoft.com/ Azure"
+	pageTitle="Identifier des bases de données et des tables pour Stretch Database en exécutant Stretch Database Advisor | Microsoft Azure"
 	description="Découvrez comment identifier les bases de données et les tables candidates pour Stretch Database."
 	services="sql-server-stretch-database"
 	documentationCenter=""
@@ -21,7 +21,7 @@
 Pour identifier les bases de données candidates pour Stretch Database Advisor, téléchargez SQL Server 2016 Upgrade Advisor et exécutez Stretch Database Advisor. Stretch Database Advisor identifie également les problèmes de blocage.
 
 ## Télécharger et installer le Conseiller de mise à niveau
-Téléchargez et installez le Conseiller de mise à niveau [ici](http://go.azure.microsoft.com/.com/fwlink/?LinkID=613421). Cet outil n’est pas inclus sur le support d’installation de SQL Server.
+Téléchargez et installez le Conseiller de mise à niveau [ici](http://go.microsoft.com/fwlink/?LinkID=613421). Cet outil n’est pas inclus sur le support d’installation de SQL Server.
 
 ## Exécuter Stretch Database Advisor
 

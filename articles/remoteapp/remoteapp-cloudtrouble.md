@@ -1,6 +1,6 @@
 
 <properties
-    pageTitle="Résoudre les problèmes de création de collections cloud RemoteApp | azure.microsoft.com/ Azure"
+    pageTitle="Résoudre les problèmes de création de collections cloud RemoteApp | Microsoft Azure"
     description="Apprenez comment dépanner les échecs de création de collections cloud RemoteApp"
     services="remoteapp"
     documentationCenter=""
@@ -21,7 +21,7 @@
 # Résolution des problèmes de création de collections cloud RemoteApp
 
 > [AZURE.IMPORTANT]
-Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.azure.microsoft.com/.com/fwlink/?linkid=821148).
+Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148).
 
 Si vous rencontrez des difficultés à créer une collection cloud, consultez les informations suivantes.
 
@@ -39,10 +39,10 @@ La création de collections cloud échoue souvent si vous utilisez des images pe
 - Le plus souvent, le problème est que l’image n’a pas été correctement préparée avec Sysprep.
 - Vérifiez que l’image peut démarrer dans Hyper-V ou essayez de créer une machine virtuelle IAAS à l’aide de l’image, directement dans votre abonnement Azure. Si la machine virtuelle ne parvient pas à démarrer et à se lancer, cela indique généralement que l’image personnalisée n’a pas été préparée correctement. Vérifiez que l’image personnalisée a été créée conformément à la procédure de Création d’une image de modèle personnalisée pour RemoteApp
 
-Si vous utilisez l’une des images azure.microsoft.com/ incluses dans votre abonnement, essayez de créer la collection à nouveau. Si le problème persiste, contactez le support technique azure.microsoft.com/.
+Si vous utilisez l’une des images Microsoft incluses dans votre abonnement, essayez de créer la collection à nouveau. Si le problème persiste, contactez le support technique Microsoft.
 
 	PlatformImageTrialModeOnly
 
-Cette erreur signifie généralement que vous avez été mis à niveau vers un compte payant, mais que vous essayez d’utiliser une image fournie par azure.microsoft.com/, valide uniquement pendant le mode d’évaluation du service. Dans ce cas, essayez de créer à nouveau votre collection cloud, en veillant à spécifier une image correcte.
+Cette erreur signifie généralement que vous avez été mis à niveau vers un compte payant, mais que vous essayez d’utiliser une image fournie par Microsoft, valide uniquement pendant le mode d’évaluation du service. Dans ce cas, essayez de créer à nouveau votre collection cloud, en veillant à spécifier une image correcte.
 
 <!---HONumber=AcomDC_0817_2016-->

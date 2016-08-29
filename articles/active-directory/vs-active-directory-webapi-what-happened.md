@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Qu’est-il arrivé à mon projet WebApi (service connecté Azure Active Directory Visual Studio) ? | azure.microsoft.com/ Azure "
+	pageTitle="Qu’est-il arrivé à mon projet WebApi (service connecté Azure Active Directory Visual Studio) ? | Microsoft Azure "
 	description="Décrit ce qui se passe dans votre projet WebApi que vous connectez à Azure AD en utilisant Visual Studio"
   services="active-directory"
 	documentationCenter=""
@@ -26,23 +26,23 @@
 
 ###Références du package NuGet
 
-- `azure.microsoft.com/.Owin`
-- `azure.microsoft.com/.Owin.Host.SystemWeb`
-- `azure.microsoft.com/.Owin.Security`
-- `azure.microsoft.com/.Owin.Security.ActiveDirectory`
-- `azure.microsoft.com/.Owin.Security.Jwt`
-- `azure.microsoft.com/.Owin.Security.OAuth`
+- `Microsoft.Owin`
+- `Microsoft.Owin.Host.SystemWeb`
+- `Microsoft.Owin.Security`
+- `Microsoft.Owin.Security.ActiveDirectory`
+- `Microsoft.Owin.Security.Jwt`
+- `Microsoft.Owin.Security.OAuth`
 - `Owin`
 - `System.IdentityModel.Tokens.Jwt`
 
 ###Références .NET
 
-- `azure.microsoft.com/.Owin`
-- `azure.microsoft.com/.Owin.Host.SystemWeb`
-- `azure.microsoft.com/.Owin.Security`
-- `azure.microsoft.com/.Owin.Security.ActiveDirectory`
-- `azure.microsoft.com/.Owin.Security.Jwt`
-- `azure.microsoft.com/.Owin.Security.OAuth`
+- `Microsoft.Owin`
+- `Microsoft.Owin.Host.SystemWeb`
+- `Microsoft.Owin.Security`
+- `Microsoft.Owin.Security.ActiveDirectory`
+- `Microsoft.Owin.Security.Jwt`
+- `Microsoft.Owin.Security.OAuth`
 - `Owin`
 - `System.IdentityModel.Tokens.Jwt`
 
@@ -72,16 +72,16 @@ Les entrées de configuration ci-dessous ont été ajoutées.
 
 Une application Azure AD a été créée dans le répertoire que vous avez sélectionné dans l'Assistant.
 
-[En savoir plus sur Azure Active Directory](https://azure.azure.microsoft.com/.com/services/active-directory/)
+[En savoir plus sur Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
 
 ##Si j’ai coché *Désactiver l’authentification des comptes d’utilisateur individuels*, quelles autres modifications ont été apportées à mon projet ?
 Des références du package NuGet ont été supprimées, et des fichiers ont été supprimés et sauvegardés. Selon l’état de votre projet, vous pouvez avoir besoin de supprimer manuellement d’autres références ou fichiers, ou de modifier le code le cas échéant.
 
 ###Références du package NuGet supprimées (pour celles présentes)
 
-- `azure.microsoft.com/.AspNet.Identity.Core`
-- `azure.microsoft.com/.AspNet.Identity.EntityFramework`
-- `azure.microsoft.com/.AspNet.Identity.Owin`
+- `Microsoft.AspNet.Identity.Core`
+- `Microsoft.AspNet.Identity.EntityFramework`
+- `Microsoft.AspNet.Identity.Owin`
 
 ###Fichiers de code sauvegardés et supprimés (pour ceux présents)
 
@@ -115,6 +115,6 @@ Les entrées de configuration ci-dessous ont été ajoutées.
 ###Votre application Azure Active Directory a été mise à jour
 Votre application Azure Active Directory a été mise à jour pour inclure l’autorisation *Lire les données de l’annuaire*, et une clé supplémentaire a été créée pour être ensuite utilisée comme *ida:Password* dans le fichier `web.config`.
 
-[En savoir plus sur Azure Active Directory](https://azure.azure.microsoft.com/.com/services/active-directory/)
+[En savoir plus sur Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
 
 <!---HONumber=AcomDC_0817_2016-->

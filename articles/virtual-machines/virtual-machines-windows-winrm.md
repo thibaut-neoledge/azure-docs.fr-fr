@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Configuration de l’accès WinRM pour les machines virtuelles dans Azure Resource Manager | azure.microsoft.com/ Azure"
+	pageTitle="Configuration de l’accès WinRM pour les machines virtuelles dans Azure Resource Manager | Microsoft Azure"
 	description="Comment configurer un accès WinRM pour une utilisation avec une machine virtuelle Azure Resource Manager"
 	services="virtual-machines-windows"
 	documentationCenter=""
@@ -61,7 +61,7 @@ Export-PfxCertificate -Cert $cert -FilePath ".\$certificateName.pfx" -Password $
 
 ## Étape 3 : charger votre certificat auto-signé dans Key Vault
 
-Avant de charger le certificat dans le coffre de clés créé à l’étape 1, vous devez le convertir dans un format que le fournisseur de ressources azure.microsoft.com/.Compute comprend. Le script PowerShell ci-dessous vous permettra de le faire
+Avant de charger le certificat dans le coffre de clés créé à l’étape 1, vous devez le convertir dans un format que le fournisseur de ressources Microsoft.Compute comprend. Le script PowerShell ci-dessous vous permettra de le faire
 
 ```
 $fileName = "<Path to the .pfx file>"
@@ -85,7 +85,7 @@ Set-AzureKeyVaultSecret -VaultName "<vault name>" -Name "<secret name>" -SecretV
 
 ## Étape 4 : obtenir l’URL de votre certificat auto-signé dans le coffre de clés
 
-Le fournisseur de ressources azure.microsoft.com/.Compute a besoin de l’URL de la clé secrète dans le coffre de clés lors de l’approvisionnement de la machine virtuelle. Ainsi, le fournisseur de ressources azure.microsoft.com/.Compute peut télécharger la clé secrète et créer le certificat équivalent sur la machine virtuelle.
+Le fournisseur de ressources Microsoft.Compute a besoin de l’URL de la clé secrète dans le coffre de clés lors de l’approvisionnement de la machine virtuelle. Ainsi, le fournisseur de ressources Microsoft.Compute peut télécharger la clé secrète et créer le certificat équivalent sur la machine virtuelle.
 
 >[AZURE.NOTE]L’URL de la clé secrète doit également inclure la version. L’URL ci-dessous est un exemple https://contosovault.vault.azure.net:443/secrets/contososecret/01h9db0df2cd4300a20ence585a6s7ve
 
@@ -94,7 +94,7 @@ Le fournisseur de ressources azure.microsoft.com/.Compute a besoin de l’URL de
 
 Vous pouvez obtenir le lien vers l’URL dans le modèle à l’aide du code ci-dessous
 
-    "certificateUrl": "[reference(resourceId(resourceGroup().name, 'azure.microsoft.com/.KeyVault/vaults/secrets', '<vault-name>', '<secret-name>'), '2015-06-01').secretUriWithVersion]"
+    "certificateUrl": "[reference(resourceId(resourceGroup().name, 'Microsoft.KeyVault/vaults/secrets', '<vault-name>', '<secret-name>'), '2015-06-01').secretUriWithVersion]"
 
 #### PowerShell
 
@@ -140,7 +140,7 @@ Lorsque vous créez une machine virtuelle par le biais de modèles, le certifica
           }
         },
 
-Vous trouverez un exemple de modèle pour machine virtuelle dans [201-vm-winrm-keyvault-windows](https://azure.azure.microsoft.com/.com/documentation/templates/201-vm-winrm-keyvault-windows)
+Vous trouverez un exemple de modèle pour machine virtuelle dans [201-vm-winrm-keyvault-windows](https://azure.microsoft.com/documentation/templates/201-vm-winrm-keyvault-windows)
 
 Pour obtenir le code source pour ce modèle, consultez [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-winrm-keyvault-windows)
 

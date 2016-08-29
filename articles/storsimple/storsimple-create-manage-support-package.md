@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Création d'un package de support StorSimple | azure.microsoft.com/ Azure"
+   pageTitle="Création d'un package de support StorSimple | Microsoft Azure"
    description="Apprenez à créer, déchiffrer et modifier un package de support pour votre appareil StorSimple."
    services="storsimple"
    documentationCenter=""
@@ -20,13 +20,13 @@
 
 ## Vue d'ensemble
 
-Un package de support StorSimple est un mécanisme facile à utiliser qui collecte tous les journaux appropriés afin d’aider le support azure.microsoft.com/ à résoudre tout problème lié à votre appareil StorSimple. Les fichiers journaux collectés sont chiffrés et compressés.
+Un package de support StorSimple est un mécanisme facile à utiliser qui collecte tous les journaux appropriés afin d’aider le support Microsoft à résoudre tout problème lié à votre appareil StorSimple. Les fichiers journaux collectés sont chiffrés et compressés.
 
 Ce didacticiel inclut des instructions détaillées pour créer et gérer le package de support.
 
 ## Créer et charger un package de support dans le portail Azure Classic
 
-Vous pouvez créer et télécharger un package de support sur le site de support technique de azure.microsoft.com/ à l’aide de la page **Maintenance** du service dans le portail Azure Classic.
+Vous pouvez créer et télécharger un package de support sur le site de support technique de Microsoft à l’aide de la page **Maintenance** du service dans le portail Azure Classic.
 
 > [AZURE.NOTE] Le chargement nécessite une clé de sécurité de support. Votre ingénieur du support technique doit vous la fournir par e-mail.
 
@@ -44,9 +44,9 @@ Procédez comme suit dans le portail classique pour créer un package de support
 
 	![Créer un package de support](./media/storsimple-create-manage-support-package/IC740923.png)
 
-	- Dans la zone de texte **Clé de sécurité de support**, entrez la clé de sécurité. Votre ingénieur de support technique azure.microsoft.com/ doit vous envoyer cette clé de sécurité par e-mail.
+	- Dans la zone de texte **Clé de sécurité de support**, entrez la clé de sécurité. Votre ingénieur de support technique Microsoft doit vous envoyer cette clé de sécurité par e-mail.
 
-	- Cochez la case pour accepter de télécharger automatiquement le package de support sur le site de support de azure.microsoft.com/.
+	- Cochez la case pour accepter de télécharger automatiquement le package de support sur le site de support de Microsoft.
 
 	- Cliquez sur l’icône en forme de coche ![Icône en forme de coche](./media/storsimple-create-manage-support-package/IC740895.png).
 
@@ -55,11 +55,11 @@ Procédez comme suit dans le portail classique pour créer un package de support
 
 Dans certains cas, vous devez créer manuellement le package de support via Windows PowerShell pour StorSimple. Par exemple :
 
-- Si vous devez supprimer des informations sensibles de vos fichiers journaux avant de le partager avec le support azure.microsoft.com/.
+- Si vous devez supprimer des informations sensibles de vos fichiers journaux avant de le partager avec le support Microsoft.
 
 - Si vous rencontrez des difficultés à charger le package en raison de problèmes de connectivité.
 
-Vous pouvez partager votre package de support généré manuellement avec le support azure.microsoft.com/ par e-mail. Procédez comme suit pour créer un package de support dans Windows PowerShell pour StorSimple.
+Vous pouvez partager votre package de support généré manuellement avec le support Microsoft par e-mail. Procédez comme suit pour créer un package de support dans Windows PowerShell pour StorSimple.
 
 #### Pour créer un package de support dans Windows PowerShell pour StorSimple
 
@@ -96,7 +96,7 @@ Vous pouvez partager votre package de support généré manuellement avec le sup
 
 		`Export-HcsSupportPackage –PackageTag "MySupportPackage" -Force`
 
-		Le package de support est créé pour les deux contrôleurs dans le dossier réseau partagé spécifié. Il s’agit d’un fichier compressé et chiffré qui peut être envoyé au support technique de azure.microsoft.com/ à des fins de dépannage. Pour plus d'informations, consultez [Contacter le support technique de azure.microsoft.com/](storsimple-contact-azure.microsoft.com/-support.md).
+		Le package de support est créé pour les deux contrôleurs dans le dossier réseau partagé spécifié. Il s’agit d’un fichier compressé et chiffré qui peut être envoyé au support technique de Microsoft à des fins de dépannage. Pour plus d'informations, consultez [Contacter le support technique de Microsoft](storsimple-contact-microsoft-support.md).
 
 
 ### Les paramètres de l’applet de commande Export-HcsSupportPackage
@@ -118,13 +118,13 @@ Une fois que vous avez généré un package de support, vous devrez peut-être m
 
 > [AZURE.IMPORTANT] Vous pouvez uniquement modifier un package de support qui a été généré à l'aide de Windows PowerShell pour StorSimple. Vous ne pouvez pas modifier un package créé dans le portail Azure Classic avec le service StorSimple Manager.
 
-Pour modifier un package de support avant de le télécharger sur le site de support technique de azure.microsoft.com/, vous devez déchiffrer le package de support, modifier les fichiers et le chiffrer de nouveau. Procédez comme suit.
+Pour modifier un package de support avant de le télécharger sur le site de support technique de Microsoft, vous devez déchiffrer le package de support, modifier les fichiers et le chiffrer de nouveau. Procédez comme suit.
 
 #### Pour modifier un package de support dans Windows PowerShell pour StorSimple
 
 1. Générez un package de support, comme décrit dans la section [Création d’un package de support dans Windows PowerShell pour StorSimple](#to-create-a-support-package-in-windows-powershell-for-storsimple).
 
-2. [Téléchargez le script](http://gallery.technet.azure.microsoft.com/.com/scriptcenter/Script-to-decrypt-a-a8d1ed65) localement sur votre ordinateur client.
+2. [Téléchargez le script](http://gallery.technet.microsoft.com/scriptcenter/Script-to-decrypt-a-a8d1ed65) localement sur votre ordinateur client.
 
 3. Importez le module Windows PowerShell. Spécifiez le chemin d’accès au dossier local dans lequel vous avez téléchargé le script. Pour importer le module, entrez :
 
@@ -157,7 +157,7 @@ Pour modifier un package de support avant de le télécharger sur le site de sup
 	    cmdlet Close-HcsSupportPackage at command pipeline position 1
     	Supply values for the following parameters:EncryptionPassphrase: ****
 
-9. Notez la nouvelle phrase secrète afin de pouvoir la partager avec le support technique de azure.microsoft.com/ si nécessaire.
+9. Notez la nouvelle phrase secrète afin de pouvoir la partager avec le support technique de Microsoft si nécessaire.
 
 
 ### Exemple : Modification de fichiers dans un package de support sur un partage protégé par mot de passe

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Distribution mondiale des données avec DocumentDB | azure.microsoft.com/ Azure"
+   pageTitle="Distribution mondiale des données avec DocumentDB | Microsoft Azure"
    description="Apprenez-en plus sur la géoréplication à l’échelle de la planète, le basculement et la récupération des données à l’aide de bases de données mondiales à partir d’Azure DocumentDB, un service de base de données NoSQL entièrement géré."
    services="documentdb"
    documentationCenter=""
@@ -19,7 +19,7 @@
    
 # Distribution mondiale des données avec DocumentDB
 
-> [AZURE.NOTE] La distribution mondiale des bases de données DocumentDB est généralement disponible et activée automatiquement pour tous les comptes DocumentDB nouvellement créés. Nous travaillons à l’activation de la distribution mondiale sur tous les comptes existants, mais en attendant, si vous souhaitez que la distribution mondiale soit activée sur votre compte, veuillez [contactez le support technique](https://portal.azure.com/?#blade/azure.microsoft.com/_Azure_Support/HelpAndSupportBlade) et nous l’activerons pour vous.
+> [AZURE.NOTE] La distribution mondiale des bases de données DocumentDB est généralement disponible et activée automatiquement pour tous les comptes DocumentDB nouvellement créés. Nous travaillons à l’activation de la distribution mondiale sur tous les comptes existants, mais en attendant, si vous souhaitez que la distribution mondiale soit activée sur votre compte, veuillez [contactez le support technique](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) et nous l’activerons pour vous.
 
 Azure DocumentDB est conçu pour satisfaire les exigences des applications IoT, notamment les millions d’appareils et applications Internet distribués mondialement qui permettent aux utilisateurs de vivre des expériences hautement réactives dans le monde entier. Ces systèmes de base de données doivent relever le défi d’un accès à faible latence aux données d’application à partir de plusieurs zones géographiques avec des garanties de cohérence et de disponibilité des données bien définies. DocumentDB est un système de base de données distribué mondialement qui simplifie la distribution globale de données en gérant complètement les comptes de bases de données dans plusieurs régions qui fournissent des compromis clairs entre cohérence, disponibilité et performance, avec les garanties correspondantes. Les comptes de bases de données DocumentDB sont fournis avec des capacités de haute disponibilité, des latences en millisecondes à un seul chiffre, plusieurs [niveaux de cohérence bien définis][consistency], un basculement régional transparent avec des API d’hébergement multiple et la possibilité de mettre à l’échelle le débit et le stockage dans le monde entier de manière flexible.
 
@@ -79,10 +79,10 @@ Apprenez-en plus sur la distribution mondiale de données avec DocumentDB dans l
 [manageaccount-consistency]: documentdb-manage-account.md#consistency
 [throughputandstorage]: documentdb-manage.md
 [arm]: documentdb-automation-resource-manager-cli.md
-[regions]: https://azure.azure.microsoft.com/.com/regions/
-[serviceregions]: https://azure.azure.microsoft.com/.com/fr-FR/regions/#services
-[pricing]: https://azure.azure.microsoft.com/.com/pricing/details/documentdb/
-[sla]: https://azure.azure.microsoft.com/.com/support/legal/sla/documentdb/
+[regions]: https://azure.microsoft.com/regions/
+[serviceregions]: https://azure.microsoft.com/regions/#services
+[pricing]: https://azure.microsoft.com/pricing/details/documentdb/
+[sla]: https://azure.microsoft.com/support/legal/sla/documentdb/
 [vldb]: http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf
 [sqlqueries]: documentdb-sql-query.md
 

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Résolution des problèmes : Gestion des mots de passe Azure AD | azure.microsoft.com/ Azure"
+	pageTitle="Résolution des problèmes : Gestion des mots de passe Azure AD | Microsoft Azure"
 	description="Étapes courantes de résolution des problèmes de la gestion des mots de passe Azure AD, y compris la réinitialisation, la modification, l’écriture différée, l’inscription et les informations à inclure lorsque vous recherchez de l’aide."
 	services="active-directory"
 	documentationCenter=""
@@ -31,7 +31,7 @@ Si vous rencontrez des problèmes de gestion des mots de passe, nous sommes ici 
   - [Codes d’erreur du journal des événements Écriture différée de mot de passe](#password-writeback-event-log-error-codes)
   - [Problèmes de connectivité de l’écriture différée de mot de passe](#troubleshoot-password-writeback-connectivity)
 
-Si vous avez essayé les étapes de dépannage décrites ci-dessous et que vous rencontrez toujours des problèmes, vous pouvez publier une question sur les [Forums d’Azure AD](https://social.msdn.azure.microsoft.com/.com/forums/azure/home?forum=WindowsAzureAD) ou contacter le support technique afin que nous puissions résoudre votre problème dès que possible.
+Si vous avez essayé les étapes de dépannage décrites ci-dessous et que vous rencontrez toujours des problèmes, vous pouvez publier une question sur les [Forums d’Azure AD](https://social.msdn.microsoft.com/forums/azure/home?forum=WindowsAzureAD) ou contacter le support technique afin que nous puissions résoudre votre problème dès que possible.
 
 ## Informations à inclure lorsque vous avez besoin d’aide
 
@@ -355,7 +355,7 @@ Si vous rencontrez une erreur lors de la réinitialisation d’un mot de passe p
             </td>
             <td>
               <p>Les options configurées sous la section <strong>Stratégie de réinitialisation du mot de passe utilisateur</strong> de l’onglet <strong>Configurer</strong> s’appliquent uniquement aux utilisateurs finaux de votre organisation.</p>
-              <p>azure.microsoft.com/ gère et contrôle la stratégie de réinitialisation du mot de passe administrateur afin de garantir le plus haut niveau de sécurité possible.</p>
+              <p>Microsoft gère et contrôle la stratégie de réinitialisation du mot de passe administrateur afin de garantir le plus haut niveau de sécurité possible.</p>
             </td>
           </tr>
           <tr>
@@ -578,7 +578,7 @@ Si vous rencontrez une erreur lors de l’activation, la désactivation ou l’u
                 <li>
 										Vous modifiez ensuite les informations d’identification AAD du connecteur (à l’aide de l’ancienne interface utilisateur de synchronisation). (Notez qu’il s’agit du même client mais d’un nom de domaine différent). &lt;br>&lt;br></li>
                 <li>
-										Vous essayez à présent d’activer/de désactiver l’écriture différée des mots de passe. L’Assistant crée le nom du connecteur en utilisant les informations d’identification, telles que «&#160;abc.onazure.microsoft.com/.com – AAD&#160;», puis le passe à l’applet de commande d’écriture différée des mots de passe. Cette opération échoue, car il n’existe aucun connecteur créé portant ce nom.&lt;br>&lt;br></li>
+										Vous essayez à présent d’activer/de désactiver l’écriture différée des mots de passe. L’Assistant crée le nom du connecteur en utilisant les informations d’identification, telles que «&#160;abc.onmicrosoft.com – AAD&#160;», puis le passe à l’applet de commande d’écriture différée des mots de passe. Cette opération échoue, car il n’existe aucun connecteur créé portant ce nom.&lt;br>&lt;br></li>
               </ol>
               <p>Ce problème a été résolu dans nos versions les plus récentes. Si vous possédez une version plus ancienne, une solution de contournement consiste à utiliser l’applet de commande PowerShell pour activer ou désactiver la fonctionnalité. Consultez la rubrique «&#160;Étape&#160;2&#160;: activer l’écriture différée des mots de passe sur votre ordinateur de synchronisation d’annuaires &amp; configurer des règles de pare-feu &#160;» dans <a href="active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords">Comment activer/désactiver l’écriture différée des mots de passe</a> pour plus d’informations sur la procédure à suivre.</p>
             </td>
@@ -591,7 +591,7 @@ Si vous rencontrez une erreur lors de l’activation, la désactivation ou l’u
               <p>Les utilisateurs fédérés ou qui ont recours à la synchronisation du hachage de mot de passe qui font partie de groupes protégés et qui tentent de réinitialiser leurs mots de passe voient une erreur après avoir soumis un mot de passe qui leur indique un problème du service.</p>
             </td>
             <td>
-              <p>Les utilisateurs privilégiés dans Active Directory sont protégés à l’aide d’AdminSDHolder. Consultez la page <a href="https://technet.azure.microsoft.com/.com/magazine/2009.09.sdadminholder.aspx">http://technet.azure.microsoft.com/.com/magazine/2009.09.sdadminholder.aspx</a> pour plus de détails. </p>
+              <p>Les utilisateurs privilégiés dans Active Directory sont protégés à l’aide d’AdminSDHolder. Consultez la page <a href="https://technet.microsoft.com/magazine/2009.09.sdadminholder.aspx">http://technet.microsoft.com/magazine/2009.09.sdadminholder.aspx</a> pour plus de détails. </p>
               <p>
 
               </p>
@@ -614,7 +614,7 @@ Si vous rencontrez une erreur lors de l’activation, la désactivation ou l’u
               <p>
 
               </p>
-              <p>Pour résoudre ce problème, assurez-vous que l’utilisateur est véritablement synchronisé localement avec AAD via l’instance actuelle d’Azure AD Connect et examinez l’état des objets dans les espaces du connecteur et MV Vérifiez que l’objet AD CS est le connecteur à l’objet MV via la règle «&#160;azure.microsoft.com/.InfromADUserAccountEnabled.xxx&#160;».</p>
+              <p>Pour résoudre ce problème, assurez-vous que l’utilisateur est véritablement synchronisé localement avec AAD via l’instance actuelle d’Azure AD Connect et examinez l’état des objets dans les espaces du connecteur et MV Vérifiez que l’objet AD CS est le connecteur à l’objet MV via la règle «&#160;Microsoft.InfromADUserAccountEnabled.xxx&#160;».</p>
             </td>
           </tr>
           <tr>
@@ -629,7 +629,7 @@ Si vous rencontrez une erreur lors de l’activation, la désactivation ou l’u
               <p>En outre, lors des opérations de réinitialisation de mot de passe, une erreur peut apparaître dans vos journaux des événements du service Azure AD Connect indiquant une erreur «&#160;Plusieurs correspondances trouvées&#160;».</p>
             </td>
             <td>
-              <p>Cette erreur indique que le moteur de synchronisation a détecté que l’objet MV est connecté à plusieurs objets AD CS via «&#160;azure.microsoft.com/.InfromADUserAccountEnabled.xxx&#160;». Cela signifie que l’utilisateur dispose d’un compte activé dans plusieurs forêts. </p>
+              <p>Cette erreur indique que le moteur de synchronisation a détecté que l’objet MV est connecté à plusieurs objets AD CS via «&#160;Microsoft.InfromADUserAccountEnabled.xxx&#160;». Cela signifie que l’utilisateur dispose d’un compte activé dans plusieurs forêts. </p>
               <p>
 
               </p>
@@ -1450,7 +1450,7 @@ Le redémarrage du service de synchronisation d’Azure AD Connect peut aider à
 
  1.	En tant qu’administrateur, cliquez sur **Démarrer** sur le serveur exécutant **Azure AD Connect**.
  2.	Tapez **« services.msc »** dans la zone de recherche et appuyez sur **Entrée**.
- 3.	Recherchez l’entrée **azure.microsoft.com/ Azure AD Connect**.
+ 3.	Recherchez l’entrée **Microsoft Azure AD Connect**.
  4.	Cliquez avec le bouton droit sur l’entrée du service, cliquez sur **Redémarrer** et attendez que l’opération soit terminée.
 
     ![][002]

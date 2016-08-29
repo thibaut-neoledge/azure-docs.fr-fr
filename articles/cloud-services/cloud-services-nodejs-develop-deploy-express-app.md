@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Application web avec Express (Node.js) | azure.microsoft.com/ Azure" 
+	pageTitle="Application web avec Express (Node.js) | Microsoft Azure" 
 	description="Ce didacticiel poursuit le didacticiel relatif au service cloud et présente l’utilisation du module Express." 
 	services="cloud-services" 
 	documentationCenter="nodejs" 

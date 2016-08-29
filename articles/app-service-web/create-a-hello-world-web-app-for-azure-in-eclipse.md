@@ -29,7 +29,7 @@ Ce didacticiel explique comment créer une application Hello World de base et la
 * JDK (Java Development Kit) version 1.7 ou ultérieure.
 * IDE (environnement de développement intégré) Eclipse pour développeurs Java EE, Indigo ou ultérieur, Vous pouvez le télécharger à partir de <http://www.eclipse.org/downloads/>.
 * Une distribution d’un serveur web ou d’un serveur d’applications basé sur Java, comme Apache Tomcat ou Jetty.
-* Un abonnement à Azure, pouvant être souscrit à l’adresse <https://azure.azure.microsoft.com/.com/fr-FR/free/> ou <http://azure.azure.microsoft.com/.com/pricing/purchase-options/>.
+* Un abonnement à Azure, pouvant être souscrit à l’adresse <https://azure.microsoft.com/free/> ou <http://azure.microsoft.com/pricing/purchase-options/>.
 * Kit de ressources Azure pour Eclipse. Pour plus d’informations, consultez [Installation du kit de ressources Azure pour Eclipse].
 
 ## Pour créer une application Hello World
@@ -205,9 +205,9 @@ Pour plus d’informations, consultez les liens suivants :
 
 <!-- URL List -->
 
-[Azure App Service]: http://go.azure.microsoft.com/.com/fwlink/?LinkId=529714
-[Kit de ressources Azure pour Eclipse]: http://go.azure.microsoft.com/.com/fwlink/?LinkID=699529
-[Installation du kit de ressources Azure pour Eclipse]: http://go.azure.microsoft.com/.com/fwlink/?LinkId=699546
+[Azure App Service]: http://go.microsoft.com/fwlink/?LinkId=529714
+[Kit de ressources Azure pour Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
+[Installation du kit de ressources Azure pour Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
 
 <!-- IMG List -->
 

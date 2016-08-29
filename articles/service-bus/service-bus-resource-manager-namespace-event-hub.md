@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Créer un espace de noms Event Hubs avec Event Hub et un groupe de consommateurs à l’aide d’un modèle Azure Resource Manager | azure.microsoft.com/ Azure"
+    pageTitle="Créer un espace de noms Event Hubs avec Event Hub et un groupe de consommateurs à l’aide d’un modèle Azure Resource Manager | Microsoft Azure"
     description="Créer un espace de noms Event Hubs avec Event Hub et un groupe de consommateurs à l’aide d’un modèle Azure Resource Manager"
     services="event-hubs"
     documentationCenter=".net"
@@ -41,7 +41,7 @@ Avec ce modèle, vous allez déployer un espace de noms Event Hub avec un Event 
 
 Pour exécuter automatiquement le déploiement, cliquez sur le bouton ci-dessous :
 
-[![Déploiement sur Azure](./media/service-bus-resource-manager-namespace-event-hub/deploybutton.png)](https://portal.azure.com/#create/azure.microsoft.com/.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-servicebus-create-eventhub-and-consumergroup%2Fazuredeploy.json)
+[![Déploiement sur Azure](./media/service-bus-resource-manager-namespace-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-servicebus-create-eventhub-and-consumergroup%2Fazuredeploy.json)
 
 ## Paramètres
 
@@ -98,7 +98,7 @@ Crée un espace de noms Service Bus de type **hub d’événements**, avec un hu
         {
             "apiVersion": "[variables('ehVersion')]",
             "name": "[parameters('eventHubNamespaceName')]",
-            "type": "azure.microsoft.com/.EventHub/Namespaces",
+            "type": "Microsoft.EventHub/Namespaces",
             "location": "[variables('location')]",
             "kind": "EventHub",
             "sku": {
@@ -111,7 +111,7 @@ Crée un espace de noms Service Bus de type **hub d’événements**, avec un hu
                     "name": "[parameters('eventHubName')]",
                     "type": "EventHubs",
                     "dependsOn": [
-                        "[concat('azure.microsoft.com/.EventHub/namespaces/', parameters('eventHubNamespaceName'))]"
+                        "[concat('Microsoft.EventHub/namespaces/', parameters('eventHubNamespaceName'))]"
                     ],
                     "properties": {
                         "path": "[parameters('eventHubName')]"
@@ -158,10 +158,10 @@ Maintenant que vous avez créé et déployé des ressources à l’aide d’Azur
 
 - [Gérer Azure Service Bus à l'aide d'Azure Automation](service-bus-automation-manage.md)
 - [Gérer les hubs d'événements avec PowerShell](service-bus-powershell-how-to-provision.md)
-- [Gérer les ressources de hubs d'événements avec l'explorateur Service Bus](https://code.msdn.azure.microsoft.com/.com/Service-Bus-Explorer-f2abca5a)
+- [Gérer les ressources de hubs d'événements avec l'explorateur Service Bus](https://code.msdn.microsoft.com/Service-Bus-Explorer-f2abca5a)
 
   [Création de modèles Azure Resource Manager]: ../resource-group-authoring-templates.md
-  [modèles de démarrage rapide Azure]: https://azure.azure.microsoft.com/.com/documentation/templates/?term=service+bus
+  [modèles de démarrage rapide Azure]: https://azure.microsoft.com/documentation/templates/?term=service+bus
   [Using Azure PowerShell with Azure Resource Manager]: ../powershell-azure-resource-manager.md
   [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../xplat-cli-azure-resource-manager.md
   [modèle de hub d’événements et de groupe de consommateurs Service Bus]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-eventhub-and-consumergroup/

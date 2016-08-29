@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Gestion des clusters Hadoop à l’aide de l’interface de ligne de commande Azure | azure.microsoft.com/ Azure"
+	pageTitle="Gestion des clusters Hadoop à l’aide de l’interface de ligne de commande Azure | Microsoft Azure"
 	description="Utiliser l’interface de ligne de commande Azure pour gérer les clusters Hadoop dans HDInsight"
 	services="hdinsight"
 	editor="cgronlun"
@@ -31,7 +31,7 @@ Cet article aborde uniquement l’utilisation de l’interface de ligne de comma
 
 Avant de commencer cet article, vous devez disposer des éléments suivants :
 
-- **Un abonnement Azure**. Consultez la rubrique [Obtenir une version d'évaluation gratuite d'Azure](https://azure.azure.microsoft.com/.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- **Un abonnement Azure**. Consultez la rubrique [Obtenir une version d'évaluation gratuite d'Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 - **Azure CLI** - Consultez la rubrique [Installer et configurer l’interface de ligne de commande Azure](../xplat-cli-install.md) pour obtenir des informations sur l’installation et la configuration.
 - **Connectez-vous à Azure** en utilisant la commande suivante :
 
@@ -99,9 +99,9 @@ Dans cet article, vous avez appris comment effectuer différentes tâches d'admi
 
 [azure-command-line-tools]: ../xplat-cli-install.md
 [azure-create-storageaccount]: ../storage-create-storage-account.md
-[azure-purchase-options]: http://azure.azure.microsoft.com/.com/pricing/purchase-options/
-[azure-member-offers]: http://azure.azure.microsoft.com/.com/pricing/member-offers/
-[azure-free-trial]: http://azure.azure.microsoft.com/.com/pricing/free-trial/
+[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
+[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
+[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
 
 [hdinsight-admin-portal]: hdinsight-administer-use-management-portal.md

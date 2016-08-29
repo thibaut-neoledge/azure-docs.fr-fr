@@ -21,7 +21,7 @@
 
 ## Vue d'ensemble
 
-Ce didacticiel vous indique comment utiliser le service de Table fourni par la gestion des données Azure pour stocker et consulter les données provenant d'une application [node] hébergée dans [Azure App Service](http://go.azure.microsoft.com/.com/fwlink/?LinkId=529714) Web Apps. Ce didacticiel part du principe que vous avez déjà une certaine expérience en tant qu'utilisateur des applications node et de [Git]
+Ce didacticiel vous indique comment utiliser le service de Table fourni par la gestion des données Azure pour stocker et consulter les données provenant d'une application [node] hébergée dans [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) Web Apps. Ce didacticiel part du principe que vous avez déjà une certaine expérience en tant qu'utilisateur des applications node et de [Git]
 
 Vous apprendrez à effectuer les opérations suivantes :
 
@@ -37,7 +37,7 @@ Voici l’application finalisée :
 
 ![Une page Web avec une liste de tâches vide][node-table-finished]
 
->[AZURE.NOTE] Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.azure.microsoft.com/.com/fwlink/?LinkId=523751), où vous pourrez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
+>[AZURE.NOTE] Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751), où vous pourrez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
 ## Composants requis
 
@@ -175,7 +175,7 @@ Un *modèle* est un objet qui représente les données dans votre application. P
 - catégorie (chaîne)
 - terminé (booléen)
 
-**PartitionKey** et **RowKey** sont utilisés par le service de Table comme clés de table. Pour plus d'informations, consultez la rubrique [Présentation du modèle de données du service de Table](https://msdn.azure.microsoft.com/.com/library/azure/dd179338.aspx).
+**PartitionKey** et **RowKey** sont utilisés par le service de Table comme clés de table. Pour plus d'informations, consultez la rubrique [Présentation du modèle de données du service de Table](https://msdn.microsoft.com/library/azure/dd179338.aspx).
 
 
 1. Dans le répertoire **tasklist**, créez un répertoire appelé **models**.
@@ -596,7 +596,7 @@ Bien que les étapes de cet article décrivent l'utilisation du service de Table
 [Interface de ligne de commande Azure]
 
 ## Changements apportés
-* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.azure.microsoft.com/.com/fwlink/?LinkId=529714).
+* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
 
 <!-- URLs -->
 

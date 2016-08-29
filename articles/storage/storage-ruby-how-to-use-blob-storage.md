@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Utilisation du stockage d’objets blob à partir de Ruby | azure.microsoft.com/ Azure"
+	pageTitle="Utilisation du stockage d’objets blob à partir de Ruby | Microsoft Azure"
 	description="Stockez des données non structurées dans le cloud avec Azure Blob Storage (stockage d’objets)."
 	services="storage"
 	documentationCenter="ruby"

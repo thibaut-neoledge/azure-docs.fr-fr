@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Ajouter des Runbooks Azure Automation à des plans de récupération | azure.microsoft.com/ Azure"
-   description="Cet article explique comment azure.microsoft.com/ Azure Site Recovery vous permet désormais d’étendre des plans de récupération à l’aide de azure.microsoft.com/ Azure Automation, afin d’effectuer des tâches complexes lors de la récupération vers azure.microsoft.com/ Azure"
+   pageTitle="Ajouter des Runbooks Azure Automation à des plans de récupération | Microsoft Azure"
+   description="Cet article explique comment Microsoft Azure Site Recovery vous permet désormais d’étendre des plans de récupération à l’aide de Microsoft Azure Automation, afin d’effectuer des tâches complexes lors de la récupération vers Microsoft Azure"
    services="site-recovery"
    documentationCenter=""
    authors="ruturaj"
@@ -14,21 +14,21 @@
    ms.topic="article"
    ms.workload="required"
    ms.date="12/14/2015"
-   ms.author="ruturajd@azure.microsoft.com/.com"/>
+   ms.author="ruturajd@microsoft.com"/>
 
 
 # Ajouter des Runbooks Azure Automation à des plans de récupération
 
 
-Ce didacticiel explique comment azure.microsoft.com/ Azure Site Recovery s’intègre dans azure.microsoft.com/ Azure Automation pour permettre l’extensibilité des plans de récupération. Les plans de récupération peuvent orchestrer la récupération des machines virtuelles protégées via azure.microsoft.com/ Azure Site Recovery, pour la réplication vers un cloud secondaire et la réplication vers azure.microsoft.com/ Azure. Ils garantissent que le récupération est **précise et cohérente**, **répétable** et **automatisée**. Si vous effectuez le basculement de vos machines virtuelles vers azure.microsoft.com/ Azure, l’intégration avec azure.microsoft.com/ Azure Automation étend les plans de récupération et vous offre la possibilité d’exécuter des Runbooks, ce qui vous donne accès à des tâches d’automatisation très puissantes.
+Ce didacticiel explique comment Microsoft Azure Site Recovery s’intègre dans Microsoft Azure Automation pour permettre l’extensibilité des plans de récupération. Les plans de récupération peuvent orchestrer la récupération des machines virtuelles protégées via Microsoft Azure Site Recovery, pour la réplication vers un cloud secondaire et la réplication vers Microsoft Azure. Ils garantissent que le récupération est **précise et cohérente**, **répétable** et **automatisée**. Si vous effectuez le basculement de vos machines virtuelles vers Microsoft Azure, l’intégration avec Microsoft Azure Automation étend les plans de récupération et vous offre la possibilité d’exécuter des Runbooks, ce qui vous donne accès à des tâches d’automatisation très puissantes.
 
-Si vous n’avez pas encore entendu parler de azure.microsoft.com/ Azure Automation, connectez-vous [ici](https://azure.azure.microsoft.com/.com/services/automation/) et téléchargez [ici](https://azure.azure.microsoft.com/.com/documentation/scripts/) des exemples de scripts. Lisez plus d’informations sur [azure.microsoft.com/ Azure Site Recovery](https://azure.azure.microsoft.com/.com/services/site-recovery/) et découvrez [ici](https://azure.azure.microsoft.com/.com/blog/?p=166264) comment orchestrer la récupération vers azure.microsoft.com/ Azure à l’aide de plans de récupération.
+Si vous n’avez pas encore entendu parler de Microsoft Azure Automation, connectez-vous [ici](https://azure.microsoft.com/services/automation/) et téléchargez [ici](https://azure.microsoft.com/documentation/scripts/) des exemples de scripts. Lisez plus d’informations sur [Microsoft Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/) et découvrez [ici](https://azure.microsoft.com/blog/?p=166264) comment orchestrer la récupération vers Microsoft Azure à l’aide de plans de récupération.
 
-Dans ce didacticiel, nous allons voir comment intégrer des Runbooks azure.microsoft.com/ Azure dans des plans de récupération. Nous allons automatiser des tâches simples, qui nécessitaient auparavant une intervention manuelle, et savoir comment convertir une opération de récupération en plusieurs étapes en une seule action, impliquant un seul clic. Nous verrons également comment dépanner un script simple en cas de problème.
+Dans ce didacticiel, nous allons voir comment intégrer des Runbooks Microsoft Azure dans des plans de récupération. Nous allons automatiser des tâches simples, qui nécessitaient auparavant une intervention manuelle, et savoir comment convertir une opération de récupération en plusieurs étapes en une seule action, impliquant un seul clic. Nous verrons également comment dépanner un script simple en cas de problème.
 
-## Protéger l’application dans azure.microsoft.com/ Azure
+## Protéger l’application dans Microsoft Azure
 
-Commençons par une application simple, constituée de deux machines virtuelles. Voici l’application HRweb de Fabrikam. « Fabrikam-HRweb-frontend » et « Fabrikam-Hrweb-backend » sont deux machines virtuelles protégées sur azure.microsoft.com/ Azure, via azure.microsoft.com/ Azure Site Recovery. Pour protéger les machines virtuelles via azure.microsoft.com/ Azure Site Recovery, procédez comme suit :
+Commençons par une application simple, constituée de deux machines virtuelles. Voici l’application HRweb de Fabrikam. « Fabrikam-HRweb-frontend » et « Fabrikam-Hrweb-backend » sont deux machines virtuelles protégées sur Microsoft Azure, via Microsoft Azure Site Recovery. Pour protéger les machines virtuelles via Microsoft Azure Site Recovery, procédez comme suit :
 
 1.  Activez la protection de vos machines virtuelles.
 
@@ -39,25 +39,25 @@ Commençons par une application simple, constituée de deux machines virtuelles.
 ![](media/site-recovery-runbook-automation/01.png)
 ---------------------
 
-Dans ce didacticiel, nous allons créer un plan de récupération pour l’application Fabrikam HRweb, afin de la faire basculer vers azure.microsoft.com/ Azure. Ensuite, nous l’intégrerons dans un Runbook destiné à créer un point de terminaison sur la machine virtuelle azure.microsoft.com/, afin de fournir des pages web au niveau du port 80.
+Dans ce didacticiel, nous allons créer un plan de récupération pour l’application Fabrikam HRweb, afin de la faire basculer vers Microsoft Azure. Ensuite, nous l’intégrerons dans un Runbook destiné à créer un point de terminaison sur la machine virtuelle Microsoft, afin de fournir des pages web au niveau du port 80.
 
 Commençons par créer un plan de récupération pour notre application.
 
 ## Créer un plan de récupération
 
-Pour récupérer l’application dans azure.microsoft.com/ Azure, vous devez créer un plan de récupération. Au moyen de ce plan, nous pouvons spécifier l’ordre de récupération des machines virtuelles. La machine virtuelle placée dans le groupe 1 récupère suite à l’erreur et démarre en premier. Cela fait, celle du groupe 2 prend la relève.
+Pour récupérer l’application dans Microsoft Azure, vous devez créer un plan de récupération. Au moyen de ce plan, nous pouvons spécifier l’ordre de récupération des machines virtuelles. La machine virtuelle placée dans le groupe 1 récupère suite à l’erreur et démarre en premier. Cela fait, celle du groupe 2 prend la relève.
 
 Créez un plan de récupération ressemblant à ce qui suit.
 
 ![](media/site-recovery-runbook-automation/12.png)
 
-Pour en savoir plus sur les plans de récupération, lisez la documentation [ici](https://msdn.azure.microsoft.com/.com/library/azure/dn788799.aspx "ici").
+Pour en savoir plus sur les plans de récupération, lisez la documentation [ici](https://msdn.microsoft.com/library/azure/dn788799.aspx "ici").
 
-Ensuite, nous allons créer les artefacts nécessaires dans azure.microsoft.com/  Azure Automation.
+Ensuite, nous allons créer les artefacts nécessaires dans Microsoft  Azure Automation.
 
 ## Créer le compte Automatisation et ses ressources
 
-Vous avez besoin d’un compte azure.microsoft.com/ Azure Automation pour créer des Runbooks. Si vous ne disposez pas déjà d’un compte, accédez à l’onglet Azure Automation indiqué par l’élément ![](media/site-recovery-runbook-automation/02.png) et créez un compte.
+Vous avez besoin d’un compte Microsoft Azure Automation pour créer des Runbooks. Si vous ne disposez pas déjà d’un compte, accédez à l’onglet Azure Automation indiqué par l’élément ![](media/site-recovery-runbook-automation/02.png) et créez un compte.
 
 1.  Donnez à ce compte un nom permettant de l’identifier.
 
@@ -71,7 +71,7 @@ Ensuite, créez les ressources ci-après dans le compte.
 
 ### Ajouter un nom d’abonnement en tant que ressource
 
-1.  Ajoutez un nouveau paramètre (![](media/site-recovery-runbook-automation/04.png)) dans la zone des ressources azure.microsoft.com/ Azure Automatisation et choisissez l’option ![](media/site-recovery-runbook-automation/05.png).
+1.  Ajoutez un nouveau paramètre (![](media/site-recovery-runbook-automation/04.png)) dans la zone des ressources Microsoft Azure Automatisation et choisissez l’option ![](media/site-recovery-runbook-automation/05.png).
 
 2.  Sélectionnez le type de variable **String**.
 
@@ -85,11 +85,11 @@ Ensuite, créez les ressources ci-après dans le compte.
 
 Vous pouvez identifier le nom de votre abonnement à partir de la page des paramètres de votre compte, sur le Portail Azure.
 
-### Ajouter des informations d’identification de connexion azure.microsoft.com/ Azure en tant que ressources
+### Ajouter des informations d’identification de connexion Microsoft Azure en tant que ressources
 
-Azure Automation utilise Azure PowerShell pour se connecter à l’abonnement et agit sur les artefacts à ce niveau. Pour cela, vous devez vous authentifier à l’aide de votre compte azure.microsoft.com/ ou d’un compte professionnel ou scolaire. Vous pouvez stocker les informations d’identification de compte dans une ressource, afin qu’elles soient utilisées par le Runbook en toute sécurité.
+Azure Automation utilise Azure PowerShell pour se connecter à l’abonnement et agit sur les artefacts à ce niveau. Pour cela, vous devez vous authentifier à l’aide de votre compte Microsoft ou d’un compte professionnel ou scolaire. Vous pouvez stocker les informations d’identification de compte dans une ressource, afin qu’elles soient utilisées par le Runbook en toute sécurité.
 
-1.  Ajoutez un nouveau paramètre (![](media/site-recovery-runbook-automation/04.png)) dans la zone des ressources azure.microsoft.com/ Azure Automatisation et choisissez l’option ![](media/site-recovery-runbook-automation/09.png).
+1.  Ajoutez un nouveau paramètre (![](media/site-recovery-runbook-automation/04.png)) dans la zone des ressources Microsoft Azure Automatisation et choisissez l’option ![](media/site-recovery-runbook-automation/09.png).
 
 2.  Sélectionnez le type d’information d’identification suivant : **Information d’identification Windows PowerShell**.
 
@@ -105,11 +105,11 @@ Désormais, ces deux paramètres sont disponibles dans vos ressources.
 
 Pour en savoir plus sur la connexion à votre abonnement avec PowerShell, cliquez [ici](../powershell-install-configure.md).
 
-Ensuite, vous allez créer un Runbook dans azure.microsoft.com/ Azure Automation, capable d’ajouter un point de terminaison pour la machine virtuelle frontale après le basculement.
+Ensuite, vous allez créer un Runbook dans Microsoft Azure Automation, capable d’ajouter un point de terminaison pour la machine virtuelle frontale après le basculement.
 
-## Contexte azure.microsoft.com/ Automation
+## Contexte Microsoft Automation
 
-ASR passe une variable de contexte au Runbook, afin de vous aider à écrire des scripts déterministes. On pourrait arguer que les noms du service cloud et de la machine virtuelle sont assez prévisibles. Or, ce n’est pas toujours le cas, à cause de certains scénarios (comme celui selon lequel le nom de la machine virtuelle a pu être modifié suite à la présence de caractères non pris en charge par azure.microsoft.com/ Azure). Par conséquent, ces informations sont passées au plan de récupération ASR en tant qu’éléments du *contexte*.
+ASR passe une variable de contexte au Runbook, afin de vous aider à écrire des scripts déterministes. On pourrait arguer que les noms du service cloud et de la machine virtuelle sont assez prévisibles. Or, ce n’est pas toujours le cas, à cause de certains scénarios (comme celui selon lequel le nom de la machine virtuelle a pu être modifié suite à la présence de caractères non pris en charge par Microsoft Azure). Par conséquent, ces informations sont passées au plan de récupération ASR en tant qu’éléments du *contexte*.
 
 Voici à quoi ressemble la variable de contexte.
 
@@ -154,7 +154,7 @@ Pour identifier la valeur du paramètre « VmMap Key » dans le contexte, vou
 
 À présent, créez le Runbook pour ouvrir le port 80 sur la machine virtuelle frontale.
 
-1.  Créez un Runbook dans le compte azure.microsoft.com/ Azure Automation, en lui donnant le nom **OpenPort80**.
+1.  Créez un Runbook dans le compte Microsoft Azure Automation, en lui donnant le nom **OpenPort80**.
 
 	![](media/site-recovery-runbook-automation/14.png)
 
@@ -180,7 +180,7 @@ Pour identifier la valeur du paramètre « VmMap Key » dans le contexte, vou
 		Select-AzureSubscription -SubscriptionName $AzureSubscriptionName
 	```
 
-	Remarque : vous pouvez utiliser ici les ressources azure.microsoft.com/ Azure intitulées **AzureCredential** et **AzureSubscriptionName**.
+	Remarque : vous pouvez utiliser ici les ressources Microsoft Azure intitulées **AzureCredential** et **AzureSubscriptionName**.
 
 5.  À présent, indiquez les informations relatives au point de terminaison et au GUID de la machine virtuelle pour laquelle vous souhaitez exposer le point de terminaison. Dans ce cas, la machine virtuelle frontale.
 
@@ -193,7 +193,7 @@ Pour identifier la valeur du paramètre « VmMap Key » dans le contexte, vou
 		$VMGUID = "7a1069c6-c1d6-49c5-8c5d-33bfce8dd183"
 	```
 
-	Cela permet de spécifier le protocole du point de terminaison azure.microsoft.com/ Azure, le port local sur la machine virtuelle et le port public mappé qui lui est associé. Ces variables sont les paramètres requis par les commandes azure.microsoft.com/ Azure qui ajoutent des points de terminaison aux machines virtuelles. La valeur VMGUID conserve le GUID de la machine virtuelle sur laquelle vous devez agir.
+	Cela permet de spécifier le protocole du point de terminaison Microsoft Azure, le port local sur la machine virtuelle et le port public mappé qui lui est associé. Ces variables sont les paramètres requis par les commandes Microsoft Azure qui ajoutent des points de terminaison aux machines virtuelles. La valeur VMGUID conserve le GUID de la machine virtuelle sur laquelle vous devez agir.
 
 6.  Le script va maintenant extraire le contexte de la valeur VMGUID donnée et créer un point de terminaison sur la machine virtuelle qu’il référence.
 
@@ -270,9 +270,9 @@ Une fois que le script est prêt, vous pouvez l’ajouter au plan de récupérat
 
 2.  Spécifiez un nom de script. Il s’agit simplement d’un nom convivial pour ce script, qui doit s’afficher dans le plan de récupération.
 
-3.  Lors du basculement vers le script azure.microsoft.com/ Azure, sélectionnez le nom de compte azure.microsoft.com/ Azure Automation.
+3.  Lors du basculement vers le script Microsoft Azure, sélectionnez le nom de compte Microsoft Azure Automation.
 
-4.  Dans la liste des Runbooks azure.microsoft.com/ Azure, sélectionnez le Runbook que vous avez créé.
+4.  Dans la liste des Runbooks Microsoft Azure, sélectionnez le Runbook que vous avez créé.
 
 ![](media/site-recovery-runbook-automation/16.png)
 
@@ -290,22 +290,22 @@ Une fois que vous avez ajouté le Runbook au plan, vous pouvez lancer un test de
 
     ![](media/site-recovery-runbook-automation/17.png)
 
-3.  Vous pouvez également voir le détail de l’état d’exécution du Runbook sur la page des tâches azure.microsoft.com/ Azure Automation pour le Runbook.
+3.  Vous pouvez également voir le détail de l’état d’exécution du Runbook sur la page des tâches Microsoft Azure Automation pour le Runbook.
 
     ![](media/site-recovery-runbook-automation/18.png)
 
-4.  Une fois le basculement terminé, mis à part le résultat de l’exécution du Runbook, vous pouvez voir si l’exécution a abouti en consultant la page relative à la machine virtuelle azure.microsoft.com/ Azure et en examinant les points de terminaison.
+4.  Une fois le basculement terminé, mis à part le résultat de l’exécution du Runbook, vous pouvez voir si l’exécution a abouti en consultant la page relative à la machine virtuelle Microsoft Azure et en examinant les points de terminaison.
 
 ![](media/site-recovery-runbook-automation/19.png)
 
 ## Exemples de scripts
 
-Dans ce didacticiel, nous avons passé en revue la procédure d’automatisation d’une tâche fréquemment exécutée, qui inclut l’ajout d’un point de terminaison à une machine virtuelle azure.microsoft.com/ Azure. Cependant, azure.microsoft.com/ Azure Automation vous permet d’effectuer d’autres tâches d’automatisation très puissantes. azure.microsoft.com/ et la communauté azure.microsoft.com/ Azure Automation proposent des exemples de Runbooks qui peuvent vous aider à créer vos propres solutions, ainsi que des Runbooks utilitaires, que vous pouvez ensuite utiliser en tant que composantes pour des tâches d’automatisation plus importantes. Vous pouvez les utiliser à partir de la galerie et créer des plans de récupération puissants, en un seul clic, pour vos applications, à l’aide de azure.microsoft.com/ Azure Site Recovery.
+Dans ce didacticiel, nous avons passé en revue la procédure d’automatisation d’une tâche fréquemment exécutée, qui inclut l’ajout d’un point de terminaison à une machine virtuelle Microsoft Azure. Cependant, Microsoft Azure Automation vous permet d’effectuer d’autres tâches d’automatisation très puissantes. Microsoft et la communauté Microsoft Azure Automation proposent des exemples de Runbooks qui peuvent vous aider à créer vos propres solutions, ainsi que des Runbooks utilitaires, que vous pouvez ensuite utiliser en tant que composantes pour des tâches d’automatisation plus importantes. Vous pouvez les utiliser à partir de la galerie et créer des plans de récupération puissants, en un seul clic, pour vos applications, à l’aide de Microsoft Azure Site Recovery.
 
 ## Ressources supplémentaires
 
-[Vue d’ensemble de azure.microsoft.com/ Azure Automation](http://msdn.azure.microsoft.com/.com/library/azure/dn643629.aspx "Vue d’ensemble de azure.microsoft.com/ Azure Automation")
+[Vue d’ensemble de Microsoft Azure Automation](http://msdn.microsoft.com/library/azure/dn643629.aspx "Vue d’ensemble de Microsoft Azure Automation")
 
-[Exemples de scripts azure.microsoft.com/ Azure Automation](http://gallery.technet.azure.microsoft.com/.com/scriptcenter/site/search?f[0].Type=User&f[0].Value=SC%20Automation%20Product%20Team&f[0].Text=SC%20Automation%20Product%20Team "Exemples de scripts azure.microsoft.com/ Azure Automation")
+[Exemples de scripts Microsoft Azure Automation](http://gallery.technet.microsoft.com/scriptcenter/site/search?f[0].Type=User&f[0].Value=SC%20Automation%20Product%20Team&f[0].Text=SC%20Automation%20Product%20Team "Exemples de scripts Microsoft Azure Automation")
 
 <!---HONumber=AcomDC_0817_2016-->

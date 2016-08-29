@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Synchronisation des identités et résilience d’attribut en double| azure.microsoft.com/ Azure"
+	pageTitle="Synchronisation des identités et résilience d’attribut en double| Microsoft Azure"
 	description="Nouveau comportement de gestion des objets présentant des conflits UPN ou ProxyAddress pendant la synchronisation d’annuaires à l’aide d’Azure AD Connect."
 	services="active-directory"
 	documentationCenter=""
@@ -19,19 +19,19 @@
 
 
 # Synchronisation des identités et résilience d’attribut en double
-La résilience d’attribut en double est une fonctionnalité d’Azure Active Directory afin d’éliminer les problèmes liés aux conflits entre **UserPrincipalName** et **ProxyAddress** lors de l’exécution de l’un des outils de synchronisation de azure.microsoft.com/.
+La résilience d’attribut en double est une fonctionnalité d’Azure Active Directory afin d’éliminer les problèmes liés aux conflits entre **UserPrincipalName** et **ProxyAddress** lors de l’exécution de l’un des outils de synchronisation de Microsoft.
 
 Ces deux attributs doivent généralement être uniques pour tous les objets **Utilisateur**, **Groupe** ou **Contact** dans un répertoire Azure Active Directory donné.
 
 > [AZURE.NOTE] Seuls les Utilisateurs peuvent avoir des noms UPN.
 
-Cette fonctionnalité active un nouveau comportement qui se trouve dans la partie cloud du pipeline de synchronisation. Par conséquent, cette fonctionnalité convient à tout type de client et pour tout produit de synchronisation azure.microsoft.com/, y compris Azure AD Connect, DirSync et MIM + Connector. Le terme générique « client de synchronisation » désigne ces produits dans le présent document.
+Cette fonctionnalité active un nouveau comportement qui se trouve dans la partie cloud du pipeline de synchronisation. Par conséquent, cette fonctionnalité convient à tout type de client et pour tout produit de synchronisation Microsoft, y compris Azure AD Connect, DirSync et MIM + Connector. Le terme générique « client de synchronisation » désigne ces produits dans le présent document.
 
 ## Comportement actuel
 En cas de tentative d’approvisionnement d’un nouvel objet avec une valeur UPN ou ProxyAddress qui enfreint cette contrainte d’unicité, Azure Active Directory bloque la création de l’objet. De même, si un objet est mis à jour avec une valeur UPN ou ProxyAddress qui n’est pas unique, la mise à jour échoue. Le client de synchronisation refait la tentative d’approvisionnement ou la mise à jour à chaque cycle d’exportation ; il échoue à chaque fois jusqu’à la résolution du conflit. Chaque tentative infructueuse génère un e-mail contenant un rapport d’erreur, et une erreur est consignée par le client de synchronisation.
 
 ## Comportement avec une résilience d’attribut en double
-Au lieu de rejeter l’approvisionnement ou la mise à jour d’un objet comportant un attribut en double, Azure Active Directory met en « quarantaine » l’attribut en double qui enfreint la contrainte d’unicité. Si cet attribut est requis pour l’approvisionnement, comme pour UserPrincipalName, le service affecte une valeur d’espace réservé. Le format de ces valeurs temporaires est « ***<OriginalPrefix>+<4DigitNumber>@<InitialTenantDomain>.onazure.microsoft.com/.com***». Si l’attribut n’est pas obligatoire, comme **ProxyAddress**, Azure Active Directory met simplement en quarantaine l’attribut à l’origine du conflit et poursuit la création ou la mise à jour de l’objet.
+Au lieu de rejeter l’approvisionnement ou la mise à jour d’un objet comportant un attribut en double, Azure Active Directory met en « quarantaine » l’attribut en double qui enfreint la contrainte d’unicité. Si cet attribut est requis pour l’approvisionnement, comme pour UserPrincipalName, le service affecte une valeur d’espace réservé. Le format de ces valeurs temporaires est « ***<OriginalPrefix>+<4DigitNumber>@<InitialTenantDomain>.onmicrosoft.com***». Si l’attribut n’est pas obligatoire, comme **ProxyAddress**, Azure Active Directory met simplement en quarantaine l’attribut à l’origine du conflit et poursuit la création ou la mise à jour de l’objet.
 
 Lorsque l’attribut est mis en quarantaine, des informations sur le conflit sont envoyées dans le même e-mail de rapport d’erreur utilisé avec l’ancien comportement. Toutefois, ces informations n’apparaissent qu’une fois dans le rapport d’erreurs (lors de la mise en quarantaine) ; elles ne sont pas consignées dans les e-mails suivants. En outre, étant donné que l’exportation de cet objet a réussi, le client de synchronisation ne consigne pas d’erreur et ne retente pas la création/la mise à jour lors des cycles de synchronisation suivants.
 
@@ -136,7 +136,7 @@ Voici un exemple de notification par e-mail d’un conflit ProxyAddress : ![Util
 ## Résolution des conflits
 Les stratégies et tactiques de résolution des problèmes pour ces erreurs ne doivent pas différer de la façon dont les erreurs d’attribut en double ont été traitées par le passé. La seule différence est que la tâche du minuteur effectue un balayage du client côté serveur afin d’ajouter automatiquement l’attribut en question à l’objet concerné lorsque le conflit est résolu.
 
-L’article suivant présente différentes stratégies de dépannage et de résolution : [Les attributs en double ou non valides empêchent la synchronisation d’annuaires dans Office 365](https://support.azure.microsoft.com/.com/kb/2647098).
+L’article suivant présente différentes stratégies de dépannage et de résolution : [Les attributs en double ou non valides empêchent la synchronisation d’annuaires dans Office 365](https://support.microsoft.com/kb/2647098).
 
 ## Problèmes connus
 Aucun de ces problèmes connus n’entraîne une dégradation du service ou une perte des données. Plusieurs d’entre eux relèvent de l’esthétisme ; d’autres génèrent des erreurs d’attribut en double (« *pré-résilience* »), au lieu de mettre en quarantaine l’attribut à l’origine du conflit ; un dernier requiert un travail de correction manuelle supplémentaire pour certaines erreurs.
@@ -155,7 +155,7 @@ Aucun de ces problèmes connus n’entraîne une dégradation du service ou une 
 
     a. **UserA@contoso.com** a un UPN qui n’est pas unique, car l’attribut ProxyAddress d’un autre objet a également cette valeur.
 
-    b. UserA reçoit un **UPN MOERA** temporaire, **UserA1234@contoso.onazure.microsoft.com/.com**, et la valeur réelle de l’UPN est mise en quarantaine (comme prévu).
+    b. UserA reçoit un **UPN MOERA** temporaire, **UserA1234@contoso.onmicrosoft.com**, et la valeur réelle de l’UPN est mise en quarantaine (comme prévu).
 
     c. L’autre objet en conflit voit son paramètre ProxyAddress supprimé ultérieurement.
 
@@ -183,7 +183,7 @@ Aucun de ces problèmes connus n’entraîne une dégradation du service ou une 
 
     b. L’**utilisateur B** fait ensuite l’objet d’une tentative de synchronisation avec **UPN = User@contoso.com**.
 
-    c. L’UPN de l’**utilisateur B** est remplacé par **User1234@contoso.onazure.microsoft.com/.com** et **User@contoso.com** est ajouté dans **DirSyncProvisioningErrors**.
+    c. L’UPN de l’**utilisateur B** est remplacé par **User1234@contoso.onmicrosoft.com** et **User@contoso.com** est ajouté dans **DirSyncProvisioningErrors**.
 
     d. Le message d’erreur de l’**utilisateur B** doit indiquer que l’**utilisateur A** a déjà **User@contoso.com** comme UPN, mais il affiche le paramètre displayName de l’**utilisateur B**.
 

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Qu’est-ce qu’un pool de base de données élastique ? | azure.microsoft.com/ Azure"
+	pageTitle="Qu’est-ce qu’un pool de base de données élastique ? | Microsoft Azure"
 	description="Gérez des centaines voire des milliers de bases de données à l’aide d’un pool. Un seul prix pour un ensemble d’unités de performances peut être distribué dans le pool. Déplacez les bases de données à votre convenance."
 	keywords="base de données élastique,bases de données sql"
 	services="sql-database"
@@ -83,7 +83,7 @@ Si toutes les DTU d’un pool élastique sont utilisées, chaque base de donnée
 
 Un pool simplifie les tâches de gestion grâce à l’exécution des scripts dans des **[tâches élastiques](sql-database-elastic-jobs-overview.md)**. Une tâche de base de données élastique élimine pratiquement le caractère fastidieux d’un nombre élevé de bases de données. Pour commencer, consultez l’article [Prise en main de Tâches de bases de données élastiques](sql-database-elastic-jobs-getting-started.md).
 
-Pour plus d’informations sur les autres outils, consultez le [parcours d’apprentissage des outils de base de données élastique](https://azure.azure.microsoft.com/.com/documentation/learning-paths/sql-database-elastic-scale/).
+Pour plus d’informations sur les autres outils, consultez le [parcours d’apprentissage des outils de base de données élastique](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale/).
 
 ## Fonctionnalités de continuité des activités pour les bases de données d’un pool
 

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Surveillance des clusters Hadoop dans HDInsight à l’aide des API Ambari | azure.microsoft.com/ Azure"
+	pageTitle="Surveillance des clusters Hadoop dans HDInsight à l’aide des API Ambari | Microsoft Azure"
 	description="Utilisez les API Apache Ambari pour la création, la gestion et la surveillance des clusters Hadoop. Les outils intuitifs pour opérateurs et les API masquent la complexité de Hadoop."
 	services="hdinsight"
 	documentationCenter=""
@@ -158,10 +158,10 @@ Vous avez appris à utiliser les appels d'API de surveillance Ambari. Pour plus 
 [curl]: http://curl.haxx.se
 [curl-download]: http://curl.haxx.se/download.html
 
-[azure.microsoft.com/-hadoop-SDK]: http://hadoopsdk.codeplex.com/wikipage?title=Ambari%20Monitoring%20Client
+[microsoft-hadoop-SDK]: http://hadoopsdk.codeplex.com/wikipage?title=Ambari%20Monitoring%20Client
 
 [powershell-install]: powershell-install-configure.md
-[powershell-script]: http://technet.azure.microsoft.com/.com/library/ee176949.aspx
+[powershell-script]: http://technet.microsoft.com/library/ee176949.aspx
 
 [hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
 [hdinsight-admin-portal]: hdinsight-administer-use-management-portal.md

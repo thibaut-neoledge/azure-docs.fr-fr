@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Configuration de Diagnostics pour les services cloud et les machines virtuelles Azure | azure.microsoft.com/ Azure"
+   pageTitle="Configuration de Diagnostics pour les services cloud et les machines virtuelles Azure | Microsoft Azure"
    description="Décrit comment configurer les informations de diagnostic pour le débogage des services cloud Azure et des machines virtuelles dans Visual Studio."
    services="visual-studio-online"
    documentationCenter="na"
@@ -33,7 +33,7 @@ Pour les projets du Kit de développement logiciel (SDK) Azure 2.6 dans Visual�
 
 - L’émulateur local prend désormais en charge les diagnostics. Cela signifie que vous pouvez collecter les données de diagnostic et vérifier que votre application crée les traces appropriées lorsque vous développez et testez dans Visual Studio. La chaîne de connexion `UseDevelopmentStorage=true` permet la collecte des données de diagnostic lorsque vous exécutez votre projet de service cloud dans Visual Studio à l’aide de l’émulateur de stockage Azure. Toutes les données de diagnostic sont collectées dans le compte de stockage (stockage de développement).
 
-- La chaîne de connexion de compte de stockage des diagnostics (azure.microsoft.com/.WindowsAzure.Plugins.Diagnostics.ConnectionString) est à nouveau stockée dans le fichier de configuration de service (.cscfg). Dans le Kit de développement logiciel (SDK) Azure 2.5, le compte de stockage des diagnostics a été spécifié dans le fichier diagnostics.wadcfgx.
+- La chaîne de connexion de compte de stockage des diagnostics (Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString) est à nouveau stockée dans le fichier de configuration de service (.cscfg). Dans le Kit de développement logiciel (SDK) Azure 2.5, le compte de stockage des diagnostics a été spécifié dans le fichier diagnostics.wadcfgx.
 
 Il existe des différences notables entre la façon dont la chaîne de connexion fonctionnait dans le Kit de développement logiciel (SDK) Azure 2.4 et les versions antérieures, et celle dont elle fonctionne dans le Kit de développement logiciel (SDK) Azure 2.6 et les versions ultérieures.
 
@@ -43,7 +43,7 @@ Il existe des différences notables entre la façon dont la chaîne de connexion
 
 - Pour simplifier le processus de configuration de l’extension des diagnostics avec PowerShell, la sortie du package à partir de Visual Studio contient également les fichiers XML de configuration publique pour l’extension des diagnostics pour chaque rôle. Visual Studio utilise la chaîne de connexion des diagnostics pour renseigner les informations de compte de stockage présentes dans la configuration publique. Les fichiers de configuration publique sont créés dans le dossier Extensions et suivent le modèle PaaSDiagnostics.&lt;RoleName>.PubConfig.xml. Tout déploiement basé sur PowerShell peut utiliser ce modèle pour mapper chaque configuration à un rôle.
 
-- La chaîne de connexion dans le fichier .cscfg est également utilisée par le [portail Azure](http://go.azure.microsoft.com/.com/fwlink/p/?LinkID=525040) pour accéder aux données de diagnostic afin de pouvoir les intégrer sous l’onglet **Analyse**. La chaîne de connexion est nécessaire pour configurer le service afin qu’il affiche les données d’analyse détaillées dans le portail.
+- La chaîne de connexion dans le fichier .cscfg est également utilisée par le [portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040) pour accéder aux données de diagnostic afin de pouvoir les intégrer sous l’onglet **Analyse**. La chaîne de connexion est nécessaire pour configurer le service afin qu’il affiche les données d’analyse détaillées dans le portail.
 
 ## Migration de projets vers le Kit de développement logiciel (SDK) Azure 2.6 et les versions ultérieures
 
@@ -59,7 +59,7 @@ Lors d’une migration du Kit de développement logiciel (SDK) Azure 2.5 vers l
 
 ### Quel est le rôle de la case à cocher « Mettre à jour les chaînes de connexion de stockage de développement… » ?
 
-La case à cocher **Mettre à jour les chaînes de connexion de stockage de développement pour les diagnostics et la mise en cache avec les informations d’identification du compte de stockage azure.microsoft.com/ Azure lors de la publication vers azure.microsoft.com/ Azure** offre un moyen pratique pour mettre à jour toute chaîne de connexion de compte de stockage de développement avec le compte de stockage Azure spécifié lors de la publication.
+La case à cocher **Mettre à jour les chaînes de connexion de stockage de développement pour les diagnostics et la mise en cache avec les informations d’identification du compte de stockage Microsoft Azure lors de la publication vers Microsoft Azure** offre un moyen pratique pour mettre à jour toute chaîne de connexion de compte de stockage de développement avec le compte de stockage Azure spécifié lors de la publication.
 
 Par exemple, supposons que vous activiez cette case à cocher et que la chaîne de connexion des diagnostics spécifie `UseDevelopmentStorage=true`. Lorsque vous publiez le projet sur Azure, Visual Studio met automatiquement à jour la chaîne de connexion des diagnostics avec le compte de stockage que vous avez spécifié dans l’Assistant Publication. Toutefois, si un compte de stockage réel a été spécifié comme chaîne de connexion des diagnostics, ce compte est utilisé à la place.
 
@@ -95,7 +95,7 @@ Dans Visual Studio, vous pouvez choisir de recueillir des données de diagnosti
 
     ![Boîte de dialogue Compte de stockage](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC796662.png)
 
-  - Si vous choisissez l’option Émulateur de stockage azure.microsoft.com/ Azure, la chaîne de connexion est définie sur UseDevelopmentStorage=true.
+  - Si vous choisissez l’option Émulateur de stockage Microsoft Azure, la chaîne de connexion est définie sur UseDevelopmentStorage=true.
 
   - Si vous choisissez l’option Votre abonnement, vous pouvez choisir l’abonnement Azure que vous souhaitez utiliser et le nom du compte. Vous pouvez choisir le bouton Gérer les comptes pour gérer vos abonnements Azure.
 
@@ -129,7 +129,7 @@ Dans Visual Studio, vous pouvez choisir de recueillir des données de diagnosti
 
     ![Configuration d’une machine virtuelle Azure](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC796663.png)
 
-1. Ajoutez l’extension azure.microsoft.com/ Monitoring Agent Diagnostics si elle n’est pas déjà installée. Cette extension vous permet de collecter les données de diagnostic pour la machine virtuelle Azure. Dans la liste Extensions installées, cliquez sur le menu déroulant Sélectionner une extension disponible, puis sur azure.microsoft.com/ Monitoring Agent Diagnostics.
+1. Ajoutez l’extension Microsoft Monitoring Agent Diagnostics si elle n’est pas déjà installée. Cette extension vous permet de collecter les données de diagnostic pour la machine virtuelle Azure. Dans la liste Extensions installées, cliquez sur le menu déroulant Sélectionner une extension disponible, puis sur Microsoft Monitoring Agent Diagnostics.
 
     ![Installation d’une extension de machine virtuelle Azure](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC766024.png)
 
@@ -157,7 +157,7 @@ Dans Visual Studio, vous pouvez choisir de recueillir des données de diagnosti
 
 1. Enregistrez le projet mis à jour.
 
-    Un message s’affiche dans la fenêtre **Journal des activités azure.microsoft.com/ Azure**, indiquant que la machine virtuelle a été mise à jour.
+    Un message s’affiche dans la fenêtre **Journal des activités Microsoft Azure**, indiquant que la machine virtuelle a été mise à jour.
 
 ## Configuration des sources de données de diagnostic
 
@@ -189,11 +189,11 @@ Si vous utilisez le Kit de développement logiciel (SDK) Azure 2.5 et souhaitez
 ```
 ### Compteurs de performances
 
-Les informations d’un compteur de performances peuvent vous aider à localiser des goulets d’étranglement système et à affiner les performances des applications et du système. Pour plus d’informations, consultez [Créer et utiliser des compteurs de performances dans une application Azure](https://msdn.azure.microsoft.com/.com/library/azure/hh411542.aspx). Si vous voulez capturer les compteurs de performances, sélectionnez la case à cocher **Activer le transfert des compteurs de performances**. Vous pouvez augmenter ou réduire le nombre de minutes pendant lesquelles les journaux d’événements sont transférés vers votre compte de stockage en modifiant la valeur du champ **Période de transfert (min)**. Activez les cases à cocher correspondant aux compteurs de performances que vous voulez suivre.
+Les informations d’un compteur de performances peuvent vous aider à localiser des goulets d’étranglement système et à affiner les performances des applications et du système. Pour plus d’informations, consultez [Créer et utiliser des compteurs de performances dans une application Azure](https://msdn.microsoft.com/library/azure/hh411542.aspx). Si vous voulez capturer les compteurs de performances, sélectionnez la case à cocher **Activer le transfert des compteurs de performances**. Vous pouvez augmenter ou réduire le nombre de minutes pendant lesquelles les journaux d’événements sont transférés vers votre compte de stockage en modifiant la valeur du champ **Période de transfert (min)**. Activez les cases à cocher correspondant aux compteurs de performances que vous voulez suivre.
 
   ![Compteurs de performance](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC758147.png)
 
-Pour suivre un compteur de performances non répertorié, entrez-le en utilisant la syntaxe suggérée, puis cliquez sur le bouton **Ajouter**. Le système d’exploitation de la machine virtuelle détermine les compteurs de performances que vous pouvez suivre. Pour plus d’informations sur la syntaxe, consultez [Spécifier le chemin d’un compteur](https://msdn.azure.microsoft.com/.com/library/windows/desktop/aa373193.aspx).
+Pour suivre un compteur de performances non répertorié, entrez-le en utilisant la syntaxe suggérée, puis cliquez sur le bouton **Ajouter**. Le système d’exploitation de la machine virtuelle détermine les compteurs de performances que vous pouvez suivre. Pour plus d’informations sur la syntaxe, consultez [Spécifier le chemin d’un compteur](https://msdn.microsoft.com/library/windows/desktop/aa373193.aspx).
 
 ### Journaux d’infrastructure
 
@@ -201,7 +201,7 @@ Si vous voulez capturer des journaux d’infrastructure contenant des informatio
 
   ![Journaux d’infrastructure de diagnostics](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC758148.png)
 
-  Pour plus d’informations, consultez [Recueillir des données de journaux à l’aide des diagnostics Azure](https://msdn.azure.microsoft.com/.com/library/azure/gg433048.aspx).
+  Pour plus d’informations, consultez [Recueillir des données de journaux à l’aide des diagnostics Azure](https://msdn.microsoft.com/library/azure/gg433048.aspx).
 
 ### Répertoires de journaux
 
@@ -215,13 +215,13 @@ Vous pouvez également capturer des journaux de tout dossier. Spécifiez simplem
 
 ### Journaux de suivi des événements ETW
 
-Si vous utilisez la fonction [Suivi d’événements pour Windows] (https://msdn.azure.microsoft.com/.com/library/windows/desktop/bb968803(v=vs.85).aspx) \(ETW) et souhaitez capturer les journaux ETW, sélectionnez la case à cocher **Activer le transfert des journaux ETW**. Vous pouvez augmenter ou réduire le nombre de minutes pendant lesquelles les journaux sont transférés vers votre compte de stockage en modifiant la valeur du champ **Période de transfert (min)**.
+Si vous utilisez la fonction [Suivi d’événements pour Windows] (https://msdn.microsoft.com/library/windows/desktop/bb968803(v=vs.85).aspx) (ETW) et souhaitez capturer les journaux ETW, sélectionnez la case à cocher **Activer le transfert des journaux ETW**. Vous pouvez augmenter ou réduire le nombre de minutes pendant lesquelles les journaux sont transférés vers votre compte de stockage en modifiant la valeur du champ **Période de transfert (min)**.
 
 Les événements sont capturés à partir de sources d’événements et de fichiers manifestes d’événements que vous spécifiez. Pour spécifier une source d’événements, entrez un nom dans la section **Sources d’événements**, puis cliquez sur le bouton **Ajouter une source d’événements**. De même, vous pouvez spécifier un manifeste d’événements dans la section **Manifestes d’événements**, puis cliquer sur le bouton **Ajouter un manifeste d’événements**.
 
   ![Journaux de suivi des événements ETW](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC766025.png)
 
-  Dans ASP.NET, l’infrastructure ETW est prise en charge via des classes dans l’espace de noms [System.Diagnostics.aspx](https://msdn.azure.microsoft.com/.com/library/system.diagnostics(v=vs.110). L’espace de noms azure.microsoft.com/.WindowsAzure.Diagnostics, qui hérite des classes [System.Diagnostics.aspx](https://msdn.azure.microsoft.com/.com/library/system.diagnostics(v=vs.110) standard et les étend, permet d’utiliser [System.Diagnostics.aspx](https://msdn.azure.microsoft.com/.com/library/system.diagnostics(v=vs.110) comme infrastructure de journalisation dans l’environnement Azure. Pour plus d’informations, consultez [Contrôler la journalisation et le suivi dans azure.microsoft.com/ Azure](https://msdn.azure.microsoft.com/.com/magazine/ff714589.aspx) et [Activation de Diagnostics dans les services cloud et les machines virtuelles Azure](./cloud-services/cloud-services-dotnet-diagnostics.md).
+  Dans ASP.NET, l’infrastructure ETW est prise en charge via des classes dans l’espace de noms [System.Diagnostics.aspx](https://msdn.microsoft.com/library/system.diagnostics(v=vs.110). L’espace de noms Microsoft.WindowsAzure.Diagnostics, qui hérite des classes [System.Diagnostics.aspx](https://msdn.microsoft.com/library/system.diagnostics(v=vs.110) standard et les étend, permet d’utiliser [System.Diagnostics.aspx](https://msdn.microsoft.com/library/system.diagnostics(v=vs.110) comme infrastructure de journalisation dans l’environnement Azure. Pour plus d’informations, consultez [Contrôler la journalisation et le suivi dans Microsoft Azure](https://msdn.microsoft.com/magazine/ff714589.aspx) et [Activation de Diagnostics dans les services cloud et les machines virtuelles Azure](./cloud-services/cloud-services-dotnet-diagnostics.md).
 
 ### Vidages sur incident
 
@@ -231,7 +231,7 @@ Les processus actuellement suivis sont répertoriés. Activez les cases à coche
 
   ![Vidages sur incident](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC766026.png)
 
-  Pour plus d’informations, consultez [Contrôler la journalisation et le suivi dans azure.microsoft.com/ Azure](https://msdn.azure.microsoft.com/.com/magazine/ff714589.aspx) et [Diagnostics azure.microsoft.com/ Azure, partie 4 : composants de journalisation personnalisés et modifications des diagnostics 1.3 Azure](http://justazure.com/azure.microsoft.com/-azure-diagnostics-part-4-custom-logging-components-azure-diagnostics-1-3-changes/).
+  Pour plus d’informations, consultez [Contrôler la journalisation et le suivi dans Microsoft Azure](https://msdn.microsoft.com/magazine/ff714589.aspx) et [Diagnostics Microsoft Azure, partie 4 : composants de journalisation personnalisés et modifications des diagnostics 1.3 Azure](http://justazure.com/microsoft-azure-diagnostics-part-4-custom-logging-components-azure-diagnostics-1-3-changes/).
 
 ## Affichage des données de diagnostic
 
@@ -247,7 +247,7 @@ Après avoir collecté les données de diagnostic pour un service cloud ou une m
 
     Un rapport contenant les données disponibles s’affiche.
 
-    ![Rapport de diagnostics azure.microsoft.com/ Azure dans Visual Studio](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC796666.png)
+    ![Rapport de diagnostics Microsoft Azure dans Visual Studio](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC796666.png)
 
     Si les données les plus récentes n’apparaissent pas, vous devez peut-être attendre la fin de la période de transfert.
 
@@ -343,7 +343,7 @@ Les méthodes de RoleEntryPoint sont appelées dans le contexte de WAIISHost.exe
 <system.diagnostics>
   <trace>
       <listeners>
-          <add name “AzureDiagnostics” type=”azure.microsoft.com/.WindowsAzure.Diagnostics.DiagnosticMonitorTraceListener”>
+          <add name “AzureDiagnostics” type=”Microsoft.WindowsAzure.Diagnostics.DiagnosticMonitorTraceListener”>
               <filter type=”” />
           </add>
       </listeners>

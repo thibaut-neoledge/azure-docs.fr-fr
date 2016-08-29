@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Créer et charger une image Linux personnalisée | azure.microsoft.com/ Azure"
+	pageTitle="Créer et charger une image Linux personnalisée | Microsoft Azure"
 	description="Créez et chargez un disque dur virtuel vers Azure à l’aide d’une image Linux personnalisée en utilisant le modèle de déploiement Resource Manager."
 	services="virtual-machines-linux"
 	documentationCenter=""
@@ -76,9 +76,9 @@ Pour effectuer les étapes suivantes, vous avez besoin des éléments suivants 
 
 - **Un système d’exploitation Linux installé dans un fichier .vhd** : Installez une [distribution Linux approuvée par Azure](virtual-machines-linux-endorsed-distros.md) (ou consultez les [informations relatives aux distributions non approuvées](virtual-machines-linux-create-upload-generic.md)) sur un disque virtuel au format VHD. Plusieurs outils permettent de créer une machine virtuelle et un disque dur virtuel :
 	- Installez et configurez [QEMU](https://en.wikibooks.org/wiki/QEMU/Installing_QEMU) ou [KVM](http://www.linux-kvm.org/page/RunningKVM), en veillant à utiliser VHD comme format d’image. Vous pouvez [convertir une image](https://en.wikibooks.org/wiki/QEMU/Images#Converting_image_formats) à l’aide de `qemu-img convert` si nécessaire.
-	- Vous pouvez également utiliser Hyper-V [sur Windows 10](https://msdn.azure.microsoft.com/.com/virtualization/hyperv_on_windows/quick_start/walkthrough_install) ou [sur Windows Server 2012/2012 R2](https://technet.azure.microsoft.com/.com/library/hh846766.aspx).
+	- Vous pouvez également utiliser Hyper-V [sur Windows 10](https://msdn.microsoft.com/virtualization/hyperv_on_windows/quick_start/walkthrough_install) ou [sur Windows Server 2012/2012 R2](https://technet.microsoft.com/library/hh846766.aspx).
 
-> [AZURE.NOTE] Azure ne prend pas en charge le nouveau format VHDX. Lorsque vous créez une machine virtuelle, spécifiez le format de disque dur virtuel (VHD). Si nécessaire, vous pouvez convertir des disques VHDX au format VHD à l’aide de [`qemu-img convert`](https://en.wikibooks.org/wiki/QEMU/Images#Converting_image_formats) ou de l’applet de commande PowerShell [`Convert-VHD`](https://technet.azure.microsoft.com/.com/library/hh848454.aspx). De plus, Azure ne prend pas en charge le chargement de disques durs virtuels dynamiques. Vous devez convertir ces disques en disques durs virtuels statiques avant le chargement. Vous pouvez utiliser des outils tels que les [utilitaires de disque dur virtuel Azure pour GO](https://github.com/azure.microsoft.com//azure-vhd-utils-for-go) pour convertir les disques dynamiques au cours du processus de téléchargement vers Azure.
+> [AZURE.NOTE] Azure ne prend pas en charge le nouveau format VHDX. Lorsque vous créez une machine virtuelle, spécifiez le format de disque dur virtuel (VHD). Si nécessaire, vous pouvez convertir des disques VHDX au format VHD à l’aide de [`qemu-img convert`](https://en.wikibooks.org/wiki/QEMU/Images#Converting_image_formats) ou de l’applet de commande PowerShell [`Convert-VHD`](https://technet.microsoft.com/library/hh848454.aspx). De plus, Azure ne prend pas en charge le chargement de disques durs virtuels dynamiques. Vous devez convertir ces disques en disques durs virtuels statiques avant le chargement. Vous pouvez utiliser des outils tels que les [utilitaires de disque dur virtuel Azure pour GO](https://github.com/Microsoft/azure-vhd-utils-for-go) pour convertir les disques dynamiques au cours du processus de téléchargement vers Azure.
 
 - Les machines virtuelles créées à partir de votre image personnalisée doivent se trouver au sein du même compte de stockage que l’image elle-même.
 	- Créez un compte de stockage et un conteneur pour stocker les machines virtuelles créées et votre image personnalisée.
@@ -100,7 +100,7 @@ Azure prend en charge diverses distributions de Linux (voir [Distributions Lin
 
 Consultez également les **[notes d’installation Linux](virtual-machines-linux-create-upload-generic.md#general-linux-installation-notes)** pour obtenir d’autres conseils généraux sur la préparation d’images Linux pour Azure.
 
-> [AZURE.NOTE] Le [contrat de niveau de service de la plateforme Azure](https://azure.azure.microsoft.com/.com/support/legal/sla/virtual-machines/) s’applique aux machines virtuelles exécutant Linux uniquement lorsqu’une des distributions approuvées est utilisée avec les détails de configuration définis sous la rubrique « Versions prises en charge » de la section [Linux dans les distributions approuvées par Azure](virtual-machines-linux-endorsed-distros.md).
+> [AZURE.NOTE] Le [contrat de niveau de service de la plateforme Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/) s’applique aux machines virtuelles exécutant Linux uniquement lorsqu’une des distributions approuvées est utilisée avec les détails de configuration définis sous la rubrique « Versions prises en charge » de la section [Linux dans les distributions approuvées par Azure](virtual-machines-linux-endorsed-distros.md).
 
 
 ## Créer un groupe de ressources
@@ -183,7 +183,7 @@ Vous devez encore spécifier tous les paramètres supplémentaires exigés par l
 ### Créer une machine virtuelle à l’aide d’un modèle JSON
 Les modèles Azure Resource Manager sont des fichiers JSON (JavaScript Objet Notation) qui définissent l’environnement que vous souhaitez générer. Les modèles sont répartis parmi différents fournisseurs de ressources, tels que les fournisseurs de calcul ou réseau. Vous pouvez utiliser les modèles existants ou écrire les vôtres. Découvrez plus d’informations sur [l’utilisation des modèles et de Resource Manager](../resource-group-overview.md).
 
-Dans le fournisseur `azure.microsoft.com/.Compute/virtualMachines` de votre modèle, vous disposez d’un nœud `storageProfile` qui contient les détails de configuration de votre machine virtuelle. Les deux principaux paramètres à modifier sont les URI `image` et `vhd` qui pointent vers votre image de disque personnalisée et le disque virtuel de votre nouvelle machine virtuelle. Voici un exemple de JSON pour l’utilisation d’une image de disque personnalisée :
+Dans le fournisseur `Microsoft.Compute/virtualMachines` de votre modèle, vous disposez d’un nœud `storageProfile` qui contient les détails de configuration de votre machine virtuelle. Les deux principaux paramètres à modifier sont les URI `image` et `vhd` qui pointent vers votre image de disque personnalisée et le disque virtuel de votre nouvelle machine virtuelle. Voici un exemple de JSON pour l’utilisation d’une image de disque personnalisée :
 
 ```bash
 "storageProfile": {

@@ -16,7 +16,7 @@
     ms.date="08/11/2016" 
     ms.author="robmcm"/>
 
-<!-- Legacy MSDN URL = https://msdn.azure.microsoft.com/.com/library/azure/dn205108.aspx -->
+<!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/dn205108.aspx -->
 
 # Liste des comptes Azure Storage #
 
@@ -88,12 +88,12 @@ Pour plus d'informations sur l'utilisation d'Azure avec Java, consultez le [Cent
 
 <!-- URL List -->
 
-[Centre de développement Java]: http://go.azure.microsoft.com/.com/fwlink/?LinkID=699547
-[Kit de ressources Azure pour Eclipse]: http://go.azure.microsoft.com/.com/fwlink/?LinkID=699529
-[portail de gestion Azure]: http://go.azure.microsoft.com/.com/fwlink/?LinkID=512959
-[Création d'une application Hello World pour Azure dans Eclipse]: http://go.azure.microsoft.com/.com/fwlink/?LinkID=699533
-[Installation du kit de ressources Azure pour Eclipse]: http://go.azure.microsoft.com/.com/fwlink/?LinkId=699546
-[What's New in the Azure Toolkit for Eclipse]: http://go.azure.microsoft.com/.com/fwlink/?LinkID=699552
+[Centre de développement Java]: http://go.microsoft.com/fwlink/?LinkID=699547
+[Kit de ressources Azure pour Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
+[portail de gestion Azure]: http://go.microsoft.com/fwlink/?LinkID=512959
+[Création d'une application Hello World pour Azure dans Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
+[Installation du kit de ressources Azure pour Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
+[What's New in the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699552
 
 <!-- IMG List -->
 

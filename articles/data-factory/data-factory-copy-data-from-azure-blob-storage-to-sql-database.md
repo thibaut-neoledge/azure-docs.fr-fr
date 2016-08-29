@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Copie de données Blob Storage vers une base de données SQL à l’aide de Data Factory | azure.microsoft.com/ Azure"
+	pageTitle="Copie de données Blob Storage vers une base de données SQL à l’aide de Data Factory | Microsoft Azure"
 	description="Ce didacticiel vous montre comment utiliser l’activité de copie dans un pipeline Azure Data Factory pour copier des données depuis Blob Storage vers une base de données SQL Azure."
 	Keywords="blob sql, blob storage, copie de données"
 	services="data-factory"
@@ -109,12 +109,12 @@ Pour plus d’informations sur l’activité de copie dans Azure Data Factory, c
 
 
 <!--Link references-->
-[azure-free-trial]: http://azure.azure.microsoft.com/.com/pricing/free-trial/
+[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [azure-portal]: https://portal.azure.com/
-[sql-management-studio]: http://azure.azure.microsoft.com/.com/documentation/articles/sql-database-manage-azure-ssms/#Step2
+[sql-management-studio]: http://azure.microsoft.com/documentation/articles/sql-database-manage-azure-ssms/#Step2
 
 [data-factory-introduction]: data-factory-introduction.md
-[data-factory-create-storage]: http://azure.azure.microsoft.com/.com/documentation/articles/storage-create-storage-account/#create-a-storage-account
+[data-factory-create-storage]: http://azure.microsoft.com/documentation/articles/storage-create-storage-account/#create-a-storage-account
 [data-factory-create-sql-database]: ../sql-database/sql-database-get-started.md
 
 <!---HONumber=AcomDC_0817_2016-->

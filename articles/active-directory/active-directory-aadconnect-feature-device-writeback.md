@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure AD Connect : Activation de l’écriture différée des appareils | azure.microsoft.com/ Azure"
+	pageTitle="Azure AD Connect : Activation de l’écriture différée des appareils | Microsoft Azure"
 	description="Ce document explique comment activer l’écriture différée des appareils à l’aide d’Azure AD Connect"
 	services="active-directory"
 	documentationCenter=""
@@ -24,14 +24,14 @@ La documentation suivante fournit des informations sur l’activation de la fonc
 
 - Activer l’accès conditionnel basé sur les appareils pour les applications protégées ADFS (2012 R2 ou version ultérieure) (approbations de la partie de confiance).
 
-Cela fournit une sécurité supplémentaire et l’assurance que l’accès aux applications est accordé uniquement aux appareils de confiance. Pour plus d’informations sur l’accès conditionnel, consultez [Gestion des risques avec accès conditionnel](active-directory-conditional-access.md) et [Configuration d’un accès conditionnel en local à l’aide du service d’inscription d’appareils Azure Active Directory](https://msdn.azure.microsoft.com/.com/library/azure/dn788908.aspx).
+Cela fournit une sécurité supplémentaire et l’assurance que l’accès aux applications est accordé uniquement aux appareils de confiance. Pour plus d’informations sur l’accès conditionnel, consultez [Gestion des risques avec accès conditionnel](active-directory-conditional-access.md) et [Configuration d’un accès conditionnel en local à l’aide du service d’inscription d’appareils Azure Active Directory](https://msdn.microsoft.com/library/azure/dn788908.aspx).
 
 >[AZURE.IMPORTANT]
 <li>Les appareils doivent se trouver dans la même forêt que les utilisateurs. Étant donné que les appareils doivent être réécrits dans une seule forêt, cette fonctionnalité ne prend pas en charge un déploiement à plusieurs forêts d’utilisateurs pour l’instant.</li>
 <li>Un seul objet de configuration d’enregistrement de l’appareil peut être ajouté à la forêt Active Directory locale. Cette fonctionnalité n’est pas compatible avec une topologie dans laquelle le domaine Active Directory local est synchronisé à plusieurs annuaires Azure AD.</li>
 
 ## 1ère partie : Installer Azure AD Connect
-1. Installez Azure AD Connect à l’aide de paramètres personnalisés ou Express. azure.microsoft.com/ recommande de commencer par synchroniser correctement tous les utilisateurs et groupes avant d’activer l’écriture différée des appareils.
+1. Installez Azure AD Connect à l’aide de paramètres personnalisés ou Express. Microsoft recommande de commencer par synchroniser correctement tous les utilisateurs et groupes avant d’activer l’écriture différée des appareils.
 
 ## Partie 2 : Préparer Active Directory
 Utilisez les étapes suivantes pour préparer l’utilisation de l’écriture différée des appareils.
@@ -42,11 +42,11 @@ Utilisez les étapes suivantes pour préparer l’utilisation de l’écriture d
 
 	`Install-WindowsFeature –Name AD-Domain-Services –IncludeManagementTools`
 
-3. Si le module Azure Active Directory PowerShell n’est PAS installé, téléchargez-le et installez-le à partir du [Module Azure Active Directory pour Windows PowerShell (version 64 bits)](http://go.azure.microsoft.com/.com/fwlink/p/?linkid=236297). Ce composant a une dépendance à l’assistant de connexion, qui est installé avec Azure AD Connect.
+3. Si le module Azure Active Directory PowerShell n’est PAS installé, téléchargez-le et installez-le à partir du [Module Azure Active Directory pour Windows PowerShell (version 64 bits)](http://go.microsoft.com/fwlink/p/?linkid=236297). Ce composant a une dépendance à l’assistant de connexion, qui est installé avec Azure AD Connect.
 
 4.	Avec les informations d’identification d’administrateur d’entreprise, exécutez les commandes suivantes, puis quittez PowerShell.
 
-	`Import-Module 'C:\Program Files\azure.microsoft.com/ Azure Active Directory Connect\AdPrep\AdSyncPrep.psm1'`
+	`Import-Module 'C:\Program Files\Microsoft Azure Active Directory Connect\AdPrep\AdSyncPrep.psm1'`
 
 	`Initialize-ADSyncDeviceWriteback {Optional:–DomainName [name] Optional:-AdConnectorAccount [account]}`
 
@@ -75,14 +75,13 @@ Utilisez la procédure suivante pour activer l’écriture différée des appare
 4.	Terminez l’installation de l’Assistant sans autre modification de la configuration. Si nécessaire, consultez [Installation personnalisée d’Azure AD Connect](active-directory-aadconnect-get-started-custom.md)
 
 ## Activer l’accès conditionnel
-Des instructions détaillées pour activer ce scénario sont disponibles dans [Configuration d’un accès conditionnel en local à l’aide du service d’inscription d’appareils Azure Active Directory](https://msdn.azure.microsoft.com/.com/library/azure/dn788908.aspx)
+Des instructions détaillées pour activer ce scénario sont disponibles dans [Configuration d’un accès conditionnel en local à l’aide du service d’inscription d’appareils Azure Active Directory](https://msdn.microsoft.com/library/azure/dn788908.aspx)
 
 ## Vérifier la synchronisation des appareils avec Active Directory
 L’écriture différée des appareils doit désormais fonctionner correctement. Sachez que la réécriture des objets d’appareil dans AD peut prendre jusqu’à 3 heures. Pour vérifier que vos appareils sont correctement synchronisés, procédez comme suit après la fin des règles de synchronisation :
 
 1.	Lancez le Centre d’administration Active Directory.
-2.	Développez RegisteredDevices au sein du domaine en cours de fédération.
-![Active Directory - Appareils inscrits au Centre d’administration](./media/active-directory-aadconnect-feature-device-writeback/devicewriteback5.png)
+2.	Développez RegisteredDevices au sein du domaine en cours de fédération. ![Active Directory - Appareils inscrits au Centre d’administration](./media/active-directory-aadconnect-feature-device-writeback/devicewriteback5.png)
 3.	Les appareils enregistrés actuels sont répertoriés à cet emplacement.
 ![Active Directory - Liste des appareils inscrits au Centre d’administration](./media/active-directory-aadconnect-feature-device-writeback/devicewriteback6.png)
 
@@ -127,7 +126,7 @@ Vérifiez la configuration dans Active Directory :
 
 ## Informations supplémentaires
 - [Gestion des risques avec accès conditionnel](active-directory-conditional-access.md)
-- [Configuration d’un accès conditionnel en local à l’aide du service d’inscription d’appareils Azure Active Directory](https://msdn.azure.microsoft.com/.com/library/azure/dn788908.aspx)
+- [Configuration d’un accès conditionnel en local à l’aide du service d’inscription d’appareils Azure Active Directory](https://msdn.microsoft.com/library/azure/dn788908.aspx)
 
 ## Étapes suivantes
 En savoir plus sur l’[intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).

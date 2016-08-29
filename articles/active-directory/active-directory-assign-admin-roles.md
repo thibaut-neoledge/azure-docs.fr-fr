@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Attribution de rôles d’administrateur dans Azure Active Directory | azure.microsoft.com/ Azure"
+	pageTitle="Attribution de rôles d’administrateur dans Azure Active Directory | Microsoft Azure"
 	description="Décrit les rôles d’administrateur disponibles avec Azure Active Directory et leur utilisation."
 	services="active-directory"
 	documentationCenter=""
@@ -26,11 +26,11 @@ Les rôles d’administrateur disponibles sont les suivants :
 
 - **Administrateur général** : peut accéder à toutes les fonctionnalités d’administration. La personne qui s’inscrit pour le compte Azure devient administrateur général. Seuls les administrateurs généraux peuvent affecter d’autres rôles d’administrateur. Une entreprise peut comprendre plusieurs administrateurs généraux.
 
-	> [AZURE.NOTE] Dans l’API azure.microsoft.com/ Graph, l’API Azure AD Graph et Azure AD PowerShell, ce rôle est identifié comme « Administrateur de l’entreprise ».
+	> [AZURE.NOTE] Dans l’API Microsoft Graph, l’API Azure AD Graph et Azure AD PowerShell, ce rôle est identifié comme « Administrateur de l’entreprise ».
 
 - **Administrateur de mots de passe** : réinitialise les mots de passe, gère les demandes de service et surveille l’état des services. Les administrateurs de mots de passe peuvent réinitialiser uniquement les mots de passe des utilisateurs et des autres administrateurs de mots de passe.
 
-	> [AZURE.NOTE] Dans l’API azure.microsoft.com/ Graph, l’API Azure AD Graph et Azure AD PowerShell, ce rôle est identifié comme « Administrateur Helpdesk ».
+	> [AZURE.NOTE] Dans l’API Microsoft Graph, l’API Azure AD Graph et Azure AD PowerShell, ce rôle est identifié comme « Administrateur Helpdesk ».
 
 - **Administrateur de services fédérés** : gère les demandes de service et surveille l’état des services.
 
@@ -114,7 +114,7 @@ L’administrateur général a accès à toutes les fonctionnalités d’adminis
 
 - Pour plus d’informations sur la modification des administrateurs d’un abonnement Azure, consultez [Ajout ou modification de rôles d’administrateur Azure](../billing-add-change-azure-subscription-administrator.md)
 
-- Pour plus d’informations sur la façon dont l’accès aux ressources est contrôlé dans azure.microsoft.com/ Azure, voir [Présentation de l’accès aux ressources dans Azure](active-directory-understanding-resource-access.md)
+- Pour plus d’informations sur la façon dont l’accès aux ressources est contrôlé dans Microsoft Azure, voir [Présentation de l’accès aux ressources dans Azure](active-directory-understanding-resource-access.md)
 
 - Pour plus d’informations sur l’association entre Azure Active Directory et votre abonnement Azure, consultez [Association des abonnements Azure avec Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)
 

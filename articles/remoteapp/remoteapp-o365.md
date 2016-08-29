@@ -1,6 +1,6 @@
 
 <properties
-    pageTitle="Utilisation d’Office avec Azure RemoteApp | azure.microsoft.com/ Azure" 
+    pageTitle="Utilisation d’Office avec Azure RemoteApp | Microsoft Azure" 
     description="Découvrez comment Office et Azure RemoteApp fonctionnent ensemble"
     services="remoteapp"
     documentationCenter=""
@@ -19,7 +19,7 @@
 # Utilisation d'Office avec Azure RemoteApp
 
 > [AZURE.IMPORTANT]
-Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.azure.microsoft.com/.com/fwlink/?linkid=821148).
+Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148).
 
 Vous avez deux possibilités pour l'hébergement des applications Office dans Azure RemoteApp : Office 365 ProPlus ou la version d'évaluation d'Office 2013 Professionnel Plus.
 
@@ -28,15 +28,15 @@ Vous avez deux possibilités pour l'hébergement des applications Office dans Az
 ## Office 365 ProPlus
 Vous pouvez créer une collection RemoteApp à l'aide de l'image de modèle Office 365 ProPlus. Cette option vous permet d'étendre votre service Office 365 à RemoteApp. Vous devez déjà disposer d’un plan d’abonnement et vos utilisateurs doivent bénéficier d’une licence pour le service Office 365 ProPlus (en version autonome ou avec les plans de service Office 365).
 
-RemoteApp prend en charge l'activation d’ordinateurs partagés Office 365. Quand vous autorisez l'activation d’ordinateurs partagés et que vous utilisez l'[outil de déploiement Office](http://www.azure.microsoft.com/.com/download/details.aspx?id=36778) pour l'installation, Office 365 ProPlus s'installe sans s'activer. Quand un utilisateur se connecte à une collection qui contient Office 365, Office vérifie s'il a été approvisionné pour Office 365 ProPlus. Si c'est le cas, Office active temporairement Office 365 ProPlus. Cette activation perdure tant que l'utilisateur ne se déconnecte pas du service.
+RemoteApp prend en charge l'activation d’ordinateurs partagés Office 365. Quand vous autorisez l'activation d’ordinateurs partagés et que vous utilisez l'[outil de déploiement Office](http://www.microsoft.com/download/details.aspx?id=36778) pour l'installation, Office 365 ProPlus s'installe sans s'activer. Quand un utilisateur se connecte à une collection qui contient Office 365, Office vérifie s'il a été approvisionné pour Office 365 ProPlus. Si c'est le cas, Office active temporairement Office 365 ProPlus. Cette activation perdure tant que l'utilisateur ne se déconnecte pas du service.
 
-Pour utiliser l'activation d’ordinateurs partagés Office 365, vous devez créer un [modèle personnalisé](remoteapp-create-custom-image.md) et y installer Office 365 ProPlus, en suivant [ces instructions](https://technet.azure.microsoft.com/.com/library/dn782858.aspx).
+Pour utiliser l'activation d’ordinateurs partagés Office 365, vous devez créer un [modèle personnalisé](remoteapp-create-custom-image.md) et y installer Office 365 ProPlus, en suivant [ces instructions](https://technet.microsoft.com/library/dn782858.aspx).
 
-Vous pouvez gérer les licences Office 365 de vos utilisateurs dans le [portail d'administration Office 365](https://portal.office365.com/). En savoir plus sur les [plans de service Office 365](http://technet.azure.microsoft.com/.com/library/office-365-plan-options.aspx).
+Vous pouvez gérer les licences Office 365 de vos utilisateurs dans le [portail d'administration Office 365](https://portal.office365.com/). En savoir plus sur les [plans de service Office 365](http://technet.microsoft.com/library/office-365-plan-options.aspx).
 
 
 ## Version d'évaluation d'Office Professionnel Plus 2013
-Pendant la période d'évaluation de 30 jours de RemoteApp, vous pouvez utiliser l'image de modèle Office Professionnel Plus 2013 (version d'évaluation) pour créer une collection RemoteApp. Vous pouvez attribuer des utilisateurs à cette collection d'évaluation à l'aide de leurs comptes professionnels Azure Active Directory ou comptes azure.microsoft.com/. Aucun abonnement supplémentaire n’est nécessaire.
+Pendant la période d'évaluation de 30 jours de RemoteApp, vous pouvez utiliser l'image de modèle Office Professionnel Plus 2013 (version d'évaluation) pour créer une collection RemoteApp. Vous pouvez attribuer des utilisateurs à cette collection d'évaluation à l'aide de leurs comptes professionnels Azure Active Directory ou comptes Microsoft. Aucun abonnement supplémentaire n’est nécessaire.
 
 C'est l'option idéale pour débuter et tester l'utilisation d'Office dans RemoteApp. Toutefois, cette option est destinée à des fins d'évaluation et de test uniquement. Les collections RemoteApp créées à l'aide de l'image de modèle Office Professionnel Plus 2013 (version d'évaluation) ne peuvent pas être passées en mode de production et seront désactivées à la fin de la période d'évaluation.
 

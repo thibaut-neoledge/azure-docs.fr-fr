@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Résolution des problèmes liés à l’extension Volet d’accès pour Internet Explorer | azure.microsoft.com/ Azure"
+    pageTitle="Résolution des problèmes liés à l’extension Volet d’accès pour Internet Explorer | Microsoft Azure"
     description="Comment utiliser la stratégie de groupe pour déployer le module complémentaire Internet Explorer du portail Mes applications."
     services="active-directory"
     documentationCenter=""
@@ -39,9 +39,9 @@ Vous pouvez diagnostiquer les problèmes d’installation de l’extension Volet
 
 	![Appuyer sur Extraire](./media/active-directory-saas-ie-troubleshooting/extract2.png)
 
-4. Pour exécuter l’outil, cliquez sur le fichier nommé **AccessPanelExtensionDiagnosticTool**, puis sélectionnez **Ouvrir avec > azure.microsoft.com/ Windows Based Script Host**.
+4. Pour exécuter l’outil, cliquez sur le fichier nommé **AccessPanelExtensionDiagnosticTool**, puis sélectionnez **Ouvrir avec > Microsoft Windows Based Script Host**.
 
-	![Ouvrir avec > azure.microsoft.com/ Windows Based Script Host](./media/active-directory-saas-ie-troubleshooting/open_tool.png)
+	![Ouvrir avec > Microsoft Windows Based Script Host](./media/active-directory-saas-ie-troubleshooting/open_tool.png)
 
 5. La fenêtre de diagnostic suivante s’ouvre, qui décrit les éventuels problèmes liés à votre installation.
 
@@ -101,7 +101,7 @@ Pour désinstaller l’extension Volet d’accès de votre ordinateur :
 
 4. Essayez ensuite de réinstaller l’extension pour vérifier que le problème a été résolu.
 
-Si vous rencontrez des problèmes pour désinstaller l’extension, vous pouvez également la supprimer à l’aide de l’outil [azure.microsoft.com/ Fix It](https://go.azure.microsoft.com/.com/?linkid=9779673).
+Si vous rencontrez des problèmes pour désinstaller l’extension, vous pouvez également la supprimer à l’aide de l’outil [Microsoft Fix It](https://go.microsoft.com/?linkid=9779673).
 
 ## Articles connexes
 

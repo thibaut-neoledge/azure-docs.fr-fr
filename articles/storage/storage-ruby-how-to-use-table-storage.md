@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Utilisation du stockage de tables Azure à partir de Ruby | azure.microsoft.com/ Azure"
+	pageTitle="Utilisation du stockage de tables Azure à partir de Ruby | Microsoft Azure"
 	description="Stockez des données structurées dans le cloud à l’aide du stockage de tables Azure, un magasin de données NoSQL."
 	services="storage"
 	documentationCenter="ruby"

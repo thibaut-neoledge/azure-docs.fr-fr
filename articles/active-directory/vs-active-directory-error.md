@@ -78,7 +78,7 @@ Pour détecter l'authentification des comptes d'utilisateur individuels, l'Assis
 
 <pre>
 	&lt;packages>
-	    <span style="background-color: yellow">&lt;package id="azure.microsoft.com/.AspNet.Identity.EntityFramework" version="2.1.0" targetFramework="net45" /></span>
+	    <span style="background-color: yellow">&lt;package id="Microsoft.AspNet.Identity.EntityFramework" version="2.1.0" targetFramework="net45" /></span>
 	&lt;/packages>
 </pre>
 

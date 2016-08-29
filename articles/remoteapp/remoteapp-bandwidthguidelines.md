@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="Bande passante réseau Azure RemoteApp : instructions générales | azure.microsoft.com/ Azure"
+    pageTitle="Bande passante réseau Azure RemoteApp : instructions générales | Microsoft Azure"
 	description="Comprendre des instructions de base en matière de bande passante réseau pour vos applications et collections Azure RemoteApp."
 	services="remoteapp"
 	documentationCenter="" 
@@ -18,7 +18,7 @@
 # Bande passante réseau Azure RemoteApp : instructions générales (si vous ne pouvez pas tester votre propre bande passante)
 
 > [AZURE.IMPORTANT]
-Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.azure.microsoft.com/.com/fwlink/?linkid=821148).
+Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148).
 
 Si vous n’avez pas le temps ou la possibilité d’exécuter les [tests de la bande passante réseau](remoteapp-bandwidthtests.md) pour Azure RemoteApp, voici quelques instructions relativement génériques qui peuvent vous aider à estimer la bande passante réseau par utilisateur.
 

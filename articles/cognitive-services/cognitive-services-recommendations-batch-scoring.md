@@ -1,6 +1,6 @@
 
 <properties
-	pageTitle="Obtention de recommandations par lots : API Recommandations Machine Learning | azure.microsoft.com/ Azure"
+	pageTitle="Obtention de recommandations par lots : API Recommandations Machine Learning | Microsoft Azure"
 	description="Recommandations Azure Machine Learning - Obtention de recommandations par lots"
 	services="cognitive-services"
 	documentationCenter=""
@@ -21,7 +21,7 @@
 
 >[AZURE.NOTE] Il est plus compliqué d’obtenir des recommandations par lots que d’obtenir une recommandation à la fois. Vérifiez les API pour obtenir des informations sur l’obtention de recommandations pour une seule requête :
 
-> [Recommandations élément-élément](https://westus.dev.cognitive.azure.microsoft.com/.com/docs/services/Recommendations.V4.0/operations/56f30d77eda5650db055a3d4)<br> [Recommandations utilisateur-élément](https://westus.dev.cognitive.azure.microsoft.com/.com/docs/services/Recommendations.V4.0/operations/56f30d77eda5650db055a3dd)
+> [Recommandations élément-élément](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/56f30d77eda5650db055a3d4)<br> [Recommandations utilisateur-élément](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/56f30d77eda5650db055a3dd)
 >
 > La notation de lot fonctionne uniquement pour les builds créées après le 21 juillet 2016.
 
@@ -69,7 +69,7 @@ Comme vous pouvez le constater, il s’agit d’un fichier JSON, dans lequel cha
 
 ## Démarrer le travail de notation de lot
 
-L’étape suivante consiste à soumettre un nouveau travail Batch. Pour plus d’informations, consultez la [référence de l’API](https://westus.dev.cognitive.azure.microsoft.com/.com/docs/services/Recommendations.V4.0/).
+L’étape suivante consiste à soumettre un nouveau travail Batch. Pour plus d’informations, consultez la [référence de l’API](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/).
 
 Le corps de la requête de l’API doit définir les emplacements de stockage des fichiers d’entrée, de sortie et d’erreur. Il doit également définir les informations d’identification nécessaires pour accéder à ces emplacements. En outre, vous devez spécifier certains paramètres qui s’appliquent à la totalité du lot (le type de recommandations à demander, le modèle ou la build à utiliser, le nombre de résultats par appel, etc.).
 
@@ -114,7 +114,7 @@ Voici quelques points importants à prendre en considération :
 
 ## Attendez la fin de l’opération asynchrone.
 
-Lorsque vous démarrez l’opération par lots, la réponse renvoie l’en-tête Operation-Location qui vous donne les informations nécessaires pour effectuer le suivi de l’opération. Vous effectuez le suivi de l’opération à l’aide de [l’API Récupérer l’état de l’opération](https://westus.dev.cognitive.azure.microsoft.com/.com/docs/services/Recommendations.V4.0/operations/56f30d77eda5650db055a3da), comme vous le feriez pour le suivi d’une opération de génération.
+Lorsque vous démarrez l’opération par lots, la réponse renvoie l’en-tête Operation-Location qui vous donne les informations nécessaires pour effectuer le suivi de l’opération. Vous effectuez le suivi de l’opération à l’aide de [l’API Récupérer l’état de l’opération](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/56f30d77eda5650db055a3da), comme vous le feriez pour le suivi d’une opération de génération.
 
 ## Obtenir les résultats
 

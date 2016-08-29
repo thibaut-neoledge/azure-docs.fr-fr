@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="En savoir plus sur les dernières publications du SE invité de azure.microsoft.com/ Azure | azure.microsoft.com/ Azure" 
-   description="Dernières informations de publication et de compatibilité du Kit de développement logiciel (SDK) pour le SE invité de azure.microsoft.com/ Azure Cloud Services." 
+   pageTitle="En savoir plus sur les dernières publications du SE invité de Microsoft Azure | Microsoft Azure" 
+   description="Dernières informations de publication et de compatibilité du Kit de développement logiciel (SDK) pour le SE invité de Microsoft Azure Cloud Services." 
    services="cloud-services" 
    documentationCenter="na" 
    authors="yuemlu" 
@@ -17,7 +17,7 @@
    ms.author="raiye"/>
 
 # Versions du SE invité et matrice de compatibilité du Kit de développement logiciel (SDK) Azure
-Fournit des informations récentes sur les dernières publications du SE (système d’exploitation) invité de azure.microsoft.com/ Azure pour Cloud Services. Ces informations vous aideront à planifier votre mise à niveau avant la désactivation d’un SE invité. Si vous configurez vos rôles pour utiliser les mises à jour *automatiques* d’un SE invité comme cela est décrit dans [Paramètres de mise à jour du SE invité Azure][], il n’est pas indispensable que vous lisiez cette page.
+Fournit des informations récentes sur les dernières publications du SE (système d’exploitation) invité de Microsoft Azure pour Cloud Services. Ces informations vous aideront à planifier votre mise à niveau avant la désactivation d’un SE invité. Si vous configurez vos rôles pour utiliser les mises à jour *automatiques* d’un SE invité comme cela est décrit dans [Paramètres de mise à jour du SE invité Azure][], il n’est pas indispensable que vous lisiez cette page.
 
 > [AZURE.IMPORTANT] Le contenu de cette page s’applique aux rôles web et de travail Cloud Services, qui s’exécutent sur un SE invité. Il **ne s’applique pas** aux machines virtuelles IaaS.
 
@@ -149,7 +149,7 @@ La liste des correctifs inclus dans chaque publication mensuelle du SE invité e
 
 ## Prise en charge des Kits de développement logiciel (SDK)
 
-La [stratégie de déclassement pour le Kit de développement logiciel (SDK) azure.microsoft.com/ Azure][retire policy sdk] indique que seules les versions postérieures à la version 2.2 sont prises en charge. Cependant, certaines familles de SE invités permettent l’utilisation de versions antérieures. Vous devez toujours utiliser le Kit de développement logiciel (SDK) pris en charge le plus récent.
+La [stratégie de déclassement pour le Kit de développement logiciel (SDK) Microsoft Azure][retire policy sdk] indique que seules les versions postérieures à la version 2.2 sont prises en charge. Cependant, certaines familles de SE invités permettent l’utilisation de versions antérieures. Vous devez toujours utiliser le Kit de développement logiciel (SDK) pris en charge le plus récent.
 
 | Famille de SE invité | Versions du Kit de développement logiciel (SDK) compatibles |
 | --------------- | ----------------------- |
@@ -166,15 +166,15 @@ Durant la période entre la date de **désactivation** et la date **d’expirati
 Après la date **d’expiration** du SE invité, tous les services cloud qui utilisent encore ce SE invité sont arrêtés, supprimés ou mis à niveau de manière forcée. Des informations supplémentaires sur la stratégie de déclassement sont fournies [ici][retirepolicy].
 
 ## Informations sur les versions des familles de SE invité
-Les familles de SE invité sont basées sur les versions publiées de azure.microsoft.com/ Windows Server. Le SE invité est le système d’exploitation sous-jacent sur lequel s’exécute Azure Cloud Services. Chaque SE invité possède un numéro de famille, de version et de publication.
+Les familles de SE invité sont basées sur les versions publiées de Microsoft Windows Server. Le SE invité est le système d’exploitation sous-jacent sur lequel s’exécute Azure Cloud Services. Chaque SE invité possède un numéro de famille, de version et de publication.
 
 - **Famille de SE invité** Version du système d’exploitation Windows Server sur laquelle est basé un SE invité. Par exemple, la *famille 3* est basée sur Windows Server 2012.
 
-- **Version de SE invité** Correspond à l’image de la famille de SE invité et aux correctifs [azure.microsoft.com/ Security Response Center (MSRC)][msrc] appropriés qui sont disponibles à la date de production de la nouvelle version du SE invité. Il est possible que les correctifs ne soient pas tous inclus.
+- **Version de SE invité** Correspond à l’image de la famille de SE invité et aux correctifs [Microsoft Security Response Center (MSRC)][msrc] appropriés qui sont disponibles à la date de production de la nouvelle version du SE invité. Il est possible que les correctifs ne soient pas tous inclus.
 
     Les numéros commencent à 0 et augmentent de 1 chaque fois qu’un nouvel ensemble de mises à jour est ajouté. Les zéros à droite sont uniquement affichés s’ils sont importants. Autrement dit, la version 2.10 est une version différente, bien plus récente, que la version 2.1.
 
-- **Publication de SE invité** Nouvelle publication d’une version de SE invité. Une nouvelle publication est produite si azure.microsoft.com/ détecte des problèmes pendant les tests nécessitant des modifications. La publication la plus récente remplace toujours les publications précédentes, publiques ou non. Le portail Azure Classic permet uniquement aux utilisateurs de choisir la publication la plus récente pour une version donnée. Les déploiements s’exécutant sur une publication antérieure ne sont généralement pas mis à niveau de force en fonction de la gravité du bogue.
+- **Publication de SE invité** Nouvelle publication d’une version de SE invité. Une nouvelle publication est produite si Microsoft détecte des problèmes pendant les tests nécessitant des modifications. La publication la plus récente remplace toujours les publications précédentes, publiques ou non. Le portail Azure Classic permet uniquement aux utilisateurs de choisir la publication la plus récente pour une version donnée. Les déploiements s’exécutant sur une publication antérieure ne sont généralement pas mis à niveau de force en fonction de la gravité du bogue.
 
 Dans l’exemple ci-dessous, 2 est la famille, 12 est la version et « rel2 » est la publication.
 
@@ -182,12 +182,12 @@ Dans l’exemple ci-dessous, 2 est la famille, 12 est la version et « rel2
 
 **Chaîne de configuration pour cette publication** - WA-GUEST-OS-2.12\_201208-02
 
-Ces informations sont intégrées dans la chaîne de configuration d’un SE invité, ainsi qu’une date indiquant les correctifs MSRC envisagés pour cette publication. Dans cet exemple, les correctifs MSRC produits pour Windows Server 2008 R2 jusqu’à août 2012 inclus ont été envisagés pour l’inclusion. Seuls les correctifs s’appliquant spécifiquement à cette version de Windows Server sont inclus. Par exemple, si un correctif logiciel de MSRC s’applique à azure.microsoft.com/ Office, il ne sera pas inclus, car ce produit ne fait pas partie de l’image de base de Windows Server.
+Ces informations sont intégrées dans la chaîne de configuration d’un SE invité, ainsi qu’une date indiquant les correctifs MSRC envisagés pour cette publication. Dans cet exemple, les correctifs MSRC produits pour Windows Server 2008 R2 jusqu’à août 2012 inclus ont été envisagés pour l’inclusion. Seuls les correctifs s’appliquant spécifiquement à cette version de Windows Server sont inclus. Par exemple, si un correctif logiciel de MSRC s’applique à Microsoft Office, il ne sera pas inclus, car ce produit ne fait pas partie de l’image de base de Windows Server.
 
 ## Processus de mise à jour du SE invité
 Cette page contient des informations sur les prochaines publications de SE invités. Les clients ont indiqué qu’ils souhaitent être informés lors d’une publication, car leurs rôles de service cloud redémarreront s’ils sont définis pour la mise à jour « Automatique ». Les publications de SE invités se produisent généralement au moins 5 jours après la publication de mise à jour MSRC survenant le deuxième mardi de chaque mois. Les nouvelles publications incluent tous les correctifs MSRC adéquats pour chaque famille de SE invité.
 
-azure.microsoft.com/ Azure publie constamment des mises à jour. Le SE invité n’est qu’une mise à jour parmi d’autres. Une version peut être affectée par un certain nombre de facteurs trop nombreux pour être répertoriés ici. En outre, Azure s’exécute sur des centaines de milliers d’ordinateurs. Cela signifie qu’il est impossible de donner une date et une heure précises pour le redémarrage de vos rôles. Nous mettrons à jour le [Flux RSS de mise à jour du SE invité][rss] avec les dernières informations dont nous disposons, mais considérez les dates présentées comme approximatives. Nous sommes conscients que cela peut être problématique pour les clients et travaillons sur un plan pour limiter ou régler ces redémarrages.
+Microsoft Azure publie constamment des mises à jour. Le SE invité n’est qu’une mise à jour parmi d’autres. Une version peut être affectée par un certain nombre de facteurs trop nombreux pour être répertoriés ici. En outre, Azure s’exécute sur des centaines de milliers d’ordinateurs. Cela signifie qu’il est impossible de donner une date et une heure précises pour le redémarrage de vos rôles. Nous mettrons à jour le [Flux RSS de mise à jour du SE invité][rss] avec les dernières informations dont nous disposons, mais considérez les dates présentées comme approximatives. Nous sommes conscients que cela peut être problématique pour les clients et travaillons sur un plan pour limiter ou régler ces redémarrages.
 
 La propagation complète sur Azure d’une nouvelle publication de SE invité peut prendre du temps. Lorsque les services sont mis à jour pour le nouveau SE invité, ils sont redémarrés en respectant les domaines de mise à jour. Les services définis pour utiliser des mises à jour « Automatiques » obtiennent une publication en premier. Après la mise à jour, la nouvelle version du SE invité est répertoriée pour votre service dans le portail Azure Classic. De nouvelles publications peuvent se produire pendant cette période. Il est possible que certaines versions soient déployées sur de longues périodes et donc que des redémarrages de mise à niveau automatiques ne se produisent pas pendant plusieurs semaines après la date officielle de la publication. Une fois qu’un SE invité est disponible, vous pouvez choisir explicitement cette version à partir du portail ou dans votre fichier de configuration.
 
@@ -199,21 +199,21 @@ Si vous procédez à une mise à jour manuelle de votre SE invité, consultez la
 ## Prise en charge et stratégie de suppression du SE invité
 La prise en charge et la stratégie de suppression du SE invité sont détaillées [ici][retirepolicy].
 
-[Install .NET on a Cloud Service Role]: https://azure.azure.microsoft.com/.com/fr-FR/documentation/articles/cloud-services-dotnet-install-dotnet/?WT.mc_id=azurebg_email_Trans_963_RevisedNET_Update
+[Install .NET on a Cloud Service Role]: https://azure.microsoft.com/documentation/articles/cloud-services-dotnet-install-dotnet/?WT.mc_id=azurebg_email_Trans_963_RevisedNET_Update
 [Paramètres de mise à jour du SE invité Azure]: cloud-services-how-to-configure.md
-[rss]: http://sxp.azure.microsoft.com/.com/feeds/3.0/msdntn/WindowsAzureOSUpdates
-[ssl3 announcement]: http://azure.azure.microsoft.com/.com/blog/2014/12/09/azure-security-ssl-3-0-update/
-[azure.microsoft.com/ Security Advisory 3009008]: https://technet.azure.microsoft.com/.com/library/security/3009008.aspx
-[ssl3-fixit]: http://go.azure.microsoft.com/.com/?linkid=9863266
-[MS14-066]: https://technet.azure.microsoft.com/.com/library/security/ms14-066.aspx
-[MS14-046]: https://technet.azure.microsoft.com/.com/library/security/ms14-046.aspx
-[retire policy sdk]: https://msdn.azure.microsoft.com/.com/library/dn479282.aspx
-[server and gos]: https://msdn.azure.microsoft.com/.com/library/dn775043.aspx
-[azuresupport]: http://azure.azure.microsoft.com/.com/support/options/
-[net install pkg]: http://www.azure.microsoft.com/.com/download/details.aspx?id=42643
-[msrc]: http://www.azure.microsoft.com/.com/security/msrc/default.aspx
-[update guest os portal]: https://msdn.azure.microsoft.com/.com/library/gg433101.aspx
-[update guest os svc]: https://msdn.azure.microsoft.com/.com/library/gg456324.aspx
+[rss]: http://sxp.microsoft.com/feeds/3.0/msdntn/WindowsAzureOSUpdates
+[ssl3 announcement]: http://azure.microsoft.com/blog/2014/12/09/azure-security-ssl-3-0-update/
+[Microsoft Security Advisory 3009008]: https://technet.microsoft.com/library/security/3009008.aspx
+[ssl3-fixit]: http://go.microsoft.com/?linkid=9863266
+[MS14-066]: https://technet.microsoft.com/library/security/ms14-066.aspx
+[MS14-046]: https://technet.microsoft.com/library/security/ms14-046.aspx
+[retire policy sdk]: https://msdn.microsoft.com/library/dn479282.aspx
+[server and gos]: https://msdn.microsoft.com/library/dn775043.aspx
+[azuresupport]: http://azure.microsoft.com/support/options/
+[net install pkg]: http://www.microsoft.com/download/details.aspx?id=42643
+[msrc]: http://www.microsoft.com/security/msrc/default.aspx
+[update guest os portal]: https://msdn.microsoft.com/library/gg433101.aspx
+[update guest os svc]: https://msdn.microsoft.com/library/gg456324.aspx
 [restarts]: http://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx
 [patches]: cloud-services-guestos-msrc-releases.md
 [retirepolicy]: cloud-services-guestos-retirement-policy.md

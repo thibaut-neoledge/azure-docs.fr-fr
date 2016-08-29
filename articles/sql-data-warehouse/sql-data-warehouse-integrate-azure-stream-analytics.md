@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Utiliser Azure Stream Analytics avec SQL Data Warehouse | azure.microsoft.com/ Azure"
+   pageTitle="Utiliser Azure Stream Analytics avec SQL Data Warehouse | Microsoft Azure"
    description="Conseils sur l’utilisation d’Azure Stream Analytics avec Azure SQL Data Warehouse pour le développement de solutions."
    services="sql-data-warehouse"
    documentationCenter="NA"
@@ -94,6 +94,6 @@ Pour obtenir des conseils supplémentaires en matière de développement, consul
 <!--MSDN references-->
 
 <!--Other Web references-->
-[Azure Stream Analytics documentation]: http://azure.azure.microsoft.com/.com/documentation/services/stream-analytics/
+[Azure Stream Analytics documentation]: http://azure.microsoft.com/documentation/services/stream-analytics/
 
 <!---HONumber=AcomDC_0817_2016-->

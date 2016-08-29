@@ -56,9 +56,9 @@ Pour récupérer les métadonnées de ressources incluant des balises, utilisez 
 Les noms des balises apparaissent dans les résultats.
 
     Name              : tfsqlserver
-    ResourceId        : /subscriptions/{guid}/resourceGroups/tag-demo-group/providers/azure.microsoft.com/.Sql/servers/tfsqlserver
+    ResourceId        : /subscriptions/{guid}/resourceGroups/tag-demo-group/providers/Microsoft.Sql/servers/tfsqlserver
     ResourceName      : tfsqlserver
-    ResourceType      : azure.microsoft.com/.Sql/servers
+    ResourceType      : Microsoft.Sql/servers
     Kind              : v12.0
     ResourceGroupName : testrg1
     Location          : westus
@@ -103,7 +103,7 @@ Ce qui renvoie le groupe de ressources avec ses nouvelles valeurs de balise.
                     
 Vous pouvez ajouter des balises à une ressource qui n’en comporte pas à l’aide de la commande **Set-AzureRmResource**
 
-    Set-AzureRmResource -Tag @{ Dept="IT"; Environment="Test" } -ResourceId /subscriptions/{guid}/resourceGroups/test-group/providers/azure.microsoft.com/.Web/sites/examplemobileapp
+    Set-AzureRmResource -Tag @{ Dept="IT"; Environment="Test" } -ResourceId /subscriptions/{guid}/resourceGroups/test-group/providers/Microsoft.Web/sites/examplemobileapp
 
 Les balises sont mises à jour en tant qu'ensemble. Pour ajouter une balise à une ressource comportant d’autres balises, utilisez un tableau avec toutes les balises que vous souhaitez conserver. Sélectionnez d'abord les balises existantes, ajoutez une balise à cet ensemble puis réappliquez toutes les balises.
 
@@ -156,9 +156,9 @@ Pour récupérer les métadonnées de ressources, utilisez l’exemple suivant. 
 Les résultats indiquent que les balises s’affichent uniquement en tant qu’objet de table de hachage.
 
     Name              : tfsqlserver
-    ResourceId        : /subscriptions/{guid}/resourceGroups/tag-demo-group/providers/azure.microsoft.com/.Sql/servers/tfsqlserver
+    ResourceId        : /subscriptions/{guid}/resourceGroups/tag-demo-group/providers/Microsoft.Sql/servers/tfsqlserver
     ResourceName      : tfsqlserver
-    ResourceType      : azure.microsoft.com/.Sql/servers
+    ResourceType      : Microsoft.Sql/servers
     Kind              : v12.0
     ResourceGroupName : tag-demo-group
     Location          : westus
@@ -201,7 +201,7 @@ Ce qui renvoie le groupe de ressources avec ses nouvelles valeurs de balise.
 
 Vous pouvez ajouter des balises à une ressource qui n’en comporte pas à l’aide de la commande Set-AzureRmResource.
 
-    Set-AzureRmResource -Tag @( @{ Name="Dept"; Value="IT" }, @{ Name="Environment"; Value="Test"} ) -ResourceId /subscriptions/{guid}/resourceGroups/test-group/providers/azure.microsoft.com/.Web/sites/examplemobileapp
+    Set-AzureRmResource -Tag @( @{ Name="Dept"; Value="IT" }, @{ Name="Environment"; Value="Test"} ) -ResourceId /subscriptions/{guid}/resourceGroups/test-group/providers/Microsoft.Web/sites/examplemobileapp
 
 Les balises sont mises à jour en tant qu'ensemble. Pour ajouter une balise à une ressource comportant d’autres balises, utilisez un tableau avec toutes les balises que vous souhaitez conserver. Sélectionnez d'abord les balises existantes, ajoutez une balise à cet ensemble puis réappliquez toutes les balises.
 

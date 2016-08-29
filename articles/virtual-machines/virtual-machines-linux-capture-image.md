@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Capturer une machine virtuelle Linux à utiliser en tant que modèle | azure.microsoft.com/ Azure"
+	pageTitle="Capturer une machine virtuelle Linux à utiliser en tant que modèle | Microsoft Azure"
 	description="Apprenez à capturer et à généraliser l’image d’une machine virtuelle Azure sous Linux créée avec le modèle de déploiement Azure Resource Manager."
 	services="virtual-machines-linux"
 	documentationCenter=""
@@ -84,7 +84,7 @@ Une fois que la machine virtuelle est configurée et en cours d’exécution, vo
 
 	Cette commande crée une image générale du système d’exploitation à l’aide du préfixe de nom de disque dur virtuel que vous spécifiez pour les disques de machine virtuelle. Les fichiers d’image de disque dur virtuel sont créés par défaut dans le même compte de stockage utilisé par la machine virtuelle d’origine. (Les disques durs virtuels des nouvelles machines virtuelles que vous créez à partir de l’image sont stockés dans le même compte.) L’option **-t** crée un modèle de fichier JSON local que vous pouvez utiliser pour créer une nouvelle machine virtuelle à partir de l’image.
 
->[AZURE.TIP] Pour trouver l’emplacement d’une image, ouvrez le modèle de fichier JSON. Dans **storageProfile**, trouvez l’**uri** de l’**image** située dans le conteneur **système**. Par exemple, l’uri de l’image du disque du système d’exploitation est semblable à `https://xxxxxxxxxxxxxx.blob.core.windows.net/system/azure.microsoft.com/.Compute/Images/vhds/<your-vhd-name-prefix>-osDisk.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd`.
+>[AZURE.TIP] Pour trouver l’emplacement d’une image, ouvrez le modèle de fichier JSON. Dans **storageProfile**, trouvez l’**uri** de l’**image** située dans le conteneur **système**. Par exemple, l’uri de l’image du disque du système d’exploitation est semblable à `https://xxxxxxxxxxxxxx.blob.core.windows.net/system/Microsoft.Compute/Images/vhds/<your-vhd-name-prefix>-osDisk.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd`.
 
 ## Déployer une machine virtuelle à partir de l’image capturée
 Maintenant, utilisez l’image avec un modèle pour créer une machine virtuelle Linux. Ces étapes vous montrent comment utiliser l’interface CLI Azure et le modèle de fichier JSON créé avec la commande `azure vm capture` pour créer la machine virtuelle dans un nouveau réseau virtuel.
@@ -109,7 +109,7 @@ Pour déployer un ordinateur virtuel à partir de l’image à l’aide du JSON 
 
 L’**ID** dans le résultat de sortie est une chaîne qui ressemble à ce qui suit.
 
-	/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/<your-new-resource-group-name>/providers/azure.microsoft.com/.Network/networkInterfaces/<your-nic-name>
+	/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/<your-new-resource-group-name>/providers/Microsoft.Network/networkInterfaces/<your-nic-name>
 
 
 
@@ -125,7 +125,7 @@ Vous êtes invité à fournir un nouveau nom de machine virtuelle, le nom d’ut
 	vmName: mynewvm
 	adminUserName: myadminuser
 	adminPassword: ********
-	networkInterfaceId: /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resource Groups/mynewrg/providers/azure.microsoft.com/.Network/networkInterfaces/mynewnic
+	networkInterfaceId: /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resource Groups/mynewrg/providers/Microsoft.Network/networkInterfaces/mynewnic
 
 Si votre déploiement est exécuté avec succès, vous voyez une sortie ressemblant à ce qui suit.
 
@@ -155,7 +155,7 @@ Si votre déploiement est exécuté avec succès, vous voyez une sortie ressembl
 	data:    adminPassword       SecureString  undefined
 
 
-	data:    networkInterfaceId  String        /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/mynewrg/providers/azure.microsoft.com/.Network/networkInterfaces/mynewnic
+	data:    networkInterfaceId  String        /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/mynewrg/providers/Microsoft.Network/networkInterfaces/mynewnic
 	info:    group deployment create command OK
 
 ### Vérifier le déploiement
@@ -190,7 +190,7 @@ Procédez comme suit avant d’exécuter **azure vm create** avec l’image :
 
 Ensuite, exécutez une commande semblable à la suivante, en passant des URI vers le nouveau fichier de disque dur virtuel de système d'exploitation et l'image existante.
 
-	azure vm create <your-resource-group-name> <your-new-vm-name> eastus Linux -d "https://xxxxxxxxxxxxxx.blob.core.windows.net/vhds/<your-new-VM-prefix>.vhd" -Q "https://xxxxxxxxxxxxxx.blob.core.windows.net/system/azure.microsoft.com/.Compute/Images/vhds/<your-image-prefix>-osDisk.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd" -z Standard_A1 -u <your-admin-name> -p <your-admin-password> -f <your-nic-name>
+	azure vm create <your-resource-group-name> <your-new-vm-name> eastus Linux -d "https://xxxxxxxxxxxxxx.blob.core.windows.net/vhds/<your-new-VM-prefix>.vhd" -Q "https://xxxxxxxxxxxxxx.blob.core.windows.net/system/Microsoft.Compute/Images/vhds/<your-image-prefix>-osDisk.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd" -z Standard_A1 -u <your-admin-name> -p <your-admin-password> -f <your-nic-name>
 
 Pour obtenir d’autres options de commande supplémentaires, exécutez `azure help vm create`.
 

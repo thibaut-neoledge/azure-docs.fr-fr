@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Déployer des ressources avec le modèle et l’interface de ligne de commande Azure | azure.microsoft.com/ Azure"
+   pageTitle="Déployer des ressources avec le modèle et l’interface de ligne de commande Azure | Microsoft Azure"
    description="Utilisez Azure Resource Manager et l’interface de ligne de commande Azure pour déployer des ressources sur Azure. Les ressources sont définies dans un modèle Resource Manager."
    services="azure-resource-manager"
    documentationCenter="na"
@@ -23,11 +23,11 @@
 - [Interface de ligne de commande Azure](resource-group-template-deploy-cli.md)
 - [Portail](resource-group-template-deploy-portal.md)
 - [API REST](resource-group-template-deploy-rest.md)
-- [.NET](https://azure.azure.microsoft.com/.com/documentation/samples/resource-manager-dotnet-template-deployment/)
-- [Java](https://azure.azure.microsoft.com/.com/documentation/samples/resources-java-deploy-using-arm-template/)
-- [Python](https://azure.azure.microsoft.com/.com/documentation/samples/resource-manager-python-template-deployment/)
-- [Nœud](https://azure.azure.microsoft.com/.com/documentation/samples/resource-manager-node-template-deployment/)
-- [Ruby](https://azure.azure.microsoft.com/.com/documentation/samples/resource-manager-ruby-template-deployment/)
+- [.NET](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-template-deployment/)
+- [Java](https://azure.microsoft.com/documentation/samples/resources-java-deploy-using-arm-template/)
+- [Python](https://azure.microsoft.com/documentation/samples/resource-manager-python-template-deployment/)
+- [Nœud](https://azure.microsoft.com/documentation/samples/resource-manager-node-template-deployment/)
+- [Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-template-deployment/)
 
 Cette rubrique explique comment utiliser l’interface de ligne de commande Azure avec les modèles Resource Manager pour déployer vos ressources dans Azure.
 
@@ -173,7 +173,7 @@ Pour accéder à un exemple d’utilisation d’un jeton SAP avec des modèles l
 ## Étapes suivantes
 - Pour découvrir un exemple de déploiement de ressources par le biais de la bibliothèque cliente .NET, consultez [Déployer des ressources à l’aide de bibliothèques .NET et d’un modèle](virtual-machines/virtual-machines-windows-csharp-template.md).
 - Pour définir des paramètres dans le modèle, consultez [Création de modèles](resource-group-authoring-templates.md#parameters).
-- Pour obtenir des instructions sur le déploiement de votre solution dans différents environnements, consultez [Environnements de développement et de test dans azure.microsoft.com/ Azure](solution-dev-test-environments.md).
+- Pour obtenir des instructions sur le déploiement de votre solution dans différents environnements, consultez [Environnements de développement et de test dans Microsoft Azure](solution-dev-test-environments.md).
 - Pour plus d’informations sur l’utilisation d’une référence Key Vault pour transmettre des valeurs sécurisées, consultez [Transmettre des valeurs sécurisées pendant le déploiement](resource-manager-keyvault-parameter.md).
 
 <!---HONumber=AcomDC_0817_2016-->

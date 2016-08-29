@@ -23,7 +23,7 @@ Cet article montre comment utiliser Azure Search pour indexer les données stock
 
 ## Configuration de l’indexation de tables Azure
 
-Pour installer et configurer un indexeur de table Azure, vous pouvez appeler l’API REST Azure Search afin de créer et de gérer des **indexeurs** et des **sources de données** en suivant les procédures décrites dans la rubrique [Opérations d'indexeur](https://msdn.azure.microsoft.com/.com/library/azure/dn946891.aspx). Vous pouvez également utiliser la [version 2.0-preview](https://msdn.azure.microsoft.com/.com/library/mt761536%28v=azure.103%29.aspx) du SDK .NET. À l’avenir, la prise en charge de l’indexation de tables sera ajoutée au Portail Azure.
+Pour installer et configurer un indexeur de table Azure, vous pouvez appeler l’API REST Azure Search afin de créer et de gérer des **indexeurs** et des **sources de données** en suivant les procédures décrites dans la rubrique [Opérations d'indexeur](https://msdn.microsoft.com/library/azure/dn946891.aspx). Vous pouvez également utiliser la [version 2.0-preview](https://msdn.microsoft.com/library/mt761536%28v=azure.103%29.aspx) du SDK .NET. À l’avenir, la prise en charge de l’indexation de tables sera ajoutée au Portail Azure.
 
 Une source de données spécifie les données à indexer, les informations d’identification nécessaires pour accéder aux données et les stratégies qui permettent à Azure Search d’identifier efficacement les changements dans les données (tels que des lignes ajoutées, modifiées ou supprimées).
 
@@ -68,7 +68,7 @@ Pour plus d’informations sur l’API Créer une source de données, consultez 
   		]
 	}
 
-Pour plus d’informations sur l’API Créer un index, consultez [Créer un index](https://msdn.azure.microsoft.com/.com/library/dn798941.aspx)
+Pour plus d’informations sur l’API Créer un index, consultez [Créer un index](https://msdn.microsoft.com/library/dn798941.aspx)
 
 ### Créer un indexeur 
 
@@ -116,7 +116,7 @@ Pour indiquer que certains documents doivent être supprimés de l’index, vous
 	    "type" : "azuretable",
 	    "credentials" : { "connectionString" : "<your storage connection string>" },
 	    "container" : { "name" : "table name", "query" : "query" },
-	    "dataDeletionDetectionPolicy" : { "@odata.type" : "#azure.microsoft.com/.Azure.Search.SoftDeleteColumnDeletionDetectionPolicy", "softDeleteColumnName" : "IsDeleted", "softDeleteMarkerValue" : "true" }
+	    "dataDeletionDetectionPolicy" : { "@odata.type" : "#Microsoft.Azure.Search.SoftDeleteColumnDeletionDetectionPolicy", "softDeleteColumnName" : "IsDeleted", "softDeleteMarkerValue" : "true" }
 	}   
 
 

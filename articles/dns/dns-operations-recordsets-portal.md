@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Gestion des jeux d’enregistrements DNS et des enregistrements à l’aide du portail Azure | azure.microsoft.com/ Azure"
+   pageTitle="Gestion des jeux d’enregistrements DNS et des enregistrements à l’aide du portail Azure | Microsoft Azure"
    description="Gestion des jeux d'enregistrements DNS et des enregistrements lorsque votre domaine est hébergé dans Azure DNS."
    services="dns"
    documentationCenter="na"

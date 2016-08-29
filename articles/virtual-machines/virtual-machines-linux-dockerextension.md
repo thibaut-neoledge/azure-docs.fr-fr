@@ -1,5 +1,5 @@
 <properties
-   pageTitle="En savoir plus sur l’extension de machine virtuelle Docker sur Azure | azure.microsoft.com/ Azure"
+   pageTitle="En savoir plus sur l’extension de machine virtuelle Docker sur Azure | Microsoft Azure"
    description="Découvrez comment utiliser l’extension de machine virtuelle Docker sur Azure pour déployer un environnement Docker rapidement et en toute sécurité dans Azure"
    services="virtual-machines-linux"
    documentationCenter=""
@@ -109,15 +109,15 @@ Cet exemple utilise un modèle de démarrage rapide. Pour déployer l’extensio
 
 ```
 {
-  "type": "azure.microsoft.com/.Compute/virtualMachines/extensions",
+  "type": "Microsoft.Compute/virtualMachines/extensions",
   "name": "[concat(variables('vmName'), '/DockerExtension'))]",
   "apiVersion": "2015-05-01-preview",
   "location": "[parameters('location')]",
   "dependsOn": [
-    "[concat('azure.microsoft.com/.Compute/virtualMachines/', variables('vmName'))]"
+    "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
   ],
   "properties": {
-    "publisher": "azure.microsoft.com/.Azure.Extensions",
+    "publisher": "Microsoft.Azure.Extensions",
     "type": "DockerExtension",
     "typeHandlerVersion": "1.1",
     "autoUpgradeMinorVersion": true,
@@ -134,7 +134,7 @@ Pour découvrir la procédure pas à pas d’utilisation de modèles Resource Ma
 Lire des étapes plus détaillées pour les différentes options de déploiement :
 
 1. [Utiliser Docker Machine avec le pilote Azure](./virtual-machines-linux-docker-machine.md)
-2. [Utilisation de l’extension Docker VM à partir de l’interface de ligne de commande azure.microsoft.com/ Azure](./virtual-machines-linux-classic-cli-use-docker.md)
+2. [Utilisation de l’extension Docker VM à partir de l’interface de ligne de commande Microsoft Azure](./virtual-machines-linux-classic-cli-use-docker.md)
 3. [Prise en main de Docker et Compose pour définir et exécuter une application à conteneurs multiples sur une machine virtuelle Azure](virtual-machines-linux-docker-compose-quickstart.md).
 3. [Déploiement d’un cluster Azure Container Service](../container-service/container-service-deployment.md)
 

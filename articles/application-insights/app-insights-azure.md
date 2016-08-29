@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Application Insights pour les applications azure.microsoft.com/ Azure" 
+	pageTitle="Application Insights pour les applications Microsoft Azure" 
 	description="Analysez l’utilisation et les performances de votre application Azure avec Application Insights." 
 	services="application-insights" 
     documentationCenter="windows"
@@ -15,7 +15,7 @@
 	ms.date="08/15/2016" 
 	ms.author="awills"/>
 
-#  Application Insights pour les applications azure.microsoft.com/ Azure
+#  Application Insights pour les applications Microsoft Azure
 
 *Application Insights est à l'état de version préliminaire.*
 

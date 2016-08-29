@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Affichage et gestion des tâches StorSimple | azure.microsoft.com/ Azure"
+   pageTitle="Affichage et gestion des tâches StorSimple | Microsoft Azure"
    description="Décrit la page Tâches du service StorSimple Manager et explique comment l’utiliser pour effectuer le suivi des tâches de sauvegarde planifiées, actuelles et récentes."
    services="storsimple"
    documentationCenter="NA"

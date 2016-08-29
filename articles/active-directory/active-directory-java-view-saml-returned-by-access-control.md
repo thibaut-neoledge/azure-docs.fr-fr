@@ -25,7 +25,7 @@ Ce guide explique comment afficher les données SAML (Security Assertion Markup 
 Pour plus d'informations sur ACS, consultez la section [Étapes suivantes](#next_steps).
 
 > [AZURE.NOTE]
-Le filtre ACS Azure est une version préliminaire de la technologie destinée à la communauté. En tant que logiciel préliminaire, il n'est pas officiellement pris en charge par azure.microsoft.com/.
+Le filtre ACS Azure est une version préliminaire de la technologie destinée à la communauté. En tant que logiciel préliminaire, il n'est pas officiellement pris en charge par Microsoft.
 
 ## Composants requis
 
@@ -191,7 +191,7 @@ Pour en savoir plus sur les fonctionnalités ACS et découvrir des scénarios pl
 [Add the JspWriter library to your build path and deployment assembly]: #add_library
 [Run the application]: #run_application
 [Next steps]: #next_steps
-[Access Control Service 2.0]: http://go.azure.microsoft.com/.com/fwlink/?LinkID=212360
+[Access Control Service 2.0]: http://go.microsoft.com/fwlink/?LinkID=212360
 [Authentification des utilisateurs Web auprès d'Azure Access Control Service à l'aide d'Eclipse]: ../active-directory-java-authenticate-users-access-control-eclipse
 [Authentification des utilisateurs web auprès d’Azure Access Control Service à l’aide d’Eclipse]: ../active-directory-java-authenticate-users-access-control-eclipse
 [saml_output]: ./media/active-directory-java-view-saml-returned-by-access-control/SAML_Output.png

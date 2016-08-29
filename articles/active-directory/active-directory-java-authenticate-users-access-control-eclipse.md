@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Comment utiliser Access Control (Java) | azure.microsoft.com/ Azure"
+    pageTitle="Comment utiliser Access Control (Java) | Microsoft Azure"
     description="Apprenez à développer et à utiliser le contrôle d'accès avec Java dans Azure."
 	services="active-directory" 
     documentationCenter="java"
@@ -21,7 +21,7 @@
 Ce guide vous indique comment utiliser Azure Access Control Service (ou ACS) au sein du Kit de ressources Azure pour Eclipse. Pour plus d'informations sur ACS, consultez la section [Étapes suivantes](#next_steps).
 
 > [AZURE.NOTE]
-Le filtre ACS Azure est une version préliminaire de la technologie destinée à la communauté. En tant que logiciel préliminaire, il n'est pas officiellement pris en charge par azure.microsoft.com/.
+Le filtre ACS Azure est une version préliminaire de la technologie destinée à la communauté. En tant que logiciel préliminaire, il n'est pas officiellement pris en charge par Microsoft.
 
 ## Qu'est-ce qu'ACS ?
 
@@ -76,10 +76,10 @@ Pour réaliser les tâches présentées dans ce guide, vous avez besoin des él�
 - Kit de développement logiciel (SDK) Java version 1.6 ou ultérieure
 - IDE (environnement de développement intégré) Eclipse pour développeurs Java EE, Indigo ou ultérieur, Vous pouvez le télécharger à partir de <http://www.eclipse.org/downloads/>.
 - Une distribution d'un serveur Web ou d'un serveur d'applications basé sur Java, tel que Apache Tomcat, GlassFish, JBoss Application Server ou Jetty.
-- Un abonnement à Azure, pouvant être souscrit à l'adresse suivante : http://www.azure.microsoft.com/.com/windowsazure/offers/.
-- Kit de ressources Azure pour Eclipse, version d’avril 2014 ou ultérieure. Pour plus d’informations, consultez [Installation du kit de ressources Azure pour Eclipse](http://msdn.azure.microsoft.com/.com/library/windowsazure/hh690946.aspx).
+- Un abonnement à Azure, pouvant être souscrit à l'adresse suivante : http://www.microsoft.com/windowsazure/offers/.
+- Kit de ressources Azure pour Eclipse, version d’avril 2014 ou ultérieure. Pour plus d’informations, consultez [Installation du kit de ressources Azure pour Eclipse](http://msdn.microsoft.com/library/windowsazure/hh690946.aspx).
 - Un certificat X509 à utiliser avec votre application. Vous avez besoin du certificat public (.cer) et de celui au format Personal Information Exchange (.PFX) (les instructions de création de ce certificat sont indiquées plus loin dans ce didacticiel).
-- Vous devez connaître l'émulateur de calcul Azure ainsi que les techniques de déploiement présentées dans la page [Création d'une application Hello World pour Azure dans Eclipse](http://msdn.azure.microsoft.com/.com/library/windowsazure/hh690944.aspx).
+- Vous devez connaître l'émulateur de calcul Azure ainsi que les techniques de déploiement présentées dans la page [Création d'une application Hello World pour Azure dans Eclipse](http://msdn.microsoft.com/library/windowsazure/hh690944.aspx).
 
 ## Création d'un espace de noms ACS
 
@@ -206,7 +206,7 @@ Dans la page **Login Page Integration : Azure Web App**, l'URL répertoriée da
 
 1. Dans l'Explorateur de projets Eclipse, cliquez avec le bouton droit sur **MyACSHelloWorld**, cliquez sur **Azure**, puis sur **Package for Azure**.
 2. Dans **Project name**, entrez **MyAzureACSProject**, puis cliquez sur **Suivant**.
-3. Sélectionnez un JDK et un serveur d'applications. Ces étapes sont détaillées dans le didacticiel [Création d'une application Hello World pour Azure dans Eclipse](http://msdn.azure.microsoft.com/.com/library/windowsazure/hh690944.aspx).
+3. Sélectionnez un JDK et un serveur d'applications. Ces étapes sont détaillées dans le didacticiel [Création d'une application Hello World pour Azure dans Eclipse](http://msdn.microsoft.com/library/windowsazure/hh690944.aspx).
 4. Cliquez sur **Terminer**.
 5. Cliquez sur le bouton **Run in Azure Emulator**.
 6. Lorsque votre application Web Java est lancée dans l'émulateur de calcul, fermez toutes les instances de votre navigateur (afin qu'aucune session de navigateur ne puisse perturber votre test de connexion à ACS).
@@ -240,11 +240,11 @@ Pour effectuer un déploiement sur Azure, vous devez changer le domaine de parti
 
 13. Cliquez sur **Terminer** pour fermer la boîte de dialogue **Edit Library**.
 14. Cliquez sur **OK** pour fermer la boîte de dialogue **Properties for MyACSHelloWorld**.
-15. Dans Eclipse, cliquez sur le bouton **Publish to Azure Cloud**. Répondez aux invites, comme expliqué dans la section **Méthode simple et rapide pour déployer votre application sur Azure** de la rubrique [Créer un service cloud « Hello World » pour Azure dans Eclipse](http://msdn.azure.microsoft.com/.com/library/windowsazure/hh690944.aspx).
+15. Dans Eclipse, cliquez sur le bouton **Publish to Azure Cloud**. Répondez aux invites, comme expliqué dans la section **Méthode simple et rapide pour déployer votre application sur Azure** de la rubrique [Créer un service cloud « Hello World » pour Azure dans Eclipse](http://msdn.microsoft.com/library/windowsazure/hh690944.aspx).
 
 Une fois le déploiement de votre application Web terminé, fermez les sessions de navigateur en cours, exécutez votre application Web. Votre identifiant Windows Live ID doit vous être demandé. Vous êtes ensuite transféré vers l'URL de renvoi de votre application par partie de confiance.
 
-Lorsque vous avez terminé d’utiliser votre application ACS Hello World, n’oubliez pas de supprimer le déploiement (procédure décrite dans la rubrique [Créer un service cloud « Hello World » pour Azure dans Eclipse](http://msdn.azure.microsoft.com/.com/library/windowsazure/hh690944.aspx)).
+Lorsque vous avez terminé d’utiliser votre application ACS Hello World, n’oubliez pas de supprimer le déploiement (procédure décrite dans la rubrique [Créer un service cloud « Hello World » pour Azure dans Eclipse](http://msdn.microsoft.com/library/windowsazure/hh690944.aspx)).
 
 
 ## <a name="next_steps"></a>Étapes suivantes
@@ -289,9 +289,9 @@ Votre certificat doit maintenant être inclus dans votre déploiement. Que le ce
 [Next steps]: #next_steps
 [site web du projet]: http://wastarterkit4java.codeplex.com/releases/view/61026
 [Affichage des données SAML renvoyées par ACS]: /fr-FR/develop/java/how-to-guides/view-saml-returned-by-acs/
-[Access Control Service 2.0]: http://go.azure.microsoft.com/.com/fwlink/?LinkID=212360
-[Windows Identity Foundation]: http://www.azure.microsoft.com/.com/download/en/details.aspx?id=17331
-[Windows Identity Foundation SDK]: http://www.azure.microsoft.com/.com/download/en/details.aspx?id=4451
+[Access Control Service 2.0]: http://go.microsoft.com/fwlink/?LinkID=212360
+[Windows Identity Foundation]: http://www.microsoft.com/download/en/details.aspx?id=17331
+[Windows Identity Foundation SDK]: http://www.microsoft.com/download/en/details.aspx?id=4451
 [portail de gestion Azure]: https://manage.windowsazure.com
 [acs_flow]: ./media/active-directory-java-authenticate-users-access-control-eclipse/ACSFlow.png
 

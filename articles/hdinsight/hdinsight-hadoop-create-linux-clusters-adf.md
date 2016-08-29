@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Création de clusters Hadoop à la demande basés sur Linux dans HDInsight avec Azure Data Factory | azure.microsoft.com/ Azure"
+   pageTitle="Création de clusters Hadoop à la demande basés sur Linux dans HDInsight avec Azure Data Factory | Microsoft Azure"
    	description="Apprenez à créer des clusters HDInsight à la demande avec Azure Data Factory."
    services="hdinsight"
    documentationCenter=""
@@ -53,7 +53,7 @@ Il existe de nombreux avantages à l’utilisation de HDInsight avec Data Factor
 
 Avant de commencer à suivre les instructions de cet article, vous devez disposer des éléments suivants :
 
-- [Abonnement Azure](https://azure.azure.microsoft.com/.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- [Abonnement Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 - Interface de ligne de commande Azure ou Azure PowerShell.
 
     [AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell-and-cli.md)]
@@ -99,7 +99,7 @@ Pour simplifier ce didacticiel, vous allez utiliser un seul compte de stockage p
 
 Le nom du conteneur est *adfgetstarted*. Gardez-le tel quel. Dans le cas contraire, vous devez mettre à jour le modèle Resource Manager.
 
-Si vous avez besoin d’aide avec ce script d’interface de ligne de commande, consultez [Utilisation de la CLI azure.microsoft.com/ Azure avec azure.microsoft.com/ Azure Storage](../storage/storage-azure-cli.md).
+Si vous avez besoin d’aide avec ce script d’interface de ligne de commande, consultez [Utilisation de la CLI Microsoft Azure avec Microsoft Azure Storage](../storage/storage-azure-cli.md).
 
 **Pour préparer le stockage et copier les fichiers à l’aide d’Azure PowerShell**
 
@@ -204,7 +204,7 @@ Le modèle Resource Manager de niveau supérieur contient :
             {
                 "name": "[parameters('dataFactoryName')]",
                 "apiVersion": "[variables('apiVersion')]",
-                "type": "azure.microsoft.com/.DataFactory/datafactories",
+                "type": "Microsoft.DataFactory/datafactories",
                 "location": "westus",
                 "resources": [
                     { ... },
@@ -322,7 +322,7 @@ La ressource *hdinsight-hive-on-demand* contient 4 ressources :
 
 1. Cliquez sur l’image suivante pour vous connecter à Azure et ouvrir le modèle Resource Manager dans le portail Azure. Le modèle se trouve dans https://hditutorialdata.blob.core.windows.net/adfhiveactivity/data-factory-hdinsight-on-demand.json.
 
-    <a href="https://portal.azure.com/#create/azure.microsoft.com/.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fadfhiveactivity%2Fdata-factory-hdinsight-on-demand.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.azure.microsoft.com/.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fadfhiveactivity%2Fdata-factory-hdinsight-on-demand.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
 2. Entrez **DATAFACTORYNAME**, **STORAGEACCOUNTNAME** et **STORAGEACCOUNTKEY** pour le compte créé dans la dernière section, puis cliquez sur **OK**. Le nom Data Factory doit être globalement unique.
 3. Dans **Groupe de ressources**, sélectionnez le même groupe de ressources que celui que vous avez utilisé dans la dernière section.
@@ -372,11 +372,11 @@ Avec le service lié HDInsight à la demande, un cluster HDInsight est créé à
 
 Au cas où vous ne souhaitez pas supprimer le compte de stockage en même temps que le groupe de ressources, vous pouvez envisager l’architecture suivante en séparant les données d’entreprise du compte de stockage par défaut. Dans ce cas, vous avez un groupe de ressources pour le compte de stockage avec les données d’entreprise et un autre groupe de ressources pour le compte de stockage par défaut et la fabrique de données. La suppression du deuxième groupe de ressources n’a aucune incidence sur le compte de stockage de données d’entreprise. Pour ce faire :
 
-- Ajoutez le code suivant au groupe de ressources de niveau supérieur avec la ressource azure.microsoft.com/.DataFactory/datafactories dans votre modèle Resource Manager. Cette opération crée un compte de stockage :
+- Ajoutez le code suivant au groupe de ressources de niveau supérieur avec la ressource Microsoft.DataFactory/datafactories dans votre modèle Resource Manager. Cette opération crée un compte de stockage :
 
         {
             "name": "[parameters('defaultStorageAccountName')]",
-            "type": "azure.microsoft.com/.Storage/storageAccounts",
+            "type": "Microsoft.Storage/storageAccounts",
             "location": "[parameters('location')]",
             "apiVersion": "[variables('defaultApiVersion')]",
             "dependsOn": [ ],
@@ -391,14 +391,14 @@ Au cas où vous ne souhaitez pas supprimer le compte de stockage en même temps 
 - Ajoutez un nouveau point de service lié au nouveau compte de stockage :
 
         {
-            "dependsOn": [ "[concat('azure.microsoft.com/.DataFactory/dataFactories/', parameters('dataFactoryName'))]" ],
+            "dependsOn": [ "[concat('Microsoft.DataFactory/dataFactories/', parameters('dataFactoryName'))]" ],
             "type": "linkedservices",
             "name": "[variables('defaultStorageLinkedServiceName')]",
             "apiVersion": "[variables('apiVersion')]",
             "properties": {
                 "type": "AzureStorage",
                 "typeProperties": {
-                    "connectionString": "[concat('DefaultEndpointsProtocol=https;AccountName=',parameters('defaultStorageAccountName'),';AccountKey=',listKeys(resourceId('azure.microsoft.com/.Storage/storageAccounts', variables('defaultStorageAccountName')), variables('defaultApiVersion')).key1)]"
+                    "connectionString": "[concat('DefaultEndpointsProtocol=https;AccountName=',parameters('defaultStorageAccountName'),';AccountKey=',listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('defaultStorageAccountName')), variables('defaultApiVersion')).key1)]"
                 }
             }
         },
@@ -407,9 +407,9 @@ Au cas où vous ne souhaitez pas supprimer le compte de stockage en même temps 
 
         {
             "dependsOn": [
-                "[concat('azure.microsoft.com/.DataFactory/dataFactories/', parameters('dataFactoryName'))]",
-                "[concat('azure.microsoft.com/.DataFactory/dataFactories/', parameters('dataFactoryName'), '/linkedservices/', variables('defaultStorageLinkedServiceName'))]",
-                "[concat('azure.microsoft.com/.DataFactory/dataFactories/', parameters('dataFactoryName'), '/linkedservices/', variables('storageLinkedServiceName'))]"
+                "[concat('Microsoft.DataFactory/dataFactories/', parameters('dataFactoryName'))]",
+                "[concat('Microsoft.DataFactory/dataFactories/', parameters('dataFactoryName'), '/linkedservices/', variables('defaultStorageLinkedServiceName'))]",
+                "[concat('Microsoft.DataFactory/dataFactories/', parameters('dataFactoryName'), '/linkedservices/', variables('storageLinkedServiceName'))]"
                 
             ],
             "type": "linkedservices",
@@ -435,7 +435,7 @@ Dans cet article, vous avez appris comment utiliser Azure Data Factory pour cré
 
 - [Didacticiel Hadoop : prise en main de Hadoop sous Linux dans HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md)
 - [Création de clusters Hadoop basés sur Linux dans HDInsight](hdinsight-hadoop-provision-linux-clusters.md)
-- [Documentation HDInsight](https://azure.azure.microsoft.com/.com/documentation/services/hdinsight/)
-- [Documentation Data Factory](https://azure.azure.microsoft.com/.com/documentation/services/data-factory/)
+- [Documentation HDInsight](https://azure.microsoft.com/documentation/services/hdinsight/)
+- [Documentation Data Factory](https://azure.microsoft.com/documentation/services/data-factory/)
 
 <!---HONumber=AcomDC_0817_2016-->

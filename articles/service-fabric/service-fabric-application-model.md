@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Modèle d'application Service Fabric | azure.microsoft.com/ Azure"
+   pageTitle="Modèle d'application Service Fabric | Microsoft Azure"
    description="Comment modéliser et décrire des applications et des services dans Service Fabric."
    services="service-fabric"
    documentationCenter=".net"
@@ -29,7 +29,7 @@ Une application est une collection de services constitutifs qui exécutent une o
 
 Un type d'application est une catégorisation d'une application constituée d'un ensemble de types de service. Un type de service est la catégorisation d’un service. La catégorisation peut avoir différents paramètres et différentes configurations, mais la fonctionnalité principale reste la même. Les instances d'un service représentent les variantes de configuration de service d'un même type de service.
 
-Les classes (ou « types ») d'applications et services sont décrites à l'aide de fichiers XML (manifestes d'application et manifestes de service) qui sont des modèles sur lesquels des applications peuvent être instanciées à partir du magasin d'images du cluster. La définition de schéma pour les fichiers ServiceManifest.xml et ApplicationManifest.xml est installée avec le Kit de développement logiciel (SDK) Service Fabric et les outils sous *C:\\Program Files\\azure.microsoft.com/ SDKs\\Service Fabric\\schemas\\ServiceFabricServiceModel.xsd*.
+Les classes (ou « types ») d'applications et services sont décrites à l'aide de fichiers XML (manifestes d'application et manifestes de service) qui sont des modèles sur lesquels des applications peuvent être instanciées à partir du magasin d'images du cluster. La définition de schéma pour les fichiers ServiceManifest.xml et ApplicationManifest.xml est installée avec le Kit de développement logiciel (SDK) Service Fabric et les outils sous *C:\\Program Files\\Microsoft SDKs\\Service Fabric\\schemas\\ServiceFabricServiceModel.xsd*.
 
 Le code de différentes instances d'application s'exécute sous forme de processus distincts même si elles sont hébergées par le même nœud Service Fabric. En outre, le cycle de vie de chaque instance d'application peut être géré (c'est-à-dire, mis à niveau) indépendamment. Comme le montre le diagramme suivant, les types d'application sont composés de types de service, eux-mêmes constitués de code, de configuration et de packages. Pour simplifier le diagramme, seuls les packages code/configuration/données pour `ServiceType4` sont affichés, même si chaque type de service inclut certains ou tous ces types de packages.
 
@@ -52,7 +52,7 @@ Le manifeste de service définit de manière déclarative le type de service et 
 
 ~~~
 <?xml version="1.0" encoding="utf-8" ?>
-<ServiceManifest Name="MyServiceManifest" Version="SvcManifestVersion1" xmlns="http://schemas.azure.microsoft.com/.com/2011/01/fabric" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<ServiceManifest Name="MyServiceManifest" Version="SvcManifestVersion1" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Description>An example service manifest</Description>
   <ServiceTypes>
     <StatelessServiceType ServiceTypeName="MyServiceType" />
@@ -85,7 +85,7 @@ Les attributs **Version** sont des chaînes non structurées et ne sont pas anal
 **ConfigPackage** déclare un dossier, nommé par l'attribut **Name**, qui contient un fichier *Settings.xml*. Ce fichier contient des sections de paramètres clé-valeur définis par l'utilisateur que le processus peut lire pendant l'exécution. Le processus en cours d’exécution n’est pas redémarré pendant la mise à niveau si seule la **version** de **ConfigPackage** a changé. Au lieu de cela, un rappel indique au processus que les paramètres de configuration ont été modifiés afin qu'ils puissent être rechargés dynamiquement. Voici un exemple de fichier *Settings.xml* :
 
 ~~~
-<Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.azure.microsoft.com/.com/2011/01/fabric">
+<Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">
   <Section Name="MyConfigurationSecion">
     <Parameter Name="MySettingA" Value="Example1" />
     <Parameter Name="MySettingB" Value="Example2" />
@@ -117,7 +117,7 @@ Ainsi, un manifeste d'application décrit les éléments au niveau de l'applicat
 <ApplicationManifest
       ApplicationTypeName="MyApplicationType"
       ApplicationTypeVersion="AppManifestVersion1"
-      xmlns="http://schemas.azure.microsoft.com/.com/2011/01/fabric"
+      xmlns="http://schemas.microsoft.com/2011/01/fabric"
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Description>An example application manifest</Description>
   <ServiceManifestImport>

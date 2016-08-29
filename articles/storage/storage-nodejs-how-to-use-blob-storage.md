@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Utilisation du stockage d’objets blob à partir de Node.js | azure.microsoft.com/ Azure"
+	pageTitle="Utilisation du stockage d’objets blob à partir de Node.js | Microsoft Azure"
 	description="Stockez des données non structurées dans le cloud avec Azure Blob Storage (stockage d’objets)."
 	services="storage"
 	documentationCenter="nodejs"
@@ -32,7 +32,7 @@ Cet article décrit le déroulement de scénarios courants dans le cadre de l’
 
 ## Création d’une application Node.js
 
-Pour obtenir des instructions sur la création d’une application Node.js, consultez [Créer une application web Node.js dans Azure App Service], [Création et déploiement d'une application Node.js dans Azure Cloud Services] \(à l’aide de Windows PowerShell) ou [Créer et déployer une application web Node.js dans Azure à l’aide de WebMatrix].
+Pour obtenir des instructions sur la création d’une application Node.js, consultez [Créer une application web Node.js dans Azure App Service], [Création et déploiement d'une application Node.js dans Azure Cloud Services] (à l’aide de Windows PowerShell) ou [Créer et déployer une application web Node.js dans Azure à l’aide de WebMatrix].
 
 ## Configuration de votre application pour accéder au stockage
 
@@ -136,7 +136,7 @@ Deux filtres qui implémentent la logique de relance sont inclus dans le Kit de 
 
 ## Charger un objet blob dans un conteneur
 
-Il existe trois types d’objets blob : les objets blob de blocs, les objets blob d’ajouts et les objets blob de pages. Les objets blob de blocs vous permettent de télécharger plus efficacement les données volumineuses. Les objets blob d’ajout sont optimisés pour les opérations d’ajout. Les objets blob de pages sont optimisés pour les opérations de lecture/écriture. Pour plus d’informations, consultez [Présentation des objets blob de blocs, des objets blob d’ajout et des objets blob de pages](http://msdn.azure.microsoft.com/.com/library/azure/ee691964.aspx).
+Il existe trois types d’objets blob : les objets blob de blocs, les objets blob d’ajouts et les objets blob de pages. Les objets blob de blocs vous permettent de télécharger plus efficacement les données volumineuses. Les objets blob d’ajout sont optimisés pour les opérations d’ajout. Les objets blob de pages sont optimisés pour les opérations de lecture/écriture. Pour plus d’informations, consultez [Présentation des objets blob de blocs, des objets blob d’ajout et des objets blob de pages](http://msdn.microsoft.com/library/azure/ee691964.aspx).
 
 ### Objets blob de blocs
 
@@ -409,7 +409,7 @@ Pour plus d'informations, consultez les ressources suivantes.
 [Node.js Cloud Service with Storage]: ../cloud-services/storage-nodejs-use-table-storage-cloud-service-app.md
 [Application web Node.js avec le service de Table Azure]: ../app-service-web/storage-nodejs-use-table-storage-web-site.md
 [Créer et déployer une application web Node.js dans Azure à l’aide de WebMatrix]: ../app-service-web/web-sites-nodejs-use-webmatrix.md
-[Using the REST API]: http://msdn.azure.microsoft.com/.com/library/azure/hh264518.aspx
+[Using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx
 [Azure Portal]: https://portal.azure.com
 [Création et déploiement d'une application Node.js dans Azure Cloud Services]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
 [Blog de l'équipe Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage/

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Diagnostics proactifs dans Application Insights | azure.microsoft.com/ Azure" 
+	pageTitle="Diagnostics proactifs dans Application Insights | Microsoft Azure" 
 	description="Application Insights réalise une analyse télémétrique approfondie automatique de votre application et vous avertit des éventuels problèmes de performances." 
 	services="application-insights" 
     documentationCenter="windows"
@@ -46,7 +46,7 @@ Il existe trois types de détection :
 
 * [Alertes d’échec en temps quasi-réel](app-insights-nrt-proactive-diagnostics.md). Nous utilisons l’apprentissage automatique pour définir la fréquence attendue des demandes entraînant un échec pour votre application, en la mettant en corrélation avec la charge et d’autres facteurs. Si le taux d’échec est situé en dehors de la plage attendue, nous envoyons une alerte.
 * [Comportement anormal](app-insights-proactive-detection.md). Nous recherchons des modèles anormaux en matière de temps de réponse et de taux d’échec tous les jours. Nous mettons en corrélation ces problèmes avec des propriétés telles que l’emplacement, le navigateur, le système d’exploitation client, l’instance de serveur et le moment de la journée.
-* [Azure Cloud Services](https://azure.azure.microsoft.com/.com/blog/proactive-notifications-on-cloud-service-issues-with-azure-diagnostics-and-application-insights/). Vous recevez des alertes si votre application est hébergée dans Azure Cloud Services et qu’une instance de rôle présente des échecs de démarrage, un recyclage fréquent ou des erreurs d’exécution.
+* [Azure Cloud Services](https://azure.microsoft.com/blog/proactive-notifications-on-cloud-service-issues-with-azure-diagnostics-and-application-insights/). Vous recevez des alertes si votre application est hébergée dans Azure Cloud Services et qu’une instance de rôle présente des échecs de démarrage, un recyclage fréquent ou des erreurs d’exécution.
 
 (Les liens d’aide dans chaque notification vous renvoient vers les articles pertinents.)
 

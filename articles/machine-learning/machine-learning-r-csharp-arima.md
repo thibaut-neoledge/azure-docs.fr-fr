@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Prévisions - Modèle ARIMA (Autoregressive Integrated Moving Average, moyenne mobile intégrée auto-régressive) | azure.microsoft.com/ Azure" 
+	pageTitle="Prévisions - Modèle ARIMA (Autoregressive Integrated Moving Average, moyenne mobile intégrée auto-régressive) | Microsoft Azure" 
 	description="Prévisions - Modèle ARIMA (Autoregressive Integrated Moving Average, moyenne mobile intégrée auto-régressive)" 
 	services="machine-learning" 
 	documentationCenter="" 
@@ -46,7 +46,7 @@ Exemple d'entrée :
  
 >Étant hébergé sur Azure Marketplace, ce service est un service OData. Il peut être appelé à l’aide des méthodes POST ou GET.
 
-Il existe plusieurs façons d’utiliser le service de manière automatique (un exemple d’application est disponible [ici](http://azure.microsoft.com/azuremachinelearning.azurewebsites.net/ArimaForecasting.aspx)).
+Il existe plusieurs façons d’utiliser le service de manière automatique (un exemple d’application est disponible [ici](http://microsoftazuremachinelearning.azurewebsites.net/ArimaForecasting.aspx)).
 
 ###Début du code C# pour l'utilisation du service web :
 
@@ -135,7 +135,7 @@ Pour les Questions fréquemment posées relatives à l'utilisation du service we
 
 
 <!-- Module References -->
-[execute-r-script]: https://msdn.azure.microsoft.com/.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
+[execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
  
 
 <!---HONumber=AcomDC_0817_2016-->

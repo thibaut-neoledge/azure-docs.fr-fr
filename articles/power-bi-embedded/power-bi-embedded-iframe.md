@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Utiliser Power BI Embedded avec REST | azure.microsoft.com/ Azure"
+   pageTitle="Utiliser Power BI Embedded avec REST | Microsoft Azure"
    description="Apprenez à utiliser Power BI Embedded avec REST "
    services="power-bi-embedded"
    documentationCenter=""
@@ -20,9 +20,9 @@
 
 
 ## Power BI Embedded : présentation et objectif
-Une vue d’ensemble de Power BI Embedded est décrite sur le [site Power BI Embedded officiel](https://azure.azure.microsoft.com/.com/services/power-bi-embedded/), mais commençons par jeter un coup d’œil rapide avant d’entrer dans les détails de son utilisation avec REST.
+Une vue d’ensemble de Power BI Embedded est décrite sur le [site Power BI Embedded officiel](https://azure.microsoft.com/services/power-bi-embedded/), mais commençons par jeter un coup d’œil rapide avant d’entrer dans les détails de son utilisation avec REST.
 
-C’est très simple. Bien souvent, les éditeurs de logiciels indépendants souhaitent utiliser les visualisations de données dynamiques de [Power BI](https://powerbi.azure.microsoft.com/.com) dans leur propre application en tant que blocs d’interface utilisateur.
+C’est très simple. Bien souvent, les éditeurs de logiciels indépendants souhaitent utiliser les visualisations de données dynamiques de [Power BI](https://powerbi.microsoft.com) dans leur propre application en tant que blocs d’interface utilisateur.
 
 Mais, comme vous le savez, l’incorporation de rapports ou de vignettes Power BI sur votre page web est déjà possible sans le service Azure Power BI Embedded, avec **l’API Power BI**. Lorsque vous souhaitez partager vos rapports dans votre organisation, vous pouvez incorporer les rapports avec l’authentification Azure AD. L’utilisateur qui consulte les rapports doit se connecter avec son propre compte Azure AD. Lorsque vous souhaitez partager vos rapports pour tous les utilisateurs (y compris les utilisateurs externes), vous pouvez simplement effectuer l’incorporation avec un accès anonyme.
 
@@ -45,10 +45,10 @@ Une fois que nous avons terminé la création de la collection d’espaces de tr
 
 ![](media\power-bi-embedded-iframe\copy-access-key.png)
 
-> [AZURE.NOTE] Nous pouvons également configurer la collection d’espaces de travail et obtenir la clé d’accès avec l’API REST. Pour plus d’informations, consultez [API du fournisseur de ressources Power BI](https://msdn.azure.microsoft.com/.com/library/azure/mt712306.aspx).
+> [AZURE.NOTE] Nous pouvons également configurer la collection d’espaces de travail et obtenir la clé d’accès avec l’API REST. Pour plus d’informations, consultez [API du fournisseur de ressources Power BI](https://msdn.microsoft.com/library/azure/mt712306.aspx).
 
 ## Création d’un fichier .pbix avec Power BI Desktop
-Ensuite, nous devons créer la connexion de données et les rapports à incorporer. Pour cette tâche, aucune programmation et aucun code ne sont nécessaires. Nous n’utilisons que Power BI Desktop. Dans cet article, nous n’allons pas étudier les détails de l’utilisation de Power BI Desktop. Si vous avez besoin d’aide à ce sujet, consultez [Prise en main de Power BI Desktop](https://powerbi.azure.microsoft.com/.com/documentation/powerbi-desktop-getting-started/). Dans notre exemple, nous utilisons simplement [l’exemple d’analyse des données de vente](https://powerbi.azure.microsoft.com/.com/documentation/powerbi-sample-datasets/).
+Ensuite, nous devons créer la connexion de données et les rapports à incorporer. Pour cette tâche, aucune programmation et aucun code ne sont nécessaires. Nous n’utilisons que Power BI Desktop. Dans cet article, nous n’allons pas étudier les détails de l’utilisation de Power BI Desktop. Si vous avez besoin d’aide à ce sujet, consultez [Prise en main de Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-getting-started/). Dans notre exemple, nous utilisons simplement [l’exemple d’analyse des données de vente](https://powerbi.microsoft.com/documentation/powerbi-sample-datasets/).
 
 ![](media\power-bi-embedded-iframe\power-bi-desktop-1.png)
 
@@ -238,7 +238,7 @@ Content-Type: application/json; charset=utf-8
 
 Nous pouvons également utiliser la sécurité au niveau de la ligne dans Power BI Embedded et séparer les données de tous les utilisateurs dans un rapport. Par conséquent, nous pouvons attribuer à chaque rapport client le même .pbix (interface utilisateur, etc.) et différentes sources de données.
 
-> [AZURE.NOTE] Si vous utilisez le **mode Import** au lieu du **mode DirectQuery**, il est impossible d’actualiser les modèles avec l’API. Et les sources de données locales à travers la passerelle Power BI ne sont pas encore prises en charge dans Power BI Embedded. Toutefois, il est très intéressant de consulter le [blog Power BI](https://powerbi.azure.microsoft.com/.com/blog/) pour connaître les nouveautés et le contenu des futures versions.
+> [AZURE.NOTE] Si vous utilisez le **mode Import** au lieu du **mode DirectQuery**, il est impossible d’actualiser les modèles avec l’API. Et les sources de données locales à travers la passerelle Power BI ne sont pas encore prises en charge dans Power BI Embedded. Toutefois, il est très intéressant de consulter le [blog Power BI](https://powerbi.microsoft.com/blog/) pour connaître les nouveautés et le contenu des futures versions.
 
 ## Authentification et hébergement (incorporation) de rapports dans notre page web
 

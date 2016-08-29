@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Création et gestion d’une zone DNS dans le portail Azure | azure.microsoft.com/ Azure"
+   pageTitle="Création et gestion d’une zone DNS dans le portail Azure | Microsoft Azure"
    description="Apprenez à créer des zones DNS pour Azure DNS. Il s’agit d’un guide pas à pas pour la création et la gestion de votre première zone DNS et l’hébergement de votre domaine DNS à l’aide du portail Azure."
    services="dns"
    documentationCenter="na"
@@ -90,7 +90,7 @@ Vous pouvez afficher les enregistrements à partir du portail Azure
 
 ## Test
 
-Vous pouvez tester votre zone DNS à l’aide d’outils DNS comme nslookup, dig ou l’[applet de commande PowerShell Resolve-DnsName](https://technet.azure.microsoft.com/.com/library/jj590781.aspx).
+Vous pouvez tester votre zone DNS à l’aide d’outils DNS comme nslookup, dig ou l’[applet de commande PowerShell Resolve-DnsName](https://technet.microsoft.com/library/jj590781.aspx).
 
 Si vous n’avez pas encore délégué votre domaine pour qu’il utilise la nouvelle zone Azure DNS, vous devez diriger la requête DNS directement vers l’un des serveurs de noms pour votre zone. Les serveurs de noms de votre zone figurent dans les enregistrements NS, répertoriés ci-dessus par `Get-AzureRmDnsRecordSet`. Veillez à indiquer les valeurs correctes pour votre zone dans la commande ci-dessous.
 
@@ -104,7 +104,7 @@ Si vous n’avez pas encore délégué votre domaine pour qu’il utilise la nou
 
 	contoso.com
         	primary name server = ns1-01.azure-dns.com
-        	responsible mail addr = msnhst.azure.microsoft.com/.com
+        	responsible mail addr = msnhst.microsoft.com
         	serial  = 1
         	refresh = 900 (15 mins)
         	retry   = 300 (5 mins)

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Planification de la capacité du cluster Service Fabric | azure.microsoft.com/ Azure"
+   pageTitle="Planification de la capacité du cluster Service Fabric | Microsoft Azure"
    description="Considérations en matière de planification de la capacité du cluster Service Fabric."
    services="service-fabric"
    documentationCenter=".net"

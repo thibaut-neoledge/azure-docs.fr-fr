@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Activation ou désactivation de votre appareil StorSimple | azure.microsoft.com/ Azure"
+   pageTitle="Activation ou désactivation de votre appareil StorSimple | Microsoft Azure"
    description="Explique comment activer un nouvel appareil StorSimple, comment activer un appareil qui a été arrêté ou qui a subi une panne de courant, et comment désactiver un appareil en cours d'exécution."
    services="storsimple"
    documentationCenter=""
@@ -19,7 +19,7 @@
 
 ## Vue d'ensemble
 
-L'arrêt d'un appareil azure.microsoft.com/ Azure StorSimple n'est pas requis dans le cadre du fonctionnement normal du système. Toutefois, vous devrez peut-être activer un nouvel appareil ou un appareil qui a dû être arrêté. En règle générale, un arrêt est nécessaire dans les cas où vous devez remplacer du matériel défectueux, physiquement déplacer une unité ou mettre un appareil hors service. Ce didacticiel décrit la procédure requise pour la mise sous tension et l'arrêt de votre appareil StorSimple dans différents scénarios.
+L'arrêt d'un appareil Microsoft Azure StorSimple n'est pas requis dans le cadre du fonctionnement normal du système. Toutefois, vous devrez peut-être activer un nouvel appareil ou un appareil qui a dû être arrêté. En règle générale, un arrêt est nécessaire dans les cas où vous devez remplacer du matériel défectueux, physiquement déplacer une unité ou mettre un appareil hors service. Ce didacticiel décrit la procédure requise pour la mise sous tension et l'arrêt de votre appareil StorSimple dans différents scénarios.
 
 Le tableau suivant répertorie les différents scénarios de mise sous tension et d'arrêt de votre appareil StorSimple et fournit des liens vers les procédures appropriées.
 
@@ -87,7 +87,7 @@ Après un arrêt, utilisez la procédure suivante pour activer un appareil StorS
 
     3. Le témoin lumineux bleu sur l'un des contrôleurs clignote, ce qui indique que le contrôleur est actif.
 
-    Si l'une de ces conditions n'est pas respectée, votre appareil n'est pas intègre. Veuillez [contacter le support azure.microsoft.com/](storsimple-contact-azure.microsoft.com/-support.md).
+    Si l'une de ces conditions n'est pas respectée, votre appareil n'est pas intègre. Veuillez [contacter le support Microsoft](storsimple-contact-microsoft-support.md).
 
 ### Appareil avec boîtier EBOD
 
@@ -177,7 +177,7 @@ Lorsque les deux câbles SCSI (SAS) sont retirés ou que la connexion entre le b
 
 10. Assurez-vous que la connexion du boîtier EBOD avec le boîtier principal est bonne en vérifiant que les témoins lumineux SAS (quatre par contrôleur EBOD) sont tous allumés.
 
->[AZURE.IMPORTANT] Si les câbles SAS sont défectueux ou si la connexion entre le boîtier EBOD et le boîtier principal n'est pas bonne, lorsque vous activez le système, celui-ci passera en mode de récupération. Dans ce cas, veuillez [contacter le support azure.microsoft.com/](storsimple-contact-azure.microsoft.com/-support.md).
+>[AZURE.IMPORTANT] Si les câbles SAS sont défectueux ou si la connexion entre le boîtier EBOD et le boîtier principal n'est pas bonne, lorsque vous activez le système, celui-ci passera en mode de récupération. Dans ce cas, veuillez [contacter le support Microsoft](storsimple-contact-microsoft-support.md).
 
 ## Désactiver un appareil en cours d'exécution
 
@@ -239,6 +239,6 @@ Vous pouvez vous connecter à Windows PowerShell pour StorSimple avec la consol
 
 ## Étapes suivantes
 
-[Contactez le support azure.microsoft.com/](storsimple-contact-azure.microsoft.com/-support.md) si vous rencontrez des problèmes lors de l'activation ou l'arrêt d'un appareil StorSimple.
+[Contactez le support Microsoft](storsimple-contact-microsoft-support.md) si vous rencontrez des problèmes lors de l'activation ou l'arrêt d'un appareil StorSimple.
 
 <!---HONumber=AcomDC_0817_2016-->

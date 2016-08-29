@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Génération en ligne de commande pour Azure | azure.microsoft.com/ Azure"
+   pageTitle="Génération en ligne de commande pour Azure | Microsoft Azure"
    description="Génération en ligne de commande pour Azure"
    services="visual-studio-online"
    documentationCenter="na"
@@ -22,11 +22,11 @@
 Vous pouvez créer un package de déploiement Azure en exécutant MSBuild à partir de l'invite de commandes. Vous pouvez configurer et définir des builds pour le débogage, la gestion intermédiaire et la production, en plus de l'automatisation d’une partie du processus de génération.
 
 
-## azure.microsoft.com/ Build Engine (MSBuild)
+## Microsoft Build Engine (MSBuild)
 
-À l'aide de azure.microsoft.com/ Build Engine (MSBuild), vous pouvez générer des produits dans des environnements de build lab où Visual Studio n'est pas installé. MSBuild utilise pour les fichiers projet un format XML extensible et entièrement pris en charge par azure.microsoft.com/. Dans ce format de fichier, vous pouvez décrire quels éléments doivent être générés pour une ou plusieurs plateformes et configurations.
+À l'aide de Microsoft Build Engine (MSBuild), vous pouvez générer des produits dans des environnements de build lab où Visual Studio n'est pas installé. MSBuild utilise pour les fichiers projet un format XML extensible et entièrement pris en charge par Microsoft. Dans ce format de fichier, vous pouvez décrire quels éléments doivent être générés pour une ou plusieurs plateformes et configurations.
 
-Vous pouvez également exécuter MSBuild à l’invite de commande : c’est cette approche que décrit cette rubrique. En définissant des propriétés à l’invite de commandes, vous pouvez créer des configurations propres à un projet. De même, vous pouvez également définir les cibles que la commande MSBuild va générer. Pour plus d’informations sur les paramètres de ligne de commande et MSBuild, consultez la page [Référence de la ligne de commande MSBuild](https://msdn.azure.microsoft.com/.com/library/ms164311.aspx).
+Vous pouvez également exécuter MSBuild à l’invite de commande : c’est cette approche que décrit cette rubrique. En définissant des propriétés à l’invite de commandes, vous pouvez créer des configurations propres à un projet. De même, vous pouvez également définir les cibles que la commande MSBuild va générer. Pour plus d’informations sur les paramètres de ligne de commande et MSBuild, consultez la page [Référence de la ligne de commande MSBuild](https://msdn.microsoft.com/library/ms164311.aspx).
 
 ## Installation
 
@@ -34,15 +34,15 @@ Comme le décrit la procédure suivante, vous devez installer les logiciels et l
 
 1. Installez .NET Framework 4 ou version ultérieure, qui inclut MSBuild.
 
-1. Installez les [outils de création Azure](http://go.azure.microsoft.com/.com/fwlink/?LinkId=394615) (recherchez azure.microsoft.com/AzureAuthoringTools-x64.msi ou azure.microsoft.com/AzureAuthoringTools-x86.msi).
+1. Installez les [outils de création Azure](http://go.microsoft.com/fwlink/?LinkId=394615) (recherchez MicrosoftAzureAuthoringTools-x64.msi ou MicrosoftAzureAuthoringTools-x86.msi).
 
-1. Installez les [bibliothèques Azure pour .NET](http://go.azure.microsoft.com/.com/fwlink/?LinkId=394616) (recherchez azure.microsoft.com/AzureLibsForNet-x64.msi ou azure.microsoft.com/AzureLibs-x86.msi).
+1. Installez les [bibliothèques Azure pour .NET](http://go.microsoft.com/fwlink/?LinkId=394616) (recherchez MicrosoftAzureLibsForNet-x64.msi ou MicrosoftAzureLibs-x86.msi).
 
-1. Copiez le fichier azure.microsoft.com/.WebApplication.targets à partir d'une installation Visual Studio vers un autre ordinateur.
+1. Copiez le fichier Microsoft.WebApplication.targets à partir d'une installation Visual Studio vers un autre ordinateur.
 
-    Le fichier se trouve dans le répertoire C:\\Program Files (x86)\\MSBuild\\azure.microsoft.com/\\Visual Studio\\v12.0\\WebApplications (v11.0 pour Visual Studio 2012). Vous devez le copier dans le même répertoire sur le serveur de builds.
+    Le fichier se trouve dans le répertoire C:\\Program Files (x86)\\MSBuild\\Microsoft\\Visual Studio\\v12.0\\WebApplications (v11.0 pour Visual Studio 2012). Vous devez le copier dans le même répertoire sur le serveur de builds.
 
-1. Installez les outils [Azure Tools for Visual Studio](http://go.azure.microsoft.com/.com/fwlink/?LinkId=394616).
+1. Installez les outils [Azure Tools for Visual Studio](http://go.microsoft.com/fwlink/?LinkId=394616).
 
     Recherchez WindowsAzureTools.vs120.exe pour générer des projets Visual Studio 2013.
 

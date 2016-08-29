@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Notes de publication pour Azure BizTalk Services | azure.microsoft.com/ Azure BizTalk Services"
+	pageTitle="Notes de publication pour Azure BizTalk Services | Microsoft Azure BizTalk Services"
 	description="Répertorie les problèmes connus pour Azure BizTalk Services" 
 	services="biztalk-services"
 	documentationCenter=""
@@ -18,27 +18,27 @@
 
 # Notes de publication pour Azure BizTalk Services
 
-Les notes de version des Services azure.microsoft.com/ Azure BizTalk reprennent les problèmes connus dans cette version.
+Les notes de version des Services Microsoft Azure BizTalk reprennent les problèmes connus dans cette version.
 
 ## Nouveautés de la mise à jour BizTalk Services de novembre
-* Le chiffrement au repos peut être activé dans le portail BizTalk Services. Consultez [Activer le chiffrement au repos dans le portail BizTalk Services](https://msdn.azure.microsoft.com/.com/library/azure/dn874052.aspx).
+* Le chiffrement au repos peut être activé dans le portail BizTalk Services. Consultez [Activer le chiffrement au repos dans le portail BizTalk Services](https://msdn.microsoft.com/library/azure/dn874052.aspx).
 
 ## Historique de mise à jour
 
 ### Mise à jour d’octobre
 
 * Les comptes de société sont pris en charge :
- * **Scénario** : vous avez enregistré un déploiement de BizTalk Service en utilisant un compte azure.microsoft.com/ (tel que user@live.com). Dans ce scénario, seuls les utilisateurs azure.microsoft.com/ Account peuvent gérer le service BizTalk avec le portail BizTalk Services. Il est impossible d’utiliser un compte professionnel.
- * **Scénario** : vous avez enregistré un déploiement BizTalk Service en utilisant un compte professionnel dans un répertoire Azure Active Directory (au même titre que user@fabrikam.com ou user@contoso.com). Dans ce scénario, seuls les utilisateurs Azure Active Directory appartenant à la même organisation peuvent gérer le service BizTalk à l’aide du portail BizTalk Services. Il est impossible d’utiliser un compte azure.microsoft.com/.
+ * **Scénario** : vous avez enregistré un déploiement de BizTalk Service en utilisant un compte Microsoft (tel que user@live.com). Dans ce scénario, seuls les utilisateurs Microsoft Account peuvent gérer le service BizTalk avec le portail BizTalk Services. Il est impossible d’utiliser un compte professionnel.
+ * **Scénario** : vous avez enregistré un déploiement BizTalk Service en utilisant un compte professionnel dans un répertoire Azure Active Directory (au même titre que user@fabrikam.com ou user@contoso.com). Dans ce scénario, seuls les utilisateurs Azure Active Directory appartenant à la même organisation peuvent gérer le service BizTalk à l’aide du portail BizTalk Services. Il est impossible d’utiliser un compte Microsoft.
 * Lorsque vous créez un service BizTalk dans le portail Azure classique, vous êtes automatiquement inscrit dans le portail BizTalk Services.
- * **Scénario** : vous vous connectez au portail Azure Classic, créez un service BizTalk, puis sélectionnez **Gérer** pour la première fois. Lorsque le portail BizTalk Services s’ouvre, le service BizTalk est automatiquement inscrit et est prêt pour vos déploiements. Consultez [Enregistrement et mise à niveau d’un déploiement de service BizTalk sur le portail BizTalk Services](https://msdn.azure.microsoft.com/.com/library/azure/hh689837.aspx).
+ * **Scénario** : vous vous connectez au portail Azure Classic, créez un service BizTalk, puis sélectionnez **Gérer** pour la première fois. Lorsque le portail BizTalk Services s’ouvre, le service BizTalk est automatiquement inscrit et est prêt pour vos déploiements. Consultez [Enregistrement et mise à niveau d’un déploiement de service BizTalk sur le portail BizTalk Services](https://msdn.microsoft.com/library/azure/hh689837.aspx).
 
 ### Mise à jour du 14 août
-* Découplage accord et pont : les accords et les ponts entre partenaires commerciaux sont désormais découplés dans le portail BizTalk Services. Vous pouvez maintenant créer des contrats et des ponts séparément, et, au moment de l’exécution, les ponts sont associés à un accord selon les valeurs présentes dans le message EDI. Consultez [Création d’accords dans Azure BizTalk Services](https://msdn.azure.microsoft.com/.com/library/azure/hh689908.aspx), [Création d’un pont EDI à l’aide du portail Services BizTalk](https://msdn.azure.microsoft.com/.com/library/azure/dn793986.aspx), [Création d’un pont AS2 à l’aide du portail BizTalk Services](https://msdn.azure.microsoft.com/.com/library/azure/dn793993.aspx) et [Association des ponts à l’exécution des contrats ?](https://msdn.azure.microsoft.com/.com/library/azure/dn794001.aspx)
+* Découplage accord et pont : les accords et les ponts entre partenaires commerciaux sont désormais découplés dans le portail BizTalk Services. Vous pouvez maintenant créer des contrats et des ponts séparément, et, au moment de l’exécution, les ponts sont associés à un accord selon les valeurs présentes dans le message EDI. Consultez [Création d’accords dans Azure BizTalk Services](https://msdn.microsoft.com/library/azure/hh689908.aspx), [Création d’un pont EDI à l’aide du portail Services BizTalk](https://msdn.microsoft.com/library/azure/dn793986.aspx), [Création d’un pont AS2 à l’aide du portail BizTalk Services](https://msdn.microsoft.com/library/azure/dn793993.aspx) et [Association des ponts à l’exécution des contrats ?](https://msdn.microsoft.com/library/azure/dn794001.aspx)
 * L’option permettant de créer des modèles pour les accords est abandonnée.
-* Pour le côté envoi de l’accord, vous pouvez maintenant spécifier différents ensembles de délimiteurs pour chaque schéma. Cette configuration est spécifiée dans les paramètres de protocole pour le côté envoi de l’accord. Pour plus d’informations, consultez [Créer un accord X12 dans Azure BizTalk Services](https://msdn.azure.microsoft.com/.com/library/azure/hh689847.aspx) et [Créer un accord EDIFACT dans Azure BizTalk Services](https://msdn.azure.microsoft.com/.com/library/azure/dn606267.aspx). Deux nouvelles entités sont également ajoutées à l’API TPM OM dans le même but. Consultez la page [X12DelimiterOverrides](https://msdn.azure.microsoft.com/.com/library/azure/dn798749.aspx) et [EDIFACTDelimiterOverride](https://msdn.azure.microsoft.com/.com/library/azure/dn798748.aspx).
-* Les constructions XSD standard, et notamment les types dérivés, sont désormais prises en charge. Consultez la page [Utiliser les constructions XSD standard dans vos mappages](https://msdn.azure.microsoft.com/.com/library/azure/dn793987.aspx) et [Utiliser les types dérivés dans les scénarios de mappage et des exemples](https://msdn.azure.microsoft.com/.com/library/azure/dn793997.aspx).
-* AS2 prend en charge les nouveaux algorithmes MIC pour la signature des messages et de nouveaux algorithmes de chiffrement. Voir [Créer un accord AS2 dans Azure BizTalk Services](https://msdn.azure.microsoft.com/.com/library/azure/hh689890.aspx).
+* Pour le côté envoi de l’accord, vous pouvez maintenant spécifier différents ensembles de délimiteurs pour chaque schéma. Cette configuration est spécifiée dans les paramètres de protocole pour le côté envoi de l’accord. Pour plus d’informations, consultez [Créer un accord X12 dans Azure BizTalk Services](https://msdn.microsoft.com/library/azure/hh689847.aspx) et [Créer un accord EDIFACT dans Azure BizTalk Services](https://msdn.microsoft.com/library/azure/dn606267.aspx). Deux nouvelles entités sont également ajoutées à l’API TPM OM dans le même but. Consultez la page [X12DelimiterOverrides](https://msdn.microsoft.com/library/azure/dn798749.aspx) et [EDIFACTDelimiterOverride](https://msdn.microsoft.com/library/azure/dn798748.aspx).
+* Les constructions XSD standard, et notamment les types dérivés, sont désormais prises en charge. Consultez la page [Utiliser les constructions XSD standard dans vos mappages](https://msdn.microsoft.com/library/azure/dn793987.aspx) et [Utiliser les types dérivés dans les scénarios de mappage et des exemples](https://msdn.microsoft.com/library/azure/dn793997.aspx).
+* AS2 prend en charge les nouveaux algorithmes MIC pour la signature des messages et de nouveaux algorithmes de chiffrement. Voir [Créer un accord AS2 dans Azure BizTalk Services](https://msdn.microsoft.com/library/azure/hh689890.aspx).
 ## Problèmes connus
 
 ### Problèmes de connectivité après la mise à jour du portail BizTalk Services
@@ -58,13 +58,13 @@ Vous « générez » la solution dans Visual Studio avec succès. Ensuite, vou
 Impossible de copier le fichier <Chemin vers DLL> dans « bin\\Debug\\FileName.dll ». Le processus ne peut pas accéder au fichier « bin\\Debug\\FileName.dll », car il est utilisé par un autre processus.
 
 #### Solution de contournement
-* Si [Visual Studio 2012 Update 3](https://www.azure.microsoft.com/.com/download/details.aspx?id=39305) est installé, vous disposez des deux options suivantes :
+* Si [Visual Studio 2012 Update 3](https://www.microsoft.com/download/details.aspx?id=39305) est installé, vous disposez des deux options suivantes :
 
   * Redémarrer Visual Studio ou
 
   * Redémarrer la solution. Effectuez ensuite une seule compilation de la solution.
 
-* Si [Visual Studio 2012 Update 3](https://www.azure.microsoft.com/.com/download/details.aspx?id=39305) n’est pas installé, ouvrez le Gestionnaire des tâches, cliquez sur l’onglet Processus et cliquez sur le processus MSBuild.exe, puis cliquez sur le bouton Terminer le processus.
+* Si [Visual Studio 2012 Update 3](https://www.microsoft.com/download/details.aspx?id=39305) n’est pas installé, ouvrez le Gestionnaire des tâches, cliquez sur l’onglet Processus et cliquez sur le processus MSBuild.exe, puis cliquez sur le bouton Terminer le processus.
 
 ### L’acheminement vers les points de terminaison BasicHttpRelay n’est pas pris en charge à partir de ponts ou du portail BizTalk Services si les caractères non imprimables sont utilisés en tant qu’en-têtes HTTP
 
@@ -77,7 +77,7 @@ Imaginez le scénario : si vous sélectionnez la case à cocher **Envoyer MDN a
 S’il existe des espaces au-delà d’un segment IEA, le désassembleur les traite comme s’il s’agissait de la fin de l’échange actuel et examine l’ensemble d’espaces suivant comme un nouveau message. Comme il ne s’agit pas d’un échange valide, vous pouvez constater qu’un message de réussite est envoyé à la destination d’itinéraire et un message vide est envoyé au point de terminaison d’interruption.
 ### Suivi dans le portail Azure BizTalk Services  
 Les événements de suivi sont enregistrés jusqu’au traitement de messages EDI et une corrélation. Si un message échoue en dehors de la phase de protocole, le suivi sera affiché comme réussi. Dans ce cas, reportez-vous à la section journal de la colonne **Détails** dans **Suivi** pour les détails de l’erreur.
-Les paramètres de réception et d’envoi X 12 ([Créer un accord X12 dans Azure BizTalk Services](https://msdn.azure.microsoft.com/.com/library/azure/hh689847.aspx)) fournissent des informations sur l’étape de protocole.
+Les paramètres de réception et d’envoi X 12 ([Créer un accord X12 dans Azure BizTalk Services](https://msdn.microsoft.com/library/azure/hh689847.aspx)) fournissent des informations sur l’étape de protocole.
 
 ### Accord de mise à jour  
 En cas de configuration d’un accord, le portail BizTalk Services vous permet de modifier le qualificateur d’une identité. Cela peut entraîner des propriétés incohérentes. Par exemple, il existe un accord utilisant ZZ:1234567 et le qualificateur ZZ:7654321. Dans les paramètres de profil du portail BizTalk Services, vous remplacez ZZ:1234567 par 01:ChangedValue. Ouvrez l’accord et 01:ChangedValue s’affiche à la place de ZZ:1234567.
@@ -108,12 +108,12 @@ Dans un projet BizTalk Services, si un schéma ajouté au projet importe un autr
 ### Le message de réponse d’un pont de requête-réponse XML est toujours rédigé avec le jeu de caractères UTF-8
 Dans cette version, le jeu de caractères du message de réponse d’un pont demande-réponse XML est toujours défini sur UTF-8.
 ### Types de données définis par l’utilisateur
-Les adaptateurs BizTalk Adapter Pack présents dans la fonctionnalité BizTalk Adapter Service peuvent utiliser des types de données définis par l’utilisateur pour les opérations d’adaptateur. Lorsque vous utilisez des types de données définis par l’utilisateur, copiez les fichiers (.dll) sur le lecteur:\\Program Files\\azure.microsoft.com/ Service\\BAServiceRuntime\\bin\\ d’adaptateur BizTalk ou dans Global Assembly Cache (GAC) sur le serveur qui héberge le service de l’adaptateur BizTalk. Dans le cas contraire, l’erreur suivante peut se produire sur le client :
+Les adaptateurs BizTalk Adapter Pack présents dans la fonctionnalité BizTalk Adapter Service peuvent utiliser des types de données définis par l’utilisateur pour les opérations d’adaptateur. Lorsque vous utilisez des types de données définis par l’utilisateur, copiez les fichiers (.dll) sur le lecteur:\\Program Files\\Microsoft Service\\BAServiceRuntime\\bin\\ d’adaptateur BizTalk ou dans Global Assembly Cache (GAC) sur le serveur qui héberge le service de l’adaptateur BizTalk. Dans le cas contraire, l’erreur suivante peut se produire sur le client :
 ```<s:Fault xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
   <faultcode>s:Client</faultcode>
   <faultstring xml:lang="fr-FR">The UDT with FullName "File, FileUDT, Version=Value, Culture=Value, PublicKeyToken=Value" could not be loaded. Try placing the assembly containing the UDT definition in the Global Assembly Cache.</faultstring>
   <detail>
-    <AFConnectRuntimeFault xmlns="http://azure.microsoft.com/.ApplicationServer.Integration.AFConnect/2011" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+    <AFConnectRuntimeFault xmlns="http://Microsoft.ApplicationServer.Integration.AFConnect/2011" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
       <ExceptionCode>ERROR_IN_SENDING_MESSAGE</ExceptionCode>
     </AFConnectRuntimeFault>
   </detail>
@@ -161,8 +161,8 @@ Envisagez un scénario dans lequel vous utilisez des procédures basées sur le 
 **Solution de contournement** : mettez à jour le certificat dans le projet BizTalk Service et redéployez le projet.
 
 ### Les ponts continuent de traiter les messages même lorsque la base de données SQL est hors connexion
-Les ponts BizTalk Services continuent de traiter les messages pendant un certain temps, même si Azure SQL Database azure.microsoft.com/ (qui stocke les informations en cours d’exécution telles que les artefacts déployés et les pipelines), est hors connexion, et ce, parce que les Services BizTalk utilisent les artefacts mis en cache et la configuration du pont.
-Si vous ne souhaitez pas que les ponts traitent les messages lorsque la base de données SQL est hors connexion, vous pouvez utiliser les applets de commande PowerShell BizTalk Services pour arrêter ou suspendre le service BizTalk. Consultez [Exemple Azure BizTalk Service Management](http://go.azure.microsoft.com/.com/fwlink/p/?LinkID=329019) pour que les applets de commande Windows PowerShell gèrent les opérations.
+Les ponts BizTalk Services continuent de traiter les messages pendant un certain temps, même si Azure SQL Database Microsoft (qui stocke les informations en cours d’exécution telles que les artefacts déployés et les pipelines), est hors connexion, et ce, parce que les Services BizTalk utilisent les artefacts mis en cache et la configuration du pont.
+Si vous ne souhaitez pas que les ponts traitent les messages lorsque la base de données SQL est hors connexion, vous pouvez utiliser les applets de commande PowerShell BizTalk Services pour arrêter ou suspendre le service BizTalk. Consultez [Exemple Azure BizTalk Service Management](http://go.microsoft.com/fwlink/p/?LinkID=329019) pour que les applets de commande Windows PowerShell gèrent les opérations.
 ### La lecture d’un message XML au sein d’un composant de code personnalisé d’un pont inclut un caractère BOM supplémentaire
 Imaginez un scénario dans lequel vous souhaitez lire un message XML dans le code personnalisé d’un pont. Si vous utilisez l’API .NET System.Text.Encoding.UTF8.GetString(bytes) un caractère BOM supplémentaire est inclus dans la sortie au début du message. Par conséquent, si vous ne souhaitez pas que la sortie inclue le caractère BOM supplémentaire, vous devez utiliser ```System.IO.StreamReader().ReadToEnd()```.
 ### L’envoi de messages à un pont à l’aide de WCF n’évolue pas
@@ -178,12 +178,12 @@ Il existe un accord EDI ou AS2 avec des lots actifs. Lorsque le BizTalk Service 
 ### MISE À NIVEAU : la boîte à outils affiche les anciennes icônes des ponts après la mise à niveau du kit de développement logiciel BizTalk Services.
 Une fois que vous avez mis à niveau une version antérieure du kit de développement logiciel BizTalk Services, dont les anciennes icônes représentaient les ponts, la boîte à outils continue d’afficher les anciennes icônes pour les ponts. Toutefois, si vous ajoutez un pont à l’aire de conception du projet BizTalk Service, la surface affiche la nouvelle icône.
 
-**Solution de contournement**. Vous pouvez contourner ce problème en supprimant les fichiers .tbd sous <disque système>: \\Users < utilisateur > \\AppData\\Local\\azure.microsoft.com/\\VisualStudio\\11.0.
+**Solution de contournement**. Vous pouvez contourner ce problème en supprimant les fichiers .tbd sous <disque système>: \\Users < utilisateur > \\AppData\\Local\\Microsoft\\VisualStudio\\11.0.
 
 ### MISE À NIVEAU : la mise à jour du portail BizTalk de la version préliminaire vers la disponibilité générale peut générer un message d’erreur indiquant que la fonctionnalité EDI n’est pas disponible
 Si vous êtes connecté au portail de Services BizTalk lors de la mise à jour des services BizTalk de la version préliminaire vers la disponibilité générale, vous pouvez obtenir l’erreur suivante sur le portail :
 
-Cette fonctionnalité n’est pas disponible dans le cadre de cette édition des Services azure.microsoft.com/ Azure BizTalk. Pour utiliser ces fonctionnalités de bascule vers une édition adéquate.
+Cette fonctionnalité n’est pas disponible dans le cadre de cette édition des Services Microsoft Azure BizTalk. Pour utiliser ces fonctionnalités de bascule vers une édition adéquate.
 
 **Résolution** : déconnectez-vous du portail, fermez et ouvrez le navigateur, puis connectez-vous au portail.
 ### Mise à niveau : les nouvelles données de suivi ne s’affichent pas une fois que BizTalk Services est mis à niveau vers la disponibilité générale
@@ -194,6 +194,6 @@ Dans ce document, les termes « pipeline » et « pont » sont utilisés ind
 
 ### Concepts  
 
-[BizTalk Services](https://msdn.azure.microsoft.com/.com/library/azure/hh689864.aspx)
+[BizTalk Services](https://msdn.microsoft.com/library/azure/hh689864.aspx)
 
 <!---HONumber=AcomDC_0817_2016-->

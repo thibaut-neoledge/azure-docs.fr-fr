@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Automatisation du déploiement d’une machine virtuelle dans Amazon Web Services | azure.microsoft.com/ Azure"
+   pageTitle="Automatisation du déploiement d’une machine virtuelle dans Amazon Web Services | Microsoft Azure"
    description="Cet article explique comment utiliser Azure Automation pour automatiser la création d’une machine virtuelle Amazon Web Services"
    services="automation"
    documentationCenter=""
@@ -105,6 +105,6 @@ Avant de procéder au test du runbook, nous devons vérifier plusieurs points. P
 -   Pour une prise en main des Runbooks graphiques, consultez [Mon premier Runbook graphique](automation-first-runbook-graphical.md)
 -	Pour une prise en main des runbooks de workflow PowerShell, consultez [Mon premier runbook PowerShell Workflow](automation-first-runbook-textual.md)
 -	Pour en savoir plus sur les types de Runbook, leurs avantages et leurs limites, consultez [Types de Runbooks Azure Automation](automation-runbook-types.md)
--	Pour plus d’informations sur la fonctionnalité de prise en charge de script PowerShell, consultez [Prise en charge de script PowerShell natif dans Azure Automation](https://azure.azure.microsoft.com/.com/blog/announcing-powershell-script-support-azure-automation-2/)
+-	Pour plus d’informations sur la fonctionnalité de prise en charge de script PowerShell, consultez [Prise en charge de script PowerShell natif dans Azure Automation](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/)
 
 <!---HONumber=AcomDC_0817_2016-->

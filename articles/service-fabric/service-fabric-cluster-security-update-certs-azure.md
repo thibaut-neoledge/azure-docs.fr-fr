@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Ajouter, substituer et supprimer des certificats utilisés dans un cluster Service Fabric dans Azure | azure.microsoft.com/ Azure"
+   pageTitle="Ajouter, substituer et supprimer des certificats utilisés dans un cluster Service Fabric dans Azure | Microsoft Azure"
    description="Décrit comment charger un certificat de cluster secondaire, puis le substituer à l’ancien certificat principal."
    services="service-fabric"
    documentationCenter=".net"
@@ -69,7 +69,7 @@ Si vous utilisez l’exemple du [référentiel-git](https://github.com/ChackDan/
 
 1. Ouvrez le modèle Resource Manager que vous avez utilisé pour déployer votre cluster.
 2. Ajoutez un nouveau paramètre « secCertificateThumbprint » de type « string ». Si vous utilisez le modèle Resource Manager que vous avez téléchargé à partir du portail pendant la création ou à partir des modèles de démarrage rapide, recherchez simplement ce paramètre ; il est normalement déjà défini.
-3. Recherchez la définition de ressource « azure.microsoft.com/.ServiceFabric/clusters ». Sous Propriétés, vous trouverez la balise JSON « Certificat », qui doit ressembler à l’extrait de code JSON suivant.
+3. Recherchez la définition de ressource « Microsoft.ServiceFabric/clusters ». Sous Propriétés, vous trouverez la balise JSON « Certificat », qui doit ressembler à l’extrait de code JSON suivant.
 ```JSON
       "properties": {
         "certificate": {

@@ -1,5 +1,5 @@
 <properties
- pageTitle="Rubriques du guide du développeur pour IoT Hub | azure.microsoft.com/ Azure"
+ pageTitle="Rubriques du guide du développeur pour IoT Hub | Microsoft Azure"
  description="Guide du développeur Azure IoT Hub portant sur les points de terminaison, la sécurité, le registre des identités des appareils et la messagerie pour IoT Hub"
  services="iot-hub"
  documentationCenter=".net"
@@ -335,7 +335,7 @@ Pour plus d’informations sur la façon d’utiliser la messagerie Appareil ver
 
 Souvent, outre les points de données de télémétrie, les appareils envoient également des messages et demandes qui nécessitent une exécution et une gestion au niveau de la couche de logique métier d’application. Il s’agit, par exemple, des alertes critiques qui doivent déclencher une action spécifique au niveau du serveur principal, ou encore des réponses de l’appareil aux commandes envoyées par le serveur principal.
 
-Pour plus d’informations sur la meilleure façon de traiter ce type de message, consultez [Device-to-cloud processing][lnk-guidance-d2c-processing] \(Traitement Appareil vers cloud).
+Pour plus d’informations sur la meilleure façon de traiter ce type de message, consultez [Device-to-cloud processing][lnk-guidance-d2c-processing] (Traitement Appareil vers cloud).
 
 #### Options de configuration Appareil vers cloud <a id="d2cconfiguration"></a>
 
@@ -425,7 +425,7 @@ Chaque message récupéré par un appareil à partir du point de terminaison de 
 | -------- | ----------- |
 | EnqueuedTime | Horodatage indiquant la date et l’heure de création du message. |
 | UserId | `{iot hub name}` |
-| ContentType | `application/vnd.azure.microsoft.com/.iothub.feedback.json` |
+| ContentType | `application/vnd.microsoft.iothub.feedback.json` |
 
 Le corps est un tableau sérialisé JSON des enregistrements, chacun disposant des propriétés suivantes :
 
@@ -561,7 +561,7 @@ Il est important de préciser que la limitation des *connexions d’appareil* r�
 
 Par exemple, si vous achetez une seule unité S1, vous obtenez une limitation de 100 connexions par seconde. Cela signifie que pour connecter 100 000 appareils, au moins 1 000 secondes sont nécessaires (environ 16 minutes). Toutefois, vous pouvez avoir autant d’appareils connectés simultanément que d’appareils enregistrés dans le registre d’identité de l’appareil.
 
-Le billet de blog [IoT Hub throttling and you][lnk-throttle-blog] \(Limitation d’IoT Hub et vous) fournit une présentation détaillée du comportement de limitation d’IoT Hub.
+Le billet de blog [IoT Hub throttling and you][lnk-throttle-blog] (Limitation d’IoT Hub et vous) fournit une présentation détaillée du comportement de limitation d’IoT Hub.
 
 >[AZURE.NOTE] À tout moment, il est possible d’augmenter les quotas ou les limites en augmentant le nombre d’unités approvisionnées dans un hub IoT.
 
@@ -592,8 +592,8 @@ Pour explorer davantage les capacités de IoT Hub, consultez :
 [img-lifecycle]: ./media/iot-hub-devguide/lifecycle.png
 [img-eventhubcompatible]: ./media/iot-hub-devguide/eventhubcompatible.png
 
-[lnk-pricing]: https://azure.azure.microsoft.com/.com/pricing/details/iot-hub
-[lnk-resource-provider-apis]: https://msdn.azure.microsoft.com/.com/library/mt548492.aspx
+[lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub
+[lnk-resource-provider-apis]: https://msdn.microsoft.com/library/mt548492.aspx
 
 [lnk-sas-tokens]: iot-hub-sas-tokens.md
 [lnk-azure-gateway-guidance]: iot-hub-guidance.md#field-gateways
@@ -609,21 +609,21 @@ Pour explorer davantage les capacités de IoT Hub, consultez :
 [lnk-mqtt]: http://mqtt.org/
 [lnk-websockets]: https://tools.ietf.org/html/rfc6455
 [lnk-arm]: ../resource-group-overview.md
-[lnk-azure-resource-manager]: https://azure.azure.microsoft.com/.com/documentation/articles/resource-group-overview/
+[lnk-azure-resource-manager]: https://azure.microsoft.com/documentation/articles/resource-group-overview/
 [lnk-cbs]: https://www.oasis-open.org/committees/download.php/50506/amqp-cbs-v1%200-wd02%202013-08-12.doc
-[lnk-event-hubs-publisher-policy]: https://code.msdn.azure.microsoft.com/.com/Service-Bus-Event-Hub-99ce67ab
-[lnk-event-hubs]: http://azure.azure.microsoft.com/.com/documentation/services/event-hubs/
+[lnk-event-hubs-publisher-policy]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-99ce67ab
+[lnk-event-hubs]: http://azure.microsoft.com/documentation/services/event-hubs/
 [lnk-event-hubs-consuming-events]: ../event-hubs/event-hubs-programming-guide.md#event-consumers
 [lnk-guidance-d2c-processing]: iot-hub-csharp-csharp-process-d2c.md
 [lnk-management-portal]: https://portal.azure.com
 [lnk-rfc7232]: https://tools.ietf.org/html/rfc7232
 [lnk-sasl-plain]: http://tools.ietf.org/html/rfc4616
-[lnk-servicebus]: http://azure.azure.microsoft.com/.com/documentation/services/service-bus/
+[lnk-servicebus]: http://azure.microsoft.com/documentation/services/service-bus/
 [lnk-tls]: https://tools.ietf.org/html/rfc5246
 [lnk-bulk-identity]: iot-hub-bulk-identity-mgmt.md
 [lnk-eventhub-partitions]: ../event-hubs/event-hubs-overview.md#partitions
 [lnk-mqtt-support]: iot-hub-mqtt-support.md
-[lnk-throttle-blog]: https://azure.azure.microsoft.com/.com/blog/iot-hub-throttling-and-you/
+[lnk-throttle-blog]: https://azure.microsoft.com/blog/iot-hub-throttling-and-you/
 [lnk-servicebus-sdk]: https://www.nuget.org/packages/WindowsAzure.ServiceBus
 
 [lnk-file upload]: iot-hub-csharp-csharp-file-upload.md

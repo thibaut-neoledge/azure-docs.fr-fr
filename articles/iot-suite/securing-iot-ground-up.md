@@ -1,6 +1,6 @@
 <properties
- pageTitle="Sécurisation de l’Internet des objets de bout en bout | azure.microsoft.com/ Azure"
- description="Cet article décrit les fonctionnalités de sécurité intégrées de azure.microsoft.com/ Azure IoT Suite"
+ pageTitle="Sécurisation de l’Internet des objets de bout en bout | Microsoft Azure"
+ description="Cet article décrit les fonctionnalités de sécurité intégrées de Microsoft Azure IoT Suite"
  services=""
  suite="iot-suite"
  documentationCenter=""

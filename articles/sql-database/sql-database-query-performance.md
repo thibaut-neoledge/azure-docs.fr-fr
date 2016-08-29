@@ -34,7 +34,7 @@ La gestion et le réglage des performances des bases de données relationnelles 
 ## Composants requis
 
 - Query Performance Insight est uniquement disponible avec la base de données SQL Azure V12.
-- Query Performance Insight nécessite que le [magasin de requêtes](https://msdn.azure.microsoft.com/.com/library/dn817826.aspx) soit actif sur votre base de données. Si le magasin de requêtes ne fonctionne pas, le portail vous invite à l’activer.
+- Query Performance Insight nécessite que le [magasin de requêtes](https://msdn.microsoft.com/library/dn817826.aspx) soit actif sur votre base de données. Si le magasin de requêtes ne fonctionne pas, le portail vous invite à l’activer.
 
  
 ## Autorisations

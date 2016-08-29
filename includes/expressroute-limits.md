@@ -10,8 +10,8 @@ Les limites suivantes s’appliquent aux ressources ExpressRoute par abonnement.
 | Nombre maximal d’itinéraires pour l’homologation privée Azure avec le module complémentaire ExpressRoute Premium | 10 000 |
 | Nombre maximal d’itinéraires pour l’homologation publique Azure avec ExpressRoute Standard | 200 |
 | Nombre maximal d’itinéraires pour l’homologation publique Azure avec le module complémentaire ExpressRoute Premium | 200 |
-| Nombre maximal d’itinéraires pour l’homologation azure.microsoft.com/ Azure avec ExpressRoute Standard | 200 |
-| Nombre maximal d’itinéraires pour l’homologation azure.microsoft.com/ Azure avec le module complémentaire ExpressRoute Premium | 200 |
+| Nombre maximal d’itinéraires pour l’homologation Microsoft Azure avec ExpressRoute Standard | 200 |
+| Nombre maximal d’itinéraires pour l’homologation Microsoft Azure avec le module complémentaire ExpressRoute Premium | 200 |
 | Nombre de liens de réseau virtuel autorisés par circuit ExpressRoute | voir le tableau ci-dessous |
 
 #### Nombre de réseaux virtuels par circuit ExpressRoute

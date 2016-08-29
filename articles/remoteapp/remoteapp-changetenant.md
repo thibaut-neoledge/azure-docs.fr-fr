@@ -1,6 +1,6 @@
 
 <properties
-    pageTitle="Modifier le client Azure Active Directory dans Azure RemoteApp | azure.microsoft.com/ Azure"
+    pageTitle="Modifier le client Azure Active Directory dans Azure RemoteApp | Microsoft Azure"
     description="Apprenez à modifier le client Azure Active Directory associé à Azure RemoteApp"
     services="remoteapp"
     documentationCenter=""
@@ -21,7 +21,7 @@
 # Modification du client Azure Active Directory dans Azure RemoteApp
 
 > [AZURE.IMPORTANT]
-Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.azure.microsoft.com/.com/fwlink/?linkid=821148).
+Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148).
 
 Azure RemoteApp utilise Azure Active Directory (Azure AD) pour autoriser l’accès utilisateur. Le seul locataire Azure AD que vous pouvez utiliser dans Azure RemoteApp est celui qui est associé à l'abonnement Azure. Vous pouvez afficher l'abonnement associé dans la page **Paramètres** du portail. Examinez la colonne **Annuaire** dans l'onglet **Abonnements**.
 
@@ -32,12 +32,12 @@ Si vous souhaitez utiliser un autre locataire, suivez ces étapes pour modifier 
 1. Dans le portail, supprimez les utilisateurs Azure AD auxquels vous avez donné accès aux collections Azure RemoteApp. (Voir la remarque précédente pour les étapes de cette procédure).
 
 
-2. Définissez un compte azure.microsoft.com/ (anciennement appelé Live ID) comme administrateur du service. (Ne savez pas si vous êtes déjà l'administrateur de service ? Vous pouvez vous en assurer en cliquant sur **Paramètres -> administrateurs**.) À présent, voici comment effectuer les modifications
+2. Définissez un compte Microsoft (anciennement appelé Live ID) comme administrateur du service. (Ne savez pas si vous êtes déjà l'administrateur de service ? Vous pouvez vous en assurer en cliquant sur **Paramètres -> administrateurs**.) À présent, voici comment effectuer les modifications
 	1. Cliquez sur l'utilisateur actuellement connecté dans le coin supérieur droit, puis cliquez sur **Afficher ma facture**.
 	2. Cliquez sur l'abonnement. Ensuite, sur la nouvelle page, faites défiler vers le bas et cliquez sur **Modifiez les données d'abonnement** à droite. (Triez du milieu en bas à droite, si cela peut vous aider.)
-	3. Saisissez le compte azure.microsoft.com/ pour l'utilisateur qui doit être l'administrateur du service.
+	3. Saisissez le compte Microsoft pour l'utilisateur qui doit être l'administrateur du service.
 
-3. Déconnectez-vous maintenant du portail, puis reconnectez-vous avec le compte azure.microsoft.com/ que vous avez spécifié à l'étape précédente.
+3. Déconnectez-vous maintenant du portail, puis reconnectez-vous avec le compte Microsoft que vous avez spécifié à l'étape précédente.
 
 
 4. Cliquez sur **New -> App Services -> Active Directory -> Annuaire -> Créer personnalisée**.

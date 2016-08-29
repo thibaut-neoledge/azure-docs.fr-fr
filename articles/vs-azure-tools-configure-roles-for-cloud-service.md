@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Configurer les rôles pour un service cloud Azure avec Visual Studio | azure.microsoft.com/ Azure"
+   pageTitle="Configurer les rôles pour un service cloud Azure avec Visual Studio | Microsoft Azure"
    description="Découvrez comment installer et configurer des rôles pour les services cloud Azure à l’aide de Visual Studio."
    services="visual-studio-online"
    documentationCenter="na"
@@ -57,7 +57,7 @@ Vous pouvez configurer un service cloud Azure à partir de l’Explorateur de so
 
 ## Modifier le nombre d’instances d’un rôle
 
-Pour améliorer la performance de votre service cloud, vous pouvez modifier le nombre d’instances d’un rôle qui s’exécutent, en fonction du nombre d’utilisateurs ou de la charge attendue pour un rôle particulier. Une machine virtuelle distincte est créée pour chaque instance d’un rôle quand le service cloud s’exécute dans Azure. Cela affectera la facturation pour le déploiement de ce service cloud. Pour plus d’informations sur la facturation, consultez [Comprendre votre facture azure.microsoft.com/ Azure](billing-understand-your-bill.md).
+Pour améliorer la performance de votre service cloud, vous pouvez modifier le nombre d’instances d’un rôle qui s’exécutent, en fonction du nombre d’utilisateurs ou de la charge attendue pour un rôle particulier. Une machine virtuelle distincte est créée pour chaque instance d’un rôle quand le service cloud s’exécute dans Azure. Cela affectera la facturation pour le déploiement de ce service cloud. Pour plus d’informations sur la facturation, consultez [Comprendre votre facture Microsoft Azure](billing-understand-your-bill.md).
 
 ### Pour modifier le nombre d’instances pour un rôle
 
@@ -97,7 +97,7 @@ Si vous utilisez une valeur différente pour chaque configuration de service, il
 
 1. Pour modifier la valeur pour la chaîne de connexion, choisissez le bouton de sélection (…). La boîte de dialogue **Créer une chaîne de connexion de stockage** s’affiche.
 
-1. Pour utiliser l’émulateur de compte de stockage local, sélectionnez la case d’option **Émulateur de stockage azure.microsoft.com/ Azure**, puis le bouton **OK**.
+1. Pour utiliser l’émulateur de compte de stockage local, sélectionnez la case d’option **Émulateur de stockage Microsoft Azure**, puis le bouton **OK**.
 
 1. Pour utiliser un compte de stockage dans Azure, sélectionnez la case d’option **Votre abonnement**, puis le compte de stockage souhaité.
 
@@ -110,9 +110,9 @@ Si vous utilisez une valeur différente pour chaque configuration de service, il
 1. Pour accéder à la chaîne de connexion dans le fichier de configuration de service, vous devez obtenir la valeur du paramètre de configuration. Le code suivant montre un exemple où le stockage d’objets blob est créé et où les données sont téléchargées à l’aide d’une chaîne de connexion `MyConnectionString` depuis le fichier de configuration de service quand un utilisateur choisit **Button1** dans la page Default.aspx dans le rôle web pour un service cloud Azure. Ajoutez les instructions using suivantes à Default.aspx.cs :
 
     ```
-    using azure.microsoft.com/.WindowsAzure;
-    using azure.microsoft.com/.WindowsAzure.Storage;
-    using azure.microsoft.com/.WindowsAzure.ServiceRuntime;
+    using Microsoft.WindowsAzure;
+    using Microsoft.WindowsAzure.Storage;
+    using Microsoft.WindowsAzure.ServiceRuntime;
     ```
 
 1. Ouvrez Default.aspx.cs en mode Conception, et ajoutez un bouton à partir de la boîte à outils. Ajoutez le code suivant à la méthode `Button1_Click`. Ce code utilise `GetConfigurationSettingValue` pour obtenir la valeur depuis le fichier de configuration de service pour la chaîne de connexion. Un objet blob est ensuite créé dans le compte de stockage qui est référencé dans la chaîne de connexion `MyConnectionString` et, enfin, le programme ajoute du texte à l’objet blob.
@@ -135,7 +135,7 @@ Si vous utilisez une valeur différente pour chaque configuration de service, il
 
 ## Ajouter des paramètres personnalisés à utiliser dans votre service cloud Azure
 
-Les paramètres personnalisés dans le fichier de configuration de service vous permettent d’ajouter un nom et une valeur pour une chaîne pour une configuration de service spécifique. Vous pouvez choisir d’utiliser ce paramètre pour configurer une fonctionnalité dans votre service cloud en lisant la valeur du paramètre et en utilisant cette valeur pour contrôler la logique de votre code. Vous pouvez modifier ces valeurs de configuration de service sans devoir régénérer votre package de services ou lorsque votre service cloud est en cours d’exécution. Votre code peut vérifier les notifications produites lorsqu’un paramètre est modifié. Consultez [RoleEnvironment.Changing Event](https://msdn.azure.microsoft.com/.com/library/azure/azure.microsoft.com/.windowsazure.serviceruntime.roleenvironment.changing.aspx).
+Les paramètres personnalisés dans le fichier de configuration de service vous permettent d’ajouter un nom et une valeur pour une chaîne pour une configuration de service spécifique. Vous pouvez choisir d’utiliser ce paramètre pour configurer une fonctionnalité dans votre service cloud en lisant la valeur du paramètre et en utilisant cette valeur pour contrôler la logique de votre code. Vous pouvez modifier ces valeurs de configuration de service sans devoir régénérer votre package de services ou lorsque votre service cloud est en cours d’exécution. Votre code peut vérifier les notifications produites lorsqu’un paramètre est modifié. Consultez [RoleEnvironment.Changing Event](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.changing.aspx).
 
 Vous pouvez ajouter, supprimer ou modifier des paramètres personnalisés pour vos configurations de service. Vous pouvez vouloir différentes valeurs pour ces chaînes pour différentes configurations de service.
 
@@ -166,9 +166,9 @@ Si vous utilisez une valeur différente pour chaque configuration de service, il
     Vous devez vous assurer que les instructions using suivantes sont déjà ajoutées à Default.aspx.cs tout comme vous l’avez fait dans la procédure précédente.
 
     ```
-    using azure.microsoft.com/.WindowsAzure;
-    using azure.microsoft.com/.WindowsAzure.Storage;
-    using azure.microsoft.com/.WindowsAzure.ServiceRuntime;
+    using Microsoft.WindowsAzure;
+    using Microsoft.WindowsAzure.Storage;
+    using Microsoft.WindowsAzure.ServiceRuntime;
     ```
 
 1. Ajoutez le code suivant à la méthode `Button1_Click` pour accéder à cette chaîne de la même façon que vous accédez à une chaîne de connexion. Votre code peut ensuite exécuter du code spécifique basé sur la valeur de la chaîne de paramètres pour le fichier de configuration de service qui est utilisé.
@@ -279,7 +279,7 @@ Vous pouvez collecter les données de diagnostic pour votre service cloud Azure.
 
 1. Choisissez le compte de stockage que vous souhaitez utiliser dans **Nom du compte**.
 
-    Si vous entrez manuellement les informations d’identification du compte de stockage, copiez ou entrez la clé primaire dans **Clé du compte**. Vous pouvez copier cette clé depuis le [portail Azure Classic](http://go.azure.microsoft.com/.com/fwlink/?LinkID=213885). Pour copier cette clé, suivez ces étapes depuis la vue **Comptes de stockage** dans le [portail Azure Classic](http://go.azure.microsoft.com/.com/fwlink/?LinkID=213885) :
+    Si vous entrez manuellement les informations d’identification du compte de stockage, copiez ou entrez la clé primaire dans **Clé du compte**. Vous pouvez copier cette clé depuis le [portail Azure Classic](http://go.microsoft.com/fwlink/?LinkID=213885). Pour copier cette clé, suivez ces étapes depuis la vue **Comptes de stockage** dans le [portail Azure Classic](http://go.microsoft.com/fwlink/?LinkID=213885) :
     
   1. Sélectionnez le compte de stockage que vous voulez utiliser pour votre service cloud.
 
@@ -295,7 +295,7 @@ Vous pouvez collecter les données de diagnostic pour votre service cloud Azure.
 
 Vous pouvez définir la taille de machine virtuelle pour chaque rôle. Vous pouvez uniquement définir cette taille pour toutes les configurations de service. Si vous sélectionnez une plus petite taille de machine, alors moins de cœurs d’UC, de mémoire et de stockage disque local sont attribués. La bande passante attribuée est également plus petite. Pour plus d’informations concernant ces tailles et les ressources attribuées, consultez [Tailles pour les services cloud](cloud-services/cloud-services-sizes-specs.md).
 
-Les ressources requises pour chaque machine virtuelle dans Azure affectent le coût de l’exécution de votre service cloud dans Azure. Pour plus d’informations sur la facturation Azure, consultez [Comprendre votre facture azure.microsoft.com/ Azure](billing-understand-your-bill.md).
+Les ressources requises pour chaque machine virtuelle dans Azure affectent le coût de l’exécution de votre service cloud dans Azure. Pour plus d’informations sur la facturation Azure, consultez [Comprendre votre facture Microsoft Azure](billing-understand-your-bill.md).
 
 ### Pour modifier la taille de la machine virtuelle
 
@@ -319,7 +319,7 @@ Vous pouvez aussi ajouter des points de terminaison qui peuvent être utilisés 
 
 Si vous ajoutez des points de terminaison HTTPS, vous devez utiliser un certificat SSL. Pour cela, vous pouvez associer des certificats à votre rôle pour toutes les configurations de service et les utiliser pour vos points de terminaison.
 
->[AZURE.IMPORTANT] Ces certificats ne font pas partie d’un package avec votre service. Vous devez télécharger séparément vos certificats sur Azure via le [portail Azure Classic](http://go.azure.microsoft.com/.com/fwlink/?LinkID=213885).
+>[AZURE.IMPORTANT] Ces certificats ne font pas partie d’un package avec votre service. Vous devez télécharger séparément vos certificats sur Azure via le [portail Azure Classic](http://go.microsoft.com/fwlink/?LinkID=213885).
 
 Les certificats de gestion que vous associez à vos configurations de service s’appliquent seulement quand votre service cloud s’exécute dans Azure. Quand votre service cloud s’exécute dans l’environnement de développement local, un certificat standard géré par l’émulateur de calcul Azure est utilisé.
 
@@ -374,6 +374,6 @@ Les certificats de gestion que vous associez à vos configurations de service s�
 1. Choisissez le bouton **Enregistrer** dans la barre d’outils pour enregistrer ces modifications dans les fichiers de configuration de service.
 
 ## Étapes suivantes
-En savoir plus sur les projets Azure dans Visual Studio en lisant [Configuration d’un projet Azure](vs-azure-tools-configuring-an-azure-project.md). En savoir plus sur le schéma de service cloud en lisant [Référence de schéma](https://msdn.azure.microsoft.com/.com/library/azure/dd179398).
+En savoir plus sur les projets Azure dans Visual Studio en lisant [Configuration d’un projet Azure](vs-azure-tools-configuring-an-azure-project.md). En savoir plus sur le schéma de service cloud en lisant [Référence de schéma](https://msdn.microsoft.com/library/azure/dd179398).
 
 <!---HONumber=AcomDC_0817_2016-->

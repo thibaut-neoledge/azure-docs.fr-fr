@@ -21,13 +21,13 @@
 
 Si vous disposez d’une application web qui est déjà en cours d’exécution sur votre serveur J2EE, vous pouvez commencer à la surveiller avec [Application Insights](app-insights-overview.md) sans avoir à modifier le code ni à recompiler votre projet. Grâce à cette option, vous obtenez des informations sur les requêtes HTTP envoyées à votre serveur, les exceptions non gérées et les compteurs de performances.
 
-Vous devrez vous abonner à [azure.microsoft.com/ Azure](https://azure.com).
+Vous devrez vous abonner à [Microsoft Azure](https://azure.com).
 
 > [AZURE.NOTE] La procédure décrite ici ajoute le Kit de développement logiciel (SDK) à votre application web au moment de l’exécution. Cette opération est utile si vous ne souhaitez pas mettre à jour ni régénérer votre code source. Mais si vous le pouvez, nous vous recommandons plutôt d’[ajouter le Kit de développement logiciel au code source](app-insights-java-get-started.md). Cette approche vous offre davantage d’options, telles que l’écriture de code pour effectuer le suivi de l’activité des utilisateurs.
 
 ## 1\. Obtenir une clé d'instrumentation Application Insights
 
-1. Connectez-vous au [portail azure.microsoft.com/ Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Microsoft Azure](https://portal.azure.com).
 2. Créer une ressource Application Insights dans Azure
 
     ![Cliquez sur + et choisissez Ajouter Application Insights](./media/app-insights-java-live/01-create.png)
@@ -51,7 +51,7 @@ Créez le fichier ApplicationInsights.xml dans le dossier auquel vous avez ajout
 Remplacez la clé d'instrumentation que avez obtenue sur le portail Azure.
 
     <?xml version="1.0" encoding="utf-8"?>
-    <ApplicationInsights xmlns="http://schemas.azure.microsoft.com/.com/ApplicationInsights/2013/Settings" schemaVersion="2014-05-30">
+    <ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings" schemaVersion="2014-05-30">
 
 
       <!-- The key from the portal: -->
@@ -62,20 +62,20 @@ Remplacez la clé d'instrumentation que avez obtenue sur le portail Azure.
       <!-- HTTP request component (not required for bare API) -->
 
       <TelemetryModules>
-        <Add type="com.azure.microsoft.com/.applicationinsights.web.extensibility.modules.WebRequestTrackingTelemetryModule"/>
-        <Add type="com.azure.microsoft.com/.applicationinsights.web.extensibility.modules.WebSessionTrackingTelemetryModule"/>
-        <Add type="com.azure.microsoft.com/.applicationinsights.web.extensibility.modules.WebUserTrackingTelemetryModule"/>
+        <Add type="com.microsoft.applicationinsights.web.extensibility.modules.WebRequestTrackingTelemetryModule"/>
+        <Add type="com.microsoft.applicationinsights.web.extensibility.modules.WebSessionTrackingTelemetryModule"/>
+        <Add type="com.microsoft.applicationinsights.web.extensibility.modules.WebUserTrackingTelemetryModule"/>
       </TelemetryModules>
 
       <!-- Events correlation (not required for bare API) -->
       <!-- These initializers add context data to each event -->
 
       <TelemetryInitializers>
-        <Add   type="com.azure.microsoft.com/.applicationinsights.web.extensibility.initializers.WebOperationIdTelemetryInitializer"/>
-        <Add type="com.azure.microsoft.com/.applicationinsights.web.extensibility.initializers.WebOperationNameTelemetryInitializer"/>
-        <Add type="com.azure.microsoft.com/.applicationinsights.web.extensibility.initializers.WebSessionTelemetryInitializer"/>
-        <Add type="com.azure.microsoft.com/.applicationinsights.web.extensibility.initializers.WebUserTelemetryInitializer"/>
-        <Add type="com.azure.microsoft.com/.applicationinsights.web.extensibility.initializers.WebUserAgentTelemetryInitializer"/>
+        <Add   type="com.microsoft.applicationinsights.web.extensibility.initializers.WebOperationIdTelemetryInitializer"/>
+        <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebOperationNameTelemetryInitializer"/>
+        <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebSessionTelemetryInitializer"/>
+        <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebUserTelemetryInitializer"/>
+        <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebUserAgentTelemetryInitializer"/>
 
       </TelemetryInitializers>
     </ApplicationInsights>
@@ -95,7 +95,7 @@ Pour obtenir des résultats plus précis, le filtre doit être mappé avant tous
     <filter>
       <filter-name>ApplicationInsightsWebFilter</filter-name>
       <filter-class>
-        com.azure.microsoft.com/.applicationinsights.web.internal.WebRequestTrackingFilter
+        com.microsoft.applicationinsights.web.internal.WebRequestTrackingFilter
       </filter-class>
     </filter>
     <filter-mapping>
@@ -107,7 +107,7 @@ Pour obtenir des résultats plus précis, le filtre doit être mappé avant tous
 
 ## 6\. Voir votre télémétrie dans Application Insights
 
-Revenez à votre ressource Application Insights sur le [portail azure.microsoft.com/ Azure](https://portal.azure.com).
+Revenez à votre ressource Application Insights sur le [portail Microsoft Azure](https://portal.azure.com).
 
 Les données des demandes HTTP apparaissent dans le panneau Vue d’ensemble. (Si elles n’y sont pas, attendez quelques secondes et cliquez sur Actualiser).
 

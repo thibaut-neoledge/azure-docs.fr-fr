@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Diffusion des données d’Azure Diagnostics dans le chemin réactif à l’aide d’Event Hubs | azure.microsoft.com/ Azure"
+	pageTitle="Diffusion des données d’Azure Diagnostics dans le chemin réactif à l’aide d’Event Hubs | Microsoft Azure"
 	description="Cet article montre la procédure complète permettant de configurer Azure Diagnostics avec Event Hubs et inclut des conseils relatifs aux scénarios courants."
 	services="event-hubs"
 	documentationCenter="na"
@@ -17,7 +17,7 @@
 
 # Diffusion des données d’Azure Diagnostics dans le chemin réactif à l’aide d’Event Hubs
 
-Azure Diagnostics propose des moyens flexibles de collecter des mesures et des journaux à partir de machines virtuelles de services cloud et de transférer les résultats dans Azure Storage. Depuis mars 2016 (Kit de développement logiciel 2.9), vous pouvez recevoir les données du Diagnostics pour personnaliser entièrement les sources de données et transférer des données de chemin réactif en quelques secondes à l’aide [d’Azure Event Hubs](https://azure.azure.microsoft.com/.com/services/event-hubs/).
+Azure Diagnostics propose des moyens flexibles de collecter des mesures et des journaux à partir de machines virtuelles de services cloud et de transférer les résultats dans Azure Storage. Depuis mars 2016 (Kit de développement logiciel 2.9), vous pouvez recevoir les données du Diagnostics pour personnaliser entièrement les sources de données et transférer des données de chemin réactif en quelques secondes à l’aide [d’Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/).
 
 Les types de données pris en charge sont les suivants :
 
@@ -38,7 +38,7 @@ Cet article vous montre la procédure complète de configuration de diagnostics 
 
 La réception Event Hubs dans Azure Diagnostics est prise en charge dans les services cloud, dans les jeux de mise à l’échelle de machines virtuelles, dans Service Fabric à partir du Kit de développement logiciel (SDK) 2.9 Azure, ainsi que dans les outils Azure correspondants pour Visual Studio.
 
-- Extension Azure Diagnostics 1.6 (ciblée par défaut par le [Kit de développement logiciel (SDK) Azure pour .NET 2.9 ou ultérieur](https://azure.azure.microsoft.com/.com/downloads/))
+- Extension Azure Diagnostics 1.6 (ciblée par défaut par le [Kit de développement logiciel (SDK) Azure pour .NET 2.9 ou ultérieur](https://azure.microsoft.com/downloads/))
 - [Visual Studio 2013 ou une version ultérieure](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)
 - Configurations existantes d’Azure Diagnostics dans une application à l’aide d’un fichier *.wadcfgx* et de l’une des méthodes suivantes :
 	- Visual Studio : [Configuration de Diagnostics pour les services cloud et les machines virtuelles Azure](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md)
@@ -59,7 +59,7 @@ Azure Diagnostics transmet toujours par défaut des journaux et des mesures à u
 
 Dans cet exemple, l’URL de l’Event Hub est définie sur l’espace de noms complet de l’Event Hub (espace de noms Event Hubs + « / » + nom de l’Event Hub).
 
-L’URL de l’Event Hub s’affiche dans le [portail Azure](http://go.azure.microsoft.com/.com/fwlink/?LinkID=213885) dans le tableau de bord Event Hubs.
+L’URL de l’Event Hub s’affiche dans le [portail Azure](http://go.microsoft.com/fwlink/?LinkID=213885) dans le tableau de bord Event Hubs.
 
 Le nom **Sink** peut être défini sur n’importe quelle chaîne valide tant que cette même valeur est utilisée de manière cohérente dans le fichier de configuration.
 
@@ -68,7 +68,7 @@ Le nom **Sink** peut être défini sur n’importe quelle chaîne valide tant qu
 Le récepteur Event Hubs doit également être déclaré et défini dans la section **PrivateConfig** du fichier de configuration *.wadcfgx*.
 
 ```
-<PrivateConfig xmlns="http://schemas.azure.microsoft.com/.com/ServiceHosting/2010/10/DiagnosticsConfiguration">
+<PrivateConfig xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration">
   <StorageAccount name="" key="" endpoint="" />
   <EventHub Url="https://diags-mycompany-ns.servicebus.windows.net/diageventhub" SharedAccessKeyName="SendRule" SharedAccessKey="9B3SwghJOGEUvXigc6zHPInl2iYxrgsKHZoy4nm9CUI=" />
 </PrivateConfig>
@@ -144,7 +144,7 @@ Comme indiqué précédemment, il existe plusieurs scénarios d’utilisation po
 
 Une approche simple consiste à créer une petite application console de test pour écouter l’Event Hub et imprimer le flux de sortie. Vous pouvez placer le code suivant (expliqué plus en détail dans l’article [Prise en main d’Event Hubs](./event-hubs-csharp-ephcs-getstarted.md)) dans une application console.
 
-Notez que l’application console doit inclure le [package Event Processor Host Nuget](https://www.nuget.org/packages/azure.microsoft.com/.Azure.ServiceBus.EventProcessorHost/).
+Notez que l’application console doit inclure le [package Event Processor Host Nuget](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost/).
 
 N’oubliez pas de remplacer les valeurs entre crochets de la fonction **Main** par les valeurs de vos ressources.
 
@@ -156,7 +156,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using azure.microsoft.com/.ServiceBus.Messaging;
+using Microsoft.ServiceBus.Messaging;
 
 namespace EventHubListener
 {
@@ -241,18 +241,18 @@ namespace EventHubListener
 
 - J’ai essayé ces suggestions, mais l’Event Hub ne fonctionne toujours pas.
 
-	Consultez la table Azure Storage **WADDiagnosticInfrastructureLogsTable** qui contient les journaux et les erreurs d’Azure Diagnostics. Une option consiste à utiliser un outil tel que l’[explorateur de stockage Azure](http://www.storageexplorer.com) pour vous connecter à ce compte de stockage, consulter cette table et ajouter une requête pour l’horodatage (TimeStamp) des dernières 24 heures. Vous pouvez utiliser l’outil pour exporter un fichier .csv et l’ouvrir dans une application comme azure.microsoft.com/ Excel. Excel permet de rechercher facilement des chaînes de carte d’appel, telles **qu’EventHubs** afin d’identifier l’erreur signalée.
+	Consultez la table Azure Storage **WADDiagnosticInfrastructureLogsTable** qui contient les journaux et les erreurs d’Azure Diagnostics. Une option consiste à utiliser un outil tel que l’[explorateur de stockage Azure](http://www.storageexplorer.com) pour vous connecter à ce compte de stockage, consulter cette table et ajouter une requête pour l’horodatage (TimeStamp) des dernières 24 heures. Vous pouvez utiliser l’outil pour exporter un fichier .csv et l’ouvrir dans une application comme Microsoft Excel. Excel permet de rechercher facilement des chaînes de carte d’appel, telles **qu’EventHubs** afin d’identifier l’erreur signalée.
 
 ## Étapes suivantes
 
-• [En savoir plus sur Event Hubs](https://azure.azure.microsoft.com/.com/services/event-hubs/)
+• [En savoir plus sur Event Hubs](https://azure.microsoft.com/services/event-hubs/)
 
 ## Annexe : Exemple de fichier de configuration d’Azure Diagnostics (.wadcfgx)
 
 ```
 <?xml version="1.0" encoding="utf-8"?>
-<DiagnosticsConfiguration xmlns="http://schemas.azure.microsoft.com/.com/ServiceHosting/2010/10/DiagnosticsConfiguration">
-  <PublicConfig xmlns="http://schemas.azure.microsoft.com/.com/ServiceHosting/2010/10/DiagnosticsConfiguration">
+<DiagnosticsConfiguration xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration">
+  <PublicConfig xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration">
     <WadCfg>
       <DiagnosticMonitorConfiguration overallQuotaInMB="4096" sinks="applicationInsights.errors">
         <DiagnosticInfrastructureLogs scheduledTransferLogLevelFilter="Error" />
@@ -294,7 +294,7 @@ namespace EventHubListener
     </WadCfg>
     <StorageAccount />
   </PublicConfig>
-  <PrivateConfig xmlns="http://schemas.azure.microsoft.com/.com/ServiceHosting/2010/10/DiagnosticsConfiguration">
+  <PrivateConfig xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration">
     <StorageAccount name="" key="" endpoint="" />
     <EventHub Url="https://diageventhub-py-ns.servicebus.windows.net/diageventhub-py" SharedAccessKeyName="SendRule" SharedAccessKey="YOUR_KEY_HERE" />
   </PrivateConfig>
@@ -306,11 +306,11 @@ Le fichier complémentaire *ServiceConfiguration.Cloud.cscfg* pour cet exemple s
 
 ```
 <?xml version="1.0" encoding="utf-8"?>
-<ServiceConfiguration serviceName="MyFixItCloudService" xmlns="http://schemas.azure.microsoft.com/.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="3" osVersion="*" schemaVersion="2015-04.2.6">
+<ServiceConfiguration serviceName="MyFixItCloudService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="3" osVersion="*" schemaVersion="2015-04.2.6">
   <Role name="MyFixIt.WorkerRole">
     <Instances count="1" />
     <ConfigurationSettings>
-      <Setting name="azure.microsoft.com/.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="YOUR_CONNECTION_STRING" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="YOUR_CONNECTION_STRING" />
     </ConfigurationSettings>
   </Role>
 </ServiceConfiguration>

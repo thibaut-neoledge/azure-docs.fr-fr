@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Développement avec plusieurs régions dans DocumentDB | azure.microsoft.com/ Azure"
+   pageTitle="Développement avec plusieurs régions dans DocumentDB | Microsoft Azure"
    description="Découvrez comment accéder aux données dans plusieurs régions Azure DocumentDB, un service de base de données NoSQL entièrement géré."
    services="documentdb"
    documentationCenter=""
@@ -18,7 +18,7 @@
    
 # Développement avec des comptes DocumentDB à plusieurs régions
 
-> [AZURE.NOTE] La distribution mondiale des bases de données DocumentDB est généralement disponible et activée automatiquement pour tous les comptes DocumentDB nouvellement créés. Nous travaillons à l’activation de la distribution mondiale sur tous les comptes existants, mais en attendant, si vous souhaitez que la distribution mondiale soit activée sur votre compte, veuillez [contactez le support technique](https://portal.azure.com/?#blade/azure.microsoft.com/_Azure_Support/HelpAndSupportBlade) et nous l’activerons pour vous.
+> [AZURE.NOTE] La distribution mondiale des bases de données DocumentDB est généralement disponible et activée automatiquement pour tous les comptes DocumentDB nouvellement créés. Nous travaillons à l’activation de la distribution mondiale sur tous les comptes existants, mais en attendant, si vous souhaitez que la distribution mondiale soit activée sur votre compte, veuillez [contactez le support technique](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) et nous l’activerons pour vous.
 
 Pour tirer parti de la [distribution mondiale](documentdb-distribute-data-globally.md), les applications clientes peuvent spécifier la liste ordonnée de préférences de régions à utiliser pour effectuer des opérations sur les documents. Pour cela, vous devez configurer la stratégie de connexion. Selon la configuration du compte Azure DocumentDB, la disponibilité régionale actuelle et la liste de préférences spécifiée, le Kit de développement logiciel (SDK) choisit le point de terminaison optimal pour les opérations de lecture et d’écriture.
 
@@ -38,7 +38,7 @@ Si la propriété PreferredLocations n’est pas définie, toutes les demandes s
 ## Kit de développement logiciel (SDK) .NET
 Le SDK peut être utilisé sans aucune modification du code. Dans ce cas, le SDK dirige automatiquement les lectures et les écritures vers la région d’écriture en cours.
 
-Dans la version 1.8 et ultérieure du SDK .NET, le paramètre ConnectionPolicy du constructeur DocumentClient comporte une propriété appelée azure.microsoft.com/.Azure.Documents.ConnectionPolicy.PreferredLocations. Cette propriété est de type Collection `<string>` et doit contenir une liste des noms de région. Les valeurs de chaîne sont mises en forme par la colonne Nom de la région dans la page [Régions Azure][regions], sans espaces avant ou après le premier et le dernier caractère, respectivement.
+Dans la version 1.8 et ultérieure du SDK .NET, le paramètre ConnectionPolicy du constructeur DocumentClient comporte une propriété appelée Microsoft.Azure.Documents.ConnectionPolicy.PreferredLocations. Cette propriété est de type Collection `<string>` et doit contenir une liste des noms de région. Les valeurs de chaîne sont mises en forme par la colonne Nom de la région dans la page [Régions Azure][regions], sans espaces avant ou après le premier et le dernier caractère, respectivement.
 
 Les points de terminaison d’écriture et de lecture en cours sont disponibles dans DocumentClient.WriteEndpoint et DocumentClient.ReadEndpoint, respectivement.
 
@@ -143,6 +143,6 @@ Apprenez-en plus sur la distribution mondiale de données avec DocumentDB dans l
 - [Fonctionnement du débit avec plusieurs régions](documentdb-manage.md#how-throughput-works-with-multiple-regions)
 - [Ajout de régions à l’aide du Portail Azure](documentdb-portal-global-replication.md)
 
-[regions]: https://azure.azure.microsoft.com/.com/regions/
+[regions]: https://azure.microsoft.com/regions/
 
 <!---HONumber=AcomDC_0817_2016-->

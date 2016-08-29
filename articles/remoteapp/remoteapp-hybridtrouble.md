@@ -1,6 +1,6 @@
 
 <properties
-    pageTitle="Résoudre les problèmes de création de collections hybrides RemoteApp | azure.microsoft.com/ Azure"
+    pageTitle="Résoudre les problèmes de création de collections hybrides RemoteApp | Microsoft Azure"
     description="Apprenez comment dépanner les échecs de création de collections hybrides RemoteApp"
     services="remoteapp"
     documentationCenter=""
@@ -21,7 +21,7 @@
 # Résolution des problèmes de création de collections hybrides Azure RemoteApp
 
 > [AZURE.IMPORTANT]
-Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.azure.microsoft.com/.com/fwlink/?linkid=821148).
+Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148).
 
 Une collection hybride est hébergée dans le cloud Azure et y stocke également les données, mais elle permet aussi aux utilisateurs d'accéder aux données et aux ressources stockées sur votre réseau local. Les utilisateurs peuvent accéder aux applications en se connectant avec leurs informations d'identification d'entreprise, synchronisées ou fédérées avec Azure Active Directory. Vous pouvez déployer une collection hybride qui utilise un réseau virtuel Azure existant ou vous pouvez créer un réseau virtuel. Nous vous recommandons d’utiliser une plage CIDR suffisamment étendue lorsque vous créez ou utilisez un sous-réseau de réseau virtuel afin de pouvoir prendre en compte la croissance future d’Azure RemoteApp.
 

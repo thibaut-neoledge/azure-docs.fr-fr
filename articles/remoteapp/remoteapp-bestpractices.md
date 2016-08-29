@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Meilleures pratiques pour Azure RemoteApp | azure.microsoft.com/ Azure"
+    pageTitle="Meilleures pratiques pour Azure RemoteApp | Microsoft Azure"
     description="Meilleures pratiques pour la configuration et l'utilisation d’Azure RemoteApp"
     services="remoteapp"
     documentationCenter=""
@@ -18,7 +18,7 @@
 # Meilleures pratiques pour la configuration et l'utilisation d'Azure RemoteApp
 
 > [AZURE.IMPORTANT]
-Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.azure.microsoft.com/.com/fwlink/?linkid=821148).
+Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148).
 
 Les informations suivantes peuvent vous aider à configurer et utiliser efficacement Azure RemoteApp.
 
@@ -33,7 +33,7 @@ Les informations suivantes peuvent vous aider à configurer et utiliser efficace
 
 
 - Enregistrez et fermez les applications RemoteApp quand vous n'en avez plus besoin. Sinon, vous pourriez perdre des données.
-- Validez les applications personnalisées avant de les utiliser dans Azure RemoteApp. Cela implique de vérifier qu'elles fonctionnent sur une plateforme multisession et qu'elles ne consomment pas de ressources inutiles, telles que la mémoire et le processeur, qui pourraient manquer à un autre utilisateur de la même collection. Pour plus d'informations, téléchargez et lisez les [Meilleures pratiques de compatibilité des applications pour les Services Bureau à distance](http://www.azure.microsoft.com/.com/download/details.aspx?id=18704).
+- Validez les applications personnalisées avant de les utiliser dans Azure RemoteApp. Cela implique de vérifier qu'elles fonctionnent sur une plateforme multisession et qu'elles ne consomment pas de ressources inutiles, telles que la mémoire et le processeur, qui pourraient manquer à un autre utilisateur de la même collection. Pour plus d'informations, téléchargez et lisez les [Meilleures pratiques de compatibilité des applications pour les Services Bureau à distance](http://www.microsoft.com/download/details.aspx?id=18704).
 
 ## Configuration et gestion
 

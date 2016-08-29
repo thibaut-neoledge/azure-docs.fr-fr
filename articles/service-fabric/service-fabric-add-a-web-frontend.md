@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Créer un serveur web frontal pour votre application en utilisant ASP.NET Core | azure.microsoft.com/ Azure"
+   pageTitle="Créer un serveur web frontal pour votre application en utilisant ASP.NET Core | Microsoft Azure"
    description="Exposez votre application Service Fabric sur le web à l’aide d’un projet d’API web ASP.NET Core et de la communication interservice via ServiceProxy."
    services="service-fabric"
    documentationCenter=".net"
@@ -79,7 +79,7 @@ Nous allons commencer par la création de l’interface en tant que contrat entr
 
 3. Pour qu’une interface soit utilisable par `ServiceProxy`, elle doit dériver de l’interface IService. Cette interface est incluse dans l'un des packages NuGet de Service Fabric. Pour ajouter le package, cliquez avec le bouton droit sur votre projet de bibliothèque de classes et choisissez **Gérer les packages NuGet**.
 
-4. Recherchez le package **azure.microsoft.com/.ServiceFabric.Services** et installez-le.
+4. Recherchez le package **Microsoft.ServiceFabric.Services** et installez-le.
 
     ![Obtention du package NuGet de services][vs-services-nuget-package]
 
@@ -88,7 +88,7 @@ Nous allons commencer par la création de l’interface en tant que contrat entr
     ```c#
     namespace MyStatefulService.Interfaces
     {
-        using azure.microsoft.com/.ServiceFabric.Services.Remoting;
+        using Microsoft.ServiceFabric.Services.Remoting;
 
         public interface ICounter: IService
         {
@@ -145,7 +145,7 @@ Avec l'interface `ICounter` mise en œuvre, l'étape finale de l'activation du s
 Dans ce cas, nous remplaçons la méthode `CreateServiceReplicaListeners` existante par une instance de `ServiceRemotingListener`, ce qui crée un point de terminaison RPC pouvant être appelé à partir de clients via `ServiceProxy`.
 
 ```c#
-using azure.microsoft.com/.ServiceFabric.Services.Remoting.Runtime;
+using Microsoft.ServiceFabric.Services.Remoting.Runtime;
 
 ...
 
@@ -175,13 +175,13 @@ Notre service avec état est maintenant prêt à recevoir le trafic provenant d'
 
     ![Création d’une plateforme pour la bibliothèque de classes][vs-create-platform]
 
-3. Ajoutez le package azure.microsoft.com/.ServiceFabric.Services au projet ASP.NET, tout comme vous l’avez fait précédemment pour le projet de bibliothèque de classes. Ceci fournira la classe `ServiceProxy`.
+3. Ajoutez le package Microsoft.ServiceFabric.Services au projet ASP.NET, tout comme vous l’avez fait précédemment pour le projet de bibliothèque de classes. Ceci fournira la classe `ServiceProxy`.
 
 4. Dans le dossier **Contrôleurs**, ouvrez la classe `ValuesController`. Notez que la méthode `Get` renvoie actuellement uniquement un tableau de chaînes codées en dur avec « valeur1 » et « valeur2 », ce qui correspond à ce que nous avons vu précédemment dans le navigateur. Remplacez par le code suivant :
 
     ```c#
     using MyStatefulService.Interfaces;
-    using azure.microsoft.com/.ServiceFabric.Services.Remoting.Client;
+    using Microsoft.ServiceFabric.Services.Remoting.Client;
 
     ...
 
@@ -253,7 +253,7 @@ Pour apprendre à configurer des valeurs différentes pour un environnement diff
 
 
 <!-- external links -->
-[dotnetcore-install]: https://www.azure.microsoft.com/.com/net/core#windows
-[api-management-landing-page]: https://azure.azure.microsoft.com/.com/fr-FR/services/api-management/
+[dotnetcore-install]: https://www.microsoft.com/net/core#windows
+[api-management-landing-page]: https://azure.microsoft.com/services/api-management/
 
 <!---HONumber=AcomDC_0817_2016-->

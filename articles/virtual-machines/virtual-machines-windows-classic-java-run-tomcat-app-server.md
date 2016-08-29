@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Tomcat sur une machine virtuelle | azure.microsoft.com/ Azure"
+	pageTitle="Tomcat sur une machine virtuelle | Microsoft Azure"
 	description="Ce didacticiel utilise des ressources créées avec le modèle de déploiement classique, et montre comment créer une machine virtuelle Windows et la configurez pour exécuter un serveur d’applications Apache Tomcat."
 	services="virtual-machines-windows"
 	documentationCenter="java"
@@ -125,7 +125,7 @@ Pour démarrer Tomcat depuis des machines externes, vous devez créer un point d
     L’activation du démarrage automatique de Tomcat lui permet de redémarrer en même temps que la machine virtuelle (par exemple, après des mises à jour logicielles nécessitant un redémarrage).
 
 ## Étapes suivantes
-Pour en savoir plus sur les autres services (Azure Storage, bus des services, base de données SQL) à inclure dans vos applications Java, voir les informations disponibles de [Java Developer Center](https://azure.azure.microsoft.com/.com/develop/java/).
+Pour en savoir plus sur les autres services (Azure Storage, bus des services, base de données SQL) à inclure dans vos applications Java, voir les informations disponibles de [Java Developer Center](https://azure.microsoft.com/develop/java/).
 
 [virtual_machine_tomcat]: ./media/virtual-machines-windows-classic-java-run-tomcat-app-server/WA_VirtualMachineRunningApacheTomcat.png
 

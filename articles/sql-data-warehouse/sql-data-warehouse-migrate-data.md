@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Migration de vos données vers SQL Data Warehouse | azure.microsoft.com/ Azure"
-   description="Conseils relatifs à la migration de vos données vers azure.microsoft.com/ Azure SQL Data Warehouse, dans le cadre du développement de solutions."
+   pageTitle="Migration de vos données vers SQL Data Warehouse | Microsoft Azure"
+   description="Conseils relatifs à la migration de vos données vers Microsoft Azure SQL Data Warehouse, dans le cadre du développement de solutions."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="lodipalm"
@@ -22,9 +22,9 @@ Les données peuvent être déplacées à partir de différentes sources dans SQ
 Cet article s’intéresse tout d’abord aux scénarios simples de migration d’ADF Copy, de SSIS et de bcp. Nous évoquons ensuite de manière plus approfondie les différents moyens d’optimiser la migration.
 
 ## Azure Data Factory (ADF) Copy
-[ADF Copy][] fait partie intégrante [d’Azure Data Factory][]. ADF Copy peut être utilisée pour exporter vos données vers des fichiers plats hébergés sur un espace de stockage local, vers des fichiers plats distants conservés dans un espace de stockage d’objets Blob azure.microsoft.com/ Azure ou directement vers SQL Data Warehouse.
+[ADF Copy][] fait partie intégrante [d’Azure Data Factory][]. ADF Copy peut être utilisée pour exporter vos données vers des fichiers plats hébergés sur un espace de stockage local, vers des fichiers plats distants conservés dans un espace de stockage d’objets Blob Microsoft Azure ou directement vers SQL Data Warehouse.
 
-Si vos données sont hébergées initialement dans des fichiers plats, il vous faudra dans un premier temps les transférer vers un espace de stockage d’objets Blob azure.microsoft.com/ Azure avant de lancer le chargement vers SQL Data Warehouse. Une fois que les données sont transférées dans Azure Blob Storage, vous pouvez utiliser de nouveau [ADF Copy][] pour les charger dans SQL Data Warehouse.
+Si vos données sont hébergées initialement dans des fichiers plats, il vous faudra dans un premier temps les transférer vers un espace de stockage d’objets Blob Microsoft Azure avant de lancer le chargement vers SQL Data Warehouse. Une fois que les données sont transférées dans Azure Blob Storage, vous pouvez utiliser de nouveau [ADF Copy][] pour les charger dans SQL Data Warehouse.
 
 PolyBase propose également une option à très hautes performances dédiée au chargement des données. Si vous optez pour cette solution, cela ne signifie pas que vous utilisez deux outils au lieu d’un. Si vous avez besoin de performances optimales, utilisez PolyBase. Si vous souhaitez profiter d’une expérience valorisant un outil unique (et que le volume de données n’est pas considérable), tournez-vous vers ADF.
 
@@ -33,13 +33,13 @@ PolyBase propose également une option à très hautes performances dédiée au 
 Consultez l’article suivant afin de découvrir de formidables [exemples ADF][].
 
 ## Integration Services ##
-Integration Services (SSIS) est un outil puissant et flexible d’extraction, de transformation et de chargement (ETL, Extract Transform and Load) qui prend en charge des workflows complexes, la transformation des données et diverses options de chargement des données. Utilisez SSIS afin de procéder à un transfert simple de données vers azure.microsoft.com/ Azure, ou dans le cadre d’une migration plus importante.
+Integration Services (SSIS) est un outil puissant et flexible d’extraction, de transformation et de chargement (ETL, Extract Transform and Load) qui prend en charge des workflows complexes, la transformation des données et diverses options de chargement des données. Utilisez SSIS afin de procéder à un transfert simple de données vers Microsoft Azure, ou dans le cadre d’une migration plus importante.
 
 > [AZURE.NOTE] SSIS peut exporter des données vers le format UTF-8 sans laisser de marque d’ordre d’octet dans le fichier. Pour procéder à la configuration adéquate, vous devez tout d’abord utiliser le composant de colonne dérivée afin de convertir les données caractères dans le flux de données pour utiliser la page de code UTF-8 65001. Une fois que les colonnes ont été converties, procédez à l’écriture des données sur l’adaptateur de destination du fichier plat en vérifiant que la page de code 65001 a été sélectionnée pour le fichier.
 
 La solution SSIS se connecte à SQL Data Warehouse de la manière dont elle se connecte à un déploiement SQL Server. Cependant, vos connexions doivent utiliser un gestionnaire de connexions ADO.NET. Vous devez également vous assurer de configurer le paramètre « Utiliser l’insertion de bloc lorsqu’elle est disponible » afin d’optimiser le débit. Pour en savoir plus sur cette propriété, consultez l’article [Adaptateur de destination ADO.NET][].
 
-> [AZURE.NOTE] La connexion à azure.microsoft.com/ Azure SQL Data Warehouse à l’aide d’OLEDB n’est pas prise en charge.
+> [AZURE.NOTE] La connexion à Microsoft Azure SQL Data Warehouse à l’aide d’OLEDB n’est pas prise en charge.
 
 Par ailleurs, il est toujours possible qu’un package soit mis en échec en raison d’une limitation ou de problèmes réseau. Concevez les packages afin qu’ils puissent être repris à partir du point de défaillance, sans avoir à réitérer les tâches accomplies avant la mise en échec.
 
@@ -69,7 +69,7 @@ Pour en savoir plus, consultez la rubrique [Utilisation de bcp pour charger des 
 Un processus de migration des données SQLDW peut être efficacement divisé en trois étapes distinctes :
 
 1. Exportation des données sources
-2. Transfert des données vers azure.microsoft.com/ Azure
+2. Transfert des données vers Microsoft Azure
 3. Chargement dans la base de données SQLDW
 
 Chaque étape peut être optimisée de manière isolée afin de concevoir un processus fiable, redémarrable et résistant de migration qui génère de hautes performances à chaque phase.
@@ -96,15 +96,15 @@ Vous devrez définir chacune des colonnes du fichier en tant que composante de t
 Veuillez vous référer à l’article [Migration de votre schéma] pour en savoir plus sur les types de données pris en charge.
 
 ### Définition de l’emplacement des fichiers de données
-SQL Data Warehouse utilise PolyBase pour charger des données exclusivement à partir d’objets Blob azure.microsoft.com/ Azure Storage. De fait, les données doivent avoir été préalablement transférées dans des objets Blob.
+SQL Data Warehouse utilise PolyBase pour charger des données exclusivement à partir d’objets Blob Microsoft Azure Storage. De fait, les données doivent avoir été préalablement transférées dans des objets Blob.
 
 ## Optimisation du transfert des données
-Le transfert des données vers azure.microsoft.com/ Azure est l’une des phases les plus lentes de la migration des données. Cette étape peut être associée à une problématique de bande passante et entraver la progression, en réduisant la fiabilité du réseau. Par défaut, la migration des données vers azure.microsoft.com/ Azure s’effectue via Internet. Ainsi, la probabilité d’erreurs de transfert est raisonnablement élevée. Toutefois, ces erreurs peuvent nécessiter le renvoi complet ou partiel des données.
+Le transfert des données vers Microsoft Azure est l’une des phases les plus lentes de la migration des données. Cette étape peut être associée à une problématique de bande passante et entraver la progression, en réduisant la fiabilité du réseau. Par défaut, la migration des données vers Microsoft Azure s’effectue via Internet. Ainsi, la probabilité d’erreurs de transfert est raisonnablement élevée. Toutefois, ces erreurs peuvent nécessiter le renvoi complet ou partiel des données.
 
 Fort heureusement, vous disposez de plusieurs options permettant d’améliorer la rapidité et la résilience de ce processus :
 
 ### [ExpressRoute][]
-Vous pouvez éventuellement vous tourner vers [ExpressRoute][] afin d’accélérer la vitesse de transfert. [ExpressRoute][] vous procure une connexion exclusivement privée avec Azure, pour que la connexion ne passe pas par l’Internet public. Vous n’êtes aucunement obligé de recourir à cette option. Toutefois, sachez qu’elle améliore le débit de transfert des données à partir d’une installation sur site ou d’un emplacement de colocalisation vers azure.microsoft.com/ Azure.
+Vous pouvez éventuellement vous tourner vers [ExpressRoute][] afin d’accélérer la vitesse de transfert. [ExpressRoute][] vous procure une connexion exclusivement privée avec Azure, pour que la connexion ne passe pas par l’Internet public. Vous n’êtes aucunement obligé de recourir à cette option. Toutefois, sachez qu’elle améliore le débit de transfert des données à partir d’une installation sur site ou d’un emplacement de colocalisation vers Microsoft Azure.
 
 Les avantages procurés par [ExpressRoute][] sont les suivants :
 
@@ -118,20 +118,20 @@ Les avantages procurés par [ExpressRoute][] sont les suivants :
 Vous êtes intéressé ? Pour plus d’informations et pour consulter la tarification, accédez à la [documentation ExpressRoute][].
 
 ### Azure Import Export Service
-Azure Import and Export Service est un processus de transfert de données conçu pour les transferts importants (plusieurs Go) à massifs (plusieurs To) de données dans azure.microsoft.com/ Azure. Il implique l’écriture de vos données sur des disques et leur transfert vers un centre de données azure.microsoft.com/ Azure. Ensuite, le contenu des disques est chargé dans des objets Blob azure.microsoft.com/ Azure Storage en votre nom.
+Azure Import and Export Service est un processus de transfert de données conçu pour les transferts importants (plusieurs Go) à massifs (plusieurs To) de données dans Microsoft Azure. Il implique l’écriture de vos données sur des disques et leur transfert vers un centre de données Microsoft Azure. Ensuite, le contenu des disques est chargé dans des objets Blob Microsoft Azure Storage en votre nom.
 
 Voici une vue de niveau supérieur du processus d’importation-exportation :
 
-1. Configuration d’un conteneur d’objets Blob azure.microsoft.com/ Storage dédié à la réception des données
+1. Configuration d’un conteneur d’objets Blob Microsoft Storage dédié à la réception des données
 2. Exportation de vos données vers le stockage local
 2. Copie de vos données sur des disques durs 3,5 pouces SATA II/III à l’aide de [l’outil Azure Import/Export]
 3. Création d’une tâche d’importation à l’aide du service Azure Import Export, avec les fichiers journaux produits par [l’outil Azure Import/Export]
-4. Livraison des disques à votre centre de données azure.microsoft.com/ Azure désigné
-5. Transfert de vos données vers votre conteneur d’objets Blob azure.microsoft.com/ Azure Storage
+4. Livraison des disques à votre centre de données Microsoft Azure désigné
+5. Transfert de vos données vers votre conteneur d’objets Blob Microsoft Azure Storage
 6. Chargement de vos données dans SQLDW à l’aide de PolyBase
 
 ### Utilitaire [AZCopy][]
-L’utilitaire [AZCopy][] est l’outil idéal pour transférer vos données dans des objets Blob azure.microsoft.com/ Azure Storage. Il est conçu pour des transferts de données modestes (plusieurs Mo) à très importants (plusieurs Go). [AZCopy] a également été conçu pour fournir un débit efficace et robuste lors du transfert de données vers azure.microsoft.com/ Azure. Par conséquent, cette solution convient parfaitement au transfert de données. Une fois que le transfert a été effectué, vous pouvez charger les données dans SQL Data Warehouse à l’aide de PolyBase. Vous pouvez également intégrer AZCopy dans vos packages SSIS, en appliquant une tâche d’exécution du processus.
+L’utilitaire [AZCopy][] est l’outil idéal pour transférer vos données dans des objets Blob Microsoft Azure Storage. Il est conçu pour des transferts de données modestes (plusieurs Mo) à très importants (plusieurs Go). [AZCopy] a également été conçu pour fournir un débit efficace et robuste lors du transfert de données vers Microsoft Azure. Par conséquent, cette solution convient parfaitement au transfert de données. Une fois que le transfert a été effectué, vous pouvez charger les données dans SQL Data Warehouse à l’aide de PolyBase. Vous pouvez également intégrer AZCopy dans vos packages SSIS, en appliquant une tâche d’exécution du processus.
 
 Il vous faudra dans un premier temps télécharger et installer AZCopy. Une [version de production][] et une [version préliminaire][] sont disponibles.
 
@@ -143,9 +143,9 @@ AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/myconta
 
 Voici les étapes constitutives d’un processus de niveau supérieur :
 
-1. Configuration d’un conteneur de stockage d’objets Blob azure.microsoft.com/ Azure dédié à la réception des données
+1. Configuration d’un conteneur de stockage d’objets Blob Microsoft Azure dédié à la réception des données
 2. Exportation de vos données vers le stockage local
-3. Traitement de vos données à l’aide d’AZCopy dans le contenu de stockage d’objets Blob azure.microsoft.com/ Azure
+3. Traitement de vos données à l’aide d’AZCopy dans le contenu de stockage d’objets Blob Microsoft Azure
 4. Charger les données dans SQL Data Warehouse à l’aide de PolyBase
 
 Documentation complète disponible : [AZCopy][].
@@ -159,7 +159,7 @@ En plus d’assurer la conformité de l’exportation avec les exigences associ�
 PolyBase peut lire les données compressées au format gzip. Si vous n’êtes pas en mesure de compresser vos données au format gzip, il vous faudra réduire le volume de données transmis sur le réseau.
 
 ### Fichiers multiples
-La fragmentation de gros tableaux en plusieurs fichiers vous permet d’accélérer la vitesse d’exportation, mais facilite également le redémarrage des transferts et améliore la gestion globale des données transférées vers le stockage d’objets Blob azure.microsoft.com/ Azure. PolyBase permet notamment de lire l’ensemble des fichiers stockés dans un dossier et de les traiter en tant que tableau unique. Par conséquent, il est avisé de conserver les fichiers associés à un tableau dans un dossier séparé.
+La fragmentation de gros tableaux en plusieurs fichiers vous permet d’accélérer la vitesse d’exportation, mais facilite également le redémarrage des transferts et améliore la gestion globale des données transférées vers le stockage d’objets Blob Microsoft Azure. PolyBase permet notamment de lire l’ensemble des fichiers stockés dans un dossier et de les traiter en tant que tableau unique. Par conséquent, il est avisé de conserver les fichiers associés à un tableau dans un dossier séparé.
 
 PolyBase prend également en charge une fonction appelée « balayage de dossier récursif ». Vous pouvez la mettre à profit pour optimiser l’organisation de vos données exportées et ainsi améliorer la gestion de vos données.
 
@@ -185,13 +185,13 @@ Pour en savoir plus sur la migration, consultez la section [Migration de votre s
 <!--MSDN references-->
 
 <!--Other Web references-->
-[d’Azure Data Factory]: http://azure.azure.microsoft.com/.com/services/data-factory/
-[ExpressRoute]: http://azure.azure.microsoft.com/.com/services/expressroute/
-[documentation ExpressRoute]: http://azure.azure.microsoft.com/.com/documentation/services/expressroute/
+[d’Azure Data Factory]: http://azure.microsoft.com/services/data-factory/
+[ExpressRoute]: http://azure.microsoft.com/services/expressroute/
+[documentation ExpressRoute]: http://azure.microsoft.com/documentation/services/expressroute/
 
 [version de production]: http://aka.ms/downloadazcopy/
 [version préliminaire]: http://aka.ms/downloadazcopypr/
-[Adaptateur de destination ADO.NET]: https://msdn.azure.microsoft.com/.com/library/bb934041.aspx
-[documentation relative à SSIS]: https://msdn.azure.microsoft.com/.com/library/ms141026.aspx
+[Adaptateur de destination ADO.NET]: https://msdn.microsoft.com/library/bb934041.aspx
+[documentation relative à SSIS]: https://msdn.microsoft.com/library/ms141026.aspx
 
 <!---HONumber=AcomDC_0817_2016-->

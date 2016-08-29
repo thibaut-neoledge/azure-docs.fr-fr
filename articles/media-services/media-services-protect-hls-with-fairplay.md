@@ -155,10 +155,10 @@ L'exemple suivant illustre la fonctionnalité introduite dans le Kit de dévelop
 		using System.IO;
 		using System.Linq;
 		using System.Threading;
-		using azure.microsoft.com/.WindowsAzure.MediaServices.Client;
-		using azure.microsoft.com/.WindowsAzure.MediaServices.Client.ContentKeyAuthorization;
-		using azure.microsoft.com/.WindowsAzure.MediaServices.Client.DynamicEncryption;
-		using azure.microsoft.com/.WindowsAzure.MediaServices.Client.FairPlay;
+		using Microsoft.WindowsAzure.MediaServices.Client;
+		using Microsoft.WindowsAzure.MediaServices.Client.ContentKeyAuthorization;
+		using Microsoft.WindowsAzure.MediaServices.Client.DynamicEncryption;
+		using Microsoft.WindowsAzure.MediaServices.Client.FairPlay;
 		using Newtonsoft.Json;
 		using System.Security.Cryptography.X509Certificates;
 		
@@ -429,7 +429,7 @@ L'exemple suivant illustre la fonctionnalité introduite dans le Kit de dévelop
 		            var appCert = new X509Certificate2("path to the .pfx file created by the customer", pfxPassword, X509KeyStorageFlags.Exportable);
 		
 		            string FairPlayConfiguration =
-		                azure.microsoft.com/.WindowsAzure.MediaServices.Client.FairPlay.FairPlayConfiguration.CreateSerializedFairPlayOptionConfiguration(
+		                Microsoft.WindowsAzure.MediaServices.Client.FairPlay.FairPlayConfiguration.CreateSerializedFairPlayOptionConfiguration(
 		                    appCert,
 		                    pfxPassword,
 		                    pfxPasswordId,

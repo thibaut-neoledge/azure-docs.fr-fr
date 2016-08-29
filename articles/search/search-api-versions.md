@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Versions d’API Azure Search | azure.microsoft.com/ Azure | API Search"
+   pageTitle="Versions d’API Azure Search | Microsoft Azure | API Search"
    description="Stratégie de version pour les API REST Azure Search et la bibliothèque cliente dans le Kit de développement logiciel (SDK) .NET."
    services="search"
    documentationCenter=""
@@ -30,11 +30,11 @@ Vous trouverez ci-dessous un instantané des versions actuelles de toutes les in
 
 Interfaces|Version majeure la plus récente|État
 ----------|-------------------------|------
-[KIT DE DÉVELOPPEMENT LOGICIEL (SDK) .NET](https://msdn.azure.microsoft.com/.com/library/azure/dn951165.aspx)|1\.1|Mise à la disposition générale en février 2016
-[Version préliminaire du Kit de développement logiciel (SDK) .NET](https://msdn.azure.microsoft.com/.com/library/mt761536%28v=azure.103%29.aspx)|2\.0-preview|Version préliminaire, publiée en août 2016
-[API REST du service](https://msdn.azure.microsoft.com/.com/library/azure/dn798935.aspx)|2015-02-28|Mise à la disposition générale
+[KIT DE DÉVELOPPEMENT LOGICIEL (SDK) .NET](https://msdn.microsoft.com/library/azure/dn951165.aspx)|1\.1|Mise à la disposition générale en février 2016
+[Version préliminaire du Kit de développement logiciel (SDK) .NET](https://msdn.microsoft.com/library/mt761536%28v=azure.103%29.aspx)|2\.0-preview|Version préliminaire, publiée en août 2016
+[API REST du service](https://msdn.microsoft.com/library/azure/dn798935.aspx)|2015-02-28|Mise à la disposition générale
 [Version préliminaire de l’API REST Service](search-api-2015-02-28-preview.md)|2015-02-28-Preview|VERSION PRÉLIMINAIRE
-[l’API REST de gestion ;](https://msdn.azure.microsoft.com/.com/library/azure/dn832684.aspx)|2015-08-19|Mise à la disposition générale
+[l’API REST de gestion ;](https://msdn.microsoft.com/library/azure/dn832684.aspx)|2015-08-19|Mise à la disposition générale
 
 Pour les API REST, il est nécessaire d’inclure la version d’API (`api-version`) sur chaque appel. Cela permet de cibler facilement une version spécifique, par exemple une API en version préliminaire. L’exemple suivant montre la manière dont le paramètre `api-version` est spécifié :
 
@@ -68,6 +68,6 @@ Toutefois, comme les fonctionnalités en version préliminaire sont susceptibles
 
 Pour le Kit de développement logiciel (SDK) .NET, des conseils sur la migration du code sont disponibles à la page [Mise à niveau du Kit de développement logiciel (SDK) .NET](search-dotnet-sdk-migration.md).
 
-La mise à la disposition générale signifie qu’Azure Search est désormais associé à un contrat SLA. Ce contrat SLA est disponible à la page sur les [contrats SLA Azure Search](https://azure.azure.microsoft.com/.com/support/legal/sla/search/v1_0/).
+La mise à la disposition générale signifie qu’Azure Search est désormais associé à un contrat SLA. Ce contrat SLA est disponible à la page sur les [contrats SLA Azure Search](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
 <!---HONumber=AcomDC_0817_2016-->

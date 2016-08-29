@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="Vue d’ensemble du modèle de sécurité et d’authentification d’Event Hubs| azure.microsoft.com/ Azure"
+    pageTitle="Vue d’ensemble du modèle de sécurité et d’authentification d’Event Hubs| Microsoft Azure"
     description="Présentation du modèle de sécurité et de l'authentification Event Hubs."
     services="event-hubs"
     documentationCenter="na"
@@ -103,7 +103,7 @@ En l'absence d'authentification SAS pour les groupes de consommateurs individuel
 
 ### Créer des identités de service, des parties de confiance et des règles dans ACS
 
-ACS prend en charge plusieurs façons de créer des identités de service, des parties de confiance et des règles, mais la méthode la plus simple est d'utiliser [SBAZTool](http://code.msdn.azure.microsoft.com/.com/Authorization-SBAzTool-6fd76d93). Par exemple :
+ACS prend en charge plusieurs façons de créer des identités de service, des parties de confiance et des règles, mais la méthode la plus simple est d'utiliser [SBAZTool](http://code.msdn.microsoft.com/Authorization-SBAzTool-6fd76d93). Par exemple :
 
 1. Créer une identité de service pour un **EventHubSender**. Cette opération renvoie le nom de l’identité de service qui a été créée et sa clé :
 
@@ -150,7 +150,7 @@ Pour plus d’informations sur Event Hubs, consultez les rubriques suivantes :
 - Une [solution de messages de file d'attente] utilisant les files d'attente Service Bus.
 
 [Vue d’ensemble des concentrateurs d’événements]: event-hubs-overview.md
-[exemple d'application complet qui utilise des hubs d’événements]: https://code.msdn.azure.microsoft.com/.com/Service-Bus-Event-Hub-286fd097
+[exemple d'application complet qui utilise des hubs d’événements]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
 [solution de messages de file d'attente]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 

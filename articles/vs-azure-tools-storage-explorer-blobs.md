@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Gérer les ressources Azure Blob Storage avec l’Explorateur de stockage (version préliminaire) | azure.microsoft.com/ Azure"
+	pageTitle="Gérer les ressources Azure Blob Storage avec l’Explorateur de stockage (version préliminaire) | Microsoft Azure"
 	description="Gérer les conteneurs d’objets blob et les blobs Azure avec l’Explorateur de stockage (version préliminaire)"
 	services="storage"
 	documentationCenter="na"
@@ -254,7 +254,7 @@ Les étapes suivantes expliquent comment gérer les objets blob (et les dossiers
 ## Étapes suivantes
 
 - Consultez les [dernières notes de publication et vidéos de l’Explorateur de stockage (version préliminaire)](http://www.storageexplorer.com).
-- Découvrez comment [créer des applications à l’aide d'objets blob, de tables, de files d’attente et de fichiers Azure](https://azure.azure.microsoft.com/.com/documentation/services/storage/).
+- Découvrez comment [créer des applications à l’aide d'objets blob, de tables, de files d’attente et de fichiers Azure](https://azure.microsoft.com/documentation/services/storage/).
 
 [0]: ./media/vs-azure-tools-storage-explorer-blobs/blob-containers-create-context-menu.png
 [1]: ./media/vs-azure-tools-storage-explorer-blobs/blob-container-create.png

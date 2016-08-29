@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Présentation des journaux de diagnostic Azure | azure.microsoft.com/ Azure"
+	pageTitle="Présentation des journaux de diagnostic Azure | Microsoft Azure"
 	description="Découvrez les journaux de diagnostic Azure et comment les utiliser pour comprendre les événements qui se produisent au sein d’une ressource Azure."
 	authors="johnkemnetz"
 	manager="rboucher"
@@ -34,7 +34,7 @@ Les journaux de diagnostic pour les ressources non liées au calcul sont configu
 - Les catégories de journal qui sont envoyées.
 - La durée de rétention de chaque catégorie de journal dans un compte de stockage ; une durée de rétention de zéro jour signifie que les journaux sont conservés indéfiniment. Si des stratégies de rétention sont définies, mais que le stockage des journaux dans un compte de stockage est désactivé (p. ex. si seules les options Event Hubs ou OMS sont sélectionnées), les stratégies de rétention n’ont aucun effet.
 
-Ces paramètres sont facilement configurés via le panneau Diagnostics pour une ressource dans le portail Azure, via les commandes d’interface de ligne de commande et Azure PowerShell ou via [l’API REST Insights](https://msdn.azure.microsoft.com/.com/library/azure/dn931943.aspx).
+Ces paramètres sont facilement configurés via le panneau Diagnostics pour une ressource dans le portail Azure, via les commandes d’interface de ligne de commande et Azure PowerShell ou via [l’API REST Insights](https://msdn.microsoft.com/library/azure/dn931943.aspx).
 
 > [AZURE.WARNING] Les mesures et les journaux de diagnostic des ressources de calcul (p. ex. les machines virtuelles ou Service Fabric) utilisent [un mécanisme distinct pour la configuration et la sélection des sorties](../azure-diagnostics.md).
 
@@ -88,7 +88,7 @@ Pour activer la diffusion en continu des journaux de diagnostic vers un Event Hu
 
 L’ID de règle Service Bus est une chaîne au format : `{service bus resource ID}/authorizationrules/{key name}`.
 
-Pour modifier les paramètres de diagnostic via l’API REST Insights, consultez [ce document](https://msdn.azure.microsoft.com/.com/library/azure/dn931931.aspx).
+Pour modifier les paramètres de diagnostic via l’API REST Insights, consultez [ce document](https://msdn.microsoft.com/library/azure/dn931931.aspx).
 
 ## Schéma et services pris en charge pour les journaux de diagnostic
 Le schéma pour les journaux de diagnostic varie en fonction de la ressource et de la catégorie de journal. Vous trouverez ci-dessous les services pris en charge et leur schéma.
@@ -106,6 +106,6 @@ Le schéma pour les journaux de diagnostic varie en fonction de la ressource et 
 
 ## Étapes suivantes
 - [Stream Azure Diagnostic Logs to **Event Hubs**](monitoring-stream-diagnostic-logs-to-event-hubs.md) (Diffuser en continu les journaux de diagnostic Azure vers Event Hubs)
-- [Modifier les paramètres de diagnostic via l’API REST Insights](https://msdn.azure.microsoft.com/.com/library/azure/dn931931.aspx)
+- [Modifier les paramètres de diagnostic via l’API REST Insights](https://msdn.microsoft.com/library/azure/dn931931.aspx)
 
 <!---HONumber=AcomDC_0817_2016-->

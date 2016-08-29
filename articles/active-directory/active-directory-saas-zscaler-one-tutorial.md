@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="Didacticiel : Intégration d’Azure AD à Zscaler One | azure.microsoft.com/ Azure" 
+    pageTitle="Didacticiel : Intégration d’Azure AD à Zscaler One | Microsoft Azure" 
     description="Découvrez comment utiliser Zscaler One avec Azure AD pour activer l’authentification unique, l’approvisionnement automatisé et bien plus encore." 
     services="active-directory" 
     authors="jeevansd"  
@@ -75,7 +75,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
 	![Configurer l’authentification unique](./media/active-directory-saas-zscaler-one-tutorial/IC800217.png "Configurer l’authentification unique")
 
-2.  Dans la page **Comment voulez-vous que les utilisateurs se connectent à Zscaler One**, sélectionnez **Authentification unique avec azure.microsoft.com/ Azure AD**, puis cliquez sur **Suivant**.
+2.  Dans la page **Comment voulez-vous que les utilisateurs se connectent à Zscaler One**, sélectionnez **Authentification unique avec Microsoft Azure AD**, puis cliquez sur **Suivant**.
 
 	![Configurer l’authentification unique](./media/active-directory-saas-zscaler-one-tutorial/IC800218.png "Configurer l’authentification unique")
 

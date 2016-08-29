@@ -31,11 +31,11 @@ Bien qu’il soit possible d’installer la passerelle sur le même ordinateur l
 ## Assistant Copier des données
 Le moyen le plus simple de créer un pipeline qui copie les données depuis un HDFS local consiste à utiliser l’Assistant Copier des données. Consultez la page [Didacticiel : Créer un pipeline avec l’activité de copie à l’aide de l’Assistant Data Factory Copy](data-factory-copy-data-wizard-tutorial.md) pour une procédure pas à pas rapide sur la création d’un pipeline à l’aide de l’Assistant Copier des données.
 
-Les exemples suivants présentent des exemples de définitions de JSON que vous pouvez utiliser pour créer un pipeline à l’aide [du Portail Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), [de Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou [d’Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Ils indiquent comment copier des données depuis un système HDFS local vers un système Blob Storage azure.microsoft.com/ Azure. Toutefois, les données peuvent être copiées vers l’un des récepteurs indiqués [ici](data-factory-data-movement-activities.md#supported-data-stores), via l’activité de copie d’Azure Data Factory.
+Les exemples suivants présentent des exemples de définitions de JSON que vous pouvez utiliser pour créer un pipeline à l’aide [du Portail Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), [de Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou [d’Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Ils indiquent comment copier des données depuis un système HDFS local vers un système Blob Storage Microsoft Azure. Toutefois, les données peuvent être copiées vers l’un des récepteurs indiqués [ici](data-factory-data-movement-activities.md#supported-data-stores), via l’activité de copie d’Azure Data Factory.
 
 ## Exemple : copie de données entre un système HDFS local et un objet blob Azure
 
-Cet exemple indique comment copier des données depuis un système HDFS local vers un système Blob Storage azure.microsoft.com/ Azure. Toutefois, les données peuvent être copiées **directement** vers l’un des récepteurs indiqués [ici](data-factory-data-movement-activities.md#supported-data-stores), via l’activité de copie d’Azure Data Factory.
+Cet exemple indique comment copier des données depuis un système HDFS local vers un système Blob Storage Microsoft Azure. Toutefois, les données peuvent être copiées **directement** vers l’un des récepteurs indiqués [ici](data-factory-data-movement-activities.md#supported-data-stores), via l’activité de copie d’Azure Data Factory.
  
 L’exemple contient les entités de fabrique de données suivantes :
 
@@ -212,7 +212,7 @@ Le tableau suivant fournit la description des éléments JSON spécifiques au se
 | -------- | ----------- | -------- | 
 | type | La propriété de type doit être définie sur **Hdfs** | Oui | 
 | Url | URL vers le système HDFS | Oui |
-| Encryptedcredential | Sortie [New-AzureRMDataFactoryEncryptValue](https://msdn.azure.microsoft.com/.com/library/mt603802.aspx) des informations d’accès. | Non |
+| Encryptedcredential | Sortie [New-AzureRMDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) des informations d’accès. | Non |
 | userName | Nom d’utilisateur de l’authentification Windows | Oui (pour l’authentification Windows)
 | password | Mot de passe de l’authentification Windows | Oui (pour l’authentification Windows)
 | authenticationType | Windows ou anonyme. | Oui |

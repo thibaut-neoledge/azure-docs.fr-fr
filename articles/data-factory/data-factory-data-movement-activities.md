@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Déplacer des données à l’aide de l’activité de copie | azure.microsoft.com/ Azure" 
+	pageTitle="Déplacer des données à l’aide de l’activité de copie | Microsoft Azure" 
 	description="Apprenez-en plus sur le déplacement des données dans les pipelines Data Factory : migration de données entre des magasins de cloud, entre des emplacements locaux et le cloud. Utilisez l’activité de copie." 
 	keywords="copier des données, déplacement des données, migration des données, transférer des données"
 	services="data-factory" 
@@ -75,7 +75,7 @@ L’activité de copie permet également de lire et d’écrire dans les fichier
 
 
 ## <a name="global"></a>Déplacement des données disponible globalement
-Même si Azure Data Factory est en soi disponible uniquement dans les régions États-Unis de l’Ouest, États-Unis de l’Est et Europe du Nord, le service alimentant l’activité de copie est disponible dans le monde entier, dans les régions et zones géographiques suivantes. La topologie globalement disponible garantit le déplacement efficace des données en évitant généralement les sauts entre régions. Consultez la section [Services par région](https://azure.azure.microsoft.com/.com/regions/#services) pour connaître la disponibilité du service Data Factory et du déplacement des données dans une région.
+Même si Azure Data Factory est en soi disponible uniquement dans les régions États-Unis de l’Ouest, États-Unis de l’Est et Europe du Nord, le service alimentant l’activité de copie est disponible dans le monde entier, dans les régions et zones géographiques suivantes. La topologie globalement disponible garantit le déplacement efficace des données en évitant généralement les sauts entre régions. Consultez la section [Services par région](https://azure.microsoft.com/regions/#services) pour connaître la disponibilité du service Data Factory et du déplacement des données dans une région.
 
 ### Copier des données entre des banques de données cloud
 Lorsque les banques de données source et récepteur résident toutes les deux dans le cloud, Azure Data Factory utilise un déploiement de service dans la région la plus proche de l’emplacement du récepteur dans la même zone géographique afin d’effectuer le déplacement des données. Pour connaître le mappage, reportez-vous au tableau suivant :

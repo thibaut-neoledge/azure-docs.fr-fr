@@ -97,7 +97,7 @@ La spécification de l'attribut `android:process` permet au service Engagement d
 Si vous générez votre package d'application avec ProGuard, vous devez conserver certaines classes. Vous pouvez utiliser l'extrait de configuration suivant :
 
 	-keep public class * extends android.os.IInterface
-	-keep class com.azure.microsoft.com/.azure.engagement.reach.activity.EngagementWebAnnouncementActivity$EngagementReachContentJS {
+	-keep class com.microsoft.azure.engagement.reach.activity.EngagementWebAnnouncementActivity$EngagementReachContentJS {
 	<methods>;
  	}
 

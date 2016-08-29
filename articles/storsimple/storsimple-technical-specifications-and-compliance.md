@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Caractéristiques techniques StorSimple | azure.microsoft.com/ Azure"
+   pageTitle="Caractéristiques techniques StorSimple | Microsoft Azure"
    description="Décrit les caractéristiques techniques et les informations de conformité aux normes réglementaires des composants matériels StorSimple."
    services="storsimple"
    documentationCenter="NA"
@@ -19,7 +19,7 @@
 
 ## Vue d'ensemble
 
-Les composants matériels de l’appareil azure.microsoft.com/ Azure StorSimple sont conformes aux caractéristiques techniques et normes réglementaires présentées dans cet article. Les caractéristiques techniques décrivent les modules d’alimentation et de refroidissement (PCM), les lecteurs de disque, la capacité de stockage et les boîtiers. Les informations de conformité couvrent les éléments tels que les normes internationales, la sécurité et les émissions et le câblage.
+Les composants matériels de l’appareil Microsoft Azure StorSimple sont conformes aux caractéristiques techniques et normes réglementaires présentées dans cet article. Les caractéristiques techniques décrivent les modules d’alimentation et de refroidissement (PCM), les lecteurs de disque, la capacité de stockage et les boîtiers. Les informations de conformité couvrent les éléments tels que les normes internationales, la sécurité et les émissions et le câblage.
 
 
 ## Caractéristiques du module d’alimentation et de refroidissement  
@@ -133,7 +133,7 @@ Cette section répertorie les caractéristiques liées à l’environnement du b
 | CEM | EN55022 (CISPR - A), FCC A |
 
 ## Conformité aux normes internationales
-L’appareil azure.microsoft.com/ Azure StorSimple est conforme aux normes internationales suivantes :
+L’appareil Microsoft Azure StorSimple est conforme aux normes internationales suivantes :
 
 - CE - EN 60950-1
 - Rapport CB sur CEI 60950-1
@@ -141,14 +141,14 @@ L’appareil azure.microsoft.com/ Azure StorSimple est conforme aux normes inter
 
 ## Conformité aux normes de sécurité  
 
-L’appareil azure.microsoft.com/ Azure StorSimple est conforme aux normes de sécurité suivantes :
+L’appareil Microsoft Azure StorSimple est conforme aux normes de sécurité suivantes :
 
 - Homologation du type de produit du système : UL, cUL, CE
 - Conformité aux normes de sécurité : UL 60950, CEI 60950, EN 60950
 
 ## Conformité électromagnétique 
 
-L’appareil azure.microsoft.com/ Azure StorSimple est conforme aux niveaux de sécurité suivants :
+L’appareil Microsoft Azure StorSimple est conforme aux niveaux de sécurité suivants :
 
 ### Émissions
 

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Répliquer des machines virtuelles VMware sur Azure à l’aide d’Azure Site Recovery avec Azure Automation DSC | azure.microsoft.com/ Azure"
+	pageTitle="Répliquer des machines virtuelles VMware sur Azure à l’aide d’Azure Site Recovery avec Azure Automation DSC | Microsoft Azure"
 	description="Explique comment utiliser Azure Automation DSC pour déployer automatiquement le Service Mobilité ASR et l’agent Azure pour les machines virtuelles/physiques sur Azure."
 	services="site-recovery"
 	documentationCenter=""
@@ -57,15 +57,15 @@ C’est la raison pour laquelle nous devons extraire les fichiers binaires (à p
 
 ## Étape 1 : Extraction des fichiers binaires
 
-1. Pour extraire les fichiers binaires nécessaires à cette installation, accédez au répertoire suivant sur votre serveur d’administration : **\\azure.microsoft.com/ Azure Site Recovery\\home\\svsystems\\pushinstallsvc\\repository**
+1. Pour extraire les fichiers binaires nécessaires à cette installation, accédez au répertoire suivant sur votre serveur d’administration : **\\Microsoft Azure Site Recovery\\home\\svsystems\\pushinstallsvc\\repository**
 
     Dans ce dossier, vous devriez voir un fichier MSI nommé :
 
-    **azure.microsoft.com/-ASR\_UA\_<version>_Windows\_GA_<date>\_Release.exe**
+    **Microsoft-ASR\_UA\_<version>_Windows\_GA_<date>\_Release.exe**
 
     Utilisez la commande suivante pour extraire le programme d’installation :
 
-    .\\azure.microsoft.com/-ASR\_UA\_9.1.0.0_Windows\_GA_02May2016\_release.exe /q /x:C:\\Users\\Administrator\\Desktop\\Mobility\_Service\\Extract
+    .\\Microsoft-ASR\_UA\_9.1.0.0_Windows\_GA_02May2016\_release.exe /q /x:C:\\Users\\Administrator\\Desktop\\Mobility\_Service\\Extract
 
 2. Sélectionnez tous les fichiers et envoyez-les vers un dossier compressé (zippé).
 
@@ -92,12 +92,12 @@ configuration ASRMobilityService {
 
     $RemoteFile = 'https://knrecstor01.blob.core.windows.net/asr/ASR.zip'
     $RemotePassphrase = 'https://knrecstor01.blob.core.windows.net/asr/passphrase.txt'
-    $RemoteAzureAgent = 'http://go.azure.microsoft.com/.com/fwlink/p/?LinkId=394789'
+    $RemoteAzureAgent = 'http://go.microsoft.com/fwlink/p/?LinkId=394789'
     $LocalAzureAgent = 'C:\Temp\AzureVmAgent.msi'
     $TempDestination = 'C:\Temp\asr.zip'
     $LocalPassphrase = 'C:\Temp\Mobility_service\passphrase.txt'
     $Role = 'Agent'
-    $Install = 'C:\Program Files (x86)\azure.microsoft.com/ Azure Site Recovery'
+    $Install = 'C:\Program Files (x86)\Microsoft Azure Site Recovery'
     $CSEndpoint = '10.0.0.115'
     $Arguments = '/Role "{0}" /InstallLocation "{1}" /CSEndpoint "{2}" /PassphraseFilePath "{3}"' -f $Role,$Install,$CSEndpoint,$LocalPassphrase
 
@@ -137,7 +137,7 @@ configuration ASRMobilityService {
         Package Install {
             Path = 'C:\temp\ASRSetup\ASR\UNIFIEDAGENT.EXE'
             Ensure = 'Present'
-            Name = 'azure.microsoft.com/ Azure Site Recovery mobility Service/Master Target Server'
+            Name = 'Microsoft Azure Site Recovery mobility Service/Master Target Server'
             ProductId = '275197FC-14FD-4560-A5EB-38217F80CBD1'
             Arguments = $Arguments
             DependsOn = '[Archive]ASRzip'
@@ -146,7 +146,7 @@ configuration ASRMobilityService {
         Package AzureAgent {
             Path = 'C:\Temp\AzureVmAgent.msi'
             Ensure = 'Present'
-            Name = 'Windows Azure VM Agent - 2.7.1198.735'
+            Name = 'Microsoft Azure VM Agent - 2.7.1198.735'
             ProductId = '5CF4D04A-F16C-4892-9196-6025EA61F964'
             Arguments = '/q /l "c:\temp\agentlog.txt'
             DependsOn = '[Package]Install'
@@ -245,7 +245,7 @@ Une fois terminé, vous pouvez récupérer les informations sur la tâche à l�
 À présent, vous avez correctement publié et téléchargé notre configuration DSC sur OMS Automation DSC.
 
 ## Étape 4 - Intégration d’ordinateurs sur OMS Automation DSC
-*L’une des conditions préalables à la réalisation de ce scénario est que les ordinateurs Windows soient mis à jour avec la dernière version de WMF. Vous pouvez télécharger et installer la version correcte pour votre plateforme via cette URL : https://www.azure.microsoft.com/.com/download/details.aspx?id=50395*
+*L’une des conditions préalables à la réalisation de ce scénario est que les ordinateurs Windows soient mis à jour avec la dernière version de WMF. Vous pouvez télécharger et installer la version correcte pour votre plateforme via cette URL : https://www.microsoft.com/download/details.aspx?id=50395*
 
 Vous allez maintenant créer un metaconfig de DSC que vous allez appliquer aux nœuds. Pour y parvenir, vous devez récupérer l’URL du point de terminaison et la clé primaire de votre compte Automation sélectionné dans Azure.
 
@@ -367,7 +367,7 @@ Save-Module -Name xPSDesiredStateConfiguration -Path <location>
 
 Par ailleurs, pour WMF 4.0, vérifiez que la mise à jour suivante est installée sur les ordinateurs :
 
-https://www.azure.microsoft.com/.com/download/details.aspx?id=40749
+https://www.microsoft.com/download/details.aspx?id=40749
 
 La configuration suivante peut être transmise vers les ordinateurs Windows WMF 5.0 et 4.0
 
@@ -386,7 +386,7 @@ configuration ASRMobilityService {
     $TempDestination = 'C:\Temp\asr.zip'
     $LocalPassphrase = 'C:\Temp\Mobility_service\passphrase.txt'
     $Role = 'Agent'
-    $Install = 'C:\Program Files (x86)\azure.microsoft.com/ Azure Site Recovery'
+    $Install = 'C:\Program Files (x86)\Microsoft Azure Site Recovery'
     $CSEndpoint = '10.0.0.115'
     $Arguments = '/Role "{0}" /InstallLocation "{1}" /CSEndpoint "{2}" /PassphraseFilePath "{3}"' -f $Role,$Install,$CSEndpoint,$LocalPassphrase
     
@@ -425,7 +425,7 @@ configuration ASRMobilityService {
         Package Install {
             Path = 'C:\temp\ASRSetup\ASR\UNIFIEDAGENT.EXE'
             Ensure = 'Present'
-            Name = 'azure.microsoft.com/ Azure Site Recovery mobility Service/Master Target Server'
+            Name = 'Microsoft Azure Site Recovery mobility Service/Master Target Server'
             ProductId = '275197FC-14FD-4560-A5EB-38217F80CBD1'
             Arguments = $Arguments
             DependsOn = '[Archive]ASRzip'
@@ -434,7 +434,7 @@ configuration ASRMobilityService {
         Package AzureAgent {
             Path = 'C:\Temp\AzureVmAgent.msi'
             Ensure = 'Present'
-            Name = 'Windows Azure VM Agent - 2.7.1198.735'
+            Name = 'Microsoft Azure VM Agent - 2.7.1198.735'
             ProductId = '5CF4D04A-F16C-4892-9196-6025EA61F964'
             Arguments = '/q /l "c:\temp\agentlog.txt'
             DependsOn = '[Package]Install'
@@ -470,7 +470,7 @@ ASRMobilityService -ComputerName 'MyTargetComputerName'
 Start-DscConfiguration .\ASRMobilityService -Wait -Force -Verbose
 ```
 
-Si vous souhaitez instancier votre propre serveur Pull DSC au sein de votre réseau d’entreprise, pour imiter les fonctionnalités que vous pouvez obtenir à partir d’OMS Automation DSC, consultez le guide suivant : https://msdn.azure.microsoft.com/.com/powershell/dsc/pullserver?f=255&MSPPError=-2147217396
+Si vous souhaitez instancier votre propre serveur Pull DSC au sein de votre réseau d’entreprise, pour imiter les fonctionnalités que vous pouvez obtenir à partir d’OMS Automation DSC, consultez le guide suivant : https://msdn.microsoft.com/powershell/dsc/pullserver?f=255&MSPPError=-2147217396
 
 ## Facultatif : Déployer la configuration DSC à l’aide du modèle Azure Resource Manager
 

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Applets de commande de la version préliminaire d’Azure Active Directory PowerShell pour la gestion des groupes dans Azure AD | azure.microsoft.com/ Azure"
+	pageTitle="Applets de commande de la version préliminaire d’Azure Active Directory PowerShell pour la gestion des groupes dans Azure AD | Microsoft Azure"
 	description="Cette page fournit des exemples PowerShell pour vous aider à gérer vos groupes dans Azure Active Directory"
     keywords="Azure AD, Azure Active Directory, PowerShell, Groupes, Gestion des groupes"
 	services="active-directory"
@@ -19,7 +19,7 @@
 
 # Applets de commande de la version préliminaire d’Azure Active Directory pour la gestion de groupe
 
-Le document suivant fournit des exemples montrant comment utiliser PowerShell pour gérer des groupes dans Azure Active Directory (Azure AD). Il fournit également des informations sur la configuration du module de la version préliminaire d’Azure AD PowerShell. Vous devez tout d’abord [télécharger le module Azure AD PowerShell](http://go.azure.microsoft.com/.com/fwlink/p/?linkid=236297).
+Le document suivant fournit des exemples montrant comment utiliser PowerShell pour gérer des groupes dans Azure Active Directory (Azure AD). Il fournit également des informations sur la configuration du module de la version préliminaire d’Azure AD PowerShell. Vous devez tout d’abord [télécharger le module Azure AD PowerShell](http://go.microsoft.com/fwlink/p/?linkid=236297).
 
 ## Installation du module Azure AD PowerShell
 
@@ -35,18 +35,18 @@ Pour vérifier que le module de la version préliminaire a été installé, util
 	---------- -------    ----                                ----------------
 	Binary     1.1.146.0  azureadpreview                      {Add-AzureADAdministrati...}
 
-Vous pouvez désormais utiliser les applets de commande dans le module. Pour obtenir une description complète des applets de commande dans le module de la version préliminaire d’Azure AD, consultez la [documentation de référence en ligne](https://msdn.azure.microsoft.com/.com/library/azure/mt757216.aspx).
+Vous pouvez désormais utiliser les applets de commande dans le module. Pour obtenir une description complète des applets de commande dans le module de la version préliminaire d’Azure AD, consultez la [documentation de référence en ligne](https://msdn.microsoft.com/library/azure/mt757216.aspx).
 
 ## Connexion au répertoire
 Avant de pouvoir gérer des groupes à l’aide des applets de commande de la version préliminaire d’Azure AD PowerShell, vous devez connecter votre session PowerShell au répertoire que vous souhaitez gérer. Pour ce faire, utilisez la commande suivante :
 
 	PS C:\Windows\system32> Connect-AzureAD -Force
 
-L’applet de commande vous demande de fournir les informations d’identification à utiliser pour accéder à votre répertoire. Dans cet exemple, nous utilisons karen@drumkit.onazure.microsoft.com/.com pour accéder au répertoire de démonstration. L’applet de commande renvoie une confirmation pour indiquer que la session a été correctement connectée à votre répertoire :
+L’applet de commande vous demande de fournir les informations d’identification à utiliser pour accéder à votre répertoire. Dans cet exemple, nous utilisons karen@drumkit.onmicrosoft.com pour accéder au répertoire de démonstration. L’applet de commande renvoie une confirmation pour indiquer que la session a été correctement connectée à votre répertoire :
 
 	Account                       Environment Tenant
 	-------                       ----------- ------
-	Karen@drumkit.onazure.microsoft.com/.com AzureCloud  85b5ff1e-0402-400c-9e3c-0f…
+	Karen@drumkit.onmicrosoft.com AzureCloud  85b5ff1e-0402-400c-9e3c-0f…
 
 À présent, vous pouvez commencer à utiliser les applets de commande de la version préliminaire d’Azure AD pour gérer des groupes dans votre répertoire.
 
@@ -98,7 +98,7 @@ Vous pouvez rechercher un groupe spécifique en utilisant le paramètre -filter.
 	ProxyAddresses               : {}
 	SecurityEnabled              : True
 
-Notez que les applets de commande Azure AD PowerShell implémentent la norme de requête OData. Vous trouverez plus d’informations [ici](https://msdn.azure.microsoft.com/.com/library/gg309461.aspx#BKMK_filter).
+Notez que les applets de commande Azure AD PowerShell implémentent la norme de requête OData. Vous trouverez plus d’informations [ici](https://msdn.microsoft.com/library/gg309461.aspx#BKMK_filter).
 
 ## Création de groupes
 Pour créer un nouveau groupe dans votre répertoire, utilisez l’applet de commande New-AzureADGroup. Cette applet de commande crée un nouveau groupe de sécurité appelé « Marketing » :
@@ -175,9 +175,9 @@ Pour supprimer le membre, que nous avons ajouté précédemment au groupe, utili
 
 	PS C:\Windows\system32> Remove-AzureADGroupMember -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df -MemberId 72cd4bbd-2594-40a2-935c-016f3cfeeeea
 
-Pour vérifier l’appartenance d’un utilisateur à un groupe, utilisez l’applet de commande Select-AzureADGroupIdsUserIsMemberOf. Cette applet de commande utilise comme paramètres l’ObjectId de l’utilisateur pour lequel vérifier l’appartenance au groupe et une liste de groupes pour lesquels vérifier les appartenances. La liste des groupes doit être spécifiée sous la forme d’une variable complexe de type « azure.microsoft.com/.Open.AzureAD.Model.GroupIdsForMembershipCheck », donc nous devons tout d’abord créer une variable de ce type :
+Pour vérifier l’appartenance d’un utilisateur à un groupe, utilisez l’applet de commande Select-AzureADGroupIdsUserIsMemberOf. Cette applet de commande utilise comme paramètres l’ObjectId de l’utilisateur pour lequel vérifier l’appartenance au groupe et une liste de groupes pour lesquels vérifier les appartenances. La liste des groupes doit être spécifiée sous la forme d’une variable complexe de type « Microsoft.Open.AzureAD.Model.GroupIdsForMembershipCheck », donc nous devons tout d’abord créer une variable de ce type :
 
-	PS C:\Windows\system32> $g = new-object azure.microsoft.com/.Open.AzureAD.Model.GroupIdsForMembershipCheck
+	PS C:\Windows\system32> $g = new-object Microsoft.Open.AzureAD.Model.GroupIdsForMembershipCheck
 
 Ensuite, nous fournissons des valeurs pour les groupIds à vérifier dans l’attribut « GroupIds » de cette variable complexe :
 
@@ -217,7 +217,7 @@ Si vous souhaitez supprimer un propriétaire d’un groupe, utilisez Remove-Azur
 
 ## Étapes suivantes
 
-Vous trouverez plus d’informations sur Azure Active Directory PowerShell dans la page dédiée aux [applets de commande Azure Active Directory](http://go.azure.microsoft.com/.com/fwlink/p/?LinkId=808260).
+Vous trouverez plus d’informations sur Azure Active Directory PowerShell dans la page dédiée aux [applets de commande Azure Active Directory](http://go.microsoft.com/fwlink/p/?LinkId=808260).
 
 * [Gestion de l’accès aux ressources avec les groupes Azure Active Directory](active-directory-manage-groups.md)
 

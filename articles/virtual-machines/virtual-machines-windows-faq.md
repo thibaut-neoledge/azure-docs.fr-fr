@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Forum aux questions sur les machines virtuelles Windows | azure.microsoft.com/ Azure"
+	pageTitle="Forum aux questions sur les machines virtuelles Windows | Microsoft Azure"
 	description="Fournit des réponses à certaines questions courantes sur les machines virtuelles Azure créées avec le modèle de déploiement Resource Manager."
 	services="virtual-machines-windows"
 	documentationCenter=""
@@ -24,16 +24,16 @@ Cet article traite certaines questions courantes concernant les machines virtuel
 
 ## Qu’est-il possible d’exécuter sur une machine virtuelle Azure ?
 
-Tous les abonnés peuvent exécuter des logiciels serveur sur une machine virtuelle Azure. Pour plus d’informations sur la stratégie de prise en charge des logiciels serveur azure.microsoft.com/ en cours d’exécution dans Azure, consultez [Prise en charge des logiciels serveur azure.microsoft.com/ pour les machines virtuelles azure.microsoft.com/ Azure](https://support.azure.microsoft.com/.com/kb/2721672).
+Tous les abonnés peuvent exécuter des logiciels serveur sur une machine virtuelle Azure. Pour plus d’informations sur la stratégie de prise en charge des logiciels serveur Microsoft en cours d’exécution dans Azure, consultez [Prise en charge des logiciels serveur Microsoft pour les machines virtuelles Microsoft Azure](https://support.microsoft.com/kb/2721672).
 
-Certaines versions de Windows 7 et Windows 8.1 sont disponibles pour les abonnés MSDN Azure et les abonnés Développement et test MSDN avec paiement à l’utilisation (pour les tâches de test et de développement). Pour plus d’informations, notamment des instructions et des limitations, voir [Images de client Windows pour les abonnés MSDN](http://azure.azure.microsoft.com/.com/blog/2014/05/29/windows-client-images-on-azure/).
+Certaines versions de Windows 7 et Windows 8.1 sont disponibles pour les abonnés MSDN Azure et les abonnés Développement et test MSDN avec paiement à l’utilisation (pour les tâches de test et de développement). Pour plus d’informations, notamment des instructions et des limitations, voir [Images de client Windows pour les abonnés MSDN](http://azure.microsoft.com/blog/2014/05/29/windows-client-images-on-azure/).
 
 
 ## Quelle quantité de stockage puis-je utiliser avec une machine virtuelle ?
 
 Chaque disque de données peut avoir une capacité allant jusqu’à 1 To Le nombre de disques de données que vous pouvez utiliser dépend de la taille de la machine virtuelle. Pour en savoir plus, consultez la rubrique [Tailles de machines virtuelles](virtual-machines-windows-sizes.md).
 
-Un compte de stockage Azure fournit le stockage pour le disque du système d’exploitation et tout disque de données. Chaque disque est un fichier .vhd stocké sous la forme d’un objet blob de pages. Pour plus d’informations sur la tarification, voir [Tarification – Stockage](https://azure.azure.microsoft.com/.com/pricing/details/storage/).
+Un compte de stockage Azure fournit le stockage pour le disque du système d’exploitation et tout disque de données. Chaque disque est un fichier .vhd stocké sous la forme d’un objet blob de pages. Pour plus d’informations sur la tarification, voir [Tarification – Stockage](https://azure.microsoft.com/pricing/details/storage/).
 
 
 ## Comment puis-je accéder à ma machine virtuelle ?
@@ -61,7 +61,7 @@ Non. Si vous souhaitez que votre machine virtuelle fasse partie d’un groupe à
 
 ## Puis-je télécharger une machine virtuelle dans Azure ?
 
-Oui. Pour obtenir des instructions, consultez [Charger une image de machine virtuelle Windows dans azure.microsoft.com/ Azure pour des déploiements Resource Manager](virtual-machines-windows-upload-image.md)
+Oui. Pour obtenir des instructions, consultez [Charger une image de machine virtuelle Windows dans Microsoft Azure pour des déploiements Resource Manager](virtual-machines-windows-upload-image.md)
 
 ## Puis-je redimensionner le disque du système d’exploitation ?
 

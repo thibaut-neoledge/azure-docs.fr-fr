@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Didacticiel : Intégration d’Azure Active Directory avec DocuSign | azure.microsoft.com/ Azure"
+	pageTitle="Didacticiel : Intégration d’Azure Active Directory avec DocuSign | Microsoft Azure"
 	description="Découvrez comment configurer l’authentification unique entre Azure Active Directory et DocuSign."
 	services="active-directory"
 	documentationCenter=""
@@ -87,7 +87,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
 	![Configuration de l'authentification unique][7]
 
-2. Dans la page **Comment voulez-vous que les utilisateurs se connectent à DocuSign**, sélectionnez **Authentification unique azure.microsoft.com/ Azure AD**, puis cliquez sur Suivant.
+2. Dans la page **Comment voulez-vous que les utilisateurs se connectent à DocuSign**, sélectionnez **Authentification unique Microsoft Azure AD**, puis cliquez sur Suivant.
 
 	![Configuration de l'authentification unique][8]
 

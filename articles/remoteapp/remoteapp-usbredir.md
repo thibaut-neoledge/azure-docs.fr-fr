@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="Comment rediriger les périphériques USB dans Azure RemoteApp ? | azure.microsoft.com/ Azure" 
+    pageTitle="Comment rediriger les périphériques USB dans Azure RemoteApp ? | Microsoft Azure" 
     description="Apprenez à utiliser la redirection de périphériques USB dans Azure RemoteApp." 
     services="remoteapp" 
 	documentationCenter="" 
@@ -20,7 +20,7 @@
 # Comment rediriger les périphériques USB dans Azure RemoteApp ?
 
 > [AZURE.IMPORTANT]
-Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.azure.microsoft.com/.com/fwlink/?linkid=821148).
+Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148).
 
 La redirection de périphérique permet aux utilisateurs d’utiliser les périphériques USB raccordés à leur ordinateur ou à une tablette avec les applications de Azure RemoteApp. Par exemple, si vous avez partagé Skype via Azure RemoteApp, vos utilisateurs devront être en mesure d’utiliser les caméras de leurs périphériques mobiles.
 
@@ -41,7 +41,7 @@ RemoteApp Azure utilise les mécanismes très similaires à ceux qui sont dispon
 ## Redirection d’un périphérique USB à l’aide du GUID de la classe de périphérique
 Il existe deux façons de trouver le GUID de la classe de périphérique qui peut être utilisé pour la redirection de périphérique.
 
-La première option consiste à utiliser les [classes de configuration de périphérique définies par le système à la disposition des fournisseurs](https://msdn.azure.microsoft.com/.com/library/windows/hardware/ff553426.aspx). Sélectionnez la classe qui correspond le mieux au périphérique connecté à l’ordinateur local. Pour les appareils photo numériques, il peut s’agir de la classe de périphérique d’acquisition d’image ou de la classe de périphérique de capture vidéo. Vous devez faire des essais avec les classes de périphériques pour trouver le GUID de classe qui fonctionne avec le périphérique USB connecté localement (dans notre cas, la caméra web).
+La première option consiste à utiliser les [classes de configuration de périphérique définies par le système à la disposition des fournisseurs](https://msdn.microsoft.com/library/windows/hardware/ff553426.aspx). Sélectionnez la classe qui correspond le mieux au périphérique connecté à l’ordinateur local. Pour les appareils photo numériques, il peut s’agir de la classe de périphérique d’acquisition d’image ou de la classe de périphérique de capture vidéo. Vous devez faire des essais avec les classes de périphériques pour trouver le GUID de classe qui fonctionne avec le périphérique USB connecté localement (dans notre cas, la caméra web).
 
 Il existe un meilleur moyen, ou une seconde possibilité de trouver le GUID de classe de périphérique spécifique :
 
@@ -65,7 +65,7 @@ Si vous souhaitez un contrôle précis et contrôler la redirection par appareil
 
 La partie la plus difficile de cette méthode consiste à trouver l’ID d’instance de périphérique USB. Vous devez avoir accès à l’ordinateur et à ce périphérique USB particulier. Exécutez ensuite les opérations qui suivent :
 
-1. Activez la redirection de périphérique dans la Session Bureau à distance, comme décrit dans [Utilisation de mes périphériques et mes ressources dans une session Bureau à distance](http://windows.azure.microsoft.com/.com/fr-FR/windows7/How-can-I-use-my-devices-and-resources-in-a-Remote-Desktop-session)
+1. Activez la redirection de périphérique dans la Session Bureau à distance, comme décrit dans [Utilisation de mes périphériques et mes ressources dans une session Bureau à distance](http://windows.microsoft.com/fr-FR/windows7/How-can-I-use-my-devices-and-resources-in-a-Remote-Desktop-session)
 2. Ouvrez une connexion Bureau à distance, puis cliquez sur **Afficher les options**.
 3. Cliquez sur **Enregistrer sous** pour enregistrer les paramètres de connexion actuels dans un fichier RDP. ![Enregistrer les paramètres dans un fichier RDP](./media/remoteapp-usbredir/ra-saveasrdp.png)
 4. Choisissez un nom de fichier et un emplacement, par exemple « MyConnection.rdp » et « Ce PC\\Documents », puis enregistrez le fichier.

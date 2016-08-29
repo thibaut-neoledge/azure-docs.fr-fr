@@ -19,7 +19,7 @@
 
 # Créer et déployer une application web Node.js dans Azure à l’aide de WebMatrix
 
-Ce didacticiel vous montre comment utiliser WebMatrix pour développer une application Node.js et la déployer dans [Azure App Service](http://go.azure.microsoft.com/.com/fwlink/?LinkId=529714) Web Apps. WebMatrix est un outil de développement web gratuit de azure.microsoft.com/, qui fournit tout ce dont vous avez besoin pour développer un site web ou une application web. WebMatrix inclut plusieurs fonctionnalités qui facilitent l'utilisation de Node.js comme la complétion de code, des modèles prégénérés ainsi que la prise en charge de l'éditeur pour Jade, LESS et CoffeeScript. En savoir plus sur [WebMatrix](https://www.azure.microsoft.com/.com/web/webmatrix/).
+Ce didacticiel vous montre comment utiliser WebMatrix pour développer une application Node.js et la déployer dans [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) Web Apps. WebMatrix est un outil de développement web gratuit de Microsoft, qui fournit tout ce dont vous avez besoin pour développer un site web ou une application web. WebMatrix inclut plusieurs fonctionnalités qui facilitent l'utilisation de Node.js comme la complétion de code, des modèles prégénérés ainsi que la prise en charge de l'éditeur pour Jade, LESS et CoffeeScript. En savoir plus sur [WebMatrix](https://www.microsoft.com/web/webmatrix/).
 
 À la fin de ce guide, vous disposerez d’une application web Node.js s’exécutant dans Azure App Service.
  
@@ -29,18 +29,18 @@ Voici une capture d’écran de l’application terminée :
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
->[AZURE.NOTE] Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.azure.microsoft.com/.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
+>[AZURE.NOTE] Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
 ## Connexion à Azure
 
 Pour créer une application web dans Azure App Service, procédez comme suit :
 
 1. Lancez WebMatrix.
-2. Si vous utilisez WebMatrix pour la première fois, vous êtes invité à vous connecter à Azure. Sinon, vous pouvez cliquer sur le bouton **Se connecter**, puis choisir **Ajouter un compte**. Sélectionnez **Se connecter** avec votre compte azure.microsoft.com/.
+2. Si vous utilisez WebMatrix pour la première fois, vous êtes invité à vous connecter à Azure. Sinon, vous pouvez cliquer sur le bouton **Se connecter**, puis choisir **Ajouter un compte**. Sélectionnez **Se connecter** avec votre compte Microsoft.
 
 	![Ajouter un compte][addaccount]
 
-3. Si vous disposez d'un compte Azure, vous pouvez vous connecter avec votre compte azure.microsoft.com/ :
+3. Si vous disposez d'un compte Azure, vous pouvez vous connecter avec votre compte Microsoft :
 
 	![Connexion à Azure][signin]
 
@@ -104,10 +104,10 @@ Pour en savoir plus sur les versions de Node.js fournies avec Azure et apprendre
 Si vous rencontrez des problèmes avec votre application après son déploiement dans Azure, consultez la page [Débogage d’une application Node.js dans Sites Web Azure](web-sites-nodejs-debug.md) pour en savoir plus sur le diagnostic du problème.
 
 ## Changements apportés
-* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.azure.microsoft.com/.com/fwlink/?LinkId=529714).
+* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
 
-[WebMatrix WebSite]: http://www.azure.microsoft.com/.com/click/services/Redirect2.ashx?CR_CC=200106398
-[WebMatrix for Azure]: http://go.azure.microsoft.com/.com/fwlink/?LinkID=253622&clcid=0x409
+[WebMatrix WebSite]: http://www.microsoft.com/click/services/Redirect2.ashx?CR_CC=200106398
+[WebMatrix for Azure]: http://go.microsoft.com/fwlink/?LinkID=253622&clcid=0x409
 
 [webmatrix-node-completed]: ./media/web-sites-nodejs-use-webmatrix/webmatrix-node-complete.png
 [webmatrix-templates]: ./media/web-sites-nodejs-use-webmatrix/webmatrix-templates.png

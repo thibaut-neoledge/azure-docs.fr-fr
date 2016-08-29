@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Gestion de bases de données dans Azure SQL Data Warehouse | azure.microsoft.com/ Azure"
+   pageTitle="Gestion de bases de données dans Azure SQL Data Warehouse | Microsoft Azure"
    description="Vue d’ensemble de la gestion des bases de données SQL Data Warehouse. Inclut des outils de gestion, des unités DWU et une montée en puissance des performances, une résolution des problèmes de performances des requêtes, la mise en œuvre de stratégies de sécurité adaptées et la restauration d’une base de données en cas d’altération des données ou de panne au niveau régional."
    services="sql-data-warehouse"
    documentationCenter="NA"
@@ -37,12 +37,12 @@ Cette présentation couvre ces aspects de la gestion de SQL Data Warehouse.
 Vous pouvez utiliser divers outils pour gérer des bases de données dans SQL Data Warehouse. Au cours de vos travaux de gestion de bases de données, vous développerez des préférences quant aux outils pour chaque type de tâche que vous devez effectuer.
 
 ### Portail Azure
-Le [portail Azure][] est un portail basé sur le Web dans lequel vous pouvez créer, mettre à jour et supprimer des bases de données et surveiller des ressources de base de données. Cet outil est très utile si vous n’êtes pas familiarisé avec azure.microsoft.com/ Azure, si vous gérez un petit nombre de bases de données Data Warehouse, ou si vous devez effectuer rapidement une action.
+Le [portail Azure][] est un portail basé sur le Web dans lequel vous pouvez créer, mettre à jour et supprimer des bases de données et surveiller des ressources de base de données. Cet outil est très utile si vous n’êtes pas familiarisé avec Microsoft Azure, si vous gérez un petit nombre de bases de données Data Warehouse, ou si vous devez effectuer rapidement une action.
 
 Pour la prise en main du portail Azure, consultez la rubrique [Créer un entrepôt de données SQL (portail Azure)][].
 
 ### SQL Server Data Tools dans Visual Studio
-[SQL Server Data Tools][] \(SSDT) dans Visual Studio vous permet de vous connecter à vos bases de données, de les gérer et de les développer. Si vous êtes un développeur d’applications familiarisé avec Visual Studio ou d’autres environnements de développement intégré (IDE), essayez la fonction SSDT de Visual Studio.
+[SQL Server Data Tools][] (SSDT) dans Visual Studio vous permet de vous connecter à vos bases de données, de les gérer et de les développer. Si vous êtes un développeur d’applications familiarisé avec Visual Studio ou d’autres environnements de développement intégré (IDE), essayez la fonction SSDT de Visual Studio.
 
 SSDT comprend la solution Explorateur d’objets SQL Server qui vous permet de visualiser, de connecter et d’exécuter des scripts dans des bases de données SQL Data Warehouse. Pour vous connecter rapidement à SQL Data Warehouse, il vous suffit de cliquer sur le bouton **Ouvrir dans Visual Studio** de la barre de commandes lorsque vous affichez les détails de la base de données dans le portail Azure Classic.
 
@@ -73,7 +73,7 @@ Pour plus d’informations, consultez [Suspension du calcul][], et [Reprise du c
 
 Lorsque vous devez prendre en main une nouvelle technologie, rechercher les conseils et astuces adaptés à vos besoins dès le départ peut vous faire gagner beaucoup de temps. Vous trouverez des meilleures pratiques dans plusieurs de nos rubriques.
 
-Pour voir un résumé des considérations les plus importantes dont vous devez tenir compte lors du développement de votre charge de travail, consultez la rubrique [Meilleures pratiques relatives à SQL Data Warehouse][] \(en anglais).
+Pour voir un résumé des considérations les plus importantes dont vous devez tenir compte lors du développement de votre charge de travail, consultez la rubrique [Meilleures pratiques relatives à SQL Data Warehouse][] (en anglais).
 
 ## Surveillance des requêtes
 
@@ -113,7 +113,7 @@ La mise en œuvre de principes de conception de base de données adaptés facili
 [Vues système SQL Data Warehouse]: sql-data-warehouse-reference-tsql-system-views.md
 
 <!--MSDN references-->
-[SQL Server Data Tools]: https://msdn.azure.microsoft.com/.com/library/mt204009.aspx
+[SQL Server Data Tools]: https://msdn.microsoft.com/library/mt204009.aspx
 
 <!--Other web references-->
 [portail Azure]: http://portal.azure.com/

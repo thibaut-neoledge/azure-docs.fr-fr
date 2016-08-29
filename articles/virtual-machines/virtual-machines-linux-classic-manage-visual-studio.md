@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Créer et gérer des machines virtuelles Linux dans Visual Studio | azure.microsoft.com/ Azure"
+   pageTitle="Créer et gérer des machines virtuelles Linux dans Visual Studio | Microsoft Azure"
    description="Découvrez comment utiliser Visual Studio pour créer et gérer des machines virtuelles Azure exécutant Linux"
    services="visual-studio-online,virtual-machines-linux"
    documentationCenter="na"

@@ -1,5 +1,5 @@
 <properties
-	 pageTitle="Utilisation du portail Azure pour gérer IoT Hub | azure.microsoft.com/ Azure"
+	 pageTitle="Utilisation du portail Azure pour gérer IoT Hub | Microsoft Azure"
 	 description="Une vue d'ensemble de la façon de créer et gérer les hubs IoT Azure via le portail Azure"
 	 services="iot-hub"
 	 documentationCenter=""

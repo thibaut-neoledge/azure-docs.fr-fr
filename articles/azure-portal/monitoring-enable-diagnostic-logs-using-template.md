@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Activer automatiquement les paramètres de diagnostic à l’aide d’un modèle Resource Manager | azure.microsoft.com/ Azure"
+	pageTitle="Activer automatiquement les paramètres de diagnostic à l’aide d’un modèle Resource Manager | Microsoft Azure"
 	description="Découvrez comment utiliser un modèle Resource Manager pour créer des paramètres de diagnostic qui activeront la diffusion en continu de vos journaux de diagnostic vers Event Hubs ou leur stockage dans un compte de stockage."
 	authors="johnkemnetz"
 	manager="rboucher"
@@ -58,13 +58,13 @@ Pour les ressources non liées au calcul, vous devrez effectuer les deux opérat
     "resources": [
       {
         "type": "providers/diagnosticSettings",
-        "name": "azure.microsoft.com/.Insights/service",
+        "name": "Microsoft.Insights/service",
         "dependsOn": [
           "[/*resource Id for which Diagnostic Logs will be enabled>*/]"
         ],
         "apiVersion": "2015-07-01",
         "properties": {
-          "storageAccountId": "[resourceId('azure.microsoft.com/.Storage/storageAccounts', parameters('storageAccountName'))]",
+          "storageAccountId": "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]",
           "serviceBusRuleId": "[parameters('serviceBusRuleId')]",
           "logs": [ 
             {
@@ -81,7 +81,7 @@ Pour les ressources non liées au calcul, vous devrez effectuer les deux opérat
     ]
     ```
 
-L’objet blob de propriétés pour le paramètre de diagnostic suit [le format décrit dans cet article](https://msdn.azure.microsoft.com/.com/library/azure/dn931931.aspx).
+L’objet blob de propriétés pour le paramètre de diagnostic suit [le format décrit dans cet article](https://msdn.microsoft.com/library/azure/dn931931.aspx).
 
 Voici un exemple complet qui crée un groupe de sécurité réseau et active la diffusion en continu vers Event Hubs et le stockage dans un compte de stockage.
 
@@ -112,7 +112,7 @@ Voici un exemple complet qui crée un groupe de sécurité réseau et active la 
     "variables": {},
     "resources": [
         {
-            "type": "azure.microsoft.com/.Network/networkSecurityGroups",
+            "type": "Microsoft.Network/networkSecurityGroups",
             "name": "[parameters('nsgName')]",
             "apiVersion": "2016-03-30",
             "location": "westus",
@@ -122,13 +122,13 @@ Voici un exemple complet qui crée un groupe de sécurité réseau et active la 
             "resources": [
 				{
 					"type": "providers/diagnosticSettings",
-					"name": "azure.microsoft.com/.Insights/service",
+					"name": "Microsoft.Insights/service",
 					"dependsOn": [
-						"[resourceId('azure.microsoft.com/.Network/networkSecurityGroups', parameters('nsgName'))]"
+						"[resourceId('Microsoft.Network/networkSecurityGroups', parameters('nsgName'))]"
 					],
 					"apiVersion": "2015-07-01",
 					"properties": {
-						"storageAccountId": "[resourceId('azure.microsoft.com/.Storage/storageAccounts', parameters('storageAccountName'))]",
+						"storageAccountId": "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]",
                         "serviceBusRuleId": "[parameters('serviceBusRuleId')]",
 						"logs": [
 							{

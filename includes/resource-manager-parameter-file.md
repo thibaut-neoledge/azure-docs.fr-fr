@@ -18,7 +18,7 @@ Si vous utilisez un fichier de paramètres pour passer des valeurs de paramètre
             "adminPassword": {
                 "reference": {
                    "keyVault": {
-                      "id": "/subscriptions/{guid}/resourceGroups/{group-name}/providers/azure.microsoft.com/.KeyVault/vaults/{vault-name}"
+                      "id": "/subscriptions/{guid}/resourceGroups/{group-name}/providers/Microsoft.KeyVault/vaults/{vault-name}"
                    }, 
                    "secretName": "sqlAdminPassword" 
                 }   

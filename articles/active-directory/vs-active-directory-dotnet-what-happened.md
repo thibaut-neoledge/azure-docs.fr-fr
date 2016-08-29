@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Qu'est-il arrivé à mon projet MVC (service connecté Azure Active Directory Visual Studio) ? | azure.microsoft.com/ Azure "
+	pageTitle="Qu'est-il arrivé à mon projet MVC (service connecté Azure Active Directory Visual Studio) ? | Microsoft Azure "
 	description="Décrit les conséquences sur votre projet MVC lorsque vous vous connectez à Azure AD à l'aide des services connectés Visual Studio"
 	services="active-directory"
 	documentationCenter="na"
@@ -28,23 +28,23 @@
 
 ### Références du package NuGet
 
-- **azure.microsoft.com/.IdentityModel.Protocol.Extensions**
-- **azure.microsoft.com/.Owin**
-- **azure.microsoft.com/.Owin.Host.SystemWeb**
-- **azure.microsoft.com/.Owin.Security**
-- **azure.microsoft.com/.Owin.Security.Cookies**
-- **azure.microsoft.com/.Owin.Security.OpenIdConnect**
+- **Microsoft.IdentityModel.Protocol.Extensions**
+- **Microsoft.Owin**
+- **Microsoft.Owin.Host.SystemWeb**
+- **Microsoft.Owin.Security**
+- **Microsoft.Owin.Security.Cookies**
+- **Microsoft.Owin.Security.OpenIdConnect**
 - **Owin**
 - **System.IdentityModel.Tokens.Jwt**
 
 ### Références .NET
 
-- **azure.microsoft.com/.IdentityModel.Protocol.Extensions**
-- **azure.microsoft.com/.Owin**
-- **azure.microsoft.com/.Owin.Host.SystemWeb**
-- **azure.microsoft.com/.Owin.Security**
-- **azure.microsoft.com/.Owin.Security.Cookies**
-- **azure.microsoft.com/.Owin.Security.OpenIdConnect**
+- **Microsoft.IdentityModel.Protocol.Extensions**
+- **Microsoft.Owin**
+- **Microsoft.Owin.Host.SystemWeb**
+- **Microsoft.Owin.Security**
+- **Microsoft.Owin.Security.Cookies**
+- **Microsoft.Owin.Security.OpenIdConnect**
 - **Owin**
 - **System.IdentityModel**
 - **System.IdentityModel.Tokens.Jwt**
@@ -67,7 +67,7 @@ Les entrées de configuration ci-dessous ont été ajoutées.
 
 	<appSettings>
 	    <add key="ida:ClientId" value="ClientId from the new Azure AD App" />
-	    <add key="ida:AADInstance" value="https://login.azure.microsoft.com/online.com/" />
+	    <add key="ida:AADInstance" value="https://login.microsoftonline.com/" />
 	    <add key="ida:Domain" value="The selected Azure AD Domain" />
 	    <add key="ida:TenantId" value="The Id of your selected Azure AD Tenant" />
 	    <add key="ida:PostLogoutRedirectUri" value="Your project start page" />
@@ -81,9 +81,9 @@ Des références du package NuGet ont été supprimées, et des fichiers ont ét
 
 ### Références du package NuGet supprimées (pour celles présentes)
 
-- **azure.microsoft.com/.AspNet.Identity.Core**
-- **azure.microsoft.com/.AspNet.Identity.EntityFramework**
-- **azure.microsoft.com/.AspNet.Identity.Owin**
+- **Microsoft.AspNet.Identity.Core**
+- **Microsoft.AspNet.Identity.EntityFramework**
+- **Microsoft.AspNet.Identity.Owin**
 
 ### Fichiers de code sauvegardés et supprimés (pour ceux présents)
 
@@ -110,23 +110,23 @@ Des références supplémentaires ont été ajoutées.
 ###Références supplémentaires du package NuGet
 
 - **EntityFramework**
-- **azure.microsoft.com/.Azure.ActiveDirectory.GraphClient**
-- **azure.microsoft.com/.Data.Edm**
-- **azure.microsoft.com/.Data.OData**
-- **azure.microsoft.com/.Data.Services.Client**
-- **azure.microsoft.com/.IdentityModel.Clients.ActiveDirectory**
+- **Microsoft.Azure.ActiveDirectory.GraphClient**
+- **Microsoft.Data.Edm**
+- **Microsoft.Data.OData**
+- **Microsoft.Data.Services.Client**
+- **Microsoft.IdentityModel.Clients.ActiveDirectory**
 - **System.Spatial**
 
 ###Références .NET supplémentaires
 
 - **EntityFramework**
 - **EntityFramework.SqlServer**
-- **azure.microsoft.com/.Azure.ActiveDirectory.GraphClient**
-- **azure.microsoft.com/.Data.Edm**
-- **azure.microsoft.com/.Data.OData**
-- **azure.microsoft.com/.Data.Services.Client**
-- **azure.microsoft.com/.IdentityModel.Clients.ActiveDirectory**
-- **azure.microsoft.com/.IdentityModel.Clients.ActiveDirectory.WindowsForms**
+- **Microsoft.Azure.ActiveDirectory.GraphClient**
+- **Microsoft.Data.Edm**
+- **Microsoft.Data.OData**
+- **Microsoft.Data.Services.Client**
+- **Microsoft.IdentityModel.Clients.ActiveDirectory**
+- **Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms**
 - **System.Spatial**
 
 ###Des fichiers de code supplémentaires ont été ajoutés à votre projet
@@ -148,7 +148,7 @@ Les entrées de configuration ci-dessous ont été ajoutées.
 Les sections de configuration et la chaîne de connexion suivantes ont été ajoutées.
 
 	<configSections>
-	    <!-- For more information on Entity Framework configuration, visit http://go.azure.microsoft.com/.com/fwlink/?LinkID=237468 -->
+	    <!-- For more information on Entity Framework configuration, visit http://go.microsoft.com/fwlink/?LinkID=237468 -->
 	    <section name="entityFramework" type="System.Data.Entity.Internal.ConfigFile.EntityFrameworkSection, EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" requirePermission="false" />
 	</configSections>
 	<connectionStrings>
@@ -169,6 +169,6 @@ Les sections de configuration et la chaîne de connexion suivantes ont été ajo
 ###Votre application Azure Active Directory a été mise à jour
 Votre application Azure Active Directory a été mise à jour pour inclure l'autorisation *Lire les données de l'annuaire*, et une clé supplémentaire a été créée pour être ensuite utilisée comme *ida:ClientSecret* dans le fichier **web.config**.
 
-[En savoir plus sur Azure Active Directory](https://azure.azure.microsoft.com/.com/services/active-directory/)
+[En savoir plus sur Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
 
 <!---HONumber=AcomDC_0817_2016-->

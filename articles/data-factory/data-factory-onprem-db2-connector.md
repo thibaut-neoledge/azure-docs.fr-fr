@@ -38,7 +38,7 @@ Les exemples suivants présentent des exemples de définitions de JSON que vous 
 
 ## Exemple : copie de données de DB2 vers Azure Blob
 
-Cet exemple indique comment copier des données à partir d’une base de données DB2 locale vers un système Blob Storage azure.microsoft.com/ Azure. Toutefois, les données peuvent être copiées **directement** vers l’un des récepteurs indiqués [ici](data-factory-data-movement-activities.md#supported-data-stores), via l’activité de copie d’Azure Data Factory.
+Cet exemple indique comment copier des données à partir d’une base de données DB2 locale vers un système Blob Storage Microsoft Azure. Toutefois, les données peuvent être copiées **directement** vers l’un des récepteurs indiqués [ici](data-factory-data-movement-activities.md#supported-data-stores), via l’activité de copie d’Azure Data Factory.
  
 L’exemple contient les entités de fabrique de données suivantes :
 

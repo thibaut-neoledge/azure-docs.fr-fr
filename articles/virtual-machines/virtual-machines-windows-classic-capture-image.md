@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Capture d’une image de machine virtuelle azure.microsoft.com/ Azure | azure.microsoft.com/ Azure"
-	description="Capturer l’image d’une machine virtuelle azure.microsoft.com/ Azure créée avec le modèle de déploiement classique"
+	pageTitle="Capture d’une image de machine virtuelle Microsoft Azure | Microsoft Azure"
+	description="Capturer l’image d’une machine virtuelle Microsoft Azure créée avec le modèle de déploiement classique"
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="cynthn"
@@ -17,7 +17,7 @@
 	ms.date="06/16/2016"
 	ms.author="cynthn"/>
 
-#Capturer l’image d’une machine virtuelle azure.microsoft.com/ Azure créée avec le modèle de déploiement classique
+#Capturer l’image d’une machine virtuelle Microsoft Azure créée avec le modèle de déploiement classique
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Découvrez comment [effectuer ces étapes à l’aide du modèle Resource Manager](virtual-machines-windows-capture-image.md).
 
@@ -32,7 +32,7 @@ Ces étapes partent du principe que vous avez déjà créé une machine virtuell
 
 - [Création d’une machine virtuelle à partir d’une image](virtual-machines-windows-classic-createportal.md)
 - [Comment attacher un disque de données à une machine virtuelle](virtual-machines-windows-classic-attach-disk.md)
-- Assurez-vous que les rôles serveur sont pris en charge avec Sysprep. Pour plus d’informations, consultez [Prise en charge de Sysprep pour les rôles serveur](https://msdn.azure.microsoft.com/.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles).
+- Assurez-vous que les rôles serveur sont pris en charge avec Sysprep. Pour plus d’informations, consultez [Prise en charge de Sysprep pour les rôles serveur](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles).
 
 > [AZURE.WARNING] Ce processus supprime la machine virtuelle d’origine une fois celle-ci capturée.
 
@@ -82,7 +82,7 @@ L’image est prête à être utilisée pour créer des machines virtuelles. Pou
 
 
 [Comment se connecter à une machine virtuelle exécutant Windows Server]: virtual-machines-windows-classic-connect-logon.md
-[Introduction à l’utilisation de Sysprep]: http://technet.azure.microsoft.com/.com/library/bb457073.aspx
+[Introduction à l’utilisation de Sysprep]: http://technet.microsoft.com/library/bb457073.aspx
 [Run Sysprep.exe]: ./media/virtual-machines-capture-image-windows-server/SysprepCommand.png
 [Enter Sysprep.exe options]: ./media/virtual-machines-windows-classic-capture-image/SysprepGeneral.png
 [The virtual machine is stopped]: ./media/virtual-machines-capture-image-windows-server/SysprepStopped.png

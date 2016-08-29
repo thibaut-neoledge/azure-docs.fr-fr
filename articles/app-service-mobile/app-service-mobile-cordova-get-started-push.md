@@ -32,7 +32,7 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
 * Un PC avec [Visual Studio Community 2015] ou version ultérieure.
 * [Visual Studio Tools pour Apache Cordova].
-* Un [compte Azure actif](https://azure.azure.microsoft.com/.com/pricing/free-trial/).
+* Un [compte Azure actif](https://azure.microsoft.com/pricing/free-trial/).
 * Un projet [Démarrage rapide Apache Cordova]. Vous pouvez suivre d’autres didacticiels (comme l’[authentification]) au préalable, mais ce n’est pas obligatoire.
 * (Android) Un [compte Google] avec une adresse électronique vérifiée et un appareil Android.
 * (iOS) Un abonnement au programme pour développeurs Apple et un appareil iOS (le simulateur iOS ne prend pas en charge les notifications Push).
@@ -169,7 +169,7 @@ Terminez cette section pour activer les notifications Push pour Android.
 
 ####<a name="enable-gcm"></a>Activation de Google Cloud Messaging
 
-Dans la mesure où nous ciblons la plateforme Google Android en premier lieu, vous devez activer Google Cloud Messaging. De la même manière, si vous cibliez les appareils azure.microsoft.com/ Windows, vous activeriez la prise en charge WNS.
+Dans la mesure où nous ciblons la plateforme Google Android en premier lieu, vous devez activer Google Cloud Messaging. De la même manière, si vous cibliez les appareils Microsoft Windows, vous activeriez la prise en charge WNS.
 
 [AZURE.INCLUDE [mobile-services-enable-google-cloud-messaging](../../includes/mobile-services-enable-google-cloud-messaging.md)]
 
@@ -256,7 +256,7 @@ Avant d’inscrire votre application pour les notifications Push, ouvrez le fich
 
 		<widget defaultlocale="fr-FR" id="io.cordova.myapp7777777"
   		version="1.0.0" windows-packageVersion="1.1.0.0" xmlns="http://www.w3.org/ns/widgets"
-			xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:vs="http://schemas.azure.microsoft.com/.com/appx/2014/htmlapps">
+			xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:vs="http://schemas.microsoft.com/appx/2014/htmlapps">
 
 Vous utiliserez cet identifiant ultérieurement lors de la création d’un ID d’application sur le portail des développeurs d’Apple. (Si vous créez un autre ID d’application sur le portail des développeurs et que vous souhaitez l’utiliser, vous devrez effectuer quelques étapes supplémentaires ultérieurement dans ce didacticiel pour modifier cet ID dans le fichier config.xml. L’ID de l’élément de widget doit correspondre à l’ID d’application sur le portail des développeurs.)
 
@@ -372,7 +372,7 @@ Découvrez comment utiliser les Kits de développement logiciel.
 [Démarrage rapide Apache Cordova]: app-service-mobile-cordova-get-started.md
 [authentification]: app-service-mobile-cordova-get-started-users.md
 [Fonctionnement avec le Kit de développement logiciel (SDK) du serveur principal .NET pour Azure Mobile Apps]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
-[compte Google]: http://go.azure.microsoft.com/.com/fwlink/p/?LinkId=268302
+[compte Google]: http://go.microsoft.com/fwlink/p/?LinkId=268302
 [Console de développement Google]: https://console.developers.google.com/home/dashboard
 [documentation d’installation phonegap-plugin-push]: https://github.com/phonegap/phonegap-plugin-push/blob/master/docs/INSTALLATION.md
 [Mobizen]: https://www.mobizen.com/

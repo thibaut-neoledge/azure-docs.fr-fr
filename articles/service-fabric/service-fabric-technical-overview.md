@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Présentation de la terminologie Service Fabric | azure.microsoft.com/ Azure"
+   pageTitle="Présentation de la terminologie Service Fabric | Microsoft Azure"
    description="Présentation de la terminologie de Service Fabric. Décrit les concepts et termes principaux utilisés dans le reste de la documentation."
    services="service-fabric"
    documentationCenter=".net"

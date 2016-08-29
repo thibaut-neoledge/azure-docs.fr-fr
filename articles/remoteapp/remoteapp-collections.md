@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="De quel type de collection avez-vous besoin pour Azure RemoteApp ? | azure.microsoft.com/ Azure" 
+    pageTitle="De quel type de collection avez-vous besoin pour Azure RemoteApp ? | Microsoft Azure" 
     description="Découvrez les différents types de collections disponibles avec Azure RemoteApp." 
     services="remoteapp" 
 	documentationCenter="" 
@@ -20,7 +20,7 @@
 # De quel type de collection avez-vous besoin pour Azure RemoteApp ?
 
 > [AZURE.IMPORTANT]
-Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.azure.microsoft.com/.com/fwlink/?linkid=821148).
+Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148).
 
 Azure RemoteApp vous permet de partager des applications et des ressources avec des utilisateurs sur n’importe quel appareil. Vous devez pour cela créer des collections pour stocker les applications et les ressources, puis partager ces collections avec les utilisateurs. Il existe deux options de collection, avec différentes options de réseau et d’authentification. Laquelle vous convient ?
 
@@ -52,16 +52,16 @@ Comment créer une collection ?
 - Fournissent un accès complet au réseau local + réseau virtuel Azure.
 - Offrent un accès avec jonction au domaine pour les applications et les données. Les applications distantes peuvent s’authentifier auprès de votre annuaire Active Directory local. Elles peuvent ensuite accéder aux ressources dans votre domaine.
 - Permettent d’effectuer une surveillance et une gestion avancées avec des solutions System Center et des stratégies de groupe Windows existantes (via une image personnalisée basée sur Windows Server 2012 R2).
-- Prennent en charge [ExpressRoute](https://azure.azure.microsoft.com/.com/services/expressroute/) pour connecter votre réseau virtuel Azure à votre réseau local virtuel.
+- Prennent en charge [ExpressRoute](https://azure.microsoft.com/services/expressroute/) pour connecter votre réseau virtuel Azure à votre réseau local virtuel.
 
 Créez une collection avec l’option **Créer avec un réseau virtuel** et choisissez de rejoindre un domaine.
 
 ## Options d’authentification
-Azure RemoteApp prend en charge les comptes azure.microsoft.com/ et Azure Active Directory, mais les collections ne prennent pas toutes en charge toutes les méthodes.
+Azure RemoteApp prend en charge les comptes Microsoft et Azure Active Directory, mais les collections ne prennent pas toutes en charge toutes les méthodes.
 
 | Type de compte | | Cloud | Cloud + réseau virtuel | Hybride |
 |-----------------------------------|-------------------------------------------------------------|-------|--------------|--------|
-| Compte azure.microsoft.com/ | | Oui | Oui | Non |
+| Compte Microsoft | | Oui | Oui | Non |
 | Azure Active Directory (Azure AD) | | | | |
 | | Azure AD uniquement | Oui | Oui | Non |
 | | AD Connect avec synchronisation de mot de passe | Oui | Oui | Oui |
@@ -73,9 +73,9 @@ Azure RemoteApp prend en charge les comptes azure.microsoft.com/ et Azure Active
 
 
 ### Cloud et Cloud + réseau virtuel 
-Avec les collections cloud, vous pouvez utiliser des comptes azure.microsoft.com/, des comptes Azure AD ou une combinaison des deux. Utilisez les comptes qui conviennent le mieux à vos utilisateurs.
+Avec les collections cloud, vous pouvez utiliser des comptes Microsoft, des comptes Azure AD ou une combinaison des deux. Utilisez les comptes qui conviennent le mieux à vos utilisateurs.
 
-Il n’existe aucune exigence particulière quant à l’utilisation de comptes azure.microsoft.com/.
+Il n’existe aucune exigence particulière quant à l’utilisation de comptes Microsoft.
 
 Si vous souhaitez utiliser des comptes Azure AD, vous devez vous assurer que votre locataire Azure AD correspond à celui associé à votre abonnement. Quand vous avez créé votre abonnement Azure RemoteApp, le locataire Azure AD que vous utilisiez a été associé automatiquement à votre abonnement. Tout utilisateur Azure AD auquel vous affectez une autorisation doit être ce même locataire. Si nécessaire, vous pouvez [modifier le locataire Azure AD](remoteapp-changetenant.md) associé à votre abonnement.
  

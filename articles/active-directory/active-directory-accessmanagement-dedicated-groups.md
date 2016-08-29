@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Groupes dédiés dans Azure Active Directory | azure.microsoft.com/ Azure"
+	pageTitle="Groupes dédiés dans Azure Active Directory | Microsoft Azure"
 	description="Vue d’ensemble du fonctionnement et de la création des groupes dédiés dans Azure Active Directory."
 	services="active-directory"
 	documentationCenter=""

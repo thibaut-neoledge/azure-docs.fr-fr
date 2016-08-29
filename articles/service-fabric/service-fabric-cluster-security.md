@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Sécuriser un cluster Service Fabric | azure.microsoft.com/ Azure"
+   pageTitle="Sécuriser un cluster Service Fabric | Microsoft Azure"
    description="Décrit les scénarios de sécurité d’un cluster Service Fabric et les différentes technologies utilisées pour implémenter ces scénarios."
    services="service-fabric"
    documentationCenter=".net"
@@ -29,7 +29,7 @@ Sécurise la communication entre les machines virtuelles ou les ordinateurs du c
 
 ![Diagramme de communication nœud à nœud][Node-to-Node]
 
-Les clusters qui s’exécutent sur Azure ou les clusters autonomes sur Windows peuvent utiliser la [Sécurité par certificat](https://msdn.azure.microsoft.com/.com/library/ff649801.aspx) ou la [Sécurité Windows](https://msdn.azure.microsoft.com/.com/library/ff649396.aspx) pour les ordinateurs Windows Server.
+Les clusters qui s’exécutent sur Azure ou les clusters autonomes sur Windows peuvent utiliser la [Sécurité par certificat](https://msdn.microsoft.com/library/ff649801.aspx) ou la [Sécurité Windows](https://msdn.microsoft.com/library/ff649396.aspx) pour les ordinateurs Windows Server.
 ### Sécurité de certificat de nœud à nœud
 Service Fabric utilise des certificats de serveur X.509 que vous spécifiez dans le cadre des configurations du type de nœud, lorsque vous créez un cluster. La fin de cet article propose un rapide aperçu de ce que sont ces certificats et de la façon dont vous pouvez les acquérir ou les créer.
 
@@ -47,7 +47,7 @@ Authentifie les clients et sécurise la communication entre un client et des nœ
 
 ![Diagramme de communication client à nœud][Client-to-Node]
 
-Les clusters qui s’exécutent sur Azure ou les clusters autonomes sur Windows peuvent utiliser la [Sécurité par certificat](https://msdn.azure.microsoft.com/.com/library/ff649801.aspx) ou la [Sécurité Windows](https://msdn.azure.microsoft.com/.com/library/ff649396.aspx).
+Les clusters qui s’exécutent sur Azure ou les clusters autonomes sur Windows peuvent utiliser la [Sécurité par certificat](https://msdn.microsoft.com/library/ff649801.aspx) ou la [Sécurité Windows](https://msdn.microsoft.com/library/ff649396.aspx).
 
 ### Sécurité par certificat de client à nœud
  La configuration de la sécurité par certificat de client à nœud s’effectue lors de la création du cluster (par le biais du Portail Azure, des modèles Resource Manager ou d’un modèle JSON autonome) en spécifiant un certificat client d’administration et/ou un certificat de client utilisateur. Les certificats client d’administration et client en lecture seule que vous spécifiez doivent être différents des certificats primaires et secondaires que vous spécifiez pour la [Sécurité de nœud à nœud](#node-to-node-security).
@@ -75,7 +75,7 @@ Vous spécifiez les rôles client utilisateur et administrateur au moment de la 
 
 
 ## Certificats X.509 et Service Fabric
-Les certificats numériques X.509 sont couramment utilisés pour authentifier les clients et serveurs et pour chiffrer et signer numériquement les messages. Pour plus d’informations sur ces certificats, consultez [Utilisation des certificats](http://msdn.azure.microsoft.com/.com/library/ms731899.aspx).
+Les certificats numériques X.509 sont couramment utilisés pour authentifier les clients et serveurs et pour chiffrer et signer numériquement les messages. Pour plus d’informations sur ces certificats, consultez [Utilisation des certificats](http://msdn.microsoft.com/library/ms731899.aspx).
 
 Quelques éléments importants à prendre en compte :
 
@@ -87,7 +87,7 @@ Quelques éléments importants à prendre en compte :
 
 La tâche principale des certificats de serveur est d’authentifier un serveur (nœud) pour les clients ou d’authentifier un serveur (nœud) pour un serveur (nœud). L’une des vérifications initiales lorsqu’un nœud ou un client authentifie un nœud consiste à vérifier la valeur du nom commun dans le champ Objet. Ce nom commun ou l’un des autres noms de l’objet des certificats doit figurer dans la liste des noms communs autorisés.
 
-L’article suivant décrit comment générer des certificats avec d’autres noms de l’objet (SAN) : [Comment ajouter un autre nom de l’objet à un certificat LDAP sécurisé](http://support.azure.microsoft.com/.com/kb/931351).
+L’article suivant décrit comment générer des certificats avec d’autres noms de l’objet (SAN) : [Comment ajouter un autre nom de l’objet à un certificat LDAP sécurisé](http://support.microsoft.com/kb/931351).
 
 Le champ Objet peut contenir plusieurs valeurs, chacune étant précédée d’une initialisation pour indiquer le type de valeur. En règle générale, l’initialisation est « CN » pour « nom commun », par exemple, « CN = www.contoso.com ». Il est également possible que le champ Objet soit vide. Si le champ facultatif Autre nom de l’objet est renseigné, il doit contenir le nom commun du certificat et une entrée par autre nom de l’objet. Ils sont entrés sous forme de valeurs de nom DNS.
 

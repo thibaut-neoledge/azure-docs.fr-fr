@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Application Java nécessitant beaucoup de ressources sur une machine virtuelle | azure.microsoft.com/ Azure"
+	pageTitle="Application Java nécessitant beaucoup de ressources sur une machine virtuelle | Microsoft Azure"
 	description="Apprenez à créer une machine virtuelle Azure qui exécute une application de calcul intensif Java qu'une autre application Java peut surveiller."
 	services="virtual-machines-windows"
 	documentationCenter="java"
@@ -24,7 +24,7 @@
 
 Azure permet d'utiliser une machine virtuelle pour gérer les tâches nécessitant beaucoup de ressources. Par exemple, une machine virtuelle peut gérer des tâches et fournir des résultats à des ordinateurs clients ou à des applications mobiles. Après avoir lu cet article, vous serez en mesure de créer une machine virtuelle exécutée sur une application Java nécessitant beaucoup de ressources et pouvant être surveillée par une autre application Java.
 
-Ce didacticiel part du principe que vous savez créer des applications console Java, importer des bibliothèques dans votre application Java et générer une archive Java (JAR). Aucune connaissance de azure.microsoft.com/ Azure n'est nécessaire.
+Ce didacticiel part du principe que vous savez créer des applications console Java, importer des bibliothèques dans votre application Java et générer une archive Java (JAR). Aucune connaissance de Microsoft Azure n'est nécessaire.
 
 Vous apprendrez à effectuer les opérations suivantes :
 
@@ -105,7 +105,7 @@ Pour pouvoir effectuer des opérations de gestion telles que la création d'une 
 
 ## Création d'une application Java exécutant une tâche qui nécessite beaucoup de ressources
 
-1. Sur votre ordinateur de développement (qui n'est pas forcément celui où se trouve la machine virtuelle que vous avez créée), téléchargez le [Kit de développement logiciel (SDK) Azure pour Java](https://azure.azure.microsoft.com/.com/develop/java/).
+1. Sur votre ordinateur de développement (qui n'est pas forcément celui où se trouve la machine virtuelle que vous avez créée), téléchargez le [Kit de développement logiciel (SDK) Azure pour Java](https://azure.microsoft.com/develop/java/).
 2. Créez une application console Java à l'aide de l'exemple de code disponible à la fin de cette section. Dans le cadre de ce didacticiel, nous utiliserons le nom de fichier Java **TSPSolver.java**. Modifiez les espaces réservés **your\_service\_bus\_namespace**, **your\_service\_bus\_owner** et **your\_service\_bus\_key** pour utiliser respectivement vos valeurs Service Bus **Espace de noms**, **Émetteur par défaut** et **Clé par défaut**.
 3. Après le codage, exportez l'application dans une archive Java exécutable (JAR) et créez un package contenant les bibliothèques requises dans le fichier JAR généré. Dans le cadre de ce didacticiel, nous utiliserons le nom **TSPSolver.jar** pour désigner le fichier JAR généré.
 
@@ -113,10 +113,10 @@ Pour pouvoir effectuer des opérations de gestion telles que la création d'une 
 
 	// TSPSolver.java
 
-	import com.azure.microsoft.com/.windowsazure.services.core.Configuration;
-	import com.azure.microsoft.com/.windowsazure.services.core.ServiceException;
-	import com.azure.microsoft.com/.windowsazure.services.serviceBus.*;
-	import com.azure.microsoft.com/.windowsazure.services.serviceBus.models.*;
+	import com.microsoft.windowsazure.services.core.Configuration;
+	import com.microsoft.windowsazure.services.core.ServiceException;
+	import com.microsoft.windowsazure.services.serviceBus.*;
+	import com.microsoft.windowsazure.services.serviceBus.models.*;
 	import java.io.*;
 	import java.text.DateFormat;
 	import java.text.SimpleDateFormat;
@@ -306,9 +306,9 @@ Pour pouvoir effectuer des opérations de gestion telles que la création d'une 
 	import java.util.Date;
 	import java.text.DateFormat;
 	import java.text.SimpleDateFormat;
-	import com.azure.microsoft.com/.windowsazure.services.serviceBus.*;
-	import com.azure.microsoft.com/.windowsazure.services.serviceBus.models.*;
-	import com.azure.microsoft.com/.windowsazure.services.core.*;
+	import com.microsoft.windowsazure.services.serviceBus.*;
+	import com.microsoft.windowsazure.services.serviceBus.models.*;
+	import com.microsoft.windowsazure.services.core.*;
 
 	public class TSPClient
 	{

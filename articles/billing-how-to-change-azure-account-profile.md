@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Comment modifier les informations de profil de votre compte Azure | azure.microsoft.com/ Azure"
+	pageTitle="Comment modifier les informations de profil de votre compte Azure | Microsoft Azure"
 	description="Décrit comment modifier le profil de votre compte Azure et répond aux questions courantes, notamment concernant l'impossibilité de modifier le pays dans le Centre de comptes Azure"
 	services=""
 	documentationCenter=""
@@ -29,7 +29,7 @@ Vous avez manqué un message électronique important de la part d'Azure ? Vous s
 
 ## Informations importantes concernant l'adresse de messagerie de votre profil
 
-L'adresse de messagerie du profil de l'administrateur de compte est utilisée par azure.microsoft.com/ pour vous informer des mises à jour importantes concernant la facturation dans le cadre de l'abonnement. Nous vous recommandons de spécifier une adresse de messagerie que vous consultez régulièrement.
+L'adresse de messagerie du profil de l'administrateur de compte est utilisée par Microsoft pour vous informer des mises à jour importantes concernant la facturation dans le cadre de l'abonnement. Nous vous recommandons de spécifier une adresse de messagerie que vous consultez régulièrement.
 
 ## Comment modifier vos informations de profil
 

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Application locale avec stockage d’objets blob (Java) | azure.microsoft.com/ Azure"
+	pageTitle="Application locale avec stockage d’objets blob (Java) | Microsoft Azure"
 	description="Découvrez comment créer une application console qui charge une image dans Azure, puis l'affiche dans votre navigateur. Les exemples de code sont écrits en Java."
 	services="storage"
 	documentationCenter="java"
@@ -39,8 +39,8 @@ La procédure présentée ici détaille chaque étape. Si vous souhaitez la pass
 
 Commencez le code en important les classes de stockage de base Azure, les classes du client d’objets blob Azure, les classes d’E/S Java et la classe **URISyntaxException** :
 
-    import com.azure.microsoft.com/.azure.storage.*;
-    import com.azure.microsoft.com/.azure.storage.blob.*;
+    import com.microsoft.azure.storage.*;
+    import com.microsoft.azure.storage.blob.*;
     import java.io.*;
     import java.net.URISyntaxException;
 
@@ -201,8 +201,8 @@ Fermez **StorageSample** en insérant une parenthèse fermante : **}**
 
 Voici le code complet pour cet exemple. N'oubliez pas de modifier les valeurs des espaces réservés **your\_account\_name** et **your\_account\_key** pour utiliser respectivement votre nom et votre clé de compte.
 
-    import com.azure.microsoft.com/.azure.storage.*;
-    import com.azure.microsoft.com/.azure.storage.blob.*;
+    import com.microsoft.azure.storage.*;
+    import com.microsoft.azure.storage.blob.*;
     import java.io.*;
     import java.net.URISyntaxException;
 
@@ -306,8 +306,8 @@ Comme le code contient votre nom et votre clé de compte, veillez à la sécurit
 
 Pour appeler la méthode **CloudBlobContainer.delete**, le processus d’initialisation des objets **CloudStorageAccount**, **CloudBlobClient** et **CloudBlobContainer** est le même que celui de la méthode **createIfNotExist**. Voici un exemple complet permettant de supprimer le conteneur nommé **gettingstarted**.
 
-    import com.azure.microsoft.com/.azure.storage.*;
-    import com.azure.microsoft.com/.azure.storage.blob.*;
+    import com.microsoft.azure.storage.*;
+    import com.microsoft.azure.storage.blob.*;
 
     public class DeleteContainer {
 
@@ -356,7 +356,7 @@ Pour en savoir plus sur les tâches de stockage plus complexes, cliquez sur les 
 
 - [Kit de développement logiciel (SDK) Azure Storage pour Java](https://github.com/azure/azure-storage-java)
 - [Référence du Kit de développement logiciel (SDK) du client Azure Storage](http://dl.windowsazure.com/storage/javadoc/)
-- [API REST des services d’Azure Storage](https://msdn.azure.microsoft.com/.com/library/azure/dd179355.aspx)
+- [API REST des services d’Azure Storage](https://msdn.microsoft.com/library/azure/dd179355.aspx)
 - [Blog de l'équipe Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/)
 
 <!---HONumber=AcomDC_0817_2016-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Mise à l’échelle verticale des machines virtuelles Azure avec Azure Automation | azure.microsoft.com/ Azure"
+	pageTitle="Mise à l’échelle verticale des machines virtuelles Azure avec Azure Automation | Microsoft Azure"
 	description="Mettre à l’échelle verticalement une machine virtuelle Windows en réponse aux alertes avec Azure Automation"
 	services="virtual-machines-windows"
 	documentationCenter=""

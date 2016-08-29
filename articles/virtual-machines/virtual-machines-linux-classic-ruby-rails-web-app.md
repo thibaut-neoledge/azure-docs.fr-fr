@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Hébergement d’un Ruby sur le site web de Rails sur une machine virtuelle Linux | azure.microsoft.com/ Azure"
+	pageTitle="Hébergement d’un Ruby sur le site web de Rails sur une machine virtuelle Linux | Microsoft Azure"
 	description="Configuration et hébergement d'un Ruby sur le site web de Rails dans Azure en utilisant une machine virtuelle Linux."
 	services="virtual-machines-linux"
 	documentationCenter="ruby"
@@ -139,7 +139,7 @@ Pour utiliser des services Azure depuis votre application Ruby, consultez :
 
 <!-- WA.com links -->
 [blobs]: ../storage/storage-ruby-how-to-use-blob-storage.md
-[cdn-howto]: https://azure.azure.microsoft.com/.com/develop/ruby/app-services/
+[cdn-howto]: https://azure.microsoft.com/develop/ruby/app-services/
 [management-portal]: https://manage.windowsazure.com/
 [tables]: ../storage/storage-ruby-how-to-use-table-storage.md
 [vm-instructions]: virtual-machines-linux-classic-createportal.md

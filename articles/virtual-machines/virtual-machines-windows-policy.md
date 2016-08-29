@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Application de stratégies aux machines virtuelles Azure Resource Manager | azure.microsoft.com/ Azure"
+	pageTitle="Application de stratégies aux machines virtuelles Azure Resource Manager | Microsoft Azure"
 	description="Comment appliquer une stratégie à une machine virtuelle Azure Resource Manager Windows"
 	services="virtual-machines-windows"
 	documentationCenter=""
@@ -43,21 +43,21 @@ L'un des scénarios courants pour une entreprise peut consister à autoriser uni
   "allOf": [
     {
       "field": "type",
-      "equals": "azure.microsoft.com/.Compute/virtualMachines"
+      "equals": "Microsoft.Compute/virtualMachines"
     },
     {
       "not": {
         "allOf": [
           {
-            "field": "azure.microsoft.com/.Compute/virtualMachines/imagePublisher",
-            "equals": "azure.microsoft.com/WindowsServer"
+            "field": "Microsoft.Compute/virtualMachines/imagePublisher",
+            "equals": "MicrosoftWindowsServer"
           },
           {
-            "field": "azure.microsoft.com/.Compute/virtualMachines/imageOffer",
+            "field": "Microsoft.Compute/virtualMachines/imageOffer",
             "equals": "WindowsServer"
           },
           {
-            "field": "azure.microsoft.com/.Compute/virtualMachines/imageSku",
+            "field": "Microsoft.Compute/virtualMachines/imageSku",
             "equals": "2012-R2-Datacenter"
           }
         ]
@@ -74,7 +74,7 @@ La stratégie ci-dessus peut facilement être modifiée pour un scénario dans l
 
 ```
 {
-  "field": "azure.microsoft.com/.Compute/virtualMachines/imageSku",
+  "field": "Microsoft.Compute/virtualMachines/imageSku",
   "like": "*Datacenter"
 }
 ```

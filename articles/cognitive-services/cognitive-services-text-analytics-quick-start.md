@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Guide de démarrage rapide : API Machine Learning Text Analytics | azure.microsoft.com/ Azure"
+	pageTitle="Guide de démarrage rapide : API Machine Learning Text Analytics | Microsoft Azure"
 	description="Azure Machine Learning Text Analytics - Guide de démarrage rapide"
 	services="cognitive-services"
 	documentationCenter=""
@@ -20,9 +20,9 @@
 
 <a name="HOLTop"></a>
 
-Ce document décrit comment intégrer votre service ou application pour utiliser les [API Text Analytics](//go.azure.microsoft.com/.com/fwlink/?LinkID=759711). Ces API vous permettent de détecter le sentiment, les expressions clés, les rubriques et le langage de votre texte. [Cliquez ici pour voir une démonstration interactive de l’expérience.](//go.azure.microsoft.com/.com/fwlink/?LinkID=759712)
+Ce document décrit comment intégrer votre service ou application pour utiliser les [API Text Analytics](//go.microsoft.com/fwlink/?LinkID=759711). Ces API vous permettent de détecter le sentiment, les expressions clés, les rubriques et le langage de votre texte. [Cliquez ici pour voir une démonstration interactive de l’expérience.](//go.microsoft.com/fwlink/?LinkID=759712)
 
-Consultez les [définitions des API](//go.azure.microsoft.com/.com/fwlink/?LinkID=759346) pour obtenir des informations techniques sur les API.
+Consultez les [définitions des API](//go.microsoft.com/fwlink/?LinkID=759346) pour obtenir des informations techniques sur les API.
 
 Ce guide concerne la version 2 des API. Pour plus d’informations sur la version 1 des API, [consultez ce document](../machine-learning/machine-learning-apps-text-analytics.md).
 
@@ -53,7 +53,7 @@ C’est parti !
 
 Au cours de cette tâche, vous allez vous inscrire au service Text Analytics.
 
-1. Accédez à **Cognitive Services** dans le [portail Azure](//go.azure.microsoft.com/.com/fwlink/?LinkId=761108) et assurez-vous que le type d’API **Text Analytics** est sélectionné.
+1. Accédez à **Cognitive Services** dans le [portail Azure](//go.microsoft.com/fwlink/?LinkId=761108) et assurez-vous que le type d’API **Text Analytics** est sélectionné.
 
 1. Sélectionnez un plan. Vous pouvez sélectionner le **niveau gratuit pour 5 000 transactions/mois**. Étant donné qu’il s’agit d’un plan gratuit, son utilisation ne vous sera pas facturée. Vous devrez vous connecter à votre abonnement Azure.
 
@@ -64,7 +64,7 @@ Au cours de cette tâche, vous allez vous inscrire au service Text Analytics.
 
 ## Tâche 2 : Détecter le sentiment, les expressions clés et les langues ####
 
-Vous pouvez facilement détecter le sentiment, les expressions clés et les langues de votre texte. Vous obtenez par programmation les mêmes résultats que ceux présentés dans la [démonstration de l’expérience](//go.azure.microsoft.com/.com/fwlink/?LinkID=759712).
+Vous pouvez facilement détecter le sentiment, les expressions clés et les langues de votre texte. Vous obtenez par programmation les mêmes résultats que ceux présentés dans la [démonstration de l’expérience](//go.microsoft.com/fwlink/?LinkID=759712).
 
 >[AZURE.TIP] Pour l’analyse de sentiment, nous vous recommandons de fractionner le texte en phrases. Cela vous permettra généralement d’obtenir des prédictions de sentiment plus précises.
 
@@ -102,9 +102,9 @@ Notez que les langues prises en charge sont les suivantes :
 
 1. Adressez un appel **POST** au système avec l’entrée pour le sentiment, les expressions clés et la langue. Les URL doivent se présenter comme suit :
 
-        POST https://westus.api.cognitive.azure.microsoft.com/.com/text/analytics/v2.0/sentiment
-        POST https://westus.api.cognitive.azure.microsoft.com/.com/text/analytics/v2.0/keyPhrases
-        POST https://westus.api.cognitive.azure.microsoft.com/.com/text/analytics/v2.0/languages
+        POST https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment
+        POST https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/keyPhrases
+        POST https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/languages
 
 1. Cet appel renvoie une réponse au format JSON, contenant les ID et les propriétés détectées. Un exemple de résultat pour le sentiment est présenté ci-dessous (sans les détails d’erreur). Dans le cas du sentiment, un score compris entre 0 et 1 est renvoyé pour chaque document :
 
@@ -175,7 +175,7 @@ Cette API nécessite l’envoi **d’au moins 100 enregistrements texte**, mais 
 Vous pouvez utiliser deux paramètres d’entrée **facultatifs** supplémentaires pour améliorer la qualité des résultats :
 
 - **Mots exclus.** Ces mots et leurs formes dérivées proches (par exemple, les pluriels) sont exclus de l’ensemble du pipeline de détection des rubriques. Utilisez ce paramètre pour les mots courants (« problème », « erreur » et « utilisateur » sont des exemples pertinents de mots à exclure pour les plaintes des utilisateurs concernant les logiciels). Chaque chaîne doit contenir un seul mot.
-- **Expressions exclues**. Ces expressions sont exclues de la liste des rubriques renvoyées. Utilisez ce paramètre pour exclure les rubriques génériques que vous ne souhaitez pas voir apparaître dans les résultats. « azure.microsoft.com/ » et « Azure » sont des exemples pertinents de rubriques à exclure. Les chaînes peuvent contenir plusieurs mots.
+- **Expressions exclues**. Ces expressions sont exclues de la liste des rubriques renvoyées. Utilisez ce paramètre pour exclure les rubriques génériques que vous ne souhaitez pas voir apparaître dans les résultats. « Microsoft » et « Azure » sont des exemples pertinents de rubriques à exclure. Les chaînes peuvent contenir plusieurs mots.
 
 Suivez ces étapes pour détecter les rubriques dans votre texte.
 
@@ -197,21 +197,21 @@ Suivez ces étapes pour détecter les rubriques dans votre texte.
 				"issue", "error", "user"
 			],
 			"stopPhrases": [
-				"azure.microsoft.com/", "Azure"
+				"Microsoft", "Azure"
 			]
 		}
 
 1. En utilisant les mêmes en-têtes que ceux définis dans la tâche 2, adressez un appel **POST** au point de terminaison des rubriques :
 
-        POST https://westus.api.cognitive.azure.microsoft.com/.com/text/analytics/v2.0/topics
+        POST https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/topics
 
 1. La réponse renvoyée est un en-tête `operation-location` dont la valeur est l’URL à interroger pour obtenir les rubriques :
 
-        'operation-location': 'https://westus.api.cognitive.azure.microsoft.com/.com/text/analytics/v2.0/operations/<operationId>'
+        'operation-location': 'https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/operations/<operationId>'
 
 1. Interrogez régulièrement le `operation-location` retourné à l’aide d’une demande **GET**. Nous vous recommandons de l’interroger toutes les minutes.
 
-        GET https://westus.api.cognitive.azure.microsoft.com/.com/text/analytics/v2.0/operations/<operationId>
+        GET https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/operations/<operationId>
 
 1. Le point de terminaison retourne une réponse contenant `{"status": "notstarted"}` avant le traitement, `{"status": "running"}` pendant le traitement et `{"status": "succeeded"}` avec le résultat à la fin du traitement. Vous pouvez ensuite utiliser le résultat qui s’affiche dans le format suivant (notez que cet exemple n’inclut pas certains détails, tels que les dates et le format d’erreur) :
 
@@ -293,7 +293,7 @@ Les explications concernant chaque partie de la réponse sont les suivantes :
 
 ## Étapes suivantes ##
 
-Félicitations ! Vous avez terminé l’analyse des données de votre texte. Vous pouvez maintenant examiner les résultats à l’aide d’un outil tel que [Power BI](//powerbi.azure.microsoft.com/.com) pour visualiser vos données et automatiser vos analyses pour avoir une vue en temps réel des données de votre texte.
+Félicitations ! Vous avez terminé l’analyse des données de votre texte. Vous pouvez maintenant examiner les résultats à l’aide d’un outil tel que [Power BI](//powerbi.microsoft.com) pour visualiser vos données et automatiser vos analyses pour avoir une vue en temps réel des données de votre texte.
 
 Pour voir comment des fonctionnalités d’analyse de texte, telles que des sentiments, peuvent être utilisées en tant que composant d’un bot, consultez l’exemple [Robot émotionnel](http://docs.botframework.com/fr-FR/bot-intelligence/language/#example-emotional-bot) sur le site Bot Framework (Infrastructure de robot).
 

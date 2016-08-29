@@ -176,12 +176,12 @@ Pour plus d’informations, consultez [Surveillance de l’état d’un point de
 [Configuration d’un nom de domaine personnalisé dans Azure App Service]: ./web-sites-custom-domain-name.md
 [Deploy to Staging Environments for Web Apps in Azure App Service (Procéder à des déploiements sur des environnements intermédiaires pour les applications web dans Azure App Service)]: ./web-sites-staged-publishing.md
 [Activer le protocole HTTPS pour une application dans Azure App Service]: ./web-sites-configure-ssl-certificate.md
-[Surveillance de l’état d’un point de terminaison Web]: http://go.azure.microsoft.com/.com/fwLink/?LinkID=279906
+[Surveillance de l’état d’un point de terminaison Web]: http://go.microsoft.com/fwLink/?LinkID=279906
 [Surveiller les applications Web dans Azure App Service]: ./web-sites-monitor.md
 [mode pipeline]: http://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application
 [Faire évoluer une application Web dans Azure App Service]: ./web-sites-scale.md
 [socket.io]: ./web-sites-nodejs-chat-app-socketio.md
-[Essayer App Service]: http://go.azure.microsoft.com/.com/fwlink/?LinkId=523751
+[Essayer App Service]: http://go.microsoft.com/fwlink/?LinkId=523751
 
 <!-- IMG List -->
 
