@@ -1,4 +1,4 @@
-properties
+<properties
 	pageTitle="Créer une application web à partir d’Azure Marketplace | Microsoft Azure"
 	description="Apprenez à créer une nouvelle application web WordPress à partir d’Azure Marketplace à l’aide du Portail Azure."
 	services="app-service\web"
