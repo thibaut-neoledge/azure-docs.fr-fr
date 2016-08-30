@@ -94,7 +94,7 @@ Par exemple, l’enregistrement CNAME suivant renvoie tout le trafic de **www.co
 > [AZURE.NOTE]
 Un utilisateur consultant le site **www.contoso.com** ne verra jamais l’adresse de l’hôte réel (contoso.cloudapp.net). Le processus de transfert est donc invisible pour l’utilisateur final.
 
-> L'exemple ci-dessus s'applique uniquement au trafic du sous-domaine **www**. Puisqu'il n'est pas possible d'utiliser des caractères génériques pour les enregistrements CNAME, vous devez créer un enregistrement CNAME pour chaque domaine/sous-domaine. Pour rediriger le trafic de sous-domaines tels que *.contoso.com vers votre adresse cloudapp.net, vous pouvez configurer une* *entrée de redirection d’URL** ou **de transfert d’URL** dans vos paramètres DNS. Vous pouvez également créer un enregistrement A.
+> L'exemple ci-dessus s'applique uniquement au trafic du sous-domaine **www**. Puisqu'il n'est pas possible d'utiliser des caractères génériques pour les enregistrements CNAME, vous devez créer un enregistrement CNAME pour chaque domaine/sous-domaine. Pour rediriger le trafic de sous-domaines tels que \*.contoso.com vers votre adresse cloudapp.net, vous pouvez configurer une **entrée de redirection d’URL** ou **de transfert d’URL** dans vos paramètres DNS. Vous pouvez également créer un enregistrement A.
 
 
 ## Ajouter un enregistrement A pour votre domaine personnalisé
