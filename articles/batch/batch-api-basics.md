@@ -13,12 +13,12 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-compute"
-	ms.date="08/12/2016"
+	ms.date="08/22/2016"
 	ms.author="marsma"/>
 
 # Présentation des fonctionnalités du service Batch pour les développeurs
 
-Dans cette vue d’ensemble des principaux composants du service Azure Batch, nous aborderons les fonctionnalités du service Batch qui permettent aux développeurs de créer des solutions de calcul parallèles à grande échelle.
+Dans cette vue d’ensemble des principaux composants du service Azure Batch, nous aborderons les fonctionnalités et ressources du service Batch qui permettent aux développeurs de créer des solutions de calcul parallèles à grande échelle.
 
 Si vous développez une application ou un service de calcul distribué, qui émet des appels d’API [Batch REST][batch_rest_api] directs, ou si vous utilisez l’un des [Kits de développement logiciel (SDK) Batch](batch-technical-overview.md#batch-development-apis), vous utiliserez la plupart des ressources et des fonctionnalités présentées dans cet article.
 
@@ -40,13 +40,13 @@ Le flux de travail de haut niveau suivant est caractéristique de la plupart des
 
 6. Surveillez la progression du travail et récupérez la sortie de la tâche à partir d’Azure Storage.
 
-Dans les sections suivantes, vous allez découvrir chacune des ressources mentionnées dans ce flux de travail, ainsi que de nombreuses autres fonctionnalités de Batch qui permettent votre scénario de calcul distribué.
+Les sections suivantes portent sur ces points ainsi que sur les autres ressources de Batch qui permettront l’exécution de votre scénario de calcul distribué.
 
 > [AZURE.NOTE] Un [compte Batch](batch-account-create-portal.md) vous est nécessaire pour utiliser le service Batch. En outre, pratiquement toutes les solutions utilisent un compte [Azure Storage][azure_storage] pour le stockage et la récupération de fichiers. Le service Batch prend actuellement en charge uniquement le type de compte de stockage à **usage général**, comme décrit à l’étape 5 de la section [Créer un compte de stockage](../storage/storage-create-storage-account.md#create-a-storage-account) dans l’article [À propos des comptes de stockage Azure](../storage/storage-create-storage-account.md).
 
-## Composants de service Batch
+## Ressources du service Batch
 
-Certaines des ressources suivantes (comptes, nœuds de calcul, pools, travaux et tâches) sont requises par toutes les solutions qui utilisent le service Batch. D’autres, comme les planifications de travaux et les packages d’application sont des fonctionnalités utiles, mais facultatives.
+Certaines des ressources suivantes (comptes, nœuds de calcul, pools, travaux et tâches) sont requises par toutes les solutions qui utilisent le service Batch. D’autres, telles que les planifications de travaux et les packages d’applications, sont utiles, mais facultatives.
 
 - [Compte](#account)
 - [Nœud de calcul](#compute-node)
@@ -87,7 +87,7 @@ Tous les nœuds de calcul Batch incluent également les éléments suivants :
 
 Un pool est une collection de nœuds sur lesquels votre application s’exécute. Vous pouvez créer le pool manuellement. Il peut également être créé automatiquement par le service Batch lorsque vous spécifiez le travail à accomplir. Vous pouvez créer et gérer un pool qui répond aux besoins en ressources de votre application. Un pool ne peut être utilisé que par le compte Batch dans lequel il a été créé. Un compte Batch peut avoir plusieurs pools.
 
-Les pools Azure Batch sont créés sur la plateforme de calcul principale Azure ; les pools Batch permettent l’affectation à grande échelle, l’installation d’applications et de données, le transfert de données, l’analyse de l’état, ainsi que le réglage flexible du nombre de nœuds de calcul avec un pool ([mise à l’échelle](#scaling-compute-resources)).
+Les pools Azure Batch sont créés en parallèle à la plate-forme de calcul Azure principale. Ils permettent d’effectuer des allocations à grande échelle, l’installation d’applications, la distribution de données, des analyses de fonctionnement et des ajustements flexibles du nombre de nœuds de calcul au sein d’un pool ([mise à l’échelle](#scaling-compute-resources)).
 
 Chaque nœud ajouté à un pool se voit attribuer un nom unique et l’adresse IP. Lorsqu’un nœud est supprimé d’un pool, toutes les modifications apportées au système d’exploitation ou aux fichiers sont perdues, et son nom et son adresse IP sont libérés pour une utilisation ultérieure. Lorsqu’un nœud quitte un pool, sa durée de vie est terminée.
 
@@ -141,7 +141,15 @@ Lorsque vous créez un pool, vous pouvez spécifier les attributs suivants :
 
 - **Tâche de démarrage** pour les nœuds de calcul
 
-	La *tâche de démarrage* facultative s’exécute sur chacun des nœuds rejoignant le pool, ainsi qu’à chaque redémarrage ou réinitialisation d’un nœud. La tâche de démarrage est particulièrement utile pour la préparation des nœuds de calcul à l’exécution de tâches, telles que l’installation des applications que vos tâches exécuteront.
+	La *tâche de démarrage* facultative s’exécute sur chacun des nœuds rejoignant le pool, ainsi qu’à chaque redémarrage ou réinitialisation d’un nœud. La tâche de démarrage est particulièrement utile pour la préparation des nœuds de calcul à l’exécution de tâches, telles que l’installation des applications que vos tâches exécutent sur les nœuds de calcul.
+
+- **Packages d’applications**
+
+	Vous pouvez spécifier des [packages d’applications](#application-packages) à déployer sur les nœuds de calcul dans le pool. Les packages d’applications permettent un déploiement simplifié et le contrôle de version des applications exécutées par vos tâches. Les packages d’applications que vous spécifiez pour un pool sont installés sur chaque nœud qui rejoint le pool, et à chaque fois qu’un nœud est redémarré ou réinitialisé.
+
+- **Configuration réseau**
+
+	Vous pouvez spécifier l’ID d’un [réseau virtuel (VNet)](../virtual-network/virtual-networks-overview.md) Azure dans lequel les nœuds de calcul du pool doivent être créés. Les conditions pour la spécification d’un réseau virtuel pour votre pool sont décrites à la section [Ajout d’un pool à un compte][vnet] de la référence de l’API REST Batch.
 
 > [AZURE.IMPORTANT] Tous les comptes Batch ont un **quota** par défaut qui limite le nombre de **cœurs** (et par conséquent, celui des nœuds de calcul) dans un compte Batch. Pour en savoir plus sur les quotas par défaut et obtenir des instructions sur comment [augmenter un quota](batch-quota-limit.md#increase-a-quota) (par exemple, le nombre maximal de cœurs dans votre compte Batch), consultez l’article [Quotas et limites pour le service Azure Batch](batch-quota-limit.md). Si vous vous demandez pourquoi votre pool n’atteint pas plus de X nœuds, ce quota de cœurs en est peut-être la raison.
 
@@ -150,7 +158,9 @@ Lorsque vous créez un pool, vous pouvez spécifier les attributs suivants :
 Un travail est une collection de tâches. Il gère la façon dont le calcul est effectué par ses tâches sur les nœuds de calcul d’un pool.
 
 - Le travail spécifie le **pool** sur lequel le travail sera exécuté. Vous pouvez créer un nouveau pool pour chaque tâche, ou utiliser un pool pour plusieurs travaux. Vous pouvez créer un pool pour chaque travail associé à une planification de travail, ou pour tous les travaux associés à une planification de travail.
+
 - Une **priorité de travail** facultative peut être spécifiée. Quand un travail dont la priorité est supérieure à celle des autres travaux en cours est envoyé, les tâches du travail dont la priorité est la plus élevée sont insérées dans la file d’attente devant les tâches des travaux de priorité inférieure. Les tâches de priorité inférieure qui sont déjà en cours d’exécution ne sont pas reportées.
+
 - Vous pouvez utiliser des **contraintes** de travail pour spécifier certaines limites pour vos travaux :
 
 	Vous pouvez définir une **durée maximale** pour les travaux ; si la durée d’exécution du travail est supérieure à la durée maximale spécifiée, le travail et toutes les tâches qui lui sont associées seront terminés.
@@ -158,6 +168,10 @@ Un travail est une collection de tâches. Il gère la façon dont le calcul est 
 	Le service Batch peut détecter, puis relancer des tâches ayant échoué. Vous pouvez spécifier le **nombre maximal de tentatives de tâche** en tant que contrainte, et indiquer notamment si une tâche doit *toujours* être systématiquement relancée ou ne *jamais* l’être. Lorsqu’une tâche est relancée, cela signifie qu’elle est remise en file d’attente afin d’être réexécutée.
 
 - Votre application cliente peut ajouter des tâches à un travail. Vous pouvez également spécifier une [tâche du gestionnaire de travaux](#job-manager-task). Une tâche de ce type contient les informations nécessaires à la création des tâches requises pour un travail et elle s’exécute sur l’un des nœuds de calcul du pool. La tâche du gestionnaire de travaux est gérée spécifiquement par Batch : elle est mise en file d’attente dès que le travail est créé et elle est redémarrée en cas d’échec. Une tâche du gestionnaire de travaux est *requise* pour les travaux créés dans le cadre d’une [planification de travail](#scheduled-jobs), car il s’agit du seul moyen de définir les tâches avant que le travail ne soit instancié.
+
+- Par défaut, l’état des tâches est maintenu comme actif lorsque toutes les tâches du travail sont terminées. Vous pouvez modifier cette configuration pour terminer automatiquement le travail lorsque toutes les tâches afférentes ont été accomplies. Définissez la propriété **onAllTasksComplete** ([OnAllTasksComplete][net_onalltaskscomplete] dans Batch .NET) sur *terminatejob* pour terminer automatiquement le travail lorsque l’état de toutes les tâches afférentes est défini comme terminé.
+
+	Notez que le service Batch considère les travaux ne présentant *aucune* tâche comme des travaux dont toutes les tâches sont terminées. C’est la raison pour laquelle cette option est généralement utilisée avec une [tâche de gestionnaire de travaux](#job-manager-task). Si vous souhaitez définir l’arrêt automatique d’un travail sans utiliser de gestionnaire de travaux, définissez initialement la propriété **onAllTasksComplete** d’un nouveau travail sur *noaction*, puis sur *terminatejob* seulement une fois que vous avez terminé d’ajouter des tâches au travail.
 
 ### Priorité de travail
 
@@ -193,6 +207,8 @@ Lorsque vous créez une tâche, vous pouvez spécifier les éléments suivants :
 
 - Les **contraintes** sous lesquelles la tâche doit s’exécuter. Par exemple, la durée maximale pendant laquelle la tâche est autorisée à s’exécuter, le nombre maximal de nouvelles tentatives en cas d’échec de la tâche, ainsi que la durée maximale pendant laquelle les fichiers du répertoire de travail de la tâche sont conservés.
 
+- **Packages d’applications** à déployer sur le nœud de calcul sur lequel l’exécution de la tâche est planifiée. Les [packages d’applications](#application-packages) permettent le déploiement simplifié et le contrôle de version des applications exécutées par vos tâches. Les packages d’applications au niveau des tâches sont particulièrement utiles dans les environnements de pool partagé, où différentes tâches sont exécutées sur un même pool et le pool n’est pas supprimé lorsqu’un travail est terminé. Si votre travail présente moins de tâches que le pool ne contient de nœuds, les packages d’applications au niveau des tâches peuvent réduire le transfert de données, votre application n’étant déployée que sur les nœuds exécutant les tâches.
+
 Outre les tâches que vous pouvez définir pour effectuer des calculs sur un nœud, les tâches spéciales suivantes sont également fournies par le service Batch :
 
 - [Tâche de démarrage](#start-task)
@@ -216,6 +232,8 @@ Toutefois, elle peut également inclure des données de référence qui doivent 
 Il est généralement préférable pour le service Batch d’attendre que la tâche de démarrage soit terminée avant de considérer que le nœud est prêt à recevoir des tâches, mais vous pouvez configurer ce paramètre.
 
 Si une tâche de démarrage échoue sur un nœud du pool, l’état du nœud est mis à jour pour refléter l’échec et le nœud n’est plus disponible pour les tâches à affecter. Une tâche de démarrage peut échouer en cas de problème de copie des fichiers de ressources depuis le stockage, ou si le processus exécuté par sa ligne de commande retourne un code de sortie différent de zéro.
+
+Si vous ajoutez ou mettez à jour la tâche de démarrage pour un pool *existant*, vous devez redémarrer ses nœuds de calcul pour la tâche de démarrage à appliquer aux nœuds.
 
 ### Tâche du gestionnaire de travaux
 
@@ -315,11 +333,15 @@ Le répertoire racine contient la structure de répertoires suivante :
 
 ## Packages d’applications
 
-La fonctionnalité [packages d’application](batch-application-packages.md) facilite la gestion et le déploiement d’applications sur les nœuds de calcul dans vos pools. Avec les packages d’application, vous pouvez facilement charger et gérer plusieurs versions des applications exécutées par vos tâches, notamment les fichiers binaires et les fichiers de prise en charge. Vous pouvez ensuite déployer automatiquement une ou plusieurs de ces applications sur les nœuds de calcul dans le pool.
+La fonctionnalité [packages d’application](batch-application-packages.md) facilite la gestion et le déploiement d’applications sur les nœuds de calcul dans vos pools. Vous pouvez facilement charger et gérer plusieurs versions des applications exécutées par vos tâches, notamment leurs fichiers binaires et leurs fichiers de prise en charge. Vous pouvez ensuite déployer automatiquement une ou plusieurs de ces applications sur les nœuds de calcul dans le pool.
 
-Batch gère les détails de l’utilisation de stockage Azure en arrière-plan pour stocker et déployer en toute sécurité vos packages d’application pour le calcul des nœuds, donc votre code et vos frais de gestion peuvent être simplifiés.
+Vous pouvez spécifier les packages d’applications au niveau du pool et des tâches. Lorsque vous spécifiez des packages d’applications au niveau du pool, l’application est déployée sur tous les nœuds du pool. Lorsque vous spécifiez des packages d’applications au niveau des tâches, l’application est déployée uniquement sur les nœuds programmés pour exécuter au moins une des tâches du travail, juste avant l’exécution de la ligne de commande de la tâche.
+
+Batch gère les détails de l’utilisation d’Azure Storage en arrière-plan pour stocker vos packages d’applications et les déployer sur les nœuds de calcul, de manière à permettre de simplifier votre code et vos frais de gestion.
 
 Pour en savoir plus sur la fonctionnalité packages d’application, consultez [Déploiement d’applications avec des packages d’applications Azure Batch](batch-application-packages.md).
+
+>[AZURE.NOTE] Si vous ajoutez des packages de d’applications au niveau du pool à un pool *existant*, vous devez redémarrer ses nœuds de calcul afin que les packages d’applications soient déployés sur les nœuds.
 
 ## Durée de vie de nœud de pool et de calcul
 
@@ -358,6 +380,8 @@ Pour plus d’informations sur la mise à l’échelle automatique d’une appli
 En principe, vous devez utiliser des certificats lorsque vous chiffrez ou déchiffrez des informations sensibles pour les tâches, par exemple, la clé d’un [compte Azure Storage][azure_storage]. Pour ce faire, vous pouvez installer des certificats sur les nœuds. Les secrets chiffrés sont transmis aux tâches dans les paramètres de ligne de commande ou incorporés dans l’une des ressources et les certificats installés peuvent être utilisés pour les déchiffrer.
 
 Pour ajouter un certificat à un compte Batch, utilisez l’opération [Ajouter le certificat][rest_add_cert] \(Batch REST) ou la méthode [CertificateOperations.CreateCertificate][net_create_cert] \(Batch .NET) pour ajouter un certificat à un compte Batch. Vous pouvez ensuite associer le certificat à un pool existant ou nouveau. Lorsqu’un certificat est associé à un pool, le service Batch installe le certificat sur chaque nœud du pool. Le service Batch installe les certificats appropriés au démarrage du nœud, avant de lancer une tâche quelconque (notamment les tâches de démarrage et celles du gestionnaire de travaux).
+
+Si vous ajoutez des certificats à un pool *existant*, vous devez redémarrer ses nœuds de calcul afin que les certificats soient appliqués aux nœuds.
 
 ## Gestion des erreurs
 
@@ -461,6 +485,7 @@ Quand certaines de vos tâches échouent, votre application cliente Batch ou un 
 [net_getfile_task]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.getnodefile.aspx
 [net_job_env]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.commonenvironmentsettings.aspx
 [net_multiinstancesettings]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.multiinstancesettings.aspx
+[net_onalltaskscomplete]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.onalltaskscomplete.aspx
 [net_rdp]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.computenode.getrdpfile.aspx
 [net_reboot]: https://msdn.microsoft.com/library/azure/mt631495.aspx
 [net_reimage]: https://msdn.microsoft.com/library/azure/mt631496.aspx
@@ -469,6 +494,7 @@ Quand certaines de vos tâches échouent, votre application cliente Batch ou un 
 [net_online]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.computenode.enableschedulingasync.aspx
 [net_offline_option]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.common.disablecomputenodeschedulingoption.aspx
 [net_rdpfile]: https://msdn.microsoft.com/library/azure/Mt272127.aspx
+[vnet]: https://msdn.microsoft.com/library/azure/dn820174.aspx#bk_netconf
 
 [py_add_user]: http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.batch.operations.html#azure.batch.operations.ComputeNodeOperations.add_user
 
@@ -492,4 +518,4 @@ Quand certaines de vos tâches échouent, votre application cliente Batch ou un 
 
 [vm_marketplace]: https://azure.microsoft.com/marketplace/virtual-machines/
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

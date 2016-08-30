@@ -31,9 +31,15 @@ En dehors de la passerelle de gestion des données, vous devez également instal
 
 > [AZURE.NOTE] Consultez [Résolution des problèmes de passerelle](data-factory-data-management-gateway.md#troubleshoot-gateway-issues) pour obtenir des conseils sur la résolution des problèmes de connexion/passerelle.
 
+## Assistant Copier des données
+Le moyen le plus simple de créer un pipeline qui copie les données depuis une source ODBC consiste à utiliser l’Assistant Copier des données. Consultez la page [Didacticiel : Créer un pipeline avec l’activité de copie à l’aide de l’Assistant Data Factory Copy](data-factory-copy-data-wizard-tutorial.md) pour une procédure pas à pas rapide sur la création d’un pipeline à l’aide de l’Assistant Copier des données.
+
+Les exemples suivants présentent des exemples de définitions de JSON que vous pouvez utiliser pour créer un pipeline à l’aide [du Portail Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), [de Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou [d’Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Ils indiquent comment copier des données depuis une source ODBC vers un système Blob Storage Microsoft Azure. Toutefois, les données peuvent être copiées vers l’un des récepteurs indiqués [ici](data-factory-data-movement-activities.md#supported-data-stores), via l’activité de copie d’Azure Data Factory.
+
+
 ## Exemple : copie des données depuis un magasin de données ODBC vers un objet Blob Azure
 
-Cet exemple indique comment copier des données depuis un magasin de données ODBC vers un système Blob Storage Microsoft Azure. Toutefois, les données peuvent être copiées **directement** vers l’un des récepteurs indiqués [ici](data-factory-data-movement-activities.md#supported-data-stores), via l’activité de copie de Microsoft Azure Data Factory.
+Cet exemple indique comment copier des données depuis un magasin de données ODBC vers un système Blob Storage Microsoft Azure. Toutefois, les données peuvent être copiées **directement** vers l’un des récepteurs indiqués [ici](data-factory-data-movement-activities.md#supported-data-stores), via l’activité de copie d’Azure Data Factory.
  
 L’exemple contient les entités de fabrique de données suivantes :
 
@@ -223,7 +229,7 @@ Le tableau suivant fournit la description des éléments JSON spécifiques au se
 
 | Propriété | Description | Requis |
 | -------- | ----------- | -------- | 
-| type | Le type de propriété doit être défini sur : **OnPremisesOdbc**. | Oui |
+| type | Le type de propriété doit être défini sur : **OnPremisesOdbc** | Oui |
 | connectionString | Partie de la chaîne de connexion ne contenant pas les informations d’accès, avec des informations d’identification chiffrées facultatives. Voir les exemples ci-dessous. | Oui
 | credential | Partie de la chaîne de connexion contenant les informations d’accès, spécifiée dans un format de valeurs de propriété spécifique au pilote, par exemple “Uid=<ID utilisateur>;Pwd=<mot de passe>;RefreshToken=<jeton secret d’actualisation>;”. | Non
 | authenticationType | Type d’authentification utilisé pour se connecter au magasin de données ODBC. Les valeurs possibles sont : Anonyme et De base. | Oui | 
@@ -328,7 +334,7 @@ Lors du déplacement de données à partir de magasins de données ODBC, les typ
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
 ## Magasin GE Historian
-Vous créez un service lié ODBC pour lier un magasin de données [GE Proficy Historian (désormais GE Historian)](http://www.geautomation.com/products/proficy-historian) à une fabrique de données Azure comme l’indique l'exemple suivant :
+Vous créez un service lié ODBC pour lier un magasin de données [GE Proficy Historian (désormais GE Historian)](http://www.geautomation.com/products/proficy-historian) à une fabrique de données Azure comme l’indique l’exemple suivant :
 
 	{
 	    "name": "HistorianLinkedService",
@@ -368,4 +374,4 @@ Pour résoudre les problèmes de connexion, utilisez l’onglet **Diagnostics** 
 ## Performances et réglage  
 Consultez l’article [Guide sur les performances et le réglage de l’activité de copie](data-factory-copy-activity-performance.md) pour en savoir plus sur les facteurs clés affectant les performances de déplacement des données (activité de copie) dans Azure Data Factory et les différentes manières de les optimiser.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

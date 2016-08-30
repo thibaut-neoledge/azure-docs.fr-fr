@@ -12,12 +12,15 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="06/12/2016" 
+    ms.date="08/15/2016" 
     ms.author="elizapo" />
 
 
 
 # Utilisation d'applications App-V dans Azure RemoteApp
+
+> [AZURE.IMPORTANT]
+Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148).
 
 Vous pouvez utiliser des applications App-V dans une collection hybride Azure RemoteApp, ce qui nécessite la jonction de domaine.
 
@@ -36,4 +39,4 @@ Il est facile d'utiliser votre infrastructure App-V avec Azure RemoteApp. Dans l
 
  Après avoir créé votre image personnalisée et votre collection hybride, publiez votre application, affectez des utilisateurs et profitez de vos applications App-V existantes hébergées dans Azure RemoteApp remis à n'importe quel appareil n'importe où.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

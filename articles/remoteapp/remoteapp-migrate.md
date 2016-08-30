@@ -13,12 +13,15 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="07/26/2016"
+    ms.date="08/15/2016"
     ms.author="elizapo" />
 
 
 
 # Migration de données dans et hors d’Azure RemoteApp
+
+> [AZURE.IMPORTANT]
+Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148).
 
 Vous pouvez utiliser de nombreux outils et méthodes différents pour transférer des [données utilisateur](remoteapp-upd.md) dans et hors d’Azure RemoteApp. Voici quelques méthodes :
 
@@ -55,4 +58,4 @@ Bien que vous ne puissiez pas activer l’agent de synchronisation OneDrive Entr
 
 Si vous avez activé [la redirection de lecteur](remoteapp-redirection.md), vous avez déjà créé un lecteur mappé pour vos utilisateurs. Dans ce cas, ils peuvent créer un fichier .zip contenant leurs fichiers sur le lecteur redirigé, puis les enregistrer sur leur ordinateur local.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

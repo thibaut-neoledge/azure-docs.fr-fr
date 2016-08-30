@@ -40,12 +40,12 @@ Effectuez une copie de la clé d’instrumentation, qui identifie la ressource.
 Sur vos ordinateurs serveur Unix :
 
 1. Installez [collectd](http://collectd.org/) version 5.4.0 ou ultérieure.
-2. Téléchargez le [plug-in d'écriture collectd Application Insights](https://azuredownloads.blob.core.windows.net/applicationinsights/sdk.html). Notez le numéro de version.
+2. Téléchargez le [plug-in d'écriture collectd Application Insights](https://aka.ms/aijavasdk). Notez le numéro de version.
 3. Copiez le fichier JAR du plug-in dans `/usr/share/collectd/java`.
 3. Modifiez `/etc/collectd/collectd.conf` :
  * Vérifiez que [le plug-in Java](https://collectd.org/wiki/index.php/Plugin:Java) est activé.
  * Mettez à jour l’élément JVMArg pour java.class.path afin d’inclure le fichier JAR suivant. Mettez à jour le numéro de version afin qu’il corresponde à celui que vous avez téléchargé :
-  * `/usr/share/collectd/java/applicationinsights-collectd-0.9.4.jar`
+  * `/usr/share/collectd/java/applicationinsights-collectd-1.0.5.jar`
  * Ajoutez cet extrait de code à l’aide de la clé d’instrumentation provenant de votre ressource :
 
 ```
@@ -71,7 +71,7 @@ Voici une partie d’un exemple de fichier de configuration :
     # Configure Java Plugin
     <Plugin "java">
       JVMArg "-verbose:jni"
-      JVMArg "-Djava.class.path=/usr/share/collectd/java/applicationinsights-collectd-0.9.4.jar:/usr/share/collectd/java/collectd-api.jar"
+      JVMArg "-Djava.class.path=/usr/share/collectd/java/applicationinsights-collectd-1.0.5.jar:/usr/share/collectd/java/collectd-api.jar"
 
       # Enabling Application Insights plugin
       LoadPlugin "com.microsoft.applicationinsights.collectd.ApplicationInsightsWriter"
@@ -105,7 +105,7 @@ Par défaut, le plug-in Application Insights envoie toutes les données collect
 
 Pour exclure des données provenant de plug-ins ou de sources de données spécifiques :
 
-* Modifiez le fichier de configuration. 
+* Modifiez le fichier de configuration.
 * Dans `<Plugin ApplicationInsightsWriter>`, ajoutez les directives suivantes :
 
 Directive | Résultat
@@ -143,4 +143,4 @@ Séparez les directives par un saut de ligne.
 
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0817_2016-->

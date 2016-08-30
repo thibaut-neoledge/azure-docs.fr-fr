@@ -3,7 +3,7 @@
 	description="Mettre à l’échelle une machine virtuelle Linux en réponse aux alertes avec Azure Automation"
 	services="virtual-machines-linux"
 	documentationCenter=""
-	authors="singhkay"
+	authors="singhkays"
 	manager="drewm"
 	editor=""
 	tags="azure-resource-manager"/>
@@ -88,4 +88,4 @@ Veillez à bien copier le webhook avant de fermer la boîte de dialogue, car vou
 
 ![Ajouter une alerte à la machine virtuelle 2](./media/virtual-machines-vertical-scaling-automation/add-alert-webhook-2.png)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0817_2016-->

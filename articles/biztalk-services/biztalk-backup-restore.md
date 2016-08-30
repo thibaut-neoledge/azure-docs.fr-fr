@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/16/2016" 
+	ms.date="08/15/2016" 
 	ms.author="mandia"/>
 
 
@@ -57,7 +57,7 @@ Une sauvegarde peut être effectuée à tout moment et vous la contrôlez compl�
 #### <a name="backupnow"></a>Sauvegarde à la demande
 1. Dans le portail Azure Classic, sélectionnez **BizTalk Services**, puis le service BizTalk que vous souhaitez sauvegarder.
 2. Sous l'onglet **Tableau de bord**, sélectionnez **Sauvegarder** en bas de la page.
-3. Entrez un nom de sauvegarde. Par exemple, entrez *myBizTalkService*BU*Date*.
+3. Entrez un nom de sauvegarde. Par exemple, entrez *monServiceBizTalk*BU*Date*.
 4. Choisissez un compte de stockage d'objets blob et sélectionnez la coche pour démarrer la sauvegarde.
 
 Une fois la sauvegarde terminée, un conteneur portant le nom de sauvegarde indiqué est créé dans le compte de stockage. Ce conteneur comprend la configuration de sauvegarde de votre service BizTalk.
@@ -65,7 +65,7 @@ Une fois la sauvegarde terminée, un conteneur portant le nom de sauvegarde indi
 #### <a name="backupschedule"></a>Planification d'une sauvegarde
 
 1. Dans le portail Azure Classic, sélectionnez **BizTalk Services**, puis le nom du service BizTalk pour lequel vous souhaitez planifier la sauvegarde et enfin l’onglet **Configurer**.
-2. Définissez **État de la sauvegarde** sur **Automatique**. 
+2. Définissez **État de la sauvegarde** sur **Automatique**.
 3. Sélectionnez le **Compte de stockage** dans lequel stocker la sauvegarde, puis entrez la **Fréquence** de création des sauvegardes et la durée pendant laquelle vous souhaitez les conserver (**Jours de rétention**) :
 
 	![][AutomaticBU]
@@ -235,4 +235,4 @@ Pour créer des services Azure BizTalk Services dans le portail Azure Classic, a
 [RestoreBizTalkService]: ./media/biztalk-backup-restore/RestoreBizTalkServiceWindow.png
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

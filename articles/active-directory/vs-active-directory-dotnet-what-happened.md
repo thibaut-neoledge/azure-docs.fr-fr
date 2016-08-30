@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Qu'est-il arrivé à mon projet MVC (service connecté Azure Active Directory Visual Studio) ? | Microsoft Azure"
+	pageTitle="Qu'est-il arrivé à mon projet MVC (service connecté Azure Active Directory Visual Studio) ? | Microsoft Azure "
 	description="Décrit les conséquences sur votre projet MVC lorsque vous vous connectez à Azure AD à l'aide des services connectés Visual Studio"
 	services="active-directory"
 	documentationCenter="na"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-what-happened"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/01/2016"
+	ms.date="08/15/2016"
 	ms.author="tarcher"/>
 
 # Qu'est-il arrivé à mon projet MVC (service connecté Azure Active Directory Visual Studio) ?
@@ -74,7 +74,7 @@ Les entrées de configuration ci-dessous ont été ajoutées.
 	</appSettings>
 
 ### Une application Azure Active Directory (AD) a été créée
-Une application Azure AD a été créée dans le répertoire que vous avez sélectionné dans l’Assistant.
+Une application Azure AD a été créée dans le répertoire que vous avez sélectionné dans l'Assistant.
 
 ##Si j'ai coché *Désactiver l'authentification des comptes d'utilisateur individuels*, quelles autres modifications ont été apportées à mon projet ?
 Des références du package NuGet ont été supprimées, et des fichiers ont été supprimés et sauvegardés. Selon l’état de votre projet, vous pouvez avoir besoin de supprimer manuellement d’autres références ou fichiers, ou de modifier le code le cas échéant.
@@ -171,4 +171,4 @@ Votre application Azure Active Directory a été mise à jour pour inclure l'au
 
 [En savoir plus sur Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0817_2016-->

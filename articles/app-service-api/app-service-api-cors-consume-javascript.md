@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/27/2016"
+	ms.date="08/27/2016"
 	ms.author="rachelap"/>
 
 # Consommer une application API à partir de JavaScript à l’aide de CORS
@@ -48,7 +48,7 @@ Vous pouvez configurer CORS dans le portail Azure ou à l’aide des outils [Azu
 	Par exemple, si vous avez déployé votre application JavaScript sur une application web nommée todolistangular, saisissez « https://todolistangular.azurewebsites.net ». Vous pouvez également saisir un astérisque (*) pour indiquer que tous les domaines d’origine sont acceptés.
 
 
-13. Cliquez sur **Enregistrer**.
+13. Cliquez sur **Save**.
 
 	![Cliquez sur Enregistrer.](./media/app-service-api-cors-consume-javascript/corsinportal.png)
 
@@ -109,7 +109,7 @@ La procédure de création d’une application web App Service et de déploiemen
 
 3. Sous l’onglet **Hébergement** de la boîte de dialogue **Créer App Service**, entrez un **Nom de l’application web** unique dans le domaine *azurewebsites.net*.
 
-5. Choisissez l’**Abonnement** Azure souhaité.
+5. Choisissez l’**abonnement** Azure que vous souhaitez utiliser.
 
 6. Dans la liste déroulante **Groupe de ressources**, choisissez le groupe de ressources créé précédemment.
 
@@ -133,7 +133,7 @@ La procédure de création d’une application web App Service et de déploiemen
 	|---|---|---|
 	|toDoListAPIURL|https://{your nom de votre application API de niveau intermédiaire}.azurewebsites.net|https://todolistapi0121.azurewebsites.net|
 
-4. Cliquez sur **Enregistrer**.
+4. Cliquez sur **Save**.
 
 	Une fois le code exécuté dans Azure, cette valeur remplace l’URL de l’hôte local qui se trouve dans le fichier *Web.config*.
 
@@ -201,7 +201,7 @@ Dans cette section, vous configurez le paramètre CORS dans Azure pour l’appli
 
 	Vous pouvez également saisir un astérisque (*) pour indiquer que tous les domaines d’origine sont acceptés.
 
-13. Cliquez sur **Enregistrer**.
+13. Cliquez sur **Save**.
 
 	![Cliquez sur Enregistrer.](./media/app-service-api-cors-consume-javascript/corsinportal.png)
 
@@ -266,7 +266,7 @@ Si vous utilisez Gestion des API Azure avec une application API, configurez CORS
 * [Vue d’ensemble de Gestion des API Azure (vidéo : CORS commence à 12:10)](https://azure.microsoft.com/documentation/videos/azure-api-management-overview/)
 * [Gestion des API dans les stratégies de domaine](https://msdn.microsoft.com/library/azure/dn894084.aspx#CORS)
  
-## Résolution des problèmes
+## Résolution de problèmes
 
 Si vous rencontrez un problème tout au long de ce didacticiel, voici quelques suggestions :
 
@@ -284,4 +284,4 @@ Pour en savoir plus sur les fonctionnalités de Visual Studio conçues pour faci
 
 Dans cet article, vous avez vu deux façons d’activer la prise en charge de CORS afin que le code JavaScript client puisse appeler une API dans un autre domaine. Pour en savoir plus sur les applications API, lisez la [présentation de l’authentification dans App Service](../app-service/app-service-authentication-overview.md), puis accédez au didacticiel relatif à l’[authentification utilisateur pour les applications API](app-service-api-dotnet-user-principal-auth.md).
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0824_2016-->

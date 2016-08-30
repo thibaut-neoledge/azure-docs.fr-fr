@@ -23,9 +23,14 @@
 - [Windows](virtual-machines-linux-ssh-from-windows.md)
 - [Linux/Mac](virtual-machines-linux-ssh-from-linux.md)
 
-Cette rubrique explique comment utiliser **ssh-keygen** et **openssl** sous Linux et Mac pour créer et utiliser les fichiers aux formats **ssh-rsa** et **.pem** pour sécuriser la communication avec des machines virtuelles Azure basées sur Linux. La création de machines virtuelles Azure basées sur Linux à l'aide du modèle de déploiement du gestionnaire de ressources est recommandée pour les nouveaux déploiements et s'appuie sur une chaîne ou un fichier de clé publique *ssh rsa* (en fonction du client de déploiement). Le [portail Azure](https://portal.azure.com) n’accepte actuellement que les chaînes au format **ssh-rsa**, que ce soit pour les déploiements classiques ou Azure Resource Manager.
 
-> [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]Pour créer ces types de fichiers à utiliser sur un ordinateur Windows afin de communiquer en toute sécurité avec des machines virtuelles Linux dans Azure, consultez [Utiliser des clés SSH sous Windows](virtual-machines-linux-ssh-from-windows.md).
+Cette rubrique explique comment utiliser **ssh-keygen** et **openssl** sous Linux et Mac pour créer et utiliser des fichiers aux formats **ssh-rsa** et **.pem** pour sécuriser la communication avec des machines virtuelles Azure basées sur Linux. La création de machines virtuelles Azure basées sur Linux à l'aide du modèle de déploiement du gestionnaire de ressources est recommandée pour les nouveaux déploiements et s'appuie sur une chaîne ou un fichier de clé publique *ssh rsa* (en fonction du client de déploiement). Le [portail Azure](https://portal.azure.com) n’accepte actuellement que les chaînes au format **ssh-rsa**, que ce soit pour les déploiements classiques ou Azure Resource Manager.
+
+
+> [AZURE.NOTE] Si vous avez un moment, aidez-nous à améliorer la documentation relative aux machines virtuelles Azure Linux en répondant à cette [enquête rapide](https://aka.ms/linuxdocsurvey) concernant vos expériences. Chaque réponse nous aide à vous faciliter la tâche.
+
+
+> [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)] Pour créer ces types de fichiers à utiliser sur un ordinateur Windows afin de communiquer en toute sécurité avec des machines virtuelles Linux dans Azure, consultez [Utiliser des clés SSH sous Windows](virtual-machines-linux-ssh-from-windows.md).
 
 ## Quels sont les fichiers requis ?
 
@@ -33,8 +38,8 @@ La configuration SSH de base pour Azure inclut une paire de clés publiques et p
 
 Voici les scénarios de déploiement et les types de fichiers que vous utilisez dans chacun d'eux
 
-1. Les clés **ssh rsa** sont requises pour tout déploiement à l’aide du [portail Azure](https://portal.azure.com), quel que soit le modèle de déploiement.
-2. Les fichiers .pem sont nécessaires pour créer des machines virtuelles à l'aide du [portail classique](https://manage.windowsazure.com). Les fichiers .pem sont également pris en charge dans les déploiements classiques qui utilisent l'[interface de ligne de commande CLI](../xplat-cli-install.md). 
+1. Les clés **ssh rsa** sont nécessaires pour tout déploiement à l’aide du [portail Azure](https://portal.azure.com), quel que soit le modèle de déploiement.
+2. Les fichiers .pem sont nécessaires pour créer des machines virtuelles à l'aide du [portail classique](https://manage.windowsazure.com). Les fichiers .pem sont également pris en charge dans les déploiements classiques qui utilisent l'[interface de ligne de commande CLI](../xplat-cli-install.md).
 
 ## Création de clés à utiliser avec SSH
 
@@ -42,7 +47,7 @@ Si vous avez déjà des clés SSH, transmettez le fichier de clé publique lors 
 
 Si vous avez besoin de créer les fichiers :
 
-1. Assurez-vous que votre implémentation de **ssh-keygen** et **openssl** est à jour. Cela varie selon la plateforme. 
+1. Assurez-vous que votre implémentation de **ssh-keygen** et **openssl** est à jour. Cela varie selon la plateforme.
 
 	- Pour Mac, consultez le [site web sur la sécurité des produits Apple](https://support.apple.com/HT201222) et choisissez les mises à jour appropriées si nécessaire.
 	- Pour les distributions Linux basées sur Debian comme Ubuntu, Debian, Mint, et ainsi de suite :
@@ -81,7 +86,7 @@ Une fois que vous avez créé les fichiers nécessaires, il existe de nombreuses
 
 ### Exemple : Création d'une machine virtuelle avec le fichier id\_rsa.pub
 
-L'utilisation la plus courante concerne la création impérative d'une machine virtuelle ou le téléchargement d'un modèle pour créer une machine virtuelle. L'exemple de code suivant montre comment créer une machine virtuelle Linux sécurisée dans Azure en transmettant le nom de fichier public (dans ce cas, le fichier par défaut `~/.ssh/id_rsa.pub`) à la commande `azure vm create`. (Les autres arguments, comme le groupe de ressources et le compte de stockage, ont déjà été créés.) Cet exemple utilise la méthode de déploiement de Resource Manager. Vérifiez que votre interface de ligne de commande Azure est adaptée avec `azure config mode arm` :
+L'utilisation la plus courante concerne la création impérative d'une machine virtuelle ou le téléchargement d'un modèle pour créer une machine virtuelle. L'exemple de code suivant montre comment créer une machine virtuelle Linux sécurisée dans Azure en transmettant le nom de fichier public (dans ce cas, le fichier par défaut `~/.ssh/id_rsa.pub`) à la commande `azure vm create`. (Les autres arguments, comme le groupe de ressources et le compte de stockage, ont déjà été créés.) Cet exemple utilise la méthode de déploiement Resource Manager. Vérifiez que votre interface de ligne de commande Azure est adaptée à `azure config mode arm` :
 
 	azure vm create \
 	--nic-name testnic \
@@ -134,7 +139,7 @@ L'exemple suivant montre comment utiliser le format **ssh-rsa** avec un modèle 
 
 ### Exemple : Création d'une machine virtuelle avec un fichier .pem
 
-Vous pouvez ensuite utiliser le fichier .pem avec le portail Classic ou le mode de déploiement classique (`azure config mode asm`) et `azure vm create`, comme dans l’exemple suivant :
+Vous pouvez ensuite utiliser le fichier .pem avec le portail Classic ou le mode de déploiement Classic (`azure config mode asm`) et `azure vm create`, comme dans l’exemple suivant :
 
 	azure vm create \
 	-l "West US" -n testpemasm \
@@ -251,7 +256,7 @@ Si vous n'avez pas utilisé le port par défaut SSH 22 lorsque vous avez créé 
 
 ### Exemple : résultat d'une session SSH à l'aide de clés .pem et d'un déploiement classique
 
-Si vous avez créé une machine virtuelle à l'aide d'un fichier .pem créé à partir de votre fichier `~/.ssh/id_rsa`, vous pouvez utiliser directement ssh dans cette machine virtuelle. Notez que dans ce cas, la négociation du certificat utilisera votre clé privée à `~/.ssh/id_rsa`. (Le processus de création de machines virtuelles calcule la clé publique à partir de la .pem et place le formulaire ssh-rsa de la clé publique dans `~/.ssh/authorized_users`.) La connexion devrait ressembler à l'exemple suivant :
+Si vous avez créé une machine virtuelle à l'aide d'un fichier .pem créé à partir de votre fichier `~/.ssh/id_rsa`, vous pouvez utiliser directement ssh dans cette machine virtuelle. Notez que dans ce cas, la négociation du certificat utilisera votre clé privée à `~/.ssh/id_rsa`. (Le processus de création de machines virtuelles calcule la clé publique à partir du fichier .pem et place le formulaire ssh-rsa de la clé publique dans `~/.ssh/authorized_users`.) La connexion devrait ressembler à l'exemple suivant :
 
 	ssh ops@testpemasm.cloudapp.net -p 22
 	The authenticity of host 'testpemasm.cloudapp.net (40.83.178.221)' can't be established.
@@ -293,4 +298,4 @@ Vous pouvez lire les suggestions de la rubrique [Dépannage SSH connexions](virt
  
 Maintenant que vous êtes connecté à votre machine virtuelle, veillez à mettre à jour la distribution que vous avez choisie avant de continuer à l'utiliser.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/06/2016"
+   ms.date="08/16/2016"
    ms.author="cherylmc"/>
 
 # Gérer les enregistrements et les jeux d’enregistrements DNS à l’aide de PowerShell
@@ -151,7 +151,7 @@ Dans cet exemple, nous ajoutons deux enregistrements MX supplémentaires au jeu 
 
 ## Suppression d’un enregistrement d’un jeu d'enregistrements existant
 
-Les enregistrements peuvent être supprimés d’un jeu d’enregistrements avec `Remove-AzureRmDnsRecordConfig`. Notez que l’enregistrement à supprimer doit correspondre exactement à un enregistrement existant relativement à tous les paramètres. Les modifications doivent être validées à l’aide de `Set-AzureRmDnsRecordSet`.
+Les enregistrements peuvent être supprimés d’un jeu d’enregistrements avec `Remove-AzureRmDnsRecordConfig`. L’enregistrement à supprimer doit correspondre exactement à un enregistrement existant relativement à tous les paramètres. Les modifications doivent être validées à l’aide de `Set-AzureRmDnsRecordSet`.
 
 La suppression du dernier enregistrement d'un jeu d'enregistrements ne supprime pas le jeu d'enregistrements. Pour plus d’informations, consultez [Supprimer un jeu d’enregistrements](#delete-a-record-set).
 
@@ -237,4 +237,4 @@ Pour plus d’informations sur Azure DNS, consultez la [Vue d’ensemble d’Azu
 
 Pour plus d’informations sur les enregistrements DNS inversés, consultez [Gestion des enregistrements DNS inversés pour vos services à l’aide de PowerShell](dns-reverse-dns-record-operations-ps.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -12,12 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/26/2016"
+   ms.date="08/17/2016"
    ms.author="alkohli" />
 
 # Gestion de vos contrôleurs d’appareil StorSimple
 
-## Vue d’ensemble
+## Vue d'ensemble
 
 Ce didacticiel décrit les différentes opérations qui peuvent être effectuées sur vos contrôleurs d’appareil StorSimple. Les contrôleurs de votre appareil StorSimple sont des contrôleurs redondants (homologues) en mode actif/passif. À un moment donné, un seul contrôleur est actif et procède au traitement de toutes les opérations de disque et du réseau. L’autre contrôleur est en mode passif. Si le contrôleur actif est défaillant, le contrôleur passif devient automatiquement actif.
 
@@ -109,7 +109,7 @@ Pour arrêter ou redémarrer un contrôleur sur votre appareil StorSimple à par
 
 ## Arrêter un appareil StorSimple
 
-Cette section vous explique comment arrêter un appareil StorSimple en cours d’exécution ou défaillant à partir d’un ordinateur distant. Un appareil est désactivé dès lors que les contrôleurs d’appareil sont arrêtés. L’arrêt d’un appareil est effectué lorsque l’appareil a été physiquement déplacé ou mis hors service.
+Cette section vous explique comment arrêter un appareil StorSimple en cours d’exécution ou défaillant à partir d’un ordinateur distant. Un appareil est désactivé dès lors que les contrôleurs d’appareil sont arrêtés. L’arrêt d’un appareil est exécuté lorsque l’appareil a été physiquement déplacé ou mis hors service.
 
 > [AZURE.IMPORTANT] Avant d’arrêter l’appareil, vérifiez l’intégrité des composants de l’appareil. Accédez à **Appareils > Maintenance > État du matériel** et assurez-vous que l’état des LED des composants est vert. Un appareil en bon état de fonctionnement aura un état vert. Si votre appareil est sur le point d’être arrêté pour procéder au remplacement d’un composant défaillant, vous verrez s’afficher un état Échec (rouge) ou un état Détérioré (jaune) pour les composants respectifs.
 
@@ -175,19 +175,19 @@ Dans cette section, vous trouverez des réponses à certaines questions fréquem
 
 **A.** Si les deux contrôleurs de votre appareil sont activés et en bon état de fonctionnement, vous serez invité à confirmer l’opération. Vous pouvez choisir de :
 
-- **Redémarrer le contrôleur actif** : un message vous avertit que le redémarrage d’un contrôleur actif entraîne un basculement de l’appareil vers le contrôleur passif. Le contrôleur redémarrera.
+- **Redémarrer le contrôleur actif** : un message vous avertit que le redémarrage d’un contrôleur actif entraîne un basculement de l’appareil vers le contrôleur passif. Le contrôleur redémarrera.
 
-- **Arrêter un contrôleur actif** : un message vous avertit que l’arrêt d’un contrôleur actif entraîne une coupure du service. Vous devrez également appuyer sur le bouton d’alimentation de l’appareil pour activer le contrôleur.
+- **Arrêter un contrôleur actif** : un message vous avertit que l’arrêt d’un contrôleur actif entraîne une coupure du service. Vous devrez également appuyer sur le bouton d’alimentation de l’appareil pour activer le contrôleur.
 
 **Q.** Que se passe-t-il si le contrôleur passif de mon appareil est indisponible ou désactivé, et que je redémarre ou arrête le contrôleur actif ?
 
 **A.** Si le contrôleur passif de votre appareil est indisponible ou désactivé, et que vous choisissez de :
 
-- **Redémarrer le contrôleur actif** : un message vous indiquera que la poursuite de l'opération entraînera une interruption temporaire du service, et vous serez invité à confirmer l’opération.
+- **Redémarrer le contrôleur actif** : un message vous indiquera que la poursuite de l'opération entraînera une interruption temporaire du service, et vous serez invité à confirmer l’opération.
 
-- **Arrêter un contrôleur actif** : un message vous avertit que la poursuite de l’opération entraîne une interruption du service, et que vous devez appuyer sur le bouton d’alimentation d’au moins un des contrôleurs pour activer l’appareil. Vous êtes invité à confirmer l’opération.
+- **Arrêter un contrôleur actif** : un message vous avertit que la poursuite de l’opération entraîne une interruption du service, et que vous devez appuyer sur le bouton d’alimentation d’au moins un des contrôleurs pour activer l’appareil. Vous êtes invité à confirmer l’opération.
 
-**Q.** À quel moment le redémarrage ou l’arrêt du contrôleur peut-il échouer ?
+**Q.** À quel moment le redémarrage ou l’arrêt du contrôleur échoue-t-il ?
 
 **A.** Le redémarrage ou l’arrêt d’un contrôleur peut échouer si :
 
@@ -203,7 +203,7 @@ Dans cette section, vous trouverez des réponses à certaines questions fréquem
 
 **Q.** Le basculement du contrôleur a-t-il un impact sur les E/S ?
 
-**A.** Les connexions TCP entre les initiateurs et le contrôleur actif sont réinitialisées à la suite du basculement du contrôleur, mais elles seront rétablies lorsque le contrôleur passif effectuera l’opération. Une interruption temporaire (moins de 30 secondes) peut survenir dans l’activité E/S entre les initiateurs et l’appareil au cours de cette opération.
+**A.** Les connexions TCP entre les initiateurs et le contrôleur actif sont réinitialisées à la suite du basculement du contrôleur, mais elles seront rétablies lorsque le contrôleur passif effectuera l’opération. Une interruption temporaire (moins de 30 secondes) peut survenir dans l’activité d’E/S entre les initiateurs et l’appareil au cours de cette opération.
 
 **Q.** Comment puis-je remettre mon contrôleur en service une fois qu’il a été arrêté et supprimé ?
 
@@ -215,4 +215,4 @@ Dans cette section, vous trouverez des réponses à certaines questions fréquem
 
 - Pour en savoir plus sur l’utilisation du service StorSimple Manager, consultez [Utilisation du service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

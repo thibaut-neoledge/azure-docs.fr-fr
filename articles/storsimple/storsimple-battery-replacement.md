@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="03/23/2016"
+   ms.date="08/17/2016"
    ms.author="alkohli" />
 
 # Remplacer le module de batterie de secours sur votre appareil StorSimple
@@ -21,9 +21,9 @@
 
 Le module d’alimentation et de refroidissement (PCM) du boîtier principal de votre appareil Microsoft Azure StorSimple dispose d’une batterie supplémentaire. Celle-ci fournit l’alimentation pour que l’appareil StorSimple puisse enregistrer des données en cas de perte d’alimentation au niveau du boîtier principal. Cette batterie est appelée *module de batterie de secours*. Le module de batterie de secours existe uniquement pour le boîtier principal de votre appareil StorSimple (le boîtier EBOD ne contient pas de module de batterie de secours).
 
-Ce didacticiel explique comment :
+Ce didacticiel explique comment :
 
-- Retirer le module de batterie de secours 
+- Retirer le module de batterie de secours
 - Installer un nouveau module de batterie de secours
 - Entretenir le module de batterie de secours
 
@@ -35,26 +35,26 @@ Le module de batterie de secours pour votre appareil StorSimple est une unité r
 
 #### Pour retirer le module de batterie de secours
 
-1. Dans le portail Azure Classic, accédez à **Appareils** > **Maintenance** > **État du matériel**. Sous **Composants partagés**, regardez l’état de la batterie.
+1. Dans le portail Azure Classic, accédez à **Appareils** > **Maintenance** > **État du matériel**. Sous **Composants partagés**, regardez l’état de la batterie.
 
-2. Identifiez le PCM dans lequel la batterie est défectueuse. La figure 1 illustre l’arrière de l’appareil StorSimple.
+2. Identifiez le PCM dans lequel la batterie est défectueuse. La figure 1 illustre l’arrière de l’appareil StorSimple.
 
     ![Fond du panier des modules du boîtier principal de l’appareil](./media/storsimple-battery-replacement/IC740994.png)
 
-    **Figure 1** Arrière de l’appareil principal avec les modules PCM et de contrôleur
+    **Figure 1** Arrière de l’appareil principal avec les modules PCM et de contrôleur
 
     |Étiquette|Description|
     |:----|:----------|
-    |1|PCM 0|
-    |2|PCM 1|
-    |3|Contrôleur 0|
-    |4|Contrôleur 1|
+    |1|PCM 0|
+    |2|PCM 1|
+    |3|Contrôleur 0|
+    |4|Contrôleur 1|
 
-    Comme l’illustre le numéro 3 dans la figure 2, le voyant LED de surveillance sur PCM 0 qui correspond à **Panne de batterie** doit être allumé.
+    Comme l’illustre le numéro 3 dans la figure 2, le voyant LED de surveillance sur PCM 0 qui correspond à **Panne de batterie** doit être allumé.
 
     ![Fond du panier du module PCM de l’appareil avec voyants LED de surveillance](./media/storsimple-battery-replacement/IC740992.png)
 
-    **Figure 2** Arrière du PCM avec les voyants LED de surveillance
+    **Figure 2** Arrière du PCM avec les voyants LED de surveillance
 
     |Étiquette|Description|
     |:---|:-----------|
@@ -71,7 +71,7 @@ Le module de batterie de secours pour votre appareil StorSimple est une unité r
 
     ![Retrait de la batterie du module PCM](./media/storsimple-battery-replacement/IC741019.png)
 
-    **Figure 3** Retrait de la batterie du PCM
+    **Figure 3** Retrait de la batterie du PCM
 
 5. Placez le module dans l’emballage de l’unité remplaçable sur site.
 
@@ -95,17 +95,17 @@ Procédez comme suit pour installer le module de batterie de remplacement dans l
 
 Dans votre appareil StorSimple, le module de batterie de secours de votre appareil alimente le contrôleur en cas de panne de courant. Il permet à l’appareil StorSimple d’enregistrer des données critiques avant de s’arrêter de façon contrôlée. Ce système, équipé de deux batteries entièrement chargées dans les PCM, peut faire face à deux pannes de courant consécutives.
 
-Dans le portail Azure Classic, l’option **Statut matériel** dans la page **Maintenance** indique si la batterie ne fonctionne pas correctement ou si elle approche de la fin de sa durée de vie. L’état de la batterie est indiqué par **Batterie dans PCM 0** ou **Batterie dans PCM 1** sous **Composants partagés**. Cette page indique l’état **DÉTÉRIORÉ** si la fin de durée de vie approche et l’état **ÉCHEC** si elle est atteinte.
+Dans le portail Azure Classic, l’option **Statut matériel** dans la page **Maintenance** indique si la batterie ne fonctionne pas correctement ou si elle approche de la fin de sa durée de vie. L’état de la batterie est indiqué par **Batterie dans PCM 0** ou **Batterie dans PCM 1** sous **Composants partagés**. Cette page indique l’état **DÉTÉRIORÉ** si la fin de durée de vie approche et l’état **ÉCHEC** si elle est atteinte.
 
 >[AZURE.NOTE] La batterie peut signaler **ÉCHEC** quand elle a juste besoin d’être chargée.
  
-Si l’état **DÉTÉRIORÉ** s’affiche, nous vous recommandons de procéder ainsi :
+Si l’état **DÉTÉRIORÉ** s’affiche, nous vous recommandons de procéder ainsi :
 
-- Le système a peut-être récemment subi une panne ou des opérations de maintenance peuvent être en cours sur les batteries. Observez le système pendant 12 heures avant de continuer.
+- Le système a peut-être récemment subi une panne ou des opérations de maintenance peuvent être en cours sur les batteries. Observez le système pendant 12 heures avant de continuer.
 
-    - Si l’état est toujours **DÉTÉRIORÉ** après 12 heures de branchement sur secteur alors que les contrôleurs et les PCM sont en cours d’exécution, vous devez changer la batterie. Veuillez [contacter le support Microsoft](storsimple-contact-microsoft-support.md) pour obtenir un module de batterie de secours de remplacement.
+    - Si l’état est toujours **DÉTÉRIORÉ** après 12 heures de branchement sur secteur alors que les contrôleurs et les PCM sont en cours d’exécution, vous devez changer la batterie. Veuillez [contacter le support Microsoft](storsimple-contact-microsoft-support.md) pour obtenir un module de batterie de secours de remplacement.
 
-    - Si l’état redevient opérationnel après 12 heures, cela veut dire que la batterie fonctionne et qu’elle avait juste besoin d’être chargée dans le cadre de la maintenance.
+    - Si l’état redevient opérationnel après 12 heures, cela veut dire que la batterie fonctionne et qu’elle avait juste besoin d’être chargée dans le cadre de la maintenance.
 
 - Si aucune panne n’est survenue et que le PCM est activé et branché sur secteur, la batterie doit être remplacée. Veuillez [contacter le support Microsoft](storsimple-contact-microsoft-support.md) pour commander un module de batterie de secours de remplacement.
 
@@ -115,4 +115,4 @@ Si l’état **DÉTÉRIORÉ** s’affiche, nous vous recommandons de procéder a
 
 En savoir plus sur le [remplacement des composants matériels StorSimple](storsimple-hardware-component-replacement.md).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0817_2016-->

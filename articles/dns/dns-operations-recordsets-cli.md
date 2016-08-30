@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/06/2016"
+   ms.date="08/16/2016"
    ms.author="cherylmc"/>
 
 # Création d’enregistrements et de jeux d’enregistrements DNS à l’aide de l’interface de ligne de commande
@@ -178,4 +178,4 @@ Pour plus d’informations sur Azure DNS, consultez la [Vue d’ensemble d’Azu
 
 Si vous voulez utiliser des enregistrements DNS inversés, consultez [Gestion des enregistrements DNS inversés pour vos services à l’aide de l’interface de ligne de commande Azure](dns-reverse-dns-record-operations-cli.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -147,8 +147,9 @@ ORDER BY waits.object_name, waits.object_type, waits.state;
 Si la requête attend activement des ressources provenant d'une autre requête, l'état affichera **AcquireResources**. Si la requête possède toutes les ressources requises, l'état sera **Granted**.
 
 ## Étapes suivantes
-Pour plus d’informations sur Transact-SQL et les vues de gestion dynamique (DMV), consultez la page [Vue d’ensemble de référence][].
+Pour plus d’informations sur Transact-SQL et les vues de gestion dynamique (DMV), consultez la page [Vues système][].
 Pour plus d’informations sur la gestion de SQL Data Warehouse, consultez la page [Vue d’ensemble de la gestion][].
+Pour connaître les meilleures pratiques, voir [Meilleures pratiques relatives à SQL Data Warehouse][]
 
 <!--Image references-->
 

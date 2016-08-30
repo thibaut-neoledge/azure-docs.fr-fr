@@ -13,15 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/12/2016"
+	ms.date="08/15/2016"
 	ms.author="elizapo"/>
 
 # Création d'une collection hybride pour Azure RemoteApp
 
+> [AZURE.IMPORTANT]
+Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148).
+
 Il existe deux types de collection Azure RemoteApp :
 
 - Cloud : réside complètement dans Azure . Vous pouvez soit enregistrer toutes les données dans le cloud (la collection se trouve uniquement dans le cloud), soit connecter votre collection à un réseau virtuel et enregistrer vos données dans celui-ci.
-- Hybride : inclut un réseau virtuel pour l'accès local (nécessite Azure AD et un environnement Active Directory local).
+- Hybride : inclut un réseau virtuel pour l’accès local (nécessite Azure AD et un environnement Active Directory local).
 
 Vous ne savez pas de quoi vous avez besoin ? Consultez [De quel type de collection avez-vous besoin pour Azure RemoteApp ?](remoteapp-collections.md)
 
@@ -58,9 +61,9 @@ Passez en revue les informations sur la [planification](remoteapp-planvnet.md) e
 
 ### Création d'un réseau virtuel Azure et jonction à votre déploiement Active Directory
 
-Commencez par créer un [réseau virtuel](../virtual-network/virtual-networks-create-vnet-arm-pportal.md). Cette opération s’effectue sous l’onglet **Réseau** dans le portail Azure. Vous devez connecter votre réseau virtuel au déploiement Active Directory qui est synchronisé avec votre locataire Azure Active Directory.
+Commencez par créer un [réseau virtuel](../virtual-network/virtual-networks-create-vnet-arm-pportal.md). Cette opération s’effectue sous l’onglet **Réseau** dans le Portail Azure. Vous devez connecter votre réseau virtuel au déploiement Active Directory qui est synchronisé avec votre locataire Azure Active Directory.
 
-Pour plus d’informations, consultez [Créer un réseau virtuel à l’aide du portail Azure](../virtual-network/virtual-networks-create-vnet-arm-pportal.md).
+Pour plus d’informations, consultez [Créer un réseau virtuel à l’aide du Portail Azure](../virtual-network/virtual-networks-create-vnet-arm-pportal.md).
 
 ### Vérification que votre réseau virtuel est prêt pour Azure RemoteApp
 Avant de créer votre collection, assurez-vous que votre nouveau réseau virtuel est prêt. Vous pouvez le confirmer en procédant comme suit :
@@ -104,7 +107,7 @@ Une image de modèle Azure RemoteApp contient les programmes que vous souhaitez 
 
 Si vous optez pour le téléchargement de la nouvelle image, vous devez entrer un nom et choisir son emplacement. Plusieurs cmdlets PowerShell sont affichés sur la page suivante de l'Assistant. Copiez-les et exécutez-les à partir d'une invite de commandes Windows PowerShell avec élévation de privilèges afin de télécharger l'image spécifiée.
 
-En cas d'association d'une image de modèle existante, il vous suffit de spécifier le nom de l'image, son emplacement et l'abonnement Azure associé.
+En cas d’association d’une image de modèle existante, il vous suffit de spécifier le nom de l’image, son emplacement et l’abonnement Azure associé.
 
 
 
@@ -126,7 +129,7 @@ Vous pouvez publier plusieurs applications dans votre collection. Dans la page d
 
 ## Étape 7 : configuration de l'accès utilisateur ##
 
-Maintenant que vous avez créé votre collection, vous devez ajouter les utilisateurs qui seront autorisés à utiliser vos ressources distantes. Ceux-ci doivent exister dans le locataire Active Directory associé à l’abonnement que vous avez utilisé pour créer cette collection Azure RemoteApp.
+Maintenant que vous avez créé votre collection, vous devez ajouter les utilisateurs qui seront autorisés à utiliser vos ressources distantes. Ceux-ci doivent exister dans le locataire Active Directory associé à l’abonnement que vous avez utilisé pour créer cette collection Azure RemoteApp.
 
 1.	Sur la page Démarrage rapide, cliquez sur **Configurer l'accès utilisateur**.
 2.	Entrez le compte professionnel (à partir d'Active Directory) ou le compte Microsoft auquel vous souhaitez accorder l'accès.
@@ -149,4 +152,4 @@ Félicitations ! Vous avez créé et déployé correctement votre collection hy
 ### Vos commentaires nous aideront à mieux vous servir
 Saviez-vous qu’en plus de noter cet article et de rédiger des commentaires ci-dessous, vous pouviez modifier l’article lui-même ? Il manque des informations ? Des informations sont erronées ? Certains passages ne sont pas clairs ? Faites défiler l'écran vers le haut et cliquez sur **Modifier sur GitHub** pour apporter des modifications. Nous les passerons ensuite en revue, et une fois que nous les aurons confirmées, vos modifications et les améliorations seront visibles ici.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -12,12 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="04/18/2016"
+   ms.date="08/15/2016"
    ms.author="tarcher" />
 
 # Mise à niveau des projets vers la version actuelle d’Azure Tools pour Visual Studio
 
-## Vue d’ensemble
+## Vue d'ensemble
 
 Une fois installée la version actuelle d’Azure Tools (ou une autre version ultérieure à la version 1.6), tous les projets ayant été créés à l’aide d’une version d’Azure Tools antérieure à la version 1.6 (novembre 2011) seront automatiquement mis à niveau au moment de leur ouverture. Si vous avez créé des projets à l’aide de la version 1.6 (novembre 2011) et que celle-ci est encore installée, vous pourrez ouvrir ces projets dans l’ancienne version et décider plus tard s’ils doivent être mis à niveau.
 
@@ -51,4 +51,4 @@ Si un projet est mis à niveau automatiquement ou si vous spécifiez que vous vo
 
 1. Générez le projet, puis résolvez les erreurs qui résultent des modifications de l’API. Pour plus d’informations sur la modification de votre code pour la nouvelle version, consultez la documentation de l’API concernée.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0817_2016-->

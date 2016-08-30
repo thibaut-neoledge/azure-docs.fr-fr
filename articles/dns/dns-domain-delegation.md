@@ -47,6 +47,10 @@ Deux types de serveur DNS sont disponibles :
 - Un serveur DNS _faisant autorité_ héberge les zones DNS. Il répond aux requêtes DNS pour les enregistrements de ces zones uniquement.
 - Un serveur DNS _récursif_ n’héberge pas de zones DNS. Il répond à toutes les requêtes DNS, en appelant des serveurs DNS faisant autorité pour rassembler les données dont il a besoin.
 
+>[AZURE.NOTE] Azure DNS fournit un service DNS faisant autorité. Il ne fournit pas un service DNS récursif.
+
+> Les services cloud et machines virtuelles contenus dans Azure sont configurés automatiquement pour utiliser un service DNS récursif fourni séparément dans le cadre de l’infrastructure Azure. Pour plus d’informations sur la façon de modifier ces paramètres DNS, consultez [Name Resolution in Azure (Résolution de noms dans Azure)](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server).
+
 Les clients DNS des PC ou appareils mobiles appellent généralement un serveur DNS récursif pour effectuer les requêtes DNS dont les applications clientes ont besoin.
 
 Lorsqu’un serveur DNS récursif reçoit une requête pour un enregistrement DNS tel que « www.contoso.com », il doit d’abord rechercher le serveur de noms qui héberge la zone pour le domaine « contoso.com ». Pour ce faire, il commence par les serveurs de noms racines, et à partir de là, il recherche les serveurs de noms hébergeant la zone « com ». Il interroge ensuite les serveurs de noms « com » pour trouver les serveurs de noms hébergeant la zone « contoso.com ». Enfin, il est en mesure de rechercher « www.contoso.com » parmi ces serveurs de noms.
@@ -116,7 +120,7 @@ Vous pouvez également utiliser cette interface de ligne de commande Azure multi
 
 Chaque bureau d’enregistrement a ses propres outils de gestion DNS pour modifier les enregistrements de serveur de noms pour un domaine. Dans la page de gestion du bureau d’enregistrement DNS, modifiez les enregistrements NS et remplacez-les par ceux créés par Azure DNS.
 
-Lors de la délégation d’un domaine à Azure DNS, vous devez utiliser les noms de serveur de noms fournis par Azure DNS. Vous devez toujours utiliser les 4 noms de serveur de noms, quel que soit le nom de votre domaine. La délégation de domaine ne requiert pas que le nom du serveur de noms utilise le même domaine de niveau supérieur que celui de votre domaine.
+Lors de la délégation d’un domaine à Azure DNS, vous devez utiliser les noms de serveur de noms fournis par Azure DNS. Vous devez toujours utiliser les 4 noms de serveur de noms, quel que soit le nom de votre domaine. La délégation de domaine ne requiert pas que le nom du serveur de noms utilise le même domaine de premier niveau que votre domaine.
 
 Vous ne devez pas utiliser d’enregistrements de type glue pour pointer vers les adresses IP de serveur de noms Azure DNS, car ces adresses IP peuvent changer ultérieurement. Les délégations utilisant les noms de serveurs de noms dans votre propre zone (parfois appelés « serveurs de noms de redirection vers un microsite ») ne sont actuellement pas prises en charge dans Azure DNS.
 
@@ -201,4 +205,4 @@ Vous pouvez vérifier que tout est correctement configuré en recherchant l’en
 
 [Gestion des enregistrements DNS](dns-operations-recordsets.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0824_2016-->

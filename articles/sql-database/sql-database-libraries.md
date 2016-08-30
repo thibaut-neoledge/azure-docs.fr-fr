@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/03/2016"
+	ms.date="08/17/2016"
 	ms.author="pehteh"/>
 
 # Bibliothèques de connexions pour SQL Database et SQL Server
@@ -30,4 +30,4 @@ Cette rubrique répertorie chaque bibliothèque/pilote que les programmes client
 | Python | Windows, Linux, Mac | [Connexion à SQL Database à l’aide de Python](sql-database-develop-python-simple.md) | [Installer](https://msdn.microsoft.com/library/mt694094.aspx) |
 | Ruby | Windows, Linux, Mac | [Connexion à SQL Database à l’aide de Ruby](sql-database-develop-ruby-simple.md) | [Installer](https://msdn.microsoft.com/library/mt711041.aspx) |
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

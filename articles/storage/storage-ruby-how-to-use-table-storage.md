@@ -12,15 +12,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="ruby"
 	ms.topic="article"
-	ms.date="06/24/2016"
+	ms.date="08/11/2016"
 	ms.author="robmcm"/>
 
 
 # Utilisation du stockage de tables Azure à partir de Ruby
 
-[AZURE.INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
+[AZURE.INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)] <br/> [AZURE.INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-tables.md)]
 
-## Vue d’ensemble
+## Vue d'ensemble
 
 Ce guide décrit le déroulement de scénarios courants dans le cadre de l'utilisation du service de tables Azure. Les exemples sont écrits à l'aide de l'API Ruby. Les scénarios traités incluent la **création et la suppression d'une table, l'insertion et l'interrogation d'entités dans une table**.
 
@@ -62,7 +62,7 @@ Pour obtenir ces valeurs à partir d’un compte de stockage classique ou Resour
 2. Accédez au compte de stockage que vous souhaitez utiliser.
 3. Dans le panneau Paramètres à droite, cliquez sur **Clés d’accès**.
 4. Dans le panneau Clés d’accès qui apparaît, la clé d’accès 1 et la clé d’accès 2 sont affichées. Vous pouvez utiliser les deux.
-5. Cliquez sur l’icône de copie pour copier la clé dans le Presse-papiers.
+5. Cliquez sur l'icône de copie pour copier la clé dans le Presse-papiers.
 
 Pour obtenir ces valeurs à partir d’un compte de stockage classique sur le portail Azure Classic :
 
@@ -72,7 +72,7 @@ Pour obtenir ces valeurs à partir d’un compte de stockage classique sur le po
 4. Dans la boîte de dialogue contextuelle, vous voyez le nom du compte de stockage et la clé d'accès primaire ou secondaire. Vous pouvez utiliser soit la clé d'accès primaire, soit la clé d'accès secondaire.
 5. Cliquez sur l'icône de copie pour copier la clé dans le Presse-papiers.
 
-## Création d'une table
+## Création d’une table
 
 L’objet **Azure::TableService** permet d’utiliser des tables et des entités. Pour créer une table, utilisez la méthode **create\_table()**. L'exemple suivant crée une table ou imprime l'erreur le cas échéant.
 
@@ -83,7 +83,7 @@ L’objet **Azure::TableService** permet d’utiliser des tables et des entités
 	  puts $!
 	end
 
-## Ajout d'une entité à une table
+## Ajout d’une entité à une table
 
 Pour ajouter une entité, créez tout d'abord un objet de hachage qui définit les propriétés de votre entité. Notez que pour chaque entité, vous devez spécifier les clés **PartitionKey** et **RowKey**. Il s’agit d’identificateurs uniques de vos entités, dont les valeurs peuvent être interrogées bien plus rapidement que d’autres propriétés. Azure Storage utilise **PartitionKey** pour distribuer automatiquement les entités de la table sur plusieurs nœuds de stockage. Les entités partageant la même clé **PartitionKey** sont stockées sur le même nœud. **RowKey** est l'identifiant unique de l'entité dans sa partition.
 
@@ -97,10 +97,10 @@ Plusieurs méthodes permettent de mettre à jour une entité existante :
 
 * **update\_entity() :** met à jour une entité existante en la remplaçant.
 * **merge\_entity() :** met à jour une entité existante en fusionnant les nouvelles valeurs des propriétés avec l’entité existante.
-* **insert\_or\_merge\_entity() :** met à jour une entité existante en la remplaçant. En l’absence d’entité, une nouvelle entité est insérée.
+* **insert\_or\_merge\_entity() :** met à jour une entité existante en la remplaçant. En l'absence d'entité, une nouvelle entité est insérée.
 * **insert\_or\_replace\_entity() :** met à jour une entité existante en fusionnant les nouvelles valeurs des propriétés avec l’entité existante. En l'absence d'entité, une nouvelle entité est insérée.
 
-L'exemple suivant illustre la mise à jour d'une entité avec **update\_entity()** :
+L'exemple suivant illustre la mise à jour d'une entité avec **update\_entity()** :
 
 	entity = { "content" => "test entity with updated content",
 	  :PartitionKey => "test-partition-key", :RowKey => "1" }
@@ -129,7 +129,7 @@ Pour interroger une entité dans une table, utilisez la méthode **get\_entity()
 
 ## Interrogation d’un ensemble d’entités
 
-Pour interroger un ensemble d'entités dans une table, créez un objet de hachage de requête et utilisez la méthode **query\_entities()**. L'exemple ci-dessous présente l'obtention de toutes les identités avec le même élément **PartitionKey** :
+Pour interroger un ensemble d'entités dans une table, créez un objet de hachage de requête et utilisez la méthode **query\_entities()**. L'exemple ci-dessous présente l'obtention de toutes les identités avec le même élément **PartitionKey** :
 
 	query = { :filter => "PartitionKey eq 'test-partition-key'" }
 	result, token = azure_table_service.query_entities("testtable", query)
@@ -138,19 +138,19 @@ Pour interroger un ensemble d'entités dans une table, créez un objet de hachag
 
 ## Interrogation d'un sous-ensemble de propriétés d'entité
 
-Vous pouvez utiliser une requête de table pour extraire uniquement quelques propriétés d'une entité. Cette technique, nommée « projection », réduit la consommation de bande passante et peut améliorer les performances des requêtes, notamment pour les entités volumineuses. Utilisez la clause select et transmettez le nom des propriétés à soumettre au client.
+Vous pouvez utiliser une requête de table pour extraire uniquement quelques propriétés d’une entité. Cette technique, nommée « projection », réduit la consommation de bande passante et peut améliorer les performances des requêtes, notamment pour les entités volumineuses. Utilisez la clause select et transmettez le nom des propriétés à soumettre au client.
 
 	query = { :filter => "PartitionKey eq 'test-partition-key'",
 	  :select => ["content"] }
 	result, token = azure_table_service.query_entities("testtable", query)
 
-## Suppression d'une entité
+## Suppression d’une entité
 
 Pour supprimer une entité, utilisez la méthode **delete\_entity()**. Vous devez transmettre le nom de la table qui contient l’entité, ainsi que les éléments PartitionKey et RowKey de l’entité.
 
 		azure_table_service.delete_entity("testtable", "test-partition-key", "1")
 
-## Suppression d'une table
+## Suppression d’une table
 
 Pour supprimer une table, utilisez la méthode **delete\_table()** et transmettez le nom de la table que vous souhaitez supprimer.
 
@@ -163,4 +163,4 @@ Pour en savoir plus sur les tâches de stockage plus complexes, cliquez sur les 
 - [Blog de l'équipe Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/)
 - Référentiel du [Kit de développement logiciel (SDK) Azure pour Ruby](http://github.com/WindowsAzure/azure-sdk-for-ruby) sur GitHub
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

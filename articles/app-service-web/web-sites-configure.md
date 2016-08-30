@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/02/2016" 
+	ms.date="08/11/2016" 
 	ms.author="robmcm"/>
 
 # Configurer des applications web dans Azure App Service #
 
-Cet article explique comment configurer une application Web à l’aide du [portail Azure].
+Cet article explique comment configurer une application web à l’aide du [portail Azure].
 
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -171,6 +171,7 @@ Pour plus d’informations, consultez [Surveillance de l’état d’un point de
 <!-- URL List -->
 
 [ASP.NET SignalR]: http://www.asp.net/signalr
+[portail Azure]: https://portal.azure.com/
 [portail Azure]: https://portal.azure.com/
 [Configuration d’un nom de domaine personnalisé dans Azure App Service]: ./web-sites-custom-domain-name.md
 [Deploy to Staging Environments for Web Apps in Azure App Service (Procéder à des déploiements sur des environnements intermédiaires pour les applications web dans Azure App Service)]: ./web-sites-staged-publishing.md
@@ -188,4 +189,4 @@ Pour plus d’informations, consultez [Surveillance de l’état d’un point de
 [configure02]: ./media/web-sites-configure/configure02.png
 [configure03]: ./media/web-sites-configure/configure03.png
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

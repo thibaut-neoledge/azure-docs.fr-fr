@@ -13,17 +13,20 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="06/27/2016"
+    ms.date="08/15/2016"
     ms.author="elizapo" />
 
 
 
 # Nouveautés d’Azure RemoteApp
 
+> [AZURE.IMPORTANT]
+Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148).
+
 Un des avantages d’Azure RemoteApp est que nous nous efforçons de l’améliorer continuellement. Nous vous ferons part de toutes les améliorations sur cette page.
 
 ## Mises à jour ultérieures
-Bonjour. Saviez-vous que l'équipe Azure RemoteApp publie des mises à jour mensuelles sur le blog RDS ? Vous y trouverez non seulement les modifications apportées à Azure RemoteApp, mais également d'autres informations sur l'utilisation de RDS. Pour plus d'informations, consultez le blog de l'équipe [Blog des services Bureau à distance](https://blogs.msdn.microsoft.com/rds/). Par exemple, il y a quelques semaines, l'équipe a publié une entrée sur [le développement et la migration des charges de travail avec Azure RemoteApp et Azure AD](https://blogs.msdn.microsoft.com/rds/2016/01/19/lift-and-shift-your-workloads-with-azure-remoteapp-and-azure-ad-domain-services/).
+Bonjour. Saviez-vous que l'équipe Azure RemoteApp publie des mises à jour mensuelles sur le blog RDS ? Vous y trouverez non seulement les modifications apportées à Azure RemoteApp, mais également d'autres informations sur l'utilisation de RDS. Pour plus d’informations, consultez le blog de l’équipe [Blog des services Bureau à distance](https://blogs.msdn.microsoft.com/rds/). Par exemple, il y a quelques semaines, l’équipe a publié une entrée sur [le développement et la migration des charges de travail avec Azure RemoteApp et Azure AD](https://blogs.msdn.microsoft.com/rds/2016/01/19/lift-and-shift-your-workloads-with-azure-remoteapp-and-azure-ad-domain-services/).
  
 ## Septembre 2015
 - Ajout d’Infopath au modèle et à l’image de la galerie Microsoft Office 365. Si vous souhaitez partager Infopath, veillez à mettre à jour vos collections avec l’image la plus récente.
@@ -41,7 +44,7 @@ De grands changements se sont produits en août. En voici les grandes lignes :
 - Il est désormais possible d’ajouter des applications au menu **Démarrer** pour le client Windows RemoteApp. Elles apparaissent ainsi dans la liste des applications et vous pouvez les épingler au menu **Démarrer** de Windows.
 - Nous avons ajouté une nouvelle image à la galerie de machines virtuelles Azure : Hôte de session Bureau à distance Windows Server avec Microsoft Office 365 ProPlus.
 - Nous avons corrigé le client Mac pour que les applications comportant des fenêtres modales arrêtent de se bloquer.
-- Nous avons créé un document sur la manière dont vous pouvez utiliser votre [abonnement Office 365 ProPlus](remoteapp-officesubscription.md) avec Azure RemoteApp.
+- Nous avons créé un document sur la manière dont vous pouvez utiliser votre [abonnement Office 365 ProPlus](remoteapp-officesubscription.md) avec Azure RemoteApp.
 - Nous avons décrit la manière dont vous pouvez [sécuriser les applications et les données](remoteapp-secure.md) dans votre collection Azure RemoteApp.
 
 ## Juillet 2015
@@ -62,7 +65,7 @@ Que de changements ! L’équipe a été bien occupée en juin :
 - La [page d’accueil](https://www.remoteapp.windowsazure.com/) Azure RemoteApp a été repensée, constatez-le vous-même !
 - Le logiciel a été mis à jour dans toutes les images disponibles dans le cadre de votre abonnement.
 - Des améliorations ont été apportées aux collections hybrides, dont la compatibilité avec le tunneling forcé et la vérification de la taille du sous-réseau IP avant d’essayer de créer la collection.
-- Nous avons découvert que le caractère générique * ne fonctionne pas pour les webcams. À la place, vous devez spécifier l’ID d’instance ou le GUID. Nous mettrons à jour les informations de redirection pour refléter ces modifications.
+- Nous avons découvert que le caractère générique * ne fonctionne pas pour les webcams. À la place, vous devez spécifier l’ID d’instance ou le GUID. Nous mettrons à jour les informations de redirection pour refléter ces modifications.
 - Vous pouvez désormais ajouter un logiciel antivirus personnalisé à votre image lorsque vous créez une image de modèle à partir de la galerie Azure.
 
 Et d’autres modifications seront ajoutées en juillet. Nous reviendrons donc bientôt avec une autre mise à jour.
@@ -87,4 +90,4 @@ Merci de nous rester fidèle. Nous serons de retour le mois prochain avec d’au
 ### Vos commentaires nous aideront à mieux vous servir
 Saviez-vous qu’en plus de noter cet article et de rédiger des commentaires ci-dessous, vous pouviez modifier l’article lui-même ? Il manque des informations ? Des informations sont erronées ? Certains passages ne sont pas clairs ? Faites défiler l’écran vers le haut et cliquez sur **Modifier sur GitHub** pour apporter des modifications. Nous les passerons ensuite en revue, et une fois que nous les aurons confirmées, vos modifications et les améliorations seront visibles ici.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

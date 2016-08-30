@@ -1,33 +1,28 @@
 Vérifiez que vous avez déjà créé un espace de noms Service Bus, comme illustré [ici][namespace-how-to].
 
-1. Connectez-vous au [portail Azure Classic][classic-portal].
+1. Connectez-vous au [portail Azure][azure-portal].
 
 2. Dans le volet de navigation de gauche du portail, cliquez sur **Service Bus**.
 
-3. Sélectionnez l’espace de noms dans lequel vous souhaitez créer la file d’attente. Dans ce cas, il s’agit de « mytestns1 ».
+3. Sélectionnez l’espace de noms dans lequel vous souhaitez créer la file d’attente. Dans ce cas, il s’agit de **nstest1**.
 
-    ![Sélection d’un espace de noms][select-namespace]
+    ![Création d’une file d’attente][createqueue1]
 
-4. Sélectionnez **Files d’attente**.
+4. Dans le panneau de **l’espace de noms Service Bus**, sélectionnez **Files d’attente**, puis cliquez sur **Ajouter une file d’attente**.
 
-    ![Sélectionner Files d’attente][select-queue]
+    ![Sélectionner Files d’attente][createqueue2]
 
-5. Sélectionnez **Nouveau** dans le coin inférieur gauche, puis sélectionnez **Création rapide**.
+5. Entrez le **Nom de la file d’attente** et laissez les valeurs par défaut des autres valeurs.
 
-    ![Sélectionner Nouveau][select-new]
+    ![Sélectionner Nouveau][createqueue3]
 
-6. Entrez le **Nom de la file d’attente** et vérifiez que l’espace de noms approprié est sélectionné.
+7. Au bas du panneau, cliquez sur **Créer**.
 
-7. Sélectionnez **Créer une file d’attente**.
-
-    ![Création d’une file d’attente][create-queue]
-
-[select-namespace]: ./media/service-bus-create-queue-portal/select-namespace.png
-[select-queue]: ./media/service-bus-create-queue-portal/select-queue.png
-[select-new]: ./media/service-bus-create-queue-portal/select-new.png
-[create-queue]: ./media/service-bus-create-queue-portal/create-queue.png
+[createqueue1]: ./media/service-bus-create-queue-portal/create-queue1.png
+[createqueue2]: ./media/service-bus-create-queue-portal/create-queue2.png
+[createqueue3]: ./media/service-bus-create-queue-portal/create-queue3.png
 
 [namespace-how-to]: ../articles/service-bus/service-bus-create-namespace-portal.md
-[classic-portal]: https://manage.windowsazure.com
+[azure-portal]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0824_2016-->

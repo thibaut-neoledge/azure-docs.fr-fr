@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="05/03/2016" 
+	ms.date="08/23/2016" 
 	ms.author="rachelap"/>
 
 # Vue d'ensemble d'API Apps
@@ -63,4 +63,4 @@ Pour prendre en main API Apps en y déployant un exemple de code, consultez le d
 
 Pour poser des questions sur les applications API, démarrez un fil de discussion dans le [forum API Apps](https://social.msdn.microsoft.com/Forums/fr-FR/home?forum=AzureAPIApps).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0824_2016-->

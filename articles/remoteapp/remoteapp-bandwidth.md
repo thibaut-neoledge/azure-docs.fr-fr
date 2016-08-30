@@ -13,10 +13,13 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="06/27/2016" 
+    ms.date="08/15/2016" 
     ms.author="elizapo" />
 
 # Estimation de l’utilisation de la bande passante réseau Azure RemoteApp 
+
+> [AZURE.IMPORTANT]
+Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148).
 
 Azure RemoteApp utilise le protocole RDP (Bureau à distance) pour communiquer entre les applications qui s’exécutent dans le cloud Azure et vos utilisateurs. Cet article fournit des instructions de base que vous pouvez utiliser pour estimer l’utilisation du réseau et évaluer potentiellement l’utilisation de la bande passante réseau pour chaque utilisateur d’Azure RemoteApp.
 
@@ -39,4 +42,4 @@ Bien que nous abordions le thème de la redirection de périphériques, nous n�
 
 Nous ne parlons pas non plus de la façon dont un utilisateur peut affecter d’autres utilisateurs au sein du même réseau. Par exemple, un utilisateur consommant une vidéo 4K sur un réseau 100 Mbits/s peut avoir un impact significatif sur les autres utilisateurs de ce même réseau essayant d’effectuer la même tâche. Malheureusement, il est de plus en plus difficile de déterminer l’impact de l’utilisation simultanée pour donner une recommandation commune ou complète sur les performances du système en cas d’agrégation. Tout ce que nous pouvons dire est que la technologie de protocole sous-jacente utilisera au mieux la bande passante réseau disponible, mais elle a ses limites.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-what-happened"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/08/2016"
+	ms.date="08/15/2016"
 	ms.author="tarcher"/>
 
 # Qu’est-il arrivé à mon projet ASP.NET (service connecté Azure Storage de Visual Studio) ?
@@ -36,4 +36,4 @@ Dans le fichier web.config de votre projet, un élément a été créé avec la 
 
 Pour plus d'informations, consultez la page [ASP.NET](http://www.asp.net).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0817_2016-->

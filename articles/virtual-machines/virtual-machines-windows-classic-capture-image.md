@@ -32,6 +32,7 @@ Ces étapes partent du principe que vous avez déjà créé une machine virtuell
 
 - [Création d’une machine virtuelle à partir d’une image](virtual-machines-windows-classic-createportal.md)
 - [Comment attacher un disque de données à une machine virtuelle](virtual-machines-windows-classic-attach-disk.md)
+- Assurez-vous que les rôles serveur sont pris en charge avec Sysprep. Pour plus d’informations, consultez [Prise en charge de Sysprep pour les rôles serveur](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles).
 
 > [AZURE.WARNING] Ce processus supprime la machine virtuelle d’origine une fois celle-ci capturée.
 
@@ -90,4 +91,4 @@ L’image est prête à être utilisée pour créer des machines virtuelles. Pou
 [Image capture successful]: ./media/virtual-machines-capture-image-windows-server/CaptureSuccess.png
 [Use the captured image]: ./media/virtual-machines-capture-image-windows-server/MyImagesWindows.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

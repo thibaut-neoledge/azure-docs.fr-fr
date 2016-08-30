@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/06/2016"
+   ms.date="08/16/2016"
    ms.author="cherylmc"/>
 
 # Gestion d’enregistrements et de jeux d’enregistrements DNS à l’aide du portail Azure
@@ -134,4 +134,4 @@ Vous ne pouvez pas supprimer les jeux d’enregistrements SOA et NS à l’ext
 -   Pour plus d’informations sur l’automatisation de DNS, consultez la rubrique [Création des zones DNS et de jeux d’enregistrements à l’aide du Kit de développement logiciel (SDK) .NET](dns-sdk.md).
 -   Pour plus d’informations sur les enregistrements DNS inversés, consultez la rubrique [Gestion des enregistrements DNS inversés pour vos services à l’aide de PowerShell](dns-reverse-dns-record-operations-ps.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0817_2016-->

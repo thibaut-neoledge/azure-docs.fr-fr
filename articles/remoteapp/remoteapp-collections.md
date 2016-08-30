@@ -12,12 +12,15 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="07/20/2016" 
+    ms.date="08/15/2016" 
     ms.author="elizapo" />
 
 
 
 # De quel type de collection avez-vous besoin pour Azure RemoteApp ?
+
+> [AZURE.IMPORTANT]
+Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148).
 
 Azure RemoteApp vous permet de partager des applications et des ressources avec des utilisateurs sur n’importe quel appareil. Vous devez pour cela créer des collections pour stocker les applications et les ressources, puis partager ces collections avec les utilisateurs. Il existe deux options de collection, avec différentes options de réseau et d’authentification. Laquelle vous convient ?
 
@@ -65,7 +68,7 @@ Azure RemoteApp prend en charge les comptes Microsoft et Azure Active Directory,
 | | AD Connect sans synchronisation de mot de passe | Oui | Oui | Non |
 | | AD Connect avec les services AD FS | Oui | Oui | Oui |
 | | Fournisseurs d’identités tiers pris en charge par Azure (par exemple Ping) | Oui | Oui | Oui |
-| Authentification multifacteur | | Oui | Oui | Oui |
+| Azure Multi-Factor Authentication | | Oui | Oui | Oui |
 
 
 
@@ -91,4 +94,4 @@ Il ne vous reste plus qu’une chose à faire : créer votre première collecti
 
 [Créez une collection cloud](remoteapp-create-cloud-deployment.md) ou [créez une collection hybride](remoteapp-create-hybrid-deployment.md).
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="05/25/2016"
+   ms.date="08/10/2016"
    ms.author="seanmck"/>
 
 # Récupération d’urgence dans Azure Service Fabric
 
-Pour obtenir une application cloud avec une haute disponibilité, vous devez vous assurer qu’elle est capable de survivre à tous les différents types de défaillances, notamment à celles qui sont complètement en dehors de votre contrôle. Cet article décrit la disposition physique d’un cluster Azure Service Fabric dans le contexte d’incidents potentiels et fournit des conseils sur la façon de faire face à ces incidents pour limiter ou éliminer le risque de perte de données ou d’interruption de service.
+Pour obtenir une application cloud avec une haute disponibilité, vous devez vous assurer qu’elle est capable de survivre à tous les différents types de défaillances, notamment à celles qui sont en dehors de votre contrôle. Cet article décrit la disposition physique d’un cluster Azure Service Fabric dans le contexte d’incidents potentiels et fournit des conseils sur la façon de faire face à ces incidents pour limiter ou éliminer le risque de perte de données ou d’interruption de service.
 
 ## Disposition physique des clusters Service Fabric dans Azure
 
@@ -38,7 +38,7 @@ Vous pouvez visualiser la disposition de votre cluster dans les domaines d’err
 
 ### Répartition géographique
 
-Il existe actuellement [25 régions Azure dans le monde][azure-regions], et plusieurs autres sont annoncées. Une région peut contenir un ou plusieurs centres de données physiques en fonction de la demande et de la disponibilité des emplacements appropriés (entre autres facteurs). Notez toutefois que même dans les régions qui comptent plusieurs centres de données physiques, il n’existe aucune garantie que les machines virtuelles de votre cluster soient réparties uniformément parmi ces emplacements physiques. En effet, actuellement, toutes les machines virtuelles d’un cluster donné sont approvisionnées sur un site physique unique.
+Il existe actuellement [26 régions Azure dans le monde][azure-regions], et plusieurs autres sont annoncées. Une région peut contenir un ou plusieurs centres de données physiques en fonction de la demande et de la disponibilité des emplacements appropriés (entre autres facteurs). Notez toutefois que même dans les régions qui comptent plusieurs centres de données physiques, il n’existe aucune garantie que les machines virtuelles de votre cluster soient réparties uniformément parmi ces emplacements physiques. En effet, actuellement, toutes les machines virtuelles d’un cluster donné sont approvisionnées sur un site physique unique.
 
 ## Gestion des défaillances
 
@@ -56,9 +56,11 @@ En règle générale, tant que la majorité des nœuds restent disponibles, le c
 
 #### Perte de quorum
 
-Si une majorité des réplicas de la partition d’un service avec état tombe en panne, cette partition bascule dans un état appelé « perte de quorum ». À ce stade, Service Fabric cesse d’autoriser les écritures sur cette partition pour s’assurer que son état reste cohérent et fiable. En effet, nous choisissons d’accepter une période d’indisponibilité pour nous assurer que les clients ne seront pas informés que leurs données ont été enregistrées alors qu’elles ne l’ont pas été. Notez que si vous avez choisi d’autoriser les lectures à partir des réplicas secondaires pour ce service avec état, vous pouvez continuer à effectuer ces opérations de lecture dans cet état. Une partition reste à l’état de perte de quorum jusqu’à ce qu’un nombre suffisant de réplicas soient restaurés ou jusqu’à ce que l’administrateur du cluster force le système à continuer à l’aide de l’[API Repair-ServiceFabricPartition][repair-partition-ps]. Si vous effectuez cette action quand le réplica principal est hors service, des données sont perdues.
+Si une majorité des réplicas de la partition d’un service avec état tombe en panne, cette partition bascule dans un état appelé « perte de quorum ». À ce stade, Service Fabric cesse d’autoriser les écritures sur cette partition pour s’assurer que son état reste cohérent et fiable. En effet, nous choisissons d’accepter une période d’indisponibilité pour nous assurer que les clients ne sont pas informés que leurs données ont été enregistrées alors qu’elles ne l’ont pas été. Notez que si vous avez choisi d’autoriser les lectures à partir des réplicas secondaires pour ce service avec état, vous pouvez continuer à effectuer ces opérations de lecture dans cet état. Une partition reste à l’état de perte de quorum jusqu’à ce qu’un nombre suffisant de réplicas soient restaurés ou que l’administrateur du cluster force le système à continuer à l’aide de [l’API Repair-ServiceFabricPartition][repair-partition-ps].
 
-Les services système peuvent également subir une perte de quorum, l’impact étant propre au service en question. Par exemple, une perte de quorum dans le service d’affectation de noms affecte la résolution de noms, tandis qu’une perte de quorum dans le service Failover Manager bloque la création de services et les basculements. Notez que contrairement à vos propres services, il est *déconseillé* d’essayer de réparer les services système. Il est préférable d’attendre le retour des réplicas défaillants.
+>[AZURE.WARNING] Si vous effectuez une action de réparation quand le réplica principal est hors service, des données sont perdues.
+
+Les services système peuvent également subir une perte de quorum, l’impact étant propre au service en question. Par exemple, une perte de quorum dans le service d’affectation de noms affecte la résolution de noms, tandis qu’une perte de quorum dans le service Failover Manager bloque la création de services et les basculements. Notez que, contrairement à vos propres services, il est *déconseillé* d’essayer de réparer les services système. Il est préférable d’attendre le retour des réplicas défaillants.
 
 #### Réduction du risque de perte de quorum
 
@@ -68,11 +70,11 @@ Prenons les exemples suivants, en supposant que vous avez configuré vos service
 
 ### Pannes ou destruction de centre de données
 
-Dans de rares cas, les centres de données physiques peuvent devenir temporairement indisponibles à cause d’une perte d’alimentation ou de connectivité réseau. Si ce problème se pose, vos clusters et applications Service Fabric sont indisponibles, mais vos données sont conservées. Pour les clusters exécutés dans Azure, vous pouvez afficher les mises à jour concernant les pannes dans la [page d’état Azure][azure-status-dashboard].
+Dans de rares cas, les centres de données physiques peuvent devenir temporairement indisponibles à cause d’une perte d’alimentation ou de connectivité réseau. Si ce problème se pose, vos clusters et applications Service Fabric sont indisponibles, mais vos données sont conservées. Pour les clusters exécutés dans Azure, vous pouvez afficher les mises à jour concernant les pannes sur la [page d’état Azure][azure-status-dashboard].
 
 En cas de destruction d’un centre de données physique entier (très peu probable), les clusters Service Fabric hébergés à cet emplacement sont perdus, ainsi que leur état.
 
-Pour vous protéger contre cette éventualité, il est essentiel de [sauvegarder régulièrement votre état](service-fabric-reliable-services-backup-restore.md) dans un magasin géo-redondant et de valider votre capacité à le restaurer. La fréquence de vos sauvegardes dépend de votre objectif de point de récupération. Même si vous n’avez pas encore totalement implémenté de sauvegarde et de restauration, vous devez implémenter un gestionnaire pour l’événement `OnDataLoss` visant à consigner ses occurrences dans un journal comme suit :
+Pour vous protéger contre cette éventualité, il est essentiel de [sauvegarder régulièrement votre état](service-fabric-reliable-services-backup-restore.md) dans un magasin géo-redondant et de valider votre capacité à le restaurer. La fréquence de vos sauvegardes dépend de votre objectif de point de récupération. Même si vous n’avez pas encore totalement implémenté de sauvegarde et de restauration, vous devez implémenter un gestionnaire pour l’événement `OnDataLoss` visant à consigner ses occurrences dans un journal comme suit :
 
 ```c#
 protected virtual Task<bool> OnDataLoss(CancellationToken cancellationToken)
@@ -89,7 +91,7 @@ Parmi les causes de perte de données, les erreurs de code dans les services, le
 
 ## Étapes suivantes
 
-- Découvrez comment simuler différentes défaillances à l’aide de l’[infrastructure de testabilité](service-fabric-testability-overview.md).
+- Découvrez comment simuler différentes défaillances à l’aide de [l’infrastructure de testabilité](service-fabric-testability-overview.md).
 - Consultez les autres ressources de récupération d’urgence et de haute disponibilité. Microsoft a publié de nombreuses rubriques d’aide sur ces sujets. Même si certains de ces documents font référence à des techniques propres à d’autres produits, ils contiennent un grand nombre de bonnes pratiques générales que vous pouvez appliquer aussi dans le contexte de Service Fabric :
  - [Liste de contrôle de disponibilité](../best-practices-availability-checklist.md)
  - [Exécution d’un exercice de récupération d’urgence](../sql-database/sql-database-disaster-recovery-drills.md)
@@ -108,4 +110,4 @@ Parmi les causes de perte de données, les erreurs de code dans les services, le
 
 [sfx-cluster-map]: ./media/service-fabric-disaster-recovery/sfx-clustermap.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0817_2016-->

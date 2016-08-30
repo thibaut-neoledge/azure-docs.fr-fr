@@ -12,7 +12,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="05/26/2016" 
+    ms.date="08/16/2016" 
     ms.author="jeedes" />
 
 #Didacticiel : Intégration d’Azure Active Directory à Citrix GoToMeeting  
@@ -28,7 +28,7 @@ L’objectif de ce didacticiel est de montrer comment intégrer Azure et Citrix 
 Le scénario décrit dans ce didacticiel se compose des blocs de construction suivants :
 
 1.  Activation de l’intégration d’applications pour Citrix GoToMeeting
-2.  Configuration de l’authentification unique
+2.  Configuration de l'authentification unique
 3.  Configuration de l'approvisionnement des utilisateurs
 4.  Affectation d’utilisateurs
 
@@ -67,7 +67,7 @@ Cette section décrit l’activation de l’intégration d’applications pour C
 7.  Dans le volet de résultats, sélectionnez **Citrix GoToMeeting**, puis cliquez sur **Terminer** pour ajouter l’application.
 
     ![Citrix GoToMeeting](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC701012.png "Citrix GoToMeeting")
-##Configuration de l’authentification unique
+##Configuration de l'authentification unique
 
 Cette section explique comment permettre aux utilisateurs de s’authentifier sur Citrix GoToMeeting avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML. Dans le cadre de cette procédure, vous devez télécharger un certificat codé en base 64 sur votre locataire Citrix GoToMeeting. Si cette procédure ne vous est pas familière, consultez [Comment convertir un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
 
@@ -75,7 +75,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
 1.  Dans la page d’intégration d’applications **Citrix GoToMeeting**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **CONFIGURER L’AUTHENTIFICATION UNIQUE**.
 
-    ![Activer l’authentification unique](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC768997.png "Activer l'authentification unique")
+    ![Activer l'authentification unique](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC768997.png "Activer l'authentification unique")
 
 2.  Dans la page **Comment voulez-vous que les utilisateurs se connectent à Citrix GoToMeeting**, sélectionnez **Authentification unique Microsoft Azure AD**.
 
@@ -84,7 +84,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
 3. Dans la page **Configurer les paramètres de l’application**, cliquez sur **Suivant**.
 
-	![Activer l’authentification unique](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC7689981.png "Activer l'authentification unique")
+	![Activer l'authentification unique](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC7689981.png "Activer l'authentification unique")
 
 4.  Dans la page **Configurer l’authentification unique sur Citrix GoToMeeting**, cliquez sur **Télécharger le certificat**, puis enregistrez le fichier de certificat sur votre ordinateur.
 
@@ -126,7 +126,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
 
 
-##Configuration de l’approvisionnement des utilisateurs
+##Configuration de l'approvisionnement des utilisateurs
 
 Cette section décrit l’activation de l’approvisionnement des comptes d’utilisateur Active Directory sur Citrix GoToMeeting.
 
@@ -146,7 +146,7 @@ Cette section décrit l’activation de l’approvisionnement des comptes d’ut
 	b. Dans la zone de texte **Mot de passe de l’admin Citrix GoToMeeting**, tapez le mot de passe de l’administrateur.
 
     
-	c. Cliquez sur **Next**.
+	c. Cliquez sur **Suivant**.
 
 3.  Dans la page **Confirmation**, cliquez sur la coche pour enregistrer votre configuration.
 
@@ -183,4 +183,4 @@ Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le 
 
 Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://msdn.microsoft.com/library/dn308586).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0817_2016-->

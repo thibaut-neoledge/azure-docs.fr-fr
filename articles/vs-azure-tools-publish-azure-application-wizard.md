@@ -12,20 +12,20 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/08/2016"
+   ms.date="08/15/2016"
    ms.author="tarcher" />
 
 # Assistant Publication d’application Azure
 
-## Vue d’ensemble
+## Vue d'ensemble
 
 Une fois que vous avez développé une application web dans Visual Studio, vous pouvez publier cette application plus facilement dans un service cloud Azure à l'aide de l’Assistant **Publication d’application Azure**. La première section décrit les étapes que vous devez effectuer avant d’utiliser l'Assistant, et les sections suivantes décrivent les fonctionnalités de l'Assistant.
 
 >[AZURE.NOTE] Cette rubrique concerne le déploiement sur des services cloud, pas sur des sites web. Pour plus d'informations sur le déploiement sur des sites web, consultez [Déploiement d'un site web Azure](https://social.msdn.microsoft.com/Search/windowsazure?query=How%20to%20Deploy%20an%20Azure%20Web%20Site&Refinement=138&ac=4#refinementChanges=117&pageNumber=1&showMore=false).
 
-## Configuration requise
+## Composants requis
 
-Avant de pouvoir publier votre application web sur Azure, vous devez disposer d'un compte Microsoft et d’un abonnement Azure, et vous devez associer votre application web à un service cloud Azure. Si vous avez déjà effectué ces tâches, vous pouvez passer à la section suivante.
+Avant de pouvoir publier votre application web sur Azure, vous devez disposer d’un compte Microsoft et d’un abonnement Azure, et vous devez associer votre application web à un service cloud Azure. Si vous avez déjà effectué ces tâches, vous pouvez passer à la section suivante.
 
 1. Obtenez un compte Microsoft et un abonnement Azure. Vous pouvez faire un essai gratuit de l’abonnement Azure pendant un mois [ici](https://azure.microsoft.com/pricing/free-trial/)
 
@@ -43,21 +43,21 @@ Avant de pouvoir publier votre application web sur Azure, vous devez disposer d'
 
 ### Pour choisir un abonnement
 
-1. Avant d'utiliser l'Assistant pour la première fois, vous devez vous connecter. Sélectionnez le lien **Se connecter**. Connectez-vous au portail Azure lorsque vous y êtes invité et fournissez votre nom d'utilisateur et votre mot de passe Azure. 
+1. Avant d'utiliser l'Assistant pour la première fois, vous devez vous connecter. Sélectionnez le lien **Se connecter**. Connectez-vous au portail Azure lorsque vous y êtes invité et fournissez votre nom d'utilisateur et votre mot de passe Azure.
 
     ![Il s’agit d’un des écrans de l'Assistant Publication](./media/vs-azure-tools-publish-azure-application-wizard/IC799159.png)
 
-    La liste des abonnements se remplit avec les abonnements associés à votre compte. Vous pouvez également voir des abonnements provenant de tous les fichiers d'abonnement que vous avez importés précédemment.
+    La liste des abonnements se remplit avec les abonnements associés à votre compte. Vous pouvez également voir des abonnements provenant de tous les fichiers d’abonnement que vous avez importés précédemment.
 
-1. Dans la liste **Choisissez votre abonnement**, sélectionnez l'abonnement à utiliser pour ce déploiement.
+1. Dans la liste **Choisissez votre abonnement**, sélectionnez l’abonnement à utiliser pour ce déploiement.
 
-   Si vous sélectionnez **<Gérer...>**, la boîte de dialogue **Gérer les abonnements** s'affiche et vous pouvez choisir l'abonnement et le compte utilisateur à utiliser. L’onglet **Comptes** montre tous vos comptes et l’onglet **Abonnements** affiche tous les abonnements associés aux comptes. Vous pouvez également sélectionner une région à partir de laquelle utiliser les ressources Azure, ainsi que créer ou importer des certificats pour votre abonnement à partir du portail Azure. Si vous avez importé des abonnements à partir d'un fichier d'abonnement, les certificats associés s’affichent dans l’onglet **Certificats**. Lorsque vous avez terminé, sélectionnez le bouton **Fermer**.
+   Si vous sélectionnez **<Gérer…>**, la boîte de dialogue **Gérer les abonnements** s’affiche et vous pouvez choisir l’abonnement et le compte utilisateur à utiliser. L’onglet **Comptes** montre tous vos comptes et l’onglet **Abonnements** affiche tous les abonnements associés aux comptes. Vous pouvez également sélectionner une région à partir de laquelle utiliser les ressources Azure, mais aussi créer ou importer des certificats pour votre abonnement à partir du portail Azure. Si vous avez importé des abonnements à partir d’un fichier d’abonnement, les certificats associés s’affichent dans l’onglet **Certificats**. Lorsque vous avez terminé, sélectionnez le bouton **Fermer**.
 
     ![Manage subscriptions](./media/vs-azure-tools-publish-azure-application-wizard/IC799160.png)
 
     >[AZURE.NOTE] A subscription file can contain more than one subscription.
 
-1. Sélectionnez le bouton **Suivant** pour continuer. 
+1. Sélectionnez le bouton **Suivant** pour continuer.
 
     S’il n’y a pas de services cloud dans votre abonnement, vous devez créer un service cloud dans Azure pour héberger votre projet. La boîte de dialogue **Créer un service cloud et un compte de stockage** s'affiche.
 
@@ -139,4 +139,4 @@ Vous pouvez modifier les paramètres courants et avancés du déploiement à l'a
 
 [Test des performances d'un service cloud](https://msdn.microsoft.com/library/azure/hh369930.aspx)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0817_2016-->

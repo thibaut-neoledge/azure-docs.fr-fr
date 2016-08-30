@@ -13,7 +13,7 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="dotnet"
     ms.workload="na"
-    ms.date="06/07/2016"
+    ms.date="08/23/2016"
     ms.author="jotaub;sethm"/>
 
 # Prise en main des files d’attente Service Bus
@@ -56,7 +56,7 @@ Si vous disposez déjà d’une file d’attente Service Bus créée précédemm
 
 Pour envoyer des messages vers la file d’attente, nous allons écrire une application de console C# à l’aide de Visual Studio.
 
-### Création d'une application console
+### Création d’une application console
 
 1. Ouvrez Visual Studio et créez une nouvelle application de console.
 
@@ -111,13 +111,13 @@ Pour envoyer des messages vers la file d’attente, nous allons écrire une appl
     }
     ```
   
-3. Exécutez le programme et vérifiez le Portail Azure Classic. Notez que la valeur **Longueur de la file d’attente** doit désormais correspondre à 1.
+3. Exécutez le programme et vérifiez le Portail Azure. Cliquez sur le nom de votre file d’attente dans le panneau de l’espace de noms **Vue d’ensemble**. Notez que la valeur **Nombre de messages actifs** doit à présent être 1.
     
-      ![Longueur de la file d’attente][queue-length-send]
+      ![Nombre de messages][queue-message]
     
 ## 4\. Recevoir les messages d'une file d'attente
 
-1. Créez une autre application de console et ajoutez une référence au package NuGet Service Bus, identique à celle de l’application émettrice ci-dessus.
+1. Créez une autre application de console et ajoutez une référence au package NuGet Service Bus, identique à celle de l’application émettrice précédente.
 
 2. Ajoutez l’instruction `using` suivante au début du fichier Program.cs.
   
@@ -173,7 +173,7 @@ Pour envoyer des messages vers la file d’attente, nous allons écrire une appl
   
 4. Exécutez le programme et vérifiez le portail. Notez que la valeur **Longueur de la file d’attente** doit désormais correspondre à 0.
 
-    ![Longueur de la file d’attente][queue-length-receive]
+    ![Longueur de la file d’attente][queue-message-receive]
   
 Félicitations ! Vous avez maintenant créé une file d’attente, envoyé un message et reçu un message.
 
@@ -184,12 +184,12 @@ Consultez les [exemples fournis dans notre référentiel GitHub](https://github.
 <!--Image references-->
 
 [nuget-pkg]: ./media/service-bus-dotnet-get-started-with-queues/nuget-package.png
-[queue-length-send]: ./media/service-bus-dotnet-get-started-with-queues/queue-length-send.png
-[queue-length-receive]: ./media/service-bus-dotnet-get-started-with-queues/queue-length-receive.png
+[queue-message]: ./media/service-bus-dotnet-get-started-with-queues/queue-message.png
+[queue-message-receive]: ./media/service-bus-dotnet-get-started-with-queues/queue-message-receive.png
 
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 
 [github-samples]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0824_2016-->

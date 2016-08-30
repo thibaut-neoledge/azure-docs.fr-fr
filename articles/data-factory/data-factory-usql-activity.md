@@ -53,8 +53,8 @@ Type | La propriété de type doit être définie sur **AzureDataLakeAnalytics**
 accountName | Nom du compte du service Analytique Azure Data Lake. | Oui
 dataLakeAnalyticsUri | URI du service Analytique Azure Data Lake. | Non 
 autorisation | Le code d’autorisation est automatiquement récupéré après un clic sur le bouton **Autoriser** dans l’éditeur de la fabrique de données et une fois la connexion OAuth effectuée. | Oui 
-subscriptionId | ID d'abonnement Azure | Non (si non spécifié, l’abonnement de la fabrique de données est utilisé). 
-nom\_groupe\_ressources | Nom du groupe de ressources Azure | Non (si non spécifié, le groupe de ressources de la fabrique de données est utilisé).
+subscriptionId | ID d’abonnement Azure | Non (si non spécifié, l’abonnement de la fabrique de données est utilisé). 
+resourceGroupName | Nom du groupe de ressources Azure | Non (si non spécifié, le groupe de ressources de la fabrique de données est utilisé).
 sessionId | ID de session issu de la session d'autorisation OAuth. Chaque ID de session est unique et ne peut être utilisé qu’une seule fois. Il est généré automatiquement dans l’éditeur de la fabrique de données. | Oui
 
 Le code d’autorisation que vous avez généré à l’aide du bouton **Autoriser** expire au bout d’un certain temps. Consultez le tableau suivant pour connaître les délais d’expiration associés aux différents types de comptes d’utilisateur. Vous pouvez rencontrer le message d’erreur suivant lors de l’**expiration du jeton** d’authentification : « Credential operation error: invalid\_grant - AADSTS70002: Error validating credentials. AADSTS70008: The provided access grant is expired or revoked. Trace ID: d18629e8-af88-43c5-88e3-d8419eb1fca1 Correlation ID: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 Timestamp: 2015-12-15 21-09-31Z ».
@@ -165,9 +165,9 @@ parameters | Paramètres du script U-SQL | Non
 
 Vous trouverez la définition du script dans la section [Définition du script SearchLogProcessing.txt](#script-definition).
 
-### Exemples de jeux de données d'entrée et de sortie
+## Exemples de jeux de données d'entrée et de sortie
 
-#### Jeu de données d'entrée
+### Jeu de données d'entrée
 Dans cet exemple, les données d'entrée se trouvent dans un magasin Azure Data Lake (fichier SearchLog.tsv dans le dossier datalake/input).
 
 	{
@@ -191,7 +191,7 @@ Dans cet exemple, les données d'entrée se trouvent dans un magasin Azure Data 
     	}
 	}	
 
-#### Jeu de données de sortie
+### Jeu de données de sortie
 Dans cet exemple, les données de sortie générées par le script U-SQL sont stockées dans un magasin Azure Data Lake (dossier datalake/output).
 
 	{
@@ -209,7 +209,7 @@ Dans cet exemple, les données de sortie générées par le script U-SQL sont st
 	    }
 	}
 
-#### Exemple de service lié Azure Data Lake Store
+### Exemple de service lié Data Lake Store
 Voici la définition de l'exemple de service lié Azure Data Lake Store utilisé par les jeux de données d'entrée/de sortie ci-dessus.
 
 	{
@@ -226,7 +226,7 @@ Voici la définition de l'exemple de service lié Azure Data Lake Store utilisé
 
 Consultez [Déplacer des données vers et depuis Azure Data Lake Store](data-factory-azure-datalake-connector.md) pour obtenir une description des propriétés JSON dans le service lié Azure Data Lake Store et les extraits de code JSON du jeu de données ci-dessus.
 
-### Définition du script
+## Exemple de script SQL-U 
 
 	@searchlog =
 	    EXTRACT UserId          int,
@@ -257,4 +257,21 @@ Les valeurs des paramètres **@in** et **@out** dans le script U-SQL ci-dessus s
 
 Vous pouvez aussi spécifier d’autres propriétés viz. degreeOfParallelism, la priorité, etc. dans votre définition de pipeline pour les travaux qui s’exécutent au niveau du service Azure Data Lake Analytics.
 
-<!---HONumber=AcomDC_0629_2016-->
+## Paramètres dynamiques
+Dans l’exemple de définition de pipeline ci-dessus, des valeurs codées en dur sont affectées aux paramètres de sortie.
+
+    "parameters": {
+        "in": "/datalake/input/SearchLog.tsv",
+        "out": "/datalake/output/Result.tsv"
+    }
+
+Il est possible d’utiliser des paramètres dynamiques à la place. Par exemple :
+
+    "parameters": {
+        "in": "$$Text.Format('/datalake/input/{0:yyyy-MM-dd HH:mm:ss}.tsv', SliceStart)",
+        "out": "$$Text.Format('/datalake/output/{0:yyyy-MM-dd HH:mm:ss}.tsv', SliceStart)"
+    }
+
+Dans ce cas, les fichiers d’entrée sont toujours récupérés à partir du dossier /datalake/input et les fichiers de sortie sont générés dans le dossier /datalake/output, mais les noms de fichiers sont dynamiques et basés sur l’heure de début de la tranche horaire.
+
+<!---HONumber=AcomDC_0817_2016-->

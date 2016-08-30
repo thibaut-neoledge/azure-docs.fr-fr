@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="Azure"
    ms.workload="na"
-   ms.date="08/08/2016"
+   ms.date="08/17/2016"
    ms.author="hascipio"/>
 
 # Compléter la création d’offre avec du contenu marketing
@@ -48,7 +48,7 @@ Dans cette étape du processus de publication, vous devez fournir du contenu mar
 Tous les logos téléchargés dans le portail de publication doivent respecter les instructions ci-dessous :
 
 - Le design Azure a une palette de couleurs simple. Limitez le nombre de couleurs primaires et secondaires sur votre logo.
-- Les couleurs de thème du portail Azure sont le blanc et le noir. Par conséquent, évitez d’utiliser ces couleurs comme couleur d’arrière-plan pour vos logos. Utilisez des couleurs qui mettent vos logos en évidence dans le portail Azure. Nous vous recommandons d’utiliser des couleurs primaires simples. **Si vous utilisez un arrière-plan transparent, assurez-vous que le logo/texte n’est pas blanc ou noir.**
+- Les couleurs de thème du portail Azure sont le blanc et le noir. Par conséquent, évitez d’utiliser ces couleurs comme couleur d’arrière-plan pour vos logos. Utilisez des couleurs qui mettent vos logos en évidence dans le portail Azure. Nous vous recommandons d’utiliser des couleurs primaires simples. **Si vous utilisez un arrière-plan transparent, assurez-vous que le logo/texte n’est pas blanc, noir ou bleu.**
 - N'utilisez pas d’arrière-plan dégradé sur le logo.
 - Évitez de placer du texte, même s’il s’agit du nom votre société ou de votre marque, sur le logo. L'apparence de votre logo doit être « plate » et éviter les dégradés.
 - Le logo ne doit pas être étiré.
@@ -277,4 +277,4 @@ Votre contenu Marketplace étant chargé, nous allons maintenant tester votre of
 [link-pubportal]: https://publish.windowsazure.com
 [link-push-to-production]: marketplace-publishing-push-to-production.md
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="06/24/2016"
+	ms.date="08/11/2016"
 	ms.author="robmcm"/>
 
 
 # Utilisation du stockage de files d'attente à partir de Node.js
 
-[AZURE.INCLUDE [storage-selector-queue-include](../../includes/storage-selector-queue-include.md)]
+[AZURE.INCLUDE [storage-selector-queue-include](../../includes/storage-selector-queue-include.md)] <br/> [AZURE.INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
 
 ## Vue d'ensemble
 
@@ -29,9 +29,9 @@ Ce guide décrit le déroulement de scénarios courants dans le cadre de l’uti
 
 [AZURE.INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
 
-## Création d’une application Node.js
+## Création d'une application Node.js
 
-Créez une application Node.js vide. Pour obtenir des instructions sur la création d’une application Node.js, consultez [Créer une application web Node.js dans Azure App Service], [Créer et déployer une application Node.js dans Azure Cloud Service] (avec Windows PowerShell) ou [Créer et déployer une application web Node.js dans Azure à l’aide de WebMatrix].
+Créez une application Node.js vide. Pour obtenir des instructions sur la création d’une application Node.js, consultez [Créer une application web Node.js dans Azure App Service], [Création et déploiement d'une application Node.js dans Azure Cloud Services] (à l’aide de Windows PowerShell) ou [Créer et déployer une application web Node.js dans Azure à l’aide de WebMatrix].
 
 ## Configuration de votre application pour accéder au stockage
 
@@ -94,9 +94,9 @@ Après le prétraitement des options de la requête, la méthode doit appeler «
 
 	function (returnObject, finalCallback, next)
 
-Dans ce rappel, et après le traitement de returnObject (la réponse de la requête au serveur), le rappel doit appeler la fonction next, si elle existe, pour continuer à traiter d'autres filtres ou simplement appeler finalCallback pour terminer l'utilisation du service.
+Dans ce rappel, et après le traitement de returnObject (la réponse de la requête au serveur), le rappel doit appeler la fonction next, si elle existe, pour continuer à traiter d’autres filtres ou simplement appeler finalCallback pour terminer l’utilisation du service.
 
-Deux filtres qui implémentent la logique de relance sont inclus dans le Kit de développement logiciel (SDK) Azure pour Node.js : **ExponentialRetryPolicyFilter** et **LinearRetryPolicyFilter**. Le code suivant crée un objet **QueueService** qui utilise le filtre **ExponentialRetryPolicyFilter** :
+Deux filtres qui implémentent la logique de relance sont inclus dans le Kit de développement logiciel (SDK) Azure pour Node.js : **ExponentialRetryPolicyFilter** et **LinearRetryPolicyFilter**. Le code suivant crée un objet **QueueService** qui utilise le filtre **ExponentialRetryPolicyFilter** :
 
 	var retryOperations = new azure.ExponentialRetryPolicyFilter();
 	var queueSvc = azure.createQueueService().withFilter(retryOperations);
@@ -321,8 +321,8 @@ Maintenant que vous connaissez les bases du stockage des files d'attente, consul
 
 
 
-  [Créer et déployer une application Node.js dans Azure Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
+  [Création et déploiement d'une application Node.js dans Azure Cloud Services]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
   [Blog de l'équipe Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage/
   [Créer et déployer une application web Node.js dans Azure à l’aide de WebMatrix]: ../app-service-web/web-sites-nodejs-use-webmatrix.md
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

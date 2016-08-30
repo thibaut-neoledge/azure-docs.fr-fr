@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/17/2016"
+	ms.date="08/12/2016"
 	ms.author="jeedes"/>
 
 
@@ -27,7 +27,7 @@ L’objectif de ce didacticiel est de vous montrer comment intégrer Small Impro
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
 
-## Composants requis
+## Conditions préalables
 
 Pour configurer l’intégration d’Azure AD avec Small Improvements, vous avez besoin des éléments suivants :
 
@@ -56,7 +56,7 @@ Pour configurer l’intégration de Small Improvements avec Azure AD, vous deve
 
 **Pour ajouter Small Improvements à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **portail Azure Classic**, cliquez sur **Active Directory**. 
+1. Dans le volet de navigation gauche du **portail Azure Classic**, cliquez sur **Active Directory**.
 
 	![Active Directory][1]
 
@@ -90,7 +90,7 @@ Pour que l’authentification unique fonctionne, Azure AD doit savoir qui est l
 Pour configurer et tester l’authentification unique Azure AD avec Small Improvements, vous devez suivre les indications des sections suivantes :
 
 1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
+2. **[Création d'un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l'authentification unique Azure AD avec Britta Simon.
 4. **[Création d’un utilisateur de test Small Improvements](#creating-a-small-improvements-test-user)** pour avoir un équivalent de Britta Simon dans Small Improvements lié à la représentation Azure AD associée.
 5. **[Affectation d’un utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
 5. **[Test de l’authentification unique](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
@@ -153,7 +153,7 @@ L’objectif de cette section est d’activer l’authentification unique Azure�
   
 	d. Entrez les informations appropriées pour nommer le bouton de connexion d’authentification unique dans la zone de texte **SAML Prompt**.
 
-	e. Cliquez sur **Enregistrer**.
+	e. Cliquez sur **Save**.
 
 
 6. Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Suivant**.
@@ -278,7 +278,7 @@ L’objectif de cette section est de permettre à Britta Simon d’utiliser l’
 
 ### Test de l’authentification unique
 
-L’objectif de cette section est de tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès. Lorsque vous cliquez sur la vignette Small Improvements dans le volet d’accès, vous devez être connecté automatiquement à votre application Small Improvements.
+L’objectif de cette section est de tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès. Lorsque vous cliquez sur la vignette Small Improvements dans le volet d’accès, vous devez être connecté automatiquement à votre application Small Improvements.
 
 
 ## Ressources supplémentaires
@@ -305,4 +305,4 @@ L’objectif de cette section est de tester la configuration de l’authentifica
 [204]: ./media/active-directory-saas-smallimprovements-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-smallimprovements-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

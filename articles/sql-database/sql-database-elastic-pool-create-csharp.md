@@ -13,7 +13,7 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="csharp"
     ms.workload="data-management"
-    ms.date="07/22/2016"
+    ms.date="08/18/2016"
     ms.author="sstein"/>
 
 # Créer un pool de base de données élastique avec C&#x23;
@@ -28,7 +28,7 @@ Découvrez comment créer un [pool de base de données élastique](sql-database-
 
 Pour connaître les codes d’erreur courants, consultez la page [Codes d’erreur SQL pour les applications clientes SQL Database : erreur de connexion à la base de données et autres problèmes](sql-database-develop-error-messages.md)
 
-Les exemples ci-dessous utilisent la [bibliothèque SQL Database pour .NET](https://msdn.microsoft.com/library/azure/mt349017.aspx), de sorte que vous devez l’installer avant de continuer si elle n’est pas déjà installée. Vous pouvez installer cette bibliothèque en exécutant la commande suivante dans la [console du Gestionnaire de package](http://docs.nuget.org/Consume/Package-Manager-Console) de Visual Studio (**Outils** > **Gestionnaire de package NuGet** > **Console du Gestionnaire de package**) :
+Les exemples utilisent la [bibliothèque SQL Database pour .NET](https://msdn.microsoft.com/library/azure/mt349017.aspx). Vous devez donc l’installer avant de continuer si elle n’est pas déjà installée. Vous pouvez installer cette bibliothèque en exécutant la commande suivante dans la [console du Gestionnaire de package](http://docs.nuget.org/Consume/Package-Manager-Console) de Visual Studio (**Outils** > **Gestionnaire de package NuGet** > **Console du Gestionnaire de package**) :
 
     Install-Package Microsoft.Azure.Management.Sql –Pre
 
@@ -52,7 +52,7 @@ Créez une instance [SqlManagementClient](https://msdn.microsoft.com/library/mic
     // Create the pool
     var newPoolResponse = sqlClient.ElasticPools.CreateOrUpdate("resourcegroup-name", "server-name", "ElasticPool1", newPoolParameters);
 
-## Créer une nouvelle base de données dans un pool
+## Créer une base de données dans un pool
 
 Créez une instance [DataBaseCreateorUpdateProperties](https://msdn.microsoft.com/library/microsoft.azure.management.sql.models.databasecreateorupdateproperties) et définissez les propriétés de la nouvelle base de données. Puis appelez la méthode CreateOrUpdate avec le groupe de ressources, le nom du serveur et le nom de la nouvelle base de données.
 
@@ -76,20 +76,20 @@ Pour déplacer une base de données existante vers un pool, consultez l’articl
 
 ## Exemple : créer un pool à l’aide de C&#x23;
 
-Cet exemple crée un groupe de ressources Azure, une instance de serveur SQL Azure et un pool élastique.
+Cet exemple crée un groupe de ressources Azure, un serveur SQL Azure et un pool élastique.
  
 
 Les bibliothèques suivantes sont requises pour l’exécution de cet exemple. Vous pouvez les installer en exécutant les commandes suivantes dans la [console du Gestionnaire de package](http://docs.nuget.org/Consume/Package-Manager-Console) dans Visual Studio : (**Outils** > **Gestionnaire de package NuGet** > **Console du Gestionnaire de package**).
 
     Install-Package Microsoft.Azure.Management.Sql –Pre
-    Install-Package Microsoft.Azure.Management.ResourceManager –Pre -Version 1.1.1-preview
+    Install-Package Microsoft.Azure.Management.ResourceManager –Pre
     Install-Package Microsoft.Azure.Common.Authentication –Pre
 
-Créez une application console et remplacez le contenu de Program.cs par le code suivant. Pour obtenir l’ID client requis et les valeurs associées, consultez l’article [Inscrire votre application et obtenir les valeurs du client requises pour connecter votre application à Base de données SQL](sql-database-client-id-keys.md). Utilisez l’applet de commande [Get-AzureRmSubscription](https://msdn.microsoft.com/library/mt619284.aspx) pour récupérer la valeur subscriptionId.
+Créez une application console et remplacez le contenu de Program.cs par le code suivant. Pour obtenir l’ID client requis et les valeurs associées, créez une application native à l’aide de l’article suivant : [Inscrire votre application et obtenir les valeurs du client requises pour connecter votre application à Base de données SQL](sql-database-client-id-keys.md).
 
     using Microsoft.Azure;
-    using Microsoft.Azure.Management.Resources;
-    using Microsoft.Azure.Management.Resources.Models;
+    using Microsoft.Azure.Management.ResourceManager;
+    using Microsoft.Azure.Management.ResourceManager.Models;
     using Microsoft.Azure.Management.Sql;
     using Microsoft.Azure.Management.Sql.Models;
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
@@ -241,7 +241,7 @@ Créez une application console et remplacez le contenu de Program.cs par le code
 ## Étapes suivantes
 
 - [Gérer votre pool](sql-database-elastic-pool-manage-csharp.md)
-- [Créer des tâches élastiques](sql-database-elastic-jobs-overview.md) : les tâches élastiques vous permettent d’exécuter des scripts T-SQL, quel que soit le nombre de bases de données contenues dans le pool.
+- [Créer des tâches élastiques](sql-database-elastic-jobs-overview.md) : les tâches élastiques vous permettent d’exécuter des scripts T-SQL, quel que soit le nombre de bases de données contenues dans un pool.
 - [Montée en charge avec la base de données SQL Azure](sql-database-elastic-scale-introduction.md) : utilisez les outils de base de données élastique pour monter en charge.
 
 ## Ressources supplémentaires
@@ -249,4 +249,4 @@ Créez une application console et remplacez le contenu de Program.cs par le code
 - [Base de données SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 - [API de gestion des ressources Azure](https://msdn.microsoft.com/library/azure/dn948464.aspx)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0824_2016-->

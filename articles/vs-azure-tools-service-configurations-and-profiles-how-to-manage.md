@@ -12,12 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="06/01/2016"
+   ms.date="08/15/2016"
    ms.author="tarcher" />
 
 # Gestion des configurations de service et des profils
 
-## Vue d’ensemble
+## Vue d'ensemble
 
 Lorsque vous publiez un service cloud, Visual Studio stocke les informations de configuration dans deux types de fichiers de configuration : les configurations de service et les profils. Les configurations de service (fichiers .cscfg) stockent les paramètres des environnements de déploiement pour un service cloud Azure. Azure utilise ces fichiers de configuration pour gérer vos services cloud. D'autre part, les profils (fichiers .azurePubxml) stockent les paramètres de publication des services cloud. Ces paramètres correspondent à l'enregistrement de ce que vous sélectionnez lorsque vous utilisez l'Assistant Publication. Ils sont utilisés localement par Visual Studio. Cette rubrique explique comment utiliser les deux types de fichiers de configuration.
 
@@ -131,4 +131,4 @@ Lorsque vous exécutez l'Assistant pour la première fois, un profil par défaut
 
 Pour en savoir plus sur la configuration des autres parties de votre projet Azure à partir de Visual Studio, consultez [Configuration d’un projet Azure](http://go.microsoft.com/fwlink/p/?LinkID=623075)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0817_2016-->

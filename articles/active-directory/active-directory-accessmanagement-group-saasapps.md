@@ -1,11 +1,11 @@
 
 <properties
-	pageTitle="Utilisation d’un groupe pour gérer l’accès aux applications SaaS| Microsoft Azure"
+	pageTitle="Utilisation d’un groupe pour gérer l’accès aux applications SaaS| Microsoft Azure"
 	description="Comment utiliser les groupes dans Azure Active Directory Premium ou Basic pour attribuer l’accès à des applications SaaS intégrées à Azure Active Directory."
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="08/10/2016"
 	ms.author="curtand"/>
 
 
@@ -54,6 +54,6 @@ Ces articles fournissent des informations supplémentaires sur Azure Active Dire
 
 * [Qu’est-ce qu’Azure Active Directory ?](active-directory-whatis.md)
 
-* [Intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md)
+* [Intégration des identités locales dans Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -12,12 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="04/25/2016"
+   ms.date="08/17/2016"
    ms.author="alkohli" />
 
 # Déballer, monter en rack et câbler votre appareil StorSimple 8100
 
-## Vue d’ensemble
+## Vue d'ensemble
 
 Votre appareil Microsoft Azure StorSimple 8100 doit être monté en rack sur un boîtier unique. Ce didacticiel explique comment déballer, monter en rack et brancher les câbles de votre appareil StorSimple 8100 avant de configurer et de déployer l’appareil StorSimple.
 
@@ -176,7 +176,7 @@ L’étape suivante consiste à brancher l’alimentation, le réseau et l’acc
 
 Les procédures suivantes expliquent comment brancher les câbles d’alimentation, de réseau et d’accès en série sur votre appareil StorSimple 8100.
 
-### Composants requis
+### Conditions préalables
 
 Avant de commencer le câblage de votre appareil, vous devez disposer des éléments suivants :
 
@@ -291,4 +291,4 @@ Votre appareil est désormais branché à l’alimentation, au réseau et au por
 
 Découvrez comment [déployer et configurer votre appareil StorSimple local](storsimple-deployment-walkthrough.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0817_2016-->

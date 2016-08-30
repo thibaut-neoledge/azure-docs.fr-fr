@@ -12,12 +12,15 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="06/27/2016"
+    ms.date="08/15/2016"
     ms.author="elizapo" />
 
 
 
 # Comment migrer une collection hybride d’un réseau virtuel RemoteApp à un réseau virtuel Azure
+
+> [AZURE.IMPORTANT]
+Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148).
 
 Bonne nouvelle ! Vous avez désormais la possibilité de déployer des collections RemoteApp hybrides directement sur vos réseaux virtuels (VNET) Azure existants au lieu de devoir créer des réseaux virtuels RemoteApp spécifiques. Cela vous permet de tirer parti des dernières fonctionnalités de réseau virtuel (comme ExpressRoute) et offre à vos collections hybrides un accès réseau direct à d’autres services Azure et ordinateurs virtuels déployés sur ce réseau virtuel. (Ceci améliore les performances et facilite l’installation par rapport aux configurations de réseau virtuel à réseau virtuel).
 
@@ -49,4 +52,4 @@ Vous avez terminé !
 
 Si vous avez des questions ou que vous avez besoin d’aide, envoyez un e-mail [remoteappforum@microsoft.com](mailto:remoteappforum@microsoft.com?subject=Azure%20RemoteApp%20VNET%20migration%20help).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

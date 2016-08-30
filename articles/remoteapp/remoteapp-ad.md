@@ -13,13 +13,15 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="06/13/2016" 
+    ms.date="08/15/2016" 
     ms.author="elizapo" />
 
 
 
 # Configuration requise d’Azure AD et d’Active Directory pour Azure RemoteApp
 
+> [AZURE.IMPORTANT]
+Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148).
 
 
 Si vous souhaitez fédérer une collection hybride RemoteApp Azure ou une collection cloud à l’aide d’AD Connect, vous devez procéder ainsi.
@@ -45,4 +47,4 @@ Vous devez également créer les objets Active Directory locaux suivants :
 
 Vous avez besoin de ces deux objets lorsque vous créez votre collection RemoteApp ; veuillez donc vous assurer d’avoir déjà effectué ces étapes.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

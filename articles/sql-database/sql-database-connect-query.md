@@ -4,7 +4,7 @@
 	services="sql-database"
 	keywords="requête de base de données c#, requête c#, se connecter à une base de données, SQL C#"
 	documentationCenter=""
-	authors="MightyPen"
+	authors="stevestein"
 	manager="jhubbard"
 	editor=""/>
 
@@ -15,7 +15,8 @@
 	ms.devlang="dotnet"
 	ms.topic="get-started-article"
 	ms.date="08/17/2016"
-	ms.author="annemill"/>
+	ms.author="stevestein"/>
+
 
 
 # Se connecter à la base de données SQL avec Visual Studio
@@ -25,78 +26,62 @@
 - [SSMS](sql-database-connect-query-ssms.md)
 - [Excel](sql-database-connect-excel.md)
 
-Découvrez comment vous connecter à une base de données SQL dans Visual Studio
+Découvrez comment vous connecter à une base de données SQL Azure dans Visual Studio.
 
 ## Composants requis
 
 
-Pour vous connecter à la base de données SQL à l’aide de Visual Studio, vous devez disposer des éléments suivants :
+Pour vous connecter à la base de données SQL à l’aide de Visual Studio, vous avez besoin des éléments suivants :
 
 
-- Un compte et un abonnement Azure. Vous pouvez vous inscrire à un [essai gratuit](https://azure.microsoft.com/pricing/free-trial/).
-
-
-- Une base de données de démonstration **AdventureWorksLT** sur le service de base de données SQL Azure.
- - [Créez la base de données de démonstration](sql-database-get-started.md) en quelques minutes.
+- Une base de données SQL à laquelle se connecter. Cet article utilise l’exemple de base de données **AdventureWorks**. Pour obtenir l’exemple de base de données AdventureWorks, consultez [Créez la base de données de démonstration](sql-database-get-started.md).
 
 
 - Visual Studio 2013 Update 4 (ou version ultérieure). Microsoft propose désormais Visual Studio Community *gratuitement*.
  - [Visual Studio Community, téléchargement](http://www.visualstudio.com/products/visual-studio-community-vs)
  - [Plus d’options gratuites Visual Studio](http://www.visualstudio.com/products/free-developer-offers-vs.aspx)
- - Ou laissez l’[étape](#InstallVSForFree), plus loin dans cette rubrique, décrire comment le [portail Azure](https://portal.azure.com/) vous guide dans l’installation de Visual Studio.
 
 
-<a name="InstallVSForFree" id="InstallVSForFree"></a>
-
-&nbsp;
-
-## Étape 1 : Installer Visual Studio Community gratuitement
 
 
-Si vous devez installer Visual Studio, vous pouvez :
-
-- Installer Visual Studio Community gratuitement en accédant dans votre navigateur aux pages web de produit Visual Studio qui fournissent des téléchargements gratuits et d’autres options
-- Laissez le [portail Azure](https://portal.azure.com/) vous guider vers la page web de téléchargement, dont la description est fournie ci-après.
+## Ouvrez Visual Studio à partir du portail Azure
 
 
-### Visual Studio via le portail Azure
+1. Connectez-vous au [portail Azure](https://portal.azure.com/).
+
+2. Cliquez sur **More Services (Plus de services)** > **Bases de données SQL**
+3. Ouvrez le panneau de la base de données **AdventureWorks** en localisant la base de données *AdventureWorks*, puis en cliquant dessus.
+
+6. Cliquez sur le bouton **Outils** en haut du panneau de la base de données :
+
+	![Nouvelle requête. Se connecter à un serveur de base de données SQL : SQL Server Management Studio](./media/sql-database-connect-query/tools.png)
+
+7. Cliquez sur **Ouvrir dans Visual Studio** (si vous avez besoin de Visual Studio, cliquez sur le lien de téléchargement) :
+
+	![Nouvelle requête. Se connecter à un serveur de base de données SQL : SQL Server Management Studio](./media/sql-database-connect-query/open-in-vs.png)
 
 
-1. Connectez-vous par le biais du [portail Azure](https://portal.azure.com/), http://portal.azure.com/.
-
-2. Cliquez sur *PARCOURIR* TOUT* > **Bases de données SQL**. Un volet s’ouvre pour la recherche des bases de données.
-
-3. Dans la zone de texte de filtre près du haut, commencez à saisir le nom de votre base de données **AdventureWorksLT**.
-
-4. Lorsque la ligne correspondant à votre base de données sur votre serveur s’affiche, cliquez dessus. Un volet s’ouvre pour votre base de données.
-
-5. Pour des raisons pratiques, cliquez sur la commande de réduction sur chacun des volets précédents.
-
-6. Cliquez sur le bouton **Ouvrir dans Visual Studio** vers le haut sur le volet de votre base de données. Un nouveau volet à propos de Visual Studio s’ouvre avec des liens vers des emplacements d’installation pour Visual Studio.
-
-	![Bouton Ouvrir dans Visual Studio][20-OpenInVisualStudioButton]
-
-7. Cliquez sur le lien **Community (gratuit)** ou sur un lien similaire. Une nouvelle page web est ajoutée.
-
-8. Utilisez les liens de la nouvelle page web pour installer Visual Studio.
-
-9. Une fois que Visual Studio est installé, sur le panneau **Ouvrir dans Visual Studio**, cliquez sur le bouton **Ouvrir dans Visual Studio**. Visual Studio s’ouvre.
-
-10. Visual Studio vous invitera à renseigner les champs de chaîne de connexion dans une boîte de dialogue.
- - Sélectionnez **Authentification SQL Server** et non **Authentification Windows**.
- - N’oubliez pas de spécifier votre base de données **AdventureWorksLT** (**Options** > **Propriétés de connexion** dans la boîte de dialogue).
-
-11. Dans l’**Explorateur d’objets SQL Server**, développez le nœud pour votre base de données.
+8. Visual Studio s’ouvre sur la fenêtre **Se connecter au serveur** déjà configurée pour se connecter au serveur et à la base de données sélectionnés dans le portail. (Cliquez sur **Options** pour vous assurer que la connexion est définie sur la bonne base de données.) Saisissez votre mot de passe d’administrateur du serveur et cliquez sur **Connexion**.
 
 
-## Étape 2 : Exécuter les exemples de requêtes
+	![Nouvelle requête. Se connecter à un serveur de base de données SQL : SQL Server Management Studio](./media/sql-database-connect-query/connect.png)
 
-Après vous être connecté à votre serveur logique, vous pouvez vous connecter à une base de données et exécuter un exemple de requête.
 
-1. Dans l’**Explorateur d’objets**, sélectionnez une base de données sur le serveur auquel vous avez accès, par exemple la base de données **AdventureWorks**.
+8. Si vous n’avez pas de règle de pare-feu définie pour l’adresse IP de votre ordinateur, le message *Impossible de se connecter* s’affiche. Pour créer une règle de pare-feu, consultez [Configurer une règle de pare-feu au niveau du serveur sur une base de données SQL Azure](sql-database-configure-firewall-settings.md).
+
+
+9. Une fois la connexion établie, la fenêtre de **l’Explorateur d’objets SQL Server** s’ouvre avec une connexion à votre base de données.
+
+	![Nouvelle requête. Se connecter à un serveur de base de données SQL : SQL Server Management Studio](./media/sql-database-connect-query/sql-server-object-explorer.png)
+
+
+## Exécuter un exemple de requête
+
+Vous voici connecté à la base de données. Consultez à présent les étapes suivantes pour savoir comment exécuter une requête simple :
+
 2. Cliquez avec le bouton droit sur la base de données et sélectionnez **Nouvelle requête**.
 
-	![Nouvelle requête. Se connecter à un serveur de base de données SQL : SQL Server Management Studio](./media/sql-database-connect-query-ssms/4-run-query.png)
+	![Nouvelle requête. Se connecter à un serveur de base de données SQL : SQL Server Management Studio](./media/sql-database-connect-query/new-query.png)
 
 3. Dans la fenêtre de requête, copiez et collez le code suivant :
 
@@ -108,17 +93,13 @@ Après vous être connecté à votre serveur logique, vous pouvez vous connecter
 		,CompanyName
 		FROM SalesLT.Customer;
 
-4. Cliquez sur le bouton **Exécuter**. La capture d'écran suivante illustre une requête réussie.
+4. Cliquez sur le bouton **Exécuter** pour exécuter la requête :
 
-	![Vous avez réussi ! Se connecter au serveur de base de données SQL : Visual Studio](./media/sql-database-connect-query-ssms/5-success.png)
+	![Vous avez réussi ! Se connecter au serveur de base de données SQL : Visual Studio](./media/sql-database-connect-query/run-query.png)
 
 ## Étapes suivantes
 
-[Connexion à SQL Database à l’aide de .NET (C#)](sql-database-develop-dotnet-simple.md)
+- L’ouverture des bases de données SQL dans Visual Studio se fait à l’aide de SQL Server Data Tools. Pour plus d’informations, consultez [SQL Server Data Tools](https://msdn.microsoft.com/library/hh272686.aspx).
+- Pour vous connecter à une base de données SQL à l’aide d’un code, consultez [Connexion à SQL Database à l’aide de .NET (C#))](sql-database-develop-dotnet-simple.md).
 
-
-<!-- Image references. -->
-
-[20-OpenInVisualStudioButton]: ./media/sql-database-connect-query/connqry-free-vs-e.png
-
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

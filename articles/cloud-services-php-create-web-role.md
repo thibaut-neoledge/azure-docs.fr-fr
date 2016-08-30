@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="06/24/2016"
+	ms.date="08/11/2016"
 	ms.author="robmcm"/>
 
 #Création de rôles web et de travail PHP
@@ -211,4 +211,4 @@ Pour plus d’informations, consultez le [Centre pour développeurs PHP](/develo
 [sqlsrv drivers]: http://php.net/sqlsrv
 [programme d’installation x64 sqlncli.msi]: http://go.microsoft.com/fwlink/?LinkID=239648
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

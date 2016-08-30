@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="05/27/2016"
+	ms.date="08/19/2016"
 	ms.author="rachelap"/>
 
 # Prise en main d’API Apps, d’ASP.NET et de Swagger dans Azure App Service
@@ -219,7 +219,7 @@ Dans cette section, vous allez utiliser les outils Azure intégrés à l’Assis
 
 4. Connectez-vous à votre compte Azure si ce n’est déjà fait, ou actualisez vos informations d’identification si elles ont expiré.
 
-4. Dans la boîte de dialogue App Service, choisissez l’**Abonnement** Azure que vous souhaitez utiliser, puis cliquez sur **Nouveau**.
+4. Dans la boîte de dialogue App Service, choisissez l’**abonnement** Azure que vous souhaitez utiliser, puis cliquez sur **Nouveau**.
 
 	![Cliquez sur Nouveau dans la boîte de dialogue App Service](./media/app-service-api-dotnet-get-started/clicknew.png)
 
@@ -239,11 +239,11 @@ Dans cette section, vous allez utiliser les outils Azure intégrés à l’Assis
 
 	Un groupe de ressources est une collection de ressources Azure telles que des applications API, des bases de données, des machines virtuelles, etc. Pour ce didacticiel, il est préférable de créer un groupe de ressources, car cela facilite la suppression en une étape de toutes les ressources Azure que vous créez pour le didacticiel.
 
-	Cette zone vous permet de sélectionner un [groupe de ressources](../resource-group-overview.md) existant ou d’en créer un en tapant un nom différent des groupes de ressources existants de votre abonnement.
+	Cette zone vous permet de sélectionner un [groupe de ressources](../resource-group-overview.md) ou d’en créer un avec un nom différent de ceux qui existent déjà dans votre abonnement.
 
 4. Cliquez sur le bouton **Nouveau** situé en regard de la liste déroulante **Plan App Service**.
 
-	La capture d’écran montre des exemples de valeur pour **Nom de l’application API**, **Abonnement** et **Groupe de ressources** ; vos valeurs seront différentes.
+	La capture d’écran montre des exemples de valeur pour **Nom de l’application API**, **Abonnement** et **Groupe de ressources**. Vos valeurs seront différentes.
 
 	![Boîte de dialogue Créer App Service](./media/app-service-api-dotnet-get-started/createas.png)
 
@@ -418,7 +418,7 @@ Vous avez [créé l’application API de la couche Données et déployé du code
 
 3. Dans l’onglet **Hébergement** de la boîte de dialogue **Créer App Service**, acceptez le **nom d’application API** par défaut ou entrez un nom unique dans le domaine *azurewebsites.net*.
 
-5. Choisissez l’**Abonnement** Azure utilisé.
+5. Choisissez l’**abonnement** Azure que vous avez utilisé.
 
 6. Dans la liste déroulante **Groupe de ressources**, choisissez le groupe de ressources créé précédemment.
 
@@ -491,4 +491,4 @@ Si vous souhaitez créer des projets d’application API à partir de zéro, uti
 
 Choisir le modèle de projet d’**Application API Azure** revient à sélectionner le modèle ASP.NET 4.5.2 **Vide**, à cocher la case pour ajouter la prise en charge d’API web et à installer le package NuGet Swashbuckle. En outre, le modèle ajoute du code de configuration Swashbuckle conçu pour empêcher la création d’ID d’opération Swagger en double. Une fois le projet d’application API créé, vous pouvez le déployer dans une application API en procédant comme indiqué dans le didacticiel.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0824_2016-->

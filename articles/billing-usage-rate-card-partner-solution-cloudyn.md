@@ -14,14 +14,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="billing"
-   ms.date="02/19/2016"
+   ms.date="08/16/2016"
    ms.author="mobandyo;bryanla"/>
 
-# Cloudyn assure des tâches de gestion financière informatique pour ses clients grâce aux API Microsoft Azure Usage et RateCard 
+# Cloudyn assure des tâches de gestion financière informatique pour ses clients grâce aux API Microsoft Azure Usage et RateCard
 
 Cloudyn, un partenaire de développement de Microsoft et un fournisseur de premier plan de fonctionnalités de gestion de cloud, a été choisi pour une évaluation privée des nouvelles API Microsoft Azure Resource Usage et RateCard. L’API Usage permet d’accéder aux données d’estimation de la consommation Azure pour un abonnement. L’API RateCard fournit des informations de tarification complètes concernant tous les services Azure pour les clients autres que Contrat Entreprise (EA). Lorsqu’elles sont intégrées conjointement, ces API offrent une base d’informations complète pouvant servir de données d’entrée pour les outils de gestion financière informatique (ITFM), tels que ceux fournis par Cloudyn.
 
-## Introduction 
+## Introduction
 
 La prétendue « multiplication » des données découlant de l’utilisation combinée de l’API Usage et de l’API RateCard (usage [units] price[$unit] = utilisation et coûts détaillés) produit la source d’informations de facturation la plus granulaire, précise et fiable disponible à ce jour concernant Azure.
 
@@ -30,7 +30,7 @@ La prétendue « multiplication » des données découlant de l’utilisation 
 L’exploitation de ces API fournit des informations clés sur l’utilisation et les coûts des clients, permettant ainsi à Cloudyn d’analyser facilement les comptes clients par programme et d’accomplir différentes tâches ITFM pour ses clients.
 
 ## Intégration des API RateCard et Usage par Cloudyn
-L’API RateCard requiert plusieurs paramètres d’entrée, comme les informations de région, la devise et les paramètres régionaux, dont le plus important est OfferDurableID, qui spécifie le type d’offre Azure utilisée par le client (paiement à l’utilisation, plans d’engagement hérités de 6 et 12 mois, offres MSDN, offres MPN, offres promotionnelles et autres). Le paramètre OfferDurableID figure dans le [portail d’utilisation et de facturation Azure](https://account.windowsazure.com/Subscriptions), sous l’intitulé « ID de l’offre » de l’abonnement concerné.
+L’API RateCard requiert plusieurs paramètres d’entrée, comme les informations de région, la devise et les paramètres régionaux, dont le plus important est OfferDurableID, qui spécifie le type d’offre Azure utilisée par le client (paiement à l’utilisation, plans d’engagement hérités de 6 et 12 mois, offres MSDN, offres MPN, offres promotionnelles et autres). Le paramètre OfferDurableID figure dans le [portail d’utilisation et de facturation Azure](https://account.windowsazure.com/Subscriptions), sous l’intitulé « ID de l’offre » de l’abonnement concerné.
 
 Lors de l’inscription aux services [Cloudyn pour Azure](https://www.cloudyn.com/microsoft-azure/), les clients peuvent ajouter leur code OfferDurableID, qui permet à Cloudyn d’extraire les informations de tarification appropriées par le biais de l’API RateCard. Les informations sur les différents types d’offre sont disponibles dans la page [Détails de l’offre Microsoft Azure](https://azure.microsoft.com/support/legal/offer-details/).
 
@@ -38,7 +38,7 @@ Lors de l’inscription aux services [Cloudyn pour Azure](https://www.cloudyn.co
 
 Cloudyn utilise les API Usage et RateCard, ainsi que l’API Azure Performance, pour créer des couches supplémentaires de visualisation, d’analyse, d’alerte, de création de rapports, de gestion des coûts et de recommandations exploitables, offrant ainsi aux clients Azure un outil ITFM de cloud d’entreprise fiable.
 
-## Cas d’utilisation ITFM Cloudyn autorisés par l’intégration des API Usage et RateCard 
+## Cas d’utilisation ITFM Cloudyn autorisés par l’intégration des API Usage et RateCard
 Les cas d’utilisation ITFM Cloudyn courants qui sont autorisés par l’intégration des API Usage et RateCard sont les suivants :
 
 + **Analyse des coûts** : permet de ventiler les coûts cloud selon n’importe quelle dimension d’identification native (fournisseur, service, compte, région, etc.). Les API Azure Usage et RateCard facilitent cette opération en assurant la répartition la plus granulaire des données d’utilisation et de coût par compte, qui est ensuite regroupée et filtrée par Cloudyn et présentée à l’utilisateur sous la forme d’un graphique ou d’un tableau.
@@ -63,10 +63,10 @@ Les cas d’utilisation ITFM Cloudyn courants qui sont autorisés par l’intég
 
 ![Gestionnaire de catégories][7]
 
-## Vidéo 
+## Vidéo
 
 Voici une courte vidéo expliquant la façon dont un client Azure peut utiliser Cloudyn et les API Azure Billing pour obtenir une vue d’ensemble de ses données de consommation Azure.
- 
+
 > [AZURE.VIDEO cloudyn-provides-cloud-itfm-tools-via-microsoft-azure-apis]
 
 
@@ -91,4 +91,4 @@ Voici une courte vidéo expliquant la façon dont un client Azure peut utiliser 
 [6]: ./media/billing-usage-rate-card-partner-solution-cloudyn/Cloudyn-Performance-Reports.png
 [7]: ./media/billing-usage-rate-card-partner-solution-cloudyn/Cloudyn-Category-Manager.png
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

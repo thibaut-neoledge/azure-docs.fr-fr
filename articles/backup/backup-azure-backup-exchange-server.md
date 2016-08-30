@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/19/2016"
+	ms.date="08/15/2016"
 	ms.author="anuragm;jimpark;delhan;trinadhk;markgal"/>
 
 
@@ -25,7 +25,7 @@ Pour enregistrer correctement le serveur DPM sur Azure Backup, vous devez instal
 
 >[AZURE.NOTE] Pour les exemples de cet article, nous avons utilisé la version 2.0.8719.0 de l’agent Azure Backup et installé le correctif cumulatif 6 sur System Center 2012 R2 DPM.
 
-## Composants requis
+## Conditions préalables
 Avant de continuer, vérifiez que toutes les [conditions préalables](backup-azure-dpm-introduction.md#prerequisites) à l’utilisation de Microsoft Azure Backup pour protéger les charges de travail ont bien été remplies. Vous devez au préalable :
 
 - Créer un coffre de sauvegarde sur le site Azure.
@@ -72,7 +72,7 @@ Pour installer l’agent de protection DPM sur le serveur Exchange, procédez co
 
     >[AZURE.NOTE] Pour utiliser cette option, vous devez copier les fichiers Ese.dll et Eseutil.exe dans le répertoire C:\\Program Files\\Microsoft System Center 2012 R2\\DPM\\DPM\\bin sur le serveur DPM. Dans le cas contraire, l’erreur suivante est déclenchée : ![erreur eseutil](./media/backup-azure-backup-exchange-server/eseutil-error.png)
 
-8. Cliquez sur **Next**.
+8. Cliquez sur **Suivant**.
 
 9. Sélectionnez la base de données pour **Sauvegarde de copie**, puis cliquez sur **Suivant**.
 
@@ -132,4 +132,4 @@ Pour les points de récupération en ligne, il existe cinq types de récupérati
 
 - [Azure Backup - Forum Aux Questions](backup-azure-backup-faq.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/09/2016"
+   ms.date="08/16/2016"
    ms.author="cherylmc"/>
 
 # Créer une zone DNS dans le portail Azure
@@ -78,7 +78,7 @@ La création d’une zone DNS crée également les enregistrements suivants :
 
 Vous pouvez afficher les enregistrements à partir du portail Azure
 
-1. Dans le panneau de votre **zone DNS**, cliquez sur **Tous les paramètres** pour ouvrir le **panneau Paramètres** pour la zone DNS. 
+1. Dans le panneau de votre **zone DNS**, cliquez sur **Tous les paramètres** pour ouvrir le **panneau Paramètres** pour la zone DNS.
 
 	![zone](./media/dns-getstarted-create-dnszone-portal/viewzonens500.png)
 
@@ -126,4 +126,4 @@ Vous pouvez supprimer la zone DNS à partir du portail. Avant de supprimer une z
 
 Après avoir créé une zone DNS, créez des [jeux d’enregistrements et des enregistrements](dns-getstarted-create-recordset-portal.md) pour démarrer la résolution des noms pour votre domaine Internet.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

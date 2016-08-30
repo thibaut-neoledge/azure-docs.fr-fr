@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="05/09/2016"
+   ms.date="08/16/2016"
    ms.author="cherylmc"/>
 
 # Gestion des zones DNS à l'aide de l’interface de ligne de commande
@@ -67,4 +67,4 @@ Avant de supprimer une zone DNS dans Azure DNS, vous devez supprimer tous les je
 ## Étapes suivantes
 Après avoir créé une zone DNS, créez des [jeux d’enregistrements et des enregistrements](dns-getstarted-create-recordset-cli.md) pour démarrer la résolution des noms pour votre domaine Internet.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

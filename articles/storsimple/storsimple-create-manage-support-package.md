@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/09/2016"
+   ms.date="08/17/2016"
    ms.author="alkohli" />
 
 
@@ -36,7 +36,7 @@ Procédez comme suit dans le portail classique pour créer un package de support
 
 #### Pour créer un package de support dans le portail Azure Classic
 
-1. Sélectionnez **Appareils** > **Maintenance**.
+1. Sélectionnez **Appareils** > **Maintenance**.
 
 2. Dans la section **Package de support**, sélectionnez **Créer et télécharger le package de support**.
 
@@ -190,4 +190,4 @@ L’exemple suivant illustre comment déchiffrer, modifier et re-chiffrer un pac
 
 - Découvrez comment [utiliser le service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0817_2016-->

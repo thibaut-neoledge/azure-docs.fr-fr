@@ -12,10 +12,13 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="05/12/2016"
+    ms.date="08/15/2016"
     ms.author="elizapo" />
 
 # Comment planifier votre réseau virtuel pour Azure RemoteApp
+
+> [AZURE.IMPORTANT]
+Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148).
 
 Ce document décrit comment configurer votre réseau virtuel Azure (réseau) et le sous-réseau pour Azure RemoteApp. Si vous n’êtes pas familiarisé avec les réseaux virtuels Azure, c’est une fonctionnalité qui vous permet de virtualiser votre infrastructure réseau vers le nuage et pour créer des solutions hybrides avec Azure et vos ressources locales. Pour plus d'informations à ce sujet, cliquez [ici](../virtual-network/virtual-networks-overview.md).
 
@@ -55,4 +58,4 @@ Voici les éléments à activer sur votre sous-réseau de réseau virtuel :
 
 [Tunneling forcé](../vpn-gateway/vpn-gateway-about-forced-tunneling.md) est maintenant pris en charge dans toutes les nouvelles collections Azure RemoteApp. Actuellement, nous ne gérons pas la migration d’une collection existante pour prendre en charge le tunneling forcé. Vous devez supprimer toutes les collections existantes à l’aide du réseau virtuel que vous associez à Azure RemoteApp et en créer un nouveau pour activer le tunneling sur vos collections.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

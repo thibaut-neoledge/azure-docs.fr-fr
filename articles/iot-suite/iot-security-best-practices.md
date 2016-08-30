@@ -29,7 +29,7 @@ Pour en savoir plus sur la sécurisation de votre solution IoT, consultez :
 Vous pouvez également explorer certaines des autres fonctionnalités et capacités des solutions préconfigurées IoT Suite :
 
 - [Présentation de la solution préconfigurée de maintenance prédictive][lnk-predictive-overview]
-- [Forum Aux Questions (FAQ) relatives à IoT Suite][lnk-faq]
+- [Forum Aux Questions (FAQ) relatives à Azure IoT Suite][lnk-faq]
 
 [lnk-predictive-overview]: iot-suite-predictive-overview.md
 [lnk-faq]: iot-suite-faq.md
@@ -37,4 +37,4 @@ Vous pouvez également explorer certaines des autres fonctionnalités et capacit
 [lnk-security-architecture]: iot-security-architecture.md
 [lnk-security-deployment]: iot-suite-security-deployment.md
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

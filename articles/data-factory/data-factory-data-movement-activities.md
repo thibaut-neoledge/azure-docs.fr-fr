@@ -97,6 +97,9 @@ Ouest du Japon | Est du Japon
 Sud du Brésil | Sud du Brésil
 Est de l’Australie | Est de l’Australie
 Sud-est de l’Australie | Sud-est de l’Australie
+Inde centrale | Inde centrale
+Inde du Sud | Inde centrale
+Inde occidentale | Inde centrale
 
 
 > [AZURE.NOTE] Si la région de la banque de données de destination ne figure pas dans la liste ci-dessus, l’activité de copie échoue au lieu de passer par une autre région.
@@ -185,4 +188,4 @@ Vous pouvez trouver le mappage d’un système de type natif donné en .NET pour
 - Consultez l’article [Déplacement de données entre des sources locales et le cloud à l’aide de la passerelle de gestion des données](data-factory-move-data-between-onprem-and-cloud.md) pour en savoir plus sur le déplacement des données depuis une banque de données locale vers une banque de données cloud.
  
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

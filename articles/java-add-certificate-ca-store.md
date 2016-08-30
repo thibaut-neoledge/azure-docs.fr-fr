@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="06/24/2016" 
+	ms.date="08/11/2016" 
 	ms.author="robmcm"/>
 
 # Ajout d'un certificat au magasin de certificats d'autorité de certification Java
-La procédure suivante présente l'ajout d'un certificat d'autorité de certification au magasin de certificats d'autorité de certification Java (cacerts). Prenons comme exemple un certificat d'autorité de certification requis par le service Twilio. Les informations fournies plus loin dans cette rubrique décrivent l'installation d'un certificat d'autorité de certification pour Azure Service Bus.
+La procédure suivante présente l'ajout d'un certificat d'autorité de certification au magasin de certificats d'autorité de certification Java (cacerts). Prenons comme exemple un certificat d'autorité de certification requis par le service Twilio. Les informations fournies plus loin dans cette rubrique décrivent l’installation d’un certificat d’autorité de certification pour Azure Service Bus.
 
 Vous pouvez utiliser keytool pour ajouter le certificat d'autorité de certification avant de compresser le JDK et de l'ajouter au dossier **approot** de votre projet Azure. Vous pouvez également utiliser une tâche de démarrage Azure qui utilise keytool pour ajouter le certificat. Cet exemple part du principe que vous allez ajouter un certificat d'autorité de certification avant de compresser le JDK. Par ailleurs, nous allons utiliser un certificat d'autorité de certification spécifique. Si vous décidiez d'en obtenir un autre et de l'importer dans le magasin cacerts, la procédure serait semblable.
 
@@ -56,4 +56,4 @@ Pour plus d'informations sur les certificats racines utilisés par Azure, consul
 
 Pour plus d’informations sur Java, consultez le [Centre pour développeurs Java](/develop/java/).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

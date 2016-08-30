@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="04/19/2016"
+   ms.date="08/17/2016"
    ms.author="alkohli" />
 
 # Caractéristiques techniques et conformité de l’appareil StorSimple
@@ -77,7 +77,7 @@ Les appareils StorSimple disposent d’une combinaison de disques durs et de dis
 | Capacité totale de la solution (y compris le cloud) | 200 To | 500 To |
 
 
-<sup>* </sup>- *La capacité totale utilisable inclut la capacité disponible pour les données, les métadonnées et les mémoires tampons.*
+<sup>* </sup>- *La capacité totale utilisable inclut la capacité disponible pour les données, les métadonnées et les mémoires tampon.*
 
 ## Dimensions et poids des boîtiers  
 
@@ -135,16 +135,16 @@ Cette section répertorie les caractéristiques liées à l’environnement du b
 ## Conformité aux normes internationales
 L’appareil Microsoft Azure StorSimple est conforme aux normes internationales suivantes :
 
-- CE - EN 60950-1  
-- Rapport CB sur CEI 60950-1  
-- UL et cUL sur UL 60950-1  
+- CE - EN 60950-1
+- Rapport CB sur CEI 60950-1
+- UL et cUL sur UL 60950-1
 
 ## Conformité aux normes de sécurité  
 
 L’appareil Microsoft Azure StorSimple est conforme aux normes de sécurité suivantes :
 
-- Homologation du type de produit du système : UL, cUL, CE  
-- Conformité aux normes de sécurité : UL 60950, CEI 60950, EN 60950  
+- Homologation du type de produit du système : UL, cUL, CE
+- Conformité aux normes de sécurité : UL 60950, CEI 60950, EN 60950
 
 ## Conformité électromagnétique 
 
@@ -154,8 +154,8 @@ L’appareil Microsoft Azure StorSimple est conforme aux niveaux de sécurité s
 
 L’appareil est conforme aux normes CEM pour les niveaux d’émissions par conduction et par rayonnement.
 
-- Niveaux maximums d’émissions par conduction : CFR 47 partie 15 classe A, EN55022 classe A, CISPR classe A  
-- Niveaux maximums d’émissions par rayonnement : CFR 47 partie 15B classe A, EN55022 classe A, CISPR classe A   
+- Niveaux maximums d’émissions par conduction : CFR 47 partie 15 classe A, EN55022 classe A, CISPR classe A
+- Niveaux maximums d’émissions par rayonnement : CFR 47 partie 15B classe A, EN55022 classe A, CISPR classe A
 
 ### Harmonique et papillotement  
 
@@ -191,4 +191,4 @@ Pour les interfaces réseau 10 GbE, DATA 2 et DATA 3, consultez la [liste des 
 
 Vous êtes désormais prêt à déployer un appareil StorSimple dans votre centre de données. Pour plus d’informations, consultez [Déploiement de votre appareil local](storsimple-deployment-walkthrough-u2.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0817_2016-->

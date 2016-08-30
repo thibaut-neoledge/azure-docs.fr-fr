@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/04/2016"
+	ms.date="08/10/2016"
 	ms.author="jgao"/>
 
 
@@ -104,7 +104,7 @@ Le cinquième exemple montre comment utiliser un codec de compression personnali
 
 Le sixième exemple montre comment utiliser la sérialisation Avro pour télécharger des données dans le stockage d’objets blob Azure, puis les analyser à l’aide de Hive avec un cluster HDInsight (Hadoop). Vous pouvez le télécharger sur le site <a href="https://code.msdn.microsoft.com/windowsazure/Using-Avro-to-upload-data-ae81b1e3" target="_blank">Exemples de code Azure</a>.
 
-Les liens suivants renvoient aux six exemples que nous avons examinés dans la rubrique :
+Les liens suivants renvoient aux six exemples que nous avons examinés dans la rubrique :
 
  * <a href="#Scenario1">**Sérialisation avec réflexion**</a> - Le schéma JSON pour les types à sérialiser est automatiquement généré à partir des attributs de contrat de données.
  * <a href="#Scenario2">**Sérialisation avec enregistrement générique**</a> - Le schéma JSON est spécifié de manière explicite dans un enregistrement lorsqu’aucun type .NET n’est disponible pour la réflexion.
@@ -1403,4 +1403,4 @@ Pour nettoyer le cluster, exécutez la commande suivante :
 [deflate-100]: http://msdn.microsoft.com/library/system.io.compression.deflatestream(v=vs.100).aspx
 [deflate-110]: http://msdn.microsoft.com/library/system.io.compression.deflatestream(v=vs.110).aspx
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0817_2016-->

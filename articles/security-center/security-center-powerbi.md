@@ -115,4 +115,4 @@ Dans ce document, vous avez vu comment utiliser le service Power BI depuis le C
 - [FAQ d’Azure Security Center](security-center-faq.md) : découvrez les réponses aux questions les plus souvent posées à propos de l’utilisation de ce service
 - [Blog sur la sécurité Azure](http://blogs.msdn.com/b/azuresecurity/) : accédez à des billets de blog sur la sécurité et la conformité Azure
 
-<!---HONumber=AcomDC_0817_2016-->
+<!----HONumber=AcomDC_0817_2016-->

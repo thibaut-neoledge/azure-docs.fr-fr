@@ -13,18 +13,18 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="06/24/2016" 
+	ms.date="08/11/2016" 
 	ms.author="robmcm"/>
 
 # Création d'une application de conversation instantanée Node.js avec Socket.IO sur un service cloud Azure
 
 Socket.IO permet une communication en temps réel entre votre serveur node.js et vos clients. Ce didacticiel présente l'hébergement d'une application de conversation instantanée socket.IO dans Azure. Pour plus d’informations sur Socket.IO, consultez <http://socket.io/>.
 
-Voici une capture d'écran de l'application terminée :
+Voici une capture d’écran de l’application terminée :
 
 ![Fenêtre de navigateur affichant le service hébergé sur Azure][completed-app]
 
-## Composants requis
+## Conditions préalables
 
 Assurez-vous que les versions et les produits suivants sont installés pour mener à bien l'exemple dans cet article :
 
@@ -48,7 +48,7 @@ La procédure suivante permet de créer un projet de service cloud hébergeant l
  
 		PS C:\> cd node
 
-4. Entrez les commandes suivantes pour créer une solution nommée **chatapp** et un rôle de travail nommé **WorkerRole1** :
+4. Entrez les commandes suivantes pour créer une solution nommée **chatapp** et un rôle de travail nommé **WorkerRole1** :
 
 		PS C:\node> New-AzureServiceProject chatapp
 		PS C:\Node> Add-AzureNodeWorkerRole
@@ -131,15 +131,15 @@ Après avoir enregistré vos modifications dans le fichier **server.js**, procé
 
 	> [AZURE.IMPORTANT] Veillez à utiliser un nom unique, sans quoi le processus de publication échoue. Une fois le déploiement terminé, le navigateur s'ouvre et accède au service déployé.
 	> 
-	> Si vous recevez une erreur indiquant que le nom d'abonnement fourni n'existe pas dans le profil de publication importé, vous devez télécharger et importer le profil de publication de votre abonnement avant de le déployer dans Azure. Consultez la section **Déploiement de l'application dans Azure** du didacticiel [Création et déploiement d'une application Node.js dans Azure Cloud Services](https://azure.microsoft.com/develop/nodejs/tutorials/getting-started/)
+	> Si vous recevez une erreur indiquant que le nom d’abonnement fourni n’existe pas dans le profil de publication importé, vous devez télécharger et importer le profil de publication de votre abonnement avant de le déployer dans Azure. Consultez la section **Déploiement de l'application dans Azure** du didacticiel [Création et déploiement d'une application Node.js dans Azure Cloud Services](https://azure.microsoft.com/develop/nodejs/tutorials/getting-started/)
 
     ![Fenêtre de navigateur affichant le service hébergé sur Azure][completed-app]
 
-	> [AZURE.NOTE] Si vous recevez une erreur indiquant que le nom d'abonnement fourni n'existe pas dans le profil de publication importé, vous devez télécharger et importer le profil de publication de votre abonnement avant de le déployer dans Azure. Consultez la section **Déploiement de l'application dans Azure** du didacticiel [Création et déploiement d'une application Node.js dans Azure Cloud Services](https://azure.microsoft.com/develop/nodejs/tutorials/getting-started/)
+	> [AZURE.NOTE] Si vous recevez une erreur indiquant que le nom d’abonnement fourni n’existe pas dans le profil de publication importé, vous devez télécharger et importer le profil de publication de votre abonnement avant de le déployer dans Azure. Consultez la section **Déploiement de l'application dans Azure** du didacticiel [Création et déploiement d'une application Node.js dans Azure Cloud Services](https://azure.microsoft.com/develop/nodejs/tutorials/getting-started/)
 
 Votre application s'exécute à présent dans Azure, et peut transmettre des messages de conversation instantanée entre différents clients en utilisant Socket.IO.
 
-> [AZURE.NOTE] Par souci de simplification, cet exemple présente simplement une conversation instantanée entre des utilisateurs connectés à la même instance. Cela veut dire que si le service cloud crée deux instances de rôle de travail, un utilisateur pourra utiliser la conversation instantanée pour communiquer uniquement avec les autres utilisateurs connectés à la même instance de rôle de travail. Pour mettre à l'échelle l'application afin d'utiliser plusieurs instances de rôle, vous pouvez utiliser une technologie telle que Service Bus pour partager l'état de stockage Socket.IO entre plusieurs instances. Pour en savoir plus, consultez les exemples d'utilisation des files d'attente et rubriques de Service Bus dans le [référentiel GitHub Kit de développement logiciel (SDK) Azure pour Node.js](https://github.com/WindowsAzure/azure-sdk-for-node).
+> [AZURE.NOTE] Par souci de simplification, cet exemple présente simplement une conversation instantanée entre des utilisateurs connectés à la même instance. Cela veut dire que si le service cloud crée deux instances de rôle de travail, un utilisateur pourra utiliser la conversation instantanée pour communiquer uniquement avec les autres utilisateurs connectés à la même instance de rôle de travail. Pour mettre à l'échelle l'application afin d'utiliser plusieurs instances de rôle, vous pouvez utiliser une technologie telle que Service Bus pour partager l'état de stockage Socket.IO entre plusieurs instances. Pour en savoir plus, consultez les exemples d’utilisation des files d’attente et rubriques de Service Bus dans le [référentiel GitHub Kit de développement logiciel (SDK) Azure pour Node.js](https://github.com/WindowsAzure/azure-sdk-for-node).
 
 ##Étapes suivantes
 
@@ -170,4 +170,4 @@ Pour plus d'informations, consultez aussi le [Centre pour développeurs Node.js]
   
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

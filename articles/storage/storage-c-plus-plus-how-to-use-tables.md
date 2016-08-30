@@ -18,9 +18,9 @@
 
 # Utilisation du stockage de table à partir de C++
 
-[AZURE.INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
+[AZURE.INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)] <br/> [AZURE.INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-tables.md)]
 
-## Vue d’ensemble  
+## Vue d'ensemble  
 Ce guide décrit le déroulement de scénarios courants dans le cadre de l’utilisation du service de stockage de table Azure. Les exemples ont été écrits en C++ et utilisent la [bibliothèque cliente Azure Storage pour C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md). Les scénarios traités incluent la **création et la suppression d’une table**, ainsi que l’**utilisation d’entités de table**.
 
 >[AZURE.NOTE] Ce guide cible la bibliothèque cliente Azure Storage pour C++ version 1.0.0 et les versions ultérieures. La version recommandée est la bibliothèque cliente de stockage version 2.2.0, disponible par le biais de [NuGet](http://www.nuget.org/packages/wastorage) ou [GitHub](https://github.com/Azure/azure-storage-cpp/).
@@ -165,7 +165,7 @@ Vous pouvez insérer un lot d’entités dans le service de Table en une seule o
 	// Execute the batch operation.
 	std::vector<azure::storage::table_result> results = table.execute_batch(batch_operation);
 
-Quelques remarques sur les opérations par lot :
+Quelques remarques sur les opérations par lots :
 
 -	Vous pouvez effectuer jusqu’à 100 opérations d’insertion, de suppression, de fusion, de remplacement, d’insertion ou fusion et d’insertion ou de remplacement dans n’importe quelle combinaison en un seul lot.
 -	Une opération par lot peut comporter une opération d’extraction, s’il s’agit de la seule opération du lot.
@@ -241,7 +241,7 @@ Si vous ne voulez pas exécuter une requête pour toutes les entités d'une part
 	}  
 
 ## Extraction d'une seule entité
-Vous pouvez écrire une requête pour extraire une seule entité. Le code suivant utilise **table\_operation::retrieve\_entity** pour spécifier le client « Jeff Smith ». Cette méthode renvoie une seule entité, au lieu d’une collection. De plus, la valeur renvoyée est dans **table\_result**. La méthode la plus rapide pour extraire une seule entité dans le service de table consiste à spécifier une clé de partition et une clé de ligne.
+Vous pouvez écrire une requête pour extraire une seule entité. Le code suivant utilise **table\_operation::retrieve\_entity** pour spécifier le client « Jeff Smith ». Cette méthode renvoie une seule entité, au lieu d’une collection. De plus, la valeur renvoyée est dans **table\_result**. La méthode la plus rapide pour extraire une seule entité dans le service de Table consiste à spécifier une clé de partition et une clé de ligne.
 
 	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
 
@@ -414,4 +414,4 @@ Les bases du stockage des tables étant assimilées, voir les liens suivants pou
 -	[Référence de la bibliothèque cliente de stockage pour C++](http://azure.github.io/azure-storage-cpp)
 -	[Documentation d’Azure Storage](https://azure.microsoft.com/documentation/services/storage/)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

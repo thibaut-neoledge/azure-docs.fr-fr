@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="08/01/2016"
+	ms.date="08/15/2016"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -24,7 +24,7 @@
 - [PowerShell](sql-database-export-powershell.md)
 
 
-Cet article fournit des instructions pour archiver votre base de données SQL Azure à partir d’un fichier [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) stocké dans Azure Blob Storage. Cet article explique comment procéder à l’aide de PowerShell.
+Cet article fournit des instructions pour archiver votre base de données SQL Azure à partir d’un fichier [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) (stocké dans Azure Blob Storage) à l’aide de PowerShell.
 
 Lorsque vous avez besoin d’archiver une base de données SQL Azure, vous pouvez exporter le schéma et les données associés dans un fichier BACPAC. Un fichier BACPAC est un fichier ZIP avec l’extension .bacpac. Un fichier BACPAC peut être stocké ultérieurement dans le stockage d’objets Blob Azure ou dans le stockage d’un emplacement local. Il peut également être réimporté dans la base de données SQL Azure ou dans une installation SQL Server locale.
 
@@ -36,15 +36,15 @@ Lorsque vous avez besoin d’archiver une base de données SQL Azure, vous pouve
 - Si l’opération d’exportation dure plus de 20 heures, elle peut être annulée. Pour améliorer les performances lors de l’exportation, vous pouvez :
  - Augmentez temporairement votre niveau de service.
  - Interrompez toutes les activités de lecture et d’écriture lors de l’exportation.
- - Utiliser un index cluster sur toutes les tables de grande taille. Sans index cluster, une exportation peut échouer si elle dure plus de 6 à 12 heures. Cela est dû au fait que les services d’exportation doivent effectuer une analyse complète de la table pour tenter de l’exporter en entier.
+ - Utilisez un [index cluster](https://msdn.microsoft.com/library/ms190457.aspx) avec des valeurs non nulles sur toutes les tables de grande taille. Sans index cluster, une exportation peut échouer si elle dure plus de 6 à 12 heures. Cela est dû au fait que les services d’exportation doivent effectuer une analyse complète de la table pour tenter de l’exporter en entier. Une bonne méthode pour déterminer si vos tables sont optimisées pour l’exportation consiste à exécuter **DBCC SHOW\_STATISTICS** et à vérifier que *RANGE\_HI\_KEY* n’est pas nul et que sa valeur a une bonne distribution. Pour plus d’informations, consultez [DBCC SHOW\_STATISTICS](https://msdn.microsoft.com/library/ms174384.aspx).
 
-> [AZURE.NOTE] Les BACPAC ne sont pas conçus pour être utilisés pour les opérations de sauvegarde et de restauration. La base de données SQL Azure crée automatiquement des sauvegardes pour chaque base de données utilisateur. Pour plus d’informations, consultez : [Sauvegardes automatisées d’une base de données SQL](sql-database-automated-backups.md).
+> [AZURE.NOTE] Les BACPAC ne sont pas conçus pour être utilisés pour les opérations de sauvegarde et de restauration. La base de données SQL Azure crée automatiquement des sauvegardes pour chaque base de données utilisateur. Pour plus d’informations, consultez [Sauvegardes automatisées d’une base de données SQL](sql-database-automated-backups.md).
 
 Pour effectuer ce qui est décrit dans cet article, vous avez besoin des éléments suivants :
 
 - Un abonnement Azure.
 - base de données SQL Azure.
-- Un [compte Azure Storage standard](../storage/storage-create-storage-account.md) avec un conteneur d’objets blob pour stocker le fichier BACPAC dans le stockage standard.
+- Un [compte Azure Storage standard](../storage/storage-create-storage-account.md), avec un conteneur d’objets blob pour stocker le fichier BACPAC dans le stockage standard.
 
 
 [AZURE.INCLUDE [Démarrer votre session PowerShell](../../includes/sql-database-powershell.md)]
@@ -66,7 +66,7 @@ L’applet de commande [New-AzureRmSqlDatabaseExport](https://msdn.microsoft.com
 
 ## Surveillez la progression de l’opération d’exportation
 
-Après l’exécution de **New-AzureRmSqlDatabaseExport**, vous pouvez vérifier l’état de la demande en exécutant [Get-AzureRmSqlDatabaseImportExportStatus](https://msdn.microsoft.com/library/mt707794.aspx). L’exécution immédiatement après la demande retourne généralement **État : InProgress**. Lorsque vous voyez **État : réussite**, l’exportation est terminée.
+Après l’exécution de **New-AzureRmSqlDatabaseExport**, vous pouvez vérifier l’état de la demande en exécutant [Get-AzureRmSqlDatabaseImportExportStatus](https://msdn.microsoft.com/library/mt707794.aspx). L’exécution immédiatement après la demande retourne généralement **État : en cours**. Lorsque vous voyez **État : réussite**, l’exportation est terminée.
 
 
     Get-AzureRmSqlDatabaseImportExportStatus -OperationStatusLink $exportRequest.OperationStatusLink
@@ -77,7 +77,7 @@ Après l’exécution de **New-AzureRmSqlDatabaseExport**, vous pouvez vérifier
 
 L’exemple suivant exporte une base de données SQL existante vers un fichier BACPAC puis montre comment vérifier l’état de l’opération d’exportation.
 
-Pour exécuter l’exemple, il existe quelques variables pour lesquelles vous devez remplacer les valeurs par les valeurs spécifiques de votre compte de stockage et de votre base de données. Dans le [portail Azure](https://portal.azure.com), accédez à votre compte de stockage pour obtenir le nom du compte de stockage, le nom du conteneur d’objets blob et la valeur de clé. Vous pouvez trouver la clé en cliquant sur **Clés d’accès** dans le panneau de votre compte de stockage.
+Pour exécuter l’exemple, il existe quelques variables pour lesquelles vous devez remplacer les valeurs par les valeurs spécifiques de votre compte de stockage et de votre base de données. Dans le [Portail Azure](https://portal.azure.com), accédez à votre compte de stockage pour obtenir le nom du compte de stockage, le nom du conteneur d’objets blob et la valeur de clé. Vous pouvez trouver la clé en cliquant sur **Clés d’accès** dans le panneau de votre compte de stockage.
 
 Remplacez les valeurs `VARIABLE-VALUES` suivantes par les valeurs de vos ressources Azure spécifiques. Le nom de la base de données est celui de la base de données existante que vous souhaitez exporter.
 
@@ -118,7 +118,7 @@ Remplacez les valeurs `VARIABLE-VALUES` suivantes par les valeurs de vos ressour
 
 ## Étapes suivantes
 
-- Pour en savoir plus sur l’importation d’une base de données Azure SQL à l’aide de Powershell, consultez [Importer un fichier BACPAC à l’aide de PowerShell](sql-database-import-powershell.md).
+- Pour en savoir plus sur l’importation d’une base de données SQL Azure à l’aide de PowerShell, consultez [Importer un fichier BACPAC à l’aide de PowerShell](sql-database-import-powershell.md).
 
 
 ## Ressources supplémentaires
@@ -126,4 +126,4 @@ Remplacez les valeurs `VARIABLE-VALUES` suivantes par les valeurs de vos ressour
 - [New-AzureRmSqlDatabaseExport](https://msdn.microsoft.com/library/mt707796.aspx)
 - [Get-AzureRmSqlDatabaseImportExportStatus](https://msdn.microsoft.com/library/mt707794.aspx)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

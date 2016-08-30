@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="hero-article"
 	ms.date="06/16/2016"
-	ms.author="jtaubensee"/>
+	ms.author="jotaub"/>
 
 # Prise en main des hubs d’événements
 
@@ -26,7 +26,7 @@ Event Hubs constitue un service qui traite de grandes quantités de données d'�
 
 Ce didacticiel montre comment utiliser le portail Azure Classic pour créer un concentrateur d’événements. Il montre également comment collecter les messages dans un Event Hub à l’aide d’une application console en C# et comment les récupérer en parallèle en utilisant la bibliothèque de l’hôte du processeur d’événements en Java.
 
-Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
+Pour réaliser ce didacticiel, vous aurez besoin des éléments suivants :
 
 + [Microsoft Visual Studio](http://visualstudio.com)
 
@@ -57,7 +57,7 @@ Vous avez conçu une application opérationnelle qui crée un hub d’événemen
 - Un [exemple d'application complet qui utilise des hubs d’événements][].
 - L’exemple de [montée en puissance du traitement des événements avec Event Hubs][].
 - Une [solution de messages de file d'attente][] utilisant les files d'attente Service Bus.
-- [Vue d’ensemble des concentrateurs d’événements][]
+- [Vue d’ensemble des hubs d’événements][]
 
 <!-- Images. -->
 [21]: ./media/event-hubs-csharp-ephjava-getstarted/ephjava.png
@@ -65,10 +65,10 @@ Vous avez conçu une application opérationnelle qui crée un hub d’événemen
 
 <!-- Links -->
 [Azure classic portal]: https://manage.windowsazure.com/
-[Vue d’ensemble des concentrateurs d’événements]: event-hubs-overview.md
+[Vue d’ensemble des hubs d’événements]: event-hubs-overview.md
 [exemple d'application complet qui utilise des hubs d’événements]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
 [montée en puissance du traitement des événements avec Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
 [solution de messages de file d'attente]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0824_2016-->

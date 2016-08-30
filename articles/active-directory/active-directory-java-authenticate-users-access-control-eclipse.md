@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="06/24/2016" 
+    ms.date="08/11/2016" 
     ms.author="robmcm" />
 
 # Authentification des utilisateurs web auprès d'Azure Access Control Service à l'aide d'Eclipse
@@ -43,19 +43,19 @@ Azure ACS repose sur les principes de l'identité basée sur des demandes, une a
 
 Pour réaliser les tâches présentées dans ce guide, vous devez comprendre les éléments suivants :
 
-**Client** : dans le contexte de ce guide, il s'agit d'un navigateur qui tente d'accéder à votre application Web.
+**Client** : dans le contexte de ce guide, il s'agit d'un navigateur qui tente d'accéder à votre application Web.
 
-**Application par partie de confiance** : une application par partie de confiance est un site web ou un service qui externalise l’authentification vers une autorité externe. Dans le jargon technique, nous disons que la partie de confiance fait confiance à cette autorité. Ce guide décrit la configuration de votre application de manière à ce qu'elle approuve ACS.
+**Application par partie de confiance** : une application par partie de confiance est un site web ou un service qui externalise l’authentification vers une autorité externe. Dans le jargon technique, nous disons que la partie de confiance fait confiance à cette autorité. Ce guide décrit la configuration de votre application de manière à ce qu'elle approuve ACS.
 
-**Jeton** : un jeton est un ensemble de données de sécurité généralement émis après identification d'un utilisateur. Il contient un jeu de *demandes* qui sont des attributs de l'utilisateur authentifié. Une demande peut représenter le nom d'un utilisateur, son âge, l'identifiant pour un rôle qui lui est attribué, etc. Un jeton bénéficie le plus souvent d'une signature numérique, ce qui permet de remonter jusqu'à son émetteur et de le protéger contre toute tentative de modification. Un utilisateur obtient l'accès à une application par partie de confiance en présentant un jeton valide émis par une autorité approuvée par celle-ci.
+**Jeton** : un jeton est un ensemble de données de sécurité généralement émis après identification d'un utilisateur. Il contient un jeu de *demandes* qui sont des attributs de l'utilisateur authentifié. Une demande peut représenter le nom d'un utilisateur, son âge, l'identifiant pour un rôle qui lui est attribué, etc. Un jeton bénéficie le plus souvent d'une signature numérique, ce qui permet de remonter jusqu'à son émetteur et de le protéger contre toute tentative de modification. Un utilisateur obtient l'accès à une application par partie de confiance en présentant un jeton valide émis par une autorité approuvée par celle-ci.
 
-**Fournisseur d'identité** : un fournisseur d'identité est une autorité qui authentifie des identités d'utilisateur et émet des jetons de sécurité. L'activité d'émission des jetons est implémentée via un service spécial nommé « service d'émission de jeton de sécurité » (STS, Security Token Service). Les fournisseurs d'identité les plus connus sont Windows Live ID, Facebook, les référentiels d'utilisateurs professionnels (tels qu'Active Directory), etc. Lorsqu'ACS est configuré de manière à approuver un fournisseur d'identité, le système accepte et valide les jetons émis par ce fournisseur. ACS peut approuver plusieurs fournisseurs d'identité simultanément. Donc lorsque votre application approuve ACS, vous pouvez fournir aux utilisateurs la possibilité d'être authentifiés par un fournisseur d'identité qu'ACS approuve en votre nom.
+**Fournisseur d'identité** : un fournisseur d'identité est une autorité qui authentifie des identités d'utilisateur et émet des jetons de sécurité. L'activité d'émission des jetons est implémentée via un service spécial nommé « service d'émission de jeton de sécurité » (STS, Security Token Service). Les fournisseurs d'identité les plus connus sont Windows Live ID, Facebook, les référentiels d'utilisateurs professionnels (tels qu'Active Directory), etc. Lorsqu'ACS est configuré de manière à approuver un fournisseur d'identité, le système accepte et valide les jetons émis par ce fournisseur. ACS peut approuver plusieurs fournisseurs d'identité simultanément. Donc lorsque votre application approuve ACS, vous pouvez fournir aux utilisateurs la possibilité d'être authentifiés par un fournisseur d'identité qu'ACS approuve en votre nom.
 
-**Fournisseur de fédération** : les fournisseurs d'identité connaissent directement les utilisateurs et les authentifient grâce à leurs informations d'identification. Ils émettent des demandes en fonction des informations utilisateur connues. Un fournisseur de fédération est un autre type d’autorité : au lieu d'authentifier directement les utilisateurs, il agit comme intermédiaire entre l'application par partie de confiance et un ou plusieurs fournisseurs d'identité. Les fournisseurs d'identité comme les fournisseurs de fédération émettent des jetons de sécurité, ils utilisent donc tous les deux le service STS. ACS est un fournisseur de fédération.
+**Fournisseur de fédération** : les fournisseurs d'identité connaissent directement les utilisateurs et les authentifient grâce à leurs informations d'identification. Ils émettent des demandes en fonction des informations utilisateur connues. Un fournisseur de fédération est un autre type d’autorité : au lieu d'authentifier directement les utilisateurs, il agit comme intermédiaire entre l'application par partie de confiance et un ou plusieurs fournisseurs d'identité. Les fournisseurs d'identité comme les fournisseurs de fédération émettent des jetons de sécurité, ils utilisent donc tous les deux le service STS. ACS est un fournisseur de fédération.
 
-**Moteur de règles ACS** : il s'agit de la logique utilisée pour transformer les jetons entrants, provenant de fournisseurs d'identité approuvés, en jetons destinés à être utilisés par la partie de confiance. Cette logique est codée sous forme de règles de transformation de demandes simples. ACS comprend un moteur de règles qui est chargé d'appliquer la logique de transformation que vous avez indiquée pour votre partie de confiance.
+**Moteur de règles ACS** : il s'agit de la logique utilisée pour transformer les jetons entrants, provenant de fournisseurs d'identité approuvés, en jetons destinés à être utilisés par la partie de confiance. Cette logique est codée sous forme de règles de transformation de demandes simples. ACS comprend un moteur de règles qui est chargé d'appliquer la logique de transformation que vous avez indiquée pour votre partie de confiance.
 
-**Espace de noms ACS** : l'espace de noms constitue la partition la plus élevée d'ACS que vous utilisez pour organiser vos paramètres. Un espace de noms contient une liste de fournisseurs d'identité auxquels vous faites confiance, les applications par partie de confiance que vous souhaitez servir, les règles que le moteur de règles doit appliquer aux jetons entrants, etc. Il expose plusieurs points de terminaison qui seront utilisés par le développeur et l'application afin qu'ACS assure les fonctions demandées.
+**Espace de noms ACS** : l'espace de noms constitue la partition la plus élevée d'ACS que vous utilisez pour organiser vos paramètres. Un espace de noms contient une liste de fournisseurs d'identité auxquels vous faites confiance, les applications par partie de confiance que vous souhaitez servir, les règles que le moteur de règles doit appliquer aux jetons entrants, etc. Il expose plusieurs points de terminaison qui seront utilisés par le développeur et l'application afin qu'ACS assure les fonctions demandées.
 
 La figure suivante présente le fonctionnement de l'authentification ACS avec une application Web :
 
@@ -75,8 +75,8 @@ Pour réaliser les tâches présentées dans ce guide, vous avez besoin des él�
 
 - Kit de développement logiciel (SDK) Java version 1.6 ou ultérieure
 - IDE (environnement de développement intégré) Eclipse pour développeurs Java EE, Indigo ou ultérieur, Vous pouvez le télécharger à partir de <http://www.eclipse.org/downloads/>.
-- Une distribution d'un serveur web ou d'un serveur d'applications basé sur Java, tel que Apache Tomcat, GlassFish, JBoss Application Server ou Jetty.
-- Un abonnement à Azure, pouvant être souscrit à l'adresse <http://www.microsoft.com/windowsazure/offers/>.
+- Une distribution d'un serveur Web ou d'un serveur d'applications basé sur Java, tel que Apache Tomcat, GlassFish, JBoss Application Server ou Jetty.
+- Un abonnement à Azure, pouvant être souscrit à l'adresse suivante : http://www.microsoft.com/windowsazure/offers/.
 - Kit de ressources Azure pour Eclipse, version d’avril 2014 ou ultérieure. Pour plus d’informations, consultez [Installation du kit de ressources Azure pour Eclipse](http://msdn.microsoft.com/library/windowsazure/hh690946.aspx).
 - Un certificat X509 à utiliser avec votre application. Vous avez besoin du certificat public (.cer) et de celui au format Personal Information Exchange (.PFX) (les instructions de création de ce certificat sont indiquées plus loin dans ce didacticiel).
 - Vous devez connaître l'émulateur de calcul Azure ainsi que les techniques de déploiement présentées dans la page [Création d'une application Hello World pour Azure dans Eclipse](http://msdn.microsoft.com/library/windowsazure/hh690944.aspx).
@@ -90,7 +90,7 @@ Pour commencer à utiliser ACS dans Azure, vous devez créer un espace de noms A
 3. Pour créer un espace de noms ACS, cliquez sur **New**, sur **App Services**, sur **Access Control**, puis sur **Quick Create**.
 4. Entrez le nom de l'espace de noms. Azure vérifie que le nom est unique.
 5. Sélectionnez la région dans laquelle l'espace de noms sera utilisé. Pour obtenir des performances optimales, sélectionnez la zone géographique dans laquelle vous déployez l'application.
-6. Si vous avez plusieurs abonnements, sélectionnez celui que vous souhaitez utiliser pour l'espace de noms ACS.
+6. Si vous avez plusieurs abonnements, sélectionnez celui que vous souhaitez utiliser pour l’espace de noms ACS.
 7. Cliquez sur **Create**.
 
 Azure crée et active l'espace de noms. Patientez jusqu’à ce que l’état du nouvel espace de noms soit **Active** avant de continuer.
@@ -112,11 +112,11 @@ Cette tâche vise à configurer ACS afin que votre application Web Java soit rec
 
 1.  Dans le portail de gestion ACS, cliquez sur **Relying party applications**.
 2.  Sur la page **Relying Party Applications**, cliquez sur **Add**.
-3.  Effectuez les actions suivantes sur la page **Add Relying Party Application** :
+3.  Effectuez les actions suivantes sur la page **Add Relying Party Application** :
     1.  Dans **Name**, entrez le nom de la partie de confiance. Pour suivre l'exemple de ce didacticiel, entrez **Azure Web App**.
     2.  Dans **Mode**, sélectionnez **Enter settings manually**.
-    3.  Sous **Realm**, entrez l'URI auquel s'applique le jeton de sécurité émis par ACS. Pour cette tâche, tapez **http://localhost:8080/**. ![Domaine de partie de confiance à utiliser dans l'émulateur de calcul][relying_party_realm_emulator]
-    4.  Sous **Return URL**, entrez l'adresse URL vers laquelle ACS renvoie le jeton de sécurité. Pour cette tâche, tapez **http://localhost:8080/MyACSHelloWorld/index.jsp** ![URL de retour de partie de confiance à utiliser dans l’émulateur de calcul][relying_party_return_url_emulator]
+    3.  Sous **Realm**, entrez l'URI auquel s'applique le jeton de sécurité émis par ACS. Pour cette tâche, tapez **http://localhost:8080/**. ![Domaine de partie de confiance à utiliser dans l'émulateur de calcul][relying_party_realm_emulator]
+    4.  Sous **Return URL**, entrez l'adresse URL vers laquelle ACS renvoie le jeton de sécurité. Pour cette tâche, tapez **http://localhost:8080/MyACSHelloWorld/index.jsp** ![URL de retour de partie de confiance à utiliser dans l’émulateur de calcul][relying_party_return_url_emulator]
     5.  Acceptez les valeurs par défaut dans les autres champs.
 
 4.  Cliquez sur **Save**.
@@ -139,7 +139,7 @@ Au cours de cette tâche, vous allez télécharger un certificat .PFX qui sera u
 
 1.  Sur la page principale du portail de gestion ACS, cliquez sur **Certificates and keys**.
 2.  Sur la page **Certificates and Keys**, cliquez sur **Add** au-dessus de **Token Signing**.
-3.  Sur la page **Add Token-Signing Certificate or Key** :
+3.  Sur la page **Add Token-Signing Certificate or Key** :
     1. Dans la section **Used for**, cliquez sur **Relying Party Application**, puis sélectionnez **Azure Web App** (que vous avez précédemment défini comme nom de votre application de partie de confiance).
     2. Dans la section **Type**, sélectionnez **X.509 Certificate**.
     3. Dans la section **Certificate**, cliquez sur le bouton Parcourir, puis accédez au fichier de certificat X.509 que vous souhaitez utiliser. Il s'agit d'un fichier .PFX. Sélectionnez le fichier, cliquez sur **Open**, puis saisissez le mot de passe du certificat dans la zone **Password**. Dans le cadre d'un test, vous pouvez utiliser un certificat auto-signé. Pour créer un certificat auto-signé, dans la boîte de dialogue **ACS Filter Library** (qui sera décrite ultérieurement), appuyez sur le bouton **New** ou servez-vous de l'utilitaire **encutil.exe** présent sur le [site web du projet][] de kit de démarrage Azure pour Java.
@@ -158,7 +158,7 @@ Vous pouvez trouver toutes les informations et les codes nécessaires à la conf
 
 Dans la page **Login Page Integration : Azure Web App**, l'URL répertoriée dans **Option 1 : lien vers une page de connexion hébergée par ACS** sera utilisée dans votre application web Java. Cette valeur doit être indiquée lors de l'ajout de la bibliothèque de filtres ACS Azure à votre application Java.
 
-## Création d'une application Web Java
+## Création d'une application web Java
 1. Dans le menu d'Eclipse, cliquez sur **File**, sur **New**, puis sur **Dynamic Web Project**. (Si vous ne voyez pas **Dynamic Web Project** répertorié en tant que projet disponible après avoir cliqué sur **File**, **New**, procédez comme suit : cliquez sur **File**, cliquez sur **New**, sur **Project**, développez **Web**, puis cliquez sur **Dynamic Web Project**, puis sur **Next**.) Pour l'exemple de ce didacticiel, nommez votre projet **MyACSHelloWorld**. Assurez-vous de bien utiliser ce nom, les étapes suivantes du didacticiel partent du principe que votre fichier WAR se nomme MyACSHelloWorld. Votre écran se présente comme suit :
 
     ![Créer un projet Hello World pour l'exemple ACS][create_acs_hello_world]
@@ -209,7 +209,7 @@ Dans la page **Login Page Integration : Azure Web App**, l'URL répertoriée da
 3. Sélectionnez un JDK et un serveur d'applications. Ces étapes sont détaillées dans le didacticiel [Création d'une application Hello World pour Azure dans Eclipse](http://msdn.microsoft.com/library/windowsazure/hh690944.aspx).
 4. Cliquez sur **Terminer**.
 5. Cliquez sur le bouton **Run in Azure Emulator**.
-6. Lorsque votre application web Java est lancée dans l'émulateur de calcul, fermez toutes les instances de votre navigateur (afin qu'aucune session de navigateur ne puisse perturber votre test de connexion à ACS).
+6. Lorsque votre application Web Java est lancée dans l'émulateur de calcul, fermez toutes les instances de votre navigateur (afin qu'aucune session de navigateur ne puisse perturber votre test de connexion à ACS).
 7. Exécutez votre application en ouvrant <http://localhost:8080/MyACSHelloWorld/> dans votre navigateur (ou<https://localhost:8080/MyACSHelloWorld/> si vous avez activé la case **Require HTTPS connections**). Un identifiant Windows Live ID vous est normalement demandé, puis vous êtes transféré vers l'URL de renvoi spécifiée dans votre application par partie de confiance.
 99.  Lorsque vous avez terminé d'afficher votre application, cliquez sur le bouton **Reset Azure Emulator**.
 
@@ -240,11 +240,11 @@ Pour effectuer un déploiement sur Azure, vous devez changer le domaine de parti
 
 13. Cliquez sur **Terminer** pour fermer la boîte de dialogue **Edit Library**.
 14. Cliquez sur **OK** pour fermer la boîte de dialogue **Properties for MyACSHelloWorld**.
-15. Dans Eclipse, cliquez sur le bouton **Publish to Azure Cloud**. Répondez aux invites, comme expliqué dans la section **Déploiement de votre application dans Azure** de la rubrique [Création d'une application Hello World pour Azure dans Eclipse](http://msdn.microsoft.com/library/windowsazure/hh690944.aspx).
+15. Dans Eclipse, cliquez sur le bouton **Publish to Azure Cloud**. Répondez aux invites, comme expliqué dans la section **Méthode simple et rapide pour déployer votre application sur Azure** de la rubrique [Créer un service cloud « Hello World » pour Azure dans Eclipse](http://msdn.microsoft.com/library/windowsazure/hh690944.aspx).
 
-Une fois le déploiement de votre application web terminé, fermez les sessions de navigateur en cours, exécutez votre application web. Votre identifiant Windows Live ID doit vous être demandé. Vous êtes ensuite transféré vers l'URL de renvoi de votre application par partie de confiance.
+Une fois le déploiement de votre application Web terminé, fermez les sessions de navigateur en cours, exécutez votre application Web. Votre identifiant Windows Live ID doit vous être demandé. Vous êtes ensuite transféré vers l'URL de renvoi de votre application par partie de confiance.
 
-Lorsque vous avez terminé d'utiliser votre application ACS Hello World, n'oubliez pas de supprimer le déploiement (la rubrique [Création d'une application Hello World pour Azure dans Eclipse](http://msdn.microsoft.com/library/windowsazure/hh690944.aspx) explique comment procéder).
+Lorsque vous avez terminé d’utiliser votre application ACS Hello World, n’oubliez pas de supprimer le déploiement (procédure décrite dans la rubrique [Créer un service cloud « Hello World » pour Azure dans Eclipse](http://msdn.microsoft.com/library/windowsazure/hh690944.aspx)).
 
 
 ## <a name="next_steps"></a>Étapes suivantes
@@ -256,12 +256,12 @@ Cet exemple utilisait l'option **Embed the certificate in the WAR file** qui sim
 1. Dans la section **Security** de la boîte de dialogue **Azure Access Control Services Filter**, entrez **${env.JAVA\_HOME}/mycert.cer**, puis désactivez l'option **Embed the certificate in the WAR file** Modifiez mycert.cer si le nom de fichier du certificat est différent. Cliquez sur **Terminer** pour fermer la boîte de dialogue.
 2. Copiez le certificat en tant que composant dans votre déploiement : dans l'Explorateur de projets Eclipse, développez **MyAzureACSProject**, cliquez avec le bouton droit sur **WorkerRole1**, cliquez sur **Properties**, développez **Azure Role** et cliquez sur **Components**.
 3. Cliquez sur **Ajouter**.
-4. Dans la boîte de dialogue **Add Component** :
-    1. Dans la section **Import** :
+4. Dans la boîte de dialogue **Add Component** :
+    1. Dans la section **Import** :
         1. Utilisez le bouton **File** pour accéder au certificat que vous souhaitez utiliser.
         2. Sous **Method**, sélectionnez **copy**.
     2. Dans la section **As Name**, cliquez sur la zone de texte et acceptez le nom par défaut.
-    3. Dans la section **Deploy** :
+    3. Dans la section **Deploy** :
         1. Sous **Method**, sélectionnez **copy**.
         2. Dans la zone **To directory**, entrez **%JAVA\_HOME%**.
     4. La boîte de dialogue **Add Component** doit être similaire à la suivante :
@@ -310,4 +310,4 @@ Votre certificat doit maintenant être inclus dans votre déploiement. Que le ce
 [add_token_signing_cert]: ./media/active-directory-java-authenticate-users-access-control-eclipse/AddTokenSigningCertificate.png
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

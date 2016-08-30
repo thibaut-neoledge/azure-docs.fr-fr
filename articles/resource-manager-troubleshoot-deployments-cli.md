@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-multiple"
    ms.workload="infrastructure"
-   ms.date="06/13/2016"
+   ms.date="08/15/2016"
    ms.author="tomfitz"/>
 
 # Afficher les opérations de déploiement avec l’interface CLI Azure
@@ -41,7 +41,7 @@ Pour afficher les erreurs d’un déploiement, procédez comme suit :
 
         azure group log show ExampleGroup --last-deployment
 
-2. La commande **azure group log show** risque de renvoyer un grand nombre d'informations. Pour le dépannage, vous devez généralement vous concentrer sur les opérations ayant échoué. Le script suivant utilise l’option **--json** et l’utilitaire JSON [jq](https://stedolan.github.io/jq/) pour rechercher les échecs de déploiement dans le journal.
+2. La commande **azure group log show** renvoie un grand nombre d’informations. Pour le dépannage, vous devez généralement vous concentrer sur les opérations ayant échoué. Le script suivant utilise l’option **--json** et l’utilitaire JSON [jq](https://stedolan.github.io/jq/) pour rechercher les échecs de déploiement dans le journal.
 
         azure group log show ExampleGroup --json | jq '.[] | select(.status.value == "Failed")'
         
@@ -123,4 +123,4 @@ Pour afficher les erreurs d’un déploiement, procédez comme suit :
 - Pour en savoir plus sur l’utilisation des journaux d’audit pour surveiller d’autres types d’actions, consultez [Auditer les opérations avec le Gestionnaire de ressources](resource-group-audit.md).
 - Pour valider votre déploiement avant son exécution, consultez [Déployer un groupe de ressources avec le modèle Azure Resource Manager](resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0817_2016-->

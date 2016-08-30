@@ -15,20 +15,18 @@
     ms.tgt_pltfrm="vm-linux"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="04/29/2016"
+    ms.date="08/18/2016"
     ms.author="v-livech"
 />
 
 # Création d'une machine virtuelle Linux sur Azure à l’aide du portail
 
-> [AZURE.NOTE] Si vous avez un moment, aidez-nous à améliorer la documentation relative aux machines virtuelles Linux Azure en répondant à cette [enquête rapide](https://aka.ms/linuxdocsurvey) sur vos expériences. Chaque réponse nous aide à vous faciliter la tâche.
+> [AZURE.NOTE] Si vous avez un moment, aidez-nous à améliorer la documentation relative aux machines virtuelles Azure Linux en répondant à cette [enquête rapide](https://aka.ms/linuxdocsurvey) concernant vos expériences. Chaque réponse nous aide à vous faciliter la tâche.
 
 Cet article explique comment utiliser le [portail Azure](https://portal.azure.com/) pour créer rapidement une machine virtuelle Linux. Les seules conditions requises sont [un compte Azure](https://azure.microsoft.com/pricing/free-trial/) et des [fichiers de clés publiques et privées SSH](virtual-machines-linux-mac-create-ssh-keys.md).
 
-> [AZURE.NOTE] Si vous choisissez d’utiliser un mot de passe pour sécuriser l’accès à votre machine virtuelle, le mot de passe doit comporter plus de 12 caractères, et au moins un caractère en majuscule, un caractère en minuscule, un caractère spécial et un chiffre.
 
-
-1. Connectez-vous au Portail Azure avec les informations d’identité de votre compte Azure, puis cliquez sur **+ Nouveau** dans le coin supérieur gauche :
+1. Connectez-vous au portail Azure avec les identifiants de votre compte Azure, puis cliquez sur **+ Nouveau** dans le coin supérieur gauche :
 
     ![écran1](../media/virtual-machines-linux-quick-create-portal/screen1.png)
 
@@ -40,8 +38,8 @@ Cet article explique comment utiliser le [portail Azure](https://portal.azure.co
     - un nom pour la machine virtuelle ;
     - un nom d’utilisateur pour l’administrateur ;
     - la définition du Type d’authentification sur **Clé publique SSH** ;
-    - votre clé publique SSH sous forme de chaîne (par défaut, à partir de votre répertoire `~/.ssh/`) ;
-    - un nom de groupe de ressources (pour créer un groupe de déploiement), ou sélectionnez un groupe existant.
+    - votre clé publique SSH sous la forme d’une chaîne (à partir de votre répertoire `~/.ssh/`) ;
+    - le nom d’un groupe de ressources (sélectionnez-en un).
 
     Puis cliquez sur **OK** pour continuer et choisissez la taille de la machine virtuelle. Le résultat obtenu devrait ressembler à ceci :
 
@@ -75,12 +73,10 @@ ssh -i ~/.ssh/azure_id_rsa ubuntu@13.91.99.206
 
 ## Étapes suivantes
 
-Vous venez de créer rapidement une machine virtuelle Linux à des fins de test ou de démonstration. Pour créer une machine virtuelle Linux personnalisée pour votre infrastructure, vous pouvez consulter un des articles ci-dessous.
+Vous venez de créer rapidement une machine virtuelle Linux à des fins de test ou de démonstration. Pour créer une machine virtuelle Linux personnalisée en fonction de votre infrastructure, vous pouvez lire un des articles ci-dessous.
 
 - [Création d'une machine virtuelle Linux sur Azure à l’aide de modèles](virtual-machines-linux-cli-deploy-templates.md)
-- [Création d'une machine virtuelle Linux sécurisée par SSH dans Azure à l’aide de modèles](virtual-machines-linux-create-ssh-secured-vm-from-template.md)
+- [Création d’une machine virtuelle Linux sécurisée par SSH dans Azure à l’aide de modèles](virtual-machines-linux-create-ssh-secured-vm-from-template.md)
 - [Création d'une machine virtuelle Linux à l’aide de l'interface de ligne de commande Azure (CLI)](virtual-machines-linux-create-cli-complete.md)
 
-Ces articles vous aideront à démarrer la création d'une infrastructure Azure ainsi que n’importe quelle quantité de déploiements d’infrastructure open source et propriétaires, de configuration et d’outils d’orchestration.
-
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

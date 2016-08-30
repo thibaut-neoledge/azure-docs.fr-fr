@@ -1,6 +1,6 @@
 <properties
  pageTitle="Surveillance des opérations IoT Hub"
- description="Vue d’ensemble de la surveillance des opérations Azure IoT Hub, qui permet aux utilisateurs de surveiller l’état des opérations sur leur hub IoT en temps réel"
+ description="Vue d’ensemble de la surveillance des opérations Azure IoT Hub, qui vous permet de surveiller l’état des opérations sur votre hub IoT en temps réel"
  services="iot-hub"
  documentationCenter=""
  authors="nberdy"
@@ -13,12 +13,12 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="07/07/2016"
+ ms.date="08/11/2016"
  ms.author="nberdy"/>
 
 # Introduction à la surveillance des opérations
 
-La surveillance des opérations IoT Hub permet aux utilisateurs de surveiller l’état des opérations sur leur hub IoT en temps réel. IoT Hub effectue le suivi des événements entre les différentes catégories d’opérations, et les utilisateurs peuvent opter pour l’envoi des événements d’une ou plusieurs catégories à un point de terminaison de leur hub IoT en vue de leur traitement. Les utilisateurs peuvent surveiller les données des erreurs ou configurer un traitement plus complexe basé sur des modèles de données.
+La surveillance des opérations IoT Hub vous permet de surveiller l’état des opérations sur votre hub IoT en temps réel. IoT Hub effectue le suivi des événements entre les différentes catégories d’opérations, et vous pouvez opter pour l’envoi des événements d’une ou plusieurs catégories à un point de terminaison de votre hub IoT en vue de leur traitement. Vous pouvez surveiller les données des erreurs ou configurer un traitement plus complexe basé sur des modèles de données.
 
 IoT Hub surveille cinq catégories d’événements :
 
@@ -32,7 +32,7 @@ IoT Hub surveille cinq catégories d’événements :
 
 1. Créez un hub IoT. Pour savoir comment créer un hub IoT, consultez le guide [Prise en main][lnk-get-started].
 
-2. Ouvrez le panneau de votre hub IoT. Cliquez sur **Tous les paramètres**, puis cliquez sur **Surveillance des opérations**.
+2. Ouvrez le panneau de votre hub IoT. De là, cliquez sur **Surveillance des opérations**.
 
     ![][1]
 
@@ -46,7 +46,7 @@ Chaque catégorie de surveillance d’opérations assure le suivi d’un type sp
 
 ### Opérations d’identité des appareils
 
-La catégorie d’opérations d’identité des appareils effectue le suivi des erreurs qui se produisent quand l’utilisateur tente de créer, mettre à jour ou supprimer une entrée dans le registre d’identité de son hub IoT. Le suivi de cette catégorie est utile pour les scénarios d’approvisionnement.
+La catégorie d’opérations d’identité des appareils effectue le suivi des erreurs qui se produisent quand vous tentez de créer, mettre à jour ou supprimer une entrée dans le registre d’identité de votre hub IoT. Le suivi de cette catégorie est utile pour les scénarios d’approvisionnement.
 
     {
         "time": "UTC timestamp",
@@ -57,13 +57,13 @@ La catégorie d’opérations d’identité des appareils effectue le suivi des 
          "statusDescription": "MessageDescription",
          "deviceId": "device-ID",
          "durationMs": 1234,
-         "userAgent": “userAgent”,
+         "userAgent": "userAgent",
          "sharedAccessPolicy": "accessPolicy"
     }
 
 ### Télémétrie d’appareil
 
-La catégorie de télémétrie d’appareil effectue le suivi des erreurs qui se produisent au niveau du hub IoT et qui sont liées au pipeline de télémétrie. Ce sont notamment les erreurs concernant l’envoi d’événements de télémétrie (par exemple, une limitation) et la réception des événements de télémétrie (par exemple, un lecteur non autorisé). Notez que cette catégorie ne peut pas intercepter les erreurs provoquées par le code en cours d’exécution sur l’appareil lui-même.
+La catégorie de télémétrie d’appareil effectue le suivi des erreurs qui se produisent au niveau du hub IoT et qui sont liées au pipeline de télémétrie. Cette catégorie inclut notamment les erreurs concernant l’envoi d’événements de télémétrie (par exemple, une limitation) et la réception des événements de télémétrie (par exemple, un lecteur non autorisé). Notez que cette catégorie ne peut pas intercepter les erreurs provoquées par le code en cours d’exécution sur l’appareil lui-même.
 
     {
          "messageSizeInBytes": 1234,
@@ -85,7 +85,7 @@ La catégorie de télémétrie d’appareil effectue le suivi des erreurs qui se
 
 ### Commandes cloud-à-appareil
 
-La catégorie de commandes cloud-à-appareil effectue le suivi des erreurs qui se produisent au niveau du hub IoT et qui sont liées au pipeline de commandes de l’appareil. Ce sont notamment les erreurs concernant l’envoi de commandes (telles qu’un expéditeur non autorisé), la réception des commandes (telles que le dépassement du nombre de remises) et la réception des commentaires de commande (telles que des commentaires arrivés à expiration). Cette catégorie n’intercepte pas d’erreurs dans le cas d’un appareil qui gère mal une commande correctement remise.
+La catégorie de commandes cloud-à-appareil effectue le suivi des erreurs qui se produisent au niveau du hub IoT et qui sont liées au pipeline de commandes de l’appareil. Cette catégorie inclut notamment les erreurs concernant l’envoi de commandes (telles qu’un expéditeur non autorisé), la réception des commandes (telles que le dépassement du nombre de remises) et la réception des commentaires de commande (telles que des commentaires arrivés à expiration). Cette catégorie n’intercepte pas d’erreurs dans le cas d’un appareil qui gère mal une commande correctement remise.
 
     {
          "messageSizeInBytes": 1234,
@@ -125,7 +125,7 @@ La catégorie de connexions effectue le suivi des erreurs provoquées par la con
 
 ### Chargements de fichiers
 
-La catégorie de chargement de fichiers effectue le suivi des erreurs qui se produisent au niveau de l’IoT hub et qui sont liées à la fonctionnalité de chargement. Cela inclut les erreurs qui se produisent avec l’URI SAS (par exemple, lorsqu’il expire avant qu’un appareil ne notifie le concentrateur d’un chargement terminé), avec les chargements ayant échoué signalés par l’appareil et si un fichier est introuvable dans le stockage lors de la création de messages de notification IoT Hub. Notez que cette catégorie ne peut pas détecter les erreurs qui surviennent directement pendant que le périphérique charge un fichier de stockage.
+La catégorie de chargement de fichiers effectue le suivi des erreurs qui se produisent au niveau de l’IoT hub et qui sont liées à la fonctionnalité de chargement. Cette catégorie inclut les erreurs qui se produisent avec l’URI SAS (par exemple, lorsqu’il expire avant qu’un appareil ne notifie le concentrateur d’un chargement terminé), avec les chargements ayant échoué signalés par l’appareil et si un fichier est introuvable dans le stockage lors de la création de messages de notification IoT Hub. Notez que cette catégorie ne peut pas détecter les erreurs qui surviennent directement pendant que le périphérique charge un fichier de stockage.
 
     {
          "authType": "{"scope":"hub","type":"sas","issuer":"iothub"}",
@@ -169,4 +169,4 @@ Pour explorer davantage les capacités de IoT Hub, consultez :
 [lnk-dmui]: iot-hub-device-management-ui-sample.md
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0817_2016-->

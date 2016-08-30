@@ -12,11 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/31/2016"
+   ms.date="08/17/2016"
    ms.author="magoedte;bwren" />
 
 # Runbooks enfants dans Azure Automation
-
 
 Dans Azure Automation, il est recommandé d’écrire des Runbooks réutilisables et modulaires avec une fonction discrète qui peut être utilisée par d’autres Runbooks. Un Runbook parent appelle souvent un ou plusieurs Runbooks enfants pour exécuter la fonctionnalité requise. Il existe deux méthodes pour appeler un Runbook enfant. Vous devez comprendre leurs spécificités afin de déterminer celle répondant le mieux aux exigences de chacun de vos scénarios.
 
@@ -35,7 +34,7 @@ Les paramètres d’un Runbook enfant appelé en ligne peuvent correspondre à n
 
 Types pouvant s’appeler mutuellement :
 
-- Un [runbook PowerShell](automation-runbook-types.md#powershell-runbooks) et des [runbooks graphiques](automation-runbook-types.md#graphical-runbooks) peuvent s’appeler mutuellement en ligne (les deux sont basé sur PowerShell).
+- Un [runbook PowerShell](automation-runbook-types.md#powershell-runbooks) et des [runbooks graphiques](automation-runbook-types.md#graphical-runbooks) peuvent s’appeler mutuellement en ligne (les deux sont basés sur PowerShell).
 - Un [runbook PowerShell Workflow](automation-runbook-types.md#powershell-workflow-runbooks) et des runbooks PowerShell Workflow graphiques peuvent s’appeler mutuellement en ligne (les deux sont basé sur PowerShell)
 - Les types PowerShell et PowerShell Workflow ne peuvent pas s’appeler mutuellement en ligne doivent utiliser Start-AzureRmAutomationRunbook.
 	
@@ -82,7 +81,7 @@ Le tableau suivant résume les différences entre les deux méthodes applicables
 
 | | En ligne| Applet de commande|
 |:---|:---|:---|
-|Job|Les Runbooks enfants s’exécutent dans la même tâche que le parent.|Une tâche distincte est créée pour le Runbook enfant.|
+|Travail|Les Runbooks enfants s’exécutent dans la même tâche que le parent.|Une tâche distincte est créée pour le Runbook enfant.|
 |Exécution|Le Runbook parent attend la fin de l’exécution du Runbook enfant avant de se poursuivre.|Le runbook parent continue immédiatement après le démarrage du runbook enfant *ou* le runbook parent attend que la tâche enfant se termine.|
 |Sortie|Le Runbook parent peut obtenir directement la sortie du Runbook enfant.|Le runbook parent doit récupérer la sortie à partir de la tâche du runbook enfant *ou* le runbook parent peut obtenir directement la sortie du runbook enfant.|
 |Paramètres|Les valeurs des paramètres du Runbook enfant sont spécifiées séparément et peuvent utiliser n’importe quel type de données.|Les valeurs des paramètres du Runbook enfant doivent être combinées dans une table de hachage unique et peuvent inclure uniquement des types de données simples, de tableau et d’objet exploitant la sérialisation JSON.|
@@ -94,4 +93,4 @@ Le tableau suivant résume les différences entre les deux méthodes applicables
 - [Démarrage d'un Runbook dans Azure Automation](automation-starting-a-runbook.md)
 - [Sortie et messages de Runbook dans Azure Automation](automation-runbook-output-and-messages.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0817_2016-->

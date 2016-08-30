@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Surveillance des clusters Hadoop dans HDInsight à l’aide des API Ambari | Microsoft Azure"
-	description="Utilisez les API Apache Ambari pour l'approvisionnement, la gestion et la surveillance des clusters Hadoop. Les outils intuitifs pour opérateurs et les API masquent la complexité de Hadoop."
+	description="Utilisez les API Apache Ambari pour la création, la gestion et la surveillance des clusters Hadoop. Les outils intuitifs pour opérateurs et les API masquent la complexité de Hadoop."
 	services="hdinsight"
 	documentationCenter=""
 	tags="azure-portal"
@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/18/2016"
+	ms.date="08/10/2016"
 	ms.author="jgao"/>
 
 # Surveillance des clusters Hadoop dans HDInsight à l'aide des API Ambari
 
-Découvrez comment surveiller les clusters HDInsight versions 3.1 et 2.1 à l’aide des API Ambari.
+Découvrez comment surveiller les clusters HDInsight à l’aide des API Ambari.
 
 > [AZURE.NOTE] Les informations contenues dans cet article sont adaptées principalement aux clusters HDInsight basés sur Windows, qui fournissent une version en lecture seule de l’API REST Ambari. Pour les clusters basés sur Linux, consultez la page [Gestion des clusters HDInsight à l’aide d’Ambari](hdinsight-hadoop-manage-ambari.md).
 
@@ -27,9 +27,7 @@ Découvrez comment surveiller les clusters HDInsight versions 3.1 et 2.1 à l�
 
 [Apache Ambari][ambari-home] est destiné à l’approvisionnement, à la gestion et à la surveillance des clusters Apache Hadoop. Il comprend une collection intuitive d'outils d'opérateurs et un solide jeu d'API qui masque la complexité de Hadoop, en simplifiant le fonctionnement des clusters. Pour plus d’informations sur les API, consultez la page [Référence des API Ambari][ambari-api-reference].
 
-
 HDInsight prend actuellement en charge la fonctionnalité de surveillance Ambari uniquement. La version 1.0 de l’API Ambari est prise en charge par les clusters HDInsight versions 2.1 et 3.0. Cet article présente l’accès aux API Ambari sur les versions de clusters HDInsight 3.1 et 2.1. La différence principale entre les deux est que certains des composants ont changé avec l'introduction des nouvelles fonctionnalités (telles que le serveur d'historique des tâches).
-
 
 **Configuration requise**
 
@@ -48,7 +46,7 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
     Propriété du cluster|Nom de la variable Azure PowerShell|Valeur|Description
     ---|---|---|---
     Nom du cluster HDInsight|$clusterName||Nom de votre cluster HDInsight
-    Nom d'utilisateur du cluster|$clusterUsername||Nom d’utilisateur du cluster spécifié lors de l’approvisionnement
+    Nom d'utilisateur du cluster|$clusterUsername||Nom d’utilisateur du cluster spécifié lors de la création du cluster.
     Mot de passe du cluster|$clusterPassword||Mot de passe utilisateur du cluster
 
     >[AZURE.NOTE] Renseignez les valeurs dans le tableau. Cela vous sera utile pour ce didacticiel.
@@ -120,7 +118,7 @@ La sortie est la suivante :
 
 **Pour la version du 8/10/2014** :
 
-Lors de l’utilisation du point de terminaison Ambari, « https://{clusterDns}.azurehdinsight.net/ambari/api/v1/clusters/{clusterDns}.azurehdinsight.net/services/{servicename}/components/{componentname} », le champ *host\_name* renvoie le nom de domaine complet du nœud au lieu du nom d’hôte. Avant la version du 8/10/2014, cet exemple renvoyait simplement « **headnode0** ». Après la version du 8/10/2014, vous obtenez le nom de domaine complet « **headnode0.{ClusterDNS}.azurehdinsight.net** », comme illustré dans l’exemple précédent. Cette modification était nécessaire pour permettre les scénarios dans lesquels plusieurs types de cluster tels que HBase et Hadoop sont déployés dans un réseau virtuel (VNET). Cela se produit, par exemple, lors de l'utilisation de HBase en tant que plateforme principale pour Hadoop.
+Lors de l’utilisation du point de terminaison Ambari, « https://{clusterDns}.azurehdinsight.net/ambari/api/v1/clusters/{clusterDns}.azurehdinsight.net/services/{servicename}/components/{componentname} », le champ *host\_name* renvoie le nom de domaine complet du nœud au lieu du nom d’hôte. Avant la version du 8/10/2014, cet exemple renvoyait simplement « **headnode0** ». Après la version du 8/10/2014, vous obtenez le nom de domaine complet « **headnode0.{ClusterDNS}.azurehdinsight.net** », comme illustré dans l’exemple précédent. Cette modification était nécessaire pour permettre les scénarios dans lesquels plusieurs types de cluster tels que HBase et Hadoop sont déployés dans un réseau virtuel (VNET). Cela se produit, par exemple, lors de l'utilisation de HBase en tant que plateforme principale pour Hadoop.
 
 ## API de surveillance Ambari
 
@@ -174,4 +172,4 @@ Vous avez appris à utiliser les appels d'API de surveillance Ambari. Pour plus 
 
 [img-jobtracker-output]: ./media/hdinsight-monitor-use-ambari-api/hdi.ambari.monitor.jobtracker.output.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

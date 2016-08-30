@@ -15,10 +15,10 @@
    ms.date="03/22/2016"
    ms.author="jdial" />
 
-# Définition d’une adresse IP privée interne statique
-Dans la plupart des cas, il n’est pas nécessaire de spécifier une adresse IP interne statique pour votre machine virtuelle. Les machines virtuelles dans un réseau virtuel recevront automatiquement une adresse IP interne à partir d'une plage que vous spécifiez. Toutefois, dans certains cas, il peut être bon de spécifier une adresse IP statique pour une machine virtuelle en particulier. Par exemple, si votre machine virtuelle doit exécuter DNS ou fait office de contrôleur de domaine.
+# Comment définir une adresse IP privée interne statique à l’aide de PowerShell (Classic)
+Dans la plupart des cas, il n’est pas nécessaire de spécifier une adresse IP interne statique pour votre machine virtuelle. Les machines virtuelles dans un réseau virtuel recevront automatiquement une adresse IP interne à partir d'une plage que vous spécifiez. Toutefois, dans certains cas, il peut être bon de spécifier une adresse IP statique pour une machine virtuelle en particulier. Par exemple, si votre machine virtuelle doit exécuter DNS ou fait office de contrôleur de domaine. Une adresse IP interne statique reste associée à la machine virtuelle même lorsque cette dernière se trouve en état d'arrêt/annulation de l’approvisionnement.
 
->[AZURE.NOTE] Une adresse IP interne statique reste associée à la machine virtuelle même lorsque cette dernière se trouve en état d'arrêt/annulation de l’approvisionnement.
+> [AZURE.IMPORTANT] Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [Resource Manager et classique](../resource-manager-deployment-model.md). Cet article traite du modèle de déploiement classique. Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le [modèle de déploiement Resource Manager](virtual-networks-static-private-ip-arm-ps.md).
 
 ## Vérification de la disponibilité d'une adresse IP particulière
 Pour vérifier si l'adresse IP *10.0.0.7* est disponible dans un réseau virtuel nommé *TestVnet*, exécutez la commande PowerShell suivante et vérifiez la valeur de *IsAvailable* :
@@ -99,4 +99,4 @@ Pour ajouter une adresse IP interne statique à la machine virtuelle créée à 
 [API REST d’adresse IP réservée](https://msdn.microsoft.com/library/azure/dn722420.aspx)
  
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="multiple"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="06/24/2016" 
+    ms.date="08/11/2016" 
     ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/dn205108.aspx -->
@@ -37,8 +37,8 @@ Vous pouvez également ouvrir cette boîte de dialogue à partir du lien **Compt
 
 1. Dans la boîte de dialogue **Comptes de stockage**, cliquez sur **Importer à partir du fichier PUBLISH-SETTINGS**.
 2. (Ignorez cette étape si vous avez déjà enregistré un fichier de paramètres de publication sur votre ordinateur local). Dans la boîte de dialogue **Importer les informations d'abonnement**, cliquez sur **Télécharger le fichier PUBLISH-SETTINGS**. Si vous n’êtes pas encore connecté à votre compte Azure, vous y êtes maintenant invité. Vous serez ensuite invité à enregistrer un fichier de paramètres de publication Azure. (Vous pouvez ignorer les instructions affichées sur les pages d'ouverture de session ; elles sont fournies par le portail Azure et sont destinées aux utilisateurs de Visual Studio.) Enregistrez-le sur votre ordinateur local.
-3. Toujours dans la boîte de dialogue **Importer les informations d'abonnement**, cliquez sur le bouton **Parcourir**, sélectionnez le fichier de paramètres que vous avez précédemment enregistré localement, puis cliquez sur **Ouvrir**.
-4. Cliquez sur **OK** pour fermer la boîte de dialogue **Importer les informations d'abonnement**.
+3. Toujours dans la boîte de dialogue **Importer les informations d’abonnement**, cliquez sur le bouton **Parcourir**, sélectionnez le fichier de paramètres que vous avez précédemment enregistré localement, puis cliquez sur **Ouvrir**.
+4. Cliquez sur **OK** pour fermer la boîte de dialogue **Importer les informations d’abonnement**.
 
 ## Pour créer un compte de stockage ##
 
@@ -48,7 +48,7 @@ Vous pouvez également ouvrir cette boîte de dialogue à partir du lien **Compt
     * Nom du compte de stockage.
     * Emplacement du compte de stockage.
     * Description du compte de stockage.
-    * L'abonnement auquel appartient le compte de stockage.
+    * Abonnement auquel appartient le compte de stockage.
 4. Cliquez sur **OK** pour fermer la boîte de dialogue **Nouveau compte de stockage**.
 
 La création de votre compte de stockage peut prendre plusieurs minutes. Après sa création, cliquez sur **OK** pour fermer la boîte de dialogue **Ajouter un compte de stockage** et votre compte de stockage sera ajouté à la liste des comptes de stockage disponibles.
@@ -100,4 +100,4 @@ Pour plus d'informations sur l'utilisation d'Azure avec Java, consultez le [Cent
 [ic719496]: ./media/azure-toolkit-for-eclipse-azure-storage-account-list/ic719496.png
 [ic719497]: ./media/azure-toolkit-for-eclipse-azure-storage-account-list/ic719497.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

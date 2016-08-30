@@ -40,7 +40,7 @@ Il existe trois autres méthodes d’échantillonnage :
 
 * L’**échantillonnage adaptatif** ajuste automatiquement le volume de données de télémétrie envoyées à partir du Kit de développement logiciel (SDK) dans votre application ASP.NET. Il s’agit du comportement par défaut depuis la version 2.0.0-beta3 du Kit de développement logiciel (SDK).
 * L’**échantillonnage à débit fixe** réduit le volume de données de télémétrie envoyées à partir de votre serveur ASP.NET et des navigateurs de vos utilisateurs. Vous définissez le débit.
-* L’**échantillonnage d’ingestion** réduit le volume de données de télémétrie conservées par le service Application Insights, à un débit défini par vous-même. Le trafic des données de télémétrie n’est pas réduit, mais cela vous permet de respecter votre quota mensuel. 
+* L’**échantillonnage d’ingestion** réduit le volume de données de télémétrie conservées par le service Application Insights, à un débit défini par vous-même. Le trafic des données de télémétrie n’est pas réduit, mais cela vous permet de respecter votre quota mensuel.
 
 ## Échantillonnage d’ingestion
 
@@ -130,7 +130,7 @@ Supprimer le nœud `AdaptiveSamplingTelemetryProcessor` du fichier .config.
 
     // Optional: here you can adjust the settings from their defaults.
 
-    var builder = TelemetryConfiguration.Active.GetTelemetryProcessorChainBuilder();
+    var builder = TelemetryConfiguration.Active.TelemetryProcessorChainBuilder;
     
     builder.UseAdaptiveSampling(
          adaptiveSamplingSettings,
@@ -196,7 +196,7 @@ L’algorithme d’échantillonnage conserve les éléments associés. Pour chaq
 
 Dans Metrics Explorer, les taux tels que le nombre de demandes et d’exceptions sont multipliés par un facteur pour compenser le taux d’échantillonnage, afin qu’ils soient approximativement corrects.
 
-1. **Mettez à jour les packages NuGet de votre projet** vers la dernière version *préliminaire* d’Application Insights. Cliquez avec le bouton droit sur le projet dans l’Explorateur de solutions, sélectionnez Gérer les packages NuGet, cochez **Inclure la version préliminaire** et recherchez Microsoft.ApplicationInsights.Web. 
+1. **Mettez à jour les packages NuGet de votre projet** vers la dernière version *préliminaire* d’Application Insights. Cliquez avec le bouton droit sur le projet dans l’Explorateur de solutions, sélectionnez Gérer les packages NuGet, cochez **Inclure la version préliminaire** et recherchez Microsoft.ApplicationInsights.Web.
 
 2. **Désactivez l’échantillonnage adaptatif** : dans [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md), supprimez ou commentez le nœud `AdaptiveSamplingTelemetryProcessor`.
 
@@ -266,9 +266,9 @@ L’échantillonnage n’est pas utile pour la plupart des applications de taill
  
 Les principaux avantages de l’échantillonnage sont les suivants :
 
-* Si le service Application Insights supprime (« limite ») des points de données lorsque votre application envoie un taux de télémétrie très élevé dans un court laps de temps. 
-* Pour respecter le [quota](app-insights-pricing.md) de points de données pour votre niveau tarifaire. 
-* Pour réduire le trafic réseau généré par la collecte de données de télémétrie. 
+* Si le service Application Insights supprime (« limite ») des points de données lorsque votre application envoie un taux de télémétrie très élevé dans un court laps de temps.
+* Pour respecter le [quota](app-insights-pricing.md) de points de données pour votre niveau tarifaire.
+* Pour réduire le trafic réseau généré par la collecte de données de télémétrie.
 
 ### Quel type d’échantillonnage dois-je utiliser ?
 
@@ -283,7 +283,7 @@ Les principaux avantages de l’échantillonnage sont les suivants :
 
 * Vous utilisez la version 2.0.0 ou ultérieure du Kit de développement logiciel (SDK) Application Insights pour les services web ASP.NET, et
 * Vous voulez disposer d’un échantillonnage synchronisé entre le client et le serveur afin de pouvoir naviguer entre les événements connexes sur le client et le serveur (tels que les affichages de pages et les requêtes http) lorsque vous étudiez des événements dans [Search](app-insights-diagnostic-search.md).
-* Vous êtes sûr du pourcentage d’échantillonnage approprié pour votre application. Il doit être suffisamment élevé pour obtenir des mesures précises, mais inférieur au pourcentage engendrant le dépassement de votre quota de tarification et des limites de limitation. 
+* Vous êtes sûr du pourcentage d’échantillonnage approprié pour votre application. Il doit être suffisamment élevé pour obtenir des mesures précises, mais inférieur au pourcentage engendrant le dépassement de votre quota de tarification et des limites de limitation.
 
 
 **Utilisez l’échantillonnage adaptatif :**
@@ -324,7 +324,7 @@ Le Kit de développement logiciel (SDK) (JavaScript) côté client participe à 
 
 *Pourquoi l’échantillonnage ne permet-il pas simplement de « collecter X % de chaque type de télémétrie » ?*
 
- *  Bien que cette approche de l’échantillonnage puisse générer des approximations métriques d’une très haute précision, elle ne permettrait pas de mettre en corrélation les données de diagnostic par utilisateur, par session et par requête, ce qui est essentiel pour l’établissement de diagnostics. L’échantillonnage est donc plus efficace lorsqu’il revient à « collecter tous les éléments de télémétrie pour X % des utilisateurs de l’application » ou à « collecter tous les éléments de télémétrie pour X % des requêtes de l’application ». Pour les éléments de télémétrie qui ne sont pas associés aux requêtes (dans le cas, par exemple, d’un traitement asynchrone en arrière-plan), la solution consiste à « collecter X % de tous les éléments de chaque type de télémétrie ». 
+ *  Bien que cette approche de l’échantillonnage puisse générer des approximations métriques d’une très haute précision, elle ne permettrait pas de mettre en corrélation les données de diagnostic par utilisateur, par session et par requête, ce qui est essentiel pour l’établissement de diagnostics. L’échantillonnage est donc plus efficace lorsqu’il revient à « collecter tous les éléments de télémétrie pour X % des utilisateurs de l’application » ou à « collecter tous les éléments de télémétrie pour X % des requêtes de l’application ». Pour les éléments de télémétrie qui ne sont pas associés aux requêtes (dans le cas, par exemple, d’un traitement asynchrone en arrière-plan), la solution consiste à « collecter X % de tous les éléments de chaque type de télémétrie ».
 
 *Le pourcentage d’échantillonnage peut-il évoluer au fil du temps ?*
 
@@ -334,7 +334,7 @@ Le Kit de développement logiciel (SDK) (JavaScript) côté client participe à 
 
 *Si j’utilise l’échantillonnage à débit fixe, comment déterminer le pourcentage d’échantillonnage optimal pour mon application ?*
 
-* Pour cela, vous pouvez commencer par l’échantillonnage adaptatif, identifier le taux obtenu (voir la question précédente) et passer à l’échantillonnage à taux fixe en utilisant ce taux. 
+* Pour cela, vous pouvez commencer par l’échantillonnage adaptatif, identifier le taux obtenu (voir la question précédente) et passer à l’échantillonnage à taux fixe en utilisant ce taux.
 
     Autrement, vous devez procéder par tâtonnements. Analysez votre utilisation actuelle des données de télémétrie dans AI, observez les limitations qui s’appliquent, puis estimez le volume de données de télémétrie collectées. Ces trois entrées, combinées au niveau tarifaire sélectionné, vous indiquent dans quelle mesure vous devrez réduire le volume de données de télémétrie collectées. Toutefois, une augmentation du nombre d’utilisateurs ou toute autre modification au niveau du volume des données de télémétrie peut invalider votre estimation.
 
@@ -356,4 +356,4 @@ Le Kit de développement logiciel (SDK) (JavaScript) côté client participe à 
 
  * Initialisez une instance distincte de TelemetryClient avec une nouvelle instance TelemetryConfiguration (et non la valeur Active par défaut). Utilisez cette instance pour envoyer vos événements rares.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

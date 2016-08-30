@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/01/2016"
+	ms.date="08/16/2016"
 	ms.author="jeedes"/>
 
 
@@ -93,16 +93,16 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
 3. Dans la page **Configurer les paramètres de l’application**, procédez comme suit :
 
-	![Configuration de l'authentification unique][9]
+	![Configuration de l'authentification unique][61]
 
-	a. Dans la zone de texte **URL d’authentification**, tapez l’URL de votre client DocuSign au format suivant : Pour un environnement de production, le format d’URL est **https://account.docusign.com/organizations/<ORGANIZATIONID>/saml2/login/sp/<IDPID>**. Pour un environnement de démonstration, le format d’URL est **https://account-d.docusign.com/organizations/<ORGANIZATIONID>/saml2/login/sp/<IDPID>**.
+	a. Dans la zone de texte **URL d’authentification**, tapez `https://account.docusign.com/*`.
 
-	b. Dans la zone de texte **Identificateur**, tapez l’URL de votre émetteur DocuSign au format suivant : Pour un environnement de production, le format d’URL est **https://account.docusign.com/organizations/<ORGANIZATIONID>/saml2**. Pour un environnement de démonstration, le format d’URL est **https://account-d.docusign.com/organizations/<ORGANIZATIONID>/saml2**.
-
+	b. Dans la zone de texte **Identificateur**, tapez `https://account.docusign.com/*`.
+   
 	c. Cliquez sur **Next**.
 
 
-    > [AZURE.TIP] Si vous ne connaissez pas l’URL d’application de votre client, essayez de contacter DocuSign à l’adresse [SSOSetup@Docusign.com](emailTo:SSOSetup@Docusign.com) pour obtenir l’URL d’authentification unique initiée par SP pour votre client.
+    > [AZURE.TIP] Les valeurs URL d’authentification et Identificateur sont uniquement des espaces réservés. Les instructions relatives à l’extraction des valeurs réelles de votre environnement sont traitées plus loin dans cette rubrique.
  
 
 4. Dans la page **Configurer l’authentification unique à DocuSign**, cliquez sur **Télécharger le certificat**, puis enregistrez le fichier de certificat en local sur votre ordinateur.
@@ -113,69 +113,79 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 5. Dans une autre fenêtre de navigateur web, connectez-vous à votre **portail d’administration DocuSign** en tant qu’administrateur.
 
 
-6. Dans le menu de navigation situé à gauche, cliquez sur **Domains** (Domaines).
+6. Dans le menu de navigation à gauche, cliquez sur **Domaines**.
 
 	![Configuration de l'authentification unique][51]
 
-7. Dans le volet droit, cliquez sur le bouton **CLAIM DOMAIN** (REVENDIQUER LE DOMAINE).
+7. Dans le volet droit, cliquez sur **Claim Domain** (Revendiquer un domaine).
 
 	![Configuration de l'authentification unique][52]
 
-8. Dans la fenêtre contextuelle, entrez le nom de domaine de votre entreprise, puis cliquez sur CLAIM (REVENDIQUER). Veillez à vérifier le domaine et assurez-vous que son état est actif.
+8. Dans la boîte de dialogue **Claim a domain** (Revendiquer un domaine), dans la zone de texte **Nom du domaine**, indiquez votre domaine d’entreprise, puis cliquez sur **Revendication**. Veillez à vérifier le domaine et assurez-vous que son état est actif.
 
 	![Configuration de l'authentification unique][53]
 
-9. Dans le menu de navigation situé à gauche, cliquez sur **Identity Providers** (Fournisseurs d’identité).
+9. Dans le menu de gauche, cliquez sur **Fournisseurs d’identité**.
 
 	![Configuration de l'authentification unique][54]
 
-10. Dans la volet droit, cliquez sur le bouton ADD IDENTITY PROVIDER (AJOUTER UN FOURNISSEUR D’IDENTITÉ). La page SSO Settings (Paramètres d’authentification unique) s’ouvre.
+10. Dans le volet de droite, cliquez sur **Add Identity Provider** (Ajouter un fournisseur d’identité).
 	
 	![Configuration de l'authentification unique][55]
 
-11. Dans la page Identity Provider Settings (Paramètres du fournisseur d’identité), effectuez les actions suivantes :
-
-	a. Donnez un nom unique à votre configuration. N’utilisez pas d’espaces.
-
-	b. Dans la zone de texte **Identity Provider Issuer** (Émetteur du fournisseur d’identité), copiez la valeur de **URL de l’émetteur** indiquée dans l’Assistant Configuration de l’application Azure AD.
-
-	c. Dans la zone de texte **Identity Provider Login URL** (URL de connexion du fournisseur d’identité), copiez la valeur de **URL de connexion distante** indiquée dans l’Assistant Configuration de l’application Azure AD.
-
-	d. Dans la zone de texte **Identity Provider Logout URL** (URL de déconnexion du fournisseur d’identité), copiez la valeur de **URL de déconnexion distante** indiquée dans l’Assistant Configuration de l’application Azure AD.
-
-	e. Activez la case à cocher **Sign AuthN Request** (Signer la demande d’authentification).
-
-	f. Assurez-vous que l’option **Send AuthN request by:** (Envoyer la demande d’authentification par :) est définie sur **POST**.
-
-	g. Assurez-vous que l’option **Send logout request by:** (Envoyer la demande de déconnexion par :) est définie sur **POST**.
+11. Dans la page **Identity Provider Settings** (Paramètres du fournisseur d’identité), effectuez les actions suivantes :
 
 	![Configuration de l'authentification unique][56]
 
-12. Dans la section **Custom Attribute Mapping** (Mappage d’attributs personnalisé), choisissez le champ à mapper avec la revendication Azure AD. Par exemple, nous avons utilisé la revendication **emailaddress** mappée avec la valeur sous la forme **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**. Il s’agit du nom de revendication par défaut d’Azure AD pour la revendication de courrier électronique.
 
-	> [AZURE.NOTE] Utilisez l’identificateur d’utilisateur approprié pour mapper l’utilisateur d’Azure AD au mappage utilisateur DocuSign. Sélectionnez le champ correct et entrez la valeur appropriée en fonction des paramètres de votre organisation.
+	a. Dans la zone de texte **Nom**, entrez le nom de votre configuration. N’utilisez pas d’espaces.
+
+	b. Dans le portail Azure Classic, copiez l’URL de l’émetteur et collez-la dans la zone de texte **Émetteur du fournisseur d’identité**.
+
+	c. Dans le portail Azure Classic, copiez **l’URL de connexion distante** et collez-la dans la zone de texte **Identity Provider Login URL** (URL de connexion du fournisseur d’identité).
+
+	d. Dans le portail Azure Classic, copiez **l’URL de déconnexion distante** et collez-la dans la zone de texte **Identity Provider Logout URL** (URL de déconnexion du fournisseur d’identité).
+
+	e. Sélectionnez **Sign AuthN Request** (Signer la demande d’authentification).
+
+	f. Sous **Send AuthN request by** (Envoyer la demande d’authentification par), sélectionnez **POST**.
+
+	g. Sous **Send logout request by** (Envoyer la demande de déconnexion par), sélectionnez **POST**.
+
+
+12. Dans la section **Custom Attribute Mapping** (Mappage d’attributs personnalisé), choisissez le champ à mapper avec la revendication Azure AD. Dans cet exemple, la revendication **emailaddress** est mappée avec la valeur de **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**. Il s’agit du nom de revendication par défaut d’Azure AD pour la revendication de courrier électronique.
+
+	> [AZURE.NOTE] Utilisez **l’identificateur d’utilisateur** approprié pour mapper l’utilisateur d’Azure AD au mappage utilisateur DocuSign. Sélectionnez le champ correct et entrez la valeur appropriée en fonction des paramètres de votre organisation.
 
 	![Configuration de l'authentification unique][57]
 
-13. Dans la section **Identity Provider Certificate** (Certificat du fournisseur d’identité), cliquez sur **ADD CERTIFICATE** (AJOUTER UN CERTIFICAT) et chargez le certificat que vous avez téléchargé depuis l’Assistant Configuration de l’application Azure AD.
+13. Dans **Identity Provider Certificate** (Certificat du fournisseur d’identité), cliquez sur **Ajouter un certificat**, puis chargez le certificat que vous avez téléchargé à partir du portail Azure Classic.
 
 	![Configuration de l'authentification unique][58]
 
-14. Cliquez sur le **Save** (Enregistrer) pour enregistrer tous les paramètres.
+14. Cliquez sur **Save**.
 
-15. Dans la section **Identity Providers** (Fournisseurs d’identité), cliquez sur le bouton **Actions**, puis cliquez sur **Endpoints** (Points de terminaison).
+15. Dans la section **Identity Providers** (Fournisseurs d’identité), cliquez **Actions**, puis cliquez sur **Endpoints** (Points de terminaison).
 
 	![Configuration de l'authentification unique][59]
 
-16. Dans la section **View SAML 2.0 Endpoints** (Afficher les points de terminaison SAML 2.0), effectuez les étapes suivantes :
 
-	a. Copiez la valeur de **Service Provider Issuer URL** (URL de l’émetteur du fournisseur de services) et collez-la dans la zone de texte **Identificateur** de l’Assistant Configuration d’Azure AD.
 
-	b. Copiez la valeur de **Service Provider Login URL** (URL de connexion du fournisseur de services) et collez-la dans la zone de texte **URL d’authentification** de l’Assistant Configuration d’Azure AD.
+10. Dans le portail Azure Classic, revenez à la page **Configurer les paramètres de l’application**.
+
+16. Dans le **Portail d’administration DocuSign**, sous la section **View SAML 2.0 Endpoints** (Afficher les points de terminaison SAML 2.0), effectuez les étapes suivantes :
 
 	![Configuration de l'authentification unique][60]
 
-	c. Cliquez sur **CLOSE** (FERMER).
+	a. Dans le portail Azure Classic, copiez la valeur **Service Provider Issuer URL** (URL de l’émetteur du fournisseur d’identité) et collez-la dans la zone de texte **Identificateur**.
+
+	b. Dans le portail Azure Classic, copiez la valeur **Service Provider Login URL** (URL de connexion du fournisseur d’identité) et collez-la dans la zone de texte **URL de connexion**.
+
+	c. Cliquez sur **Fermer**.
+
+
+10. Dans le portail Azure Classic, cliquez sur **Suivant**.
+
 
 15. Dans le portail Azure Classic, sélectionnez la **confirmation de la configuration de l’authentification unique**, puis cliquez sur **Suivant**.
 
@@ -192,7 +202,7 @@ L’objectif de cette section est d’expliquer comment activer l’approvisionn
 
 ### Pour configurer l'approvisionnement des utilisateurs, procédez comme suit :
 
-1. Dans le **portail Azure Classic**, accédez à la page **ntégration d’application DocuSign**, puis cliquez sur **Configurer l’approvisionnement de compte** pour ouvrir la boîte de dialogue Configurer l’approvisionnement d’utilisateurs.
+1. Dans le **portail Azure Classic**, accédez à la page **Intégration d’application DocuSign**, puis cliquez sur **Configurer l’approvisionnement de compte** pour ouvrir la boîte de dialogue Configurer l’approvisionnement d’utilisateurs.
 
 	![Configuration de l’approvisionnement de compte][30]
 
@@ -287,5 +297,6 @@ Pour plus d’informations sur le panneau d’accès, consultez Présentation du
 [58]: ./media/active-directory-saas-docusign-tutorial/tutorial_docusign_26.png
 [59]: ./media/active-directory-saas-docusign-tutorial/tutorial_docusign_27.png
 [60]: ./media/active-directory-saas-docusign-tutorial/tutorial_docusign_28.png
+[61]: ./media/active-directory-saas-docusign-tutorial/tutorial_docusign_29.png
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

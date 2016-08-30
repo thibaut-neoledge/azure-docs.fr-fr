@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/12/2016"
+	ms.date="08/12/2016"
 	ms.author="asteen"/>
 
 # Résolution des problèmes de gestion des mots de passe
@@ -37,17 +37,17 @@ Si vous avez essayé les étapes de dépannage décrites ci-dessous et que vous 
 
 Si vous ne pouvez pas résoudre le problème avec les conseils ci-dessous, vous pouvez contacter nos ingénieurs de support. Lorsque vous les contactez, il est recommandé de fournir les informations suivantes :
 
- - **Description générale de l’erreur** : quel message d’erreur exact est apparu ? Si aucun message d’erreur n’est apparu, décrivez en détail le comportement inattendu remarqué.
- - **Page** : sur quelle page vous trouviez-vous lorsque l’erreur est apparue (incluez l’URL) ?
- - **Date/heure/fuseau horaire** : quelles étaient la date et l’heure auxquelles l’erreur s’est produite (incluez le fuseau horaire) ?
- - **Code de support** : quel était le code de support généré lorsque l’erreur s’est produite (pour le trouver, reproduisez l’erreur, puis cliquez sur le lien Code de support en bas de l’écran et envoyez à l’ingénieur du support technique le GUID obtenu).
+ - **Description générale de l’erreur** : quel message d’erreur exact est apparu ? Si aucun message d’erreur n’est apparu, décrivez en détail le comportement inattendu remarqué.
+ - **Page** : sur quelle page vous trouviez-vous lorsque l’erreur est apparue (incluez l’URL) ?
+ - **Date/heure/fuseau horaire** : quelles étaient la date et l’heure auxquelles l’erreur s’est produite (incluez le fuseau horaire) ?
+ - **Code de support** : quel était le code de support généré lorsque l’erreur s’est produite (pour le trouver, reproduisez l’erreur, puis cliquez sur le lien Code de support en bas de l’écran et envoyez à l’ingénieur du support technique le GUID obtenu).
    - Si vous êtes dans une page sans code de support dans la partie inférieure, appuyez sur F12 et recherchez le SID et le CID et envoyez ces deux résultats à l’ingénieur de support.
 
     ![][001]
 
- - **ID utilisateur** : quel est l’ID de l’utilisateur qui a vu l’erreur (par exemple user@contoso.com) ?
- - **Informations sur l’utilisateur** : l’utilisateur était-il fédéré, disposait-il de la synchronisation du hachage de mot de passe ou était-ce un utilisateur du cloud uniquement ? L’utilisateur dispose-t-il d’une licence AAD Premium ou AAD Basic ?
- - **Journal des événements de l’application** : si vous utilisez l’écriture différée de mot de passe et que l’erreur se produit dans votre infrastructure locale, veuillez compresser une copie du journal des événements de l’application provenant de votre serveur Azure AD Connect et l’envoyer avec votre demande.
+ - **ID utilisateur** : quel est l’ID de l’utilisateur qui a vu l’erreur (par exemple user@contoso.com) ?
+ - **Informations sur l’utilisateur** : l’utilisateur était-il fédéré, disposait-il de la synchronisation du hachage de mot de passe ou était-ce un utilisateur du cloud uniquement ? L’utilisateur dispose-t-il d’une licence AAD Premium ou AAD Basic ?
+ - **Journal des événements de l’application** : si vous utilisez l’écriture différée de mot de passe et que l’erreur se produit dans votre infrastructure locale, veuillez compresser une copie du journal des événements de l’application provenant de votre serveur Azure AD Connect et l’envoyer avec votre demande.
 
 Ces informations nous aideront à résoudre votre problème aussi rapidement que possible.
 
@@ -456,7 +456,21 @@ Si vous rencontrez une erreur lors de l’activation, la désactivation ou l’u
               <p>Pendant le redémarrage du service ADSync, si l’écriture différée a été configurée, le point de terminaison WCF est démarré. Toutefois, si le démarrage du point de terminaison échoue, l’événement&#160;6800 est tout simplement consigné et le service de synchronisation peut démarrer. La présence de cet événement signifie que le point de terminaison de l’écriture différée de mot de passe n’a pas démarré. Les détails du journal des événements pour cet événement (6800) ainsi que les entrées du journal des événements générées par le composant PasswordResetService indiquent pour quelles raisons le point de terminaison n’a pas pu démarrer. Passez en revue les erreurs du journal des événements et essayez de redémarrer Azure AD Connect si l’écriture différée de mot de passe ne fonctionne toujours pas. Si le problème persiste, essayez de désactiver et de réactiver l’écriture différée de mot de passe.</p>
             </td>
           </tr>
-          <tr>
+					<tr>
+            <td>
+              <p>Lorsqu’un utilisateur tente de réinitialiser un mot de passe ou de déverrouiller un compte avec l’écriture différée du mot de passe activée, l’opération échoue. De plus, un événement est consigné dans le journal des événements d’Azure AD Connect : « Synchronization Engine returned an error (Le moteur de synchronisation a renvoyé une erreur) hr=800700CE, message=nom de fichier ou extension est trop long » après l’opération de déverrouillage.
+							</p>
+            </td>
+            <td>
+              <p>Cela peut se produire si vous avez effectué une mise à niveau à partir de versions antérieures d’Azure AD Connect ou de DirSync. La mise à niveau vers des versions antérieures d’Azure AD Connect définit un mot de passe de 254 caractères pour le compte de l’Agent de gestion d’Azure AD (les versions plus récentes définissent un mot de passe de 127 caractères). Ces mots de passe longs fonctionnent pour les opérations d’importation et d’exportation du connecteur AD, mais l’opération de déverrouillage ne les prend pas en charge.
+							</p>
+            </td>
+            <td>
+              <p>[Rechercher le compte Active Directory](active-directory-aadconnect-accounts-permissions.md#active-directory-account) pour Azure AD Connect et réinitialisez le mot de passe pour qu’il ne contienne pas plus de 127 caractères. Ensuite ouvrez **Service de synchronisation** dans le menu Démarrer. Accédez à **Connecteurs** et recherchez le **Connecteur Active Directory**. Sélectionnez-le et cliquez sur **Propriétés**. Accédez à la page **Informations d’identification** et entrez le nouveau mot de passe. Cliquez sur **OK** pour fermer la page.
+							</p>
+            </td>
+          </tr>
+					<tr>
             <td>
               <p>Erreur de configuration de l’écriture différée lors de l’installation d’Azure AD Connect.</p>
             </td>
@@ -1501,4 +1515,4 @@ Voici les liens vers toutes les pages de la documentation sur la réinitialisati
 [003]: ./media/active-directory-passwords-troubleshoot/003.jpg "Image_003.jpg"
 [004]: ./media/active-directory-passwords-troubleshoot/004.jpg "Image_004.jpg"
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0817_2016-->

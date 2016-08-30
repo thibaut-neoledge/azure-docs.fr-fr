@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Créer et charger une image Linux personnalisée | Microsoft Azure"
-	description="Créez et chargez un disque dur virtuel vers Azure à l’aide d’une image Linux personnalisée, en utilisant le modèle de déploiement Resource Manager."
+	description="Créez et chargez un disque dur virtuel vers Azure à l’aide d’une image Linux personnalisée en utilisant le modèle de déploiement Resource Manager."
 	services="virtual-machines-linux"
 	documentationCenter=""
 	authors="iainfoulds"
@@ -17,12 +17,12 @@
 	ms.date="07/15/2016"
 	ms.author="iainfou"/>
 
-# Charger et créer une machine virtuelle à partir d’une image de disque personnalisée
+# Chargement et création d’une machine virtuelle à partir d’une image de disque personnalisée
 
-Cet article indique comment charger un disque dur virtuel à l’aide du modèle de déploiement Resource Manager, et comment créer des machines virtuelles à partir de cette image personnalisée. Cette fonctionnalité vous permet d’installer et de configurer une distribution Linux selon vos besoins, puis d’utiliser ce disque dur virtuel pour créer rapidement des machines virtuelles Azure.
+Cet article indique comment charger un disque dur virtuel dans Azure à l’aide du modèle de déploiement Resource Manager, et comment créer des machines virtuelles Linux à partir de cette image personnalisée. Cette fonctionnalité vous permet d’installer et de configurer une distribution Linux selon vos besoins, puis d’utiliser ce disque dur virtuel pour créer rapidement des machines virtuelles Azure.
 
 ## Commandes rapides
-Veillez à ce que [la CLI Azure](../xplat-cli-install.md) soit connectée et utilise le mode Resource Manager (`azure config mode arm`).
+Veillez à ce que [l’interface de ligne de commande Azure](../xplat-cli-install.md) soit connectée et utilise le mode Resource Manager (`azure config mode arm`).
 
 Créez d’abord un groupe de ressources :
 
@@ -37,7 +37,7 @@ azure storage account create testuploadedstorage --resource-group TestRG \
 	--location "WestUS" --kind Storage --sku-name PLRS
 ```
 
-Répertoriez les clés d’accès au compte de stockage que vous venez de créer et prenez note de `key1` :
+Répertoriez les clés d’accès du compte de stockage que vous avez créé et prenez note de `key1` :
 
 ```bash
 azure storage account keys list testuploadedstorage --resource-group TestRG
@@ -50,29 +50,29 @@ azure storage container create --account-name testuploadedstorage \
 	--account-key <key1> --container vm-images
 ```
 
-Enfin, téléchargez votre disque dur virtuel vers le conteneur que vous venez de créer :
+Enfin, téléchargez votre disque dur virtuel vers le conteneur que vous avez créé :
 
 ```bash
 azure storage blob upload --blobtype page --account-name testuploadedstorage \
 	--account-key <key1> --container vm-images /path/to/disk/yourdisk.vhd
 ```
 
-Vous pouvez maintenant créer une machine virtuelle à partir du disque virtuel chargé [en utilisant un modèle Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-from-specialized-vhd) ou via la CLI en spécifiant l’URI de votre disque, comme suit :
+Vous pouvez maintenant créer une machine virtuelle à partir de votre disque virtuel chargé [à l’aide d’un modèle Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-from-specialized-vhd). Vous pouvez également utiliser l’interface de ligne de commande en spécifiant l’URI pour le disque comme suit :
 
 ```bash
 azure vm create TestVM -l "WestUS" --resource-group TestRG \
 	-Q https://testuploadedstorage.blob.core.windows.net/vm-images/yourdisk.vhd
 ```
 
-Remarque : le compte de stockage de destination doit être celui sur lequel vous avez chargé votre disque virtuel. Vous devez également spécifier, ou répondre aux invites relatives à tous les paramètres supplémentaires requis par la commande `azure vm create`, tels que le réseau virtuel, l’adresse IP publique, le nom d’utilisateur, les clés SSH, etc. Vous pouvez en savoir plus sur les [paramètres Resource Manager disponibles la CLI](azure-cli-arm-commands.md#azure-vm-commands-to-manage-your-azure-virtual-machines).
+Le compte de stockage de destination doit être celui sur lequel vous avez chargé votre disque virtuel. Vous devez également spécifier, ou répondre aux invites relatives à tous les paramètres supplémentaires nécessaires à la commande `azure vm create`, tels que le réseau virtuel, l’adresse IP publique, le nom d’utilisateur, les clés SSH, etc. Vous pouvez en savoir plus sur les [paramètres de l’interface de ligne de commande Resource Manager](azure-cli-arm-commands.md#azure-vm-commands-to-manage-your-azure-virtual-machines).
 
 
 ## Procédure détaillée
-La préparation de votre image Linux personnalisée et son chargement dans Azure nécessitent un certain nombre d’étapes. Le reste de cet article fournit des informations plus détaillées sur chaque étape indiquée dans l’ensemble précédent de commandes rapides.
+La préparation de votre image Linux personnalisée et son chargement dans Azure impliquent plusieurs d’étapes. Le reste de cet article fournit des informations plus détaillées sur chaque étape indiquée dans l’ensemble précédent de commandes rapides.
 
 
 ## Configuration requise
-Pour pouvoir effectuer les étapes ci-dessus, vous avez besoin des éléments suivants :
+Pour effectuer les étapes suivantes, vous avez besoin des éléments suivants :
 
 - **Un système d’exploitation Linux installé dans un fichier .vhd** : Installez une [distribution Linux approuvée par Azure](virtual-machines-linux-endorsed-distros.md) (ou consultez les [informations relatives aux distributions non approuvées](virtual-machines-linux-create-upload-generic.md)) sur un disque virtuel au format VHD. Plusieurs outils permettent de créer une machine virtuelle et un disque dur virtuel :
 	- Installez et configurez [QEMU](https://en.wikibooks.org/wiki/QEMU/Installing_QEMU) ou [KVM](http://www.linux-kvm.org/page/RunningKVM), en veillant à utiliser VHD comme format d’image. Vous pouvez [convertir une image](https://en.wikibooks.org/wiki/QEMU/Images#Converting_image_formats) à l’aide de `qemu-img convert` si nécessaire.
@@ -111,9 +111,9 @@ azure group create TestRG --location "WestUS"
 ```
 
 ## Créez un compte de stockage.
-Les machines virtuelles sont stockées en tant qu’objets blob de pages au sein d’un compte de stockage. Découvrez plus d’informations sur [Azure Storage ici](../storage/storage-introduction.md#blob-storage). Vous devez créer un compte de stockage pour votre image de disque personnalisée et vos machines virtuelles. Toutes les machines virtuelles que vous créez à partir de votre image de disque personnalisée doivent être placées dans le même compte de stockage que cette image.
+Les machines virtuelles sont stockées en tant qu’objets blob de pages au sein d’un compte de stockage. Découvrez plus d’informations sur [Azure Storage ici](../storage/storage-introduction.md#blob-storage). Vous créez un compte de stockage pour votre image de disque personnalisée et vos machines virtuelles. Toutes les machines virtuelles que vous créez à partir de votre image de disque personnalisée doivent être placées dans le même compte de stockage que cette image.
 
-Créez un compte de stockage au sein du groupe de ressources que vous venez de générer :
+Créez un compte de stockage au sein du groupe de ressources que vous créez :
 
 ```bash
 azure storage account create testuploadedstorage --resource-group TestRG \
@@ -123,13 +123,13 @@ azure storage account create testuploadedstorage --resource-group TestRG \
 ## Répertorier les clés de compte de stockage
 Azure génère deux clés d’accès de 512 bits pour chaque compte de stockage. Ces clés d’accès sont utilisées lors de l’authentification auprès du compte de stockage, par exemple pour effectuer des opérations d’écriture. Découvrez plus d’informations sur la [gestion de l’accès au stockage ici](../storage/storage-create-storage-account.md#manage-your-storage-account). Utilisez la commande `azure storage account keys list` pour afficher les clés d’accès.
 
-Affichez les clés d’accès au compte de stockage que vous venez de créer :
+Affichez les clés d’accès au compte de stockage que vous avez créé :
 
 ```bash
 azure storage account keys list testuploadedstorage --resource-group TestRG
 ```
 
-La sortie doit ressembler à ceci :
+Le résultat ressemble à ce qui suit :
 
 ```
 info:    Executing command storage account keys list
@@ -144,7 +144,7 @@ info:    storage account keys list command OK
 Prenez note de l’élément `key1`, car vous allez l’utiliser pour interagir avec votre compte de stockage au cours des étapes suivantes.
 
 ## Créer un conteneur de stockage
-De la même façon que vous créez des répertoires différents pour organiser de manière logique votre système de fichiers local, vous créez des conteneurs dans un compte de stockage afin d’organiser vos disques virtuels et images de disque. Un compte de stockage peut contenir un certain nombre de conteneurs.
+De la même façon que vous créez des répertoires différents pour organiser de manière logique votre système de fichiers local, vous créez des conteneurs dans un compte de stockage afin d’organiser vos disques virtuels et images. Un compte de stockage peut contenir un certain nombre de conteneurs.
 
 Créez un conteneur, en indiquant la clé d’accès obtenue au cours de l’étape précédente :
 
@@ -156,7 +156,7 @@ azure storage container create --account-name testuploadedstorage \
 ## Charger un disque dur virtuel
 Désormais, vous pouvez charger votre image de disque personnalisée. Comme pour tous les disques virtuels utilisés par les machines virtuelles, vous devez charger et stocker votre image de disque personnalisée en tant qu’objet blob de pages.
 
-Vous devrez spécifier votre clé d’accès, le conteneur que vous avez créé lors de l’étape précédente, puis le chemin d’accès à l’image de disque personnalisée sur votre ordinateur local :
+Vous devrez spécifier votre clé d’accès, le conteneur que vous avez créé au cours de l’étape précédente, puis le chemin d’accès à l’image de disque personnalisée sur votre ordinateur local :
 
 ```bash
 azure storage blob upload --blobtype page --account-name testuploadedstorage \
@@ -164,11 +164,11 @@ azure storage blob upload --blobtype page --account-name testuploadedstorage \
 ```
 
 ## Créer une machine virtuelle à partir d’une image personnalisée
-Lorsque vous créez des machines virtuelles à partir de votre image de disque personnalisée, vous devez spécifier l’URI associé à l’image de disque et vérifier que le compte de stockage de destination correspond à l’emplacement de stockage de l’image de disque personnalisée. Vous pouvez créer votre machine virtuelle à l’aide de la CLI Azure ou du modèle JSON du gestionnaire de ressources.
+Lorsque vous créez des machines virtuelles à partir de votre image de disque personnalisé, spécifiez l’URI de l’image de disque. Vérifiez que la destination correspond au compte de stockage dans lequel se trouve l’image de disque personnalisée. Vous pouvez créer votre machine virtuelle à l’aide de l’interface de ligne de commande Azure ou du modèle JSON Resourse Manager.
 
 
 ### Créer une machine virtuelle à l’aide de la CLI Azure
-Vous spécifiez le paramètre `--image-urn` (ou `-Q`, simplement) avec la commande `azure vm create` pour pointer vers l’image de disque personnalisée. Vérifiez que le paramètre `--storage-account-name` (ou `-o`) correspond au compte de stockage dans lequel se trouve l’image de disque personnalisée. Vous n’êtes pas obligé d’utiliser le même conteneur que l’image de disque personnalisée pour stocker vos machines virtuelles. Toutefois, vous devez créer tous les conteneurs supplémentaires en suivant la procédure indiquée plus haut avant de charger vos images de disque personnalisées.
+Vous spécifiez le paramètre `--image-urn` (ou `-Q`, simplement) avec la commande `azure vm create` pour pointer vers l’image de disque personnalisée. Vérifiez que le paramètre `--storage-account-name` (ou `-o`) correspond au compte de stockage dans lequel se trouve l’image de disque personnalisée. Vous n’avez pas à utiliser le même conteneur que l’image de disque personnalisé pour stocker vos machines virtuelles. Veillez à créer des conteneurs supplémentaires de la même manière que dans les étapes précédentes avant de charger vos images de disques personnalisées.
 
 Créez une machine virtuelle à partir d’une image de disque personnalisée :
 
@@ -178,12 +178,12 @@ azure vm create TestVM -l "WestUS" --resource-group TestRG \
 	-o testuploadedstorage
 ```
 
-Remarque : vous devez malgré tout spécifier, ou répondre aux invites relatives à tous les paramètres supplémentaires requis par la commande `azure vm create`, tels que le réseau virtuel, l’adresse IP publique, le nom d’utilisateur, les clés SSH, etc. Découvrez plus d’informations sur les [paramètres Resource Manager disponibles de la CLI](azure-cli-arm-commands.md#azure-vm-commands-to-manage-your-azure-virtual-machines).
+Vous devez encore spécifier tous les paramètres supplémentaires exigés par la commande `azure vm create` ou répondre aux invites correspondantes, notamment le réseau virtuel, l’adresse IP publique, le nom d’utilisateur, les clés SSH, etc. Découvrez plus d’informations sur les [paramètres de l’interface de ligne de commande Resource Manager](azure-cli-arm-commands.md#azure-vm-commands-to-manage-your-azure-virtual-machines).
 
 ### Créer une machine virtuelle à l’aide d’un modèle JSON
-Les modèles Azure Resource Manager sont des fichiers JSON (JavaScript Objet Notation) qui définissent l’environnement que vous souhaitez générer. Les modèles sont répartis parmi différents fournisseurs de ressources, tels que les fournisseurs de calcul ou réseau. Vous pouvez utiliser les modèles existants ou écrire les vôtres. Découvrez plus d’informations sur l’[utilisation des modèles et de Resource Manager](../resource-group-overview.md).
+Les modèles Azure Resource Manager sont des fichiers JSON (JavaScript Objet Notation) qui définissent l’environnement que vous souhaitez générer. Les modèles sont répartis parmi différents fournisseurs de ressources, tels que les fournisseurs de calcul ou réseau. Vous pouvez utiliser les modèles existants ou écrire les vôtres. Découvrez plus d’informations sur [l’utilisation des modèles et de Resource Manager](../resource-group-overview.md).
 
-Dans le fournisseur `Microsoft.Compute/virtualMachines` de votre modèle, vous disposerez d’un nœud `storageProfile` qui contient les détails de configuration de votre machine virtuelle. Les deux principaux paramètres à modifier sont les URI `image` et `vhd` qui pointent vers votre image de disque personnalisée et le disque virtuel de votre nouvelle machine virtuelle. Voici un exemple de JSON pour l’utilisation d’une image de disque personnalisée :
+Dans le fournisseur `Microsoft.Compute/virtualMachines` de votre modèle, vous disposez d’un nœud `storageProfile` qui contient les détails de configuration de votre machine virtuelle. Les deux principaux paramètres à modifier sont les URI `image` et `vhd` qui pointent vers votre image de disque personnalisée et le disque virtuel de votre nouvelle machine virtuelle. Voici un exemple de JSON pour l’utilisation d’une image de disque personnalisée :
 
 ```bash
 "storageProfile": {
@@ -219,6 +219,6 @@ azure group deployment create --resource-group TestTemplateRG
 
 
 ## Étapes suivantes
-Après avoir préparé et chargé votre disque virtuel personnalisé, vous pouvez en savoir plus sur [l’utilisation de Resource Manager et des modèles](../resource-group-overview.md). Vous pouvez également [ajouter un disque de données](virtual-machines-linux-add-disk.md) à vos nouvelles machines virtuelles. Si vous avez besoin d’accéder à des applications qui s’exécutent sur vos machines virtuelles, veillez à [ouvrir les ports et points de terminaison](virtual-machines-linux-nsg-quickstart.md).
+Après avoir préparé et chargé votre disque virtuel personnalisé, vous pouvez découvrir plus d’informations sur [l’utilisation de Resource Manager et des modèles](../resource-group-overview.md). Vous pouvez également [ajouter un disque de données](virtual-machines-linux-add-disk.md) à vos nouvelles machines virtuelles. Si vous avez besoin d’accéder à des applications qui s’exécutent sur vos machines virtuelles, veillez à [ouvrir les ports et points de terminaison](virtual-machines-linux-nsg-quickstart.md).
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

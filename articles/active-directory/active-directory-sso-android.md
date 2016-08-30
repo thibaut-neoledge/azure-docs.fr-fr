@@ -1,6 +1,6 @@
 <properties
 	pageTitle="En savoir plus sur l’activation d’une authentification unique entre applications sur Android à l’aide de la bibliothèque ADAL | Microsoft Azure"
-	description="En savoir plus sur l’utilisation des fonctionnalités de votre Kit de développement logiciel (SDK) ADAL pour activer l’authentification unique sur l’ensemble de vos applications."
+	description="En savoir plus sur l’utilisation des fonctionnalités de votre Kit de développement logiciel (SDK) ADAL pour activer l’authentification unique sur l’ensemble de vos applications. "
 	services="active-directory"
 	documentationCenter=""
 	authors="brandwe"
@@ -33,8 +33,9 @@ Cette procédure pas à pas s’applique aux éléments suivants :
 * Azure Active Directory
 * Azure Active Directory B2C
 * Azure Active Directory B2B
+* Accès conditionnel Azure Active Directory
 
-Notez que le document ci-dessous prend pour acquis que vous savez comment [mettre en service des applications dans le portail hérité dédié à Azure Active Directory](active-directory-how-to-integrate.md) et que vous avez intégré votre application avec le [Kit de développement logiciel (SDK) Microsoft Identity Android](https://github.com/AzureAD/azure-activedirectory-library-for-android).
+Notez que le document ci-dessous prend pour acquis que vous savez comment [mettre en service des applications dans le portail hérité dédié Azure Active Directory](active-directory-how-to-integrate.md) et que vous avez intégré votre application avec le [Kit de développement logiciel (SDK) Microsoft Identity Android](https://github.com/AzureAD/azure-activedirectory-library-for-android).
 
 ## Concepts de l’authentification unique dans la plateforme Microsoft Identity
 
@@ -58,7 +59,7 @@ Les connexions assistées sans répartiteur correspondent à des expériences de
 Ces connexions présentent les avantages suivants :
 
 -  L’expérience utilisateur existe intégralement au sein de l’application.
--  Les informations d’identification peuvent être partagées entre les applications qui sont signées par le même certificat, ce qui constitue une expérience de connexion unique à votre suite d’applications. 
+-  Les informations d’identification peuvent être partagées entre les applications qui sont signées par le même certificat, ce qui constitue une expérience de connexion unique à votre suite d’applications.
 -  Le contrôle de connexion est fourni à l’application avant et après la connexion.
 
 Ces connexions présentent les inconvénients suivants :
@@ -155,7 +156,7 @@ Les Kits de développement logiciel (SDK) Microsoft Identity prennent en charge 
 
 Pour activer l’authentification unique sur l’ensemble des applications que vous possédez, vous devez effectuer les opérations suivantes :
 
-1. Vérifiez que l’ensemble de vos applications utilisent le même ID client ou ID d’application. 
+1. Vérifiez que l’ensemble de vos applications utilisent le même ID client ou ID d’application.
 * Vérifiez que toutes vos applications ont le même ensemble SharedUserID.
 * Vérifiez que toutes vos applications partagent le même certificat de signature fourni par Google Play store, de manière à ce que vous puissiez partager le stockage.
 
@@ -240,14 +241,14 @@ Votre URI de redirection doit présenter la forme appropriée suivante :
 
 `msauth://packagename/Base64UrlencodedSignature`
 
-ex : **msauth://com.example.userapp/IcB5PxIyvbLkbFVtBI%2FitkW%2Fejk%3D*
+ex : *msauth://com.example.userapp/IcB5PxIyvbLkbFVtBI%2FitkW%2Fejk%3D*
 
-Cet URI de direction doit être spécifié dans l’inscription de votre application avec le [portail Azure Classic](https://manage.windowsazure.com/). Pour plus d’informations sur l’inscription d’applications Azure AD, consultez [Intégration avec Azure Active Directory](active-directory-how-to-integrate.md).
+Cet URI de redirection doit être spécifié dans l’inscription de votre application avec le [portail Azure Classic](https://manage.windowsazure.com/). Pour plus d’informations sur l’inscription d’applications Azure AD, consultez [Intégration avec Azure Active Directory](active-directory-how-to-integrate.md).
 
 
 #### Étape 3: Configurer les autorisations appropriées dans votre application
 
-Notre application de répartiteur dans Android utilise la fonctionnalité de gestionnaire de comptes du système d’exploitation Android pour gérer les informations d’identification entre les applications. Pour pouvoir utiliser le répartiteur dans Android, le manifeste de votre application doit être autorisé à utiliser les comptes AccountManager. Pour en savoir plus, consultez la [documentation Google pour la fonctionnalité AccountManager](http://developer.android.com/reference/android/accounts/AccountManager.html)
+Notre application de répartiteur dans Android utilise la fonctionnalité de gestionnaire de comptes du système d’exploitation Android pour gérer les informations d’identification entre les applications. Pour pouvoir utiliser le répartiteur dans Android, le manifeste de votre application doit être autorisé à utiliser les comptes AccountManager. Pour en savoir plus, consultez la [documentation Google pour la fonctionnalité AccountManager](http://developer.android.com/reference/android/accounts/AccountManager.html).
 
 Ces autorisations sont les suivantes :
 
@@ -261,4 +262,4 @@ MANAGE_ACCOUNTS
 
 Désormais, le Kit de développement logiciel (SDK) Microsoft Identity partage automatiquement les informations d’identification entre vos applications et appelle l’éventuel répartiteur existant sur l’appareil.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0817_2016-->

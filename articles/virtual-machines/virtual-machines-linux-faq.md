@@ -14,13 +14,13 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/16/2016"
+	ms.date="08/16/2016"
 	ms.author="cynthn"/>
 
 # Forum aux questions sur les machines virtuelles Linux 
 
 
-Cet article traite certaines questions courantes que les utilisateurs se posent sur les machines virtuelles Linux créées dans Azure avec le modèle de déploiement Resource Manager. Pour la version Windows de cette rubrique, consultez [Questions fréquences sur les machines virtuelles Windows](virtual-machines-windows-faq.md).
+Cet article traite certaines questions courantes concernant les machines virtuelles Linux créées dans Azure avec le modèle de déploiement Resource Manager. Pour la version Windows de cette rubrique, consultez les [Questions fréquences sur les machines virtuelles Windows](virtual-machines-windows-faq.md).
 
 ## Qu’est-il possible d’exécuter sur une machine virtuelle Azure ?
 
@@ -44,7 +44,7 @@ Si vous rencontrez des problèmes, consultez [Dépanner les connexions Secure Sh
 
 ## Est-ce que je peux utiliser le disque temporaire (/dev/sdb1) pour stocker les données ?
 
-Vous ne devez pas utiliser le disque temporaire (/dev/sdb1) pour stocker les données. Il ne sert qu’au stockage temporaire. Vous risqueriez donc de perdre des données sans pouvoir les récupérer.
+N’utilisez pas le disque temporaire (/dev/sdb1) pour stocker des données. Il ne sert qu’au stockage temporaire. Vous risquez donc de perdre des données sans pouvoir les récupérer.
 
 ## Puis-je copier ou cloner une machine virtuelle Azure ?
 
@@ -52,10 +52,10 @@ Oui. Pour obtenir des instructions, consultez [Création d’une copie d’une m
 
 ## Pourquoi ne vois-je pas les régions Centre et Est du Canada dans Azure Resource Manager ?
 
-Les deux régions Centre et Est du Canada ne sont pas enregistrées automatiquement lors de la création de machines virtuelles pour des abonnements Azure. Cet enregistrement s’effectue lorsqu’une machine virtuelle est déployée via le portail Azure dans n’importe quelle autre région à l’aide d’Azure Resource Manager. Une fois une machine virtuelle déployée dans une autre région Azure, les nouvelles régions doivent être disponibles pour les machines virtuelles suivantes.
+Les deux régions Centre et Est du Canada ne sont pas enregistrées automatiquement lors de la création de machines virtuelles pour des abonnements Azure existants. Cet enregistrement s’effectue automatiquement lorsqu’une machine virtuelle est déployée par le biais du portail Azure dans n’importe quelle autre région à l’aide d’Azure Resource Manager. Une fois une machine virtuelle déployée dans toute autre région Azure, les nouvelles régions doivent être disponibles pour les machines virtuelles suivantes.
 
 ## Puis-je ajouter une carte réseau à ma machine virtuelle après sa création ?
 
-Non. Actuellement, cela n’est possible qu’au moment de la création.
+Non. L’ajout d’une carte réseau n’est possible que lors de la création.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

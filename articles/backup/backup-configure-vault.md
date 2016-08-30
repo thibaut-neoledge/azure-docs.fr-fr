@@ -134,6 +134,32 @@ Maintenant que vous avez créé un coffre, vous devez préparer votre infrastruc
 
 L’agent est désormais installé et votre ordinateur est inscrit dans le coffre. Vous êtes prêt à configurer et à planifier votre sauvegarde.
 
+### Confirmer l’installation
+
+Pour vérifier que l’agent a été installé et inscrit correctement, vous pouvez vérifier les éléments que vous avez sauvegardés dans la section **Serveur de production** du portail de gestion. Pour ce faire :
+
+1. Connectez-vous au [portail Azure](https://portal.azure.com/) à l’aide de votre abonnement Azure.
+
+2. Dans le menu Hub, cliquez sur **Parcourir** et, dans la liste des ressources, tapez **Recovery Services**. Au fur et à mesure des caractères saisis, la liste est filtrée. Cliquez sur **Coffres Recovery Services**.
+
+    ![Créer un archivage de Recovery Services - Étape 1](./media/backup-configure-vault/browse-to-rs-vaults.png) <br/>
+
+    La liste des coffres Recovery Services est affichée.
+
+2. Sélectionnez le nom du coffre que vous avez créé.
+
+    Le panneau du tableau de bord du coffre Recovery Services s’ouvre.
+
+    ![coffre recovery services tableau de bord](./media/backup-configure-vault/rs-vault-dashboard.png) <br/>
+
+3. Cliquez sur le bouton **Paramètres** en haut de la page.
+
+4. Cliquez sur **Infrastructure de sauvegarde > Serveurs de production**.
+
+    ![Serveurs de production](./media/backup-configure-vault/production-server-verification.png)
+
+Si vous voyez vos serveurs dans la liste, vous avez la confirmation que l’agent a été installé et inscrit correctement.
+
 ## Étape 4 : Exécuter la sauvegarde initiale
 
 La sauvegarde initiale comprend deux tâches principales :
@@ -209,7 +235,7 @@ L’agent Backup prend en charge la limitation du réseau. La limitation contrô
 
     ![Sauvegarder Windows Server maintenant](./media/backup-configure-vault/backup-now.png)
 
-2. Sur la page Confirmation, vérifiez les paramètres utilisés par l’Assistant Sauvegarder maintenant pour sauvegarder les données de l’ordinateur, Puis cliquez sur **Sauvegarder**.
+2. Sur la page Confirmation, vérifiez les paramètres utilisés par l’Assistant Sauvegarder maintenant pour sauvegarder les données de l’ordinateur, puis cliquez sur **Sauvegarder**.
 
 3. Cliquez sur **Fermer** pour fermer l’Assistant. Si vous fermez l’Assistant avant la fin du processus de sauvegarde, celui-ci continuera de s’exécuter en arrière-plan.
 
@@ -226,4 +252,4 @@ Pour plus d’informations sur la sauvegarde des machines virtuelles ou d’autr
 - Maintenant que vous avez sauvegardé vos fichiers et vos dossiers, vous pouvez [gérer vos coffres et vos serveurs](backup-azure-manage-windows-server.md).
 - Si vous avez besoin de restaurer une sauvegarde, référez-vous à cet article pour [restaurer des fichiers sur un ordinateur Windows](backup-azure-restore-windows-server.md).
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->
