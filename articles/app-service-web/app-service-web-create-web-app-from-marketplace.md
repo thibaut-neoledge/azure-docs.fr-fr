@@ -1,4 +1,4 @@
-<properties
+properties
 	pageTitle="Créer une application web à partir d’Azure Marketplace | Microsoft Azure"
 	description="Apprenez à créer une nouvelle application web WordPress à partir d’Azure Marketplace à l’aide du Portail Azure."
 	services="app-service\web"
@@ -180,4 +180,4 @@ Pour plus d’informations sur le développement d’applications web WordPress 
 [WordPressDashboard2]: ./media/app-service-web-create-web-app-from-marketplace/wpdashboard2.png
 [WordPressConfigure]: ./media/app-service-web-create-web-app-from-marketplace/wpconfigure.png
 
-<!---HONumber=AcomDC_0720_2016-->
+<!----HONumber=AcomDC_0720_2016-->
