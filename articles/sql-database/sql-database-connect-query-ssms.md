@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/09/2016"
+	ms.date="08/17/2016"
 	ms.author="sstein;carlrab" />
 
 # Se connecter à la base de données SQL avec SQL Server Management Studio et exécuter un exemple de requête T-SQL
@@ -25,26 +25,23 @@
 - [SSMS](sql-database-connect-query-ssms.md)
 - [Excel](sql-database-connect-excel.md)
 
-Cet article vous explique comment vous connecter à une base de données SQL Azure à l’aide de la dernière version de SQL Server Management Studio (SSMS) et effectuer une requête simple à l’aide d’instructions T-SQL (Transact-SQL).
-
-[AZURE.INCLUDE [Connexion](../../includes/azure-getting-started-portal-login.md)]
+Cet article explique comment se connecter à une base de données SQL Azure avec SQL Server Management Studio (SSMS). Une fois la connexion établie, nous exécutons une requête Transact-SQL (T-SQL) simple pour vérifier la communication avec la base de données.
 
 [AZURE.INCLUDE [Installation de SSMS](../../includes/sql-server-management-studio-install.md)]
 
 [AZURE.INCLUDE [Connecter SSMS](../../includes/sql-database-sql-server-management-studio-connect-server-principal.md)]
 
-Pour plus d’informations sur les règles de pare-feu, consultez [Procédure : configuration des paramètres de pare-feu (Azure SQL Database)](sql-database-configure-firewall-settings.md).
 
 ## Exécuter les exemples de requêtes
 
-Après vous être connecté à votre serveur logique, vous pouvez vous connecter à une base de données et exécuter un exemple de requête.
+Une fois la connexion à votre serveur établie, vous pouvez vous connecter à une base de données et exécuter une requête type. Si vous ne savez pas comment rédiger des requêtes, consultez la page [Écriture d’instructions Transact-SQL](https://msdn.microsoft.com/library/ms365303.aspx).
 
-1. Dans l'**Explorateur d'objets**, sélectionnez une base de données sur le serveur auquel vous avez accès, par exemple la base de données **AdventureWorks**.
-2. Cliquez avec le bouton droit sur la base de données et sélectionnez **Nouvelle requête**.
+1. Dans l’**Explorateur d’objets**, sélectionnez une base de données sur le serveur, comme **AdventureWorks**.
+2. Cliquez avec le bouton droit sur la base de données et sélectionnez **Nouvelle requête** :
 
 	![Nouvelle requête. Se connecter à un serveur de base de données SQL : SQL Server Management Studio](./media/sql-database-connect-query-ssms/4-run-query.png)
 
-3. Dans la fenêtre de requête, copiez et collez le code suivant :
+3. Dans la fenêtre de requête, copiez et collez le code suivant :
 
 		SELECT
 		CustomerId
@@ -54,7 +51,7 @@ Après vous être connecté à votre serveur logique, vous pouvez vous connecter
 		,CompanyName
 		FROM SalesLT.Customer;
 
-4. Cliquez sur le bouton **Exécuter**. La capture d'écran suivante illustre une requête réussie.
+4. Cliquez sur le bouton **Exécuter** :
 
 	![Vous avez réussi ! Se connecter à un serveur de base de données SQL : SQL Server Management Studio](./media/sql-database-connect-query-ssms/5-success.png)
 
@@ -64,6 +61,8 @@ Vous pouvez utiliser des instructions T-SQL pour créer et gérer des bases de d
 
 Si vous débutez avec T-SQL, consultez [Didacticiel : Écriture d’instructions Transact-SQL](https://msdn.microsoft.com/library/ms365303.aspx) et [Informations de référence sur Transact-SQL (moteur de base de données)](https://msdn.microsoft.com/library/bb510741.aspx).
 
-Pour commencer à créer des utilisateurs de base de données et des administrateurs d'utilisateurs de base de données, consultez la rubrique [Premiers pas avec la sécurité de la base de données SQL Azure](sql-database-get-started-security.md)
+Pour commencer à créer des utilisateurs de base de données et des administrateurs d’utilisateurs de base de données, consultez la rubrique [Didacticiel sur la base de données SQL : Créer des comptes d’utilisateurs de base de données SQL pour accéder à et gérer une base de données à l’aide du portail Azure](sql-database-get-started-security.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+Pour plus d’informations sur SSMS, consultez [Utiliser SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx).
+
+<!---HONumber=AcomDC_0824_2016-->

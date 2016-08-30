@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Prendre en main la diffusion de contenus à la demande à l’aide du Kit de développement logiciel (SDK) .NET"
+	pageTitle="Prendre en main la diffusion de contenus à la demande à l’aide de .NET | Azure"
 	description="Ce didacticiel vous présente les étapes d’implémentation d’une application de diffusion de contenu à la demande avec Azure Media Services pour .NET."
 	services="media-services"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
- 	ms.date="07/18/2016"
+ 	ms.date="08/17/2016"
 	ms.author="juliako"/>
 
 
@@ -26,7 +26,7 @@
 >[AZURE.NOTE]
 Pour suivre ce didacticiel, vous avez besoin d'un compte Azure. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](/pricing/free-trial/?WT.mc_id=A261C142F).
  
-##Vue d’ensemble 
+##Vue d'ensemble 
 
 Ce didacticiel vous présente les étapes d'implémentation d'une application de diffusion de contenu vidéo à la demande (VoD) avec le Kit de développement logiciel (SDK) Azure Media Services (AMS) pour .NET.
 
@@ -50,7 +50,7 @@ Ce didacticiel montre comment effectuer les tâches suivantes :
 
 Les éléments suivants sont requis pour suivre le didacticiel.
 
-- Pour effectuer ce didacticiel, vous avez besoin d’un compte Azure.
+- Pour suivre ce didacticiel, vous avez besoin d'un compte Azure.
 	
 	Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](/pricing/free-trial/?WT.mc_id=A261C142F). Vous obtenez des crédits que vous pouvez utiliser pour essayer des services Azure payants. Une fois que les crédits sont épuisés, vous pouvez quand même conserver le compte et utiliser les services et fonctionnalités Azure gratuits, comme la fonction Web Apps dans Azure App Service.
 - Systèmes d’exploitation : Windows 8 ou ultérieur, Windows 2008 R2, Windows 7.
@@ -78,7 +78,7 @@ Obtenir et exécuter un exemple [ici](https://azure.microsoft.com/documentation/
 
 6. Cliquez sur **Création rapide** en bas du formulaire.
 
-Vous pouvez surveiller l’état du processus dans la zone de message en bas de la fenêtre.
+Vous pouvez surveiller l'état du processus dans la zone de message en bas de la fenêtre.
 
 Une fois que votre compte est créé, l’état devient **Actif**.
 
@@ -453,4 +453,4 @@ Si cette rubrique ne répond pas à vos attentes ou besoins, ou ne contient pas 
   [Web Platform Installer]: http://go.microsoft.com/fwlink/?linkid=255386
   [Portal]: http://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0824_2016-->

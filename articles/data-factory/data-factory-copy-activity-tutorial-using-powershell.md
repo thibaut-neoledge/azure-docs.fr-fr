@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Didacticiel : Créer un pipeline avec l'activité de copie à l'aide d'Azure PowerShell" 
+	pageTitle="Didacticiel : Créer un pipeline avec l’activité de copie à l’aide d’Azure PowerShell | Microsoft Azure" 
 	description="Dans ce didacticiel, vous créez un pipeline Azure Data Factory avec une activité de copie à l’aide d’Azure PowerShell." 
 	services="data-factory" 
 	documentationCenter="" 
@@ -23,11 +23,12 @@
 - [Utiliser PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 - [Utilisation de Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 - [Utilisation de l'API REST](data-factory-copy-activity-tutorial-using-rest-api.md)
+- [Utilisation de l’API .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 - [Utilisation de l’Assistant de copie](data-factory-copy-data-wizard-tutorial.md)
 
 Le didacticiel [Copie de données Blob Storage vers une base de données SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) vous montre comment créer et surveiller une fabrique de données Azure à l’aide du [portail Azure][azure-portal]. Dans ce didacticiel, vous créez et surveillez une fabrique de données Azure à l’aide d’applets de commande Azure PowerShell. Le pipeline de la fabrique de données que vous créez dans ce didacticiel utilise une activité de copie pour copier les données d’un objet blob Azure vers une base de données SQL Azure.
 
-L’activité de copie effectue le déplacement des données dans Azure Data Factory, et l’activité est alimentée par un service disponible à l’échelle mondiale qui peut copier des données entre différents magasins de données de façon sécurisée, fiable et évolutive. Pour plus d’informations sur l’activité de copie, consultez l’article [Activités de déplacement des données](data-factory-data-movement-activities.md).
+L’activité de copie effectue le déplacement des données dans Azure Data Factory. Elle est mise en œuvre par un service disponible dans le monde entier, capable de copier des données entre différents magasins de données de façon sécurisée, fiable et évolutive. Pour plus d’informations sur l’activité de copie, consultez l’article [Activités de déplacement des données](data-factory-data-movement-activities.md).
 
 > [AZURE.IMPORTANT] 
 Passez en revue l’article [Vue d’ensemble du didacticiel](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) et effectuez les étapes préalables avant de suivre ce didacticiel.
@@ -47,7 +48,7 @@ Le tableau suivant répertorie les étapes que vous allez exécuter dans le cadr
 -----| -----------
 [créer une fabrique de données Azure](#create-data-factory) | Dans cette étape, vous créez une fabrique de données Azure nommée **ADFTutorialDataFactoryPSH**. 
 [créer des services liés](#create-linked-services) | Dans cette étape, vous créez deux services liés : **StorageLinkedService** et **AzureSqlLinkedService**. StorageLinkedService relie un stockage Azure et AzureSqlLinkedService relie une base de données SQL Azure à ADFTutorialDataFactoryPSH.
-[Créer des jeux de données d'entrée et de sortie](#create-datasets) | Dans cette étape, vous définissez deux jeux de données (**EmpTableFromBlob** et **EmpSQLTable**), qui sont utilisés en entrée et sortie de l’**activité de copie** du pipeline ADFTutorialPipeline que vous créez à l’étape suivante.
+[Créer des jeux de données d'entrée et de sortie](#create-datasets) | Dans cette étape, vous définissez deux jeux de données (**EmpTableFromBlob** et **EmpSQLTable**). Ils sont utilisés comme tables d’entrée et de sortie de l’**activité de copie** du pipeline ADFTutorialPipeline que vous allez créer à l’étape suivante.
 [créer et exécuter un pipeline](#create-pipeline) | Dans cette étape, vous créez un pipeline nommé **ADFTutorialPipeline** dans la fabrique de données : **ADFTutorialDataFactoryPSH**. Le pipeline effectue une **activité de copie** qui se charge de copier des données d’objet blob Azure dans une table de base de données Azure de sortie.
 [surveiller les jeux de données et le pipeline](#monitor-pipeline) | Dans cette étape, vous surveillez les jeux de données et le pipeline à l’aide d’Azure PowerShell.
 
@@ -77,7 +78,9 @@ Dans cette étape, vous utilisez Azure PowerShell pour créer une fabrique de do
 	
 Notez les points suivants :
  
-- Le nom de la fabrique de données Azure doit être un nom global unique. Si l’erreur suivante s’affiche : **Le nom de la fabrique de données « ADFTutorialDataFactoryPSH » n’est pas disponible**, changez le nom (par exemple, votrenomADFTutorialDataFactoryPSH). Utilisez ce nom à la place d’ADFTutorialFactoryPSH quand vous effectuez les étapes de ce didacticiel. Consultez la rubrique [Data Factory - Règles d'affectation des noms](data-factory-naming-rules.md) pour savoir comment nommer les artefacts Data Factory.
+- Le nom de la fabrique de données Azure doit être un nom global unique. Si l’erreur suivante s’affiche, changez le nom (par exemple, votrenomADFTutorialDataFactoryPSH). Utilisez ce nom à la place d’ADFTutorialFactoryPSH quand vous effectuez les étapes de ce didacticiel. Consultez la rubrique [Data Factory - Règles d'affectation des noms](data-factory-naming-rules.md) pour savoir comment nommer les artefacts Data Factory.
+	
+		Data factory name “ADFTutorialDataFactoryPSH” is not available
 - Pour créer des instances de fabrique de données, vous devez avoir le statut d’administrateur/collaborateur de l’abonnement Azure
 - Le nom de la fabrique de données pourra être enregistré en tant que nom DNS et devenir ainsi visible publiquement.
 - Si vous recevez le message d’erreur : « **L’abonnement n’est pas inscrit pour utiliser l’espace de noms Microsoft.DataFactory** », effectuez l’une des opérations suivantes et essayez de relancer la publication :
@@ -92,7 +95,7 @@ Notez les points suivants :
 	- Connectez-vous au [portail Azure](https://portal.azure.com) à l’aide de l’abonnement Azure et accédez à un panneau Data Factory (ou) créez une fabrique de données dans le portail Azure. Cette action enregistre automatiquement le fournisseur.
 
 ## Créer des services liés
-Les services liés se chargent de lier des magasins de données ou des services de calcul à une fabrique de données Azure. Un magasin de données peut être un stockage Azure, une base de données SQL Azure ou une base de données SQL Server locale qui contient des données d’entrée ou qui stocke les données de sortie d’un pipeline Data Factory. Un service de calcul est un service qui traite les données d’entrée et génère des données de sortie.
+Les services liés se chargent de lier des magasins de données ou des services de calcul à une fabrique de données Azure. Un magasin de données peut être un stockage Azure, une base de données SQL Azure ou une base de données SQL Server locale qui contient des données d’entrée ou qui stocke les données de sortie d’un pipeline Data Factory. Un service de calcul est un service qui traite les données d’entrée et génère des données de sortie.
 
 Dans cette étape, vous créez deux services liés : **StorageLinkedService** et **AzureSqlLinkedService**. Le service lié StorageLinkedService relie un compte de stockage Azure Storage et AzureSqlLinkedService relie une base de données Azure SQL à la fabrique de données : **ADFTutorialDataFactoryPSH**. Vous allez créer un pipeline plus loin dans ce didacticiel pour copier les données d’un conteneur d’objets blob dans StorageLinkedService vers une table SQL dans AzureSqlLinkedService.
 
@@ -109,7 +112,7 @@ Dans cette étape, vous créez deux services liés : **StorageLinkedService** et
 		  		}
 			}
 
-	Remplacez **accountname** par le nom de votre compte de stockage Azure et **accountkey** par sa clé.
+	Remplacez **accountname** et **accountkey** par le nom de votre compte Azure Storage et par sa clé.
 2.	Dans **Azure PowerShell**, basculez vers le dossier **ADFGetStartedPSH**.
 3.	Vous pouvez utiliser l’applet de commande **New-AzureRmDataFactoryLinkedService** pour créer un service lié. Cette applet de commande et d’autres applets de commande Data Factory que vous utilisez dans ce didacticiel vous obligent à transmettre des valeurs aux paramètres **ResourceGroupName** et **DataFactoryName**. Vous pouvez également utiliser **Get-AzureRmDataFactory** pour obtenir un objet DataFactory et transmettre l’objet sans avoir à saisir ResourceGroupName et DataFactoryName chaque fois que vous exécutez une applet de commande. Exécutez la commande suivante pour affecter le résultat de l’applet de commande **Get-AzureRmDataFactory** à une variable **$df**.
 
@@ -157,7 +160,7 @@ Dans cette étape, vous créez deux services liés : **StorageLinkedService** et
 
 À l’étape précédente, vous avez créé les services liés **StorageLinkedService** et **AzureSqlLinkedService** pour lier un compte de stockage Azure et la base de données SQL Azure à la fabrique de données : **ADFTutorialDataFactoryPSH**. Dans cette étape, vous créez des jeux de données qui représentent des données d’entrée et de sortie pour l’activité de copie dans le pipeline que vous créez à l’étape suivante.
 
-Une table est un jeu de données rectangulaire et il s'agit du seul type de jeu de données qui est pris en charge pour l'instant. La table d'entrée dans ce didacticiel fait référence à un conteneur d'objets blob dans le stockage Azure Storage vers lequel pointe StorageLinkedService, et la table de sortie fait référence à une table SQL dans la base de données SQL Azure vers laquelle pointe AzureSqlLinkedService.
+Une table est un jeu de données rectangulaire. C’est le seul type de jeu de données pris en charge pour l’instant. La table d’entrée dans ce didacticiel fait référence à un conteneur d’objets blob dans le stockage Azure identifié par StorageLinkedService. La table de sortie fait référence à une table SQL de la base de données SQL Azure, identifiée par AzureSqlLinkedService.
 
 ### Préparer le stockage d'objets blob Azure et la base de données SQL Azure pour le didacticiel
 Ignorez cette étape si vous avez suivi le didacticiel de l’article [Copie de données Blob Storage vers une base de données SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
@@ -190,9 +193,9 @@ Vous devez effectuer les étapes suivantes pour préparer le stockage d’objets
 
 		CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID); 
 
-	Si vous avez installé SQL Server 2014 sur votre ordinateur : suivez les instructions de l’article [Étape 2 : se connecter à la base de données SQL de la gestion de base de données SQL à l’aide de SQL Server Management Studio][sql-management-studio] pour vous connecter à votre serveur SQL Azure et exécuter le script SQL.
+	Si vous avez installé SQL Server 2014 sur votre ordinateur : suivez les instructions de l’article [Étape 2 : se connecter à la base de données SQL de la gestion de base de données SQL à l’aide de SQL Server Management Studio](../sql-database/sql-database-manage-azure-ssms.md) pour vous connecter à votre serveur SQL Azure et exécuter le script SQL.
 
-	Si Visual Studio 2013 est installé sur votre ordinateur : dans le portail Azure ([http://portal.azure.com](http://portal.sazure.com)), cliquez sur le concentrateur **PARCOURIR** sur la gauche, cliquez sur **Serveurs SQL**, sélectionnez votre base de données, puis cliquez sur **Ouvrir dans Visual Studio** dans la barre d’outils pour vous connecter à votre serveur SQL Azure et exécuter le script. Si votre client n’est pas autorisé à accéder au serveur SQL Azure, vous devez configurer le pare-feu pour votre serveur SQL Azure afin d’autoriser l’accès à partir de votre ordinateur (adresse IP). Consultez l'article ci-dessus pour savoir comment configurer le pare-feu pour votre serveur SQL Azure.
+	Si votre client n’est pas autorisé à accéder au serveur SQL Azure, vous devez configurer le pare-feu pour votre serveur SQL Azure afin d’autoriser l’accès à partir de votre ordinateur (adresse IP). Consultez [cet article](../sql-database/sql-database-configure-firewall-settings.md) pour savoir comment configurer le pare-feu de votre serveur SQL Azure.
 		
 ### Créer le jeu de données d’entrée 
 Une table est un jeu de données rectangulaire qui dispose d'un schéma. Dans cette étape, vous allez créer une table nommée **EmpBlobTable** qui pointe vers un conteneur d’objets blob dans l’emplacement Azure Storage représenté par le service lié **StorageLinkedService**. Ce conteneur d’objets blob (**adftutorial**) contient les données d’entrée dans le fichier : **emp.txt**.
@@ -238,7 +241,7 @@ Une table est un jeu de données rectangulaire qui dispose d'un schéma. Dans ce
 	- **fileName** est défini sur **emp.txt**. Si vous ne spécifiez pas le nom de l’objet blob, les données provenant de tous les objets blob du conteneur sont considérées comme des données d’entrée.
 	- Le **type** de format a la valeur **TextFormat**.
 	- Le fichier texte contient deux champs, **FirstName** et **LastName**, séparés par une virgule (**columnDelimiter**).
-	- **availability** est défini sur **hourly** (**frequency** a la valeur **hour** et **interval** est défini sur **1**) ; ainsi, le service Data Factory recherche les données d’entrée toutes les heures dans le dossier racine du conteneur d’objets blob (**adftutorial**) que vous avez spécifié.
+	- L’élément **availability** est réglé sur **hourly** (**frequency** sur **hour** et **interval** sur **1**). Le service Data Factory recherche les données d’entrée toutes les heures dans le dossier racine du conteneur d’objets blob (**adftutorial**) que vous avez spécifié.
 
 	Si vous ne spécifiez pas de nom (**fileName**) pour une **table** d’**entrée**, tous les fichiers/objets blob du dossier d’entrée (**folderPath**) sont considérés comme des entrées. Si vous spécifiez un fileName dans le JSON, seul le fichier/objet blob spécifié est considéré comme une entrée.
  
@@ -263,7 +266,7 @@ Une table est un jeu de données rectangulaire qui dispose d'un schéma. Dans ce
 		New-AzureRmDataFactoryDataset $df -File .\EmpBlobTable.json
 
 ### Créer un jeu de données de sortie
-Dans cette partie de l’étape, vous créez une table de sortie nommée **EmpSQLTable** qui pointe vers une table SQL (**emp**) de la base de données SQL Azure, représentée par le service lié **AzureSqlLinkedService**. Le pipeline copie les données à partir de l’objet blob d’entrée vers la table **emp**.
+Dans cette étape, vous créez un jeu de données de sortie nommé **EmpSQLTable**. Ce jeu de données pointe vers une table SQL (**emp**) dans la base de données SQL Azure représentée par **AzureSqlLinkedService**. Le pipeline copie les données à partir de l’objet blob d’entrée vers la table **emp**.
 
 1.	Créez un fichier JSON nommé **EmpSQLTable.json** dans le dossier **C:\\ADFGetStartedPSH** avec le contenu suivant.
 		
@@ -297,7 +300,7 @@ Dans cette partie de l’étape, vous créez une table de sortie nommée **EmpSQ
 	* Le **type** de jeu de données est défini sur **AzureSqlTable**.
 	* **linkedServiceName** est défini sur **AzureSqlLinkedService**.
 	* **tablename** est défini sur **emp**.
-	* Il existe trois colonnes (**ID**, **FirstName** et **LastName**) dans la table emp de la base de données. Toutefois, ID étant une colonne d'identité, vous devez donc spécifier uniquement **FirstName** et **LastName**.
+	* La table emp de la base de données contient trois colonnes : **ID**, **FirstName** et **LastName**. ID étant une colonne d’identité, il suffit de spécifier **FirstName** et **LastName**.
 	* **availability** est défini sur **hourly** (**frequency** a la valeur **hour** et **interval** est défini sur **1**). Le service Data Factory génère une tranche de données de sortie toutes les heures dans la table **emp** de la base de données SQL Azure.
 
 2.	Exécutez la commande suivante pour créer le jeu de données Data Factory :
@@ -346,8 +349,8 @@ Dans cette étape, vous créez un pipeline avec une **activité de copie** qui u
 			        }
 			      }
 			    ],
-			    "start": "2015-12-09T00:00:00Z",
-			    "end": "2015-12-10T00:00:00Z",
+			    "start": "2016-08-09T00:00:00Z",
+			    "end": "2016-08-10T00:00:00Z",
 			    "isPaused": false
 			  }
 			}
@@ -360,9 +363,9 @@ Dans cette étape, vous créez un pipeline avec une **activité de copie** qui u
 
 	Remplacez la valeur de la propriété **start** par le jour actuel et la valeur **end** par le jour suivant. Les dates/heures de début et de fin doivent toutes deux être au [format ISO](http://en.wikipedia.org/wiki/ISO_8601). Par exemple : 2014-10-14T16:32:41Z. L’heure de fin (**end**) est facultative, mais nous allons l’utiliser dans ce didacticiel.
 	
-	Si vous ne spécifiez aucune valeur pour la propriété **end**, cette dernière est calculée comme suit : « **start + 48 heures** ». Pour exécuter le pipeline indéfiniment, spécifiez **9/9/9999** comme valeur pour la propriété **end**.
+	Si vous ne spécifiez aucune valeur pour la propriété **end**, cette dernière est calculée comme suit : « **start + 48 heures** ». Pour exécuter le pipeline indéfiniment, spécifiez **9/9/9999** comme valeur pour la propriété **end**.
 	
-	Dans l’exemple ci-dessus, il existe 24 tranches de données, car une tranche de données est générée toutes les heures.
+	Dans l’exemple ci-dessus, il existe 24 tranches de données, car une tranche est générée par heure.
 	
 	Pour plus d'informations sur les propriétés JSON, consultez [Référence sur la création de scripts JSON](http://go.microsoft.com/fwlink/?LinkId=516971).
 2.	Exécutez la commande suivante pour créer la table Data Factory :
@@ -382,7 +385,7 @@ Au cours de cette étape, vous utilisez Azure PowerShell pour surveiller ce qui 
 
 		Get-AzureRmDataFactorySlice $df -DatasetName EmpSQLTable -StartDateTime 2015-03-03T00:00:00
 
-	Remplacez les parties correspondant à l’année, au mois et au jour dans le paramètre **StartDateTime** par l’année, le mois et le jour en cours. Cela doit correspondre à la valeur **Start** dans le pipeline JSON.
+	Remplacez les parties correspondant à l’année, au mois et au jour dans le paramètre **StartDateTime** par l’année, le mois et le jour en cours. Ce paramètre doit correspondre à la valeur **Start** dans le pipeline JSON.
 
 	Vous devez voir 24 tranches, une pour chaque heure entre 12: 00 du jour actuel et 12: 00 le lendemain.
 	
@@ -410,7 +413,7 @@ Au cours de cette étape, vous utilisez Azure PowerShell pour surveiller ce qui 
 		LatencyStatus     : 
 		LongRetryCount    : 0
 
-3.	Exécutez **Get-AzureRmDataFactoryRun** pour obtenir les détails d’exécution d’activité pour une tranche **spécifique**. Modifiez la valeur du paramètre **StartDateTime** pour qu’elle corresponde à l’heure **Start** de la tranche dans la sortie ci-dessus. La valeur de **StartDateTime** doit être au [format ISO](http://en.wikipedia.org/wiki/ISO_8601). Par exemple : 2014-03-03T22:00:00Z.
+3.	Exécutez **Get-AzureRmDataFactoryRun** pour obtenir les détails d’exécution d’activité pour une tranche **spécifique**. Modifiez la valeur du paramètre **StartDateTime** pour qu’elle corresponde à l’heure **Start** de la tranche dans la sortie. La valeur de **StartDateTime** doit être au [format ISO](http://en.wikipedia.org/wiki/ISO_8601). Par exemple : 2014-03-03T22:00:00Z.
 
 		Get-AzureRmDataFactoryRun $df -DatasetName EmpSQLTable -StartDateTime 2015-03-03T22:00:00
 
@@ -443,7 +446,7 @@ Dans ce didacticiel, vous avez créé une fabrique de données Azure pour copier
 2.	Création de **services liés** :
 	1. Un service lié **Azure Storage** pour lier votre compte Azure Storage contenant des données d’entrée.
 	2. Un service lié **Azure SQL** pour lier votre base de données Azure SQL contenant les données de sortie.
-3.	Création des **jeux de données** qui décrivent les données d’entrée et de sortie des pipelines.
+3.	Création de **jeux de données** qui décrivent les données d’entrée et de sortie des pipelines.
 4.	Création d’un **pipeline** avec une **activité de copie** avec **BlobSource** en tant que source et **SqlSink** en tant que récepteur.
 
 ## Voir aussi
@@ -451,7 +454,7 @@ Dans ce didacticiel, vous avez créé une fabrique de données Azure pour copier
 | :---- | :---- |
 | [Activités de déplacement des données](data-factory-data-movement-activities.md) | Cet article fournit une description détaillée de l’activité de copie que vous avez utilisée dans ce didacticiel. |
 | [Planification et exécution](data-factory-scheduling-and-execution.md) | Cet article explique les aspects de la planification et de l’exécution du modèle d’application Azure Data Factory. |
-| [Pipelines](data-factory-create-pipelines.md) | Cet article vous aide à comprendre les pipelines et les activités dans Azure Data Factory, et à les utiliser pour créer des workflows pilotés par les données de bout en bout pour votre scénario ou votre entreprise. |
+| [Pipelines](data-factory-create-pipelines.md) | Cet article vous aide à comprendre les pipelines et les activités dans Azure Data Factory. |
 | [Groupes de données](data-factory-create-datasets.md) | Cet article vous aide à comprendre les jeux de données dans Azure Data Factory.
 | [Surveiller et gérer les pipelines Azure Data Factory à l’aide de la nouvelle application de surveillance et gestion.](data-factory-monitor-manage-app.md) | Cet article décrit comment surveiller, gérer et déboguer les pipelines à l’aide de l’application de surveillance et gestion. 
 
@@ -474,4 +477,4 @@ Dans ce didacticiel, vous avez créé une fabrique de données Azure pour copier
 [sql-management-studio]: ../sql-database/sql-database-manage-azure-ssms.md
  
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

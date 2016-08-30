@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="04/20/2016"
+	ms.date="08/23/2016"
 	ms.author="deonhe"/>
 
 # Comment migrer des applications logiques vers la version préliminaire du schéma du 01/08/2015
@@ -42,4 +42,4 @@ Pour migrer vos applications logiques existantes vers le nouveau schéma, procé
 [step1]: ./media/connectors-schema-migration/migrateschema1.png
 [step2]: ./media/connectors-schema-migration/migrateschema2.png
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

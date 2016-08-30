@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/21/2016"
+   ms.date="08/24/2016"
    ms.author="yurid"/>
 
 # Définition des stratégies de sécurité dans le Centre de sécurité Azure
@@ -26,7 +26,7 @@ Par exemple, les ressources utilisées pour le développement ou le test peuvent
 
 ## Définition des stratégies de sécurité pour les abonnements
 
-Vous pouvez configurer des stratégies de sécurité pour chaque abonnement ou groupe de ressources. Pour modifier une stratégie de sécurité, vous devez avoir le rôle de propriétaire ou de collaborateur pour l’abonnement concerné. Accédez au Portail Azure et suivez les étapes ci-après pour configurer des stratégies de sécurité dans le Centre de sécurité :
+Vous pouvez configurer des stratégies de sécurité pour chaque abonnement ou groupe de ressources. Pour modifier une stratégie de sécurité, vous devez avoir le rôle de propriétaire ou de collaborateur pour l’abonnement concerné. Accédez au Portail Azure et suivez les étapes précédentes pour configurer des stratégies de sécurité dans le Centre de sécurité :
 
 1. Cliquez sur la mosaïque **Stratégie** dans le tableau de bord du Centre de sécurité.
 
@@ -34,19 +34,19 @@ Vous pouvez configurer des stratégies de sécurité pour chaque abonnement ou g
 
     ![Définition de stratégie](./media/security-center-policies/security-center-policies-fig1-ga.png)
 
-3. Le panneau **Stratégie de sécurité** de cet abonnement s’ouvre et affiche des options similaires à celles illustrées ci-dessous :
+3. Le panneau **Stratégie de sécurité** de cet abonnement s’ouvre et affiche des options similaires à celles de l’écran suivant :
 
     ![Activation de la collecte des données](./media/security-center-policies/security-center-policies-fig2-ga.png)
 
 4. Vérifiez que l’option **Collecter des données à partir des machines virtuelles** est définie sur **Activé**. Cette option active la collecte automatique des journaux sur les ressources existantes et nouvelles.
 
-    >[AZURE.NOTE] Il est fortement recommandé d’activer la collecte des données pour chacun de vos abonnements, car cela garantit que la surveillance de la sécurité est disponible pour toutes les machines virtuelles (nouvelles et existantes). L’activation de la collecte des données installe l’agent de surveillance. Si vous ne voulez pas activer la collecte des données depuis cet emplacement, vous pourrez le faire ultérieurement dans les panneaux Intégrité des ressources et Recommandations. Vous pouvez également activer la collecte des données pour l’abonnement seulement, ou pour certaines machines virtuelles. Pour plus d’informations sur les machines virtuelles prises en charge, consultez [FAQ du Centre de sécurité Azure](security-center-faq.md).
+    >[AZURE.NOTE] Il est recommandé d’activer la collecte des données pour chacun de vos abonnements afin de garantir que la surveillance de la sécurité est disponible pour toutes les machines virtuelles (nouvelles et existantes). L’activation de la collecte des données installe l’agent de surveillance. Si vous ne voulez pas activer la collecte des données depuis cet emplacement, vous pourrez le faire ultérieurement dans les panneaux Intégrité des ressources et Recommandations. Vous pouvez également activer la collecte des données pour l’abonnement seulement, ou pour certaines machines virtuelles. Pour plus d’informations sur les machines virtuelles prises en charge, consultez [FAQ du Centre de sécurité Azure](security-center-faq.md).
 
-5. Si votre compte de stockage n’est pas encore configuré, un avertissement similaire à celui de la figure ci-dessous peut s’afficher quand vous ouvrez la **stratégie de sécurité** :
+5. Si votre compte de stockage n’est pas encore configuré, il se peut que vous voyiez s’afficher lors de l’ouverture de la **Stratégie de sécurité** un avertissement similaire à celui de l’écran suivant :
 
     ![Sélection du stockage](./media/security-center-policies/security-center-policies-fig2.png)
 
-6. Si cet avertissement s’affiche, cliquez sur cette option, puis sélectionnez la région, comme illustré dans la figure ci-dessous :
+6. Si cet avertissement s’affiche, cliquez sur cette option, puis sélectionnez la région, comme illustré dans l’écran suivant :
 
     ![Sélection du stockage](./media/security-center-policies/security-center-policies-fig3-ga.png)
 
@@ -56,7 +56,7 @@ Vous pouvez configurer des stratégies de sécurité pour chaque abonnement ou g
 
     > [AZURE.NOTE] Si vous préférez, vous pouvez agréger les données de machines virtuelles appartenant à des régions différentes dans un compte de stockage central. Pour plus d’informations, consultez [FAQ du Centre de sécurité Azure](security-center-faq.md).
 
-9. Dans le panneau **Stratégie de sécurité**, cliquez sur **Activé** pour activer les recommandations de sécurité que vous voulez utiliser pour cet abonnement. Cliquez sur l’option **Stratégie de prévention**. Le panneau **Stratégie de sécurité** s’ouvre, comme illustré ci-dessous.
+9. Dans le panneau **Stratégie de sécurité**, cliquez sur **Activé** pour activer les recommandations de sécurité que vous voulez utiliser pour cet abonnement. Cliquez sur l’option **Stratégie de prévention**. Le panneau **Stratégie de sécurité** s’ouvre, comme illustré sur l’écran suivant :
 
 	![Sélection des stratégies de sécurité](./media/security-center-policies/security-center-policies-fig4-ga.png)
 
@@ -100,4 +100,4 @@ Dans ce document, vous avez appris à configurer des stratégies de sécurité d
 - [FAQ d’Azure Security Center](security-center-faq.md) : découvrez les réponses aux questions les plus souvent posées à propos de l’utilisation de ce service.
 - [Blog sur la sécurité Azure](http://blogs.msdn.com/b/azuresecurity/) : accédez à des billets de blog sur la sécurité et la conformité Azure.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

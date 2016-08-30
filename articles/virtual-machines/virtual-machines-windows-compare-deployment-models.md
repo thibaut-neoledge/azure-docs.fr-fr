@@ -3,9 +3,9 @@
    description="Vue d’ensemble des concepts relatifs aux fournisseurs de calcul, de réseau et de ressources de stockage (CRP, NRP et SRP) pour applications Windows dans le modèle de déploiement Azure Resource Manager"
    services="virtual-machines-windows"
    documentationCenter=""
-   authors="mahthi"
+   authors="tfitzmac"
    manager="timlt"
-   editor=""
+   editor="tysonn"
    tags="azure-resource-manager,azure-service-management"/>
 
 <tags
@@ -14,8 +14,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="infrastructure-services"
-   ms.date="04/29/2015"
-   ms.author="mahthi"/>
+   ms.date="08/19/2015"
+   ms.author="tomfitz"/>
 
 # Fournisseurs de calcul, de réseau et de stockage Azure pour applications Windows dans le modèle de déploiement Azure Resource Manager
 
@@ -23,4 +23,4 @@ L’inclusion des fonctions de calcul, de réseau et de stockage dans le modèle
 
 [AZURE.INCLUDE [virtual-machines-common-compare-deployment-models](../../includes/virtual-machines-common-compare-deployment-models.md)]
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -29,7 +29,7 @@ Vous aurez accès aux services Azure dans toutes les régions au sein d’une un
 
 |**Région géopolitique**|**Régions Azure**|**Emplacements ExpressRoute**|
 |---|---|---|
-|**Amérique du Nord**|Est des États-Unis, Ouest des États-Unis, Est des États-Unis 2, Centre des États-Unis, Centre-Sud des États-Unis, Centre-Nord des États-Unis, Centre du Canada, Est du Canada|Atlanta, Chicago, Dallas, Las Vegas+, Los Angeles, New York, Seattle, Silicon Valley, Washington DC, Montréal+, Québec+, Toronto|
+|**Amérique du Nord**|Est des États-Unis, Ouest des États-Unis, Est des États-Unis 2, Centre des États-Unis, Centre-Sud des États-Unis, Centre-Nord des États-Unis, Centre du Canada, Est du Canada|Atlanta, Chicago, Dallas, Las Vegas, Los Angeles, New York, Seattle, Silicon Valley, Washington DC, Montréal+, Québec+, Toronto|
 |**Amérique du Sud**|Sud du Brésil|São Paulo|
 |**Europe**|Europe du Nord, Europe de l’Ouest|Amsterdam, Dublin, Londres, Newport(Pays de Galles)+, Paris|
 |**Asie**|Asie orientale, Asie du Sud-Est|Hong Kong, Singapour|
@@ -44,7 +44,7 @@ Le tableau ci-dessous fournit des informations sur les régions et les limites g
 |**Région géopolitique**|**Régions Azure**|**Emplacements ExpressRoute**|
 |---|---|---|---|
 |**Cloud du gouvernement des États-Unis**|Gouvernement américain - Iowa, Gouvernement américain - Virginie|Chicago, Dallas+, New York, Washington DC|
-|**Chine**|Chine du Nord, Chine orientale|Beijing, Shanghai +|
+|**Chine**|Chine du Nord, Chine orientale|Beijing, Shanghai|
 |**Allemagne**|Allemagne centrale, Allemagne de l’est|Berlin, Francfort|
 
 
@@ -156,4 +156,4 @@ L’activation de la connectivité privée pour l’adapter à vos besoins peut 
 <!--Image References-->
 [0]: ./media/expressroute-locations/expressroute-locations-map.png "Carte géographique"
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

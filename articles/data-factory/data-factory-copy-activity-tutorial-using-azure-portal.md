@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Didacticiel : Créer un pipeline avec l'activité de copie à l'aide de Data Factory Editor" 
+	pageTitle="Didacticiel : Créer un pipeline avec l’activité de copie à l’aide de Data Factory Editor | Microsoft Azure" 
 	description="Dans ce didacticiel, vous créez un pipeline Azure Data Factory avec une activité de copie à l’aide de Data Factory Editor dans le portail Azure." 
 	services="data-factory" 
 	documentationCenter="" 
@@ -23,6 +23,7 @@
 - [Utiliser PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 - [Utilisation de Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 - [Utilisation de l'API REST](data-factory-copy-activity-tutorial-using-rest-api.md)
+- [Utilisation de l’API .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 - [Utilisation de l’Assistant de copie](data-factory-copy-data-wizard-tutorial.md)
 
 
@@ -32,12 +33,12 @@ Ce didacticiel comprend les étapes suivantes :
 -----| -----------
 [créer une fabrique de données Azure](#create-data-factory) | Dans cette étape, vous créez une fabrique de données Azure nommée **ADFTutorialDataFactory**.  
 [créer des services liés](#create-linked-services) | Dans cette étape, vous créez deux services liés : **AzureStorageLinkedService** et **AzureSqlLinkedService**. AzureStorageLinkedService lie le stockage Azure et AzureSqlLinkedService lie la base de données SQL Azure à ADFTutorialDataFactory. Les données d’entrée pour le pipeline se trouvent dans un conteneur d’objets blob dans le stockage d’objets blob Azure et les données de sortie sont stockées dans une table dans la base de données SQL Azure. Par conséquent, vous ajoutez ces deux magasins de données en tant que services liés à la fabrique de données.      
-[Créer des jeux de données d'entrée et de sortie](#create-datasets) | Dans l'étape précédente, vous avez créé des services liés qui font référence à des magasins de données contenant des données d'entrée/sortie. Dans cette étape, vous définissez deux tables de fabrique de données, **EmpTableFromBlob** et **EmpSQLTable**, qui représentent les données d’entrée/sortie stockées dans les magasins de données. Pour la table EmpTableFromBlob, vous devez spécifier le conteneur qui contient un objet blob avec la source de données ; pour la table EmpSQLTable, vous spécifiez la table SQL qui stocke les données de sortie. Vous devez également spécifier d’autres propriétés, telles que la structure des données, la disponibilité des données, etc. 
-[Créer un pipeline](#create-pipeline) | Dans cette étape, vous créez un pipeline nommé **ADFTutorialPipeline** dans la fabrique de données ADFTutorialDataFactory. Le pipeline effectue une **activité de copie** qui copie les données d’entrée de l’objet blob Azure dans la table SQL Azure de sortie. L’activité de copie effectue le déplacement des données dans Azure Data Factory, et l’activité est alimentée par un service disponible à l’échelle mondiale qui peut copier des données entre différents magasins de données de façon sécurisée, fiable et évolutive. Pour plus d’informations sur l’activité de copie, consultez l’article [Activités de déplacement des données](data-factory-data-movement-activities.md). 
+[Créer des jeux de données d'entrée et de sortie](#create-datasets) | Dans l'étape précédente, vous avez créé des services liés qui font référence à des magasins de données contenant des données d'entrée/sortie. Dans cette étape, vous définissez deux tables de fabrique de données, **EmpTableFromBlob** et **EmpSQLTable**, qui représentent les données d’entrée/sortie stockées dans les magasins de données. Pour la table EmpTableFromBlob, vous devez spécifier le conteneur qui contient un objet blob avec la source de données ; pour la table EmpSQLTable, vous spécifiez la table SQL qui stocke les données de sortie. Vous spécifiez également d’autres propriétés comme la structure, la disponibilité, etc. 
+[Créer un pipeline](#create-pipeline) | Dans cette étape, vous créez un pipeline nommé **ADFTutorialPipeline** dans la fabrique de données ADFTutorialDataFactory. Le pipeline assure une **activité de copie** qui copie les données d’entrée de l’objet blob Azure dans la table SQL Azure de sortie. L’activité de copie effectue le déplacement des données dans Azure Data Factory. Elle est mise en œuvre par un service disponible dans le monde entier, capable de copier des données entre différents magasins de données de façon sécurisée, fiable et évolutive. Pour plus d’informations sur l’activité de copie, consultez l’article [Activités de déplacement des données](data-factory-data-movement-activities.md). 
 [Surveillance d’un pipeline](#monitor-pipeline) | Dans cette étape, vous surveillez les tranches de tables d’entrée et de sortie à l’aide du portail Azure.
 
 > [AZURE.IMPORTANT] 
-Passez en revue l'article [Vue d'ensemble du didacticiel](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) et effectuez les étapes préalables avant de suivre ce didacticiel.
+Passez en revue l’article [Vue d’ensemble du didacticiel](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) et effectuez les étapes préalables avant de suivre ce didacticiel.
 
 ## Créer une fabrique de données
 Dans cette étape, vous utilisez le portail Azure pour créer une fabrique de données Azure nommée **ADFTutorialDataFactory**.
@@ -46,7 +47,7 @@ Dans cette étape, vous utilisez le portail Azure pour créer une fabrique de do
 
 	![Nouveau -> DataFactory][image-data-factory-new-datafactory-menu]
 
-6. Dans le panneau **Nouvelle fabrique de données** :
+6. Dans le panneau **Nouvelle fabrique de données** :
 	1. Entrez **ADFTutorialDataFactory** comme **nom**.
 	
   		![Panneau Nouvelle fabrique de données][image-data-factory-getstarted-new-data-factory-blade]
@@ -60,7 +61,9 @@ Dans cette étape, vous utilisez le portail Azure pour créer une fabrique de do
 7. Dans le panneau **Nouvelle fabrique de données**, notez que l'option **Ajouter au tableau d'accueil** est sélectionnée.
 8. Cliquez sur **Créer** dans le panneau **Nouvelle fabrique de données**.
 
-	Le nom de la fabrique de données Azure doit être un nom global unique. Si l'erreur suivante s'affiche, changez le nom de la fabrique de données (par exemple, votrenomADFTutorialDataFactory), puis tentez de la recréer : **Le nom de la fabrique de données « ADFTutorialDataFactory » n'est pas disponible**. Consultez la rubrique [Data Factory - Règles d'affectation des noms](data-factory-naming-rules.md) pour savoir comment nommer les artefacts Data Factory.
+	Le nom de la fabrique de données Azure doit être un nom global unique. Si l’erreur suivante s’affiche, changez le nom de la fabrique de données (par exemple, votrenomADFTutorialDataFactory), puis tentez de la recréer. Consultez la rubrique [Data Factory - Règles d'affectation des noms](data-factory-naming-rules.md) pour savoir comment nommer les artefacts Data Factory.
+	
+		Data factory name “ADFTutorialDataFactory” is not available  
 	 
 	![Nom de la fabrique de données indisponible][image-data-factory-name-not-available]
 	
@@ -68,13 +71,13 @@ Dans cette étape, vous utilisez le portail Azure pour créer une fabrique de do
 	> 
 	> Pour créer des instances de fabrique de données, vous devez avoir le statut d’administrateur/collaborateur de l’abonnement Azure
 
-9. Cliquez sur le hub **NOTIFICATIONS** situé à gauche et recherchez les notifications relatives au processus de création. Cliquez sur **X** pour fermer le panneau **NOTIFICATIONS** si celui-ci est ouvert.
+9. Cliquez sur le hub **NOTIFICATIONS** situé à gauche et recherchez les notifications relatives au processus de création. Cliquez sur **X** pour fermer le panneau **NOTIFICATIONS** si celui-ci est ouvert.
 10. Une fois la création terminée, le panneau **FABRIQUE DE DONNÉES** apparaît de la manière suivante.
 
     ![Page d'accueil Data Factory][image-data-factory-get-stated-factory-home-page]
 
 ## Créer des services liés
-Les services liés se chargent de lier des magasins de données ou des services de calcul à une fabrique de données Azure. Un magasin de données peut être un compte de stockage Azure, une base de données SQL Azure ou une base de données SQL Server locale.
+Les services liés se chargent de lier des magasins de données ou des services de calcul à une fabrique de données Azure. Un magasin de données peut être un stockage Azure Storage, une base de données SQL Azure ou une base de données SQL Server locale.
 
 Dans cette étape, vous créez deux services liés : **AzureStorageLinkedService** et **AzureSqlLinkedService**. Le service lié AzureStorageLinkedService lie un compte Azure Storage et AzureSqlLinkedService lie une base de données SQL Azure à la fabrique de données **ADFTutorialDataFactory**. Plus loin dans ce didacticiel, vous allez créer un pipeline qui servira à copier les données d’un conteneur d’objets blob dans AzureStorageLinkedService vers une table SQL dans AzureSqlLinkedService.
 
@@ -155,7 +158,7 @@ Une table est un jeu de données rectangulaire qui dispose d'un schéma. Dans ce
 	- **folderPath** a la valeur du conteneur **adftutorial**. Vous pouvez également spécifier le nom d'un objet blob dans le dossier. Étant donné que vous ne spécifiez pas le nom de l'objet blob, les données provenant de tous les objets blob du conteneur sont considérées comme données d'entrée.
 	- Le **type** de format a la valeur **TextFormat**.
 	- Le fichier texte contient deux champs, **FirstName** et **LastName**, séparés par une virgule (**columnDelimiter**).
-	- **availability** est défini sur **hourly** (**frequency** a la valeur **hour** et **interval** est défini sur **1**) ; ainsi, le service Data Factory recherche les données d’entrée toutes les heures dans le dossier racine du conteneur d’objets blob (**adftutorial**) que vous avez spécifié.
+	- L’élément **availability** est réglé sur **hourly** (**frequency** sur **hour** et **interval** sur **1**). Le service Data Factory recherche les données d’entrée toutes les heures dans le dossier racine du conteneur d’objets blob (**adftutorial**) que vous avez spécifié.
 	
 
 	Si vous ne spécifiez pas de nom (**fileName**) pour une **table** d’**entrée**, tous les fichiers/objets blob du dossier d’entrée (**folderPath**) sont considérés comme des entrées. Si vous spécifiez un fileName dans le JSON, seul le fichier/objet blob spécifié est considéré comme une entrée.
@@ -179,7 +182,7 @@ Une table est un jeu de données rectangulaire qui dispose d'un schéma. Dans ce
 2. Cliquez sur **Déployer** dans la barre d'outils pour créer et déployer la table **EmpTableFromBlob**. Vérifiez que le message **TABLE CORRECTEMENT CRÉÉE** s’affiche dans la barre de titre de l’éditeur.
 
 ### Créer un jeu de données de sortie
-Dans cette partie de l’étape, vous créez une table de sortie nommée **EmpSQLTable** qui pointe vers une table SQL de la base de données SQL Azure, représentée par le service lié **AzureSqlLinkedService**.
+Dans cette partie de l’étape, vous créez un jeu de données de sortie nommé **EmpSQLTable**. Ce jeu de données pointe vers une table SQL de la base de données SQL Azure représentée par **AzureSqlLinkedService**.
 
 1. Dans l’**éditeur** de Data Factory, cliquez sur le bouton **Nouveau jeu de données** dans la barre d’outils et cliquez sur **Table SQL Azure** dans le menu déroulant.
 2. Remplacez le script JSON dans le volet droit par l'extrait de code JSON suivant :
@@ -214,8 +217,8 @@ Dans cette partie de l’étape, vous créez une table de sortie nommée **EmpSQ
 	
 	* Le **type** de jeu de données est défini sur **AzureSQLTable**.
 	* **linkedServiceName** est défini sur **AzureSqlLinkedService** (vous avez créé ce service lié à l'étape 2).
-	* **tablename** a la valeur **emp**.
-	* Il existe trois colonnes (**ID**, **FirstName** et **LastName**) dans la table emp de la base de données. Toutefois, ID étant une colonne d'identité, vous devez donc spécifier uniquement **FirstName** et **LastName**.
+	* **tablename** est défini sur **emp**.
+	* La table emp de la base de données contient trois colonnes : **ID**, **FirstName** et **LastName**. ID étant une colonne d’identité, il vous suffit de spécifier **FirstName** et **LastName**.
 	* **availability** est défini sur **hourly** (**frequency** a la valeur **hour** et **interval** est défini sur **1**). Le service Data Factory génère une tranche de données de sortie toutes les heures dans la table **emp** de la base de données SQL Azure.
 
 
@@ -283,7 +286,7 @@ Dans cette étape, vous créez un pipeline avec une **activité de copie** qui u
 	
 	Les dates/heures de début et de fin doivent toutes deux être au [format ISO](http://en.wikipedia.org/wiki/ISO_8601). Par exemple : 2014-10-14T16:32:41Z. L’heure de fin (**end**) est facultative, mais nous allons l’utiliser dans ce didacticiel.
 	
-	Si vous ne spécifiez aucune valeur pour la propriété **end**, cette dernière est calculée comme suit : « **start + 48 heures** ». Pour exécuter le pipeline indéfiniment, spécifiez **9999-09-09** comme valeur pour la propriété **end**.
+	Si vous ne spécifiez aucune valeur pour la propriété **end**, cette dernière est calculée comme suit : « **start + 48 heures** ». Pour exécuter le pipeline indéfiniment, spécifiez **9999-09-09** comme valeur pour la propriété **end**.
 	
 	Dans l’exemple ci-dessus, il existe 24 tranches de données, car une tranche de données est générée toutes les heures.
 	
@@ -304,7 +307,7 @@ Dans cette étape, vous créez un pipeline avec une **activité de copie** qui u
 
 	![Vue schématique][image-data-factory-get-started-diagram-blade]
 
-	Vous pouvez faire un zoom avant, un zoom arrière, un zoom à 100 %, un zoom pour ajuster, positionner automatiquement les pipelines et les tables, et afficher les informations de lignage (mise en surbrillance des éléments en amont et en aval des éléments sélectionnés). Vous pouvez double-cliquer sur un objet (table ou pipeline d’entrée/de sortie) pour afficher les propriétés associées.
+	Vous pouvez faire un zoom avant, un zoom arrière, un zoom à 100 %, un zoom pour ajuster, positionner automatiquement les pipelines et les tables, et afficher les informations de lignage (mise en surbrillance des éléments en amont et en aval des éléments sélectionnés). Vous pouvez double-cliquer sur un objet (table ou pipeline d’entrée/de sortie) pour afficher ses propriétés.
 3. Cliquez avec le bouton droit sur **ADFTutorialPipeline** dans la vue schématique et cliquez sur **Ouvrir le pipeline**. Les activités doivent apparaître dans le pipeline, ainsi que des jeux de données d'entrée et de sortie pour les activités. Dans ce didacticiel, il n'y a qu'une seule activité dans le pipeline (activité de copie), avec EmpTableBlob comme jeu de données d'entrée et EmpSQLTable comme jeu de données de sortie.
 
 	![Ouvrir un pipeline](./media/data-factory-copy-activity-tutorial-using-azure-portal/DiagramView-OpenPipeline.png)
@@ -317,37 +320,29 @@ Dans cette étape, vous utilisez le portail Azure pour surveiller ce qui se pass
 
 1. Accédez au [portail Azure (en version préliminaire)][azure-portal] s’il n’est pas déjà ouvert.
 2. Si le panneau pour **ADFTutorialDataFactory** n'est pas ouvert, ouvrez-le en cliquant sur **ADFTutorialDataFactory** dans le **Tableau d'accueil**.
-3. Vous devez voir le nombre et les noms des tables et du pipeline que vous avez
-4. créés dans ce panneau.
+3. Vous devez voir le nombre et les noms de tables et de pipelines que vous avez créés sur ce panneau.
 
 	![Page d'accueil avec noms][image-data-factory-get-started-home-page-pipeline-tables]
 
 4. Cliquez maintenant sur la vignette **Jeux de données**.
-5. Dans le panneau **Jeux de données**, cliquez sur **EmpTableFromBlob**. Il s'agit de la table d'entrée pour **ADFTutorialPipeline**.
+5. Dans le panneau **Jeux de données**, cliquez sur **EmpTableFromBlob**. Ce jeu de données est le jeu de données d’entrée pour **ADFTutorialPipeline**.
 
 	![Jeux de données avec EmpTableFromBlob sélectionné][image-data-factory-get-started-datasets-emptable-selected]
 5. Notez que les tranches de données jusqu'à l'heure actuelle ont déjà été produites et sont **prêtes**, car le fichier **emp.txt** existe en permanence dans le conteneur d'objets blob **adftutorial\\input**. Vérifiez qu'aucune tranche n'apparaît dans la section inférieure **Tranches ayant échoué récemment**.
 
 	Les listes **Tranches récemment mises à jour** et **Tranches ayant échoué récemment** sont triées en fonction de l'**HEURE DE LA DERNIÈRE MISE À JOUR**. L’heure de mise à jour d’une tranche est modifiée dans les situations suivantes.
     
-
-	-  Vous mettez à jour l’état de la tranche manuellement, par exemple à l’aide de **Set-AzureRmDataFactorySliceStatus** (ou) en cliquant sur **EXÉCUTER** dans le panneau **TRANCHE** de la tranche.
-	-  La tranche change d’état en raison d’une exécution (par exemple, une exécution a démarré, une exécution s’est terminée et a échoué, une exécution s’est terminée et a réussi, etc.).
- 
-	Cliquez sur le titre des listes ou sur **... (points de suspension)** pour consulter la liste plus complète des tranches. Cliquez sur l’option **Filtre** de la barre d’outils pour filtrer les tranches.
+	Cliquez sur le titre des listes ou sur **... (points de suspension)** pour consulter la liste complète des tranches. Cliquez sur l’option **Filtre** de la barre d’outils pour filtrer les tranches.
 	
 	Pour afficher les tranches de données triées en fonction des heures de début et de fin de tranche, cliquez sur la vignette **Tranches de données (par heure de tranche)**.
 
 	![Tranches de données par heure de tranche][DataSlicesBySliceTime]
 
-6. À présent, dans le panneau **Jeux de données**, cliquez sur la table **EmpSQLTable**. Il s'agit de la table de sortie pour **ADFTutorialPipeline**.
+6. À présent, dans le panneau **Jeux de données**, cliquez sur la table **EmpSQLTable**. Ce jeu de données est le jeu de données de sortie pour **ADFTutorialPipeline**.
 
 	![Panneau Jeux de données][image-data-factory-get-started-datasets-blade]
 
-
-
-	 
-6. Vous devez voir le panneau **EmpSQLTable** tel qu'affiché ci-dessous :
+6. Vous devez voir le panneau **EmpSQLTable** tel qu’il apparaît dans l’image suivante :
 
 	![Panneau Table][image-data-factory-get-started-table-blade]
  
@@ -362,12 +357,12 @@ Dans cette étape, vous utilisez le portail Azure pour surveiller ce qui se pass
   
 	Si la tranche n'a pas l'état **Prêt**, vous pouvez voir les tranches en amont qui ne sont pas prêtes et qui empêchent l'exécution de la tranche actuelle dans la liste **Tranches en amont qui ne sont pas prêtes**.
 
-11. Dans le panneau **TRANCHE DE DONNÉES**, vous devez voir toutes les exécutions d'activité dans la liste inférieure. Cliquez sur une **exécution d'activité** pour voir le panneau **DÉTAILS D'EXÉCUTION DE L'ACTIVITÉ**.
+11. Dans le panneau **TRANCHE DE DONNÉES**, vous devez voir toutes les exécutions d'activité dans la liste inférieure. Cliquez sur une **exécution d’activité** pour voir le panneau **DÉTAILS D’EXÉCUTION DE L’ACTIVITÉ**.
 
 	![Détails de l'exécution d'activité][image-data-factory-get-started-activity-run-details]
 
 	
-12. Cliquez sur **X** pour fermer tous les panneaux et revenir au panneau d'accueil d'**ADFTutorialDataFactory**.
+12. Cliquez sur **X** pour fermer tous les panneaux et revenir au panneau d'accueil d'**ADFTutorialDataFactory**.
 14. (facultatif) Cliquez sur **Pipelines** dans la page d’accueil d’**ADFTutorialDataFactory**, cliquez ensuite sur **ADFTutorialPipeline** dans le panneau **Pipelines**, puis extrayez les tables d’entrée (**Consumed**) ou les tables de sortie (**Produced**).
 15. Lancez **SQL Server Management Studio**, connectez-vous à la base de données SQL Azure, puis vérifiez que les lignes sont insérées dans la table **emp** de la base de données.
 
@@ -381,7 +376,7 @@ Dans ce didacticiel, vous avez créé une fabrique de données Azure pour copier
 2.	Création de **services liés** :
 	1. Un service lié **Azure Storage** pour lier votre compte Azure Storage contenant des données d’entrée.
 	2. Un service lié **Azure SQL** pour lier votre base de données Azure SQL contenant les données de sortie.
-3.	Création des **jeux de données** qui décrivent les données d’entrée et de sortie des pipelines.
+3.	Création de **jeux de données** qui décrivent les données d’entrée et de sortie des pipelines.
 4.	Création d’un **pipeline** avec une **activité de copie** avec **BlobSource** en tant que source et **SqlSink** en tant que récepteur.
 
 
@@ -390,7 +385,7 @@ Dans ce didacticiel, vous avez créé une fabrique de données Azure pour copier
 | :---- | :---- |
 | [Activités de déplacement des données](data-factory-data-movement-activities.md) | Cet article fournit une description détaillée de l’activité de copie que vous avez utilisée dans ce didacticiel. |
 | [Planification et exécution](data-factory-scheduling-and-execution.md) | Cet article explique les aspects de la planification et de l’exécution du modèle d’application Azure Data Factory. |
-| [Pipelines](data-factory-create-pipelines.md) | Cet article vous aide à comprendre les pipelines et les activités dans Azure Data Factory, et à les utiliser pour créer des workflows pilotés par les données de bout en bout pour votre scénario ou votre entreprise. |
+| [Pipelines](data-factory-create-pipelines.md) | Cet article vous aide à comprendre les pipelines et les activités dans Azure Data Factory. |
 | [Groupes de données](data-factory-create-datasets.md) | Cet article vous aide à comprendre les jeux de données dans Azure Data Factory.
 | [Surveiller et gérer les pipelines Azure Data Factory à l’aide de la nouvelle application de surveillance et gestion.](data-factory-monitor-manage-app.md) | Cet article décrit comment surveiller, gérer et déboguer les pipelines à l’aide de l’application de surveillance et gestion. 
 
@@ -466,4 +461,4 @@ Dans ce didacticiel, vous avez créé une fabrique de données Azure pour copier
 [image-data-factory-name-not-available]: ./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-data-factory-not-available.png
  
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

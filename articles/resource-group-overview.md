@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/19/2016"
+   ms.date="08/18/2016"
    ms.author="tomfitz"/>
 
 # Présentation d’Azure Resource Manager
@@ -97,7 +97,7 @@ Pour obtenir des instructions sur le déploiement de votre solution dans différ
 
 ## Balises
 
-Resource Manager fournit une fonctionnalité de balisage vous permettant de catégoriser les ressources en fonction de vos exigences de gestion ou de facturation. Vous pouvez utiliser des balises lorsque vous disposez d’un ensemble complexe de groupes de ressources et de ressources et que vous souhaitez visualiser ces actifs de la façon qui vous semble la plus logique. Par exemple, vous pouvez baliser des ressources qui jouent un rôle similaire dans votre organisation ou qui appartiennent au même département. Sans balises, les utilisateurs de votre organisation peuvent créer plusieurs ressources qui peuvent s’avérer difficiles à identifier et à gérer plus tard. Par exemple, si vous souhaitez supprimer toutes les ressources d’un projet particulier, mais qu’elles n’ont pas été marquées pour celui-ci, vous devrez les rechercher manuellement. Le balisage peut constituer un moyen important de réduire les coûts inutiles dans votre abonnement.
+Resource Manager fournit une fonctionnalité de balisage vous permettant de catégoriser les ressources en fonction de vos exigences de gestion ou de facturation. Vous pouvez utiliser des balises lorsque vous disposez d’un ensemble complexe de groupes de ressources et de ressources et que vous souhaitez visualiser ces actifs de la façon qui vous semble la plus logique. Par exemple, vous pouvez baliser des ressources qui jouent un rôle similaire dans votre organisation ou qui appartiennent au même département. Sans balises, les utilisateurs de votre organisation peuvent créer plusieurs ressources qui peuvent s’avérer difficiles à identifier et à gérer plus tard. Par exemple, si vous souhaitez supprimer toutes les ressources d’un projet particulier, mais qu’elles n’ont pas été marquées pour celui-ci, vous devrez les rechercher manuellement. Le balisage constitue un levier important pour réduire les coûts inutiles dans votre abonnement.
 
 Les ressources ne doivent pas nécessairement appartenir au même groupe de ressources pour partager une balise. Vous pouvez créer votre propre taxonomie de balise pour vous assurer que tous les utilisateurs de votre organisation utiliseront des balises communes plutôt que d’appliquer par inadvertance des balises légèrement différentes (telles que « dépt » au lieu de « département »).
 
@@ -105,11 +105,11 @@ Pour plus d’informations sur les balises, voir [Organisation des ressources Az
 
 ## Contrôle d’accès
 
-Resource Manager vous permet de déterminer les utilisateurs qui sont autorisés à exécuter des actions spécifiques pour votre organisation. Il intègre en mode natif à la plate-forme de gestion le protocole OAuth et le contrôle d’accès en fonction du rôle (RBAC), et applique ce contrôle d’accès à tous les services de votre groupe de ressources. Vous pouvez ajouter des utilisateurs à des rôles prédéfinis de plateforme ou propres aux ressources et appliquer ces rôles à un abonnement, un groupe de ressources ou une ressource pour limiter l’accès. Par exemple, vous pouvez tirer parti du rôle prédéfini Collaborateur de base de données SQL qui permet aux utilisateurs de gérer les bases de données, mais non les serveurs de base de données ni les stratégies de sécurité. Vous pouvez attribuer le rôle Collaborateur de base de données SQL aux utilisateurs de votre organisation qui ont besoin de ce type d’accès, puis appliquer ce rôle à l’abonnement, au groupe de ressources ou à la ressource.
+Resource Manager vous permet de déterminer les utilisateurs qui sont autorisés à exécuter des actions spécifiques pour votre organisation. Il intègre en mode natif à la plate-forme de gestion le protocole OAuth et le contrôle d’accès en fonction du rôle (RBAC), et applique ce contrôle d’accès à tous les services de votre groupe de ressources. Vous pouvez ajouter des utilisateurs à des rôles prédéfinis de plateforme ou de ressource, puis appliquer ces rôles à un abonnement, un groupe de ressources ou une ressource pour limiter l’accès. Par exemple, vous pouvez tirer parti du rôle prédéfini Collaborateur de base de données SQL qui permet aux utilisateurs de gérer les bases de données, mais non les serveurs de base de données ni les stratégies de sécurité. Vous pouvez attribuer le rôle Collaborateur de base de données SQL aux utilisateurs de votre organisation qui ont besoin de ce type d’accès, puis appliquer ce rôle à l’abonnement, au groupe de ressources ou à la ressource.
 
 Resource Manager enregistre automatiquement les actions des utilisateurs à des fins d’audit. Pour plus d’informations sur l’utilisation des journaux d’audit, consultez [Opérations d’audit avec Resource Manager](resource-group-audit.md).
 
-Pour plus d’informations sur le contrôle d’accès en fonction du rôle, consultez [Contrôle d’accès en fonction du rôle d’Azure](./active-directory/role-based-access-control-configure.md). La rubrique [RBAC : rôles intégrés](./active-directory/role-based-access-built-in-roles.md) contient une liste des rôles intégrés et des actions autorisées. Les rôles intégrés incluent les rôles généraux tels que ceux de Propriétaire, Lecteur et Collaborateur, ainsi que les rôles spécifiques pour le service, par exemple, collaborateur de machine virtuelle, collaborateur de réseau virtuel et Gestionnaire de sécurité SQL (pour ne nommer que quelques-uns des rôles disponibles).
+Pour plus d’informations sur le contrôle d’accès en fonction du rôle, consultez [Contrôle d’accès en fonction du rôle d’Azure](./active-directory/role-based-access-control-configure.md). La rubrique [RBAC : rôles intégrés](./active-directory/role-based-access-built-in-roles.md) contient une liste des rôles intégrés et des actions autorisées. Les rôles intégrés incluent les rôles généraux tels que ceux de Propriétaire, Lecteur et Collaborateur, ainsi que les rôles spécifiques pour le service, par exemple, collaborateur de machine virtuelle, collaborateur de réseau virtuel et Gestionnaire de sécurité SQL (pour ne nommer que quelques-uns des rôles disponibles).
 
 Vous pouvez également verrouiller explicitement les ressources essentielles afin d’empêcher les utilisateurs de les supprimer ou de les modifier. Pour plus d’informations, consultez [Verrouiller des ressources avec Azure Resource Manager](resource-group-lock-resources.md).
 
@@ -133,42 +133,61 @@ Pour plus d’informations sur l’utilisation du portail, consultez [Déployer 
 
 Azure Resource Manager prend en charge le partage des ressources cross-origin (CORS). CORS permet d’appeler l’API REST Resource Manager ou une API REST du service Azure à partir d’une application web qui se trouve dans un domaine différent. Sans la prise en charge de CORS, le navigateur web empêcherait une application d’un domaine d’accéder aux ressources d’un autre domaine. Resource Manager active CORS pour toutes les demandes associées à des informations d’authentification valides.
 
-## Kits de développement logiciel (SDK) et exemples
+## Kits de développement logiciel (SDK)
 
 Des kits de développement logiciel (SDK) Azure sont disponibles en plusieurs langues sur plusieurs plates-formes. Chacune de ces langues est disponible via le gestionnaire de package d’écosystème correspondant et GitHub.
 
 Le code dans chaque kit de développement logiciel (SDK) est généré à partir de spécifications de l’API Azure RESTful. Disponibles en open source, ces spécifications sont basées sur la spécification Swagger 2.0. Le code des kits de développement logiciel (SDK) est généré par le biais d’un projet open source appelé AutoRest. AutoRest transforme ces spécifications d’API RESTful en bibliothèques clientes dans plusieurs langues. Si vous souhaitez améliorer des aspects du code généré dans les Kits de développement logiciel (SDK), l’ensemble des outils permettant de créer les Kits de développement logiciel (SDK) sont ouverts, disponibles gratuitement et basés sur un format de spécification d’API largement répandu.
 
-**Exemples** : mise en route rapide dans la langue de votre choix.
+Voici nos référentiels de Kit de développement logiciel (SDK) open source. N’hésitez pas à nous faire part de vos commentaires, des problèmes rencontrés et de vos demandes d’extraction.
 
-- [.NET](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=dotnet)
-- [Java](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=java)
-- [Node.JS](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=nodejs)
-- [Python](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=python)
-- [PHP](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=php) *bientôt disponible*
-- [Ruby](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=ruby)
+[.NET](https://github.com/Azure/azure-sdk-for-net) | [Java](https://github.com/Azure/azure-sdk-for-java) | [Node.js](https://github.com/Azure/azure-sdk-for-node) | [PHP](https://github.com/Azure/azure-sdk-for-php) | [Python](https://github.com/Azure/azure-sdk-for-python) | [Ruby](https://github.com/Azure/azure-sdk-ruby)
 
-**Référentiels du Kit de développement logiciel (SDK) open source** : n’hésitez pas à nous faire part de vos commentaires, des problèmes rencontrés et de vos demandes d’extraction.
+> [AZURE.NOTE] Si le Kit de développement logiciel (SDK) ne fournit pas la fonctionnalité requise, vous pouvez également appeler l’[API REST Azure](https://msdn.microsoft.com/library/azure/dn790568.aspx) directement.
 
-- [.NET](https://github.com/Azure/azure-sdk-for-net)
-- [Java](https://github.com/Azure/azure-sdk-for-java)
-- [Node.JS](https://github.com/Azure/azure-sdk-for-node)
-- [PHP](https://github.com/Azure/azure-sdk-for-php)
-- [Python](https://github.com/Azure/azure-sdk-for-python)
-- [Ruby](https://github.com/Azure/azure-sdk-ruby)
+## Exemples
 
-> [AZURE.NOTE] Si le Kit de développement logiciel (SDK) ne fournit pas la fonctionnalité requise, vous pouvez également appeler [l’API REST Azure](https://msdn.microsoft.com/library/azure/dn790568.aspx) directement.
+### .NET
+
+- [Manage Azure resources and resource groups with .NET (Gérer des ressources et des groupes de ressources Azure avec .NET)](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-resources-and-groups/)
+- [Deploy an SSH Enabled VM with a Template (Déployer une machine virtuelle compatible SSH à l’aide d’un modèle)](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-template-deployment/)
+
+### Java
+
+- [Manage Azure resources (Gérer des ressources Azure)](https://azure.microsoft.com/documentation/samples/resources-java-manage-resource/)
+- [Manage Azure resource groups (Gérer des groupes de ressources Azure)](https://azure.microsoft.com/documentation/samples/resources-java-manage-resource-group/)
+- [Deploy an SSH Enabled VM with a Template (Déployer une machine virtuelle compatible SSH à l’aide d’un modèle)](https://azure.microsoft.com/documentation/samples/resources-java-deploy-using-arm-template/)
+
+### Node.js
+
+- [Manage Azure resources and resource groups with .NET (Gérer des ressources et des groupes de ressources Azure avec .NET)](https://azure.microsoft.com/documentation/samples/resource-manager-node-resources-and-groups/)
+- [Deploy an SSH Enabled VM with a Template (Déployer une machine virtuelle compatible SSH à l’aide d’un modèle)](https://azure.microsoft.com/documentation/samples/resource-manager-node-template-deployment/)
+
+### Python
+
+- [Manage Azure resources and resource groups with .NET (Gérer des ressources et des groupes de ressources Azure avec .NET)](https://azure.microsoft.com/documentation/samples/resource-manager-python-resources-and-groups/)
+- [Deploy an SSH Enabled VM with a Template (Déployer une machine virtuelle compatible SSH à l’aide d’un modèle)](https://azure.microsoft.com/documentation/samples/resource-manager-python-template-deployment/)
+
+### Ruby
+
+- [Manage Azure resources and resource groups with .NET (Gérer des ressources et des groupes de ressources Azure avec .NET)](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-resources-and-groups/)
+- [Deploy an SSH Enabled VM with a Template (Déployer une machine virtuelle compatible SSH à l’aide d’un modèle)](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-template-deployment/)
+
+
+Outre ces modèles, vous pouvez parcourir les modèles de la galerie.
+
+[.NET](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=dotnet) | [Java](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=java) | [Node.js](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=nodejs) | [Python](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=python) | [Ruby](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=ruby)
 
 ## Étapes suivantes
 
-- Pour découvrir une présentation simple de l’utilisation des modèles, voir [Exporter un modèle Azure Resource Manager à partir de ressources existantes](resource-manager-export-template.md).
-- Pour obtenir une procédure pas à pas plus détaillée de création d’un modèle, voir [Guide de création d’un modèle Resource Manager](resource-manager-template-walkthrough.md).
+- Pour une présentation simple de l’utilisation des modèles, consultez [Exporter un modèle Azure Resource Manager à partir de ressources existantes](resource-manager-export-template.md).
+- Pour une procédure plus détaillée de création d’un modèle, consultez [Guide de création d’un modèle Resource Manager](resource-manager-template-walkthrough.md).
 - Pour comprendre les fonctions que vous pouvez utiliser dans un modèle, consultez [Fonctions de modèle](resource-group-template-functions.md).
-- Pour plus d’informations sur l’utilisation de Visual Studio avec Resource Manager, voir [Création et déploiement de groupes de ressources Azure à l’aide de Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
-- Pour plus d’informations sur l’utilisation de VS Code avec Resource Manager, voir [Utiliser des modèles Azure Resource Manager dans Visual Studio Code](resource-manager-vs-code.md).
+- Pour plus d’informations sur l’utilisation de Visual Studio avec Resource Manager, consultez [Création et déploiement de groupes de ressources Azure à l’aide de Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
+- Pour plus d’informations sur l’utilisation de VS Code avec Resource Manager, consultez [Utiliser des modèles Azure Resource Manager dans Visual Studio Code](resource-manager-vs-code.md).
 
 Voici une vidéo de cette présentation :
 
 [AZURE.VIDEO azure-resource-manager-overview]
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

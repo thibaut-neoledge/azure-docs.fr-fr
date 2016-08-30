@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Gestion du répertoire de l’abonnement Office 365 dans Azure | Microsoft Azure"
+   pageTitle="Gestion du répertoire de l’abonnement Office 365 dans Azure | Microsoft Azure"
    description="Gestion d’un répertoire d’abonnement Office 365 à l’aide d’Azure Active Directory et du portail Azure Classic"
    services="active-directory"
    documentationCenter=""
@@ -13,18 +13,18 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="06/03/2016"
+   ms.date="08/23/2016"
    ms.author="curtand"/>
 
 # Gestion du répertoire de l’abonnement Office 365 dans Azure
 
-Cet article décrit comment gérer un annuaire qui a été créé pour un abonnement à Office 365 dans le Portail Azure Classic. Vous devez être un administrateur de service ou un co-administrateur d’un abonnement Azure pour vous connecter au Portail Azure Classic. Si vous n’avez pas encore d’abonnement Azure, vous pouvez vous inscrire pour une [période d’essai gratuit de 30 jours](https://azure.microsoft.com/trial/get-started-active-directory/), puis déployer votre première solution cloud en moins de 5 minutes à l’aide de ce lien. Veillez à utiliser le compte professionnel ou scolaire que vous utilisez pour vous connecter à Office 365.
+Cet article décrit comment gérer un répertoire créé pour un abonnement Office 365 dans le portail Azure Classic. Vous devez être l’administrateur du service ou un co-administrateur d’un abonnement Azure pour vous connecter au portail Azure Classic. Si vous n’avez pas d’abonnement Azure, vous pouvez vous inscrire pour une [période d’essai gratuite de 30 jours](https://azure.microsoft.com/trial/get-started-active-directory/), puis déployer votre première solution cloud en moins de 5 minutes à l’aide de ce lien. Veillez à utiliser le compte professionnel ou scolaire que vous utilisez pour vous connecter à Office 365.
 
 Une fois que vous êtes abonné à Azure, vous pouvez vous connecter au portail Azure Classic et accéder aux services Azure. Cliquez sur l’extension Active Directory pour gérer l’annuaire qui authentifie les utilisateurs Office 365.
 
-Si vous avez déjà un abonnement Azure, le processus de gestion d’un annuaire supplémentaire est également simple. Par exemple, Michael Smith dispose d’un abonnement Office 365 pour Contoso.com. Il possède également un abonnement Azure obtenu via son compte Microsoft msmith@hotmail.com. Dans ce cas, il gère deux annuaires.
+Si vous avez un abonnement Azure, le processus de gestion d’un répertoire supplémentaire est également simple. Par exemple, Michael Smith a un abonnement Office 365 pour Contoso.com. Il a également un abonnement Azure obtenu via son compte Microsoft msmith@hotmail.com. Dans ce cas, il gère deux annuaires.
 
- Abonnement | Office 365 | Microsoft Azure
+ Abonnement | Office 365 | Les tables Azure
   -------------- | ------------- | -------------------------------
  Nom complet | Contoso | Répertoire Azure Active Directory (Azure AD) par défaut
  Nom de domaine | contoso.com | msmithhotmail.onmicrosoft.com
@@ -55,10 +55,10 @@ Après avoir effectué ces étapes, msmith@hotmail.com est un administrateur glo
 Supposons maintenant que Jane Doe doive administrer les sites web et les ressources de base de données associés à l’abonnement Azure de msmith@hotmail.com. Pour cela, Michael Smith a besoin d’effectuer ces étapes supplémentaires :
 
 1.	Connectez-vous au [portail Azure Classic](https://manage.windowsazure.com) en utilisant le compte d’administrateur de service de l’abonnement Azure (dans cet exemple, msmith@hotmail.com).
-2.	Transférez l'abonnement à l'annuaire Contoso : cliquez sur **Paramètres** > **Abonnements** > sélectionnez l'abonnement > **Modifier l'annuaire** > sélectionnez **Contoso (Contoso.com)**. Dans le cadre du transfert, les comptes professionnels ou scolaires qui sont des co-administrateurs de l’abonnement sont supprimés.
-3.	Ajoutez Jane Doe en tant que coadministrateur de l’abonnement : cliquez sur **Paramètres** > **Administrateurs** > sélectionnez l’abonnement > **Ajouter** > tapez **JohnDoe@Contoso.com**.
+2.	Transférez l’abonnement au répertoire Contoso : cliquez sur **Paramètres** > **Abonnements** > sélectionnez l’abonnement > **Modifier l’annuaire** > sélectionnez **Contoso (Contoso.com)**. Dans le cadre du transfert, les comptes professionnels ou scolaires qui sont co-administrateurs de l’abonnement sont supprimés.
+3.	Ajoutez Jane Doe comme co-administrateur de l’abonnement : cliquez sur **Paramètres** > **Administrateurs** > sélectionnez l’abonnement > **Ajouter** > tapez **JohnDoe@Contoso.com**.
 
 ## Étapes suivantes
-Pour plus d'informations sur la relation entre les annuaires et les abonnements, consultez [Association des abonnements Azure avec Azure AD](active-directory-how-subscriptions-associated-directory.md).
+Pour plus d’informations sur la relation entre les répertoires et les abonnements, consultez [Association des abonnements Azure avec Azure Active Directory](active-directory-how-subscriptions-associated-directory.md).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0824_2016-->
