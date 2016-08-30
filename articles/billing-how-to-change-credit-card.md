@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Comment modifier la carte de crédit utilisée pour payer un abonnement Azure | Microsoft Azure"
-	description="Décrit comment modifier la carte de crédit utilisée pour payer un abonnement Azure."
+	pageTitle="Modification de la carte de crédit utilisée pour payer un abonnement Azure | Microsoft Azure"
+	description="Décrit comment modifier la carte de crédit utilisée pour payer un abonnement Azure"
 	services=""
 	documentationCenter=""
 	authors="genlin"
-	manager="jarrettr"
+	manager="mbaldwin"
 	editor=""
 	tags="billing"
 	/>
@@ -15,16 +15,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/05/2016"
+	ms.date="08/11/2016"
 	ms.author="genli"/>
 
-# Comment modifier la carte de crédit utilisée pour payer un abonnement Azure
+# Modification de la carte de crédit utilisée pour payer un abonnement Azure
 
 Vous serez peut-être amené à mettre à jour les détails de la carte de crédit dans vos informations de compte, ou changer la carte utilisée pour payer votre facture.
 
 Si le numéro de votre carte de crédit reste le même en cas de renouvellement de votre carte de crédit, vous pouvez simplement mettre à jour les détails de la carte de crédit existante, tels que la date d’expiration.
 
-Si votre numéro de carte de crédit change, en cas de perte, de vol ou d’expiration, vous devrez ajouter la nouvelle carte de crédit à votre compte. Cela en raison du changement de code de sécurité CVV lors de la modification du numéro de carte de crédit.
+Si votre numéro de carte de crédit change, en cas de perte, de vol ou d’expiration, vous devez ajouter la nouvelle carte de crédit à votre compte. Cela en raison du changement de code de sécurité CVV lors de la modification du numéro de carte de crédit.
+
+[AZURE.INCLUDE [support-disclaimer](../includes/support-disclaimer.md)]
 
 ## Modifier les informations de paiement d’une carte bancaire existante
 1. Connectez-vous au [Centre des comptes Azure](https://account.windowsazure.com/Subscriptions) en tant qu’administrateur de compte. Dans le [portail Azure](https://portal.azure.com), vous pouvez accéder au Centre des comptes en sélectionnant **Abonnement**>*nom de l’abonnement*>**Gérer**.
@@ -39,7 +41,7 @@ Si votre numéro de carte de crédit change, en cas de perte, de vol ou d’expi
 
 ## Ajouter une nouvelle carte de crédit en tant que moyen de paiement
 1. Connectez-vous au [Centre des comptes Azure](https://account.windowsazure.com/Subscriptions) en tant qu’administrateur de compte.
-2. Sous **Cliquez sur un abonnement pour consulter les détails et l’utilisation**, sélectionnez l’abonnement pour lequel vous voulez ajouter un nouveau moyen de paiement.
+2. Sous **Cliquez sur un abonnement pour consulter les détails et l’utilisation**, sélectionnez l’abonnement pour lequel vous voulez ajouter un moyen de paiement.
 3. Dans la partie droite de la page, sélectionnez **Modifier le moyen de paiement**.
 4. Dans la page **Choisir le moyen de paiement**, sélectionnez « + » pour ajouter une nouvelle carte de crédit.
 5. Choisissez un type de carte de crédit, puis fournissez toutes les informations requises.
@@ -51,4 +53,6 @@ Si votre numéro de carte de crédit change, en cas de perte, de vol ou d’expi
 3. Dans la partie droite de la page, sélectionnez **Modifier le moyen de paiement**.
 4. Dans la page **Choisir le moyen de paiement**, sélectionnez la flèche déroulante située en regard de la carte bancaire, sélectionnez la carte bancaire à utiliser, puis sélectionnez ![checkbutton](./media/billing-how-to-change-credit-card/checkbutton.png) pour refermer la fenêtre.
 
-<!---HONumber=AcomDC_0803_2016-->
+> [AZURE.NOTE] Pour supprimer une carte de crédit que vous n’utilisez plus comme moyen de paiement Azure, vous devez envoyer un ticket de support afin de demander une assistance. Pour créer un ticket de support afin de supprimer une carte de crédit, consultez l’article [Comment créer un ticket de support pour les problèmes de facturation et d’abonnement Azure](billing-how-to-create-billing-support-ticket.md).
+
+<!---HONumber=AcomDC_0817_2016-->

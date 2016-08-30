@@ -1,11 +1,11 @@
 
 <properties
-	pageTitle="Résolution des problèmes liés à l’appartenance dynamique à des groupes | Microsoft Azure"
+	pageTitle="Résolution des problèmes liés à l’appartenance dynamique des groupes | Microsoft Azure"
 	description="Conseils pour résoudre les problèmes d’appartenance dynamique à des groupes dans Azure AD."
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
-	manager="stevenpo"
+	manager="femila"
 	editor=""
 	/>
 
@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="08/10/2016"
 	ms.author="curtand"/>
 
 
@@ -34,4 +34,4 @@ Ces articles fournissent des informations supplémentaires sur Azure Active Dire
 * [Qu’est-ce qu’Azure Active Directory ?](active-directory-whatis.md)
 * [Intégration des identités locales dans Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0817_2016-->

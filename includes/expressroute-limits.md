@@ -18,7 +18,6 @@ Les limites suivantes s’appliquent aux ressources ExpressRoute par abonnement.
 
 | **Taille du circuit** | **Nombre de liens de réseau virtuel de la configuration pour la version standard** | **Nombre de liens de réseau virtuel avec le module complémentaire Premium** |
 |---|---|---|
-| 10 Mbits/s | 10 | Non pris en charge |
 | 50 Mbits/s | 10 | 20 |
 | 100 Mbits/s | 10 | 25 |
 | 200 Mbits/s | 10 | 25 |
@@ -28,4 +27,4 @@ Les limites suivantes s’appliquent aux ressources ExpressRoute par abonnement.
 | 5 Gbit/s | 10 | 75 |
 | 10 Gbits/s | 10 | 100 |
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0817_2016-->

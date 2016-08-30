@@ -16,13 +16,13 @@
      ms.date="07/19/2016"
      ms.author="dobett"/>
 
-# Didacticiel : traiter les messages des appareils vers le cloud IoT Hub
+# Didacticiel : traiter les messages des appareils vers le cloud IoT Hub
 
 ## Introduction
 
 Azure IoT Hub est un service entièrement géré qui autorise des communications bidirectionnelles fiables et sécurisées entre des millions d’appareils IoT et un serveur d’applications principal. Les autres didacticiels ([Prise en main d’IoT Hub] et [Envoyer des messages du cloud vers des appareils avec IoT Hub][lnk-c2d]) vous expliquent comment utiliser la fonctionnalité de base de la messagerie « appareil vers cloud » et « cloud vers appareil » offerte par IoT Hub.
 
-Ce didacticiel s’appuie sur le code illustré dans le didacticiel [Prise en main d’IoT Hub] et décrit deux modèles évolutifs que vous pouvez utiliser pour le traitement des messages de l’appareil vers le cloud :
+Ce didacticiel s’appuie sur le code illustré dans le didacticiel [Prise en main d’IoT Hub] et décrit deux modèles évolutifs que vous pouvez utiliser pour le traitement des messages de l’appareil vers le cloud :
 
 - Le stockage fiable des messages envoyés de l’appareil vers le cloud dans le [stockage d’objets blob Azure]. Un scénario très courant est l’analyse de *chemin à froid*, dans laquelle vous stockez les données de télémétrie dans des objets Blob qui sont ensuite utilisés comme entrée dans les processus d’analyse. Ces processus peuvent être pilotés par des outils tels que [Azure Data Factory] ou la pile [HDInsight (Hadoop)].
 
@@ -30,24 +30,24 @@ Ce didacticiel s’appuie sur le code illustré dans le didacticiel [Prise en ma
 
 Étant donné qu’IoT Hub expose un point de terminaison compatible avec [Event Hubs][lnk-event-hubs] pour recevoir des messages des appareils vers le cloud, ce didacticiel utilise une instance [EventProcessorHost]. Cette instance :
 
-* stocke de manière fiable les messages de *point de données* dans le stockage d’objets blob Azure ;
+* stocke de manière fiable les messages de *point de données* dans le stockage d’objets blob Azure ;
 * transfère les messages *interactifs* appareil-à-cloud vers une [file d’attente Azure Service Bus] en vue de leur traitement immédiat.
 
 Service Bus permet d’assurer un traitement fiable des messages interactifs, car il fournit des points de contrôle par message et la déduplication basée sur la fenêtre temporelle.
 
 > [AZURE.NOTE] Une instance **EventProcessorHost** ne constitue qu’une seule façon de traiter les messages interactifs. Les autres options incluent [Azure Service Fabric][lnk-service-fabric] et [Azure Stream Analytics][lnk-stream-analytics].
 
-À la fin de ce didacticiel, vous exécuterez trois applications de console Windows :
+À la fin de ce didacticiel, vous exécuterez trois applications de console Windows :
 
-* **SimulatedDevice**, une version modifiée de l’application créée dans le didacticiel [Prise en main de IoT Hub] qui envoie des messages de point de données des appareils vers le cloud chaque seconde et des messages interactifs des appareils vers le cloud toutes les 10 secondes. Cette application utilise le protocole AMQPS pour communiquer avec IoT Hub.
+* **SimulatedDevice**, une version modifiée de l’application créée dans le didacticiel [Prise en main de IoT Hub] qui envoie des messages de point de données des appareils vers le cloud chaque seconde et des messages interactifs des appareils vers le cloud toutes les 10 secondes. Cette application utilise le protocole AMQPS pour communiquer avec IoT Hub.
 * **ProcessDeviceToCloudMessages** utilise la classe [EventProcessorHost] pour récupérer des messages à partir du point de terminaison compatible avec Event Hubs. L’instance stocke ensuite les messages de point de données dans le stockage d’objets Blob Azure de façon fiable, puis transfère les messages interactifs à une file d’attente Service Bus.
 * **ProcessD2CInteractiveMessages** extrait les messages interactifs de la file d’attente Service Bus.
 
 > [AZURE.NOTE] IoT Hub offre la prise en charge de Kit de développement logiciel (SDK) de plusieurs plateformes d’appareils et de plusieurs langages (notamment C, Java et JavaScript). Pour obtenir des instructions étape par étape expliquant comment remplacer l’appareil simulé de ce didacticiel par un appareil physique et comment connecter en général vos appareils à IoT Hub, consultez le [Centre de développement Azure IoT].
 
-Ce didacticiel s’applique directement à d’autres manières de consommer des messages compatibles avec Event Hubs, par exemple des projets [HDInsight (Hadoop)]. Pour plus d’informations, consultez le [Guide du développeur Azure IoT Hub - Appareil vers cloud].
+Ce didacticiel s’applique directement à d’autres manières de consommer des messages compatibles avec Event Hubs, par exemple des projets [HDInsight (Hadoop)]. Pour plus d’informations, consultez le [Guide du développeur Azure IoT Hub - Appareil vers cloud].
 
-Pour réaliser ce didacticiel, vous aurez besoin des éléments suivants :
+Pour réaliser ce didacticiel, vous aurez besoin des éléments suivants :
 
 + Microsoft Visual Studio 2015.
 
@@ -90,7 +90,7 @@ Dans cette section, vous allez modifier l’application de l’appareil simulé 
     SendDeviceToCloudInteractiveMessagesAsync();
     ````
 
-    > [AZURE.NOTE] Par souci de simplicité, ce didacticiel n’implémente aucune stratégie de nouvelle tentative. Dans le code de production, vous devez mettre en œuvre des stratégies de nouvelle tentative (par exemple, une interruption exponentielle), comme indiqué dans l’article MSDN [Transient Fault Handling] \(Gestion des erreurs temporaires).
+    > [AZURE.NOTE] Par souci de simplicité, ce didacticiel n’implémente aucune stratégie de nouvelle tentative. Dans le code de production, vous devez mettre en œuvre des stratégies de nouvelle tentative (par exemple, une interruption exponentielle), comme indiqué dans l’article MSDN [Transient Fault Handling] (Gestion des erreurs temporaires).
 
 ## Traitement des messages appareil-à-cloud
 
@@ -143,7 +143,7 @@ Vous avez également besoin d’une file d’attente Service Bus pour permettre 
 
 5. Cliquez avec le bouton droit sur le projet **ProcessDeviceToCloudMessages**, cliquez sur **Ajouter**, puis sur **Classe**. Nommez la nouvelle classe **StoreEventProcessor**, puis cliquez sur **OK** pour créer la classe.
 
-6. Ajoutez les instructions ci-après au début du fichier StoreEventProcessor.cs :
+6. Ajoutez les instructions ci-après au début du fichier StoreEventProcessor.cs :
 
     ```
     using System.IO;
@@ -154,7 +154,7 @@ Vous avez également besoin d’une file d’attente Service Bus pour permettre 
     using Microsoft.WindowsAzure.Storage.Blob;
     ```
 
-7. Insérez le code suivant dans le corps de la classe :
+7. Insérez le code suivant dans le corps de la classe :
 
     ```
     class StoreEventProcessor : IEventProcessor
@@ -292,7 +292,7 @@ Vous avez également besoin d’une file d’attente Service Bus pour permettre 
 
     La classe **EventProcessorHost** appelle cette classe pour traiter les messages appareil-à-cloud reçus d’IoT Hub. Le code dans cette classe implémente la logique, afin de stocker les messages de manière fiable dans un conteneur d’objets blob et de transférer les messages interactifs à la file d’attente Service Bus.
 
-    La méthode **OpenAsync** initialise la variable **currentBlockInitOffset** qui suit le décalage actuel du premier message lu par ce processeur d’événements. N’oubliez pas : chaque processeur est chargé d’une partition unique.
+    La méthode **OpenAsync** initialise la variable **currentBlockInitOffset** qui suit le décalage actuel du premier message lu par ce processeur d’événements. N’oubliez pas : chaque processeur est chargé d’une partition unique.
 
     La méthode **ProcessEventsAsync** reçoit un lot de messages d’IoT Hub et les traite comme suit : elle envoie des messages interactifs à la file d’attente Service Bus et ajoute les messages de point de données à la mémoire tampon appelée **toAppend**. Si la mémoire tampon atteint la limite de bloc de 4 Mo ou si les fenêtres de temps de déduplication Service Bus se sont écoulées depuis le dernier point de contrôle (une heure dans ce didacticiel), un point de contrôle est déclenché.
 
@@ -336,7 +336,7 @@ Dans cette section, vous écrirez une application de console Windows qui reçoit
 
 2. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le projet **ProcessD2CInteractiveMessages**, puis cliquez sur **Gérer les packages NuGet**. Cela affiche la fenêtre **Gestionnaire de packages NuGet**.
 
-3. Recherchez **WindowsAzure.Service Bus**, cliquez sur **Installer** et acceptez les conditions d’utilisation. Cette opération lance le téléchargement, l’installation et ajoute une référence à [Azure Service Bus](https://www.nuget.org/packages/WindowsAzure.ServiceBus) avec toutes ses dépendances.
+3. Recherchez **WindowsAzure.ServiceBus**, cliquez sur **Installer** et acceptez les conditions d’utilisation. Cette opération lance le téléchargement, l’installation et ajoute une référence à [Azure Service Bus](https://www.nuget.org/packages/WindowsAzure.ServiceBus) avec toutes ses dépendances.
 
 4. Ajoutez les instructions **using** suivantes au début du fichier **Program.cs** :
 
@@ -427,7 +427,7 @@ Pour en savoir plus sur le développement de solutions avec IoT Hub, consultez l
 [Prise en main de IoT Hub]: iot-hub-csharp-csharp-getstarted.md
 [Prise en main d’Azure IoT Hub]: iot-hub-csharp-csharp-getstarted.md
 [Prise en main d’IoT Hub]: iot-hub-csharp-csharp-getstarted.md
-[Prise en main d’IoT Hub]: iot-hub-csharp-csharp-getstarted.md
+[Prise en main d’IoT Hub]: iot-hub-csharp-csharp-getstarted.md
 [Centre de développement Azure IoT]: https://azure.microsoft.com/develop/iot
 [lnk-service-fabric]: https://azure.microsoft.com/documentation/services/service-fabric/
 [lnk-stream-analytics]: https://azure.microsoft.com/documentation/services/stream-analytics/
@@ -449,4 +449,4 @@ Pour en savoir plus sur le développement de solutions avec IoT Hub, consultez l
 [lnk-c2d]: iot-hub-csharp-csharp-process-d2c.md
 [lnk-suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0817_2016-->

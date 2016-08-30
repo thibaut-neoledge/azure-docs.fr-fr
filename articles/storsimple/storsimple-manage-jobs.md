@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="04/25/2016"
+   ms.date="08/17/2016"
    ms.author="alkohli" />
 
 # Utiliser le service StorSimple Manager pour afficher et gérer les tâches StorSimple
 
 [AZURE.INCLUDE [storsimple-version-selector-manage-jobs](../../includes/storsimple-version-selector-manage-jobs.md)]
 
-## Vue d’ensemble
+## Vue d'ensemble
 
 La page **Tâches** est un portail centralisé unique qui permet de consulter et de gérer les tâches qui ont été lancées sur les appareils connectés à votre service StorSimple Manager. Vous pouvez consulter les tâches planifiées, en cours d'exécution, terminées et en échec pour plusieurs appareils. Les résultats sont présentés sous forme de tableau.
 
@@ -27,27 +27,27 @@ La page **Tâches** est un portail centralisé unique qui permet de consulter et
 
 Vous pouvez rechercher rapidement les tâches qui vous intéressent en filtrant sur les champs, à savoir :
 
-- **État** : les tâches peuvent être en cours d’exécution, planifiées, en échec, terminées, en cours d’annulation ou annulées.
+- **État** : les tâches peuvent être en cours d’exécution, planifiées, en échec, terminées, en cours d’annulation ou annulées.
 
-- **Type** : les tâches peuvent être créées suite à une sauvegarde planifiée ou à la demande (**Exécuter la sauvegarde**), un clonage, une restauration d’appareil ou une mise à jour.
+- **Type** : les tâches peuvent être créées suite à une sauvegarde planifiée ou à la demande (**Exécuter la sauvegarde**), un clonage, une restauration d’appareil ou une mise à jour.
 
-- **Appareils** : les tâches sont initiées sur un certain appareil connecté à votre service.
+- **Appareils** : les tâches sont initiées sur un certain appareil connecté à votre service.
 
-- **De et À** : les tâches peuvent être filtrées selon la date et l’heure.
+- **De et À** : les tâches peuvent être filtrées selon la date et l’heure.
 
 Les tâches filtrées sont ensuite affichées sous forme de tableau sur la base des attributs suivants :
 
-- **Type** : sauvegarde, clonage, restauration, basculement ou mise à jour.
+- **Type** : sauvegarde, clonage, restauration, basculement ou mise à jour.
 
-- **État** : en cours d’exécution, planifié, en échec, terminé, en cours d’annulation ou annulé.
+- **État** : en cours d’exécution, planifié, en échec, terminé, en cours d’annulation ou annulé.
 
-- **Entité** : les tâches peuvent être associées à un volume, une stratégie de sauvegarde ou un appareil. Une tâche de clonage est associée à un volume, tandis qu'une tâche de sauvegarde planifiée est associée à une stratégie de sauvegarde. Une tâche d’appareil est créée à la suite d’une récupération d'urgence ou d’une opération de restauration.
+- **Entité** : les tâches peuvent être associées à un volume, une stratégie de sauvegarde ou un appareil. Une tâche de clonage est associée à un volume, tandis qu'une tâche de sauvegarde planifiée est associée à une stratégie de sauvegarde. Une tâche d’appareil est créée à la suite d’une récupération d'urgence ou d’une opération de restauration.
 
-- **Appareil** : nom de l’appareil sur lequel la tâche a été lancée.
+- **Appareil** : nom de l’appareil sur lequel la tâche a été lancée.
 
-- **Démarré le** : date à laquelle la tâche a été lancée.
+- **Démarré le** : date à laquelle la tâche a été lancée.
 
-- **Progression** : pourcentage d’achèvement d’une tâche en cours d’exécution. Pour une tâche terminée, le pourcentage doit toujours être de 100 %.
+- **Progression** : pourcentage d’achèvement d’une tâche en cours d’exécution. Pour une tâche terminée, le pourcentage doit toujours être de 100 %.
 
 La liste des tâches est actualisée toutes les 30 secondes.
 
@@ -93,4 +93,4 @@ Cette tâche est à présent annulée.
 
 - Découvrez comment [utiliser le service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0817_2016-->

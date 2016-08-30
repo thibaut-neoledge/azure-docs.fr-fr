@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="06/24/2016"
+	ms.date="08/11/2016"
 	ms.author="robmcm"/>
 
 # Application Web Node.js avec le service de Table Azure
@@ -476,7 +476,7 @@ Bien que l'application s'exécute localement, elle stocke les données du servic
 
 ## Déploiement de votre application dans Azure
 
-Les étapes de cette section utilisent les outils en ligne de commande Azure pour créer une application web dans Azure App Service et la déployer à l’aide de Git. Pour effectuer ces étapes, vous devez disposer d'un abonnement Azure.
+Les étapes de cette section utilisent les outils en ligne de commande Azure pour créer une application web dans Azure App Service et la déployer à l’aide de Git. Pour effectuer ces étapes, vous devez disposer d’un abonnement Azure.
 
 > [AZURE.NOTE] Ces étapes peuvent également être effectuées depuis le [portail Azure](https://portal.azure.com/). Consultez [Créer et déployer une application web Node.js dans Azure App Service].
 >
@@ -506,7 +506,7 @@ Dans cette étape, vous allez télécharger un fichier contenant des information
 
 	Indiquez le chemin et le nom du fichier des paramètres de publication téléchargé à l'étape précédente.
 
-3. Une fois les paramètres importés, supprimez le fichier des paramètres de publication. Ce fichier n'est plus nécessaire, et il contient des informations sensibles concernant votre abonnement Azure.
+3. Une fois les paramètres importés, supprimez le fichier des paramètres de publication. Ce fichier n’est plus nécessaire, et il contient des informations sensibles concernant votre abonnement Azure.
 
 ### Créer une application web App Service
 
@@ -635,4 +635,4 @@ Bien que les étapes de cet article décrivent l'utilisation du service de Table
 [app-settings-save]: ./media/storage-nodejs-use-table-storage-web-site/savebutton.png
 [app-settings]: ./media/storage-nodejs-use-table-storage-web-site/storage-tasks-appsettings.png
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

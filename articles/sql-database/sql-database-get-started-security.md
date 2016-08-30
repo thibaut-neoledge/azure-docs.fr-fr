@@ -15,22 +15,22 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="07/19/2016"
+	ms.date="08/17/2016"
 	ms.author="carlrab"/>
 
-# Didacticiel sur la base de données SQL : créer des comptes d'utilisateurs de base de données SQL pour accéder et gérer une base de données à l'aide du portail Azure
+# Didacticiel sur la base de données SQL : créer des comptes d’utilisateurs de base de données SQL pour accéder et gérer une base de données
 
 
 > [AZURE.SELECTOR]
 - [Didacticiel de prise en main](sql-database-get-started-security.md)
 - [Accorder l’accès](sql-database-manage-logins.md)
 
-Dans ce didacticiel, vous allez apprendre à utiliser le portail Azure pour :
+Dans ce didacticiel, vous allez apprendre à utiliser SQL Server Management Studio (SSMS) pour :
 
-- Vous connecter à la base de données SQL à l'aide d'une connexion du principal au niveau du serveur
-- Créer un compte d'utilisateur de base de données SQL
-- Accorder des autorisations dbo d'un compte d'utilisateur de base de données SQL au sein d'une base de données utilisateur
-- Se connecter à une base de données SQL avec un compte d'utilisateur qui n'est pas un principal au niveau du serveur
+- Vous connecter à la base de données SQL à l’aide d’une connexion du principal au niveau du serveur.
+- Créer un compte d’utilisateur de base de données SQL.
+- Accorder une [autorisation db\_owner](https://msdn.microsoft.com/library/ms189121.aspx#Anchor_0) à un utilisateur de bases de données SQL.
+- Vous connecter à une base de données SQL avec un compte d’utilisateur qui n’est pas un principal au niveau du serveur.
 
 [AZURE.INCLUDE [Connexion](../../includes/azure-getting-started-portal-login.md)]
 
@@ -50,4 +50,4 @@ Dans ce didacticiel, vous allez apprendre à utiliser le portail Azure pour :
 ## Étapes suivantes
 Maintenant que vous avez terminé ce didacticiel concernant le service Base de données SQL, créé un compte d’utilisateur et accordé des autorisations de propriétaire de base de données (dbo) au compte d’utilisateur, vous voici prêt à découvrir la [sécurité de Base de données SQL](sql-database-manage-logins.md).
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

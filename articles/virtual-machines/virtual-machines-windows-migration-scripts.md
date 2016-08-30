@@ -3,7 +3,7 @@
 	description="Cet article décrit comment cloner une machine virtuelle Classic unique vers Azure Resource Manager à l’aide de scripts PowerShell"
 	services="virtual-machines-windows"
 	documentationCenter=""
-	authors="singhkay"
+	authors="singhkays"
 	manager="drewm"
 	editor=""
 	tags="azure-resource-manager"/>
@@ -112,7 +112,7 @@ Le modèle crée les fichiers en fonction de l’existence d’extensions d’ag
 4.  `<ServiceName>-<VMName>-setextensions<optional timestamp>.json` : contient un ensemble d’applets de commande PowerShell à exécuter pour définir les extensions d’agent de machine virtuelle.
 4.  `<ServiceName>-<VMName>-copydisks<optional timestamp>.json` : contient un ensemble d’applets de commande PowerShell à exécuter pour copier les objets blob de disque, si l’option CopyDisks est spécifiée.
 
-Si l’indicateur -Deploy est défini, après la génération des fichiers, l’applet de commande déploie le modèle <ServiceName>-<VMName>-setup.json, copie les objets blob de disque de la machine virtuelle source si le paramètre DiskAction est défini sur CopyDisks, puis déploie le modèle <ServiceName>-<VMName>-deploy.json en utilisant le fichier <ServiceName>-<VMName>-parameters.json contenant les paramètres. Une fois le déploiement de la machine virtuelle effectué, s’il existe un script impératif (pour les extensions d’agent de machine virtuelle) ou un script concernant la copie des disques, ces scripts sont exécutés.
+Si l’indicateur -Deploy est défini, après la génération des fichiers, l’applet de commande déploie le modèle <NomService>-<NomMV>-setup.json, copie les objets blob de disque de la machine virtuelle source si le paramètre DiskAction est défini sur CopyDisks, puis déploie le modèle <NomService>-<NomMV>-deploy.json en utilisant le fichier <NomService>-<NomMV>-parameters.json contenant les paramètres. Une fois le déploiement de la machine virtuelle effectué, s’il existe un script impératif (pour les extensions d’agent de machine virtuelle) ou un script concernant la copie des disques, ces scripts sont exécutés.
 
 ### Détails du réseau
 L’applet de commande n’est pas destinée à cloner les paramètres de réseau Classic vers Resource Manager. Elle utilise les fonctionnalités de mise en réseau de la façon la mieux adaptée au clonage de la machine virtuelle proprement dite. Voici en quoi consiste le déroulement des opérations dans différents scénarios :
@@ -150,7 +150,7 @@ Il existe quelques différences entre l’approche de clonage actuelle et la pro
 
 **Les scripts de clonage ne prennent pas en charge les opérations ci-après :**
 
- 1. Arrêt d’une machine virtuelle en cours d’exécution 
+ 1. Arrêt d’une machine virtuelle en cours d’exécution
  2. Modification de vos données/disques
  3. Clonage de machines virtuelles en cours d’exécution
  4. Clonage automatique de plusieurs machines virtuelles dans un scénario complexe
@@ -185,4 +185,4 @@ L’applet de commande _Add-AzureSMVmToRM_ a été validée pour les cas de test
 ## Remarques
 1. Si plusieurs machines virtuelles sont clonées les unes après les autres à brefs intervalles, des conflits de nom DNS risquent de survenir pour les adresses IP publiques en raison du temps d’actualisation du cache DNS.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0817_2016-->

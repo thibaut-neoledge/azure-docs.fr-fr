@@ -13,12 +13,15 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="07/26/2016"
+    ms.date="08/15/2016"
     ms.author="elizapo" />
 
 
 
 # Procédure d’arrêt de facturation pour Azure RemoteApp
+
+> [AZURE.IMPORTANT]
+Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148).
 
 Tant que vous disposez de collections Azure RemoteApp, même sans utilisateur affecté, vous serez facturé pour RemoteApp. Pour arrêter cette facturation, supprimez tous vos collections.
 
@@ -30,4 +33,4 @@ Pour supprimer votre collection :
 
 La suppression de chaque collection peut prendre quelques minutes.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

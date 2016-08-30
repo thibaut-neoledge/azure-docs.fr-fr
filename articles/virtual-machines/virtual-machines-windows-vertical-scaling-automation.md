@@ -1,9 +1,9 @@
 <properties
-	pageTitle="Évolution verticale des machines virtuelles Azure avec Azure Automation | Microsoft Azure"
-	description="Mettre à l’échelle une machine virtuelle Windows en réponse aux alertes avec Azure Automation"
+	pageTitle="Mise à l’échelle verticale des machines virtuelles Azure avec Azure Automation | Microsoft Azure"
+	description="Mettre à l’échelle verticalement une machine virtuelle Windows en réponse aux alertes avec Azure Automation"
 	services="virtual-machines-windows"
 	documentationCenter=""
-	authors="singhkay"
+	authors="singhkays"
 	manager="drewm"
 	editor=""
 	tags="azure-resource-manager"/>
@@ -88,4 +88,4 @@ Veillez à bien copier le webhook avant de fermer la boîte de dialogue, car vou
 
 ![Ajouter une alerte à la machine virtuelle 2](./media/virtual-machines-vertical-scaling-automation/add-alert-webhook-2.png)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0817_2016-->

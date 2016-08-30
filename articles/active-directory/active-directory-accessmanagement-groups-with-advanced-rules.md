@@ -5,7 +5,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="08/15/2016"
 	ms.author="curtand"/>
 
 
@@ -121,7 +121,7 @@ Opérateurs autorisés
 
 * -notMatch
 
-| Propriétés | Valeurs autorisées | Usage |
+| Propriétés | Valeurs autorisées | Utilisation |
 |----------------------------|-------------------------------------------------------------------------------------------------------|-----------------------------------------------------------|
 | city | Toute valeur de chaîne ou $null | (user.city -eq "value") |
 | country | Toute valeur de chaîne ou $null | (user.country -eq "value") |
@@ -156,7 +156,7 @@ Opérateurs autorisés
 
 * -notContains
 
-| Propriétés | Valeurs autorisées | Usage |
+| Propriétés | Valeurs autorisées | Utilisation |
 |----------------|---------------------------------------|------------------------------------------------------|
 | otherMails | Toute valeur de chaîne. | (user.otherMails -contains "alias@domain") |
 | proxyAddresses | SMTP: alias@domain smtp: alias@domain | (user.proxyAddresses -contains "SMTP: alias@domain") |
@@ -168,7 +168,7 @@ Les attributs d’extension sont synchronisés à partir d’un Windows Server A
 
 (user.extensionAttribute15 -eq "Marketing")
 
-Les attributs personnalisés sont synchronisés à partir d’un système AD Windows Server local ou à partir d’une application SaaS connectée et le format de la chaîne « user.extension\_[GUID]\_\_[Attribut] », où [GUID] est l’identificateur unique, dans AAD, de l’application qui a créé l’attribut dans AAD, et [Attribut] est le nom de l’attribut tel qu’il a été créé. Voici un exemple de règle utilisant un attribut personnalisé :
+Les attributs personnalisés sont synchronisés à partir d’un système AD Windows Server local ou d’une application SaaS connectée et du format de « user.extension_[GUID]\__[Attribut] », où [GUID] est l’identificateur unique, dans AAD, de l’application qui a créé l’attribut dans AAD, et [Attribut] est le nom de l’attribut tel qu’il a été créé. Voici un exemple de règle utilisant un attribut personnalisé :
 
 user.extension\_c272a57b722d4eb29bfe327874ae79cb\_\_OfficeNumber
 
@@ -183,17 +183,34 @@ Vous pouvez maintenant remplir les membres d’un groupe en fonction de l’attr
 
 2. Sélectionnez l’onglet **Groupes**, puis ouvrez le groupe que vous souhaitez modifier.
 
-3. Sélectionnez l’onglet **Configurer**, puis sélectionnez **RÈGLE AVANCÉE**.
+3. Sélectionnez l’onglet **Configurer** puis **RÈGLE AVANCÉE**.
 
 4. Entrez la règle avec la syntaxe suivante :
 
-	Collaborateurs pour *Collaborateurs pour {ID objet\_du\_responsable}*. Voici un exemple e règle valable pour Collaborateurs :
+	Rapports directs pour *Rapports directs pour {ID objet\_du\_responsable}*. Voici un exemple e règle valable pour Collaborateurs :
 
 					Direct Reports for "62e19b97-8b3d-4d4a-a106-4ce66896a863”
 
-	où « 62e19b97-8b3d-4d4a-a106-4ce66896a863 » est l’ID objet du responsable. L’ID objet se trouve dans Azure AD, dans l’**onglet Profil** de la page Utilisateur de l’utilisateur qui est responsable.
+	où « 62e19b97-8b3d-4d4a-a106-4ce66896a863 » est l’ID objet du responsable. L’ID d’objet se trouve dans Azure AD, dans l’**onglet Profil** de la page Utilisateur de l’utilisateur qui est responsable.
 
 3. Une fois cette règle enregistrée, tous les utilisateurs qui satisfont à la règle seront joints en tant que membres du groupe. Le remplissage initial du groupe peut prendre quelques minutes.
+
+
+## Utilisation d’attributs pour créer des règles pour les objets d’appareil
+
+Vous pouvez également créer une règle qui sélectionne des objets d’appareil pour l’appartenance à un groupe. Les attributs d’appareil suivants peuvent être utilisés :
+
+| Propriétés | Valeurs autorisées | Utilisation |
+|----------------------|---------------------------------|------------------------------------------------------|
+| displayName | Toute valeur de chaîne | (device.displayName -eq "Rob Iphone”) |
+| deviceOSType | Toute valeur de chaîne | (device.deviceOSType -eq "IOS") |
+| deviceOSVersion | Toute valeur de chaîne | (device.OSVersion -eq "9.1") |
+| isDirSynced | true false null | (device.isDirSynced -eq "true") |
+| isManaged | true false null | (device.isManaged -eq "false") |
+| isCompliant | true false null | (device.isCompliant -eq "true") |
+
+> [AZURE.NOTE]
+Ces règles d’appareil ne peuvent pas être créées à l’aide de la liste déroulante « règle simple » dans le portail Azure Classic.
 
 
 ## Informations supplémentaires
@@ -209,4 +226,4 @@ Ces articles fournissent des informations supplémentaires sur Azure Active Dire
 
 * [Intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="05/10/2016"
+   ms.date="08/16/2016"
    ms.author="cherylmc"/>
 
 
@@ -25,7 +25,7 @@ Vous pouvez automatiser les opérations de création, de suppression ou de mise 
 
 Pour pouvoir utiliser le client DNS, vous devez installer le package NuGet **Bibliothèque de gestion Azure DNS** et ajouter les espaces de noms de la gestion DNS à votre projet.
  
-1. Dans **Visual Studio**, ouvrez un projet existant ou un nouveau projet. 
+1. Dans **Visual Studio**, ouvrez un projet existant ou un nouveau projet.
 
 2. Accédez à **Outils** **>** **Gestionnaire de package NuGet** **>** **Console du gestionnaire de package**.
 
@@ -113,4 +113,4 @@ L’exemple suivant montre comment obtenir une liste de zones et de jeux d’enr
 
 [Exemple de projet du Kit de développement logiciel (SDLK) Visual Studio](http://download.microsoft.com/download/2/A/C/2AC64449-1747-49E9-B875-C71827890126/AzureDnsSDKExample_2015_05_05.zip)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -13,7 +13,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="mobile-baidu"
 	ms.workload="mobile"
-	ms.date="05/05/2016"
+	ms.date="08/19/2016"
 	ms.author="wesmc"/>
 
 # Prendre en main Notification Hubs à l’aide de Baidu
@@ -79,7 +79,7 @@ Une fois que vous possédez un compte Baidu activé, connectez-vous au [portail 
 
   	![][9]
 
-6. Vous recevrez ensuite un message texte comportant un numéro de vérification, comme illustré dans l’exemple suivant :
+6. Ensuite, vous allez normalement recevoir un message texte avec un numéro de vérification, comme illustré dans l'exemple suivant :
 
   	![][10]
 
@@ -91,7 +91,7 @@ Une fois que vous possédez un compte Baidu activé, connectez-vous au [portail 
 
 ##Créer un projet Baidu de transmission Push dans le cloud
 
-Quand vous créez un projet Baidu de transmission Push dans le cloud, vous recevez un ID d’application, une clé API et une clé secrète.
+Lorsque vous créez un projet Baidu cloud push, vous recevez votre ID d'application, la clé API et la clé secrète.
 
 1. Une fois que vous vous êtes connecté au [portail Baidu], cliquez sur **更多>>** (**plus**).
 
@@ -504,4 +504,4 @@ Pour envoyer une notification de test, vous pouvez utiliser l’onglet de débog
 [Portail Azure Classic]: https://manage.windowsazure.com/
 [portail Baidu]: http://www.baidu.com/
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0824_2016-->

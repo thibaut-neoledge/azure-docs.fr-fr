@@ -12,10 +12,13 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="06/27/2016" 
+    ms.date="08/15/2016" 
     ms.author="elizapo" />
 
 # Azure RemoteApp : quelle est la corrélation entre la bande passante réseau et la qualité de l’expérience d’utilisation ?
+
+> [AZURE.IMPORTANT]
+Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148).
 
 Lorsque vous examinez la [bande passante réseau globale](remoteapp-bandwidth.md) requise pour Azure RemoteApp, gardez à l’esprit les facteurs suivants ; ils font tous partie d’un système dynamique qui a un impact sur l’expérience utilisateur globale.
 
@@ -35,4 +38,4 @@ Maintenant, revenez à l’[article principal sur la bande passante réseau](rem
 
 - [Bande passante réseau Azure RemoteApp : instructions générales (si vous ne pouvez pas tester votre propre bande passante)](remoteapp-bandwidthguidelines.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

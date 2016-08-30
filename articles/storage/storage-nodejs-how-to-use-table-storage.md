@@ -13,14 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="06/24/2016"
+	ms.date="08/11/2016"
 	ms.author="micurd"/>
 
 
 # Utilisation du stockage de tables Azure à partir de Node.js
 
-[AZURE.INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
-
+[AZURE.INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)] <br/> [AZURE.INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-tables.md)]
 
 ## Vue d'ensemble
 
@@ -73,9 +72,9 @@ Le module Azure lit les variables d'environnement AZURE\_STORAGE\_ACCOUNT et AZU
 
 Pour obtenir un exemple de configuration des variables d’environnement dans le [portail Azure](https://portal.azure.com) pour un site web Azure, consultez [Application web Node.js avec le service de Table Azure].
 
-## Création d'une table
+## Création d’une table
 
-Le code suivant crée un objet **TableService** et l'utilise pour créer une table. Ajoutez le code suivant vers le début du fichier **server.js** :
+Le code suivant crée un objet **TableService** et l'utilise pour créer une table. Ajoutez le code suivant vers le début du fichier **server.js** :
 
 	var tableSvc = azure.createTableService();
 
@@ -101,18 +100,18 @@ Après le prétraitement des options de la requête, la méthode doit appeler «
 
 Dans ce rappel, et après le traitement de returnObject (la réponse de la requête au serveur), le rappel doit appeler la fonction next, si elle existe, pour continuer à traiter d’autres filtres ou simplement appeler finalCallback pour terminer l’utilisation du service.
 
-Deux filtres qui implémentent la logique de relance sont inclus dans le Kit de développement logiciel (SDK) Azure pour Node.js : **ExponentialRetryPolicyFilter** et **LinearRetryPolicyFilter**. Le code suivant crée un objet **TableService** qui utilise le filtre **ExponentialRetryPolicyFilter** :
+Deux filtres qui implémentent la logique de relance sont inclus dans le Kit de développement logiciel (SDK) Azure pour Node.js : **ExponentialRetryPolicyFilter** et **LinearRetryPolicyFilter**. Le code suivant crée un objet **TableService** qui utilise le filtre **ExponentialRetryPolicyFilter** :
 
 	var retryOperations = new azure.ExponentialRetryPolicyFilter();
 	var tableSvc = azure.createTableService().withFilter(retryOperations);
 
-## Ajout d'une entité à une table
+## Ajout d’une entité à une table
 
 Pour ajouter une entité, commencez par créer un objet qui définit les propriétés de l'entité. Toutes les entités doivent contenir une propriété **PartitionKey** et **RowKey**, qui sont des identificateurs uniques de l'entité.
 
-* **PartitionKey** : détermine la partition dans laquelle l’entité est stockée
+* **PartitionKey** : détermine la partition dans laquelle l’entité est stockée
 
-* **RowKey** : identifie de façon unique l’entité dans la partition
+* **RowKey** : identifie de façon unique l’entité dans la partition
 
 **PartitionKey** et **RowKey** doivent être des valeurs de chaîne. Pour plus d'informations, consultez la rubrique [Présentation du modèle de données du service de Table](http://msdn.microsoft.com/library/azure/dd179338.aspx).
 
@@ -159,15 +158,15 @@ Exemple de réponse :
 
 Plusieurs méthodes permettent de mettre à jour une entité existante :
 
-* **replaceEntity** : met à jour une entité existante en la remplaçant
+* **replaceEntity** : met à jour une entité existante en la remplaçant
 
-* **mergeEntity** : met à jour une entité existante en fusionnant les nouvelles valeurs des propriétés avec l’entité existante
+* **mergeEntity** : met à jour une entité existante en fusionnant les nouvelles valeurs des propriétés avec l’entité existante
 
-* **insertOrReplaceEntity** : met à jour une entité existante en la remplaçant. En l’absence d’entité, une nouvelle entité est insérée.
+* **insertOrReplaceEntity** : met à jour une entité existante en la remplaçant. En l’absence d’entité, une nouvelle entité est insérée.
 
-* **insertOrMergeEntity** : met à jour une entité existante en fusionnant les nouvelles valeurs des propriétés avec l’entité existante. En l’absence d’entité, une nouvelle entité est insérée.
+* **insertOrMergeEntity** : met à jour une entité existante en fusionnant les nouvelles valeurs des propriétés avec l’entité existante. En l’absence d’entité, une nouvelle entité est insérée.
 
-L’exemple suivant illustre la mise à jour d’une entité avec **replaceEntity** :
+L’exemple suivant illustre la mise à jour d’une entité avec **replaceEntity** :
 
 	tableSvc.replaceEntity('mytable', updatedTask, function(error, result, response){
 	  if(!error) {
@@ -185,7 +184,7 @@ L’exemple suivant illustre la mise à jour d’une entité avec **replaceEntit
 >
 > 3. Effectuez l'opération de mise à jour. Si l’entité a été modifiée depuis que vous avez extrait la valeur ETag, par exemple avec une autre instance de votre application, une `error` est renvoyée, indiquant que la condition de mise à jour spécifiée dans la requête n’est pas remplie.
 
-Avec **replaceEntity** et **mergeEntity**, si l’entité mise à jour n’existe pas, l’opération échoue. Si vous voulez stocker une entité, qu’elle existe déjà ou non, utilisez **insertOrReplaceEntity** ou **insertOrMergeEntity**.
+Avec **replaceEntity** et **mergeEntity**, l’opération échoue si l’entité mise à jour n’existe pas. Si vous voulez stocker une entité, qu’elle existe déjà ou non, utilisez **insertOrReplaceEntity** ou **insertOrMergeEntity**.
 
 Le `result` des opérations de mise à jour réussies contient l’**Etag** de l’entité mise à jour.
 
@@ -225,15 +224,15 @@ Pour les opérations de traitement par lot réussies, `result` contient les info
 
 Les opérations ajoutées à un traitement par lot peuvent être inspectées en affichant la propriété `operations`. Vous pouvez également utiliser les méthodes suivantes avec les opérations :
 
-* **clear** : permet de supprimer toutes les opérations d’un lot
+* **clear** : permet de supprimer toutes les opérations d’un lot
 
-* **getOperations** : permet d’obtenir une opération du lot
+* **getOperations** : permet d’obtenir une opération du lot
 
-* **hasOperations** : permet de renvoyer true si le lot contient des opérations
+* **hasOperations** : permet de renvoyer true si le lot contient des opérations
 
-* **removeOperations** : permet de supprimer une opération
+* **removeOperations** : permet de supprimer une opération
 
-* **size** : permet de renvoyer le nombre d’opérations du lot
+* **size** : permet de renvoyer le nombre d’opérations du lot
 
 ## Récupération d'une entité par clé
 
@@ -251,15 +250,15 @@ Pour envoyer une entité spécifique d’après la valeur **PartitionKey** et **
 
 Pour interroger une table, utilisez l’objet **TableQuery** pour générer une expression de requête en utilisant les clauses suivantes :
 
-* **select** : champs à renvoyer par la requête
+* **select** : champs à renvoyer par la requête
 
-* **where** : clause where
+* **where** : clause where
 
-	* **and** : condition where `and`
+	* **and** : condition where `and`
 
-	* **or** : condition where `or`
+	* **or** : condition where `or`
 
-* **top** : nombre d’éléments à extraire
+* **top** : nombre d’éléments à extraire
 
 
 L’exemple suivant crée une requête qui renvoie les cinq premiers éléments avec une PartitionKey « hometasks ».
@@ -278,7 +277,7 @@ Comme **select** n'est pas utilisé, tous les champs sont renvoyés. Pour exécu
 
 En cas de réussite, `result.entries` contient un tableau d’entités qui correspondent à la requête. Si la requête n’a pas pu renvoyer toutes les entités, `result.continuationToken` est non *null* et peut servir de troisième paramètre de **queryEntities** pour obtenir davantage de résultats. Pour la requête initiale, utilisez *null* comme troisième paramètre.
 
-### Interrogation d'un sous-ensemble de propriétés d'entité
+### Interrogation d’un sous-ensemble de propriétés d’entité
 
 Vous pouvez utiliser une requête de table pour extraire uniquement quelques champs d'une entité. Ceci permet de réduire la consommation de bande passante et peut améliorer les performances des requêtes, notamment pour les entités volumineuses. Utilisez la clause **select** et transmettez les noms des champs à renvoyer. Par exemple, la requête suivante renvoie uniquement les champs **description** et **dueDate**.
 
@@ -287,7 +286,7 @@ Vous pouvez utiliser une requête de table pour extraire uniquement quelques cha
 	  .top(5)
 	  .where('PartitionKey eq ?', 'hometasks');
 
-## Suppression d'une entité
+## Suppression d’une entité
 
 Vous pouvez supprimer une entité en utilisant ses clés de partition et de ligne. Dans cet exemple, l'objet **task1** contient les valeurs **RowKey** et **PartitionKey** de l'entité à supprimer. L'objet est transmis à la méthode **deleteEntity**.
 
@@ -304,7 +303,7 @@ Vous pouvez supprimer une entité en utilisant ses clés de partition et de lign
 
 > [AZURE.NOTE] Vous avez intérêt à utiliser les ETag pour supprimer des éléments afin de vous assurer que les éléments n'ont pas été modifiés par un autre processus. Consultez [Mise à jour d’une entité](#update-an-entity) pour plus d’informations sur l’utilisation des ETags.
 
-## Suppression d'une table
+## Suppression d’une table
 
 Le code suivant permet de supprimer une table d'un compte de stockage.
 
@@ -424,7 +423,7 @@ Lorsque la liste de contrôle d'accès est définie, vous pouvez créer une sign
 
 ## Étapes suivantes
 
-Pour plus d’informations, consultez les ressources suivantes.
+Pour plus d'informations, consultez les ressources suivantes.
 
 -   [Blog de l’équipe Azure Storage][].
 -   Référentiel [Kit de développement logiciel (SDK) Azure Storage pour Node][] sur GitHub.
@@ -442,4 +441,4 @@ Pour plus d’informations, consultez les ressources suivantes.
   [Application web Node.js avec le service de Table Azure]: ../storage-nodejs-use-table-storage-web-site.md
   [Create and deploy a Node.js application to an Azure website]: ../web-sites-nodejs-develop-deploy-mac.md
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -39,43 +39,11 @@ Avant d’utiliser Service Bus Relay dans Azure, vous devez créer un espace de 
 
 Pour créer un espace de noms de service :
 
-1.  Connectez-vous au [portail Azure Classic][].
-
-2.  Dans le volet de navigation de gauche du portail, cliquez sur **Service Bus**.
-
-3.  Dans le volet inférieur du portail, cliquez sur **Créer**.
-
-	![](./media/service-bus-dotnet-how-to-use-relay/sb-queues-13.png)
-
-4.  Dans la boîte de dialogue **Ajouter un nouvel espace de noms**, saisissez un nom d’espace de noms. Le système vérifie immédiatement si le nom est disponible.
-
-	![](./media/service-bus-dotnet-how-to-use-relay/sb-queues-04.png)
-
-5.  Après vous être assuré que le nom de l’espace de noms est disponible, choisissez le pays ou la région où votre espace de noms doit être hébergé (veillez à utiliser le même pays ou la même région que celui ou celle où vous déployez vos ressources de calcul).
-
-	> [AZURE.IMPORTANT] choisissez la *même région* que celle que vous prévoyez de sélectionner pour le déploiement de votre application. Vous bénéficiez ainsi des meilleures performances.
-
-6.	Laissez les autres champs de la boîte de dialogue avec leurs valeurs par défaut (**Messaging** et **Niveau Standard**), puis cliquez sur la coche. Le système crée l'espace de noms de service et l'active. Vous devrez peut-être attendre plusieurs minutes afin que le système approvisionne des ressources pour votre compte.
-
-	![](./media/service-bus-dotnet-how-to-use-relay/getting-started-multi-tier-27.png)
-
-	L’espace de noms créé s’affiche alors dans le portail. Son activation peut prendre un certain temps. Patientez jusqu’à ce que l’état soit **Actif** avant de continuer.
-
-## Obtention d'informations d'identification de gestion par défaut pour l'espace de noms
-
-Afin d'exécuter des opérations de gestion, comme la création d'une connexion de relais, vous devez configurer sur le nouvel espace de noms la règle d'autorisation par signature d'accès partagé de l'espace de noms. Pour plus d'informations sur la signature d'accès partagé (SAS), consultez [Authentification par signature d'accès partagé avec Service Bus][].
-
-1.  Dans le volet de navigation gauche, cliquez sur le nœud **Service Bus** pour afficher la liste des espaces de noms disponibles. ![](./media/service-bus-dotnet-how-to-use-relay/sb-queues-13.png)
-
-2.  Double-cliquez sur le nom de l’espace de noms que vous venez de créer dans la liste affichée. ![](./media/service-bus-dotnet-how-to-use-relay/sb-queues-09.png)
-
-3.  Cliquez sur l’onglet **Configurer** en haut de la page.
-
-4.  Quand un espace de noms Service Bus est configuré, un objet **SharedAccessAuthorizationRule** avec **KeyName** défini sur **RootManageSharedAccessKey** est créé par défaut. Cette page affiche cette clé, ainsi que les clés primaire et secondaire de la règle par défaut.
+[AZURE.INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
 ## Obtention du package NuGet Service Bus
 
-Le [package NuGet Service Bus](https://www.nuget.org/packages/WindowsAzure.ServiceBus) constitue le moyen le plus simple de se procurer l’API Service Bus et de configurer votre application avec toutes les dépendances Service Bus. Pour installer le package NuGet dans votre application, procédez comme suit :
+Le [package NuGet Service Bus](https://www.nuget.org/packages/WindowsAzure.ServiceBus) est le moyen le plus simple d’obtenir l’API Service Bus et de configurer votre application avec toutes les dépendances Service Bus. Pour installer le package NuGet dans votre application, procédez comme suit :
 
 1.  Dans l'Explorateur de solutions, cliquez avec le bouton droit sur **References**, puis cliquez sur **Manage NuGet Packages**.
 2.  Recherchez « Service Bus » et sélectionnez l’élément **Microsoft Azure Service Bus**. Cliquez sur **Install** pour terminer l’installation, puis fermez la boîte de dialogue suivante.
@@ -133,7 +101,7 @@ class ProblemSolver : IProblemSolver
 
 ### Configurer un hôte de service par programme
 
-Maintenant que le contrat et l'implémentation sont en place, vous pouvez héberger le service. L'hébergement se situe à l'intérieur d'un objet [System.ServiceModel.ServiceHost](https://msdn.microsoft.com/library/azure/system.servicemodel.servicehost.aspx), qui se charge de gérer les instances du service et héberge les points de terminaison qui écoutent les messages. Dans le code suivant, le service est configuré avec d'une part un point de terminaison local normal et d'autre part un point de terminaison Service Bus, ceci afin d'illustrer la configuration côte à côte des points de terminaison internes et externes. Remplacez la chaîne *namespace* par le nom de votre espace de noms et *yourKey* par la clé SAP que vous avez obtenue à l'étape de configuration précédente.
+Maintenant que le contrat et l'implémentation sont en place, vous pouvez héberger le service. L'hébergement se situe à l'intérieur d'un objet [System.ServiceModel.ServiceHost](https://msdn.microsoft.com/library/azure/system.servicemodel.servicehost.aspx), qui se charge de gérer les instances du service et héberge les points de terminaison qui écoutent les messages. Le code suivant configure le service avec, d’une part, un point de terminaison local normal et, d’autre part, un point de terminaison Service Bus, pour illustrer la mise en correspondance, côte à côte, des points de terminaison internes et externes. Remplacez la chaîne *namespace* par le nom de votre espace de noms et *yourKey* par la clé SAP que vous avez obtenue à l'étape de configuration précédente.
 
 ```
 ServiceHost sh = new ServiceHost(typeof(ProblemSolver));
@@ -267,9 +235,8 @@ Maintenant que vous avez appris les principes de base du service Service Bus Rel
 - [Présentation de l’architecture d’Azure Service Bus](service-bus-fundamentals-hybrid-solutions.md)
 - Téléchargez des exemples Service Bus depuis la page [Exemples Azure][] ou consultez la [vue d’ensemble des exemples Service Bus][].
 
-  [portail Azure Classic]: http://manage.windowsazure.com
-  [Authentification par signature d'accès partagé avec Service Bus]: service-bus-shared-access-signature-authentication.md
+  [Shared Access Signature Authentication with Service Bus]: service-bus-shared-access-signature-authentication.md
   [Exemples Azure]: https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
   [vue d’ensemble des exemples Service Bus]: service-bus-samples.md
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0824_2016-->

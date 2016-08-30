@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="08/04/2016"
+   ms.date="08/15/2016"
    ms.author="rickbyh;barbkess;sonyama"/>
 
 # Authentification sur Azure SQL Data Warehouse
@@ -24,12 +24,12 @@
 - [Authentification](sql-data-warehouse-authentication.md)
 - [Pilotes](sql-data-warehouse-connection-strings.md)
 
-Pour vous connecter à SQL Data Warehouse, vous devez transmettre des informations d’identification de sécurité à des fins d’authentification. Lors de l’établissement d’une connexion, vous découvrirez également que certains paramètres de connexion sont configurés dans le cadre de l’établissement de votre session de requête.
+Pour vous connecter à SQL Data Warehouse, vous devez transmettre des informations d’identification de sécurité à des fins d’authentification. Lors de l’établissement d’une connexion, certains paramètres de connexion sont configurés dans le cadre de l’établissement de votre session de requête.
 
 Vous pouvez consulter l’article [Sécuriser une base de données dans SQL Data Warehouse][] pour plus d’informations sur la sécurité et la manière d’activer des connexions à votre entrepôt de données.
 
 ## Authentification SQL
-Pour vous connecter à SQL Data Warehouse, vous devrez fournir les informations suivantes :
+Pour vous connecter à SQL Data Warehouse, vous devez fournir les informations suivantes :
 
 - Nom complet du serveur
 - Authentification SQL
@@ -37,10 +37,10 @@ Pour vous connecter à SQL Data Warehouse, vous devrez fournir les informations 
 - Mot de passe
 - Base de données par défaut (facultatif)
 
-Par défaut, votre connexion se connecte à la base de données MASTER et non à votre base de données utilisateur. Pour vous connecter à votre base de données utilisateur, vous pouvez choisir d’effectuer l’une des deux opérations suivantes :
+Par défaut, votre connexion se connecte à la base de données MASTER et non à votre base de données utilisateur. Pour vous connecter à votre base de données utilisateur, vous pouvez choisir d’effectuer l’une des deux opérations suivantes :
 
-1. Spécifiez la base de données par défaut lors de l’inscription de votre serveur auprès de l’Explorateur d’objets SQL Server dans SQL Server Data Tools (SSDT), SSMS, ou dans votre chaîne de connexion d’application. Par exemple, insérez le paramètre InitialCatalog pour une connexion ODBC.
-2. Commencez par sélectionner la base de données utilisateur avant de créer une session dans SSDT.
+- Spécifiez la base de données par défaut lors de l’inscription de votre serveur auprès de l’Explorateur d’objets SQL Server dans SQL Server Data Tools (SSDT), SSMS, ou dans votre chaîne de connexion d’application. Par exemple, insérez le paramètre InitialCatalog pour une connexion ODBC.
+- Commencez par sélectionner la base de données utilisateur avant de créer une session dans SSDT.
 
 > [AZURE.NOTE] Pour obtenir des conseils en matière de connexion à SQL Data Warehouse avec SSDT, consultez l’article [Envoyer des requêtes avec Visual Studio][].
 
@@ -62,6 +62,7 @@ Les avantages suivants sont inclus :
 - Il peut éliminer le stockage des mots de passe en activant l’authentification intégrée Windows et les autres formes d’authentification prises en charge par Azure Active Directory.
 - L’authentification Azure Active Directory utilise les utilisateurs de base de données à relation contenant-contenu pour authentifier les identités au niveau de la base de données.
 - Azure Active Directory prend en charge l’authentification basée sur les jetons pour les applications se connectant à SQL Data Warehouse.
+- Lorsque l’authentification Azure Active Directory est configurée, SQL Server Management Studio prend en charge Multi-Factor Authentication avec l’authentification universelle Active Directory. Pour obtenir une description de Multi-Factor Authentication, consultez [Prise en charge SSMS de Azure AD MFA avec la base de données SQL et SQL Data Warehouse](../sql-database/sql-database-ssms-mfa-authentication.md).
 
 
 ### Configuration
@@ -91,4 +92,4 @@ Pour commencer à interroger votre entrepôt de données avec Visual Studio et d
 [Soumettre des requêtes avec Visual Studio]: ./sql-data-warehouse-query-visual-studio.md
 [What is Azure Active Directory]: ../active-directory/active-directory-whatis.md
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

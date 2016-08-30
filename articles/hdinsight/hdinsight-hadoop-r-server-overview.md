@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="06/01/2016"
+   ms.date="08/17/2016"
    ms.author="jeffstok"/>
 
 
@@ -63,9 +63,10 @@ Pour noter dans HDInsight, écrivez une fonction R qui appelle votre modèle pou
 
 ### Noter dans Azure Machine Learning
 
-Pour noter à l’aide d’un service web Azure Machine Learning, utilisez le [package R Azure Machine Learning open source](http://www.inside-r.org/blogs/2015/11/18/enhancements-azureml-package-connect-r-azureml-studio) pour [publier votre modèle en tant que service web Azure](http://www.r-bloggers.com/deploying-a-car-price-model-using-r-and-azureml/). Ensuite, utilisez les fonctionnalités d’Azure Machine Learning pour créer une interface utilisateur pour le service web, puis appelez le service web en fonction des besoins de notation.
+Pour noter à l’aide d’un service web Azure Machine Learning, utilisez le package R Azure Machine Learning open source, également appelé [AzureML](https://cran.r-project.org/web/packages/AzureML/vignettes/getting_started.html), pour publier votre modèle en tant que service web Azure. Pour plus de commodité, ce package est déjà installé sur le nœud de périphérie. Ensuite, utilisez les fonctionnalités d’Azure Machine Learning pour créer une interface utilisateur pour le service web, puis appelez le service web en fonction des besoins de notation.
 
-Si vous choisissez cette option, vous devez convertir les objets de modèle ScaleR en objets de modèle open source équivalents pour une utilisation avec le service web. Cela est possible en utilisant les fonctions de forçage de ScaleR, telles que `as.randomForest()` pour les modèles basés sur un ensemble.
+Si vous choisissez cette option, vous allez devoir convertir les objets de modèle ScaleR en objets de modèle open source équivalents pour une utilisation avec le service web. Cela est possible en utilisant les fonctions de forçage de ScaleR, telles que `as.randomForest()` pour les modèles basés sur un ensemble.
+
 
 ### Noter localement
 
@@ -75,15 +76,15 @@ Pour noter localement après la création de votre modèle, vous pouvez sériali
 
 ### Installation et maintenance des packages R
 
-La plupart des packages R que vous utilisez seront requis sur le nœud de périmètre, car la majeure partie de vos scripts R y sera exécutée. Pour installer des packages R supplémentaires sur le nœud de périmètre, vous pouvez utiliser la méthode `install.packages()` habituelle dans R.
+La plupart des packages R que vous utilisez seront requis sur le nœud de périmètre, car la majeure partie de vos scripts R y sera exécutée. Pour installer des packages R supplémentaires sur le nœud de périphérie, vous pouvez utiliser la méthode `install.packages()` habituelle dans R.
 
 Dans la plupart des cas, vous n’avez pas besoin d’installer des packages R supplémentaires sur les nœuds de données si vous utilisez simplement des routines de la bibliothèque ScaleR au sein du cluster. Toutefois, il se peut que vous ayez besoin de packages supplémentaires pour prendre en charge l’utilisation de **rxExec** ou l’exécution de **RxDataStep** sur les nœuds de données.
 
-Dans de tels cas, les packages supplémentaires doivent être spécifiés à l’aide d’une action de script après la création du cluster. Pour plus d’informations, voir [Création d’un cluster HDInsight avec R Server](hdinsight-hadoop-r-server-get-started.md).
+Dans de tels cas, les packages supplémentaires doivent être spécifiés à l’aide d’une action de script après la création du cluster. Pour plus d’informations, consultez la section [Création d’un cluster HDInsight avec R Server](hdinsight-hadoop-r-server-get-started.md).
 
 ### Modifier les paramètres de mémoire de Hadoop MapReduce
 
-Vous pouvez modifier un cluster afin de changer la quantité de mémoire disponible pour R Server lors de l’exécution d’un travail MapReduce. Pour modifier un cluster, utilisez l’interface utilisateur Apache Ambari qui est disponible via le panneau du portail Azure pour votre cluster. Pour obtenir des instructions concernant l’accès à l’interface utilisateur d’Ambari pour votre cluster, voir [Gérer des clusters HDInsight à l’aide de l’interface utilisateur web d’Ambari](hdinsight-hadoop-manage-ambari.md).
+Vous pouvez modifier un cluster afin de changer la quantité de mémoire disponible pour R Server lors de l’exécution d’un travail MapReduce. Pour modifier un cluster, utilisez l’interface utilisateur Apache Ambari qui est disponible via le panneau du portail Azure pour votre cluster. Pour obtenir des instructions concernant l’accès à l’interface utilisateur d’Ambari pour votre cluster, consultez la section [Gérer des clusters HDInsight à l’aide de l’interface utilisateur web d’Ambari](hdinsight-hadoop-manage-ambari.md).
 
 Vous pouvez également modifier la quantité de mémoire disponible pour R Server en utilisant des commutateurs Hadoop dans l’appel à **RxHadoopMR** comme suit :
 
@@ -91,7 +92,7 @@ Vous pouvez également modifier la quantité de mémoire disponible pour R Serve
 
 ### Mettre à l’échelle votre cluster
 
-Vous pouvez modifier l’échelle d’un cluster existant via le portail. Grâce à la mise à l’échelle, vous pouvez obtenir la capacité supplémentaire éventuellement nécessaire pour les tâches de traitement plus importantes, ou rétablir l’échelle d’un cluster quand il est inactif. Pour obtenir des instructions concernant la mise à l’échelle d’un cluster, voir [Gérer des clusters HDInsight](hdinsight-administer-use-portal-linux.md).
+Vous pouvez modifier l’échelle d’un cluster existant via le portail. Grâce à la mise à l’échelle, vous pouvez obtenir la capacité supplémentaire éventuellement nécessaire pour les tâches de traitement plus importantes, ou rétablir l’échelle d’un cluster quand il est inactif. Pour obtenir des instructions concernant la mise à l’échelle d’un cluster, consultez la section [Gérer des clusters HDInsight](hdinsight-administer-use-portal-linux.md).
 
 ### Maintenance du système
 
@@ -101,15 +102,15 @@ La maintenance est effectuée sur les machines virtuelles Linux sous-jacentes da
 
 ## En savoir plus sur les options IDE pour R Server sur un cluster HDInsight
 
-Le nœud de périmètre Linux d’un cluster HDInsight Premium est la zone d’accueil pour l’analyse basée sur R. Une fois connecté au cluster, vous pouvez lancer l’interface de la console R Server en tapant **R** à l’invite de commande Linux. L’utilisation de l’interface de la console est améliorée si vous exécutez un éditeur de texte pour le développement de script R dans une autre fenêtre, et coupez et collez des sections de votre script dans la console R en fonction des besoins.
+Le nœud de périmètre Linux d’un cluster HDInsight Premium est la zone d’accueil pour l’analyse basée sur R. Une fois connecté au cluster, vous pouvez lancer l’interface de la console sur R Server en tapant **R** à l’invite de commande Linux. L’utilisation de l’interface de la console est améliorée si vous exécutez un éditeur de texte pour le développement de script R dans une autre fenêtre, et coupez et collez des sections de votre script dans la console R en fonction des besoins.
 
 Un outil plus sophistiqué pour le développement de votre script R est l’IDE basé sur R pour une utilisation sur le bureau, notamment [R Tools pour Visual Studio](https://www.visualstudio.com/fr-FR/features/rtvs-vs.aspx) (RTVS), dont la sortie a été récemment annoncée par Microsoft. Il s’agit d’une famille d’outils de bureau et de serveur de [RStudio](https://www.rstudio.com/products/rstudio-server/). Vous pouvez également utiliser [StatET](http://www.walware.de/goto/statet) basé sur Eclipse de Walware.
 
-Une autre option consiste à installer un IDE sur le nœud de périmètre Linux proprement dit. [RStudio Server](https://www.rstudio.com/products/rstudio-server/) est largement répandu, car il fournit un IDE basé sur un navigateur pour une utilisation par des clients distants. L’installation de RStudio Server sur le nœud de périmètre d’un cluster HDInsight Premium offre une expérience d’IDE complète pour le développement et l’exécution de scripts R avec R Server sur le cluster. Elle peut être considérablement plus productive que la console R. Si vous souhaitez utiliser RStudio Server, voir [Installation de RStudio Server sur HDInsight](hdinsight-hadoop-r-server-install-r-studio.md).
+Une autre option consiste à installer un IDE sur le nœud de périmètre Linux proprement dit. [RStudio Server](https://www.rstudio.com/products/rstudio-server/) est largement répandu, car il fournit un IDE basé sur un navigateur pour une utilisation par des clients distants. L’installation de RStudio Server sur le nœud de périmètre d’un cluster HDInsight Premium offre une expérience d’IDE complète pour le développement et l’exécution de scripts R avec R Server sur le cluster. Elle peut être considérablement plus productive que la console R. Si vous souhaitez utiliser RStudio Server, consultez la section [Installation de RStudio Server sur des clusters HDInsight](hdinsight-hadoop-r-server-install-r-studio.md).
 
 ## En savoir plus sur la tarification
 
-Les frais associés à un cluster HDInsight Premium avec R Server sont structurés de manière similaire à ceux applicables à des clusters HDInsight standard. Ils sont basés sur le dimensionnement des machines virtuelles sous-jacentes pour le nom, les données et les nœuds de périmètre, avec l’ajout d’une extension pendant les heures normales pour l’édition Premium. Pour plus d’informations concernant la tarification de HDInsight Premium, notamment de la version préliminaire publique, et concernant la disponibilité de la version d’évaluation gratuite de 30 jours, voir [Tarification HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
+Les frais associés à un cluster HDInsight Premium avec R Server sont structurés de manière similaire à ceux applicables à des clusters HDInsight standard. Ils sont basés sur le dimensionnement des machines virtuelles sous-jacentes pour le nom, les données et les nœuds de périmètre, avec l’ajout d’une extension pendant les heures normales pour l’édition Premium. Pour plus d’informations concernant la tarification de HDInsight Premium, notamment de la version préliminaire publique, et concernant la disponibilité de la version d’évaluation gratuite de 30 jours, consultez la section [Tarification HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
 ## Étapes suivantes
 
@@ -123,4 +124,4 @@ Suivez les liens ci-dessous pour en savoir plus sur l’utilisation de R Server 
 
 - [Options d’Azure Storage pour R Server sur HDInsight Premium](hdinsight-hadoop-r-server-storage.md)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0817_2016-->

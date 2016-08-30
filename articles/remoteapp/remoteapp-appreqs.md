@@ -13,12 +13,16 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="06/13/2016"
+    ms.date="08/15/2016"
     ms.author="elizapo" />
 
 
 
 # Configuration requise des applications
+
+> [AZURE.IMPORTANT]
+Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148).
+
 Azure RemoteApp prend en charge la diffusion en continu des applications Windows 32 bits ou 64 bits à partir d’une image de Windows Server 2012 R2. La plupart des applications Windows 32 bits ou 64 bits existantes s’exécutent « tel quel » dans l’environnement Azure RemoteApp (Services Bureau à distance ou anciennement Services Terminal Server). Toutefois, il existe une différence entre s’exécuter et fonctionner correctement : certaines applications fonctionnent bien et correctement, d’autres non. Les informations suivantes fournissent des conseils pour le développement d’applications dans un environnement de Services Bureau à distance et le test, afin de garantir la compatibilité.
 
 Info : nous travaillons sur la création de quelques exemples d’applications fonctionnelles pour vous. Vous verrez de nouvelles rubriques décrivant l’utilisation de Microsoft Access, QuickBooks et App-V dans RemoteApp.
@@ -28,7 +32,7 @@ Si ces trois conditions sont réunies, votre application s’exécutera correcte
 
 1.	Les applications qui répondent à toutes les [Conditions de certification des applications de bureau Windows](https://msdn.microsoft.com/library/windows/desktop/hh749939.aspx) et respectent les [Instructions de programmation des Services Bureau à distance](https://msdn.microsoft.com/library/aa383490.aspx) sont entièrement compatibles avec RemoteApp.
 2.	Les applications ne doivent jamais stocker des données localement sur l’image ou sur les instances RemoteApp pouvant être perdues. Après la création d’une collection RemoteApp, les instances sont clonées et sans état et ne doivent contenir que des applications. Stockez les données dans une source externe ou dans le profil utilisateur.
-3.	Les images personnalisées ne doivent jamais contenir de données pouvant être perdues.  
+3.	Les images personnalisées ne doivent jamais contenir de données pouvant être perdues.
 
 ## Test de vos applications
 Suivez ces étapes pour tester des applications :
@@ -55,4 +59,4 @@ Utilisez les instructions suivantes pour développer des applications pour Remot
 - Paramétrez et équilibrez l’[utilisation de threads](https://msdn.microsoft.com/library/aa383520.aspx) de l’application pour un environnement multi-utilisateur et multiprocesseur.
 - Pour optimiser les performances, il est recommandé que les applications [détectent](https://msdn.microsoft.com/library/aa380798.aspx) si elles s’exécutent dans une session client.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -14,14 +14,14 @@
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="get-started-article"
-	 ms.date="07/01/2016"
+	 ms.date="08/21/2016"
 	 ms.author="trinadhk; giridham; arunak; markgal; jimpark;"/>
 
 # Service Azure Backup – Forum aux questions
 
 > [AZURE.SELECTOR]
 - [FAQ Azure Backup pour le mode classique](backup-azure-backup-faq.md)
-- [FAQ Azure Backup pour le mode ARM](backup-azure-backup-ibiza-faq.md)
+- [FAQ Azure Backup pour le mode Resource Manager](backup-azure-backup-ibiza-faq.md)
 
 Cet article est constitué d’une liste de questions fréquemment posées (et des réponses respectives) sur le service Azure Backup. Notre communauté répond rapidement, et si une question est souvent posée, nous l’ajouterons à cet article. Généralement, les réponses aux questions fournissent des informations de référence ou de prise en charge. Vous pouvez poser des questions sur Azure Backup dans la section Disques de cet article ou d’un article associé. Vous pouvez également publier des questions sur le service Azure Backup dans le [forum de discussion](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
 
@@ -29,7 +29,7 @@ Cet article est constitué d’une liste de questions fréquemment posées (et d
 **Q1. Quelle est la liste des systèmes d’exploitation pris en charge sur lesquels je peux sauvegarder des fichiers dans Azure à l’aide d’Azure Backup ?** <br/> R1. Azure Backup prend en charge les systèmes d’exploitation suivants :
 
 
-| Système d'exploitation | Plateforme | SKU |
+| Système d’exploitation | Plateforme | SKU |
 | :------------- |-------------| :-----|
 | Windows 8 et derniers Service Packs | 64 bits | Entreprise, Professionnel |
 | Windows 7 et derniers Service Packs | 64 bits | Édition Intégrale, Entreprise, Professionnel, Édition Familiale Premium, Édition Familiale Basique, Édition Starter |
@@ -49,9 +49,9 @@ Cet article est constitué d’une liste de questions fréquemment posées (et d
 
 **Q4. Pendant la configuration de l’agent Azure Backup, je suis invité à entrer les **informations d’identification de coffre**. Les informations d’identification de coffre expirent-elles ? R4. Oui, les informations d’identification de coffre expirent au bout de 48 heures. Si le fichier expire, connectez-vous au portail Azure et téléchargez les fichiers d’informations d’identification de coffre à partir de votre archivage de sauvegarde.
 
-**Q5. Le nombre d’archivages de sauvegarde pouvant être créés dans chaque abonnement Azure est-il limité ?** <br/> R5. Oui. Depuis juillet 2015, vous pouvez créer 25 archivages par abonnement. Si vous avez besoin de plus d’archivages, créez un autre abonnement.
+**Q5. Le nombre d’archivages de sauvegarde pouvant être créés dans chaque abonnement Azure est-il limité ?** <br/> R5. Oui. Depuis juillet 2015, vous pouvez créer 25 archivages par abonnement. Au-delà, vous devez créer un autre abonnement.
 
-**Q6. Les archivages sont-ils des entités de facturation ?** <br/> R6. Même s’il est possible d’obtenir une facture détaillée pour chaque archivage, nous vous recommandons vivement de considérer l’abonnement Azure comme entité de facturation. Il est cohérent sur tous les services et est plus facile à gérer.
+**Q6. Les archivages sont-ils des entités de facturation ?** <br/> R6. Même s’il est possible d’obtenir une facture détaillée pour chaque archivage, nous vous recommandons vivement de considérer un abonnement Azure comme une entité de facturation. Il est cohérent sur tous les services et est plus facile à gérer.
 
 **Q7. Le nombre de serveurs/ordinateurs pouvant être inscrits pour chaque archivage est-il limité ?** <br/> R7. Oui, vous pouvez inscrire un maximum de 50 ordinateurs par archivage. Pour les machines virtuelles Azure IaaS, la limite est de 200 machines virtuelles par coffre. Si vous avez besoin d’inscrire davantage d’ordinateurs, créez un autre archivage.
 
@@ -88,9 +88,9 @@ Cet article est constitué d’une liste de questions fréquemment posées (et d
 
 **Q14. Si mon organisation possède un archivage de sauvegarde, comment isoler les données d’un serveur d’un autre serveur lors de la restauration des données ?**<br/> R14. Tous les serveurs inscrits dans le même coffre sont en mesure de récupérer les données sauvegardées par d’autres serveurs *qui utilisent la même phrase secrète*. Si vous avez des serveurs dont vous souhaitez isoler les données de sauvegarde des autres serveurs de votre organisation, utilisez une phrase secrète désignée pour ces serveurs. Par exemple, les serveurs des ressources humaines peuvent utiliser une phrase secrète de chiffrement, les serveurs de comptabilité peuvent en utiliser une autre et les serveurs de stockage une troisième.
 
-**Q15. Puis-je « migrer » mes données de sauvegarde entre les abonnements ?** <br/> R15 : non
+**Q15. Puis-je « migrer » mes données de sauvegarde entre des abonnements ?** <br/> R15 : non
 
-**Question 16. Puis-je « migrer » mon archivage de sauvegarde entre les abonnements ?** <br/> R16 : non. L’archivage est créé au niveau de l’abonnement et ne peut pas être réaffecté à un autre abonnement une fois créé.
+**Question 16. Puis-je « migrer » mon archivage de sauvegarde entre des abonnements ?** <br/> R16 : non. L’archivage est créé au niveau de l’abonnement et ne peut pas être ensuite réaffecté à un autre abonnement.
 
 **Question 17. L’agent Azure Backup fonctionne-t-il sur un serveur qui utilise la déduplication Windows Server 2012 ?** <br/> R17 : oui. Le service de l’agent convertit les données dédupliquées en données normales lorsqu'il prépare l'opération de sauvegarde. Il optimise ensuite les données pour la sauvegarde, chiffre les données, puis envoie les données chiffrées au service de sauvegarde en ligne.
 
@@ -182,7 +182,9 @@ Le tableau suivant explique comment la taille de chaque source de données est d
 
 **Q3. Quelle est la longueur minimale de la clé de chiffrement utilisée pour chiffrer les données de sauvegarde ?** <br/> R3. La clé de chiffrement doit contenir au moins 16 caractères.
 
-**Q4. Que se passe-t-il si j’ai égaré la clé de chiffrement ? Puis-je récupérer des données (ou) Microsoft peut-il récupérer les données ?** <br/> R4. La clé utilisée pour chiffrer les données de sauvegarde est présente uniquement localement chez le client. Microsoft ne conserve pas de copie dans Azure et n’a pas accès à la clé. Si le client égare la clé, Microsoft ne peut pas récupérer les données de sauvegarde.  
+**Q4. Que se passe-t-il si j’ai égaré la clé de chiffrement ? Puis-je récupérer des données (ou) Microsoft peut-il récupérer les données ?** <br/> R4. La clé utilisée pour chiffrer les données de sauvegarde est présente uniquement localement chez le client. Microsoft ne conserve pas de copie dans Azure et n’a pas accès à la clé. Si le client égare la clé, Microsoft ne peut pas récupérer les données de sauvegarde.
+
+**Q5. Les données de sauvegarde des machines virtuelles Azure sont-elles chiffrées ?** <br/> R5. Azure Backup repose sur les paramètres de chiffrement de la machine virtuelle Azure pour le chiffrement de la sauvegarde. Si votre machine virtuelle est chiffrée à l’aide d’Azure Disk Encryption, Azure Backup utilise ce chiffrement pour sécuriser vos données.  
 
 ## Cache de sauvegarde
 
@@ -193,7 +195,7 @@ Le tableau suivant explique comment la taille de chaque source de données est d
 
 - Ne déplacez pas les fichiers, mais copiez le dossier d’espace de cache dans un autre lecteur disposant d’un espace suffisant. L’espace de cache d’origine peut être supprimé après avoir confirmé que les sauvegardes fonctionnent avec le nouvel espace de cache.
 
-- Mettez à jour les entrées de Registre suivantes en utilisant le chemin d’accès au nouveau dossier d’espace de cache.<br/>
+- Mettez à jour les entrées de registre suivantes en utilisant le chemin d’accès au nouveau dossier d’espace de cache.<br/>
 
 |Chemin d’accès au Registre | Clé de Registre | Valeur |
 | ------ | ------- | ------|
@@ -206,12 +208,12 @@ Le tableau suivant explique comment la taille de chaque source de données est d
 
   Une fois les sauvegardes correctement effectuées avec le nouvel emplacement de cache, vous pouvez supprimer le dossier de cache d’origine.
 
-**Q2. Où puis-je placer le dossier du cache de l’agent Azure Backup pour que ce dernier fonctionne comme prévu ?**<br/> R2. Les emplacements suivants pour le dossier du cache ne sont pas recommandés :
+**Q2. Où dois-je placer le dossier du cache de l’agent Azure Backup pour que ce dernier fonctionne comme prévu ?**<br/> R2. Les emplacements suivants pour le dossier du cache ne sont pas recommandés :
 
 - Partage réseau ou un média amovible : le dossier du cache doit être local sur le serveur nécessitant une sauvegarde avec la sauvegarde en ligne. Les emplacements réseau ou les médias amovibles (tels que les lecteurs USB) ne sont pas pris en charge.
 - Volumes hors connexion : le dossier du cache doit être en ligne pour la sauvegarde attendue avec l’agent Azure Backup.
 
-**Q3. Existe-t-il des attributs du dossier du cache non pris en charge ?**<br/> R3 Les attributs suivants ou leurs combinaisons ne sont pas pris en charge pour le dossier du cache :
+**Q3. Existe-t-il des attributs du dossier du cache qui ne sont pas pris en charge ?**<br/> R3 Les attributs suivants ou leurs combinaisons ne sont pas pris en charge pour le dossier du cache :
 
 - Chiffré
 - Dédupliqué
@@ -221,4 +223,4 @@ Le tableau suivant explique comment la taille de chaque source de données est d
 
 Le dossier du cache et les métadonnées de disque dur virtuel ne doivent pas avoir les attributs ci-dessus pour que l’agent Azure Backup puisse fonctionner correctement.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0824_2016-->

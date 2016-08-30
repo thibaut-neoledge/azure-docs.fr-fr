@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Correction des utilisateurs lors de l’accès aux applications protégées à accès conditionnel en fonction des appareils Azure AD| Microsoft Azure"
+	pageTitle="Résolution des problèmes : Vous ne pouvez pas y accéder à partir d’ici | Microsoft Azure"
 	description="Cette rubrique vous aide à identifier si une procédure de correction peut être suivie pour accéder à l’application que vous souhaitez utiliser."
 	services="active-directory"
 	keywords="accès conditionnel en fonction de l’appareil, inscription de l’appareil, activer l’inscription de l’appareil, inscription de l’appareil et GPM"
@@ -14,11 +14,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/15/2016"
+	ms.date="08/23/2016"
 	ms.author="markvi"/>
 
 
-# Correction des utilisateurs lors de l’accès aux applications protégées à accès conditionnel en fonction des appareils Azure AD
+# Résolution des problèmes : Vous ne pouvez pas y accéder à partir d’ici
 
 Une page d’accès refusé s’affiche lors de l’accès à une application telle qu’Office 365 SharePoint Online. Que faire dans cette situation ?
 
@@ -172,4 +172,4 @@ Revenez plus tard consulter les instructions pour téléphones ou tablettes Andr
 
 [Accès conditionnel Azure Active Directory](active-directory-conditional-access.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -14,7 +14,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="NA"
 	ms.workload="data-services"
-	ms.date="08/11/2016"
+	ms.date="08/18/2016"
 	ms.author="anhoh"/>
 
 # Créer une application web Java avec DocumentDB
@@ -170,7 +170,7 @@ Pour ce faire, vous devez convertir votre projet en projet Maven en procédant c
 		            // Get the database if it exists
 		            List<Database> databaseList = documentClient
 		                    .queryDatabases(
-		                            "SELECT* FROM root r WHERE r.id='" + DATABASE_ID
+		                            "SELECT * FROM root r WHERE r.id='" + DATABASE_ID
 		                                    + "'", null).getQueryIterable().toList();
 
 		            if (databaseList.size() > 0) {
@@ -203,7 +203,7 @@ Pour ce faire, vous devez convertir votre projet en projet Maven en procédant c
 		            List<DocumentCollection> collectionList = documentClient
 		                    .queryCollections(
 		                            getTodoDatabase().getSelfLink(),
-		                            "SELECT* FROM root r WHERE r.id='" + COLLECTION_ID
+		                            "SELECT * FROM root r WHERE r.id='" + COLLECTION_ID
 		                                    + "'", null).getQueryIterable().toList();
 
 		            if (collectionList.size() > 0) {
@@ -216,13 +216,9 @@ Pour ce faire, vous devez convertir votre projet en projet Maven en procédant c
 		                    DocumentCollection collectionDefinition = new DocumentCollection();
 		                    collectionDefinition.setId(COLLECTION_ID);
 
-		                    // Configure the new collection performance tier to S1.
-		                    RequestOptions requestOptions = new RequestOptions();
-		                    requestOptions.setOfferType("S1");
-
 		                    collectionCache = documentClient.createCollection(
 		                            getTodoDatabase().getSelfLink(),
-		                            collectionDefinition, requestOptions).getResource();
+		                            collectionDefinition, null).getResource();
 		                } catch (DocumentClientException e) {
 		                    // TODO: Something has gone terribly wrong - the app wasn't
 		                    // able to query or create the collection.
@@ -271,7 +267,7 @@ Pour ce faire, vous devez convertir votre projet en projet Maven en procédant c
 	        // Retrieve the document using the DocumentClient.
 	        List<Document> documentList = documentClient
 	                .queryDocuments(getTodoCollection().getSelfLink(),
-	                        "SELECT* FROM root r WHERE r.id='" + id + "'", null)
+	                        "SELECT * FROM root r WHERE r.id='" + id + "'", null)
 	                .getQueryIterable().toList();
 
 	        if (documentList.size() > 0) {
@@ -305,7 +301,7 @@ Pour ce faire, vous devez convertir votre projet en projet Maven en procédant c
 	        // Retrieve the TodoItem documents
 	        List<Document> documentList = documentClient
 	                .queryDocuments(getTodoCollection().getSelfLink(),
-	                        "SELECT* FROM root r WHERE r.entityType = 'todoItem'",
+	                        "SELECT * FROM root r WHERE r.entityType = 'todoItem'",
 	                        null).getQueryIterable().toList();
 
 	        // De-serialize the documents in to TodoItems.
@@ -567,7 +563,7 @@ Maintenant que nous avons terminé l'aspect amusant, il nous reste à créer une
 
 		var todoApp = {
 		  /*
-		  * API methods to call Java backend.
+		   * API methods to call Java backend.
 		   */
 		  apiEndpoint: "api",
 
@@ -609,7 +605,7 @@ Maintenant que nous avons terminé l'aspect amusant, il nous reste à créer une
 		  },
 
 		  /*
-		  * UI Methods
+		   * UI Methods
 		   */
 		  addTodoItemToTable: function(id, name, category, isComplete) {
 		    var rowColor = isComplete ? "active" : "warning";
@@ -629,7 +625,7 @@ Maintenant que nous avons terminé l'aspect amusant, il nous reste à créer une
 		  },
 
 		  /*
-		  * UI Bindings
+		   * UI Bindings
 		   */
 		  bindCreateButton: function() {
 		    todoApp.ui_createButton().click(function() {
@@ -690,7 +686,7 @@ Maintenant que nous avons terminé l'aspect amusant, il nous reste à créer une
 		  },
 
 		  /*
-		  * UI Elements
+		   * UI Elements
 		   */
 		  ui_createNameInput: function() {
 		    return $(".todoForm #inputItemName");
@@ -721,7 +717,7 @@ Maintenant que nous avons terminé l'aspect amusant, il nous reste à créer une
 		  },
 
 		  /*
-		  * Install the TodoApp
+		   * Install the TodoApp
 		   */
 		  install: function() {
 		    todoApp.bindCreateButton();
@@ -784,4 +780,4 @@ Tous les exemples de ce didacticiel sont inclus dans le projet [todo](https://gi
 
 [1]: media/documentdb-java-application/keys.png
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

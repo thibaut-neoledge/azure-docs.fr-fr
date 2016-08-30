@@ -2,6 +2,7 @@
    pageTitle="Bibliothèque d’images Azure Government | Microsoft Azure"
    description="Cet article fournit une vue d'ensemble de la bibliothèque d'images Azure Government et des images incluses"
    services="Azure-Government"
+   cloud="gov"
    documentationCenter=""
    authors="joharve2"
    manager="chrisnie"
@@ -48,9 +49,9 @@ coreos|CoreOS Stable|Le canal Stable doit être utilisé par les clusters de pro
 credativ|Debian 7 Wheezy|Debian 7 Wheezy (20160405.0) pour Microsoft Azure. Debian GNU/Linux est l’une des distributions Linux les plus populaires. |Linux|30 Go
 credativ|Debian 8 Jessie|Debian 8 Jessie (20160405.0) pour Microsoft Azure. Debian GNU/Linux est l’une des distributions Linux les plus populaires. |Linux|30 Go
 Esri|ArcGIS 10.3.1 for Server (Windows)|ArcGIS for Server, le serveur GIS le plus polyvalent au monde, vous permet de contrôler les données et les actifs géospatiaux critiques de votre organisation. |Windows|128 Go
-Groupe de stockage cloud hybride Microsoft|Équipement virtuel StorSimple 1100, octobre 2015|Équipement virtuel Microsoft StorSimple 1100 |Windows|32 Go
-Groupe de stockage cloud hybride Microsoft|Équipement virtuel StorSimple 1100, mai 2015|Équipement virtuel Microsoft StorSimple 1100 |Windows|32 Go
-Groupe de stockage cloud hybride Microsoft|Équipement virtuel StorSimple 1100, juillet 2015|Équipement virtuel Microsoft StorSimple 1100 |Windows|32 Go
+Groupe de stockage cloud hybride Microsoft|Équipement virtuel StorSimple 1100, octobre 2015|Équipement virtuel Microsoft StorSimple 1100 |Windows|32 Go
+Groupe de stockage cloud hybride Microsoft|Équipement virtuel StorSimple 1100, mai 2015|Équipement virtuel Microsoft StorSimple 1100 |Windows|32 Go
+Groupe de stockage cloud hybride Microsoft|Équipement virtuel StorSimple 1100, juillet 2015|Équipement virtuel Microsoft StorSimple 1100 |Windows|32 Go
 Groupe de stockage cloud hybride Microsoft|Équipement virtuel StorSimple GU2, fév. 2016|Équipement virtuel Microsoft StorSimple GU2 |Windows|32 Go
 Microsoft Open Technologies, Inc.|Oracle Database 11g R2 Standard Edition sur Windows Server 2008 R2|Oracle Database http://www.oracle.com/database 11g R2 Standard Edition (11.2.0.4.0) est une solution de gestion de données abordable et complète qui convient parfaitement aux entreprises de taille moyenne. Configuration minimale...|Windows|128 Go
 Microsoft Open Technologies, Inc.|Oracle Database 11g R2 et WebLogic Server 11g Enterprise Edition sur Windows Server 2008 R2|Oracle Database http://www.oracle.com/database 11g R2 Enterprise Edition (11.2.0.4.0) fournit des fonctionnalités complètes pour gérer facilement les opérations de traitement des transactions les plus exigeantes...|Windows|128 Go
@@ -83,7 +84,7 @@ Groupe Microsoft Windows Server|Windows Server 2012 R2 Datacenter, novembre 2015
 Groupe Microsoft Windows Server|Windows Server 2012 Datacenter, avril 2016|Windows Server 2012 intègre l'expérience de Microsoft en matière de conception et d'exploitation de clouds publics, ce qui vous permet de bénéficier d'une plateforme serveur dynamique et hautement disponible. Il offre une architecture extensible, dynamique et mutualisée...|Windows|128 Go
 Groupe Microsoft Windows Server|Windows Server 2012 Datacenter, février 2016|Windows Server 2012 intègre l'expérience de Microsoft en matière de conception et d'exploitation de clouds publics, ce qui vous permet de bénéficier d'une plateforme serveur dynamique et hautement disponible. Il offre une architecture extensible, dynamique et mutualisée...|Windows|128 Go
 Groupe Microsoft Windows Server|Windows Server 2008 R2 SP1, novembre 2015|Windows Server 2008 R2 est un serveur polyvalent conçu pour accroître la fiabilité et la flexibilité de votre infrastructure de serveur ou de cloud privé, afin de vous aider à gagner du temps et à réduire les coûts. Les professionnels de l'informatique...|Windows|128 Go
-Groupe Microsoft Windows Server|Windows Server Nano 2016 Tech Preview 4|Nano Server est une nouvelle option de déploiement « headless » pour Windows Server, exécutée à une fraction de la taille du système d’exploitation complet. Technical Preview vous permet d’essayer Nano Server et de découvrir comm...|Windows|8 Go
+Groupe Microsoft Windows Server|Windows Server Nano 2016 Tech Preview 4|Nano Server est une nouvelle option de déploiement « headless » pour Windows Server, exécutée à une fraction de la taille du système d’exploitation complet. Technical Preview vous permet d’essayer Nano Server et de découvrir comm...|Windows|8 Go
 Groupe Microsoft Windows Server|Windows Server 2016 Technical Preview 4|Au cœur de la vision de Microsoft Cloud OS, Windows Server vous permet de bénéficier de toute l'expérience de Microsoft grâce à l'utilisation de services cloud à l'échelle mondiale dans votre infrastructure de centre de données. Windows ...|Windows|128 Go
 Groupe Microsoft Windows Server|Windows Server 2008 R2 SP1, février 2016|Windows Server 2008 R2 est un serveur polyvalent conçu pour accroître la fiabilité et la flexibilité de votre infrastructure de serveur ou de cloud privé, afin de vous aider à gagner du temps et à réduire les coûts. Les professionnels de l'informatique...|Windows|128 Go
 Groupe Microsoft Windows Server|Windows Server 2008 R2 SP1, janvier 2016|Windows Server 2008 R2 est un serveur polyvalent conçu pour accroître la fiabilité et la flexibilité de votre infrastructure de serveur ou de cloud privé, afin de vous aider à gagner du temps et à réduire les coûts. Les professionnels de l'informatique...|Windows|128 Go
@@ -108,7 +109,7 @@ SUSE|SUSE Linux Enterprise Server 12 SP1|Exécutez vos charges de travail de pro
 SUSE|SUSE Linux Enterprise Server 11 SP4|Exécutez vos charges de travail de production en toute confiance sur SUSE Linux Enterprise Server sur Microsoft Azure, avec des niveaux de service garantis et avec l’aide des ingénieurs Microsoft et de SUSE, si vous...|Linux|30 Go
 SUSE|SUSE Linux Enterprise Server 11 SP4|Exécutez vos charges de travail de production en toute confiance sur SUSE Linux Enterprise Server sur Microsoft Azure, avec des niveaux de service garantis et avec l’aide des ingénieurs Microsoft et de SUSE, si vous...|Linux|30 Go
 SUSE|SUSE Linux Enterprise Server 12|Exécutez vos charges de travail de production en toute confiance sur SUSE Linux Enterprise Server sur Microsoft Azure, avec des niveaux de service garantis et avec l’aide des ingénieurs Microsoft et de SUSE, si vous...|Linux|30 Go
-Visual Studio|Visual Studio Enterprise 2015 Update 2 avec le Kit de développement logiciel (SDK) Azure 2.9 sur Windows Server 2012 R2|Avec Visual Studio Enterprise 2015 Update 2, vous pouvez créer des applications dans des appareils et des services à l’aide d’une solution unique avec une expérience de développement cohérente. Vous obtenez les outils dont vous avez besoin pour travailler.|Windows|128 Go
+Visual Studio|Visual Studio Enterprise 2015 Update 2 avec le Kit de développement logiciel (SDK) Azure 2.9 sur Windows Server 2012 R2|Avec Visual Studio Enterprise 2015 Update 2, vous pouvez créer des applications dans des appareils et des services à l’aide d’une solution unique avec une expérience de développement cohérente. Vous obtenez les outils dont vous avez besoin pour travailler.|Windows|128 Go
 
 
 
@@ -141,4 +142,4 @@ Les ressources ci-dessous fournissent des informations supplémentaires sur le d
 [Link 2 to another azure.microsoft.com documentation topic]: app-service-web/web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: storage-whatis-account.md
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

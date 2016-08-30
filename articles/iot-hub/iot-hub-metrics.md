@@ -13,12 +13,12 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="07/06/2016"
+ ms.date="08/11/2016"
  ms.author="nberdy"/>
 
 # Introduction aux métriques de diagnostic
 
-Les métriques de diagnostic vous offrent de meilleures données sur l’état des ressources Azure de votre abonnement. Grâce aux métriques, un utilisateur peut évaluer l’intégrité globale du service et des appareils connectés à ce dernier. Les statistiques accessibles à l’utilisateur sont importantes, car elles lui permettent d’effectuer le suivi de son hub IoT et de connaître les causes des problèmes sans contacter le support Azure.
+Les métriques de diagnostic vous offrent de meilleures données sur l’état des ressources Azure de votre abonnement. Grâce aux métriques, vous pouvez évaluer l’intégrité globale du service et des appareils connectés à ce dernier. Les statistiques accessibles à l’utilisateur sont importantes, car elles vous permettent d’effectuer le suivi de votre hub IoT et de connaître les causes des problèmes sans contacter le support Azure.
 
 Vous pouvez activer les métriques de diagnostic à partir du portail Azure.
 
@@ -26,15 +26,15 @@ Vous pouvez activer les métriques de diagnostic à partir du portail Azure.
 
 1. Créez un hub IoT. Pour savoir comment créer un hub IoT, consultez le guide [Prise en main][lnk-get-started].
 
-2. Ouvrez le panneau de votre hub IoT. Cliquez sur **Tous les paramètres**, puis cliquez sur **Diagnostics**.
+2. Ouvrez le panneau de votre hub IoT. De là, cliquez sur **Diagnostics**.
 
     ![][1]
 
-3. Configurez vos diagnostics en définissant le statut sur **Activé** et en sélectionnant un compte de stockage pour stocker les données de diagnostic. Cochez la case Métriques, puis appuyez sur **Enregistrer**. Notez que le compte de stockage doit être créé à l’avance et que le stockage vous est facturé séparément.
+3. Configurez vos diagnostics en définissant le statut sur **Activé** et en sélectionnant un compte de stockage pour stocker les données de diagnostic. Cochez **Mesures**, puis appuyez sur **Enregistrer**. Notez que le compte de stockage doit être créé à l’avance et que le stockage vous est facturé séparément. Vous pouvez également choisir d’envoyer vos données de diagnostic à un point de terminaison de concentrateurs d’événements.
 
     ![][2]
 
-4. Une fois que vous avez configuré les diagnostics, revenez au panneau principal du hub IoT. Les informations sur les métriques sont renseignées dans la section **Surveillance** du panneau. Si vous cliquez sur le graphique, le volet Métriques s’ouvre. Vous pouvez alors consulter les informations sur les métriques liées à votre hub IoT et modifier la sélection des métriques affichées dans le graphique. Vous pouvez également configurer des alertes en fonction des valeurs de métriques.
+4. Une fois que vous avez configuré les diagnostics, revenez au panneau **Vue d’ensemble** du hub IoT. Les informations sur les métriques sont renseignées dans la section **Surveillance** du panneau. Si vous cliquez sur le graphique, le volet Métriques s’ouvre. Vous pouvez alors consulter les informations sur les métriques liées à votre hub IoT et modifier la sélection des métriques affichées dans le graphique. Vous pouvez également configurer des alertes en fonction des valeurs de métriques.
 
     ![][3]
 
@@ -84,4 +84,4 @@ Pour explorer davantage les capacités de IoT Hub, consultez :
 [lnk-dmui]: iot-hub-device-management-ui-sample.md
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0817_2016-->

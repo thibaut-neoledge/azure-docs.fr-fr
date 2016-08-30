@@ -13,20 +13,23 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="06/27/2016"
+   ms.date="08/15/2016"
    ms.author="elizapo"/>
 
 
 
 # Utiliser les applets de commande Windows PowerShell avec Azure RemoteApp
 
+> [AZURE.IMPORTANT]
+Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148).
+
  Vous pouvez utiliser les applets de commande PowerShell pour Azure RemoteApp afin d’administrer et de gérer vos collections. Utilisez les informations suivantes pour commencer.
 
 ## Récupération des applets de commande 
 -------------
-Téléchargez d’abord les applets de commande Azure Powershell [ici](http://go.microsoft.com/?linkid=9811175) ; les applets de commande RemoteApp sont incluses.
+Téléchargez d’abord les applets de commande Azure PowerShell [ici](http://go.microsoft.com/?linkid=9811175) ; les applets de commande RemoteApp sont incluses.
 
-Consultez l’[aide sur les applets de commande Azure RemoteApp](https://msdn.microsoft.com/library/mt428031.aspx).
+Consultez [l’aide sur les applets de commande Azure RemoteApp](https://msdn.microsoft.com/library/mt428031.aspx).
 
 ## Configuration des applets de commande Azure pour utiliser votre abonnement
 ------------------
@@ -111,4 +114,4 @@ Autres applets de commande RemoteApp :
 - Get-AzureRemoteAppOperationResult
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

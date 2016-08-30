@@ -13,12 +13,15 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="06/13/2016"
+    ms.date="08/15/2016"
     ms.author="elizapo" />
 
 
 
 # Meilleures pratiques pour les clients Azure RemoteApp
+
+> [AZURE.IMPORTANT]
+Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148).
 
 Les informations suivantes peuvent vous aider à utiliser des clients Azure RemoteApp :
 
@@ -26,4 +29,4 @@ Les informations suivantes peuvent vous aider à utiliser des clients Azure Remo
 
 - RemoteApp vous déconnecte automatiquement si vous êtes inactif pendant un certain temps. Afin d'éviter de perdre des données, nous vous conseillons de fermer vos applications lorsque vous avez terminé d'utiliser le service.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0817_2016-->

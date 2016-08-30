@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="08/09/2016" 
+	ms.date="08/15/2016" 
 	ms.author="rnagpal"/>
 
 # API DocumentDB et Kits de développement logiciel (SDK) 
@@ -39,8 +39,13 @@
 
 ## Notes de publication
 
-### <a name="1.9.2"/>[1\.9.2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.9.2)
+### <a name="1.9.3"/>[1\.9.3](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.9.3)
 > [AZURE.IMPORTANT] Vous pouvez recevoir une System.NotSupportedException lors de l’interrogation de collections partitionnées. Pour éviter cette erreur, désactivez l’option « Préférer 32 bits » dans la fenêtre Propriétés de votre projet, sous l’onglet Build.
+
+  - Résolution du problème ayant provoqué l’échec des requêtes de longue durée avec l’erreur : le jeton d’autorisation n’est pas valide pour le moment.
+  - Résolution du problème qui a supprimé la classe SqlParameterCollection d’origine des requêtes Top/Order-by inter-partition.
+
+### <a name="1.9.2"/>[1\.9.2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.9.2)
 
   - Prise en charge ajoutée de requêtes parallèles pour les collections partitionnées.
   - Prise en charge ajoutée des requêtes ORDER BY et TOP sur plusieurs partitions pour les collections partitionnées.
@@ -158,8 +163,9 @@ Toutes les versions du Kit de développement logiciel (SDK) Azure DocumentDB pou
  
 | Version | Date de lancement | Date de suppression 
 | ---	  | ---	         | ---
-| [1\.9.1](#1.9.1) | 20 juillet 2016 |--- 
-| [1\.9.0](#1.9.0) | 9 juillet, 2016 |--- 
+| [1\.9.3](#1.9.3) | 15 août 2016 |--- 
+| [1\.9.2](#1.9.2) | 23 juillet 2016 |--- 
+| 1.9.1 | Déconseillé |--- | 1.9.0 | Déconseillé |--- 
 | [1\.8.0](#1.8.0) | 14 juin 2016 |--- 
 | [1\.7.1](#1.7.1) | 6 mai 2016 |--- 
 | [1\.7.0](#1.7.0) | 26 avril 2016 |--- 
@@ -176,7 +182,7 @@ Toutes les versions du Kit de développement logiciel (SDK) Azure DocumentDB pou
 | [1\.1.0](#1.1.0) | 30 avril 2015 |--- 
 | [1\.0.0](#1.0.0) | 8 avril 2015 |--- 
 | [Version préliminaire 0.9.3](#0.9.x-preview) | 12 mars 2015 | 29 février 2016 
-| [Version préliminaire 0.9.2](#0.9.x-preview) | 15 Janvier 2015 | 29 février 2016 
+| [Version préliminaire 0.9.2](#0.9.x-preview) | Janvier 2015 | 29 février 2016 
 | [Version préliminaire 0.9.1](#0.9.x-preview) | 13 octobre 2014 | 29 février 2016 
 | [Version préliminaire 0.9.0](#0.9.x-preview) | 21 août 2014 | 29 février 2016
 
@@ -187,4 +193,4 @@ Toutes les versions du Kit de développement logiciel (SDK) Azure DocumentDB pou
 
 Pour en savoir plus sur DocumentDB, consultez la page du service [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/).
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

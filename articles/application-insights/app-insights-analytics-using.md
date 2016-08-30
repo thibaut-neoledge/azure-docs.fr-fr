@@ -12,21 +12,23 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/15/2016" 
+	ms.date="07/26/2016" 
 	ms.author="danha"/>
 
 
 # Utilisation d’Analytics dans Application Insights
 
 
-[Analytics](app-insights-analytics.md) est la puissante fonctionnalité de recherche d’[Application Insights](app-insights-overview.md). Ces pages décrivent le langage de requête Analytics.
+[Analytics](app-insights-analytics.md) est la fonctionnalité de recherche performante d’[Application Insights](app-insights-overview.md). Ces pages décrivent le langage de requête Analytics.
 
 * **[Regardez la vidéo d’introduction](https://applicationanalytics-media.azureedge.net/home_page_video.mp4)**.
 * **[Testez la version d’évaluation d’Analytics sur nos données simulées](https://analytics.applicationinsights.io/demo)** si votre application n’envoie pas encore de données à Application Insights.
 
 ## Ouverture de la fonctionnalité Analytics
 
-À partir de la ressource de base de votre application dans Application Insights, cliquez sur Analytics. ![Ouvrez portal.azure.com, ouvrez votre ressource Application Insights, puis cliquez sur Analyse.](./media/app-insights-analytics-using/001.png)
+À partir de la ressource de base de votre application dans Application Insights, cliquez sur Analytics.
+
+![Ouvrez portal.azure.com, ouvrez votre ressource Application Insights, puis cliquez sur Analyse.](./media/app-insights-analytics-using/001.png)
 
 Le didacticiel en ligne vous donne quelques idées sur les possibilités qui vous sont offertes.
 
@@ -36,7 +38,7 @@ Vous pouvez cependant consulter [ici une présentation approfondie](app-insights
 
 ### Écrivez votre requête.
 
-![](./media/app-insights-analytics-using/150.png)
+![Affichage du schéma](./media/app-insights-analytics-using/150.png)
 
 Commencez par les noms des tables répertoriées sur la gauche (ou les opérateurs [range](app-insights-analytics-reference.md#range-operator) ou [union](app-insights-analytics-reference.md#union-operator)). Utilisez `|` pour créer un pipeline [d’opérateurs](app-insights-analytics-reference.md#queries-and-operators). IntelliSense vous indique les opérateurs et certains éléments d’expression que vous pouvez utiliser.
 
@@ -72,7 +74,7 @@ Développez des lignes dans les résultats pour afficher la liste complète de l
 
 Vous pouvez trier, filtrer, paginer et regrouper les résultats retournés par votre requête.
 
-> [AZURE.NOTE] Le tri, le regroupement et le filtrage dans le navigateur ne réexécute pas votre requête. Ils réorganisent uniquement les résultats retournés par votre dernière requête.
+> [AZURE.NOTE] Le tri, le regroupement et le filtrage dans le navigateur ne réexécutent pas votre requête. Ils réorganisent uniquement les résultats retournés par votre dernière requête.
 > 
 > Pour exécuter ces tâches sur le serveur avant que les résultats ne soient retournés, écrivez votre requête avec les opérateurs [sort](app-insights-analytics-reference.md#sort-operator), [summarize](app-insights-analytics-reference.md#summarize-operator) et [where](app-insights-analytics-reference.md#where-operator).
 
@@ -115,13 +117,44 @@ Il est recommandé d’éviter d’atteindre la limite. Utilisez des opérateurs
 
 Sélectionnez le type de diagramme de votre choix :
 
-![](./media/app-insights-analytics-using/230.png)
+![Sélectionnez un type de diagramme](./media/app-insights-analytics-using/230.png)
 
 Si vous disposez de plusieurs colonnes de types appropriés, vous pouvez choisir les axes x et y et spécifier une colonne de dimensions avec laquelle fractionner les résultats.
 
 Par défaut, les résultats sont initialement affichés sous forme de table. Vous pouvez ensuite sélectionner le diagramme manuellement. Mais vous pouvez également utiliser la [directive render](app-insights-analytics-reference.md#render-directive) à la fin d’une requête pour sélectionner un diagramme.
 
-Vous pouvez épingler un diagramme à l’un de vos [tableaux de bord partagés](app-insights-dashboards.md) : cliquez simplement sur l’épingle. (Disponible uniquement pour les applications d’un niveau tarifaire payant).
+## Épingler au tableau de bord
+
+Vous pouvez épingler un diagramme à l’un de vos [tableaux de bord partagés](app-insights-dashboards.md) : cliquez simplement sur l’épingle. (Vous devrez peut-être [mettre à niveau le plan de tarification de votre application](app-insights-pricing.md) pour activer cette fonctionnalité.)
+
+![Cliquez sur l’épingle](./media/app-insights-analytics-using/pin-01.png)
+
+Cela signifie que, lorsque vous créez un tableau de bord pour vous aider à surveiller les performances ou l’utilisation de vos services web, vous pouvez inclure des analyses très complexes en parallèle des autres mesures.
+
+#### Actualisation du tableau de bord
+
+Le graphique épinglé au tableau de bord est actualisé automatiquement lorsque vous réexécutez la requête environ toutes les demi-heures.
+
+#### Simplifications automatiques
+
+Dans certains cas, des simplifications sont appliquées à un graphique lorsque vous l’épinglez à un tableau de bord.
+
+Lorsque vous épinglez un graphique qui affiche un grand nombre d’emplacements discrets (généralement un graphique à barres), les emplacements les moins remplis sont automatiquement regroupés en un seul emplacement « autres ». Par exemple, cette requête :
+
+    requests | summarize count_search = count() by client_CountryOrRegion
+
+se présente sous la forme suivante dans Analytics :
+
+
+![Graphique à longue traîne](./media/app-insights-analytics-using/pin-07.png)
+
+mais lorsque vous l’épinglez à un tableau de bord, elle ressemble à ceci :
+
+
+![Graphique comportant des emplacements limités](./media/app-insights-analytics-using/pin-08.png)
+
+
+
 
 ## Exporter vers Excel
 
@@ -150,4 +183,4 @@ Une fois votre requête exécutée, vous pouvez télécharger un fichier .csv. C
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

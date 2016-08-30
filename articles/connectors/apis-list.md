@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="07/15/2016"
+	ms.date="08/23/2016"
 	ms.author="deonhe"/>
 
 # Liste de connecteurs
 
-Sélectionnez les différentes icônes de connecteur ci-après afin d’apprendre à tirer rapidement parti de ces connecteurs pour créer des workflows qui appellent les services associés.
+Sélectionnez un connecteur pour découvrir comment générer rapidement des flux de travail.
 
 ## Connecteurs standard
 
@@ -46,8 +46,9 @@ Les connecteurs EIP permettent de créer des applications logiques pour les scé
  
 |Connecteurs EIP ||||
 |-----------|-----------|-----------|-----------|
-|[![Icône API][as2icon]<br/>**Encodage/décodage</br>AS2**][as2doc]|[![Icône API][x12icon]<br/>**Encodage/décodage</br>X12**][x12Doc]|[![Icône API][xmlvalidateicon]<br/>**Validation <br/>XML**][xmlvalidatedoc]|[![Icône API][xmltransformicon]<br/>**Transformation<br/>XML**][xmltransformdoc]|
-|[![Icône API][flatfileicon]<br/>**Codage</br>du fichier plat**][flatfiledoc]|[![Icône API][flatfiledecodeicon]<br/>**Décodage</br>du fichier plat**][flatfiledecodedoc]|||
+|[![Icône API][xmlvalidateicon]<br/>**Validation <br/>XML**][xmlvalidatedoc]|[![Icône API][xmltransformicon]<br/>**Transformation<br/>XML**][xmltransformdoc]|[![Icône API][flatfileicon]<br/>**Codage</br>du fichier plat**][flatfiledoc]|[![Icône API][flatfiledecodeicon]<br/>**Décodage</br>du fichier plat**][flatfiledecodedoc]|
+|[![Icône API][as2icon]<br/>**Décodage </br>AS2**][as2decode]|[![Icône API][as2icon]<br/>**Codage </br>AS2**][as2encode]|[![Icône API][x12icon]<br/>**Décodage </br>X12**][x12decode]|[![Icône API][x12icon]<br/>**Codage </br>X12**][x12encode]|
+|[![Icône API][x12icon]<br/>**Décodage</br>EDIFACT**][EDIFACTdecode]|[![Icône API][x12icon]<br/>**Codage</br>EDIFACT**][EDIFACTencode]||||
 
 <!-- TODO: Add Functions, App Service, and Nested Workflow Icons -->
 ### Les connecteurs peuvent être des déclencheurs
@@ -56,7 +57,7 @@ Plusieurs connecteurs fournissent des déclencheurs qui préviennent votre appli
 Il existe deux types de déclencheurs :
 
 * Déclencheurs d'interrogation : ces déclencheurs interrogent votre service selon une fréquence spécifiée pour vérifier l'existence de nouvelles données. Quand de nouvelles données sont disponibles, une nouvelle instance de votre application s'exécute avec les données comme entrée. Pour empêcher que les mêmes données soient consommées plusieurs fois, le déclencheur peut nettoyer les données qui ont été lues et transmises à votre application.
-* Déclencheurs d'interrogation : ces déclencheurs écoutent les données sur un point de terminaison ou attendent qu'un événement se produise. Ensuite, ils déclenchent une nouvelle instance de votre application. Le connecteur Twitter en est un exemple.
+* Déclencheurs d’interrogation : ces déclencheurs écoutent les données sur un point de terminaison ou attendent qu’un événement se produise, puis déclenchent une nouvelle instance de votre application. Le connecteur Twitter en est un exemple.
 
 ### Les connecteurs peuvent être des actions
 Vous pouvez aussi utiliser des connecteurs comme des actions dans vos applications. Les actions sont utiles pour rechercher des données qui peuvent ensuite être utilisées lors de l'exécution de votre application. Par exemple, vous devrez peut-être rechercher des données client à partir d'une base de données SQL lors du traitement d'une commande. Ou bien, vous devrez peut-être écrire, mettre à jour ou supprimer des données d'une table de destination. Pour cela, vous pouvez utiliser les actions fournies par les connecteurs. Les actions correspondent aux opérations définies dans les métadonnées Swagger.
@@ -105,6 +106,12 @@ Vous pouvez aussi utiliser des connecteurs comme des actions dans vos applicatio
 [flatfiledecodedoc]: ../app-service-logic/app-service-logic-enterprise-integration-flatfile.md "Découvrez le fichier plat d’intégration d’entreprise."
 [xmlvalidatedoc]: ../app-service-logic/app-service-logic-enterprise-integration-xml-validation.md "Découvrez la validation XML d’intégration d’entreprise."
 [xmltransformdoc]: ../app-service-logic/app-service-logic-enterprise-integration-transform.md "Découvrez les transformations d’intégration d’entreprise."
+[as2decode]: ..//app-service-logic/app-service-logic-enterprise-integration-as2-decode.md "Découvrez le décodage AS2 pour intégration d’entreprise"
+[as2encode]: ..//app-service-logic/app-service-logic-enterprise-integration-as2-encode.md "Découvrez le codage AS2 pour intégration d’entreprise"
+[X12decode]: ..//app-service-logic/app-service-logic-enterprise-integration-X12-decode.md "Découvrez le décodage X12 pour intégration d’entreprise"
+[X12encode]: ..//app-service-logic/app-service-logic-enterprise-integration-X12-encode.md "Découvrez le codage X12 pour intégration d’entreprise"
+[EDIFACTdecode]: ..//app-service-logic/app-service-logic-enterprise-integration-EDIFACT-decode.md "Découvrez le décodage EDIFACT pour intégration d’entreprise"
+[EDIFACTencode]: ..//app-service-logic/app-service-logic-enterprise-integration-EDIFACT-encode.md "Découvrez le codage EDIFACT pour intégration d’entreprise"
 [httpdoc]: ./connectors-native-http.md "Connecteur HTTP permettant d’effectuer des appels HTTP."
 [http~requestdoc]: ./connectors-native-reqres.md "Actions de demande et de réponse."
 [http~responsedoc]: ./connectors-native-reqres.md "Actions de demande et de réponse."
@@ -183,4 +190,4 @@ Vous pouvez aussi utiliser des connecteurs comme des actions dans vos applicatio
 [xmlvalidateicon]: ./media/apis-list/xmlvalidation.png
 [xmltransformicon]: ./media/apis-list/xsltransform.png
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/31/2016"
+	ms.date="08/11/2016"
 	ms.author="genli"/>
 
 # Comment modifier les informations de profil de votre compte Azure comme l'e-mail de contact, l'adresse et le numéro de téléphone
@@ -33,7 +33,7 @@ L'adresse de messagerie du profil de l'administrateur de compte est utilisée pa
 
 ## Comment modifier vos informations de profil
 
-1.	Connectez-vous au [Centre des comptes Azure](https://account.windowsazure.com/) en tant qu’administrateur de compte, puis cliquez sur **Profil**. Ou rendez-vous tout simplement à la page https://account.windowsazure.com/Profile.
+1.	Connectez-vous au [Centre des comptes Azure](https://account.windowsazure.com/) en tant qu’administrateur de compte, puis cliquez sur **Profil**. Ou accédez à https://account.windowsazure.com/Profile.
 
 2.	Sélectionnez le bouton **Modifier les détails** bouton, puis mettez à jour les informations du **profil**.
 
@@ -43,7 +43,7 @@ L'adresse de messagerie du profil de l'administrateur de compte est utilisée pa
 
 ### Puis-je modifier l'adresse de messagerie de l'administrateur de compte dans mon profil ?
 
-Oui. L'administrateur de compte est la personne qui a configuré le compte Azure et qui reçoit des notifications importantes par courrier électronique concernant tous les abonnements sous ce compte. Nous vous recommandons de spécifier une adresse de messagerie que l'administrateur de compte consulte régulièrement.
+Oui. L’administrateur de compte est la personne qui a configuré le compte Azure et qui reçoit des notifications importantes par courrier électronique concernant tous les abonnements sous ce compte. Nous vous recommandons de spécifier une adresse de messagerie que l'administrateur de compte consulte régulièrement.
 
 ### La mise à jour de l'adresse de messagerie de mon profil actualise-t-elle également mon adresse de connexion ?
 
@@ -51,7 +51,7 @@ Non. La mise à jour de l'adresse de messagerie du profil n'actualise pas votre 
 
 ### La mise à jour de mon adresse de profil actualise-t-elle également l'adresse de facturation associée à ma carte de crédit ?
 
-Non. Vous pouvez mettre à jour l'adresse de facturation associée à votre carte de crédit en accédant à la [page d'abonnement](https://account.windowsazure.com/subscriptions) dans le Centre des comptes Azure.
+Non. Vous pouvez mettre à jour l’adresse de facturation associée à votre carte de crédit en accédant à la [page d’abonnement](https://account.windowsazure.com/subscriptions) dans le Centre des comptes Azure.
 
 ### Pourquoi ne puis-je pas mettre à jour le pays ?
 
@@ -61,4 +61,4 @@ En raison de contraintes techniques, nous ne pouvons modifier le pays d'un compt
 
 Si vous vous inscrivez à la nouvelle fonctionnalité d'aperçu des alertes de facturation Azure, vous recevez par courrier électronique des alertes de facturation Azure à l'adresse que vous spécifiez, que vous ayez modifié ou non l'adresse de messagerie de l'administrateur de compte.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0817_2016-->

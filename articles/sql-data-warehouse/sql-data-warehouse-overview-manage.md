@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/13/2016"
+   ms.date="08/16/2016"
    ms.author="barbkess;sonyama;"/>
 
 # Gestion de bases de données dans Azure SQL Data Warehouse
@@ -46,7 +46,7 @@ Pour la prise en main du portail Azure, consultez la rubrique [Créer un entrep�
 
 SSDT comprend la solution Explorateur d’objets SQL Server qui vous permet de visualiser, de connecter et d’exécuter des scripts dans des bases de données SQL Data Warehouse. Pour vous connecter rapidement à SQL Data Warehouse, il vous suffit de cliquer sur le bouton **Ouvrir dans Visual Studio** de la barre de commandes lorsque vous affichez les détails de la base de données dans le portail Azure Classic.
 
-Pour prendre SSDT en main dans Visual Studio, consultez l’article [Se connecter à SQL Data Warehouse avec Visual Studio][].
+Pour prendre SSDT en main dans Visual Studio, consultez [Interroger Azure SQL Data Warehouse avec Visual Studio][].
 
 ### Outils de ligne de commande
 Les outils de ligne de commande sont la solution idéale pour l’automatisation de vos charges de travail. PowerShell et sqlcmd sont également deux manières intéressantes d’automatiser vos processus. Nous vous recommandons d’utiliser ces outils pour gérer un grand nombre de serveurs logiques et pour déployer des modifications de ressources au sein d’un environnement de production, dans la mesure où les tâches requises peuvent alors être incluses dans un script, puis automatisées.
@@ -100,7 +100,7 @@ La mise en œuvre de principes de conception de base de données adaptés facili
 [Créer un entrepôt de données SQL (portail Azure)]: sql-data-warehouse-get-started-provision.md
 [Créer une base de données (PowerShell)]: sql-data-warehouse-get-started-provision-powershell
 [connection]: sql-data-warehouse-develop-connections.md
-[Se connecter à SQL Data Warehouse avec Visual Studio]: sql-data-warehouse-get-started-connect.md
+[Interroger Azure SQL Data Warehouse avec Visual Studio]: sql-data-warehouse-query-visual-studio.md
 [Se connecter et lancer des requêtes avec SQLCMD]: sql-data-warehouse-get-started-connect-sqlcmd.md
 [Vue d’ensemble du développement]: sql-data-warehouse-overview-develop.md
 [Surveiller votre charge de travail à l'aide de vues de gestion dynamique]: sql-data-warehouse-manage-monitor.md
@@ -118,4 +118,4 @@ La mise en œuvre de principes de conception de base de données adaptés facili
 <!--Other web references-->
 [portail Azure]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0817_2016-->

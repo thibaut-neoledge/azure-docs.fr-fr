@@ -5,7 +5,7 @@
 	keywords="azure active directory identity protection, cloud app discovery, gestion d’applications, sécurité, risque, niveau de risque, vulnérabilité, stratégie de sécurité"
 	documentationCenter=""
 	authors="markusvi"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/17/2016"
+	ms.date="08/16/2016"
 	ms.author="markvi"/>
 
 # Expériences de connexion avec Azure AD Identity Protection
@@ -59,7 +59,7 @@ L’utilisateur bénéficie d’une expérience optimale pour le flux de récup�
 
 Les administrateurs peuvent :
 
-- définir une stratégie qui impose aux utilisateurs d’ajouter une vérification de sécurité supplémentaire à leur compte ; 
+- définir une stratégie qui impose aux utilisateurs d’ajouter une vérification de sécurité supplémentaire à leur compte ;
 - autoriser les utilisateurs à ignorer l’inscription à l’authentification multifacteur pendant 30 jours maximum, s’ils souhaitent leur accorder un délai de grâce avant l’inscription.
 
 **L’inscription à l’authentification multifacteur comporte trois étapes :**
@@ -120,7 +120,7 @@ Lorsqu’une stratégie de sécurité en matière de risque des utilisateurs a �
 
 <br> ![Correction](./media/active-directory-identityprotection-flows/101.png "Correction") <br>
 
-2.	L’utilisateur doit prouver son identité en répondant à une question de sécurité. Si l’utilisateur est inscrit à l’authentification multifacteur, il peut récupérer lui-même son compte compromis. Il devra saisir un code de sécurité envoyé sur son téléphone. 
+2.	L’utilisateur doit prouver son identité en répondant à une question de sécurité. Si l’utilisateur est inscrit à l’authentification multifacteur, il peut récupérer lui-même son compte compromis. Il devra saisir un code de sécurité envoyé sur son téléphone.
 
 <br> ![Correction](./media/active-directory-identityprotection-flows/110.png "Correction") <br>
 
@@ -156,6 +156,6 @@ Si des utilisateurs compromis voient leur connexion bloquée, un administrateur 
 
 ## Voir aussi
 
-- [Azure Active Directory Identity Protection](active-directory-identityprotection.md) 
+- [Azure Active Directory Identity Protection](active-directory-identityprotection.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

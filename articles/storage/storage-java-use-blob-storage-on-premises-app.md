@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="06/24/2016"
+	ms.date="08/11/2016"
 	ms.author="rmcmurray"/>
 
 # Application locale avec stockage d’objets blob
 
 ## Vue d'ensemble
 
-L’exemple suivant montre comment utiliser le stockage Azure pour stocker des images dans Azure. Le code figurant dans cet article concerne une application de console qui charge une image dans Azure, puis crée un fichier HTML affichant cette image dans votre navigateur.
+L'exemple suivant montre comment utiliser le stockage Azure pour stocker des images dans Azure. Le code figurant dans cet article concerne une application de console qui charge une image dans Azure, puis crée un fichier HTML affichant cette image dans votre navigateur.
 
 ## Composants requis
 
@@ -37,7 +37,7 @@ L’exemple suivant montre comment utiliser le stockage Azure pour stocker des i
 
 La procédure présentée ici détaille chaque étape. Si vous souhaitez la passer, le code est intégralement présenté plus avant dans cet article.
 
-Commencez le code en important les classes de stockage de base Azure, les classes du client d’objets blob Azure, les classes d’E/S Java et la classe **URISyntaxException** :
+Commencez le code en important les classes de stockage de base Azure, les classes du client d’objets blob Azure, les classes d’E/S Java et la classe **URISyntaxException** :
 
     import com.microsoft.azure.storage.*;
     import com.microsoft.azure.storage.blob.*;
@@ -64,10 +64,10 @@ Ajoutez votre déclaration pour **main**, incluez un bloc **try** ainsi que les 
 
 Déclarez les variables du type suivant (les descriptions se rapportent à la façon dont elles sont utilisées dans cet exemple) :
 
--   **CloudStorageAccount** : permet d’initialiser le compte avec le nom et la clé de votre compte de stockage Azure, et de créer l’objet client du blob.
--   **CloudBlobClient** : permet d’accéder au service BLOB.
--   **CloudBlobContainer** : permet de créer un conteneur d’objets blob, de répertorier les objets blob dans le conteneur et de supprimer ce dernier.
--   **CloudBlockBlob** : permet de charger un fichier image local dans le conteneur.
+-   **CloudStorageAccount** : permet d’initialiser le compte avec le nom et la clé de votre compte de stockage Azure, et de créer l’objet client du blob.
+-   **CloudBlobClient** : permet d’accéder au service BLOB.
+-   **CloudBlobContainer** : permet de créer un conteneur d’objets blob, de répertorier les objets blob dans le conteneur et de supprimer ce dernier.
+-   **CloudBlockBlob** : permet de charger un fichier image local dans le conteneur.
 
 <!-- -->
 
@@ -117,7 +117,7 @@ Appelez une fonction d’assistance nommée **MakeHTMLPage** pour créer une pag
 
     MakeHTMLPage(container);
 
-Imprimez un message d’état et des informations sur la page HTML créée.
+Imprimez un message d'état et des informations sur la page HTML créée.
 
     System.out.println("Processing complete.");
     System.out.println("Open index.html to see the images stored in your storage account.");
@@ -126,10 +126,10 @@ Fermez le bloc **try** en insérant une parenthèse fermante : **}**
 
 Gérez les exceptions suivantes :
 
--   **FileNotFoundException** : peut être émise par les constructeurs **FileInputStream** et **FileOutputStream**.
--   **StorageException** : peut être émise par la bibliothèque de stockage cliente Azure.
--   **URISyntaxException** : peut être émise par la méthode **ListBlobItem.getUri**.
--   **Exception** : traitement d’une exception générique.
+-   **FileNotFoundException** : peut être émise par les constructeurs **FileInputStream** et **FileOutputStream**.
+-   **StorageException** : peut être émise par la bibliothèque de stockage cliente Azure.
+-   **URISyntaxException** : peut être émise par la méthode **ListBlobItem.getUri**.
+-   **Exception** : traitement d’une exception générique.
 
 <!-- -->
 
@@ -176,9 +176,9 @@ Dans le fichier local, ajoutez du contenu aux éléments **&lt;html&gt;**, **&lt
     stream.println("<header/>");
     stream.println("<body>");
 
-Effectuez une itération dans la liste des objets blob chargés. Pour chaque objet blob, créez dans la page HTML un élément **&lt;img&gt;** dont l’attribut **src** est envoyé à l’URI de l’objet blob tel qu’il existe dans votre compte de stockage Azure. Dans cet exemple, vous avez ajouté une seule image, mais si vous en ajoutiez plus, ce code effectuerait une itération pour chacune d’entre elles.
+Effectuez une itération dans la liste des objets blob chargés. Pour chaque objet blob, créez dans la page HTML un élément **&lt;img&gt;** dont l’attribut **src** est envoyé à l’URI de l’objet blob tel qu’il existe dans votre compte de stockage Azure. Dans cet exemple, vous avez ajouté une seule image, mais si vous en ajoutiez plus, ce code effectuerait une itération pour chacune d'entre elles.
 
-Par souci de simplification, cet exemple part du principe que chaque objet blob chargé est une image. Si vous avez chargé des objets blob qui ne sont pas des images ou des objets blob de pages au lieu d’objets blob de blocs, modifiez le code en conséquence.
+Par souci de simplification, cet exemple part du principe que chaque objet blob chargé est une image. Si vous avez chargé des objets blob qui ne sont pas des images ou des objets blob de pages au lieu d'objets blob de blocs, modifiez le code en conséquence.
 
     // Enumerate the uploaded blobs.
     for (ListBlobItem blobItem : container.listBlobs()) {
@@ -359,4 +359,4 @@ Pour en savoir plus sur les tâches de stockage plus complexes, cliquez sur les 
 - [API REST des services d’Azure Storage](https://msdn.microsoft.com/library/azure/dd179355.aspx)
 - [Blog de l'équipe Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

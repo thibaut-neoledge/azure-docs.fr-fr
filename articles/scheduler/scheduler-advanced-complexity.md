@@ -35,7 +35,7 @@ Dans cet article, nous traitons d'exemples de travaux que vous pouvez créer ave
 
 ## Scénarios pris en charge
 
-Les nombreux exemples de cette rubrique illustrent l'éventail de scénarios pris en charge par Azure Scheduler. Globalement, ces exemples illustrent comment créer des planifications pour de nombreux modèles de comportement, y compris ceux ci-dessous :
+Les nombreux exemples de cette rubrique illustrent l’éventail de scénarios pris en charge par Azure Scheduler. Globalement, ces exemples illustrent comment créer des planifications pour de nombreux modèles de comportement, y compris ceux ci-dessous :
 
 -	Exécuter une seule fois à une date et une heure spécifiques
 -	Exécuter et répéter un nombre de fois explicites
@@ -52,7 +52,7 @@ Les références date-heure des travaux Azure Scheduler respectent la [spécifi
 
 ## Procédure : Utiliser JSON et l'API REST pour la création de planifications
 
-Pour créer une simple planification à l’aide de l’[API REST Azure Scheduler](https://msdn.microsoft.com/library/mt629143), [inscrivez votre abonnement auprès d’un fournisseur de ressources](https://msdn.microsoft.com/library/azure/dn790548.aspx) (le nom du fournisseur pour Scheduler est _Microsoft.Scheduler_), puis [créez une collection de tâches](https://msdn.microsoft.com/library/mt629159.aspx) et [une tâche](https://msdn.microsoft.com/library/mt629145.aspx). Lorsque vous créez un travail, vous pouvez spécifier la planification et la périodicité à l'aide de JSON, comme indiqué dans l'extrait ci-dessous :
+Pour créer une simple planification à l’aide de [l’API REST Azure Scheduler](https://msdn.microsoft.com/library/mt629143), [inscrivez votre abonnement auprès d’un fournisseur de ressources](https://msdn.microsoft.com/library/azure/dn790548.aspx) (le nom du fournisseur pour Scheduler est _Microsoft.Scheduler_), puis [créez une collection de travaux](https://msdn.microsoft.com/library/mt629159.aspx) et [un travail](https://msdn.microsoft.com/library/mt629145.aspx). Lorsque vous créez un travail, vous pouvez spécifier la planification et la périodicité à l'aide de JSON, comme indiqué dans l'extrait ci-dessous :
 
 	{
 	    "startTime": "2012-08-04T00:00Z", // optional
@@ -92,11 +92,11 @@ Après cette introduction, examinons chacun de ces éléments en détail.
 
 |**Nom JSON**|**Type de valeur**|**Obligatoire ?**|**Valeur par défaut**|**Valeurs valides**|**Exemple**|
 |:---|:---|:---|:---|:---|:---|
-|**_startTime_**|Chaîne|Non|Aucun|Dates-Heures ISO-8601|<code>"startTime" : "2013-01-09T09:30:00-08:00"</code>|
+|**_startTime_**|String|Non|Aucun|Dates-Heures ISO-8601|<code>"startTime" : "2013-01-09T09:30:00-08:00"</code>|
 |**_recurrence_**|Object|Non|Aucun|Objet de périodicité|<code>"recurrence" : { "frequency" : "monthly", "interval" : 1 }</code>|
-|**_frequency_**|Chaîne|Oui|Aucun|"minute", "hour", "day", "week", "month"|<code>"frequency" : "hour"</code> |
+|**_frequency_**|String|Oui|Aucun|"minute", "hour", "day", "week", "month"|<code>"frequency" : "hour"</code> |
 |**_interval_**|Number|Non|1|1 à 1 000.|<code>"interval":10</code>|
-|**_endTime_**|Chaîne|Non|Aucun|Valeur date-heure représentant une heure dans le futur|<code>"endTime" : "2013-02-09T09:30:00-08:00"</code> |
+|**_endTime_**|String|Non|Aucun|Valeur date-heure représentant une heure dans le futur|<code>"endTime" : "2013-02-09T09:30:00-08:00"</code> |
 |**_count_**|Number|Non|Aucun|>= 1|<code>"count": 5</code>|
 |**_schedule_**|Object|Non|Aucun|Objet de planification|<code>"schedule" : { "minute" : [30], "hour" : [8,17] }</code>|
 
@@ -145,36 +145,36 @@ Les planifications ci-dessous supposent toutes que la valeur _interval_ est déf
 |**Exemple**|**Description**|
 |:---|:---|
 |<code>{"hours":[5]}</code>|Exécution à 5h tous les jours. Azure Scheduler fait correspondre chaque valeur sous « hours » avec chaque valeur sous « minutes », une par une, pour créer une liste de toutes les fois où le travail doit être exécuté.|
-|<code>{"minutes":[15],"hours":[5]}</code>|Exécution à 5h15 tous les jours.|
-|<code>{"minutes":[15],"hours":[5,17]}</code>|Exécution à 5h15 et 17h15 tous les jours.|
-|<code>{"minutes":[15,45],"hours":[5,17]}</code>|Exécution à 5h15, 5h45, 17h15 et 17h45 tous les jours|
+|<code>{"minutes":[15], "hours":[5]}</code>|Exécution à 5h15 tous les jours.|
+|<code>{"minutes":[15], "hours":[5,17]}</code>|Exécution à 5h15 et 17h15 tous les jours.|
+|<code>{"minutes":[15,45], "hours":[5,17]}</code>|Exécution à 5h15, 5h45, 17h15 et 17h45 tous les jours|
 |<code>{"minutes":[0,15,30,45]}</code>|Exécution toutes les 15 minutes.|
-|<code>{hours":[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23]}</code>|Exécution toutes les heures. Ce travail s'exécute toutes les heures. La minute est contrôlée par la valeur _startTime_, si elle est spécifiée ou, dans le cas contraire, par l'heure de création. Par exemple, si l'heure de début ou l'heure de création (selon le cas) est 00h25, le travail sera exécuté à 00h25, 01h25, 02h25, ..., 23h25. La planification équivaut à un travail avec la valeur _frequency_ définie sur « hour », la valeur _interval_ égale à 1 et aucune _planification_. La différence est que cette planification peut être utilisée avec une _fréquence_ et un _intervalle_ différents pour créer d'autres travaux. Par exemple, si la valeur _frequency_ est définie sur « month », la planification serait exécutée une seule fois par mois, au lieu de tous les jours si la valeur _frequency_ était définie sur « day ».|
+|<code>{hours":[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]}</code>|Exécution toutes les heures. Ce travail s'exécute toutes les heures. La minute est contrôlée par la valeur _startTime_, si elle est spécifiée ou, dans le cas contraire, par l'heure de création. Par exemple, si l'heure de début ou l'heure de création (selon le cas) est 00h25, le travail sera exécuté à 00h25, 01h25, 02h25, ..., 23h25. La planification équivaut à un travail avec la valeur _frequency_ définie sur « hour », la valeur _interval_ égale à 1 et aucune _planification_. La différence est que cette planification peut être utilisée avec une _fréquence_ et un _intervalle_ différents pour créer d'autres travaux. Par exemple, si la valeur _frequency_ est définie sur « month », la planification serait exécutée une seule fois par mois, au lieu de tous les jours si la valeur _frequency_ était définie sur « day ».|
 |<code>{minutes:[0]}</code>|Exécution toutes les heures sur l'heure. Ce travail s'exécute également toutes les heures, mais sur l'heure (par exemple, minuit, 1h, 2h, etc.) Cela équivaut à un travail avec une fréquence définie sur « hour », une heure de début avec zéro minute et aucune planification si la fréquence était définie sur « day » ; mais si la fréquence était définie sur « week » ou « month », la planification ne s'exécuterait qu'un seul jour par semaine ou par mois, respectivement.|
 |<code>{"minutes":[15]}</code>|Exécution 15 minutes après l'heure toutes les heures. Exécution toutes les heures, à partir de 00h15, 1h15, 2h15, etc. et se terminant à 22h15 et 23h15.|
-|<code>{"hours":[17],"weekDays":["saturday"]}</code>|Exécution à 17h le samedi chaque semaine.|
-|<code>{hours":[17],"weekDays":["monday","wednesday","friday"]}</code>|Exécution à 17h le lundi, mercredi et vendredi chaque semaine.|
-|<code>{"minutes":[15,45],"hours":[17],"weekDays":["monday","wednesday","friday"]}</code>|Exécution à 17h15 et 17h45 le lundi, mercredi et vendredi chaque semaine.|
-|<code>{"hours":[5,17],"weekDays":["monday","wednesday","friday"]}</code>|Exécution à 5h et 17h le lundi, mercredi et vendredi chaque semaine.|
-|<code>{"minutes":[15,45],"hours":[5,17],"weekDays":["monday","wednesday","friday"]}</code>|Exécution à 5h15, 5h45, 17h15 et 17h45 le lundi, mercredi et vendredi chaque semaine.|
-|<code>{"minutes":[0,15,30,45], "weekDays":["monday","tuesday","wednesday","thursday","friday"]}</code>|Exécution toutes les 15 minutes les jours de semaine.|
-|<code>{"minutes":[0,15,30,45], "hours": [9, 10, 11, 12, 13, 14, 15, 16] "weekDays":["monday","tuesday","wednesday","thursday","friday"]}</code>|Exécution toutes les 15 minutes les jours de semaine entre 9h et 16h45.|
+|<code>{"hours":[17], "weekDays":["saturday"]}</code>|Exécution à 17h le samedi chaque semaine.|
+|<code>{hours":[17], "weekDays":["monday", "wednesday", "friday"]}</code>|Exécution à 17h le lundi, mercredi et vendredi chaque semaine.|
+|<code>{"minutes":[15,45], "hours":[17], "weekDays":["monday", "wednesday", "friday"]}</code>|Exécution à 17h15 et 17h45 le lundi, mercredi et vendredi chaque semaine.|
+|<code>{"hours":[5,17], "weekDays":["monday", "wednesday", "friday"]}</code>|Exécution à 5h et 17h le lundi, mercredi et vendredi chaque semaine.|
+|<code>{"minutes":[15,45], "hours":[5,17], "weekDays":["monday", "wednesday", "friday"]}</code>|Exécution à 5h15, 5h45, 17h15 et 17h45 le lundi, mercredi et vendredi chaque semaine.|
+|<code>{"minutes":[0,15,30,45], "weekDays":["monday", "tuesday", "wednesday", "thursday", "friday"]}</code>|Exécution toutes les 15 minutes les jours de semaine.|
+|<code>{"minutes":[0,15,30,45], "hours": [9, 10, 11, 12, 13, 14, 15, 16] "weekDays":["monday", "tuesday", "wednesday", "thursday", "friday"]}</code>|Exécution toutes les 15 minutes les jours de semaine entre 9h et 16h45.|
 |<code>{"weekDays":["sunday"]}</code>|Exécution le dimanche à l'heure de début.|
 |<code>{"weekDays":["tuesday", "thursday"]}</code>|Exécution le mardi et le jeudi à l'heure de début.|
-|<code>{"minutes":[0],"hours":[6],"monthDays":[28]}</code>|Exécution à 6h le 28ème jour de chaque mois (en supposant une fréquence mensuelle).|
-|<code>{"minutes":[0],"hours":[6],"monthDays":[-1]}</code>|Exécution à 6h le dernier jour du mois. Si vous souhaitez exécuter un travail le dernier jour du mois, utilisez -1 au lieu de jour 28, 29, 30 ou 31.|
-|<code>{"minutes":[0],"hours":[6],"monthDays":[1,-1]}</code>|Exécution à 6h le premier et le dernier jours de chaque mois.|
+|<code>{"minutes":[0], "hours":[6], "monthDays":[28]}</code>|Exécution à 6h le 28ème jour de chaque mois (en supposant une fréquence mensuelle).|
+|<code>{"minutes":[0], "hours":[6], "monthDays":[-1]}</code>|Exécution à 6h le dernier jour du mois. Si vous souhaitez exécuter un travail le dernier jour du mois, utilisez -1 au lieu de jour 28, 29, 30 ou 31.|
+|<code>{"minutes":[0], "hours":[6], "monthDays":[1,-1]}</code>|Exécution à 6h le premier et le dernier jours de chaque mois.|
 |<code>{monthDays":[1,-1]}</code>|Exécution le premier et le dernier jours de chaque mois à l'heure de début.|
 |<code>{monthDays":[1,14]}</code>|Exécution le premier et le quatorzième jours de chaque mois à l'heure de début.|
 |<code>{monthDays":[2]}</code>|Exécution le deuxième jour du mois à l'heure de début.|
-|<code>{"minutes":[0], "hours":[5], "monthlyOccurrences":[{"day":"friday","occurrence":1}]}</code>|Exécution le premier vendredi de chaque mois à 5h.|
-|<code>{"monthlyOccurrences":[{"day":"friday","occurrence":1}]}</code>|: Exécution le premier vendredi de chaque mois à l'heure de début.|
-|<code>{"monthlyOccurrences":[{"day":"friday","occurrence":-3}]}</code>|Exécution le troisième vendredi à partir de la fin du mois, chaque mois, à l'heure de début.|
-|<code>{"minutes":[15],"hours":[5],"monthlyOccurrences":[{"day":"friday","occurrence":1},{"day":"friday","occurrence":-1}]}</code>|Exécution le premier et le dernier vendredi de chaque mois à 5h15.|
-|<code>{"monthlyOccurrences":[{"day":"friday","occurrence":1},{"day":"friday","occurrence":-1}]}</code>|Exécution le premier et le dernier vendredi de chaque mois à l'heure de début.|
-|<code>{"monthlyOccurrences":[{"day":"friday","occurrence":5}]}</code>|Exécution le cinquième vendredi de chaque mois à l'heure de début. S'il n'existe pas de cinquième vendredi dans un mois, le travail ne s'exécute pas, dans la mesure où il est planifié pour s'exécuter uniquement le cinquième vendredi. Vous pouvez envisager d'utiliser -1 au lieu de 5 pour l'occurrence si vous souhaitez exécuter le travail le dernier vendredi du mois.|
-|<code>{"minutes":[0,15,30,45],"monthlyOccurrences":[{"day":"friday","occurrence":-1}]}</code>|Exécution toutes les 15 minutes le dernier vendredi du mois.|
-|<code>{"minutes":[15,45],"hours":[5,17],"monthlyOccurrences":[{"day":"wednesday","occurrence":3}]}</code>|Exécution à 5h15, 5h45, 17h15 et 17h45 le troisième mercredi de chaque mois.|
+|<code>{"minutes":[0], "hours":[5], "monthlyOccurrences":[{"day":"friday", "occurrence":1}]}</code>|Exécution le premier vendredi de chaque mois à 5h.|
+|<code>{"monthlyOccurrences":[{"day":"friday", "occurrence":1}]}</code>|: Exécution le premier vendredi de chaque mois à l'heure de début.|
+|<code>{"monthlyOccurrences":[{"day":"friday", "occurrence":-3}]}</code>|Exécution le troisième vendredi à partir de la fin du mois, chaque mois, à l'heure de début.|
+|<code>{"minutes":[15], "hours":[5], "monthlyOccurrences":[{"day":"friday", "occurrence":1},{"day":"friday", "occurrence":-1}]}</code>|Exécution le premier et le dernier vendredi de chaque mois à 5h15.|
+|<code>{"monthlyOccurrences":[{"day":"friday", "occurrence":1},{"day":"friday", "occurrence":-1}]}</code>|Exécution le premier et le dernier vendredi de chaque mois à l'heure de début.|
+|<code>{"monthlyOccurrences":[{"day":"friday", "occurrence":5}]}</code>|Exécution le cinquième vendredi de chaque mois à l'heure de début. S'il n'existe pas de cinquième vendredi dans un mois, le travail ne s'exécute pas, dans la mesure où il est planifié pour s'exécuter uniquement le cinquième vendredi. Vous pouvez envisager d'utiliser -1 au lieu de 5 pour l'occurrence si vous souhaitez exécuter le travail le dernier vendredi du mois.|
+|<code>{"minutes":[0,15,30,45], "monthlyOccurrences":[{"day":"friday", "occurrence":-1}]}</code>|Exécution toutes les 15 minutes le dernier vendredi du mois.|
+|<code>{"minutes":[15,45], "hours":[5,17], "monthlyOccurrences":[{"day":"wednesday", "occurrence":3}]}</code>|Exécution à 5h15, 5h45, 17h15 et 17h45 le troisième mercredi de chaque mois.|
 
 ## Voir aussi
 
@@ -197,4 +197,4 @@ Les planifications ci-dessous supposent toutes que la valeur _interval_ est déf
 
  [Authentification sortante d’Azure Scheluler](scheduler-outbound-authentication.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0817_2016-->

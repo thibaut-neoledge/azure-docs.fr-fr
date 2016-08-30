@@ -70,4 +70,4 @@ Vous pouvez attribuer des rôles et gérer l’accès avec les commandes RBAC Az
 - Consulter les [rôles RBAC intégrés](role-based-access-built-in-roles.md)
 - Définir vos propres [rôles personnalisés dans Azure RBAC](role-based-access-control-custom-roles.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!----HONumber=AcomDC_0727_2016-->

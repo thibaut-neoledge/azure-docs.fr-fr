@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="06/24/2016"
+	ms.date="08/11/2016"
 	ms.author="robmcm"/>
 
 
@@ -23,7 +23,7 @@ Ce didacticiel vous montre comment utiliser WebMatrix pour développer une appli
 
 À la fin de ce guide, vous disposerez d’une application web Node.js s’exécutant dans Azure App Service.
  
-Voici une capture d'écran de l'application terminée :
+Voici une capture d’écran de l’application terminée :
 
 ![Site Web node Azure][webmatrix-node-completed]
 
@@ -125,4 +125,4 @@ Si vous rencontrez des problèmes avec votre application après son déploiement
 [nodesitefromtemplateazure]: ./media/web-sites-nodejs-use-webmatrix/webmatrix-node-site-azure.png
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

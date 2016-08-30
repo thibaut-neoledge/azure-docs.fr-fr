@@ -64,7 +64,7 @@ L’opération POST contient le schéma et la charge utile JSON suivants pour to
             "resourceType": "microsoft.foo/sites",
             "resourceId": "/subscriptions/s1/resourceGroups/useast/providers/microsoft.foo/sites/mysite1",
             "resourceRegion": "centralus",
-            "portalLink": “https://portal.azure.com/#resource/subscriptions/s1/resourceGroups/useast/providers/microsoft.foo/sites/mysite1”                                
+            "portalLink": "https://portal.azure.com/#resource/subscriptions/s1/resourceGroups/useast/providers/microsoft.foo/sites/mysite1"
 },
 "properties": {
               "key1": "value1",
@@ -72,8 +72,6 @@ L’opération POST contient le schéma et la charge utile JSON suivants pour to
               }
 }
 ```
-
->[AZURE.NOTE] Dans notre prochaine actualisation, nous ajouterons la prise en charge des alertes liées aux événements ("conditionType":"Event").
 
 
 | Champ | Obligatoire ? | Ensemble fixe de valeurs ? | Remarques |
@@ -123,4 +121,4 @@ Utilisez des alertes Azure pour envoyer des messages à d’autres services. Uti
 
 [Utilisez une application logique pour envoyer des messages à une file d’attente Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

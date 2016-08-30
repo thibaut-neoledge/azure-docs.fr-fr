@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/17/2016"
+	ms.date="08/12/2016"
 	ms.author="jeedes"/>
 
 
@@ -22,13 +22,13 @@
 L’objectif de ce didacticiel est de vous montrer comment intégrer Workrite à Azure Active Directory (Azure AD). L’intégration de Workrite à Azure AD vous offre les avantages suivants :
 
 
-- Dans Azure AD, vous pouvez contrôler qui a accès à Workrite. 
+- Dans Azure AD, vous pouvez contrôler qui a accès à Workrite.
 - Vous pouvez autoriser les utilisateurs à se connecter automatiquement à Workrite (par le biais de l’authentification unique) avec leur compte Azure AD.
 - Vous pouvez gérer vos comptes à un emplacement central : le portail Azure Classic.
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
 
-## Configuration requise 
+## Composants requis 
 
 Pour configurer l’intégration d’Azure AD à Workrite, vous avez besoin des éléments suivants :
 
@@ -42,13 +42,13 @@ Pour configurer l’intégration d’Azure AD à Workrite, vous avez besoin des
 Vous devez en outre suivre les recommandations ci-dessous :
 
 - Vous ne devez pas utiliser votre environnement de production, sauf si cela est nécessaire.
-- Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/). 
+- Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
 
  
 ## Description du scénario
 Ce didacticiel vise à vous permettre de tester l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
-1. Ajout de Workrite à partir de la galerie 
+1. Ajout de Workrite à partir de la galerie
 2. Configuration et test de l’authentification unique Azure AD
 
 
@@ -57,7 +57,7 @@ Pour configurer l’intégration de Workrite à Azure AD, vous devez ajouter Wo
 
 **Pour ajouter Workrite à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **portail Azure Classic**, cliquez sur **Active Directory**. 
+1. Dans le volet de navigation gauche du **portail Azure Classic**, cliquez sur **Active Directory**.
  
 	![Active Directory][1]
 
@@ -115,11 +115,11 @@ L’objectif de cette section est d’activer l’authentification unique Azure 
 	
 	![Authentification unique Azure AD][8]
  
-     a. Dans la zone de texte **URL d’authentification**, tapez l’URL utilisée par vos utilisateurs pour se connecter à votre site Workrite (par ex. : **https://app.workrite.co.uk/securelogin/samlgateway.aspx?id=1a82b5aa-4dd6-4472-9721-7d0193f59e22*).
+     a. Dans la zone de texte **URL d’authentification**, tapez l’URL utilisée par vos utilisateurs pour se connecter à votre site Workrite (par ex. : *https://app.workrite.co.uk/securelogin/samlgateway.aspx?id=1a82b5aa-4dd6-4472-9721-7d0193f59e22*).
 
      > [AZURE.NOTE] Contactez votre équipe de support Workrite [support@workrite.co.uk](mailto:support@workrite.co.uk) si vous ignorez la valeur de l’URL d’authentification.
 
-     b. Cliquez sur **Next**.
+     b. Cliquez sur **Suivant**.
  
 4. Sur la page **Configurer l’authentification unique sur Workrite**, procédez comme suit :
 
@@ -245,7 +245,7 @@ L’objectif de cette section est de permettre à Britta Simon d’utiliser l’
 
 1. Dans le menu situé en haut, cliquez sur **Utilisateurs**.
 
-	![Affecter des utilisateurs][203] 
+	![Affecter des utilisateurs][203]
 1. Dans la liste Utilisateurs, sélectionnez **Britta Simon**.
 
 2. Dans la barre d’outils située en bas, cliquez sur **Attribuer**.
@@ -256,7 +256,7 @@ L’objectif de cette section est de permettre à Britta Simon d’utiliser l’
 
 ### Test de l’authentification unique
 
-L’objectif de cette section est de tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès. Quand vous cliquez sur la vignette Workrite dans le volet d’accès, vous devez être connecté automatiquement à votre application Workrite.
+L’objectif de cette section est de tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès. Quand vous cliquez sur la vignette Workrite dans le volet d’accès, vous devez être connecté automatiquement à votre application Workrite.
 
 
 ## Ressources supplémentaires
@@ -294,4 +294,4 @@ L’objectif de cette section est de tester la configuration de l’authentifica
 [401]: ./media/active-directory-saas-workrite-tutorial/tutorial_workrite_401.png
 [402]: ./media/active-directory-saas-workrite-tutorial/tutorial_workrite_402.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

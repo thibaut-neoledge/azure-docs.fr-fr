@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="multiple" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="06/24/2016" 
+	ms.date="08/11/2016" 
 	ms.author="robmcm"/>
 
 # Téléchargement du Kit de développement logiciel (SDK) Azure pour Java
@@ -98,7 +98,7 @@ Une fois votre projet configuré afin d’utiliser Maven pour la génération, v
 
 Cette section contient des instructions de base pour l'installation du kit de ressources Azure pour Eclipse ; pour obtenir des instructions détaillées, consultez la page [Installer le kit de ressources Azure pour Eclipse].
 
-### Composants requis
+### Conditions préalables
 
 1. Systèmes d’exploitation Windows répertoriés dans l’article [Nouveautés du Kit de ressources Azure pour Eclipse].
 1. Systèmes d’exploitation Macintosh ou Linux répertoriés dans l’article [Nouveautés du Kit de ressources Azure pour Eclipse].
@@ -136,4 +136,4 @@ Pour plus d'informations sur l'utilisation d'Azure avec Java, consultez le [Cent
 [zip-download]: http://go.microsoft.com/fwlink/?LinkId=690320
 [Nouveautés du Kit de ressources Azure pour Eclipse]: http://go.microsoft.com/fwlink/?LinkId=690333
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

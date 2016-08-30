@@ -103,18 +103,19 @@ De même, lorsque la mise à l’échelle automatique bascule vers le profil par
 Il existe des cas où vous devrez définir plusieurs règles dans un profil. L’ensemble de règles de mise à l’échelle automatique suivant est utilisé par les services lorsque plusieurs règles sont définies.
 
 Pour l’*augmentation de la taille des instances*, la mise à l’échelle automatique s’exécute si une règle est respectée. Pour la *diminution de la taille des instances*, la mise à l’échelle automatique nécessite que toutes les règles soient respectées.
- 
+
 Pour illustrer cela, supposons que vous disposez des 4 règles de mise à l’échelle automatique suivantes :
- 
+
 - Si UC < 30 %, diminuer la taille des instances de 1
-- ​Si mémoire < 50 %, diminuer la taille des instances de 1
-- ​Si UC > 75 %, augmenter la taille des instancesde 1
-- ​Si mémoire > 75 %, augmenter la taille des instances de 1
+- Si mémoire < 50 %, diminuer la taille des instances de 1
+- Si UC > 75 %, augmenter la taille des instancesde 1
+- Si mémoire > 75 %, augmenter la taille des instances de 1
 
 Alors, ce qui suit se produit :
+
 - Si le processeur est à 76 % et la mémoire est à 50 %, une augmentation de la taille des instances se produit.
 - Si le processeur est de 50 % et la mémoire est de 76 %, une augmentation de la taille des instances se produit.
- 
+
 En revanche, si le processeur est de 25 % et la mémoire est de 51 %, la mise à l’échelle automatique ne diminue **pas** la taille des instances. Pour diminuer la taille des instances, le processeur doit être de 29 % et la mémoire de 49 %.
 
 ### Sélectionnez toujours un nombre d’instances par défaut sans échec
@@ -126,4 +127,4 @@ La mise à l’échelle automatique notifie par e-mail les administrateurs et le
 - Les mesures ne sont pas disponibles pour que le service de mise à l’échelle automatique prenne une décision de mise à l’échelle.
 - Les mesures sont de nouveau disponibles (récupération) pour prendre une décision de mise à l’échelle. Outre les conditions ci-dessus, vous pouvez configurer des notifications par e-mail ou webhook pour être averti en cas d’action de mise à l’échelle réussie.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/29/2016"
+   ms.date="08/16/2016"
    ms.author="terrylan"/>
 
 # Installer Endpoint Protection dans Azure Security Center
@@ -32,7 +32,7 @@ Azure Security Center vous recommande de configurer un logiciel anti-programme m
 
 4. Des informations supplémentaires sur la solution anti-programme malveillant s’affichent. Sélectionnez **Créer**. ![Créer une solution anti-programme malveillant][4]
 
-5. Entrez les paramètres de configuration nécessaires dans le panneau **Ajouter une extension**, puis sélectionnez **OK**. Pour en savoir plus sur les paramètres de configuration, consultez [Default and Custom Antimalware Configuration](../azure-security-antimalware.md#default-and-custom-antimalware-configuration) (Configuration d’un logiciel anti-programme malveillant par défaut et personnalisée).
+5. Entrez les paramètres de configuration nécessaires dans le panneau **Ajouter une extension**, puis sélectionnez **OK**. Pour en savoir plus sur les paramètres de configuration, consultez [Configuration d’un logiciel anti-programme malveillant par défaut et personnalisée](../security/azure-security-antimalware.md#default-and-custom-antimalware-configuration).
 
 [Microsoft Antimalware](../azure-security-antimalware.md) est maintenant activé sur les machines virtuelles sélectionnées.
 
@@ -58,4 +58,4 @@ Pour plus d’informations sur Security Center, consultez :
 [3]: ./media/security-center-install-endpoint-protection/select-endpoint-protection.png
 [4]: ./media/security-center-install-endpoint-protection/create-antimalware-solution.png
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

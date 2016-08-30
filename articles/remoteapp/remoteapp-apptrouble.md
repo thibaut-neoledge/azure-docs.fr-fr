@@ -12,12 +12,15 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="06/12/2016" 
+    ms.date="08/15/2016" 
     ms.author="elizapo" />
 
 
 
 #Résoudre les problèmes liés à Azure RemoteApp : échecs de lancement et de connexion d’applications 
+
+> [AZURE.IMPORTANT]
+Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148).
 
 Le lancement des applications hébergées dans Azure RemoteApp peut échouer pour différentes raisons. Cet article décrit ces diverses raisons et les messages d’erreur que les utilisateurs peuvent recevoir quand ils essaient de lancer des applications. Il traite également des échecs de connexion. (Mais cet article ne décrit pas les problèmes de connexion au client Azure RemoteApp.)
 
@@ -51,4 +54,4 @@ Il s’agit d’un message d’erreur générique : contactez le support Azure 
 
 ![Message Azure RemoteApp générique](./media/remoteapp-apptrouble/ra-apptrouble4.png)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

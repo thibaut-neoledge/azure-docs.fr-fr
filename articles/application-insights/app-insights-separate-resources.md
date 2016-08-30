@@ -37,7 +37,7 @@ Voici quelques recommandations générales à prendre en compte :
  - Séparer la télémétrie de faibles volumes de la télémétrie de gros volumes, afin que la limitation, les quotas et l’échantillonnage sur un flux n’affectent pas l’autre.
  - Alertes, exportation et configurations des éléments de travail distinctes.
  - Répartir les [limites](app-insights-pricing.md#limits-summary), notamment le nombre de tests web, la limitation et le quota de télémétrie.
- - Le code en cours de développement et de test doit envoyer à une autre iKey que l’horodatage de production.  
+ - Le code en cours de développement et de test doit envoyer à une autre iKey que l’horodatage de production.
 
 De nombreuses expériences du portail Application Insights sont conçues dans l’esprit de ces recommandations. Par exemple, les serveurs affichent des segments sur l’instance de serveur, ce qui suppose que les données de télémétrie d’un même composant logique peuvent provenir de plusieurs instances de serveur.
 
@@ -45,7 +45,7 @@ De nombreuses expériences du portail Application Insights sont conçues dans l�
 
 Voici les cas où vous envoyez les données de télémétrie de plusieurs composants à une seule iKey :
 
-* Ajouter une propriété à toutes les données de télémétrie pour segmenter et filtrer sur l’identité du composant. Cela se produit automatiquement avec des instances de rôle de serveur mais, dans d’autres cas, vous pouvez utiliser un [initialiseur de télémétrie](app-insights-api-filtering-sampling.md#add-properties) pour ajouter la propriété.
+* Ajouter une propriété à toutes les données de télémétrie pour segmenter et filtrer sur l’identité du composant. L’ID de rôle est ajouté automatiquement à la télémétrie à partir des instances de rôle de serveur mais, dans d’autres cas, vous pouvez utiliser un [initialiseur de télémétrie](app-insights-api-filtering-sampling.md#add-properties) pour ajouter la propriété.
 * Mettre à jour les Kits de développement logiciel (SDK) Application Insights dans les différents composants en même temps. La télémétrie d’une iKey doit provenir de la même version du SDK.
 
 ## iKeys distinctes
@@ -53,7 +53,7 @@ Voici les cas où vous envoyez les données de télémétrie de plusieurs compos
 Voici les cas où vous avez plusieurs iKeys pour différents composants d’applications :
 
 * Créer un [tableau de bord](app-insights-dashboards.md) pour afficher la télémétrie clé de votre application logique, à partir d’une combinaison des différents composants de l’application. Les tableaux de bord peuvent être partagés : un affichage unique du système logique peut donc être utilisé par différentes équipes.
-* Organiser les [groupes de ressources](app-insights-resources-roles-access-control.md) au niveau de l’équipe. Les autorisations d’accès sont attribuées par groupe de ressources et comprennent notamment des autorisations pour configurer les alertes. 
+* Organiser les [groupes de ressources](app-insights-resources-roles-access-control.md) au niveau de l’équipe. Les autorisations d’accès sont attribuées par groupe de ressources et comprennent notamment des autorisations pour configurer les alertes.
 * Utiliser les [modèles Azure Resource Manager et PowerShell](app-insights-powershell.md) pour gérer les artefacts tels que les règles d’alerte et les tests web.
 
 
@@ -107,8 +107,8 @@ Dans le portail [portal.azure.com](https://portal.azure.com), ajoutez une ressou
 * Le **type d’application** définit le contenu du panneau de présentation et les propriétés disponibles dans [Metrics Explorer](app-insights-metrics-explorer.md). Si vous ne voyez pas votre type d’application, choisissez un des types web pour les pages web.
 * **Groupe de ressources** facilite la gestion des propriétés telles que le [contrôle d’accès](app-insights-resources-roles-access-control.md). Vous pouvez utiliser des groupes de ressources distincts pour le développement, le test et la production.
 * **Abonnement** est votre compte de paiement dans Azure.
-* **Emplacement** correspond à l’endroit où nous conservons vos données. Actuellement, il n’est pas possible de le modifier. 
-* **Ajouter au tableau de bord** place une vignette d’accès rapide à votre ressource sur votre page d’accueil Azure. 
+* **Emplacement** correspond à l’endroit où nous conservons vos données. Actuellement, il n’est pas possible de le modifier.
+* **Ajouter au tableau de bord** place une vignette d’accès rapide à votre ressource sur votre page d’accueil Azure.
 
 La création de la ressource prend quelques secondes. Une alerte vous prévient lorsque l’opération est terminée.
 
@@ -121,9 +121,10 @@ La clé d'instrumentation identifie la ressource que vous avez créée.
 
 ![Cliquez sur Essentials, sur la clé d'instrumentation, puis appuyez sur CTRL+C](./media/app-insights-separate-resources/02-props.png)
 
-Vous aurez besoin des clés d'instrumentation de toutes les ressources auxquelles votre application envoie des données.
+Vous avez besoin des clés dinstrumentation de toutes les ressources auxquelles votre application envoie des données.
+
 
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

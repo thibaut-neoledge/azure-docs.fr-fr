@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="identity"
-   ms.date="08/09/2016"
+   ms.date="08/11/2016"
    ms.author="femila"/>
 
 # Version préliminaire d’Azure AD B2B Collaboration : intégration simple et sécurisée des partenaires au cloud
@@ -23,8 +23,7 @@ Face à la spécialisation accrue de leurs activités, les entreprises sont de p
 
 - **Simplicité** : chaque utilisateur partenaire utilise un compte Azure AD existant ou un compte qui peut être créé facilement au moment de l’acceptation de l’invitation. Vous pouvez fournir à cet utilisateur un accès direct à l’application d’entreprise de votre choix ou à un ensemble d’applications par le biais du panneau d’accès aux applications.
 
-- **Sécurité** : votre administrateur contrôle tout l’accès à vos applications d’entreprise par l’intermédiaire de votre annuaire Azure AD. Lorsque la collaboration est arrêtée, les utilisateurs du partenaire peuvent être supprimés
-- à partir de votre instance Azure AD, et leur accès à vos applications est annulé immédiatement. En outre, quand l’utilisateur partenaire quitte l’organisation partenaire, l’accès est automatiquement perdu.
+- **Sécurité** : votre administrateur contrôle tout l’accès à vos applications d’entreprise par l’intermédiaire de votre annuaire Azure AD. Quand la collaboration est terminée, les utilisateurs partenaires peuvent être supprimés de votre annuaire Azure AD et leur accès à vos applications est immédiatement révoqué. En outre, quand l’utilisateur partenaire quitte l’organisation partenaire, l’accès est automatiquement perdu.
 
 - **Transparente** : Les sociétés partenaires qui doivent accéder à vos applications d’entreprise **n’ont pas besoin de posséder Azure AD.** Grâce à Azure AD B2B Collaboration, il suffit aux utilisateurs partenaires de s’inscrire pour profiter d’un accès direct à vos applications.
 
@@ -43,4 +42,4 @@ Consultez les autres articles sur la collaboration B2B d'Azure AD :
 - [Limites actuelles de la version préliminaire](active-directory-b2b-current-preview-limitations.md)
 - [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

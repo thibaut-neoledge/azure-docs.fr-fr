@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/18/2016"
+	ms.date="08/10/2016"
 	ms.author="jgao"/>
 
 
@@ -98,9 +98,9 @@ L'interface CLI Azure est un outil interplateforme qui vous permet de gérer les
 
 > [AZURE.NOTE] Si vous utilisez toujours le même compte de stockage, vous pouvez définir les variables d'environnement suivantes au lieu de spécifier le compte et la clé de chaque commande :
 >
-> * **AZURE\_STORAGE\_ACCOUNT**  le nom du compte de stockage
+> * **AZURE\_STORAGE\_ACCOUNT**  le nom du compte de stockage
 >
-> * **AZURE\_STORAGE\_ACCESS\_KEY** : la clé du compte de stockage
+> * **AZURE\_STORAGE\_ACCESS\_KEY** : la clé du compte de stockage
 
 ###<a id="powershell"></a>Azure PowerShell
 
@@ -149,9 +149,9 @@ La ligne de commande Hadoop est utile uniquement pour stocker les données dans 
 
 Pour utiliser la commande Hadoop, vous devez d'abord vous connecter au nœud principal à l'aide de l'une des méthodes suivantes :
 
-* **HDInsight Windows** : [connexion à l'aide du Bureau à distance](hdinsight-administer-use-management-portal.md#connect-to-hdinsight-clusters-by-using-rdp)
+* **HDInsight Windows** : [connexion à l'aide du Bureau à distance](hdinsight-administer-use-management-portal.md#connect-to-hdinsight-clusters-by-using-rdp)
 
-* **HDInsight Linux** : connexion à l'aide de SSH ([commande SSH](hdinsight-hadoop-linux-use-ssh-unix.md#connect-to-a-linux-based-hdinsight-cluster) ou [PuTTY](hdinsight-hadoop-linux-use-ssh-windows.md#connect-to-a-linux-based-hdinsight-cluster))
+* **HDInsight Linux** : connexion à l'aide de SSH ([commande SSH](hdinsight-hadoop-linux-use-ssh-unix.md#connect-to-a-linux-based-hdinsight-cluster) ou [PuTTY](hdinsight-hadoop-linux-use-ssh-windows.md#connect-to-a-linux-based-hdinsight-cluster))
 
 Une fois connecté, vous pouvez utiliser la syntaxe suivante pour télécharger un fichier dans le stockage.
 
@@ -175,12 +175,16 @@ Plusieurs applications fournissent également une interface graphique pour utili
 
 | Client | Linux | OS X | Windows |
 | ------ |:-----:|:----:|:-------:|
+| [Outils Microsoft Visual Studio pour HDInsight](hdinsight-hadoop-visual-studio-tools-get-started.md#navigate-the-linked-resources) | ✔ | ✔ | ✔ |
 | [Azure Storage Explorer](http://storageexplorer.com/) | ✔ | ✔ | ✔ |
 | [Cloud Storage Studio 2](http://www.cerebrata.com/Products/CloudStorageStudio/) | | | ✔ |
 | [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer) | | | ✔ |
 | [Azure Explorer](http://www.cloudberrylab.com/free-microsoft-azure-explorer.aspx) | | | ✔ |
-| [Zudio](https://zudio.co/) | ✔ | ✔ | ✔ |
 | [Cyberduck](https://cyberduck.io/) | | ✔ | ✔ |
+
+###Outils Visual Studio pour HDInsight
+
+Pour plus d’informations, consultez [Accéder aux ressources liées](hdinsight-hadoop-visual-studio-tools-get-started.md#navigate-the-linked-resources).
 
 ###<a id="storageexplorer"></a>Azure Storage Explorer
 
@@ -282,4 +286,4 @@ Maintenant que vous savez comment obtenir des données avec HDInsight, consultez
 [image-ase-addaccount]: ./media/hdinsight-upload-data/HDI.ASEAddAccount.png
 [image-ase-blob]: ./media/hdinsight-upload-data/HDI.ASEBlob.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

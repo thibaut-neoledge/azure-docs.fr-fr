@@ -46,7 +46,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctODkwYS0y
 
 #### Revendications dans les jetons id\_token
 
-| Revendication JWT | Nom | Description |
+| Revendication JWT | Name | Description |
 |-----------|------|-------------|
 | `appid`| ID de l'application | Identifie l’application qui utilise le jeton pour accéder à une ressource. L'application peut agir pour elle-même ou pour le compte d'un utilisateur. L'ID d'application représente généralement un objet d’application, mais elle peut également représenter un objet du principal du service dans Azure AD. <br><br> **Exemple de valeur JWT**: <br> `"appid":"15CB020F-3984-482A-864D-1D92265E8268"` |
 | `aud`| Public ciblé | Destinataire du jeton. L'application qui reçoit le jeton doit vérifier que la valeur de l'audience est correcte et rejeter les jetons destinés à une autre audience. <br><br> **Exemple de valeur SAML **: <br> `<AudienceRestriction>`<br>`<Audience>`<br>`https://contoso.com`<br>`</Audience>`<br>`</AudienceRestriction>` <br><br> **Exemple de valeur JWT **: <br> `"aud":"https://contoso.com"` |
@@ -60,10 +60,10 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctODkwYS0y
 | `iat` | IssuedAt | Enregistre l’heure à laquelle le jeton a été émis. Il est souvent utilisé pour mesurer l’actualisation du jeton. <br><br> **Exemple de valeur SAML **: <br> `<Assertion ID="_d5ec7a9b-8d8f-4b44-8c94-9812612142be" IssueInstant="2014-01-06T20:20:23.085Z" Version="2.0" xmlns="urn:oasis:names:tc:SAML:2.0:assertion">` <br><br> **Exemple de valeur JWT **: <br> `"iat": 1390234181` |
 | `iss` | Émetteur | Identifie le service d’émission de jeton de sécurité (STS) qui construit et retourne le jeton. Dans les jetons retournés par Azure AD, l'émetteur est sts.windows.net. Le GUID dans la valeur de revendication de l'émetteur est l'ID client de Azure AD Directory. L'ID client est un identificateur non modifiable et fiable du répertoire. <br><br> **Exemple de valeur SAML **: <br> `<Issuer>https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/</Issuer>` <br><br> **Exemple de valeur JWT **: <br> `"iss":”https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/”` |
 | `family_name` | Nom | Fournit le nom de famille de lutilisateur tel que défini dans l’objet utilisateur Azure AD. <br><br> **Exemple de valeur SAML **: <br> `<Attribute Name=” http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname”>`<br>`<AttributeValue>Miller<AttributeValue>` <br><br> **Exemple de valeur JWT **: <br> `"family_name": "Miller"` |
-| `unique_name`| Nom | Fournit une valeur contrôlable de visu qui identifie le sujet du jeton. Il n’est pas certain que cette valeur soit unique au sein d'un client. Elle est conçue pour être utilisée uniquement à des fins d'affichage. <br><br> **Exemple de valeur SAML **: <br> `<Attribute Name=”http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name”>`<br>`<AttributeValue>frankm@contoso.com<AttributeValue>` <br><br> **Exemple de valeur JWT **: <br> `"unique_name": "frankm@contoso.com"` |
+| `unique_name`| Name | Fournit une valeur contrôlable de visu qui identifie le sujet du jeton. Il n’est pas certain que cette valeur soit unique au sein d'un client. Elle est conçue pour être utilisée uniquement à des fins d'affichage. <br><br> **Exemple de valeur SAML **: <br> `<Attribute Name=”http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name”>`<br>`<AttributeValue>frankm@contoso.com<AttributeValue>` <br><br> **Exemple de valeur JWT **: <br> `"unique_name": "frankm@contoso.com"` |
 | `oid` | ID objet | Contient un identificateur unique d’un objet dans Azure AD. Cette valeur est immuable et ne peut pas être réattribuée ou réutilisée. Utilisez l'ID objet pour identifier un objet dans les requêtes à Azure AD. <br><br> **Exemple de valeur SAML **: <br> `<Attribute Name="http://schemas.microsoft.com/identity/claims/objectidentifier">`<br>`<AttributeValue>528b2ac2-aa9c-45e1-88d4-959b53bc7dd0<AttributeValue>` <br><br> **Exemple de valeur JWT **: <br> `"oid":"528b2ac2-aa9c-45e1-88d4-959b53bc7dd0"` |
 | `roles` | contrôleur | Représente tous les rôles d’application qui ont été accordés au sujet directement et indirectement via l’appartenance au groupe, et peut être utilisée pour appliquer un contrôle d’accès basé sur les rôles. Les rôles d’application sont définis pour chaque application, via la propriété `appRoles` du manifeste d’application. La propriété `value` de chaque rôle d’application est la valeur qui s’affiche dans la revendication des rôles. <br><br> **Exemple de valeur SAML **: <br> `<Attribute Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/role">`<br>`<AttributeValue>Admin</AttributeValue>` <br><br> **Exemple de valeur JWT **: <br> `“roles”: ["Admin", … ]` |
-| `scp` | Portée | Indique les autorisations d’emprunt d’identité accordées à l’application cliente. L’autorisation par défaut est `user_impersonation`. Le propriétaire de la ressource sécurisée peut enregistrer des valeurs supplémentaires dans Azure AD. <br><br> **Exemple de valeur JWT **: <br> `"scp": "user_impersonation"`|
+| `scp` | Scope | Indique les autorisations d’emprunt d’identité accordées à l’application cliente. L’autorisation par défaut est `user_impersonation`. Le propriétaire de la ressource sécurisée peut enregistrer des valeurs supplémentaires dans Azure AD. <br><br> **Exemple de valeur JWT **: <br> `"scp": "user_impersonation"`|
 | `sub` |Objet| Identifie l’objet principal sur lequel portent les assertions d’informations du jeton, comme l’utilisateur d’une application. Cette valeur n’est pas modifiable et ne peut pas être réassignée ou réutilisée. Vous pouvez donc l’utiliser pour effectuer des vérifications d’autorisation en toute sécurité. Étant donné que le sujet est toujours présent dans les jetons émis par Azure AD, vous êtes invité à utiliser cette valeur dans un but général de système d’autorisation. <br> `SubjectConfirmation` n’est pas une revendication. Cette valeur décrit comment le sujet du jeton est vérifié. `Bearer` indique que le sujet est confirmé par sa possession du jeton. <br><br> **Exemple de valeur SAML **: <br> `<Subject>`<br>`<NameID>S40rgb3XjhFTv6EQTETkEzcgVmToHKRkZUIsJlmLdVc</NameID>`<br>`<SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer" />`<br>`</Subject>` <br><br> **Exemple de valeur JWT **: <br> `"sub":"92d0312b-26b9-4887-a338-7b00fb3c5eab"`|
 | `tid` | ID client | Identificateur non modifiable et non réutilisable qui identifie le client du répertoire qui a émis le jeton. Vous pouvez utiliser cette valeur pour accéder à des ressources de répertoire spécifiques au client dans une application mutualisée. Par exemple, vous pouvez utiliser cette valeur pour identifier le client dans un appel à l'API Graph. <br><br> **Exemple de valeur SAML **: <br> `<Attribute Name=”http://schemas.microsoft.com/identity/claims/tenantid”>`<br>`<AttributeValue>cbb1a5ac-f33b-45fa-9bf5-f37db0fed422<AttributeValue>` <br><br> **Exemple de valeur JWT **: <br> `"tid":"cbb1a5ac-f33b-45fa-9bf5-f37db0fed422"`|
 | `nbf`, `exp`|Durée de vie du jeton | Définit l’intervalle de temps pendant lequel un jeton est valide. Le service qui valide le jeton doit vérifier que la date actuelle est comprise dans sa durée de vie, sans quoi le jeton doit être rejeté. Le service peut accorder une marge de cinq minutes au-delà de la plage de durée de vie du jeton pour prendre en compte tout écart de temps (« décalage horaire ») entre Azure AD et le service. <br><br> **Exemple de valeur SAML **: <br> `<Conditions`<br>`NotBefore="2013-03-18T21:32:51.261Z"`<br>`NotOnOrAfter="2013-03-18T22:32:51.261Z"`<br>`>` <br><br> **Exemple de valeur JWT **: <br> `"nbf":1363289634, "exp":1363293234` |
@@ -110,14 +110,28 @@ La revendication `alg` indique l’algorithme utilisé pour signer le jeton, tan
 
 À tout moment, Azure AD peut signer un jeton id\_token à l'aide de l'un des ensembles de paires de clés publique-privée. Étant donné qu'Azure AD alterne le jeu de clés possible de façon périodique, votre application doit être écrite de manière à gérer automatiquement ces changements de clés. Pour vérifier les mises à jour apportées aux clés publiques utilisées par Azure AD, spécifiez une fréquence raisonnable d’environ 24 heures.
 
+Pour acquérir les données de la clé de signature nécessaires pour valider la signature, utilisez le document de métadonnées OpenID Connect à l’emplacement suivant :
+
+```
+https://login.microsoftonline.com/common/.well-known/openid-configuration
+```
+
+> [AZURE.TIP] Testez cette URL dans un navigateur !
+
+Ce document de métadonnées est un objet JSON qui contient diverses informations utiles, comme l’emplacement des différents points de terminaison nécessaires pour effectuer l’authentification OpenID Connect.
+
+Il comprend également un `jwks_uri` qui indique l’emplacement de l’ensemble des clés publiques utilisées pour signer les jetons. Le document JSON situé sous `jwks_uri` contient toutes les informations sur les clés publiques utilisées à cet instant donné. Votre application peut utiliser la revendication `kid` dans l’en-tête JWT pour sélectionner la clé publique utilisée dans ce document pour signer un jeton donné. Elle peut ensuite procéder à la validation des signatures à l’aide de la clé publique correcte et de l’algorithme indiqué.
+
+La validation des signatures dépasse le cadre de ce document. Si vous avez besoin d’aide, de nombreuses bibliothèques open source sont disponibles.
+
 #### Validation des revendications
 
 Quand votre application reçoit un jeton id\_token au moment de la connexion de l’utilisateur, elle doit également procéder à quelques vérifications sur les revendications dans le jeton id\_token. Ces vérifications portent notamment sur les revendications suivantes :
 
-  - Revendication **Audience** : il s’agit de vérifier que le jeton id\_token était bien destiné à votre application.
-  - Revendications **Pas avant** et **Heure d'expiration** : il s'agit de vérifier que le jeton id\_token n'est pas arrivé à expiration.
-  - Revendication **Émetteur** : il s'agit de vérifier que le jeton a été effectivement émis à votre application par Azure AD.
-  - **Valeur à usage unique** : il s’agit d’atténuer les attaques par relecture de jetons.
+  - Revendication **Audience** : il s’agit de vérifier que le jeton id\_token était bien destiné à votre application.
+  - Revendications **Pas avant** et **Heure d'expiration** : il s'agit de vérifier que le jeton id\_token n'est pas arrivé à expiration.
+  - Revendication **Émetteur** : il s'agit de vérifier que le jeton a été effectivement émis à votre application par Azure AD.
+  - **Valeur à usage unique** : il s’agit d’atténuer les attaques par relecture de jetons.
   - et bien plus...
 
 Pour obtenir une liste complète des revendications que votre application doit valider, reportez-vous à la [spécification OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html#IDTokenValidation).
@@ -275,4 +289,4 @@ Il s’agit d’un exemple de jeton web JSON (JWT) classique utilisé dans un fl
      acr: "1"
     }.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -79,15 +79,15 @@ Ensuite, créez les ressources ci-après dans le compte.
 
     ![](media/site-recovery-runbook-automation/06.png)
 
-4.  Comme valeur de la variable, spécifiez votre nom d’abonnement Microsoft Azure réel.
+4.  Comme valeur de la variable, spécifiez votre nom d’abonnement Azure réel.
 
 	![](media/site-recovery-runbook-automation/07_1.png)
 
-Vous pouvez identifier le nom de votre abonnement à partir de la page des paramètres de votre compte, sur le portail Microsoft Azure.
+Vous pouvez identifier le nom de votre abonnement à partir de la page des paramètres de votre compte, sur le Portail Azure.
 
 ### Ajouter des informations d’identification de connexion Microsoft Azure en tant que ressources
 
-Microsoft Azure Automation utilise Azure PowerShell pour se connecter à l’abonnement et agit sur les artefacts à ce niveau. Pour cela, vous devez vous authentifier à l’aide de votre compte Microsoft ou d’un compte professionnel ou scolaire. Vous pouvez stocker les informations d’identification de compte dans une ressource, afin qu’elles soient utilisées par le Runbook en toute sécurité.
+Azure Automation utilise Azure PowerShell pour se connecter à l’abonnement et agit sur les artefacts à ce niveau. Pour cela, vous devez vous authentifier à l’aide de votre compte Microsoft ou d’un compte professionnel ou scolaire. Vous pouvez stocker les informations d’identification de compte dans une ressource, afin qu’elles soient utilisées par le Runbook en toute sécurité.
 
 1.  Ajoutez un nouveau paramètre (![](media/site-recovery-runbook-automation/04.png)) dans la zone des ressources Microsoft Azure Automatisation et choisissez l’option ![](media/site-recovery-runbook-automation/09.png).
 
@@ -103,7 +103,7 @@ Désormais, ces deux paramètres sont disponibles dans vos ressources.
 
 ![](media/site-recovery-runbook-automation/11.png)
 
-Pour en savoir plus sur la connexion à votre abonnement via PowerShell, cliquez [ici](../powershell-install-configure.md).
+Pour en savoir plus sur la connexion à votre abonnement avec PowerShell, cliquez [ici](../powershell-install-configure.md).
 
 Ensuite, vous allez créer un Runbook dans Microsoft Azure Automation, capable d’ajouter un point de terminaison pour la machine virtuelle frontale après le basculement.
 
@@ -169,7 +169,7 @@ Pour identifier la valeur du paramètre « VmMap Key » dans le contexte, vou
 
 	```
 
-4.  Ensuite, connectez-vous à l’abonnement via le nom d’abonnement et les informations d’identification adéquats.
+4.  Ensuite, connectez-vous à l’abonnement avec le nom d’abonnement et les informations d’identification adéquats.
 
 	```
 		$Cred = Get-AutomationPSCredential -Name 'AzureCredential'
@@ -266,8 +266,7 @@ Le script complet est indiqué ci-dessous, à titre de référence.
 
 Une fois que le script est prêt, vous pouvez l’ajouter au plan de récupération créé précédemment.
 
-1.  Dans le plan de récupération que vous avez créé, optez pour l’ajout d’un script après le groupe 2.
-![](media/site-recovery-runbook-automation/15.png)
+1.  Dans le plan de récupération que vous avez créé, optez pour l’ajout d’un script après le groupe 2. ![](media/site-recovery-runbook-automation/15.png)
 
 2.  Spécifiez un nom de script. Il s’agit simplement d’un nom convivial pour ce script, qui doit s’afficher dans le plan de récupération.
 
@@ -279,7 +278,7 @@ Une fois que le script est prêt, vous pouvez l’ajouter au plan de récupérat
 
 ## Scripts côté principal
 
-Lorsque vous exécutez un basculement vers Azure, vous pouvez également choisir d'exécuter des scripts côté principal. Ces scripts seront exécutés sur le serveur VMM pendant le basculement. Les scripts côté principal ne sont disponibles que pour les phases précédant et suivant l’arrêt. En effet, nous prévoyons que le site principal ne sera généralement pas disponible lors des incidents. Pendant un basculement non planifié, et uniquement si vous optez pour les opérations de site principal, il tentera d'exécuter les scripts côté principal. S’ils ne sont pas accessibles ou si le délai d'attente est dépassé, le basculement continuera de récupérer les machines virtuelles. Les scripts côté principal ne sont pas disponibles pour les sites VMware/physiques/Hyper-V sans VMM protégé vers Azure - lors du basculement vers Azure. Toutefois, lors de la restauration à partir d’Azure vers un serveur local, les scripts côté principal (Runbook) peuvent être utilisés pour toutes les cibles à l'exception de VMware.
+Lorsque vous exécutez un basculement vers Azure, vous pouvez également choisir d'exécuter des scripts côté principal. Ces scripts seront exécutés sur le serveur VMM pendant le basculement. Les scripts côté principal ne sont disponibles que pour les phases précédant et suivant l’arrêt. En effet, nous prévoyons que le site principal ne sera généralement pas disponible lors des incidents. Pendant un basculement non planifié, et uniquement si vous optez pour les opérations de site principal, il tentera d'exécuter les scripts côté principal. S’ils ne sont pas accessibles ou si le délai d'attente est dépassé, le basculement continuera de récupérer les machines virtuelles. Les scripts côté principal ne sont pas disponibles pour les sites VMware/physiques/Hyper-V sans VMM protégé vers Azure - lors du basculement vers Azure. Toutefois, lors de la restauration à partir d’Azure vers un serveur local, les scripts côté principal (Runbook) peuvent être utilisés pour toutes les cibles à l’exception de VMware.
 
 ## Tester le plan de récupération
 
@@ -309,4 +308,4 @@ Dans ce didacticiel, nous avons passé en revue la procédure d’automatisation
 
 [Exemples de scripts Microsoft Azure Automation](http://gallery.technet.microsoft.com/scriptcenter/site/search?f[0].Type=User&f[0].Value=SC%20Automation%20Product%20Team&f[0].Text=SC%20Automation%20Product%20Team "Exemples de scripts Microsoft Azure Automation")
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0817_2016-->

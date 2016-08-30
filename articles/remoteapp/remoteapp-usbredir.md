@@ -12,12 +12,15 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="06/13/2016" 
+    ms.date="08/15/2016" 
     ms.author="elizapo" />
 
 
 
 # Comment rediriger les périphériques USB dans Azure RemoteApp ?
+
+> [AZURE.IMPORTANT]
+Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148).
 
 La redirection de périphérique permet aux utilisateurs d’utiliser les périphériques USB raccordés à leur ordinateur ou à une tablette avec les applications de Azure RemoteApp. Par exemple, si vous avez partagé Skype via Azure RemoteApp, vos utilisateurs devront être en mesure d’utiliser les caméras de leurs périphériques mobiles.
 
@@ -58,7 +61,7 @@ Lorsque vous définissez la redirection de périphérique par GUID de classe, to
 
 ## Redirection d’un périphérique USB à l’aide de l’ID d’instance du périphérique
 
-Si vous souhaitez un contrôle précis et contrôler la redirection par périphérique, vous pouvez utiliser le paramètre de redirection **USB\\InstanceID**.
+Si vous souhaitez un contrôle précis et contrôler la redirection par appareil, vous pouvez utiliser le paramètre de redirection **USB\\InstanceID**.
 
 La partie la plus difficile de cette méthode consiste à trouver l’ID d’instance de périphérique USB. Vous devez avoir accès à l’ordinateur et à ce périphérique USB particulier. Exécutez ensuite les opérations qui suivent :
 
@@ -77,4 +80,4 @@ La partie la plus difficile de cette méthode consiste à trouver l’ID d’ins
 ### Vos commentaires nous aideront à mieux vous servir 
 Saviez-vous qu’en plus de noter cet article et de rédiger des commentaires ci-dessous, vous pouviez modifier l’article lui-même ? Il manque des informations ? Des informations sont erronées ? Certains passages ne sont pas clairs ? Faites défiler l’écran vers le haut et cliquez sur **Modifier sur GitHub** pour apporter des modifications. Nous les passerons ensuite en revue, et une fois que nous les aurons confirmées, vos modifications et les améliorations seront visibles ici.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -13,15 +13,15 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure"
-   ms.date="05/03/2016"
+   ms.date="08/18/2016"
    ms.author="v-livech"/>
 
 
 # Création d’une machine virtuelle Linux sur Azure à l’aide de l’interface de ligne de commande (CLI)
 
-> [AZURE.NOTE] Si vous avez un moment, aidez-nous à améliorer la documentation relative aux machines virtuelles Linux Azure en répondant à cette [enquête rapide](https://aka.ms/linuxdocsurvey) sur vos expériences. Chaque réponse nous aide à vous faciliter la tâche.
+> [AZURE.NOTE] Si vous avez un moment, aidez-nous à améliorer la documentation relative aux machines virtuelles Azure Linux en répondant à cette [enquête rapide](https://aka.ms/linuxdocsurvey) concernant vos expériences. Chaque réponse nous aide à vous faciliter la tâche.
 
-Cet article explique comment déployer rapidement une machine virtuelle Linux sur Azure à l’aide de la commande `azure vm quick-create` de l’interface de ligne de commande (CLI) Azure. La commande `quick-create` déploie une machine virtuelle encadrée par une infrastructure de base que vous pouvez utiliser comme prototype ou pour tester très rapidement un concept (considérez-la comme le chemin le plus rapide menant vers un script shell bash Linux). L’article nécessite un compte Azure ([obtenir un essai gratuit](https://azure.microsoft.com/pricing/free-trial/)) et [l’interface de ligne de commande Azure](../xplat-cli-install.md) connectée (`azure login`) en mode Resource Manager (`azure config mode arm`). Vous pouvez également déployer rapidement une machine virtuelle Linux à l’aide du [Portail Azure](virtual-machines-linux-quick-create-portal.md).
+Cet article explique comment déployer rapidement une machine virtuelle Linux sur Azure à l’aide de la commande `azure vm quick-create` de l’interface de ligne de commande (CLI) Azure. La commande `quick-create` déploie une machine virtuelle avec une infrastructure de base que vous pouvez utiliser comme prototype ou pour tester très rapidement un concept. Cet article nécessite un compte Azure ([obtenir un compte d’essai gratuit](https://azure.microsoft.com/pricing/free-trial/)) et l’[interface de ligne de commande Azure](../xplat-cli-install.md) connectée en mode Classic (`azure login`) et en mode Resource Manager (`azure config mode arm`). Vous pouvez également déployer rapidement une machine virtuelle Linux à l’aide du [portail Azure](virtual-machines-linux-quick-create-portal.md).
 
 ## Résumé des commandes rapides
 
@@ -33,7 +33,7 @@ azure vm quick-create -M ~/.ssh/azure_id_rsa.pub -Q CoreOS
 
 ## Déployer la machine virtuelle Linux
 
-À l’aide de la même commande que celle mentionnée plus haut, ce qui suit montre chaque invite ainsi que le résultat attendu, mais utilise l’alias RHEL pour créer une machine virtuelle RedHat Enterprise Linux 7.2.
+Nous allons maintenant pour détailler la commande et expliquer chaque étape à l’aide de RedHat Enterprise Linux 7.2.
 
 ## Utiliser un alias ImageURN
 
@@ -46,14 +46,13 @@ La commande `quick-create` de l’interface de ligne de commande Azure dispose d
 | Debian | credativ | Debian | 8 | le plus récent |
 | openSUSE | SUSE | openSUSE | 13\.2 | le plus récent |
 | RHEL | Redhat | RHEL | 7,2 | le plus récent |
-| SLES | SLES | SLES | 12-SP1 | le plus récent |
 | UbuntuLTS | Canonical | UbuntuServer | 14\.04.4-LTS | le plus récent |
 
 
 
-Pour l’option **ImageURN** (`-Q`), nous utiliserons `RHEL` pour déployer une machine virtuelle RedHat Enterprise Linux 7.2. (Ces 7 alias représentent une infime partie du système d’exploitation disponible sur Azure ; recherchez plus d’images sur le marché en [recherchant une image](virtual-machines-linux-cli-ps-findimage.md), ou [chargez votre propre image personnalisée](virtual-machines-linux-create-upload-generic.md).)
+Pour l’option **ImageURN** (`-Q`), nous allons utiliser `RHEL` afin de déployer une machine virtuelle RedHat Enterprise Linux 7.2. Ces alias `quick-create` représentent une infime partie du système d’exploitation disponible dans Azure. Trouvez d’autres images dans Marketplace en [faisant une recherche](virtual-machines-linux-cli-ps-findimage.md) ou en [chargeant votre image personnalisée](virtual-machines-linux-create-upload-generic.md).
 
-Dans la procédure suivante, remplacez les invites par les valeurs de votre propre environnement. Nous utilisons des exemples de valeurs.
+Dans la procédure suivante, remplacez les invites par les valeurs de votre propre environnement.
 
 Suivez les invites et entrez vos propres noms
 
@@ -147,7 +146,7 @@ data:      Diagnostics Instance View:
 info:    vm quick-create command OK
 ```
 
-Vous pouvez désormais intégrer SSH à votre machine virtuelle sur le port SSH 22 par défaut et le nom de domaine complet (FQDN) répertorié dans la sortie ci-dessous. (Vous pouvez également utiliser l’adresse IP affichée).
+SSH dans votre machine virtuelle sur le port 22 et les adresses IP publiques répertoriées dans la sortie. (Vous pouvez également utiliser le nom de domaine complet.)
 
 ```bash
 ssh ops@rhel-westu-1630678171-pip.westus.cloudapp.azure.com
@@ -165,12 +164,10 @@ Warning: Permanently added 'rhel-westu-1630678171-pip.westus.cloudapp.azure.com,
 
 ## Étapes suivantes
 
-La procédure `azure vm quick-create` permet de déployer rapidement une machine virtuelle pour se connecter à un shell bash et être opérationnel. L’utilisation de `vm quick-create` ne vous offre pas les avantages supplémentaires d’un environnement complexe. Pour déployer une machine virtuelle Linux personnalisée pour votre infrastructure, vous pouvez consulter l’un des articles ci-dessous.
+La procédure `azure vm quick-create` permet de déployer rapidement une machine virtuelle pour se connecter à un shell bash et être opérationnel. L’utilisation de `vm quick-create` ne vous offre pas les avantages supplémentaires d’un environnement complexe. Pour déployer une machine virtuelle Linux personnalisée en fonction de votre infrastructure, lisez l’un des articles ci-dessous.
 
 - [Déploiement et gestion de machines virtuelles à l’aide des modèles Azure Resource Manager et de l’interface de ligne de commande Azure](virtual-machines-linux-cli-deploy-templates.md)
 - [Créer votre propre environnement personnalisé pour une machine virtuelle Linux à l’aide des commandes de l’interface de ligne de commande Azure directement](virtual-machines-linux-create-cli-complete.md).
-- [Création d'une machine virtuelle Linux sécurisée par SSH dans Azure à l’aide de modèles](virtual-machines-linux-create-ssh-secured-vm-from-template.md)
+- [Création d’une machine virtuelle Linux sécurisée par SSH dans Azure à l’aide de modèles](virtual-machines-linux-create-ssh-secured-vm-from-template.md)
 
-Ces articles vous aideront à démarrer la création d'une infrastructure Azure ainsi que n’importe quelle quantité de déploiements d’infrastructure open source et propriétaires, de configuration et d’outils d’orchestration.
-
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

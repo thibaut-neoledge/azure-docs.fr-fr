@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/14/2016"
+   ms.date="08/16/2016"
    ms.author="yurid"/>
 
 # Présentation de l’architecture de la sécurité
@@ -26,4 +26,4 @@ Dans cette section, vous trouverez des articles sur l’architecture de sécurit
 - [Architecture d’application sur Microsoft Azure](security-application-architecture-on-azure.md)
 - [Meilleures pratiques et tendances Azure relatives à la sécurité](security-best-practices-and-patterns.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0817_2016-->

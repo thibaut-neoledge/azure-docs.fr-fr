@@ -82,7 +82,7 @@ Notez que les langues prises en charge sont les suivantes :
 		Content-Type: application/json
 		Accept: application/json
 
-1. Ensuite, mettez vos lignes d’entrée au format JSON. Le format est le même pour la détection du sentiment, des expressions clés et de la langue. Chaque ID doit être unique. Il correspond à l’ID renvoyé par le système. La taille maximale par document envoyé est de 10 Ko et la taille totale maximale de l’entrée envoyée est de 1 Mo. Vous ne pouvez pas envoyer plus de 1 000 documents dans un seul appel. La langue est un paramètre optionnel qui doit être spécifié si vous analysez du texte dans une langue autre que l’anglais. Vous trouverez ci-dessous un exemple d’entrée, où le paramètre facultatif `language` pour l’analyse des sentiments ou l’extraction d’expressions clés est inclus :
+1. Ensuite, mettez vos lignes d’entrée au format JSON. Le format est le même pour la détection du sentiment, des expressions clés et de la langue. Chaque ID doit être unique. Il correspond à l’ID renvoyé par le système. La taille maximale par document envoyé est de 10 Ko et la taille totale maximale de l’entrée envoyée est de 1 Mo. Vous ne pouvez pas envoyer plus de 1 000 documents dans un seul appel. Il existe une limitation du débit définie sur 100 appels par minute. Il est donc recommandé d’envoyer de grandes quantités de documents en un seul appel. La langue est un paramètre optionnel qui doit être spécifié si vous analysez du texte dans une langue autre que l’anglais. Vous trouverez ci-dessous un exemple d’entrée, où le paramètre facultatif `language` pour l’analyse des sentiments ou l’extraction d’expressions clés est inclus :
 
 		{
 			"documents": [
@@ -168,9 +168,9 @@ Notez que les langues prises en charge sont les suivantes :
 
 ## Tâche 3 : Détecter les rubriques dans un corpus de texte ####
 
-Il s'agit d'une API lancée récemment, qui renvoie les premières rubriques détectées pour une liste d’enregistrements texte soumis. Une rubrique est identifiée par une expression clé, représentée par un ou plusieurs mots associés. L'API est conçue pour fonctionner correctement avec un texte court écrit par un humain, par exemple des évaluations et des commentaires d’utilisateurs.
+Il s’agit d’une API lancée récemment, qui renvoie les premières rubriques détectées pour une liste d’enregistrements texte soumis. Une rubrique est identifiée par une expression clé, représentée par un ou plusieurs mots associés. L'API est conçue pour fonctionner correctement avec un texte court écrit par un humain, par exemple des évaluations et des commentaires d’utilisateurs.
 
-Cette API nécessite l’envoi **d’au moins 100 enregistrements texte**, mais elle est conçue pour détecter des rubriques parmi des centaines de milliers d'enregistrements. Les enregistrements de langue non anglaise ou contenant moins de 3 mots sont ignorés et ne sont donc pas affectés à des rubriques. Pour la détection des rubriques, la taille maximale par document envoyé est de 30 Ko et la taille totale maximale de l’entrée envoyée est de 30 Mo.
+Cette API nécessite l’envoi **d’au moins 100 enregistrements texte**, mais elle est conçue pour détecter des rubriques parmi des centaines de milliers d’enregistrements. Les enregistrements de langue non anglaise ou contenant moins de 3 mots sont ignorés et ne sont donc pas affectés à des rubriques. Pour la détection des rubriques, la taille maximale par document envoyé est de 30 Ko et la taille totale maximale de l’entrée envoyée est de 30 Mo. La détection de sujets a un débit limité à 5 soumissions toutes les 5 minutes.
 
 Vous pouvez utiliser deux paramètres d’entrée **facultatifs** supplémentaires pour améliorer la qualité des résultats :
 
@@ -297,4 +297,4 @@ Félicitations ! Vous avez terminé l’analyse des données de votre texte. Vo
 
 Pour voir comment des fonctionnalités d’analyse de texte, telles que des sentiments, peuvent être utilisées en tant que composant d’un bot, consultez l’exemple [Robot émotionnel](http://docs.botframework.com/fr-FR/bot-intelligence/language/#example-emotional-bot) sur le site Bot Framework (Infrastructure de robot).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0817_2016-->

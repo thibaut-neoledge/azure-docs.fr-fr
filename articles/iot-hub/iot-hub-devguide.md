@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="05/29/2016" 
+ ms.date="08/11/2016" 
  ms.author="dobett"/>
 
 # Guide du développeur Azure IoT Hub
@@ -61,11 +61,11 @@ Enfin, il est important de noter que tous les points de terminaison IoT Hub util
 
 ### Lecture à partir de points de terminaison compatibles Event Hubs. <a id="eventhubcompatible"></a>
 
-Lorsque vous utilisez le [Kit Azure Service Bus SDK pour .NET][lnk-servicebus-sdk] ou [Event Hubs - Hôte du processeur d’événements][lnk-eventprocessorhost], vous pouvez utiliser n’importe quelle chaîne de connexion IoT Hub avec les autorisations appropriées, puis utiliser **messages/événements** comme nom de hub d’événements.
+Lorsque vous utilisez le [Kit de développement logiciel (SDK) Azure Service Bus pour .NET][lnk-servicebus-sdk] ou l[’hôte du processeur d’événements Event Hubs][lnk-eventprocessorhost], vous pouvez utiliser toute chaîne de connexion IoT Hub avec les autorisations appropriées. Vous utilisez ensuite **messages/événements** comme nom d’Event Hub.
 
 Lorsque vous utilisez des Kits de développement logiciel (SDK) ou des intégrations de produits qui n’ont pas connaissance d’IoT Hub, vous devez récupérer un point de terminaison compatible avec Event Hubs et un nom de hub d’événements à partir des paramètres IoT Hub dans le [portail Azure][lnk-management-portal] \:
 
-1. Dans le panneau IoT Hub, cliquez sur **Paramètres** > **Messagerie**.
+1. Dans le panneau IoT Hub, cliquez sur **Messagerie**.
 2. Dans la section **Device-to-cloud settings** (Paramètres Appareil vers cloud), vous trouverez les valeurs suivantes : un **point de terminaison compatible avec Event Hub**, un **nom compatible avec Event Hub** et des **Partitions**.
 
     ![Paramètres Appareil vers cloud][img-eventhubcompatible]
@@ -133,16 +133,16 @@ Toutes ces opérations autorisent l’utilisation de l’accès concurrentiel op
 Un registre des identités des appareils IoT Hub :
 
 - ne contient pas de métadonnées de l’application ;
-- est accessible en tant que dictionnaire à l’aide de la clé **deviceId** ;
+- est accessible en tant que dictionnaire à l’aide de la clé **deviceId**.
 - ne prend pas en charge les requêtes expressives.
 
 Une solution IoT possède généralement une zone de stockage distincte spécifique à la solution qui contient les métadonnées propres à l’application. Dans une solution de développement intelligente, par exemple, la zone de stockage spécifique à la solution doit enregistrer l’espace dans lequel un capteur de température sera déployé.
 
-> [AZURE.IMPORTANT] Vous devez uniquement utiliser le registre des identités des appareils pour les opérations de gestion des périphériques et d’approvisionnement. Les opérations à haut débit ne doivent pas dépendre de l’exécution d’opérations dans le registre des identités des appareils au moment de leur exécution. Par exemple, la vérification de l’état de la connexion d’un appareil avant l’envoi d’une commande n’est pas un modèle pris en charge. Veillez à vérifier les [taux de limitation](#throttling) pour le registre des identités des appareils et le modèle de [pulsation de l’appareil][lnk-guidance-heartbeat].
+> [AZURE.IMPORTANT] Utilisez uniquement le registre des identités des appareils pour les opérations de gestion des périphériques et d’approvisionnement. Les opérations à haut débit ne doivent pas dépendre de l’exécution d’opérations dans le registre des identités des appareils au moment de leur exécution. Par exemple, la vérification de l’état de la connexion d’un appareil avant l’envoi d’une commande n’est pas un modèle pris en charge. Veillez à vérifier les [taux de limitation](#throttling) pour le registre des identités des appareils et le modèle de [pulsation de l’appareil][lnk-guidance-heartbeat].
 
 ### Désactivation des appareils
 
-Vous pouvez désactiver les appareils en mettant à jour la propriété **status** d’une identité dans le registre. Généralement, cette option est utilisée dans deux scénarios :
+Vous pouvez désactiver les appareils en mettant à jour la propriété **status** d’une identité dans le registre. Généralement, cette propriété est utilisée dans deux scénarios :
 
 - Au cours d’un processus d’orchestration d’approvisionnement. Pour en savoir plus, voir [Conception de votre solution - Approvisionnement des appareils][lnk-guidance-provisioning].
 - Si, pour une raison quelconque, vous pensez qu’un appareil est compromis ou non autorisé.
@@ -210,12 +210,12 @@ Le protocole HTTP implémente l’authentification en incluant un jeton valide d
 
 Lorsque vous utilisez [AMQP][lnk-amqp], IoT Hub prend en charge [SASL PLAIN][lnk-sasl-plain] et la [sécurité basée sur des revendications AMQP][lnk-cbs].
 
-Si la sécurité est basée sur des revendications AMQP, la norme indique comment transmettre les jetons répertoriés ci-dessus.
+Si vous utilisez une sécurité basée sur des revendications AMQP, la norme indique comment transmettre les jetons répertoriés ci-dessus.
 
 Pour SASL PLAIN, le **nom d’utilisateur** peut être :
 
-* `{policyName}@sas.root.{iothubName}` s’il s’agit de jetons de niveau concentrateur.
-* `{deviceId}` s’il s’agit de jetons inclus dans l’étendue d’un appareil.
+* `{policyName}@sas.root.{iothubName}` si vous utilisez des jetons au niveau du hub.
+* `{deviceId}` si vous utilisez des jetons à l’échelle de l’appareil.
 
 Dans les deux cas, le champ de mot de passe contient le jeton, comme décrit dans l’article sur les [jetons de sécurité IoT Hub][lnk-sas-tokens].
 
@@ -233,7 +233,7 @@ Mot de passe (générer SAP avec l’Explorateur d’appareils) : `SharedAccessS
 
 Lorsque vous utilisez SASL PLAIN, un client qui se connecte à un IoT Hub peut utiliser un jeton unique pour chaque connexion TCP. Lorsque le jeton expire, la connexion TCP est déconnectée du service, ce qui déclenche une reconnexion. Bien que non problématique pour un composant de serveur d’applications principal, ce comportement peut créer de graves dommages pour une application côté appareils pour les motifs suivants :
 
-*  Les passerelles se connectent généralement au nom de nombreux appareils. Lorsque vous utilisez SASL PLAIN, elles doivent créer une connexion TCP distincte pour chaque appareil se connectant à un IoT Hub. Cela augmente considérablement la consommation des ressources d’alimentation et de mise en réseau, ainsi que la latence de chaque connexion d’appareil.
+*  Les passerelles se connectent généralement au nom de nombreux appareils. Lorsque vous utilisez SASL PLAIN, elles doivent créer une connexion TCP distincte pour chaque appareil se connectant à un IoT Hub. Ce scénario augmente considérablement la consommation des ressources d’alimentation et de mise en réseau, ainsi que la latence de chaque connexion d’appareil.
 * Les appareils avec des contraintes de ressources sont affectés par l’utilisation accrue des ressources pour se reconnecter après chaque expiration du jeton.
 
 ### Étendue des informations d’identification au niveau du hub
@@ -250,7 +250,7 @@ IoT Hub offre des primitives de message pour communiquer :
 - [Appareil vers cloud](#d2c) : à partir d’un appareil vers un serveur principal d’applications.
 - [Téléchargements de fichiers](#fileupload) : à partir d’un appareil vers un compte Azure Storage associé.
 
-Les principales propriétés de la fonctionnalité de messagerie IoT Hub sont la fiabilité et la durabilité des messages. Elle active la résilience de la connectivité intermittente côté appareils et des pics de chargement dans le traitement d’événements côté cloud. IoT Hub implémente *au moins une fois* des garanties de remise pour l’envoi de messages appareil vers cloud et cloud vers appareil.
+Les principales propriétés de la fonctionnalité de messagerie IoT Hub sont la fiabilité et la durabilité des messages. Ces propriétés activent la résilience de la connectivité intermittente côté appareils et des pics de chargement dans le traitement d’événements côté cloud. IoT Hub implémente *au moins une fois* des garanties de remise pour l’envoi de messages appareil vers cloud et cloud vers appareil.
 
 IoT Hub prend en charge plusieurs protocoles d’appareil (par exemple, MQTT, AMQP et HTTP). Pour prendre en charge une interopérabilité transparente entre les différents protocoles, IoT Hub définit un format de message commun qui est pris en charge par tous les protocoles d’appareil.
 
@@ -268,7 +268,7 @@ Il s’agit de l’ensemble des propriétés système dans les messages IoT Hub.
 
 | Propriété | Description |
 | -------- | ----------- |
-| MessageId | Identificateur correspondant au message défini par l’utilisateur, généralement utilisé pour les modèles demande-réponse. Format : une chaîne qui respecte la casse (jusqu’à 128 caractères) de caractères alphanumériques 7 bits ASCII + `{'-', ':',’.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '$', '''}`. |
+| MessageId | Identificateur correspondant au message défini par l’utilisateur, utilisé pour les modèles demande-réponse. Format : une chaîne qui respecte la casse (jusqu’à 128 caractères) de caractères alphanumériques 7 bits ASCII + `{'-', ':',’.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '$', '''}`. |
 | Numéro de séquence | Un numéro (unique par file d’attente d’appareil) affecté par IoT Hub à chaque message cloud-à-appareil. |
 | À | Une destination spécifiée dans les messages [cloud vers appareil](#c2d). |
 | ExpiryTimeUtc | Date et heure d’expiration du message. |
@@ -284,13 +284,13 @@ Il s’agit de l’ensemble des propriétés système dans les messages IoT Hub.
 
 IoT Hub prend en charge les protocoles [AMQP][lnk-amqp], AMQP sur WebSockets, MQTT et HTTP/1 pour les communications côté appareil. Considérez les points suivants concernant leur utilisation.
 
-* **Modèle Cloud vers appareil**. HTTP/1 ne dispose pas d’un moyen efficace de mettre en œuvre la transmission des messages par le serveur. Par conséquent, lorsque vous utilisez HTTP/1, les appareils interrogent IoT Hub pour rechercher les messages cloud vers appareil. Cela se révèle particulièrement inefficace pour l’appareil et pour IoT Hub. Conformément aux recommandations actuelles concernant HTTP/1, chaque périphérique interroge toutes les 25 minutes ou plus. En revanche, AMQP et MQTT prennent en charge les notifications Push sur le serveur lors de la réception de messages cloud vers appareil. Ils permettent d’obtenir des notifications Push immédiates pour les messages de l’IoT Hub vers l’appareil. Si la latence de livraison pose problème, AMQP ou MQTT sont les meilleurs protocoles à utiliser. Pour les appareils rarement connectés, HTTP/1 fonctionne aussi bien.
+* **Modèle Cloud vers appareil**. HTTP/1 ne dispose pas d’un moyen efficace de mettre en œuvre la transmission des messages par le serveur. Par conséquent, lorsque vous utilisez HTTP/1, les appareils interrogent IoT Hub pour rechercher les messages cloud vers appareil. Cette approche se révèle particulièrement inefficace pour l’appareil et pour IoT Hub. Conformément aux recommandations actuelles concernant HTTP/1, chaque périphérique interroge toutes les 25 minutes ou plus. En revanche, AMQP et MQTT prennent en charge les notifications Push sur le serveur lors de la réception de messages cloud vers appareil. Ils permettent d’obtenir des notifications Push immédiates pour les messages de l’IoT Hub vers l’appareil. Si la latence de livraison pose problème, AMQP ou MQTT sont les meilleurs protocoles à utiliser. Pour les appareils rarement connectés, HTTP/1 fonctionne aussi bien.
 * **Passerelles de champ**. Lorsque vous utilisez HTTP/1 et MQTT, il est impossible de connecter plusieurs appareils (chacun avec ses propres informations d’identification par appareil) à l’aide de la même connexion TLS. Par conséquent, ces protocoles ne sont donc pas la solution optimale lors de l’implémentation de [scénarios de passerelle de champ][lnk-azure-gateway-guidance], car ils nécessitent une connexion TLS entre la passerelle de champ et IoT Hub pour chaque appareil connecté à la passerelle de champ.
 * **Appareils faibles en ressources**. Les bibliothèques MQTT et HTTP/1 sont moins encombrantes que les bibliothèques AMQP. Donc, si l’appareil dispose de peu de ressources (par exemple, de moins d’1 Mo de mémoire RAM), ces protocoles sont peut-être les seuls protocoles d’implémentation disponibles.
-* **Traversée réseau**. Le standard MQTT écoute sur le port 8883. Cela peut entraîner des problèmes dans les réseaux fermés aux protocoles autres que HTTP. HTTP et AMQP (sur WebSockets) sont tous les deux disponibles pour utilisation dans ce scénario.
+* **Traversée réseau**. Le standard MQTT écoute sur le port 8883, ce qui peut entraîner des problèmes dans les réseaux fermés aux protocoles autres que HTTP. HTTP et AMQP (sur WebSockets) sont tous les deux disponibles pour utilisation dans ce scénario.
 * **Taille de charge utile**. MQTT et AMQP sont des protocoles binaires qui sont beaucoup plus compacts que HTTP/1.
 
-En règle générale, vous devez utiliser AMQP (ou AMQP sur WebSocket) autant que possible, et utiliser MQTT uniquement lorsque les contraintes de ressources empêchent l’utilisation d’AMQP. HTTP/1 doit être utilisé uniquement si la traversée réseau et la configuration de réseau empêchent l’utilisation de MQTT et AMQP. En outre, lorsque vous utilisez HTTP/1, chaque appareil doit envoyer des interrogations pour les messages cloud-à-appareil toutes les 25 minutes, voire plus.
+En règle générale, vous devez utiliser AMQP (ou AMQP sur WebSocket) autant que possible, et utiliser MQTT uniquement lorsque les contraintes de ressources empêchent l’utilisation d’AMQP. Utilisez uniquement HTTP/1 si la traversée réseau et la configuration de réseau empêchent l’utilisation de MQTT et AMQP. En outre, lorsque vous utilisez HTTP/1, chaque appareil doit envoyer des interrogations pour les messages cloud-à-appareil toutes les 25 minutes, voire plus.
 
 > [AZURE.NOTE] Au cours du développement, il est acceptable d’avoir des fréquences d’interrogation plus régulières que toutes les 25 minutes.
 
@@ -299,11 +299,11 @@ En règle générale, vous devez utiliser AMQP (ou AMQP sur WebSocket) autant qu
 IoT Hub implémente le protocole MQTT v3.1.1 avec le comportement spécifique et les limitations suivantes :
 
   * **QoS 2 n’est pas pris en charge**. Quand un client d’appareil publie un message avec **QoS 2**, IoT Hub interrompt la connexion réseau. Quand un client d’appareil s’abonne à une rubrique avec **QoS 2**, IoT Hub accorde le niveau QoS 1 maximal dans le paquet **SUBACK**.
-  * **Les messages Retain ne sont pas persistants**. Si un client d’appareil publie un message avec l’indicateur RETAIN (conserver) défini sur 1, IoT Hub ajoute la propriété d’application **x-opt-retain** au message. Cela signifie qu’IoT Hub ne conserve pas le message, mais le transmet à l’application principale.
+  * **Les messages Retain ne sont pas persistants**. Si un client d’appareil publie un message avec l’indicateur RETAIN (conserver) défini sur 1, IoT Hub ajoute la propriété d’application **x-opt-retain** au message. Dans ce cas, IoT Hub ne conserve pas le message, mais le transmet à l’application principale.
 
 Pour plus d’informations, consultez la [Prise en charge de MQTT au niveau d’IoT Hub][lnk-mqtt-support].
 
-Enfin, nous vous conseillons de consulter la [Passerelle de protocole Azure IoT][lnk-azure-protocol-gateway]. Cela vous permet de déployer une passerelle de protocole personnalisée hautes performances qui communique directement avec IoT Hub. La passerelle de protocole Azure IoT vous permet de personnaliser le protocole de l’appareil pour prendre en charge des déploiements MQTT de type « brownfield » ou autres protocoles personnalisés. Toutefois, cette approche nécessite un auto-hébergement et l’utilisation d’une passerelle de protocole personnalisée.
+Enfin, il est important de consulter la section [Passerelle de protocole Azure IoT][lnk-azure-protocol-gateway], qui explique comment déployer une passerelle personnalisée hautes performances communiquant directement avec IoT Hub. La passerelle de protocole Azure IoT vous permet de personnaliser le protocole de l’appareil pour prendre en charge des déploiements MQTT de type « brownfield » ou autres protocoles personnalisés. Toutefois, cette approche nécessite un auto-hébergement et l’utilisation d’une passerelle de protocole personnalisée.
 
 ### Appareil vers cloud <a id="d2c"></a>
 
@@ -333,7 +333,7 @@ Pour plus d’informations sur la façon d’utiliser la messagerie Appareil ver
 
 #### Trafic autre que la télémétrie
 
-Dans de nombreux cas, outre les points de données de télémétrie, les appareils envoient également des messages et demandes qui nécessitent une exécution et une gestion au niveau de la couche de logique métier d’application. Il s’agit, par exemple, des alertes critiques qui doivent déclencher une action spécifique au niveau du serveur principal, ou encore des réponses de l’appareil aux commandes envoyées par le serveur principal.
+Souvent, outre les points de données de télémétrie, les appareils envoient également des messages et demandes qui nécessitent une exécution et une gestion au niveau de la couche de logique métier d’application. Il s’agit, par exemple, des alertes critiques qui doivent déclencher une action spécifique au niveau du serveur principal, ou encore des réponses de l’appareil aux commandes envoyées par le serveur principal.
 
 Pour plus d’informations sur la meilleure façon de traiter ce type de message, consultez [Device-to-cloud processing][lnk-guidance-d2c-processing] (Traitement Appareil vers cloud).
 
@@ -397,15 +397,15 @@ Il est possible qu’un thread ne parvienne pas à traiter un message sans en av
 
 Un message peut passer de l’état **Enqueued** (En file d’attente) à l’état **Invisible** et inversement, au maximum le nombre de fois spécifié dans la propriété **Nombre maximal de remises** sur IoT Hub. Une fois ce nombre de transitions atteint, IoT Hub attribue au message l’état **Deadlettered** (Lettre morte). De même, IoT Hub attribue à un message l’état **Deadlettered** (Lettre morte) à l’issue de son délai d’expiration (consultez [Durée de vie](#ttl)).
 
-Pour un didacticiel relatif aux messages Cloud vers Appareil, consultez [Prise en main des messages Cloud vers Appareil Azure IoT Hub][lnk-getstarted-c2d-tutorial]. Pour consulter les rubriques de référence à propos des différences de présentation de la fonctionnalité Cloud vers appareil entre les API et le kit de développement logiciel, consultez [Kits de développement logiciel (SDK) et API d’IoT Hub][lnk-sdks].
+Pour un didacticiel relatif aux messages Cloud vers Appareil, consultez [Prise en main des messages Cloud vers Appareil Azure IoT Hub][lnk-getstarted-c2d-tutorial]. Pour consulter les rubriques de référence à propos des différences de présentation de la fonctionnalité cloud-à-appareil entre les API et le Kit SDK, consultez [API et Kits SDK IoT Hub][lnk-sdks].
 
 > [AZURE.NOTE] Généralement, les messages cloud-à-appareil sont achevés à chaque fois que la perte du message n’affecte pas la logique d’application. Par exemple, le contenu du message a bien été conservé dans le stockage local ou une opération a été exécutée avec succès. Le message peut également transporter des informations temporaires, dont la perte n’aurait aucun impact sur les fonctionnalités de l’application. Parfois, pour les tâches longues, vous pouvez terminer le message cloud vers appareil après la conservation de la description de la tâche dans le stockage local. Vous pouvez ensuite notifier le serveur principal d’applications à l’aide d’un ou de plusieurs messages appareil vers cloud à différents stades de la progression de la tâche.
 
 #### Expiration du message (durée de vie) <a id="ttl"></a>
 
-Chaque message cloud-à-appareil est doté d’un délai d’expiration. Il peut être défini explicitement par le service (propriété **ExpiryTimeUtc**) ou il est défini par IoT Hub avec la *durée de vie* par défaut spécifiée en tant que propriété IoT Hub. Consultez [Options de configuration Cloud vers appareil](#c2dconfiguration).
+Chaque message cloud-à-appareil est doté d’un délai d’expiration. Cette durée peut être définie explicitement par le service (propriété **ExpiryTimeUtc**) ou définie par IoT Hub avec la *durée de vie* par défaut spécifiée en tant que propriété IoT Hub. Consultez [Options de configuration Cloud vers appareil](#c2dconfiguration).
 
-> [AZURE.NOTE] Un moyen courant de tirer parti de l’expiration du message consiste à définir des valeurs de durée de vie courtes pour éviter l’envoi de messages à des appareils déconnectés. Vous obtenez le même résultat qu’avec la gestion de l’état de connexion de l’appareil, tout en étant beaucoup plus efficace. En demandant des accusés de réception des messages, vous pouvez être informé par IoT Hub des appareils qui peuvent recevoir des messages et de ceux qui ne sont pas en ligne ou qui sont en état d’échec.
+> [AZURE.NOTE] Un moyen courant de tirer parti de l’expiration du message consiste à définir des valeurs de durée de vie courtes pour éviter l’envoi de messages à des appareils déconnectés. Cette approche entraîne le même résultat qu’avec la gestion de l’état de connexion de l’appareil, tout en étant beaucoup plus efficace. En demandant des accusés de réception des messages, vous pouvez être informé par IoT Hub des appareils qui peuvent recevoir des messages et de ceux qui ne sont pas en ligne ou qui sont en état d’échec.
 
 #### Commentaires de messages <a id="feedback"></a>
 
@@ -527,7 +527,7 @@ Chaque IoT Hub expose les options de configuration suivantes pour les notificati
 
 | Propriété | Description | Plage et valeur par défaut |
 | -------- | ----------- | ----------------- |
-| **enableFileUploadNotifications** | Indique si les notifications de téléchargement de fichier sont ou non écrites dans le point de terminaison de notification de fichier. | Valeur booléenne. Par défaut : True. |
+| **enableFileUploadNotifications** | Indique si les notifications de téléchargement de fichier sont écrites dans le point de terminaison de notification de fichier. | Valeur booléenne. Par défaut : True. |
 | **fileNotifications.ttlAsIso8601** | Durée de vie par défaut des notifications de téléchargement de fichier. | Intervalle ISO\_8601 jusqu’à 48h (minimum 1 minute). Par défaut : 1 heure. |
 | **fileNotifications.lockDuration** | Durée de verrouillage de la file d’attente des notifications de téléchargement de fichiers. | 5 à 300 secondes (5 secondes au minimum). Par défaut : 60 secondes. |
 | **fileNotifications.maxDeliveryCount** | Nombre maximal de diffusions pour la file d’attente de notification de téléchargement de fichier. | 1 à 100. Par défaut : 100. |
@@ -550,14 +550,14 @@ Vous trouverez ci-dessous la liste des limitations appliquées. Les valeurs font
 
 | Limitation | Valeur par hub |
 | -------- | ------------- |
-| Opérations de registre des identités (création, récupération, création de listes, mise à jour, suppression) | 5 000/min/unité (pour S3) <br/> 100/min/unité (pour S1 et S2). |
+| Opérations de registre des identités (création, récupération, création de listes, mise à jour, suppression) | 5000/min/unité (pour S3), <br/> 100/min/unité (pour S1 et S2). |
 | Connexions d’appareils | 6 000/s/unité (pour S3), 120/s/unité (pour S2), 12/s/unité (pour S1). <br/>Minimum de 100/s. <br/> Par exemple, deux unités S1 équivalent à 2*12 = 24/s, mais vous obtenez au moins 100/s sur vos unités. Avec neuf unités S1, vous obtenez 108/sec (9*12) sur vos unités. |
 | Envois appareil-à-cloud | 6 000/s/unité (pour S3), 120/s/unité (pour S2), 12/s/unité (pour S1). <br/>Minimum de 100/s. <br/> Par exemple, deux unités S1 équivalent à 2*12 = 24/s, mais vous obtenez au moins 100/s sur vos unités. Avec neuf unités S1, vous obtenez 108/sec (9*12) sur vos unités. |
 | Envois cloud-à-appareil | 5 000/min/unité (pour S3), 100/min/unité (pour S1 et S2). |
 | Réceptions cloud-à-appareil | 50 000/min/unité (pour S3), 1000/min/unité (pour S1 et S2). |
 | Opérations de téléchargement de fichier | 5 000 notifications de téléchargement de fichier/min/unité (pour S3), 100 notifications de téléchargement de fichier/min/unité (pourS1 et S2). <br/> 10 000 URI de signature d’accès partagé peuvent être générés à la fois pour un compte de stockage.<br/> 10 URI de signature d’accès partagé/appareil peuvent être générés à la fois. | 
 
-Il est important de préciser que la limitation des *connexions d’appareil* régit la fréquence à laquelle les nouvelles connexions d’appareil peuvent être établies avec un IoT Hub, et non le nombre maximal d’appareils connectés simultanément. La limitation dépend du nombre d’unités qui sont configurées pour le hub.
+Il est important de préciser que la limitation des *connexions d’appareil* régit la fréquence à laquelle les nouvelles connexions d’appareil peuvent être établies avec un IoT Hub et pas le nombre maximal d’appareils connectés simultanément. La limitation dépend du nombre d’unités qui sont configurées pour le hub.
 
 Par exemple, si vous achetez une seule unité S1, vous obtenez une limitation de 100 connexions par seconde. Cela signifie que pour connecter 100 000 appareils, au moins 1 000 secondes sont nécessaires (environ 16 minutes). Toutefois, vous pouvez avoir autant d’appareils connectés simultanément que d’appareils enregistrés dans le registre d’identité de l’appareil.
 
@@ -572,7 +572,7 @@ Le billet de blog [IoT Hub throttling and you][lnk-throttle-blog] (Limitation d�
 Maintenant que vous disposez d’une vue d’ensemble du développement IoT Hub, suivez les liens ci-après pour en savoir plus :
 
 - [Téléchargement de fichiers à partir d’appareils (didacticiel)][lnk-file upload]
-- [Créer un IoT Hub par programme][lnk-create-hub]
+- [Créer un IoT hub par programme][lnk-create-hub]
 - [Présentation du Kit de développement logiciel (SDK) C][lnk-c-sdk]
 - [Kits SDK IoT Hub][lnk-sdks]
 
@@ -637,4 +637,4 @@ Pour explorer davantage les capacités de IoT Hub, consultez :
 [lnk-portal]: iot-hub-manage-through-portal.md
 [lnk-securing]: iot-hub-security-ground-up.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

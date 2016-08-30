@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="na"
-    ms.date="07/11/2016"
+    ms.date="08/16/2016"
     ms.author="sethm" />
 
 # Présentation des API Event Hubs
@@ -23,7 +23,7 @@ Les scénarios d’analyse couvrent la gestion et l’exécution. Pour obtenir u
 
 ## API de gestion
 
-Pour effectuer les opérations de gestion suivantes, vous devez avoir des autorisations de **gestion** sur l'espace de noms Service Bus :
+Pour effectuer les opérations de gestion suivantes, vous devez avoir des autorisations de **gestion** sur l’espace de noms Event Hubs :
 
 ### Créer
 
@@ -189,4 +189,4 @@ Les informations de référence de l'API .NET se trouvent ici :
 - [Références des API .NET Service Bus et Event Hubs](https://msdn.microsoft.com/library/azure/mt419900.aspx)
 - [Informations de référence des API hôtes du processeur d'événements](https://msdn.microsoft.com/library/azure/mt445521.aspx)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0817_2016-->

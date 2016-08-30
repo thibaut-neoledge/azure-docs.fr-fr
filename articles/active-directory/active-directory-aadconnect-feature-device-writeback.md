@@ -18,7 +18,7 @@
 
 # Azure AD Connect : Activation de l’écriture différée des appareils
 
->[AZURE.NOTE] L’écriture différée sur appareil nécessite un abonnement Azure AD Premium.
+>[AZURE.NOTE] L’écriture différée des appareils nécessite un abonnement Azure AD Premium.
 
 La documentation suivante fournit des informations sur l’activation de la fonctionnalité d’écriture différée des appareils dans Azure AD Connect. L’écriture différée des appareils est utilisée dans les scénarios suivants :
 
@@ -56,8 +56,8 @@ Les informations d’identification d’administrateur d’entreprise sont requi
 
 Description :
 
-- En cas de non-existence, des conteneurs et objets sont créés et configurés sous CN=Device Registration Configuration,CN=Services,CN=Configuration,[forest-dn].
-- En cas de non-existence, des conteneurs et objets sont créés et configurés sous CN=RegisteredDevices,[domain-dn]. Les objets d’appareil seront créés dans ce conteneur.
+- Si elles n’existent pas, des conteneurs et des objets sont créés et configurés sous CN=Device Registration Configuration,CN=Services,CN=Configuration,[forest-dn].
+- Si elles existent, des conteneurs et des objets sont créés et configurés sous CN=RegisteredDevices,[domain-dn]. Les objets d’appareil seront créés dans ce conteneur.
 - Définit les autorisations nécessaires sur le compte Azure AD Connector pour gérer des appareils sur votre Active Directory.
 - Ne doit s’exécuter que sur une seule forêt, même si Azure AD Connect est installé sur plusieurs forêts.
 
@@ -82,7 +82,8 @@ L’écriture différée des appareils doit désormais fonctionner correctement.
 
 1.	Lancez le Centre d’administration Active Directory.
 2.	Développez RegisteredDevices au sein du domaine en cours de fédération. ![Active Directory - Appareils inscrits au Centre d’administration](./media/active-directory-aadconnect-feature-device-writeback/devicewriteback5.png)
-3.	Les appareils enregistrés actuels sont répertoriés à cet emplacement.![Active Directory - Liste des appareils inscrits au Centre d’administration](./media/active-directory-aadconnect-feature-device-writeback/devicewriteback6.png)
+3.	Les appareils enregistrés actuels sont répertoriés à cet emplacement.
+![Active Directory - Liste des appareils inscrits au Centre d’administration](./media/active-directory-aadconnect-feature-device-writeback/devicewriteback6.png)
 
 ## Résolution de problèmes
 
@@ -130,4 +131,4 @@ Vérifiez la configuration dans Active Directory :
 ## Étapes suivantes
 En savoir plus sur l’[intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0817_2016-->

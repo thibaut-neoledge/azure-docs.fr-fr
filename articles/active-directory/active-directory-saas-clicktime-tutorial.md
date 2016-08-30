@@ -2,36 +2,56 @@
     pageTitle="Didacticiel : Intégration d’Azure Active Directory à ClickTime | Microsoft Azure" 
     description="Apprenez à utiliser ClickTime avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore." 
     services="active-directory" 
-    authors="jeevansd"  
+    authors="jeevansd"
     documentationCenter="na" 
-    manager="femila"/>
-<tags 
+    manager="femila" />
+<tags
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="07/11/2016" 
+    ms.date="08/16/2016" 
     ms.author="jeedes" />
 
 #Didacticiel : Intégration d’Azure Active Directory à ClickTime
 
-L’objectif de ce didacticiel est de montrer comment intégrer Azure et ClickTime. Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
+Dans ce didacticiel, vous allez apprendre à intégrer ClickTime à Azure Active Directory (Azure AD).
 
--   Un abonnement Azure valide
--   Un client ClickTime
+L’intégration de ClickTime à Azure AD vous offre les avantages suivants :
 
-À l’issue de ce didacticiel, les utilisateurs Azure AD que vous avez affectés à ClickTime pourront s’authentifier de manière unique dans l’application sur votre site d’entreprise ClickTime (connexion initiée par le fournisseur du service) ou en s’aidant de la [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
+- Dans Azure AD, vous pouvez contrôler qui a accès à Clicktime
+- Vous pouvez autoriser les utilisateurs à se connecter automatiquement à ClickTime (par le biais de l’authentification unique) avec leur compte Azure AD
+- Vous pouvez gérer vos comptes à un emplacement central : le portail Azure Classic.
 
-Le scénario décrit dans ce didacticiel se compose des blocs de construction suivants :
+Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
 
-1.  Activation de l’intégration d’applications pour ClickTime
-2.  Configuration de l'authentification unique
-3.  Configuration de l'approvisionnement des utilisateurs
-4.  Affectation d’utilisateurs
+## Conditions préalables
 
-![Scénario](./media/active-directory-saas-clicktime-tutorial/IC777274.png "Scénario")
-##Activation de l’intégration d’applications pour ClickTime
+Pour configurer l’intégration d’Azure AD avec ClickTime, vous avez besoin des éléments suivants :
+
+- Un abonnement Azure AD
+- Un abonnement ClickTime pour lequel l’authentification unique est activée
+
+
+> [AZURE.NOTE] Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production.
+
+
+Vous devez en outre suivre les recommandations ci-dessous :
+
+- Vous ne devez pas utiliser votre environnement de production, sauf si cela est nécessaire.
+- Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
+
+
+## Description du scénario
+Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test.
+
+Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
+
+1. Ajout de ClickTime à partir de la galerie
+2. Configuration et test de l’authentification unique Azure AD
+
+##Ajout de ClickTime à partir de la galerie
 
 Cette section décrit l’activation de l’intégration d’applications pour ClickTime.
 
@@ -39,48 +59,76 @@ Cette section décrit l’activation de l’intégration d’applications pour C
 
 1.  Dans le volet de navigation gauche du portail Azure Classic, cliquez sur **Active Directory**.
 
-    ![Active Directory](./media/active-directory-saas-clicktime-tutorial/IC700993.png "Active Directory")
+    ![Active Directory](./media/active-directory-saas-clicktime-tutorial/tic700993.png "Active Directory")
 
 2.  Dans la liste **Annuaire**, sélectionnez l'annuaire pour lequel vous voulez activer l'intégration d'annuaire.
 
 3.  Pour ouvrir la vue des applications, dans la vue d'annuaire, cliquez sur **Applications** dans le menu du haut.
 
-    ![Applications](./media/active-directory-saas-clicktime-tutorial/IC700994.png "Applications")
+    ![Applications](./media/active-directory-saas-clicktime-tutorial/tic700994.png "Applications")
 
 4.  Cliquez sur **Ajouter** en bas de la page.
 
-    ![Ajouter l’application](./media/active-directory-saas-clicktime-tutorial/IC749321.png "Ajouter l’application")
+    ![Ajouter l’application](./media/active-directory-saas-clicktime-tutorial/tic749321.png "Ajouter l’application")
 
 5.  Dans la boîte de dialogue **Que voulez-vous faire ?**, cliquez sur **Ajouter une application à partir de la galerie**.
 
-    ![Ajouter une application à partir de la galerie](./media/active-directory-saas-clicktime-tutorial/IC749322.png "Ajouter une application à partir de la galerie")
+    ![Ajouter une application à partir de la galerie](./media/active-directory-saas-clicktime-tutorial/tic749322.png "Ajouter une application à partir de la galerie")
 
 6.  Dans la **zone de recherche**, tapez **ClickTime**.
 
-    ![Galerie d’applications](./media/active-directory-saas-clicktime-tutorial/IC777275.png "Galerie d’applications")
+    ![Galerie d’applications](./media/active-directory-saas-clicktime-tutorial/tic777275.png "Galerie d’applications")
 
 7.  Dans le volet des résultats, sélectionnez **ClickTime**, puis cliquez sur **Terminer** pour ajouter l’application.
 
-    ![ClickTime](./media/active-directory-saas-clicktime-tutorial/IC777276.png "ClickTime")
-##Configuration de l'authentification unique
+    ![ClickTime](./media/active-directory-saas-clicktime-tutorial/tic777276.png "ClickTime")
 
-Cette section explique comment permettre aux utilisateurs de s’authentifier sur ClickTime avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML. Dans le cadre de cette procédure, vous devez charger un certificat codé en base 64 sur votre client ClickTime. Si cette procédure ne vous est pas familière, consultez [Conversion d’un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
+##  Configuration et test de l’authentification unique Azure AD
+Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec ClickTime, avec un utilisateur de test appelé « Britta Simon ».
+
+Pour que l’authentification unique fonctionne, Azure AD doit savoir qui est l’utilisateur ClickTime équivalent dans Azure AD. En d’autres termes, une relation entre un utilisateur Azure AD et un utilisateur ClickTime associé doit être établie.
+
+Pour cela, affectez la valeur du **nom d’utilisateur** dans Azure AD comme valeur de **Username** dans ClickTime.
+
+Pour configurer et tester l’authentification unique Azure AD avec ClickTime, vous devez suivre les indications des sections suivantes :
+
+1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
+2. **[Création d'un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l'authentification unique Azure AD avec Britta Simon.
+3. **[Création d’un utilisateur de test ClickTime](#creating-a-clicktime-test-user)** pour avoir un équivalent de Britta Simon dans ClickTime, lié à la représentation Azure AD associée.
+4. **[Affectation d'un utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d'utiliser l'authentification unique Azure AD.
+5. **[Test de l’authentification unique](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
+
+
+### Configuration de l’authentification unique Azure AD
+
+Cette section explique comment permettre aux utilisateurs de s’authentifier sur ClickTime avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML.
+
 
 >[AZURE.IMPORTANT] Pour être en mesure de configurer l’authentification unique sur votre client ClickTime, vous devez au préalable contacter le support technique ClickTime pour faire activer cette fonctionnalité.
 
-###Pour configurer l’authentification unique, procédez comme suit :
+**Pour configurer l’authentification unique Azure AD avec ClickTime, procédez comme suit :**
 
 1.  Dans le portail Azure Classic, puis dans la page d’intégration d’applications **ClickTime**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
 
-    ![Activer l’authentification unique](./media/active-directory-saas-clicktime-tutorial/IC777277.png "Activer l'authentification unique")
+    ![Activer l'authentification unique](./media/active-directory-saas-clicktime-tutorial/tic777277.png "Activer l'authentification unique")
 
 2.  Dans la page **Comment voulez-vous que les utilisateurs se connectent à ClickTime**, sélectionnez **Authentification unique avec Microsoft Azure AD**, puis cliquez sur **Suivant**.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-clicktime-tutorial/IC777278.png "Configurer l’authentification unique")
+    ![Configurer l’authentification unique](./media/active-directory-saas-clicktime-tutorial/tic777278.png "Configurer l’authentification unique")
 
-3.  Dans la page **Configurer l’authentification unique sur ClickTime**, cliquez sur **Télécharger le certificat**, puis enregistrez le fichier de certificat sur votre ordinateur.
+3. Sur la page **Configurer les paramètres d’application**, procédez comme suit :
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-clicktime-tutorial/IC777279.png "Configurer l’authentification unique")
+	![Configurer l’authentification unique](./media/active-directory-saas-clicktime-tutorial/tic777286.png)
+
+    a. Dans la zone de texte **Identificateur**, tapez l’URL au format suivant : **https://app.clicktime.com/sp/**
+	
+	b. Dans la zone de texte **URL de réponse**, tapez l’URL au format suivant : **https://app.clicktime.com/Login/**
+
+	c. Cliquez sur **Suivant**
+
+4.  Dans la page **Configurer l’authentification unique sur ClickTime**, cliquez sur **Télécharger le certificat**, puis enregistrez le fichier de certificat sur votre ordinateur.
+
+    ![Configurer l’authentification unique](./media/active-directory-saas-clicktime-tutorial/tic777279.png "Configurer l’authentification unique")
 
 4.  Dans une autre fenêtre de navigateur web, connectez-vous à votre site d’entreprise ClickTime en tant qu’administrateur.
 
@@ -88,20 +136,20 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
 6.  Dans la section de configuration **Single Sign-On Preferences**, procédez comme suit :
 
-    ![Paramètres de sécurité](./media/active-directory-saas-clicktime-tutorial/IC777280.png "Paramètres de sécurité")
+    ![Paramètres de sécurité](./media/active-directory-saas-clicktime-tutorial/tic777280.png "Paramètres de sécurité")
 
-    1.  Sélectionnez **Allow** sign-in using Single Sign-On (SSO) with **OneLogin**.
-    2.  Dans la page **Configurer l’authentification unique sur ClickTime** du portail Azure Classic, copiez la valeur **URL du service d’authentification unique**, puis collez-la dans la zone de texte **Identity Provider Endpoint**.
-    3.  Créez un fichier **codé en base 64** à partir du certificat téléchargé.
+    a. Sélectionnez **Autoriser** la connexion à l’aide de l’authentification unique (SSO) avec **Azure AD**.
+    
+    b. Dans la page **Configurer l’authentification unique sur ClickTime** du portail Azure Classic, copiez la valeur **URL du service d’authentification unique**, puis collez-la dans la zone de texte **Identity Provider Endpoint**.
 
-        >[AZURE.TIP] Pour plus d’informations, consultez [Conversion d’un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
-
-    4.  Ouvrez le certificat codé en base 64 dans le **Bloc-notes**, copiez son contenu dans le Presse-papiers, puis collez-le dans la zone de texte **X.509 Certificate**.
-    5.  Cliquez sur **Enregistrer**.
+    c. Ouvrez le certificat codé en base 64 dans le **Bloc-notes**, copiez son contenu dans le Presse-papiers, puis collez-le dans la zone de texte **X.509 Certificate**.
+    
+    d. Cliquez sur **Save**.
 
 7.  Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-clicktime-tutorial/IC777281.png "Configurer l’authentification unique")
+    ![Configurer l’authentification unique](./media/active-directory-saas-clicktime-tutorial/tic777281.png "Configurer l’authentification unique")
+
 ##Configuration de l'approvisionnement des utilisateurs
 
 Pour se connecter à ClickTime, les utilisateurs d’Azure AD doivent être approvisionnés dans ClickTime. Dans le cas de ClickTime, l’approvisionnement est une tâche manuelle.
@@ -112,41 +160,71 @@ Pour se connecter à ClickTime, les utilisateurs d’Azure AD doivent être appr
 
 2.  Dans la barre d’outils située en haut, cliquez sur **Company**, puis sur **People**.
 
-    ![Personnes](./media/active-directory-saas-clicktime-tutorial/IC777282.png "Personnes")
+    ![Personnes](./media/active-directory-saas-clicktime-tutorial/tic777282.png "Personnes")
 
 3.  Cliquez sur **Add Person**.
 
-    ![Ajouter une personne](./media/active-directory-saas-clicktime-tutorial/IC777283.png "Ajouter une personne")
+    ![Ajouter une personne](./media/active-directory-saas-clicktime-tutorial/tic777283.png "Ajouter une personne")
 
 4.  Dans la section New Person, procédez comme suit :
 
-    ![Personnes](./media/active-directory-saas-clicktime-tutorial/IC777284.png "Personnes")
+    ![Personnes](./media/active-directory-saas-clicktime-tutorial/tic777284.png "Personnes")
 
-    1.  Dans la zone de texte **email address**, tapez l’adresse de messagerie de votre compte Azure AD.
-    2.  Dans la zone de texte **full name**, tapez le nom de votre compte Azure AD.
+    a. Dans la zone de texte **email address**, tapez l’adresse de messagerie de votre compte Azure AD.
+    
+    b. Dans la zone de texte **full name**, tapez le nom de votre compte Azure AD.
 
-        >[AZURE.NOTE] Si vous le souhaitez, vous pouvez définir d’autres propriétés relatives à l’objet de la nouvelle personne.
+    >[AZURE.NOTE] Si vous le souhaitez, vous pouvez définir d’autres propriétés relatives à l’objet de la nouvelle personne.
 
-    3.  Cliquez sur **Enregistrer**.
+    c. Cliquez sur **Save**.
 
->[AZURE.NOTE] Vous pouvez utiliser n’importe quel autre outil ou API de création de compte d’utilisateur fourni par ClickTime pour approvisionner des comptes d’utilisateurs AAD.
+>[AZURE.NOTE] Vous pouvez utiliser n’importe quel autre outil ou API de création de compte d’utilisateur fourni par ClickTime pour approvisionner des comptes d’utilisateurs Azure AD.
 
-##Affectation d’utilisateurs
+### Affectation de l’utilisateur de test Azure AD
+
+Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à ClickTime.
+
+![Affecter des utilisateurs][200]
 
 Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure AD concernés à accéder à votre application.
 
-###Pour affecter des utilisateurs à ClickTime, procédez comme suit :
+**Pour affecter Britta Simon à ClickTime, procédez comme suit :**
 
-1.  Dans le portail Azure Classic, créez un compte de test.
+1. Pour ouvrir l’affichage des applications dans le portail Classic, dans l’affichage de l’annuaire, cliquez sur l’option **Applications** figurant dans le menu du haut.
 
-2.  Dans la page d’intégration d’applications **ClickTime**, cliquez sur **Affecter des utilisateurs**.
+	![Affecter des utilisateurs][201]
 
-    ![Affecter des utilisateurs](./media/active-directory-saas-clicktime-tutorial/IC777285.png "Affecter des utilisateurs")
+2. Dans la liste des applications, sélectionnez **ClickTime**.
 
-3.  Sélectionnez votre utilisateur de test, cliquez sur **Affecter**, puis sur **Oui** pour confirmer votre affectation.
+	![Configurer l’authentification unique](./media/active-directory-saas-clicktime-tutorial/tutorial_clicktime_50.png)
 
-    ![Oui](./media/active-directory-saas-clicktime-tutorial/IC767830.png "Oui")
+3. Dans le menu situé en haut, cliquez sur **Utilisateurs**.
 
-Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
+	![Affecter des utilisateurs][203]
 
-<!---HONumber=AcomDC_0713_2016-->
+4. Dans la liste Utilisateurs, sélectionnez **Britta Simon**.
+
+5. Dans la barre d’outils située en bas, cliquez sur **Attribuer**.
+
+	![Affecter des utilisateurs][205]
+
+## Test de l’authentification unique
+Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
+
+Quand vous cliquez sur la vignette ClickTime dans le volet d’accès, vous devez être connecté automatiquement à votre application ClickTime.
+
+
+## Ressources supplémentaires
+
+* [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
+
+
+<!--Image references-->
+
+[200]: ./media/active-directory-saas-clicktime-tutorial/tutorial_general_200.png
+[201]: ./media/active-directory-saas-clicktime-tutorial/tutorial_general_201.png
+[203]: ./media/active-directory-saas-clicktime-tutorial/tutorial_general_203.png
+[205]: ./media/active-directory-saas-clicktime-tutorial/tutorial_general_205.png
+
+<!---HONumber=AcomDC_0817_2016-->

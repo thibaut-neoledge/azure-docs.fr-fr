@@ -12,7 +12,7 @@ Dans cette section, vous allez écrire une application console Windows pour envo
 
 	![][8]
 
-	Cette opération lance le téléchargement, l'installation et ajoute une référence au <a href="https://www.nuget.org/packages/WindowsAzure.ServiceBus/">Package NuGet Azure Service Bus</a>.
+	Visual Studio lance le téléchargement, l’installation et ajoute une référence au [Package NuGet Azure Service Bus](https://www.nuget.org/packages/WindowsAzure.ServiceBus).
 
 4. Ajoutez les instructions `using` suivantes en haut du fichier **Program.cs** :
 
@@ -69,3 +69,5 @@ Dans cette section, vous allez écrire une application console Windows pour envo
 <!-- Images -->
 [7]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
 [8]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp2.png
+
+<!---HONumber=AcomDC_0824_2016-->

@@ -14,7 +14,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="04/28/2016"
+	ms.date="08/09/2016"
 	ms.author="brohrer;garye" />
 
 # Comment choisir les algorithmes dans Microsoft Azure Machine Learning
@@ -118,19 +118,19 @@ Certains algorithmes d'apprentissage effectuent des hypothèses particulières s
 |[forêt de décision](https://msdn.microsoft.com/library/azure/dn906015.aspx)|●|○| |6| |
 |[jungle de décision](https://msdn.microsoft.com/library/azure/dn905963.aspx)|●|○| |6|Faible encombrement de mémoire|
 |[réseau neuronal](https://msdn.microsoft.com/library/azure/dn906030.aspx)|●| | |9|[Personnalisation supplémentaire possible](http://go.microsoft.com/fwlink/?LinkId=402867)|
-|[one-v-all](https://msdn.microsoft.com/library/azure/dn905887.aspx)|-|-|-|-|Consultez les propriétés de la méthode à deux classes sélectionnée| 
-|**Régression**| | | | | | 
-|[linéaire](https://msdn.microsoft.com/library/azure/dn905978.aspx)| |●|●|4| | 
-|[Linéaire bayésienne](https://msdn.microsoft.com/library/azure/dn906022.aspx)| |○|●|2| | 
-|[forêt de décision](https://msdn.microsoft.com/library/azure/dn905862.aspx)|●|○| |6| | 
-|[arbre de décision amélioré](https://msdn.microsoft.com/library/azure/dn905801.aspx)|●|○| |5|Encombrement de mémoire important| 
-|[quantile de forêt rapide](https://msdn.microsoft.com/library/azure/dn913093.aspx)|●|○| |9|Distributions plutôt que prédictions de points| 
+|[one-v-all](https://msdn.microsoft.com/library/azure/dn905887.aspx)|-|-|-|-|Consultez les propriétés de la méthode à deux classes sélectionnée|
+|**Régression**| | | | | |
+|[linéaire](https://msdn.microsoft.com/library/azure/dn905978.aspx)| |●|●|4| |
+|[Linéaire bayésienne](https://msdn.microsoft.com/library/azure/dn906022.aspx)| |○|●|2| |
+|[forêt de décision](https://msdn.microsoft.com/library/azure/dn905862.aspx)|●|○| |6| |
+|[arbre de décision amélioré](https://msdn.microsoft.com/library/azure/dn905801.aspx)|●|○| |5|Encombrement de mémoire important|
+|[quantile de forêt rapide](https://msdn.microsoft.com/library/azure/dn913093.aspx)|●|○| |9|Distributions plutôt que prédictions de points|
 |[réseau neuronal](https://msdn.microsoft.com/library/azure/dn905924.aspx)|●| | |9|[Personnalisation supplémentaire possible](http://go.microsoft.com/fwlink/?LinkId=402867)|
-|[Poisson](https://msdn.microsoft.com/library/azure/dn905988.aspx)| | |●|5| Techniquement journal linéaire. Pour les décomptes prévisionnels| 
-|[ordinal](https://msdn.microsoft.com/library/azure/dn906029.aspx)| | | |0|Pour la prédiction de rang| 
-|**Détection des anomalies**| | | | | | 
-|[machine à vecteurs de support](https://msdn.microsoft.com/library/azure/dn913103.aspx)|○|○| |2|Particulièrement adapté aux grands jeux de fonctionnalités| 
-|[Détection des anomalies basée sur le PCA](https://msdn.microsoft.com/library/azure/dn913102.aspx)| |○|●|3| | 
+|[Poisson](https://msdn.microsoft.com/library/azure/dn905988.aspx)| | |●|5| Techniquement journal linéaire. Pour les décomptes prévisionnels|
+|[ordinal](https://msdn.microsoft.com/library/azure/dn906029.aspx)| | | |0|Pour la prédiction de rang|
+|**Détection des anomalies**| | | | | |
+|[machine à vecteurs de support](https://msdn.microsoft.com/library/azure/dn913103.aspx)|○|○| |2|Particulièrement adapté aux grands jeux de fonctionnalités|
+|[Détection des anomalies basée sur le PCA](https://msdn.microsoft.com/library/azure/dn913102.aspx)| |○|●|3| |
 |[K-moyennes](https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/)| |○|●|4|Un algorithme de clustering|
 
 
@@ -209,7 +209,7 @@ Avoir un objectif très spécifique peut être bénéfique. La collection Azure�
 
 ![Détection des anomalies reposant sur le PCA][8]
 
-***Détection des anomalies reposant sur le PCA***  : *la grande majorité des données correspond à une distribution typique ; les points déviant considérablement de cette distribution sont suspects*
+***Détection des anomalies reposant sur le PCA*** * : la grande majorité des données correspond à une distribution typique ; les points déviant considérablement de cette distribution sont suspects*
 
 ![Jeu de données regroupé à l'aide de K-moyennes][9]
 
@@ -237,4 +237,4 @@ Azure Machine Learning inclut également l'accès à une puissante infrastruct
 [9]: ./media/machine-learning-algorithm-choice/image9.png
 [10]: ./media/machine-learning-algorithm-choice/image10.png
 
-<!----HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0817_2016-->
