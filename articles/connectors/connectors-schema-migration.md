@@ -23,7 +23,11 @@ Pour migrer vos applications logiques existantes vers le nouveau schéma, procé
 1. Ouvrez votre application logique dans le portail Azure
 2. Cliquez sur Mettre à jour le schéma.
 
- ![Icône API][step1] La page Mettre à jour le schéma fournit un lien vers un document contenant des informations sur les améliorations apportées au nouveau schéma : ![Icône API][step2]
+![Icône API][step1]
+
+La page Mettre à jour le schéma fournit un lien vers un document contenant des informations sur les améliorations apportées au nouveau schéma :
+
+![Icône API][step2]
 
 >[AZURE.NOTE] Lorsque vous sélectionnez **Mettre à jour le schéma**, les étapes de migration sont automatiquement exécutées avec le code de sortie correspondant. Vous pouvez utiliser ce code pour mettre à jour la définition. Veillez cependant à respecter les bonnes pratiques de codage, telles que celles décrites dans la section **Meilleures pratiques** ci-dessous.
 

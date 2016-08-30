@@ -20,7 +20,7 @@
 
 *Vous avez écrit votre application pour une raison : pour que vos utilisateurs l'utilisent !*
 
-Nous sommes convaincus que vous avez tout mis en œuvre pour créer une application sensationnelle qui plaise aux utilisateurs. Vous avez probablement également investi un important budget marketing pour attirer les utilisateurs. Mais après le pic d’utilisateurs grisant du début, vous constatez peut-être une baisse progressive de l’utilisation de votre application. *C'est là tout l'intérêt d'Azure Mobile Engagement* : faire en sorte qu'ils continuent à utiliser votre application et que vous puissiez progressivement l'améliorer grâce aux tests et à l'apprentissage.
+Nous sommes convaincus que vous avez tout mis en œuvre pour créer une application sensationnelle qui plaise aux utilisateurs. Vous avez probablement également investi un important budget marketing pour attirer les utilisateurs. Mais après le pic d’utilisateurs grisant du début, vous constatez peut-être une baisse progressive de l’utilisation de votre application. *C'est là tout l'intérêt d'Azure Mobile Engagement* : faire en sorte qu'ils continuent à utiliser votre application et que vous puissiez progressivement l'améliorer grâce aux tests et à l'apprentissage.
 
 Notre approche visant à améliorer la fidélisation et l’utilisation est basée sur l’engagement des utilisateurs à travers les notifications Push et les messages dans l’application, mais de manière très spécifique, avec une communication et des messages personnalisés en fonction de leur comportement dans l’application. Notre objectif est de vous permettre de communiquer avec la bonne audience, au bon moment et au bon endroit.
 
