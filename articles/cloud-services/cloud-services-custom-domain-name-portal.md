@@ -49,7 +49,7 @@ Certains bureaux d’enregistrement de domaines autorisent le mappage de sous-do
 
 ### Enregistrement A
 
-Un enregistrement *A* associe un domaine, tel que **contoso.com** ou **www.contoso.com**, ou un *nom de domaine générique* (par exemple : **\*.contoso.com** ) à une adresse IP. Dans le cas d’un service cloud Azure, il s’agit de l’adresse IP virtuelle du service. Le principal avantage d'un enregistrement A par rapport à un enregistrement CNAME est que vous pouvez disposer d'une entrée utilisant un caractère générique (par exemple, \***.contoso.com** ), ce qui permet de gérer les demandes pour plusieurs sous-domaines, tels que **mail.contoso.com**, **login.contoso.com** ou **www.contso.com**.
+Un enregistrement *A* associe un domaine, tel que **contoso.com** ou **www.contoso.com**, ou un *nom de domaine générique* (par exemple : **\*.contoso.com**) à une adresse IP. Dans le cas d’un service cloud Azure, il s’agit de l’adresse IP virtuelle du service. Le principal avantage d'un enregistrement A par rapport à un enregistrement CNAME est que vous pouvez disposer d'une entrée utilisant un caractère générique (par exemple, \***.contoso.com**), ce qui permet de gérer les demandes pour plusieurs sous-domaines, tels que **mail.contoso.com**, **login.contoso.com** ou **www.contso.com**.
 
 > [AZURE.NOTE]
 L’enregistrement A étant associé à une adresse IP statique, les changements d’adresse IP de votre service cloud ne sont donc pas pris en compte automatiquement. L’adresse IP utilisée par votre service cloud est allouée la première fois que vous effectuez un déploiement vers un emplacement vide (de production ou intermédiaire). Si vous supprimez le déploiement de l’emplacement, l’adresse IP est publiée par Azure et tout déploiement futur dans l’emplacement peut recevoir une nouvelle adresse IP.
@@ -94,7 +94,7 @@ Par exemple, l’enregistrement CNAME suivant renvoie tout le trafic de **www.co
 > [AZURE.NOTE]
 Un utilisateur consultant le site **www.contoso.com** ne verra jamais l’adresse de l’hôte réel (contoso.cloudapp.net). Le processus de transfert est donc invisible pour l’utilisateur final.
 
-> L'exemple ci-dessus s'applique uniquement au trafic du sous-domaine **www**. Puisqu'il n'est pas possible d'utiliser des caractères génériques pour les enregistrements CNAME, vous devez créer un enregistrement CNAME pour chaque domaine/sous-domaine. Pour rediriger le trafic de sous-domaines tels que *.contoso.com vers votre adresse cloudapp.net, vous pouvez configurer une* *entrée de redirection d’URL** ou **de transfert d’URL** dans vos paramètres DNS. Vous pouvez également créer un enregistrement A.
+> L'exemple ci-dessus s'applique uniquement au trafic du sous-domaine **www**. Puisqu'il n'est pas possible d'utiliser des caractères génériques pour les enregistrements CNAME, vous devez créer un enregistrement CNAME pour chaque domaine/sous-domaine. Pour rediriger le trafic de sous-domaines tels que \*.contoso.com vers votre adresse cloudapp.net, vous pouvez configurer une **entrée de redirection d’URL** ou **de transfert d’URL** dans vos paramètres DNS. Vous pouvez également créer un enregistrement A.
 
 
 ## Ajouter un enregistrement A pour votre domaine personnalisé
