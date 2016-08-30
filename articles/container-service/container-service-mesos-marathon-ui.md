@@ -73,7 +73,7 @@ Sur la page principale de Marathon, vous pouvez voir l’état du déploiement d
 
 ![Interface utilisateur de la page principale de Marathon : état du déploiement du conteneur](media/dcos/dcos7.png)
 
-Lorsque vous revenez à l’interface utilisateur web du DC/OS (http://localhost/)), vous verrez qu’une tâche, dans ce cas un conteneur formaté Docker, est en cours d’exécution sur le cluster DC/OS.
+Lorsque vous revenez à l’interface utilisateur web de DC/OS (http://localhost/), vous verrez qu’une tâche (en l’occurrence un conteneur formaté par Docker) est en cours d’exécution sur le cluster DC/OS.
 
 ![IU web DC/OS : tâche en cours d’exécution sur le cluster](media/dcos/dcos8.png)
 
@@ -97,4 +97,8 @@ Une fois l’opération de mise à l’échelle terminée, plusieurs instances d
 
 - [Utilisation de DC/OS et de l’API Marathon](container-service-mesos-marathon-rest.md)
 
-<!---HONumber=AcomDC_0601_2016-->
+Deep dive on the Azure Container Service with Mesos (Présentation détaillée d’Azure Container Service avec Mesos)
+
+> [AZURE.VIDEO] azurecon-2015-deep-dive-on-the-azure-container-service-with-mesos]
+
+<!---HONumber=AcomDC_0824_2016-->

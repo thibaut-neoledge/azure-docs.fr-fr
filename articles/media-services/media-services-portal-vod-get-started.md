@@ -1,6 +1,6 @@
 <properties
-	pageTitle=" Prise en main de la diffusion de contenus à la demande à l’aide du portail Azure | Microsoft Azure"
-	description="Ce didacticiel explique comment implémenter un service de diffusion de contenu vidéo à la demande (VoD) de base avec l’application Azure Media Services (AMS) à l’aide du portail Azure."
+	pageTitle=" Prendre en main la diffusion de contenus à la demande à l’aide du portail Azure | Microsoft Azure"
+	description="Ce didacticiel explique comment implémenter un service de base de diffusion de contenu vidéo à la demande (VoD) avec l’application Azure Media Services (AMS) à l’aide du portail Azure."
 	services="media-services"
 	documentationCenter=""
 	authors="Juliako"
@@ -13,13 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/22/2016"
+	ms.date="08/18/2016"
 	ms.author="juliako"/>
 
 
-# Prise en main de la diffusion de contenus à la demande à l’aide du Portail Azure
+# Prendre en main la diffusion de contenus à la demande à l’aide du portail Azure
 
-Ce didacticiel explique comment implémenter un service de diffusion de contenu vidéo à la demande (VoD) de base avec l’application Azure Media Services (AMS) à l’aide du portail Azure.
+[AZURE.INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
+
+Ce didacticiel explique comment implémenter un service de base de diffusion de contenu vidéo à la demande (VoD) avec l’application Azure Media Services (AMS) à l’aide du portail Azure.
 
 Azure Media Services est actuellement en version préliminaire dans le portail Azure.
 
@@ -37,9 +39,9 @@ Ce didacticiel comprend les tâches suivantes :
 
 ## Créer un compte Azure Media Services
 
-Les étapes de cette section expliquent comment créer un compte AMS.
+Cette section montre comment créer un compte AMS.
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
+1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 2. Cliquez sur **+Nouveau** > **Médias + CDN** > **Media Services**.
 
 	![Media Services Créer](./media/media-services-portal-vod-get-started/media-services-new1.png)
@@ -49,24 +51,24 @@ Les étapes de cette section expliquent comment créer un compte AMS.
 	![Media Services Créer](./media/media-services-portal-vod-get-started/media-services-new3.png)
 	
 	1. Dans **Nom du compte**, entrez le nom du nouveau compte AMS. Un nom de compte Media Services se compose de chiffres ou de lettres en minuscules, sans espaces. Sa longueur est comprise entre 3 et 24 caractères.
-	2. Dans Abonnement, sélectionnez l’un des différents abonnements Azure auxquels vous avez accès.
+	2. Dans Abonnement, sélectionnez l’un des abonnements Azure auxquels vous avez accès.
 	
-	2. Dans **Groupe de ressources**, sélectionnez la nouvelle ressource ou une ressource existante. Un groupe de ressources désigne une collection de ressources qui partagent un cycle de vie, des autorisations et des stratégies identiques. En savoir plus [ici](resource-group-overview.md#resource-groups).
-	3. Dans **Emplacement**, sélectionnez la région géographique qui sera utilisée pour stocker les enregistrements multimédias et de métadonnées pour votre compte Media Services. Cette région servira à traiter et diffuser vos médias. Seules les régions Media Services disponibles s’affichent dans la liste déroulante.
+	2. Dans **Groupe de ressources**, sélectionnez la ressource (nouvelle ou existante). Un groupe de ressources désigne une collection de ressources qui partagent un cycle de vie, des autorisations et des stratégies identiques. En savoir plus [ici](resource-group-overview.md#resource-groups).
+	3. Dans **Emplacement**, sélectionnez la région géographique utilisée pour stocker les enregistrements multimédias et les métadonnées de votre compte Media Services. Cette région servira à traiter et diffuser vos médias. Seules les régions Media Services disponibles s’affichent dans la liste déroulante.
 	
-	3. Dans **Compte de stockage**, sélectionnez un compte de stockage pour fournir un stockage d’objets blob du contenu multimédia à partir de votre compte Media Services. Vous pouvez sélectionner un compte de stockage existant dans la même région géographique que votre compte Media Services ou en créer un. Ce dernier sera créé dans la même région. Les règles des noms de compte de stockage sont identiques à celles des comptes Media Services.
+	3. Dans **Compte de stockage**, sélectionnez le compte de stockage qui fournira le stockage d’objets blob du contenu multimédia provenant de votre compte Media Services. Vous pouvez sélectionner un compte de stockage existant dans la même région géographique que votre compte Media Services ou en créer un. Ce dernier sera créé dans la même région. Les règles des noms de compte de stockage sont identiques à celles des comptes Media Services.
 
 		Pour en savoir plus sur le stockage, cliquez [ici](storage-introduction.md).
 
 	4. Sélectionnez **Épingler au tableau de bord** pour voir la progression du déploiement du compte.
 	
-7. Cliquez sur l’option **Créer** figurant en bas du formulaire.
+7. Cliquez sur **Créer** en bas du formulaire.
 
-	Une fois le compte est créé, il passe à l’état **En cours d’exécution**.
+	Une fois créé, le compte prend l’état **En cours d’exécution**.
 
 	![Media Services Paramètres](./media/media-services-portal-vod-get-started/media-services-settings.png)
 
-	Pour gérer votre compte AMS (par exemple, charger des vidéos, encoder des éléments multimédias ou surveiller la progression des tâches), utilisez la fenêtre **Paramètres**.
+	Pour gérer votre compte AMS (par exemple, charger des vidéos, encoder des éléments multimédias ou surveiller la progression de tâches), utilisez la fenêtre **Paramètres**.
 
 ## Gérer les clés
 
@@ -87,14 +89,14 @@ Vous avez besoin du nom de compte et des informations de clé primaire pour acc�
 
 Lorsque vous utilisez Azure Media Services, la diffusion à vos clients de vidéos en continu à débit binaire adaptatif constitue l’un des scénarios les plus courants. Avec la diffusion à débit binaire adaptatif, le client peut basculer vers un flux à débit binaire supérieur ou inférieur, car la vidéo est affichée en fonction de la bande passante réseau actuelle, de l’utilisation de l’UC et d’autres facteurs. Media Services prend en charge les technologies de diffusion en continu à débit binaire adaptatif suivantes : HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH et HDS (pour licences Adobe PrimeTime/Access uniquement).
 
-Media Services fournit l’empaquetage dynamique qui permet de distribuer un contenu encodé en MP4 à débit binaire adaptatif dans un format pris en charge par Media Services (MPEG DASH, HLS, Smooth Streaming, HDS) sans avoir à stocker de versions pré-empaquetées de chacun de ces formats de diffusion en continu.
+Media Services assure l’empaquetage dynamique, qui permet de distribuer un contenu encodé en MP4 à un débit binaire adaptatif dans un format pris en charge par Media Services (MPEG DASH, HLS, Smooth Streaming, HDS), sans avoir à stocker de versions pré-empaquetées de chacun de ces formats de diffusion en continu.
 
 Pour tirer parti de l’empaquetage dynamique, vous devez effectuer les opérations suivantes :
 
 - Encoder votre fichier mezzanine (source) dans un ensemble de fichiers MP4 à débit adaptatif (les étapes de codage sont décrites plus loin dans ce didacticiel).
-- Créer au moins une unité de diffusion pour le *point de terminaison de diffusion en continu* à partir duquel vous envisagez de distribuer votre contenu. La procédure ci-dessous explique comment modifier le nombre d’unités de diffusion en continu.
+- Créez au moins une unité de diffusion pour le *point de terminaison de diffusion en continu* à partir duquel vous envisagez de distribuer votre contenu. La procédure ci-dessous explique comment modifier le nombre d’unités de diffusion en continu.
 
-Avec l’empaquetage dynamique, vous devez stocker et payer les fichiers dans un seul format de stockage. Ensuite, Media Services crée et fournit la réponse appropriée en fonction des demandes des clients.
+L’empaquetage dynamique vous permet de ne stocker et payer les fichiers que dans un seul format de stockage. Ensuite, Media Services crée et fournit la réponse appropriée en fonction des demandes des clients.
 
 Pour créer et modifier le nombre d’unités réservées de diffusion en continu, procédez comme suit :
 
@@ -123,7 +125,7 @@ Pour diffuser des vidéos en continu à l’aide d’Azure Media Services, vous 
 
 3. Cliquez sur le bouton **Télécharger**.
 
-	La fenêtre **Upload a video asset** (Charger une vidéo) s’affiche.
+	La fenêtre **Upload a video asset** (Charger un élément multimédia vidéo) s’affiche.
 
 	>[AZURE.NOTE] Il n’existe aucune limite de taille de fichier.
 	
@@ -133,17 +135,16 @@ Pour diffuser des vidéos en continu à l’aide d’Azure Media Services, vous 
 
 Une fois le chargement terminé, le nouvel élément multimédia s’affiche dans la fenêtre **Éléments multimédias**.
 
-
 ## Encoder des éléments multimédias
 
-Lorsque vous travaillez avec Azure Media Services, un des scénarios les plus courants est la diffusion de contenu à débit adaptatif à vos clients. Media Services prend en charge les technologies de diffusion en continu à débit binaire adaptatif suivantes : HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH et HDS (pour licences Adobe PrimeTime/Access uniquement). Pour préparer vos vidéos au streaming à débit adaptatif, vous devez encoder votre vidéo source en fichiers à débit binaire multiple. Vous devez utiliser l’encodeur **Media Encoder Standard** pour encoder votre vidéo.
+Lorsque vous travaillez avec Azure Media Services, un des scénarios les plus courants est la diffusion de contenu à débit adaptatif à vos clients. Media Services prend en charge les technologies de diffusion en continu à débit binaire adaptatif suivantes : HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH et HDS (pour licences Adobe PrimeTime/Access uniquement). Pour préparer vos vidéos au streaming à débit adaptatif, vous devez encoder votre vidéo source en fichiers à débit binaire multiple. Vous devez utiliser **Media Encoder Standard** pour encoder vos vidéos.
 
-Media Services fournit également l’empaquetage dynamique qui vous permet de distribuer des fichiers MP4 à débit binaire multiple dans les formats MPEG DASH, HLS, Smooth Streaming ou HDS, sans avoir à recréer de nouveaux packages dans ces formats. Avec l’empaquetage dynamique, vous devez stocker et payer les fichiers dans un seul format de stockage. Ensuite, Media Services crée et fournit la réponse appropriée en fonction des demandes des clients.
+Media Services assure également l’empaquetage dynamique qui vous permet de diffuser des fichiers MP4 à débit binaire multiple dans les formats MPEG DASH, HLS, Smooth Streaming ou HDS, sans avoir à effectuer de réempaquetage dans ces formats. L’empaquetage dynamique vous permet de ne stocker et payer les fichiers que dans un seul format de stockage. Ensuite, Media Services crée et fournit la réponse appropriée en fonction des demandes des clients.
 
 Pour tirer parti de l’empaquetage dynamique, vous devez effectuer les opérations suivantes :
 
 - Encoder votre fichier source dans un ensemble de fichiers MP4 à débit binaire multiple (les étapes de codage sont décrites plus loin dans cette section).
-- Obtenir au moins une unité de diffusion pour le point de terminaison de diffusion à partir duquel vous envisagez de distribuer votre contenu. Pour plus d’informations, consultez la section relative à la [configuration des points de terminaison de diffusion en continu](media-services-portal-vod-get-started.md#configure-streaming-endpoints).
+- Obtenir au moins une unité de diffusion pour le point de terminaison de diffusion à partir duquel vous envisagez de distribuer votre contenu. Pour plus d’informations, consultez la section [Configuration des points de terminaison de diffusion en continu](media-services-portal-vod-get-started.md#configure-streaming-endpoints).
 
 ### Pour effectuer l’encodage à l’aide du portail
 
@@ -152,7 +153,7 @@ Cette section décrit les étapes à suivre pour encoder votre contenu avec Medi
 1.  Dans la fenêtre **Paramètres**, sélectionnez **Éléments multimédias**.
 2.  Dans la fenêtre **Éléments multimédias**, sélectionnez l’élément que vous souhaitez encoder.
 3.  Appuyez sur le bouton **Encoder**.
-4.  Dans la fenêtre **Encode an asset** (Encoder un élément multimédia), sélectionnez le processeur « Media Encoder Standard » et choisissez une présélection. Par exemple, si vous savez que votre vidéo d’entrée possède une résolution de 1920 x 1080 pixels, vous pouvez utiliser la présélection « H264 Multiple Bitrate 1080p ». Pour plus d’informations sur les présélections, consultez [cet article](https://msdn.microsoft.com/library/azure/mt269960.aspx) ; il est important de choisir la présélection qui convient le mieux pour votre vidéo d’entrée. Si vous avez une vidéo de basse résolution (640 x 360), il est préférable de ne pas utiliser la présélection par défaut « H264 Multiple Bitrate1080p ».
+4.  Dans la fenêtre **Encode an asset** (Encoder un élément multimédia), sélectionnez le processeur Media Encoder Standard et choisissez une présélection. Par exemple, si vous savez que votre vidéo d’entrée possède une résolution de 1920 x 1080 pixels, vous pouvez utiliser la présélection « H264 Multiple Bitrate 1080p ». Pour plus d’informations sur les présélections, consultez [cet article](https://msdn.microsoft.com/library/azure/mt269960.aspx). Il est important de choisir la présélection qui convient le mieux à votre vidéo. Si vous avez une vidéo de basse résolution (640 x 360), il est préférable de ne pas utiliser la présélection par défaut « H264 Multiple Bitrate1080p ».
 	
 	Pour des questions pratiques, vous avez la possibilité de modifier le nom de l’élément multimédia de sortie ainsi que le nom de la tâche.
 		
@@ -190,9 +191,9 @@ Une URL SAS a le format suivant :
 
 	{blob container name}/{asset name}/{file name}/{SAS signature}
 
->[AZURE.NOTE] Si vous avez utilisé le portail pour créer des localisateurs avant mars 2015, des localisateurs présentant une date d’expiration de deux ans ont été créés.
+>[AZURE.NOTE] Si vous avez utilisé le portail pour créer des localisateurs avant mars 2015, les localisateurs présentant une date d’expiration de deux ans sont ceux qui ont été créés.
 
-Pour mettre à jour la date d’expiration d’un localisateur, utilisez les API [REST](http://msdn.microsoft.com/library/azure/hh974308.aspx#update_a_locator) ou [.NET](http://go.microsoft.com/fwlink/?LinkID=533259). Notez que lorsque vous mettez à jour la date d’expiration d’un localisateur SAS, l’URL est modifiée.
+Pour mettre à jour la date d’expiration d’un localisateur, utilisez les API [REST](http://msdn.microsoft.com/library/azure/hh974308.aspx#update_a_locator) ou [.NET](http://go.microsoft.com/fwlink/?LinkID=533259). Lorsque vous mettez à jour la date d’expiration d’un localisateur SAS, l’URL est modifiée.
 
 ### Pour publier un élément multimédia à l’aide du portail
 
@@ -204,9 +205,9 @@ Pour utiliser le portail pour publier un élément multimédia, procédez comme 
 1. Sélectionnez le type de localisateur.
 2. Cliquez sur **Ajouter**.
 
-	![Publier](./media/media-services-portal-vod-get-started/media-services-publish1.png)
+	![Publish](./media/media-services-portal-vod-get-started/media-services-publish1.png)
 
-L’URL sera ajoutée à la liste des **URL publiées**.
+L’URL est ajoutée à la liste des **URL publiées**.
 
 ## Lecture de contenu sur le portail
 
@@ -214,14 +215,14 @@ Le portail Azure propose un lecteur de contenu que vous pouvez utiliser pour tes
 
 Cliquez sur la vidéo de votre choix, puis sur le bouton **Lire**.
 
-![Publier](./media/media-services-portal-vod-get-started/media-services-play.png)
+![Publish](./media/media-services-portal-vod-get-started/media-services-play.png)
 
 Certaines considérations s’appliquent :
 
 - Assurez-vous que la vidéo a été publiée.
-- Le *lecteur multimédia* assure la lecture depuis le point de terminaison de diffusion en continu par défaut. Si vous souhaitez lire à partir d’un autre point de terminaison de diffusion en continu que celui par défaut, cliquez sur l’URL pour la copier et utilisez un autre lecteur, par exemple, le [lecteur Azure Media Services](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
+- Le **lecteur multimédia** effectue la lecture à partir du point de terminaison de diffusion en continu par défaut. Si vous souhaitez lire à partir d’un autre point de terminaison de diffusion en continu que celui par défaut, cliquez sur l’URL pour la copier et utilisez un autre lecteur, par exemple, le [lecteur Azure Media Services](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
 
-##Étapes suivantes : parcours d’apprentissage Media Services
+##Étapes suivantes : Parcours d’apprentissage Media Services
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -229,4 +230,4 @@ Certaines considérations s’appliquent :
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0824_2016-->

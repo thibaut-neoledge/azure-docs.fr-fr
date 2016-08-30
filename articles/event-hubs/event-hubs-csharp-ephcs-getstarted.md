@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="05/13/2016"
+	ms.date="08/19/2016"
 	ms.author="sethm"/>
 
 # Prise en main des hubs d’événements
@@ -26,11 +26,11 @@ Event Hubs constitue un service qui traite de grandes quantités de données d'�
 
 Ce didacticiel montre comment utiliser le portail Azure Classic pour créer un concentrateur d’événements. Il montre également comment collecter les messages dans un concentrateur d’événements à l’aide d’une application console en C# et les récupérer en parallèle en utilisant la bibliothèque de l’[hôte du processeur d’événements][] en C#.
 
-Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
+Pour réaliser ce didacticiel, vous aurez besoin des éléments suivants :
 
 + [Microsoft Visual Studio](http://visualstudio.com)
 
-+ Un compte Azure actif. <br/>Si vous n’en possédez pas, vous pouvez créer un compte gratuit en quelques minutes. Pour plus d’informations, consultez la page d’[essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Ffr-FR%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F target="\_blank").
++ Un compte Azure actif. Si vous n’en avez pas, vous pouvez créer un compte gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/free/).
 
 [AZURE.INCLUDE [event-hubs-create-event-hub](../../includes/event-hubs-create-event-hub.md)]
 
@@ -77,7 +77,7 @@ Vous avez conçu une application opérationnelle qui crée un hub d’événemen
 - Un [exemple d'application complet qui utilise des hubs d’événements][].
 - L’exemple de [montée en puissance du traitement des événements avec Event Hubs][].
 - Une [solution de messages de file d'attente][] utilisant les files d'attente Service Bus.
-- [Vue d’ensemble des concentrateurs d’événements][]
+- [Vue d’ensemble des hubs d’événements][]
 
 <!-- Images. -->
 [19]: ./media/event-hubs-csharp-ephcs-getstarted/create-eh-proj1.png
@@ -88,10 +88,10 @@ Vous avez conçu une application opérationnelle qui crée un hub d’événemen
 <!-- Links -->
 [Azure classic portal]: https://manage.windowsazure.com/
 [hôte du processeur d’événements]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
-[Vue d’ensemble des concentrateurs d’événements]: event-hubs-overview.md
+[Vue d’ensemble des hubs d’événements]: event-hubs-overview.md
 [exemple d'application complet qui utilise des hubs d’événements]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
 [montée en puissance du traitement des événements avec Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
 [solution de messages de file d'attente]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0824_2016-->

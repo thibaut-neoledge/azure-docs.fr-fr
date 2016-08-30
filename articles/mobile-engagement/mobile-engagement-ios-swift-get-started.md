@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="swift"
 	ms.topic="hero-article"
-	ms.date="05/03/2016"
+	ms.date="08/19/2016"
 	ms.author="piyushjo" />
 
 # Prise en main d’Azure Mobile Engagement pour les applications iOS dans Swift
 
 [AZURE.INCLUDE [Sélecteur de didacticiel Hero](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
-Cette rubrique indique comment utiliser Azure Mobile Engagement pour comprendre l'utilisation de votre application et envoyer des notifications push aux utilisateurs segmentés d'une application iOS. Dans ce didacticiel, vous créez une application iOS vide qui collecte des données de base et reçoit des notifications push à l'aide du service APN (Apple Push Notification Service).
+Cette rubrique indique comment utiliser Azure Mobile Engagement pour comprendre l’utilisation de votre application et envoyer des notifications push à un segment d’utilisateurs d’une application iOS. Dans ce didacticiel, vous créez une application iOS vide qui collecte des données de base et reçoit des notifications push à l'aide du service APN (Apple Push Notification Service).
 
 Ce didacticiel requiert les éléments suivants :
 
@@ -44,11 +44,11 @@ Ce didacticiel aborde l'intégration de base qui correspond aux éléments néce
 
 Nous allons créer une application de base à l’aide de XCode afin d’illustrer l’intégration :
 
-###Créer un projet iOS
+###Création d’un projet iOS
 
 [AZURE.INCLUDE [Créer un projet iOS](../../includes/mobile-engagement-create-new-ios-app.md)]
 
-###Connectez votre application au serveur principal Mobile Engagement
+###Connexion de votre application au serveur principal Mobile Engagement
 
 1. Téléchargez le [kit de développement logiciel (SDK) iOS Mobile Engagement]
 2. Extrayez le fichier .tar.gz dans un dossier de votre ordinateur
@@ -203,4 +203,4 @@ Mobile Engagement vous permet d'interagir et d'atteindre vos utilisateurs à l'
 [5]: ./media/mobile-engagement-ios-get-started/app-connection-info-page.png
 [6]: ./media/mobile-engagement-ios-swift-get-started/add-bridging-header.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0824_2016-->

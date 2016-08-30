@@ -12,7 +12,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/29/2016"
+   ms.date="08/17/2016"
    ms.author="alkohli" />
 
 # Déployer et gérer un appareil virtuel StorSimple dans Azure
@@ -30,7 +30,7 @@ L’appareil virtuel StorSimple est disponible en deux modèles, un 8010 Standar
 | Modèle de l'appareil | 8010<sup>1</sup> | 8020 |
 |-----------------------|---------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|
 | **Capacité maximale** | 30 To | 64 To |
-| **Microsoft Azure** | Standard_A3 (4 cœurs, 7 Go de mémoire) | Standard_DS3 (4 cœurs, 14 Go de mémoire) |
+| **Microsoft Azure** | Standard\_A3 (4 cœurs, 7 Go de mémoire) | Standard\_DS3 (4 cœurs, 14 Go de mémoire) |
 | **Compatibilité des versions** | Les versions exécutant une version antérieure de la mise à jour préliminaire 2 ou version ultérieure | Les versions exécutant Update 2 ou version ultérieure |
 | **Disponibilité des régions** | Toutes les régions Azure | Régions Azure qui prennent en charge Premium Storage<br></br>Pour obtenir la liste des régions, consultez [Régions prises en charge pour 8020](#supported-regions-for-8020). |
 | **Type de stockage** | Utilise le stockage Azure Standard pour les disques locaux<br></br> Découvrez comment [créer un compte de stockage Standard]() | Utilise le stockage Azure Standard pour les disques locaux<sup>2</sup> <br></br>Découvrez comment [créer un compte de stockage Premium](storage-premium-storage.md#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk) |
@@ -58,7 +58,7 @@ Les régions Premium Storage actuellement prises en charge pour 8020 sont indiqu
 | 10 | Est de l’Australie |
 | 11 | Sud-Est de l’Australie* |
 | 12 | Asie de l’Est* |
-| 13 | Centre-Sud des États-Unis* |
+| 13\. | Centre-Sud des États-Unis* |
 
 *Premium Storage a été lancé récemment dans ces zones géographiques.
 
@@ -100,8 +100,8 @@ Avant d’approvisionner l’appareil virtuel, vous devez effectuer les prépara
 
 - Pour l’appareil virtuel, [configurez un réseau virtuel sur Azure](../virtual-network/virtual-networks-create-vnet-classic-portal.md). Si vous utilisez le stockage Premium, vous devez créer un réseau virtuel dans une région Azure qui prend en charge le stockage Premium. Plus d’informations sur les [régions actuellement prises en charge pour 8020](#supported-regions-for-8020).
 - Il est recommandé d’utiliser le serveur DNS par défaut fourni par Azure au lieu de spécifier le nom de votre propre serveur DNS. Si le nom de votre serveur DNS n'est pas valide ou si le serveur DNS n'est pas en mesure de résoudre correctement les adresses IP, la création de l'appareil virtuel échoue.
-- Les options de point à site et de site à site sont facultatives (non obligatoires). Si vous le souhaitez, vous pouvez configurer ces options pour des scénarios plus avancés. 
-- Vous pouvez créer des [Machines virtuelles Azure](../virtual-machines/virtual-machines-linux-about.md) (serveurs hôtes) dans le réseau virtuel qui peut utiliser les volumes exposés par l’appareil virtuel. Ces serveurs doivent répondre aux exigences suivantes : 							
+- Les options de point à site et de site à site sont facultatives (non obligatoires). Si vous le souhaitez, vous pouvez configurer ces options pour des scénarios plus avancés.
+- Vous pouvez créer des [Machines virtuelles Azure](../virtual-machines/virtual-machines-linux-about.md) (serveurs hôtes) dans le réseau virtuel qui peut utiliser les volumes exposés par l’appareil virtuel. Ces serveurs doivent répondre aux exigences suivantes :
 	- Il doit s’agir de machines virtuelles Windows ou Linux sur lesquelles l’initiateur iSCSI est installé.
 	- Ils doivent être en cours d’exécution dans le même réseau virtuel que l’appareil virtuel.
 	- Ils doivent être en mesure de se connecter à la cible iSCSI de l’appareil virtuel via l’adresse IP interne de ce dernier.
@@ -264,7 +264,7 @@ Pour une procédure pas à pas, consultez la rubrique [Basculement vers un appar
 
 ## Arrêt ou suppression de l’appareil virtuel
 
-Si vous avez précédemment configuré et utilisé un appareil virtuel StorSimple, mais que vous ne voulez plus cumuler de frais de calcul pour son utilisation, vous pouvez l’arrêter. L’arrêt de l’appareil virtuel ne supprime pas son système d’exploitation ni les disques de données du stockage. Cette opération arrête le cumul de frais dans votre abonnement, mais les frais de stockage pour les disques de système d’exploitation et de données continuent à être facturés.
+Si vous avez précédemment configuré et utilisé un appareil virtuel StorSimple, mais que vous ne voulez plus cumuler de frais de calcul pour son utilisation, vous pouvez l’arrêter. L’arrêt de l’appareil virtuel ne supprime pas son système d’exploitation ni les disques de données du stockage. Cette opération arrête le cumul de frais sur votre abonnement, mais les frais de stockage pour les disques de système d’exploitation et de données continuent d’être facturés.
 
 Si vous supprimez ou arrêtez l’appareil virtuel, il apparaît comme **Hors connexion** dans la page Appareils du service StorSimple Manager. Vous pouvez choisir de désactiver ou supprimer l’appareil si vous souhaitez également supprimer les sauvegardes créées par l’appareil virtuel. Pour plus d’informations, consultez [Désactiver et supprimer un appareil StorSimple](storsimple-deactivate-and-delete-device.md).
 
@@ -280,4 +280,4 @@ Si vous supprimez ou arrêtez l’appareil virtuel, il apparaît comme **Hors co
  
 - Découvrez comment [restaurer un volume StorSimple à partir d’un jeu de sauvegarde](storsimple-restore-from-backup-set.md).
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0824_2016-->

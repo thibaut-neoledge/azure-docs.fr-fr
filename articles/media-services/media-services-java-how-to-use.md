@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Utilisation de Media Services avec Java" 
+	pageTitle="Utilisation de Media Services avec Java | Microsoft Azure" 
 	description="Explique comment utiliser Azure Media Services pour exécuter les tâches courantes, notamment l’encodage, le chiffrement et la diffusion en continu des ressources." 
 	services="media-services" 
 	documentationCenter="java" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article"
-	ms.date="08/11/2016"   
+	ms.date="08/17/2016"   
 	ms.author="robmcm"/>
 
-#Utilisation de Media Services avec Java
+# Utilisation de Media Services avec Java
 
 [AZURE.INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
@@ -37,9 +37,9 @@ Cette section contient les conditions préalables générales pour le développe
 
 Le code suivant montre comment créer un élément multimédia, télécharger un fichier multimédia sur l’élément multimédia, exécuter une tâche pour transformer l’élément multimédia et créer un localisateur pour diffuser en continu votre vidéo.
 
-Vous devrez configurer un compte Media Services avant d'utiliser ce code. Pour plus d’informations sur la configuration d’un compte, consultez la rubrique [Création d’un compte Media Services](media-services-create-account.md).
+Vous devrez configurer un compte Media Services avant d’utiliser ce code. Pour plus d’informations sur la configuration d’un compte, consultez la rubrique [Création d’un compte Media Services](media-services-create-account.md).
 
-Remplacez les valeurs des variables `clientId` et `clientSecret`. Le code repose également sur un fichier stocké localement. Vous devez indiquer votre fichier à utiliser.
+Remplacez les valeurs des variables clientId et clientSecret par vos valeurs. Le code repose également sur un fichier stocké localement. Vous devez indiquer votre fichier à utiliser.
 	
 	import java.io.*;
 	import java.security.NoSuchAlgorithmException;
@@ -223,7 +223,7 @@ Remplacez les valeurs des variables `clientId` et `clientSecret`. Le code repose
 	        LocatorInfo originLocator = null;
 	
 	        // Create a 30-day readonly AccessPolicy
-	        double durationInMinutes = 60* 24* 30;
+	        double durationInMinutes = 60 * 24 * 30;
 	        originAccessPolicy = mediaService.create(
 	                AccessPolicy.create("Streaming policy", durationInMinutes, EnumSet.of(AccessPolicyPermission.READ)));
 	
@@ -276,4 +276,4 @@ Pour obtenir une documentation Javadoc sur Media Services, voir [Bibliothèques 
 
  
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

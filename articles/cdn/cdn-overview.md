@@ -68,6 +68,7 @@ Il existe trois produits Azure CDN : **Azure CDN Standard fourni par Akamai**, *
 | [Moteur de distribution de contenu personnalisable et basé sur des règles](cdn-rules-engine.md) | | | **&#x2713;** |
 | [Rapports HTTP avancés](cdn-advanced-http-reports.md) | | | **&#x2713;** |
 | [Statistiques en temps réel](cdn-real-time-stats.md) | | | **&#x2713;** |
+| [Alertes en temps réel](cdn-real-time-alerts.md) | | | **&#x2713;** |
 
 >[AZURE.TIP] Une idée de fonctionnalité à ajouter à Azure CDN ? [Envoyez-nous vos commentaires](https://feedback.azure.com/forums/169397-cdn) !
 
@@ -83,4 +84,4 @@ Apprenez à automatiser Azure CDN avec [.NET](./cdn-app-dev-net.md) ou [Node.js]
 
 Pour obtenir des informations sur la tarification, consultez la page [Prix appliqués au Réseau de distribution de contenu (CDN)](https://azure.microsoft.com/pricing/details/cdn/).
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

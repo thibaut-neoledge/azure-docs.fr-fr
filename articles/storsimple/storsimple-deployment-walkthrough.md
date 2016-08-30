@@ -12,7 +12,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/26/2016"
+   ms.date="08/17/2016"
    ms.author="alkohli" />
 
 # Déploiement de votre appareil StorSimple local
@@ -116,7 +116,7 @@ Avant de commencer, assurez-vous que :
 
 - Vous disposez d’un compte de stockage Microsoft Azure doté d’informations d’identification d’accès.
 
-- Votre abonnement Microsoft Azure est activé pour le service StorSimple Manager. Votre abonnement doit être acheté en passant par la page [Licences Azure pour l’entreprise](https://azure.microsoft.com/pricing/enterprise-agreement/).
+- Le service StorSimple Manager est activé dans votre abonnement Microsoft Azure. Votre abonnement doit être acheté dans la page [Accord Entreprise](https://azure.microsoft.com/pricing/enterprise-agreement/).
 
 - Vous avez accès à un logiciel d’émulation de terminal tel que PuTTY.
 
@@ -135,7 +135,7 @@ Avant de configurer l’appareil, assurez-vous que :
 Avant de commencer, assurez-vous que :
 
 - Les ports du pare-feu de votre centre de données sont ouverts pour autoriser le trafic iSCSI et du cloud, comme décrit dans la section [Configuration réseau requise pour un appareil StorSimple](storsimple-system-requirements.md#networking-requirements-for-your-storsimple-device).
-- L'appareil dans votre centre de données peut se connecter au réseau externe. Exécutez les applets de commande [Windows PowerShell 4.0](http://www.microsoft.com/download/details.aspx?id=40855) (sous forme de tableau ci-dessous) pour valider la connectivité au réseau externe. Effectuez cette validation sur un ordinateur (dans le réseau du centre de données) qui dispose d'une connectivité à Azure et où vous déploierez votre appareil StorSimple.  
+- L'appareil dans votre centre de données peut se connecter au réseau externe. Exécutez les applets de commande [Windows PowerShell 4.0](http://www.microsoft.com/download/details.aspx?id=40855) (sous forme de tableau ci-dessous) pour valider la connectivité au réseau externe. Effectuez cette validation sur un ordinateur (dans le réseau du centre de données) qui dispose d'une connectivité à Azure et où vous déploierez votre appareil StorSimple.
 
 | Pour ce paramètre... | Pour vérifier la validité... | Exécutez ces commandes/applets de commande. |
 |---------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -146,7 +146,7 @@ Avant de commencer, assurez-vous que :
 | | | |
 | **NTP** | Nous déclenchons une synchronisation horaire dès que le serveur NTP est en entrée. Vérifiez que le port UDP 123 est ouvert lorsque vous entrez `time.windows.com` ou des serveurs horaires publics. | [Télécharger et utiliser ce script](https://gallery.technet.microsoft.com/scriptcenter/Get-Network-NTP-Time-with-07b216ca). |
 | | | |
-| **Proxy (facultatif)** | S'agit-il d'un URI et d'un port de proxy valides ? </br> Le mode d'authentification est-il correct ? | <code>wget http://bing.com &#124; % {$\_.StatusCode}</code></br>Cette commande doit être exécutée immédiatement après la configuration du proxy Web. Si un code d’état de 200 est retourné, cela indique que la connexion est établie. |
+| **Proxy (facultatif)** | S'agit-il d'un URI et d'un port de proxy valides ? </br> Le mode d'authentification est-il correct ? | <code>wget http://bing.com | % {$\_.StatusCode}</code></br>Cette commande doit être exécutée immédiatement après la configuration du proxy Web. Si un code d’état de 200 est retourné, cela indique que la connexion est établie. |
 | | Le trafic est-il acheminé via le proxy ? | Exécutez la validation DNS, la vérification NTP ou la vérification HTTP une fois après la configuration du proxy sur votre appareil. Ceci vous indique clairement si le trafic est bloqué au niveau du proxy ou ailleurs. |
 | | | |
 | **Inscription** | Vérifiez si les ports TCP sortants 443, 80, 9354 sont ouverts. | `Test-NetConnection -Port   443 -InformationLevel Detailed`</br>[Plus d'informations sur l'applet de commande Test-NetConnection](https://technet.microsoft.com/library/dn372891.aspx) |
@@ -167,8 +167,7 @@ Procédez comme suit pour créer une instance du service StorSimple Manager.
 
 > [AZURE.IMPORTANT] Si vous n’avez pas activé la création automatique d’un compte de stockage avec votre service, vous devez créer au moins un compte de stockage après avoir créé un service. Ce compte de stockage est utilisé lorsque vous créez un conteneur de volumes.
 >
-> Si vous n’avez pas créé de compte de stockage automatiquement, accédez à la page [Configuration d’un compte de stockage pour le service](#configure-a-new-storage-account-for-the-service) pour obtenir des instructions détaillées.
-> Si vous avez activé la création automatique d’un compte de stockage, passez à l’[étape 2 : Obtention de la clé d’inscription](#step-2:-get-the-service-registration-key).
+> Si vous n’avez pas créé de compte de stockage automatiquement, accédez à la page [Configuration d’un compte de stockage pour le service](#configure-a-new-storage-account-for-the-service) pour obtenir des instructions détaillées. Si vous avez activé la création automatique d’un compte de stockage, passez à l’[étape 2 : Obtention de la clé d’inscription](#step-2:-get-the-service-registration-key).
 
 ## Étape 2 : Obtention de la clé d’inscription
 
@@ -264,7 +263,7 @@ La mise à jour de votre appareil peut prendre entre 1 et 4 heures. Procédez c
 > [AZURE.NOTE] Si vous avez une passerelle configurée sur une interface réseau différente de Data 0, vous devrez désactiver les interfaces réseau Data 2 et Data 3 avant d'installer la mise à jour. Accédez à **Périphériques > Configurer** et désactivez les interfaces Data 2 et Data 3. Vous devrez réactiver ces interfaces après la mise à jour de l'appareil.
 
 #### Mise à jour de votre appareil
-1.	Sur la page **Démarrage rapide** de l’appareil, cliquez sur **Appareils**. Sélectionnez l'appareil physique, cliquez sur **Maintenance** puis sur **Rechercher les mises à jour**.  
+1.	Sur la page **Démarrage rapide** de l’appareil, cliquez sur **Appareils**. Sélectionnez l'appareil physique, cliquez sur **Maintenance** puis sur **Rechercher les mises à jour**.
 2.	La tâche créée recherche les mises à jour disponibles. Si des mises à jour sont disponibles, l’option **Rechercher les mises à jour** devient **Installer les mises à jour**. Cliquez sur **Installer les mises à jour**. Vous serez peut-être invité à désactiver Data 2 et Data 3 avant d'installer les mises à jour. Vous devez désactiver ces interfaces réseau ou les mises à jour peuvent échouer.
 3.	Une tâche de mise à jour est créée. Surveillez l'état de la mise à jour en accédant à **Tâches**.
 
@@ -294,4 +293,4 @@ Pour créer une sauvegarde manuelle à la demande pour un seul volume sur votre 
 
 - Utilisez le [service StorSimple Manager](https://msdn.microsoft.com/library/azure/dn772396.aspx) pour gérer votre appareil StorSimple.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0824_2016-->

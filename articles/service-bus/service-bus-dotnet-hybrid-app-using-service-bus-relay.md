@@ -67,57 +67,21 @@ Avant de commencer à développer votre application Azure, procurez-vous les out
 
 Pour commencer à utiliser les fonctionnalités de Service Bus dans Azure, vous devez d'abord créer un espace de noms de service. Ce dernier fournit un conteneur d'étendue pour l'adressage des ressources Service Bus au sein de votre application.
 
-1.  Connectez-vous au [portail Azure Classic][].
-
-2.  Dans le volet de navigation de gauche du portail, cliquez sur **Service Bus**.
-
-3.  Dans le volet inférieur du portail, cliquez sur **Créer**.
-
-    ![][5]
-
-4.  Dans la boîte de dialogue **Ajouter un nouvel espace de noms**, saisissez un nom d’espace de noms. Le système vérifie immédiatement si le nom est disponible. ![][6]
-
-5.  Après vous être assuré que le nom de l’espace de noms est disponible, choisissez le pays ou la région où votre espace de noms doit être hébergé (veillez à utiliser le même pays ou la même région que celui ou celle où vous déployez vos ressources de calcul).
-
-    > [AZURE.IMPORTANT] choisissez la *même région* que celle que vous prévoyez de sélectionner pour le déploiement de votre application. Vous bénéficiez ainsi des meilleures performances.
-
-6.	Laissez les autres champs de la boîte de dialogue avec leurs valeurs par défaut, puis cliquez sur la coche OK. Le système crée votre espace de noms et l’active. Vous devrez peut-être attendre plusieurs minutes afin que le système approvisionne des ressources pour votre compte.
-
-L’espace de noms créé s’affichera dans le portail Azure, même si son activation peut prendre un certain temps. Patientez jusqu'à ce que l'état soit **Actif** avant de continuer.
-
-## Obtention d'informations d'identification de gestion par défaut pour l'espace de noms
-
-Pour exécuter des opérations de gestion sur le nouvel espace de noms, comme la création d’entités de messagerie, vous devez obtenir les informations d’identification pour l’espace de noms.
-
-1.  Dans la fenêtre principale du portail, cliquez sur l’espace de noms que vous avez créé à l’étape précédente.
-
-2.  En bas de la page, cliquez sur **Informations de connexion**.
-
-3.  Dans le volet **Accès aux informations de connexion**, recherchez la chaîne de connexion contenant la clé SAP et le nom de clé.
-
-	![][45]
-
-4.  Copiez la chaîne de connexion et collez-la à un endroit pour l’utiliser ultérieurement dans ce didacticiel.
-
-5. Cliquez sur l’onglet **Configurer** en haut de la même page du portail.
-
-6. Copiez la clé primaire de la stratégie **RootManageSharedAccessKey** dans le Presse-papiers ou collez-la dans le Bloc-notes. Vous aurez besoin de cette valeur plus loin dans ce didacticiel.
-
-	![][46]
+[AZURE.INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
 ## Création d’un serveur local
 
 Vous créez d'abord un système local de catalogue de produits (fictif). Cela est assez simple : représentez-vous un système réel de catalogue de produits local avec une surface complète de services que nous essayons d'intégrer.
 
-Ce projet est une application de console Visual Studio et utilise le [package NuGet Service Bus](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) pour inclure les bibliothèques et les paramètres de configuration Service Bus.
+Ce projet est une application console Visual Studio et utilise le [package NuGet Service Bus](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) pour inclure les bibliothèques et les paramètres de configuration Service Bus.
 
 ### Création du projet
 
-1.  Avec les privilèges d’administrateur, démarrez Microsoft Visual Studio. Pour démarrer Visual Studio avec les privilèges d’administrateur, cliquez avec le bouton droit sur l’icône du programme **Visual Studio**, puis cliquez sur **Exécuter en tant qu’administrateur**.
+1.  Avec les privilèges d’administrateur, démarrez Microsoft Visual Studio. Pour démarrer Visual Studio avec des privilèges d’administrateur, cliquez avec le bouton droit sur l’icône du programme **Visual Studio**, puis cliquez sur **Exécuter en tant qu’administrateur**.
 
 2.  Dans Visual Studio, dans le menu **Fichier**, cliquez sur **Nouveau**, puis sur **Projet**.
 
-3.  Dans **Modèles installés**, sous **Visual C#**, cliquez sur **Application console**. Dans la zone **Nom**, saisissez le nom **ProductsServer** :
+3.  Dans **Modèles installés**, sous **Visual C#**, cliquez sur **Application console**. Dans la zone **Nom**, saisissez le nom **ProductsServer** :
 
     ![][11]
 
@@ -229,7 +193,7 @@ Ce projet est une application de console Visual Studio et utilise le [package Nu
 	}
 	```
 
-13. Dans l’Explorateur de solutions, double-cliquez sur le fichier **App.config** pour l’ouvrir dans l’éditeur de Visual Studio. Au bas de l’élément **&lt;system.ServiceModel&gt;** (mais toujours dans &lt;system.ServiceModel&gt;), ajoutez le code XML suivant. Assurez-vous de remplacer *yourServiceNamespace* par le nom de votre espace de noms, puis *yourKey* par la clé SAP que vous avez récupérée précédemment sur le portail :
+13. Dans l’Explorateur de solutions, double-cliquez sur le fichier **App.config** pour l’ouvrir dans l’éditeur de Visual Studio. En bas de l’élément **&lt;system.ServiceModel&gt;** (mais toujours dans &lt;system.ServiceModel&gt;), ajoutez le code XML suivant. Veillez à remplacer *yourServiceNamespace* par le nom de votre espace de noms, et *yourKey* par la clé SAS que vous avez récupérée précédemment sur le portail :
 
     ```
     <system.serviceModel>
@@ -252,7 +216,7 @@ Ce projet est une application de console Visual Studio et utilise le [package Nu
       </behaviors>
     </system.serviceModel>
     ```
-14. Toujours dans le fichier App.config, dans l’élément **&lt;appSettings&gt;**, remplacez la valeur de la chaîne de connexion par la chaîne de connexion obtenue précédemment à partir du portail. 
+14. Toujours dans le fichier App.config, dans l’élément **&lt;appSettings&gt;**, remplacez la valeur de la chaîne de connexion par la chaîne de connexion obtenue précédemment à partir du portail.
 
 	```
 	<appSettings>
@@ -262,7 +226,7 @@ Ce projet est une application de console Visual Studio et utilise le [package Nu
 	</appSettings>
 	```
 
-14. Appuyez sur **Ctrl+Maj+B** ou, dans le menu **Générer**, cliquez sur **Générer la solution** pour générer l’application et de vérifier si votre travail est correct.
+14. Appuyez sur **Ctrl+Maj+B** ou, dans le menu **Générer**, cliquez sur **Générer la solution** pour générer l’application et vérifier si votre travail est correct.
 
 ## Création d’une application ASP.NET
 
@@ -280,7 +244,7 @@ Dans cette section, vous allez générer une application ASP.NET simple qui affi
 
 4.  Dans la liste **Sélectionner un modèle**, cliquez sur **MVC**.
 
-6.  Cochez la case **Héberger dans le cloud**.
+6.  Cochez la case **Hôte dans le cloud**.
 
     ![][16]
 
@@ -288,15 +252,15 @@ Dans cette section, vous allez générer une application ASP.NET simple qui affi
 
 	![][18]
 
-6. 	Dans la section **Microsoft Azure** de la boîte de dialogue **Nouveau projet ASP.NET**, vérifiez que **Héberger dans le cloud** est sélectionné et que **App Service** est sélectionné dans la liste déroulante.
+6. 	Dans la section **Microsoft Azure** de la boîte de dialogue **Nouveau projet ASP.NET**, vérifiez que **Hôte dans le cloud** est sélectionné et que **App Service** est sélectionné dans la liste déroulante.
 
 	![][19]
 
 7. Cliquez sur **OK**.
 
-8. Vous devez maintenant configurer les ressources Azure d’une nouvelle application web. Suivez les étapes de la section [Configurer les ressources Azure d’une nouvelle application web](../app-service-web/web-sites-dotnet-get-started.md#configure-azure-resources-for-a-new-web-app). Ensuite, revenez à ce didacticiel et passez à l’étape suivante.
+8. Vous devez maintenant configurer les ressources Azure d’une nouvelle application web. Suivez toutes les étapes de la section [Configurer les ressources Azure d’une nouvelle application web](../app-service-web/web-sites-dotnet-get-started.md#configure-azure-resources-for-a-new-web-app). Ensuite, revenez à ce didacticiel et passez à l’étape suivante.
 
-5.  Dans Explorateur de solutions, cliquez avec le bouton droit sur **Modèles**, cliquez sur **Ajouter**, puis sur **Classe**. Dans la zone **Nom**, entrez le nom **Products.cs**. Cliquez ensuite sur **Add**.
+5.  Dans l’Explorateur de solutions, cliquez avec le bouton droit sur **Modèles**, puis cliquez sur **Ajouter** et sur **Classe**. Dans la zone **Nom**, entrez le nom **Products.cs**. Cliquez ensuite sur **Add**.
 
     ![][17]
 
@@ -317,9 +281,9 @@ Dans cette section, vous allez générer une application ASP.NET simple qui affi
 	}
 	```
 
-2.  Dans l’Explorateur de solutions, développez le dossier **Contrôleurs** et double-cliquez sur le fichier **HomeController.cs** pour l’ouvrir dans Visual Studio.
+2.  Dans l’Explorateur de solutions, développez le dossier **Controllers** et double-cliquez sur le fichier **HomeController.cs** pour l’ouvrir dans Visual Studio.
 
-3. Dans le fichier **HomeController.cs**, remplacez la définition d’espace de noms existante par le code suivant.
+3. Dans le fichier **HomeController.cs**, remplacez la définition d’espace de noms par le code suivant.
 
 	```
 	namespace ProductsWeb.Controllers
@@ -385,7 +349,7 @@ Dans cette section, vous allez générer une application ASP.NET simple qui affi
 	</table>
 	```
 
-9.  Pour vérifier votre travail, appuyez sur **Ctrl+Maj+B** pour générer le projet.
+9.  Pour vérifier la qualité de votre travail, appuyez sur **Ctrl+Maj+B** pour générer le projet.
 
 
 ### Exécutez l’application localement.
@@ -402,7 +366,7 @@ Exécutez l'application afin de vérifier qu'elle fonctionne.
 
 La prochaine étape consiste à raccorder le serveur de produits local et l’application ASP.NET.
 
-1.  S’il n’est pas déjà ouvert, dans Visual Studio rouvrez le projet **ProductsPortal** que vous avez créé dans la section « Création d’une application ASP.NET ».
+1.  Si ce n’est déjà fait, rouvrez dans Visual Studio le projet **ProductsPortal** que vous avez créé dans la section « Création d’une application ASP.NET ».
 
 2.  Comme vous l'avez fait dans la section « Création d'un serveur local », ajoutez le package NuGet au projet Références. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le projet **ProductsPortal**, puis cliquez sur **Gérer les packages NuGet**.
 
@@ -456,21 +420,21 @@ La prochaine étape consiste à raccorder le serveur de produits local et l’ap
 	}
 	```
 
-7.  Dans l’Explorateur de solutions, cliquez avec le bouton droit sur la solution **ProductsPortal**, cliquez sur **Ajouter**, puis sur **Projet existant**.
+7.  Dans l’Explorateur de solutions, cliquez avec le bouton droit sur la solution **ProductsPortal**, puis cliquez sur **Ajouter** et sur **Projet existant**.
 
 8.  Accédez au projet **ProductsServer**, puis double-cliquez sur le fichier solution **ProductsServer.csproj** pour l'ajouter.
 
-9.  **ProductsServer** doit être exécuté pour afficher les données sur **ProductsPortal**. Dans l'Explorateur de solutions, cliquez avec le bouton droit sur la solution **ProductsPortal**, puis cliquez sur **Propriétés**. La boîte de dialogue **Pages de propriétés** s’affiche.
+9.  **ProductsServer** doit être en cours d’exécution pour afficher les données sur **ProductsPortal**. Dans l'Explorateur de solutions, cliquez avec le bouton droit sur la solution **ProductsPortal**, puis cliquez sur **Propriétés**. La boîte de dialogue **Pages de propriétés** s’affiche.
 
-10. Sur le côté gauche, cliquez sur **Projet de démarrage**. Sur le côté droit, cliquez sur **Plusieurs projets de démarrage**. Vérifiez que **ProductsServer** et **ProductsPortal** apparaissent, dans cet ordre, et que leur action est définie sur **Démarrer**.
+10. Sur le côté gauche, cliquez sur **Projet de démarrage**. Sur le côté droit, cliquez sur **Plusieurs projets de démarrage**. Vérifiez que **ProductsServer** et **ProductsPortal** apparaissent dans cet ordre et que leur action définie est **Démarrer**.
 
       ![][25]
 
 11. Toujours dans la boîte de dialogue **Propriétés**, cliquez sur **Dépendances du projet** sur le côté gauche.
 
-12. Dans le menu déroulant **Projets**, cliquez sur **ProductsServer**. Assurez-vous que la case à cocher **ProductsPortal** est **décochée**.
+12. Dans le menu déroulant **Projets**, cliquez sur **ProductsServer**. Vérifiez que **ProductsPortal** n’est **pas** sélectionné.
 
-14. Dans la liste **Projets**, cliquez sur **ProductsPortal**. Vérifiez que **ProductsServer** est cochée.
+14. Dans la liste **Projets**, cliquez sur **ProductsPortal**. Vérifiez que **ProductsServer** est sélectionné.
 
     ![][26]
 
@@ -478,46 +442,46 @@ La prochaine étape consiste à raccorder le serveur de produits local et l’ap
 
 ## Exécutez le projet localement.
 
-Pour tester l’application localement, appuyez sur **F5** dans Visual Studio. Le serveur local (**ProductsServer**) doit démarrer en premier, puis l’application **ProductsPortal** doit démarrer dans une fenêtre de navigateur. À présent, vous voyez que l'inventaire de produits répertorie des données récupérées du système local de service de produit.
+Pour tester l’application localement dans Visual Studio, appuyez sur **F5**. Le serveur local (**ProductsServer**) doit démarrer en premier, puis l’application **ProductsPortal** doit démarrer dans une fenêtre de navigateur. À présent, vous voyez que l'inventaire de produits répertorie des données récupérées du système local de service de produit.
 
 ![][10]
 
-Appuyez sur **Actualiser** sur la page **ProductsPortal**. Chaque fois que vous actualisez la page, l’application de serveur affiche un message lors de l’appel de `GetProducts()` à partir de **ProductsServer**.
+Appuyez sur **Actualiser** dans la page **ProductsPortal**. Chaque fois que vous actualisez la page, l’application de serveur affiche un message lors de l’appel de `GetProducts()` à partir de **ProductsServer**.
 
 ## Déploiement du projet ProductsPortal dans une application web Azure
 
-L’étape suivante consiste à convertir le serveur frontal **ProductsPortal** frontal en application web Azure. Déployez d’abord le projet **ProductsPortal**, en suivant toutes les étapes de la section [Déploiement du projet web dans l’application web Azure](../app-service-web/web-sites-dotnet-get-started.md#deploy-the-web-project-to-the-azure-web-app). Une fois le déploiement terminé, revenez à ce didacticiel et passez à l’étape suivante.
+L’étape suivante consiste à convertir le serveur frontal **ProductsPortal** en application web Azure. Déployez d’abord le projet **ProductsPortal**, en suivant toutes les étapes de la section [Déploiement du projet web dans l’application web Azure](../app-service-web/web-sites-dotnet-get-started.md#deploy-the-web-project-to-the-azure-web-app). Une fois le déploiement terminé, revenez à ce didacticiel et passez à l’étape suivante.
 
 Copiez l’URL de l’application web déployée, car vous en aurez besoin à l’étape suivante. Vous pouvez également obtenir cette URL à partir de la fenêtre Activité d’Azure App Service dans Visual Studio :
 
 ![][9]
    
 
-> [AZURE.NOTE] Un message d’erreur peut s’afficher dans la fenêtre du navigateur lorsque le projet web **ProductsPortal** est lancé automatiquement après le déploiement. Cela est prévu et se produit parce que l’application **ProductsServer** n’est pas encore exécutée.
+> [AZURE.NOTE] Un message d’erreur peut s’afficher dans la fenêtre du navigateur lorsque le projet web **ProductsPortal** est démarré automatiquement après le déploiement. Ce comportement est normal. Il s’explique par le fait que l’application **ProductsServer** n’est pas encore en cours d’exécution.
 
 ### Définition de ProductsPortal en tant qu’application web
 
-Avant d’exécuter l’application dans le cloud, vous devez vous assurer que **ProductsPortal** est lancé dans Visual Studio en tant qu’application web.
+Avant d’exécuter l’application dans le cloud, vous devez vous assurer que **ProductsPortal** est démarré dans Visual Studio en tant qu’application web.
 
 1. Dans Visual Studio, cliquez avec le bouton droit sur le projet **ProjectsPortal**, puis cliquez sur **Propriétés**.
 
 3. Dans la colonne de gauche, cliquez sur **Web**.
 
-5. Dans la section **Action de démarrage** cliquez sur le bouton **URL de démarrage**, puis dans la zone de texte, entrez l’URL de l’application web précédemment déployée ; par exemple, `http://productsportal1234567890.azurewebsites.net/`.
+5. Dans la section **Action de démarrage**, cliquez sur le bouton **URL de démarrage** puis, dans la zone de texte, entrez l’URL de l’application web précédemment déployée. Par exemple, `http://productsportal1234567890.azurewebsites.net/`.
 
 	![][27]
 
 6. Dans Visual Studio, dans le menu **Fichier**, cliquez sur **Enregistrer tout**.
 
-7. À partir du menu Générer de Visual Studio, cliquez sur **Générer la solution**.
+7. Dans le menu Générer de Visual Studio, cliquez sur **Régénérer la solution**.
 
 ## Exécution de l’application
 
-2.  Appuyez sur F5 pour générer et exécuter l’application. Le serveur local (l’application de console **ProductsServer**) doit démarrer en premier, puis l’application**ProductsPortal** doit démarrer dans une fenêtre de navigateur, comme illustré dans la capture d’écran suivante. Notez de nouveau que l’inventaire de produits répertorie les données récupérées à partir du système local du service du produit et les affiche dans l’application web. Vérifiez L’URL pour vous assurer que **ProductsPortal** est en cours d’exécution dans le cloud, comme une application web Azure. 
+2.  Appuyez sur F5 pour générer et exécuter l’application. Le serveur local (application de console **ProductsServer**) doit démarrer en premier, puis l’application**ProductsPortal** doit démarrer dans une fenêtre de navigateur, comme le montre la capture d’écran suivante. Notez de nouveau que l’inventaire de produits répertorie les données récupérées à partir du système local du service du produit et les affiche dans l’application web. Vérifiez l’URL pour vous assurer que **ProductsPortal** est exécutée dans le cloud comme une application web Azure.
 
     ![][1]
 
-	> [AZURE.IMPORTANT] L’application de console **ProductsServer** doit être en cours d’exécution et en mesure de fournir les données à l’application **ProductsPortal**. Si le navigateur affiche une erreur, attendez quelques secondes de plus que **ProductsServer** se charge et affiche le message suivant. Appuyez ensuite sur **Actualiser** dans le navigateur.
+	> [AZURE.IMPORTANT] L’application console **ProductsServer** doit être en cours d’exécution et en mesure de fournir les données à l’application **ProductsPortal**. Si le navigateur affiche une erreur, patientez quelques secondes, le temps que **ProductsServer** se charge et affiche le message suivant. Appuyez ensuite sur **Actualiser** dans le navigateur.
 
 	![][37]
 
@@ -529,8 +493,8 @@ Avant d’exécuter l’application dans le cloud, vous devez vous assurer que *
 
 Pour en savoir plus sur Service Bus, consultez les ressources suivantes :
 
-* [Azure Service Bus][sbwacom]  
-* [Utilisation des files d'attente Service Bus][sbwacomqhowto]  
+* [Azure Service Bus][sbwacom]
+* [Utilisation des files d'attente Service Bus][sbwacomqhowto]
 
 
   [0]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hybrid.png
@@ -538,11 +502,6 @@ Pour en savoir plus sur Service Bus, consultez les ressources suivantes :
   [obtenir des outils et Kit de développement logiciel]: http://go.microsoft.com/fwlink/?LinkId=271920
   [NuGet]: http://nuget.org
   
-  [portail Azure Classic]: http://manage.windowsazure.com
-  [5]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/sb-queues-03.png
-  [6]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/sb-queues-04.png
-
-
   [11]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-con-1.png
   [13]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-multi-tier-13.png
   [15]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-2.png
@@ -564,10 +523,9 @@ Pour en savoir plus sur Service Bus, consultez les ressources suivantes :
   [38]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-service2.png
   [41]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-multi-tier-40.png
   [43]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-43.png
-  [45]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-45.png
-  [46]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/service-bus-policies.png
+
 
   [sbwacom]: /documentation/services/service-bus/
   [sbwacomqhowto]: service-bus-dotnet-get-started-with-queues.md
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -2,7 +2,7 @@
 
 [EventProcessorHost][] est une classe .NET qui simplifie la réception d'événements provenant d'Event Hubs grâce à la gestion des points de contrôle permanents et des réceptions en parallèle d'Event Hubs. [EventProcessorHost][] permet de répartir des événements sur plusieurs récepteurs, même quand ils sont hébergés dans des nœuds différents. Cet exemple illustre l'utilisation de la classe [EventProcessorHost][] pour un récepteur unique. L’exemple de [traitement d’événement mis à l’échelle][] illustre l’utilisation d’[EventProcessorHost][] pour plusieurs récepteurs.
 
-Pour utiliser [EventProcessorHost][], vous devez disposer d'un [compte Azure Storage][] :
+Pour utiliser [EventProcessorHost][], vous devez disposer d’un [compte Azure Storage][] \:
 
 1. Connectez-vous au [portail Azure Classic][] et cliquez sur **NOUVEAU** en bas de l’écran.
 
@@ -26,7 +26,7 @@ Pour utiliser [EventProcessorHost][], vous devez disposer d'un [compte Azure Sto
 
     ![][13]
 
-	Cette opération lance le téléchargement, l'installation et ajoute une référence au [Package NuGet Azure Service Bus Event Hub - EventProcessorHost](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost), avec toutes les dépendances associées.
+	Visual Studio lance le téléchargement, l’installation et ajoute une référence au [Package NuGet Azure Service Bus Event Hub - EventProcessorHost](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost), avec toutes les dépendances associées.
 
 7. Cliquez avec le bouton droit sur le projet **Récepteur**, cliquez sur **Ajouter**, puis cliquez sur **Classe**. Nommez la nouvelle classe **SimpleEventProcessor**, puis cliquez sur **Ajouter** pour créer la classe.
 
@@ -115,14 +115,14 @@ Pour utiliser [EventProcessorHost][], vous devez disposer d'un [compte Azure Sto
     }
 	```
 
-> [AZURE.NOTE] Ce didacticiel utilise une seule instance d'[EventProcessorHost][]. Pour augmenter le débit, il est recommandé d'exécuter plusieurs instances d'[EventProcessorHost][], comme illustré dans l'exemple de [traitement d'événement mis à l'échelle][]. Dans ces cas, les différentes instances se coordonnent automatiquement entre elles afin d'équilibrer la charge des événements reçus. Si vous souhaitez que plusieurs récepteurs traitent *tous* les événements, vous devez utiliser le concept **ConsumerGroup**. Au moment de la réception des événements à partir de différents ordinateurs, il peut être utile de spécifier des noms pour les instances d'[EventProcessorHost][] basées sur les ordinateurs (ou rôles) dans lesquels ils sont déployés. Pour plus d’informations sur ces sujets, consultez les rubriques [Vue d’ensemble d’Event Hubs][] et [Guide de programmation Event Hubs][].
+> [AZURE.NOTE] Ce didacticiel utilise une seule instance d'[EventProcessorHost][]. Pour augmenter le débit, il est recommandé d'exécuter plusieurs instances d'[EventProcessorHost][], comme illustré dans l'exemple de [traitement d'événement mis à l'échelle][]. Dans ces cas, les différentes instances se coordonnent automatiquement entre elles afin d’équilibrer la charge des événements reçus. Si vous souhaitez que plusieurs récepteurs traitent *tous* les événements, vous devez utiliser le concept **ConsumerGroup**. Au moment de la réception des événements à partir de différents ordinateurs, il peut être utile de spécifier des noms pour les instances d'[EventProcessorHost][] basées sur les ordinateurs (ou rôles) dans lesquels ils sont déployés. Pour plus d’informations sur ces sujets, consultez les rubriques [Vue d’ensemble d’Event Hubs][] et [Guide de programmation Event Hubs][].
 
 <!-- Links -->
 [Vue d’ensemble d’Event Hubs]: event-hubs-overview.md
 [Guide de programmation Event Hubs]: event-hubs-programming-guide.md
 [traitement d'événement mis à l'échelle]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
 [traitement d’événement mis à l’échelle]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
-[compte Azure Storage]: ../storage/storage-create-storage-account.md
+[compte Azure Storage]: ../storage/storage-create-storage-account-classic-portal.md
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
 [portail Azure Classic]: http://manage.windowsazure.com
 
@@ -134,3 +134,4 @@ Pour utiliser [EventProcessorHost][], vous devez disposer d'un [compte Azure Sto
 [14]: ./media/service-bus-event-hubs-getstarted/create-receiver-csharp1.png
 [15]: ./media/service-bus-event-hubs-getstarted/create-receiver-csharp2.png
 
+<!---HONumber=AcomDC_0824_2016-->

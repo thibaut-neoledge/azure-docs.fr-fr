@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/26/2016"
+	ms.date="08/19/2016"
 	ms.author="piyushjo" />
 
 # Concepts d’Azure Mobile Engagement
@@ -45,7 +45,7 @@ Un événement peut être associé à la session active ou à une tâche en cour
 
 Un événement est identifié par un nom (limité à 64 caractères) et peut éventuellement incorporer des données supplémentaires (dans la limite de 1 024 octets).
 
-## Erreur
+## Error
 Les erreurs sont utilisés pour signaler des problèmes correctement détectés par l'application (tels que des actions incorrectes de l'utilisateur ou des échecs d'appel d'API).
 
 Une erreur peut être associée à la session active ou à une tâche en cours, ou être autonome.
@@ -85,4 +85,4 @@ L'intégralité de l'arborescence de paires clé/valeur est stockée en tant qu'
 - [Kit de développement logiciel (SDK) iOS pour Azure Mobile Engagement](mobile-engagement-ios-sdk-overview.md)
 - [SDK Android pour Azure Mobile Engagement](mobile-engagement-android-sdk-overview.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0824_2016-->

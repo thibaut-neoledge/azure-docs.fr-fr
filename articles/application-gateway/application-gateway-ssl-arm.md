@@ -78,21 +78,21 @@ Vérifiez les abonnements associés au compte.
 
 	Get-AzureRmSubscription
 
-Vous êtes invité à vous authentifier avec vos informations d’identification.<BR>
+Vous êtes invité à saisir vos informations d’identification.<BR>
 
-### Étape 3 :
+### Étape 3
 
 Parmi vos abonnements Azure, choisissez celui que vous souhaitez utiliser.<BR>
 
 
-		PS C:\> Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
+	Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
 
 
 ### Étape 4
 
 Créez un groupe de ressources (ignorez cette étape si vous utilisez un groupe de ressources existant).
 
-    New-AzureRmResourceGroup -Name appgw-rg -location "West US"
+    New-AzureRmResourceGroup -Name appgw-rg -Location "West US"
 
 Azure Resource Manager requiert que tous les groupes de ressources spécifient un emplacement. Ce paramètre est utilisé comme emplacement par défaut des ressources de ce groupe. Assurez-vous que toutes les commandes pour la création d’une passerelle Application Gateway utilisent le même groupe de ressources.
 
@@ -115,7 +115,7 @@ Crée un réseau virtuel nommé « appgwvnet » dans le groupe de ressources �
 
 ### Étape 3 :
 
-	$subnet=$vnet.Subnets[0]
+	$subnet = $vnet.Subnets[0]
 
 Assigne l’objet de sous-réseau à la variable $subnet pour les étapes suivantes.
 
@@ -200,4 +200,4 @@ Si vous souhaitez plus d'informations sur les options d'équilibrage de charge e
 - [Équilibrage de charge Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Azure Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->
