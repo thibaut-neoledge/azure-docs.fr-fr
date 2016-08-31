@@ -150,7 +150,7 @@ Vous êtes maintenant prêt à télécharger le fichier PFX exporté vers App Se
 	>
 	>![Exporter la clé privée][certwiz1]
 	>
-	> et sélectionnez également **Échange d’informations personnelles - PKCS #12 **, **Inclure si possible tous les certificats dans le chemin d’accès de certification** et **Exporter toutes les propriétés étendues**.
+	> et sélectionnez également **Échange d’informations personnelles - PKCS #12**, **Inclure si possible tous les certificats dans le chemin d’accès de certification** et **Exporter toutes les propriétés étendues**.
 	>
 	>![inclure tous les certificats et les propriétés étendues][certwiz2]
 
