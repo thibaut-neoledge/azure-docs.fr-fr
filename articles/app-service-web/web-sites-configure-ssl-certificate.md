@@ -116,7 +116,7 @@ Si vous souhaitez tester le programme d’installation dans App Service avant d�
 
 	![Exporter la clé privée][certwiz1]
 
-10. Sélectionnez **Échange d’informations personnelles - PKCS #12 **, **Inclure si possible tous les certificats dans le chemin d’accès de certification** et **Exporter toutes les propriétés étendues**. Cliquez ensuite sur **Suivant**.
+10. Sélectionnez **Échange d’informations personnelles - PKCS #12**, **Inclure si possible tous les certificats dans le chemin d’accès de certification** et **Exporter toutes les propriétés étendues**. Cliquez ensuite sur **Suivant**.
 
 	![inclure tous les certificats et les propriétés étendues][certwiz2]
 
@@ -348,7 +348,7 @@ Vous êtes maintenant prêt à télécharger le fichier PFX exporté vers App Se
 
 	![Exporter la clé privée][certwiz1]
 
-10. Sélectionnez **Échange d’informations personnelles - PKCS #12 **, **Inclure si possible tous les certificats dans le chemin d’accès de certification** et **Exporter toutes les propriétés étendues**. Cliquez ensuite sur **Suivant**.
+10. Sélectionnez **Échange d’informations personnelles - PKCS #12**, **Inclure si possible tous les certificats dans le chemin d’accès de certification** et **Exporter toutes les propriétés étendues**. Cliquez ensuite sur **Suivant**.
 
 	![inclure tous les certificats et les propriétés étendues][certwiz2]
 
