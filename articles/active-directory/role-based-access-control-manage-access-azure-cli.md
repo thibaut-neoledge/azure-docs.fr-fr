@@ -161,7 +161,7 @@ Pour modifier un rôle personnalisé, utilisez d’abord la commande `azure role
 
 	azure role set --inputfile <file path>
 
-L’exemple suivant ajoute l’opération Microsoft.Insights/diagnosticSettings/* à ***Actions** et un abonnement Azure à **AssignableScopes** du rôle personnalisé Opérateur de machine virtuelle.
+L’exemple suivant ajoute l’opération *Microsoft.Insights/diagnosticSettings/* à **Actions** et un abonnement Azure à **AssignableScopes** du rôle personnalisé Opérateur de machine virtuelle.
 
 ![JSON - modifier la définition de rôle personnalisé - capture d’écran](./media/role-based-access-control-manage-access-azure-cli/3-azure-role-set-1.png)
 
