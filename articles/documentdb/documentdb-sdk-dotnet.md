@@ -165,7 +165,8 @@ Toutes les versions du Kit de développement logiciel (SDK) Azure DocumentDB pou
 | ---	  | ---	         | ---
 | [1\.9.3](#1.9.3) | 15 août 2016 |--- 
 | [1\.9.2](#1.9.2) | 23 juillet 2016 |--- 
-| 1.9.1 | Déconseillé |--- | 1.9.0 | Déconseillé |--- 
+| 1.9.1 | Déconseillé |--- 
+| 1.9.0 | Déconseillé |--- 
 | [1\.8.0](#1.8.0) | 14 juin 2016 |--- 
 | [1\.7.1](#1.7.1) | 6 mai 2016 |--- 
 | [1\.7.0](#1.7.0) | 26 avril 2016 |--- 

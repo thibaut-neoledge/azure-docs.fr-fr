@@ -33,17 +33,18 @@ Vous pouvez utiliser l'[API REST](https://msdn.microsoft.com/library/azure/dn931
 2. Cliquez sur la vignette **Règles d'alerte** vignette dans le filtre **Opérations**.
 
 3. Cliquez sur la commande **Ajouter une alerte**.
+
     ![Ajouter une alerte](./media/insights-receive-alert-notifications/Insights_AddAlert.png)
 
 4. Vous pouvez nommer votre règle d'alerte et choisir la description à afficher dans le message électronique de notification.
 
 5. Quand vous sélectionnez **Mesures**, vous allez choisir une condition et une valeur de seuil pour la métrique. Il s'agit de la période utilisée par Azure pour surveiller et tracer l'activité d'alerte.
+
     ![Condition et seuil](./media/insights-receive-alert-notifications/Insights_ConditionAndThreshold.png)
 
-6. Vous pouvez également choisir **Événements**, puis recevoir une notification quand un certain événement se produit. 
-    ![Événements](./media/insights-receive-alert-notifications/Insights_Events.png)
-    
->[AZURE.NOTE] À ce stade, les événements ne sont pris en charge que pour les applications web. 
+6. Vous pouvez également choisir **Événements**, puis recevoir une notification quand un certain événement se produit.
+
+	![Événements](./media/insights-receive-alert-notifications/Insights_Events.png)
 
 7. Enfin, vous pouvez choisir d'envoyer la notification par courrier électronique aux administrateurs concernés.
 
@@ -69,3 +70,4 @@ Vous pouvez bien entendu modifier cette règle d'alerte, la **désactiver** ou l
 * [Suivi de l'intégrité du service](insights-service-health.md) pour déterminer à quel moment Azure a rencontré des interruptions de service ou une dégradation des performances.
 
 <!---HONumber=AcomDC_0810_2016-->
+
