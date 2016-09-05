@@ -4,7 +4,7 @@
 	services="virtual-machines"
 	documentationCenter=""
 	authors="kmouss"
-	manager="drewm"
+	manager="timlt"
 	editor=""/>
 
 <tags
@@ -62,4 +62,4 @@ Pour découvrir comment utiliser Azure Site Recovery pour orchestrer et automati
 
 Si les instructions ne sont pas claires ou que vous souhaitez que Microsoft effectue les opérations en votre nom, contactez le [service clientèle](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0824_2016-->

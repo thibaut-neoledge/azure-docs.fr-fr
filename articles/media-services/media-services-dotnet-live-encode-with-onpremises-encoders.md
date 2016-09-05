@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Flux en direct avec des encodeurs locaux" 
+	pageTitle="Streaming en direct avec des encodeurs locaux avec .NET | Microsoft Azure" 
 	description="Cette rubrique montre comment utiliser .NET pour effectuer un encodage en direct avec des encodeurs locaux." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
- 	ms.date="05/05/2016"  
+ 	ms.date="08/19/2016"  
 	ms.author="cenkdin;juliako"/>
 
-#Flux en direct avec des encodeurs locaux
+#Streaming en direct avec des encodeurs locaux avec .NET
 
-##Composants requis
+##Conditions préalables
 
 Les éléments suivants sont requis pour suivre le didacticiel :
 
@@ -377,7 +377,9 @@ Pour plus d’informations sur la configuration d’un encodeur dynamique, voir 
 	    }
 	}
 
-##Parcours d’apprentissage de Media Services
+##Étape suivante
+
+Consulter les parcours d’apprentissage de Media Services
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -385,4 +387,4 @@ Pour plus d’informations sur la configuration d’un encodeur dynamique, voir 
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0824_2016-->

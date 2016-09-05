@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/29/2016"
+	ms.date="08/23/2016"
 	ms.author="curtand"/>
 
 # Réinitialisation du mot de passe pour un utilisateur
@@ -35,4 +35,4 @@ Que vous répondiez à un utilisateur qui demande une réinitialisation de son m
 - [Gestion des mots de passe dans Azure AD](active-directory-manage-passwords.md)
 - [Gestion des groupes dans Azure AD](active-directory-manage-groups.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0824_2016-->

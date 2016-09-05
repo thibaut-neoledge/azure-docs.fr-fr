@@ -4,7 +4,7 @@
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="singhkays"
-	manager="drewm"
+	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
 
@@ -102,8 +102,8 @@ Une stratégie peut facilement être créée directement à l'aide de l'API REST
 
 ## Application de la stratégie
 
-Après avoir créé la stratégie, vous devez l’appliquer sur une étendue définie. L’étendue peut être appliquée à un abonnement, un groupe de ressources ou même à une ressource. Pour appliquer la stratégie, consultez l'article ci-dessous :
+Après avoir créé la stratégie, vous devez l’appliquer sur une étendue définie. L’étendue peut être appliquée à un abonnement, à un groupe de ressources ou même à une ressource. Pour appliquer la stratégie, consultez l'article ci-dessous :
 
 * [Création d’une stratégie](../resource-manager-policy.md#applying-a-policy)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

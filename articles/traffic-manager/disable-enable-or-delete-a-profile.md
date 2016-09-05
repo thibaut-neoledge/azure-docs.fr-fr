@@ -3,14 +3,17 @@
    description="Cet article vous aide à utiliser vos profils Traffic Manager."
    services="traffic-manager"
    documentationCenter="na"
-   authors="joaoma"
+   authors="sdwheeler"
    manager="carmonm"
    editor="tysonn" />
-<tags  ms.service="traffic-manager" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="infrastructure-services"
-   
+<tags 
+   ms.service="traffic-manager"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"   
    ms.date="06/10/2016"
-
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 # Désactiver, activer ou supprimer un profil
 
@@ -35,7 +38,7 @@ Vous pouvez désactiver un profil Traffic Manager existant afin qu’il ne renvo
 
 
 1. Assurez-vous que l’enregistrement de ressource DNS sur votre serveur DNS Internet n’utilise plus un enregistrement de ressource CNAME pointant vers le nom de domaine de votre profil Traffic Manager.
-1. Sélectionnez le profil que vous souhaitez supprimer. Pour sélectionner le profil, dans la page Traffic Manager, mettez-le en surbrillance en 
+1. Sélectionnez le profil que vous souhaitez supprimer. Pour sélectionner le profil, dans la page Traffic Manager, mettez-le en surbrillance en
 1. cliquant sur la colonne en regard de celui-ci. Ne cliquez pas sur le nom du profil ou sur la flèche en regard du nom. Sinon, vous serez dirigé vers la page de paramètres du profil.
 1. Après avoir sélectionné le profil, cliquez sur Supprimer en bas de la page.
 
@@ -51,4 +54,4 @@ Vous pouvez désactiver un profil Traffic Manager existant afin qu’il ne renvo
 
 [Résolution des problèmes liés à l’état Détérioré de Traffic Manager](traffic-manager-troubleshooting-degraded.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0824_2016-->

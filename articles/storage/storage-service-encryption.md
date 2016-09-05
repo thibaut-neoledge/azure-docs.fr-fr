@@ -27,7 +27,7 @@ Les sections suivantes fournissent des instructions détaillées sur la façon d
 
 Azure Storage propose un ensemble complet de fonctionnalités de sécurité qui, réunies, permettent aux développeurs de créer des applications sécurisées. Les données peuvent être sécurisées en transit entre une application et Azure au moyen du [chiffrement côté client](storage-client-side-encryption.md), de HTTPs ou de SMB 3.0. Storage Service Encryption est une nouvelle fonctionnalité Azure Storage qui chiffre les données lorsque celles-ci sont écrites dans votre stockage Azure Storage prenant en charge les objets blob de blocs, les objets blob de pages et les objets blob d’ajout. Cette fonctionnalité peut être activée pour les nouveaux comptes de stockage à l’aide du modèle de déploiement Azure Resource Manager. Elle est disponible pour tous les niveaux de redondance (LRS, ZRS, GRS, RA-GRS). La fonctionnalité Storage Service Encryption est disponible pour le stockage Standard et Premium Storage. Elle se charge de la gestion du chiffrement, du déchiffrement et des clés de façon totalement transparente. Toutes les données sont chiffrées à l’aide du [chiffrement AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) 256 bits, l’un des algorithmes de chiffrement par blocs les plus puissants disponibles. La section Version préliminaire ci-dessous comporte des informations sur la participation à la version préliminaire de Storage Service Encryption.
 
-Cette capture d’écran montre où trouver le paramètre Storage Service Encryption à l’aide du [portail Azure](https://azure.portal.com). Sur cet écran, cliquez sur Chiffrement pour continuer.
+Cette capture d’écran montre où trouver le paramètre de chiffrement du service de stockage à l’aide du [portail Azure](https://azure.portal.com). Sur cet écran, cliquez sur Chiffrement pour continuer.
 
 ![Capture d’écran du portail affichant l’option de chiffrement](./media/storage-service-encryption/image1.png)
 
@@ -37,11 +37,7 @@ Lorsque vous avez cliqué sur le paramètre Chiffrement, vous pouvez activer ou 
 
 ##Availability
 
-Pour le stockage Standard, cette fonctionnalité est actuellement disponible dans le Sud-Est de l’Australie, le Centre du Canada, l’Est du Canada, le Centre des États-Unis, l’Asie de l’Est, les États-Unis de l’Est, les États-Unis de l’Est 2, le Nord du centre des États-Unis, l’Europe du Nord, le Sud du centre des États-Unis, l’Asie du Sud-Est, l’Europe de l’Ouest et les États-Unis de l’Ouest.
-
-Pour le stockage Premium, cette fonctionnalité est actuellement disponible dans le Sud-Est de l’Australie, le Centre du Canada, l’Est du Canada, le Centre des États-Unis, l’Asie de l’Est, les États-Unis de l’Est, les États-Unis de l’Est 2, le Japon de l’Est, le Nord du centre des États-Unis, l’Europe du Nord, le Sud du centre des États-Unis, l’Asie du Sud-Est et les États-Unis de l’Ouest.
-
-Nous mettrons à jour ce document lorsque de nouvelles régions seront disponibles pour cette fonctionnalité.
+Cette fonctionnalité est actuellement disponible dans toutes les régions, tant pour le stockage Premium que pour le stockage Standard.
 
 ##Scénarios de chiffrement
 
@@ -61,7 +57,7 @@ La version préliminaire publique inclut les limitations suivantes :
 
 -   Données existantes : SSE chiffre uniquement les données créées après l’activation du chiffrement. Par exemple, si vous créez un compte de stockage Resource Manager sans activer le chiffrement, puis que vous téléchargez des objets blob ou des disques durs virtuels archivés dans ce compte de stockage avant d’activer SSE, ces objets blob ne sont pas chiffrés, sauf s’ils sont réécrits ou copiés.
 
--   Prise en charge du Marketplace : activez le chiffrement des machines virtuelles créées à partir du Marketplace à l’aide du (portail Azure) [https://portal.azure.com), de PowerShell et de l’interface de ligne de commande Azure. L’image de base du disque dur virtuel reste non chiffrée. Toutefois, les écritures effectuées une fois que la machine virtuelle est opérationnelle sont chiffrées.
+-   Prise en charge du Marketplace : activez le chiffrement des machines virtuelles créées à partir du Marketplace à l’aide du [portail Azure](https://portal.azure.com), de PowerShell et de l’interface de ligne de commande Azure. L’image de base du disque dur virtuel reste non chiffrée. Toutefois, les écritures effectuées une fois que la machine virtuelle est opérationnelle sont chiffrées.
 
 -   Les données des tables, files d’attente et données ne sont pas chiffrées.
 
@@ -99,7 +95,7 @@ Lorsque l’état d’inscription est défini sur Inscrit, cela signifie que vot
 
 Vous pouvez activer le chiffrement à l’aide du [portail Azure](https://portal.azure.com).
 
-> [AZURE.NOTE] Si vous souhaitez activer ou désactiver Storage Service Encryption par programme sur un compte de stockage, vous pouvez utiliser [l’API REST du fournisseur de ressources de stockage Azure](https://msdn.microsoft.com/library/azure/mt163683.aspx). Nous ajouterons bientôt cette capacité à la [bibliothèque cliente du fournisseur de ressources de stockage pour .NET](https://msdn.microsoft.com/library/azure/mt131037.aspx), Azure PowerShell et l’interface de ligne de commande Azure.
+> [AZURE.NOTE] Si vous souhaitez activer ou désactiver Storage Service Encryption par programme sur un compte de stockage, vous pouvez utiliser [l’API REST du fournisseur de ressources de stockage Azure](https://msdn.microsoft.com/library/azure/mt163683.aspx). Nous ajouterons bientôt cette capacité à la [bibliothèque cliente du fournisseur de ressources de stockage pour .NET](https://msdn.microsoft.com/library/azure/mt131037.aspx), à Azure PowerShell et à l’interface de ligne de commande Azure.
 
 ###Étape 4 : Copier les données dans le compte de stockage
 
@@ -107,7 +103,7 @@ Vous pouvez activer le chiffrement à l’aide du [portail Azure](https://portal
 
 AzCopy est un utilitaire de ligne de commande Windows conçu pour copier des données depuis et vers un objet blob Microsoft Azure, un fichier ou un stockage de table en utilisant les commandes avec une performance optimale. Cet utilitaire permet de copier les données d’un compte Blob Storage existant dans votre compte de stockage dans lequel la fonctionnalité de chiffrement est activée.
 
-Pour plus d’informations, consultez [Transfert de données avec l’utilitaire de ligne de commande AzCopy](storage-use-azcopy.md).
+Pour plus d’informations, voir [Transfert de données avec l’utilitaire de ligne de commande AzCopy](storage-use-azcopy.md).
 
 #### Utilisation des bibliothèques clientes de stockage
 
@@ -159,7 +155,7 @@ R : Pendant la version préliminaire de SSE, vous devez créer un compte pour ac
 
 **Q : Puis-je chiffrer les données actuelles dans un compte de stockage Resource Manager existant ?**
 
-R : Si votre compte de stockage Resource Manager existant a été créé avant l’annonce de cette version préliminaire, vous pouvez en créer un nouveau et activer le chiffrement. Vous pouvez ensuite copier vos données de l’ancien compte de stockage vers le nouveau. Les données sont alors automatiquement chiffrées. Toutefois, si votre compte de stockage Resource Manager a été créé après l’annonce de la version préliminaire et que vous avez décidé d’activer le chiffrement ultérieurement, vous pouvez activer le chiffrement pour ce compte de stockage à l’aide du portail Azure et réécrire vos données non chiffrées dans le compte de stockage.
+R : Si votre compte de stockage Resource Manager existant a été créé avant l’annonce de cette version préliminaire, vous pouvez en créer un nouveau et activer le chiffrement. Vous pouvez ensuite copier vos données de l’ancien compte de stockage vers le nouveau. Les données sont alors automatiquement chiffrées. Toutefois, si votre compte de stockage Resource Manager a été créé après l’annonce de la version préliminaire et que vous avez décidé d’activer le chiffrement ultérieurement, vous pouvez activer le chiffrement pour ce compte de stockage à l’aide du portail Azure, et réécrire vos données non chiffrées dans le compte de stockage.
 
 **Q : J’utilise Premium Storage. Puis-je utiliser SSE ?**
 
@@ -229,4 +225,4 @@ R : Contactez [ssediscussions@microsoft.com](mailto:ssediscussions@microsoft.com
 
 Azure Storage propose un ensemble complet de fonctionnalités de sécurité qui, réunies, permettent aux développeurs de créer des applications sécurisées. Pour plus d’informations, consultez notre [guide de sécurité sur Storage](storage-security-guide.md).
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

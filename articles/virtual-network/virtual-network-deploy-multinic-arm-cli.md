@@ -88,7 +88,7 @@ Vous pouvez télécharger le script d'interpréteur de commandes complet utilis�
 		                --name $backendSubnetName|grep Id)"
 		subnetId=${subnetId#*/}
 
->[AZURE.TIP] La première commande ci-dessus utilise [grep](http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_04_02.html) et [la manipulation des chaînes](http://tldp.org/LDP/abs/html/string-manipulation.html) (plus précisément, suppression de sous-chaîne).
+	>[AZURE.TIP] La première commande ci-dessus utilise [grep](http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_04_02.html) et [la manipulation des chaînes](http://tldp.org/LDP/abs/html/string-manipulation.html) (plus précisément, suppression de sous-chaîne).
 
 4. Récupérez l'ID du groupe de sécurité réseau `NSG-RemoteAccess`. Vous devez le faire dans la mesure où les cartes à associer à ce groupe de sécurité réseau se trouvent dans un autre groupe de ressources.
 
@@ -330,4 +330,4 @@ Maintenant que vous avez téléchargé et modifié le script selon vos besoins, 
 		info:    Updating VM "DB2"
 		info:    vm disk attach-new command OK
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

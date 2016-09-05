@@ -15,12 +15,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/30/2016"
+	ms.date="08/17/2016"
 	ms.author="genli"/>
 
 # Impossible de me connecter pour gérer mon abonnement Azure
 
-> [AZURE.NOTE] Si vous avez besoin d’aide supplémentaire concernant n’importe quel point de cet article, vous pouvez contacter les experts Azure sur les [forums MSDN Azure et Stack Overflow](https://azure.microsoft.com/support/forums/). Vous pouvez également signaler un incident au support Azure sur le [site de support Azure](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409). Pour plus d’informations sur l’utilisation du support Azure, lisez la [FAQ du support Microsoft Azure](https://azure.microsoft.com/support/faq/).
+> [AZURE.NOTE] Si à un moment donné dans cet article, vous avez besoin d’aide, veuillez [contacter le support technique](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409) pour obtenir une prise en charge rapide de votre problème.
 
 Cet article vous aidera à résoudre certains problèmes de connexion courants.
 
@@ -30,7 +30,7 @@ Les administrateurs de comptes ne peuvent accéder qu’au [Centre des comptes](
 
 Pour plus d’informations sur les rôles d’administrateur Azure, consultez [Ajout ou modification de rôles d’administrateur Azure](billing-add-change-azure-subscription-administrator.md).
 
-## Votre abonnement est-il associé à un compte Microsoft ou à un compte professionnel ?
+## Votre abonnement est-il associé à un compte Microsoft ou à un compte professionnel ?
 
 Votre compte Microsoft correspond à l’adresse de messagerie et au mot de passe que vous utilisez pour vous connecter à n’importe quel programme ou service Windows Live (par exemple, Outlook, Hotmail, MSN ou OneDrive). Vous pouvez configurer un compte Microsoft en utilisant l’une de vos adresses de messagerie personnelles, y compris la messagerie de votre entreprise. Pour plus d’informations, consultez [www.microsoft.com/account](http://www.microsoft.com/account).
 
@@ -54,4 +54,6 @@ Il est désormais possible de se connecter à Azure avec un compte professionnel
 
 Essayez de supprimer le cache/les cookies en utilisant IE en mode de navigation InPrivate et en utilisant également un autre navigateur
 
-<!---HONumber=AcomDC_0803_2016-->
+> [AZURE.NOTE] Si vous avez d’autres questions, veuillez [contacter le support technique](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409) pour obtenir une prise en charge rapide de votre problème.
+
+<!---HONumber=AcomDC_0824_2016-->

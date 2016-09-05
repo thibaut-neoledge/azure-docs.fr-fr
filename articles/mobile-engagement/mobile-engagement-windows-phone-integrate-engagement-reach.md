@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="na" 
 	ms.topic="article"
-	ms.date="07/07/2015" 
+	ms.date="08/19/2016" 
 	ms.author="piyushjo" />
 
 #Intégration du Kit de développement logiciel (SDK) du module Couverture Windows Phone Silverlight
@@ -24,7 +24,7 @@ Vous devez suivre la procédure d'intégration décrite dans la rubrique [Intég
 
 Vous n'avez rien à ajouter. Les références et les ressources de `EngagementReach` se trouvent déjà dans votre projet.
 
-> [AZURE.TIP]Vous pouvez personnaliser les images situées dans le dossier `Resources` de votre projet, en particulier l'icône de marque (par défaut, il s'agit de l'icône d'Engagement).
+> [AZURE.TIP]  Vous pouvez personnaliser les images situées dans le dossier `Resources` de votre projet, en particulier l'icône de marque (par défaut, il s'agit de l'icône d'Engagement).
 
 ##Ajouter les fonctionnalités
 
@@ -73,7 +73,7 @@ Si vous souhaitez plutôt le spécifier lors de l'exécution, vous pouvez appele
 	/* Initialize Engagement agent with above configuration. */
 	EngagementAgent.Instance.Init(engagementConfiguration);
 
-> [AZURE.TIP]Vous pouvez spécifier le nom du canal de transmission MPNS de votre application. Par défaut, Engagement crée un nom basé sur l'ID de l'application. Il n'est pas nécessaire de spécifier le nom vous-même, sauf si vous prévoyez d'utiliser le canal Push en dehors d'Engagement.
+> [AZURE.TIP] Vous pouvez spécifier le nom du canal de transmission MPNS de votre application. Par défaut, Engagement crée un nom basé sur l'ID de l'application. Il n'est pas nécessaire de spécifier le nom vous-même, sauf si vous prévoyez d'utiliser le canal Push en dehors d'Engagement.
 
 ### Initialisation d'Engagement
 
@@ -99,7 +99,7 @@ Modifiez le fichier `App.xaml.cs` :
 		   EngagementReach.Instance.OnActivated(e);
 		}
 
-> [AZURE.IMPORTANT]`EngagementReach.Instance.Init` est exécuté dans un thread dédié. Vous n'avez pas à le faire vous-même.
+> [AZURE.IMPORTANT] `EngagementReach.Instance.Init` est exécuté dans un thread dédié. Vous n'avez pas à le faire vous-même.
 
 ##Considérations relatives à la soumission App store
 
@@ -119,7 +119,7 @@ Vous pouvez également décider de désactiver MPNS via la configuration Engagem
 
 > 2\.9.2) L'application et son utilisation du service MPNS ne doivent pas utiliser une capacité réseau ou une bande passante MNPS excessive, ni surcharger de notifications un appareil Windows Phone ou autre service ou appareil Microsoft, comme déterminé par Microsoft à sa discrétion, ni endommager ou interférer avec les réseaux ou serveurs Microsoft ou tout serveur ou serveurs tiers connectés au service MNPS.
 
-3) N'utilisez pas le service MPNS pour envoyer des informations critiques. Engagement utilise MPNS, cette règle s'applique donc aussi pour les campagnes créées dans le serveur frontal Engagement.
+3) N’utilisez pas le service MPNS pour envoyer des informations critiques. Engagement utilise MPNS, cette règle s'applique donc aussi pour les campagnes créées dans le serveur frontal Engagement.
 
 > 2\.9.3) Le service MNPS ne peut pas être utilisé pour envoyer des notifications stratégiques ou pouvant toucher à la vie des utilisateurs, y compris, mais sans s'y limiter, les notifications critiques liées à une affection ou un dispositif médical. MICROSOFT NE GARANTIT AUCUNEMENT LA NON-INTERRUPTION, L'ABSENCE D'ERREUR OU L'EXÉCUTION EN TEMPS RÉEL DE L'UTILISATION DU SERVICE MPNS OU DE LA LIVRAISON DES NOTIFICATIONS MPNS.
 
@@ -144,7 +144,7 @@ Si vous voulez que votre application puisse recevoir les Push de données du mod
 
 Vous pouvez voir que le rappel de chaque méthode renvoie un booléen. Engagement envoie un feedback à son serveur principal après la répartition des Push de données. Si le rappel renvoie la valeur false, le retour `exit` sera envoyé. Dans le cas contraire, il s'agira du retour `action`. Si aucun rappel n'est défini pour les événements, le retour `drop` sera envoyé à Engagement.
 
-> [AZURE.WARNING]Engagement ne peut pas recevoir plusieurs feedbacks pour un Push de données. Si vous prévoyez de définir plusieurs gestionnaires pour un événement, sachez que le feedback correspondra au dernier envoyé. Dans ce cas, nous vous recommandons de toujours retourner la même valeur afin d'éviter un feedback prêtant à confusion sur le serveur frontal.
+> [AZURE.WARNING] Engagement ne peut pas recevoir plusieurs feedbacks pour un Push de données. Si vous prévoyez de définir plusieurs gestionnaires pour un événement, sachez que le feedback correspondra au dernier envoyé. Dans ce cas, nous vous recommandons de toujours retourner la même valeur afin d'éviter un feedback prêtant à confusion sur le serveur frontal.
 
 ##Personnaliser l'interface utilisateur (facultatif)
 
@@ -177,7 +177,7 @@ Ensuite, définissez le contenu du champ `EngagementReach.Instance.Handler` à l
 	   // Engagement Agent and Reach initialization
 	}
 
-> [AZURE.NOTE]Par défaut, Engagement utilise sa propre implémentation de `EngagementReachHandler`. Il n'est pas nécessaire de créer votre propre implémentation. Toutefois, si vous le faites, vous n'aurez pas à remplacer chaque méthode. Le comportement par défaut consiste à sélectionner l'objet de base Engagement.
+> [AZURE.NOTE] Par défaut, Engagement utilise sa propre implémentation de `EngagementReachHandler`. Il n'est pas nécessaire de créer votre propre implémentation. Toutefois, si vous le faites, vous n'aurez pas à remplacer chaque méthode. Le comportement par défaut consiste à sélectionner l'objet de base Engagement.
 
 ### Mises en forme
 
@@ -211,11 +211,11 @@ Vous pouvez remplacer les méthodes `EngagementReachHandler` dans votre sous-cla
 	   // return a new instance of your own notification
 	}
 
-> [AZURE.TIP]La méthode `CreateNotification` peut renvoyer un résultat null. La notification ne s'affichera pas et la couverture campagne est abandonnée.
+> [AZURE.TIP] La méthode `CreateNotification` peut renvoyer un résultat null. La notification ne s'affichera pas et la couverture campagne est abandonnée.
 
 Pour simplifier l'implémentation de votre mise en forme, nous fournissons également notre propre xaml qui peut servir de base pour votre code. Il se trouve dans l'archive du SDK Engagement (/src/reach/).
 
-> [AZURE.WARNING]Les sources que nous proposons sont absolument identiques à celles que nous utilisons. Par conséquent, si vous souhaitez les modifier directement, n'oubliez pas de modifier l'espace de noms et le nom.
+> [AZURE.WARNING] Les sources que nous proposons sont absolument identiques à celles que nous utilisons. Par conséquent, si vous souhaitez les modifier directement, n'oubliez pas de modifier l'espace de noms et le nom.
 
 ### Position des notifications
 
@@ -259,11 +259,11 @@ Pour implémenter le rappel, procédez comme suit :
 
 Vous pouvez définir le rappel dans la méthode `Application_Launching` de votre fichier `App.xaml.cs`, de préférence avant l'appel `EngagementReach.Instance.Init()`.
 
-> [AZURE.TIP]Chaque gestionnaire est appelé par le thread d'interface utilisateur. Vous n'avez pas de souci à vous faire quand vous utilisez un MessageBox ou autre objet d'interface utilisateur.
+> [AZURE.TIP] Chaque gestionnaire est appelé par le thread d'interface utilisateur. Vous n'avez pas de souci à vous faire quand vous utilisez un MessageBox ou autre objet d'interface utilisateur.
 
 [politiques d'applications]: http://msdn.microsoft.com/library/windows/apps/hh184841(v=vs.105).aspx
 [Content Policies]: http://msdn.microsoft.com/library/windows/apps/hh184842(v=vs.105).aspx
 [exigences supplémentaires pour les types d'application spécifiques]: http://msdn.microsoft.com/library/windows/apps/hh184838(v=vs.105).aspx
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0824_2016-->

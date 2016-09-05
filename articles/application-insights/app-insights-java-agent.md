@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Surveiller les dépendances, les exceptions et les temps d’exécution dans les applications web Java" 
-	description="Surveillance étendue de votre site web Java avec Application Insights" 
+	description="Surveillance étendue de votre site web Java avec Application Insights" 
 	services="application-insights" 
     documentationCenter="java"
 	authors="alancameronwills" 
@@ -12,33 +12,33 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/02/2016" 
+	ms.date="08/24/2016" 
 	ms.author="awills"/>
  
 # Surveiller les dépendances, les exceptions et les temps d’exécution dans les applications web Java
 
 *Application Insights est à l'état de version préliminaire.*
 
-Si vous avez [instrumenté votre application web Java avec Application Insights][java], vous pouvez utiliser l’agent Java pour obtenir des informations plus détaillées, sans aucune modification de code :
+Si vous avez [instrumenté votre application web Java avec Application Insights][java], vous pouvez utiliser l’agent Java pour obtenir des informations plus détaillées, sans aucune modification de code :
 
 
-* **Dépendances :** données sur les appels passés par votre application à destination d’autres composants, dont :
+* **Dépendances :** données sur les appels passés par votre application à destination d’autres composants, dont :
  * **Appels REST** passés via HttpClient, OkHttp et RestTemplate (Spring).
  * Appels **Redis** passés via le client Jedis. Si l’appel prend plus de 10 s, l’agent récupère également les arguments d’appel.
- * **[Appels JDBC](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/)** : base de données MySQL, SQL Server, PostgreSQL, SQLite, Oracle DB ou Apache Derby. Les appels de « executeBatch » sont pris en charge. Pour MySQL et PostgreSQL, si l’appel prend plus de 10 s, l’agent signale le plan de requête. 
+ * **[Appels JDBC](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/)** : base de données MySQL, SQL Server, PostgreSQL, SQLite, Oracle DB ou Apache Derby. Les appels de « executeBatch » sont pris en charge. Pour MySQL et PostgreSQL, si l’appel prend plus de 10 s, l’agent signale le plan de requête.
 * **Exceptions interceptées** : données concernant les exceptions gérées par votre code.
 * **Temps d’exécution de la méthode** : données concernant le temps nécessaire pour exécuter des méthodes spécifiques.
 
-Pour utiliser l’agent Java, installez-le sur votre serveur. Vos applications web doivent être instrumentées à l’aide du [Kit de développement logiciel (SDK) Java Application Insights][java].
+Pour utiliser l’agent Java, installez-le sur votre serveur. Vos applications web doivent être instrumentées à l’aide du [Kit de développement logiciel (SDK) Java Application Insights][java].
 
-## Installer l’agent Application Insights pour Java
+## Installer l’agent Application Insights pour Java
 
 1. [Téléchargez l'agent](https://azuredownloads.blob.core.windows.net/applicationinsights/sdk.html) sur la machine exécutant votre serveur Java.
-2. Modifiez le script de démarrage du serveur d’applications et ajoutez la Machine virtuelle Java (JVM) suivante :
+2. Modifiez le script de démarrage du serveur d’applications et ajoutez la Machine virtuelle Java (JVM) suivante :
 
     `javaagent:`*chemin d’accès complet au fichier JAR de l’agent*
 
-    Par exemple, dans Tomcat sur une machine Linux :
+    Par exemple, dans Tomcat sur une machine Linux :
 
     `export JAVA_OPTS="$JAVA_OPTS -javaagent:<full path to agent JAR file>"`
 
@@ -59,11 +59,11 @@ Définissez le contenu du fichier xml. Modifiez l’exemple suivant pour inclure
         
         <!-- Collect remote dependency data -->
         <BuiltIn enabled="true">
-           <!-- Disable Redis or alter threshold call duration above which arguments will be sent.
+           <!-- Disable Redis or alter threshold call duration above which arguments are sent.
                Defaults: enabled, 10000 ms -->
            <Jedis enabled="true" thresholdInMS="1000"/>
            
-           <!-- Set SQL query duration above which query plan will be reported (MySQL, PostgreSQL). Default is 10000 ms. -->
+           <!-- Set SQL query duration above which query plan is reported (MySQL, PostgreSQL). Default is 10000 ms. -->
            <MaxStatementQueryLimitInMS>1000</MaxStatementQueryLimitInMS>
         </BuiltIn>
 
@@ -102,9 +102,10 @@ Pour rechercher des instances individuelles de rapports sur les dépendances, le
 
 
 
-## Des questions ? Des problèmes ?
+## Des questions ? Des problèmes ?
 
-[Résolution des problèmes Java](app-insights-java-troubleshoot.md)
+* Pas de données ? [Définir les exceptions de pare-feu](app-insights-ip-addresses.md)
+* [Résolution des problèmes Java](app-insights-java-troubleshoot.md)
 
 
 
@@ -122,4 +123,4 @@ Pour rechercher des instances individuelles de rapports sur les dépendances, le
 
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/21/2016"
+	ms.date="08/24/2016"
 	ms.author="genli"/>
 
 # Changer d’offre pour votre abonnement Azure
@@ -23,6 +23,8 @@ Vous pouvez changer d’abonnement et choisir une offre plus avantageuse, sans a
 
 -	Si vous trouvez que vos dépenses Azure sont élevées, vous avez peut-être droit à une remise en passant par l’offre de contrat prépayé. Cliquez [ici](billing-usage-rate-card-overview.md) pour obtenir des informations supplémentaires sur votre consommation des ressources Microsoft Azure.
 -	Si vous souhaitez bénéficier des avantages d’un abonnement comme MSDN ou BizSpark après avoir souscrit à un abonnement avec paiement à l’utilisation.
+
+> [AZURE.NOTE] Si à un moment donné dans cet article, vous avez besoin d’aide, veuillez [contacter le support technique](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour obtenir une prise en charge rapide de votre problème.
 
 ## Guide pour changer d’offre pour votre abonnement
 
@@ -77,4 +79,6 @@ Vous trouverez ci-après les changements actuellement pris en charge dans le [Ce
 
 Pour les autres changements d’offre, [contactez le support](http://go.microsoft.com/fwlink/?LinkID=619338).
 
-<!---HONumber=AcomDC_0803_2016-->
+> [AZURE.NOTE] Si vous avez d’autres questions, veuillez [contacter le support technique](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour obtenir une prise en charge rapide de votre problème.
+
+<!---HONumber=AcomDC_0824_2016-->

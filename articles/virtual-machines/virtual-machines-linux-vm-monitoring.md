@@ -4,7 +4,7 @@
    services="virtual-machines-linux"
    documentationCenter="virtual-machines"
    authors="kmouss"
-   manager="drewm"
+   manager="timlt"
    editor=""/>
 
 <tags
@@ -52,10 +52,10 @@ Pour activer l’analyse pour une machine virtuelle Azure.
 
 [Azure.Note] Vous pouvez passer de la version 2.0 à une version ultérieure (le cas échéant).
 
-Pour plus d’informations sur la configuration des mesures d’analyse et pour obtenir des exemples, consultez le document - **[Utilisation de l’extension de diagnostic Linux pour surveiller les données de performances et de diagnostic des machines virtuelles Linux](virtual-machines-linux-diagnostic-extension/).
+Pour plus d’informations sur la configuration des mesures d’analyse et pour obtenir des exemples, voir le document - **[Utilisation de l’extension de diagnostic Linux pour surveiller les données de performances et de diagnostic des machines virtuelles Linux](virtual-machines-linux-classic-diagnostic-extension.md).
 
 <!--Image references-->
 [1]: ./media/virtual-machines-linux-vm-monitoring/portal-enable-disable.png
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0824_2016-->

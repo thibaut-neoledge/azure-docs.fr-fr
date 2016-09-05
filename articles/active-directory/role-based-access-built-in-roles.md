@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="kgremban"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="05/20/2016"
+	ms.date="08/25/2016"
 	ms.author="kgremban"/>
 
 #RBAC : rôles intégrés
@@ -42,7 +42,7 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 | [Collaborateur de compte NewRelic APM](#new-relic-apm-account-contributor) | Peut gérer les comptes et applications NewRelic Application Performance Management |
 | [Propriétaire](#owner) | Gérer tout, y compris l’accès |
 | [Lecteur](#reader) | Afficher tout, mais ne pas apporter de modifications |
-| [Collaborateur Cache Redis](#redis-cache-contributor]) | Gérer les caches Redis |
+| [Collaborateur Cache Redis](#redis-cache-contributor) | Gérer les caches Redis |
 | [Collaborateur des collections de travaux du planificateur](#scheduler-job-collections-contributor) | Gérer des collections de travaux du planificateur |
 | [Collaborateur du service de recherche](#search-service-contributor) | Gérer les services de recherche |
 | [Gestionnaire de sécurité](#security-manager) | Gérer les composants de sécurité, les stratégies de sécurité et les machines virtuelles |
@@ -147,8 +147,8 @@ Gérer tout sauf les accès
 
 | **NotActions** ||
 | ------- | ------ |
+| Microsoft.Authorization/*/Delete | Impossible de supprimer des rôles et des affectations de rôles |  
 | Microsoft.Authorization/*/Write | Impossible de créer des rôles et des affectations de rôles |
-| Microsoft.Authorization/*/Delete | Impossible de supprimer des rôles et des affectations de rôles |
 
 ### Collaborateurs de fabrique de données
 Gérer les fabriques de données
@@ -183,7 +183,7 @@ Afficher tout et connecter, démarrer, redémarrer et arrêter les machines virt
 | Microsoft.DevTestLab/labs/policySets/evaluatePolicies/action | Évaluer des stratégies de laboratoire |
 | Microsoft.Network/loadBalancers/backendAddressPools/join/action | Joindre un pool d’adresses principales d’équilibreur de charge |
 | Microsoft.Network/loadBalancers/inboundNatRules/join/action | Joindre une règle NAT entrante d’équilibreur de charge |
-| Microsoft.Network/networkInterfaces/*/read | Lire les propriétés d’une interface réseau (par ex. tous les équilibreurs de charge dont l’interface réseau fait partie) |
+| Microsoft.Network/networkInterfaces/*/read | Lire les propriétés d’une interface réseau (par exemple, tous les équilibreurs de charge dont l’interface réseau fait partie) |
 | Microsoft.Network/networkInterfaces/join/action | Joindre une machine virtuelle à une interface réseau |
 | Microsoft.Network/networkInterfaces/read | Lire des interfaces réseau |
 | Microsoft.Network/networkInterfaces/write | Écrire des interfaces réseau |
@@ -260,7 +260,7 @@ Afficher tout, mais ne pas apporter de modifications
 
 | **Actions** ||
 | ------- | ------ |
-| **/read | Lire les ressources de tous les types, à l’exception des secrets. |
+| */read | Lire les ressources de tous les types, à l’exception des secrets. |
 
 ### Collaborateur Redis Cache
 Gérer les caches Redis
@@ -284,7 +284,8 @@ Gérer des collections de travaux du planificateur
 | Microsoft.Insights/alertRules/* | Créer et gérer les règles d’alerte |
 | Microsoft.ResourceHealth/availabilityStatuses/read | Lire l’intégrité des ressources |
 | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
-| Microsoft.Resources/subscriptions/resourceGroups/read | Lire les groupes de ressources | Microsoft.Scheduler/jobcollections/* | Créer et gérer des collections de travaux |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Lire les groupes de ressources |  
+| Microsoft.Scheduler/jobcollections/* | Créer et gérer des collections de travaux |
 | Microsoft.Support/* | Créer et gérer les tickets de support |
 
 ### Collaborateur du service de recherche
@@ -296,7 +297,8 @@ Gérer les services de recherche
 | Microsoft.Insights/alertRules/* | Créer et gérer les règles d’alerte |
 | Microsoft.ResourceHealth/availabilityStatuses/read | Lire l’intégrité des ressources |
 | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
-| Microsoft.Resources/subscriptions/resourceGroups/read | Lire les groupes de ressources | Microsoft.Search/searchServices/* | Créer et gérer les services de recherche |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Lire les groupes de ressources |  
+| Microsoft.Search/searchServices/* | Créer et gérer les services de recherche |
 | Microsoft.Support/* | Créer et gérer les tickets de support |
 
 ### Gestionnaire de sécurité
@@ -311,7 +313,8 @@ Gérer les composants de sécurité, les stratégies de sécurité et les machin
 | Microsoft.Insights/alertRules/* | Créer et gérer les règles d’alerte |
 | Microsoft.ResourceHealth/availabilityStatuses/read | Lire l’intégrité des ressources |
 | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
-| Microsoft.Resources/subscriptions/resourceGroups/read | Lire les groupes de ressources | Microsoft.Security/* | Créer et gérer des stratégies et des composants de sécurité |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Lire les groupes de ressources |  
+| Microsoft.Security/* | Créer et gérer des stratégies et des composants de sécurité |
 | Microsoft.Support/* | Créer et gérer les tickets de support |
 
 ### Collaborateur de base de données SQL
@@ -323,7 +326,8 @@ Gérer les bases de données SQL, mais pas leurs stratégies de sécurité
 | Microsoft.Insights/alertRules/* | Créer et gérer les règles d’alerte |
 | Microsoft.ResourceHealth/availabilityStatuses/read | Lire l’intégrité des ressources |
 | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
-| Microsoft.Resources/subscriptions/resourceGroups/read | Lire les groupes de ressources | Microsoft.Sql/servers/databases/* | Créer et gérer les bases de données SQL |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Lire les groupes de ressources |
+| Microsoft.Sql/servers/databases/* | Créer et gérer les bases de données SQL |
 | Microsoft.Sql/servers/read | Lire les serveurs SQL |
 | Microsoft.Support/* | Créer et gérer les tickets de support |
 
@@ -331,6 +335,7 @@ Gérer les bases de données SQL, mais pas leurs stratégies de sécurité
 | ------- | ------ |
 | Microsoft.Sql/servers/databases/auditingPolicies/* | Impossible de modifier les stratégies d’audit |
 | Microsoft.Sql/servers/databases/auditingSettings/* | Impossible de modifier les paramètres d’audit |
+| Microsoft.Sql/servers/databases/auditRecords/read | Impossible de lire les enregistrements d’audit |
 | Microsoft.Sql/servers/databases/connectionPolicies/* | Impossible de modifier les stratégies de connexion |
 | Microsoft.Sql/servers/databases/dataMaskingPolicies/* | Impossible de modifier les stratégies de masquage des données |
 | Microsoft.Sql/servers/databases/securityAlertPolicies/* | Impossible de modifier les stratégies d’alerte de sécurité |
@@ -345,10 +350,12 @@ Gérer les stratégies de sécurité des serveurs et bases de données SQL
 | Microsoft.Insights/alertRules/* | Créer et gérer des règles d’alerte Insights |
 | Microsoft.ResourceHealth/availabilityStatuses/read | Lire l’intégrité des ressources |
 | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
-| Microsoft.Resources/subscriptions/resourceGroups/read | Lire les groupes de ressources | Microsoft.Sql/servers/auditingPolicies/* | Créer et gérer les stratégies d’audit de serveur SQL |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Lire les groupes de ressources |
+| Microsoft.Sql/servers/auditingPolicies/* | Créer et gérer les stratégies d’audit de serveur SQL |
 | Microsoft.Sql/servers/auditingSettings/* | Créer et gérer les paramètres d’audit de serveur SQL |
 | Microsoft.Sql/servers/databases/auditingPolicies/* | Créer et gérer les stratégies d’audit de base de données de serveur SQL |
 | Microsoft.Sql/servers/databases/auditingSettings/* | Créer et gérer les paramètres d’audit de base de données de serveur SQL |
+| Microsoft.Sql/servers/databases/auditRecords/read | Lire les enregistrements d’audit |
 | Microsoft.Sql/servers/databases/connectionPolicies/* | Créer et gérer les stratégies de connexion de base de données de serveur SQL |
 | Microsoft.Sql/servers/databases/dataMaskingPolicies/* | Créer et gérer les stratégies de masquage de données de base de données de serveur SQL |
 | Microsoft.Sql/servers/databases/read | Lire les bases de données SQL |
@@ -370,7 +377,8 @@ Gérer les serveurs et bases de données SQL, mais pas leurs stratégies de séc
 | Microsoft.Insights/alertRules/* | Créer et gérer des règles d’alerte Insights |
 | Microsoft.ResourceHealth/availabilityStatuses/read | Lire l’intégrité des ressources |
 | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
-| Microsoft.Resources/subscriptions/resourceGroups/read | Lire les groupes de ressources | Microsoft.Sql/servers/* | Créer et gérer les serveurs SQL |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Lire les groupes de ressources |
+| Microsoft.Sql/servers/* | Créer et gérer les serveurs SQL |
 | Microsoft.Support/* | Créer et gérer les tickets de support |
 
 | **NotActions** ||
@@ -379,6 +387,7 @@ Gérer les serveurs et bases de données SQL, mais pas leurs stratégies de séc
 | Microsoft.Sql/servers/auditingSettings/* | Impossible de modifier les paramètres d’audit de serveur SQL |
 | Microsoft.Sql/servers/databases/auditingPolicies/* | Impossible de modifier les stratégies d’audit de base de données de serveur SQL |
 | Microsoft.Sql/servers/databases/auditingSettings/* | Impossible de modifier les paramètres d’audit de base de données de serveur SQL |
+| Microsoft.Sql/servers/databases/auditRecords/read | Impossible de lire les enregistrements d’audit |
 | Microsoft.Sql/servers/databases/connectionPolicies/* | Impossible de modifier les stratégies de connexion de base de données de serveur SQL |
 | Microsoft.Sql/servers/databases/dataMaskingPolicies/* | Impossible de modifier les stratégies de masquage de données de base de données de serveur SQL |
 | Microsoft.Sql/servers/databases/securityAlertPolicies/* | Impossible de modifier les stratégies d’alerte de sécurité de base de données de serveur SQL |
@@ -395,7 +404,8 @@ Gérer les comptes de stockage classiques
 | Microsoft.Insights/alertRules/* | Créer et gérer des règles d’alerte Insights |
 | Microsoft.ResourceHealth/availabilityStatuses/read | Lire l’intégrité des ressources |
 | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
-| Microsoft.Resources/subscriptions/resourceGroups/read | Lire les groupes de ressources | Microsoft.Support/* | Créer et gérer les tickets de support |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Lire les groupes de ressources |  
+| Microsoft.Support/* | Créer et gérer les tickets de support |
 
 ### Collaborateur de compte de stockage
 Peut gérer les comptes de stockage, mais pas y accéder.
@@ -407,7 +417,8 @@ Peut gérer les comptes de stockage, mais pas y accéder.
 | Microsoft.Insights/diagnosticSettings/* | Gérer les paramètres de diagnostic |
 | Microsoft.ResourceHealth/availabilityStatuses/read | Lire l’intégrité des ressources |
 | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
-| Microsoft.Resources/subscriptions/resourceGroups/read | Lire les groupes de ressources | Microsoft.Storage/storageAccounts/* | Créer et gérer les comptes de stockage |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Lire les groupes de ressources |  
+| Microsoft.Storage/storageAccounts/* | Créer et gérer les comptes de stockage |
 | Microsoft.Support/* | Créer et gérer les tickets de support |
 
 ### Administrateur de l'accès utilisateur
@@ -415,7 +426,7 @@ Gérer l’accès utilisateur aux ressources Azure
 
 | **Actions** ||
 | ------- | ------ |
-| */read | Lire les ressources de tous les types, à l’exception des secrets. | 
+| */read | Lire les ressources de tous les types, à l’exception des secrets. |
 | Microsoft.Authorization/* | Gérer les autorisations |
 | Microsoft.Support/* | Créer et gérer les tickets de support |
 
@@ -439,7 +450,8 @@ Gérer les machines virtuelles classiques, mais pas le réseau virtuel ou le com
 | Microsoft.Insights/alertRules/* | Créer et gérer des règles d’alerte Insights |
 | Microsoft.ResourceHealth/availabilityStatuses/read | Lire l’intégrité des ressources |
 | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
-| Microsoft.Resources/subscriptions/resourceGroups/read | Lire les groupes de ressources | Microsoft.Support/* | Créer et gérer les tickets de support |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Lire les groupes de ressources |
+| Microsoft.Support/* | Créer et gérer les tickets de support |
 
 ### Collaborateur de machine virtuelle
 Gérer les machines virtuelles, mais pas le réseau virtuel ou le compte de stockage auquel elles sont connectées
@@ -467,7 +479,8 @@ Gérer les machines virtuelles, mais pas le réseau virtuel ou le compte de stoc
 | Microsoft.Network/virtualNetworks/subnets/join/action | Joindre des sous-réseaux de réseau virtuel |
 | Microsoft.ResourceHealth/availabilityStatuses/read | Lire l’intégrité des ressources |
 | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
-| Microsoft.Resources/subscriptions/resourceGroups/read | Lire les groupes de ressources | Microsoft.Storage/storageAccounts/listKeys/action | Répertorier les clés de compte de stockage |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Lire les groupes de ressources |  
+| Microsoft.Storage/storageAccounts/listKeys/action | Répertorier les clés de compte de stockage |
 | Microsoft.Storage/storageAccounts/read | Lire les comptes de stockage |
 | Microsoft.Support/* | Créer et gérer les tickets de support |
 
@@ -481,7 +494,8 @@ Gérer les réseaux virtuels classiques et les adresses IP réservées
 | Microsoft.Insights/alertRules/* | Créer et gérer des règles d’alerte Insights |
 | Microsoft.ResourceHealth/availabilityStatuses/read | Lire l’intégrité des ressources |
 | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
-| Microsoft.Resources/subscriptions/resourceGroups/read | Lire les groupes de ressources | Microsoft.Support/* | Créer et gérer les tickets de support |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Lire les groupes de ressources |  
+| Microsoft.Support/* | Créer et gérer les tickets de support |
 
 ### Collaborateur de plan web
 Gérer les plans web
@@ -492,7 +506,8 @@ Gérer les plans web
 | Microsoft.Insights/alertRules/* | Créer et gérer des règles d’alerte Insights |
 | Microsoft.ResourceHealth/availabilityStatuses/read | Lire l’intégrité des ressources |
 | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
-| Microsoft.Resources/subscriptions/resourceGroups/read | Lire les groupes de ressources | Microsoft.Support/* | Créer et gérer les tickets de support |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Lire les groupes de ressources |  
+| Microsoft.Support/* | Créer et gérer les tickets de support |
 | Microsoft.Web/serverFarms/* | Créer et gérer des batteries de serveurs |
 
 ### Collaborateur de site web
@@ -505,7 +520,8 @@ Gérer les sites web, mais pas les plans web auxquels ils sont connectés
 | Microsoft.Insights/components/* | Créer et gérer les composants Insights |
 | Microsoft.ResourceHealth/availabilityStatuses/read | Lire l’intégrité des ressources |
 | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
-| Microsoft.Resources/subscriptions/resourceGroups/read | Lire les groupes de ressources | Microsoft.Support/* | Créer et gérer les tickets de support |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Lire les groupes de ressources |  
+| Microsoft.Support/* | Créer et gérer les tickets de support |
 | Microsoft.Web/certificates/* | Créer et gérer les certificats de site web |
 | Microsoft.Web/listSitesAssignedToHostName/read | Lire les sites affectés à un nom d’hôte |
 | Microsoft.Web/serverFarms/join/action | Joindre des batteries de serveurs |
@@ -513,9 +529,9 @@ Gérer les sites web, mais pas les plans web auxquels ils sont connectés
 | Microsoft.Web/sites/* | Créer et gérer les sites web |
 
 ## Voir aussi
-- [Contrôle d’accès en fonction du rôle Azure](role-based-access-control-configure.md) : découvrez le Contrôle d’accès en fonction du rôle Azure dans le portail Azure.
-- [Rôles personnalisés dans le contrôle d’accès en fonction du rôle (RBAC) Azure](role-based-access-control-custom-roles.md) : découvrez comment créer des rôles personnalisés selon vos besoins en matière d’accès.
-- [Créer un rapport d’historique des modifications d’accès](role-based-access-control-access-change-history-report.md) : effectuez le suivi des changements d’affection de rôle dans RBAC.
-- [Résolution des problèmes de contrôle d’accès en fonction du rôle](role-based-access-control-troubleshooting.md) : obtenez des suggestions pour résoudre les problèmes courants.
+- [Contrôle d’accès en fonction du rôle](role-based-access-control-configure.md) : découvrez le contrôle d’accès en fonction du rôle dans le portail Azure.
+- [Rôles personnalisés dans le contrôle d’accès en fonction du rôle (RBAC) Azure](role-based-access-control-custom-roles.md) : découvrez comment créer des rôles personnalisés selon vos besoins d’accès.
+- [Créer un rapport d’historique des modifications d’accès](role-based-access-control-access-change-history-report.md) : effectuez le suivi des changements d’affection de rôle dans RBAC.
+- [Résolution des problèmes de contrôle d’accès en fonction du rôle](role-based-access-control-troubleshooting.md) : obtenez des suggestions pour résoudre les problèmes courants.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0824_2016-->

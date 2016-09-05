@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="05/05/2016"
+	ms.date="08/22/2016"
 	ms.author="mahender"/>
 
 # Authentification et autorisation dans Azure Mobile Apps
@@ -56,7 +56,7 @@ Une fois que tout est configuré sur le serveur principal, vous pouvez modifier 
 
 ### Fonctionnement de l’authentification sans Kit de développement logiciel (SDK) de fournisseur
 
-Si vous ne voulez pas configurer un SDK de fournisseur, vous pouvez autoriser Mobile Apps à effectuer la connexion pour vous. Le SDK client Mobile Apps ouvre un affichage web du fournisseur de votre choix et procède à la connexion. Dans les blogs et sur les forums, cette opération est de temps en temps appelée « flux serveur » ou « flux dirigé vers le serveur » car le serveur gère la connexion et le SDK client ne reçoit jamais le jeton du fournisseur.
+Si vous ne voulez pas configurer un SDK de fournisseur, vous pouvez autoriser Mobile Apps à effectuer la connexion pour vous. Le SDK client Mobile Apps ouvre un affichage web du fournisseur de votre choix et procède à la connexion. Dans les blogs et sur les forums, cette opération est de temps en temps appelée « flux serveur » ou « flux dirigé vers le serveur », car le serveur gère la connexion et le Kit de développement logiciel (SDK) client ne reçoit jamais le jeton du fournisseur.
 
 Le code nécessaire pour démarrer ce flux est couvert dans le didacticiel sur l’authentification pour chaque plateforme. À la fin du flux, le SDK client dispose d’un jeton App Service et le jeton est automatiquement joint à toutes les requêtes adressées au serveur principal.
 
@@ -104,4 +104,4 @@ Si vous voulez utiliser un système d’identité différent de ceux fournis ici
 [Comment configurer votre application pour utiliser une connexion par compte Microsoft]: app-service-mobile-how-to-configure-microsoft-authentication.md
 [Comment configurer votre application pour utiliser une connexion Twitter]: app-service-mobile-how-to-configure-twitter-authentication.md
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -82,7 +82,7 @@ Pour commencer, configurez l’application logique à utiliser avec la solution 
     }
     ```
     
-    Remarque : avant de pouvoir copier l’URL de la requête HTTP POST après avoir enregistré l’application logique, vous devez ajouter une action.
+    > [AZURE.NOTE] Avant de pouvoir copier l’URL de la requête HTTP POST après avoir enregistré l’application logique, vous devez ajouter une action.
 
 8. Cliquez sur __+ Nouvelle étape__ sous votre déclencheur manuel. Cliquez ensuite sur **Ajouter une action**.
 
@@ -182,4 +182,4 @@ Maintenant que vous avez utilisé une application logique pour connecter la solu
 [lnk-localdeploy]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Docs/local-deployment.md
 [lnk-clouddeploy]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Docs/cloud-deployment.md
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

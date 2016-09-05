@@ -24,23 +24,10 @@ Les fonctions Azure Functions partagent quelques concepts techniques et composan
 
 Cet article suppose que vous avez déjà lu la [Vue d'ensemble d'Azure Functions](functions-overview.md) et que vous connaissez les [concepts du Kit de développement logiciel (SDK) WebJobs, notamment les déclencheurs, les liaisons et le runtime JobHost](../app-service-web/websites-dotnet-webjobs-sdk.md). Azure Functions est fondé sur le SDK WebJobs.
 
-## function
 
-La *fonction* est le principal concept d'Azure Functions. Vous écrivez du code pour une fonction dans le langage de votre choix et enregistrez le(s) fichier(s) de code et un fichier de configuration dans le même dossier. La configuration est au format JSON, et le fichier est nommé `function.json`. Plusieurs langages sont pris en charge, et chacun d’entre eux offre une expérience légèrement différente, optimisée pour fonctionner idéalement pour ce langage. Exemple de structure des dossiers :
+## Code de fonction
 
-```
-mynodefunction
-| - function.json
-| - index.js
-| - node_modules
-| | - ... packages ...
-| - package.json
-mycsharpfunction
-| - function.json
-| - run.csx
-```
-
-## function.json et liaisons
+La *fonction* est le principal concept d'Azure Functions. Vous écrivez du code pour une fonction dans le langage de votre choix et enregistrez le(s) fichier(s) de code et un fichier de configuration dans le même dossier. La configuration est au format JSON, et le fichier est nommé `function.json`. Plusieurs langages sont pris en charge, et chacun d’entre eux offre une expérience légèrement différente, optimisée pour fonctionner idéalement pour ce langage.
 
 Le fichier `function.json` contient la configuration propre à une fonction, y compris ses liaisons. Le runtime lit ce fichier pour déterminer les événements à déclencher, les données à inclure lors de l'appel de la fonction et l'emplacement où envoyer les données transmises à partir de la fonction elle-même.
 
@@ -59,7 +46,7 @@ Le fichier `function.json` contient la configuration propre à une fonction, y c
 }
 ```
 
-Vous pouvez empêcher le runtime d'exécuter la fonction en définissant la propriété `disabled` sur `true`.
+Vous pouvez empêcher le runtime d’exécuter la fonction en définissant la propriété `disabled` sur `true`.
 
 La propriété `bindings` vous permet de configurer les liaisons et les déclencheurs. Chaque liaison partage quelques paramètres communs et des paramètres propres à un type de liaison donné. Chaque liaison requiert les paramètres suivants :
 
@@ -69,35 +56,21 @@ La propriété `bindings` vous permet de configurer les liaisons et les déclenc
 |`direction`|'in', 'out'| Indique si la liaison sert à recevoir des données dans la fonction ou à envoyer des données à partir de la fonction.
 | `name` | string | Le nom qui sera utilisé pour les données liées dans la fonction. Pour C#, ce sera un nom d'argument ; pour JavaScript, ce sera la clé dans une liste de clés/valeurs.
 
+## Conteneur de fonctions
+
+Un conteneur de fonctions est constitué d’une ou de plusieurs des fonctions individuelles qui sont gérées ensemble par Azure App Service. Toutes les fonctions d’un conteneur de fonctions partagent le même plan de tarification, le même déploiement continu et la même version du runtime. Les fonctions écrites dans plusieurs langages peuvent partager le même conteneur de fonctions. Considérez un conteneur de fonctions comme un moyen d’organiser et de gérer collectivement vos fonctions.
+
 ## Runtime (hôte de script et hôte web)
 
-Le runtime, également appelé hôte de script, est l'hôte du Kit de développement logiciel (SDK) WebJobs sous-jacent qui écoute les événements, collecte et envoie les données et, enfin, exécute votre code.
+Le runtime, également appelé hôte de script, est l’hôte du Kit de développement logiciel (SDK) WebJobs sous-jacent qui écoute les événements, collecte et envoie les données et, enfin, exécute votre code.
 
 Pour faciliter les déclencheurs HTTP, il existe également un hôte web conçu pour précéder l'hôte de script dans les scénarios de production. Cela permet d'isoler l'hôte de script du trafic frontal géré par l'hôte web.
 
 ## Structure des dossiers
 
-Un hôte de script pointe vers un dossier qui contient un fichier de configuration et une ou plusieurs fonctions.
+[AZURE.INCLUDE [structure de dossier de fonctions](../../includes/functions-folder-structure.md)]
 
-```
-parentFolder (for example, wwwroot in a function app)
- | - host.json
- | - mynodefunction
- | | - function.json
- | | - index.js
- | | - node_modules
- | | | - ... packages ...
- | | - package.json
- | - mycsharpfunction
- | | - function.json
- | | - run.csx
-```
-
-Le fichier *host.json* contient une configuration propre à l’hôte de script et se trouve dans le dossier parent. Pour plus d’informations sur les paramètres disponibles, consultez la page [host.json](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json) dans le Wiki du référentiel WebJobs.Script.
-
-Chaque fonction a un dossier qui contient un ou des fichier(s) de code, *function.json* et d'autres dépendances.
-
-Lorsque vous configurez un projet pour déployer des fonctions dans une application de fonction dans Azure App Service, vous pouvez traiter cette structure de dossiers comme le code de votre site. Vous pouvez utiliser des outils existants, comme le déploiement et l'intégration continus, ou des scripts de déploiement personnalisés pour effectuer l'installation du package ou la transpilation de code au moment du déploiement.
+Lorsque vous configurez un projet pour déployer des fonctions dans un conteneur de fonctions dans Azure App Service, vous pouvez traiter cette structure de dossiers comme le code de votre site. Vous pouvez utiliser des outils existants, comme le déploiement et l'intégration continus, ou des scripts de déploiement personnalisés pour effectuer l'installation du package ou la transpilation de code au moment du déploiement.
 
 ## <a id="fileupdate"></a> Comment mettre à jour les fichiers du conteneur de fonctions
 
@@ -115,7 +88,7 @@ Les conteneurs de fonctions sont créés sur App Service, de sorte que toutes le
 
 4. Sous **Développer**, cliquez sur **Visual Studio Online**.
 
-5. **Activez-le** si ce n’est pas déjà pas déjà fait, puis cliquez sur **Accéder**.
+5. **Activez-le** si ce n’est pas déjà fait, puis cliquez sur **Accéder**.
 
 	Une fois Visual Studio Online chargé, vous verrez le fichier *host.json* est les dossiers de fonctions sous *wwwroot*.
 
@@ -123,13 +96,13 @@ Les conteneurs de fonctions sont créés sur App Service, de sorte que toutes le
 
 #### Pour utiliser la fonction de système d'extrémité SCM (Kudu) de l’application
 
-1. Accédez à : `https://<function_app_name>.scm.azurewebsites.net`.
+1. Accédez à `https://<function_app_name>.scm.azurewebsites.net`.
 
 2. Cliquez sur **Console de débogage > CMD**.
 
 3. Accédez à `D:\home\site\wwwroot` pour mettre à jour *host.json* ou `D:\home\site\wwwroot<function_name>` pour mettre à jour les fichiers d’une fonction.
 
-4. Glissez-déplacez un fichier à télécharger dans le dossier approprié dans la grille de fichiers. La grille de fichiers offre deux zones dans lesquelles vous pouvez déposer un fichier. Pour les fichiers *.zip*, une zone s’affiche avec le libellé « Faites glisser ici pour charger et décompresser. » Pour les autres types de fichier, déposez le fichier dans la grille de fichiers, mais en dehors de cette zone.
+4. Glissez-déplacez un fichier à télécharger dans le dossier approprié dans la grille de fichiers. La grille de fichiers offre deux zones dans lesquelles vous pouvez déposer un fichier. Pour les fichiers *.zip*, une zone s’affiche avec le libellé « Faites glisser ici pour charger et décompresser ». Pour les autres types de fichier, déposez le fichier dans la grille de fichiers, mais en dehors de cette zone.
 
 #### Pour utiliser le FTP
 
@@ -137,9 +110,13 @@ Les conteneurs de fonctions sont créés sur App Service, de sorte que toutes le
 
 2. Lorsque vous êtes connecté au site du conteneur de fonctions, copiez le fichier *host.json* mis à jour vers `/site/wwwroot` ou copiez les fichiers de fonction vers `/site/wwwroot/<function_name>`.
 
+#### Pour utiliser le déploiement continu
+
+Suivez les instructions de la rubrique [Déploiement continu pour Azure Functions](functions-continuous-deployment.md).
+
 ## Exécution en parallèle
 
-Lorsque plusieurs événements de déclenchement se produisent plus rapidement qu'un runtime de fonction monothread ne peut les traiter, le runtime peut appeler la fonction plusieurs fois en parallèle. Si une application de fonction utilise le [plan de service dynamique](functions-scale.md#dynamic-service-plan), l’application de fonction peut monter en charge automatiquement pour atteindre jusqu’à 10 instances simultanées. Que l’application s’exécute sur le plan de service dynamique ou sur un [plan App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) standard, chaque instance de l’application de fonction peut traiter en parallèle des appels de fonction simultanés en utilisant plusieurs threads. Le nombre maximal d'appels de fonction simultanés dans chaque instance d'application de fonction varie en fonction de la taille de la mémoire de l'application de fonction.
+Lorsque plusieurs événements de déclenchement se produisent plus rapidement qu'un runtime de fonction monothread ne peut les traiter, le runtime peut appeler la fonction plusieurs fois en parallèle. Si un conteneur de fonctions utilise le [plan de service dynamique](functions-scale.md#dynamic-service-plan), il peut monter automatiquement augmenter la taille des instances. Que l’application s’exécute sur le plan de service dynamique ou sur un [plan App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) standard, chaque instance de l’application de fonction peut traiter en parallèle des appels de fonction simultanés en utilisant plusieurs threads. Le nombre maximal d'appels de fonction simultanés dans chaque instance d'application de fonction varie en fonction de la taille de la mémoire de l'application de fonction.
 
 ## Azure Functions Pulse  
 
@@ -174,4 +151,4 @@ Pour plus d’informations, consultez les ressources suivantes :
 * [Déclencheurs et liaisons Azure Functions](functions-triggers-bindings.md)
 * [Azure Functions : The Journey](https://blogs.msdn.microsoft.com/appserviceteam/2016/04/27/azure-functions-the-journey/) (Découverte d’Azure Functions) sur le blog d’Azure App Service. Un historique sur le développement d’Azure Functions.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0824_2016-->

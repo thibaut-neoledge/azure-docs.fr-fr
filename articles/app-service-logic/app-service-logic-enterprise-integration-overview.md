@@ -44,10 +44,13 @@ Enterprise Integration prend en charge les normes suivantes :
 - EDI - Electronic Data Interchange
 - EAI - Enterprise Application Integration
 
-## Voici ce dont vous avez besoin pour commencer dès maintenant
+## Voici ce dont vous avez besoin pour commencer
 - Un abonnement Azure avec un compte d’intégration
 - Visual Studio 2015 pour créer des mappages et des schémas
 - [Microsoft Azure Logic Apps Enterprise Integration Tools for Visual Studio 2015 2.0](https://aka.ms/vsmapsandschemas)
+
+## Essayez par vous-même
+Prêt à vous lancer ? Cliquez [ici](https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-as2-send-receive) pour déployer vos propres applications logiques d’envoi et de réception AS2 entièrement fonctionnelles à l’aide des fonctionnalités B2B de Logic Apps.
 
 ## Pour en savoir plus :
 - [Accords](./app-service-logic-enterprise-integration-agreements.md "Découvrez les contrats d’intégration d’entreprise")
@@ -61,4 +64,4 @@ Enterprise Integration prend en charge les normes suivantes :
 - [Validation de message XML](./app-service-logic-enterprise-integration-xml.md "Découvrez comment valider des messages XML avec vos applications logiques")
 - [Transformation XML](./app-service-logic-enterprise-integration-transform.md "Découvrez les mappages d’intégration d’entreprise")
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

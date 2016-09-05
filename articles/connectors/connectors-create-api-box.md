@@ -14,22 +14,19 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="05/18/2016"
+   ms.date="08/18/2016"
    ms.author="mandia"/>
 
 # Prise en main du connecteur Box
-Connectez-vous à Box pour créer des fichiers, supprimer des fichiers et bien plus encore. Le connecteur Box peut être utilisé dans :
-
-- Applications logiques (abordées dans cette rubrique)
-- PowerApps [consultez [PowerApps connections list](https://powerapps.microsoft.com/tutorials/connections-list/) (Liste des connexions PowerApps) pour obtenir la liste complète]
+Connectez-vous à Box pour créer des fichiers, supprimer des fichiers et bien plus encore.
 
 >[AZURE.NOTE] Cette version de l'article s'applique à la version de schéma 2015-08-01-preview des applications logiques.
 
 Avec Box, vous pouvez :
 
-- Créer votre flux d'activité en fonction des données que vous obtenez de Box. 
+- Créer votre flux d'activité en fonction des données que vous obtenez de Box.
 - Utiliser des déclencheurs quand un fichier est créé ou mis à jour.
-- Utiliser des actions pour copier un fichier, supprimer un fichier et bien plus encore. Ces actions obtiennent une réponse, puis mettent la sortie à la disposition d'autres actions. Par exemple, lorsqu'un fichier est modifié dans Box, vous pouvez le sélectionner et l'envoyer par courrier électronique à l'aide d'Office 365.
+- Utiliser des actions pour copier un fichier, supprimer un fichier et bien plus encore. Ces actions obtiennent une réponse, puis mettent la sortie à la disposition d’autres actions. Par exemple, lorsqu'un fichier est modifié dans Box, vous pouvez le sélectionner et l'envoyer par courrier électronique à l'aide d'Office 365.
 
 Pour ajouter une opération aux applications logiques, consultez [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
@@ -63,7 +60,7 @@ Charge un fichier sur Box. ```POST: /datasets/default/files```
 |name|string|Oui|query|Aucun |Nom du fichier à créer dans Box|
 |body|string(binary) |Oui|body|Aucun |Contenu du fichier à charger sur Box|
 
-#### Response
+#### Réponse
 |Nom|Description|
 |---|---|
 |200|OK|
@@ -77,7 +74,7 @@ Déclenche un flux quand un fichier est créé dans un dossier Box. ```GET: /dat
 | ---|---|---|---|---|---|
 |folderId|string|Oui|query|Aucun |Identificateur unique du dossier dans Box|
 
-#### Response
+#### Réponse
 |Nom|Description|
 |---|---|
 |200|OK|
@@ -93,7 +90,7 @@ Copie un fichier vers Box. ```POST: /datasets/default/copyFile```
 |destination|string|Oui|query| Aucun|Chemin de destination du fichier dans Box, y compris le nom de fichier cible|
 |overwrite|booléenne|Non|query| Aucun|Remplace le fichier de destination si la valeur est « true »|
 
-#### Response
+#### Réponse
 |Nom|Description|
 |---|---|
 |200|OK|
@@ -108,8 +105,8 @@ Supprime un fichier de Box. ```DELETE: /datasets/default/files/{id}```
 | ---|---|---|---|---|---|
 |id|string|Oui|path|Aucun |Identificateur unique du fichier à supprimer de Box|
 
-#### Response
-|Nom|Description|
+#### Réponse
+|Name|Description|
 |---|---|
 |200|OK|
 |default|L’opération a échoué.|
@@ -124,8 +121,8 @@ Extrait un fichier d’archive dans un dossier de Box (exemple : .zip). ```POST
 |destination|string|Oui|query| |Chemin dans Box indiquant où extraire le contenu de l'archive|
 |overwrite|booléenne|Non|query| |Remplace les fichiers de destination si la valeur est « true »|
 
-#### Response
-|Nom|Description|
+#### Réponse
+|Name|Description|
 |---|---|
 |200|OK|
 |default|L’opération a échoué.|
@@ -134,11 +131,11 @@ Extrait un fichier d’archive dans un dossier de Box (exemple : .zip). ```POST
 ### Obtenir le contenu d’un fichier à l'aide de l’identifiant
 Récupère le contenu d’un fichier de Box à partir de son identifiant. ```GET: /datasets/default/files/{id}/content```
 
-| Nom|Type de données|Requis|Emplacement|Valeur par défaut|Description|
+| Name|Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
 |id|string|Oui|path|Aucun |Identificateur unique du fichier dans Box|
 
-#### Response
+#### Réponse
 |Nom|Description|
 |---|---|
 |200|OK|
@@ -146,13 +143,13 @@ Récupère le contenu d’un fichier de Box à partir de son identifiant. ```GET
 
 
 ### Obtenir le contenu d’un fichier à l'aide du chemin
-Récupère le contenu d’un fichier auprès de Box en utilisant chemin. ```GET: /datasets/default/GetFileContentByPath```
+Récupère le contenu d’un fichier auprès de Box à partir du chemin. ```GET: /datasets/default/GetFileContentByPath```
 
-| Nom|Type de données|Requis|Emplacement|Valeur par défaut|Description|
+| Name|Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
 |path|string|Oui|query|Aucun |Chemin unique du fichier dans Box|
 
-#### Response
+#### Réponse
 |Nom|Description|
 |---|---|
 |200|OK|
@@ -166,8 +163,8 @@ Récupère les métadonnées d’un fichier auprès de Box à partir de son iden
 | ---|---|---|---|---|---|
 |id|string|Oui|path| Aucun|Identificateur unique du fichier dans Box|
 
-#### Response
-|Nom|Description|
+#### Réponse
+|Name|Description|
 |---|---|
 |200|OK|
 |default|L’opération a échoué.|
@@ -180,7 +177,7 @@ Récupère les métadonnées d’un fichier auprès de Box à partir du chemin. 
 | ---|---|---|---|---|---|
 |path|string|Oui|query|Aucun |Chemin unique du fichier dans Box|
 
-#### Response
+#### Réponse
 |Nom|Description|
 |---|---|
 |200|OK|
@@ -195,8 +192,8 @@ Met à jour un fichier dans Box. ```PUT: /datasets/default/files/{id}```
 |id|string|Oui|path| Aucun|Identificateur unique du fichier à mettre à jour dans Box|
 |body|string(binary) |Oui|body|Aucun |Contenu du fichier à mettre à jour dans Box|
 
-#### Response
-|Nom|Description|
+#### Réponse
+|Name|Description|
 |---|---|
 |200|OK|
 |default|L’opération a échoué.|
@@ -209,14 +206,14 @@ Déclenche un flux quand un fichier est modifié dans un dossier Box. ```GET: /d
 | ---|---|---|---|---|---|
 |folderId|string|Oui|query|Aucun |Identificateur unique du dossier dans Box|
 
-#### Response
+#### Réponse
 |Nom|Description|
 |---|---|
 |200|OK|
 |default|L’opération a échoué.|
 
 
-## Définitions d'objet
+## Définitions d’objet
 
 #### DataSetsMetadata
 
@@ -250,7 +247,7 @@ Déclenche un flux quand un fichier est modifié dans un dossier Box. ```GET: /d
 |ID|string|no|
 |Nom|string|no|
 |DisplayName|string|no|
-|Path|string|no|
+|Chemin|string|no|
 |LastModified|string|no|
 |Taille|integer|no|
 |MediaType|string|no|
@@ -260,6 +257,6 @@ Déclenche un flux quand un fichier est modifié dans un dossier Box. ```GET: /d
 
 ## Étapes suivantes
 
-[Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Créez une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-<!-----HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0824_2016-->

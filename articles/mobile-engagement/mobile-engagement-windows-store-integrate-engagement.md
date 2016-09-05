@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="05/03/2016" 
+	ms.date="08/19/2016" 
 	ms.author="piyushjo" />
 
 # Intégration du Kit de développement logiciel du module Engagement des applications universelles Windows
 
 > [AZURE.SELECTOR] 
-- [Windows universel](mobile-engagement-windows-store-integrate-engagement.md) 
-- [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md) 
-- [iOS](mobile-engagement-ios-integrate-engagement.md) 
-- [Android](mobile-engagement-android-integrate-engagement.md) 
+- [Windows universel](mobile-engagement-windows-store-integrate-engagement.md)
+- [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md)
+- [iOS](mobile-engagement-ios-integrate-engagement.md)
+- [Android](mobile-engagement-android-integrate-engagement.md)
 
 Cette procédure décrit comment activer les fonctions d'analyse et de surveillance d'Engagement dans votre application universelle Windows de la manière la plus simple possible.
 
@@ -43,7 +43,7 @@ Le Kit de développement logiciel (SDK) Engagement Mobile pour les applications 
 
 ### Toutes les plateformes
 
-Le Kit de développement Mobile Engagement pour l’application universelle Windows est disponible comme package Nuget appelé *MicrosoftAzure.MobileEngagement*. Vous pouvez l'installer à partir du gestionnaire de package Nuget Visual Studio.
+Le Kit de développement Mobile Engagement pour l’application universelle Windows est disponible comme package Nuget appelé *MicrosoftAzure.MobileEngagement*. Vous pouvez l'installer à partir du gestionnaire de package Nuget Visual Studio.
 
 ### Windows 8.x et Windows Phone 8.1
 
@@ -54,7 +54,7 @@ NuGet déploie automatiquement les ressources du Kit de développement logiciel 
 NuGet ne déploie pas encore automatiquement les ressources du Kit de développement logiciel (SDK) dans votre application UWP. Vous devez le faire manuellement jusqu'à ce que le déploiement de ressources soit réintroduit dans NuGet :
 
 1.  Ouvrez votre Explorateur de fichiers.
-2.  Accédez à l'emplacement suivant (**x.x.x** est la version d'Engagement que vous installez) : *%USERPROFILE%\\.nuget\\packages\\MicrosoftAzure.MobileEngagement\**x.x.x** \\content\\win81*
+2.  Accédez à l’emplacement suivant (**x.x.x** est la version d’Engagement que vous installez) : *%USERPROFILE%\\.nuget\\packages\\MicrosoftAzure.MobileEngagement\**x.x.x**\\content\\win81*
 3.  Faites glisser et déposez le dossier **Ressources** à partir de l'Explorateur de fichiers vers la racine de votre projet dans Visual Studio.
 4.  Dans Visual Studio, sélectionnez votre projet et activez l'icône **Afficher tous les fichiers** au sommet de l'**Explorateur de solutions**.
 5.  Certains fichiers ne sont pas inclus dans le projet. Pour tous les importer à la fois, cliquez avec le bouton droit sur le dossier **Ressources**, sélectionnez **Exclure du projet**, puis cliquez de nouveau avec le bouton droit sur le dossier **Ressources**, sélectionnez **Inclure dans le projet** pour inclure à nouveau la totalité du dossier. Tous les fichiers du dossier **Ressources** sont désormais inclus dans votre projet.
@@ -94,7 +94,7 @@ La chaîne de connexion de votre application est affichée sur le portail Azure 
 
 Quand vous créez un projet, un fichier `App.xaml.cs` est généré. Cette classe hérite de `Application` et contient de nombreuses méthodes importantes. Son rôle consiste également à initialiser le SDK Engagement.
 
-Modifiez le fichier `App.xaml.cs` :
+Modifiez le `App.xaml.cs` :
 
 -   Ajoutez à vos instructions `using` :
 
@@ -283,4 +283,4 @@ Le mode rafale accroît légèrement l'autonomie de la batterie, mais il affecte
 [NuGet website]: http://docs.nuget.org/docs/start-here/overview
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0824_2016-->

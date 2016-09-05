@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/16/2016"
+   ms.date="08/18/2016"
    ms.author="alkohli" />
 
 # Notes de publication de StorSimple série 8000 Update 1.2  
@@ -35,7 +35,7 @@ Lisez les informations contenues dans les notes de publication avant de déploye
 
 >[AZURE.IMPORTANT]
 > 
-- L’installation de cette mise à jour prend entre 5 et 10 heures (en comptant les mises à jour Windows). 
+- L’installation de cette mise à jour prend entre 5 et 10 heures (en comptant les mises à jour Windows).
 - Update 1.2 contient des mises à jour du logiciel, du pilote LSI et du microprogramme de disque. Pour l'installer, suivez les instructions dans la section relative à l'[installation d'Update 1.2 sur votre appareil StorSimple](storsimple-install-update-1.md).
 - Pour les nouvelles versions, vous ne voyez pas immédiatement les mises à jour, car nous effectuons un déploiement échelonné des mises à jour. Revérifiez les mises à jour dans quelques jours, car elles seront bientôt disponibles.
 
@@ -44,7 +44,7 @@ Lisez les informations contenues dans les notes de publication avant de déploye
 
 Ces fonctionnalités ont tout d'abord été publiées avec Update 1 qui a été mise à disposition d'un ensemble limité d'utilisateurs. Avec la version Update 1.2, la plupart des utilisateurs StorSimple découvrent les nouvelles fonctionnalités et les améliorations suivantes :
 
-- **Migration des appareils de la série 5000-7000 vers les appareils de la série 8000** - Cette version présente une nouvelle fonction de migration qui permet aux utilisateurs des appliances de la série 5000 7000 de migrer leurs données sur une appliance physique StorSimple série 8000 ou sur une appliance virtuelle 1100. La fonctionnalité de migration présente deux propositions de valeur principales :                                                                  
+- **Migration des appareils de la série 5000-7000 vers des appareils de la série 8000** - Cette version présente une nouvelle fonction de migration qui permet aux utilisateurs des appliances StorSimple de la série 5000-7000 de migrer leurs données vers une appliance physique StorSimple de la série 8000, ou vers une appliance virtuelle. La fonctionnalité de migration présente deux propositions de valeur principales :
 
     - La **continuité d’activité**, via la prise en charge de la migration des données existantes des appliances de la série 5000-7000 sur les appliances de la série 8000.
     - **Offres améliorées des fonctionnalités des appliances de la série 8000**, telles que la gestion centralisée et efficace de plusieurs appliances via le service StorSimple Manager, une classe optimisée de matériel et un microprogramme mis à jour, des appliances virtuelles, la mobilité des données ou encore les fonctions de la feuille de route à venir.
@@ -63,20 +63,20 @@ Ces fonctionnalités ont tout d'abord été publiées avec Update 1 qui a été
 
 ## Problèmes résolus dans Update 1.2
 
-Le tableau suivant récapitule les problèmes qui ont été résolus dans Updates 1.2, 1.1 et 1.
+Le tableau suivant récapitule les problèmes qui ont été résolus dans les mises à jour 1.2, 1.1 et 1.
 
 
 | Non. | Fonctionnalité | Problème | Résolu dans Update | S’applique à un appareil physique | S’applique à un appareil virtuel |
 |-----|---------|-------|-----------------|---------------------------------|--------------------------------|
-| 1 | Windows PowerShell pour StorSimple | Lorsqu’un utilisateur accédait à distance à l’appareil StorSimple à l’aide de Windows PowerShell pour StorSimple, puis lançait l’assistant de configuration, un incident se produisait dès la saisie de l’adresse IP de Data 0. Ce bogue a été corrigé dans Update 1. | Update 1 | Oui | Oui |
-| 2 | Réinitialisation aux paramètres d’usine | Dans certains cas, lorsque vous effectuiez une réinitialisation aux paramètres d’usine, l’appareil StorSimple se bloquait et affichait le message suivant : **Réinitialisation aux paramètres d’usine en cours (phase 8)**. Cela se produisait si vous appuyiez sur les touches CTRL + C lors de l’exécution de l’applet de commande. Ce bogue a été corrigé.| Update 1 | Oui | Non |
+| 1 | Windows PowerShell pour StorSimple | Lorsqu’un utilisateur accédait à distance à l’appareil StorSimple à l’aide de Windows PowerShell pour StorSimple, puis lançait l’assistant de configuration, un incident se produisait dès la saisie de l’adresse IP de Data 0. Ce bogue a été corrigé dans Update 1. | Update 1 | Oui | Oui |
+| 2 | Réinitialisation aux paramètres d’usine | Dans certains cas, lorsque vous effectuiez une réinitialisation aux paramètres d’usine, l’appareil StorSimple se bloquait et affichait le message suivant : **Réinitialisation aux paramètres d’usine en cours (phase 8)**. Cela se produisait si vous appuyiez sur les touches CTRL + C lors de l’exécution de l’applet de commande. Ce bogue a été corrigé.| Update 1 | Oui | Non |
 | 3 | Réinitialisation aux paramètres d’usine | Après l’échec de la réinitialisation aux paramètres d’usine d’un contrôleur double, vous pouviez procéder à l’inscription de l’appareil. Cela entraînait la mise en place d’une configuration système non prise en charge. Dans Update 1, un message d’erreur s’affiche et l’inscription de l’appareil présentant un échec de réinitialisation aux paramètres d’usine est bloquée. | Update 1 | Oui | Non |
-| 4 | Réinitialisation aux paramètres d’usine | Dans certains cas, des alertes d’incompatibilité illégitimes étaient émises. Les alertes illégitimes d’incompatibilité ne seront plus générées sur les appareils exécutant Update 1. | Update 1 | Oui | Non |
-| 5 | Réinitialisation aux paramètres d’usine | Si une réinitialisation aux paramètres d’usine a été interrompue avant la fin de l’opération, l’appareil passait en mode de récupération ; vous ne pouviez plus accéder à Windows PowerShell pour StorSimple. Ce bogue a été corrigé. | Update 1 | Oui | Non |
-| 6 | Récupération d'urgence | Un bogue de récupération d’urgence a été corrigé. Auparavant, la récupération était mise en échec durant la découverte des sauvegardes sur l’appareil cible. | Update 1 | Oui | Oui |
-| 7 | LED de contrôle | Dans certains cas, les LED de contrôle situées à l’arrière de l’appliance n’indiquaient pas le statut approprié. La LED bleue était désactivée. Les LED de DATA 0 et DATA 1 clignotaient, même lorsque ces interfaces n’étaient pas configurées. Ce problème a été corrigé ; les LED de contrôle indiquent désormais le statut correct. | Update 1 | Oui | Non |
+| 4 | Réinitialisation aux paramètres d’usine | Dans certains cas, des alertes d’incompatibilité illégitimes étaient émises. Les alertes illégitimes d’incompatibilité ne seront plus générées sur les appareils exécutant Update 1. | Update 1 | Oui | Non |
+| 5 | Réinitialisation aux paramètres d’usine | Si une réinitialisation aux paramètres d’usine a été interrompue avant la fin de l’opération, l’appareil passait en mode de récupération ; vous ne pouviez plus accéder à Windows PowerShell pour StorSimple. Ce bogue a été corrigé. | Update 1 | Oui | Non |
+| 6 | Récupération d'urgence | Un bogue de récupération d’urgence a été corrigé. Auparavant, la récupération était mise en échec durant la découverte des sauvegardes sur l’appareil cible. | Update 1 | Oui | Oui |
+| 7 | LED de contrôle | Dans certains cas, les LED de contrôle situées à l’arrière de l’appliance n’indiquaient pas le statut approprié. La LED bleue était désactivée. Les LED de DATA 0 et DATA 1 clignotaient, même lorsque ces interfaces n’étaient pas configurées. Ce problème a été corrigé ; les LED de contrôle indiquent désormais le statut correct. | Update 1 | Oui | Non |
 | 8 | LED de contrôle | Dans certains cas, après avoir appliqué Update 1, le voyant bleu sur le contrôleur actif s'est éteint rendant difficile l'identification du contrôleur actif. Ce problème a été résolu dans cette version du correctif.| Update 1.2 | Oui | Non |
-| 9 | Interfaces réseau | Dans les versions précédentes, un appareil StorSimple configuré avec une passerelle non routable pouvait se déconnecter. Dans cette version, le métrique de routage de l’interface Data 0 a été définie sur la valeur la plus faible. En conséquence, même si d’autres interfaces réseau sont déployées sur le cloud, l’ensemble du trafic cloud de l’appareil sera routé via Data 0. | Update 1 | Oui | Oui | 
+| 9 | Interfaces réseau | Dans les versions précédentes, un appareil StorSimple configuré avec une passerelle non routable pouvait se déconnecter. Dans cette version, le métrique de routage de l’interface Data 0 a été définie sur la valeur la plus faible. En conséquence, même si d’autres interfaces réseau sont déployées sur le cloud, l’ensemble du trafic cloud de l’appareil sera routé via Data 0. | Update 1 | Oui | Oui | 
 | 10 | Sauvegardes | Un bogue dans Update 1 qui provoquait l'échec des sauvegardes après 24 jours a été résolu dans la version du correctif Update 1.1. | Update 1.1 | Oui | Oui |
 | 11 | Sauvegardes | Un bogue dans les versions précédentes entraînait une baisse des performances pour les instantanés cloud avec un taux de modification faible. Ce bogue a été résolu dans cette version du correctif.| Update 1.2 | Oui | Oui |
 | 12 | Mises à jour | Un bogue dans Update 1 qui a signalait un échec de la mise à niveau et provoquait le passage des contrôleurs en mode de récupération a été résolu dans cette version du correctif.| Update 1.2 | Oui | Oui |
@@ -86,7 +86,7 @@ Le tableau suivant récapitule les problèmes qui ont été résolus dans Update
 
 Le tableau suivant récapitule les problèmes connus de cette version.
 
-| N° | Fonctionnalité | Problème | Commentaires/solution de contournement | S’applique à un appareil physique | S’applique à un appareil virtuel |
+| Num | Fonctionnalité | Problème | Commentaires/solution de contournement | S’applique à un appareil physique | S’applique à un appareil virtuel |
 |-----|---------|-------|----------------------------|----------------------------|---------------------------|
 | 1 | Disque quorum | Dans de rares cas, si la majorité des disques du boîtier EBOD d’un appareil 8600 sont déconnectés, ce qui signifie qu’il n’y a pas de disque quorum, le pool de stockage est hors connexion. Il reste hors connexion même si les disques sont reconnectés. | Vous devez redémarrer l’appareil. Si le problème persiste, contactez le support technique Microsoft. | Oui | Non |
 | 2 | ID de contrôleur incorrect | Lorsqu’un contrôleur est remplacé, le contrôleur 0 peut apparaître comme contrôleur 1. Pendant le remplacement du contrôleur, lorsque l’image est chargée à partir du nœud homologue, l’ID du contrôleur peut s’afficher initialement comme l’ID du contrôleur homologue. Dans de rares cas, ce comportement peut également se produire après un redémarrage du système. | Aucune action utilisateur n’est requise. Cette situation se résout automatiquement une fois le contrôleur remplacé. | Oui | Non |
@@ -111,7 +111,7 @@ Si la mise à jour des correctifs 1.2 est appliquée à un appareil physique (ex
 
 Cette version met à jour le pilote et le microprogramme du disque sur votre appareil.
  
-- Pour en savoir plus sur la mise à jour du contrôleur SAS, consultez la section [Update 1 pour les contrôleurs SAS LSI dans Microsoft Azure StorSimple Appliance](https://support.microsoft.com/kb/3043005). 
+- Pour en savoir plus sur la mise à jour du contrôleur SAS, consultez la section [Update 1 pour les contrôleurs SAS LSI dans Microsoft Azure StorSimple Appliance](https://support.microsoft.com/kb/3043005).
 
 - Pour en savoir plus sur la mise à jour du microprogramme de disque, consultez la section [Mise à jour Update 1 du microprogramme de disque pour Microsoft Azure StorSimple Appliance](https://support.microsoft.com/kb/3063416).
  
@@ -124,4 +124,4 @@ Cette mise à jour ne peut pas être appliquée à l’appareil virtuel. De nouv
 - [Installer Update 1.2 sur votre appareil](storsimple-install-update-1.md).
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0824_2016-->

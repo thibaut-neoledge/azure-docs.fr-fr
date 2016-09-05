@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="02/29/2016"
+	ms.date="08/19/2016"
 	ms.author="piyushjo" />
 
 #Contenu du Kit de développement logiciel (SDK)
@@ -42,4 +42,4 @@ Dossier `src`
 
 > Contrôleurs d'affichage Engagement et code source du Kit de développement logiciel (SDK) Reach (pour les utilisateurs avec pouvoir qui veulent adapter les classes Engagement à leurs besoins).
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0824_2016-->

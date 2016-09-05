@@ -53,9 +53,9 @@ Il existe trois types de détection :
 
 ## Étapes suivantes
 
-Les diagnostics proactifs sont entièrement automatiques. Mais vous souhaitez peut-être configurer des alertes supplémentaires ?
+Les détections proactives sont entièrement automatiques. Mais vous souhaitez peut-être configurer des alertes supplémentaires ?
 
 * [Alertes de mesures configurées manuellement](app-insights-alerts.md)
 * [Tests web de disponibilité](app-insights-monitor-web-app-availability.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

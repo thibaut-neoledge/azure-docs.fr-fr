@@ -20,6 +20,8 @@
 
 # Liaisons Azure Mobile Apps Azure Functions
 
+[AZURE.INCLUDE [functions-selector-bindings (liaisons de sélecteur de fonctions)](../../includes/functions-selector-bindings.md)]
+
 Cet article explique comment configurer et coder des liaisons Azure Mobile Apps dans Azure Functions.
 
 [AZURE.INCLUDE [intro](../../includes/functions-bindings-intro.md)]
@@ -34,7 +36,7 @@ Les liaisons d’applications mobiles vous obligent à créer une variable d’e
 
 Pour définir cette URL comme variable d’environnement dans votre application de fonction (Function App) :
 
-1. Dans votre application de fonction dans le [portail Azure Functions](https://functions.azure.com/signin), cliquez sur les **Paramètres Function App** > **Accéder aux paramètres App Service**. 
+1. Dans votre application de fonction dans le [portail Azure Functions](https://functions.azure.com/signin), cliquez sur les **Paramètres Function App** > **Accéder aux paramètres App Service**.
 
 	![Paramètres Function App](./media/functions-bindings-mobile-apps/functions-app-service-settings.png)
 
@@ -44,7 +46,7 @@ Pour définir cette URL comme variable d’environnement dans votre application 
 
 Vous pouvez maintenant définir cette nouvelle variable d’environnement dans le champ *Connexion* de vos liaisons.
 
-## <a id="mobiletablesapikey"></a> Utilisation d’une clé API pour sécuriser l’accès à vos points de terminaison de table Mobile Apps.
+## <a id="mobiletablesapikey"></a> Utilisez une clé API pour sécuriser l’accès à vos points de terminaison de table Mobile Apps.
 
 Dans Azure Functions, les liaisons de tables vous permettent de spécifier une clé API, qui est une clé secrète partagée pouvant être utilisée pour empêcher les accès indésirables à partir d’applications autres que vos fonctions. Mobile Apps n’intègre aucune prise en charge de l’authentification par clé API. Toutefois, vous pouvez implémenter une clé API dans votre application mobile backend Node.js en suivant les exemples présentés dans [Azure App Service Mobile Apps backend implementing an API key](https://github.com/Azure/azure-mobile-apps-node/tree/master/samples/api-key) (Backend Azure App Service Mobile Apps implémentant une clé API). Vous pouvez implémenter une clé API dans une [application mobile backend .NET](https://github.com/Azure/azure-mobile-apps-net-server/wiki/Implementing-Application-Key) de la même façon.
 
@@ -167,4 +169,4 @@ Cet exemple de code Node.js insère un nouvel enregistrement sur un point de ter
 
 [AZURE.INCLUDE [Étapes suivantes](../../includes/functions-bindings-next-steps.md)]
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0824_2016-->

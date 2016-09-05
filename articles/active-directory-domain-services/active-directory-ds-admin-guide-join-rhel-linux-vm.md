@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Version préliminaire des services Azure Active Directory Domain : guide d’administration | Microsoft Azure"
+	pageTitle="Version préliminaire des services de domaine Azure Active Directory : guide d’administration | Microsoft Azure"
 	description="Joindre une machine virtuelle Linux Red Hat Enterprise aux services de domaine Azure Active Directory"
 	services="active-directory-ds"
 	documentationCenter=""
@@ -71,7 +71,7 @@ Procédez comme suit pour configurer une machine virtuelle RHEL 7 à l’aide du
 ## Connexion à distance à la machine virtuelle Linux qui vient d’être configurée
 La machine virtuelle RHEL 7.2 a été configurée dans Azure. La tâche suivante consiste à se connecter à distance à cette machine virtuelle.
 
-Pour la **connexion à la machine virtuelle RHEL 7.2**, suivez les instructions de l’article [Connexion à une machine virtuelle exécutant Linux](../virtual-machines/virtual-machines-linux-classic-log-on.md).
+Pour vous **connecter à la machine virtuelle RHEL 7.2**, suivez les instructions de l’article [Connexion à une machine virtuelle exécutant Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md).
 
 Les étapes restantes indiquées ci-dessous partent du principe que vous utilisez le client SSH PuTTY pour vous connecter à la machine virtuelle RHEL. Pour voir en savoir plus, consultez la page [Téléchargement PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
@@ -173,8 +173,8 @@ Reportez-vous à l’article relatif à la [résolution des problèmes de joncti
 
 
 ## Plus d’informations
-- [Connexion à une machine virtuelle exécutant Linux](../virtual-machines/virtual-machines-linux-classic-log-on.md)
+- [Connexion à une machine virtuelle exécutant Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md)
 - [Installing Kerberos (Installation de Kerberos)](https://access.redhat.com/documentation/fr-FR/Red_Hat_Enterprise_Linux/6/html/Managing_Smart_Cards/installing-kerberos.html)
 - [Red Hat Enterprise Linux 7 - Windows Integration Guide (Red Hat Enterprise Linux 7 - Guide d’intégration à Windows)](https://access.redhat.com/documentation/fr-FR/Red_Hat_Enterprise_Linux/7/html/Windows_Integration_Guide/index.html)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -12,10 +12,11 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/19/2016"
+   ms.date="08/18/2016"
    ms.author="cherylmc"/>
 
 # Workflows ExpressRoute d’approvisionnement du circuit et états du circuit
+
 Cette page vous guide de façon sommaire tout au long des workflows d’approvisionnement du service et de configuration du routage.
 
 ![](./media/expressroute-workflows/expressroute-circuit-workflow.png)
@@ -36,7 +37,8 @@ L'illustration et les étapes correspondantes suivantes montrent les tâches que
 	
 	>[AZURE.IMPORTANT] Pour vous connecter à Microsoft, vous devez veiller à utiliser un proxy/appareil edge différent de celui que vous utilisez pour Internet. L’utilisation du même appareil edge à la fois pour ExpressRoute et Internet entraîne un routage asymétrique et provoque des pertes de connectivité sur votre réseau.
 
-	![](./media/expressroute-workflows/expressroute-routing-workflow.png)
+	![](./media/expressroute-workflows/routing-workflow.png)
+
 
 5. Liaison de réseaux virtuels à des circuits ExpressRoute - vous pouvez lier des réseaux virtuels à votre circuit ExpressRoute. Suivez les instructions [pour lier des réseaux virtuels](expressroute-howto-linkvnet-arm.md) à votre circuit. Ces réseaux virtuels peuvent figurer dans le même abonnement Azure que le circuit ExpressRoute, ou dans un autre abonnement.
 
@@ -46,7 +48,7 @@ L'illustration et les étapes correspondantes suivantes montrent les tâches que
 Chaque circuit ExpressRoute comporte deux états :
 
 - État d’approvisionnement du fournisseur de service
-- Statut
+- État
 
 L'état représente l’état d'approvisionnement de Microsoft. Cette propriété peut avoir l'un des états suivants : *Enabled*, *Enabling* ou *Disabling*. Le circuit ExpressRoute doit être dans l'état suivant pour pouvoir être utilisé.
 
@@ -58,7 +60,7 @@ Cette section répertorie les états possibles d’un circuit ExpressRoute.
 
 #### Lors de la création
 
-Le circuit ExpressRoute affiche l'état indiqué ci-dessous dès que vous exécutez l'applet de commande PowerShell pour créer le circuit ExpressRoute.
+Le circuit ExpressRoute affiche l'état suivant dès que vous exécutez l'applet de commande PowerShell pour créer le circuit ExpressRoute.
 
 	ServiceProviderProvisioningState : NotProvisioned
 	Status                           : Enabled
@@ -66,7 +68,7 @@ Le circuit ExpressRoute affiche l'état indiqué ci-dessous dès que vous exécu
 
 #### Lorsque le fournisseur de connectivité est en cours d’approvisionnement du circuit
 
-Le circuit ExpressRoute affiche l'état indiqué ci-dessous dès que vous passez la clé de service au fournisseur de connectivité et qu’il démarre le processus d’approvisionnement.
+Le circuit ExpressRoute affiche l'état suivant dès que vous passez la clé de service au fournisseur de connectivité et qu’il démarre le processus d’approvisionnement.
 
 	ServiceProviderProvisioningState : Provisioning
 	Status                           : Enabled
@@ -74,7 +76,7 @@ Le circuit ExpressRoute affiche l'état indiqué ci-dessous dès que vous passez
 
 #### Lorsque fournisseur de connectivité a terminé le processus d’approvisionnement
 
-Le circuit ExpressRoute affiche l'état indiqué ci-dessous dès que le fournisseur de connectivité a terminé le processus d’approvisionnement.
+Le circuit ExpressRoute affiche l'état suivant dès que le fournisseur de connectivité a terminé le processus d’approvisionnement.
 
 	ServiceProviderProvisioningState : Provisioned
 	Status                           : Enabled
@@ -83,7 +85,7 @@ Provisioned et Enabled sont les seuls états dans lesquels le circuit peut se tr
 
 #### Si une annulation de provisionnement est lancée d’abord du côté Microsoft
 
-Le circuit ExpressRoute affiche l'état indiqué dès que vous exécutez l'applet de commande PowerShell pour supprimer le circuit ExpressRoute.
+Le circuit ExpressRoute affiche l'état suivant dès que vous exécutez l'applet de commande PowerShell pour supprimer le circuit ExpressRoute.
 
 	ServiceProviderProvisioningState : Provisioned
 	Status                           : Disabling
@@ -92,7 +94,7 @@ Vous devez contacter votre fournisseur de connectivité pour annuler l’approvi
 
 #### Si une annulation de provisionnement est lancée du côté du fournisseur de services
 
-Si vous avez demandé au fournisseur de services d’annuler d’abord l’approvisionnement du circuit ExpressRoute, le circuit affichera l'état indiqué ci-dessous une fois que le fournisseur de services a terminé le processus d'annulation de l’approvisionnement.
+Si vous avez demandé au fournisseur de services d’annuler d’abord l’approvisionnement du circuit ExpressRoute, le circuit affichera l'état suivant une fois que le fournisseur de services a terminé le processus d'annulation de l’approvisionnement.
 
 
 	ServiceProviderProvisioningState : NotProvisioned
@@ -120,4 +122,4 @@ Si l'état du préfixe public publié indique qu’une *validation est nécessai
 	- [Configuration du routage](expressroute-howto-routing-arm.md)
 	- [Liaison d’un réseau virtuel à un circuit ExpressRoute](expressroute-howto-linkvnet-arm.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="05/04/2016"
+	ms.date="08/22/2016"
 	ms.author="mahender"/>
 
 # Comment configurer votre application App Service de manière à utiliser la connexion via Facebook
@@ -44,7 +44,7 @@ Pour effectuer la procédure de cette rubrique, vous devez disposer d'un compte 
 
 	> [AZURE.IMPORTANT] La clé secrète de l'application est une information d'identification de sécurité importante. Ne partagez cette clé secrète avec personne et ne la distribuez pas dans une application cliente.
 
-7. Le compte Facebook qui a été utilisé pour inscrire l'application est un administrateur de l'application. À ce stade, seuls les administrateurs peuvent se connecter à cette application. Pour authentifier d’autres comptes Facebook, cliquez sur **Révision de l’application** et **rendre public <your-app-name>** pour activer l’accès public général à l’aide de l’authentification Facebook.
+7. Le compte Facebook qui a été utilisé pour inscrire l'application est un administrateur de l'application. À ce stade, seuls les administrateurs peuvent se connecter à cette application. Pour authentifier d’autres comptes Facebook, cliquez sur **Révision de l’application** et **rendre <nom-de-votre-application> public** pour activer l’accès public général à l’aide de l’authentification Facebook.
 
 ## <a name="secrets"> </a>Ajout des informations Facebook à votre application
 
@@ -72,7 +72,7 @@ Vous êtes maintenant prêt à utiliser Facebook pour l'authentification dans vo
 <!-- URLs. -->
 [Développeurs Facebook]: http://go.microsoft.com/fwlink/p/?LinkId=268286
 [facebook.com]: http://go.microsoft.com/fwlink/p/?LinkId=268285
-[Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-dotnet/
+[Get started with authentication]: /fr-FR/develop/mobile/tutorials/get-started-with-users-dotnet/
 [portail Azure]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0824_2016-->

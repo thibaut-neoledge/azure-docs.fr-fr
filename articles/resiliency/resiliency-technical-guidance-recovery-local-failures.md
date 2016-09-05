@@ -4,7 +4,7 @@
    services=""
    documentationCenter="na"
    authors="adamglick"
-   manager="hongfeig"
+   manager="saladki"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/01/2016"
+   ms.date="08/18/2016"
    ms.author="aglick"/>
 
 #Guide technique de la résilience Azure - Récupération suite à des défaillances locales dans Azure
@@ -148,7 +148,7 @@ Le diagramme suivant illustre l’architecture des groupes de disponibilité Alw
 
 Vous pouvez également approvisionner automatiquement un déploiement de groupe de disponibilité AlwaysOn de bout en bout sur les machines virtuelles Azure, en utilisant le modèle AlwaysOn dans le portail Azure. Pour plus d’informations, consultez [Offre AlwaysOn SQL Server dans la galerie du portail Microsoft Azure](https://blogs.technet.microsoft.com/dataplatforminsider/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery/).
 
-Le diagramme suivant illustre l’utilisation de la mise en miroir de bases de données sur Azure Virtual Machines. Il a également été extrait de la rubrique détaillée [Haute disponibilité et récupération d’urgence pour SQL Server dans Azure Virtual Machines](../virtual-machines/virtual-machines-windows-sql-high-availability-dr.md).
+Le diagramme suivant illustre l’utilisation de la mise en miroir de bases de données sur Azure Virtual Machines. Il a également été extrait de la rubrique détaillée [Haute disponibilité et récupération d’urgence pour SQL Server sur des machines virtuelles Azure](../virtual-machines/virtual-machines-windows-sql-high-availability-dr.md).
 
 ![Mise en miroir de bases de données dans Microsoft Azure](./media/resiliency-technical-guidance-recovery-local-failures/high_availability_solutions-2.png)
 
@@ -160,23 +160,23 @@ Les applications qui reposent sur Azure bénéficient des fonctionnalités de pl
 
 ###Service Bus
 
-Pour éviter une panne temporaire d’Azure Service Bus, envisagez de créer une file d’attente durable côté client. Cette fonctionnalité utilise temporairement un autre mécanisme stockage local pour stocker les messages qui ne peuvent pas être ajoutés à la file d’attente Service Bus. L’application peut décider comment traiter les messages temporairement stockés après la restauration du service. Pour plus d’informations, consultez [Meilleures pratiques relatives aux améliorations de performances à l’aide de la messagerie répartie Service Bus](../service-bus/service-bus-performance-improvements.md) et la section [Service Bus (récupération d’urgence)](./resiliency-technical-guidance-recovery-loss-azure-region.md#service-bus).
+Pour éviter une panne temporaire d’Azure Service Bus, envisagez de créer une file d’attente durable côté client. Cette fonctionnalité utilise temporairement un autre mécanisme stockage local pour stocker les messages qui ne peuvent pas être ajoutés à la file d’attente Service Bus. L’application peut décider comment traiter les messages temporairement stockés après la restauration du service. Pour plus d’informations, consultez [Meilleures pratiques relatives aux améliorations de performances à l’aide de la messagerie répartie Service Bus](../service-bus/service-bus-performance-improvements.md) (en Anglais) et la section [Service Bus (récupération d’urgence)](./resiliency-technical-guidance-recovery-loss-azure-region.md#other-azure-platform-services).
 
 ###Mobile Services
 
 Il existe deux considérations relatives à la disponibilité pour Azure Mobile Services. Tout d’abord, sauvegardez régulièrement la Base de données SQL associée à votre service mobile. Ensuite, sauvegardez les scripts de service mobile. Pour plus d’informations, consultez [Récupération de votre service mobile en cas d’incident](../mobile-services/mobile-services-disaster-recovery.md).
 
-Si Mobile Services subit une panne temporaire, il vous faudra éventuellement utiliser temporairement un autre centre de données Azure. Pour plus d’informations, consultez la section [Mobile Services (récupération d’urgence)](./resiliency-technical-guidance-recovery-loss-azure-region.md#mobile-services).
+Si Mobile Services subit une panne temporaire, il vous faudra éventuellement utiliser temporairement un autre centre de données Azure. Pour plus d’informations, consultez la section [Mobile Services (récupération d’urgence)](./resiliency-technical-guidance-recovery-loss-azure-region.md#other-azure-platform-services).
 
 ###HDInsight
 
-Par défaut, les données associées à Azure HDInsight sont stockées dans le stockage d’objets blob Azure. Azure Storage spécifie les propriétés de haute disponibilité et de durabilité pour le stockage d’objets blob. Le traitement à plusieurs nœuds associé à des travaux Hadoop MapReduce est effectué sur un système de fichiers HDFS (Hadoop Distributed File System) temporaire, qui est approvisionné quand HDInsight le requiert. Les résultats d’un travail MapReduce sont également stockés par défaut dans le stockage d’objets blob Azure, afin que les données traitées soient durables et demeurent hautement disponibles une fois le cluster Hadoop déprovisionné. Pour plus d’informations, consultez la section [HDInsight (récupération d’urgence)](./resiliency-technical-guidance-recovery-loss-azure-region.md#hdinsight).
+Par défaut, les données associées à Azure HDInsight sont stockées dans le stockage d’objets blob Azure. Azure Storage spécifie les propriétés de haute disponibilité et de durabilité pour le stockage d’objets blob. Le traitement à plusieurs nœuds associé à des travaux Hadoop MapReduce est effectué sur un système de fichiers HDFS (Hadoop Distributed File System) temporaire, qui est approvisionné quand HDInsight le requiert. Les résultats d’un travail MapReduce sont également stockés par défaut dans le stockage d’objets blob Azure, afin que les données traitées soient durables et demeurent hautement disponibles une fois le cluster Hadoop déprovisionné. Pour plus d’informations, consultez la section [HDInsight (récupération d’urgence)](./resiliency-technical-guidance-recovery-loss-azure-region.md#other-azure-platform-services).
 
 ##Listes de contrôle pour les défaillances locales
 
 ###Services cloud
 
-  1. Consultez la section [Cloud Services](#cloud-services) de ce document.
+  1. Consultez la section Services cloud de ce document.
   2. Configurez au moins deux instances pour chaque rôle.
   3. Rendez l’état persistant dans le stockage durable, mais pas sur les instances de rôle.
   4. Gérez correctement l’événement StatusCheck.
@@ -187,40 +187,40 @@ Par défaut, les données associées à Azure HDInsight sont stockées dans le s
 
 ###Machines virtuelles
 
-  1. Consulter la section [Virtual Machines](#virtual-machines) de ce document.
+  1. Consulter la section Machines virtuelles de ce document.
   2. N’utilisez pas le lecteur D pour le stockage persistant.
   3. Groupez les machines dans un niveau de service d’un groupe à haute disponibilité.
   4. Configurez l’équilibrage de charge et les sondes facultatives.
 
 ###Storage
 
-  1. Consultez la section [Stockage](#storage) de ce document.
+  1. Consultez la section Stockage de ce document.
   2. Utilisez plusieurs comptes de stockage lorsque les données ou la bande passante dépassent les quotas.
 
 ###Base de données SQL
 
-  1. Consultez la section [Base de données SQL](#sql-database) de ce document.
+  1. Consultez la section Base de données SQL de ce document.
   2. Implémentez une stratégie de nouvelle tentative pour gérer les erreurs temporaires.
   3. Utilisez le partitionnement en tant que stratégie d’augmentation de la taille des instances.
 
 ###SQL Server sur Virtual Machines
 
-  1. Consultez la section [SQL Server sur Virtual Machines](#sql-server-on-virtual-machines) de ce document.
+  1. Consultez la section SQL Server sur Virtual Machines de ce document.
   2. Suivez les recommandations précédentes relatives à Virtual Machines.
   3. Utilisez les fonctionnalités de haute disponibilité de SQL Server, telles que AlwaysOn.
 
 ###Service Bus
 
-  1. Consultez la section [Service Bus](#service-bus) de ce document.
+  1. Consultez la section Service Bus de ce document.
   2. Envisagez de créer une file d’attente durable côté client en tant que sauvegarde.
 
 ###HDInsight
 
-  1. Consultez la section [HDInsight](#hdinsight) de ce document.
+  1. Consultez la section HDInsight de ce document.
   2. Aucune tâche supplémentaire de disponibilité requise pour les défaillances locales.
 
 ##Étapes suivantes
 
-Cet article fait partie d’une série intitulée [Guide technique de la résilience Azure](./resiliency-technical-guidance.md). L’article suivant de cette série s’intitule [Récupération d’une interruption de service à l’échelle de la région Azure](./resiliency-technical-guidance-recovery-loss-azure-region.md).
+Cet article fait partie d’une série intitulée [Guide technique de la résilience Azure](./resiliency-technical-guidance.md). L’article suivant de cette série s’intitule [Récupération d’une interruption de service à l’échelle de la région](./resiliency-technical-guidance-recovery-loss-azure-region.md).
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

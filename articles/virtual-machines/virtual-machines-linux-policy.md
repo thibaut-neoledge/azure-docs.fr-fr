@@ -4,7 +4,7 @@
 	services="virtual-machines-linux"
 	documentationCenter=""
 	authors="singhkays"
-	manager="drewm"
+	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
 
@@ -106,4 +106,4 @@ Après avoir créé la stratégie, vous devez l’appliquer sur une étendue dé
 
 * [Création d’une stratégie](../resource-manager-policy.md#applying-a-policy)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

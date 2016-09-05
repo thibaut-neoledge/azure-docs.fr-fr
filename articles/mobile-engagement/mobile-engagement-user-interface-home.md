@@ -13,13 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile"
-   ms.date="11/29/2015"
+   ms.date="08/19/2016"
    ms.author="piyushjo"/>
 
 # Gestion de votre application et de vos projets existants
 
 
-Cet article décrit la page **d’accueil** du portail **Mobile Engagement**. Le portail **Mobile Engagement** sert à surveiller et gérer vos applications mobiles. Notez que pour utiliser le portail, vous devez tout d’abord créer un compte **Azure Mobile Engagement**.
+Cet article décrit la page **d’accueil** du portail **Mobile Engagement**. Le portail **Mobile Engagement** sert à surveiller et à gérer vos applications mobiles. Notez que pour utiliser le portail, vous devez tout d’abord créer un compte **Azure Mobile Engagement**.
 
 Pour accéder à la page d’accueil, cliquez sur **Accueil** dans la partie supérieure gauche de la page. La page contient la liste de toutes vos applications qui font partie de la collection choisie. Sur cette page, vous bénéficiez d’une rapide vue d’ensemble de vos applications.
 
@@ -170,4 +170,4 @@ Cliquez sur un projet pour afficher toutes les applications qui font partie de c
 [Link 32]: ../mobile-engagement-how-tos-text-view.md
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0824_2016-->

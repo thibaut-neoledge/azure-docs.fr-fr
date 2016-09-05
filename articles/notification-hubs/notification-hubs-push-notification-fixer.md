@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="NA" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="05/04/2016" 
+	ms.date="08/19/2016" 
 	ms.author="wesmc"/>
 
 #Azure Notification Hubs : instructions relatives au diagnostic
@@ -36,10 +36,10 @@ Azure Notification Hubs a besoin de s’authentifier dans le contexte de l’app
  
 	a) Assurez-vous que le nom de votre hub de notification (sans fautes de frappe) est le même :
 
-	- à l’endroit où vous vous inscrivez sur le client 
-	- à l’endroit où vous envoyez des notifications depuis le serveur principal  
-	- à l’endroit où vous avez configuré les informations d’identification PNS 
-	- pour les informations d’identification SAS que vous avez configurées sur le client et le serveur principal. 
+	- à l’endroit où vous vous inscrivez sur le client
+	- à l’endroit où vous envoyez des notifications depuis le serveur principal
+	- à l’endroit où vous avez configuré les informations d’identification PNS
+	- pour les informations d’identification SAS que vous avez configurées sur le client et le serveur principal.
 		
 	b) Assurez-vous que vous utilisez les chaînes de configuration SAS adéquates sur le client et le serveur principal d’application. En règle générale, vous devez utiliser **DefaultListenSharedAccessSignature** sur le client et **DefaultFullSharedAccessSignature** sur le serveur d’application principal (ce qui autorise l’envoi de notifications au NH)
 
@@ -206,7 +206,7 @@ Ce message indique que des informations d’identification non valides sont conf
 Plus de détails ici :
 
 - [Accès par programme à la télémétrie]
-- [Exemple d’accès à la télémétrie via les API] 
+- [Exemple d’accès à la télémétrie via les API]
 
 > [AZURE.NOTE] Plusieurs fonctionnalités liées à la télémétrie, comme l’**Exportation/importation des enregistrements**, l’**accès à la télémétrie via les API**, etc., sont uniquement disponibles en niveau Standard. Si vous essayez d’utiliser ces fonctionnalités et que vous disposez d’un niveau Libre ou De base, vous obtenez un message d’exception lors de l’utilisation du Kit de développement logiciel (SDK) et une erreur HTTP 403 (interdit) lorsque vous les utilisez directement à partir des API REST. Assurez-vous que vous n’êtes pas passé au niveau Standard par le biais du portail Azure Classic.
 
@@ -241,4 +241,4 @@ Plus de détails ici :
 
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0824_2016-->

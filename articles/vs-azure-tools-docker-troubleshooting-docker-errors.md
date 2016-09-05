@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="06/08/2016"
+   ms.date="08/18/2016"
    ms.author="allclark" />
 
 # Résolution des problèmes de développement avec Docker pour Visual Studio
@@ -21,7 +21,7 @@ Lorsque vous travaillez avec Visual Studio Tools pour Docker Preview, vous pourr
 
 ##Impossible de configurer Program.cs pour la prise en charge de Docker
 
-Lorsque vous ajoutez la prise en charge de Docker, `.UseUrls(Environment.GetEnvironmentVariable("ASPNETCORE_SERVER.URLS"))` doit être ajouté à WebHostBuilder(). Si Program.cs, la fonction `Main()` ou une nouvelle classe WebHostBuilder est introuvable, un avertissement s’affichera. `.UseUrls()` est requis pour activer l’écoute du trafic entrant par Kestrel, au-delà de localhost lors de l’exécution au sein d’un conteneur Docker. Une fois terminé, le code standard doit ressembler à ce qui suit :
+Lorsque vous ajoutez la prise en charge de Docker, `.UseUrls(Environment.GetEnvironmentVariable("ASPNETCORE_URLS"))` doit être ajouté à WebHostBuilder(). Si la fonction `Main()` ou une nouvelle classe WebHostBuilder est introuvable dans `Program.cs`, un avertissement apparaît. `.UseUrls()` est requis pour permettre à Kestrel d’écouter le trafic entrant au-delà de localhost, au moment de l’exécution au sein d’un conteneur Docker. Une fois terminé, le code standard ressemble à ce qui suit :
 
 ```
 public class Program
@@ -41,7 +41,7 @@ public class Program
 }
 ```
 
-UseUrls() a configuré WebHost pour écouter le trafic URL entrant. [Outils docker pour Visual Studio](http://aka.ms/DockerToolsForVS) configurera la variable d’environnement dans le mode dockerfile.debug/release comme suit :
+UseUrls() a configuré WebHost pour écouter le trafic URL entrant. [Visual Studio Tools pour Docker](http://aka.ms/DockerToolsForVS) configure la variable d’environnement dans le mode dockerfile.debug/release comme suit :
 
 ```
 # Configure the listening port to 80
@@ -83,28 +83,28 @@ Documents        Libraries        Pictures         desktop.ini
 /wormhole #
 ```
 
-**Remarque :** *lorsque vous travaillez avec des machines virtuelles Linux, le système de fichiers du conteneur respecte la casse.*
+> [AZURE.NOTE] Lorsque vous travaillez avec des machines virtuelles Linux, le système de fichiers du conteneur est sensible à la casse.
 
 Si vous ne parvenez pas à afficher le contenu, essayez ce qui suit :
 
 **Version bêta de Docker pour Windows**
-- Vérifiez que l’application de bureau Docker pour Windows est en cours d’exécution en recherchant l’icône moby dans la barre d’état système, et assurez-vous qu’elle est en blanc et fonctionnelle.
-- Vérifiez que le mappage de volumes est configuré en cliquant avec le bouton droit sur l’icône moby dans la barre d’état système, puis en sélectionnant les paramètres et en cliquant sur **Gérer les lecteurs partagés...**
+- Vérifiez que l’application de bureau Docker pour Windows est en cours d’exécution en recherchant l’icône `moby` dans la zone de notification, puis assurez-vous qu’elle est en blanc et fonctionnelle.
+- Vérifiez que le mappage de volumes est configuré en cliquant avec le bouton droit sur l’icône `moby` dans la zone de notification, puis en sélectionnant les paramètres et en cliquant sur **Gérer les lecteurs partagés...**
 
 **Boîte à outils Docker avec VirtualBox**
 
 Par défaut, VirtualBox partage `C:\Users` en tant que `c:/Users`. Si possible, déplacez votre projet sous ce répertoire. Sinon, vous pouvez l’ajouter manuellement aux [dossiers partagés](https://www.virtualbox.org/manual/ch04.html#sharedfolders) VirtualBox.
 	
-##Génération : échec de génération de l’image, erreur lors de la vérification de la connexion TLS : l’hôte n’est pas en cours d’exécution.
+##Génération : échec de génération de l’image, erreur lors de la vérification de la connexion TLS : l’hôte n’est pas en cours d’exécution.
 
 - Vérifiez que l’hôte Docker par défaut est en cours d’exécution. Consultez l’article [Configurer le client Docker](./vs-azure-tools-docker-setup.md).
 
 ##Utiliser Microsoft Edge en tant que navigateur par défaut
 
-Si vous utilisez le navigateur Microsoft Edge, le site risque de ne pas s’ouvrir, car Edge considère l’adresse IP comme non sécurisée. Pour résoudre ce problème, procédez comme suit :
+Si vous utilisez le navigateur Microsoft Edge, le site risque de ne pas s’ouvrir, car Edge considère l’adresse IP comme non sécurisée. Pour résoudre ce problème, procédez comme suit :
 
 1. Accédez à **Options Internet**.
-    - Sur Windows 10, vous pouvez taper `Internet Options` dans la zone Exécuter.
+    - Dans Windows 10, vous pouvez taper `Internet Options` dans la zone Exécuter.
     - Dans Internet Explorer, vous pouvez accéder au menu **Paramètres**, puis sélectionner **Options Internet**.
 1. Sélectionnez **Options Internet**.
 1. Sélectionnez l’onglet **Sécurité**.
@@ -112,16 +112,16 @@ Si vous utilisez le navigateur Microsoft Edge, le site risque de ne pas s’ouv
 1. Sélectionnez **Sites**.
 1. Ajoutez l’IP de votre machine virtuelle (dans ce cas, l’hôte Docker) à la liste.
 1. Actualisez la page dans Edge et vérifiez que le site est opérationnel.
-1. Pour plus d’informations sur ce problème, reportez-vous au billet de blog de Scott Hanselman [Microsoft Edge can’t see or open VirtualBox-hosted local web sites (Microsoft Edge ne peut pas voir ou ouvrir des sites web locaux hébergés sur VirtualBox)](http://www.hanselman.com/blog/FixedMicrosoftEdgeCantSeeOrOpenVirtualBoxhostedLocalWebSites.aspx).
+1. Pour plus d’informations sur ce problème, voir le billet de blog de Scott Hanselman [Microsoft Edge can’t see or open VirtualBox-hosted local web sites](http://www.hanselman.com/blog/FixedMicrosoftEdgeCantSeeOrOpenVirtualBoxhostedLocalWebSites.aspx) (Microsoft Edge ne peut pas voir ou ouvrir des sites web locaux hébergés sur VirtualBox).
 
 ##Résolution des problèmes de la version 0.15 ou version antérieures
 
 
 ###L’exécution de l’application entraîne l’ouverture de PowerShell, qui affiche l’erreur avant de se refermer. La page du navigateur ne s’ouvre pas.
 
-Cela peut être dû à une erreur au cours de `docker-compose-up`. Procédez comme suit pour afficher l’erreur :
+La non-ouverture du navigateur peut être due à une erreur pendant `docker-compose-up`. Procédez comme suit pour afficher l’erreur :
 
-1. Ouvrez le fichier `Properties\launchSettings.json`
+1. Ouvrez le fichier `Properties\launchSettings.json`.
 1. Recherchez l’entrée Docker.
 1. Notez la ligne qui commence comme suit :
 
@@ -129,10 +129,10 @@ Cela peut être dû à une erreur au cours de `docker-compose-up`. Procédez com
     "commandLineArgs": "-ExecutionPolicy RemoteSigned …”
     ```
 	
-1. Ajoutez le paramètre `-noexit` afin que la ligne soit comme suit. Cette opération permet de garder PowerShell ouvert afin que vous puissiez afficher l’erreur.
+1. Ajoutez le paramètre `-noexit` afin que la ligne ressemble à ce qui suit. Ce code permet de garder PowerShell ouvert pour pouvoir afficher l’erreur.
 
     ```
 	"commandLineArgs": "-noexit -ExecutionPolicy RemoteSigned …”
     ```
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-services"
-   ms.date="08/17/2016"
+   ms.date="08/19/2016"
    ms.author="jeffstok"
 />
 
@@ -374,19 +374,17 @@ Les actions de script sont des scripts Bash permettant de modifier la configurat
 
 3. Dans le panneau __Envoyer une action de script__, entrez les informations suivantes.
 
-* __Nom__ : un nom convivial à utiliser pour identifier ce script
-* __URI de script Bash__ : `http://mrsactionscripts.blob.core.windows.net/rpackages-v01/InstallRPackages.sh`
-* __En-tête__ : cette valeur doit être __désactivée__
-* __Worker__ : cette valeur doit être __activée__
-* __Zookeeper__ : cette valeur doit être __désactivée__
-* __Paramètres__ : les packages R à installer. Par exemple, `bitops stringr arules`
-    
-    > [AZURE.NOTE] Par défaut, tous les packages R sont installés à partir d’un instantané du référentiel Microsoft MRAN cohérent avec la version du serveur R qui a été installée. Si vous souhaitez installer des versions plus récentes des packages, il y a des risques d’incompatibilité. Cependant, cela est possible en spécifiant `useCRAN` en tant que premier élément de la liste de packages (par exemple, `useCRAN bitops, stringr, arules`).
-    
-* __Conservez cette action de script...__ : cette option doit être __activée__.
-    
-    > [AZURE.IMPORTANT] Certains packages R nécessiteront des bibliothèques de système Linux supplémentaires. Pour plus de commodité, nous avons préinstallé les dépendances requises par les 100 premiers packages R les plus populaires. Toutefois, si les packages R que vous installez nécessitent des bibliothèques supplémentaires, vous devez télécharger le script de base utilisé ici et ajouter des étapes pour installer les bibliothèques système. Vous devez ensuite charger le script modifié dans un conteneur d’objets blob publics dans Azure Storage, puis utiliser le script modifié pour installer les packages. Pour plus d’informations sur le développement d’actions de script, consultez la section [Développer des actions de script](hdinsight-hadoop-script-actions-linux.md).
-    
+  - __Nom__ : un nom convivial pour identifier ce script
+  - __URI de script Bash__ : `http://mrsactionscripts.blob.core.windows.net/rpackages-v01/InstallRPackages.sh`
+  - __En-tête__ : cette valeur doit être __désactivée__
+  - __Worker__ : cette valeur doit être __activée__
+  - __Zookeeper__ : cette valeur doit être __désactivée__
+  - __Paramètres__ : les packages R à installer. Par exemple, `bitops stringr arules`
+  - __Conservez cette action de script...__ : cette option doit être __activée__.
+
+    > [AZURE.NOTE] 1. Par défaut, tous les packages R sont installés à partir d’un instantané du référentiel Microsoft MRAN cohérent avec la version du serveur R qui a été installée. Si vous souhaitez installer des versions plus récentes des packages, il y a des risques d’incompatibilité. Cependant, cela est possible en spécifiant `useCRAN` en tant que premier élément de la liste de packages (par exemple, `useCRAN bitops, stringr, arules`).
+    > 2. Certains packages R nécessiteront des bibliothèques de système Linux supplémentaires. Pour plus de commodité, nous avons préinstallé les dépendances requises par les 100 premiers packages R les plus populaires. Toutefois, si les packages R que vous installez nécessitent des bibliothèques supplémentaires, vous devez télécharger le script de base utilisé ici et ajouter des étapes pour installer les bibliothèques système. Vous devez ensuite charger le script modifié dans un conteneur d’objets blob publics dans Azure Storage, puis utiliser le script modifié pour installer les packages. Pour plus d’informations sur le développement d’actions de script, consultez la section [Développer des actions de script](hdinsight-hadoop-script-actions-linux.md).
+
     ![Ajout d’une action de script](./media/hdinsight-getting-started-with-r/scriptaction.png)
 
 4. Sélectionnez __Créer__ pour exécuter le script. Une fois le script exécuté, les packages R sont disponibles sur tous les nœuds de travail.
@@ -412,4 +410,4 @@ Les deux modèles créent un cluster HDInsight et un compte de stockage associé
 
 Pour obtenir des informations générales sur l’utilisation des modèles Azure Resource Manager, consultez la section [Création de clusters Hadoop basés sur Linux dans HDInsight à l’aide de modèles Azure Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -28,9 +28,9 @@ Vous pouvez également exécuter l'interface de ligne de commande Azure en tant 
 
 	docker run -it microsoft/azure-cli
 
-### Configurer votre compte et votre abonnement Microsoft Azure
+### Configuration de votre compte et de votre abonnement Microsoft Azure
 
-Si vous ne possédez pas déjà un abonnement Azure, mais que vous avez un abonnement MSDN, vous pouvez activer vos [avantages abonnés MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Ou vous pouvez vous inscrire à un [essai gratuit](https://azure.microsoft.com/pricing/free-trial/).
+Si vous ne possédez pas déjà un abonnement Azure, mais que vous avez un abonnement MSDN, vous pouvez activer vos [avantages de l’abonnement MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Ou vous pouvez vous inscrire à un [essai gratuit](https://azure.microsoft.com/pricing/free-trial/).
 
 À présent, [connectez-vous à votre compte Azure de façon interactive](../articles/xplat-cli-connect.md#use-the-log-in-method) en tapant `azure login`, puis en suivant les invites pour une expérience de connexion interactive à votre compte Azure.
 
@@ -223,7 +223,7 @@ Dans ce cas, le modèle ci-dessous vous demandera :
 - Un nom de domaine pour le monde extérieur à utiliser.
 - Un numéro de version Ubuntu Server, mais accepte uniquement l’un de ceux répertoriés dans une liste.
 
-Une fois que vous avez déterminé ces valeurs, vous pouvez créer un groupe pour votre abonnement Azure et y déployer ce modèle.
+Après avoir déterminé ces valeurs, vous pouvez créer un groupe pour votre abonnement Azure et y déployer ce modèle.
 
     {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -1240,7 +1240,7 @@ Ensuite, recherchez myVM1 :
 
 ## <a id="log-on-to-a-linux-based-virtual-machine"></a>Tâche : Se connecter à une machine virtuelle Linux
 
-En général, les machines Linux sont connectées via SSH. Pour plus d’informations, consultez [Utilisation de SSH avec Linux dans Azure](../articles/virtual-machines/virtual-machines-linux-ssh-from-linux.md).
+En général, les machines Linux sont connectées via SSH. Pour plus d’informations, consultez [Utilisation de SSH avec Linux dans Azure](../articles/virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md).
 
 ## <a id="stop-a-virtual-machine"></a>Tâche : Arrêter une machine virtuelle
 
@@ -1278,4 +1278,4 @@ Pour consulter d’autres exemples d’utilisation de l’interface de ligne de 
 
 Pour connaître les modèles supplémentaires utilisables, consultez [Modèles de démarrage rapide Azure](https://azure.microsoft.com/documentation/templates/) et [Infrastructures d'application à l'aide de modèles](../articles/virtual-machines/virtual-machines-linux-app-frameworks.md).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0824_2016-->

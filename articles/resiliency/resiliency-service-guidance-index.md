@@ -4,7 +4,7 @@
    services=""
    documentationCenter="na"
    authors="adamglick"
-   manager="hongfeig"
+   manager="saladki"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/01/2016"
+   ms.date="08/18/2016"
    ms.author="aglick"/>
 
 # Guide de résilience des services Microsoft Azure
@@ -26,7 +26,7 @@ Les liens ci-dessous peuvent vous fournir toutes les informations nécessaires p
 Les liens ci-dessous contiennent des recommandations de conception et d’architecture qui vous aident à déterminer la meilleure façon d’utiliser chaque service Azure de manière à optimiser le temps de fonctionnement de votre application. Ces liens ont été créés pour vous aider à répondre à la question suivante : « Comment faire en sorte qu’un bogue, une défaillance matérielle, une interruption de service ou une autre défaillance n’affecte pas la disponibilité globale de mon application ? » S’il n’existe aucune aide spécifique pour le service que vous cherchez, l’article [Haute disponibilité pour les applications conçues sur Microsoft Azure](./resiliency-high-availability-azure-applications.md) peut contenir des informations supplémentaires susceptibles de vous aider dans votre conception.
 
 ##Guide des services
-| Service | Guide de récupération d’urgence | Guide de conception |
+| de diffusion en continu | Guide de récupération d’urgence | Guide de conception |
 |:---------|:--------------------------:|:------------------:|
 | [Cloud Services](https://azure.microsoft.com/services/cloud-services/ "Services cloud Azure") | [link](../cloud-services/cloud-services-disaster-recovery-guidance.md "Guide de récupération d’urgence d’Azure Cloud Services") | Non disponible |
 | [Key Vault](https://azure.microsoft.com/services/key-vault/ "Azure Key Vault") | [link](../key-vault/key-vault-disaster-recovery-guidance.md "Guide de récupération d’urgence d’Azure Key Vault") | Non disponible |
@@ -38,4 +38,4 @@ Les liens ci-dessous contiennent des recommandations de conception et d’archit
 ##Étapes suivantes
 Si vous cherchez des conseils axés plus largement sur les systèmes et les solutions, consultez la page [Récupération d’urgence et haute disponibilité des applications développées sur Microsoft Azure](https://aka.ms/drtechguide).
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -37,7 +37,7 @@ Un compte de stockage Azure fournit le stockage pour le disque du système d’e
 
 ## Comment puis-je accéder à ma machine virtuelle ?
 
-Vous devez établir une connexion à distance pour vous connecter à la machine virtuelle, à l’aide de SSH (Secure Shell). Consultez les instructions sur la connexion [à partir de Windows](virtual-machines-linux-ssh-from-windows.md) ou [à partir de Linux et Mac](virtual-machines-linux-ssh-from-linux.md). Par défaut, SSH autorise un maximum de 10 connexions simultanées. Vous pouvez augmenter ce nombre en modifiant le fichier de configuration.
+Vous devez établir une connexion à distance pour vous connecter à la machine virtuelle, à l’aide de SSH (Secure Shell). Consultez les instructions sur la connexion [à partir de Windows](virtual-machines-linux-ssh-from-windows.md) ou [à partir de Linux et Mac](virtual-machines-linux-mac-create-ssh-keys.md). Par défaut, SSH autorise un maximum de 10 connexions simultanées. Vous pouvez augmenter ce nombre en modifiant le fichier de configuration.
 
 
 Si vous rencontrez des problèmes, consultez [Dépanner les connexions Secure Shell (SSH)](virtual-machines-linux-troubleshoot-ssh-connection.md).
@@ -58,4 +58,4 @@ Les deux régions Centre et Est du Canada ne sont pas enregistrées automatiquem
 
 Non. L’ajout d’une carte réseau n’est possible que lors de la création.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -4,8 +4,8 @@
 	services="virtual-machines-windows"
 	documentationCenter="na"
 	authors="rothja"
-	manager="jeffreyg"
-	editor="monicar"
+	manager="jhubbard"
+	editor=""
 	tags="azure-resource-management" />
 
 <tags
@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="05/06/2016"
+	ms.date="08/19/2016"
 	ms.author="jroth" />
 
 # Sauvegarde et restauration de SQL Server dans les machines virtuelles Azure
@@ -43,9 +43,9 @@ Lorsque votre instance SQL Server est en cours d’exécution sur une machine vi
 
 - Vous pouvez stocker le fichier de sauvegarde directement dans Azure. Pour plus d’informations, consultez les sections suivantes relatives aux différentes versions de SQL Server.
 
-## SQL Server 2016 Release Candidate
+## SQL Server 2016
 
-La version Microsoft SQL Server 2016 Release Candidate (RC3) prend en charge les fonctionnalités de [sauvegarde et restauration avec les objets blob Azure](https://msdn.microsoft.com/library/jj919148.aspx) de SQL Server 2014. Elle inclut également les améliorations suivantes :
+Microsoft SQL Server 2016 prend en charge les fonctionnalités de [sauvegarde et de restauration d’objets blob Azure](https://msdn.microsoft.com/library/jj919148.aspx) disponibles dans SQL Server 2014. Elle inclut également les améliorations suivantes :
 
 | Améliorations en 2016 | Détails |
 |---------------------|-------------------------------|
@@ -59,22 +59,22 @@ Pour suivre un didacticiel sur les fonctionnalités de SQL Server 2016 en cas 
 
 SQL Server 2014 inclut les améliorations suivantes :
 
-1. **Sauvegarde et restauration dans Azure** :
+1. **Sauvegarde et restauration dans Azure** :
 
  - La *sauvegarde de SQL Server vers une URL* est désormais prise en charge dans SQL Server Management Studio. L’option de sauvegarde vers Azure est désormais disponible lors de l’utilisation d’une tâche de sauvegarde ou de restauration, ou de l’Assistant Plan de maintenance dans SQL Server Management Studio. Pour plus d’informations, voir [SQL Server Backup to URL](https://msdn.microsoft.com/library/jj919148%28v=sql.120%29.aspx) (en anglais).
  - La *sauvegarde de SQL Server gérée dans Azure* dispose d’une nouvelle fonctionnalité qui permet d’automatiser la gestion des sauvegardes. Cela est particulièrement utile pour automatiser la gestion des sauvegardes pour les instances SQL Server 2014 s’exécutant sur une machine virtuelle Azure. Pour plus d’informations, voir [SQL Server Managed Backup to Microsoft Azure](https://msdn.microsoft.com/library/dn449496%28v=sql.120%29.aspx) (en anglais).
- - La *Sauvegarde automatisée* fournit une automatisation supplémentaire pour activer automatiquement la *sauvegarde de SQL Server gérée dans Azure* dans l’ensemble des bases de données nouvelles et existantes d’une machine virtuelle SQL Server dans Azure. Pour plus d’informations, voir [Sauvegarde automatisée pour SQL Server dans les machines virtuelles Azure](virtual-machines-windows-classic-sql-automated-backup.md).
+ - La *Sauvegarde automatisée* fournit une automatisation supplémentaire pour activer automatiquement la *sauvegarde de SQL Server gérée dans Azure* dans l’ensemble des bases de données nouvelles et existantes d’une machine virtuelle SQL Server dans Azure. Pour plus d’informations, voir [Sauvegarde automatisée pour SQL Server dans les machines virtuelles Azure](virtual-machines-windows-sql-automated-backup.md).
  - Pour une vue d’ensemble de toutes les options de sauvegarde SQL Server 2014 dans Azure, voir [SQL Server Backup and Restore with Microsoft Azure Blob Storage Service](https://msdn.microsoft.com/library/jj919148%28v=sql.120%29.aspx) (en anglais).
 
-1. **Chiffrement** : SQL Server 2014 prend en charge le chiffrement des données lors de la création d’une sauvegarde. Il gère plusieurs algorithmes de chiffrement ainsi que l’utilisation d’un certificat ou d’une clé asymétrique. Pour plus d’informations, voir [Chiffrement de sauvegarde](https://msdn.microsoft.com/library/dn449489%28v=sql.120%29.aspx).
+1. **Chiffrement** : SQL Server 2014 prend en charge le chiffrement des données lors de la création d’une sauvegarde. Il gère plusieurs algorithmes de chiffrement ainsi que l’utilisation d’un certificat ou d’une clé asymétrique. Pour plus d’informations, voir [Chiffrement de sauvegarde](https://msdn.microsoft.com/library/dn449489%28v=sql.120%29.aspx).
 
 ## SQL Server 2012
 
 Pour plus d'informations sur la sauvegarde et la restauration dans SQL Server 2012, consultez [Backup and Restore of SQL Server Databases (SQL Server 2012)](https://msdn.microsoft.com/library/ms187048%28v=sql.110%29.aspx) (en anglais).
 
-Depuis la mise à jour cumulative 2 de SQL Server 2012 SP1, vous pouvez sauvegarder dans le service de stockage d’objets blob Azure et restaurer à partir de ce service. Cette amélioration permet de sauvegarder des bases de données SQL Server sur un serveur SQL Server s’exécutant sur une machine virtuelle Azure ou sur une instance locale. Pour plus d’informations, voir [SQL Server Backup and Restore with Azure Blob Storage Service](https://msdn.microsoft.com/library/jj919148%28v=sql.110%29.aspx) (en anglais).
+Depuis la mise à jour cumulative 2 de SQL Server 2012 SP1, vous pouvez sauvegarder dans le service de stockage d’objets blob Azure et restaurer à partir de ce service. Cette amélioration permet de sauvegarder des bases de données SQL Server sur un serveur SQL Server s’exécutant sur une machine virtuelle Azure ou une instance locale. Pour plus d’informations, voir [SQL Server Backup and Restore with Azure Blob Storage Service](https://msdn.microsoft.com/library/jj919148%28v=sql.110%29.aspx) (en anglais).
 
-Voici certains avantages liés à l’utilisation du service de stockage d’objets blob Azure : possibilité de contourner la limite de 16 disques attachés, facilité de gestion, disponibilité directe du fichier de sauvegarde sur une autre instance SQL Server s’exécutant sur une machine virtuelle Azure ou sur des instances locales à des fins de migration ou de récupération d’urgence. Pour obtenir la liste complète des avantages liés à l’utilisation d’un service de stockage d’objets blob Azure pour les sauvegardes SQL Server, voir la section *Avantages (Benefits)* de la page [SQL Server Backup and Restore with Azure Blob Storage Service](https://msdn.microsoft.com/library/jj919148%28v=sql.110%29.aspx) (en anglais).
+Voici certains avantages liés à l’utilisation du service de stockage d’objets blob Azure : possibilité de contourner la limite de 16 disques attachés, facilité de gestion, disponibilité directe du fichier de sauvegarde sur une autre instance SQL Server s’exécutant sur une machine virtuelle Azure ou sur des instances locales à des fins de migration ou de récupération d’urgence. Pour obtenir la liste complète des avantages liés à l’utilisation d’un service de stockage d’objets blob Azure pour les sauvegardes SQL Server, voir la section *Avantages (Benefits)* de la page [SQL Server Backup and Restore with Azure Blob Storage Service](https://msdn.microsoft.com/library/jj919148%28v=sql.110%29.aspx) (en anglais).
 
 Pour prendre connaissance des recommandations et des informations de dépannage, voir [Backup and Restore Best Practices (Azure Blob Storage Service)](https://msdn.microsoft.com/library/jj919149%28v=sql.110%29.aspx) (en anglais).
 
@@ -92,4 +92,4 @@ Même si la sauvegarde et la restauration permettent de migrer vos données, il 
 
 Passez en revue les autres [ressources liées à l’exécution de SQL Server dans des machines virtuelles Azure](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0824_2016-->

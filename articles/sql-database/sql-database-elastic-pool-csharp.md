@@ -14,7 +14,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management"
-    ms.date="05/03/2016"
+    ms.date="08/18/2016"
     ms.author="sstein"/>
 
 # C&#x23; développement de base de données : créer et configurer un pool de base de données élastique pour une base de données SQL
@@ -27,7 +27,7 @@
 
 Cet article vous montre comment créer un [pool de base de données élastique](sql-database-elastic-pool.md) pour des bases de données SQL à partir d’une application en utilisant des techniques de développement de base de données C#.
 
-> [AZURE.NOTE] Les pools élastiques de bases de données sont actuellement en version préliminaire et uniquement disponibles avec des serveurs de base de données SQL V12. Si vous disposez d’un serveur de base de données SQL V11, vous pouvez [utiliser PowerShell pour effectuer une mise à niveau vers V12 et créer un pool](sql-database-upgrade-server-powershell.md) en une seule étape.
+> [AZURE.NOTE] Les pools élastiques de bases de données sont actuellement en version préliminaire et uniquement disponibles avec des serveurs SQL Database V12. Si vous disposez d’un serveur SQL Database V11, vous pouvez [utiliser PowerShell pour effectuer une mise à niveau vers V12 et créer un pool](sql-database-upgrade-server-powershell.md) en une seule étape.
 
 Les exemples utilisent la [bibliothèque de base de données SQL Azure pour .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql). Les différents extraits de code sont fractionnés par souci de clarté, et un exemple d’application console réunit toutes les commandes dans la dernière section de cet article.
 
@@ -51,17 +51,17 @@ Obtenez les bibliothèques de gestion requises en installant les packages suivan
 
 Avant de commencer le développement SQL en C#, vous devez effectuer certaines tâches dans le portail Azure. Commencez par autoriser votre application à accéder à l’API REST en configurant l’authentification nécessaire.
 
-Les [API REST Azure Resource Manager](https://msdn.microsoft.com/library/azure/dn948464.aspx) utilisent Azure Active Directory pour l’authentification, plutôt que les certificats utilisés par les API REST de gestion des services Azure antérieures.
+Les [API REST Azure Resource Manager](https://msdn.microsoft.com/library/azure/dn948464.aspx) utilisent Azure Active Directory pour l’authentification, plutôt que les certificats utilisés par le modèle de déploiement Classic antérieur.
 
-Pour authentifier votre application cliente en fonction de l’utilisateur actuel, vous devez d’abord inscrire celle-ci dans le domaine AAD associé à l’abonnement sous lequel les ressources Azure ont été créées. Si votre abonnement Azure a été créé avec un compte Microsoft, plutôt qu’avec un compte professionnel ou scolaire, vous disposez déjà d’un domaine AAD par défaut. L’inscription de l’application peut être effectuée dans le [Portail Classic](https://manage.windowsazure.com/).
+Pour authentifier votre application cliente, vous devez d’abord inscrire celle-ci dans le domaine AAD liés à l’abonnement dans lequel les ressources Azure ont été créées. Si votre abonnement Azure a été créé avec un compte Microsoft, plutôt qu’avec un compte professionnel ou scolaire, vous disposez déjà d’un domaine AAD par défaut. Inscription de l’application dans le [portail classique](https://manage.windowsazure.com/).
 
-Pour créer une application et l’inscrire dans le répertoire actif correct, procédez comme suit :
+Pour créer une application et l’inscrire dans l’Active Directory correct, procédez comme suit :
 
-1. Faites défiler le menu situé à gauche pour localiser le service **Active Directory**, puis ouvrez ce dernier.
+1. Recherchez l’**Active Directory** et ouvrez-le.
 
     ![Développement de base de données SQL C# : configuration d’Active Directory][1]
 
-2. Sélectionnez le répertoire pour authentifier votre application et cliquez sur son **Nom**.
+2. Sélectionnez l’annuaire pour authentifier votre application et cliquez sur son **Nom**.
 
     ![Sélectionnez un répertoire.][4]
 
@@ -83,7 +83,7 @@ Pour créer une application et l’inscrire dans le répertoire actif correct, p
 
     ![Ajouter l’application][8]
 
-7. Terminez la création de l’application, cliquez sur **CONFIGURER**, puis copiez l’**ID CLIENT** (vous en aurez besoin dans votre code).
+7. Terminez la création de l’application, cliquez sur **CONFIGURER**, puis copiez l’**ID CLIENT** (vous en avez besoin dans votre code).
 
     ![Obtenir l’ID client][9]
 
@@ -104,7 +104,7 @@ Pour créer une application et l’inscrire dans le répertoire actif correct, p
 Le nom de domaine est nécessaire pour votre code. Pour identifier aisément le nom de domaine correct, procédez comme suit :
 
 1. Accédez au [portail Azure](https://portal.azure.com).
-2. Pointez sur votre nom dans le coin supérieur droit et notez le domaine qui apparaît dans la fenêtre contextuelle. Remplacez **domain.onmicrosoft.com** dans l'extrait de code ci-dessous avec la valeur de votre compte.
+2. Pointez sur votre nom dans le coin supérieur droit et notez le domaine qui apparaît dans la fenêtre contextuelle. Remplacez **domain.onmicrosoft.com** dans l’extrait de code par la valeur de votre compte.
 
     ![Identifier le nom de domaine][3]
 
@@ -117,7 +117,7 @@ Pour plus d’informations sur l’utilisation d’Azure Active Directory pour
 
 ### Récupérer le jeton d’accès pour l’utilisateur actuel
 
-L’application cliente doit récupérer le jeton d’accès d’application pour l’utilisateur actuel. La première fois que le code est exécuté par un utilisateur, celui-ci est invité à entrer ses informations d’identification et le jeton résultant est mis en cache localement. Les exécutions suivantes récupèrent le jeton du cache, et l’utilisateur n’est invité à se connecter que si le jeton a expiré.
+L’application cliente doit récupérer le jeton d’accès d’application pour l’utilisateur actuel. La première fois que le code est exécuté, vous êtes invité à entrer vos informations d’identification, et le jeton résultant est mis en cache localement. Les exécutions suivantes extraient le jeton du cache, et ne vous invitent à vous connecter que si le jeton a expiré.
 
 
     private static AuthenticationResult GetAccessToken()
@@ -142,7 +142,7 @@ L’application cliente doit récupérer le jeton d’accès d’application pou
 
 ## Créer un groupe de ressources
 
-Avec Resource Manager, toutes les ressources doivent être créées dans un groupe de ressources. Un groupe de ressources est un conteneur réunissant les ressources associées d’une application. Pour créer un pool de base de données élastique, vous avez besoin d'un serveur de base de données SQL Azure dans un groupe de ressources existant. Exécutez le code C# suivant pour créer un groupe de ressources :
+Avec Resource Manager, toutes les ressources doivent être créées dans un groupe de ressources. Un groupe de ressources est un conteneur réunissant les ressources associées d’une application. Pour créer un pool de base de données élastique, vous avez besoin d’un serveur de base de données SQL Azure dans un groupe de ressources existant. Exécutez le code C# suivant pour créer un groupe de ressources :
 
 
     // Create a resource management client
@@ -206,7 +206,7 @@ L'exemple suivant crée une règle de pare-feu de serveur qui permet un accès a
 
 
 
-Pour autoriser d’autres services Azure à accéder à un serveur, ajoutez une règle de pare-feu et définissez les paramètres StartIpAddress et EndIpAddress sur 0.0.0.0. Notez que cette configuration autorise le trafic Azure à accéder au serveur depuis *n’importe quel* abonnement Azure.
+Pour autoriser d’autres services Azure à accéder à un serveur, ajoutez une règle de pare-feu et définissez les paramètres StartIpAddress et EndIpAddress sur 0.0.0.0. Cette configuration autorise le trafic Azure à accéder au serveur à partir de *tout* abonnement Azure.
 
 
 ## Créer une base de données
@@ -573,4 +573,4 @@ L'exemple suivant répertorie toutes les bases de données dans un pool :
 [8]: ./media/sql-database-elastic-pool-csharp/add-application2.png
 [9]: ./media/sql-database-elastic-pool-csharp/clientid.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0824_2016-->

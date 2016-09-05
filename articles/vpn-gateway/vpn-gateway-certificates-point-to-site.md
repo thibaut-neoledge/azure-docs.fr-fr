@@ -42,7 +42,7 @@ Makecert est l’une des méthodes permettant de créer un certificat auto-sign�
 
     	makecert -sky exchange -r -n "CN=CertificateName" -pe -a sha1 -len 2048 -ss My "CertificateName.cer"
 
-4. Le certificat auto-signé est utilisé pour créer des certificats clients. Quand vous chargez le fichier .cer pour le certificat auto-signé lors de la configuration P2S, vous indiquez à Azure d’approuver les certificats utilisés par les ordinateurs clients.<br><br>Tout ordinateur doté d’un certificat client également configuré avec les paramètres client VPN appropriés peut se connecter à votre réseau virtuel via P2S. Il est donc important que les certificats clients ne soient générés et installés que si cela est nécessaire, et que ce certificat auto-signé soit sauvegardé et stocké en toute sécurité.
+4. Le certificat auto-signé est utilisé pour créer des certificats clients. Quand vous chargez le fichier .cer pour le certificat auto-signé lors de la configuration P2S, vous indiquez à Azure d’approuver les certificats utilisés par les ordinateurs clients.<br><br>Tout ordinateur doté d’un certificat client également configuré avec les paramètres client VPN appropriés peut se connecter à votre réseau virtuel via P2S. Il est donc important que les certificats clients ne soient générés et installés que si cela est nécessaire, et que ce certificat auto-signé soit sauvegardé et stocké en toute sécurité. Si besoin est, vous pouvez installer ultérieurement ce certificat auto-signé sur un autre ordinateur, et générer davantage de certificats de client ou exporter le fichier .cer.
  
 
 ## Créer et installer des certificats clients
@@ -98,4 +98,4 @@ Poursuivez votre configuration point à site.
 - Pour connaître les étapes du modèle de déploiement **Resource Manager**, consultez [Configurer une connexion point à site à un réseau virtuel à l’aide de PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md).
 - Pour connaître les étapes du modèle de déploiement **classique**, consultez [Configurer une connexion VPN de point à site à un réseau virtuel](vpn-gateway-point-to-site-create.md).
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -3,8 +3,8 @@
    description="Cet article vous aide à tester les paramètres de Traffic Manager."
    services="traffic-manager"
    documentationCenter="na"
-   authors="joaoma"
-   manager="adinah"
+   authors="sdwheeler"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="traffic-manager"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="06/10/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 # Test des paramètres de Traffic Manager
 
@@ -59,4 +59,4 @@ Vous trouverez différents services de recherche et d’obtention de DNS gratuit
 [À propos des méthodes de routage du trafic de Traffic Manager](traffic-manager-routing-methods.md) [Traffic Manager](traffic-manager-overview.md)
  
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0824_2016-->

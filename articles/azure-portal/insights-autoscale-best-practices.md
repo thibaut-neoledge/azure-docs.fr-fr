@@ -127,4 +127,4 @@ La mise à l’échelle automatique notifie par e-mail les administrateurs et le
 - Les mesures ne sont pas disponibles pour que le service de mise à l’échelle automatique prenne une décision de mise à l’échelle.
 - Les mesures sont de nouveau disponibles (récupération) pour prendre une décision de mise à l’échelle. Outre les conditions ci-dessus, vous pouvez configurer des notifications par e-mail ou webhook pour être averti en cas d’action de mise à l’échelle réussie.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

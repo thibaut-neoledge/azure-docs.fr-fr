@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/31/2016"
+   ms.date="08/22/2016"
    ms.author="barbkess;sonyama"/>
 
 #Rubriques Transact-SQL
@@ -127,4 +127,4 @@ Pour accéder à d’autres exemples TSQL, consultez [Rubriques de référence p
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Toutes les rubriques pour le service SQL Server Stretch Database | Microsoft Azure"
-	description="Tableau de toutes les rubriques du service Azure nommé qui existent sur http://azure.microsoft.com/documentation/articles/, titre et description."
+	description="Tableau de toutes les rubriques du service Azure nommé SQL Server Stretch Database qui existent sur http://azure.microsoft.com/documentation/articles/, titre et description."
 	services="sql-server-stretch-database"
 	documentationCenter=""
 	authors="DouglasL"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/25/2016"
+	ms.date="08/21/2016"
 	ms.author="DouglasL"/>
 
 
@@ -60,8 +60,8 @@ Cette rubrique répertorie toutes les rubriques qui s’appliquent directement a
 
 | &nbsp; | Intitulé | Description |
 | --: | :-- | :-- |
-| 12 | [Activer le chiffrement transparent des données (TDE) pour SQL Server Stretch Database sur Azure](sql-server-stretch-database-encryption-tde.md) | Activer le chiffrement transparent des données (TDE) pour SQL Server Stretch Database sur Azure |
-| 13\. | [Activer le chiffrement transparent des données (TDE) pour SQL Server Stretch Database sur Azure](sql-server-stretch-database-tde-tsql.md) | Activer le chiffrement transparent des données (TDE) pour SQL Server Stretch Database sur Azure TSQL |
+| 12 | [Activer le chiffrement transparent des données (TDE) pour Stretch Database sur Azure](sql-server-stretch-database-encryption-tde.md) | Activer le chiffrement transparent des données (TDE) pour SQL Server Stretch Database sur Azure |
+| 13\. | [Activer le chiffrement transparent des données (TDE) pour Stretch Database sur Azure (Transact-SQL)](sql-server-stretch-database-tde-tsql.md) | Activer le chiffrement transparent des données (TDE) pour SQL Server Stretch Database sur Azure TSQL |
 
 
 
@@ -72,4 +72,4 @@ Cette rubrique répertorie toutes les rubriques qui s’appliquent directement a
 | 14 | [Sauvegarder des bases de données Stretch](sql-server-stretch-database-backup.md) | Découvrez comment sauvegarder des bases de données Stretch. |
 | 15 | [Restaurer des bases de données Stretch](sql-server-stretch-database-restore.md) | Découvrez comment restaurer des bases de données Stretch. |
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

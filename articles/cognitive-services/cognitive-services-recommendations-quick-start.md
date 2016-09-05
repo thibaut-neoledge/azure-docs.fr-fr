@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/26/2016"
+	ms.date="08/22/2016"
 	ms.author="luisca"/>
 
 # Guide de démarrage rapide pour l'API de recommandations Cognitive Services
@@ -56,7 +56,7 @@ Au cours de cette tâche, vous allez vous inscrire au service de l’API de reco
 
 1. Sélectionnez le produit **API Cognitive Services**. Ce produit vous permettra de commencer un abonnement à l’une des API Cognitive Services (Face, Text Analytics, Computer Vision, etc.). Aujourd'hui, nous nous concentrerons sur l'API de recommandations.
 
-1. Sur la page d'accueil de l’API Cognitive Services, entrez le **Nom de compte** de votre abonnement Recommandations. (Par exemple : « MyRecommendations »). Ce nom ne doit pas contenir d'espaces.
+1. Sur la page d’accueil de l’API Cognitive Services, entrez le **Nom de compte** de votre abonnement Recommandations. (Par exemple : « MyRecommendations »). Ce nom ne doit pas contenir d'espaces.
 
 1. Pour **Type d’API**, sélectionnez **Recommandations**.
 
@@ -79,7 +79,7 @@ L'API de recommandations apprendra à partir de votre catalogue et de vos opéra
 
  Vous pouvez télécharger les données [ici](http://aka.ms/RecoSampleData). Copiez et décompressez l’archive MsStoreData.Zip dans un dossier sur votre ordinateur local.
 
- > **Remarque :** l'exemple de code que vous allez télécharger et exécuter dans la tâche 3 comporte des exemples de données déjà intégrés. Cette tâche est donc facultative. Cela dit, elle vous permettra de télécharger des jeux de données plus réalistes et de mieux comprendre les entrées dans l'API de recommandations.
+ > **Remarque:** l’exemple de code que vous allez télécharger et exécuter dans la tâche 3 comporte des exemples de données déjà intégrés. Cette tâche est donc facultative. Cela dit, elle vous permettra de télécharger des jeux de données plus réalistes et de mieux comprendre les entrées dans l'API de recommandations.
 
 1.	Examinons maintenant le fichier de catalogue. Naviguez jusqu'à l'emplacement où vous avez copié les données. Ouvrez le fichier de catalogue dans le **bloc-notes**.
 
@@ -87,7 +87,7 @@ L'API de recommandations apprendra à partir de votre catalogue et de vos opéra
 
  >  AAA-04294,OfficeLangPack 2013 32/64 E34 Online DwnLd,Office <br> AAA-04303,OfficeLangPack 2013 32/64 ET Online DwnLd,Office <br> C9F-00168,KRUSELL Kiruna Flip Cover for Nokia Lumia 635 - Camel,Accessories
 
- À noter qu'un fichier de catalogue peut être beaucoup plus riche. Par exemple, vous pouvez ajouter des métadonnées sur les produits (ce que nous appelons *caractéristiques d'éléments*). Consultez la section [format de catalogue](http://go.microsoft.com/fwlink/?LinkID=760716) dans la Référence de l’API pour plus d'informations sur le format de catalogue.
+ À noter qu’un fichier de catalogue peut être beaucoup plus riche. Par exemple, vous pouvez ajouter des métadonnées sur les produits (ce que nous appelons *caractéristiques d’éléments*). Consultez la section [format de catalogue](http://go.microsoft.com/fwlink/?LinkID=760716) dans la Référence de l’API pour plus d’informations sur le format de catalogue.
 
 1. Faisons de même avec les données d'utilisation. Vous remarquerez que les données d’utilisation sont au format `<User Id>,<Item Id>,<Time Stamp>,<Event>`.
 
@@ -97,8 +97,8 @@ Notez que les trois premiers éléments sont obligatoires. Le type d’événeme
 
  > **De quelle quantité de données avez-vous besoin ?**
  <p>
->  Cela dépend vraiment des données d'utilisation. Le système apprend lorsque les utilisateurs achètent différents éléments. Pour certaines versions comme FBT, il est important de savoir quels éléments sont achetés dans une même transaction. (C’est ce que nous appelons *co-occurrences*.) Une bonne règle empirique est de faire en sorte que la plupart des éléments soient présents dans au minimum 20 transactions. Si vous avez 10 000 éléments dans votre catalogue, nous recommandons donc de disposer d'au moins 20 fois ce nombre de transactions, soit environ 200 000 transactions. Une fois encore, il s'agit d'une règle empirique. Vous devez faire des essais avec vos données.
-> </p>
+ Cela dépend vraiment des données d'utilisation. Le système apprend lorsque les utilisateurs achètent différents éléments. Pour certaines versions comme FBT, il est important de savoir quels éléments sont achetés dans une même transaction. (C’est ce que nous appelons *co-occurrences*.) Une bonne règle empirique est de faire en sorte que la plupart des éléments soient présents dans au minimum 20 transactions. Si vous avez 10 000 éléments dans votre catalogue, nous recommandons donc de disposer d'au moins 20 fois ce nombre de transactions, soit environ 200 000 transactions. Une fois encore, il s'agit d'une règle empirique. Vous devez faire des essais avec vos données.
+</p>
 
 <a name="Ex1Task3"></a>
 #### Tâche 3 : Création d'un modèle de recommandations ####
@@ -121,7 +121,7 @@ Dans cette tâche, vous allez utiliser l'exemple d'application pour générer vo
  + Récupération d’une recommandation basée sur une paire d'éléments
 <p></p>
 
-1. Remplacez la valeur du champ **AccountKey** avec la clé de la tâche 1.
+1. Remplacez la valeur du champ **AccountKey** par la clé de la tâche 1.
 
 1. Parcourez la solution : vous verrez comment se crée un modèle.
 
@@ -136,7 +136,7 @@ Dans cette tâche, vous allez utiliser l'exemple d'application pour générer vo
 
 Maintenant que vous savez comment créer un modèle et utiliser des recommandations, l'étape suivante est la mise en production sur votre site web ou votre application mobile ou l’intégration à votre système CRM ou ERP. Évidemment, chacune de ces implémentations est différente. Étant donné que l'API de recommandations est interrogée en tant que service web, vous devriez pouvoir l'appeler facilement à partir de ces différents environnements.
 
-**Important :** si vous souhaitez afficher les recommandations à partir d’un client public (par exemple, votre site de commerce électronique), vous devez créer un serveur proxy pour fournir les recommandations. Ceci est important pour que votre clé d'API ne soit pas exposée à des entités externes (potentiellement non fiables).
+**Important :** si vous souhaitez afficher les recommandations à partir d'un client public (par exemple, votre site de commerce électronique), vous devez créer un serveur proxy pour fournir les recommandations. Ceci est important pour que votre clé d'API ne soit pas exposée à des entités externes (potentiellement non fiables).
 
 Voici quelques idées d’emplacements où vous pouvez utiliser les recommandations :
 
@@ -166,6 +166,6 @@ Consultez la [documentation Obtenir des recommandations d’articles](http://go.
 
 <a name="Ex1Task6"></a>
 ### Et ensuite ?
-Félicitations si vous êtes arrivé jusqu’ici ! Pour en savoir plus, vous pouvez consulter la [Référence de l’API de recommandations](http://go.microsoft.com/fwlink/?LinkId=759348). Si vous avez des questions, n’hésitez pas à nous contacter à l’adresse mlapi@microsoft.com
+Félicitations si vous êtes arrivé jusqu’ici ! Pour en savoir plus, vous pouvez consulter la [Référence de l'API de recommandations](http://go.microsoft.com/fwlink/?LinkId=759348). Si vous avez des questions, n'hésitez pas à nous contacter au mlapi@microsoft.com
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0824_2016-->

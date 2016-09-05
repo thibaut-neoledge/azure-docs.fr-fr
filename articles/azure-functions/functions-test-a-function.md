@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="03/30/2016"
+   ms.date="08/19/2016"
    ms.author="wesmc"/>
 
 # Test des fonctions Azure
@@ -135,8 +135,8 @@ L’outil recommandé pour tester la plupart de vos fonctions est Postman. Pour 
 
 > [AZURE.TIP] Utilisez le Client REST qui vous est le plus familier. Les solutions alternatives à Postman sont les suivantes :
 > 
-> * [Fiddler](http://www.telerik.com/fiddler)  
-> * [Paw](https://luckymarmot.com/paw)  
+> * [Fiddler](http://www.telerik.com/fiddler)
+> * [Paw](https://luckymarmot.com/paw)
 
 Pour tester la fonction avec un corps de requête dans Postman :
 
@@ -238,7 +238,7 @@ Pour illustrer cette approche, nous allons d’abord créer une fonction de déc
 > [AZURE.NOTE] Si vous utilisez un nom de file d’attente différent, assurez-vous que le nom que vous utilisez est conforme aux règles d’[affectation de noms pour les files d’attente et les métadonnées](https://msdn.microsoft.com/library/dd179349.aspx). Sinon, vous obtiendrez un code d’état HTTP 400 : Requête incorrecte.
 
 1. Dans le [Portail Azure] de votre application Functions, cliquez sur **Nouvelle fonction** > **QueueTrigger - C#**.
-2. Entrez le nom de file d’attente devant être surveillé par la fonction de file d’attente. 
+2. Entrez le nom de file d’attente que la fonction de file d’attente doit surveiller.
 
 		queue-newusers 
 
@@ -439,4 +439,4 @@ Dans la fenêtre du navigateur de la fonction de file d’attente, vous verrez c
 
 [Portail Azure]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0824_2016-->

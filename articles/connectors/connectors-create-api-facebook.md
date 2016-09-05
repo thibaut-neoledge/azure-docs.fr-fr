@@ -14,23 +14,22 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="05/18/2016"
+   ms.date="08/18/2016"
    ms.author="mandia"/>
 
 # Prise en main du connecteur Facebook
-Connectez-vous à Facebook et publiez dans un journal, obtenez un flux de page et bien plus encore. Le connecteur Facebook peut être utilisé dans :
-
-- Applications logiques (abordées dans cette rubrique)
-- PowerApps [consultez [PowerApps connections list](https://powerapps.microsoft.com/tutorials/connections-list/) (Liste des connexions PowerApps) pour obtenir la liste complète]
+Connectez-vous à Facebook et publiez dans un journal, obtenez un flux de page et bien plus encore.
 
 >[AZURE.NOTE] Cette version de l'article s'applique à la version de schéma 2015-08-01-preview des applications logiques.
 
 
 Avec Facebook, vous pouvez effectuer les opérations suivantes :
 
-- Créer votre flux d’activité en fonction des données que vous obtenez de Facebook. 
+- Créer votre flux d’activité en fonction des données que vous obtenez de Facebook.
 - Utiliser un déclencheur quand une publication est reçue.
-- Utiliser des actions pour publier dans votre journal, obtenir un flux de page et bien plus encore. Ces actions obtiennent une réponse, puis mettent la sortie à la disposition d’autres actions. Par exemple, quand il y a une nouvelle publication dans votre journal, vous pouvez la transférer vers votre flux Twitter. 
+- Utiliser des actions pour publier dans votre journal, obtenir un flux de page et bien plus encore. Ces actions obtiennent une réponse, puis mettent la sortie à la disposition d’autres actions. Par exemple, quand il y a une nouvelle publication dans votre journal, vous pouvez la transférer vers votre flux Twitter.
+
+
 
 Pour ajouter une opération aux applications logiques, consultez [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
@@ -47,26 +46,26 @@ Tous les connecteurs prennent en charge les données aux formats JSON et XML.
 Quand vous ajoutez ce connecteur à vos applications logiques, vous devez autoriser celles-ci à se connecter à votre compte Facebook.
 
 1. Connectez-vous à votre compte Facebook.
-2. Sélectionnez **Autoriser** et permettez à vos applications logiques de se connecter à votre compte Facebook et de l’utiliser. 
+2. Sélectionnez **Autoriser** et permettez à vos applications logiques de se connecter à votre compte Facebook et de l’utiliser.
 
 >[AZURE.INCLUDE [Procédure de création d’une connexion à Facebook](../../includes/connectors-create-api-facebook.md)]
 
 >[AZURE.TIP] Vous pouvez utiliser cette même connexion Facebook dans d’autres applications logiques.
 
-## Informations de référence sur l’API REST Swagger
+## Informations de référence sur l'API REST Swagger
 S’applique à la version 1.0.
 
 ### Obtenir un flux à partir de mon journal
 Obtient les flux à partir du journal de l’utilisateur connecté. ```GET: /me/feed```
 
-| Nom|Type de données|Requis|Emplacement|Valeur par défaut|Description|
+| Name|Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
 |fields|string|no|query|(aucun) |Spécifie les champs à retourner. Exemple : id, name, image.|
 |limit|integer|no|query| (aucun)|Nombre maximal de publications à récupérer|
 |par|string|no|query| (aucun)|Limiter la liste des publications à celles auxquelles est associé un emplacement.|
 |filter|string|no|query| (aucun)|Récupérer uniquement les publications qui correspondent à un filtre de flux particulier.|
 
-#### Response
+#### Réponse
 |Nom|Description|
 |---|---|
 |200|OK|
@@ -82,8 +81,8 @@ Publier un message de statut dans le journal d’un utilisateur connecté. ```PO
 | ---|---|---|---|---|---|
 |post|string |yes|body|(aucun) |Nouveau message à publier|
 
-#### Response
-|Nom|Description|
+#### Réponse
+|Name|Description|
 |---|---|
 |200|OK|
 |400|Demande incorrecte|
@@ -96,8 +95,8 @@ Déclenche un nouveau flux quand il y a une nouvelle publication dans le journal
 
 Il n’existe aucun paramètre.
 
-#### Response
-|Nom|Description|
+#### Réponse
+|Name|Description|
 |---|---|
 |200|OK|
 |400|Demande incorrecte|
@@ -115,7 +114,7 @@ Obtenir les publications du flux d’une page spécifiée. ```GET: /{pageId}/fee
 |include\_hidden|booléenne|no|query|(aucun) |Indique s’il faut inclure des publications masquées par la page|
 |fields|string|no|query|(aucun) |Spécifie les champs à retourner. Exemple : id, name, image.|
 
-#### Response
+#### Réponse
 |Nom|Description|
 |---|---|
 |200|OK|
@@ -127,7 +126,7 @@ Obtenir les publications du flux d’une page spécifiée. ```GET: /{pageId}/fee
 ### Obtenir le journal d’un utilisateur
 Obtenir les publications du journal d’un utilisateur. ```GET: /{userId}/feed```
 
-| Nom|Type de données|Requis|Emplacement|Valeur par défaut|Description|
+| Name|Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
 |userId|string|yes|path|(aucun) |ID de l’utilisateur dont le journal doit être récupéré.|
 |limit|integer|no|query|(aucun) |Nombre maximal de publications à récupérer|
@@ -135,8 +134,8 @@ Obtenir les publications du journal d’un utilisateur. ```GET: /{userId}/feed``
 |filter|string|no|query| (aucun)|Récupérer uniquement les publications qui correspondent à un filtre de flux particulier.|
 |fields|string|no|query| (aucun)|Spécifie les champs à retourner. Exemple : id, name, image.|
 
-#### Response
-|Nom|Description|
+#### Réponse
+|Name|Description|
 |---|---|
 |200|OK|
 |400|Demande incorrecte|
@@ -152,8 +151,8 @@ Publier un message dans une page Facebook en tant qu’utilisateur connecté. ``
 |pageId|string|yes|path|(aucun) |ID de la page à publier.|
 |post|divers |yes|body|(aucun) |Nouveau message à publier|
 
-#### Response
-|Nom|Description|
+#### Réponse
+|Name|Description|
 |---|---|
 |200|OK|
 |400|Demande incorrecte|
@@ -434,6 +433,6 @@ Tout membre de ces groupes est susceptible de voir cette publication, à la diff
 
 ## Étapes suivantes
 
-[Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Créez une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0824_2016-->

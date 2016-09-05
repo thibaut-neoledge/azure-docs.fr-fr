@@ -77,9 +77,9 @@ Pour mapper un nom de domaine personnalisé à l’aide d’un enregistrement A,
 
 2.	Cliquez sur **App Services** dans le menu de gauche.
 
-4.	Cliquez sur votre application, puis sur **Paramètres** > **Domaines personnalisés et SSL** > **Apporter des domaines externes**.
+4.	Cliquez sur votre application, puis sur **Domaines personnalisés**.
 
-6.  Prenez note de l’adresse IP.
+6.  Prenez note de l’adresse IP située au-dessus de la section Noms d’hôtes.
 
     ![Mapper un nom de domaine personnalisé avec un enregistrement A : obtenir l’adresse IP de votre application Azure App Service](./media/web-sites-custom-domain-name/virtual-ip-address.png)
 
@@ -99,7 +99,7 @@ Connectez-vous à votre bureau d'enregistrement de domaine et utilisez son utili
 <a name="a"></a>
 ### Créer un enregistrement A
 
-Pour utiliser un enregistrement A à mapper à l’adresse IP de votre application Azure, vous devez créer un enregistrement A et un enregistrement CNAME. L’enregistrement A concerne la résolution DNS proprement dite, et l’enregistrement CNAME permet à Azure de vérifier que vous possédez le nom de domaine personnalisé.
+Pour utiliser un enregistrement A à mapper à l’adresse IP de votre application Azure, vous devez créer un enregistrement A et un enregistrement TXT. L’enregistrement A concerne la résolution DNS proprement dite, et l’enregistrement TXT permet à Azure de vérifier que vous possédez le nom de domaine personnalisé.
 
 Configurez votre enregistrement A comme suit (@ représente généralement le domaine racine) :
  
@@ -126,28 +126,28 @@ Configurez votre enregistrement A comme suit (@ représente généralement le do
   </tr>
 </table>
 
-L’enregistrement CNAME supplémentaire adopte la convention qui mappe de awverify.&lt;*sous-domaine*>.&lt;*domaine\_racine*> à awverify.&lt;*sous-domaine*>.azurewebsites.net. Configurez votre enregistrement CNAME comme suit :
+L’enregistrement TXT supplémentaire adopte la convention qui mappe de &lt;*sous-domaine*>.&lt;*domaine\_racine*> à &lt;*sous-domaine*>.azurewebsites.net. Configurez votre enregistrement TXT comme suit :
 
 <table cellspacing="0" border="1">
   <tr>
     <th>Exemple de nom de domaine complet</th>
-    <th>Hôte CNAME</th>
-    <th>Valeur CNAME</th>
+    <th>Hôte TXT</th>
+    <th>Valeur TXT</th>
   </tr>
   <tr>
     <td>contoso.com (racine)</td>
-    <td>awverify</td>
-    <td>awverify.&lt;<i>nom_application</i>>.azurewebsites.net</td>
+    <td>@</td>
+    <td>&lt;<i>nom_application</i>>.azurewebsites.net</td>
   </tr>
   <tr>
     <td>www.contoso.com (sous-domaine)</td>
-    <td>awverify.www</td>
-    <td>awverify.&lt;<i>nom_application</i>>.azurewebsites.net</td>
+    <td>www</td>
+    <td>&lt;<i>nom_application</i>>.azurewebsites.net</td>
   </tr>
   <tr>
     <td>*.contoso.com (caractère générique)</td>
-    <td>awverify</td>
-    <td>awverify.&lt;<i>nom_application</i>>.azurewebsites.net</td>
+    <td>*</td>
+    <td>&lt;<i>nom_application</i>>.azurewebsites.net</td>
   </tr>
 </table>
 
@@ -181,23 +181,27 @@ Configurez votre enregistrement CNAME comme suit (@ représente généralement l
 <a name="enable"></a>
 ## Étape 3. Activer le nom de domaine personnalisé de votre application
 
-De retour dans le panneau **Apporter des domaines externes** du portail Azure (voir [l’étape 1](#vip)), vous devez ajouter à la liste le nom de domaine complet (FQDN) de votre domaine personnalisé.
+De retour dans le panneau **Domaines personnalisés** du portail Azure (voir [l’étape 1](#vip)), vous devez ajouter à la liste le nom de domaine complet (FQDN) de votre domaine personnalisé.
 
 1.	Si ce n’est pas déjà fait, connectez-vous au [portail Azure](https://portal.azure.com).
 
 2.	Dans le portail Azure, cliquez sur **App Services** dans le menu de gauche.
 
-4.	Cliquez sur votre application, puis sur **Paramètres** > **Domaines personnalisés et SSL** > **Apporter des domaines externes**.
+3.	Cliquez sur votre application, puis sur **Domaines personnalisés** > **Ajouter un nom d’hôte**.
 
-2.	Ajoutez le nom de domaine complet de votre domaine personnalisé à la liste (par exemple, **www.contoso.com**).
+4.	Ajoutez le nom de domaine complet de votre domaine personnalisé à la liste (par exemple, **www.contoso.com**).
 
     ![Mapper un nom de domaine personnalisé à une application Azure : Ajouter à la liste des noms de domaine](./media/web-sites-custom-domain-name/add-custom-domain.png)
 
     >[AZURE.NOTE] Azure tente de vérifier le nom de domaine que vous utilisez ici. Assurez-vous qu’il s’agit du nom du domaine pour lequel vous avez créé un enregistrement DNS à [l’étape 2](#createdns).
 
-6.  Cliquez sur **Save**.
+5.  Cliquez sur **Valider**.
 
-7.  Une fois qu’Azure a terminé la configuration de votre nouveau nom de domaine, accédez à votre nom de domaine personnalisé dans un navigateur. Le navigateur devrait ouvrir votre application Azure, ce qui signifie que le nom de votre domaine personnalisé est correctement configuré.
+6.  Lorsque vous cliquez sur **Valider**, Azure lance le processus de vérification du domaine. Ce processus vérifie la propriété du domaine ainsi que la disponibilité du nom du domaine, vous signale la réussite ou le détail de l’échec de l’opération et vous fournit des instructions de résolution des éventuelles erreurs.
+
+7.  Lorsque la validation a été correctement effectuée, le bouton **Ajouter un nom d’hôte** est activé, et vous êtes alors en mesure d’attribuer un nom d’hôte. Entrez votre nom de domaine personnalisé dans un navigateur. Vous devriez voir votre application s’exécuter sous votre nom de domaine personnalisé.
+
+8.  Une fois qu’Azure a terminé la configuration de votre nouveau nom de domaine, accédez à votre nom de domaine personnalisé dans un navigateur. Le navigateur devrait ouvrir votre application Azure, ce qui signifie que le nom de votre domaine personnalisé est correctement configuré.
 
 <a name="verify"></a>
 ## Vérifier la propagation DNS
@@ -219,4 +223,4 @@ Apprenez à sécuriser votre nom de domaine personnalisé avec HTTPS en [achetan
 <!-- Images -->
 [subdomain]: media/web-sites-custom-domain-name/azurewebsites-subdomain.png
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

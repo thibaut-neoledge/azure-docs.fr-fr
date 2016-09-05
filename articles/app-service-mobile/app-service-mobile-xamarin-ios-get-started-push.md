@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/05/2016"
+	ms.date="08/19/2016"
 	ms.author="wesmc"/>
 
 # Ajouter des notifications Push à votre application Xamarin.iOS
@@ -24,7 +24,7 @@
 
 Ce didacticiel est basé sur le [didacticiel Démarrage rapide de Xamarin.iOS](app-service-mobile-xamarin-ios-get-started.md), que vous devez effectuer en premier. Vous ajoutez des notifications Push au projet Démarrage rapide Xamarin.iOS afin qu'une notification Push soit envoyée chaque fois qu'un enregistrement est inséré. Si vous n’utilisez pas le projet de serveur du démarrage rapide téléchargé, vous devez ajouter le package d’extension de notification Push à votre projet. Pour plus d'informations sur les packages d'extension de serveur, consultez [Fonctionnement avec le Kit de développement logiciel (SDK) du serveur principal .NET pour Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
-##Configuration requise
+##Composants requis
 
 * Terminez le [didacticiel de démarrage rapide Xamarin.iOS](app-service-mobile-xamarin-ios-get-started.md).
 
@@ -78,7 +78,7 @@ Votre service est désormais configuré et prêt à fonctionner avec les notific
 		using Microsoft.WindowsAzure.MobileServices;
 		using Newtonsoft.Json.Linq;
 
-2. Dans **AppDelegate**, remplacez l'événement **FinishedLaunching** :
+2. Dans **AppDelegate**, remplacez l'événement **FinishedLaunching** :
 
         public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
         {
@@ -118,7 +118,7 @@ Votre service est désormais configuré et prêt à fonctionner avec les notific
         }
 
 
-4. Ensuite, remplacez l’événement **DidReceivedRemoteNotification** :
+4. Ensuite, remplacez l’événement **DidReceivedRemoteNotification** :
 
         public override void DidReceiveRemoteNotification (UIApplication application, NSDictionary userInfo, Action<UIBackgroundFetchResult> completionHandler)
         {
@@ -156,4 +156,4 @@ Vous avez terminé ce didacticiel.
 
 <!-- URLs. -->
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0824_2016-->

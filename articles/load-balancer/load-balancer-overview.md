@@ -3,7 +3,7 @@
    description="Présentation des fonctionnalités, de l'architecture et de l'implémentation de l'équilibrage de charge Azure. Découvrez comment fonctionne l’équilibrage de charge et l’exploiter dans le cloud."
    services="load-balancer"
    documentationCenter="na"
-   authors="joaoma"
+   authors="sdwheeler"
    manager="carmonm"
    editor="tysonn" />
 <tags
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="05/19/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 
 # Vue d’ensemble de l’équilibreur de charge Azure
@@ -36,7 +36,7 @@ Dans ce modèle, une adresse IP publique et un nom de domaine complet sont affec
 
 La traduction de port est effectuée à l’aide de points de terminaison qui constituent une relation un-à-un entre le port public affecté de l’adresse IP publique et le port local attribué pour envoyer le trafic vers une machine virtuelle spécifique. L’équilibrage de charge est effectué à l’aide des points de terminaison du jeu de l’équilibrage de charge. Ces points de terminaison constituent une relation un-à-plusieurs entre l’adresse IP publique et les ports locaux affectés à toutes les machines virtuelles du service cloud qui répondent au trafic réseau à charge équilibrée.
 
-Le nom de domaine de l’adresse IP publique que l’équilibrage de charge utilise dans ce modèle de déploiement est <cloud service name>.cloudapp.net. Le graphique ci-dessous montre l’équilibrage de charge Azure dans ce modèle.
+Le nom de domaine de l’adresse IP publique que l’équilibrage de charge utilise dans ce modèle de déploiement est <nom du service cloud>.cloudapp.net. Le graphique ci-dessous montre l’équilibrage de charge Azure dans ce modèle.
 
 ![L’équilibrage de charge dans le modèle de déploiement classique](./media/load-balancer-overview/asm-lb.png)
 
@@ -83,8 +83,8 @@ L’équilibrage de charge peut tester l’intégrité des différentes instance
 Trois types de sondes sont pris en charge :
 
 - **Sonde d’agent invité (sur machines virtuelles Paas uniquement)**** :** l’équilibrage de charge utilise l’agent invité dans la machine virtuelle. Il écoute et répond avec une réponse HTTP 200 OK uniquement lorsque l’instance est prête (c’est-à-dire que l’instance n’est pas dans un état de type occupé, recyclage ou arrêt). Si l’agent invité ne répond pas avec un HTTP 200 OK, l’équilibreur de charge marque l’instance comme ne répondant pas et arrête d’envoyer du trafic vers cette instance. L’équilibrage de charge continue d’exécuter un test ping de l’instance. Si l’agent invité répond avec un HTTP 200, l’équilibrage de charge envoie à nouveau du trafic vers cette instance. Lorsque vous utilisez un rôle web, le code de votre site web s'exécute généralement dans w3wp.exe, qui n'est pas surveillé par l'agent Azure Fabric ou l'agent invité. Cela signifie que les échecs dans w3wp.exe (par exemple, les réponses HTTP 500) ne seront pas signalés à l’agent invité et l’équilibrage de charge ne saura pas qu’il doit placer cette instance hors service.
-- **Sonde personnalisée HTTP :** cette sonde remplace la sonde (agent invité) par défaut. Vous pouvez l'utiliser pour créer votre propre logique personnalisée pour déterminer l'état de l'instance de rôle. L’équilibrage de charge sonde régulièrement votre point de terminaison (toutes les 15 secondes, par défaut). L'instance est considérée comme en service si elle répond avec le code de statut HTTP 200 ou un paquet TCP ACK dans le délai imparti (31 secondes par défaut). Cela peut être utile pour implémenter votre propre logique pour supprimer des instances du service d’équilibrage de charge. Vous pouvez, par exemple, configurer l'instance pour qu'elle renvoie un état autre que 200 si l'instance a une utilisation supérieure à 90 % de l'UC. Pour les rôles web utilisant w3wp.exe, vous obtenez également une analyse automatique de votre site web, dans la mesure où les erreurs dans votre code de site web renvoient un état autre que 200 à la sonde.  
-- **Sonde personnalisée TCP :**cette sonde s’appuie sur l’établissement réussi d’une session TCP sur un port de sonde défini.
+- **Sonde personnalisée HTTP :** cette sonde remplace la sonde (agent invité) par défaut. Vous pouvez l'utiliser pour créer votre propre logique personnalisée pour déterminer l'état de l'instance de rôle. L’équilibrage de charge sonde régulièrement votre point de terminaison (toutes les 15 secondes, par défaut). L'instance est considérée comme en service si elle répond avec le code de statut HTTP 200 ou un paquet TCP ACK dans le délai imparti (31 secondes par défaut). Cela peut être utile pour implémenter votre propre logique pour supprimer des instances du service d’équilibrage de charge. Vous pouvez, par exemple, configurer l'instance pour qu'elle renvoie un état autre que 200 si l'instance a une utilisation supérieure à 90 % de l'UC. Pour les rôles web utilisant w3wp.exe, vous obtenez également une analyse automatique de votre site web, dans la mesure où les erreurs dans votre code de site web renvoient un état autre que 200 à la sonde.
+- **Sonde personnalisée TCP :** cette sonde s’appuie sur l’établissement réussi d’une session TCP sur un port de sonde défini.
 
 Pour plus d’informations, consultez le [schéma LoadBalancerProbe](https://msdn.microsoft.com/library/azure/jj151530.aspx).
 
@@ -110,7 +110,7 @@ Vous pouvez obtenir plusieurs adresses IP publiques à équilibrage de charge at
 
 ####Déploiements basés sur modèle avec Azure Resource Manager####
 
-L’équilibrage de charge peut maintenant être géré à l’aide des outils et API de Resource Manager. Pour plus d’informations sur Resource Manager, consultez la page [Présentation d’Azure Resource Manager](../resource-group-overview.md).
+L’équilibrage de charge peut maintenant être géré à l’aide des outils et API de Resource Manager. Pour plus d’informations sur Resource Manager, consultez la [Présentation de Resource Manager](../resource-group-overview.md).
 
 [AZURE.INCLUDE [load-balancer-compare-tm-ag-lb-include.md](../../includes/load-balancer-compare-tm-ag-lb-include.md)]
 
@@ -122,4 +122,4 @@ L’équilibrage de charge peut maintenant être géré à l’aide des outils e
 
 [Prise en main de la création d'un équilibreur de charge accessible sur Internet](load-balancer-get-started-internet-arm-ps.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0824_2016-->

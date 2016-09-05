@@ -38,6 +38,7 @@ Découvrez les réponses aux questions les plus fréquentes, les modèles et les
 -	[Puis-je créer une instance de service de gestion des API à l’aide d’un modèle ARM ?](#can-i-create-an-api-management-service-instance-using-an-arm-template)
 -	[Puis-je utiliser un certificat SSL auto-signé pour un service principal ?](#can-i-use-a-self-signed-ssl-certificate-for-a-backend)
 -	[Pourquoi l’authentification échoue-t-elle lors de la tentative de clonage du référentiel GIT ?](#why-am-i-getting-authentication-failure-when-i-try-to-clone-the-git-repository)
+-	[Comment fonctionne la gestion des API avec Express Route ?](#does-api-management-work-with-express-route)
 
 
 ### Comment puis-je poser une question à l’équipe de gestion des API ?
@@ -150,4 +151,8 @@ Oui. Suivez les étapes ci-dessous :
 
 Si vous utilisez le Gestionnaire d’informations d’identification GIT ou si vous essayez de cloner le référentiel via Visual Studio, il est possible que vous rencontriez un problème connu dans la boîte de dialogue d’informations d’identification Windows, qui limite la longueur du mot de passe à 127 caractères seulement et tronque, par conséquent, le mot de passe que nous générons. Nous travaillons au raccourcissement du mot de passe. Pour l’instant, utilisez GIT Bash pour le clonage.
 
-<!---HONumber=AcomDC_0810_2016-->
+### Comment fonctionne la gestion des API avec Express Route ?
+
+Oui.
+
+<!---HONumber=AcomDC_0824_2016-->

@@ -15,10 +15,12 @@
 	ms.topic="reference"
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
-	ms.date="05/16/2016"
-	ms.author="chrande"/>
+	ms.date="08/22/2016"
+	ms.author="chrande; glenga"/>
 
 # Déclencheurs et liaisons Service Bus Azure Functions pour les files d’attente et les rubriques
+
+[AZURE.INCLUDE [functions-selector-bindings (liaisons de sélecteur de fonctions)](../../includes/functions-selector-bindings.md)]
 
 Cet article explique comment configurer et coder des déclencheurs et des liaisons Azure Service Bus dans Azure Functions.
 
@@ -30,14 +32,14 @@ Cet article explique comment configurer et coder des déclencheurs et des liaiso
 
 Le fichier *function.json* spécifie les propriétés suivantes :
 
-- `name` : nom de variable utilisé dans le code de fonction pour la file d’attente ou la rubrique, ou pour le message de file d’attente ou de rubrique. 
+- `name` : nom de variable utilisé dans le code de fonction pour la file d’attente ou la rubrique, ou pour le message de file d’attente ou de rubrique.
 - `queueName` : pour le déclencheur de file d’attente uniquement, le nom de la file d’attente à interroger.
 - `topicName` : pour le déclencheur de rubrique uniquement, le nom de la rubrique à interroger.
 - `subscriptionName` : pour le déclencheur de rubrique uniquement, le nom de l’abonnement.
 - `connection` : le nom d’un paramètre d’application contenant une chaîne de connexion Service Bus. La chaîne de connexion doit être destinée à un espace de noms Service Bus, et non limitée à une file d’attente ou une rubrique spécifique. Si la chaîne de connexion n’a pas de droits de gestion, définissez la propriété `accessRights`. Si vous laissez `connection` vide, le déclencheur ou la liaison fonctionnera avec la chaîne de connexion de Service Bus par défaut pour le conteneur de fonctions, qui est spécifiée par le paramètre d’application AzureWebJobsServiceBus.
 - `accessRights` : spécifie les droits d’accès disponibles pour la chaîne de connexion. La valeur par défaut est `manage`. Définissez la valeur sur `listen` si vous utilisez une chaîne de connexion qui ne fournit pas d’autorisations de gestion. Sinon, le runtime Functions pourrait essayer et faire échouer les opérations qui nécessitent des droits de gestion.
 - `type` : doit être défini sur *serviceBusTrigger*.
-- `direction` : doit être défini sur *in*. 
+- `direction` : doit être défini sur *in*.
 
 Exemple *function.json* pour un déclencheur de file d’attente Service Bus :
 
@@ -80,8 +82,8 @@ Le message de file d’attente Service Bus peut être désérialisé vers l’un
 
 * Objet (de JSON)
 * string
-* tableau d’octets 
-* `BrokeredMessage` (C#) 
+* tableau d’octets
+* `BrokeredMessage` (C#)
 
 #### <a id="sbpeeklock"></a> Comportement de PeekLock
 
@@ -101,14 +103,14 @@ Par défaut, le runtime Functions traite plusieurs messages de file d’attente 
 
 Le fichier *function.json* spécifie les propriétés suivantes :
 
-- `name` : nom de variable utilisé dans le code de fonction pour la file d’attente ou le message de file d’attente. 
+- `name` : nom de variable utilisé dans le code de fonction pour la file d’attente ou le message de file d’attente.
 - `queueName` : pour le déclencheur de file d’attente uniquement, le nom de la file d’attente à interroger.
 - `topicName` : pour le déclencheur de rubrique uniquement, le nom de la rubrique à interroger.
 - `subscriptionName` : pour le déclencheur de rubrique uniquement, le nom de l’abonnement.
-- `connection` : identique à la propriété du déclencheur Service Bus
+- `connection` : identique au déclencheur Service Bus.
 - `accessRights` : spécifie les droits d’accès disponibles pour la chaîne de connexion. La valeur par défaut est `manage`. Définissez la valeur sur `send` si vous utilisez une chaîne de connexion qui ne fournit pas d’autorisations de gestion. Sinon, le runtime Functions pourrait essayer et faire échouer les opérations qui nécessitent des droits de gestion, comme la création de files d’attente.
 - `type` : doit être défini sur *serviceBus*.
-- `direction` : doit être défini sur *out*. 
+- `direction` : doit être défini sur *out*.
 
 Exemple *function.json* pour l’utilisation d’un déclencheur de minuteur afin d’écrire des messages de file d’attente Service Bus :
 
@@ -140,7 +142,7 @@ Azure Functions peut créer un message de file d’attente Service Bus à partir
 
 * Objet (crée toujours un message JSON, crée le message avec un objet null si la valeur est null lorsque la fonction se termine)
 * chaîne (crée un message si la valeur du paramètre n’est pas null lorsque la fonction se termine)
-* tableau d’octets (fonctionne comme le type string) 
+* tableau d’octets (fonctionne comme le type string)
 * `BrokeredMessage` (C#, fonctionne comme le type string)
 
 Pour créer plusieurs messages dans une fonction C#, vous pouvez utiliser `ICollector<T>` ou `IAsyncCollector<T>`. Un message est créé quand vous appelez la méthode `Add`.
@@ -187,4 +189,4 @@ module.exports = function (context, myTimer) {
 
 [AZURE.INCLUDE [Étapes suivantes](../../includes/functions-bindings-next-steps.md)]
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0824_2016-->

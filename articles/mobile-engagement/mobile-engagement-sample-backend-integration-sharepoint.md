@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/29/2016" 
+	ms.date="08/19/2016" 
 	ms.author="piyushjo" />
 
 # Azure Mobile Engagement - Intégration dans une API
@@ -26,7 +26,7 @@ En général, les clients utilisent l'interface frontale de Mobile Engagement po
 
 Ce didacticiel se base sur un scénario dans lequel un utilisateur SharePoint remplit une liste SharePoint de données marketing, dont les éléments sont récupérés par un processus automatisé qui se connecte au système Mobile Engagement à l'aide des API REST disponibles afin de créer une campagne marketing à partir des données SharePoint.
  
-> [AZURE.IMPORTANT] En général, vous pouvez utiliser cet exemple comme point de départ pour comprendre comment appeler les API REST Mobile Engagement, car il détaille les deux principaux aspects de l'appel des API : l’authentification et le passage des paramètres.
+> [AZURE.IMPORTANT] En général, vous pouvez utiliser cet exemple comme point de départ pour comprendre comment appeler les API REST Mobile Engagement, car il détaille les deux principaux aspects de l'appel des API : l’authentification et le passage des paramètres.
 
 ## Intégration de SharePoint
 1. L'exemple de liste SharePoint ressemble à ceci. **Titre**, **Catégorie**, **Titre de notification**, **Message** et **URL** sont utilisés pour créer l'annonce. Une colonne appelée **IsProcessed** est utilisée par l’exemple de processus d'automatisation sous la forme d'un programme de console. Vous pouvez exécuter ce programme de console comme un WebJob Azure de façon à le planifier. Vous pouvez également utiliser directement le flux de travail SharePoint pour programmer la création et l'activation de l'annonce lorsqu'un élément est inséré dans la liste SharePoint. Dans cet exemple, nous utilisons le programme de console qui parcourt les éléments de la liste SharePoint et crée une annonce dans Azure Mobile Engagement pour chacun d'eux avant de définir l’indicateur **IsProcessed** sur true lors de la réussite de la création de l’annonce.
@@ -86,7 +86,7 @@ Ce didacticiel se base sur un scénario dans lequel un utilisateur SharePoint re
         }
 
 ## Intégration à Mobile Engagement
-1.  Lorsque nous trouvons un élément qui nécessite un traitement, nous extrayons les informations requises pour créer une annonce à partir de l'élément de liste et nous appelons `CreateAzMECampaign` pour le créer, puis `ActivateAzMECampaign` pour l'activer. Il s'agit essentiellement d’appels d'API REST vers le serveur principal de Mobile Engagement. 
+1.  Lorsque nous trouvons un élément qui nécessite un traitement, nous extrayons les informations requises pour créer une annonce à partir de l'élément de liste et nous appelons `CreateAzMECampaign` pour le créer, puis `ActivateAzMECampaign` pour l'activer. Il s'agit essentiellement d’appels d'API REST vers le serveur principal de Mobile Engagement.
 
 2.  Les API REST Mobile Engagement requièrent un **en-tête d'autorisation HTTP de schéma d’authentification de base** composé des éléments `ApplicationId` et `ApiKey` obtenus à partir du portail Azure. Assurez-vous d’utiliser la clé de la section **clés api** et *non* celle de la section **clés sdk**.
 
@@ -187,7 +187,7 @@ Ce didacticiel se base sur un scénario dans lequel un utilisateur SharePoint re
             }
         }
 
-6. Une fois l'annonce activée, vous devriez voir apparaître une chose similaire sur le portail Mobile Engagement :
+6. Une fois l'annonce activée, vous devriez voir apparaître une chose similaire sur le portail Mobile Engagement :
 
 	![][4]
 
@@ -207,4 +207,4 @@ Cet exemple permet de créer une campagne d’annonces simple en spécifiant pri
 
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0824_2016-->

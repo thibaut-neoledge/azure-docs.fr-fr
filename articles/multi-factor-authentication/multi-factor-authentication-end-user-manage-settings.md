@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/04/2016" 
+	ms.date="08/22/2016" 
 	ms.author="billmath"/>
 
 # Problèmes avec Azure Multi-Factor Authentication
@@ -30,7 +30,7 @@ Cette section vous aidera à résoudre certains problèmes courants que vous pou
 - [J’ai un nouveau téléphone et je dois modifier mon numéro de téléphone](#i-have-a-new-phone-and-need-to-change-my-phone-number)
 - [Je ne reçois pas de code sur mon téléphone](#i-am-not-receiving-a-code-or-a-call-on-my-phone)
 - [Les mots de passe d’application ne fonctionnent pas](#app-passwords-are-not-working)
-- [Comment nettoyer Azure Authenticator sur mon ancien appareil et le transférer vers un autre ?](#how-do-i-clean-up-azure-authenticator-from-my-old-device-and-move-to-a-new-one)
+- [Comment nettoyer Microsoft Authenticator sur mon ancien appareil et le transférer vers un autre ?](#how-do-i-clean-up-microsoft-authenticator-from-my-old-device-and-move-to-a-new-one)
 - [Je n’ai pas trouvé de réponse à mon problème](#i-didnt-find-an-answer-to-my-problem)
 
 ##Erreurs d'ID de corrélation
@@ -147,7 +147,7 @@ Vous devez tout d’abord vérifier les points suivants :
 - Si vous avez choisi de recevoir les codes de vérification par SMS sur votre téléphone mobile, assurez-vous que votre plan de service et votre appareil prennent en charge la diffusion des messages texte. La vitesse et la disponibilité de la diffusion des messages peuvent varier selon l’emplacement et l’opérateur. Assurez-vous également que vous disposez d’une bonne qualité de signal lors de la réception de ces codes.
 - Si vous avez choisi de recevoir une vérification via l’application mobile, vérifiez que votre téléphone reçoit bien le signal. N’oubliez pas que la vitesse et la disponibilité de la diffusion des messages peuvent varier selon l’emplacement et l’opérateur.
 
-Si vous disposez d’un smartphone, nous vous recommandons d’utiliser l’[application Azure Authenticator](multi-factor-authentication-azure-authenticator.md).
+Si vous disposez d’un smartphone, nous vous recommandons d’utiliser l’[application Azure Authenticator](multi-factor-authentication-microsoft-authenticator.md).
 
 Si vous recevez vos codes de vérification par des messages texte, vous pouvez changer le mode de réception et opter pour une diffusion via l'application mobile en sélectionnant simplement **Utiliser une autre option de vérification** lors de la connexion.
 
@@ -162,8 +162,8 @@ Si vous avez déjà configuré un téléphone de secours, nous vous recommandons
 ##Les mots de passe d’application ne fonctionnent pas
 Tout d’abord, assurez-vous que vous avez saisi correctement votre mot de passe. S’il ne fonctionne toujours pas, essayez de vous connecter et de [créer un mot de passe d’application](multi-factor-authentication-end-user-app-passwords.md). Si le problème persiste, contactez votre administrateur et demandez-lui de [supprimer vos mots de passe d’application existants](multi-factor-authentication-manage-users-and-devices.md#delete-users-existing-app-passwords). Vous pourrez alors créer un mot de passe et l’utiliser.
 
-##Comment nettoyer Azure Authenticator sur mon ancien appareil et le transférer vers un autre ?
-Lorsque vous désinstallez l’application de votre appareil ou que vous réinitialisez l’appareil, l’application ne sera pas désactivée sur le serveur principal. Vous devez suivre la procédure décrite dans la section relative au [transfert vers un nouvel appareil](multi-factor-authentication-azure-authenticator.md#how-to-move-to-the-new-azure-authenticator-app).
+##Comment nettoyer Microsoft Authenticator sur mon ancien appareil et le transférer vers un autre ?
+Lorsque vous désinstallez l’application de votre appareil ou que vous réinitialisez l’appareil, l’application ne sera pas désactivée sur le serveur principal. Vous devez suivre la procédure décrite dans la section relative au [transfert vers un nouvel appareil](multi-factor-authentication-microsoft-authenticator.md#how-to-move-to-the-new-microsoft-authenticator-app).
 
 ##Je n’ai pas trouvé de réponse à mon problème
 Si n’a pas trouvé de réponse à votre problème sur cette page, vous pouvez publier une question sur les [Forums Azure AD](https://social.msdn.microsoft.com/forums/azure/home?forum=WindowsAzureAD), [Rechercher dans la base de connaissances Microsoft (KB)](https://www.microsoft.com/fr-FR/Search/result.aspx?q=azure%20active%20directory%20connect&form=mssupport) ou [contacter le support technique](https://support.microsoft.com/fr-FR).
@@ -172,4 +172,4 @@ En outre, vous pouvez contacter votre administrateur ou la personne qui a config
 
 Enfin, veillez à laisser des commentaires détaillés sur cette page afin que nous puissions la mettre à jour, et que nous continuions à l’améliorer en fournissant plus d’informations.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

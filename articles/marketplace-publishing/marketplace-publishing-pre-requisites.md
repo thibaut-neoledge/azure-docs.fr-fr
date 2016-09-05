@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="Azure"
   ms.workload="na"
-  ms.date="08/01/2016"
+  ms.date="08/18/2016"
   ms.author="hascipio"/>
 
 # Conditions préalables générales pour créer une offre pour Azure Marketplace
@@ -42,12 +42,21 @@ Les administrateurs du portal de publication ajouter les autres membres de l’e
 7. Pour l’inscription au centre de développement, évitez d’utiliser un compte associé à une seule personne. Cela est conseillé pour éviter la dépendance à un seul individu.
 8. Si vous rencontrez des problèmes lors de l’enregistrement sur le centre de développement, envoyez un ticket à l’aide de ce [lien](https://developer.microsoft.com/fr-FR/windows/support).
 
+## Étapes pour supprimer un coadministrateur dans le portail de publication
+**En supposant que vous êtes l’administrateur,** voici les étapes pour supprimer un coadministrateur.
+
+1. Connectez-vous au portail de publication avec l’ID de messagerie du coadministrateur.
+2. Accédez à **Éditeurs** -> sélectionnez votre compte -> **Administrateurs** -> **Coadministrateurs**.
+3. Cliquez sur le bouton **X** en regard du coadministrateur que vous souhaitez supprimer (capture d’écran ci-dessous).
+
+    ![dessin](media/marketplace-publishing-pre-requisites/imgDeleteAdmin_03.png)
+
 > [AZURE.IMPORTANT] Vous n’avez pas besoin de remplir les informations bancaires et fiscales de votre entreprise si vous prévoyez de ne publier que des offres gratuites (ou d’apporter votre propre licence).
 
 > L’inscription de l’entreprise doit être terminée pour pouvoir commencer. Toutefois, si votre entreprise renseigne ses informations fiscales et bancaires dans le compte de développeur Microsoft, les développeurs peuvent commencer à créer l’image de machine virtuelle dans le [portail de publication](https://publish.windowsazure.com), pour la faire certifier et la tester dans l’environnement intermédiaire Azure. Vous avez besoin de l’approbation complète du compte de vendeur uniquement pour la dernière étape de publication de votre offre dans Azure Marketplace.
 
 ## Acquisition d’un abonnement Azure avec « paiement à l’utilisation »
-C’est l’abonnement que vous utilisez pour créer vos images de machine virtuelle et les transférer dans [Azure Marketplace](https://azure.microsoft.com/marketplace/). Si vous ne possédez pas d’abonnement existant, inscrivez-vous ici, https://account.windowsazure.com/signup?offer=ms-azr-0003p.
+C’est l’abonnement que vous utilisez pour créer vos images de machine virtuelle et les transférer dans [Azure Marketplace](https://azure.microsoft.com/marketplace/). Si vous ne possédez pas d’abonnement existant, inscrivez-vous ici : https://account.windowsazure.com/signup?offer=ms-azr-0003p.
 
 ## Pays à partir duquel vous vendez
 > [AZURE.WARNING]
@@ -62,4 +71,4 @@ Une fois que les conditions préalables non techniques requises sont remplies, v
 ## Voir aussi
 - [Mise en route : publication d’une offre dans Azure Marketplace](marketplace-publishing-getting-started.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

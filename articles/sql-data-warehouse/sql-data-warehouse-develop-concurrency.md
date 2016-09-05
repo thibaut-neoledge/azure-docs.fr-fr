@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/02/2016"
+   ms.date="08/17/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Gestion de la concurrence et des charges de travail dans SQL Data Warehouse
@@ -26,7 +26,7 @@ SQL Data Warehouse autorise jusqu’à 1024 connexions simultanées. Les 1024 co
 
 Les limites de concurrence sont régies par deux concepts : les *requêtes simultanées* et les *emplacements de concurrence*. Pour qu’une requête s’exécute, elle doit s’exécuter à la fois dans limite de concurrence de requête et dans les limites de l’allocation d’emplacement de concurrence.
 
-- Les requêtes simultanées sont les requêtes s’exécutant simultanément. SQL Data Warehouse prend en charge jusqu’à 32 requêtes concurrentes.
+- Les requêtes simultanées sont les requêtes s’exécutant simultanément. SQL Data Warehouse prend en charge jusqu’à 32 requêtes simultanées sur les tailles de DWU plus importantes.
 - Les emplacements de concurrence sont alloués en fonction de la DWU. Chaque DWU100 fournit 4 emplacements de concurrence. Par exemple, une DW100 alloue 4 emplacements de concurrence et une DW1000 en alloue 40. Chaque requête consomme un ou plusieurs emplacements de concurrence, selon la [classe de ressources](#resource-classes) de la requête. Les requêtes en cours d’exécution dans la classe de ressource smallrc consomment un emplacement de concurrence. Les requêtes en cours d’exécution dans une classe de ressource supérieure consommeront plusieurs emplacements de concurrence.
 
 Le tableau suivant décrit les limites des requêtes simultanées et des emplacements de concurrence pour différentes tailles de DWU.
@@ -241,7 +241,7 @@ Les instructions suivantes honorent les classes de ressources :
 
 ## Exceptions de requêtes aux limites de concurrence
 
-Certaines requêtes ne tiennent pas compte de la classe de ressources à laquelle l’utilisateur est affecté. Ces exceptions aux limites de concurrence s’appliquent lorsque les ressources nécessaires à une commande particulière sont insuffisantes, souvent parce que la commande est une opération de métadonnées. L’objectif de ces exceptions est d’éviter que des quantités de mémoire plus importantes soient allouées à des requêtes qui ne le nécessitent pas. Dans ces cas-là, la petite classe de ressources par défaut (smallrc) est toujours utilisée, quelle que soit la classe de ressources réellement affectée à l’utilisateur. Par exemple, `CREATE LOGIN` s’exécute toujours dans smallrc. Les ressources nécessaires pour accomplir cette opération sont très faibles. Par conséquent, il serait inutile d’inclure la requête dans le modèle d’emplacement de concurrence. Il serait contre-productif de pré-allouer de grandes quantités de mémoire pour cette action. En excluant `CREATE LOGIN` du modèle d’emplacement d’accès concurrentiel, SQL Data Warehouse peut être beaucoup plus efficace.
+Certaines requêtes ne tiennent pas compte de la classe de ressources à laquelle l’utilisateur est affecté. Ces exceptions aux limites de concurrence s’appliquent lorsque les ressources nécessaires à une commande particulière sont insuffisantes, souvent parce que la commande est une opération de métadonnées. L’objectif de ces exceptions est d’éviter que des quantités de mémoire plus importantes soient allouées à des requêtes qui ne le nécessitent pas. Dans ces cas-là, la petite classe de ressources par défaut (smallrc) est toujours utilisée, quelle que soit la classe de ressources réellement affectée à l’utilisateur. Par exemple, `CREATE LOGIN` s’exécute toujours dans smallrc. Les ressources nécessaires pour accomplir cette opération sont très faibles. Par conséquent, il est inutile d’inclure la requête dans le modèle d’emplacement de concurrence. Ces requêtes n’étant pas non plus restreintes par la limite de concurrence de 32 utilisateurs, un nombre illimité de ces requêtes peuvent s’exécuter jusqu’à la limite de 1 024 sessions.
 
 Les instructions suivantes ne respectent pas les classes de ressources :
 
@@ -428,4 +428,4 @@ Pour plus d’informations sur la gestion de la sécurité et des utilisateurs d
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

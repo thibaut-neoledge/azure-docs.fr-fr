@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/12/2016" 
+	ms.date="08/18/2016" 
 	ms.author="sdanie"/>
 
 # Forum aux questions sur le Cache Redis Azure
@@ -27,6 +27,7 @@ Si votre question n’est pas répertoriée ici, faites-le nous savoir et nous v
 
 -	Vous pouvez publier une question dans le [thread](#comments) à la fin de cette FAQ et collaborer avec l’équipe Azure Cache et d’autres membres de la communauté en cas de question sur cet article.
 -	Pour atteindre un public plus large, vous pouvez publier une question sur le [Forum Azure Cache MSDN](https://social.msdn.microsoft.com/forums/azure/home?forum=azurecache) et collaborer avec l’équipe Azure Cache et d’autres membres de la Communauté.
+-	Si vous souhaitez effectuer une demande de fonctionnalité, vous pouvez envoyer vos demandes et idées à [Azure Redis Cache User Voice](https://feedback.azure.com/forums/169382-cache).
 -	Vous pouvez également nous envoyer un e-mail par le biais de [Azure Cache External Feedback](mailto:azurecache@microsoft.com).
 
 ## Principes fondamentaux du Cache Redis Azure
@@ -448,4 +449,4 @@ Pour plus d’informations sur la prise en main du cache Redis Azure, consultez 
 
 [paramètre de configuration « minIoThreads »]: https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

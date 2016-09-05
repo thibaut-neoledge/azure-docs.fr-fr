@@ -13,16 +13,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/10/2016"
+   ms.date="08/19/2016"
    ms.author="chackdan"/>
 
 # Scénarios de sécurité d’un cluster Service Fabric
 
-Un cluster Service Fabric est une ressource que vous possédez. Pour éviter tout accès non autorisé à cette ressource, vous devez la sécuriser, notamment lorsque des charges de travail de production sont exécutées dessus. Cet article fournit une vue d’ensemble des scénarios de sécurité pour les clusters autonomes ou s’exécutant sur Azure, et des différentes technologies utilisées pour implémenter ces scénarios. Les scénarios de sécurité des clusters sont les suivants :
+Un cluster Service Fabric est une ressource que vous possédez. Les clusters doivent toujours être sécurisés pour empêcher les utilisateurs non autorisés de se connecter à votre cluster, surtout quand des charges de travail sont en cours d’exécution sur ce dernier. Bien qu’il soit possible de créer un cluster non sécurisé, cela permettrait à tout utilisateur anonyme de s’y connecter si les points de terminaison de gestion sur l’Internet public.
+
+Cet article fournit une vue d’ensemble des scénarios de sécurité pour les clusters autonomes ou s’exécutant sur Azure, et des différentes technologies utilisées pour implémenter ces scénarios. Les scénarios de sécurité des clusters sont les suivants :
 
 - Sécurité nœud à nœud
 - Sécurité client à nœud
-- Contrôle d’accès en fonction du rôle (RBAC)
+- Contrôle d’accès en fonction du rôle
 
 ## Sécurité nœud à nœud
 Sécurise la communication entre les machines virtuelles ou les ordinateurs du cluster. Cette sécurité garantit que seuls les ordinateurs qui sont autorisés à rejoindre le cluster peuvent participer à l’hébergement des applications et des services dans le cluster.
@@ -35,7 +37,7 @@ Service Fabric utilise des certificats de serveur X.509 que vous spécifiez dans
 
 La configuration de la sécurité par certificat s’effectue lors de la création du cluster par le biais du Portail Azure, de modèles Azure Resource Manager ou d’un modèle JSON autonome. Vous pouvez spécifier un certificat primaire et un certificat secondaire facultatif utilisé pour les renouvellements de certificats. Les certificats primaires et secondaires que vous spécifiez doivent être différents de ceux du client d’administration et du client en lecture seule que vous spécifiez pour la [Sécurité de client à nœud](#client-to-node-security).
 
-Pour Azure, consultez [Sécuriser un cluster Service Fabric sur Azure à l’aide de certificats](service-fabric-secure-azure-cluster-with-certs.md) ou [Configurer un cluster à l’aide d’un modèle ARM](service-fabric-cluster-creation-via-arm.md) pour découvrir comment configurer la sécurité par certificat dans un cluster.
+Pour Azure, consultez [Configurer un cluster à l’aide d’un modèle ARM](service-fabric-cluster-creation-via-arm.md) pour découvrir comment configurer la sécurité par certificat dans un cluster.
 
 Pour Windows Server autonome, consultez [Sécuriser un cluster autonome sur Windows à l’aide de certificats X.509](service-fabric-windows-cluster-x509-security.md).
 
@@ -54,12 +56,12 @@ Les clusters qui s’exécutent sur Azure ou les clusters autonomes sur Windows 
 
 Les clients se connectant au cluster avec le certificat d’administration ont un accès complet aux fonctions de gestion. Les clients se connectant au cluster avec le certificat client en lecture seule ont uniquement un accès en lecture aux fonctions de gestion. En d’autres termes, ces certificats sont utilisés pour le contrôle d’accès en fonction du rôle (RBAC) décrit plus loin dans cet article.
 
-Pour savoir comment configurer la sécurité par certificat dans un cluster Azure, consultez [Sécuriser un cluster Service Fabric sur Azure à l’aide de certificats](service-fabric-secure-azure-cluster-with-certs.md) ou [Configurer un cluster à l’aide d’un modèle Azure Resource Manager](service-fabric-cluster-creation-via-arm.md).
+Pour Azure, consultez [Configurer un cluster à l’aide d’un modèle ARM](service-fabric-cluster-creation-via-arm.md) pour découvrir comment configurer la sécurité par certificat dans un cluster.
 
 Pour Windows Server autonome, consultez [Sécuriser un cluster autonome sur Windows à l’aide de certificats X.509](service-fabric-windows-cluster-x509-security.md).
 
 ### Sécurité Azure Active Directory (AAD) de client-à-nœud sur Azure
-Les clusters s’exécutant sur Azure peuvent également sécuriser l’accès aux points de terminaison de gestion à l’aide d’Azure Active Directory (AAD). Pour plus d’informations sur la façon de créer les artefacts AAD nécessaires, de les remplir pendant la création du cluster et de se connecter à ces clusters par la suite, consultez [Créer un cluster Service Fabric à l’aide d’Azure Active Directory pour l’authentification client](service-fabric-cluster-security-client-auth-with-aad.md).
+Les clusters s’exécutant sur Azure peuvent également sécuriser l’accès aux points de terminaison de gestion à l’aide d’Azure Active Directory (AAD). Pour plus d’informations sur la façon de créer les artefacts AAD nécessaires, de les remplir pendant la création du cluster et de se connecter à ces clusters par la suite, consultez [Configurer un cluster en utilisant un modèle Azure Resource Manager](service-fabric-cluster-creation-via-arm.md).
 
 ## Recommandations en matière de sécurité
 Pour les clusters Azure, nous vous recommandons d’utiliser la sécurité AAD pour authentifier les clients et les certificats pour la sécurité de nœud à nœud.
@@ -104,23 +106,10 @@ Les certificats clients ne sont généralement pas émis par une autorité de ce
 
 ## Étapes suivantes
 
-Apprenez à configurer un cluster sécurisé :
-
-- [Sécurisation d’un cluster Azure avec des certificats](service-fabric-secure-azure-cluster-with-certs.md)
-
-Une fois le cluster configuré, découvrez les mises à niveau de cluster :
-
-- [Processus de mise à niveau du cluster Service Fabric et attentes](service-fabric-cluster-upgrade.md)
-- [Substitution ou ajout de nouveaux certificats](service-fabric-cluster-security-update-certs-azure.md)
-
-Découvrez plus en détails la sécurité des applications :
-
-- [Sécurité des applications et RunAs](service-fabric-application-runas-security.md)
-
-- [Sécuriser les communications des services](service-fabric-reliable-services-secure-communication.md)
+Cet article fournit des informations conceptuelles sur la sécurité des clusters. Ensuite, [créez un cluster dans Azure à l’aide d’un modèle Resource Manager](service-fabric-cluster-creation-via-arm.md) ou par le biais du [portail Azure](service-fabric-cluster-creation-via-portal.md).
 
 <!--Image references-->
 [Node-to-Node]: ./media/service-fabric-cluster-security/node-to-node.png
 [Client-to-Node]: ./media/service-fabric-cluster-security/client-to-node.png
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="article"
- ms.date="06/30/2016"
+ ms.date="08/18/2016"
  ms.author="krisragh"/>
 
 # Informations de référence sur les applets de commande PowerShell de Scheduler
@@ -54,4 +54,4 @@ Le tableau suivant décrit chacune des principales applets de commande disponibl
 
  [Authentification sortante d’Azure Scheluler](scheduler-outbound-authentication.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0824_2016-->

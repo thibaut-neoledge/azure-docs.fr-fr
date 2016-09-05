@@ -6,7 +6,7 @@
 
      ![Baliser des ressources avec des paires nom/valeur](./media/resource-manager-tag-resources/tag-resources.png)
 
-1. Pour afficher votre taxonomie de balises dans le portail, sélectionnez **Parcourir** et **Balises**.
+1. Pour afficher votre taxonomie de balises dans le portail, sélectionnez **Autres services**, puis **Balises**.
 
      ![Rechercher des balises via le hub Parcourir](./media/resource-manager-tag-resources/browse-tags.png)
 
@@ -22,4 +22,4 @@
 
      ![Épingler des balises au tableau d'accueil](./media/resource-manager-tag-resources/show-pinned-tag.png)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

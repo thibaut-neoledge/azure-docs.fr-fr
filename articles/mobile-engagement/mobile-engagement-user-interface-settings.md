@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="11/29/2015"
+   ms.date="08/19/2016"
    ms.author="piyushjo"/>
 
 # Comment gérer les paramètres globaux de votre application
@@ -21,7 +21,7 @@
 Les options de menu **Paramètres** disponibles pour une application dépendent de la plateforme de l’application et des autorisations qui vous ont été accordées pour cette application. Les paramètres suivants sont inclus : Détails, Projets, Native Push, Push Speed, Balise (Information sur l’application) et Pression commerciale. L’option de menu Balise (Informations sur l’application) peut être gérée par votre application (à l’aide du Kit de développement logiciel (SDK)) ou par votre backend (à l’aide de l’API d’appareil).
 
 
->[AZURE.NOTE]De nombreuses sections de l’interface utilisateur du portail **Mobile Engagement** contiennent un bouton **AFFICHER L’AIDE**. Appuyez sur ce bouton pour obtenir des informations contextuelles supplémentaires sur une section.
+>[AZURE.NOTE] De nombreuses sections de l’interface utilisateur du portail **Mobile Engagement** contiennent un bouton **AFFICHER L’AIDE**. Appuyez sur ce bouton pour obtenir des informations contextuelles supplémentaires sur une section.
 
 ## Détails
 
@@ -67,16 +67,16 @@ Pour activer Native Push à l'aide du Service de notifications Push Windows (WP
 
 Pour activer le Push Native à l'aide de GCM, vous devez suivre les instructions fournies par Google. Puis vous devez coller une clé d'API simple de serveur, configurée sans restriction d'adresse IP. Requiert l'intégration avec le Kit de développement logiciel (SDK) pour Android v1.12.0 +.
 
-Pour plus d’informations, consultez :
+Pour plus d'informations, consultez les pages suivantes :
 
 - [Documentation du Kit de développement logiciel Android - Intégrer GCM][Link 5]
 - [Guide de développement Google GCM](http://developer.android.com/guide/google/gcm/gs.html)
  
 ### Amazon Device Messaging pour Android (ADM)
 
-Pour activer Native Push avec Amazon Device Messaging (ADM), vous devez fournir des <OAuth credentials> Amazon qui consistent en un ID Client et Secret Client (requiert l'intégration avec le Kit de développement logiciel (SDK) pour Android v2.1.0 +).
+Pour activer le Push natif avec Amazon Device Messaging (ADM), vous devez fournir des <informations d’identification OAuth> Amazon qui consistent en un ID Client et Secret Client (requiert l’intégration avec le Kit de développement logiciel (SDK) pour Android v2.1.0 +).
 
-Pour plus d’informations, consultez :
+Pour plus d'informations, consultez les pages suivantes :
 
 - [Documentation du Kit de développement logiciel Android - Intégrer ADM][Link 5]
 - [Documentation pour les développeurs Amazon ADM](https://developer.amazon.com/sdk/adm/credentials.html#Getting)
@@ -102,7 +102,7 @@ Vous pouvez afficher la vitesse de transmission actuelle de votre application et
 ## Voir aussi
 
 - [Concepts][Link 6]
-- [Guide de résolution des problèmes : Service][Link 24]
+- [Guide de résolution des problèmes - Service][Link 24]
 
  
 
@@ -202,4 +202,4 @@ Vous pouvez afficher la vitesse de transmission actuelle de votre application et
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0824_2016-->
