@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="05/04/2016"
+	ms.date="08/22/2016"
 	ms.author="mahender"/>
 
 # Comment configurer votre application App Service de manière à utiliser la connexion via Google
@@ -22,11 +22,11 @@
 
 Cette rubrique montre comment configurer Azure App Service pour utiliser Google comme fournisseur d’authentification.
 
-Pour effectuer la procédure de cette rubrique, vous devez disposer d'un compte Google avec une adresse de messagerie vérifiée. Pour créer un compte Google, accédez à [accounts.google.com](http://go.microsoft.com/fwlink/p/?LinkId=268302).
+Pour effectuer la procédure décrite dans cette rubrique, vous devez disposer d'un compte Google avec une adresse électronique vérifiée. Pour créer un compte Google, accédez à [accounts.google.com](http://go.microsoft.com/fwlink/p/?LinkId=268302).
 
 ## <a name="register"> </a>Inscription de votre application avec Google
 
-1. Connectez-vous au [portail Azure] et accédez à votre application. Copiez votre **URL**. Vous l’utiliserez pour configurer votre application Google.
+1. Connectez-vous au [portail Azure] et accédez à votre application. Copiez votre **URL**, que vous utiliserez plus tard pour configurer votre application de Google.
 
 2. Rendez-vous sur le site Web [API Google](http://go.microsoft.com/fwlink/p/?LinkId=268303), connectez-vous avec votre compte Google, cliquez sur **Créer un projet**, saisissez un **Nom de projet**, puis cliquez sur **Créer**.
 
@@ -34,7 +34,7 @@ Pour effectuer la procédure de cette rubrique, vous devez disposer d'un compte 
 
 4. Dans la barre de navigation à gauche, cliquez sur **Informations d’identification** > **Écran de consentement OAuth**, puis sélectionnez votre **Adresse de messagerie**, entrez un **Nom de produit** et cliquez sur **Enregistrer**.
 
-5. Dans l’onglet **Informations d’identification**, cliquez sur **Créer vos informations d’identification** > **ID client OAuth**, puis sélectionnez **Application Web**.
+5. Dans l’onglet **Informations d’identification**, cliquez sur ** Créer vos informations d’identification** > **ID client OAuth**, puis sélectionnez **Application Web**.
 
 6. Collez l’**URL** App Service que vous avez copiée précédemment dans **Origines JavaScript autorisées**, puis collez l’URI de redirection dans **URI de redirection autorisée**. L’URI de redirection correspond à l’URL de votre application suivie du chemin d’accès, _/.auth/login/google/callback_. Par exemple : `https://contoso.azurewebsites.net/.auth/login/google/callback`. Assurez-vous d'utiliser le schéma HTTPS. Cliquez ensuite sur **Créer**.
 
@@ -81,4 +81,4 @@ Vous êtes maintenant prêt à utiliser Google pour l'authentification dans votr
 
 [portail Azure]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0824_2016-->

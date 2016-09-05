@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/31/2016" 
+	ms.date="08/23/2016" 
 	ms.author="stbaro"/>
 
 # Connexion d’un compte DocumentDB prenant en charge le protocole MongoDB
@@ -24,7 +24,7 @@ Découvrez comment vous connecter à un compte Azure DocumentDB prenant en charg
 ## Obtenir les informations de chaîne de connexion du compte
 
 1. Dans une nouvelle fenêtre, connectez-vous au [portail Azure](https://portal.azure.com).
-2. Dans le panneau **Tous les paramètres**, cliquez sur **Chaîne de connexion**. Pour accéder à **Tous les paramètres**, dans la barre de lancement, cliquez sur **Parcourir**, sélectionnez les comptes **DocumentDB**, puis sélectionnez le compte DocumentDB prenant en charge le protocole MongoDB.
+2. Dans la barre de **Navigation de gauche** du panneau Compte, cliquez sur **Chaîne de connexion**. Pour accéder au **Panneau Compte**, dans la barre de lancement, cliquez sur **Plus de services**, cliquez sur **DocumentDB (NoSQL)**, puis sélectionnez le compte DocumentDB prenant en charge le protocole MongoDB.
 
 	![Capture d’écran du panneau Tous les paramètres](./media/documentdb-connect-mongodb-account/SettingsBlade.png)
 
@@ -84,4 +84,4 @@ Comme nous l’avons déjà mentionné, tous les comptes DocumentDB requièrent 
 
  
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0824_2016-->

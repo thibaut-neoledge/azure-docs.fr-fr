@@ -1,10 +1,10 @@
 
 <properties 
-   pageTitle="Présentation de l’équilibrage de charge accessible sur Internet | Microsoft Azure"
+   pageTitle="Présentation de l’équilibrage de charge accessible sur Internet | Microsoft Azure "
    description="Présentation de l’équilibrage de charge accessible sur Internet et ses fonctionnalités. Fonctionnement de l’équilibrage de charge pour Azure avec des machines virtuelles et des services cloud."
    services="load-balancer"
    documentationCenter="na"
-   authors="joaoma"
+   authors="sdwheeler"
    manager="carmonm"
    editor="tysonn" />
 <tags 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="04/05/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 
 # Équilibrage de charge accessible sur Internet entre plusieurs services ou machines virtuelles
@@ -48,4 +48,4 @@ Si votre application doit maintenir des connexions actives pour les serveurs sit
 
  
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/24/2016"
+   ms.date="08/17/2016"
    ms.author="alkohli" />
 
 # Remplacer un contrôleur EBOD sur votre appareil StorSimple
@@ -89,7 +89,7 @@ La procédure et le tableau suivants expliquent comment installer un module de c
 
     ![Raccorder votre appareil à l’alimentation électrique](./media/storsimple-ebod-controller-replacement/IC770723.png)
 
-    **Figure 4** : Reconnexion des câbles
+    **Figure 4**. Reconnexion des câbles
 
     |Étiquette|Description|
     |:----|:----------|
@@ -107,4 +107,4 @@ La procédure et le tableau suivants expliquent comment installer un module de c
 
 En savoir plus sur le [Remplacement des composants matériels StorSimple](storsimple-hardware-component-replacement.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0824_2016-->

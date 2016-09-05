@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-xamarin-ios"
     ms.devlang="dotnet"
     ms.topic="article"
-    ms.date="05/10/2016"
+    ms.date="08/22/2016"
     ms.author="donnam"/>
 
 #Se connecter à Azure Storage dans votre application Xamarin.Forms
@@ -28,7 +28,7 @@ Dans ce didacticiel, vous allez créer un compte de stockage et ajouter une cha�
 
 >[AZURE.TIP] Un [exemple de compagnon](https://azure.microsoft.com/documentation/samples/app-service-mobile-dotnet-todo-list-files/) est disponible pour ce didacticiel, que vous pouvez déployer dans votre propre compte Azure.
 
-## Configuration requise
+## Composants requis
 
 * Effectuez le didacticiel [Créer une application Xamarin.Forms] qui répertorie les autres composants requis. Cet article utilise l’application exécutée à partir de ce didacticiel.
 
@@ -36,7 +36,7 @@ Dans ce didacticiel, vous allez créer un compte de stockage et ajouter une cha�
 
 ## Créez un compte de stockage.
 
-1. Créez un compte de stockage en suivant le didacticiel [Créer un compte Azure Storage]. 
+1. Créez un compte de stockage en suivant le didacticiel [Créer un compte Azure Storage].
 
 2. Dans le portail Azure, accédez à votre nouveau compte de stockage et cliquez sur l’icône **Clés**. Copiez la **chaîne de connexion principale**.
 
@@ -105,7 +105,7 @@ La nouvelle classe `TodoItemStorageController` expose deux sous-ressources sous 
 
 - StorageToken
 
-    + HTTP POST : crée un jeton de stockage
+    + HTTP POST : crée un jeton de stockage
     
         `/tables/TodoItem/{id}/MobileServiceFiles`
     
@@ -133,7 +133,7 @@ Le schéma ci-dessous illustre les interactions entre le client et le serveur. A
 
 Ouvrez le projet de démarrage rapide Xamarin.Forms dans Visual Studio ou Xamarin Studio. Vous allez installer les packages NuGet et mettre à jour le projet de bibliothèque portable, ainsi que les projets client iOS, Android et Windows :
 
-- [Ajouter des packages NuGet](#add-nuget)
+- [Ajout de packages NuGet](#add-nuget)
 - [Ajouter l’interface IPlatform](#add-iplatform)
 - [Ajouter la classe FileHelper](#add-filehelper)
 - [Ajouter un gestionnaire de synchronisation de fichiers](#file-sync-handler)
@@ -622,7 +622,7 @@ Ajoutez au projet iOS le code spécifique à la plateforme.
 
 ###<a name="update-windows"></a>Mettre à jour le projet Windows
 
-1. Installez l’extension de Visual Studio [SQLite pour Windows 8.1](http://go.microsoft.com/fwlink/?LinkID=716919). Pour plus d’informations, consultez le didacticiel [Activation de la synchronisation hors connexion pour votre application Windows](app-service-mobile-windows-store-dotnet-get-started-offline-data.md). 
+1. Installez l’extension de Visual Studio [SQLite pour Windows 8.1](http://go.microsoft.com/fwlink/?LinkID=716919). Pour plus d’informations, consultez le didacticiel [Activation de la synchronisation hors connexion pour votre application Windows](app-service-mobile-windows-store-dotnet-get-started-offline-data.md).
 
 2. Modifiez le fichier **Package.appxmanifest** et vérifiez la fonctionnalité **Webcam**.
 
@@ -734,4 +734,4 @@ Dans cet article, vous avez appris à utiliser la prise en charge de nouveaux fi
 [Présentation des signatures d’accès partagé]: ../storage/storage-dotnet-shared-access-signature-part-1.md
 [Créer un compte Azure Storage]: ../storage/storage-create-storage-account.md#create-a-storage-account
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0824_2016-->

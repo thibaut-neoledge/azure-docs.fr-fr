@@ -1,9 +1,9 @@
 <properties 
-   pageTitle="Configuration de l'équilibrage de charge pour SQL Always On | Microsoft Azure"
-   description="Configuration de l'équilibrage de charge pour fonctionner avec SQL Alway On et procédure d’exploitation de Powershell pour créer l'équilibrage de charge pour l'implémentation de SQL"
+   pageTitle="Configuration de l'équilibrage de charge pour SQL Always On | Microsoft Azure"
+   description="Configuration de l'équilibrage de charge pour fonctionner avec SQL Alway On et procédure d’exploitation de Powershell pour créer l'équilibrage de charge pour l'implémentation de SQL"
    services="load-balancer"
    documentationCenter="na"
-   authors="joaoma"
+   authors="sdwheeler"
    manager="carmonm"
    editor="tysonn" />
 <tags 
@@ -13,9 +13,9 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/17/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
-# Configuration de l'équilibrage de charge pour SQL Always On
+# Configuration de l'équilibrage de charge pour SQL Always On
 
 Les groupes de disponibilité Always On de SQL Server peuvent maintenant être exécutés avec l’équilibrage de charge interne (ILB). Le groupe de disponibilité constitue la solution phare de SQL Server pour une haute disponibilité et la récupération d’urgence. L’écouteur du groupe de disponibilité permet aux applications clientes de se connecter en toute transparence au réplica principal, quel que soit le nombre de réplicas dans la configuration.
 
@@ -24,7 +24,7 @@ Le nom (DNS) de l'écouteur est mappé vers une adresse IP de l’équilibrage d
 
 Vous pouvez utiliser le support de l'équilibrage de charge pour les points de terminaison (écouteur) de SQL Server AlwaysOn. Vous avez désormais un contrôle sur l'accessibilité de l'écouteur et vous pouvez choisir l'adresse IP de l’équilibrage de charge à partir d'un sous-réseau spécifique dans votre réseau virtuel.
 
-À l'aide de l'ILB sur l'écouteur, le point de terminaison du serveur SQL (par exemple, Server=tcp:ListenerName,1433;Database=DatabaseName) est accessible uniquement via :
+À l'aide de l'ILB sur l'écouteur, le point de terminaison du serveur SQL (par exemple, Server=tcp:ListenerName,1433;Database=DatabaseName) est accessible uniquement via :
 
 des services et machines virtuelles des mêmes services de réseau virtuel, des machines virtuelles à partir des services de réseau local et des machines virtuelles connectées entre les réseaux virtuels
 
@@ -36,13 +36,13 @@ L’équilibrage de charge interne ne peut être configuré qu’avec PowerShell
 
 ## Ajout d’un équilibrage de charge interne au service 
 
-### Étape 1 :
+### Étape 1
 
-Dans l'exemple suivant, nous allons configurer un réseau virtuel qui contient un sous-réseau appelé « Sous-réseau-1 » :
+Dans l'exemple suivant, nous allons configurer un réseau virtuel qui contient un sous-réseau appelé « Sous-réseau-1 » :
 
 	Add-AzureInternalLoadBalancer -InternalLoadBalancerName ILB_SQL_AO -SubnetName Subnet-1 -ServiceName SqlSvc
 
-### Étape 2 :
+### Étape 2
 
 Ajout des points de terminaison avec une charge équilibrée pour l'ILB sur chaque machine virtuelle
 
@@ -51,7 +51,7 @@ Ajout des points de terminaison avec une charge équilibrée pour l'ILB sur chaq
 
  	Get-AzureVM -ServiceName SqlSvc -Name sqlsvc2 | Add-AzureEndpoint -Name "LisEUep" -LBSetName "ILBSet1" -Protocol tcp -LocalPort 1433 -PublicPort 1433 -ProbePort 59999 -ProbeProtocol tcp -ProbeIntervalInSeconds 10 –DirectServerReturn $true -InternalLoadBalancerName ILB_SQL_AO | Update-AzureVM
 
-Dans l'exemple ci-dessus, la machine virtuelle 2 est appelée « sqlsvc1 » et « sqlsvc2 » en cours d'exécution dans le service de cloud « Sqlsvc ». Après avoir créé l'équilibre de charge avec le commutateur « DirectServerReturn », vous allez ajouter des points de terminaison d'équilibrage de charge pour permettre à SQL de configurer les écouteurs pour les groupes de disponibilité.
+Dans l'exemple ci-dessus, la machine virtuelle 2 est appelée « sqlsvc1 » et « sqlsvc2 » en cours d'exécution dans le service de cloud « Sqlsvc ». Après avoir créé l'équilibre de charge avec le commutateur « DirectServerReturn », vous allez ajouter des points de terminaison d'équilibrage de charge pour permettre à SQL de configurer les écouteurs pour les groupes de disponibilité.
 
 Plus d’informations sur la création d’un SQL AlwaysOn sont disponibles dans la page sur l’[utilisation de la galerie du portail](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx).
 
@@ -68,4 +68,4 @@ Plus d’informations sur la création d’un SQL AlwaysOn sont disponibles dans
 [Configuration des paramètres du délai d’expiration TCP inactif pour votre équilibrage de charge](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -66,7 +66,7 @@ Recherchez tous les documents dont vous avez besoin pour créer et gérer des ma
 
 [Maintenance planifiée des machines virtuelles Azure](virtual-machines-windows-planned-maintenance.md)
 
-[Instructions d’implémentation des services d’infrastructure Azure](virtual-machines-windows-infrastructure-service-guidelines.md)
+[Instructions d’implémentation des services d’infrastructure Azure](virtual-machines-windows-infrastructure-subscription-accounts-guidelines.md)
 
 [Création d’un groupe à haute disponibilité pour machines virtuelles](virtual-machines-windows-classic-configure-availability.md)
 
@@ -90,7 +90,7 @@ Recherchez tous les documents dont vous avez besoin pour créer et gérer des ma
 
 [Gérer vos machines virtuelles à l’aide d’Azure PowerShell](virtual-machines-windows-classic-manage-psh.md)
 	
-[Connexion de réseaux virtuels classiques aux nouveaux réseaux virtuels](../virtual-network/virtual-networks-arm-asm-s2s-howto.md)
+[Connexion de réseaux virtuels classiques aux nouveaux réseaux virtuels](../vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)
 	
 [À propos de l'agent de machine virtuelle et des extensions](virtual-machines-windows-classic-agents-and-extensions.md)
 
@@ -192,4 +192,4 @@ Recherchez tous les documents dont vous avez besoin pour créer et gérer des ma
 
 [Résoudre les problèmes de déploiement Classic liés au redémarrage ou au redimensionnement d’une machine virtuelle Windows existante dans Azure](virtual-machines-windows-classic-restart-resize-error-troubleshooting.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

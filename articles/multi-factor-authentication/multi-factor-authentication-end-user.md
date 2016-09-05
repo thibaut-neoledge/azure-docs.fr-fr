@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/04/2016" 
+	ms.date="08/22/2016" 
 	ms.author="billmath"/>
 
 
@@ -26,9 +26,9 @@ Pas de panique. Cela signifie simplement que votre organisation souhaite prendre
 
 La première chose à faire est de terminer le processus d'inscription. Mais avant de commencer ce processus, vous avez quelques choix à faire.
 
-- **Téléphone de bureau ou téléphone mobile** : choisissez votre téléphone de bureau ou votre téléphone mobile.
-- **Appel sur votre téléphone mobile, message ou application mobile** : si vous utilisez un téléphone mobile, vous avez le choix entre recevoir un appel ou un message, ou utiliser l’application mobile.
-- **Application mobile avec une notification ou un code de vérification** : si vous utilisez l'application mobile, choisissez de recevoir une notification à laquelle répondre ou de recevoir un code de vérification.
+- **Téléphone de bureau ou téléphone mobile** : choisissez votre téléphone de bureau ou votre téléphone mobile.
+- **Appel sur votre téléphone mobile, message ou application mobile** : si vous utilisez un téléphone mobile, vous avez le choix entre recevoir un appel ou un message, ou utiliser l’application mobile.
+- **Application mobile avec une notification ou un code de vérification** : si vous utilisez l'application mobile, choisissez de recevoir une notification à laquelle répondre ou de recevoir un code de vérification.
 
 > [AZURE.NOTE]  N'oubliez pas que votre service informatique peut désactiver une ou plusieurs des options ci-dessus. Si c'est le cas, ces options ne seront pas disponibles lors du processus d'inscription.
 
@@ -37,7 +37,7 @@ Maintenant que vous avez choisi votre méthode de vérification, il s’agit de 
 
 ## Prise en main de l'authentification multifacteur
 
-Sélectionnez une des rubriques ci-dessous pour commencer.
+Sélectionnez l’une des rubriques ci-dessous pour commencer.
 
 Rubrique|Description
 :------------- | :------------- | 
@@ -45,8 +45,8 @@ Rubrique|Description
 [Expérience de connexion](multi-factor-authentication-end-user-signin.md)|Présente la connexion à l'aide de différentes méthodes comme le téléphone ou l'application.
 [Modification des paramètres](multi-factor-authentication-end-user-manage-settings.md)|Montre comment modifier vos paramètres, comme le numéro de téléphone ou la méthode d'inscription par défaut.
 [Aide relative aux mots de passe d'application](multi-factor-authentication-end-user-app-passwords.md)| Trouvez des informations sur la création et l'utilisation de mots de passe d'application.
-[Utilisation de l'application mobile](multi-factor-authentication-azure-authenticator.md)|L’application Azure Authenticator est disponible pour [Windows Phone](http://www.windowsphone.com/fr-FR/store/app/azure-authenticator/03a5b2bf-6066-418f-b569-e8aecbc06e50), [Android](https://play.google.com/store/apps/details?id=com.azure.authenticator) et [IOS](https://itunes.apple.com/us/app/azure-authenticator/id983156458).
+[Utilisation de l'application mobile](multi-factor-authentication-microsoft-authenticator.md)|L'application Microsoft Authenticator est disponible pour [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) et [IOS](http://go.microsoft.com/fwlink/?Linkid=825073).
 
  
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

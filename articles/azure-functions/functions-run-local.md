@@ -4,7 +4,7 @@
 	services="functions"
 	documentationCenter="na"
 	authors="tdykstra"
-	manager="wpickett"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="04/14/2016"
-	ms.author="tdykstra"/>
+	ms.date="08/22/2016"
+	ms.author="glenga"/>
 
 # Procédure de codage et de test d’Azure Functions dans Visual Studio
 
@@ -152,7 +152,7 @@ Le tableau de bord est à l’adresse URL suivante :
 
 	https://{function app name}.scm.azurewebsites.net/azurejobs/#/functions
 
-La page **Fonctions** affiche une liste des fonctions qui ont été exécutées et une liste des appels de fonctions.
+La page **Fonctions ** affiche une liste des fonctions qui ont été exécutées et une liste des appels de fonctions.
 
 ![Détails des appels](./media/functions-run-local/invocationdetail.png)
 
@@ -222,4 +222,4 @@ Pour plus d’informations, consultez les ressources suivantes :
 * [Azure Functions NodeJS developer reference (Référence pour les développeurs NodeJS Azure Functions)](functions-reference-node.md)
 * [Azure Functions triggers and bindings (Déclencheurs et liaisons Azure Functions)](functions-triggers-bindings.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0824_2016-->

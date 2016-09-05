@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/24/2016"
+   ms.date="08/18/2016"
    ms.author="alkohli@microsoft.com" />
 
 # Utiliser Windows PowerShell pour StorSimple pour appliquer votre appareil
@@ -45,7 +45,7 @@ Vous pouvez accéder à Windows PowerShell pour StorSimple selon une des méthod
 
 ## Se connecter à Windows PowerShell pour StorSimple via la console série de l’appareil
 
-Vous pouvez [télécharger PuTTY](http://www.putty.org/) ou un logiciel d’émulation de terminal similaire pour vous connecter à Windows PowerShell pour StorSimple. Vous devez configurer PuTTY de façon spécifique pour accéder à l’appareil Microsoft Azure StorSimple. Les rubriques suivantes contiennent des étapes détaillant comment configurer PuTTy et se connecter à l’appareil. Différentes options de menu de la console série sont également expliquées.
+Vous pouvez [télécharger PuTTY](http://www.putty.org/) ou un logiciel d’émulation de terminal similaire pour vous connecter à Windows PowerShell pour StorSimple. Vous devez configurer PuTTY de façon spécifique pour accéder à l’appareil Microsoft Azure StorSimple. Les rubriques suivantes décrivent en détail comment configurer PuTTy et se connecter à l’appareil. Différentes options de menu de la console série sont également expliquées.
 
 ### Paramètres puTTY
 
@@ -106,13 +106,13 @@ Vous pouvez choisir parmi les paramètres suivants :
 
 2. **Se connecter au contrôleur homologue avec accès total** : cette option est identique à l’option 1, sauf que vous pouvez vous connecter (avec les informations d’identification correctes) à l’instance d’exécution **SSAdminConsole** sur le contrôleur homologue. Étant donné que l’appareil StorSimple est un appareil à haute disponibilité avec deux contrôleurs dans une configuration active-passive, « homologue » fait référence à l’autre contrôleur dans l’appareil auquel vous accédez via la console série. Similaire à l’option 1, cette option peut également être utilisée pour permettre au support technique de Microsoft d’accéder à une instance d’exécution sans restriction sur un contrôleur homologue.
 
-3. **Se connecter avec un accès limité** : cette option est utilisée pour accéder à l’interface Windows PowerShell en mode limité. Des informations d’identification d’accès ne vous sont pas demandées. Cette option se connecte à une instance d’exécution plus restreinte par rapport aux options 1 et 2. Voici certaines des tâches qui sont disponibles via l’option 1 et qui ne peuvent pas être effectuées dans cette instance d’exécution :
+3. **Se connecter avec un accès limité** : cette option est utilisée pour accéder à l’interface Windows PowerShell en mode limité. Des informations d’identification d’accès ne vous sont pas demandées. Cette option se connecte à une instance d’exécution plus restreinte par rapport aux options 1 et 2. Voici certaines des tâches qui sont disponibles via l’option 1 et qui **ne peuvent pas* être effectuées dans cette instance d’exécution :
 
 	- Réinitialiser les paramètres d’usine
 	- Changer le mot de passe
 	- Activer ou désactiver l’accès du support
 	- Appliquer des mises à jour
-	- Installer des correctifs 
+	- Installer des correctifs
 												
 
 	>[AZURE.NOTE] **Il s’agit de l’option préférée si vous avez oublié le mot de passe administrateur et que vous ne pouvez pas vous connecter via l’option 1 ou 2.**
@@ -192,9 +192,9 @@ Vous pouvez facilement mettre à jour l’aide de l’interface Windows PowerShe
 1. Une fois les fichiers d’aide sont installés, tapez : `Get-Help Get-Command`. Ceci affiche une liste des applets de commande pour lesquelles de l’aide est disponible.
 
 
->[AZURE.NOTE] Pour obtenir une liste de toutes les applets de commande disponibles dans les instances d’exécution, connectez-vous à l’option de menu correspondante et exécutez l’applet de commande `Get-Command`.
+>[AZURE.NOTE] Pour obtenir une liste de toutes les applets de commande disponibles dans une instance d’exécution, connectez-vous à l’option de menu correspondante et exécutez l’applet de commande `Get-Command`.
 
 ## Étapes suivantes
 Si vous rencontrez des problèmes avec votre appareil StorSimple lors de l’exécution d’un des flux de travail ci-dessus, consultez la rubrique [Outils de résolution des problèmes de déploiement de StorSimple](storsimple-troubleshoot-deployment.md#tools-for-troubleshooting-storsimple-deployments).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -14,12 +14,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/27/2016"
+	ms.date="08/17/2016"
 	ms.author="genli"/>
 
 #  FAQ sur la facturation et l’abonnement Azure
 
 Cet article répond aux questions les plus fréquemment posées sur la facturation et l’abonnement Azure.
+
+> [AZURE.NOTE] Si à un moment donné dans cet article, vous rencontrez un problème et avez besoin d’aide, veuillez [contacter le support technique](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour obtenir une prise en charge rapide.
 
 ## Administration des comptes
 
@@ -122,7 +124,7 @@ Vous devez envoyer un ticket de support pour demander une assistance. Pour crée
 
 ### Comment mettre à jour ou modifier mes informations de carte de crédit ?
 
-Si le numéro de votre carte de crédit reste le même en cas de renouvellement de votre carte de crédit, vous pouvez simplement mettre à jour les détails de la carte de crédit existante, tels que la date d’expiration. Si le numéro de votre carte change ou si vous souhaitez utiliser une autre carte, vous devrez ajouter une nouvelle carte. Vous trouverez des instructions pour mettre à jour ou ajouter une carte de crédit dans la rubrique [Comment modifier la carte de crédit utilisée pour payer un abonnement Azure](billing-how-to-change-credit-card.md).
+Si le numéro de votre carte de crédit reste le même en cas de renouvellement de votre carte de crédit, vous pouvez simplement mettre à jour les détails de la carte de crédit existante, tels que la date d’expiration. Si le numéro de votre carte change ou si vous souhaitez utiliser une autre carte, vous devrez ajouter une nouvelle carte. Vous trouverez des instructions pour mettre à jour ou ajouter une carte de crédit dans la rubrique [Modification de la carte de crédit utilisée pour payer un abonnement Azure](billing-how-to-change-credit-card.md).
 
 ### Comment connaître à l’avance les temps d’arrêt de service dus à une maintenance planifiée ?
 
@@ -134,7 +136,7 @@ Pour les configurations multi-instances et à instance unique, Azure vous envoie
 
 >[AZURE.NOTE] Pour plus d’informations propres aux machines virtuelles, consultez l’article [Maintenance planifiée des machines virtuelles Azure](virtual-machines/virtual-machines-linux-planned-maintenance.md).
 
-#### Maintenance non planifiée 
+#### Maintenance non planifiée
 
 En cas d’interruption de service non planifiée sur la plateforme Azure, l’état est mis à jour sur le [tableau de bord des services](http://status.azure.com/) et les clients en sont également informés dans le [portail Azure Classic](https://manage.windowsazure.com/).
 
@@ -206,7 +208,7 @@ Pour plus d’informations, contactez le [support Azure](https://azure.microsoft
 
 ### Comment gérer les comptes d’administrateur dans le nouveau portail Azure ?
 
-Le contrôle d’accès en fonction du rôle (RBAC) Azure permet une gestion précise de l’accès pour Azure. Avec le contrôle d’accès en fonction du rôle, vous pouvez séparer les tâches au sein de votre équipe chargée des opérations de développement et accorder aux utilisateurs uniquement les accès nécessaires pour accomplir leur travail. Pour plus d’informations, voir [Contrôle d’accès en fonction du rôle Azure](.\active-directory\Azure Role-Based Access Control.md).
+Le contrôle d’accès en fonction du rôle (RBAC) Azure permet une gestion précise de l’accès pour Azure. Avec le contrôle d’accès en fonction du rôle, vous pouvez séparer les tâches au sein de votre équipe chargée des opérations de développement et accorder aux utilisateurs uniquement les accès nécessaires pour accomplir leur travail. Pour plus d’informations, voir [Contrôle d’accès en fonction du rôle Azure](.\\active-directory\\Azure Role-Based Access Control.md).
 
 ### Comment transférer la propriété de mes abonnements ?
 
@@ -310,4 +312,6 @@ Les abonnements d’essai gratuit ne permettent pas de bénéficier d’augmenta
 
 Rendez-vous sur la [page de l’offre Version d’évaluation gratuite](https://azure.microsoft.com/offers/ms-azr-0044p/) et lisez le [Forum Aux Questions officiel sur la version d’évaluation gratuite](https://azure.microsoft.com/pricing/free-trial-faq/).
 
-<!---HONumber=AcomDC_0803_2016-->
+> [AZURE.NOTE] Si vous avez d’autres questions, veuillez [contacter le support technique](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour obtenir une prise en charge rapide de votre problème.
+
+<!---HONumber=AcomDC_0824_2016-->

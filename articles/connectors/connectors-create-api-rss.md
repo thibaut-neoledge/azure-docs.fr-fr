@@ -1,6 +1,6 @@
 <properties
 pageTitle="RSS | Microsoft Azure"
-description="Créer des applications logiques avec Azure App Service. Le connecteur RSS permet aux utilisateurs de publier et d’extraire des éléments de flux. Il permet également aux utilisateurs de déclencher des opérations lorsqu’un nouvel élément est publié dans le flux."
+description="Créez des applications logiques avec Azure App Service. Le connecteur RSS permet aux utilisateurs de publier et d’extraire des éléments de flux. Il permet également aux utilisateurs de déclencher des opérations lorsqu’un nouvel élément est publié dans le flux."
 services="logic-apps"	
 documentationCenter=".net,nodejs,java" 	
 authors="msftman"	
@@ -14,22 +14,15 @@ ms.devlang="multiple"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="05/17/2016"
+ms.date="08/18/2016"
 ms.author="deonhe"/>
 
 # Prise en main du connecteur RSS
-
-
-
-Le connecteur RSS peut être utilisé à partir de :
-
-- [Logic Apps](../app-service-logic/app-service-logic-what-are-logic-apps.md)
-- [PowerApps](http://powerapps.microsoft.com)
-- [Flux](http://flows.microsoft.com)
+RSS est un format de syndication populaire web utilisé pour publier du contenu fréquemment mise à jour, tel que des entrées de blog et des titres d’actualité. De nombreux éditeurs de contenu fournissent un flux RSS pour permettre aux utilisateurs d’y souscrire. Le connecteur RSS permet de récupérer le flux d’informations et de déclencher des flux lorsque de nouveaux éléments sont publiés dans un flux RSS.
 
 >[AZURE.NOTE] Cette version de l'article s'applique à la version de schéma 2015-08-01-preview des applications logiques.
 
-Vous pouvez commencer en créant une application logique. Consultez [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Vous pouvez commencer par créer une application logique. Pour cela, consultez [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Déclencheurs et actions
 
@@ -55,10 +48,10 @@ Vous pouvez écouter les événements suivants :
 
 >[AZURE.INCLUDE [Procédure de création d’une connexion à un flux RSS](../../includes/connectors-create-api-rss.md)]
 
->[AZURE.TIP] Vous pouvez utiliser cette connexion dans d'autres applications logiques.
+>[AZURE.TIP] Vous pouvez utiliser cette connexion dans d’autres applications logiques.
 
 ## Référence pour RSS
-S’applique à la version : 1.0
+S’applique à la version 1.0.
 
 ## OnNewFeed
 Quand un nouvel élément de flux est publié : déclenche un flux de travail lors de la publication d’un nouveau flux
@@ -69,7 +62,7 @@ Quand un nouvel élément de flux est publié : déclenche un flux de travail lo
 | ---|---|---|---|---|---|
 |feedUrl|string|yes|query|(aucun)|Feed url|
 
-#### Response
+#### Réponse
 
 |Nom|Description|
 |---|---|
@@ -92,7 +85,7 @@ Obtenir tous les éléments du flux RSS : obtient tous les éléments du flux RS
 | ---|---|---|---|---|---|
 |feedUrl|string|yes|query|(aucun)|Feed url|
 
-#### Response
+#### Réponse
 
 |Nom|Description|
 |---|---|
@@ -132,4 +125,4 @@ Obtenir tous les éléments du flux RSS : obtient tous les éléments du flux RS
 ## Étapes suivantes
 [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

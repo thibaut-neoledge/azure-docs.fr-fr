@@ -4,7 +4,7 @@
 	services="virtual-machines"
 	documentationCenter="na"
 	authors="MikeRayMSFT"
-	manager="jeffreyg"
+	manager="timlt"
 	editor="monicar"
 	tags="azure-service-management" />
 <tags
@@ -78,7 +78,7 @@ Ce didacticiel part des principes suivants :
 
 1. Dans le panneau **Groupe de ressources**, sous **Nom du groupe de ressources**, tapez **SQL-HA-RG**
 
-1. Si vous avez plusieurs abonnements Azure, vérifiez qu’il s’agit bien de l’abonnement Azure dans lequel vous souhaitez créer le groupe de disponibilité.
+1. Si vous avez plusieurs abonnements Azure, vérifiez qu’il s’agit bien de celui dans lequel vous souhaitez créer le groupe de disponibilité.
 
 1. Sélectionnez un emplacement. Il s’agit de l’emplacement Azure où s’exécutera le groupe de disponibilité. Pour ce didacticiel, nous allons générer tous les ressources dans un emplacement Azure.
 
@@ -125,7 +125,7 @@ Pour créer le réseau virtuel :
 | **Abonnement** | Spécifiez l’abonnement à utiliser. Si vous ne disposez que d’un abonnement, cette valeur peut être vide. |
 | **Emplacement** | Spécifiez l’emplacement Azure où vous déploierez votre groupe de disponibilité. |
 
-    Notez que votre espace d’adressage et votre plage d’adresses de sous-réseau peuvent être différents de ceux indiqués dans ce tableau. En fonction de votre abonnement, Azure spécifiera automatiquement un espace d’adressage disponible et la plage d’adresses de sous-réseau correspondante. Si vous ne disposez pas d’un espace d’adressage suffisant, utilisez un autre abonnement.
+    Notez que votre espace d’adressage et votre plage d’adresses de sous-réseau peuvent être différents de ceux indiqués dans ce tableau. En fonction de votre abonnement, Azure spécifie automatiquement un espace d’adressage disponible et la plage d’adresses de sous-réseau correspondante. Si vous ne disposez pas d’un espace d’adressage suffisant, utilisez un autre abonnement.
 
 1. Cliquez sur **Créer**
 
@@ -164,11 +164,11 @@ Voici un résumé des paramètres de configuration relatifs au réseau virtuel e
 | **Champ** | Valeur |
 | ----- | ----- |
 | **Nom** | **autoHAVNET** |
-| **Espace d’adressage** | Selon les espaces d’adressage disponibles dans votre abonnement. 10.0.0.0/16 est une valeur courante. |
+| **Espace d’adressage** | Dépend des espaces d’adressage disponibles dans votre abonnement. 10.0.0.0/16 est une valeur courante. |
 | **Nom du sous-réseau** | **Subnet-1** |
-| **Plage d’adresses de sous-réseau** | Selon les plages d’adresses disponibles dans votre abonnement. 10.0.0.0/24 est une valeur courante. |
+| **Plage d’adresses de sous-réseau** | Dépend des plages d’adresses disponibles dans votre abonnement. 10.0.0.0/24 est une valeur courante. |
 | **Nom du sous-réseau** | **Subnet-2** |
-| **Plage d’adresses de sous-réseau** | Selon les plages d’adresses disponibles dans votre abonnement. 10.0.1.0/24 est une valeur courante. |
+| **Plage d’adresses de sous-réseau** | Dépend des plages d’adresses disponibles dans votre abonnement. 10.0.1.0/24 est une valeur courante. |
 | **Abonnement** | Spécifiez l’abonnement à utiliser. |
 | **Groupe de ressources** | **SQL-HA-RG** |
 | **Emplacement** | Spécifiez le même emplacement que celui choisi pour le groupe de ressources. |
@@ -865,4 +865,4 @@ Pour tester la connexion :
 
 Pour en savoir plus sur l’utilisation de SQL Server dans Azure, consultez [SQL Server sur Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0824_2016-->

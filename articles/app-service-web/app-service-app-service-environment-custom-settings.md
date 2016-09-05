@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/17/2016"
+	ms.date="08/22/2016"
 	ms.author="stefsch"/>
 
 # Paramètres de configuration personnalisés pour les environnements App Service
@@ -21,9 +21,11 @@
 ## Vue d'ensemble ##
 Les environnements App Service étant isolés pour chaque client, certains paramètres de configuration peuvent être appliqués exclusivement à des environnements App Service. Cet article décrit les différentes personnalisations pour les environnements App Service disponibles.
 
+Si vous ne possédez pas d’environnement App Service, voir [Comment créer un environnement App Service](app-service-web-how-to-create-an-app-service-environment.md).
+
 Vous pouvez stocker les personnalisations de l’environnement App Service (App Service Environment) à l’aide d’un tableau dans le nouvel attribut **clusterSettings**. Cet attribut se trouve dans le dictionnaire des « Propriétés » de l’entité Azure Resource Manager *hostingEnvironments*.
 
-L’extrait de code abrégé de modèle Resource Manager suivant indique l’attribut **clusterSettings** :
+L’extrait de code abrégé de modèle Resource Manager suivant indique l’attribut **clusterSettings** :
 
 
     "resources": [
@@ -95,4 +97,4 @@ Le site de modèles Azure Quickstart Resource Manager comprend un modèle dont l
 
 <!-- IMAGES -->
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

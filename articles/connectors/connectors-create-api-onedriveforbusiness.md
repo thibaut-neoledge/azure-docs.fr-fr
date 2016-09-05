@@ -1,6 +1,6 @@
 <properties
 pageTitle="OneDrive Entreprise | Microsoft Azure"
-description="Créer des applications logiques avec Azure App Service. Connectez-vous à OneDrive Entreprise pour gérer vos fichiers. Vous pouvez effectuer diverses actions, comme charger, mettre à jour, obtenir et supprimer des fichiers."
+description="Créez des applications logiques avec Azure App Service. Connectez-vous à OneDrive Entreprise pour gérer vos fichiers. Vous pouvez effectuer diverses actions, comme charger, mettre à jour, obtenir et supprimer des fichiers."
 services="logic-apps"	
 documentationCenter=".net,nodejs,java" 	
 authors="msftman"	
@@ -14,22 +14,16 @@ ms.devlang="multiple"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="05/17/2016"
+ms.date="08/18/2016"
 ms.author="deonhe"/>
 
 # Prise en main du connecteur OneDrive Entreprise
 
-
-
-Le connecteur OneDrive Entreprise peut être utilisé à partir :
-
-- [Logic Apps](../app-service-logic/app-service-logic-what-are-logic-apps.md)
-- [PowerApps](http://powerapps.microsoft.com)
-- [Flux](http://flows.microsoft.com)
+Connectez-vous à OneDrive Entreprise pour gérer vos fichiers. Vous pouvez effectuer diverses actions, comme charger, mettre à jour, obtenir et supprimer des fichiers.
 
 >[AZURE.NOTE] Cette version de l'article s'applique à la version de schéma 2015-08-01-preview des applications logiques.
 
-Vous pouvez commencer en créant une application logique. Consultez [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Vous pouvez commencer par créer une application logique. Pour cela, consultez [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Déclencheurs et actions
 
@@ -72,10 +66,10 @@ Après avoir créé la connexion, vous pouvez l’utiliser pour exécuter les ac
 
 >[AZURE.INCLUDE [Procédure de création d’une connexion à OneDrive Entreprise](../../includes/connectors-create-api-onedriveforbusiness.md)]
 
->[AZURE.TIP] Vous pouvez utiliser cette connexion dans d'autres applications logiques.
+>[AZURE.TIP] Vous pouvez utiliser cette connexion dans d’autres applications logiques.
 
 ## Référence pour OneDrive Entreprise
-S’applique à la version : 1.0
+S’applique à la version 1.0.
 
 ## GetFileMetadata
 Obtenir les métadonnées d’un fichier à l’aide de l’identifiant : récupère les métadonnées d’un fichier dans OneDrive Entreprise à l’aide de l’identifiant
@@ -86,7 +80,7 @@ Obtenir les métadonnées d’un fichier à l’aide de l’identifiant : récup
 | ---|---|---|---|---|---|
 |id|string|yes|path|(aucun)|Spécifier le fichier|
 
-#### Response
+#### Réponse
 
 |Nom|Description|
 |---|---|
@@ -104,7 +98,7 @@ Mettre à jour le fichier : met à jour un fichier dans OneDrive Entreprise
 |id|string|yes|path|(aucun)|Spécifier le fichier à mettre à jour|
 |body| |yes|body|(aucun)|Contenu du fichier à mettre à jour dans OneDrive Entreprise|
 
-#### Response
+#### Réponse
 
 |Nom|Description|
 |---|---|
@@ -121,7 +115,7 @@ Supprimer un fichier : supprime un fichier de OneDrive Entreprise
 | ---|---|---|---|---|---|
 |id|string|yes|path|(aucun)|Spécifier le fichier à supprimer|
 
-#### Response
+#### Réponse
 
 |Nom|Description|
 |---|---|
@@ -138,9 +132,9 @@ Obtenir les métadonnées d’un fichier à l’aide du chemin : récupère les 
 | ---|---|---|---|---|---|
 |path|string|yes|query|(aucun)|Chemin unique du fichier dans OneDrive Entreprise|
 
-#### Response
+#### Réponse
 
-|Nom|Description|
+|Name|Description|
 |---|---|
 |200|OK|
 |default|L’opération a échoué.|
@@ -155,9 +149,9 @@ Obtenir le contenu d’un fichier à l’aide du chemin : récupère le contenu 
 | ---|---|---|---|---|---|
 |path|string|yes|query|(aucun)|Chemin unique du fichier dans OneDrive Entreprise|
 
-#### Response
+#### Réponse
 
-|Nom|Description|
+|Name|Description|
 |---|---|
 |200|OK|
 |default|L’opération a échoué.|
@@ -172,7 +166,7 @@ Obtenir le contenu d’un fichier à l’aide de l’identifiant : récupère le
 | ---|---|---|---|---|---|
 |id|string|yes|path|(aucun)|Spécifier le fichier|
 
-#### Response
+#### Réponse
 
 |Nom|Description|
 |---|---|
@@ -191,7 +185,7 @@ Créer un fichier : charge un fichier sur OneDrive Entreprise
 |name|string|yes|query|(aucun)|Nom du fichier à créer dans OneDrive Entreprise|
 |body| |yes|body|(aucun)|Contenu du fichier à charger sur OneDrive Entreprise|
 
-#### Response
+#### Réponse
 
 |Nom|Description|
 |---|---|
@@ -210,7 +204,7 @@ Copier un fichier : copie un fichier dans OneDrive Entreprise
 |destination|string|yes|query|(aucun)|Chemin de destination du fichier dans OneDrive Entreprise, y compris le nom de fichier cible|
 |overwrite|booléenne|no|query|false|Remplace le fichier de destination si la valeur est « true »|
 
-#### Response
+#### Réponse
 
 |Nom|Description|
 |---|---|
@@ -227,7 +221,7 @@ Quand un fichier est créé : déclenche un flux quand un fichier est créé dan
 | ---|---|---|---|---|---|
 |folderId|string|yes|query|(aucun)|Spécifier un dossier|
 
-#### Response
+#### Réponse
 
 |Nom|Description|
 |---|---|
@@ -244,9 +238,9 @@ Quand un fichier est modifié : déclenche un flux quand un fichier est modifié
 | ---|---|---|---|---|---|
 |folderId|string|yes|query|(aucun)|Spécifier un dossier|
 
-#### Response
+#### Réponse
 
-|Nom|Description|
+|Name|Description|
 |---|---|
 |200|OK|
 |default|L’opération a échoué.|
@@ -261,7 +255,7 @@ Répertorier les fichiers dans un dossier : répertorie les fichiers dans un dos
 | ---|---|---|---|---|---|
 |id|string|yes|path|(aucun)|Spécifier le dossier|
 
-#### Response
+#### Réponse
 
 |Nom|Description|
 |---|---|
@@ -275,9 +269,9 @@ Répertorier le dossier racine : répertorie les fichiers dans le dossier racine
 ```GET: /datasets/default/folders```
 
 Il n’existe aucun paramètre pour cet appel
-#### Response
+#### Réponse
 
-|Nom|Description|
+|Name|Description|
 |---|---|
 |200|OK|
 |default|L’opération a échoué.|
@@ -288,21 +282,21 @@ Extraire un dossier : extrait un dossier dans OneDrive Entreprise
 
 ```POST: /datasets/default/extractFolderV2```
 
-| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
+| Name| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
 |source|string|yes|query|(aucun)|Chemin du fichier d'archive|
 |destination|string|yes|query|(aucun)|Chemin dans OneDrive Entreprise indiquant où extraire le contenu de l’archive|
 |overwrite|booléenne|no|query|false|Remplace les fichiers de destination si la valeur est « true »|
 
-#### Response
+#### Réponse
 
-|Nom|Description|
+|Name|Description|
 |---|---|
 |200|OK|
 |default|L’opération a échoué.|
 
 
-## Définitions d'objet 
+## Définitions d’objet 
 
 ### DataSetsMetadata
 
@@ -346,7 +340,7 @@ Extraire un dossier : extrait un dossier dans OneDrive Entreprise
 |ID|string|Non |
 |Nom|string|Non |
 |DisplayName|string|Non |
-|Path|string|Non |
+|Chemin|string|Non |
 |LastModified|string|Non |
 |Taille|integer|Non |
 |MediaType|string|Non |
@@ -366,4 +360,4 @@ Extraire un dossier : extrait un dossier dans OneDrive Entreprise
 ## Étapes suivantes
 [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -15,10 +15,12 @@
 	ms.topic="reference"
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
-	ms.date="05/16/2016"
-	ms.author="chrande"/>
+	ms.date="08/22/2016"
+	ms.author="chrande; glenga"/>
 
 # Liaisons DocumentDB Azure Functions
+
+[AZURE.INCLUDE [functions-selector-bindings (liaisons de sélecteur de fonctions)](../../includes/functions-selector-bindings.md)]
 
 Cet article explique comment configurer et coder des liaisons Azure DocumentDB dans Azure Functions.
 
@@ -33,12 +35,12 @@ Les liaisons d’entrée peuvent charger un document à partir d’une collectio
 Le fichier *function.json* spécifie les propriétés suivantes :
 
 - `name` : nom de variable utilisé dans le code de fonction pour le document.
-- `type` : doit être défini sur "documentdb".
+- `type` : doit être défini sur « documentdb ».
 - `databaseName` : base de données contenant le document.
 - `collectionName` : collection contenant le document.
 - `id` : ID du document à récupérer. Cette propriété prend en charge les liaisons semblables à "{queueTrigger}", qui utiliseront la valeur de chaîne du message de file d’attente en tant qu’ID du document.
-- `connection` : cette chaîne doit correspondre à un Paramètre d’application défini sur le point de terminaison de votre compte DocumentDB. Si vous choisissez votre compte dans l’onglet Intégrer, un nouveau paramètre d’application est créé à votre intention avec un nom indiqué sous la forme VotreCompte\_DOCUMENTDB. Si vous devez créer le paramètre d’application manuellement, la chaîne de connexion réelle doit se présenter sous la forme suivante : AccountEndpoint=<Endpoint for your account>;AccountKey=<Your primary access key>;.
-- direction : doit être défini sur *"in"*.
+- `connection` : cette chaîne doit correspondre à un Paramètre d’application défini sur le point de terminaison de votre compte DocumentDB. Si vous choisissez votre compte dans l’onglet Intégrer, un nouveau paramètre d’application est créé à votre intention avec un nom indiqué sous la forme VotreCompte\_DOCUMENTDB. Si vous devez créer le paramètre d’application manuellement, la chaîne de connexion réelle doit se présenter sous la forme suivante : AccountEndpoint=<Point de terminaison pour votre compte>;AccountKey=<Votre clé d’accès principale>;.
+- direction : doit être défini sur *« in »*.
 
 Exemple de fichier *function.json* :
  
@@ -85,12 +87,12 @@ Vos fonctions peuvent écrire des documents JSON dans une base de données Azure
 Le fichier function.json spécifie les propriétés suivantes :
 
 - `name` : nom de variable utilisé dans le code de fonction pour le nouveau document.
-- `type` : doit être défini sur *"documentdb"*.
+- `type` : doit être défini sur *« documentdb »*.
 - `databaseName` : base de données contenant la collection dans laquelle le nouveau document sera créé.
 - `collectionName` : collection dans laquelle le nouveau document sera créé.
 - `createIfNotExists` : valeur booléenne indiquant si la collection sera ou non créée si elle n’existe pas. La valeur par défaut est *false*. Cette configuration est due au fait que les collections sont créées avec un débit réservé, ce qui a des conséquences sur le plan tarifaire. Pour plus d’informations, consultez la [page de tarification](https://azure.microsoft.com/pricing/details/documentdb/).
-- `connection` : cette chaîne doit correspondre à un **Paramètre d’application** défini sur le point de terminaison de votre compte DocumentDB. Si vous choisissez votre compte dans l’onglet **Intégrer**, un nouveau paramètre d’application est créé avec un nom au format suivant : `yourAccount_DOCUMENTDB`. Si vous devez créer le paramètre d’application manuellement, la chaîne de connexion réelle doit se présenter sous la forme `AccountEndpoint=<Endpoint for your account>;AccountKey=<Your primary access key>;`. 
-- `direction` : doit être défini sur *"out"*. 
+- `connection` : cette chaîne doit correspondre à un **Paramètre d’application** défini sur le point de terminaison de votre compte DocumentDB. Si vous choisissez votre compte dans l’onglet **Intégrer**, un nouveau paramètre d’application est créé avec un nom au format suivant : `yourAccount_DOCUMENTDB`. Si vous devez créer le paramètre d’application manuellement, la chaîne de connexion réelle doit se présenter sous la forme suivante : `AccountEndpoint=<Endpoint for your account>;AccountKey=<Your primary access key>;`.
+- `direction` : doit être défini sur *« out »*.
  
 Exemple de fichier function.json :
 
@@ -189,4 +191,4 @@ Exemple de sortie :
 
 [AZURE.INCLUDE [Étapes suivantes](../../includes/functions-bindings-next-steps.md)]
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0824_2016-->

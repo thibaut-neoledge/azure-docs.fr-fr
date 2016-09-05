@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="article"
- ms.date="06/30/2016"
+ ms.date="08/16/2016"
  ms.author="krisragh"/>
 
 
@@ -56,7 +56,7 @@ Par exemple, dans le diagramme ci-dessous, Azure Scheduler suit sa stratégie de
 
 ![][2]
 
-Notez que la même stratégie de nouvelle tentative s'applique à l'action d'origine et à l'action d'erreur alternative. Le type d'action de l'action d'erreur alternative peut également être différent du type d'action de l'action principale. Par exemple, tandis que l’action principale peut appeler un point de terminaison HTTP, l’action d’erreur peut à la place être une action de file d’attente de stockage, de file d’attente Service Bus ou de rubrique Service Bus qui effectue la journalisation des erreurs.
+Notez que la même stratégie de nouvelle tentative s'applique à l'action d'origine et à l'action d'erreur alternative. Le type d'action de l'action d'erreur alternative peut également être différent du type d'action de l'action principale. Par exemple, tandis que l’action principale peut appeler un point de terminaison HTTP, l’action d’erreur peut, quant à elle, être une action de file d’attente de stockage, de file d’attente Service Bus ou de rubrique Service Bus qui effectue la journalisation des erreurs.
 
 Pour savoir comment configurer un point de terminaison alternatif, consultez [errorAction](scheduler-concepts-terms.md#action-and-erroraction).
 
@@ -85,4 +85,4 @@ Pour savoir comment configurer un point de terminaison alternatif, consultez [er
 
 [2]: ./media/scheduler-high-availability-reliability/scheduler-high-availability-reliability-image2.png
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0824_2016-->

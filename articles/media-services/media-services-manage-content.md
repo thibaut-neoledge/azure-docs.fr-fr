@@ -13,18 +13,18 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"  
+	ms.date="08/17/2016"  
 	ms.author="juliako"/>
 
 
 # Gérer le contenu avec Azure Media Services à l’aide du portail Azure Classic
 
 
-Cette rubrique présente l’utilisation du portail Azure Classic pour gérer du contenu multimédia dans votre compte Media Services.
+Cette rubrique présente l’utilisation du Portail Azure Classic pour gérer du contenu multimédia dans votre compte Media Services.
 
 Cette rubrique explique comment effectuer les opérations suivantes directement à partir du portail :
 
-- Afficher les informations de contenu comme l’état publié, l’URL publiée, la taille, la date et l’heure de la dernière mise à jour, et si l’élément multimédia est chiffré
+- Afficher les informations de contenu comme l’état publié, l’URL publiée, la taille, la date et l’heure de la dernière mise à jour, et si la ressource est chiffrée.
 - Télécharger un nouveau contenu
 - Indexer le contenu
 - Encodage de contenu
@@ -47,11 +47,11 @@ Cette rubrique explique comment effectuer les opérations suivantes directement 
 	![UploadContentDialog][uploadcontent]
 
 5. Dans la boîte de dialogue Télécharger le contenu, cliquez sur le bouton de vérification pour accepter le nom du fichier et du contenu.
-6. Le téléchargement démarre et vous pouvez suivre la progression en bas du portail.
+6. Le chargement commence. Vous pouvez suivre la progression en bas du portail.
 
 	![JobStatus][status]
 
-Une fois le téléchargement terminé, le nouvel élément multimédia est répertorié dans la liste Contenu. Par convention, la mention « **-Source** » est ajoutée à la fin du nom afin de faciliter le suivi des nouveaux contenus sources pour les tâches d'encodage.
+Une fois le téléchargement terminé, la nouvelle ressource est répertoriée dans la liste Contenu. Par convention, la mention « **-Source** » est ajoutée à la fin du nom afin de faciliter le suivi des nouveaux contenus sources pour les tâches d’encodage.
 
 ![ContentPage][contentpage]
 
@@ -67,9 +67,12 @@ Azure Media Indexer permet de rendre le contenu de vos fichiers multimédias con
 
 Les étapes qui suivent présentent comment utiliser le portail Azure Classic pour indexer votre contenu.
 
-1. Sélectionnez le fichier que vous souhaitez indexer. Si l’indexation est prise en charge pour ce type de fichier, le bouton de traitement sera activé en bas de la page de contenu.
+1. Sélectionnez le fichier que vous souhaitez indexer.
+
+	Si l’indexation est prise en charge pour ce type de fichier, le bouton TRAITER est activé en bas de la page CONTENU.
+	
 1. Appuyez sur le bouton de traitement.
-2. Dans la boîte de dialogue de **traitement**, choisissez le processeur **Azure Media Indexer**.
+2. Dans la boîte de dialogue **Traitement**, choisissez le processeur **Azure Media Indexer**.
 3. Ensuite, complétez dans la boîte de dialogue de traitement le **titre** et la **description** du fichier multimédia d’entrée.
 
 ![Process][process]
@@ -85,34 +88,35 @@ Pour fournir une vidéo numérique sur Internet, vous devez compresser le conten
 
 Lorsque vous travaillez avec Azure Media Services, un des scénarios les plus courants est la diffusion de contenu à débit adaptatif à vos clients. Avec la diffusion à débit binaire adaptatif, le client peut basculer vers un flux à débit binaire supérieur ou inférieur, car la vidéo est affichée en fonction de la bande passante réseau actuelle, de l’utilisation de l’UC et d’autres facteurs. Media Services prend en charge les technologies de diffusion en continu à débit binaire adaptatif suivantes : HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH et HDS (pour licences Adobe PrimeTime/Access uniquement).
 
-Media Services fournit l’empaquetage dynamique qui permet de distribuer un contenu en diffusion continue en MP4 ou Smooth Streaming dans un format pris en charge par Media Services (MPEG DASH, HLS, Smooth Streaming, HDS) sans avoir à recréer de nouveaux packages dans ces formats.
+Media Services fournit l’empaquetage dynamique, qui permet de distribuer un contenu en diffusion continue en MP4 ou Smooth Streaming dans un format pris en charge par Media Services (MPEG DASH, HLS, Smooth Streaming, HDS) sans avoir à recréer de nouveaux packages dans ces formats.
 
 Pour tirer parti de l’empaquetage dynamique, vous devez effectuer les opérations suivantes :
 
 - encoder votre fichier mezzanine (source) dans un ensemble de fichiers mp4 à débit adaptatif ou de fichiers Smooth Streaming à débit adaptatif (les étapes de codage sont décrites plus loin dans ce didacticiel).
 - obtenir au moins une unité de diffusion à la demande pour le point de terminaison de diffusion à partir duquel vous envisagez de distribuer votre contenu. Pour plus d’informations, consultez la page [Extension des unités réservées de diffusion en continu à la demande](media-services-manage-origins.md#scale_streaming_endpoints/).
 
-Avec l’empaquetage dynamique, vous devez stocker et payer les fichiers dans un seul format de stockage. Ensuite, Media Services crée et fournit la réponse appropriée en fonction des demandes des clients.
+L’empaquetage dynamique vous permet de ne stocker et payer les fichiers que dans un seul format de stockage. Ensuite, Media Services crée et fournit la réponse appropriée en fonction des demandes des clients.
 
-Notez qu’en plus d’utiliser les fonctionnalités d’empaquetage dynamique, les unités réservées de diffusion en continu à la demande vous offrent une capacité de sortie dédiée qui peut être achetée par incréments de 200 Mbit/s. Par défaut, la diffusion en continu à la demande est configurée dans un modèle d’instance partagée, pour lequel les ressources du serveur (calcul, sortie, capacité, etc.) sont partagées avec tous les autres utilisateurs. Afin d’améliorer la vitesse de diffusion en continu à la demande, il est recommandé d’acheter des unités réservées de diffusion en continu à la demande.
+En plus d’utiliser les fonctionnalités d’empaquetage dynamique, les unités réservées de streaming à la demande vous offrent une capacité de sortie dédiée qui peut être achetée par incréments de 200 Mbit/s. Par défaut, le streaming à la demande est configuré dans un modèle d’instance partagée, pour lequel les ressources du serveur (par exemple, calcul ou capacité de sortie) sont partagées avec tous les autres utilisateurs. Afin d’améliorer la vitesse de diffusion en continu à la demande, il est recommandé d’acheter des unités réservées de diffusion en continu à la demande.
 
 Cette section décrit les étapes à suivre pour encoder votre contenu avec Media Encoder Standard à l’aide du portail Azure Classic.
 
 1.  Sélectionnez le fichier que vous souhaitez encoder.
 
-  Si l’encodage est pris en charge pour ce type de fichier, le bouton de traitement sera activé en bas de la page de contenu.
-4. Dans la boîte de dialogue **Traiter**, sélectionnez le processeur **Media Encoder Standard**.
-5. Choisissez une des **configurations d’encodage**.
+	Si l’encodage est pris en charge pour ce type de fichier, le bouton TRAITER est activé en bas de la page CONTENU.
 
-![Process2][process2]
+2. Dans la boîte de dialogue **Traiter**, sélectionnez le processeur **Media Encoder Standard**.
+3. Choisissez une des **configurations d’encodage**.
+
+	![Process2][process2]
 
 
-La rubrique [Chaînes de présélection de tâche pour Media Encoder Standard](https://msdn.microsoft.com/library/mt269960) explique chaque présélection.
+	La rubrique [Chaînes de présélection de tâche pour Media Encoder Standard](https://msdn.microsoft.com/library/mt269960) explique chaque présélection.
 
-5. Ensuite, entrez un nom convivial pour le contenu de sortie ou acceptez le nom par défaut. Cliquez ensuite sur le bouton de vérification pour lancer l’opération d’encodage et suivez la progression en bas du portail.
-6. Appuyez sur OK.
+4. Ensuite, entrez un nom convivial pour le contenu de sortie ou acceptez le nom par défaut. Cliquez ensuite sur le bouton de vérification pour lancer l’opération d’encodage et suivez la progression en bas du portail.
+5. Appuyez sur OK.
 
-Une fois l’encodage effectué, la page de contenu contient le fichier encodé.
+Une fois l’encodage effectué, la page CONTENU contient le fichier encodé.
 
 Pour afficher la progression de la tâche d’encodage, basculez vers la page **TRAVAUX**.
 
@@ -173,9 +177,9 @@ Les localisateurs ont une date d’expiration. Lorsque vous utilisez le portail 
 
 >[AZURE.NOTE] Si vous avez utilisé le portail pour créer des localisateurs avant mars 2015, des localisateurs présentant une date d’expiration de deux ans ont été créés.
 
-Pour mettre à jour la date d’expiration d’un localisateur, utilisez l’[API REST](http://msdn.microsoft.com/library/azure/hh974308.aspx#update_a_locator) ou [.NET](http://go.microsoft.com/fwlink/?LinkID=533259). Notez que lorsque vous mettez à jour la date d’expiration d’un localisateur SAS, l’URL est modifiée.
+Pour mettre à jour la date d’expiration d’un localisateur, utilisez l’[API REST](http://msdn.microsoft.com/library/azure/hh974308.aspx#update_a_locator) ou [.NET](http://go.microsoft.com/fwlink/?LinkID=533259). Lorsque vous mettez à jour la date d’expiration d’un localisateur SAP, l’URL est modifiée.
 
-###Publier
+###Publish
 
 Pour utiliser le portail pour publier un élément multimédia, procédez comme suit :
 
@@ -222,4 +226,4 @@ Certaines considérations s’appliquent :
 [encrypt]: ./media/media-services-manage-content/media-services-encrypt-content.png
 [AMSPlayer]: ./media/media-services-manage-content/media-services-portal-player.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0824_2016-->

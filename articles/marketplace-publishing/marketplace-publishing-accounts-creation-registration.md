@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/01/2016"
+   ms.date="08/18/2016"
    ms.author="hascipio"/>
 
 # Créer un compte de développeur Microsoft
@@ -24,7 +24,7 @@ Pour démarrer le processus de publication, vous devez créer un compte Microsof
 
 L’adresse correspondant au nom d’utilisateur doit figurer dans votre domaine et être contrôlée par votre équipe informatique. Toutes les activités de publication connexes doivent être effectuées via ce compte.
 
-  >[AZURE.WARNING] Les termes tels qu’« **Azure** » et « **Microsoft** » ne sont pas pris en charge pour l’enregistrement d’un compte Microsoft. Évitez de les utiliser si vous souhaitez finaliser le processus de création du compte et d’enregistrement.
+  >[AZURE.WARNING] Les termes tels qu’« **Azure** » et « **Microsoft** » ne sont pas pris en charge pour l’enregistrement d’un compte Microsoft. Évitez de les utiliser si vous souhaitez finaliser le processus de création du compte et d’enregistrement.
 
 ### Instructions
 
@@ -172,7 +172,7 @@ Si vous êtes ajouté en tant que coadministrateur dans le portail de publicatio
 
   > [AZURE.TIP] Les politiques concernant la participation sont décrites sur le [site web Azure](https://azure.microsoft.com/support/legal/marketplace/participation-policies/).
 
-## Étapes pour ajouter un coadministrateur dans le portail de publication
+## 4\. Étapes pour ajouter un coadministrateur dans le portail de publication
 **En supposant que vous êtes l’administrateur,** voici les étapes pour ajouter un coadministrateur.
 
 >[AZURE.NOTE] **Pour les nouveaux utilisateurs,** avant d’ajouter un coadministrateur au portail de publication, assurez-vous que vous avez créé au moins une application dans le portail de publication. Cela est nécessaire, car l’onglet **ÉDITEURS** s’affiche uniquement après la création d’au moins une application dans le portail de publication.
@@ -185,8 +185,17 @@ Si vous êtes ajouté en tant que coadministrateur dans le portail de publicatio
 
   ![dessin](media/marketplace-publishing-accounts-creation-registration/imgAddAdmin_05.png)
 
+## 5\. Étapes pour supprimer un coadministrateur dans le portail de publication
+**En supposant que vous êtes l’administrateur,** voici les étapes pour supprimer un coadministrateur.
+
+1. Connectez-vous au portail de publication avec l’ID de messagerie du coadministrateur.
+2. Accédez à **Éditeurs** -> sélectionnez votre compte -> **Administrateurs** -> **Coadministrateurs**.
+3. Cliquez sur le bouton **X** en regard du coadministrateur que vous souhaitez supprimer (capture d’écran ci-dessous).
+
+    ![dessin](media/marketplace-publishing-accounts-creation-registration/imgDeleteAdmin_03.png)
+
 ## Étapes suivantes
-Maintenant que votre compte est créé et enregistré, assurez-vous de vous répondre à toutes les conditions préalables non techniques requises pour publier votre offre en consultant l’article [Conditions préalables non techniques](marketplace-publishing-pre-requisites.md).
+Maintenant que votre compte est créé et enregistré, assurez-vous de répondre à toutes les conditions préalables non techniques requises pour publier votre offre en consultant l’article [Conditions préalables non techniques](marketplace-publishing-pre-requisites.md).
 
 ## Voir aussi
 - [Mise en route : publication d'une offre dans Azure Marketplace](marketplace-publishing-getting-started.md)
@@ -218,4 +227,4 @@ Maintenant que votre compte est créé et enregistré, assurez-vous de vous rép
 [link-devsvc-prereq]: marketplace-publishing-dev-service-creation-prerequisites.md
 [link-pushstaging]: marketplace-publishing-push-to-staging.md
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

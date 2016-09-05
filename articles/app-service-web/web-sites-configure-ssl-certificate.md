@@ -27,7 +27,7 @@
 
 Cet article vous indique comment activer HTTPS pour une application web, un backend d’application mobile ou une application API dans un [Azure App Service](../app-service/app-service-value-prop-what-is.md) utilisant un nom de domaine personnalisé. Seule l’authentification serveur est abordée. Si vous avez besoin de l’authentification mutuelle (y compris l’authentification client), consultez [Comment configurer l’authentification mutuelle TLS pour App Service](app-service-web-configure-tls-mutual-auth.md).
 
-Pour sécuriser une application disposant d’un nom de domaine personnalisé avec le protocole HTTPS, ajoutez un certificat pour ce nom de domaine. Azure sécurisant par défaut le domaine générique **\*.azurewebsites.net** avec un seul certificat SSL, vos clients peuvent donc déjà accéder à votre application via **https://*&lt;appname>*.azurewebsites.net**. Si vous souhaitez utiliser un domaine personnalisé, tel que **contoso.com**, **www.contoso.com** et **\*.contoso.com**, le certificat par défaut ne peut pas le sécuriser. En outre, comme tous les [certificats génériques](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates/), le certificat par défaut n’offre pas la même sécurité qu’un domaine personnalisé et qu’un certificat pour ce domaine personnalisé.
+Pour sécuriser une application disposant d’un nom de domaine personnalisé avec le protocole HTTPS, ajoutez un certificat pour ce nom de domaine. Azure sécurisant par défaut le domaine générique ***.azurewebsites.net** avec un seul certificat SSL, vos clients peuvent donc déjà accéder à votre application via **https://*&lt;appname>*.azurewebsites.net**. Si vous souhaitez utiliser un domaine personnalisé, tel que **contoso.com**, **www.contoso.com** et ***.contoso.com**, le certificat par défaut ne peut pas le sécuriser. En outre, comme tous les [certificats génériques](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates/), le certificat par défaut n’offre pas la même sécurité qu’un domaine personnalisé et qu’un certificat pour ce domaine personnalisé.
 
 >[AZURE.NOTE] Pour accéder à tout moment à l’aide des experts Azure, consultez les [forums Azure](https://azure.microsoft.com/support/forums/). Pour un support personnalisé, accédez à [Support Azure](https://azure.microsoft.com/support/options/) et cliquez sur **Obtenir de l’aide**.
 
@@ -116,7 +116,7 @@ Si vous souhaitez tester le programme d’installation dans App Service avant d�
 
 	![Exporter la clé privée][certwiz1]
 
-10. Sélectionnez **Échange d’informations personnelles - PKCS #12**, **Inclure si possible tous les certificats dans le chemin d’accès de certification** et **Exporter toutes les propriétés étendues**. Cliquez ensuite sur **Suivant**.
+10. Sélectionnez **Échange d’informations personnelles - PKCS #12 **, **Inclure si possible tous les certificats dans le chemin d’accès de certification** et **Exporter toutes les propriétés étendues**. Cliquez ensuite sur **Suivant**.
 
 	![inclure tous les certificats et les propriétés étendues][certwiz2]
 
@@ -150,7 +150,7 @@ Vous êtes maintenant prêt à télécharger le fichier PFX exporté vers App Se
 	>
 	>![Exporter la clé privée][certwiz1]
 	>
-	> et sélectionnez également **Échange d’informations personnelles - PKCS #12**, **Inclure si possible tous les certificats dans le chemin d’accès de certification** et **Exporter toutes les propriétés étendues**.
+	> et sélectionnez également **Échange d’informations personnelles - PKCS #12 **, **Inclure si possible tous les certificats dans le chemin d’accès de certification** et **Exporter toutes les propriétés étendues**.
 	>
 	>![inclure tous les certificats et les propriétés étendues][certwiz2]
 
@@ -300,7 +300,7 @@ Vous êtes maintenant prêt à télécharger le fichier PFX exporté vers App Se
 
 	Lorsque vous y êtes invité, entrez un mot de passe pour sécuriser le fichier .pfx.
 
-	> [AZURE.NOTE] Si votre autorité de certification utilise des certificats intermédiaires, vous devez les inclure avec le `-certfile` paramètre. Ces certificats sont généralement fournis sous forme de téléchargement distinct par l’autorité de certification, dans plusieurs formats adaptés à différents types de serveurs web. Sélectionnez la version avec l’extension `.pem`.
+	> [AZURE.NOTE] Si votre autorité de certification utilise des certificats intermédiaires, vous devez les inclure avec le paramètre `-certfile`. Ces certificats sont généralement fournis sous forme de téléchargement distinct par l’autorité de certification, dans plusieurs formats adaptés à différents types de serveurs web. Sélectionnez la version avec l’extension `.pem`.
 	>
 	> Votre commande `openssl -export` doit ressembler à l’exemple suivant, qui crée un fichier .pfx incluant les certificats intermédiaires à partir du fichier **intermediate-cets.PEM** :
 	>  
@@ -348,7 +348,7 @@ Vous êtes maintenant prêt à télécharger le fichier PFX exporté vers App Se
 
 	![Exporter la clé privée][certwiz1]
 
-10. Sélectionnez **Échange d’informations personnelles - PKCS #12**, **Inclure si possible tous les certificats dans le chemin d’accès de certification** et **Exporter toutes les propriétés étendues**. Cliquez ensuite sur **Suivant**.
+10. Sélectionnez **Échange d’informations personnelles - PKCS #12 **, **Inclure si possible tous les certificats dans le chemin d’accès de certification** et **Exporter toutes les propriétés étendues**. Cliquez ensuite sur **Suivant**.
 
 	![inclure tous les certificats et les propriétés étendues][certwiz2]
 
@@ -423,26 +423,22 @@ Avant de poursuivre, passez en revue la section [Ce dont vous avez besoin](#bkmk
 - Vous avez un domaine personnalisé qui correspond à votre application Azure.
 - Votre application s’exécute au niveau **De base** ou supérieur.
 - Vous disposez d’un certificat SSL issu par une autorité de certification pour le domaine personnalisé.
- 
-1.	Dans le [portail Azure](https://portal.azure.com), accédez au panneau **Domaines personnalisés et SSL** de votre application.
 
-7.	Cliquez sur **En savoir plus** > **Charger des certificats**.
 
-	![](./media/web-sites-configure-ssl-certificate/sslupload.png)
+1. Dans votre navigateur, ouvrez le **[portail Azure.](https://portal.azure.com/)**
+2.	Cliquez sur l’option **App Service** sur le côté gauche de la page.
+3.	Cliquez sur le nom de votre application à laquelle vous voulez attribuer ce certificat.
+4.	Dans les **Paramètres**, cliquez sur **Certificats SSL**
+5.	Cliquez sur **Télécharger un certificat**
+6.	Sélectionnez le fichier .pfx que vous avez exporté à [l’étape 1](#bkmk_getcert) et le mot de passe que vous avez créé précédemment. Cliquez ensuite sur **Charger** pour charger le certificat. Vous devriez maintenant voir votre certificat téléchargé dans le panneau ** Certificat SSL**.
+7. Dans la section **liaisons ssl**, cliquez sur **Ajouter des liaisons**
+8. Dans le panneau **Ajouter une liaison SSL**, utilisez les listes déroulantes pour sélectionner le nom de domaine à sécuriser à l’aide du protocole SSL, ainsi que le certificat à utiliser. Vous pouvez également indiquer si vous voulez utiliser **[l’indication du nom du serveur (SNI)](http://en.wikipedia.org/wiki/Server_Name_Indication)** ou le protocole SSL basé sur IP.
 
-8.	Sélectionnez le fichier .pfx que vous avez exporté à [l’étape 1](#bkmk_getcert) et le mot de passe que vous avez créé précédemment. Ensuite, cliquez sur **Enregistrer** pour charger le certificat. Vous devriez maintenant voir votre certificat téléchargé dans le panneau **Domaines personnalisés et SSL**.
+    ![insérer une image de liaisons SSL](./media/web-sites-configure-ssl-certificate/sslbindings.png)
 
-	![](./media/web-sites-configure-ssl-certificate/sslcertview.png)
-
-9. Dans la section **Liaisons SSL**, sélectionnez le nom de domaine et le certificat SSL liés ensemble. Vous pouvez également indiquer si vous voulez utiliser une liaison SSL SNI ou SSL basée sur IP.
-
-	![](./media/web-sites-configure-ssl-certificate/sslbindcert.png)
-
-	* La liaison **SSL basée sur IP** lie un certificat à un nom de domaine en mappant l’adresse IP publique dédiée de l’application au nom de domaine. Il s’agit de la méthode traditionnelle de liaisons SSL, et App Service crée une adresse IP dédiée pour la liaison.
-
-	* [**SSL SNI**](https://en.wikipedia.org/wiki/Server_Name_Indication) autorise les liaisons de plusieurs certificats à plusieurs domaines. La plupart des navigateurs modernes (dont Internet Explorer, Chrome, Firefox et Safari) prennent en charge SNI. Il se peut toutefois que les navigateurs plus anciens ne proposent pas cette prise en charge.
- 
-10. Cliquez sur **Enregistrer** pour terminer.
+       • Le protocole SSL basé sur IP associe un certificat à un nom de domaine en mappant l’adresse IP publique dédiée du serveur au nom de domaine. Chaque nom de domaine (contoso.com, fabricam.com, etc.) associé à votre service doit donc posséder une adresse IP dédiée. Il s’agit de la méthode classique permettant d’associer des certificats SSL à un serveur Web. • Le protocole SSL basé sur SNI est une extension des protocoles SSL et **[TLS (Transport Layer Security)](http://en.wikipedia.org/wiki/Transport_Layer_Security)** qui permet à plusieurs domaines de partager la même adresse IP, avec des certificats de sécurité distincts pour chaque domaine. La plupart des navigateurs modernes (dont Internet Explorer, Chrome, Firefox et Opera) prennent en charge SNI. Il se peut toutefois que les navigateurs plus anciens ne proposent pas cette prise en charge. Pour plus d’informations sur SNI, consultez l’article **[Server Name Indication](http://en.wikipedia.org/wiki/Server_Name_Indication)** sur Wikipédia.
+     
+9. Cliquez sur **Ajouter une liaison** pour enregistrer les modifications et activer SSL.
 
 ## Étape 3. Modifier votre mappage de nom de domaine (liaison SSL basée sur IP uniquement)
 
@@ -450,9 +446,9 @@ Si vous utilisez uniquement des liaisons **SSL SNI**, vous pouvez ignorer cette 
 
 - Vous avez [utilisé un enregistrement A pour mapper votre domaine personnalisé](web-sites-custom-domain-name.md#a) à votre application Azure et vous venez d’ajouter une liaison **SSL basée sur IP**. Dans ce scénario, vous devez remapper l’enregistrement A existant pour pointer vers l’adresse IP dédiée en procédant comme suit :
 
-	1. Après avoir configuré une liaison SSL basée sur IP, recherchez la nouvelle adresse IP dans le panneau **Paramètres** > **Propriétés** de votre application (l’adresse IP virtuelle indiquée dans le panneau **Apporter des domaines externes** peut ne pas être d’actualité) :
+	1. Une fois la liaison SSL basée sur IP configurée, une adresse IP dédiée est attribuée à votre application. Vous trouverez cette adresse IP sur la page des **domaines personnalisés** sous les paramètres de votre application, juste au-dessus de la section **Noms d’hôtes**. Elle est répertoriée en tant qu’**Adresse IP externe**
     
-	    ![Adresse IP virtuelle](./media/web-sites-configure-ssl-certificate/staticip.png)
+	    ![Adresse IP virtuelle](./media/web-sites-configure-ssl-certificate/virtual-ip-address.png)
 
 	2. [Remappez l’enregistrement A de votre nom de domaine personnalisé à cette nouvelle adresse IP](web-sites-custom-domain-name.md#a).
 
@@ -551,4 +547,4 @@ Pour plus d'informations sur le module Réécriture d'URL d'IIS, consultez la do
 [certwiz3]: ./media/web-sites-configure-ssl-certificate/waws-certwiz3.png
 [certwiz4]: ./media/web-sites-configure-ssl-certificate/waws-certwiz4.png
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

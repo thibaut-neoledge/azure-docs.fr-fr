@@ -1,9 +1,9 @@
 <properties
-   pageTitle="Prise en charge d’Azure Resource Manager pour Azure Traffic Manager | Microsoft Azure"
+   pageTitle="Prise en charge d’Azure Resource Manager pour Azure Traffic Manager | Microsoft Azure "
    description="Utilisation de Powershell pour Traffic Manager avec Azure Resource Manager (ARM)"
    services="traffic-manager"
    documentationCenter="na"
-   authors="jtuliani"
+   authors="sdwheeler"
    manager="carmonm"
    editor="tysonn" />
 <tags
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/17/2016"
-   ms.author="jtuliani" />
+   ms.author="sewhee" />
 
 # Prise en charge d’Azure Resource Manager pour Azure Traffic Manager
 Azure Resource Manager (ARM) est la nouvelle infrastructure de gestion des services dans Azure. Les outils et API d’Azure Resource Manager permettent désormais de gérer les profils Azure Traffic Manager.
@@ -38,7 +38,7 @@ Toutefois, si les fonctionnalités restent les mêmes, la terminologie a changé
 
 - La méthode de routage du trafic par « basculement » a été renommée en « priorité ».
 
-## Limites
+## Limitations
 Il existe actuellement un petit nombre de limitations dans la prise en charge ARM d’Azure Traffic Manager :
 
 - Les profils Traffic Manager créés à l’aide de l’API (non ARM) de gestion des services (ASM), des outils et du portail classique ne sont pas disponibles dans ARM et inversement. La migration des profils d’API ASM vers ARM n’est pas actuellement pas prise en charge. La seule possibilité consiste à supprimer puis recréer le profil.
@@ -54,14 +54,14 @@ Pour les utilisateurs non PowerShell ou non Windows, des opérations analogues p
 ### Étape 1
 Installez la dernière version d’Azure PowerShell, disponible dans la page des téléchargements d’Azure.
 
-### Étape 2 :
+### Étape 2
 Connectez-vous à votre compte Azure.
 
 	PS C:\> Login-AzureRmAccount
 
 Vous devez indiquer vos informations d’identification.
 
-### Étape 3
+### Étape 3 :
 Parmi vos abonnements Azure, choisissez celui que vous souhaitez utiliser.
 
 	PS C:\> Set-AzureRmContext -SubscriptionName "MySubscription"
@@ -70,7 +70,7 @@ Pour afficher la liste des abonnements disponibles, utilisez l’applet de comma
 
 ### Étape 4
 
-Le service Traffic Manager est géré par le fournisseur de ressources Microsoft.Network. Votre abonnement Azure doit être enregistré auprès de ce fournisseur de ressources pour pouvoir utiliser Traffic Manager via ARM. Cette opération n’est à effectuer qu’une fois pour chaque abonnement.
+Le service Traffic Manager est géré par le fournisseur de ressources Microsoft.Network. Votre abonnement Azure doit être enregistré auprès de ce fournisseur de ressources pour pouvoir utiliser Traffic Manager via ARM. Cette opération n’est à effectuer qu’une fois par abonnement.
 
 	PS C:\> Register-AzureRmResourceProvider –ProviderNamespace Microsoft.Network
 
@@ -309,4 +309,4 @@ Cette séquence peut également être canalisée :
 [Considérations sur les performances de Traffic Manager](traffic-manager-performance-considerations.md)
  
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0824_2016-->

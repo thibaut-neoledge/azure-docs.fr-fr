@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/25/2016"
+   ms.date="08/22/2016"
    ms.author="alkohli" />
 
 # Remplacement des composants matériels StorSimple
@@ -80,13 +80,13 @@ Le boîtier principal et le boîtier EBOD diffèrent quant à leurs modules d’
 |PCM (Module d’alimentation et de refroidissement) 580 W|2|Oui| [Remplacer un module d’alimentation et de refroidissement (PCM, Power and Cooling Module) sur votre appareil StorSimple](storsimple-power-cooling-module-replacement.md) |
 |Lecteurs de disque|12|Oui| [Remplacer un lecteur de disque sur votre appareil StorSimple](storsimple-disk-drive-replacement.md) |
 
-**Table 2** : Composants matériels dans le boîtier EBOD
+**Table 2** : Composants matériels dans le boîtier EBOD
 
 Les modules enfichables sur l’appareil sont mis en surbrillance dans les diagrammes suivants représentant l’avant et l’arrière. Vous pouvez utiliser ces diagrammes pour déterminer l’emplacement des différents modules enfichables si un remplacement est nécessaire. Le diagramme de l’avant montre les lecteurs de disque, et les diagrammes de l’arrière du boîtier EBOD et du boîtier principal montrent les modules enfichables.
 
 ![Face avant de l’appareil avec les lecteurs de disque](./media/storsimple-hardware-component-replacement/IC741028.png)
 
-**Figure 1** : Avant de l’appareil
+**Figure 1** : Avant de l’appareil
 
 |Étiquette|Description|
 |:----|:----------|
@@ -96,7 +96,7 @@ Le boîtier principal et le boîtier EBOD ont tous deux des modules de support d
 
 ![Fond du panier des modules du boîtier principal de l’appareil](./media/storsimple-hardware-component-replacement/IC740994.png)
 
-**Figure 2** : Arrière du boîtier principal
+**Figure 2** : Arrière du boîtier principal
 
 |Étiquette|Description|
 |:----|:----------|
@@ -107,7 +107,7 @@ Le boîtier principal et le boîtier EBOD ont tous deux des modules de support d
 
 ![Fond de panier des modules enfichables du boîtier EBOD de l’appareil](./media/storsimple-hardware-component-replacement/IC769599.png)
 
-**Figure 3** : Arrière du boîtier EBOD
+**Figure 3** : Arrière du boîtier EBOD
 
 |Étiquette|Description|
 |:----|:----------|
@@ -142,4 +142,4 @@ Les unités remplaçables sur site suivantes sont disponibles pour votre apparei
 
 Passez en revue toutes les [informations de sécurité](storsimple-safety.md) avant d’essayer de remplacer un composant matériel StorSimple.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0824_2016-->

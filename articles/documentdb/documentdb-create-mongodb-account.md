@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/31/2016" 
+	ms.date="08/23/2016" 
 	ms.author="stbaro"/>
 
 # Créer un compte DocumentDB prenant en charge le protocole MongoDB à l’aide du portail Azure
@@ -48,7 +48,7 @@ Pour créer un compte DocumentDB prenant en charge le protocole MongoDB, procéd
 	![Capture d’écran du panneau du nouveau compte DocumentDB prenant en charge le protocole MongoDB](./media/documentdb-create-mongodb-account/create-documentdb-mongodb-account.png)
 
 
-	- Dans la zone **ID**, entrez un nom pour identifier le compte. Lorsque l’**ID** est validé, une coche verte s’affiche dans la case **ID**. La valeur pour **ID** devient le nom d’hôte dans l’URI. Cet **ID** ne peut contenir que des minuscules, des chiffres, le caractère « - » et doit compter entre 3 et 50 caractères. Notez que *documents.azure.com* sera ajouté au nom du point de terminaison de votre choix. Celui-ci deviendra le point de terminaison de votre compte.
+	- Dans la zone **ID**, entrez un nom pour identifier le compte. Lorsque l’**ID** est validé, une coche verte s’affiche dans la case **ID**. La valeur pour **ID** devient le nom d’hôte dans l’URI. Cet **ID** ne peut contenir que des minuscules, des chiffres, le caractère « - » et doit compter entre 3 et 50 caractères. Notez que *documents.azure.com* sera ajouté au nom du point de terminaison de votre choix. Celui-ci deviendra le point de terminaison de votre compte.
 
 	- Dans **Abonnement**, sélectionnez l’abonnement Azure que vous voulez utiliser pour le compte. Si votre compte ne comporte qu’un seul abonnement, ce compte sera sélectionné par défaut.
 
@@ -64,7 +64,7 @@ Pour créer un compte DocumentDB prenant en charge le protocole MongoDB, procéd
 
 	![Création rapide de bases de données - capture d’écran du hub de notifications, indiquant que le compte DocumentDB est en cours de création](./media/documentdb-create-mongodb-account/create-nosql-db-databases-json-tutorial-4.png)
 
-	![Capture d’écran du hub de notifications montrant le compte DocumentDB créé avec succès et déployé vers un groupe de ressources - notification du créateur de base de données en ligne](./media/documentdb-create-mongodb-account/create-nosql-db-databases-json-tutorial-5.png)
+	![Capture d’écran du hub de notifications montrant le compte DocumentDB créé avec succès et déployé vers un groupe de ressources - notification du créateur de base de données en ligne](./media/documentdb-create-mongodb-account/create-nosql-db-databases-json-tutorial-5.png)
 
 8.	Une fois le compte créé, il est prêt à être utilisé avec les paramètres par défaut.
 
@@ -78,4 +78,4 @@ Pour créer un compte DocumentDB prenant en charge le protocole MongoDB, procéd
 
  
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0824_2016-->

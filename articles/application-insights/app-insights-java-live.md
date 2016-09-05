@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/02/2016" 
+	ms.date="08/24/2016" 
 	ms.author="awills"/>
  
 # Application Insights pour les applications web qui sont déjà actives
@@ -23,11 +23,11 @@ Si vous disposez d’une application web qui est déjà en cours d’exécution 
 
 Vous devrez vous abonner à [Microsoft Azure](https://azure.com).
 
-> [AZURE.NOTE] La procédure décrite ici ajoute le Kit de développement logiciel (SDK) à votre application web au moment de l’exécution. Cette opération est utile si vous ne souhaitez pas mettre à jour ni régénérer votre code source. Mais si vous le pouvez, nous vous recommandons plutôt d’[ajouter le Kit de développement logiciel au code source](app-insights-java-get-started.md). Cette approche vous offre davantage d’options, telles que l’écriture de code pour effectuer le suivi de l’activité des utilisateurs.
+> [AZURE.NOTE] La procédure décrite ici ajoute le Kit de développement logiciel (SDK) à votre application web au moment de l’exécution. Cette instrumentation du runtime est utile si vous ne souhaitez pas mettre à jour ni régénérer votre code source. Mais si vous le pouvez, nous vous recommandons plutôt d’[ajouter le Kit de développement logiciel au code source](app-insights-java-get-started.md). Cette approche vous offre davantage d’options, telles que l’écriture de code pour effectuer le suivi de l’activité des utilisateurs.
 
 ## 1\. Obtenir une clé d'instrumentation Application Insights
 
-1. Connectez-vous au [portail Microsoft Azure](https://portal.azure.com).
+1. Se connecter au [portail Microsoft Azure](https://portal.azure.com)
 2. Créer une ressource Application Insights dans Azure
 
     ![Cliquez sur + et choisissez Ajouter Application Insights](./media/app-insights-java-live/01-create.png)
@@ -41,7 +41,7 @@ Vous devrez vous abonner à [Microsoft Azure](https://azure.com).
 ## 2\. Télécharger le Kit de développement logiciel (SDK)
 
 1. Téléchargez le [Kit de développement logiciel (SDK) Application Insights pour Java](https://aka.ms/aijavasdk).
-2. Sur votre serveur, extrayez le contenu du Kit de développement logiciel dans le répertoire à partir duquel les fichiers binaires de votre projet sont chargés. Si vous utilisez Tomcat, le contenu est généralement extrait sous `webapps<your_app_name>\WEB-INF\lib`.
+2. Sur votre serveur, extrayez le contenu du Kit de développement logiciel dans le répertoire à partir duquel les fichiers binaires de votre projet sont chargés. Si vous utilisez Tomcat, ce répertoire se trouve généralement sous `webapps<your_app_name>\WEB-INF\lib`
 
 
 ## 3\. Ajouter un fichier xml Application Insights
@@ -103,13 +103,17 @@ Pour obtenir des résultats plus précis, le filtre doit être mappé avant tous
        <url-pattern>/*</url-pattern>
     </filter-mapping>
 
+## 5\. Vérifier les exceptions de pare-feu
+
+Vous devrez peut-être [définir des exceptions pour envoyer les données sortantes](app-insights-ip-addresses.md).
+
 ## 5\. Redémarrer votre application web
 
 ## 6\. Voir votre télémétrie dans Application Insights
 
 Revenez à votre ressource Application Insights sur le [portail Microsoft Azure](https://portal.azure.com).
 
-Les données des demandes HTTP apparaissent dans le panneau Vue d’ensemble. (Si elles n’y sont pas, attendez quelques secondes et cliquez sur Actualiser).
+La télémétrie des demandes HTTP apparaît dans le panneau Vue d’ensemble. (Si elles n’y sont pas, attendez quelques secondes et cliquez sur Actualiser).
 
 ![Exemples de données](./media/app-insights-java-live/5-results.png)
  
@@ -139,4 +143,4 @@ Et lorsque vous affichez les propriétés d'une demande, vous voyez les événem
 
  
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

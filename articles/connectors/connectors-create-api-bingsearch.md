@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Ajouter le connecteur Bing Search à PowerApps ou à des applications logiques | Microsoft Azure"
+    pageTitle="Ajouter le connecteur Bing Search à des applications logiques | Microsoft Azure"
     description="Vue d’ensemble du connecteur Bing Search avec les paramètres de l’API REST"
     services=""
     suite=""
@@ -15,32 +15,19 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="05/18/2016"
+   ms.date="08/18/2016"
    ms.author="mandia"/>
 
 # Prise en main du connecteur Bing Search 
-Connecte-vous à Bing Search pour rechercher des actualités, des vidéos et bien plus encore. Le connecteur Bing Search peut être utilisé dans :
+Connecte-vous à Bing Search pour rechercher des actualités, des vidéos et bien plus encore. Avec Bing Search, vous pouvez effectuer les opérations suivantes :
 
-- Logic Apps 
-- PowerApps
-
-> [AZURE.SELECTOR]
-- [Logic Apps](../articles/connectors/connectors-create-api-bingsearch.md)
-- [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-bingsearch.md)
-
-
-Avec Bing Search, vous pouvez effectuer les opérations suivantes :
-
-- Créer votre flux d’activité en fonction des données que vous obtenez pendant votre recherche. 
+- Créer votre flux d’activité en fonction des données que vous obtenez pendant votre recherche.
 - Utiliser des actions pour rechercher des images, des actualités et bien plus encore. Ces actions obtiennent une réponse, puis mettent la sortie à la disposition d’autres actions. Par exemple, vous pouvez rechercher une vidéo, puis utiliser Twitter pour la publier dans un flux Twitter.
-- Ajouter le connecteur Bing Search à PowerApps Enterprise. Vos utilisateurs peuvent ensuite utiliser ce connecteur dans leurs applications. 
-
-Pour plus d’informations sur l’ajout d’un connecteur à PowerApps Enterprise, consultez [Register connector in PowerApps](../power-apps/powerapps-register-from-available-apis.md) (Inscrire un connecteur dans PowerApps).
 
 Pour ajouter une opération aux applications logiques, consultez [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Déclencheurs et actions
-Bing Search inclut les actions suivantes. Il n’y a aucun déclencheur.
+Bing Search inclut les actions suivantes. Il n'y a aucun déclencheur.
 
 Déclencheurs | Actions
 --- | ---
@@ -55,18 +42,18 @@ S’applique à la version 1.0.
 ### Rechercher sur le web 
 Récupère des sites web à partir d’une recherche Bing. ```GET: /Web```
 
-| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
+| Name| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
 |query|string|yes|query|(aucun) |Texte à rechercher (exemple : « xbox »)|
 |maxResult|integer|no|query|(aucun) |Nombre maximal de résultats à renvoyer|
 |startOffset|integer|no|query| (aucun)|Nombre de résultats à ignorer|
-|adultContent|string|no|query|(aucun) |Filtrage de contenu pour adultes. Valeurs valides : <ul><li>Off</li><li>Moderate</li><li>Strict</li></ul>|
+|adultContent|string|no|query|(aucun) |Filtrage de contenu pour adultes. Valeurs valides : <ul><li>Off</li><li>Moderate</li><li>Strict</li></ul>|
 |market|string|no|query|(aucun) |Marché ou région pour affiner la recherche (exemple : fr-FR)|
 |longitude|number|no|query| (aucun)|Longitude (coordonnée est/ouest) pour affiner la recherche (exemple : 47.603450)|
 |latitude|number|no|query| (aucun)|Latitude (coordonnée nord/sud) pour affiner la recherche (exemple : -122.329696)|
 |webFileType|string|no|query|(aucun) |Type de fichier pour affiner la recherche (exemple : « DOC »)|
 
-#### Response
+#### Réponse
 |Nom|Description|
 |---|---|
 |200|OK|
@@ -81,15 +68,15 @@ Récupère des vidéos à partir d’une recherche Bing. ```GET: /Video```
 |query|string|yes|query|(aucun) |Texte à rechercher (exemple : « xbox »)|
 |maxResult|integer|no|query| (aucun)|Nombre maximal de résultats à renvoyer|
 |startOffset|integer|no|query|(aucun) |Nombre de résultats à ignorer|
-|adultContent|string|no|query|(aucun) |Filtrage de contenu pour adultes. Valeurs valides : <ul><li>Off</li><li>Moderate</li><li>Strict</li></ul>|
+|adultContent|string|no|query|(aucun) |Filtrage de contenu pour adultes. Valeurs valides : <ul><li>Off</li><li>Moderate</li><li>Strict</li></ul>|
 |market|string|no|query|(aucun) |Marché ou région pour affiner la recherche (exemple : fr-FR)|
 |longitude|number|no|query|(aucun) |Longitude (coordonnée est/ouest) pour affiner la recherche (exemple : 47.603450)|
 |latitude|number|no|query|(aucun) |Latitude (coordonnée nord/sud) pour affiner la recherche (exemple : -122.329696)|
 |videoFilters|string|no|query|(aucun) |Recherche en fonction de la taille, de l’aspect, de la couleur, du style, du visage ou de toute combinaison de ces critères. Valeurs valides : <ul><li>Duration:Short</li><li>Duration:Medium</li><li>Duration:Long</li><li>Aspect:Standard</li><li>Aspect:Widescreen</li><li>Resolution:Low</li><li>Resolution:Medium</li><li>Resolution:High</li></ul> <br/><br/>Par exemple : « Duration:Short+Resolution:High »|
 |videoSortBy|string|no|query|(aucun) |Ordre de tri des résultats. Valeurs valides : <ul><li>Date</li><li>Relevance</li></ul> <p>L’ordre de tri en fonction de la date est décroissant.</p>|
 
-#### Response
-|Nom|Description|
+#### Réponse
+|Name|Description|
 |---|---|
 |200|OK|
 |default|L’opération a échoué.|
@@ -109,7 +96,7 @@ Récupère des images à partir d’une recherche Bing. ```GET: /Image```
 |latitude|number|no|query|(aucun) |Latitude (coordonnée nord/sud) pour affiner la recherche (exemple : -122.329696)|
 |imageFilters|string|no|query|(aucun) |Recherche en fonction de la taille, de l’aspect, de la couleur, du style, du visage ou de toute combinaison de ces critères. Valeurs valides : <ul><li>Size:Small</li><li>Size:Medium</li><li>Size:Large</li><li>Size:Width:[Width]</li><li>Size:Height:[Height]</li><li>Aspect:Square</li><li>Aspect:Wide</li><li>Aspect:Tall</li><li>Color:Color</li><li>Color:Monochrome</li><li>Style:Photo</li><li>Style:Graphics</li><li>Face:Face</li><li>Face:Portrait</li><li>Face:Other</li></ul><br/><br/>Par exemple : « Size:Small+Aspect:Square »|
 
-#### Response
+#### Réponse
 |Nom|Description|
 |---|---|
 |200|OK|
@@ -130,9 +117,9 @@ Récupère des résultats d’actualités à partir d’une recherche Bing. ```G
 |latitude|number|no|query|(aucun) |Latitude (coordonnée nord/sud) pour affiner la recherche (exemple : -122.329696)|
 |newsSortBy|string|no|query| (aucun)|Ordre de tri des résultats. Valeurs valides : <ul><li>Date</li><li>Relevance</li></ul> <p>L’ordre de tri en fonction de la date est décroissant.</p>|
 |newsCategory|string|no|query| |Catégorie d’actualités pour affiner la recherche (exemple : « rt\_Business »)|
-|newsLocationOverride|string|no|query|(aucun) |Remplacement pour la détection du lieu par Bing. Ce paramètre s’applique uniquement au marché fr-FR. Le format d’entrée est « US ».<state /> (Exemple : « US.WA »)|
+|newsLocationOverride|string|no|query|(aucun) |Remplacement pour la détection du lieu par Bing. Ce paramètre s’applique uniquement au marché fr-FR. Le format d’entrée est « US »./<state/> (par exemple : « US.WA »)|
 
-#### Response
+#### Réponse
 |Nom|Description|
 |---|---|
 |200|OK|
@@ -152,7 +139,7 @@ Récupère des suggestions orthographiques. ```GET: /SpellingSuggestions```
 |longitude|number|no|query|(aucun) |Longitude (coordonnée est/ouest) pour affiner la recherche (exemple : 47.603450)|
 |latitude|number|no|query|(aucun) |Latitude (coordonnée nord/sud) pour affiner la recherche (exemple : -122.329696)|
 
-#### Response
+#### Réponse
 |Nom|Description|
 |---|---|
 |200|OK|
@@ -162,7 +149,7 @@ Récupère des suggestions orthographiques. ```GET: /SpellingSuggestions```
 ### Recherche liée    
 Récupère des résultats de recherche liée à partir d’une recherche Bing. ```GET: /RelatedSearch```
 
-| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
+| Name| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
 |query|string|yes|query|(aucun) |Texte à rechercher (exemple : « xbox »)|
 |maxResult|integer|no|query|(aucun) |Nombre maximal de résultats à renvoyer|
@@ -172,7 +159,7 @@ Récupère des résultats de recherche liée à partir d’une recherche Bing. `
 |longitude|number|no|query|(aucun) |Longitude (coordonnée est/ouest) pour affiner la recherche (exemple : 47.603450)|
 |latitude|number|no|query| (aucun)|Latitude (coordonnée nord/sud) pour affiner la recherche (exemple : -122.329696)|
 
-#### Response
+#### Réponse
 |Nom|Description|
 |---|---|
 |200|OK|
@@ -197,9 +184,9 @@ Récupère la totalité des sites web, vidéos, images, etc. à partir d’une r
 |imageFilters|string|no|query|(aucun) |Recherche en fonction de la taille, de l’aspect, de la couleur, du style, du visage ou de toute combinaison de ces critères. Valeurs valides : <ul><li>Size:Small</li><li>Size:Medium</li><li>Size:Large</li><li>Size:Width:[Width]</li><li>Size:Height:[Height]</li><li>Aspect:Square</li><li>Aspect:Wide</li><li>Aspect:Tall</li><li>Color:Color</li><li>Color:Monochrome</li><li>Style:Photo</li><li>Style:Graphics</li><li>Face:Face</li><li>Face:Portrait</li><li>Face:Other</li></ul><br/><br/>Par exemple : « Size:Small+Aspect:Square »|
 |newsSortBy|string|no|query|(aucun) |Ordre de tri des résultats. Valeurs valides : <ul><li>Date</li><li>Relevance</li></ul> <p>L’ordre de tri en fonction de la date est décroissant.</p>|
 |newsCategory|string|no|query|(aucun) |Catégorie d’actualités pour affiner la recherche (exemple : « rt\_Business »)|
-|newsLocationOverride|string|no|query|(aucun) |Remplacement pour la détection du lieu par Bing. Ce paramètre s’applique uniquement au marché fr-FR. Le format d’entrée est « US ».<state /> (Exemple : « US.WA »)|
+|newsLocationOverride|string|no|query|(aucun) |Remplacement pour la détection du lieu par Bing. Ce paramètre s’applique uniquement au marché fr-FR. Le format d’entrée est « US »./<state/> (par exemple : « US.WA »)|
 
-#### Response
+#### Réponse
 |Nom|Description|
 |---|---|
 |200|OK|
@@ -294,8 +281,8 @@ Récupère la totalité des sites web, vidéos, images, etc. à partir d’une r
 
 ## Étapes suivantes
 
-[Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Créez une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 Revenir à la [liste des API](apis-list.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0824_2016-->

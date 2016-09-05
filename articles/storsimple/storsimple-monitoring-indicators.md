@@ -12,20 +12,20 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="TBD"
-    ms.date="05/24/2016"
+    ms.date="08/18/2016"
     ms.author="alkohli" />
 
 # Utiliser les indicateurs de suivi StorSimple pour gérer votre appareil   
 
-## Vue d’ensemble
+## Vue d'ensemble
 
 Votre appareil StorSimple comprend des diodes électroluminescentes (LED) et des alarmes que vous pouvez utiliser pour analyser l’état général de l’appareil StorSimple. Vous trouverez les indicateurs d’analyse sur les composants matériels du boîtier principal de l’appareil et sur le boîtier EBOD. Les indicateurs d’analyse peuvent être des LED ou des alarmes sonores.
 
 Les LED peuvent prendre trois états pour indiquer l’état d’un module : vert, clignotant en alternance du vert au rouge-orange ou rouge-orange.
 
-- Les LED vertes correspondent à un bon état de fonctionnement.  
-- Le clignotement en alternance du vert au rouge-orange indique la présence de conditions non critiques qui peuvent nécessiter l’intervention de l’utilisateur.  
-- Les LED rouge-orange signalent la présence d’une erreur critique dans le module.  
+- Les LED vertes correspondent à un bon état de fonctionnement.
+- Le clignotement en alternance du vert au rouge-orange indique la présence de conditions non critiques qui peuvent nécessiter l’intervention de l’utilisateur.
+- Les LED rouge-orange signalent la présence d’une erreur critique dans le module.
 
 Le reste de cet article décrit les différents voyants LED d’analyse, leur emplacement sur l’appareil StorSimple, ainsi que l’état de l’appareil en fonction de l’état des LED et des alarmes sonores associées éventuelles.
 
@@ -41,7 +41,7 @@ Le panneau avant comprend les indicateurs suivants :
 2. Voyant LED d’alimentation (vert/rouge-orange)
 3. Voyant LED de panne de module (ALLUMÉ rouge-orange/ÉTEINT)
 4. Voyant LED d’erreur logique (ALLUMÉ rouge-orange/ÉTEINT)
-5. Affichage de l’ID de l’unité  
+5. Affichage de l’ID de l’unité
 
 La principale différence entre les LED du panneau avant de l’appareil et celles du boîtier EBOD est le **numéro d’identification de l’unité système** indiqué sur l’affichage à LED. L’ID d’unité par défaut affiché sur l’appareil est **00**, alors que l’ID d’unité par défaut affiché sur le boîtier EBOD est **01**. Cela vous permet de faire rapidement la différence entre l’appareil et le boîtier EBOD lorsque l’appareil est mis sous tension. Si votre appareil est hors tension, utilisez les informations fournies sous [Activer un nouvel appareil](storsimple-turn-device-on-or-off.md#turn-on-a-new-device) pour différencier l’appareil du boîtier EBOD.
 
@@ -52,11 +52,11 @@ Utilisez le tableau suivant pour identifier l’état indiqué par les LED du pa
 |Alimentation du système | Panne de module | Erreur logique | Alarme | État|
 |-------------|---------------|-----------------|-------|-------|
 |Rouge-orange | ÉTEINT | ÉTEINT | N/A | Alimentation secteur coupée, fonctionnement sur l’alimentation de secours ou alimentation secteur activée mais les modules de contrôleur ont été retirés.|
-|Vert | ALLUMÉ | ALLUMÉ | N/A | État de test panneau de commande à la mise sous tension (5 s)|
+|Vert | ACTIVÉ | ACTIVÉ | N/A | État de test panneau de commande à la mise sous tension (5 s)|
 |Vert | ÉTEINT | ÉTEINT | N/A | Mise sous tension, tout fonctionne correctement|
-|Vert | ALLUMÉ |N/A | LED de panne de PCM, LED de panne de ventilateur | Panne de PCM, panne de ventilateur, surchauffe ou température insuffisante|
-| Vert | ALLUMÉ | N/A | LED de module d’E/S | Panne de module de contrôleur|
-| Vert | ALLUMÉ | N/A | N/A | Erreur logique du boîtier|
+|Vert | ACTIVÉ |N/A | LED de panne de PCM, LED de panne de ventilateur | Panne de PCM, panne de ventilateur, surchauffe ou température insuffisante|
+| Vert | ACTIVÉ | N/A | LED de module d’E/S | Panne de module de contrôleur|
+| Vert | ACTIVÉ | N/A | N/A | Erreur logique du boîtier|
 | Vert | Clignote | N/A | LED d’état du module sur le module de contrôleur. LED de panne de PCM, LED de panne de ventilateur | Type de module de contrôleur installé inconnu, défaillance du bus I2C, erreur de configuration des données VPD (Vital Product Data) du module de contrôleur |
 
 ## Voyants LED du module d’alimentation et de refroidissement (PCM)   
@@ -79,19 +79,19 @@ Légende des LED :
 3. Panne de batterie
 4. PCM OK
 5. Panne d’alimentation CC
-6. Batterie en bon état  
+6. Batterie en bon état
 
-L’état du PCM est indiqué sur le panneau de LED. Le panneau de LED du PCM de l’appareil comprend six LED. Quatre de ces LED indiquent l’état de l’alimentation et du ventilateur. Les deux autres LED indiquent l’état du module de batterie de secours du PCM. Vous pouvez utiliser les tableaux suivants pour déterminer l’état du PCM.
+L’état du PCM est indiqué sur le panneau de LED. Le panneau de LED du PCM de l’appareil comprend six LED. Quatre de ces LED indiquent l’état de l’alimentation et du ventilateur. Les deux LED restantes indiquent l’état du module de batterie de secours du PCM. Vous pouvez utiliser les tableaux suivants pour déterminer l’état du PCM.
 
 ### Voyants LED du PCM relatifs à l’alimentation et au ventilateur
 | État | PCM OK (vert) | Panne d’alimentation secteur (orange) | Panne de ventilateur (orange) | Panne d’alimentation CC (orange) |
 |--------|----------------|-----------------------|------------------|----------------------|
 | Absence d’alimentation secteur (vers le boîtier) | ÉTEINT | ÉTEINT | ÉTEINT | ÉTEINT|
-| Absence d’alimentation secteur (ce PCM uniquement) | ÉTEINT | ALLUMÉ | ÉTEINT | ALLUMÉ |
-| PCM alimenté sur secteur - OK | ALLUMÉ | ÉTEINT | ÉTEINT | ÉTEINT |
-| Panne de PCM (panne de ventilateur) | ÉTEINT | ÉTEINT | ALLUMÉ | N/A |
-| Panne de PCM (surampérage, surtension, surintensité) | ÉTEINT | ALLUMÉ | ALLUMÉ | ALLUMÉ |
-| PCM (ventilateur hors tolérance) | ALLUMÉ | ÉTEINT | ÉTEINT | ALLUMÉ |
+| Absence d’alimentation secteur (ce PCM uniquement) | ÉTEINT | ACTIVÉ | ÉTEINT | ACTIVÉ |
+| PCM alimenté sur secteur - OK | ACTIVÉ | ÉTEINT | ÉTEINT | ÉTEINT |
+| Panne de PCM (panne de ventilateur) | ÉTEINT | ÉTEINT | ACTIVÉ | N/A |
+| Panne de PCM (surampérage, surtension, surintensité) | ÉTEINT | ACTIVÉ | ACTIVÉ | ALLUMÉ |
+| PCM (ventilateur hors tolérance) | ACTIVÉ | ÉTEINT | ÉTEINT | ACTIVÉ |
 | Mode veille | Clignote | ÉTEINT | ÉTEINT | ÉTEINT |
 | Téléchargement du microprogramme de PCM | ÉTEINT | Clignote | Clignote | Clignote |
 
@@ -100,10 +100,10 @@ L’état du PCM est indiqué sur le panneau de LED. Le panneau de LED du PCM de
 | État | Batterie en bon état (vert) | Panne de batterie (orange) |
 |--------|----------------------|-----------------------|
 | Batterie non présente | ÉTEINT | ÉTEINT |
-| Batterie présente et chargée | ALLUMÉ | ÉTEINT |
+| Batterie présente et chargée | ACTIVÉ | ÉTEINT |
 | Batterie en charge ou décharge de maintenance | Clignote | ÉTEINT |
 | Erreur logicielle de batterie (récupérable) | ÉTEINT | Clignote |
-| Erreur matérielle de batterie (non récupérable) | ÉTEINT | ALLUMÉ |
+| Erreur matérielle de batterie (non récupérable) | ÉTEINT | ACTIVÉ |
 | Batterie désamorcée | Clignote | ÉTEINT |
 
 ## LED de PCM du boîtier EBOD  
@@ -117,11 +117,11 @@ Vous pouvez utiliser le tableau suivant pour déterminer l’état du PCM.
 | État | PCM OK (vert) | Panne d’alimentation secteur (orange) | Panne de ventilateur (orange) | Panne d’alimentation CC (orange) |
 |--------|---------------|------------------------|------------------|----------------------|
 | Absence d’alimentation secteur (vers le boîtier) | ÉTEINT | ÉTEINT | ÉTEINT | ÉTEINT |
-| Absence d’alimentation secteur (ce PCM uniquement) | ÉTEINT | ALLUMÉ | ÉTEINT | ALLUMÉ |
-| PCM alimenté sur secteur - OK | ALLUMÉ | ÉTEINT | ÉTEINT | ÉTEINT |
-| Panne de PCM (panne de ventilateur) | ÉTEINT | ÉTEINT | ALLUMÉ | X |
-| Panne de PCM (surampérage, surtension, surintensité) | ÉTEINT | ALLUMÉ | ALLUMÉ | ALLUMÉ |
-| PCM (ventilateur hors tolérance) | ALLUMÉ | ÉTEINT | ÉTEINT | ALLUMÉ |
+| Absence d’alimentation secteur (ce PCM uniquement) | ÉTEINT | ACTIVÉ | ÉTEINT | ACTIVÉ |
+| PCM alimenté sur secteur - OK | ACTIVÉ | ÉTEINT | ÉTEINT | ÉTEINT |
+| Panne de PCM (panne de ventilateur) | ÉTEINT | ÉTEINT | ACTIVÉ | X |
+| Panne de PCM (surampérage, surtension, surintensité) | ÉTEINT | ACTIVÉ | ACTIVÉ | ALLUMÉ |
+| PCM (ventilateur hors tolérance) | ACTIVÉ | ÉTEINT | ÉTEINT | ACTIVÉ |
 | Mode veille | Clignote | ÉTEINT | ÉTEINT | ÉTEINT |
 | Téléchargement du microprogramme de PCM | ÉTEINT | Clignote | Clignote | Clignote |
 
@@ -163,12 +163,7 @@ Utilisez le tableau suivant pour déterminer si le module de contrôleur EBOD fo
 
 |État | Module d’E/S OK (vert) | Panne du module d’E/S (orange) | Activité sur les ports de l’hôte (vert) |
 |-------|----------------------|-------------------------------|----------------------------|
-| Module de contrôleur OK | ALLUMÉ |ÉTEINT | - |
-| Panne du module de contrôleur | ÉTEINT | ALLUMÉ | - |
-| Aucune connexion au port hôte externe | - | - | ÉTEINT |
-| Connexion au port hôte externe – aucune activité | - | - | ALLUMÉ |
-| Connexion au port hôte externe - activité | - | - | Clignote |
-| Erreur de métadonnées du module de contrôleur | Clignote | - | - |
+| Module de contrôleur OK | ALLUMÉ |ÉTEINT | - | | Panne du module de contrôleur | ÉTEINT | ALLUMÉ | - | | Aucune connexion au port hôte externe | - | - | ÉTEINT || Connexion au port hôte externe – aucune activité | - | - | ALLUMÉ || Connexion au port hôte externe - activité | - | - | Clignote || Erreur de métadonnées du module de contrôleur | Clignote | - | - |
 
 ## Voyants LED du lecteur de disque relatifs au boîtier principal et au boîtier EBOD
 
@@ -186,9 +181,9 @@ Utilisez le tableau suivant pour déterminer l’état de chaque lecteur de disq
 |-------|--------------------------|----------------------|-------------------------|
 | Aucun disque installé | ÉTEINT | ÉTEINT | Aucun |
 | Disque installé et opérationnel | Clignotement avec l’activité | X | Aucun |
-| Identité de l’appareil SES (SCSI Enclosure Services) définie | ALLUMÉ | Clignotement 1 seconde allumé/1 seconde éteint | Aucun |
-| Erreur de bit de l’appareil SES définie | ALLUMÉ | ALLUMÉ | Erreur logique (rouge) |
-| Panne du circuit d’alimentation | ÉTEINT | ALLUMÉ | Panne de module (rouge) |
+| Identité de l’appareil SES (SCSI Enclosure Services) définie | ACTIVÉ | Clignotement 1 seconde allumé/1 seconde éteint | Aucun |
+| Erreur de bit de l’appareil SES définie | ACTIVÉ | ACTIVÉ | Erreur logique (rouge) |
+| Panne du circuit d’alimentation | ÉTEINT | ACTIVÉ | Panne de module (rouge) |
 
 ## Alarmes sonores  
 
@@ -201,7 +196,7 @@ Un appareil StorSimple contient des alarmes sonores associées au boîtier princ
 - Erreur système
 - Erreur logique
 - Panne d’alimentation
-- Retrait d’un module d’alimentation et de refroidissement (PCM)  
+- Retrait d’un module d’alimentation et de refroidissement (PCM)
 
 Le tableau suivant décrit les différents états d’alarme.
 
@@ -211,15 +206,15 @@ Le tableau suivant décrit les différents états d’alarme.
 |------------|---------|---------------------------------|
 | S0 | Mode normal : silencieux | Deux bips sonores |
 | S1 | Mode d’erreur : 1 seconde activée/1 seconde désactivée | Transition vers S2 ou S3 (voir remarques) |
-| S2 | Mode rappel : signal sonore par intermittence | Aucune |
+| S2 | Mode rappel : signal sonore par intermittence | Aucun |
 | S3 | Mode muet : silencieux | Aucun |
 | S4 | Mode erreur/panne critique : signal sonore continu | Non disponible : le mode muet est désactivé |
 
 > [AZURE.NOTE] 
 
->  - Dans l’état d’alarme S1, si vous n’appuyez pas sur le bouton muet dans les 2 minutes, l’état passe automatiquement sur S2 ou S3.  
->  - Les états d’alarmes S1 à S4 reviennent à S0 une fois la condition de panne supprimée.  
->  - L’alarme peut passer à l’état de panne critique S4 depuis n’importe quel autre état.  
+>  - Dans l’état d’alarme S1, si vous n’appuyez pas sur le bouton muet dans les 2 minutes, l’état passe automatiquement sur S2 ou S3.
+>  - Les états d’alarmes S1 à S4 reviennent à S0 une fois la condition de panne supprimée.
+>  - L’alarme peut passer à l’état de panne critique S4 depuis n’importe quel autre état.
 
 Vous pouvez désactiver l’alarme sonore en appuyant sur le bouton muet du panneau de commande. L’alarme sonore est automatiquement désactivée au bout de deux minutes si le bouton muet n’est pas actionné manuellement. Lorsque le son d’alarme est coupé, l’alarme continue d’émettre un bip bref par intermittence pour indiquer qu’un problème est toujours présent. L’alarme s’arrête une fois tous les problèmes résolus.
 
@@ -233,7 +228,7 @@ Le tableau suivant décrit les différentes conditions d’alarme.
 |Alerte PCM : perte d’alimentation CC d’un seul PCM | Erreur : perte de redondance | S1 | Panne de module |
 | Défaillance du ventilateur du PCM | Erreur : perte de redondance | S1 | Panne de module |
 | Le module SBB a détecté une panne de PCM | Erreur | S1 | Panne de module |
-| PCM retiré | Erreur de configuration | Aucune | Panne de module |
+| PCM retiré | Erreur de configuration | Aucun | Panne de module |
 | Erreur de configuration de boîtier | Erreur : critique | S1 | Panne de module |
 | Alerte de température basse | Avertissement | S1 | Panne de module |
 | Alerte de température élevée | Avertissement | S1 | Panne de module |
@@ -262,4 +257,4 @@ En savoir plus sur [les composants matériels StorSimple et leur état](storsimp
 
  
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0824_2016-->

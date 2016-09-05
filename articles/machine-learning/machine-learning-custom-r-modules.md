@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="tbd" 
-	ms.date="05/10/2016" 
+	ms.date="08/19/2016" 
 	ms.author="bradsev;ankarloff" />
 
 
@@ -23,23 +23,30 @@ Cette rubrique explique comment créer et déployer un module R personnalisé d
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-## Qu’est-ce qu’un module R personnalisé ?
-Un **module personnalisé** est un module défini par l’utilisateur, qui peut être chargé dans votre espace de travail et exécuté dans le cadre d’une expérience Azure Machine Learning. Un **module R personnalisé** est un module exécutant une fonction R définie par l’utilisateur. R est un langage de programmation utilisé pour le traitement informatique des statistiques et les graphiques. Les scientifiques des données et les statisticiens s’en servent pour implémenter des algorithmes. Actuellement, R est le seul langage pris en charge dans les modules personnalisés, mais la prise en charge de langages supplémentaires sera ajoutée ultérieurement.
 
-Les modules personnalisés présentent un **état de première classe** dans Azure Machine Learning, en ce sens qu’ils peuvent être utilisés comme n’importe quel module classique. Ils peuvent être exécutés avec d’autres modules, inclus dans les expériences publiées ou les visualisations. Les utilisateurs contrôlent l’algorithme implémenté par le module, les ports d’entrée et de sortie à utiliser, les paramètres de modélisation et divers autres comportements d’exécution. Une expérience contenant un ou plusieurs modules personnalisés peut également être publiée dans la galerie Cortana Intelligence pour faciliter le partage.
+## Qu’est-ce qu’un module R personnalisé ?
+
+Un **module personnalisé** est un module défini par l’utilisateur, qui peut être chargé dans votre espace de travail et exécuté dans le cadre d’une expérience Azure Machine Learning. Un **module R personnalisé** est un module exécutant une fonction R définie par l’utilisateur. **R** est un langage de programmation utilisé pour le traitement informatique des statistiques et les graphiques. Les scientifiques des données et les statisticiens s’en servent pour implémenter des algorithmes. Actuellement, R est le seul langage pris en charge dans les modules personnalisés, mais la prise en charge de langages supplémentaires est prévue pour les versions à venir.
+
+Les modules personnalisés présentent un **état de première classe** dans Azure Machine Learning, en ce sens qu’ils peuvent être utilisés comme n’importe quel module classique. Ils peuvent être exécutés avec d’autres modules, inclus dans des expériences publiées ou dans des visualisations. Vous contrôlez l’algorithme implémenté par le module, les ports d’entrée et de sortie à utiliser, les paramètres de modélisation et divers autres comportements d’exécution. Une expérience qui contient des modules personnalisés peut également être publiée dans la galerie Cortana Intelligence pour faciliter le partage.
+
 
 ## Fichiers dans un module R personnalisé
+
 Un module R personnalisé est défini par un fichier .zip contenant au moins deux fichiers :
 
 * un **fichier source** qui implémente la fonction R exposée par le module ;
 * un **fichier de définition XML** qui décrit l’interface du module personnalisé.
 
-Des fichiers auxiliaires supplémentaires peuvent également être inclus dans le fichier .zip, qui fournit des fonctionnalités accessibles à partir du module personnalisé. Cette option est décrite ci-dessous.
+Des fichiers auxiliaires supplémentaires peuvent également être inclus dans le fichier .zip, qui fournit des fonctionnalités accessibles à partir du module personnalisé. Cette option est décrite dans la partie **Arguments** de la section de référence **Éléments dans le fichier de définition XML** suivant l’exemple de démarrage rapide.
+
 
 ## Exemple de démarrage rapide : définir, mettre en package et enregistrer un module R personnalisé
+
 Cet exemple explique comment créer les fichiers requis par un module R personnalisé, les empaqueter dans un fichier .zip, puis enregistrer le module dans l’espace de travail Machine Learning. Les exemples de fichiers et de package zip sont disponibles en téléchargement depuis le [fichier CustomAddRows.zip](http://go.microsoft.com/fwlink/?LinkID=524916&clcid=0x409).
 
-Prenons l’exemple d’un module **Custom Add Rows**, qui modifie l’implémentation standard du module Add Rows utilisé pour concaténer des lignes (observations) à partir de deux jeux de données (trames de données). Le module Add Rows standard ajoute les lignes du deuxième jeu de données d’entrée à la fin du premier, au moyen de l’algorithme rbind. De la même manière, la fonction `CustomAddRows` personnalisée accepte deux jeux de données, mais également un paramètre d’échange booléen en entrée. Si le paramètre d’échange a la valeur **FALSE**, il renvoie le même jeu de données que l’implémentation standard. Par contre, s’il a la valeur **TRUE**, il ajoute des lignes du premier jeu de données d’entrée à la fin du deuxième jeu de données. Le fichier qui implémente la fonction R `CustomAddRows` exposée par le module **Custom Add Rows** contient le code R suivant.
+## Le fichier source
+Prenons l’exemple d’un module **Custom Add Rows**, qui modifie l’implémentation standard du module **Add Rows**utilisé pour concaténer des lignes (observations) à partir de deux jeux de données (trames de données). Le module **Add Rows** standard ajoute les lignes du deuxième jeu de données d’entrée à la fin du premier, au moyen de l’algorithme `rbind`. De la même manière, la fonction `CustomAddRows` personnalisée accepte deux jeux de données, mais également un paramètre d’échange booléen en entrée supplémentaire. Si le paramètre d’échange a la valeur **FALSE**, il renvoie le même jeu de données que l’implémentation standard. Par contre, s’il a la valeur **TRUE**, la fonction ajoute des lignes du premier jeu de données d’entrée à la fin du deuxième jeu de données. Le fichier CustomAddRows.R qui contient l’implémentation de la fonction R `CustomAddRows` exposée par le module **Custom Add Rows** contient le code R suivant.
 
 	CustomAddRows <- function(dataset1, dataset2, swap=FALSE) 
 	{
@@ -53,15 +60,18 @@ Prenons l’exemple d’un module **Custom Add Rows**, qui modifie l’implémen
 		} 
 	} 
 
+### Le fichier de définition XML
 Pour exposer la fonction `CustomAddRows` en tant que module Azure Machine Learning, vous devez créer un fichier de définition XML, afin de définir l’apparence du module **Custom Add Rows** et son comportement.
 
 	<!-- Defined a module using an R Script -->
 	<Module name="Custom Add Rows">
 	    <Owner>Microsoft Corporation</Owner>
-	    <Description>Appends one dataset to another. Dataset 2 is concatenated to Dataset 1 when Swap is false, and vice versa when Swap is true.</Description>
+	    <Description>Appends one dataset to another. Dataset 2 is concatenated to Dataset 1 when Swap is FALSE, and vice versa when Swap is TRUE.</Description>
 	
 	<!-- Specify the base language, script file and R function to use for this module. -->		
-	    <Language name="R" sourceFile="CustomAddRows.R" entryPoint="CustomAddRows" />  
+	    <Language name="R" 
+		 sourceFile="CustomAddRows.R" 
+		 entryPoint="CustomAddRows" />  
 		
 	<!-- Define module input and output ports -->
 	<!-- Note: The values of the id attributes in the Input and Arg elements must match the parameter names in the R Function CustomAddRows defined in CustomAddRows.R. -->
@@ -73,7 +83,7 @@ Pour exposer la fonction `CustomAddRows` en tant que module Azure Machine Learni
 				<Description>Second input dataset</Description>
 			</Input>
 			<Output id="dataset" name="Dataset" type="DataTable">
-				<Description>Combined dataset</Description>
+				<Description>The combined dataset</Description>
 			</Output>
 	    </Ports>
 		
@@ -86,40 +96,46 @@ Pour exposer la fonction `CustomAddRows` en tant que module Azure Machine Learni
 	</Module>
 
  
-Notez que la valeur des attributs **id** des éléments **Input** et **Arg** dans le fichier XML doit correspondre exactement aux noms des paramètres de la fonction du code R (*dataset1*, *dataset2* et *swap* dans l’exemple). De même, la valeur de l’attribut **entryPoint** de l’élément **Langage** doit correspondre exactement au nom de la fonction dans le script R (*CustomAddRows* dans l’exemple). En revanche, l’attribut **id** des éléments **Output** ne correspond à aucune variable du script R. Lorsque plusieurs sorties sont requises, il suffit de renvoyer une liste à partir de la fonction R avec les résultats placés dans le même ordre que celui dans lequel les sorties sont déclarées dans le fichier XML.
+Il est essentiel de noter que la valeur des attributs **id** des éléments **Input** et **Arg** dans le fichier XML doit correspondre aux noms des paramètres de la fonction du code R dans le fichier CustomAddRows.R À L’EXACT (*dataset1*, *dataset2* et *swap* dans l’exemple). De même, la valeur de l’attribut **entryPoint** de l’élément **Langage** doit correspondre au nom de la fonction dans le script R À L’EXACT (*CustomAddRows* dans l’exemple).
 
-Enregistrez ces deux fichiers sous *CustomAddRows.R* et *CustomAddRows.xml*, puis compressez-les ensemble dans un fichier *CustomAddRows.zip*.
+En revanche, l’attribut **id** de l’élément **Output** ne correspond à aucune variable du script R. Lorsque plusieurs sorties sont requises, il suffit de renvoyer une liste à partir de la fonction R avec les résultats placés *dans le même ordre* que celui dans lequel les éléments **Sorties** sont déclarés dans le fichier XML.
 
-Pour les enregistrer dans votre espace de travail Machine Learning, accédez à votre espace de travail dans Machine Learning Studio, cliquez sur le bouton **+NOUVEAU** situé dans la partie inférieure de la fenêtre et choisissez **MODULE -> À PARTIR DU PACKAGE ZIP** pour charger le nouveau module Custom Add Rows.
+### Empaqueter et inscrire le module
+Enregistrez ces deux fichiers sous *CustomAddRows.R* et *CustomAddRows.xml*, puis compressez les deux fichiers ensemble dans un fichier *CustomAddRows.zip*.
+
+Pour les enregistrer dans votre espace de travail Machine Learning, accédez à votre espace de travail dans Machine Learning Studio, cliquez sur le bouton **+NOUVEAU** situé dans la partie inférieure de la fenêtre et choisissez **MODULE -> À PARTIR DU PACKAGE ZIP** pour charger le nouveau module **Custom Add Rows**.
 
 ![Charger les zip](./media/machine-learning-custom-r-modules/upload-from-zip-package.png)
 
 Le module **Custom Add Rows** peut désormais être ouvert par vos expériences Machine Learning.
 
+
 ## Éléments du fichier de définition XML
 
 ### Éléments de module
-L’élément **Module** est utilisé pour définir un module personnalisé dans le fichier XML. Plusieurs modules peuvent être définis dans un fichier XML à l’aide de plusieurs éléments **module**. Chaque module de votre espace de travail doit avoir un nom unique. Si vous enregistrez un module personnalisé avec le même nom qu’un module personnalisé existant, le module existant est remplacé par le nouveau module. Les modules personnalisés peuvent, toutefois, être inscrits avec le même nom qu’un module Microsoft Azure Machine Learning existant et il apparaîtra dans la catégorie personnalisée de la palette de modules.
+L’élément **Module** est utilisé pour définir un module personnalisé dans le fichier XML. Plusieurs modules peuvent être définis dans un fichier XML à l’aide de plusieurs éléments **module**. Chaque module de votre espace de travail doit avoir un nom unique. Si vous enregistrez un module personnalisé avec le même nom qu’un module personnalisé existant, le module existant est remplacé par le nouveau module. Les modules personnalisés peuvent, toutefois, être inscrits avec le même nom qu’un module Azure Machine Learning existant. Dans ce cas, ils apparaissent dans la catégorie **Personnalisé** de la palette de modules.
 
 	<Module name="Custom Add Rows" isDeterministic="false"> 
 		<Owner>Microsoft Corporation</Owner>
 		<Description>Appends one dataset to another...</Description>/> 
 
 
-Dans l’élément **Module**, vous pouvez spécifier un élément **Owner**, qui est incorporé dans le module, ainsi qu’un élément **Description**, qui est le texte affiché dans l’aide rapide pour le module et lorsque vous passez la souris sur le module dans l’interface utilisateur de Machine Learning.
+Dans l’élément **Module**, vous pouvez spécifier deux éléments facultatifs supplémentaires :
 
-**Règles relatives aux limites de caractères dans les éléments Module** :
+- un élément **Propriétaire** qui est incorporé dans le module
+- un élément **Description** qui contient le texte affiché dans l’aide rapide du module et lorsque vous passez la souris sur le module dans l’interface utilisateur Machine Learning.
 
-* La valeur de l’attribut **name** dans l’élément **Module** ne doit pas dépasser 64 caractères. 
+
+Règles relatives aux limites de caractères dans les éléments Module :
+
+* La valeur de l’attribut **name** dans l’élément **Module** ne doit pas dépasser 64 caractères.
 * Le contenu de l’élément **Description** ne doit pas dépasser 128 caractères.
 * Le contenu de l’élément **Owner** ne doit pas dépasser 32 caractères.
 
 
-**Indiquant si les résultats d’un module sont déterministes ou non déterministes**
+Les résultats d’un module peuvent être déterministes ou non déterministes.** Par défaut, tous les modules sont considérés comme déterministes. Autrement dit, en présence d’un jeu de données et de paramètres d’entrée qui ne change pas, le module doit retourner les mêmes résultats chaque fois qu’il est exécuté. Étant donné ce comportement, Azure Machine Learning Studio ne réexécute les modules marqués comme étant déterministes que si un paramètre ou les données d’entrée ont été modifiés. Le renvoi des résultats mis en cache assure également une exécution bien plus rapide des expériences.
 
-Par défaut, tous les modules sont considérés comme déterministes. Autrement dit, en présence d’un jeu de paramètres qui ne change pas, le module doit retourner les mêmes résultats chaque fois qu’il est exécuté. Étant donné ce comportement, Microsoft Azure Machine Learning Studio ne réexécute pas les modules marqués comme étant déterministes, sauf si un paramètre ou les données d’entrée ont été modifiés. Les résultats mis en cache sont retournés, ce qui permet d’exécuter l’expérience plus rapidement.
-
-Toutefois, si votre module utilise une fonction qui renvoie des résultats différents chaque fois qu’il est exécuté (par exemple, RAND ou une fonction qui renvoie la date actuelle ou l’heure), vous pouvez spécifier le module comme étant non déterministe en définissant l’attribut facultatif **isDeterministic** sur **false**. Le module sera réexécuté à chaque exécution de l’expérience, même si le module d’entrée et les paramètres n’ont pas changé.
+Il existe des fonctions non déterministes, notamment RAND ou une fonction qui retourne la date ou l’heure actuelle. Si votre module utilise une fonction non déterministe, vous pouvez spécifier que le module n’est pas déterministe en définissant l’attribut facultatif **isDeterministic** sur **FALSE**. Cela permet de s’assurer que le module est réexécuté à chaque exécution de l’expérience, même si le module d’entrée et les paramètres n’ont pas changé.
 
 ### Définition de l’élément Language
 L’élément **Language** dans votre fichier de définition XML est utilisé pour spécifier la langue du module personnalisé. Actuellement, R est le seul langage pris en charge. La valeur de l’attribut **sourceFile** doit être le nom du fichier R qui contient la fonction à appeler lorsque le module est exécuté. Ce fichier doit faire partie du package zip. La valeur de l’attribut **entryPoint** est le nom de la fonction appelée et doit correspondre à une fonction valide définie dans le fichier source.
@@ -128,14 +144,14 @@ L’élément **Language** dans votre fichier de définition XML est utilisé po
 
 
 ### Ports
-Les ports d’entrée et de sortie d’un module personnalisé sont spécifiés dans les éléments enfants de la section **Ports** du fichier de définition XML. L’ordre de ces éléments détermine la disposition rencontrée par les utilisateurs (expérience utilisateur). Le premier enfant **input** ou **output** répertorié dans l’élément **Ports** du fichier XML sera le port d’entrée le plus à gauche dans l’expérience utilisateur Machine Learning. Chaque port d’entrée et de sortie peut avoir un élément enfant **Description** facultatif qui spécifie le texte affiché lorsqu’un utilisateur passe le curseur de la souris sur le port dans l’interface utilisateur de Machine Learning.
+Les ports d’entrée et de sortie d’un module personnalisé sont spécifiés dans les éléments enfants de la section **Ports** du fichier de définition XML. L’ordre de ces éléments détermine la disposition rencontrée par les utilisateurs (expérience utilisateur). Le premier enfant **input** ou **output** répertorié dans l’élément **Ports** du fichier XML devient le port d’entrée le plus à gauche dans l’expérience utilisateur Machine Learning. Chaque port d’entrée et de sortie peut avoir un élément enfant **Description** facultatif qui spécifie le texte affiché lorsque vous passez le curseur de la souris sur le port dans l’interface utilisateur de Machine Learning.
 
 **Règles relatives aux ports** :
 
 * Le nombre maximum de **ports d’entrée et de sortie** est de 8 pour chacun.
 
 ### Éléments d'entrée
-Les ports d'entrée permettent aux utilisateurs de transmettre des données à votre fonction R et à votre espace de travail. Les **types de données** pris en charge pour les ports d’entrée sont les suivants :
+Les ports d’entrée vous permettent de transmettre des données à votre fonction R et à votre espace de travail. Les **types de données** pris en charge pour les ports d’entrée sont les suivants :
 
 **DataTable :** ce type est transmis à votre fonction R sous la forme suivante : data.frame. En réalité, tous les types (par exemple, des fichiers CSV ou des fichiers ARFF) pris en charge par Machine Learning et compatibles avec **DataTable** sont automatiquement convertis en data.frame.
 
@@ -148,10 +164,10 @@ L’attribut **id** associé à chaque port d’entrée **DataTable** doit avoir
 **Zip :** modules personnalisés pouvant accepter un fichier .zip en entrée. Cette entrée est décompactée et placée dans le répertoire de travail R de votre fonction.
 
 		<Input id="zippedData" name="Zip Input" type="Zip" IsOptional="false">
-        	<Description>Zip files will be extracted to the R working directory.</Description>
+        	<Description>Zip files to be extracted to the R working directory.</Description>
        	</Input>
 
-Pour les modules R personnalisés, l’ID d'un port Zip ne doit pas forcément correspondre à tous les paramètres de la fonction R, dans la mesure où le fichier .zip est automatiquement extrait dans le répertoire de travail R.
+Pour les modules R personnalisés, l’id d’un port Zip ne doit pas nécessairement correspondre aux paramètres de la fonction R. En effet, le fichier zip est automatiquement extrait dans le répertoire de travail R.
 
 **Règles d'entrée :**
 
@@ -170,7 +186,7 @@ Pour les modules R personnalisés, l’ID d'un port Zip ne doit pas forcément 
 		<Description>Combined dataset</Description>
 	</Output>
 
-Pour les sorties dans des modules personnalisés R, la valeur de l’attribut **id** ne doit pas forcément correspondre à un élément du script R, mais elle doit être unique. Pour une sortie de module unique, la valeur de retour de la fonction R doit être un *data.frame*. Pour créer une sortie portant sur plusieurs objets qui présentent un type de données pris en charge, vous devez spécifier les ports de sortie appropriés dans le fichier de définition XML et les objets doivent être renvoyés dans une liste. Les objets de la sortie seront attribués à des ports de sortie, de gauche à droite, selon l’ordre dans lequel les objets sont placés dans la liste renvoyée.
+Pour les sorties dans des modules personnalisés R, la valeur de l’attribut **id** ne doit pas forcément correspondre à un élément du script R, mais elle doit être unique. Pour une sortie de module unique, la valeur de retour de la fonction R doit être un *data.frame*. Pour créer une sortie portant sur plusieurs objets qui présentent un type de données pris en charge, vous devez spécifier les ports de sortie appropriés dans le fichier de définition XML et les objets doivent être renvoyés dans une liste. Les objets de la sortie sont affectés à des ports de sortie, de gauche à droite, selon l’ordre dans lequel les objets sont placés dans la liste renvoyée.
 
 Par exemple, si vous souhaitez modifier le module **Custom Add Rows** pour sortir les deux jeux de données d’origine, *dataset1* et *dataset2*, en plus du nouveau jeu de données joint *dataset* (dans l’ordre suivant, de gauche à droite : *dataset*, *dataset1*, *dataset2*), vous devez définir les ports de sortie dans le fichier CustomAddRows.xml comme suit :
 
@@ -202,7 +218,7 @@ Ensuite, renvoyez la liste des objets dans une liste respectant l’ordre adéqu
 	return (list(dataset, dataset1, dataset2)) 
 	} 
 	
-**Sortie de visualisation :** vous pouvez également spécifier un port de sortie de type *Visualization* qui affiche la sortie de la console et de l’appareil graphique R. Ce port ne fait pas partie de la sortie de la fonction R et n’interfère pas avec l’ordre des autres types de port de sortie. Pour ajouter un port de visualisation pour les modules personnalisés, ajoutez un élément **Output** avec la valeur *Visualization* pour son attribut **type** :
+**Sortie de visualisation :** vous pouvez également spécifier un port de sortie de type *Visualization*, qui affiche la sortie de la console et de l’appareil graphique R. Ce port ne fait pas partie de la sortie de la fonction R et n’interfère pas avec l’ordre des autres types de ports de sortie. Pour ajouter un port de visualisation pour les modules personnalisés, ajoutez un élément **Output** avec la valeur *Visualization* pour son attribut **type** :
 
 	<Output id="deviceOutput" name="View Port" type="Visualization">
       <Description>View the R console graphics device output.</Description>
@@ -216,21 +232,21 @@ Ensuite, renvoyez la liste des objets dans une liste respectant l’ordre adéqu
 * La valeur de l’attribut **type** de l’élément **Output** doit être *Visualization*.
 
 ### Arguments
-Des données supplémentaires peuvent être transmises à la fonction R via les paramètres de module qui sont définis dans l’élément **Arguments**. Ces paramètres apparaissent dans le volet des propriétés de l’interface utilisateur de Machine Learning le plus à droite lorsque le module est sélectionné. Les arguments peuvent être de n’importe quel type pris en charge, ou vous pouvez créer une énumération personnalisée lorsque cela s’avère nécessaire. Comme pour les éléments **Ports**, les éléments **Arguments** peuvent avoir un élément **Description** facultatif spécifiant le texte qui apparaît lorsque vous passez la souris sur le nom du paramètre. Les propriétés facultatives pour un module, telles que defaultValue, minValue et maxValue, peuvent être ajoutées à n’importe quel argument en tant qu’attributs d’un élément **Properties**. Les propriétés valides pour l’élément **Properties** dépendent du type d’argument et sont décrites avec les types d’arguments pris en charge ci-dessous. Comme dans le cas des entrées et sorties, il est essentiel que chaque paramètre soit associé à une valeur d’ID unique. En outre, les valeurs d’ID doivent correspondre aux paramètres nommés dans votre fonction R. Dans notre exemple de démarrage rapide, l’ID/paramètre associé était *swap*.
+Des données supplémentaires peuvent être transmises à la fonction R via les paramètres de module qui sont définis dans l’élément **Arguments**. Ces paramètres apparaissent dans le volet des propriétés de l’interface utilisateur de Machine Learning le plus à droite lorsque le module est sélectionné. Les arguments peuvent être de n’importe quel type pris en charge, ou vous pouvez créer une énumération personnalisée lorsque cela s’avère nécessaire. Comme pour les éléments **Ports**, les éléments **Arguments** peuvent avoir un élément **Description** facultatif spécifiant le texte qui apparaît lorsque vous passez la souris sur le nom du paramètre. Les propriétés facultatives pour un module, telles que defaultValue, minValue et maxValue, peuvent être ajoutées à n’importe quel argument en tant qu’attributs d’un élément **Properties**. Les propriétés valides pour l’élément **Properties** dépendent du type d’argument et sont décrites avec les types d’arguments pris en charge dans la section suivante. Comme dans le cas des entrées et sorties, il est essentiel que chaque paramètre soit associé à une valeur d’ID unique. Dans notre exemple de démarrage rapide, l’ID/paramètre associé était *swap*.
 
 ### Élément Arg
-Un paramètre de module est défini à l’aide de l’élément enfant **Arg** de la section **Arguments** du fichier de définition XML. Comme dans le cas des éléments enfants de la section **Ports**, l’ordre des paramètres de la section **Arguments** définit la disposition rencontrée dans l’expérience utilisateur. Les paramètres apparaissent de haut en bas dans l’interface utilisateur dans le même ordre que celui dans lequel ils sont définis dans le fichier XML. Les types pris en charge par ML pour les paramètres sont répertoriés ci-dessous.
+Un paramètre de module est défini à l’aide de l’élément enfant **Arg** de la section **Arguments** du fichier de définition XML. Comme dans le cas des éléments enfants de la section **Ports**, l’ordre des paramètres de la section **Arguments** définit la disposition rencontrée dans l’expérience utilisateur. Les paramètres apparaissent de haut en bas dans l’interface utilisateur dans le même ordre que celui dans lequel ils sont définis dans le fichier XML. Les types pris en charge par Machine Learning pour les paramètres sont répertoriés ici.
 
 **int** : paramètre de type entier (32 bits).
 
 		<Arg id="intValue1" name="Int Param" type="int">
-			<Properties min="0" max="100" default="0" />
+			<Properties min="uts, it is critical that each of the parameters have unique id values associated with them. In addition, the id values must correspond to the named parameters in your R funct0" max="100" default="0" />
 			<Description>Integer Parameter</Description>
        </Arg>
 
 
 
-* *Propriétés facultatives* : **min**, **max** et **default**
+* *Propriétés facultatives* : **min**, **max** et **default**
 
 **double** : paramètre de type double.
 
@@ -240,7 +256,7 @@ Un paramètre de module est défini à l’aide de l’élément enfant **Arg** 
        </Arg>
 
 
-* *Propriétés facultatives* : **min**, **max** et **default**
+* *Propriétés facultatives* : **min**, **max** et **default**
 
 **bool** : paramètre booléen représenté par une case à cocher dans l’expérience utilisateur.
 
@@ -261,9 +277,9 @@ Un paramètre de module est défini à l’aide de l’élément enfant **Arg** 
         </Arg>
 
 
-* *Propriétés facultatives*: **default** et **isOptional** – une chaîne facultative sans valeur par défaut est transmise avec la valeur null à la fonction R si aucune valeur n’est fournie par un utilisateur.
+* *Propriétés facultatives* : **default** et **isOptional** – une chaîne facultative sans valeur par défaut est transmise avec la valeur **NULL** à la fonction R si aucune valeur n’est fournie par un utilisateur.
 
-**ColumnPicker** : paramètre de sélection de colonne. Ce type est représenté sous la forme d’un sélecteur de colonne dans l’interface utilisateur. L’élément **Property** est utilisé ici pour spécifier l’ID du port à partir duquel les colonnes seront sélectionnées, où le type de port cible doit être *DataTable*. Le résultat de la sélection des colonnes est transmis à la fonction R sous forme d’une liste de chaînes contenant les noms des colonnes sélectionnées.
+**ColumnPicker** : paramètre de sélection de colonne. Ce type est représenté sous la forme d’un sélecteur de colonne dans l’interface utilisateur. L’élément **Property** est utilisé ici pour spécifier l’ID du port à partir duquel les colonnes sont sélectionnées, où le type de port cible doit être *DataTable*. Le résultat de la sélection des colonnes est transmis à la fonction R sous forme d’une liste de chaînes contenant les noms des colonnes sélectionnées.
 
 		<Arg id="colset" name="Column set" type="ColumnPicker">	  
 		  <Properties portId="datasetIn1" allowedTypes="Numeric" default="NumericAll"/>
@@ -271,13 +287,13 @@ Un paramètre de module est défini à l’aide de l’élément enfant **Arg** 
 		</Arg>
 
 
-* *Propriétés obligatoires* : **portId**. Correspond à l’ID d’un élément Input de type *DataTable* .
-* *Propriétés facultatives* :
-	* **allowedTypes** : permet de filtrer les types de colonnes que l’utilisateur peut choisir. Les valeurs valides incluent : 
+* *Propriétés obligatoires* : **portId**. Correspond à l’ID d’un élément Input de type *DataTable*.
+* *Propriétés facultatives* :
+	* **allowedTypes**. Filtre les types de colonnes que vous pouvez choisir. Les valeurs valides incluent :
 		* 	Chiffre
 		* 	Boolean
 		* 	Par catégorie
-		* 	Chaîne
+		* 	String
 		* 	Étiquette
 		* 	Fonctionnalité
 		* 	Score
@@ -307,7 +323,7 @@ Un paramètre de module est défini à l’aide de l’élément enfant **Arg** 
 		* Tout
 
                             							
-**DropDown** : liste (déroulante) énumérée spécifiée par l’utilisateur. Les éléments de liste déroulante sont spécifiés dans l’élément **Properties** à l’aide de l’élément **Item**. L’**ID** de chaque élément **Item** doit être unique et une variable R valide avec le nom de l’élément est à la fois le texte qui apparaît aux utilisateurs et la valeur transmise à la fonction R.
+**DropDown** : liste (déroulante) énumérée spécifiée par l’utilisateur. Les éléments de liste déroulante sont spécifiés dans l’élément **Properties** à l’aide de l’élément **Item**. L’**id** de chaque **Item** doit être unique et être une variable R valide. La valeur **name** d’un **Item** est à la fois le texte affiché et la valeur transmise à la fonction R.
 
 	<Arg id="color" name="Color" type="DropDown">
       <Properties default="red">
@@ -318,13 +334,15 @@ Un paramètre de module est défini à l’aide de l’élément enfant **Arg** 
       <Description>Select a color.</Description>
     </Arg>	
 
-* *Propriétés facultatives* :
+* *Propriétés facultatives* :
 	* **default** : la valeur de la propriété par défaut doit correspondre à une valeur d’ID de l’un des éléments **Items**.
 
 
 ### Fichiers auxiliaires
 
-Tout fichier placé dans le fichier ZIP de votre module personnalisé sera disponible pour une utilisation au moment de l’exécution. S’il existe une structure de répertoire, elle est conservée. Cela signifie que l’approvisionnement du fichier fonctionnera de la même façon en local et lors de l’exécution de Microsoft Azure ML. Notez que tous les fichiers sont extraits vers le répertoire « src ». Tous les chemins d'accès doivent donc comporter un préfixe « src/ »
+Tout fichier placé dans le fichier ZIP de votre module personnalisé sera disponible pour une utilisation au moment de l’exécution. Toutes les structures de répertoire présentes sont conservées. Cela signifie que l’approvisionnement du fichier fonctionne de la même façon en local et lors de l’exécution d’Azure Machine Learning.
+
+> [AZURE.NOTE] Notez que tous les fichiers sont extraits vers le répertoire « src ». Tous les chemins d’accès doivent donc comporter un préfixe « src/ ».
 
 Supposons que vous souhaitiez supprimer toutes les lignes présentant la mention « NA » et toutes les lignes en double dans le jeu de données avant de créer une sortie dans myAddRows, et que vous avez déjà créé une fonction R qui effectue cette opération dans un fichier, removeDupNARows.R :
 
@@ -350,8 +368,10 @@ Vous pouvez approvisionner le fichier auxiliaire RemoveDupNARows.R dans la fonct
 
 Ensuite, chargez un fichier .zip contenant les éléments « CustomAddRows.R », « CustomAddRows.xml » et « RemoveDupNARows.R » en tant que module R personnalisé.
 
-## Environnement d’exécution ##
-L’environnement d’exécution du script R utilise la même version de R que le module **Exécuter le script R** et vous pouvez utiliser les mêmes packages par défaut. Vous pouvez ajouter des packages R supplémentaires à votre module personnalisé en les incluant dans le package zip du module personnalisé et en les chargeant dans votre script R comme vous le feriez dans votre propre environnement R.
+
+## Environnement d’exécution
+
+L’environnement d’exécution du script R utilise la même version de R que le module **Exécuter le script R** et vous pouvez utiliser les mêmes packages par défaut. Vous pouvez également ajouter des packages R supplémentaires à votre module personnalisé en les incluant dans le package zip du module personnalisé. Chargez-les simplement dans votre script R comme vous le feriez dans votre propre environnement R.
 
 Les **limitations de l’environnement d’exécution** sont les suivantes :
 
@@ -362,4 +382,4 @@ Les **limitations de l’environnement d’exécution** sont les suivantes :
 
  
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/01/2016"
+	ms.date="08/17/2016"
 	ms.author="cjiang"/>
 
 # Ma carte de crédit ou de débit est refusée lors de mon inscription à Azure
@@ -23,7 +23,7 @@ Si votre carte de crédit ou de débit a été refusée, la raison peut être qu
 
 Si vous avez cependant utilisé une carte de crédit ou de débit valide, assurez-vous également que la carte est active et que votre banque ne bloque pas les transactions en ligne pour des raisons de sécurité.
 
-[AZURE.INCLUDE [support-disclaimer](../includes/support-disclaimer.md)]
+> [AZURE.NOTE] Si à un moment donné dans cet article, vous avez besoin d’aide, veuillez [contacter le support technique](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour obtenir une prise en charge rapide de votre problème.
 
 ## Les informations de votre carte de crédit ou de débit sont-elles correctes et complètes ?
 - La carte de crédit ou de débit que vous utilisez doit être répertoriée dans la liste déroulante pour le pays sélectionné. Dans le cas contraire, il s’agit d’une option qui n’est pas disponible pour votre pays.
@@ -41,4 +41,6 @@ Pour utiliser l’option de paiement par facturation, vous devez représenter un
 
 Pour démarrer le processus de configuration d’une facture, consultez [Facturation Azure - Procédure de facturation](https://azure.microsoft.com/pricing/invoicing/) pour plus d’informations.
 
-<!---HONumber=AcomDC_0803_2016-->
+> [AZURE.NOTE] Si vous avez d’autres questions, veuillez [contacter le support technique](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour obtenir une prise en charge rapide de votre problème.
+
+<!---HONumber=AcomDC_0824_2016-->

@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="05/10/2016"
+	ms.date="08/23/2016"
 	ms.author="curtand"/>
 
 
@@ -52,7 +52,7 @@ Un administrateur qui possède le nom de domaine DNS d‘un répertoire Azure no
 #### Répertoire
 
 - Un répertoire Azure Active Directory est créé pour le domaine (un répertoire par domaine).
-- Le répertoire du répertoire Azure AD ne possède aucun administrateur général.
+- Le répertoire Azure AD ne possède aucun administrateur général.
 
 #### Utilisateurs
 
@@ -221,7 +221,7 @@ Pour en savoir plus et obtenir des exemples d'utilisation de ces paramètres, co
 
 ## Voir aussi
 
--  [Installation et configuration d’Azure PowerShell](../powershell-install-configure/)
+-  [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md)
 
 -  [Azure PowerShell](https://msdn.microsoft.com/library/azure/jj156055.aspx)
 
@@ -232,4 +232,4 @@ Pour en savoir plus et obtenir des exemples d'utilisation de ces paramètres, co
 <!--Image references-->
 [1]: ./media/active-directory-self-service-signup/SelfServiceSignUpControls.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0824_2016-->

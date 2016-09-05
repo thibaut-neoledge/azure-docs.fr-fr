@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="05/04/2016"
+	ms.date="08/22/2016"
 	ms.author="mahender"/>
 
 # Comment configurer votre application App Service pour utiliser une connexion par compte Microsoft
@@ -24,7 +24,7 @@ Cette rubrique montre comment configurer Azure App Service pour utiliser un comp
 
 ## <a name="register-microsoft-account"> </a>Inscription de votre application avec un compte Microsoft
 
-1. Connectez-vous au [portail Azure] et accédez à votre application. Copiez votre **URL**. Vous l’utiliserez pour configurer votre application avec votre compte Microsoft.
+1. Connectez-vous au [portail Azure] et accédez à votre application. Copiez votre **URL**, que vous utiliserez ultérieurement pour configurer votre application avec votre compte Microsoft.
 
 2. Accédez à la page [Mes applications] dans le Centre des développeurs de compte Microsoft, puis connectez-vous avec votre compte Microsoft si nécessaire.
 
@@ -76,4 +76,4 @@ Vous êtes maintenant prêt à utiliser un compte Microsoft pour l’authentific
 [Mes applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [portail Azure]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0824_2016-->

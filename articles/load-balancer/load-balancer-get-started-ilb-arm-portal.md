@@ -3,7 +3,7 @@
    description="Découvrez comment créer un équilibreur de charge interne dans Resource Manager à l’aide du portail Azure"
    services="load-balancer"
    documentationCenter="na"
-   authors="joaoma"
+   authors="sdwheeler"
    manager="carmonm"
    editor=""
    tags="azure-service-management"
@@ -15,11 +15,11 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/04/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 # Prise en main de la création d’un équilibreur de charge interne dans le portail Azure
 
-[AZURE.INCLUDE [load-balancer-get-started-ilb-arm-selectors-include.md](../../includes/load-balancer-get-started-ilb-arm-selectors-include.md)]<BR>[AZURE.INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
+[AZURE.INCLUDE [load-balancer-get-started-ilb-arm-selectors-include.md](../../includes/load-balancer-get-started-ilb-arm-selectors-include.md)] <BR> [AZURE.INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
 [AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](load-balancer-get-started-ilb-classic-ps.md).
 
@@ -43,19 +43,19 @@ Pour créer un équilibreur de charge interne à partir du portail Azure, suivez
 
 >[AZURE.NOTE] Si vous choisissez d’utiliser une adresse IP statique, vous devez fournir une adresse pour l’équilibreur de charge.
     
-7. Sous **Groupe de ressources**, spécifiez le nom d’un nouveau groupe de ressources pour l’équilibreur de charge ou cliquez sur **Sélectionner** et choisissez un groupe de ressources existant. 
-8. Cliquez sur **Create**. 
+7. Sous **Groupe de ressources**, spécifiez le nom d’un nouveau groupe de ressources pour l’équilibreur de charge ou cliquez sur **Sélectionner** et choisissez un groupe de ressources existant.
+8. Cliquez sur **Create**.
 
 ## Configuration des règles d’équilibrage de la charge 
 
 Après la création de l’équilibreur de charge, accédez à la ressource d’équilibreur de charge pour la configurer. Vous devez tout d’abord configurer un pool d’adresses de serveur principal, ainsi qu’une sonde avant de configurer une règle d’équilibrage de charge.
 
-### Étape 1 :
+### Étape 1
 
 Configurer un pool principal :
 
 1. Dans le portail Azure, cliquez sur **Parcourir** > **Équilibreurs de charge**, puis cliquez sur l’équilibreur de charge créé précédemment.
-2. Dans le panneau **Paramètres**, cliquez sur **Pools principaux**. 
+2. Dans le panneau **Paramètres**, cliquez sur **Pools principaux**.
 3. Dans le panneau **Pools d’adresses principaux**, cliquez sur **Ajouter**.
 4. Dans le panneau **Ajouter un pool principal**, tapez le **nom** du pool principal, puis cliquez sur **OK**.
 
@@ -64,7 +64,7 @@ Configurer un pool principal :
 Configurer une sonde :
  
 1. Dans le portail Azure, cliquez sur **Parcourir** > **Équilibreurs de charge**, puis cliquez sur l’équilibreur de charge créé précédemment.
-2. Dans le panneau **Paramètres**, cliquez sur **Sondes**. 
+2. Dans le panneau **Paramètres**, cliquez sur **Sondes**.
 3. Dans le panneau **Sondes**, cliquez sur **Ajouter**.
 4. Dans le panneau **Ajouter une sonde**, tapez le **nom** de la sonde.
 5. Sous **Protocole**, sélectionnez **HTTP** (pour les sites web) ou **TCP** (pour les autres applications basées sur TCP).
@@ -74,12 +74,12 @@ Configurer une sonde :
 5. Sous **Seuil défectueux**, spécifiez le nombre de tentatives devant échouer avant que la machine virtuelle principale ne soit marquée comme défectueuse.
 5. Cliquez sur **OK** pour créer la sonde.
 
-### Étape 3
+### Étape 3 :
 
 Configurer les règles d’équilibrage de la charge :
 
 1. Dans le portail Azure, cliquez sur **Parcourir** > **Équilibreurs de charge**, puis cliquez sur l’équilibreur de charge créé précédemment.
-2. Dans le panneau **Paramètres**, cliquez sur **Règles d’équilibrage de charge**. 
+2. Dans le panneau **Paramètres**, cliquez sur **Règles d’équilibrage de charge**.
 3. Dans le panneau **Règles d’équilibrage de charge**, cliquez sur **Ajouter**.
 4. Dans le panneau **Ajouter une règle d’équilibrage de charge**, tapez le **nom** de la règle.
 5. Sous **Protocole**, sélectionnez **HTTP** (pour les sites web) ou **TCP** (pour les autres applications basées sur TCP).
@@ -97,4 +97,4 @@ Configurer les règles d’équilibrage de la charge :
 
 [Configuration des paramètres de délai d’expiration TCP inactif pour votre équilibreur de charge](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0824_2016-->

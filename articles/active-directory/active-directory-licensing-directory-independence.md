@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="05/16/2016"
+   ms.date="08/23/2016"
    ms.author="curtand"/>
 
 # Ajouter et gérer plusieurs annuaires Azure Active Directory
@@ -41,8 +41,8 @@ Vous pouvez configurer chaque annuaire Azure AD de manière indépendante pour o
 
 Pour ajouter un annuaire Azure AD dans le portail Azure Classic, sélectionnez l’extension Azure Active Directory sur la gauche, puis appuyez sur **Ajouter**.
 
-> [AZURE.NOTE]   Contrairement aux autres ressources Azure, vos annuaires ne sont pas des ressources enfants d’un abonnement Azure. Si vous annulez votre abonnement ou que vous le laissez arriver à expiration, vous pourrez toujours accéder à vos données d’annuaire à l’aide d’Azure PowerShell, de l’API Graph Azure ou d’autres interfaces, telles que le Centre d’administration Office 365. Vous pouvez également associer un autre abonnement à l’annuaire.
+> [AZURE.NOTE]   Contrairement aux autres ressources Azure, vos annuaires ne sont pas des ressources enfants d’un abonnement Azure. Si vous annulez votre abonnement ou que vous le laissez arriver à expiration, vous pourrez toujours accéder à vos données d’annuaire à l’aide d’Azure PowerShell, de l’API Graph Azure ou d’autres interfaces, telles que le Centre d’administration Office 365. Vous pouvez également associer un autre abonnement à l’annuaire.
 
 Pour obtenir une vue d’ensemble des problèmes de licence Azure AD et pour découvrir les meilleures pratiques, voir l’article [Qu’est-ce que la gestion des licences Azure Active Directory ?](active-directory-licensing-what-is.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0824_2016-->

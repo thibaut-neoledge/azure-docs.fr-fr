@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/11/2016"
+	ms.date="08/17/2016"
 	ms.author="genli"/>
 
 # Comment modifier les informations de profil de votre compte Azure comme l'e-mail de contact, l'adresse et le numéro de téléphone
@@ -26,6 +26,8 @@ Vous avez manqué un message électronique important de la part d'Azure ? Vous s
 
 -	[Comment modifier vos informations de profil](#how-to-change-your-profile-information)
 -	[Réponses aux questions et problèmes courants](#frequently-asked-questions)
+
+> [AZURE.NOTE] Si à un moment donné dans cet article, vous rencontrez un problème et avez besoin d’aide, [contactez le support technique](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour obtenir une prise en charge rapide.
 
 ## Informations importantes concernant l'adresse de messagerie de votre profil
 
@@ -61,4 +63,6 @@ En raison de contraintes techniques, nous ne pouvons modifier le pays d'un compt
 
 Si vous vous inscrivez à la nouvelle fonctionnalité d'aperçu des alertes de facturation Azure, vous recevez par courrier électronique des alertes de facturation Azure à l'adresse que vous spécifiez, que vous ayez modifié ou non l'adresse de messagerie de l'administrateur de compte.
 
-<!---HONumber=AcomDC_0817_2016-->
+> [AZURE.NOTE] Si vous avez d’autres questions, veuillez [contacter le support technique](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour obtenir une prise en charge rapide de votre problème.
+
+<!---HONumber=AcomDC_0824_2016-->

@@ -71,7 +71,8 @@ L’identifiant de règle Service Bus est une chaîne au format : `{service bus 
 [Le schéma pour le journal d’activité est disponible ici](./monitoring-overview-activity-logs.md). Chaque événement est dans un tableau d’objets blob JSON appelé « enregistrements ».
 
 ## Étapes suivantes
+- [Archiver le journal d’activité dans un compte de stockage](./monitoring-archive-activity-log.md)
 - [Lire la présentation du journal d’activité Azure](./monitoring-overview-activity-logs.md)
 - [Définir une alerte basée sur un événement de journal d’activité](./insights-auditlog-to-webhook-email.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -1,6 +1,6 @@
 <properties
-pageTitle="Utiliser le connecteur SharePoint Online dans vos applications logiques ou applications PowerApps | Microsoft Azure"
-description="Commencez à utiliser le connecteur SharePoint Online Azure App Service dans vos applications logiques et vos applications PowerApps."
+pageTitle="Utiliser le connecteur SharePoint Online dans vos applications logiques | Microsoft Azure"
+description="Commencez à utiliser le connecteur SharePoint Online Azure App Service dans vos applications logiques."
 services=""    
 documentationCenter=""     
 authors="msftman"    
@@ -14,7 +14,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="07/18/2016"
+ms.date="08/18/2016"
 ms.author="deonhe"/>
 
 # Prise en main du connecteur SharePoint Online 
@@ -23,10 +23,6 @@ Le connecteur SharePoint permet d’utiliser des listes dans SharePoint.
 
 >[AZURE.NOTE] Cette version de l'article s'applique à la version de schéma 2015-08-01-preview des applications logiques.
 
-Avec SharePoint, vous pouvez effectuer les opérations suivantes :
-
-* Créer des applications logiques
-* Créer des applications PowerApps
 
 Pour ajouter une opération aux applications logiques, consultez [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
@@ -66,7 +62,7 @@ Vous pouvez écouter les événements suivants :
 
 
 ## Créer une connexion à SharePoint
-Pour utiliser le connecteur SharePoint, vous devez créer une **connexion**, puis fournir les détails de ces propriétés :
+Pour utiliser le connecteur SharePoint, vous devez créer une **connexion**, puis fournir les détails de ces propriétés :
 
 |Propriété| Requis|Description|
 | ---|---|---|
@@ -84,7 +80,6 @@ Dans le concepteur de votre application logique, procédez comme suit pour vous 
 6. Vous pouvez ensuite ajouter d’autres déclencheurs et actions dont vous avez besoin pour terminer votre application logique.
 7. Enregistrez votre travail en sélectionnant **Enregistrer** sur la barre de menus supérieure.
 
->[AZURE.TIP] Vous pouvez utiliser cette connexion dans d’autres applications logiques ou applications PowerApps, ou les deux.
 
 ## Informations de référence sur l’API REST de SharePoint
 #### Cette documentation concerne la version 1.0.
@@ -103,7 +98,7 @@ Dans le concepteur de votre application logique, procédez comme suit pour vous 
 
 ### Voici les réponses possibles :
 
-|Nom|Description|
+|Name|Description|
 |---|---|
 |200|OK|
 |default|L’opération a échoué.|
@@ -146,7 +141,7 @@ Dans le concepteur de votre application logique, procédez comme suit pour vous 
 
 ### Voici les réponses possibles :
 
-|Nom|Description|
+|Name|Description|
 |---|---|
 |200|OK|
 |default|L’opération a échoué.|
@@ -188,7 +183,7 @@ Dans le concepteur de votre application logique, procédez comme suit pour vous 
 
 ### Voici les réponses possibles :
 
-|Nom|Description|
+|Name|Description|
 |---|---|
 |200|OK|
 |default|L’opération a échoué.|
@@ -222,7 +217,7 @@ Dans le concepteur de votre application logique, procédez comme suit pour vous 
 
 
 
-| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
+| Name| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
 |dataset|string|yes|path|(aucun)|URL du site SharePoint. Par exemple, http://contoso.sharepoint.com/sites/mysite|
 |folderPath|string|yes|query|(aucun)|Chemin du dossier|
@@ -268,7 +263,7 @@ Dans le concepteur de votre application logique, procédez comme suit pour vous 
 
 
 
-| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
+| Name| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
 |dataset|string|yes|path|(aucun)|URL du site SharePoint|
 |folderId|string|yes|query|(aucun)|Identificateur unique du dossier dans SharePoint|
@@ -276,7 +271,7 @@ Dans le concepteur de votre application logique, procédez comme suit pour vous 
 
 ### Voici les réponses possibles :
 
-|Nom|Description|
+|Name|Description|
 |---|---|
 |200|OK|
 |default|L’opération a échoué.|
@@ -392,7 +387,7 @@ Dans le concepteur de votre application logique, procédez comme suit pour vous 
 
 ### Voici les réponses possibles :
 
-|Nom|Description|
+|Name|Description|
 |---|---|
 |200|OK|
 |default|L’opération a échoué.|
@@ -449,7 +444,7 @@ Dans le concepteur de votre application logique, procédez comme suit pour vous 
 
 
 
-| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
+| Name| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
 |dataset|string|yes|path|(aucun)|URL du site SharePoint (exemple : http://contoso.sharepoint.com/sites/mysite)|
 |table|string|yes|path|(aucun)|Nom de la liste SharePoint|
@@ -467,7 +462,7 @@ Dans le concepteur de votre application logique, procédez comme suit pour vous 
 
 
 
-## Définition(s) d’objet : 
+## Définition(s) d'objet : 
 
  **DataSetsMetadata** :
 
@@ -498,7 +493,7 @@ Aucune des propriétés n’est obligatoire.
 **Toutes les propriétés** :
 
 
-| Nom | Type de données |
+| Name | Type de données |
 |---|---|
 |source|string|
 |displayName|string|
@@ -543,7 +538,7 @@ Aucune des propriétés n’est obligatoire.
 |ID|string|
 |Nom|string|
 |DisplayName|string|
-|Path|string|
+|Chemin|string|
 |LastModified|string|
 |Taille|integer|
 |MediaType|string|
@@ -564,7 +559,7 @@ Aucune des propriétés n’est obligatoire.
 **Toutes les propriétés** :
 
 
-| Nom | Type de données |
+| Name | Type de données |
 |---|---|
 
 
@@ -577,10 +572,10 @@ Propriétés requises pour TableMetadata :
 Aucune des propriétés n’est obligatoire.
 
 
-**Toutes les propriétés** :
+**Toutes les propriétés** :
 
 
-| Nom | Type de données |
+| Name | Type de données |
 |---|---|
 |name|string|
 |title|string|
@@ -597,7 +592,7 @@ Propriétés requises pour DataSetsList :
 Aucune des propriétés n’est obligatoire.
 
 
-**Toutes les propriétés** :
+**Toutes les propriétés** :
 
 
 | Nom | Type de données |
@@ -617,9 +612,9 @@ Aucune des propriétés n’est obligatoire.
 **Toutes les propriétés** :
 
 
-| Nom | Type de données |
+| Name | Type de données |
 |---|---|
-|Nom|string|
+|Name|string|
 |DisplayName|string|
 
 
@@ -632,7 +627,7 @@ Propriétés requises pour Table :
 Aucune des propriétés n’est obligatoire.
 
 
-**Toutes les propriétés** :
+**Toutes les propriétés** :
 
 
 | Nom | Type de données |
@@ -653,7 +648,7 @@ Aucune des propriétés n’est obligatoire.
 **Toutes les propriétés** :
 
 
-| Nom | Type de données |
+| Name | Type de données |
 |---|---|
 |ItemInternalId|string|
 
@@ -693,7 +688,7 @@ Aucune des propriétés n’est obligatoire.
 
 
 ## Étapes suivantes
-[Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md) [Créer une application PowerApps](../power-apps/powerapps-get-started-azure-portal.md)
+[Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
 [1]: ../../includes/media/connectors-create-api-sharepointonline/connectionconfig1.png
 [2]: ../../includes/media/connectors-create-api-sharepointonline/connectionconfig2.png
@@ -701,4 +696,4 @@ Aucune des propriétés n’est obligatoire.
 [4]: ../../includes/media/connectors-create-api-sharepointonline/connectionconfig4.png
 [5]: ../../includes/media/connectors-create-api-sharepointonline/connectionconfig5.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0824_2016-->

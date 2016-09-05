@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Syntaxe SQL et requête SQL pour DocumentDB | Microsoft Azure" 
 	description="Obtenez plus d’informations sur la syntaxe SQL, les concepts de bases de données et les requêtes SQL pour DocumentDB, une base de données NoSQL. SQL peut être utilisé comme un langage de requête JSON dans DocumentDB." 
-	keywords="syntaxe sql, requête sql, requêtes sql, langage de requête json, concepts de bases de données et requêtes sql"
+	keywords="syntaxe sql, requête sql, requêtes sql, langage de requête json, concepts de bases de données, requêtes sql et fonctions agrégées"
 	services="documentdb" 
 	documentationCenter="" 
 	authors="arramac" 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/07/2016" 
+	ms.date="08/22/2016" 
 	ms.author="arramac"/>
 
 # Requête SQL et syntaxe SQL dans DocumentDB
@@ -864,8 +864,7 @@ L'exemple suivant développe ceci pour expliquer comment renvoyer des valeurs JS
 	]
 
 
-###Opérateur * 
-L’opérateur spécial (*) est pris en charge pour projeter le document tel quel. Une fois utilisé, il doit être le seul champ projeté. Si une requête comme `SELECT * FROM Families f` est valide, `SELECT VALUE * FROM Families f ` et `SELECT *, f.id FROM Families f ` ne le sont pas.
+###Opérateur * L’opérateur spécial (*) est pris en charge pour projeter le document tel quel. Une fois utilisé, il doit être le seul champ projeté. Si une requête comme `SELECT * FROM Families f` est valide, `SELECT VALUE * FROM Families f ` et `SELECT *, f.id FROM Families f ` ne le sont pas.
 
 **Requête**
 
@@ -2093,7 +2092,7 @@ DocumentDB expose les ressources via une API REST qui peut être appelée par n'
 Les exemples suivants montrent comment créer une requête et la soumettre par rapport à un compte de base de données DocumentDB.
 
 ### API REST
-DocumentDB fournit un modèle de programmation RESTful ouvert sur HTTP. Vous pouvez approvisionner vos comptes de bases de données en utilisant un abonnement Azure. Le modèle de ressource de DocumentDB se compose d'ensembles de ressources sous un compte de base de données, toutes adressables via un URI stable et logique. Dans ce document, le terme flux désigne un ensemble de ressources. Un compte de base de données se compose d'un ensemble de bases de données. Chacune d'elles contient plusieurs collections et chaque collection contient des documents, des fonctions définies par l'utilisateur et d'autres types de ressources.
+DocumentDB fournit un modèle de programmation RESTful ouvert sur HTTP. Vous pouvez approvisionner vos comptes de bases de données en utilisant un abonnement Azure. Le modèle de ressource de DocumentDB se compose d'ensembles de ressources sous un compte de base de données, toutes adressables via un URI stable et logique. Dans ce document, de tels ensembles de ressources sont désignés sous le nom de « flux ». Un compte de base de données se compose d'un ensemble de bases de données. Chacune d'elles contient plusieurs collections et chaque collection contient des documents, des fonctions définies par l'utilisateur et d'autres types de ressources.
 
 Le modèle d'interaction de base avec ces ressources consiste à utiliser des verbes HTTP, tels que GET, PUT, POST et DELETE avec leur interprétation standard. Le verbe POST permet de créer une ressource, d'exécuter une procédure stockée ou d'émettre une requête DocumentDB. Les requêtes sont toujours des opérations en lecture seule sans effets secondaires.
 
@@ -2356,6 +2355,18 @@ L'exemple suivant illustre l'utilisation de queryDocuments dans l'API JavaScript
 	        });
 	}
 
+## Fonctions d’agrégation
+
+Nous travaillons sur la prise en charge native pour les fonctions d’agrégation, mais si vous avez besoin de fonctionnalités count ou sum en attendant, vous pouvez obtenir le même résultat à l’aide de différentes méthodes.
+
+Sur le chemin de lecture :
+
+- Vous pouvez exécuter des fonctions d’agrégation en extrayant les données et en effectuant le décompte localement. Il est conseillé d’utiliser une projection de requête peu onéreuse comme `SELECT VALUE 1` plutôt qu’un document complet comme `SELECT * FROM c`. Cela permet de maximiser le nombre de documents traités dans chaque page de résultats, évitant ainsi les allers-retours supplémentaires vers le service si nécessaire.
+- Vous pouvez également utiliser une procédure stockée pour réduire la latence du réseau pour les allers-retours répétés. Pour un exemple de procédure stockée qui calcule le décompte d’une requête de filtre donnée, consultez [Count.js](https://github.com/Azure/azure-documentdb-js-server/blob/master/samples/stored-procedures/Count.js). La procédure stockée peut permettre aux utilisateurs de combiner une logique d’entreprise riche et l’exécution d’agrégations de manière efficace.
+
+Sur le chemin d’écriture :
+
+- Une autre solution commune consiste à pré-agréger les résultats dans le chemin d’écriture. Cela est particulièrement intéressant lorsque le volume des demandes de lecture est supérieur à celui des demandes d’écriture. Une fois pré-agrégés, les résultats sont disponibles avec une requête de lecture à point unique. La meilleure façon de pré-agréger dans DocumentDB consiste à définir un déclencheur qui est appelé avec chaque écriture et mettre à jour un document de métadonnées qui contient les derniers résultats de la requête qui est en cours de création. Par exemple, consultez l’exemple [UpdateaMetadata.js](https://github.com/Azure/azure-documentdb-js-server/blob/master/samples/triggers/UpdateMetadata.js), qui met à jour les valeurs minSize, maxSize et totalSize du document de métadonnées pour la collection. L’exemple peut être étendu pour mettre à jour un compteur, une somme, etc.
 
 ##Références
 1.	[Présentation d’Azure DocumentDB][introduction]
@@ -2367,8 +2378,8 @@ L'exemple suivant illustre l'utilisation de queryDocuments dans l'API JavaScript
 7.	Spécification Javascript [http://www.ecma-international.org/publications/standards/Ecma-262.htm](http://www.ecma-international.org/publications/standards/Ecma-262.htm)
 8.	LINQ [http://msdn.microsoft.com/library/bb308959.aspx](http://msdn.microsoft.com/library/bb308959.aspx)
 9.	Techniques d’évaluation des requêtes pour les bases de données volumineuses [http://dl.acm.org/citation.cfm?id=152611](http://dl.acm.org/citation.cfm?id=152611)
-10.	Traitement des requêtes dans des systèmes de bases de données relationnelles parallèles, IEEE Computer Society Press, 1994
-11.	Lu, Ooi, Tan, Traitement des requêtes dans des systèmes de bases de données relationnelles parallèles, IEEE Computer Society Press, 1994.
+10.	Query Processing in Parallel Relational Database Systems, IEEE Computer Society Press, 1994
+11.	Lu, Ooi, Tan, Query Processing in Parallel Relational Database Systems, IEEE Computer Society Press, 1994.
 12.	Christopher Olston, Benjamin Reed, Utkarsh Srivastava, Ravi Kumar, Andrew Tomkins : Pig Latin: A Not-So-Foreign Language for Data Processing, SIGMOD 2008.
 13.     G. Graefe. The Cascades framework for query optimization. IEEE Data Eng. Bull., 18(3): 1995.
 
@@ -2378,4 +2389,4 @@ L'exemple suivant illustre l'utilisation de queryDocuments dans l'API JavaScript
 [consistency-levels]: documentdb-consistency-levels.md
  
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0824_2016-->

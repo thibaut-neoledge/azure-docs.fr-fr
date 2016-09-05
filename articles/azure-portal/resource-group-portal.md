@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Utiliser le portail Azure pour gérer des ressources Azure | Microsoft Azure" 
-	description="Utilisez le Portail Azure et Azure Resource Manager pour gérer vos ressources. Montre comment utiliser des tableaux de bord et des vignettes pour surveiller les ressources." 
+	description="Utilisez le Portail Azure et Azure Resource Manager pour gérer vos ressources. Montre comment utiliser des tableaux de bord pour surveiller les ressources." 
 	services="azure-resource-manager,azure-portal" 
 	documentationCenter="" 
 	authors="tfitzmac" 
@@ -13,27 +13,24 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/03/2016" 
+	ms.date="08/23/2016" 
 	ms.author="tomfitz"/>
-
 
 # Gérer les ressources Azure sur le portail
 
 > [AZURE.SELECTOR]
-- [Portail](azure-portal/resource-group-portal.md)
-- [Interface de ligne de commande Azure](xplat-cli-azure-resource-manager.md)
-- [Azure PowerShell](powershell-azure-resource-manager.md)
-- [.NET](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-resources-and-groups/)
-- [Java](https://azure.microsoft.com/documentation/samples/resources-java-manage-resource-group/)
-- [Nœud](https://azure.microsoft.com/documentation/samples/resource-manager-node-resources-and-groups/)
-- [Python](https://azure.microsoft.com/documentation/samples/resource-manager-python-resources-and-groups/)
-- [Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-resources-and-groups/)
+- [Azure PowerShell](../powershell-azure-resource-manager.md)
+- [Interface de ligne de commande Azure](../xplat-cli-azure-resource-manager.md)
+- [Portail](resource-group-portal.md)
+- [API REST](../resource-manager-rest-api.md)
 
-Cette rubrique montre comment utiliser le [portail Azure](https://portal.azure.com) avec [Azure Resource Manager](../resource-group-overview.md) pour gérer vos ressources Azure. Actuellement, certains services ne prennent pas en charge le portail ou Resource Manager. Pour ces services, vous devez utiliser le [Portail Azure Classic](https://manage.windowsazure.com). Pour connaître l’état de chaque service, voir [Graphique de la disponibilité du portail Azure](https://azure.microsoft.com/features/azure-portal/availability/).
+Cette rubrique montre comment utiliser le [portail Azure](https://portal.azure.com) avec [Azure Resource Manager](../resource-group-overview.md) pour gérer vos ressources Azure. Pour en savoir plus sur le déploiement des ressources avec le portail, voir [Déployer des ressources avec des modèles Resource Manager et le portail Azure](../resource-group-template-deploy-portal.md).
+
+Actuellement, certains services ne prennent pas en charge le portail ou Resource Manager. Pour ces services, vous devez utiliser le [Portail Azure Classic](https://manage.windowsazure.com). Pour connaître l’état de chaque service, voir [Graphique de la disponibilité du portail Azure](https://azure.microsoft.com/features/azure-portal/availability/).
 
 ## Gérer des groupes de ressources
 
-1. Pour visualiser tous les groupes de ressources de votre abonnement, sélectionnez **Groupes de ressources**.
+1. Pour afficher tous les groupes de ressources de votre abonnement, sélectionnez **Groupes de ressources**.
 
     ![parcourir les groupes de ressources](./media/resource-group-portal/browse-groups.png)
 
@@ -45,7 +42,7 @@ Cette rubrique montre comment utiliser le [portail Azure](https://portal.azure.c
 
     ![Créer un groupe de ressources](./media/resource-group-portal/create-empty-group.png)
 
-1. Vous pourrez avoir besoin de sélectionner **Actualiser** pour visualiser le groupe de ressources que vous venez de créer.
+1. Vous pourrez avoir besoin de sélectionner **Actualiser** pour afficher le groupe de ressources que vous venez de créer.
 
     ![actualiser un groupe de ressources](./media/resource-group-portal/refresh-resource-groups.png)
 
@@ -75,23 +72,11 @@ Vous pouvez appliquer des balises à des groupes de ressources pour organiser lo
 
 ## Surveiller les ressources
 
-Lorsque vous sélectionnez une ressource, le panneau de ressources présente les graphiques et tables par défaut pour la surveillance de ce type de ressource. Vous pouvez personnaliser la méthode de surveillance de la ressource en modifiant les graphiques et les tables affichés.
+Lorsque vous sélectionnez une ressource, le panneau de ressources présente les graphiques et tables par défaut pour la surveillance de ce type de ressource.
 
-1. Dans le panneau d’une ressource, ajoutez des graphiques et des tables supplémentaires en sélectionnant **Ajouter une section** sous le résumé.
+1. Sélectionnez une ressource, puis observez la section **Surveillance**. Elle contient des graphiques pertinents pour le type de ressource. L’illustration suivante montre les données de surveillance par défaut pour un compte de stockage.
 
-    ![ajoutez une section](./media/resource-group-portal/add-section.png)
-
-1. Dans la galerie de vignettes, sélectionnez les informations à présenter dans le panneau. L’éditeur filtre les vignettes en fonction du type de ressource. La sélection d’une autre ressource modifie les vignettes disponibles.
-
-    ![ajoutez une section](./media/resource-group-portal/tile-gallery.png)
-
-1. Faites glisser la vignette de votre choix dans l’espace disponible.
-
-    ![faire glisser une vignette](./media/resource-group-portal/drag-tile.png)
-
-1. Une fois que vous sélectionnez **Terminé** dans la partie supérieure du portail, votre nouvelle vue fait partie intégrante du panneau.
-
-    ![afficher une vignette](./media/resource-group-portal/show-lens.png)
+    ![afficher la surveillance](./media/resource-group-portal/show-monitoring.png)
 
 1. Vous pouvez épingler une section du panneau à votre tableau de bord en sélectionnant les points de suspension (...) situés au-dessus de la section. Vous pouvez aussi personnaliser la taille de la section dans le panneau ou supprimer complètement cette section. L’illustration suivante montre comment épingler, personnaliser ou supprimer la section Processeur et mémoire.
 
@@ -101,11 +86,23 @@ Lorsque vous sélectionnez une ressource, le panneau de ressources présente les
 
     ![afficher le tableau de bord](./media/resource-group-portal/view-startboard.png)
 
-1. Vous pouvez également créer plusieurs tableaux de bord pour la surveillance et la gestion de vos ressources, et partager ces tableaux de bord avec d’autres personnes de votre organisation. Sélectionnez **Nouveau tableau de bord**.
+1. Pour personnaliser entièrement les données que vous surveillez via le portail, accédez à votre tableau de bord par défaut, puis sélectionnez **Nouveau tableau de bord**.
 
     ![dashboard](./media/resource-group-portal/dashboard.png)
 
-     Pour plus d’informations sur l’utilisation des tableaux de bord, visionnez la vidéo [Build Custom Dashboards in the Microsoft Azure Portal](https://channel9.msdn.com/Blogs/trevor-cloud/azure-portal-dashboards) (Créer des tableaux de bord personnalisés dans le portail Microsoft Azure). Pour plus d’informations sur le partage de l’accès à un tableau de bord publié, voir [Partage des tableaux de bord Azure](azure-portal-dashboard-share-access.md).
+1. Donnez un nom à votre tableau de bord et faites glisser les mosaïques dessus. Les mosaïques sont filtrées par différentes options.
+
+    ![dashboard](./media/resource-group-portal/create-dashboard.png)
+
+     Pour plus d’informations sur l’utilisation des tableaux de bord, visionnez la vidéo [Build Custom Dashboards in the Azure Portal](https://channel9.msdn.com/Blogs/trevor-cloud/azure-portal-dashboards) (Créer des tableaux de bord personnalisés dans le portail Azure). Pour plus d’informations sur le partage de l’accès à un tableau de bord publié, voir [Partage des tableaux de bord Azure](azure-portal-dashboard-share-access.md).
+
+## Gestion des ressources
+
+Le panneau d’une ressource montre les options de gestion de cette ressource. Le portail présente les options de gestion pour ce type de ressource particulier. Les commandes de gestion se trouvent dans la partie supérieure et sur le côté gauche du panneau de la ressource.
+
+![gérer les ressources](./media/resource-group-portal/manage-resources.png)
+
+À partir de ces options, vous pouvez effectuer des opérations telles que le démarrage et l’arrêt d’une machine virtuelle, ou la reconfiguration des propriétés de la machine virtuelle.
 
 ## Déplacer des ressources
 
@@ -119,9 +116,9 @@ Vous pouvez verrouiller un abonnement, un groupe de ressources ou une ressource 
 
 ## Afficher votre abonnement et vos coûts
 
-Vous pouvez visualiser des informations sur votre abonnement et sur les coûts cumulés de toutes vos ressources. Sélectionnez **Abonnements**, puis l’abonnement de votre choix. Il se peut que vous n’ayez qu’un seul abonnement à sélectionner.
+Vous pouvez afficher des informations sur votre abonnement et les coûts cumulés de toutes vos ressources. Sélectionnez **Abonnements**, puis l’abonnement de votre choix. Il se peut que vous n’ayez qu’un seul abonnement à sélectionner.
 
-![subscription](./media/resource-group-portal/select-subscription.png)
+![abonnement](./media/resource-group-portal/select-subscription.png)
 
 Le panneau de l’abonnement vous présente un taux d’avancement.
 
@@ -151,7 +148,7 @@ La suppression d’un groupe de ressources supprime toutes les ressources qu’i
 
 - Pour visualiser les journaux d’audit, voir [Opérations d’audit avec Resource Manager](../resource-group-audit.md).
 - Pour résoudre les erreurs de déploiement, voir [Résolution des problèmes liés aux déploiements de groupes de ressources avec le Portail Azure](../resource-manager-troubleshoot-deployments-portal.md).
-- Pour déployer des ressources par le biais du portail, voir [Déployer des ressources à l’aide de modèles Resource Manager et du Portail Azure](../resource-group-template-deploy-portal.md).
+- Pour déployer des ressources via le portail, voir [Déployer des ressources à l’aide de modèles Resource Manager et du Portail Azure](../resource-group-template-deploy-portal.md).
 - Pour gérer l’accès aux ressources, voir [Utiliser les attributions de rôle pour gérer l’accès à vos ressources d’abonnement Azure](../active-directory/role-based-access-control-configure.md).
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

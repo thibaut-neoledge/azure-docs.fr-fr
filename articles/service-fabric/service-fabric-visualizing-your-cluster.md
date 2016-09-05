@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/07/2016"
+   ms.date="08/22/2016"
    ms.author="seanmck"/>
 
 # Visualiser votre cluster à l’aide de l’outil Service Fabric Explorer
@@ -64,7 +64,7 @@ Par exemple, pour supprimer une instance d’application, choisissez simplement 
 
 ![Suppression d’une application dans Service Fabric Explorer][sfx-delete-application]
 
->[AZURE.TIP] Les mêmes actions peuvent être effectuées à partir de l’arborescence en cliquant sur les points de suspension (bouton de sélection) en regard de chaque élément.
+>[AZURE.TIP] Vous pouvez effectuer les mêmes actions en cliquant sur le bouton de sélection en regard de chaque élément.
 
 Le tableau suivant répertorie les actions disponibles pour chaque entité :
 
@@ -72,7 +72,7 @@ Le tableau suivant répertorie les actions disponibles pour chaque entité :
 | ------ | ------ | ----------- |
 | Type d’application | Type de mise hors service | Supprime le package d’application du magasin d’images du cluster. Exige la suppression préalable de toutes les applications de ce type. |
 | Application | Supprimer l’application | Supprime l’application, y compris tous ses services et leur état (le cas échéant). |
-| Service | Supprimer le service | Supprime le service et son état (le cas échéant). |
+| de diffusion en continu | Supprimer le service | Supprime le service et son état (le cas échéant). |
 | Nœud | Activer | Active le nœud. |
 || Désactiver (pause) | Suspend le nœud dans son état actuel. Les services continuent à s’exécuter mais Service Fabric ne déplace rien de manière proactive, sauf si un déplacement est nécessaire pour éviter une panne ou une incohérence des données. Cette action est généralement utilisée pour activer les services de débogage sur un nœud spécifique afin de veiller à ce qu’ils ne se déplacent pas pendant l’inspection. |
 || Désactiver (redémarrage) | Déplace en toute sécurité tous les services en mémoire d’un nœud et ferme les services persistants. Généralement utilisé quand les processus hôtes ou la machine ont besoin d’être redémarrés. |
@@ -83,7 +83,11 @@ Le tableau suivant répertorie les actions disponibles pour chaque entité :
 
 >[AZURE.TIP] Toutes les actions accessibles par le biais de Service Fabric Explorer le sont également par l’intermédiaire de PowerShell ou d’une API REST, ce qui vous permet d’activer Automation.
 
+Vous pouvez également utiliser Service Fabric Explorer pour créer des instances d’application pour une version et un type donnés. Choisissez le type d’application dans l’arborescence, puis cliquez sur le lien **Créer une instance d’application** en regard de la version que vous souhaitez dans le volet droit.
 
+![Création d’une instance application dans Service Fabric Explorer][sfx-create-app-instance]
+
+>[AZURE.NOTE] Les instances d’application créées via le Service Fabric Explorer ne peuvent actuellement pas être paramétrées. Elles sont créées à l’aide des valeurs de paramètre par défaut.
 
 ## Se connecter à un cluster Service Fabric distant
 
@@ -99,9 +103,9 @@ L'URL complète est également disponible dans le volet des éléments essentiel
 
 ### Se connecter à un cluster sécurisé
 
-Vous pouvez contrôler l’accès client à votre cluster Service Fabric avec des [certificats](service-fabric-cluster-security.md) ou à l’aide d[’Azure Active Directory (AAD)](service-fabric-cluster-security-client-auth-with-aad.md).
+Vous pouvez contrôler l’accès client à votre cluster Service Fabric avec des certificats ou à l’aide d’Azure Active Directory (AAD).
 
-Si vous essayez de vous connecter à Service Fabric Explorer sur un cluster sécurisé, vous devez présenter un certificat client ou vous connecter à l’aide d’AAD, en fonction du type de sécurité défini pour les points de terminaison de gestion du cluster.
+Si vous essayez de vous connecter à Service Fabric Explorer sur un cluster sécurisé, vous devez présenter un certificat client ou vous connecter à l’aide d’AAD, en fonction de la configuration du cluster.
 
 ## Étapes suivantes
 
@@ -115,5 +119,6 @@ Si vous essayez de vous connecter à Service Fabric Explorer sur un cluster séc
 [sfx-application-tree]: ./media/service-fabric-visualizing-your-cluster/SfxApplicationTree.png
 [sfx-service-essentials]: ./media/service-fabric-visualizing-your-cluster/SfxServiceEssentials.png
 [sfx-delete-application]: ./media/service-fabric-visualizing-your-cluster/SfxDeleteApplication.png
+[sfx-create-app-instance]: ./media/service-fabric-visualizing-your-cluster/SfxCreateAppInstance.png
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0824_2016-->

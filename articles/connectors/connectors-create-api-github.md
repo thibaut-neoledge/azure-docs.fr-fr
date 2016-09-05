@@ -1,6 +1,6 @@
 <properties
 pageTitle="GitHub | Microsoft Azure"
-description="Créer des applications logiques avec Azure App Service. GitHub est un servie d’hébergement de dépôt Git sur le web. Il offre toutes les fonctionnalités distribuées de contrôle de révision et de gestion du code source (SCM) de Git, ainsi que ses propres fonctionnalités."
+description="Créez des applications logiques avec Azure App Service. GitHub est un servie d’hébergement de dépôt Git sur le web. Il offre toutes les fonctionnalités distribuées de contrôle de révision et de gestion du code source (SCM) de Git, ainsi que ses propres fonctionnalités."
 services="logic-apps"	
 documentationCenter=".net,nodejs,java" 	
 authors="msftman"	
@@ -14,22 +14,16 @@ ms.devlang="multiple"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="05/17/2016"
+ms.date="08/18/2016"
 ms.author="deonhe"/>
 
 # Prise en main du connecteur GitHub
 
-
-
-Le connecteur GitHub peut être utilisé à partir de :
-
-- [Logic Apps](../app-service-logic/app-service-logic-what-are-logic-apps.md)
-- [PowerApps](http://powerapps.microsoft.com)
-- [Flux](http://flows.microsoft.com)
+GitHub est un servie d’hébergement de dépôt Git sur le web. Il offre toutes les fonctionnalités distribuées de contrôle de révision et de gestion du code source (SCM) de Git, ainsi que ses propres fonctionnalités.
 
 >[AZURE.NOTE] Cette version de l'article s'applique à la version de schéma 2015-08-01-preview des applications logiques.
 
-Vous pouvez commencer en créant une application logique. Consultez [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Vous pouvez commencer par créer une application logique. Pour cela, consultez [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Déclencheurs et actions
 
@@ -63,7 +57,7 @@ Après avoir créé la connexion, vous pouvez l’utiliser pour exécuter les ac
 
 >[AZURE.INCLUDE [Procédure de création d’une connexion à GitHub](../../includes/connectors-create-api-github.md)]
 
->[AZURE.TIP] Vous pouvez utiliser cette connexion dans d'autres applications logiques.
+>[AZURE.TIP] Vous pouvez utiliser cette connexion dans d’autres applications logiques.
 
 ## Référence pour GitHub
 S’applique à la version : 1.0
@@ -79,7 +73,7 @@ Créer un problème : crée un problème
 |repositoryName|string|yes|path|(aucun)|Nom du dépôt|
 |issueBasicDetails| |yes|body|(aucun)|Publication des détails|
 
-#### Response
+#### Réponse
 
 |Nom|Description|
 |---|---|
@@ -98,7 +92,7 @@ Lorsqu’un problème est ouvert : un problème est ouvert
 ```GET: /trigger/issueOpened```
 
 Il n’existe aucun paramètre pour cet appel
-#### Response
+#### Réponse
 
 |Nom|Description|
 |---|---|
@@ -117,7 +111,7 @@ Lorsqu’un problème est fermé : un problème est fermé
 ```GET: /trigger/issueClosed```
 
 Il n’existe aucun paramètre pour cet appel
-#### Response
+#### Réponse
 
 |Nom|Description|
 |---|---|
@@ -136,7 +130,7 @@ Lorsqu’un problème est assigné : un problème est assigné
 ```GET: /trigger/issueAssigned```
 
 Il n’existe aucun paramètre pour cet appel
-#### Response
+#### Réponse
 
 |Nom|Description|
 |---|---|
@@ -179,4 +173,4 @@ Il n’existe aucun paramètre pour cet appel
 ## Étapes suivantes
 [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

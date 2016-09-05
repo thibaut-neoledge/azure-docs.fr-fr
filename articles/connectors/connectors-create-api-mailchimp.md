@@ -1,6 +1,6 @@
 <properties
 pageTitle="MailChimp | Microsoft Azure"
-description="Créer des applications logiques avec Azure App Service. MailChimp est un service SaaS qui permet aux entreprises de gérer et d’automatiser les activités de marketing par courrier électronique, y compris l’envoi de courriers électroniques de marketing, de messages automatisés et de campagnes ciblées."
+description="Créez des applications logiques avec Azure App Service. MailChimp est un service SaaS qui permet aux entreprises de gérer et d’automatiser les activités de marketing par courrier électronique, y compris l’envoi de courriers électroniques de marketing, de messages automatisés et de campagnes ciblées."
 services="logic-apps"	
 documentationCenter=".net,nodejs,java" 	
 authors="msftman"	
@@ -14,22 +14,17 @@ ms.devlang="multiple"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="05/17/2016"
+ms.date="08/18/2016"
 ms.author="deonhe"/>
 
 # Prise en main du connecteur MailChimp
 
+MailChimp est un service SaaS qui permet aux entreprises de gérer et d’automatiser les activités de marketing par courrier électronique, y compris l’envoi de courriers électroniques de marketing, de messages automatisés et de campagnes ciblées.
 
-
-Le connecteur MailChimp peut être utilisé à partir de :
-
-- [Logic Apps](../app-service-logic/app-service-logic-what-are-logic-apps.md)
-- [PowerApps](http://powerapps.microsoft.com)
-- [Flux](http://flows.microsoft.com)
 
 >[AZURE.NOTE] Cette version de l'article s'applique à la version de schéma 2015-08-01-preview des applications logiques.
 
-Vous pouvez commencer en créant une application logique. Consultez [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Vous pouvez commencer par créer une application logique. Pour cela, consultez [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Déclencheurs et actions
 
@@ -65,10 +60,10 @@ Pour créer des applications logiques avec MailChimp, vous devez d’abord crée
 
 >[AZURE.INCLUDE [Procédure de création d’une connexion à MailChimp](../../includes/connectors-create-api-mailchimp.md)]
 
->[AZURE.TIP] Vous pouvez utiliser cette connexion dans d'autres applications logiques.
+>[AZURE.TIP] Vous pouvez utiliser cette connexion dans d’autres applications logiques.
 
 ## Référence pour MailChimp
-S’applique à la version : 1.0
+S’applique à la version 1.0.
 
 ## newcampaign
 Nouvelle campagne : créer une nouvelle campagne basée sur un type de campagne, la liste des destinataires et les paramètres de la campagne (ligne d’objet, titre, from\_name et reply\_to)
@@ -79,9 +74,9 @@ Nouvelle campagne : créer une nouvelle campagne basée sur un type de campagne,
 | ---|---|---|---|---|---|
 |newCampaignRequest| |yes|body|(aucun)|Objet JSON à envoyer dans le corps avec les nouveaux paramètres de demande de nouvelle campagne|
 
-#### Response
+#### Réponse
 
-|Nom|Description|
+|Name|Description|
 |---|---|
 |200|OK|
 |400|Demande incorrecte|
@@ -101,7 +96,7 @@ Nouvelle liste : créer une nouvelle liste dans votre compte MailChimp
 | ---|---|---|---|---|---|
 |newListRequest| |yes|body|(aucun)|Objet JSON à envoyer dans le corps avec les nouveaux paramètres de demande de nouvelle campagne|
 
-#### Response
+#### Réponse
 
 |Nom|Description|
 |---|---|
@@ -124,7 +119,7 @@ Ajouter un membre à la liste : ajouter ou mettre à jour un membre de la liste
 |list\_id|string|yes|path|(aucun)|L’ID unique de la liste|
 |newMemberInList| |yes|body|(aucun)|Objet JSON à envoyer dans le corps avec les informations du nouveau membre|
 
-#### Response
+#### Réponse
 
 |Nom|Description|
 |---|---|
@@ -147,9 +142,9 @@ Supprimer le membre de la liste : supprimer un membre d’une liste.
 |list\_id|string|yes|path|(aucun)|L’ID unique de la liste|
 |member\_email|string|yes|path|(aucun)|L’adresse de messagerie du membre à supprimer|
 
-#### Response
+#### Réponse
 
-|Nom|Description|
+|Name|Description|
 |---|---|
 |200|OK|
 |400|Demande incorrecte|
@@ -171,9 +166,9 @@ Mettre à jour les informations d’un membre : mettre à jour les informations 
 |member\_email|string|yes|path|(aucun)|L’adresse de messagerie unique du membre à mettre à jour|
 |updateMemberInListRequest| |yes|body|(aucun)|Objet JSON à envoyer dans le corps avec les informations mises à jour du membre|
 
-#### Response
+#### Réponse
 
-|Nom|Description|
+|Name|Description|
 |---|---|
 |200|OK|
 |400|Demande incorrecte|
@@ -193,9 +188,9 @@ Lorsqu’un membre a été ajouté à une liste : déclenche un flux de travail 
 | ---|---|---|---|---|---|
 |list\_id|string|yes|path|(aucun)|L’ID unique de la liste|
 
-#### Response
+#### Réponse
 
-|Nom|Description|
+|Name|Description|
 |---|---|
 |200|OK|
 |202|Acceptée|
@@ -213,7 +208,7 @@ Lorsqu’une nouvelle liste est créée : déclenche un flux de travail lors de 
 ```GET: /trigger/lists```
 
 Il n’existe aucun paramètre pour cet appel
-#### Response
+#### Réponse
 
 |Nom|Description|
 |---|---|
@@ -616,7 +611,7 @@ Il n’existe aucun paramètre pour cet appel
 
 
 
-### Emplacement
+### Lieu
 
 
 | Nom de la propriété | Type de données | Requis |
@@ -744,4 +739,4 @@ Il n’existe aucun paramètre pour cet appel
 ## Étapes suivantes
 [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

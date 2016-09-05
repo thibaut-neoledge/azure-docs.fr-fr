@@ -65,7 +65,7 @@ Dans les échantillons de lignes ci-dessus, la première (avec 2014-01-01) est �
 ## Conditions préalables
 Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
-1.	**Un abonnement Azure** : si vous n’en avez pas, vous pouvez créer un compte en quelques minutes pour une évaluation gratuite. Consultez l’article [Évaluation gratuite](https://azure.microsoft.com/pricing/free-trial/) pour savoir comment obtenir un compte d’évaluation gratuite.
+1.	**Un abonnement Azure** : si vous n’en avez pas, vous pouvez créer un compte en quelques minutes pour une évaluation gratuite. Consultez l’article [Évaluation gratuite](https://azure.microsoft.com/pricing/free-trial/) pour savoir comment obtenir un compte d’évaluation gratuite.
 
 2.	**Stockage Azure** : dans ce didacticiel, vous utilisez un compte de stockage Azure pour stocker les données. Si vous n’avez pas de compte de stockage Azure, consultez l’article [Créer un compte de stockage](../storage/storage-create-storage-account.md#create-a-storage-account). Après avoir créé le compte de stockage, vous devez obtenir la clé du compte utilisée pour accéder au stockage. Consultez [Affichage, copie et régénération de clés d’accès de stockage](../storage/storage-create-storage-account.md#view-and-copy-storage-access-keys).
 
@@ -204,7 +204,7 @@ Cette section explique comment utiliser l’outil **AzCopy** pour copier des fic
 
 			AzCopy /Source:. /Dest:https://<storageaccountname>.blob.core.windows.net/adfgetstarted/inputdata /DestKey:<storagekey>  /Pattern:input.log
 
-		> [AZURE.NOTE] La commande ci-dessus crée un conteneur nommé **adfgetstarted** dans votre stockage d’objets blob Azure et copie le fichier **partitionweblogs.hql** de votre disque local vers le dossier **inputdata** du conteneur.
+		> [AZURE.NOTE] La commande ci-dessus crée un conteneur nommé **adfgetstarted** dans votre stockage d’objets blob Azure et copie le fichier **input.log** de votre disque local vers le dossier **inputdata** du conteneur.
 	
 	5. Une fois que le fichier a été chargé, vous voyez une sortie d’AzCopy similaire à la suivante.
 	
@@ -228,4 +228,4 @@ Vous êtes maintenant prêt à démarrer le didacticiel. Cliquez sur l’un des 
 - [Utiliser PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 - [Utilisation du modèle Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="na"
-   ms.date="04/18/2016"
+   ms.date="08/24/2016"
    ms.author="zachal"/>
 
 # Transfert des informations d’identification au gestionnaire de l’extension de Configuration de l’état souhaité (DSC) Azure #
@@ -56,7 +56,7 @@ configuration Main
 } 
 ```
 
-Il est important d’inclure l’*hôte local du nœud* dans le cadre de la configuration. Plus précisément, le gestionnaire d’extensions recherche l’instruction relative à l’hôte local du nœud et ne fonctionnera pas sans celle-ci. Il est également important d’inclure le caractère *[PsCredential]*, car ce type spécifique déclenche le chiffrement des informations d’identification par l’extension, comme décrit ci-dessous.
+Il est important d’inclure l’*hôte local du nœud* dans le cadre de la configuration. Si cette instruction est manquante, ce qui suit ne fonctionne pas, car le gestionnaire d’extensions recherche spécifiquement l’instruction relative à l’hôte local du nœud. Il est également important d’inclure le caractère *[PsCredential]*, car ce type spécifique déclenche l’extension pour chiffrer les informations d’identification.
 
 Publiez ce script sur le stockage d’objets blob :
 
@@ -76,17 +76,17 @@ $vm = Set-AzureVMDSCExtension -VM $vm -ConfigurationArchive $configurationArchiv
 $vm | Update-AzureVM
 ```
 
-L’exécution de ce code vous invite à fournir des informations d’identification. Une fois celles-ci fournies, elles sont stockées en mémoire brièvement. Lorsqu’elles sont publiées avec l’applet de commande `Set-AzureVmDscExtension`, elles sont transmises via le protocole HTTPS à la machine virtuelle, où elles sont stockées de manière chiffrée sur le disque par Azure, à l’aide du certificat local de la machine virtuelle. Elles sont ensuite déchiffrées brièvement en mémoire et chiffrées à nouveau pour leur transfert vers DSC.
+L’exécution de ce code invite à entrer les informations d’identification. Une fois celles-ci fournies, elles sont stockées en mémoire brièvement. Lorsqu’elles sont publiées avec l’applet de commande `Set-AzureVmDscExtension`, elles sont transmises via le protocole HTTPS à la machine virtuelle, où elles sont stockées de manière chiffrée sur le disque par Azure, à l’aide du certificat local de la machine virtuelle. Elles sont ensuite déchiffrées brièvement en mémoire, puis rechiffrées pour leur transfert à DSC.
 
-Cela diffère de l’utilisation de configurations sécurisées sans le gestionnaire d’extensions. L’environnement Azure offre un moyen de transmettre des données de configuration en toute sécurité via les certificats. Donc, lorsque vous utilisez le gestionnaire d’extensions DSC, il est inutile de fournir l’entrée $CertificatePath ou $CertificateID / $Thumbprint dans ConfigurationData.
+Ce comportement diffère de l’[utilisation de configurations sécurisées sans le gestionnaire d’extensions](https://msdn.microsoft.com/powershell/dsc/securemof). L’environnement Windows Azure permet de transmettre des données de configuration en toute sécurité via des certificats. Lors de l’utilisation du gestionnaire d’extensions DSC, il est inutile de fournir une entrée $CertificatePath ou $CertificateID/$Thumbprint dans ConfigurationData.
 
 
 ## Étapes suivantes ##
 
-Pour plus d’informations sur le gestionnaire de l’extension DSC Azure, consultez [Présentation du gestionnaire de l’extension de Configuration de l’état souhaité Azure](virtual-machines-windows-extensions-dsc-overview.md).
+Pour plus d’informations sur le gestionnaire d’extensions DSC Azure, voir [Présentation du gestionnaire d’extensions de configuration d’état souhaité Microsoft Azure](virtual-machines-windows-extensions-dsc-overview.md).
 
-Pour plus d’informations sur DSC PowerShell, [visitez le centre de documentation PowerShell](https://msdn.microsoft.com/powershell/dsc/overview).
+Pour plus informations sur DSC PowerShell, [voir le centre de documentation PowerShell](https://msdn.microsoft.com/powershell/dsc/overview).
 
-Pour trouver des fonctionnalités supplémentaires que vous pouvez gérer avec DSC PowerShell, [parcourez la galerie PowerShell](https://www.powershellgallery.com/packages?q=DscResource&x=0&y=0) pour obtenir plus de ressources DSC.
+Pour accéder aux fonctionnalités supplémentaires que vous pouvez gérer avec DSC PowerShell, [parcourez PowerShell Gallery](https://www.powershellgallery.com/packages?q=DscResource&x=0&y=0) pour voir des ressources DSC supplémentaires.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0824_2016-->

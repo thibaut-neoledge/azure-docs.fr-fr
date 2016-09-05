@@ -15,12 +15,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/27/2016"
+	ms.date="08/24/2016"
 	ms.author="genli"/>
 
 # Que faire si mon abonnement Azure est désactivé ?
 
-Si votre abonnement Azure est désactivé, vous pouvez suivre les étapes de cet article pour le réactiver. Votre abonnement Azure peut être désactivé pour les raisons suivantes :
+> [AZURE.NOTE] Si à un moment donné dans cet article, vous avez besoin d’aide, veuillez [contacter le support technique](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour obtenir une prise en charge rapide de votre problème.
+
+Si votre abonnement Azure est désactivé, vous pouvez suivre les étapes de cet article pour le réactiver. Votre abonnement Azure peut être désactivé pour les raisons suivantes.
 
 ## Vous avez atteint votre limite de dépense
 
@@ -35,9 +37,9 @@ Voici comment supprimer votre limite de dépense :
 3. Sélectionnez un abonnement.
 
 4. Si vous voyez le message *L’abonnement a atteint la limite de dépense et a été désactivé pour empêcher les frais*, cliquez dessus.
-	
+
 	Autrement, cliquez sur **Supprimer la limite de dépense** dans la zone **Statut de l’abonnement**.
-	
+
 5. Sélectionnez l’option qui vous convient parmi les options suivantes :
 
 |Option|Résultat|
@@ -71,4 +73,6 @@ Si vous ne pouvez pas accéder au portail, envoyez une demande de prise en charg
 
 Pour plus d’informations, consultez [Comment créer un ticket de support pour les problèmes de facturation et d’abonnement Azure](billing-how-to-create-billing-support-ticket.md).
 
-<!---HONumber=AcomDC_0810_2016-->
+> [AZURE.NOTE] Si vous avez d’autres questions, veuillez [contacter le support technique](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour obtenir une prise en charge rapide de votre problème.
+
+<!---HONumber=AcomDC_0824_2016-->

@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Azure PowerShell avec Azure Resource Manager | Microsoft Azure" 
-	description="Introduction à l’utilisation d’Azure PowerShell pour le déploiement de plusieurs ressources sous la forme d’un groupe de ressources dans Azure." 
+	pageTitle="Azure PowerShell avec Azure Resource Manager | Microsoft Azure" 
+	description="Introduction à l’utilisation d’Azure PowerShell pour le déploiement de plusieurs ressources sous la forme d’un groupe de ressources dans Azure." 
 	services="azure-resource-manager" 
 	documentationCenter="" 
 	authors="tfitzmac" 
@@ -13,44 +13,33 @@
 	ms.tgt_pltfrm="powershell" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/19/2016" 
+	ms.date="08/18/2016" 
 	ms.author="tomfitz"/>
 
 # Utilisation d’Azure PowerShell avec Azure Resource Manager
-
-> [AZURE.SELECTOR]
-- [Portail](azure-portal/resource-group-portal.md)
-- [Interface de ligne de commande Azure](xplat-cli-azure-resource-manager.md)
-- [Azure PowerShell](powershell-azure-resource-manager.md)
-- [.NET](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-resources-and-groups/)
-- [Java](https://azure.microsoft.com/documentation/samples/resources-java-manage-resource-group/)
-- [Nœud](https://azure.microsoft.com/documentation/samples/resource-manager-node-resources-and-groups/)
-- [Python](https://azure.microsoft.com/documentation/samples/resource-manager-python-resources-and-groups/)
-- [Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-resources-and-groups/)
-
 
 Azure Resource Manager contribue à initier une réflexion entièrement nouvelle concernant vos ressources Azure. Au lieu de créer et gérer des ressources à un niveau individuel, commencez à imaginer une solution globale, telle qu’un blog, une galerie de photos, un portail SharePoint ou un wiki. Vous utilisez un modèle, c’est-à-dire une représentation déclarative de la solution, pour créer un groupe de ressources contenant toutes les ressources dont vous avez besoin pour prendre en charge de la solution. Vous pouvez ensuite gérer et déployer ce groupe de ressources sous la forme d’une unité logique.
 
 Ce didacticiel vous apprend à utiliser Azure PowerShell avec Azure Resource Manager. Il vous guide dans le processus de déploiement d'une solution et vous explique comment utiliser cette solution. Vous utiliserez Azure PowerShell et un modèle Resource Manager pour déployer :
 
-- un serveur SQL, pour héberger la base de données ;
-- une base de données SQL, pour stocker les données ;
-- des règles de pare-feu, pour permettre à l’application Web de se connecter à la base de données ;
-- un plan App Service, pour définir les fonctionnalités et le coût de l’application Web ;
-- un site Web, pour l’exécution de l’application Web ;
+- un serveur SQL, pour héberger la base de données ;
+- une base de données SQL, pour stocker les données ;
+- des règles de pare-feu, pour permettre à l’application Web de se connecter à la base de données ;
+- un plan App Service, pour définir les fonctionnalités et le coût de l’application Web ;
+- un site Web, pour l’exécution de l’application Web ;
 - une configuration Web, pour le stockage de la chaîne de connexion à la base de données.
 - Règles d'alerte - pour analyser les performances et les erreurs
 - App Insights - pour les paramètres de mise à l’échelle automatique
 
-## Configuration requise
+## Composants requis
 
-Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
+Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
 - Un compte Azure
-  + Vous pouvez [ouvrir un compte Azure gratuitement](/pricing/free-trial/?WT.mc_id=A261C142F) : vous obtenez alors des crédits dont vous pouvez vous servir pour tester les services Azure payants, et même lorsqu’ils sont épuisés, vous pouvez conserver le compte et utiliser les services Azure gratuits, notamment Sites Web. Votre carte de crédit ne sera pas débitée tant que vous n'aurez pas explicitement modifié vos paramètres pour demander à l'être.
+  + Vous pouvez [ouvrir un compte Azure gratuitement](/pricing/free-trial/?WT.mc_id=A261C142F) : vous obtenez alors des crédits dont vous pouvez vous servir pour tester les services Azure payants, et même lorsqu’ils sont épuisés, vous pouvez conserver le compte et utiliser les services Azure gratuits, notamment Sites Web. Votre carte de crédit ne sera pas débitée tant que vous n'aurez pas explicitement modifié vos paramètres pour demander à l'être.
   
-  + Vous pouvez [activer les avantages de l’abonnement MSDN](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) : votre abonnement MSDN vous donne droit chaque mois à des crédits dont vous pouvez vous servir pour les services Azure payants.
-- Azure PowerShell 1.0. Pour plus d’informations sur cette version et la méthode d’installation, voir [Installation et configuration d’Azure PowerShell](powershell-install-configure.md).
+  + Vous pouvez [activer les avantages de l’abonnement MSDN](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) : votre abonnement MSDN vous donne droit chaque mois à des crédits dont vous pouvez vous servir pour les services Azure payants.
+- Azure PowerShell 1.0. Pour plus d’informations sur cette version et sur la méthode d’installation, voir l’article [Installation et configuration d’Azure PowerShell](powershell-install-configure.md).
 
 Ce didacticiel s’adresse aux utilisateurs novices de PowerShell, mais il repose sur l’hypothèse que vous comprenez les concepts fondamentaux (modules, applets de commande et sessions).
 
@@ -60,15 +49,15 @@ Pour accéder à l'aide détaillée de toute applet de commande présentée dans
 
     Get-Help <cmdlet-name> -Detailed
 
-Par exemple, pour obtenir de l’aide sur l’applet de commande Get-AzureRmResource, entrez :
+Par exemple, pour obtenir de l’aide sur l’applet de commande Get-AzureRmResource, entrez :
 
     Get-Help Get-AzureRmResource -Detailed
 
-Pour obtenir une liste des applets de commande dans le module Ressources avec un résumé de la rubrique d’aide, entrez :
+Pour obtenir une liste des applets de commande dans le module Ressources avec un résumé de la rubrique d’aide, entrez :
 
     Get-Command -Module AzureRM.Resources | Get-Help | Format-Table Name, Synopsis
 
-Le résultat ressemble à l’extrait qui suit :
+Le résultat ressemble à l’extrait qui suit :
 
 	Name                                   Synopsis
 	----                                   --------
@@ -78,7 +67,7 @@ Le résultat ressemble à l’extrait qui suit :
 	Get-AzureRmADGroupMember               Get a group members.
 	...
 
-Pour obtenir une aide complète sur une applet de commande, entrez une commande avec la syntaxe suivante :
+Pour obtenir une aide complète sur une applet de commande, entrez une commande avec la syntaxe suivante :
 
     Get-Help <cmdlet-name> -Full
   
@@ -90,9 +79,9 @@ Pour vous connecter à votre compte Azure, utilisez l’applet de commande **Add
 
     Add-AzureRmAccount
 
-Les applets de commande vous invitent à entrer les informations d’identification de connexion pour votre compte Azure. Une fois que vous êtes connecté, l’applet de commande télécharge vos paramètres de compte pour qu’ils soient reconnus par Azure PowerShell.
+Les applets de commande vous invitent à entrer les informations d’identification de connexion pour votre compte Azure. Une fois que vous êtes connecté, l’applet de commande télécharge vos paramètres de compte pour qu’ils soient reconnus par Azure PowerShell.
 
-Un délai d'expiration est associé à ces paramètres ; il est donc nécessaire de les actualiser ponctuellement. Pour actualiser les paramètres de compte, réexécutez **Add-AzureRmAccount**.
+Un délai d'expiration est associé à ces paramètres ; il est donc nécessaire de les actualiser ponctuellement. Pour actualiser les paramètres de compte, réexécutez **Add-AzureRmAccount**.
 
 >[AZURE.NOTE] Les modules Gestionnaire de ressources requièrent l’utilisation de l’applet Add-AzureRmAccount. L'utilisation d'un fichier de paramètres de publication est insuffisante.
 
@@ -106,11 +95,11 @@ Avant de déployer des ressources dans votre abonnement, vous devez créer un gr
 
 Pour créer un groupe de ressources, utilisez l’applet de commande **New-AzureRmResourceGroup**.
 
-La commande utilise le paramètre **Name** pour attribuer un nom au groupe de ressources et le paramètre **Location** pour indiquer son emplacement. Compte tenu de ce que nous avons effectué dans la section précédente, nous allons utiliser « l’ouest des États-Unis » comme emplacement.
+La commande utilise le paramètre **Name** pour attribuer un nom au groupe de ressources et le paramètre **Location** pour indiquer son emplacement. Compte tenu de ce que nous avons effectué dans la section précédente, nous allons utiliser « l’ouest des États-Unis » comme emplacement.
 
     New-AzureRmResourceGroup -Name TestRG1 -Location "West US"
     
-La sortie doit ressembler à ceci :
+La sortie doit ressembler à ceci :
 
     ResourceGroupName : TestRG1
     Location          : westus
@@ -122,9 +111,9 @@ Votre groupe de ressources a bien été créé.
 
 ## Déployer votre solution
 
-Cette rubrique n’explique pas comment créer votre modèle, de même qu’elle n’aborde pas la structure du modèle. Pour plus d’informations, consultez les rubriques [Création de modèles Azure Resource Manager](resource-group-authoring-templates.md) et [Guide de création d’un modèle Resource Manager](resource-manager-template-walkthrough.md). Vous allez déployer un modèle [Mettre en service une application Web avec une base de données SQL](https://azure.microsoft.com/documentation/templates/201-web-app-sql-database/) prédéfini à partir de [modèles de démarrage rapide Azure](https://azure.microsoft.com/documentation/templates/).
+Cette rubrique n’explique pas comment créer votre modèle, de même qu’elle n’aborde pas la structure du modèle. Pour plus d’informations, consultez les rubriques [Création de modèles Azure Resource Manager](resource-group-authoring-templates.md) et [Guide de création d’un modèle Resource Manager](resource-manager-template-walkthrough.md). Vous allez déployer un modèle [Mettre en service une application Web avec une base de données SQL](https://azure.microsoft.com/documentation/templates/201-web-app-sql-database/) prédéfini à partir des [Modèles de démarrage rapide Azure](https://azure.microsoft.com/documentation/templates/).
 
-À présent que vous disposez de votre groupe de ressources et de votre modèle, vous êtes maintenant prêt à déployer sur le groupe de ressources l’infrastructure définie dans votre modèle. Pour déployer les ressources, utilisez l’applet de commande **New-AzureRmResourceGroupDeployment**. Le modèle spécifie plusieurs valeurs par défaut et que nous utiliserons. Vous n'avez donc pas besoin de fournir les valeurs de ces paramètres. La syntaxe de base ressemble à ce qui suit :
+À présent que vous disposez de votre groupe de ressources et de votre modèle, vous êtes maintenant prêt à déployer sur le groupe de ressources l’infrastructure définie dans votre modèle. Pour déployer les ressources, utilisez l’applet de commande **New-AzureRmResourceGroupDeployment**. Le modèle spécifie plusieurs valeurs par défaut et que nous utiliserons. Vous n'avez donc pas besoin de fournir les valeurs de ces paramètres. La syntaxe de base ressemble à ce qui suit :
 
     New-AzureRmResourceGroupDeployment -ResourceGroupName TestRG1 -administratorLogin exampleadmin -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-sql-database/azuredeploy.json 
 
@@ -203,7 +192,7 @@ Après avoir créé un groupe de ressources, vous pouvez utiliser les applets de
 		
 		...
 
-	Si vous ne spécifiez aucun nom de groupe de ressources, l'applet de commande retourne tous les groupes de ressources de votre abonnement.
+	Si vous ne spécifiez aucun nom de groupe de ressources, l’applet de commande retourne tous les groupes de ressources de votre abonnement.
 
 - Pour obtenir les ressources du groupe, utilisez l’applet de commande **Find-AzureRmResource** et son paramètre **ResourceGroupNameContains**. Si vous ne spécifiez pas de paramètres, Find-AzureRmResource récupère l’ensemble des ressources de votre abonnement Azure.
 
@@ -387,4 +376,4 @@ Les exemples de déploiement précédents de cette rubrique ne présentaient que
 - Pour obtenir un exemple détaillé de déploiement d’un projet, consultez [Déployer des microservices de manière prévisible dans Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
 - Pour résoudre les problèmes liés à l’échec d’un déploiement, consultez [Résolution des problèmes liés aux déploiements de groupes de ressources dans Azure](./resource-manager-troubleshoot-deployments-powershell.md).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0824_2016-->

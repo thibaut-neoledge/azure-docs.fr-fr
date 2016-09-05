@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="05/10/2016"
+	ms.date="08/19/2016"
 	ms.author="piyushjo" />
 
 #Comment intégrer le module de couverture Engagement sur Android
@@ -249,7 +249,7 @@ Quand vous modifiez les dispositions fournies, vous modifiez l'apparence de tout
 
 Pour inscrire un gestionnaire de catégories pour vos notifications, vous devez ajouter un appel quand l'application est initialisée.
 
-> [AZURE.IMPORTANT] Lisez l'avertissement concernant l'attribut android:process <android-sdk-engagement-process> dans la rubrique « Comment intégrer Engagement sur Android » avant de continuer.
+> [AZURE.IMPORTANT] Lisez l’avertissement concernant l’attribut android:process <android-sdk-engagement-process> dans la rubrique « Comment intégrer Engagement sur Android » avant de continuer.
 
 L'exemple suivant suppose que vous avez pris en compte l'avertissement précédent et que vous utilisez une sous-classe de `EngagementApplication` :
 
@@ -644,4 +644,4 @@ Comme vous pouvez le voir, si vous avez appelé `actionContent(this)` puis termi
 [Google Cloud Messaging]: http://developer.android.com/guide/google/gcm/index.html
 [Amazon Device Messaging]: https://developer.amazon.com/sdk/adm.html
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0824_2016-->

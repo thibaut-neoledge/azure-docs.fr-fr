@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/25/2016"
+   ms.date="08/18/2016"
    ms.author="alkohli" />
 
 # Remplacer un module d’alimentation et de refroidissement (PCM, Power and Cooling Module) sur votre appareil StorSimple
@@ -51,7 +51,7 @@ Suivez ces instructions quand vous êtes prêt à retirer PCM de votre appareil 
 
 #### Pour retirer un PCM
 
-1. Dans le portail Azure Classic, accédez à **Appareils** > **Maintenance** > **État du matériel**. Vérifiez l’état des composants du PCM sous **Composants partagés** pour identifier le PCM défectueux :
+1. Dans le portail Azure Classic, accédez à **Appareils** > **Maintenance** > **État du matériel**. Vérifiez l’état des composants du PCM sous **Composants partagés** pour identifier le PCM défectueux :
 
      - Si une alimentation dans PCM 0 est défectueuse, l’état de **Alimentation dans PCM 0** sera en rouge.
 
@@ -63,7 +63,7 @@ Suivez ces instructions quand vous êtes prêt à retirer PCM de votre appareil 
 
     ![ID du système sur le panneau avant des opérations](./media/storsimple-power-cooling-module-replacement/IC740991.png)
 
-     **Figure 1** : Panneau avant de l’appareil
+     **Figure 1** : Panneau avant de l’appareil
 
     |Étiquette|Description|
     |:---|:-----------|
@@ -77,7 +77,7 @@ Suivez ces instructions quand vous êtes prêt à retirer PCM de votre appareil 
 
     ![Fond de panier des voyants LED de surveillance du PCM de l’appareil](./media/storsimple-power-cooling-module-replacement/IC740992.png)
 
-     **Figure 2** : Arrière du PCM avec les voyants LED
+     **Figure 2** : Arrière du PCM avec les voyants LED
 
     |Étiquette|Description|
     |:---|:-----------|
@@ -92,7 +92,7 @@ Suivez ces instructions quand vous êtes prêt à retirer PCM de votre appareil 
 
      ![Fond du panier des modules du boîtier principal de l’appareil](./media/storsimple-power-cooling-module-replacement/IC740994.png)
 
-     **Figure 3** : Arrière de l’appareil avec des modules enfichables
+     **Figure 3** : Arrière de l’appareil avec des modules enfichables
 
     |Étiquette|Description|
     |:---|:-----------|
@@ -107,13 +107,13 @@ Suivez ces instructions quand vous êtes prêt à retirer PCM de votre appareil 
 
     ![Ouverture de la poignée du PCM](./media/storsimple-power-cooling-module-replacement/IC740995.png)
 
-    **Figure 4** : Ouverture de la poignée du PCM
+    **Figure 4** : Ouverture de la poignée du PCM
 
 7. Saisissez la poignée et retirez le PCM.
 
     ![Retrait du PCM de l’appareil](./media/storsimple-power-cooling-module-replacement/IC740996.png)
 
-    **Figure 5** : Retrait du PCM
+    **Figure 5** : Retrait du PCM
 
 ## Installer un PCM de remplacement
 
@@ -125,7 +125,7 @@ Suivez ces instructions pour installer un PCM dans votre appareil StorSimple. As
 
     ![Étiquette du PCM de l’appareil](./media/storsimple-power-cooling-module-replacement/IC740973.png)
 
-    **Figure 6** : Étiquette du PCM
+    **Figure 6** : Étiquette du PCM
 
 2. Vérifiez si le boîtier n’est pas endommagé, en faisant particulièrement attention aux connecteurs.
 										
@@ -135,7 +135,7 @@ Suivez ces instructions pour installer un PCM dans votre appareil StorSimple. As
 
     ![Installation du PCM de l’appareil](./media/storsimple-power-cooling-module-replacement/IC740975.png)
 
-    **Figure 7** : Installation du PCM
+    **Figure 7** : Installation du PCM
 
 4. Fermez manuellement la poignée du PCM. Vous devez entendre un clic quand le verrou de la poignée s’engage.
 										
@@ -155,4 +155,4 @@ Suivez ces instructions pour installer un PCM dans votre appareil StorSimple. As
 
 En savoir plus sur le [remplacement des composants matériels StorSimple](storsimple-hardware-component-replacement.md).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0824_2016-->

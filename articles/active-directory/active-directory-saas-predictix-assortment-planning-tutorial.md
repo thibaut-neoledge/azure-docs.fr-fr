@@ -34,7 +34,7 @@ Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, co
 Pour configurer l’intégration d’Azure AD à Predictix Assortment Planning, vous avez besoin des éléments suivants :
 
 - Un abonnement Azure AD
-- Un abonnement Predictix Assortment Planning pour lequel l’authentification unique est activée
+- Un abonnement Predictix Assortment Planning pour lequel l’authentification unique est activée.
 
 
 > [AZURE.NOTE] Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production.
@@ -47,12 +47,12 @@ Vous devez en outre suivre les recommandations ci-dessous :
 
 
 ## Description du scénario
-Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test.
+Dans ce didacticiel, vous allez tester l’authentification unique Microsoft Azure AD dans un environnement de test.
 
 Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
 1. Ajout de Predictix Assortment Planning à partir de la galerie
-2. Configuration et test de l’authentification unique Azure AD
+2. Configuration et test de l’authentification unique Microsoft Azure AD
 
 
 ## Ajout de Predictix Assortment Planning à partir de la galerie
@@ -86,33 +86,33 @@ Pour configurer l’intégration de Predictix Assortment Planning à Azure AD, v
 	![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-predictix-assortment-planning-tutorial/tutorial_predictixassortmentplanning_02.png)
 
 
-##  Configuration et test de l’authentification unique Azure AD
-Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec Predictix Assortment Planning avec un utilisateur de test appelé « Britta Simon ».
+##  Configuration et test de l’authentification unique Microsoft Azure AD
+Dans cette section, vous allez configurer et tester l’authentification unique Microsoft Azure AD avec Predictix Assortment Planning avec un utilisateur de test appelé « Britta Simon ».
 
 Pour que l’authentification unique fonctionne, Azure AD doit savoir qui est l’utilisateur Predictix Assortment Planning équivalent dans Azure AD. En d’autres termes, il faut établir une relation entre l’utilisateur Azure AD et l’utilisateur Predictix Assortment Planning associé.
 
 Pour cela, affectez la valeur de **nom d’utilisateur** dans Azure AD comme valeur de **nom d’utilisateur** dans Predictix Assortment Planning.
 
-Pour configurer et tester l’authentification unique Azure AD avec Predictix Assortment Planning, vous devez suivre les indications des sections suivantes:
+Pour configurer et tester l’authentification unique Microsoft Azure AD avec Predictix Assortment Planning, vous devez suivre les indications des sections suivantes :
 
-1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
+1. **[Configuration de l’authentification unique Microsoft Azure AD](#configuring-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
+2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Microsoft Azure AD avec Britta Simon.
 3. **[Création d’un utilisateur de test Predictix Assortment Planning](#creating-a-predictix-price-reporting-test-user)** pour avoir un équivalent de Britta Simon dans Predictix Assortment Planning associé à sa représentation dans Azure AD.
-4. **[Affectation d’un utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+4. **[Affectation d’un utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Microsoft Azure AD.
 5. **[Test de l’authentification unique](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 
-### Configuration de l’authentification unique Azure AD
+### Configuration de l’authentification unique Microsoft Azure AD
 
-Dans cette section, vous allez activer l’authentification unique Azure AD dans le portail Azure Classic et configurer l’authentification unique dans votre application Predictix Assortment Planning.
+Dans cette section, vous allez activer l’authentification unique Microsoft Azure AD dans le portail Azure Classic et configurer l’authentification unique dans votre application Predictix Assortment Planning.
 
 
-**Pour configurer l’authentification unique Azure AD avec Predictix Assortment Planning, procédez comme suit :**
+**Pour configurer l’authentification unique Microsoft Azure AD avec Predictix Assortment Planning, procédez comme suit :**
 
 1. Dans le portail Azure Classic, sur la page d’intégration d’application **Predictix Assortment Planning**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
 	 
 	![Configurer l’authentification unique][6]
 
-2. Sur la page **Comment voulez-vous que les utilisateurs se connectent à Predictix Assortment Planning**, sélectionnez **Authentification unique Azure AD**, puis cliquez sur **Suivant**.
+2. Sur la page **Comment voulez-vous que les utilisateurs se connectent à Predictix Assortment Planning**, sélectionnez **Authentification unique Microsoft Azure AD**, puis cliquez sur **Suivant**.
 
 	![Configurer l’authentification unique](./media/active-directory-saas-predictix-assortment-planning-tutorial/tutorial_predictixassortmentplanning_03.png)
 
@@ -130,7 +130,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     a. Cliquez sur **Télécharger le certificat**, puis enregistrez le fichier sur votre ordinateur.
 
-    b. Cliquez sur **Next**.
+    b. Cliquez sur **Suivant**.
 
 
 5. Pour obtenir la configuration de l’authentification unique pour votre application, contactez l’équipe de support technique Predictix Assortment Planning et fournissez-lui les éléments suivants :
@@ -166,15 +166,15 @@ Dans cette section, vous allez créer un utilisateur de test appelé Britta Simo
 
 2. Dans la liste **Annuaire**, sélectionnez l'annuaire pour lequel vous voulez activer l'intégration d'annuaire.
 
-3. Pour afficher la liste des utilisateurs, dans le menu situé en haut, cliquez sur **Utilisateurs**.
+3. Pour afficher la liste des utilisateurs, dans le menu du haut, cliquez sur **Utilisateurs**.
 
 	![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-predictix-assortment-planning-tutorial/create_aaduser_03.png)
 
-4. Pour ouvrir la boîte de dialogue **Ajouter un utilisateur**, cliquez sur **Ajouter un utilisateur** dans la barre d’outils située en bas.
+4. Pour ouvrir la boîte de dialogue **Ajouter un utilisateur**, cliquez sur l’option **Ajouter un utilisateur** figurant dans la barre d’outils du bas.
 
 	![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-predictix-assortment-planning-tutorial/create_aaduser_04.png)
 
-5. Dans la page de boîte de dialogue **Dites-nous en plus sur cet utilisateur**, procédez comme suit : ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-predictix-assortment-planning-tutorial/create_aaduser_05.png)
+5. Sur la page **Parlez-nous de cet utilisateur**, procédez comme suit : ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-predictix-assortment-planning-tutorial/create_aaduser_05.png)
 
     a. Dans Type d’utilisateur, sélectionnez Nouvel utilisateur dans votre organisation.
 
@@ -182,7 +182,7 @@ Dans cette section, vous allez créer un utilisateur de test appelé Britta Simo
 
     c. Cliquez sur **Next**.
 
-6.  Sur la page de boîte de dialogue **Profil utilisateur**, procédez comme suit : ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-predictix-assortment-planning-tutorial/create_aaduser_06.png)
+6.  Sur la page **Profil utilisateur**, procédez comme suit : ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-predictix-assortment-planning-tutorial/create_aaduser_06.png)
 
     a. Dans la zone de texte **Prénom**, entrez **Britta**.
 
@@ -242,7 +242,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 ### Test de l’authentification unique
 
-Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
+Dans cette section, vous allez tester la configuration de l’authentification unique Microsoft Azure AD à l’aide du volet d’accès.
 
 Lorsque vous cliquez sur la vignette Predictix Assortment Planning dans le volet d’accès, vous devez être connecté automatiquement à votre application Predictix Assortment Planning.
 
@@ -271,4 +271,4 @@ Lorsque vous cliquez sur la vignette Predictix Assortment Planning dans le volet
 [204]: ./media/active-directory-saas-predictix-assortment-planning-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-predictix-assortment-planning-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0824_2016-->

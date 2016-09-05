@@ -106,7 +106,7 @@ Avant de créer une machine virtuelle, vous devez mettre à sa disposition un gr
 		    --subnet-id $subnetId \
 		    --public-ip-name $pipName
 
->[AZURE.TIP] La première commande ci-dessus utilise [grep](http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_04_02.html) et [la manipulation des chaînes](http://tldp.org/LDP/abs/html/string-manipulation.html) (plus précisément, suppression de sous-chaîne).
+	>[AZURE.TIP] La première commande ci-dessus utilise [grep](http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_04_02.html) et [la manipulation des chaînes](http://tldp.org/LDP/abs/html/string-manipulation.html) (plus précisément, suppression de sous-chaîne).
 
 5. Créez un compte de stockage pour héberger le lecteur du système d’exploitation de la machine virtuelle.
 
@@ -227,4 +227,4 @@ Une fois que vous avez effectué les modifications nécessaires et compris le sc
 		info:    Creating VM "WEB1"
 		info:    vm create command OK
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

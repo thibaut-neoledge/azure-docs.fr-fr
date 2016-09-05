@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/13/2016" 
+	ms.date="08/24/2016" 
 	ms.author="awills"/>
  
 # Questions : Application Insights pour ASP.NET
@@ -27,6 +27,12 @@
 * [Applications web Java](app-insights-java-troubleshoot.md)
 * [autres plateformes](app-insights-platforms.md)
 
+*Je ne reçois aucune donnée de mon serveur*
+
+* [Définir les exceptions de pare-feu](app-insights-ip-addresses.md)
+* [Configurer un serveur ASP.NET](app-insights-monitor-performance-live-website-now.md)
+* [Configurer un serveur Java](app-insights-java-agent.md)
+
 
 ## Puis-je utiliser Application Insights avec... ?
 
@@ -35,7 +41,7 @@
 
 ## Est-ce gratuit ?
 
-* Oui, si vous choisissez le [niveau de tarification](app-insights-pricing.md) gratuit. Vous obtenez la plupart des fonctionnalités et un quota important de données. 
+* Oui, si vous choisissez le [niveau de tarification](app-insights-pricing.md) gratuit. Vous obtenez la plupart des fonctionnalités et un quota important de données.
 * Vous devez fournir les données de votre carte de crédit pour vous enregistrer auprès de Microsoft Azure, mais aucun service ne vous sera facturé, sauf si vous utilisez un autre service Azure payant, ou si vous mettez explicitement à niveau vers un niveau payant.
 * Si votre application envoie plus de données que le quota mensuel autorisé pour le niveau gratuit, les données ne sont plus consignées. Si cela se produit, vous pouvez choisir de commencer à payer ou d'attendre jusqu'à ce que le quota soit réinitialisé à la fin du mois.
 * Les données de session et l'utilisation de base ne sont pas soumises à un quota.
@@ -127,7 +133,7 @@ Voir [Rétention de données et confidentialité][data].
 </table>
 
 
-## Automation
+## Automatisation
 
 Vous pouvez [écrire des scripts PowerShell](app-insights-powershell.md) pour créer et mettre à jour des ressources Application Insights.
 
@@ -145,4 +151,4 @@ Vous pouvez [écrire des scripts PowerShell](app-insights-powershell.md) pour cr
 
  
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0824_2016-->

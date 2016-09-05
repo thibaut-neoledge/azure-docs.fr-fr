@@ -214,7 +214,7 @@ Pour vérifier que l'opération est terminée, suivez les étapes décrites dans
 
 2. Les commandes ci-dessous permettent d’obtenir le réseau de Site Recovery pour les serveurs VMM source et cible.
 
-    	$PrimaryNetworks = Get-AzureRmSiteRecoveryNetwork -Server $Servers[0]
+    	$PrimaryNetworks = Get-AzureRmSiteRecoveryNetwork -Server $Servers[0]        
 
 		$RecoveryNetworks = Get-AzureRmSiteRecoveryNetwork -Server $Servers[1]
 
@@ -226,7 +226,30 @@ Pour vérifier que l'opération est terminée, suivez les étapes décrites dans
 
 		New-AzureRmSiteRecoveryNetworkMapping -PrimaryNetwork $PrimaryNetworks[0] -RecoveryNetwork $RecoveryNetworks[0]
 
-## Étape 6 : Activation de la protection des machines virtuelles
+## Étape 6 : Configuration du mappage de stockage
+
+1. La commande ci-dessous récupère la liste des classifications de stockage dans la variable $storageclassifications.
+
+		$storageclassifications = Get-AzureRmSiteRecoveryStorageClassification
+
+
+2. Les commandes suivantes récupèrent la classification source dans la variable $SourceClassification, et la classification cible dans la variable $SourceClassificaion.
+
+    	$SourceClassificaion = $storageclassifications[0]
+
+		$TargetClassification = $storageclassifications[1]
+
+	
+	> [AZURE.NOTE] Les classifications source et cible peuvent être n’importe quel élément du tableau. Reportez-vous à la sortie de la commande suivante pour déterminer l’index des classifications source et cible dans le tableau $storageclassifications.
+	
+	> Get-AzureRmSiteRecoveryStorageClassification | Select-Object -Property FriendlyName, Id | Format-Table
+
+
+3. L’applet de commande ci-dessous crée un mappage entre la classification source et la classification cible.
+
+		New-AzureRmSiteRecoveryStorageClassificationMapping -PrimaryStorageClassification $SourceClassificaion -RecoveryStorageClassification $TargetClassification
+
+## Étape 7 : Activation de la protection des machines virtuelles
 
 Une fois que les serveurs, les clouds et les réseaux ont été configurés correctement, vous pouvez activer la protection pour les machines virtuelles du cloud.
 
@@ -331,4 +354,4 @@ Utilisez les commandes suivantes pour suivre l’activité. Vous devez attendre 
 
 [En savoir plus](https://msdn.microsoft.com/library/azure/mt637930.aspx) sur Azure Site Recovery avec les applets de commande PowerShell Azure Resource Manager.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0824_2016-->

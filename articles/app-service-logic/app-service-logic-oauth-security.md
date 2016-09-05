@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/10/2016"
+	ms.date="08/23/2016"
 	ms.author="mandia"/>
 
 
@@ -30,13 +30,13 @@ Même dans le cadre des applications logiques, vous pouvez utiliser votre propre
 
 1. Ouvrez votre connecteur Twitter dans le portail Azure en version préliminaire. Accédez à **Parcourir** > **Applications API**. Sélectionnez votre connecteur Twitter : ![][1]
 
-2. Sélectionnez **Paramètres** > **Authentification** : ![][2]
+2. Sélectionnez **Paramètres** > **Authentification** : ![][2]
 
-3. Copiez la valeur de l'**URI de redirection** : ![][3]
+3. Copiez la valeur de l'**URI de redirection** : ![][3]
 
 4. Accédez à [Twitter](http://apps.twitter.com) et **Création d'une application**. Dans la propriété **URL de rappel**, collez la valeur de l'**URI de redirection** copiée à partir de votre connecteur Twitter : ![][4]
 5. Lorsque votre application Twitter est créée, sélectionnez **Clé et jetons d'accès**. Copiez ces valeurs.
-6. Dans les paramètres d'authentification du connecteur Twitter, collez ces valeurs dans les propriétés **ID client** et **Clé secrète client** : ![][5]
+6. Dans les paramètres d'authentification du connecteur Twitter, collez ces valeurs dans les propriétés **ID client** et **Clé secrète client** : ![][5]
 7. Enregistrez les paramètres du connecteur.
 
 À présent, vous devez être en mesure d’utiliser votre connecteur à partir de Logic Apps. Lorsque vous utilisez ce connecteur à partir de Logic Apps, il utilise votre application au lieu de l’application par défaut.
@@ -51,4 +51,4 @@ Même dans le cadre des applications logiques, vous pouvez utiliser votre propre
 [4]: ./media/app-service-logic-oauth-security/TwitterApp.png
 [5]: ./media/app-service-logic-oauth-security/TwitterKeys.png
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

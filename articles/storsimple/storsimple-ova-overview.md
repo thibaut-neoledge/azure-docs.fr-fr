@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="06/20/2016"
+   ms.date="08/19/2016"
    ms.author="alkohli" />
 
 # Présentation de StorSimple Virtual Array
@@ -23,7 +23,7 @@ Bienvenue dans Microsoft Azure StorSimple Virtual Array, solution de stockage in
 
 Cette présentation se concentre sur Virtual Array.
 
-- Pour une vue d'ensemble de la gamme StorSimple 8000, consultez la page [Gamme StorSimple 8000 : une solution de stockage de cloud hybride](storsimple-overview.md). 
+- Pour une vue d'ensemble de la gamme StorSimple 8000, consultez la page [Gamme StorSimple 8000 : une solution de stockage de cloud hybride](storsimple-overview.md).
 
 - Pour plus d'informations sur les appareils de la gamme StorSimple 5000/7000, consultez l’[aide en ligne de StorSimple](http://onlinehelp.storsimple.com/).
 
@@ -45,7 +45,8 @@ Le tableau suivant récapitule les fonctionnalités importantes de Virtual Array
 | Performances | Varie en fonction de l'infrastructure sous-jacente |
 | Mobilité des données | Peut restaurer sur le même appareil ou effectuer une récupération au niveau de l'élément (serveur de fichiers) |
 | Niveaux de stockage | Cloud et stockage sur l'hyperviseur local |
-| Taille du partage ou du volume |À plusieurs niveaux : jusqu'à 20 To ; épinglé localement : jusqu'à 2 To |
+| Taille du partage |À plusieurs niveaux : jusqu'à 20 To ; épinglé localement : jusqu'à 2 To |
+| Taille du volume |À plusieurs niveaux : jusqu’à 5 To ; épinglé localement : jusqu’à 500 Go |
 | Instantanés | Cohérence en cas d’incident |
 | Récupération au niveau de l'élément | Oui. Les utilisateurs peuvent restaurer à partir de partages |
 
@@ -85,18 +86,18 @@ Avec Virtual Array, les instantanés cloud fournissent une copie indépendante d
 
 Virtual Array prend en charge les scénarios de récupération d'urgence et de protection des données suivants :
 
-- **Restauration de volume ou de partage** – Utilisez la restauration en tant que nouveau flux de travail pour récupérer un volume ou un partage. Cette approche permet de récupérer la totalité du volume ou du partage.
-- **Récupération au niveau de l'élément** – Les partages permettent d'accéder facilement aux sauvegardes récentes. Vous pouvez facilement récupérer un fichier individuel à partir d'un dossier .backup spécial disponible dans le cloud. Cette fonctionnalité de restauration est contrôlée par l'utilisateur et aucune intervention de l'administrateur n'est nécessaire.
-- **Récupération d'urgence** – Utilisez la fonctionnalité de basculement pour récupérer tous les volumes ou les partages vers un nouveau Virtual Array. Vous créez le nouveau Virtual Array et vous l'inscrivez auprès du service StorSimple Manager, puis vous basculez le Virtual Array d'origine. Le nouveau Virtual Array prend alors en charge les ressources configurées. 
+- **Restauration de volume ou de partage** : utilisez la restauration en tant que nouveau flux de travail pour récupérer un volume ou un partage. Cette approche permet de récupérer la totalité du volume ou du partage.
+- **Récupération au niveau de l’élément** : les partages permettent d’accéder facilement aux sauvegardes récentes. Vous pouvez facilement récupérer un fichier individuel à partir d'un dossier .backup spécial disponible dans le cloud. Cette fonctionnalité de restauration est contrôlée par l'utilisateur et aucune intervention de l'administrateur n'est nécessaire.
+- **Récupération d’urgence** : utilisez la fonctionnalité de basculement pour récupérer tous les volumes ou les partages vers un nouveau groupe virtuel. Vous créez le nouveau Virtual Array et vous l'inscrivez auprès du service StorSimple Manager, puis vous basculez le Virtual Array d'origine. Le nouveau Virtual Array prend alors en charge les ressources configurées.
 
 ## Composants de Virtual Array
 
 Virtual Array comprend les composants suivants :
 
-- [Virtual Array](#virtual-array) – Un appareil de stockage cloud hybride basé sur une machine virtuelle configurée dans votre hyperviseur ou environnement virtualisé.  
-- [Service StorSimple Manager](#storsimple-manager-service) – Une extension du portail Azure Classic qui vous permet de gérer un ou plusieurs appareils StorSimple à partir d'une seule interface web à laquelle vous pouvez accéder depuis divers emplacements géographiques. Vous pouvez utiliser le service StorSimple Manager pour créer et gérer les services, afficher et gérer les appareils et les alertes, gérer les volumes, les partages et les instantanés existants.
-- [Interface utilisateur web locale](#local-web-user-interface) – Une interface utilisateur web qui est utilisée pour configurer l'appareil afin qu'il puisse se connecter au réseau local, puis pour inscrire l'appareil auprès du service StorSimple Manager. 
-- [Interface de ligne de commande](#command-line-interface) – Une interface Windows PowerShell que vous pouvez utiliser pour démarrer une session de support pour Virtual Array. Les sections suivantes décrivent chacun de ces composants plus en détail, et expliquent comment la solution organise les données, alloue le stockage et facilite la gestion du stockage et la protection des données.
+- [Groupe virtuel](#virtual-array) : appareil de stockage cloud hybride basé sur une machine virtuelle configurée dans votre hyperviseur ou environnement virtualisé.
+- [Service StorSimple Manager](#storsimple-manager-service) : extension du portail Azure Classic qui vous permet de gérer un ou plusieurs appareils StorSimple à partir d’une seule interface web à laquelle vous pouvez accéder depuis divers emplacements géographiques. Vous pouvez utiliser le service StorSimple Manager pour créer et gérer les services, afficher et gérer les appareils et les alertes, gérer les volumes, les partages et les instantanés existants.
+- [Interface utilisateur web locale](#local-web-user-interface) : interface utilisateur web qui est utilisée pour configurer l’appareil afin qu’il puisse se connecter au réseau local, puis pour inscrire l’appareil auprès du service StorSimple Manager.
+- [Interface de ligne de commande](#command-line-interface) : interface Windows PowerShell que vous pouvez utiliser pour démarrer une session de support pour Virtual Array. Les sections suivantes décrivent chacun de ces composants plus en détail, et expliquent comment la solution organise les données, alloue le stockage et facilite la gestion du stockage et la protection des données.
 
 ### Virtual Array
 
@@ -107,9 +108,9 @@ Virtual Array est disponible dans un modèle qui est disponible au téléchargem
 Virtual Array présente les caractéristiques suivantes :
 
 - Il est économique. Il utilise votre infrastructure de virtualisation existante et peut être déployé sur votre hyperviseur Hyper-V ou VMware existant.
-- Il réside dans le centre de données et peut être configuré comme un serveur iSCSI ou un serveur de fichiers. 
+- Il réside dans le centre de données et peut être configuré comme un serveur iSCSI ou un serveur de fichiers.
 - Il est intégré au cloud.
-- Les sauvegardes sont stockées dans le cloud, ce qui peut faciliter la récupération d'urgence et simplifier la récupération au niveau de l'élément (ILR). 
+- Les sauvegardes sont stockées dans le cloud, ce qui peut faciliter la récupération d'urgence et simplifier la récupération au niveau de l'élément (ILR).
 - Vous pouvez appliquer des mises à jour à Virtual Array, comme pour un appareil physique.
 
 >[AZURE.NOTE] Un Virtual Array ne peut pas être développé. Par conséquent, il est important de configurer assez de stockage lorsque vous créez l'appareil virtuel.
@@ -118,7 +119,7 @@ Virtual Array présente les caractéristiques suivantes :
 
 Microsoft Azure StorSimple fournit une interface utilisateur web (le service StorSimple Manager) qui vous permet de gérer les centres de données et le stockage cloud de manière centralisée. Vous pouvez utiliser le service StorSimple Manager pour effectuer les tâches suivantes :
 
-- Gérer plusieurs StorSimple Virtual Arrays à partir d'un service unique. 
+- Gérer plusieurs StorSimple Virtual Arrays à partir d'un service unique.
 - Configurer et gérer les paramètres de sécurité pour les appareils StorSimple. (Le chiffrement dans le cloud est dépendant de l'API Microsoft Azure).
 - Configurer les propriétés et les informations d'identification du compte de stockage.
 - Configurer et gérer des volumes ou des partages.
@@ -134,7 +135,7 @@ Pour plus d’informations, consultez [Utiliser le service StorSimple Manager po
 
 Virtual Array inclut une interface utilisateur web qui est utilisée pour la configuration à usage unique et l'inscription de l'appareil auprès du service StorSimple Manager. Vous pouvez l'utiliser pour arrêter et redémarrer Virtual Array, exécuter des tests de diagnostic, mettre à jour le logiciel, modifier le mot de passe administrateur de l'appareil, afficher les journaux système et contacter le Support Microsoft pour créer une demande de service.
 
-Pour plus d'informations sur l'utilisation de l'interface utilisateur basée sur le web, accédez à [Utiliser l'interface utilisateur le web pour gérer votre StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
+Pour plus d’informations sur l’utilisation de l’interface utilisateur basée sur le web, voir [Utiliser l’interface utilisateur le web pour gérer votre Groupe virtuel StorSimple](storsimple-ova-web-ui-admin.md).
 
 ### Interface de ligne de commande
 
@@ -144,9 +145,9 @@ L'interface Windows PowerShell incluse vous permet de lancer une session de supp
 
 En plus de Virtual Array et d'autres composants, la solution StorSimple utilise les technologies logicielles suivantes pour fournir un accès rapide aux données importantes, réduire la consommation du stockage et protéger les données stockées sur votre Virtual Array :
 
-- [Hiérarchisation automatique du stockage](#automatic-storage-tiering) 
+- [Hiérarchisation automatique du stockage](#automatic-storage-tiering)
 - [Partages et volumes épinglés localement](#locally-pinned-shares-and-volumes)
-- [Déduplication et compression des données à plusieurs niveaux ou sauvegardées dans le cloud](#deduplication-and-compression-for-data-tiered/backed-up-to-the-cloud) 
+- [Déduplication et compression des données à plusieurs niveaux ou sauvegardées dans le cloud](#deduplication-and-compression-for-data-tiered/backed-up-to-the-cloud)
 - [Sauvegardes à la demande et planifiées](#scheduled-and-on-demand-backups)
 
 ### Hiérarchisation automatique du stockage
@@ -157,7 +158,7 @@ Les données d'un partage ou d'un volume spécifique à plusieurs niveaux sont s
 
 ![hiérarchisation automatique du stockage](./media/storsimple-ova-overview/automatic-storage-tiering.png)
 
->[AZURE.NOTE] Vous pouvez spécifier qu'un volume est épinglé localement, auquel cas les données restent sur Virtual Array et ne sont jamais hiérarchisées vers le cloud. Pour plus d'informations, consultez la page [Partages et volumes épinglés localement](#locally-pinned-shares-and-volumes).
+>[AZURE.NOTE] Vous pouvez spécifier qu'un volume est épinglé localement, auquel cas les données restent sur Virtual Array et ne sont jamais hiérarchisées vers le cloud. Pour plus d’informations, voir [Partages et volumes épinglés localement](#locally-pinned-shares-and-volumes).
 
 ### Partages et volumes épinglés localement
 
@@ -168,7 +169,7 @@ Vous pouvez créer des partages et volumes appropriés comme étant épinglés l
 
 Vous pouvez restaurer un partage ou volume épinglé localement sous la forme à plusieurs niveaux, ou restaurer un partage ou volume à plusieurs niveaux sous la forme épinglé localement.
 
-Pour plus d'informations sur les volumes épinglés localement, consultez [Utiliser le service StorSimple Manager pour gérer les volumes](storsimple-manage-volumes-u2.md).
+Pour plus d’informations sur les volumes épinglés localement, voir [Utiliser le service StorSimple Manager pour gérer les volumes](storsimple-manage-volumes-u2.md).
 
 ### Déduplication et compression des données à plusieurs niveaux ou sauvegardées dans le cloud
 
@@ -182,6 +183,6 @@ Les fonctionnalités de protection des données de StorSimple permettent de cré
 
 ## Étapes suivantes
 
-Découvrez comment [préparer le portail Virtual Array](storsimple-ova-deploy1-portal-prep.md).
+Découvrez comment [préparer le portail du Groupe virtuel](storsimple-ova-deploy1-portal-prep.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0824_2016-->

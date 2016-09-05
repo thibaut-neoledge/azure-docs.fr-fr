@@ -3,7 +3,7 @@
    description="Cet article vous aide à comprendre les différentes méthodes de routage du trafic utilisées par Traffic Manager."
    services="traffic-manager"
    documentationCenter=""
-   authors="jtuliani"
+   authors="sdwheeler"
    manager="carmonm"
    editor="tysonn" />
 <tags 
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="05/25/2016"
-   ms.author="jtuliani" />
+   ms.author="sewhee" />
 
 # Méthodes de routage du trafic de Traffic Manager
 
@@ -126,4 +126,4 @@ En savoir plus sur la [création d’un profil Traffic Manager](traffic-manager-
 [2]: ./media/traffic-manager-routing-methods/weighted.png
 [3]: ./media/traffic-manager-routing-methods/performance.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0824_2016-->

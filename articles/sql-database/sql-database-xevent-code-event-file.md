@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/24/2016" 
+	ms.date="08/23/2016" 
 	ms.author="genemi"/>
 
 
@@ -26,7 +26,7 @@
 Vous pouvez utiliser un exemple de code complet pour capturer et signaler les informations liées à un événement étendu.
 
 
-Dans Microsoft SQL Server, la [cible du fichier d’événements](http://msdn.microsoft.com/library/ff878115.aspx) est utilisée pour stocker les sorties d’événement dans un fichier sur le disque dur local. Mais ce type de fichier n’est pas disponible dans Azure SQL Database. À la place, nous utilisons le service Azure Storage pour prendre en charge la cible du fichier d’événements.
+Dans Microsoft SQL Server, la [cible du fichier d’événements](http://msdn.microsoft.com/library/ff878115.aspx) est utilisée pour stocker les sorties d’événement dans un fichier sur un disque dur local. Mais ce type de fichier n’est pas disponible dans Azure SQL Database. À la place, nous utilisons le service Azure Storage pour prendre en charge la cible du fichier d’événements.
 
 
 Cette rubrique présente un exemple de code en deux phases :
@@ -39,20 +39,19 @@ Cette rubrique présente un exemple de code en deux phases :
  - Pour créer et démarrer la session d’événement, etc.
 
 
-## Configuration requise
+## Composants requis
 
 
-- Un compte et un abonnement Azure. Vous pouvez vous inscrire à un [essai gratuit](https://azure.microsoft.com/pricing/free-trial/).
+- Un compte et un abonnement Azure. Vous pouvez vous inscrire à un [essai gratuit](https://azure.microsoft.com/pricing/free-trial/).
 
 
 - Une base de données dans laquelle vous pouvez créer une table.
  - Vous pouvez aussi [créer une base de données de démonstration **AdventureWorksLT**](sql-database-get-started.md) en quelques minutes.
 
 
-- SQL Server Management Studio (ssms.exe), version préliminaire d’août 2015 ou version ultérieure. Vous pouvez télécharger la dernière version de ssms.exe :
+- SQL Server Management Studio (ssms.exe), dans l’idéal, la version de sa dernière mise à jour mensuelle. Vous pouvez télécharger la dernière version de ssms.exe :
  - À partir de la rubrique [Télécharger SQL Server Management Studio](http://msdn.microsoft.com/library/mt238290.aspx).
  - [En utilisant un lien direct vers le téléchargement.](http://go.microsoft.com/fwlink/?linkid=616025)
- - Microsoft recommande de mettre régulièrement à jour votre version de ssms.exe. Dans certains cas, ssms.exe est mis à jour chaque mois.
 
 
 - Les [modules Azure PowerShell](http://go.microsoft.com/?linkid=9811175) doivent être installés.
@@ -64,7 +63,7 @@ Cette rubrique présente un exemple de code en deux phases :
 
 Il s’agit de la première phase de l’exemple de code en deux phases.
 
-Le script commence par des commandes à supprimer s’il a déjà été exécuté au préalable. Il est conçu pour pouvoir être exécuté plusieurs fois.
+Le script commence par des commandes à supprimer s’il a déjà été exécuté, et est réexécutable.
 
 
 
@@ -143,7 +142,7 @@ Select-AzureSubscription -SubscriptionName $subscriptionName
 
 
 '
-Clean-up the old Azure Storage Account after any previous run, 
+Clean up the old Azure Storage Account after any previous run, 
 before continuing this new run.'
 
 
@@ -270,7 +269,7 @@ Prenez note des quelques valeurs nommées que le script PowerShell affiche à la
 - Dans la phase 2, le script Transact-SQL suivant doit utiliser ce conteneur.
 
 
-Le script commence par des commandes à supprimer s’il a déjà été exécuté au préalable. Il est conçu pour pouvoir être exécuté plusieurs fois.
+Le script commence par des commandes à supprimer s’il a déjà été exécuté, et est réexécutable.
 
 
 Le script PowerShell a affiché quelques valeurs nommées à la fin de son exécution. Vous devez modifier le script Transact-SQL pour utiliser ces valeurs. Recherchez les occurrences de **TODO** dans le script Transact-SQL pour trouver les parties du code à modifier.
@@ -292,7 +291,7 @@ Le script PowerShell a affiché quelques valeurs nommées à la fin de son exéc
 &nbsp;
 
 
-> [AZURE.WARNING] La valeur de clé SAS générée par le script PowerShell précédent pourrait commencer par un « ? » (point d’interrogation). Lorsque vous utilisez la clé SAS dans le script T-SQL suivant, vous devez *supprimer « ? » au début*. Dans le cas contraire, vos efforts peuvent être bloqués par la sécurité.
+> [AZURE.WARNING] La valeur de clé SAS générée par le script PowerShell précédent pourrait commencer par un « ? » (point d’interrogation). Lorsque vous utilisez la clé SAP dans le script T-SQL suivant, vous devez *supprimer le point d’interrogation « ? » au début*. Dans le cas contraire, vos efforts peuvent être bloqués par la sécurité.
 
 
 &nbsp;
@@ -512,9 +511,9 @@ GO
 ## Sortie
 
 
-Quand le script Transact-SQL a fini de s’exécuter, cliquez sur une cellule sous l’en-tête de colonne **event\_data\_XML**. Un élément **<événement>** s’affiche, avec une instruction UPDATE.
+Quand le script Transact-SQL a fini de s’exécuter, cliquez sur une cellule sous l’en-tête de colonne **event\_data\_XML**. Un élément **<event>** s’affiche, avec une instruction UPDATE.
 
-Voici un élément **<événement<** ayant été généré pendant le test :
+Voici un élément **<event<** généré pendant le test :
 
 
 &nbsp;
@@ -610,4 +609,4 @@ Image references.
 
 [30_powershell_ise]: ./media/sql-database-xevent-code-event-file/event-file-powershell-ise-b30.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0824_2016-->

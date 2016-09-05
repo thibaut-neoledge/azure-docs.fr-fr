@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="05/03/2016" 
+	ms.date="08/19/2016" 
 	ms.author="piyushjo" />
 
 #Comment utiliser l'API Engagement sur Windows Universal
@@ -36,7 +36,7 @@ Les sections qui suivent affinent les [concepts Mobile Engagement](mobile-engag
 
 Une *activité* est généralement associée à une page de l'application, c'est-à-dire que l'*activité* démarre lorsque la page est affichée et s'arrête lorsque la page est fermée : c'est le cas lorsque le Kit de développement logiciel Engagement est intégré à l'aide de la classe `EngagementPage`.
 
-Mais les *activités* peuvent également être contrôlées manuellement à l'aide de l'API Engagement. Cela permet de diviser une page donnée en plusieurs sous-parties, afin d'obtenir davantage de détails sur l'utilisation de cette page (par exemple pour connaître la fréquence et la durée pendant laquelle les boîtes de dialogue sont utilisées à l'intérieur de cette page).
+Mais les *activités* peuvent également être contrôlées manuellement à l'aide de l'API Engagement. Cela vous permet de diviser une page donnée en plusieurs sous-parties, afin d'obtenir davantage de détails sur l'utilisation de cette page (par exemple pour connaître la fréquence et la durée de l’utilisation des boîtes de dialogue à l'intérieur de cette page).
 
 ##Rapports d'activités
 
@@ -48,7 +48,7 @@ Mais les *activités* peuvent également être contrôlées manuellement à l'ai
 
 Vous devez appeler `StartActivity()` chaque fois que l'activité utilisateur change. Le premier appel à cette fonction démarre une nouvelle session utilisateur.
 
-> [AZURE.IMPORTANT] Le Kit de développement logiciel appelle automatiquement la méthode EndActivity lorsque l'application est fermée. Par conséquent, il est FORTEMENT recommandé d'appeler la méthode StartActivity chaque fois que l'activité de l'utilisateur change et de ne JAMAIS appeler la méthode EndActivity, celle-ci forçant la fin de la session active.
+> [AZURE.IMPORTANT] Le Kit de développement logiciel (SDK) appelle automatiquement la méthode EndActivity lorsque l'application est fermée. Par conséquent, il est FORTEMENT recommandé d'appeler la méthode StartActivity chaque fois que l'activité de l'utilisateur change et de ne JAMAIS appeler la méthode EndActivity, celle-ci forçant la fin de la session active.
 
 #### Exemple
 
@@ -56,7 +56,7 @@ Vous devez appeler `StartActivity()` chaque fois que l'activité utilisateur cha
 
 ### L'utilisateur met fin à l'activité en cours
 
-#### du SDK
+#### Référence
 
 			void EndActivity()
 
@@ -89,7 +89,7 @@ Vous pouvez utiliser le travail pour effectuer le suivi de certaines tâches sur
 
 ### Mettre fin à un travail
 
-#### du SDK
+#### Référence
 
 			void EndJob(string name)
 
@@ -160,7 +160,7 @@ Les événements de travail servent généralement à signaler les actions effec
 
 ##Rapports d'erreurs
 
-Il existe trois types d'erreurs :
+Il existe trois types d’erreurs :
 
 -   Erreurs autonomes
 -   Erreurs de session
@@ -168,7 +168,7 @@ Il existe trois types d'erreurs :
 
 ### Erreurs autonomes
 
-#### du SDK
+#### Référence
 
 			void SendError(string name, Dictionary<object, object> extras = null)
 
@@ -226,7 +226,7 @@ Si vous procédez ainsi, la session et les travaux sont fermés juste après l'e
 
 ### Envoyer une exception non gérée
 
-#### du SDK
+#### Référence
 
 			void SendCrash(Exception e)
 
@@ -329,7 +329,7 @@ Les suppléments sont limités à **1 024** caractères par appel.
 
 Vous pouvez signaler manuellement les informations de suivi (ou toute autre information spécifique à l'application) à l'aide de la fonction SendAppInfo().
 
-Notez que ces informations peuvent être envoyées de façon incrémentielle : seule la dernière valeur d'une clé donnée sera conservée pour un périphérique donné. Comme pour les suppléments d'événements, utilisez un Dictionary<object, object> pour joindre des informations.
+Notez que ces données peuvent être envoyées de façon incrémentielle : seule la dernière valeur d'une clé donnée sera conservée pour un périphérique donné. Comme pour les suppléments d'événements, utilisez un Dictionary<object, object> pour joindre des données.
 
 ### Exemple
 
@@ -353,7 +353,7 @@ Cela signifie que les clés doivent commencer par au moins une lettre, suivie de
 
 #### Taille
 
-Les informations de l'application sont limitées à **1 024** caractères par appel.
+Les informations de l'application sont limitées à **1 024** caractères par appel.
 
 Dans l'exemple précédent, le JSON envoyé au serveur fait 44 caractères :
 
@@ -368,4 +368,4 @@ Le Kit de développement logiciel (SDK) peut être configuré pour générer des
 			EngagementAgent.Instance.Init();
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0824_2016-->

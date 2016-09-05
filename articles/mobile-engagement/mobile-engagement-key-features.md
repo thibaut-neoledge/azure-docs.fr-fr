@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/01/2016"
+	ms.date="08/19/2016"
 	ms.author="piyushjo" />
 
 # Azure Mobile Engagement - Principales fonctionnalités
@@ -22,19 +22,19 @@ Cet article donne une vue d’ensemble globale des principales fonctionnalités 
 
 ## **Généralités**
 
-- **Kits de développement logiciel (SDK) disponibles pour toutes les principales plateformes** : iOS, Android, plateforme Windows universelle, Windows Phone Silverlight, Kindle, Cordova. Nous fournissons des Kits de développement logiciel (SDK) faciles à intégrer et une documentation utile pour vous aider à démarrer sur la plateforme de votre choix. 
+- **Kits de développement logiciel (SDK) disponibles pour toutes les principales plateformes** : iOS, Android, plateforme Windows universelle, Windows Phone Silverlight, Kindle, Cordova. Nous fournissons des Kits de développement logiciel (SDK) faciles à intégrer et une documentation utile pour vous aider à démarrer sur la plateforme de votre choix.
 
 - **Portail SaaS distinct** : permet d’accéder facilement à l’équipe marketing sans avoir à passer par le portail de gestion Azure.
 
 - **Disponibilité des API REST en open source** : pour une intégration et une automatisation avec les systèmes CRM/CMS/informatiques utilisant des API multiplateformes, nous fournissons des API REST open source et un Kit de développement logiciel (SDK) .NET pour utiliser ces API et vous permettre une intégration et une automatisation facilitées avec Mobile Engagement. Consultez [ces informations](mobile-engagement-api-authentication.md) pour plus de détails.
 
-- **Connecteur Power BI disponible** : vous pouvez également extraire des graphiques d’analyse clés dans un tableau de bord Power BI. Consultez ce [guide](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-mobile/)
+- **Connecteur Power BI disponible** : vous pouvez également extraire des graphiques d’analyse clés dans un tableau de bord Power BI. Consultez ce [guide](https://powerbi.microsoft.com/fr-FR/documentation/powerbi-content-pack-azure-mobile/)
 
 - **Sécurité et confidentialité garanties** : Azure Mobile Engagement fait partie de la famille Azure et suit toutes les meilleures pratiques standard concernant la sécurité et la confidentialité attendues pour un service cloud.
 
 ## **Analytique actionnable**
 
-- **Surveiller les données en temps réel** : vous pouvez suivre les analyses en temps réel à l’aide de notre module d’analyse qui affiche des détails tels que les sessions, les événements, les erreurs et les incidents en temps réel. Consultez cet [article](mobile-engagement-concepts.md) pour comprendre les concepts de base. 
+- **Surveiller les données en temps réel** : vous pouvez suivre les analyses en temps réel à l’aide de notre module d’analyse qui affiche des détails tels que les sessions, les événements, les erreurs et les incidents en temps réel. Consultez cet [article](mobile-engagement-concepts.md) pour comprendre les concepts de base.
 
 	![][1]
 
@@ -164,4 +164,4 @@ Cet article donne une vue d’ensemble globale des principales fonctionnalités 
 [27]: ./media/mobile-engagement-key-features/push_emoji.png
 [28]: ./media/mobile-engagement-key-features/push_limits.png
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0824_2016-->

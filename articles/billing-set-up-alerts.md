@@ -10,23 +10,23 @@
 	/>
 
 <tags
-	ms.service="multiple"
-	ms.workload="multiple"
+	ms.service="billing"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/17/2016"
+	ms.date="08/18/2016"
 	ms.author="vikdesai"/>
 
 # Configurer des alertes de facturation pour vos abonnements Microsoft Azure
 
-Voulez-vous connaître le montant de vos dépenses mensuelles pour votre abonnement Azure ? Si vous êtes l'administrateur de compte d'un abonnement Azure, vous pouvez utiliser le service d'alerte de facturation Azure pour créer des alertes de facturation personnalisées qui vous aident à surveiller et à gérer l'activité de facturation de vos comptes Azure.
+Souhaitez-vous connaître le montant de vos dépenses mensuelles pour votre abonnement Azure ? Si vous êtes l'administrateur de compte d'un abonnement Azure, vous pouvez utiliser le service d'alerte de facturation Azure pour créer des alertes de facturation personnalisées qui vous aident à surveiller et à gérer l'activité de facturation de vos comptes Azure.
 
-Ce service étant en version préliminaire, la première chose que vous avez à faire est de vous y inscrire. Pour ce faire, visitez la page <a href="https://account.windowsazure.com/PreviewFeatures">des fonctionnalités en version préliminaire</a> dans le portail de gestion des comptes Azure.
+Dans la mesure où ce service est en version préliminaire, la première chose à faire est de vous y inscrire. Pour activer cette fonctionnalité, visitez [la page Fonctionnalités préliminaires](https://account.windowsazure.com/PreviewFeatures) dans le portail de gestion des comptes Azure.
 
 ## Définir le seuil d'alerte et les destinataires des messages électroniques
 
-Après avoir reçu par courrier électronique la confirmation que le service de facturation est activé pour votre abonnement, <a href="https://account.windowsazure.com/Subscriptions">visitez la page Abonnements</a> du portail des comptes. Cliquez sur l’abonnement à surveiller, puis sur **Alertes**.
+Lorsque vous aurez reçu par courrier électronique la confirmation que le service de facturation a été activé pour votre abonnement, rendez-vous sur la [page Abonnements](https://account.windowsazure.com/Subscriptions) du portail des comptes. Cliquez sur l’abonnement à surveiller, puis sur **Alertes**.
 
 ![][Image1]
 
@@ -48,4 +48,4 @@ Une fois que vous avez configuré des alertes, le Centre des comptes les répert
 [Image2]: ./media/azure-billing-set-up-alerts/billingalert2.png
 [Image3]: ./media/azure-billing-set-up-alerts/billingalerts3.png
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

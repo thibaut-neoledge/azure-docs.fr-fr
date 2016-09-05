@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/24/2016"
+   ms.date="08/22/2016"
    ms.author="alkohli" />
 
 # Installation d’Update 1.2 sur votre appareil StorSimple
@@ -125,4 +125,4 @@ Effectuez les étapes suivantes pour désactiver l’interface réseau avec la p
 
 En savoir plus sur la [version Update 1.2](storsimple-update1-release-notes.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0824_2016-->

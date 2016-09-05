@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/03/2016" 
+	ms.date="08/19/2016" 
 	ms.author="piyushjo" />
 
 #Comment utiliser l'API Engagement sur Windows Phone Silverlight
@@ -89,7 +89,7 @@ Vous pouvez utiliser le travail pour effectuer le suivi de certaines tâches sur
 
 ### Mettre fin à un travail
 
-#### du SDK
+#### Référence
 
 			void EndJob(string name)
 
@@ -168,7 +168,7 @@ Il existe trois types d'erreurs :
 
 ### Erreurs autonomes
 
-#### du SDK
+#### Référence
 
 			void SendError(string name, Dictionary<object, object> extras = null)
 
@@ -226,7 +226,7 @@ Si vous procédez ainsi, la session et les travaux sont fermés juste après l'e
 
 ### Envoyer une exception non gérée
 
-#### du Kit de développement logiciel
+#### Référence
 
 			void SendCrash(ApplicationUnhandledExceptionEventArgs e)
 
@@ -372,7 +372,7 @@ Cela signifie que les clés doivent commencer par au moins une lettre, suivie de
 
 #### Taille
 
-Les informations de l'application sont limitées à **1 024** caractères par appel.
+Les informations de l'application sont limitées à **1 024** caractères par appel.
 
 Dans l'exemple précédent, le JSON envoyé au serveur fait 44 caractères :
 
@@ -386,4 +386,4 @@ Le Kit de développement logiciel (SDK) peut être configuré pour générer des
 			EngagementAgent.Instance.TestLogLevel = EngagementTestLogLevel.Verbose;
 			EngagementAgent.Instance.Init();
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0824_2016-->
