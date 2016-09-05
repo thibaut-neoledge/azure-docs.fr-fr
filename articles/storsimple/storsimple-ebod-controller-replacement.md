@@ -52,7 +52,7 @@ Avant de retirer le module de contrôleur EBOD défectueux de votre appareil Sto
 
     ![Fond de panier du contrôleur EBOD](./media/storsimple-ebod-controller-replacement/IC741049.png)
 
-     **Figure 1** : Arrière du module EBOD
+     **Figure 1** : Arrière du module EBOD
 
     |Étiquette|Description|
     |:----|:----------|
@@ -77,13 +77,13 @@ La procédure et le tableau suivants expliquent comment installer un module de c
 
     ![Installation du contrôleur EBOD](./media/storsimple-ebod-controller-replacement/IC741050.png)
 
-    **Figure 2** : Installation du module de contrôleur EBOD
+    **Figure 2** : Installation du module de contrôleur EBOD
 
 3. Fermez le verrou. Vous devez entendre un clic quand le verrou s’engage.
 
     ![Libération du verrou EBOD](./media/storsimple-ebod-controller-replacement/IC741047.png)
 
-    **Figure 3** : Fermeture du verrou du module EBOD
+    **Figure 3** : Fermeture du verrou du module EBOD
 
 4. Rebranchez les câbles. Utilisez la configuration exacte qui existait avant le remplacement. Consultez le diagramme et le tableau suivants pour des informations sur la façon de connecter les câbles.
 

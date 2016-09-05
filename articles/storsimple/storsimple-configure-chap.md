@@ -75,7 +75,7 @@ Dans l’authentification unidirectionnelle, la cible authentifie l’initiateur
 
 		![Découvrir le portail cible](./media/storsimple-configure-chap/IC740945.png)
 
-4. Dans la boîte de dialogue **Paramètres avancés** :
+4. Dans la boîte de dialogue **Paramètres avancés** :
 													
 	1. Cochez la case **Enable CHAP log on**.
 
@@ -146,7 +146,7 @@ Dans l’authentification bidirectionnelle, la cible authentifie l’initiateur,
 
 7. Dans la boîte de dialogue **Se connecter à la cible**, cliquez sur **Avancé**.
 
-8. Dans la boîte de dialogue **Advanced Properties** :
+8. Dans la boîte de dialogue **Advanced Properties** :
 													
 	1. Cochez la case **Enable CHAP log on**.
 

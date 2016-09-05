@@ -26,9 +26,9 @@ Pas de panique. Cela signifie simplement que votre organisation souhaite prendre
 
 La première chose à faire est de terminer le processus d'inscription. Mais avant de commencer ce processus, vous avez quelques choix à faire.
 
-- **Téléphone de bureau ou téléphone mobile** : choisissez votre téléphone de bureau ou votre téléphone mobile.
-- **Appel sur votre téléphone mobile, message ou application mobile** : si vous utilisez un téléphone mobile, vous avez le choix entre recevoir un appel ou un message, ou utiliser l’application mobile.
-- **Application mobile avec une notification ou un code de vérification** : si vous utilisez l'application mobile, choisissez de recevoir une notification à laquelle répondre ou de recevoir un code de vérification.
+- **Téléphone de bureau ou téléphone mobile** : choisissez votre téléphone de bureau ou votre téléphone mobile.
+- **Appel sur votre téléphone mobile, message ou application mobile** : si vous utilisez un téléphone mobile, vous avez le choix entre recevoir un appel ou un message, ou utiliser l’application mobile.
+- **Application mobile avec une notification ou un code de vérification** : si vous utilisez l'application mobile, choisissez de recevoir une notification à laquelle répondre ou de recevoir un code de vérification.
 
 > [AZURE.NOTE]  N'oubliez pas que votre service informatique peut désactiver une ou plusieurs des options ci-dessus. Si c'est le cas, ces options ne seront pas disponibles lors du processus d'inscription.
 

@@ -84,11 +84,11 @@ John décide d’utiliser l’API Reach qui est une API REST HTTP qui permet de 
 
 Pour que cette fonctionnalité fonctionne correctement, John demande à l’équipe informatique d’être vigilante sur les points suivants :
 
-1. **Systèmes d’exploitation** : chacun d’eux à ses propres règles pour gérer des notifications Push. John décide donc de répertorier tous les cas et vérifie si les API les prennent en charge. Par exemple : le système Push sous Android permet l’affichage d’images de grande taille, ce qui n’est pas le cas avec iOS.
+1. **Systèmes d’exploitation** : chacun d’eux à ses propres règles pour gérer des notifications Push. John décide donc de répertorier tous les cas et vérifie si les API les prennent en charge. Par exemple : le système Push sous Android permet l’affichage d’images de grande taille, ce qui n’est pas le cas avec iOS.
 
-2. **Période** : John veut une API qui définit un délai et une date de fin de campagne. Il souhaite éviter aux utilisateurs tout envoi de notification intempestive.
+2. **Période** : John veut une API qui définit un délai et une date de fin de campagne. Il souhaite éviter aux utilisateurs tout envoi de notification intempestive.
 
-3. **Catégories** : l’équipe Marketing prépare un modèle pour chaque type d’alerte. John demande à l’équipe informatique de définir des catégories dans l’API.
+3. **Catégories** : l’équipe Marketing prépare un modèle pour chaque type d’alerte. John demande à l’équipe informatique de définir des catégories dans l’API.
 
 Après quelques essais, John est satisfait. Grâce à cette API, les journalistes peuvent toujours envoyer des notifications Push avec leurs CMS et Azure Mobile Engagement se charge de recueillir toutes les données liées aux comportements pour eux
 

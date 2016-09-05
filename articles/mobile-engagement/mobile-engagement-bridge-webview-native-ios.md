@@ -160,7 +160,7 @@ Suivez les étapes ci-dessous pour l’exemple de pont iOS :
 		
 		@end
 
-6. Notez les points suivants concernant le fichier **ViewController.m** :
+6. Notez les points suivants concernant le fichier **ViewController.m** :
 
 	- Dans la méthode `loadWebView`, nous chargeons un fichier HTML local nommé **LocalPage.html**, dont nous allons maintenant examiner le code.
 	- Dans la méthode `webViewDidFinishLoad`, nous prenons le `JsContext` et nous l’associons à notre classe wrapper. Cela va nous permettre d’appeler nos méthodes du Kit SDK de wrapper **EngagementJs** à partir de la WebView.

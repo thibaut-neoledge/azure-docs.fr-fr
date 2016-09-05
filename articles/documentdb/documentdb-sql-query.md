@@ -864,7 +864,8 @@ L'exemple suivant développe ceci pour expliquer comment renvoyer des valeurs JS
 	]
 
 
-###Opérateur * L’opérateur spécial (*) est pris en charge pour projeter le document tel quel. Une fois utilisé, il doit être le seul champ projeté. Si une requête comme `SELECT * FROM Families f` est valide, `SELECT VALUE * FROM Families f ` et `SELECT *, f.id FROM Families f ` ne le sont pas.
+###Opérateur * 
+L’opérateur spécial (*) est pris en charge pour projeter le document tel quel. Une fois utilisé, il doit être le seul champ projeté. Si une requête comme `SELECT * FROM Families f` est valide, `SELECT VALUE * FROM Families f ` et `SELECT *, f.id FROM Families f ` ne le sont pas.
 
 **Requête**
 
@@ -1051,7 +1052,7 @@ Cette utilisation peut être généralisée pour filtrer chaque entrée du table
 ### Jointures
 Dans une base de données relationnelle, il est très important de joindre les tables. Ceci est la conséquence logique de la conception de schémas normalisés. Au contraire, DocumentDB traite les modèles de données dénormalisés de documents sans schéma. Il s'agit de l'équivalent logique d'une « jointure réflexive ».
 
-La syntaxe prise en charge par le langage est la suivante : <from\_source1> JOIN <from\_source2> JOIN… JOIN <from\_sourceN>. D’une façon générale, ceci renvoie un ensemble de **N**-tuples (un tuple avec **N** valeurs). Les valeurs de chaque tuple sont produites par l'itération de tous les alias de la collection sur leurs ensembles respectifs. En d'autres termes, il s'agit d'un produit croisé complet des ensembles participants à la jointure.
+La syntaxe prise en charge par le langage est la suivante : <from\_source1> JOIN <from\_source2> JOIN… JOIN <from\_sourceN>. D’une façon générale, ceci renvoie un ensemble de **N**-tuples (un tuple avec **N** valeurs). Les valeurs de chaque tuple sont produites par l'itération de tous les alias de la collection sur leurs ensembles respectifs. En d'autres termes, il s'agit d'un produit croisé complet des ensembles participants à la jointure.
 
 Les exemples suivants illustrent le fonctionnement de la clause JOIN. Dans l'exemple suivant, le résultat est vide, car le produit croisé de chaque document de la source et d'un ensemble vide est vide.
 
@@ -1879,7 +1880,7 @@ D'abord, pour le système de type, nous prenons en charge tous les types JSON pr
 ### Liste des opérateurs LINQ pris en charge
 Voici une liste des opérateurs LINQ pris en charge dans le fournisseur LINQ inclus avec le Kit de développement logiciel .NET DocumentDB.
 
--	**Select** : les projections sont traduites en SQL SELECT, y compris la construction d'objets
+-	**Select** : les projections sont traduites en SQL SELECT, y compris la construction d'objets
 -	**Where** : les filtres sont traduits en SQL WHERE et prennent en charge la traduction entre && , ||, ! vers les opérateurs SQL
 -	**SelectMany** : autorise le déroulement de tableaux vers la clause SQL JOIN. Peut être utilisé pour associer/imbriquer des expressions afin de filtrer les éléments de tableau
 -	**OrderBy et OrderByDescending** : se traduit par ORDER BY croissant ou décroissant :
@@ -2378,8 +2379,8 @@ Sur le chemin d’écriture :
 7.	Spécification Javascript [http://www.ecma-international.org/publications/standards/Ecma-262.htm](http://www.ecma-international.org/publications/standards/Ecma-262.htm)
 8.	LINQ [http://msdn.microsoft.com/library/bb308959.aspx](http://msdn.microsoft.com/library/bb308959.aspx)
 9.	Techniques d’évaluation des requêtes pour les bases de données volumineuses [http://dl.acm.org/citation.cfm?id=152611](http://dl.acm.org/citation.cfm?id=152611)
-10.	Query Processing in Parallel Relational Database Systems, IEEE Computer Society Press, 1994
-11.	Lu, Ooi, Tan, Query Processing in Parallel Relational Database Systems, IEEE Computer Society Press, 1994.
+10.	Traitement des requêtes dans des systèmes de bases de données relationnelles parallèles, IEEE Computer Society Press, 1994
+11.	Lu, Ooi, Tan, Traitement des requêtes dans des systèmes de bases de données relationnelles parallèles, IEEE Computer Society Press, 1994.
 12.	Christopher Olston, Benjamin Reed, Utkarsh Srivastava, Ravi Kumar, Andrew Tomkins : Pig Latin: A Not-So-Foreign Language for Data Processing, SIGMOD 2008.
 13.     G. Graefe. The Cascades framework for query optimization. IEEE Data Eng. Bull., 18(3): 1995.
 

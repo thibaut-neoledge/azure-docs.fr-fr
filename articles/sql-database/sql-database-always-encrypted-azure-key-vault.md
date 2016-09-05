@@ -104,7 +104,7 @@ Vous pouvez rapidement créer un coffre de clés en exécutant le script suivant
 
 ## Créer une base de données SQL vide
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
-2. Accédez à **Nouveau** > **Données + stockage** > **Base de données SQL**.
+2. Accédez à **Nouveau** > **Données + stockage** > **Base de données SQL**.
 3. Créez une base de données **vide** nommée **Clinique** sur un serveur nouveau ou existant. Pour obtenir des instructions détaillées sur la création d’une base de données dans le portail Azure, voir [Créer une base de données SQL en quelques minutes](sql-database-get-started.md).
 
 	![Créer une base de données vide](./media/sql-database-always-encrypted-azure-key-vault/create-database.png)

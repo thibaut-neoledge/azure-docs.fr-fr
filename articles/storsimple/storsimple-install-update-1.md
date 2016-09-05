@@ -80,9 +80,9 @@ Les versions logicielles qui peuvent être mises à niveau à l’aide de cette 
 
 Si votre appareil exécute un logiciel antérieur à Update 1 et qu’il possède une passerelle définie pour une interface réseau différente de DATA 0, vous pouvez appliquer Update 1.2 des deux manières suivantes :
 
-- **Option 1** : téléchargez la mise à jour et appliquez-la à l’aide de l’applet de commande `Start-HcsHotfix` à partir de l’interface Windows PowerShell de l’appareil. Il s’agit de la méthode recommandée. **N’utilisez pas cette méthode pour appliquer Update 1.2 si votre appareil exécute Update 1.0 ou Update 1.1.**
+- **Option 1** : téléchargez la mise à jour et appliquez-la à l’aide de l’applet de commande `Start-HcsHotfix` à partir de l’interface Windows PowerShell de l’appareil. Il s’agit de la méthode recommandée. **N’utilisez pas cette méthode pour appliquer Update 1.2 si votre appareil exécute Update 1.0 ou Update 1.1.**
 
-- **Option 2** : supprimez la configuration de la passerelle et installez la mise à jour directement à partir du portail Azure Classic.
+- **Option 2** : supprimez la configuration de la passerelle et installez la mise à jour directement à partir du portail Azure Classic.
 
 
 Des instructions détaillées relatives à chacune des procédures sont fournies dans les sections suivantes.

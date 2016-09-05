@@ -44,7 +44,7 @@ Pour effectuer la procédure de cette rubrique, vous devez disposer d'un compte 
 
 	> [AZURE.IMPORTANT] La clé secrète de l'application est une information d'identification de sécurité importante. Ne partagez cette clé secrète avec personne et ne la distribuez pas dans une application cliente.
 
-7. Le compte Facebook qui a été utilisé pour inscrire l'application est un administrateur de l'application. À ce stade, seuls les administrateurs peuvent se connecter à cette application. Pour authentifier d’autres comptes Facebook, cliquez sur **Révision de l’application** et **rendre <nom-de-votre-application> public ** pour activer l’accès public général à l’aide de l’authentification Facebook.
+7. Le compte Facebook qui a été utilisé pour inscrire l'application est un administrateur de l'application. À ce stade, seuls les administrateurs peuvent se connecter à cette application. Pour authentifier d’autres comptes Facebook, cliquez sur **Révision de l’application** et **rendre <nom-de-votre-application> public** pour activer l’accès public général à l’aide de l’authentification Facebook.
 
 ## <a name="secrets"> </a>Ajout des informations Facebook à votre application
 

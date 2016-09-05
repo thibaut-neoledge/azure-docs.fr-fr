@@ -66,12 +66,12 @@ Pour en savoir plus sur certains de nos autres partenaires, consultez [Partenair
 <!--[sql_sentry_datasheet]:-->
 
 <!--Marketplace Links -->
-[coffing_marketplace]: https://azure.microsoft.com/fr-FR/marketplace/partners/nexus/nexus-chameleon-9/
+[coffing_marketplace]: https://azure.microsoft.com/marketplace/partners/nexus/nexus-chameleon-9/
 <!--[inbrein_marketplace]:-->
-[infolibrarian_marketplace]: https://azure.microsoft.com/fr-FR/marketplace/partners/infolibrarian/infolibrarian-metadata-management-server/
-[redpoint_it_marketplace]: https://azure.microsoft.com/fr-FR/marketplace/partners/redpoint-global/redpoint-interaction/
-[redpoint_dm_marketplace]: https://azure.microsoft.com/fr-FR/marketplace/partners/redpoint-global/redpoint-rpdm/
-[sql_sentry_marketplace]: https://azure.microsoft.com/fr-FR/marketplace/partners/sqlsentry/sqlsentryplatform/
+[infolibrarian_marketplace]: https://azure.microsoft.com/marketplace/partners/infolibrarian/infolibrarian-metadata-management-server/
+[redpoint_it_marketplace]: https://azure.microsoft.com/marketplace/partners/redpoint-global/redpoint-interaction/
+[redpoint_dm_marketplace]: https://azure.microsoft.com/marketplace/partners/redpoint-global/redpoint-rpdm/
+[sql_sentry_marketplace]: https://azure.microsoft.com/marketplace/partners/sqlsentry/sqlsentryplatform/
 
 <!--Press links-->
 [coffing_press]: http://www.coffingdw.com/press-release-nexus-tuned-for-azure-sql-data-warehouse/

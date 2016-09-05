@@ -135,7 +135,7 @@ Un résultat de **0** signifie que In-Memory n’est pas pris en charge, et un r
 
 #### À propos des éléments créés à mémoire optimisée.
 
-**Tables** : l’exemple contient les tables à mémoire optimisée suivantes :
+**Tables** : l’exemple contient les tables à mémoire optimisée suivantes :
 
 - SalesLT.Product\_inmem
 - SalesLT.SalesOrderHeader\_inmem
@@ -159,7 +159,7 @@ SELECT is_memory_optimized, name, type_desc, durability_desc
 ```
 
 
-**Procédure stockée compilée en mode natif** : SalesLT.usp\_InsertSalesOrder\_inmem peut être inspecté via une requête de vue de catalogue :
+**Procédure stockée compilée en mode natif** : SalesLT.usp\_InsertSalesOrder\_inmem peut être inspecté via une requête de vue de catalogue :
 
 
 ```

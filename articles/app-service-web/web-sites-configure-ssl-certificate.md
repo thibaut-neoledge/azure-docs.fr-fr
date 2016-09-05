@@ -116,7 +116,7 @@ Si vous souhaitez tester le programme d’installation dans App Service avant d�
 
 	![Exporter la clé privée][certwiz1]
 
-10. Sélectionnez **Échange d’informations personnelles - PKCS #12 **, **Inclure si possible tous les certificats dans le chemin d’accès de certification** et **Exporter toutes les propriétés étendues**. Cliquez ensuite sur **Suivant**.
+10. Sélectionnez **Échange d’informations personnelles - PKCS #12**, **Inclure si possible tous les certificats dans le chemin d’accès de certification** et **Exporter toutes les propriétés étendues**. Cliquez ensuite sur **Suivant**.
 
 	![inclure tous les certificats et les propriétés étendues][certwiz2]
 
@@ -348,7 +348,7 @@ Vous êtes maintenant prêt à télécharger le fichier PFX exporté vers App Se
 
 	![Exporter la clé privée][certwiz1]
 
-10. Sélectionnez **Échange d’informations personnelles - PKCS #12 **, **Inclure si possible tous les certificats dans le chemin d’accès de certification** et **Exporter toutes les propriétés étendues**. Cliquez ensuite sur **Suivant**.
+10. Sélectionnez **Échange d’informations personnelles - PKCS #12**, **Inclure si possible tous les certificats dans le chemin d’accès de certification** et **Exporter toutes les propriétés étendues**. Cliquez ensuite sur **Suivant**.
 
 	![inclure tous les certificats et les propriétés étendues][certwiz2]
 
@@ -430,7 +430,7 @@ Avant de poursuivre, passez en revue la section [Ce dont vous avez besoin](#bkmk
 3.	Cliquez sur le nom de votre application à laquelle vous voulez attribuer ce certificat.
 4.	Dans les **Paramètres**, cliquez sur **Certificats SSL**
 5.	Cliquez sur **Télécharger un certificat**
-6.	Sélectionnez le fichier .pfx que vous avez exporté à [l’étape 1](#bkmk_getcert) et le mot de passe que vous avez créé précédemment. Cliquez ensuite sur **Charger** pour charger le certificat. Vous devriez maintenant voir votre certificat téléchargé dans le panneau ** Certificat SSL**.
+6.	Sélectionnez le fichier .pfx que vous avez exporté à [l’étape 1](#bkmk_getcert) et le mot de passe que vous avez créé précédemment. Cliquez ensuite sur **Charger** pour charger le certificat. Vous devriez maintenant voir votre certificat téléchargé dans le panneau **Certificat SSL**.
 7. Dans la section **liaisons ssl**, cliquez sur **Ajouter des liaisons**
 8. Dans le panneau **Ajouter une liaison SSL**, utilisez les listes déroulantes pour sélectionner le nom de domaine à sécuriser à l’aide du protocole SSL, ainsi que le certificat à utiliser. Vous pouvez également indiquer si vous voulez utiliser **[l’indication du nom du serveur (SNI)](http://en.wikipedia.org/wiki/Server_Name_Indication)** ou le protocole SSL basé sur IP.
 

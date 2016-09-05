@@ -31,11 +31,11 @@ Apprenez à configurer un cluster Linux RDMA dans Azure avec des machines virtue
 
 Voici des méthodes que vous pouvez utiliser pour créer un cluster Linux RDMA avec ou sans planificateur de tâches.
 
-* **HPC Pack** : créez un cluster Microsoft HPC Pack dans Azure et ajouter des nœuds de calcul de taille A8 ou A9 qui exécutent des distributions Linux prises en charge pour accéder au réseau RDMA. Consultez [Prise en main des nœuds de calcul Linux dans un cluster HPC Pack dans Azure](virtual-machines-linux-classic-hpcpack-cluster.md).
+* **HPC Pack** : créez un cluster Microsoft HPC Pack dans Azure et ajouter des nœuds de calcul de taille A8 ou A9 qui exécutent des distributions Linux prises en charge pour accéder au réseau RDMA. Consultez [Prise en main des nœuds de calcul Linux dans un cluster HPC Pack dans Azure](virtual-machines-linux-classic-hpcpack-cluster.md).
 
-* **Scripts CLI azure** : comme indiqué plus loin dans cet article, utilisez l’[interface de ligne de commande Azure](../xplat-cli-install.md) (CLI) pour créer un script pour le déploiement d’un cluster de machines virtuelles de taille A8 ou A9. La CLI en mode Service Management crée les nœuds de cluster en série dans le modèle de déploiement classique. Le déploiement d’un grand nombre de nœuds de calcul peut donc prendre plusieurs minutes. Dans le modèle de déploiement classique, des machines virtuelles de taille A8 ou A9 doivent être déployées dans le même service cloud pour la connexion via le réseau RDMA.
+* **Scripts CLI azure** : comme indiqué plus loin dans cet article, utilisez l’[interface de ligne de commande Azure](../xplat-cli-install.md) (CLI) pour créer un script pour le déploiement d’un cluster de machines virtuelles de taille A8 ou A9. La CLI en mode Service Management crée les nœuds de cluster en série dans le modèle de déploiement classique. Le déploiement d’un grand nombre de nœuds de calcul peut donc prendre plusieurs minutes. Dans le modèle de déploiement classique, des machines virtuelles de taille A8 ou A9 doivent être déployées dans le même service cloud pour la connexion via le réseau RDMA.
 
-* **Modèles Azure Resource Manager** : utilisez le modèle de déploiement Resource Manager pour déployer plusieurs machines virtuelles Linux A8 et A9 dans un cluster de calcul qui tire parti du réseau RDMA pour exécuter des charges de travail MPI. Vous pouvez [créer votre propre modèle](../resource-group-authoring-templates.md) ou consulter la page [Modèles de démarrage rapide Azure](https://azure.microsoft.com/documentation/templates/) pour trouver des modèles fournis par Microsoft ou la communauté, pour déployer la solution de votre choix. Les modèles Resource Manager peuvent fournir un moyen rapide et fiable pour déployer un cluster Linux. Dans le modèle de déploiement Resource Manager, les machines virtuelles A8 ou A9 doivent être déployées dans le même groupe à haute disponibilité pour se connecter via le réseau RDMA.
+* **Modèles Azure Resource Manager** : utilisez le modèle de déploiement Resource Manager pour déployer plusieurs machines virtuelles Linux A8 et A9 dans un cluster de calcul qui tire parti du réseau RDMA pour exécuter des charges de travail MPI. Vous pouvez [créer votre propre modèle](../resource-group-authoring-templates.md) ou consulter la page [Modèles de démarrage rapide Azure](https://azure.microsoft.com/documentation/templates/) pour trouver des modèles fournis par Microsoft ou la communauté, pour déployer la solution de votre choix. Les modèles Resource Manager peuvent fournir un moyen rapide et fiable pour déployer un cluster Linux. Dans le modèle de déploiement Resource Manager, les machines virtuelles A8 ou A9 doivent être déployées dans le même groupe à haute disponibilité pour se connecter via le réseau RDMA.
 
 ## Exemple de déploiement en modèle classique
 
@@ -49,7 +49,7 @@ Les étapes suivantes montrent comment utiliser la CLI Azure pour déployer une 
 
 *   **Abonnement Azure** : si vous n’en avez pas, vous pouvez créer un [compte gratuit](https://azure.microsoft.com/free/) en quelques minutes. Pour les clusters de grande taille, envisagez de souscrire un abonnement de paiement à l’utilisation ou d’autres options d’achat.
 
-*   **Quota de cœurs** : vous devrez peut-être augmenter le quota de cœurs pour déployer un cluster de machines virtuelles A8 ou A9. Par exemple, vous devez avoir au moins 128 cœurs si vous souhaitez déployer 8 machines virtuelles A9, comme indiqué dans cet article. Pour augmenter un quota, [ouvrez une demande de service clientèle en ligne](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) gratuitement.
+*   **Quota de cœurs** : vous devrez peut-être augmenter le quota de cœurs pour déployer un cluster de machines virtuelles A8 ou A9. Par exemple, vous devez avoir au moins 128 cœurs si vous souhaitez déployer 8 machines virtuelles A9, comme indiqué dans cet article. Pour augmenter un quota, [ouvrez une demande de service clientèle en ligne](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) gratuitement.
 
 *   **Interface de ligne de commande Azure** : [installez](../xplat-cli-install.md) l’interface de ligne de commande (CLI) Azure et [connectez-vous à votre abonnement Azure](../xplat-cli-connect.md) sur l’ordinateur client.
 
@@ -74,7 +74,7 @@ L’abonnement actif actuel est identifié par `Current` avec la valeur `true`. 
 
     azure account set <subscription-Id>
 
-Pour afficher les images SLES 12 HPC publiquement disponibles dans Azure, exécutez une commande similaire à celle qui suit, si votre environnement d'interpréteur de commandes prend en charge **grep** :
+Pour afficher les images SLES 12 HPC publiquement disponibles dans Azure, exécutez une commande similaire à celle qui suit, si votre environnement d'interpréteur de commandes prend en charge **grep** :
 
 
     azure vm image list | grep "suse.*hpc"
@@ -101,15 +101,15 @@ Après le provisionnement de la machine virtuelle, utilisez SSH pour vous connec
 
 >[AZURE.IMPORTANT]Microsoft Azure ne fournit pas d'accès racine aux machines virtuelles Linux. Pour obtenir un accès administratif lorsque vous êtes connecté en tant qu'utilisateur à la machine virtuelle, exécutez les commandes avec `sudo`.
 
-* **Mises à jour** : installez les mises à jour à l'aide de **zypper**. Vous pouvez également installer les utilitaires NFS.
+* **Mises à jour** : installez les mises à jour à l'aide de **zypper**. Vous pouvez également installer les utilitaires NFS.
 
     >[AZURE.IMPORTANT]Si vous avez déployé une machine virtuelle SLES 12 HPC, nous vous recommandons de ne pas appliquer les mises à jour du noyau, qui peuvent provoquer des problèmes avec les pilotes RDMA Linux.
     >
     >Sur les images HPC basées sur CentOS provenant du Marketplace, les mises à jour du noyau sont désactivées dans le fichier de configuration **yum**. Du fait que les pilotes RDMA Linux sont distribués sous forme de package RPM, les mises à jour du pilote peuvent ne pas fonctionner si le noyau est mis à jour.
 
-* **Mises à jour des pilotes RDMA Linux** : si vous avez déployé une machine virtuelle SLES 12 HPC, vous devez mettre à jour les pilotes RDMA. Pour plus d’informations, consultez [À propos des instances de calcul intensif A8, A9, A10 et A11](virtual-machines-linux-a8-a9-a10-a11.md#Linux-RDMA-driver-updates-for-SLES-12).
+* **Mises à jour des pilotes RDMA Linux** : si vous avez déployé une machine virtuelle SLES 12 HPC, vous devez mettre à jour les pilotes RDMA. Pour plus d’informations, consultez [À propos des instances de calcul intensif A8, A9, A10 et A11](virtual-machines-linux-a8-a9-a10-a11.md#Linux-RDMA-driver-updates-for-SLES-12).
 
-* **Intel MPI** : si vous avez déployé une machine virtuelle HPC SLES 12, téléchargez et installez le runtime Intel MPI Library 5 en exécutant des commandes semblables à ce qui suit. Cette étape n’est pas nécessaire si vous avez déployé une machine virtuelle HPC basée sur CentOS 6.5 ou 7.1.
+* **Intel MPI** : si vous avez déployé une machine virtuelle HPC SLES 12, téléchargez et installez le runtime Intel MPI Library 5 en exécutant des commandes semblables à ce qui suit. Cette étape n’est pas nécessaire si vous avez déployé une machine virtuelle HPC basée sur CentOS 6.5 ou 7.1.
 
         sudo wget <download link for your registration>
 
@@ -121,7 +121,7 @@ Après le provisionnement de la machine virtuelle, utilisez SSH pour vous connec
 
     Acceptez les paramètres par défaut pour installer Intel MPI sur la machine virtuelle.
 
-* **Verrouiller la mémoire** : pour que les codes MPI verrouillent la mémoire disponible pour RDMA, vous devez ajouter ou modifier les paramètres suivants dans le fichier /etc/security/limits.conf. (Un accès racine est requis pour modifier ce fichier.) Si vous avez déployé une machine virtuelle HPC basée sur CentOS 6.5 ou 7.1, les paramètres sont déjà ajoutés à ce fichier.
+* **Verrouiller la mémoire** : pour que les codes MPI verrouillent la mémoire disponible pour RDMA, vous devez ajouter ou modifier les paramètres suivants dans le fichier /etc/security/limits.conf. (Un accès racine est requis pour modifier ce fichier.) Si vous avez déployé une machine virtuelle HPC basée sur CentOS 6.5 ou 7.1, les paramètres sont déjà ajoutés à ce fichier.
 
         <User or group name> hard    memlock <memory required for your application in KB>
 
@@ -157,7 +157,7 @@ Après le provisionnement de la machine virtuelle, utilisez SSH pour vous connec
 
     >[AZURE.NOTE]La configuration de `StrictHostKeyChecking no` peut créer un risque de sécurité potentiel si une adresse IP ou une plage d’adresses IP spécifiques ne sont pas spécifiées.
 
-* **Applications** : installez les applications dont vous avez besoin sur cette machine virtuelle ou effectuez d'autres personnalisations avant de capturer l'image.
+* **Applications** : installez les applications dont vous avez besoin sur cette machine virtuelle ou effectuez d'autres personnalisations avant de capturer l'image.
 
 ### capture de l’image
 

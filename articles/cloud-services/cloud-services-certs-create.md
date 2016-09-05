@@ -51,7 +51,7 @@ Vous pouvez créer un certificat auto-signé au moyen de n’importe quel outil 
 * Le nom du sujet doit correspondre au domaine servant à accéder au service cloud.
     > Vous ne pouvez pas acquérir un certificat SSL pour le domaine cloudapp.net (ou pour tout domaine lié à Azure). Le nom d'objet du certificat doit correspondre au nom de domaine personnalisé utilisé pour accéder à votre application. Par exemple, **contoso.net**, mais pas **contoso.cloudapp.net**.
 * Chiffrement à 2 048 bits au minimum.
-* **Certificat de service uniquement** : le certificat côté client doit résider dans le magasin de certificats *personnel*.
+* **Certificat de service uniquement** : le certificat côté client doit résider dans le magasin de certificats *personnel*.
 
 Vous disposez de deux méthodes simples pour créer un certificat sur Windows : avec l’utilitaire `makecert.exe` ou avec IIS.
 

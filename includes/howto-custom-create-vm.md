@@ -42,7 +42,7 @@ Une machine virtuelle *personnalisée* fait référence à une machine virtuelle
 
 14. Si vous souhaitez que la machine virtuelle fasse partie d'un groupe à haute disponibilité, dans **Availability Set**, sélectionnez **Create availability set** ou ajoutez-la à un groupe à haute disponibilité existant.
 
-	**Remarque** : les machines virtuelles d’un groupe à haute disponibilité sont déployées vers différents domaines d’erreur. Le placement de plusieurs machines virtuelles dans un groupe à haute disponibilité permet de vous assurer de la disponibilité de votre application lors de défaillances réseau, de défaillances matérielles d'un disque dur local et de temps d'arrêt planifiés.
+	**Remarque** : les machines virtuelles d’un groupe à haute disponibilité sont déployées vers différents domaines d’erreur. Le placement de plusieurs machines virtuelles dans un groupe à haute disponibilité permet de vous assurer de la disponibilité de votre application lors de défaillances réseau, de défaillances matérielles d'un disque dur local et de temps d'arrêt planifiés.
 
 15.  Sous **Endpoints**, passez en revue les nouveaux points de terminaison qui seront créés pour autoriser les connexions à la machine virtuelle, tels que le Bureau à distance ou un client Secure Shell (SSH), par exemple. Vous pouvez également ajouter des points de terminaison maintenant ou les créer ultérieurement. Pour obtenir des instructions sur leur création à une date ultérieure, consultez la page [Configuration des points de terminaison sur une machine virtuelle](../articles/virtual-machines/virtual-machines-windows-classic-setup-endpoints.md).
 

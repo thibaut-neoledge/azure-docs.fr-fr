@@ -58,8 +58,8 @@ L'outil d'importation inclut une interface utilisateur graphique (dtui.exe) et p
 
 Le code source de l'outil de migration est disponible sur GitHub dans [ce dépôt](https://github.com/azure/azure-documentdb-datamigrationtool) et une version compilée est disponible dans le [Centre de téléchargement Microsoft](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d). Vous pouvez compiler la solution ou simplement télécharger et extraire la version compilée dans un répertoire de votre choix. Exécutez ensuite l’un des fichiers suivants :
 
-- **Dtui.exe** : version de l’interface graphique de l’outil
-- **Dt.exe** : version en ligne de commande de l’outil
+- **Dtui.exe** : version de l’interface graphique de l’outil
+- **Dt.exe** : version en ligne de commande de l’outil
 
 ##<a id="JSON"></a>Importation de fichiers JSON
 

@@ -40,9 +40,9 @@ Vous pouvez modifier, cloner, supprimer ou activer les campagnes qui n'ont pas e
 
 Cliquez sur **Statistiques** pour afficher les détails d'une campagne Reach. L'affichage **Simple** fournit une représentation visuelle sous la forme d'un graphique à barres en colonnes sur ce qui s'est passé après l'activation d'une campagne. L'affichage **Avancé** fournit des détails plus précis sur la campagne Push. Ces détails ne sont pas disponibles si vous envoyez une campagne de test, c'est-à-dire une notification Push envoyée à un appareil de test. Voici comment interpréter ces détails :
 
-1. **Push** : indique le nombre de messages envoyés aux appareils. Ce nombre dépend du public cible spécifié lors de la création de la campagne Push. Si vous ne spécifiez aucun public cible, cette notification Push sera envoyée à tous les appareils inscrits. Comme tous les autres services Push, nous n'envoyons pas les notifications directement aux appareils. Nous les envoyons aux services de notification Push (PNS - APNS/GCM/WNS) spécifiques à la plateforme respective afin qu'ils transfèrent les notifications aux appareils.
+1. **Push** : indique le nombre de messages envoyés aux appareils. Ce nombre dépend du public cible spécifié lors de la création de la campagne Push. Si vous ne spécifiez aucun public cible, cette notification Push sera envoyée à tous les appareils inscrits. Comme tous les autres services Push, nous n'envoyons pas les notifications directement aux appareils. Nous les envoyons aux services de notification Push (PNS - APNS/GCM/WNS) spécifiques à la plateforme respective afin qu'ils transfèrent les notifications aux appareils.
 
-2.	**Remis** : indique le nombre de messages remis avec succès par le PNS à l'appareil et reconnus comme reçus par le Kit de développement logiciel (SDK) Mobile Engagement.
+2.	**Remis** : indique le nombre de messages remis avec succès par le PNS à l'appareil et reconnus comme reçus par le Kit de développement logiciel (SDK) Mobile Engagement.
 		
 	*Raisons pour lesquelles le nombre de messages remis est inférieur au nombre de notifications Push :*
 	
@@ -51,7 +51,7 @@ Cliquez sur **Statistiques** pour afficher les détails d'une campagne Reach. L'
 	3. Si le message est remis à l'appareil mais que le Kit de développement logiciel (SDK) Mobile Engagement dans l'application ne reconnaît pas le contenu du message, alors le message est supprimé. Cela peut se produire si la personnalisation de la notification dans l'application génère une exception que nous relevons dans le Kit de développement logiciel (SDK) et que nous supprimons le message. Cela peut également se produire si l'application sur l'appareil utilise une version du Kit de développement logiciel (SDK) Engagement Mobile qui n'est pas en mesure de comprendre la version la plus récente du message Push envoyé à partir de la plateforme. Cela ne s'applique que lorsque l'application a été mise à niveau après la distribution de la notification par la plateforme de services. L'onglet **Avancé** indique le nombre de messages supprimés.
 	4. Sur les appareils iOS, la remise des messages peut parfois échouer si la batterie de l’appareil est faible ou que l’application consomme trop d’énergie pendant le traitement des notifications distantes. Il s’agit d’une limitation des appareils iOS.
 
-3.	**Affichés** : indique le nombre de messages qui sont affichés correctement à l’utilisateur de l’application sur l’appareil sous la forme d’une notification système Push/hors application dans le centre de notification ou une notification dans l’application au sein de l’application mobile. L’onglet **Avancé** indique le nombre de notifications système et le nombre de notifications dans l’application.
+3.	**Affichés** : indique le nombre de messages qui sont affichés correctement à l’utilisateur de l’application sur l’appareil sous la forme d’une notification système Push/hors application dans le centre de notification ou une notification dans l’application au sein de l’application mobile. L’onglet **Avancé** indique le nombre de notifications système et le nombre de notifications dans l’application.
 	
 	*Raisons pour lesquelles le nombre d’éléments affichés est inférieur au nombre d’éléments remis (en attente d’être affichés)*
 	
@@ -59,7 +59,7 @@ Cliquez sur **Statistiques** pour afficher les détails d'une campagne Reach. L'
 	2. Si la notification est une notification dans l’application, elle est alors uniquement affichée lorsque l’utilisateur de l’application ouvre celle-ci. Dans le cas où l’utilisateur n’aurait pas ouvert l’application, le kit de développement logiciel (SDK) signale que la notification a été remise mais pas encore affichée puisque l’application n’a pas été ouverte.
 	2. S’il s’agit d’une notification dans l’application et qu’elle est configurée pour s’afficher sur un écran spécifique ou lors d’une activité spécifique, alors elle sera également signalée comme remise mais ne sera véritablement remise qu’après l’ouverture par l’utilisateur de l’application sur un écran spécifique.
 	
-4.	**Interactions utilisateur** : indique le nombre de messages avec lesquels l’utilisateur de l’application a eu une interaction et inclut les messages qui font l’objet d’une action ou qui sont abandonnés.
+4.	**Interactions utilisateur** : indique le nombre de messages avec lesquels l’utilisateur de l’application a eu une interaction et inclut les messages qui font l’objet d’une action ou qui sont abandonnés.
 
 	- *L'utilisateur de l'application peut agir sur une notification de l'une des manières suivantes :*
 			
@@ -73,7 +73,7 @@ Cliquez sur **Statistiques** pour afficher les détails d'une campagne Reach. L'
 		2. En balayant ou en supprimant la notification.
 		3. Les notifications dans l'application avec du texte/contenu web et les sondages sont généralement affichées à l'utilisateur de l'application dans un processus en deux étapes. L'utilisateur reçoit tout d'abord une notification et lorsqu'il clique dessus, le contenu du texte/web/sondage s'affiche. L'utilisateur de l'application peut quitter une notification dans n'importe laquelle de ces étapes et les détails dans la vue Avancée indiquent cela.
 
-5.	**Actionnés** : indique le nombre de messages qui ont explicitement fait l’objet d’une action par l’utilisateur de l’application. Il s'agit du nombre le plus intéressant car il indique le nombre d'utilisateurs de l'application intéressés par le message transmis dans la notification.
+5.	**Actionnés** : indique le nombre de messages qui ont explicitement fait l’objet d’une action par l’utilisateur de l’application. Il s'agit du nombre le plus intéressant car il indique le nombre d'utilisateurs de l'application intéressés par le message transmis dans la notification.
  
 > [AZURE.NOTE] Sur les plateformes iOS et Windows, si l'utilisateur dispose de l'application ouverte et que la campagne était du type « À tout moment », il est possible que les notifications hors application et dans l'application s'affichent en même temps. Cela peut entraîner un nombre plus élevé pour le paramètre Affichés que pour le paramètre Remis. Si l'utilisateur interagit avec la notification ou qu'il exécute une action dessus, alors même le nombre Interactions utilisateur/Actionnés peut être supérieur au nombre Remis.
 

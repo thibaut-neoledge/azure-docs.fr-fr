@@ -78,7 +78,7 @@ Votre service est désormais configuré et prêt à fonctionner avec les notific
 		using Microsoft.WindowsAzure.MobileServices;
 		using Newtonsoft.Json.Linq;
 
-2. Dans **AppDelegate**, remplacez l'événement **FinishedLaunching** :
+2. Dans **AppDelegate**, remplacez l'événement **FinishedLaunching** :
 
         public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
         {
@@ -118,7 +118,7 @@ Votre service est désormais configuré et prêt à fonctionner avec les notific
         }
 
 
-4. Ensuite, remplacez l’événement **DidReceivedRemoteNotification** :
+4. Ensuite, remplacez l’événement **DidReceivedRemoteNotification** :
 
         public override void DidReceiveRemoteNotification (UIApplication application, NSDictionary userInfo, Action<UIBackgroundFetchResult> completionHandler)
         {

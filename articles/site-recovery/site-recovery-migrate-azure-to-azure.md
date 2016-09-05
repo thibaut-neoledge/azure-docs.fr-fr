@@ -34,8 +34,8 @@ Publiez des commentaires ou des questions au bas de cet article, ou sur le [Foru
 
 Voici ce dont vous avez besoin pour ce déploiement :
 
-- **Serveur de configuration** : une machine virtuelle locale exécutant Windows Server 2012 R2 qui agit en tant que serveur de configuration. Vous installez aussi les autres composants Site Recovery (y compris le serveur de traitement et le serveur maître) sur cette machine virtuelle. Vous pouvez en lire davantage dans [Architecture du scénario](site-recovery-vmware-to-azure.md#scenario-architecture) et [Configuration requise du serveur](site-recovery-vmware-to-azure.md#configuration-server-prerequisites).
-- **Machines virtuelles IaaS** : machines virtuelles à migrer. Vous migrez ces machines virtuelles en les traitant comme des machines physiques.
+- **Serveur de configuration** : une machine virtuelle locale exécutant Windows Server 2012 R2 qui agit en tant que serveur de configuration. Vous installez aussi les autres composants Site Recovery (y compris le serveur de traitement et le serveur maître) sur cette machine virtuelle. Vous pouvez en lire davantage dans [Architecture du scénario](site-recovery-vmware-to-azure.md#scenario-architecture) et [Configuration requise du serveur](site-recovery-vmware-to-azure.md#configuration-server-prerequisites).
+- **Machines virtuelles IaaS** : machines virtuelles à migrer. Vous migrez ces machines virtuelles en les traitant comme des machines physiques.
 
 ## Étapes du déploiement
 

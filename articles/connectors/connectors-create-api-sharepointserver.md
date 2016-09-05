@@ -572,7 +572,7 @@ Propriétés requises pour TableMetadata :
 Aucune des propriétés n’est obligatoire.
 
 
-**Toutes les propriétés** :
+**Toutes les propriétés** :
 
 
 | Name | Type de données |
@@ -619,7 +619,7 @@ Aucune des propriétés n’est obligatoire.
 
 
 
- **Table** :
+ **Table** :
 
 Propriétés requises pour Table :
 

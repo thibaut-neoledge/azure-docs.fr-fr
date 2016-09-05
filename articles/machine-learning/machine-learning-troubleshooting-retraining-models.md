@@ -69,7 +69,7 @@ Pour obtenir l’URL d’application de correctifs appropriée :
 5.	Cliquez sur Ajouter un point de terminaison.
 6.	Après l’ajout du point de terminaison, cliquez sur le nom du point de terminaison. Cliquez ensuite sur **Mettre à jour la ressource** pour ouvrir la page d’aide d’application de correctifs.
 
->[AZURE.NOTE] Si vous avez ajouté le point de terminaison au service web d’apprentissage plutôt qu’au service web prédictif, vous recevrez l’erreur suivante lorsque vous cliquerez sur le lien **Mettre à jour les ressources** : Nous sommes désolés, mais cette fonctionnalité n’est pas prise en charge ou disponible dans ce contexte. Ce service web n’a aucune ressource actualisable. Veuillez nous excuser pour ce désagrément. Nous travaillons actuellement à l’amélioration de ce flux de travail.
+>[AZURE.NOTE] Si vous avez ajouté le point de terminaison au service web d’apprentissage plutôt qu’au service web prédictif, vous recevrez l’erreur suivante lorsque vous cliquerez sur le lien **Mettre à jour les ressources** : Nous sommes désolés, mais cette fonctionnalité n’est pas prise en charge ou disponible dans ce contexte. Ce service web n’a aucune ressource actualisable. Veuillez nous excuser pour ce désagrément. Nous travaillons actuellement à l’amélioration de ce flux de travail.
 
 ![Nouveau tableau de bord de point de terminaison.][image3]
 

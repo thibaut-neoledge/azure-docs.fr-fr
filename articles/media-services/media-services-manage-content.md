@@ -51,7 +51,7 @@ Cette rubrique explique comment effectuer les opérations suivantes directement 
 
 	![JobStatus][status]
 
-Une fois le téléchargement terminé, la nouvelle ressource est répertoriée dans la liste Contenu. Par convention, la mention « **-Source** » est ajoutée à la fin du nom afin de faciliter le suivi des nouveaux contenus sources pour les tâches d’encodage.
+Une fois le téléchargement terminé, la nouvelle ressource est répertoriée dans la liste Contenu. Par convention, la mention « **-Source** » est ajoutée à la fin du nom afin de faciliter le suivi des nouveaux contenus sources pour les tâches d’encodage.
 
 ![ContentPage][contentpage]
 

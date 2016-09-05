@@ -30,11 +30,11 @@ Un enregistrement CNAME mappe un nom DNS *spécifique*, tel que **mail.contoso.c
 
 L’utilisation d’un enregistrement A avec Web Apps exige que vous créiez d’abord l’un des enregistrements TXT suivants :
 
-* **Pour le domaine racine** : enregistrement TXT DNS A de **@** à **&lt;yourwebappname&gt;.azurewebsites.net**.
+* **Pour le domaine racine** : enregistrement TXT DNS A de **@** à **&lt;yourwebappname&gt;.azurewebsites.net**.
 
-* **Pour un sous-domaine spécifique** : nom DNS A de **sous-domaine>** à **&lt;yourwebappname&gt;.azurewebsites.net**. Par exemple, **blogs** si l’enregistrement A est destiné à **blogs.contoso.com**.
+* **Pour un sous-domaine spécifique** : nom DNS A de **sous-domaine>** à **&lt;yourwebappname&gt;.azurewebsites.net**. Par exemple, **blogs** si l’enregistrement A est destiné à **blogs.contoso.com**.
 
-* **Pour les sous-domaines génériques** : enregistrement TXT DNS A de ***** à **&lt;yourwebappname&gt;.azurewebsites.net**.
+* **Pour les sous-domaines génériques** : enregistrement TXT DNS A de ***** à **&lt;yourwebappname&gt;.azurewebsites.net**.
 
 Cet enregistrement TXT permet de vérifier que vous détenez bien le domaine que vous tentez d’utiliser. Cette opération s’ajoute à la création d’un enregistrement A pointant vers l’adresse IP virtuelle de votre application web.
 

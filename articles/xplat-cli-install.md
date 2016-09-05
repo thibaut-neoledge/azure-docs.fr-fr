@@ -52,7 +52,7 @@ Les packages d’installation d’interface de ligne de commande suivants sont �
 
 * [Programme d’installation Windows][windows-installer]
 
-* [Fichier tar Linux][linux-installer] (nécessite Node.js et npm) - Exécutez `sudo npm install -g <path to downloaded tar file>` pour l’installer
+* [Fichier tar Linux][linux-installer] \(nécessite Node.js et npm) - Exécutez `sudo npm install -g <path to downloaded tar file>` pour l’installer
 
 
 ## Utiliser un conteneur Docker

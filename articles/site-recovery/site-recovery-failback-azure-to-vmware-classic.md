@@ -39,7 +39,7 @@ Utilisez cette architecture lorsque le serveur de processus est local et que vou
 
 Utilisez cette architecture lorsque le serveur de processus est sur Azure et que vous disposez d’une connexion VPN ou ExpressRoute.
 
-![](./media/site-recovery-failback-azure-to-vmware-classic/architecture2.png)
+![](./media/site-recovery-failback-azure-to-vmware-classic/architecture2.PNG)
 
 Pour afficher la liste complète des ports et le diagramme de l’architecture de restauration automatique, reportez-vous à l'image ci-dessous
 
@@ -204,4 +204,4 @@ Vous pouvez effectuer une restauration automatique via une connexion VPN ou via
 - La solution ExpressRoute doit être configurée sur le réseau virtuel Azure vers lequel les machines sources basculent, et sur lequel les machines virtuelles Azure sont situées après le basculement.
 - Les données sont répliquées vers un compte de stockage Azure sur un point de terminaison public. Vous devez configurer une homologation publique dans ExpressRoute avec le centre de données cible pour que la réplication Site Recovery utilise ExpressRoute.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0824_2016--->

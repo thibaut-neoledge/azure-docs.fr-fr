@@ -56,9 +56,9 @@ Cet article décrit toutes les informations que vous devez répliquer sur des ma
 
 Voici les composants du scénario :
 
-- **Site principal** : dans le site principal se trouvent le ou les serveurs d’hôte Hyper-V exécutant les machines virtuelles sources que vous souhaitez répliquer. Ces serveurs hôtes principaux sont situés dans un cloud privé VMM.
-- **Site secondaire** : dans le site secondaire se trouvent le ou les serveurs hôtes Hyper-V exécutant les machines virtuelles cibles sur lesquelles vous allez répliquer les machines virtuelles principales. Ces serveurs hôtes sont situés dans un cloud privé VMM. Le cloud peut se trouver sur le serveur principal (si vous n’avez qu’un seul serveur VMM) ou sur un serveur VMM secondaire.
-- **Fournisseur** : lors du déploiement de Site Recovery, vous installez le fournisseur Azure Site Recovery sur les serveurs VMM, et inscrivez ceux-ci dans un coffre Recovery Services. Le fournisseur s’exécutant sur le serveur VMM communique avec Site Recovery au moyen du port HTTPS 443 pour répliquer l’orchestration. La réplication des données se produit entre les serveurs hôtes Hyper-V principaux et secondaires. Les données répliquées restent au sein des réseaux et sites locaux et ne sont pas envoyées à Azure. En savoir plus sur la [confidentialité](#privacy-information-for-site-recovery).
+- **Site principal** : dans le site principal se trouvent le ou les serveurs d’hôte Hyper-V exécutant les machines virtuelles sources que vous souhaitez répliquer. Ces serveurs hôtes principaux sont situés dans un cloud privé VMM.
+- **Site secondaire** : dans le site secondaire se trouvent le ou les serveurs hôtes Hyper-V exécutant les machines virtuelles cibles sur lesquelles vous allez répliquer les machines virtuelles principales. Ces serveurs hôtes sont situés dans un cloud privé VMM. Le cloud peut se trouver sur le serveur principal (si vous n’avez qu’un seul serveur VMM) ou sur un serveur VMM secondaire.
+- **Fournisseur** : lors du déploiement de Site Recovery, vous installez le fournisseur Azure Site Recovery sur les serveurs VMM, et inscrivez ceux-ci dans un coffre Recovery Services. Le fournisseur s’exécutant sur le serveur VMM communique avec Site Recovery au moyen du port HTTPS 443 pour répliquer l’orchestration. La réplication des données se produit entre les serveurs hôtes Hyper-V principaux et secondaires. Les données répliquées restent au sein des réseaux et sites locaux et ne sont pas envoyées à Azure. En savoir plus sur la [confidentialité](#privacy-information-for-site-recovery).
 
 ![Topologie E2E](./media/site-recovery-vmm-to-vmm/architecture.png)
 
@@ -269,13 +269,13 @@ Le fournisseur Azure Site Recovery peut être installé à partir de la ligne de
 
 Où les paramètres sont :
 
- - **/Credentials** : paramètre obligatoire, qui spécifie l’emplacement où se trouve le fichier de clé d’inscription.
- - **/FriendlyName** : paramètre obligatoire, qui correspond au nom du serveur hôte Hyper-V qui s’affiche sur le portail Microsoft Azure Site Recovery.
- - **/EncryptionEnabled** : paramètre facultatif que vous utilisez uniquement lors de la réplication de VMM vers Azure.
- - **/proxyAddress** : paramètre facultatif qui spécifie l’adresse du serveur proxy.
- - **/proxyport** : paramètre facultatif qui spécifie le port du serveur proxy.
- - **/proxyUsername** : paramètre facultatif qui spécifie le nom d’utilisateur proxy (si le proxy nécessite une authentification).
- - **/proxyPassword** : paramètre facultatif qui spécifie le mot de passe pour l’authentification auprès du serveur proxy (si le proxy nécessite une authentification).
+ - **/Credentials** : paramètre obligatoire, qui spécifie l’emplacement où se trouve le fichier de clé d’inscription.
+ - **/FriendlyName** : paramètre obligatoire, qui correspond au nom du serveur hôte Hyper-V qui s’affiche sur le portail Microsoft Azure Site Recovery.
+ - **/EncryptionEnabled** : paramètre facultatif que vous utilisez uniquement lors de la réplication de VMM vers Azure.
+ - **/proxyAddress** : paramètre facultatif qui spécifie l’adresse du serveur proxy.
+ - **/proxyport** : paramètre facultatif qui spécifie le port du serveur proxy.
+ - **/proxyUsername** : paramètre facultatif qui spécifie le nom d’utilisateur proxy (si le proxy nécessite une authentification).
+ - **/proxyPassword** : paramètre facultatif qui spécifie le mot de passe pour l’authentification auprès du serveur proxy (si le proxy nécessite une authentification).
 
 ## Étape 3 : configurer l’environnement cible
 

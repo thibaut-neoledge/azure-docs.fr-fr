@@ -86,9 +86,9 @@ Avec Virtual Array, les instantanés cloud fournissent une copie indépendante d
 
 Virtual Array prend en charge les scénarios de récupération d'urgence et de protection des données suivants :
 
-- **Restauration de volume ou de partage** : utilisez la restauration en tant que nouveau flux de travail pour récupérer un volume ou un partage. Cette approche permet de récupérer la totalité du volume ou du partage.
-- **Récupération au niveau de l’élément** : les partages permettent d’accéder facilement aux sauvegardes récentes. Vous pouvez facilement récupérer un fichier individuel à partir d'un dossier .backup spécial disponible dans le cloud. Cette fonctionnalité de restauration est contrôlée par l'utilisateur et aucune intervention de l'administrateur n'est nécessaire.
-- **Récupération d’urgence** : utilisez la fonctionnalité de basculement pour récupérer tous les volumes ou les partages vers un nouveau groupe virtuel. Vous créez le nouveau Virtual Array et vous l'inscrivez auprès du service StorSimple Manager, puis vous basculez le Virtual Array d'origine. Le nouveau Virtual Array prend alors en charge les ressources configurées.
+- **Restauration de volume ou de partage** : utilisez la restauration en tant que nouveau flux de travail pour récupérer un volume ou un partage. Cette approche permet de récupérer la totalité du volume ou du partage.
+- **Récupération au niveau de l’élément** : les partages permettent d’accéder facilement aux sauvegardes récentes. Vous pouvez facilement récupérer un fichier individuel à partir d'un dossier .backup spécial disponible dans le cloud. Cette fonctionnalité de restauration est contrôlée par l'utilisateur et aucune intervention de l'administrateur n'est nécessaire.
+- **Récupération d’urgence** : utilisez la fonctionnalité de basculement pour récupérer tous les volumes ou les partages vers un nouveau groupe virtuel. Vous créez le nouveau Virtual Array et vous l'inscrivez auprès du service StorSimple Manager, puis vous basculez le Virtual Array d'origine. Le nouveau Virtual Array prend alors en charge les ressources configurées.
 
 ## Composants de Virtual Array
 

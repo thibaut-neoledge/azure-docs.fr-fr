@@ -29,7 +29,7 @@ Azure vous empêche de supprimer un certificat s’il est en cours d’utilisati
 
 Vous pouvez utiliser l’applet de commande PowerShell [Remove-AzureCertificate](https://msdn.microsoft.com/library/azure/mt589145.aspx) pour supprimer un certificat, à condition qu’il n’est pas utilisé.
 
-### Mes certificats Windows Azure Service Management for Extensions ont expiré
+### Mes certificats Microsoft Azure Service Management for Extensions ont expiré
 
 Ces certificats sont créés chaque fois qu’une extension, par exemple l’extension du Bureau à distance, est ajoutée au service cloud. Ces certificats sont utilisés uniquement pour le chiffrement et le déchiffrement de la configuration privée de l’extension. L’expiration de ces certificats n’a aucune importance. La date d’expiration n’est pas vérifiée.
 

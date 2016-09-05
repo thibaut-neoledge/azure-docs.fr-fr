@@ -34,7 +34,7 @@ Comme indiqué dans l’illustration suivante, vous déployez le nœud principal
 
 * **Domaine Active Directory** : le nœud principal HPC Pack doit être joint à un domaine Active Directory dans Azure avant de démarrer les services HPC sur la machine virtuelle. Comme indiqué dans cet article, pour un déploiement preuve de concept, vous pouvez promouvoir la machine virtuelle que vous créez pour le nœud principal en tant que contrôleur de domaine avant de démarrer les services HPC. Une autre option consiste à déployer un contrôleur de domaine et une forêt distincts dans Azure, auxquels vous joignez la machine virtuelle du nœud principal.
 
-* **Réseau virtuel Azure** : lorsque vous utilisez le modèle de déploiement Resource Manager pour déployer le nœud principal, vous spécifiez ou créez un réseau virtuel Azure. Vous utilisez le réseau virtuel si vous devez joindre le nœud principal à un domaine Active Directory existant. Vous devez également ajouter par la suite des machines virtuelles de nœud de calcul au cluster.
+* **Réseau virtuel Azure** : lorsque vous utilisez le modèle de déploiement Resource Manager pour déployer le nœud principal, vous spécifiez ou créez un réseau virtuel Azure. Vous utilisez le réseau virtuel si vous devez joindre le nœud principal à un domaine Active Directory existant. Vous devez également ajouter par la suite des machines virtuelles de nœud de calcul au cluster.
 
     
 ## Étapes pour créer le nœud principal

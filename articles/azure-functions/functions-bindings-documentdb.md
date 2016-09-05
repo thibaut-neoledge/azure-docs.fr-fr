@@ -42,7 +42,7 @@ Le fichier *function.json* spécifie les propriétés suivantes :
 - `connection` : cette chaîne doit correspondre à un Paramètre d’application défini sur le point de terminaison de votre compte DocumentDB. Si vous choisissez votre compte dans l’onglet Intégrer, un nouveau paramètre d’application est créé à votre intention avec un nom indiqué sous la forme VotreCompte\_DOCUMENTDB. Si vous devez créer le paramètre d’application manuellement, la chaîne de connexion réelle doit se présenter sous la forme suivante : AccountEndpoint=<Point de terminaison pour votre compte>;AccountKey=<Votre clé d’accès principale>;.
 - direction : doit être défini sur *« in »*.
 
-Exemple de fichier *function.json* :
+Exemple de fichier *function.json* :
  
 	{
 	  "bindings": [

@@ -392,7 +392,7 @@ Le récepteur de suivi a été supprimé, par conséquent, vous devez supprimer 
 		    </intent-filter>
 		  </receiver>
 
-Notez que la déclaration de votre implémentation du récepteur de diffusion **EngagementMessageReceiver** a changé dans `AndroidManifest.xml`. En effet, l'API permettant d'envoyer et de supprimer des messages XMPP arbitraires d'entités XMPP arbitraires, et l'API permettant d'envoyer et de recevoir des messages entre appareils ont été supprimées. Par conséquent, vous devez également supprimer les rappels suivants de votre implémentation de **EngagementMessageReceiver** :
+Notez que la déclaration de votre implémentation du récepteur de diffusion **EngagementMessageReceiver** a changé dans `AndroidManifest.xml`. En effet, l'API permettant d'envoyer et de supprimer des messages XMPP arbitraires d'entités XMPP arbitraires, et l'API permettant d'envoyer et de recevoir des messages entre appareils ont été supprimées. Par conséquent, vous devez également supprimer les rappels suivants de votre implémentation de **EngagementMessageReceiver** :
 
 			protected void onDeviceMessageReceived(android.content.Context context, java.lang.String deviceId, java.lang.String payload)
 

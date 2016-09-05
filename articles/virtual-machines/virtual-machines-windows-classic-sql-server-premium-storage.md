@@ -118,7 +118,7 @@ Si vous n'avez pas de script d'origine disponible pour afficher les disques durs
 
 Pour chaque disque, procédez comme suit :
 
-1. Affichez la liste des disques connectés à la machine virtuelle à l'aide de la commande **Get-AzureVM** :
+1. Affichez la liste des disques connectés à la machine virtuelle à l'aide de la commande **Get-AzureVM** :
 
     Get-AzureVM -ServiceName <servicename> -Name <vmname> | Get-AzureDataDisk
 

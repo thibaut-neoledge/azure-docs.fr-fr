@@ -105,7 +105,7 @@ Pour associer une adresse IP virtuelle sur un service cloud à un point de term
     | Add-AzureEndpoint -Name myEndpoint -Protocol tcp -LocalPort 8080 -PublicPort 80 -VirtualIPName Vip2 `
     | Update-AzureVM
 
-La commande ci-dessus crée un point de terminaison lié à l’adresse IP virtuelle appelée *Vip2* sur le port *80*, ainsi que des liens vers la machine virtuelle nommée *myVM1* dans un service cloud nommé *myService* à l’aide de *TCP* sur le port *8080*.
+La commande ci-dessus crée un point de terminaison lié à l’adresse IP virtuelle appelée *Vip2* sur le port *80*, ainsi que des liens vers la machine virtuelle nommée *myVM1* dans un service cloud nommé *myService* à l’aide de *TCP* sur le port *8080*.
 
 Pour vérifier la configuration, exécutez la commande PowerShell suivante :
 
@@ -134,7 +134,7 @@ Le résultat ressemble à ce qui suit :
 
 ## Activation de l’équilibrage de charge sur une adresse IP virtuelle spécifique
 
-Vous pouvez associer une adresse IP virtuelle unique à plusieurs machines virtuelles à des fins d’équilibrage de charge. Par exemple, supposons que vous avez un service cloud nommé *myService*, et deux machines virtuelles nommées *myVM1* et *myVM2*. Votre service cloud dispose de plusieurs adresses IP virtuelles, dont une nommée *Vip2*. Si vous souhaitez vous assurer que l’ensemble du trafic vers le port *81* sur *Vip2* est équilibré entre *myVM1* et *myVM2* sur le port *8181*, exécutez le script PowerShell suivant :
+Vous pouvez associer une adresse IP virtuelle unique à plusieurs machines virtuelles à des fins d’équilibrage de charge. Par exemple, supposons que vous avez un service cloud nommé *myService*, et deux machines virtuelles nommées *myVM1* et *myVM2*. Votre service cloud dispose de plusieurs adresses IP virtuelles, dont une nommée *Vip2*. Si vous souhaitez vous assurer que l’ensemble du trafic vers le port *81* sur *Vip2* est équilibré entre *myVM1* et *myVM2* sur le port *8181*, exécutez le script PowerShell suivant :
 
     Get-AzureVM -ServiceName myService -Name myVM1 `
     | Add-AzureEndpoint -Name myEndpoint -LoadBalancedEndpointSetName myLBSet `
