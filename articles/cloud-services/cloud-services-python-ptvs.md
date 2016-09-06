@@ -21,10 +21,10 @@
 
 Cet article fournit un aperçu de l'utilisation des rôles web et de travail Python avec [Python Tools pour Visual Studio][]. Vous allez apprendre à utiliser Visual Studio pour créer et déployer un service cloud de base utilisant Python.
 
-## Configuration requise
+## Composants requis
 
  - Visual Studio 2013 ou 2015
- - [Python Tools pour Visual Studio][] (PTVS)
+ - [Python Tools pour Visual Studio][] \(PTVS)
  - [Outils du Kit de développement logiciel (SDK) Azure pour Visual Studio 2013][] ou [Outils du Kit de développement logiciel (SDK) Azure pour Visual Studio 2015][]
  - [Python 2.7 32 bits][] ou [Python 3.5 32 bits][]
 
@@ -76,7 +76,7 @@ Les scripts ci-après ont été écrits pour Python 3.5. Si vous souhaitez utili
       <Variable name="EMULATED">
         <RoleInstanceValue xpath="/RoleEnvironment/Deployment/@emulated" />
       </Variable>
-	  <Variable name="PYTHON2" value="off" />
+      <Variable name="PYTHON2" value="off" />
     </Environment>
   </Task>
 
@@ -85,8 +85,9 @@ Les scripts ci-après ont été écrits pour Python 3.5. Si vous souhaitez utili
       <Variable name="EMULATED">
         <RoleInstanceValue xpath="/RoleEnvironment/Deployment/@emulated" />
       </Variable>
+      <Variable name="PYTHON2" value="off" />
     </Environment>
-	<Variable name="PYTHON2" value="off" />
+	
   </Task>
 
 </Startup>
@@ -171,7 +172,7 @@ $is_python2 = $env:PYTHON2 -eq "on"
 $nl = [Environment]::NewLine
 
 if (-not $is_emulated){
-	Write-Host "Checking if python is installed...$nl"
+	Write-Output "Checking if python is installed...$nl"
 	if ($is_python2) {
 		& "${env:SystemDrive}\Python27\python.exe"  -V | Out-Null
 	}
@@ -189,9 +190,9 @@ if (-not $is_emulated){
 			$outFile = "${env:TEMP}\python-2.7.12.amd64.msi"
 		}
 		
-		Write-Host "Not found, downloading $url to $outFile$nl"
+		Write-Output "Not found, downloading $url to $outFile$nl"
 		Invoke-WebRequest $url -OutFile $outFile
-		Write-Host "Installing$nl"
+		Write-Output "Installing$nl"
 
 		if ($is_python2) {
 			Start-Process msiexec.exe -ArgumentList "/q", "/i", "$outFile", "ALLUSERS=1" -Wait
@@ -200,10 +201,10 @@ if (-not $is_emulated){
 			Start-Process "$outFile" -ArgumentList "/quiet", "InstallAllUsers=1" -Wait
 		}
 
-		Write-Host "Done$nl"
+		Write-Output "Done$nl"
 	}
 	else {
-		Write-Host "Already installed"
+		Write-Output "Already installed"
 	}
 }
 ```
@@ -218,9 +219,9 @@ $is_python2 = $env:PYTHON2 -eq "on"
 $nl = [Environment]::NewLine
 
 if (-not $is_emulated){
-	Write-Host "Checking if requirements.txt exists$nl"
+	Write-Output "Checking if requirements.txt exists$nl"
 	if (Test-Path ..\requirements.txt) {
-		Write-Host "Found. Processing pip$nl"
+		Write-Output "Found. Processing pip$nl"
 
 		if ($is_python2) {
 			& "${env:SystemDrive}\Python27\python.exe" -m pip install -r ..\requirements.txt
@@ -229,10 +230,10 @@ if (-not $is_emulated){
 			py -m pip install -r ..\requirements.txt
 		}
 
-		Write-Host "Done$nl"
+		Write-Output "Done$nl"
 	}
 	else {
-		Write-Host "Not found$nl"
+		Write-Output "Not found$nl"
 	}
 }
 ```
@@ -250,7 +251,7 @@ $nl = [Environment]::NewLine
 
 if (-not $is_emulated)
 {
-	Write-Host "Running worker.py$nl"
+	Write-Output "Running worker.py$nl"
 
 	if ($is_python2) {
 		cd..
@@ -263,7 +264,7 @@ if (-not $is_emulated)
 }
 else
 {
-	Write-Host "Running (EMULATED) worker.py$nl"
+	Write-Output "Running (EMULATED) worker.py$nl"
 
 	# Customize to your local dev environment
 
@@ -293,7 +294,7 @@ if not exist "%DiagnosticStore%\LogFiles" mkdir "%DiagnosticStore%\LogFiles"
 
 
 
-## Exécution en local
+## Exécution locale
 
 Si vous définissez votre projet de service cloud comme projet de démarrage et que vous appuyez sur F5, le service cloud s'exécute dans l'émulateur Azure local.
 
@@ -363,4 +364,4 @@ Pour plus de détails sur l'utilisation des services Azure à partir de vos rôl
 [Python 2.7 32 bits]: https://www.python.org/downloads/
 [Python 3.5 32 bits]: https://www.python.org/downloads/
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="07/06/2016"
+   ms.date="09/01/2016"
    ms.author="mbaldwin"/>
 
 
@@ -23,15 +23,15 @@
 En tant que plateforme de gestion des identités en tant que service (IDMaaS), Azure Active Directory (AD) fournit aux développeurs un moyen efficace pour intégrer la gestion des identités dans leurs applications. Les articles suivants fournissent une vue d’ensemble sur l’implémentation et les fonctionnalités clés d’Azure AD. Nous vous suggérons de les lire dans l’ordre ou de passer à la rubrique [Prise en main](#getting-started) si vous êtes prêt à examiner les choses de façon approfondie.
 
 
-1. [Avantages de l’intégration avec Azure Active Directory](active-directory-how-to-integrate.md) : découvrez pourquoi l’intégration avec Azure AD offre la meilleure solution pour une connexion et une autorisation sécurisées.
+1. [Avantages de l’intégration d’Azure AD](active-directory-how-to-integrate.md) : découvrez pourquoi l’intégration dans Azure Active Directory constitue la meilleure solution pour sécuriser une connexion et une autorisation.
 
-1. [Scénarios d’authentification Active Directory](active-directory-authentication-scenarios.md) : tirez parti de l’authentification simplifiée d’Azure AD pour fournir une connexion à votre application.
+1. [Scénarios d’authentification Azure AD](active-directory-authentication-scenarios.md) : profitez de l’authentification simplifiée d’Azure AD pour fournir une connexion à votre application.
 
-1. [Intégration d’applications à Azure Active Directory](active-directory-integrating-applications.md) : apprenez à ajouter, mettre à jour et supprimer des applications dans Azure AD et découvrez les directives de personnalisation pour les applications intégrées.
+1. [Intégration d’applications dans Azure Active Directory](active-directory-integrating-applications.md) : découvrez comment ajouter, mettre à jour et supprimer des applications dans Azure AD, ainsi que les directives de personnalisation pour les applications intégrées.
 
-1. [API Graph Azure Active Directory](active-directory-graph-api.md) : utilisez l’API Graph Azure AD pour accéder par programme à Azure AD via les points de terminaison d’API REST. Notez que l’API Graph Azure AD est également accessible au moyen de [Microsoft Graph](https://graph.microsoft.io/), une API unifiée qui permet d’accéder à plusieurs API du service cloud Microsoft à travers un point de terminaison API REST unique et avec un jeton d’accès unique.
+1. [API Graph Azure d’Active Directory](active-directory-graph-api.md) : utilisez l’API Graph d’Azure AD pour accéder par programme à Azure AD à l’aide des points de terminaison de l’API REST. L’API Graph d’Azure AD est également accessible via [Microsoft Graph](https://graph.microsoft.io/). Microsoft Graph fournit une API unifiée qui permet d’accéder à plusieurs API du service cloud Microsoft via un point de terminaison de l’API REST et avec un jeton d’accès unique.
 
-1. [Bibliothèques d’authentification d’Azure Active Directory](active-directory-authentication-libraries.md) : facilitez l’authentification des utilisateurs pour l’obtention de jetons d’accès à l’aide des bibliothèques d’authentification AD Azure pour .NET, JavaScript, Objective-C, Android et autres.
+1. [Bibliothèques d’authentification Azure AD](active-directory-authentication-libraries.md) : facilitez l’authentification des utilisateurs pour l’obtention de jetons d’accès à l’aide des bibliothèques d’authentification AD Azure pour .NET, JavaScript, Objective-C, Android, etc.
 
 
 ## Prise en main
@@ -84,6 +84,7 @@ Ces articles fournissent une référence de base pour les API REST et de bibliot
 
 ###  Support
 - [Questions balisées](http://stackoverflow.com/questions/tagged/azure-active-directory) : recherchez des solutions Azure Active Directory en cas de dépassement de la capacité de la pile en recherchant les balises [azure-active-directory](http://stackoverflow.com/questions/tagged/azure-active-directory) et [adal](http://stackoverflow.com/questions/tagged/adal).
+- Consultez le [Glossaire du développeur Azure Active Directory](active-directory-dev-glossary.md) pour obtenir la définition de termes couramment utilisés dans le développement et l’intégration d’applications.
 
 ### Code
 
@@ -101,15 +102,15 @@ Ces articles fournissent une référence de base pour les API REST et de bibliot
 
 ### Protocoles d’authentification et d’autorisation
 
-- [Substitution des clés de signature dans Azure AD](active-directory-signing-key-rollover.md) : découvrez le rythme de substitution des clés d’Azure AD et apprenez à mettre à jour la clé pour les scénarios d’application les plus courants.
+- [Substitution des clés de signature dans Azure AD](active-directory-signing-key-rollover.md) : découvrez le rythme de substitution des clés de signature Azure AD et apprenez à mettre à jour la clé dans les scénarios d’application les plus courants.
 
 - [Protocole OAuth 2.0 : utilisation de l’octroi de code d’autorisation](active-directory-protocols-oauth-code.md) : vous pouvez utiliser l’octroi de code d’autorisation du protocole OAuth 2.0 pour autoriser l’accès aux applications web et aux API web dans votre client Azure Active Directory.
 
-- [Protocole OAuth 2.0 : présentation de l’octroi implicite](active-directory-dev-understanding-oauth2-implicit-grant.md) : en savoir plus sur l’octroi d’autorisation implicite et découvrir s’il convient à votre application.
+- [Protocole OAuth 2.0 : présentation de l’octroi implicite](active-directory-dev-understanding-oauth2-implicit-grant.md) : découvrez l’octroi d’autorisation implicite et vérifiez s’il convient à votre application.
 
-- [Protocole OAuth 2.0 : appels de service à service à l’aide des informations d’identification du client](active-directory-protocols-oauth-service-to-service.md) : le flux d’octroi des informations d’identification du client OAuth 2.0 permet à un service web (un client confidentiel) d’utiliser ses propres informations d’identification pour s’authentifier lorsqu’il appelle un autre service web, au lieu d’emprunter l’identité d’un utilisateur. Dans ce scénario, le client est généralement un service web de niveau intermédiaire, un service démon ou un site web.
+- [Protocole OAuth 2.0 : appels de service à service à l’aide des informations d’identification du client](active-directory-protocols-oauth-service-to-service.md) : l’octroi des informations d’identification du client OAuth 2.0 permet à un service web (client confidentiel) d’utiliser ses propres informations d’identification pour s’authentifier lorsqu’il appelle un autre service web, au lieu d’emprunter l’identité d’un utilisateur. Dans ce scénario, le client est généralement un service web de niveau intermédiaire, un service démon ou un site web.
 
-- [Protocole OpenID Connect 1.0 : connexion et authentification](active-directory-protocols-openid-connect-code.md) : le protocole OpenID Connect 1.0 étend OAuth 2.0 pour une utilisation comme protocole d’authentification. Une application cliente peut recevoir un id\_token pour gérer le processus de connexion ou augmenter le flux du code d’autorisation pour recevoir à la fois un id\_token et le code d’autorisation.
+- [Protocole OpenID Connect 1.0 : connexion et authentification](active-directory-protocols-openid-connect-code.md) : le protocole OpenID Connect 1.0 permet d’utiliser OAuth 2.0 comme protocole d’authentification. Une application cliente peut recevoir un id\_token pour gérer le processus de connexion ou augmenter le flux du code d’autorisation pour recevoir à la fois un id\_token et le code d’autorisation.
 
 - [Référence du protocole SAML 2.0](active-directory-saml-protocol-reference.md) : le protocole SAML 2.0 permet aux applications de fournir une expérience d’authentification unique à leurs utilisateurs.
 
@@ -121,7 +122,7 @@ Ces articles fournissent une référence de base pour les API REST et de bibliot
 
 ### Créer
 
-Ces présentations sur le développement d'applications à l'aide d'Azure Active Directory mettent en scène des intervenants qui travaillent directement dans l'équipe d'ingénierie. Les présentations couvrent les sujets fondamentaux, notamment IDMaaS, l'authentification, la fédération d'identités et l'authentification unique.
+Ces présentations sur le développement d'applications à l'aide d'Azure Active Directory mettent en scène des intervenants qui travaillent directement dans l'équipe d'ingénierie. Les présentations couvrent les sujets fondamentaux, notamment IDMaaS, l’authentification, la fédération d’identités et l’authentification unique.
 
 - [Microsoft Identity : état de l’union et orientation future](https://azure.microsoft.com/documentation/videos/build-2016-microsoft-identity-state-of-the-union-and-future-direction/)
 - [Azure Active Directory : gestion des identités en tant que service pour les applications modernes](https://azure.microsoft.com/documentation/videos/build-2015-azure-active-directory-identity-management-as-a-service-for-modern-applications/)
@@ -129,7 +130,7 @@ Ces présentations sur le développement d'applications à l'aide d'Azure Active
 - [Développement d’applications web natives avec Azure Active Directory](https://azure.microsoft.com/documentation/videos/build-2015-develop-modern-native-applications-with-azure-active-directory/)
 
 ### Azure Friday
-[Azure Friday](https://azure.microsoft.com/documentation/videos/azure-friday/) est une série hebdomadaire de vidéos au format 1:1 qui vous propose de courts entretiens (10 à 15 minutes) avec des experts sur divers sujets relatifs à Azure. Utilisez la fonctionnalité Filtre des services sur la page pour afficher toutes les vidéos Azure Active Directory.
+[Azure Friday](https://azure.microsoft.com/documentation/videos/azure-friday/) est une série hebdomadaire de vidéos au format 1:1 qui vous propose de courts entretiens (10 à 15 minutes) avec des experts sur divers sujets relatifs à Azure. Utilisez la fonctionnalité Filtre des services sur la page pour afficher toutes les vidéos Azure Active Directory.
 
 - [Identité Azure 101](https://azure.microsoft.com/documentation/videos/azure-identity-basics/)
 - [Identité Azure 102](https://azure.microsoft.com/documentation/videos/azure-identity-creating-active-directory/)
@@ -145,4 +146,4 @@ Ces présentations sur le développement d'applications à l'aide d'Azure Active
 
 - [Azure Active Directory sur Twitter](https://twitter.com/azuread) : annonces Azure Active Directory de moins de 140 caractères.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0831_2016-->

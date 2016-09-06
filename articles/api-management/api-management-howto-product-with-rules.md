@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/09/2016"
+	ms.date="08/24/2016"
 	ms.author="sdanie"/>
 
 # Protéger votre API avec des limites de débit à l’aide de la gestion des API Azure
@@ -26,7 +26,7 @@ Pour consulter des scénarios de limitation plus avancés utilisant les stratég
 
 ## <a name="create-product"> </a>Pour créer un produit.
 
-Au cours de cette étape, vous allez créer un produit en version d'évaluation gratuite qui ne requiert pas d'approbation d'abonnement.
+Dans cette étape, vous allez créer un produit en version d’évaluation gratuite, qui ne requiert aucune approbation d’abonnement.
 
 >[AZURE.NOTE] Si vous disposez déjà d’un produit configuré et que vous souhaitez l’utiliser pour ce didacticiel, vous pouvez passer directement à la rubrique [Configuration de la limite de débit d’appels et des stratégies de quota][] et suivre le didacticiel à partir de là, en utilisant votre produit à la place de celui en version d’évaluation gratuite.
 
@@ -48,11 +48,11 @@ Dans la zone **Titre**, saisissez **Version d’évaluation gratuite**.
 
 Dans la zone **Description**, saisissez le texte suivant : **Les abonnés pourront effectuer 10 appels/minute jusqu’à un maximum de 200 appels/semaine, après lesquels l’accès est refusé.**
 
-Les produits de Gestion des API peuvent être protégés ou ouverts. Pour pouvoir utiliser les produits protégés, vous devez vous y abonner au préalable. Les produits ouverts peuvent être utilisés sans abonnement. Vérifiez que la case à cocher **Demander une approbation d’abonnement** est activée afin de créer un produit protégé qui requiert un abonnement. Il s’agit du paramètre par défaut.
+Les produits de Gestion des API peuvent être protégés ou ouverts. Pour pouvoir utiliser les produits protégés, vous devez vous y abonner au préalable. Les produits ouverts sont utilisables sans abonnement. Vérifiez que la case à cocher **Require subscription (Abonnement obligatoire)** est activée afin de créer un produit protégé qui requiert un abonnement. Il s’agit du paramètre par défaut.
 
-Si vous souhaitez qu’un administrateur révise et accepte ou refuse les tentatives d’abonnement à ce produit, sélectionnez **Demander une approbation d’abonnement**. Si la case à cocher n’est pas activée, les tentatives d’abonnement seront automatiquement approuvées. Dans cet exemple, les abonnements sont automatiquement approuvés. N’activez donc pas la case à cocher.
+Si vous souhaitez qu’un administrateur vérifie et accepte ou refuse les tentatives d’abonnement à ce produit, sélectionnez **Require subscription approval (Approbation d'abonnement obligatoire)**. Si la case à cocher n’est pas activée, les tentatives d’abonnement sont approuvées automatiquement. Dans cet exemple, les abonnements sont approuvés automatiquement. Donc, inutile d’activer la case à cocher.
 
-Pour autoriser les comptes de développeur à s’abonner plusieurs fois au nouveau produit, activez la case à cocher **Autoriser plusieurs abonnements simultanés**. Ce didacticiel ne nécessite pas l’utilisation de plusieurs abonnements simultanés, par conséquent, vous pouvez laisser cette case décochée.
+Pour autoriser les comptes de développeur à s’abonner plusieurs fois au nouveau produit, activez la case à cocher **Allow multiple simultaneous subscriptions (Autoriser plusieurs abonnements simultanés)**. Ce didacticiel ne nécessite pas l’utilisation de plusieurs abonnements simultanés. Vous pouvez donc laisser cette case décochée.
 
 Une fois toutes les valeurs saisies, cliquez sur **Enregistrer** pour créer le produit.
 
@@ -189,19 +189,19 @@ Cliquez sur **Utilisateurs** sur le menu **Gestion des API** situé à gauche, p
 
 Cliquez sur **Ajouter un abonnement**.
 
-![Add subscription][api-management-add-subscription-menu]
+![Ajouter un abonnement][api-management-add-subscription-menu]
 
 Sélectionnez **Version d’évaluation gratuite**, puis cliquez sur **S’abonner**.
 
-![Add subscription][api-management-add-subscription]
+![Ajouter un abonnement][api-management-add-subscription]
 
->[AZURE.NOTE] Dans ce didacticiel, l’option permettant plusieurs abonnements simultanés est désactivée pour le produit en version d’évaluation gratuite. Dans le cas contraire, vous auriez été invité à nommer l’abonnement, comme indiqué dans l’exemple suivant.
+>[AZURE.NOTE] Dans ce didacticiel, l’option autorisant plusieurs abonnements simultanés est désactivée pour le produit en version d’évaluation gratuite. Dans le cas contraire, vous auriez été invité à indiquer le nom de l’abonnement, comme dans l’exemple suivant.
 
-![Add subscription][api-management-add-subscription-multiple]
+![Ajouter un abonnement][api-management-add-subscription-multiple]
 
 Après avoir cliqué sur **S’abonner**, le produit s’affiche dans la liste **Abonnement** de l’utilisateur.
 
-![Subscription added][api-management-subscription-added]
+![Abonnement ajouté][api-management-subscription-added]
 
 ## <a name="test-rate-limit"> </a>Appel d’une opération et test de la limite de débit
 
@@ -217,9 +217,9 @@ Cliquez sur **Ressource GET**, puis sur **Essayez-le**.
 
 ![Open console][api-management-open-console]
 
-Conservez les valeurs de paramètres par défaut et sélectionnez votre clé d’abonnement pour le produit en version d’évaluation gratuite.
+Conservez la valeur par défaut des paramètres et sélectionnez votre clé d’abonnement pour le produit en version d’évaluation gratuite.
 
-![Subscription key][api-management-select-key]
+![Clé d’abonnement][api-management-select-key]
 
 >[AZURE.NOTE] Si vous possédez plusieurs abonnements, pensez à sélectionner la clé pour la **Version d’évaluation gratuite**, sinon, les stratégies configurées aux étapes précédentes ne seront pas effectives.
 
@@ -237,7 +237,6 @@ Lorsque la stratégie de limite de débit de 10 appels par minute est appliqué
 
 ## <a name="next-steps"> </a>Étapes suivantes
 
--	Consultez les autres rubriques du didacticiel [Prise en main de la configuration avancée des API][].
 -	Consultez une démonstration relative à la définition de limites de débit et de quotas dans la vidéo suivante.
 
 > [AZURE.VIDEO rate-limits-and-quotas]
@@ -288,9 +287,8 @@ Lorsque la stratégie de limite de débit de 10 appels par minute est appliqué
 [Publish the product]: #publish-product
 [Subscribe a developer account to the product]: #subscribe-account
 [Call an operation and test the rate limit]: #test-rate-limit
-[Prise en main de la configuration avancée des API]: api-management-get-started-advanced.md
 
 [Limit call rate]: https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate
 [Set usage quota]: https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0831_2016-->

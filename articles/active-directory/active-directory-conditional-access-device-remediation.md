@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Résolution des problèmes : Vous ne pouvez pas y accéder à partir d’ici | Microsoft Azure"
-	description="Cette rubrique vous aide à identifier si une procédure de correction peut être suivie pour accéder à l’application que vous souhaitez utiliser."
+	description="Cette rubrique vous aide à déterminer la procédure permettant d’accéder à l’application que vous souhaitez utiliser."
 	services="active-directory"
 	keywords="accès conditionnel en fonction de l’appareil, inscription de l’appareil, activer l’inscription de l’appareil, inscription de l’appareil et GPM"
 	documentationCenter=""
@@ -20,19 +20,17 @@
 
 # Résolution des problèmes : Vous ne pouvez pas y accéder à partir d’ici
 
-Une page d’accès refusé s’affiche lors de l’accès à une application telle qu’Office 365 SharePoint Online. Que faire dans cette situation ?
+Une page d’accès refusé s’affiche lorsque vous accédez à une application telle que SharePoint Online. Que faire dans cette situation ?
 
-Ce guide vous aide à identifier si une procédure de correction peut être suivie pour accéder à l’application que vous souhaitez utiliser.
+Ce guide vous aide à déterminer la procédure de correction permettant d’accéder à l’application que vous souhaitez utiliser.
 
 
 
 Sur quelle plate-forme votre appareil est-il exécuté ? La réponse à cette question vous dirige vers l’une des sections suivantes :
- 
+
 
 -	Appareil Windows
-
 -	Appareil iOS (iPhone ou iPad)
-
 -	Appareil Android
 
 ## Accès à partir d’un appareil Windows
@@ -41,30 +39,25 @@ Si votre appareil exécute Windows 10, Windows 8.1, Windows 8.0, Windows 7, Wind
 
 ### L’appareil n’est pas inscrit
 
-Si votre appareil n’est pas inscrit avec Azure Active Directory et que votre application est protégée à l’aide d’une stratégie basée sur l’appareil, une page présentant le contenu suivant peut s’afficher :
+Si votre appareil n’est pas inscrit dans Azure Active Directory et que votre application est protégée à l’aide d’une stratégie d’appareil, une page présentant le contenu suivant peut s’afficher :
 
-![Scénario](./media/active-directory-conditional-access-device-remediation/01.png "Scénario")
+![Messages d’accès refusé aux appareils non enregistrés](./media/active-directory-conditional-access-device-remediation/01.png "Scénario")
 
- 
 
-Si votre appareil est joint à un domaine Active Directory de votre organisation, vous pouvez appliquer la procédure suivante :
 
-1.	Assurez-vous d’être connecté à Windows à l’aide de votre compte de travail (compte Active Directory).
+Si votre appareil appartient à un domaine lié à Active Directory dans votre organisation, vous pouvez appliquer la procédure suivante :
 
-2.	Connectez-vous à votre réseau d’entreprise via VPN ou Direct Access.
-
-3.	Une fois connecté, verrouillez votre session Windows à l’aide de la combinaison touche Windows + L.
-
+1.	Vérifiez que vous êtes connecté à Windows à l’aide de votre compte de travail (compte Active Directory).
+2.	Connectez-vous à votre réseau d’entreprise via un VPN ou DirectAccess.
+3.	Une fois connecté, verrouillez votre session Windows à l’aide de la combinaison de touches Windows + L.
 4.	Déverrouillez votre session Windows en saisissant les informations d’identification de votre compte de travail.
+5.	Attendez une minute, puis essayez d’accéder à nouveau à l’application.
+6.	Si la même page s’affiche, contactez votre administrateur, cliquez sur **More details (Plus d'informations)** et fournissez les informations demandées.
 
-5.	Attendez une minute, puis réessayez d’accès à l’application.
+Si votre appareil n’appartient pas à un domaine et exécute Windows 10, deux possibilités s’offrent à vous :
 
-6.	Si la même page s’affiche, contactez votre administrateur et fournissez les détails après avoir cliqué sur le lien Détails supplémentaires.
-
-Si votre appareil n’est pas joint au domaine et exécute Windows 10, vous disposez de deux options :
-
-1. Exécuter Azure AD Join
-2. Ajoutez votre compte professionnel ou scolaire à Windows.
+- Exécutez Azure AD Join.
+- Ajoutez votre compte professionnel ou scolaire à Windows.
 
 Pour plus d’informations sur les différences entre les deux, consultez la section [Utilisation d’appareils Windows 10 sur votre lieu de travail](active-directory-azureadjoin-windows10-devices.md).
 
@@ -72,18 +65,12 @@ Pour exécuter Azure AD Join, exécutez la procédure suivante (indisponible dan
 
 **Mise à jour anniversaire Windows 10**
 
-1.	Lancez l’application Paramètres.
-
-2.	Accédez à « Comptes », puis choisissez entre le compte professionnel ou scolaire.
-
-3.	Cliquez sur « Se connecter ».
-
-4.	Choisissez l’option permettant de joindre l’appareil à Azure AD, en bas de la page.
-
-5.	Authentifiez-vous à votre organisation, fournissez une preuve MFA si nécessaire, et suivez la procédure jusqu’à la fin.
-
-6.	Déconnectez-vous et connectez-vous à l’aide de votre compte professionnel.
-
+1.	Ouvrez l’application **Paramètres**.
+2.	Cliquez sur **Comptes** > **Access work or school (Accès professionnel ou scolaire)**.
+3.	Cliquez sur **Connecter**.
+4.	Cliquez sur **Join this device to Azure AD (Joindre cet appareil à Azure AD)** en bas de la page.
+5.	Authentifiez-vous à votre organisation, fournissez une preuve d’authentification multifacteur si nécessaire, et suivez la procédure jusqu’à la fin.
+6.	Déconnectez-vous puis reconnectez-vous à l’aide de votre compte professionnel.
 7.	Essayez d’accéder à nouveau à l’application.
 
 
@@ -92,84 +79,63 @@ Pour exécuter Azure AD Join, exécutez la procédure suivante (indisponible dan
 **Mise à jour Windows 10 de novembre 2015**
 
 
-1.	Lancez l’application Paramètres.
-
-2.	Accédez à « Système », puis à « À propos ».
-	
-3.	Cliquez sur « Jointure Azure AD ».
-
-4.	Authentifiez-vous à votre organisation, fournissez une preuve MFA si nécessaire, et suivez la procédure jusqu’à la fin.
-
-5.	Déconnectez-vous et connectez-vous à l’aide de votre compte professionnel (compte Azure AD).
-
+1.	Ouvrez l’application **Paramètres**.
+2.	Cliquez sur **Système** > **À propos de**.
+3.	Cliquez sur **Joindre Azure AD**.
+4.	Authentifiez-vous à votre organisation, fournissez une preuve d’authentification multifacteur si nécessaire, et suivez la procédure jusqu’à la fin.
+5.	Déconnectez-vous et reconnectez-vous à l’aide de votre compte professionnel (compte Azure AD).
 6.	Essayez d’accéder à nouveau à l’application.
-
 
 Pour ajouter votre compte professionnel ou scolaire, suivez la procédure suivante :
 
 **Mise à jour anniversaire Windows 10**
 
-1.	Lancez l’application Paramètres.
-
-2.	Accédez à « Comptes », puis choisissez entre le compte professionnel ou scolaire.
-
-3.	Cliquez sur « Se connecter ».
-
-4.	Authentifiez-vous à votre organisation, fournissez une preuve MFA si nécessaire, et suivez la procédure jusqu’à la fin.
-
+1.	Ouvrez l’application **Paramètres**.
+2.	Cliquez sur **Comptes** > **Access work or school (Accès professionnel ou scolaire)**.
+3.	Cliquez sur **Connecter**.
+4.	Authentifiez-vous à votre organisation, fournissez une preuve d’authentification multifacteur si nécessaire, et suivez la procédure jusqu’à la fin.
 5.	Essayez d’accéder à nouveau à l’application.
 
 
 **Mise à jour Windows 10 de novembre 2015**
-	
-1.	Lancez l’application Paramètres.
-2.	Accédez à « Comptes», puis à vos comptes.
-3.	Cliquez sur l’option permettant d’ajouter un compte professionnel ou scolaire.
-4.	Authentifiez-vous à votre organisation, fournissez une preuve MFA si nécessaire, et suivez la procédure jusqu’à la fin.
+
+1.	Ouvrez l’application **Paramètres**.
+2.	Cliquez sur **Comptes** > **Votre compte**.
+3.	Cliquez sur **Ajouter un compte professionnel ou scolaire**.
+4.	Authentifiez-vous à votre organisation, fournissez une preuve d’authentification multifacteur si nécessaire, et suivez la procédure jusqu’à la fin.
 5.	Essayez d’accéder à nouveau à l’application.
 
 Si votre appareil n’est pas joint au domaine et exécute Windows 8.1, vous pouvez procéder à une jonction d’espace de travail et vous inscrire à Microsoft Intune en appliquant la procédure suivante :
 
-1.	Lancez les paramètres du PC.
-
-2.	Accédez à « Réseau », puis à « Espace de travail ».
-
-3.	Cliquez sur « Joindre ».
-
-4.	Authentifiez-vous à votre organisation, fournissez une preuve MFA si nécessaire, et suivez la procédure jusqu’à la fin.
-
-5.	Cliquez sur « Activer ».
-
+1.	Ouvrez **Paramètres du PC**.
+2.	Cliquez sur **Réseau** > **Espace de travail**.
+3.	Cliquez sur **Joindre**.
+4.	Authentifiez-vous à votre organisation, fournissez une preuve d’authentification multifacteur si nécessaire, et suivez la procédure jusqu’à la fin.
+5.	Cliquez sur **Activer**.
 6.	Patientez jusqu'à la fin.
-
 7.	Essayez d’accéder à nouveau à l’application.
 
 
 ## Navigateur non pris en charge
 
-Si vous accédez à l’application à partir des navigateurs suivants, une page similaire à la page représentée ci-dessous s’affiche :
+Si vous accédez à l’application à partir des navigateurs suivants, une page similaire à celle ci-dessous s’affiche :
 
-1.	Chrome, Firefox ou tout autre navigateur différent de Microsoft Edge ou Microsoft Internet Explorer dans Windows 10 ou Windows Server 2016.
+- Chrome, Firefox ou navigateur autre que Microsoft Edge ou Microsoft Internet Explorer dans Windows 10 ou Windows Server 2016.
+- Firefox dans Windows 8.1, Windows 7, Windows Server 2012 R2, Windows Server 2012 ou Windows Server 2008 R2.
 
-2.	Firefox dans Windows 8.1, Windows 7, Windows Server 2012 R2, Windows Server 2012 ou Windows Server 2008 R2.
- 
-
-![Scénario](./media/active-directory-conditional-access-device-remediation/02.png "Scénario")
+![Messages d’accès refusé aux navigateurs non pris en charge](./media/active-directory-conditional-access-device-remediation/02.png "Scénario")
 
 
-La seule correction consiste à utiliser un navigateur pris en charge par la plateforme de votre appareil.
+La seule possibilité consiste à utiliser un navigateur pris en charge par l’application sur la plateforme de votre appareil.
 
 ## Accéder à partir d’un appareil iOS
-
 Revenez plus tard consulter les instructions pour iPhones ou iPads.
 
 ## Accéder à partir d’un appareil Android
-
 Revenez plus tard consulter les instructions pour téléphones ou tablettes Android.
-
 
 ## Étapes suivantes
 
 [Accès conditionnel Azure Active Directory](active-directory-conditional-access.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

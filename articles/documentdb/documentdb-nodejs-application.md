@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="hero-article" 
-	ms.date="08/15/2016" 
+	ms.date="08/25/2016" 
 	ms.author="anhoh"/>
 
 # <a name="_Toc395783175"></a>Création d'une application web Node.js avec DocumentDB
@@ -118,7 +118,7 @@ Ceci concerne l'ensemble de l'installation et de la configuration initiales. Ven
 		var DocDBUtils = {
 		    getOrCreateDatabase: function (client, databaseId, callback) {
 		        var querySpec = {
-		            query: 'SELECT* FROM root r WHERE r.id= @id',
+		            query: 'SELECT * FROM root r WHERE r.id= @id',
 		            parameters: [{
 		                name: '@id',
 		                value: databaseId
@@ -148,7 +148,7 @@ Ceci concerne l'ensemble de l'installation et de la configuration initiales. Ven
 		
 		    getOrCreateCollection: function (client, databaseLink, collectionId, callback) {
 		        var querySpec = {
-		            query: 'SELECT* FROM root r WHERE r.id=@id',
+		            query: 'SELECT * FROM root r WHERE r.id=@id',
 		            parameters: [{
 		                name: '@id',
 		                value: collectionId
@@ -281,7 +281,7 @@ Ceci concerne l'ensemble de l'installation et de la configuration initiales. Ven
 		        var self = this;
 		
 		        var querySpec = {
-		            query: 'SELECT* FROM root r WHERE r.id = @id',
+		            query: 'SELECT * FROM root r WHERE r.id = @id',
 		            parameters: [{
 		                name: '@id',
 		                value: itemId
@@ -322,7 +322,7 @@ Ceci concerne l'ensemble de l'installation et de la configuration initiales. Ven
 		        var self = this;
 		
 		        var querySpec = {
-		            query: 'SELECT* FROM root r WHERE r.completed=@completed',
+		            query: 'SELECT * FROM root r WHERE r.completed=@completed',
 		            parameters: [{
 		                name: '@completed',
 		                value: false
@@ -568,4 +568,4 @@ Pour plus d'informations, consultez le [Centre pour développeurs Node.js](https
 [Github]: https://github.com/Azure-Samples/documentdb-node-todo-app
  
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0831_2016-->
