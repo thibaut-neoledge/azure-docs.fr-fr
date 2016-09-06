@@ -53,7 +53,7 @@ Pour cette configuration, nous utilisons les valeurs suivantes. Nous avons défi
 - Nom du sous-réseau : **GatewaySubnet**, utilisant **192.168.200.0/24**. Le nom du sous-réseau *GatewaySubnet* est obligatoire pour que la passerelle fonctionne.
 - Pool d’adresses des clients VPN : **172.16.201.0/24**. Les clients VPN qui se connectent au réseau virtuel à l’aide de cette connexion de point à site reçoivent une adresse IP de ce pool.
 - Abonnement : Vérifiez que vous disposez de l'abonnement approprié si vous en possédez plusieurs.
-- Groupe de ressources : **TestRG**
+- Groupe de ressources : **TestRG**
 - Emplacement : **États-Unis de l’Est**
 - Serveur DNS : **Adresse IP** du serveur DNS que vous souhaitez utiliser pour la résolution de noms.
 - Nom de passerelle : **GW**

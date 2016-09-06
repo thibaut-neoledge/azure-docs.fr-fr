@@ -60,9 +60,9 @@ Pour commencer, vous avez besoin des éléments suivants :
 Les paramètres obligatoires sont :
 
 - **RequestedServiceObjectiveName** : quantité de [DWU][] que vous demandez. Les valeurs prises en charge sont les suivantes : DW100, DW200, DW300, DW400, DW500, DW600, DW1000, DW1200, DW1500, DW2000, DW3000 et DW6000.
-- **DatabaseName** : nom de l’entrepôt SQL Data Warehouse que vous créez.
-- **ServerName** : nom du serveur que vous utilisez pour la création (doit être V12).
-- **ResourceGroupName** : groupe de ressources que vous utilisez. Pour trouver des groupes de ressources disponibles dans votre abonnement, utilisez Get-AzureResource.
+- **DatabaseName** : nom de l’entrepôt SQL Data Warehouse que vous créez.
+- **ServerName** : nom du serveur que vous utilisez pour la création (doit être V12).
+- **ResourceGroupName** : groupe de ressources que vous utilisez. Pour trouver des groupes de ressources disponibles dans votre abonnement, utilisez Get-AzureResource.
 - **Edition** : l’édition doit être définie sur « DataWarehouse » pour créer un entrepôt SQL Data Warehouse.
 
 Les paramètres facultatifs sont :

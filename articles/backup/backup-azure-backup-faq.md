@@ -46,7 +46,7 @@ Azure Backup prend en charge les systèmes d’exploitation suivants pour la sau
 Pour la sauvegarde de machines virtuelles Azure,
 
 - **Linux** : Azure Backup prend en charge [une liste de distributions approuvées par Azure](../virtual-machines/virtual-machines-linux-endorsed-distros.md), à l’exception de CoreOS Linux. D’autres distributions « Bring-Your-Own-Linux » fonctionnent également tant que l’agent de machine virtuelle est disponible sur la machine virtuelle et que Python est pris en charge.
-- **Windows Server** : les versions antérieures à Windows Server 2008 R2 ne sont pas prises en charge.
+- **Windows Server** : les versions antérieures à Windows Server 2008 R2 ne sont pas prises en charge.
 
 ## Où puis-je télécharger le dernier agent Azure Backup ? <br/>
 Vous pouvez télécharger le dernier agent de sauvegarde de Windows Server, de System Center DPM ou du client Windows, en cliquant [ici](http://aka.ms/azurebackup_agent). Si vous souhaitez sauvegarder une machine virtuelle, utilisez l’Agent de machine virtuelle (qui installe automatiquement l’extension appropriée). L’agent de machine virtuelle est déjà présent dans les machines virtuelles créées à partir de la galerie Azure.

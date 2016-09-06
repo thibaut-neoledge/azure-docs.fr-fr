@@ -315,7 +315,7 @@ Ceci concerne l'ensemble de l'installation et de la configuration initiales. Ven
 		
 		module.exports = TaskList;
 
-3. Continuez à modifier le fichier **tasklist.js** en ajoutant les méthodes utilisées pour **afficher les tâches (showTasks), ajouter les tâches (addTask)** et **marquer les tâches comme terminées (completeTasks)** :
+3. Continuez à modifier le fichier **tasklist.js** en ajoutant les méthodes utilisées pour **afficher les tâches (showTasks), ajouter les tâches (addTask)** et **marquer les tâches comme terminées (completeTasks)** :
 		
 		TaskList.prototype = {
 		    showTasks: function (req, res) {
@@ -408,7 +408,7 @@ Ceci concerne l'ensemble de l'installation et de la configuration initiales. Ven
 		var TaskDao = require('./models/taskDao');
 
 3. Ce code définit le fichier de configuration à utiliser et procède à la lecture des valeurs de ce fichier dans des variables que nous utiliserons prochainement.
-4. Remplacez les deux lignes suivantes dans le fichier **app.js** :
+4. Remplacez les deux lignes suivantes dans le fichier **app.js** :
 
 		app.use('/', routes);
 		app.use('/users', users); 
