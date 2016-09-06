@@ -72,7 +72,7 @@ Vos applications et services peuvent émettre des appels d’API REST directs, u
 | **Batch .NET** | [MSDN][api_net] | [NuGet][api_net_nuget] | [GitHub][api_sample_net] |
 | **Python Batch** | [readthedocs.IO][api_python] | [PyPI][api_python_pypi] |[GitHub][api_sample_python] |
 | **Batch Node.js** | [github.io][api_nodejs] | [npm][api_nodejs_npm] | - | 
-| **Batch Java** (version préliminaire) | [github.io][api_java] | [Maven snapshot repo][api_java_jar] | - |
+| **Batch Java** (version préliminaire) | [github.io][api_java] | [Maven][api_java_jar] | [GitHub][api_sample_java] |
 
 ### Gestion des ressources Batch
 
