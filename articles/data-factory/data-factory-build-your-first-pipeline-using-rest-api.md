@@ -19,7 +19,7 @@
 
 # Créer votre première fabrique de données Azure en utilisant l’API REST Data Factory
 > [AZURE.SELECTOR]
-- [Vue d’ensemble du didacticiel](data-factory-build-your-first-pipeline.md)
+- [Didacticiel - Vue d’ensemble](data-factory-build-your-first-pipeline.md)
 - [Utilisation de Data Factory Editor](data-factory-build-your-first-pipeline-using-editor.md)
 - [Utiliser PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 - [Utilisation de Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
@@ -30,7 +30,7 @@ Dans cet article, vous allez découvrir comment utiliser l’API REST Data Facto
 
 ## Composants requis
 
-- Lisez l’article [Vue d’ensemble du didacticiel](data-factory-build-your-first-pipeline.md). Cet article vous aide à comprendre les concepts de base d’Azure Data Factory.
+- Lisez l’article [Didacticiel - Vue d’ensemble](data-factory-build-your-first-pipeline.md). Cet article vous aide à comprendre les concepts de base d’Azure Data Factory.
 - Installez [Curl](https://curl.haxx.se/dlwiz/) sur votre ordinateur. L’outil CURL et les commandes REST vous permettent de créer une fabrique de données.
 - Suivez les instructions de [cet article](../resource-group-create-service-principal-portal.md) pour effectuer les opérations suivantes :
 	1. Créez une application Web nommée **ADFGetStartedApp** dans Azure Active Directory.
@@ -60,7 +60,7 @@ Créez les fichiers JSON suivants dans le dossier où se trouve le fichier curl.
 	}  
 
 ### azurestoragelinkedservice.json
-> [AZURE.IMPORTANT] Remplacez **accountname** et **accountkey** par le nom de votre compte Azure Storage et par sa clé. Pour savoir comment obtenir votre clé d’accès de stockage, voir [Affichage, copie et régénération de clés d’accès de stockage](../storage/storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
+> [AZURE.IMPORTANT] Remplacez **accountname** et **accountkey** par le nom de votre compte Stockage Azure et par sa clé. Pour savoir comment obtenir votre clé d’accès de stockage, voir [Affichage, copie et régénération de clés d’accès de stockage](../storage/storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
 
 	{
 	    "name": "AzureStorageLinkedService",
@@ -170,7 +170,7 @@ Le tableau suivant décrit les propriétés JSON utilisées dans l'extrait de co
 Le code JSON définit un jeu de données nommé **AzureBlobOutput**, qui représente les données de sortie correspondant à une activité du pipeline. En outre, ce code spécifie que les résultats sont stockés dans le conteneur d’objets blob **adfgetstarted** et dans le dossier **partitioneddata**. La section **availability** spécifie que le jeu de données de sortie est produit tous les mois.
 
 ### pipeline.json
-> [AZURE.IMPORTANT] Remplacez **storageaccountname** par le nom de votre compte Azure Storage.
+> [AZURE.IMPORTANT] Remplacez **storageaccountname** par le nom de votre compte Stockage Azure.
 
 
 	{
@@ -218,7 +218,7 @@ La section **defines** sert à spécifier les paramètres d’exécution transmi
 
 Les propriétés **start** et **end** du pipeline spécifient la période active du pipeline.
 
-Dans l’activité JSON, vous spécifiez que le script Hive s’exécute sur le calcul spécifié par le service **linkedServiceName** – **HDInsightOnDemandLinkedService**.
+Dans l’activité JSON, vous spécifiez que le script Hive s’exécute sur le calcul spécifié par le service **linkedServiceName** – **HDInsightOnDemandLinkedService**.
 
 > [AZURE.NOTE] Pour plus d’informations sur les propriétés JSON utilisées dans l’exemple ci-dessus, consultez [Anatomie d’un pipeline](data-factory-create-pipelines.md#anatomy-of-a-pipeline) .
 
@@ -286,10 +286,10 @@ Notez les points suivants :
 Avant de créer un pipeline, vous devez d’abord créer quelques entités de la fabrique de données. Créez d’abord des services liés pour lier des magasins de données/calculs à votre magasin de données, puis définissez des jeux de données d’entrée et de sortie pour représenter les données dans les magasins de données liés.
 
 ## Créer des services liés 
-Dans cette étape, vous liez votre compte Azure Storage et un cluster Azure HDInsight à la demande à votre fabrique de données. Le compte Azure Storage contient les données d’entrée et de sortie pour le pipeline de cet exemple. Le service lié HDInsight est utilisé pour exécuter le script Hive spécifié dans l’activité du pipeline de cet exemple.
+Dans cette étape, vous liez votre compte Stockage Azure et un cluster Azure HDInsight à la demande à votre fabrique de données. Le compte Stockage Azure contient les données d’entrée et de sortie pour le pipeline de cet exemple. Le service lié HDInsight est utilisé pour exécuter le script Hive spécifié dans l’activité du pipeline de cet exemple.
 
 ### Créer le service lié Azure Storage
-Dans cette étape, vous liez votre compte Azure Storage à votre fabrique de données. Pour les besoins de ce didacticiel, vous utilisez le même compte Azure Storage pour stocker les données d’entrée/sortie et le fichier de script HQL.
+Dans cette étape, vous liez votre compte Stockage Azure à votre fabrique de données. Pour les besoins de ce didacticiel, vous utilisez le même compte Stockage Azure pour stocker les données d’entrée/sortie et le fichier de script HQL.
 
 1. Attribuez la commande à une variable nommée **cmd**.
 
@@ -343,7 +343,7 @@ Dans cette étape, vous créez le jeu de données de sortie pour représenter le
 		Write-Host $results 
 
 ## Création d’un pipeline
-Dans cette étape, vous créez votre premier pipeline avec une activité **HDInsightHive**. La tranche d’entrée est disponible mensuellement (fréquence : Mois, intervalle : 1), la tranche de sortie est produite mensuellement et la propriété du planificateur pour l’activité est également définie sur Mensuellement. Les paramètres pour le jeu de données de sortie et le planificateur d’activité doivent correspondre. À ce stade, le jeu de données de sortie est ce qui pilote la planification : vous devez donc créer un jeu de données de sortie même si l’activité ne génère aucune sortie. Si l’activité ne prend aucune entrée, vous pouvez ignorer la création du jeu de données d’entrée.
+Dans cette étape, vous créez votre premier pipeline avec une activité **HDInsightHive**. La tranche d’entrée est disponible mensuellement (fréquence : Mois, intervalle : 1), la tranche de sortie est produite mensuellement et la propriété du planificateur pour l’activité est également définie sur Mensuellement. Les paramètres pour le jeu de données de sortie et le planificateur d’activité doivent correspondre. À ce stade, c'est le jeu de données de sortie qui pilote la planification : vous devez donc créer un jeu de données de sortie même si l’activité ne génère aucune sortie. Si l’activité ne prend aucune entrée, vous pouvez ignorer la création du jeu de données d’entrée.
 
 Vérifiez que le fichier **input.log** apparaît dans le dossier **adfgetstarted/inputdata** du stockage d’objets blob Azure, puis exécutez la commande suivante pour déployer le pipeline. Étant donné que les valeurs pour **start** et **end** sont définies sur des valeurs antérieures au moment actuel, et que **isPaused** est défini sur false, le pipeline (activité dans le pipeline) s’exécute immédiatement après le déploiement.
 

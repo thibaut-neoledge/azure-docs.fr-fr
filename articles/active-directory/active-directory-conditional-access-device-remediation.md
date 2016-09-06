@@ -26,7 +26,7 @@ Ce guide vous aide à déterminer la procédure de correction permettant d’acc
 
 
 
-Sur quelle plate-forme votre appareil est-il exécuté ? La réponse à cette question vous dirige vers l’une des sections suivantes :
+Sur quelle plateforme fonctionne votre appareil ? La réponse à cette question vous dirige vers l’une des sections suivantes :
 
 
 -	Appareil Windows
@@ -39,7 +39,7 @@ Si votre appareil exécute Windows 10, Windows 8.1, Windows 8.0, Windows 7, Wind
 
 ### L’appareil n’est pas inscrit
 
-Si votre appareil n’est pas inscrit dans Azure Active Directory et que votre application est protégée à l’aide d’une stratégie d’appareil, une page présentant le contenu suivant peut s’afficher :
+Si votre appareil n’est pas inscrit auprès d’Azure Active Directory et que votre application est protégée à l’aide d’une stratégie d’appareil, une page présentant le contenu suivant peut s’afficher :
 
 ![Messages d’accès refusé aux appareils non enregistrés](./media/active-directory-conditional-access-device-remediation/01.png "Scénario")
 
@@ -47,7 +47,7 @@ Si votre appareil n’est pas inscrit dans Azure Active Directory et que votre a
 
 Si votre appareil appartient à un domaine lié à Active Directory dans votre organisation, vous pouvez appliquer la procédure suivante :
 
-1.	Vérifiez que vous êtes connecté à Windows à l’aide de votre compte de travail (compte Active Directory).
+1.	Vérifiez que vous êtes connecté à Windows à l’aide de votre compte professionnel (compte Active Directory).
 2.	Connectez-vous à votre réseau d’entreprise via un VPN ou DirectAccess.
 3.	Une fois connecté, verrouillez votre session Windows à l’aide de la combinaison de touches Windows + L.
 4.	Déverrouillez votre session Windows en saisissant les informations d’identification de votre compte de travail.
@@ -63,13 +63,13 @@ Pour plus d’informations sur les différences entre les deux, consultez la sec
 
 Pour exécuter Azure AD Join, exécutez la procédure suivante (indisponible dans Windows Phone) :
 
-**Mise à jour anniversaire Windows 10**
+**Mise à jour Anniversaire de Windows 10**
 
 1.	Ouvrez l’application **Paramètres**.
 2.	Cliquez sur **Comptes** > **Access work or school (Accès professionnel ou scolaire)**.
 3.	Cliquez sur **Connecter**.
 4.	Cliquez sur **Join this device to Azure AD (Joindre cet appareil à Azure AD)** en bas de la page.
-5.	Authentifiez-vous à votre organisation, fournissez une preuve d’authentification multifacteur si nécessaire, et suivez la procédure jusqu’à la fin.
+5.	Authentifiez-vous auprès de votre organisation, fournissez une preuve d’authentification multifacteur si nécessaire, et suivez la procédure jusqu’à la fin.
 6.	Déconnectez-vous puis reconnectez-vous à l’aide de votre compte professionnel.
 7.	Essayez d’accéder à nouveau à l’application.
 
@@ -82,18 +82,18 @@ Pour exécuter Azure AD Join, exécutez la procédure suivante (indisponible dan
 1.	Ouvrez l’application **Paramètres**.
 2.	Cliquez sur **Système** > **À propos de**.
 3.	Cliquez sur **Joindre Azure AD**.
-4.	Authentifiez-vous à votre organisation, fournissez une preuve d’authentification multifacteur si nécessaire, et suivez la procédure jusqu’à la fin.
+4.	Authentifiez-vous auprès de votre organisation, fournissez une preuve d’authentification multifacteur si nécessaire, et suivez la procédure jusqu’à la fin.
 5.	Déconnectez-vous et reconnectez-vous à l’aide de votre compte professionnel (compte Azure AD).
 6.	Essayez d’accéder à nouveau à l’application.
 
 Pour ajouter votre compte professionnel ou scolaire, suivez la procédure suivante :
 
-**Mise à jour anniversaire Windows 10**
+**Mise à jour Anniversaire de Windows 10**
 
 1.	Ouvrez l’application **Paramètres**.
 2.	Cliquez sur **Comptes** > **Access work or school (Accès professionnel ou scolaire)**.
 3.	Cliquez sur **Connecter**.
-4.	Authentifiez-vous à votre organisation, fournissez une preuve d’authentification multifacteur si nécessaire, et suivez la procédure jusqu’à la fin.
+4.	Authentifiez-vous auprès de votre organisation, fournissez une preuve d’authentification multifacteur si nécessaire, et suivez la procédure jusqu’à la fin.
 5.	Essayez d’accéder à nouveau à l’application.
 
 
@@ -102,15 +102,15 @@ Pour ajouter votre compte professionnel ou scolaire, suivez la procédure suivan
 1.	Ouvrez l’application **Paramètres**.
 2.	Cliquez sur **Comptes** > **Votre compte**.
 3.	Cliquez sur **Ajouter un compte professionnel ou scolaire**.
-4.	Authentifiez-vous à votre organisation, fournissez une preuve d’authentification multifacteur si nécessaire, et suivez la procédure jusqu’à la fin.
+4.	Authentifiez-vous auprès de votre organisation, fournissez une preuve d’authentification multifacteur si nécessaire, et suivez la procédure jusqu’à la fin.
 5.	Essayez d’accéder à nouveau à l’application.
 
-Si votre appareil n’est pas joint au domaine et exécute Windows 8.1, vous pouvez procéder à une jonction d’espace de travail et vous inscrire à Microsoft Intune en appliquant la procédure suivante :
+Si votre appareil n’est pas joint au domaine et exécute Windows 8.1, vous pouvez procéder à une jonction d’espace de travail et vous inscrire auprès de Microsoft Intune en appliquant la procédure suivante :
 
 1.	Ouvrez **Paramètres du PC**.
 2.	Cliquez sur **Réseau** > **Espace de travail**.
 3.	Cliquez sur **Joindre**.
-4.	Authentifiez-vous à votre organisation, fournissez une preuve d’authentification multifacteur si nécessaire, et suivez la procédure jusqu’à la fin.
+4.	Authentifiez-vous auprès de votre organisation, fournissez une preuve d’authentification multifacteur si nécessaire, et suivez la procédure jusqu’à la fin.
 5.	Cliquez sur **Activer**.
 6.	Patientez jusqu'à la fin.
 7.	Essayez d’accéder à nouveau à l’application.
@@ -129,7 +129,7 @@ Si vous accédez à l’application à partir des navigateurs suivants, une page
 La seule possibilité consiste à utiliser un navigateur pris en charge par l’application sur la plateforme de votre appareil.
 
 ## Accéder à partir d’un appareil iOS
-Revenez plus tard consulter les instructions pour iPhones ou iPads.
+Revenez plus tard consulter les instructions pour iPhone ou iPad.
 
 ## Accéder à partir d’un appareil Android
 Revenez plus tard consulter les instructions pour téléphones ou tablettes Android.
