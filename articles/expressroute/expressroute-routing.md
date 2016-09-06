@@ -78,15 +78,15 @@ L’échange de routage s’effectuera via le protocole eBGP. Des sessions EBGP 
 
 ## Numéros système autonomes
 
-Microsoft utilisera le numéro AS 12076 pour les homologations publiques Azure, privées Azure et Microsoft. Nous avons réservé les numéros AS 65515 à 65520 pour un usage interne. Les numéros AS 16 bits et 32 bits sont pris en charge.
+Microsoft utilisera le numéro AS 12076 pour les homologations publiques Azure, privées Azure et Microsoft. Nous avons réservé les numéros AS 65515 à 65520 pour un usage interne. Les numéros AS 16 bits et 32 bits sont pris en charge. Du côté de l’homologation (client ou fournisseur), la clause AS peut être un ASN public s’il est possible de vérifier qu’elle vous appartient, ou un ASN privé pour l’homologation privée et nécessite un ASN public pour les homologations publiques et Microsoft.
 
-Il n'existe aucune exigence concernant une symétrie de transfert des données. Les chemins d’envoi et de réception peuvent transiter par différentes paires de routeurs. Les routages identiques doivent être publiés des deux côtés sur plusieurs paires de circuits vous appartenant. Les métriques de routage n’ont pas besoin d’être identiques.
+Aucune configuration n’est requise concernant la symétrie de transfert de données sur les chemins d’accès primaires et secondaires d’un circuit donné. Les chemins d’envoi et de réception peuvent transiter par différentes paires de routeurs. Les routages identiques doivent être publiés des côtés primaire et secondaire, sur plusieurs paires de circuits vous appartenant. Les métriques de routage n’ont pas besoin d’être identiques.
 
 ## Agrégation de routages et limites de préfixes
 
 Nous prenons en charge jusqu'à 4 000 préfixes qui nous sont proposés via l'homologation privée Azure. Ce chiffre peut être augmenté jusqu’à 10 000 préfixes si le module complémentaire ExpressRoute premium est activé. Nous acceptons jusqu'à 200 préfixes par session BGP pour les homologations publiques Azure et Microsoft.
 
-La session BGP s’arrêtera si le nombre de préfixes dépasse la limite. Nous accepterons les routages par défaut uniquement sur le lien d'homologation privée. Le fournisseur doit filtrer les adresses IP de routage et privées par défaut (RFC 1918) des chemins d’homologation publique Azure et Microsoft.
+La session BGP s’arrêtera si le nombre de préfixes dépasse la limite. Nous accepterons les routages par défaut uniquement sur le lien d'homologation privée. Le fournisseur ou le client doit filtrer les routes par défaut et les adresses IP privées (RFC 1918) des publicités BGP dans les chemins d’homologation publique Azure et Microsoft.
 
 ## Routage de transit et routage entre régions
 
@@ -175,4 +175,4 @@ Par ailleurs, Microsoft marquera également des préfixes basés sur le service 
 	- [Configurer le routage à l’aide du modèle de déploiement classique](expressroute-howto-routing-classic.md) ou [Configurer le routage à l’aide du modèle de déploiement Resource Manager](expressroute-howto-routing-arm.md)
 	- [Lier un réseau virtuel classique à un circuit ExpressRoute](expressroute-howto-linkvnet-classic.md) ou [Lier un réseau virtuel Resource Manager à un circuit ExpressRoute](expressroute-howto-linkvnet-arm.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0831_2016-->

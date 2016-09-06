@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/09/2016"
+	ms.date="08/24/2016"
 	ms.author="sdanie"/>
 
 # Personnaliser le portail des développeurs dans Gestion des API Azure
@@ -78,7 +78,7 @@ Cliquez sur la page **Bienvenue** pour modifier le texte s’affichant sur la pa
 
 ## <a name="next-steps"> </a>Étapes suivantes
 
--	Consultez les autres rubriques du didacticiel [Prise en main de la configuration avancée des API][].
+-	Découvrez comment personnaliser le contenu des pages du portail des développeurs à l’aide de [modèles](api-management-developer-portal-templates.md).
 
 [Change the text/logo in the page headers]: #change-page-headers
 [Change the styling of the headers]: #change-headers-styling
@@ -95,8 +95,7 @@ Cliquez sur la page **Bienvenue** pour modifier le texte s’affichant sur la pa
 [api-management-customization-manage-content]: ./media/api-management-customize-portal/api-management-customization-manage-content.png
 
 
-[Prise en main de la configuration avancée des API]: api-management-get-started-advanced.md
 [amorçage]: http://getbootstrap.com/
 [variables LESS]: http://getbootstrap.com/css/
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0831_2016-->

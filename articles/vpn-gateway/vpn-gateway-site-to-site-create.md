@@ -14,10 +14,10 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/23/2016"
+   ms.date="08/31/2016"
    ms.author="cherylmc"/>
 
-# Créer un réseau virtuel avec une connexion VPN site à site à l’aide du Portail Azure Classic
+# Création d’un réseau virtuel avec une connexion de site à site à l’aide du portail Azure Classic
 
 > [AZURE.SELECTOR]
 - [Portail Azure](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
@@ -25,7 +25,7 @@
 - [PowerShell - Resource Manager](vpn-gateway-create-site-to-site-rm-powershell.md)
 
 
-Cet article vous guide tout au long de la création d’un réseau virtuel et d’une connexion VPN site à site à votre réseau local. Les connexions site à site peuvent être utilisées pour les configurations hybrides et entre les différents locaux. Cet article s’applique au modèle de déploiement classique et s’appuie sur le Portail Azure Classic. Pour le moment, il n’est pas possible de créer une configuration site à site de bout en bout pour le modèle de déploiement classique à l’aide du portail Azure.
+Cet article vous guide lors de la création d’un réseau virtuel et d’une connexion VPN de site à site à votre réseau local, à l’aide du **modèle de déploiement Classic** et du portail Classic. Les connexions site à site peuvent être utilisées pour les configurations hybrides et entre les différents locaux. Pour le moment, il n’est pas possible de créer une configuration site à site de bout en bout pour le modèle de déploiement classique à l’aide du portail Azure.
 
 ![Diagramme de site à site](./media/vpn-gateway-site-to-site-create/site2site.png "site à site")
 
@@ -107,4 +107,4 @@ Configurez la passerelle du réseau virtuel pour créer une connexion de site à
 
 Une fois la connexion achevée, vous pouvez ajouter des machines virtuelles à vos réseaux virtuels. Pour plus d’informations, consultez la documentation relative aux [machines virtuelles](https://azure.microsoft.com/documentation/services/virtual-machines/).
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

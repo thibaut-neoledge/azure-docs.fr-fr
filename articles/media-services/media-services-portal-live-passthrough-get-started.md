@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article"
-	ms.date="06/22/2016" 
+	ms.date="08/30/2016" 
 	ms.author="juliako"/>
 
 
@@ -21,12 +21,10 @@
 
 Ce didacticiel vous guide tout au long des étapes d’utilisation du portail Azure afin de créer un **canal** configuré pour une livraison directe.
 
-Azure Media Services est actuellement en version préliminaire dans le portail Azure.
 
+##Composants requis
 
-##Configuration requise
-
-Les éléments suivants sont requis pour suivre le didacticiel :
+Les éléments suivants sont requis pour suivre le didacticiel :
 
 - Un compte Azure. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/).
 - Un compte Media Services. Pour créer un compte Media Services, voir [Création d’un compte Media Services](media-services-create-account.md).
@@ -34,7 +32,7 @@ Les éléments suivants sont requis pour suivre le didacticiel :
 
 Il est vivement recommandé de consulter les articles suivants :
 
-- [Prise en charge RTMP et encodeurs dynamiques dans Azure Media Services.](https://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/)
+- [Prise en charge RTMP et encodeurs dynamiques dans Azure Media Services.](https://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/)
 - [Vue d’ensemble de la vidéo en flux continu à l’aide d’Azure Media Services](media-services-manage-channels-overview.md)
 - [Vidéo en flux continu avec des encodeurs locaux qui créent des flux à vitesses de transmission multiples](media-services-live-streaming-with-onprem-encoders.md)
 
@@ -43,7 +41,7 @@ Il est vivement recommandé de consulter les articles suivants :
 
 Les étapes suivantes décrivent les tâches impliquées dans la création d’applications courantes de diffusion en continu qui utilisent des canaux configurés pour une livraison directe. Ce didacticiel explique comment créer et gérer un canal direct et des événements en direct.
 
-1. Connectez une caméra vidéo à un ordinateur. Lancez et configurez un encodeur dynamique local qui produit un flux à débit binaire multiple au format MP4 fragmenté ou RTMP. Pour plus d’informations, voir [Prise en charge RTMP et encodeurs dynamiques dans Azure Media Services](http://go.microsoft.com/fwlink/?LinkId=532824).
+1. Connectez une caméra vidéo à un ordinateur. Lancez et configurez un encodeur dynamique local qui produit un flux à débit binaire multiple au format MP4 fragmenté ou RTMP. Pour plus d’informations, voir [Prise en charge RTMP et encodeurs dynamiques dans Azure Media Services](http://go.microsoft.com/fwlink/?LinkId=532824).
 	
 	Cette étape peut également être effectuée après la création du canal.
 
@@ -59,13 +57,13 @@ Les étapes suivantes décrivent les tâches impliquées dans la création d’a
 
 	Lors de l’utilisation du portail Azure, la création d’un événement en direct a également pour effet de créer un élément multimédia.
 	  
-	>[AZURE.NOTE]Assurez-vous d’avoir au moins une unité réservée de diffusion en continu pour le point de terminaison de diffusion en continu à partir duquel vous prévoyez de diffuser votre contenu.
+	>[AZURE.NOTE]Assurez-vous d'avoir au moins une unité réservée de diffusion en continu pour le point de terminaison de diffusion en continu à partir duquel vous prévoyez de diffuser votre contenu.
 1. Démarrez l’événement ou le programme dès que vous êtes prêt à lancer la diffusion en continu et l’archivage.
 2. Un signal peut éventuellement être envoyé à l’encodeur dynamique pour qu’il démarre une publicité. La publicité est insérée dans le flux de sortie.
 1. Arrêtez l’événement ou le programme chaque fois que vous voulez arrêter la diffusion et archiver l’événement.
 1. Supprimez l’événement ou le programme (et éventuellement la ressource).
 
->[AZURE.IMPORTANT] Pour en savoir plus sur les concepts et les considérations liés à la diffusion en continu avec des encodeurs en local et des canaux directs, consultez la page [Vidéo en flux continu avec des encodeurs locaux qui créent des flux à vitesses de transmission multiples](media-services-live-streaming-with-onprem-encoders.md).
+>[AZURE.IMPORTANT] Pour en savoir plus sur les considérations et concepts liés à la diffusion en continu avec des encodeurs locaux et des canaux directs, consultez la page [Vidéo en flux continu avec des encodeurs locaux qui créent des flux à vitesses de transmission multiples](media-services-live-streaming-with-onprem-encoders.md).
 
 ##Pour afficher les erreurs et notifications
 
@@ -99,11 +97,11 @@ Pour créer et modifier le nombre d’unités réservées de diffusion en contin
 
 Un canal est associé à des événements/programmes vous permettant de contrôler la publication et le stockage des segments dans un flux dynamique. Les canaux gèrent des événements.
 	
-Vous pouvez spécifier le nombre d’heures pendant lesquelles vous souhaitez conserver le contenu enregistré pour le programme en définissant la durée de la **fenêtre d’archivage**. Cette valeur peut être comprise entre 5 minutes et 25 heures. La durée de la fenêtre d’archivage détermine également la plage maximale de temps dans laquelle les clients peuvent effectuer des recherches en arrière à partir de la position dynamique actuelle. Les événements peuvent durer davantage que le laps de temps spécifié, mais le contenu qui se situe en dehors de la longueur de fenêtre est ignoré en permanence. La valeur de cette propriété détermine également la longueur maximale que les manifestes de client peuvent atteindre.
+Vous pouvez spécifier le nombre d’heures pendant lesquelles vous souhaitez conserver le contenu enregistré pour le programme en définissant la durée de la **fenêtre d’archivage**. Cette valeur peut être comprise entre 5 minutes et 25 heures. La durée de la fenêtre d’archivage détermine également la plage maximale de temps dans laquelle les clients peuvent effectuer des recherches en arrière à partir de la position dynamique actuelle. Les événements peuvent durer davantage que le laps de temps spécifié, mais le contenu qui se situe en dehors de la longueur de fenêtre est ignoré en permanence. La valeur de cette propriété détermine également la longueur maximale que les manifestes de client peuvent atteindre.
 
 Chaque événement est associé à un élément multimédia. Pour publier l’événement, vous devez créer un localisateur OnDemand pour l’élément multimédia associé. Le fait de posséder ce localisateur vous permettra de générer une URL de diffusion en continu que vous pourrez fournir à vos clients.
 
-Un canal prend en charge jusqu’à trois événements exécutés simultanément, ce qui rend possible la création de plusieurs archives du même flux entrant. Cela vous permet de publier et d’archiver différentes parties d’un événement en fonction des besoins. Par exemple, imaginez que vous devez archiver 6 heures d’un programme, mais diffuser uniquement les 10 dernières minutes. Pour ce faire, vous devez créer deux programmes exécutés simultanément. Un programme est configuré pour archiver 6 heures de l’événement, mais il n’est pas publié. L’autre programme est configuré pour archiver pendant 10 minutes et il est publié.
+Un canal prend en charge jusqu’à trois événements exécutés simultanément, ce qui rend possible la création de plusieurs archives du même flux entrant. Cela vous permet de publier et d’archiver différentes parties d’un événement en fonction des besoins. Par exemple, imaginez que vous devez archiver 6 heures d’un programme, mais diffuser uniquement les 10 dernières minutes. Pour ce faire, vous devez créer deux programmes exécutés simultanément. Un programme est configuré pour archiver 6 heures de l’événement, mais il n’est pas publié. L’autre programme est configuré pour archiver pendant 10 minutes et il est publié.
 
 Vous ne devez pas réutiliser d’événements en direct existants. Créez et lancez plutôt un nouvel événement pour chaque événement.
 
@@ -129,18 +127,18 @@ Pour plus d’informations sur les canaux directs, consultez [Vidéo en flux con
 
 3. Cliquez sur **Création rapide** pour créer un canal direct avec le protocole de réception RTMP.
 
-	La fenêtre **CRÉER UN NOUVEAU CANAL** s’affiche.
+	La fenêtre **Créer un nouveau canal** s’affiche.
 4. Nommez le nouveau canal et cliquez sur **Créer**.
 
 	Vous obtenez un canal direct avec le protocole de réception RTMP.
 
 	Le canal peut également ajouter, démarrer et publier un événement/programme en direct par défaut. Cet événement est configuré pour disposer de 8 heures d’archivage.
 
-	Pour ajouter davantage d’événements, appuyez sur le bouton **Live Event** (Événement en direct).
+	Pour ajouter d’autres événements, appuyez sur le bouton **Événement réel**.
 
-##Obtenir les URL de réception
+##Obtenir les URL de réception
 
-Lorsque le canal est créé, vous pouvez obtenir des URL de réception que vous devez fournir à l’encodeur dynamique. L’encodeur utilise ces URL pour entrer un flux dynamique.
+Lorsque le canal est créé, vous pouvez obtenir des URL de réception que vous devez fournir à l’encodeur dynamique. L’encodeur utilise ces URL pour entrer un flux dynamique.
 
 ![Date de création](./media/media-services-portal-passthrough-get-started/media-services-channel-created.png)
 
@@ -156,7 +154,7 @@ Une fois arrêté, l’événement en direct est automatiquement converti en con
 
 Pour plus d’informations sur les canaux directs, consultez [Vidéo en flux continu avec des encodeurs locaux qui créent des flux à vitesses de transmission multiples](media-services-live-streaming-with-onprem-encoders.md).
 
-- Un canal peut être arrêté uniquement lorsque tous les événements/programmes du canal ont été arrêtés. Une fois le canal arrêté, aucun frais n’est encouru. Lorsque vous devez le redémarrer, il possède la même URL de réception. Vous n’avez donc pas besoin de reconfigurer votre encodeur.
+- Un canal peut être arrêté uniquement lorsque tous les événements/programmes du canal ont été arrêtés. Une fois le canal arrêté, aucun frais n’est encouru. Lorsque vous devez le redémarrer, il possède la même URL de réception. Vous n’avez donc pas besoin de reconfigurer votre encodeur.
 - Un canal peut être supprimé uniquement lorsque tous les événements/programmes du canal ont été supprimés.
 
 ##Afficher le contenu archivé
@@ -175,4 +173,4 @@ Pour gérer vos éléments multimédias, cliquez sur **Paramètre** puis sur **�
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!----HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0831_2016-->

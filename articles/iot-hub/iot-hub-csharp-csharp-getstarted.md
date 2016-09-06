@@ -60,7 +60,7 @@ Dans cette section, vous allez créer une application console Windows qui crée 
 5. Ajoutez les champs suivants à la classe **Program** : Remplacez la valeur d’espace réservé par la chaîne de connexion pour le IoT Hub créé dans la section précédente.
 
 		static RegistryManager registryManager;
-        static string connectionString = "{iothub connection string}";
+        static string connectionString = "{iot hub connection string}";
 
 6. Ajoutez la méthode suivante à la classe **Program** :
 
@@ -237,7 +237,7 @@ Vous êtes maintenant prêt à exécuter les applications.
 
    	![Sortie de console à partir d’applications][42]
 
-3. La vignette **Utilisation** du [portail Azure][lnk-portal] indique le nombre de messages envoyés au concentrateur :
+3. La vignette **Utilisation** du [portail Azure][lnk-portal] indique le nombre de messages envoyés au hub :
 
     ![Vignette Utilisation du portail Azure][43]
 
@@ -252,7 +252,7 @@ Pour continuer la prise en main de IoT Hub et explorer les autres scénarios IoT
 - [Prise en main de la gestion d’appareils][lnk-device-management]
 - [Prise en main du Kit de développement logiciel (SDK) Gateway][lnk-gateway-SDK]
 
-Pour découvrir comment étendre votre solution IoT et traiter les messages appareil-à-cloud à grande échelle, reportez-vous au didacticiel [Traitement des messages appareil-à-cloud][lnk-process-d2c-tutorial].
+Pour découvrir comment étendre votre solution IoT et traiter les messages des appareils vers le cloud à grande échelle, consultez le didacticiel [Traiter les messages des appareils vers le cloud IoT Hub][lnk-process-d2c-tutorial].
 
 <!-- Images. -->
 [41]: ./media/iot-hub-csharp-csharp-getstarted/run-apps1.png
@@ -282,4 +282,4 @@ Pour découvrir comment étendre votre solution IoT et traiter les messages appa
 [lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0831_2016-->

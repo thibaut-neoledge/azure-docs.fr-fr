@@ -14,7 +14,7 @@
     ms.workload="search"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
-    ms.date="05/31/2016"
+    ms.date="08/29/2016"
     ms.author="ashmaka"/>
 
 # Charger des données dans Azure Search
@@ -45,4 +45,4 @@ Dans Azure Search, cette fonctionnalité est implémentée via des *indexeurs*, 
 
 La fonctionnalité de l’indexeur est exposée dans le [portail Azure](search-import-data-portal.md) ainsi que dans l’[API REST](https://msdn.microsoft.com/library/azure/dn946891.aspx).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="java"
 	ms.topic="get-started-article"
-	ms.date="06/01/2016"
+	ms.date="08/31/2016"
 	ms.author="rachelap"/>
 
 # Créer et déployer une application API Java dans Azure App Service
@@ -22,12 +22,12 @@
 
 Ce didacticiel explique comment créer une application Java et comment la déployer dans des applications API Azure App Service en utilisant [Git]. Les instructions de ce didacticiel s’appliquent à tous les systèmes d’exploitation pouvant exécuter Java. Le code de ce didacticiel a été rédigé avec [Maven]. [Jax-RS] est utilisé pour créer le service RESTful et il est généré à partir des spécifications de métadonnées [Swagger] à l’aide de [l’éditeur Swagger].
 
-## Configuration requise
+## Composants requis
 
-1. Le [kit 8 de développeur Java] \(ou version ultérieure)
+1. Le [kit 8 de développeur Java] (ou version ultérieure)
 1. [Maven] doit être installé sur votre ordinateur de développement
 1. [Git] doit être installé sur votre ordinateur de développement
-1. Un abonnement payant ou une [version d’évaluation gratuite] de [Microsoft Azure]
+1. Un abonnement payant ou une [version d’évaluation gratuite] dans [Microsoft Azure]
 1. Une application de test HTTP comme [Postman]
 
 ## Structure de l’API avec Swagger.IO
@@ -338,4 +338,4 @@ Pour plus d’informations sur l’utilisation de Java dans Azure, consultez le 
 [copy-git-repo-url]: ./media/app-service-api-java-api-app/copy-git-repo-url.png
 [postman-calling-azure-contacts]: ./media/app-service-api-java-api-app/postman-calling-azure-contacts.png
 
-<!----HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/23/2016"
+   ms.date="08/25/2016"
    ms.author="barbkess;lodipalm;sonyama"/>
 
 # Créer un Azure SQL Data Warehouse
@@ -60,6 +60,8 @@ Pour commencer, vous avez besoin des éléments suivants :
 
     - **Sélectionner une source** : cliquez sur **Sélectionner une source** > **Exemple**. Azure renseigne automatiquement AdventureWorksDW dans l’option **Sélectionner un exemple**.
 
+> [AZURE.NOTE] Le classement par défaut pour un entrepôt SQL Data Warehouse est SQL\_Latin1\_General\_CP1\_CI\_AS. Si vous avez besoin d’un classement différent, [T-SQL][] peut être utilisé pour créer la base de données avec un autre classement.
+
 4. Cliquez sur **Créer** pour créer votre entrepôt de données SQL Data Warehouse.
 
 5. Patientez quelques minutes. Une fois que votre entrepôt de données est prêt, vous devriez être redirigé vers le [portail Azure](https://portal.azure.com). Vous pouvez trouver votre SQL Data Warehouse sur votre tableau de bord, répertorié sous vos bases de données SQL, ou dans le groupe de ressources que vous avez utilisé pour le créer.
@@ -88,7 +90,8 @@ Nous vous recommandons également de prendre connaissance des [meilleures pratiq
 [DWU]: sql-data-warehouse-overview-what-is.md#data-warehouse-units
 [l’abonnement]: ../azure-glossary-cloud-terminology.md#subscription
 [resource group]: ../azure-glossary-cloud-terminology.md#resource-group
-
+[T-SQL]: ./sql-data-warehouse-get-started-create-database-tsql.md
+ 
 <!--MSDN references-->
 [sp\_set\_firewall\_rule]: https://msdn.microsoft.com/library/dn270017.aspx
 [sp\_set\_database\_firewall\_rule]: https://msdn.microsoft.com/library/dn270010.aspx
@@ -99,4 +102,4 @@ Nous vous recommandons également de prendre connaissance des [meilleures pratiq
 [Évaluation gratuite d’Azure]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
 [Crédits Azure MSDN]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0831_2016-->
