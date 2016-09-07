@@ -45,7 +45,7 @@ Le groupe de sécurité ou la liste de distribution ci-dessus est nécessaire po
 ### Description
 Il s'agit du portail dans lequel vous pouvez afficher vos offres intermédiaires et publiées sur le Marketplace (applicable aux machines virtuelles, aux modèles de solution et aux services de développement basés sur ARM)
 ### Identité/compte utilisé
-Un ID d'abonnement figurant dans la liste blanche est nécessaire lors de la création d'une offre intermédiaire depuis le portail de publication. Le même abonnement (avec un nom d'utilisateur et un mot de passe associé) doit être utilisé lors de la connexion à ce portail pour tester l'offre intermédiaire.
+Un ID d’abonnement figurant dans la liste approuvée est nécessaire lors de la création d'une offre intermédiaire depuis le portail de publication. Le même abonnement (avec un nom d'utilisateur et un mot de passe associé) doit être utilisé lors de la connexion à ce portail pour tester l'offre intermédiaire.
 
 ## Voir aussi
 - [Mise en route : publication d'une offre pour Azure Marketplace](marketplace-publishing-getting-started.md)

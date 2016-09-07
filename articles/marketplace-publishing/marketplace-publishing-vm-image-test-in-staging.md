@@ -29,7 +29,7 @@ Dans le cadre du déploiement dans un environnement intermédiaire, vous déploy
 2. Si le portail de publication vous signale des erreurs, corrigez-les.
 3.	Dans la boîte de dialogue **Who can access your staged offer?**, saisissez la liste des abonnements Azure que vous allez utiliser pour afficher un aperçu de votre offre dans le [portail Azure en version préliminaire](https://portal.azure.com).
 
-    >[AZURE.NOTE] Dans le cas de machines virtuelles et de modèles de solutions, veuillez **ne pas** mettre sur liste blanche des abonnements de type CSP, DreamSpark ou Azure dans Open.
+    >[AZURE.NOTE] Dans le cas de machines virtuelles et de modèles de solutions, veuillez **ne pas** mettre sur liste approuvée des abonnements de type CSP, DreamSpark ou Azure dans Open.
 
 
     > Dans le cas de machines virtuelles, lorsque vous cliquez sur le bouton **DÉPLOYER DANS UN ENVIRONNEMENT INTERMÉDIAIRE**, les étapes suivantes sont effectuées en arrière-plan. Vous pourrez voir la progression de chaque étape sous l’onglet PUBLIER du portail de publication. Vous devez vérifier cette page à intervalles réguliers (jusqu’à ce que l’état affiche EN MODE INTERMÉDIAIRE) en cas d’apparition d’informations d’échec nécessitant une correction de votre part.
