@@ -147,19 +147,42 @@ Avec l’évolution de Premium Storage, nous avons également augmenté le nombr
 -- Étape 1 : Créer une table pour contrôler la reconstruction d’index
 -- Exécuter en tant qu’utilisateur mediumrc ou supérieur
 --------------------------------------------------------------------------------
-create table sql\_statements WITH (distribution = round\_robin) as select ’alter index all on ’ + s.name + ’.’ + t.NAME + ’ rebuild;’ as statement, row\_number() over (order by s.name, t.name) as sequence from sys.schemas s inner join sys.tables t on s.schema\_id = t.schema\_id where is\_external = 0 ; go
+create table sql_statements
+WITH (distribution = round_robin)
+as select 
+    'alter index all on ' + s.name + '.' + t.NAME + ' rebuild;' as statement,
+    row_number() over (order by s.name, t.name) as sequence
+from 
+    sys.schemas s
+    inner join sys.tables t
+        on s.schema_id = t.schema_id
+where
+    is_external = 0
+;
+go
  
 --------------------------------------------------------------------------------
 -- Étape 2 : Exécuter les reconstructions d’index Si le script échoue, la partie ci-dessous peut être réexécutée pour redémarrer là où le script s’est arrêté
 -- Exécuter en tant qu’utilisateur mediumrc ou supérieur
 --------------------------------------------------------------------------------
 
-declare @nbr\_statements int = (select count(*) from sql\_statements) declare @i int = 1 while(@i <= @nbr\_statements) begin declare @statement nvarchar(1000)= (select statement from sql\_statements where sequence = @i) print cast(getdate() as nvarchar(1000)) + ’ Executing... ’ + @statement exec (@statement) delete from sql\_statements where sequence = @i set @i += 1 end;
+declare @nbr_statements int = (select count(*) from sql_statements)
+declare @i int = 1
+while(@i <= @nbr_statements)
+begin
+      declare @statement nvarchar(1000)= (select statement from sql_statements where sequence = @i)
+      print cast(getdate() as nvarchar(1000)) + ' Executing... ' + @statement
+      exec (@statement)
+      delete from sql_statements where sequence = @i
+      set @i += 1
+end;
 go
 -------------------------------------------------------------------------------
 -- Étape 3 : Nettoyer la table créée à l’étape 1
 --------------------------------------------------------------------------------
-drop table sql\_statements; go ````
+drop table sql_statements;
+go
+````
 
 Si vous rencontrez des problèmes liés à votre entrepôt de données, [créez un ticket de support][], en indiquant « Migration vers Premium Storage » comme cause possible.
 
