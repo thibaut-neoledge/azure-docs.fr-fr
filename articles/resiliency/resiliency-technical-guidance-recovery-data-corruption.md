@@ -4,7 +4,7 @@
    services=""
    documentationCenter="na"
    authors="adamglick"
-   manager="hongfeig"
+   manager="saladki"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/01/2016"
+   ms.date="08/18/2016"
    ms.author="aglick"/>
 
 #Guide technique de la résilience Azure : récupération suite à une corruption de données ou à une suppression accidentelle
@@ -45,7 +45,7 @@ Plusieurs options de [continuité d’activité](../sql-database/sql-database-bu
 
 ###Sauvegarde de base de données SQL
 
-Les sauvegardes dans le temps des bases de données SQL Microsoft Azure sont accomplies via la [copie de votre base de données Azure SQL](../sql-database/sql-database-copy.md). Vous pouvez utiliser cette commande pour créer une copie cohérente sur le plan transactionnel d’une base de données sur le même serveur logique de base de données ou sur un serveur différent. Dans les deux cas, la copie de base de données est pleinement fonctionnelle et entièrement indépendante de la base de données source. Chaque copie créée représente une option de récupération dans le temps. Pour récupérer intégralement l’état de base de données, attribuez à la nouvelle base de données le nom de la base de données source. Sinon, vous pouvez récupérer un sous-ensemble spécifique des données de la nouvelle base. Pour ce faire, exécutez des requêtes Transact-SQL. Pour plus d’informations sur la base de données SQL, consultez [Continuité des activités cloud et récupération d’urgence d’une base de données avec SQL Database](../sql-database/sql-database-business-continuity.md).
+Les sauvegardes dans le temps des bases de données SQL Microsoft Azure sont accomplies via la [copie de votre base de données Azure SQL](../sql-database/sql-database-copy.md). Vous pouvez utiliser cette commande pour créer une copie cohérente sur le plan transactionnel d’une base de données sur le même serveur logique de base de données ou sur un serveur différent. Dans les deux cas, la copie de base de données est pleinement fonctionnelle et entièrement indépendante de la base de données source. Chaque copie créée représente une option de récupération dans le temps. Pour récupérer intégralement l’état de base de données, attribuez à la nouvelle base de données le nom de la base de données source. Sinon, vous pouvez récupérer un sous-ensemble spécifique des données de la nouvelle base. Pour ce faire, exécutez des requêtes Transact-SQL. Pour plus d’informations sur la base de données SQL, consultez la rubrique [Vue d’ensemble de la continuité de l’activité avec la base de données Azure SQL](../sql-database/sql-database-business-continuity.md).
 
 ###Sauvegarde SQL Server sur les machines virtuelles
 
@@ -59,36 +59,42 @@ Pour les Sites Web Azure et Azure Mobile Services, vous devez sauvegarder et met
 
 ##Listes de contrôle pour la corruption ou la suppression accidentelle des données
 
-##Liste de contrôle des machines virtuelles
-  1. Consultez la section [Machines virtuelles](#virtual-machines) de ce document.
+##Liste de contrôle de Virtual Machines
+
+  1. Consulter la section Machines virtuelles de ce document.
   2. Sauvegardez et gérer les disques de machines virtuelles avec Azure Backup (ou votre propre système de sauvegarde à l’aide du stockage d’objets blob Azure et d’instantanés VHD).
 
 ##Liste de contrôle du stockage
-  1. Consultez la section [Stockage](#storage) de ce document.
+
+  1. Consultez la section Stockage de ce document.
   2. Sauvegardez régulièrement les ressources de stockage critiques.
   3. Envisagez d’utiliser la fonctionnalité d’instantané pour les objets blob.
 
 ##Liste de contrôle de la base de données
-  1. Consultez la section [Base de données](#database) de ce document.
+
+  1. Consultez la section Base de données de ce document.
   2. Créez des sauvegardes dans le temps à l’aide de la commande de copie de base de données.
 
 ##Liste de contrôle de la sauvegarde SQL Server sur les machines virtuelles
-  1. Consultez la section [Sauvegarde SQL Server sur les machines virtuelles](#sql-server-on-virtual-machines-backup) de ce document.
+
+  1. Consultez la section Sauvegarde SQL Server sur les machines virtuelles de ce document.
   2. Utilisez des techniques traditionnelles de sauvegarde et de restauration.
   3. Créez une session reportée de copie des journaux de transaction.
 
 ##Liste de contrôle Web Apps
+
   1. Sauvegardez et gérez la base de données associée, le cas échéant.
 
 ##Liste de contrôle Media Services
+
   1. Sauvegardez et gérez les ressources de stockage associées.
 
 ##Plus d’informations
 
-Pour plus d’informations sur les fonctionnalités de sauvegarde et de restauration d’Azure, consultez [Scénarios de stockage, sauvegarde et récupération](https://azure.microsoft.com/documentation/scenarios/storage-backup-recovery/).
+Pour plus d’informations sur les fonctionnalités de sauvegarde et de restauration d’Azure, consultez la rubrique [Scénarios de stockage, sauvegarde et récupération](https://azure.microsoft.com/documentation/scenarios/storage-backup-recovery/).
 
 ##Étapes suivantes
 
 Cet article fait partie d’une série intitulée [Guide technique de la résilience Azure](./resiliency-technical-guidance.md). Si vous cherchez à accroître les ressources de résilience, de récupération d’urgence et de haute disponibilité, consultez les [ressources supplémentaires](./resiliency-technical-guidance.md#additional-resources) du Guide technique de la résilience Azure.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

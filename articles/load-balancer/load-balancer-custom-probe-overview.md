@@ -3,7 +3,7 @@
    description="Découvrez comment utiliser les sondes personnalisées pour l’équilibreur de charge Azure afin de surveiller les instances situées derrière un équilibreur de charge"
    services="load-balancer"
    documentationCenter="na"
-   authors="joaoma"
+   authors="sdwheeler"
    manager="carmonm"
    editor=""
    tags="azure-resource-manager"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="04/05/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 
 # Sondes d’équilibreur de charge
@@ -93,4 +93,4 @@ Les sondes TCP et HTTP sont considérées comme saines et marquent l’instance 
 
 Vous pouvez utiliser l’[analytique des journaux pour l’équilibreur de charge](load-balancer-monitor-log.md) pour vérifier le nombre et l’état d’intégrité des sondes. La journalisation peut être utilisée avec Power BI ou Operational Insights pour fournir des statistiques sur l’état d’intégrité de l’équilibreur de charge.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0824_2016-->

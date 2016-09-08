@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/09/2016"
+	ms.date="08/24/2016"
 	ms.author="sdanie"/>
 
 # Ajout de mise en cache pour améliorer les performances dans Gestion des API Azure
@@ -113,7 +113,7 @@ La console vous permet d'appeler des opérations directement depuis le portail d
 
 Conservez les valeurs par défaut de **param1** et **param2**.
 
-Sélectionnez la clé souhaitée dans la liste déroulante **subscription-key**. Si votre compte a un seul abonnement, celui-ci est déjà sélectionné.
+Sélectionnez la clé souhaitée dans la liste déroulante **subscription-key**. Si votre compte n’a qu’un abonnement, celui-ci est déjà sélectionné.
 
 Entrez **sampleheader:value1** dans la zone de texte des **en-têtes de la demande**.
 
@@ -129,7 +129,6 @@ Notez que la valeur de **sampleheader** dans la réponse est désormais **value2
 
 ## <a name="next-steps"> </a>Étapes suivantes
 
--	Consultez les autres rubriques du didacticiel [Prise en main de la configuration avancée des API][].
 -	Pour plus d’informations sur les stratégies de mise en cache, voir la section [Stratégies de mise en cache][] dans [Référence de stratégie de Gestion des API][].
 -	Pour plus d’informations sur la mise en cache des éléments par clé à l’aide d’expressions de stratégie, consultez [Mise en cache personnalisée dans la gestion des API Azure](api-management-sample-cache-by-key.md).
 
@@ -151,7 +150,6 @@ Notez que la valeur de **sampleheader** dans la réponse est désormais **value2
 [Add APIs to a product]: api-management-howto-add-products.md#add-apis
 [Publish a product]: api-management-howto-add-products.md#publish-product
 [Prise en main de Gestion des API Azure]: api-management-get-started.md
-[Prise en main de la configuration avancée des API]: api-management-get-started-advanced.md
 
 [Référence de stratégie de Gestion des API]: https://msdn.microsoft.com/library/azure/dn894081.aspx
 [Stratégies de mise en cache]: https://msdn.microsoft.com/library/azure/dn894086.aspx
@@ -163,4 +161,4 @@ Notez que la valeur de **sampleheader** dans la réponse est désormais **value2
 [Call an operation and test the caching]: #test-operation
 [Next steps]: #next-steps
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0831_2016-->

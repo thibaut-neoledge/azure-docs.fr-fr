@@ -13,10 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/09/2016" 
+	ms.date="08/17/2016" 
 	ms.author="luisca"/>
 
 # Guide de démarrage rapide pour l'API de Machine Learning Recommendations
+
+> Il s’agit de documentation pour l’ancienne API Recommandations sur le marché des données, qui seront déconseillées d’ici au 31/12/2016. Vous devez maintenant passer au [Service cognitif de l’API Recommandations](https://www.microsoft.com/cognitive-services/fr-FR/recommendations-api).
+
+
 
 Ce document décrit comment intégrer votre service ou application pour utiliser Microsoft Azure Machine Learning Recommendations. Vous trouverez plus d'informations sur l'API Recommendations dans la [galerie](http://gallery.cortanaanalytics.com/MachineLearningAPI/Recommendations-2).
 
@@ -27,7 +31,7 @@ Ce document décrit comment intégrer votre service ou application pour utiliser
 Pour utiliser Azure Machine Learning Recommendations, procédez comme suit :
 
 * Créez un modèle : le modèle est le conteneur de vos données d’utilisation, des données de catalogue et du modèle de recommandation.
-* Importer les données du catalogue : un catalogue contient des informations de métadonnées sur les éléments. 
+* Importer les données du catalogue : un catalogue contient des informations de métadonnées sur les éléments.
 * Importez des données d'utilisation : les données d'utilisation peuvent être téléchargées de deux manières :
 	* En téléchargeant un fichier qui contient les données d'utilisation.
 	* En envoyant des événements d’acquisition de données. Généralement, vous téléchargez un fichier d’utilisation pour pouvoir créer un modèle de recommandation initial (démarrage) et l’utiliser jusqu’à ce que le système rassemble suffisamment de données en utilisant le format d’acquisition de données.
@@ -36,7 +40,7 @@ Pour utiliser Azure Machine Learning Recommendations, procédez comme suit :
 
 Toutes les étapes ci-dessus sont effectuées via l’API Azure Machine Learning Recommendations. Vous pouvez télécharger un exemple d'application qui implémente chacune de ces étapes également à partir de la [galerie.](http://1drv.ms/1xeO2F3)
 
-##Limites
+##Limitations
 
 * Le nombre maximal de modèles par abonnement est de 10.
 * Le nombre maximal d'éléments pouvant être contenus dans un catalogue est de 100 000.
@@ -87,17 +91,17 @@ Création d'une requête « Créer un modèle » :
 
 |	Nom du paramètre |	Valeurs valides |
 |:--------			|:--------								|
-|	modelName |	Seuls les lettres (A-Z, a-z), les chiffres (0-9), les tirets (-) et les traits de soulignement (\_) sont autorisés.<br>Longueur maximale : 20 | 
-| apiVersion | 1.0 | 
-||| 
-| Corps de la demande | AUCUN |
+|	modelName |	Seuls les lettres (A-Z, a-z), les chiffres (0-9), les tirets (-) et les traits de soulignement (\_) sont autorisés.<br>Longueur maximale : 20 |
+|	apiVersion | 1\.0 |
+|||
+| Corps de la requête | AUCUN |
 
 
-**Réponse** :
+**Réponse** :
 
 Code d'état HTTP : 200
 
-- `feed/entry/content/properties/id` : contient l'ID du modèle. **Remarque** : l'ID du modèle respecte la casse.
+- `feed/entry/content/properties/id` : contient l'ID du modèle. **Remarque** : l'ID du modèle respecte la casse.
 
 OData XML
 
@@ -132,7 +136,7 @@ OData XML
 
 ###Importation de données de catalogue
 
-Si vous téléchargez plusieurs fichiers de catalogue dans le même modèle avec plusieurs appels, seuls les nouveaux éléments de catalogue sont insérés. Les éléments existants resteront avec les valeurs d'origine.
+Si vous téléchargez plusieurs fichiers de catalogue dans le même modèle avec plusieurs appels, seuls les nouveaux éléments de catalogue sont insérés. Les éléments existants conservent leurs valeurs d'origine.
 
 | Méthode HTTP | URI |
 |:--------|:--------|
@@ -141,13 +145,13 @@ Si vous téléchargez plusieurs fichiers de catalogue dans le même modèle avec
 |	Nom du paramètre |	Valeurs valides |
 |:--------			|:--------								|
 |	modelId |	Identificateur unique du modèle (respecte la casse) |
-| filename | Identificateur textuel du catalogue.<br>Seuls les lettres (A-Z, a-z), les nombres (0-9), les tirets (-) et les traits de soulignement (\_) sont autorisés.<br>Longueur maximale : 50 | 
-| apiVersion | 1.0 | 
-||| 
-| Corps de la demande | Données du catalogue. Format :<br>`<Item Id>,<Item Name>,<Item Category>[,<description>]`<br><br><table><tr><th>Nom</th><th>Obligatoire</th><th>Type</th><th>Description</th></tr><tr><td>ID de l'élément</td><td>Oui</td><td>Alphanumérique, longueur maximale 50</td><td>Identificateur unique d'un élément</td></tr><tr><td>Nom de l'élément</td><td>Oui</td><td>Alphanumérique, longueur maximale 255</td><td>Nom de l'élément</td></tr><tr><td>Catégorie de l'élément</td><td>Oui</td><td>Alphanumérique, longueur maximale 255</td><td>Catégorie à laquelle cet élément appartient (par exemple, livres de cuisine, arts dramatiques...)</td></tr><tr><td>Description</td><td>Non</td><td>Alphanumérique, longueur maximale 4000</td><td>Description de cet élément</td></tr></table><br>La taille de fichier maximale est de 200 Mo.<br><br>Exemple :<br><pre>2406e770-c 769-4189-89de-1c9283f93a96, Clara Callan, livre<br>21bf8088-b6c0-4509-870c-e1c7ac78304a, The Forgetting Room: A Fiction (Byzantium Book), livre<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23, Spadework, livre<br>552a1940-21e4-4399-82bb-594b46d7ed54, Restraint of Beasts, livre</pre>|
+| filename | Identificateur textuel du catalogue.<br>Seuls les lettres (A-Z, a-z), les chiffres (0-9), les tirets (-) et les traits de soulignement (\_) sont autorisés.<br>Longueur maximale : 50 |
+|	apiVersion | 1\.0 |
+|||
+| Corps de la requête | Données de catalogue. Format :<br>`<Item Id>,<Item Name>,<Item Category>[,<description>]`<br><br><table><tr><th>Nom</th><th>Obligatoire</th><th>Type</th><th>Description</th></tr><tr><td>Item Id</td><td>Oui</td><td>Alphanumérique, longueur maximale 50</td><td>Identificateur unique d’un élément</td></tr><tr><td>Item Name</td><td>Oui</td><td>Alphanumérique, longueur maximale 255</td><td>Nom de l’élément</td></tr><tr><td>Item Category</td><td>Oui</td><td>Alphanumérique, longueur maximale 255</td><td>Catégorie à laquelle cet élément appartient (par exemple, livres de cuisine, arts dramatiques...)</td></tr><tr><td>Description</td><td>Non</td><td>Alphanumérique, longueur maximale 4 000</td><td>Description de cet élément</td></tr></table><br>La taille de fichier maximale est de 200 Mo.<br><br>Exemple :<br><pre>2406e770-769c-4189-89de-1c9283f93a96,Clara Callan,Book<br>21bf8088-b6c0-4509-870c-e1c7ac78304a,The Forgetting Room: A Fiction (Byzantium Book), Book<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23,Spadework,Book<br>552a1940-21e4-4399-82bb-594b46d7ed54,Restraint of Beasts,Book</pre> |
 
 
-**Réponse** :
+**Réponse** :
 
 Code d'état HTTP : 200
 
@@ -190,12 +194,12 @@ Cette section indique comment télécharger des données d'utilisation à l'aide
 |	Nom du paramètre |	Valeurs valides |
 |:--------			|:--------								|
 |	modelId |	Identificateur unique du modèle (respecte la casse) |
-| filename | Identificateur textuel du catalogue.<br>Seuls les lettres (A-Z, a-z), les nombres (0-9), les tirets (-) et les traits de soulignement (\_) sont autorisés.<br>Longueur maximale : 50 | 
-| apiVersion | 1.0 | 
-||| 
-| Corps de la demande | Données d’utilisation. Format :<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>Nom</th><th>Obligatoire</th><th>Type</th><th>Description</th></tr><tr><td>ID utilisateur</td><td>Oui</td><td>Alphanumérique</td><td>Identificateur unique d’un utilisateur</td></tr><tr><td>ID de l’élément</td><td>Oui</td><td>Alphanumérique, longueur maximale 50</td><td>Identificateur unique d’un élément</td></tr><tr><td>Heure</td><td>Non</td><td>Date au format : AAAA/MM/JJTHH:MM:SS (par exemple, 2013/06/20T10:00:00)</td><td>Heure des données</td></tr><tr><td>Événement</td><td>Non, mais s’il est indiqué, la date doit l’être également</td><td>Une des valeurs suivantes :<br>• Click<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Purchase</td><td></td></tr></table><br>Taille maximale de fichier de 200 Mo.<br><br>Exemple :<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> |
+| filename | Identificateur textuel du catalogue.<br>Seuls les lettres (A-Z, a-z), les chiffres (0-9), les tirets (-) et les traits de soulignement (\_) sont autorisés.<br>Longueur maximale : 50 |
+|	apiVersion | 1\.0 |
+|||
+| Corps de la requête | Données d’utilisation. Format :<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>Nom</th><th>Obligatoire</th><th>Type</th><th>Description</th></tr><tr><td>User Id</td><td>Oui</td><td>Alphanumérique</td><td>Identificateur unique d’un utilisateur</td></tr><tr><td>Item Id</td><td>Oui</td><td>Alphanumérique, longueur maximale 50</td><td>Identificateur unique d’un élément</td></tr><tr><td>Time</td><td>Non</td><td>Date au format AAAA/MM/JJTHH:MM:SS (ex. 2013/06/20T10:00:00)</td><td>Heure des données</td></tr><tr><td>Event</td><td>Non ; s’il est indiqué, la date doit l’être également</td><td>L’un des suivants :<br>• Click<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Purchase</td><td></td></tr></table><br>La taille de fichier maximale est de 200 Mo.<br><br>Exemple :<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> |
 
-**Réponse** :
+**Réponse** :
 
 Code d'état HTTP : 200
 
@@ -333,7 +337,7 @@ Cette section explique comment envoyer des événements en temps réel à Azure 
   		</EventData>
 		</Event>
 
-**Réponse** : Code d'état HTTP : 200
+**Réponse** : Code d'état HTTP : 200
 
 ###Génération d'un modèle de recommandation
 
@@ -349,7 +353,7 @@ Cette section explique comment envoyer des événements en temps réel à Azure 
 |||
 | Corps de la requête | AUCUN |
 
-**Réponse** :
+**Réponse** :
 
 Code d'état HTTP : 200
 
@@ -424,7 +428,7 @@ OData XML
 |	apiVersion |	1\.0 |
 
 
-**Réponse** :
+**Réponse** :
 
 Code d'état HTTP : 200
 
@@ -692,7 +696,7 @@ Ce mécanisme vous permet, une fois que vous disposez d'un modèle de recommanda
 |||
 | Corps de la requête | `<ModelUpdateParams xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">`<br>`   <Description>New Description</Description>`<br>`          <ActiveBuildId>-1</ActiveBuildId>`<br>`</ModelUpdateParams>`<br><br>Notez que les balises XML Description et ActiveBuildId sont facultatives. Si vous ne souhaitez pas définir Description ou ActiveBuildId, supprimez la balise entière. |
 
-**Réponse** :
+**Réponse** :
 
 Code d'état HTTP : 200
 
@@ -713,4 +717,4 @@ Certains exemples sont fournis à titre indicatif uniquement et sont fictifs.
 Toute association ou lien est purement involontaire ou fortuit. Ce document ne vous accorde aucun droit légal à la propriété intellectuelle pour un produit Microsoft. Vous pouvez copier et utiliser ce document pour un usage interne, à titre de référence. © 2014 Microsoft. Tous droits réservés.
  
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Configuration de MySQL sur une machine virtuelle Linux | Microsoft Azure"
+	pageTitle="Configuration de MySQL sur une machine virtuelle Linux | Microsoft Azure "
 	description="Découvrez comment installer la pile MySQL sur une machine virtuelle Linux (famille de systèmes d’exploitation Ubuntu ou RedHat) dans Azure."
 	services="virtual-machines-linux"
 	documentationCenter=""
@@ -32,7 +32,7 @@ Dans cet article, vous allez apprendre à installer et à configurer MySQL sur u
 
 [Dans ce cas, utilisez le port 3306 comme port MySQL.]
 
-Connectez-vous à la machine virtuelle Linux que vous avez créée via putty. Si c’est la première fois que vous utilisez la machine virtuelle Linux Azure, découvrez comment utiliser putty pour se connecter à une machine virtuelle Linux [ici](virtual-machines-linux-ssh-from-linux.md).
+Connectez-vous à la machine virtuelle Linux que vous avez créée via putty. Si c’est la première fois que vous utilisez la machine virtuelle Linux Azure, découvrez comment utiliser putty pour se connecter à une machine virtuelle Linux [ici](virtual-machines-linux-mac-create-ssh-keys.md).
 
 Nous allons utiliser le package du référentiel pour installer MySQL5.6 à titre d'exemple dans cet article. En réalité, MySQL5.6 est une version améliorée en termes de performances par rapport à MySQL5.5. Plus d’informations [ici](http://www.mysqlperformanceblog.com/2013/02/18/is-mysql-5-6-slower-than-mysql-5-5/).
 
@@ -185,4 +185,4 @@ Nous utiliserons ici une machine virtuelle Linux avec OpenSUSE.
 ###Étape suivante
 Vous trouverez plus d’informations sur l’utilisation de MySQL [ici](https://www.mysql.com/).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0824_2016-->

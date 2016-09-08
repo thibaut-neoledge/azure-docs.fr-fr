@@ -250,6 +250,8 @@ Avant de pouvoir exécuter une application Cordova sur iOS à l’aide de Visual
 
 Assurez-vous que vous pouvez générer l’application pour iOS. Les étapes décrites dans le guide d’installation sont obligatoires pour générer des applications pour iOS à partir de Visual Studio. Si vous n’avez pas de Mac, vous pouvez générer des applications pour iOS à l’aide de l’agent remotebuild sur un service comme MacInCloud. Pour plus d’informations, reportez-vous à la page relative à [l’exécution de votre application iOS dans le cloud](http://taco.visualstudio.com/fr-FR/docs/build_ios_cloud/).
 
+>[AZURE.NOTE] XCode 7 ou version ultérieure est requis pour utiliser le plug-in Push sur iOS.
+
 ####Rechercher l’ID à utiliser en tant qu’ID de l’application
 
 Avant d’inscrire votre application pour les notifications Push, ouvrez le fichier config.xml dans votre application Cordova, recherchez la valeur d’attribut `id` dans l’élément de widget et copiez-la pour une utilisation ultérieure. Dans le code XML suivant, l’ID est `io.cordova.myapp7777777`.
@@ -320,7 +322,7 @@ Pour utiliser les options de stockage dans Visual Studio, sélectionnez une cibl
 
 Ouvrez le concepteur de configuration (cliquez avec le bouton droit sur le fichier config.xml, puis sélectionnez **Concepteur de vue**), sélectionnez l’onglet **Windows**, puis cliquez sur **Windows 10** sous **Version cible de Windows**.
 
-	>[AZURE.NOTE] If you are using a Cordova version prior to Cordova 5.1.1 (6.1.1 recommended), you must also set the Toast Capable flag to true in config.xml.
+>[AZURE.NOTE] Si vous utilisez une version de Cordova antérieure à Cordova 5.1.1 (version 6.1.1 recommandée), vous devez également définir l’indicateur Compatible toast sur true dans le fichier config.xml.
 
 Pour prendre en charge les notifications Push dans vos versions (de débogage) par défaut, ouvrez le fichier build.json. Copiez la configuration de « lancement » dans votre configuration de débogage.
 
@@ -383,4 +385,4 @@ Découvrez comment utiliser les Kits de développement logiciel.
 [Kit de développement logiciel du serveur ASP.NET]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Kit de développement logiciel du serveur Node.js]: app-service-mobile-node-backend-how-to-use-server-sdk.md
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

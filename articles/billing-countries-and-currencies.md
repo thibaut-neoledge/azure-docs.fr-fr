@@ -49,7 +49,7 @@ Vous pouvez acheter Microsoft Azure dans plus de 140 pays, et de nombreuses dev
 | Bulgarie | EUR |
 | Cameroun | USD |
 | Canada | CAD |
-| Cap-Vert | USD |
+| Cabo Verde | USD |
 | Caïmans (îles) | USD |
 | Chili | USD |
 | Colombie | USD |
@@ -104,7 +104,7 @@ Vous pouvez acheter Microsoft Azure dans plus de 140 pays, et de nombreuses dev
 | Lituanie | EUR |
 | Luxembourg | EUR |
 | Macao | USD |
-| Macédoine | USD |
+| Macédoine (Ex-République yougoslave de) | USD |
 | Malaisie | MYR |
 | Malaisie | USD |
 | Malte | EUR |

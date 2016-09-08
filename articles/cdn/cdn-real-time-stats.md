@@ -42,7 +42,7 @@ Les graphiques suivants sont disponibles :
 
 	![Bouton de gestion du panneau de profil CDN](./media/cdn-real-time-stats/cdn-manage-btn.png)
 
-	Le portail de gestion CDN s’ouvre.
+	Le portail de gestion CDN s'ouvre.
 
 3. Pointez sur l’onglet **Analyse**, puis sur le menu volant **Statistiques en temps réel**. Cliquez sur **HTTP Large Object**.
 
@@ -90,7 +90,8 @@ Ce graphique indique le nombre de connexions qui ont été établies pour vos se
 
 ## Étapes suivantes
 
-- Aller plus loin en vous familiarisant avec les [rapports HTTP avancés](cdn-advanced-http-reports.md)
-- Analyser les [modes d’utilisation](cdn-analyze-usage-patterns.md)
+- Tenez-vous informé en consultant la page [Real-time alerts in Azure CDN](cdn-real-time-alerts.md) (Alertes en temps réel dans Azure CDN)
+- Allez plus loin en vous familiarisant avec les [rapports HTTP avancés](cdn-advanced-http-reports.md)
+- Analysez les [modes d’utilisation](cdn-analyze-usage-patterns.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

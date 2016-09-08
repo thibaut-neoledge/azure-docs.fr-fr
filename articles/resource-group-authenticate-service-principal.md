@@ -25,9 +25,9 @@
 
 Lorsque vous exécutez une application ou un script qui a besoin d’accéder à des ressources, vous préférerez probablement éviter d’utiliser les informations d’identification d’un utilisateur. Cet utilisateur peut avoir différentes autorisations que vous souhaiteriez affecter au processus, et peut assumer des responsabilités susceptibles d’évoluer. Au lieu de cela, vous pouvez créer pour l’application une identité qui inclut des informations d’identification et des affectations de rôles. Votre application se connectera alors sous cette identité à chaque exécution. Cette rubrique vous montre comment utiliser [Azure PowerShell](powershell-install-configure.md) pour configurer tout ce dont vous avez besoin pour qu’une application puisse s’exécuter sous ses propres informations d’identification et sous sa propre identité.
 
-Dans cet article, vous allez créer deux objets : l’application Active Directory (AD) et le principal du service. L’application AD contient les informations d’identification (c’est-à-dire un ID d’application et un mot de passe ou un certificat). Le principal du service contient l’affectation de rôle. Dans l’application AD, vous pouvez créer plusieurs principaux du service. Cette rubrique se concentre sur une application à locataire unique conçue pour s’exécuter au sein d’une seule organisation. Les applications à locataire unique sont généralement utilisées pour les applications métier exécutées au sein de votre organisation. Vous pouvez également créer des applications mutualisées lorsque votre application doit s’exécuter dans de plusieurs organisations. Ces applications sont habituellement utilisées pour les applications SaaS (Software-as-a-Service). Pour configurer une application mutualisée, consultez le [Guide du développeur pour l’authentification avec l’API Azure Resource Manager](resource-manager-api-authentication.md).
+Dans cet article, vous allez créer deux objets : l’application Active Directory (AD) et le principal du service. L’application AD contient les informations d’identification (c’est-à-dire un ID d’application et un mot de passe ou un certificat). Le principal du service contient l’affectation de rôle. Dans l’application AD, vous pouvez créer plusieurs principaux du service. Cette rubrique se concentre sur une application à client unique conçue pour s’exécuter au sein d’une seule organisation. Les applications à locataire unique sont généralement utilisées pour les applications métier exécutées au sein de votre organisation. Vous pouvez également créer des applications mutualisées lorsque votre application doit s’exécuter dans de plusieurs organisations. Ces applications sont habituellement utilisées pour les applications SaaS (Software-as-a-Service). Pour configurer une application mutualisée, consultez le [Guide du développeur pour l’authentification avec l’API Azure Resource Manager](resource-manager-api-authentication.md).
 
-Cet article décrit de nombreux concepts qu’il est essentiel de bien comprendre pour utiliser Active Directory. Pour obtenir une explication plus détaillée des applications et des principaux du service, consultez la rubrique [Objets principal du service et application](./active-directory/active-directory-application-objects.md). Pour plus d'informations sur l'authentification Active Directory, consultez la rubrique [Scénarios d'authentification pour Azure AD](./active-directory/active-directory-authentication-scenarios.md).
+Cet article décrit de nombreux concepts qu’il est essentiel de bien comprendre pour utiliser Active Directory. Pour obtenir une explication plus détaillée des applications et des principaux du service, consultez la rubrique [Objets principal du service et application](./active-directory/active-directory-application-objects.md). Pour plus d'informations sur l'authentification Active Directory, consultez la rubrique [Scénarios d'authentification pour Azure AD](./active-directory/active-directory-authentication-scenarios.md).
 
 PowerShell vous propose deux options pour authentifier votre application AD :
 
@@ -48,7 +48,7 @@ Chaque fois que vous vous connectez en tant que principal de service, vous devez
 
         $tenant = (Get-AzureRmSubscription).TenantId
     
-     Si vous avez plusieurs abonnements, spécifiez celui que vous souhaitez utiliser pour l’application AD. Sélectionnez l’abonnement dans lequel réside votre instance Active Directory. Pour plus d’informations, consultez l’article [Administration de votre annuaire Azure AD](./active-directory/active-directory-administer.md).
+     Si vous disposez de plusieurs abonnements, spécifiez celui que vous souhaitez utiliser pour l’application AD. Sélectionnez l’abonnement dans lequel réside votre instance Active Directory. Pour plus d’informations, consultez l’article [Administration de votre annuaire Azure AD](./active-directory/active-directory-administer.md).
 
         $tenant = (Get-AzureRmSubscription -SubscriptionName "Contoso Default").TenantId
 
@@ -84,11 +84,11 @@ Dans cette section, vous allez suivre la procédure qui vous permettra de créer
 
         New-AzureRmADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
 
-3. Accordez des autorisations au principal du service sur votre abonnement. Dans cet exemple, vous allez permettre au principal du service de lire toutes les ressources de l’abonnement. Pour le paramètre **ServicePrincipalName**, indiquez la propriété **ApplicationId** ou **IdentifierUris** que vous avez utilisée lors de la création de l’application. Pour plus d’informations sur le contrôle d’accès en fonction du rôle, consultez [Contrôle d’accès en fonction du rôle Azure](./active-directory/role-based-access-control-configure.md). Pour affecter un rôle, vous devez disposer d’un accès `Microsoft.Authorization/*/Write`, qui est accordé via le rôle [Propriétaire](./active-directory/role-based-access-built-in-roles.md#owner) ou [Administrateur de l’accès utilisateur](./active-directory/role-based-access-built-in-roles.md#user-access-administrator).
+3. Accordez des autorisations sur votre abonnement au principal du service. Dans cet exemple, vous allez permettre au principal du service de lire toutes les ressources de l’abonnement. Pour le paramètre **ServicePrincipalName**, indiquez la propriété **ApplicationId** ou **IdentifierUris** que vous avez utilisée lors de la création de l’application. Pour plus d’informations sur le contrôle d’accès en fonction du rôle, consultez [Contrôle d’accès en fonction du rôle Azure](./active-directory/role-based-access-control-configure.md). Pour affecter un rôle, vous devez disposer d’un accès `Microsoft.Authorization/*/Write`, qui est accordé via le rôle [Propriétaire](./active-directory/role-based-access-built-in-roles.md#owner) ou [Administrateur de l’accès utilisateur](./active-directory/role-based-access-built-in-roles.md#user-access-administrator).
 
         New-AzureRmRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $azureAdApplication.ApplicationId.Guid
 
-Et voilà ! Votre application Active Directory et votre principal du service sont maintenant configurés. La section suivante vous montre comment vous connecter avec les informations d’identification via PowerShell ; si vous souhaitez toutefois utiliser les informations d’identification dans votre application de code, vous pouvez ignorer cette rubrique. Vous pouvez passer directement aux [exemples d’applications](#sample-applications) pour obtenir des exemples de connexion à l’aide d’un ID d’application et d’un mot de passe.
+Et voilà ! Votre application Active Directory et votre principal du service sont maintenant configurés. La section suivante vous montre comment vous connecter avec les informations d’identification via PowerShell. Toutefois, si vous souhaitez utiliser les informations d’identification dans votre application de code, vous pouvez ignorer cette rubrique. Vous pouvez passer directement aux [exemples d’applications](#sample-applications) pour obtenir des exemples de connexion à l’aide d’un ID d’application et d’un mot de passe.
 
 ### Fournir des informations d’identification via PowerShell
 
@@ -149,7 +149,7 @@ Dans cette section, vous allez suivre la procédure qui vous permettra de créer
 
 4. Créez une application dans le répertoire.
 
-        $azureAdApplication = New-AzureRmADApplication -DisplayName "exampleapp" -HomePage "https://www.contoso.org" -IdentifierUris "https://www.contoso.org/example" -KeyValue $keyValue -KeyType AsymmetricX509Cert -EndDate $cert.NotAfter -StartDate $cert.NotBefore      
+        $azureAdApplication = New-AzureRmADApplication -DisplayName "exampleapp" -HomePage "https://www.contoso.org" -IdentifierUris "https://www.contoso.org/example" -CertValue $keyValue -EndDate $cert.NotAfter -StartDate $cert.NotBefore      
         
     Examinez le nouvel objet d’application.
 
@@ -171,11 +171,11 @@ Dans cette section, vous allez suivre la procédure qui vous permettra de créer
 
         New-AzureRmADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
 
-6. Accordez des autorisations au principal du service sur votre abonnement. Dans cet exemple, vous allez permettre au principal du service de lire toutes les ressources de l’abonnement. Pour le paramètre **ServicePrincipalName**, indiquez la propriété **ApplicationId** ou **IdentifierUris** que vous avez utilisée lors de la création de l’application. Pour plus d’informations sur le contrôle d’accès en fonction du rôle, consultez [Contrôle d’accès en fonction du rôle Azure](./active-directory/role-based-access-control-configure.md). Pour affecter un rôle, vous devez disposer d’un accès `Microsoft.Authorization/*/Write`, qui est accordé via le rôle [Propriétaire](./active-directory/role-based-access-built-in-roles.md#owner) ou [Administrateur de l’accès utilisateur](./active-directory/role-based-access-built-in-roles.md#user-access-administrator).
+6. Accordez des autorisations sur votre abonnement au principal du service. Dans cet exemple, vous allez permettre au principal du service de lire toutes les ressources de l’abonnement. Pour le paramètre **ServicePrincipalName**, indiquez la propriété **ApplicationId** ou **IdentifierUris** que vous avez utilisée lors de la création de l’application. Pour plus d’informations sur le contrôle d’accès en fonction du rôle, consultez [Contrôle d’accès en fonction du rôle Azure](./active-directory/role-based-access-control-configure.md). Pour affecter un rôle, vous devez disposer d’un accès `Microsoft.Authorization/*/Write`, qui est accordé via le rôle [Propriétaire](./active-directory/role-based-access-built-in-roles.md#owner) ou [Administrateur de l’accès utilisateur](./active-directory/role-based-access-built-in-roles.md#user-access-administrator).
 
         New-AzureRmRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $azureAdApplication.ApplicationId.Guid
 
-Et voilà ! Votre application Active Directory et votre principal du service sont maintenant configurés. La section suivante vous montre comment ouvrir une session à l’aide d’un certificat via PowerShell.
+Et voilà ! Votre application Active Directory et votre principal du service sont maintenant configurés. La section suivante vous montre comment ouvrir une session à l’aide d’un certificat via PowerShell.
 
 ### Fournir un certificat via un script PowerShell automatisé
 
@@ -228,4 +228,4 @@ Les exemples d’applications suivants montrent comment ouvrir une session en ta
   
 - Pour obtenir des instructions détaillées sur l’intégration d’une application à Azure pour la gestion des ressources, consultez le [Guide du développeur pour l’authentification avec l’API Azure Resource Manager](resource-manager-api-authentication.md).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0824_2016-->

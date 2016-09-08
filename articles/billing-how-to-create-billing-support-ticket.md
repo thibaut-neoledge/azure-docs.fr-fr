@@ -15,17 +15,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/25/2016"
+	ms.date="08/24/2016"
 	ms.author="genli"/>
 
 # Comment créer un ticket de support pour les problèmes de facturation et d’abonnement Azure
-
 Cet article fournit les informations dont vous avez besoin pour ouvrir un dossier auprès du support Azure.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/). Sélectionnez **Aide + support**>**Nouvelle demande de support**.
 
 	![helpandsupportbutton](./media/billing-how-to-create-billing-support-ticket/helpandsupport.png)
-2. Dans le panneau **Informations de base**, indiquez le type de problème, d’abonnement et de plan de support.
+2. Dans le panneau **Informations de base**, sélectionnez le type de problème, d’abonnement et de plan de support.
 3. Dans le panneau **Problème**, fournissez les informations suivantes :
 
  * **Niveau de gravité**. Choisissez une option représentant le degré de gravité de votre demande. Pour plus d’informations sur les degrés de gravité, reportez-vous au [tableau de gravité des incidents Microsoft Azure](http://support.microsoft.com/gp/AzureSevDetails).
@@ -42,6 +41,6 @@ Vous pouvez également envoyer une demande de prise en charge à partir du site 
  * Pour soumettre un ticket de support à partir du [site web Support Azure](https://azure.microsoft.com/support/options/), cliquez sur **Obtenir un support**.
  * Pour soumettre un ticket de support à partir du [Centre des comptes Azure](https://account.windowsazure.com/Subscriptions), sélectionnez un abonnement, puis cliquez sur **Contacter le support Microsoft**.
 
- >[AZURE.NOTE]Seul l’administrateur du compte Azure est autorisé à accéder au Centre des comptes. Pour plus d’informations sur la manière de déterminer qui est l’administrateur du compte de l’abonnement, consultez le [Forum aux questions](billing-subscription-transfer.md#faq).
+ >[AZURE.NOTE]Seul l’administrateur du compte Azure est autorisé à accéder au Centre des comptes. Pour plus d’informations sur la manière de déterminer qui est l’administrateur de compte de l’abonnement, voir le [Forum aux questions](billing-subscription-transfer.md#faq).
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

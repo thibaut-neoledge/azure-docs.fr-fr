@@ -3,7 +3,7 @@
    description="Tâches PowerShell permettant de restaurer un Azure SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="sonyam"
+   authors="Lakshmi1812"
    manager="barbkess"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="07/18/2016"
-   ms.author="sonyama;barbkess"/>
+   ms.author="lakshmir;barbkess;sonyama"/>
 
 # Restauration d’un Azure SQL Data Warehouse (PowerShell)
 
@@ -40,7 +40,7 @@ Pour restaurer une base de données à partir d’un instantané, utilisez l’a
 
 1. Ouvrez Windows PowerShell.
 2. Connectez-vous à votre compte Azure et répertoriez tous les abonnements associés à votre compte.
-3. Sélectionnez l’abonnement qui contient la base de données à restaurer.
+3. Sélectionnez l’abonnement contenant la base de données à restaurer.
 4. Répertoriez les points de restauration pour la base de données.
 5. Sélectionnez le point de restauration souhaité à l’aide de l’élément RestorePointCreationDate.
 6. Restaurez la base de données au niveau du point de restauration souhaité.
@@ -87,7 +87,7 @@ Pour restaurer une base de données supprimée, utilisez l’applet de commande 
 
 1. Ouvrez Windows PowerShell.
 2. Connectez-vous à votre compte Azure et répertoriez tous les abonnements associés à votre compte.
-3. Sélectionnez l’abonnement qui contient la base de données supprimée à restaurer.
+3. Sélectionnez l’abonnement contenant la base de données supprimée à restaurer.
 4. Accédez à la base de données supprimée.
 5. Restaurez la base de données supprimée.
 6. Vérifiez que la base de données restaurée est en ligne.
@@ -122,7 +122,7 @@ Pour restaurer une base de données, utilisez l’applet de commande [Restore-Az
 
 1. Ouvrez Windows PowerShell.
 2. Connectez-vous à votre compte Azure et répertoriez tous les abonnements associés à votre compte.
-3. Sélectionnez l’abonnement qui contient la base de données à restaurer.
+3. Sélectionnez l’abonnement contenant la base de données à restaurer.
 4. Obtenez la base de données à récupérer.
 5. Créez la demande de récupération de la base de données.
 6. Vérifiez l’état de la base de données affectée par la géo-restauration.
@@ -171,4 +171,4 @@ Pour plus d’informations sur les fonctionnalités de continuité d’activité
 [Azure Portal]: https://portal.azure.com/
 [Microsoft Web Platform Installer]: https://aka.ms/webpi-azps
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0824_2016-->

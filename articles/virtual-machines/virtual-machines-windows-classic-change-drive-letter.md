@@ -32,12 +32,12 @@ Pour plus d’informations sur l’utilisation du disque temporaire par Azure, c
 Tout d'abord, vous devrez attacher le disque de données à la machine virtuelle.
 
 - Pour utiliser le portail, consultez [Attachement d’un disque de données dans le portail Azure](virtual-machines-windows-attach-disk-portal.md)
-- Pour utiliser le portail Classic, consultez [Association d’un disque de données à une machine virtuelle Windows](virtual-machines-windows-classic-attach-disk.md) 
+- Pour utiliser le portail Classic, consultez [Association d’un disque de données à une machine virtuelle Windows](virtual-machines-windows-classic-attach-disk.md)
 
 
 ## Déplacement temporaire du fichier pagefile.sys vers le lecteur C
 
-1. Connexion à la machine virtuelle. 
+1. Connectez-vous à la machine virtuelle.
 
 2. Avec le bouton droit, cliquez sur le menu **Démarrer** et sélectionnez **Système**.
 
@@ -79,8 +79,8 @@ Tout d'abord, vous devrez attacher le disque de données à la machine virtuelle
 8. Sous la lettre de lecteur, sélectionnez le lecteur **E**, puis cliquez sur **OK**.
 
 > [AZURE.NOTE] Si votre machine virtuelle a d'autres disques ou lecteurs, utilisez la même méthode pour réaffecter les lettres de lecteur des autres disques et lecteurs. La configuration du disque doit être comme suit :
->- C: Disque de système d’exploitation  
->- D: Disque de données  
+>- C: Disque de système d’exploitation
+>- D: Disque de données
 >- E: Disque temporaire
 
 
@@ -111,4 +111,4 @@ Tout d'abord, vous devrez attacher le disque de données à la machine virtuelle
 ## Étapes suivantes
 - Vous pouvez augmenter le stockage disponible pour votre machine virtuelle en y [associant un disque de données supplémentaire](virtual-machines-windows-attach-disk-portal.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0824_2016-->

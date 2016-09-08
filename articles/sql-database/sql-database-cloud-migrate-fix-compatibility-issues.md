@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="sqldb-migrate"
-   ms.date="06/07/2016"
+   ms.date="08/24/2016"
    ms.author="carlrab"/>
 
 # Utilisation de l’Assistant Migration SQL Azure pour résoudre les problèmes de compatibilité de base de données SQL Server avant la migration vers une base de données SQL Azure
@@ -27,11 +27,11 @@ Dans cet article, vous apprendrez à détecter et résoudre les problèmes de co
 
 ## Utilisez l’assistant de migration SQL Azure
 
-Utilisez l’outil Codeplex de l’[assistant de migration SQL Azure](http://sqlazuremw.codeplex.com/) pour générer un script T-SQL à partir d’une base de données source incompatible, qui sera ensuite transformé par l’assistant de manière à garantir sa compatibilité avec Base de données SQL. Il vous suffit alors de vous connecter à Base de données SQL Azure pour exécuter le script. Cet outil analyse également les fichiers de trace afin de déterminer les problèmes de compatibilité. Ce script peut être généré avec un schéma uniquement, ou peut inclure des données au format BCP. Pour obtenir une documentation supplémentaire, y compris des instructions pas à pas, consultez la rubrique [Assistant de migration SQL Azure](http://sqlazuremw.codeplex.com/) sur le site Codeplex.
+Utilisez l’outil CodePlex de l’[Assistant Migration de base de données SQL Microsoft Azure](http://sqlazuremw.codeplex.com/) pour générer un script T-SQL à partir d’une base de données source incompatible. Ce script est ensuite transformé par l’Assistant pour le rendre compatible avec Base de données SQL. Enfin, vous vous connectez à Base de données SQL Azure pour exécuter le script. Cet outil analyse également les fichiers de trace afin de déterminer les problèmes de compatibilité. Ce script peut être généré avec un schéma uniquement, ou peut inclure des données au format BCP. Pour obtenir une documentation supplémentaire, y compris des instructions pas à pas, consultez la rubrique [Assistant de migration SQL Azure](http://sqlazuremw.codeplex.com/) sur le site Codeplex.
 
  ![Schéma de migration SAMW](./media/sql-database-cloud-migrate/02SAMWDiagram.png)
 
-  > [AZURE.NOTE] Remarque : les schémas non compatibles que l’assistant est susceptible de détecter ne peuvent pas tous être corrigés par ses transformations intégrées. Un script non compatible qui ne peut pas être traité est signalé comme une erreur et des commentaires sont insérés dans le script généré. Si de nombreuses erreurs sont détectées, utilisez Visual Studio ou SQL Server Management Studio pour examiner et résoudre chaque erreur que l’Assistant Migration SQL Server ne permet pas de corriger.
+  > [AZURE.NOTE] Certains schémas non compatibles détectés par l’Assistant ne peuvent pas être corrigés par ses transformations intégrées. Un script non compatible qui ne peut pas être traité est signalé comme une erreur, et des commentaires sont insérés dans le script généré. Si de nombreuses erreurs sont détectées, utilisez Visual Studio ou SQL Server Management Studio pour examiner et résoudre chaque erreur que l’Assistant Migration SQL Server ne permet pas de corriger.
 
 ## Étapes suivantes
 
@@ -45,4 +45,4 @@ Utilisez l’outil Codeplex de l’[assistant de migration SQL Azure](http://sql
 - [Fonctions partiellement ou non prises en charge de Transact-SQL](sql-database-transact-sql-information.md)
 - [Migration de bases de données non-SQL Server avec l’Assistant Migration SQL Server](http://blogs.msdn.com/b/ssma/)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

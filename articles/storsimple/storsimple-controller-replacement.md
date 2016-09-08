@@ -12,12 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/31/2016"
+   ms.date="08/17/2016"
    ms.author="alkohli" />
 
 # Remplacement d’un module de contrôleur sur votre appareil StorSimple
 
-## Vue d’ensemble
+## Vue d'ensemble
 
 Ce didacticiel explique comment retirer et remplacer un module de contrôleur, ou les deux, dans un appareil StorSimple. Il aborde également la logique sous-jacente pour les scénarios de remplacement d’un seul et de deux contrôleurs.
 
@@ -136,7 +136,7 @@ Dans un remplacement de deux contrôleurs, vous devez d’abord retirer les deux
 
 ### Procédure de remplacement des deux contrôleurs
 
-Ce flux de travail doit être suivi quand les deux contrôleurs de votre appareil Microsoft Azure StorSimple sont en panne. Cette situation peut se produire dans un centre de données dont le système de refroidissement cesse de fonctionner, entraînant rapidement une panne des deux contrôleurs. La procédure à suivre diffère selon que l’appareil StorSimple est sous ou hors tension, et selon le modèle utilisé (8600 ou 8100).
+Ce flux de travail doit être suivi quand les deux contrôleurs de votre appareil Microsoft Azure StorSimple sont en panne. Cette situation peut se produire dans un centre de données dont le système de refroidissement cesse de fonctionner, entraînant rapidement une panne des deux contrôleurs. La procédure à suivre diffère selon que l’appareil StorSimple est sous ou hors tension, et selon le modèle utilisé (8600 ou 8100).
 
 >[AZURE.IMPORTANT] Entre 45 minutes et 1 heure peuvent être nécessaires au redémarrage et à la récupération complète du contrôleur à l’issue de la procédure de remplacement des deux contrôleurs. La durée totale de la procédure (branchement des câbles compris) est approximativement de 2,5 heures.
 
@@ -144,7 +144,7 @@ Ce flux de travail doit être suivi quand les deux contrôleurs de votre apparei
 
 1. Si l’appareil est éteint, ignorez cette étape et passez à la suivante. Si l’appareil est allumé, éteignez-le.
 										
-    1. Si vous utilisez un modèle 8600, éteignez d’abord le boîtier principal, puis le boîtier EBOD.
+    1. Si vous utilisez un modèle 8600, éteignez d’abord le boîtier principal, puis le boîtier EBOD.
 
     2. Patientez jusqu’à l’arrêt complet de l’appareil. Tous les voyants LED à l’arrière de l’appareil doivent être éteints.
 
@@ -156,7 +156,7 @@ Ce flux de travail doit être suivi quand les deux contrôleurs de votre apparei
 
 5. Pendant que la logique de remplacement des deux contrôleurs se déroule en arrière-plan, rebranchez les câbles. Veillez à rebrancher tous les câbles exactement comme ils l’étaient avant le remplacement. Voir les instructions détaillées relatives à votre modèle dans la section sur le branchement des câbles de votre appareil de la rubrique [Installation de votre appareil StorSimple 8100](storsimple-8100-hardware-installation.md) ou [Installation de votre appareil StorSimple 8600](storsimple-8600-hardware-installation.md).
 
-6. Mettez sous tension l’appareil StorSimple. Si vous utilisez un modèle 8600 :
+6. Mettez sous tension l’appareil StorSimple. Si vous utilisez un modèle 8600 :
 
     1. Veillez à activer le boîtier EBOD en premier.
 
@@ -266,4 +266,4 @@ Si ce voyant clignote, le contrôleur est actif et l’autre contrôleur est en 
 
 En savoir plus sur le [Remplacement des composants matériels StorSimple](storsimple-hardware-component-replacement.md).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0824_2016-->

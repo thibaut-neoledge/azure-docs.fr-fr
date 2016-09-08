@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="02/25/2016" 
+	ms.date="08/19/2016" 
 	ms.author="piyushjo" />
 
 #Créer un pont Android WebView avec le Kit SDK Mobile Engagement Android natif
@@ -22,9 +22,9 @@
 - [Pont Android](mobile-engagement-bridge-webview-native-android.md)
 - [Pont iOS](mobile-engagement-bridge-webview-native-ios.md)
 
-Certaines applications mobiles sont conçues comme applications hybrides : le développement de l’application proprement dite s’effectue de manière native dans Android, mais certains ou même tous les écrans sont rendus dans une WebView Android. Vous pouvez quand même utiliser le Kit SDK Mobile Engagement Android dans ces applications. Ce didacticiel explique comment procéder. L’exemple de code ci-dessous est basé sur la documentation Android accessible [ici](https://developer.android.com/guide/webapps/webview.html#BindingJavaScript). Il décrit comment utiliser cette approche documentée pour obtenir une implémentation semblable pour des méthodes couramment utilisées du Kit SDK Mobile Engagement Android, pour qu’une WebView d’une application hybride puisse également lancer des demandes pour le suivi des événements, des tâches, des erreurs et des informations sur l’application tout en les transférant par le biais de notre Kit SDK Android.
+Certaines applications mobiles sont conçues comme applications hybrides : le développement de l’application proprement dite s’effectue de manière native dans Android, mais certains ou même tous les écrans sont rendus dans une WebView Android. Vous pouvez quand même utiliser le Kit SDK Mobile Engagement Android dans ces applications. Ce didacticiel explique comment procéder. L’exemple de code ci-dessous est basé sur la documentation Android accessible [ici](https://developer.android.com/guide/webapps/webview.html#BindingJavaScript). Il décrit comment utiliser cette approche documentée pour obtenir une implémentation semblable pour des méthodes couramment utilisées du Kit SDK Mobile Engagement Android, pour qu’une WebView d’une application hybride puisse également lancer des demandes pour le suivi des événements, des tâches, des erreurs et des informations sur l’application tout en les transférant par le biais de notre Kit SDK Android.
 
-1. Tout d’abord, vous devez vérifier que vous avez bien effectué notre [didacticiel de prise en main](mobile-engagement-android-get-started.md) pour intégrer le Kit SDK Mobile Engagement Android à votre application hybride. Votre méthode `OnCreate` ressemble alors à ce qui suit.  
+1. Tout d’abord, vous devez vérifier que vous avez bien effectué notre [didacticiel de prise en main](mobile-engagement-android-get-started.md) pour intégrer le Kit SDK Mobile Engagement Android à votre application hybride. Votre méthode `OnCreate` ressemble alors à ce qui suit.
     
 		@Override
 	    protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +49,7 @@ Certaines applications mobiles sont conçues comme applications hybrides : le d�
 			SetWebView();
 	    }
 
-3. Maintenant, créez un fichier de pont nommé **WebAppInterface** qui crée un wrapper sur certaines méthodes du Kit SDK Mobile Engagement Android couramment utilisées à l’aide de l’approche `@JavascriptInterface` décrite dans la [documentation Android](https://developer.android.com/guide/webapps/webview.html#BindingJavaScript) :
+3. Maintenant, créez un fichier de pont nommé **WebAppInterface** qui crée un wrapper sur certaines méthodes du Kit SDK Mobile Engagement Android couramment utilisées à l’aide de l’approche `@JavascriptInterface` décrite dans la [documentation Android](https://developer.android.com/guide/webapps/webview.html#BindingJavaScript) :
 
 		import android.content.Context;
 		import android.os.Bundle;
@@ -108,7 +108,7 @@ Certaines applications mobiles sont conçues comme applications hybrides : le d�
 		    }
 		}  
 
-4. Une fois que nous avons créé le fichier de pont ci-dessus, nous devons vérifier qu’il est associé à notre WebView. Pour cela, nous devons modifier la méthode `SetWebview` pour qu’elle ressemble à ceci :
+4. Une fois que nous avons créé le fichier de pont ci-dessus, nous devons vérifier qu’il est associé à notre WebView. Pour cela, nous devons modifier la méthode `SetWebview` pour qu’elle ressemble à ceci :
 
 	    private void SetWebView() {
 	        WebView myWebView = (WebView) findViewById(R.id.webview);
@@ -198,12 +198,12 @@ Certaines applications mobiles sont conçues comme applications hybrides : le d�
 		    </body>
 		</html>
 
-8. Notez les points suivants concernant le fichier HTML ci-dessus :
+8. Notez les points suivants concernant le fichier HTML ci-dessus :
 
-	- 	Il contient un ensemble de zones d’entrée où vous pouvez fournir des données à utiliser comme noms pour votre event, job, error et appInfo. Quand vous cliquez sur le bouton à côté, le code Javascript est appelé, et celui-ci appelle les méthodes à partir du fichier de pont pour passer cet appel au Kit SDK Mobile Engagement Android. 
-	- 	Nous associons certaines informations statiques supplémentaire aux événements, aux tâches et même aux erreurs pour illustrer comment cela est réalisable. Ces informations supplémentaires sont envoyées sous forme de chaîne JSON qui, si vous regardez dans le fichier `WebAppInterface`, est analysée et placée dans un `Bundle` Android et transmise lors de l’envoi des événements, tâches et erreurs. 
-	- 	Une tâche Mobile Engagement est démarrée avec le nom que vous spécifiez dans la zone d’entrée, elle s’exécute pendant 10 secondes, puis elle s’arrête. 
-	- 	Une balise ou une appinfo Mobile Engagement est passée avec « customer\_name » comme clé statique et la valeur que vous avez entrée comme valeur de balise. 
+	- 	Il contient un ensemble de zones d’entrée où vous pouvez fournir des données à utiliser comme noms pour votre event, job, error et appInfo. Quand vous cliquez sur le bouton à côté, le code Javascript est appelé, et celui-ci appelle les méthodes à partir du fichier de pont pour passer cet appel au Kit SDK Mobile Engagement Android.
+	- 	Nous associons certaines informations statiques supplémentaire aux événements, aux tâches et même aux erreurs pour illustrer comment cela est réalisable. Ces informations supplémentaires sont envoyées sous forme de chaîne JSON qui, si vous regardez dans le fichier `WebAppInterface`, est analysée et placée dans un `Bundle` Android et transmise lors de l’envoi des événements, tâches et erreurs.
+	- 	Une tâche Mobile Engagement est démarrée avec le nom que vous spécifiez dans la zone d’entrée, elle s’exécute pendant 10 secondes, puis elle s’arrête.
+	- 	Une balise ou une appinfo Mobile Engagement est passée avec « customer\_name » comme clé statique et la valeur que vous avez entrée comme valeur de balise.
  
 9. Exécutez l’application. Vous verrez ce qui suit. Maintenant, fournissez un nom pour un événement de test comme celui qui suit et cliquez sur **Send** en dessous.
 
@@ -217,4 +217,4 @@ Certaines applications mobiles sont conçues comme applications hybrides : le d�
 [1]: ./media/mobile-engagement-bridge-webview-native-android/sending-event.png
 [2]: ./media/mobile-engagement-bridge-webview-native-android/event-output.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0824_2016-->

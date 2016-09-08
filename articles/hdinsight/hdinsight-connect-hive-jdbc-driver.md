@@ -14,7 +14,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
- ms.date="06/03/2016"
+ ms.date="08/23/2016"
  ms.author="larryfr"/>
 
 #Se connecter à Hive sur Azure HDInsight à l’aide du pilote JDBC Hive
@@ -25,7 +25,7 @@ Dans ce document, vous allez apprendre à utiliser JDBC dans une application Ja
 
 Pour plus d’informations sur l’interface JDBC pour Hive, consultez [HiveJDBCInterface](https://cwiki.apache.org/confluence/display/Hive/HiveJDBCInterface).
 
-##Composants requis
+##Conditions préalables
 
 Pour effectuer les étapes présentées dans cet article, vous avez besoin des éléments suivants :
 
@@ -151,7 +151,7 @@ SQuirreL SQL est un client JDBC permettant d’exécuter à distance des requêt
 
 Vous trouverez un exemple d’utilisation d’un client Java pour interroger Hive sur HDInsight à l’adresse suivante : [https://github.com/Azure-Samples/hdinsight-java-hive-jdbc](https://github.com/Azure-Samples/hdinsight-java-hive-jdbc). Suivez les instructions indiquées dans le référentiel pour générer et exécuter l’exemple.
 
-##Résolution des problèmes
+##Résolution de problèmes
 
 ### Une erreur inattendue s'est produite lors de l'ouverture d'une connexion SQL.
 
@@ -182,4 +182,4 @@ Maintenant que vous avez vu comment utiliser JDBC avec Hive, utilisez les liens
 * [Utilisation de Pig avec HDInsight](hdinsight-use-pig.md)
 * [Utilisation des tâches MapReduce avec HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0824_2016-->

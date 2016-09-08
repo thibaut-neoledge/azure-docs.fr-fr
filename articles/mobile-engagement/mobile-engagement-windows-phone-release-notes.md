@@ -11,9 +11,9 @@
 	ms.service="mobile-engagement" 
 	ms.workload="mobile" 
 	ms.tgt_pltfrm="mobile-windows-phone" 
-	ms.devlang="na" 
+	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="02/29/2016" 
+	ms.date="08/19/2016" 
 	ms.author="piyushjo" />
 
 #Notes de publication du Kit de développement logiciel (SDK) Windows Phone Silverlight
@@ -36,7 +36,7 @@ Partie du package NuGet *MicrosoftAzure.MobileEngagement* **v3.2.0**
 -   Incident fixe lors de la demande de l'ID de l'appareil juste après l'initialisation.
 -   Améliorations des journaux de la console.
 
-##3\.0.0 (03/04/2015)
+##3\.0.0 -> (03/04/2015)
 
 -   Icône de notification par défaut mise à jour.
 -   Envoyer des commentaires sur l’action de notification du système lorsque vous cliquez sur une notification.
@@ -49,4 +49,4 @@ Partie du package NuGet *MicrosoftAzure.MobileEngagement* **v3.2.0**
 -   Améliorations de sécurité.
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0824_2016-->

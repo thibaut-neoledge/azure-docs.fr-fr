@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Partager un même client Azure AD entre des abonnements Office 365 et Azure | Microsoft Azure"
-	description="Découvrez comment partager votre client Azure AD Office 365 et ses utilisateurs avec votre abonnement Azure, ou vice versa."
+	description="Découvrez comment partager votre client Azure AD Office 365 et ses utilisateurs avec votre abonnement Azure, ou inversement"
 	services=""
 	documentationCenter=""
 	authors="jiangchen79"
@@ -14,13 +14,15 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/20/2016"
+	ms.date="08/17/2016"
 	ms.author="cjiang"/>
 
 # Utiliser votre compte Office 365 existant avec votre abonnement Azure ou vice versa
-Scénario : Si vous avez déjà un abonnement à Office 365 et que vous êtes prêt à prendre un abonnement à Azure, mais que vous souhaitez utiliser le(s) compte(s) d’utilisateur Office 365 existants pour votre abonnement Azure. Ou bien, vous êtes un abonné Azure et vous souhaitez obtenir un abonnement à Office 365 pour les utilisateurs dans votre Azure Active Directory existant. Cet article vous montre que vous pouvez y parvenir facilement.
+Scénario : si vous avez déjà un abonnement à Office 365 et que vous êtes prêt à prendre un abonnement à Azure, mais que vous souhaitez utiliser le(s) compte(s) d’utilisateur Office 365 existants pour votre abonnement Azure. Ou bien, vous êtes un abonné Azure et vous souhaitez obtenir un abonnement à Office 365 pour les utilisateurs dans votre Azure Active Directory existant. Cet article vous montre que vous pouvez y parvenir facilement.
 
 > [AZURE.NOTE] Cet article ne s’applique pas aux clients du Contrat Entreprise (EA).
+
+> [AZURE.NOTE] Si à un moment donné dans cet article, vous avez besoin d’aide, veuillez [contacter le support technique](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour obtenir une prise en charge rapide de votre problème.
 
 ## Conseils rapides
 
@@ -145,6 +147,8 @@ Pour plus d’informations, consultez [Comment l’abonnement à Azure est assoc
 - Les abonnements Office 365 sont détenus par le répertoire proprement dit. Les utilisateurs dans le répertoire peuvent gérer ces abonnements s’ils ont les autorisations requises.
 
 ##Étapes suivantes
-Dans un scénario connexe, vous aviez obtenu les deux abonnements Azure et Office 365 séparément et souhaitez désormais accéder au client Office 365 à partir de l’abonnement Azure. Pour ce faire, consultez [Associate an Office 365 tenant with an Azure subscription](billing-add-office-365-tenant-to-azure-subscription.md) (Associer un client Office 365 à un abonnement Azure).
+Dans un scénario connexe, vous aviez obtenu les deux abonnements Azure et Office 365 séparément et souhaitez désormais accéder au client Office 365 à partir de l’abonnement Azure. Pour ce faire, consultez [Associer un client Office 365 à un abonnement Azure](billing-add-office-365-tenant-to-azure-subscription.md).
 
-<!---HONumber=AcomDC_0803_2016-->
+> [AZURE.NOTE] Si vous avez d’autres questions, veuillez [contacter le support technique](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour obtenir une prise en charge rapide de votre problème.
+
+<!---HONumber=AcomDC_0824_2016-->

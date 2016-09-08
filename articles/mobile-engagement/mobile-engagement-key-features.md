@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/01/2016"
+	ms.date="08/19/2016"
 	ms.author="piyushjo" />
 
 # Azure Mobile Engagement - Principales fonctionnalités
@@ -22,25 +22,25 @@ Cet article donne une vue d’ensemble globale des principales fonctionnalités 
 
 ## **Généralités**
 
-- **Kits de développement logiciel (SDK) disponibles pour toutes les principales plateformes** : iOS, Android, plateforme Windows universelle, Windows Phone Silverlight, Kindle, Cordova. Nous fournissons des Kits de développement logiciel (SDK) faciles à intégrer et une documentation utile pour vous aider à démarrer sur la plateforme de votre choix. 
+- **Kits de développement logiciel (SDK) disponibles pour toutes les principales plateformes** : iOS, Android, plateforme Windows universelle, Windows Phone Silverlight, Kindle, Cordova. Nous fournissons des Kits de développement logiciel (SDK) faciles à intégrer et une documentation utile pour vous aider à démarrer sur la plateforme de votre choix.
 
-- **Portail SaaS distinct** : permet d’accéder facilement à l’équipe marketing sans avoir à passer par le portail de gestion Azure.
+- **Portail SaaS distinct** : permet d’accéder facilement à l’équipe marketing sans avoir à passer par le portail de gestion Azure.
 
-- **Disponibilité des API REST en open source** : pour une intégration et une automatisation avec les systèmes CRM/CMS/informatiques utilisant des API multiplateformes, nous fournissons des API REST open source et un Kit de développement logiciel (SDK) .NET pour utiliser ces API et vous permettre une intégration et une automatisation facilitées avec Mobile Engagement. Consultez [ces informations](mobile-engagement-api-authentication.md) pour plus de détails.
+- **Disponibilité des API REST en open source** : pour une intégration et une automatisation avec les systèmes CRM/CMS/informatiques utilisant des API multiplateformes, nous fournissons des API REST open source et un Kit de développement logiciel (SDK) .NET pour utiliser ces API et vous permettre une intégration et une automatisation facilitées avec Mobile Engagement. Consultez [ces informations](mobile-engagement-api-authentication.md) pour plus de détails.
 
-- **Connecteur Power BI disponible** : vous pouvez également extraire des graphiques d’analyse clés dans un tableau de bord Power BI. Consultez ce [guide](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-mobile/)
+- **Connecteur Power BI disponible** : vous pouvez également extraire des graphiques d’analyse clés dans un tableau de bord Power BI. Consultez ce [guide](https://powerbi.microsoft.com/fr-FR/documentation/powerbi-content-pack-azure-mobile/)
 
-- **Sécurité et confidentialité garanties** : Azure Mobile Engagement fait partie de la famille Azure et suit toutes les meilleures pratiques standard concernant la sécurité et la confidentialité attendues pour un service cloud.
+- **Sécurité et confidentialité garanties** : Azure Mobile Engagement fait partie de la famille Azure et suit toutes les meilleures pratiques standard concernant la sécurité et la confidentialité attendues pour un service cloud.
 
 ## **Analytique actionnable**
 
-- **Surveiller les données en temps réel** : vous pouvez suivre les analyses en temps réel à l’aide de notre module d’analyse qui affiche des détails tels que les sessions, les événements, les erreurs et les incidents en temps réel. Consultez cet [article](mobile-engagement-concepts.md) pour comprendre les concepts de base. 
+- **Surveiller les données en temps réel** : vous pouvez suivre les analyses en temps réel à l’aide de notre module d’analyse qui affiche des détails tels que les sessions, les événements, les erreurs et les incidents en temps réel. Consultez cet [article](mobile-engagement-concepts.md) pour comprendre les concepts de base.
 
 	![][1]
 
 	![][2]
 
-- **Afficher des données agrégées** : vous obtenez également une vue plus riche de vos données d’analyse agrégées à l’aide de notre module d’analyse qui vous permet de filtrer facilement vos données selon les périodes et la version de l’application.
+- **Afficher des données agrégées** : vous obtenez également une vue plus riche de vos données d’analyse agrégées à l’aide de notre module d’analyse qui vous permet de filtrer facilement vos données selon les périodes et la version de l’application.
 
 	![][3]
 
@@ -54,7 +54,7 @@ Cet article donne une vue d’ensemble globale des principales fonctionnalités 
 	
 	![][6]
 
-- **Savoir quels écrans consultent les utilisateurs de votre application et comment vous optimisez le parcours de l’utilisateur** : cela leur permet de découvrir les écrans et fonctionnalités que vous souhaitez.
+- **Savoir quels écrans consultent les utilisateurs de votre application et comment vous optimisez le parcours de l’utilisateur** : cela leur permet de découvrir les écrans et fonctionnalités que vous souhaitez.
 
 	![][7]
 	
@@ -76,7 +76,7 @@ Cet article donne une vue d’ensemble globale des principales fonctionnalités 
 	
 ## **Notifications Push personnalisées et ciblées**
 
-- **Créer un segment basé sur les données collectées** : pour ce faire, vous pouvez utiliser les données sur les événements, sessions, activités, tâches, incidents, erreurs et balises.
+- **Créer un segment basé sur les données collectées** : pour ce faire, vous pouvez utiliser les données sur les événements, sessions, activités, tâches, incidents, erreurs et balises.
 
 	![][13]
 
@@ -100,7 +100,7 @@ Cet article donne une vue d’ensemble globale des principales fonctionnalités 
 
 	![][19]
 
-- **Spécifier une « action » lorsque l’utilisateur clique sur une notification** : cela peut être aussi simple que l’ouverture d’une page web ou la navigation au sein de l’application sur un écran spécifique lorsqu’un utilisateur clique sur la notification.
+- **Spécifier une « action » lorsque l’utilisateur clique sur une notification** : cela peut être aussi simple que l’ouverture d’une page web ou la navigation au sein de l’application sur un écran spécifique lorsqu’un utilisateur clique sur la notification.
 
 	![][20]
 	
@@ -130,7 +130,7 @@ Cet article donne une vue d’ensemble globale des principales fonctionnalités 
 
 	![][27]
 
-- **Définir des limites Push pour empêcher le spam** : vous ne voulez pas envoyer un grand nombre de notifications Push aux utilisateurs de votre application, ce qui serait considéré comme du spam. Ces limites Push sont utiles, car vous pouvez les configurer au niveau de granularité d’un segment.
+- **Définir des limites Push pour empêcher le spam** : vous ne voulez pas envoyer un grand nombre de notifications Push aux utilisateurs de votre application, ce qui serait considéré comme du spam. Ces limites Push sont utiles, car vous pouvez les configurer au niveau de granularité d’un segment.
 
 	![][28]
 
@@ -164,4 +164,4 @@ Cet article donne une vue d’ensemble globale des principales fonctionnalités 
 [27]: ./media/mobile-engagement-key-features/push_emoji.png
 [28]: ./media/mobile-engagement-key-features/push_limits.png
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0824_2016-->

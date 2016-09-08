@@ -76,7 +76,7 @@ Si la destination ne s’applique à aucun des préfixes Null ou aux préfixes d
 
 S’il existe deux préfixes identiques dans la table d’itinéraires, voici l’ordre de préférence basé sur l’attribut « source » de routes :
 
-1.	<blank> = Un itinéraire défini par l’utilisateur ajouté manuellement à la table
+1.	"VirtualAppliance" = Un itinéraire défini par l’utilisateur ajouté manuellement à la table
 2.	« VPNGateway » = un itinéraire dynamique ( BGP en cas d’utilisation avec des réseaux hybrides), ajouté par un protocole réseau dynamique. Ces itinéraires peuvent changer au fil du temps, le protocole dynamique reflétant automatiquement les modifications intervenues dans le réseau associé
 3.	« Default » = les itinéraires du système, le réseau local virtuel et les entrées statiques, comme indiqué dans la table d’itinéraires.
 
@@ -941,4 +941,4 @@ Si vous souhaitez installer un exemple de script d’application et d’autres e
 [HOME]: ../best-practices-network-security.md
 [SampleApp]: ./virtual-networks-sample-app.md
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="07/22/2016"
+	ms.date="08/30/2016"
 	ms.author="swkrish"/>
 
 
@@ -39,11 +39,14 @@ Vous pouvez également accéder au panneau en cliquant sur **Parcourir**, puis s
 2. Cliquez sur **+Ajouter** dans la partie supérieure du panneau.
 3. Entrez un **nom** pour l’application qui décrira votre application aux consommateurs. Par exemple, entrez « Application B2C Contoso ».
 4. Si vous écrivez une application basée sur le web, positionnez le commutateur **Inclure l'application web/API web** sur **Oui**. Les **URL de réponse** sont des points de terminaison auxquels Azure AD B2C renvoie les jetons demandés par votre application. Par exemple, entrez :`https://localhost:44321/`. Si votre application web appelle également certaines API web sécurisées par Azure AD B2C, vous voudrez également créer une **Clé secrète d’application** en cliquant sur le bouton **Générer une clé**.
+
+    > [AZURE.NOTE] Une **Clé secrète d’application** est une information d’identification de sécurité importante, qui doit être correctement sécurisée.
+
 5. Si vous écrivez une application mobile, positionnez le commutateur **Inclure un client natif** sur **Oui**. Notez la valeur par défaut **URI de redirection** créée automatiquement pour vous.
 6. Cliquez sur **Créer** pour inscrire votre application.
-7. Cliquez sur l’application que vous venez de créer, puis notez **l’ID du client d’application** global unique à utiliser ultérieurement dans votre code.
+7. Cliquez sur l’application que vous venez de créer, puis notez l’**ID du client d’application** global unique à intégrer ultérieurement dans votre code.
 
-> [AZURE.NOTE] Une **Clé secrète d’application** est une information d’identification de sécurité importante et doit être correctement sécurisée.
+> [AZURE.IMPORTANT] Les applications créées dans le panneau de fonctionnalités B2C doivent être gérées dans le même emplacement. Si vous modifiez des applications B2C à l’aide de PowerShell ou d’un autre portail, elles ne sont plus prises en charge et ne fonctionneront probablement pas avec Azure AD B2C.
 
 ## Générer une application de démarrage rapide
 
@@ -51,4 +54,4 @@ Vous pouvez également accéder au panneau en cliquant sur **Parcourir**, puis s
 
 [AZURE.INCLUDE [active-directory-v2-quickstart-table](../../includes/active-directory-b2c-quickstart-table.md)]
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0831_2016-->

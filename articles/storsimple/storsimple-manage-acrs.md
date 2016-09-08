@@ -12,24 +12,24 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/24/2016"
+   ms.date="08/18/2016"
    ms.author="alkohli" />
 
 # Utiliser le service StorSimple Manager pour gérer les enregistrements de contrôle d’accès
 
-## Vue d’ensemble
+## Vue d'ensemble
 
 Les enregistrements de contrôle d’accès vous permettent de spécifier les hôtes qui peuvent se connecter à un volume sur l’appareil StorSimple. Les enregistrements de contrôle d’accès sont définis pour un volume spécifique et contiennent les noms complets iSCSI (IQN) des ordinateurs hôtes. Lorsqu’un hôte essaie de se connecter à un volume, l’appareil vérifie l’enregistrement de contrôle d’accès associé à ce volume pour le nom complet iSCSI (IQN) et s’il existe une correspondance, la connexion est établie. La section des enregistrements de contrôle d’accès de la page **Configurer** affiche tous les enregistrements de contrôle d’accès avec les noms complets iSCSI (IQN) des hôtes correspondants.
 
 Le didacticiel décrit les tâches courantes liées aux enregistrements de contrôle d’accès :
 
-- Ajouter un enregistrement de contrôle d’accès 
-- Modifier un enregistrement de contrôle d’accès 
-- Supprimer un enregistrement de contrôle d’accès 
+- Ajouter un enregistrement de contrôle d’accès
+- Modifier un enregistrement de contrôle d’accès
+- Supprimer un enregistrement de contrôle d’accès
 
 > [AZURE.IMPORTANT] 
 > 
-> - Lorsque vous attribuez un enregistrement de contrôle d’accès à un volume, veillez à ce que plusieurs hôtes non cluster n’accèdent pas simultanément au volume, sans quoi celui-ci pourrait être endommagé. 
+> - Lorsque vous attribuez un enregistrement de contrôle d’accès à un volume, veillez à ce que plusieurs hôtes non cluster n’accèdent pas simultanément au volume, sans quoi celui-ci pourrait être endommagé.
 > - Lorsque vous supprimez un enregistrement de contrôle d’accès d’un volume, assurez-vous que l’hôte correspondant n’accède pas au volume, car la suppression pourrait entraîner une perturbation des opérations de lecture-écriture.
 
 ## Ajouter un enregistrement de contrôle d’accès
@@ -95,4 +95,4 @@ Pour supprimer un enregistrement de contrôle d’accès, procédez comme suit.
 - En savoir plus sur [l’utilisation du service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
  
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0824_2016-->

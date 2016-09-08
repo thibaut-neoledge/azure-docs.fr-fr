@@ -3,7 +3,7 @@
    description="Cet article explique comment Traffic Manager utilise la surveillance des points de terminaison et le basculement automatique des points de terminaison pour aider les clients Azure à déployer des applications haute disponibilité"
    services="traffic-manager"
    documentationCenter=""
-   authors="jtuliani"
+   authors="sdwheeler"
    manager="carmonm"
    editor="tysonn" />
 <tags
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="07/01/2016"
-   ms.author="jtuliani" />
+   ms.author="sewhee" />
 
 # Surveillance et basculement des points de terminaison Traffic Manager
 
@@ -175,4 +175,4 @@ En savoir plus sur la [création d’un profil Traffic Manager](traffic-manager-
 
 [Résolution des problèmes liés à l’état Détérioré](traffic-manager-troubleshooting-degraded.md) sur un point de terminaison Traffic Manager
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -1,6 +1,6 @@
 <properties
    pageTitle="Gestion de la sécurité dans Azure | Microsoft Azure"
-   description="Cet article décrit les étapes permettant d’améliorer la sécurité de l’administration à distance lors de l’administration des environnements Microsoft Azure, notamment les services cloud, les machines virtuelles et les applications personnalisées."
+   description=" Cet article décrit les étapes permettant d’améliorer la sécurité de l’administration à distance lors de l’administration des environnements Microsoft Azure, notamment les services cloud, les machines virtuelles et les applications personnalisées."
    services="security"
    documentationCenter="na"
    authors="TerryLanfear"
@@ -13,14 +13,14 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/26/2016"
+   ms.date="08/25/2016"
    ms.author="terrylan"/>
 
 # Gestion de la sécurité dans Azure
 
 Les abonnés Azure peuvent gérer leurs environnements cloud à partir de différents périphériques, comme les stations de travail de gestion, les ordinateurs de développement ou encore les périphériques d’utilisateurs finaux privilégiés, qui disposent d’autorisations spécifiques. Dans certains cas, les fonctions d’administration sont effectuées par le biais de consoles Web, comme le [portail Azure](https://azure.microsoft.com/features/azure-portal/). Des connexions directes peuvent aussi être établies avec Azure à partir de systèmes locaux sur des réseaux privés virtuels (VPN), Terminal Services, des protocoles d’application cliente ou l’API de gestion des services Azure (SMAPI) (par programmation). Par ailleurs, les points de terminaison de client peuvent être joints au domaine ou isolés et non gérés, comme les tablettes ou les smartphones.
 
-Bien que ces fonctions de gestion et d’accès offrent de nombreuses options, le déploiement de cloud peut se révéler plus délicat et entraîner une gestion, un suivi et un audit plus complexes pour les actions d’administration. Des menaces de sécurité peuvent également survenir avec l’accès non réglementé aux points de terminaison de client utilisés pour la gestion des services cloud. Les stations de travail personnelles ou communes destinées au développement et à la gestion de l’infrastructure introduisent des menaces imprévisibles, notamment avec la navigation Web (par exemple, lors d’attaques de point d’eau) ou la messagerie électronique (par exemple, ingénierie sociale et hameçonnage).
+Bien que les fonctions de gestion et d’accès offrent de nombreuses options, le déploiement de cloud peut se révéler plus délicat. La gestion, le suivi et l’audit peuvent être plus complexes pour les actions d’administration. Des menaces de sécurité peuvent également survenir avec l’accès non réglementé aux points de terminaison de client utilisés pour la gestion des services cloud. Les stations de travail personnelles ou communes destinées au développement et à la gestion de l’infrastructure introduisent des menaces imprévisibles, notamment avec la navigation Web (par exemple, lors d’attaques de point d’eau) ou la messagerie électronique (par exemple, ingénierie sociale et hameçonnage).
 
 ![][1]
 
@@ -128,7 +128,7 @@ Certaines applications ou certains services déployés dans Azure peuvent avoir 
 
 Plusieurs mécanismes permettent de sécuriser les connexions client vers vos réseaux virtuels Azure. Deux de ces mécanismes (connexion [VPN de site à site](https://channel9.msdn.com/series/Azure-Site-to-Site-VPN) (S2S) et connexion [VPN de point à site](../vpn-gateway/vpn-gateway-point-to-site-create.md) (P2S)) acceptent la norme IPsec standard (S2S) ou le protocole [Secure Socket Tunneling Protocol](https://technet.microsoft.com/magazine/2007.06.cableguy.aspx) (SSTP) (P2S) pour le chiffrement et le tunneling. Lorsque Azure se connecte à un système de gestion des services Azure public, comme le portail de gestion Azure, un protocole HTTPS (Hypertext Transfer Protocol Secure) est requis.
 
-Une station de travail renforcée autonome qui ne se connecte pas à Azure par le biais d’une passerelle des services Bureau à distance doit utiliser une connexion VPN de point à site basée sur le protocole SSTP pour mettre en place la connexion initiale vers Azure Virtual Network, puis établir la connexion RDP avec des machines virtuelles individuelles dans le tunnel VPN.
+Une station de travail renforcée autonome qui ne se connecte pas à Azure par le biais d’une passerelle des services Bureau à distance doit utiliser une connexion VPN de point à site basée sur le protocole SSTP pour mettre en place la connexion initiale vers le réseau virtuel Azure, puis établir la connexion RDP avec des machines virtuelles individuelles dans le tunnel VPN.
 
 ### Audit de gestion et application de stratégies
 
@@ -247,4 +247,4 @@ Les ressources suivantes fournissent des informations générales sur les servic
 [3]: ./media/azure-security-management/hardened-workstation-enabled-with-hyper-v.png
 [4]: ./media/azure-security-management/hardened-workstation-using-windows-to-go-on-a-usb-flash-drive.png
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -114,12 +114,16 @@ Vous devez avoir un réseau Azure, afin que les machines virtuelles Azure créé
 - Selon le modèle de ressource que vous souhaitez utiliser pour les machines virtuelles Azure ayant fait l’objet d’un basculement, vous allez configurer le réseau Azure en [mode Azure Resource Manager](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) ou en [mode Classic](../virtual-network/virtual-networks-create-vnet-classic-pportal.md).
 - Nous vous recommandons de configurer un réseau avant de commencer. Sinon, vous devrez le faire lors du déploiement de Site Recovery.
 
+> [AZURE.NOTE] [Migration of networks](../ressources-groupe-move-resources.md) entre les groupes de ressources d’un même abonnement ou de plusieurs abonnements n’est pas pris en charge pour les réseaux utilisés pour le déploiement de Site Recovery.
+
 
 ### Configurer un compte Azure Storage
 
 - Vous aurez besoin d’un compte Azure Storage standard pour stocker les données répliquées sur Azure. Ce compte doit se trouver dans la même région que le coffre Recovery Services.
 - Selon le modèle de ressource que vous souhaitez utiliser pour les machines virtuelles Azure ayant fait l’objet d’un basculement, vous allez configurer un compte en [mode Azure Resource Manager](../storage/storage-create-storage-account.md) ou en [mode Classic](../storage/storage-create-storage-account-classic-portal.md).
 - Nous vous recommandons de configurer un compte avant de commencer. Sinon, vous devrez le faire lors du déploiement de Site Recovery.
+
+> [AZURE.NOTE] [Migration of storage accounts](../ressources-groupe-move-resources.md) entre les groupes de ressources d’un même abonnement ou de plusieurs abonnements n’est pas pris en charge pour les comptes de stockage utilisés pour le déploiement de Site Recovery.
 
 ### Préparer le serveur VMM
 
@@ -189,11 +193,11 @@ Installez le fournisseur Azure Site Recovery sur le serveur VMM et enregistrez c
 
 	![Configurer la source](./media/site-recovery-vmm-to-azure/set-source1.png)
 
-2. Dans la zone **Prepare source (Préparer la source)**, cliquez sur **+ VMM** pour ajouter un serveur VMM.
+2. Dans la zone **Préparer la source**, cliquez sur **+ VMM** pour ajouter un serveur VMM.
 
 	![Configurer la source](./media/site-recovery-vmm-to-azure/set-source2.png)
 
-3. Dans le volet **Ajouter un serveur**, vérifiez que le **serveur System Center VMM** s’affiche dans le champ **Type de serveur** et que le serveur VMM répond à la [configuration requise et aux exigences concernant les URL](#on-premises-prerequisites).
+3. Dans le panneau **Ajouter un serveur**, vérifiez que **Serveur System Center VMM** s’affiche dans le champ **Type de serveur** et que le serveur VMM répond à la [configuration requise et aux exigences concernant les URL](#on-premises-prerequisites).
 4. Téléchargez le fichier d’installation du fournisseur Azure Site Recovery.
 5. Téléchargez la clé d’inscription. Vous en aurez besoin lorsque vous exécuterez le programme d’installation. Une fois générée, la clé reste valide pendant 5 jours.
 
@@ -380,8 +384,8 @@ Site Recovery propose une fonctionnalité, Capacity Planner, qui vous permet d�
 - collecter les informations relatives à votre environnement de réplication, notamment les machines virtuelles, le nombre de disques par machine virtuelle et le stockage par disque ;
 - déterminer le taux de modification (l’évolution) quotidienne des données répliquées. Pour cela, vous pouvez utiliser la fonction [Capacity Planner pour réplica Hyper-V](https://www.microsoft.com/download/details.aspx?id=39057).
 
-1.	Cliquez sur **Télécharger** pour télécharger l’outil, puis exécutez-le. Lisez [l’article relatif à cet outil](site-recovery-capacity-planner.md).
-2.	Quand vous avez terminé, sélectionnez **Oui** dans la zone **Have you run the Capacity Planner ? (Avez-vous exécuté Capacity Planner ?)**.
+1.	Cliquez sur **Télécharger** pour télécharger l’outil, puis exécutez-le. [Lisez l’article](site-recovery-capacity-planner.md) relatif à cet outil.
+2.	Quand vous avez terminé, sélectionnez **Oui** dans la zone **Have you run the Capacity Planner ?** (Avez-vous exécuté Capacity Planner ?)
 
 	![Planification de la capacité](./media/site-recovery-vmm-to-azure/gs-capacity-planning.png)
 
@@ -567,4 +571,4 @@ Voici comment vous pouvez surveiller l’intégrité, l’état et les paramètr
 
 Une fois votre déploiement configuré et effectué, pour en savoir plus sur les différents types de basculement, [cliquez ici](site-recovery-failover.md).
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

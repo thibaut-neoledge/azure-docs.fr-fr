@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/07/2016"
+	ms.date="08/23/2016"
 	ms.author="iainfou"/>
 
 # Détachement d'un disque d'une machine virtuelle Linux
@@ -30,4 +30,4 @@ Vous trouverez plus d’informations sur l’utilisation de votre machine virtue
 
 - [Utilisation de l’interface CLI Azure avec le modèle de déploiement classique](../virtual-machines-command-line-tools.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0824_2016-->

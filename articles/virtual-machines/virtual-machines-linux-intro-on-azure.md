@@ -19,7 +19,7 @@
 
 #Présentation de Linux sous Azure
 
-Cette rubrique présente quelques aspects de l'utilisation de machines virtuelles Linux dans le cloud Azure. Le déploiement d'une machine virtuelle Linux est un processus simple qui fait appel à une image de la galerie.
+Cette rubrique présente quelques aspects de l’utilisation de machines virtuelles Linux dans le cloud Azure. Le déploiement d'une machine virtuelle Linux est un processus simple qui fait appel à une image de la galerie.
 
 
 ## Authentification : noms d’utilisateurs, mots de passe et clés SSH
@@ -28,7 +28,7 @@ Lorsque vous créez une machine virtuelle Linux avec le portail Azure Classic, 
 
 
  - Consultez la page [Création d’une machine virtuelle exécutant Linux](virtual-machines-linux-quick-create-cli.md)
- - Consultez la rubrique [Utilisation de SSH avec Linux sur Azure](virtual-machines-linux-ssh-from-linux.md).
+ - Consultez la rubrique [Utilisation de SSH avec Linux sur Azure](virtual-machines-linux-mac-create-ssh-keys.md).
 
 
 ## Obtention de privilèges de superutilisateur avec `sudo`
@@ -98,4 +98,4 @@ Sous Linux, le disque de données peut être nommé `/dev/sdc` par le noyau et 
 
  - **Voir aussi :** [Configuration d’un RAID logiciel sur Linux](virtual-machines-linux-configure-raid.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0824_2016-->

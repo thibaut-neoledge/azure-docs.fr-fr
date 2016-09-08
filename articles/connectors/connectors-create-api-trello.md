@@ -14,22 +14,16 @@ ms.devlang="multiple"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="05/18/2016"
+ms.date="08/18/2016"
 ms.author="deonhe"/>
 
 # Prise en main du connecteur Trello
 
-
-
-Le connecteur Trello peut être utilisé à partir de :
-
-- [Logic Apps](../app-service-logic/app-service-logic-what-are-logic-apps.md)
-- [PowerApps](http://powerapps.microsoft.com)
-- [Flux](http://flows.microsoft.com)
+Trello vous donne une perspective sur tous vos projets, qu’ils soient personnels ou professionnels. Cet outil simple, gratuit, souple et visuel vous permet de gérer vos projets et d’organiser tout ce que vous souhaitez. Connectez-vous à Trello pour gérer vos tableaux, vos listes et vos cartes.
 
 >[AZURE.NOTE] Cette version de l'article s'applique à la version de schéma 2015-08-01-preview des applications logiques.
 
-Vous pouvez commencer en créant une application logique. Consultez [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Vous pouvez commencer par créer une application logique. Pour cela, consultez [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Déclencheurs et actions
 
@@ -70,7 +64,7 @@ Après avoir créé la connexion, vous pouvez l’utiliser pour exécuter les ac
 
 >[AZURE.INCLUDE [Procédure de création d’une connexion à Trello](../../includes/connectors-create-api-trello.md)]
 
->[AZURE.TIP] Vous pouvez utiliser cette connexion dans d'autres applications logiques.
+>[AZURE.TIP] Vous pouvez utiliser cette connexion dans d’autres applications logiques.
 
 ## Référence pour Trello
 S’applique à la version 1.0.
@@ -84,7 +78,7 @@ Lorsqu’une nouvelle carte est ajoutée à un tableau : déclenche un flux lors
 | ---|---|---|---|---|---|
 |board\_id|string|yes|path|(aucun)|ID unique du tableau dans lequel extraire les cartes|
 
-#### Response
+#### Réponse
 
 |Nom|Description|
 |---|---|
@@ -102,12 +96,12 @@ Lorsqu’une nouvelle carte est ajoutée à une liste : déclenche un flux lorsq
 
 ```GET: /trigger/lists/{list_id}/cards```
 
-| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
+| Name| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
 |board\_id|string|yes|query|(aucun)|ID unique du tableau dans lequel extraire les cartes|
 |list\_id|string|yes|path|(aucun)|ID unique de la liste dans laquelle extraire les cartes|
 
-#### Response
+#### Réponse
 
 |Nom|Description|
 |---|---|
@@ -142,7 +136,7 @@ Répertorier les cartes dans un tableau : répertorier les cartes dans un tablea
 |filter|string|no|query|(aucun)|Filtre la réponse|
 |fields|string|no|query|(aucun)|Répertorie les champs de carte à retourner. Spécifiez « all » ou une liste de valeurs valides séparées par des virgules.|
 
-#### Response
+#### Réponse
 
 |Nom|Description|
 |---|---|
@@ -188,7 +182,7 @@ Obtenir une carte par ID : obtenir une carte par ID
 |sticker\_fields|string|no|query|(aucun)|Répertorie les champs d’autocollant à retourner pour chaque autocollant. Spécifiez « all » ou une liste de valeurs valides séparées par des virgules.|
 |fields|string|no|query|(aucun)|Répertorie les champs de carte à retourner. Spécifiez « all » ou une liste de valeurs valides séparées par des virgules.|
 
-#### Response
+#### Réponse
 
 |Nom|Description|
 |---|---|
@@ -212,7 +206,7 @@ Mettre à jour une carte : mettre à jour une carte
 |card\_id|string|yes|path|(aucun)|ID de la carte à mettre à jour|
 |updateCard| |yes|body|(aucun)|Valeurs de carte mises à jour|
 
-#### Response
+#### Réponse
 
 |Nom|Description|
 |---|---|
@@ -235,7 +229,7 @@ Supprimer la carte : supprimer la carte
 |board\_id|string|yes|query|(aucun)|ID du tableau à partir duquel extraire des cartes|
 |card\_id|string|yes|path|(aucun)|ID de la carte à supprimer|
 
-#### Response
+#### Réponse
 
 |Nom|Description|
 |---|---|
@@ -258,9 +252,9 @@ Crée une carte : crée une carte dans votre compte Trello
 |board\_id|string|yes|query|(aucun)|ID unique du tableau dans lequel créer les cartes|
 |newCard| |yes|body|(aucun)|Nouvelle carte à ajouter au tableau Trello|
 
-#### Response
+#### Réponse
 
-|Nom|Description|
+|Name|Description|
 |---|---|
 |200|OK|
 |400|Demande incorrecte|
@@ -291,9 +285,9 @@ Répertorier les tableaux : répertorier les tableaux
 |organization\_fields|string|no|query|(aucun)|Répertorie les champs d’organisation à retourner. Spécifiez « all » ou une liste de valeurs valides séparées par des virgules.|
 |lists|string|no|query|(aucun)|Spécifie si les listes appartenant au tableau doivent être retournées|
 
-#### Response
+#### Réponse
 
-|Nom|Description|
+|Name|Description|
 |---|---|
 |200|OK|
 |400|Demande incorrecte|
@@ -309,7 +303,7 @@ Obtenir un tableau par ID : obtenir un tableau par ID
 
 ```GET: /boards/{board_id}```
 
-| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
+| Name| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
 |board\_id|string|yes|path|(aucun)|ID unique du tableau à obtenir|
 |actions|string|no|query|(aucun)|Répertorie les actions à retourner. Spécifiez « all » ou une liste de valeurs valides séparées par des virgules.|
@@ -350,9 +344,9 @@ Obtenir un tableau par ID : obtenir un tableau par ID
 |myPerfs|booléenne|no|query|(aucun)|Spécifie si les performances doivent être retournées|
 |fields|string|no|query|(aucun)|Répertorie les champs à retourner. Spécifiez « all » ou une liste de valeurs valides séparées par des virgules.|
 
-#### Response
+#### Réponse
 
-|Nom|Description|
+|Name|Description|
 |---|---|
 |200|OK|
 |400|Demande incorrecte|
@@ -376,7 +370,7 @@ Répertorier les listes de cartes dans un tableau : répertorier les listes de c
 |filter|string|no|query|(aucun)|Spécifie la propriété de filtre pour les listes|
 |fields|string|no|query|(aucun)|Répertorie les champs à retourner. Spécifiez « all » ou une liste de valeurs valides séparées par des virgules.|
 
-#### Response
+#### Réponse
 
 |Nom|Description|
 |---|---|
@@ -404,7 +398,7 @@ Obtenir une liste par ID : obtenir une liste par ID
 |board\_fields|string|no|query|(aucun)|Répertorie les champs de tableau à retourner. Spécifiez « all » ou une liste de valeurs valides séparées par des virgules.|
 |fields|string|no|query|(aucun)|Répertorie les champs de liste à retourner. Spécifiez « all » ou une liste de valeurs valides séparées par des virgules.|
 
-#### Response
+#### Réponse
 
 |Nom|Description|
 |---|---|
@@ -610,4 +604,4 @@ Obtenir une liste par ID : obtenir une liste par ID
 ## Étapes suivantes
 [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

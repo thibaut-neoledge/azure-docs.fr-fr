@@ -3,7 +3,7 @@
    description="Découvrir comment créer un équilibreur de charge accessible sur Internet dans Resource Manager à l’aide de PowerShell"
    services="load-balancer"
    documentationCenter="na"
-   authors="joaoma"
+   authors="sdwheeler"
    manager="carmonm"
    editor=""
    tags="azure-resource-manager"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="04/05/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 # Création d’un équilibreur de charge accessible sur Internet dans Resource Manager à l’aide de PowerShell
 
@@ -60,11 +60,11 @@ Vous devez indiquer vos informations d’identification.<BR>
 
 ### Étape 2
 
-Vérifiez les abonnements associés au compte
+Vérifiez les abonnements associés au compte.
 
 		Get-AzureRmSubscription 
 
-### Étape 3 
+### Étape 3 : 
 
 Parmi vos abonnements Azure, choisissez celui que vous souhaitez utiliser.<BR>
 
@@ -120,7 +120,7 @@ L’exemple ci-dessous crée les éléments suivants :
 - un équilibreur de charge qui utilise tous les objets ci-dessus.
 
 
-### Étape 1 :
+### Étape 1
 
 Créez les règles NAT.
 
@@ -128,13 +128,13 @@ Créez les règles NAT.
 
 	$inboundNATRule2= New-AzureRmLoadBalancerInboundNatRuleConfig -Name RDP2 -FrontendIpConfiguration $frontendIP -Protocol TCP -FrontendPort 3442 -BackendPort 3389
 
-### Étape 2 :
+### Étape 2
 
 Créez une règle d’équilibreur de charge.
 
 	$lbrule = New-AzureRmLoadBalancerRuleConfig -Name HTTP -FrontendIpConfiguration $frontendIP -BackendAddressPool  $beAddressPool -Probe $healthProbe -Protocol Tcp -FrontendPort 80 -BackendPort 80
 
-### Étape 3
+### Étape 3 :
 
 Créer une sonde d’intégrité. Il existe deux façons de configurer une sonde :
  
@@ -157,7 +157,7 @@ Créez l’équilibreur de charge à l’aide des objets créés ci-dessus.
 
 Vous devez créer des interfaces réseau (ou modifier des cartes existantes) et les associer à des règles NAT, des règles d’équilibreur de charge et des sondes.
 
-### Étape 1 : 
+### Étape 1 
 
 Obtenez le réseau virtuel et le sous-réseau du réseau virtuel où les cartes réseau doivent être créées.
 
@@ -170,7 +170,7 @@ Créez une carte réseau nommée *lb-nic1-be*, puis associez-la à la première 
 	
 	$backendnic1= New-AzureRmNetworkInterface -ResourceGroupName NRP-RG -Name lb-nic1-be -Location 'West US' -PrivateIpAddress 10.0.2.6 -Subnet $backendSubnet -LoadBalancerBackendAddressPool $nrplb.BackendAddressPools[0] -LoadBalancerInboundNatRule $nrplb.InboundNatRules[0]
 
-### Étape 3
+### Étape 3 :
 
 Créez une carte réseau nommée *lb-nic2-be*, puis associez-la à la deuxième règle NAT et au premier (et unique) pool d’adresses principales.
 
@@ -250,7 +250,7 @@ Charger la configuration du serveur principal dans une variable.
 
 	$backend=Get-AzureRmLoadBalancerBackendAddressPoolConfig -name backendpool1 -LoadBalancer $lb
 
-#### Étape 3 
+#### Étape 3 : 
 
 Charger l'interface réseau déjà créée dans une variable. Le nom de la variable utilisé est $nic. Le nom de l'interface réseau utilisé est celui de l'exemple ci-dessus.
 
@@ -273,20 +273,20 @@ Une fois l’interface réseau ajoutée au pool principal d'équilibreurs de cha
 ## Mettre à jour un équilibreur de charge existant
 
 
-### Étape 1 :
+### Étape 1
 
 À l’aide de l’équilibreur de charge de l’exemple ci-dessus, attribuez un objet d’équilibreur de charge à la variable $slb à l’aide de Get-AzureLoadBalancer
 
 	$slb = get-AzureRmLoadBalancer -Name NRPLB -ResourceGroupName NRP-RG
 
-### Étape 2 :
+### Étape 2
 
 Dans l’exemple suivant, vous allez ajouter une nouvelle règle NAT entrante en utilisant le port 81 dans le serveur frontal et le port 8181 pour le pool principal, à un équilibreur de charge existant.
 
 	$slb | Add-AzureRmLoadBalancerInboundNatRuleConfig -Name NewRule -FrontendIpConfiguration $slb.FrontendIpConfigurations[0] -FrontendPort 81  -BackendPort 8181 -Protocol TCP
 
 
-### Étape 3
+### Étape 3 :
 
 Enregistrez la nouvelle configuration à l’aide de Set-AzureLoadBalancer
 
@@ -308,4 +308,4 @@ Utilisez la commande `Remove-AzureLoadBalancer` pour supprimer un équilibreur d
 
 [Configuration des paramètres de délai d’expiration TCP inactif pour votre équilibreur de charge](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0824_2016-->

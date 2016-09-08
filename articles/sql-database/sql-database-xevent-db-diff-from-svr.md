@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/07/2016"
+	ms.date="08/23/2016"
 	ms.author="genemi"/>
 
 
@@ -45,7 +45,7 @@ Des informations complémentaires sur les événements étendus, pour Base de do
 - [Événements étendus](http://msdn.microsoft.com/library/bb630282.aspx)
 
 
-## Composants requis
+## Conditions préalables
 
 
 Cette rubrique part du principe que vous connaissez déjà les éléments suivants :
@@ -133,7 +133,7 @@ La base de données SQL Azure comporte des [vues de gestion dynamique (DMV)](ht
 Dans Microsoft SQL Server, les noms des vues catalogue similaires ne contiennent pas la partie *\_database*, par exemple :
 
 
-- **sys.dm\_xe\_sessions** au lieu de <br/>**sys.dm\_xe\_database\_sessions**.
+- **sys.dm\_xe\_sessions** au lieu de name<br/>**sys.dm\_xe\_database\_sessions**.
 
 
 ### Vues de gestion dynamique communes aux deux produits
@@ -200,7 +200,7 @@ L’API [Suivi d’événements pour Windows](http://msdn.microsoft.com/library/
 ## Restrictions
 
 
-Il existe certaines différences liées à la sécurité qui conviennent à l’environnement cloud de la base de données SQL :
+Il existe certaines différences liées à la sécurité qui conviennent à l’environnement cloud de Base de données SQL :
 
 
 - Les événements étendus sont fondés sur le modèle d’isolement à client unique. Une session d’événements dans une base de données ne peut pas accéder aux données ou événements d’une autre base de données.
@@ -217,7 +217,7 @@ Vous devez disposer de l’autorisation **Contrôle** sur la base de données po
 ### Autorisations de conteneur de stockage
 
 
-Le jeton SAP que vous générez pour votre conteneur Azure Storage doit spécifier **rwl** pour les autorisations. Il fournit les autorisations suivantes :
+Le jeton SAP que vous générez pour votre conteneur Azure Storage doit spécifier **rwl** pour les autorisations. La valeur **rwl** fournit les autorisations suivantes :
 
 
 - Lire
@@ -266,7 +266,7 @@ La cible **Fichier d’événement** peut rencontrer une latence ou des problèm
 - [Billets de blog de Jonathan Kehayias sur les événements étendus dans Microsoft SQL Server](http://www.sqlskills.com/blogs/jonathan/category/extended-events/)
 
 
-Vous trouverez d’autres rubriques d’exemples de code pour les événements étendus en suivant les liens ci-dessous. Toutefois, vous devez vérifier régulièrement les exemples pour voir s’ils ciblent Microsoft SQL Server ou la base de données SQL Azure. Vous pouvez ensuite déterminer si vous devez apporter quelques modifications mineures avant d’exécuter un exemple.
+Vous trouverez d’autres rubriques d’exemples de code pour les événements étendus en suivant le lien ci-dessous. Toutefois, vous devez vérifier régulièrement les exemples pour voir s’ils ciblent Microsoft SQL Server ou la base de données SQL Azure. Vous pouvez ensuite déterminer si vous devez apporter quelques modifications mineures avant d’exécuter un exemple.
 
 
 <!--
@@ -276,4 +276,4 @@ Vous trouverez d’autres rubriques d’exemples de code pour les événements �
 - Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](http://msdn.microsoft.com/library/bb630355.aspx)
 -->
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0824_2016-->

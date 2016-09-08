@@ -1,6 +1,6 @@
 <properties
 pageTitle="Outlook.com | Microsoft Azure"
-description="Créer des applications logiques avec Azure App Service. Le connecteur Outlook.com vous permet de gérer votre messagerie, les calendriers et les contacts. Vous pouvez effectuer différentes actions comme envoyer un message, planifier des réunions, ajouter des contacts, etc."
+description="Créez des applications logiques avec Azure App Service. Le connecteur Outlook.com vous permet de gérer votre messagerie, les calendriers et les contacts. Vous pouvez effectuer différentes actions comme envoyer un message, planifier des réunions, ajouter des contacts, etc."
 services="logic-apps"	
 documentationCenter=".net,nodejs,java" 	
 authors="msftman"	
@@ -14,22 +14,16 @@ ms.devlang="multiple"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="04/29/2016"
+ms.date="08/18/2016"
 ms.author="deonhe"/>
 
 # Prise en main du connecteur Outlook.com
 
 Le connecteur Outlook.com vous permet de gérer votre messagerie, les calendriers et les contacts. Vous pouvez effectuer différentes actions comme envoyer un message, planifier des réunions, ajouter des contacts, etc.
 
-Le connecteur Outlook.com peut être utilisé à partir de :
-
-- [Logic Apps](../app-service-logic/app-service-logic-what-are-logic-apps.md)
-- [PowerApps](http://powerapps.microsoft.com)
-- [Flux](http://flow.microsoft.com)
-
 >[AZURE.NOTE] Cette version de l'article s'applique à la version de schéma 2015-08-01-preview des applications logiques.
 
-Vous pouvez commencer en créant une application logique. Consultez [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Vous pouvez commencer par créer une application logique. Pour cela, consultez [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Déclencheurs et actions
 
@@ -83,10 +77,10 @@ Après avoir créé la connexion, vous pouvez l’utiliser pour exécuter les ac
 
 >[AZURE.INCLUDE [Procédure de création d’une connexion à Outlook.com](../../includes/connectors-create-api-outlook.md)]
 
->[AZURE.TIP] Vous pouvez utiliser cette connexion dans d'autres applications logiques.
+>[AZURE.TIP] Vous pouvez utiliser cette connexion dans d’autres applications logiques.
 
 ## Référence pour Outlook.com
-S’applique à la version : 1.0
+S’applique à la version 1.0.
 
 ## OnUpcomingEvents
 Événement imminent : déclenche un flux au démarrage d’un événement de calendrier à venir
@@ -98,7 +92,7 @@ S’applique à la version : 1.0
 |table|string|yes|query|(aucun)|Identificateur unique du calendrier|
 |lookAheadTimeInMinutes|integer|no|query|15|Plage (en minutes) dans laquelle rechercher les événements à venir|
 
-#### Response
+#### Réponse
 
 |Nom|Description|
 |---|---|
@@ -116,7 +110,7 @@ Obtenir des messages électroniques : récupère des messages électroniques à 
 
 ```GET: /Mail```
 
-| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
+| Name| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
 |folderPath|string|no|query|Inbox|Chemin du dossier duquel récupérer des messages électroniques (valeur par défaut : « Inbox »)|
 |top|integer|no|query|10|Nombre de messages électroniques à récupérer (valeur par défaut : 10)|
@@ -126,9 +120,9 @@ Obtenir des messages électroniques : récupère des messages électroniques à 
 |skip|integer|no|query|0|Nombre de messages électroniques à ignorer (valeur par défaut : 0)|
 |skipToken|string|no|query|(aucun)|Jeton d’évitement pour récupérer une nouvelle page|
 
-#### Response
+#### Réponse
 
-|Nom|Description|
+|Name|Description|
 |---|---|
 |200|L’opération a réussi|
 |400|BadRequest|
@@ -147,9 +141,9 @@ Envoyer un message électronique : envoie un message électronique
 | ---|---|---|---|---|---|
 |emailMessage| |yes|body|(aucun)|Email|
 
-#### Response
+#### Réponse
 
-|Nom|Description|
+|Name|Description|
 |---|---|
 |200|L’opération a réussi|
 |400|BadRequest|
@@ -168,9 +162,9 @@ Supprimer un message électronique : supprime un message électronique par ident
 | ---|---|---|---|---|---|
 |messageId|string|yes|path|(aucun)|ID du message électronique à supprimer|
 
-#### Response
+#### Réponse
 
-|Nom|Description|
+|Name|Description|
 |---|---|
 |200|L’opération a réussi|
 |400|BadRequest|
@@ -189,9 +183,9 @@ Marquer comme lu : marque un message électronique comme lu
 | ---|---|---|---|---|---|
 |messageId|string|yes|path|(aucun)|Identifiant du message électronique à marquer comme lu|
 
-#### Response
+#### Réponse
 
-|Nom|Description|
+|Name|Description|
 |---|---|
 |200|L’opération a réussi|
 |400|BadRequest|
@@ -212,7 +206,7 @@ Répondre à un message électronique : répond à un message électronique
 |comment|string|yes|query|(aucun)|Commentaire de réponse|
 |replyAll|booléenne|no|query|false|Répondre à tous les destinataires|
 
-#### Response
+#### Réponse
 
 |Nom|Description|
 |---|---|
@@ -234,7 +228,7 @@ Obtenir une pièce jointe : récupère la pièce jointe à un message en fonctio
 |messageId|string|yes|path|(aucun)|ID du message électronique|
 |attachmentId|string|yes|path|(aucun)|Identifiant de la pièce jointe à télécharger|
 
-#### Response
+#### Réponse
 
 |Nom|Description|
 |---|---|
@@ -261,9 +255,9 @@ Arrivée d’un nouveau message électronique: déclenche un flux à l’arrivé
 |includeAttachments|booléenne|no|query|false|Inclure les pièces jointes|
 |subjectFilter|string|no|query|(aucun)|Chaîne à rechercher dans l’objet|
 
-#### Response
+#### Réponse
 
-|Nom|Description|
+|Name|Description|
 |---|---|
 |200|L’opération a réussi|
 |202|Acceptée|
@@ -283,7 +277,7 @@ Envoyer un message électronique avec des options : envoie un message électroni
 | ---|---|---|---|---|---|
 |optionsEmailSubscription| |yes|body|(aucun)|Demande d’abonnement pour courrier électronique avec options|
 
-#### Response
+#### Réponse
 
 |Nom|Description|
 |---|---|
@@ -305,7 +299,7 @@ Envoyer un message électronique d’approbation : envoie un message électroniq
 | ---|---|---|---|---|---|
 |approvalEmailSubscription| |yes|body|(aucun)|Demande d’abonnement pour courrier électronique d’approbation|
 
-#### Response
+#### Réponse
 
 |Nom|Description|
 |---|---|
@@ -324,7 +318,7 @@ Obtenir des calendriers : récupère des calendriers
 ```GET: /datasets/calendars/tables```
 
 Il n’existe aucun paramètre pour cet appel
-#### Response
+#### Réponse
 
 |Nom|Description|
 |---|---|
@@ -345,7 +339,7 @@ Obtenir des événements : récupère des éléments d’un calendrier
 |$skip|integer|no|query|(aucun)|Nombre d’entrées à ignorer (valeur par défaut : 0)|
 |$top|integer|no|query|(aucun)|Nombre maximal d’entrées à récupérer (valeur par défaut : 256)|
 
-#### Response
+#### Réponse
 
 |Nom|Description|
 |---|---|
@@ -358,12 +352,12 @@ Créer un événement : crée un nouvel événement
 
 ```POST: /datasets/calendars/tables/{table}/items```
 
-| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
+| Name| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
 |table|string|yes|path|(aucun)|Identificateur unique d’un calendrier|
 |item| |yes|body|(aucun)|Élément de calendrier à créer|
 
-#### Response
+#### Réponse
 
 |Nom|Description|
 |---|---|
@@ -381,9 +375,9 @@ Obtenir un événement : extrait un élément spécifique d’un calendrier
 |table|string|yes|path|(aucun)|Identificateur unique d’un calendrier|
 |id|string|yes|path|(aucun)|Identificateur unique d’un élément de calendrier à récupérer|
 
-#### Response
+#### Réponse
 
-|Nom|Description|
+|Name|Description|
 |---|---|
 |200|OK|
 |default|L’opération a échoué.|
@@ -399,7 +393,7 @@ Supprimer un événement : supprime un élément de calendrier
 |table|string|yes|path|(aucun)|Identificateur unique d’un calendrier|
 |id|string|yes|path|(aucun)|Identificateur unique de l’élément de calendrier à supprimer|
 
-#### Response
+#### Réponse
 
 |Nom|Description|
 |---|---|
@@ -412,13 +406,13 @@ Mettre à jour l’événement : met à jour partiellement un élément de calen
 
 ```PATCH: /datasets/calendars/tables/{table}/items/{id}```
 
-| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
+| Name| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
 |table|string|yes|path|(aucun)|Identificateur unique d’un calendrier|
 |id|string|yes|path|(aucun)|Identificateur unique de l’élément de calendrier à mettre à jour|
 |item| |yes|body|(aucun)|Élément de calendrier à mettre à jour|
 
-#### Response
+#### Réponse
 
 |Nom|Description|
 |---|---|
@@ -439,7 +433,7 @@ Quand des éléments sont créés : déclenché à la création d’un élément
 |$skip|integer|no|query|(aucun)|Nombre d’entrées à ignorer (valeur par défaut : 0)|
 |$top|integer|no|query|(aucun)|Nombre maximal d’entrées à récupérer (valeur par défaut : 256)|
 
-#### Response
+#### Réponse
 
 |Nom|Description|
 |---|---|
@@ -460,7 +454,7 @@ Quand des éléments sont mis à jour : déclenché quand un élément de calend
 |$skip|integer|no|query|(aucun)|Nombre d’entrées à ignorer (valeur par défaut : 0)|
 |$top|integer|no|query|(aucun)|Nombre maximal d’entrées à récupérer (valeur par défaut : 256)|
 
-#### Response
+#### Réponse
 
 |Nom|Description|
 |---|---|
@@ -474,7 +468,7 @@ Obtenir des dossiers de contacts : récupère des dossiers de contacts
 ```GET: /datasets/contacts/tables```
 
 Il n’existe aucun paramètre pour cet appel
-#### Response
+#### Réponse
 
 |Nom|Description|
 |---|---|
@@ -495,7 +489,7 @@ Obtenir des contacts : récupère les contacts d’un dossier de contacts
 |$skip|integer|no|query|(aucun)|Nombre d’entrées à ignorer (valeur par défaut : 0)|
 |$top|integer|no|query|(aucun)|Nombre maximal d’entrées à récupérer (valeur par défaut : 256)|
 
-#### Response
+#### Réponse
 
 |Nom|Description|
 |---|---|
@@ -508,12 +502,12 @@ Créer un contact : crée un nouveau contact
 
 ```POST: /datasets/contacts/tables/{table}/items```
 
-| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
+| Name| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
 |table|string|yes|path|(aucun)|Identificateur unique d’un dossier de contacts|
 |item| |yes|body|(aucun)|Contact à créer|
 
-#### Response
+#### Réponse
 
 |Nom|Description|
 |---|---|
@@ -526,14 +520,14 @@ Obtenir un contact : récupère un contact spécifique d’un dossier de contact
 
 ```GET: /datasets/contacts/tables/{table}/items/{id}```
 
-| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
+| Name| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
 |table|string|yes|path|(aucun)|Identificateur unique d’un dossier de contacts|
 |id|string|yes|path|(aucun)|Identificateur unique d’un contact à récupérer|
 
-#### Response
+#### Réponse
 
-|Nom|Description|
+|Name|Description|
 |---|---|
 |200|OK|
 |default|L’opération a échoué.|
@@ -549,9 +543,9 @@ Supprimer un contact : supprime un contact
 |table|string|yes|path|(aucun)|Identificateur unique d’un dossier de contacts|
 |id|string|yes|path|(aucun)|Identificateur unique du contact à supprimer|
 
-#### Response
+#### Réponse
 
-|Nom|Description|
+|Name|Description|
 |---|---|
 |200|OK|
 |default|L’opération a échoué.|
@@ -568,15 +562,15 @@ Mettre à jour un contact : met à jour partiellement un contact
 |id|string|yes|path|(aucun)|Identificateur unique du contact à mettre à jour|
 |item| |yes|body|(aucun)|Élément de contact à mettre à jour|
 
-#### Response
+#### Réponse
 
-|Nom|Description|
+|Name|Description|
 |---|---|
 |200|OK|
 |default|L’opération a échoué.|
 
 
-## Définitions d'objet 
+## Définitions d’objet 
 
 ### TriggerBatchResponse[IDictionary[String,Object]]
 
@@ -601,7 +595,7 @@ Mettre à jour un contact : met à jour partiellement un contact
 | Nom de la propriété | Type de données | Requis |
 |---|---|---|
 |Pièces jointes|array|Non |
-|À partir|string|Non |
+|À partir d'une base|string|Non |
 |Cc|string|Non |
 |Cci|string|Non |
 |Objet|string|Oui |
@@ -618,7 +612,7 @@ Mettre à jour un contact : met à jour partiellement un contact
 | Nom de la propriété | Type de données | Requis |
 |---|---|---|
 |@odata.type|string|Non |
-|Nom|string|Oui |
+|Name|string|Oui |
 |ContentBytes|string|Oui |
 
 
@@ -633,7 +627,7 @@ Mettre à jour un contact : met à jour partiellement un contact
 |HasAttachment|booléenne|Non |
 |DateTimeReceived|string|Non |
 |Pièces jointes|array|Non |
-|À partir|string|Non |
+|À partir d'une base|string|Non |
 |Cc|string|Non |
 |Cci|string|Non |
 |Objet|string|Oui |
@@ -848,7 +842,7 @@ Mettre à jour un contact : met à jour partiellement un contact
 
 
 
-### Élément
+### Item
 
 
 | Nom de la propriété | Type de données | Requis |
@@ -914,4 +908,4 @@ Mettre à jour un contact : met à jour partiellement un contact
 ## Étapes suivantes
 [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

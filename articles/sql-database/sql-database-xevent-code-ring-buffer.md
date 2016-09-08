@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/03/2016" 
+	ms.date="08/23/2016" 
 	ms.author="genemi"/>
 
 
@@ -26,21 +26,21 @@
 Vous pouvez utiliser un exemple de code complet pour capturer et signaler le plus simplement et rapidement possible les informations liées à un événement étendu pendant un test. La cible la plus simple pour les données d’événement étendu est la [cible de la mémoire tampon en anneau](http://msdn.microsoft.com/library/ff878182.aspx).
 
 
-Cette rubrique présente un exemple de code Transact-SQL qui :
+Cette rubrique présente un exemple de code Transact-SQL qui :
 
 
 1. Crée une table contenant des données pour la démonstration.
 
 2. Crée une session pour un événement étendu existant, à savoir **sqlserver.sql\_statement\_starting**.
- - L’événement est limité aux instructions SQL qui contiennent une chaîne Update particulière : **statement LIKE '%UPDATE tabEmployee%'**.
- - Choisit d’envoyer la sortie de l’événement vers une cible de type mémoire tampon en anneau, à savoir **package0.ring\_buffer**.
+	- L’événement est limité aux instructions SQL qui contiennent une chaîne Update particulière : **statement LIKE '%UPDATE tabEmployee%'**.
+	- Choisit d’envoyer la sortie de l’événement vers une cible de type mémoire tampon en anneau, à savoir **package0.ring\_buffer**.
 
 3. Démarre la session d’événement.
 
 4. Émet un ensemble d’instructions SQL UPDATE simples.
 
 5. Émet une instruction SQL SELECT pour récupérer la sortie d’événement de la mémoire tampon en anneau.
- - **sys.dm\_xe\_database\_session\_targets** et d’autres vues de gestion dynamique (DMV) sont incluses.
+	- **sys.dm\_xe\_database\_session\_targets** et d’autres vues de gestion dynamique (DMV) sont incluses.
 
 6. Arrête la session d’événement.
 
@@ -52,23 +52,22 @@ Cette rubrique présente un exemple de code Transact-SQL qui :
 ## Composants requis
 
 
-- Un compte et un abonnement Azure. Vous pouvez vous inscrire à un [essai gratuit](https://azure.microsoft.com/pricing/free-trial/).
+- Un compte et un abonnement Azure. Vous pouvez vous inscrire à un [essai gratuit](https://azure.microsoft.com/pricing/free-trial/).
 
 
 - Une base de données dans laquelle vous pouvez créer une table.
  - Vous pouvez aussi [créer une base de données de démonstration **AdventureWorksLT**](sql-database-get-started.md) en quelques minutes.
 
 
-- SQL Server Management Studio (ssms.exe), version préliminaire d’août 2015 ou version ultérieure. Vous pouvez télécharger la dernière version de ssms.exe à partir des liens suivants :
- - [Un lien fourni dans une rubrique.](http://msdn.microsoft.com/library/mt238290.aspx)
+- SQL Server Management Studio (ssms.exe), dans l’idéal, la version de sa dernière mise à jour mensuelle. Vous pouvez télécharger la dernière version de ssms.exe :
+ - À partir de la rubrique [Télécharger SQL Server Management Studio](http://msdn.microsoft.com/library/mt238290.aspx).
  - [En utilisant un lien direct vers le téléchargement.](http://go.microsoft.com/fwlink/?linkid=616025)
- - Microsoft recommande de mettre régulièrement à jour votre version de ssms.exe, par exemple tous les mois.
 
 
 ## Exemple de code
 
 
-Après quelques modifications mineures, vous pouvez exécuter l’exemple suivant de code de mémoire tampon en anneau sur Azure SQL Database ou Microsoft SQL Server. La différence se limite à la présence du nœud '\_database' dans le nom de certaines vues de gestion dynamique (DMV) dans la clause FROM à l’étape 5. Par exemple :
+Après quelques modifications mineures, vous pouvez exécuter l’exemple suivant de code de mémoire tampon en anneau sur Azure SQL Database ou Microsoft SQL Server. La différence se limite à la présence du nœud « \_database » dans le nom de certaines vues de gestion dynamique (DMV) utilisées dans la clause FROM à l’étape 5. Par exemple :
 
 - sys.dm\_xe**\_database**\_session\_targets
 - sys.dm\_xe\_session\_targets
@@ -239,10 +238,10 @@ Nous avons utilisé ssms.exe pour exécuter l’exemple de code.
 
 Pour afficher les résultats, nous avons cliqué sur la cellule sous l’en-tête de colonne **target\_data\_XML**.
 
-Puis, dans le volet de résultats, nous avons cliqué sur la cellule sous l’en-tête de colonne **target\_data\_XML**. Cela a créé un autre onglet Fichier dans ssms.exe pour afficher (au format XML) le contenu de la cellule de résultat.
+Puis, dans le volet de résultats, nous avons cliqué sur la cellule sous l’en-tête de colonne **target\_data\_XML**. Ce clic a créé un autre onglet Fichier dans ssms.exe pour afficher (au format XML) le contenu de la cellule de résultat.
 
 
-La sortie est présentée dans le bloc suivant. Elle semble longue, mais elle concerne seulement deux éléments **<event>**.
+La sortie est présentée dans le bloc suivant. Elle semble longue, mais ne comprend que deux éléments **<event>**.
 
 
 &nbsp;
@@ -367,7 +366,7 @@ ALTER EVENT SESSION eventsession_gm_azuresqldb51
 ## Plus d’informations
 
 
-La rubrique suivante fournit des informations essentielles au sujet des événements étendus dans Azure SQL Database :
+La rubrique principale sur les événements étendus dans Base de données SQL Azure est :
 
 
 - La rubrique [Considérations relatives aux événements étendus dans Azure SQL Database](sql-database-xevent-db-diff-from-svr.md) décrit les différences à prendre en compte entre les événements étendus dans Azure SQL Database et ceux dans Microsoft SQL Server.
@@ -386,4 +385,4 @@ Vous trouverez d’autres rubriques d’exemples de code pour les événements �
 - Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](http://msdn.microsoft.com/library/bb630355.aspx)
 -->
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0824_2016-->

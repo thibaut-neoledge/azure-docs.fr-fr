@@ -14,7 +14,7 @@
     ms.workload="search"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
-    ms.date="05/31/2016"
+    ms.date="08/29/2016"
     ms.author="brjohnst"/>
 
 # Création d’un index Azure Search à l’aide du Kit de développement logiciel (SDK) .NET
@@ -123,4 +123,4 @@ serviceClient.Indexes.Delete("hotels");
 ## Suivant
 Après avoir créé un index Azure Search, vous pouvez commencer à [télécharger du contenu dans votre index](search-what-is-data-import.md) afin d’y lancer des recherches.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -147,7 +147,7 @@ Ces exemples de code montrent comment prendre la *clé de validation de déléga
     }
 
 
-****Code NodeJS pour générer le hachage de returnUrl****
+**Code NodeJS pour générer le hachage de returnUrl**
 
 	var crypto = require('crypto');
 	

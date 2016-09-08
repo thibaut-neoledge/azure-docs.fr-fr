@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="08/04/2016"
+	ms.date="08/22/2016"
 	ms.author="billmath"/>
 
 # Présentation d'Azure Multi-Factor Authentication
@@ -48,7 +48,7 @@ Azure Multi-Factor Authentication est une solution facile à utiliser, évolutiv
 **Facile à utiliser**|**Évolutif**|**Toujours protégé**|**Fiable**
 
 - **Facile à utiliser** : Azure Multi-Factor Authentication est simple à configurer et utiliser. La protection supplémentaire offerte par Azure Multi-Factor Authentication permet aux utilisateurs d'utiliser et de gérer leurs propres appareils et, dans de nombreux cas, elle peut être configurée en quelques clics simples.
-- **Évolutif** : Azure Multi-Factor Authentication utilise la puissance du cloud et s'intègre à votre site Active Directory local et vos applications personnalisées. Cette protection est même étendue à vos scénarios stratégiques volumineux.
+- **Évolutif** : Azure Multi-Factor Authentication utilise la puissance du cloud et s'intègre à votre site Active Directory local et à vos applications personnalisées. Cette protection est même étendue à vos scénarios stratégiques volumineux.
 - **Toujours protégé** : Azure Multi-Factor Authentication fournit une authentification forte qui utilise les normes les plus strictes du secteur.
 - **Fiable** : nous garantissons une disponibilité à 99,9 % d'Azure Multi-Factor Authentication. Le service est considéré comme non disponible quand il ne parvient pas à recevoir ou traiter des demandes d'authentification pour l'authentification multifacteur.
 
@@ -73,7 +73,7 @@ Azure Multi-Factor Authentication contribue à sécuriser l'accès aux données 
 - code de vérification sur l’application mobile
 - jetons OATH tiers
 
-Pour plus d'informations sur le fonctionnement, regardez la vidéo suivante.
+Pour plus d'informations sur son fonctionnement, regardez la vidéo suivante.
 
 >[AZURE.VIDEO multi-factor-authentication-deep-dive-securing-access-on-premises]
 
@@ -84,8 +84,8 @@ Méthode de vérification | Description
 ------------- | ------------- |
 Appel téléphonique | Un appel est passé sur le smartphone de l’utilisateur demandant de vérifier qu'il se connecte en appuyant sur le symbole #. Cela va finaliser le processus de vérification. Cette option est configurable et peut être remplacée par un code que vous spécifiez.
 SMS | Un SMS sera envoyé sur le smartphone de l’utilisateur avec un code à 6 chiffres. Entrez ce code pour finaliser le processus de vérification.
-Notification sur l’application mobile | Une demande de vérification sera envoyée sur le smartphone de l'utilisateur lui indiquant de terminer la vérification en sélectionnant Vérifier depuis l'application mobile. Cela se produit si vous avez sélectionné la notification sur application comme méthode de vérification principale. Si l’utilisateur reçoit cette notification lorsqu'il ne se connecte pas, il peut choisir de la signaler comme fraude.
-Code de vérification avec l’application mobile | Un code de vérification sera envoyé sur l'application mobile qui s'exécute sur le smartphone de l’utilisateur. Cela se produit si vous avez sélectionné un code de vérification comme méthode de vérification principale.
+Notification sur l’application mobile | Une demande de vérification sera envoyée sur le smartphone de l'utilisateur lui indiquant de terminer la vérification en sélectionnant Vérifier depuis l'application mobile. Cela se produit si vous avez sélectionné la notification sur application comme méthode de vérification principale. Si l’utilisateur reçoit cette notification lorsqu'il ne se connecte pas, il peut choisir de la signaler comme fraude.</li><br><p> L'application Microsoft Authenticator est disponible pour [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) et [IOS](http://go.microsoft.com/fwlink/?Linkid=825073).
+Code de vérification avec l’application mobile | Un code de vérification sera envoyé sur l'application mobile qui s'exécute sur le smartphone de l’utilisateur. Cela se produit si vous avez sélectionné un code de vérification comme méthode de vérification principale.</li><br><p> L'application Microsoft Authenticator est disponible pour [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) et [IOS](http://go.microsoft.com/fwlink/?Linkid=825073).
 
 
 ## Versions disponibles d’Azure Multi-Factor Authentication
@@ -134,8 +134,8 @@ Si vous souhaitez tirer parti de l’ensemble des fonctionnalités offertes par 
 Quand vous utilisez un fournisseur Azure Multi-Factor Authentication, vous avez le choix entre deux modèles d’utilisation qui sont facturés dans le cadre de votre abonnement Azure :
 
 
-- **Par utilisateur**. Généralement, pour les entreprises qui veulent activer l'authentification multifacteur pour un nombre fixe d'employés qui s'authentifient régulièrement.
-- **Par authentification**. Généralement, pour les entreprises qui veulent activer l'authentification multifacteur pour un nombre important d’utilisateurs externes qui s'authentifient ponctuellement.
+- **Par utilisateur**. Pour les entreprises qui veulent activer l'authentification multifacteur pour un nombre fixe d'employés qui s'authentifient régulièrement.
+- **Par authentification**. Pour les entreprises qui veulent activer l'authentification multifacteur pour un nombre important d’utilisateurs externes qui s'authentifient ponctuellement.
 
 Azure Multi-Factor Authentication fournit des méthodes de vérification sélectionnables pour cloud et pour serveur. Cela signifie que vous pouvez choisir les méthodes disponibles que vos utilisateurs peuvent utiliser avec l’authentification multifacteur. Cette fonctionnalité est actuellement en version préliminaire publique pour la version cloud de l’authentification multifacteur. Pour plus d’informations, consultez [Méthodes de vérification sélectionnables](multi-factor-authentication-whats-next.md#selectable-verification-methods).
 
@@ -209,4 +209,4 @@ Maintenant que nous avons déterminé s'il faut utiliser l'authentification mult
 
 <center> [![Cloud](./media/multi-factor-authentication-get-started/cloud2.png)](multi-factor-authentication-get-started-cloud.md) &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;[![Proofup](./media/multi-factor-authentication-get-started/server2.png)](multi-factor-authentication-get-started-server.md) &#160;&#160;&#160;&#160;&#160; </center>
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

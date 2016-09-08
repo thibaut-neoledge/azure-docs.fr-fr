@@ -375,11 +375,11 @@ Si vous rencontrez une erreur lors de la réinitialisation d’un mot de passe p
               <p>Nous implémentons un mécanisme de limitation automatique pour empêcher les utilisateurs d’essayer de réinitialiser leurs mots de passe un nombre de fois trop élevé sur un court laps de temps. Cette limitation se produit quand&#160;:</p>
               <ol class="ordered">
                 <li>
-										L’utilisateur tente de valider un numéro de téléphone 5&#160;fois en une heure.&lt;br>&lt;br></li>
+										L’utilisateur tente de valider un numéro de téléphone 5&#160;fois en une heure.<br\><br\></li>
                 <li>
-										L’utilisateur tente d’utiliser la méthode des questions de sécurité 5&#160;fois en une heure.&lt;br>&lt;br></li>
+										L’utilisateur tente d’utiliser la méthode des questions de sécurité 5&#160;fois en une heure.<br\><br\></li>
                 <li>
-										L’utilisateur tente de réinitialiser un mot de passe pour le même compte d’utilisateur 5&#160;fois en une heure.&lt;br>&lt;br></li>
+										L’utilisateur tente de réinitialiser un mot de passe pour le même compte d’utilisateur 5&#160;fois en une heure.<br\><br\></li>
               </ol>
               <p>Pour résoudre ce problème, demandez à l’utilisateur d’attendre 24 heures après la dernière tentative. Il pourra alors réinitialiser son mot de passe.</p>
             </td>
@@ -485,11 +485,11 @@ Si vous rencontrez une erreur lors de l’activation, la désactivation ou l’u
               <p>Cette erreur se produit dans les deux cas suivants&#160;:</p>
               <ul>
                 <li class="unordered">
-										Vous avez spécifié un mot de passe incorrect pour le compte d’administrateur général spécifié au début du processus d’installation d’Azure AD Connect.&lt;br>&lt;br></li>
+										Vous avez spécifié un mot de passe incorrect pour le compte d’administrateur général spécifié au début du processus d’installation d’Azure AD Connect.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-										 Vous avez tenté d’utiliser un utilisateur fédéré pour le compte d’administrateur général spécifié au début du processus d’installation d’Azure AD Connect.&lt;br>&lt;br></li>
+										 Vous avez tenté d’utiliser un utilisateur fédéré pour le compte d’administrateur général spécifié au début du processus d’installation d’Azure AD Connect.<br\><br\></li>
               </ul>
               <p>Pour corriger cette erreur, assurez-vous que vous n’utilisez pas un compte fédéré pour l’administrateur général que vous avez spécifié au début du processus d’installation d’Azure AD Connect et que le mot de passe spécifié est correct.</p>
             </td>
@@ -516,11 +516,11 @@ Si vous rencontrez une erreur lors de l’activation, la désactivation ou l’u
               <p>Assurez-vous que votre pare-feu autorise les connexions sortantes pour les éléments suivants&#160;:</p>
               <ul>
                 <li class="unordered">
-										Tout le trafic via TCP&#160;443 (HTTPS)&lt;br>&lt;br></li>
+										Tout le trafic via TCP&#160;443 (HTTPS)<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-										Les connexions sortantes &lt;br>&lt;br></li>
+										Les connexions sortantes <br\><br\></li>
               </ul>
               <p>
 
@@ -574,11 +574,11 @@ Si vous rencontrez une erreur lors de l’activation, la désactivation ou l’u
               <p>Il existe un bogue connu dans la version finale d’Azure AD Connect qui se manifeste dans la situation suivante&#160;:</p>
               <ol class="ordered">
                 <li>
-										Vous configurez Azure AD Connect pour le client abc.com (domaine vérifié) à l’aide des informations d’identification. Un connecteur AAD portant le nom «&#160;abc.com&#160;- AAD&#160;» est alors créé.&lt;br>&lt;br></li>
+										Vous configurez Azure AD Connect pour le client abc.com (domaine vérifié) à l’aide des informations d’identification. Un connecteur AAD portant le nom «&#160;abc.com&#160;- AAD&#160;» est alors créé.<br\><br\></li>
                 <li>
-										Vous modifiez ensuite les informations d’identification AAD du connecteur (à l’aide de l’ancienne interface utilisateur de synchronisation). (Notez qu’il s’agit du même client mais d’un nom de domaine différent). &lt;br>&lt;br></li>
+										Vous modifiez ensuite les informations d’identification AAD du connecteur (à l’aide de l’ancienne interface utilisateur de synchronisation). (Notez qu’il s’agit du même client mais d’un nom de domaine différent). <br\><br\></li>
                 <li>
-										Vous essayez à présent d’activer/de désactiver l’écriture différée des mots de passe. L’Assistant crée le nom du connecteur en utilisant les informations d’identification, telles que «&#160;abc.onmicrosoft.com – AAD&#160;», puis le passe à l’applet de commande d’écriture différée des mots de passe. Cette opération échoue, car il n’existe aucun connecteur créé portant ce nom.&lt;br>&lt;br></li>
+										Vous essayez à présent d’activer/de désactiver l’écriture différée des mots de passe. L’Assistant crée le nom du connecteur en utilisant les informations d’identification, telles que «&#160;abc.onmicrosoft.com – AAD&#160;», puis le passe à l’applet de commande d’écriture différée des mots de passe. Cette opération échoue, car il n’existe aucun connecteur créé portant ce nom.<br\><br\></li>
               </ol>
               <p>Ce problème a été résolu dans nos versions les plus récentes. Si vous possédez une version plus ancienne, une solution de contournement consiste à utiliser l’applet de commande PowerShell pour activer ou désactiver la fonctionnalité. Consultez la rubrique «&#160;Étape&#160;2&#160;: activer l’écriture différée des mots de passe sur votre ordinateur de synchronisation d’annuaires &amp; configurer des règles de pare-feu &#160;» dans <a href="active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords">Comment activer/désactiver l’écriture différée des mots de passe</a> pour plus d’informations sur la procédure à suivre.</p>
             </td>
@@ -701,19 +701,19 @@ Pour résoudre les problèmes liés à l’écriture différée des mots de pass
               <p>Cet événement se produit quand le service d’écriture différée des mots de passe tente de définir un mot de passe sur votre annuaire local qui ne respecte pas les critères d’ancienneté, d’historique, de complexité ou de filtrage du domaine.</p>
               <ul>
                 <li class="unordered">
-										S’il existe une ancienneté minimale pour un mot de passe, alors que vous l’avez modifié avant le terme de cette ancienneté, vous ne pouvez pas le remodifier tant qu’il n’a pas atteint l’ancienneté spécifiée dans votre domaine. À des fins de test, l’ancienneté minimale doit être définie sur 0.&lt;br>&lt;br></li>
+										S’il existe une ancienneté minimale pour un mot de passe, alors que vous l’avez modifié avant le terme de cette ancienneté, vous ne pouvez pas le remodifier tant qu’il n’a pas atteint l’ancienneté spécifiée dans votre domaine. À des fins de test, l’ancienneté minimale doit être définie sur 0.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-										Si des critères d’historique de mot de passe sont activés, vous devez sélectionner un mot de passe qui n’a pas été utilisé au cours des N dernières fois, où N est le paramètre d’historique du mot de passe. Si vous sélectionnez un mot de passe qui a été utilisé au cours des N dernières fois, un échec se produit. À des fins de test, l’historique doit être défini sur 0.&lt;br>&lt;br></li>
+										Si des critères d’historique de mot de passe sont activés, vous devez sélectionner un mot de passe qui n’a pas été utilisé au cours des N dernières fois, où N est le paramètre d’historique du mot de passe. Si vous sélectionnez un mot de passe qui a été utilisé au cours des N dernières fois, un échec se produit. À des fins de test, l’historique doit être défini sur 0.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-										S’il existe des critères de complexité de mot de passe, ils sont tous appliqués quand l’utilisateur tente de modifier ou réinitialiser un mot de passe.&lt;br>&lt;br></li>
+										S’il existe des critères de complexité de mot de passe, ils sont tous appliqués quand l’utilisateur tente de modifier ou réinitialiser un mot de passe.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-										Si des filtres de mot de passe sont activés et qu’un utilisateur sélectionne un mot de passe qui ne répond pas aux critères de filtrage, alors l’opération de réinitialisation ou de modification échoue. &lt;br>&lt;br></li>
+										Si des filtres de mot de passe sont activés et qu’un utilisateur sélectionne un mot de passe qui ne répond pas aux critères de filtrage, alors l’opération de réinitialisation ou de modification échoue. <br\><br\></li>
               </ul>
             </td>
           </tr>
@@ -775,15 +775,15 @@ Pour résoudre les problèmes liés à l’écriture différée des mots de pass
               <p>Cet événement indique qu’un utilisateur a sélectionné un mot de passe et que ce mot de passe est arrivé correctement dans l’environnement local, mais quand nous avons essayé de définir le mot de passe dans l’environnement AD local, une défaillance s’est produite. Cela peut se produire pour plusieurs raisons&#160;:</p>
               <ul>
                 <li class="unordered">
-										Le mot de passe de l’utilisateur ne répond pas aux critères d’ancienneté, d’historique, de complexité ou de filtrage du domaine. Essayez un tout nouveau mot de passe pour résoudre ce problème.&lt;br>&lt;br></li>
+										Le mot de passe de l’utilisateur ne répond pas aux critères d’ancienneté, d’historique, de complexité ou de filtrage du domaine. Essayez un tout nouveau mot de passe pour résoudre ce problème.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-										Le compte de service de l’agent de gestion n’a pas les autorisations appropriées pour définir le nouveau mot de passe du compte d’utilisateur en question.&lt;br>&lt;br></li>
+										Le compte de service de l’agent de gestion n’a pas les autorisations appropriées pour définir le nouveau mot de passe du compte d’utilisateur en question.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-										Le compte d’utilisateur est dans un groupe protégé, comme celui des administrateurs de domaine ou d’entreprise, ce qui n’autorise pas les opérations de définition de mots de passe.&lt;br>&lt;br></li>
+										Le compte d’utilisateur est dans un groupe protégé, comme celui des administrateurs de domaine ou d’entreprise, ce qui n’autorise pas les opérations de définition de mots de passe.<br\><br\></li>
               </ul>
               <p>Consultez la rubrique <a href="#troubleshoot-password-writeback">Résoudre les problèmes liés à l’écriture différée des mots de passe</a> pour en savoir plus sur les autres situations pouvant provoquer cette erreur.</p>
             </td>
@@ -858,15 +858,15 @@ Pour résoudre les problèmes liés à l’écriture différée des mots de pass
               <p>Cet événement indique qu’un utilisateur a sélectionné un mot de passe et que ce mot de passe est arrivé correctement dans l’environnement local, mais quand nous avons essayé de définir le mot de passe dans l’environnement AD local, une défaillance s’est produite. Cela peut se produire pour plusieurs raisons&#160;:</p>
               <ul>
                 <li class="unordered">
-										Le mot de passe de l’utilisateur ne répond pas aux critères d’ancienneté, d’historique, de complexité ou de filtrage du domaine. Essayez un tout nouveau mot de passe pour résoudre ce problème.&lt;br>&lt;br></li>
+										Le mot de passe de l’utilisateur ne répond pas aux critères d’ancienneté, d’historique, de complexité ou de filtrage du domaine. Essayez un tout nouveau mot de passe pour résoudre ce problème.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-										Le compte de service de l’agent de gestion n’a pas les autorisations appropriées pour définir le nouveau mot de passe du compte d’utilisateur en question.&lt;br>&lt;br></li>
+										Le compte de service de l’agent de gestion n’a pas les autorisations appropriées pour définir le nouveau mot de passe du compte d’utilisateur en question.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-										Le compte d’utilisateur est dans un groupe protégé, comme celui des administrateurs de domaine ou d’entreprise, ce qui n’autorise pas les opérations de définition de mots de passe.&lt;br>&lt;br></li>
+										Le compte d’utilisateur est dans un groupe protégé, comme celui des administrateurs de domaine ou d’entreprise, ce qui n’autorise pas les opérations de définition de mots de passe.<br\><br\></li>
               </ul>
               <p>Consultez la section <a href="#troubleshoot-password-writeback">Résoudre les problèmes liés à l’écriture différée des mots de passe</a> pour en savoir plus sur les autres situations pouvant provoquer cette erreur.</p>
             </td>
@@ -913,15 +913,15 @@ Pour résoudre les problèmes liés à l’écriture différée des mots de pass
               <p>L’administrateur a sélectionné un mot de passe au nom d’un utilisateur et ce mot de passe est arrivé correctement dans l’environnement local, mais quand nous avons essayé de définir le mot de passe dans l’environnement AD local, une défaillance s’est produite. Cela peut se produire pour plusieurs raisons&#160;:</p>
               <ul>
                 <li class="unordered">
-										Le mot de passe de l’utilisateur ne répond pas aux critères d’ancienneté, d’historique, de complexité ou de filtrage du domaine. Essayez un tout nouveau mot de passe pour résoudre ce problème.&lt;br>&lt;br></li>
+										Le mot de passe de l’utilisateur ne répond pas aux critères d’ancienneté, d’historique, de complexité ou de filtrage du domaine. Essayez un tout nouveau mot de passe pour résoudre ce problème.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-										Le compte de service de l’agent de gestion n’a pas les autorisations appropriées pour définir le nouveau mot de passe du compte d’utilisateur en question.&lt;br>&lt;br></li>
+										Le compte de service de l’agent de gestion n’a pas les autorisations appropriées pour définir le nouveau mot de passe du compte d’utilisateur en question.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-										Le compte d’utilisateur est dans un groupe protégé, comme celui des administrateurs de domaine ou d’entreprise, ce qui n’autorise pas les opérations de définition de mots de passe.&lt;br>&lt;br></li>
+										Le compte d’utilisateur est dans un groupe protégé, comme celui des administrateurs de domaine ou d’entreprise, ce qui n’autorise pas les opérations de définition de mots de passe.<br\><br\></li>
               </ul>
               <p>Consultez la rubrique <a href="#troubleshoot-password-writeback">Résoudre les problèmes liés à l’écriture différée des mots de passe</a> pour en savoir plus sur les autres situations pouvant provoquer cette erreur.</p>
             </td>
@@ -1360,19 +1360,19 @@ Pour résoudre les problèmes liés à l’écriture différée des mots de pass
               <p>Cet événement se produit quand le service d’écriture différée des mots de passe tente de définir un mot de passe sur votre annuaire local qui ne respecte pas les critères d’ancienneté, d’historique, de complexité ou de filtrage du domaine.</p>
               <ul>
                 <li class="unordered">
-										S’il existe une ancienneté minimale pour un mot de passe, alors que vous l’avez modifié avant le terme de cette ancienneté, vous ne pouvez pas le remodifier tant qu’il n’a pas atteint l’ancienneté spécifiée dans votre domaine. À des fins de test, l’ancienneté minimale doit être définie sur 0.&lt;br>&lt;br></li>
+										S’il existe une ancienneté minimale pour un mot de passe, alors que vous l’avez modifié avant le terme de cette ancienneté, vous ne pouvez pas le remodifier tant qu’il n’a pas atteint l’ancienneté spécifiée dans votre domaine. À des fins de test, l’ancienneté minimale doit être définie sur 0.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-										Si des critères d’historique de mot de passe sont activés, vous devez sélectionner un mot de passe qui n’a pas été utilisé au cours des N dernières fois, où N est le paramètre d’historique du mot de passe. Si vous sélectionnez un mot de passe qui a été utilisé au cours des N dernières fois, un échec se produit. À des fins de test, l’historique doit être défini sur 0.&lt;br>&lt;br></li>
+										Si des critères d’historique de mot de passe sont activés, vous devez sélectionner un mot de passe qui n’a pas été utilisé au cours des N dernières fois, où N est le paramètre d’historique du mot de passe. Si vous sélectionnez un mot de passe qui a été utilisé au cours des N dernières fois, un échec se produit. À des fins de test, l’historique doit être défini sur 0.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-										S’il existe des critères de complexité de mot de passe, ils sont tous appliqués quand l’utilisateur tente de modifier ou réinitialiser un mot de passe.&lt;br>&lt;br></li>
+										S’il existe des critères de complexité de mot de passe, ils sont tous appliqués quand l’utilisateur tente de modifier ou réinitialiser un mot de passe.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-										Si des filtres de mot de passe sont activés et qu’un utilisateur sélectionne un mot de passe qui ne répond pas aux critères de filtrage, alors l’opération de réinitialisation ou de modification échoue. &lt;br>&lt;br></li>
+										Si des filtres de mot de passe sont activés et qu’un utilisateur sélectionne un mot de passe qui ne répond pas aux critères de filtrage, alors l’opération de réinitialisation ou de modification échoue. <br\><br\></li>
               </ul>
             </td>
           </tr>

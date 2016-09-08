@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Interface utilisateur d'Azure Mobile Engagement - Segments" 
-   description="Découvrez comment créer et gérer des segments d'utilisateurs afin d'identifier des modèles d'utilisation grâce à Azure Mobile Engagement" 
+   description="Découvrez comment créer et gérer des segments d'utilisateurs afin d'identifier des modèles d'utilisation grâce à Azure Mobile Engagement" 
    services="mobile-engagement" 
    documentationCenter="" 
    authors="piyushjo" 
@@ -13,22 +13,22 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="02/29/2016"
+   ms.date="08/19/2016"
    ms.author="piyushjo"/>
 
 # Comment créer et gérer des segments d'utilisateurs afin d'identifier des modèles d'utilisation
 
-Cet article décrit l’onglet **SEGMENTS** du portail **Mobile Engagement**. Le portail **Mobile Engagement** sert à surveiller et gérer vos applications mobiles.
+Cet article décrit l’onglet **SEGMENTS** du portail **Mobile Engagement**. Le portail **Mobile Engagement** sert à surveiller et à gérer vos applications mobiles.
 
-La section Segments de l'interface utilisateur vous permet de segmenter vos utilisateurs en fonction des différents comportements et analyses que vous pouvez obtenir à partir de l'application et via l'API Segments. Les segments sont calculés une première fois 24 heures après leur création, puis recalculés toutes les 24 heures à partir des dernières informations d'analyse. Une fois un segment calculé, il affiche un graphique « Historique journalier » chaque jour.
+La section Segments de l'interface utilisateur vous permet de segmenter vos utilisateurs en fonction des différents comportements et analyses que vous pouvez obtenir à partir de l'application et via l'API Segments. Les segments sont calculés une première fois 24 heures après leur création, puis recalculés toutes les 24 heures à partir des dernières informations d'analyse. Une fois un segment calculé, il affiche un graphique « Historique journalier » chaque jour.
 
 
 >[AZURE.NOTE] De nombreuses sections de l’interface utilisateur du portail **Mobile Engagement** contiennent un bouton **AFFICHER L'AIDE**. Appuyez sur ce bouton pour obtenir des informations contextuelles supplémentaires sur une section.
 
 ## Créer des segments
-Vous pouvez créer un segment à partir de 10 critères maximum sur une période passée donnée de 60 jours maximum à partir de la section Analyse. Par exemple, vous pouvez créer un segment à partir des personnes ayant consulté certaines pages ou recherché un contenu spécifique dans votre application au cours des 10 derniers jours. Ces informations sont disponibles dans la section Analyse. Vous pouvez donc les utiliser pour créer un segment, puis configurer une notification Push pour cibler ce sous-ensemble d'utilisateurs afin de les faire revenir à l'application.
+Vous pouvez créer un segment à partir de 10 critères maximum sur une période passée donnée de 60 jours maximum à partir de la section Analyse. Par exemple, vous pouvez créer un segment à partir des personnes ayant consulté certaines pages ou recherché un contenu spécifique dans votre application au cours des 10 derniers jours. Ces informations sont disponibles dans la section Analyse. Vous pouvez donc les utiliser pour créer un segment, puis configurer une notification Push pour cibler ce sous-ensemble d'utilisateurs afin de les faire revenir à l'application.
  
-> Remarque : une fois un segment calculé, il ne peut pas être modifié. Il peut uniquement être cloné (copié) ou détruit (supprimé). Un segment peut être cloné dans la même application (avec le même AppID), mais aussi dans d'autres applications (avec un AppID différent).
+> Remarque : une fois un segment calculé, il ne peut pas être modifié. Il peut uniquement être cloné (copié) ou détruit (supprimé). Un segment peut être cloné dans la même application (avec le même AppID), mais aussi dans d'autres applications (avec un AppID différent).
  
  ![segments1][35]
 
@@ -39,29 +39,29 @@ L'outil Segments vous permet de segmenter les utilisateurs finaux de votre appli
  
  ![segments3][37]
 
-### Segments que vous pouvez créer à partir des principaux éléments d'Azure Mobile Engagement :
-- Événement : créez un segment qui cible un événement spécifique de l'application qui s'est produit plus de deux fois par semaine. 
-- Session : créez un segment avec les utilisateurs ayant utilisé l'application plus de 5 fois au cours de la dernière semaine.
-- Activité : créez un segment avec les utilisateurs ayant utilisé une page ou un contenu plus ou moins de 10 fois au cours du mois dernier.
-- Tâche : créez un segment avec les utilisateurs ayant effectué une tâche plus de deux fois par jour.
-- Incident : créez un segment avec tous les utilisateurs dont l'application s'est bloquée plus de 10 fois au cours de la dernière semaine. (Vous pourriez envoyer une notification Push à ce segment pour présenter des excuses ou offrir un coupon !)
-- Erreur : créez un segment avec tous les utilisateurs ayant rencontré plus de 100 erreurs au cours des 3 derniers jours.
-- Infos de l'application : créez un segment qui cible une information de l'application personnalisée au cours des 25 derniers jours.
+### Segments que vous pouvez créer à partir des principaux éléments d'Azure Mobile Engagement :
+- Événement : créez un segment qui cible un événement spécifique de l'application qui s'est produit plus de deux fois par semaine.
+- Session : créez un segment avec les utilisateurs ayant utilisé l'application plus de 5 fois au cours de la dernière semaine.
+- Activité : créez un segment avec les utilisateurs ayant utilisé une page ou un contenu plus ou moins de 10 fois au cours du mois dernier.
+- Tâche : créez un segment avec les utilisateurs ayant effectué une tâche plus de deux fois par jour.
+- Incident : créez un segment avec tous les utilisateurs dont l'application s'est bloquée plus de 10 fois au cours de la dernière semaine. (Vous pourriez envoyer une notification Push à ce segment pour présenter des excuses ou offrir un coupon !)
+- Erreur : créez un segment avec tous les utilisateurs ayant rencontré plus de 100 erreurs au cours des 3 derniers jours.
+- Infos de l'application : créez un segment qui cible une information de l'application personnalisée au cours des 25 derniers jours.
  
  ![segments4][38]
 
-Pour une utilisation optimale de l'outil Segments, vous devez effectuer une intégration personnalisée du Kit de développement logiciel (SDK) de votre application avec un plan de marquage des balises « Infos de l'application ». Ensuite, accédez à la page d'accueil de l'interface, sélectionnez l'application désirée et cliquez sur la section « Segments ».
+Pour une utilisation optimale de l'outil Segments, vous devez effectuer une intégration personnalisée du Kit de développement logiciel (SDK) de votre application avec un plan de marquage des balises « Infos de l'application ». Ensuite, accédez à la page d'accueil de l'interface, sélectionnez l'application désirée et cliquez sur la section « Segments ».
 
-1. Sélectionnez la section « Segments ».
-2. Cliquez sur « Nouveau segment » pour créer un segment.
+1. Sélectionnez la section « Segments ».
+2. Cliquez sur « Nouveau segment » pour créer un segment.
 
-## Exemple en conditions réelles : créer un segment simple en fonction des informations de « Session »
-Créez un segment avec tous les utilisateurs finaux ayant utilisé votre application au moins 50 fois au cours de la dernière semaine. Ensuite, recherchez uniquement les utilisateurs finaux ayant passé au moins 30 secondes dans votre application par session. Vous obtiendrez tous les utilisateurs ayant une expérience positive avec votre application. Ensuite, vous pouvez utiliser le segment créé pour envoyer à ces utilisateurs finaux une notification leur demandant d'évaluer votre application dans Windows Store.
+## Exemple en conditions réelles : créer un segment simple en fonction des informations de « Session »
+Créez un segment avec tous les utilisateurs finaux ayant utilisé votre application au moins 50 fois au cours de la dernière semaine. Ensuite, recherchez uniquement les utilisateurs finaux ayant passé au moins 30 secondes dans votre application par session. Vous obtiendrez tous les utilisateurs ayant une expérience positive avec votre application. Ensuite, vous pouvez utiliser le segment créé pour envoyer à ces utilisateurs finaux une notification leur demandant d'évaluer votre application dans Windows Store.
  
  ![segments5][39]
 
-1. Nommez votre segment afin de le retrouver rapidement dans la liste « Segment ».
-2. Cliquez sur le bouton « Créer ».
+1. Nommez votre segment afin de le retrouver rapidement dans la liste « Segment ».
+2. Cliquez sur le bouton « Créer ».
  
  ![segments6][40]
 
@@ -69,15 +69,15 @@ Sélectionnez Session.
  
  ![segments7][41]
 
-1. Sélectionnez la période « Dernière semaine ».
+1. Sélectionnez la période « Dernière semaine ».
 2. Cliquez sur Suivant.
  
  ![segments8][42]
 
-1. Sélectionnez l'opérateur pertinent dans la liste : =; ≥, ≤.
+1. Sélectionnez l'opérateur pertinent dans la liste : =; ≥, ≤.
 2. Entrez le nombre souhaité.
-3. Sélectionnez l'occurrence désirée. 
-4. Cliquez sur Suivant. Cet exemple est défini pour trouver les utilisateurs ayant effectué au moins 50 sessions au cours de la dernière semaine.
+3. Sélectionnez l'occurrence désirée.
+4. Cliquez sur Suivant. Cet exemple est défini pour trouver les utilisateurs ayant effectué au moins 50 sessions au cours de la dernière semaine.
  
  ![segments9][43]
 
@@ -85,7 +85,7 @@ Pour la segmentation de session, vous pouvez choisir la longueur par session com
 
 1. Sélectionnez l'opérateur dans la liste.
 2. Indiquez la longueur par session.
-3. Cliquez sur Suivant. Dans cet exemple, on indique que l'on veut sélectionner uniquement les utilisateurs ayant passé plus de 30 secondes par section, parmi toutes les sessions correspondant au segment de la section Occurrence.
+3. Cliquez sur Suivant. Dans cet exemple, on indique que l'on veut sélectionner uniquement les utilisateurs ayant passé plus de 30 secondes par section, parmi toutes les sessions correspondant au segment de la section Occurrence.
  
  ![segments10][44]
 
@@ -93,7 +93,7 @@ Nommez votre critère afin de le récupérer dans la synthèse complète, puis c
  
  ![segments11][45]
 
-Une fois votre critère défini, il apparaît dans la synthèse du segment. Comme un segment est basé sur les données d'analyse, les segments sont calculés une fois par jour. Dans cet exemple, 47,7 % des utilisateurs finaux répondent au critère. Il doit s'agir d'utilisateurs ayant une bonne expérience et susceptibles de fournir une meilleure évaluation si vous leur envoyez une notification leur demandant d'évaluer l'application dans Windows Store.
+Une fois votre critère défini, il apparaît dans la synthèse du segment. Comme un segment est basé sur les données d'analyse, les segments sont calculés une fois par jour. Dans cet exemple, 47,7 % des utilisateurs finaux répondent au critère. Il doit s'agir d'utilisateurs ayant une bonne expérience et susceptibles de fournir une meilleure évaluation si vous leur envoyez une notification leur demandant d'évaluer l'application dans Windows Store.
 
 
 ## Voir aussi
@@ -197,4 +197,4 @@ Une fois votre critère défini, il apparaît dans la synthèse du segment. Comm
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0824_2016-->

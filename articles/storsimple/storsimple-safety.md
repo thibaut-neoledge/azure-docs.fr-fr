@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/13/2016"
+   ms.date="08/18/2016"
    ms.author="alkohli" />
 
 # Installer et utiliser en toute sécurité votre appareil StorSimple
@@ -40,7 +40,7 @@ Voici les icônes utilisées dans les précautions de sécurité à observer lor
 
 ## Précautions relatives à la manipulation
 
-![Icône Avertissement](./media/storsimple-safety/IC740879.png) ![Icône Objet lourd](./media/storsimple-safety/IC740883.png) **AVERTISSEMENT !**
+![Icône Avertissement](./media/storsimple-safety/IC740879.png)![Icône Objet lourd](./media/storsimple-safety/IC740883.png)**AVERTISSEMENT !**
 
 
 Pour réduire le risque de blessure :
@@ -51,7 +51,7 @@ Pour réduire le risque de blessure :
 
 ## Précautions relatives au branchement
 
-![Icône Avertissement](./media/storsimple-safety/IC740879.png) ![Icône Risque d’électrocution](./media/storsimple-safety/IC740882.png) **AVERTISSEMENT !**
+![Icône Avertissement](./media/storsimple-safety/IC740879.png)![Icône Risque d’électrocution](./media/storsimple-safety/IC740882.png)**AVERTISSEMENT !**
 
 Pour réduire le risque de blessure, d’électrocution ou de mort :
 
@@ -65,7 +65,7 @@ Pour réduire le risque de blessure, d’électrocution ou de mort :
 
 - La prise du cordon d’alimentation étant le moyen principal de débrancher l’alimentation, assurez-vous que les prises de courant sont situées à proximité du matériel et facilement accessibles.
 
-![Icône Avertissement](./media/storsimple-safety/IC740879.png) ![Icône Risque d’électrocution](./media/storsimple-safety/IC740882.png) **AVERTISSEMENT !**
+![Icône Avertissement](./media/storsimple-safety/IC740879.png)![Icône Risque d’électrocution](./media/storsimple-safety/IC740882.png)**AVERTISSEMENT !**
 
 Pour réduire le risque de surchauffe ou d’incendie dû aux branchements électriques :
 
@@ -101,7 +101,7 @@ Pour réduire le risque de blessure pouvant résulter d’un basculement :
 
 - N’extrayez pas plus d’un boîtier à la fois du rack afin d’éliminer tout risque de basculement du rack.
 
-![Icône Avertissement](./media/storsimple-safety/IC740879.png) ![Icône Risque d’électrocution](./media/storsimple-safety/IC740882.png) **AVERTISSEMENT !**
+![Icône Avertissement](./media/storsimple-safety/IC740879.png)![Icône Risque d’électrocution](./media/storsimple-safety/IC740882.png)**AVERTISSEMENT !**
 
 Pour réduire le risque de blessure, d’électrocution ou de mort :
 
@@ -125,7 +125,7 @@ Pour garantir le refroidissement correct du système de rack :
 
 L’appareil est conçu pour fonctionner avec deux PCM. Chacun de ces PCM est équipé d’un bloc d’alimentation et d’un ventilateur à deux axes. En cas de situation critique, le système est capable de continuer à fonctionner normalement si l’un des blocs d’alimentation tombe en panne. Deux PCM (et donc deux blocs d’alimentation) doivent être installés en permanence. Un PCM unique ne fournit pas d’alimentation redondante. Par conséquent, la défaillance d’un PCM unique est susceptible d’entraîner des temps d’arrêt ou des pertes de données.
 
-![Icône Avertissement](./media/storsimple-safety/IC740879.png) ![Icône Risque d’électrocution](./media/storsimple-safety/IC740882.png) **AVERTISSEMENT !**
+![Icône Avertissement](./media/storsimple-safety/IC740879.png)![Icône Risque d’électrocution](./media/storsimple-safety/IC740882.png)**AVERTISSEMENT !**
 
 Pour réduire le risque de blessure, d’électrocution ou de mort :
 
@@ -143,7 +143,7 @@ Pour garantir le bon fonctionnement du matériel et éviter tout endommagement d
 
 ![Icône Avis](./media/storsimple-safety/IC740881.png)**AVIS :**
 
-Respectez les précautions relatives aux décharges électrostatiques qui suivent.
+Respectez les précautions relatives aux décharges électrostatiques ci-après.
 
 - Veillez à porter un bracelet antistatique approprié au poignet ou à la cheville.
 
@@ -179,4 +179,4 @@ Une fois que vous avez lu attentivement ces consignes de sécurité, les étapes
 
 - Pour un appareil 8600, consultez la rubrique [Installation de votre appareil StorSimple 8600](storsimple-8600-hardware-installation.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0824_2016-->

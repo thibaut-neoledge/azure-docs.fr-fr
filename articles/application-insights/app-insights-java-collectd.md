@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/02/2016" 
+	ms.date="08/24/2016" 
 	ms.author="awills"/>
  
 # collectd : métriques de performances Unix dans Application Insights
@@ -21,7 +21,7 @@
 
 Pour explorer les métriques de performances d’un système Unix dans[Application Insights](app-insights-overview.md), installez [collectd](http://collectd.org/) et son plug-in Application Insights. Cette solution open source rassemble diverses statistiques concernant le système et le réseau.
 
-Généralement, vous utilisez collectd si vous avez déjà [instrumenté votre service web Java avec Application Insights][java]. Vous disposez ainsi de davantage de données pour vous aider à améliorer les performances de votre application ou à diagnostiquer les problèmes.
+En général, vous utilisez collectd si vous avez déjà [instrumenté votre service web Java avec Application Insights][java]. Il vous donne davantage de données pour vous aider à améliorer les performances de votre application ou à diagnostiquer les problèmes.
 
 ![Exemples de graphiques](./media/app-insights-java-collectd/sample.png)
 
@@ -121,6 +121,7 @@ Séparez les directives par un saut de ligne.
 *Je ne vois pas les données dans le portail*
 
 * Ouvrez [Rechercher][diagnostic] pour vérifier si les événements bruts sont arrivés. Ils mettent parfois du temps à apparaître dans Metrics Explorer.
+* Vous devrez peut-être [définir des exceptions de pare-feu pour les données sortantes](app-insights-ip-addresses.md).
 * Activez le suivi dans le plug-in Application Insights. Ajoutez la ligne ci-après dans `<Plugin ApplicationInsightsWriter>` :
  *  `SDKLogger true`
 * Ouvrez un terminal et démarrez collectd en mode détaillé pour vérifier si des problèmes ont été signalés :
@@ -143,4 +144,4 @@ Séparez les directives par un saut de ligne.
 
  
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -4,7 +4,7 @@
    services=""
    documentationCenter="na"
    authors="adamglick"
-   manager="hongfeig"
+   manager="saladki"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/01/2016"
+   ms.date="08/18/2016"
    ms.author="aglick"/>
 
 #Récupération d’urgence des applications développées sur Microsoft Azure
@@ -71,7 +71,7 @@ Une autre option consiste à stocker des données à un autre emplacement jusqu�
 
 ###Échec d’un service dépendant
 
-Azure fournit plusieurs services pouvant rencontrer des temps d’arrêt périodiques. Prenons l’exemple du [Cache Redis Azure](https://azure.microsoft.com/services/cache/). Ce service à l’architecture multi-locataire fournit des fonctionnalités de mise en cache à votre application. Il est important de savoir ce qui se passe dans votre application en cas d’indisponibilité du service dépendant. Ce scénario est assez semblable au scénario de panne du réseau. Toutefois, le fait de considérer chaque service de manière indépendante favorise les améliorations potentielles de votre plan global.
+Azure fournit plusieurs services pouvant rencontrer des temps d’arrêt périodiques. Prenons l’exemple du [Cache Redis Azure](https://azure.microsoft.com/services/cache/). Ce service à l’architecture mutualisée fournit des fonctionnalités de mise en cache à votre application. Il est important de savoir ce qui se passe dans votre application en cas d’indisponibilité du service dépendant. Ce scénario est assez semblable au scénario de panne du réseau. Toutefois, le fait de considérer chaque service de manière indépendante favorise les améliorations potentielles de votre plan global.
 
 Le Cache Redis Azure permet la mise en cache de votre application à partir de votre déploiement de service cloud, ce qui facilite la récupération d’urgence. Le service s’exécute désormais sur des rôles propres à votre déploiement. Par conséquent, vous pouvez mieux surveiller et gérer l’état du cache dans le cadre de votre processus de gestion globale pour le service cloud. Ce type de mise en cache inclut également de nouvelles fonctionnalités. L’une des nouvelles fonctionnalités est la haute disponibilité pour les données mises en cache. Cela permet de conserver les données mises en cache en cas de défaillance d’un nœud, par la conservation des copies en double sur d’autres nœuds.
 
@@ -275,7 +275,7 @@ Comme pour le scénario hybride, les déploiements de basculement dans les archi
 
 Si vous décidez de fractionner la récupération d’urgence entre différentes plateformes, il serait judicieux d’intégrer des couches d’abstraction dans la solution. Si vous le faites, vous n’aurez pas à développer et entretenir deux versions différentes de la même application pour différentes plateformes cloud en cas d’urgence. Comme pour le scénario hybride, l’utilisation de machines virtuelles Azure ou d’Azure Container Service peut s’avérer plus facile dans ce cas que l’utilisation des conceptions PaaS propres au cloud.
 
-##Automation
+##Automatisation
 
 Certains des modèles présentés nécessitent l’activation rapide des déploiements hors connexion, ainsi que la restauration d’éléments spécifiques d’un système. L’automation, ou la création de scripts, prend en charge la possibilité d’activer des ressources à la demande et de déployer des solutions rapidement. Dans cet article, l’automation associée à la récupération d’urgence est assimilée à [Azure PowerShell](https://msdn.microsoft.com/library/azure/jj156055.aspx), mais [l’API REST de gestion de service](https://msdn.microsoft.com/library/azure/ee460799.aspx) constitue également une option.
 
@@ -305,4 +305,4 @@ Plusieurs autres techniques existent pour tester les plans de récupération d�
 
 Cet article fait partie d’une série d’articles axés sur la thématique [Récupération d’urgence et haute disponibilité des applications développées sur Microsoft Azure](./resiliency-disaster-recovery-high-availability-azure-applications.md). L’article précédent de cette série est [Haute disponibilité pour les applications développées sur Microsoft Azure](./resiliency-high-availability-azure-applications.md).
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -13,16 +13,16 @@
     ms.tgt_pltfrm="mobile-xamarin-android"
     ms.devlang="dotnet"
     ms.topic="article"
-	ms.date="05/05/2016"
+	ms.date="08/19/2016"
     ms.author="wesmc"/>
 
 # Activation de la synchronisation hors connexion pour votre application mobile Xamarin Android
 
 [AZURE.INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
 
-## Vue d’ensemble
+## Vue d'ensemble
 
-Ce didacticiel présente la fonctionnalité de synchronisation hors connexion des applications mobiles Azure pour Xamarin.Android. La synchronisation hors connexion permet aux utilisateurs finaux d'interagir avec une application mobile pour afficher, ajouter ou modifier des données, même lorsqu'il n'existe aucune connexion réseau. Les modifications sont stockées dans une base de données locale. Une fois l'appareil de nouveau en ligne, ces modifications sont synchronisées avec le service distant.
+Ce didacticiel présente la fonctionnalité de synchronisation hors connexion des applications mobiles Azure pour Xamarin.Android. La synchronisation hors connexion permet aux utilisateurs finaux d’interagir avec une application mobile pour afficher, ajouter ou modifier des données, même lorsqu’il n’existe aucune connexion réseau. Les modifications sont stockées dans une base de données locale. Une fois l’appareil de nouveau en ligne, ces modifications sont synchronisées avec le service distant.
 
 Dans ce didacticiel vous allez mettre à jour le projet client du didacticiel [Création d’une application Xamarin Android] pour prendre en charge les fonctionnalités hors connexion d’Azure Mobile Apps. Si vous n’utilisez pas le projet de serveur du démarrage rapide téléchargé, vous devez ajouter les packages d’extension d’accès aux données à votre projet. Pour plus d'informations sur les packages d'extension de serveur, consultez [Fonctionnement avec le Kit de développement logiciel (SDK) du serveur principal .NET pour Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
@@ -96,7 +96,7 @@ Dans cette section, vous allez modifier l’application cliente pour simuler un 
 
         const string applicationURL = @"https://your-service.azurewebsites.fail/";
 
-	Notez que la connexion échouera si votre application utilise également l'authentification. Vous pouvez également illustrer le comportement en mode hors connexion en désactivant les réseaux Wi-Fi et cellulaire sur l'appareil ou utiliser le mode avion.
+	Notez que la connexion échouera si votre application utilise également l'authentification. Vous pouvez également illustrer le comportement en mode hors connexion en désactivant les réseaux Wi-Fi et cellulaire sur l’appareil ou utiliser le mode avion.
 
 2. Mettez à jour `ToDoActivity.SyncAsync` afin que les `MobileServicePushFailedException` soient interceptées et simplement ignorées en supposant que vous êtes hors connexion.
 
@@ -119,7 +119,7 @@ Dans cette section, vous allez modifier l’application cliente pour simuler un 
 
 3. Générez et exécutez l'application. Si une boîte de dialogue d’exception signale une exception de résolution de nom, fermez-la. Ajoutez quelques nouveaux éléments todo et notez que l’application se comporte comme si elle était connectée, car `MobileServicePushFailedException` est géré sans afficher la boîte de dialogue.
 
-4. Les nouveaux éléments que vous ajoutez se trouvent uniquement dans le magasin local jusqu’à ce qu’ils puissent être transmis par push vers le backend mobile. Fermez l'application et redémarrez-la pour vérifier que les nouveaux élément que vous avez créés sont conservés dans le magasin local.
+4. Les nouveaux éléments que vous ajoutez se trouvent uniquement dans le magasin local jusqu’à ce qu’ils puissent être transmis par push vers le backend mobile. Fermez l’application et redémarrez-la pour vérifier que les nouveaux élément que vous avez créés sont conservés dans le magasin local.
 
 5. (Facultatif) À l’aide de Visual Studio, affichez votre table Azure SQL Database pour constater que les données dans la base de données principale n’ont pas changé.
 
@@ -144,7 +144,7 @@ Dans cette section, vous allez reconnecter l'application au backend mobile, ce q
 
 * [Synchronisation des données hors connexion dans Azure Mobile Apps]
 
-* [Cloud Cover : synchronisation hors connexion dans Azure Mobile Services]\(remarque : le contexte de la vidéo est Mobile Services, mais la synchronisation hors connexion fonctionne de la même manière dans Azure Mobile Apps)
+* [Cloud Cover : synchronisation hors connexion dans Azure Mobile Services] \(remarque : le contexte de la vidéo est Mobile Services, mais la synchronisation hors connexion fonctionne de la même manière dans Azure Mobile Apps)
 
 <!-- ##Summary
 
@@ -170,4 +170,4 @@ Dans cette section, vous allez reconnecter l'application au backend mobile, ce q
 
 [Cloud Cover : synchronisation hors connexion dans Azure Mobile Services]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0824_2016-->

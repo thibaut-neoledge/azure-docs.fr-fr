@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="python"
     ms.topic="hero-article"
-    ms.date="08/18/2016"
+    ms.date="08/25/2016"
     ms.author="anhoh"/>
 
 # Développement d’une application Python Flask avec DocumentDB
@@ -433,4 +433,4 @@ Pour d’autres didacticiels Python Flask, consultez [The Flask Mega-Tutorial, P
   [Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
   [Azure portal]: http://portal.azure.com
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

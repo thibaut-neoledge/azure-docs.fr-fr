@@ -1,16 +1,15 @@
 Lorsque vous n’avez plus besoin d’un disque de données qui est attaché à une machine virtuelle, vous pouvez le détacher facilement. Cela supprime le disque de la machine virtuelle, mais pas du stockage. Si vous souhaitez réutiliser les données du disque, vous pouvez l’attacher à la même machine virtuelle ou à une autre.
 
-> [AZURE.NOTE] Dans Azure, une machine virtuelle utilise différents types de disque, comme le disque du système d’exploitation, un disque temporaire local et des disques de données facultatifs. Pour en savoir plus, consultez la section [À propos des disques et VHD pour machines virtuelles](../articles/virtual-machines/virtual-machines-linux-about-disks-vhds.md). Il n’est pas possible de détacher un disque du système d’exploitation, sauf si vous supprimez également la machine virtuelle.
+> [AZURE.NOTE] Dans Azure, une machine virtuelle utilise différents types de disque, comme le disque du système d’exploitation, un disque temporaire local et des disques de données facultatifs. Pour en savoir plus, consultez la section [À propos des disques et VHD pour machines virtuelles](../articles/virtual-machines/virtual-machines-linux-about-disks-vhds.md). Vous ne pouvez pas détacher un disque de système d’exploitation si vous ne supprimez pas également la machine virtuelle.
 
 
 ## Recherche du disque
 
 Avant de pouvoir détacher un disque d'une machine virtuelle, vous devez rechercher le nombre LUN (numéro d’unité logique), qui est un identificateur pour le disque à détacher. Pour ce faire, procédez comme suit :
 
-1. 	Ouvrez l'interface de ligne de commande Azure, puis [connectez-vous à votre abonnement Azure](../articles/xplat-cli-connect.md). Assurez-vous que vous êtes en mode Azure Service Management (`azure config mode asm`).
+1. 	Ouvrez l’interface de ligne de commande (CLI) Azure, puis [connectez-vous à votre abonnement Azure](../articles/xplat-cli-connect.md). Assurez-vous que vous êtes en mode Azure Service Management (`azure config mode asm`).
 
-2. 	Recherchez les disques attachés à votre machine virtuelle à l'aide de la commande`azure vm disk list
-	<virtual-machine-name>` :
+2. 	Recherchez les disques attachés à votre machine virtuelle à l’aide de la commande`azure vm disk list <virtual-machine-name>`:
 
 		$azure vm disk list UbuntuVM
 		info:    Executing command vm disk list
@@ -28,9 +27,9 @@ Avant de pouvoir détacher un disque d'une machine virtuelle, vous devez recherc
 
 ## Supprimer les références de système d’exploitation sur le disque
 
-Avant de détacher le disque de l’invité Linux, vous devez identifier toutes les partitions du disque qui ne sont pas en cours d’utilisation et vous assurer que le système d’exploitation ne tentera pas de les monter de nouveau après un redémarrage. Ces étapes annulent la configuration que vous avez probablement créée lors de [l’attachement](../articles/virtual-machines-linux-classic-attach-disk.md) du disque.
+Avant de détacher le disque de l’invité Linux, assurez-vous que toutes les partitions sur le disque ne sont pas en cours d’utilisation. Assurez-vous que le système d’exploitation n’essaie pas de les remonter après un redémarrage. Ces étapes annulent la configuration que vous avez probablement créée lors de [l’attachement](../articles/virtual-machines/virtual-machines-linux-classic-attach-disk.md) du disque.
 
-1. Utilisez la commande `lsscsi` pour détecter l’iddentifiateur de disque. `lsscsi` peut être installé par `yum install lsscsi` (dans des distributions Red Hat) ou `apt-get install lsscsi` (dans des distributions Debian). Vous pouvez trouver l’identificateur de disque que vous recherchez à l’aide du numéro de LUN ci-dessus. Le dernier numéro du tuple dans chaque ligne est le LUN. Dans l’exemple ci-dessous LUN 0 correspond à _/dev/sdc_
+1. Utilisez la commande `lsscsi` pour détecter l’iddentifiateur de disque. `lsscsi` peut être installé par `yum install lsscsi` (dans des distributions Red Hat) ou `apt-get install lsscsi` (dans des distributions Debian). Vous pouvez trouver l’identificateur de disque que vous recherchez à l’aide du numéro de LUN. Le dernier numéro du tuple dans chaque ligne est le LUN. Dans l’exemple ci-dessous LUN 0 correspond à _/dev/sdc_
 
 			ops@TestVM:~$ lsscsi
 			[1:0:0:0]    cd/dvd  Msft     Virtual CD/ROM   1.0   /dev/sr0
@@ -97,4 +96,4 @@ Une fois le numéro de LUN du disque identifié et les références de système 
 
 Le disque détaché reste dans le stockage, mais il n'est plus attaché à une machine virtuelle.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0824_2016-->

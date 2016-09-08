@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="02/29/2016"
+   ms.date="08/19/2016"
    ms.author="piyushjo"/>
 
 # Guide de résolution des problèmes de service
@@ -28,7 +28,7 @@ Les éléments suivants sont des problèmes potentiels liés à l’exécution d
 ### Causes
 - Problèmes qui semblent provenir d'Azure Mobile Engagement des interruptions de Service peuvent être dû à plusieurs problèmes différents :
     - Problèmes isolés systémiques à l'origine sur l'ensemble d'Azure Mobile Engagement
-    - Problèmes connus provoqués par des pannes de serveur (ne s'affichent pas toujours dans l'état du serveur) :
+    - Problèmes connus provoqués par des pannes de serveur (ne s'affichent pas toujours dans l'état du serveur) :
 	- Retards de planification, erreurs de ciblage, problèmes de mise à jour de Badge, arrêt de la collecte des statistiques, arrêt du fonctionnement des notifications Push, arrêt du fonctionnement des API, impossibilité de créer des applications ou des utilisateurs, erreurs DNS et erreurs de délai d’attente dans l’interface utilisateur, les API ou les applications sur un périphérique.
     - Interruptions de dépendance de cloud [État du Service Azure](http://status.azure.com/)
     - Interruptions de dépendance des Services de notification push (PNS)
@@ -44,26 +44,26 @@ Les éléments suivants sont des problèmes potentiels liés à l’exécution d
    - Navigateur (Internet Explorer, Firefox, Chrome, etc.)
    - Ordinateur
 
-2) Pour savoir si le problème affecte uniquement l’interface utilisateur ou les API :
+2) Pour savoir si le problème affecte uniquement l’interface utilisateur ou les API :
 
    - Testez la même fonction à partir de l’interface utilisateur d’Azure Mobile Engagement et l’API d’Azure Mobile Engagement.
 
-3) Pour tester si le problème provient du réseau de votre téléphone cellulaire :
+3) Pour tester si le problème provient du réseau de votre téléphone cellulaire :
 
    - Testez quand vous êtes connecté à Internet via le Wi-Fi et quand vous êtes connecté via le réseau de votre téléphone portable 3G de test.
-   - Confirmez que votre pare-feu ne bloque pas les ports ni les adresses IP Azure Mobile Engagement.
+   - Confirmez que votre pare-feu ne bloque pas les ports ni les adresses IP Azure Mobile Engagement.
 
-4) Pour tester si le problème provient de votre appareil :
+4) Pour tester si le problème provient de votre appareil :
 
    - Testez si votre appareil est en mesure de se connecter à Azure Mobile Engagement avec une autre application intégrée Azure Mobile Engagement.
-   - Testez que vous pouvez générer des événements, des travaux et des incidents à partir de votre téléphone, qui peuvent être consultés dans l’interface utilisateur d’Azure Mobile Engagement. 
-   - Vérifiez si vous pouvez envoyer des notifications push à partir de l’interface utilisateur d’Azure Mobile Engagement sur votre appareil en fonction de son ID d’appareil. 
+   - Testez que vous pouvez générer des événements, des travaux et des incidents à partir de votre téléphone, qui peuvent être consultés dans l’interface utilisateur d’Azure Mobile Engagement.
+   - Vérifiez si vous pouvez envoyer des notifications push à partir de l’interface utilisateur d’Azure Mobile Engagement sur votre appareil en fonction de son ID d’appareil.
 
-5) Pour tester si le problème provient de votre application :
+5) Pour tester si le problème provient de votre application :
 
-   - Installez et testez votre application à partir d’un émulateur plutôt qu’à partir d'un appareil physique :
+   - Installez et testez votre application à partir d’un émulateur plutôt qu’à partir d'un appareil physique :
    
-6) Pour tester si le problème est lié aux mises à niveau du système d’exploitation vers les appareils de l’utilisateur final, ce qui nécessite une mise à niveau du Kit de développement logiciel (SDK) à résoudre :
+6) Pour tester si le problème est lié aux mises à niveau du système d’exploitation vers les appareils de l’utilisateur final, ce qui nécessite une mise à niveau du Kit de développement logiciel (SDK) à résoudre :
 
    - Testez votre application sur différents appareils avec différentes versions du système d’exploitation.
    - Confirmez que vous utilisez la version la plus récente du Kit de développement logiciel (SDK).
@@ -82,11 +82,11 @@ Les éléments suivants sont des problèmes potentiels liés à l’exécution d
 * Confirmez que votre compte d'utilisateur dispose des autorisations nécessaires pour effectuer la tâche.
 * Vérifiez que le problème n'est pas isolé sur un seul ordinateur ou votre réseau local.
 * Vérifiez que que le service Azure Mobile Engagement n'a pas signalé d'interruptions.
-* Vérifiez que vos fichiers de balise d'informations d'application respectent toutes ces règles :
+* Vérifiez que vos fichiers de balise d'informations d'application respectent toutes ces règles :
 	- Utilisez uniquement le jeu de caractères UTF8 (le jeu de caractères ANSI n'est pas pris en charge).
-    - Utilisez une virgule « , » comme caractère de séparation (vous pouvez ouvrir une demande de service pour modifier le caractère de séparation .csv afin que ce ne soit plus une virgule (« , ») mais un autre caractère, par exemple un point-virgule « ; »).
-    - Utilisez des minuscules pour les valeurs booléennes « true » et « false ».
-    - Utilisez un fichier d'une taille inférieure à la taille maximale de 35 Mo.
+    - Utilisez une virgule « , » comme caractère de séparation (vous pouvez ouvrir une demande de service pour modifier le caractère de séparation .csv afin que ce ne soit plus une virgule (« , ») mais un autre caractère, par exemple un point-virgule « ; »).
+    - Utilisez des minuscules pour les valeurs booléennes « true » et « false ».
+    - Utilisez un fichier d'une taille inférieure à la taille maximale de 35 Mo.
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0824_2016-->

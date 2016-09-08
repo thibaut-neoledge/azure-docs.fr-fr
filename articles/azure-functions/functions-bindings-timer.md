@@ -15,10 +15,12 @@
 	ms.topic="reference"
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
-	ms.date="05/16/2016"
-	ms.author="chrande"/>
+	ms.date="08/22/2016"
+	ms.author="chrande; glenga"/>
 
 # Déclencheur de minuteur Azure Functions
+
+[AZURE.INCLUDE [functions-selector-bindings (liaisons de sélecteur de fonctions)](../../includes/functions-selector-bindings.md)]
 
 Cet article explique comment configurer des déclencheurs de minuteur dans Azure Functions. Les déclencheurs de minuteur appellent des fonctions basées sur une planification ponctuelle ou périodique.
 
@@ -26,7 +28,7 @@ Cet article explique comment configurer des déclencheurs de minuteur dans Azure
 
 ## Fichier function.json pour le déclencheur de minuteur
 
-Le fichier *function.json* contient une expression de planification.
+Le fichier *function.json* contient une expression de planification. Par exemple, la planification suivante exécute la fonction chaque minute :
 
 ```json
 {
@@ -46,9 +48,11 @@ Le déclencheur de minuteur gère automatiquement l’augmentation de la taille 
 
 ## Format de l’expression schedule
 
-L’expression schedule correspond à une [expression CRON](http://en.wikipedia.org/wiki/Cron#CRON_expression) comportant 6 champs : {seconde} {minute} {heure} {jour} {mois} {jour de la semaine}. De nombreux documents d’expression cron disponibles en ligne omettent le champ {seconde} ; par conséquent, si vous copiez une expression de l’un de ces documents, vous devrez adapter votre code pour y inclure ce champ supplémentaire.
+L’expression de planification est une [expression CRON](http://en.wikipedia.org/wiki/Cron#CRON_expression) qui contient 6 champs : `{second} {minute} {hour} {day} {month} {day of the week}`.
 
-Voici quelques exemples d’expressions schedule.
+Notez que la plupart des expressions cron disponibles en ligne omettent le champ {seconde} ; par conséquent, si vous copiez une expression de l’un de ces documents, vous devrez adapter votre code pour y inclure ce champ supplémentaire.
+
+Voici quelques exemples d’expressions schedule :
 
 Pour déclencher la fonction toutes les 5 minutes :
 
@@ -56,10 +60,34 @@ Pour déclencher la fonction toutes les 5 minutes :
 "schedule": "0 */5 * * * *"
 ```
 
+Pour déclencher la fonction toutes les heures :
+
+```json
+"schedule": "0 0 * * * *",
+```
+
 Pour déclencher la fonction toutes les deux heures:
 
 ```json
 "schedule": "0 0 */2 * * *",
+```
+
+Pour déclencher la fonction toutes les heures entre 9h et 17h :
+
+```json
+"schedule": "0 0 9-17 * * *",
+```
+
+Pour déclencher la fonction à 9h30 tous les jours :
+
+```json
+"schedule": "0 30 9 * * *",
+```
+
+Pour déclencher la fonction à 9h30 tous les jours de la semaine :
+
+```json
+"schedule": "0 30 9 * * 1-5",
 ```
 
 ## Exemple de code C# de déclencheur de minuteur
@@ -77,4 +105,4 @@ public static void Run(TimerInfo myTimer, TraceWriter log)
 
 [AZURE.INCLUDE [Étapes suivantes](../../includes/functions-bindings-next-steps.md)]
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/16/2016"
+	ms.date="08/23/2016"
 	ms.author="curtand"/>
 
 # Gestion des mots de passe dans Azure Active Directory
 
 Si vous êtes un administrateur, vous pouvez réinitialiser le mot de passe d’un utilisateur dans Azure Active Directory (Azure AD) dans le portail Azure Classic. Cliquez sur le nom de votre répertoire et sur la page Utilisateurs, cliquez sur le nom de l’utilisateur et, en bas du portail, cliquez sur **Réinitialiser le mot de passe**.
 
-Le reste de cette rubrique couvre l'ensemble complet des fonctionnalités de gestion de mot de passe pris en charge par Azure AD, notamment :
+Le reste de cette rubrique couvre l'ensemble complet des fonctionnalités de gestion de mot de passe pris en charge par Azure AD, notamment :
 
 - La modification du **mot de passe libre-service** permet aux utilisateurs finaux ou aux administrateurs de modifier leurs mots de passe expirés ou non expirés sans appeler un administrateur ou le support technique pour obtenir un support.
 - La réinitialisation du **mot de passe libre-service** permet aux utilisateurs finaux ou aux administrateurs de modifier leurs mots de passe expirés ou non expirés sans appeler un administrateur ou le support technique pour obtenir un support. La réinitialisation du mot de passe libre-service nécessite Azure AD Premium ou de base. Pour plus d’informations, consultez les[ éditions d’Azure Active Directory](active-directory-editions.md).
@@ -49,4 +49,4 @@ Utilisez les liens suivants pour accéder à la documentation qui vous intéress
 - [Création ou modification des utilisateurs dans Azure AD](active-directory-create-users.md)
 - [Gestion des groupes dans Azure AD](active-directory-manage-groups.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0824_2016-->

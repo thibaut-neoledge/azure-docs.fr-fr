@@ -13,13 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/17/2016"
+	ms.date="08/22/2016"
 	ms.author="stefsch"/>
 
 # Paramètres de configuration personnalisés pour les environnements App Service
 
 ## Vue d'ensemble ##
 Les environnements App Service étant isolés pour chaque client, certains paramètres de configuration peuvent être appliqués exclusivement à des environnements App Service. Cet article décrit les différentes personnalisations pour les environnements App Service disponibles.
+
+Si vous ne possédez pas d’environnement App Service, voir [Comment créer un environnement App Service](app-service-web-how-to-create-an-app-service-environment.md).
 
 Vous pouvez stocker les personnalisations de l’environnement App Service (App Service Environment) à l’aide d’un tableau dans le nouvel attribut **clusterSettings**. Cet attribut se trouve dans le dictionnaire des « Propriétés » de l’entité Azure Resource Manager *hostingEnvironments*.
 
@@ -76,7 +78,7 @@ TLS 1.0 peut être désactivé par le biais de l’entrée **clusterSettings** 
         ],
 
 ## Modifier l’ordre des suites de chiffrement TLS ##
-Les clients demandent également s’ils peuvent modifier la liste des chiffrements négociés par leur serveur. Ils peuvent le faire en modifiant l’attribut **clusterSettings** comme indiqué ci-dessous. Vous trouverez la liste des suites de chiffrement disponibles dans [cet article MSDN] (https://msdn.microsoft.com/library/windows/desktop/aa374757(v=vs.85).aspx).
+Les clients demandent également s’ils peuvent modifier la liste des chiffrements négociés par leur serveur. Ils peuvent le faire en modifiant l’attribut **clusterSettings** comme indiqué ci-dessous. Vous trouverez la liste des suites de chiffrement disponibles dans [cet article MSDN](https://msdn.microsoft.com/library/windows/desktop/aa374757(v=vs.85).aspx).
 
         "clusterSettings": [
             {
@@ -95,4 +97,4 @@ Le site de modèles Azure Quickstart Resource Manager comprend un modèle dont l
 
 <!-- IMAGES -->
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

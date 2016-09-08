@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/18/2016"
+	ms.date="08/30/2016"
 	ms.author="juliako"/>
 
 
@@ -22,8 +22,6 @@
 [AZURE.INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
 Ce didacticiel explique comment implémenter un service de base de diffusion de contenu vidéo à la demande (VoD) avec l’application Azure Media Services (AMS) à l’aide du portail Azure.
-
-Azure Media Services est actuellement en version préliminaire dans le portail Azure.
 
 > [AZURE.NOTE] Pour suivre ce didacticiel, vous avez besoin d'un compte Azure. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -53,10 +51,10 @@ Cette section montre comment créer un compte AMS.
 	1. Dans **Nom du compte**, entrez le nom du nouveau compte AMS. Un nom de compte Media Services se compose de chiffres ou de lettres en minuscules, sans espaces. Sa longueur est comprise entre 3 et 24 caractères.
 	2. Dans Abonnement, sélectionnez l’un des abonnements Azure auxquels vous avez accès.
 	
-	2. Dans **Groupe de ressources**, sélectionnez la ressource (nouvelle ou existante). Un groupe de ressources désigne une collection de ressources qui partagent un cycle de vie, des autorisations et des stratégies identiques. En savoir plus [ici](resource-group-overview.md#resource-groups).
+	2. Dans **Groupe de ressources**, sélectionnez la ressource (nouvelle ou existante). Un groupe de ressources désigne une collection de ressources qui partagent un cycle de vie, des autorisations et des stratégies. En savoir plus [ici](resource-group-overview.md#resource-groups).
 	3. Dans **Emplacement**, sélectionnez la région géographique utilisée pour stocker les enregistrements multimédias et les métadonnées de votre compte Media Services. Cette région servira à traiter et diffuser vos médias. Seules les régions Media Services disponibles s’affichent dans la liste déroulante.
 	
-	3. Dans **Compte de stockage**, sélectionnez le compte de stockage qui fournira le stockage d’objets blob du contenu multimédia provenant de votre compte Media Services. Vous pouvez sélectionner un compte de stockage existant dans la même région géographique que votre compte Media Services ou en créer un. Ce dernier sera créé dans la même région. Les règles des noms de compte de stockage sont identiques à celles des comptes Media Services.
+	3. Dans **Compte de stockage**, sélectionnez le compte de stockage qui fournira le stockage d’objets blob du contenu multimédia provenant de votre compte Media Services. Vous pouvez sélectionner un compte de stockage dans la même région géographique que votre compte Media Services ou en créer un. Ce dernier sera créé dans la même région. Les règles des noms de compte de stockage sont identiques à celles des comptes Media Services.
 
 		Pour en savoir plus sur le stockage, cliquez [ici](storage-introduction.md).
 
@@ -87,7 +85,7 @@ Vous avez besoin du nom de compte et des informations de clé primaire pour acc�
 
 ## Configurer les points de terminaison de diffusion en continu
 
-Lorsque vous utilisez Azure Media Services, la diffusion à vos clients de vidéos en continu à débit binaire adaptatif constitue l’un des scénarios les plus courants. Avec la diffusion à débit binaire adaptatif, le client peut basculer vers un flux à débit binaire supérieur ou inférieur, car la vidéo est affichée en fonction de la bande passante réseau actuelle, de l’utilisation de l’UC et d’autres facteurs. Media Services prend en charge les technologies de diffusion en continu à débit binaire adaptatif suivantes : HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH et HDS (pour licences Adobe PrimeTime/Access uniquement).
+Lorsque vous utilisez Azure Media Services, la diffusion à vos clients de vidéos en continu à débit binaire adaptatif constitue l’un des scénarios les plus courants. Media Services prend en charge les technologies de diffusion en continu à débit binaire adaptatif suivantes : HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH et HDS (pour licences Adobe PrimeTime/Access uniquement).
 
 Media Services assure l’empaquetage dynamique, qui permet de distribuer un contenu encodé en MP4 à un débit binaire adaptatif dans un format pris en charge par Media Services (MPEG DASH, HLS, Smooth Streaming, HDS), sans avoir à stocker de versions pré-empaquetées de chacun de ces formats de diffusion en continu.
 
@@ -222,7 +220,9 @@ Certaines considérations s’appliquent :
 - Assurez-vous que la vidéo a été publiée.
 - Le **lecteur multimédia** effectue la lecture à partir du point de terminaison de diffusion en continu par défaut. Si vous souhaitez lire à partir d’un autre point de terminaison de diffusion en continu que celui par défaut, cliquez sur l’URL pour la copier et utilisez un autre lecteur, par exemple, le [lecteur Azure Media Services](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
 
-##Étapes suivantes : Parcours d’apprentissage Media Services
+##Étapes suivantes
+
+Consultez les parcours d’apprentissage de Media Services.
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -230,4 +230,4 @@ Certaines considérations s’appliquent :
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!----HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

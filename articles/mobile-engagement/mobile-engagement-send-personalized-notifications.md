@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="all" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/07/2015" 
+	ms.date="08/19/2016" 
 	ms.author="piyushjo" />
 
 #Personnaliser les notifications en incluant le nom d’utilisateur
@@ -22,10 +22,10 @@ Dans votre quête visant à rendre les notifications plus attrayantes aux yeux d
 
 Techniquement, avec Azure Mobile Engagement, vous pouvez personnaliser la notification en suivant la procédure ci-dessous, dans laquelle nous allons utiliser le scénario d’inclusion du nom de l’utilisateur dans les notifications. Vous allez utiliser le concept d’informations sur l’application ou de balises dont les valeurs peuvent être transmises par les Kits de développement logiciel (SDK) intégrés dans l’application mobile ou via les API. Ces informations sur l’application ou balises peuvent ensuite être utilisées dans les cas suivants :
 
-1. Pour cibler des notifications à des utilisateurs spécifiques en fonction des valeurs informations sur l’application. 
-2. En tant qu’espaces réservés dans les notifications, qui seront remplacés par des valeurs spécifiques à l’appareil ou à l’utilisateur lors de l’envoi de notifications à cet appareil. 
+1. Pour cibler des notifications à des utilisateurs spécifiques en fonction des valeurs informations sur l’application.
+2. En tant qu’espaces réservés dans les notifications, qui seront remplacés par des valeurs spécifiques à l’appareil ou à l’utilisateur lors de l’envoi de notifications à cet appareil.
 
-> [AZURE.IMPORTANT]Notez que l’envoi des notifications sera ralenti en raison de ce traitement supplémentaire consistant à remplacer les valeurs d’informations sur l’application pour chaque notification.
+> [AZURE.IMPORTANT] Notez que l’envoi des notifications sera ralenti en raison de ce traitement supplémentaire consistant à remplacer les valeurs d’informations sur l’application pour chaque notification.
 
 ##Enregistrer des informations sur l’application dans le portail Mobile Engagement
 
@@ -59,7 +59,7 @@ Vous êtes maintenant prêt à envoyer des notifications à l’aide de ce **nom
 
 ![][4]
 
-> [AZURE.NOTE]Les utilisateurs pour lesquels les informations sur l’application nom\_utilisateur ne sont pas définies ne recevront pas de notification. Si vous exécutez la campagne de notification en mode test et si les informations d’application ne sont pas définies, nous allons envoyer le caractère « ? » pour remplacer l’espace réservé.
+> [AZURE.NOTE] Les utilisateurs pour lesquels les informations sur l’application nom\_utilisateur ne sont pas définies ne recevront pas de notification. Si vous exécutez la campagne de notification en mode test et si les informations d’application ne sont pas définies, nous allons envoyer le caractère « ? » pour remplacer l’espace réservé.
 
 2) Lorsque Mobile Engagement sélectionnera un appareil pour envoyer cette notification, il consultera ces informations sur l’application et remplacera la valeur de l’espace réservé. Par exemple, si nous avons défini `str = "Scott"` pour un utilisateur, l’enregistrement de l’appareil sera associé aux informations sur l’application de **nom\_utilisateur = SCOTT** pour cet utilisateur. En outre, cet utilisateur verra une notification push en dehors de l’application au format suivant.
 
@@ -72,4 +72,4 @@ Vous êtes maintenant prêt à envoyer des notifications à l’aide de ce **nom
 [4]: ./media/mobile-engagement-send-personalized-notifications/personal-notification.png
 [5]: ./media/mobile-engagement-send-personalized-notifications/notification.png
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0824_2016-->

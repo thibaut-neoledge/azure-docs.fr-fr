@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="06/14/2016"
+   ms.date="08/30/2016"
    ms.author="larryfr"/>
 
 #Utilisation de SSH avec Hadoop Linux sur HDInsight depuis Linux, Unix ou OS X :
@@ -25,9 +25,11 @@
 
 [SSH (Secure Shell)](https://en.wikipedia.org/wiki/Secure_Shell) vous permet d’effectuer des opérations à distance sur des clusters HDInsight sous Linux à l’aide d’une interface de ligne de commande. Ce document donne des informations sur l'utilisation de SSH avec HDInsight à partir des clients Linux, Unix ou OS X.
 
-> [AZURE.NOTE] Les étapes de cet article partent du principe que vous utilisez un client Linux, Unix ou OS X. Bien que ces étapes puissent être effectuées sur un client Windows si vous avez installé un package qui fournit `ssh`et `ssh-keygen` (tel que Git pour Windows,) nous recommandons aux clients Windows de suivre les étapes décrites dans [Utilisation de SSH avec HDInsight (Hadoop) sous Linux à partir de Windows](hdinsight-hadoop-linux-use-ssh-windows.md).
+> [AZURE.NOTE] Les étapes de cet article partent du principe que vous utilisez un client Linux, Unix ou OS X. Cette procédure peut s’effectuer sur un client Windows si vous avez installé un package qui fournit `ssh` et `ssh-keygen`, comme [Bash sur Ubuntu sur Windows](https://msdn.microsoft.com/commandline/wsl/about).
+>
+> Si vous n’avez pas installé SSH sur votre client Windows, suivez la procédure [Utilisation de SSH avec Hadoop Linux sur HDInsight depuis Windows](hdinsight-hadoop-linux-use-ssh-windows.md) pour plus d’informations sur l’installation et l’utilisation de PuTTY.
 
-##Configuration requise
+##Conditions préalables
 
 * **ssh-keygen** et **ssh** pour les clients Linux, Unix, et OS X. Ces utilitaires sont généralement fournis avec votre système d’exploitation ou disponibles dans le système de gestion du package.
 
@@ -87,9 +89,9 @@ Utilisez les informations suivantes si vous envisagez d'utiliser les clés SSH a
 
 À la création d'un cluster HDInsight sous Linux, vous devez fournir la clé publique précédemment créée. Pour les clients Linux, Unix ou OS X, vous pouvez créer un cluster HDInsight de deux façons :
 
-* **Portail Azure** : utilise un portail web pour créer le cluster.
+* **Portail Azure** : utilise un portail web pour créer le cluster.
 
-* **Interface de ligne de commande Azure pour Mac, Linux et Windows** : utilise des commandes de ligne de commande pour créer le cluster.
+* **Interface de ligne de commande Azure pour Mac, Linux et Windows** : utilise des commandes de ligne de commande pour créer le cluster.
 
 Chacune de ces méthodes nécessite un mot de passe ou une clé publique. Pour plus d’informations sur la création d’un cluster HDInsight sous Linux, consultez [Approvisionner des clusters HDInsight sous Linux](hdinsight-hadoop-provision-linux-clusters.md).
 
@@ -101,8 +103,7 @@ Si vous sélectionnez **CLÉ PUBLIQUE SSH**, vous pouvez coller la clé publique
 
 ![Image du formulaire de demande de clé publique](./media/hdinsight-hadoop-linux-use-ssh-unix/ssh-key.png)
 
-> [AZURE.NOTE] Le fichier de clé est simplement un fichier texte. Le contenu doit être identique à ce qui suit :
-> ```
+> [AZURE.NOTE]Le fichier de clé est simplement un fichier texte. Le contenu doit être identique à ce qui suit :```
 ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCelfkjrpYHYiks4TM+r1LVsTYQ4jAXXGeOAF9Vv/KGz90pgMk3VRJk4PEUSELfXKxP3NtsVwLVPN1l09utI/tKHQ6WL3qy89WVVVLiwzL7tfJ2B08Gmcw8mC/YoieT/YG+4I4oAgPEmim+6/F9S0lU2I2CuFBX9JzauX8n1Y9kWzTARST+ERx2hysyA5ObLv97Xe4C2CQvGE01LGAXkw2ffP9vI+emUM+VeYrf0q3w/b1o/COKbFVZ2IpEcJ8G2SLlNsHWXofWhOKQRi64TMxT7LLoohD61q2aWNKdaE4oQdiuo8TGnt4zWLEPjzjIYIEIZGk00HiQD+KCB5pxoVtp user@system
 > ```
 
@@ -122,11 +123,11 @@ Pour plus d’informations sur l’utilisation de cette commande, consultez la r
 
     * **Connexion au nœud principal** : nom du cluster suivi de **-ssh.azurehdinsight.net**. Par exemple **mycluster-ssh.azurehdinsight.net**
     
-    * **Connexion au nœud de périphérie** : si votre cluster est un serveur R exécuté sur HDInsight, le cluster contient également un nœud de périphérique accessible à l’aide de **RServer.CLUSTERNAME.ssh.azurehdinsight.net**, où __CLUSTERNAME__ désigne le nom du cluster.
+    * **Connexion au nœud de périphérie** : si votre cluster est un serveur R exécuté sur HDInsight, le cluster contient également un nœud de périphérie accessible à l’aide de **RServer.CLUSTERNAME.ssh.azurehdinsight.net**, où __CLUSTERNAME__ est le nom du cluster.
 
-* **Nom d’utilisateur** : le nom d’utilisateur SSH que vous avez fourni en créant le cluster
+* **Nom d’utilisateur** : le nom d’utilisateur SSH que vous avez fourni en créant le cluster
 
-L’exemple suivant vous permettra de vous connecter au nœud principal 0 de **mycluster** en tant qu’utilisateur **me** :
+L’exemple suivant vous connecte au nœud principal 0 de **mycluster** en tant qu’utilisateur **me** :
 
 	ssh me@mycluster-ssh.azurehdinsight.net
 
@@ -181,7 +182,7 @@ Utilisez les étapes suivantes pour vous connecter aux nœuds de travail de votr
 
         curl --user admin:ADMINPASSWORD https://CLUSTERNAME.azurehdinsight.net/api/v1/hosts
 
-    Cette commande renvoie des informations au format JSON pour les nœuds du cluster, notamment `host_name`, qui contient le nom de domaine complet (FQDN) pour chaque nœud. Voici l’exemple d’une entrée `host_name` renvoyée par la commande **curl** :
+    Cette commande renvoie des informations au format JSON pour les nœuds du cluster, notamment `host_name`, qui contient le nom de domaine complet (FQDN) pour chaque nœud. Voici l’exemple d’une entrée `host_name` renvoyée par la commande **curl** :
 
         "host_name" : "workernode0.workernode-0-e2f35e63355b4f15a31c460b6d4e1230.j1.internal.cloudapp.net"
 
@@ -245,4 +246,4 @@ Maintenant que vous savez comment vous authentifier avec une clé SSH, apprenez 
 
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0831_2016-->

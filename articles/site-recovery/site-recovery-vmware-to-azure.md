@@ -563,7 +563,7 @@ Oracle Enterprise Linux 6.4, 6.5 (64 bits uniquement) | Microsoft-ASR\_UA\_9.*.0
 
 	![Service de mobilité](./media/site-recovery-vmware-to-azure/mobility3.png)
 
-3. Dans la zone **Détails du serveur de configuration**, spécifiez l’adresse IP du serveur de configuration et la phrase secrète qui a été générée lors de l’exécution du programme d’installation unifiée. Vous pouvez récupérer la phrase secrète en exécutant la commande suivante : **<DossierInstallationSiteRecovery>\\home\\sysystems\\bin\\genpassphrase.exe –n** sur le serveur de configuration.
+3. Dans la zone **Détails du serveur de configuration**, spécifiez l’adresse IP du serveur de configuration et la phrase secrète qui a été générée lors de l’exécution du programme d’installation unifiée. Vous pouvez récupérer la phrase secrète en exécutant la commande suivante : **<SiteRecoveryInstallationFolder>\\home\\sysystems\\bin\\genpassphrase.exe –v** sur le serveur de configuration.
 
 	![Service de mobilité](./media/site-recovery-vmware-to-azure/mobility6.png)
 
@@ -580,6 +580,14 @@ Où :
 - /InstallLocation : Obligatoire. Spécifie l’emplacement d’installation du service.
 - / PassphraseFilePath : Obligatoire. Phrase secrète du serveur de configuration.
 - /LogFilePath : Obligatoire. Emplacement des fichiers journaux d’installation.
+
+#### Désinstaller le service de mobilité manuellement
+
+Le Service Mobilité peut être désinstallé à l’aide de l’application Ajout/suppression de programmes du Panneau de configuration ou à l’aide d’une ligne de commande.
+
+La commande pour désinstaller le Service Mobilité à l’aide de la ligne de commande est
+
+	MsiExec.exe /qn /x {275197FC-14FD-4560-A5EB-38217F80CBD1}
 
 
 #### Installez manuellement sur un serveur Linux :
@@ -851,4 +859,4 @@ The information in Section B is regarding Third Party Code components that are b
 
 The complete file may be found on the [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=529428). Microsoft reserves all rights not expressly granted herein, whether by implication, estoppel or otherwise.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

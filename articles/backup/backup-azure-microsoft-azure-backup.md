@@ -244,7 +244,7 @@ Une fois que vous connaissez l’état de la connectivité d’Azure et de l’a
 | Connectivité perdue depuis > 15 jours | Approvisionnement annulé | Arrêté | Arrêté | Arrêté et points de restauration Azure supprimés | Arrêté |
 
 ### Récupération après la perte de connectivité
-Si vous êtes équipé d’un pare-feu ou d’un proxy qui empêche l’accès à Azure, vous devez mettre sur liste blanche les adresses de domaine suivantes dans le profil de pare-feu/proxy :
+Si vous êtes équipé d’un pare-feu ou d’un proxy qui empêche l’accès à Azure, vous devez mettre sur liste approuvée les adresses de domaine suivantes dans le profil de pare-feu/proxy :
 
 - www.msftncsi.com
 - *.Microsoft.com

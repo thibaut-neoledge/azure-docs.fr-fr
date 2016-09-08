@@ -14,7 +14,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="NA"
 	ms.workload="data-services"
-	ms.date="08/18/2016"
+	ms.date="08/24/2016"
 	ms.author="anhoh"/>
 
 # Créer une application web Java avec DocumentDB
@@ -780,4 +780,4 @@ Tous les exemples de ce didacticiel sont inclus dans le projet [todo](https://gi
 
 [1]: media/documentdb-java-application/keys.png
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

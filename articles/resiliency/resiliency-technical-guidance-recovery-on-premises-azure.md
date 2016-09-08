@@ -4,7 +4,7 @@
    services=""
    documentationCenter="na"
    authors="adamglick"
-   manager="hongfeig"
+   manager="saladki"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/01/2016"
+   ms.date="08/18/2016"
    ms.author="aglick"/>
 
 #Guide technique de la résilience Azure : récupération de l’environnement local vers Azure
@@ -79,22 +79,23 @@ Pour plus d’informations, consultez [Haute disponibilité et récupération d�
 
 ###Mise en réseau
 
-  1. Consultez la section [Réseau](#networking) de ce document.
+  1. Consultez la section Mise en réseau de ce document.
   2. Utilisez un réseau virtuel pour connecter en toute sécurité votre environnement local au cloud.
 
 ###Calcul
 
-  1. Consultez la section [Calcul](#compute) de ce document.
+  1. Consultez la section Calcul de ce document.
   2. Déplacez des machines virtuelles entre Hyper-V et Azure.
 
 ###Storage
-  1. Consultez la section [Stockage](#storage) de ce document.
+
+  1. Consultez la section Stockage de ce document.
   2. Utilisez les services StorSimple pour tirer parti du stockage cloud.
   3. Utilisez le service Azure Backup.
 
 ###Base de données
 
-  1. Consultez la section [Base de données](#database) de ce document.
+  1. Consultez la section Base de données de ce document.
   2. Envisagez d’utiliser comme sauvegarde une instance SQL Server exécutée sur des machines virtuelles Azure.
   3. Configurez les groupes de disponibilité AlwaysOn.
   4. Configurez la mise en miroir de base de données basée sur un certificat.
@@ -105,4 +106,4 @@ Pour plus d’informations, consultez [Haute disponibilité et récupération d�
 
 Cet article fait partie d’une série intitulée [Guide technique de la résilience Azure](./resiliency-technical-guidance.md). L’article suivant de cette série s’intitule [Récupération suite à une corruption de données ou à une suppression accidentelle](./resiliency-technical-guidance-recovery-data-corruption.md).
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

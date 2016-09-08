@@ -1,21 +1,21 @@
-<properties 
+<properties
    pageTitle="Créer un équilibreur de charge interne à l’aide de l’interface de ligne de commande Azure (CLI) dans le modèle de déploiement classique | Microsoft Azure"
    description="Découvrez comment créer un équilibreur de charge interne à l'aide de l’interface de ligne de commande Azure (CLI) dans le modèle de déploiement classique"
    services="load-balancer"
    documentationCenter="na"
-   authors="joaoma"
-   manager="carolz"
+   authors="sdwheeler"
+   manager="carmonm"
    editor=""
    tags="azure-service-management"
 />
-<tags  
+<tags
    ms.service="load-balancer"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/09/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 # Créer un équilibreur de charge interne (classique) à l’aide de l’interface de ligne de commande (CLI) Azure
 
@@ -53,7 +53,7 @@ Ce guide indique comment créer un équilibreur de charge interne selon le scén
 		info:    New mode is asm
 
 
-## Création d'un point de terminaison et d'un jeu d'équilibrage de charge 
+## Création d'un point de terminaison et d'un jeu d'équilibrage de charge
 
 Le scénario suppose que les machines virtuelles « DB1 » et « DB2 » figurent dans un service cloud appelé « mytestcloud ». Ces deux machines virtuelles utilisent un réseau virtuel appelé mon « testvnet » avec un sous-réseau « sous-réseau-1 ».
 
@@ -62,7 +62,7 @@ Ce guide créera un jeu d'équilibrage de charge en utilisant le port 1433 comme
 Il s'agit d'un scénario courant dans lequel vous utilisez des machines virtuelles SQL sur le serveur principal avec un équilibreur de charge interne afin de garantir que les serveurs de base de données ne soient pas exposés directement à l'aide d'une adresse IP publique.
 
 
-### Étape 1 : 
+### Étape 1
 
 Créer un jeu d’équilibrage de charge interne avec `azure network service internal-load-balancer add`.
 
@@ -73,7 +73,7 @@ Paramètres utilisés :
 **-r** - nom du service cloud<BR> **-n** - nom de l’équilibreur de charge interne<BR> **-t** - nom du sous-réseau (même sous-réseau utilisé par les machines virtuelles que vous ajouterez à l'équilibreur de charge interne)<BR> **-a** - (facultatif) ajoutez une adresse IP privée statique<BR>
 
 Pour plus d'informations, consultez `azure service internal-load-balancer --help`.
- 
+
 Vous pouvez vérifier les propriétés de l’équilibreur de charge interne à l'aide de la commande `azure service internal-load-balancer list` *nom du service cloud*.
 
 Voici un exemple de sortie :
@@ -87,7 +87,7 @@ Voici un exemple de sortie :
 	info:    service internal-load-balancer list command OK
 
 
-## Étape 2 
+## Étape 2
 
 Vous configurez le jeu d'équilibrage de charge interne lorsque vous ajoutez le premier point de terminaison. Vous associerez le point de terminaison, la machine virtuelle et le port de sonde au jeu d'équilibrage de charge interne au cours de cette étape.
 
@@ -98,11 +98,11 @@ Paramètres utilisés :
 **-k** - port de la machine virtuelle locale<BR> **-t** - port de la sonde<BR> **-r** - protocole de la sonde<BR> **-e** - intervalle de sondage en secondes<BR> **-f** -intervalle d'expiration du délai en secondes <BR> **-i** - nom de l’équilibreur de charge interne <BR>
 
 
-## Étape 3 
+## Étape 3 :
 
 Vérifier la configuration de l’équilibreur de charge avec `azure vm show` *nom de la machine virtuelle*
 
-	azure vm show DB1 
+	azure vm show DB1
 
 La sortie se présente comme suit :
 
@@ -132,7 +132,7 @@ La sortie se présente comme suit :
 	data:    Network Endpoints 0 name "PowerShell"
 	data:    Network Endpoints 0 port 5986
 	data:    Network Endpoints 0 protocol "tcp"
-	data:    Network Endpoints 0 virtualIPAddress "137.116.64.107"	
+	data:    Network Endpoints 0 virtualIPAddress "137.116.64.107"
 	data:    Network Endpoints 0 enableDirectServerReturn false
 	data:    Network Endpoints 1 localPort 3389
 	data:    Network Endpoints 1 name "Remote Desktop"
@@ -158,7 +158,7 @@ La sortie se présente comme suit :
 
 Vous pouvez créer un point de terminaison de Bureau à distance pour transférer le trafic réseau à partir d’un port public vers un port local pour une machine virtuelle spécifique à l’aide d’`azure vm endpoint create`.
 
-	azure vm endpoint create web1 54580 -k 3389 
+	azure vm endpoint create web1 54580 -k 3389
 
 
 ## Suppression d’une machine virtuelle de l’équilibreur de charge
@@ -179,4 +179,4 @@ Pour plus d'informations, consultez `azure vm endpoint --help`.
 
 [Configuration des paramètres de délai d’expiration TCP inactif pour votre équilibrage de charge](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0824_2016-->

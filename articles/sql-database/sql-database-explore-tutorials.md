@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="06/01/2016"
+   ms.date="08/24/2016"
    ms.author="carlrab"/>
    
 # Exploration des didacticiels relatifs à la base de données SQL Azure
@@ -184,4 +184,4 @@ Ce didacticiel fournit des informations relatives à la [synchronisation des don
 
 [Explorer les démarrages rapides de la solution de base de données SQL Azure](sql-database-solution-quick-starts.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

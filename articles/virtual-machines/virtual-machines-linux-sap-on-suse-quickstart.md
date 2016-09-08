@@ -4,7 +4,7 @@
    services="virtual-machines,virtual-network,storage"
    documentationCenter="saponazure"
    authors="hermanndms"
-   manager="juergent"
+   manager="timlt"
    editor=""
    tags="azure-resource-manager"
    keywords=""/>
@@ -164,6 +164,6 @@ Si vous souhaitez utiliser le bureau Gnome pour installer un système complet de
 
 ## Prise en charge par SAP d’Oracle sur Linux dans le cloud
 
-Il existe une restriction de prise en charge d’Oracle sur Linux dans les environnements virtualisés. Bien que cette question ne soit pas propre à Azure, il est important de bien la comprendre. SAP ne prend pas en charge Oracle sur SUSE ni Red Hat dans un cloud public comme Azure. Pour discuter de ce problème, contactez directement Oracle.
+Il existe une restriction de prise en charge d’Oracle sur Linux dans les environnements virtualisés. Bien que ce sujet ne soit pas spécifique d’Azure, il est important de bien le comprendre. SAP ne prend pas en charge Oracle sur SUSE ni Red Hat dans un cloud public comme Azure. Pour discuter de ce sujet, contactez directement Oracle.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0824_2016-->

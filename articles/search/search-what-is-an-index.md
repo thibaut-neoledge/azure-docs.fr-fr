@@ -12,7 +12,7 @@ authors="ashmaka"
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="05/31/2016"
+	ms.date="08/29/2016"
 	ms.author="ashmaka"/>
 
 # Création d'un index Azure Search
@@ -70,4 +70,4 @@ Lorsque vous concevez votre index, prenez le temps lors de la phase de planifica
 
 Si vos besoins en stockage de données changent au fil du temps, vous pouvez augmenter ou diminuer la capacité en ajoutant ou en supprimant des partitions. Pour plus d’informations, consultez [Gérer votre service de recherche dans Azure](search-manage.md) ou [Limites de service](search-limits-quotas-capacity.md).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0831_2016-->

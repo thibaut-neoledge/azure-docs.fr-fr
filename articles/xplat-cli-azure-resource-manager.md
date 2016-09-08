@@ -1,7 +1,7 @@
 
 <properties
-	pageTitle="Interface de ligne de commande Azure avec Resource Manager | Microsoft Azure"
-	description="Utilisez l’interface de ligne de commande Azure pour déployer plusieurs ressources en tant que groupe de ressources."
+	pageTitle="Gestion des ressources avec l’interface CLI Azure | Microsoft Azure"
+	description="Utiliser l’interface de ligne de commande Azure (CLI) pour gérer les groupes et les ressources Azure"
 	editor=""
 	manager="timlt"
 	documentationCenter=""
@@ -14,10 +14,11 @@
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/20/2016"
+	ms.date="08/22/2016"
 	ms.author="danlep"/>
 
-# Utiliser l’interface de ligne de commande Azure pour Mac, Linux et Windows avec Azure Resource Manager
+# Utiliser l’interface de ligne de commande Azure pour gérer les ressources et les groupes de ressources Azure
+
 
 > [AZURE.SELECTOR]
 - [Portail](azure-portal/resource-group-portal.md)
@@ -30,191 +31,180 @@
 - [Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-resources-and-groups/)
 
 
-Cet article présente des méthodes courantes pour créer et gérer des ressources Azure en utilisant l’interface de ligne de commande Azure en mode Azure Resource Manager.
+L’interface de ligne de commande Azure (CLI Azure) est l’un des nombreux outils que vous pouvez utiliser pour déployer et gérer des ressources avec Azure Resource Manager. Cet article présente des méthodes courantes pour gérer des ressources et groupes de ressources Azure en utilisant l’interface de ligne de commande Azure en mode Azure Resource Manager. Pour plus d’informations sur l’utilisation de l’interface de ligne de commande afin de déployer des ressources, voir [Déployer des ressources à l’aide de modèles Resource Manager et de l’interface de ligne de commande Azure](resource-group-template-deploy-cli.md). Pour plus d’informations sur les ressources Azure et Resource Manager, voir [Présentation d’Azure Resource Manager](resource-group-overview.md).
 
->[AZURE.NOTE] Pour créer et gérer des ressources Azure sur la ligne de commande, vous devez disposer d’un abonnement Azure ([compte Azure gratuit ici](https://azure.microsoft.com/free/)). Vous devrez également [installer l’interface de ligne de commande Azure](xplat-cli-install.md) et [vous connecter pour utiliser des ressources Azure associées à votre compte](xplat-cli-connect.md). Si ces opérations ont déjà été effectuées, vous pouvez dès à présent créer et gérer ces ressources.
+>[AZURE.NOTE] Pour gérer les ressources Azure avec l’interface de ligne de commande Azure, vous devez [installer l’interface de ligne de commande Azure](xplat-cli-install.md) et vous [connecter à Azure](xplat-cli-connect.md) en utilisant la commande `azure login`. Assurez-vous que l’interface de ligne de commande est en mode Resource Manager (exécutez `azure config mode arm`). Si ces opérations ont déjà été effectuées, vous pouvez dès à présent créer et gérer ces ressources.
 
-## Ressources Azure
 
-Utilisez Azure Resource Manager pour créer et gérer un groupe de _ressources_ (qui sont des entités gérées par l'utilisateur, comme une machine virtuelle, un serveur de bases de données, une base de données ou un site web) comme une seule unité logique ou un seul _groupe de ressources_.
 
-L’un des avantages d’Azure Resource Manager réside dans le fait que vous pouvez créer vos ressources Azure de manière _déclarative_ : vous décrivez la structure et les relations d’un groupe de ressources pouvant être déployé dans des *modèles* JSON. Le modèle identifie les paramètres qui peuvent être renseignés en ligne lors de l’exécution d’une commande ou stockés dans un fichier de paramètres JSON (JavaScript Object Notation) distinct. Vous pouvez donc facilement créer de nouvelles ressources en utilisant le même modèle et en changeant simplement les paramètres. Par exemple, un modèle qui crée un site web a des paramètres pour le nom du site, la région du site web et d'autres paramètres courants.
+## Obtenir des ressources et des groupes de ressources
 
-Lorsqu'un modèle est utilisé pour modifier ou créer un groupe, un _déploiement_ est créé, avant d'être appliqué au groupe. Pour plus d'informations sur Azure Resource Manager, voir la [Présentation d'Azure Resource Manager](resource-group-overview.md).
+### Groupes de ressources
 
-Une fois le déploiement effectué, vous devez gérer les ressources individuelles impérativement sur la ligne de commande, comme dans le modèle de déploiement classique. Par exemple, utilisez les commandes CLI en mode Resource Manager pour démarrer, arrêter ou supprimer des ressources telles que les [machines virtuelles Azure Resource Manager](./virtual-machines/virtual-machines-linux-cli-deploy-templates.md).
+Pour obtenir une liste de tous les groupes de ressources dans votre abonnement et leurs emplacements, exécutez cette commande.
 
-## Authentification
-
-Pour utiliser Azure Resource Manager avec l’interface de ligne de commande Azure, vous devez vous authentifier auprès de Microsoft Azure en utilisant la commande `azure login`, puis en spécifiant un compte géré par Azure Active Directory, qui peut être un compte professionnel ou scolaire (un compte d’organisation) ou un compte Microsoft. L'authentification avec un certificat installé à l'aide d'un fichier .publishsettings ne fonctionne pas dans ce mode.
-
-Pour plus d'informations sur l'authentification auprès de Microsoft Azure, consultez la rubrique [Se connecter à un abonnement Azure à partir de l'interface de ligne de commande Azure](xplat-cli-connect.md).
-
->[AZURE.NOTE] Lorsque vous utilisez un compte géré par Azure Active Directory, vous pouvez également utiliser le contrôle d’accès en fonction du rôle (RBAC) Azure pour gérer l’accès aux ressources Azure et leur utilisation. Pour plus d’informations, consultez [Contrôle d’accès en fonction du rôle Azure](./active-directory/role-based-access-control-configure.md).
-
-## Définir le mode Resource Manager
-
-Étant donné que l’interface de ligne de commande n’est pas en mode Resource Manager par défaut, utilisez la commande suivante pour activer les commandes Resource Manager de l’interface de ligne de commande Azure.
-
-	azure config mode arm
-
-## Recherche d'emplacements
-
-La plupart des commandes Azure Resource Manager ont besoin d’un emplacement valide pour créer ou trouver une ressource. Vous pouvez rechercher tous les emplacements disponibles pour les différentes ressources Azure à l'aide de la commande suivante.
-
-	azure location list
-
-Elle permet de répertorier les régions Azure disponibles, telles que « États-Unis de l’Ouest », « États-Unis de l’Est » et ainsi de suite. Pour plus d’informations sur les fournisseurs de ressources disponibles et les emplacements correspondants, utilisez la commande `azure provider list` suivie de la commande `azure provider show`. Par exemple, la commande suivante répertorie les emplacements du service de conteneur Azure :
-
-    azure provider show Microsoft.ContainerService 
-
-## Créer un groupe de ressources
-
-Un groupe de ressources est un regroupement logique de réseaux, de stockage et d’autres ressources de calcul. Presque toutes les commandes en mode Resource Manager ont besoin d’un groupe de ressources. Vous pouvez créer un groupe de ressources dans la région États-Unis de l’Ouest, nommé par exemple _testRG_ à l’aide de la commande suivante.
-
-	azure group create -n "testRG" -l "West US"
-
-Vous allez déployer ce groupe de ressources *testRG* ultérieurement, lors de l’utilisation d’un modèle pour lancer une machine virtuelle Ubuntu. Une fois que vous avez créé un groupe de ressources, vous pouvez ajouter des ressources telles que des machines virtuelles et des réseaux ou du stockage.
-
-
-## Utilisation de modèles de groupe de ressources
-
-### Localisation et configuration d'un modèle de groupe de ressources
-
-Quand vous utilisez des modèles, vous pouvez [créer vos propres modèles](resource-group-authoring-templates.md) ou utiliser l’un des [modèles de démarrage rapide](https://azure.microsoft.com/documentation/templates/), bénéficiant de la contribution de la communauté, également disponibles sur [GitHub](https://github.com/Azure/azure-quickstart-templates).
-
-La création d’un modèle n’est pas abordée dans cet article. Pour commencer, utilisez le modèle _101-simple-vm-from-image_ disponible dans les [modèles de démarrage rapide](https://azure.microsoft.com/documentation/templates/101-vm-simple-linux/). Par défaut, ceci crée une seule machine virtuelle Ubuntu 14.04.2-LTS dans un nouveau réseau virtuel avec un seul sous-réseau. Vous devez uniquement spécifier un groupe de ressources et les quelques paramètres suivants pour utiliser ce modèle :
-
-* nom d’utilisateur administrateur de la machine virtuelle = `adminUsername` ;
-* mot de passe = `adminPassword` ;
-* nom de domaine de la machine virtuelle = `dnsLabelPrefix`.
-
->[AZURE.TIP] Ces étapes n'indiquent qu'une manière d'utiliser un modèle de machine virtuelle avec l'interface de ligne de commande Azure. Pour d'autres exemples, consultez la rubrique [Déploiement et gestion de machines virtuelles à l'aide des modèles Azure Resource Manager et de l'interface de ligne de commande Azure](./virtual-machines/virtual-machines-linux-cli-deploy-templates.md).
-
-1. Suivez le lien « En savoir plus avec GitHub » pour télécharger les fichiers azuredeploy.json et azuredeploy.parameters.json depuis [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-linux) dans un dossier de travail sur votre ordinateur local. (Veillez à sélectionner le format _brut_ de chaque fichier dans GitHub.)
-
-2. Ouvrez le fichier azuredeploy.parameters.json dans un éditeur de texte et entrez des valeurs de paramètre appropriées pour votre environnement (en laissant la valeur **ubuntuOSVersion** inchangée).
-
-	```
-			{
-			  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-			  "contentVersion": "1.0.0.0",
-			  "parameters": {
-			    "adminUsername": {
-			      "value": "azureUser"
-			    },
-			    "adminPassword": {
-			      "value": "GEN-PASSWORD"
-			    },
-			    "dnsLabelPrefix": {
-			      "value": "GEN-UNIQUE"
-			    },
-			    "ubuntuOSVersion": {
-			      "value": "14.04.2-LTS"
-			    }
-			  }
-			}
-
-	```
-3.  À présent que les paramètres de déploiement ont été modifiés, vous allez déployer la machine virtuelle Ubuntu dans le groupe de ressources *testRG* créé précédemment. Choisissez un nom pour le déploiement (dans cet exemple, *testRGDeploy*), puis utilisez la commande suivante pour le démarrer.
-
-	```
-	azure group deployment create -f azuredeploy.json -e azuredeploy.parameters.json testRG testRGDeploy
-	```
-
-	L'option `-e` spécifie le fichier azuredeploy.parameters.json que vous avez modifié à l'étape précédente. L’option `-f` spécifie le fichier de modèle azuredeploy.json.
-
-	Cette commande renvoie la valeur OK une fois le déploiement chargé, mais avant qu'il ne soit appliqué aux ressources du groupe.
-
-4. Pour vérifier le statut du déploiement, utilisez la commande suivante.
-
-	```
-	azure group deployment show testRG testRGDeploy
-	```
-
-	**ProvisioningState** indique le statut du déploiement.
-
-	Si votre déploiement est exécuté avec succès, vous verrez une sortie similaire à celle de l'exemple suivant.
-
-		azure-cli@0.8.0:/# azure group deployment show testRG testRGDeploy
-		info:    Executing command group deployment show
-		+ Getting deployments
-		+ Getting deployments
-		data:    DeploymentName     : testDeploy
-		data:    ResourceGroupName  : testRG
-		data:    ProvisioningState  : Succeeded
-		data:    Timestamp          : 
-		data:    Mode               : Incremental
-		data:    Name                   Type          Value
-		data:    ---------------------  ------------  ---------------------
-		data:    adminUsername          String        MyUserName
-		data:    adminPassword          SecureString  undefined
-		data:    dnsLabelPrefix    String        MyDomainName
-		data:    ubuntuOSVersion        String        14.04.2-LTS
-		info:    group deployment show command OK
-
-	>[AZURE.NOTE] Si vous réalisez que votre configuration n'est pas correcte et que vous devez arrêter un déploiement long, utilisez la commande suivante.
-	>
-	> `azure group deployment stop testRG testRGDeploy`
-	>
-	> Si vous n'indiquez pas de nom de déploiement, un nom est créé automatiquement sur la base de celui du fichier de modèle. Il est renvoyé dans la sortie de la commande `azure group create`.
-
-	Maintenant vous pouvez exécuter SSH dans la machine virtuelle à l'aide du nom de domaine spécifié. Lorsque vous vous connectez à la machine virtuelle, vous devez utiliser un nom de domaine complet sous la forme `<domainName>.<region>.cloudapp.azure.com`, tel que `MyDomainName.westus.cloudapp.azure.com`.
-
-5. Pour afficher le groupe, utilisez la commande suivante.
-
-		azure group show testRG
-
-	Cette commande renvoie des informations sur les ressources du groupe. Si vous avez plusieurs groupes, utilisez la commande `azure group list` pour extraire une liste des noms de groupes et `azure group show` pour afficher les détails d'un groupe donné.
-
-Vous pouvez également utiliser un modèle directement à partir de [GitHub](https://github.com/Azure/azure-quickstart-templates) au lieu d'en télécharger un sur votre ordinateur. Pour ce faire, indiquez l’URL dans le fichier azuredeploy.json pour le modèle dans votre commande à l’aide de l’option **--template-uri**. Pour obtenir l'URL, ouvrez azuredeploy.json dans GitHub en mode _raw (brut)_ et copiez l'URL qui apparaît dans la barre d'adresse du navigateur. Vous pouvez ensuite utiliser directement cette URL pour créer un déploiement en utilisant une commande similaire à l'exemple suivant.
-
-	azure group deployment create testRG testRGDeploy --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-linux/azuredeploy.json
-Vous êtes invité à entrer les paramètres de modèle nécessaires.
-
-> [AZURE.NOTE] Il est très important d'ouvrir le modèle JSON en mode _raw_. L'URL qui apparaît dans la barre d'adresses du navigateur est différente de celle qui s'affiche en mode normal. Pour ouvrir le fichier en mode _raw_ quand vous affichez le fichier dans GitHub, cliquez sur **Raw** dans le coin supérieur droit.
-
-## Utiliser les ressources
-
-Les modèles vous permettent de déclarer des modifications de la configuration au niveau du groupe, mais vous devez parfois vous concentrer sur une ressource spécifique. Pour ce faire, utilisez les commandes `azure resource`.
-
-> [AZURE.NOTE] Quand vous utilisez d'autres commandes `azure resource` que la commande `list`, vous devez spécifier la version de l'API de la ressource avec laquelle vous travaillez au moyen du paramètre `-o`. Si vous ne connaissez pas la version de l'API à utiliser, consultez le fichier de modèle et recherchez le champ **apiVersion** de la ressource.
-
-1. Pour répertorier toutes les ressources d'un groupe, utilisez la commande suivante.
-
-		azure resource list testRG
-
-2. Pour afficher une ressource individuelle dans le groupe, par exemple la machine virtuelle *MyUbuntuVM*, utilisez une commande comme dans l’exemple suivant.
-
-		azure resource show testRG MyUbuntuVM Microsoft.Compute/virtualMachines -o "2015-06-15"
-
-	Notez le paramètre **Microsoft.Compute/virtualMachines**. Il indique le type de la ressource sur laquelle vous demandez des informations. Si vous regardez le fichier de modèle téléchargé plus tôt, vous pouvez noter que cette même valeur est utilisée pour définir le type de la ressource de machine virtuelle décrite dans le modèle.
-
-	Cette commande renvoie des informations concernant la machine virtuelle.
-
-3. Lorsque vous affichez des détails sur une ressource, il est souvent utile d'utiliser le paramètre `--json`. Cela rend la sortie plus lisible, car certaines valeurs sont des structures imbriquées ou des ensembles de valeurs collectées. L'exemple suivant montre les résultats renvoyés par la commande **show** dans un document JSON.
-
-		azure resource show testRG MyUbuntuVM Microsoft.Compute/virtualMachines -o "2015-06-15" --json
-
-	>[AZURE.NOTE] Vous pouvez enregistrer les données JSON dans un fichier au moyen du caractère &gt; pour diriger la sortie vers un fichier. Par exemple :
-	>
-	> `azure resource show testRG MyUbuntuVM Microsoft.Compute/virtualMachines -o "2015-06-15" --json > myfile.json`
-
-4. Pour supprimer une ressource, utilisez une commande comme dans l'exemple suivant.
-
-		azure resource delete testRG MyUbuntuVM Microsoft.Compute/virtualMachines -o "2015-06-15"
-
-## Afficher les journaux de groupe
-
-Pour afficher les informations de journalisation sur les opérations effectuées sur un groupe, utilisez la commande `azure group log show`. Par défaut, la dernière opération effectuée sur le groupe sera répertoriée. Pour afficher toutes les opérations, utilisez le paramètre facultatif `--all`. Pour le dernier déploiement, utilisez `--last-deployment`. Pour un déploiement spécifique, utilisez `--deployment`, puis spécifiez le nom du déploiement. L’exemple suivant renvoie un journal contenant toutes les opérations effectuées dans le groupe *testRG*.
-
-	azure group log show testRG --all
+    azure group list
     
+
+### Ressources
+ Pour répertorier toutes les ressources d’un groupe, par exemple une ressource ayant pour nom *testRG*, utilisez la commande suivante.
+
+	azure resource list testRG
+
+Pour afficher une ressource individuelle dans le groupe, par exemple une machine virtuelle *MyUbuntuVM*, utilisez une commande du type celle qui suit.
+
+	azure resource show testRG MyUbuntuVM Microsoft.Compute/virtualMachines -o "2015-06-15"
+    
+Notez le paramètre **Microsoft.Compute/virtualMachines**. Il indique le type de la ressource sur laquelle vous demandez des informations.
+    
+>[AZURE.NOTE]Quand vous utilisez des commandes **azure resource** autres que la commande **list**, vous devez spécifier la version de l’API de la ressource avec laquelle vous travaillez au moyen du paramètre **-o**. Si vous ne connaissez pas la version de l’API à utiliser, consultez le fichier de modèle et recherchez le champ apiVersion de la ressource. Pour plus d’informations sur les versions d’API dans Resource Manager, voir [Fournisseurs, régions, schémas et versions d’API Resource Manager](resource-manager-supported-services.md).
+
+Lorsque vous affichez des détails sur une ressource, il est souvent utile d'utiliser le paramètre `--json`. Il rend la sortie plus lisible, car certaines valeurs sont des structures imbriquées ou des ensembles de valeurs collectées. L'exemple suivant montre les résultats renvoyés par la commande **show** dans un document JSON.
+
+	azure resource show testRG MyUbuntuVM Microsoft.Compute/virtualMachines -o "2015-06-15" --json
+
+>[AZURE.NOTE] Si vous le voulez, vous pouvez enregistrer les données JSON dans un fichier au moyen du caractère &gt; pour diriger la sortie vers un fichier. Par exemple :
+>
+> `azure resource show testRG MyUbuntuVM Microsoft.Compute/virtualMachines -o "2015-06-15" --json > myfile.json`
+
+### Balises
+
+Pour vous aider à organiser votre ressource, ajoutez [tags](resource-group-using-tags.md) aux ressources et aux groupes de ressources. Pour afficher les balises déjà appliquées, récupérez simplement un groupe de ressources et ses ressources avec **azure group show**.
+
+    azure group show -n tag-demo-group
+    
+Cette commande renvoie des métadonnées sur le groupe de ressources, y compris toutes les balises appliquées.
+    
+    info:    Executing command group show
+    + Listing resource groups
+    + Listing resources for the group
+    data:    Id:                  /subscriptions/{guid}/resourceGroups/tag-demo-group
+    data:    Name:                tag-demo-group
+    data:    Location:            westus
+    data:    Provisioning State:  Succeeded
+    data:    Tags: Dept=Finance;Environment=Production
+    data:    Resources:
+    data:
+    data:      Id      : /subscriptions/{guid}/resourceGroups/tag-demo-group/providers/Microsoft.Sql/servers/tfsqlserver
+    data:      Name    : tfsqlserver
+    data:      Type    : servers
+    data:      Location: eastus2
+    data:      Tags    : Dept=Finance;Environment=Production
+    ...
+
+Pour obtenir les balises uniquement pour le groupe de ressources, servez-vous d’un utilitaire JSON comme [jq](http://stedolan.github.io/jq/download/).
+
+    azure group show -n tag-demo-group --json | jq ".tags"
+    
+Cette commande renvoie les balises pour ce groupe de ressources.
+    
+    {
+      "Dept": "Finance",
+      "Environment": "Production" 
+    }
+
+Vous affichez les balises d’une ressource spécifique avec la commande **azure resource show**.
+
+    azure resource show -g tag-demo-group -n tfsqlserver -r Microsoft.Sql/servers -o 2014-04-01-preview --json | jq ".tags"
+    
+Cette commande renvoie les informations suivantes.
+    
+    {
+      "Dept": "Finance",
+      "Environment": "Production"
+    }
+    
+Récupérez toutes les ressources associées à une balise en particulier en utilisant une commande du type celle qui suit.
+
+    azure resource list --json | jq ".[] | select(.tags.Dept == "Finance") | .name"
+    
+Cette commande renvoie les noms des ressources associées à cette balise.
+    
+    "tfsqlserver"
+    "tfsqlserver/tfsqldata"
+
+Les balises sont mises à jour ensemble. Aussi, si vous ajoutez une balise à une ressource déjà balisée, vous devez récupérer les balises existantes que vous souhaitez conserver. Pour définir la valeur des balises associées à un groupe de ressources, utilisez **azure group set** et indiquez toutes les balises du groupe de ressources.
+
+    azure group set -n tag-demo-group -t Dept=Finance;Environment=Production;Project=Upgrade
+    
+Un résumé du groupe de ressources avec les nouvelles balises est renvoyé.
+    
+    info:    Executing command group set
+    ...
+    data:    Name:                tag-demo-group
+    data:    Location:            westus
+    data:    Provisioning State:  Succeeded
+    data:    Tags: Dept=Finance;Environment=Production;Project=Upgrade
+    ...
+    
+Vous pouvez répertorier les balises existantes dans votre abonnement avec **azure tag list** et ajouter une balise avec **azure tag create**. Pour supprimer une balise de la taxonomie de votre abonnement, commencez par supprimer la balise sur toutes les ressources où elle est appliquée, puis supprimez-la avec la commande **azure tag delete**.
+
+## Gestion des ressources
+
+
+Pour ajouter une ressource telle qu’un compte de stockage à un groupe de ressources, exécutez une commande du type :
+
+    azure resource create testRG MyStorageAccount "Microsoft.Storage/storageAccounts" "westus" -o "2015-06-15" -p "{"accountType": "Standard_LRS"}"
+    
+En plus de spécifier la version de l’API de la ressource avec le paramètre **-o**, utilisez le paramètre **-p** pour transmettre une chaîne au format JSON contenant toutes les propriétés requises ou supplémentaires.
+    
+    
+Pour supprimer une ressource existante, par exemple une ressource de machine virtuelle, utilisez une commande comme dans l’exemple suivant.
+
+	azure resource delete testRG MyUbuntuVM Microsoft.Compute/virtualMachines -o "2015-06-15"
+
+Pour déplacer des ressources existantes vers un autre groupe de ressources ou un autre abonnement, exécutez la commande **azure resource move**. L’exemple suivant montre comment déplacer un cache Redis vers un nouveau groupe de ressources. Dans le paramètre **-i**, spécifiez une liste séparée par des virgules des ID des ressources à déplacer.
+
+
+    azure resource move -i "/subscriptions/{guid}/resourceGroups/OldRG/providers/Microsoft.Cache/Redis/examplecache" -d "NewRG"
+
+## Contrôler l’accès aux ressources
+
+Vous pouvez utiliser l’interface de ligne de commande Azure pour créer et gérer des stratégies et ainsi contrôler l’accès aux ressources Azure. Pour plus d’informations sur les définitions de stratégie et l’affectation de stratégies aux ressources, voir [Utiliser la stratégie pour gérer les ressources et contrôler l’accès](resource-manager-policy.md).
+
+Par exemple, définissez la stratégie suivante pour refuser toutes les demandes dans lesquelles l’emplacement n’est pas Ouest des États-Unis ou Amérique du Nord, puis enregistrez-la dans le fichier de définition de stratégie policy.json :
+
+    {
+    "if" : {
+        "not" : {
+        "field" : "location",
+        "in" : ["westus" ,  "northcentralus"]
+        }
+    },
+    "then" : {
+        "effect" : "deny"
+    }
+    }
+
+Exécutez ensuite la commande **policy definition create** :
+
+    azure policy definition create MyPolicy -p c:\temp\policy.json
+    
+Cette commande propose une sortie qui ressemble à ce qui suit.
+
+    + Creating policy definition MyPolicy
+    data:    PolicyName:             MyPolicy
+    data:    PolicyDefinitionId:     /subscriptions/########-####-####-####-############/providers/Microsoft.Authorization/policyDefinitions/MyPolicy
+
+    data:    PolicyType:             Custom
+    data:    DisplayName:            undefined
+    data:    Description:            undefined
+    data:    PolicyRule:             field=location, in=[westus, northcentralus], effect=deny
+
+ Pour attribuer une stratégie correspondant à l’étendue souhaitée, utilisez la valeur **PolicyDefinitionId** renvoyée par la commande précédente. Dans l’exemple suivant, cette étendue est l’abonnement, mais il peut s’agir de ressources individuelles ou de groupes de ressources :
+
+    azure policy assignment create MyPolicyAssignment -p /subscriptions/########-####-####-####-############/providers/Microsoft.Authorization/policyDefinitions/MyPolicy -s /subscriptions/########-####-####-####-############/
+
+Vous pouvez obtenir, modifier ou supprimer des définitions de stratégie à l’aide des commandes **policy definition show**, **policy definition set** et **policy definition delete**.
+
+De même, vous pouvez obtenir, modifier ou supprimer des affectations de stratégie à l’aide des commandes **policy assignment show**, **policy assignment set**, and **policy assignment delete**.
+
+
 ## Exporter un groupe de ressources en tant que modèle
 
 Vous pouvez afficher le modèle Resource Manager pour un groupe de ressources existant. L’exportation du modèle offre deux avantages :
 
-1. Vous pouvez facilement automatiser des déploiements futurs de la solution car l’ensemble de l’infrastructure est définie dans le modèle.
+1. Vous pouvez facilement automatiser les prochains déploiements de la solution, car l’ensemble de l’infrastructure est défini dans le modèle.
 
 2. Vous pouvez vous familiariser avec la syntaxe de modèle en regardant dans la JSON qui représente votre solution.
 
@@ -226,17 +216,19 @@ Vous pouvez afficher le modèle Resource Manager pour un groupe de ressources ex
 
         azure group export testRG ~/azure/templates/
 
-* Le **téléchargement du modèle pour un déploiement spécifique** est utile lorsque vous avez besoin d’afficher le modèle réel qui a été utilisé pour déployer des ressources. Le modèle comprend tous les paramètres et toutes variables définis pour le déploiement d’origine. Toutefois, si un membre de votre organisation a apporté des modifications au groupe de ressources qui ne sont pas définies dans le modèle, ce dernier ne représente pas l’état actuel du groupe de ressources.
+* **Le téléchargement du modèle pour un déploiement spécifique** est utile lorsque vous avez besoin d’afficher le modèle réel qui a été utilisé pour déployer des ressources. Ce modèle comprend tous les paramètres et toutes les variables définis pour le déploiement d’origine. Toutefois, si un membre de votre organisation a apporté des modifications au groupe de ressources et que celles-ci ne sont pas définies dans le modèle, ce dernier ne représente pas l’état actuel du groupe de ressources.
 
-    Pour télécharger le modèle utilisé pour un déploiement spécifique dans un répertoire local, exécutez la commande `azure group deployment template download`.
+    Pour télécharger le modèle utilisé pour un déploiement spécifique dans un répertoire local, exécutez la commande `azure group deployment template download`. Par exemple :
 
         azure group deployment template download TestRG testRGDeploy ~/azure/templates/downloads/
  
->[AZURE.NOTE] L’exportation de modèle est en version préliminaire. Elle n’est pas encore prise en charge par tous les types de ressources. Lorsque vous tentez d’exporter un modèle, une erreur indiquant que certaines ressources n’ont pas été exportées peut s’afficher. Le cas échéant, vous pouvez définir manuellement ces ressources dans votre modèle après l’avoir téléchargé.
+>[AZURE.NOTE] L’exportation de modèle est en version préliminaire. Elle n’est pas encore prise en charge par tous les types de ressources. Lorsque vous tentez d’exporter un modèle, une erreur indiquant que certaines ressources n’ont pas été exportées peut s’afficher. Le cas échéant, définissez ces ressources manuellement dans votre modèle après l’avoir téléchargé.
+
+
 
 ## Étapes suivantes
 
-* Pour plus d'informations sur l'utilisation d'Azure Resource Manager avec Azure PowerShell, voir [Utilisation d'Azure PowerShell avec Azure Resource Manager](powershell-azure-resource-manager.md).
-* Pour plus d’informations sur l’utilisation d’Azure Resource Manager à partir du portail Azure, voir [Utilisation du Portail Azure pour déployer et gérer vos ressources Azure](./azure-portal/resource-group-portal.md).
+* Pour obtenir des informations détaillées sur les opérations de déploiement et résoudre les erreurs de déploiement avec l’interface de ligne de commande Azure, voir [Afficher les opérations de déploiement avec l’interface CLI Azure](resource-manager-troubleshoot-deployments-cli.md).
+* Si vous souhaitez utiliser l’interface de ligne de commande pour configurer une application ou un script afin d’accéder aux ressources, voir [Créer un principal du service pour accéder aux ressources à l’aide de l’interface de ligne de commande (CLI) Azure](resource-group-authenticate-service-principal-cli.md).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0824_2016-->

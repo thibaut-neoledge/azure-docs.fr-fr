@@ -1,9 +1,9 @@
 <properties
-   pageTitle="Prise en main de la configuration d’un équilibrage de charge accessible sur Internet à l’aide d’Azure Resource Manager | Microsoft Azure"
+   pageTitle="Prise en main de la configuration d’un équilibrage de charge accessible sur Internet à l’aide d’Azure Resource Manager | Microsoft Azure "
    description="Création de règles d’équilibrage de charge, de règles NAT et d’une sonde pour Azure Resource Manager. Présentation étape par étape de la procédure complète pour créer une ressource d’équilibrage de charge."
    services="load-balancer"
    documentationCenter="na"
-   authors="joaoma"
+   authors="sdwheeler"
    manager="carmonm"
    editor="tysonn" />
 <tags
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/09/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 # Prise en main de la configuration d’un équilibrage de charge accessible sur Internet à l’aide d’Azure Resource Manager
 
@@ -69,13 +69,13 @@ Connectez-vous à votre compte Azure.
 Vous devez indiquer vos informations d’identification.
 
 
-### Étape 3
+### Étape 3 :
 
 Parmi vos abonnements Azure, choisissez celui que vous souhaitez utiliser.
 
     PS C:\> Select-AzureSubscription -SubscriptionName "MySubscription"
 
-Pour afficher la liste des abonnements disponibles, utilisez l'applet de commande « Get-AzureSubscription ».
+Pour afficher la liste des abonnements disponibles, utilisez l’applet de commande « Get-AzureSubscription ».
 
 
 ### Étape 4
@@ -238,7 +238,7 @@ PS C:\> $backendnic1
 
 
 
-### Étape 3
+### Étape 3 :
 
 Utilisez la commande Add-AzureVMNetworkInterface pour affecter la carte réseau à un ordinateur virtuel.
 
@@ -247,20 +247,20 @@ Pour la procédure détaillée à suivre afin de créer une machine virtuelle et
 ## Mettre à jour un équilibreur de charge existant
 
 
-### Étape 1 :
+### Étape 1
 
 À l’aide de l’équilibreur de charge de l’exemple ci-dessus, attribuez un objet d’équilibreur de charge à la variable $slb à l’aide de Get-AzureLoadBalancer
 
 	$slb=get-azureLoadBalancer -Name NRP-LB -ResourceGroupName NRP-RG
 
-### Étape 2 :
+### Étape 2
 
 Dans l’exemple suivant, vous allez ajouter une nouvelle règle NAT entrante en utilisant le port 81 dans le serveur frontal et le port 8181 pour le pool principal, à un équilibreur de charge existant.
 
 	$slb | Add-AzureLoadBalancerInboundNatRuleConfig -Name NewRule -FrontendIpConfiguration $slb.FrontendIpConfigurations[0] -FrontendPort 81  -BackendPort 8181 -Protocol Tcp
 
 
-### Étape 3
+### Étape 3 :
 
 Enregistrez la nouvelle configuration à l’aide de Set-AzureLoadBalancer
 
@@ -281,4 +281,4 @@ Utilisez la commande Remove-AzureLoadBalancer pour supprimer un équilibreur de 
 
 [Configuration des paramètres de délai d’expiration TCP inactif pour votre équilibrage de charge](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0824_2016-->

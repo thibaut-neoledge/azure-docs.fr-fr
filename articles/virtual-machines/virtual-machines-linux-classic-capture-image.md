@@ -33,7 +33,7 @@ Ces étapes partent du principe que vous avez déjà créé une machine virtuell
 
 ## Capture de la machine virtuelle
 
-1. [Connectez-vous à la machine virtuelle](virtual-machines-linux-classic-log-on.md) à l’aide d’un client SSH de votre choix.
+1. [Connectez-vous à la machine virtuelle](virtual-machines-linux-mac-create-ssh-keys.md) à l’aide d’un client SSH de votre choix.
 
 2. Dans la fenêtre SSH, tapez la commande suivante. Notez que le résultat de `waagent` peut varier légèrement en fonction de la version utilisée :
 
@@ -45,7 +45,7 @@ Ces étapes partent du principe que vous avez déjà créé une machine virtuell
 	- efface la configuration de Nameserver dans /etc/resolv.conf ;
 	- supprime le mot de passe `root` de l’utilisateur de /etc/shadow (si Provisioning.DeleteRootPassword a la valeur « y » dans le fichier de configuration) ;
 	- supprime les baux du client DHCP mis en cache ;
-	- Réinitialise le nom d'hôte sur localhost.localdomain.
+	- Réinitialise le nom d’hôte sur localhost.localdomain.
 	- efface le dernier compte d’utilisateur approvisionné (obtenu de /var/lib/waagent) **et les données associées**.
 
 	>[AZURE.NOTE] L’annulation de l’approvisionnement supprime les fichiers et les données dans le but de « généraliser » l’image. Exécutez uniquement cette commande sur des machines virtuelles que vous souhaitez capturer dans un nouveau modèle d'image. Cela ne garantit pas que l’image est exempte de toute information sensible ou qu’elle convient pour la redistribution à des tiers.
@@ -57,7 +57,7 @@ Ces étapes partent du principe que vous avez déjà créé une machine virtuell
 
 	>[AZURE.NOTE] Les étapes suivantes supposent que vous avez déjà [installé la CLI Azure](../xplat-cli-install.md) sur votre ordinateur client. Toutes les étapes ci-dessous peuvent également être effectuées dans le [portail Azure Classic][].
 
-5. À partir de votre ordinateur client, ouvrez la CLI Azure et connectez-vous à votre abonnement Azure. Pour plus d’informations, consultez [Se connecter à un abonnement Azure à partir de la CLI Azure](../xplat-cli-connect.md).
+5. À partir de votre ordinateur client, ouvrez la CLI Azure et connectez-vous à votre abonnement Azure. Pour plus d’informations, consultez [Se connecter à un abonnement Azure à partir de l’interface de ligne de commande Azure (Azure CLI)](../xplat-cli-connect.md).
 
 6. Assurez-vous que vous êtes en mode de gestion des services :
 
@@ -67,7 +67,7 @@ Ces étapes partent du principe que vous avez déjà créé une machine virtuell
 
 	`azure vm shutdown <your-virtual-machine-name>`
 
-	>[AZURE.NOTE] Vous trouverez toutes les machines virtuelles créées dans votre abonnement à l'aide de `azure vm list`
+	>[AZURE.NOTE] Vous pouvez trouver toutes les machines virtuelles créées dans votre abonnement à l’aide de la commande `azure vm list`
 
 8. Une fois la machine virtuelle arrêtée, capturez l’image avec la commande :
 
@@ -81,7 +81,7 @@ Ces étapes partent du principe que vous avez déjà créé une machine virtuell
 
 	Dans le [portail Azure Classic][], elle apparaît dans la liste **IMAGES**.
 
-	![Capture d'image réussie](./media/virtual-machines-linux-classic-capture-image/VMCapturedImageAvailable.png)
+	![Capture d’image réussie](./media/virtual-machines-linux-classic-capture-image/VMCapturedImageAvailable.png)
 
 
 ## Étapes suivantes
@@ -95,4 +95,4 @@ L'image est prête à être utilisée pour créer des machines virtuelles. Vous 
 [How to Attach a Data Disk to a Virtual Machine]: virtual-machines-windows-classic-attach-disk.md
 [Comment créer une machine virtuelle Linux]: virtual-machines-linux-classic-create-custom.md
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0824_2016-->

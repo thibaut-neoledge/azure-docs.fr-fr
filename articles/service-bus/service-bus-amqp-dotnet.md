@@ -25,7 +25,7 @@ La prise en charge d’AMQP 1.0 est disponible dans le Kit de développement lo
 
 ## Configuration des applications .NET pour utiliser AMQP 1.0
 
-Par défaut, la bibliothèque cliente .NET Service Bus communique avec le service Service Bus à l’aide d’un protocole SOAP dédié. Pour utiliser AMQP 1.0 au lieu du protocole par défaut, vous avez besoin d’une configuration explicite sur la chaîne de connexion Service Bus, comme indiqué dans la section suivante. À l’exception de cette modification, le code de l’application reste inchangé lors de l’utilisation d’AMQP 1.0.
+Par défaut, la bibliothèque cliente .NET Service Bus communique avec le service Service Bus à l’aide d’un protocole SOAP dédié. Pour utiliser AMQP 1.0 au lieu du protocole par défaut, vous avez besoin d’une configuration explicite sur la chaîne de connexion Service Bus, comme indiqué dans la section suivante. À l'exception de cette modification, le code de l'application reste inchangé lors de l'utilisation d'AMQP 1.0.
 
 Dans la version actuelle, quelques fonctionnalités de l’API ne sont pas prises en charge lors de l’utilisation d’AMQP. Celles-ci sont répertoriées plus bas dans la section [Fonctionnalités non prises en charge, restrictions et différences de comportement](#unsupported-features-restrictions-and-behavioral-differences). Certains paramètres de configuration avancés ont également une signification différente lors de l’utilisation d’AMQP.
 
@@ -45,7 +45,7 @@ La valeur du paramètre `Microsoft.ServiceBus.ConnectionString` est la chaîne d
 
 	Endpoint=sb://[namespace].servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[SAS key];TransportType=Amqp
 
-Où les valeurs `[namespace]` et `SharedAccessKey` sont obtenues à partir du [portail Azure Classic][]. Pour plus d’informations, consultez [Utilisation des files d’attente Service Bus][].
+Où `[namespace]` et `SharedAccessKey` sont obtenues à partir du [portail Azure][]. Pour plus d’informations, consultez [Utilisation des files d’attente Service Bus][].
 
 Lorsque vous utilisez AMQP, ajoutez la chaîne de connexion avec `;TransportType=Amqp`. Cette notation informe la bibliothèque cliente afin qu’elle effectue sa connexion à Service Bus à l’aide d’AMQP 1.0.
 
@@ -124,7 +124,7 @@ Les API .NET exposent plusieurs paramètres pour contrôler le comportement du p
 Prêt à en savoir plus ? Visitez les liens suivants :
 
 - [Vue d’ensemble d’AMQP de Service Bus]
-- [Prise en charge d’AMQP 1.0 dans les rubriques et files d’attente partitionnées Service Bus]
+- [Prise en charge d’AMQP 1.0 dans les rubriques et files d’attente partitionnées Service Bus]
 - [AMQP dans Service Bus pour Windows Server]
 
   [Utilisation des files d’attente Service Bus]: service-bus-dotnet-get-started-with-queues.md
@@ -134,9 +134,9 @@ Prêt à en savoir plus ? Visitez les liens suivants :
   [Microsoft.ServiceBus.Messaging.MessagingFactory.CreateMessageSender(System.String,System.String)]: https://msdn.microsoft.com/library/azure/jj657703.aspx
   [OperationTimeout]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactorysettings.operationtimeout.aspx
 [NuGet]: http://nuget.org/packages/WindowsAzure.ServiceBus/
-[portail Azure Classic]: http://manage.windowsazure.com
+[portail Azure]: https://portal.azure.com
 [Vue d’ensemble d’AMQP de Service Bus]: service-bus-amqp-overview.md
-[Prise en charge d’AMQP 1.0 dans les rubriques et files d’attente partitionnées Service Bus]: service-bus-partitioned-queues-and-topics-amqp-overview.md
+[Prise en charge d’AMQP 1.0 dans les rubriques et files d’attente partitionnées Service Bus]: service-bus-partitioned-queues-and-topics-amqp-overview.md
 [AMQP dans Service Bus pour Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0824_2016-->

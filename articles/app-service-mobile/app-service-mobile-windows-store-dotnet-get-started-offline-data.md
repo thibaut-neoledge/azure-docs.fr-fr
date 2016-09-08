@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/14/2016"
+	ms.date="08/19/2016"
 	ms.author="wesmc"/>
 
 # Activation de la synchronisation hors connexion pour votre application Windows
@@ -32,7 +32,7 @@ Pour plus d’informations sur la fonctionnalité de synchronisation hors connex
 
 Ce didacticiel requiert les éléments suivants :
 
-* exécution de Visual Studio 2013 sur Windows 8.1 ;
+* Visual Studio 2013 s'exécutant sous Windows 8.1.
 * finalisation de [Créer une application Windows][create a windows app].
 * [Azure Mobile Services SQLite Store][sqlite store nuget]
 * [SQLite pour développement sur plateforme Windows universelle](http://www.sqlite.org/downloads).
@@ -43,7 +43,7 @@ Les fonctionnalités hors connexion de l’application mobile Azure vous permett
 
 1. Installez le [Runtime SQLite pour la plateforme Windows universelle](http://sqlite.org/2016/sqlite-uwp-3120200.vsix).
 
-2. Dans Visual Studio, ouvrez le gestionnaire de package NuGet pour le projet d’application UWP que vous avez terminé dans le didacticiel [créer une application Windows] (didacticiel), puis recherchez et installez le package NuGet **Microsoft.Azure.Mobile.Client.SQLiteStore**.
+2. Dans Visual Studio, ouvrez le gestionnaire de package NuGet pour le projet d’application UWP que vous avez terminé dans le didacticiel [créer une application Windows] \(didacticiel), puis recherchez et installez le package NuGet **Microsoft.Azure.Mobile.Client.SQLiteStore**.
 
 4. Dans l’Explorateur de solutions, cliquez sur **Références** > **Ajouter une référence…** > **Windows universel** > **Extensions**, puis activez **SQLite pour plateforme Windows universelle** et **Runtime Visual C++ 2015 pour applications pour plateforme Windows universelle**.
 
@@ -129,7 +129,7 @@ Dans cette section, vous rompez la connexion avec l’application mobile afin de
          public static MobileServiceClient MobileService =
 				new MobileServiceClient("https://your-service.azurewebsites.fail");
 
-	Notez que la connexion échouera si votre application utilise également l'authentification. Vous pouvez également illustrer le comportement en mode hors connexion en désactivant les réseaux Wi-Fi et cellulaire sur l'appareil ou utiliser le mode avion.
+	Notez que la connexion échouera si votre application utilise également l'authentification. Vous pouvez également illustrer le comportement en mode hors connexion en désactivant les réseaux Wi-Fi et cellulaire sur l’appareil ou utiliser le mode avion.
 
 2. Appuyez sur **F5** pour générer et exécuter l'application. Notez que la synchronisation a échoué lors de l’actualisation au lancement de l’application.
  
@@ -137,7 +137,7 @@ Dans cette section, vous rompez la connexion avec l’application mobile afin de
 
 	Dans une application de production, si vous supprimez ces exceptions, l’application cliente se comporte comme si elle est encore connectée au backend de l’application mobile.
 
-4. Fermez l'application et redémarrez-la pour vérifier que les nouveaux élément que vous avez créés sont conservés dans le magasin local.
+4. Fermez l’application et redémarrez-la pour vérifier que les nouveaux élément que vous avez créés sont conservés dans le magasin local.
 
 5. (Facultatif) Dans Visual Studio, ouvrez l’**Explorateur de serveurs**. Accédez à votre base de données dans **Azure**->**Bases de données SQL**. Cliquez avec le bouton droit sur votre base de données, puis sélectionnez **Ouvrir dans l’Explorateur d’objets SQL Server**. Maintenant, vous pouvez accéder à votre table de base de données SQL et à son contenu. Vérifiez que les données dans la base de données backend n’ont pas changé.
 
@@ -178,7 +178,7 @@ Pour plus d’informations sur ces concepts, consultez la page [Synchronisation 
 Les rubriques suivantes fournissent des informations générales supplémentaires sur la fonctionnalité de synchronisation hors connexion de Mobile Apps :
 
 * [Synchronisation des données hors connexion dans Azure Mobile Apps]
-* [Cloud Cover : synchronisation hors connexion dans Azure Mobile Services] (notez que la vidéo est destinée à Mobile Services, mais la synchronisation hors connexion fonctionne de la même manière dans Azure Mobile Apps)
+* [Cloud Cover : synchronisation hors connexion dans Azure Mobile Services] \(notez que la vidéo est destinée à Mobile Services, mais la synchronisation hors connexion fonctionne de la même manière dans Azure Mobile Apps)
 * [Azure Friday : applications prenant en charge le mode hors connexion dans Azure Mobile Services]
 
 <!-- Anchors. -->
@@ -215,4 +215,4 @@ Les rubriques suivantes fournissent des informations générales supplémentaire
 [Cloud Cover : synchronisation hors connexion dans Azure Mobile Services]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 [Azure Friday : applications prenant en charge le mode hors connexion dans Azure Mobile Services]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0824_2016-->

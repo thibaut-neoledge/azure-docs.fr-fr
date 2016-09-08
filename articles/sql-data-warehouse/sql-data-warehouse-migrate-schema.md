@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/08/2016"
+   ms.date="08/17/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Migration de votre schéma vers SQL Data Warehouse#
 
-Les synthèses suivantes vous permettront de mieux comprendre les différences entre SQL Server et SQL Data Warehouse afin de faciliter la migration de votre base de données.
+Les résumés suivants vous permettent de comprendre les différences entre SQL Server et SQL Data Warehouse afin de faciliter la migration de votre base de données.
 
 ### Fonctionnalités de tables
 SQL Data Warehouse n’utilise ou ne prend pas en charge les fonctionnalités suivantes :
@@ -95,7 +95,7 @@ AND  y.[is_user_defined] = 1
 
 ```
 
-La requête inclut les types de données définis par l’utilisateur qui ne sont également pas pris en charge.
+La requête inclut tous les types de données définis par l’utilisateur qui sont également non pris en charge.
 
 Si votre base de données inclut des types non pris en charge, ne vous inquiétez pas. Voici d’autres solutions possibles :
 
@@ -107,8 +107,8 @@ Au lieu du paramètre...
 - **image**, **text**, **ntext** : utilisez une valeur «  varchar/nvarchar » (la plus petite possible) ;
 - **sql\_variant** : fractionnez la colonne en plusieurs colonnes fortement typées ;
 - **table** : appliquez une conversion vers des tables temporaires ;
-- **timestamp** : modifiez le code afin d’utiliser le paramètre « datetime2 » et la fonction `CURRENT_TIMESTAMP`. Remarque : vous ne pouvez pas utiliser le paramètre « current\_timestamp » en tant que contrainte par défaut ; la valeur ne sera pas automatiquement mise à jour. Si vous devez migrer les valeurs « rowversion » à partir d’une colonne de type horodatage, utilisez le paramètre binary(8) ou varbinary(8) pour les valeurs de version de ligne NOT NULL ou NULL ;
-- **types définis par l’utilisateur** : appliquez à nouveau les types natifs, le cas échéant ;
+- **timestamp** : modifiez le code afin d’utiliser le paramètre « datetime2 » et la fonction `CURRENT_TIMESTAMP`. Notez que vous ne pouvez pas avoir de current\_timestamp comme une contrainte par défaut. Si vous devez migrer les valeurs rowversion à partir d’une colonne de type timestamp, utilisez le paramètre binary(8) ou varbinary(8) pour les valeurs de version de ligne NOT NULL ou NULL ;
+- **types définis par l’utilisateur** : rétablissez leurs types natifs autant que possible ;
 - **xml** : utilisez la valeur varchar(max) ou une valeur inférieure pour optimiser les performances. Fractionner sur plusieurs colonnes si nécessaire.
 
 Pour optimiser les performances, au lieu de :
@@ -120,10 +120,10 @@ Prise en charge partielle :
 
 - Les contraintes par défaut prennent uniquement en charge des littéraux et des constantes. Les expressions ou fonctions non déterministes comme `GETDATE()` ou `CURRENT_TIMESTAMP` ne sont pas prises en charge.
 
-> [AZURE.NOTE] Si vous utilisez PolyBase pour charger vos tables, définissez ces dernières de sorte que la taille de ligne maximale (longueur totale des colonnes à longueur variable comprise) ne dépasse pas 32 767 octets. Vous pouvez définir des lignes incluant des données d’une longueur variable, susceptibles de dépasser cette valeur maximale, et charger des lignes avec BCP. Toutefois, vous ne pouvez pas encore utiliser PolyBase pour charger ces données. La prise en charge de PolyBase pour les lignes larges sera bientôt disponible. Essayez également de limiter la taille de vos colonnes à longueur variable, afin d’optimiser le débit lors de l’exécution des requêtes.
+> [AZURE.NOTE] Définissez vos tables de façon à ce que la taille de ligne maximale ne dépasse pas 32 767 octets lors de l’utilisation de PolyBase pour effectuer le chargement. Il est important de se rappeler que la taille de ligne maximale inclut la longueur totale de toute colonne de longueur variable. Si vous pouvez définir une ligne avec des données de longueur variable supérieure à ce chiffre, vous ne pouvez pas utiliser PolyBase pour charger ces données dès aujourd’hui. En attendant, utilisez BCP pour charger des lignes larges. Essayez enfin de limiter la taille de vos colonnes de longueur variable afin d’optimiser le débit lors de l’exécution de requêtes.
 
 ## Étapes suivantes
-Une fois que vous avez migré le schéma de base de données vers SQL Data Warehouse, vous pouvez parcourir l’un des articles suivants :
+Après avoir avez correctement migré votre schéma de base de données vers SQL Data Warehouse, passez à l’un des articles suivants :
 
 - [Migration de vos données][]
 - [Migration de votre code][]
@@ -142,4 +142,4 @@ Pour obtenir des conseils supplémentaires sur le développement, consultez la [
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

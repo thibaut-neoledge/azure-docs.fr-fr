@@ -1,8 +1,8 @@
 <properties
- pageTitle="Comment gérer l’expiration des contenus d’objets blob dans le réseau de distribution de contenu Azure (CDN) | Microsoft Azure"
+ pageTitle="Gérer l’expiration du contenu de l’objet BLOB Azure Storage dans Azure CDN | Microsoft Azure"
  description="Découvrez les options de contrôle de la durée de vie des objets blob dans la mise en cache Azure CDN."
  services="cdn"
- documentationCenter=".NET"
+ documentationCenter=""
  authors="camsoper"
  manager="erikre"
  editor=""/>
@@ -10,92 +10,102 @@
  ms.service="cdn"
  ms.workload="media"
  ms.tgt_pltfrm="na"
- ms.devlang="dotnet"
+ ms.devlang="multiple"
  ms.topic="article"
- ms.date="07/28/2016"
+ ms.date="08/24/2016"
  ms.author="casoper"/>
 
 
-#Comment gérer l'expiration des contenus d'objets blob dans le réseau de distribution de contenu Azure (CDN)  
+# Gérer l’expiration du contenu de l’objet BLOB Azure Storage dans Azure CDN
 
-Les objets blob qui bénéficient le plus de la mise en cache Azure CDN sont ceux qui sont fréquemment sollicités pendant leur durée de vie. Un objet blob reste dans le cache pour la durée de vie, puis est actualisé par le service blob une fois cette période écoulée. Ensuite, le processus se répète.
+Le [service BLOB](../storage/storage-introduction.md#blob-storage) dans [Azure Storage](../storage/storage-introduction.md) fait partie des différentes origines Azure intégrées à Azure CDN. Tout contenu d’objet BLOB publiquement accessible peut être mis en cache dans Azure CDN jusqu’à l’expiration de sa durée de vie. La durée de vie est déterminée par l’[en-tête de *contrôle de cache*](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) dans la réponse HTTP d’Azure Storage.
 
-Vous avez deux options pour contrôler la durée de vie.
+>[AZURE.TIP] Vous pouvez choisir de ne pas définir la durée de vie d’un objet BLOB. Dans ce cas, Azure CDN applique automatiquement une durée de vie de sept jours par défaut.
+>
+>Pour découvrir comment Azure CDN accélère l’accès aux objets BLOB et à d’autres fichiers, consultez la [Vue d’ensemble d’Azure CDN](./cdn-overview.md).
+>
+>Pour plus d’informations sur le service BLOB Azure Storage, consultez la page [Concepts du service BLOB](https://msdn.microsoft.com/library/dd179376.aspx).
 
-1.	Ne pas définir de valeurs de cache, donc utiliser la durée de vie par défaut de 7 jours.
-2.	Définissez explicitement la propriété *x-ms-blob-cache-control* sur une demande **Put Blob**, **Put Block List** ou **Set Blob Properties** ou utilisez la bibliothèque managée Azure pour définir la propriété [BlobProperties.CacheControl](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.blobproperties.cachecontrol.aspx). Le fait de définir cette propriété définit la valeur de l’en-tête *Cache-Control* pour l’objet blob. La valeur de l'en-tête ou de la propriété doit spécifier la valeur appropriée en secondes. Par exemple, pour définir la période maximale de mise en cache sur un an, vous pouvez spécifier l’en-tête de demande sous la forme `x-ms-blob-cache-control: public, max-age=31556926`. Pour plus d’informations sur la configuration des en-têtes de mise en cache, consultez la [spécification HTTP/1.1](http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html).
+Ce didacticiel présente plusieurs façons de définir la durée de vie d’un objet BLOB dans Azure Storage.
 
-Tout contenu que vous voulez mettre en cache via le CDN doit être stocké dans votre compte de stockage Azure en tant qu'objet blob accessible publiquement. Pour plus d’informations sur le service BLOB Azure, consultez la page [Concepts du service BLOB](https://msdn.microsoft.com/library/dd179376.aspx).
+## Azure PowerShell
 
-Il existe différentes manières d'utiliser du contenu dans le service BLOB :
+[Azure PowerShell](../powershell-install-configure.md) est l’un des moyens les plus rapides et puissants de gérer vos services Azure. Utilisez l’applet de commande `Get-AzureStorageBlob` pour obtenir une référence à l’objet BLOB, puis définissez la propriété `.ICloudBlob.Properties.CacheControl`.
 
--	À l’aide de l’API managée fournie par la [bibliothèque cliente Azure Storage pour .NET](https://msdn.microsoft.com/library/azure/mt347887.aspx).
--	À l'aide d'un outil de gestion de stockage tiers
--	À l’aide de l’[API REST des services Azure Storage](https://msdn.microsoft.com/library/azure/dd179355.aspx).
+```powershell
+# Create a storage context
+$context = New-AzureStorageContext -StorageAccountName "<storage account name>" -StorageAccountKey "<storage account key>"
 
-L’exemple de code suivant est une application console qui utilise la bibliothèque cliente Azure Storage pour créer un conteneur, définir ses autorisations pour l’accès public et créer un objet blob dans le conteneur. En outre, il spécifie explicitement un intervalle d'actualisation en définissant l'en-tête Cache-Control sur l'objet blob.
+# Get a reference to the blob
+$blob = Get-AzureStorageBlob -Context $context -Container "<container name>" -Blob "<blob name>"
 
-En supposant que vous avez activé le CDN comme indiqué ci-dessus, l'objet blob créé est mis en cache par le CDN. Veillez à spécifier vos informations d'identification de compte à l'aide de vos propres clé d'accès et compte de stockage :
+# Set the CacheControl property to expire in 1 hour (3600 seconds)
+$blob.ICloudBlob.Properties.CacheControl = "public, max-age=3600"
+
+# Send the update to the cloud
+$blob.ICloudBlob.SetProperties()
+```
+
+>[AZURE.TIP] Vous pouvez également utiliser PowerShell pour [gérer vos profils et points de terminaison CDN](./cdn-manage-powershell.md).
+
+## Bibliothèque cliente Azure Storage pour .NET
+
+Pour définir la durée de vie d’un objet BLOB à l’aide de .NET, utilisez la [bibliothèque cliente d’Azure Storage pour .NET](../storage/storage-dotnet-how-to-use-blobs.md) pour définir la propriété [CloudBlob.Properties.CacheControl](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.blobproperties.cachecontrol.aspx).
 
 ```csharp
-using System;
-using Microsoft.WindowsAzure;
-using Microsoft.WindowsAzure.StorageClient;
-
-namespace BlobsInCDN
+class Program
 {
-	class Program
+	const string connectionString = "<storage connection string>";
+	static void Main()
 	{
-		static void Main(string[] args)
-		{
-			//Specify storage credentials.
-			StorageCredentialsAccountAndKey credentials = new StorageCredentialsAccountAndKey("storagesample",
-				"<your storage account key>");
+		// Retrieve storage account information from connection string
+		CloudStorageAccount storageAccount = CloudStorageAccount.Parse(connectionString);
+		
+		// Create a blob client for interacting with the blob service.
+		CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+		
+		// Create a reference to the container
+		CloudBlobContainer container = blobClient.GetContainerReference("<container name>");
 
-			//Create a reference to your storage account, passing in your credentials.
-			CloudStorageAccount storageAccount = new CloudStorageAccount(credentials, true);
+		// Create a reference to the blob
+		CloudBlob blob = container.GetBlobReference("<blob name>");
 
-			//Create a new client object, which will provide access to Blob service resources.
-			CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+		// Set the CacheControl property to expire in 1 hour (3600 seconds)
+		blob.Properties.CacheControl = "public, max-age=3600";
 
-			//Create a new container.
-			CloudBlobContainer container = blobClient.GetContainerReference("cdncontent");
-			container.CreateIfNotExist();
-
-			//Specify that the container is publicly accessible.
-			BlobContainerPermissions containerAccess = new BlobContainerPermissions();
-			containerAccess.PublicAccess = BlobContainerPublicAccessType.Container;
-			container.SetPermissions(containerAccess);
-
-			//Create a new blob and write some text to it.
-			CloudBlob blob = blobClient.GetBlobReference("cdncontent/testblob.txt");
-			blob.UploadText("This is a test blob.");
-
-			//Set the Cache-Control header on the blob to specify your desired refresh interval.
-			blob.SetCacheControl("public, max-age=31536000");
-		}
-	}
-
-	public static class BlobExtensions
-	{
-		//A convenience method to set the Cache-Control header.
-		public static void SetCacheControl(this CloudBlob blob, string value)
-		{
-			blob.Properties.CacheControl = value;
-			blob.SetProperties();
-		}
+		// Update the blob's properties in the cloud
+		blob.SetProperties();
 	}
 }
 ```
 
-Vérifiez que votre objet blob est disponible via l'URL du CDN. Pour l'objet blob indiqué ci-dessus, l'URL ressemblerait à ceci :
+>[AZURE.TIP] De nombreux autres exemples de code .NET sont disponibles dans les [exemples de stockage d’objets BLOB Azure pour .NET](https://azure.microsoft.com/documentation/samples/storage-blob-dotnet-getting-started/).
 
-	http://<endpoint>.azureedge.net/cdncontent/testblob.txt  
+## Autres méthodes
 
-Si vous le souhaitez, vous pouvez utiliser un outil comme **wget** ou Fiddler pour examiner les détails de la demande et de la réponse.
+- [Interface de ligne de commande Azure](../xplat-cli-install.md)
 
-##Voir aussi
+	Lors du chargement de l’objet BLOB, définissez la propriété *cacheControl* à l’aide du switch `-p`. Cet exemple définit la durée de vie sur une heure (3 600 secondes).
 
-[Comment gérer l’expiration des contenus de service cloud dans le réseau de distribution de contenu Azure (CDN)](./cdn-manage-expiration-of-cloud-service-content.md)
+	```text
+	azure storage blob upload -c <connectionstring> -p cacheControl="public, max-age=3600" .\test.txt myContainer test.txt
+	```
 
-<!---HONumber=AcomDC_0803_2016-->
+- [API REST des services d’Azure Storage](https://msdn.microsoft.com/library/azure/dd179355.aspx)
+
+	Définissez explicitement la propriété *x-ms-blob-cache-control* sur une demande [Put Blob](https://msdn.microsoft.com/fr-FR/library/azure/dd179451.aspx), [Put Block List](https://msdn.microsoft.com/fr-FR/library/azure/dd179467.aspx) ou [Set Blob Properties](https://msdn.microsoft.com/library/azure/ee691966.aspx).
+
+- Outils de gestion du stockage tiers
+
+	Certains outils de gestion Azure Storage tiers vous permettent de définir la propriété *CacheControl* sur les objets BLOB.
+
+## Test de l’en-tête *Cache-Control*
+
+Vous pouvez facilement vérifier la durée de vie de vos objets BLOB. À l’aide des [outils de développement](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/) de votre navigateur, vérifiez que votre objet BLOB comprend l’en-tête de réponse *Cache-Control*. Vous pouvez également utiliser un outil tel que **wget**, [Postman](https://www.getpostman.com/) ou [Fiddler](http://www.telerik.com/fiddler) pour examiner les en-têtes de réponse.
+
+## Étapes suivantes
+
+- [En savoir plus sur les en-têtes *Cache-Control*](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9)
+- [Comment gérer l’expiration des contenus de service cloud dans Azure CDN](./cdn-manage-expiration-of-cloud-service-content.md)
+
+<!---HONumber=AcomDC_0824_2016-->

@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="05/04/2016"
+	ms.date="08/19/2016"
 	ms.author="jroth"/>
 
 # Utilisation du stockage Premium Azure avec SQL Server sur des machines virtuelles
@@ -27,7 +27,7 @@ Le [stockage Premium Azure](../storage/storage-premium-storage.md) est la nouvel
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 
-Cet article fournit une planification et des conseils pour la migration d'une machine virtuelle exécutant SQL Server afin d'utiliser le stockage Premium. Cela inclut l'infrastructure Azure (mise en réseau, stockage) et les étapes de la machine virtuelle Windows hôte. L’exemple de l’[annexe](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage) montre une migration complète de bout en bout sur le déplacement de machines virtuelles plus importantes afin de tirer parti du stockage SSD local amélioré avec PowerShell.
+Cet article fournit une planification et des conseils pour la migration d'une machine virtuelle exécutant SQL Server afin d'utiliser le stockage Premium. Cela inclut l'infrastructure Azure (mise en réseau, stockage) et les étapes de la machine virtuelle Windows hôte. L’exemple de l’[annexe](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage) montre une migration complète de bout en bout de machines virtuelles plus importantes afin de tirer parti du stockage SSD local amélioré avec PowerShell.
 
 Il est important de comprendre le processus complet d'utilisation du stockage Premium Azure avec SQL Server sur des machines virtuelles IAAS, notamment :
 
@@ -118,7 +118,7 @@ Si vous n'avez pas de script d'origine disponible pour afficher les disques durs
 
 Pour chaque disque, procédez comme suit :
 
-1. Affichez la liste des disques connectés à la machine virtuelle à l'aide de la commande **Get-AzureVM** :
+1. Affichez la liste des disques connectés à la machine virtuelle à l'aide de la commande **Get-AzureVM** :
 
     Get-AzureVM -ServiceName <servicename> -Name <vmname> | Get-AzureDataDisk
 
@@ -135,7 +135,7 @@ Pour chaque disque, procédez comme suit :
 
 	![VirtualDiskPropertyDetails][4]
 
-2. Pour chaque pool de stockage, videz le cache des disques associés :
+2. Pour chaque pool de stockage, videz les disques associés :
 
     Get-StoragePool -FriendlyName AMS1pooldata | Get-PhysicalDisk
 
@@ -304,7 +304,7 @@ Vous pouvez utiliser une image existante. Vous pouvez [prendre l'image d'une mac
 #### Étape 5 : vérification régulière de l'état de la copie :
     $blob | Get-AzureStorageBlobCopyState
 
-#### Étape 6 : ajout d'un disque d'image au référentiel du disque Azure dans l'abonnement
+#### Étape 6 : ajout d’un disque d’image au référentiel de disque Azure dans l’abonnement
     $imageMediaLocation = $destContext.BlobEndPoint+"/"+$myImageVHD
     $newimageName = "prem"+"dansoldonorsql2k14"
 
@@ -348,22 +348,22 @@ Ici, vous créez la machine virtuelle à partir de votre image et connectez deux
 
 ## Déploiements existants qui n’utilisent pas les groupes de disponibilité Always On
 
-> [AZURE.NOTE] Pour les déploiements existants, consultez tout d'abord la section [Conditions préalables](#prerequisites-for-premium-storage) de cette rubrique.
+> [AZURE.NOTE] Pour des déploiements existants, voir tout d’abord la section [Conditions préalables](#prerequisites-for-premium-storage) de cette rubrique.
 
-Il existe différents points à prendre en compte concernant les déploiements SQL Server qui utilisent ou non les groupes de disponibilité Always On. Si vous n’utilisez pas Always On et que vous disposez d’un serveur SQL Server autonome, vous pouvez effectuer une mise à niveau vers Premium Storage à l’aide d’un nouveau service cloud et d’un compte de stockage. Examinez les options suivantes :
+Il existe différents points à prendre en compte concernant les déploiements SQL Server qui utilisent ou non des groupes de disponibilité Always On. Si vous n’utilisez pas Always On et que vous disposez d’un serveur SQL Server autonome, vous pouvez effectuer une mise à niveau vers Premium Storage à l’aide d’un nouveau service cloud et d’un compte de stockage. Examinez les options suivantes :
 
 - **Créez une nouvelle machine virtuelle SQL Server**. Vous pouvez créer une nouvelle machine virtuelle SQL qui utilise un compte de stockage Premium comme décrit dans les nouveaux déploiements. Ensuite, sauvegardez et restaurez votre configuration SQL Server et vos bases de données utilisateur. L'application devra être mise à jour pour référencer la nouvelle configuration SQL Server si elle accessible de façon interne ou externe. Vous devez copier tous les objets 'out of db' comme si vous effectuiez une migration SQL Server de type Side by Side (SxS). Cela inclut des objets tels que les connexions, les certificats et les serveurs liés.
 - **Migrez une machine virtuelle SQL Server existante**. Cette opération exige la déconnexion de la machine virtuelle SQL Server, puis son transfert vers un nouveau service cloud, y compris la copie de tous ses disques durs virtuels connectés au compte de stockage Premium. Lorsque la machine virtuelle est mise en ligne, l'application référencera le nom d'hôte du serveur comme avant. N'oubliez pas que la taille du disque existant affectera les performances. Par exemple, un disque de 400 Go correspond à un disque P20. Si vous savez que vous n'avez pas besoin de telles performances, vous pouvez recréer la machine virtuelle comme une machine virtuelle de série DS et connecter des disques durs virtuels de stockage Premium offrant la taille ou les performances requises. Vous pouvez ensuite déconnecter puis reconnecter les fichiers de la base de données SQL.
 
-> [AZURE.NOTE] Lors de la copie de disques durs virtuels, tenez compte de la taille car ce paramètre détermine le type de disque de stockage Premium correspondant, et donc les performances de ce disque. Comme Azure utilisera le disque le plus proche, si vous avez un disque de 400 Go, ce sera un disque de type P20. Selon les besoins d'E/S existants du disque dur virtuel du système d'exploitation, vous n'aurez peut-être pas besoin de migrer vers un compte de stockage Premium.
+> [AZURE.NOTE] Lors de la copie de disques durs virtuels, tenez compte de la taille car ce paramètre détermine le type de disque de stockage Premium correspondant, et donc les performances du disque. Comme Azure utilisera le disque le plus proche, si vous avez un disque de 400 Go, ce sera un disque de type P20. Selon les besoins d'E/S existants du disque dur virtuel du système d'exploitation, vous n'aurez peut-être pas besoin de migrer vers un compte de stockage Premium.
 
-Si votre serveur SQL Server est accessible en externe, l'adresse IP virtuelle du service cloud changera. Vous devez également mettre à jour les points de terminaison, les ACL et les paramètres DNS.
+Si votre serveur SQL Server est accessible en externe, l'adresse IP virtuelle du service cloud changera. Vous devez également mettre à jour les points de terminaison, les listes de contrôle d’accès (ACL) et les paramètres DNS.
 
 ## Déploiements existants qui utilisent les groupes de disponibilité Always On
 
-> [AZURE.NOTE] Pour les déploiements existants, consultez tout d'abord la section [Conditions préalables](#prerequisites-for-premium-storage) de cette rubrique.
+> [AZURE.NOTE] Pour des déploiements existants, voir tout d’abord la section [Conditions préalables](#prerequisites-for-premium-storage) de cette rubrique.
 
-Dans cette section, nous commencerons par examiner la façon dont Always On interagit avec la mise en réseau Azure. Nous décomposerons ensuite les migrations en deux scénarios : les migrations où une interruption de service est tolérée, et celles où vous devez limiter au maximum les temps d'arrêt.
+Dans cette section, nous examinons la façon dont le groupe de disponibilité Always On interagit avec la mise en réseau Azure. Nous décomposerons ensuite les migrations en deux scénarios : les migrations où une interruption de service est tolérée, et celles où vous devez limiter au maximum les temps d'arrêt.
 
 Les groupes locaux de disponibilité Always On SQL Server utilisent un écouteur local qui inscrit un nom DNS virtuel ainsi qu’une adresse IP partagée entre un ou plusieurs serveurs SQL. Lorsque les clients se connectent, ils sont dirigés via l'IP de l'écouteur vers le serveur SQL principal. À ce stade, il s’agit du serveur qui possède la ressource IP Always On.
 
@@ -395,8 +395,8 @@ Vous devez prévoir suffisamment de temps pour effectuer un basculement manuel e
 
 ![DeploymentUseAlways On2][7]
 
-> [AZURE.NOTE] Vous devez arrêter toutes les instances SQL Server qui utilisent les pools de stockage avant le lancement de la validation.
-##### Étapes de haut niveau
+> [AZURE.NOTE] Avant d’effectuer la validation, vous devez arrêter toutes les instances de SQL Server qui utilisent les pools de stockage.
+##### Procédure générale
 
 1. Créez deux serveurs SQL dans le nouveau service cloud avec une connexion au stockage Premium.
 1. Copiez les sauvegardes complètes et effectuez une restauration avec **NORECOVERY**.
@@ -409,7 +409,7 @@ Vous devez prévoir suffisamment de temps pour effectuer un basculement manuel e
 1. Ajoutez de nouveaux nœuds de cluster et effectuez la validation complète.
 1. Une fois la validation réussie, démarrez tous les services SQL Server.
 1. Sauvegardez les journaux des transactions et restaurez les bases de données utilisateur.
-1. Ajoutez de nouveaux nœuds au groupe de disponibilité Always On et définissez la réplication sur **Synchrone**.
+1. Ajoutez de nouveaux nœuds au groupe de disponibilité Always On et définissez la réplication sur **Synchrone**.
 1. Ajoutez la ressource d’adresse IP de l’ILB/ELB du nouveau service cloud par le biais de PowerShell pour Always On en fonction de l’exemple multisite de [l’annexe](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage). Dans le clustering Windows, définissez les **propriétaires possibles** de la ressource **adresse IP** sur les nouveaux nœuds. Consultez la section « Ajout d'une ressource d'adresse IP sur le même sous-réseau » de l'[annexe](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage).
 1. Basculement vers un des nouveaux nœuds.
 1. Configurez les nouveaux nœuds en tant que partenaires de basculement automatique puis testez les basculements.
@@ -425,7 +425,7 @@ Vous devez prévoir suffisamment de temps pour effectuer un basculement manuel e
 - Lorsque vous utilisez des pools de stockage Windows, un temps d'arrêt se produit au niveau du cluster lors de la validation complète du cluster pour les nouveaux nœuds supplémentaires.
 - En fonction de la version SQL Server et du nombre de réplicas secondaires existants, vous ne pourrez peut-être pas ajouter plusieurs réplicas secondaires sans supprimer des réplicas secondaires existants.
 - Le transfert des données SQL peut prendre du temps lors de la configuration des réplicas secondaires.
-- Pendant la migration, les nouvelles machines sont exécutées en parallèle, ce qui entraîne un coût supplémentaire.
+- Pendant la migration, l’exécution de nouvelles machines en parallèle entraîne un coût supplémentaire.
 
 #### 2\. Effectuer la migration vers un nouveau cluster Always On
 
@@ -464,9 +464,9 @@ Une stratégie limitant les temps d'arrêt consiste à prendre un service cloud 
 
 ##### Points d’arrêt
 
-- Un temps d'arrêt se produit lorsque vous mettez à jour le nœud final avec le point de terminaison à équilibrage de charge.
+- Un temps d’arrêt se produit lorsque vous mettez à jour le nœud final avec le point de terminaison d’équilibrage de charge.
 - La reconnexion de votre client peut être retardée en fonction de votre configuration client/DNS.
-- Un temps d’arrêt supplémentaire survient si vous choisissez de mettre hors ligne le groupe Cluster Always On afin de permuter les adresses IP. Vous pouvez éviter cela en utilisant une dépendance OR et en choisissant les propriétaires possibles pour la ressource d'adresse IP ajoutée. Consultez la section « Ajout d'une ressource d'adresse IP sur le même sous-réseau » de l'[annexe](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage).
+- Un temps d’arrêt supplémentaire survient si vous choisissez de mettre hors ligne le groupe Cluster Always On afin de permuter les adresses IP. Vous pouvez éviter cela en utilisant une dépendance OR et en choisissant les propriétaires possibles pour la ressource d’adresse IP ajoutée. Consultez la section « Ajout d'une ressource d'adresse IP sur le même sous-réseau » de l'[annexe](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage).
 
 > [AZURE.NOTE] Lorsque vous souhaitez que le nœud ajouté joue le rôle de partenaire de basculement Always On, vous devez ajouter un point de terminaison Azure avec une référence au jeu d’équilibrage de la charge. Lorsque vous exécutez la commande **Add-AzureEndpoint** pour cette opération, les connexions actuelles restent ouvertes, mais les nouvelles connexions à l'écouteur ne pourront pas être établies tant que l'équilibreur de charge n'a pas été mis à jour. Dans ce test, l'opération dure de 90 à 120 secondes (à vérifier).
 
@@ -486,7 +486,7 @@ Une stratégie limitant les temps d'arrêt consiste à prendre un service cloud 
 	- Exécutez la migration en dehors de la maintenance Azure planifiée.
 	- Vérifiez que vous avez correctement configuré votre quorum de cluster.
 
-##### Étapes de haut niveau
+##### Procédure générale
 
 Ce document ne présente pas un exemple complet de bout en bout, toutefois, l'[annexe](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage) fournit des informations qui peuvent être exploitées pour effectuer cette opération.
 
@@ -498,7 +498,7 @@ Ce document ne présente pas un exemple complet de bout en bout, toutefois, l'[a
 - Configurez l'ILB/ELB et ajoutez des points de terminaison.
 - Mettez à jour l'écouteur en procédant comme suit :
 	- Mettez hors ligne le groupe Always On et mettez à jour l’écouteur Always On avec la nouvelle adresse IP de l’ILB/ELB.
-	- Ou ajoutez la ressource d'adresse IP de l'ILB/ELB du nouveau service cloud via PowerShell dans le clustering Windows. Puis affectez les propriétaires possibles de la ressource d'adresse IP au nœud migré, SQL2, définissez ce paramètre comme dépendance OR dans le nom de réseau. Consultez la section « Ajout d'une ressource d'adresse IP sur le même sous-réseau » de l'[annexe](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage).
+	- Ou ajoutez la ressource d’adresse IP de l’ILB/ELB du nouveau service cloud via PowerShell dans le clustering Windows. Puis affectez les propriétaires possibles de la ressource d'adresse IP au nœud migré, SQL2, définissez ce paramètre comme dépendance OR dans le nom de réseau. Consultez la section « Ajout d'une ressource d'adresse IP sur le même sous-réseau » de l'[annexe](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage).
 - Vérifiez la configuration/propagation DNS vers les clients.
 - Migrez la machine virtuelle SQL1 et suivez les étapes 2 à 4.
 - Si vous utilisez les étapes 5ii, ajoutez SQL1 comme propriétaire possible pour la ressource d'adresse IP ajoutée
@@ -527,7 +527,7 @@ Le temps d'arrêt inclut le délai de basculement vers l'autre centre de donnée
 ##### Inconvénients
 
 - En fonction de l'accès client à SQL Server, il peut y avoir une latence plus élevée lorsque SQL Server est en cours d'exécution dans un autre centre de données que l'application.
-- Le temps de copie des disques durs virtuels vers un stockage Premium peut être long. Cela peut affecter votre décision de conserver ou non le nœud du groupe de disponibilité. Considérez cela si la journalisation des charges de travail intensives est nécessaire pendant la migration car le nœud principal devra conserver les transactions non répliquées dans son journal des transactions. Par conséquent, cela peut augmenter considérablement.
+- Le temps de copie des disques durs virtuels vers un stockage Premium peut être long. Cela peut affecter votre décision de conserver ou non le nœud du groupe de disponibilité. Considérez cela si la journalisation des charges de travail intensives est nécessaire pendant la migration, car le nœud principal doit conserver les transactions non répliquées dans son journal des transactions. Par conséquent, cela peut augmenter considérablement.
 - Pour ce scénario, utilisez l'applet de commande Azure **Start-AzureStorageBlobCopy**, qui est asynchrone. Il n'existe aucun contrat SLA à la fin. Le temps des copies varie selon la durée d'attente dans la file et de la quantité de données à transférer. Vous n'avez donc qu'un seul nœud dans votre deuxième centre de données, et vous devez effectuer les opérations d'atténuation au cas où la copie prend plus de temps que lors des tests. Dans ce cas, suivez ces conseils.
 	- Ajoutez un 2e nœud SQL Server temporaire pour la haute disponibilité avant la migration, avec un temps d'arrêt convenu.
 	- Exécutez la migration en dehors de la maintenance Azure planifiée.
@@ -535,7 +535,7 @@ Le temps d'arrêt inclut le délai de basculement vers l'autre centre de donnée
 
 Ce scénario suppose que vous avez documenté votre installation et savez comment le stockage est mappé pour apporter des modifications aux paramètres de mise en cache optimale des disques.
 
-##### Étapes de haut niveau
+##### Procédure générale
 ![Multisite2][10]
 
 - Définissez le centre de données Azure local/alternatif comme SQL Server principal et partenaire de basculement automatique (AFP).
@@ -551,9 +551,9 @@ Ce scénario suppose que vous avez documenté votre installation et savez commen
 
 ## Annexe : migration d’un cluster Always On multisite vers Premium Storage
 
-Le reste de cette rubrique fournit un exemple détaillé de la conversion d’un cluster Always On multisite vers un stockage Premium. L'exemple décrit également la conversion de l'écouteur d'un équilibreur de charge externe (ELB) à un équilibrage de charge interne (ILB).
+Le reste de cette rubrique décrit un exemple détaillé de conversion d’un cluster Always On multisite en stockage Premium. L'exemple décrit également la conversion de l'écouteur d'un équilibreur de charge externe (ELB) à un équilibrage de charge interne (ILB).
 
-### Environment
+### Environnement
 
 - Windows 2k12 / SQL 2k12
 - 1 base de données de fichiers sur SP
@@ -567,7 +567,7 @@ Cet exemple décrit la conversion d'un ELB en ILB. L'ELB étant disponible avant
 
 ![Appendix2][12]
 
-### Étapes préparatoires : se connecter à l'abonnement
+### Étapes préparatoires : se connecter à l’abonnement
 
     Add-AzureAccount
 
@@ -623,12 +623,12 @@ Si vous n'avez qu'une seule adresse IP pour le groupe de clusters et qu'elle est
 
 #### Étape 4 : configuration DNS
 
-La mise en place d'une transition optimale dépend de l'utilisation et de la configuration DNS. Lorsque la fonctionnalité Always On est installée, elle crée un groupe de ressources de cluster Windows ; si vous ouvrez le Gestionnaire du cluster de basculement, vous verrez qu’il comporte au moins trois ressources, et les deux auxquelles ce document fait référence sont :
+L’implémentation d’une transition fluide dépend du mode d’utilisation et de configuration du DNS. Lorsque la fonctionnalité Always On est installée, elle crée un groupe de ressources de cluster Windows ; si vous ouvrez le Gestionnaire du cluster de basculement, vous verrez qu’il comporte au moins trois ressources, et les deux auxquelles ce document fait référence sont :
 
 - Nom de réseau virtuel (VNN) : il s’agit du nom DNS utilisé par le client pour se connecter aux serveurs SQL par le biais d’Always On.
 - Ressource d'adresse IP – il s'agit de l'adresse IP associée au VNN ; vous pouvez en utiliser plusieurs, et dans une configuration multi-sites, vous aurez une adresse IP par site/sous-réseau.
 
-Lors de la connexion à SQL Server, le pilote du client SQL Server extraira les enregistrements DNS associés à l’écouteur et tentera de vous connecter à chaque adresse IP Always On associée ; nous abordons ci-dessous certains facteurs pouvant influencer cette opération.
+Lors de la connexion à SQL Server, le pilote du client SQL Server extrait les enregistrements DNS associés à l’écouteur, et tente de vous connecter à chaque adresse IP Always On associée. Nous abordons ci-dessous certains facteurs pouvant influencer cette opération.
 
 Le nombre d’enregistrements DNS simultanés associés au nom de l’écouteur dépend non seulement du nombre d’adresses IP associées, mais également du paramètre « RegisterAllIpProviders » de clustering de basculement pour la ressource VNN Always On.
 
@@ -642,7 +642,7 @@ Si 'RegisterAllIpProviders' est 1 :
 
 ![Appendix5][15]
 
-Le code ci-dessous videra les paramètres VNN et les définira pour vous ; notez que pour que la modification soit appliquée, vous devez mettre le VNN hors ligne puis le remettre en ligne, et cette mise hors ligne de l'écouteur entraîne une interruption de la connectivité du client.
+Le code ci-dessous vide les paramètres VNN et les définit pour vous. Notez que, pour que la modification soit appliquée, vous devez mettre le VNN hors ligne puis le remettre en ligne, et que cette déconnexion de l’écouteur entraîne une interruption de la connectivité client.
 
     ##Always On Listener Name
     $ListenerName = "Mylistener"
@@ -653,7 +653,7 @@ Le code ci-dessous videra les paramètres VNN et les définira pour vous ; note
 
 Dans une étape de migration ultérieure, vous devrez mettre à jour l’écouteur Always On avec une adresse IP mise à jour faisant référence à un équilibreur de charge, ce qui impliquera la suppression et l’ajout d’une ressource d’adresse IP. Après la mise à jour de l'adresse IP, vous devez vérifier que la nouvelle adresse IP a été mise à jour dans la zone DNS et que les clients ont mis à jour leur cache DNS local.
 
-Si vous, clients, résidez dans un segment de réseau différent et référencez un autre serveur DNS, vous devez tenir compte de ce se passe au niveau du transfert de la zone DNS pendant la migration, car le délai de reconnexion de l'application sera contraint par au moins l'heure de transfert de la zone de toutes les nouvelles adresses IP pour l'écouteur. Si vous êtes pressé par le temps, vous devez étudier et forcer le test d'un transfert de zone incrémentiel avec vos équipes Windows, et également consigner l'enregistrement de l'hôte DNS en choisissant une durée de vie TTL (Time To Live) inférieure pour permettre aux clients de se mettre à jour. Pour plus d'informations, consultez les rubriques [transferts de zone incrémentiels](https://technet.microsoft.com/library/cc958973.aspx) et [Start-DnsServerZoneTransfer](https://technet.microsoft.com/library/jj649917.aspx).
+Si vos clients résident dans un segment de réseau différent et référencent un autre serveur DNS, vous devez tenir compte de ce qui se passe au niveau du transfert de la zone DNS pendant la migration, car le délai de reconnexion de l’application est contraint au moins par le temps de transfert de la zone de toute nouvelle adresse IP pour l’écouteur. Si vous êtes pressé par le temps, vous devez étudier et forcer le test d'un transfert de zone incrémentiel avec vos équipes Windows, et également consigner l'enregistrement de l'hôte DNS en choisissant une durée de vie TTL (Time To Live) inférieure pour permettre aux clients de se mettre à jour. Pour plus d'informations, consultez les rubriques [transferts de zone incrémentiels](https://technet.microsoft.com/library/cc958973.aspx) et [Start-DnsServerZoneTransfer](https://technet.microsoft.com/library/jj649917.aspx).
 
 Par défaut, la durée de vie (TTL) d’un enregistrement DNS associé à l’écouteur Always On dans Azure est de 1 200 secondes. Vous pouvez réduire ce paramètre si vous êtes pressé par le temps pendant votre migration afin de permettre aux clients de mettre à jour leurs DNS avec l'adresse IP mise à jour pour l'écouteur. Vous pouvez afficher et modifier la configuration en vidant la configuration du VNN :
 
@@ -675,7 +675,7 @@ Pour plus d'informations sur les paramètres ci-dessus, consultez la rubrique[Mo
 
 #### Étape 5 : paramètres de quorum de cluster
 
-Comme vous allez arrêter au moins un serveur SQL à la fois, vous devez modifier le paramètre de quorum de cluster. Si vous utilisez le système File Share Witness (FSW) avec deux nœuds, vous devez définir le quorum pour prendre en compte une majorité de nœuds et utiliser le vote dynamique afin qu'un seul nœud reste actif.
+Comme vous allez arrêter au moins un serveur SQL à la fois, vous devez modifier le paramètre de quorum du cluster. Si vous utilisez le système File Share Witness (FSW) avec deux nœuds, vous devez définir le quorum pour prendre en compte une majorité de nœuds et utiliser le vote dynamique afin qu’un seul nœud reste actif.
 
 
     Set-ClusterQuorum -NodeMajority  
@@ -910,7 +910,7 @@ Vous devriez maintenant vérifier les serveurs DNS sur les réseaux du client SQ
 
 #### Étape 16 : reconfiguration d’Always On
 
-À ce stade, attendez que le nœud secondaire qui a été migré soit totalement resynchronisé avec le nœud local puis basculez vers un nœud de réplication synchrone pour en faire l'AFP.
+À ce stade, attendez que le nœud secondaire qui a été migré soit totalement resynchronisé avec le nœud local, puis basculez vers un nœud de réplication synchrone pour en faire l’AFP.
 
 #### Étape 17 : migration du deuxième nœud
     $vmNameToMigrate="dansqlams1"
@@ -1091,7 +1091,7 @@ Pour plus d'informations sur les objets BLOB individuels : #Check individual bl
 
 #### Étape 23 : test du basculement
 
-Vous devriez maintenant laisser le nœud migré se synchroniser avec le nœud Always On local, le placer en mode de réplication synchrone et attendre qu’il soit synchronisé. Effectuez ensuite un basculement du nœud local vers le premier nœud migré, c'est-à-dire l'AFP. Une fois l'opération réussie, changez le dernier nœud migré en AFP.
+Vous devriez maintenant laisser le nœud migré se synchroniser avec le nœud Always On local, le placer en mode de réplication synchrone et attendre qu’il soit synchronisé. Effectuez ensuite un basculement du nœud local vers le premier nœud migré, c'est-à-dire l'AFP. Une fois l'opération réussie, changez le dernier nœud migré en AFP.
 
 Vous devez tester les basculements entre tous les nœuds de test et effectuer des tests CHAOS pour vous assurer que les basculements se sont déroulés comme prévu et en temps opportun.
 
@@ -1104,11 +1104,11 @@ Une fois que vous avez sélectionné le serveur secondaire migré et ajouté la 
 
 Pour ajouter l'adresse IP, consultez l'étape 14 de l'[annexe](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage).
 
-1. Pour la ressource d'adresse IP actuelle, changez le propriétaire possible en « Serveur SQL principal existant », « dansqlams4 » dans l'exemple ci-dessous :
+1. Pour la ressource d’adresse IP actuelle, changez le propriétaire possible en « Serveur SQL principal existant », « dansqlams4 » dans l’exemple ci-dessous :
 
 	![Appendix13][23]
 
-1. Pour la nouvelle ressource d'adresse IP, changez le propriétaire possible en « Serveur SQL secondaire migré », « dansqlams5 » dans l'exemple ci-dessous :
+1. Pour la nouvelle ressource d’adresse IP, changez le propriétaire possible en « Serveur SQL secondaire migré », « dansqlams5 » dans l’exemple ci-dessous :
 
 	![Appendix14][24]
 
@@ -1148,4 +1148,4 @@ Pour ajouter l'adresse IP, consultez l'étape 14 de l'[annexe](#appendix-migrati
 [24]: ./media/virtual-machines-windows-classic-sql-server-premium-storage/10_Appendix_14.png
 [25]: ./media/virtual-machines-windows-classic-sql-server-premium-storage/10_Appendix_15.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0824_2016-->

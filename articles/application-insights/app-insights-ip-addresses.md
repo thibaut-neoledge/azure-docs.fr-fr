@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Adresses IP utilisées par Application Insights | Microsoft Azure"
-	description="Liste d’adresses statiques" 
+	description="Exceptions de pare-feu de serveur requises par Application Insights" 
 	services="application-insights"
     documentationCenter=".net"
 	authors="alancameronwills" 
@@ -12,12 +12,12 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/30/2016" 
+	ms.date="08/24/2016" 
 	ms.author="awills"/>
  
 # Adresses IP utilisées par Application Insights
 
-Le service [Visual Studio Application Insights](app-insights-overview.md) utilise un certain nombre d’adresses IP que vous souhaitez peut-être connaître - par exemple, si vous surveillez une application qui s’exécute derrière un pare-feu.
+Le service [Visual Studio Application Insights](app-insights-overview.md) utilise plusieurs adresses IP. Vous devrez peut-être connaître ces adresses si l’application que vous surveillez est hébergée derrière un pare-feu.
 
 > [AZURE.NOTE] Bien que ces adresses soient statiques, il est possible que nous devions les modifier de temps à autre.
 
@@ -46,11 +46,11 @@ Vous devez ouvrir des ports sortants dans le pare-feu de votre serveur pour auto
 
 Cette liste peut évoluer de temps à autre.
 
-## Availability
+## Tests de disponibilité
 
-Voici la liste des adresses à partir desquelles les [tests web de disponibilité](app-insights-monitor-web-app-availability.md) sont exécutés.
+Voici la liste des adresses à partir desquelles les [tests web de disponibilité](app-insights-monitor-web-app-availability.md) sont exécutés. Si vous souhaitez exécuter des tests web sur votre application, mais que votre serveur web est limité au service de clients spécifiques, vous devrez alors autoriser le trafic entrant depuis nos serveurs de test de disponibilité.
 
-Ouvrez les ports 80 (http) et 443 (https).
+Ouvrez les ports 80 (http) et 443 (https) pour le trafic entrant à partir de ces adresses :
 
 ```
 
@@ -184,4 +184,4 @@ Ouvrez les ports 80 (http) et 443 (https).
 
  
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

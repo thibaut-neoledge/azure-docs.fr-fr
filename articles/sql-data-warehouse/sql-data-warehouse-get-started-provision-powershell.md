@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/16/2016"
+   ms.date="08/25/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Création de SQL Data Warehouse à l’aide de PowerShell
@@ -25,9 +25,9 @@
 
 Cet article vous explique comment créer un entrepôt SQL Data Warehouse à l’aide de PowerShell.
 
-## Conditions préalables
+## Composants requis
 
-Pour commencer, vous avez besoin des éléments suivants :
+Pour commencer, vous avez besoin des éléments suivants :
 
 - **Compte Azure **: consultez [Évaluation gratuite d’Azure][] ou [Crédits Azure MSDN][] pour créer un compte.
 - **Serveur Azure SQL Server** : consultez [Créer un serveur logique de base de données SQL Azure avec le Portail Azure][] ou [Créer un serveur logique de base de données SQL Azure avec PowerShell][] pour plus d’informations.
@@ -54,18 +54,24 @@ Pour commencer, vous avez besoin des éléments suivants :
 4.  Créez la base de données. Cet exemple crée la base de données « mynewsqldw », avec le niveau d’objectif de service « DW400 » sur le serveur nommé « sqldwserver1 », qui se trouve dans le groupe de ressources nommé « mywesteuroperesgp1 ».
 
 	```Powershell
-	New-AzureRmSqlDatabase -RequestedServiceObjectiveName "DW400" -DatabaseName "mynewsqldw" -ServerName "sqldwserver1" -ResourceGroupName "mywesteuroperesgp1" -Edition "DataWarehouse"
+	New-AzureRmSqlDatabase -RequestedServiceObjectiveName "DW400" -DatabaseName "mynewsqldw" -ServerName "sqldwserver1" -ResourceGroupName "mywesteuroperesgp1" -Edition "DataWarehouse" -CollationName "SQL_Latin1_General_CP1_CI_AS" -MaxSizeBytes 10995116277760
 	```
 
-Cette applet de commande requiert les paramètres suivants :
+Les paramètres obligatoires sont :
 
 - **RequestedServiceObjectiveName** : quantité de [DWU][] que vous demandez. Les valeurs prises en charge sont les suivantes : DW100, DW200, DW300, DW400, DW500, DW600, DW1000, DW1200, DW1500, DW2000, DW3000 et DW6000.
 - **DatabaseName** : nom de l’entrepôt SQL Data Warehouse que vous créez.
 - **ServerName** : nom du serveur que vous utilisez pour la création (doit être V12).
 - **ResourceGroupName** : groupe de ressources que vous utilisez. Pour trouver des groupes de ressources disponibles dans votre abonnement, utilisez Get-AzureResource.
-- **Edition** : vous devez définir l'édition sur « DataWarehouse » pour créer un entrepôt SQL Data Warehouse.
+- **Edition** : l’édition doit être définie sur « DataWarehouse » pour créer un entrepôt SQL Data Warehouse.
 
-Pour plus d’informations sur les options de paramètre, consultez [Créer une base de données (Azure SQL Data Warehouse)][]. Pour accéder aux informations de référence sur la commande, consultez [New-AzureRmSqlDatabase][].
+Les paramètres facultatifs sont :
+
+- **CollationName** : le classement par défaut est COLLATE SQL\_Latin1\_General\_CP1\_CI\_AS. Le classement ne peut pas être modifié sur une base de données.
+- **MaxSizeBytes**: par défaut, la taille maximale d’une base de données est de 10 Go.
+
+
+Pour plus d’informations sur les options de paramètre, consultez [New-AzureRmSqlDatabase][] et [Créer une base de données (Azure SQL Data Warehouse)][].
 
 ## Étapes suivantes
 
@@ -101,4 +107,4 @@ Si vous souhaitez en savoir plus sur la gestion de l’entrepôt SQL Data Wareho
 [Évaluation gratuite d’Azure]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
 [Crédits Azure MSDN]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0831_2016-->

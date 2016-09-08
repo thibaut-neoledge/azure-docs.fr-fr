@@ -34,7 +34,7 @@ Si vous utilisez des jeux de mise à l’échelle de machine virtuelle et qu’u
 
 Si une métrique particulière n’est pas en cours d’échantillonnage ou de transfert vers la fréquence souhaitée, vous pouvez mettre à jour la configuration des diagnostics.
 
-Si l’un des deux cas ci-dessus s’applique, consultez la page [Utiliser PowerShell pour activer Azure Diagnostics sur une machine virtuelle exécutant Windows](../virtual-machines/virtual-machines-windows-ps-extensions-diagnostics.md) pour savoir comment utiliser PowerShell pour configurer et mettre à jour votre extension de diagnostics de machine virtuelle Windows Azure afin d’activer la métrique. Cet article inclut également un exemple de fichier de configuration de diagnostics.
+Si l’un des deux cas ci-dessus s’applique, consultez la page [Utiliser PowerShell pour activer Azure Diagnostics sur une machine virtuelle exécutant Windows](../virtual-machines/virtual-machines-windows-ps-extensions-diagnostics.md) pour savoir comment utiliser PowerShell pour configurer et mettre à jour votre extension de diagnostics de machine virtuelle Microsoft Azure afin d’activer la métrique. Cet article inclut également un exemple de fichier de configuration de diagnostics.
 
 ### Calculer les métriques pour une machine virtuelle Windows v2 en tant que système d’exploitation invité
 
@@ -166,12 +166,21 @@ Vous pouvez procéder à une mise à l’échelle en fonction de la métrique Lo
 
 Vous pouvez configurer cela dans le panneau **Paramètres** du Portail Azure. Pour les jeux de mise à l’échelle de machine virtuelle, vous pouvez mettre à jour le paramètre Mise à l’échelle automatique dans le modèle ARM afin d’utiliser *metricName* avec la valeur *ApproximateMessageCount*, puis transmettre l’ID de la file d’attente de stockage avec la valeur *metricResourceUri*.
 
+Par exemple, avec un compte de stockage classique, le paramètre de mise à l’échelle automatique metricTrigger peut inclure :
 
 ```
 "metricName": "ApproximateMessageCount",
  "metricNamespace": "",
  "metricResourceUri": "/subscriptions/s1/resourceGroups/rg1/providers/Microsoft.ClassicStorage/storageAccounts/mystorage/services/queue/queues/mystoragequeue"
  ```
+
+Pour un compte de stockage (non classique), le paramètre metricTrigger peut inclure :
+
+```
+"metricName": "ApproximateMessageCount",
+"metricNamespace": "",
+"metricResourceUri": "/subscriptions/s1/resourceGroups/rg1/providers/Microsoft.Storage/storageAccounts/mystorage/services/queue/queues/mystoragequeue"
+```
 
 ## Métriques Service Bus généralement utilisées
 
@@ -187,4 +196,4 @@ Pour les jeux de mise à l’échelle de machine virtuelle, vous pouvez mettre �
 
 >[AZURE.NOTE] Le concept de groupe de ressources n’existe pas pour Service Bus, mais Azure Resource Manager crée un groupe de ressources par défaut par région. Le groupe de ressources est généralement affiché au format « [Région] Service Bus par défaut ». Par exemple, « Est des États-Unis Service Bus par défaut », « Ouest des États-Unis Service Bus par défaut », « Est de l’Australie Service Bus par défaut », etc.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/02/2016"
+	ms.date="08/19/2016"
 	ms.author="garye"/>
 
 # Conversion d’une expérience d’apprentissage Machine Learning en expérience prédictive
@@ -37,7 +37,7 @@ Le processus de conversion d’une expérience d’apprentissage en expérience 
 Après avoir mené votre expérience (bouton **EXÉCUTER** au bas de la zone de dessin d’expérimentation), le bouton **Configurer le Service web** (sélectionnez l’option **Service web prédictif**) effectue pour vous les trois étapes de conversion de votre expérience de formation en prévision d’une expérience pour vous :
 
 1.	Il enregistre votre modèle en tant que module dans la section **Modèles formés** de la palette du module (située à gauche de la zone de dessin de l’expérimentation), puis remplace l’algorithme d’apprentissage automatique et les modules [Train Model][train-model] par le module formé enregistré.
-2.	Il supprime les modules qui ne sont pas nécessaires. Dans notre exemple, cela inclut le module [Split][split], le deuxième module [Score Model][score-model] et le module [Evaluate Model][evaluate-model].
+2.	Il supprime les modules qui ne sont pas nécessaires. Dans notre exemple, cela inclut le module [Split Data][split], le deuxième module [Score Model][score-model] et le module [Evaluate Model][evaluate-model].
 3.	Il crée les modèles d’entrée et de sortie du service web et les ajoute aux emplacements par défaut prévus dans votre expérience.
 
 Par exemple, l’expérience suivante effectue l’apprentissage d’un modèle d’arborescence de décision augmenté incluant deux classes, au moyen des données de recensement :
@@ -131,4 +131,4 @@ Pour en savoir plus sur le processus de déploiement complet, consultez la page 
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
 [export-data]: https://msdn.microsoft.com/library/azure/7a391181-b6a7-4ad4-b82d-e419c0d6522c/
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0824_2016-->

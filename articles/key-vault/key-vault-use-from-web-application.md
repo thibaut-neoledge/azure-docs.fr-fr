@@ -26,7 +26,7 @@ Utilisez ce didacticiel pour vous aider à comprendre comment utiliser Azure Ke
 
 Pour plus d’informations générales sur Azure Key Vault, consultez la page [Présentation d’Azure Key Vault](key-vault-whatis.md)
 
-## Configuration requise
+## Composants requis
 
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
@@ -78,13 +78,14 @@ Voici le code pour obtenir un jeton d'accès avec Azure Active Directory. Ce c
 
 	//add these using statements
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
+    using System.Threading.Tasks;
 	using System.Web.Configuration;
 
 	//this is an optional property to hold the secret after it is retrieved
 	public static string EncryptSecret { get; set; }
 
 	//the method that will be provided to the KeyVaultClient
-	public async static Task<string> GetToken(string authority, string resource, string scope)
+	public static async Task<string> GetToken(string authority, string resource, string scope)
     {
 	    var authContext = new AuthenticationContext(authority);
 	    ClientCredential clientCred = new ClientCredential(WebConfigurationManager.AppSettings["ClientId"],
@@ -253,4 +254,4 @@ Pour les références de programmation, consultez la page [Référence de l'API 
 [1]: ./media/key-vault-use-from-web-application/PortalAppSettings.png
 [2]: ./media/key-vault-use-from-web-application/PortalAddCertificate.png
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0824_2016-->
