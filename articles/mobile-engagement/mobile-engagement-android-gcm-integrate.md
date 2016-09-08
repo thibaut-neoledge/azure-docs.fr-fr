@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="03/10/2016"
+	ms.date="08/19/2016"
 	ms.author="piyushjo" />
 
 #comment intégrer GCM à Mobile Engagement
 
-> [AZURE.IMPORTANT] Vous devez suivre la procédure d'intégration décrite dans le document « Comment intégrer Engagement sur Android » avant de suivre ce guide.
+> [AZURE.IMPORTANT] Vous devez suivre la procédure d'intégration décrite dans le document « Comment intégrer Engagement sur Android » avant de suivre ce guide.
 >
-> Ce document est utile uniquement si vous avez intégré le module Reach et avez l’intention d’effectuer des transmissions de type Push vers des appareils Google Play. Pour intégrer les couvertures campagnes à votre application, lisez d'abord « Comment intégrer le module de couverture Engagement sur Android ».
+> Ce document est utile uniquement si vous avez intégré le module Reach et avez l’intention d’effectuer des transmissions de type Push vers des appareils Google Play. Pour intégrer les couvertures campagnes à votre application, lisez d'abord « Comment intégrer le module de couverture Engagement sur Android ».
 
 ##Introduction
 
@@ -28,7 +28,7 @@ L’intégration de GCM permet à votre application de recevoir des notification
 
 Les charges GCM envoyées vers le Kit de développement logiciel (SDK) contiennent toujours la clé `azme` dans l’objet de données. Donc si vous utilisez GCM à d’autres fins dans votre application, vous pouvez filtrer les notifications Push en fonction de cette clé.
 
-> [AZURE.IMPORTANT] Seuls les appareils disposant d’Android 2.2 ou version ultérieure, de Google Play et d’une connexion d’arrière-plan à Google peuvent faire l’objet d’une notification Push à l’aide de GCM. Toutefois, vous pouvez intégrer ce code en toute sécurité sur les appareils non pris en charge (car il utilise uniquement des intentions).
+> [AZURE.IMPORTANT] Seuls les appareils disposant d’Android 2.2 ou version ultérieure, de Google Play et d’une connexion d’arrière-plan à Google peuvent faire l’objet d’une notification Push à l’aide de GCM. Toutefois, vous pouvez intégrer ce code en toute sécurité sur les appareils non pris en charge (car il utilise uniquement des intentions).
 
 ##Créer un projet Google Cloud Messaging avec une clé API
 
@@ -40,20 +40,20 @@ Les charges GCM envoyées vers le Kit de développement logiciel (SDK) contienne
 
 ### Gestion des inscriptions des appareils
 
-Chaque appareil doit envoyer une commande d'inscription aux serveurs Google, sinon il ne pourra pas recevoir de campagnes.
+Chaque appareil doit envoyer une commande d'inscription aux serveurs Google, sinon il ne pourra pas recevoir de campagnes.
 
-Un appareil peut également se désinscrire des notifications GCM (l'appareil est automatiquement désinscrit quand l'application est désinstallée).
+Un appareil peut également se désinscrire des notifications GCM (l'appareil est automatiquement désinscrit quand l'application est désinstallée).
 
 Si vous n’utilisez pas [le Kit de développement logiciel (SDK) Google Play] ou si vous n’avez pas encore envoyé l’intention d’inscription, vous pouvez demander à Engagement d’inscrire automatiquement l’appareil.
 
-Pour cela, ajoutez le code suivant au fichier `AndroidManifest.xml`, à l'intérieur de la balise `<application/>` :
+Pour cela, ajoutez le code suivant au fichier `AndroidManifest.xml`, à l'intérieur de la balise `<application/>` :
 
 			<!-- If only 1 sender, don't forget the \n, otherwise it will be parsed as a negative number... -->
 			<meta-data android:name="engagement:gcm:sender" android:value="<Your Google Project Number>\n" />
 
 ### Communiquer l'ID d'inscription au service Push d'Engagement et recevoir des notifications
 
-Pour communiquer l'ID d'inscription de l'appareil au service Push d'Engagement et recevoir ses notifications, ajoutez le code suivant au fichier `AndroidManifest.xml`, à l'intérieur de la balise `<application/>` (même si vous gérez vous-même les inscriptions d'appareil) :
+Pour communiquer l'ID d'inscription de l'appareil au service Push d'Engagement et recevoir ses notifications, ajoutez le code suivant au fichier `AndroidManifest.xml`, à l'intérieur de la balise `<application/>` (même si vous gérez vous-même les inscriptions d'appareil) :
 
 			<receiver android:name="com.microsoft.azure.engagement.gcm.EngagementGCMEnabler"
 			  android:exported="false">
@@ -82,4 +82,4 @@ Suivez [ce guide](mobile-engagement-android-get-started.md#grant-mobile-engageme
 
 [le Kit de développement logiciel (SDK) Google Play]: https://developers.google.com/cloud-messaging/android/start
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0824_2016-->

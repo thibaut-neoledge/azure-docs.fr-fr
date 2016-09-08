@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="TBD"
-   ms.date="05/25/2016"
+   ms.date="08/17/2016"
    ms.author="alkohli" />
 
 # Configuration de CHAP pour votre appareil StorSimple
@@ -31,7 +31,7 @@ Les paramètres CHAP sur l’appareil StorSimple peuvent être configurés comme
 
 - Authentification bidirectionnelle, mutuelle ou inverse
 
-Dans chacun de ces cas, le portail pour l’appareil et le logiciel iSCSI Initiator du serveur doivent être configurés. Les étapes détaillées de cette configuration sont décrites dans ce didacticiel.
+Dans chacun de ces cas, le portail pour l’appareil et le logiciel de l’initiateur iSCSI du serveur doit être configuré. Les étapes détaillées de cette configuration sont décrites dans ce didacticiel.
 
 ## Authentification unidirectionnelle ou unidirectionnelle
 
@@ -53,7 +53,7 @@ Dans l’authentification unidirectionnelle, la cible authentifie l’initiateur
     
 	3. Confirmez le mot de passe.
 
-4. Cliquez sur **Enregistrer**. Un message de confirmation s’affiche. Cliquez sur **OK** pour enregistrer les modifications.
+4. Cliquez sur **Save**. Un message de confirmation s’affiche. Cliquez sur **OK** pour enregistrer les modifications.
 
 #### Configuration de l’authentification unidirectionnelle sur le serveur hôte Windows
 
@@ -85,7 +85,7 @@ Dans l’authentification unidirectionnelle, la cible authentifie l’initiateur
 
 	4. Cliquez sur **OK**.
 
-		![Paramètres avancés - généralités](./media/storsimple-configure-chap/IC740946.png)
+		![Paramètres avancés - Généraux](./media/storsimple-configure-chap/IC740946.png)
 
 5. Dans l’onglet **Targets** de la fenêtre **iSCSI Initiator Properties**, l’état de l’appareil devrait indiquer **Connected**. Si vous utilisez un appareil StorSimple 1200, chaque volume est monté en tant que cible iSCSI comme indiqué ci-dessous. Les étapes 3 et 4 doivent donc être répétées pour chaque volume.
 
@@ -156,7 +156,7 @@ Dans l’authentification bidirectionnelle, la cible authentifie l’initiateur,
 
 	4. Cochez la case **Perform mutual authentication**.
 
-		![Authentification mutuelle - paramètres avancés](./media/storsimple-configure-chap/IC740950.png)
+		![Paramètres avancés - Authentification mutuelle](./media/storsimple-configure-chap/IC740950.png)
 
 	5. Cliquez sur **OK** pour terminer la configuration CHAP
 	 
@@ -198,4 +198,4 @@ Vous pouvez vérifier que le protocole CHAP est utilisé en procédant comme sui
 
 - En savoir plus sur [l’utilisation du service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -24,7 +24,7 @@ La passerelle Azure Application Gateway est un équilibreur de charge de couche�
 - [Commandes PowerShell pour Azure Resource Manager](application-gateway-create-gateway-arm.md)
 - [Azure Classic PowerShell](application-gateway-create-gateway.md)
 - [Modèle Azure Resource Manager](application-gateway-create-gateway-arm-template.md)
-
+- [Interface de ligne de commande Azure](application-gateway-create-gateway-cli.md)
 
 <BR>
 
@@ -36,24 +36,24 @@ Cet article vous guide lors des étapes de création, de configuration, de déma
 1. Installez la dernière version des applets de commande Azure PowerShell à l’aide de Web Platform Installer. Vous pouvez télécharger et installer la dernière version à partir de la section **Windows PowerShell** de la [page Téléchargements](https://azure.microsoft.com/downloads/).
 2. Si vous disposez d’un réseau virtuel, sélectionnez un sous-réseau vide existant ou créez un sous-réseau de votre réseau virtuel existant uniquement pour une utilisation par la passerelle Application Gateway. Vous ne pouvez pas déployer la passerelle d’application sur un autre réseau virtuel constitué par les ressources que vous avez l’intention de déployer derrière la passerelle d’application.
 3. Vérifiez que vous disposez d'un réseau virtuel qui fonctionne avec un sous-réseau valide. Assurez-vous qu’aucun ordinateur virtuel ou déploiement cloud n’utilise le sous-réseau. La passerelle Application Gateway doit être seule sur un sous-réseau virtuel.
-3. Les serveurs que vous configurerez pour utiliser la passerelle Application Gateway doivent exister ou vous devez créer leurs points de terminaison sur le réseau virtuel ou avec une adresse IP/VIP publique affectée.
+3. Les serveurs que vous configurez pour utiliser la passerelle Application Gateway doivent exister ou vous devez créer leurs points de terminaison sur le réseau virtuel ou avec une adresse IP/VIP publique affectée.
 
 ## Quels sont les éléments nécessaires pour créer une passerelle Application Gateway ?
 
 
-Lorsque vous utilisez la commande **New-AzureApplicationGateway** pour créer la passerelle Application Gateway, aucune configuration n’est définie à ce stade et vous devrez configurer la ressource nouvellement créée à l’aide de XML ou d’un objet de configuration.
+Lorsque vous utilisez la commande **New-AzureApplicationGateway** pour créer la passerelle Application Gateway, aucune configuration n’est définie et vous devez configurer la ressource créée à l’aide de XML ou d’un objet de configuration.
 
 
 Les valeurs sont :
 
-- **Pool de serveurs principaux :** liste des adresses IP des serveurs principaux. Les adresses IP répertoriées doivent appartenir au sous-réseau de réseau virtuel ou doivent correspondre à une adresse IP/VIP publique.
-- **Paramètres du pool de serveurs principaux :** chaque pool comporte des paramètres tels que le port, le protocole et une affinité basée sur des cookies. Ces paramètres sont liés à un pool et sont appliqués à tous les serveurs du pool.
-- **Port frontal :** il s’agit du port public ouvert sur la passerelle Application Gateway. Le trafic atteint ce port, puis il est redirigé vers l’un des serveurs principaux.
+- **Pool de serveurs principaux :** liste des adresses IP des serveurs principaux. Les adresses IP répertoriées doivent appartenir au sous-réseau de réseau virtuel ou doivent correspondre à une adresse IP/VIP publique.
+- **Paramètres du pool de serveurs principaux :** chaque pool comporte des paramètres tels que le port, le protocole et une affinité basée sur des cookies. Ces paramètres sont liés à un pool et sont appliqués à tous les serveurs du pool.
+- **Port frontal :** il s’agit du port public ouvert sur la passerelle Application Gateway. Le trafic atteint ce port, puis il est redirigé vers l’un des serveurs principaux.
 - **Écouteur :** l’écouteur a un port frontal, un protocole (Http ou Https, avec respect de la casse) et le nom du certificat SSL (en cas de configuration du déchargement SSL).
-- **Règle :** la règle lie l’écouteur et le pool de serveurs principaux, et définit vers quel pool de serveurs principaux le trafic doit être dirigé quand il atteint un écouteur spécifique.
+- **Règle :** la règle lie l’écouteur et le pool de serveurs principaux et définit vers quel pool de serveurs principaux le trafic doit être dirigé quand il atteint un écouteur spécifique.
 
 
-## Créer une passerelle Application Gateway
+## Créez une passerelle d’application
 
 Pour créer une passerelle d’application :
 
@@ -66,7 +66,7 @@ Pour créer une passerelle d’application :
 
 ### Créer une ressource Application Gateway
 
-Pour créer la passerelle, utilisez l’applet de commande **New-AzureApplicationGateway** en remplaçant les valeurs par les vôtres. Notez que la facturation de la passerelle ne démarre pas à ce stade. La facturation commence à une étape ultérieure, lorsque la passerelle a démarré correctement.
+Pour créer la passerelle, utilisez l’applet de commande **New-AzureApplicationGateway** en remplaçant les valeurs par les vôtres. La facturation de la passerelle ne démarre pas à ce stade. La facturation commence à une étape ultérieure, lorsque la passerelle a démarré correctement.
 
 L’exemple suivant illustre la création d’une passerelle d’application avec un réseau virtuel appelé « testvnet1 » et un sous-réseau appelé « subnet-1 ».
 
@@ -110,9 +110,9 @@ Vous pouvez configurer la passerelle Application Gateway à l’aide d’un obje
 
 ## Configurer la passerelle Application Gateway à l’aide de XML
 
-Dans l’exemple ci-dessous, vous allez utiliser un fichier XML pour configurer tous les paramètres de la passerelle Application Gateway et les valider dans la ressource Application Gateway.
+Dans l’exemple ci-dessous, vous allez utiliser un fichier XML pour configurer tous les paramètres de la passerelle d’application et les valider dans la ressource de passerelle d’application.
 
-### Étape 1  
+### Étape 1 :  
 
 Copiez le texte suivant dans le Bloc-notes.
 
@@ -163,7 +163,7 @@ Modifiez les valeurs entre parenthèses pour les éléments de configuration. En
 
 >[AZURE.IMPORTANT] L’élément de protocole Http ou Https est sensible à la casse.
 
-L’exemple suivant montre comment utiliser un fichier de configuration pour configurer une passerelle Application Gateway pour équilibrer la charge du trafic HTTP sur le port public 80 et envoyer le trafic réseau au port 80 principal entre deux adresses IP.
+L’exemple suivant montre comment configurer la passerelle Application Gateway à l’aide d’un fichier de configuration. L’exemple de charge équilibre le trafic HTTP sur le port public 80 et envoie le trafic réseau au port 80 principal entre deux adresses IP.
 
 	<?xml version="1.0" encoding="utf-8"?>
 	<ApplicationGatewayConfiguration xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/windowsazure">
@@ -224,9 +224,9 @@ Ensuite, définissez la passerelle Application Gateway. Utilisez l’applet de c
 
 ## Configurer la passerelle Application Gateway à l’aide d’un objet de configuration
 
-L’exemple suivant montre comment configurer la passerelle Application Gateway à l’aide d’objets de configuration. Vous devez configurer tous les éléments de configuration individuellement, puis les ajouter à un objet de configuration de passerelle Application Gateway. Après avoir créé l’objet de configuration, vous devez utiliser la commande **Set-AzureApplicationGateway** pour valider la configuration dans la ressource de passerelle Application Gateway créée précédemment.
+L’exemple suivant montre comment configurer la passerelle Application Gateway à l’aide d’objets de configuration. Vous devez configurer tous les éléments de configuration individuellement, puis les ajouter à un objet de configuration de passerelle Application Gateway. Une fois l’objet de configuration créé, utilisez la commande **Set-AzureApplicationGateway** pour valider la configuration dans la ressource de passerelle Application Gateway créée précédemment.
 
->[AZURE.NOTE] Avant d’affecter une valeur à chaque objet de configuration, vous devez déclarer le type d’objet dans lequel PowerShell le stockera. La première ligne de création de chaque élément définit le Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model(object name) qui sera utilisé.
+>[AZURE.NOTE] Avant d’affecter une valeur à chaque objet de configuration, vous devez déclarer le type d’objet dans lequel PowerShell le stockera. La première ligne de création de chaque élément définit les Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model(nom d’objet) utilisés.
 
 ### Étape 1
 
@@ -247,7 +247,7 @@ Créez le port frontal comme indiqué dans l’exemple suivant.
 
 Créez le pool de serveurs principaux.
 
- Définissez les adresses IP qui seront ajoutées au pool de serveurs principaux, comme indiqué dans l’exemple suivant.
+ Définissez les adresses IP qui sont ajoutées au pool de serveurs principaux, comme indiqué dans l’exemple suivant.
 
 
 	PS C:\> $servers = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendServerCollection
@@ -415,4 +415,4 @@ Si vous souhaitez plus d'informations sur les options d'équilibrage de charge e
 - [Équilibrage de charge Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Azure Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -3,7 +3,7 @@
    description="Découvrez comment activer la journalisation des événements d'alerte et de l'état des sondes d'intégrité pour l'équilibreur de charge Azure"
    services="load-balancer"
    documentationCenter="na"
-   authors="joaoma"
+   authors="sdwheeler"
    manager="carmonm"
    editor="tysonn"
    tags="azure-resource-manager"
@@ -15,14 +15,14 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="04/05/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 # Analyse des journaux de l’équilibreur de charge Azure (version préliminaire)
 Vous pouvez utiliser différents types de journaux dans Azure pour gérer les équilibreurs de charge et résoudre les problèmes associés. Certains de ces journaux sont accessibles via le portail et tous les journaux peuvent être extraits à partir d’un stockage blob Azure et affichés dans différents outils, comme Excel et PowerBI. Pour en savoir plus sur les différents types de journaux, consultez la liste ci-dessous.
 
 
 - **Journaux d’audit :** vous pouvez utiliser les [journaux d’audit Azure](../../articles/azure-portal/insights-debugging-with-events.md) (anciennement journaux des opérations) pour afficher toutes les opérations soumises à votre ou vos abonnements Azure, ainsi que leur état. Les journaux d’audit sont activés par défaut et peuvent être affichés dans le portail Azure.
-- **Journaux des événements d'alerte :** vous pouvez utiliser ce journal pour afficher les alertes relatives à l’équilibreur de charge. L'état de l'équilibreur de charge est collecté toutes les cinq minutes. Ce journal est écrit uniquement si un événement d'alerte d’équilibreur de charge est généré.  
+- **Journaux des événements d'alerte :** vous pouvez utiliser ce journal pour afficher les alertes relatives à l’équilibreur de charge. L'état de l'équilibreur de charge est collecté toutes les cinq minutes. Ce journal est écrit uniquement si un événement d'alerte d’équilibreur de charge est généré.
 - **Journaux des sondes d'intégrité :** vous pouvez utiliser ce journal pour vérifier l’état des sondes d'intégrité, le nombre d'instances en ligne dans l’équilibreur de charge principal, et le pourcentage de machines virtuelles qui reçoivent le trafic de l’équilibreur de charge. Ce journal est écrit à chaque changement de l’événement d’état de la sonde.
 
 >[AZURE.WARNING] Les journaux ne sont disponibles que pour les ressources déployées avec le modèle de déploiement de Resource Manager. Vous ne pouvez pas les utiliser pour les ressources utilisant le modèle de déploiement classique. Pour mieux comprendre ces deux modèles, reportez-vous à l’article [Présentation du déploiement de Resource Manager et du déploiement classique](../../articles/resource-manager-deployment-model.md). <BR> L'analyse des journaux s’applique uniquement aux équilibreurs de charge accessibles sur Internet. Cette limitation est temporaire et peut changer à tout moment. N'oubliez pas de revenir sur cette page pour consulter les modifications.
@@ -128,4 +128,4 @@ Vous devez vous connecter à votre compte de stockage et récupérer les entrée
 - Billet de blog [Visualiser vos journaux d’audit Azure avec Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx).
 - Billet de blog [Afficher et analyser les journaux d’audit Azure dans Power BI et bien plus encore](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0824_2016-->

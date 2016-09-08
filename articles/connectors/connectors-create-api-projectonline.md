@@ -14,22 +14,16 @@ ms.devlang="multiple"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="05/16/2016"
+ms.date="08/18/2016"
 ms.author="deonhe"/>
 
 # Prise en main du connecteur ProjectOnline
 
 Project Online est une solution flexible en ligne pour la gestion de portefeuille de projets (PPM) et des tâches quotidiennes Microsoft. Fourni via Office 365, Project Online permet aux organisations de rapidement prendre en main des fonctionnalités de gestion de projets puissantes pour planifier, hiérarchiser et gérer des projets et des investissements de portefeuille de projets, à partir de presque n’importe où sur pratiquement tout appareil.
 
-Le connecteur ProjectOnline peut être utilisé à partir de :
-
-- [Logic Apps](../app-service-logic/app-service-logic-what-are-logic-apps.md)
-- [PowerApps](http://powerapps.microsoft.com)
-- [Flux](http://flow.microsoft.com)
-
 >[AZURE.NOTE] Cette version de l'article s'applique à la version de schéma 2015-08-01-preview des applications logiques.
 
-Vous pouvez commencer en créant une application logique. Consultez [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Vous pouvez commencer par créer une application logique. Pour cela, consultez [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Déclencheurs et actions
 
@@ -68,23 +62,23 @@ Pour créer des applications logiques avec ProjectOnline, vous devez d’abord c
 
 >[AZURE.INCLUDE [Procédure de création d’une connexion à ProjectOnline](../../includes/connectors-create-api-projectonline.md)]
 
->[AZURE.TIP] Vous pouvez utiliser cette connexion dans d'autres applications logiques.
+>[AZURE.TIP] Vous pouvez utiliser cette connexion dans d’autres applications logiques.
 
 ## Référence pour ProjectOnline
-S’applique à la version : 1.0
+S’applique à la version 1.0.
 
 ## OnNewProject
 Quand un nouveau projet est créé : déclenche un flux lors de la création d’un nouveau projet
 
 ```GET: /trigger/_api/ProjectData/Projects```
 
-| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
+| Name| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
 |siteUrl|string|yes|query|(aucun)|URL du site racine de votre site de projet (exemple : https://sampletenant.sharepoint.com/teams/sampleteam )|
 
-#### Response
+#### Réponse
 
-|Nom|Description|
+|Name|Description|
 |---|---|
 |200|OK|
 |400|Demande incorrecte|
@@ -104,7 +98,7 @@ Quand une nouvelle ressource est créée : déclenche un nouveau flux lors de la
 | ---|---|---|---|---|---|
 |siteUrl|string|yes|query|(aucun)|URL du site racine de votre site de projet (exemple : https://sampletenant.sharepoint.com/teams/sampleteam )|
 
-#### Response
+#### Réponse
 
 |Nom|Description|
 |---|---|
@@ -126,7 +120,7 @@ Quand une nouvelle tâche est créée : déclenche un fluxlors de la création d
 | ---|---|---|---|---|---|
 |siteUrl|string|yes|query|(aucun)|URL du site racine de votre site de projet (exemple : https://sampletenant.sharepoint.com/teams/sampleteam )|
 
-#### Response
+#### Réponse
 
 |Nom|Description|
 |---|---|
@@ -148,9 +142,9 @@ Répertorier les projets : répertorie les projets de votre site Project Online
 | ---|---|---|---|---|---|
 |siteUrl|string|yes|query|(aucun)|URL du site racine de votre site de projet (exemple : https://sampletenant.sharepoint.com/teams/sampleteam )|
 
-#### Response
+#### Réponse
 
-|Nom|Description|
+|Name|Description|
 |---|---|
 |200|OK|
 |400|Demande incorrecte|
@@ -166,12 +160,12 @@ Créer un nouveau projet : crée un nouveau projet sur votre site Project Online
 
 ```POST: /_api/ProjectServer/Projects```
 
-| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
+| Name| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
 |siteUrl|string|yes|query|(aucun)|URL du site racine de votre site de projet (exemple : https://sampletenant.sharepoint.com/teams/sampleteam )|
 |proj| |yes|body|(aucun)|Nouveau projet à créer|
 
-#### Response
+#### Réponse
 
 |Nom|Description|
 |---|---|
@@ -195,9 +189,9 @@ Créer une nouvelle tâche : crée une nouvelle tâche dans votre projet
 |project\_id|string|yes|path|(aucun)|ID unique du projet auquel ajouter la tâche|
 |task| |yes|body|(aucun)|Nouvelle tâche à ajouter au projet|
 
-#### Response
+#### Réponse
 
-|Nom|Description|
+|Name|Description|
 |---|---|
 |200|OK|
 |400|Demande incorrecte|
@@ -218,7 +212,7 @@ Créer une nouvelle ressource : crée des ressources d’entreprise dans votre s
 |siteUrl|string|yes|query|(aucun)|URL du site racine de votre site de projet (exemple : https://sampletenant.sharepoint.com/teams/sampleteam )|
 |resource| |yes|body|(aucun)|Nouvelle ressource d’entreprise à ajouter au projet|
 
-#### Response
+#### Réponse
 
 |Nom|Description|
 |---|---|
@@ -241,7 +235,7 @@ Répertorier les tâches : répertorie les tâches publiées dans un projet
 |siteUrl|string|yes|query|(aucun)|URL du site racine de votre site de projet (exemple : https://sampletenant.sharepoint.com/teams/sampleteam )|
 |project\_id|string|yes|path|(aucun)|ID unique du projet d’où extraire les tâches|
 
-#### Response
+#### Réponse
 
 |Nom|Description|
 |---|---|
@@ -264,9 +258,9 @@ Extraire un projet : extrait un projet de votre site
 |siteUrl|string|yes|query|(aucun)|URL du site racine de votre site de projet (exemple : https://sampletenant.sharepoint.com/teams/sampleteam )|
 |project\_id|string|yes|path|(aucun)|ID unique du projet auquel ajouter la tâche|
 
-#### Response
+#### Réponse
 
-|Nom|Description|
+|Name|Description|
 |---|---|
 |200|OK|
 |400|Demande incorrecte|
@@ -282,14 +276,14 @@ Archiver et publier le projet : archive et publie un projet existant sur votre s
 
 ```POST: /_api/ProjectServer/Projects('{project_id}')/Draft/Publish(true)```
 
-| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
+| Name| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
 |siteUrl|string|yes|query|(aucun)|URL du site racine de votre site de projet (exemple : https://sampletenant.sharepoint.com/teams/sampleteam )|
 |project\_id|string|yes|path|(aucun)|ID unique du projet à archiver|
 
-#### Response
+#### Réponse
 
-|Nom|Description|
+|Name|Description|
 |---|---|
 |200|OK|
 |400|Demande incorrecte|
@@ -393,7 +387,7 @@ Archiver et publier le projet : archive et publie un projet existant sur votre s
 
 | Nom de la propriété | Type de données | Requis |
 |---|---|---|
-|Nom|string|Oui |
+|Name|string|Oui |
 |Description|string|Non |
 |Démarrer|string|Non |
 
@@ -429,7 +423,7 @@ Archiver et publier le projet : archive et publie un projet existant sur votre s
 |OptimizerDecision|integer|Non |
 |PlannerDecision|integer|Non |
 |ProjectType|integer|Non |
-|Nom|string|Non |
+|Name|string|Non |
 |WinprojVersion|string|Non |
 
 
@@ -457,7 +451,7 @@ Archiver et publier le projet : archive et publie un projet existant sur votre s
 
 | Nom de la propriété | Type de données | Requis |
 |---|---|---|
-|Nom|string|Oui |
+|Name|string|Oui |
 |Remarques|string|Non |
 |Démarrer|string|Non |
 |Durée|string|Non |
@@ -488,7 +482,7 @@ Archiver et publier le projet : archive et publie un projet existant sur votre s
 |IsTeam|booléenne|Non |
 |MaterialLabel|string|Non |
 |Date de modification|string|Non |
-|Nom|string|Non |
+|Name|string|Non |
 |Phonetics|string|Non |
 |ResourceType|integer|Non |
 |TerminationDate|string|Non |
@@ -524,4 +518,4 @@ Archiver et publier le projet : archive et publie un projet existant sur votre s
 ## Étapes suivantes
 [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

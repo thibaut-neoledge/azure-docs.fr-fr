@@ -13,20 +13,20 @@
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="05/03/2016" 
+	ms.date="08/19/2016" 
 	ms.author="piyushjo" />
 
 #Intégration du Kit de développement logiciel (SDK) d’Engagement Windows Phone Silverlight
 
 > [AZURE.SELECTOR] 
-- [Windows Universal](mobile-engagement-windows-store-integrate-engagement.md) 
-- [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md) 
-- [iOS](mobile-engagement-ios-integrate-engagement.md) 
-- [Android](mobile-engagement-android-integrate-engagement.md) 
+- [Windows Universal](mobile-engagement-windows-store-integrate-engagement.md)
+- [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md)
+- [iOS](mobile-engagement-ios-integrate-engagement.md)
+- [Android](mobile-engagement-android-integrate-engagement.md)
 
 Cette procédure décrit la méthode la plus simple pour activer les fonctions d’analyse et de surveillance d’Azure Mobile Engagement dans votre application Windows Phone Silverlight.
 
-Les étapes suivantes permettent d'activer la génération des journaux nécessaires pour calculer toutes les statistiques concernant les utilisateurs, les sessions, les activités, les incidents et les informations techniques. La génération des journaux nécessaires au calcul d'autres statistiques, telles que les événements, les erreurs et les tâches, doit être effectuée manuellement à l'aide de l'API Engagement (voir la section [Utilisation avancée de l'API de marquage Mobile Engagement dans votre application Windows Phone Silverlight](mobile-engagement-windows-phone-use-engagement-api.md) ci-dessous), dans la mesure où ces statistiques dépendent de l'application.
+Les étapes suivantes permettent d'activer la génération des journaux nécessaires pour calculer toutes les statistiques concernant les utilisateurs, les sessions, les activités, les incidents et les informations techniques. La génération des journaux nécessaires au calcul d’autres statistiques, telles que les événements, les erreurs et les travaux, doit être effectuée manuellement à l’aide de l’API Engagement (consultez [Utilisation avancée de l’API de marquage Mobile Engagement dans votre application Windows Phone Silverlight](mobile-engagement-windows-phone-use-engagement-api.md) ci-dessous), dans la mesure où ces statistiques dépendent de l’application.
 
 ##Versions prises en charge
 
@@ -191,7 +191,7 @@ Ces méthodes sont appelées depuis la méthode `OnNavigatedTo` de votre page.
 
 Si vous ne pouvez pas ou ne souhaitez pas surcharger vos classes `PhoneApplicationPage`, vous pouvez démarrer vos activités en appelant directement les méthodes `EngagementAgent`.
 
-Nous vous recommandons d'appeler `StartActivity` à l'intérieur de la méthode `OnNavigatedTo` de votre PhoneApplicationPage.
+Nous vous recommandons d’appeler `StartActivity` à l’intérieur de la méthode `OnNavigatedTo` de votre PhoneApplicationPage.
 
 		protected override void OnNavigatedTo(NavigationEventArgs e)
 		{
@@ -247,4 +247,4 @@ Le mode rafale accroît légèrement l'autonomie de la batterie, mais il affecte
 > [AZURE.WARNING] Il n'est pas possible de configurer un seuil de rafale inférieur à une seconde. Si vous essayez de le faire, le SDK affichera une erreur et réinitialisera automatiquement la valeur par défaut, c'est-à-dire zéro seconde. Le SDK génère alors les journaux en temps réel.
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0824_2016-->

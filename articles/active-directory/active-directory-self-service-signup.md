@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="05/10/2016"
+	ms.date="08/23/2016"
 	ms.author="curtand"/>
 
 
@@ -32,7 +32,7 @@ Cette rubrique vous explique le processus d‘inscription libre-service et vous 
 
 + **Inscription libre-service** : méthode via laquelle un utilisateur s‘abonne à un service cloud et bénéficie automatiquement d’une identité créée pour lui dans Azure Active Directory (Azure AD) en fonction de son domaine de messagerie.
 + **Répertoire Azure non géré** : répertoire dans lequel cette identité est créée. Un répertoire non géré est un répertoire qui ne possède aucun administrateur général.
-+ **Utilisateur vérifié par e-mail** : type de compte d'utilisateur dans Azure AD. Un utilisateur qui possède une identité créée automatiquement après s’être abonné à une offre libre-service est considéré comme un utilisateur vérifié par e-mail. Un utilisateur vérifié par e-mail est un membre ordinaire d'un répertoire marqué par la valeur creationmethod=EmailVerified.
++ **Utilisateur vérifié par e-mail** : type de compte d'utilisateur dans Azure AD. Un utilisateur qui possède une identité créée automatiquement après s’être abonné à une offre libre-service est considéré comme un utilisateur vérifié par e-mail. Un utilisateur vérifié par e-mail est un membre ordinaire d'un répertoire marqué par la valeur creationmethod=EmailVerified.
 
 ## Expérience utilisateur
 
@@ -52,7 +52,7 @@ Un administrateur qui possède le nom de domaine DNS d‘un répertoire Azure no
 #### Répertoire
 
 - Un répertoire Azure Active Directory est créé pour le domaine (un répertoire par domaine).
-- Le répertoire du répertoire Azure AD ne possède aucun administrateur général.
+- Le répertoire Azure AD ne possède aucun administrateur général.
 
 #### Utilisateurs
 
@@ -221,7 +221,7 @@ Pour en savoir plus et obtenir des exemples d'utilisation de ces paramètres, co
 
 ## Voir aussi
 
--  [Installation et configuration d’Azure PowerShell](../powershell-install-configure/)
+-  [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md)
 
 -  [Azure PowerShell](https://msdn.microsoft.com/library/azure/jj156055.aspx)
 
@@ -232,4 +232,4 @@ Pour en savoir plus et obtenir des exemples d'utilisation de ces paramètres, co
 <!--Image references-->
 [1]: ./media/active-directory-self-service-signup/SelfServiceSignUpControls.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0824_2016-->

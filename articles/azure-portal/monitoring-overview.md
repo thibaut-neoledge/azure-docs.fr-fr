@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Vue d’ensemble de l’analyse dans Microsoft Azure | Microsoft Azure"
-	description="Présentation générale de l’analyse et du diagnostic dans Azure Alerts sur d’autres systèmes non-Azure."
+	description="Vue d’ensemble de haut niveau de l’analyse et des diagnostics dans Microsoft Azure, y compris les alertes, les webhooks, l’échelle automatique et autres."
 	authors="rboucher"
 	manager=""
 	editor=""
@@ -138,4 +138,4 @@ En savoir plus sur
 - [Résolution des problèmes du stockage Azure](../storage/storage-e2e-troubleshooting.md) si vous utilisez le stockage des objets blob, des tables ou des files d’attente
 - [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) et [Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

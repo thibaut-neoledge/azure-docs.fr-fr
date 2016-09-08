@@ -62,7 +62,7 @@ Vous devrez indiquer le réseau auquel vous voulez que la machine virtuelle appa
 Vous devez vous connecter à la machine virtuelle, en utilisant Connexion Bureau à distance pour une machine virtuelle Windows ou une connexion Secure Shell (SSH) pour une machine virtuelle Linux. Pour obtenir des instructions, consultez les liens suivants :
 
 - [Connexion à une machine virtuelle exécutant Windows Server](../articles/virtual-machines/virtual-machines-windows-classic-connect-logon.md) 2 connexions simultanées maximum sont prises en charge, sauf si le serveur est configuré en tant qu’hôte de session Services Bureau à distance.
-- [Connexion à une machine virtuelle exécutant Linux](../articles/virtual-machines/virtual-machines-linux-classic-log-on.md) Par défaut, SSH autorise un maximum de 10 connexions simultanées. Vous pouvez augmenter ce nombre en modifiant le fichier de configuration.
+- [Connexion à une machine virtuelle exécutant Linux](../articles/virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) Par défaut, SSH autorise un maximum de 10 connexions simultanées. Vous pouvez augmenter ce nombre en modifiant le fichier de configuration.
 
 
 En cas de problème avec le bureau à distance ou SSH, installez et utilisez l’extension [VMAccess](../articles/virtual-machines/virtual-machines-windows-extensions-features.md) pour résoudre le problème.
@@ -110,7 +110,7 @@ Informations supplémentaires :
 
 ## Azure peut-il exécuter un antivirus sur mes machines virtuelles ?
 
-Azure offre plusieurs options de solutions antivirus, mais c’est à vous qu’il incombe de les gérer. Par exemple, vous pouvez avoir besoin d’un abonnement distinct pour un logiciel anti-programme malveillant. Dans ce cas, c’est à vous qu’il reviendra de décider du moment où exécuter les analyses et installer les mises à jour. Vous pouvez ajouter une prise en charge d’antivirus avec une extension de machine virtuelle pour Microsoft Antimalware, Symantec Endpoint Protection ou TrendMicro Deep Security Agent lors de la création d’une machine virtuelle Windows ou à un moment ultérieur. Les extensions Symantec et TrendMicro permettent d’utiliser un abonnement d’évaluation limité dans le temps et gratuit ou un abonnement d’entreprise existant. Microsoft Antimalware est gratuit. Pour plus d'informations, consultez les rubriques :
+Azure offre plusieurs options de solutions antivirus, mais c’est à vous qu’il incombe de les gérer. Par exemple, vous pouvez avoir besoin d’un abonnement distinct pour un logiciel anti-programme malveillant. Dans ce cas, c’est à vous qu’il reviendra de décider du moment où exécuter les analyses et installer les mises à jour. Vous pouvez ajouter une prise en charge d’antivirus avec une extension de machine virtuelle pour Microsoft Antimalware, Symantec Endpoint Protection ou TrendMicro Deep Security Agent lors de la création d’une machine virtuelle Windows ou à un moment ultérieur. Les extensions Symantec et TrendMicro permettent d’utiliser un abonnement d’évaluation limité dans le temps et gratuit, ou un abonnement d’entreprise existant. Microsoft Antimalware est gratuit. Pour plus d'informations, consultez les rubriques :
 
 - [Installation et configuration de Symantec Endpoint Protection sur une machine virtuelle Azure](http://go.microsoft.com/fwlink/p/?LinkId=404207)
 - [Installation et configuration de Trend Micro Deep Security comme service sur une machine virtuelle Azure](http://go.microsoft.com/fwlink/p/?LinkId=404206)
@@ -156,4 +156,4 @@ Pour assurer la redondance, placez au moins deux machines virtuelles configurée
 
 [Les différentes façons de créer une machine virtuelle Windows](../articles/virtual-machines/virtual-machines-windows-creation-choices.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

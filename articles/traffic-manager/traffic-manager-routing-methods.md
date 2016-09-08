@@ -3,7 +3,7 @@
    description="Cet article vous aide à comprendre les différentes méthodes de routage du trafic utilisées par Traffic Manager."
    services="traffic-manager"
    documentationCenter=""
-   authors="jtuliani"
+   authors="sdwheeler"
    manager="carmonm"
    editor="tysonn" />
 <tags 
@@ -13,13 +13,13 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="05/25/2016"
-   ms.author="jtuliani" />
+   ms.author="sewhee" />
 
 # Méthodes de routage du trafic de Traffic Manager
 
 Cette page décrit les méthodes de routage du trafic prises en charge par Azure Traffic Manager. Elles sont utilisées pour diriger les utilisateurs finaux vers le point de terminaison de service approprié.
 
-> [AZURE.NOTE] L’API Azure Resource Manager (ARM) pour Traffic Manager utilise une terminologie différente de l’API de gestion des services Windows Azure (Azure Service Management, ASM). Cette modification a été introduite suite à des commentaires pour améliorer la clarté et limiter les malentendus courants. Dans cette page, nous utilisons la terminologie ARM. Les différences sont les suivantes :
+> [AZURE.NOTE] L’API Azure Resource Manager (ARM) pour Traffic Manager utilise une terminologie différente de l’API de gestion des services Microsoft Azure (Azure Service Management, ASM). Cette modification a été introduite suite à des commentaires pour améliorer la clarté et limiter les malentendus courants. Dans cette page, nous utilisons la terminologie ARM. Les différences sont les suivantes :
 
 >- Dans ARM, nous utilisons le concept de « méthode de routage du trafic » pour décrire l’algorithme utilisé pour déterminer le point de terminaison spécifique vers lequel un utilisateur final doit être dirigé à un moment donné. Dans ASM, nous parlons de « méthode d’équilibrage de charge ».
 
@@ -37,7 +37,7 @@ Trois méthodes de routage du trafic sont disponibles dans Traffic Manager :
 
 - **Pondération :** sélectionnez « Weighted (Pondéré) » si vous souhaitez distribuer le trafic entrant sur un ensemble de points de terminaison, soit uniformément, soit en fonction du poids que vous définissez. Pour plus d’informations, consultez la section [Méthode de routage du trafic basé sur la pondération](#weighted-traffic-routing-method).
 
-- **Performances** : sélectionnez « Performance » quand vos points de terminaison se trouvent sur des emplacements géographiques différents et que vous souhaitez que les utilisateurs finaux utilisent le point de terminaison « le plus proche » en termes de latence réseau la plus faible. Pour plus d’informations, consultez la section [Méthode de routage du trafic basé sur les performances](#performance-traffic-routing-method).
+- **Performances** : sélectionnez « Performance » quand vos points de terminaison se trouvent sur des emplacements géographiques différents et que vous souhaitez que les utilisateurs finaux utilisent le point de terminaison « le plus proche » en termes de latence réseau la plus faible. Pour plus d’informations, consultez la section [Méthode de routage du trafic basé sur les performances](#performance-traffic-routing-method).
 
 > [AZURE.NOTE] Tous les profils Traffic Manager comprennent une surveillance continue de l’intégrité des points de terminaison et un basculement de point de terminaison automatique. Le tout est pris en charge pour toutes les méthodes de routage du trafic. Pour plus d’informations, consultez la rubrique relative à la [surveillance des points de terminaison avec Traffic Manager](traffic-manager-monitoring.md).
 
@@ -126,4 +126,4 @@ En savoir plus sur la [création d’un profil Traffic Manager](traffic-manager-
 [2]: ./media/traffic-manager-routing-methods/weighted.png
 [3]: ./media/traffic-manager-routing-methods/performance.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0824_2016-->

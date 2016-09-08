@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/24/2016"
+	ms.date="08/24/2016"
 	ms.author="dineshm"/>
 
 
@@ -31,7 +31,7 @@ Les processus de chiffrement et de déchiffrement s’effectuent selon la techni
 ### Chiffrement via la technique d’enveloppe  
 Le chiffrement via la technique d’enveloppe fonctionne de la façon suivante :
 
-1.	La bibliothèque cliente du stockage Azure génère une clé de chiffrement de contenu (CEK) qui est une clé symétrique à usage unique.  
+1.	La bibliothèque cliente du stockage Azure génère une clé de chiffrement de contenu (CEK) qui est une clé symétrique à usage unique.
 
 2.	Les données utilisateur sont chiffrées à l'aide de cette clé de chiffrement de contenu.
 
@@ -42,7 +42,7 @@ Le chiffrement via la technique d’enveloppe fonctionne de la façon suivante 
 ### Déchiffrement via la technique d’enveloppe  
 Le déchiffrement via la technique d’enveloppe fonctionne de la façon suivante :
 
-1.	La bibliothèque cliente suppose que l’utilisateur gère la clé de chiffrement à clé (KEK) localement ou dans des coffres de clés Azure. L’utilisateur n’est pas obligé de savoir quelle clé a été spécifiquement utilisée pour le chiffrement. Il est en effet possible d’utiliser et de configurer un programme de résolution de clés qui résout les différents identificateurs de clés.  
+1.	La bibliothèque cliente suppose que l’utilisateur gère la clé de chiffrement à clé (KEK) localement ou dans des coffres de clés Azure. L’utilisateur n’est pas obligé de savoir quelle clé a été spécifiquement utilisée pour le chiffrement. Il est en effet possible d’utiliser et de configurer un programme de résolution de clés qui résout les différents identificateurs de clés.
 
 2.	La bibliothèque cliente télécharge les données chiffrées ainsi que tout le matériel de chiffrement stocké sur le service.
 
@@ -82,7 +82,7 @@ La bibliothèque cliente prend en charge le chiffrement des propriétés de l’
 
 Le chiffrement des données d’une table fonctionne de la manière suivante :
 
-1.	Les utilisateurs spécifient les propriétés à chiffrer.  
+1.	Les utilisateurs spécifient les propriétés à chiffrer.
 
 2.	La bibliothèque cliente génère un vecteur d’initialisation (IV) aléatoire de 16 octets et une clé de chiffrement de contenu (CEK) aléatoire de 32 octets pour chaque entité, puis effectue le chiffrement d’enveloppe sur les propriétés individuelles à chiffrer en dérivant un nouveau vecteur d’initialisation par propriété. La propriété chiffrée est stockée en tant que données binaires.
 
@@ -109,16 +109,16 @@ La bibliothèque cliente de stockage utilise la bibliothèque principale du coff
 Il existe trois packages de coffre de clés :
 
 - azure-keyvault-core contient IKey et IKeyResolver. Il s’agit d’un petit package sans dépendances. La bibliothèque cliente de stockage pour Java le définit en tant que dépendance.
-- azure-keyvault contient le client REST du coffre de clés.  
-- azure-keyvault-extensions contient le code d’extension qui inclut des implémentations d’algorithmes de chiffrement, RSAKey et SymmetricKey. Il repose sur les espaces de noms Core et KeyVault, et fournit une fonctionnalité permettant de définir un programme de résolution d’agrégation (lorsque les utilisateurs veulent utiliser plusieurs fournisseurs de clés) et un programme de résolution de clé de mise en cache. Bien que la bibliothèque cliente de stockage ne dépende pas directement de ce package, si les utilisateurs veulent utiliser Azure Key Vault pour stocker leurs clés ou utiliser les extensions du coffre de clés pour recourir aux fournisseurs de chiffrement en local et dans le cloud, ils ont besoin de ce package.  
+- azure-keyvault contient le client REST du coffre de clés.
+- azure-keyvault-extensions contient le code d’extension qui inclut des implémentations d’algorithmes de chiffrement, RSAKey et SymmetricKey. Il repose sur les espaces de noms Core et KeyVault, et fournit une fonctionnalité permettant de définir un programme de résolution d’agrégation (lorsque les utilisateurs veulent utiliser plusieurs fournisseurs de clés) et un programme de résolution de clé de mise en cache. Bien que la bibliothèque cliente de stockage ne dépende pas directement de ce package, si les utilisateurs veulent utiliser Azure Key Vault pour stocker leurs clés ou utiliser les extensions du coffre de clés pour recourir aux fournisseurs de chiffrement en local et dans le cloud, ils ont besoin de ce package.
 
   Le coffre de clés est conçu pour les clés principales de valeur élevée et les seuils de limitation par coffre de clés sont définies avec cela à l’esprit. Lors du chiffrement côté client avec le coffre de clés, il est préférable d’utiliser les clés principales Symmetric stockées en tant que secrets dans le coffre de clés et mises en cache localement. Les utilisateurs doivent procéder comme suit :
 
-1.	Créer un secret hors connexion et le télécharger dans le coffre de clés.  
+1.	Créer un secret hors connexion et le télécharger dans le coffre de clés.
 
 2.	Utiliser l’identificateur de base du secret comme paramètre pour résoudre la version actuelle du secret pour le chiffrement et mettre en cache ces informations localement. Utiliser CachingKeyResolver pour la mise en cache ; les utilisateurs ne doivent pas implémenter leur propre programme logique de mise en cache.
 
-3.	Utiliser le programme de résolution de mise en cache en tant qu’entrée lors de la création de la stratégie de chiffrement. Vous trouverez plus d’informations concernant l’utilisation du coffre de clés dans les exemples de code de chiffrement. <fix URL>
+3.	Utiliser le programme de résolution de mise en cache en tant qu’entrée lors de la création de la stratégie de chiffrement. Vous trouverez plus d’informations concernant l’utilisation du coffre de clés dans les exemples de code de chiffrement.<fix URL>
 
 ## Meilleures pratiques  
 La prise en charge du chiffrement est disponible uniquement dans la bibliothèque cliente de stockage pour Java.
@@ -136,10 +136,10 @@ La prise en charge du chiffrement est disponible uniquement dans la bibliothèqu
 ## API/Interface cliente  
 Lors de la création d’un objet EncryptionPolicy, les utilisateurs peuvent fournir une clé seulement (implémentation de IKey), un programme de résolution seulement (implémentation de IKeyResolver), ou les deux. IKey est le type de clé de base identifié à l’aide d’un identificateur de clé. Il fournit le programme logique pour l’encapsulage/le désencapsulage. IKeyResolver est utilisé pour résoudre une clé pendant le processus de déchiffrement. Il définit une méthode ResolveKey qui renvoie un IKey avec un identificateur de clé. Les utilisateurs ont ainsi la possibilité de choisir entre plusieurs clés gérées dans plusieurs emplacements.
 
-- Pour le chiffrement, la clé est toujours utilisée et l’absence de clé entraîne une erreur.  
-- Pour le déchiffrement :  
-	- S’il est spécifié, le programme de résolution de clé est appelé pour obtenir la clé. Si le programme de résolution est spécifié, mais ne comporte pas de mappage pour l’identificateur de clé, une erreur est générée.  
-	- Si le programme de résolution n’est pas spécifié, mais qu’une clé est spécifiée, celle-ci est utilisée si son identificateur correspond à l’identificateur de clé nécessaire. Si l’identificateur ne correspond pas, une erreur est générée.  
+- Pour le chiffrement, la clé est toujours utilisée et l’absence de clé entraîne une erreur.
+- Pour le déchiffrement :
+	- S’il est spécifié, le programme de résolution de clé est appelé pour obtenir la clé. Si le programme de résolution est spécifié, mais ne comporte pas de mappage pour l’identificateur de clé, une erreur est générée.
+	- Si le programme de résolution n’est pas spécifié, mais qu’une clé est spécifiée, celle-ci est utilisée si son identificateur correspond à l’identificateur de clé nécessaire. Si l’identificateur ne correspond pas, une erreur est générée.
 
 	  Les [exemples de chiffrement](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/EncryptionSamples) <fix URL>présentent un scénario de bout en bout plus détaillé pour les objets blob, les files d’attente et les tables, ainsi que pour l’intégration au coffre de clés.
 
@@ -240,11 +240,11 @@ Notez que le chiffrement de vos données de stockage affecte les performances. L
 
 ## Étapes suivantes  
 
-- Télécharger la [bibliothèque cliente Azure Storage pour le package Maven Java](http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage)  
-- Télécharger la [bibliothèque cliente Azure Storage pour le code source Java à partir de GitHub](https://github.com/Azure/azure-storage-java)   
+- Télécharger la [bibliothèque cliente Azure Storage pour le package Maven Java](http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage)
+- Télécharger la [bibliothèque cliente Azure Storage pour le code source Java à partir de GitHub](https://github.com/Azure/azure-storage-java)
 - Télécharger la bibliothèque Maven d’Azure Key Vault pour le package Maven Java :
-	- Package [Core](http://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault-core)
+	- Package [Principal](http://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault-core)
 	- Package [Client](http://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault)
-- Consulter la [documentation d’Azure Key Vault](../key-vault/key-vault-whatis.md)  
+- Consulter la [documentation d’Azure Key Vault](../key-vault/key-vault-whatis.md)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0824_2016-->

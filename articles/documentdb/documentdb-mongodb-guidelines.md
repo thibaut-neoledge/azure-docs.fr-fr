@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/31/2016" 
+	ms.date="08/23/2016" 
 	ms.author="stbaro"/>
 
 # Directives de développement pour les comptes DocumentDB prenant en charge le protocole MongoDB (version préliminaire)
@@ -26,7 +26,7 @@ DocumentDB prend en charge les principales fonctions d’API MongoDB pour créer
 
 > [AZURE.IMPORTANT] DocumentDB utilise un débit réservé au niveau de la collection pour garantir des performances prévisibles. Les collections contenues dans DocumentDB sont, par conséquent, des entités facturables.
 
-Les réservations de performances sont appliquées au niveau de la collection afin que les applications puissent ajuster les performances au niveau le plus bas des conteneurs de données du système. Le coût d’une collection est donc déterminé par le débit défini pour la collection, mesuré en unités de demande par seconde, avec le stockage total consommé en gigaoctets. Le débit prévu peut être ajusté tout au long de la durée de vie d’une collection pour s’adapter aux besoins de traitement et aux modèles d’accès changeants de votre application. Pour plus d’informations, consultez la rubrique [Niveaux de performances dans DocumentDB](documentdb-performance-levels.md).
+Les réservations de performances sont appliquées au niveau de la collection afin que les applications puissent ajuster les performances au niveau le plus bas des conteneurs de données du système. Le coût d’une collection est donc déterminé par le débit défini pour la collection, mesuré en unités de demande par seconde, avec le stockage total consommé en gigaoctets. Le débit prévu peut être ajusté tout au long de la durée de vie d’une collection pour s’adapter aux besoins de traitement et aux modèles d’accès changeants de votre application. Pour plus d’informations, consultez la rubrique [Niveaux de performances dans DocumentDB](documentdb-performance-levels.md).
 
 Les collections DocumentDB prenant en charge le protocole MongoDB sont, par défaut, créées au niveau de tarification Standard avec 1 000 unités de demande par seconde de débit approvisionné. Vous pouvez ajuster le débit approvisionné de chacune de vos collections, comme décrit dans la rubrique [Modification des niveaux de performances à l’aide du portail Azure](documentdb-performance-levels.md#changing-performance-levels-using-the-azure-portal).
 
@@ -70,9 +70,9 @@ BulkWrite| |bulkWrite()|
 Opérateurs de comparaison|-all-| | 
 Opérateurs logiques|-all-| | 
 Requête d’élément| |-all-| 
-Évaluation|$mod|$regex, $text, $where| 
+Évaluation|$mod, $regex |$text, $where| 
 GeoSpatial|2dsphere, 2d, polygon|Tout le reste| 
-Array|$all, $size|$elemMatch| 
+Array|$all, $size, $elemMatch|| 
 Opérateurs au niveau du bit| |-all-| 
 Commentaire|-all-| | 
 Projection| |-all-| 
@@ -100,4 +100,4 @@ Diagnostic|listDatabases, collStats, dbStats| |Tout le reste
 
  
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0824_2016-->

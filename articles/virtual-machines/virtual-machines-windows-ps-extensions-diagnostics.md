@@ -4,7 +4,7 @@
 	documentationCenter=""
 	description="Utilisation de PowerShell pour activer Azure Diagnostics sur une machine virtuelle exécutant Windows"
 	authors="sbtron"
-	manager=""
+ 	manager="timlt"
 	editor=""/>
 
 <tags
@@ -43,7 +43,7 @@ Si le fichier de configuration des diagnostics spécifie un élément **StorageA
 
 Si aucun **StorageAccount** n’a été spécifié dans la configuration des diagnostics, vous devez transmettre le paramètre *StorageAccountName* à l’applet de commande. Si le paramètre *StorageAccountName* est spécifié, l’applet de commande utilise toujours le compte de stockage spécifié dans le paramètre et non celui spécifié dans le fichier de configuration des diagnostics.
 
-Si le compte de stockage de diagnostics appartient à un autre abonnement que celui de la machine virtuelle, vous devez transmettre explicitement les paramètres *StorageAccountName* et *StorageAccountKey* à l'applet de commande. Le paramètre *StorageAccountKey* n’est pas nécessaire lorsque le compte de stockage de diagnostics appartient au même abonnement si l’applet de commande peut interroger et définir automatiquement la valeur clé lors de l’activation de l’extension de diagnostics. Toutefois si le compte de stockage de diagnostics appartient à un autre abonnement, l’applet de commande n’est peut-être pas en mesure d’obtenir automatiquement la clé, et vous devez explicitement spécifier la clé par le biais du paramètre *StorageAccountKey*.
+Si le compte de stockage de diagnostics appartient à un autre abonnement que celui de la machine virtuelle, vous devez transmettre explicitement les paramètres *StorageAccountName* et *StorageAccountKey* à l’applet de commande. Le paramètre *StorageAccountKey* n’est pas nécessaire lorsque le compte de stockage de diagnostics appartient au même abonnement si l’applet de commande peut interroger et définir automatiquement la valeur clé lors de l’activation de l’extension de diagnostics. Toutefois, si le compte de stockage de diagnostics appartient à un autre abonnement, l’applet de commande n’est peut-être pas en mesure d’obtenir automatiquement la clé, et vous devez explicitement spécifier celle-ci par le biais du paramètre *StorageAccountKey*.
 
 	Set-AzureRmVMDiagnosticsExtension -ResourceGroupName $vm_resourcegroup -VMName $vm_name -DiagnosticsConfigurationPath $diagnosticsconfig_path -StorageAccountName $diagnosticsstorage_name -StorageAccountKey $diagnosticsstorage_key
 
@@ -82,8 +82,8 @@ Le code XML suivant peut être utilisé pour la configuration publique de diagno
 La configuration doit être mise à jour pour inclure les éléments suivants :
 
 - L'attribut *resourceID* de l'élément **Mesures** doit être mis à jour avec l'ID de ressource pour la machine virtuelle.
-	- L'ID de ressource peut être construit à l'aide du modèle suivant : "/subscriptions/{*ID d'abonnement pour l'abonnement avec la machine virtuelle*}/resourceGroups/{*Nom du groupe de ressources pour la machine virtuelle*}/providers/Microsoft.Compute/virtualMachines/{*Nom de la machine virtuelle*}".
-	- Par exemple, si l'ID d'abonnement pour l'abonnement dans lequel la machine virtuelle est en cours d'exécution est **11111111-1111-1111-1111-111111111111**, le nom du groupe de ressources pour le groupe de ressources est **MyResourceGroup** et le nom de la machine virtuelle est **MyWindowsVM**. La valeur pour *resourceID* serait alors :
+	- L’ID de ressource peut être construit à l’aide du modèle suivant : « /subscriptions/{*ID d’abonnement pour l’abonnement avec la machine virtuelle*}/resourceGroups/{*Nom du groupe de ressources pour la machine virtuelle*}/providers/Microsoft.Compute/virtualMachines/{*Nom de la machine virtuelle*} ».
+	- Par exemple, si l’ID d’abonnement pour l’abonnement dans lequel la machine virtuelle est en cours d’exécution est **11111111-1111-1111-1111-111111111111**, le nom du groupe de ressources pour le groupe de ressources est **MyResourceGroup** et le nom de la machine virtuelle est **MyWindowsVM**. La valeur pour *resourceID* serait alors :
 
 		```
 		<Metrics resourceId="/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/virtualMachines/MyWindowsVM" >
@@ -201,4 +201,4 @@ La configuration doit être mise à jour pour inclure les éléments suivants :
 - Pour obtenir une aide supplémentaire sur l’utilisation de la fonction Diagnostics Azure et d’autres techniques pour résoudre les problèmes, consultez la page [Activation de Diagnostics dans Azure Cloud Services et Azure Virtual Machines](../cloud-services/cloud-services-dotnet-diagnostics.md).
 - Le [schéma de configuration des diagnostics](https://msdn.microsoft.com/library/azure/mt634524.aspx) explique les différentes options de configuration XML pour l'extension de diagnostics.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0824_2016-->

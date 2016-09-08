@@ -1,6 +1,6 @@
 ## Présentation des rubriques et des abonnements Service Bus
 
-Les rubriques et les abonnements Service Bus prennent en charge un modèle de communication de messagerie *de publication et d'abonnement*. Lors de l’utilisation de rubriques et d’abonnements, les composants d’une application distribuée ne communiquent pas directement entre eux ; ils échangent plutôt des messages via une rubrique, qui fait office d’intermédiaire.
+Les rubriques et les abonnements Service Bus prennent en charge un modèle de *communication de messagerie de publication et d’abonnement*. Lors de l’utilisation de rubriques et d’abonnements, les composants d’une application distribuée ne communiquent pas directement entre eux. Ils échangent plutôt des messages par le biais d’une rubrique, qui fait office d’intermédiaire.
 
 ![TopicConcepts](./media/howto-service-bus-topics/sb-topics-01.png)
 
@@ -16,42 +16,41 @@ Pour commencer à utiliser les rubriques et les abonnements Service Bus dans Azu
 
 Pour créer un espace de noms :
 
-1.  Connectez-vous au [portail Azure Classic][].
+1. Connectez-vous au [portail Azure][].
 
-2.  Dans le volet de navigation de gauche du portail, cliquez sur **Service Bus**.
+2. Dans le volet de navigation gauche du portail, cliquez sur **Nouveau**, puis sur **Enterprise Integration** et sur **Service Bus**.
 
-3.  Dans le volet inférieur du portail, cliquez sur **Créer**. ![][0]
+4. Dans la boîte de dialogue **Créer un espace de noms**, entrez un nom d’espace de noms. Le système vérifie immédiatement si le nom est disponible.
 
-4.  Dans la boîte de dialogue **Add a new namespace**, entrez un nom d’espace de noms. Le système vérifie immédiatement si le nom est disponible. ![][2]
+5. Lorsque vous avez vérifié la disponibilité de l’espace de noms, sélectionnez le niveau tarifaire (Basique, Standard ou Premium).
 
-5.  Après vous être assuré que le nom de l’espace de noms est disponible, choisissez le pays ou la région où votre espace de noms doit être hébergé (veillez à utiliser le même pays ou la même région que celui ou celle où vous déployez vos ressources de calcul).
+7. Dans le champ **Abonnement**, sélectionnez un abonnement Azure dans lequel créer l’espace de noms.
 
-	> [AZURE.IMPORTANT] choisissez la **même région** que celle que vous prévoyez de sélectionner pour le déploiement de votre application. Vous bénéficiez ainsi des meilleures performances.
+9. Dans le champ **Groupe de ressources**, choisissez un groupe de ressources existant dans lequel l’espace de noms sera utilisé, ou créez-en un nouveau.
 
-6. 	Gardez la valeur par défaut des autres champs de la boîte de dialogue (**Messagerie** et **Niveau Standard**), puis cliquez sur la coche OK. Le système crée l'espace de noms de service et l'active. Vous devrez peut-être attendre plusieurs minutes afin que le système approvisionne des ressources pour votre compte.
+8. Dans **Emplacement**, sélectionnez le pays ou la région où votre espace de noms doit être hébergé.
 
-	![][6]
+	![Créer un espace de noms][create-namespace]
 
-## Obtention d’informations d’identification de gestion par défaut pour l’espace de noms
+6. Cliquez sur le bouton **Créer**. Le système crée l'espace de noms de service et l'active. Vous devrez peut-être attendre plusieurs minutes afin que le système approvisionne des ressources pour votre compte.
+ 
+### Obtenir les informations d’identification
 
-Afin d’effectuer des opérations de gestion, comme la création d’une rubrique ou d’un abonnement, sur le nouvel espace de noms, vous devez obtenir les informations de gestion associées. Ces informations d’identification sont disponibles sur le portail.
+1. Dans la liste des espaces de noms, cliquez sur le nom de l’espace de noms que vous venez de créer.
+ 
+3. Dans le panneau **Espace de noms Service Bus**, cliquez sur **Stratégies d’accès partagé**.
 
-### Obtention des informations d’identification de gestion du portail
+4. Dans le panneau **Stratégies d’accès partagé**, cliquez sur **RootManageSharedAccessKey**.
 
-1.  Dans le volet de navigation gauche, cliquez sur le nœud **Service Bus** pour afficher la liste des espaces de noms disponibles : ![][0]
+	![informations de connexion][connection-info]
 
-2.  Sélectionnez l’espace de noms que vous venez de créer dans la liste affichée : ![][3]
+5. Dans le panneau **Policy: RootManageSharedAccessKey (Stratégie : RootManageSharedAccessKey)**, cliquez sur le bouton de copie situé en regard de **Clé primaire de la chaîne de connexion**, pour copier la chaîne de connexion dans le presse-papiers pour une utilisation ultérieure.
 
-3.  Cliquez sur **Informations de connexion**. ![][4]
+	![connection-string][connection-string]
 
-4.  Dans la boîte de dialogue **Accès aux informations de connexion**, recherchez la chaîne de connexion contenant la clé SAS et le nom de clé. Notez ces valeurs, car vous les utiliserez ultérieurement pour effectuer des opérations avec l’espace de noms.
+[portail Azure]: https://portal.azure.com
+[create-namespace]: ./media/howto-service-bus-topics/create-namespace.png
+[connection-info]: ./media/howto-service-bus-topics/connection-info.png
+[connection-string]: ./media/howto-service-bus-topics/connection-string.png
 
-
-  [portail Azure Classic]: http://manage.windowsazure.com
-  [0]: ./media/howto-service-bus-topics/sb-queues-13.png
-  [2]: ./media/howto-service-bus-topics/sb-queues-04.png
-  [3]: ./media/howto-service-bus-topics/sb-queues-09.png
-  [4]: ./media/howto-service-bus-topics/sb-queues-06.png
-  
-  [6]: ./media/howto-service-bus-topics/getting-started-multi-tier-27.png
-
+<!---HONumber=AcomDC_0824_2016-->

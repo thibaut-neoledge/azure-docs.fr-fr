@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/04/2016" 
+	ms.date="08/22/2016" 
 	ms.author="billmath"/>
 
 # Utilisation de l’application mobile comme méthode de contact avec Azure Multi-Factor Authentication
 
-Si vous souhaitez utiliser l’application mobile comme méthode de contact principale, vous pouvez utiliser cet article. Il vous guide dans la configuration de l’authentification multifacteur pour utiliser votre application mobile comme méthode de contact principale.
+Si vous souhaitez utiliser l’application Microsoft Authenticator comme méthode de contact principale, vous pouvez vous référer à cet article. Il vous guide dans la configuration de l’authentification multifacteur pour utiliser votre application mobile comme méthode de contact principale.
 
-L’application Azure Authenticator pour [Windows Phone](http://www.windowsphone.com/fr-FR/store/app/azure-authenticator/03a5b2bf-6066-418f-b569-e8aecbc06e50), [Android](https://play.google.com/store/apps/details?id=com.azure.authenticator) et [IOS](https://itunes.apple.com/us/app/azure-authenticator/id983156458).
+L'application Microsoft Authenticator est disponible pour [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) et [IOS](http://go.microsoft.com/fwlink/?Linkid=825073).
 
 ## Pour utiliser une application mobile comme méthode de contact
 
@@ -54,7 +54,7 @@ L’application Azure Authenticator pour [Windows Phone](http://www.windowsphone
 - Cliquez sur Done.
 
 
-<h2 id="compte">Ajout d'un compte manuellement</h2>
+## Ajout d'un compte manuellement
 Si vous souhaitez ajouter un compte manuellement, sélectionnez le bouton de saisie manuelle de compte.
 
 ![Paramétrage](./media/multi-factor-authentication-end-user-first-time-mobile-app/addaccount.png)
@@ -70,7 +70,7 @@ Si vous utilisez un compte tiers avec l'application mobile, entrez le nom du com
 
 ![Paramétrage](./media/multi-factor-authentication-end-user-first-time-mobile-app/add3rdparty.png)
 
->[AZURE.NOTE]Si la mention « Ajouter un compte professionnel » s'affiche, elle s'applique à la jonction d'espace de travail et non à l'authentification multifacteur. Vous pouvez l'ignorer.
+
  
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -4,7 +4,7 @@
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="singhkays"
-	manager="drewm"
+	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
 
@@ -185,4 +185,4 @@ L’applet de commande _Add-AzureSMVmToRM_ a été validée pour les cas de test
 ## Remarques
 1. Si plusieurs machines virtuelles sont clonées les unes après les autres à brefs intervalles, des conflits de nom DNS risquent de survenir pour les adresses IP publiques en raison du temps d’actualisation du cache DNS.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

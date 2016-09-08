@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="sqldb-migrate"
-   ms.date="06/07/2016"
+   ms.date="08/23/2016"
    ms.author="carlrab"/>
 
 # Migrer une base de données SQL Server vers une Base de données SQL Azure à l’aide de la réplication transactionnelle
@@ -28,28 +28,26 @@ Dans cet article, vous apprendrez à migrer une base de données SQL Server comp
 
 ## Explication de l’architecture de la réplication transactionnelle
 
-Quand vous ne pouvez pas vous permettre de sortir votre base de données SQL Server de la production pendant la migration, vous pouvez utiliser la réplication transactionnelle SQL Server comme solution de migration. Pour utiliser cette solution, vous configurez votre Base de données SQL Azure en tant qu’abonné à l’instance de SQL Server locale que vous souhaitez migrer. Le distributeur de réplication transactionnelle locale synchronisera les données nécessaires de la base de données locale (l’éditeur) alors que de nouvelles transactions continuent à avoir lieu.
+Quand vous ne pouvez pas vous permettre de sortir votre base de données SQL Server de la production pendant la migration, vous pouvez utiliser la réplication transactionnelle SQL Server comme solution de migration. Pour utiliser cette solution, vous configurez votre Base de données SQL Azure en tant qu’abonné à l’instance de SQL Server locale que vous souhaitez migrer. Le distributeur de réplication transactionnelle locale synchronise les données nécessaires de la base de données locale (l’éditeur) alors que de nouvelles transactions continuent d’avoir lieu.
 
-Vous pouvez également utiliser la réplication transactionnelle pour migrer un sous-ensemble de votre base de données locale. La publication que vous répliquez vers une base de données SQL Azure peut être limitée à un sous-ensemble des tables dans la base de données en cours de réplication. Par ailleurs, pour chaque table répliquée, vous pouvez limiter les données à un sous-ensemble de lignes et/ou un sous-ensemble de colonnes.
+Vous pouvez également utiliser la réplication transactionnelle pour migrer un sous-ensemble de votre base de données locale. La publication que vous répliquez vers une base de données SQL Azure peut être limitée à un sous-ensemble des tables dans la base de données en cours de réplication. Pour chaque table répliquée, vous pouvez limiter les données à un sous-ensemble de lignes et/ou un sous-ensemble de colonnes.
 
-Avec la réplication transactionnelle, toutes les modifications apportées à vos données ou à votre schéma qui se produisent entre le début et à la fin de la migration s'afficheront dans votre base de données SQL Azure.
-
-Une fois la synchronisation terminée et que vous êtes prêt à migrer, vous devez modifier la chaîne de connexion de vos applications afin de les pointer vers votre base de données SQL Azure au lieu de votre base de données locale. Une fois que la réplication transactionnelle a appliqué toutes les modifications restantes sur votre base de données locale et que toutes vos applications pointent vers la base de données Azure, vous pouvez désinstaller en toute sécurité la réplication en conservant votre base de données SQL Azure comme système de production.
+Avec la réplication transactionnelle, toutes les modifications apportées à vos données ou à votre schéma apparaissent dans votre Base de données SQL Azure. Une fois la synchronisation terminée, lorsque vous êtes prêt à migrer, modifiez la chaîne de connexion de vos applications de façon à ce qu’elle pointe vers votre Base de données SQL Azure. Une fois que la réplication transactionnelle a vidé toutes les modifications restant sur votre base de données locale et que toutes vos applications pointent vers Base de données Azure, vous pouvez désinstaller la réplication transactionnelle. Votre Base de données SQL Azure est maintenant votre système de production.
 
  ![Diagramme SeedCloudTR](./media/sql-database-cloud-migrate/SeedCloudTR.png)
 
 ## Conditions requises de la réplication transactionnelle
 
-La réplication transactionnelle est une technologie intégrée à SQL Server depuis SQL Server 6.5. Il s'agit d'une technologie très mature et éprouvée que la plupart des administrateurs de bases de données maîtrisent parfaitement. Avec [SQL Server 2016](https://www.microsoft.com/fr-FR/cloud-platform/sql-server), vous pouvez désormais configurer votre service Azure SQL Database comme [abonné de réplication transactionnelle](https://msdn.microsoft.com/library/mt589530.aspx) à votre publication locale. La configuration dans Management Studio est identique à la configuration d'un abonné de réplication transactionnelle sur un serveur local. Prise en charge de ce scénario lorsque le serveur de publication et le serveur de distribution sont au moins une des versions suivantes de SQL Server :
+La réplication transactionnelle est une technologie intégrée à SQL Server depuis SQL Server 6.5. Il s’agit d’une technologie mature et éprouvée que la plupart des administrateurs de bases de données maîtrisent parfaitement. Avec [SQL Server 2016](https://www.microsoft.com/fr-FR/cloud-platform/sql-server), vous pouvez désormais configurer votre Base de données SQL Azure en tant qu’[abonnée de réplication transactionnelle](https://msdn.microsoft.com/library/mt589530.aspx) à votre publication locale. L’expérience de configuration dans Management Studio est identique à la configuration d’un abonné de réplication transactionnelle sur un serveur local. Ce scénario est pris en charge quand le serveur de publication et le serveur de distribution sont au moins de l’une des versions de SQL Server suivantes :
 
  - SQL Server 2016 et versions ultérieures
  - SQL Server 2014 SP1 CU3 et versions ultérieures
  - SQL Server 2014 RTM CU10 et versions ultérieures
  - SQL Server 2012 SP2 CU8 et versions ultérieures
- - SQL Server 2013 SP3 dès sa sortie
+ - SQL Server 2012 SP3 et versions ultérieures
 
 
-> [AZURE.IMPORTANT] Vous devez utiliser la dernière version de SQL Server Management Studio afin de rester en cohérence avec les mises à jour de Microsoft Azure et Base de données SQL. Les versions antérieures de SQL Server Management Studio ne pourront pas configurer la base de données SQL en tant qu’abonné. [Mettre à jour SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+> [AZURE.IMPORTANT] Utilisez la dernière version de SQL Server Management Studio pour rester synchronisé avec les mises à jour de Microsoft Azure et de Base de données SQL. Les versions antérieures de SQL Server Management Studio ne peuvent pas configurer Base de données SQL en tant qu’abonné. [Mettre à jour SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
 
 
 ## Étapes suivantes
@@ -65,4 +63,4 @@ La réplication transactionnelle est une technologie intégrée à SQL Server de
 - [Fonctions partiellement ou non prises en charge de Transact-SQL](sql-database-transact-sql-information.md)
 - [Migration de bases de données non-SQL Server avec l’Assistant Migration SQL Server](http://blogs.msdn.com/b/ssma/)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

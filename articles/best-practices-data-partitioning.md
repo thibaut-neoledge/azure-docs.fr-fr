@@ -436,7 +436,7 @@ Les applications clientes envoient simplement les demandes à l’un des serveur
 
 Ce modèle est mis en œuvre à l’aide du clustering Redis et est décrit plus en détail sur la page [Redis cluster tutorial] sur le site web de Redis. Le clustering Redis est transparent pour les applications clientes. Vous pouvez ajouter des serveurs Redis supplémentaires au cluster (et repartitionner les données) sans avoir à reconfigurer les clients.
 
-> [AZURE.IMPORTANT] Le cache Redis Azure ne prend pas en charge le clustering Redis. Si vous souhaitez implémenter cette approche avec Azure, vous devez implémenter vos propres serveurs Redis en installant Redis sur un ensemble de machines virtuelles Azure et en les configurant manuellement. Le billet de blog [Running Redis on a CentOS Linux VM in Windows Azure] sur le site web de Microsoft présente un exemple décrivant comment créer et configurer un nœud Redis exécuté en tant que machine virtuelle Azure.
+> [AZURE.IMPORTANT] Le cache Redis Azure ne prend pas en charge le clustering Redis. Si vous souhaitez implémenter cette approche avec Azure, vous devez implémenter vos propres serveurs Redis en installant Redis sur un ensemble de machines virtuelles Azure et en les configurant manuellement. Le billet de blog [exécution de Redis sur une machine virtuelle Linux CentOS dans Azure] sur le site web de Microsoft présente un exemple décrivant comment créer et configurer un nœud Redis exécuté en tant que machine virtuelle Azure.
 
 La page [Partitioning: how to split data among multiple Redis instances] sur le site web de Redis fournit des informations supplémentaires sur l’implémentation du partitionnement avec Redis. Le reste de cette section part du principe que vous mettez en œuvre le partitionnement côté client ou assisté par proxy.
 
@@ -567,5 +567,6 @@ Quand vous étudiez des stratégies d’implémentation de la cohérence des don
 [Présentation d’Azure Search]: search/search-what-is-azure-search.md
 [Présentation d’Azure SQL Database]: sql-database/sql-database-technical-overview.md
 [Qu’est-ce qu’Azure SQL Database ?]: sql-database/sql-database-technical-overview.md
+
 
 <!---HONumber=AcomDC_0810_2016-->

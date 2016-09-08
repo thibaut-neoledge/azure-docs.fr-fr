@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/22/2016"
+   ms.date="08/30/2016"
    ms.author="mausher;barbkess;sonyama"/>
 
 # Interroger Azure SQL Data Warehouse (sqlcmd)
@@ -24,17 +24,11 @@
 - [Visual Studio](sql-data-warehouse-query-visual-studio.md)
 - [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md)
 
-Cette procédure pas à pas utilise l’utilitaire de ligne de commande sqlcmd pour interroger un entrepôt de données Azure SQL Data Warehouse.
-
-## Composants requis
-
-Pour parcourir ce didacticiel, vous avez besoin des éléments suivants :
-
--  [sqlcmd.exe][]. Pour le télécharger, voir [Utilitaires en ligne de commande 11 de Microsoft pour SQL Server][], qui peut également nécessiter le [Pilote ODBC 11 de Microsoft pour SQL Server de Windows][].
+Cette procédure pas à pas utilise l’utilitaire de ligne de commande [sqlcmd][] pour interroger un entrepôt de données Azure SQL Data Warehouse.
 
 ## 1\. Connecter
 
-Pour commencer à utiliser sqlcmd, ouvrez l’invite de commandes et entrez **sqlcmd** suivi de la chaîne de connexion de votre base de données SQL Data Warehouse. La chaîne de connexion doit contenir les paramètres suivants :
+Pour commencer à utiliser [sqlcmd][], ouvrez l’invite de commandes et entrez **sqlcmd** suivi de la chaîne de connexion de votre base de données SQL Data Warehouse. La chaîne de connexion requiert les paramètres suivants :
 
 + **Serveur (-S) :** nom du serveur, sous la forme `<`Nom\_serveur`>`.database.windows.net.
 + **Base de données (-d) :** nom de la base de données.
@@ -50,7 +44,7 @@ C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@s
 
 > [AZURE.NOTE] L’option -I, qui active les identificateurs entre guillemets, est actuellement requise pour la connexion à SQL Data Warehouse.
 
-## 2\. Interroger
+## 2\. Requête
 
 Une fois la connexion établie, vous pouvez envoyer des instructions Transact-SQL prises en charge à l’instance. Dans cet exemple, les requêtes sont soumises en mode interactif.
 
@@ -73,18 +67,16 @@ sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@sswor
 
 ## Étapes suivantes
 
-Consultez la page [Utilitaire sqlcmd][sqlcmd.exe] pour en savoir plus sur les options disponibles dans sqlcmd.
+Consultez la [documentation sqlcmd][sqlcmd] pour en savoir plus sur les options disponibles dans sqlcmd.
 
 <!--Image references-->
 
 <!--Article references-->
 
 <!--MSDN references--> 
-[sqlcmd.exe]: https://msdn.microsoft.com/library/ms162773.aspx
-[Pilote ODBC 11 de Microsoft pour SQL Server de Windows]: https://www.microsoft.com/download/details.aspx?id=36434
-[Utilitaires en ligne de commande 11 de Microsoft pour SQL Server]: http://go.microsoft.com/fwlink/?LinkId=321501
+[sqlcmd]: https://msdn.microsoft.com/library/ms162773.aspx
 [Azure portal]: https://portal.azure.com
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0831_2016-->

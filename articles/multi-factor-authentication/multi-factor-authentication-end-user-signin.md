@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/04/2016" 
+	ms.date="08/22/2016" 
 	ms.author="billmath"/>
 
 # Expérience de connexion avec Azure Multi-Factor Authentication
@@ -52,11 +52,11 @@ Les informations suivantes décrivent l'utilisation de l'authentification multif
 
 <h2 id="2">Connexion avec l’application mobile à l’aide de la notification</h2>
 
-Les informations suivantes décrivent l'utilisation de l'authentification multifacteur avec votre application mobile, lorsqu'une notification vous est envoyée.
+Les informations suivantes décrivent l'utilisation de l'authentification multifacteur avec l’application Microsoft Authenticator lorsqu'une notification vous est envoyée.
 
-### Connexion avec une notification envoyée à votre application mobile
+### Pour vous connecter avec des notifications envoyées par l’application Microsoft Authenticator
 
-- Connectez-vous à une application ou à un service comme Office 365 à l'aide de votre nom d'utilisateur et de votre mot de passe.
+- Connectez-vous à une application ou un service comme Office 365 à l’aide de votre nom d’utilisateur et votre mot de passe.
 - Microsoft vous envoie une notification.
 
 ![Microsoft envoie une notification](./media/multi-factor-authentication-end-user-signin-app-notify/notify.png)
@@ -72,16 +72,16 @@ Les informations suivantes décrivent l'utilisation de l'authentification multif
 
 <h2 id="3">Connexion avec l'application mobile à l'aide du code de vérification</h2>
 
-Les informations suivantes décrivent l'utilisation de l'authentification multifacteur avec votre application mobile, si vous utilisez un code de vérification.
+Les informations suivantes décrivent l'utilisation de l'authentification multifacteur avec l’application Microsoft Authenticator lorsque vous utilisez un code de vérification.
 
-### Connexion à l'aide d'un code de vérification avec votre application mobile
+### Pour vous connecter à l’application Microsoft Authenticator à l’aide d’un code de vérification
 
-- Connectez-vous à une application ou un service comme Office 365 à l'aide de votre nom d'utilisateur et de votre mot de passe.
+- Connectez-vous à une application ou un service comme Office 365 à l’aide de votre nom d’utilisateur et votre mot de passe.
 - Microsoft vous demande un code de vérification.
 
 ![Entrer le code de vérification](./media/multi-factor-authentication-end-user-signin-app-verify/verify.png)
 
-- Ouvrez l’application Azure Authenticator sur votre téléphone et entrez le code dans la zone où vous vous connectez.
+- Ouvrez l’application Microsoft Authenticator sur votre téléphone et entrez le code dans la zone où vous vous connectez.
 
 ![Obtenir le code](./media/multi-factor-authentication-end-user-signin-app-verify/phone.png)
 
@@ -104,4 +104,4 @@ La section suivante vous montre comment vous connecter avec une autre méthode q
 
  
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

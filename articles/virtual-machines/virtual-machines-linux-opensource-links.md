@@ -30,7 +30,7 @@ Recherchez tous les documents dont vous avez besoin pour créer et gérer des ma
 - [Forum aux questions sur les machines virtuelles Azure créées avec le modèle de déploiement classique](virtual-machines-linux-classic-faq.md)
 - [À propos des images pour les machines virtuelles](virtual-machines-linux-classic-about-images.md)
 - [Chargement de votre propre image de distribution](virtual-machines-linux-classic-create-upload-vhd.md) (et instructions d’utilisation d’une [distribution approuvée dans Azure](virtual-machines-linux-endorsed-distros.md))
-- [Connexion à une machine virtuelle exécutant Linux à l’aide du Portail Azure Classic](virtual-machines-linux-classic-log-on.md)
+- [Connexion à une machine virtuelle exécutant Linux à l’aide du Portail Azure Classic](virtual-machines-linux-mac-create-ssh-keys.md)
 
 ## Installation
 
@@ -71,7 +71,7 @@ Recherchez tous les documents dont vous avez besoin pour créer et gérer des ma
 
 
 ## Planification
-- [Instructions d’implémentation des services d’infrastructure Azure](virtual-machines-linux-infrastructure-service-guidelines.md)
+- [Instructions d’implémentation des services d’infrastructure Azure](virtual-machines-linux-infrastructure-subscription-accounts-guidelines.md)
 - [sélection de noms d'utilisateurs Linux](virtual-machines-linux-usernames.md)
 - [Configuration d’un groupe à haute disponibilité pour des machines virtuelles dans le modèle de déploiement classique](virtual-machines-linux-classic-configure-availability.md)
 - [Planification d’une maintenance planifiée sur des machines virtuelles Azure](virtual-machines-linux-planned-maintenance-schedule.md)
@@ -87,7 +87,7 @@ Recherchez tous les documents dont vous avez besoin pour créer et gérer des ma
 
 ## Gestion
 
-- [SSH](virtual-machines-linux-ssh-from-linux.md)
+- [SSH](virtual-machines-linux-mac-create-ssh-keys.md)
 - [comment réinitialiser un mot de passe ou des propriétés SSH pour Linux](virtual-machines-linux-classic-reset-access.md)
 - [utilisation de la racine](virtual-machines-linux-use-root-privileges.md)
 
@@ -189,4 +189,4 @@ Les liens ci-après se rapportent aux blogs Microsoft, aux pages Technet et à d
 
 - [Plug-in Packer pour Azure](https://github.com/msopentech/packer-azure)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0824_2016-->

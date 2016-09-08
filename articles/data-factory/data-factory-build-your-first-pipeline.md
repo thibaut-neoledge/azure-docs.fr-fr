@@ -204,7 +204,7 @@ Cette section explique comment utiliser l’outil **AzCopy** pour copier des fic
 
 			AzCopy /Source:. /Dest:https://<storageaccountname>.blob.core.windows.net/adfgetstarted/inputdata /DestKey:<storagekey>  /Pattern:input.log
 
-		> [AZURE.NOTE] La commande ci-dessus crée un conteneur nommé **adfgetstarted** dans votre stockage d’objets blob Azure et copie le fichier **partitionweblogs.hql** de votre disque local vers le dossier **inputdata** du conteneur.
+		> [AZURE.NOTE] La commande ci-dessus crée un conteneur nommé **adfgetstarted** dans votre stockage d’objets blob Azure et copie le fichier **input.log** de votre disque local vers le dossier **inputdata** du conteneur.
 	
 	5. Une fois que le fichier a été chargé, vous voyez une sortie d’AzCopy similaire à la suivante.
 	
@@ -228,4 +228,4 @@ Vous êtes maintenant prêt à démarrer le didacticiel. Cliquez sur l’un des 
 - [Utiliser PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 - [Utilisation du modèle Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

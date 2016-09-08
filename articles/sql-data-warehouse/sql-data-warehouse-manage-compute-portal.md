@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/01/2016"
+   ms.date="08/22/2016"
    ms.author="barbkess;sonyama"/>
 
 # Gestion de la puissance de calcul dans Azure SQL Data Warehouse (portail Azure)
@@ -34,7 +34,7 @@ Cette collection de tâches utilise le portail Azure pour :
 - Suspension du calcul
 - Reprise du calcul
 
-Pour plus d’informations, consultez l’article [Vue d’ensemble de la gestion du calcul][].
+Pour plus d’informations, voir [Vue d’ensemble de la gestion du calcul][].
 
 <a name="scale-performance-bk"></a> <a name="scale-compute-bk"></a>
 
@@ -52,7 +52,7 @@ Pour modifier les ressources de calcul :
 
     ![Déplacez le curseur][2]
 
-1. Cliquez sur **Enregistrer**. Un message de confirmation s’affiche. Cliquez sur **Oui** pour confirmer ou sur **Non** pour annuler.
+1. Cliquez sur **Save**. Un message de confirmation s’affiche. Cliquez sur **Oui** pour confirmer ou sur **Non** pour annuler.
 
     ![Cliquez sur Enregistrer.][3]
 
@@ -64,7 +64,7 @@ Pour modifier les ressources de calcul :
 
 Pour suspendre une base de données :
 
-1. Ouvrez le [portail Azure][], puis votre base de données. Notez que l’état est **En ligne**. 
+1. Ouvrez le [portail Azure][], puis votre base de données. Notez que l’état est **En ligne**.
 
     ![État En ligne][6]
 
@@ -72,8 +72,8 @@ Pour suspendre une base de données :
 
     ![Confirmer la pause][7]
 
-1. Lorsque SQL Data Warehouse démarre la base de données, l’état est « Interruption ».
-2. Lorsque l’état est **Suspendu**, l’opération de suspension est effectuée et aucune DWU ne vous est facturée.
+1. Lorsque SQL Data Warehouse démarre la base de données, l’état est **Interruption**.
+2. Lorsque l’état est **Interrompu**, l’opération d’interruption est effectuée et aucune DWU ne vous est plus facturée.
 
     ![État Pause][4]
 
@@ -81,9 +81,9 @@ Pour suspendre une base de données :
 
 ## Reprise du calcul
 
-[AZURE.INCLUDE [Description de la reprise de SQL Data Warehouse](../../includes/sql-data-warehouse-resume-description.md)]Pour reprendre une base de données :
+[AZURE.INCLUDE [Description de la reprise de SQL Data Warehouse](../../includes/sql-data-warehouse-resume-description.md)] Pour reprendre une base de données :
 
-1. Ouvrez le [portail Azure][], puis votre base de données. Notez que l’état est **Suspendu**. 
+1. Ouvrez le [portail Azure][], puis votre base de données. Notez que l’état est **Interrompu**.
 
     ![Suspendre la base de données][4]
 
@@ -92,14 +92,14 @@ Pour suspendre une base de données :
     ![Confirmer la reprise][5]
 
 1. Lorsque SQL Data Warehouse démarre la base de données, l’état est « Reprise ».
-2. La base de données est prête lorsque l’état est **en ligne**.
+2. Lorsque l’état est **En ligne**, la base de données est prête.
 
     ![État En ligne][6]
 
 <a name="next-steps-bk"></a>
 
 ## Étapes suivantes
-Pour plus d’informations, consultez la [vue d’ensemble de la gestion][].
+Pour plus d’informations, voir [vue d’ensemble de la gestion][].
 
 <!--Image references-->
 [1]: ./media/sql-data-warehouse-manage-compute-portal/click-scale.png
@@ -121,4 +121,4 @@ Pour plus d’informations, consultez la [vue d’ensemble de la gestion][].
 
 [portail Azure]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0824_2016-->

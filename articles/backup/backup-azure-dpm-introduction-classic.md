@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/10/2016"
+	ms.date="08/21/2016"
 	ms.author="trinadhk;giridham;jimpark;markgal"/>
 
 # Préparation de la sauvegarde des charges de travail dans Azure avec DPM
@@ -48,11 +48,11 @@ Les avantages commerciaux de l'utilisation d'Azure Backup pour la sauvegarde de 
 ## Comment fonctionne la sauvegarde d'un serveur DPM ?
 Pour sauvegarder une machine virtuelle, il est d’abord nécessaire de capturer un instantané des données. Le service Azure Backup lance le travail de sauvegarde à l’heure planifiée et déclenche l’extension de sauvegarde pour capturer un instantané. L’extension de sauvegarde se coordonne avec le service VSS in-guest pour assurer la cohérence et appelle l’API d’instantané d’objet blob du service Azure Storage une fois que la cohérence a été atteinte. Cela permet d’obtenir un instantané cohérent des disques de la machine virtuelle sans avoir à l’arrêter.
 
-Une fois l’instantané capturé, les données sont transférées par le service Azure Backup dans le coffre de sauvegarde. Le service se charge d'identifier et de transférer uniquement les blocs qui ont été modifiés depuis la dernière sauvegarde, ce qui garantit l'efficacité du stockage des sauvegardes et les performances du réseau. Une fois le transfert de données terminé, l’instantané est supprimé et un point de récupération est créé. Ce point de récupération est affiché dans le portail de gestion Azure.
+Une fois l’instantané capturé, les données sont transférées par le service Azure Backup dans le coffre de sauvegarde. Le service se charge d'identifier et de transférer uniquement les blocs qui ont été modifiés depuis la dernière sauvegarde, ce qui garantit l'efficacité du stockage des sauvegardes et les performances du réseau. Une fois le transfert de données terminé, l’instantané est supprimé et un point de récupération est créé. Ce point de récupération est affiché dans le portail Azure Classic.
 
 >[AZURE.NOTE] Pour les machines virtuelles Linux, seule une sauvegarde cohérente au niveau des fichiers est possible.
 
-## Composants requis
+## Conditions préalables
 Préparer Azure Backup pour sauvegarder des données DPM comme suit :
 
 1. **Créer un coffre de sauvegarde** : créez un coffre dans la console Azure Backup.
@@ -69,13 +69,13 @@ Préparer Azure Backup pour sauvegarder des données DPM comme suit :
 ## Spécifications (et limitations)
 
 - DPM peut s'exécuter en tant que serveur physique ou machine virtuelle Hyper-V installée sur System Center 2012 SP1 ou System Center 2012 R2. DPM peut également s'exécuter en tant que machine virtuelle Azure sur System Center 2012 R2 avec au moins le correctif cumulatif 3 pour DPM 2012 R2, ou en tant que machine virtuelle Windows dans VMWare sur System Center 2012 R2 avec au moins le correctif cumulatif 5.
-- Si vous exécutez DPM avec System Center 2012 SP1, vous devez installer le correctif cumulatif 2 pour System Center Data Protection Manager SP1. Cette opération est nécessaire avant d'installer l'agent Azure Backup.
+- Si vous exécutez DPM avec System Center 2012 SP1, vous devez installer le correctif cumulatif 2 pour System Center Data Protection Manager SP1. Cette opération est nécessaire avant d'installer l'agent Azure Backup.
 - Windows PowerShell et .Net Framework 4.5 doivent être installés sur le serveur DPM.
 - DPM permet de sauvegarder la plupart des charges de travail dans Azure Backup. Pour une liste complète des éléments pris en charge par Azure Backup, consultez la liste ci-dessous.
 - Des données stockées dans Azure Backup ne peuvent pas être récupérées avec l'option « Copie sur bande ».
 - Vous devez posséder un compte Azure avec la fonctionnalité Azure Backup activée. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. En savoir plus sur la [tarification d'Azure Backup](https://azure.microsoft.com/pricing/details/backup/).
-- L'utilisation d'Azure Backup nécessite l'installation de l'agent Azure Backup sur les serveurs que vous souhaitez sauvegarder. Chaque serveur doit disposer d'au moins 10 % de la taille des données en cours de sauvegarde, disponibles en tant que stockage local libre. Par exemple, la sauvegarde de 100 Go de données nécessite un minimum de 10 Go d'espace libre dans l'emplacement temporaire. La valeur minimale est de 10 %, mais il est recommander d’utiliser 15 % de l'espace de stockage local pour l'emplacement du cache.
-- Les données seront stockées dans le coffre Azure. Il n'existe aucune limite à la quantité de données que vous pouvez sauvegarder dans un coffre Azure Backup, mais la taille d'une source de données (par exemple, une machine virtuelle ou une base de données) ne doit pas dépasser 54 400 Go.
+- L'utilisation d'Azure Backup nécessite l'installation de l'agent Azure Backup sur les serveurs que vous souhaitez sauvegarder. Chaque serveur doit disposer d’au moins 10 % de la taille des données en cours de sauvegarde en tant que stockage local libre. Par exemple, la sauvegarde de 100 Go de données nécessite un minimum de 10 Go d'espace libre dans l'emplacement temporaire. La valeur minimale est de 10 %, mais il est recommander d’utiliser 15 % de l'espace de stockage local pour l'emplacement du cache.
+- Les données seront stockées dans le coffre Azure. Il n’existe aucune limite à la quantité de données que vous pouvez sauvegarder dans un coffre Azure Backup, mais la taille d’une source de données (par exemple, une machine virtuelle ou une base de données) ne doit pas dépasser 54 400 Go.
 
 Les types de fichiers suivants sont pris en charge pour une sauvegarde vers Azure :
 
@@ -96,4 +96,4 @@ Et les types suivants ne sont pas pris en charge :
 
 >[AZURE.NOTE] À partir de System Center 2012 DPM avec SP1, vous pouvez sauvegarder dans Azure des charges de travail protégées par DPM grâce à Microsoft Azure Backup.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

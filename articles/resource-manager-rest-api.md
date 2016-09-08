@@ -17,9 +17,16 @@
    ms.author="navale;tomfitz;"/>
    
 # API REST Resource Manager
+
+> [AZURE.SELECTOR]
+- [Azure PowerShell](powershell-azure-resource-manager.md)
+- [Interface de ligne de commande Azure](xplat-cli-azure-resource-manager.md)
+- [Portail](./azure-portal/resource-group-portal.md)
+- [API REST](resource-manager-rest-api.md)
+
 Derrière chaque appel au Gestionnaire de ressources Azure, derrière chaque modèle déployé, derrière chaque compte de stockage configuré se trouvent un ou plusieurs appels à une API RESTful de l’Azure Resource Manager. Cette rubrique est consacrée à ces API et à la manière dont vous pouvez les appeler sans utiliser aucun Kit de développement logiciel (SDK). Cela peut être très utile si vous souhaitez un contrôle total de toutes les requêtes à Azure ou si le Kit de développement logiciel (SDK) pour votre langue par défaut n’est pas disponible ou ne prend pas en charge les opérations à effectuer.
 
-Cet article ne traitera pas chaque API exposée dans Azure, mais en utilise certaines comme exemple pour vous montrer comment continuer et vous y connecter. Si vous comprenez les notions de base, vous pouvez continuer et lire la [Référence de l’API REST Azure Resource Manager](https://msdn.microsoft.com/library/azure/dn790568.aspx) (en anglais) pour trouver des informations détaillées sur la manière d’utiliser les autres API.
+Cet article ne traitera pas chaque API exposée dans Azure, mais en utilise certaines comme exemple pour vous montrer comment continuer et vous y connecter. Si vous comprenez les notions de base, vous pouvez continuer et lire la page [Référence des API REST Gestionnaire de ressources Azure](https://msdn.microsoft.com/library/azure/dn790568.aspx) pour trouver des informations détaillées sur la manière d’utiliser les autres API.
 
 ## Authentification
 L’authentification pour ARM est gérée par Azure Active Directory (AD). Pour vous connecter à une API quelconque, vous devez tout d’abord vous authentifier auprès d’Azure AD pour recevoir un jeton d’authentification que vous pouvez transmettre à chaque requête. Comme nous décrivons un appel direct pur des API REST, nous supposerons également que vous ne souhaitez pas vous authentifier avec un mot de passe/nom d’utilisateur normal lorsqu’une fenêtre contextuelle s’ouvre pour vous demander un nom d’utilisateur et un mot de passe ou peut-être même avec d’autres mécanismes d’authentification utilisés dans des scénarios d’authentification à deux facteurs. Pour cette raison, nous allons créer ce que l’on appelle une application Azure AD et un principal du service qui seront utilisés pour la connexion. Mais n’oubliez pas qu’Azure AD prend en charge plusieurs procédures d’authentification et qu’elles peuvent toutes être utilisées pour récupérer le jeton d’authentification dont nous avons besoin pour les requêtes API ultérieures. Référez-vous à [Création de l’application Active Directory et du principal du service](./resource-group-create-service-principal-portal.md) pour obtenir des instructions étape par étape.
@@ -117,7 +124,7 @@ Content-Type: application/json
 
 Toutes les ressources disponibles avec les API ARM sont imbriquées dans un groupe de ressources. Nous allons interroger ARM pour obtenir les groupes de ressources existants dans notre abonnement à l’aide de la requête HTTP GET ci-dessous. Notez que, cette fois, l’ID d’abonnement est transmis comme élément de l’URL.
 
-(Remplacez YOUR\_ACCESS\_TOKEN et SUBSCRIPTION\_ID par vos véritables jeton d’accès et ID d’abonnement)
+(Remplacez YOUR\_ACCESS\_TOKEN et SUBSCRIPTION\_ID par vos véritables jetons d’accès et ID d’abonnement)
 
 ```HTTP
 GET /subscriptions/SUBSCRIPTION_ID/resourcegroups?api-version=2015-01-01 HTTP/1.1
@@ -240,4 +247,4 @@ Content-Type: application/json
 
 La réponse JSON, qui est assez longue pour cette requête, a été omise afin d’améliorer la lisibilité de cette documentation. La réponse contient des informations sur le déploiement basé sur un modèle que vous venez de créer.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0824_2016-->

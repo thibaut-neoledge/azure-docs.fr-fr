@@ -23,7 +23,7 @@
 - [PowerShell](dns-getstarted-create-dnszone.md)
 - [Interface de ligne de commande Azure](dns-getstarted-create-dnszone-cli.md)
 
-Cet article vous indique la procédure à suivre pour créer une zone DNS à l’aide de l’interface de ligne de commande. Vous pouvez également créer une zone DNS à l’aide de PowerShell ou du portail Azure.
+Cet article vous indique la procédure à suivre pour créer une zone DNS à l’aide de PowerShell. Vous pouvez également créer une zone DNS à l’aide de l’interface de ligne de commande ou du portail Azure.
 
 [AZURE.INCLUDE [dns-create-zone-about](../../includes/dns-create-zone-about-include.md)]
 
@@ -174,4 +174,4 @@ Si vous n’avez pas encore délégué votre domaine pour qu’il utilise la nou
 
 Après avoir créé une zone DNS, créez [des jeux d’enregistrements et des enregistrements](dns-getstarted-create-recordset.md) pour démarrer la résolution des noms pour votre domaine Internet.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

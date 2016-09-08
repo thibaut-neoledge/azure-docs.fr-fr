@@ -29,7 +29,7 @@ Voici ce que vous pouvez faire avec le journal d’activité :
 - Interrogez-le et affichez-le dans le **portail Azure**.
 - Interrogez-le via l’API REST, l’applet de commande PowerShell ou l’interface de ligne de commande.
 - [Créez une alerte via e-mail ou webhook qui déclenche un événement de journal d’activité.](./insights-auditlog-to-webhook-email.md)
-- Enregistrez-le dans un **compte de stockage** pour l’archivage ou l’inspection manuelle. Vous pouvez spécifier la durée de rétention (en jours) à l’aide des **profils de journal**.
+- [Enregistrez-le dans un **compte de stockage** pour l’archivage ou l’inspection manuelle](./monitoring-archive-activity-log.md). Vous pouvez spécifier la durée de rétention (en jours) à l’aide des **profils de journal**.
 - Analysez-le dans PowerBI à l’aide du [**pack de contenu PowerBI**](https://powerbi.microsoft.com/fr-FR/documentation/powerbi-content-pack-azure-audit-logs/).
 - [Diffusez-le en continu vers un **Event Hub**](./monitoring-stream-activity-logs-event-hubs.md) pour qu’un service tiers ou une solution d’analyse personnalisée (p. ex. PowerBI) l’ingère.
 
@@ -221,6 +221,6 @@ Chaque événement dans le journal d’activité a un objet blob JSON comme celu
 
 ## Étapes suivantes
 - [En savoir plus sur le journal d’activité (autrefois appelé journal d’audit)](../resource-group-audit.md)
-- [Stream the Azure Activity Log to Event Hubs](./monitoring-stream-activity-logs-event-hubs.md) (Diffuser en continu le journal d’activités Azure vers Event Hubs)
+- [Stream the Azure Activity Log to Event Hubs (Diffuser en continu le journal d’activités Azure vers Event Hubs)](./monitoring-stream-activity-logs-event-hubs.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/08/2016"
+   ms.date="08/17/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Surveillance des requêtes d’utilisateur dans Azure SQL Data Warehouse
@@ -34,18 +34,18 @@ Vue d’ensemble des considérations, meilleures pratiques et tâches de surveil
 
 ## Étapes suivantes
 
-Pour plus de conseils sur la gestion, consultez la [présentation de la gestion][].
+Pour plus de conseils sur la gestion, voir [Vue d’ensemble de la gestion][].
 
 <!--Image references-->
 
 <!--Article references-->
 [Recherche de requêtes longues]: sql-data-warehouse-manage-monitor.md
 [Gestion de la concurrence et des charges de travail]: sql-data-warehouse-develop-concurrency.md
-[présentation de la gestion]: sql-data-warehouse-overview-manage.md
+[Vue d’ensemble de la gestion]: sql-data-warehouse-overview-manage.md
 
 <!--MSDN references-->
 
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

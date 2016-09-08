@@ -14,13 +14,13 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/30/2016"
+	ms.date="08/17/2016"
 	ms.author="cjiang"/>
 
 # Résoudre les problèmes d’inscription à Azure
 Cet article vous aidera à résoudre les causes courantes des problèmes susceptibles de se produire lors de votre inscription à Azure.
 
-> [AZURE.NOTE] Si vous avez besoin d’aide supplémentaire concernant n’importe quel point de cet article, vous pouvez contacter les experts Azure sur les [forums MSDN Azure et Stack Overflow](https://azure.microsoft.com/support/forums/). Vous pouvez également signaler un incident au support Azure sur le [site de support Azure](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409). Pour plus d’informations sur l’utilisation du support Azure, lisez la [FAQ du support Microsoft Azure](https://azure.microsoft.com/support/faq/).
+> [AZURE.NOTE] Si à un moment donné dans cet article, vous avez besoin d’aide, veuillez [contacter le support technique](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409) pour obtenir une prise en charge rapide de votre problème.
 
 ## J’obtiens une erreur lors de la saisie de mes informations d’inscription.
 Les informations de profil de compte sont-elles correctes ? Vos informations de profil étant utilisées pour générer les relevés de facturation, il est important de les saisir avec exactitude. Exemples de champs incorrects :
@@ -59,7 +59,7 @@ Suggestions
 Vérifiez votre éligibilité : vérifiez dans votre programme d’avantages si vous êtes éligible au plan choisi :
 - MSDN :
   - Vérifiez l’état de votre éligibilité dans votre [page de compte MSDN](https://msdn.microsoft.com/subscriptions/manage/default.aspx).
-  - Si vous ne pouvez pas vérifier votre état, contactez l’un des [Centres de service client des Abonnements MSDN](https://msdn.microsoft.com/subscriptions/contactus.aspx)
+  - Si vous ne pouvez pas vérifier votre état, contactez l’un des [Centres de service client des abonnements MSDN](https://msdn.microsoft.com/subscriptions/contactus.aspx).
 - MPN
   - Connectez-vous au [portail MPN](https://mspartner.microsoft.com/en/us/Pages/Locale.aspx) et vérifiez l’état de votre éligibilité. Vous pouvez bénéficier d’avantages supplémentaires si vous disposez des [compétences de plateforme cloud](https://mspartner.microsoft.com/en/us/pages/membership/cloud-platform-competency.aspx) appropriées.
   - Si vous ne pouvez pas vérifier votre état, contactez le [support MPN](https://mspartner.microsoft.com/en/us/Pages/Support/Premium/contact-support.aspx).
@@ -79,6 +79,8 @@ Suggestions
 Avez-vous déjà utilisé un abonnement Azure auparavant ? Les conditions d’utilisation d’Azure n’autorisent l’activation que d’une seule évaluation gratuite pour tout utilisateur n’ayant jamais utilisé Azure. Si vous avez déjà souscrit un autre type d’abonnement Azure, vous ne serez pas en mesure d’activer une version d'évaluation gratuite.
 
 Suggestions
-- Si vous déjà activé un abonnement Azure auparavant et que l’activation de votre évaluation gratuite échoue, envisagez d’acheter un abonnement avec paiement à l’utilisation. Vous pouvez également bénéficier d’une offre d’avantages. Pour en savoir plus, consultez la [page Détails de l’offre Microsoft Azure](https://azure.microsoft.com/support/legal/offer-details/) au lieu du plan d’évaluation gratuite d’Azure. Notez que les programmes d’avantages imposent des conditions requises spécifiques.
+- Si vous avez déjà activé un abonnement Azure auparavant et que l’activation de votre évaluation gratuite échoue, envisagez d’acheter un abonnement avec paiement à l’utilisation. Vous pouvez également bénéficier d’une offre d’avantages. Pour en savoir plus, consultez la [page Détails de l’offre Microsoft Azure](https://azure.microsoft.com/support/legal/offer-details/) au lieu du plan d’évaluation gratuite d’Azure. Notez que les programmes d’avantages imposent des conditions requises spécifiques.
 
-<!---HONumber=AcomDC_0803_2016-->
+> [AZURE.NOTE] Si vous avez d’autres questions, veuillez [contacter le support technique](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409) pour obtenir une prise en charge rapide de votre problème.
+
+<!---HONumber=AcomDC_0824_2016-->

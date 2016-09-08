@@ -17,7 +17,7 @@
 	ms.author="adegeo"/>
 
 # Vue d’ensemble des certificats pour Azure Cloud Services
-Dans Azure, des certificats sont utilisés pour les services cloud ([certificats de service](#what-are-service-certificates)) et pour l’authentification auprès de l’API de gestion ([certificats de gestion](#what-are-management-certificates) lorsque vous utilisez le portail Azure Classic et non ARM). Cette rubrique offre une vue d’ensemble de ces deux types de certificat et vous décrit comment les [créer](#create) et les [déployer](#deploy) dans Azure.
+Dans Azure, des certificats sont utilisés pour les services cloud ([certificats de service](#what-are-service-certificates)) et pour l’authentification auprès de l’API de gestion ([certificats de gestion](#what-are-management-certificates) lorsque vous utilisez le portail Azure Classic et non ARM). Cette rubrique offre une vue d’ensemble de ces deux types de certificat et vous explique comment les [créer](#create) et les [déployer](#deploy) dans Azure.
 
 Les certificats utilisés dans Azure sont des certificats x.509 v3 et peuvent être signés par un autre certificat approuvé ou être auto-signés. Un certificat auto-signé est signé par son propre créateur et n’est donc pas approuvé par défaut. La plupart des navigateurs peuvent ignorer ce point. Les certificats auto-signés ne doivent être utilisés que par vous au moment où vous développez et testez vos services cloud.
 
@@ -35,7 +35,7 @@ Les certificats de gestion vous permettent de vous authentifier auprès de l’A
 
 >[AZURE.WARNING] Soyez prudent ! Ces types de certificat permettent à toute personne qui s’authentifie par leur biais de gérer l’abonnement auquel ils sont associés.
 
-### Limites
+### Limitations
 Le nombre de certificats de gestion est limité à 100 par abonnement. Il existe également une limite de 100 certificats de gestion pour l’ensemble des abonnements figurant sous un identificateur d’utilisateur d’administrateur de service spécifique. Si l’identificateur d’utilisateur de l’administrateur de compte a déjà été utilisé pour ajouter 100 certificats de gestion et que d’autres certificats sont nécessaires, vous pouvez ajouter un coadministrateur pour disposer des certificats supplémentaires.
 
 Avant d’ajouter plus de 100 certificats, regardez si vous pouvez réutiliser un certificat existant. L’utilisation de coadministrateurs complique parfois inutilement votre processus de gestion des certificats.
@@ -81,7 +81,7 @@ De nombreuses pages sur Internet vous expliquent comment procéder avec IIS. Vou
 Vous pouvez utiliser Java pour [créer un certificat](../app-service-web/java-create-azure-website-using-java-sdk.md#create-a-certificate).
 
 ### Linux
-[Cet ](../virtual-machines/virtual-machines-linux-ssh-from-linux.md) article décrit comment créer des certificats avec SSH.
+[Cet ](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) article décrit comment créer des certificats avec SSH.
 
 ## Étapes suivantes
 
@@ -91,4 +91,4 @@ Chargez un [certificat d’API de gestion](../azure-api-management-certs.md) dan
 
 >[AZURE.NOTE] Le portail Azure n’utilise pas de certificats de gestion pour accéder à l’API, mais utilise plutôt des comptes d’utilisateurs.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0824_2016-->

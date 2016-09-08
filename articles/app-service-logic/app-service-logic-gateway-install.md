@@ -85,7 +85,7 @@ TcpTestSucceeded       : True
 
 Pour être complet, vous pouvez remplacer les valeurs **ComputerName** et **Port** par celles répertoriées dans la section [Configuration des ports](#configure-ports) plus loin dans cette rubrique.
 
-Le pare-feu peut également bloquer les connexions effectuées par Azure Service Bus vers les centres de données Azure. Dans ce cas, vous pouvez mettre sur liste blanche (débloquer) toutes les adresses IP de votre région pour ces centres de données. Vous pouvez obtenir une liste [des adresses IP Azure ici](https://www.microsoft.com/download/details.aspx?id=41653).
+Le pare-feu peut également bloquer les connexions effectuées par Azure Service Bus vers les centres de données Azure. Dans ce cas, vous pouvez mettre sur liste approuvée (débloquer) toutes les adresses IP de votre région pour ces centres de données. Vous pouvez obtenir une liste [des adresses IP Azure ici](https://www.microsoft.com/download/details.aspx?id=41653).
 
 ### Configuration des ports
 
@@ -104,7 +104,7 @@ En savoir plus sur les [solutions hybrides](../service-bus/service-bus-fundament
 | login.microsoftonline.com | 443 | HTTPS |
 | *.msftncsi.com | 443 | Permet de tester la connectivité internet si la passerelle est inaccessible par le service Power BI. |
 
-Si vous avez besoin de mettre sur liste blanche des adresses IP au lieu des domaines, vous pouvez télécharger et utiliser la [liste des plages d’adresses IP du centre de données Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653). Dans certains cas, les connexions Azure Service Bus s’effectueront avec l’adresse IP plutôt qu’avec le nom de domaine complet.
+Si vous avez besoin de mettre sur liste approuvée des adresses IP au lieu des domaines, vous pouvez télécharger et utiliser la [liste des plages d’adresses IP du centre de données Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653). Dans certains cas, les connexions Azure Service Bus s’effectueront avec l’adresse IP plutôt qu’avec le nom de domaine complet.
 
 ### Compte de connexion
 

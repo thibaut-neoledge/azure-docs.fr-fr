@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile"
-   ms.date="11/29/2015"
+   ms.date="08/19/2016"
    ms.author="piyushjo"/>
 
 # Surveillance des données en temps réel de votre application
@@ -48,7 +48,9 @@ Pour plus d’informations, consultez la [documentation du Kit de développement
 ![Moniteur3][16]
 
 ## Analyse - Alertes
-Vous pouvez également indiquer des conditions pour des alertes qui vous seront automatiquement envoyées par courrier électronique ou message instantané. (Tout les services conformes à XMPP tels que Google Talk de Google ou iChat d'Apple sont pris en charge). Les alertes sont basées sur un seuil de détection prédéfini supérieur (>) ou inférieur à (<) un nombre spécifique de sessions, de tâches, d'événements, d'erreurs ou d'incidents par seconde, par minute ou par heure. Les alertes peuvent surveiller toutes les activités d'un type donné ou simplement surveiller l'activité d'une tâche, d'un événement ou d'une erreur spécifique. Vous pouvez également indiquer un taux de détection minimum qui correspond au temps minimum entre deux notifications pour la même alerte afin de vous assurer que lorsque l'alerte est déclenchée, vous ne recevez qu'une notification toutes les X minutes.
+Vous pouvez également indiquer des conditions pour des alertes qui vous seront automatiquement envoyées par courrier électronique ou message instantané. (Tout les services conformes à XMPP tels que Google Talk de Google ou iChat d'Apple sont pris en charge). Les alertes sont basées sur un seuil de détection prédéfini supérieur (>) ou inférieur à (<) un nombre spécifique de sessions, de tâches, d'événements, d'erreurs ou d'incidents par seconde, par minute ou par heure. Les alertes peuvent surveiller toutes les activités d'un type donné ou simplement surveiller l'activité d'une tâche, d'un événement ou d'une erreur spécifique.
+
+Vous pouvez également indiquer un taux de détection minimum qui correspond au nombre de minutes minimal entre deux notifications pour la même alerte afin de vous assurer que, lorsque l’alerte est déclenchée, vous ne recevez qu’une notification par intervalle spécifié.
 
 ![Moniteur4][17]
 
@@ -153,4 +155,4 @@ Vous pouvez également indiquer des conditions pour des alertes qui vous seront 
 [Link 32]: ../mobile-engagement-how-tos-text-view.md
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0824_2016-->

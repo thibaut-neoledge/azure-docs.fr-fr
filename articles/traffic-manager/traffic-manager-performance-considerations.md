@@ -3,7 +3,7 @@
    description="Comprendre les performances sur Traffic Manager et comment tester les performances de votre site Web lors de l’utilisation de Traffic Manager"
    services="traffic-manager"
    documentationCenter=""
-   authors="kwill-MSFT"
+   authors="sdwheeler"
    manager="carmonm"
    editor="joaoma" />
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="06/10/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 
 # Considérations sur les performances de Traffic Manager
@@ -28,7 +28,7 @@ Cette page explique les considérations relatives aux performances de Traffic Ma
 - Traffic Manager ne fait pour l’essentiel qu’une seule chose : la résolution DNS. Cela signifie que le seul impact sur les performances que Traffic Manager peut avoir sur votre site Web est la recherche DNS initiale.
 - Point de clarification sur la recherche DNS de Traffic Manager. Traffic Manager renseigne et met régulièrement à jour les serveurs racine Microsoft DNS normaux en fonction de votre stratégie et des résultats de la sonde. Donc, même pendant la recherche DNS initiale, il n’y a aucune implication de Traffic Manager, dans la mesure où la requête DNS est gérée par les serveurs racine Microsoft DNS normaux. Si Traffic Manager s’arrête (autrement dit, si une défaillance survient dans les machines virtuelles exécutant la détection de la stratégie et la mise à jour DNS), il y n’a aucun impact sur votre nom DNS Traffic Manager dans la mesure où les entrées des serveurs DNS Microsoft seront toujours conservées. La seule conséquence sera que la détection et la mise à jour basées sur la stratégie ne se produiront pas (si votre site principal tombe en panne, Traffic Manager ne sera pas en mesure de mettre à jour DNS pour pointer vers votre site de basculement).
 - Le trafic N’est PAS transmis via Traffic Manager. Il n’existe pas de serveurs Traffic Manager agissant comme intermédiaire entre vos clients et votre service hébergé Azure. Une fois terminée la recherche DNS, Traffic Manager est totalement supprimé de la communication entre le client et le serveur.
-- La recherche DNS est très rapide, et est mise en cache. La recherche DNS initiale dépend du client et de ses serveurs DNS configurés : généralement, un client peut effectuer une recherche DNS en 50 ms environ (voir http://www.solvedns.com/dns-comparison/). Une fois effectuée la première recherche, les résultats sont mis en cache pendant la durée de vie (TTL) du DNS, soit pour Traffic Manager une valeur par défaut de 300 secondes.
+- La recherche DNS est très rapide, et est mise en cache. La recherche DNS initiale dépend du client et de ses serveurs DNS configurés : généralement, un client peut effectuer une recherche DNS en 50 ms environ (voir http://www.solvedns.com/dns-comparison/). Une fois effectuée la première recherche, les résultats sont mis en cache pendant la durée de vie (TTL) du DNS, soit pour Traffic Manager une valeur par défaut de 300 secondes.
 - La stratégie Traffic Manager que vous choisissez (performances, basculement, tourniquet) n’a aucune influence sur les performances du DNS. Votre stratégie de performances peut affecter négativement l’expérience de votre utilisateur, si, par exemple, vous dirigez des utilisateurs des États-Unis vers un service hébergé en Asie, mais ce problème de performances n’est pas provoqué par Traffic Manager.
 
   
@@ -84,4 +84,4 @@ http://www.digwebinterface.com : semblable au site watchmouse, mais celui-ci af
 [Applets de commande Azure Traffic Manager](http://go.microsoft.com/fwlink/p/?LinkId=400769)
  
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0824_2016-->

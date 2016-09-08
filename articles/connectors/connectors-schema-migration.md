@@ -19,8 +19,8 @@
 
 # Comment migrer des applications logiques vers la version préliminaire du schéma du 01/08/2015
 
-Pour migrer vos applications logiques existantes vers le nouveau schéma, procédez comme suit :
-1. Ouvrez votre application logique dans le portail Azure
+Pour migrer vos applications logiques existantes vers le nouveau schéma, procédez comme suit :  
+1. Ouvrez votre application logique dans le portail Azure  
 2. Cliquez sur Mettre à jour le schéma.
 
 ![Icône API][step1]

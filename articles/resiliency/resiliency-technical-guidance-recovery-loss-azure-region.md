@@ -4,7 +4,7 @@
    services=""
    documentationCenter="na"
    authors="adamglick"
-   manager="hongfeig"
+   manager="saladki"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/01/2016"
+   ms.date="08/18/2016"
    ms.author="aglick"/>
 
 #Guide technique de la résilience Azure - Récupération d’une interruption de service à l’échelle de la région
@@ -60,7 +60,7 @@ La récupération des machines virtuelles Infrastructure as a Service (IaaS) est
 
 ##Storage
 
-###Récupération à l’aide du stockage géo-redondant des objets blob, des tables, des files d’attente et du stockage sur disque de machine virtuelle
+###Récupération à l’aide du stockage géoredondant des objets blob, des tables, des files d’attente et du stockage sur disque de machine virtuelle
 
 Dans Azure, les objets blob, tables, files d’attente et disques de machine virtuelle sont tous géorépliqués par défaut. Cela s’appelle le stockage géo-redondant (GRS). GRS réplique les données de stockage dans un centre de données couplé, situé à des centaines de kilomètres, dans une région géographique donnée. GRS est conçu pour fournir une durabilité supplémentaire en cas d’incident grave dans le centre de données. Microsoft contrôle quand un basculement a lieu et le basculement est réservé aux incidents majeurs pour lesquels on considère qu’il est impossible de restaurer l’emplacement principal d’origine dans un délai raisonnable. Dans certains cas, cela peut prendre plusieurs jours. Les données sont généralement répliquées en quelques minutes, même si l’intervalle de synchronisation n’est pas encore couvert par un contrat de niveau de service.
 
@@ -102,11 +102,11 @@ La Base de données SQL Azure fournit deux types de restauration : la géo-resta
 
 ####Restauration géographique
 
-La [géo-restauration](../sql-database/sql-database-recovery-using-backups.md#geo-restore) est également disponible avec les bases de données De base, Standard et Premium. Elle fournit l’option de récupération par défaut lorsque la base de données est indisponible en raison d’un incident dans la région où la base de données est hébergée. À l’image de la limite de restauration dans le temps, la géo-restauration s’appuie sur les sauvegardes de base de données dans le stockage Azure géo-redondant. Elle restaure à partir de la copie de sauvegarde géorépliquée et est par conséquent résistante aux pannes de stockage dans la région primaire. Pour plus d’informations, consultez [Récupération suite à une indisponibilité de service](../sql-database/sql-database-disaster-recovery.md).
+La [géo-restauration](../sql-database/sql-database-recovery-using-backups.md#geo-restore) est également disponible avec les bases de données De base, Standard et Premium. Elle fournit l’option de récupération par défaut lorsque la base de données est indisponible en raison d’un incident dans la région où la base de données est hébergée. À l’image de la limite de restauration dans le temps, la géo-restauration s’appuie sur les sauvegardes de base de données dans le stockage Azure géo-redondant. Elle restaure à partir de la copie de sauvegarde géorépliquée et est par conséquent résistante aux pannes de stockage dans la région primaire. Pour en savoir plus, consultez la rubrique [Restaurer une base de données SQL Azure ou basculer vers une base de données secondaire](../sql-database/sql-database-disaster-recovery.md).
 
 ####Géo-réplication active
 
-La [géo-réplication active](../sql-database/sql-database-geo-replication-overview.md) est disponible avec tous les niveaux de bases de données. Elle est conçue pour les applications qui ont des exigences de récupération plus agressives que celles proposées par la géo-restauration. À l'aide de la géo-réplication active, vous pouvez créer jusqu'à quatre répliques secondaires sur des serveurs dans différentes régions. Vous pouvez lancer le basculement sur n’importe quelle base de données secondaire. En outre, la géo-réplication active peut être utilisée pour prendre en charge les scénarios de mise à niveau ou de déplacement d'application, ainsi que l'équilibrage de charge pour les charges de travail en lecture seule. Pour plus d’informations, consultez [Configurer la géo-réplication](../sql-database/sql-database-geo-replication-portal.md) et [Basculement vers la base de données secondaire](../sql-database/sql-database-geo-replication-failover-portal.md). Reportez-vous aux rubriques [Concevoir une application pour la récupération d’urgence cloud à l’aide de la géo-réplication active dans une base de données SQL](../sql-database/sql-database-designing-cloud-solutions-for-disaster-recovery.md) et [Mise à niveau de l'application sans interruption de service](../sql-database/sql-database-manage-application-rolling-upgrade.md) pour plus d’informations sur la conception, la mise en œuvre et la mise à niveau d’applications sans interruption.
+La [géo-réplication active](../sql-database/sql-database-geo-replication-overview.md) est disponible avec tous les niveaux de bases de données. Elle est conçue pour les applications qui ont des exigences de récupération plus agressives que celles proposées par la géo-restauration. À l'aide de la géo-réplication active, vous pouvez créer jusqu'à quatre répliques secondaires sur des serveurs dans différentes régions. Vous pouvez lancer le basculement sur n’importe quelle base de données secondaire. En outre, la géo-réplication active peut être utilisée pour prendre en charge les scénarios de mise à niveau ou de déplacement d'application, ainsi que l'équilibrage de charge pour les charges de travail en lecture seule. Pour plus d’informations, consultez [Configurer la géo-réplication](../sql-database/sql-database-geo-replication-portal.md) et [Basculement vers la base de données secondaire](../sql-database/sql-database-geo-replication-failover-portal.md). Reportez-vous aux rubriques [Concevoir une application pour la récupération d’urgence cloud à l’aide de la géoréplication active dans une base de données SQL](../sql-database/sql-database-designing-cloud-solutions-for-disaster-recovery.md) et [Gestion des mises à niveau propagées des applications cloud à l’aide de la géo-réplication active de la base de données SQL](../sql-database/sql-database-manage-application-rolling-upgrade.md) pour plus d’informations sur la conception, l’implémentation et la mise à niveau d’applications sans interruption.
 
 ###SQL Server sur Virtual Machines
 
@@ -120,7 +120,7 @@ Lorsque vous tentez d’exécuter votre service cloud dans plusieurs régions Az
 
 ###Service Bus
 
-Azure Service Bus utilise un espace de noms unique qui ne couvre pas les régions Azure. La première exigence consiste donc à configurer les espaces de noms du Service Bus nécessaires dans l’autre région. Toutefois, il faut également réfléchir à la durabilité des messages mis en file d’attente. Il existe plusieurs stratégies de réplication des messages entre les régions Azure. Pour plus d’informations sur ces stratégies de réplication et d’autres stratégies de récupération d’urgence, consultez [Meilleures pratiques pour protéger les applications contre les pannes de Service Bus et les sinistres](../service-bus/service-bus-outages-disasters.md). Pour d’autres considérations relatives à la disponibilité, consultez la section [Service Bus (Disponibilité)](./resiliency-technical-guidance-recovery-local-failures.md#service-bus).
+Azure Service Bus utilise un espace de noms unique qui ne couvre pas les régions Azure. La première exigence consiste donc à configurer les espaces de noms du Service Bus nécessaires dans l’autre région. Toutefois, il faut également réfléchir à la durabilité des messages mis en file d’attente. Il existe plusieurs stratégies de réplication des messages entre les régions Azure. Pour plus d’informations sur ces stratégies de réplication et d’autres stratégies de récupération d’urgence, consultez [Meilleures pratiques pour protéger les applications contre les pannes de Service Bus et les sinistres](../service-bus/service-bus-outages-disasters.md). Pour d’autres considérations relatives à la disponibilité, consultez la section [Service Bus (Disponibilité)](./resiliency-technical-guidance-recovery-local-failures.md#other-azure-platform-services).
 
 ###Applications Web
 
@@ -132,7 +132,7 @@ Dans la région Azure secondaire, créez un service mobile de sauvegarde pour vo
 
 ###HDInsight
 
-Par défaut, les données associées à HDInsight sont stockées dans Azure Blob Storage. HDInsight nécessite qu’un cluster Hadoop traitant des tâches MapReduce se trouve dans la même région que le compte de stockage qui contient les données en cours d’analyse. Si vous utilisez la fonctionnalité de géo-réplication disponible dans Azure Storage, vous pouvez accéder à vos données dans la région secondaire dans laquelle les données ont été répliquées si pour une raison quelconque la région principale n’est plus disponible. Vous pouvez créer un nouveau cluster Hadoop dans la région où les données ont été répliquées et poursuivre leur traitement. Pour d’autres considérations relatives à la disponibilité, consultez la section [HDInsight (Disponibilité)](./resiliency-technical-guidance-recovery-local-failures.md#hdinsight).
+Par défaut, les données associées à HDInsight sont stockées dans Azure Blob Storage. HDInsight nécessite qu’un cluster Hadoop traitant des tâches MapReduce se trouve dans la même région que le compte de stockage qui contient les données en cours d’analyse. Si vous utilisez la fonctionnalité de géo-réplication disponible dans Azure Storage, vous pouvez accéder à vos données dans la région secondaire dans laquelle les données ont été répliquées si pour une raison quelconque la région principale n’est plus disponible. Vous pouvez créer un nouveau cluster Hadoop dans la région où les données ont été répliquées et poursuivre leur traitement. Pour d’autres considérations relatives à la disponibilité, consultez la section [HDInsight (Disponibilité)](./resiliency-technical-guidance-recovery-local-failures.md#other-azure-platform-services).
 
 ###SQL Reporting
 
@@ -149,69 +149,81 @@ Les fichiers de configuration constituent le moyen le plus rapide de configurer 
 ##Listes de contrôle pour la récupération d’urgence
 
 ##Liste de contrôle de Cloud Services
-  1. Consultez la section [Services cloud](#cloud-services) de ce document.
+
+  1. Consultez la section Services cloud de ce document.
   2. Créez une stratégie de récupération d’urgence entre les régions.
   3. Maîtrisez les inconvénients de la réservation de capacité dans d’autres régions.
   4. Utilisez les outils de routage du trafic, notamment Azure Traffic Manager.
 
 ##Liste de contrôle de Virtual Machines
-  1. Consulter la section [Virtual Machines](#virtual-machines) de ce document.
+
+  1. Consulter la section Machines virtuelles de ce document.
   2. Utilisez [Azure Backup](https://azure.microsoft.com/services/backup/) pour créer des sauvegardes cohérentes des applications dans différentes régions.
 
 ##Liste de contrôle du stockage
-  1. Consultez la section [Stockage](#storage) de ce document.
+
+  1. Consultez la section Stockage de ce document.
   2. Ne désactivez pas la géoréplication des ressources de stockage.
   3. Maîtrisez l’autre région pour la géoréplication en cas de basculement.
   4. Créez des stratégies de sauvegarde personnalisées pour les stratégies de basculement contrôlées par l’utilisateur.
 
 ##Liste de contrôle de la Base de données SQL
-  1. Consultez la section [Base de données SQL](#sql-database) de ce document.
-  2. Utilisez la [géo-restauration](../sql-database/sql-database-recovery-using-backups.md#geo-restore) ou la [géoréplication](../sql-database/sql-database-geo-replication-overview.md) en fonction des besoins.
+
+  1. Consultez la section Base de données SQL de ce document.
+  2. Utilisez la [géorestauration](../sql-database/sql-database-recovery-using-backups.md#geo-restore) ou la [géoréplication](../sql-database/sql-database-geo-replication-overview.md) en fonction des besoins.
 
 ##Liste de contrôle de SQL Server sur les machines virtuelles
-  1. Consultez la section [SQL Server sur Virtual Machines](#sql-server-on-virtual-machines) de ce document.
+
+  1. Consultez la section SQL Server sur Virtual Machines de ce document.
   2. Utilisez des groupes de disponibilité AlwaysOn entre les régions ou la mise en miroir de bases de données.
   3. Ou utilisez la sauvegarde et la restauration dans le stockage d’objets blob.
 
 ##Liste de contrôle de Service Bus
-  1. Consultez la section [Service Bus](#service-bus) de ce document.
+
+  1. Consultez la section Service Bus de ce document.
   2. Configurez un espace de noms Service Bus dans une autre région.
   3. Prenez en compte les stratégies de réplication personnalisées pour les messages entre les régions.
 
 ##Liste de contrôle de Web Apps
-  1. Consultez la section [Web Apps](#web-apps) de ce document.
+
+  1. Consultez la section Web Apps de ce document.
   2. Conservez les sauvegardes de sites Web en dehors de la région primaire.
   3. Si une panne est partielle, tentez de récupérer le site actuel via FTP.
   4. Planifiez le déploiement d’un site Web sur un nouveau site Web ou un site Web existant dans une autre région.
   5. Planifiez les modifications de configuration pour les applications et les enregistrements DNS CNAME.
 
 ##Liste de contrôle des services mobiles
-  1. Consultez la section [Services mobiles](#mobile-services) de ce document.
+
+  1. Consultez la section Services mobiles de ce document.
   2. Créez un service mobile de sauvegarde dans une autre région.
   3. Gérez les sauvegardes de la Base de données SQL Azure associée à restaurer pendant le basculement.
   4. Utilisez les outils de ligne de commande Azure pour déplacer le service mobile.
 
 ##Liste de contrôle de HDInsight
-  1. Consultez la section [HDInsight](#hdinsight) de ce document.
+
+  1. Consultez la section HDInsight de ce document.
   2. Créez un cluster Hadoop dans la région contenant les données répliquées.
 
 ##Liste de contrôle de SQL Reporting
-  1. Consultez la section [SQL Reporting](#sql-reporting) de ce document.
+
+  1. Consultez la section SQL Reporting de ce document.
   2. Conservez une autre instance SQL Reporting dans une région différente.
   3. Conservez un plan distinct pour répliquer la cible dans cette région.
 
 ##Liste de contrôle de Media Services
-  1. Consultez la section [Media Services](#media-services) de ce document.
+
+  1. Consultez la section Media Services de ce document.
   2. Créez un compte Media Services dans une autre région.
   3. Encodez le même contenu dans les deux régions pour prendre en charge le basculement de la diffusion en continu.
-  4. Envoyez des travaux d’encodage dans une autre région en cas de panne.
+  4. Envoyez des travaux d’encodage dans une autre région en cas d’interruption de service.
 
 ##Liste de contrôle du réseau virtuel
-  1. Consultez la section [Réseau virtuel](#virtual-network) de ce document.
+
+  1. Consultez la section Réseau virtuel de ce document.
   2. Utilisez les paramètres du réseau virtuel qui ont été exportés pour le recréer dans une autre région.
 
 ##Étapes suivantes
 
 Cet article fait partie d’une série intitulée [Guide technique de la résilience Azure](./resiliency-technical-guidance.md). L’article suivant de cette série traite de [la récupération à partir d’un centre de données local sur Azure](./resiliency-technical-guidance-recovery-on-premises-azure.md).
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

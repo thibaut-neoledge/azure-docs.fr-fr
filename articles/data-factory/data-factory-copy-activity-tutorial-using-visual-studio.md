@@ -37,7 +37,7 @@ Dans ce didacticiel, vous allez effectuer les étapes suivantes à l’aide de V
 
 1. Lisez l’article [Vue d’ensemble du didacticiel](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 	
-	> [AZURE.IMPORTANT] Avant de continuer, assurez-vous de remplir les conditions requises.
+	> [AZURE.IMPORTANT] Avant de continuer, vérifiez que vous remplissez les conditions requises.
 2. Pour pouvoir publier des entités de fabrique de données dans Azure Data Factory, vous devez être un **administrateur de l’abonnement Azure**.
 3. Les composants suivants doivent être installés sur votre ordinateur :
 	- Visual Studio 2013 ou Visual Studio 2015
@@ -277,4 +277,4 @@ Consultez [Surveillance d’un pipeline](data-factory-copy-activity-tutorial-usi
 | [Groupes de données](data-factory-create-datasets.md) | Cet article vous aide à comprendre les jeux de données dans Azure Data Factory.
 | [Surveiller et gérer les pipelines Azure Data Factory à l’aide de la nouvelle application de surveillance et gestion.](data-factory-monitor-manage-app.md) | Cet article décrit comment surveiller, gérer et déboguer les pipelines à l’aide de l’application de surveillance et gestion. 
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

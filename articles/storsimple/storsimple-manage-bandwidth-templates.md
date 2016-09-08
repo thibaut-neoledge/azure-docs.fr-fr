@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/24/2016"
+   ms.date="08/16/2016"
    ms.author="alkohli" />
 
 # Utiliser le service StorSimple Manager pour gérer les modèles de bande passante StorSimple
@@ -31,11 +31,11 @@ Avec les planifications de limitation de bande passante, vous pouvez :
 
 Tous les modèles de la bande passante de votre service sont affichés dans un format tabulaire et contiennent les informations suivantes :
 
-- **Nom** : nom unique affecté au modèle de bande passante lors de sa création.
+- **Nom** : nom unique affecté au modèle de bande passante lors de sa création.
 
-- **Planification** : nombre de planifications contenues dans un modèle donné de bande passante.
+- **Planification** : nombre de planifications contenues dans un modèle donné de bande passante.
 
-- **Utilisé par** : nombre de volumes utilisant les modèles de bande passante.
+- **Utilisé par** : nombre de volumes utilisant les modèles de bande passante.
 
 Utilisez la page **Configurer** du service StorSimple Manager du portail Azure Classic pour gérer les modèles de la bande passante.
 
@@ -52,7 +52,7 @@ Pour créer un modèle de bande passante, procédez comme suit.
 
 1. Sur la page **Configurer** du service StorSimple Manager, cliquez sur **ajouter/modifier un modèle de bande passante**.
 
-2. Dans la boîte de dialogue **Ajouter/modifier des modèles de bande passante** :
+2. Dans la boîte de dialogue **Ajouter/modifier des modèles de bande passante** :
 
    1. À partir de la liste déroulante **Modèle**, sélectionnez **Créer** pour ajouter un nouveau modèle de bande passante.
    2. Spécifiez un nom unique pour votre modèle de bande passante.
@@ -82,7 +82,7 @@ Pour modifier un modèle de bande passante, procédez comme suit.
 
 1. Cliquez sur **Ajouter/modifier des modèles de bande passante**.
 
-2. Dans la boîte de dialogue **Ajouter/modifier des modèles de bande passante** :
+2. Dans la boîte de dialogue **Ajouter/modifier des modèles de bande passante** :
 
    1. Dans la liste déroulante **Modèle**, sélectionnez un modèle de bande passante existant que vous souhaitez modifier.
    2. Complétez vos modifications. (Vous pouvez modifier l’un des paramètres existants.)
@@ -110,9 +110,9 @@ Vous pouvez supprimer toutes les références au modèle en accédant à la page
 
 Un modèle de bande passante par défaut est fourni et utilisé par les conteneurs de volumes par défaut pour appliquer les contrôles de bande passante lors de l’accès au cloud. Le modèle par défaut sert également de référence prête pour les utilisateurs qui créent leurs propres modèles. Les détails du modèle par défaut sont les suivants :
 
-- **Nom** : nombre illimité de nuit et de week-ends
+- **Nom** : nombre illimité de nuit et de week-ends
 
-- **Planification** : une seule planification du lundi au vendredi qui applique un taux de bande passante de 1 Mbits/s entre 8 h 00 et 17 h 00, heure de l’appareil. Pour le reste de la semaine, la bande passante est définie sur Unlimited.
+- **Planification** : une seule planification du lundi au vendredi qui applique un taux de bande passante de 1 Mbits/s entre 8 h 00 et 17 h 00, heure de l’appareil. Pour le reste de la semaine, la bande passante est définie sur Unlimited.
 
 Le modèle par défaut peut être modifié. L’utilisation de ce modèle (y compris les versions modifiées) est suivie.
 
@@ -172,4 +172,4 @@ Suivez ces meilleures pratiques pour votre appareil StorSimple :
 
 En savoir plus sur [l’utilisation du service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -1,10 +1,10 @@
 <properties
    pageTitle="Azure AD Connect : historique de publication des versions | Microsoft Azure"
-   description="Cette rubrique répertorie toutes les versions d’Azure AD Connect et d’Azure AD Sync"
+   description="Cette rubrique répertorie toutes les versions d’Azure AD Connect et d’Azure AD Sync."
    services="active-directory"
    documentationCenter=""
    authors="AndKjell"
-   manager="stevenpo"
+   manager="femila"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="06/02/2016"
+   ms.date="08/23/2016"
    ms.author="andkjell"/>
 
 # Azure AD Connect : historique de publication des versions
@@ -22,7 +22,7 @@ L’équipe Azure Active Directory met régulièrement à jour Azure AD Connect 
 
 Cet article est conçu pour vous aider à conserver la trace des versions qui ont été publiées, et à comprendre si vous devez ou non effectuer la mise jour vers la version la plus récente.
 
-Voici la liste des rubriques connexes :
+Voici la liste des rubriques connexes :
 
 Rubrique |  
 --------- | --------- |
@@ -134,7 +134,7 @@ Publié : novembre 2015
 **Nouvelles fonctionnalités préliminaires :**
 
 - [Azure AD Connect Health pour la synchronisation](active-directory-aadconnect-health-sync.md).
-- Prise en charge de la synchronisation de mot de passe pour les [services de domaine Azure AD](active-directory-get-started.md).
+- Prise en charge de la synchronisation de mot de passe pour les [services de domaine Azure AD](active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords).
 
 **Nouveau scénario pris en charge :**
 
@@ -270,7 +270,7 @@ Publié : octobre 2014
 
 **Nouvelles fonctionnalités :**
 
-- Synchronisation de mot de passe à partir de plusieurs AD locaux vers Azure AD.
+- Synchronisation du mot de passe à partir de plusieurs configurations AD locales vers Azure AD.
 - Interface utilisateur du programme d’installation localisée dans toutes les langues de Windows Server.
 
 **Mise à niveau à partir d’Azure Active Directory Sync 1.0 GA**
@@ -293,4 +293,4 @@ Publiée : septembre 2014
 ## Étapes suivantes
 En savoir plus sur l’[intégration de vos identités locales dans Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0824_2016-->

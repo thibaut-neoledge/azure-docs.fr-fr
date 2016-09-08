@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Opérations d’audit avec Resource Manager | Microsoft Azure"
-	description="Utilisez le journal d’audit dans Resource Manager pour passer en revue les actions et les erreurs des utilisateurs. Affiche le portail Azure, PowerShell, l’interface CLI Azure et REST."
+	description="Utilisez le journal d’activité dans Resource Manager pour passer en revue les actions et les erreurs des utilisateurs. Affiche le portail Azure, PowerShell, l’interface CLI Azure et REST."
 	services="azure-resource-manager"
 	documentationCenter=""
 	authors="tfitzmac"
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/13/2016"
+	ms.date="08/22/2016"
 	ms.author="tomfitz"/>
 
 # Opérations d’audit avec Resource Manager
 
-Les journaux d’audit vous permettent de déterminer :
+Les journaux d’activité vous permettent de déterminer :
 
 - Les opérations qui ont été effectuées sur les ressources de votre abonnement
 - Les utilisateurs qui ont lancé l’opération (même si les opérations lancées par un service principal ne retournent pas d’utilisateur en tant qu’appelant)
@@ -28,39 +28,35 @@ Les journaux d’audit vous permettent de déterminer :
 
 [AZURE.INCLUDE [resource-manager-audit-limitations](../includes/resource-manager-audit-limitations.md)]
 
-Cette rubrique traite de l’audit des opérations. Si vous voulez en savoir plus sur les journaux d’audit pour résoudre les problèmes liés à un déploiement, consultez [Résolution des problèmes liés aux déploiements de groupes de ressources dans Azure](resource-manager-troubleshoot-deployments-portal.md).
+Cette rubrique traite de l’audit des opérations. Si vous voulez en savoir plus sur les journaux d’activité pour résoudre les problèmes liés à un déploiement, consultez [Résolution des problèmes liés aux déploiements de groupes de ressources dans Azure](resource-manager-troubleshoot-deployments-portal.md).
 
-Vous pouvez récupérer des informations dans les journaux d’audit par le biais du portail Azure, d’Azure PowerShell, de l’interface de ligne de commande Azure, de l’API REST Insights ou de [Insights .NET Library](https://www.nuget.org/packages/Microsoft.Azure.Insights/).
+Vous pouvez récupérer des informations dans les journaux d’activité par le biais du portail, de PowerShell, de l’interface de ligne de commande Azure, de l’API REST Insights ou de [Insights .NET Library](https://www.nuget.org/packages/Microsoft.Azure.Insights/).
 
-## Portail pour afficher les journaux d’audit
+## Afficher les journaux d’activité à l’aide du portail
 
-1. Pour afficher les journaux d’audit dans le portail, sélectionnez **Parcourir** et **Journaux d’audit**.
+1. Pour afficher les journaux d’activité via le portail, sélectionnez **More Services** (Autres services), puis **Journaux d’activité**.
 
-    ![sélectionner des journaux d’audit](./media/resource-group-audit/select-audit-logs.png)
+    ![sélectionner les journaux d’activité](./media/resource-group-audit/select-audit-logs.png)
 
-2. Le panneau **Journaux d’audit** affiche un résumé des opérations récentes de tous les groupes de ressources de votre abonnement. Il inclut une représentation graphique du moment où ont eu lieu les opérations et de leur état, ainsi qu’une liste des opérations.
+2. Le panneau **Journaux d’activité** affiche un résumé des opérations récentes pour tous les groupes de ressources de votre abonnement. Il contient une liste des opérations récentes.
 
     ![afficher des actions](./media/resource-group-audit/audit-summary.png)
 
-3. Pour rechercher un type particulier d’action, vous pouvez filtrer les opérations affichées dans le panneau des journaux d’audit. Sélectionnez **Filtrer** en haut du panneau.
-
-    ![filtrer les journaux](./media/resource-group-audit/filter-logs.png)
-
-4. Dans le panneau **Filtre**, vous pouvez sélectionner plusieurs conditions pour limiter le nombre d’opérations affichées. Par exemple, vous pouvez afficher toutes les actions effectuées par un utilisateur particulier au cours de la semaine dernière.
+3. Pour limiter le nombre d’opérations affichées, sélectionnez d’autres conditions. Par exemple, l’illustration suivante indique les champs **Intervalle de temps** et **Événement lancé par** modifiés pour afficher les actions effectuées par un utilisateur ou une application au cours du mois passé.
 
     ![définir des options de filtre](./media/resource-group-audit/set-filter.png)
 
-Une fois la vue des journaux d’audit mise à jour, seules les opérations qui répondent à la condition spécifiée sont affichées. Ces paramètres sont conservés lors de la prochaine consultation des journaux d’audit, vous devrez donc peut-être modifier ces valeurs pour étendre l’affichage des opérations.
+4. Sélectionnez **Appliquer** pour afficher les résultats de votre requête.
 
-Vous pouvez également afficher automatiquement les journaux d’audit d’une ressource particulière en les sélectionnant dans le panneau de cette ressource. Dans le portail, sélectionnez la ressource à auditer, puis **Journaux d’audit**.
+5. Si vous avez besoin d’exécuter la requête ultérieurement, sélectionnez **Enregistrer** et attribuez un nom à votre requête.
 
-![auditer une ressource](./media/resource-group-audit/audit-by-resource.png)
+    ![enregistrer la requête](./media/resource-group-audit/save-query.png)
 
-Notez que le journal d’audit est automatiquement filtré sur la dernière ressource sélectionnée pour la semaine précédente.
+6. Pour afficher automatiquement les journaux d’audit d’une ressource ou d’un groupe de ressources en particulier, sélectionnez **Journal d’activité** à partir du panneau correspondant. Notez que le journal d’activité est automatiquement filtré sur la dernière ressource sélectionnée.
 
-![filtrer par ressource](./media/resource-group-audit/filtered-by-resource.png)
+    ![filtrer par ressource](./media/resource-group-audit/filtered-by-resource.png)
 
-## PowerShell pour afficher les journaux d’audit
+## Afficher les journaux d’activité à l’aide de PowerShell
 
 1. Pour récupérer les entrées de journal, exécutez la commande **Get-AzureRmLog**. Vous spécifiez des paramètres supplémentaires pour filtrer la liste des entrées. Si vous ne spécifiez pas une heure de début et de fin, les entrées de la dernière heure sont retournées. Par exemple, pour récupérer les opérations d’un groupe de ressources pendant la dernière heure d’exécution :
 
@@ -100,7 +96,7 @@ Notez que le journal d’audit est automatiquement filtré sur la dernière ress
 
         Get-AzureRmLog -ResourceGroup deletedgroup -StartTime (Get-Date).AddDays(-14) -Caller someone@contoso.com
 
-## Interface CLI Azure pour afficher les journaux d’audit
+## Afficher les journaux d’activité à l’aide de la CLI Azure
 
 1. Pour récupérer les entrées de journal, exécutez la commande **azure group log show**.
 
@@ -116,13 +112,13 @@ Notez que le journal d’audit est automatiquement filtré sur la dernière ress
 
 ## API REST pour afficher les journaux d’audit
 
-Les opérations REST à utiliser avec le journal d’audit font partie de l’[API REST Insights](https://msdn.microsoft.com/library/azure/dn931943.aspx). Pour récupérer les événements du journal d’audit, consultez [Liste des événements de gestion dans un abonnement](https://msdn.microsoft.com/library/azure/dn931934.aspx).
+Les opérations REST à utiliser avec le journal d’activité font partie de l’[API REST Insights](https://msdn.microsoft.com/library/azure/dn931943.aspx). Pour récupérer les événements du journal d’activité, consultez [Liste des événements de gestion dans un abonnement](https://msdn.microsoft.com/library/azure/dn931934.aspx).
 
 ## Étapes suivantes
 
-- Les journaux d’audit Azure sont utilisables avec Power BI pour obtenir des informations plus détaillées sur les actions de votre abonnement. Consultez le billet de blog sur [l’affichage et l’analyse des journaux d’audit Azure dans Power BI](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/).
+- Les journaux d’activité Azure sont utilisables avec Power BI pour obtenir des informations plus détaillées sur les actions de votre abonnement. Consultez le billet de blog sur [l’affichage et l’analyse des journaux d’activité Azure dans Power BI](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/).
 - Pour en savoir plus sur la définition de stratégies de sécurité, consultez [Contrôle d’accès en fonction du rôle Azure](./active-directory/role-based-access-control-configure.md).
 - Pour en savoir plus sur les commandes qui permettent de résoudre les problèmes liés aux déploiements, consultez [Résolution des problèmes liés aux déploiements de groupes de ressources dans Azure](resource-manager-troubleshoot-deployments-portal.md).
 - Pour savoir comment empêcher des suppressions sur une ressource pour tous les utilisateurs, consultez [Verrouiller des ressources avec Azure Resource Manager](resource-group-lock-resources.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0824_2016-->

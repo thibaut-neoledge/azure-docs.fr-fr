@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/02/2016"
+	ms.date="08/23/2016"
 	ms.author="andkjell;markvi"/>
 
 
@@ -21,7 +21,7 @@
 
 Dans Azure AD Connect, les fonctions servent à manipuler une valeur d’attribut pendant la synchronisation. La syntaxe des fonctions s’exprime selon le format suivant : `<output type> FunctionName(<input type> <position name>, ..)`
 
-Si une fonction est surchargée et accepte plusieurs syntaxes, toutes les syntaxes valides sont répertoriées. Les fonctions sont fortement typées et vérifient que le type passé correspond au type documenté. Une erreur est levée si le type ne correspond pas.
+Si une fonction est surchargée et accepte plusieurs syntaxes, toutes les syntaxes valides sont répertoriées. Les fonctions sont fortement typées et vérifient que le type passé correspond au type documenté. Une erreur est renvoyée si le type ne correspond pas.
 
 Les types s’expriment avec la syntaxe suivante :
 
@@ -34,10 +34,12 @@ Les types s’expriment avec la syntaxe suivante :
 - **mvstr** : chaîne à valeurs multiples
 - **mvref** : référence à valeurs multiples
 - **num** : numérique
--  **ref** : référence à valeur unique
-- **str** : chaîne à valeur unique
+- **ref** : référence
+- **str** : chaîne
 - **var** : variante de (quasiment) tout autre type
 - **void** : ne retourne aucune valeur
+
+Les fonctions ayant pour type **mvbin**, **mvstr** et **mvref** ne peuvent fonctionner que sur les attributs à valeurs multiples. Les fonctions avec **bin**, **str** et **ref** fonctionnent sur des attributs à valeur unique et à valeurs multiples.
 
 ## Référence des fonctions
 
@@ -73,11 +75,11 @@ Liste des fonctions | | | | |
 ----------
 ### BitAnd
 
-**Description :** La fonction BitAnd définit des bits spécifiés sur une valeur.
+**Description :** la fonction BitAnd définit des bits spécifiés sur une valeur.
 
 **Syntaxe :** `num BitAnd(num value1, num value2)`
 
-- value1, value2 : valeurs numériques qui doivent être liées par AND
+- value1, value2 : valeurs numériques qui doivent être liées par AND.
 
 **Remarques :** Cette fonction convertit les deux paramètres de la représentation binaire et définit un bit sur :
 
@@ -86,7 +88,7 @@ Liste des fonctions | | | | |
 
 En d’autres termes, elle renvoie 0 dans tous les cas, sauf si les bits correspondants de ces deux paramètres sont définis sur 1.
 
-**Exemple :** `BitAnd(&HF, &HF7)` Retourne 7, car les valeurs hexadécimales F ET F7 évaluent cette valeur.
+**Exemple :** `BitAnd(&HF, &HF7)` Renvoie 7, car les valeurs hexadécimales « F » ET « F7 » donnent cette valeur.
 
 ----------
 ### BitOr
@@ -97,16 +99,16 @@ En d’autres termes, elle renvoie 0 dans tous les cas, sauf si les bits corresp
 
 - value1, value2 : valeurs numériques qui doivent être liées par OR
 
-**Remarques :** Cette fonction convertit les deux paramètres en la représentation binaire et définit un bit sur 1 si l’un des bits, ou les deux bits correspondants dans masque et indicateur ont pour valeur 1, ou sur 0 si les deux bits correspondants ont la valeur 0. En d’autres termes, elle renvoie 1 dans tous les cas, sauf si les bits correspondants de ces deux paramètres ont pour valeur 0.
+**Remarques :** Cette fonction convertit les deux paramètres en la représentation binaire et définit un bit sur 1 si l’un des bits ou les deux bits correspondants dans le masque et l’indicateur ont pour valeur 1, ou sur 0 si les deux bits correspondants ont la valeur 0. En d’autres termes, elle renvoie 1 dans tous les cas, sauf si les bits correspondants de ces deux paramètres ont pour valeur 0.
 
 ----------
 ### CBool
 
-**Description :** La fonction CBool retourne une valeur booléenne basée sur l’expression évaluée
+**Description :** La fonction CBool renvoie une valeur booléenne basée sur l’expression évaluée.
 
 **Syntaxe :** `bool CBool(exp Expression)`
 
-**Remarques :** Si l’expression retourne une valeur autre que zéro, CBool retourne la valeur True, sinon elle retourne False.
+**Remarques :** Si l’expression renvoie une valeur autre que zéro, CBool renvoie la valeur True, sinon elle renvoie False.
 
 **Exemple :** `CBool([attrib1] = [attrib2])`
 
@@ -115,17 +117,17 @@ Retourne True si les attributs ont la même valeur.
 ----------
 ### CDate
 
-**Description :** La fonction CDate retourne une valeur DateTime UTC à partir d’une chaîne. DateTime n’est pas un type d’attribut natif dans Sync, mais il est utilisé par certaines fonctions.
+**Description :** La fonction CDate renvoie une valeur DateTime UTC à partir d’une chaîne. DateTime n’est pas un type d’attribut natif dans Sync, mais il est utilisé par certaines fonctions.
 
 **Syntaxe :** `dt CDate(str value)`
 
 - Valeur : chaîne comportant une date, une heure, et éventuellement, un fuseau horaire
 
-**Remarques :** La chaîne retournée est toujours au format UTC.
+**Remarques :** La chaîne renvoyée est toujours au format UTC.
 
-**Exemple :** `CDate([employeeStartTime])` Retourne une valeur DateTime à partir de l’heure de début de l’employé
+**Exemple :** `CDate([employeeStartTime])` Renvoie une valeur DateTime à partir de l’heure de début de l’employé.
 
-`CDate("2013-01-10 4:00 PM -8")` retourne une valeur DateTime représentant « 2013-01-11 12:00 AM »
+`CDate("2013-01-10 4:00 PM -8")` Renvoie une valeur DateTime représentant « 2013-01-11 12:00 AM ».
 
 ----------
 ### CGuid
@@ -139,28 +141,28 @@ Retourne True si les attributs ont la même valeur.
 ----------
 ### Contient
 
-**Description :** La fonction Contains détecte une chaîne à l’intérieur d’un attribut à valeurs multiples
+**Description :** La fonction Contains détecte une chaîne à l’intérieur d’un attribut à valeurs multiples.
 
-**Syntaxe :** `num Contains (mvstring attribute, str search)` - Respecter la casse `num Contains (mvstring attribute, str search, enum Casetype)` `num Contains (mvref attribute, str search)` - Respecter la casse
+**Syntaxe :** `num Contains (mvstring attribute, str search)` - sensible à la casse `num Contains (mvstring attribute, str search, enum Casetype)` `num Contains (mvref attribute, str search)` - sensible à la casse
 
-- attribut : attribut à valeurs multiples à rechercher.<br>
-- recherche : chaîne à trouver dans l’attribut.<br>
-- Casetype : CaseInsensitive ou CaseSensitive.<br>
+- attribut : attribut à valeurs multiples à rechercher.
+- recherche : chaîne à rechercher dans l’attribut.
+- Casetype : CaseInsensitive ou CaseSensitive.
 
 Renvoie l’indice dans l’attribut à plusieurs valeurs où la chaîne a été trouvée. Si la chaîne est introuvable, la valeur renvoyée est 0.
 
 **Remarques :** Pour les attributs de chaîne à valeurs multiples, la recherche détecte des sous-chaînes dans les valeurs. Pour les attributs de référence, la chaîne recherchée doit correspondre exactement à la valeur pour être considérée comme une correspondance.
 
-**Exemple :** `IIF(Contains([proxyAddresses],"SMTP:")>0,[proxyAddresses],Error("No primary SMTP address found."))` Si l’attribut proxyAddresses a une adresse de messagerie principale (indiquée par « SMTP : »), cette fonction retourne l’attribut proxyAddress. Sinon, elle retourne une erreur.
+**Exemple :** `IIF(Contains([proxyAddresses],"SMTP:")>0,[proxyAddresses],Error("No primary SMTP address found."))` Si l’attribut proxyAddresses a une adresse de messagerie principale (indiquée par « SMTP : »), cette fonction renvoie l’attribut proxyAddress. Sinon, elle renvoie une erreur.
 
 ----------
 ### ConvertFromBase64
 
 **Description :** La fonction ConvertFromBase64 convertit la valeur encodée en base64 en chaîne régulière.
 
-**Syntaxe :**`str ConvertFromBase64(str source)` - Part du principe que l’encodage utilisé est Unicode<br> `str ConvertFromBase64(str source, enum Encoding)`
+**Syntaxe :**`str ConvertFromBase64(str source)` - part du principe que l’encodage utilisé est Unicode `str ConvertFromBase64(str source, enum Encoding)`
 
-- source : chaîne encodée Base64
+- source : chaîne encodée Base64  
 - En codage : Unicode, ASCII, UTF8
 
 **Exemple** `ConvertFromBase64("SABlAGwAbABvACAAdwBvAHIAbABkACEA")` `ConvertFromBase64("SGVsbG8gd29ybGQh", UTF8)`
@@ -178,7 +180,7 @@ Les deux exemples renvoient « *Hello world!* »
 
 **Remarques :** La différence entre cette fonction et ConvertFromBase64(,UTF8) est que le résultat est convivial pour l’attribut DN. Ce format est utilisé par Azure Active Directory en tant que nom de domaine.
 
-**Exemple :** `ConvertFromUTF8Hex("48656C6C6F20776F726C6421")` Retourne « *Hello world!* »
+**Exemple :** `ConvertFromUTF8Hex("48656C6C6F20776F726C6421")` Renvoie « *Hello world!* ».
 
 ----------
 ### ConvertToBase64
@@ -187,7 +189,7 @@ Les deux exemples renvoient « *Hello world!* »
 
 **Syntaxe :** `str ConvertToBase64(str source)`
 
-**Exemple :** `ConvertToBase64("Hello world!")` Retourne « SABlAGwAbABvACAAdwBvAHIAbABkACEA »
+**Exemple :** `ConvertToBase64("Hello world!")` Renvoie « SABlAGwAbABvACAAdwBvAHIAbABkACEA ».
 
 ----------
 ### ConvertToUTF8Hex
@@ -196,28 +198,28 @@ Les deux exemples renvoient « *Hello world!* »
 
 **Syntaxe :** `str ConvertToUTF8Hex(str source)`
 
-**Remarques :** Le format de sortie de cette fonction est utilisé par Azure Active Directory en tant que format d’attribut de nom de domaine.
+**Remarques :** Le format de sortie de cette fonction est utilisé par Azure Active Directory en tant que format d’attribut de nom de domaine.
 
-**Exemple :** `ConvertToUTF8Hex("Hello world!")` Retourne 48656C6C6F20776F726C6421
+**Exemple :** `ConvertToUTF8Hex("Hello world!")` Renvoie 48656C6C6F20776F726C6421.
 
 ----------
 ### Count
 
-**Description :** La fonction Count retourne le nombre d’éléments dans un attribut à valeurs multiples.
+**Description :** La fonction Count renvoie le nombre d’éléments dans un attribut à valeurs multiples.
 
 **Syntaxe :** `num Count(mvstr attribute)`
 
 ----------
 ### CNum
 
-**Description :** La fonction CNum prend une chaîne et retourne un type de données numérique.
+**Description :** La fonction CNum prend une chaîne et renvoie un type de données numérique.
 
 **Syntaxe :** `num CNum(str value)`
 
 ----------
 ### CRef
 
-**Description :** Convertit une chaîne en attribut de référence
+**Description :** Convertit une chaîne en attribut de référence.
 
 **Syntaxe :** `ref CRef(str value)`
 
@@ -232,12 +234,12 @@ Les deux exemples renvoient « *Hello world!* »
 
 - valeur : peut être une valeur numérique, un attribut de référence ou une valeur booléenne.
 
-**Exemple :** `CStr([dn])` Peut retourner « cn=Joe,dc=contoso,dc=com »
+**Exemple :** `CStr([dn])` Peut renvoyer « cn=Joe,dc=contoso,dc=com ».
 
 ----------
 ### DateAdd
 
-**Description :** Retourne un objet Date contenant une date à laquelle un intervalle de temps spécifié a été ajouté.
+**Description :** Renvoie un objet Date contenant une date à laquelle un intervalle de temps spécifié a été ajouté.
 
 **Syntaxe :** `dt DateAdd(str interval, num value, dt date)`
 
@@ -255,7 +257,7 @@ Les deux exemples renvoient « *Hello world!* »
 - valeur : nombre d’unités que vous souhaitez ajouter. Elle peut être positive (pour obtenir des dates dans le futur) ou négative (pour obtenir des dates dans le passé).
 - date : DateTime représentant la date à laquelle l’intervalle est ajouté.
 
-**Exemple :** `DateAdd("m", 3, CDate("2001-01-01"))` Ajoute trois mois et retourne une valeur DateTime représentant « 2001-04-01 ».
+**Exemple :** `DateAdd("m", 3, CDate("2001-01-01"))` Ajoute 3 mois et renvoie une valeur DateTime représentant « 2001-04-01 ».
 
 ----------
 ### DateFromNum
@@ -264,24 +266,24 @@ Les deux exemples renvoient « *Hello world!* »
 
 **Syntaxe :** `dt DateFromNum(num value)`
 
-**Exemple :** `DateFromNum([lastLogonTimestamp])` `DateFromNum(129699324000000000)` Retourne une valeur DateTime représentant 2012-01-01 23:00:00
+**Exemple :** `DateFromNum([lastLogonTimestamp])` `DateFromNum(129699324000000000)` Renvoie une valeur DateTime représentant 2012-01-01 23:00:00.
 
 ----------
 ### DNComponent
 
-**Description :** La fonction DNComponent retourne la valeur d’un composant de nom de domaine spécifié en partant de la gauche.
+**Description :** La fonction DNComponent renvoie la valeur d’un composant de nom de domaine spécifié en partant de la gauche.
 
 **Syntaxe :** `str DNComponent(ref dn, num ComponentNumber)`
 
 - dn : attribut de référence à interpréter
 - ComponentNumber : composant du nom de domaine à renvoyer
 
-**Exemple :** `DNComponent([dn],1)` Si DN est « cn=Joe,ou=… », la fonction retourne Joe
+**Exemple :** `DNComponent([dn],1)` Si dn est « cn=Joe,ou=… », la fonction renvoie Joe.
 
 ----------
 ### DNComponentRev
 
-**Description :** La fonction DNComponentRev retourne la valeur d’un composant de nom de domaine spécifié en partant de la droite (fin).
+**Description :** La fonction DNComponentRev renvoie la valeur d’un composant de nom de domaine spécifié en partant de la droite (fin).
 
 **Syntaxe :** `str DNComponentRev(ref dn, num ComponentNumber)` `str DNComponentRev(ref dn, num ComponentNumber, enum Options)`
 
@@ -289,21 +291,21 @@ Les deux exemples renvoient « *Hello world!* »
 - ComponentNumber - composant du nom de domaine à retourner
 - Options : contrôleur de domaine – ignorer tous les composants avec « dc = »
 
-**Exemple :** Si le nom de domaine est « cn=Joe,ou=Atlanta,ou=GA,ou=US, dc=contoso,dc=com », alors `DNComponentRev([dn],3)` `DNComponentRev([dn],1,"DC")` retournent US.
+**Exemple :** Si le nom de domaine est « cn=Joe,ou=Atlanta,ou=GA,ou=US, dc=contoso,dc=com », alors `DNComponentRev([dn],3)` `DNComponentRev([dn],1,"DC")` Renvoient US.
 
 ----------
 ### Error
 
-**Description :** La fonction Error sert à retourner une erreur personnalisée.
+**Description :** La fonction Error sert à renvoyer une erreur personnalisée.
 
 **Syntaxe :** `void Error(str ErrorMessage)`
 
-**Exemple :** `IIF(IsPresent([accountName]),[accountName],Error("AccountName is required"))` Si l’attribut accountName n’est pas présent, lever une erreur sur l’objet.
+**Exemple :** `IIF(IsPresent([accountName]),[accountName],Error("AccountName is required"))` Si l’attribut accountName n’est pas présent, renvoie une erreur sur l’objet.
 
 ----------
 ### EscapeDNComponent
 
-**Description :** La fonction EscapeDNComponent prend un seul composant de nom de domaine et le fait échapper pour qu’il puisse être représenté dans l’annuaire LDAP.
+**Description :** La fonction EscapeDNComponent prend un composant de nom de domaine et l’isole pour qu’il puisse être représenté dans l’annuaire LDAP.
 
 **Syntaxe :** `str EscapeDNComponent(str value)`
 
@@ -323,7 +325,7 @@ Les deux exemples renvoient « *Hello world!* »
 
 **Exemple :**
 
-`FormatDateTime(CDate("12/25/2007"),"yyyy-mm-dd")` Donne comme résultat « 2007-12-25 ».
+`FormatDateTime(CDate("12/25/2007"),"yyyy-mm-dd")` Renvoie comme résultat « 2007-12-25 ».
 
 `FormatDateTime(DateFromNum([pwdLastSet]),"yyyyMMddHHmmss.0Z")` Peut donner comme résultat « 20140905081453.0Z ».
 
@@ -337,15 +339,15 @@ Les deux exemples renvoient « *Hello world!* »
 ----------
 ### IIF
 
-**Description :** La fonction IIF retourne une valeur parmi un ensemble de valeurs possibles en fonction d’une condition spécifiée.
+**Description :** La fonction IIF renvoie une valeur parmi un ensemble de valeurs possibles en fonction d’une condition spécifiée.
 
 **Syntaxe :** `var IIF(exp condition, var valueIfTrue, var valueIfFalse)`
 
 - condition : toute valeur ou expression qui peut être évaluée à true ou false.
-- valueIfTrue : valeur renvoyée si la condition prend la valeur True.
-- valueIfFalse : une valeur qui est renvoyée si la condition prend la valeur False.
+- valueIfTrue : la valeur renvoyée si la condition prend la valeur true.
+- valueIfFalse : la valeur renvoyée si la condition prend la valeur false.
 
-**Exemple :** `IIF([employeeType]="Intern","t-" & [alias],[alias])` Retourne l’alias d’un utilisateur avec le suffixe « t- » ajouté au début de celui-ci si l’utilisateur est stagiaire. Sinon, l’alias reste inchangé.
+**Exemple :** `IIF([employeeType]="Intern","t-" & [alias],[alias])` Renvoie l’alias d’un utilisateur avec le préfixe « t- » si l’utilisateur est stagiaire. Sinon, l’alias reste inchangé.
 
 ----------
 ### InStr
@@ -361,7 +363,7 @@ Les deux exemples renvoient « *Hello world!* »
 - start : position de départ pour trouver la sous-chaîne
 - compare : vbTextCompare ou vbBinaryCompare
 
-**Remarques :** Retourne la position à laquelle la sous-chaîne a été trouvée, ou 0 si elle est introuvable.
+**Remarques :** Renvoie la position à laquelle la sous-chaîne a été trouvée, ou 0 si elle est introuvable.
 
 **Exemple :** `InStr("The quick brown fox","quick")` Prend la valeur 5.
 
@@ -379,20 +381,20 @@ Les deux exemples renvoient « *Hello world!* »
 - start : position de départ pour trouver la sous-chaîne
 - compare : vbTextCompare ou vbBinaryCompare
 
-**Remarques :** Retourne la position à laquelle la sous-chaîne a été trouvée, ou 0 si elle est introuvable.
+**Remarques :** Renvoie la position à laquelle la sous-chaîne a été trouvée, ou 0 si elle est introuvable.
 
-**Exemple :** `InStrRev("abbcdbbbef","bb")` Retourne 7.
+**Exemple :** `InStrRev("abbcdbbbef","bb")` Renvoie 7.
 
 ----------
 ### IsBitSet
 
-**Description :** La fonction IsBitSet vérifie si un bit est défini ou non.
+**Description :** La fonction IsBitSet vérifie si un bit est ou non défini.
 
 **Syntaxe :** `bool IsBitSet(num value, num flag)`
 
 - value : valeur numérique évaluée. flag : valeur numérique contenant le bit à évaluer
 
-**Exemple :** `IsBitSet(&HF,4)` Retourne True, car le bit « 4 » est défini dans la valeur hexadécimale « F ».
+**Exemple :** `IsBitSet(&HF,4)` Renvoie True, car le bit « 4 » est défini dans la valeur hexadécimale « F ».
 
 ----------
 ### IsDate
@@ -401,58 +403,58 @@ Les deux exemples renvoient « *Hello world!* »
 
 **Syntaxe :** `bool IsDate(var Expression)`
 
-**Remarques :** Permet de déterminer si CDate() va réussir.
+**Remarques :** Permet de déterminer si CDate() peut aboutir.
 
 ----------
 ### IsEmpty
 
-**Description :** La fonction IsEmpty prend la valeur True si l’attribut est présent dans CS ou MV mais qu’il est évalué à une chaîne vide.
+**Description:** La fonction IsEmpty prend la valeur True si l’attribut est présent dans CS ou MV mais qu’il est évalué à une chaîne vide.
 
 **Syntaxe :** `bool IsEmpty(var Expression)`
 
 ----------
 ### IsGuid
 
-**Description :** La fonction IsGuid retourne la valeur True si la chaîne peut être convertie en GUID.
+**Description :** La fonction IsGuid renvoie la valeur True si la chaîne peut être convertie en GUID.
 
 **Syntaxe :** `bool IsGuid(str GUID)`
 
-**Remarques :** Le GUID est défini en tant que chaîne en fonction de l’un de ces modèles : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx ou {xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx}.
+**Remarques :** Un GUID est défini en tant que chaîne en fonction de l’un de ces modèles : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx or {xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx}.
 
-Utilisé pour déterminer si CGuid() sera réussi.
+Utilisé pour déterminer si CGuid() peut aboutir.
 
-**Exemple :** `IIF(IsGuid([strAttribute]),CGuid([strAttribute]),NULL)` Si StrAttribute est au format GUID, retourne une représentation binaire. Sinon, retourne la valeur Null.
+**Exemple :** `IIF(IsGuid([strAttribute]),CGuid([strAttribute]),NULL)` Si StrAttribute est au format GUID, renvoie une représentation binaire. Sinon, renvoie la valeur Null.
 
 ----------
 ### IsNull
 
-**Description :** La fonction IsNull retourne true si l’expression correspond à la valeur Null.
+**Description :** La fonction IsNull renvoie true si l’expression correspond à la valeur Null.
 
 **Syntaxe :** `bool IsNull(var Expression)`
 
 **Remarques :** Dans le cas d’un attribut, la valeur Null est exprimée par l’absence de ce dernier.
 
-**Exemple :** `IsNull([displayName])` Retourne True si l’attribut n’est pas présent dans SC ou MV.
+**Exemple :** `IsNull([displayName])` Renvoie True si l’attribut est absent dans CS ou MV.
 
 ----------
 ### IsNullOrEmpty
 
-**Description :** La fonction IsNullOrEmpty retourne la valeur true si l’expression a la valeur null ou s’il s’agit d’une chaîne vide.
+**Description :** La fonction IsNullOrEmpty renvoie la valeur true si l’expression a pour valeur Null ou s’il s’agit d’une chaîne vide.
 
 **Syntaxe :** `bool IsNullOrEmpty(var Expression)`
 
-**Remarques :** Dans le cas d’un attribut, cela donne la valeur True si l’attribut est absent ou est présent mais qu’il s’agit d’une chaîne vide.<br> L’inverse de cette fonction est nommé IsPresent.
+**Remarques :** Dans le cas d’un attribut, cela donne la valeur True si l’attribut est absent ou est présent mais qu’il s’agit d’une chaîne vide. L’inverse de cette fonction est nommé IsPresent.
 
-**Exemple :** `IsNullOrEmpty([displayName])` Retourne True si l’attribut n’est pas présent dans SC ou MV ou s’il s’agit d’une chaîne vide.
+**Exemple :** `IsNullOrEmpty([displayName])` Renvoie True si l’attribut est absent dans CS ou MV ou s’il s’agit d’une chaîne vide.
 
 ----------
 ### IsNumeric
 
-**Description :** La fonction IsNumeric retourne une valeur booléenne indiquant si une expression peut être évaluée en tant que type de nombre.
+**Description :** La fonction IsNumeric renvoie une valeur booléenne indiquant si une expression peut être évaluée en tant que type de nombre.
 
 **Syntaxe :** `bool IsNumeric(var Expression)`
 
-**Remarques :** Permet de déterminer si CNum() réussira à analyser l’expression.
+**Remarques :** Permet de déterminer si CNum() peut parvenir à analyser l’expression.
 
 ----------
 ### IsString
@@ -461,12 +463,12 @@ Utilisé pour déterminer si CGuid() sera réussi.
 
 **Syntaxe :** `bool IsString(var expression)`
 
-**Remarques :** Permet de déterminer si CStr() réussira à analyser l’expression.
+**Remarques :** Permet de déterminer si CStr() peut parvenir à analyser l’expression.
 
 ----------
 ### IsPresent
 
-**Description :** La fonction IsPresent retourne true si l’expression correspond à une chaîne qui n’a pas la valeur Null et n’est pas vide.
+**Description :** La fonction IsPresent renvoie true si l’expression correspond à une chaîne qui n’a pas la valeur Null et n’est pas vide.
 
 **Syntaxe :** `bool IsPresent(var expression)`
 
@@ -477,37 +479,37 @@ Utilisé pour déterminer si CGuid() sera réussi.
 ----------
 ### Item
 
-**Description :** La fonction Item retourne un élément à partir d’une chaîne/d’un attribut à valeurs multiples.
+**Description :** La fonction Item renvoie un élément à partir d’une chaîne/d’un attribut à valeurs multiples.
 
 **Syntaxe :** `var Item(mvstr attribute, num index)`
 
 - attribute : attribut à valeurs multiples
 - index : index vers un élément dans la chaîne à valeurs multiples.
 
-**Remarques :** La fonction Item est utile avec la fonction Contains, car cette dernière retourne l’index à un élément de l’attribut à valeurs multiples.
+**Remarques :** la fonction Item est utile si utilisée avec la fonction Contains, car cette dernière renvoie l’index à un élément de l’attribut à valeurs multiples.
 
 Génère une erreur si l’index est hors limites.
 
-**Exemple :** `Mid(Item([proxyAddress],Contains([proxyAddress], "SMTP:")),6)` Retourne l’adresse de messagerie principale.
+**Exemple :** `Mid(Item([proxyAddress],Contains([proxyAddress], "SMTP:")),6)` Renvoie l’adresse de messagerie principale.
 
 ----------
 ### ItemOrNull
 
-**Description :** La fonction ItemOrNull retourne un élément à partir d’une chaîne/d’un attribut à valeurs multiples.
+**Description :** La fonction ItemOrNull renvoie un élément à partir d’une chaîne/d’un attribut à valeurs multiples.
 
 **Syntaxe :** `var ItemOrNull(mvstr attribute, num index)`
 
 - attribute : attribut à valeurs multiples
 - index : index vers un élément dans la chaîne à valeurs multiples.
 
-**Remarques :** La fonction ItemOrNull est utile avec la fonction Contains, car cette dernière retourne l’index à un élément de l’attribut à valeurs multiples.
+**Remarques :** La fonction ItemOrNull est utile avec la fonction Contains, car cette dernière renvoie l’index à un élément de l’attribut à valeurs multiples.
 
-Retourne une valeur Null si l’index est hors limites.
+Renvoie une valeur Null si l’index est hors limites.
 
 ----------
 ### Join
 
-**Description :** La fonction Join prend une chaîne à valeurs multiples et retourne une chaîne à valeur unique avec le séparateur spécifié inséré entre chaque élément.
+**Description :** La fonction Join prend une chaîne à valeurs multiples et renvoie une chaîne à valeur unique avec le séparateur spécifié inséré entre chaque élément.
 
 **Syntaxe :** `str Join(mvstr attribute)` `str Join(mvstr attribute, str Delimiter)`
 
@@ -516,7 +518,7 @@ Retourne une valeur Null si l’index est hors limites.
 
 **Remarques** Il existe une parité entre les fonctions Join et Split. La fonction Join prend un tableau de chaînes et les joint à l’aide d’une chaîne de délimiteur, pour renvoyer une chaîne unique. La fonction Split accepte une chaîne et la sépare au niveau du délimiteur, pour renvoyer un tableau de chaînes. Toutefois, la principale différence est que Join peut concaténer des chaînes avec n’importe quelle chaîne de délimiteur, Split peut uniquement séparer des chaînes à l’aide d’un délimiteur de caractère unique.
 
-**Exemple :** `Join([proxyAddresses],",")` Peut renvoyer « SMTP :john.doe@contoso.com,smtp:jd@contoso.com ».
+**Exemple :** `Join([proxyAddresses],",")` Peut renvoyer : « SMTP:john.doe@contoso.com,smtp:jd@contoso.com ».
 
 ----------
 ### LCase
@@ -525,12 +527,12 @@ Retourne une valeur Null si l’index est hors limites.
 
 **Syntaxe :** `str LCase(str value)`
 
-**Exemple :** `LCase("TeSt")` Retourne « test ».
+**Exemple :** `LCase("TeSt")` Renvoie « test ».
 
 ----------
 ### Left
 
-**Description :** La fonction Left retourne un nombre spécifié de caractères en partant de la gauche d’une chaîne.
+**Description :** La fonction Left renvoie un nombre spécifié de caractères en partant de la gauche d’une chaîne.
 
 **Syntaxe :** `str Left(str string, num NumChars)`
 
@@ -541,20 +543,20 @@ Retourne une valeur Null si l’index est hors limites.
 
 - Si numChars = 0, retourne une chaîne vide.
 - Si numChars < 0, retourne une chaîne d’entrée.
-- Si string a la valeur null, retourne une chaîne vide.
+- Si la chaîne est null, retourne une chaîne vide.
 
 Si la chaîne contient moins de caractères que le nombre spécifié dans numChars, une chaîne identique à la chaîne (c’est-à-dire, contenant tous les caractères du paramètre 1) est renvoyée.
 
-**Exemple :** `Left("John Doe", 3)` Retourne « Joh ».
+**Exemple :** `Left("John Doe", 3)` Renvoie « Joh ».
 
 ----------
 ### Len
 
-**Description :** La fonction Len retourne le nombre de caractères contenus dans une chaîne.
+**Description :** La fonction Len renvoie le nombre de caractères contenus dans une chaîne.
 
 **Syntaxe :** `num Len(str value)`
 
-**Exemple :** `Len("John Doe")` Retourne 8.
+**Exemple :** `Len("John Doe")` Renvoie 8.
 
 ----------
 ### LTrim
@@ -563,12 +565,12 @@ Si la chaîne contient moins de caractères que le nombre spécifié dans numCha
 
 **Syntaxe :** `str LTrim(str value)`
 
-**Exemple :** `LTrim(" Test ")` Retourne « Test ».
+**Exemple :** `LTrim(" Test ")` Renvoie « Test ».
 
 ----------
 ### Mid
 
-**Description :** La fonction Mid retourne un nombre spécifié de caractères à partir d’une position spécifiée dans une chaîne.
+**Description :** La fonction Mid renvoie un nombre donné de caractères à partir d’une position spécifiée dans une chaîne.
 
 **Syntaxe :** `str Mid(str string, num start, num NumChars)`
 
@@ -576,7 +578,7 @@ Si la chaîne contient moins de caractères que le nombre spécifié dans numCha
 - start : nombre identifiant la position de départ dans la chaîne à partir de laquelle les caractères sont renvoyés
 - NumChars : nombre identifiant le nombre de caractères à retourner à partir de la position dans la chaîne
 
-**Remarques :** Retourne numChars caractères à partir de la position de départ dans la chaîne. Chaîne contenant numChars caractères à partir de la position de départ dans la chaîne :
+**Remarques :** Renvoie numChars caractères à partir de la position de départ dans la chaîne. Chaîne contenant numChars caractères à partir de la position de départ dans la chaîne :
 
 - Si numChars = 0, retourne une chaîne vide.
 - Si numChars < 0, retourne une chaîne d’entrée.
@@ -586,25 +588,25 @@ Si la chaîne contient moins de caractères que le nombre spécifié dans numCha
 
 S’il ne reste pas numChars caractères dans la chaîne à partir de la position de départ, autant de caractères que possible sont renvoyés.
 
-**Exemple :** `Mid("John Doe", 3, 5)` Retourne « hn Do ».
+**Exemple :** `Mid("John Doe", 3, 5)` Renvoie « hn Do ».
 
-`Mid("John Doe", 6, 999)` Retourne « Doe ».
+`Mid("John Doe", 6, 999)` Renvoie « Doe ».
 
 ----------
 ### Now
 
-**Description :** La fonction Now retourne une valeur DateTime indiquant la date et l’heure actuelles, qui correspondent à la date et à l’heure système de votre ordinateur.
+**Description :** La fonction Now renvoie une valeur DateTime indiquant la date et l’heure actuelles qui correspondent à la date et à l’heure système de votre ordinateur.
 
 **Syntaxe :** `dt Now()`
 
 ----------
 ### NumFromDate
 
-**Description :** La fonction NumFromDate retourne une date au format de date AD.
+**Description :** La fonction NumFromDate renvoie une date au format de date AD.
 
 **Syntaxe :** `num NumFromDate(dt value)`
 
-**Exemple :** `NumFromDate(CDate("2012-01-01 23:00:00"))` Retourne 129699324000000000.
+**Exemple :** `NumFromDate(CDate("2012-01-01 23:00:00"))` Renvoie 129699324000000000.
 
 ----------
 ### PadLeft
@@ -626,7 +628,7 @@ S’il ne reste pas numChars caractères dans la chaîne à partir de la positio
 - Si la longueur de chaîne est inférieure à la longueur length, une nouvelle chaîne de longueur souhaitée est retournée, et contient une chaîne remplie avec un padCharacter.
 - Si la chaîne est null, la fonction retourne une chaîne vide.
 
-**Exemple :** `PadLeft("User", 10, "0")` Retourne « 000000User ».
+**Exemple :** `PadLeft("User", 10, "0")` Renvoie « 000000User ».
 
 ----------
 ### PadRight
@@ -648,7 +650,7 @@ S’il ne reste pas numChars caractères dans la chaîne à partir de la positio
 - Si la longueur de chaîne est inférieure à la longueur length, une nouvelle chaîne de longueur souhaitée est retournée, et contient une chaîne remplie avec un padCharacter.
 - Si la chaîne est null, la fonction retourne une chaîne vide.
 
-**Exemple :** `PadRight("User", 10, "0")` Retourne « User000000 ».
+**Exemple :** `PadRight("User", 10, "0")` Renvoie « User000000 ».
 
 ----------
 ### PCase
@@ -661,21 +663,21 @@ S’il ne reste pas numChars caractères dans la chaîne à partir de la positio
 
 - Cette fonction ne fournit pas pour le moment de casse appropriée pour convertir un mot qui est entièrement en majuscules, par exemple un sigle.
 
-**Exemple :** `PCase("TEsT")` Retourne « Test ».
+**Exemple :** `PCase("TEsT")` Renvoie « Test ».
 
-`PCase(LCase("TEST"))` Retourne « Test ».
+`PCase(LCase("TEST"))` Renvoie « Test ».
 
 ----------
 ### RandomNum
 
-**Description :** La fonction RandomNum retourne un nombre aléatoire dans un intervalle spécifié.
+**Description :** La fonction RandomNum renvoie un nombre aléatoire dans un intervalle spécifié.
 
 **Syntaxe :** `num RandomNum(num start, num end)`
 
 - start : nombre identifiant la limite inférieure de la valeur aléatoire à générer
 - end : nombre identifiant la limite supérieure de la valeur aléatoire à générer
 
-**Exemple :** `Random(100,999)` Peut retourner 734.
+**Exemple :** `Random(100,999)` Peut renvoyer 734.
 
 ----------
 ### RemoveDuplicates
@@ -684,7 +686,7 @@ S’il ne reste pas numChars caractères dans la chaîne à partir de la positio
 
 **Syntaxe :** `mvstr RemoveDuplicates(mvstr attribute)`
 
-**Exemple :** `RemoveDuplicates([proxyAddresses])` Retourne un attribut proxyAddress expurgé où toutes les valeurs en double ont été supprimées.
+**Exemple :** `RemoveDuplicates([proxyAddresses])` Renvoie un attribut proxyAddress expurgé duquel toutes les valeurs en double ont été supprimées.
 
 ----------
 ### Replace
@@ -722,7 +724,7 @@ Le format est {source1}: {target1}, {source2}: {target2}, {sourceN}, {targetN}, 
 - La fonction prend chaque occurrence de sources définies et la remplace par les cibles.
 - La source doit être exactement un caractère (unicode).
 - La source ne peut pas être vide ou dépasser un caractère (erreur d’analyse).
-- La cible peut comporter plusieurs caractères, par exemple, ö:oe, β:ss.
+- La cible peut comporter plusieurs caractères, par exemple ö:oe, β:ss.
 - La cible peut être vide, indiquant que le caractère doit être supprimé.
 - La source respecte la casse et il doit s’agir d’une correspondance exacte.
 - La , (Virgule) et : (deux-points) sont des caractères réservés et ne peuvent pas être remplacés avec cette fonction.
@@ -730,21 +732,21 @@ Le format est {source1}: {target1}, {source2}: {target2}, {sourceN}, {targetN}, 
 
 **Exemple :** `%ReplaceString% = ’:,Å:A,Ä:A,Ö:O,å:a,ä:a,ö,o`
 
-`ReplaceChars("Räksmörgås",%ReplaceString%)` Retourne Raksmorgas.
+`ReplaceChars("Räksmörgås",%ReplaceString%)` Renvoie Raksmorgas.
 
-`ReplaceChars("O’Neil",%ReplaceString%)` Retourne « ONeil », la coche simple est définie comme étant à supprimer.
+`ReplaceChars("O’Neil",%ReplaceString%)` Renvoie « ONeil », l’apostrophe est définie comme étant à supprimer.
 
 ----------
 ### Right
 
-**Description :** La fonction Right Retourne un nombre spécifié de caractères en partant de la droite (fin) d’une chaîne.
+**Description :** La fonction Right renvoie un nombre spécifié de caractères en partant de la droite (fin) d’une chaîne.
 
 **Syntaxe :** `str Right(str string, num NumChars)`
 
 - string : chaîne à partir de laquelle les caractères sont renvoyés
 - numChars : nombre identifiant le nombre de caractères à retourner à partir de la fin (à droite) de la chaîne
 
-**Remarques :** les caractères numChars sont retournés à partir de la dernière position de la chaîne.
+**Remarques :** Les numChars caractères sont renvoyés à partir de la dernière position de la chaîne.
 
 Chaîne contenant les numChars derniers caractères de la chaîne :
 
@@ -754,16 +756,16 @@ Chaîne contenant les numChars derniers caractères de la chaîne :
 
 Si la chaîne contient un nombre de caractères inférieur au nombre spécifié dans numChars, une chaîne identique est renvoyée.
 
-**Exemple :** `Right("John Doe", 3)` Retourne « Doe ».
+**Exemple :** `Right("John Doe", 3)` Renvoie « Doe ».
 
 ----------
 ### RTrim
 
-**Description :** La fonction RTrim supprime les espaces blancs de fin d’une chaîne.
+**Description :** La fonction RTrim supprime les espaces blancs situés à la fin d’une chaîne.
 
 **Syntaxe :** `str RTrim(str value)`
 
-**Exemple :** `RTrim(" Test ")` Retourne « Test ».
+**Exemple :** `RTrim(" Test ")` Renvoie « Test ».
 
 ----------
 ### Split
@@ -774,9 +776,9 @@ Si la chaîne contient un nombre de caractères inférieur au nombre spécifié 
 
 - value : chaîne contenant un caractère délimiteur pour assurer la séparation.
 - delimiter : caractère unique à utiliser comme délimiteur.
-- limit : nombre maximal de valeurs qui seront renvoyées.
+- limit : nombre maximal de valeurs qu’il est possible de renvoyer.
 
-**Exemple :** `Split("SMTP:john.doe@contoso.com,smtp:jd@contoso.com",",")` Retourne une chaîne à valeurs multiples avec deux éléments utiles pour l’attribut proxyAddress.
+**Exemple :** `Split("SMTP:john.doe@contoso.com,smtp:jd@contoso.com",",")` Renvoie une chaîne à valeurs multiples avec 2 éléments utiles pour l’attribut proxyAddress.
 
 ----------
 ### StringFromGuid
@@ -788,14 +790,14 @@ Si la chaîne contient un nombre de caractères inférieur au nombre spécifié 
 ----------
 ### StringFromSid
 
-**Description :** La fonction StringFromSid convertit un tableau d’octets ou un tableau d’octets à valeurs multiples contenant un identificateur de sécurité en chaîne ou chaîne à valeurs multiples.
+**Description :** La fonction StringFromSid convertit en chaîne un tableau d’octets contenant un identificateur de sécurité.
 
-**Syntaxe :** `str StringFromSid(bin ObjectSID)` `mvstr StringFromSid(mvbin ObjectSID)`
+**Syntaxe :** `str StringFromSid(bin ObjectSID)`
 
 ----------
 ### Switch
 
-**Description :** La fonction Switch est utilisée pour retourner une valeur unique en fonction des conditions évaluées.
+**Description :** La fonction Switch est utilisée pour renvoyer une valeur unique en fonction des conditions évaluées.
 
 **Syntaxe :** `var Switch(exp expr1, var value1[, exp expr2, var value … [, exp expr, var valueN]])`
 
@@ -813,16 +815,16 @@ Switch ne renvoie rien si :
 
 Switch évalue toutes les expressions, même si elle n’en renvoie qu’une. Pour cette raison, il est conseillé de surveiller les éventuels effets secondaires. Par exemple, si l’évaluation d’une expression entraîne une division par zéro, une erreur se produit.
 
-La valeur peut être également la fonction Error, qui renvoie une chaîne personnalisée.
+La valeur peut être également la fonction Error qui renvoie une chaîne personnalisée.
 
-**Exemple :** `Switch([city] = "London", "English", [city] = "Rome", "Italian", [city] = "Paris", "French", True, Error("Unknown city"))` Retourne la langue parlée dans certaines grandes villes ; sinon, retourne une erreur.
+**Exemple :** `Switch([city] = "London", "English", [city] = "Rome", "Italian", [city] = "Paris", "French", True, Error("Unknown city"))` Renvoie la langue parlée dans certaines grandes villes ; sinon, renvoie une erreur.
 
 ----------
 ### Trim
 
-**Description :** La fonction Trim supprime les espaces blancs de début et de fin d’une chaîne.
+**Description :** La fonction Trim supprime les espaces blancs situés au début et à la fin d’une chaîne.
 
-**Syntaxe :** `str Trim(str value)` `mvstr Trim(mvstr value)`
+**Syntaxe :** `str Trim(str value)`
 
 **Exemple :** `Trim(" Test ")` Retourne « Test ».
 
@@ -853,7 +855,7 @@ La valeur peut être également la fonction Error, qui renvoie une chaîne perso
 - Si number < 1, retourne une chaîne vide.
 - Si string a la valeur null, renvoie une chaîne vide.
 
-Si la chaîne contient moins de mots ou ne contient pas les mots identifiés par les délimiteurs, une chaîne vide est retournée.
+Si la chaîne contient moins de mots ou ne contient pas les mots identifiés par les séparateurs, une chaîne vide est renvoyée.
 
 **Exemple :** `Word("The quick brown fox",3," ")` Retourne « brown ».
 
@@ -865,4 +867,4 @@ Si la chaîne contient moins de mots ou ne contient pas les mots identifiés par
 * [Azure AD Connect Sync : personnalisation des options de synchronisation](active-directory-aadconnectsync-whatis.md)
 * [Intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

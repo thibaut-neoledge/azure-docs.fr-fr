@@ -64,7 +64,8 @@ $
 
 ## Introduction
 
-L’utilisation de clés publiques et privées SSH constitue le moyen le plus simple pour vous connecter à vos serveurs Linux. Le [chiffrement par clé publique](https://en.wikipedia.org/wiki/Public-key_cryptography) est un moyen bien plus sécurisé que les mots de passe pour vous connecter à votre machine virtuelle Linux ou BSD dans Azure. Les mots de passe sont beaucoup plus exposés aux attaques par force brute. Votre clé publique peut être partagée avec n’importe qui, mais vous seul (ou votre infrastructure de sécurité locale) possédez votre clé privée. La clé privée SSH peut être protégée par un [mot de passe](https://www.xkcd.com/936/). Ce mot de passe permet simplement d’accéder à la clé SSH privée et **n’est pas** le mot de passe du compte utilisateur. Lorsque vous ajoutez un mot de passe à votre clé SSH, il chiffre celle-ci, la rendant inutilisable sans le mot de passe qui permet de la déverrouiller. Si un attaquant parvient à voler votre clé privée, et que celle-ci n’a pas de mot de passe, il peut l’utiliser pour se connecter aux serveurs contenant la clé publique correspondante. En revanche, si la clé privée est protégée par un mot de passe, cette dernière ne peut pas être utilisée par l’attaquant. Le mot de passe fournit ainsi une couche supplémentaire de sécurité pour votre infrastructure sur Azure.
+L’utilisation de clés publiques et privées SSH constitue le moyen le plus simple pour vous connecter à vos serveurs Linux. Le [chiffrement par clé publique](https://en.wikipedia.org/wiki/Public-key_cryptography) est un moyen bien plus sécurisé que les mots de passe pour vous connecter à votre machine virtuelle Linux ou BSD dans Azure. Les mots de passe sont beaucoup plus exposés aux attaques par force brute. Votre clé publique peut être partagée avec n’importe qui, mais vous seul (ou votre infrastructure de sécurité locale) possédez votre clé privée. La clé privée SSH doit être protégée par un [mot de passe très sécurisé ](https://www.xkcd.com/936/) (source :[xkcd.com](https://xkcd.com)). Ce mot de passe permet simplement d’accéder à la clé SSH privée et **n’est pas** le mot de passe du compte utilisateur. Lorsque vous ajoutez un mot de passe à votre clé SSH, il chiffre celle-ci, la rendant inutilisable sans le mot de passe qui permet de la déverrouiller. Si un attaquant parvient à voler votre clé privée, et que celle-ci n’a pas de mot de passe, il peut l’utiliser pour se connecter aux serveurs contenant la clé publique correspondante. En revanche, si la clé privée est protégée par un mot de passe, cette dernière ne peut pas être utilisée par l’attaquant. Le mot de passe fournit ainsi une couche supplémentaire de sécurité pour votre infrastructure sur Azure.
+
 
 
 Cet article aborde la création de fichiers de clé au format *ssh-rsa*. Ces fichiers sont recommandés pour les déploiements sur Resource Manager. Les clés *ssh-rsa* sont obligatoires sur le [portail](https://portal.azure.com) pour les déploiements en modes Classic et Resource Manager.
@@ -87,7 +88,7 @@ _Explication des commandes_
 
 `ssh-keygen` = programme utilisé pour créer les clés
 
-`-t rsa` = type de clé à créer [au format RSA](https://en.wikipedia.org/wiki/RSA_(cryptosystem)
+`-t rsa` = type de clé à créer [au format RSA] (https://en.wikipedia.org/wiki/RSA_(cryptosystem)
 
 `-b 2048` = bits de la clé
 
@@ -242,4 +243,4 @@ L’étape suivante consiste à créer des machines virtuelles Linux de Azure à
 - [Créer une machine virtuelle Linux à l’aide du portail Azure](virtual-machines-linux-quick-create-portal.md)
 - [Créer une machine virtuelle Linux sécurisée à l’aide de l'interface de ligne de commande Azure (CLI)](virtual-machines-linux-quick-create-cli.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

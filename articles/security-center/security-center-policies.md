@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/24/2016"
+   ms.date="08/26/2016"
    ms.author="yurid"/>
 
 # Définition des stratégies de sécurité dans le Centre de sécurité Azure
@@ -38,7 +38,13 @@ Vous pouvez configurer des stratégies de sécurité pour chaque abonnement ou g
 
     ![Activation de la collecte des données](./media/security-center-policies/security-center-policies-fig2-ga.png)
 
-4. Vérifiez que l’option **Collecter des données à partir des machines virtuelles** est définie sur **Activé**. Cette option active la collecte automatique des journaux sur les ressources existantes et nouvelles.
+	Les options disponibles dans ce panneau sont :
+	- **Stratégie de prévention** : cette option vous permet de configurer des stratégies par abonnement ou par groupe de ressources.
+	- **Notification par e-mail** : une notification par e-mail est envoyée à la première occurrence quotidienne d’une alerte et uniquement pour les alertes de gravité élevée. Les préférences de courrier électronique peuvent uniquement être configurées pour les stratégies d’abonnement. Pour plus d’informations sur la configuration des notifications par e-mail, consultez [Fournir les détails du contact de sécurité dans Azure Security Center](security-center-provide-security-contact-details.md).
+	- **Niveau tarifaire**: utilisez cette option pour mettre à niveau à partir de la sélection du niveau tarifaire. Pour plus d’informations sur les options de tarification, consultez la page [Azure Security Center](https://azure.microsoft.com/pricing/details/security-center/).
+
+	
+4.  Vérifiez que l’option **Collecter des données à partir des machines virtuelles** est définie sur **Activé**. Cette option active la collecte automatique des journaux sur les ressources existantes et nouvelles.
 
     >[AZURE.NOTE] Il est recommandé d’activer la collecte des données pour chacun de vos abonnements afin de garantir que la surveillance de la sécurité est disponible pour toutes les machines virtuelles (nouvelles et existantes). L’activation de la collecte des données installe l’agent de surveillance. Si vous ne voulez pas activer la collecte des données depuis cet emplacement, vous pourrez le faire ultérieurement dans les panneaux Intégrité des ressources et Recommandations. Vous pouvez également activer la collecte des données pour l’abonnement seulement, ou pour certaines machines virtuelles. Pour plus d’informations sur les machines virtuelles prises en charge, consultez [FAQ du Centre de sécurité Azure](security-center-faq.md).
 
@@ -100,4 +106,4 @@ Dans ce document, vous avez appris à configurer des stratégies de sécurité d
 - [FAQ d’Azure Security Center](security-center-faq.md) : découvrez les réponses aux questions les plus souvent posées à propos de l’utilisation de ce service.
 - [Blog sur la sécurité Azure](http://blogs.msdn.com/b/azuresecurity/) : accédez à des billets de blog sur la sécurité et la conformité Azure.
 
-<!----HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

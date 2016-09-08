@@ -26,7 +26,7 @@ Cet article décrit le mappage réseau, qui vous aide à configurer de façon op
 Publiez des commentaires ou des questions au bas de cet article ou sur le [Forum Azure Recovery Services](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 
-## Vue d’ensemble
+## Vue d'ensemble
 
 Le mappage réseau est utilisé lorsqu’Azure Site Recovery est déployé pour répliquer des machines virtuelles Hyper-V sur Azure ou sur un centre de données secondaire à l’aide de Réplica Hyper-V ou de la réplication SAN.
 
@@ -55,7 +55,7 @@ Voici un exemple permettant d’illustrer ce processus. Prenons l’exemple d’
 New York | VMM-NewYork| VMNetwork1-NewYork | Mappé au réseau VMNetwork1-Chicago
  | | VMNetwork2-NewYork | Non mappé
 Chicago | VMM-Chicago| VMNetwork1-Chicago | Mappé au réseau VMNetwork1-NewYork
- | | VMNetwork1-Chicago | Non mappé
+ | | VMNetwork2-Chicago | Non mappé
 
 Dans cet exemple :
 
@@ -123,4 +123,4 @@ Le mappage réseau de VMNetwork1-Chicago est modifié. | La machine VM1 est conn
 
 Maintenant que vous comprenez mieux le mappage réseau, consultez [Meilleures pratiques du déploiement de Site Recovery](site-recovery-best-practices.md).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0824_2016-->

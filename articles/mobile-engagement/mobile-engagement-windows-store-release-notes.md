@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/29/2016" 
+	ms.date="08/19/2016" 
 	ms.author="piyushjo" />
 
 #Notes de publication du Kit de développement logiciel (SDK) des applications Windows Universal
@@ -52,7 +52,7 @@
 
 -   Correction d'un bogue affectant l'initialisation du Kit de développement logiciel (SDK) sur certaines applications Windows Phone WinRT.
 
-##3\.0.0 (03/04/2015)
+##3\.0.0 -> (03/04/2015)
 
 -   Présentation du Kit de développement logiciel (SDK) de Mobile Engagement pour application Universal (Windows et Windows Phone WinRT).
 -   Icône de notification par défaut mise à jour.
@@ -67,4 +67,4 @@
 
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/24/2016"
+	ms.date="08/17/2016"
 	ms.author="luisca"/>
 
 # Obtenir des recommandations par lots
@@ -198,4 +198,4 @@ L’exemple ci-dessous montre ce à quoi la sortie peut ressembler. Dans cet exe
 -	Un seul traitement par lots peut être appelé par abonnement à la fois.
 -	Un fichier d’entrée de traitement par lots ne peut pas avoir une taille supérieure à 2 Mo.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

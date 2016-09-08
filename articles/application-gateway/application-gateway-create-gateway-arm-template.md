@@ -26,6 +26,7 @@ La passerelle Azure Application Gateway est un équilibreur de charge de couche�
 - [Commandes PowerShell pour Azure Resource Manager](application-gateway-create-gateway-arm.md)
 - [Azure Classic PowerShell](application-gateway-create-gateway.md)
 - [Modèle Azure Resource Manager](application-gateway-create-gateway-arm-template.md)
+- [Interface de ligne de commande Azure](application-gateway-create-gateway-cli.md)
 
 <BR>
 
@@ -74,7 +75,7 @@ Vous pouvez télécharger le modèle Azure Resource Manager existant pour créer
 	| **backendaddress2** | Adresse IP du deuxième serveur web |
 
 
->[AZURE.IMPORTANT] Les modèles Azure Resource Manager de GitHub sont susceptibles d’évoluer. Vérifiez le modèle avant de l’utiliser.
+	>[AZURE.IMPORTANT] Les modèles Azure Resource Manager de GitHub sont susceptibles d’évoluer. Vérifiez le modèle avant de l’utiliser.
 
 6. Vérifiez le contenu sous **resources** et notez les éléments suivants :
 
@@ -147,8 +148,6 @@ Parmi vos abonnements Azure, choisissez celui que vous souhaitez utiliser.<BR>
 Au besoin, créez un groupe de ressources à l’aide de l’applet de commande **New-AzureResourceGroup**. Dans l’exemple ci-dessous, vous allez créer un groupe de ressources appelé AppgatewayRG dans l’Est des États-Unis.
 
 	New-AzureRmResourceGroup -Name AppgatewayRG -Location "East US"
-		VERBOSE: 5:38:49 PM - Created resource group 'AppgatewayRG' in location 'eastus'
-
 
 		ResourceGroupName : AppgatewayRG
 		Location          : eastus
@@ -293,4 +292,4 @@ Si vous souhaitez plus d'informations sur les options d'équilibrage de charge e
 - [Équilibrage de charge Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Azure Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

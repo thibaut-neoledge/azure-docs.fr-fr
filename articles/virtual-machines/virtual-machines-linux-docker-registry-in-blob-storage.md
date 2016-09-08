@@ -5,7 +5,7 @@
   documentationCenter="virtual-machines"
   authors="ahmetalpbalkan"
   editor="squillace"
-  manager="" 
+  manager="timlt"
   tags="azure-service-management,azure-resource-manager" />
 
 <tags
@@ -58,7 +58,7 @@ Vous pouvez [configurer][registry-config] votre registre Docker de deux manière
 1. Utiliser un fichier `config.yml`. Dans ce cas, vous devez créer une image Docker distincte par-dessus l’image `registry`.
 2. Remplacer le fichier de configuration par défaut via des variables d’environnement : tout se fait donc sans créer ni gérer une image Docker distincte.
 
-Par souci de simplicité, cette rubrique suit l’option 2 et utilise donc des variables d’environnement.
+Par souci de simplicité, cette rubrique suit l’option 2, en utilisant les variables d’environnement.
 
 Pour exécuter une instance de Docker Registry qui :
 
@@ -100,4 +100,4 @@ Une fois le registre configuré, vous pouvez l’utiliser. Démarrez avec le doc
 [registry-config]: http://docs.docker.com/registry/configuration/
  
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0824_2016-->

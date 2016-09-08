@@ -1,6 +1,6 @@
 <properties
 pageTitle="Wunderlist | Microsoft Azure"
-description="Créer des applications logiques avec Azure App Service. Wunderlist fournit un gestionnaire de tâches et de listes de tâches pour aider les utilisateurs à travailler efficacement. Si vous partagez une liste de courses avec un proche, si vous travaillez sur un projet ou planifiez des vacances, Wunderlist facilite la capture, le partage et le suivi de vos listes de tâches. Wunderlist est instantanément synchronisé entre votre téléphone, votre tablette et votre ordinateur, pour vous permettre d’accéder à toutes vos tâches à partir de n’importe quel endroit."
+description="Créez des applications logiques avec Azure App Service. Wunderlist fournit un gestionnaire de tâches et de listes de tâches pour aider les utilisateurs à travailler efficacement. Si vous partagez une liste de courses avec un proche, si vous travaillez sur un projet ou planifiez des vacances, Wunderlist facilite la capture, le partage et le suivi de vos listes de tâches. Wunderlist est instantanément synchronisé entre votre téléphone, votre tablette et votre ordinateur, pour vous permettre d’accéder à toutes vos tâches à partir de n’importe quel endroit."
 services="logic-apps"	
 documentationCenter=".net,nodejs,java" 	
 authors="msftman"	
@@ -14,22 +14,16 @@ ms.devlang="multiple"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="05/17/2016"
+ms.date="08/18/2016"
 ms.author="deonhe"/>
 
 # Prise en main du connecteur Wunderlist
 
-
-
-Le connecteur Wunderlist peut être utilisé à partir de :
-
-- [Logic Apps](../app-service-logic/app-service-logic-what-are-logic-apps.md)
-- [PowerApps](http://powerapps.microsoft.com)
-- [Flux](http://flows.microsoft.com)
+Wunderlist fournit un gestionnaire de tâches et de listes de tâches pour aider les utilisateurs à travailler efficacement. Si vous partagez une liste de courses avec un proche, si vous travaillez sur un projet ou planifiez des vacances, Wunderlist facilite la capture, le partage et le suivi de vos listes de tâches. Wunderlist est instantanément synchronisé entre votre téléphone, votre tablette et votre ordinateur, pour vous permettre d’accéder à toutes vos tâches à partir de n’importe quel endroit.
 
 >[AZURE.NOTE] Cette version de l'article s'applique à la version de schéma 2015-08-01-preview des applications logiques.
 
-Vous pouvez commencer en créant une application logique. Consultez [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Vous pouvez commencer par créer une application logique. Pour cela, consultez [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Déclencheurs et actions
 
@@ -92,10 +86,10 @@ Après avoir créé la connexion, vous pouvez l’utiliser pour exécuter les ac
 >[AZURE.INCLUDE [Procédure de création d’une connexion à Wunderlist](../../includes/connectors-create-api-wunderlist.md)]
 
 
->[AZURE.TIP] Vous pouvez utiliser cette connexion dans d'autres applications logiques.
+>[AZURE.TIP] Vous pouvez utiliser cette connexion dans d’autres applications logiques.
 
 ## Référence pour Wunderlist
-S’applique à la version : 1.0
+S’applique à la version 1.0.
 
 ## TriggerTaskDue
 Quand une tâche est arrivée à échéance : déclenche un nouveau flux quand une tâche dans la liste est arrivée à échéance
@@ -106,9 +100,9 @@ Quand une tâche est arrivée à échéance : déclenche un nouveau flux quand u
 | ---|---|---|---|---|---|
 |list\_id|integer|yes|query|(aucun)|ID de la liste|
 
-#### Response
+#### Réponse
 
-|Nom|Description|
+|Name|Description|
 |---|---|
 |200|L’opération a réussi|
 
@@ -122,7 +116,7 @@ Quand une nouvelle tâche est créée : déclenche un nouveau flux lors de la cr
 | ---|---|---|---|---|---|
 |list\_id|integer|yes|query|(aucun)|ID de la liste|
 
-#### Response
+#### Réponse
 
 |Nom|Description|
 |---|---|
@@ -139,7 +133,7 @@ Quand un rappel se produit : déclenche un nouveau flux lorsqu’un rappel se pr
 |list\_id|integer|yes|query|(aucun)|ID de la liste|
 |task\_id|integer|no|query|(aucun)|ID de la tâche|
 
-#### Response
+#### Réponse
 
 |Nom|Description|
 |---|---|
@@ -154,7 +148,7 @@ Obtenir des listes : récupérer les listes associées à votre compte.
 | Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
 
-#### Response
+#### Réponse
 
 |Nom|Description|
 |---|---|
@@ -173,7 +167,7 @@ Créer une liste : créer une liste.
 | ---|---|---|---|---|---|
 |post| |yes|body|(aucun)|Nouvelle liste à créer|
 
-#### Response
+#### Réponse
 
 |Nom|Description|
 |---|---|
@@ -191,7 +185,7 @@ Obtenir des tâches : extraire des tâches d’une liste spécifique.
 |list\_id|integer|yes|query|(aucun)|ID de la liste|
 |Terminé|booléenne|no|query|(aucun)|Completed|
 
-#### Response
+#### Réponse
 
 |Nom|Description|
 |---|---|
@@ -206,11 +200,11 @@ Créer une tâche : créer une tâche
 
 ```POST: /tasks```
 
-| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
+| Name| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
 |post| |yes|body|(aucun)|Nouvelle tâche à créer|
 
-#### Response
+#### Réponse
 
 |Nom|Description|
 |---|---|
@@ -222,13 +216,13 @@ Obtenir des sous-tâches : récupérer les sous-tâches d’une liste spécifiqu
 
 ```GET: /subtasks```
 
-| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
+| Name| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
 |list\_id|integer|yes|query|(aucun)|ID de la liste|
 |task\_id|integer|no|query|(aucun)|ID de la tâche|
 |Terminé|booléenne|no|query|(aucun)|Completed|
 
-#### Response
+#### Réponse
 
 |Nom|Description|
 |---|---|
@@ -247,9 +241,9 @@ Créer une sous-tâche : créer une sous-tâche dans une tâche spécifique
 | ---|---|---|---|---|---|
 |post| |yes|body|(aucun)|Nouvelle sous-tâche à créer|
 
-#### Response
+#### Réponse
 
-|Nom|Description|
+|Name|Description|
 |---|---|
 |201|Date de création|
 
@@ -264,9 +258,9 @@ Obtenir des notes : extraire des notes pour une liste spécifique ou une tâche 
 |list\_id|integer|yes|query|(aucun)|ID de la liste|
 |task\_id|integer|no|query|(aucun)|ID de la tâche|
 
-#### Response
+#### Réponse
 
-|Nom|Description|
+|Name|Description|
 |---|---|
 |200|L’opération a réussi|
 |400|Demande incorrecte|
@@ -279,11 +273,11 @@ Créer une note : ajouter une note à une tâche spécifique
 
 ```POST: /notes```
 
-| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
+| Name| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
 |post| |yes|body|(aucun)|Nouvelle note à créer|
 
-#### Response
+#### Réponse
 
 |Nom|Description|
 |---|---|
@@ -300,9 +294,9 @@ Obtenir des commentaires : extraire des commentaires de tâches pour une liste s
 |list\_id|integer|yes|query|(aucun)|ID de la liste|
 |task\_id|integer|no|query|(aucun)|ID de la tâche|
 
-#### Response
+#### Réponse
 
-|Nom|Description|
+|Name|Description|
 |---|---|
 |200|L’opération a réussi|
 |400|Demande incorrecte|
@@ -315,13 +309,13 @@ Ajouter un commentaire à une tâche : ajouter un commentaire à une tâche spé
 
 ```POST: /task_comments```
 
-| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
+| Name| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
 |post| |yes|body|(aucun)|Nouveau commentaire à créer|
 
-#### Response
+#### Réponse
 
-|Nom|Description|
+|Name|Description|
 |---|---|
 |201|Date de création|
 
@@ -336,7 +330,7 @@ Obtenir des rappels : extraire des rappels pour une liste spécifique ou une tâ
 |list\_id|integer|yes|query|(aucun)|ID de la liste|
 |task\_id|integer|no|query|(aucun)|ID de la tâche|
 
-#### Response
+#### Réponse
 
 |Nom|Description|
 |---|---|
@@ -351,11 +345,11 @@ Définir un rappel : définir un rappel.
 
 ```POST: /reminders```
 
-| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
+| Name| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
 |post| |yes|body|(aucun)|Nouveau rappel à créer|
 
-#### Response
+#### Réponse
 
 |Nom|Description|
 |---|---|
@@ -368,14 +362,14 @@ Obtenir des fichiers : extraire des fichiers pour une liste spécifique ou une t
 
 ```GET: /files```
 
-| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
+| Name| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
 |list\_id|integer|yes|query|(aucun)|ID de la liste|
 |task\_id|integer|no|query|(aucun)|ID de la tâche|
 
-#### Response
+#### Réponse
 
-|Nom|Description|
+|Name|Description|
 |---|---|
 |200|L’opération a réussi|
 |400|Demande incorrecte|
@@ -388,13 +382,13 @@ Obtenir une liste : extrait une liste spécifique
 
 ```GET: /lists/{id}```
 
-| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
+| Name| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
 |id|string|yes|path|(aucun)|ID de la liste|
 
-#### Response
+#### Réponse
 
-|Nom|Description|
+|Name|Description|
 |---|---|
 |200|OK|
 
@@ -409,7 +403,7 @@ Supprimer la liste : supprime une liste
 |id|integer|yes|path|(aucun)|ID de la liste|
 |revision|integer|yes|query|(aucun)|Revision|
 
-#### Response
+#### Réponse
 
 |Nom|Description|
 |---|---|
@@ -426,7 +420,7 @@ Mettre à jour une liste : mettre à jour une liste spécifique
 |id|integer|yes|path|(aucun)|ID de la liste|
 |post| |yes|body|(aucun)|Détails de la liste|
 
-#### Response
+#### Réponse
 
 |Nom|Description|
 |---|---|
@@ -438,14 +432,14 @@ Obtenir une tâche : extrait une tâche spécifique
 
 ```GET: /tasks/{id}```
 
-| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
+| Name| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
 |list\_id|integer|yes|query|(aucun)|ID de la liste|
 |id|integer|yes|path|(aucun)|ID de la tâche|
 
-#### Response
+#### Réponse
 
-|Nom|Description|
+|Name|Description|
 |---|---|
 |200|OK|
 
@@ -461,9 +455,9 @@ Mettre à jour une tâche : met à jour une tâche spécifique
 |id|integer|yes|path|(aucun)|ID de la tâche|
 |post| |yes|body|(aucun)|Détails de la tâche|
 
-#### Response
+#### Réponse
 
-|Nom|Description|
+|Name|Description|
 |---|---|
 |200|OK|
 
@@ -479,9 +473,9 @@ Supprimer une tâche : supprime une tâche spécifique
 |id|integer|yes|path|(aucun)|ID de la tâche|
 |revision|integer|yes|query|(aucun)|Revision|
 
-#### Response
+#### Réponse
 
-|Nom|Description|
+|Name|Description|
 |---|---|
 |204|Pas de contenu|
 
@@ -495,7 +489,7 @@ Obtenir une sous-tâche : extrait une sous-tâche spécifique
 | ---|---|---|---|---|---|
 |id|string|yes|path|(aucun)|ID de sous-tâche|
 
-#### Response
+#### Réponse
 
 |Nom|Description|
 |---|---|
@@ -507,14 +501,14 @@ Mettre à jour une sous-tâche : met à jour une sous-tâche spécifique
 
 ```PATCH: /subtasks/{id}```
 
-| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
+| Name| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
 |id|integer|yes|path|(aucun)|ID de sous-tâche|
 |post| |yes|body|(aucun)|Détails de la sous-tâche|
 
-#### Response
+#### Réponse
 
-|Nom|Description|
+|Name|Description|
 |---|---|
 |200|OK|
 
@@ -529,7 +523,7 @@ Supprimer une sous-tâche : supprime une sous-tâche spécifique
 |id|integer|yes|path|(aucun)|ID de sous-tâche|
 |revision|integer|yes|query|(aucun)|Revision|
 
-#### Response
+#### Réponse
 
 |Nom|Description|
 |---|---|
@@ -541,11 +535,11 @@ Obtenir une note : récupérer une note spécifique
 
 ```GET: /notes/{id}```
 
-| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
+| Name| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
 |id|string|yes|path|(aucun)|ID de note|
 
-#### Response
+#### Réponse
 
 |Nom|Description|
 |---|---|
@@ -557,12 +551,12 @@ Mettre à jour une note : mettre à jour une note spécifique
 
 ```PATCH: /notes/{id}```
 
-| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
+| Name| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
 |id|integer|yes|path|(aucun)|ID de note|
 |post| |yes|body|(aucun)|Détails de la note|
 
-#### Response
+#### Réponse
 
 |Nom|Description|
 |---|---|
@@ -579,9 +573,9 @@ Supprimer une note : supprimer une note spécifique
 |id|integer|yes|path|(aucun)|ID de note|
 |revision|integer|yes|query|(aucun)|Revision|
 
-#### Response
+#### Réponse
 
-|Nom|Description|
+|Name|Description|
 |---|---|
 |204|Pas de contenu|
 
@@ -591,13 +585,13 @@ Obtenir un commentaire : récupérer un commentaire spécifique
 
 ```GET: /task_comments/{id}```
 
-| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
+| Name| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
 |id|string|yes|path|(aucun)|ID du commentaire|
 
-#### Response
+#### Réponse
 
-|Nom|Description|
+|Name|Description|
 |---|---|
 |200|OK|
 
@@ -607,12 +601,12 @@ Mettre à jour un rappel : mettre à jour un rappel spécifique
 
 ```PATCH: /reminders/{id}```
 
-| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
+| Name| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
 |id|integer|yes|path|(aucun)|ID de rappel|
 |post| |yes|body|(aucun)|Détails du rappel|
 
-#### Response
+#### Réponse
 
 |Nom|Description|
 |---|---|
@@ -629,9 +623,9 @@ Supprimer un rappel : supprimer un rappel spécifique
 |id|integer|yes|path|(aucun)|ID du rappel.|
 |revision|integer|yes|query|(aucun)|Revision|
 
-#### Response
+#### Réponse
 
-|Nom|Description|
+|Name|Description|
 |---|---|
 |204|Pas de contenu|
 
@@ -904,4 +898,4 @@ Supprimer un rappel : supprimer un rappel spécifique
 ## Étapes suivantes
 [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

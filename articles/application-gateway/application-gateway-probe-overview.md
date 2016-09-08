@@ -16,7 +16,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/03/2016"
+   ms.date="08/19/2016"
    ms.author="gwallace" />
 
 # Vue d’ensemble de l’analyse d’intégrité Application Gateway
@@ -34,7 +34,7 @@ Par exemple : vous configurez votre passerelle d’application pour utiliser le
 
 Si l’analyse de la sonde par défaut échoue pour le serveur A, la passerelle d’application le retire de son pool principal et le trafic réseau cesse de passer par ce serveur. La sonde par défaut continue de contrôler le serveur A toutes les 30 secondes. Dès que le serveur A répond avec succès à une requête de la sonde d’intégrité par défaut, il est réintroduit dans le pool principal en tant que serveur intègre et le trafic vers celui-ci reprend.
 
-La sonde par défaut examine uniquement http://127.0.0.1:<port> pour déterminer l’état d’intégrité. Si vous devez configurer la sonde d’intégrité de sorte qu’elle accède à une URL personnalisée ou modifier d’autres paramètres, vous devez utiliser des sondes personnalisées comme décrit ci-dessous.
+La sonde par défaut examine uniquement http://127.0.0.1:\<port> pour déterminer l’état d’intégrité. Si vous devez configurer la sonde d’intégrité de sorte qu’elle accède à une URL personnalisée ou modifier d’autres paramètres, vous devez utiliser des sondes personnalisées comme décrit ci-dessous.
 
 ### Paramètres de sonde d’intégrité par défaut
 
@@ -67,4 +67,4 @@ Les sondes personnalisées vous permettent d’avoir un contrôle plus précis d
 
 Après vous être familiarisé avec l’analyse d’intégrité Application Gateway, vous pouvez configurer une [sonde d’intégrité personnalisée](application-gateway-create-probe-ps.md) pour Azure Resource Manager ou une [sonde d’intégrité personnalisée](application-gateway-create-probe-classic-ps.md) pour le modèle de déploiement Azure classique.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/15/2016"
+	ms.date="08/22/2016"
 	ms.author="markvi"/>
 
 # Prise en main d’Azure Active Directory Identity Protection et de Microsoft Graph
@@ -23,7 +23,7 @@ Microsoft Graph est le point de terminaison d’API unifiée de Microsoft et acc
 
 L’accès aux données d’Identity Protection par le biais de Microsoft Graph se fait en trois étapes :
 
-1. Ajouter une application avec une clé secrète client. 
+1. Ajouter une application avec une clé secrète client.
 
 2. Utilisez cette clé secrète et d’autres éléments d’information pour vous authentifier auprès de Microsoft Graph ; ce dernier vous transmettra un jeton d’authentification.
 
@@ -39,7 +39,7 @@ Avant de commencer, vous aurez besoin des éléments suivants :
 ## Ajouter une application avec une clé secrète client
 
 
-1. [Connectez-vous](https://manage.windowsazure.com) en tant qu’administrateur sur le portail Azure Classic. 
+1. [Connectez-vous](https://manage.windowsazure.com) en tant qu’administrateur sur le portail Azure Classic.
 
 1. Dans le volet de navigation gauche, cliquez sur **Active Directory**.
 
@@ -91,7 +91,7 @@ Vous pouvez à présent configurer votre application.
 ## Autorisation d'utilisation de l'API pour votre application
 
 
-1. Dans la page de votre application, dans le menu du haut, cliquez sur **Configurer**. 
+1. Dans la page de votre application, dans le menu du haut, cliquez sur **Configurer**.
 
 	![Création d’une application](./media/active-directory-identityprotection-graph-getting-started/tutorial_general_08.png)
 
@@ -155,9 +155,9 @@ Pour l’authentification, envoyez une demande POST à `https://login.microsoft.
 
 - resource : “**https://graph.microsoft.com**”
 
-- client\_id: <your client ID>
+- client\_id : <votre ID client>
 
-- client\_secret : <your key>
+- client\_secret : <votre clé>
 
 
 > [AZURE.NOTE] Vous devez fournir des valeurs pour les paramètres **client\_id** et **client\_secret**.
@@ -219,8 +219,8 @@ Pour en savoir plus sur Microsoft Graph et comment créer des applications à l�
 
 - [Microsoft Graph](https://graph.microsoft.io/)
 
-- [Overview of Microsoft Graph](https://graph.microsoft.io/docs) (Vue d’ensemble de Microsoft Graph)
+- [Overview of Microsoft Graph (Vue d’ensemble de Microsoft Graph)](https://graph.microsoft.io/docs)
 
-- [Azure AD Identity Protection Service Root](https://graph.microsoft.io/docs/api-reference/beta/resources/identityprotection_root) (Racine de service d’Azure AD Identity Protection)
+- [Azure AD Identity Protection Service Root (Racine de service d’Azure AD Identity Protection)](https://graph.microsoft.io/docs/api-reference/beta/resources/identityprotection_root)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0824_2016-->

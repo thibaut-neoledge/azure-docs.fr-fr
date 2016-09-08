@@ -4,7 +4,7 @@
 	services="virtual-machines-linux"
 	documentationCenter=""
 	authors="mahthi"
-	manager="drewm"
+	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
 
@@ -41,7 +41,7 @@ Les représentations Classic et Resource Manager des ressources sont décrites d
 | Adresse IP virtuelle | Adresse IP publique avec nom DNS | L’adresse IP virtuelle devient une adresse IP publique et est associée à l’équilibreur de charge. | | |
 | Réseau virtuel | Réseau virtuel | Le réseau virtuel fait l’objet d’une migration vers le modèle de déploiement Resource Manager avec toutes ses propriétés. Un nouveau groupe de ressources est créé avec le nom `-migrated`. Prenez note des [configurations non prises en charge](virtual-machines-windows-migration-classic-resource-manager.md). | | |
 | IP réservées | Adresse IP publique avec méthode d’allocation statique | La migration des IP réservées associées à l’équilibreur de charge est effectuée en même temps que la migration du service cloud ou de la machine virtuelle. La migration des IP réservées non associées n’est pas prise en charge actuellement. | | |
-| Adresse IP publique par machine virtuelle | Adresse IP publique avec méthode d’allocation dynamique | L’adresse IP publique associée à la machine virtuelle est convertie en ressource d’adresse IP publique avec la méthode d’allocation statique. | | |
+| Adresse IP publique par machine virtuelle | Adresse IP publique avec méthode d’allocation dynamique | L’adresse IP publique associée à la machine virtuelle est convertie en ressource d’adresse IP publique avec la méthode d’allocation statique. | | |
 | Groupes de sécurité réseau | Groupes de sécurité réseau | Les groupes de sécurité réseau (NSG) associés à un sous-réseau sont clonés dans le cadre de la migration vers le modèle de déploiement Resource Manager. Notez que le NSG du modèle de déploiement Classic n’est pas supprimé lors de la migration. Toutefois, les opérations du plan de gestion relatives au NSG sont bloquées pendant le processus de migration. | | |
 | Serveurs DNS | Serveurs DNS | La migration des serveurs DNS associés à un réseau virtuel ou à la machine virtuelle est effectuée dans le cadre de la migration des ressources correspondantes avec toutes les propriétés. | | |
 | Itinéraires définis par l’utilisateur (UDR) | Itinéraires définis par l’utilisateur (UDR) | Les Itinéraires définis par l’utilisateur associés à un sous-réseau sont clonés dans le cadre de la migration vers le modèle de déploiement Resource Manager. Notez que l’itinéraire défini par l’utilisateur dans le modèle de déploiement Classic n’est pas supprimé lors de la migration. Toutefois, les opérations du plan de gestion relatives à l’itinéraire défini par l’utilisateur sont bloquées pendant le processus de migration. | | |
@@ -64,4 +64,4 @@ Les exemples de captures d’écran suivants sont une représentation d’un ser
 - [Migration prise en charge par la plateforme de ressources IaaS Classic vers Azure Resource Manager](virtual-machines-windows-migration-classic-resource-manager.md)
 - [Cloner une machine virtuelle Classic vers Azure Resource Manager à l’aide de scripts PowerShell](virtual-machines-windows-migration-scripts.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0824_2016-->

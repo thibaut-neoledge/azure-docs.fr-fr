@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/29/2016" 
+	ms.date="08/19/2016" 
 	ms.author="piyushjo" />
 
 #Procédures de mise à niveau du Kit de développement logiciel (SDK) des applications Windows Universal
@@ -37,7 +37,7 @@ La superposition Reach a été améliorée. Elle fait partie des ressources du p
 
 Lors de la mise à niveau vers la nouvelle version du Kit de développement logiciel (SDK), vous pouvez choisir de conserver ou non les fichiers existants dans le dossier de superposition de vos ressources :
 
-* Si la superposition précédente vous convient ou que vous intégrez manuellement les éléments `WebView`, vous pouvez choisir de conserver vos fichiers existants car ils resteront opérationnels. 
+* Si la superposition précédente vous convient ou que vous intégrez manuellement les éléments `WebView`, vous pouvez choisir de conserver vos fichiers existants car ils resteront opérationnels.
 * Si vous souhaitez effectuer la mise à jour vers la nouvelle superposition, remplacez simplement l'ensemble du dossier `overlay` contenant vos ressources par le nouveau dossier contenant le package du Kit de développement logiciel (applications UWP : après la mise à niveau, vous trouverez le nouveau dossier de superposition sous %USERPROFILE%\\.nuget\\packages\\MicrosoftAzure.MobileEngagement\\3.4.0\\content\\win81\\Resources).
 
 > [AZURE.WARNING] L’utilisation de la nouvelle superposition remplacera toutes les personnalisations apportées à la version précédente.
@@ -314,4 +314,4 @@ Notez que ce changement affecte également les méthodes substituées.
 
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0824_2016-->

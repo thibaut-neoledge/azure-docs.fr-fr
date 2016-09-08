@@ -13,7 +13,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="data-services" 
-    ms.date="05/16/2016" 
+    ms.date="08/08/2016" 
     ms.author="arramac"/>
     
 # Utilisation de données géospatiales dans Azure DocumentDB
@@ -202,7 +202,7 @@ Les arguments de polygone dans ST\_WITHIN peuvent contenir un seul cercle, cela
 
 ST\_ISVALID et ST\_ISVALIDDETAILED peuvent être utilisés pour vérifier si un objet spatial est valide. Par exemple, la requête suivante vérifie la validité d'un point avec une valeur de latitude hors limites (-132.8). ST\_ISVALID retourne simplement une valeur booléenne et ST\_ISVALIDDETAILED renvoie la valeur booléenne et une chaîne contenant la raison pour laquelle il est non valide.
 
-** Requête **
+** Requête **
 
     SELECT ST_ISVALID({ "type": "Point", "coordinates": [31.9, -132.8] })
 
@@ -276,6 +276,8 @@ En bref, la géométrie est projetée à partir des coordonnées géodésiques s
 
 Si vous spécifiez une stratégie d'indexation qui inclut un index spatial pour /* (tous les chemins d'accès), tous les points trouvés dans la collection sont indexés pour des requêtes spatiales efficaces (ST\_WITHIN et ST\_DISTANCE). Les index spatiaux n'ont pas une valeur de précision et utilisent toujours une valeur de précision par défaut.
 
+>[AZURE.NOTE] DocumentDB prend en charge l’indexation automatique des Points, des Polygones (version préliminaire privée) et des LineStrings (version préliminaire privée). Pour accéder à la version préliminaire, envoyez un e-mail à askdocdb@microsoft.com, ou contactez-nous via le Support Azure.
+
 L'extrait JSON suivant montre une politique d'indexation avec l’indexation spatiale activée, c'est-à-dire n'importe quel point GeoJSON trouvé au sein de documents pour l'interrogation spatiale d'index. Si vous modifiez la stratégie d’indexation à l’aide du portail Azure, vous pouvez spécifier le JSON suivant pour la stratégie d’indexation pour activer l’indexation spatiale pour votre collection.
 
 **Stratégie d’indexation de collection JSON avec Spatial activé**
@@ -346,4 +348,4 @@ Maintenant que vous avez appris à utiliser la prise en charge géographique dan
 - En savoir plus sur les [requêtes DocumentDB](documentdb-sql-query.md)
 - En savoir plus sur les [stratégies d'indexation DocumentDB](documentdb-indexing-policies.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -32,11 +32,11 @@ Les appareils peuvent communiquer avec IoT Hub dans Azure à l’aide de divers 
 | MQTT | 8883 |
 | LWM2M (gestion des appareils) | 5684 |
 
-Lorsque vous avez créé un hub IoT dans une région Azure, le hub conserve la même adresse IP pour la durée de vie de ce hub. Toutefois, pour maintenir la qualité du service, si Microsoft déplace le hub IoT vers une autre unité d’échelle, il recevra une nouvelle adresse IP.
+Lorsque vous avez créé un IoT Hub dans une région Azure, le hub conserve la même adresse IP pendant sa durée de vie. Toutefois, pour maintenir la qualité du service, si Microsoft le fait passer à une autre unité d’échelle, il reçoit une nouvelle adresse IP.
 
 ## IoT Hub et sécurité
 
-Seuls les appareils inscrits avec un hub IoT sont autorisés à communiquer avec ce hub IoT. Un appareil enregistré doit disposer de l’autorisation *DeviceConnect*. Un appareil s’identifie en incluant un jeton qui encapsule l’ID unique des appareils dans chaque demande effectuée, tandis que le concentrateur vérifie que le jeton est valide et que l’appareil n’est pas sur liste noire (autorisation *DeviceConnect* révoquée). Pour plus d’informations sur les jetons pris en charge par l’IoT Hub, consultez [Utilisation des jetons de sécurité IoT Hub et des certificats X.509][lnk-tokens]
+Seuls les appareils inscrits avec un hub IoT sont autorisés à communiquer avec ce hub IoT. Un appareil enregistré doit disposer de l’autorisation *DeviceConnect*. Un appareil s’identifie en incluant un jeton qui encapsule l’ID unique de l’appareil dans chaque requête qu’il effectue. Le hub vérifie ensuite la validité du jeton et l’absence de l’appareil dans les listes de refus (autorisation *DeviceConnect* révoquée). Pour plus d’informations sur les jetons pris en charge par l’IoT Hub, consultez [Utilisation des jetons de sécurité IoT Hub et des certificats X.509][lnk-tokens]
 
 L’accès aux autres points de terminaison de gestion dans un concentrateur IoT est également contrôlé par un ensemble d’autorisations : *iothubowner*, *service*, *registryRead* et *registryReadWrite*. Une application de gestion de client qui se connecte à un hub IoT doit inclure un jeton avec les autorisations appropriées.
 
@@ -59,4 +59,4 @@ Pour explorer davantage les capacités de IoT Hub, consultez :
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
 [lnk-tokens]: iot-hub-sas-tokens.md
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

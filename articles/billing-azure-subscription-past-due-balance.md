@@ -15,11 +15,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/22/2016"
+	ms.date="08/17/2016"
 	ms.author="genli"/>
 
 # Pourquoi avez-vous reçu une notification vous informant que votre abonnement Azure présente un solde impayé ?
 Si vous êtes l’administrateur de compte de votre abonnement Azure et que vous n’avez pas effectué votre paiement dans les délais, vous recevez un e-mail de notification à propos de votre solde impayé ou vous verrez une alerte sur [https://account.windowsazure.com](https://account.windowsazure.com) ou [https://portal.azure.com](https://portal.azure.com).
+
+> [AZURE.NOTE] Si à un moment donné dans cet article, vous avez besoin d’aide, veuillez [contacter le support technique](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour obtenir une prise en charge rapide de votre problème.
 
 Si nous ne pouvons pas traiter votre paiement pour une raison quelconque, vous pouvez recevoir un message électronique similaire à celui-ci :
 
@@ -45,4 +47,6 @@ Pour obtenir des instructions sur la manière de changer de moyen de paiement da
 
 > [AZURE.NOTE] Si votre abonnement Azure est désactivé, vous pouvez suivre les étapes de l’article suivant pour le réactiver : [Que faire si mon abonnement Azure est désactivé ?](billing-subscription-become-disable.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+> [AZURE.NOTE] Si vous avez autres questions, veuillez [contacter le support technique](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour obtenir une prise en charge rapide de votre problème.
+
+<!---HONumber=AcomDC_0824_2016-->

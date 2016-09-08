@@ -40,7 +40,7 @@ Une fois les invitations aux utilisateurs partenaires envoyées, nous pouvons le
 4. Alice reçoit l’e-mail suivant.  
 ![E-mail d'invitation pour Alice](./media/active-directory-b2b-detailed-walkthrough/AliceEmail.png)
 
-5. Alice clique sur le lien et elle est invitée à accepter l'invitation et à se connecter à l'aide de ses informations d'identification professionnelles. Si Alice n’est pas dans l’annuaire Azure AD, elle est invitée à s’inscrire.  
+5. Alice clique sur le lien, et elle est invitée à accepter l’invitation et à se connecter à l’aide de ses informations d’identification professionnelles. Si Alice n’est pas dans l’annuaire Azure AD, elle est invitée à s’inscrire. 
 ![Inscription après invitation pour Alice](./media/active-directory-b2b-detailed-walkthrough/AliceSignUp.png)
 
 6. Alice est redirigée vers le volet d'accès à l'application, qui est vide jusqu'à ce qu'elle ait accès aux applications.  
@@ -96,4 +96,4 @@ Consultez les autres articles sur la collaboration B2B d'Azure AD :
 - [Limites actuelles de la version préliminaire](active-directory-b2b-current-preview-limitations.md)
 - [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
 
-<!-----HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0831_2016-->

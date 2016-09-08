@@ -22,7 +22,7 @@
 
 Les fonctions In-Memory améliorent considérablement la performance des charges de travail transactionnelles et analytiques dans les bonnes situations.
 
-Cette rubrique met l’accent sur deux démonstrations, l’une pour OLTP In-Memory, et l’autre pour l’analyse In-Memory. Chaque démonstration est fournie avec les opérations et le code dont vous avez besoin pour exécuter la démonstration. Vous pouvez :
+Cette rubrique met l’accent sur deux démonstrations, l’une pour l’OLTP en mémoire, et l’autre pour l’analytique en mémoire. Chaque démonstration est fournie avec les opérations et le code dont vous avez besoin pour exécuter la démonstration. Vous pouvez :
 
 - utiliser le code pour tester les variations pour voir les différences dans les résultats de performances ; ou
 - lire le code pour comprendre le scénario et savoir comment créer et utiliser des objets In-Memory.
@@ -41,22 +41,17 @@ Les fonctionnalités d’[OLTP](#install_oltp_manuallink) In-Memory (traitement 
 
 Une table à mémoire optimisée place une représentation d’elle-même dans la mémoire active, en plus de la représentation standard sur un disque dur. Les transactions commerciales sur la table s’exécutent plus rapidement car elles interagissent directement uniquement avec la représentation dans la mémoire active.
 
-Avec In-Memory OLTP, vous pouvez multiplier jusqu’à 30 le débit des transactions, selon les caractéristiques de la charge de travail.
+Avec l’OLTP en mémoire, vous pouvez multiplier jusqu’à 30 le débit des transactions, selon les caractéristiques de la charge de travail.
 
 
-Les procédures stockées compilées en mode natif exigent moins d’instructions machine pendant l’exécution que si elles étaient créées comme des procédures stockées interprétées traditionnelles. Nous avons vu des résultats de compilation natifs obtenus dans une durée d’1/100e de la durée interprétée.
+Les procédures stockées compilées en mode natif exigent moins d’instructions machine pendant l’exécution que les procédures stockées interprétées traditionnelles. Nous avons vu des résultats de compilation natifs obtenus dans une durée d’1/100e de la durée interprétée.
 
 
 #### In-Memory Analytics 
 
 La fonction In-Memory [Analytics](#install_analytics_manuallink) est :
 
-- Index Columnstore
-
-
-Un index columnstore améliore les performances des charges de travail de requête par la compression exotique des données.
-
-Dans d’autres services, les index sont nécessairement à mémoire optimisée. Toutefois, dans la base de données SQL Azure, un index columnstore peut être placé sur le disque dur avec la table traditionnelle qu’il indexe.
+Les index ColumnStore améliorent les performances des analyses et des requêtes de rapport.
 
 
 #### Analyse en temps réel
@@ -77,11 +72,10 @@ Disponibilité générale :
 Aperçu :
 
 - OLTP In-Memory.
-- Analyse In-Memory avec des index columnstore optimisés en mémoire
 - Real-Time Operational Analytics
 
 
-Éléments à prendre en compte lorsque les fonctionnalités In-Memory sont décrites [plus loin dans cette rubrique](#preview_considerations_for_in_memory).
+Les éléments à prendre en compte tant que les fonctionnalités en mémoire sont en version préliminaire sont décrits [plus loin dans cette rubrique](#preview_considerations_for_in_memory).
 
 
 > [AZURE.NOTE] Ces fonctionnalités en version préliminaire sont uniquement disponibles pour [*Premium*](sql-database-service-tiers.md) bases de données SQL Azure, pas pour les bases de données sur le niveau de service Standard ou de base.
@@ -103,7 +97,7 @@ Vous pouvez créer l’exemple de base de données AdventureWorksLT [V12] en qu
 #### Procédure d’installation :
 
 1. Dans le [portail Azure](https://portal.azure.com/), créez une base de données Premium sur un serveur V12. Définissez comme valeur **Source** l’exemple de base de données AdventureWorksLT [V12].
- - Pour obtenir des instructions détaillées, consultez [Créer votre première base de données SQL Azure](sql-database-get-started.md).
+ - Pour obtenir des instructions détaillées, voir [Créer votre première base de données SQL Azure](sql-database-get-started.md).
 
 2. Connectez-vous à la base de données avec [SQL Server Management Studio (SSMS.exe)](http://msdn.microsoft.com/library/mt238290.aspx).
 
@@ -185,13 +179,13 @@ La seule différence entre les deux *procédures stockées* est que la première
 - SalesLT**.**usp\_InsertSalesOrder**\_ondisk**
 
 
-Dans cette section, vous apprendrez à utiliser l’utilitaire **ostress.exe**, pratique pour exécuter les deux procédures stockées à des niveaux de contrainte élevée. Vous pouvez comparer le temps d’exécution des deux contraintes.
+Dans cette section, vous apprendrez à utiliser l’utilitaire **ostress.exe**, pratique pour exécuter les deux procédures stockées à des niveaux de contrainte élevés. Vous pouvez comparer le temps d’exécution des deux contraintes.
 
 
 Lorsque vous exécutez ostress.exe, nous vous recommandons de transmettre des valeurs de paramètre conçues pour :
 
-- Exécuter un grand nombre de connexions simultanées, en utilisant par exemple -n100.
-- Répéter chaque boucle de connexion une centaine de fois, en utilisant par exemple -r500.
+- Exécuter un grand nombre de connexions simultanées, en utilisant -n100.
+- Répéter chaque boucle de connexion une centaine de fois, en utilisant -r500.
 
 
 Toutefois, vous pouvez commencer avec des valeurs plus petites, telles que -n10 et -r50 pour vous assurer que tout fonctionne.
@@ -233,7 +227,7 @@ end
 ```
 
 
-Pour créer la version \_ondisk du script T-SQL précédent pour ostress.exe, il vous suffit de remplacer les deux occurrences de la sous-chaîne *\_inmem* par *\_ondisk*. Ces remplacements affectent les noms des tables et des procédures stockées.
+Pour créer la version \_ondisk du script T-SQL précédent pour ostress.exe, il suffit de remplacer les deux occurrences de la sous-chaîne *\_inmem* par *\_ondisk*. Ces remplacements affectent les noms des tables et des procédures stockées.
 
 
 ### Installer les utilitaires RML et ostress
@@ -286,7 +280,7 @@ EXECUTE Demo.usp_DemoReset;
 
 2. Copiez le texte de la ligne de commande ostress.exe qui précède dans le presse-papiers.
 
-3. Remplacez les valeurs <placeholders> des paramètres -S - U -P -d par les valeurs réelles correctes.
+3. Remplacez le `<placeholders>` des paramètres -S - U -P -d par les valeurs réelles correctes.
 
 4. Exécutez la ligne de commande que vous avez modifiée dans la fenêtre de commande RML.
 
@@ -331,10 +325,7 @@ Nos tests en mémoire montrent une multiplication par **9** de l’amélioration
 ## B. Installer l’exemple In-Memory Analytics
 
 
-Dans cette section, vous pourrez comparer les résultats des statistiques et les résultats d’E/S lors de l’utilisation d’un index columnstore par rapport à un index normal.
-
-
-Les index columnstore sont logiquement identiques aux index classiques, mais différents physiquement. Un index columnstore organise les données de manière exotique pour mieux les compresser. Cela permet d’améliorer significativement les performances.
+Dans cette section, vous comparez les résultats des statistiques et les résultats d’E/S lors de l’utilisation d’un index columnstore par rapport à un index d’arbre B traditionnel.
 
 
 Pour l’analyse en temps réel sur une charge de travail OLTP, il est souvent préférable d’utiliser un index columnstore NONclustered. Pour plus d’informations, voir [Index columnstore décrits](http://msdn.microsoft.com/library/gg492088.aspx).
@@ -468,14 +459,14 @@ Dans la version préliminaire actuelle, OLTP In-Memory est pris en charge unique
  - Une nouvelle base de données ne peut pas prendre en charge OLTP In-Memory si elle est restaurée à partir d’une base de données qui a été créée avant que les fonctionnalités OLTP en mémoire soient devenues actives.
 
 
-En cas de doute, vous pouvez toujours exécuter le script T-SQL SELECT suivant pour déterminer si votre base de données prend en charge In-Memory OLTP. Un résultat de **1** signifie que la base de données ne prend pas en charge OLTP In-Memory :
+En cas de doute, vous pouvez toujours exécuter le script T-SQL SELECT suivant pour déterminer si votre base de données prend en charge l’OLTP en mémoire. Un résultat de **1** signifie que la base de données ne prend pas en charge OLTP In-Memory :
 
 ```
 SELECT DatabasePropertyEx(DB_NAME(), 'IsXTPSupported');
 ```
 
 
-Si la requête renvoie **1**, In-Memory OLTP est pris en charge dans cette base de données, ainsi que dans toutes les copies ou restaurations de base de données créées à partir de cette base de données.
+Si la requête renvoie **1**, l’OLTP en mémoire est pris en charge dans cette base de données, ainsi que dans toutes les copies ou restaurations de base de données créées à partir de cette base de données.
 
 
 #### Objets autorisés uniquement au niveau Premium
@@ -494,15 +485,15 @@ Si une base de données contient l’une des sortes d’objets ou de types In-Me
 - L’utilisation des fonctionnalités In-Memory OLTP avec les bases de données dans des pools élastiques n’est pas prise en charge pour l’instant dans la version préliminaire.
  - Pour déplacer vers un pool élastique une base de données qui contient ou a contenu des objets In-Memory OLTP, procédez comme suit :
   - 1. Supprimez les tables optimisées en mémoire, les types de table et les modules T-SQL compilés en mode natif de la base de données
-  - 2. Modifiez le niveau de service de la base de données pour basculer au niveau standard (*un problème empêche actuellement de déplacer des bases de données Premium ayant contenu des objets In-Memory OLTP dans un pool élastique ; les experts de la base de données Azure travaillent activement à la résolution de ce problème)
+  - 2. Modifiez le niveau de service de la base de données en standard
   - 3. Déplacez la base de données vers le pool élastique
 
 - L’utilisation d’In-Memory OLTP avec SQL Data Warehouse n’est pas prise en charge.
  - La fonctionnalité d’index columnstore de In-Memory Analytics est prise en charge dans SQL Data Warehouse.
 
-- Le magasin de requêtes ne capture pas les requêtes à l’intérieur de modules compilés en mode natif pour l’instant dans la version préliminaire, mais cela sera possible à l’avenir.
+- Le magasin de requêtes ne capture pas les requêtes à l’intérieur de modules compilés en mode natif.
 
-- Certaines fonctionnalités de Transact-SQL ne sont pas prises en charge avec In-Memory OLTP. Cela s’applique à Microsoft SQL Server et à la base de données SQL Azure. Pour plus d'informations, consultez :
+- Certaines fonctionnalités de Transact-SQL ne sont pas prises en charge avec In-Memory OLTP. Cela s’applique à Microsoft SQL Server et à la base de données SQL Azure. Pour plus d'informations, consultez les rubriques :
  - [Prise en charge de Transact-SQL pour OLTP en mémoire](http://msdn.microsoft.com/library/dn133180.aspx)
  - [Constructions Transact-SQL non prises en charge par In-Memory OLTP](http://msdn.microsoft.com/library/dn246937.aspx)
 
@@ -537,4 +528,4 @@ Si une base de données contient l’une des sortes d’objets ou de types In-Me
 
 - [Surveiller le stockage en mémoire](sql-database-in-memory-oltp-monitoring.md) pour In-Memory OLTP.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

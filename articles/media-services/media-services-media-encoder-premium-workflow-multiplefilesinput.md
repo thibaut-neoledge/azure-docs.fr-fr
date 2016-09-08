@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Utilisation de plusieurs fichiers d’entrée et propriétés du composant avec Premium Encoder | Microsoft Azure"
-	description="Cette rubrique explique comment utiliser setRuntimeProperties pour plusieurs fichiers d’entrée et transmettre des données personnalisées au processeur multimédia Media Encoder Premium Workflow."
+	description="Cette rubrique explique comment utiliser setRuntimeProperties pour plusieurs fichiers d’entrée et transmettre des données personnalisées au processeur multimédia de flux de travail Media Encoder Premium."
 	services="media-services"
 	documentationCenter=""
 	authors="xpouyat"
@@ -152,7 +152,7 @@ Connexions dans le flux de travail :
 
 
 ### Personnalisation du fichier XML de liste de séquences
-Vous pouvez spécifier le fichier XML de liste de séquences dans le flux de travail, lors de l’exécution, à l’aide de **sourceTranscode** dans la chaîne de configuration XML. Cela nécessite que la broche du fichier XML de liste de séquences soit connectée au composant Media Source dans le flux de travail.
+Vous pouvez spécifier le fichier XML de liste de séquences dans le flux de travail, lors de l’exécution, à l’aide de **transcodeSource** dans la chaîne de configuration XML. Cela nécessite que la broche du fichier XML de liste de séquences soit connectée au composant Media Source dans le flux de travail.
 
     <?xml version="1.0" encoding="utf-16"?>
       <transcodeRequest>
@@ -432,4 +432,4 @@ Vous pouvez télécharger l’exemple de flux de travail sur [GitHub](https://gi
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

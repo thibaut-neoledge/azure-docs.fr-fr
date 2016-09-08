@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/29/2016" 
+	ms.date="08/19/2016" 
 	ms.author="piyushjo" />
 
 # Intégration du Kit de développement logiciel du module Couverture des applications Windows Universal
@@ -59,7 +59,7 @@ Engagement fournit deux méthodes pour ajouter des bannières Reach et des vues 
 Le choix entre ces deux intégrations peut se résumer ainsi :
 
 -   Vous pouvez choisir l'intégration de superposition si vos pages héritent déjà de l'Agent `EngagementPage` ; il suffit de remplacer `EngagementPage` par `EngagementPageOverlay` et `xmlns:engagement="using:Microsoft.Azure.Engagement"` par `xmlns:engagement="using:Microsoft.Azure.Engagement.Overlay"` dans vos pages.
--   Vous pouvez choisir l'intégration manuelle de vues web si vous souhaitez placer avec précision l'interface utilisateur Reach dans vos pages, ou si vous ne voulez pas ajouter un autre niveau d'héritage à vos pages. 
+-   Vous pouvez choisir l'intégration manuelle de vues web si vous souhaitez placer avec précision l'interface utilisateur Reach dans vos pages, ou si vous ne voulez pas ajouter un autre niveau d'héritage à vos pages.
 
 ### Intégration de superposition
 
@@ -334,4 +334,4 @@ Pour utiliser ce protocole, modifiez `App.xaml.cs` à l'aide de la méthode `OnA
 			  #endregion
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0824_2016-->

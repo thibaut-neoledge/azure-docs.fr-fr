@@ -3,7 +3,7 @@
    description="Cet article explique les différents types de points de terminaison pouvant être utilisés avec Azure Traffic Manager."
    services="traffic-manager"
    documentationCenter=""
-   authors="jtuliani"
+   authors="sdwheeler"
    manager="carmonm"
    editor="tysonn" />
 <tags
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="06/08/2016"
-   ms.author="jtuliani" />
+   ms.author="sewhee" />
 
 # Points de terminaison Traffic Manager
 
@@ -144,4 +144,4 @@ Dans le cas des applications web, les points de terminaison Azure Traffic Manage
 
 - En savoir plus sur les [méthodes de routage du trafic](traffic-manager-routing-methods.md) avec Traffic Manager.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->
