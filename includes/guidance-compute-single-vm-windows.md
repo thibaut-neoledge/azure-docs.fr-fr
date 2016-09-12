@@ -62,7 +62,7 @@ L’approvisionnement d’une machine virtuelle dans Azure implique de déplacer
 
 - Cette adresse IP publique peut être dynamique ou statique. Par défaut, elle est dynamique.
 
-    - Utilisez une [adresse IP statique][static-ip] si vous avez besoin d’une adresse IP non modifiable, par exemple pour créer un enregistrement A dans le DNS ou insérer l’adresse IP dans la liste blanche.
+    - Utilisez une [adresse IP statique][static-ip] si vous avez besoin d’une adresse IP non modifiable, par exemple pour créer un enregistrement A dans le DNS ou insérer l’adresse IP dans la liste approuvée.
 
     - Vous pouvez également créer un nom de domaine complet (FQDN) pour l’adresse IP. Vous pouvez inscrire un [enregistrement CNAME][cname-record] dans le DNS qui pointe vers FQDN. Pour en savoir plus, voir [Créer un nom de domaine complet dans le portail Azure][fqdn].
 
@@ -150,18 +150,19 @@ Le script fait référence aux fichiers de paramètre suivants pour créer la ma
 
 - **[virtualNetwork.parameters.json][vnet-parameters]**. Ce fichier définit les paramètres du réseau virtuel, comme le nom, l’espace d’adressage, les sous-réseaux et les adresses de tous les serveurs DNS requis. Notez que les adresses des sous-réseaux doivent être intégrées à l’espace d’adressage du réseau virtuel.
 
+	<!-- source: https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-single-vm/parameters/windows/virtualNetwork.parameters.json#L4-L21 -->
 	```json
   "parameters": {
     "virtualNetworkSettings": {
       "value": {
-        "name": "app1-vnet",
-        "resourceGroup": "app1-dev-rg",
+        "name": "ra-single-vm-vnet",
+        "resourceGroup": "ra-single-vm-rg",
         "addressPrefixes": [
           "172.17.0.0/16"
         ],
         "subnets": [
           {
-            "name": "app1-subnet",
+            "name": "ra-single-vm-sn",
             "addressPrefix": "172.17.0.0/24"
           }
         ],
@@ -175,23 +176,23 @@ Le script fait référence aux fichiers de paramètre suivants pour créer la ma
 
 	Notez que la règle de sécurité par défaut indiquée dans l’exemple permet à un utilisateur de se connecter à la machine virtuelle à l’aide d’une connexion bureau distante (RDP). Vous pouvez ouvrir des ports supplémentaires (ou refuser l’accès via des ports spécifiques) en ajoutant des éléments supplémentaires au tableau `securityRules`.
 
+	<!-- source: https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-single-vm/parameters/windows/networkSecurityGroups.parameters.json#L4-L36 -->
 	```json
   "parameters": {
     "virtualNetworkSettings": {
       "value": {
-        "name": "app1-vnet",
-        "resourceGroup": "app1-dev-rg"
-      },
-      "metadata": {
-        "description": "Infrastructure Settings"
+        "name": "ra-single-vm-vnet",
+        "resourceGroup": "ra-single-vm-rg"
       }
     },
-    "networkSecurityGroupSettings": {
+    "networkSecurityGroupsSettings": {
       "value": [
         {
-          "name": "app1-nsg",
+          "name": "ra-single-vm-nsg",
           "subnets": [
-            "app1-subnet"
+            "ra-single-vm-sn"
+          ],
+          "networkInterfaces": [
           ],
           "securityRules": [
             {
@@ -220,17 +221,18 @@ Le script fait référence aux fichiers de paramètre suivants pour créer la ma
 	azure vm image list westus MicrosoftWindowsServer WindowsServer
 	```
 
-	Le paramètre `subnetName` dans la section `nics` spécifie le sous-réseau pour la machine virtuelle. De même, le paramètre `name` dans `virtualNetworkSettings` identifie le réseau virtuel à utiliser. Il doit s’agir du nom d’un sous-réseau et VNet défini dans le fichier **virtualNetwork.parameters.json**.
+	Le paramètre `subnetName` dans la section `nics` spécifie le sous-réseau pour la machine virtuelle. De même, le paramètre `name` dans `virtualNetworkSettings` identifie le réseau virtuel à utiliser. Il doit s’agir du nom d’un sous-réseau et réseau virtuel défini dans le fichier **virtualNetwork.parameters.json**.
 
 	Vous pouvez créer plusieurs machines virtuelles partageant un compte de stockage ou ayant leurs propres comptes de stockage, en modifiant les paramètres de la section `buildingBlockSettings`. Si vous créez plusieurs machines virtuelles, vous devez également spécifier le nom d’un jeu de disponibilité à utiliser ou à créer dans la section `availabilitySet`.
 
+	<!-- source: https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-single-vm/parameters/windows/virtualMachine.parameters.json#L4-L64 -->
 	```json
-  "parameters": {
+   "parameters": {
     "virtualMachinesSettings": {
       "value": {
-        "namePrefix": "app1",
+        "namePrefix": "ra-single-vm",
         "computerNamePrefix": "cn",
-        "size": "Standard_DS1",
+        "size": "Standard_DS1_v2",
         "osType": "windows",
         "adminUsername": "testuser",
         "adminPassword": "AweS0me@PW",
@@ -239,9 +241,12 @@ Le script fait référence aux fichiers de paramètre suivants pour créer la ma
         "nics": [
           {
             "isPublic": "true",
-            "subnetName": "app1-subnet",
+            "subnetName": "ra-single-vm-sn",
             "privateIPAllocationMethod": "dynamic",
             "publicIPAllocationMethod": "dynamic",
+            "enableIPForwarding": false,
+            "dnsServers": [
+            ],
             "isPrimary": "true"
           }
         ],
@@ -262,22 +267,17 @@ Le script fait référence aux fichiers de paramètre suivants pour créer la ma
         "osDisk": {
           "caching": "ReadWrite"
         },
+        "extensions": [ ],
         "availabilitySet": {
           "useExistingAvailabilitySet": "No",
           "name": ""
         }
-      },
-      "metadata": {
-        "description": "Settings for Virtual Machines"
       }
     },
     "virtualNetworkSettings": {
       "value": {
-        "name": "app1-vnet",
-        "resourceGroup": "app1-dev-rg"
-      },
-      "metadata": {
-        "description": "Infrastructure Settings"
+        "name": "ra-single-vm-vnet",
+        "resourceGroup": "ra-single-vm-rg"
       }
     },
     "buildingBlockSettings": {
@@ -285,9 +285,6 @@ Le script fait référence aux fichiers de paramètre suivants pour créer la ma
         "storageAccountsCount": 1,
         "vmCount": 1,
         "vmStartIndex": 0
-      },
-      "metadata": {
-        "description": "Settings specific to the building block"
       }
     }
   }
@@ -319,8 +316,9 @@ Pour exécuter le script qui déploie la solution :
 
 5. Modifiez le fichier Deploy-ReferenceArchitecture.ps1 dans le dossier Scripts et modifiez la ligne suivante pour spécifier le groupe de ressources qui doit être créé ou utilisé pour contenir la machine virtuelle et les ressources créées par le script :
 
+	<!-- source: https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-single-vm/Deploy-ReferenceArchitecture.ps1#L37 -->
 	```powershell
-	$resourceGroupName = "app1-dev-rg"
+	$resourceGroupName = "ra-single-vm-rg"
 	```
 6. Modifiez chacun des fichiers JSON dans le dossier Modèles/Windows pour définir les paramètres du réseau virtuel, du groupe de sécurité réseau et de la machine virtuelle, comme décrit dans la section Composants de la solution précédente.
 
@@ -386,11 +384,11 @@ Pour appliquer le [contrat SLA pour machines virtuelles][vm-sla], vous devez dé
 [vm-resize]: ../articles/virtual-machines/virtual-machines-linux-change-vm-size.md
 [vm-sla]: https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_0/
 [ARM-Templates]: https://azure.microsoft.com/documentation/articles/resource-group-authoring-templates/
-[solution-script]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-single-vm/Scripts/Deploy-ReferenceArchitecture.ps1
+[solution-script]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-single-vm/Deploy-ReferenceArchitecture.ps1
 [vnet-parameters]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-single-vm/parameters/windows/virtualNetwork.parameters.json
 [nsg-parameters]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-single-vm/parameters/windows/networkSecurityGroups.parameters.json
 [vm-parameters]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-single-vm/parameters/windows/virtualMachine.parameters.json
 [azure-powershell-download]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
 [0]: ./media/guidance-blueprints/compute-single-vm.png "Architecture de machine virtuelle Windows unique dans Azure"
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

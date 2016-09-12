@@ -13,10 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/04/2016"
+   ms.date="08/26/2016"
    ms.author="hascipio; avikova" />
 
 # Conditions techniques préalables à la création d’une offre de service de données pour Azure Marketplace
+
+>[AZURE.IMPORTANT] **À ce stade, nous n’intégrons plus de nouveaux éditeurs de services de données. Le listing de nouveaux services de données ne sera pas approuvé.** Si vous avez une application SaaS professionnelle à publier sur AppSource, vous trouverez plus d’informations [ici](https://appsource.microsoft.com/partners). Si vous avez une application IaaS ou un service de développement à publier sur Azure Marketplace, vous trouverez plus d’informations [ici](https://azure.microsoft.com/marketplace/programs/certified/).
+
 Avant de commencer, lisez attentivement cette procédure, de manière à comprendre à quel moment effectuer une étape et pourquoi chaque étape doit être exécutée. Autant que possible, préparez les informations et autres données de votre entreprise, téléchargez les outils nécessaires et/ou créez les composants techniques avant de lancer le processus de création de l’offre.
 
 Vous devez préparer les éléments suivants avant de commencer le processus :
@@ -66,4 +69,4 @@ Ou, si vous souhaitez passer en revue le processus global et les articles respec
 
 [link-acct]: marketplace-publishing-accounts-creation-registration.md
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0831_2016-->

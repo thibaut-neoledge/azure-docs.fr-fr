@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/15/2016"
+	ms.date="08/24/2016"
 	ms.author="anhoh"/>
 
 # Gestion d'un compte DocumentDB
@@ -23,18 +23,18 @@ Découvrez comment définir la cohérence globale, utiliser les clés et supprim
 
 ## <a id="consistency"></a>Gestion des paramètres de cohérence DocumentDB
 
-La sélection du niveau de cohérence adéquat dépend de la sémantique de votre application. Vous devez vous familiariser avec les niveaux de cohérence disponibles dans DocumentDB : [Utilisation des niveaux de cohérence pour optimiser la disponibilité et les performances dans DocumentDB][consistency]. DocumentDB fournit les garanties de cohérence, de disponibilité et de performance, à tous les niveaux de cohérence disponibles pour votre compte de base de données. La configuration de votre compte de base de données avec un niveau de cohérence Fort nécessite que vos données se limitent à une seule région Azure et ne soient pas disponibles mondialement. En revanche, les niveaux de cohérence souples (Obsolescence limitée, Session ou Éventuel) vous permettent d’associer autant de régions Azure que vous le souhaitez à votre compte de base de données. Les étapes simples suivantes vous montrent comment sélectionner le niveau de cohérence par défaut pour votre compte de base de données.
+La sélection du niveau de cohérence adéquat dépend de la sémantique de votre application. Vous devez vous familiariser avec les niveaux de cohérence disponibles dans DocumentDB en lisant [Utilisation des niveaux de cohérence pour optimiser la disponibilité et les performances dans DocumentDB][consistency]. DocumentDB fournit les garanties de cohérence, de disponibilité et de performance, à tous les niveaux de cohérence disponibles pour votre compte de base de données. La configuration de votre compte de base de données avec un niveau de cohérence Fort nécessite que vos données se limitent à une seule région Azure et ne soient pas disponibles mondialement. En revanche, les niveaux de cohérence souples (Obsolescence limitée, Session ou Éventuel) vous permettent d’associer autant de régions Azure que vous le souhaitez à votre compte de base de données. Les étapes simples suivantes vous montrent comment sélectionner le niveau de cohérence par défaut pour votre compte de base de données.
 
 ### Pour spécifier le niveau de cohérence par défaut d’un compte DocumentDB
 
 1. Dans le [portail Azure](https://portal.azure.com/), accédez à votre compte DocumentDB.
 2. Dans le panneau du compte, cliquez sur **Cohérence par défaut**.
-3. Dans le panneau **Cohérence par défaut**, sélectionnez le nouveau niveau de cohérence et cliquez sur **OK**. ![Cohérence par défaut Session][5]
+3. Dans le panneau **Cohérence par défaut**, sélectionnez le nouveau niveau de cohérence et cliquez sur **Enregistrer**. ![Cohérence par défaut Session][5]
 
 ## <a id="keys"></a>Affichage, copie et régénération des clés d’accès
 Lorsque vous créez un compte DocumentDB, le service génère deux clés d'accès maître qui peuvent être utilisées pour l'authentification lors de l'accès au compte DocumentDB. En fournissant deux clés d'accès, DocumentDB vous permet de régénérer les clés sans interruption de votre compte DocumentDB.
 
-Dans le [portail Microsoft Azure](https://portal.azure.com/), accédez au panneau **Clés** du panneau **Compte DocumentDB** pour afficher, copier et régénérer les clés d’accès à votre compte DocumentDB.
+Dans le [portail Azure](https://portal.azure.com/), accédez au panneau **Clés** depuis le menu de ressources depuis le panneau **Compte DocumentDB** pour afficher, copier et régénérer les clés d’accès à votre compte DocumentDB.
 
 ![Capture d’écran du portail Azure, panneau Clés](./media/documentdb-manage-account/keys.png)
 
@@ -42,7 +42,7 @@ Dans le [portail Microsoft Azure](https://portal.azure.com/), accédez au pannea
 
 Des clés en lecture seule sont également disponibles sur ce panneau. Les lectures et les demandes sont des opérations en lecture seule, contrairement aux opérations de création, de suppression et de remplacement.
 
-### Affichage et copie d’une touche d’accès rapide dans le portail Azure
+### Copie d’une touche d’accès rapide dans le portail Azure
 
 Dans le panneau **Clés**, cliquez sur le bouton **Copier** à droite de la clé que vous souhaitez copier.
 
@@ -59,10 +59,12 @@ Si certains de vos services cloud ou applications utilisent le compte DocumentDB
 1. Mettez à jour la clé d'accès dans le code de votre application afin de référencer la clé d'accès secondaire du compte DocumentDB.
 2. Régénérez la clé d’accès principale de votre compte de stockage. Dans le [portail Azure](https://portal.azure.com/), accédez à votre compte DocumentDB.
 3. Dans le panneau **Compte DocumentDB**, cliquez sur **Clés**.
-4. Dans le panneau **Clés**, cliquez sur la commande **Régénérer la clé primaire**, puis sur **OK** pour confirmer que vous souhaitez générer une nouvelle clé. ![Régénération de clés d'accès](./media/documentdb-manage-account/regenerate-keys.png)
+4. Dans le panneau **Clés**, cliquez sur le bouton Régénérer la clé primaire, puis sur **OK** pour confirmer que vous souhaitez générer une nouvelle clé. ![Régénération de clés d'accès](./media/documentdb-manage-account/regenerate-keys.png)
 
 5. Une fois que vous avez vérifié que la nouvelle clé peut être utilisée(environ 5 minutes après la régénération), mettez à jour la clé d'accès dans le code de votre application afin de référencer la nouvelle clé d'accès primaire.
-6. Régénérez la clé d’accès secondaire. ![Régénération de clés d'accès](./media/documentdb-manage-account/regenerate-secondary-key.png)
+6. Régénérez la clé d’accès secondaire.
+
+    ![Régénération de clés d'accès](./media/documentdb-manage-account/regenerate-secondary-key.png)
 
 
 > [AZURE.NOTE] Il faut parfois attendre plusieurs minutes avant de pouvoir utiliser une clé qui vient d’être générée pour accéder à votre compte DocumentDB.
@@ -101,4 +103,4 @@ Pour en savoir plus sur DocumentDB, consultez la documentation Azure DocumentDB 
 [azureregions]: https://azure.microsoft.com/regions/#services
 [offers]: https://azure.microsoft.com/pricing/details/documentdb/
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0831_2016-->

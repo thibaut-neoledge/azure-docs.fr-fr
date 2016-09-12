@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Vérification de la progression des tâches à l’aide du portail Azure Classic" 
-	description="Apprenez à vérifier la progression des tâches à l’aide du portail Azure Classic" 
+	pageTitle="Surveiller la progression du travail d’encodage avec le Portail Azure" 
+	description="Ce didacticiel vous guide à travers les étapes de surveillance de la progression de votre travail à l’aide du Portail Azure." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako" 
@@ -13,25 +13,33 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"  
+	ms.date="08/29/2016"  
 	ms.author="juliako"/>
 
-#Procédure : vérification de la progression des tâches
+#Surveiller la progression du travail d’encodage avec le Portail Azure
 
 > [AZURE.SELECTOR]
 - [Portail](media-services-portal-check-job-progress.md)
 - [.NET](media-services-check-job-progress.md)
 - [REST](media-services-rest-check-job-progress.md)
 
-##Utilisation du portail pour vérifier l’état de la tâche
+## Vue d'ensemble
 
-1. Dans le [portail Azure Classic](http://go.microsoft.com/fwlink/?LinkID=256666&clcid=0x409), cliquez sur **Media Services**, puis sur le nom du compte Media Services.
-2. Sélectionnez la page **TÂCHES**.
+> [AZURE.NOTE] Pour suivre ce didacticiel, vous avez besoin d'un compte Azure. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-	Sur cette page, vous pouvez voir l’état de toutes vos tâches. Vous pouvez également filtrer par état, heure ou ID de tâche.
+Lorsque vous exécutez des travaux, vous avez généralement besoin de faire appel à une méthode de suivi de la progression du travail.
 
-	![CheckStatus][checkstatus]
+Pour surveiller la progression du travail d’encodage, cliquez sur **Paramètres** (en haut de la page), puis sélectionnez **Travaux**.
 
+![Travaux](./media/media-services-portal-vod-get-started/media-services-jobs.png)
+
+Vous pouvez cliquer sur le travail pour afficher plus de détails.
+
+![Travaux](./media/media-services-portal-vod-get-started/media-services-job-progress2.png)
+
+##Étapes suivantes
+
+Une fois votre travail d’encodage terminé, vous pouvez publier et lire vos éléments multimédias, comme indiqué [ici](media-services-portal-publish.md).
 
 ##Parcours d’apprentissage de Media Services
 
@@ -41,13 +49,4 @@
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-
-##Étape suivante
-
-Publiez votre contenu. Pour plus d'informations, consultez [Procédure : encodage d'une ressource](media-services-manage-content.md#publish).
-
-
-[checkstatus]: ./media/media-services-portal-check-job-progress/media-services-monitor-job-progress.png
- 
-
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0831_2016-->

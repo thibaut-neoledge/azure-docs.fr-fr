@@ -14,10 +14,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="08/02/2016"
+   ms.date="08/29/2016"
    ms.author="larryfr"/>
 
-#Exécution à distance de requêtes Hadoop sur HDInsight à l’aide de PowerShell
+# Exécution à distance des travaux MapReduce avec Hadoop sur HDInsight à l’aide de PowerShell
 
 [AZURE.INCLUDE [mapreduce-selector](../../includes/hdinsight-selector-use-mapreduce.md)]
 
@@ -39,7 +39,7 @@ Azure PowerShell propose des *applets de commande* qui vous permettent d'exécut
 
 Les applets de commande suivantes sont utilisées lors de l’exécution des tâches MapReduce sur un cluster HDInsight à distance.
 
-* **Login-AzureRmAccount** : authentifie Azure PowerShell sur votre abonnement Azure
+* **Login-AzureRmAccount** : authentifie Azure PowerShell sur votre abonnement Azure.
 
 * **New-AzureRmHDInsightMapReduceJobDefinition** : crée une *définition de tâche* avec les informations MapReduce spécifiées.
 
@@ -183,4 +183,4 @@ Pour plus d’informations sur d’autres méthodes de travail avec Hadoop sur H
 
 * [Utilisation de Pig avec Hadoop sur HDInsight](hdinsight-use-pig.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0831_2016-->

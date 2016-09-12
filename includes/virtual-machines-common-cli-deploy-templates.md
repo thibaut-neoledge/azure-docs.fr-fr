@@ -223,6 +223,8 @@ Dans ce cas, le modèle ci-dessous vous demandera :
 - Un nom de domaine pour le monde extérieur à utiliser.
 - Un numéro de version Ubuntu Server, mais accepte uniquement l’un de ceux répertoriés dans une liste.
 
+En savoir plus sur les [conditions requises pour les noms d’utilisateur et les mots de passe](virtual-machines-linux-faq.md#what-are-the-username-requirements-when-creating-a-vm).
+
 Après avoir déterminé ces valeurs, vous pouvez créer un groupe pour votre abonnement Azure et y déployer ce modèle.
 
     {
@@ -1278,4 +1280,4 @@ Pour consulter d’autres exemples d’utilisation de l’interface de ligne de 
 
 Pour connaître les modèles supplémentaires utilisables, consultez [Modèles de démarrage rapide Azure](https://azure.microsoft.com/documentation/templates/) et [Infrastructures d'application à l'aide de modèles](../articles/virtual-machines/virtual-machines-linux-app-frameworks.md).
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -14,26 +14,24 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/24/2016"
+	ms.date="08/30/2016"
 	ms.author="anhoh"/>
 
 # Écrire, modifier et exécuter des requêtes SQL pour DocumentDB à l’aide de l’Explorateur de requêtes 
 
 Cet article fournit une vue d’ensemble de l’Explorateur de requêtes de [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/), un outil du portail Azure qui permet d’écrire, de modifier et d’exécuter des requêtes SQL sur une [collection DocumentDB](documentdb-create-collection.md).
 
-1. Dans la barre de lancement du portail Azure, cliquez sur **Comptes DocumentDB**. Si l’option **Comptes DocumentDB** n’est pas affichée, cliquez sur **Parcourir**, puis sur **Comptes DocumentDB**.
+1. Dans la barre de lancement du portail Azure, cliquez sur **DocumentDB (NoSQL)**. Si l’option **DocumentDB (NoSQL)** n’est pas affichée, cliquez sur **Plus de services**, puis sur **DocumentDB (NoSQL)**.
 
-2. En haut du panneau **Compte DocumentDB**, cliquez sur **Explorateur de requêtes**.
+2. Dans le menu Ressource, cliquez sur **Explorateur de requêtes**.
 
 	![Capture d’écran du portail Azure avec l’Explorateur de requêtes mis en surbrillance](./media/documentdb-query-collections-query-explorer/queryexplorercommand.png)
 
-    >[AZURE.NOTE] L’Explorateur de requêtes s’affiche également dans les panneaux de base de données et de collection.
-
-3. Dans le panneau **Explorateur de requêtes**, sélectionnez les **Bases de données** et **Collections** à interroger dans les listes déroulantes, puis entrez la requête à exécuter.
+3. Dans le panneau **Explorateur de requêtes**, sélectionnez les **Bases de données** et **Collections** à interroger dans les listes déroulantes, puis saisissez la requête à exécuter.
 
     Les listes déroulantes **Bases de données** et **Collections** sont préremplies en fonction du contexte de lancement de l’Explorateur de requêtes.
 
-    La requête par défaut `SELECT TOP 100 * FROM c` est indiquée. Vous pouvez l’accepter ou créer la vôtre à l’aide du langage de requête SQL décrit dans l’[Aide-mémoire pour les requêtes SQL](documentdb-sql-query-cheat-sheet.md) ou dans l’article [Requête SQL et syntaxe SQL dans DocumentDB](documentdb-sql-query.md).
+    La requête par défaut `SELECT TOP 100 * FROM c` est indiquée. Vous pouvez l’accepter ou créer la vôtre à l’aide du langage de requête SQL décrit dans [l’Aide-mémoire pour les requêtes SQL](documentdb-sql-query-cheat-sheet.md) ou dans l’article [Requête SQL et syntaxe SQL dans DocumentDB](documentdb-sql-query.md).
 
     Cliquez sur **Exécuter la requête** pour afficher les résultats.
 
@@ -73,10 +71,10 @@ Si une requête se termine avec des erreurs, l’Explorateur de requêtes affich
 
 ## Exécuter des requêtes SQL DocumentDB en dehors du portail
 
-L’Explorateur de requêtes du portail Azure permet simplement d’exécuter des requêtes SQL dans DocumentDB. Vous pouvez également exécuter des requêtes SQL à l’aide de l’[API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) ou des [Kits de développement logiciel (SDK) clients](documentdb-sdk-dotnet.md). Pour plus d’informations sur l’utilisation de ces méthodes, consultez la section [Exécution de requêtes SQL](documentdb-sql-query.md#executing-sql-queries).
+L’Explorateur de requêtes du portail Azure permet simplement d’exécuter des requêtes SQL dans DocumentDB. Vous pouvez également exécuter des requêtes SQL à l’aide de [l’API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) ou des [Kits de développement logiciel (SDK) clients](documentdb-sdk-dotnet.md). Pour plus d’informations sur l’utilisation de ces méthodes, consultez la section [Exécution de requêtes SQL](documentdb-sql-query.md#executing-sql-queries)
 
 ## Étapes suivantes
 
-Pour plus d’informations sur la grammaire SQL DocumentDB prise en charge dans l’Explorateur de requêtes, consultez l’article [Requête SQL et syntaxe SQL dans DocumentDB](documentdb-sql-query.md) ou imprimez l’[Aide-mémoire pour les requêtes SQL](documentdb-sql-query-cheat-sheet.md). Vous pouvez également expérimenter le [Query Playground](https://www.documentdb.com/sql/demo) où vous pouvez tester des requêtes en ligne en utilisant un exemple de jeu de données.
+Pour plus d’informations sur la grammaire SQL DocumentDB prise en charge dans l’Explorateur de requêtes, consultez l’article [Requête SQL et syntaxe SQL dans DocumentDB](documentdb-sql-query.md) ou imprimez [l’Aide-mémoire pour les requêtes SQL](documentdb-sql-query-cheat-sheet.md). Vous pouvez également expérimenter le [Query Playground](https://www.documentdb.com/sql/demo) où vous pouvez tester des requêtes en ligne en utilisant un exemple de jeu de données.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0831_2016-->

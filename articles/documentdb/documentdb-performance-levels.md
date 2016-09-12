@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Niveaux de performances dans DocumentDB | Microsoft Azure" 
-	description="Découvrez comment les niveaux de performances dans DocumentDB permettent de réserver le débit pour chaque collection." 
-	services="documentdb" 
-	authors="mimig1" 
-	manager="jhubbard" 
-	editor="monicar" 
+<properties
+	pageTitle="Niveaux de performances dans DocumentDB | Microsoft Azure"
+	description="Découvrez comment les niveaux de performances dans DocumentDB permettent de réserver le débit pour chaque collection."
+	services="documentdb"
+	authors="mimig1"
+	manager="jhubbard"
+	editor="monicar"
 	documentationCenter=""/>
 
-<tags 
-	ms.service="documentdb" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/27/2016" 
+<tags
+	ms.service="documentdb"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/26/2016"
 	ms.author="mimig"/>
 
 # Niveaux de performances dans DocumentDB
@@ -109,13 +109,13 @@ Pour plus d’informations sur la modification de la tarification pour les débi
 
       ![Capture d’écran de la collection S1 dans le panneau Base de données](./media/documentdb-performance-levels/documentdb-change-performance-S1.png)
 
-4. Dans le panneau **Collections**, cliquez sur **Paramètres** dans la barre supérieure.
+4. Dans le panneau **Collections**, cliquez sur **Plus**, puis sur **Paramètres** dans la barre supérieure.
 5. Dans le panneau **Paramètres**, cliquez sur **Niveau tarifaire** et notez que l’estimation des coûts mensuels pour chaque plan est affichée dans le panneau **Choisir votre niveau tarifaire**. Pour passer à un débit défini par l’utilisateur, cliquez sur **Standard**, puis cliquez sur **Sélectionner** pour enregistrer vos modifications.
 
       ![Capture d’écran des panneaux Paramètres DocumentDB et Choisir votre niveau tarifaire](./media/documentdb-performance-levels/documentdb-change-performance.png)
 
 6. De retour dans le panneau **Paramètres**, le **Niveau tarifaire** est défini sur **Standard** et la zone **Débit (unités de requête/s)** est affichée avec une valeur par défaut de 400. Définissez le débit entre 400 et 10 000 [unités de requête](documentdb-request-units.md)/seconde (unités de requête/s). Le **Résumé de la tarification** au bas de la page se met à jour automatiquement pour donner une estimation du coût mensuel. Cliquez sur **OK** pour enregistrer vos modifications.
-    
+
 	![Capture d’écran du panneau Paramètres montrant où modifier la valeur de débit](./media/documentdb-performance-levels/documentdb-change-performance-set-thoughput.png)
 
 7. Sur le panneau **Base de données**, vous pouvez vérifier le nouveau débit de la collection.
@@ -137,17 +137,17 @@ Voici un extrait de code pour modifier le débit de l’offre sur 50 000 unités
 		              .Where(r => r.ResourceLink == collection.SelfLink)    
 		              .AsEnumerable()
 		              .SingleOrDefault();
-	                          
+
 	// Set the throughput to 5000 request units per second
 	offer = new OfferV2(offer, 5000);
-	                    
+
 	//Now persist these changes to the database by replacing the original resource
 	await client.ReplaceOfferAsync(offer);
 
 	// Set the throughput to S2
 	offer = new Offer(offer);
 	offer.OfferType = "S2";
-	                    
+
 	//Now persist these changes to the database by replacing the original resource
 	await client.ReplaceOfferAsync(offer);
 
@@ -172,14 +172,14 @@ Si vous utilisez déjà les performances définies par l’utilisateur, vous pou
 4. Dans le panneau **Collections**, cliquez sur **Paramètres** dans la barre supérieure.
 5. Dans le panneau **Paramètres**, augmentez la valeur de la zone **Débit (RU/s)**, puis cliquez sur **OK** pour enregistrer vos modifications. Le **Résumé de la tarification** en bas du panneau est mis à jour afin de vous présenter la nouvelle estimation du coût mensuel de cette collection dans une seule région.
 
-    ![Capture d’écran du panneau Paramètres, avec mise en surbrillance de la zone Débit et du Résumé de tarification](./media/documentdb-performance-levels/documentdb-change-throughput.png)
- 
+    ![Capture d’écran du panneau Paramètres, avec mise en surbrillance de la zone Débit et du Résumé de tarification](./media/documentdb-performance-levels/documentdb-change-performance-set-thoughput.png)
+
 Si vous n’êtes pas sûr de l’augmentation à appliquer au débit, consultez [Estimation des besoins de débit](documentdb-request-units.md#estimating-throughput-needs) et [Calculatrice d’unités de demande](https://www.documentdb.com/capacityplanner).
 
 ## Étapes suivantes
 
 Pour en savoir plus sur la tarification et la gestion des données avec Azure DocumentDB, explorez les ressources suivantes :
- 
+
 - [Tarification de DocumentDB](https://azure.microsoft.com/pricing/details/documentdb/)
 - [Gestion de la capacité de DocumentDB](documentdb-manage.md)
 - [Modélisation des données dans DocumentDB](documentdb-modeling-data.md)
@@ -193,4 +193,4 @@ Pour commencer avec le test des performances et de la mise à l’échelle avec 
 [1]: ./media/documentdb-performance-levels/documentdb-change-collection-performance7-9.png
 [2]: ./media/documentdb-performance-levels/documentdb-change-collection-performance10-11.png
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0831_2016-->

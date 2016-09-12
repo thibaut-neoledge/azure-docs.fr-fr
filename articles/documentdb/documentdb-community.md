@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="na"
   ms.workload="data-services"
-  ms.date="08/17/2016"
+  ms.date="08/30/2016"
   ms.author="andrl"/>
 
 # Portail de la communauté
@@ -210,7 +210,7 @@ Pour vous tenir informé des dernières nouveautés et fonctionnalités Document
 
 | Partenaire d’apprentissage | Description |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| [![Microsoft Virtual Academy](./media/documentdb-community/mva.png)](https://www.microsoftvirtualacademy.com/fr-FR/training-courses/developing-solutions-with-azure-documentdb-10554) | Les formations proposées par [**Microsoft Virtual Academy**](https://www.microsoftvirtualacademy.com/fr-FR/training-courses/developing-solutions-with-azure-documentdb-10554) sont dirigées par les personnes qui participent au développement d’Azure DocumentDB. |
+| [![Microsoft Virtual Academy](./media/documentdb-community/mva.png)](https://mva.microsoft.com/fr-FR/training-courses/deploying-web-apps-to-azure-app-service-16629) | Les formations proposées par [**Microsoft Virtual Academy**](https://mva.microsoft.com/fr-FR/training-courses/deploying-web-apps-to-azure-app-service-16629) sont dirigées par les personnes qui participent au développement d’Azure DocumentDB. |
 | [![pluralsight](./media/documentdb-community/pluralsight.png)](http://www.pluralsight.com/courses/azure-documentdb-introduction) | [**Pluralsight**](http://www.pluralsight.com/courses/azure-documentdb-introduction) est l’un des principaux partenaires Microsoft proposant une formation Azure. Si vous êtes abonné à MSDN, utilisez vos avantages pour accéder aux formations Microsoft Azure. |
 | [![OpsGility](./media/documentdb-community/opsgility.png)](https://www.opsgility.com/courses/player/introduction_to_azure_documentdb) | [**OpsGility**](https://www.opsgility.com/courses/player/introduction_to_azure_documentdb) offre une formation technique approfondie sur Microsoft Azure. Suivez une formation dispensée par un instructeur sur site ou à distance menée par un des formateurs reconnus du secteur. |
 
@@ -268,4 +268,4 @@ Assistant | Photo
 
 Vous voulez devenir assistant DocumentDB ? Il n’existe aucun critère défini pour devenir assistant DocumentDB. Nous évaluons entre autres l’intérêt des contributions des candidats aux forums en ligne tels que StackOverflow et MSDN, les wikis et le contenu en ligne, les conférences et les groupes d’utilisateurs, les podcasts, les sites web, les blogs et les réseaux sociaux, et enfin les articles et les livres. Vous pouvez vous porter vous-même candidat ou désigner quelqu’un d’autre en [nous envoyant un message](mailto:askdocdb@microsoft.com).
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0831_2016-->

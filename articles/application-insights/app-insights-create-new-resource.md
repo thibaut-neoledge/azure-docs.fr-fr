@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Créer une ressource Application Insights dans Azure" 
+	pageTitle="Créer une ressource Application Insights | Microsoft Azure" 
 	description="Configurez la surveillance d’Application Insights pour une nouvelle application en direct. Approche basée sur le web." 
 	services="application-insights" 
     documentationCenter=""
@@ -12,10 +12,10 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/02/2016" 
+	ms.date="08/26/2016" 
 	ms.author="awills"/>
 
-# Créer une ressource Application Insights dans Azure
+# Création d’une ressource Application Insights dans Azure
 
 Visual Studio Application Insights affiche les données relatives à votre application dans une *ressource* Microsoft Azure. La création d’une nouvelle ressource fait, par conséquent, partie de la [configuration d’Application Insights pour surveiller une nouvelle application][start]. Dans de nombreux cas, cela peut être effectué automatiquement par l’IDE. Il s’agit de la méthode recommandée, lorsqu’elle est disponible. Mais dans certains cas, vous créez manuellement une ressource.
 
@@ -23,7 +23,7 @@ Après avoir créé la ressource, vous obtenez sa clé d’instrumentation et l�
 
 ## S’inscrire à Microsoft Azure
 
-Si vous n’avez pas de [compte Microsoft, procurez-vous en un dès maintenant](http://live.com). (Si elle utilise des services comme Outlook.com, OneDrive, Windows Phone ou XBox Live, elle dispose d’un compte Microsoft.)
+Si vous n’avez pas de [compte Microsoft, procurez-vous en un dès maintenant](http://live.com). (Si elle utilise des services comme Outlook.com, OneDrive, Windows Phone ou XBox Live, elle dispose d’un compte Microsoft.)
 
 Vous devez également vous abonner à [Microsoft Azure](http://azure.com). Si votre équipe ou votre organisation dispose d’un abonnement Azure, le propriétaire peut vous y ajouter à l’aide de votre Windows Live ID.
 
@@ -35,12 +35,12 @@ Dès que vous êtes abonné, connectez-vous à Application Insights à l’adres
 ## Création d’une ressource Application Insights dans Azure
   
 
-Dans le portail [portal.azure.com](https://portal.azure.com), ajoutez une ressource Application Insights :
+Dans le portail [portal.azure.com](https://portal.azure.com), ajoutez une ressource Application Insights :
 
 ![Cliquez sur Nouveau > Application Insights](./media/app-insights-create-new-resource/01-new.png)
 
 
-* Le **type d’application** définit le contenu du panneau de présentation et les propriétés disponibles dans [Metrics Explorer][metrics]. Si vous ne voyez pas votre type d’application, choisissez un des types web pour les pages web et un des types de téléphone pour les autres appareils.
+* Le **type d’application** définit le contenu du panneau de présentation et les propriétés disponibles dans [Metrics Explorer][metrics]. Si vous ne voyez pas votre type d’application, choisissez ASP.NET.
 * **Groupe de ressources** facilite la gestion des propriétés telles que le contrôle d’accès. Si vous avez déjà créé d’autres ressources Azure, vous pouvez choisir de placer cette nouvelle ressource dans le même groupe.
 * **Abonnement** est votre compte de paiement dans Azure.
 * **Emplacement** correspond à l’endroit où nous conservons vos données. Actuellement, il n’est pas possible de le modifier.
@@ -70,7 +70,7 @@ Le SDK inclut des modules standard qui envoient des données de télémétrie sa
 
 Fermez le panneau de démarrage rapide pour revenir au panneau de votre application dans le portail Azure.
 
-Cliquez sur la vignette de recherche pour afficher [Recherche de diagnostic][diagnostic] : les premiers événements y apparaissent.
+Cliquez sur la vignette de recherche pour afficher [Recherche de diagnostic][diagnostic] : les premiers événements y apparaissent.
 
 Après quelques secondes, cliquez sur Actualiser pour obtenir des données supplémentaires.
 
@@ -78,7 +78,12 @@ Après quelques secondes, cliquez sur Actualiser pour obtenir des données suppl
 
 Vous pouvez écrire un [script PowerShell](app-insights-powershell-script-create-resource.md) pour créer automatiquement une ressource.
 
+## Étapes suivantes
 
+* [Création d’un tableau de bord](app-insights-dashboards.md)
+* [Recherche de diagnostic](app-insights-diagnostic-search.md)
+* [Exploration des mesures](app-insights-metrics-explorer.md)
+* [Écriture de requêtes Analytics](app-insights-analytics.md)
 
 
 <!--Link references-->
@@ -90,4 +95,4 @@ Vous pouvez écrire un [script PowerShell](app-insights-powershell-script-create
 
  
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0831_2016-->

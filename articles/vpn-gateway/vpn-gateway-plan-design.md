@@ -80,7 +80,7 @@ La liste suivante présente le flux de travail courant pour la connectivité au 
 
 ### <a name="topologies"></a>Topologies de connexion
 
-Commencez par consulter les diagrammes de l’article [Topologies de connexion](vpn-gateway-topology.md). Cet article contient des schémas de base, les modèles de déploiement de chaque topologie (Resource Manager ou classique) et les outils de déploiement que vous pouvez utiliser pour déployer votre configuration.
+Commencez par consulter les diagrammes dans l’article [À propos de la passerelle VPN](vpn-gateway-about-vpngateways.md). Cet article contient des schémas de base, les modèles de déploiement de chaque topologie (Resource Manager ou classique) et les outils de déploiement que vous pouvez utiliser pour déployer votre configuration.
 
 ### <a name="designbasics"></a>Concepts de base
 
@@ -161,4 +161,4 @@ Pour plus d’informations susceptibles de vous aider dans votre conception, voi
 
 Pour plus d’informations sur les paramètres de passerelle spécifiques, voir [À propos des paramètres de la passerelle VPN](vpn-gateway-about-vpn-gateway-settings.md).
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

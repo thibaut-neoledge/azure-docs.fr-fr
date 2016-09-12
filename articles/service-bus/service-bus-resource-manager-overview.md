@@ -32,7 +32,7 @@ Ces modèles Azure Resource Manager Service Bus et Event Hubs sont disponibles a
 - [Créer un espace de noms Service Bus avec file d’attente](service-bus-resource-manager-namespace-queue.md)
 - [Créer un espace de noms Service Bus par rubrique et abonnement](service-bus-resource-manager-namespace-topic.md)
 - [Créer un espace de noms Service Bus avec file d'attente et règle d’autorisation](service-bus-resource-manager-namespace-auth-rule.md)
-- [Créer un espace de noms Service Bus avec un concentrateur d'événements et un groupe de consommateurs](service-bus-resource-manager-namespace-event-hub.md)
+- [Créer un espace de noms Event Hubs avec un Event Hub et un groupe de consommateurs](../event-hubs/event-hubs-resource-manager-namespace-event-hub.md)
 
 ## Déployer avec PowerShell
 
@@ -146,7 +146,7 @@ Pour utiliser un fichier de paramètres facultatif, copiez le fichier [201-servi
 
 Pour plus d’informations, consultez la rubrique [Fichier de paramètres](../resource-group-template-deploy.md#parameter-file).
 
-### Se connecter à Azure et définir l'abonnement Azure
+### Se connecter à Azure et définir l’abonnement Azure
 
 À partir d’une invite de commandes PowerShell, exécutez la commande suivante :
 
@@ -254,4 +254,4 @@ Vous avez maintenant vu le flux de travail et les commandes de base pour le dép
 [Déployer des ressources à l’aide de modèles Azure Resource Manager]: ../resource-group-template-deploy.md
 [Galerie de modèles de démarrage rapide Azure]: https://azure.microsoft.com/documentation/templates/?term=service+bus
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0831_2016-->

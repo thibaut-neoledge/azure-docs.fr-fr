@@ -26,7 +26,7 @@
 - [PowerShell](sql-database-copy-powershell.md)
 - [T-SQL](sql-database-copy-transact-sql.md)
 
-Vous pouvez utiliser les [sauvegardes automatisées de base de données SQL](sql-database-automated-backups.md) Azure pour créer une copie de votre base de données SQL. L’opération de copie copie la fin du journal des transactions, puis utilise les sauvegardes complètes, différentielles ainsi que les journaux de transactions qui font partie des sauvegardes automatisées pour créer une base de données cohérente au niveau transactionnel avec la base de données source au moment de la sauvegarde finale du journal de transactions.
+Vous pouvez utiliser les [sauvegardes automatisées de base de données SQL](sql-database-automated-backups.md) Azure pour créer une copie de votre base de données SQL. L’opération de copie effectue une copie la fin du journal des transactions, puis utilise les sauvegardes complètes et différentielles ainsi que les journaux de transactions qui font partie des sauvegardes automatisées pour créer une base de données cohérente au niveau transactionnel avec la base de données source au moment de la sauvegarde finale du journal de transactions.
 
 Vous pouvez créer la copie de la base de données sur le même serveur ou sur un autre serveur. Le niveau de service et le niveau de performances (niveau de tarification) de la copie de base de données sont les mêmes que ceux de la base de données source. Une fois la copie terminée, la copie devient une base de données indépendante et entièrement fonctionnelle. Les connexions, les utilisateurs et les autorisations peuvent être gérés indépendamment.
 
@@ -37,7 +37,7 @@ Lorsque vous copiez une base de données vers un autre serveur logique, le princ
 
 Pour copier une base de données SQL, vous avez besoin des éléments suivants :
 
-- Un abonnement Azure. Si vous avez besoin d'un abonnement Azure, cliquez simplement sur **VERSION D'ÉVALUATION GRATUITE** en haut de cette page, puis continuez la lecture de cet article.
+- Un abonnement Azure. Si vous avez besoin d’un abonnement Azure, cliquez simplement sur **VERSION D’ÉVALUATION GRATUITE** en haut de cette page, puis continuez la lecture de cet article.
 - Une base de données SQL à copier. Si vous n’avez pas de base de données SQL, créez-en une en procédant de la manière décrite dans [Créer votre première base de données SQL Azure](sql-database-get-started.md).
 
 ## Étapes suivantes
@@ -57,4 +57,4 @@ Pour copier une base de données SQL, vous avez besoin des éléments suivants :
 - [Vue d'ensemble de la continuité des activités](sql-database-business-continuity.md)
 - [Documentation sur la base de données SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0831_2016-->

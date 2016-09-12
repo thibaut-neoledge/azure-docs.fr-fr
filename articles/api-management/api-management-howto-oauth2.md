@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/09/2016" 
+	ms.date="08/24/2016" 
 	ms.author="sdanie"/>
 
 # Comment autoriser des comptes de développeurs à l'aide de OAuth 2.0 dans Gestion des API Azure
@@ -146,7 +146,6 @@ Pour plus d’informations sur l’utilisation d’OAuth 2.0 et la gestion des 
 [Add APIs to a product]: api-management-howto-add-products.md#add-apis
 [Publish a product]: api-management-howto-add-products.md#publish-product
 [Prise en main de Gestion des API Azure]: api-management-get-started.md
-[Get started with advanced API configuration]: api-management-get-started-advanced.md
 [API Management policy reference]: api-management-policy-reference.md
 [Caching policies]: api-management-policy-reference.md#caching-policies
 [Création d'une instance de service Gestion des API]: api-management-get-started.md#create-service-instance
@@ -160,4 +159,4 @@ Pour plus d’informations sur l’utilisation d’OAuth 2.0 et la gestion des 
 [Test the OAuth 2.0 user authorization in the Developer Portal]: #step3
 [Next steps]: #next-steps
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0831_2016-->

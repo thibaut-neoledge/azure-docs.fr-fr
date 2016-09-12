@@ -291,6 +291,15 @@ Received message with JMSMessageID = ID:acbca67f03c346de9b7893026f97ddeb
 exit
 ```
 
+## Fonctionnalités non prises en charge et restrictions
+
+Les fonctionnalités suivantes de l'API .NET Services Bus ne sont actuellement pas prises en charge lors de l'utilisation d'AMQP :
+
+ * Transactions
+ * Envoi via destination de transfert
+
+Pour plus d’informations, consultez [Fonctionnalités non prises en charge, restrictions et différences de comportement](service-bus-amqp-dotnet.md#unsupported-features-restrictions-and-behavioral-differences).
+
 ## Résumé
 
 Cet article a expliqué comment accéder aux fonctionnalités de messagerie répartie Service Bus (rubriques de files d’attente et de publication/d’abonnement) depuis .NET à l’aide d’AMQP 1.0 et l’API .NET Service Bus.
@@ -307,4 +316,4 @@ Maintenant que vous avez une vue d'ensemble du Service Bus et AMQP avec .NET, co
  
 [portail Azure]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

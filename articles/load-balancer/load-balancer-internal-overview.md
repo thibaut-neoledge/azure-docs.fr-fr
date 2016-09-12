@@ -13,35 +13,25 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/17/2016"
+   ms.date="08/25/2016"
    ms.author="sewhee" />
 
 
 # Vue d’ensemble de l’équilibrage de charge interne
 
-L’équilibrage de charge interne (ILB) est une amélioration de la sécurité de l’actuel équilibrage de charge sur internet. Il est offert dans Azure. Il est possible d’accéder à l'ILB uniquement par les ressources dans le service cloud ou à l’aide d’un VPN pour accéder à l'infrastructure Azure afin d'atteindre l'ILB.
-
-L'infrastructure limite l'accessibilité et crée une limite de confiance entre les adresses IP virtuelles d'équilibrage de charge pour un service cloud ou un réseau virtuel et ne sera jamais exposée directement à un point de terminaison Internet. Cela permet aux applications cœur de métier internes de s'exécuter dans Azure et d’être accessibles dans le cloud ou en local.
+Contrairement à l’équilibreur de charge avec accès par Internet, l’équilibreur de charge interne (ILB) utilise uniquement les ressources au sein du service cloud ou le VPN pour accéder à l’infrastructure Azure. L’infrastructure limite l’accès aux adresses IP virtuelles à charge équilibrée d’un service cloud ou d’un réseau virtuel. Ainsi, elles ne seront jamais exposées directement à un point de terminaison Internet. Cela permet aux applications cœur de métier internes de s’exécuter dans Azure et d’être accessibles dans le cloud ou à partir de ressources locales.
 
 ## Scénarios pour l’équilibreur de charge interne
 
-Vous pouvez utiliser l'ILB dans beaucoup de nouvelles configurations, notamment les suivantes :
-
 L’équilibrage de charge interne (ILB) d’Azure fournit un équilibrage de charge entre les machines virtuelles qui résident dans un service cloud ou un réseau virtuel avec une portée régionale. Pour plus d'informations sur l'utilisation et la configuration des réseaux virtuels avec une portée régionale, consultez [Réseaux virtuels régionaux](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/) sur le blog Azure. Les réseaux virtuels existants qui ont été configurés pour un groupe d'affinités ne peuvent pas utiliser l'ILB.
 
-L’ILB permet les nouveaux types d'équilibrage de charge suivants :
+L’ILB donne accès aux scénarios suivants :
 
 - Dans un service cloud, des machines virtuelles à un ensemble de machines virtuelles qui résident dans le même service cloud (voir Figure 1).
-
 - Dans un réseau virtuel, des machines virtuelles dans le réseau virtuel à un ensemble de machines virtuelles qui résident dans le même service cloud du réseau virtuel (voir Figure 2).
-
 - Dans un réseau virtuel entre différents locaux, des ordinateurs locaux à un ensemble de machines virtuelles qui résident dans le même service cloud du réseau virtuel (voir Figure 3).
-
-L'équilibrage de charge Azure existant fournit uniquement l'équilibrage de charge entre des ordinateurs basés sur Internet et des machines virtuelles dans un service cloud. L’ILB vous offre de nouvelles fonctionnalités pour l’hébergement de machines virtuelles dans Azure.
-
 - Les applications multiniveau sur internet pour lesquelles les principaux niveaux ne sont pas sur internet mais nécessitent un équilibrage de charge pour le trafic depuis le niveau sur internet.
 - Équilibrer la charge pour des applications métier hébergées dans Azure, sans matériel ou logiciel d’équilibrage de charge supplémentaire. Y compris les serveurs locaux d'un ensemble d'ordinateurs dont la charge du trafic est équilibrée.
-- Les sections suivantes décrivent ces configurations plus en détail.
 
 ## Une application multiniveau sur internet
 
@@ -72,10 +62,13 @@ Le trafic des clients sur le réseau local obtient un équilibrage de charge sur
 
 L'ordinateur client aura accès à une adresse IP du service VPN Azure à l'aide du VPN de point à site. Cela permettra d'utiliser l'application cœur de métier hébergée derrière le point de terminaison de l'ILB.
 
+Figure 3
 
 ![Équilibrage de charge interne utilisant le VPN de point à site](./media/load-balancer-internal-overview/IC744148.png)
 
 Un autre scénario pour le système cœur de métier est d'avoir un VPN de site à site sur le réseau virtuel dans lequel le point de terminaison de l’ILB est configuré. Cela permet au trafic du réseau local d’être acheminé vers le point de terminaison de l'ILB.
+
+Figure 4
 
 ![Équilibrage de charge interne utilisant le VPN de site à site](./media/load-balancer-internal-overview/IC744150.png)
 
@@ -90,4 +83,4 @@ Un autre scénario pour le système cœur de métier est d'avoir un VPN de site 
 
 [Configuration des paramètres du délai d’expiration TCP inactif pour votre équilibrage de charge](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

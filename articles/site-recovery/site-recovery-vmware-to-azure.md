@@ -139,10 +139,14 @@ Pour préparer un déploiement, vous devez :
 - [Découvrez](../vpn-gateway/vpn-gateway-site-to-site-create.md) les modèles de déploiement pris en charge pour les connexions VPN de site à site et apprenez à [configurer une connexion](../vpn-gateway/vpn-gateway-site-to-site-create.md#create-your-virtual-network).
 - Vous pouvez également configurer [Azure ExpressRoute](../expressroute/expressroute-introduction.md). [Découvrez](../expressroute/expressroute-howto-vnet-portal-classic.md) comment configurer un réseau Azure avec ExpressRoute.
 
+> [AZURE.NOTE] [Migration of networks](../ressources-groupe-move-resources.md) entre les groupes de ressources d’un même abonnement ou de plusieurs abonnements n’est pas pris en charge pour les réseaux utilisés pour le déploiement de Site Recovery.
+
 ### Configurer un compte Azure Storage
 
 - Vous avez besoin d’un compte Azure Standard Storage ou Premium Storage pour stocker les données répliquées sur Azure. Ce compte doit se trouver dans la même région que le coffre Recovery Services. Selon le modèle de ressource que vous souhaitez utiliser pour le basculement des machines virtuelles Azure, vous allez configurer un compte en [mode ARM](../storage/storage-create-storage-account.md) ou en [mode Classic](../storage/storage-create-storage-account-classic-portal.md).
 - Si vous utilisez un compte Premium pour les données répliquées, vous devez créer un compte Standard supplémentaire afin de stocker les journaux de réplication qui capturent les modifications apportées en continu aux données locales.
+
+> [AZURE.NOTE] [Migration of storage accounts](../ressources-groupe-move-resources.md) entre les groupes de ressources d’un même abonnement ou de plusieurs abonnements n’est pas pris en charge pour les comptes de stockage utilisés pour le déploiement de Site Recovery.
 
 ### Préparer un compte pour la découverte automatique
 
@@ -662,7 +666,7 @@ Lorsque vous activez la réplication, tous les disques de la machine sont répli
 
 	![Activer la réplication](./media/site-recovery-vmware-to-azure/enable-replication6.png)
 
-11. Dans **Paramètres de réplication** > **Configurer les paramètres de réplication**, vérifiez que la stratégie de réplication correcte est sélectionnée. Vous pouvez modifier les paramètres de la stratégie de réplication dans **Paramètres** > **Stratégies de réplication** > Nom de la stratégie > **Modifier les paramètres**. Les modifications que vous appliquez à une stratégie seront appliquées à la réplication et aux nouvelles machines.
+11. Dans **Paramètres de réplication** > **Configurer les paramètres de réplication**, vérifiez que la stratégie de réplication correcte est sélectionnée. Vous pouvez modifier les paramètres de la stratégie de réplication dans **Paramètres** > **Stratégies de réplication** > nom de la stratégie > **Modifier les paramètres**. Les modifications que vous appliquez à une stratégie seront appliquées à la réplication et aux nouvelles machines.
 
 12. Cochez la case **Cohérence multimachine virtuelle** pour regrouper les machines dans un groupe de réplication, et nommez le groupe. Cliquez ensuite sur **OK**. Notez les points suivants :
 
@@ -692,7 +696,7 @@ Nous vous recommandons de vérifier les propriétés de la machine source. N’o
 
 		- Si le nombre de cartes réseau sur la machine source est inférieur ou égal au nombre de cartes autorisé pour la taille de la machine cible, la cible présente le même nombre de cartes que la source.
 		- Si le nombre de cartes de la machine virtuelle source dépasse la valeur de taille cible autorisée, la taille cible maximale est utilisée.
-		- Par exemple, si une machine source présente deux cartes réseau et que la taille de la machine cible en accepte quatre, la machine cible présentera deux cartes. Si la machine source inclut deux cartes, mais que la taille cible prise en charge accepte une seule carte, la machine cible présentera une seule carte.
+		- Par exemple, si une machine source présente deux cartes réseau et que la taille de la machine cible en accepte quatre, la machine cible présentera deux cartes. Si la machine source inclut deux cartes, mais que la taille cible prise en charge accepte une seule carte, la machine cible présentera une seule carte. 	
 	- Si la machine virtuelle possède plusieurs cartes réseau, elles se connectent toutes au même réseau.
 
 	![Activer la réplication](./media/site-recovery-vmware-to-azure/test-failover4.png)
@@ -859,4 +863,4 @@ The information in Section B is regarding Third Party Code components that are b
 
 The complete file may be found on the [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=529428). Microsoft reserves all rights not expressly granted herein, whether by implication, estoppel or otherwise.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

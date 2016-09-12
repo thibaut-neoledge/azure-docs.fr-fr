@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure-services"
-   ms.date="06/07/2016"
+   ms.date="08/29/2016"
    ms.author="kyliel"/>
 
 # Création et téléchargement d’un disque dur virtuel FreeBSD dans Azure
@@ -228,4 +228,4 @@ Après avoir téléchargé le fichier .vhd, vous pouvez l'ajouter en tant qu'ima
 
 	![Image FreeBSD dans Azure](./media/virtual-machines-linux-classic-freebsd-create-upload-vhd/freebsdimageinazure.png)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0831_2016-->

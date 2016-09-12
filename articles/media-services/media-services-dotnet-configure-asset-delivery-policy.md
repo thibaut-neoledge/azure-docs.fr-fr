@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Configuration de stratégies de remise de ressources à l’aide du Kit de développement logiciel (SDK) .NET" 
-	description="Cette rubrique montre comment configurer différentes stratégies de remise de ressources à l’aide du Kit de développement logiciel (SDK) .NET Azure Media Services." 
+	description="Cette rubrique montre comment configurer différentes stratégies de livraison d’éléments multimédias à l’aide du Kit de développement logiciel (SDK) .NET Azure Media Services." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako,Mingfeiy" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/22/2016"
+	ms.date="08/31/2016"
 	ms.author="juliako"/>
 
 #Configuration de stratégies de remise de ressources à l’aide du Kit de développement logiciel (SDK) .NET
@@ -23,7 +23,7 @@
 
 Si vous envisagez la remise de ressources chiffrées, l'une des étapes du workflow de remise de contenu Media Services consiste à configurer les stratégies de remise pour les ressources. La stratégie de remise de ressources indique à Media Services comment vous souhaitez distribuer vos ressources : dans quel protocole de diffusion en continu votre ressource doit être empaquetée dynamiquement (par exemple, MPEG DASH, HLS, diffusion en continu lisse ou tous), si vous souhaitez chiffrer dynamiquement votre ressource ou non et comment (chiffrement commun ou d’enveloppe).
 
-Cette rubrique explique pourquoi et comment créer et configurer des stratégies de remise de ressources.
+Cette rubrique explique pourquoi et comment créer et configurer des stratégies de livraison d’éléments multimédias.
 
 >[AZURE.NOTE]Pour pouvoir utiliser l’empaquetage et le chiffrement dynamiques, vous devez vous assurer d’avoir au moins une unité d’échelle (également appelée unité de diffusion). Pour plus d'informations, consultez [Mise à l'échelle d'un service de média](media-services-manage-origins.md#scale_streaming_endpoints).
 >
@@ -157,7 +157,7 @@ Azure Media Services vous permet également d’ajouter un chiffrement Widevine.
 
 ##Stratégie de remise de ressources DynamicEnvelopeEncryption 
 
-La méthode **CreateAssetDeliveryPolicy** suivante crée l’**AssetDeliveryPolicy** configurée pour appliquer le chiffrement dynamique en enveloppe (**DynamicEnvelopeEncryption**) aux protocoles HLS et DASH (les autres protocoles ne peuvent pas être diffusés en continu). La méthode accepte deux paramètres : **Asset** (l'élément multimédia auquel vous souhaitez appliquer la stratégie de remise) et **IContentKey** (la clé de contenu de type **EnvelopeEncryption**. Pour plus d'informations, consultez [Création d'une clé de contenu](media-services-dotnet-create-contentkey.md#envelope_contentkey)).
+La méthode **CreateAssetDeliveryPolicy** suivante crée **l’AssetDeliveryPolicy** configurée pour appliquer le chiffrement dynamique en enveloppe (**DynamicEnvelopeEncryption**) aux protocoles Smooth Streaming, HLS et DASH (si vous décidez de ne pas spécifier certains protocoles, ils ne pourront pas être diffusés en continu). La méthode accepte deux paramètres : **Asset** (l'élément multimédia auquel vous souhaitez appliquer la stratégie de remise) et **IContentKey** (la clé de contenu de type **EnvelopeEncryption**. Pour plus d'informations, consultez [Création d'une clé de contenu](media-services-dotnet-create-contentkey.md#envelope_contentkey)).
 
 
 Pour plus d'informations sur les valeurs que vous pouvez spécifier au moment de la création d'une AssetDeliveryPolicy, consultez la section [Types utilisés au moment de la définition d'AssetDeliveryPolicy](#types).
@@ -189,7 +189,7 @@ Pour plus d'informations sur les valeurs que vous pouvez spécifier au moment de
             _context.AssetDeliveryPolicies.Create(
                         "AssetDeliveryPolicy",
                         AssetDeliveryPolicyType.DynamicEnvelopeEncryption,
-                        AssetDeliveryProtocol.HLS | AssetDeliveryProtocol.Dash,
+                        AssetDeliveryProtocol.SmoothStreaming | AssetDeliveryProtocol.HLS | AssetDeliveryProtocol.Dash,
                         assetDeliveryPolicyConfiguration);
 
         // Add AssetDelivery Policy to the asset
@@ -361,4 +361,4 @@ Pour plus d'informations sur les valeurs que vous pouvez spécifier au moment de
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0831_2016-->

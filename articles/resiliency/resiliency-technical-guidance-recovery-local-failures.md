@@ -110,7 +110,7 @@ Un disque de machine virtuelle est stocké comme un objet blob de pages dans Azu
 
 La Base de données SQL Azure fournit une base de données en tant que service. Elle permet aux applications d’effectuer rapidement des opérations d’approvisionnement, d’insérer des données et d’interroger des bases de données relationnelles. Elle offre de nombreuses fonctionnalités communes de SQL Server, tout en vous épargnant la complexité associée au matériel, à la configuration, à la mise à jour corrective et à la résilience.
 
->[AZURE.NOTE] La Base de données SQL Azure ne fournit pas un ensemble de fonctionnalités identique à celui de SQL Server. Elle est conçue pour répondre à une série d’exigences spécifiques aux applications cloud (mise à l’échelle élastique, base de données en tant que service pour réduire les coûts de maintenance et ainsi de suite). Pour plus d’informations, consultez [Choisir une option de SQL Server cloud : Base de données SQL Azure (PaaS) ou SQL Server sur des machines virtuelles Azure (IaaS)](../sql-database/sql-database-paas-vs-sql-server-iaas.md).
+>[AZURE.NOTE] La Base de données SQL Azure ne fournit pas un ensemble de fonctionnalités identique à celui de SQL Server. Elle est conçue pour répondre à une série d’exigences spécifiques aux applications cloud (mise à l’échelle élastique, base de données en tant que service pour réduire les coûts de maintenance et ainsi de suite). Pour plus d’informations, consultez [Choisir une option SQL Server cloud : Base de données SQL Azure (PaaS) ou SQL Server sur des machines virtuelles Azure (IaaS)](../sql-database/sql-database-paas-vs-sql-server-iaas.md).
 
 ####Réplication
 
@@ -223,4 +223,4 @@ Par défaut, les données associées à Azure HDInsight sont stockées dans le s
 
 Cet article fait partie d’une série intitulée [Guide technique de la résilience Azure](./resiliency-technical-guidance.md). L’article suivant de cette série s’intitule [Récupération d’une interruption de service à l’échelle de la région](./resiliency-technical-guidance-recovery-loss-azure-region.md).
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

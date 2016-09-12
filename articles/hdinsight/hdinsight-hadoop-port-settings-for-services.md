@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="06/14/2016"
+ms.date="08/30/2016"
 ms.author="larryfr"/>
 
 # Ports et URI utilisés par HDInsight
@@ -34,7 +34,7 @@ Pour joindre des ordinateurs supplémentaires au réseau virtuel, vous devez d�
 
 Tous les nœuds dans un cluster HDInsight se trouvent dans un réseau virtuel Azure et ne sont pas directement accessibles depuis Internet. Une passerelle publique fournit l’accès à Internet pour les ports suivants, qui sont communs à tous les types de cluster HDInsight.
 
-| Service | Port | Protocole | Description |
+| de diffusion en continu | Port | Protocole | Description |
 | ---- | ---------- | -------- | ----------- | ----------- |
 | sshd | 22 | SSH | Connecte les clients à sshd sur le nœud principal 0. Consultez la page [Utilisation de SSH avec HDInsight Linux](hdinsight-hadoop-linux-use-ssh-windows.md) |
 | sshd | 22 | SSH | Connecte les clients à sshd sur le nœud de périmètre (HDInsight Premium uniquement). Consultez la page [Commencer à utiliser R Server sur HDInsight](hdinsight-hadoop-r-server-get-started.md) |
@@ -47,7 +47,7 @@ Tous les nœuds dans un cluster HDInsight se trouvent dans un réseau virtuel Az
 
 Les éléments suivants sont disponibles pour les types de clusters spécifiques :
 
-| Service | Port | Protocole |Type de cluster | Description |
+| de diffusion en continu | Port | Protocole |Type de cluster | Description |
 | ------------ | ---- |  ----------- | --- | ----------- |
 | Stargate | 443 | HTTPS | HBase | API REST HBase. Consultez la page [Prise en main de HBase](hdinsight-hbase-tutorial-get-started-linux.md) |
 | Livy | 443 | HTTPS | Spark | API REST Spark. Consultez la page [Envoi de travaux Spark à distance à l’aide de Livy](hdinsight-apache-spark-livy-rest-interface.md) |
@@ -64,9 +64,11 @@ Tous les services exposés publiquement sur Internet doivent être authentifiés
 
 ## Ports non publics
 
+> [AZURE.NOTE] Certains services sont disponibles uniquement sur certains types de clusters. Par exemple, HBase est disponible uniquement sur les clusters de type HBase.
+
 ### Ports HDFS
 
-| Service | Nœud(s) | Port | Protocole | Description |
+| de diffusion en continu | Nœud(s) | Port | Protocole | Description |
 | ------- | ------- | ---- | -------- | ----------- | 
 | Interface utilisateur web de NameNode | Nœuds principaux | 30070 | HTTPS | Interface utilisateur pour afficher l’état actuel |
 | Service de métadonnées NameNode | nœuds principaux | 8020 | IPC | Métadonnées du système de fichiers 
@@ -74,9 +76,10 @@ Tous les services exposés publiquement sur Internet doivent être authentifiés
 | DataNode | Tous les nœuds de travail | 30010 | &nbsp; | Transfert de données |
 | DataNode | Tous les nœuds de travail | 30020 | IPC | Opérations sur les métadonnées |
 | NameNode secondaire | Nœuds principaux | 50090 | HTTP | Point de contrôle pour les métadonnées NameNode |
+
 ### Ports YARN
 
-| Service | Nœud(s) | Port | Protocole | Description |
+| de diffusion en continu | Nœud(s) | Port | Protocole | Description |
 | ------- | ------- | ---- | -------- | ----------- |
 | Interface utilisateur web de Resource Manager | Nœuds principaux | 8088 | HTTP | Interface utilisateur web pour Resource Manager |
 | Interface utilisateur web de Resource Manager | Nœuds principaux | 8090 | HTTPS | Interface utilisateur web pour Resource Manager |
@@ -90,7 +93,7 @@ Tous les services exposés publiquement sur Internet doivent être authentifiés
 
 ### Ports Hive
 
-| Service | Nœud(s) | Port | Protocole | Description |
+| de diffusion en continu | Nœud(s) | Port | Protocole | Description |
 | ------- | ------- | ---- | -------- | ----------- |
 | HiveServer2 | Nœuds principaux | 10001 | Thrift | Service pour se connecter par programme à Hive (Thrift/JDBC) |
 | HiveServer | Nœuds principaux | 10000 | Thrift | Service pour se connecter par programme à Hive (Thrift/JDBC) |
@@ -104,7 +107,7 @@ Tous les services exposés publiquement sur Internet doivent être authentifiés
 
 ### Ports MapReduce
 
-| Service | Nœud(s) | Port | Protocole | Description |
+| de diffusion en continu | Nœud(s) | Port | Protocole | Description |
 | ------- | ------- | ---- | -------- | ----------- |
 | JobHistory | Nœuds principaux | 19888 | HTTP | Interface utilisateur web de MapReduce JobHistory |
 | JobHistory | Nœuds principaux | 10020 | &nbsp; | Serveur MapReduce JobHistory |
@@ -112,25 +115,32 @@ Tous les services exposés publiquement sur Internet doivent être authentifiés
 
 ### Oozie
 
-| Service | Nœud(s) | Port | Protocole | Description |
+| de diffusion en continu | Nœud(s) | Port | Protocole | Description |
 | ------- | ------- | ---- | -------- | ----------- |
 | Serveur Oozie | Nœuds principaux | 11000 | HTTP | URL du service Oozie |
 | Serveur Oozie | Nœuds principaux | 11001 | HTTP | Port pour l’administration Oozie |
 
 ### Mesures d’Ambari
 
-| Service | Nœud(s) | Port | Protocole | Description |
+| de diffusion en continu | Nœud(s) | Port | Protocole | Description |
 | ------- | ------- | ---- | -------- | ----------- |
 | TimeLine (historique d’application) | Nœuds principaux | 6188 | HTTP | L’interface utilisateur web du service TimeLine |
 | TimeLine (historique d’application) | Nœuds principaux | 30200 | RPC | L’interface utilisateur web du service TimeLine |
 
 ### Ports HBase
 
-| Service | Nœud(s) | Port | Protocole | Description |
+| de diffusion en continu | Nœud(s) | Port | Protocole | Description |
 | ------- | ------- | ---- | -------- | ----------- |
 | HMaster | Nœuds principaux | 16000 | &nbsp; | &nbsp; |
 | Interface utilisateur web d’informations sur HMaster | Nœuds principaux | 16010 | HTTP | Le port de l’interface utilisateur web principale de HBase Master |
 | Serveur de la région | Tous les nœuds de travail | 16020 | &nbsp; | &nbsp; |
 | &nbsp; | &nbsp; | 2181 | &nbsp; | Le port que les clients utilisent pour se connecter à ZooKeeper |
 
-<!---HONumber=AcomDC_0713_2016-->
+### Ports Kafka
+
+| de diffusion en continu | Nœud(s) | Port | Protocole | Description |
+| ------- | ------- | ---- | -------- | ----------- |
+| Service Broker | Nœuds de travail | 9092 | [Protocole Kafka](http://kafka.apache.org/protocol.html) | Utilisé pour la communication client |
+| &nbsp; | Nœuds Zookeeper | 2181 | &nbsp; | Le port que les clients utilisent pour se connecter à ZooKeeper |
+
+<!---HONumber=AcomDC_0831_2016-->

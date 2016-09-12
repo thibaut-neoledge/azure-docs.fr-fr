@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/27/2016"
+	ms.date="08/24/2016"
 	ms.author="szark"/>
 
 #Présentation de Linux sous Azure
@@ -96,6 +96,6 @@ Sous Linux, le disque de ressources est habituellement géré par l’agent Linu
 
 Sous Linux, le disque de données peut être nommé `/dev/sdc` par le noyau et les utilisateurs doivent partitionner, formater et monter cette ressource. L’opération est couverte étape par étape dans le didacticiel [Association d’un disque de données avec une machine virtuelle](virtual-machines-linux-classic-attach-disk.md).
 
- - **Voir aussi :** [Configuration d’un RAID logiciel sur Linux](virtual-machines-linux-configure-raid.md)
+ - **Voir aussi :** [Configuration d’un RAID logiciel sur Linux](virtual-machines-linux-configure-raid.md) et [Configurer LVM sur une machine virtuelle Linux dans Azure](virtual-machines-linux-configure-lvm.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

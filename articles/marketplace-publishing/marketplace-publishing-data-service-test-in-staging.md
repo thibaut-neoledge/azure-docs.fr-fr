@@ -13,11 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/04/2016"
+   ms.date="08/26/2016"
    ms.author="hascipio; avikova" />
 
 # Tester votre offre de service de données dans l'emplacement intermédiaire
-Après avoir effectué les deux premières étapes ([Création de votre compte de développeur Microsoft](marketplace-publishing-accounts-creation-registration.md) et [Création de votre offre de service de données dans le portail de publication](marketplace-publishing-data-service-creation.md)), vous êtes prêt à proposer votre offre dans Azure Marketplace. Cette rubrique vous guidera dans la première étape appelée « environnement intermédiaire »
+
+>[AZURE.IMPORTANT] **À ce stade, nous n’intégrons plus de nouveaux éditeurs de services de données. Le listing de nouveaux services de données ne sera pas approuvé.** Si vous avez une application SaaS professionnelle à publier sur AppSource, vous trouverez plus d’informations [ici](https://appsource.microsoft.com/partners). Si vous avez une application IaaS ou un service de développement à publier sur Azure Marketplace, vous trouverez plus d’informations [ici](https://azure.microsoft.com/marketplace/programs/certified/).
+
+Après avoir effectué les deux premières étapes ([Création de votre compte de développeur Microsoft](marketplace-publishing-accounts-creation-registration.md) et [Création de votre offre de service de données dans le portail de publication](marketplace-publishing-data-service-creation.md)), vous êtes prêt à proposer votre offre dans Azure Marketplace. Cette rubrique vous guidera dans la première étape appelée « préproduction »
 
 Dans le cadre du déploiement dans un environnement intermédiaire, vous déployez votre offre dans un « bac à sable » (sandbox) privé dans lequel vous pouvez tester et vérifier ses fonctionnalités avant le lancement de sa production. L'offre apparaît avec le statut Intermédiaire, comme pour un client qui l'aurait déployée.
 
@@ -36,13 +39,13 @@ Si votre offre ne présente aucun problème, vous verrez la fenêtre contextuell
 
 Si vous n’avez pas l’intention ou n’être pas habilité à publier votre offre dans le portail Azure (capacité limitée), fermez la fenêtre contextuelle.
 
-Pour tester votre service de données dans le portail Azure (en plus du portail DataMarket), vous devez utiliser un ID d'abonnement Azure. Cet ID d'abonnement identifiera le compte autorisé à tester votre offre.
+Pour tester votre service de données dans le Portail Azure (en plus du portail DataMarket), vous devez utiliser un ID d’abonnement Azure. Cet ID d’abonnement identifiera le compte autorisé à tester votre offre.
 
-Coupez et collez votre ID d'abonnement, puis cliquez sur la coche pour continuer.
+Coupez et collez votre ID d’abonnement, puis cliquez sur la coche pour continuer.
 
   ![dessin](media/marketplace-publishing-data-service-test-in-staging/step-1.2.png)
 
-> [AZURE.NOTE] Ces ID d'abonnement Azure sont uniquement requis pour le test et l’environnement intermédiaire dans le [portail de gestion Azure](https://manage.windowsazure.com). Ils ne sont pas nécessaires pour le test dans Azure Marketplace.
+> [AZURE.NOTE] Ces ID d’abonnement Azure sont uniquement requis pour le test et la gestion intermédiaire dans le [Portail de gestion Azure](https://manage.windowsazure.com). Ils ne sont pas nécessaires pour le test dans Azure Marketplace.
 
 L'écran suivant montre que la publication a lieu en affichant l'icône « En cours » en surbrillance jaune ci-dessous. Le transfert de l’offre vers l’environnement intermédiaire prend entre 10 à 15 minutes. Si l’opération prend plus de temps, actualisez d’abord votre navigateur (appuyez sur F5 dans Internet Explorer). Dans les rares cas où votre offre est toujours en cours de transfert vers l'environnement intermédiaire après une heure, cliquez sur le lien de contact pour nous avertir du problème.
 
@@ -86,4 +89,4 @@ Si vous êtes satisfait et prêt à publier votre offre, consultez la documentat
 ## Voir aussi
 - [Mise en route : publication d’une offre dans Azure Marketplace](marketplace-publishing-getting-started.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0831_2016-->

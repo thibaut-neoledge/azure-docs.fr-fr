@@ -13,15 +13,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/18/2016"
+   ms.date="08/25/2016"
    ms.author="ryanwi"/>
 
 # Se connecter à un cluster sécurisé
 Lorsqu’un client se connecte à un nœud de cluster Service Fabric, il peut être authentifié et une communication sécurisée peut être établie à l’aide de la sécurité par certificat. Cela garantit que seuls les utilisateurs autorisés puissent accéder au cluster et aux applications déployées et effectuer des tâches de gestion. La sécurité par certificat doit avoir été précédemment activée sur le cluster à sa création. Au moins deux certificats devraient être utilisés pour sécuriser le cluster, un pour le certificat du cluster et du serveur, et un autre pour l’accès client. Nous vous recommandons d’utiliser également des certificats secondaires supplémentaires et des certificats d’accès client. Pour plus d’informations sur les scénarios de sécurité des clusters, consultez [Sécurité des clusters](service-fabric-cluster-security.md).
 
-Pour sécuriser la communication entre un client et un nœud de cluster à l’aide de la sécurité par certificat, vous devez d’abord obtenir et installer le certificat client dans l’espace personnel de l’ordinateur local ou de l’utilisateur actuel. Vous aurez également besoin de l’empreinte numérique du certificat du serveur afin que le client puisse authentifier le cluster.
+Pour sécuriser la communication entre un client et un nœud de cluster à l’aide de la sécurité par certificat, vous devez d’abord obtenir et installer le certificat client dans l’espace personnel de l’ordinateur local ou de l’utilisateur actuel. Vous avez également besoin de l’empreinte numérique du certificat du serveur afin que le client puisse authentifier le cluster.
 
-Exécutez l’applet de commande PowerShell suivante pour configurer le certificat client sur l’ordinateur que vous utiliserez pour accéder au cluster.
+Exécutez l’applet de commande PowerShell suivante pour configurer le certificat client sur l’ordinateur à partir duquel vous accédez au cluster.
 
 ```powershell
 Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My `
@@ -50,7 +50,7 @@ Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
           -StoreLocation CurrentUser -StoreName My
 ```
 
-Par exemple, la commande PowerShell ci-dessus doit ressembler à ce qui suit. *ServerCertThumbprint* est l’empreinte numérique du certificat du serveur installé sur les nœuds du cluster, tandis que *FindValue* est l’empreinte numérique du certificat du client administrateur.
+Par exemple, la commande PowerShell précédente doit ressembler à ce qui suit. *ServerCertThumbprint* est l’empreinte numérique du certificat du serveur installé sur les nœuds du cluster, tandis que *FindValue* est l’empreinte numérique du certificat du client administrateur.
 
 ```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint clustername.westus.cloudapp.azure.com:19000 `
@@ -115,4 +115,4 @@ static X509Credentials GetCredentials(string clientCertThumb, string serverCertT
 - [Présentation du modèle d’intégrité de Service Fabric](service-fabric-health-introduction.md)
 - [Sécurité des applications et RunAs](service-fabric-application-runas-security.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0831_2016-->

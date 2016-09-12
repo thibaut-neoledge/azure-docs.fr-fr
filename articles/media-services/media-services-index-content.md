@@ -19,10 +19,6 @@
 
 # Indexation de fichiers multimédias avec Azure Media Indexer
 
-> [AZURE.SELECTOR]
-- [Portail](media-services-manage-content.md#index)
-- [.NET](media-services-index-content.md)
-
 
 Azure Media Indexer permet de rendre le contenu de vos fichiers multimédias consultable et de générer une transcription en texte intégral de sous-titrages et de mots-clés. Vous pouvez traiter un fichier multimédia ou plusieurs dans un lot.
 
@@ -40,7 +36,7 @@ Une tâche d’indexation peut générer les sorties suivantes :
 	Pour plus d’informations, consultez [Utilisation de fichiers AIB avec Azure Media Indexer et SQL Server](https://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/).
 
 
-Cette rubrique explique comment créer des tâches d’indexation pour **indexer un élément multimédia** et **indexer plusieurs fichiers**.
+Cette rubrique explique comment créer des travaux d’indexation pour **indexer un élément multimédia** et **indexer plusieurs fichiers**.
 
 Pour connaître les dernières mises à jour de l’indexeur multimédia Azure, consultez les [blogs Media Services](#preset).
 
@@ -156,7 +152,7 @@ Nom de fichier | Description
 __InputFileName.aib__ | Fichier blob d’indexation audio. <br /><br /> Un fichier blob d’indexation audio (AIB) est un fichier binaire qui peut être recherché dans le serveur Microsoft SQL à l’aide de la recherche de texte intégral. Un fichier AIB est plus puissant que les fichiers de sous-titres simples, car il contient des alternatives pour chaque mot, pour une expérience de recherche plus riche. <br/> <br/>Il requiert l’installation du module complémentaire d’indexeur SQL sur un ordinateur exécutant Microsoft SQL Server 2008 ou une version ultérieure. La recherche du fichier AIB à l’aide de la recherche de texte intégral de Microsoft SQL Server fournit des résultats de recherche plus précis que pour les fichiers de sous-titres générés par WAMI. Cela vient du fait que l’AIB contient des alternatives phonétiquement proches, tandis que les fichiers de sous-titres contiennent le mot avec le niveau de confiance le plus élevé pour chaque segment du fichier audio. Si la recherche de mots est très importante, il est recommandé d’utiliser AIB avec Microsoft SQL Server.<br/><br/> Pour télécharger le composant additionnel, cliquez sur <a href="http://aka.ms/indexersql">Composant additionnel d’Indexeur multimédia SQL</a>. <br/><br/>Il est également possible d’utiliser d’autres moteurs de recherche comme Apache Lucene/Solr pour indexer la vidéo selon les sous-titres et les fichiers XML de mots clés, mais les résultats sont moins précis.
 __InputFileName.smi__<br />__InputFileName.ttml__<br />__InputFileName.vtt__ |Fichiers de sous-titres (CC) aux formats SAMI, TTML et WebVTT.<br/><br/>Ils peuvent être utilisés pour rendre les fichiers audio et vidéo accessibles aux personnes malentendantes.<br/><br/>Les fichiers de sous-titres incluent une balise appelée <b>Recognizability</b> qui évalue un travail d’indexation en fonction de du degré de reconnaissance vocale dans la vidéo source. Vous pouvez utiliser la valeur de <b>Recognizability</b> pour filtrer les fichiers de sortie en fonction de leur usage. Un faible score sous-entend de mauvais résultats d’indexation en raison de la qualité audio.
 __InputFileName.kw.xml<br />InputFileName.info__ |Fichiers de mots clés et d’informations. <br/><br/>Un fichier de mot-clé est un fichier XML qui contient les mots clés extraits à partir du contenu de la reconnaissance vocale, avec les informations relatives à la fréquence et à la référence. <br/><br/>Un fichier d’informations est un fichier de texte brut qui contient des informations précises sur chaque terme reconnu. La première ligne est spéciale et contient le score Recognizability. Chaque ligne suivante est une liste des données suivantes séparées par des tabulations : heure de début, heure de fin, mot/expression, fiabilité. Les heures sont exprimées en secondes et la fiabilité est exprimée comme un nombre compris entre 0 et 1. <br/><br/>Ligne exemple : « 1.20 1.45 word 0.67» <br/><br/>Ces fichiers peuvent être utilisés à différentes fins, par exemple pour effectuer une analyse vocale ou être présentés à des moteurs de recherche comme Bing, Google ou Microsoft SharePoint pour rendre les fichiers multimédia plus détectables, ou même pour fournir des publicités plus pertinentes.
-__JobResult.txt__ |Manifeste de sortie présent uniquement lors de l’indexation de plusieurs fichiers, qui contient les informations suivantes :<br/><br/><table border="1"><tr><th>InputFile</th><th>Alias</th><th>MediaLength</th><th>Error</th></tr><tr><td>a.mp4</td><td>Media_1</td><td>300</td><td>0</td></tr><tr><td>b.mp4</td><td>Media_2</td><td>0</td><td>3000</td></tr><tr><td>c.mp4</td><td>Media\_3</td><td>600</td><td>0</td></tr></table><br/>
+__JobResult.txt__ |Manifeste de sortie, présent uniquement en cas d’indexation de plusieurs fichiers, contenant les informations suivantes :<br/><br/><table border="1"><tr><th>InputFile</th><th>Alias</th><th>MediaLength</th><th>Error</th></tr><tr><td>a.mp4</td><td>Media_1</td><td>300</td><td>0</td></tr><tr><td>b.mp4</td><td>Media_2</td><td>0</td><td>3000</td></tr><tr><td>c.mp4</td><td>Media\_3</td><td>600</td><td>0</td></tr></table><br/>
 
 
 
@@ -298,4 +294,4 @@ Les langues prises en charge pour le moment sont l’anglais et l’espagnol. Po
 
 [Indexation de fichiers multimédias avec Azure Media Indexer 2 Preview](media-services-process-content-with-indexer2.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0831_2016-->

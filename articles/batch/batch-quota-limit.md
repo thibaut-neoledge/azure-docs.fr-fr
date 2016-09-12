@@ -94,11 +94,11 @@ Une fois que vous avez envoyé votre demande de support, le support Azure vous c
 
 ## Rubriques connexes
 
-* [Créer et gérer un compte Azure Batch](batch-account-create-portal.md)
+* [Création et gestion d’un compte Azure Batch dans le portail Azure](batch-account-create-portal.md)
 
 * [Vue d'ensemble des fonctionnalités d'Azure Batch](batch-api-basics.md)
 
-* [Abonnement Azure et limites, quotas et contraintes du service](../azure-subscription-service-limits.md)
+* [Abonnement Azure et limites, quotas et contraintes de service](../azure-subscription-service-limits.md)
 
 [portal]: https://portal.azure.com
 [portal_classic_increase]: https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/
@@ -106,4 +106,4 @@ Une fois que vous avez envoyé votre demande de support, le support Azure vous c
 
 [account_quotas]: ./media/batch-quota-limit/accountquota_portal.PNG
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -41,7 +41,7 @@ DirSyncFeature | Commentaire
 
 Lorsqu’une fonctionnalité a été activée, vous ne pouvez plus la désactiver.
 
->[AZURE.NOTE] Depuis le 22 août 2016, la fonctionnalité *Résilience d’attribut en double* est activée par défaut pour les nouveaux répertoires Azure AD. Cette fonctionnalité sera également déployée et activée sur les répertoires créés avant cette date. Vous recevrez une notification par courrier électronique lorsque l’activation de cette fonctionnalité pour votre répertoire sera imminente .
+>[AZURE.NOTE] Depuis le 24 août 2016, la fonctionnalité *Résilience d’attribut en double* est activée par défaut pour les nouveaux répertoires Azure AD. Cette fonctionnalité sera également déployée et activée sur les répertoires créés avant cette date. Vous recevrez une notification par courrier électronique lorsque l’activation de cette fonctionnalité pour votre répertoire sera imminente .
 
 Les paramètres suivants sont configurés par Azure AD Connect et ne peuvent pas être modifiés par `Set-MsolDirSyncFeature` :
 
@@ -98,4 +98,4 @@ Après avoir activé cette fonctionnalité, les valeurs existantes userPrincipal
 - [Synchronisation d’Azure AD Connect](active-directory-aadconnectsync-whatis.md)
 - [Intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

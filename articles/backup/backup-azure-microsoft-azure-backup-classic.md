@@ -14,7 +14,7 @@
   ms.tgt_pltfrm="na"
   ms.devlang="na"
   ms.topic="article"
-  ms.date="05/10/2016"
+  ms.date="08/22/2016"
   ms.author="jimpark;trinadhk;pullabhk; markgal"/>
 
 # Préparation de la sauvegarde des charges de travail à l’aide d’Azure Backup Server
@@ -55,9 +55,9 @@ Pour créer un archivage de sauvegarde :
 
 1. Connectez-vous au [portail de gestion](http://manage.windowsazure.com/).
 
-2. Cliquez sur **Nouveau** -> **Services de données** -> **Services de récupération** -> **Archivage de sauvegarde** > **Création rapide**. Si vous disposez de plusieurs abonnements associés à votre compte professionnel, choisissez l’abonnement correct à associer à l’archivage de sauvegarde.
+2. Cliquez sur **Nouveau** -> **Services de données** -> **Services de récupération** -> **Archivage de sauvegarde** > **Création rapide**. Si vous disposez de plusieurs abonnements associés à votre compte professionnel, choisissez l’abonnement correct à associer au coffre de sauvegarde.
 
-3. Dans **Name**, entrez un nom convivial pour identifier le coffre. Cette opération doit être unique pour chaque abonnement.
+3. Dans **Name**, entrez un nom convivial pour identifier le coffre. Celui-ci doit être unique pour chaque abonnement.
 
 4. Dans **Region**, sélectionnez la région géographique du coffre. En règle générale, la région dans laquelle le coffre se trouve est choisie en fonction de la souveraineté ou des contraintes de latence réseau.
 
@@ -181,7 +181,7 @@ Une fois que vous connaissez l’état de la connectivité d’Azure et de l’a
 | Connectivité perdue depuis > 15 jours | Approvisionnement annulé | Arrêté | Arrêté | Arrêté et points de restauration Azure supprimés | Arrêté |
 
 ### Récupération après la perte de connectivité
-Si vous êtes équipé d’un pare-feu ou d’un proxy qui empêche l’accès à Azure, vous devez mettre sur liste blanche les adresses de domaine suivantes dans le profil de pare-feu/proxy :
+Si vous êtes équipé d’un pare-feu ou d’un proxy qui empêche l’accès à Azure, vous devez mettre sur liste approuvée les adresses de domaine suivantes dans le profil de pare-feu/proxy :
 
 - www.msftncsi.com
 - *.Microsoft.com
@@ -189,14 +189,14 @@ Si vous êtes équipé d’un pare-feu ou d’un proxy qui empêche l’accès �
 - *.microsoftonline.com
 - *.windows.net
 
-Une fois la connectivité à Azure restaurée sur l’ordinateur Azure Backup Server, les opérations qui peuvent être exécutées sont déterminées par l’état de l’abonnement Azure. Le tableau ci-dessus comporte les détails des opérations autorisées une fois l’ordinateur « connecté ».
+Une fois la connectivité à Azure restaurée sur l’ordinateur du serveur de sauvegarde Azure, les opérations qui peuvent être exécutées sont déterminées par l’état de l’abonnement Azure. Le tableau ci-dessus comporte les détails des opérations autorisées une fois l’ordinateur « connecté ».
 
 ### Gestion des états d’abonnement
 
 Il est possible de faire passer un abonnement Azure de l’état *Expiré* ou *Approvisionnement annulé* à l’état *Actif*. Cependant, cette opération a certaines conséquences sur le comportement du produit lorsque l’état n’est pas *Actif* :
 
-- Un abonnement dont l’*approvisionnement est annulé* ne fonctionne pas pendant la période pour laquelle l’approvisionnement est annulé. En redevenant *Actif*, la fonctionnalité de sauvegarde/restauration du produit est rétablie. Les données de sauvegarde présentes sur le disque local peuvent également être récupérées si le délai de rétention est suffisant. Toutefois, les données de sauvegarde dans Azure sont irrémédiablement perdues une fois que l’abonnement passe à l’état *Approvisionnement annulé*.
-- Un abonnement *Expiré* ne fonctionne plus jusqu’à ce qu’il ait été *réactivé*. Lorsque l’abonnement est à l’état *Expiré*, les sauvegardes planifiées ne sont pas exécutées.
+- Un abonnement dont l’état est *Approvisionnement est annulé* ne fonctionne pas pendant la période pour laquelle l’approvisionnement est annulé. En redevenant *Actif*, la fonctionnalité de sauvegarde/restauration du produit est rétablie. Les données de sauvegarde présentes sur le disque local peuvent également être récupérées si le délai de rétention est suffisant. Toutefois, les données de sauvegarde dans Azure sont irrémédiablement perdues une fois que l’abonnement passe à l’état *Approvisionnement annulé*.
+- Un abonnement *Expiré* ne fonctionne plus tant qu’il n’est pas à l’état *Activé*. Lorsque l’abonnement est à l’état *Expiré*, les sauvegardes planifiées ne sont pas exécutées.
 
 
 ## Résolution de problèmes
@@ -214,4 +214,4 @@ Vous pouvez utiliser ces articles pour apprendre à mieux connaître la notion d
 - [Sauvegarde de serveur SharePoint](backup-azure-backup-sharepoint.md)
 - [Sauvegarde sur un autre serveur](backup-azure-alternate-dpm-server.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0831_2016-->

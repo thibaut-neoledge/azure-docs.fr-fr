@@ -75,7 +75,7 @@ Le tableau ci-dessous compare les trois domaines de routage.
 |---|---|---|---|
 |**Nb max. de préfixes pris en charge par homologation**|4 000 par défaut, 10 000 avec ExpressRoute Premium|200|200|
 |**Plages d’adresses IP prises en charge**|Toute adresse IPv4 valide au sein de votre réseau étendu.|Adresses IPv4 publiques détenues par vous ou par votre fournisseur de connectivité.|Adresses IPv4 publiques détenues par vous ou par votre fournisseur de connectivité.|
-|**Exigences en matière de numéros AS**|Numéros AS publics et privés Vous devez posséder un numéro AS public. | Numéros AS publics et privés Cependant, vous devez prouver la propriété des adresses IP publiques.| Numéros AS publics et privés Cependant, vous devez prouver la propriété des adresses IP publiques.|
+|**Exigences en matière de numéros AS**|Numéros AS publics et privés Vous devez être propriétaire du numéro AS public si vous choisissez d’en utiliser un. | Numéros AS publics et privés Cependant, vous devez prouver la propriété des adresses IP publiques.| Numéros AS publics et privés Cependant, vous devez prouver la propriété des adresses IP publiques.|
 |**Adresses IP de l’interface de routage**|RFC1918 et adresses IP publiques|Adresses IP publiques enregistrées auprès de vous dans les registres de routage.| Adresses IP publiques enregistrées auprès de vous dans les registres de routage.|
 |**Prise en charge du hachage MD5**| Oui|Oui|Oui|
 
@@ -92,4 +92,4 @@ Si vous choisissez d’avoir les trois sessions d’homologation, vous devez di
 	- [Configuration d’un routage (homologations de circuit)](expressroute-howto-routing-classic.md)
 	- [Liaison d’un réseau virtuel à un circuit ExpressRoute](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0831_2016-->

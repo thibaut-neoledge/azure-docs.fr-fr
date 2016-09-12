@@ -153,7 +153,8 @@ Lorsque vous utilisez Azure Active Directory avec la géo-réplication, le com
 3. Dans le panneau **Paramètres**, cliquez sur **Administrateur Active Directory.
 4. Dans le panneau **Administrateur Active Directory**, cliquez sur **Administrateur Active Directory** puis, en haut de la page, cliquez sur **Définir admin**.
 5. Dans le panneau **Ajouter admin**, recherchez un utilisateur, sélectionnez l’utilisateur ou le groupe en tant qu’administrateur, puis cliquez sur **Sélectionner**. Le panneau d’administration Active Directory affiche tous les membres et les groupes présents dans Active Directory. Les utilisateurs ou les groupes grisés ne peuvent être sélectionnés, car ils ne sont pas pris en charge en tant qu’administrateurs Azure AD. (Voir la liste des administrateurs pris en charge dans **Fonctionnalités et limitations Azure AD** ci-dessus.) Le contrôle d'accès basé sur les rôles (RBAC) s'applique uniquement au portail et n'est pas propagé vers SQL Server.
-6. En haut du panneau **Administrateur Active Directory**, cliquez sur **ENREGISTRER**. ![cliquer sur admin][10]
+6. En haut du panneau **Administrateur Active Directory**, cliquez sur **ENREGISTRER**. 
+![cliquer sur admin][10]
 
 	La procédure de changement de l’administrateur peut prendre plusieurs minutes. Le nouvel administrateur apparaîtra dans la zone **Administrateur Active Directory**.
 
@@ -316,7 +317,7 @@ Pour vous connecter à une base de données à l’aide de l’authentification 
 	SqlConnection conn = new SqlConnection(ConnectionString);
 	conn.Open();
 
-Notez que le mot clé de la chaîne de connexion ``Integrated Security=True`` n’est pas pris en charge pour la connexion à la base de données SQL Azure.
+Notez que le mot clé de la chaîne de connexion ``Integrated Security=True`` n’est pas pris en charge pour la connexion à la base de données SQL Azure. Notez que, lorsque vous établissez une connexion ODBC, vous devez supprimer les espaces et définir l’authentification sur « ActiveDirectoryIntegrated ».
 
 ### 7\.2. La connexion avec un nom principal et un mot de passe Azure AD
 Pour vous connecter à une base de données à l’aide de l’authentification intégrée et d’une identité Azure AD, le mot clé d’authentification doit être le mot de passe Active Directory. La chaîne de connexion doit contenir les mots clés et valeurs d’ID utilisateur/UID et de mot de passe/PWD. L’exemple de code C# suivant utilise ADO .NET.
@@ -381,4 +382,4 @@ sqlcmd -S Target_DB_or_DW.testsrv.database.windows.net -U bob@contoso.com -P MyA
 [12]: ./media/sql-database-aad-authentication/12connect-using-pw-auth.png
 [13]: ./media/sql-database-aad-authentication/13connect-to-db.png
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

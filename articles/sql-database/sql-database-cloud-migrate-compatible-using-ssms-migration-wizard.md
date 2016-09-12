@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="sqldb-migrate"
-   ms.date="06/07/2016"
+   ms.date="08/24/2016"
    ms.author="carlrab"/>
 
 # Migration d’une base de données SQL Server vers Base de données SQL à l’aide de l’assistant de déploiement de base de données vers Microsoft Azure Database
@@ -29,7 +29,7 @@ Cet assistant, disponible dans SQL Server Management Studio, permet de migrer un
 
 ## Utiliser l’assistant de déploiement de base de données dans une base de données Microsoft Azure
 
-> [AZURE.NOTE] Les étapes ci-dessous supposent que vous avez un [serveur Base de données SQL fourni](https://azure.microsoft.com/documentation/learning-paths/sql-database-training-learn-sql-database/).
+> [AZURE.NOTE] Les étapes suivantes supposent que vous avez un [serveur Base de données SQL approvisionné](https://azure.microsoft.com/documentation/learning-paths/sql-database-training-learn-sql-database/).
 
 1. Assurez-vous de disposer de la dernière version de SQL Server Management Studio. Les nouvelles versions de Management Studio sont mises à jour tous les mois afin de refléter les mises à jour publiées sur le portail Azure.
 
@@ -48,14 +48,20 @@ Cet assistant, disponible dans SQL Server Management Studio, permet de migrer un
 
 	![Déployer vers Azure à partir du menu Tâches](./media/sql-database-cloud-migrate/MigrateUsingDeploymentWizard00.png)
 
-5.	Renseignez le **Nouveau nom de la base de données**, définissez l’**Edition de Base de données SQL Microsoft Azure** ([niveau de service](sql-database-service-tiers.md)), la **Taille maximale de base de données**, l’**Objectif de service** (niveau de performance) et le **Nom de fichier temporaire** à attribuer au fichier [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) qui sera créé par cet assistant au cours de la migration.
+5.	Fournissez les informations suivantes pour le fichier [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) que cet Assistant crée pendant le processus de migration :
 
-	![Paramètres d’exportation](./media/sql-database-cloud-migrate/MigrateUsingDeploymentWizard02.png)
+ - Le **Nouveau nom de la base de données**
+ - **L’Édition de Microsoft Azure SQL Database** ([niveau de service](sql-database-service-tiers.md))
+ - La **Taille maximale de base de données**
+ - **L’objectif du service** (niveau de performances)
+ - Le **nom du fichier temporaire**
 
-6.	Terminez l’Assistant pour migrer la base de données. Selon la taille et la complexité de la base de données, le déploiement peut durer de quelques minutes à plusieurs heures. Si cet assistant détecte les problèmes de compatibilité, les erreurs seront affichées à l’écran et la migration s’arrêtera. Pour obtenir des instructions sur la résolution des problèmes de compatibilité de base de données, consultez la page [Résoudre les problèmes de compatibilité de base de données](sql-database-cloud-migrate-fix-compatibility-issues.md).
+    ![Paramètres d’exportation](./media/sql-database-cloud-migrate/MigrateUsingDeploymentWizard02.png)
+
+6.	Terminez l’Assistant. Selon la taille et la complexité de la base de données, le déploiement peut durer de quelques minutes à plusieurs heures. Si cet assistant détecte des problèmes de compatibilité, des erreurs seront affichées à l’écran et la migration s’arrête. Pour obtenir des instructions sur la résolution des problèmes de compatibilité de base de données, consultez la page [Résoudre les problèmes de compatibilité de base de données](sql-database-cloud-migrate-fix-compatibility-issues.md).
 
 7.	À l’aide de l’Explorateur d’objets, connectez-vous à la base de données que vous venez de déployer sur votre serveur de base de données SQL Azure.
-8.	Dans le portail Azure, vous pouvez afficher votre base de données et ses propriétés.
+8.	Dans le portail Azure, affichez votre base de données et ses propriétés.
 
 ## Étapes suivantes
 
@@ -68,4 +74,4 @@ Cet assistant, disponible dans SQL Server Management Studio, permet de migrer un
 - [Fonctions partiellement ou non prises en charge de Transact-SQL](sql-database-transact-sql-information.md)
 - [Migration de bases de données non-SQL Server avec l’Assistant Migration SQL Server](http://blogs.msdn.com/b/ssma/)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0831_2016-->

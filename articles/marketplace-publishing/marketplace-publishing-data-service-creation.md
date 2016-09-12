@@ -13,10 +13,13 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="na"
-      ms.date="06/28/2016"
+      ms.date="08/26/2016"
       ms.author="hascipio; avikova" />
 
 # Guide de publication d’un service de données pour Azure Marketplace
+
+>[AZURE.IMPORTANT] **À ce stade, nous n’intégrons plus de nouveaux éditeurs de services de données. Le listing de nouveaux services de données ne sera pas approuvé.** Si vous avez une application SaaS professionnelle à publier sur AppSource, vous trouverez plus d’informations [ici](https://appsource.microsoft.com/partners). Si vous avez une application IaaS ou un service de développement à publier sur Azure Marketplace, vous trouverez plus d’informations [ici](https://azure.microsoft.com/marketplace/programs/certified/).
+
 Après avoir effectué l’étape 1, [Création et inscription d’un compte](marketplace-publishing-accounts-creation-registration.md), nous vous avons guidé dans les [exigences générales non techniques](marketplace-publishing-pre-requisites.md) et les [exigences techniques](marketplace-publishing-data-service-creation-prerequisites.md) d’une offre de service de données sur Azure Marketplace. À présent, nous allons vous guider dans la procédure de création d’une offre de service de données sur le [portail de publication][link-pubportal] pour Azure Marketplace.
 
 ## 1\. Connectez-vous au portail de publication.
@@ -145,4 +148,4 @@ Maintenant que vous avez créé votre offre de service de données, assurez-vous
 
 [link-pubportal]: https://publish.windowsazure.com
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0831_2016-->

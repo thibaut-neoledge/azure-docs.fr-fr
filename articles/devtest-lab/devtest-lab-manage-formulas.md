@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/01/2016"
+	ms.date="08/25/2016"
 	ms.author="tarcher"/>
 
 # Gérer les formules DevTest Labs pour créer des machines virtuelles
@@ -142,6 +142,8 @@ Pour supprimer une formule, procédez comme suit :
 
     ![Menu contextuel de la formule](./media/devtest-lab-manage-formulas/formula-delete-confirmation.png)
 
+[AZURE.INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
+
 ## Billets de blog connexes
 
 - [Images personnalisées ou formules ?](https://blogs.msdn.microsoft.com/devtestlab/2016/04/06/custom-images-or-formulas/)
@@ -149,4 +151,4 @@ Pour supprimer une formule, procédez comme suit :
 ## Étapes suivantes
 Quand vous avez créé une formule à utiliser lors de la création d’une machine virtuelle, l’étape suivante consiste à [ajouter une machine virtuelle à votre laboratoire](./devtest-lab-add-vm-with-artifacts.md).
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0831_2016-->

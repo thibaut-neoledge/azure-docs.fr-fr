@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/31/2016"
+   ms.date="08/25/2016"
    ms.author="spyros;sethm" />
 
 # Extraction de données de SQL dans un hub d’événements Azure
@@ -34,12 +34,12 @@ Après avoir lu le fichier de configuration, l’application entre dans une bouc
 
 1. L’application est basée sur l’hypothèse que la table SQL est mise à jour par un processus externe, et que vous souhaitez envoyer toutes les mises à jour, et uniquement celles-ci, à un hub d’événements.
 2. La table SQL doit avoir un champ qui contient un numéro unique et croissant, par exemple, un numéro d’enregistrement. Il peut s’agir d’un simple champ appelé « ID », ou d’un champ qui est incrémenté à mesure que la base de données ajoute des enregistrements, tel que « date\_création » ou « numéro\_séquence ». L’application note et stocke la valeur de ce champ à chaque itération. À chaque itération suivante de la boucle, l’application interroge essentiellement la table pour connaître tous les enregistrements où la valeur de ce champ est supérieure à la valeur constatée pendant la dernière itération de la boucle. Nous allons appeler cette dernière valeur « offset » (écart).
-3. Au démarrage, l’application crée une table « TableOffsets », pour y stocker les écarts. La table est créée avec la requête « CreateOffsetTableQuery » définie dans le fichier de configuration. 
+3. Au démarrage, l’application crée une table « TableOffsets », pour y stocker les écarts. La table est créée avec la requête « CreateOffsetTableQuery » définie dans le fichier de configuration.
 4. Plusieurs requêtes sont liées à la table offset ; elles sont définies dans le fichier de configuration sous les termes « OffsetQuery », « UpdateOffsetQuery » et « InsertOffsetQuery ». Vous ne devez pas les modifier.
-5. Enfin, la requête « DataQuery » définie dans le fichier de configuration est la requête à exécuter pour extraire les enregistrements de la table SQL. Elle est actuellement limitée aux 1 000 premiers enregistrements dans chaque itération de la boucle à des fins d’optimisation ; si, par exemple, 25 000 enregistrements ont été ajoutés à la base de données depuis la dernière requête, l’exécution de la requête peut prendre un certain temps. En étant systématiquement limitées à 1 000 enregistrements, les requêtes sont beaucoup plus rapides. Sélectionner les 1 000 premiers enregistrements permet d’alimenter le hub d’événements par lots successifs de 1 000 enregistrements.    
+5. Enfin, la requête « DataQuery » définie dans le fichier de configuration est la requête à exécuter pour extraire les enregistrements de la table SQL. Elle est actuellement limitée aux 1 000 premiers enregistrements dans chaque itération de la boucle à des fins d’optimisation ; si, par exemple, 25 000 enregistrements ont été ajoutés à la base de données depuis la dernière requête, l’exécution de la requête peut prendre un certain temps. En étant systématiquement limitées à 1 000 enregistrements, les requêtes sont beaucoup plus rapides. Sélectionner les 1 000 premiers enregistrements permet d’alimenter le hub d’événements par lots successifs de 1 000 enregistrements.
 
 ## Étapes suivantes
 
 Pour déployer la solution, clonez ou téléchargez l’application SqlToEventHub, modifiez le fichier App.config, générez-le, puis publiez-le. Une fois que vous avez publié l’application, vous pouvez la voir s’exécuter dans le portail Azure Classic sous Cloud Services et surveiller les événements arrivant dans votre hub d’événements. Notez que la fréquence est déterminée par deux éléments : la fréquence des mises à jour de la table SQL et l’intervalle de veille que vous avez spécifié dans le fichier de configuration de l’application.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0831_2016-->

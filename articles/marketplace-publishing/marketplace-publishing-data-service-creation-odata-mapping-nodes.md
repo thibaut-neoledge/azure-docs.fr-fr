@@ -13,10 +13,13 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="na"
-      ms.date="06/29/2016"
+      ms.date="08/26/2016"
       ms.author="hascipio; avikova" />
 
 # Présentation du schéma de nœuds pour le mappage d’un service web existant à OData via le langage CSDL
+
+>[AZURE.IMPORTANT] **À ce stade, nous n’intégrons plus de nouveaux éditeurs de services de données. Le listing de nouveaux services de données ne sera pas approuvé.** Si vous avez une application SaaS professionnelle à publier sur AppSource, vous trouverez plus d’informations [ici](https://appsource.microsoft.com/partners). Si vous avez une application IaaS ou un service de développement à publier sur Azure Marketplace, vous trouverez plus d’informations [ici](https://azure.microsoft.com/marketplace/programs/certified/).
+
 Ce document permet de clarifier la structure de nœuds pour le mappage d’un protocole OData au langage CSDL. Il est important de noter que la structure de nœuds est un code XML bien formé. Par conséquent, le schéma racine, parent et enfant s’applique lors de la conception de votre mappage OData.
 
 ## Éléments ignorés
@@ -54,12 +57,12 @@ Voici les attributs supplémentaires (ou ajouts aux attributs) qui sont exposés
 **ReturnType** *(facultatif)* : spécifie le type des éléments renvoyés par l’URI. N’utilisez pas cet attribut si la fonction ne renvoie pas de valeur. Les types suivants sont pris en charge :
 
  - **Collection (<Nom du type d’entité>)** : spécifie une collection de types d’entités définis. Le nom est présent dans l’attribut Name du nœud EntityType. Par exemple, Collection(WXC.HourlyResult).
- - **Raw (<Type MIME>)** : spécifie un document/blob brut qui est renvoyé à l’utilisateur. Par exemple, Raw(image/jpeg) ; autres exemples :
+ - **Raw (<Type MIME>)** : spécifie un document/objet blob brut renvoyé à l’utilisateur. Par exemple, Raw(image/jpeg) ; autres exemples :
 
   - ReturnType="Raw(text/plain)"
   - ReturnType="Collection(sage.DeleteAllUsageFilesEntity)"*
 
-**d:Paging** : spécifie la manière dont la pagination est gérée par la ressource REST. Les valeurs de paramètre sont utilisées dans des accolades, p. ex., page={$page}&itemsperpage={$size} ; les options disponibles sont :
+**d:Paging** : spécifie la manière dont la pagination est gérée par la ressource REST. Les valeurs de paramètre sont utilisées dans des accolades, p. ex., page={$page}&itemsperpage={$size} ; les options disponibles sont :
 
 - **None :** aucune pagination n’est disponible
 - **Skip :** la pagination est exprimée à l’aide d’une logique « skip » et « take » (supérieure). « skip » passe les éléments M, puis « take » renvoie les éléments N suivants. Valeur du paramètre : $skip
@@ -143,7 +146,7 @@ Les nœuds enfants supplémentaires (non couverts par la documentation du langag
 
 Ce nœud représente un paramètre qui est exposé en tant que partie du modèle d’URI / du corps de la demande qui a été spécifié dans le nœud FunctionImport.
 
-Une page de documentation détaillée très utile sur le nœud « Élément Parameter » est disponible [ici](http://msdn.microsoft.com/library/ee473431.aspx) (utilisez la liste déroulante **Autre version** pour sélectionner une version différente pour afficher la documentation si nécessaire). *Exemple :* `<Parameter Name="Query" Nullable="false" Mode="In" Type="String" d:Description="Query" d:SampleValues="Rudy Duck" d:EncodeParameterValue="true" MaxLength="255" FixedLength="false" Unicode="false" annotation:StoreGeneratedPattern="Identity"/>`
+Une page de documentation détaillée très utile sur le nœud « Parameter Element » est disponible [ici](http://msdn.microsoft.com/library/ee473431.aspx) (utilisez la liste déroulante **Autre version** pour sélectionner une version différente afin d’afficher la documentation si nécessaire). *Exemple :* `<Parameter Name="Query" Nullable="false" Mode="In" Type="String" d:Description="Query" d:SampleValues="Rudy Duck" d:EncodeParameterValue="true" MaxLength="255" FixedLength="false" Unicode="false" annotation:StoreGeneratedPattern="Identity"/>`
 
 | Attribut de paramètre | Est obligatoire | Valeur |
 |----|----|----|
@@ -152,7 +155,7 @@ Une page de documentation détaillée très utile sur le nœud « Élément Para
 | Mode | Non | **In**, Out ou InOut selon que le paramètre est un paramètre d’entrée, de sortie ou d’entrée/sortie. (Seule la valeur « IN » est disponible dans Azure Marketplace.) **Exemple :** `<Parameter Name="StudentID" Mode="In" Type="Int32" />` |
 | MaxLength | Non | La longueur maximale autorisée du paramètre. **Exemple :** `<Property Name="URI" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />` |
 | Precision | Non | La précision du paramètre. **Exemple :** `<Property Name="PreviousDate" Type="DateTime" Precision="0" />` |
-| Scale | Non | L’échelle du paramètre. **Exemple :** `<Property Name="SICCode" Type="Decimal" Precision="10" Scale="0" />` |
+| Mettre à l'échelle | Non | L’échelle du paramètre. **Exemple :** `<Property Name="SICCode" Type="Decimal" Precision="10" Scale="0" />` |
 
 [MSDNParameterLink]: (http://msdn.microsoft.com/library/bb399548(v=VS.100).aspx)
 
@@ -169,7 +172,7 @@ Les éléments suivants sont des attributs qui ont été ajoutés à la spécifi
 
 Ce nœud représente l’un des types renvoyés à partir de Marketplace à l’utilisateur final. Il contient également le mappage de la sortie qui est renvoyée par le service du fournisseur de contenu aux valeurs renvoyées à l’utilisateur final.
 
-Des informations sur ce nœud sont disponibles [ici](http://msdn.microsoft.com/library/bb399206.aspx) (utilisez la liste déroulante **Autre version** pour sélectionner une version différente pour afficher la documentation si nécessaire).
+Des informations sur ce nœud sont disponibles [ici](http://msdn.microsoft.com/library/bb399206.aspx) (utilisez la liste déroulante **Autre version** pour sélectionner une version différente afin d’afficher la documentation si nécessaire).
 
 | Nom de l'attribut | Est obligatoire | Valeur |
 |----|----|----|
@@ -200,9 +203,9 @@ Des informations sur ce nœud sont disponibles à l’adresse [http://msdn.micro
 		...
         </EntityType>`
 
-| Nom de l’attribut | Obligatoire | Valeur |
+| Nom de l’attribut | Requis | Valeur |
 |----|----|----|
-| Nom | Oui | Le nom de la propriété. |
+| Nom | Oui | Nom de la propriété. |
 | Type | Oui | Le type de la valeur de propriété. Le type de la valeur de propriété doit être un type **EDMSimpleType** ou un type complexe (indiqué par un nom qualifié complet) qui se trouve dans la portée du modèle. Pour plus d’informations, consultez Types de modèle conceptuel (CSDL). |
 | Nullable | Non | **True** (valeur par défaut) ou **False** selon que la propriété peut avoir ou non une valeur null. Remarque : dans la version du langage CSDL indiqué par l’espace de noms [http://schemas.microsoft.com/ado/2006/04/edm](http://schemas.microsoft.com/ado/2006/04/edm), une propriété de type complexe doit avoir Nullable="False". |
 | DefaultValue | Non | Valeur par défaut de la propriété. |
@@ -269,7 +272,7 @@ Les éléments suivants sont les types de paramètres et de propriétés pris en
 
 ## Voir aussi
 - Si vous souhaitez comprendre le processus de mappage OData global et son rôle, lisez l’article [Mappage du service de données OData](marketplace-publishing-data-service-creation-odata-mapping.md) pour passer en revue des définitions, des structures et des instructions.
-- Si vous souhaitez passer en revue des exemples, lisez l’article [Exemples de mappage du service de données OData](marketplace-publishing-data-service-creation-odata-mapping-examples.md) pour consulter des exemples de code et pour comprendre la syntaxe et le contexte du code.
+- Si vous souhaitez passer en revue des exemples, lisez l’article [Exemples de mappage du service de données OData](marketplace-publishing-data-service-creation-odata-mapping-examples.md) pour consulter des exemples de code, ainsi que pour comprendre la syntaxe et le contexte du code.
 - Pour retourner au chemin indiqué pour la publication d’un service de données sur Azure Marketplace, lisez l’article [Guide de publication de services de données](marketplace-publishing-data-service-creation.md).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0831_2016-->

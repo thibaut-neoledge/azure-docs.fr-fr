@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="infrastructure"
-   ms.date="06/06/2016"
+   ms.date="08/29/2016"
    ms.author="rasquill"/>
 
 # Déployer des infrastructures d’application populaires à l’aide de modèles Azure Resource Manager
@@ -23,4 +23,4 @@ Les charges de travail nécessitent généralement de nombreuses ressources pour
 
 [AZURE.INCLUDE [virtual-machines-common-app-frameworks](../../includes/virtual-machines-common-app-frameworks.md)]
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0831_2016-->

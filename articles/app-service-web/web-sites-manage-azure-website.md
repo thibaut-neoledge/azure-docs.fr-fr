@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/27/2016" 
+	ms.date="08/24/2016" 
 	ms.author="rachelap"/>
 
 # Gérer une application web dans Azure App Service
@@ -49,25 +49,25 @@ Outre ces paramètres de configuration de base, vous pouvez configurer ce qui su
 
 Configuration spécifique à la langue :
 
-- **PHP** : [configurez PHP dans Azure App Service Web Apps](web-sites-php-configure.md).
-- **Python** : [configurez Python dans Azure App Service Web Apps](web-sites-python-configure.md).
+- **PHP** : [configurez PHP dans Azure App Service Web Apps](web-sites-php-configure.md).
+- **Python** : [configurez Python dans Azure App Service Web Apps](web-sites-python-configure.md).
 
 
 ## Pendant l’exécution de votre application web
 
 Lorsque votre application web est en cours d’exécution, vérifiez qu’elle est disponible et qu’elle s’adapte au volume du trafic utilisateur. Vous pouvez également résoudre les erreurs.
 
-### Surveillance
+### Analyse
 
 - Via le portail Azure, vous pouvez [ajouter des mesures de performances](web-sites-monitor.md) comme l’utilisation du processeur et le nombre de demandes de clients.
 - [Mettez votre application web à l’échelle](web-sites-scale.md) en fonction du trafic. Suivant l'option choisie, vous pouvez mettre à l'échelle le nombre de machines virtuelles et/ou la taille des instances de celles-ci. Dans les niveaux Standard et Premium, vous pouvez également configurer la mise à l’échelle automatique, qui fait évoluer votre application automatiquement soit à une planification définie, soit en fonction de la charge.
  
-### Sauvegarde
+### Sauvegardes
 
 - Configurez les [sauvegardes automatiques](web-sites-backup.md) de votre application web. Pour en savoir plus sur les sauvegardes, regardez [cette vidéo](https://azure.microsoft.com/documentation/videos/azure-websites-automatic-and-easy-backup/).
 - Découvrez les options de [récupération de base de données](../sql-database/sql-database-business-continuity.md) dans la base de données Azure SQL.
 
-### Résolution des problèmes
+### Résolution de problèmes
 
 - Si une erreur survient, vous pouvez [résoudre les problèmes dans Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md#remotedebug) en utilisant des journaux de diagnostic et le débogage réel dans le cloud.
 - En dehors de Visual Studio, il existe différentes manières de recueillir les journaux de diagnostic. Consultez la page [Activer la journalisation des diagnostics pour les applications web dans Azure App Service](web-sites-enable-diagnostic-log.md).
@@ -97,4 +97,4 @@ Si vous utilisez Visual Studio Team Services, vous pouvez configurer le déploie
 
   
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0831_2016-->

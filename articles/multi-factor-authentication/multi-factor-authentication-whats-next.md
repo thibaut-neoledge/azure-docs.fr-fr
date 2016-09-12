@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/22/2016" 
+	ms.date="08/30/2016" 
 	ms.author="billmath"/>
 
 # Configuration d’Azure Multi-Factor Authentication
@@ -57,7 +57,7 @@ Alerte de fraude peut être configuré et installé de manière à ce que vos ut
 Le message d'accueil de Microsoft par défaut demande aux utilisateurs d'appuyer sur 0# pour envoyer une alerte de fraude. Si vous utilisez un code autre que 0, vous devrez enregistrer et charger vos propres messages d'accueil vocaux personnalisés avec les instructions appropriées.
 
 
-<center>![Cloud](./media/multi-factor-authentication-whats-next/fraud.png)</center>
+![Cloud](./media/multi-factor-authentication-whats-next/fraud.png)
 
 ### Pour signaler une alerte de fraude
 Une alerte de fraude peut être déclarée de deux façons. À l’aide de l'application mobile ou de votre téléphone.
@@ -71,7 +71,10 @@ Une alerte de fraude peut être déclarée de deux façons. À l’aide de l'app
 3. Cliquez sur Signaler une fraude.
 4. Dans l'application, cliquez sur Fermer.
 
-<center>![Cloud](./media/multi-factor-authentication-whats-next/report1.png)</center>
+![Cloud](./media/multi-factor-authentication-whats-next/report1.png)
+
+
+![Cloud](./media/multi-factor-authentication-whats-next/fraud2.png)
 
 ### Pour signaler une alerte de fraude à l’aide de votre téléphone
 
@@ -376,4 +379,4 @@ Méthode|Description
 9. Cliquez sur Enregistrer.
 10. Cliquez sur Fermer.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -14,20 +14,20 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/06/2016" 
+	ms.date="08/25/2016" 
 	ms.author="nitinme"/>
 
 # Suivi et débogage des tâches en cours d’exécution sur un cluster Apache Spark dans HDInsight Linux
 
 Dans cet article, vous allez apprendre à effectuer le suivi et à déboguer les tâches Spark à l’aide de l’interface utilisateur YARN, de l’interface utilisateur Spark et du serveur d’historique Spark. Nous allons lancer un travail Spark à partir d’un bloc-notes disponible avec le cluster Spark, **Machine Learning : analyse prédictive des données d’inspections alimentaires à l’aide de MLLib**. Vous pouvez utiliser les étapes ci-dessous pour effectuer le suivi d’une application que vous avez envoyée selon une autre méthode, par exemple, **spark-submit**.
 
-##Configuration requise
+##Composants requis
 
 Vous devez disposer des éléments suivants :
 
 - Un abonnement Azure. Consultez [Obtenir une version d'évaluation gratuite d'Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 - Un cluster Apache Spark sur HDInsight Linux. Pour obtenir des instructions, consultez [Créer des clusters Apache Spark dans Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
-- Vous devez normalement avoir commencé à exécuter le bloc-notes, **[Machine Learning : analyse prédictive des données d’inspections alimentaires à l’aide de MLLib](hdinsight-apache-spark-machine-learning-mllib-ipython.md)**. Pour obtenir des instructions sur l’exécution de ce bloc-notes, suivez le lien.  
+- Vous devez normalement avoir commencé à exécuter le bloc-notes, **[Machine Learning : analyse prédictive des données d’inspections alimentaires à l’aide de MLLib](hdinsight-apache-spark-machine-learning-mllib-ipython.md)**. Pour obtenir des instructions sur l’exécution de ce bloc-notes, suivez le lien.
 
 ## Effectuer le suivi d’une application dans l’interface utilisateur YARN
 
@@ -84,7 +84,7 @@ Dans l’interface utilisateur Spark, vous pouvez explorer les travaux Spark gé
 6. Les autres onglets de l’interface utilisateur Spark fournissent également des informations utiles sur l’instance Spark.
 
 	* Onglet Stockage : si votre application crée des RDD, vous trouverez des informations à ce sujet sous l’onglet Stockage.
-	* Onglet Environnement : cet onglet fournit de nombreuses informations utiles concernant votre instance Spark, par exemple : 
+	* Onglet Environnement : cet onglet fournit de nombreuses informations utiles concernant votre instance Spark, par exemple :
 		* version de Scala ;
 		* répertoire du journal des événements associé au cluster ;
 		* nombre de cœurs d’exécuteur de l’application ;
@@ -132,7 +132,7 @@ Une fois qu’un travail est terminé, les informations concernant ce travail so
 
 * [Utilisez le plugin d’outils HDInsight pour IntelliJ IDEA pour créer et soumettre des applications Spark Scala](hdinsight-apache-spark-intellij-tool-plugin.md)
 
-* [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Spark applications remotely (Utiliser le plug-in Outils HDInsight pour IntelliJ IDEA pour déboguer des applications Spark à distance)](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Spark applications remotely) (Utiliser le plug-in Outils HDInsight pour IntelliJ IDEA pour déboguer des applications Spark à distance)](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 
 * [Utiliser des bloc-notes Zeppelin avec un cluster Spark sur HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
 
@@ -140,10 +140,10 @@ Une fois qu’un travail est terminé, les informations concernant ce travail so
 
 * [Utiliser des packages externes avec les blocs-notes Jupyter](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
 
-* [Installer Jupyter sur un ordinateur et se connecter au cluster Spark sur HDInsight](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
+* [Install Jupyter on your computer and connect to an HDInsight Spark cluster (Installer Jupyter sur un ordinateur et se connecter au cluster Spark sur HDInsight)](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
 
 ### Gestion des ressources
 
 * [Gérer les ressources du cluster Apache Spark dans Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0831_2016-->

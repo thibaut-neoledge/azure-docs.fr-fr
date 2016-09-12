@@ -18,7 +18,7 @@
 
 # Migration d'Orchestrator vers Azure Automation (bêta)
 
-Dans [System Center Orchestrator](http://technet.microsoft.com/library/hh237242.aspx), les Runbooks sont basés sur les activités de packs d'intégration spécifiquement écrits pour Orchestrator, tandis que dans Azure Automation, ils sont basés sur Windows PowerShell. Les [Runbooks graphiques](automation-runbook-types#graphical-runbooks) dans Azure Automation ont une apparence semblable aux Runbooks Orchestrator, avec leurs activités représentant les applets de commande PowerShell, les Runbooks enfants et les ressources.
+Dans [System Center Orchestrator](http://technet.microsoft.com/library/hh237242.aspx), les Runbooks sont basés sur les activités de packs d'intégration spécifiquement écrits pour Orchestrator, tandis que dans Azure Automation, ils sont basés sur Windows PowerShell. Les [Runbooks graphiques](automation-runbook-types.md#graphical-runbooks) dans Azure Automation ont une apparence semblable aux Runbooks Orchestrator, avec leurs activités représentant les applets de commande PowerShell, les Runbooks enfants et les ressources.
 
 Le [Kit de migration de System Center Orchestrator](http://www.microsoft.com/download/details.aspx?id=47323&WT.mc_id=rss_alldownloads_all) inclut des outils destinés à vous aider à convertir des Runbooks Orchestrator en Runbooks Azure Automation. En plus de convertir les Runbooks proprement dits, vous devez convertir les packs d'intégration avec les activités qu'ils utilisent en modules d'intégration à l'aide d'applets de commande Windows PowerShell.
 
@@ -62,7 +62,7 @@ Les packs d'intégration qui n'ont pas été créés avec OIT ne peuvent pas êt
 
 ## Module d'activités standard
 
-Orchestrator inclut un ensemble d'[activités standard](http://technet.microsoft.com/library/hh403832.aspx) qui ne sont pas incluses dans un pack d'intégration, mais qui sont utilisées par de nombreux Runbooks. Le module d'activités standard est un module d'intégration qui inclut une applet de commande équivalente pour chacune de ces activités. Vous devez installer le module d'intégration dans Azure Automation avant d'importer des Runbooks convertis qui utilisent une activité standard.
+Orchestrator inclut un ensemble d'[activités standard](http://technet.microsoft.com/library/hh403832.aspx) qui ne sont pas incluses dans un pack d'intégration, mais qui sont utilisées par de nombreux Runbooks. Le module d’activités standard est un module d’intégration qui inclut une applet de commande équivalente pour chacune de ces activités. Vous devez installer le module d'intégration dans Azure Automation avant d'importer des Runbooks convertis qui utilisent une activité standard.
 
 En plus de prendre en charge les Runbooks convertis, les applets de commande du module d'activités standard peuvent être utilisées par une personne ayant une bonne connaissance d'Orchestrator pour créer de nouveaux Runbooks dans Azure Automation. Alors que les fonctionnalités de toutes les activités standard peuvent être effectuées à l'aide d'applets de commande, il est possible qu'elles fonctionnent différemment. Les applets de commande du module d'activités standard converties fonctionnent de la même manière que leurs activités correspondantes et utilisent les mêmes paramètres. Cela peut aider l'auteur des Runbooks Orchestrator existants dans sa transition vers les Runbooks Azure Automation.
 
@@ -96,7 +96,7 @@ La syntaxe de **ConvertFrom-SCORunbook** se présente comme suit :
 
 - RunbookPath - chemin d'accès au fichier d'exportation contenant les Runbooks à convertir.
 - Module - liste délimitée par des virgules de modules d'intégration contenant des activités dans les Runbooks.
-- OutputFolder - chemin d'accès au dossier pour créer des Runbooks graphiques convertis. 
+- OutputFolder - chemin d'accès au dossier pour créer des Runbooks graphiques convertis.
 
 
 L'exemple de commande suivant convertit les Runbooks dans un fichier d'exportation appelé **MyRunbooks.ois\_export**. Ces Runbooks utilisent les packs d'intégration Active Directory et Data Protection Manager.
@@ -106,7 +106,7 @@ L'exemple de commande suivant convertit les Runbooks dans un fichier d'exportati
 
 ### Fichiers journaux
 
-Le convertisseur de Runbooks créera les fichiers journaux suivants au même emplacement que le Runbook converti. Si les fichiers existent déjà, ils seront remplacés par les informations de la dernière conversion.
+Le convertisseur de Runbooks créera les fichiers journaux suivants au même emplacement que le Runbook converti. Si les fichiers existent déjà, ils sont remplacés par les informations de la dernière conversion.
 
 | Fichier | Sommaire |
 |:---|:---|
@@ -158,6 +158,7 @@ Les Runbooks d'Orchestrator font démarrer d'autres Runbooks avec l'activité **
 - [Service Management Automation](https://technet.microsoft.com/library/dn469260.aspx)
 - [Runbook Worker hybride](automation-hybrid-runbook-worker.md)
 - [Activités standard d'Orchestrator](http://technet.microsoft.com/library/hh403832.aspx)
+- [Téléchargez le kit de migration System Center Orchestrator](https://www.microsoft.com/fr-FR/download/details.aspx?id=47323)
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0831_2016-->

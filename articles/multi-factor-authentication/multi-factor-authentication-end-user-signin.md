@@ -28,12 +28,12 @@ Selon la méthode de connexion et l'authentification multifacteur utilisées, le
 
 Que faites-vous ?|Description
 :------------- | :------------- | 
-<a href="#1">Connexion avec un téléphone mobile ou de bureau</a> | Voici le processus de connexion habituel lors d’une connexion à l'aide de votre téléphone mobile ou de bureau.
-<a href="#2">Connexion avec l’application mobile à l’aide de la notification</a> | Voici le processus de connexion habituel lors d’une connexion à l'aide de l’application mobile avec des notifications.
-<a href="#3">Connexion avec l'application mobile à l'aide du code de vérification</a>|Voici le processus de connexion habituel lors d’une connexion à l'aide de l’application mobile avec un code de vérification.
-<a href="#4">Connexion avec une autre méthode</a>|Ceci vous présente le processus de connexion habituel si vous souhaitez utiliser une autre méthode.
+[Connexion avec un téléphone mobile ou de bureau](#signing-in-with-mobile-or-office-phone) | Voici le processus de connexion habituel lors d’une connexion à l'aide de votre téléphone mobile ou de bureau.
+[Connexion avec l’application Microsoft Authenticator à l’aide de notifications](#signing-in-with-the-microsoft-authenticator-app-using-notification) | Voici ce à quoi vous pouvez vous attendre en utilisant l’application Microsoft Authenticator avec des notifications.
+[Connexion avec l’application Microsoft Authenticator à l’aide d’un code de vérification](#signing-in-with-the-microsoft-authenticator-app-using-verification-code)|Voici ce à quoi vous pouvez vous attendre en utilisant l’application Microsoft Authenticator avec un code de vérification.
+[Connexion avec une autre méthode](#signing-in-with-an-alternate-method)|Ceci vous présente le processus de connexion habituel si vous souhaitez utiliser une autre méthode.
 
-<h2 id="1">Connexion avec un téléphone mobile ou de bureau</h2>
+## Connexion avec un téléphone mobile ou de bureau
 
 Les informations suivantes décrivent l'utilisation de l'authentification multifacteur avec votre téléphone de bureau ou mobile.
 
@@ -50,7 +50,7 @@ Les informations suivantes décrivent l'utilisation de l'authentification multif
 
 - Vous devez maintenant être connecté.</li>
 
-<h2 id="2">Connexion avec l’application mobile à l’aide de la notification</h2>
+## Connexion avec l’application Microsoft Authenticator à l’aide de notifications
 
 Les informations suivantes décrivent l'utilisation de l'authentification multifacteur avec l’application Microsoft Authenticator lorsqu'une notification vous est envoyée.
 
@@ -62,15 +62,16 @@ Les informations suivantes décrivent l'utilisation de l'authentification multif
 ![Microsoft envoie une notification](./media/multi-factor-authentication-end-user-signin-app-notify/notify.png)
 
 
-- Répondez au téléphone et appuyez sur la touche de vérification.
+- Répondez au téléphone et appuyez sur la touche de vérification. Si votre entreprise requiert un code PIN, il vous sera demandé ici.
 
 ![Verify](./media/multi-factor-authentication-end-user-signin-app-notify/phone.png)
 
+![Paramétrage](./media/multi-factor-authentication-end-user-first-time-mobile-app/scan3.png)
 
 - Vous devez maintenant être connecté.
 
 
-<h2 id="3">Connexion avec l'application mobile à l'aide du code de vérification</h2>
+## Connexion avec l’application Microsoft Authenticator à l’aide d’un code de vérification
 
 Les informations suivantes décrivent l'utilisation de l'authentification multifacteur avec l’application Microsoft Authenticator lorsque vous utilisez un code de vérification.
 
@@ -85,10 +86,12 @@ Les informations suivantes décrivent l'utilisation de l'authentification multif
 
 ![Obtenir le code](./media/multi-factor-authentication-end-user-signin-app-verify/phone.png)
 
+
+
 - Vous devez maintenant être connecté.
 
 
-<h2 id="4">Connexion avec une autre méthode</h2>
+## Connexion avec une autre méthode
 
 
 La section suivante vous montre comment vous connecter avec une autre méthode quand votre méthode principale n’est pas disponible.
@@ -104,4 +107,4 @@ La section suivante vous montre comment vous connecter avec une autre méthode q
 
  
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

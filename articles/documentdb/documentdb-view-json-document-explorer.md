@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/28/2016"
+	ms.date="08/30/2016"
 	ms.author="anhoh"/>
 
 # Afficher, modifier, créer et charger des documents JSON à l’aide de l’Explorateur de documents DocumentDB
@@ -25,17 +25,13 @@ Sachez que l’Explorateur de documents n’est pas activé sur les comptes Docu
 
 ## Lancer l’Explorateur de documents
 
-1. Dans la barre de lancement du portail Azure, cliquez sur **Comptes DocumentDB**. Si l’option **Comptes DocumentDB** n’est pas affichée, cliquez sur **Parcourir**, puis sur **Comptes DocumentDB**.
+1. Dans la barre de lancement du portail Azure, cliquez sur **DocumentDB (NoSQL)**. Si l’option **DocumentDB (NoSQL)** n’est pas affichée, cliquez sur **Plus de services**, puis sur **DocumentDB (NoSQL)**.
 
-2. En haut du panneau **Compte DocumentDB**, cliquez sur **Explorateur de documents**.
+2. Dans le menu Ressource, cliquez sur **Explorateur de documents**.
  
 	![Capture d’écran de la commande de l’Explorateur de documents](./media/documentdb-view-JSON-document-explorer/documentexplorercommand.png)
 
- 	>[AZURE.NOTE] L’Explorateur de requêtes s’affiche également dans les panneaux de base de données et de collection.
-
     Dans le panneau **Explorateur de documents**, les listes déroulantes **Bases de données** et **Collections** sont préremplies en fonction du contexte de lancement de l’Explorateur de documents.
-
-	![Capture d’écran du panneau Explorateur de documents](./media/documentdb-view-JSON-document-explorer/documentexplorerinitial.png)
 
 ## Créer un document
 
@@ -154,10 +150,18 @@ L’Explorateur de documents du portail Azure permet simplement d’utiliser des
 
 Si vous devez importer ou migrer des fichiers provenant d’une autre source (fichiers JSON, MongoDB, SQL Server, fichiers CSV, stockage de tables Azure, Amazon DynamoDB ou HBase), vous pouvez utiliser [l’outil de migration de données](documentdb-import-data.md) de DocumentDB pour importer rapidement vos données dans DocumentDB.
 
+## Résolution des problèmes
+
+**Symptôme** : l’explorateur de documents renvoie **Aucun document trouvé**.
+
+**Solution** : assurez-vous que vous avez sélectionné les bonnes valeurs pour l’abonnement, la base de données et la collection dans laquelle les documents ont été insérés. En outre, vérifiez que vous respectez vos quotas de débit. Si vous êtes à votre niveau de débit maximal et que votre débit est limité, réduisez l’utilisation des applications pour fonctionner sous le quota de débit maximal pour la collection.
+
+**Explication** : le portail est une application comme les autres, en cela qu’elle effectue des appels à votre base de données DocumentDB et à votre collection. Si vos demandes sont actuellement limitées en raison d’appels passés à partir d’une application distincte, le portail peut également être limité, ce qui empêchera l’affichage des ressources dans le portail. Pour résoudre le problème, corrigez la cause de l’utilisation d’un débit élevé, puis actualisez le panneau du portail. Vous trouverez plus d’informations sur la mesure et l’utilisation d’un débit inférieur dans la section [Débit](documentdb-performance-tips.md#throughput) de l’article [Conseils sur les performances](documentdb-performance-tips.md).
+
 ## Étapes suivantes
 
 Pour plus d’informations sur la grammaire SQL DocumentDB prise en charge dans l’Explorateur de documents, consultez l’article [Requête SQL et syntaxe SQL dans DocumentDB](documentdb-sql-query.md) ou imprimez [l’Aide-mémoire pour les requêtes SQL](documentdb-sql-query-cheat-sheet.md).
 
-Le [parcours d’apprentissage](https://azure.microsoft.com/documentation/learning-paths/documentdb/) est également une ressource utile pour vous guider lorsque vous en apprenez plus sur DocumentDB.
+Le [Parcours d’apprentissage](https://azure.microsoft.com/documentation/learning-paths/documentdb/) est également une ressource utile pour vous guider au fil de votre apprentissage de DocumentDB.
 
-<!-------HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0831_2016-->

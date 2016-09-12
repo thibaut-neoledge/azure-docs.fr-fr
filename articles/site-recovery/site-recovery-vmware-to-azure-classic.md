@@ -28,7 +28,7 @@ Le service Azure Site Recovery contribue à mettre en œuvre la stratégie de co
 
 ## Vue d’ensemble
 
-Cet article explique comment :
+Cet article explique comment :
 
 - **Répliquer les machines virtuelles VMware dans Azure** : déployez Site Recovery pour coordonner la réplication, le basculement et la récupération des machines virtuelles VMware locales vers Azure Storage.
 - **Répliquer les serveurs physiques dans Azure** : déployez Azure Site Recovery pour coordonner la réplication, le basculement et la récupération des serveurs physiques Windows et Linux locaux vers Azure.
@@ -224,7 +224,7 @@ Uniquement pour la machine virtuelle Linux : vérifiez que vous avez défini le 
 3. Cliquez sur **Créer nouveau** > **Création rapide**.
 4. Dans **Name**, entrez un nom convivial pour identifier le coffre.
 5. Dans **Region**, sélectionnez la région géographique du coffre. Pour découvrir les régions prises en charge, référez-vous à la disponibilité géographique de la page [Détails des prix d'Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/)
-6. Cliquez sur **Créer un archivage**.
+6. Cliquez sur **Créer un coffre**. 
 	![Nouveau coffre](./media/site-recovery-vmware-to-azure-classic/quick-start-create-vault.png)
 
 Vérifiez la barre d'état pour vous assurer que le coffre a été créé correctement. Le coffre apparaît comme **Actif** dans la page **Recovery Services**.
@@ -237,6 +237,8 @@ Configurer un réseau Azure afin que les machines virtuelles Azure soient connec
 2. Vous devrez ajouter VPN/ExpressRoute au réseau si vous devez effectuer la restauration automatique. VPN/ExpressRoute peut être ajouté au réseau, même après le basculement.
 
 [Plus d’informations](../virtual-network/virtual-networks-overview.md) sur les réseaux Azure.
+
+> [AZURE.NOTE] [Migration of networks](../ressources-groupe-move-resources.md) entre les groupes de ressources d’un même abonnement ou de plusieurs abonnements n’est pas pris en charge pour les réseaux utilisés pour le déploiement de Site Recovery.
 
 ## Étape 3 : Installer les composants VMware
 
@@ -340,7 +342,7 @@ Si vous souhaitez répliquer des machines VMware virtuelles, installez les compo
 
 	![Résumé](./media/site-recovery-vmware-to-azure-classic/combined-wiz10.png)
 >[AZURE.WARNING] Le proxy de Microsoft Azure Recovery Services Agent doit être installé.
->Une fois l’installation terminée, lancez une application nommée « Microsoft Azure Recovery Services Shell » à partir du menu Démarrer de Windows. Dans la fenêtre de commande qui s’ouvre, exécutez l’ensemble suivant de commandes pour configurer les paramètres du serveur proxy.
+>Une fois l’installation terminée, lancez une application nommée « Microsoft Azure Recovery Services Shell » à partir du menu Démarrer de Windows. Dans la fenêtre de commande qui s’ouvre, exécutez l’ensemble suivant de commandes pour configurer les paramètres du serveur proxy.
 >
 	$pwd = ConvertTo-SecureString -String ProxyUserPassword
 	Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumb – ProxyUserName domain\username -ProxyPassword $pwd
@@ -463,7 +465,7 @@ Voici comment préparer les ordinateurs Windows afin que le service Mobilité pu
 
 	![Paramètres du pare-feu](./media/site-recovery-vmware-to-azure-classic/mobility1.png)
 
-2. Ajoutez le compte que vous venez de créer :
+2. Ajoutez le compte que vous venez de créer :
 
 	- Ouvrez **cspsconfigtool**. Il est disponible sous forme de raccourci sur le bureau et situé dans le dossier \\home\\svsystems\\bin [EMPLACEMENT D’INSTALLATION].
 	- Dans l’onglet **Gérer les comptes**, cliquez sur **Ajouter un compte**.
@@ -520,7 +522,7 @@ Oracle Enterprise Linux 6.4, 6.5 (64 bits uniquement) | Microsoft-ASR\_UA\_9.*.0
 4. Dans la zone **Emplacement de l’installation**, conservez l’emplacement par défaut, puis cliquez sur **Suivant** pour commencer l’installation.
 5. Dans la zone **Progression de l’installation**, surveillez l’installation et redémarrez la machine si vous y êtes invité.
 
-Vous pouvez également procéder à l’installation à partir de la ligne de commande :
+Vous pouvez également procéder à l’installation à partir de la ligne de commande :
 
 UnifiedAgent.exe [/Role <Agent/MasterTarget>] [/InstallLocation <Réperoire\_installation>] [/CSIP <Adresse IP CS ayant servi pour l’inscription>] [/PassphraseFilePath <chemin\_fichier\_phrase\_secrète>] [/LogFilePath <chemin\_fichier\_journal>]
 
@@ -601,7 +603,7 @@ Ajouter des ordinateurs à un groupe de protection :
 
 4. Dans **Spécifier les ressources cibles**, sélectionnez le compte de stockage que vous utilisez pour la réplication, puis déterminez si les paramètres doivent être utilisés pour toutes les charges de travail. Notez que les comptes de stockage Premium ne sont pas pris en charge actuellement.
 
-	>[AZURE.NOTE] Nous ne prenons pas en charge le déplacement des comptes de stockage créés à l’aide du [nouveau Portail Azure](../storage/storage-create-storage-account.md) dans les groupes de ressources.
+	>[AZURE.NOTE] 1.Nous ne prenons pas en charge le déplacement des comptes de stockage créés à l’aide du [nouveau portail Azure](../storage/storage-create-storage-account.md) entre les groupes de ressources. 2.[La migration de comptes de stockage](../resource-group-move-resources.md) entre les groupes de ressources d’un même abonnement ou de plusieurs abonnements n’est pas prise en charge pour les comptes de stockage utilisés pour le déploiement de Site Recovery.
 
 	![Activer la protection](./media/site-recovery-vmware-to-azure-classic/enable-protection3.png)
 
@@ -806,4 +808,4 @@ The complete file may be found on the [Microsoft Download Center](http://go.micr
 
 [Découvrez plus d’informations sur la restauration automatique](site-recovery-failback-azure-to-vmware-classic.md) qui permet de ramener dans votre environnement local vos machines basculées s’exécutant dans Azure.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

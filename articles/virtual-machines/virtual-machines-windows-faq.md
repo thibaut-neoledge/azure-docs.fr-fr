@@ -38,7 +38,7 @@ Un compte de stockage Azure fournit le stockage pour le disque du système d’e
 
 ## Comment puis-je accéder à ma machine virtuelle ?
 
-Vous devez établir une connexion à distance à l’aide du protocole RDP (Remote Desktop Protocol) pour une machine virtuelle Windows. Pour plus d’informations, consultez [Connexion à une machine virtuelle Azure exécutant Windows](virtual-machines-windows-connect-logon.md). Deux connexions simultanées maximum sont prises en charge, sauf si le serveur est configuré en tant qu’hôte de session Services Bureau à distance.
+Établissez une connexion à distance à l’aide du protocole RDP (Remote Desktop Protocol) pour une machine virtuelle Windows. Pour plus d’informations, consultez [Connexion à une machine virtuelle Azure exécutant Windows](virtual-machines-windows-connect-logon.md). Deux connexions simultanées maximum sont prises en charge, sauf si le serveur est configuré en tant qu’hôte de session Services Bureau à distance.
 
 
 En cas de problème de connexion, consultez [Résolution des problèmes de connexion Bureau à distance avec une machine virtuelle Azure exécutant Windows](virtual-machines-windows-troubleshoot-rdp-connection.md).
@@ -47,7 +47,7 @@ Si vous connaissez bien Hyper-V, vous pouvez rechercher un outil similaire à VM
 
 ## Puis-je utiliser le disque temporaire (lecteur D: par défaut) pour stocker des données ?
 
-N’utilisez pas le disque temporaire pour stocker des données. Il ne sert qu’au stockage temporaire. Vous risqueriez donc de perdre des données sans pouvoir les récupérer. Cela peut arriver si la machine virtuelle est déplacée vers un autre hôte, après le redimensionnement d’une machine virtuelle, la mise à jour de l’hôte ou une panne matérielle sur l’hôte, par exemple.
+N’utilisez pas le disque temporaire pour stocker des données. Il ne sert qu’au stockage temporaire. Vous risqueriez donc de perdre des données sans pouvoir les récupérer. Une perte de données peut se produire si la machine virtuelle est déplacée vers un autre hôte. après le redimensionnement d’une machine virtuelle, la mise à jour de l’hôte ou une panne matérielle sur l’hôte, par exemple.
 
 Si vous avez une application qui doit utiliser le lecteur D:, vous pouvez réaffecter les lettres de lecteur afin que le disque temporaire utilise une autre lettre que D. Pour obtenir des instructions, consultez la page [Modification de la lettre de lecteur du disque temporaire Windows](virtual-machines-windows-classic-change-drive-letter.md).
 
@@ -83,4 +83,62 @@ Oui. Pour créer rapidement une machine virtuelle Linux de test, consultez [Cré
 
 Non. L’ajout d’une carte réseau n’est possible que lors de la création.
 
-<!---HONumber=AcomDC_0817_2016-->
+## Existe-t-il des exigences en matière de nom d’ordinateur ?
+
+Oui. Le nom d’ordinateur peut avoir une longueur maximale de 15 caractères. Consultez la rubrique [Instructions de dénomination d’infrastructure](virtual-machines-windows-infrastructure-naming-guidelines.md) pour plus d’informations sur la dénomination de ressources.
+
+## Quelles sont les exigences en matière de nom d’utilisateur lors de la création d’une machine virtuelle ?
+
+Les noms d’utilisateur peuvent comporter un maximum de 20 caractères et ne doivent pas se terminer par un point («. »).
+
+Les noms d’utilisateur suivants ne sont pas autorisés :
+
+<table>
+	<tr>
+		<td style="text-align:center">administrator </td><td style="text-align:center"> admin </td><td style="text-align:center"> user </td><td style="text-align:center"> user1</td>
+	</tr>
+	<tr>
+		<td style="text-align:center">test </td><td style="text-align:center"> user2 </td><td style="text-align:center"> test1 </td><td style="text-align:center"> user3</td>
+	</tr>
+	<tr>
+		<td style="text-align:center">admin1 </td><td style="text-align:center"> 1 </td><td style="text-align:center"> 123 </td><td style="text-align:center"> a</td>
+	</tr>
+	<tr>
+		<td style="text-align:center">actuser  </td><td style="text-align:center"> adm </td><td style="text-align:center"> admin2 </td><td style="text-align:center"> aspnet</td>
+	</tr>
+	<tr>
+		<td style="text-align:center">backup </td><td style="text-align:center"> console </td><td style="text-align:center"> david </td><td style="text-align:center"> guest</td>
+	</tr>
+	<tr>
+		<td style="text-align:center">john </td><td style="text-align:center"> propriétaire </td><td style="text-align:center"> root </td><td style="text-align:center"> server</td>
+	</tr>
+	<tr>
+		<td style="text-align:center">sql </td><td style="text-align:center"> support </td><td style="text-align:center"> support_388945a0 </td><td style="text-align:center"> sys</td>
+	</tr>
+	<tr>
+		<td style="text-align:center">test2 </td><td style="text-align:center"> test3 </td><td style="text-align:center"> user4 </td><td style="text-align:center"> user5</td>
+	</tr>
+</table>
+
+## Quelles sont les exigences en matière de mot de passe lors de la création d’une machine virtuelle ?
+
+Les mots de passe doivent comporter de 8 à 123 caractères et répondre à 3 des 4 exigences de complexité suivantes :
+
+- Avoir des minuscules
+- Avoir des majuscules
+- Avoir un chiffre
+- Avoir un caractère spécial (correspondances Regex [\\W\_])
+
+Les noms mots de passe suivants ne sont pas autorisés :
+
+Les noms mots de passe suivants ne sont pas autorisés
+<table>
+	<tr>
+		<td style="text-align:center">abc@123</td><td style="text-align:center">P@$$w0rd</td><td style="text-align:center">P@ssw0rd</td><td style="text-align:center">P@ssword123</td><td style="text-align:center">Pa$$word</td>
+	</tr>
+	<tr>
+		<td style="text-align:center">pass@word1</td><td style="text-align:center">Password!</td><td style="text-align:center">Password1</td><td style="text-align:center">Password22</td><td style="text-align:center">iloveyou!</td>
+	</tr>
+</table>
+
+<!---HONumber=AcomDC_0831_2016-->

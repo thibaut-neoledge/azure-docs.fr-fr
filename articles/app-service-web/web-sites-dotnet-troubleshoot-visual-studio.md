@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/28/2016" 
+	ms.date="08/29/2016" 
 	ms.author="rachelap"/>
 
 # Dépanner une application web dans le Service d’application Microsoft Azure à l’aide de Visual Studio
@@ -51,12 +51,12 @@ Visual Studio permet d’accéder à un sous-ensemble des fonctionnalités de g
 
 1. Si vous n'êtes pas déjà connecté à Azure dans Visual Studio, cliquez sur le bouton **Connect to Azure** dans l'**Explorateur de serveurs**.
 
-	Vous pouvez aussi installer un certificat de gestion permettant d'accéder à votre compte. Si vous choisissez d'installer un certificat, cliquez avec le bouton droit sur le nœud **Azure** dans l'**Explorateur de serveurs**, puis cliquez sur **Gérer et filtrer les abonnements** dans le menu contextuel. Dans la boîte de dialogue **Manage Azure Subscriptions**, cliquez sur l’onglet **Certificates**, puis sur **Import**. Suivez la procédure pour télécharger et importer un fichier d’abonnement (portant l’extension *.publishsettings*) pour votre compte Azure.
+	Vous pouvez aussi installer un certificat de gestion permettant d'accéder à votre compte. Si vous choisissez d’installer un certificat, cliquez avec le bouton droit sur le nœud **Azure** dans l’**Explorateur de serveurs**, puis cliquez sur **Gérer et filtrer les abonnements** dans le menu contextuel. Dans la boîte de dialogue **Gérer les abonnements Azure**, cliquez sur l’onglet **Certificats**, puis sur **Importer**. Suivez la procédure pour télécharger et importer un fichier d’abonnement (portant l’extension *.publishsettings*) pour votre compte Azure.
 
 	> [AZURE.NOTE]
 	Si vous téléchargez un fichier d’abonnement, enregistrez-le dans un dossier situé hors de vos répertoires de code source (par exemple, dans le dossier Téléchargements), puis supprimez-le une fois l’importation terminée. Si un utilisateur malveillant accède au fichier d’abonnement, il peut modifier, créer et supprimer vos services Azure.
 
-	Pour plus d'informations sur la connexion aux ressources Azure à partir de Visual Studio, consultez la page [Gérer des comptes, des abonnements et des rôles d'administrateur](http://go.microsoft.com/fwlink/?LinkId=324796#BKMK_AccountVCert).
+	Pour plus d’informations sur la connexion aux ressources Azure à partir de Visual Studio, consultez la page [Gérer des comptes, des abonnements et des rôles d’administrateur](http://go.microsoft.com/fwlink/?LinkId=324796#BKMK_AccountVCert).
 
 2. Dans l’**Explorateur de serveurs**, développez **Azure**, puis **App Service**.
 
@@ -80,7 +80,7 @@ En général, vous déployez un projet Web avec l’indicateur `customErrors` d
 
 **Erreur de serveur dans l’application « / » :**
 
-![Page d'erreur inutile](./media/web-sites-dotnet-troubleshoot-visual-studio/genericerror.png)
+![Page d’erreur inutile](./media/web-sites-dotnet-troubleshoot-visual-studio/genericerror.png)
 
 **Nous avons rencontré une erreur :**
 
@@ -151,7 +151,7 @@ Cette section vous montre comment procéder au débogage à distance en utilisan
 
 5. Dans l’**Explorateur de serveurs**, cliquez avec le bouton droit sur votre application web, puis cliquez sur **Attacher le débogueur**.
 
-	![Attacher le débogueur](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-attachdebugger.png)
+	![Attach debugger](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-attachdebugger.png)
 
 	Le navigateur ouvre automatiquement votre page d'accueil exécutée dans Azure. Vous devrez peut-être attendre environ 20 secondes pendant qu'Azure configure le serveur pour le débogage. Ce retard se produit uniquement la première fois que vous exécutez le mode débogage sur une application web. Il ne se reproduira pas lors des redémarrages du mode débogage au cours des 48 prochaines heures.
 
@@ -203,7 +203,7 @@ Le débogage à distance fonctionne uniquement avec les tâches Web en continu. 
 
 7. Cliquez sur **Attacher le débogueur**.
 
-	![Attacher le débogueur](./media/web-sites-dotnet-troubleshoot-visual-studio/wjattach.png)
+	![Attach debugger](./media/web-sites-dotnet-troubleshoot-visual-studio/wjattach.png)
 
 	Le navigateur ouvre automatiquement votre page d'accueil exécutée dans Azure. Vous devrez peut-être attendre environ 20 secondes pendant qu'Azure configure le serveur pour le débogage. Ce retard se produit uniquement la première fois que vous exécutez le mode débogage sur une application web. La prochaine fois que vous attacherez le débogueur il n’y aura aucun délai, si vous le faites dans les 48 heures.
 
@@ -241,7 +241,7 @@ Si votre fonction [a écrit des journaux](websites-dotnet-webjobs-sdk-storage-qu
 
 ## Notes à propos du débogage à distance
 
-* Nous vous déconseillons d'exécuter le mode débogage en production. Si votre application web de production n’est pas montée en charge sur plusieurs instances de serveur, la fonction de débogage empêche le serveur web de répondre aux autres demandes. Si vous avez plusieurs instances de serveurs web, le fait de joindre le débogueur génèrera une instance aléatoire et vous empêchera de vérifier que les demandes suivantes de votre navigateur parviendront à cette instance. De même, comme vous ne déployez généralement pas une version de débogage dans un environnement de production, les optimisations du compilateur pour les versions Release peuvent empêcher l'affichage des réactions ligne par ligne dans votre code source. Pour résoudre les problèmes de production, la meilleure ressource est constituée des journaux de suivi d'application et de serveur Web.
+* Nous vous déconseillons d'exécuter le mode débogage en production. Si votre application web de production n’est pas montée en charge sur plusieurs instances de serveur, la fonction de débogage empêche le serveur web de répondre aux autres demandes. Si vous avez plusieurs instances de serveurs web, le fait de joindre le débogueur générera une instance aléatoire et vous empêchera de vérifier que les demandes suivantes de votre navigateur parviendront à cette instance. De même, comme vous ne déployez généralement pas une version de débogage dans un environnement de production, les optimisations du compilateur pour les versions Release peuvent empêcher l'affichage des réactions ligne par ligne dans votre code source. Pour résoudre les problèmes de production, la meilleure ressource est constituée des journaux de suivi d'application et de serveur Web.
 
 * Évitez les arrêts longs aux points d'arrêt avec le débogage à distance. Azure considère qu'un processus arrêté pendant plus de quelques minutes ne répond pas, et l'arrête définitivement.
 
@@ -285,7 +285,7 @@ Pour plus d’informations sur la création de journaux d’application dans Web
 
 ### Ajout d'instructions de suivi à l'application
 
-1. Ouvrez *Controllers\\HomeController.cs*, puis remplacez les méthodes `Index`, `About` et `Contact` par le code suivant afin d’ajouter les instructions `Trace` et une instruction `using` pour `System.Diagnostics` :
+1. Ouvrez *Controllers\HomeController.cs*, puis remplacez les méthodes `Index`, `About` et `Contact` par le code suivant afin d’ajouter les instructions `Trace` et une instruction `using` pour `System.Diagnostics` :
 
 		public ActionResult Index()
 		{
@@ -568,7 +568,7 @@ Les comptes de stockage offrent un espace de stockage plus important et une cons
 
 8. Dans l’onglet **Journaux** de la fenêtre **Application web Microsoft Azure**, au sein de Visual Studio, cliquez sur **Actualiser** sous **Récapitulatif du diagnostic**.
 
-	![Cliquer sur Actualiser](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-refreshstorage.png)
+	![Cliquer sur Actualiser.](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-refreshstorage.png)
 
 	La section **Diagnostic Summary** affiche par défaut les journaux des 15 dernières minutes. Vous pouvez modifier ce délai pour afficher plus de journaux.
 
@@ -728,4 +728,4 @@ Le site Web Microsoft TechNet comporte une section [Utilisation du suivi des dem
 [GetStartedWJ]: websites-dotnet-webjobs-sdk.md
  
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0831_2016-->

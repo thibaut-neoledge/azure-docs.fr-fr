@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/09/2016"
+	ms.date="08/24/2016"
 	ms.author="szark"/>
 
 # Préparation d'une machine virtuelle Linux Ubuntu pour Azure
@@ -22,25 +22,29 @@
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 ## Images cloud Ubuntu officielles
-Ubuntu publie désormais des disques durs virtuels Azure officiels téléchargeables depuis l’adresse [http://cloud-images.ubuntu.com/](http://cloud-images.ubuntu.com/). Si vous avez besoin de créer votre propre image Ubuntu spécialisée pour Azure, plutôt que d’utiliser la procédure manuelle ci-après, nous vous recommandons de démarrer avec ces disques durs virtuels opérationnels connus et de les personnaliser selon vos besoins.
+Ubuntu publie désormais des disques durs virtuels Azure officiels téléchargeables depuis l’adresse [http://cloud-images.ubuntu.com/](http://cloud-images.ubuntu.com/). Si vous avez besoin de créer votre propre image Ubuntu spécialisée pour Azure, plutôt que d’utiliser la procédure manuelle ci-après, nous vous recommandons de démarrer avec ces disques durs virtuels opérationnels connus et de les personnaliser selon vos besoins. Les dernières versions de l’image se trouvent toujours aux emplacements suivants :
+
+ - Ubuntu 12.04/Precise : [ubuntu-12.04-server-cloudimg-amd64-disk1.vhd.zip](http://cloud-images.ubuntu.com/releases/precise/release/ubuntu-12.04-server-cloudimg-amd64-disk1.vhd.zip)
+ - Ubuntu 14.04/Trusty : [ubuntu-14.04-server-cloudimg-amd64-disk1.vhd.zip](http://cloud-images.ubuntu.com/releases/trusty/release/ubuntu-14.04-server-cloudimg-amd64-disk1.vhd.zip)
+ - Ubuntu 16.04/Xenial : [ubuntu-16.04-server-cloudimg-amd64-disk1.vhd.zip](http://cloud-images.ubuntu.com/releases/xenial/release/ubuntu-16.04-server-cloudimg-amd64-disk1.vhd.zip)
 
 
-## Composants requis
+## Conditions préalables
 
 Cet article suppose que vous avez déjà installé un système d'exploitation Linux Ubuntu dans un disque dur virtuel. Il existe de multiples outils dédiés à la création de fichiers .vhd, comme la solution de virtualisation Hyper-V. Pour obtenir des instructions, consultez la page [Installation du rôle Hyper-V et configuration d'une machine virtuelle](http://technet.microsoft.com/library/hh846766.aspx).
 
 **Notes d'installation Ubuntu**
 
 - Consultez également les [Notes générales d’installation sous Linux](virtual-machines-linux-create-upload-generic.md#general-linux-installation-notes) pour obtenir d’autres conseils sur la préparation de Linux pour Azure.
-- Azure ne prend pas en charge le format VHDX, seulement le **VHD fixe**. Vous pouvez convertir le disque au format VHD à l'aide de Hyper-V Manager ou de la cmdlet convert-vhd.
-- Lors de l'installation du système Linux, il est recommandé d'utiliser les partitions standard plutôt que LVM (qui est souvent le choix par défaut pour de nombreuses installations). Ceci permettra d'éviter les conflits de noms avec des machines virtuelles clonées, notamment si un disque de système d'exploitation doit être relié à une autre machine virtuelle pour la dépanner. Les techniques [LVM](virtual-machines-linux-configure-lvm.md) ou [RAID](virtual-machines-linux-configure-raid.md) peuvent être utilisées sur des disques de données si vous préférez.
-- Ne configurez pas une partition d’échange sur le disque du système d’exploitation. L'agent Linux est configurable pour créer un fichier d'échange sur le disque de ressources temporaire. Les étapes ci-dessous fournissent plus d'informations à ce sujet.
+- Azure ne prend pas en charge le format VHDX, seulement le **VHD fixe**. Vous pouvez convertir le disque au format VHD à l'aide de Hyper-V Manager ou de l’applet de commande convert-vhd.
+- Lors de l’installation du système Linux, il est recommandé d’utiliser les partitions standard plutôt que LVM (qui est souvent le choix par défaut pour de nombreuses installations). Ceci permettra d'éviter les conflits de noms avec des machines virtuelles clonées, notamment si un disque de système d'exploitation doit être relié à une autre machine virtuelle pour la dépanner. Les techniques [LVM](virtual-machines-linux-configure-lvm.md) ou [RAID](virtual-machines-linux-configure-raid.md) peuvent être utilisées sur des disques de données si vous préférez.
+- Ne configurez pas une partition d’échange sur le disque du système d’exploitation. L'agent Linux est configurable pour créer un fichier d'échange sur le disque de ressources temporaire. Les étapes ci-dessous fournissent plus d’informations à ce sujet.
 - La taille des disques durs virtuels doit être un multiple de 1 Mo.
 
 
 ## Étapes manuelles
 
-> [AZURE.NOTE] Avant de créer votre propre image Ubuntu personnalisée pour Azure, envisagez d’utiliser les images disponibles à l’adresse [http://cloud-images.ubuntu.com/](http://cloud-images.ubuntu.com/).
+> [AZURE.NOTE] Avant de créer votre propre image Ubuntu personnalisée pour Azure, envisagez d’utiliser plutôt les images disponibles à l’adresse [http://cloud-images.ubuntu.com/](http://cloud-images.ubuntu.com/).
 
 
 1. Dans le panneau central de Hyper-V Manager, sélectionnez la machine virtuelle.
@@ -83,41 +87,33 @@ Cet article suppose que vous avez déjà installé un système d'exploitation L
 
 		# sudo reboot
 
-5.	(Facultatif) Si le système Ubuntu rencontre une erreur et redémarre, il attend souvent la saisie de l'utilisateur à l'invite de démarrage grub, ce qui empêche le système de démarrer correctement. Pour éviter ceci, procédez comme suit :
 
-	a) Ouvrez le fichier /etc/grub.d/00\_header.
+5. Modifiez la ligne de démarrage du noyau afin que Grub y inclue les paramètres de noyau supplémentaires pour Azure. Pour cela, ouvrez le fichier « /etc/default/grub » dans un éditeur de texte. Recherchez la variable nommée `GRUB_CMDLINE_LINUX_DEFAULT` (ou ajoutez-la le cas échéant) et modifiez-la pour inclure les paramètres suivants :
 
-	b) Dans la fonction **make\_timeout()**, recherchez **if ["\\${recordfail}" = 1 ]; then**
-
-	c) Modifiez le texte sous cette ligne comme suit : **set timeout=5**.
-
-	d) Exécutez 'sudo update-grub'.
-
-6. Modifiez la ligne de démarrage du noyau afin que Grub y inclue les paramètres de noyau supplémentaires pour Azure. Pour cela, ouvrez le fichier « /etc/default/grub » dans un éditeur de texte. Recherchez la variable nommée `GRUB_CMDLINE_LINUX_DEFAULT` (ou ajoutez-la le cas échéant) et modifiez-la pour inclure les paramètres suivants :
-
-		GRUB_CMDLINE_LINUX_DEFAULT="console=tty1 console=ttyS0 earlyprintk=ttyS0 rootdelay=300"
+		GRUB_CMDLINE_LINUX_DEFAULT="console=tty1 console=ttyS0,115200n8 earlyprintk=ttyS0,115200 rootdelay=300"
 
 	Enregistrez ce fichier, puis fermez-le. Exécutez ensuite la commande `sudo update-grub`. Ce permet d'assurer que tous les messages de la console sont envoyés vers le premier port série, ce qui peut simplifier les problèmes de débogage pour l'assistance technique d'Azure.
 
-8.	Vérifiez que le serveur SSH est installé et configuré pour démarrer au moment prévu. C'est généralement le cas par défaut.
+6.	Vérifiez que le serveur SSH est installé et configuré pour démarrer au moment prévu. C'est généralement le cas par défaut.
 
-9.	Installez l'agent Linux Azure :
+7.	Installez l'agent Linux Azure :
 
 		# sudo apt-get update
 		# sudo apt-get install walinuxagent
 
 	Notez que l’installation du package `walinuxagent` entraîne la suppression des packages `NetworkManager` et `NetworkManager-gnome` (s’ils sont installés).
 
-10.	Exécutez les commandes suivantes pour annuler le déploiement de la machine virtuelle et préparer son déploiement sur Azure :
+8.	Exécutez les commandes suivantes pour annuler le déploiement de la machine virtuelle et préparer son déploiement sur Azure :
 
 		# sudo waagent -force -deprovision
 		# export HISTSIZE=0
 		# logout
 
-11. Cliquez sur **Action -> Arrêter** dans le Gestionnaire Hyper-V. Votre disque dur virtuel Linux est alors prêt pour le téléchargement dans Azure.
+9. Cliquez sur **Action -> Arrêter** dans le Gestionnaire Hyper-V. Votre disque dur virtuel Linux est alors prêt pour le téléchargement dans Azure.
+
 
 ## Étapes suivantes
-Vous êtes maintenant prêt à utiliser votre disque dur virtuel Ubuntu Linux pour créer des machines virtuelles dans Azure. S’il s’agit de la première fois que vous chargez le fichier .vhd sur Azure, consultez les étapes 2 et 3 dans [Création et chargement d’un disque dur virtuel contenant le système d’exploitation Linux](virtual-machines-linux-classic-create-upload-vhd.md).
+Vous êtes maintenant prêt à utiliser votre disque dur virtuel Ubuntu Linux pour créer des machines virtuelles dans Azure. S’il s’agit de la première fois que vous chargez le fichier .vhd sur Azure, consultez les étapes 2 et 3 dans [Création et chargement d’un disque dur virtuel contenant le système d’exploitation Linux](virtual-machines-linux-classic-create-upload-vhd.md).
 
 ## Références ##
 
@@ -126,4 +122,4 @@ Noyau HWE (HardWare Enablement) Ubuntu :
 - [http://blog.utlemming.org/2015/01/ubuntu-1404-azure-images-now-tracking.html](http://blog.utlemming.org/2015/01/ubuntu-1404-azure-images-now-tracking.html)
 - [http://blog.utlemming.org/2015/02/1204-azure-cloud-images-now-using-hwe.html](http://blog.utlemming.org/2015/02/1204-azure-cloud-images-now-using-hwe.html)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -19,7 +19,7 @@
 # Analytics dans Application Insights
 
 
-[Analytics](app-insights-analytics.md) est la puissante fonctionnalité de recherche d’[Application Insights](app-insights-overview.md). Ces pages décrivent le langage de requête Analytics.
+[Analytics](app-insights-analytics.md) est la fonctionnalité de recherche performante d’[Application Insights](app-insights-overview.md). Ces pages décrivent le langage de requête Analytics.
 
 * **[Regardez la vidéo d’introduction](https://applicationanalytics-media.azureedge.net/home_page_video.mp4)**.
 * **[Testez la version d’évaluation d’Analytics sur nos données simulées](https://analytics.applicationinsights.io/demo)** si votre application n’envoie pas encore de données à Application Insights.
@@ -63,7 +63,6 @@ Le langage possède de nombreuses fonctionnalités attrayantes :
 
 
 
->[AZURE.NOTE] Nous vous recommandons de commencer par la [visite guidée du langage](app-insights-analytics-tour.md).
 
 
 
@@ -84,4 +83,10 @@ Les résultats de requête sont actuellement limités à une seule semaine de do
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0727_2016-->
+
+## Étapes suivantes
+
+
+* Nous vous recommandons de commencer par la [visite guidée du langage](app-insights-analytics-tour.md).
+
+<!---HONumber=AcomDC_0831_2016-->
