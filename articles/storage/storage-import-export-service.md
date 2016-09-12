@@ -40,7 +40,6 @@ Vous pouvez utiliser ce service dans des scénarios tels que :
 - Sauvegarde : sauvegardez vos données locales dans Azure Blob Storage.
 - Récupération des données : récupérez les grandes quantités de données stockées dans Blob Storage pour les transférer vers votre site local.
 
-
 ## Conditions préalables
 
 Dans cette section, nous avons répertorié les composants requis pour utiliser ce service. Vérifiez-les soigneusement avant d’expédier vos disques.
@@ -53,7 +52,7 @@ Vous devez disposer d’un abonnement Azure et d’un ou plusieurs comptes de st
 
 Vous pouvez utiliser le service Azure Import/Export pour copier des données dans des objets blob de **bloc** ou de **page**. En revanche, vous ne pouvez qu’exporter les objets blob de **bloc**, de **page** ou **d’ajout** depuis le stockage Azure.
 
-### Job
+### Travail
 
 Pour lancer le processus d'importation ou d'exportation vers ou à partir d'un stockage d'objets blob, commencez par créer une tâche. Il peut s'agir d'une tâche d'importation ou d'une tâche d'exportation :
 
@@ -99,7 +98,7 @@ Pour les travaux d’importation, le chiffrement s’effectue de deux manières 
 
 Pour les travaux d’exportation, une fois vos données copiées sur le disque, le service chiffre le disque à l’aide de BitLocker avant de vous le renvoyer. La clé de chiffrement vous est fournie via le portail Azure Classic.
 
-### Système d'exploitation
+### Système d’exploitation
 
 Vous pouvez utiliser l’un des systèmes d’exploitation 64 bits suivants pour préparer le disque dur à l’aide de l’outil Azure Import/Export avant de l’envoyer à Azure :
 
@@ -204,7 +203,7 @@ Globalement, un travail d’exportation comprend les opérations suivantes :
 
 ### Affichage de l’état de votre travail
 
-Vous pouvez suivre l’état de vos tâches d’importation ou d’exportation dans le portail Classic. Accédez à votre compte de stockage dans le portail Classic, puis cliquez sur l’onglet **Import/Export**. La liste de vos tâches s’affiche sur la page. Vous pouvez filtrer la liste en fonction du statut des tâches, de leur nom, de leur type ou du numéro de suivi.
+Vous pouvez suivre l’état de vos tâches d’importation ou d’exportation dans le portail Classic. Accédez à votre compte de stockage dans le portail Classic, puis cliquez sur l’onglet **Import/Export**. La liste de vos tâches s'affiche sur la page. Vous pouvez filtrer la liste en fonction du statut des tâches, de leur nom, de leur type ou du numéro de suivi.
 
 Selon la phase de traitement de votre disque, vous obtiendrez l’un des statuts suivants :
 
@@ -304,7 +303,7 @@ Pour en savoir plus sur l’utilisation de l’outil client Azure Import/Export,
 
 Pour une description étape par étape, consultez [Exemple de flux de travail pour préparer des disques durs à un travail d’importation](https://msdn.microsoft.com/library/dn529097.aspx).
 
-### Création de la tâche d’importation
+### Création de la tâche d'importation
 
 1.	Après avoir préparé votre disque, accédez à votre compte de stockage sur le [portail Classic](https://manage.windowsazure.com) et affichez le tableau de bord. Sous **Quick Glance**, cliquez sur **Create an Import Job**. Vérifiez les étapes et cochez la case pour indiquer que vous avez préparé votre disque et que son fichier journal est disponible.
 
@@ -328,7 +327,7 @@ Pour une description étape par étape, consultez [Exemple de flux de travail po
 
 	Si le numéro de suivi n'est pas mis à jour dans les 2 semaines de création de la tâche, cette dernière expirera.
 
-	Si la tâche a le statut Création, Expédition ou Transfert, vous pouvez également mettre à jour le numéro de compte du transporteur à l’étape 2 de l’Assistant. Une fois que la tâche a le statut Emballage, vous ne pouvez plus mettre à jour le numéro de compte de transporteur correspondant.
+	Si la tâche a le statut Création, Expédition ou Transfert, vous pouvez également mettre à jour le numéro de compte du transporteur à l'étape 2 de l'Assistant. Une fois que la tâche a le statut Emballage, vous ne pouvez plus mettre à jour le numéro de compte de transporteur correspondant.
 
 7. Vous pouvez suivre l’état d’avancement de votre travail sur le tableau de bord du portail. Pour connaître la signification de chaque état de travail dans la section précédente, consultez [Affichage de l’état de votre travail](#viewing-your-job-status).
 
@@ -360,11 +359,11 @@ Les vérifications préalables suivantes sont recommandées pour préparer vos d
 
 	Sélecteur|Chemin d'accès d'objet blob|Description
 	---|---|---
-	Starts With|/|Exporte tous les objets blob présents dans le compte de stockage.
-	Starts With|/$root/|Exporte tous les objets blob présents dans le conteneur racine.
-	Starts With|/book|Exporte tous les objets blob présents dans un conteneur commençant par le préfixe **book**.
+	Commence par|/|Exporte tous les objets blob présents dans le compte de stockage.
+	Commence par|/$root/|Exporte tous les objets blob présents dans le conteneur racine.
+	Commence par|/book|Exporte tous les objets blob présents dans un conteneur commençant par le préfixe **book**.
 	Starts With|/music/|Exporte tous les objets blob présents dans le conteneur **music**.
-	Starts With|/music/love|Exporte tous les objets blob présents dans le conteneur **music** qui commence par le préfixe **love**.
+	Commence par|/music/love|Exporte tous les objets blob présents dans le conteneur **music** qui commence par le préfixe **love**.
 	Equal To|$root/logo.bmp|Exporte l'objet blob **logo.bmp** présent dans le conteneur racine.
 	Equal To|videos/story.mp4|Exporte l'objet blob **story.mp4** présent dans le conteneur **videos**.
 
@@ -387,7 +386,7 @@ Les vérifications préalables suivantes sont recommandées pour préparer vos d
 
 	Si le numéro de suivi n'est pas mis à jour dans les 2 semaines de création de la tâche, cette dernière expirera.
 
-	Si la tâche a le statut Création, Expédition ou Transfert, vous pouvez également mettre à jour le numéro de compte du transporteur à l’étape 2 de l’Assistant. Une fois que la tâche a le statut Emballage, vous ne pouvez plus mettre à jour le numéro de compte de transporteur correspondant.
+	Si la tâche a le statut Création, Expédition ou Transfert, vous pouvez également mettre à jour le numéro de compte du transporteur à l'étape 2 de l'Assistant. Une fois que la tâche a le statut Emballage, vous ne pouvez plus mettre à jour le numéro de compte de transporteur correspondant.
 
 	> [AZURE.NOTE] Si l’objet blob à exporter est en cours d’utilisation au moment de la copie sur le disque dur, le service d’importation/exportation Azure prend un instantané de l’objet blob et copie la capture instantanée.
 
@@ -401,9 +400,12 @@ Accédez à la section FAQ ci-dessous, car elle aborde les questions les plus co
 
 ## Forum Aux Questions (FAQ) ##
 
+
 **Combien de temps faut-il pour copier les données lorsque mon ou mes disques sont parvenus au centre de données ?**
 
 Le temps nécessaire à la copie varie en fonction de différents facteurs, tels que le type de travail, le type et la taille des données copiées, la taille des disques fournis et la charge de travail existante. Cela peut aller de quelques jours à quelques semaines. Il est donc difficile de fournir une estimation générale. Le service tente d’optimiser votre travail en copiant plusieurs disques en parallèle dans la mesure du possible. Si votre travail d’importation/exportation est urgent, contactez-nous pour obtenir une estimation.
+
+**Quand dois-je utiliser le service Azure Import/Export ?** On peut considérer l’utilisation d’Azure Import/Export si le chargement ou le téléchargement par le biais d’un réseau nécessite une durée estimée de plus de 7 jours. Vous pouvez calculer le temps nécessaire à l’aide de n’importe quel programme de calcul en ligne ou en [téléchargeant](https://github.com/Azure-Samples/storage-dotnet-import-export-job-management/archive/master.zip) celui situé dans notre exemple d’API REST Azure Import Export dans le référentiel d’exemples Azure ([Calculatrice de vitesse de transfert de données](https://github.com/Azure-Samples/storage-dotnet-import-export-job-management/blob/master/DataTransferSpeedCalculator.html)). Cela n’est pas un calcul exact, mais uniquement une indication approximative.
 
 **Puis-je utiliser le service Azure Import/Export avec un compte de stockage Resource Manager ?**
 
@@ -413,9 +415,9 @@ Non, vous ne pouvez pas copier les données vers ou depuis un compte de stockage
 
 Non, le service Azure Import/Export ne prend en charge que les objets blob de bloc et de page. Les autres types de stockage, y compris les fichiers Azure, les tables et les files d’attente, ne sont pas pris en charge.
 
-**Le service Azure Import/Export est-il disponible pour les abonnements de fournisseur de services cryptographiques ?**
+**Le service Azure Import/Export est-il disponible pour les abonnements de fournisseur de services de chiffrement ?**
 
-Non, le service Azure Import/Export ne prend pas en charge les abonnements de fournisseur de services cryptographiques. Pour l’instant, du moins.
+Non, le service Azure Import/Export ne prend pas en charge les abonnements de fournisseur de services de chiffrement. Pour l’instant, du moins.
 
 **Puis-je ignorer l’étape de préparation de disque pour un travail d’importation ou préparer un disque sans effectuer la copie ?**
 
@@ -423,7 +425,7 @@ Tout disque que vous souhaitez expédier en vue d’importer des données doit �
 
 **Ai-je besoin d’effectuer la préparation du disque lors de la création d'une tâche d'exportation ?**
 
-Non, mais certaines vérifications préalables sont recommandées. Vérifiez le nombre de disques requis à l'aide de la commande PreviewExport de l’outil Azure Import/Export. Pour plus d’informations, consultez [Aperçu de l’utilisation des lecteurs pour un travail d’exportation](https://msdn.microsoft.com/library/azure/dn722414.aspx). Celle-ci vous permet d'afficher un aperçu de l'utilisation du disque pour les objets BLOB que vous avez sélectionnés, en fonction de la taille des disques que vous voulez utiliser. Vérifiez également que le disque dur qui sera utilisé pour le travail d’exportation est accessible en lecture et en écriture.
+Non, mais certaines vérifications préalables sont recommandées. Vérifiez le nombre de disques requis à l'aide de la commande PreviewExport de l’outil Azure Import/Export. Pour plus d’informations, consultez [Previewing Drive Usage for an Export Job](https://msdn.microsoft.com/library/azure/dn722414.aspx) (Aperçu de l’utilisation des lecteurs pour une tâche travail d’exportation). Celle-ci vous permet d'afficher un aperçu de l'utilisation du disque pour les objets BLOB que vous avez sélectionnés, en fonction de la taille des disques que vous voulez utiliser. Vérifiez également que le disque dur qui sera utilisé pour le travail d’exportation est accessible en lecture et en écriture.
 
 **Que se passe-t-il si j’envoie par accident un disque dur non conforme au type pris en charge ?**
 
@@ -451,9 +453,9 @@ Non. Tous les disques sont chiffrés avec BitLocker.
 
 **Est-il possible d’acheter des lecteurs auprès de Microsoft pour des tâches d’importation/exportation ?**
 
-Non. Vous devez expédier vos propres lecteurs, aussi bien pour les tâches d’importation que pour les tâches d’exportation.
+Non. Vous devez expédier vos propres lecteurs, aussi bien pour les tâches d'importation que pour les tâches d'exportation.
 
-**Une fois le travail d’importation terminé, à quoi mes données ressembleront-elles dans le compte de stockage ? Mon arborescence sera-t-elle préservée ?**
+**Une fois la tâche d’importation terminée, à quoi mes données ressembleront-elles dans le compte de stockage ? Mon arborescence sera-t-elle préservée ?**
 
 Lorsque vous préparez un disque dur pour un travail d’importation, le paramètre /dstdir: indique la destination. Il s’agit du conteneur cible dans le compte de stockage dans lequel les données du disque dur sont copiées. Dans ce conteneur cible, des répertoires virtuels sont créés pour les dossiers du disque dur et des objets blob sont créés pour les fichiers.
 
@@ -475,7 +477,7 @@ Vous pouvez expédier des disques au centre de données à l’aide d’un trans
 
 Notez que le support physique que vous expédiez devra peut-être franchir des frontières. Vous êtes responsable de l'application des lois applicables lorsque vous importez et/ou exportez vos données et supports physiques. Avant d'expédier le support physique, demandez à vos conseillers juridiques de vérifier que vos supports multimédias et données peuvent être envoyés légalement vers le centre de données identifié. Cela vous assurera d'atteindre Microsoft dans les délais.
 
-**Lorsque vous créez un travail, l’adresse d’expédition désigne un emplacement différent de celui de mon compte de stockage. Que dois-je faire ?**
+**Lorsque vous créez une tâche, l’adresse d’expédition désigne un emplacement différent de celui de mon compte de stockage. Que dois-je faire ?**
 
 Certains emplacements de compte de stockage sont associés à d’autres emplacements d’expédition. Les emplacements d’expédition auparavant disponibles peuvent être temporairement associés à d’autres emplacements. Vérifiez toujours l’adresse d’expédition fournie lors de la création du travail avant d’expédier vos disques.
 
@@ -489,11 +491,11 @@ Le numéro de téléphone vous est fourni lors de la création du travail. Si vo
 
 **Puis-je utiliser le service Azure Import/Export pour copier des boîtes aux lettres PST et des données SharePoint vers O365 ?**
 
-Consultez [Importer des fichiers PST ou des données SharePoint dans Office 365](https://technet.microsoft.com/library/ms.o365.cc.ingestionhelp.aspx).
+Consultez la rubrique [Importer des fichiers PST ou des données SharePoint dans Office 365](https://technet.microsoft.com/library/ms.o365.cc.ingestionhelp.aspx).
 
 **Puis-je utiliser le service Azure Import/Export pour copier mes sauvegardes en mode hors connexion sur le service Azure Backup ?**
 
-Consultez [Flux de travail de la sauvegarde hors connexion dans Azure Backup](../backup/backup-azure-backup-import-export.md).
+Consultez la rubrique [Flux de travail de la sauvegarde hors connexion dans Azure Backup](../backup/backup-azure-backup-import-export.md).
 
 ## Voir aussi :
 
@@ -501,4 +503,6 @@ Consultez [Flux de travail de la sauvegarde hors connexion dans Azure Backup](..
 
 - [Transfert de données avec l’utilitaire de ligne de commande AzCopy](storage-use-azcopy.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+- [Exemple d’API REST Azure Import Export](https://azure.microsoft.com/documentation/samples/storage-dotnet-import-export-job-management/)
+
+<!---HONumber=AcomDC_0831_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/15/2016" 
+	ms.date="08/30/2016" 
 	ms.author="sdanie"/>
 
 # Surveillance du cache Redis Azure
@@ -24,7 +24,7 @@ Lorsque les diagnostics du cache sont activés, les mesures des instances de cac
 
 Les mesures de cache sont collectées à l’aide de la commande Redis [INFO](http://redis.io/commands/info). Pour plus d’informations sur les différentes valeurs INFO utilisées pour chaque mesure de cache, consultez la section [Mesures disponibles et intervalles de création des rapports](#available-metrics-and-reporting-intervals).
 
-Pour afficher les mesures de cache, [accédez](cache-configure.md) à votre instance de cache dans le [portail Azure](https://portal.azure.com). Les mesures des instances de cache Redis Azure sont accessibles dans le panneau **Mesures Redis**.
+Pour voir les mesures de cache, [accédez](cache-configure.md#configure-redis-cache-settings) à votre instance de cache dans le [portail Azure](https://portal.azure.com). Les mesures des instances de cache Redis Azure sont accessibles dans le panneau **Mesures Redis**.
 
 ![Mesures Redis][redis-cache-redis-metrics-blade]
 
@@ -180,7 +180,7 @@ Les règles d’alerte possèdent les propriétés suivantes :
 | Propriété de règle d’alerte | Description |
 |-------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Ressource | Ressource évaluée par la règle d’alerte. Lorsque vous créez une règle d’alerte à partir d’un cache Redis, le cache est la ressource. |
-| Nom | Nom qui identifie de façon unique la règle d’alerte dans l’instance de cache actuelle. |
+| Name | Nom qui identifie de façon unique la règle d’alerte dans l’instance de cache actuelle. |
 | Description | Description facultative de la règle d’alerte. |
 | Mesure | Mesure à surveiller par la règle d’alerte. Pour voir la liste des mesures de cache, consultez la section Mesures disponibles et intervalles de création des rapports. |
 | Condition | Opérateur de condition de la règle d’alerte. Les choix possibles sont : supérieur à, supérieur ou égal à, inférieur à, inférieur ou égal à |
@@ -296,4 +296,4 @@ Pour plus d’informations sur les mesures affichées et la personnalisation des
 
 [redis-cache-redis-metrics-blade]: ./media/cache-how-to-monitor/redis-cache-redis-metrics-blade.png
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0831_2016-->

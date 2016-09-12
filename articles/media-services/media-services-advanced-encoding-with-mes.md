@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Encodage avancé avec Media Encoder Standard" 
-	description="Cette rubrique explique comment effectuer un encodage avancé en personnalisant les présélections de tâches Media Encoder Standard. Elle décrit comment utiliser le Kit de développement logiciel (SDK) .NET de Media Services pour créer une tâche et un travail d’encodage. Elle explique également comment spécifier des présélections personnalisées pour le travail d’encodage." 
+	description="Cette rubrique explique comment effectuer un encodage avancé en personnalisant les présélections de tâches Media Encoder Standard. Elle montre comment utiliser le SDK .NET de Media Services pour créer une tâche et un travail d’encodage. Elle explique également comment spécifier des présélections personnalisées pour le travail d’encodage." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako" 
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"   
+	ms.date="08/30/2016"   
 	ms.author="juliako"/>
 
 
 #Encodage avancé avec Media Encoder Standard
 
-##Vue d’ensemble
+##Vue d'ensemble
 
 Cette rubrique explique comment exécuter des tâches d’encodage avancé avec Media Encoder Standard. La présente rubrique décrit [comment utiliser .NET pour créer une tâche d’encodage et générer un travail qui exécute cette tâche](media-services-custom-mes-presets-with-dotnet.md#encoding_with_dotnet). Elle présente également la procédure à suivre pour attribuer des paramètres personnalisés et prédéfinis à la tâche d’encodage. Pour obtenir une description des éléments utilisés par les présélections, consultez [ce document](https://msdn.microsoft.com/library/mt269962.aspx).
 
@@ -33,9 +33,9 @@ Il présente les présélections personnalisées qui exécutent les tâches d’
 - [Présélections audio uniquement](media-services-custom-mes-presets-with-dotnet.md#audio_only)
 - [Concaténation de deux fichiers vidéo ou plus](media-services-custom-mes-presets-with-dotnet.md#concatenate)
 - [Rogner des vidéos avec l’encodeur multimédia standard](media-services-custom-mes-presets-with-dotnet.md#crop)
+- [Insertion d’une piste vidéo lorsque l’entrée ne comporte aucune vidéo](media-services-custom-mes-presets-with-dotnet.md#no_video)
 
-
-##<a id="encoding_with_dotnet"></a>Encodage à l’aide du kit de développement logiciel (SDK) .NET de Media Services
+##<a id="encoding_with_dotnet"></a>Encodage à l’aide du Kit de développement logiciel (SDK) .NET de Media Services
 
 Le code suivant utilise le Kit de développement logiciel (SDK) .NET de Media Services pour effectuer les tâches suivantes :
 
@@ -47,7 +47,7 @@ Le code suivant utilise le Kit de développement logiciel (SDK) .NET de Media Se
 	    string configuration = File.ReadAllText(fileName);  
 - Ajout d’une tâche d’encodage au travail.
 - Spécification de l’élément multimédia d’entrée à encoder.
-- Création d’un élément multimédia de sortie qui contiendra l’élément multimédia encodé.
+- Création d’un élément multimédia de sortie qui contient l’élément multimédia encodé.
 - Ajout d’un gestionnaire d’événements pour vérifier la progression de la tâche.
 - Envoyez le travail.
 	
@@ -256,7 +256,7 @@ Lors de la génération de miniatures, il est inutile de toujours spécifier la 
 
 Cette section montre comment personnaliser une présélection qui génère des miniatures. La présélection définie ci-dessous contient des informations sur la façon dont vous souhaitez encoder votre fichier, ainsi que les informations nécessaires à la génération des miniatures. Vous pouvez utiliser l’une des présélections MES documentées [ici](https://msdn.microsoft.com/library/mt269960.aspx) et ajouter le code qui génère des miniatures.
 
->[AZURE.NOTE]Le paramètre **SceneChangeDetection** figurant dans la présélection qui suit ne peut présenter la valeur True que si votre encodage porte sur une vidéo à vitesse de transmission unique. Si votre encodage s’applique à une vidéo à plusieurs vitesses de transmission et que vous définissez **SceneChangeDetection** sur True, l’encodeur renverra une erreur.
+>[AZURE.NOTE]Le paramètre **SceneChangeDetection** figurant dans la présélection qui suit ne peut présenter la valeur True que si votre encodage porte sur une vidéo à vitesse de transmission unique. Si votre encodage s’applique à une vidéo à plusieurs vitesses de transmission et que vous définissez **SceneChangeDetection** sur True, l’encodeur renvoie une erreur.
 
 
 Pour plus d’informations sur le schéma, consultez [cette](https://msdn.microsoft.com/library/mt269962.aspx) rubrique.
@@ -447,9 +447,9 @@ Les considérations suivantes s'appliquent :
 - L’utilisation d’horodatages explicites pour Début/Étape/Plage suppose que la source d’entrée a une longueur minimale de 1 minute.
 - Les éléments Jpg/Png/BmpImage possèdent les attributs de chaîne Start, Step et Range, qui peuvent être interprétés comme suit :
 
-	- Entiers non négatifs : nombre d’images, par exemple "Start": "120"
-	- Présence du suffixe % : durée par rapport à la source, par exemple "Start": "15%"
-	- Format HH:MM:SS : horodatage, par exemple "Start": "00: 01:00"
+	- Entiers non négatifs : nombre d’images, par exemple "Start": "120",
+	- Présence du suffixe % : durée par rapport à la source, par exemple "Start": "15%", OU
+	- Format HH:MM:SS : horodatage, par exemple "Start" : "00:01:00"
 
 	Vous pouvez combiner et apparier les notations à votre guise.
 	
@@ -458,11 +458,11 @@ Les considérations suivantes s'appliquent :
 	- La configuration par défaut est « Start:{Best} ».
 - Le format de sortie doit être fourni explicitement pour chaque format d’image : Png/Jpg/BmpFormat. Quand il est présent, MES fait correspondre JpgVideo à JpgFormat et ainsi de suite. OutputFormat introduit une nouvelle macro spécifique au codec d’image, {Index}, qui doit être présente (une fois seulement) pour les formats de sortie d’image.
 
-##<a id="trim_video"></a>Découpage d’une vidéo (extrait)
+##<a id="trim_video"></a>Rognage d’une vidéo (extrait)
 
-Cette section explique comment modifier les présélections de l’encodeur pour découper ou rogner la vidéo d’entrée, dans laquelle l’entrée est ce que l’on appelle un fichier mezzanine ou un fichier à la demande. L’encodeur peut également servir à découper ou extraire un élément multimédia capturé ou archivé à partir d’un flux en direct. Pour plus d’informations à ce sujet, voir [ce blog](https://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/).
+Cette section explique comment modifier les présélections de l’encodeur pour découper ou rogner la vidéo d’entrée, dans laquelle l’entrée est ce que l’on appelle un fichier mezzanine ou un fichier à la demande. L’encodeur peut également servir à découper ou extraire un élément multimédia capturé ou archivé à partir d’un flux en direct. Pour plus d’informations à ce sujet, consultez [ce blog](https://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/).
 
-Pour découper vos vidéos, vous pouvez utiliser l’une des présélections MES documentées [ici](https://msdn.microsoft.com/library/mt269960.aspx) et modifier l’élément **Sources** (comme indiqué ci-dessous). La valeur de StartTime doit correspondre aux horodatages absolus de la vidéo d'entrée. Par exemple, si la première image de la vidéo d'entrée a un horodatage de 12:00:10.000, la valeur de StartTime doit être égale ou supérieure à 12:00:10.000. Dans l'exemple ci-dessous, nous supposons que la vidéo d'entrée a un horodatage de début égal à zéro. Notez que **Sources** doit être placé au début de la présélection.
+Pour découper vos vidéos, vous pouvez utiliser l’une des présélections MES documentées [ici](https://msdn.microsoft.com/library/mt269960.aspx) et modifier l’élément **Sources** (comme indiqué ci-dessous). La valeur de StartTime doit correspondre aux horodatages absolus de la vidéo d'entrée. Par exemple, si la première image de la vidéo d'entrée a un horodatage de 12:00:10.000, la valeur de StartTime doit être égale ou supérieure à 12:00:10.000. Dans l'exemple ci-dessous, nous supposons que la vidéo d'entrée a un horodatage de début égal à zéro. **Sources** doit être placé au début de la présélection.
  
 ###<a id="json"></a>Présélection JSON
 	
@@ -861,7 +861,7 @@ L’exemple .NET ci-dessus définit deux fonctions : **UploadMediaFilesFromFolde
 
 ##<a id="silent_audio"></a>Insertion d’une piste audio en mode silencieux lorsque l’entrée ne produit pas de son
 
-Par défaut, si vous envoyez à l’encodeur une entrée contenant uniquement de la vidéo (sans contenu audio), l’élément multimédia de sortie regroupera les fichiers qui contiennent uniquement des données vidéo. Certains lecteurs ne sont peut-être pas capables de gérer ces flux de sortie. Dans ce cas, vous pouvez utiliser ce paramètre pour forcer l’encodeur à ajouter à la sortie une piste audio en mode silencieux.
+Par défaut, si vous envoyez à l’encodeur une entrée contenant uniquement de la vidéo (sans contenu audio), l’élément multimédia de sortie regroupe les fichiers qui contiennent uniquement des données vidéo. Certains lecteurs ne sont peut-être pas capables de gérer ces flux de sortie. Dans ce cas, vous pouvez utiliser ce paramètre pour forcer l’encodeur à ajouter à la sortie une piste audio en mode silencieux.
 
 Pour forcer l’encodeur à produire un élément multimédia contenant une piste audio en mode silencieux lorsque l’entrée ne comporte pas de son, spécifiez la valeur « InsertSilenceIfNoAudio ».
 
@@ -966,9 +966,9 @@ Cette section présente deux présélections MES audio uniquement : Audio AAC et
 	  ]
 	}
 
-##<a id="concatenate"></a>Concaténer deux fichiers vidéo ou plus
+##<a id="concatenate"></a>Concaténation de deux fichiers vidéo ou plus
 
-L'exemple suivant décrit comment générer une présélection pour concaténer deux fichiers vidéo ou plus. Le scénario le plus courant consiste à ajouter une amorce de début ou de fin à la vidéo principale. Dans le cadre de l'utilisation prévue, les fichiers vidéo en cours de modification conjointe partagent les mêmes propriétés (résolution vidéo, fréquence d'images, nombre de pistes audio, etc.). Vous devez prendre soin de ne pas mélanger des vidéos de différentes fréquences d’images ou comportant un nombre différent de pistes audio.
+L'exemple suivant décrit comment générer une présélection pour concaténer deux fichiers vidéo ou plus. Le scénario le plus courant consiste à ajouter une amorce de début ou de fin à la vidéo principale. Dans le cadre de l’utilisation prévue, les fichiers vidéo en cours de modification conjointe partagent des propriétés (résolution vidéo, fréquence d’images, nombre de pistes audio, etc.). Vous devez prendre soin de ne pas mélanger des vidéos de différentes fréquences d’images ou comportant un nombre différent de pistes audio.
 
 ###Conditions requises et éléments à prendre en compte
 
@@ -976,7 +976,7 @@ L'exemple suivant décrit comment générer une présélection pour concaténer 
 - Les vidéos d'entrée doivent avoir la même fréquence d'images.
 - Vous devez télécharger vos vidéos dans des éléments multimédias séparés et définir les vidéos comme fichier primaire de chaque élément multimédia.
 - Vous devez connaître la durée de vos vidéos.
-- Les exemples prédéfinis ci-dessous supposent que toutes les vidéos d'entrée commencent avec un timestamp égal à zéro. Vous devez modifier les valeurs StartTime si les vidéos ont un timestamp de début différent, comme c'est généralement le cas avec les archives en direct.
+- Les exemples prédéfinis ci-dessous supposent que toutes les vidéos d'entrée commencent avec un timestamp égal à zéro. Vous devez modifier les valeurs StartTime si les vidéos ont un timestamp de début différent, comme c’est généralement le cas avec les archives en direct.
 - La présélection JSON fait des références explicites aux valeurs AssetID des éléments multimédias d’entrée.
 - L'exemple de code suppose que la présélection JSON a été enregistrée dans un fichier local, par exemple « C:\\supportFiles\\preset.json ». Il suppose également que les deux éléments multimédias ont été créés en téléchargeant deux fichiers vidéo et que vous connaissez les valeurs AssetID résultantes.
 - L'extrait de code et la présélection JSON montrent un exemple de concaténation de deux fichiers vidéo. Vous pouvez l'étendre à plus de deux vidéos en :
@@ -1075,9 +1075,61 @@ Mettez à jour votre présélection personnalisée avec les ID des éléments mu
 	  ]
 	}
 
-##<a id="crop"></a>Rogner des vidéos avec l’encodeur multimédia standard
+##<a id="crop"></a>Rognage de vidéos avec l’encodeur multimédia standard
 
-Voir la rubrique [Rogner des vidéos avec l’encodeur multimédia standard](media-services-crop-video.md).
+Consultez la rubrique [Rogner des vidéos avec l’encodeur multimédia standard](media-services-crop-video.md).
+
+##<a id="no_video"></a>Insertion d’une piste vidéo lorsque l’entrée ne comporte aucune vidéo
+
+Par défaut, si vous envoyez à l’encodeur une entrée contenant uniquement de l’audio (sans contenu vidéo), l’élément multimédia de sortie regroupe les fichiers qui contiennent uniquement des données audio. Certains lecteurs, y compris Azure Media Player (consultez [ceci](https://feedback.azure.com/forums/169396-azure-media-services/suggestions/8082468-audio-only-scenarios)) peuvent ne pas être en mesure de gérer ces flux. Dans ce cas, vous pouvez utiliser ce paramètre pour forcer l’encodeur à ajouter à la sortie une piste vidéo monochrome.
+
+>[AZURE.NOTE]Le fait de forcer l’encodeur à insérer une piste vidéo de sortie augmente la taille de l’élément multimédia de sortie, et ainsi les coûts associés à la tâche d’encodage. Vous devez exécuter des tests pour vérifier que cette augmentation résultante n’a qu’une légère incidence sur vos frais mensuels.
+
+### Insertion de vidéo uniquement avec le débit le plus bas
+
+Supposons que vous utilisez un encodage à plusieurs vitesses de transmission prédéfinies, par exemple [« H264 multidébit 720p »](https://msdn.microsoft.com/library/mt269960.aspx) pour encoder à des fins de diffusion en continu votre catalogue d’entrée tout entier, qui contient un mélange de fichiers vidéo et audio uniquement. Dans ce scénario, lorsque l’entrée ne comporte aucune vidéo, vous pouvez vouloir forcer l’encodeur à insérer une piste vidéo monochrome au plus faible débit uniquement, et non à toutes les vitesses de transmission de sortie. Pour ce faire, vous devez spécifier l’indicateur « InsertBlackIfNoVideoBottomLayerOnly ».
+
+Vous pouvez utiliser l’une des présélections MES documentées [ici](https://msdn.microsoft.com/library/mt269960.aspx) et apporter la modification suivante :
+
+#### Présélection JSON
+
+	{
+	      "KeyFrameInterval": "00:00:02",
+	      "StretchMode": "AutoSize",
+	      "Condition": "InsertBlackIfNoVideoBottomLayerOnly",
+	      "H264Layers": [
+	      …
+	      ]
+	}
+
+#### Présélection XML
+
+	<KeyFrameInterval>00:00:02</KeyFrameInterval>
+	<StretchMode>AutoSize</StretchMode>
+	<Condition>InsertBlackIfNoVideoBottomLayerOnly</Condition>
+
+### Insertion de vidéo à tous les débits binaires de sortie
+
+Supposons que vous utilisez un encodage à plusieurs vitesses de transmission prédéfinies, par exemple [« H264 multidébit 720p »](https://msdn.microsoft.com/library/mt269960.aspx) pour encoder à des fins de diffusion en continu votre catalogue d’entrée tout entier, qui contient un mélange de fichiers vidéo et audio uniquement. Dans ce scénario, lorsque l’entrée ne comporte aucune vidéo, vous pouvez vouloir forcer l’encodeur à insérer une piste vidéo monochrome à toutes les vitesses de transmission de sortie. Cela garantit que vos éléments multimédias de sortie sont tous homogènes en ce qui concerne le nombre de pistes vidéo et de pistes audio. Pour ce faire, vous devez spécifier l’indicateur « InsertBlackIfNoVideo ».
+
+Vous pouvez utiliser l’une des présélections MES documentées [ici](https://msdn.microsoft.com/library/mt269960.aspx) et apporter la modification suivante :
+
+#### Présélection JSON
+
+	{
+	      "KeyFrameInterval": "00:00:02",
+	      "StretchMode": "AutoSize",
+	      "Condition": "InsertBlackIfNoVideo",
+	      "H264Layers": [
+	      …
+	      ]
+	}
+
+#### Présélection XML
+	
+	<KeyFrameInterval>00:00:02</KeyFrameInterval>
+	<StretchMode>AutoSize</StretchMode>
+	<Condition>InsertBlackIfNoVideo</Condition>
 
 ##Parcours d’apprentissage de Media Services
 
@@ -1091,4 +1143,4 @@ Voir la rubrique [Rogner des vidéos avec l’encodeur multimédia standard](med
 
 [Vue d’ensemble de l’encodage de Media Services](media-services-encode-asset.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0831_2016-->

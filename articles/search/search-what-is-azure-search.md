@@ -11,7 +11,7 @@
 	ms.workload="search"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.date="05/31/2016"
+	ms.date="08/29/2016"
 	ms.author="ashmaka"/>
 
 # Présentation d’Azure Search
@@ -83,4 +83,4 @@ Vous pouvez essayer Azure Search dès aujourd'hui ! Si vous avez déjà un comp
 
 Si vous n'avez pas un compte Azure, que vous pouvez essayer une session gratuite de 60 minutes sans aucune inscription nécessaire. Accédez à [Essayer Azure App Service](http://go.microsoft.com/fwlink/p/?LinkId=618214) et sélectionnez « Application web ». Puis, sélectionnez le modèle « ASP.NET + Azure Search » pour commencer.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0831_2016-->

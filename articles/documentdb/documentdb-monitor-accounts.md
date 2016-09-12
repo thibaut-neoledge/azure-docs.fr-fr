@@ -13,26 +13,25 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/10/2016"
+	ms.date="08/25/2016"
 	ms.author="mimig"/>
 
 # Surveiller les demandes DocumentDB, l’utilisation et le stockage
 
-Vous pouvez surveiller vos comptes Azure DocumentDB dans le [portail Microsoft Azure](https://portal.azure.com/). Pour chaque compte DocumentDB, des mesures de performances (notamment les demandes et les erreurs de serveur) et des mesures d'utilisation (par exemple l'espace de stockage utilisé) sont disponibles.
+Vous pouvez surveiller vos comptes Azure DocumentDB dans le [portail Azure](https://portal.azure.com/). Pour chaque compte DocumentDB, des mesures de performances (notamment les demandes et les erreurs de serveur) et des mesures d'utilisation (par exemple l'espace de stockage utilisé) sont disponibles.
 
 ## Affichage des mesures de performances dans le portail 
-1.	Dans une nouvelle fenêtre, ouvrez le [portail Azure](https://portal.azure.com/), cliquez sur **Parcourir**, puis sur **Comptes DocumentDB**. Cliquez ensuite sur le nom du compte DocumentDB dont vous souhaitez afficher les mesures de performances.
-2.	Dans le filtre **Surveillance**, vous pouvez, par défaut, voir :
-	*	le nombre total de demandes pour le jour en cours ;
-	*	Nombre total de RU ([unités de demande](documentdb-request-units.md)) utilisées au cours de la journée.
+1.	Dans une nouvelle fenêtre, ouvrez le [portail Azure](https://portal.azure.com/), cliquez sur **Plus de services**, puis sur **DocumentDB (NoSQL)**. Cliquez ensuite sur le nom du compte DocumentDB dont vous souhaitez afficher les mesures de performances.
+2.	Le filtre **Surveillance** affiche les vignettes suivantes par défaut :
+	*	le nombre total de demandes pour le jour en cours ;
 	*	Stockage utilisé.
 
-	Si votre table affiche **Aucune donnée disponible**, consultez la section [Dépannage](#troubleshooting).
+	Si votre table affiche **Aucune donnée disponible** et que vous pensez qu’il existe des données dans votre base de données, consultez la section [Résolution des problèmes](#troubleshooting).
 
-	![Capture d'écran du filtre de suivi qui affiche le nombre total de demandes pour aujourd'hui ainsi que l’utilisation du stockage](./media/documentdb-monitor-accounts/documentdb-total-requests-and-usage.png)
+	![Capture d'écran du filtre de suivi qui affiche les demandes ainsi que l’utilisation du stockage](./media/documentdb-monitor-accounts/documentdb-total-requests-and-usage.png)
 
 
-3.	Cliquez sur la mosaïque **Demandes**, **Total des demandes** ou **Stockage** pour ouvrir un panneau détaillé **Métrique**.
+3.	Cliquez sur la mosaïque **Demandes** ou **Stockage** pour ouvrir un panneau **Métrique** détaillé.
 4.	Le panneau **Métrique** affiche les détails des mesures que vous avez sélectionnées. La partie supérieure du panneau affiche un graphique des demandes représentées toutes les heures, tandis que la partie inférieure montre un tableau affichant les valeurs d’agrégation pour les demandes limitées et totales. Le volet Métrique affiche également la liste des alertes définies, filtrées en fonction des mesures apparaissant dans le volet ouvert. Ainsi, si vous avez plusieurs alertes, seules celles qui sont pertinentes sont affichées ici.
 
 	![Capture d’écran du panneau Métrique incluant des demandes limitées](./media/documentdb-monitor-accounts/documentdb-metric-blade.png)
@@ -45,7 +44,7 @@ Vous pouvez surveiller vos comptes Azure DocumentDB dans le [portail Microsoft A
 2.	Dans le panneau **Modifier le graphique**, des options permettent de modifier les mesures qui s'affichent dans le graphique, ainsi que leur plage horaire. ![Capture d'écran du panneau Modifier le graphique](./media/documentdb-monitor-accounts/madocdb4.png)
 
 3.	Pour modifier les mesures affichées dans cette partie, sélectionnez simplement ou désactiver les mesures de performances disponibles, puis cliquez sur **OK** en bas du panneau.
-4.	Pour modifier la plage horaire, choisissez une autre plage (par exemple : **Personnalisée**), puis cliquez sur **OK** en bas du panneau.
+4.	Pour modifier la plage horaire, choisissez une autre plage (par exemple : **Personnalisée**), puis cliquez sur **OK** en bas du panneau.
 
 	![Capture d'écran de la partie Plage horaire du panneau Modifier le graphique montrant comment saisir une plage horaire personnalisée](./media/documentdb-monitor-accounts/madocdb5.png)
 
@@ -65,20 +64,18 @@ Le portail Azure vous permet de créer des graphiques côte à côte.
 Vous pouvez maintenant considérer cette partie comme n'importe quelle mesure en personnalisant les mesures et la plage horaire affichées. Ainsi, vous pouvez afficher deux graphiques de mesures différents, côte à côte, en même temps. ![Capture d'écran du graphique du nombre total des demandes et le graphique nouveau nombre total des demandes pour l’heure précédente](./media/documentdb-monitor-accounts/madocdb8.png)
 
 ## Configuration d’alertes dans le portail
-1.	Dans le [portail Azure](https://portal.azure.com/), cliquez sur **Parcourir**, puis sur **Comptes DocumentDB**. Cliquez ensuite sur le nom du compte DocumentDB pour lequel vous souhaitez configurer les alertes de mesures de performances.
+1.	Dans le [portail Azure](https://portal.azure.com/), cliquez sur **Plus de services**, puis sur **DocumentDB (NoSQL)**. Cliquez ensuite sur le nom du compte DocumentDB pour lequel vous souhaitez configurer les alertes de mesures de performances.
 
-2.	Si le panneau **Tous les paramètres** n’est pas ouvert, cliquez sur la commande **Paramètres** en haut à gauche pour ouvrir le panneau. ![Capture d’écran de la commande Paramètres dans le panneau Compte de base de données](./media/documentdb-monitor-accounts/madocdb10.png)
+2.	Dans le menu de ressources, cliquez sur **Règles d’alerte** pour ouvrir le panneau des règles d’alerte. ![Capture d’écran, avec la partie Règles d’alerte sélectionnée](./media/documentdb-monitor-accounts/madocdb10.5.png)
 
-3.	Dans le panneau **Tous les paramètres**, cliquez sur **Règles d’alerte** pour ouvrir le panneau des règles d’alerte. ![Capture d’écran, avec la partie Règles d’alerte sélectionnée](./media/documentdb-monitor-accounts/madocdb10.5.png)
+3.	Dans le panneau **Règles d'alerte**, cliquez sur **Ajouter une alerte**. ![Capture d'écran du panneau Règles d'alerte, avec le bouton Ajouter une alerte mis en surbrillance](./media/documentdb-monitor-accounts/madocdb11.png)
 
-4.	Dans le panneau Règles d'alerte, cliquez sur** Ajouter une alerte**. ![Capture d'écran du panneau Règles d'alerte, avec le bouton Ajouter une alerte mis en surbrillance](./media/documentdb-monitor-accounts/madocdb11.png)
-
-5.	Dans le volet **Ajouter une règle d'alerte**, indiquez :
-	*	le nom de la règle d'alerte que vous configurez ;
-	*	une description de la nouvelle règle d'alerte ;
-	*	la mesure de la règle d'alerte ;
-	*	la condition, le seuil et la période déterminant l'activation de l'alerte. Par exemple, un nombre d'erreurs de serveur supérieur à 5 au cours des 15 dernières minutes.
-	*	l'envoi ou non d'un courrier électronique à l'administrateur de service ou aux coadministrateurs lorsque l'alerte se déclenche ;
+4.	Dans le volet **Ajouter une règle d'alerte**, indiquez :
+	*	le nom de la règle d'alerte que vous configurez ;
+	*	une description de la nouvelle règle d'alerte ;
+	*	la mesure de la règle d'alerte ;
+	*	la condition, le seuil et la période déterminant l'activation de l'alerte. Par exemple, un nombre d'erreurs de serveur supérieur à 5 au cours des 15 dernières minutes.
+	*	l'envoi ou non d'un courrier électronique à l'administrateur de service ou aux coadministrateurs lorsque l'alerte se déclenche ;
 	*	Des adresses électroniques supplémentaires pour les notifications d'alerte. ![Capture d’écran du panneau Ajouter une règle d'alerte](./media/documentdb-monitor-accounts/madocdb12.png)
 
 ## Surveillance de DocumentDB par programme
@@ -111,4 +108,4 @@ Si vos mosaïques d’analyse affichent le message **Aucune donnée disponible**
 ## Étapes suivantes
 Pour en savoir plus sur la capacité de DocumentDB, consultez [Gestion de la capacité de DocumentDB](documentdb-manage.md).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0831_2016-->

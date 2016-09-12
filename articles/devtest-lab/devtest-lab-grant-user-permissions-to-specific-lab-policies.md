@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/08/2016"
+	ms.date="08/25/2016"
 	ms.author="tarcher"/>
 
 # Accorder des autorisations à des utilisateurs sur des stratégies de laboratoire spécifiques
@@ -60,9 +60,9 @@ Le script PowerShell suivant montre des exemples permettant d’effectuer ces t�
     $policyRoleDef = (New-AzureRmRoleDefinition -Role $policyRoleDef)
 
 ##Attribution d'autorisations à un utilisateur pour une stratégie spécifique à l'aide de rôles personnalisés
-Une fois que vous avez défini vos rôles personnalisés, vous pouvez les attribuer aux utilisateurs. Pour affecter un rôle personnalisé à un utilisateur, vous devez d’abord obtenir l’**ObjectId** représentant cet utilisateur. Pour cela, utilisez l’applet de commande **Get-AzureRmADUser**.
+Une fois que vous avez défini vos rôles personnalisés, vous pouvez les attribuer aux utilisateurs. Pour affecter un rôle personnalisé à un utilisateur, vous devez d’abord obtenir **l’ObjectId** représentant cet utilisateur. Pour cela, utilisez l’applet de commande **Get-AzureRmADUser**.
 
-Dans l’exemple suivant, l’**ObjectId** de l’utilisateur *SomeUser* est 05DEFF7B-0AC3-4ABF-B74D-6A72CD5BF3F3.
+Dans l’exemple suivant, **l’ObjectId** de l’utilisateur *SomeUser* est 05DEFF7B-0AC3-4ABF-B74D-6A72CD5BF3F3.
 
     PS C:\>Get-AzureRmADUser -SearchString "SomeUser"
 
@@ -70,7 +70,7 @@ Dans l’exemple suivant, l’**ObjectId** de l’utilisateur *SomeUser* est 05D
     -----------                    ----                           --------
     someuser@hotmail.com                                          05DEFF7B-0AC3-4ABF-B74D-6A72CD5BF3F3
 
-Une fois que vous disposez de l’**ObjectId** de l’utilisateur et d’un nom de rôle personnalisé, vous pouvez affecter ce rôle à l’utilisateur avec l’applet de commande **New-AzureRmRoleAssignment** :
+Une fois que vous disposez de **l’ObjectId** de l’utilisateur et d’un nom de rôle personnalisé, vous pouvez affecter ce rôle à l’utilisateur avec l’applet de commande **New-AzureRmRoleAssignment** :
 
     PS C:\>New-AzureRmRoleAssignment -ObjectId 05DEFF7B-0AC3-4ABF-B74D-6A72CD5BF3F3 -RoleDefinitionName "Policy Contributor" -Scope /subscriptions/<SubscriptionID>/resourceGroups/<ResourceGroupName>/providers/Microsoft.DevTestLab/labs/<LabName>/policySets/policies/AllowedVmSizesInLab
 
@@ -81,11 +81,13 @@ Dans l’exemple précédent, la stratégie **AllowedVmSizesInLab** est utilisé
 - AllowedVmSizesInLab
 - LabVmsShutdown
 
+[AZURE.INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
+
 ## Étapes suivantes
 
 Après avoir accordé aux utilisateurs des autorisations sur des stratégies de laboratoire spécifiques, voici des étapes à prendre en compte :
 
-- [Sécuriser l’accès à un laboratoire](devtest-lab-add-devtest-user.md)
+- [Sécuriser l’accès à un laboratoire](devtest-lab-add-devtest-user.md).
 
 - [Définir des stratégies de laboratoire](devtest-lab-set-lab-policy.md).
 
@@ -95,4 +97,4 @@ Après avoir accordé aux utilisateurs des autorisations sur des stratégies de 
 
 - [Ajouter une machine virtuelle avec des artefacts à un laboratoire](devtest-lab-add-vm-with-artifacts.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0831_2016-->

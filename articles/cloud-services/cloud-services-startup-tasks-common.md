@@ -70,9 +70,9 @@ Les codes errorlevel retournés par *AppCmd.exe* sont répertoriés dans le fich
 
 ### Exemple
 
-Cet exemple ajoute une section de compression et une entrée de compression pour JSON au fichier *Web.config* , avec gestion et journalisation des erreurs.
+Cet exemple ajoute une section de compression et une entrée de compression pour JSON au fichier *Web.config*, avec gestion et journalisation des erreurs.
 
-Les sections pertinentes du fichier [ServiceDefinition.csdef] sont indiquées ici, avec notamment l’attribut [executionContext](https://msdn.microsoft.com/library/azure/gg557552.aspx#Task) défini sur `elevated` pour qu’ *AppCmd.exe* soit autorisé à modifier les paramètres du fichier *Web.config* :
+Les sections pertinentes du fichier [ServiceDefinition.csdef] sont indiquées ici, avec notamment l’attribut [executionContext](https://msdn.microsoft.com/library/azure/gg557552.aspx#Task) défini sur `elevated` pour qu’*AppCmd.exe* soit autorisé à modifier les paramètres du fichier *Web.config* :
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -175,6 +175,10 @@ Ajoutez la tâche de démarrage suivante au fichier [ServiceDefinition.csdef].
 
 Ajoutez cette commande au fichier **startup.cmd** :
 
+    @echo off
+    @echo Installing "IPv4 Address and Domain Restrictions" feature 
+    powershell -ExecutionPolicy Unrestricted -command "Install-WindowsFeature Web-IP-Security"
+    @echo Unlocking configuration for "IPv4 Address and Domain Restrictions" feature 
     %windir%\system32\inetsrv\AppCmd.exe unlock config -section:system.webServer/security/ipSecurity
 
 Ainsi, le fichier de commandes **startup.cmd** s’exécute chaque fois que le rôle web est initialisé et la section **ipSecurity** nécessaire est systématiquement déverrouillée.
@@ -487,4 +491,4 @@ En savoir plus sur le fonctionnement des [tâches](cloud-services-startup-tasks.
 [LocalResources]: https://msdn.microsoft.com/library/azure/gg557552.aspx#LocalResources
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0831_2016-->

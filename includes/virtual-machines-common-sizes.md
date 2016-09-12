@@ -69,155 +69,174 @@ Les unités ACU signalées par un astérisque (*) utilisent la technologie Inte
 
 Les tableaux ci-après indiquent les tailles et les capacités qu’elles offrent.
 
-* La capacité de stockage est représentée avec 1024^3 octets comme unité de mesure pour les Go. Cette unité est parfois appelée gibioctet ou définition en base 2. Quand vous comparez des tailles qui utilisent des systèmes en base différente, n’oubliez pas que les tailles en base 2 peuvent paraître plus petites que celles en base 10, mais que pour une taille spécifique (par exemple, 1 Go), un système en base 2 offre une capacité plus élevée qu’un système en base 10, car 1 024^3 est supérieur à 1 000^3.
+* La capacité de stockage est indiquée en unités de Gio ou 1 024^3 octets. Lors de la comparaison de disques mesurés en Go (1 000^3 octets) à des disques mesurés en Gio (1 024^3) n’oubliez pas que les indications de capacité en Gio peuvent sembler plus petites. Par exemple, 1 023 Gio = 1 098,4 Go
+
+* Le débit de disque est mesuré en opérations d’entrée/sortie par seconde (IOPS) et Mbits/s où Mbits/s = 10^6 octets par seconde.
+
+* Les disques de données peuvent fonctionner en mode avec ou sans mise en cache. En cas de fonctionnement du disque de données avec mise en cache, le mode de mise en cache hôte est défini sur **ReadOnly** ou **ReadWrite**. En cas de fonctionnement du disque de données sans mise en cache, le mode de mise en cache hôte est défini sur **Aucun**.
+
 
 * La bande passante réseau maximale est la bande passante maximale agrégée allouée et affectée par type de machine virtuelle. La bande passante maximale fournit des recommandations pour la sélection du bon type de machine virtuelle afin de garantir une capacité réseau adéquate. Lors du déplacement entre Faible, Modéré, Élevé et Très élevé, le débit augmente en conséquence. Les performances réseau réelles dépendent de nombreux facteurs, notamment les charges du réseau et de l’application, ainsi que les paramètres réseau de l’application.
 
 
 ## Série A
 
-|Taille |Cœurs d’unité centrale|Mémoire|Cartes réseau (max)|Taille maximale du disque|Nombre maximal de disques de données (1 023 Go chacun)|Bande passante Nombre maximal d’opérations d’E/S par seconde (500 par disque)| Bande passante réseau maximale |
-|---|---|---|---|---|---|---|---|
-|Standard\_A0 |1|768 Mo|1| Temporaire = 20 Go |1|1 x 500| faible |
-|Standard\_A1 |1|1,75 Go|1|Temporaire = 70 Go |2|2 x 500| Modéré |
-|Standard\_A2 |2|3,5 Go|1|Temporaire = 135 Go |4|4 x 500| Modéré |
-|Standard\_A3 |4|7 Go|2|Temporaire = 285 Go |8|8 x 500| élevé |
-|Standard\_A4 |8|14 Go|4|Temporaire = 605 Go |16|16 x 500| élevé |
-|Standard\_A5 |2|14 Go|1|Temporaire = 135 Go |4|4 x 500| Modéré |
-|Standard\_A6 |4|28 Go|2|Temporaire = 285 Go |8|8 x 500| élevé |
-|Standard\_A7 |8|56 Go|4|Temporaire = 605 Go |16|16 x 500| élevé |
+| Taille | Cœurs d’unité centrale | Mémoire : Gio | Taille du disque local : Gio | Disques de données max. | Débit de disque de données max : E/S par seconde | Cartes réseau (max)/Bande passante réseau |
+|-------------|-----------|--------------|-----------------------|----------------|--------------------|-----------------------|
+| Standard\_A0 | 1 | 0,768 | 20 | 1 | 1 x 500 | 1 / Faible |
+| Standard\_A1 | 1 | 1,75 | 70 | 2 | 2 x 500 | 1 / Modérée |
+| Standard\_A2 | 2 | 3,5 Go | 135 | 4 | 4 x 500 | 1 / Modérée |
+| Standard\_A3 | 4 | 7 | 285 | 8 | 8 x 500 | 2 / Élevée |
+| Standard\_A4 | 8 | 14 | 605 | 16 | 16 x 500 | 4 / Élevée |
+| Standard\_A5 | 2 | 14 | 135 | 4 | 4 x 500 | 1 / Modérée |
+| Standard\_A6 | 4 | 28 | 285 | 8 | 8 x 500 | 2 / Élevée |
+| Standard\_A7 | 8 | 56 | 605 | 16 | 16 x 500 | 4 / Élevée |
 
-
-
+<br>
 ## Série A - Instances de calcul intensif
 
 Pour plus d’informations et pour connaître les éléments à prendre en compte pour l’utilisation de ces tailles, consultez la page [À propos des instances de calcul intensif A8, A9, A10 et A11](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md).
 
-|Taille |Cœurs d’unité centrale|Mémoire|Cartes réseau (max)|Taille maximale du disque|Nombre maximal de disques de données (1 023 Go chacun)|Bande passante Nombre maximal d’opérations d’E/S par seconde (500 par disque)| Bande passante réseau maximale |
-|---|---|---|---|---|---|---|---|
-|Standard\_A8|8|56 Go|2| Temporaire = 382 Go |16|16 x 500| élevé |
-|Standard\_A9|16|112 Go|4| Temporaire = 382 Go |16|16 x 500| très élevé |
-|Standard\_A10|8|56 Go|2| Temporaire = 382 Go |16|16 x 500| élevé |
-|Standard\_A11|16|112 Go|4| Temporaire = 382 Go |16|16 x 500| très élevé |
 
+| Taille | Cœurs d’unité centrale | Mémoire : Gio | Taille du disque local : Gio | Disques de données max. | Débit de disque de données max : E/S par seconde | Cartes réseau (max)/Bande passante réseau |
+|--------------|-----------|--------------|-----------------------|----------------|--------------------|-----------------------|
+| Standard\_A8 | 8 | 56 | 382 | 16 | 16 x 500 | 2 / Élevée |
+| Standard\_A9 | 16 | 112 | 382 | 16 | 16 x 500 | 4 / Très élevée |
+| Standard\_A10 | 8 | 56 | 382 | 16 | 16 x 500 | 2 / Élevée |
+| Standard\_A11 | 16 | 112 | 382 | 16 | 16 x 500 | 4 / Très élevée |
+
+<br>
 ## Série D
 
-|Taille |Cœurs d’unité centrale|Mémoire|Cartes réseau (max)|Taille maximale du disque|Nombre maximal de disques de données (1 023 Go chacun)|Bande passante Nombre maximal d’opérations d’E/S par seconde (500 par disque)| Bande passante réseau maximale |
-|---|---|---|---|---|---|---|---|
-|D1 standard |1|3,5 Go|1|Temporaire (SSD) = 50 Go |2|2 x 500| Modéré |
-|D2 standard |2|7 Go|2|Temporaire (SSD) = 100 Go |4|4 x 500| élevé |
-|D3 standard |4|14 Go|4|Temporaire (SSD) = 200 Go |8|8 x 500| élevé |
-|D4 standard |8|28 Go|8|Temporaire (SSD) = 400 Go |16|16 x 500| élevé |
-|D11 standard |2|14 Go|2|Temporaire (SSD) = 100 Go |4|4 x 500| élevé |
-|D12 standard |4|28 Go|4|Temporaire (SSD) = 200 Go |8|8 x 500| élevé |
-|D13 standard |8|56 Go|8|Temporaire (SSD) = 400 Go |16|16 x 500| élevé |
-|D14 standard |16|112 Go|8|Temporaire (SSD) = 800 Go |32|32 x 500| très élevé |
 
+| Taille | Cœurs d’unité centrale | Mémoire : Gio | Taille du disque local : Gio | Disques de données max. | Débit de disque de données max : E/S par seconde | Cartes réseau (max)/Bande passante réseau |
+|--------------|-----------|--------------|----------------------|----------------|--------------------|-----------------------|
+| D1 standard | 1 | 3,5 | 50 | 2 | 2 x 500 | 1 / Modérée |
+| D2 standard | 2 | 7 | 100 | 4 | 4 x 500 | 2 / Élevée |
+| D3 standard | 4 | 14 | 200 | 8 | 8 x 500 | 4 / Élevée |
+| D4 standard | 8 | 28 | 400 | 16 | 16 x 500 | 8 / Élevée |
+| D11 standard | 2 | 14 | 100 | 4 | 4 x 500 | 2 / Élevée |
+| D12 standard | 4 | 28 | 200 | 8 | 8 x 500 | 4 / Élevée |
+| D13 standard | 8 | 56 | 400 | 16 | 16 x 500 | 8 / Élevée |
+| D14 standard | 16 | 112 | 800 | 32 | 32 x 500 | 8 / Très élevée |
 
+<br>
 ## Série Dv2
 
-|Taille |Cœurs d’unité centrale|Mémoire|Cartes réseau (max)|Taille maximale du disque|Nombre maximal de disques de données (1 023 Go chacun)|Bande passante Nombre maximal d’opérations d’E/S par seconde (500 par disque)| Bande passante réseau maximale |
-|---|---|---|---|---|---|---|---|
-|Standard\_D1\_v2 |1|3,5 Go|1|Temporaire (SSD) = 50 Go |2|2 x 500| Modéré |
-|Standard\_D2\_v2 |2|7 Go|2|Temporaire (SSD) = 100 Go |4|4 x 500| élevé |
-|Standard\_D3\_v2 |4|14 Go|4|Temporaire (SSD) = 200 Go |8|8 x 500| élevé |
-|Standard\_D4\_v2 |8|28 Go|8|Temporaire (SSD) = 400 Go |16|16 x 500| élevé |
-|Standard\_D5\_v2 |16|56 Go|8|Temporaire (SSD) = 800 Go |32|32 x 500| extrêmement élevé |
-|Standard\_D11\_v2 |2|14 Go|2|Temporaire (SSD) = 100 Go |4|4 x 500| élevé |
-|Standard\_D12\_v2 |4|28 Go|4|Temporaire (SSD) = 200 Go |8|8 x 500| élevé |
-|Standard\_D13\_v2 |8|56 Go|8|Temporaire (SSD) = 400 Go |16|16 x 500| élevé |
-|Standard\_D14\_v2 |16|112 Go|8|Temporaire (SSD) = 800 Go |32|32 x 500| extrêmement élevé |
-|Standard\_D15\_v2 |20|140 Go|8|Temporaire (SSD) = 1 To |40|40 x 500| extrêmement élevé |
+| Taille | Cœurs d’unité centrale | Mémoire : Gio | Taille du disque local : Gio | Disques de données max. | Débit de disque de données max : E/S par seconde | Cartes réseau (max)/Bande passante réseau |
+|-----------------|-----------|--------------|----------------------|----------------|--------------------|-----------------------|
+| Standard\_D1\_v2 | 1 | 3,5 | 50 | 2 | 2 x 500 | 1 / Modérée |
+| Standard\_D2\_v2 | 2 | 7 | 100 | 4 | 4 x 500 | 2 / Élevée |
+| Standard\_D3\_v2 | 4 | 14 | 200 | 8 | 8 x 500 | 4 / Élevée |
+| Standard\_D4\_v2 | 8 | 28 | 400 | 16 | 16 x 500 | 8 / Élevée |
+| Standard\_D5\_v2 | 16 | 56 | 800 | 32 | 32 x 500 | 8 / Extrêmement élevée |
+| Standard\_D11\_v2 | 2 | 14 | 100 | 4 | 4 x 500 | 2 / Élevée |
+| Standard\_D12\_v2 | 4 | 28 | 200 | 8 | 8 x 500 | 4 / Élevée |
+| Standard\_D13\_v2 | 8 | 56 | 400 | 16 | 16 x 500 | 8 / Élevée |
+| Standard\_D14\_v2 | 16 | 112 | 800 | 32 | 32 x 500 | 8 / Extrêmement élevée |
+| Standard\_D15\_v2 | 20 | 140 | 1 000 | 40 | 40 x 500 | 8 / Extrêmement élevée |
 
-
+<br>
 ## Séries DS*
 
-|Taille |Cœurs d’unité centrale|Mémoire|Cartes réseau (max)|Taille maximale du disque|Nombre maximal de disques de données (1 023 Go chacun)|Taille de cache (Go)|Nombre maximal d’opérations d’E/S par seconde du disque et bande passante| Bande passante réseau maximale |
-|---|---|---|---|---|---|---|---|---|
-|Standard\_DS1 |1|3,5|1|Disque SSD local = 7 Go |2|43| 3 200 32 Mo par seconde | Modéré |
-|Standard\_DS2 |2|7|2|Disque SSD local = 14 Go |4|86| 6 400 64 Mo par seconde | élevé |
-|Standard\_DS3 |4|14|4|Disque SSD local = 28 Go |8|172| 12 800 128 Mo par seconde | élevé |
-|Standard\_DS4 |8|28|8|Disque SSD local = 56 Go |16|344| 25 600 256 Mo par seconde | élevé |
-|Standard\_DS11 |2|14|2|Disque SSD local = 28 Go |4|72| 6 400 64 Mo par seconde | élevé |
-|Standard\_DS12 |4|28|4|Disque SSD local = 56 Go |8|144| 12 800 128 Mo par seconde | élevé |
-|Standard\_DS13 |8|56|8|Disque SSD local = 112 Go |16|288| 25 600 256 Mo par seconde | élevé |
-|Standard\_DS14 |16|112|8|Disque SSD local = 224 Go |32|576| 51 200 512 Mo par seconde | très élevé |
 
-* Le nombre maximal d’opérations d’entrée/sortie par seconde (IOPS) et le débit (bande passante) possibles avec une machine virtuelle de la série DS sont affectés par la taille du disque. Pour plus d’informations, consultez l’article [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](../articles/storage/storage-premium-storage.md).
+| Taille | Cœurs d’unité centrale | Mémoire : Gio | Taille du disque local : Gio | Disques de données max. | Débit de disque maximal avec mise en cache : E/S par seconde/ Mbits/s (taille du cache en Gio) | Débit de disque maximal sans mise en cache : E/S / Mbits/s | Cartes réseau (max)/Bande passante réseau |
+|---------------|-----------|--------------|--------------------------------|----------------|--------------------------------------------|----------------------------------------------|-----------------------|
+| Standard\_DS1 | 1 | 3,5 | 7 | 2 | 4 000 / 32 (42) | 3 200 / 32 | 1 / Modérée |
+| Standard\_DS2 | 2 | 7 | 14 | 4 | 8 000 / 64 (86) | 6 400 / 64 | 2 / Élevée |
+| Standard\_DS3 | 4 | 14 | 28 | 8 | 16 000 / 128 (172) | 12 800 / 128 | 4 / Élevée |
+| Standard\_DS4 | 8 | 28 | 56 | 16 | 32 000 / 256 (344) | 25 600 / 256 | 8 / Élevée |
+| Standard\_DS11 | 2 | 14 | 28 | 4 | 8 000 / 64 (72) | 6 400 / 64 | 2 / Élevée |
+| Standard\_DS12 | 4 | 28 | 56 | 8 | 16 000 / 128 (144) | 12 800 / 128 | 4 / Élevée |
+| Standard\_DS13 | 8 | 56 | 112 | 16 | 32 000 / 256 (288) | 25 600 / 256 | 8 / Élevée |
+| Standard\_DS14 | 16 | 112 | 224 | 32 | 64 000 / 512 (576) | 51 200 / 512 | 8 / Très élevée |
+
+Mbits/s = 10^6 octets par seconde.
+
+* Le débit de disque maximal possible (E/S par seconde ou Mbits/s) avec une machine virtuelle de la série DS peut être limité par le nombre, la taille et la répartition des disques attachés. Pour plus d’informations, consultez l’article [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](../articles/storage/storage-premium-storage.md).
 
 
+
+<br>
 ## Séries DSv2*
 
-|Taille |Cœurs d’unité centrale|Mémoire|Cartes réseau (max)|Taille maximale du disque|Nombre maximal de disques de données (1 023 Go chacun)|Taille de cache (Go)|Nombre maximal d’opérations d’E/S par seconde du disque et bande passante| Bande passante réseau maximale |
-|---|---|---|---|---|---|---|---|---|
-|Standard\_DS1\_v2 |1|3,5|1|Disque SSD local = 7 Go |2|43| 3 200 48 Mo par seconde | Modéré |
-|Standard\_DS2\_v2 |2|7|2|Disque SSD local = 14 Go |4|86| 6 400 96 Mo par seconde | élevé |
-|Standard\_DS3\_v2 |4|14|4|Disque SSD local = 28 Go |8|172| 12 800 192 Mo par seconde | élevé |
-|Standard\_DS4\_v2 |8|28|8|Disque SSD local = 56 Go |16|344| 25 600 384 Mo par seconde | élevé |
-|Standard\_DS5\_v2 |16|56|8|Disque SSD local = 112 Go |32|688| 51 200 768 Mo par seconde | extrêmement élevé |
-|Standard\_DS11\_v2 |2|14|2|Disque SSD local = 28 Go |4|72| 6 400 96 Mo par seconde | élevé |
-|Standard\_DS12\_v2 |4|28|4|Disque SSD local = 56 Go |8|144| 12 800 192 Mo par seconde | élevé |
-|Standard\_DS13\_v2 |8|56|8|Disque SSD local = 112 Go |16|288| 25 600 384 Mo par seconde | élevé |
-|Standard\_DS14\_v2 |16|112|8|Disque SSD local = 224 Go |32|576| 51 200 768 Mo par seconde | extrêmement élevé |
-|Standard\_DS15\_v2 |20|140 Go|8|Disque SSD local = 280 Go |40| 720|64 000 960 Mo par seconde | extrêmement élevé |
+
+| Taille | Cœurs d’unité centrale | Mémoire : Gio | Taille du disque SSD local : Gio | Disques de données max. | Débit de disque maximal avec mise en cache : E/S par seconde/ Mbits/s (taille du cache en Gio) | Débit de disque maximal sans mise en cache : E/S / Mbits/s | Cartes réseau (max)/Bande passante réseau |
+|------------------|-----------|--------------|---------------------------|----------------|-------------------------------------------------|-------------------------------------------------|------------------------------|
+| Standard\_DS1\_v2 | 1 | 3,5 | 7 | 2 | 4 000 / 32 (43) | 3 200 / 48 | 4 Modérée |
+| Standard\_DS2\_v2 | 2 | 7 | 14 | 4 | 8 000 / 64 (86) | 6 400 / 96 | 2 Élevée |
+| Standard\_DS3\_v2 | 4 | 14 | 28 | 8 | 16 000 / 128 (172) | 12 800 / 192 | 4 Élevée |
+| Standard\_DS4\_v2 | 8 | 28 | 56 | 16 | 32 000 / 256 (344) | 25 600 / 384 | 8 Élevée |
+| Standard\_DS5\_v2 | 16 | 56 | 112 | 32 | 64 000 / 512 (688) | 51 200 / 768 | 8 Extrêmement élevé |
+| Standard\_DS11\_v2 | 2 | 14 | 28 | 4 | 8 000 / 64 (72) | 6 400 / 96 | 2 Élevée |
+| Standard\_DS12\_v2 | 4 | 28 | 56 | 8 | 16 000 / 128 (144) | 12 800 / 192 | 4 Élevée |
+| Standard\_DS13\_v2 | 8 | 56 | 112 | 16 | 32 000 / 256 (288) | 25 600 / 384 | 8 Élevée |
+| Standard\_DS14\_v2 | 16 | 112 | 224 | 32 | 64 000 / 512 (576) | 51 200 / 768 | 8 Extrêmement élevé |
+| Standard\_DS15\_v2 | 20 | 140 Go | 280 | 40 | 80 000 / 640 (720) | 64 000 / 960 | 8 Extrêmement élevé |
+
+Mbits/s = 10^6 octets par seconde.
+
+* Le débit de disque maximal possible (E/S par seconde ou Mbits/s) avec une machine virtuelle de la série DSv2 peut être limité par le nombre, la taille et la répartition des disques attachés. Pour plus d’informations, consultez l’article [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](../articles/storage/storage-premium-storage.md).
 
 
-* Le nombre maximal d’opérations d’entrée/sortie par seconde (IOPS) et le débit (bande passante) possibles avec une machine virtuelle de la série DS sont affectés par la taille du disque. Pour plus d’informations, consultez l’article [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](../articles/storage/storage-premium-storage.md).
-
-
+<br>
 ## Série F
 
 
-| Taille | Cœurs d’unité centrale | Mémoire | Cartes réseau (max) | Taille du disque | Nombre maximal de disques de données (1 023 Go chacun) | Nombre maximal d’opérations d’E/S par seconde (500 par disque) | Bande passante réseau maximale |
-|--------------|-----------|--------|------------|-------------------------|--------------------------|--------------------------|-------------|
-| Standard\_F1 | 1 | 2 Go | 1 | Temporaire (SSD) = 16 Go | 2 | 2 x 500 | Modéré |
-| Standard\_F2 | 2 | 4 Go | 2 | Temporaire (SSD) = 32 Go | 4 | 4 x 500 | élevé |
-| Standard\_F4 | 4 | 8 Go | 4 | Temporaire (SSD) = 64 Go | 8 | 8 x 500 | élevé |
-| Standard\_F8 | 8 | 16 Go | 8 | Temporaire (SSD) = 128 Go | 16 | 16 x 500 | élevé |
-| Standard\_F16 | 16 | 32 Go | 8 | Temporaire (SSD) = 256 Go | 32 | 32 x 500 | extrêmement élevé |
+| Taille | Cœurs d’unité centrale | Mémoire : Gio | Taille du disque SSD local : Gio | Disques de données max. | Débit de disque max : E/S par seconde | Cartes réseau (max)/Bande passante réseau |
+|--------------|-----------|--------------|----------------------|----------------|--------------------|-----------------------|
+| Standard\_F1 | 1 | 2 | 16 | 2 | 2 x 500 | 1 / Modérée |
+| Standard\_F2 | 2 | 4 | 32 | 4 | 4 x 500 | 2 / Élevée |
+| Standard\_F4 | 4 | 8 | 64 | 8 | 8 x 500 | 4 / Élevée |
+| Standard\_F8 | 8 | 16 | 128 | 16 | 16 x 500 | 8 / Élevée |
+| Standard\_F16 | 16 | 32 | 256 | 32 | 32 x 500 | 8 / Extrêmement élevée |
 
-
-
+<br>
 ## Série Fs*
 
-| Taille | Cœurs d’unité centrale | Mémoire | Cartes réseau (max) | Taille du disque | Nombre maximal de disques de données (1 023 Go chacun) | Taille de cache (Go) | Nombre maximal d’opérations d’E/S par seconde du disque et bande passante | Bande passante réseau maximale |
-|---------------|-----------|--------|------------|------------------------|-----------|-----------|----------------------------|------------|
-| Standard\_F1s | 1 | 2 | 1 | Disque SSD local = 4 Go | 2 | 12 | 3 200 48 Mo par seconde | Modéré |
-| Standard\_F2s | 2 | 4 | 2 | Disque SSD local = 8 Go | 4 | 24 | 6 400 96 Mo par seconde | élevé |
-| Standard\_F4s | 4 | 8 | 4 | Disque SSD local = 16 Go | 8 | 48 | 12 800 192 Mo par seconde | élevé |
-| Standard\_F8s | 8 | 16 | 8 | Disque SSD local = 32 Go | 16 | 96 | 25 600 384 Mo par seconde | élevé |
-| Standard\_F16s | 16 | 32 | 8 | Disque SSD local = 64 Go | 32 | 192 | 51 200 768 Mo par seconde | extrêmement élevé |
+| Taille | Cœurs d’unité centrale | Mémoire : Gio | Taille du disque SSD local : Gio | Disques de données max. | Débit de disque maximal avec mise en cache : E/S par seconde/ Mbits/s (taille du cache en Gio) | Débit de disque maximal sans mise en cache : E/S / Mbits/s | Cartes réseau (max)/Bande passante réseau |
+|---------------|-------|-----|----------|--------|------------------------------|---------------------------------|---------------|
+| Standard\_F1s | 1 | 2 | 4 | 2 | 4 000 / 32 (12) | 3 200 / 48 | 1 / Modérée |
+| Standard\_F2s | 2 | 4 | 8 | 4 | 8 000 / 64 (24) | 6 400 / 96 | 2 / Élevée |
+| Standard\_F4s | 4 | 8 | 16 | 8 | 16 000 / 128 (48) | 12 800 / 192 | 4 / Élevée |
+| Standard\_F8s | 8 | 16 | 32 | 16 | 32 000 / 256 (96) | 25 600 / 384 | 8 / Élevée |
+| Standard\_F16s | 16 | 32 | 64 | 32 | 64 000 / 512 (192) | 51 200 / 768 | 8 / Extrêmement élevée |
+
+Mbits/s = 10^6 octets par seconde.
+
+* Le débit de disque maximal possible (E/S par seconde ou Mbits/s) avec une machine virtuelle de la série Fs peut être limité par le nombre, la taille et la répartition des disques attachés. Pour plus d’informations, consultez l’article [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](../articles/storage/storage-premium-storage.md).
 
 
-
-* Le nombre maximal d’opérations d’entrée/sortie par seconde (IOPS) et le débit (bande passante) possibles avec une machine virtuelle de la série Fs sont affectés par la taille du disque. Pour plus d’informations, consultez l’article [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](../articles/storage/storage-premium-storage.md).
-
-
-
-
-
+<br>
 ## Série G
 
-|Taille |Cœurs d’unité centrale|Mémoire|Cartes réseau (max)|Taille maximale du disque|Nombre maximal de disques de données (1 023 Go chacun)|Bande passante Nombre maximal d’opérations d’E/S par seconde (500 par disque)| Bande passante réseau maximale |
-|---|---|---|---|---|---|---|---|
-|Standard\_G1 |2|28 Go|1|Disque SSD local = 384 Go |4|4 x 500| élevé |
-|Standard\_G2 |4|56 Go|2|Disque SSD local = 768 Go |8|8 x 500| élevé |
-|Standard\_G3 |8|112 Go|4|Disque SSD local = 1 536 Go |16|16 x 500| très élevé | 
-|Standard\_G4 |16|224 Go|8|Disque SSD local = 3 072 Go |32|32 x 500| extrêmement élevé |
-|Standard\_G5 |32|448 Go|8|Disque SSD local = 6 144 Go |64| 64 x 500 | extrêmement élevé |
+| Taille | Cœurs d’unité centrale | Mémoire : Gio | Taille de disque SSD local : Gio | Disques de données max. | Débit de disque max : E/S par seconde | Cartes réseau (max)/Bande passante réseau |
+|-------------|-----------|--------------|----------------------|----------------|--------------------|-----------------------|
+| Standard\_G1 | 2 | 28 | 384 | 4 | 4 x 500 | 1 / Élevée |
+| Standard\_G2 | 4 | 56 | 768 | 8 | 8 x 500 | 2 / Élevée |
+| Standard\_G3 | 8 | 112 | 1 536 | 16 | 16 x 500 | 4 / Très élevée |
+| Standard\_G4 | 16 | 224 | 3 072 | 32 | 32 x 500 | 8 / Extrêmement élevée |
+| Standard\_G5 | 32 | 448 | 6 144 | 64 | 64 x 500 | 8 / Extrêmement élevée |
 
 
 
+<br>
+## Série GS*
 
-## Série GS
 
-|Taille |Cœurs d’unité centrale|Mémoire|Cartes réseau (max)|Taille maximale du disque|Nombre maximal de disques de données (1 023 Go chacun)|Taille de cache (Go)|Nombre maximal d’opérations d’E/S par seconde du disque et bande passante| Bande passante réseau maximale |
-|---|---|---|---|---|---|---|---|---|
-|Standard\_GS1|2|28|1|Disque SSD local = 56 Go |4|264| 5 000 125 Mo par seconde | élevé |
-|Standard\_GS2|4|56|2|Disque SSD local = 112 Go |8|528| 10 000 250 Mo par seconde | élevé | 
-|Standard\_GS3|8|112|4|Disque SSD local = 224 Go |16|1 056| 20 000 500 Mo par seconde | très élevé |
-|Standard\_GS4|16|224|8|Disque SSD local = 448 Go |32|2 112| 40 000 1 000 Mo par seconde | extrêmement élevé |
-|Standard\_GS5|32|448|8|Disque SSD local = 896 Go |64|4 224| 80 000 2 000 Mo par seconde | extrêmement élevé |
+| Taille | Cœurs d’unité centrale | Mémoire : Gio | Taille du disque SSD local : Gio | Disques de données max. | Débit de disque maximal avec mise en cache : E/S par seconde/ Mbits/s (taille du cache en Gio) | Débit de disque maximal sans mise en cache : E/S / Mbits/s | Cartes réseau (max)/Bande passante réseau |
+|--------------|-----------|--------------|---------------------------|--------------------------------|----------------|--------------------------------------------|----------------------------------------------|-----------------------|
+| Standard\_GS1 | 2 | 28 | 56 | 4 | 10 000 / 100 (264) | 5 000 / 125 | 1 / Élevée |
+| Standard\_GS2 | 4 | 56 | 528 | 8 | 20 000 / 200 (528) | 10 000 / 250 | 2 / Élevée |
+| Standard\_GS3 | 8 | 112 | 1 056 | 16 | 40 000 / 400 (1 056) | 20 000 / 500 | 4 / Très élevée |
+| Standard\_GS4 | 16 | 224 | 2 112 | 32 | 80 000 / 800 (2 112) | 40 000 / 1 000 | 8 / Extrêmement élevée |
+| Standard\_GS5 | 32 | 448 | 4 224 | 64 | 160 000 / 1 600 (4 224) | 80 000 / 2 000 | 8 / Extrêmement élevée |
+
+Mbits/s = 10^6 octets par seconde.
+
+* Le débit de disque maximal possible (E/S par seconde ou Mbits/s) avec une machine virtuelle de la série GS peut être limité par le nombre, la taille et la répartition des disques attachés.
+
+
 
 ## Série N (version préliminaire)
 
@@ -228,11 +247,11 @@ Les tailles NC et NV sont également appelées instances compatibles GPU. Il s�
 Les instances NV sont alimentées par des GPU NVIDIA Tesla M60 et NVIDIA GRID pour les applications de bureautique accélérées et les bureaux virtuels où les clients pourront visualiser leurs données ou simulations. Les utilisateurs pourront de visualiser leurs flux de travail nécessitant beaucoup de graphismes sur les instances NV afin d’obtenir des fonctionnalités graphiques de qualité supérieure et exécuter par ailleurs des charges de travail simple précision comme le codage et le rendu. Le modèle Tesla M60 offre 4 096 cœurs CUDA dans une conception à double GPU avec jusqu'à 36 flux H.264 1080p.
 
 
-| Taille | Cœurs | GPU | Mémoire | Disque |
-|------|-------|----------------|--------|-------------|
-| Standard\_NV6 | 6 | 1 x NVIDIA M60 | 56 Go | 380 Go de stockage SSD |
-| Standard\_NV12 | 12 | 2 x NVIDIA M60 | 112 Go | 680 Go de stockage SSD |
-| Standard\_NV24 | 24 | 4 x NVIDIA M60 | 224 Go | 1 440 Go de stockage SSD | 
+| Taille | Cœurs d’unité centrale | Mémoire : Gio | Taille du disque SSD local : Gio | GPU |
+|---------------|-----------|--------------|---------------------------|----------------|
+| Standard\_NV6 | 6 | 56 | 380 | 1 x NVIDIA M60 |
+| Standard\_NV12 | 12 | 112 | 680 | 2 x NVIDIA M60 |
+| Standard\_NV24 | 24 | 224 | 1 440 | 4 x NVIDIA M60 |
 
 
 
@@ -241,11 +260,13 @@ Les instances NV sont alimentées par des GPU NVIDIA Tesla M60 et NVIDIA GRID po
 Les instances NC sont équipés de modules NVIDIA Tesla K80. Les utilisateurs peuvent désormais exploiter plus rapidement leurs données en tirant parti de CUDA pour les applications d’exploration d’énergie, de simulations de crash, de rendu avec lancer de rayon, de formation approfondie et bien plus encore. Le module Tesla K80 offre 4 992 cœurs CUDA avec une conception à double GPU, jusqu'à 2,91 téraflops double précision et 8,93 téraflops simple précision.
 
 
-| Taille | Cœurs | GPU | Mémoire | Disque |
-|------|-------|----------------|--------|-------------|
-| Standard\_NC6 | 6 | 1 x NVIDIA K80 | 56 Go | 380 Go de stockage SSD |
-| Standard\_NC12 | 12 | 2 x NVIDIA K80 | 112 Go | 680 Go de stockage SSD |
-| Standard\_NC24 | 24 | 4 x NVIDIA K80 | 224 Go | 1 440 Go de stockage SSD |
+| Taille | Cœurs d’unité centrale | Mémoire : Gio | Taille du disque SSD local : Gio | GPU |
+|---------------|-----------|--------------|---------------------------|----------------|
+| Standard\_NC6 | 6 | 56 | 380 | 1 x NVIDIA K80 |
+| Standard\_NC12 | 12 | 112 | 680 | 2 x NVIDIA K80 |
+| Standard\_NC24 | 24 | 224 | 1 440 | 4 x NVIDIA K80 |
+
+
 
 ## Remarques : Standard A0 - A4 à l’aide de l’interface de ligne de commande et de Powershell 
 
@@ -264,4 +285,4 @@ Dans le modèle de déploiement classique, certains noms de tailles de machines 
 - En savoir plus sur l’[abonnement Azure et les limites, quotas et contraintes des services](../articles/azure-subscription-service-limits.md).
 - En savoir plus sur [à propos des instances de calcul intensif A8, A9, A10 et A11](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md) pour les charges de travail telles que le calcul haute performance (HPC).
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0831_2016-->

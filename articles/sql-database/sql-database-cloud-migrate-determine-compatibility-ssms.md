@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="sqldb-migrate"
-   ms.date="06/07/2016"
+   ms.date="08/29/2016"
    ms.author="carlrab"/>
 
 # Utilisez SQL Server Management Studio afin de déterminer la compatibilité de la base de données SQL avant la migration vers une base de données SQL Azure
@@ -38,15 +38,15 @@ Dans cet article, vous découvrirez comment déterminer si une base de données 
 
 	![Exporter une application de la couche Données à partir du menu Tâches](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSSMS01.png)
 
-4. Dans l’Assistant d’exportation, cliquez sur **Suivant**, puis sous l’onglet **Paramètres**, configurez l’exportation de manière à enregistrer le fichier BACPAC sur le disque local ou dans un objet blob Azure. L’enregistrement du fichier BACPAC ne pourra s’effectuer que si vous ne rencontrez aucun problème de compatibilité de base de données. Si des problèmes de compatibilité sont détectés, ils s’afficheront sur la console.
+4. Dans l’Assistant d’exportation, cliquez sur **Suivant**, puis sous l’onglet **Paramètres**, configurez l’exportation de manière à enregistrer le fichier BACPAC sur le disque local ou dans un objet blob Azure. L’enregistrement du fichier BACPAC ne peut s’effectuer que si vous ne rencontrez aucun problème de compatibilité de base de données. Si des problèmes de compatibilité sont détectés, ils s’affichent sur la console.
 
 	![Paramètres d’exportation](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSSMS02.png)
 
-5. Cliquez sur l’**onglet Avancé** et décochez la case **Sélectionner tout** pour ignorer l’exportation des données. À ce stade, nous ne cherchons qu’à tester la compatibilité.
+5. Cliquez sur **l’onglet Avancé** et décochez la case **Sélectionner tout** pour ignorer l’exportation des données. À ce stade, nous ne cherchons qu’à tester la compatibilité.
 
 	![Paramètres d’exportation](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSSMS03.png)
 
-6. Cliquez sur **Suivant**, puis sur **Terminer**. Les éventuels problèmes de compatibilité de base de données s’afficheront une fois le schéma validé par l’Assistant.
+6. Cliquez sur **Suivant**, puis sur **Terminer**. Les éventuels problèmes de compatibilité de base de données s’affichent une fois le schéma validé par l’Assistant.
 
 	![Paramètres d’exportation](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSSMS04.png)
 
@@ -67,4 +67,4 @@ Dans cet article, vous découvrirez comment déterminer si une base de données 
 - [Fonctions partiellement ou non prises en charge de Transact-SQL](sql-database-transact-sql-information.md)
 - [Migration de bases de données non-SQL Server avec l’Assistant Migration SQL Server](http://blogs.msdn.com/b/ssma/)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0831_2016-->

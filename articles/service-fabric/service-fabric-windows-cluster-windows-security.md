@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="06/14/2016"
+   ms.date="08/25/2016"
    ms.author="ryanwi"/>
 
 
@@ -51,7 +51,7 @@ L’exemple de fichier de configuration *ClusterConfig.Windows.JSON* télécharg
 |Identité|L’identité du client, un utilisateur de domaine.|
 |IsAdmin|La valeur true indique que l’utilisateur de domaine dispose d’un accès administrateur au client, tandis que la valeur false correspond à un accès utilisateur.|
 
-La [sécurité nœud à nœud](service-fabric-cluster-security.md#node-to-node-security) est configurée à l’aide de **ClusterIdentity**. Pour créer des relations d’approbation entre les nœuds, ceux-ci doivent se connaître mutuellement. Pour ce faire, deux méthodes sont possibles : indiquez le compte de service géré de groupe qui inclut tous les nœuds du cluster, ou indiquez l’identité des nœuds de domaine pour chaque nœud du cluster. Nous vous recommandons d’utiliser l’approche avec le [compte de service géré de groupe (gMSA)](https://technet.microsoft.com/library/hh831782.aspx), en particulier pour les clusters de grande taille (plus de 10 nœuds) ou pour les clusters dont la taille est susceptible d’augmenter ou de diminuer. Cette approche vous permet d’ajouter ou de supprimer des nœuds du gMSA sans avoir à modifier le manifeste de cluster. Cette méthode ne nécessite pas la création d’un groupe de domaine pour lequel les administrateurs de cluster disposent des droits d’accès leur permettant d’ajouter et de supprimer des membres. Pour en savoir plus, voir [Prise en main des comptes de service gérés de groupe](http://technet.microsoft.com/library/jj128431.aspx).
+La [sécurité nœud à nœud](service-fabric-cluster-security.md#node-to-node-security) est configurée à l’aide de **ClusterIdentity**. Pour créer des relations d’approbation entre les nœuds, ceux-ci doivent se connaître mutuellement. Pour ce faire, deux méthodes sont possibles : indiquez le compte de service géré de groupe qui inclut tous les nœuds du cluster, ou indiquez l’identité des nœuds de domaine pour chaque nœud du cluster. Nous vous recommandons d’utiliser l’approche avec le [compte de service géré de groupe (gMSA)](https://technet.microsoft.com/library/hh831782.aspx), en particulier pour les clusters de grande taille (plus de 10 nœuds) ou pour les clusters dont la taille est susceptible d’augmenter ou de diminuer. Cette approche vous permet d’ajouter ou de supprimer des nœuds du gMSA sans avoir à modifier le manifeste de cluster. Cette méthode ne nécessite pas la création d’un groupe de domaine pour lequel les administrateurs de cluster disposent des droits d’accès leur permettant d’ajouter et de supprimer des membres. Pour en savoir plus, consultez [Prise en main des comptes de service gérés de groupe](http://technet.microsoft.com/library/jj128431.aspx).
 
 La [sécurité client à nœud](service-fabric-cluster-security.md#client-to-node-security) est configurée à l’aide de **ClientIdentities**. Pour établir une approbation entre un client et le cluster, vous devez configurer le cluster de façon à ce qu’il sache quelles identités client sont fiables. Pour ce faire, deux méthodes s’offrent à vous : indiquez les utilisateurs de groupe de domaine autorisés à se connecter ou indiquez les utilisateurs de nœud de domaine autorisés à se connecter. Service Fabric prend en charge deux types de contrôle d'accès différents pour les clients qui sont connectés à un cluster Service Fabric : administrateur et utilisateur. Le contrôle d'accès permet à l'administrateur du cluster de limiter l'accès à certains types d’opérations de cluster pour différents groupes d'utilisateurs, renforçant ainsi la sécurité du cluster. Les administrateurs ont un accès complet aux fonctions de gestion (y compris les fonctionnalités de lecture/écriture). Les utilisateurs, par défaut, ont uniquement un accès en lecture aux fonctionnalités de gestion (par exemple, aux fonctionnalités de requête) et la capacité à résoudre les applications et les services.
 
@@ -73,10 +73,10 @@ L’exemple de **sécurité** suivant illustre la configuration de la sécurité
 
 ## Étapes suivantes
 
-Après avoir configuré la sécurité Windows dans le fichier *ClusterConfig.JSON*, reprenez le processus de création de cluster décrit dans [Créer un cluster autonome exécuté sur Windows](service-fabric-cluster-creation-for-windows-server.md).
+Après avoir configuré la sécurité Windows dans le fichier *ClusterConfig.JSON*, reprenez le processus de création de cluster décrit dans [Créer un cluster autonome sous Windows](service-fabric-cluster-creation-for-windows-server.md).
 
 Pour plus d’informations sur la sécurité nœud à nœud, la sécurité client à nœud et le contrôle d’accès en fonction du rôle, consultez [Scénarios relatifs à la sécurité des clusters](service-fabric-cluster-security.md).
 
 Pour obtenir des exemples de connexion à l’aide de PowerShell ou FabricClient, consultez [Se connecter à un cluster sécurisé](service-fabric-connect-to-secure-cluster.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0831_2016-->

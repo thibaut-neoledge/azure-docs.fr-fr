@@ -29,7 +29,7 @@ Les étapes suivantes vous indiquent comment demander un avoir ou un rembourseme
 
   ![1\_RequestRefund][1]
 
-  1. Accédez aux pages de support.
+  1. Accédez aux pages de support suivantes : [https://support.microsoft.com/fr-FR/getsupport?tenant=ClassicCommercial&locale=fr-FR&supportregion=fr-FR&pesid=15635&sd=&oaspworkflow=start\_1.0.0.0&wf=0&ccsid=635562546535117884](https://support.microsoft.com/fr-FR/getsupport?tenant=ClassicCommercial&locale=fr-FR&supportregion=fr-FR&pesid=15635&sd=&oaspworkflow=start_1.0.0.0&wf=0&ccsid=635562546535117884).
   2. Dans la zone **Type de problème**, sélectionnez **Gestion des clients**.
   3. Dans la zone **Catégorie**, sélectionnez **Approuver ou demander un remboursement du client**.
   4. Cliquez sur **Envoyer une demande**.
@@ -120,4 +120,4 @@ Pour les problèmes suivants, créez une demande de support sur le site [http://
 [7]: ./media/marketplace-publishing-support-common-issues/acctdetails.png
 [8]: ./media/marketplace-publishing-support-common-issues/manageadmins.png
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0831_2016-->

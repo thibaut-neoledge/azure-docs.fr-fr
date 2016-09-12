@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/08/2016"
+	ms.date="08/29/2016"
 	ms.author="jodebrui"/>
 
 
@@ -135,7 +135,7 @@ Un résultat de **0** signifie que In-Memory n’est pas pris en charge, et un r
 
 #### À propos des éléments créés à mémoire optimisée.
 
-**Tables** : l’exemple contient les tables à mémoire optimisée suivantes :
+**Tables** : l’exemple contient les tables à mémoire optimisée suivantes :
 
 - SalesLT.Product\_inmem
 - SalesLT.SalesOrderHeader\_inmem
@@ -159,7 +159,7 @@ SELECT is_memory_optimized, name, type_desc, durability_desc
 ```
 
 
-**Procédure stockée compilée en mode natif** : SalesLT.usp\_InsertSalesOrder\_inmem peut être inspecté via une requête de vue de catalogue :
+**Procédure stockée compilée en mode natif** : SalesLT.usp\_InsertSalesOrder\_inmem peut être inspecté via une requête de vue de catalogue :
 
 
 ```
@@ -528,4 +528,4 @@ Si une base de données contient l’une des sortes d’objets ou de types In-Me
 
 - [Surveiller le stockage en mémoire](sql-database-in-memory-oltp-monitoring.md) pour In-Memory OLTP.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/27/2016" 
+	ms.date="08/25/2016" 
 	ms.author="mimig"/>
 
 # Améliorer votre compte DocumentDB
@@ -25,12 +25,12 @@ Suivez ces étapes pour tirer parti d’un débit plus élevé pour votre compte
 ## Passer aux performances définies par l’utilisateur dans le portail Azure
 
 1. Dans votre navigateur, accédez au [**portail Azure**](https://portal.azure.com).
-2. Cliquez sur **Parcourir** -> **Comptes DocumentDB**, puis sélectionnez le compte DocumentDB à modifier.
+2. Cliquez sur **Parcourir** -> **DocumentDB (NoSQL)**, puis sélectionnez le compte DocumentDB à modifier.
 3. Dans le filtre **Bases de données**, sélectionnez la base de données à modifier, puis, dans le panneau **Base de données**, sélectionnez la collection dont le niveau tarifaire est S1.
 
       ![Capture d’écran de la collection S1 dans le panneau Base de données](./media/documentdb-supercharge-your-account/documentdb-change-performance-S1.png)
 
-4. Dans le panneau **Collections**, cliquez sur **Paramètres** dans la barre supérieure.
+4. Dans le panneau **Collection**, cliquez sur **Plus**, puis cliquez sur **Paramètres**.
 5. Dans le panneau **Paramètres**, cliquez sur **Niveau tarifaire** et notez que l’estimation des coûts mensuels pour chaque plan est affichée. Dans le panneau **Choisir votre niveau tarifaire**, cliquez sur **Standard**, puis cliquez sur **Sélectionner** pour enregistrer vos modifications.
 
       ![Capture d’écran des panneaux Paramètres DocumentDB et Choisir votre niveau tarifaire](./media/documentdb-supercharge-your-account/documentdb-change-performance.png)
@@ -49,6 +49,6 @@ Pour plus d’informations sur les modifications liées aux débits définis par
 
 ## Étapes suivantes
 
-Si vous déterminez que vous avez besoin d’un débit supérieur (plus de 10 000 unités de requête/s) ou d’une plus grande capacité de stockage (plus de 10 Go), vous pouvez créer une collection partitionnée. Pour créer une collection partitionnée, consultez [Créer une collection](documentdb-create-collection.md).
+Si vous déterminez que vous avez besoin d’un débit supérieur (plus de 10 000 unités de requête/s) ou d’une plus grande capacité de stockage (plus de 10 Go), vous pouvez créer une collection partitionnée. Pour créer une collection partitionnée, consultez [Créer une collection](documentdb-create-collection.md).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0831_2016-->

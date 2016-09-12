@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/02/2016"
+   ms.date="08/25/2016"
    ms.author="ryanwi"/>
 
 # Échantillon de cycle de vie des applications basé sur REST
@@ -24,10 +24,10 @@ Cet exemple effectue les opérations suivantes :
 
 * approvisionne l’exemple **WordCount 1.0.0** à partir du package d’application WordCount dans le magasin d’images ;
 * affiche la liste des types d’applications, dont WordCount 1.0.0 ;
-* crée l’application WordCount sous la forme **fabric:/WordCount** ;
+* crée l’application WordCount sous la forme **fabric:/WordCount** ;
 * affiche la liste des applications, dont fabric:/WordCount version 1.0.0 ;
 * approvisionne la version 1.1.0 de l’exemple WordCount à partir du package d’application **WordCountUpgrade** dans le magasin d’images ;
-* affiche la liste des types d’applications, dont WordCount 1.0.0 et **WordCount 1.1.0** ;
+* affiche la liste des types d’applications, dont WordCount 1.0.0 et **WordCount 1.1.0** ;
 * met à niveau l’application WordCount vers la version 1.1.0 ;
 * affiche la liste des applications, dont WordCount version 1.1.0, mais dans laquelle ne figure plus WordCount version 1.0.0 ;
 * supprime l’application WordCount ;
@@ -38,7 +38,7 @@ Cet exemple effectue les opérations suivantes :
 * affiche la liste des types d’applications, qui n’inclut plus WordCount.
 
 
-## Composants requis
+## Conditions préalables
 
 Cet exemple utilise l’[exemple WordCount](http://aka.ms/servicefabricsamples) (disponible dans les exemples de **prise en main**). L’exemple WordCount doit d’abord être généré, puis deux packages d’application doivent être copiés vers le magasin d’images.
 
@@ -709,4 +709,4 @@ namespace ServiceFabricRestCaller
 
 [Cycle de vie des applications Service Fabric](service-fabric-application-lifecycle.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0831_2016-->

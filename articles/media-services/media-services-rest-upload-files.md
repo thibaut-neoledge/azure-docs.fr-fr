@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Téléchargement de fichiers dans un compte Media Services à l’aide des API REST" 
+	pageTitle="Charger des fichiers dans un compte Media Services à l’aide de REST" 
 	description="Apprenez à obtenir du contenu multimédia dans Media Services en créant et en chargeant des ressources." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,14 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"
+	ms.date="08/30/2016"
 	ms.author="juliako"/>
 
 
-#Téléchargement de fichiers dans un compte Media Services à l’aide des API REST
+# Charger des fichiers dans un compte Media Services à l’aide de REST
 
-[AZURE.INCLUDE [media-services-selector-upload-files](../../includes/media-services-selector-upload-files.md)]
- 
+ > [AZURE.SELECTOR]
+ - [.NET](media-services-dotnet-upload-files.md)
+ - [REST](media-services-rest-upload-files.md)
+ - [Portail](media-services-portal-upload-files.md)
 
 Dans Media Services, vous téléchargez vos fichiers numériques dans une ressource. L'entité [Asset](https://msdn.microsoft.com/library/azure/hh974277.aspx) peut contenir des fichiers vidéo et audio, des images, des collections de miniatures, des pistes textuelles et des légendes (et les métadonnées concernant ces fichiers). Une fois les fichiers téléchargés dans la ressource, votre contenu est stocké en toute sécurité dans le cloud et peut faire l’objet d’un traitement et d’une diffusion en continu.
 
@@ -59,7 +61,7 @@ L’une des propriétés que vous pouvez spécifier lors de la création d’un 
 
 - **EnvelopeEncryptionProtected** = **4** : indique si vous téléchargez un contenu au format HLS chiffré avec des fichiers AES. Notez que les fichiers doivent avoir été encodés et chiffrés par le gestionnaire de transformation Transform Manager.
 
->[AZURE.NOTE]Si votre élément multimédia utilise le chiffrement, vous devez créer une **ContentKey** et la lier à votre élément multimédia, comme décrit dans la rubrique suivante : [Création d’une ContentKey](media-services-rest-create-contentkey.md). Notez qu’après avoir téléchargé les fichiers dans l’élément multimédia, vous devez mettre à jour les propriétés de chiffrement sur l’entité **AssetFile** avec les valeurs obtenues pendant le chiffrement **Asset**. Pour ce faire, utilisez la demande HTTP **MERGE**.
+>[AZURE.NOTE]Si votre élément multimédia utilise le chiffrement, vous devez créer une **ContentKey** et la lier à votre élément multimédia, comme le décrit la rubrique suivante : [Création d’une ContentKey](media-services-rest-create-contentkey.md). Notez qu’après avoir téléchargé les fichiers dans l’élément multimédia, vous devez mettre à jour les propriétés de chiffrement sur l’entité **AssetFile** avec les valeurs obtenues pendant le chiffrement **Asset**. Pour ce faire, utilisez la demande HTTP **MERGE**.
 
 
 L’exemple suivant montre comment créer une ressource.
@@ -115,7 +117,7 @@ L’entité [AssetFile](http://msdn.microsoft.com/library/azure/hh974275.aspx) r
 
 Notez que l’instance **AssetFile** et le fichier multimédia réel sont deux objets distincts. L’instance AssetFile contient des métadonnées concernant le fichier multimédia, tandis que le fichier multimédia contient le contenu multimédia réel.
 
-Après avoir téléchargé le fichier multimédia numérique dans un conteneur d’objets blob, vous utiliserez la demande HTTP **MERGE** pour mettre à jour AssetFile avec des informations sur votre fichier multimédia (comme indiqué ultérieurement dans cette rubrique).
+Après avoir chargé votre fichier multimédia numérique dans un conteneur d’objets blob, vous utiliserez la demande HTTP **MERGE** pour mettre à jour AssetFile avec des informations sur votre fichier multimédia (comme l’indique plus loin cette rubrique).
 
 **Demande HTTP**
 
@@ -529,4 +531,4 @@ La ContentKey est associée à une ou plusieurs ressources en envoyant une deman
 [How to Get a Media Processor]: media-services-get-media-processor.md
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0831_2016-->

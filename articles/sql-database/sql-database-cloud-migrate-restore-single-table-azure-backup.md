@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/24/2016"
+	ms.date="08/31/2016"
 	ms.author="daleche"/>
 
 
@@ -28,7 +28,7 @@ Vous pouvez rencontrer une situation dans laquelle vous avez modifié par inadve
 
 2. Restaurez une sauvegarde de votre base de données à un point dans le temps auquel vous souhaitez la récupérer en suivant la procédure [Point-In\_Time Restore](sql-database-recovery-using-backups.md#point-in-time-restore).
 
-	**Remarques** :
+	**Remarques** :
 	- Le nom de la base de données restaurée doit être au format NomBD+Horodatage, par exemple, **Adventureworks2012\_2016-01-01T22-12Z**. Cette étape ne remplace pas le nom existant de la base de données sur le serveur. Il s’agit d’une mesure de sécurité. Elle vous permet de vérifier la base de données restaurée avant de supprimer la base de données en cours, et de renommer la base de données restaurée pour une utilisation en production.
 	- Tous les niveaux de performances De base à Premium sont automatiquement sauvegardés par le service, avec diverses mesures de rétention de sauvegarde, selon le niveau :
 
@@ -41,9 +41,9 @@ Vous pouvez rencontrer une situation dans laquelle vous avez modifié par inadve
 
 2. Ouvrez l’Assistant Migration de base de données SQL. Dans la page **Sélectionner le processus**, sélectionnez **Base de données sous Analyser/Migrer**, puis cliquez sur **Suivant**. ![Assistant Migration de la base de données SQL - Sélectionner un processus](./media/sql-database-cloud-migrate-restore-single-table-azure-backup/1.png)
 3. Dans la boîte de dialogue **Se connecter au serveur**, entrez les valeurs suivantes :
- - **Nom du serveur** : votre instance SQL Azure
- - **Authentification** : **Authentification SQL Server**. Entrez vos informations d’identification.
- - **Base de données** : **Master DB (Lister toutes les bases de données)**.
+ - **Nom du serveur** : votre instance SQL Azure
+ - **Authentification** : **Authentification SQL Server**. Entrez vos informations d’identification.
+ - **Base de données** : **Master DB (Lister toutes les bases de données)**.
  - **Remarque** Par défaut, l’Assistant enregistre vos informations de connexion. Si cela ne vous convient pas, sélectionnez **Oublier les informations de connexion**. ![Assistant Migration de la base de données SQL - Sélectionner une source - étape 1](./media/sql-database-cloud-migrate-restore-single-table-azure-backup/2.png)
 4. Dans la boîte de dialogue **Sélectionner une source**, sélectionnez le nom de la base de données restaurée lors des **étapes de préparation** comme source, puis cliquez sur **Suivant**.
 
@@ -56,9 +56,9 @@ Vous pouvez rencontrer une situation dans laquelle vous avez modifié par inadve
 7. Dans la page **Résumé des résultats**, cliquez sur **Suivant**. ![Assistant Migration de la base de données SQL - Résumé des résultats](./media/sql-database-cloud-migrate-restore-single-table-azure-backup/6.png)
 
 8. Dans la page **Configurer la connexion au serveur cible**, cliquez sur **Se connecter au serveur**, puis entrez les détails comme suit :
-	- **Nom du serveur** : instance de serveur cible
-	- **Authentification** : **Authentification SQL Server**. Entrez vos informations d’identification.
-	- **Base de données** : **Master DB (Lister toutes les bases de données)**. Cette option répertorie toutes les bases de données sur le serveur cible.
+	- **Nom du serveur** : instance de serveur cible
+	- **Authentification** : **Authentification SQL Server**. Entrez vos informations d’identification.
+	- **Base de données** : **Master DB (Lister toutes les bases de données)**. Cette option répertorie toutes les bases de données sur le serveur cible.
 
 	![Assistant Migration de la base de données SQL - Configurer la connexion au serveur cible](./media/sql-database-cloud-migrate-restore-single-table-azure-backup/7.png)
 
@@ -71,4 +71,4 @@ Vous pouvez rencontrer une situation dans laquelle vous avez modifié par inadve
 
 [Sauvegardes automatiques d’une base de données SQL](sql-database-automated-backups.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -26,7 +26,7 @@ La passerelle Azure Application Gateway est un équilibreur de charge de couche�
 - [Commandes PowerShell pour Azure Resource Manager](application-gateway-create-gateway-arm.md)
 - [Azure Classic PowerShell](application-gateway-create-gateway.md)
 - [Modèle Azure Resource Manager](application-gateway-create-gateway-arm-template.md)
-
+- [Interface de ligne de commande Azure](application-gateway-create-gateway-cli.md)
 
 <BR>
 
@@ -116,7 +116,7 @@ Attribuez ensuite un nom convivial à l’adresse IP publique et cliquez sur **O
 
 ### Étape 9
 
-Le dernier paramètre à configurer lors de la création d’une passerelle Application Gateway est la configuration de l’écouteur. Si **http** est utilisé, il n’y a rien d’autre à configurer. Vous pouvez alors cliquer sur **OK**. Une configuration supplémentaire est requise pour exploiter **https**.
+Le dernier paramètre à configurer lors de la création d’une passerelle Application Gateway est la configuration de l’écouteur. Si **http** est utilisé, il n’y a rien d’autre à configurer. Vous pouvez alors cliquer sur **OK**. Une configuration supplémentaire est requise pour utiliser **https**.
 
 Un certificat est requis pour utiliser **https**. La clé privée du certificat est nécessaire de sorte qu’un export .pfx du certificat soit requis, ainsi que le mot de passer du fichier.
 
@@ -141,7 +141,7 @@ Une fois la passerelle Application Gateway créée, accédez à celle-ci dans le
 
 ![Vue des ressources de la passerelle Application Gateway][10]
 
-Cela crée une passerelle Application Gateway de base avec les paramètres par défaut pour l’écouteur, le pool principal, les paramètres http principaux et les règles. Vous pouvez modifier ces paramètres en fonction de votre déploiement une fois l’approvisionnement réussi
+Ces étapes permettent de créer une passerelle Application Gateway de base avec les paramètres par défaut pour l’écouteur, le pool principal, les paramètres http principaux et les règles. Vous pouvez modifier ces paramètres en fonction de votre déploiement une fois l’approvisionnement réussi
 
 ## Étapes suivantes
 
@@ -162,4 +162,4 @@ Découvrez comment configurer le déchargement SSL et éviter à vos serveurs we
 [10]: ./media/application-gateway-create-gateway-portal/figure10.png
 [scenario]: ./media/application-gateway-create-gateway-portal/scenario.png
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0831_2016-->

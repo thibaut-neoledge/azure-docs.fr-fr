@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/08/2016"
+   ms.date="08/24/2016"
    ms.author="magoedte;bwren" />
 
 # Sortie et messages de Runbook dans Azure Automation
@@ -25,7 +25,7 @@ Le tableau suivant fournit une brève description de chacun des flux et de leur 
 |:---|:---|:---|:---|
 |Sortie|Objets destinés à être consommés par d’autres Runbooks.|Consignation dans l’historique des tâches.|Affichage dans le volet de sortie du test.|
 |Avertissement|Message d’avertissement destiné à l’utilisateur.|Consignation dans l’historique des tâches.|Affichage dans le volet de sortie du test.|
-|Erreur|Message d’erreur destiné à l’utilisateur. Contrairement à une exception, le Runbook se poursuit après un message d’erreur par défaut.|Consignation dans l’historique des tâches.|Affichage dans le volet de sortie du test.|
+|Error|Message d’erreur destiné à l’utilisateur. Contrairement à une exception, le Runbook se poursuit après un message d’erreur par défaut.|Consignation dans l’historique des tâches.|Affichage dans le volet de sortie du test.|
 |Détaillé|Messages fournissant des informations générales ou de débogage.|Consignation dans l’historique des tâches uniquement si la journalisation documentée est activée pour le Runbook.|Affichage dans le volet de sortie du test uniquement si la préférence $VerbosePreference a la valeur Continue dans le Runbook.|
 |Progression|Informations générées automatiquement avant et après chaque activité dans le Runbook. Le Runbook ne doit pas tenter de créer ses propres informations de progression dans la mesure où elles sont destinées à un utilisateur interactif.|Consignation dans l’historique des tâches uniquement si l’enregistrement de la progression est activé pour le Runbook.|Pas d’affichage dans le volet de sortie du test.|
 |Déboguer|Messages destinés à un utilisateur interactif. Utilisation proscrite dans les Runbooks.|Pas de consignation dans l’historique des tâches.|Pas d’affichage dans le volet de sortie du test.|
@@ -48,30 +48,43 @@ Examinez l’exemple de Runbook suivant.
 
 	Workflow Test-Runbook
 	{
-	   Write-Verbose "Verbose outside of function"
-	   Write-Output "Output outside of function"
-	   $functionOutput = Test-Function
+        Write-Verbose "Verbose outside of function" -Verbose
+        Write-Output "Output outside of function"
+        $functionOutput = Test-Function
+        $functionOutput
 
-	   Function Test-Function
-	   {
-	      Write-Verbose "Verbose inside of function"
-	      Write-Output "Output inside of function"
-	   }
-	}
+    Function Test-Function
+     {
+        Write-Verbose "Verbose inside of function" -Verbose
+        Write-Output "Output inside of function"
+      }
+    }
+
 
 Le flux de sortie pour la tâche du Runbook serait :
 
-	Output outside of function
+	Output inside of function
+    Output outside of function
 
 Le flux des commentaires pour la tâche du Runbook serait :
 
 	Verbose outside of function
 	Verbose inside of function
 
+Une fois que vous avez publié le Runbook et avant de démarrer, vous devez activer la journalisation détaillée dans les paramètres du Runbook, afin d’obtenir la sortie de flux détaillé.
+
 ### Déclaration du type de données de sortie
 
 Un flux de travail peut spécifier le type de données de sa sortie à l’aide de l’[attribut OutputType](http://technet.microsoft.com/library/hh847785.aspx). Cet attribut n’a aucun effet lors de l’exécution, mais il fournit une indication à l’auteur du Runbook sur la sortie attendue du Runbook au moment de la conception. Alors que l’ensemble d’outils dédiés aux Runbooks continue d’évoluer, la déclaration des types de données de sortie au moment de la conception gagne en importance. Par conséquent, il est recommandé d’inclure cette déclaration dans tous les Runbooks que vous créez.
 
+Voici une liste d’exemples de types de sortie :
+
+-	System.String
+-	System.Int32
+-	System.Collections.Hashtable
+-	Microsoft.Azure.Commands.Compute.Models.PSVirtualMachine
+
+  
 L’exemple de Runbook suivant génère un objet String et inclut une déclaration de son type de sortie. Si votre Runbook génère un tableau d’un certain type, vous devez toujours spécifier le type, par opposition à un tableau du type.
 
 	Workflow Test-Runbook
@@ -81,6 +94,25 @@ L’exemple de Runbook suivant génère un objet String et inclut une déclarati
 	   $output = "This is some string output."
 	   Write-Output $output
 	}
+
+Pour déclarer un type de sortie dans les Runbooks graphiques ou PowerShell Workflow graphiques, vous pouvez sélectionner l’option de menu **Entrée et sortie** et saisir le nom du type de sortie. Nous vous recommandons d’utiliser le nom de classe .NET complet pour le rendre facilement identifiable lorsque vous y faites référence dans un Runbook parent. Cela expose toutes les propriétés de la classe au bus de données du Runbook et offre une grande souplesse lors de leur utilisation pour la logique conditionnelle, la journalisation et le référencement en tant que valeurs pour les autres activités du Runbook.<br> ![Option Entrée et sortie de Runbook](media/automation-runbook-output-and-messages/runbook-menu-input-and-output-option.png)
+
+Dans l’exemple suivant, nous avons deux Runbooks graphiques illustrant cette fonctionnalité. Si le modèle de conception Runbook modulaire est appliqué, un des Runbooks est utilisé en tant que *modèle Runbook d’authentification* et gère l’authentification auprès d’Azure à l’aide du compte d’identification. Le deuxième Runbook, qui effectue normalement les opérations logiques principales pour automatiser un scénario donné, exécute alors le *modèle Runbook d’authentification* et affiche les résultats dans le volet de sortie **Test**. Dans des circonstances normales, ce Runbook effectue ses activités par rapport à une ressource utilisant la sortie du Runbook enfant.
+
+Voici la logique de base du Runbook **AuthenticateTo-Azure**.<br> ![Exemple de modèle Runbook d’authentification](media/automation-runbook-output-and-messages/runbook-authentication-template.png).
+
+Il inclut le type de sortie *Microsoft.Azure.Commands.Profile.Models.PSAzureContext*, qui renvoie les propriétés de profil d’authentification.{0}{0}{0}
+
+Ce Runbook est très simple, mais l’un des éléments de configuration requiert une attention particulière. La dernière activité exécute l’applet de commande **Write-Output** et écrit les données de profil dans une variable $\_ à l’aide d’une expression PowerShell pour le paramètre **Inputobject**, ce qui est requis pour cette applet de commande.
+
+Pour le deuxième Runbook de cet exemple, nommé *Test-ChildOutputType*, il y a simplement deux activités.<br> ![Exemple de type de sortie enfant Runbook](media/automation-runbook-output-and-messages/runbook-display-authentication-results-example.png)
+
+La première activité appelle le Runbook **AuthenticateTo-Azure**, et la deuxième exécute l’applet de commande **Write-Verbose** avec la **source de données** de la **sortie de l’activité**. La valeur du **chemin du champ** est **Context.Subscription.SubscriptionName** et spécifie la sortie de contexte du Runbook **AuthenticateTo-Azure**.<br> ![Source de données du paramètre d’applet de commande Write-Verbose](media/automation-runbook-output-and-messages/runbook-write-verbose-parameters-config.png)
+
+Le résultat obtenu est le nom de l’abonnement.<br> ![Résultats du Runbook Test-ChildOutputType](media/automation-runbook-output-and-messages/runbook-test-childoutputtype-results.png)
+
+Une remarque sur le comportement de la commande Type de sortie. Lorsque vous saisissez une valeur dans le champ Type de sortie dans le panneau des propriétés Entrée et sortie, vous devez cliquer en dehors de la commande après avoir saisi la valeur, afin que votre entrée soit reconnue par la commande.
+
 
 ## Flux de messages
 
@@ -182,15 +214,15 @@ La capture d’écran ci-dessus illustre le fait que lorsque vous activez la jou
 
  3. Dans le panneau Runbooks, cliquez sur un runbook graphique pour le sélectionner dans la liste des runbooks.
 
- 4. Dans le panneau Paramètres du runbook sélectionné, cliquez sur **Journalisation et suivi**.
+ 4. Dans le panneau Paramètres du Runbook sélectionné, cliquez sur **Journalisation et suivi**.
 
- 5. Dans le panneau Journalisation et suivi, sous Journaliser les enregistrements détaillés, cliquez sur **Activé** pour activer la journalisation détaillée et sous Suivi au niveau de l’activité, modifiez le niveau de suivi sur **De base** ou **Détaillé** en fonction du niveau de suivi requis.<br>
+ 5. Dans le panneau Journalisation et suivi, sous Journaliser les enregistrements détaillés, cliquez sur **Activé** pour activer la journalisation détaillée et sous Suivi au niveau de l’activité, définissez le niveau de suivi sur **De base** ou **Détaillé** en fonction du niveau de suivi requis.<br>
 
     ![Panneau Journalisation et suivi de la création graphique](media/automation-runbook-output-and-messages/logging-and-tracing-settings-blade.png)
 
 ## Étapes suivantes
 
 - Pour en savoir plus sur l’exécution d’un runbook, la manière de surveiller des tâches de runbook et d’autres détails techniques, consultez [Suivre une tâche de runbook](automation-runbook-execution.md)
-- Pour comprendre comment créer et utiliser des runbooks enfants, consultez [Runbooks enfants dans Azure Automation](automation-child-runbooks.md)
+- Pour comprendre comment créer et utiliser des Runbooks enfants, consultez [Runbooks enfants dans Azure Automation](automation-child-runbooks.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0831_2016-->

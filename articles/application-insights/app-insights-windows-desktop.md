@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/27/2016" 
+	ms.date="08/26/2016" 
 	ms.author="awills"/>
 
 # Analyse des performances et de l’utilisation dans les applications de bureau Windows
@@ -21,15 +21,15 @@
 
 [Visual Studio Application Insights](app-insights-get-started.md) et [HockeyApp](https://hockeyapp.net) vous permettent d’analyser vos applications déployées en termes d’utilisation et de performances.
 
-> [AZURE.IMPORTANT] Nous vous recommandons [HockeyApp](https://hockeyapp.net) pour distribuer et surveiller des applications de bureau et pour périphérique. Avec HockeyApp, vous pouvez gérer la distribution, le test direct et les commentaires des utilisateurs, de même que surveiller l’utilisation et les rapports d’incident.
+> [AZURE.IMPORTANT] Nous vous recommandons [HockeyApp](https://hockeyapp.net) pour distribuer et surveiller des applications de bureau et pour périphérique. Avec HockeyApp, vous pouvez gérer la distribution, le test direct et les commentaires des utilisateurs, de même que surveiller l’utilisation et les rapports d’incident. Vous pouvez également [exporter et interroger vos données de télémétrie avec Analytics](app-insights-hockeyapp-bridge-app.md).
 
 > Bien que les données de télémétrie puissent être envoyées à Application Insights à partir d’une application de bureau, ceci est principalement utile à des fins de débogage et d’expérimentation.
 
 
 ## Pour envoyer la télémétrie à Application Insights à partir d’une application Windows
 
-1. Dans le [portail Azure](https://portal.azure.com), créez une ressource Application Insights. Choisissez ASP.NET comme type d’application.
-2. Copiez la clé d'instrumentation. Recherchez la clé dans la liste déroulante Essentials de la nouvelle ressource que vous venez de créer. Fermez le plan de l’application ou faites défiler vers la gauche vers le volet Vue d’ensemble de la ressource.
+1. Dans le [portail Azure](https://portal.azure.com), [créez une ressource Application Insights](app-insights-create-new-resource.md). Choisissez ASP.NET comme type d’application.
+2. Copiez la clé d'instrumentation. Recherchez la clé dans la liste déroulante Essentials de la nouvelle ressource que vous venez de créer.
 3. Dans Visual Studio, modifiez les packages NuGet de votre projet d’application et ajoutez Microsoft.ApplicationInsights.WindowsServer. (Ou choisissez Microsoft.ApplicationInsights si vous souhaitez simplement l’API nue, sans modules de collecte de télémétrie standard.)
 4. Définissez la clé d’instrumentation dans votre code :
 
@@ -37,7 +37,7 @@
 
     ou dans ApplicationInsights.config (si vous avez installé l’un des packages de télémétrie standard) :
  
-    `<InstrumentationKey>`*votre clé*`</InstrumentationKey>`
+    `<InstrumentationKey>` *votre clé* `</InstrumentationKey>`
 
     Si vous utilisez ApplicationInsights.config, assurez-vous que ses propriétés dans l’Explorateur de solutions sont définies sur **Build Action = Content, Copy to Output Directory = Copy**.
 5. [Utilisez l’API](app-insights-api-custom-events-metrics.md) pour envoyer les données de télémétrie.
@@ -81,7 +81,12 @@
 
 ```
 
+## Étapes suivantes
 
+* [Création d’un tableau de bord](app-insights-dashboards.md)
+* [Recherche de diagnostic](app-insights-diagnostic-search.md)
+* [Exploration des mesures](app-insights-metrics-explorer.md)
+* [Écriture de requêtes Analytics](app-insights-analytics.md)
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0831_2016-->

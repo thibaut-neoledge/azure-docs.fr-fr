@@ -6,18 +6,18 @@ Cet article suppose que vous vous êtes connecté à votre abonnement dans le po
 
     ![localiser la ressource d’adresse IP](./media/virtual-machines-common-portal-create-fqdn/locatePublicIP.PNG)
 
-2.  Notez que le nom DNS de l’adresse IP publique est vide. Cliquez sur **Tous les paramètres** pour accéder au panneau de l’adresse IP publique.
+2.  Notez que le nom DNS de l’adresse IP publique est vide. Cliquez sur **Configuration** dans le panneau de l’adresse IP publique.
 
     ![paramètres ip](./media/virtual-machines-common-portal-create-fqdn/settingsIP.PNG)
 
-3.  Ouvrez l’onglet **Configuration** dans les paramètres de l’adresse IP publique. Entrez l’étiquette souhaitée pour le nom DNS, puis **enregistrez** cette configuration.
+3.  Entrez l’étiquette souhaitée pour le nom DNS, puis **enregistrez** cette configuration.
 
     ![entrer l’étiquette du nom dns](./media/virtual-machines-common-portal-create-fqdn/dnsNameLabel.PNG)
 
-    La ressource d’adresse IP publique affiche désormais ce nouveau nom DNS sur son panneau.
+    La ressource d’adresse IP publique affiche désormais cette nouvelle étiquette DNS sur son panneau.
 
 4.  Fermez les panneaux de l’adresse IP publique, puis revenez au panneau de la machine virtuelle dans le portail. Vérifiez que le nom DNS/nom de domaine complet apparaît en regard de l’adresse IP pour la ressource d’adresse IP publique.
 
     ![le nom de domaine complet est créé](./media/virtual-machines-common-portal-create-fqdn/fqdnCreated.PNG)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0831_2016-->

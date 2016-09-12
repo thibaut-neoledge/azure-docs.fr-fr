@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/02/2016"
+	ms.date="08/30/2016"
 	ms.author="rachelap"/>
 
 # Les métadonnées d’App Service API Apps pour la détection d’API et la création de code 
@@ -60,4 +60,4 @@ Pour obtenir un didacticiel qui vous guide dans la création, le déploiement et
 
 Si vous utilisez Gestion des API Azure avec API Apps, vous pouvez utiliser les métadonnées Swagger pour importer votre API dans Gestion des API. Pour plus d’informations, consultez [Importation de la définition d’une API avec des opérations dans Gestion des API Azure](../api-management/api-management-howto-import-api.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0831_2016-->

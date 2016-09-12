@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Fourniture de contenu de diffusion en continu à partir de Media Services" 
+	pageTitle="Publier du contenu Azure Media Services à l’aide de .NET" 
 	description="Apprenez à créer un localisateur utilisé pour générer une URL de diffusion en continu. Les exemples de code sont écrits en C# et utilisent le Kit de développement logiciel (SDK) Media Services pour .NET." 
 	authors="juliako" 
 	manager="erikre" 
@@ -13,26 +13,26 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"
+	ms.date="08/30/2016"
 	ms.author="juliako"/>
 
 
-#Fourniture de contenu de diffusion en continu
+# Publier du contenu Azure Media Services à l’aide de .NET
  
 > [AZURE.SELECTOR]
 - [REST](media-services-rest-deliver-streaming-content.md)
 - [.NET](media-services-deliver-streaming-content.md)
-- [Portail](media-services-manage-content.md#publish)
+- [Portail](media-services-portal-publish.md)
 
 ##Vue d'ensemble
 
 Vous pouvez diffuser un MP4 à débit adaptatif défini par la création d’un localisateur de diffusion en continu à la demande et la création d’une URL de diffusion en continu. La rubrique [Encodage d’un élément multimédia](media-services-encode-asset.md) indique comment encoder un ensemble de fichiers MP4 à débit adaptatif.
 
->[AZURE.NOTE]Si votre contenu est chiffré, configurez la stratégie de remise d’élément multimédia (comme décrit dans [cette](media-services-dotnet-configure-asset-delivery-policy.md) rubrique) avant de créer un localisateur.
+>[AZURE.NOTE]Si votre contenu est chiffré, configurez la stratégie de livraison d’éléments multimédias (comme décrit dans [cette](media-services-dotnet-configure-asset-delivery-policy.md) rubrique) avant de créer un localisateur.
 
 Vous pouvez également utiliser un localisateur de diffusion en continu à la demande pour créer des URL qui pointent vers les fichiers MP4 pouvant être téléchargés progressivement.
 
-Cette rubrique montre comment créer un localisateur de diffusion en continu à la demande pour publier votre ressource et créer des URL de diffusion en continu lisse, MPEG DASH et TLS. Elle explique également la création d’URL de téléchargement progressif.
+Cette rubrique montre comment créer un localisateur de streaming à la demande pour publier votre élément multimédia et créer des URL de diffusion en continu Smooth, MPEG DASH et HLS. Elle explique également la création d’URL de téléchargement progressif.
   	 
 ##Création d’un localisateur de diffusion en continu à la demande
 
@@ -171,4 +171,4 @@ Le code suivant appelle les méthodes des extensions du Kit de développement lo
 
 [Télécharger des ressources](media-services-deliver-asset-download.md) [Configurer la stratégie de distribution d’éléments multimédias](media-services-dotnet-configure-asset-delivery-policy.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -21,18 +21,18 @@
 
 L’objectif de ce didacticiel est de vous montrer comment intégrer Amazon Web Service (AWS) dans Azure Active Directory (Azure AD). L’intégration de Amazon Web Service (AWS) dans Azure AD vous offre les avantages suivants :
 
-- Dans Azure AD, vous pouvez contrôler qui a accès à Amazon Web Service (AWS). 
+- Dans Azure AD, vous pouvez contrôler qui a accès à Amazon Web Service (AWS).
 - Vous pouvez autoriser les utilisateurs à se connecter automatiquement à Amazon Web Service (AWS) (via l’authentification unique) avec leur compte Azure AD.
 - Vous pouvez gérer vos comptes à un emplacement central : le portail Azure Classic.
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
 
-## Composants requis 
+## Conditions préalables 
 
 Pour configurer l’intégration d’Azure AD avec Amazon Web Service (AWS), vous avez besoin des éléments suivants :
 
 - Un abonnement Azure AD
-- Un abonnement Amazon Web Service (AWS) avec authentification unique
+- Un abonnement Amazon Web Service (AWS) avec authentification unique
 
 
 > [AZURE.NOTE] Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production.
@@ -41,13 +41,13 @@ Pour configurer l’intégration d’Azure AD avec Amazon Web Service (AWS), 
 Vous devez en outre suivre les recommandations ci-dessous :
 
 - Vous ne devez pas utiliser votre environnement de production, sauf si cela est nécessaire.
-- Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/). 
+- Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
 
  
 ## Description du scénario
 Ce didacticiel vise à vous permettre de tester l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
-1. Ajout d'Amazon Web Service (AWS) à partir de la galerie 
+1. Ajout d'Amazon Web Service (AWS) à partir de la galerie
 2. Configuration et test de l’authentification unique Azure AD
 
 
@@ -56,7 +56,7 @@ Pour configurer l’intégration d’Amazon Web Service (AWS) avec Azure AD, 
 
 ### Pour ajouter Amazon Web Service (AWS) à partir de la galerie, procédez comme suit :
 
-1. Dans le volet de navigation gauche du **portail Azure Classic**, cliquez sur **Active Directory**. 
+1. Dans le volet de navigation gauche du **portail Azure Classic**, cliquez sur **Active Directory**.
 
 	![Active Directory][1]
 
@@ -244,7 +244,10 @@ L’objectif de cette section est d’activer l’authentification unique Azure�
 
      a. Dans la zone de texte **Nom d’attribut**, tapez **https://aws.amazon.com/SAML/Attributes/RoleSessionName**.
 
-     b. Dans la zone de texte **Valeur d’attribut**, tapez **userprincipalname**.
+     b. Dans la zone de texte **Valeur d’attribut **, tapez ou sélectionnez **user.userprincipalname** dans la liste déroulante.
+     
+	![Configurer l’authentification unique][35]
+	
 
      c. Cliquez sur **Terminé** pour fermer la boîte de dialogue **Ajouter un attribut utilisateur**.
 
@@ -271,11 +274,11 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
 2. Dans la liste **Annuaire**, sélectionnez l'annuaire pour lequel vous voulez activer l'intégration d'annuaire.
 
-3. Pour afficher la liste des utilisateurs, dans le menu situé en haut, cliquez sur **Utilisateurs**.
+3. Pour afficher la liste des utilisateurs, dans le menu du haut, cliquez sur **Utilisateurs**.
 
 	![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-amazon-web-service/create_aaduser_03.png)
  
-4. Pour ouvrir la boîte de dialogue **Ajouter un utilisateur**, cliquez sur **Ajouter un utilisateur** dans la barre d’outils située en bas.
+4. Pour ouvrir la boîte de dialogue **Ajouter un utilisateur**, cliquez sur l’option **Ajouter un utilisateur** figurant dans la barre d’outils du bas.
 
 	![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-amazon-web-service/create_aaduser_04.png)
 
@@ -353,11 +356,11 @@ Cette section décrit comment permettre à Britta Simon d’utiliser l’authent
 
 **Pour attribuer Britta Simon à CloudPassage, procédez comme suit :**
 
-1. Pour ouvrir la vue des applications dans le portail Azure Classic, cliquez dans la vue de répertoire sur **Applications** dans le menu du haut.
+1. Pour ouvrir l’affichage des applications dans le portail Azure Classic, cliquez dans l’affichage de l’annuaire sur **Applications** dans le menu du haut.
 
 	![Affecter des utilisateurs][26]
 
-2. Dans la liste des applications, sélectionnez **Amazon Web Service (AWS)**.
+2. Dans la liste des applications, sélectionnez **Amazon Web Service (AWS)**.
 
 	![Affecter des utilisateurs][27]
 
@@ -373,7 +376,7 @@ Cette section décrit comment permettre à Britta Simon d’utiliser l’authent
 
 ### Test de l’authentification unique
 
-L’objectif de cette section est de tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès. Lorsque vous cliquez sur la vignette Amazon Web Service (AWS) dans le volet d’accès, vous devez être connecté automatiquement à votre application Amazon Web Service (AWS).
+L’objectif de cette section est de tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès. Lorsque vous cliquez sur la vignette Amazon Web Service (AWS) dans le volet d’accès, vous devez être connecté automatiquement à votre application Amazon Web Service (AWS).
 
 
 ## Ressources supplémentaires
@@ -416,5 +419,6 @@ L’objectif de cette section est de tester la configuration de l’authentifica
 [32]: ./media/active-directory-saas-amazon-web-service/ic7950251.png
 [33]: ./media/active-directory-saas-amazon-web-service/ic7950252.png
 [34]: ./media/active-directory-saas-amazon-web-service/ic7950253.png
+[35]: ./media/active-directory-saas-amazon-web-service/user_attributes_01.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0831_2016-->

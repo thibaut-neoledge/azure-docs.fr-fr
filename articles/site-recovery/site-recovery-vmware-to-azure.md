@@ -139,10 +139,14 @@ Pour préparer un déploiement, vous devez :
 - [Découvrez](../vpn-gateway/vpn-gateway-site-to-site-create.md) les modèles de déploiement pris en charge pour les connexions VPN de site à site et apprenez à [configurer une connexion](../vpn-gateway/vpn-gateway-site-to-site-create.md#create-your-virtual-network).
 - Vous pouvez également configurer [Azure ExpressRoute](../expressroute/expressroute-introduction.md). [Découvrez](../expressroute/expressroute-howto-vnet-portal-classic.md) comment configurer un réseau Azure avec ExpressRoute.
 
+> [AZURE.NOTE] [Migration of networks](../ressources-groupe-move-resources.md) entre les groupes de ressources d’un même abonnement ou de plusieurs abonnements n’est pas pris en charge pour les réseaux utilisés pour le déploiement de Site Recovery.
+
 ### Configurer un compte Azure Storage
 
 - Vous avez besoin d’un compte Azure Standard Storage ou Premium Storage pour stocker les données répliquées sur Azure. Ce compte doit se trouver dans la même région que le coffre Recovery Services. Selon le modèle de ressource que vous souhaitez utiliser pour le basculement des machines virtuelles Azure, vous allez configurer un compte en [mode ARM](../storage/storage-create-storage-account.md) ou en [mode Classic](../storage/storage-create-storage-account-classic-portal.md).
 - Si vous utilisez un compte Premium pour les données répliquées, vous devez créer un compte Standard supplémentaire afin de stocker les journaux de réplication qui capturent les modifications apportées en continu aux données locales.
+
+> [AZURE.NOTE] [Migration of storage accounts](../ressources-groupe-move-resources.md) entre les groupes de ressources d’un même abonnement ou de plusieurs abonnements n’est pas pris en charge pour les comptes de stockage utilisés pour le déploiement de Site Recovery.
 
 ### Préparer un compte pour la découverte automatique
 
@@ -859,4 +863,4 @@ The information in Section B is regarding Third Party Code components that are b
 
 The complete file may be found on the [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=529428). Microsoft reserves all rights not expressly granted herein, whether by implication, estoppel or otherwise.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

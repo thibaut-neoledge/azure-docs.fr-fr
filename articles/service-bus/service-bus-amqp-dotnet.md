@@ -95,11 +95,9 @@ Pour faciliter l’interopérabilité avec les clients autres que .NET, utilisez
 
 Les fonctionnalités suivantes de l’API .NET Service Bus ne sont actuellement pas prises en charge lors de l’utilisation d’AMQP :
 
--   Transactions.
+-   Transactions
 
--   Envoi via destination de transfert.
-
--   Réception montée en charge.
+-   Envoi via destination de transfert
 
 Il existe également quelques petites différences dans le comportement de l’API .NET Service Bus lors de l’utilisation d’AMQP par rapport au protocole par défaut :
 
@@ -111,13 +109,13 @@ Il existe également quelques petites différences dans le comportement de l’A
 
 Les API .NET exposent plusieurs paramètres pour contrôler le comportement du protocole AMQP :
 
--   **MessageReceiver.PrefetchCount** : contrôle le crédit initial appliqué à un lien. La valeur par défaut est 0.
+-   **MessageReceiver.PrefetchCount** : contrôle le crédit initial appliqué à un lien. La valeur par défaut est 0.
 
--   **MessagingFactorySettings.AmqpTransportSettings.MaxFrameSize** : contrôle la taille de trame AMQP maximale fournie durant la négociation lors de l’ouverture de la connexion. La valeur par défaut est 65 536 octets.
+-   **MessagingFactorySettings.AmqpTransportSettings.MaxFrameSize** : contrôle la taille de trame AMQP maximale fournie durant la négociation lors de l’ouverture de la connexion. La valeur par défaut est 65 536 octets.
 
--   **MessagingFactorySettings.AmqpTransportSettings.BatchFlushInterval** : si les transferts sont exécutables par lots, cette valeur détermine le délai maximal pour l’envoi des dispositions. Héritée par les expéditeurs/destinataires par défaut. Un expéditeur/destinataire individuel peut remplacer la valeur par défaut, qui est de 20 millisecondes.
+-   **MessagingFactorySettings.AmqpTransportSettings.BatchFlushInterval** : si les transferts sont exécutables par lots, cette valeur détermine le délai maximal pour l’envoi des dispositions. Héritée par les expéditeurs/destinataires par défaut. Un expéditeur/destinataire individuel peut remplacer la valeur par défaut, qui est de 20 millisecondes.
 
--   **MessagingFactorySettings.AmqpTransportSettings.UseSslStreamSecurity** : contrôle si les connexions AMQP sont établies via une connexion SSL. La valeur par défaut est **true**.
+-   **MessagingFactorySettings.AmqpTransportSettings.UseSslStreamSecurity** : contrôle si les connexions AMQP sont établies via une connexion SSL. La valeur par défaut est **true**.
 
 ## Étapes suivantes
 
@@ -139,4 +137,4 @@ Prêt à en savoir plus ? Visitez les liens suivants :
 [Prise en charge d’AMQP 1.0 dans les rubriques et files d’attente partitionnées Service Bus]: service-bus-partitioned-queues-and-topics-amqp-overview.md
 [AMQP dans Service Bus pour Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

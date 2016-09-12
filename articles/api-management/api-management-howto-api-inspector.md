@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/09/2016" 
+	ms.date="08/24/2016" 
 	ms.author="sdanie"/>
 
 # Utilisation de l'inspecteur d'API pour le suivi des appels dans Gestion des API Azure
@@ -229,7 +229,6 @@ Pour examiner les valeurs du suivi, téléchargez le fichier de suivi à partir 
 
 ## <a name="next-steps"> </a>Étapes suivantes
 
--	Consultez les autres rubriques du didacticiel [Prise en main de la configuration avancée des API][].
 -	Pour une démonstration du suivi des expressions de stratégie, regardez la vidéo [Cloud Cover Episode 177: More API Management Features](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/). Avancez à la 21e minute pour voir la démonstration.
 
 >[AZURE.VIDEO episode-177-more-api-management-features-with-vlad-vinogradsky]
@@ -244,7 +243,6 @@ Pour examiner les valeurs du suivi, téléchargez le fichier de suivi à partir 
 
 [Prise en main de Gestion des API Azure]: api-management-get-started.md
 [Création d'une instance de service Gestion des API]: api-management-get-started.md#create-service-instance
-[Prise en main de la configuration avancée des API]: api-management-get-started-advanced.md
 [Azure Classic Portal]: https://manage.windowsazure.com/
 
 
@@ -261,4 +259,4 @@ Pour examiner les valeurs du suivi, téléchargez le fichier de suivi à partir 
 
  
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0831_2016-->

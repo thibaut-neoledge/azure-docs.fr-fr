@@ -12,12 +12,12 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/18/2016" 
+	ms.date="08/30/2016" 
 	ms.author="awills"/>
 
 # Application Insights pour ASP.NET Core
 
-Visual Studio Application Insights permet de surveiller la disponibilité, les performances et l’utilisation de votre application Web. Avec les retours que vous obtenez sur les performances et l’efficacité de votre application dans la nature, vous pouvez prendre des décisions avisées sur la direction de la conception de chaque cycle de développement.
+[Visual Studio Application Insights](app-insights-overview.md) permet de surveiller la disponibilité, les performances et l’utilisation de votre application Web. Avec les retours que vous obtenez sur les performances et l’efficacité de votre application dans la nature, vous pouvez prendre des décisions avisées sur la direction de la conception de chaque cycle de développement.
 
 ![Exemple](./media/app-insights-asp-net-five/sample.png)
 
@@ -26,7 +26,7 @@ Tout d’abord, vous avez besoin d’un abonnement à [Microsoft Azure](http://a
 
 ## Prise en main
 
-Si vous avez créé votre projet dans Visual Studio 2015, Application Insights doit déjà être présent. Dans le cas contraire, suivez le [guide de prise en main](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Getting-Started).
+Suivez le [guide de prise en main](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Getting-Started).
 
 ## Utilisation d’Application Insights
 
@@ -40,7 +40,7 @@ Les affichages dans le portail se répartissent en deux catégories principales�
 
 * [Metrics Explorer](app-insights-metrics-explorer.md) affiche les graphiques et les tables de mesures et de nombres, comme les temps de réponse, les taux de défaillance ou les mesures que vous créez vous-même avec l’[API](app-insights-api-custom-events-metrics.md). Filtrez et segmentez les données par valeurs de propriété pour obtenir une meilleure compréhension de votre application et de ses utilisateurs.
 * L’[Explorateur de recherche](app-insights-diagnostic-search.md) répertorie les événements individuels, tels que les demandes, exceptions, suivis de journal ou événements spécifiques que vous avez créés vous-même avec l’[API](app-insights-api-custom-events-metrics.md). Filtrez et recherchez dans les événements et naviguez entre les événements connexes pour étudier les problèmes.
-* [Analyse](app-insights-analytics.md) vous permet d’exécuter des requêtes SQL sur vos données de télémétrie. Il s’agit d’un puissant outil d’analyse et de diagnostic.
+* [Analytics](app-insights-analytics.md) vous permet d’exécuter des requêtes SQL sur vos données de télémétrie. Il s’agit d’un puissant outil d’analyse et de diagnostic.
 
 ## Alertes
 
@@ -53,11 +53,11 @@ Les affichages dans le portail se répartissent en deux catégories principales�
 * [Ajoutez la télémétrie à vos pages web](app-insights-javascript.md) pour surveiller l’utilisation et les performances des pages.
 * [Surveillez les dépendances](app-insights-dependencies.md) pour voir si REST, SQL ou d’autres ressources externes vous ralentissent.
 * [Utilisez l’API](app-insights-api-custom-events-metrics.md) pour envoyer vos propres événements et mesures pour obtenir une vue plus détaillée des performances et de l’utilisation de votre application.
-* [Les tests de disponibilité](app-insights-monitor-web-app-availability.md) vérifient votre application en permanence dans le monde entier. 
+* [Les tests de disponibilité](app-insights-monitor-web-app-availability.md) vérifient votre application en permanence dans le monde entier.
 
 
 ## Open source
 
 [Lire et contribuer au code](https://github.com/Microsoft/ApplicationInsights-aspnetcore#recent-updates)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0831_2016-->

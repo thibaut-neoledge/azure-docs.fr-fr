@@ -15,21 +15,19 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="07/27/2016"
+	ms.date="08/30/2016"
 	ms.author="jeffstok"
 />
 
 # Sortie de Stream Analytics Data Lake Store
 
-Les travaux Stream Analytics prennent en charge plusieurs méthodes de sortie, dont [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/). Azure Data Lake Store est un référentiel d'entreprise à très grande échelle pour les charges de travail d'analyse du Big Data. Data Lake Store vous permet de stocker des données de toute taille, de tout type et de toute vitesse d’ingestion en vue d’une analyse opérationnelle et exploratoire. Cet article aborde les autorisations, la configuration et le renouvellement d’autorisations d’Azure Data Lake Store dans le portail Azure Classic Stream Analytics.
-
-> [AZURE.NOTE] À l’heure actuelle, la création et la configuration des sorties Data Lake Store sont prises en charge **uniquement** dans le portail Azure Classic.
+Les travaux Stream Analytics prennent en charge plusieurs méthodes de sortie, dont [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/). Azure Data Lake Store est un référentiel d'entreprise à très grande échelle pour les charges de travail d'analyse du Big Data. Data Lake Store vous permet de stocker des données de toute taille, de tout type et de toute vitesse d’ingestion en vue d’une analyse opérationnelle et exploratoire.
 
 ## Autoriser un compte Data Lake Store
 
 1.  Quand vous sélectionnez Data Lake Store comme sortie dans le portail de gestion Azure, vous êtes invité à autoriser l’utilisation de votre Data Lake Store existant ou à demander l’accès à la version préliminaire de Data Lake Store au moyen du portail Azure Classic.
 
-    ![](media/stream-analytics-data-lake-output/stream-analytics-data-lake-output-authorization.jpg)
+    ![](media/stream-analytics-data-lake-output/stream-analytics-data-lake-output-authorization.png)
 
 2.  Si vous avez déjà accès à Data Lake Store, cliquez sur Autoriser maintenant. Pendant un bref instant, une page s’affiche avec le message suivant : « Redirection de l’autorisation... ». La page se ferme automatiquement pour laisser place à la page permettant de configurer la sortie Data Lake Store.
 
@@ -90,6 +88,6 @@ Il existe actuellement une limitation selon laquelle le jeton d’authentificati
 
 Pour le résoudre, arrêtez le travail en cours d’exécution et accédez à votre sortie Data Lake Store. Cliquez sur le lien « Renouveler l’autorisation ». Pendant un bref instant, vous voyez une page indiquant « Redirection de l’autorisation... ». La page se ferme automatiquement et si l’opération réussit, vous voyez le message suivant : « L’autorisation a été correctement renouvelée ». Vous devrez ensuite cliquer sur Enregistrer au bas de la page, puis redémarrer votre travail à partir de l’heure du dernier arrêt pour éviter toute perte de données.
 
-![](media/stream-analytics-data-lake-output/stream-analytics-data-lake-output-renew-authorization.jpg)
+![](media/stream-analytics-data-lake-output/stream-analytics-data-lake-output-renew-authorization.png)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0831_2016-->

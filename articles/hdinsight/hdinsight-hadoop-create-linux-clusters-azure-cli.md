@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="06/13/2016"
+   	ms.date="08/30/2016"
    	ms.author="larryfr"/>
 
 #Création de clusters basés sur Linux dans HDInsight à l’aide de l’interface CLI Azure
@@ -31,7 +31,7 @@ Les étapes de ce document décrivent le processus de création d’un cluster H
 >
 > Pour plus d’informations sur les tailles de nœud et les coûts associés, consultez [Tarification HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-##Configuration requise
+##Composants requis
 
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -40,7 +40,7 @@ Les étapes de ce document décrivent le processus de création d’un cluster H
 
     [AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
-##Vous connecter à votre abonnement Azure
+##Connexion à votre abonnement Azure
 
 Suivez les étapes décrites dans [Se connecter à un abonnement Azure à partir de l’interface de ligne de commande Azure (Azure CLI)](../xplat-cli-connect.md) et connectez-vous à votre abonnement à l’aide de la méthode __login__.
 
@@ -62,8 +62,8 @@ La procédure suivante doit être effectuée à partir d'une session d’invite 
 
         azure group create groupname location
         
-    * Remplacez __groupname__ par un nom unique pour le groupe. 
-    * Remplacez __location__ par la région géographique dans laquelle vous souhaitez créer le groupe. 
+    * Remplacez __groupname__ par un nom unique pour le groupe.
+    * Remplacez __location__ par la région géographique dans laquelle vous souhaitez créer le groupe.
     
         Pour obtenir la liste des emplacements valides, utilisez la commande `azure locations list`, puis un des emplacements de la colonne __Nom__.
 
@@ -72,7 +72,7 @@ La procédure suivante doit être effectuée à partir d'une session d’invite 
         azure storage account create -g groupname --sku-name RAGRS -l location --kind Storage storagename
         
      * Remplacez __groupname__ par le nom du groupe créé à l’étape précédente.
-     * Remplacez __location__ par le même emplacement que celui utilisé à l’étape précédente. 
+     * Remplacez __location__ par le même emplacement que celui utilisé à l’étape précédente.
      * Remplacez __storagename__ par un nom de compte de stockage unique.
      
      > [AZURE.NOTE] Pour plus d’informations sur les paramètres utilisés dans cette commande, utilisez `azure storage account create -h` pour afficher l’aide relative à cette commande.
@@ -93,7 +93,7 @@ La procédure suivante doit être effectuée à partir d'une session d’invite 
     * Remplacez __groupname__ par le nom du groupe de ressources.
     * Remplacez __location__ par le même emplacement que celui utilisé lors des étapes précédentes.
     * Remplacez __storagename__ par le nom du compte de stockage.
-    * Remplacez __storagekey__ par la clé obtenue à l’étape précédente. 
+    * Remplacez __storagekey__ par la clé obtenue à l’étape précédente.
     * Pour le paramètre `--defaultStorageContainer`, utilisez le même nom que celui utilisé pour le cluster.
     * Remplacez __admin__ et __httppassword__ par le nom et le mot de passe à utiliser lors de l’accès au cluster via HTTPS.
     * Remplacez __sshuser__ et __sshuserpassword__ par le nom d’utilisateur et le mot de passe à utiliser lors de l’accès au cluster via SSH.
@@ -121,4 +121,4 @@ Vous avez créé un cluster HDInsight à l’aide de l’interface de ligne de c
 * [Utilisation de composants Python dans Storm sur HDInsight](hdinsight-storm-develop-python-topology.md)
 * [Déploiement et analyse des topologies avec Storm sur HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/23/2016"
+	ms.date="08/19/2016"
 	ms.author="mithal;garye" />
 
 # Aide-mémoire relatif au pipeline de données automatisé pour les prévisions Azure Machine Learning
@@ -41,4 +41,4 @@ Une fois que vous avez téléchargé l’aide-mémoire, imprimez-le au format ta
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0831_2016-->

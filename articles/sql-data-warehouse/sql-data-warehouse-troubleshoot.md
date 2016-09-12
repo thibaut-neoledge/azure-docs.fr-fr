@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/16/2016"
+   ms.date="08/30/2016"
    ms.author="sonyama;barbkess"/>
 
 # Résolution des problèmes d’Azure SQL Data Warehouse
@@ -24,9 +24,11 @@ Cette rubrique répertorie les questions les plus courantes relatives à la rés
 
 | Problème | Résolution : |
 | :----------------------------------| :---------------------------------------------- |
-| Erreur CTAIP | Cette erreur peut se produire lorsqu’un identifiant de connexion a été créé sur la base de données principale du serveur SQL, mais pas sur la base de données SQL Data Warehouse. Si vous rencontrez cette erreur, consultez l’article [Vue d’ensemble de la sécurité][]. Cet article explique comment créer un identifiant de connexion sur la base de données principale, puis comment créer un utilisateur dans la base de données SQL Data Warehouse.|
+| Échec de connexion pour l’utilisateur 'NT AUTHORITY\\ANONYMOUS LOGON'. (Microsoft SQL Server, erreur : 18456) | Cette erreur se produit lorsqu’un utilisateur AAD tente de se connecter à la base de données master alors qu’elle ne contient pas d’utilisateur. Pour corriger ce problème, spécifiez le SQL Data Warehouse auquel vous souhaitez vous connecter ou ajoutez l’utilisateur à la base de données master. Consultez l’article [Présentation de la sécurité][] pour plus de détails.|
+|Le serveur principal « MyUserName » n’est pas en mesure d’accéder à la base de données « master » dans le contexte de sécurité actuel. La base de données utilisateur par défaut ne peut pas être ouverte. La connexion a échoué. Échec de la connexion pour l'utilisateur 'MyUserName'. (Microsoft SQL Server, erreur : 916) | Cette erreur se produit lorsqu’un utilisateur AAD tente de se connecter à la base de données master alors qu’elle ne contient pas d’utilisateur. Pour corriger ce problème, spécifiez le SQL Data Warehouse auquel vous souhaitez vous connecter ou ajoutez l’utilisateur à la base de données master. Consultez l’article [Présentation de la sécurité][] pour plus de détails.|
+| Erreur CTAIP | Cette erreur peut se produire lorsqu’un identifiant de connexion a été créé sur la base de données principale du serveur SQL, mais pas sur la base de données SQL Data Warehouse. Si vous rencontrez cette erreur, consultez l’article [Vue d’ensemble de la sécurité][]. Cet article explique comment créer un identifiant et un utilisateur sur la base de données master, puis comment créer un utilisateur dans la base de données SQL Data Warehouse.|
 | Bloqué par le pare-feu |Les bases de données SQL Azure sont protégées par des pare-feu au niveau du serveur et de la base de données pour s’assurer que seules les adresses IP connues ont accès à une base de données. Les pare-feu sont sécurisés par défaut, ce qui signifie que vous devez activer explicitement une adresse IP ou une plage d’adresses avant de vous connecter. Pour configurer votre pare-feu pour l’accès, suivez les étapes décrites dans la section de [configuration de l’accès au pare-feu du serveur pour l’adresse IP de votre client][] des [instructions d’approvisionnement][].|
-| Connexion impossible avec l’outil ou le pilote | SQL Data Warehouse recommande l’utilisation de [Visual Studio 2013 ou 2015][] pour interroger vos données. Pour la connectivité client, il est recommandé d’utiliser [SQL Server Native Client 10/11 (ODBC)][].|
+| Connexion impossible avec l’outil ou le pilote | SQL Data Warehouse recommande l’utilisation de [SSMS][], [SSDT for Visual Studio 2015][] or [sqlcmd][] pour interroger vos données. Pour plus d’informations sur les pilotes et la connexion à SQL Data Warehouse, consultez les articles [Pilotes pour Azure SQL Data Warehouse][] et [Connexion à Azure SQL Data Warehouse][].|
 
 
 ## Outils
@@ -72,7 +74,6 @@ Cette rubrique répertorie les questions les plus courantes relatives à la rés
 | Instruction MERGE non prise en charge | Consultez la rubrique [Solutions de contournement MERGE][].|
 | Limitations des procédures stockées | Consultez [Limitations des procédures stockées][] pour comprendre certaines limitations des procédures stockées.|
 | Les fonctions définies par l’utilisateur ne prennent pas en charge les instructions SELECT | Il s’agit d’une limitation actuelle de nos fonctions définies par l’utilisateur. Consultez [CREATE FUNCTION][] pour connaître la syntaxe que nous prenons en charge. |
-'<--LocComment : Page introuvable « Limitations des procédures stockées » interrompue. J’ai essayé de corriger le lien dans les références de l’article -->'
 
 ## Étapes suivantes
 
@@ -90,7 +91,12 @@ Si les ressources ci-dessus ne vous ont pas permis de trouver une solution à vo
 <!--Image references-->
 
 <!--Article references-->
+[Présentation de la sécurité]: ./sql-data-warehouse-overview-manage-security.md
 [Vue d’ensemble de la sécurité]: ./sql-data-warehouse-overview-manage-security.md
+[SSMS]: https://msdn.microsoft.com/library/mt238290.aspx
+[SSDT for Visual Studio 2015]: ./sql-data-warehouse-install-visual-studio.md
+[Pilotes pour Azure SQL Data Warehouse]: ./sql-data-warehouse-connection-strings.md
+[Connexion à Azure SQL Data Warehouse]: ./sql-data-warehouse-connect-overview.md
 [Création d’un ticket de support]: ./sql-data-warehouse-get-started-create-support-ticket.md
 [mise à l’échelle de votre base de données SQL Data Warehouse]: ./sql-data-warehouse-manage-compute-overview.md
 [DWU]: ./sql-data-warehouse-overview-what-is.md#data-warehouse-units
@@ -98,7 +104,6 @@ Si les ressources ci-dessus ne vous ont pas permis de trouver une solution à vo
 [surveillance de vos requêtes]: ./sql-data-warehouse-manage-monitor.md
 [instructions d’approvisionnement]: ./sql-data-warehouse-get-started-provision.md
 [configuration de l’accès au pare-feu du serveur pour l’adresse IP de votre client]: ./sql-data-warehouse-get-started-provision.md#create-a-new-azure-sql-server-level-firewall
-[Visual Studio 2013 ou 2015]: ./sql-data-warehouse-query-visual-studio.md
 [Meilleures pratiques relatives à SQL Data Warehouse]: ./sql-data-warehouse-best-practices.md
 [tailles des tables]: ./sql-data-warehouse-tables-overview.md#table-size-queries
 [Fonctionnalités de tables non prises en charge]: ./sql-data-warehouse-tables-overview.md#unsupported-table-features
@@ -117,14 +122,14 @@ Si les ressources ci-dessus ne vous ont pas permis de trouver une solution à vo
 [Solutions de contournement UPDATE]: ./sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-update-statements
 [Solutions de contournement DELETE]: ./sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-delete-statements
 [Solutions de contournement MERGE]: ./sql-data-warehouse-develop-ctas.md#replace-merge-statements
-[Limitations des procédures stockées]: /sql-data-warehouse-develop-stored-procedures.md#limitations
+[Limitations des procédures stockées]: ./sql-data-warehouse-develop-stored-procedures.md#limitations
 [Authentification sur Azure SQL Data Warehouse]: ./sql-data-warehouse-authentication.md
 [Contournement de la nécessité du codage UTF-8 de PolyBase]: ./sql-data-warehouse-load-polybase-guide.md#working-around-the-polybase-utf-8-requirement
 
 <!--MSDN references-->
-[SQL Server Native Client 10/11 (ODBC)]: https://msdn.microsoft.com/library/ms131415.aspx
 [sys.database\_principals]: https://msdn.microsoft.com/library/ms187328.aspx
 [CREATE FUNCTION]: https://msdn.microsoft.com/library/mt203952.aspx
+[sqlcmd]: https://azure.microsoft.com/fr-FR/documentation/articles/sql-data-warehouse-get-started-connect-sqlcmd/
 
 <!--Other Web references-->
 [Blogs]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/
@@ -135,4 +140,4 @@ Si les ressources ci-dessus ne vous ont pas permis de trouver une solution à vo
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [Vidéos]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0831_2016-->

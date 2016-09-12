@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/09/2016"
+	ms.date="08/24/2016"
 	ms.author="szark"/>
 
 # Informations concernant les distributions non approuvées #
@@ -22,10 +22,10 @@
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 
-**Important** : le contrat SLA de la plateforme Azure s’applique aux machines virtuelles exécutant le système d’exploitation Linux uniquement lorsqu’une des [distributions approuvées](virtual-machines-linux-endorsed-distros.md) est utilisée. Toutes les distributions Linux fournies dans la galerie d'images Azure sont des distributions reconnues répondant à la configuration requise.
+**Important** : le contrat SLA de la plateforme Azure s’applique aux machines virtuelles exécutant le système d’exploitation Linux uniquement lorsqu’une des [distributions approuvées](virtual-machines-linux-endorsed-distros.md) est utilisée. Toutes les distributions Linux fournies dans la galerie d'images Azure sont des distributions reconnues répondant à la configuration requise.
 
 - [Linux sur Azure : Distributions approuvées](virtual-machines-linux-endorsed-distros.md)
-- [Prise en charge d’images Linux dans Microsoft Azure](http://support2.microsoft.com/kb/2941892)
+- [Prise en charge d’images Linux dans Microsoft Azure](https://support.microsoft.com/kb/2941892)
 
 Toutes les distributions exécutées sur Azure doivent remplir les conditions suivantes pour fonctionner correctement sur la plateforme. Cet article n'est pas exhaustif, car chaque distribution est différente. Il est également possible que, même en répondant à tous les critères ci-dessous, il s'avère nécessaire de modifier votre système Linux pour garantir son fonctionnement correct sur la plateforme.
 
@@ -35,7 +35,7 @@ C'est pourquoi nous recommandons de commencer avec une de nos [distributions Li
 - **[Debian Linux](virtual-machines-linux-debian-create-upload-vhd.md)**
 - **[Oracle Linux](virtual-machines-linux-oracle-create-upload-vhd.md)**
 - **[Red Hat Enterprise Linux](virtual-machines-linux-redhat-create-upload-vhd.md)**
-- **[SLES et openSUSE](../virtual-machines-linux-create-upload-vhd-suse)**
+- **[SLES et openSUSE](virtual-machines-linux-suse-create-upload-vhd.md)**
 - **[Ubuntu](virtual-machines-linux-create-upload-ubuntu.md)**
 
 La suite de cet article fournit des conseils généraux pour exécuter votre distribution Linux sur Azure.
@@ -49,7 +49,7 @@ La suite de cet article fournit des conseils généraux pour exécuter votre dis
 
 - NUMA n'est pas pris en charge pour les tailles de machines virtuelles plus élevées en raison d'un bogue dans les versions du noyau Linux inférieures à 2.6.37. Ce problème touche spécialement les distributions utilisant le noyau Red Hat 2.6.32 en amont. L'installation manuelle de l'Agent Linux Azure (waagent) désactive automatiquement NUMA dans la configuration GRUB pour le noyau Linux.
 
-- Ne configurez pas une partition d'échange sur le disque du système d'exploitation. L'agent Linux est configurable pour créer un fichier d'échange sur le disque de ressources temporaire. Les étapes ci-dessous fournissent plus d'informations à ce sujet.
+- Ne configurez pas une partition d’échange sur le disque du système d’exploitation. L'agent Linux est configurable pour créer un fichier d'échange sur le disque de ressources temporaire. Les étapes ci-dessous fournissent plus d’informations à ce sujet.
 
 - La taille des disques durs virtuels doit être un multiple de 1 Mo.
 
@@ -78,7 +78,7 @@ Les images de disque dur virtuel sur Azure doivent avoir une taille virtuelle al
 
 Pour résoudre ce problème, vous pouvez redimensionner la machine virtuelle à l’aide de la console Gestionnaire Hyper-V ou de l’applet de commande Powershell [ Resize-VHD](http://technet.microsoft.com/library/hh848535.aspx). Si vous n’utilisez pas un environnement Windows, il est recommandé d’utiliser qemu-img pour convertir (si nécessaire) et redimensionner le disque dur virtuel.
 
-> [AZURE.NOTE] Il existe un bogue connu dans la version 2.2.1 de qemu-img, qui entraîne un formatage incorrect de disque dur virtuel. Le problème sera résolu dans la prochaine version de qemu-img. Pour l’instant, nous vous recommandons d’utiliser la version 2.2.0 de qemu-img ou ses versions antérieures. Référence : https://bugs.launchpad.net/qemu/+bug/1490611
+> [AZURE.NOTE] Il existe un bogue connu dans la version 2.2.1 de qemu-img, qui entraîne un formatage incorrect de disque dur virtuel. Ce problème a été résolu dans QEMU 2.6. Il est recommandé d’utiliser qemu-img 2.2.0 ou une version antérieure, ou d’effectuer une mise à jour à la version 2.6 ou à une version ultérieure. Référence : https://bugs.launchpad.net/qemu/+bug/1490611.
 
 
  1. Redimensionner le disque dur virtuel directement à l’aide d’outils comme `qemu-img` ou `vbox-manage` peut rendre le disque dur virtuel non démarrable. Il est donc recommandé de convertir d'abord le disque dur virtuel en image disque RAW. Si l'image de machine virtuelle a déjà été créée comme image disque RAW (c'est la valeur par défaut pour certains hyperviseurs comme KVM), vous pouvez ignorer cette étape :
@@ -135,6 +135,7 @@ Au minimum, l'absence des correctifs suivants a été reconnue pour poser des pr
 - [storvsc :désactiver WRITE\_SAME pour RAID et les pilotes adaptateurs de l’hôte virtuel](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=54b2b50c20a61b51199bedb6e5d2f8ec2568fb43)
 - [storvsc : correctif de déréférence du pointeur NULL](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=b12bb60d6c350b348a4e1460cd68f97ccae9822e)
 - [storvsc : des défaillances de la mémoire tampon de l’anneau peuvent entraîner un gel des E/S](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=e86fb5e8ab95f10ec5f2e9430119d5d35020c951)
+- [scsi\_sysfs : protéger contre une double exécution de \_\_scsi\_remove\_device](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/scsi_sysfs.c?id=be821fd8e62765de43cc4f0e2db363d0e30a7e9b)
 
 
 ## agent Linux Azure ##
@@ -154,7 +155,7 @@ L'[Agent Linux Azure](virtual-machines-linux-agent-user-guide.md) (waagent) es
 
 - Modifiez la ligne de démarrage du noyau dans GRUB ou GRUB2 afin d'y inclure les paramètres suivants. Ceci permet également d'assurer que tous les messages de la console sont envoyés vers le premier port série, ce qui peut simplifier les problèmes de débogage pour la prise en charge d'Azure :
 
-		console=ttyS0 earlyprintk=ttyS0 rootdelay=300
+		console=ttyS0,115200n8 earlyprintk=ttyS0,115200 rootdelay=300
 
 	Ce permet également d'assurer que tous les messages de la console sont envoyés vers le premier port série, ce qui peut simplifier les problèmes de débogage pour la prise en charge d'Azure.
 
@@ -182,19 +183,14 @@ L'[Agent Linux Azure](virtual-machines-linux-agent-user-guide.md) (waagent) es
 		ResourceDisk.EnableSwap=y
 		ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
 
-- Sous « /etc/sudoers », vous devez supprimer ou commenter les lignes suivantes (si elles sont présentes) :
-
-		Defaults targetpw
-		ALL    ALL=(ALL) ALL
-
 - Enfin, exécutez la commande suivante pour annuler l'approvisionnement de la machine virtuelle :
 
 		# sudo waagent -force -deprovision
 		# export HISTSIZE=0
 		# logout
 
-	>[AZURE.NOTE] Sur Virtualbox, vous pouvez voir l’erreur suivante après l’exécution de ’waagent-force - deprovision’ : `[Errno 5] Input/output error`. Ce message d’erreur n’est pas critique et peut être ignoré.
+	>[AZURE.NOTE] Sur Virtualbox, vous pouvez voir l’erreur suivante après l’exécution de « waagent -force -deprovision » : `[Errno 5] Input/output error`. Ce message d’erreur n’est pas critique et peut être ignoré.
 
 - Vous devez ensuite arrêter la machine virtuelle et télécharger le disque dur virtuel dans Azure.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0831_2016-->

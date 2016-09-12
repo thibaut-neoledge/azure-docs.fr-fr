@@ -81,14 +81,14 @@ Vous pouvez connecter des disques à vos machines virtuelles Azure, qu’ils soi
 5. Lorsque vous y êtes invité, tapez **p** pour faire de la partition la partition principale. Tapez **1** pour la définir comme première partition, puis appuyez sur Entrée pour accepter la valeur par défaut du cylindre. Sur certains systèmes, il est possible que les valeurs par défaut des premier et dernier secteurs s’affichent à la place de celles du cylindre. Vous pouvez choisir d’accepter ces valeurs par défaut.
 
 
-	![Créer une partition](./media/virtual-machines-linux-classic-attach-disk/fdisknewpartition.png)
+	![Créer une partition](./media/virtual-machines-linux-classic-attach-disk/fdisknewpartdetails.png)
 
 
 
 6. Tapez **p** pour afficher les détails relatifs au disque faisant l’objet de la partition.
 
 
-	![Répertorier les informations sur le disque](./media/virtual-machines-linux-classic-attach-disk/fdisknewpartition.png)
+	![Répertorier les informations sur le disque](./media/virtual-machines-linux-classic-attach-disk/fdiskpartitiondetails.png)
 
 
 
@@ -122,7 +122,7 @@ Vous pouvez connecter des disques à vos machines virtuelles Azure, qu’ils soi
 
 11. Ajoutez le nouveau lecteur à /etc/fstab :
 
-	Pour vous assurer que le lecteur est remonté automatiquement après un redémarrage, vous devez l’ajouter au fichier /etc/fstab. En outre, il est vivement recommandé d’utiliser l’UUID (identificateur global unique) dans /etc/fstab comme référence au lecteur, plutôt que le nom d’appareil uniquement (par exemple, /dev/sdc1). L’utilisation de l’UUID évite le montage d’un disque incorrect sur un emplacement donné si le système d’exploitation détecte une erreur de disque lors du démarrage, et l’affectation des disques de données restants éventuels à ces ID d’appareils. Pour rechercher l’UUID du nouveau lecteur, vous pouvez vous servir de l’utilitaire **blkid** :
+	Pour vous assurer que le lecteur est remonté automatiquement après un redémarrage, vous devez l’ajouter au fichier /etc/fstab. En outre, il est vivement recommandé d’utiliser l’UUID (identificateur global unique) dans /etc/fstab comme référence au lecteur, plutôt que le nom d’appareil uniquement (par exemple, /dev/sdc1). L’utilisation de l’UUID évite le montage d’un disque incorrect sur un emplacement donné si le système d’exploitation détecte une erreur de disque lors du démarrage, et l’affectation des disques de données restants éventuels à ces ID d’appareils. Pour rechercher l’UUID du nouveau lecteur, vous pouvez vous servir de l’utilitaire **blkid** :
 
 		# sudo -i blkid
 
@@ -133,13 +133,13 @@ Vous pouvez connecter des disques à vos machines virtuelles Azure, qu’ils soi
 		/dev/sdc1: UUID="33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e" TYPE="ext4"
 
 
-	>[AZURE.NOTE] si vous ne modifiez pas correctement le fichier **/etc/fstab**, il se peut que le système ne puisse plus démarrer. En cas de doute, reportez-vous à la documentation de la distribution pour obtenir des informations sur la modification adéquate de ce fichier. Il est par ailleurs vivement recommandé de créer une sauvegarde du fichier /etc/fstab avant de le modifier.
+	>[AZURE.NOTE] si vous ne modifiez pas correctement le fichier **/etc/fstab**, il se peut que le système ne puisse plus démarrer. En cas de doute, reportez-vous à la documentation de la distribution pour obtenir des informations sur la modification adéquate de ce fichier. Il est par ailleurs vivement recommandé de créer une sauvegarde du fichier /etc/fstab avant de le modifier.
 
 	Ensuite, ouvrez le fichier **/etc/fstab** dans un éditeur de texte :
 
 		# sudo vi /etc/fstab
 
-	Dans cet exemple, nous utilisons la valeur UUID pour le nouvel appareil **/dev/sdc1** créé lors des étapes précédentes, et le point de montage **/datadrive**. Ajoutez la ligne suivante à la fin du fichier **/etc/fstab** :
+	Dans cet exemple, nous utilisons la valeur UUID pour le nouvel appareil **/dev/sdc1** créé lors des étapes précédentes et le point de montage **/datadrive**. Ajoutez la ligne suivante à la fin du fichier **/etc/fstab** :
 
 		UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults   1   2
 
@@ -152,9 +152,9 @@ Vous pouvez connecter des disques à vos machines virtuelles Azure, qu’ils soi
 		# sudo umount /datadrive
 		# sudo mount /datadrive
 
-	Si la commande `mount` génère une erreur, vérifiez que la syntaxe utilisée dans le fichier /etc/fstab est correcte. Si des lecteurs de données ou partitions supplémentaires sont créés, vous devez également les ajouter séparément au fichier /etc/fstab.
+	Si la commande `mount` génère une erreur, vérifiez que la syntaxe utilisée dans le fichier /etc/fstab est correcte. Si des disques de données ou partitions supplémentaires sont créés, ajoutez-les séparément au fichier /etc/fstab.
 
-	Utilisez cette commande pour rendre le lecteur accessible en écriture :
+	Utilisez cette commande pour rendre le disque accessible en écriture :
 
 		# sudo chmod go+w /datadrive
 
@@ -198,4 +198,4 @@ Vous trouverez plus d’informations sur l’utilisation de votre machine virtue
 [Agent]: virtual-machines-linux-agent-user-guide.md
 [Logon]: virtual-machines-linux-mac-create-ssh-keys.md
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -47,12 +47,13 @@ Avant de préparer votre environnement, notez les limitations.
 - La sauvegarde de machines virtuelles ayant plus de 16 disques de données n’est pas prise en charge.
 - La sauvegarde de machines virtuelles avec une adresse IP réservée et sans point de terminaison n’est pas prise en charge.
 - La sauvegarde d’ordinateurs virtuels Linux avec l’extension Docker n’est pas pris en charge.
+- Les données de sauvegarde n’incluent pas les lecteurs réseau montés attachés à la machine virtuelle.
 - Le remplacement d’une machine virtuelle existante pendant la restauration n’est pas pris en charge. Si vous tentez de restaurer la machine virtuelle alors que celle-ci existe, l’opération de restauration échoue.
 - La sauvegarde et la restauration entre différentes régions ne sont pas prises en charge.
 - Vous pouvez sauvegarder des machines virtuelles dans toutes les régions publiques d’Azure (voir la [liste](https://azure.microsoft.com/regions/#services) des régions prises en charge). Si la région que vous recherchez n’est pas prise en charge aujourd’hui, elle n’apparaît pas dans la liste déroulante lors de la création de l’archivage.
 - Vous pouvez sauvegarder des machines virtuelles uniquement pour des versions de systèmes d’exploitation sélectionnées :
   - **Linux** : Azure Backup prend en charge [une liste de distributions approuvées par Azure](../virtual-machines/virtual-machines-linux-endorsed-distros.md), à l’exception de CoreOS Linux. D’autres distributions « Bring-Your-Own-Linux » fonctionnent également tant que l’agent de machine virtuelle est disponible sur la machine virtuelle et que Python est pris en charge.
-  - **Windows Server** : les versions antérieures à Windows Server 2008 R2 ne sont pas prises en charge.
+  - **Windows Server** : les versions antérieures à Windows Server 2008 R2 ne sont pas prises en charge.
 - La restauration d’une machine virtuelle de contrôleur de domaine qui fait partie d’une configuration à plusieurs contrôleurs de domaine est prise en charge uniquement par le biais de PowerShell. En savoir plus sur la [restauration d’un contrôleur de domaine dans un environnement à plusieurs contrôleurs de domaine](backup-azure-restore-vms.md#restoring-domain-controller-vms).
 - La restauration de machines virtuelles qui ont des configurations réseau spéciales suivantes est prise en charge uniquement par le biais de PowerShell. Les machines virtuelles créées à l'aide du flux de travail de restauration dans l'interface utilisateur n'aura pas ces configurations réseau une fois l'opération de restauration terminée. Pour plus d’informations, consultez [Restauration de machines virtuelles avec des configurations de réseau spéciales](backup-azure-restore-vms.md#restoring-vms-with-special-netwrok-configurations).
   - Machines virtuelles avec configuration d’un équilibreur de charge (internes et externes)
@@ -105,7 +106,7 @@ Pour modifier le paramètre de réplication du stockage :
 
 1. Sélectionnez votre archivage pour ouvrir le tableau de bord associé et le panneau Paramètres. Si le panneau **Paramètres** ne s’ouvre pas, cliquez sur **Tous les paramètres** dans le tableau de bord du coffre.
 
-2. Dans le panneau **Paramètres**, cliquez sur **Infrastructure de sauvegarde** > **Configuration de la sauvegarde** pour ouvrir le panneau **Configuration de la sauvegarde**. Dans le panneau **Configuration de la sauvegarde**, choisissez l’option de réplication du stockage à appliquer à votre coffre.
+2. Dans le panneau **Paramètres**, cliquez sur **Infrastructure de sauvegarde** > **Configuration de la sauvegarde** pour ouvrir le panneau **Configuration de la sauvegarde**. Dans le panneau **Configuration de la sauvegarde**, choisissez l’option de réplication du stockage à appliquer à votre coffre.
 
     ![Liste des archivages de sauvegarde](./media/backup-azure-vms-first-look-arm/choose-storage-configuration-rs-vault.png)
 
@@ -197,19 +198,19 @@ Le service Backup installe l’extension de sauvegarde que la machine virtuelle 
 
 Afin de gérer les instantanés de la machine virtuelle, l’extension de sauvegarde nécessite une connectivité vers les adresses IP publiques Azure. Sans une bonne connectivité Internet, les requêtes HTTP de la machine virtuelle expirent et l’opération de sauvegarde échoue. Si votre déploiement comporte des restrictions d’accès (via un groupe de sécurité réseau (NSG), par exemple), choisissez l’une de ces options pour fournir un chemin clair pour le trafic de sauvegarde :
 
-- [Mettez sur liste blanche les plages IP du centre de données Azure](http://www.microsoft.com/fr-FR/download/details.aspx?id=41653) : consultez l’article pour obtenir des instructions sur la mise sur liste blanche des adresses IP.
+- [Mettez sur liste approuvée les plages IP du centre de données Azure](http://www.microsoft.com/fr-FR/download/details.aspx?id=41653) : consultez l’article pour obtenir des instructions sur la mise sur liste approuvée des adresses IP.
 - Déployer un serveur de proxy HTTP pour acheminer le trafic.
 
 Lors du choix de l’option à utiliser, le compromis se situe entre la facilité de gestion, le contrôle granulaire et le coût.
 
 |Option|Avantages|Inconvénients|
 |------|----------|-------------|
-|Plages IP de liste blanche| Aucun coût supplémentaire<br><br>Pour l’ouverture d’accès à un groupe de sécurité réseau, utilisez l’applet de commande <i>Set-AzureNetworkSecurityRule</i>. | Difficile à gérer, car les plages IP concernées changent au fil du temps.<br><br>Fournit un accès à l’ensemble d’Azure et pas seulement au stockage.|
+|Plages IP de liste approuvée| Aucun coût supplémentaire<br><br>Pour l’ouverture d’accès à un groupe de sécurité réseau, utilisez l’applet de commande <i>Set-AzureNetworkSecurityRule</i>. | Difficile à gérer, car les plages IP concernées changent au fil du temps.<br><br>Fournit un accès à l’ensemble d’Azure et pas seulement au stockage.|
 |Serveur proxy HTTP| Contrôle granulaire dans le proxy sur les URL de stockage autorisées.<br>Un seul point d’accès Internet aux machines virtuelles.<br>Non soumis aux modifications d’adresse IP Azure.| Frais supplémentaires d’exécution de machine virtuelle avec le logiciel de serveur proxy.|
 
-### Mettez sur liste blanche les plages IP du centre de données Azure.
+### Mettez sur liste approuvée les plages IP du centre de données Azure.
 
-Pour mettre sur liste blanche les plages IP du centre de données Azure, mais aussi obtenir plus d’informations sur les plages d’adresses IP et des instructions, voir le [site web Azure](http://www.microsoft.com/fr-FR/download/details.aspx?id=41653).
+Pour mettre sur liste approuvée les plages IP du centre de données Azure, mais aussi obtenir plus d’informations sur les plages d’adresses IP et des instructions, voir le [site web Azure](http://www.microsoft.com/fr-FR/download/details.aspx?id=41653).
 
 ### Utilisation d’un proxy HTTP pour les sauvegardes de machine virtuelle
 Lorsque vous sauvegardez une machine virtuelle, l’extension de sauvegarde sur la machine virtuelle envoie les commandes de gestion de capture instantanée vers le stockage Azure à l’aide d’une API HTTPS. Acheminez le trafic de l’extension de sauvegarde via le proxy HTTP, car c’est le seul composant configuré pour l’accès à l’Internet public.
@@ -322,4 +323,4 @@ Si vous avez des questions ou si vous souhaitez que certaines fonctionnalités s
 - [Planification de votre infrastructure de sauvegarde de machines virtuelles](backup-azure-vms-introduction.md)
 - [Gestion des sauvegardes de machines virtuelles](backup-azure-manage-vms.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

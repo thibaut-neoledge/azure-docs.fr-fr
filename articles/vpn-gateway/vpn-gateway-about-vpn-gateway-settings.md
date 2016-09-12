@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/17/2016"
+   ms.date="08/29/2016"
    ms.author="cherylmc" />
 
 # À propos des paramètres de la passerelle VPN
 
-Les passerelles VPN sont un ensemble de paramètres conçus pour faire circuler le trafic réseau entre les réseaux virtuels et les emplacements locaux. Vous pouvez également utiliser la passerelle VPN pour acheminer le trafic entre des réseaux virtuels dans Azure. Les sections de cet article présentent des paramètres relatifs aux passerelles VPN.
+Les passerelles VPN sont un ensemble de ressources conçues pour faire circuler le trafic réseau entre les réseaux virtuels et les emplacements locaux. Vous pouvez également utiliser la passerelle VPN pour acheminer le trafic entre des réseaux virtuels dans Azure. Les sections de cet article présentent les ressources et les paramètres relatifs aux passerelles VPN.
 
-Il est parfois utile de visualiser les configurations disponibles à l’aide de diagrammes de connexion. Vous trouverez des diagrammes montrant comment déployer chaque configuration dans la section [À propos des connexions de la passerelle VPN](vpn-gateway-topology.md) de cet article.
+Il est parfois utile de visualiser les configurations disponibles à l’aide de diagrammes de connexion. Vous trouverez des diagrammes montrant comment déployer chaque configuration dans l’article [À propos de la passerelle VPN](vpn-gateway-about-vpngateways.md).
 
 
 ## <a name="gwsku"></a>SKU de passerelle
@@ -49,7 +49,7 @@ Le tableau ci-dessous présente les types de passerelle et le débit total estim
 
 ## <a name="gwtype"></a>Types de passerelle
 
-Le type de passerelle spécifie la manière dont la passerelle se connecte. Il s’agit d’un paramètre de configuration obligatoire pour le modèle de déploiement Resource Manager. Ne confondez pas le type de passerelle avec le type de réseau privé virtuel, qui spécifie le type de routage pour votre réseau privé virtuel. Les valeurs disponibles pour `-GatewayType` sont :
+Le type de passerelle spécifie la manière dont la passerelle se connecte. Il s’agit d’un paramètre de configuration obligatoire pour le modèle de déploiement Resource Manager. Chaque réseau virtuel ne peut posséder qu’une seule passerelle de réseau virtuel de chaque type. Les valeurs disponibles pour `-GatewayType` sont :
 
 - Vpn
 - ExpressRoute
@@ -70,7 +70,7 @@ Chaque configuration nécessite un type de connexion spécifique. Les valeurs de
 - ExpressRoute
 - VPNClient
 
-Dans l’exemple PowerShell suivant, nous créons une connexion S2S qui exige le type de connexion « IPsec ».
+Dans l’exemple PowerShell suivant, nous créons une connexion S2S qui nécessite le type de connexion « IPsec ».
 
 	New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg `
 	-Location 'West US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local `
@@ -133,7 +133,7 @@ Pour accéder à des ressources techniques supplémentaires et connaître les ex
 
 ## Étapes suivantes
 
-Pour plus d’informations sur les configurations de connexion disponible, voir [Connexions de passerelle VPN](vpn-gateway-topology.md).
+Pour plus d’informations sur les configurations de connexion disponible, consultez la rubrique [À propos de la passerelle VPN](vpn-gateway-about-vpngateways.md).
 
 
 
@@ -143,4 +143,4 @@ Pour plus d’informations sur les configurations de connexion disponible, voir 
 
  
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

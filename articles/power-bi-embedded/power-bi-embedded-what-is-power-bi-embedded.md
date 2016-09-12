@@ -55,11 +55,9 @@ Il est possible d’utiliser des jeux de données mis en cache dans la version p
 
 ## Authentification et autorisation avec des jetons d’application
 
-**Microsoft Power BI Embedded** s’appuie sur votre application pour l’autorisation et l’authentification requises des utilisateurs. Vos utilisateurs finaux ne doivent pas nécessairement être des clients Azure Active Directory (Azure AD). Au lieu de cela, votre application donnera l’autorisation d’afficher un rapport Power BI dans **Microsoft Power BI Embedded** à l’aide des **jetons d’authentification de l’application (jetons d’application)**. Ces **jetons d’application** sont créés en fonction des besoins lorsque votre application veut afficher un rapport. Consultez la page [Jetons d’application](power-bi-embedded-get-started-sample.md#key-flow).
+**Microsoft Power BI Embedded** s’appuie sur votre application pour l’autorisation et l’authentification requises des utilisateurs. Vos utilisateurs finaux ne doivent pas nécessairement être des clients Azure Active Directory (Azure AD). Au lieu de cela, votre application donne à **Microsoft Power BI Embedded** l’autorisation d’afficher un rapport Power BI à l’aide des **jetons d’authentification de l’application (jetons d’application)**. Ces **jetons d’application** sont créés en fonction des besoins lorsque votre application veut afficher un rapport. Consultez la page [Jetons d’application](power-bi-embedded-get-started-sample.md#key-flow).
 
 ![](media\powerbi-embedded-whats-is\app-tokens.png)
-
-### Jetons d’authentification de l’application
 
 Les **jetons d’authentification de l’application (jetons d’application)** servent à l’authentification dans **Microsoft Power BI Embedded**. Il existe trois types de **jetons d’application** :
 
@@ -67,21 +65,10 @@ Les **jetons d’authentification de l’application (jetons d’application)** 
 2.	Jetons de développement : utilisés lors des appels directs aux **API REST de Power BI**
 3.	Jetons d’incorporation : utilisés lors d’appels servant à afficher un rapport dans l’iframe incorporé
 
-Ces jetons sont utilisés pour les différentes phases de vos interactions avec **Microsoft Power BI Embedded**. Les jetons sont conçus de sorte que vous pouvez déléguer des autorisations de votre application à Power BI.
-
-### Génération de jetons d’application
-
-Les kits de développement logiciels (SDK) fournis dans la version préliminaire vous permettent de générer des jetons. Tout d’abord, appelez l’une des méthodes Create\_\_\_Token(). Ensuite, appelez la méthode Generate() avec la clé d’accès récupérée à partir de la **collection d’espaces de travail**. Les méthodes Create de base pour les jetons sont définies dans la classe Microsoft.PowerBI.Security.PowerBIToken et sont les suivantes :
-
--	[CreateProvisionToken](https://msdn.microsoft.com/library/mt670218.aspx)
--	[CreateDevToken](https://msdn.microsoft.com/library/mt670215.aspx)
--	[CreateReportEmbedToken](https://msdn.microsoft.com/library/mt710366.aspx)
-
-Pour obtenir un exemple d’utilisation de [CreateProvisionToken](https://msdn.microsoft.com/library/mt670218.aspx) et [CreateDevToken](https://msdn.microsoft.com/library/mt670215.aspx), consultez [Prise en main de l’exemple de code Microsoft Power BI Embedded](power-bi-embedded-get-started-sample.md).
-
+Ces jetons sont utilisés pour les différentes phases de vos interactions avec **Microsoft Power BI Embedded**. Les jetons sont conçus de sorte que vous pouvez déléguer des autorisations de votre application à Power BI. Pour plus d’informations, consultez [Flux de jetons d’application](power-bi-embedded-app-token-flow.md).
 
 ## Voir aussi
 - [Scénarios Microsoft Power BI Embedded courants](power-bi-embedded-scenarios.md)
 - [Prise en main de Microsoft Power BI Embedded](power-bi-embedded-get-started.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0831_2016-->

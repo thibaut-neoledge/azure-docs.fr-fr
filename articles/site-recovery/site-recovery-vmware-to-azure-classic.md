@@ -83,8 +83,7 @@ Composants du scénario :
 - **Un serveur d’administration local** : le serveur d’administration exécute les composants Site Recovery :
 	- **Serveur de configuration** : coordonne la communication et gère les processus de réplication et de récupération des données.
 	- **Serveur de processus** : fait office de passerelle de réplication. Il reçoit les données d’ordinateurs source protégés, les optimise grâce à la mise en cache, la compression et le chiffrement et envoie les données de réplication vers le stockage Azure. Il gère également l’installation Push du service Mobilité sur des machines protégées et assure la détection automatique des machines virtuelles VMware.
-	- **Serveur cible maître** : gère les données de réplication pendant la restauration automatique à partir d’Azure.
-	Vous pouvez également déployer un serveur d’administration se comportant comme un serveur de traitement, afin de mettre à niveau votre déploiement.
+	- **Serveur cible maître** : gère les données de réplication pendant la restauration automatique à partir d’Azure. Vous pouvez également déployer un serveur d’administration se comportant comme un serveur de traitement, afin de mettre à niveau votre déploiement.
 - **Service Mobilité** : ce composant est déployé sur chaque ordinateur (machine virtuelle VMware ou serveur physique) que vous souhaitez répliquer vers Azure. Il enregistre les écritures de données sur la machine et les transmet au serveur de traitement.
 - **Azure** : vous n’avez pas besoin de créer de machines virtuelles Azure pour gérer la réplication et le basculement. Le service Site Recovery assure la gestion, puis la réplication des données directement sur le stockage Azure. Les machines virtuelles Azure répliquées sont automatiquement tournées uniquement en cas de basculement vers Azure. Toutefois, si vous souhaitez effectuer une restauration à partir d’Azure vers le site local, vous devrez configurer une machine virtuelle Azure pour qu’elle serve de serveur de traitement.
 
@@ -220,12 +219,11 @@ Uniquement pour la machine virtuelle Linux : vérifiez que vous avez défini le 
 ## Étape 1 : Créer un coffre
 
 1. Connectez-vous au [portail de gestion](https://manage.windowsazure.com/).
-2. Développez **Services de données** > **Services de récupération**, puis cliquez sur **Coffre Site Recovery**.
-3. Cliquez sur **Créer nouveau** > **Création rapide**.
+2. Développez **Services de données** > **Services de récupération**, puis cliquez sur **Coffre Site Recovery**.
+3. Cliquez sur **Créer nouveau** > **Création rapide**.
 4. Dans **Name**, entrez un nom convivial pour identifier le coffre.
 5. Dans **Region**, sélectionnez la région géographique du coffre. Pour découvrir les régions prises en charge, référez-vous à la disponibilité géographique de la page [Détails des prix d'Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/)
-6. Cliquez sur **Créer un archivage**.
-	![Nouveau coffre](./media/site-recovery-vmware-to-azure-classic/quick-start-create-vault.png)
+6. Cliquez sur **Créer un coffre**. ![Nouveau coffre](./media/site-recovery-vmware-to-azure-classic/quick-start-create-vault.png)
 
 Vérifiez la barre d'état pour vous assurer que le coffre a été créé correctement. Le coffre apparaît comme **Actif** dans la page **Recovery Services**.
 
@@ -237,6 +235,8 @@ Configurer un réseau Azure afin que les machines virtuelles Azure soient connec
 2. Vous devrez ajouter VPN/ExpressRoute au réseau si vous devez effectuer la restauration automatique. VPN/ExpressRoute peut être ajouté au réseau, même après le basculement.
 
 [Plus d’informations](../virtual-network/virtual-networks-overview.md) sur les réseaux Azure.
+
+> [AZURE.NOTE] [Migration of networks](../ressources-groupe-move-resources.md) entre les groupes de ressources d’un même abonnement ou de plusieurs abonnements n’est pas pris en charge pour les réseaux utilisés pour le déploiement de Site Recovery.
 
 ## Étape 3 : Installer les composants VMware
 
@@ -339,8 +339,8 @@ Si vous souhaitez répliquer des machines VMware virtuelles, installez les compo
 13.  Dans **Résumé**, passez en revue les informations.
 
 	![Résumé](./media/site-recovery-vmware-to-azure-classic/combined-wiz10.png)
->[AZURE.WARNING] Le proxy de Microsoft Azure Recovery Services Agent doit être installé.
->Une fois l’installation terminée, lancez une application nommée « Microsoft Azure Recovery Services Shell » à partir du menu Démarrer de Windows. Dans la fenêtre de commande qui s’ouvre, exécutez l’ensemble suivant de commandes pour configurer les paramètres du serveur proxy.
+
+>[AZURE.WARNING] Le proxy de Microsoft Azure Recovery Services Agent doit être installé. Une fois l’installation terminée, lancez une application nommée « Microsoft Azure Recovery Services Shell » à partir du menu Démarrer de Windows. Dans la fenêtre de commande qui s’ouvre, exécutez l’ensemble suivant de commandes pour configurer les paramètres du serveur proxy.
 >
 	$pwd = ConvertTo-SecureString -String ProxyUserPassword
 	Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumb – ProxyUserName domain\username -ProxyPassword $pwd
@@ -430,10 +430,10 @@ Les groupes de protection sont des regroupements logiques incluant les machines 
 
 	![Réplication du groupe de protection](./media/site-recovery-vmware-to-azure-classic/protection-groups3.png)
 
-	- **Cohérence multimachine virtuelle** : si vous activez cette option, elle crée des points de récupération cohérents au niveau de l’application, partagés entre les machines du groupe de protection. Ce paramètre est particulièrement important quand tous les ordinateurs du groupe de protection exécutent la même charge de travail. Tous les ordinateurs seront récupérés au même point de données. Il est disponible que vous répliquiez des machines virtuelles VMware ou des serveurs physiques Windows/Linux.
+	- **Cohérence multimachine virtuelle** : si vous activez cette option, elle crée des points de récupération cohérents au niveau de l’application, partagés entre les machines du groupe de protection. Ce paramètre est particulièrement important quand tous les ordinateurs du groupe de protection exécutent la même charge de travail. Tous les ordinateurs seront récupérés au même point de données. Il est disponible que vous répliquiez des machines virtuelles VMware ou des serveurs physiques Windows/Linux.
 	- **Seuil d’objectif de point de récupération** : définit l’objectif de point de récupération. Des alertes sont générées lorsque la réplication de la protection continue des données dépasse la valeur de seuil d’objectif de point de récupération configurée.
-	- **Rétention de point de récupération** : spécifie la fenêtre de rétention. Les ordinateurs protégés peuvent être récupérés à tout moment dans cette fenêtre.
-	- **Fréquence des instantanés cohérents au niveau des applications** : spécifie la fréquence de création des points de récupération contenant des instantanés cohérents au niveau des applications.
+	- **Rétention de point de récupération** : spécifie la fenêtre de rétention. Les ordinateurs protégés peuvent être récupérés à tout moment dans cette fenêtre.
+	- **Fréquence des instantanés cohérents au niveau des applications** : spécifie la fréquence de création des points de récupération contenant des instantanés cohérents au niveau des applications.
 
 Lorsque vous cliquez sur la coche, un groupe de protection est créé avec le nom spécifié. En outre, un deuxième groupe de protection est créé avec le nom <protection-group-name-Failback). Ce groupe de protection est utilisé si vous ne procédez pas à la restauration automatique du site local après le basculement vers Azure. Vous pouvez surveiller les groupes de protection à mesure qu’ils sont créés sur la page **Éléments protégés**.
 
@@ -601,7 +601,7 @@ Ajouter des ordinateurs à un groupe de protection :
 
 4. Dans **Spécifier les ressources cibles**, sélectionnez le compte de stockage que vous utilisez pour la réplication, puis déterminez si les paramètres doivent être utilisés pour toutes les charges de travail. Notez que les comptes de stockage Premium ne sont pas pris en charge actuellement.
 
-	>[AZURE.NOTE] Nous ne prenons pas en charge le déplacement des comptes de stockage créés à l’aide du [nouveau Portail Azure](../storage/storage-create-storage-account.md) dans les groupes de ressources.
+	>[AZURE.NOTE] 1.Nous ne prenons pas en charge le déplacement des comptes de stockage créés à l’aide du [nouveau portail Azure](../storage/storage-create-storage-account.md) entre les groupes de ressources. 2.[La migration de comptes de stockage](../resource-group-move-resources.md) entre les groupes de ressources d’un même abonnement ou de plusieurs abonnements n’est pas prise en charge pour les comptes de stockage utilisés pour le déploiement de Site Recovery.
 
 	![Activer la protection](./media/site-recovery-vmware-to-azure-classic/enable-protection3.png)
 
@@ -806,4 +806,4 @@ The complete file may be found on the [Microsoft Download Center](http://go.micr
 
 [Découvrez plus d’informations sur la restauration automatique](site-recovery-failback-azure-to-vmware-classic.md) qui permet de ramener dans votre environnement local vos machines basculées s’exécutant dans Azure.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

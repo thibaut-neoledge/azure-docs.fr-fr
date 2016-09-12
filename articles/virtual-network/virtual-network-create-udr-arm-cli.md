@@ -53,9 +53,9 @@ Pour créer la table de routage et l'itinéraire nécessaires pour le sous-rése
 		info:    network route-table create command OK
 
 	Paramètres :
-	- **-g (ou --resource-group)**. Nom du groupe de ressources dans lequel sera créé le groupe de sécurité réseau. Pour notre scénario, *TestRG*.
-	- **-l (ou --location)**. Région Azure où le groupe de sécurité réseau sera créé. Pour notre scénario, *westus*.
-	- **-n (ou --name)**. Nom du nouveau groupe de sécurité réseau. Pour notre scénario, *NSG-FrontEnd*.
+	- **-g (ou --resource-group)**. Nom du groupe de ressources dans lequel sera créé l’itinéraire défini par l’utilisateur (UDR). Pour notre scénario, *TestRG*.
+	- **-l (ou --location)**. Région Azure dans laquelle l’itinéraire défini par l’utilisateur (UDR) sera créé. Pour notre scénario, *westus*.
+	- **-n (ou --name)**. Nom du nouvel itinéraire défini par l’utilisateur (UDR). Pour notre scénario, *UDR-FrontEnd*.
 
 4. Exécutez la commande **`azure network route-table route create`** pour créer un itinéraire dans la table de routage créée ci-dessus pour envoyer tout le trafic destiné au sous-réseau Backend (192.168.2.0/24) à la machine virtuelle **FW1** (192.168.0.4).
 
@@ -199,4 +199,4 @@ Pour activer le transfert IP sur la carte réseau utilisée par **FW1**, suivez 
 
 	- **-f (ou --enable-ip-forwarding)**. *true* ou *false*.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0831_2016-->

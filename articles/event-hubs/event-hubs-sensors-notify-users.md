@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/31/2016"
+   ms.date="08/25/2016"
    ms.author="spyros;sethm" />
 
 # Avertir les utilisateurs de données reçues à partir des capteurs ou d’autres systèmes
@@ -44,7 +44,7 @@ Une fois que le moniteur du concentrateur d'événements détecte un message, il
 Le code dans cet exemple montre uniquement comment surveiller des hubs d’événement et comment avoir recours à des services de messagerie externe dans le cas où vous souhaitez ajouter cette fonctionnalité à votre application. Notez que cette solution est un exemple de développement et de Loisirs créatifs uniquement. Elle ne répond pas aux exigences d'entreprise telles que la redondance, le basculement, le redémarrage en cas d’échec, etc.. Pour plus de solutions complètes et de production, consultez les rubriques suivantes :
 
 - Utilisation de connecteurs ou des notifications Push avec le service [Azure Logic Apps](../app-service-logic/app-service-logic-connectors-list.md).
-- Utilisation de [Azure Notification Hubs](https://msdn.microsoft.com/library/azure/jj927170.aspx), tel que décrit dans le blog [Diffusion des notifications Push à des millions d'appareils mobiles avec Azure Notification Hubs](http://weblogs.asp.net/scottgu/broadcast-push-notifications-to-millions-of-mobile-devices-using-windows-azure-notification-hubs). 
+- Utilisation de [Azure Notification Hubs](https://msdn.microsoft.com/library/azure/jj927170.aspx), tel que décrit dans le blog [Diffusion des notifications Push à des millions d'appareils mobiles avec Azure Notification Hubs](http://weblogs.asp.net/scottgu/broadcast-push-notifications-to-millions-of-mobile-devices-using-windows-azure-notification-hubs).
 
 ## Étapes suivantes
 
@@ -82,4 +82,4 @@ Pour déployer la solution pour informer les utilisateurs en fonction des donné
 [1]: ./media/event-hubs-sensors-notify-users/event-hubs-sensor-alert.png
 [2]: ./media/event-hubs-sensors-notify-users/event-hubs-erp-alert.png
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0831_2016-->

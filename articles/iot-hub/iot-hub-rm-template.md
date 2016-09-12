@@ -183,7 +183,7 @@ Utilisez un fichier de paramètres et un modèle JSON pour créer un IoT Hub dan
 
 Vous pouvez maintenant terminer l’application en appelant la méthode **CreateIoTHub** avant sa génération et son exécution.
 
-1. Ajoutez le code suivant à la fin de la méthode **Main** :
+1. Ajoutez le code suivant à la fin de la méthode **Main** :
 
     ```
     CreateIoTHub(client);
@@ -200,7 +200,7 @@ Vous pouvez maintenant terminer l’application en appelant la méthode **Create
 
 ## Étapes suivantes
 
-Maintenant que vous avez déployé un IoT Hub à l'aide d’un modèle Resource Manager avec un programme C#, vous pouvez aller encore plus loin :
+Maintenant que vous avez déployé un IoT Hub à l’aide d’un modèle Azure Resource Manager avec un programme C#, vous pouvez aller encore plus loin :
 
 - Découvrez les capacités de l’[API REST du fournisseur de ressources IoT Hub][lnk-rest-api].
 - Pour plus d’informations sur les capacités d’Azure Resource Manager, voir l’article [Présentation d’Azure Resource Manager][lnk-azure-rm-overview].
@@ -233,4 +233,4 @@ Pour explorer davantage les capacités de IoT Hub, consultez :
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
 [lnk-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0831_2016-->

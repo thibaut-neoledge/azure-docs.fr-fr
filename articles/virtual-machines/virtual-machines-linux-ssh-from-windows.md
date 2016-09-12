@@ -14,7 +14,7 @@ description="Apprenez à créer et à utiliser des clés SSH sur un ordinateur 
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/15/2016" 
+	ms.date="08/29/2016" 
 	ms.author="rasquill"/>
 
 #Utilisation de SSH avec Windows sur Azure
@@ -161,11 +161,11 @@ Le moyen le plus simple de résoudre le problème est de définir la variable d�
 
 	![linuxputtyconfig](./media/virtual-machines-linux-ssh-from-windows/linuxputtyconfig.png)
 
-4.	Avant de sélectionner **Ouvrir**, cliquez sur l'onglet Connexion > SSH > Auth pour choisir votre clé. Examinez la capture d'écran ci-dessous pour le champ à remplir :
+4.	Avant de sélectionner **Ouvrir**, cliquez sur l'onglet Connexion > SSH > Auth pour choisir votre clé privée. Examinez la capture d'écran ci-dessous pour le champ à remplir :
 
 	![linuxputtyprivatekey](./media/virtual-machines-linux-ssh-from-windows/linuxputtyprivatekey.png)
 
 5.	Cliquez sur **Ouvrir** pour vous connecter à la machine virtuelle.
  
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

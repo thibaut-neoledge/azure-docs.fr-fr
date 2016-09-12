@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/17/2016"
+   ms.date="08/23/2016"
    ms.author="alkohli" />
 
 # Activation ou désactivation de votre appareil StorSimple 
@@ -189,39 +189,13 @@ Il peut être nécessaire d’arrêter un appareil StorSimple en cours d’exéc
 
 ### Appareil avec boîtier principal <a name="8100a"> 
 
-Il n'existe actuellement aucun moyen d'arrêter un appareil StorSimple en cours d'exécution à partir du portail Azure Classic. La seule façon de l'arrêter est d'utiliser Windows PowerShell pour StorSimple. Pour arrêter l'appareil de manière ordonnée et contrôlée, accédez à Windows PowerShell pour StorSimple et suivez les étapes ci-dessous.
+Pour arrêter l’appareil de façon correcte et contrôlée, vous pouvez utiliser le portail Azure Classic ou Windows PowerShell pour StorSimple.
 
 >[AZURE.IMPORTANT] N'arrêtez pas un appareil en cours d'exécution à l'aide du bouton d'alimentation situé à l'arrière de l'appareil.
 >
 >Avant d'arrêter l'appareil, assurez-vous que tous ses composants sont intègres. Dans le portail Azure Classic accédez à **Périphériques** > **Maintenance** > **État du matériel** et assurez-vous que l’état de tous les composants est vert. Cela est vrai uniquement pour un système sain. Si le système est sur le point d’être arrêté pour procéder au remplacement d'un composant défaillant, vous verrez s'afficher un état Échec (rouge) ou un état Détérioré (jaune) pour les composants respectifs sous **État du matériel**.
 
-Vous pouvez vous connecter à Windows PowerShell pour StorSimple avec la console série de l'appareil ou à l'aide de l'accès distant Windows PowerShell. Lorsque vous avez accédé à Windows PowerShell pour StorSimple, procédez comme suit pour arrêter un appareil en cours d'exécution.
-
-#### Pour arrêter un appareil en cours d'exécution
-
-1. Connectez-vous à la console série de l'appareil.
-
-2. Dans le menu qui s'affiche, vérifiez que le contrôleur auquel vous êtes connecté est le contrôleur **de secours**. Dans le cas contraire, déconnectez-vous du contrôleur et connectez-vous à l'autre contrôleur.
-
-3. Dans le menu de la console série, choisissez **Option 1** pour vous connecter au contrôleur de secours avec un accès complet.
-
-4. À l’invite, tapez :
-
-    `Stop-HCSController`
-
-    Ceci doit arrêter le contrôleur de secours actif.
-
-    >[AZURE.IMPORTANT] Attendez que le contrôleur s'arrête complètement avant de passer à l'étape suivante.
-
-5. Pour être sûr que l'arrêt est terminé, vérifiez l'arrière de l'appareil. Le témoin lumineux de défaillance du contrôleur doit être rouge fixe.
-
-6. Connectez-vous au contrôleur actif à l'aide de la console série et suivez les mêmes étapes pour l'arrêter.
-
-7. Lorsque les deux contrôleurs sont entièrement arrêtés, les témoins lumineux d'état des deux contrôleurs doivent s'afficher en rouge clignotant.
-
-8. Si vous souhaitez arrêter complètement l'appareil à ce stade, assurez-vous que les commutateurs d'alimentation sont en position d'arrêt sur tous les PCM.
-
-9. Pour être sûr que l'appareil est complètement arrêté, vérifiez que tous les témoins lumineux à l'arrière de l'appareil sont éteints.
+Une fois que vous accédez à Windows PowerShell pour StorSimple ou au portail Azure Classic, suivez les étapes de la rubrique [Arrêter un appareil StorSimple](storsimple-manage-device-controller.md#shut-down-a-storsimple-device).
 
 ### Appareil avec boîtier EBOD <a name="8600a">
 
@@ -229,7 +203,7 @@ Vous pouvez vous connecter à Windows PowerShell pour StorSimple avec la consol
 
 #### Pour arrêter un appareil en cours d'exécution avec un boîtier EBOD
 
-1. Suivez les étapes répertoriées sous [Appareil avec boîtier principal uniquement](#8100a).
+1. Suivez les étapes répertoriées dans [Arrêter un appareil StorSimple](storsimple-manage-device-controller.md#shut-down-a-storsimple-device) pour le boîtier principal.
 
 2. Lorsque le boîtier principal est arrêté, arrêtez le boîtier EBOD en plaçant les commutateurs des deux modules PCM en position d'arrêt.
 
@@ -241,4 +215,4 @@ Vous pouvez vous connecter à Windows PowerShell pour StorSimple avec la consol
 
 [Contactez le support Microsoft](storsimple-contact-microsoft-support.md) si vous rencontrez des problèmes lors de l'activation ou l'arrêt d'un appareil StorSimple.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0831_2016-->

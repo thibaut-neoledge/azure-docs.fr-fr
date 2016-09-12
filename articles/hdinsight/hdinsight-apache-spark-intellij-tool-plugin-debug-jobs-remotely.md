@@ -1,6 +1,6 @@
  <properties
-	pageTitle="Utiliser le plug-in HDInsight pour IntelliJ IDEA pour déboguer à distance des applications exécutées sur des clusters Spark HDInsight | Microsoft Azure"
-	description="Apprenez à utiliser le plug-in HDInsight pour IntelliJ IDEA pour déboguer à distance des applications exécutées sur des clusters Spark HDInsight."
+	pageTitle="Utiliser HDInsight Tools dans le kit de ressources Azure pour IntelliJ pour déboguer à distance des applications exécutées sur des clusters Spark HDInsight | Microsoft Azure"
+	description="Découvrez comment utiliser HDInsight Tools dans le kit de ressources Azure pour IntelliJ pour déboguer à distance des applications exécutées sur des clusters Spark HDInsight."
 	services="hdinsight"
 	documentationCenter=""
 	authors="nitinme"
@@ -14,13 +14,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/25/2016"
+	ms.date="08/26/2016"
 	ms.author="nitinme"/>
 
 
-# Utiliser le plug-in Outils HDInsight pour IntelliJ IDEA pour déboguer des applications Spark à distance sur un cluster Linux Spark HDInsight
+# Utiliser HDInsight Tools dans le kit de ressources Azure pour IntelliJ pour déboguer des applications Spark à distance sur un cluster Linux Spark HDInsight
 
-Cet article fournit des instructions pas à pas sur l’utilisation du plug-in Outils HDInsight pour IntelliJ IDEA afin de soumettre un travail Spark sur un cluster Spark HDInsight et effectuer un débogage à distance à partir de votre ordinateur de bureau. Pour ce faire, vous devez effectuer les étapes suivantes :
+Cet article fournit des instructions pas à pas sur l’utilisation d’HDInsight Tools dans le kit de ressources Azure pour IntelliJ afin de soumettre un travail Spark sur un cluster Spark HDInsight et effectuer un débogage à distance à partir de votre ordinateur de bureau. Pour ce faire, vous devez effectuer les étapes suivantes :
 
 1. Créer un réseau virtuel Azure de site à site ou de point à site. Les étapes décrites dans ce document supposent d’utiliser un réseau de site à site.
 
@@ -34,7 +34,7 @@ Cet article fournit des instructions pas à pas sur l’utilisation du plug-in O
 
 ##Composants requis
 
-* Un abonnement Azure. Consultez [Obtenir une version d'évaluation gratuite d'Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+* Un abonnement Azure. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 * Un cluster Apache Spark sur HDInsight Linux. Pour obtenir des instructions, consultez [Création de clusters Apache Spark dans Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
  
@@ -42,7 +42,7 @@ Cet article fournit des instructions pas à pas sur l’utilisation du plug-in O
  
 * IntelliJ IDEA. Cet article utilise la version 15.0.1. Vous pouvez l’installer [ici](https://www.jetbrains.com/idea/download/).
  
-* Plug-in Outils HDInsight pour IntelliJ IDEA. Le plug-in Outils HDInsight pour IntelliJ IDEA est disponible dans le cadre du kit de ressources Azure pour IntelliJ. Pour obtenir des instructions sur l’installation du kit de ressources Azure, voir [Installation du kit de ressources Azure pour IntelliJ](../azure-toolkit-for-intellij-installation.md).
+* HDInsight Tools dans le kit de ressources Azure pour IntelliJ. HDInsight Tools pour IntelliJ est disponible dans le cadre du kit de ressources Azure pour IntelliJ. Pour obtenir des instructions sur l’installation du kit de ressources Azure, voir [Installation du kit de ressources Azure pour IntelliJ](../azure-toolkit-for-intellij-installation.md).
  
 * Lorsque vous exécutez l’application Spark Scala sur un ordinateur Windows pour un débogage à distance, vous pouvez obtenir une exception liée à l’absence d’un fichier WinUtils.exe sur Windows, comme expliqué dans le document [SPARK-2356](https://issues.apache.org/jira/browse/SPARK-2356). Pour résoudre cette erreur, vous devez [télécharger le fichier exécutable à partir d’ici](http://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe) vers un emplacement tel que **C:\\WinUtils\\bin**. Vous devez ensuite ajouter une variable d’environnement **HADOOP\_HOME** et définir la valeur de la variable sur **C\\WinUtils**.
 
@@ -97,7 +97,7 @@ Vous devez également créer dans Azure HDInsight un cluster Apache Spark faisan
 
 7. Répétez également ces étapes pour l’autre nœud principal.
 
-## Étape 4 : créer une application Spark Scala à l’aide du plug-in HDInsight IntelliJ IDEA et la configurer pour le débogage à distance
+## Étape 4 : créer une application Spark Scala à l’aide d’HDInsight Tools dans le kit de ressources Azure pour IntelliJ et la configurer pour le débogage à distance
 
 1. Lancez IntelliJ IDEA et créez un nouveau projet. Dans la boîte de dialogue Nouveau projet, choisissez les options suivantes, puis cliquez sur **Suivant**.
 
@@ -105,7 +105,7 @@ Vous devez également créer dans Azure HDInsight un cluster Apache Spark faisan
 
 	* Dans le volet gauche, sélectionnez **HDInsight**.
 	* Dans le volet droit, sélectionnez **Spark on HDInsight (Scala)**.
-	* Cliquez sur **Next**.
+	* Cliquez sur **Suivant**.
 
 2. Dans la fenêtre suivante, fournissez les informations de projet.
 
@@ -126,7 +126,7 @@ Vous devez également créer dans Azure HDInsight un cluster Apache Spark faisan
 	1. Dans le menu **Fichier**, cliquez sur **Structure de projet**.
 	2. Dans la boîte de dialogue **Structure de projet**, cliquez sur **Artefacts** pour afficher l’artefact créé par défaut.
 
-		![Créer un fichier JAR](./media/hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely/default-artifact.png)
+		![Créer un fichier jar](./media/hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely/default-artifact.png)
 
 	Vous pouvez également créer votre propre artefact en cliquant sur l’icône **+** mis en surbrillance dans la capture d’écran ci-dessus.
 
@@ -328,9 +328,9 @@ Vous devez également créer dans Azure HDInsight un cluster Apache Spark faisan
 
 ### Outils et extensions
 
-* [Utilisez le plugin d’outils HDInsight pour IntelliJ IDEA pour créer et soumettre des applications Spark Scala](hdinsight-apache-spark-intellij-tool-plugin.md)
+* [Utiliser HDInsight Tools dans le kit de ressources Azure pour IntelliJ pour créer et soumettre des applications Spark Scala](hdinsight-apache-spark-intellij-tool-plugin.md)
 
-* [Utilisation du plug-in Outils HDInsight pour Eclipse pour créer des applications Spark](hdinsight-apache-spark-eclipse-tool-plugin.md)
+* [Utiliser HDInsight Tools dans le kit de ressources Azure pour Eclipse pour créer des applications Spark](hdinsight-apache-spark-eclipse-tool-plugin.md)
 
 * [Utiliser des bloc-notes Zeppelin avec un cluster Spark sur HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
 
@@ -338,7 +338,7 @@ Vous devez également créer dans Azure HDInsight un cluster Apache Spark faisan
 
 * [Utiliser des packages externes avec les blocs-notes Jupyter](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
 
-* [Installer Jupyter sur un ordinateur et se connecter au cluster Spark sur HDInsight](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
+* [Install Jupyter on your computer and connect to an HDInsight Spark cluster (Installer Jupyter sur un ordinateur et se connecter au cluster Spark sur HDInsight)](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
 
 ### Gestion des ressources
 
@@ -346,4 +346,4 @@ Vous devez également créer dans Azure HDInsight un cluster Apache Spark faisan
 
 * [Track and debug jobs running on an Apache Spark cluster in HDInsight (Suivi et débogage des tâches en cours d’exécution sur un cluster Apache Spark dans HDInsight)](hdinsight-apache-spark-job-debugging.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -28,20 +28,20 @@ Il s’agit des limites pour un appel de requête et/ou de connecteur HTTP.
 
 #### Délai d'expiration
 
-|Nom|Limite|Remarques|
+|Name|Limite|Remarques|
 |----|----|----|
 |Délai d’expiration de la demande|1 minute|Un [modèle asynchrone](app-service-logic-create-api-app.md) ou une [boucle Until](app-service-logic-loops-and-scopes.md) peuvent compenser en fonction des besoins.|
 
 #### Taille des messages
 
-|Nom|Limite|Remarques|
+|Name|Limite|Remarques|
 |----|----|----|
 |Taille des messages|50 Mo|Certains connecteurs et certaines API peuvent ne pas prendre en charge 50 Mo. Le déclencheur de requête prend en charge jusqu’à 25 Mo.|
 |Limite d’évaluation des expressions|131 072 caractères|`@concat()`, `@base64()` et `string` ne peuvent pas contenir plus de caractères.|
 
 #### Stratégie de nouvelle tentative
 
-|Nom|Limite|Remarques|
+|Name|Limite|Remarques|
 |----|----|----|
 |Nouvelles tentatives|4|Peut être configuré avec le [paramètre de stratégie de nouvelles tentatives](https://msdn.microsoft.com/fr-FR/library/azure/mt643939.aspx).|
 |Délai maximal avant nouvelle tentative|1 heure|Peut être configuré avec le [paramètre de stratégie de nouvelles tentatives](https://msdn.microsoft.com/fr-FR/library/azure/mt643939.aspx).|
@@ -65,7 +65,7 @@ Voici les limites pour l’exécution d’une application logique.
 
 |Nom|Limite|Remarques|
 |----|----|----|
-|Éléments ForEach|10 000|Vous pouvez utiliser [l’action de requête](../connectors/connectors-native-query.md) pour filtrer des tableaux plus grands au besoin.|
+|Éléments ForEach|5 000|Vous pouvez utiliser [l’action de requête](../connectors/connectors-native-query.md) pour filtrer des tableaux plus grands au besoin.|
 |Itérations Until|10 000||
 |Éléments SplitOn|10 000||
 |Parallélisme ForEach|20|Vous pouvez le définir sur une opération foreach séquentielle en ajoutant `"operationOptions": "Sequential"` à l’action `foreach`.|
@@ -83,7 +83,7 @@ Voici les limites pour une instance d’application logique.
 
 Voici les limites pour la définition d’une application logique.
 
-|Nom|Limite|Remarques|
+|Name|Limite|Remarques|
 |----|----|----|
 |Actions dans ForEach|1|Vous pouvez ajouter des flux de travail imbriqués pour l’étendre au besoin.|
 |Actions par flux de travail|60|Vous pouvez ajouter des flux de travail imbriqués pour l’étendre au besoin.|
@@ -119,7 +119,7 @@ Les appels effectués directement à partir d’une application logique (c’est
 |Ouest du Japon|40\.74.130.77|
 |États-Unis - partie centrale septentrionale|65\.52.218.230|
 |Europe du Nord|104\.45.93.9|
-|États-Unis - partie centrale méridionale|104\.214.70.191|
+|Centre-Sud des États-Unis|104\.214.70.191|
 |Asie du Sud-Est|13\.76.231.68|
 |Inde du Sud|104\.211.227.225|
 |Europe de l'Ouest|40\.115.50.13|
@@ -134,4 +134,4 @@ Les appels effectués directement à partir d’une application logique (c’est
 - [Logic Apps vous permet d’automatiser vos processus métiers](http://channel9.msdn.com/Events/Build/2016/T694)
 - [Apprenez à intégrer vos systèmes avec Logic Apps](http://channel9.msdn.com/Events/Build/2016/P462)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0831_2016-->

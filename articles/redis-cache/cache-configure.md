@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
-	ms.date="08/18/2016"
+	ms.date="08/25/2016"
 	ms.author="sdanie" />
 
 # Configuration de Cache Redis Azure
@@ -56,9 +56,9 @@ Les paramètres de la section relative à la **prise en charge et à la résolut
 
 ![Support et résolution des problèmes](./media/cache-configure/redis-cache-support-troubleshooting.png)
 
-Cliquez sur **Dépanner** pour afficher les problèmes courants et les stratégies de résolution associées.
+Cliquez sur **Diagnostiquer et résoudre les problèmes** pour afficher les problèmes courants et les stratégies de résolution associées.
 
-Cliquez sur **Journaux d’audit** pour afficher les actions effectuées sur votre cache. Vous pouvez également utiliser le filtrage pour développer cette vue afin d’inclure d’autres ressources. Pour plus d’informations sur l’utilisation des journaux d’audit, consultez les rubriques [Affichage des événements et des journaux d’audit](../azure-portal/insights-debugging-with-events.md) et [Opérations d’audit avec Resource Manager](../resource-group-audit.md). Pour plus d’informations sur la surveillance des événements du Cache Redis Azure, consultez [Opérations et alertes](cache-how-to-monitor.md#operations-and-alerts).
+Cliquez sur **Journaux d’activité** pour afficher les actions effectuées sur votre cache. Vous pouvez également utiliser le filtrage pour développer cette vue afin d’inclure d’autres ressources. Pour plus d’informations sur l’utilisation des journaux d’audit, consultez les rubriques [Affichage des événements et des journaux d’audit](../azure-portal/insights-debugging-with-events.md) et [Opérations d’audit avec Resource Manager](../resource-group-audit.md). Pour plus d’informations sur la surveillance des événements du Cache Redis Azure, consultez [Opérations et alertes](cache-how-to-monitor.md#operations-and-alerts).
 
 **Resource Health** surveille vos ressources et vous indique si elles s’exécutent comme prévu. Pour plus d’informations sur le service Azure Resource Health, consultez [Vue d’ensemble d’Azure Resource Health](../resource-health/resource-health-overview.md).
 
@@ -409,4 +409,4 @@ Pour plus d’informations sur le déplacement des ressources d’un groupe de r
 ## Étapes suivantes
 -	Pour plus d'informations sur l'utilisation des commandes Redis, consultez [Exécution des commandes Redis](cache-faq.md#how-can-i-run-redis-commands).
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

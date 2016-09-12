@@ -3,7 +3,7 @@
    description="Décrit la gestion de la concurrence et des charges de travail dans Azure SQL Data Warehouse pour le développement de solutions."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="jrowlandjones"
+   authors="sonyam"
    manager="barbkess"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/17/2016"
-   ms.author="jrj;barbkess;sonyama"/>
+   ms.date="08/30/2016"
+   ms.author="sonyama;barbkess;jrj"/>
 
 # Gestion de la concurrence et des charges de travail dans SQL Data Warehouse
 
@@ -27,7 +27,7 @@ SQL Data Warehouse autorise jusqu’à 1024 connexions simultanées. Les 1024 co
 Les limites de concurrence sont régies par deux concepts : les *requêtes simultanées* et les *emplacements de concurrence*. Pour qu’une requête s’exécute, elle doit s’exécuter à la fois dans limite de concurrence de requête et dans les limites de l’allocation d’emplacement de concurrence.
 
 - Les requêtes simultanées sont les requêtes s’exécutant simultanément. SQL Data Warehouse prend en charge jusqu’à 32 requêtes simultanées sur les tailles de DWU plus importantes.
-- Les emplacements de concurrence sont alloués en fonction de la DWU. Chaque DWU100 fournit 4 emplacements de concurrence. Par exemple, une DW100 alloue 4 emplacements de concurrence et une DW1000 en alloue 40. Chaque requête consomme un ou plusieurs emplacements de concurrence, selon la [classe de ressources](#resource-classes) de la requête. Les requêtes en cours d’exécution dans la classe de ressource smallrc consomment un emplacement de concurrence. Les requêtes en cours d’exécution dans une classe de ressource supérieure consommeront plusieurs emplacements de concurrence.
+- Les emplacements de concurrence sont alloués en fonction de la DWU. Chaque DWU100 fournit 4 emplacements de concurrence. Par exemple, une DW100 alloue 4 emplacements de concurrence et une DW1000 en alloue 40. Chaque requête consomme un ou plusieurs emplacements de concurrence, selon la [classe de ressources](#resource-classes) de la requête. Les requêtes en cours d’exécution dans la classe de ressource smallrc consomment un emplacement de concurrence. Les requêtes en cours d’exécution dans une classe de ressource supérieure consomment plusieurs emplacements de concurrence.
 
 Le tableau suivant décrit les limites des requêtes simultanées et des emplacements de concurrence pour différentes tailles de DWU.
 
@@ -119,7 +119,7 @@ Dans l’exemple précédent, un total de 375 Go de mémoire totale (6 400 Mo * 
 
 ## Consommation des emplacements de concurrence
 
-SQL Data Warehouse accorde plus de mémoire aux requêtes qui s’exécutent dans des classes de ressources supérieures. La mémoire étant une ressource fixe, plus la mémoire allouée par requête est élevée, moins il est possible de prendre en charge de concurrence. Le tableau suivant réitère tous les concepts précédents dans une vue unique qui présente le nombre d’emplacements de concurrence disponibles par DWU, ainsi que les emplacements consommés par chaque classe de ressources.
+SQL Data Warehouse accorde plus de mémoire aux requêtes qui s’exécutent dans des classes de ressources supérieures. La mémoire étant une ressource fixe, plus la mémoire allouée par requête est élevée, moins il est possible de prendre en charge de concurrence. Le tableau suivant reprend tous les concepts précédents dans une vue unique qui présente le nombre d’emplacements de concurrence disponibles par DWU, ainsi que les emplacements consommés par chaque classe de ressources.
 
 ### Allocation et consommation des emplacements de concurrence
 
@@ -270,16 +270,16 @@ Removed as these two are not confirmed / supported under SQLDW
 
 ## Exemple de modification d’une classe de ressources utilisateur
 
-1. **Créer une connexion :** ouvrez une connexion à votre base de données **MASTER** dans SQL Data Warehouse et exécutez les commandes suivantes.
+1. **Créer une connexion :** ouvrez une connexion à votre base de données **master** sur le serveur SQL hébergeant votre base de données SQL Data Warehouse et exécutez les commandes suivantes.
 
 	```sql
 	CREATE LOGIN newperson WITH PASSWORD = 'mypassword';
 	CREATE USER newperson for LOGIN newperson;
 	```
 
-	> [AZURE.NOTE] Il est judicieux de créer des utilisateurs pour les connexions dans la base de données master à la fois dans Azure SQL Database et Azure SQL Data Warehouse. Deux rôles de serveur sont disponibles à ce niveau et nécessitent que la connexion ait un utilisateur dans la base de données **MASTER** afin d’accorder l’appartenance. Il s’agit des rôles `Loginmanager` et `dbmanager`. Dans la base de données SQL Azure et SQL Data Warehouse, ces rôles octroient des droits de gestion des connexions et de création des bases de données. Ce n’est pas le cas de SQL Server. Pour plus d’informations, consultez [Authentification et autorisation de base de données SQL Azure : octroi de l’accès][].
+	> [AZURE.NOTE] Il est judicieux de créer un utilisateur dans la base de données master pour les utilisateurs d’Azure SQL Data Warehouse. La création d’un utilisateur dans la base de données master permet à un utilisateur de se connecter à l’aide d’outils tels que SSMS sans spécifier un nom de base de données. Cela permet également d’utiliser l’Explorateur d’objets pour afficher toutes les bases de données sur un serveur SQL. Pour plus d’informations sur la création et la gestion des utilisateurs, consultez [Sécuriser une base de données dans SQL Data Warehouse][].
 
-2. **Créer un compte d’utilisateur :** ouvrez une connexion à la **base de données SQL Data Warehouse** et exécutez la commande suivante.
+2. **Créer un utilisateur SQL Data Warehouse :** ouvrez une connexion à la base de données **SQL Data Warehouse** et exécutez la commande suivante.
 
 	```sql
 	CREATE USER newperson FOR LOGIN newperson;
@@ -311,9 +311,9 @@ Vous pouvez utiliser la DMV `sys.dm_pdw_exec_requests` pour identifier les requ�
 
 ```sql
 SELECT 	 r.[request_id]				 AS Request_ID
-	,r.[status]				 AS Request_Status
-	,r.[submit_time]			 AS Request_SubmitTime
-	,r.[start_time]				 AS Request_StartTime
+        ,r.[status]				 AS Request_Status
+        ,r.[submit_time]			 AS Request_SubmitTime
+        ,r.[start_time]				 AS Request_StartTime
         ,DATEDIFF(ms,[submit_time],[start_time]) AS Request_InitiateDuration_ms
         ,r.resource_class                         AS Request_resource_class
 FROM    sys.dm_pdw_exec_requests r;
@@ -331,8 +331,8 @@ AND     ro.[is_fixed_role]  = 0;
 La requête suivante montre le rôle auquel est affecté chaque utilisateur.
 
 ```sql
-SELECT	r.name AS role_principal_name
-,		m.name AS member_principal_name
+SELECT	 r.name AS role_principal_name
+        ,m.name AS member_principal_name
 FROM	sys.database_role_members rm
 JOIN	sys.database_principals AS r			ON rm.role_principal_id		= r.principal_id
 JOIN	sys.database_principals AS m			ON rm.member_principal_id	= m.principal_id
@@ -420,12 +420,13 @@ Pour plus d’informations sur la gestion de la sécurité et des utilisateurs d
 <!--Image references-->
 
 <!--Article references-->
-[Sécuriser une base de données dans SQL Data Warehouse]: ./sql-data-warehouse-overview-manage-security.md
+[Secure a database in SQL Data Warehouse]: ./sql-data-warehouse-overview-manage-security.md
 [Reconstruire des index pour améliorer la qualité de segment]: ./sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality
+[Sécuriser une base de données dans SQL Data Warehouse]: ./sql-data-warehouse-overview-manage-security.md
 
 <!--MSDN references-->
-[Authentification et autorisation de base de données SQL Azure : octroi de l’accès]: https://msdn.microsoft.com/library/azure/ee336235.aspx
+[Managing Databases and Logins in Azure SQL Database]: https://msdn.microsoft.com/library/azure/ee336235.aspx
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

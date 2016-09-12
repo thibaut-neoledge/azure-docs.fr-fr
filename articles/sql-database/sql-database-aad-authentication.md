@@ -106,7 +106,7 @@ L’authentification Azure Active Directory prend en charge les bases de donnée
 
 Si vous avez déjà une base de données, vérifiez qu’elle est hébergée dans la base de données SQL V12 en vous connectant à la base de données (par exemple, en utilisant SQL Server Management Studio) et en exécutant `SELECT @@VERSION;`. Le résultat attendu pour une base de données SQL V12 est au moins **Microsoft SQL Azure (RTM) - 12.0**. Si votre base de données n’est pas hébergée dans SQL Database V12, consultez [Planifier et préparer la mise à niveau vers SQL Database V12](sql-database-v12-plan-prepare-upgrade.md), puis visitez le portail Azure Classic pour migrer la base de données vers SQL Database V12.
 
-Vous pouvez également créer une base de données dans SQL Database V12 en exécutant les opérations répertoriées dans [Créer votre première base de données SQL Azure](sql-database-get-started.md). **Conseil** : lisez l’étape suivante avant de sélectionner un abonnement pour votre nouvelle base de données.
+Vous pouvez également créer une base de données dans SQL Database V12 en exécutant les opérations répertoriées dans [Créer votre première base de données SQL Azure](sql-database-get-started.md). **Conseil** : lisez l’étape suivante avant de sélectionner un abonnement pour votre nouvelle base de données.
 
 ## 3\. Facultatif : associer ou modifier le répertoire actif actuellement associé à votre abonnement Azure
 
@@ -127,7 +127,7 @@ Les procédures suivantes fournissent des instructions étape par étape sur la 
 5. Dans la zone **MODIFIER L’ANNUAIRE**, sélectionnez le répertoire Azure Active Directory associé à votre serveur SQL Server ou à SQL Data Warehouse, puis cliquez sur la flèche Suivant.
 
 	![edit-directory-select][6]
-6. Dans la boîte de dialogue **Confirmer** le mappage d’annuaire, confirmez que « **Tous les coadministrateurs seront supprimés.** »
+6. Dans la boîte de dialogue **Confirmer** le mappage d’annuaire, confirmez que « **Tous les coadministrateurs seront supprimés.** »
 
 	![edit-directory-confirm][7]
 7. Cliquez sur la coche pour recharger le portail.
@@ -181,7 +181,7 @@ Applets de commande utilisées pour configurer et gérer Azure AD admin :
 
 Utilisez la commande PowerShell get-help pour obtenir plus de détails sur chacune de ces commandes, par exemple ``get-help Set-AzureRmSqlServerActiveDirectoryAdministrator``.
 
-Le script suivant configure un groupe d’administrateurs Azure AD nommé **DBA\_Group** (id d’objet `40b79501-b343-44ed-9ce7-da4c8cc7353f`) pour le serveur **demo\_server** d’un groupe de ressources nommé **groupe-23** :
+Le script suivant configure un groupe d’administrateurs Azure AD nommé **DBA\_Group** (id d’objet `40b79501-b343-44ed-9ce7-da4c8cc7353f`) pour le serveur **demo\_server** d’un groupe de ressources nommé **groupe-23** :
 
 ```
 Set-AzureRmSqlServerActiveDirectoryAdministrator –ResourceGroupName "Group-23"
@@ -316,7 +316,7 @@ Pour vous connecter à une base de données à l’aide de l’authentification 
 	SqlConnection conn = new SqlConnection(ConnectionString);
 	conn.Open();
 
-Notez que le mot clé de la chaîne de connexion ``Integrated Security=True`` n’est pas pris en charge pour la connexion à la base de données SQL Azure.
+Notez que le mot clé de la chaîne de connexion ``Integrated Security=True`` n’est pas pris en charge pour la connexion à la base de données SQL Azure. Notez que, lorsque vous établissez une connexion ODBC, vous devez supprimer les espaces et définir l’authentification sur « ActiveDirectoryIntegrated ».
 
 ### 7\.2. La connexion avec un nom principal et un mot de passe Azure AD
 Pour vous connecter à une base de données à l’aide de l’authentification intégrée et d’une identité Azure AD, le mot clé d’authentification doit être le mot de passe Active Directory. La chaîne de connexion doit contenir les mots clés et valeurs d’ID utilisateur/UID et de mot de passe/PWD. L’exemple de code C# suivant utilise ADO .NET.
@@ -381,4 +381,4 @@ sqlcmd -S Target_DB_or_DW.testsrv.database.windows.net -U bob@contoso.com -P MyA
 [12]: ./media/sql-database-aad-authentication/12connect-using-pw-auth.png
 [13]: ./media/sql-database-aad-authentication/13connect-to-db.png
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

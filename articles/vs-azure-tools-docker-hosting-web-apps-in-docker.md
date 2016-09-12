@@ -39,7 +39,7 @@ La procédure suivante vous guidera dans la création d'une application ASP.NET 
 
 ## 3\. Utilisez le Script PowerShell DockerTask.ps1 
 
-1.  Ouvrez une invite de commandes PowerShell vers le répertoire racine de votre projet. 
+1.  Ouvrez une invite de commandes PowerShell vers le répertoire racine de votre projet.
 
     ```
     PS C:\Src\WebApplication1>
@@ -64,7 +64,7 @@ La procédure suivante vous guidera dans la création d'une application ASP.NET 
     > [AZURE.NOTE] Si vous utilisez la version bêta de Docker, omettez l’argument -Machine
     > 
     > ```
-    > PS C:\Src\WebApplication1> .\Docker\DockerTask.ps1 -Build -Environment Release -Machine mydockerhost
+    > PS C:\Src\WebApplication1> .\Docker\DockerTask.ps1 -Build -Environment Release 
     > ```  
 
 
@@ -77,7 +77,7 @@ La procédure suivante vous guidera dans la création d'une application ASP.NET 
     > [AZURE.NOTE] Si vous utilisez la version bêta de Docker, omettez l’argument -Machine
     > 
     > ```
-    > PS C:\Src\WebApplication1> .\Docker\DockerTask.ps1 -Run -Environment Release -Machine mydockerhost
+    > PS C:\Src\WebApplication1> .\Docker\DockerTask.ps1 -Run -Environment Release 
     > ```
 
 	Une fois Docker terminé, vous devriez obtenir un résultat semblable à ce qui suit :
@@ -89,4 +89,4 @@ La procédure suivante vous guidera dans la création d'une application ASP.NET 
 [2]: ./media/vs-azure-tools-docker-hosting-web-apps-in-docker/launch-application.png
 [3]: ./media/vs-azure-tools-docker-hosting-web-apps-in-docker/view-application.png
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0831_2016-->

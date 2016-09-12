@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/09/2016"
+	ms.date="08/24/2016"
 	ms.author="szark"/>
 
 
 
 # Préparer un disque dur virtuel Debian pour Azure
 
-## Configuration requise
+## Conditions préalables
 Cette section suppose que vous avez déjà installé un système d’exploitation Debian Linux à l’aide d’un fichier .iso téléchargé à partir du [site web Debian](https://www.debian.org/distrib/) sur un disque dur virtuel. Plusieurs outils permettent de créer des fichiers .vhd. Hyper-V n’est qu’un exemple parmi d’autres. Pour obtenir des instructions sur l’utilisation de Hyper-V, consultez [Installation du rôle Hyper-V et configuration d’une machine virtuelle](https://technet.microsoft.com/library/hh846766.aspx).
 
 
@@ -36,14 +36,14 @@ Cette section suppose que vous avez déjà installé un système d’exploitatio
 
 ## Utiliser Azure-Manage pour créer des disques durs virtuels Debian
 
-Ils existent plusieurs outils permettant créer des disques durs virtuels Debian pour Azure, par exemple les scripts [azure-manage](https://gitlab.credativ.com/de/azure-manage) de [credativ](http://www.credativ.com/). Cette approche est préférable à la création d'une image à partir de zéro. Par exemple, pour créer un disque dur virtuel Debian 8, exécutez les commandes suivantes pour télécharger azure-manage (et les dépendances) puis exécutez le script azure\_build\_image :
+Il existe plusieurs outils permettant de créer des disques durs virtuels Debian pour Azure, par exemple les scripts [azure-manage](https://github.com/credativ/azure-manage) de [credativ](http://www.credativ.com/). Cette approche est préférable à la création d'une image à partir de zéro. Par exemple, pour créer un disque dur virtuel Debian 8, exécutez les commandes suivantes pour télécharger azure-manage (et les dépendances) puis exécutez le script azure\_build\_image :
 
 	# sudo apt-get update
 	# sudo apt-get install git qemu-utils mbr kpartx debootstrap
 
 	# sudo apt-get install python3-pip
 	# sudo pip3 install azure-storage azure-servicemanagement-legacy pytest pyyaml
-	# git clone https://gitlab.credativ.com/de/azure-manage.git
+	# git clone https://github.com/credativ/azure-manage.git
 	# cd azure-manage
 	# sudo pip3 install .
 
@@ -60,7 +60,7 @@ Ils existent plusieurs outils permettant créer des disques durs virtuels Debian
 
 4. Modifiez le fichier `/etc/default/grub` et le paramètre **GRUB\_CMDLINE\_LINUX** comme suit pour y inclure des paramètres de noyau supplémentaires pour Azure.
 
-        GRUB_CMDLINE_LINUX="console=tty0 console=ttyS0,115200 earlyprintk=ttyS0,115200 rootdelay=30"
+        GRUB_CMDLINE_LINUX="console=tty0 console=ttyS0,115200n8 earlyprintk=ttyS0,115200 rootdelay=30"
 
 5. Régénérez le grub et exécutez-le :
 
@@ -110,4 +110,4 @@ Ils existent plusieurs outils permettant créer des disques durs virtuels Debian
 
 Vous êtes maintenant prêt à utiliser votre disque dur virtuel Debian pour créer des machines virtuelles dans Azure. S’il s’agit de la première fois que vous chargez le fichier .vhd sur Azure, consultez les étapes 2 et 3 dans [Création et chargement d’un disque dur virtuel contenant le système d’exploitation Linux](virtual-machines-linux-classic-create-upload-vhd.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0831_2016-->

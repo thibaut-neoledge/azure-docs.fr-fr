@@ -38,17 +38,17 @@ Si vous avez essayé les étapes de dépannage décrites ci-dessous et que vous 
 
 Lorsque vous contactez le support, il est recommandé de fournir les informations suivantes :
 
- - **Description générale de l’erreur** : quel message d’erreur exact est apparu ? Si aucun message d’erreur n’est apparu, décrivez en détail le comportement inattendu remarqué.
- - **Page** : sur quelle page vous trouviez-vous lorsque l’erreur est apparue (incluez l’URL) ?
- - **ErrorCode** : le code d’erreur spécifique que vous recevez.
- - **SessionId** : l’ID de session spécifique que vous recevez.
+ - **Description générale de l’erreur** : quel message d’erreur exact est apparu ? Si aucun message d’erreur n’est apparu, décrivez en détail le comportement inattendu remarqué.
+ - **Page** : sur quelle page vous trouviez-vous lorsque l’erreur est apparue (incluez l’URL) ?
+ - **ErrorCode** : le code d’erreur spécifique que vous recevez.
+ - **SessionId** : l’ID de session spécifique que vous recevez.
  - **ID de corrélation** : quel était l’ID de corrélation généré lorsque l’utilisateur a remarqué l’erreur ?
- - **Horodatage** : quelles étaient la date et l’heure précises auxquelles l’erreur s’est produite (incluez le fuseau horaire) ?
+ - **Horodatage** : quelles étaient la date et l’heure précises auxquelles l’erreur s’est produite (incluez le fuseau horaire) ?
  
 ![ID de corrélation :](./media/multi-factor-authentication-end-user-manage/correlation.png)
 
- - **ID utilisateur** : quel est l’ID de l’utilisateur qui a vu l’erreur (par exemple user@contoso.com) ?
- - **Informations sur l’utilisateur** : l’utilisateur était-il fédéré, disposait-il de la synchronisation du hachage de mot de passe ou était-ce un utilisateur du cloud uniquement ? L'utilisateur disposait-il d'une licence Azure AD Premium, Enterprise Mobility ou Azure AD de base ? L'utilisateur utilise-t-il Office 365 ? etc.
+ - **ID utilisateur** : quel est l’ID de l’utilisateur qui a vu l’erreur (par exemple user@contoso.com) ?
+ - **Informations sur l’utilisateur** : l’utilisateur était-il fédéré, disposait-il de la synchronisation du hachage de mot de passe ou était-ce un utilisateur du cloud uniquement ? L'utilisateur disposait-il d'une licence Azure AD Premium, Enterprise Mobility ou Azure AD de base ? L'utilisateur utilise-t-il Office 365 ? etc.
 
 Ces informations nous aideront à résoudre votre problème aussi rapidement que possible.
 
@@ -147,7 +147,7 @@ Vous devez tout d’abord vérifier les points suivants :
 - Si vous avez choisi de recevoir les codes de vérification par SMS sur votre téléphone mobile, assurez-vous que votre plan de service et votre appareil prennent en charge la diffusion des messages texte. La vitesse et la disponibilité de la diffusion des messages peuvent varier selon l’emplacement et l’opérateur. Assurez-vous également que vous disposez d’une bonne qualité de signal lors de la réception de ces codes.
 - Si vous avez choisi de recevoir une vérification via l’application mobile, vérifiez que votre téléphone reçoit bien le signal. N’oubliez pas que la vitesse et la disponibilité de la diffusion des messages peuvent varier selon l’emplacement et l’opérateur.
 
-Si vous disposez d’un smartphone, nous vous recommandons d’utiliser l’[application Azure Authenticator](multi-factor-authentication-microsoft-authenticator.md).
+Si vous disposez d’un smartphone, nous vous recommandons d’utiliser l’application Microsoft Authenticator, disponible pour [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) et [iOS](http://go.microsoft.com/fwlink/?Linkid=825073).
 
 Si vous recevez vos codes de vérification par des messages texte, vous pouvez changer le mode de réception et opter pour une diffusion via l'application mobile en sélectionnant simplement **Utiliser une autre option de vérification** lors de la connexion.
 
@@ -172,4 +172,4 @@ En outre, vous pouvez contacter votre administrateur ou la personne qui a config
 
 Enfin, veillez à laisser des commentaires détaillés sur cette page afin que nous puissions la mettre à jour, et que nous continuions à l’améliorer en fournissant plus d’informations.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

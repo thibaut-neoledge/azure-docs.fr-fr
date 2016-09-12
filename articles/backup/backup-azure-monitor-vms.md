@@ -1,6 +1,6 @@
 <properties
    pageTitle="Surveillance des sauvegardes de machines virtuelles déployées via Resource Manager | Microsoft Azure"
-   description="Suivre les événements et les alertes des sauvegardes d’une machine virtuelle déployée via Resource Manager"
+   description="Suivre les événements et les alertes des sauvegardes d’une machine virtuelle déployée via Resource Manager. Envoyer un e-mail en fonction des alertes."
    services="backup"
    documentationCenter="dev-center-name"
    authors="markgalioto"
@@ -13,12 +13,14 @@ ms.workload="storage-backup-recovery"
 ms.tgt_pltfrm="na"
 ms.devlang="na"
 ms.topic="article"
-ms.date="08/11/2016"
+ms.date="08/25/2016"
 ms.author="trinadhk; giridham;"/>
 
 # Suivez les alertes des sauvegardes de machines virtuelles Azure
 
-Les alertes sont des indications du service indiquant qu’un seuil d’événement a été atteint ou dépassé. Le fait de prendre connaissance d’un problème dès qu’il se produit peut être indispensable pour limiter les dépenses. Les alertes ne sont généralement pas planifiées. Il est par conséquent utile de savoir lorsque des alertes sont générées. Dans le tableau de bord du coffre, la vignette Alertes de sauvegarde affiche des événements de niveaux Critique et Avertissement. Dans les paramètres des alertes de sauvegarde, vous pouvez afficher tous les événements. Mais que faire si une alerte se produit lorsque vous travaillez sur un autre problème ? Si vous ne savez pas quand l’alerte se produit, il peut s’agir d’un désagrément mineur, ou d’un problème entraînant des pertes de données. Pour vous assurer que les bonnes personnes sont prévenues en cas d’alerte, configurez le service de manière à envoyer des notifications d’alerte par e-mail. Pour plus d’informations sur la configuration des notifications par e-mail, consultez [Configurer les notifications](backup-azure-monitor-vms.md#configure-notifications).
+Les alertes sont des indications du service indiquant qu’un seuil d’événement a été atteint ou dépassé. Le fait de prendre connaissance d’un problème dès qu’il se produit peut être indispensable pour limiter les dépenses. Les alertes ne sont généralement pas planifiées. Il est donc utile de savoir aussi tôt possible lorsque des alertes sont générées. Par exemple, lorsqu’un travail de sauvegarde ou de restauration échoue, une alerte se produit dans les cinq minutes suivant l’échec. Dans le tableau de bord du coffre, la vignette Alertes de sauvegarde affiche des événements de niveaux Critique et Avertissement. Dans les paramètres des alertes de sauvegarde, vous pouvez afficher tous les événements. Mais que faire si une alerte se produit lorsque vous travaillez sur un autre problème ? Si vous ne savez pas quand l’alerte se produit, il peut s’agir d’un désagrément mineur, ou d’un problème entraînant des pertes de données. Pour vous assurer que les bonnes personnes sont prévenues en cas d’alerte, configurez le service de manière à envoyer des notifications d’alerte par e-mail. Pour plus d’informations sur la configuration des notifications par e-mail, consultez [Configurer les notifications](backup-azure-monitor-vms.md#configure-notifications).
+
+## Comment puis-je trouver des informations sur les alertes ?
 
 Pour afficher des informations sur l’événement qui a généré l’alerte, vous devez ouvrir le panneau Alertes de sauvegarde. Il existe deux manières d’ouvrir le panneau Alertes de sauvegarde : soit à partir de la vignette Alertes de sauvegarde dans le tableau de bord du coffre, soit à partir du panneau Alertes et événements.
 
@@ -72,6 +74,15 @@ Pour configurer des notifications par e-mail pour les alertes
 5. Dans la boîte de dialogue **Gravité**, sélectionnez un ou plusieurs niveaux pour lesquels vous voulez envoyer des notifications par e-mail.
 
 6. Cliquez sur **Save**.
+
+### Existe-t-il des situations lors desquelles un e-mail n’est pas envoyé même si les notifications sont configurées ?
+
+Il existe des situations lors desquelles une alerte n’est pas envoyée, même si les notifications ont été correctement configurées, elles sont répertoriées ci-dessous :
+
+- Si les notifications sont configurées sur une base horaire et qu’une alerte est déclenchée et résolue dans l’heure.
+- Si le travail est annulé.
+- Si un travail de sauvegarde est déclenché et échoue, et si un autre travail de sauvegarde est en cours.
+- Si un travail de sauvegarde planifiée pour une machine virtuelle Resource Manager démarre, mais que celle-ci n’existe plus.
 
 ## Personnaliser l’affichage des événements
 
@@ -135,7 +146,7 @@ Utilisez **Filtre** pour ajuster ou choisir les informations qui apparaissent da
 
     ![Panneau Colonnes](./media/backup-azure-monitor-vms/columns-blade.png)
 
-2. Pour sélectionner un attribut, cliquez sur sa case à cocher. La case à cocher se coche et se décoche.
+2. Pour sélectionner l’attribut, cliquez sur sa case à cocher. La case à cocher se coche et se décoche.
 
 3. Cliquez sur **Réinitialiser** pour réinitialiser la liste des attributs dans le panneau **Événements**. Après avoir ajouté ou supprimé des attributs de la liste, utilisez **Réinitialiser** pour afficher la nouvelle liste des attributs de l’événement.
 
@@ -220,4 +231,4 @@ Pour une explication générale des événements, des opérations et des journau
 
 Pour plus d’informations sur la manière de recréer une machine virtuelle à partir d’un point de récupération, consultez [Restauration de machines virtuelles dans Azure](backup-azure-restore-vms.md). Pour plus d’informations sur la protection de vos machines virtuelles, consultez [Premier aperçu : sauvegarder les machines virtuelles ARM dans un archivage de Recovery Services](backup-azure-vms-first-look-arm.md). Apprenez-en plus sur les tâches de gestion pour les sauvegardes de machines virtuelles dans l’article [Gérer les sauvegardes des machines virtuelles Azure](backup-azure-manage-vms.md).
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0831_2016-->

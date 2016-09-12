@@ -2,7 +2,7 @@ Cet article présente un ensemble de pratiques éprouvées pour l’exécution d
 
 > [AZURE.NOTE] Azure propose deux modèles de déploiement : [Resource Manager][resource-manager-overview] et classique. Cet article utilise Resource Manager, solution recommandée par Microsoft pour les nouveaux déploiements.
 
-Nous déconseillons l’utilisation d’une seule machine virtuelle pour les charges de travail de production, car il n’existe aucun contrat de niveau de service (SLA) concernant la durée de bon fonctionnement des machines virtuelles sur Azure. Pour bénéficier du SLA, vous devez déployer plusieurs machines virtuelles dans un [groupe à haute disponibilité][availability-set]. Pour plus d’informations, consultez [Running multiple VMs on Azure][multi-vm] \(Exécution de plusieurs machines virtuelles sur Azure).
+Nous déconseillons l’utilisation d’une seule machine virtuelle pour les charges de travail de production, car il n’existe aucun contrat de niveau de service (SLA) concernant la durée de bon fonctionnement des machines virtuelles sur Azure. Pour bénéficier du SLA, vous devez déployer plusieurs machines virtuelles dans un [groupe à haute disponibilité][availability-set]. Pour plus d’informations, consultez [Running multiple VMs on Azure][multi-vm] (Exécution de plusieurs machines virtuelles sur Azure).
 
 ## Diagramme de l’architecture
 
@@ -26,7 +26,7 @@ L’approvisionnement d’une machine virtuelle dans Azure implique de déplacer
 
 - **Interface réseau (NIC)**. La carte d’interface réseau permet à la machine virtuelle de communiquer avec le réseau virtuel.
 
-- **Groupe de sécurité réseau**. Le [groupe de sécurité réseau][nsg] \(NSG) sert à autoriser ou refuser le trafic réseau destiné au sous-réseau. Vous pouvez associer un NSG à une carte réseau individuelle ou à un sous-réseau. Si vous l’associez à un sous-réseau, les règles du NSG s’appliquent à toutes les machines virtuelles de ce sous-réseau.
+- **Groupe de sécurité réseau**. Le [groupe de sécurité réseau][nsg] (NSG) sert à autoriser ou refuser le trafic réseau destiné au sous-réseau. Vous pouvez associer un NSG à une carte réseau individuelle ou à un sous-réseau. Si vous l’associez à un sous-réseau, les règles du NSG s’appliquent à toutes les machines virtuelles de ce sous-réseau.
  
 - **Diagnostics.** La journalisation des diagnostics est essentielle à la gestion et au dépannage de la machine virtuelle.
 
@@ -77,7 +77,7 @@ L’approvisionnement d’une machine virtuelle dans Azure implique de déplacer
 
 - Cette adresse IP publique peut être dynamique ou statique. Par défaut, elle est dynamique.
 
-    - Utilisez une [adresse IP statique][static-ip] si vous avez besoin d’une adresse IP non modifiable, par exemple pour créer un enregistrement A dans le DNS ou insérer l’adresse IP dans la liste blanche.
+    - Utilisez une [adresse IP statique][static-ip] si vous avez besoin d’une adresse IP non modifiable, par exemple pour créer un enregistrement A dans le DNS ou insérer l’adresse IP dans la liste approuvée.
 
     - Vous pouvez également créer un nom de domaine complet (FQDN) pour l’adresse IP. Vous pouvez inscrire un [enregistrement CNAME][cname-record] dans le DNS qui pointe vers FQDN. Pour en savoir plus, voir [Créer un nom de domaine complet dans le portail Azure][fqdn].
 
@@ -89,7 +89,7 @@ L’approvisionnement d’une machine virtuelle dans Azure implique de déplacer
 
 - Vous pouvez ajuster une machine virtuelle en [modifiant sa taille][vm-resize].
 
-- Pour évoluer horizontalement, placez deux ou plusieurs machines virtuelles dans un groupe à haute disponibilité derrière un équilibreur de charge. Pour en savoir plus, voir [Running multiple VMs on Azure][multi-vm] \(Exécution de plusieurs machines virtuelles sur Azure).
+- Pour évoluer horizontalement, placez deux ou plusieurs machines virtuelles dans un groupe à haute disponibilité derrière un équilibreur de charge. Pour en savoir plus, voir [Running multiple VMs on Azure][multi-vm] (Exécution de plusieurs machines virtuelles sur Azure).
 
 ## Considérations relatives à la disponibilité
 
@@ -133,7 +133,7 @@ L’approvisionnement d’une machine virtuelle dans Azure implique de déplacer
 
 - Automatisez les mises à jour du système d’exploitation à l’aide de l’extension de machine virtuelle [OSPatching]. Installez cette extension lorsque vous configurez la machine virtuelle. Vous pouvez spécifier la fréquence d’installation des correctifs et si un redémarrage est nécessaire après la mise à jour corrective.
 
-- Utilisez le [contrôle d’accès en fonction du rôle][rbac] \(RBAC) pour contrôler l’accès aux ressources Azure que vous déployez. Le contrôle RBAC vous permet d’affecter des rôles d’autorisation aux membres de votre équipe DevOps. Par exemple, le rôle Lecteur permet d’afficher des ressources Azure mais pas de les créer, gérer ou supprimer. Certains rôles sont spécifiques à des types de ressources Azure particuliers. Par exemple, le rôle Contributeur de machine virtuelle peut redémarrer ou désallouer une machine virtuelle, réinitialiser le mot de passe administrateur, créer une machine virtuelle, et ainsi de suite. D’autres [rôles RBAC intégrés][rbac-roles] peuvent être utiles dans cette architecture de référence, notamment [Utilisateur DevTest Lab][rbac-devtest] et [Collaborateur de réseau][rbac-network]. Un utilisateur peut être affecté à plusieurs rôles, et vous pouvez créer des rôles personnalisés pour d’autres autorisations plus affinées.
+- Utilisez le [contrôle d’accès en fonction du rôle][rbac] (RBAC) pour contrôler l’accès aux ressources Azure que vous déployez. Le contrôle RBAC vous permet d’affecter des rôles d’autorisation aux membres de votre équipe DevOps. Par exemple, le rôle Lecteur permet d’afficher des ressources Azure mais pas de les créer, gérer ou supprimer. Certains rôles sont spécifiques à des types de ressources Azure particuliers. Par exemple, le rôle Contributeur de machine virtuelle peut redémarrer ou désallouer une machine virtuelle, réinitialiser le mot de passe administrateur, créer une machine virtuelle, et ainsi de suite. D’autres [rôles RBAC intégrés][rbac-roles] peuvent être utiles dans cette architecture de référence, notamment [Utilisateur DevTest Lab][rbac-devtest] et [Collaborateur de réseau][rbac-network]. Un utilisateur peut être affecté à plusieurs rôles, et vous pouvez créer des rôles personnalisés pour d’autres autorisations plus affinées.
 
     > [AZURE.NOTE] Le contrôle RBAC ne limite pas les actions qu’un utilisateur connecté peut effectuer sur une machine virtuelle. Ces autorisations dépendent du type de compte installé sur le système d’exploitation invité.
 
@@ -153,18 +153,19 @@ Le script fait référence aux fichiers de paramètre suivants pour créer la ma
 
 - **[virtualNetwork.parameters.json][vnet-parameters]**. Ce fichier définit les paramètres du réseau virtuel, comme le nom, l’espace d’adressage, les sous-réseaux et les adresses de tous les serveurs DNS requis. Notez que les adresses des sous-réseaux doivent être intégrées à l’espace d’adressage du réseau virtuel.
 
+	<!-- source: https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-single-vm/parameters/linux/virtualNetwork.parameters.json#L4-L21 -->
 	```json
   "parameters": {
     "virtualNetworkSettings": {
       "value": {
-        "name": "app1-vnet",
-        "resourceGroup": "app1-dev-rg",
+        "name": "ra-single-vm-vnet",
+        "resourceGroup": "ra-single-vm-rg",
         "addressPrefixes": [
           "172.17.0.0/16"
         ],
         "subnets": [
           {
-            "name": "app1-subnet",
+            "name": "ra-single-vm-sn",
             "addressPrefix": "172.17.0.0/24"
           }
         ],
@@ -177,24 +178,23 @@ Le script fait référence aux fichiers de paramètre suivants pour créer la ma
 - **[networkSecurityGroup.parameters.json][nsg-parameters]**. Ce fichier contient les définitions des groupes de sécurité réseau et de leurs règles. Le paramètre `name` dans le bloc `virtualNetworkSettings` indique le réseau virtuel auquel le groupe de sécurité réseau est lié. Le paramètre `subnets` dans le bloc `networkSecurityGroupSettings` identifie tous les sous-réseaux qui appliquent les règles du groupe de sécurité réseau dans le réseau virtuel. Il doit s’agir d’éléments définis dans le fichier **virtualNetwork.parameters.json**.
 
 	La règle de sécurité indiquée dans l’exemple permet à un utilisateur de se connecter à la machine virtuelle à l’aide d’une connexion SSH. Vous pouvez ouvrir des ports supplémentaires (ou refuser l’accès via des ports spécifiques) en ajoutant des éléments supplémentaires au tableau `securityRules`.
-
+	<!-- source: https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-single-vm/parameters/linux/networkSecurityGroups.parameters.json#L4-L36 -->
 	```json
   "parameters": {
     "virtualNetworkSettings": {
       "value": {
-        "name": "app1-vnet",
-        "resourceGroup": "app1-dev-rg"
-      },
-      "metadata": {
-        "description": "Infrastructure Settings"
+        "name": "ra-single-vm-vnet",
+        "resourceGroup": "ra-single-vm-rg"
       }
     },
-    "networkSecurityGroupSettings": {
+    "networkSecurityGroupsSettings": {
       "value": [
         {
-          "name": "app1-nsg",
+          "name": "ra-single-vm-nsg",
           "subnets": [
-            "app1-subnet"
+            "ra-single-vm-sn"
+          ],
+          "networkInterfaces": [
           ],
           "securityRules": [
             {
@@ -223,17 +223,18 @@ Le script fait référence aux fichiers de paramètre suivants pour créer la ma
 	azure vm image list westus redhat rhel
 	```
 
-	Le paramètre `subnetName` dans la section `nics` spécifie le sous-réseau pour la machine virtuelle. De même, le paramètre `name` dans `virtualNetworkSettings` identifie le réseau virtuel à utiliser. Il doit s’agir du nom d’un sous-réseau et du réseau virtuel définis dans le fichier **virtualNetwork.parameters.json**.
+	Le paramètre `subnetName` dans la section `nics` spécifie le sous-réseau pour la machine virtuelle. De même, le paramètre `name` dans `virtualNetworkSettings` identifie le réseau virtuel à utiliser. Il doit s’agir du nom d’un sous-réseau et réseau virtuel défini dans le fichier **virtualNetwork.parameters.json**.
 
 	Vous pouvez créer plusieurs machines virtuelles partageant un compte de stockage ou ayant leurs propres comptes de stockage, en modifiant les paramètres de la section `buildingBlockSettings`. Si vous créez plusieurs machines virtuelles, vous devez également spécifier le nom d’un jeu de disponibilité à utiliser ou à créer dans la section `availabilitySet`.
 
+	<!-- source: https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-single-vm/parameters/linux/virtualMachine.parameters.json#L4-L63 -->
 	```json
   "parameters": {
     "virtualMachinesSettings": {
       "value": {
-        "namePrefix": "app1",
+        "namePrefix": "ra-single-vm",
         "computerNamePrefix": "cn",
-        "size": "Standard_DS1",
+        "size": "Standard_DS1_v2",
         "osType": "linux",
         "adminUsername": "testuser",
         "adminPassword": "AweS0me@PW",
@@ -241,16 +242,19 @@ Le script fait référence aux fichiers de paramètre suivants pour créer la ma
         "nics": [
           {
             "isPublic": "true",
-            "subnetName": "app1-subnet",
+            "subnetName": "ra-single-vm-sn",
             "privateIPAllocationMethod": "dynamic",
             "publicIPAllocationMethod": "dynamic",
+            "enableIPForwarding": false,
+            "dnsServers": [
+            ],
             "isPrimary": "true"
           }
         ],
         "imageReference": {
-          "publisher": "RedHat",
-          "offer": "RHEL",
-          "sku": "7.2",
+          "publisher": "Canonical",
+          "offer": "UbuntuServer",
+          "sku": "14.04.5-LTS",
           "version": "latest"
         },
         "dataDisks": {
@@ -264,22 +268,17 @@ Le script fait référence aux fichiers de paramètre suivants pour créer la ma
         "osDisk": {
           "caching": "ReadWrite"
         },
+        "extensions": [ ],
         "availabilitySet": {
           "useExistingAvailabilitySet": "No",
           "name": ""
         }
-      },
-      "metadata": {
-        "description": "Settings for Virtual Machines"
       }
     },
     "virtualNetworkSettings": {
       "value": {
-        "name": "app1-vnet",
-        "resourceGroup": "app1-dev-rg"
-      },
-      "metadata": {
-        "description": "Infrastructure Settings"
+        "name": "ra-single-vm-vnet",
+        "resourceGroup": "ra-single-vm-rg"
       }
     },
     "buildingBlockSettings": {
@@ -287,9 +286,6 @@ Le script fait référence aux fichiers de paramètre suivants pour créer la ma
         "storageAccountsCount": 1,
         "vmCount": 1,
         "vmStartIndex": 0
-      },
-      "metadata": {
-        "description": "Settings specific to the building block"
       }
     }
   }
@@ -321,8 +317,9 @@ Pour exécuter le script qui déploie la solution :
 
 5. Modifiez le fichier Deploy-ReferenceArchitecture.ps1 dans le dossier Scripts et modifiez la ligne suivante pour spécifier le groupe de ressources qui doit être créé ou utilisé pour contenir la machine virtuelle et les ressources créées par le script :
 
+	<!-- source: https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-single-vm/Deploy-ReferenceArchitecture.ps1#L37 -->
 	```powershell
-	$resourceGroupName = "app1-dev-rg"
+	$resourceGroupName = "ra-single-vm-rg"
 	```
 6. Modifiez chacun des fichiers JSON dans le dossier Modèles/Linux pour définir les paramètres du réseau virtuel, du groupe de sécurité réseau et de la machine virtuelle, comme décrit dans la section Composants de la solution précédente.
 
@@ -342,18 +339,18 @@ Pour exécuter le script qui déploie la solution :
 
 ## Étapes suivantes
 
-Pour appliquer le [SLA pour Virtual Machines][vm-sla], vous devez déployer au moins deux instances dans un groupe à haute disponibilité. Pour plus d’informations, voir [Running multiple VMs on Azure][multi-vm] \(Exécution de plusieurs machines virtuelles sur Azure).
+Pour appliquer le [SLA pour Virtual Machines][vm-sla], vous devez déployer au moins deux instances dans un groupe à haute disponibilité. Pour plus d’informations, voir [Running multiple VMs on Azure][multi-vm] (Exécution de plusieurs machines virtuelles sur Azure).
 
 <!-- links -->
 
-[audit-logs]: https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/
+[audit-logs]: https://azure.microsoft.com/fr-FR/blog/analyze-azure-audit-logs-in-powerbi-more/
 [availability-set]: ../articles/virtual-machines/virtual-machines-windows-create-availability-set.md
 [azure-cli]: ../articles/virtual-machines-command-line-tools.md
 [azure-linux]: ../articles/virtual-machines/virtual-machines-linux-azure-overview.md
 [azure-storage]: ../articles/storage/storage-introduction.md
 [blob-snapshot]: ../articles/storage/storage-blob-snapshots.md
 [blob-storage]: ../articles/storage/storage-introduction.md
-[boot-diagnostics]: https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/
+[boot-diagnostics]: https://azure.microsoft.com/fr-FR/blog/boot-diagnostics-for-virtual-machines-v2/
 [cname-record]: https://en.wikipedia.org/wiki/CNAME_record
 [data-disk]: ../articles/virtual-machines/virtual-machines-linux-about-disks-vhds.md
 [disk-encryption]: ../articles/security/azure-security-disk-encryption.md
@@ -372,26 +369,26 @@ Pour appliquer le [SLA pour Virtual Machines][vm-sla], vous devez déployer au m
 [rbac-roles]: ../articles/active-directory/role-based-access-built-in-roles.md
 [rbac-devtest]: ../articles/active-directory/role-based-access-built-in-roles.md#devtest-lab-user
 [rbac-network]: ../articles/active-directory/role-based-access-built-in-roles.md#network-contributor
-[reboot-logs]: https://azure.microsoft.com/blog/viewing-vm-reboot-logs/
+[reboot-logs]: https://azure.microsoft.com/fr-FR/blog/viewing-vm-reboot-logs/
 [Resize-VHD]: https://technet.microsoft.com/fr-FR/library/hh848535.aspx
-[Resize virtual machines]: https://azure.microsoft.com/blog/resize-virtual-machines/
+[Resize virtual machines]: https://azure.microsoft.com/fr-FR/blog/resize-virtual-machines/
 [resource-lock]: ../articles/resource-group-lock-resources.md
 [resource-manager-overview]: ../articles/resource-group-overview.md
 [select-vm-image]: ../articles/virtual-machines/virtual-machines-linux-cli-ps-findimage.md
-[services-by-region]: https://azure.microsoft.com/regions/#services
+[services-by-region]: https://azure.microsoft.com/fr-FR/regions/#services
 [ssh-linux]: ../articles/virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md
 [static-ip]: ../articles/virtual-network/virtual-networks-reserved-public-ip.md
 [storage-price]: https://azure.microsoft.com/pricing/details/storage/
 [virtual-machine-sizes]: ../articles/virtual-machines/virtual-machines-linux-sizes.md
 [vm-disk-limits]: ../articles/azure-subscription-service-limits.md#virtual-machine-disk-limits
 [vm-resize]: ../articles/virtual-machines/virtual-machines-linux-change-vm-size.md
-[vm-sla]: https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_0/
+[vm-sla]: https://azure.microsoft.com/fr-FR/support/legal/sla/virtual-machines/v1_0/
 [arm-templates]: https://azure.microsoft.com/documentation/articles/resource-group-authoring-templates/
-[solution-script]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-single-vm/Scripts/Deploy-ReferenceArchitecture.ps1
+[solution-script]: https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-single-vm/deploy-reference-architecture.sh
 [vnet-parameters]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-single-vm/parameters/linux/virtualNetwork.parameters.json
-[nsg-parameters]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-single-vm/parameters/linux/networkSecurityGroup.parameters.json
+[nsg-parameters]: https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-single-vm/parameters/linux/networkSecurityGroups.parameters.json
 [vm-parameters]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-single-vm/parameters/linux/virtualMachine.parameters.json
 [azure-powershell-download]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
 [0]: ./media/guidance-blueprints/compute-single-vm.png "Architecture de machine virtuelle Linux unique dans Azure"
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

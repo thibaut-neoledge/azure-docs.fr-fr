@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/22/2016" 
+	ms.date="08/19/2016" 
 	ms.author="bradsev;garye" />
 
 
 # Évaluation des performances d’un modèle dans Azure Machine Learning
 
-Cet article explique comment évaluer les performances d’un modèle dans Azure Machine Learning Studio et décrit brièvement les métriques disponibles pour cette opération. Il vous présente trois scénarios d’apprentissage supervisé courants :
+Cette rubrique explique comment évaluer les performances d’un modèle dans Azure Machine Learning Studio et décrit brièvement les métriques disponibles pour cette opération. Il vous présente trois scénarios d’apprentissage supervisé courants :
 
 * régression ;
-* classification binaire ; 
+* classification binaire ;
 * classification multiclasse.
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
@@ -189,4 +189,4 @@ Figure 13 : résultats de la validation croisée d’un modèle de classificat
 [two-class-logistic-regression]: https://msdn.microsoft.com/library/azure/b0fd7660-eeed-43c5-9487-20d9cc79ed5d/
  
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0831_2016-->

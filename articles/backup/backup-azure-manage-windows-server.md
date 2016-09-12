@@ -279,11 +279,15 @@ R2. Une alerte est générée dans les 5 minutes suivant l’échec de la sauveg
 
 **Q3. Est-il possible qu’aucun e-mail ne soit envoyé alors que les notifications sont activées ?**
 
-R3 Si les notifications sont configurées sur une base horaire et qu’une alerte est déclenchée et résolue pendant l’heure, aucun e-mail ne sera envoyé.
+R3 Voici les cas pour lesquels la notification ne sera pas envoyée afin de réduire le bruit des alertes :
+
+   - Si les notifications sont configurées sur une base horaire et qu’une alerte est déclenchée et résolue dans l’heure.
+   - Si le travail est annulé.
+   - Si le travail de sauvegarde secondaire a échoué, car un travail de sauvegarde d’origine est en cours.
 
 ## Étapes suivantes
 - [Restaurer un serveur Windows Server ou un client Windows à partir d’Azure](backup-azure-restore-windows-server.md)
 - Pour en savoir plus sur Azure Backup, consultez la [vue d’ensemble d’Azure Backup](backup-introduction-to-azure-backup.md).
 - Consultez le [forum Azure Backup](http://go.microsoft.com/fwlink/p/?LinkId=290933).
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0831_2016-->

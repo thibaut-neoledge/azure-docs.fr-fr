@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Configuration du délai d’inactivité TCP de l’équilibrage de charge | Microsoft Azure"
    description="Configuration du délai d’inactivité TCP de l’équilibrage de charge"
    services="load-balancer"
@@ -6,7 +6,7 @@
    authors="sdwheeler"
    manager="carmonm"
    editor="tysonn" />
-<tags 
+<tags
    ms.service="load-balancer"
    ms.devlang="na"
    ms.topic="article"
@@ -38,55 +38,49 @@ Pour prendre en charge ces scénarios, nous avons ajouté la prise en charge d�
 
 ## Modification des paramètres de délai d’inactivité dans les machines virtuelles et les services cloud
 
-- Configurer le délai d’expiration TCP sur un point de terminaison sur une machine virtuelle via PowerShell ou l’API de gestion des services
-- Configurez le délai d’expiration TCP pour vos jeux de points de terminaison d’équilibrage de charge via PowerShell ou l’API de gestion des services.
-- Configurer le délai d’expiration TCP pour votre adresse IP publique de niveau d’instance
-- Configurez le délai d’expiration TCP pour vos rôles Web/de travail via le modèle de service.
- 
+>[AZURE.NOTE] N’oubliez pas que certaines commandes existent uniquement dans le dernier package Azure PowerShell. Si la commande PowerShell n’existe pas, téléchargez le dernier package de PowerShell.
 
->[AZURE.NOTE] N’oubliez pas que certaines commandes existent uniquement dans le dernier package Azure PowerShell. Si la commande Powershell n’existe pas, téléchargez le dernier package de PowerShell.
 
- 
-### Configurez le délai d’expiration TCP pour votre adresse IP publique de niveau d’instance sur 15 minutes.
+### Configurer le délai d'expiration TCP pour votre adresse IP publique de niveau d'instance à 15 minutes
 
-	Set-AzurePublicIP –PublicIPName webip –VM MyVM -IdleTimeoutInMinutes 15
+    Set-AzurePublicIP –PublicIPName webip –VM MyVM -IdleTimeoutInMinutes 15
 
 Le paramètre IdleTimeoutInMinutes est facultatif. S'il n'est pas défini, le délai d'expiration par défaut est de 4 minutes.
 
 >[AZURE.NOTE] La plage de délai d’expiration acceptable est comprise entre 4 et 30 minutes.
- 
+
 ### Définir le délai d'inactivité pendant la création d'un point de terminaison Azure sur un ordinateur virtuel
 
 Pour modifier le paramètre de délai d’attente pour un point de terminaison
 
-	Get-AzureVM -ServiceName "mySvc" -Name "MyVM1" | Add-AzureEndpoint -Name "HttpIn" -Protocol "tcp" -PublicPort 80 -LocalPort 8080 -IdleTimeoutInMinutes 15| Update-AzureVM
- 
+    Get-AzureVM -ServiceName "mySvc" -Name "MyVM1" | Add-AzureEndpoint -Name "HttpIn" -Protocol "tcp" -PublicPort 80 -LocalPort 8080 -IdleTimeoutInMinutes 15| Update-AzureVM
+
 Récupérer votre configuration du délai d'inactivité
 
-	PS C:\> Get-AzureVM –ServiceName “MyService” –Name “MyVM” | Get-AzureEndpoint
-	VERBOSE: 6:43:50 PM - Completed Operation: Get Deployment
-	LBSetName : MyLoadBalancedSet
-	LocalPort : 80
-	Name : HTTP
-	Port : 80
-	Protocol : tcp
-	Vip : 65.52.xxx.xxx
-	ProbePath :
-	ProbePort : 80
-	ProbeProtocol : tcp
-	ProbeIntervalInSeconds : 15
-	ProbeTimeoutInSeconds : 31
-	EnableDirectServerReturn : False
-	Acl : {}
-	InternalLoadBalancerName :
-	IdleTimeoutInMinutes : 15
- 
+    PS C:\> Get-AzureVM –ServiceName “MyService” –Name “MyVM” | Get-AzureEndpoint
+    VERBOSE: 6:43:50 PM - Completed Operation: Get Deployment
+    LBSetName : MyLoadBalancedSet
+    LocalPort : 80
+    Name : HTTP
+    Port : 80
+    Protocol : tcp
+    Vip : 65.52.xxx.xxx
+    ProbePath :
+    ProbePort : 80
+    ProbeProtocol : tcp
+    ProbeIntervalInSeconds : 15
+    ProbeTimeoutInSeconds : 31
+    EnableDirectServerReturn : False
+    Acl : {}
+    InternalLoadBalancerName :
+    IdleTimeoutInMinutes : 15
+
 ### Définir le délai d'expiration TCP sur un jeu de points de terminaison d'équilibrage de charge
 
 Si les points de terminaison font partie d'un jeu de points de terminaison d'équilibrage de charge, le délai d'expiration TCP doit être défini sur le jeu de points de terminaison d'équilibrage de charge :
 
-	Set-AzureLoadBalancedEndpoint -ServiceName "MyService" -LBSetName "LBSet1" -Protocol tcp -LocalPort 80 -ProbeProtocolTCP -ProbePort 8080 -IdleTimeoutInMinutes 15
- 
+    Set-AzureLoadBalancedEndpoint -ServiceName "MyService" -LBSetName "LBSet1" -Protocol tcp -LocalPort 80 -ProbeProtocolTCP -ProbePort 8080 -IdleTimeoutInMinutes 15
+
 ### Modification des paramètres de délai d’expiration pour les services cloud
 
 Vous pouvez utiliser le Kit de développement logiciel (SDK) Azure pour .NET 2.4 pour mettre à jour votre service cloud.
@@ -95,66 +89,66 @@ Les paramètres de point de terminaison des services cloud sont définis dans .c
 
 Les modifications apportées aux paramètres de point de terminaison dans .csdef sont les suivantes :
 
-	<WorkerRole name="worker-role-name" vmsize="worker-role-size" enableNativeCodeExecution="[true|false]">
-	  <Endpoints>
+    <WorkerRole name="worker-role-name" vmsize="worker-role-size" enableNativeCodeExecution="[true|false]">
+      <Endpoints>
     <InputEndpoint name="input-endpoint-name" protocol="[http|https|tcp|udp]" localPort="local-port-number" port="port-number" certificate="certificate-name" loadBalancerProbe="load-balancer-probe-name" idleTimeoutInMinutes="tcp-timeout" />
-	  </Endpoints>
-	</WorkerRole>
+      </Endpoints>
+    </WorkerRole>
 
 Les modifications de .cscfg pour le paramètre de délai d’attente sur des adresses IP publiques sont :
 
-	<NetworkConfiguration>
- 	 <VirtualNetworkSite name="VNet"/>
- 	 <AddressAssignments>
+    <NetworkConfiguration>
+      <VirtualNetworkSite name="VNet"/>
+      <AddressAssignments>
     <InstanceAddress roleName="VMRolePersisted">
       <PublicIPs>
         <PublicIP name="public-ip-name" idleTimeoutInMinutes="timeout-in-minutes"/>
       </PublicIPs>
     </InstanceAddress>
- 	 </AddressAssignments>
-	</NetworkConfiguration>
+      </AddressAssignments>
+    </NetworkConfiguration>
 
 ## Exemple d’API REST
 
 Vous pouvez configurer le délai d’inactivité TCP à l’aide de l’API de gestion des services. Assurez-vous d’ajouter l’en-tête x-ms-version, défini sur la version 2014-06-01 ou ultérieure.
- 
-Mettre à jour la configuration des points de terminaison d'entrée d'équilibrage de charge spécifiés sur toutes les machines virtuelles d'un déploiement
-	
-	Request
 
-	POST https://management.core.windows.net/<subscription-id>/services/hostedservices/<cloudservice-name>/deployments/<deployment-name>
+Mettre à jour la configuration des points de terminaison d'entrée d'équilibrage de charge spécifiés sur toutes les machines virtuelles d'un déploiement
+
+    Request
+
+    POST https://management.core.windows.net/<subscription-id>/services/hostedservices/<cloudservice-name>/deployments/<deployment-name>
 <BR>
 
-	Response
+    Response
 
-	<LoadBalancedEndpointList xmlns="http://schemas.microsoft.com/windowsazure" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
-	<InputEndpoint>
-	<LoadBalancedEndpointSetName>endpoint-set-name</LoadBalancedEndpointSetName>
-	<LocalPort>local-port-number</LocalPort>
-	<Port>external-port-number</Port>
-	<LoadBalancerProbe>
-	<Path>path-of-probe</Path>
-	<Port>port-assigned-to-probe</Port>
-	<Protocol>probe-protocol</Protocol>
-	<IntervalInSeconds>interval-of-probe</IntervalInSeconds>
-	<TimeoutInSeconds>timeout-for-probe</TimeoutInSeconds>
-	</LoadBalancerProbe>
-	<LoadBalancerName>name-of-internal-loadbalancer</LoadBalancerName>
-	<Protocol>endpoint-protocol</Protocol>
-	<IdleTimeoutInMinutes>15</IdleTimeoutInMinutes>
-	<EnableDirectServerReturn>enable-direct-server-return</EnableDirectServerReturn>
-	<EndpointACL>
-	<Rules>
-	<Rule>
-	<Order>priority-of-the-rule</Order>
-	<Action>permit-rule</Action>
-	<RemoteSubnet>subnet-of-the-rule</RemoteSubnet>
-	<Description>description-of-the-rule</Description>
-	</Rule>
-	</Rules>
-	</EndpointACL>
-	</InputEndpoint>
-	</LoadBalancedEndpointList>
+    <LoadBalancedEndpointList xmlns="http://schemas.microsoft.com/windowsazure" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+    <InputEndpoint>
+    <LoadBalancedEndpointSetName>endpoint-set-name</LoadBalancedEndpointSetName>
+    <LocalPort>local-port-number</LocalPort>
+    <Port>external-port-number</Port>
+    <LoadBalancerProbe>
+    <Path>path-of-probe</Path>
+    <Port>port-assigned-to-probe</Port>
+    <Protocol>probe-protocol</Protocol>
+    <IntervalInSeconds>interval-of-probe</IntervalInSeconds>
+    <TimeoutInSeconds>timeout-for-probe</TimeoutInSeconds>
+    </LoadBalancerProbe>
+    <LoadBalancerName>name-of-internal-loadbalancer</LoadBalancerName>
+    <Protocol>endpoint-protocol</Protocol>
+    <IdleTimeoutInMinutes>15</IdleTimeoutInMinutes>
+    <EnableDirectServerReturn>enable-direct-server-return</EnableDirectServerReturn>
+    <EndpointACL>
+    <Rules>
+    <Rule>
+    <Order>priority-of-the-rule</Order>
+    <Action>permit-rule</Action>
+    <RemoteSubnet>subnet-of-the-rule</RemoteSubnet>
+    <Description>description-of-the-rule</Description>
+    </Rule>
+    </Rules>
+    </EndpointACL>
+    </InputEndpoint>
+    </LoadBalancedEndpointList>
 
 ## Étapes suivantes
 
@@ -164,6 +158,4 @@ Mettre à jour la configuration des points de terminaison d'entrée d'équilibra
 
 [Configuration d’un mode de distribution d’équilibrage de charge](load-balancer-distribution-mode.md)
 
- 
-
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

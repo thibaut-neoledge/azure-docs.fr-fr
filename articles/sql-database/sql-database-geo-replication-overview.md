@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
    ms.workload="NA"
-	ms.date="07/14/2016"
+	ms.date="08/29/2016"
 	ms.author="sstein" />
 
 # Vue d’ensemble : Géo-réplication active de base de données SQL
@@ -40,6 +40,9 @@ Vous pouvez basculer vers une base de données secondaire en utilisant le [porta
 - [Basculement : PowerShell](sql-database-geo-replication-failover-powershell.md)
 - [Basculement : T-SQL](sql-database-geo-replication-failover-transact-sql.md)
 
+Après le basculement, assurez-vous que les exigences d’authentification de votre serveur et base de données sont configurées sur la nouvelle base de données primaire. Pour plus d’informations, consultez [Gestion de la sécurité de la base de données SQL Azure après la récupération d’urgence](sql-database-geo-replication-security-config.md).
+
+
 La fonctionnalité de géo-réplication active implémente un mécanisme pour assurer la redondance de base de données dans une même région Microsoft Azure ou dans différentes régions (géo-redondance). La géoréplication active réplique de manière asynchrone les transactions validées à partir d’une base de données sur jusqu’à quatre copies de la base de données sur des serveurs différents à l’aide de l’isolement de capture instantanée à lecture validée (RCSI). Lorsque la géo-réplication active est configurée, une base de données secondaire est créée sur le serveur spécifié. La base de données d’origine devient la base de données primaire. La base de données primaire réplique de manière asynchrone les transactions validées sur chaque base de données secondaire. À un moment donné, la base de données secondaire peut être légèrement en retard sur la base de données primaire, mais la cohérence transactionnelle des données secondaires avec les modifications validées dans la base de données primaire est garantie.
 
 L’un des principaux avantages de la géo-réplication active est qu’elle fournit une solution de récupération d’urgence au niveau de la base de données, avec temps de récupération très court. En plaçant la base de données secondaire sur un serveur situé dans une autre région, vous ajoutez une tolérance maximale à votre application. Grâce à la redondance entre régions, les applications peuvent récupérer d’une perte permanente de tout ou partie d’un centre de données résultant de catastrophes naturelles, de graves erreurs humaines ou d’actes de malveillance. La figure suivante présente un exemple de géoréplication active configurée sur une base de données Premium, avec une base de données primaire située dans le Nord du centre des États-Unis, et une base de données secondaire située dans la région Sud du centre des États-Unis.
@@ -50,7 +53,7 @@ Un autre avantage clé est que les bases de données secondaires sont lisibles e
 
 Autres scénarios dans lesquels la géo-réplication active peut être utilisée :
 
-- **Migration de base de données** : la géo-réplication active permet de migrer une base de données d’un serveur à un autre serveur en ligne avec un temps d’arrêt minimal.
+- **Migration de base de données** : la géo-réplication active permet de migrer une base de données d’un serveur à un autre serveur en ligne avec un temps d’arrêt minimal.
 - **Mises à niveau de l’application** : vous pouvez créer une base de données secondaire supplémentaire faisant office de copie de restauration automatique lors des mises à niveau de l’application.
 
 Pour assurer vraiment la continuité des activités, l’ajout d’une redondance de base de données entre les centres de données n’est qu’une partie de la solution. La récupération d’une application (service) de bout en bout après une défaillance catastrophique implique la récupération de tous les composants constituant le service et tous les services dépendants. En voici quelques exemples : logiciel client (il peut s’agir par exemple d’un navigateur avec un code JavaScript personnalisé), serveurs web frontaux, ressources de stockage et DNS. Il est essentiel que tous les composants résistent aux mêmes défaillances et redeviennent disponibles dans l’objectif de délai de récupération (RTO) de votre application. Par conséquent, vous devez identifier tous les services dépendants et comprendre les garanties et les fonctionnalités qu’ils fournissent. Ensuite, vous devez prendre les mesures appropriées pour vous assurer que votre service fonctionne pendant le basculement des services dont il dépend. Pour plus d’informations sur la conception de solutions pour la récupération d’urgence, consultez la section [Conception de solutions cloud pour la récupération d’urgence à l’aide de la géo-réplication active](sql-database-designing-cloud-solutions-for-disaster-recovery.md).
@@ -116,7 +119,7 @@ Comme indiqué plus haut, en plus du portail Azure, la géo-réplication active 
 
 |API|Description|
 |---|-----------|
-|.[Créer ou mettre à jour la base de données (createMode=Restore)](https://msdn.microsoft.com/library/azure/mt163685.aspx)|Crée, met à jour ou restaure une base de données principale ou secondaire.|
+|[.Créer ou mettre à jour la base de données (createMode=Restore)](https://msdn.microsoft.com/library/azure/mt163685.aspx)|Crée, met à jour ou restaure une base de données principale ou secondaire.|
 |[Créer ou mettre à jour l’état de la base de données](https://msdn.microsoft.com/library/azure/mt643934.aspx)|Retourne l’état durant une opération de création.|
 |[Définir la base de données secondaire comme principale (basculement planifié)](https://msdn.microsoft.com/ibrary/azure/mt575007.aspx)|Promouvoir une base de données secondaire dans un partenariat de géo-réplication afin qu’elle devienne la nouvelle base de données primaire.|
 |[Définir la base de données secondaire comme principale (basculement non planifié)](https://msdn.microsoft.com/library/azure/mt582027.aspx)|Pour forcer un basculement vers la base de données secondaire et définir la base de données secondaire comme base de données principale.|
@@ -132,5 +135,6 @@ Comme indiqué plus haut, en plus du portail Azure, la géo-réplication active 
 - Pour en savoir plus sur les sauvegardes automatisées Azure SQL Database, consultez [Sauvegardes automatisées d’une base de données SQL](sql-database-automated-backups.md).
 - Pour en savoir plus sur l’utilisation des sauvegardes automatisées pour la récupération, consultez [Restaurer une base de données à partir des sauvegardes initiées par le service](sql-database-recovery-using-backups.md).
 - Pour en savoir plus sur l’utilisation des sauvegardes automatisées pour l’archivage, consultez [Copie de base de données](sql-database-copy.md).
+- Pour en savoir plus sur les exigences d’authentification pour de nouveaux serveurs et bases de données primaires, consultez [Gestion de la sécurité de la base de données SQL Azure après la récupération d’urgence](sql-database-geo-replication-security-config.md).
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

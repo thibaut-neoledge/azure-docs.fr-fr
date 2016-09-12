@@ -81,7 +81,7 @@ Lorsque vous avez configuré la carte Edison et installé les pilotes nécessair
 
 Vous devez également effectuer ces tâches.
 
-- [Créer un concentrateur IoT][lnk-create-hub] dans votre abonnement Azure. Vous avez besoin du nom de votre concentrateur pour terminer ce didacticiel. Si vous ne possédez pas déjà d’abonnement Azure, vous pouvez obtenir un [compte gratuit][lnk-free-trial].
+- [Créer un IoT Hub][lnk-create-hub] dans votre abonnement Azure. Vous avez besoin du nom de votre concentrateur pour terminer ce didacticiel. Si vous ne possédez pas déjà d’abonnement Azure, vous pouvez obtenir un [compte gratuit][lnk-free-trial].
 - Ajoutez trois appareils (**GW-ble1-demo**, **GW-ble2-demo** et **GW-device**) à votre concentrateur IoT et notez leur ID et clé d’appareil. Vous pouvez utiliser les outils [Explorateur d’appareils ou iothub-explorer][lnk-explorer-tools] pour ajouter ces appareils au concentrateur IoT que vous avez créé à l’étape précédente et récupérer ainsi leurs clés. Vous devez utiliser deux de ces appareils (**GW-ble1-demo** et **GW-ble2-demo**) en tant qu’appareils BLE simulés connectés à la passerelle et un appareil (**GW-device**) pour identifier l’appareil de passerelle Edison en tant que client de gestion des appareils que vous pouvez gérer à partir de votre IoT Hub.
 
 ### Préparer l’environnement de création et vérifier que vous pouvez créer une image personnalisée
@@ -425,4 +425,4 @@ Pour explorer davantage les capacités de IoT Hub, consultez :
 [lnk-dmui]: iot-hub-device-management-ui-sample.md
 [lnk-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0831_2016-->

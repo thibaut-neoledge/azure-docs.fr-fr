@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/11/2016"
+   ms.date="08/25/2016"
    ms.author="ryanwi"/>
 
 
@@ -41,7 +41,7 @@ Les rôles de modèle de service sont les suivants :
 
 Pour obtenir des exemples, voir [Prise en main des acteurs fiables](service-fabric-reliable-actors-get-started.md) et [Prise en main des services fiables](service-fabric-reliable-services-quick-start.md).
 
-## Déploiement
+## Déployer
 1. Un *administrateur d’application* personnalise le type d’application en une application spécifique en vue de son déploiement sur un cluster Service Fabric en spécifiant les paramètres appropriés de l’élément **ApplicationType** du manifeste d’application.
 
 2. Un *opérateur* télécharge le package d’application vers le magasin d’images du cluster à l’aide de la méthode [**CopyApplicationPackage** ](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.copyapplicationpackage.aspx) ou de l’applet de [**commande Copy-ServiceFabricApplicationPackage**](https://msdn.microsoft.com/library/azure/mt125905.aspx). Le package d'application contient le manifeste d'application et la collection de packages de service. Service Fabric déploie les applications à partir du package d’application stocké dans le magasin d’images, qui peut être un magasin d’objets blob Azure ou le service système Service Fabric.
@@ -121,4 +121,4 @@ Pour plus d'informations sur le développement, le test et la gestion des servic
 - [Vue d’ensemble de la testabilité](service-fabric-testability-overview.md)
 - [Échantillon de cycle de vie des applications basé sur REST](service-fabric-rest-based-application-lifecycle-sample.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0831_2016-->

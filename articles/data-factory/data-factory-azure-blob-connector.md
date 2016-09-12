@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Apprendre à copier/déplacer des groupes de données d’objets Blob Azure | Azure Data Factory" 
+	pageTitle="Déplacer des données depuis et vers le stockage d’objets blob Azure | Azure Data Factory" 
 	description="Découvrez comment copier des données d’objets blob dans Azure Data Factory. Les exemples suivants indiquent comment copier des données vers et depuis Azure Blob Storage et Base de données SQL Azure." 
     keywords="données d’objets blob, copie d’objet blob azure"
 	services="data-factory" 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/22/2016" 
+	ms.date="08/25/2016" 
 	ms.author="spelluru"/>
 
 # Déplacer des données vers et depuis un objet Blob Azure à l’aide d’Azure Data Factory
@@ -38,7 +38,7 @@ L’exemple suivant montre :
 4.	Un [jeu de données](data-factory-create-datasets.md) de sortie de type [AzureSqlTable](data-factory-azure-sql-connector.md#azure-sql-dataset-type-properties).
 4.	Un [pipeline](data-factory-create-pipelines.md) avec une activité de copie qui utilise [BlobSource](#azure-blob-copy-activity-type-properties) et [SqlSink](data-factory-azure-sql-connector.md#azure-sql-copy-activity-type-properties).
 
-L'exemple copie des données de série horaire à partir d'un objet Blob Azure vers une table dans une base de données SQL Azure, toutes les heures. Les propriétés JSON utilisées dans ces exemples sont décrites dans les sections suivant les exemples.
+L’exemple copie des données de série horaire à partir d’un objet blob Azure vers une table SQL Azure, toutes les heures. Les propriétés JSON utilisées dans ces exemples sont décrites dans les sections suivant les exemples.
 
 **Service lié SQL Azure :**
 
@@ -210,7 +210,7 @@ L’exemple suivant montre :
 4.	Un [pipeline](data-factory-create-pipelines.md) avec une activité de copie qui utilise [SqlSource](data-factory-azure-sql-connector.md#azure-sql-copy-activity-type-properties) et [BlobSink](#azure-blob-copy-activity-type-properties).
 
 
-L'exemple copie des données appartenant à une série horaire à partir d'une table dans une base de données SQL Azure vers un objet Blob, toutes les heures. Les propriétés JSON utilisées dans ces exemples sont décrites dans les sections suivant les exemples.
+L’exemple copie des données de série horaire à partir d’une table SQL Azure vers un objet blob Azure, toutes les heures. Les propriétés JSON utilisées dans ces exemples sont décrites dans les sections suivant les exemples.
 
 **Service lié SQL Azure :**
 
@@ -395,7 +395,7 @@ La section **typeProperties** est différente pour chaque type de jeu de donnée
 | fileName | Le nom de l’objet Blob. fileName est facultatif et sensible à la casse.<br/><br/>Si vous spécifiez un nom de fichier, l’activité (notamment la copie) fonctionne sur l’objet Blob spécifique.<br/><br/>Lorsque fileName n’est pas spécifié, la copie inclut tous les objets Blob dans folderPath pour le jeu de données d’entrée.<br/><br/>Lorsque fileName n’est pas spécifié pour un jeu de données de sortie, le nom du fichier généré est au format suivant : Data.<Guid>.txt (par exemple : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt | Non |
 | partitionedBy | partitionedBy est une propriété facultative. Vous pouvez l'utiliser pour spécifier un folderPath dynamique et le nom de fichier pour les données de série chronologique. Par exemple, folderPath peut être paramétré pour toutes les heures de données. Consultez [Utilisation de la section propriété partitionedBy](#using-partitionedBy-property) pour obtenir plus d’informations et des exemples. | Non
 | format | Les types de formats suivants sont pris en charge : **TextFormat**, **AvroFormat**, **JsonFormat** et **OrcFormat**. Définissez la propriété **type** située sous Format sur l’une de ces valeurs. Pour plus d’informations, consultez les sections [Définition de TextFormat](#specifying-textformat), [Définition d’AvroFormat](#specifying-avroformat), [Définition de JsonFormat](#specifying-jsonformat) et [Définition d’OrcFormat](#specifying-orcformat). Si vous souhaitez copier des fichiers en l’état entre des magasins de fichiers (copie binaire), vous pouvez ignorer la section Format dans les deux définitions de jeu de données d’entrée et de sortie.| Non
-| compression | Spécifiez le type et le niveau de compression pour les données. Types pris en charge : **GZip**, **Deflate** et **BZip2** ; niveaux pris en charge : **Optimal** et **Fastest** (le plus rapide). Pour l’instant, les paramètres de compression ne sont pas pris en charge pour les données au format **AvroFormat** ou **OrcFormat**. Pour plus d’informations, consultez la section [Prise en charge de la compression](#compression-support). | Non |
+| compression | Spécifiez le type et le niveau de compression pour les données. Types pris en charge : **GZip**, **Deflate** et **BZip2** ; niveaux pris en charge : **Optimal** et **Fastest** (le plus rapide). Pour l’instant, les paramètres de compression ne sont pas pris en charge pour les données au format **AvroFormat** ou **OrcFormat**. Pour plus d’informations, consultez la section [Prise en charge de la compression](#compression-support). | Non |
 
 ### Utilisation de la propriété partitionedBy
 Comme mentionné dans la section précédente, vous pouvez spécifier des valeurs folderPath et filename dynamiques pour les données de série chronologique avec la section **partitionedBy**, les macros Data Factory et les variables système : SliceStart et SliceEnd, qui indiquent les heures de début et de fin pour un segment spécifique de données.
@@ -433,25 +433,42 @@ Dans cet exemple, l'année, le mois, le jour et l'heure de SliceStart sont extra
 
 
 ## Propriétés de type de l’activité de copie d’objet Blob Azure  
-Pour obtenir la liste complète des sections et des propriétés disponibles pour la définition des activités, consultez l’article [Création de pipelines](data-factory-create-pipelines.md). Les propriétés comme le nom, la description, les tables d'entrée et de sortie, les différentes stratégies, etc. sont disponibles pour tous les types d'activités.
+Pour obtenir la liste complète des sections et des propriétés disponibles pour la définition des activités, consultez l’article [Création de pipelines](data-factory-create-pipelines.md). Les propriétés comme le nom, la description, les jeux de données d’entrée et de sortie et les stratégies sont disponibles pour tous les types d’activités.
 
 En revanche, les propriétés disponibles dans la section typeProperties de l'activité varient pour chaque type d'activité. Pour l’activité de copie, elles dépendent des types de sources et récepteurs
 
-**BlobSource** prend en charge les propriétés suivantes dans la section **typeProperties** :
+**BlobSource** prend en charge les propriétés suivantes dans la section **typeProperties** :
 
 | Propriété | Description | Valeurs autorisées | Requis |
 | -------- | ----------- | -------------- | -------- | 
-| treatEmptyAsNull | Spécifie s'il faut traiter une chaîne null ou vide en tant que valeur null. <br/><br/>Lorsque la propriété **quoteChar** est spécifiée, une chaîne vide entre guillemets peut également être traitée comme une valeur Null avec cette propriété. | TRUE (valeur par défaut) <br/>FALSE | Non |
-| skipHeaderLineCount | Indique le nombre de lignes à ignorer. Applicable uniquement quand le jeu de données d’entrée utilise **TextFormat**. | Entier compris entre 0 et Max. | Non | 
 | recursive | Indique si les données sont lues de manière récursive à partir des sous-dossiers ou uniquement du dossier spécifié. | True (valeur par défaut), False | Non | 
 
-
-**BlobSink** prend en charge les propriétés suivantes dans la section **typeProperties** :
+**BlobSink** prend en charge les propriétés suivantes dans la section **typeProperties** :
 
 | Propriété | Description | Valeurs autorisées | Requis |
 | -------- | ----------- | -------------- | -------- |
-| blobWriterAddHeader | Spécifie s'il faut ajouter un en-tête de définitions de colonne. | TRUE<br/>FALSE (valeur par défaut) | Non |
 | copyBehavior | Cette propriété définit le comportement de copie lorsque la source est BlobSource ou FileSystem. | **PreserveHierarchy :** conserve la hiérarchie des fichiers dans le dossier cible. Le chemin relatif du fichier source vers le dossier source est identique au chemin relatif du fichier cible vers le dossier cible.<br/><br/>**FlattenHierarchy :** tous les fichiers du dossier source se trouvent dans le premier niveau du dossier cible. Le nom des fichiers cibles est généré automatiquement. <br/><br/>**MergeFiles : (par défaut)** fusionne tous les fichiers du dossier source dans un même fichier. Si le nom de fichier/d’objet blob est spécifié, le nom de fichier fusionné est le nom spécifié. Dans le cas contraire, le nom de fichier est généré automatiquement. | Non |
+
+**BlobSource** prend également en charge ces deux propriétés, qui seront bientôt déconseillées.
+
+- **treatEmptyAsNull** : spécifie s’il faut traiter une chaîne null ou vide en tant que valeur null.
+- **skipHeaderLineCount** : spécifie le nombre de lignes à ignorer. Applicable uniquement quand le jeu de données d’entrée utilise TextFormat.
+
+De même, **BlobSink** prend en charge la propriété suivante, qui sera bientôt déconseillée.
+
+- **blobWriterAddHeader** : spécifie s’il faut ajouter un en-tête de définitions de colonne lors de l’écriture dans un jeu de données de sortie.
+
+Les jeux de données prennent désormais en charge les propriétés suivantes qui implémentent la même fonctionnalité : **treatEmptyAsNull**, **skipLineCount**, **firstRowAsHeader**.
+
+Le tableau suivant fournit des recommandations sur l’utilisation de nouvelles propriétés de jeu de données pour remplacer les propriétés de BlobSink et BlobSource, qui seront bientôt déconseillées.
+
+| Propriété de l’activité de copie | Propriété du jeu de données |
+| :---------------------- | :---------------- | 
+| skipHeaderLineCount sur BlobSource | skipLineCount et firstRowAsHeader. Les lignes sont d’abord ignorées, puis la première ligne est lue en tant qu’en-tête. |
+| treatEmptyAsNull sur BlobSource | treatEmptyAsNull sur le jeu de données d’entrée |
+| blobWriterAddHeader sur BlobSink | firstRowAsHeader sur le jeu de données de sortie | 
+
+Consultez la section [Définition de TextFormat](#specifying-textformat) pour plus d’informations sur ces propriétés.
 
 ### exemples de valeurs recursive et copyBehavior
 Cette section décrit le comportement résultant de l’opération de copie pour différentes combinaisons de valeurs recursive et copyBehavior.
@@ -477,4 +494,4 @@ false | mergeFiles | Pour un dossier source nommé Dossier1 avec la structure su
 ## Performances et réglage  
 Consultez l’article [Guide sur les performances et le réglage de l’activité de copie](data-factory-copy-activity-performance.md) pour en savoir plus sur les facteurs clés affectant les performances de déplacement des données (activité de copie) dans Azure Data Factory et les différentes manières de les optimiser.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->
