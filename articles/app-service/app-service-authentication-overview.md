@@ -26,7 +26,7 @@ App Service utilise l’identité fédérée, dans laquelle un fournisseur d’i
 
 Si vous voulez commencer tout de suite, consultez l’un des didacticiels suivants :
 
-- [Ajout de l’authentification à votre application iOS][iOS] (ou [Android], [Windows], [Xamarin.iOS], [Xamarin.Android], [Xamarin.Forms] ou encore [Cordova])
+- [Ajout de l’authentification à votre application iOS][iOS] \(ou [Android], [Windows], [Xamarin.iOS], [Xamarin.Android], [Xamarin.Forms] ou encore [Cordova])
 - [Authentification utilisateur pour API Apps dans Azure App Service][apia-user]
 - [Prise en main d’Azure App Services, 2e partie][web-getstarted]
 

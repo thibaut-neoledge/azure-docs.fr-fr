@@ -39,7 +39,7 @@ Pour que les services de réseau prennent en charge les solutions et application
 
 Tous les clients qui utilisent une architecture de connectivité privée doivent valider qu’une implémentation appropriée est établie et gérée pour la connexion client au point de démarcation de routeur périphérique entre le réseau de passerelle et Internet (GN/I) pour Azure Government. De même, votre organisation doit établir une connectivité réseau entre votre environnement local et le point de démarcation de routeur périphérique entre le réseau de passerelle et le client (GN/C) pour Azure Government.
 
-ExpressRoute est mis à la disposition générale dans Azure Government. Pour plus d’informations (y compris sur les partenaires et les emplacements d’homologation), veuillez consulter la <a href="https://azure.microsoft.com/fr-FR/documentation/services/expressroute/"> documentation publique ExpressRoute </a>.
+ExpressRoute est mis à la disposition générale dans Azure Government. Pour plus d’informations (y compris sur les partenaires et les emplacements d’homologation), veuillez consulter la <a href="https://azure.microsoft.com/documentation/services/expressroute/"> documentation publique ExpressRoute </a>.
 
 Pour obtenir des informations supplémentaires et des mises à jour, veuillez vous inscrire au <a href="https://blogs.msdn.microsoft.com/azuregov/">blog Microsoft Azure Government</a>.
 

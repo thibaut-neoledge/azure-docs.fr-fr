@@ -25,7 +25,7 @@
 
 Utilisez PolyBase et les commandes T-SQL pour charger les données de stockage d’objets blob Azure dans Azure SQL Data Warehouse.
 
-En quelques mots, ce didacticiel charge deux tables de stockage d’objets blob Azure public dans le schéma d’entrepôt de données Contoso Retail. Pour charger le jeu de données, exécutez l’exemple [Load the full Contoso Retail Data Warehouse][] (Charger l’ensemble de l’entrepôt de données Contoso Retail) à partir du référentiel d’exemples Microsoft SQL Server.
+En quelques mots, ce didacticiel charge deux tables de stockage d’objets blob Azure public dans le schéma d’entrepôt de données Contoso Retail. Pour charger le jeu de données, exécutez l’exemple [Load the full Contoso Retail Data Warehouse][] \(Charger l’ensemble de l’entrepôt de données Contoso Retail) à partir du référentiel d’exemples Microsoft SQL Server.
 
 Ce didacticiel vous apprendra à effectuer les opérations suivantes :
 

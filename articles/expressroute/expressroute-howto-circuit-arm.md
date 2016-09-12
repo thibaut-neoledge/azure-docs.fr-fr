@@ -40,7 +40,7 @@ Cet article explique comment créer un circuit ExpressRoute à l’aide des appl
 
 ## Création et approvisionnement d’un circuit ExpressRoute
 
-### 1\. Vous connecter à votre compte Azure et sélectionner votre abonnement
+### 1. Vous connecter à votre compte Azure et sélectionner votre abonnement
 
 Pour commencer votre configuration, connectez-vous à votre compte Azure. Pour plus d'informations sur PowerShell, consultez la page [Utilisation de Windows PowerShell avec Resource Manager](../powershell-azure-resource-manager.md). Utilisez les exemples suivants pour faciliter votre connexion :
 
@@ -54,7 +54,7 @@ Sélectionnez l’abonnement pour lequel vous voulez créer un circuit ExpressRo
 
 	Select-AzureRmSubscription -SubscriptionId "<subscription ID>"
 
-### 2\. Récupérer la liste des fournisseurs, des emplacements et des bandes passantes pris en charge
+### 2. Récupérer la liste des fournisseurs, des emplacements et des bandes passantes pris en charge
 
 Avant de créer un circuit ExpressRoute, vous avez besoin d’une liste des fournisseurs de services, des emplacements et des options de bande passante pris en charge.
 
@@ -72,7 +72,7 @@ Vérifiez si votre fournisseur de connectivité y est référencé. Prenez note 
 
 Vous êtes maintenant prêt à créer un circuit ExpressRoute.
 
-### 3\. Création d’un circuit ExpressRoute
+### 3. Création d’un circuit ExpressRoute
 
 Si vous n’avez pas déjà un groupe de ressources, vous devez en créer un avant de créer votre circuit ExpressRoute. Pour cela, vous pouvez exécuter la commande suivante :
 
@@ -168,7 +168,7 @@ Vous pouvez obtenir une description détaillée de tous les paramètres en exéc
 
 	get-help Get-AzureRmExpressRouteCircuit -detailed
 
-### 5\. Envoyer la clé de service à votre fournisseur de connectivité pour l’approvisionnement
+### 5. Envoyer la clé de service à votre fournisseur de connectivité pour l’approvisionnement
 
 *ServiceProviderProvisioningState* fournit des informations sur l’état actuel de l’approvisionnement du côté du fournisseur de service. Le statut indique l’état du côté Microsoft. Pour plus d’informations sur les états d’approvisionnement des circuits, consultez [Flux de travail](expressroute-workflows.md#expressroute-circuit-provisioning-states).
 
@@ -190,7 +190,7 @@ Pour pouvoir être utilisé, un circuit ExpressRoute doit être dans l’état s
 	ServiceProviderProvisioningState : Provisioned
 	CircuitProvisioningState         : Enabled
 
-### 6\. Vérifier régulièrement le statut et l’état de la clé du circuit
+### 6. Vérifier régulièrement le statut et l’état de la clé du circuit
 
 La vérification du statut et de l’état de la clé du circuit vous permet de savoir quand votre fournisseur a activé votre circuit. Une fois le circuit configuré, *ServiceProviderProvisioningState* a la valeur *Approvisionné*, comme le montre l’exemple suivant :
 
@@ -223,14 +223,14 @@ La réponse ressemblera à l’exemple suivant :
 	ServiceKey                       : **************************************
 	Peerings                         : []
 
-### 7\. Créer votre configuration de routage
+### 7. Créer votre configuration de routage
 
 Pour obtenir des instructions pas à pas, consultez l’article [Configuration du routage des circuits ExpressRoute](expressroute-howto-routing-arm.md) pour créer et modifier des homologations de circuit.
 
 
 >[AZURE.IMPORTANT] Ces instructions s’appliquent seulement aux circuits créés avec des fournisseurs de services proposant des services de connectivité de couche 2. Si vous utilisez un fournisseur de services proposant des services gérés de couche 3 (généralement un VPN IP, comme MPLS), votre fournisseur de connectivité configure et gère le routage pour vous.
 
-### 8\. Lier un réseau virtuel à un circuit ExpressRoute
+### 8. Lier un réseau virtuel à un circuit ExpressRoute
 
 Maintenant, vous devez lier un réseau virtuel à votre circuit ExpressRoute. Utilisez l’article [Liaison de réseaux virtuels à des circuits ExpressRoute](expressroute-howto-linkvnet-arm.md) quand vous travaillez avec le modèle de déploiement Resource Manager.
 

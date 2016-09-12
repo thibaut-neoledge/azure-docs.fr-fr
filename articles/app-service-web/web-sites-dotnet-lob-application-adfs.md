@@ -59,11 +59,11 @@ L’exemple d’application de ce didacticiel, [WebApp-WSFederation-DotNet)](htt
 
 	> [AZURE.NOTE] Les instructions dans [README.md](https://github.com/AzureADSamples/WebApp-WSFederation-DotNet/blob/master/README.md) vous montre comment configurer l’application avec Azure Active Directory. Dans ce didacticiel, vous le configurez avec AD FS. Par conséquent, suivez plutôt les étapes ci-dessous.
 
-3.	Ouvrez la solution, puis ouvrez Controllers\\AccountController.cs dans l’**Explorateur de solutions**.
+3.	Ouvrez la solution, puis ouvrez Controllers\AccountController.cs dans l’**Explorateur de solutions**.
 
 	Vous verrez que le code envoie simplement une demande d’authentification pour authentifier l’utilisateur à l’aide de WS-Federation. Toute l’authentification est configurée dans App\_Start\\Startup.Auth.cs.
 
-4.  Ouvrez App\_Start\\Startup.Auth.cs. Dans la méthode `ConfigureAuth`, notez la ligne :
+4.  Ouvrez App_Start\Startup.Auth.cs. Dans la méthode `ConfigureAuth`, notez la ligne :
 
         app.UseWsFederationAuthentication(
             new WsFederationAuthenticationOptions
@@ -72,7 +72,7 @@ L’exemple d’application de ce didacticiel, [WebApp-WSFederation-DotNet)](htt
                 MetadataAddress = metadata                                      
             });
 
-	Dans le contexte d’OWIN, il s’agit véritablement du strict minimum dont vous avez besoin pour configurer l’authentification WS-Federation. Cela est plus simple et plus « élégant » que WIF, où Web.config est injecté avec du code XML à différents endroits. Les seules informations dont vous avez besoin sont l’identificateur de la partie de confiance et l’URL du fichier de métadonnées de votre service AD FS. Voici un exemple :
+	Dans le contexte d’OWIN, il s’agit véritablement du strict minimum dont vous avez besoin pour configurer l’authentification WS-Federation. Cela est plus simple et plus « élégant » que WIF, où Web.config est injecté avec du code XML à différents endroits. Les seules informations dont vous avez besoin sont l’identificateur de la partie de confiance et l’URL du fichier de métadonnées de votre service AD FS. Voici un exemple :
 
 	-	Identificateur de la partie de confiance : `https://contoso.com/MyLOBApp`
 	-	Adresse des métadonnées : `http://adfs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml`
@@ -287,8 +287,7 @@ Si la revendication de nom était manquante, vous auriez vu le texte **Bonjour, 
 
 	![](./media/web-sites-dotnet-lob-application-adfs/13-authorize-adfs-error.png)
 
-	Si vous examinez cette erreur dans l’Observateur d’événements sur le serveur AD FS, vous voyez ce message d’exception :
-	<pre class="prettyprint">
+	Si vous examinez cette erreur dans l’Observateur d’événements sur le serveur AD FS, vous voyez ce message d’exception :<pre class="prettyprint">
 	Microsoft.IdentityServer.Web.InvalidRequestException: MSIS7042&#160;: <mark>la même session de navigateur client a fait des demandes «&#160;6&#160;» au cours des dernières «&#160;11&#160;» secondes.</mark> Contactez votre administrateur pour obtenir des informations complémentaires.
 	   à Microsoft.IdentityServer.Web.Protocols.PassiveProtocolHandler.UpdateLoopDetectionCookie(contexte WrappedHttpListenerContext)
 	   à Microsoft.IdentityServer.Web.Protocols.WSFederation.WSFederationProtocolHandler.SendSignInResponse(contexte WSFederationContext, réponse MSISSignInResponse)

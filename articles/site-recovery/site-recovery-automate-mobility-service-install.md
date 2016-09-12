@@ -53,7 +53,7 @@ Cet article fournit un exemple de la manière dont vous pouvez utiliser Configur
 
 - Windows Management Framework (WMF) 5.0 installé sur les machines que vous souhaitez protéger (obligatoire pour Automation DSC).
 
- > [AZURE.NOTE] Si vous souhaitez utiliser DSC pour des ordinateurs Windows sur lesquels WMF 4.0 est installé, reportez-vous à la section [Utilisation de DSC dans les environnements déconnectés] (#Utilisation de DSC dans les environnements déconnectés).
+ > [AZURE.NOTE] Si vous souhaitez utiliser DSC pour des ordinateurs Windows sur lesquels WMF 4.0 est installé, reportez-vous à la section [Utilisation de DSC dans les environnements déconnectés](#Utilisation de DSC dans les environnements déconnectés).
 
 Le service Mobilité peut être installé par le biais de la ligne de commande et accepte plusieurs arguments. C’est la raison pour laquelle vous devez extraire les fichiers binaires (à partir de votre installation) et les stocker dans un emplacement où vous pourrez les récupérer à l’aide d’une configuration DSC.
 
@@ -152,7 +152,7 @@ configuration ASRMobilityService {
         Package AzureAgent {
             Path = 'C:\Temp\AzureVmAgent.msi'
             Ensure = 'Present'
-            Name = 'Windows Azure VM Agent - 2.7.1198.735'
+            Name = 'Microsoft Azure VM Agent - 2.7.1198.735'
             ProductId = '5CF4D04A-F16C-4892-9196-6025EA61F964'
             Arguments = '/q /l "c:\temp\agentlog.txt'
             DependsOn = '[Package]Install'
@@ -433,7 +433,7 @@ configuration ASRMobilityService {
         Package AzureAgent {
             Path = 'C:\Temp\AzureVmAgent.msi'
             Ensure = 'Present'
-            Name = 'Windows Azure VM Agent - 2.7.1198.735'
+            Name = 'Microsoft Azure VM Agent - 2.7.1198.735'
             ProductId = '5CF4D04A-F16C-4892-9196-6025EA61F964'
             Arguments = '/q /l "c:\temp\agentlog.txt'
             DependsOn = '[Package]Install'

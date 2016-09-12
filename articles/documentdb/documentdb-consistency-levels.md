@@ -31,7 +31,7 @@ Vous pouvez configurer le niveau de cohérence par défaut sur le compte de base
 
 ![DocumentDB offre le choix entre plusieurs modèles de cohérence bien définis (souples)][1]
 
-**Remarque** :
+**Remarque** :
 
 - La cohérence forte offre une garantie de [linéarisabilité](https://aphyr.com/posts/313-strong-consistency-models) qui permet de s’assurer que les lectures renvoient la version la plus récente d’un document.
 - la cohérence forte garantit qu'une écriture est visible uniquement après sa validation durable par le quorum majoritaire de réplicas. Une écriture est soit validée durablement de manière synchrone par les quorums principal et secondaire, soit abandonnée. Une lecture est toujours reconnue par le quorum de lecture majoritaire : un client ne voit jamais une écriture partielle ou non validée. Il est assuré de lire la toute dernière écriture reconnue.
@@ -50,7 +50,7 @@ Vous pouvez configurer le niveau de cohérence par défaut sur le compte de base
 - Les comptes DocumentDB configurés avec une cohérence Obsolescence limitée peuvent associer n’importe quel nombre de régions Azure avec leur compte DocumentDB.
 - Le coût d’une opération de lecture (en termes d’unités de requête consommées) en fonction de l’obsolescence limitée est supérieur à celui des niveaux de cohérence Session et Éventuel, mais identique au niveau de cohérence forte.
 
-**Session** :
+**Session** :
 
 - contrairement aux modèles de cohérence globaux offerts par les niveaux de cohérence Fort et Obsolescence limitée, le niveau Session s’étend à une session client spécifique.
 - La cohérence Session est idéale pour tous les scénarios dans lesquels une session utilisateur ou d’appareil est impliquée, car elle garantit des lectures unitones, des écritures unitones et des garanties de lecture de vos propres écritures.
@@ -59,7 +59,7 @@ Vous pouvez configurer le niveau de cohérence par défaut sur le compte de base
 - Le coût d’une opération de lecture (en termes d’unités de requête consommées) avec un niveau de cohérence Session est inférieur à celui des niveaux Fort et Obsolescence limitée, mais supérieur au niveau Éventuel.
  
 
-**Eventual (Éventuel)** :
+**Eventual (Éventuel)** :
 
 - Le niveau de cohérence Éventuel garantit qu’en l’absence d’autres écritures, les réplicas du groupe finiront par converger.
 - Il s’agit de la forme de cohérence la plus faible qui permet à un client d’obtenir des valeurs plus anciennes que celles qu’il a pu voir précédemment.

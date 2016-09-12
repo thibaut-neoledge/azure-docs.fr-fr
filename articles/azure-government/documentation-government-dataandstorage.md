@@ -28,7 +28,7 @@ Les informations suivantes identifient les limites d’Azure Government pour le 
 |--------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Les données entrées, stockées et traitées au sein d’un produit de stockage Azure peuvent contenir des données contrôlées à l’exportation. Authentificateurs statiques, tels que les mots de passe et les codes confidentiels de carte à puce pour l’accès aux composants de la plateforme Azure. Clés privées des certificats utilisés pour gérer les composants de la plateforme Azure. Autres informations de sécurité/secrets, tels que les certificats, clés de chiffrement, clés principales et clés de stockage stockées dans les services Azure. | Les métadonnées Azure Storage n’ont pas le droit de contenir de données contrôlées à l’exportation. Ces métadonnées incluent toutes les données de configuration entrées lors de la création et la gestion de votre produit de stockage. N’entrez pas de données réglementées/contrôlées dans les champs suivants : Groupes de ressources, Noms de déploiements, Noms de ressources, Balises de ressources  
 
-Pour plus d’informations, consultez la <a href=https://azure.microsoft.com/fr-FR/documentation/services/storage/> documentation publique d’Azure Storage </a>.
+Pour plus d’informations, consultez la <a href=https://azure.microsoft.com/documentation/services/storage/> documentation publique d’Azure Storage </a>.
 
 Pour obtenir des informations supplémentaires et des mises à jour, veuillez vous inscrire au <a href="https://blogs.msdn.microsoft.com/azuregov/">blog Microsoft Azure Government</a>.
 
@@ -42,7 +42,7 @@ Les informations suivantes identifient les limites d’Azure Government pour le 
 
 SQL Database 11 est mis à la disposition générale dans Azure Government.
 
-Consultez le <a href="https://msdn.microsoft.com/fr-FR/library/bb510589.aspx"> Centre de sécurité Microsoft pour le moteur de base de données SQL </a> et la <a href="https://azure.microsoft.com/fr-FR/documentation/services/sql-database/"> documentation publique des bases de données SQL Azure </a> pour obtenir des conseils supplémentaires sur la configuration de visibilité des métadonnées, ainsi que les meilleures pratiques de protection.
+Consultez le <a href="https://msdn.microsoft.com/fr-FR/library/bb510589.aspx"> Centre de sécurité Microsoft pour le moteur de base de données SQL </a> et la <a href="https://azure.microsoft.com/documentation/services/sql-database/"> documentation publique des bases de données SQL Azure </a> pour obtenir des conseils supplémentaires sur la configuration de visibilité des métadonnées, ainsi que les meilleures pratiques de protection.
 
 Pour obtenir des informations supplémentaires et des mises à jour, veuillez vous inscrire au <a href="https://blogs.msdn.microsoft.com/azuregov/">blog Microsoft Azure Government</a>.
 

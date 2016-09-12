@@ -237,7 +237,7 @@ await subtasks.ForEachAsync(async (subtask) =>
 
 ## Étapes suivantes
 
-- Vous voulez peut-être créer une application MS-MPI simple à utiliser tout en testant des tâches multi-instances dans Azure Batch. L’article de blog Microsoft HPC et Azure Batch [How to compile and run a simple MS-MPI program][msmpi_howto] (Comment compiler et exécuter un programme MS-MPI simple) contient une procédure pas à pas pour créer une application MPI simple à l’aide de MS-MPI.
+- Vous voulez peut-être créer une application MS-MPI simple à utiliser tout en testant des tâches multi-instances dans Azure Batch. L’article de blog Microsoft HPC et Azure Batch [How to compile and run a simple MS-MPI program][msmpi_howto] \(Comment compiler et exécuter un programme MS-MPI simple) contient une procédure pas à pas pour créer une application MPI simple à l’aide de MS-MPI.
 
 - Consultez la page [Microsoft MPI][msmpi_msdn] sur MSDN pour en savoir plus sur MS-MPI.
 

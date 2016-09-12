@@ -102,7 +102,7 @@ Pour plus d'informations sur la grammaire, l'utilisation et les exemples Transac
 
 ### À propos des balises « S’applique à »
 
-La référence sur Transact-SQL comprend des rubriques relatives aux versions de SQL Server de 2008 jusqu'à présent. Sous le titre de la rubrique se trouve une barre d’icônes qui répertorie les quatre plateformes SQL Server et indique l’applicabilité. Par exemple, la fonction des groupes de disponibilité ont été introduits dans SQL Server 2012. La rubrique [CREATE AVAILABILTY GROUP](https://msdn.microsoft.com/library/ff878399.aspx) indique que les instructions s’appliquent à ** SQL Server (à partir de 2012). L’instruction ne s’applique pas à SQL Server 2008, SQL Server 2008 R2, à la base de données SQL Azure, à Azure SQL Data Warehouse ou à Parallel Data Warehouse.
+La référence sur Transact-SQL comprend des rubriques relatives aux versions de SQL Server de 2008 jusqu'à présent. Sous le titre de la rubrique se trouve une barre d’icônes qui répertorie les quatre plateformes SQL Server et indique l’applicabilité. Par exemple, la fonction des groupes de disponibilité ont été introduits dans SQL Server 2012. La rubrique [CREATE AVAILABILTY GROUP](https://msdn.microsoft.com/library/ff878399.aspx) indique que les instructions s’appliquent à** SQL Server (à partir de 2012). L’instruction ne s’applique pas à SQL Server 2008, SQL Server 2008 R2, à la base de données SQL Azure, à Azure SQL Data Warehouse ou à Parallel Data Warehouse.
 
 Dans certains cas, le sujet général d'une rubrique peut être utilisé dans un produit, mais il existe des différences mineures entre les produits. Les différences sont indiquées dans la rubrique comme il convient.
 

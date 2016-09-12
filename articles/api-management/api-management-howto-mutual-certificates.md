@@ -128,7 +128,7 @@ Pour plus d'informations sur les autres méthodes de sécurisation de votre serv
 
 [Entité de certificat API REST de gestion des API Azure]: http://msdn.microsoft.com/library/azure/dn783483.aspx
 [WebApp-GraphAPI-DotNet]: https://github.com/AzureADSamples/WebApp-GraphAPI-DotNet
-[pour configurer l’authentification avec certificat dans Azure WebSites, consultez cet article]: https://azure.microsoft.com/fr-FR/documentation/articles/app-service-web-configure-tls-mutual-auth/
+[pour configurer l’authentification avec certificat dans Azure WebSites, consultez cet article]: https://azure.microsoft.com/documentation/articles/app-service-web-configure-tls-mutual-auth/
 
 [Prerequisites]: #prerequisites
 [Upload a client certificate]: #step1

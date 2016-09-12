@@ -32,7 +32,7 @@ Avant d’amorcer votre migration, prenez le temps de lire ces articles afin de 
 
 ## Étapes suivantes
 
-L’équipe de conseils à la clientèle (CAT, Customer Advisory Team) peut également fournir quelques recommandations sur SQL Data Warehouse, qu’elle publie en tant que billets de blog. Consultez son article [Migrating data to Azure SQL Data Warehouse in practice][] (Migration des données vers Azure SQL Data Warehouse dans la pratique) pour obtenir des conseils supplémentaires sur la migration.
+L’équipe de conseils à la clientèle (CAT, Customer Advisory Team) peut également fournir quelques recommandations sur SQL Data Warehouse, qu’elle publie en tant que billets de blog. Consultez son article [Migrating data to Azure SQL Data Warehouse in practice][] \(Migration des données vers Azure SQL Data Warehouse dans la pratique) pour obtenir des conseils supplémentaires sur la migration.
 
 <!--Image references-->
 

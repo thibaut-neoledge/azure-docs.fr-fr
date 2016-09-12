@@ -285,7 +285,7 @@ Pour plus d’informations sur la création de journaux d’application dans Web
 
 ### Ajout d'instructions de suivi à l'application
 
-1. Ouvrez *Controllers\\HomeController.cs*, puis remplacez les méthodes `Index`, `About` et `Contact` par le code suivant afin d’ajouter les instructions `Trace` et une instruction `using` pour `System.Diagnostics` :
+1. Ouvrez *Controllers\HomeController.cs*, puis remplacez les méthodes `Index`, `About` et `Contact` par le code suivant afin d’ajouter les instructions `Trace` et une instruction `using` pour `System.Diagnostics` :
 
 		public ActionResult Index()
 		{

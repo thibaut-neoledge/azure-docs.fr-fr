@@ -54,7 +54,7 @@ Mais Azure Active Directory Identity Protection est plus qu’un outil de survei
 
 ####Exploration du service Identity Protection 
 
-**Détection des événements et des comptes à risque :**
+**Détection des événements et des comptes à risque :**
 
 - Détection de 6 types d’événements à risque à l’aide de l’apprentissage automatique et des règles heuristiques
 
@@ -64,7 +64,7 @@ Mais Azure Active Directory Identity Protection est plus qu’un outil de survei
 
 <br>
 
-**Examen des événements à risque :**
+**Examen des événements à risque :**
 
 - Envoi de notifications pour les événements à risque
 
@@ -76,7 +76,7 @@ Mais Azure Active Directory Identity Protection est plus qu’un outil de survei
 
 <br>
 
-**Stratégies d’accès conditionnel en fonction des risques :**
+**Stratégies d’accès conditionnel en fonction des risques :**
 
 - Stratégie pour atténuer les connexions à risque en bloquant les connexions ou en imposant des demandes d’authentification multifacteur.
 
@@ -102,7 +102,8 @@ Certains de ces événements à risque sont disponibles via les rapports d’act
 | Connexions depuis des appareils infectés | Connexions à partir d’appareils potentiellement infectés |
 | Connexions depuis des adresses IP anonymes | Connexions à partir de sources inconnues |
 | Connexions depuis des adresses IP avec des activités suspectes |	Connexions depuis des adresses IP avec des activités suspectes |
-| Connexions depuis des emplacements non connus | - | | Événements de verrouillage (non disponible dans la version préliminaire publique) | - |
+| Connexions depuis des emplacements non connus | - |
+| Événements de verrouillage (non disponible dans la version préliminaire publique) | - |
 
 Les rapports d’activités anormales d’Azure AD suivants ne sont pas inclus en tant qu’événements à risque dans Azure AD Identity Protection et ne sont donc pas disponibles via Identity Protection. Ces rapports sont toujours disponibles dans le portail de gestion Azure, mais ils seront rendus obsolètes ultérieurement du fait de leur remplacement par des événements à risque dans Identity Protection.
 
@@ -134,7 +135,7 @@ Votre parcours dans Identity Protection commence généralement par le tableau d
 
 <br><br> ![Correction](./media/active-directory-identityprotection/29.png "Correction") <br>
 
-Le tableau de bord vous donne accès à :
+Le tableau de bord vous donne accès à :
  
 - des rapports comme **Utilisateurs associés à un indicateur de risque**, **Événements à risque** et **Vulnérabilités** ;
 - des paramètres vous permettant notamment de configurer vos **stratégies de sécurité**, vos **notifications** et l’**inscription à l’authentification multifacteur**.
@@ -148,13 +149,13 @@ Les sections suivantes fournissent plus de détails, ainsi que les étapes liée
 
 
 
-## Qu’est-ce que le niveau de risque d’un utilisateur ?
+## Qu’est-ce que le niveau de risque d’un utilisateur ?
 
 Le niveau de risque d’un utilisateur est une indication (Élevé, Moyen ou Faible) de la probabilité que l’identité de l’utilisateur ait été compromise. Il est calculé en fonction des événements à risque associés à l’identité de l’utilisateur.
 
 L’état d’un événement à risque est soit **Actif**, soit **Fermé**. Seuls les événements à risque dont l’état est défini sur **Actif** entrent dans le calcul du risque d’un utilisateur.
 
-Le niveau de risque d’un utilisateur est calculé à l’aide des données suivantes :
+Le niveau de risque d’un utilisateur est calculé à l’aide des données suivantes :
 
 - Événements à risque actifs ayant un impact sur l’utilisateur
 - Niveau de risque de ces événements
@@ -209,7 +210,7 @@ Pour corriger les événements à risque d’un utilisateur, vous pouvez procéd
 
 Une réinitialisation de mot de passe sécurisée est une mesure de correction efficace pour de nombreux événements à risque. Lorsqu’elle est effectuée, ces événements à risque sont fermés et le niveau de risque de l’utilisateur correspondant recalculé automatiquement. Vous pouvez utiliser le tableau de bord d’Identity Protection afin de lancer une réinitialisation de mot de passe pour un utilisateur à risque.
 
-La boîte de dialogue connexe fournit deux méthodes différentes pour réinitialiser le mot de passe :
+La boîte de dialogue connexe fournit deux méthodes différentes pour réinitialiser le mot de passe :
 
 **Réinitialiser le mot de passe** : sélectionnez **Demander à l’utilisateur de réinitialiser le mot de passe** pour permettre à l’utilisateur de récupérer lui-même son compte s’il s’est inscrit à l’authentification multifacteur. La prochaine fois que l’utilisateur se connectera, il devra résoudre une demande d’authentification multifacteur, puis sera obligé de changer le mot de passe. Cette option n’est pas disponible si le compte d’utilisateur n’est pas déjà inscrit à l’authentification multifacteur.
 

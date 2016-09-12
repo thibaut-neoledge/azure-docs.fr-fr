@@ -22,7 +22,7 @@
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 
-**Important** : le contrat SLA de la plateforme Azure s’applique aux machines virtuelles exécutant le système d’exploitation Linux uniquement lorsqu’une des [distributions approuvées](virtual-machines-linux-endorsed-distros.md) est utilisée. Toutes les distributions Linux fournies dans la galerie d'images Azure sont des distributions reconnues répondant à la configuration requise.
+**Important** : le contrat SLA de la plateforme Azure s’applique aux machines virtuelles exécutant le système d’exploitation Linux uniquement lorsqu’une des [distributions approuvées](virtual-machines-linux-endorsed-distros.md) est utilisée. Toutes les distributions Linux fournies dans la galerie d'images Azure sont des distributions reconnues répondant à la configuration requise.
 
 - [Linux sur Azure : Distributions approuvées](virtual-machines-linux-endorsed-distros.md)
 - [Prise en charge d’images Linux dans Microsoft Azure](https://support.microsoft.com/kb/2941892)
@@ -111,7 +111,7 @@ Pour résoudre ce problème, vous pouvez redimensionner la machine virtuelle à 
 
 Les pilotes LIS (Linux Integration Services) pour Hyper-V et Azure sont directement liés au noyau Linux en amont. Ces pilotes sont déjà disponibles dans de nombreuses distributions qui comprennent une version récente du noyau Linux (3.x et supérieures). Sinon, ces distributions fournissent des versions rétroportées de ces pilotes avec leurs noyaux. Ces pilotes sont mis à jour en permanence dans le noyau en amont avec de nouveaux correctifs et de nouvelles fonctionnalités. Aussi, dans la mesure du possible, il est recommandé d'exécuter une [distribution approuvée](virtual-machines-linux-endorsed-distros.md) comportant ces correctifs et ces modifications.
 
-Si vous exécutez une variante des versions Red Hat Enterprise Linux **6.0-6.3**, vous devez installer les pilotes LIS les plus récents pour Hyper-V. Les pilotes sont disponibles [ici](http://go.microsoft.com/fwlink/p/?LinkID=254263&clcid=0x409). Pour RHEL **6.4+** (et les distributions dérivées), les pilotes LIS sont déjà inclus dans le noyau ; aucun package d'installation supplémentaire n'est donc nécessaire pour exécuter ces systèmes sur Azure.
+Si vous exécutez une variante des versions Red Hat Enterprise Linux **6.0-6.3**, vous devez installer les pilotes LIS les plus récents pour Hyper-V. Les pilotes sont disponibles [ici](http://go.microsoft.com/fwlink/p/?LinkID=254263&clcid=0x409). Pour RHEL **6.4+** (et les distributions dérivées), les pilotes LIS sont déjà inclus dans le noyau ; aucun package d'installation supplémentaire n'est donc nécessaire pour exécuter ces systèmes sur Azure.
 
 Si un noyau personnalisé est requis, il est recommandé d’utiliser une version plus récente du noyau (c.à.d. **3.8+**). Pour ces distributions ou les fournisseurs qui maintiennent leur propre noyau, il est nécessaire de rétroporter régulièrement les pilotes LIS du noyau en amont vers votre noyau personnalisé. Même si vous exécutez une version relativement récente du noyau, il est fortement recommandé de conserver une trace des correctifs en amont des pilotes LIS et de les rétroporter en fonction des besoins. L'emplacement des fichiers sources du pilote LIS est disponible dans le fichier [MAINTAINERS](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/tree/MAINTAINERS) dans l'arborescence source du noyau Linux :
 

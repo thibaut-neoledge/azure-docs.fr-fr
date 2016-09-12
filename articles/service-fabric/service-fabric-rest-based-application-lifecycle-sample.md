@@ -24,10 +24,10 @@ Cet exemple effectue les opérations suivantes :
 
 * approvisionne l’exemple **WordCount 1.0.0** à partir du package d’application WordCount dans le magasin d’images ;
 * affiche la liste des types d’applications, dont WordCount 1.0.0 ;
-* crée l’application WordCount sous la forme **fabric:/WordCount** ;
+* crée l’application WordCount sous la forme **fabric:/WordCount** ;
 * affiche la liste des applications, dont fabric:/WordCount version 1.0.0 ;
 * approvisionne la version 1.1.0 de l’exemple WordCount à partir du package d’application **WordCountUpgrade** dans le magasin d’images ;
-* affiche la liste des types d’applications, dont WordCount 1.0.0 et **WordCount 1.1.0** ;
+* affiche la liste des types d’applications, dont WordCount 1.0.0 et **WordCount 1.1.0** ;
 * met à niveau l’application WordCount vers la version 1.1.0 ;
 * affiche la liste des applications, dont WordCount version 1.1.0, mais dans laquelle ne figure plus WordCount version 1.0.0 ;
 * supprime l’application WordCount ;
@@ -52,7 +52,7 @@ Pour créer les packages d’application et les copier dans le magasin d’image
 1. Copiez **C:\\ServiceFabricSamples\\Services\\WordCount\\WordCount\\pkg\\Debug** vers **C:\\Temp\\WordCount**. Cette opération permet de créer le package de l’application WordCount.
 2. Copiez C:\\Temp\\WordCount vers **C:\\Temp\\WordCountUpgrade**. Cette opération permet de créer le package de l’**application WordCountUpgrade**.
 3. Ouvrez **C:\\Temp\\WordCountUpgrade\\ApplicationManifest.xml** dans un éditeur de texte.
-4. Dans l’élément **ApplicationManifest**, modifiez l’attribut **ApplicationTypeVersion** et affectez-lui la valeur **« 1.1.0 »**. Cette opération permet de mettre à jour le numéro de version de l’application.
+4. Dans l’élément **ApplicationManifest**, modifiez l’attribut **ApplicationTypeVersion** et affectez-lui la valeur **« 1.1.0 »**. Cette opération permet de mettre à jour le numéro de version de l’application.
 5. Enregistrez le fichier ApplicationManifest.xml modifié.
 6. Exécutez le script PowerShell suivant en tant qu’administrateur afin de copier les applications dans le magasin d’images :
 

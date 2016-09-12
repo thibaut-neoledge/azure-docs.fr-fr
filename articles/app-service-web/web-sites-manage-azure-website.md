@@ -49,8 +49,8 @@ Outre ces paramètres de configuration de base, vous pouvez configurer ce qui su
 
 Configuration spécifique à la langue :
 
-- **PHP** : [configurez PHP dans Azure App Service Web Apps](web-sites-php-configure.md).
-- **Python** : [configurez Python dans Azure App Service Web Apps](web-sites-python-configure.md).
+- **PHP** : [configurez PHP dans Azure App Service Web Apps](web-sites-php-configure.md).
+- **Python** : [configurez Python dans Azure App Service Web Apps](web-sites-python-configure.md).
 
 
 ## Pendant l’exécution de votre application web

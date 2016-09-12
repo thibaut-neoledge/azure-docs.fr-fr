@@ -52,7 +52,7 @@ Pour R, vous pouvez utiliser un IDE appelé « Revolution R Enterprise 8.0 » 
 
 Pour Python, vous pouvez utiliser un IDE comme Visual Studio Community Edition qui contient l'extension Outils Python pour Visual Studio (PTVS) préinstallée. Par défaut, seule une version de base de Python 2.7 est configurée sur PTVS (sans aucune bibliothèque d’analyse comme SciKit, Pandas). Pour activer Anaconda Python 2.7 et 3.5, vous devez effectuer les opérations suivantes :
 
-* Créez des environnements personnalisés pour chaque version en accédant à **Outils** -> **Outils Python** -> **Environnements Python**, puis en cliquant sur « **+ personnalisé** » dans Visual Studio 2015 Community Edition
+* Créez des environnements personnalisés pour chaque version en accédant à **Outils** -> **Outils Python** -> **Environnements Python**, puis en cliquant sur « **+ personnalisé** » dans Visual Studio 2015 Community Edition
 * Donnez une description et définissez le préfixe du chemin d’accès de l’environnement comme *c:\\anaconda* pour Anaconda Python 2.7 OU *c:\\anaconda\\envs\\py35* pour Anaconda Python 3.5
 * Cliquez sur **Détection automatique** puis sur **Appliquer** pour enregistrer l’environnement.
 

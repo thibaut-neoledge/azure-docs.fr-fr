@@ -221,7 +221,7 @@ Si un nouvel assistant nommé **David Alexander** est affecté à cet objet Pers
 
 **Default** : lorsque vous sélectionnez l’option Default, toutes les valeurs de tous les attributs sont importées.
 
-**Multivalued to Single Value** : lorsque vous sélectionnez cette option, un attribut à plusieurs valeurs est converti en un attribut à valeur unique. Si plusieurs valeurs existent, la valeur en haut (en général, c’est aussi la plus récente) est utilisée.
+**Multivalued to Single Value** : lorsque vous sélectionnez cette option, un attribut à plusieurs valeurs est converti en un attribut à valeur unique. Si plusieurs valeurs existent, la valeur en haut (en général, c’est aussi la plus récente) est utilisée.
 
 Par exemple : l’attribut Assistant d’un objet Personne possède les valeurs suivantes :
 

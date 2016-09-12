@@ -204,13 +204,13 @@ query.readWithCompletion { (result, error) in
 
 Pour limiter les champs à retourner dans une requête, spécifiez les noms des champs dans la propriété **selectFields**. Le code suivant renvoie uniquement les champs text et completed :
 
-**Objective-C** :
+**Objective-C** :
 
 ```
 query.selectFields = @[@"text", @"complete"];
 ```
 
-**Swift** :
+**Swift** :
 
 ```
 query.selectFields = ["text", "complete"]
@@ -218,7 +218,7 @@ query.selectFields = ["text", "complete"]
 
 Pour inclure des paramètres de chaîne de requête supplémentaires dans la demande serveur (par exemple, si un script côté serveur personnalisé les utilise), remplissez `query.parameters` comme suit :
 
-**Objective-C** :
+**Objective-C** :
 
 ```
 query.parameters = @{
@@ -227,7 +227,7 @@ query.parameters = @{
 };
 ```
 
-**Swift** :
+**Swift** :
 
 ```
 query.parameters = ["myKey1": "value1", "myKey2": "value2"]
@@ -241,7 +241,7 @@ Si `id` n'est pas fourni, le backend génère automatiquement un nouvel ID uniqu
 
 L’élément `result` contient le nouvel élément qui a été inséré ; selon la logique du serveur, il peut afficher des données supplémentaires ou modifiées par rapport à ce qui a été transmis au serveur.
 
-**Objective-C** :
+**Objective-C** :
 
 ```
 NSDictionary *newItem = @{@"id": @"custom-id", @"text": @"my new item", @"complete" : @NO};
@@ -254,7 +254,7 @@ NSDictionary *newItem = @{@"id": @"custom-id", @"text": @"my new item", @"comple
 }];
 ```
 
-**Swift** :
+**Swift** :
 
 ```
 let newItem = ["id": "custom-id", "text": "my new item", "complete": false]
@@ -271,7 +271,7 @@ table.insert(newItem) { (result, error) in
 
 Pour mettre à jour une ligne existante, modifiez un élément et appelez `update` :
 
-**Objective-C** :
+**Objective-C** :
 
 ```
 NSMutableDictionary *newItem = [oldItem mutableCopy]; // oldItem is NSDictionary
@@ -285,7 +285,7 @@ NSMutableDictionary *newItem = [oldItem mutableCopy]; // oldItem is NSDictionary
 }];
 ```
 
-**Swift** :
+**Swift** :
 
 ```
 if let newItem = oldItem.mutableCopy() as? NSMutableDictionary {
@@ -332,7 +332,7 @@ Au minimum, l'attribut `id` doit être défini quand vous effectuez des mises à
 
 Pour supprimer un élément, appelez `delete` avec l'élément :
 
-**Objective-C** :
+**Objective-C** :
 
 ```
 [table delete:item completion:^(id itemId, NSError *error) {
@@ -344,7 +344,7 @@ Pour supprimer un élément, appelez `delete` avec l'élément :
 }];
 ```
 
-**Swift** :
+**Swift** :
 
 ```
 table.delete(newItem as [NSObject: AnyObject]) { (itemId, error) in
@@ -392,7 +392,7 @@ Pour appeler une API personnalisée, appelez la commande `MSClient.invokeAPI` co
 
 Pour exécuter une requête `GET` à la place d’une requête `POST`, définissez le paramètre `HTTPMethod` sur `"GET"` et le paramètre `body` sur `nil` (étant donné que les requêtes GET ne comportent pas de corps de message). Si votre API personnalisée prend en charge les autres verbes HTTP, modifiez `HTTPMethod` en conséquence.
 
-**Objective-C** :
+**Objective-C** :
 ```
 [self.client invokeAPI:@"sendEmail"
                   body:@{ @"contents": @"Hello world!" }
@@ -408,7 +408,7 @@ Pour exécuter une requête `GET` à la place d’une requête `POST`, définiss
             }];
 ```
 
-**Swift** :
+**Swift** :
 
 ```
 client.invokeAPI("sendEmail",
@@ -452,13 +452,13 @@ Pour inscrire des modèles, transmettez-les simplement avec votre méthode **cli
 
 Vos modèles sont de type NSDictionary et peuvent contenir plusieurs modèles au format suivant :
 
-**Objective-C** :
+**Objective-C** :
 
 ```
 NSDictionary *iOSTemplate = @{ @"templateName": @{ @"body": @{ @"aps": @{ @"alert": @"$(message)" } } } };
 ```
 
-**Swift** :
+**Swift** :
 
 ```
 let iOSTemplate = ["templateName": ["body": ["aps": ["alert": "$(message)"]]]]
@@ -474,13 +474,13 @@ Quand vous appelez un service mobile, le bloc completion contient un paramètre 
 
 Le fichier [`<WindowsAzureMobileServices/MSError.h>`](https://github.com/Azure/azure-mobile-services/blob/master/sdk/iOS/src/MSError.h) définit les constantes `MSErrorResponseKey`, `MSErrorRequestKey` et `MSErrorServerItemKey` pour accéder à davantage d’informations sur l’erreur, comme indiqué ci-après :
 
-**Objective-C** :
+**Objective-C** :
 
 ```
 NSDictionary *serverItem = [error.userInfo objectForKey:MSErrorServerItemKey];
 ```
 
-**Swift** :
+**Swift** :
 
 ```
 let serverItem = error.userInfo[MSErrorServerItemKey]
@@ -488,13 +488,13 @@ let serverItem = error.userInfo[MSErrorServerItemKey]
 
 En outre, le fichier définit des constantes pour chaque code d'erreur, comme indiqué ci-après :
 
-**Objective-C** :
+**Objective-C** :
 
 ```
 if (error.code == MSErrorPreconditionFailed) {
 ```
 
-**Swift** :
+**Swift** :
 
 ```
 if (error.code == MSErrorPreconditionFailed) {
@@ -527,7 +527,7 @@ et le pod :
 
 * Remplacez **INSERT-REDIRECT-URI-HERE** par le point de terminaison _/.auth/login/done_ de votre site, en utilisant le modèle HTTPS. Cette valeur doit être similaire à \_https://contoso.azurewebsites.net/.auth/login/done_.
 
-**Objective-C** :
+**Objective-C** :
 
 	#import <ADALiOS/ADAuthenticationContext.h>
 	#import <ADALiOS/ADAuthenticationSettings.h>
@@ -618,7 +618,7 @@ Vous pouvez utiliser le kit de développement logiciel (SDK) Facebook pour iOS p
 
 4. Ajoutez le code ci-dessous à votre application, en fonction du langage utilisé.
 
-**Objective-C** :
+**Objective-C** :
 
 	#import <FBSDKLoginKit/FBSDKLoginKit.h>
 	#import <FBSDKCoreKit/FBSDKAccessToken.h>
@@ -645,7 +645,7 @@ Vous pouvez utiliser le kit de développement logiciel (SDK) Facebook pour iOS p
 	}
 
 
-**Swift** :
+**Swift** :
 
 	// Add the following imports to your bridging header:
 	//		#import <FBSDKLoginKit/FBSDKLoginKit.h>
@@ -679,7 +679,7 @@ Vous pouvez utiliser Twitter Fabric pour iOS pour identifier les utilisateurs su
 
 	Si vous choisissez d’utiliser les clés secrètes que vous avez créées précédemment, ajoutez ce qui suit à votre délégué d’application :
 	
-	**Objective-C** :
+	**Objective-C** :
 
 		#import <Fabric/Fabric.h>
 		#import <TwitterKit/TwitterKit.h>
@@ -692,7 +692,7 @@ Vous pouvez utiliser Twitter Fabric pour iOS pour identifier les utilisateurs su
 		    return YES;
 		}
 		
-	**Swift** :
+	**Swift** :
 	
 		import Fabric
 		import TwitterKit
@@ -706,7 +706,7 @@ Vous pouvez utiliser Twitter Fabric pour iOS pour identifier les utilisateurs su
 	
 3. Ajoutez le code ci-dessous à votre application, en fonction du langage utilisé.
 
-**Objective-C** :
+**Objective-C** :
 
 	#import <TwitterKit/TwitterKit.h>
 	// ...
