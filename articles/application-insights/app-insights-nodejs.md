@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/25/2016"
+	ms.date="08/30/2016"
 	ms.author="awills"/>
 
 
@@ -26,7 +26,7 @@
 
 Le SDK collecte automatiquement les taux de demandes HTTP entrantes et les réponses, les compteurs de performances (processeur, mémoire, RPS) et les exceptions non prises en charge. Vous pouvez également ajouter des appels personnalisés pour effectuer le suivi des dépendances, mesures ou autres événements.
 
-![Exemples de graphiques d’analyse des performances](./media/app-insights-asp-net-manual/10-perf.png)
+![Exemples de graphiques d’analyse des performances](./media/app-insights-windows-services/10-perf.png)
 
 
 #### Avant de commencer
@@ -40,7 +40,7 @@ Ce dont vous avez besoin :
 
 Connectez-vous au [portail Azure][portal] et créez une ressource Application Insights. Dans Azure, une [ressource][roles] correspond à l’instance d'un service. Cette ressource correspond à l’emplacement où les données de télémétrie de votre application sont analysées avant de vous être présentées.
 
-![Cliquez sur Nouveau > Application Insights](./media/app-insights-asp-net-manual/01-new-asp.png)
+![Cliquez sur Nouveau > Application Insights](./media/app-insights-windows-services/01-new-asp.png)
 
 Comme type d’application, choisissez Autre. Le choix du type d’application définit le contenu par défaut des panneaux de ressource et les propriétés visibles dans [Metrics Explorer][metrics].
 
@@ -48,7 +48,7 @@ Comme type d’application, choisissez Autre. Le choix du type d’application d
 
 La clé identifie la ressource. Vous allez bientôt l’installer dans le Kit de développement logiciel (SDK) pour diriger les données vers la ressource.
 
-![Cliquez sur Propriétés, sélectionnez la clé et appuyez sur ctrl + C](./media/app-insights-asp-net-manual/02-props-asp.png)
+![Cliquez sur Propriétés, sélectionnez la clé et appuyez sur ctrl + C](./media/app-insights-windows-services/02-props-asp.png)
 
 
 ## <a name="sdk"></a> Installer le Kit de développement logiciel (SDK) dans votre application
@@ -84,7 +84,7 @@ Revenez au [portail Azure](https://portal.azure.com) et accédez à votre ressou
 
 Recherchez des données dans la page de présentation. Au début, seuls un ou deux points s'affichent. Par exemple :
 
-![Cliquez sur d'autres éléments pour afficher plus de données](./media/app-insights-asp-net-manual/12-first-perf.png)
+![Cliquez sur d'autres éléments pour afficher plus de données](./media/app-insights-windows-services/12-first-perf.png)
 
 Cliquez sur un des graphiques pour afficher des métriques plus détaillées. [En savoir plus sur les mesures.][perf]
 
@@ -212,6 +212,10 @@ server.on("listening", () => {
 });
 ```
 
+## Étapes suivantes
+
+* [Navigation et tableaux de bord dans le portail Application Insights](app-insights-dashboards.md)
+* [Écrire des requêtes Analytics via vos données de télémétrie (app-insights-analytics-tour.md)]
 
 
 
@@ -224,4 +228,4 @@ server.on("listening", () => {
 [qna]: app-insights-troubleshoot-faq.md
 [roles]: app-insights-resources-roles-access-control.md
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0907_2016-->

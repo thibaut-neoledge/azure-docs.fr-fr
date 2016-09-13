@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Active Directory Federation Services dans Azure | Microsoft Azure"
 	description="Dans ce document, vous allez apprendre à déployer AD FS dans Azure pour bénéficier d’une haute disponibilité."
-    keywords="introduction à AD FS, Azure, présentation d’Azure AD Connect, AD FS dans Azure, iaas, ADFS"
+    keywords="déployer AD FS dans azure, déployer azure adfs, azure adfs, azure ad fs, déployer adfs, déployer ad fs, adfs dans azure, déployer adfs dans azure, déployer AD FS dans azure, adfs azure, présentation d’AD FS, Azure, AD FS dans Azure, iaas, ADFS, déplacer adfs vers azure"
 	services="active-directory"
 	documentationCenter=""
 	authors="anandyadavmsft"
@@ -261,8 +261,7 @@ En général, vous devez appliquer les règles suivantes pour sécuriser efficac
 |DenyAllFromDMZ| Cette règle bloque l’ensemble du trafic entre la zone DMZ et le sous-réseau interne. La règle AllowHTTPSFromDMZ veille d’ores et déjà à ce que les communications HTTPS aboutissent ; tout autre trafic est par conséquent bloqué grâce à cette règle | Trafic entrant |
 |DenyInternetOutbound| Aucun accès à Internet | Règle de trafic sortant |
 
-[commentaire]: <> (![Règles d’accès INT (entrant)](./media/active-directory-aadconnect-azure-adfs/nsgintinbound.png)) 
-[commentaire]: <> (![Règles d’accès INT (sortant)](./media/active-directory-aadconnect-azure-adfs/nsgintoutbound.png))
+[commentaire] : <> (![Règles d’accès INT (entrant)](./media/active-directory-aadconnect-azure-adfs/nsgintinbound.png)) [commentaire] : <> (![Règles d’accès INT (sortant)](./media/active-directory-aadconnect-azure-adfs/nsgintoutbound.png))
  
 **9.2. Sécurisation du sous-réseau DMZ**
 
@@ -273,8 +272,7 @@ En général, vous devez appliquer les règles suivantes pour sécuriser efficac
 |DenyingressexceptHTTPS| Bloquer tout trafic autre que HTTPS à partir d’Internet | Trafic entrant |
 |DenyOutToInternet|	Tout trafic est bloqué, à l’exception du trafic HTTPS vers Internet | Règle de trafic sortant |
 
-[commentaire]: <> (![Règles d’accès EXT (entrant)](./media/active-directory-aadconnect-azure-adfs/nsgdmzinbound.png)) 
-[commentaire]: <> (![Règles d’accès EXT (sortant)](./media/active-directory-aadconnect-azure-adfs/nsgdmzoutbound.png))
+[commentaire] : <> (![Règles d’accès EXT (entrant)](./media/active-directory-aadconnect-azure-adfs/nsgdmzinbound.png)) [commentaire] : <> (![Règles d’accès EXT (sortant)](./media/active-directory-aadconnect-azure-adfs/nsgdmzoutbound.png))
 
 >[AZURE.NOTE] Si l’authentification du certificat utilisateur client (authentification clientTLS à l’aide de certificats utilisateur X509) est requise, AD FS nécessite l’activation du port TCP 49443 pour l’accès entrant.
 
@@ -304,5 +302,6 @@ Si l’authentification aboutit, vous obtenez le message de confirmation ci-dess
 
 * [Intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md)
 * [Configuration et gestion de vos services AD FS avec Azure AD Connect](active-directory-aadconnectfed-whatis.md)
+* [Déploiement des services AD FS haute disponibilité par-delà les frontières dans Azure avec Azure Traffic Manager](active-directory-adfs-in-azure-with-azure-traffic-manager.md)
 
-<!----HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -13,8 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/18/2016"
-   ms.author="sonyam;barbkess;sonyama"/>
+   ms.date="09/01/2016"
+   ms.author="sonyama;barbkess"/>
 
 # Création d’un ticket de support pour SQL Data Warehouse
  
@@ -38,9 +38,9 @@ Si vous rencontrez des problèmes avec votre SQL Data Warehouse, créez un ticke
 
     ![Type de demande](./media/sql-data-warehouse-get-started-create-support-ticket/request-type.png)
     
-    >[AZURE.NOTE]  Par défaut, le **Quota de DTU** de chaque serveur SQL (par exemple, myserver.database.windows.net) est de 45 000. Ce quota constitue simplement une limite de sécurité. Vous pouvez augmenter votre quota en créant un ticket de support et en sélectionnant *Quota* en tant que type de demande. Pour calculer vos besoins en matière de DTU, vous devez savoir que chaque tranche de 100 [DWU][] de SQL Data Warehouse consomme 750 DTU. Par conséquent, le quota par défaut de 45 000 vous permettra de créer une base de données allant jusqu’à DW6000 (45 000 / 750) ou plusieurs bases de données moins volumineuses, comportant moins de DWU. Si, par exemple, vous souhaitez héberger deux bases de données DW6000 sur un serveur SQL unique, vous devez demander un quota de DTU de 90 000. Vous pouvez consulter votre consommation de DTU actuelle dans le panneau SQL Server dans le portail. Les bases de données suspendues et réactivées sont prises en compte dans le quota de DTU.
+    >[AZURE.NOTE]  Par défaut, le **Quota de DTU** de chaque serveur SQL (par exemple, myserver.database.windows.net) est de 45 000. Ce quota constitue simplement une limite de sécurité. Vous pouvez augmenter votre quota en créant un ticket de support et en sélectionnant *Quota* en tant que type de demande. Pour calculer vos besoins en matière de DTU, multipliez le nombre total de [DWU][] nécessaire par 7,5. Si, par exemple, vous souhaitez héberger deux bases de données DW6000 sur un serveur SQL unique, vous devez demander un quota de DTU de 90 000. Vous pouvez consulter votre consommation de DTU actuelle dans le panneau SQL Server dans le portail. Les bases de données suspendues et réactivées sont prises en compte dans le quota de DTU.
 
-5. Sélectionnez l'**abonnement** qui héberge la base de données avec le problème que vous voulez signaler.
+5. Sélectionnez l’**abonnement** qui héberge la base de données présentant le problème que vous voulez signaler.
 
     ![Abonnement](./media/sql-data-warehouse-get-started-create-support-ticket/subscription.png)
 
@@ -105,4 +105,4 @@ En outre, vous pouvez contacter la communauté SQL Data Warehouse sur [Stack Ove
 [Stack Overflow]: https://stackoverflow.com/questions/tagged/azure-sqldw/
 [forum MSDN Azure SQL Data Warehouse]: https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse/
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0907_2016-->

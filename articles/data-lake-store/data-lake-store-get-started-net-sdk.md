@@ -27,20 +27,20 @@
 - [Interface de ligne de commande Azure](data-lake-store-get-started-cli.md)
 - [Node.JS](data-lake-store-manage-use-nodejs.md)
 
-Apprenez à utiliser le Kit de développement logiciel (SDK) .NET Azure Data Lake Store pour créer un compte Azure Data Lake et effectuer des opérations de base comme créer des dossiers, télécharger des fichiers de données, supprimer votre compte, etc. Pour plus d’informations sur Data Lake, consultez [Azure Data Lake Store](data-lake-store-overview.md).
+Découvrez comment utiliser le [Kit de développement logiciel (SDK) .NET Azure Data Lake Store](https://msdn.microsoft.com/library/mt581387.aspx) pour créer un compte Azure Data Lake et effectuer des opérations de base comme créer des dossiers, charger et télécharger des fichiers de données, supprimer votre compte, etc. Pour plus d’informations sur Data Lake, consultez [Azure Data Lake Store](data-lake-store-overview.md).
 
-## Configuration requise
+## Composants requis
 
 * Visual Studio 2013 ou 2015. Les instructions ci-dessous utilisent Visual Studio 2015.
 * **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Activez votre abonnement Azure** pour la version d'évaluation publique de Data Lake Store. Consultez les [instructions](data-lake-store-get-started-portal.md#signup).
+* **Activez votre abonnement Azure** pour la version d’évaluation publique de Data Lake Store. Consultez les [instructions](data-lake-store-get-started-portal.md#signup).
 * **Créez une application Azure Active Directory**. Il existe deux modes d’authentification à l’aide d’Azure Active Directory : **interactif** et **non interactif**. Les conditions préalables requises varient selon le mode d’authentification.
-	* **Pour l’authentification interactive** (utilisée dans cet article) - Dans Azure Active Directory, vous devez créer une **application cliente native**. Une fois que vous avez créé l’application, récupérez les valeurs suivantes liées à l’application.
-		- Obtenir l’**ID client** et l’**URI de redirection** associés à l’application
+	* **Pour l’authentification interactive** (utilisée dans cet article) : dans Azure Active Directory, vous devez créer une **application cliente native**. Une fois que vous avez créé l’application, récupérez les valeurs suivantes liées à l’application.
+		- Obtenez l’**ID client** et l’**URI de redirection** associés à l’application.
 		- Définir des autorisations déléguées
 
-	* **Pour l’authentification non interactive** - Dans Azure Active Directory, vous devez créer une **application web**. Une fois que vous avez créé l’application, récupérez les valeurs suivantes liées à l’application.
-		- Obtenir l’**ID client**, la **clé secrète client** et l’**URI de redirection** associés à l’application
+	* **Pour l’authentification non interactive** : dans Azure Active Directory, vous devez créer une **application web**. Une fois que vous avez créé l’application, récupérez les valeurs suivantes liées à l’application.
+		- Obtenez l’**ID client**, la **clé secrète client** et l’**URI de redirection** associés à l’application.
 		- Définir des autorisations déléguées
 		- Attribuez l’application Azure Active Directory à un rôle. Le rôle détermine le niveau de l’étendue pour laquelle vous souhaitez accorder des autorisations à l’application Azure Active Directory. Par exemple, vous pouvez affecter l’application au niveau de l’abonnement ou au niveau d’un groupe de ressources.
 
@@ -80,7 +80,7 @@ Apprenez à utiliser le Kit de développement logiciel (SDK) .NET Azure Data La
 
 	5. Fermez le **Gestionnaire de package NuGet**.
 
-7. Ouvrez **Program.cs**, supprimez le code existant, puis intégrez les instructions suivantes pour ajouter des références aux espaces de noms.
+7. Ouvrez **Program.cs**, supprimez le code existant, puis insérez les instructions suivantes pour ajouter des références aux espaces de noms.
 
 		using System;
         using System.IO;
@@ -122,13 +122,13 @@ Apprenez à utiliser le Kit de développement logiciel (SDK) .NET Azure Data La
 			}
 		}
 
-Dans les sections suivantes de cet article, vous découvrirez comment utiliser les méthodes .NET pour effectuer des opérations telles que l’authentification des utilisateurs, la création de comptes Data Lake Store, le téléchargement de fichiers, etc.. Si vous recherchez un exemple complet d’utilisation de Data Lake Store, consultez l’[Annexe](#appendix-sample-code) à la fin de cet article.
+Dans les sections suivantes de cet article, vous découvrirez comment utiliser les méthodes .NET pour effectuer des opérations telles que l’authentification des utilisateurs, la création de comptes Data Lake Store, le téléchargement de fichiers, etc.. Si vous recherchez un exemple complet d’utilisation de Data Lake Store, consultez [l’Annexe](#appendix-sample-code) à la fin de cet article.
 
 ## Authentification de l'utilisateur
 
 Deux méthodes sont disponibles pour vous authentifier à l’aide d’Azure Active Directory :
 
-* **Interactive**, lorsqu’un utilisateur se connecte avec l’application. C’est le cas avec la méthode `AuthenticateUser` dans l’extrait de code ci-dessous.
+* **Interactive**, lorsqu’un utilisateur se connecte à l’aide de l’application. C’est le cas avec la méthode `AuthenticateUser` dans l’extrait de code ci-dessous.
 
 * **Non interactive**, lorsque l’application fournit ses propres informations d’identification. C’est le cas avec la méthode `AuthenticateAppliaction` dans l’extrait de code ci-dessous.
 
@@ -179,9 +179,9 @@ L’extrait de code suivant montre une méthode `CreateAccount` que vous pouvez 
         _adlsClient.Account.Create(_resourceGroupName, _adlsAccountName, adlsParameters);
     } 
 
-## Répertorier tous les comptes Data Lake Store pour un abonnement
+## Répertorier tous les comptes Data Lake Store d’un abonnement
 
-L’extrait de code suivant illustre la méthode `ListAdlStoreAccounts` qui vous permet de répertorier tous les comptes Data Lake Store dans un abonnement Azure donné.
+L’extrait de code suivant illustre la méthode `ListAdlStoreAccounts` qui vous permet de répertorier tous les comptes Data Lake Store d’un abonnement Azure donné.
 
 	// List all ADLS accounts within the subscription
 	public static List<DataLakeStoreAccount> ListAdlStoreAccounts()
@@ -210,7 +210,7 @@ L’extrait de code suivant montre une méthode `CreateDirectory` que vous pouve
 
 ## Télécharger un fichier sur Data Lake Store
 
-L’extrait de code suivant montre une méthode `UploadFile` que vous pouvez utiliser pour télécharger des fichiers sur un compte Data Lake Store.
+L’extrait de code suivant montre une méthode `UploadFile` que vous pouvez utiliser pour charger des fichiers vers un compte Data Lake Store.
 
 	// Upload a file
     public static void UploadFile(string srcFilePath, string destFilePath, bool force = true)
@@ -221,9 +221,11 @@ L’extrait de code suivant montre une méthode `UploadFile` que vous pouvez uti
         uploader.Execute();
     }
 
+DataLakeStoreUploader prend en charge le chargement et le téléchargement récursifs entre un chemin d’accès de fichier local (ou dossier) et Data Lake Store.
+
 ## Obtenir des informations sur un fichier ou répertoire
 
-L’extrait de code suivant montre une méthode `GetItemInfo` que vous pouvez utiliser pour récupérer des informations sur un fichier ou un répertoire disponible dans Data Lake Store.
+L’extrait de code suivant montre une méthode `GetItemInfo` que vous pouvez utiliser pour récupérer des informations sur un fichier ou un répertoire disponibles dans Data Lake Store.
 
 	// Get file or directory info
     public static FileStatusProperties GetItemInfo(string path)
@@ -525,5 +527,7 @@ Enfin, assurez-vous que le chemin d'accès local et le nom de fichier que vous f
 - [Sécuriser les données dans Data Lake Store](data-lake-store-secure-data.md)
 - [Utiliser Azure Data Lake Analytics avec Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Utiliser Azure HDInsight avec Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
+- [Data Lake Store .NET SDK Reference (Informations de référence sur le Kit de développement logiciel (SDK) .NET Azure Data Lake Store)](https://msdn.microsoft.com/library/mt581387.aspx)
+- [Data Lake Store REST Reference (Informations de référence sur les API REST Data Lake Store)](https://msdn.microsoft.com/library/mt693424.aspx)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -41,7 +41,7 @@ U-SQL est un langage hyper évolutif et hautement extensible conçu pour prépar
 
     Pour votre commodité, vous pouvez trouver un exemple de script PowerShell pour la création d’un service Data Lake Analytics et le téléchargement d’un fichier de données source dans [Annexe A - Exemple PowerShell pour la préparation du didacticiel](data-lake-analytics-data-lake-tools-get-started.md#appx-a-powershell-sample-for-preparing-the-tutorial).
 
-	Data Lake Tools ne prend pas en charge la création de comptes Data Lake Analytics. Par conséquent, vous devez le créer avec le portail Azure, Azure PowerShell, le Kit de développement logiciel (SDK) .NET ou Azure CLI. Pour lancer une tâche Data Lake Analytics, vous aurez besoin de données. Bien que Data Lake Tools prenne en charge le téléchargement de données, vous allez utiliser le portail pour télécharger les exemples de données, ce qui facilitera la progression dans ce didacticiel.
+	Data Lake Tools ne prend pas en charge la création de comptes Data Lake Analytics. Par conséquent, vous devez le créer avec le portail Azure, Azure PowerShell, le Kit de développement logiciel (SDK) .NET ou l’interface de ligne de commande Azure. Pour lancer une tâche Data Lake Analytics, vous aurez besoin de données. Bien que Data Lake Tools prenne en charge le téléchargement de données, vous allez utiliser le portail pour télécharger les exemples de données, ce qui facilitera la progression dans ce didacticiel.
 
 ## Connexion à Azure
 
@@ -50,7 +50,7 @@ U-SQL est un langage hyper évolutif et hautement extensible conçu pour prépar
 1. Ouvrez Visual Studio.
 2. Dans le menu **Affichage**, cliquez sur **Explorateur de serveurs** pour ouvrir la fenêtre du même nom. Ou appuyez sur **[CTRL] + [ALT] + S**.
 3. Cliquez avec le bouton droit sur **Azure**, cliquez sur Se connecter à un abonnement Microsoft Azure, puis suivez les instructions.
-4. Dans l’**Explorateur de serveurs**, développez **Azure**, puis **Data Lake Analytics**. Le cas échéant, la liste de vos comptes Data Lake Analytics s'affiche. Vous ne pouvez pas créer de comptes Data Lake Analytics à partir de Visual Studio. Pour créer un compte, consultez [Prendre en main Azure Data Lake Analytics avec le portail Azure](data-lake-analytics-get-started-portal.md) ou [Prendre en main Azure Data Lake Analytics avec Azure PowerShell](data-lake-analytics-get-started-powershell.md).
+4. Dans l’**Explorateur de serveurs**, développez **Azure**, puis **Data Lake Analytics**. Le cas échéant, la liste de vos comptes Data Lake Analytics s'affiche. Vous ne pouvez pas créer de comptes Data Lake Analytics à partir de Visual Studio. Pour créer un compte, consultez l’article [Prendre en main Azure Data Lake Analytics avec le portail Azure](data-lake-analytics-get-started-portal.md) ou [Prendre en main Azure Data Lake Analytics avec Azure PowerShell](data-lake-analytics-get-started-powershell.md).
 
 ## Téléchargement des fichiers de données source
 
@@ -154,7 +154,7 @@ Les travaux Data Lake Analytics sont écrits en langage U-SQL. Pour en savoir pl
 
 	- **Insertion du chemin d'accès Azure**
 
-		Plutôt que de mémoriser le chemin d'accès du fichier Azure et de le taper manuellement lors de l'écriture du script, Data Lake Tools pour Visual Studio offre une méthode facile : cliquez avec le bouton droit dans l'éditeur, cliquez sur Insérer le chemin d'accès Azure. Accédez au fichier dans la boîte de dialogue de l'Explorateur d'objets Blob Azure. Cliquez sur **OK** pour insérer le chemin d'accès dans votre code.
+		Plutôt que de mémoriser le chemin d’accès du fichier Azure et de le taper manuellement lors de l’écriture du script, Data Lake Tools pour Visual Studio offre une méthode facile : cliquez avec le bouton droit dans l’éditeur, puis cliquez sur Insérer le chemin d’accès Azure. Accédez au fichier dans la boîte de dialogue de l'Explorateur d'objets Blob Azure. Cliquez sur **OK** pour insérer le chemin d'accès dans votre code.
 
 5. Spécifiez le compte Data Lake Analytics, la base de données et le schéma. Vous pouvez sélectionner **(local)** pour exécuter le script en local à des fins de test. Pour plus d’informations, consultez [Exécuter U-SQL localement](#run-u-sql-locally).
 
@@ -162,8 +162,8 @@ Les travaux Data Lake Analytics sont écrits en langage U-SQL. Pour en savoir pl
 
     Pour plus d’informations, consultez [Utilisation du catalogue U-SQL](data-lake-analytics-use-u-sql-catalog.md).
 
-5. Dans l’**Explorateur de solutions**, cliquez avec le bouton droit sur **Script.usql**, puis cliquez sur **Générer le script**. Vérifiez le résultat dans le volet Sortie.
-6. Dans l’**Explorateur de solutions**, cliquez avec le bouton droit sur **Script.usql**, puis cliquez sur **Soumettre le script**. Si vous le souhaitez, vous pouvez également cliquer sur **Soumettre** dans le volet Script.usql. Consultez la capture d’écran précédente. Cliquez sur la flèche vers le bas en regard du bouton Soumettre pour envoyer à l'aide des options avancées :
+5. Dans **l’Explorateur de solutions**, cliquez avec le bouton droit sur **Script.usql**, puis cliquez sur **Générer le script**. Vérifiez le résultat dans le volet Sortie.
+6. Dans **l’Explorateur de solutions**, cliquez avec le bouton droit sur **Script.usql**, puis cliquez sur **Soumettre le script**. Si vous le souhaitez, vous pouvez également cliquer sur **Soumettre** dans le volet Script.usql. Consultez la capture d’écran précédente. Cliquez sur la flèche vers le bas en regard du bouton Soumettre pour envoyer à l'aide des options avancées :
 7. Indiquez le **nom du travail**, vérifiez le **compte Analytics**, puis cliquez sur **Soumettre**. Les résultats de la soumission et le lien vers la tâche sont disponibles dans la fenêtre Résultats de Data Lake Tools pour Visual Studio à l'issue de la soumission.
 
 	![Soumettre un projet U-SQL Visual Studio](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-submit-job-advanced.png)
@@ -241,7 +241,7 @@ La vidéo suivante présente la fonctionnalité d'exécution locale U-SQL :
     Pour les scripts exécutés sur le service Data Lake, le compte de stockage par défaut sera utilisé comme dossier racine et exploré en conséquence.
 
 ### Tester les scripts SQL-U localement
-Pour obtenir des instructions sur le développement de scripts SQL-U, consultez [Développer des scripts U-SQL](#develop-and-test-u-sql-scripts). Pour générer et exécuter des scripts SQL-U localement, sélectionnez **(Local)** dans la liste déroulante du cluster, puis cliquez sur **Envoyer**. Vérifiez que vous avez les bonnes données référencées - faites référence au chemin d'accès absolu ou placez les données dans le dossier DataRoot.
+Pour obtenir des instructions sur le développement de scripts SQL-U, consultez [Développer des scripts U-SQL](#develop-and-test-u-sql-scripts). Pour générer et exécuter des scripts U-SQL localement, sélectionnez **(Local)** dans la liste déroulante du cluster, puis cliquez sur **Envoyer**. Vérifiez que vous avez les bonnes données référencées - faites référence au chemin d'accès absolu ou placez les données dans le dossier DataRoot.
 
 ![Soumettre localement un projet U-SQL Visual Studio](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-submit-job-local-run.png)
 
@@ -278,11 +278,12 @@ La procédure suivante fonctionne uniquement dans Visual Studio 2015. Dans les v
 
 Pour commencer à utiliser Data Lake Analytics à l'aide de différents outils, consultez :
 
-- [Prendre en main Data Lake Analytics à l'aide du portail Azure](data-lake-analytics-get-started-portal.md)
+- [Prise en main de Data Lake Analytics à l’aide du portail Azure](data-lake-analytics-get-started-portal.md)
 - [Prise en main de Data Lake Analytics à l'aide d'Azure PowerShell](data-lake-analytics-get-started-powershell.md)
 - [Prise en main de Data Lake Analytics à l'aide du Kit de développement logiciel (SDK) .NET](data-lake-analytics-get-started-net-sdk.md)
+- [Débogage de travaux U-SQL](data-lake-analytics-debug-u-sql-jobs.md)
 
-Pour afficher les autres rubriques sur le développement :
+Pour afficher d’autres rubriques sur le développement :
 
 - [Analyser les journaux web à l'aide de Data Lake Analytics](data-lake-analytics-analyze-weblogs.md)
 - [Développer des scripts U-SQL avec Data Lake Tools pour Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
@@ -361,4 +362,4 @@ Le script PowerShell ci-après prépare un compte Azure Data Lake Analytics et l
     Get-AzureRmDataLakeStoreChildItem -Account $dataLakeStoreName -Path  "/Samples/Data/"
     #endregion
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0907_2016-->
