@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/15/2016"
+	ms.date="09/01/2016"
 	ms.author="awills"/>
 
 # Analyse développeur : langages, plateformes et intégrations
@@ -22,8 +22,6 @@ Ces éléments sont des implémentations [Application Insights](app-insights-ove
 ## Langues
 
 + [C#|VB (.NET)](app-insights-asp-net.md)
-+ [C#|VB (Windows Store)](app-insights-windows-get-started.md)
-+ [C++ (Windows Store)](app-insights-windows-cpp.md)
 + [Java](app-insights-java-get-started.md)
 + [Pages web JavaScript](app-insights-web-track-usage.md)
 + [Objective-C](https://github.com/Microsoft/ApplicationInsights-iOS)
@@ -37,7 +35,7 @@ Ces éléments sont des implémentations [Application Insights](app-insights-ove
 + [Angular](https://www.npmjs.com/package/angular-applicationinsights)
 + [ASP.NET](app-insights-asp-net.md)
 + [ASP.NET : pour les applications déjà actives](app-insights-monitor-performance-live-website-now.md)
-+ [ASP.NET 5](app-insights-asp-net-five.md)
++ [ASP.NET 5](app-insights-asp-net-core.md)
 + [Android](https://github.com/Microsoft/ApplicationInsights-Android) (HockeyApp)
 + [Applications web Azure et machines virtuelles](../azure-portal/insights-perf-analytics.md)
 + [Azure Cloud Services](app-insights-cloudservices.md) incluant les rôles web et de travail
@@ -47,12 +45,14 @@ Ces éléments sont des implémentations [Application Insights](app-insights-ove
 + [iOS](https://github.com/Microsoft/ApplicationInsights-iOS) (HockeyApp)
 + [J2EE](app-insights-java-get-started.md)
 + [J2EE : pour les applications déjà actives](app-insights-java-live.md)
+* [Application Mac OS X](https://support.hockeyapp.net/kb/client-integration-ios-mac-os-x-tvos/hockeyapp-for-mac-os-x) (HockeyApp)
 + [Node.JS](https://www.npmjs.com/package/applicationinsights)
 + [OSX](https://github.com/Microsoft/ApplicationInsights-OSX)
 + [Spring](http://joe.blog.freemansoft.com/2015/12/enabling-microsoft-application-insight.html)
+* [Application Windows universelle](https://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone/how-to-create-an-app-for-uwp) (HockeyApp)
 + [WCF](https://github.com/Microsoft/ApplicationInsights-SDK-Labs/blob/master/WCF/readme.md)
-+ [Windows Store C#|VB](app-insights-windows-get-started.md) (HockeyApp)
-+ [Windows Store C++](app-insights-windows-cpp.md) (HockeyApp)
+* [Application Windows Phone 8 et 8.1](https://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone/hockeyapp-for-windows-phone-silverlight-apps-80-and-81) (HockeyApp)
+* [Application Windows Presentation Foundation](https://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone/hockeyapp-for-windows-wpf-apps) (HockeyApp)
 + [Rôles de travail, services et applications de bureau Windows](app-insights-windows-desktop.md)
 + [Tout autre élément](#projects)
 
@@ -84,4 +84,4 @@ Ces éléments sont des implémentations [Application Insights](app-insights-ove
 
 S’il n’existe pas encore de kit de développement logiciel (SDK) pour votre langage ou plateforme, peut-être souhaitez-vous créer un ? Examinons le code des kits de développement logiciel (SDK) existants répertoriés dans le [projet Kit de développement logiciel (SDK) Application Insights sur GitHub](https://github.com/Microsoft/AppInsights-Home).
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0907_2016-->

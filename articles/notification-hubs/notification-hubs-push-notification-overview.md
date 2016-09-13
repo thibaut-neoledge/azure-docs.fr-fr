@@ -128,11 +128,15 @@ Les développeurs Mobile Apps peuvent utiliser Notification Hubs avec le flux de
 3. Envoyez des notifications de votre serveur principal d’application avec Notification Hubs
 
 Voici certains des avantages qu’offre cette intégration aux développeurs :
+
 - **SDK client Mobile Apps.** Ces Kits de développement logiciel (SDK) multi-plateformes fournissent des API simples pour l’inscription et la communication avec le hub de notification lié à l’application mobile de manière automatique. Les développeurs n’ont ni à rechercher les informations d’identification de Notification Hubs ni à utiliser de service supplémentaire.
     + Les kits de développement logiciel balisent automatiquement l’appareil avec l’identifiant utilisateur authentifié auprès de Mobile Apps pour activer le scénario de transmission de notifications Push à l’utilisateur.
     + Les kits de développement utilisent automatiquement l’ID d’installation de Mobile Apps en tant que GUID pour l’inscription auprès de Notification Hubs, ce qui évite aux développeurs d’avoir à gérer plusieurs GUID de service.
+    
 - **Modèle d’installation.** Mobile Apps fonctionne avec le modèle d’émission le plus récent de Notification Hubs pour représenter l’ensemble des propriétés d’émission associées à un appareil dans une installation JSON alignée avec les services de notifications Push et facile à utiliser.
+
 - **Flexibilité.** Les développeurs peuvent toujours choisir d’utiliser Notification Hubs directement, même avec l’intégration effective.
+
 - **Expérience intégrée dans le [portail Azure].** La fonctionnalité Notifications Push est représentée visuellement dans Mobile Apps. Les développeurs peuvent utiliser le hub de notification associé en toute simplicité via Mobile Apps.
 
 
@@ -167,8 +171,8 @@ Les références d'API managées .NET pertinentes pour les notifications Push se
   [Microsoft.WindowsAzure.Messaging.NotificationHub]: http://msdn.microsoft.com/library/microsoft.windowsazure.messaging.notificationhub.aspx
   [Microsoft.ServiceBus.Notifications]: http://msdn.microsoft.com/library/microsoft.servicebus.notifications.aspx
   [App Service Mobile Apps]: https://azure.microsoft.com/documentation/articles/app-service-mobile-value-prop/
-  [modèles]: notification-hubs-templates.md
+  [modèles]: notification-hubs-templates-cross-platform-push-messages.md
   [portail Azure]: https://portal.azure.com
   [cette page]: (http://msdn.microsoft.com/library/azure/dn530749.aspx)
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

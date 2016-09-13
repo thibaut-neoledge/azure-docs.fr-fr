@@ -13,11 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/29/2016"
+	ms.date="09/07/2016"
 	ms.author="juliako"/>
 
 
 # Création d’un compte Azure Media Services avec le portail Azure
+
+> [AZURE.SELECTOR]
+- [Portail](media-services-portal-create-account.md)
+- [PowerShell](media-services-manage-with-powershell.md)
+- [REST](http://msdn.microsoft.com/library/azure/dn194267.aspx)
 
 > [AZURE.NOTE] Pour suivre ce didacticiel, vous avez besoin d'un compte Azure. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -36,7 +41,7 @@ L'accès à Media Services requiert deux comptes associés :
 	AMS est désormais également disponible dans les centres de données suivants : Sud du Brésil, Inde-Ouest, Inde-Sud et Inde-Centre. Vous pouvez maintenant utiliser le portail Azure pour créer des comptes Media Service et effectuer les différentes tâches décrites ici. La fonctionnalité Live Encoding n'est cependant pas activée dans ces centres de données. En outre, tous les types d'unités réservées d'encodage ne sont pas disponibles dans ces centres de données.
 	
 	- Sud du Brésil : seules les unités réservées d’encodage standard et de base sont disponibles.
-	- Inde-Ouest, Inde-Sud pour les fichiers multimédias et doit se trouver dans la même zone géographique que le compte Media Services. Lorsque vous créez un compte Media Services, vous pouvez choisir un compte de stockage existant dans la même région ou en créer un. Si vous supprimez un compte Media Services, les objets blob de votre compte de stockage associé ne seront pas supprimés.
+	- Inde-Ouest, Inde-Sud : permet de stocker des objets blob pour les fichiers multimédia ; les comptes de stockage doivent se trouver dans la même zone géographique que le compte Media Services. Lorsque vous créez un compte Media Services, vous pouvez choisir un compte de stockage existant dans la même région ou en créer un. Si vous supprimez un compte Media Services, les objets blob de votre compte de stockage associé ne seront pas supprimés.
 
 ## Création d’un compte AMS
 
@@ -98,4 +103,4 @@ Vous pouvez maintenant télécharger des fichiers dans votre compte AMS. Pour pl
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

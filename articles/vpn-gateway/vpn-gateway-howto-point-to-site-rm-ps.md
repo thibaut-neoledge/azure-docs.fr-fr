@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Configuration d’une connexion VPN point à site à un réseau virtuel à l’aide du modèle de déploiement Resource Manager | Microsoft Azure"
-   description="Connectez-vous de façon sécurisée à votre réseau virtuel Azure en créant une connexion VPN point à site."
+   pageTitle="Configuration d’une connexion par passerelle VPN point à site à un réseau virtuel à l’aide du modèle de déploiement Resource Manager | Microsoft Azure"
+   description="Connectez-vous de façon sécurisée à votre réseau virtuel Azure en créant une connexion par passerelle VPN point à site."
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
@@ -22,7 +22,7 @@
 - [PowerShell - Resource Manager](vpn-gateway-howto-point-to-site-rm-ps.md)
 - [Portail - Azure Classic](vpn-gateway-point-to-site-create.md)
 
-Une configuration de point à site (P2S) vous permet de créer individuellement une connexion sécurisée à un réseau virtuel à partir d’un ordinateur client. Une connexion P2S est utile lorsque vous souhaitez vous connecter à votre réseau virtuel à partir d’un site distant, comme depuis votre domicile ou une conférence ou lorsque seulement quelques clients doivent se connecter à un réseau virtuel.
+Une configuration point à site (P2S) vous permet de connecter de manière sécurisée un ordinateur client individuel à un réseau virtuel. Une connexion P2S est utile lorsque vous souhaitez vous connecter à votre réseau virtuel à partir d’un site distant, comme depuis votre domicile ou une conférence ou lorsque seulement quelques clients doivent se connecter à un réseau virtuel.
 
 Cet article vous guide dans le processus de création d’un réseau virtuel avec une connexion de point à site dans le **modèle de déploiement Resource Manager**. Pour ce faire, vous devez utiliser PowerShell. Pour le moment, vous ne pouvez pas créer cette solution de bout en bout à l’aide du portail Azure.
 
@@ -53,7 +53,7 @@ Pour cette configuration, nous utilisons les valeurs suivantes. Nous avons défi
 - Nom du sous-réseau : **GatewaySubnet**, utilisant **192.168.200.0/24**. Le nom du sous-réseau *GatewaySubnet* est obligatoire pour que la passerelle fonctionne.
 - Pool d’adresses des clients VPN : **172.16.201.0/24**. Les clients VPN qui se connectent au réseau virtuel à l’aide de cette connexion de point à site reçoivent une adresse IP de ce pool.
 - Abonnement : Vérifiez que vous disposez de l'abonnement approprié si vous en possédez plusieurs.
-- Groupe de ressources : **TestRG**
+- Groupe de ressources : **TestRG**
 - Emplacement : **États-Unis de l’Est**
 - Serveur DNS : **Adresse IP** du serveur DNS que vous souhaitez utiliser pour la résolution de noms.
 - Nom de passerelle : **GW**
@@ -65,7 +65,7 @@ Pour cette configuration, nous utilisons les valeurs suivantes. Nous avons défi
 
 - Assurez-vous de disposer d’un abonnement Azure. Si vous ne disposez pas déjà d’un abonnement Azure, vous pouvez activer vos [avantages abonnés MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou créer un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/).
 	
-- Installez les applets de commande PowerShell Azure Resource Manager (version 1.0.2 ou ultérieure). Pour plus d’informations sur l’installation des applets de commande PowerShell, consultez [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md).
+- Installez les applets de commande PowerShell Azure Resource Manager (version 1.0.2 ou ultérieure). Pour plus d’informations sur l’installation des applets de commande PowerShell, consultez [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md). Si vous utilisez PowerShell pour cette configuration, vérifiez que vous exécutez PowerShell en tant qu’administrateur.
 
 ## <a name="declare"></a>Partie 1 - Connexion et définition des variables
 
@@ -176,15 +176,24 @@ Un certificat client et un package de configuration du client VPN doivent être 
 
 	![Client VPN](./media/vpn-gateway-howto-point-to-site-rm-ps/vpn.png "Client VPN")
 
-## <a name="cc"></a>Partie 6 - Installation d’un certificat client
-	
-Générez et installez les certificats clients (*.pfx) créés à partir du certificat racine sur les ordinateurs clients. Vous pouvez choisir la méthode d’installation qui vous est familière.
+## <a name="cc"></a>Partie 6 - Génération du certificat client
 
-Si vous utilisez un certificat racine auto-signé et que vous ne savez pas comment générer un certificat client, vous pouvez vous reporter à [cet article](vpn-gateway-certificates-point-to-site.md). Si vous utilisez une solution d’entreprise, générez les certificats clients avec le format de valeur de nom commun 'nom@votredomaine.com', plutôt que le format 'nom\_domaine\_NetBIOS\\nom\_utilisateur'.
+Ensuite, générez les certificats clients. Vous pouvez générer un certificat unique pour chaque client qui se connecte, ou utiliser le même certificat pour plusieurs clients. Générer des certificats clients uniques vous offre la possibilité de révoquer un seul certificat si nécessaire. Dans le cas contraire, si tous les clients utilisent le même certificat client et que vous devez révoquer le certificat pour un client, vous devrez générer et installer de nouveaux certificats pour tous les clients qui utilisent le certificat pour s’authentifier.
 
-Vous pouvez installer un certificat client directement sur un ordinateur en double-cliquant sur le fichier .pfx.
+- Si vous utilisez une solution de certificat d’entreprise, générez un certificat client avec le format de valeur de nom commun 'nom@votredomaine.com', plutôt que le format 'DOMAINE\\nom\_utilisateur' NetBIOS.
 
-## Partie 7 - Connexion à Azure
+- Si vous utilisez un certificat auto-signé, consultez [Utilisation des certificats racine auto-signés pour les configurations point à site](vpn-gateway-certificates-point-to-site.md) pour générer un certificat client.
+
+## Partie 7 - Installation du certificat client
+
+Installez un certificat client sur chaque ordinateur que vous souhaitez connecter au réseau virtuel. Un certificat client est requis pour l’authentification. Vous pouvez automatiser l’installation du certificat client, ou l’installer manuellement. Les étapes ci-dessous vous guident dans l’exportation et l’installation manuelle du certificat client.
+
+1. Pour exporter un certificat client, vous pouvez utiliser *certmgr.msc*. Cliquez avec le bouton droit sur le certificat client à exporter, cliquez sur **Toutes les tâches**, puis cliquez sur **Exporter**.
+2. Exportez le certificat client avec la clé privée. Il s’agit d’un fichier *.pfx*. Prenez soin d’enregistrer ou de mémoriser le mot de passe (clé) que vous définissez pour ce certificat.
+3. Copiez le fichier *.pfx* sur l’ordinateur client. Sur l’ordinateur client, double-cliquez sur le fichier *.pfx* pour l’installer. Entrez le mot de passe lorsque vous y êtes invité. Ne modifiez pas l’emplacement d’installation.
+
+
+## Partie 8 - Connexion à Azure
 
 1. Pour vous connecter à votre réseau virtuel, sur l’ordinateur client, accédez aux connexions VPN et recherchez celle que vous avez créée. Elle porte le même nom que votre réseau virtuel. Cliquez sur **Connecter**. Un message contextuel faisant référence à l’utilisation du certificat peut s’afficher. Le cas échéant, cliquez sur **Continuer** pour utiliser des privilèges élevés.
 
@@ -196,7 +205,7 @@ Vous pouvez installer un certificat client directement sur un ordinateur en doub
 
 	![Client VPN 3](./media/vpn-gateway-howto-point-to-site-rm-ps/connected.png "Connexion client VPN 2")
 
-## Partie 8 - Vérification de votre connexion
+## Partie 9 - Vérification de votre connexion
 
 1. Pour vérifier que votre connexion VPN est active, ouvrez une invite de commandes avec élévation de privilèges, puis exécutez *ipconfig/all*.
 
@@ -302,4 +311,4 @@ Vous pouvez réactiver un certificat client en supprimant l'empreinte numérique
 
 Vous pouvez ajouter une machine virtuelle à votre réseau virtuel. Consultez [Création d’une machine virtuelle](../virtual-machines/virtual-machines-windows-hero-tutorial.md) pour connaître les différentes étapes.
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -1,57 +1,70 @@
-<properties 
-	pageTitle="Application Insights pour les services Windows" 
-	description="Analysez l’utilisation et les performances des services en arrière-plan Windows avec Application Insights." 
-	services="application-insights" 
-    documentationCenter="windows"
-	authors="alancameronwills" 
+<properties
+	pageTitle="Application Insights pour les services Windows et les rôles de travail | Microsoft Azure"
+	description="Ajoutez manuellement le Kit de développement logiciel (SDK) Application Insights à votre application ASP.NET pour analyser l’utilisation, la disponibilité et les performances."
+	services="application-insights"
+    documentationCenter=".net"
+	authors="alancameronwills"
 	manager="douge"/>
 
-<tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/27/2016" 
+<tags
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="08/30/2016"
 	ms.author="awills"/>
 
-# Application Insights sur des services en arrière-plan Windows
+
+# Configurer manuellement Application Insights pour des applications ASP.NET 4
 
 *Application Insights est à l'état de version préliminaire.*
 
-[Visual Studio Application Insights](app-insights-get-started.md) vous permet d’analyser vos applications déployées en termes d’utilisation et de performances.
+[AZURE.INCLUDE [app-insights-selector-get-started](../../includes/app-insights-selector-get-started.md)]
 
-Toutes les applications Windows (y compris les services en arrière-plan et les rôles de travail) peuvent utiliser le Kit de développement logiciel (SDK) du logiciel Application Insights pour envoyer des données de télémétrie à Application Insights. Vous pouvez également ajouter le SDK à un projet de bibliothèque de classes.
+Vous pouvez configurer manuellement [Visual Studio Application Insights](app-insights-overview.md) pour surveiller les services Windows, les rôles de travail et les autres applications ASP.NET. Pour les applications web, une configuration manuelle est une alternative à la [configuration automatique](app-insights-asp-net.md) proposée par Visual Studio.
 
-Vous pouvez choisir les collecteurs de données standard que vous souhaitez utiliser (par exemple, pour surveiller les compteurs de performances ou les appels de dépendance) ou simplement utiliser l'API de base et écrire votre propre télémétrie.
+Application Insights vous aide à diagnostiquer les problèmes et à surveiller les performances et l’utilisation de votre application dynamique.
 
-Vérifiez tout d’abord si vous travaillez avec un autre type d’application Windows :
-
-* Applications web : accédez à [ASP.NET 4](app-insights-asp-net.md), [ASP.NET 5](app-insights-asp-net-five.md).
-* [Azure Cloud Services](app-insights-cloudservices.md)
-* Applications de bureau : nous vous recommandons [HockeyApp](https://hockeyapp.net). Avec HockeyApp, vous pouvez gérer la distribution, le test direct et les commentaires des utilisateurs, de même que surveiller l’utilisation et les rapports d’incident. Vous pouvez également [envoyer les données de télémétrie à Application Insights à partir d’une application de bureau](app-insights-windows-desktop.md). 
+![Exemples de graphiques d’analyse des performances](./media/app-insights-windows-services/10-perf.png)
 
 
-## <a name="add"></a> Création d’une ressource Application Insights
+#### Avant de commencer
+
+Ce dont vous avez besoin :
+
+* Un abonnement à [Microsoft Azure](http://azure.com). Si votre équipe ou votre organisation dispose d’un abonnement Azure, le propriétaire peut vous y ajouter à l’aide de votre [compte Microsoft](http://live.com).
+* Visual Studio 2013 ou une version ultérieure.
 
 
-1.  Dans le [portail Azure][portal], créez une ressource Application Insights. Choisissez ASP.NET comme type d’application. 
 
-    ![Cliquez sur Nouveau > Application Insights](./media/app-insights-windows-services/01-new.png)
+## <a name="add"></a>1. Création d’une ressource Application Insights dans Azure
 
+Connectez-vous au [portail Azure](https://portal.azure.com/) et créez une ressource Application Insights. Choisissez le type d'application ASP.NET.
 
-2.  Copiez la clé d'instrumentation. Recherchez la clé dans la liste déroulante Essentials de la nouvelle ressource que vous venez de créer. Fermez le plan de l’application ou faites défiler vers la gauche vers le volet Vue d’ensemble de la ressource.
+![Cliquez sur Nouveau > Application Insights](./media/app-insights-windows-services/01-new-asp.png)
 
-    ![Cliquez sur Essentials, sélectionnez la clé et appuyez sur Ctrl + C](./media/app-insights-windows-services/10.png)
+Dans Azure, une [ressource](app-insights-resources-roles-access-control.md) correspond à l’instance d'un service. Cette ressource correspond à l’emplacement où les données de télémétrie de votre application sont analysées avant de vous être présentées.
 
-## <a name="sdk"></a>Installation du Kit de développement logiciel (SDK) dans votre application
+Le choix du type d’application définit le contenu par défaut des panneaux de ressource et les propriétés visibles dans [Metrics Explorer](app-insights-metrics-explorer.md).
 
+#### Copie de la clé d'instrumentation
 
-1. Dans Visual Studio, modifiez les packages NuGet de votre projet d’application Windows.
+La clé identifie la ressource. Vous allez bientôt l’installer dans le Kit de développement logiciel (SDK) pour diriger les données vers la ressource.
+
+![Cliquez sur Propriétés, sélectionnez la clé et appuyez sur ctrl + C](./media/app-insights-windows-services/02-props-asp.png)
+
+Les étapes que vous venez de suivre pour créer une nouvelle ressource sont un bon moyen de démarrer l'analyse de l’application de votre choix. Vous pouvez désormais envoyer des données vers celle-ci.
+
+## <a name="sdk"></a>2. Installation du Kit de développement logiciel (SDK) dans votre application
+
+L’installation et la configuration du kit de développement logiciel (SDK) d’Application Insights varient en fonction de la plateforme sur laquelle vous travaillez. Pour les applications ASP.NET, rien de plus simple.
+
+1. Dans Visual Studio, modifiez les packages NuGet de votre projet d’application web.
 
     ![Cliquez avec le bouton droit sur le projet et sélectionnez Gérer les packages NuGet](./media/app-insights-windows-services/03-nuget.png)
 
-2. Installez le package Application Insights de Windows Server : Microsoft.ApplicationInsights.WindowsServer
+2. Installez le Kit de développement logiciel (SDK) Application Insights pour Web Apps.
 
     ![Recherchez « Application Insights »](./media/app-insights-windows-services/04-ai-nuget.png)
 
@@ -59,201 +72,91 @@ Vérifiez tout d’abord si vous travaillez avec un autre type d’application W
 
     Oui. Choisissez l’API de base (Microsoft.ApplicationInsights) si vous souhaitez uniquement utiliser l’API pour envoyer vos données de télémétrie. Le package Windows Server inclut automatiquement l'API de base ainsi qu’un certain nombre d’autres packages, tels que les packages de collecte des compteurs de performances et d’analyse de dépendance.
 
+#### Pour passer aux versions ultérieures du Kit de développement logiciel (SDK)
 
-3. Définissez votre clé d’instrumentation.
+Nous sortons régulièrement une nouvelle version du kit de développement logiciel (SDK).
 
-    * Si vous avez installé uniquement le package d’API de base Microsoft.ApplicationInsights, vous devez définir la clé dans le code, par exemple dans main() : 
+Pour passer à la [nouvelle version du Kit de développement logiciel (SDK)](https://github.com/Microsoft/ApplicationInsights-dotnet-server/releases/), ouvrez une nouvelle fois le gestionnaire de package NuGet et filtrez les packages qui ont été installés. Sélectionnez **Microsoft.ApplicationInsights.Web** et choisissez **Mettre à niveau**.
+
+Si vous avez apporté des personnalisations à ApplicationInsights.config, conservez-en une copie avant d’effectuer la mise à niveau et fusionnez ensuite vos modifications dans la nouvelle version.
+
+
+## 3\. Envoyer des données de télémétrie
+
+
+**Si vous avez installé uniquement le package de l’API de base :**
+
+* Définissez la clé d’instrumentation dans le code, par exemple dans `main()` :
 
     `TelemetryConfiguration.Active.InstrumentationKey = "` *votre clé* `";`
 
-    Si vous avez installé un des autres packages, vous pouvez définir la clé à l’aide de code ou la définir dans le fichier ApplicationInsights.config :
- 
-    `<InstrumentationKey>`*votre clé*`</InstrumentationKey>`
-
-    Si vous utilisez ApplicationInsights.config, assurez-vous que ses propriétés dans l’Explorateur de solutions sont définies sur **Build Action = Content, Copy to Output Directory = Copy**.
-
-## <a name="telemetry"></a>Insertion d’appels de télémétrie
-
-Utilisez l’une des [API Application Insights][api] pour envoyer des données de télémétrie. Si vous utilisez l’API de base, aucune donnée de télémétrie n’est envoyée automatiquement. En général, vous allez utiliser :
-
-* `TrackPageView(pageName)` lors du changement de formulaires, de pages ou d’onglets
-* `TrackEvent(eventName)` pour d’autres actions utilisateur
-* `TrackMetric(name, value)` dans une tâche en arrière-plan pour envoyer des rapports de métriques réguliers non liés à des événements spécifiques.
-* `TrackTrace(logEvent)` pour la [journalisation de diagnostic][diagnostic]
-* `TrackException(exception)` dans les clauses catch
-* `Flush()` pour vous assurer que toutes les données de télémétrie sont envoyées avant la fermeture de l’application Utiliser uniquement si vous utilisez l’API de base (Microsoft.ApplicationInsights). Les Kits de développement logiciel (SDK) web implémentent automatiquement ce comportement. (Si votre application s’exécute dans des contextes où Internet n’est pas toujours disponible, consultez aussi [Canal de persistance](#persistence-channel).)
+* [Écrivez vos propres données de télémétrie à l’aide de l’API](app-insights-api-custom-events-metrics.md#ikey).
 
 
-#### Initialiseurs de télémétrie
+**Si vous avez installé d’autres packages Application Insights**, vous pouvez, si vous préférez, utiliser le fichier .config pour définir la clé d’instrumentation :
 
-Pour afficher le nombre d'utilisateurs et de sessions, vous pouvez définir les valeurs de chaque instance `TelemetryClient`. Vous pouvez également utiliser un initialiseur de télémétrie afin d’effectuer cet ajout pour tous les clients :
+* Modifiez ApplicationInsights.config (qui a été ajouté par l’installation NuGet). Insérez ceci juste avant la balise de fermeture :
 
-```C#
+    `<InstrumentationKey>` *la clé d’instrumentation que vous avez copiée* `</InstrumentationKey>`
 
-    class UserSessionInitializer : ITelemetryInitializer
-    {
-        public void Initialize(ITelemetry telemetry)
-        {
-            telemetry.Context.User.Id = Environment.UserName;
-            telemetry.Context.Session.Id = Guid.NewGuid().ToString();
-        }
-        
-    }
-
-    static class Program
-    {
-        ...
-        static void Main()
-        {
-            TelemetryConfiguration.Active.TelemetryInitializers.Add(
-                new UserSessionInitializer());
-            ...
-
-```
+* Assurez-vous que les propriétés du fichier ApplicationInsights.config dans l’Explorateur de solutions sont définies sur **Build Action = Content, Copy to Output Directory = Copy**.
 
 
 
-## <a name="run"></a>Exécution de votre projet
 
-[Exécutez votre application en appuyant sur F5](http://msdn.microsoft.com/library/windows/apps/bg161304.aspx) et utilisez-la pour générer des données de télémétrie.
+## <a name="run"></a> Exécution de votre projet
+
+Exécutez votre application à l’aide de la touche **F5** et essayez-la : ouvrez différentes pages pour générer des données de télémétrie.
 
 Un décompte des événements envoyés s'affiche dans Visual Studio.
 
-![](./media/app-insights-windows-services/appinsights-09eventcount.png)
+![Nombre d’événements dans Visual Studio](./media/app-insights-windows-services/appinsights-09eventcount.png)
 
-Les événements s’affichent également dans les fenêtres de diagnostics et de sortie.
+## <a name="monitor"></a> Affichage de vos données de télémétrie
 
-## <a name="monitor"></a>Affichage des données d’analyse
-
-Revenez au volet de votre application dans le portail Azure.
-
-Les premiers événements seront affichés dans [Live Metrics Stream](app-insights-metrics-explorer.md#live-metrics-stream).
+Revenez au [portail Azure](https://portal.azure.com/) et accédez à votre ressource Application Insights.
 
 
-## Canal de persistance 
+Recherchez des données dans les graphiques de présentation. Au début, seuls un ou deux points s'affichent. Par exemple :
 
-Si votre application s’exécute à l’endroit où une connexion n’est pas toujours disponible ou est très lente, prévoyez d’utiliser la couche de persistance et le canal mémoire interne par défaut.
+![Cliquez sur d'autres éléments pour afficher plus de données](./media/app-insights-windows-services/12-first-perf.png)
 
-Le canal de mémoire par défaut perd toute télémétrie qui n’a pas été envoyée au moment où l’application se ferme. Bien que vous puissiez utiliser `Flush()` pour tenter d’envoyer les données restantes dans la mémoire tampon, il perdra tout de même les données si aucune connexion Internet n’est disponible ou si l’application s’arrête avant la fin de la transmission.
+Cliquez sur un des graphiques pour afficher des métriques plus détaillées. [En savoir plus sur les mesures.](app-insights-web-monitor-performance.md)
 
-En revanche, le canal de persistance met en mémoire tampon la télémétrie dans un fichier, avant de l’envoyer au portail. `Flush()` garantit que les données sont stockées dans le fichier. Si aucune donnée n’est envoyée au moment où l’application se ferme, elle reste dans le fichier. Lorsque l’application redémarre, les données sont envoyées ensuite s’il existe une connexion internet. Les données s’accumuleront dans le fichier aussi longtemps que nécessaire, jusqu’à ce qu’une connexion est disponible.
+#### Pas de données ?
 
-### Pour utiliser le canal de persistance
+* Utilisez l'application en ouvrant différentes pages pour générer des données de télémétrie.
+* Ouvrez la vignette [Rechercher](app-insights-diagnostic-search.md) pour afficher les événements individuels. Parfois, les événements mettent un peu plus de temps pour parcourir le pipeline de métriques.
+* Attendez quelques secondes, puis cliquez sur **Actualiser**. Les graphiques s’actualisent à intervalles réguliers, mais vous pouvez les actualiser manuellement si vous attendez que certaines données s’affichent.
+* Consultez la rubrique [Résolution des problèmes](app-insights-troubleshoot-faq.md).
 
-1. Importez le package NuGet [Microsoft.ApplicationInsights.PersistenceChannel](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PersistenceChannel/1.2.3).
-2. Incluez ce code dans votre application, dans un emplacement d’initialisation approprié :
- 
-    ```C# 
+## Publier votre application
 
-      using Microsoft.ApplicationInsights.Channel;
-      using Microsoft.ApplicationInsights.Extensibility;
-      ...
+À présent, déployez votre application sur votre serveur ou Azure, et regardez les données s’accumuler.
 
-      // Set up 
-      TelemetryConfiguration.Active.InstrumentationKey = "YOUR INSTRUMENTATION KEY";
- 
-      TelemetryConfiguration.Active.TelemetryChannel = new PersistenceChannel();
-    
-    ``` 
-3. Utilisez `telemetryClient.Flush()` avant que votre application ferme, pour vous assurer que les données sont envoyées au portail ou enregistrées dans votre fichier.
+![Publier votre application à l’aide de Visual Studio](./media/app-insights-windows-services/15-publish.png)
 
-    Notez que Flush() est synchrone pour le canal de persistance, mais asynchrone pour les autres canaux.
+Lorsque vous exécutez l'application en mode débogage, la télémétrie est envoyée via le pipeline, ce qui vous permet d'accéder aux données en quelques secondes. Quand vous déployez votre application dans la configuration Release, les données s’accumulent plus lentement.
 
- 
-Le canal de persistance est optimisé pour les scénarios d’appareils, où le nombre d’événements générés par l’application est relativement faible et la connexion est souvent peu fiable. Ce canal écrira les événements sur le disque dans un espace de stockage fiable tout d’abord, puis essaiera de les envoyer.
+#### Les données n’apparaissent pas après leur publication sur votre serveur ?
 
-#### Exemple
+Ouvrez ces ports pour le trafic sortant dans le pare-feu de votre serveur :
 
-Disons que vous souhaitez surveiller les exceptions non traitées. Commencez par vous abonner à l'événement `UnhandledException`. Dans le rappel, incluez un appel de vidage pour vous assurer que la télémétrie est bien persistante.
- 
-```C# 
-
-AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException; 
- 
-... 
- 
-private void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e) 
-{ 
-    ExceptionTelemetry excTelemetry = new ExceptionTelemetry((Exception)e.ExceptionObject); 
-    excTelemetry.SeverityLevel = SeverityLevel.Critical; 
-    excTelemetry.HandledAt = ExceptionHandledAt.Unhandled; 
- 
-    telemetryClient.TrackException(excTelemetry); 
- 
-    telemetryClient.Flush(); 
-} 
-
-``` 
-
-Une fois que l’application s’arrête, vous voyez un fichier contenant les événements compressés dans `%LocalAppData%\Microsoft\ApplicationInsights`.
- 
-Lors du prochain que démarrage de cette application, le canal récupérera le fichier et transmettra la télémétrie à Application Insights si possible.
-
-#### Exemple de test
-
-```C#
-
-using Microsoft.ApplicationInsights;
-using Microsoft.ApplicationInsights.Channel;
-using Microsoft.ApplicationInsights.Extensibility;
-
-namespace ConsoleApplication1
-{
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            // Send data from the last time the app ran
-            System.Threading.Thread.Sleep(5 * 1000);
-
-            // Set up persistence channel
-
-            TelemetryConfiguration.Active.InstrumentationKey = "YOUR KEY";
-            TelemetryConfiguration.Active.TelemetryChannel = new PersistenceChannel();
-
-            // Send some data
-
-            var telemetry = new TelemetryClient();
-
-            for (var i = 0; i < 100; i++)
-            {
-                var e1 = new Microsoft.ApplicationInsights.DataContracts.EventTelemetry("persistenceTest");
-                e1.Properties["i"] = "" + i;
-                telemetry.TrackEvent(e1);
-            }
-
-            // Make sure it's persisted before we close
-            telemetry.Flush();
-        }
-    }
-}
-
-```
++ `dc.services.visualstudio.com:443`
++ `f5.services.visualstudio.com:443`
 
 
-Le code du canal de persistance est disponible sur [github](https://github.com/Microsoft/ApplicationInsights-dotnet/tree/v1.2.3/src/TelemetryChannels/PersistenceChannel).
+#### Vous rencontrez des problèmes sur votre serveur de builds ?
 
+Consultez cet article de [résolution des problèmes](app-insights-asp-net-troubleshoot-no-data.md#NuGetBuild).
 
-## <a name="usage"></a>Étapes suivantes
-
-[Suivi de l'utilisation de votre application][knowUsers]
-
-[Capture et recherche des journaux de diagnostic][diagnostic]
-
-[Résolution des problèmes][qna]
+> [AZURE.NOTE] Si votre application génère un volume important de télémétrie (et si vous utilisez le kit de développement logiciel ASP.NET version 2.0.0-beta3 ou ultérieure), le module d'échantillonnage adaptatiif réduit automatiquement le volume qui est envoyé vers le portail en envoyant uniquement une fraction représentative des événements. Cependant, les événements liés à la même demande seront activés ou désactivés en tant que groupe, afin que vous puissiez naviguer entre les événements connexes. [En savoir plus sur l’échantillonnage.](app-insights-sampling.md)
 
 
 
 
-<!--Link references-->
+## Étapes suivantes
 
-[diagnostic]: app-insights-diagnostic-search.md
-[metrics]: app-insights-metrics-explorer.md
-[portal]: http://portal.azure.com/
-[qna]: app-insights-troubleshoot-faq.md
-[knowUsers]: app-insights-overview-usage.md
-[api]: app-insights-api-custom-events-metrics.md
-[CoreNuGet]: https://www.nuget.org/packages/Microsoft.ApplicationInsights
- 
+* [Ajoutez des données de télémétrie](app-insights-asp-net-more.md) pour obtenir une vue à 360 degrés de votre application.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0907_2016-->

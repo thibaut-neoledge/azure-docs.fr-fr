@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Présentation de la messagerie relayée Service Bus | Microsoft Azure"
+	pageTitle="Présentation de Service Bus Relay | Microsoft Azure"
 	description="Présentation de Service Bus Relay."
 	services="service-bus"
 	documentationCenter=".net"
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="get-started-article"
-	ms.date="05/06/2016"
+	ms.date="09/01/2016"
 	ms.author="sethm"/>
 
 
-# Messagerie par relais Service Bus
+# Présentation de Service Bus Relay
 
-Le composant central de Service Bus est un service de relay centralisé (mais dont la charge est hautement équilibrée) qui vous permet de créer des applications hybrides qui s’exécutent à la fois dans un centre de données Azure et dans votre propre environnement d’entreprise local. Le service de relais prend en charge une variété de différents protocoles de transport et normes de services web. Cela inclut SOAP, WS-* et même REST. Service Bus Relay facilite vos applications hybrides en offrant la possibilité d'exposer les services WCF (Windows Communication Foundation) qui résident dans un réseau d'entreprise sur le cloud public en toute sécurité, sans avoir à ouvrir une connexion de pare-feu ni à exiger des modifications intrusives dans une infrastructure de réseau d'entreprise.
+Composant majeur de Service Bus, un service *relay* centralisé (mais dont la charge est hautement équilibrée) vous permet de créer des applications hybrides qui s’exécutent à la fois dans un centre de données Azure et dans votre propre environnement d’entreprise local. Service Bus Relay prend en charge une grande variété de protocoles de transport et normes de services web. Cela inclut SOAP, WS-* et même REST. Le service relay facilite vos applications hybrides en offrant la possibilité d’exposer les services WCF (Windows Communication Foundation) qui résident dans un réseau d’entreprise sur le cloud public en toute sécurité, sans avoir à ouvrir une connexion de pare-feu ni à exiger des modifications intrusives dans une infrastructure de réseau d’entreprise.
 
 ![Concepts de relais](./media/service-bus-relay-overview/sb-relay-01.png)
 
@@ -38,4 +38,4 @@ Pour plus de détails sur Service Bus Relay, consultez les rubriques suivantes.
 
  
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0907_2016-->

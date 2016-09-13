@@ -1,12 +1,12 @@
 > [AZURE.SELECTOR]
+- [Android](../articles/notification-hubs/notification-hubs-android-push-notification-google-gcm-get-started.md)
+- [Baidu](../articles/notification-hubs/notification-hubs-baidu-china-android-notifications-get-started.md)
+- [Chrome](../articles/notification-hubs/notification-hubs-chrome-push-notifications-get-started.md)
+- [iOS](../articles/notification-hubs/notification-hubs-ios-apple-push-notification-apns-get-started.md)
+- [Kindle](../articles/notification-hubs/notification-hubs-kindle-amazon-adm-push-notification.md)
+- [Silverlight Windows Phone 8.x](../articles/notification-hubs/notification-hubs-windows-mobile-push-notifications-mpns.md)
 - [Plateforme Windows universelle](../articles/notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md)
-- [Silverlight Windows Phone 8.x](../articles/notification-hubs/notification-hubs-windows-phone-get-started.md)
-- [iOS](../articles/notification-hubs/notification-hubs-ios-get-started.md)
-- [Android](../articles/notification-hubs/notification-hubs-android-get-started.md)
-- [Kindle](../articles/notification-hubs/notification-hubs-kindle-get-started.md)
-- [Baidu](../articles/notification-hubs/notification-hubs-baidu-get-started.md)
-- [Xamarin.iOS](../articles/notification-hubs/partner-xamarin-notification-hubs-ios-get-started.md)
-- [Xamarin.Android](../articles/notification-hubs/partner-xamarin-notification-hubs-android-get-started.md)
-- [Chrome](../articles/notification-hubs/notification-hubs-chrome-get-started.md)
+- [Xamarin.Android](../articles/notification-hubs/xamarin-notification-hubs-push-notifications-android-gcm.md)
+- [Xamarin.iOS](../articles/notification-hubs/xamarin-notification-hubs-ios-push-notification-apns-get-started.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0907_2016-->

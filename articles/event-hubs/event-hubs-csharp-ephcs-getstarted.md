@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="08/19/2016"
+	ms.date="09/02/2016"
 	ms.author="sethm"/>
 
 # Prise en main des hubs d’événements
@@ -94,4 +94,4 @@ Vous avez conçu une application opérationnelle qui crée un hub d’événemen
 [solution de messages de file d'attente]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

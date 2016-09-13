@@ -12,12 +12,12 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/10/2016"
+	ms.date="09/07/2016"
 	ms.author="awills"/>
 
 # Analyse de la disponibilité et de la réactivité d'un site Web
 
-Après avoir déployé votre application web sur un hôte, vous pouvez configurer des tests web pour surveiller sa disponibilité et sa réactivité. [Visual Studio Application Insights](app-insights-overview.md) envoie des demandes web à intervalles réguliers à partir de différents points dans le monde et vous alerte si votre application réagit lentement ou pas du tout.
+Après avoir déployé votre application web ou votre site web sur un serveur, vous pouvez configurer des tests web pour surveiller sa disponibilité et sa réactivité. [Visual Studio Application Insights](app-insights-overview.md) envoie des requêtes web à votre application à intervalles réguliers à partir de différents points du monde, et vous alerte si votre application réagit lentement ou pas du tout.
 
 ![Exemple de test web](./media/app-insights-monitor-web-app-availability/appinsights-10webtestresult.png)
 
@@ -25,32 +25,29 @@ Vous pouvez configurer des tests web pour n'importe quel point de terminaison H
 
 Il existe deux types de tests web :
 
-* [Test ping d’URL](#set-up-a-url-ping-test) : un test simple que vous pouvez créer dans le portail Azure.
+* [Test ping d’URL](#create) : un test simple que vous pouvez créer dans le portail Azure.
 * [Test web multi-étapes](#multi-step-web-tests) : que vous créez dans Visual Studio Ultimate ou Visual Studio Enterprise et que vous chargez sur le portail.
 
 Vous pouvez créer jusqu’à 10 tests web par ressource d’application.
 
+## <a name="create"></a>1. Créer une ressource pour vos rapports de test
 
-## Configuration d’un test ping d’URL
-
-### <a name="create"></a>1. Création d'une nouvelle ressource ?
-
-Ignorez cette étape si vous avez déjà [configuré une ressource Application Insights][start] pour cette application et que vous souhaitez afficher les données de disponibilité au même endroit.
+Ignorez cette étape si vous avez déjà [configuré une ressource Application Insights][start] pour cette application et que vous souhaitez afficher les rapports de disponibilité au même endroit.
 
 Inscrivez-vous à [Microsoft Azure](http://azure.com), accédez au [portail Azure](https://portal.azure.com), et créez une ressource Application Insights.
 
 ![New > Application Insights](./media/app-insights-monitor-web-app-availability/11-new-app.png)
 
-Le panneau Vue d’ensemble de la nouvelle ressource s’ouvre. Pour le trouver à tout moment dans le [portail Azure](https://portal.azure.com), cliquez sur **Parcourir**.
+Cliquez sur **Toutes les ressources** pour ouvrir le panneau Vue d’ensemble de la nouvelle ressource.
 
-### <a name="setup"></a>2. Créer un test web
+## <a name="setup"></a>2. Créer un test Ping d’URL
 
 Dans votre ressource Application Insights, recherchez la vignette de disponibilité. Cliquez dessus pour ouvrir le panneau des tests web de votre application et ajouter un test web.
 
 ![Fill at least the URL of your website](./media/app-insights-monitor-web-app-availability/13-availability.png)
 
 - **L’URL** doit être visible à partir de l’Internet public. Elle peut inclure une chaîne de requête, par exemple pour vous permettre de tester un peu votre base de données. Si l’URL correspond à une redirection, nous allons la suivre, jusqu’à 10 redirections.
-- **Analyser les demandes dépendantes** : les images, scripts, fichiers de style et autres ressources de la page sont demandés dans le cadre du test. Le test échoue si toutes ces ressources ne peuvent pas être téléchargées avec succès dans le délai imparti pour l’ensemble du test.
+- **Analyser les requêtes dépendantes** : les images, scripts, fichiers de style et autres ressources de la page sont demandés dans le cadre du test, et le temps de réponse enregistré inclut ces durées. Le test échoue si toutes ces ressources ne peuvent pas être téléchargées avec succès dans le délai imparti pour l’ensemble du test.
 - **Autoriser de nouvelles tentatives** : une nouvelle tentative de test sera effectuée après un court intervalle en cas d’échec du test. L’échec est signalé uniquement après trois tentatives infructueuses. Les tests suivants sont ensuite effectués selon la fréquence de test habituelle. La nouvelle tentative est temporairement suspendue jusqu’à la réussite de la tentative suivante. Cette règle est appliquée indépendamment à chaque emplacement de test. (Nous recommandons ce paramètre. En moyenne, environ 80 % des échecs disparaissent lors de la nouvelle tentative.)
 - **Fréquence de test** : définit la fréquence selon laquelle le test est exécuté à partir de chaque emplacement de test. Avec une fréquence de 5 minutes et 5 emplacements de test, votre site sera testé en moyenne une fois par minute.
 - Les **emplacements de test** sont les lieux d’où nos serveurs envoient des requêtes web à votre URL. Choisissez-en plusieurs de façon à distinguer les problèmes de votre site web des problèmes de réseau. Vous pouvez sélectionner jusqu’à 16 emplacements.
@@ -68,14 +65,14 @@ Dans votre ressource Application Insights, recherchez la vignette de disponibili
 
     Vous pouvez configurer un [webhook](../azure-portal/insights-webhooks-alerts.md) qui est appelé lorsqu’une alerte est déclenchée. (Mais notez qu’à l’heure actuelle, les paramètres de requête ne sont pas transmis en tant que propriétés.)
 
-#### Test d'autres URL
+### Test d'autres URL
 
 Ajoutez d’autres tests. Exemple : outre le test de votre page d’accueil, vous pouvez vérifier que votre base de données fonctionne correctement en testant une recherche sur l’URL.
 
 
-### <a name="monitor"></a>3. Afficher les rapports de disponibilité
+## <a name="monitor"></a>3. Consulter les résultats des tests web
 
-Après 1 à 2 minutes, cliquez sur **Actualiser** dans le panneau de disponibilité/tests web. Il n’est pas automatiquement actualisé.
+Après 1 à 2 minutes, les résultats s’affichent dans :
 
 ![Summary results on the home blade](./media/app-insights-monitor-web-app-availability/14-availSummary.png)
 
@@ -83,15 +80,8 @@ Cliquez sur une barre du graphique de synthèse pour obtenir une vue plus détai
 
 Ces graphiques combinent les résultats de tous les tests web de cette application.
 
-#### Composants de votre page web
 
-Les images, les feuilles de style, les scripts et les autres composants statiques de la page web que vous testez sont demandés dans le cadre du test.
-
-Le temps de réponse enregistré est la durée que prend le chargement complet de tous les composants.
-
-Si le chargement d'un composant échoue, le test est marqué comme ayant échoué.
-
-## <a name="failures"></a>Si vous constatez des erreurs...
+## <a name="failures"></a>Si vous constatez des erreurs
 
 Cliquez sur un point rouge.
 
@@ -244,11 +234,11 @@ Comme exemple d’authentification ouverte, citons la connexion avec votre compt
 
 Si votre test doit se connecter à l’aide d’OAuth, l’approche générale est la suivante :
 
-* Utilisez un outil tel que Fiddler pour examiner le trafic entre votre navigateur web, le site d’authentification et votre application.
-* Effectuez deux connexions ou plus à l’aide d’ordinateurs ou de navigateurs différents, ou à des intervalles longs (pour que les jetons arrivent à expiration).
-* En comparant les différentes sessions, identifiez le jeton retransmis à partir du site d’authentification, qui est ensuite transmis à votre serveur d’application après la connexion.
-* Enregistrez un test web à l’aide de Visual Studio.
-* Paramétrez les jetons, en définissant le paramètre lorsque le jeton est retourné par l’authentificateur et en l’utilisant dans la requête soumise sur le site. (Visual Studio tente de paramétrer le test, mais ne paramètre pas correctement les jetons.)
+ * Utilisez un outil tel que Fiddler pour examiner le trafic entre votre navigateur web, le site d’authentification et votre application.
+ * Effectuez deux connexions ou plus à l’aide d’ordinateurs ou de navigateurs différents, ou à des intervalles longs (pour que les jetons arrivent à expiration).
+ * En comparant les différentes sessions, identifiez le jeton retransmis à partir du site d’authentification, qui est ensuite transmis à votre serveur d’application après la connexion.
+ * Enregistrez un test web à l’aide de Visual Studio.
+ * Paramétrez les jetons, en définissant le paramètre lorsque le jeton est retourné par l’authentificateur et en l’utilisant dans la requête soumise sur le site. (Visual Studio tente de paramétrer le test, mais ne paramètre pas correctement les jetons.)
 
 
 ## <a name="edit"></a>Modification ou désactivation d’un test
@@ -333,4 +323,4 @@ Une fois le test terminé, les temps de réponse et les taux de réussite s’af
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0907_2016-->

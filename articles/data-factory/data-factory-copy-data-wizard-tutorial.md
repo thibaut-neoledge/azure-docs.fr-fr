@@ -25,7 +25,7 @@
 - [Utilisation de l'API REST](data-factory-copy-activity-tutorial-using-rest-api.md)
 - [Utilisation de l’Assistant de copie](data-factory-copy-data-wizard-tutorial.md)
 
-Dans ce didacticiel, vous allez utiliser l’Assistant Data Factory Copy pour créer un pipeline avec une activité de copie dans la fabrique de données. Tout d’abord, vous allez créer une fabrique de données à l’aide du portail Azure, puis utiliser l’Assistant de copie pour créer des services liés Data Factory, des ensembles de données et un pipeline avec une activité de copie qui copie les données à partir d’un stockage blob Azure dans une base de données Azure SQL.
+Dans ce didacticiel, vous allez utiliser l’Assistant Data Factory Copy pour créer un pipeline avec une activité de copie dans la fabrique de données. Commencez par créer une fabrique de données à l’aide du portail Azure, puis utilisez l’Assistant Copie pour créer des services liés à Data Factory, des jeux de données et un pipeline avec une activité de copie qui copie les données d’un stockage d’objets blob Azure vers une base de données SQL Azure. Pour plus d’informations sur l’activité de copie, consultez l’article [Activités de déplacement des données](data-factory-data-movement-activities.md).
 
 > [AZURE.IMPORTANT] Lisez l’article [Vue d’ensemble du didacticiel](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) et effectuez les étapes préalables avant de suivre ce didacticiel.
 
@@ -56,8 +56,8 @@ Dans cette étape, vous allez utiliser le portail Azure pour créer une fabrique
 	
 	> [AZURE.NOTE] Le nom de la fabrique de données pourra être enregistré en tant que nom DNS et devenir ainsi visible publiquement.
 
-9. Cliquez sur le hub **NOTIFICATIONS** situé à gauche et recherchez les notifications relatives au processus de création. Cliquez sur **X** pour fermer le panneau **NOTIFICATIONS** si celui-ci est ouvert.
-10. Une fois la création terminée, le panneau **FABRIQUE DE DONNÉES** apparaît de la manière suivante :
+9. Cliquez sur le hub **NOTIFICATIONS** situé à gauche et recherchez les notifications relatives au processus de création. Cliquez sur **X** pour fermer le panneau **NOTIFICATIONS** si celui-ci est ouvert.
+10. Une fois la création terminée, le panneau **FABRIQUE DE DONNÉES** s’affiche comme sur l’image suivante.
 
     ![Page d'accueil Data Factory](./media/data-factory-copy-data-wizard-tutorial/getstarted-data-factory-home-page.png)
 
@@ -91,8 +91,8 @@ Dans cette étape, vous allez utiliser le portail Azure pour créer une fabrique
 7. Dans la page **File format settings** (Paramètres de format de fichier), sélectionnez les valeurs **par défaut**, puis cliquez sur **Suivant**.
 
 	![Outil de copie - Paramètres de format de fichier](./media/data-factory-copy-data-wizard-tutorial/copy-tool-file-format-settings.png)
-8. Dans la page du magasin de destination, cliquez sur la vignette **Base de données SQL Azure**, puis cliquez sur **Suivant**.
-9. Dans la page **Specify the Azure SQL database** (Spécifier la base de données SQL Azure) :
+8. Dans la page du magasin de destination, cliquez sur la vignette **Azure SQL Database**, puis cliquez sur **Suivant**.
+9. Dans la page **Specify the Azure SQL database** (Spécifier la base de données Azure SQL Database) :
 	1. Saisissez **AzureSqlLinkedService** dans le champ **Nom du service lié**.
 	2. Vérifiez que le champ **Server/database selection method** (Méthode de sélection du serveur/de la base de données) affiche l’option **From Azure subscriptions** (À partir des abonnements Azure).
 	3. Sélectionnez le **Nom du serveur** et la **Base de données**.
@@ -102,11 +102,11 @@ Dans cette étape, vous allez utiliser le portail Azure pour créer une fabrique
 
 	![Outil de copie - Mappage de Table](./media/data-factory-copy-data-wizard-tutorial/copy-tool-table-mapping-page.png)
 10. Dans la page **Mappage de schéma** cliquez sur **Suivant**.
-11. Passez en revue les informations contenues dans la page **Résumé**, puis cliquez sur **Terminer**. Ceci crée deux services liés, deux jeux de données (entrée et sortie) et un pipeline dans la fabrique de données (d’où vous avez lancé l’Assistant de copie).
+11. Passez en revue les informations contenues dans la page **Résumé**, puis cliquez sur **Terminer**. L’Assistant crée deux services liés, deux jeux de données (entrée et sortie) et un pipeline dans la fabrique de données (d’où vous avez lancé l’Assistant Copie).
 12. Dans la page **Le déploiement a été effectué**, cliquez sur **Click here to monitor copy pipeline** (Cliquer ici pour surveiller le pipeline de copie).
 
 	![Outil de copie - Déploiement réussi](./media/data-factory-copy-data-wizard-tutorial/copy-tool-deployment-succeeded.png)
-13. Suivez les instructions de la section [Surveiller et gérer les pipelines Azure Data Factory à l’aide de la nouvelle application de surveillance et gestion](data-factory-monitor-manage-app.md) pour en savoir plus sur la façon de surveiller le pipeline que vous venez de créer.
+13. Suivez les instructions de la section [Surveiller et gérer les pipelines Azure Data Factory à l’aide de la nouvelle application de surveillance et gestion](data-factory-monitor-manage-app.md) pour en savoir plus sur la surveillance du pipeline que vous venez de créer.
 
 	![Application de surveillance](./media/data-factory-copy-data-wizard-tutorial/monitoring-app.png)
  
@@ -116,8 +116,8 @@ Dans cette étape, vous allez utiliser le portail Azure pour créer une fabrique
 | :---- | :---- |
 | [Activités de déplacement des données](data-factory-data-movement-activities.md) | Cet article fournit une description détaillée de l’activité de copie que vous avez utilisée dans ce didacticiel. |
 | [Planification et exécution](data-factory-scheduling-and-execution.md) | Cet article explique les aspects de la planification et de l’exécution du modèle d’application Azure Data Factory. |
-| [Pipelines](data-factory-create-pipelines.md) | Cet article vous aide à comprendre les pipelines et les activités dans Azure Data Factory, et à les utiliser pour créer des flux de travail pilotés par les données de bout en bout pour votre scénario ou votre entreprise. |
+| [Pipelines](data-factory-create-pipelines.md) | Cet article vous aide à comprendre les pipelines et les activités dans Azure Data Factory, et à les utiliser dans l’optique de créer des workflows pilotés par les données de bout en bout pour votre scénario ou votre entreprise. |
 | [Groupes de données](data-factory-create-datasets.md) | Cet article vous aide à comprendre les jeux de données dans Azure Data Factory.
 | [Surveiller et gérer les pipelines Azure Data Factory à l’aide de la nouvelle application de surveillance et gestion.](data-factory-monitor-manage-app.md) | Cet article décrit comment surveiller, gérer et déboguer les pipelines à l’aide de l’application de surveillance et gestion. 
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0907_2016-->
