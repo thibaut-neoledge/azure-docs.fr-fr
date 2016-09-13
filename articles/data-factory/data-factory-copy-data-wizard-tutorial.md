@@ -36,7 +36,7 @@ Dans cette étape, vous allez utiliser le portail Azure pour créer une fabrique
 
 	![Nouveau -> DataFactory](./media/data-factory-copy-data-wizard-tutorial/new-data-factory-menu.png)
 
-6. Dans le panneau **Nouvelle fabrique de données** :
+6. Dans le panneau **Nouvelle fabrique de données** :
 	1. Entrez **ADFTutorialDataFactory** comme **nom**.
 	
   		![Panneau Nouvelle fabrique de données](./media/data-factory-copy-data-wizard-tutorial/getstarted-new-data-factory.png)

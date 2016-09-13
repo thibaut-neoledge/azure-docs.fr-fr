@@ -94,26 +94,26 @@ Notification Hubs offre une infrastructure de notification Push prête à l’em
 
 	+  Gestion du handle de l’appareil Notification Hubs gère le registre de handle et les commentaires PNS.
 
-- **Fonctionne avec tous les serveurs principaux** : sur cloud ou sur site, .NET, PHP, Java, Node, etc.
+- **Fonctionne avec tous les serveurs principaux** : sur cloud ou sur site, .NET, PHP, Java, Node, etc.
 
 - **Mise à l’échelle** Notification Hubs met à l'échelle des millions d'appareils sans la nécessité de recréer l'architecture ou de partitionner.
 
 
-- **Ensemble complet de modèles de remise** :
+- **Ensemble complet de modèles de remise** :
 
-	- *Diffusion* : permet une diffusion presque simultanée vers des millions d’appareils avec un seul appel d’API.
+	- *Diffusion* : permet une diffusion presque simultanée vers des millions d’appareils avec un seul appel d’API.
 
-	- *Monodiffusion/multidiffusion* : transmission de notifications Push vers des balises représentant des utilisateurs individuels, y compris tous leurs appareils ; ou un groupe plus étendu, comme par exemple, des facteurs de format distincts (tablette et téléphone).
+	- *Monodiffusion/multidiffusion* : transmission de notifications Push vers des balises représentant des utilisateurs individuels, y compris tous leurs appareils ; ou un groupe plus étendu, comme par exemple, des facteurs de format distincts (tablette et téléphone).
 
-	- *Segmentation* : transmission de notifications Push vers un segment complexe défini par des expressions de balise (par exemple, des appareils situés à New York suivant les match des Yankees).
+	- *Segmentation* : transmission de notifications Push vers un segment complexe défini par des expressions de balise (par exemple, des appareils situés à New York suivant les match des Yankees).
 
 	Chaque appareil, lors de l’envoi de son handle à un hub de notification, peut indiquer une ou plusieurs _balises_. Pour plus d’informations sur les balises, consultez [cette page]. Il n'est pas nécessaire que les balises soient préapprovisionnées ou éliminées. Les balises fournissent un moyen simple d'envoyer des notifications à des utilisateurs ou des groupes d'intérêt. Les balises pouvant contenir n'importe quel identificateur propre à une application (par exemple des ID d'utilisateur ou de groupe), leur utilisation libère le serveur principal de l'application de la charge de stockage et de gestion des handle des appareils.
 
-- **Personnalisation** : chaque appareil peut avoir un ou plusieurs modèles pour effectuer une localisation et une personnalisation en fonction des appareils sans affecter le code principal.
+- **Personnalisation** : chaque appareil peut avoir un ou plusieurs modèles pour effectuer une localisation et une personnalisation en fonction des appareils sans affecter le code principal.
 
-- **Sécurité** : secret d’accès partagé ou authentification fédérée.
+- **Sécurité** : secret d’accès partagé ou authentification fédérée.
 
-- **Télémétrie complète** : disponible dans le portail et par programme.
+- **Télémétrie complète** : disponible dans le portail et par programme.
 
 
 ##Intégration d’App Service Mobile Apps
@@ -170,7 +170,7 @@ Les références d'API managées .NET pertinentes pour les notifications Push se
   [Xamarin.Android]: http://azure.microsoft.com/documentation/articles/partner-xamarin-notification-hubs-android-get-started
   [Microsoft.WindowsAzure.Messaging.NotificationHub]: http://msdn.microsoft.com/library/microsoft.windowsazure.messaging.notificationhub.aspx
   [Microsoft.ServiceBus.Notifications]: http://msdn.microsoft.com/library/microsoft.servicebus.notifications.aspx
-  [App Service Mobile Apps]: https://azure.microsoft.com/fr-FR/documentation/articles/app-service-mobile-value-prop/
+  [App Service Mobile Apps]: https://azure.microsoft.com/documentation/articles/app-service-mobile-value-prop/
   [modèles]: notification-hubs-templates-cross-platform-push-messages.md
   [portail Azure]: https://portal.azure.com
   [cette page]: (http://msdn.microsoft.com/library/azure/dn530749.aspx)

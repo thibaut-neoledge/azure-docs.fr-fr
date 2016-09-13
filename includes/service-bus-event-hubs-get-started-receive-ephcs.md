@@ -85,7 +85,7 @@ Pour utiliser [EventProcessorHost][], vous devez disposer d’un [compte Azure S
             }
 	    }
 	}
-    ```
+    ````
 
 	Cette classe sera appelée par **EventProcessorHost** pour traiter les événements envoyés par le hub d'événements. Notez que la classe `SimpleEventProcessor` utilise un chronomètre pour appeler régulièrement la méthode de point de contrôle sur le contexte **EventProcessorHost**. Cette opération garantit que, en cas de redémarrage du récepteur, la perte de traitement de travail ne sera pas supérieure à cinq minutes.
 

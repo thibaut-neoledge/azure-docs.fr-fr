@@ -250,9 +250,9 @@ Les configurations requises 1 à 6 (à l’exception de 3) ci-dessus sont limit
 
 |Règle|Access|Priorité|Plage d’adresses source|Port source|Plage d’adresses de destination|Port de destination|Protocole|
 |---|---|---|---|---|---|---|---|
-|Autoriser RDP à partir d’Internet|Autoriser|100|INTERNET|*|*|3389|TCP|
+|Autoriser RDP à partir d’Internet|Autoriser|100|INTERNET|*|\*|3389|TCP|
 
->[AZURE.NOTE] Notez que la plage d’adresses source pour cette règle est **Internet**, et non l’adresse IP virtuelle de l’équilibreur de charge et le port source *****, pas 500001. Ne confondez pas les règles NAT/règles d’équilibre de charge et règles de groupe de sécurité réseau. Les règles du groupe de sécurité réseau sont toujours associées à la source d’origine et la destination finale du trafic, et **PAS** à l’équilibreur de charge entre les deux.
+>[AZURE.NOTE] Notez que la plage d’adresses source pour cette règle est **Internet**, et non l’adresse IP virtuelle de l’équilibreur de charge et le port source **\***, pas 500001. Ne confondez pas les règles NAT/règles d’équilibre de charge et règles de groupe de sécurité réseau. Les règles du groupe de sécurité réseau sont toujours associées à la source d’origine et la destination finale du trafic, et **PAS** à l’équilibreur de charge entre les deux.
 
 ### Le groupe de sécurité réseau pour la gestion des cartes réseau dans le serveur principal
 
@@ -260,7 +260,7 @@ Les configurations requises 1 à 6 (à l’exception de 3) ci-dessus sont limit
 
 |Règle|Access|Priorité|Plage d’adresses source|Port source|Plage d’adresses de destination|Port de destination|Protocole|
 |---|---|---|---|---|---|---|---|
-|Autoriser RDP à partir du serveur frontal|Autoriser|100|192\.168.1.0/24|*|*|3389|TCP|
+|Autoriser RDP à partir du serveur frontal|Autoriser|100|192\.168.1.0/24|*|\*|3389|TCP|
 
 ### Groupe de sécurité réseau pour la gestion des cartes réseau dans le serveur principal
 
@@ -268,7 +268,7 @@ Les configurations requises 1 à 6 (à l’exception de 3) ci-dessus sont limit
 
 |Règle|Access|Priorité|Plage d’adresses source|Port source|Plage d’adresses de destination|Port de destination|Protocole|
 |---|---|---|---|---|---|---|---|
-|Autoriser SQL à partir du serveur frontal|Autoriser|100|192\.168.1.0/24|*|*|1433|TCP|
+|Autoriser SQL à partir du serveur frontal|Autoriser|100|192\.168.1.0/24|*|\*|1433|TCP|
 
 Étant donné que certains des groupes de sécurité réseau ci-dessus doivent être associés à des cartes réseau individuelles, vous devez déployer ce scénario en tant que déploiement de gestionnaire de ressources. Notez comment les règles sont combinées au niveau du sous-réseau et de la carte réseau, selon la façon dont ils doivent être appliqués.
 
