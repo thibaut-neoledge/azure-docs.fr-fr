@@ -526,7 +526,7 @@ Dans cette étape, vous allez créer des jeux de données pour représenter les 
 		        "linkedServiceName": "AzureStorageLinkedService",
 		        "typeProperties": {
 		            "fileName": "{slice}.txt",
-		            "folderPath": "adftutorial/customactivityoutput",
+		            "folderPath": "adftutorial/customactivityoutput/",
 		            "partitionedBy": [
 		                {
 		                    "name": "slice",
@@ -615,7 +615,7 @@ Dans cette étape, vous allez créer des jeux de données pour représenter les 
 
 	- **Concurrency** est défini sur **2** pour que les deux tranches soient traitées en parallèle sur 2 machines virtuelles dans le pool Azure Batch.
 	- Il existe une activité dans la section des activités ; elle présente le type suivant : **DotNetActivity**.
-	- Le paramètre **AssemblyName** est défini sur le nom de la DLL : **MyActivities.dll**.
+	- Le paramètre **AssemblyName** est défini sur le nom de la DLL **MyDotnetActivity.dll**.
 	- Le paramètre **EntryPoint** est défini sur **MyDotNetActivityNS.MyDotNetActivity**.
 	- **PackageLinkedService** est défini sur **AzureStorageLinkedService**, qui pointe vers le stockage d’objets blob contenant le fichier .zip de l’activité personnalisée. Si vous utilisez des comptes de stockage différents pour les fichiers d’entrée/sortie et le fichier zip de l’activité personnalisée, vous créez un autre service lié Azure Storage. Cet article suppose d’utiliser le même compte de stockage Azure.
 	- Le paramètre **PackageFile** est défini sur **customactivitycontainer/MyDotNetActivity.zip**. Il est au format : conteneur\_du\_zip/nom\_du\_zip.zip.
@@ -896,4 +896,4 @@ Exemple | Rôle des activités personnalisées
 
 [image-data-factory-download-logs-from-custom-activity]: ./media/data-factory-use-custom-activities/DownloadLogsFromCustomActivity.png
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

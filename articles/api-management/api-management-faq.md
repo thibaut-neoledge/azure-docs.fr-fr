@@ -3,7 +3,7 @@
 	description="Découvrez les réponses aux questions les plus fréquentes, les modèles et les meilleures pratiques pour la gestion des API Azure." 
 	services="api-management" 
 	documentationCenter="" 
-	authors="steved0x" 
+	authors="miaojiang" 
 	manager="erikre" 
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/09/2016" 
-	ms.author="sdanie"/>
+	ms.author="mijiang"/>
 
 # FAQ sur la gestion des API Azure
 
@@ -155,4 +155,4 @@ Si vous utilisez le Gestionnaire d’informations d’identification GIT ou si v
 
 Oui.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

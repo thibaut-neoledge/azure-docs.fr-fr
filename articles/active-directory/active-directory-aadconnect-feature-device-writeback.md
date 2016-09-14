@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/10/2016"
+	ms.date="08/29/2016"
 	ms.author="billmath;andkjell"/>
 
 # Azure AD Connect : Activation de l’écriture différée des appareils
@@ -82,8 +82,7 @@ L’écriture différée des appareils doit désormais fonctionner correctement.
 
 1.	Lancez le Centre d’administration Active Directory.
 2.	Développez RegisteredDevices au sein du domaine en cours de fédération. ![Active Directory - Appareils inscrits au Centre d’administration](./media/active-directory-aadconnect-feature-device-writeback/devicewriteback5.png)
-3.	Les appareils enregistrés actuels sont répertoriés à cet emplacement.
-![Active Directory - Liste des appareils inscrits au Centre d’administration](./media/active-directory-aadconnect-feature-device-writeback/devicewriteback6.png)
+3.	Les appareils enregistrés actuels sont répertoriés à cet emplacement.![Active Directory - Liste des appareils inscrits au Centre d’administration](./media/active-directory-aadconnect-feature-device-writeback/devicewriteback6.png)
 
 ## Résolution de problèmes
 
@@ -131,4 +130,4 @@ Vérifiez la configuration dans Active Directory :
 ## Étapes suivantes
 En savoir plus sur l’[intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0831_2016-->

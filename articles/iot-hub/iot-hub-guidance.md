@@ -1,6 +1,6 @@
 <properties
  pageTitle="Guide de la solution IoT Hub | Microsoft Azure"
- description="Rubriques d'aide sur les passerelles, l'approvisionnement des appareils et l'authentification pour développer des solutions IoT avec Azure IoT Hub."
+ description="Rubriques d’aide sur les passerelles, l’approvisionnement des appareils et l’authentification pour développer des solutions IoT avec Azure IoT Hub."
  services="iot-hub"
  documentationCenter=""
  authors="dominicbetts"
@@ -138,4 +138,4 @@ Pour explorer davantage les capacités de IoT Hub, consultez :
 [lnk-sas-token]: iot-hub-sas-tokens.md
 [lnk-securing]: iot-hub-security-ground-up.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0831_2016-->

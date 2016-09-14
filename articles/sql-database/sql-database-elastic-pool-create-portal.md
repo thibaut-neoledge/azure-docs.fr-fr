@@ -29,13 +29,13 @@ Cet article vous montre comment créer un [pool de base de données élastique](
 
 Vous pouvez ajouter plusieurs pools à un serveur, mais il est impossible d’ajouter des bases de données de différents serveurs dans le même pool. Pour créer un pool, vous devez disposer au moins d’une base de données sur un serveur V12. Si vous en êtes dépourvu, consultez l’article [Créer votre première base de données SQL Azure](sql-database-get-started.md). Vous pouvez créer un pool avec une seule base de données, mais les pools ne sont rentables que s’ils comportent plusieurs bases de données. Consultez l’article [Considérations sur les prix et performances pour un pool de bases de données élastique](sql-database-elastic-pool-guidance.md).
 
-> [AZURE.NOTE] Les pools sont uniquement disponibles avec des serveurs de base de données SQL V12. Si vous avez des bases de données sur un serveur V11, vous pouvez [utiliser un script PowerShell pour les identifier comme candidats à un pool](sql-database-elastic-pool-database-assessment-powershell.md) sur un serveur V12, puis [utiliser PowerShell pour mettre à niveau vers V12 et créer un pool](sql-database-upgrade-server-powershell.md) en une seule étape.
+> [AZURE.NOTE] Les pools élastiques sont mis à la disposition générale dans toutes les régions Azure, à l’exception du Nord du centre des États-Unis et de l’Inde de l’Ouest, où ils sont actuellement en préversion. Les pools élastiques seront mis à la disposition générale dans ces régions dès que possible. En outre, les pools élastiques ne prennent pas en charge les bases de données utilisant [l’OLTP ou l’analytique en mémoire](sql-database-in-memory.md).
 
 ## Étape 1 : créer un nouveau pool
 
-Cet article explique comment créer un pool à partir d’un panneau **Serveur** existant dans le portail ; c’est le moyen le plus simple pour déplacer des bases de données existantes dans un pool.
+Cet article explique comment créer un pool à partir d’un panneau **Serveur** existant dans le portail. C’est le moyen le plus simple pour déplacer des bases de données existantes dans un pool.
 
-> [AZURE.NOTE] Que vous disposiez d’un serveur ou non, vous pouvez également créer un pool à partir du panneau **Pools élastiques SQL** (sous la liste du côté gauche du portail, cliquez sur **Parcourir** **>** **Pools élastiques SQL**). Cliquez sur **+ Ajouter** sur le panneau **Pools élastiques SQL** pour créer un serveur pendant le flux de travail d’approvisionnement du pool.
+> [AZURE.NOTE] Que vous disposiez d’un serveur ou non, vous pouvez également créer un pool à partir du panneau **Pools élastiques SQL** (sous la liste du côté gauche du portail, cliquez sur **Parcourir** **>** **Pools élastiques SQL**). Cliquez sur **+ Ajouter** sur le panneau **Pools élastiques SQL** pour créer un serveur pendant le workflow d’approvisionnement du pool.
 
 1. Dans le [portail Azure](http://portal.azure.com/), sous la liste du côté gauche, cliquez sur **Parcourir** **>** **Serveurs SQL**, puis sur le serveur qui contient les bases de données que vous souhaitez ajouter à un pool.
 2. Cliquez sur **Nouveau pool**.
@@ -92,7 +92,7 @@ Le service SQL Database évalue l’historique d’utilisation et recommande un 
 La recommandation relative au pool comprend les éléments suivants :
 
 - Niveau de tarification du pool (De base, Standard ou Premium)
-- Valeur **eDTU du pool** appropriée (également appelée eDTU max. par pool)
+- Valeur **eDTU du pool** appropriée (également appelée eDTU max par pool)
 - Paramètres **eDTU max** et **eDTU min** par base de données
 - Liste des bases de données recommandées pour le pool
 
@@ -113,4 +113,4 @@ Après avoir ajouté des bases de données au pool, des recommandations seront g
 - [Gérer un pool élastique de base de données SQL en C#](sql-database-elastic-pool-manage-csharp.md)
 - [Montée en charge avec Base de données SQL Azure](sql-database-elastic-scale-introduction.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0907_2016-->

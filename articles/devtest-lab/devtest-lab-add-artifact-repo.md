@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/01/2016"
+	ms.date="08/25/2016"
 	ms.author="tarcher"/>
 
 # Ajouter un dépôt d’artefacts Git à un laboratoire
@@ -117,8 +117,10 @@ Pour ajouter un dépôt d’artefacts Git Visual Studio à votre laboratoire, vo
     3. Entrez le **Jeton d’accès personnel** enregistré dans le dépôt d’artefacts.
     4. Sélectionnez **Enregistrer**.
 
-## Billets de blog connexes
-- [How to troubleshoot failing Artifacts in AzureDevTestLabs](http://www.visualstudiogeeks.com/blog/DevOps/How-to-troubleshoot-failing-artifacts-in-AzureDevTestLabs) (Comment résoudre les problèmes d’échec des artefacts dans AzureDevTestLabs)
-- [Join a VM to existing AD Domain using ARM template in Azure Dev Test Lab](http://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs) (Joindre une machine virtuelle à un domaine Active Directory existant à l’aide du modèle ARM dans Azure Dev Test Lab)
+[AZURE.INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-<!---HONumber=AcomDC_0803_2016-->
+## Billets de blog connexes
+- [How to troubleshoot failing Artifacts in AzureDevTestLabs (Comment résoudre les problèmes d’échec des artefacts dans AzureDevTestLabs)](http://www.visualstudiogeeks.com/blog/DevOps/How-to-troubleshoot-failing-artifacts-in-AzureDevTestLabs)
+- [Join a VM to existing AD Domain using ARM template in Azure Dev Test Lab (Joindre une machine virtuelle à un domaine Active Directory existant à l’aide du modèle ARM dans Azure Dev Test Lab)](http://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs)
+
+<!---HONumber=AcomDC_0831_2016-->

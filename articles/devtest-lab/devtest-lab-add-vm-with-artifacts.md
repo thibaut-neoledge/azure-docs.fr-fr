@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/01/2016"
+	ms.date="08/25/2016"
 	ms.author="tarcher"/>
 
 # Ajouter une machine virtuelle avec des artefacts à un laboratoire
@@ -64,7 +64,7 @@ Cet article vous explique comment créer une machine virtuelle dans votre labora
 
 1. Sélectionnez **Artefacts** et, dans la liste des artefacts, sélectionnez et configurez les artefacts que vous souhaitez ajouter à l’image de base. **Remarque :** si vous n’êtes pas familier avec DevTest Labs ou avec la configuration d’artefacts, passez à la section [Ajout d’un artefact existant à une machine virtuelle](#add-an-existing-artifact-to-a-vm), puis revenez ici quand vous avez terminé.
 
-1. Si vous voulez afficher ou copier le modèle ARM, passez à la section [Enregistrer un modèle ARM](#save-arm-template), puis revenez ici quand vous avez terminé.
+1. Si vous voulez afficher ou copier le modèle Azure Resource Manager, passez à la section [Enregistrer un modèle Azure Resource Manager](#save-arm-template), puis revenez ici quand vous avez terminé.
 
 1. Sélectionnez **Créer** pour ajouter la machine virtuelle spécifiée au laboratoire.
 
@@ -116,9 +116,9 @@ Les étapes suivantes montrent comment afficher ou modifier les paramètres d’
 
 1. Cliquez sur **OK** pour fermer le panneau **Artefacts sélectionnés**.
 
-## Enregistrer un modèle ARM
+## Enregistrer un modèle Azure Resource Manager
 
-Un modèle ARM constitue un moyen déclaratif de définir un déploiement qui peut être répété. Les étapes suivantes expliquent comment enregistrer le modèle ARM pour la machine virtuelle en cours de création. Une fois enregistré, vous pouvez utiliser le modèle ARM pour [déployer de nouvelles machines virtuelles avec Azure PowerShell](../resource-group-overview.md#template-deployment).
+Un modèle Azure Resource Manager constitue un moyen déclaratif de définir un déploiement qui peut être répété. Les étapes suivantes expliquent comment enregistrer le modèle Azure Resource Manager pour la machine virtuelle en cours de création. Une fois enregistré, vous pouvez utiliser le modèle Azure Resource Manager pour [déployer de nouvelles machines virtuelles avec Azure PowerShell](../resource-group-overview.md#template-deployment).
 
 1. Dans le panneau **Machine virtuelle de laboratoire**, sélectionnez **Afficher le modèle ARM**.
 
@@ -134,10 +134,12 @@ Un modèle ARM constitue un moyen déclaratif de définir un déploiement qui pe
 
 1. Enregistrez le fichier pour une utilisation ultérieure.
 
+[AZURE.INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
+
 ## Étapes suivantes
 
 - Une fois la machine virtuelle créée, vous pouvez vous y connecter en sélectionnant **Connexion** dans le panneau de la machine virtuelle.
 - Découvrez comment [créer des artefacts personnalisés pour vos machines virtuelles DevTest Labs](devtest-lab-artifact-author.md).
 - Explorer la [Galerie de modèles de démarrage rapide d’ARM DevTest Labs](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0831_2016-->

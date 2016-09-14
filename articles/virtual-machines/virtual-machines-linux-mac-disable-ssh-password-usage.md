@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/29/2016"
-	ms.author="v-vlivech"/>
+	ms.date="08/26/2016"
+	ms.author="v-livech"/>
 
 # Désactiver les mots de passe SSH sur votre machine virtuelle Linux en configurant SSHD
 
@@ -41,9 +41,9 @@ SSHD est le serveur SSH qui s’exécute sur la machine virtuelle Linux. SSH est
 
 Dans le cadre de cet article, il est très important que la connexion à votre machine virtuelle Linux soit ouverte durant toutes les étapes. Pour cette raison, nous allons ouvrir deux terminaux et exécuter SSH vers la machine virtuelle Linux à partir de chacun d’eux. Nous utilisons le premier terminal pour modifier le fichier de configuration SSHD et redémarrer le service SSHD. Nous utilisons le deuxième terminal pour tester ces modifications une fois que le service est redémarré. Étant donné que nous désactivons les mots de passe SSH et que nous nous appuyons uniquement sur les clés SSH, si ces dernières sont incorrectes et que vous fermez la connexion à la machine virtuelle, celle-ci sera définitivement verrouillée et personne ne pourra se connecter à moins de la supprimer et de la recréer.
 
-## Configuration requise
+## Composants requis
 
-- [Créer des clés SSH sur Linux et Mac pour les machines virtuelles Linux dans Azure](link)
+- [Créer des clés SSH sur Linux et Mac pour les machines virtuelles Linux dans Azure](virtual-machines-linux-mac-create-ssh-keys.md)
 - Compte Azure
   - [Version d’évaluation gratuite](https://azure.microsoft.com/pricing/free-trial/)
   - [Portail Azure](http://portal.azure.com)
@@ -129,7 +129,7 @@ ChallengeResponseAuthentication no
 
 Dans l’interpréteur de commandes de T1, vérifiez que vous êtes toujours connecté. Cela est essentiel pour continuer à avoir accès à votre machine virtuelle si vos clés SSH ne sont pas correctes, car les mots de passe sont désormais désactivés. Si des paramètres sont incorrects sur votre machine virtuelle Linux, vous pouvez corriger sshd\_config à partir de T1, car vous êtes toujours connecté et que SSH maintient la connexion active pendant le redémarrage du service SSHD.
 
-À partir de T2, effectuez l’exécution :
+À partir de T2, effectuez l’exécution :
 
 ##### Pour la famille Debian
 
@@ -145,4 +145,4 @@ username@macbook$ sudo service sshd restart
 
 Les mots de passe sont désormais désactivés sur votre machine virtuelle, ce qui la protège contre les tentatives d’attaque par force brute des connexions par mot de passe. Quand seules les clés SSH sont autorisées, vous pouvez vous connecter de façon plus rapide et beaucoup plus sûre.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -36,11 +36,11 @@ Pour les services disponibles via Resource Health, deux méthodes permettent d�
 Le panneau Resource Health du portail Azure fournit des informations détaillées sur l’intégrité de la ressource ainsi que les actions recommandées, qui varient en fonction de l’état actuel de la ressource. Ce panneau offre la meilleure expérience possible lors de l’interrogation de Resource Health, dans la mesure où il facilite l’accès à d’autres ressources dans le portail. Comme mentionné précédemment, les actions recommandées dans le panneau Resource Health varient en fonction de l’état actuel :
 
 * Ressources saines : dans la mesure où aucun problème susceptible d’affecter l’intégrité de la ressource n’a été détecté, les actions visent à aider le processus de dépannage. Par exemple, elles fournissent un accès direct au panneau Dépannage, qui propose des conseils sur la résolution des problèmes auxquels les clients sont le plus souvent confrontés.
-* Ressources défectueuses : pour les problèmes causés par Azure, le panneau affiche les actions que Microsoft effectue (ou a effectué) pour récupérer la ressource. Pour les problèmes provoqués par des actions initiées par l’utilisateur, le panneau répertorie les actions que les clients peuvent effectuer pour résoudre le problème et récupérer la ressource.  
+* Ressources défectueuses : pour les problèmes causés par Azure, le panneau affiche les actions que Microsoft effectue (ou a effectué) pour récupérer la ressource. Pour les problèmes provoqués par des actions initiées par l’utilisateur, le panneau répertorie les actions que les clients peuvent effectuer pour résoudre le problème et récupérer la ressource.
 
 Une fois que vous êtes connecté au portail Azure, vous pouvez accéder au panneau Resource Health de deux manières :
 
-####Ouvrir le panneau Ressource
+###Ouvrir le panneau Ressource
 Ouvrez le panneau Ressource pour une ressource donnée. Dans le panneau Paramètres qui s’affiche en regard du panneau Ressource, cliquez sur Resource Health pour ouvrir le panneau Resource Health.
 
 ![Panneau Resource Health](./media/resource-health-overview/resourceBladeAndResourceHealth.png)
@@ -52,36 +52,11 @@ Cliquez sur le point d’interrogation dans le coin supérieur droit, puis séle
 
 ![Aide + Support](./media/resource-health-overview/HelpAndSupport.png)
 
-Si vous cliquez sur la vignette, le panneau d’abonnement à Resource Health s’ouvre. Il répertorie toutes les ressources de votre abonnement. Une icône située en regard de chaque ressource indique son état d’intégrité. Cliquez sur chaque ressource pour ouvrir le panneau Resource Health.
+Si vous cliquez sur la mosaïque, le panneau d’abonnement à Resource Health s’ouvre. Il répertorie toutes les ressources de votre abonnement. Une icône située en regard de chaque ressource indique son état d’intégrité. Cliquez sur chaque ressource pour ouvrir le panneau Resource Health.
 
 **Vignette Resource Health**
 
 ![Vignette Resource Health](./media/resource-health-overview/resourceHealthTile.png)
-
-### API Resource Health
-Pour aller au-delà du portail Azure, un ensemble d’API peut également être utilisé pour interroger Resource Health. Les API disponibles permettent aux utilisateurs de connaître l’intégrité de toutes les ressources d’un abonnement, de toutes les ressources d’un groupe de ressources ou d’une ressource spécifique.
-
-Une autre API permet aux utilisateurs de demander l’historique d’intégrité d’une ressource. La réponse se présente sous la forme d’une collection des états d’intégrité des ressources des 14 derniers jours. Si la ressource a peut-être été affectée par une panne déclarée, l’état d’intégrité inclut une annotation appelée serviceImpactingEvents fournissant plus de détails sur la panne.
-
-Avant d’utiliser l’API pour interroger Resource Health, l’abonnement doit être enregistré avec le service en envoyant une requête POST à l’URL suivante : volume
- 
-        //Register the subscription with the Resource health resource provider
-        https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.ResourceHealth/register?api-version=2015-01-01
-        
-Voici des exemples d’appel de l’API Resource Health
-
-        // GET health of all resources in a subscription:
-        https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.ResourceHealth/availabilityStatuses?api-version=2015-01-01
-        
-        //GET health of all resources in a resource group:
-        https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.ResourceHealth/availabilityStatuses?api-version=2015-01-01
-        
-        //GET the health of a single resource:
-        https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}/providers/Microsoft.ResourceHealth/availabilityStatuses/current?api-version=2015-01-01
-        
-        //GET the historical health of a single resource:
-        https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}/providers/Microsoft.ResourceHealth/availabilityStatuses?api-version=2015-01-01
-
 
 ## Que signifie mon état Resource Health ?
 Quatre états d’intégrité peuvent s’afficher pour votre ressource.
@@ -95,9 +70,9 @@ Le service n’a détecté aucun problème pouvant avoir un impact sur la dispon
 
 Dans ce cas, le service a détecté un problème qui affecte la disponibilité de cette ressource, par exemple, le nœud sur lequel la machine virtuelle était exécutée a redémarré de manière inattendue. Cet état est représenté par une icône d’avertissement rouge. Des informations supplémentaires sur le problème sont fournies dans la section située au milieu du panneau, notamment :
 
-1.	Quelles sont les actions exécutées par Microsoft pour récupérer la ressource 
+1.	Quelles sont les actions exécutées par Microsoft pour récupérer la ressource
 2.	Une chronologie détaillée du problème, y compris le délai de résolution prévu
-3.	Une liste des actions recommandées pour les utilisateurs 
+3.	Une liste des actions recommandées pour les utilisateurs
 
 ![La ressource est indisponible](./media/resource-health-overview/Unavailable.png)
 
@@ -132,4 +107,4 @@ Resource Health indique l’état de la base de données SQL, pas du serveur SQL
 ## Commentaires
 Nous sommes ouverts aux commentaires et suggestions ! Envoyez-nous vos [suggestions](https://feedback.azure.com/forums/266794-support-feedback). Vous pouvez aussi nous contacter via [Twitter](https://twitter.com/azuresupport) ou via les [forums MSDN](https://social.msdn.microsoft.com/Forums/azure).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0831_2016-->

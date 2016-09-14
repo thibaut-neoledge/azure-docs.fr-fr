@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/22/2016"
+	ms.date="09/02/2016"
 	ms.author="darosa;sethm"/>
 
 # Couches messagerie Service Bus Premium et Standard 
 
-La messagerie répartie Service Bus, qui comprend des entités de messagerie telles que les files d’attente et les rubriques, combine des fonctionnalités de messagerie d’entreprise à une sémantique riche de publication et d’abonnement à l’échelle du cloud. La messagerie Service Bus sert d’infrastructure de communication à de nombreuses solutions cloud sophistiquées.
+La messagerie Service Bus, qui comprend des entités de messagerie telles que les files d’attente et les rubriques, associe des fonctionnalités de messagerie d’entreprise à une sémantique riche de publication et d’abonnement à l’échelle du cloud. La messagerie Service Bus sert d’infrastructure de communication à de nombreuses solutions cloud sophistiquées.
 
 La couche *Premium* de la messagerie Service Bus répond aux demandes couramment formulées par les clients concernant la mise à l’échelle, les performances et la disponibilité de leurs applications critiques. Bien qu’offrant des ensembles de fonctionnalités quasiment identiques, les deux couches de messagerie Service Bus sont conçues pour différents cas de figure.
 
@@ -40,13 +40,13 @@ mais aussi supérieures. La messagerie Service Bus Premium s’appuie sur le mot
 
 Voici quelques différences entre les couches de messagerie Standard et Premium.
 
-### Entités partitionnées
+### Files d’attente et rubriques partitionnées
 
-Les entités partitionnées sont prises en charge dans la messagerie Premium, mais elles ne fonctionnent pas de la même manière que dans les couches Standard et De base de la messagerie Service Bus. La messagerie Premium n’utilise pas SQL comme magasin de données et ne permet plus la concurrence de ressources associée à une plateforme partagée. Par conséquent, le partitionnement n’est pas nécessaire. En outre, le nombre de partitions est passé de 16 partitions dans la messagerie Standard à 2 partitions dans la messagerie Premium. Si le fait d’avoir deux partitions garantit la disponibilité, ce nombre est aussi mieux adapté à l’environnement d’exécution Premium. Pour plus d’informations sur le partitionnement, consultez [Entités de messagerie partitionnées](service-bus-partitioning.md).
+Les files d’attente et les rubriques partitionnées sont prises en charge dans la messagerie Premium, mais elles ne fonctionnent pas de la même manière que dans les couches Standard et De base de la messagerie Service Bus. La messagerie Premium n’utilise pas SQL comme magasin de données et ne permet plus la concurrence de ressources associée à une plateforme partagée. Par conséquent, le partitionnement n’est pas nécessaire. En outre, le nombre de partitions est passé de 16 partitions dans la messagerie Standard à 2 partitions dans la messagerie Premium. Si le fait d’avoir deux partitions garantit la disponibilité, ce nombre est aussi mieux adapté à l’environnement d’exécution Premium. Pour plus d’informations sur le partitionnement, consultez [Files d’attente et rubriques partitionnées](service-bus-partitioning.md).
 
 ### Entités Express
 
-La messagerie Premium s’exécutant dans un environnement d’exécution complètement isolé, les entités express n’ont plus lieu d’être. Par conséquent, les entités express ne sont pas prises en charge dans les espaces de noms Premium. Pour plus d’informations sur la fonctionnalité express, consultez la propriété [Microsoft.ServiceBus.Messaging.QueueDescription.EnableExpress](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.enableexpress.aspx).
+La messagerie Premium s’exécutant dans un environnement d’exécution complètement isolé, les entités express ne sont pas prises en charge dans les espaces de noms Premium. Pour plus d’informations sur la fonctionnalité express, consultez la propriété [Microsoft.ServiceBus.Messaging.QueueDescription.EnableExpress](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.enableexpress.aspx).
 
 ## Étapes suivantes
 
@@ -58,4 +58,4 @@ Pour en savoir plus sur la messagerie Service Bus, voir les rubriques suivantes.
 - [Présentation de l’architecture d’Azure Service Bus](service-bus-fundamentals-hybrid-solutions.md)
 - [Utilisation des files d’attente Service Bus](service-bus-dotnet-get-started-with-queues.md)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0907_2016-->

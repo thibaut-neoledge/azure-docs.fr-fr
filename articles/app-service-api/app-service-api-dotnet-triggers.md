@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/16/2016" 
+	ms.date="08/25/2016" 
 	ms.author="rachelap"/>
 
 # Déclencheurs des applications API Azure App Service
@@ -342,4 +342,4 @@ Voici un exemple de la façon dont cette classe peut être implémentée pour fa
     }
  
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0831_2016-->

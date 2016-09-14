@@ -44,7 +44,7 @@ Cliquez sur **Certificat**. Un déploiement est lancé et une barre d’état bl
 
 Une fois ce déploiement terminé, vous pouvez utiliser le certificat principal ou le certificat secondaire pour effectuer des opérations de gestion sur le cluster.
 
-![Capture d’écran du déploiement de certificat en cours] [SecurityConfigurations_03]
+![Capture d’écran du déploiement de certificat en cours][SecurityConfigurations_03]
 
 Voici une capture du panneau Sécurité une fois le déploiement terminé.
 
@@ -208,6 +208,10 @@ Lisez les articles suivants pour plus d’informations sur la gestion des cluste
 
 
 <!--Image references-->
-[SecurityConfigurations_02]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_02.png [SecurityConfigurations_03]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_03.png [SecurityConfigurations_05]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_05.png [SecurityConfigurations_08]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_08.png
+[SecurityConfigurations_02]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_02.png
+[SecurityConfigurations_03]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_03.png
+[SecurityConfigurations_05]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_05.png
+[SecurityConfigurations_08]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_08.png
 
 <!---HONumber=AcomDC_0817_2016-->
+

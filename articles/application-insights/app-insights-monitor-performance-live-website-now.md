@@ -283,11 +283,7 @@ Si l’application web est dans Azure et que vous créez vos ressources à l’a
 * [Ajoutez la télémétrie de client web][usage] pour afficher les exceptions à partir du code de la page web et vous permettre d’insérer un suivi des appels.
 * [Ajoutez le kit de développement logiciel (SDK) Application Insights à votre code de service web][greenbrown] afin de pouvoir insérer un suivi des appels et des appels de journaux dans le code du serveur.
 
-## Vidéo
 
-#### Analyse des performances
-
-[AZURE.VIDEO app-insights-performance-monitoring]
 
 <!--Link references-->
 
@@ -300,4 +296,4 @@ Si l’application web est dans Azure et que vous créez vos ressources à l’a
 [roles]: app-insights-resources-roles-access-control.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

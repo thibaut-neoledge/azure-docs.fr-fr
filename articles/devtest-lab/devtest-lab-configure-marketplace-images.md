@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/01/2016"
+	ms.date="08/25/2016"
 	ms.author="tarcher"/>
 
 # Configurer les paramètres d’une image Azure Marketplace dans un laboratoire
@@ -30,7 +30,7 @@ DevTest Labs prend en charge la création de nouvelles machines virtuelles basé
 
 1. Sélectionnez le laboratoire souhaité dans la liste des laboratoires.
 
-1. Le panneau **Paramètres** du laboratoire sélectionné s’affiche.
+1. Le panneau **Paramètres** du labo sélectionné s’affiche.
 
 1. Sur le panneau **Paramètres**, sélectionnez **Images Marketplace**
 
@@ -50,8 +50,10 @@ DevTest Labs prend en charge la création de nouvelles machines virtuelles basé
 
 	![Vous pouvez spécifier les images Azure Marketplace pouvant être utilisées en tant qu’images de base pour des machines virtuelles](./media/devtest-lab-configure-marketplace-images/select-marketplace-images.png)
 
+[AZURE.INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
+
 ## Étapes suivantes
 
 Une fois que vous avez configuré comment les images Azure Marketplace sont autorisées lors de la création d’une machine virtuelle, l’étape suivante consiste à [ajouter une machine virtuelle à votre laboratoire](./devtest-lab-add-vm-with-artifacts.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0831_2016-->

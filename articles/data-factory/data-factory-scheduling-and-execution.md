@@ -50,7 +50,7 @@ Avec Azure Data Factory, vous pouvez traiter les données de série par lot pend
       "interval": 1
     },
 
-Chaque unité de données consommée et produite pendant l’exécution d’une activité est appelée **tranche** de données. Le diagramme suivant montre un exemple d’activité contenant un jeu de données d’entrée et un de sortie, chacun ayant la propriété Disponibilité définie sur une fréquence de «Toutes les heures ».
+Chaque unité de données consommée et produite pendant l’exécution d’une activité est appelée **tranche** de données. Le diagramme suivant illustre un exemple d’une activité avec un jeu de données d’entrée et un jeu de données de sortie. Ces jeux de données ont la propriété Disponibilité définie sur une fréquence de «Toutes les heures ».
 
 ![Planificateur de disponibilité](./media/data-factory-scheduling-and-execution/availability-scheduler.png)
 
@@ -239,38 +239,117 @@ Le diagramme montre que, parmi les trois tranches récentes, il y a eu un échec
 
 Les outils de surveillance et de gestion Data Factory vous permettent d’examiner en détail les journaux de diagnostic pour la tranche ayant échoué, et de trouver facilement la cause du problème pour le régler. Une fois le problème résolu, vous pouvez facilement lancer l’exécution de l’activité afin de générer la tranche ayant échoué. Pour plus d’informations sur la façon de lancer les réexécutions et comprendre les transitions d’état des tranches de données, consultez **Surveillance et gestion des pipelines à l’aide des** [panneaux du portail Azure](data-factory-monitor-manage-pipelines.md) (ou) [de l’application Surveiller et gérer](data-factory-monitor-manage-app.md).
 
-Une fois que vous avez relancé l’exécution de la tranche de 9-10 h pour dataset2 et que le tout est prêt, Data Factory lance l’exécution de la tranche dépendante 9 à 10 h sur un jeu de données final, comme indiqué dans le schéma suivant.
+Une fois que vous avez relancé l’exécution de la tranche de 9-10 h pour dataset2 et que le tout est prêt, Data Factory lance l’exécution de la tranche dépendante 9 à 10 h sur un jeu de données final.
 
 ![Réexécuter une tranche de données ayant échoué](./media/data-factory-scheduling-and-execution/rerun-failed-slice.png)
 
-Pour approfondir vos connaissances sur la spécification et le suivi des dépendances pour une chaîne d’activités, consultez les sections suivantes.
-
-## Chaînage des activités
-Vous pouvez chaîner deux activités en utilisant le jeu de données de sortie d’une activité en tant que jeu de données d’entrée de l’autre activité. Les activités peuvent être dans le même pipeline ou dans des pipelines différents. La seconde activité s’exécute uniquement quand la première se termine correctement.
+## Exécution d’activités dans une séquence
+Vous pouvez chaîner deux activités (une après l’autre) en utilisant le jeu de données de sortie d’une activité en tant que jeu de données d’entrée de l’autre activité. Les activités peuvent être dans le même pipeline ou dans des pipelines différents. La seconde activité s’exécute uniquement quand la première se termine correctement.
 
 Considérez l’exemple suivant :
  
 1.	Le pipeline P1 contient l’activité A1 nécessitant le jeu de données d’entrée externe D1 et produit le jeu de données de **sortie** **D2**.
-2.	Le pipeline P2 contient l’activité A2 nécessitant le jeu de données **d’entrée** **D2** et produit le jeu de données de sortie D3.
+2.	Le pipeline P2 contient l’activité A2 nécessitant le jeu de données **d’entrée** **D2** et produit le jeu de données de sortie **D3**.
  
-Dans ce scénario, l’activité A1 s’exécute lorsque les données externes seront disponibles et que la fréquence de disponibilité planifiée sera atteinte. L’activité A2 s’exécute lorsque les tranches planifiées de D2 seront disponibles et que la fréquence de disponibilité planifiée sera atteinte. S’il existe une erreur dans l’une des tranches du jeu de données D2, A2 n’est pas exécutée pour cette tranche jusqu’à ce que celle-ci devienne disponible.
+Dans ce scénario, les activités A1 et A2 sont dans des pipelines différents. L’activité A1 s’exécute lorsque les données externes seront disponibles et que la fréquence de disponibilité planifiée sera atteinte. L’activité A2 s’exécute lorsque les tranches planifiées de D2 seront disponibles et que la fréquence de disponibilité planifiée sera atteinte. S’il existe une erreur dans l’une des tranches du jeu de données D2, A2 n’est pas exécutée pour cette tranche jusqu’à ce que celle-ci devienne disponible.
 
 La vue de diagramme se présente comme dans le diagramme suivant :
 
 ![Chaînage des activités dans deux pipelines](./media/data-factory-scheduling-and-execution/chaining-two-pipelines.png)
 
-La vue de diagramme avec les deux activités dans le même pipeline se présente comme dans le diagramme suivant :
+Comme mentionné plus tôt, les activités peuvent être dans le même pipeline. La vue de diagramme avec les deux activités dans le même pipeline se présente comme dans le diagramme suivant :
 
 ![Chaînage des activités dans le même pipeline](./media/data-factory-scheduling-and-execution/chaining-one-pipeline.png)
 
-### Copie ordonnée
+### Copie séquentielle
 Il est possible d’exécuter plusieurs opérations de copie l’une après l’autre, de manière séquentielle/ordonnée. Si, par exemple, vous avez deux activités de copie dans un pipeline : ActivitédeCopie1 et ActivitédeCopie2 avec les jeux de données de sortie de données d’entrée suivants.
 
 ActivitédeCopie1 : Entrée : JeudeDonnées1 Sortie : JeudeDonnées2
 
-ActivitédeCopie2 : Entrées : JeudeDonnées2 Sortie : JeudeDonnées4
+ActivitédeCopie2 : Entrées : JeudeDonnées2 Sortie : JeudeDonnées3
 
 ActivitédeCopie2 s’exécute uniquement si ActivitédeCopie1 s’est exécutée avec succès et que JeudeDonnées2 est disponible.
+
+Voici l’exemple de pipeline JSON :
+
+	{
+		"name": "ChainActivities",
+	    "properties": {
+			"description": "Run activities in sequence",
+	        "activities": [
+	            {
+	                "type": "Copy",
+	                "typeProperties": {
+	                    "source": {
+	                        "type": "BlobSource"
+	                    },
+	                    "sink": {
+	                        "type": "BlobSink",
+	                        "copyBehavior": "PreserveHierarchy",
+	                        "writeBatchSize": 0,
+	                        "writeBatchTimeout": "00:00:00"
+	                    }
+	                },
+	                "inputs": [
+	                    {
+	                        "name": "Dataset1"
+	                    }
+	                ],
+	                "outputs": [
+	                    {
+	                        "name": "Dataset2"
+	                    }
+	                ],
+	                "policy": {
+	                    "timeout": "01:00:00"
+	                },
+	                "scheduler": {
+	                    "frequency": "Hour",
+	                    "interval": 1
+	                },
+	                "name": "CopyFromBlob1ToBlob2",
+	                "description": "Copy data from a blob to another"
+	            },
+	            {
+	                "type": "Copy",
+	                "typeProperties": {
+	                    "source": {
+	                        "type": "BlobSource"
+	                    },
+	                    "sink": {
+	                        "type": "BlobSink",
+	                        "writeBatchSize": 0,
+	                        "writeBatchTimeout": "00:00:00"
+	                    }
+	                },
+	                "inputs": [
+	                    {
+	                        "name": "Dataset2"
+	                    }
+	                ],
+	                "outputs": [
+	                    {
+	                        "name": "Dataset3"
+	                    }
+	                ],
+	                "policy": {
+	                    "timeout": "01:00:00"
+	                },
+	                "scheduler": {
+	                    "frequency": "Hour",
+	                    "interval": 1
+	                },
+	                "name": "CopyFromBlob2ToBlob3",
+	                "description": "Copy data from a blob to another"
+	            }
+	        ],
+	        "start": "2016-08-25T01:00:00Z",
+	        "end": "2016-08-25T01:00:00Z",
+	        "isPaused": false
+	    }
+	}
+
+Notez que dans l’exemple, le jeu de données de sortie de la première activité de copie (Dataset2) est spécifié en tant qu’entrée pour la deuxième activité. Par conséquent, la deuxième activité s’exécute uniquement lorsque le jeu de données de sortie de la première activité est prêt.
 
 Dans l’exemple, ActivitédeCopie2 peut avoir une entrée différente, par exemple JeudeDonnées3, mais vous spécifiez JeudeDonnées2 en tant qu’entrée pour ActivitédeCopie2, afin que l’activité ne s’exécute pas avant la fin d’ActivitédeCopie1. Par exemple :
 
@@ -278,7 +357,88 @@ ActivitédeCopie1 : Entrée : JeudeDonnées1 Sortie : JeudeDonnées2
 
 ActivitédeCopie2 : Entrées : JeudeDonnées3 Sortie JeudeDonnées2 : JeudeDonnées4
 
-Quand plusieurs entrées sont spécifiées, seul le premier jeu de données d’entrée est utilisé pour copier des données, mais les autres jeux de données sont utilisés en tant que dépendances. L’exécution d’ActivitédeCopie2 démarre uniquement quand les conditions suivantes sont remplies :
+	{
+		"name": "ChainActivities",
+	    "properties": {
+			"description": "Run activities in sequence",
+	        "activities": [
+	            {
+	                "type": "Copy",
+	                "typeProperties": {
+	                    "source": {
+	                        "type": "BlobSource"
+	                    },
+	                    "sink": {
+	                        "type": "BlobSink",
+	                        "copyBehavior": "PreserveHierarchy",
+	                        "writeBatchSize": 0,
+	                        "writeBatchTimeout": "00:00:00"
+	                    }
+	                },
+	                "inputs": [
+	                    {
+	                        "name": "Dataset1"
+	                    }
+	                ],
+	                "outputs": [
+	                    {
+	                        "name": "Dataset2"
+	                    }
+	                ],
+	                "policy": {
+	                    "timeout": "01:00:00"
+	                },
+	                "scheduler": {
+	                    "frequency": "Hour",
+	                    "interval": 1
+	                },
+	                "name": "CopyFromBlobToBlob",
+	                "description": "Copy data from a blob to another"
+	            },
+	            {
+	                "type": "Copy",
+	                "typeProperties": {
+	                    "source": {
+	                        "type": "BlobSource"
+	                    },
+	                    "sink": {
+	                        "type": "BlobSink",
+	                        "writeBatchSize": 0,
+	                        "writeBatchTimeout": "00:00:00"
+	                    }
+	                },
+	                "inputs": [
+	                    {
+	                        "name": "Dataset3"
+	                    },
+	                    {
+	                        "name": "Dataset2"
+	                    }
+	                ],
+	                "outputs": [
+	                    {
+	                        "name": "Dataset4"
+	                    }
+	                ],
+	                "policy": {
+	                    "timeout": "01:00:00"
+	                },
+	                "scheduler": {
+	                    "frequency": "Hour",
+	                    "interval": 1
+	                },
+	                "name": "CopyFromBlob3ToBlob4",
+	                "description": "Copy data from a blob to another"
+	            }
+	        ],
+	        "start": "2017-04-25T01:00:00Z",
+	        "end": "2017-04-25T01:00:00Z",
+	        "isPaused": false
+	    }
+	}
+
+
+Notez que dans l’exemple, deux jeux de données d’entrée sont spécifiés pour la deuxième activité de copie. **Quand plusieurs entrées sont spécifiées, seul le premier jeu de données d’entrée est utilisé pour copier des données, mais les autres jeux de données sont utilisés en tant que dépendances.** L’exécution d’ActivitédeCopie2 démarre uniquement quand les conditions suivantes sont remplies :
 
 - ActivitédeCopie1 s’est terminée avec succès et JeudeDonnées2 est disponible. Ce jeu de données n’est pas utilisé lors de la copie des données vers JeudeDonnées4. Il sert uniquement de dépendance de planification pour ActivitédeCopie2.
 - JeudeDonnées3 est disponible. Ce jeu de données représente les données qui sont copiées vers la destination.
@@ -291,7 +451,7 @@ Dans les exemples, les fréquences de planification des jeux de données d’ent
 
 ### Exemple 1 : la production d’un rapport de sortie quotidien pour les données d’entrée est disponible toutes les heures
 
-Imaginez un scénario dans lequel nous avons entré des données de mesure à partir de capteurs disponibles toutes les heures dans Azure Blob. Vous voulez générer un rapport d’agrégation quotidien avec des statistiques, comme les valeurs moyenne, max, min, etc., pour la journée avec une [Activité Hive](data-factory-hive-activity.md) Data Factory.
+Imaginez un scénario dans lequel nous avons entré des données de mesure à partir de capteurs disponibles toutes les heures dans Azure Blob. Vous voulez générer un rapport d’agrégation quotidien avec des statistiques, comme les valeurs moyenne, max et min pour la journée avec une [Activité Hive](data-factory-hive-activity.md) Data Factory.
 
 Voici ce que vous pouvez modéliser ce scénario avec data factory :
 
@@ -700,4 +860,4 @@ Notez les points suivants :
 
   
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="08/09/2016"
+	ms.date="09/01/2016"
 	ms.author="casoper"/>
 
 # Vue d'ensemble du réseau de distribution de contenu (CDN) Azure
@@ -41,7 +41,7 @@ Les avantages de l’utilisation du CDN pour mettre en cache les ressources de s
 
 4. Le serveur Edge met en cache le fichier et le renvoie au demandeur d'origine (Alice). Le fichier reste en cache sur le serveur Edge jusqu’à la fin de la durée de vie. Si l’origine n’a pas spécifié de durée de vie, elle est par défaut de 7 jours.
 
-5. Des utilisateurs supplémentaires (par exemple, Jean) peuvent demander le même fichier à l'aide de la même URL et peuvent également être dirigés vers ce même point de présence.
+5. Des utilisateurs supplémentaires peuvent demander le même fichier à l’aide de la même URL et peuvent également être dirigés vers ce même point de présence.
 
 6. Si la durée de vie du fichier n'a pas expiré, le serveur Edge renvoie le fichier à partir du cache. L’expérience utilisateur est en conséquence plus rapide et plus réactive.
 
@@ -53,22 +53,25 @@ Il existe trois produits Azure CDN : **Azure CDN Standard fourni par Akamai**, *
 | | Standard Akamai | Standard Verizon | Premium Verizon |
 |-------|-----------------|------------------|-----------------|
 | Intégration simple des services Azure tels que [Storage](cdn-create-a-storage-account-with-cdn.md), [Cloud Services](cdn-cloud-service-with-cdn.md), [Web Apps](../app-service-web/cdn-websites-with-cdn.md) et [Media Services](../media-services/media-services-manage-origins.md#enable_cdn) | **&#x2713;** | **&#x2713;** | **&#x2713;**|
+| Gestion via [REST API](https://msdn.microsoft.com/library/mt634456.aspx), [.NET](./cdn-app-dev-net.md), [Node.js](./cdn-app-dev-node.md), ou [PowerShell](./cdn-manage-powershell.md). | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | Prise en charge de HTTPS | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | Équilibrage de la charge | **&#x2713;** | **&#x2713;** | **&#x2713;** |
-| Protection DDOS | **&#x2713;** | **&#x2713;** | **&#x2713;** |
+| Protection [DDOS](https://www.us-cert.gov/ncas/tips/ST04-015) | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | Double pile IPv4/IPv6 | **&#x2713;** | **&#x2713;** | **&#x2713;** |
-| [HTTP/2](https://msdn.microsoft.com/library/mt762901.aspx) | **&#x2713;** | | |
 | [Prise en charge du nom de domaine personnalisé](cdn-map-content-to-custom-domain.md) | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | [Mise en cache des chaînes de requête](cdn-query-string.md) | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | [Filtrage par pays](cdn-restrict-access-by-country.md) | | **&#x2713;** | **&#x2713;** |
 | [Purge rapide](cdn-purge-endpoint.md) | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | [Préchargement de ressources](cdn-preload-endpoint.md) | | **&#x2713;** | **&#x2713;** |
 | [Analyse principale](cdn-analyze-usage-patterns.md) | | **&#x2713;** | **&#x2713;** |
-| Gestion via [REST API](https://msdn.microsoft.com/library/mt634456.aspx), [.NET](./cdn-app-dev-net.md), [Node.js](./cdn-app-dev-node.md), ou [PowerShell](./cdn-manage-powershell.md). | **&#x2713;** | **&#x2713;** | **&#x2713;** |
-| [Moteur de distribution de contenu personnalisable et basé sur des règles](cdn-rules-engine.md) | | | **&#x2713;** |
+| [Assistance HTTP/2](https://msdn.microsoft.com/library/mt762901.aspx) | **&#x2713;** | | |
 | [Rapports HTTP avancés](cdn-advanced-http-reports.md) | | | **&#x2713;** |
 | [Statistiques en temps réel](cdn-real-time-stats.md) | | | **&#x2713;** |
 | [Alertes en temps réel](cdn-real-time-alerts.md) | | | **&#x2713;** |
+| [Moteur de distribution de contenu personnalisable et basé sur des règles](cdn-rules-engine.md) | | | **&#x2713;** |
+| Paramètres du cache/des en-têtes (à l’aide du [moteur de règles](cdn-rules-engine.md)) | | | **&#x2713;** |
+| Redirection/réécriture d’URL (à l’aide du [moteur de règles](cdn-rules-engine.md)) | | | **&#x2713;** |
+| Règles d’appareil mobile (à l’aide du [moteur de règles](cdn-rules-engine.md)) | | | **&#x2713;** |
 
 >[AZURE.TIP] Une idée de fonctionnalité à ajouter à Azure CDN ? [Envoyez-nous vos commentaires](https://feedback.azure.com/forums/169397-cdn) !
 
@@ -84,4 +87,4 @@ Apprenez à automatiser Azure CDN avec [.NET](./cdn-app-dev-net.md) ou [Node.js]
 
 Pour obtenir des informations sur la tarification, consultez la page [Prix appliqués au Réseau de distribution de contenu (CDN)](https://azure.microsoft.com/pricing/details/cdn/).
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

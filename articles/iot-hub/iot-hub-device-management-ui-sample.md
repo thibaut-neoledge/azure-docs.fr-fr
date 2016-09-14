@@ -13,20 +13,20 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="06/08/2016"
+ ms.date="08/25/2016"
  ms.author="dobett"/>
 
 # Explorer la gestion d’appareils Azure IoT Hub à l’aide de l’exemple d’interface utilisateur
 
-Interagir avec l’exemple d’interface utilisateur de gestion d’appareils vous permettra de renforcer les concepts et les fonctionnalités abordés dans les articles [Vue d’ensemble][lnk-dm-overview] et [Prise en main][lnk-get-started] de la gestion d’appareils Azure IoT Hub. Cet article vous permettra de vous familiariser avec les trois principaux concepts de gestion d’appareils (*représentation d’appareil*, *requêtes d’appareil* et *travaux d’appareil*) comme représenté dans l’exemple d’interface utilisateur Web de gestion d’appareils.
+Interagir avec l’exemple d’interface utilisateur de gestion d’appareils vous permet de renforcer les concepts et les fonctionnalités abordés dans les articles [Vue d’ensemble][lnk-dm-overview] et [Prise en main][lnk-get-started] de la gestion d’appareils Azure IoT Hub. Cet article vous permettra de vous familiariser avec les trois principaux concepts de gestion d’appareils (*représentation d’appareil*, *requêtes d’appareil* et *travaux d’appareil*) comme représenté dans l’exemple d’interface utilisateur Web de gestion d’appareils.
 
-Les développeurs souhaitant créer leur propre expérience interactive de gestion d’appareils peuvent répliquer l’exemple de code base de l’interface utilisateur pour l’utiliser comme base pour un projet personnalisé. Vous pouvez consulter l’intégralité du code de projet et les documents Lisez-moi qui décrivent en détail les fonctionnalités de développement supplémentaires dans le référentiel GitHub [Azure IoT device management UI][lnk-dm-github] (Interface utilisateur de gestion d’appareils Azure IoT).
+Les développeurs souhaitant créer leur propre expérience interactive de gestion d’appareils peuvent répliquer l’exemple de code base de l’interface utilisateur pour l’utiliser comme base pour un projet personnalisé. Vous pouvez consulter l’intégralité du code de projet et les documents Lisez-moi qui décrivent en détail les fonctionnalités de développement supplémentaires dans le référentiel GitHub [Azure IoT device management UI][lnk-dm-github] \(Interface utilisateur de gestion d’appareils Azure IoT).
 
 ## Composants requis
 
-Avant de commencer ce didacticiel, vous devez effectuer les étapes décrites dans l’article [Prise en main de la gestion d’appareils Azure IoT Hub][lnk-get-started]. Si vous ne l’avez pas encore fait, veuillez retourner sur cet article et effectuez toutes les étapes décrites avant de poursuivre.
+Avant de commencer ce didacticiel, vous devez effectuer les étapes décrites dans l’article [Prise en main de la gestion d’appareils Azure IoT Hub][lnk-get-started]. Si vous ne l’avez pas encore fait, retournez sur cet article et effectuez toutes les étapes décrites avant de poursuivre.
 
-Une fois le didacticiel « Prise en main » terminé, les éléments suivants s’exécuteront sur votre système de test :
+À la fin du didacticiel « Prise en main », les éléments suivants s’exécutent sur votre système de test :
 
 - Six appareils simulés **iotdm\_simple\_sample** s’exécutent dans des fenêtres de console/terminal, chacune affichant un message « ENREGISTRÉ » de confirmation.
 
@@ -34,7 +34,7 @@ Une fois le didacticiel « Prise en main » terminé, les éléments suivants s�
 
 ## Vue Appareils par défaut
 
-L’écran d’accueil par défaut de l’exemple d’interface utilisateur de gestion d’appareils est la vue **Appareils** qui inclut les 5 éléments suivants :
+L’écran d’accueil par défaut de l’exemple d’interface utilisateur de gestion d’appareils est la vue **Appareils** qui inclut les cinq éléments suivants :
 
 ![][1]
 
@@ -52,15 +52,15 @@ L’écran d’accueil par défaut de l’exemple d’interface utilisateur de g
 
 La [vue d’ensemble de la gestion d’appareils][lnk-dm-overview] introduit le concept de *représentation d’appareil* qui représente un appareil physique (ou simulé) dans Azure IoT Hub. À partir de la grille d’appareil, vous pouvez sélectionner n’importe quel appareil enregistré dans la liste d’appareils pour afficher et modifier la représentation d’appareil de celui-ci.
 
-Entrez dans cette vue détaillée sur votre premier appareil simulé, **Device11-7ce4a850**, en sélectionnant la ligne d’appareil correspondante puis en cliquant sur le bouton **Modifier** (vous pouvez également double-cliquer sur la ligne ou saisir l’ID de l’appareil dans la zone de recherche).
+Pour accéder à cet affichage détaillé sur votre premier appareil simulé (**Device11-7ce4a850**), sélectionnez la ligne correspondant à l’appareil. Puis cliquez sur le bouton **Modifier** (vous pouvez également double-cliquer sur la ligne ou taper l’ID de l’appareil dans la zone de recherche).
 
-Vous pouvez désormais voir l’intégralité de la représentation des composants de la représentation d’appareil, dans laquelle vous pouvez mettre à jour les propriétés et exécuter d’autres opérations d’appareil, comme décrit ci-dessous :
+Vous pouvez désormais voir l’intégralité de la représentation des composants de la représentation d’appareil, dans laquelle vous pouvez mettre à jour les propriétés et exécuter d’autres opérations d’appareil, de la façon suivante :
 
 ![][2]
 
 1.  **Edit a Device Twin** (Modifier une représentation d’appareil) : vous pouvez choisir **d’activer ou de désactiver** cette option pour l’appareil.
 
-2.  **Propriétés du service** : cela inclut les **balises** d’appareil.
+2.  **Propriétés du service** : cette option inclut les **balises** d’appareil.
 
 3.  **Propriétés de l’appareil** : cliquez pour développer cette section.
 
@@ -90,7 +90,7 @@ Procédez comme suit pour créer un filtre de client sur la balise de propriét�
 
 ## Utiliser un travail d’appareil pour simuler des redémarrages d’appareil 
 
-Comme vous l’avez appris dans la vue d’ensemble de gestion d’appareils, les travaux d’appareil vous permettent d’orchestrer des actions simples ou complexes sur un ou plusieurs appareils physiques. Dans cette section, vous allez créer un travail d’appareil dans l’exemple d’interface utilisateur pour effectuer une opération de redémarrage sur tous les appareils de simulation avec la balise « bacon » :
+Comme vous l’avez appris dans la vue d’ensemble de gestion d’appareils, les travaux d’appareil vous permettent d’orchestrer des actions simples ou complexes sur un ou plusieurs appareils physiques. Dans cette section, vous créez un travail d’appareil dans l’exemple d’interface utilisateur pour effectuer une opération de redémarrage sur tous les appareils de simulation avec la balise « bacon » :
 
 1.  À partir de la liste de requête d’appareils **Only Bacon** (Bacon uniquement), cliquez sur chaque ligne d’appareil afin de le sélectionner pour l’opération de travail de redémarrage :
 
@@ -104,10 +104,10 @@ Vous venez de créer un travail parent unique qui génère trois travaux enfants
 
 ![][8]
 
-Si vous actualisez cet écran après quelques minutes, l’état du travail parent et celui des trois travaux enfants seront définis comme étant **terminés**, ce qui indique que les opérations de redémarrage se sont déroulées correctement et qu’elles ont bien été confirmées par les appareils simulés. Utilisez la colonne **ID de l’appareil** pour déterminer quels sont les travaux associés à tel ou tel appareil.
+Actualisez cet écran après quelques instants pour voir les modifications apportées à l’état du travail parent et des trois travaux enfants, qui passe à **Terminé**. Les nouvelles valeurs d’état indiquent que les opérations de redémarrage ont réussi et sont confirmées par les appareils simulés. Utilisez la colonne **ID de l’appareil** pour déterminer quels sont les travaux associés à tel ou tel appareil.
 
 
-> [AZURE.NOTE] Si l’état de vos travaux enfants est défini comme étant « échoué », vérifiez que vos appareils simulés sont encore en cours d’exécution sur votre système de test. Si ce n’est pas le cas, exécutez à nouveau le script simulate.bat ou simulate.sh et répétez les étapes relatives au travail d’appareil de redémarrage ci-dessus.
+> [AZURE.NOTE] Si l’état de vos travaux enfants est défini comme étant « échoué », vérifiez que vos appareils simulés sont encore en cours d’exécution sur votre système de test. Si ce n’est pas le cas, exécutez à nouveau le script simulate.bat ou simulate.sh et répétez les étapes relatives au travail d’appareil de redémarrage dans la section précédente.
 
 ## Étapes suivantes
 
@@ -152,4 +152,4 @@ Pour explorer davantage les capacités de IoT Hub, consultez :
 [lnk-portal]: iot-hub-manage-through-portal.md
 [lnk-securing]: iot-hub-security-ground-up.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0831_2016-->

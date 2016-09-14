@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/06/2016" 
+	ms.date="08/25/2016" 
 	ms.author="nitinme"/>
 
 # Problèmes connus avec les clusters Apache Spark sur Azure HDInsight Linux
@@ -29,8 +29,8 @@ Lorsque Livy est redémarré avec une session interactive (à partir d’Ambari 
 
 Pour contourner ce problème, suivez la procédure ci-après :
 
-1. SSH dans le nœud principal. 
-2. Exécutez la commande suivante pour rechercher l’ID d’application des tâches interactives démarrées via Livy. 
+1. SSH dans le nœud principal.
+2. Exécutez la commande suivante pour rechercher l’ID d’application des tâches interactives démarrées via Livy.
 
         yarn application –list
 
@@ -56,10 +56,10 @@ Lorsque hdiuser soumet une tâche avec spark-submit, il existe une erreur java.i
 
 **Atténuation :**
  
-1. Ajoutez hdiuser au groupe Hadoop. 
-2. Fournissez les autorisations 777 sur /var/log/spark après la création du cluster. 
-3. Mettez à jour l’emplacement du journal Spark à l’aide d’Ambari pour obtenir un répertoire avec les autorisations 777.  
-4. Exécutez spark-submit en tant que sudo.  
+1. Ajoutez hdiuser au groupe Hadoop.
+2. Fournissez les autorisations 777 sur /var/log/spark après la création du cluster.
+3. Mettez à jour l’emplacement du journal Spark à l’aide d’Ambari pour obtenir un répertoire avec les autorisations 777.
+4. Exécutez spark-submit en tant que sudo.
 
 ## Problèmes liés aux notebooks Jupyter
 
@@ -130,7 +130,7 @@ Lorsque le cluster Spark manque de ressources, les noyaux Spark et Pyspark du bl
 
 * [Utilisez le plugin d’outils HDInsight pour IntelliJ IDEA pour créer et soumettre des applications Spark Scala](hdinsight-apache-spark-intellij-tool-plugin.md)
 
-* [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Spark applications remotely (Utiliser le plug-in Outils HDInsight pour IntelliJ IDEA pour déboguer des applications Spark à distance)](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Spark applications remotely) (Utiliser le plug-in Outils HDInsight pour IntelliJ IDEA pour déboguer des applications Spark à distance)](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 
 * [Utiliser des bloc-notes Zeppelin avec un cluster Spark sur HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
 
@@ -138,7 +138,7 @@ Lorsque le cluster Spark manque de ressources, les noyaux Spark et Pyspark du bl
 
 * [Utiliser des packages externes avec les blocs-notes Jupyter](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
 
-* [Installer Jupyter sur un ordinateur et se connecter au cluster Spark sur HDInsight](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
+* [Install Jupyter on your computer and connect to an HDInsight Spark cluster (Installer Jupyter sur un ordinateur et se connecter au cluster Spark sur HDInsight)](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
 
 ### Gestion des ressources
 
@@ -146,4 +146,4 @@ Lorsque le cluster Spark manque de ressources, les noyaux Spark et Pyspark du bl
 
 * [Track and debug jobs running on an Apache Spark cluster in HDInsight (Suivi et débogage des tâches en cours d’exécution sur un cluster Apache Spark dans HDInsight)](hdinsight-apache-spark-job-debugging.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0831_2016-->

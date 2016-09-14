@@ -3,7 +3,7 @@
 	description="Base de données SQL Azure vous permet d’analyser, d’interroger et de mettre en forme des données dans une notation JavaScript Object Notation (JSON)."
 	services="sql-database"
 	documentationCenter=""
-	authors="carlrabeler"
+	authors="jovanpop-msft"
 	manager="jhubbard"
 	editor=""/>
 
@@ -11,7 +11,7 @@
 	ms.service="sql-database"
 	ms.devlang="NA"
 	ms.date="08/17/2016"
-	ms.author="carlrab"
+	ms.author="jovanpop"
    ms.workload="NA"
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"/>
@@ -208,4 +208,4 @@ Pour savoir comment intégrer JSON dans votre application, consultez les ressour
 
 Pour en savoir plus sur les différents scénarios d’intégration de JSON dans votre application, regardez les démonstrations de cette [vidéo Channel 9](https://channel9.msdn.com/Events/DataDriven/SQLServer2016/JSON-as-a-bridge-betwen-NoSQL-and-relational-worlds), ou recherchez un scénario correspondant à votre cas d’utilisation dans les [billets de blog de JSON](http://blogs.msdn.com/b/sqlserverstorageengine/archive/tags/json/).
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

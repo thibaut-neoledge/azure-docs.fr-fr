@@ -24,6 +24,8 @@ Il existe plusieurs fonctions et fonctionnalités d’Azure Active Directory (Az
 
 Si vous rencontrez des problèmes lors de la [création d’un client Azure AD B2C](active-directory-b2c-get-started.md), consultez [Création d’un client Azure Active Directory (Azure AD) ou d’un client Azure AD B2C : problèmes et résolutions](active-directory-b2c-support-create-directory.md) pour obtenir des instructions.
 
+Notez qu’il existe des problèmes connus liés à la suppression d’un client B2C existant et à sa recréation sous le même nom de domaine. Vous devez créer un client B2C portant un nom de domaine différent.
+
 ## Remarque sur les quotas de client B2C
 
 Par défaut, le nombre d’utilisateurs dans un client B2C est limité à 50 000 utilisateurs. Si vous avez besoin d’augmenter le quota de votre client B2C, vous devez contacter le support technique.
@@ -58,7 +60,7 @@ Ce scénario d’API Web chaînée peut être pris en charge à l’aide de la 
 
 L’ensemble de bibliothèques prises en charge Microsoft qui fonctionnent avec Azure AD B2C est très limité pour l’instant. Nous prenons en charge les applications web .NET et les services et applications web Node.js. Nous avons également une version préliminaire de la bibliothèque cliente .NET appelée bibliothèque MSAL qui peut être utilisée avec Azure AD B2C dans Windows et d’autres applications .NET.
 
-Actuellement, nous ne prenons pas en charge d’autres langages ou plateformes de bibliothèque, notamment iOS et Android. Si vous souhaitez travailler sur une autre plateforme que celles mentionneés ci-dessus, nous vous recommandons d’utiliser un kit de développement logiciel (SDK) open source qui fait référence à notre [référence sur le protocole OAuth 2.0 et OpenID Connect](active-directory-b2c-reference-protocols.md) si nécessaire. Azure AD B2C implémente OAuth et OpenID Connect, ce qui permet d’utiliser une bibliothèque OAuth ou OpenID Connect générique pour l’intégration.
+Actuellement, nous ne prenons pas en charge d’autres langages ou plateformes de bibliothèque, notamment iOS et Android. Si vous souhaitez travailler sur une autre plateforme que celles mentionnées ci-dessus, nous vous recommandons d’utiliser un kit de développement logiciel (SDK) open source qui fait référence à notre [référence sur le protocole OAuth 2.0 et OpenID Connect](active-directory-b2c-reference-protocols.md) si nécessaire. Azure AD B2C implémente OAuth et OpenID Connect, ce qui permet d’utiliser une bibliothèque OAuth ou OpenID Connect générique pour l’intégration.
 
 Nos didacticiels de démarrage rapide iOS et Android utilisent les bibliothèques open source que nous avons testées pour la compatibilité avec Azure AD B2C. Tous nos didacticiels de démarrage rapide sont disponibles dans notre section [Prise en main](active-directory-b2c-overview.md#getting-started).
 
@@ -76,7 +78,7 @@ Les abonnements aux groupes imbriqués ne sont pas pris en charge dans les clien
 
 ## Restriction sur la fonctionnalité de requête différentielle sur l’API Azure AD Graph
 
-La [fonctionnalité de requête différentielle sur l’API Azure AD Graph](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-graph-api-differential-query) n’est pas prise en charge dans les clients Azure AD B2C. Nous l’avons incluse à notre programme sur le long terme.
+La [fonctionnalité de requête différentielle sur l’API Graph Azure AD](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-graph-api-differential-query) n’est pas prise en charge dans les clients Azure AD B2C. Nous l’avons incluse à notre programme sur le long terme.
 
 ## Problèmes de gestion des utilisateurs sur le portail Azure Classic
 
@@ -90,7 +92,7 @@ Les fonctionnalités B2C sont accessibles sur le portail Azure. Toutefois, vous 
 
 ## Problèmes de réinitialisation de mot de passe initiée par l’administrateur sur le portail Azure Classic
 
-Si vous réinitialisez le mot de passe d’un consommateur basé sur un compte local sur le portail Azure Classic (commande **Réinitialiser le mot de passe** de l’onglet **Utilisateurs**), ce consommateur ne sera pas en mesure de modifier son mot de passe à la prochaine connexion, si vous utilisez la stratégie d’inscription ou de connexion, et il sera exclu de vos applications. Pour résoudre ce problème, utilisez [l’API Azure AD Graph](active-directory-b2c-devquickstarts-graph-dotnet.md) pour réinitialiser le mot de passe du consommateur (sans expiration de mot de passe), ou utilisez une stratégie de connexion au lieu d’une stratégie d’inscription ou de connexion.
+Si vous réinitialisez le mot de passe d’un consommateur basé sur un compte local sur le portail Azure Classic (commande **Réinitialiser le mot de passe** de l’onglet **Utilisateurs**), ce consommateur ne sera pas en mesure de modifier son mot de passe à la prochaine connexion, si vous utilisez la stratégie d’inscription ou de connexion, et il sera exclu de vos applications. Pour résoudre ce problème, utilisez [l’API Graph Azure AD](active-directory-b2c-devquickstarts-graph-dotnet.md) pour réinitialiser le mot de passe du consommateur (sans expiration de mot de passe), ou utilisez une stratégie de connexion au lieu d’une stratégie d’inscription ou de connexion.
 
 ## Problèmes liés à la création d’un attribut personnalisé
 
@@ -107,4 +109,4 @@ Les requêtes envoyées aux stratégies de connexion (avec l’authentification 
 - Utiliser la « stratégie de connexion ou d’inscription » au lieu de la « stratégie de connexion ».
 - Réduisez le nombre de demandes de **Revendications d’application** dans votre stratégie.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0831_2016-->

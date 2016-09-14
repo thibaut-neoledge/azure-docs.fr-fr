@@ -502,7 +502,7 @@ if (error.code == MSErrorPreconditionFailed) {
 
 ## <a name="adal"></a>Procédure : authentifier des utilisateurs avec la bibliothèque Active Directory Authentication Library
 
-Vous pouvez utiliser la bibliothèque d’authentification Active Directory (ADAL) pour authentifier des utilisateurs dans votre application à l’aide d’Azure Active Directory. Cette approche est souvent préférable à l’utilisation des méthodes `loginAsync()`, car elle offre une interface UX native plus simple et permet une personnalisation supplémentaire.
+Vous pouvez utiliser la bibliothèque d’authentification Active Directory (ADAL) pour authentifier des utilisateurs dans votre application à l’aide d’Azure Active Directory. Cette approche est souvent préférable à l’utilisation de la méthode `loginWithProvider:completion:`, car elle offre une interface UX native plus simple et permet une personnalisation supplémentaire.
 
 1. Si vous souhaitez configurer le backend de votre application mobile pour utiliser la connexion AAD, suivez le didacticiel [Configurer votre application App Service pour utiliser la connexion Azure Active Directory](app-service-mobile-how-to-configure-active-directory-authentication.md). Bien que cette étape soit facultative, veillez à inscrire une application cliente native. Pour iOS, il est recommandé (mais pas obligatoire) d’utiliser un URI de redirection au format `<app-scheme>://<bundle-id>`. Pour plus d’informations, consultez la [procédure de démarrage rapide d’ADAL pour iOS](active-directory-devquickstarts-ios.md#em1-determine-what-your-redirect-uri-will-be-for-iosem).
 
@@ -591,7 +591,7 @@ et le pod :
 
 ## <a name="facebook-sdk"></a>Procédure : authentifier les utilisateurs avec le kit de développement logiciel (SDK) Facebook pour iOS
 
-Vous pouvez utiliser le kit de développement logiciel (SDK) Facebook pour iOS pour identifier les utilisateurs sur votre application utilisant Facebook. Cette approche est souvent préférable à l’utilisation des méthodes `loginAsync()`, car elle offre une interface UX native plus simple et permet une personnalisation supplémentaire.
+Vous pouvez utiliser le kit de développement logiciel (SDK) Facebook pour iOS pour identifier les utilisateurs sur votre application utilisant Facebook. Cette approche est souvent préférable à l’utilisation de la méthode `loginWithProvider:completion:`, car elle offre une interface UX native plus simple et permet une personnalisation supplémentaire.
 
 1. Si vous souhaitez configurer le backend de votre application mobile pour utiliser la connexion Facebook, suivez le didacticiel [Configurer votre application App Service pour utiliser la connexion Facebook](app-service-mobile-how-to-configure-facebook-authentication.md).
 
@@ -669,7 +669,7 @@ Vous pouvez utiliser le kit de développement logiciel (SDK) Facebook pour iOS p
 
 ## <a name="twitter-fabric"></a>Procédure : authentifier les utilisateurs avec Twitter Fabric pour iOS
 
-Vous pouvez utiliser Twitter Fabric pour iOS pour identifier les utilisateurs sur votre application utilisant Twitter. Cette approche est souvent préférable à l’utilisation des méthodes `loginAsync()`, car elle offre une interface UX native plus simple et permet une personnalisation supplémentaire.
+Vous pouvez utiliser Twitter Fabric pour iOS pour identifier les utilisateurs sur votre application utilisant Twitter. Cette approche est souvent préférable à l’utilisation de la méthode `loginWithProvider:completion:`, car elle offre une interface UX native plus simple et permet une personnalisation supplémentaire.
 
 1. Si vous souhaitez configurer le backend de votre application mobile pour utiliser la connexion Twitter, suivez le didacticiel [Configurer votre application App Service pour utiliser la connexion Twitter](app-service-mobile-how-to-configure-twitter-authentication.md).
 
@@ -741,6 +741,68 @@ Vous pouvez utiliser Twitter Fabric pour iOS pour identifier les utilisateurs su
 		}
 	}
 
+## <a name="google-sdk"></a>Procédure : authentifier les utilisateurs avec le kit de développement logiciel (SDK) Google Sign-In pour iOS
+
+Vous pouvez utiliser le kit de développement logiciel (SDK) Google Sign-In pour iOS pour identifier les utilisateurs sur votre application utilisant un compte Google. Cette approche est souvent préférable à l’utilisation de la méthode `loginWithProvider:completion:`, car elle offre une interface UX native plus simple et permet une personnalisation supplémentaire.
+
+1. Si vous souhaitez configurer le backend de votre application mobile pour utiliser la connexion Google, suivez le didacticiel [Configurer votre application App Service pour utiliser la connexion Google](app-service-mobile-how-to-configure-google-authentication.md).
+
+2. Installez le SDK Google pour iOS en suivant les instructions figurant dans la documentation [Google Sign-In for iOS - Start integrating](https://developers.google.com/identity/sign-in/ios/start-integrating) (Google Sign-In pour iOS - Démarrer l’intégration). Vous pouvez ignorer la section « Authenticate with a Backend Server » (Authentification avec un serveur principal), dans la mesure où App Service s’en charge pour vous.
+
+3. En plus de suivre le code, ajoutez ce qui suit à la méthode `signIn:didSignInForUser:withError:` de votre délégué, en fonction du langage que vous utilisez.
+
+**Objective-C** :
+
+	    NSDictionary *payload = @{
+	                              @"id_token":user.authentication.idToken,
+	                              @"authorization_code":user.serverAuthCode
+	                              };
+	    
+	    [client loginWithProvider:@"google" token:payload completion:^(MSUser *user, NSError *error) {
+	        // ...
+	    }];
+
+**Swift** :
+
+		let payload: [String: String] = ["id_token": user.authentication.idToken, "authorization_code": user.serverAuthCode]
+		client.loginWithProvider("google", token: payload) { (user, error) in
+			// ...
+		}
+
+4. Assurez-vous que vous ajoutez également le code suivant à `application:didFinishLaunchingWithOptions:` dans votre délégué d’application, en remplaçant « SERVER\_CLIENT\_ID » par le même ID utilisé pour configurer App Service à l’étape 1.
+
+**Objective-C** :
+
+ 		[GIDSignIn sharedInstance].serverClientID = @"SERVER_CLIENT_ID";
+ 
+ 
+ **Swift** :
+ 
+		GIDSignIn.sharedInstance().serverClientID = "SERVER_CLIENT_ID"
+
+ 
+ 5. Ajoutez le code à votre application dans un UIViewController qui implémente le protocole `GIDSignInUIDelegate`, en fonction du langage que vous utilisez. Notez que l’utilisateur est déconnecté avant d’être connecté à nouveau, et même s’il ne doit pas entrer ses informations d’identification, il voit une boîte de dialogue de consentement. Cela est requis pour obtenir un nouveau code d’authentification du serveur, qui est nécessaire lors d’une étape précédente. Appelez uniquement cette méthode lorsque le jeton de session a expiré.
+ 
+ **Objective-C** :
+
+		#import <Google/SignIn.h>
+		// ...
+		- (void)authenticate
+		{
+			    [GIDSignIn sharedInstance].uiDelegate = self;
+				[[GIDSignIn sharedInstance] signOut];
+			    [[GIDSignIn sharedInstance] signIn];
+ 		}
+ 
+ **Swift** :
+ 	
+		// ...
+		func authenticate() {
+			GIDSignIn.sharedInstance().uiDelegate = self
+			GIDSignIn.sharedInstance().signOut()
+			GIDSignIn.sharedInstance().signIn()
+		}
+ 		
 <!-- Anchors. -->
 
 [What is Mobile Services]: #what-is
@@ -792,4 +854,4 @@ Vous pouvez utiliser Twitter Fabric pour iOS pour identifier les utilisateurs su
 [CLI to manage Mobile Services tables]: ../virtual-machines-command-line-tools.md#Mobile_Tables
 [Conflict-Handler]: mobile-services-ios-handling-conflicts-offline-data.md#add-conflict-handling
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0831_2016-->

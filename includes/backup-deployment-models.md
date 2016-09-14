@@ -1,9 +1,10 @@
-Azure Backup service has two types of vaults - the Backup vault and the Recovery Services vault.
+Le service Azure Backup a deux types d’archivages : le coffre de sauvegarde et le coffre Recovery Services.
 
-| **Deployment** | **Portal** | **Vault** |
+| **Déploiement** | **Portail** | **Coffre** |
 |-----------|------|-----|
-| Classic | [Classic](https://manage.windowsazure.com) | Backup vault |
-| Resource Manager(recommended) | [Azure](https://portal.azure.com) | Recovery Services vault |
+| Classique | [Classique](https://manage.windowsazure.com) | Archivage de sauvegarde |
+| Resource Manager (recommandé) | [Microsoft Azure](https://portal.azure.com) | Coffre Recovery Services |
 
-> [AZURE.NOTE] Backup vaults cannot protect Resource Manager-deployed solutions. However, you can use a Recovery Services vault to protect classically-deployed servers and VMs.  
+> [AZURE.NOTE] Les coffres de sauvegarde ne peuvent pas protéger les solutions déployées par le biais de Resource Manager. Toutefois, vous pouvez utiliser un coffre Recovery Services pour protéger les serveurs et les machines virtuelles déployés de façon classique.
 
+<!---HONumber=AcomDC_0831_2016-->

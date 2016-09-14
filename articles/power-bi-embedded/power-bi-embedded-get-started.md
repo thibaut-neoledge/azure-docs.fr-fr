@@ -3,7 +3,7 @@
    description="Power BI incorporée, ajoutez des rapports interactifs Power BI dans votre application business intelligence"
    services="power-bi-embedded"
    documentationCenter=""
-   authors="minewiskan"
+   authors="mgblythe"
    manager="NA"
    editor=""
    tags=""/>
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
    ms.date="07/05/2016"
-   ms.author="owend"/>
+   ms.author="mblythe"/>
 
 # Prise en main de Microsoft Power BI Embedded
 
@@ -76,7 +76,7 @@ Avec **Power BI Desktop**, vous vous connectez à votre source de données en im
 
 Voici les différences entre l’**importation** et l’utilisation de **DirectQuery**.
 
-|Importer | DirectQuery
+|Importation | DirectQuery
 |---|---
 |Les tables, colonnes *et données* sont importées ou copiées dans **Power BI Desktop**. Comme pour les visualisations, **Power BI Desktop** interroge une copie des données. Pour voir les modifications apportées aux données sous-jacentes, vous devez actualiser ou réimporter un jeu de données à jour et complet.|Seules les *tables et colonnes* sont importées ou copiées dans **Power BI Desktop**. Comme pour les visualisations, **Power BI Desktop** interroge la source de données sous-jacente, ce qui signifie que vous visualisez toujours des données à jour.
 
@@ -101,4 +101,4 @@ Dans les étapes précédentes, vous avez créé une collection d’espaces de t
 - [Authentification et autorisation avec Power BI Embedded](power-bi-embedded-app-token-flow.md)
 - [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -19,19 +19,19 @@
 # Connexion et déconnexion de l’application web avec Azure AD
 
 
-Nous allons utiliser Passport pour :
+Nous allons utiliser Passport pour :
 
-- connecter l’utilisateur à l’application à l’aide d’Azure AD et du modèle d’application v2.0 ;
-- afficher des informations sur l’utilisateur ;
+- connecter l’utilisateur à l’application à l’aide d’Azure AD et du modèle d’application v2.0 ;
+- afficher des informations sur l’utilisateur ;
 - déconnecter l’utilisateur de l’application.
 
 **Passport** est un intergiciel d’authentification pour Node.js. Extrêmement flexible et modulaire, Passport peut discrètement intervenir dans n’importe quelle application web basée sur Express ou Restify. Une gamme complète de stratégies prend en charge l’authentification à l’aide d’un nom d’utilisateur et d’un mot de passe, de Facebook, de Twitter et bien d’autres. Nous avons développé une stratégie pour Microsoft Azure Active Directory. Nous allons installer ce module, puis nous y ajouterons le plug-in `passport-azure-ad` Microsoft Active Directory Azure.
 
-Pour ce faire, vous devez :
+Pour ce faire, vous devez :
 
-1. inscrire une application ;
-2. configurer votre application pour utiliser la stratégie Passport-azure-ad ;
-3. utiliser Passport pour émettre des demandes de connexion et de déconnexion dans Azure AD ;
+1. inscrire une application ;
+2. configurer votre application pour utiliser la stratégie Passport-azure-ad ;
+3. utiliser Passport pour émettre des demandes de connexion et de déconnexion dans Azure AD ;
 4. afficher les données relatives à l’utilisateur.
 
 Le code associé à ce didacticiel est stocké [sur GitHub](https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS). Pour suivre la procédure, vous pouvez [télécharger la structure de l’application au format .zip](https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS/archive/skeleton.zip) ou la cloner :
@@ -214,7 +214,7 @@ app.configure(function() {
 app.get('/auth/openid',
   passport.authenticate('azuread-openidconnect', { failureRedirect: '/login' }),
   function(req, res) {
-    log.info('Authenitcation was called in the Sample');
+    log.info('Authentication was called in the Sample');
     res.redirect('/');
   });
 
@@ -243,7 +243,7 @@ app.post('/auth/openid/return',
   });
   ```
 
-## 4\. Utilisation de Passport pour émettre des demandes de connexion et de déconnexion dans Azure AD
+## 4. Utilisation de Passport pour émettre des demandes de connexion et de déconnexion dans Azure AD
 
 Votre application est maintenant correctement configurée pour communiquer avec le point de terminaison v2.0 à l’aide du protocole d’authentification OpenID Connect. `passport-azure-ad` a pris en charge le laborieux processus d’élaboration des messages d’authentification, de validation des jetons d’Azure AD et de gestion des sessions utilisateur. Il ne reste plus qu’à fournir aux utilisateurs un moyen de se connecter, de se déconnecter et de collecter des informations supplémentaires sur l’utilisateur connecté.
 
@@ -414,4 +414,4 @@ Vous pouvez maintenant aborder des rubriques plus sophistiquées. Par exemple :
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="06/14/2016"
+   ms.date="08/30/2016"
    ms.author="larryfr"/>
 
 # Informations sur l’utilisation de HDInsight sous Linux
@@ -96,13 +96,13 @@ HDInsight utilise le stockage d’objets blob Azure comme stockage par défaut, 
 
 Puisqu'il s'agit d'un stockage par défaut pour HDInsight, vous n'avez normalement pas besoin de faire quoi que ce soit pour l'utiliser. Par exemple, la commande suivante listera les fichiers dans le dossier **/example/data**, qui est stocké sur le stockage d’objets blob Azure :
 
-	hadoop fs -ls /example/data
+	hdfs dfs -ls /example/data
 
 Pour certaines commandes, vous pouvez être obligé de préciser que vous utilisez le stockage d’objets blob. Pour cela, vous pouvez ajouter à la commande le préfixe **wasb://** ou **wasbs://**.
 
 HDInsight vous permet également d’associer de multiples comptes de stockage d’objets blob à un cluster. Pour accéder à des données sur un compte de stockage d’objets blob qui n’est pas celui par défaut, vous pouvez utiliser le format **wasbs://&lt;container-name>@&lt;account-name>.blob.core.windows.net/**. Par exemple, celui-ci listera le contenu du répertoire **/example/data** pour le conteneur et le compte de stockage indiqués :
 
-	hadoop fs -ls wasbs://mycontainer@mystorage.blob.core.windows.net/example/data
+	hdfs dfs -ls wasbs://mycontainer@mystorage.blob.core.windows.net/example/data
 
 ### Quel stockage d’objets blob le cluster utilise-t-il ?
 
@@ -130,7 +130,7 @@ HDInsight vous permet également d’associer de multiples comptes de stockage d
     
 2. Récupérez la clé du compte de stockage. Remplacez __GROUPNAME__ par le groupe de ressources de l'étape précédente. Remplacez __ACCOUNTNAME__ par le nom du compte de stockage :
 
-        azure storage account keys list -g GROUPNAME ACCOUNTNAME --json | jq '.storageAccountKeys.key1'
+        azure storage account keys list -g GROUPNAME ACCOUNTNAME --json | jq '.[0].value'
 
     Renvoie la clé primaire du compte.
 
@@ -227,7 +227,6 @@ Les actions de script sont des scripts Bash exécutés pendant l’approvisionne
 
 * [Hue](hdinsight-hadoop-hue-linux.md)
 * [Giraph](hdinsight-hadoop-giraph-install-linux.md)
-* [R](hdinsight-hadoop-r-scripts-linux.md)
 * [Solr](hdinsight-hadoop-solr-install-linux.md)
 
 Pour plus d’informations sur le développement de vos propres actions de script, consultez [Développement d’actions de Script avec HDInsight](hdinsight-hadoop-script-actions-linux.md).
@@ -257,4 +256,4 @@ Si le cluster fournit déjà une version d’un composant sous la forme d’un f
 * [Utilisation de Pig avec HDInsight](hdinsight-use-pig.md)
 * [Utilisation des tâches MapReduce avec HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0831_2016-->

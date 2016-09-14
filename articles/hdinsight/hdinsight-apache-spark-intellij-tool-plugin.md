@@ -1,5 +1,5 @@
  <properties
-	pageTitle="Créer des applications Spark Scala à l’aide du plug-in HDInsight pour IntelliJ IDEA | Microsoft Azure"
+	pageTitle="Créer des applications Spark Scala à l’aide d’HDInsight Tools dans le kit de ressources pour IntelliJ | Microsoft Azure"
 	description="Apprenez à créer une application Spark autonome à exécuter sur un cluster HDInsight Spark."
 	services="hdinsight"
 	documentationCenter=""
@@ -14,13 +14,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/25/2016"
+	ms.date="08/26/2016"
 	ms.author="nitinme"/>
 
 
-# Utilisation du plug-in Outils HDInsight pour IntelliJ IDEA afin de créer des applications Spark pour un cluster Linux HDInsight Spark
+# Utiliser HDInsight Tools dans le kit de ressources Azure pour IntelliJ afin de créer des applications Spark pour un cluster Linux HDInsight Spark
 
-Cet article fournit des instructions pas à pas sur le développement d’applications Spark écrites en Scala et leur envoi à un cluster HDInsight Spark à l’aide du plug-in HDInsight pour IntelliJ IDEA. Vous pouvez utiliser le plug-in de différentes manières :
+Cet article fournit des instructions pas à pas sur le développement d’applications Spark écrites en Scala et leur envoi à un cluster HDInsight Spark à l’aide d’HDInsight Tools dans le kit de ressources Azure pour IntelliJ. Vous pouvez utiliser ces outils de différentes manières :
 
 * Pour développer une application Spark Scala et l’envoyer à un cluster HDInsight Spark
 * Pour accéder à vos ressources de cluster Azure HDInsight Spark
@@ -31,16 +31,16 @@ Vous pouvez également visionner une vidéo [ici](https://mix.office.com/watch/1
 >[AZURE.IMPORTANT] Cet outil peut être utilisé pour créer des applications et les envoyer à un cluster HDInsight Spark sur Linux uniquement.
 
 
-##Composants requis
+##Conditions préalables
 
-* Un abonnement Azure. Consultez [Obtenir une version d'évaluation gratuite d'Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+* Un abonnement Azure. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * Un cluster Apache Spark sur HDInsight Linux. Pour obtenir des instructions, consultez [Création de clusters Apache Spark dans Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
 * Kit de développement logiciel (SDK) Oracle Java. Vous pouvez l’installer [ici](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
 * IntelliJ IDEA. Cet article utilise la version 15.0.1. Vous pouvez l’installer [ici](https://www.jetbrains.com/idea/download/).
 
-## Installer le plug-in Outils HDInsight pour IntelliJ IDEA
+## Installer HDInsight Tools dans le kit de ressources Azure pour IntelliJ
 
-Le plug-in Outils HDInsight pour IntelliJ IDEA est disponible dans le cadre du kit de ressources Azure pour IntelliJ. Pour obtenir des instructions sur l’installation du kit de ressources Azure, voir [Installation du kit de ressources Azure pour IntelliJ](../azure-toolkit-for-intellij-installation.md).
+HDInsight Tools pour IntelliJ est disponible dans le cadre du kit de ressources Azure pour IntelliJ. Pour obtenir des instructions sur l’installation du kit de ressources Azure, voir [Installation du kit de ressources Azure pour IntelliJ](../azure-toolkit-for-intellij-installation.md).
 
 ## Exécuter une application Scala Spark sur un cluster HDInsight Spark
 
@@ -71,7 +71,7 @@ Le plug-in Outils HDInsight pour IntelliJ IDEA est disponible dans le cadre du k
 	1. Dans le menu **Fichier**, cliquez sur **Structure de projet**.
 	2. Dans la boîte de dialogue **Project Structure** (Structure de projet), cliquez sur **Artifacts** (Artefacts) pour afficher l’artefact créé par défaut.
 
-		![Créer un fichier JAR](./media/hdinsight-apache-spark-intellij-tool-plugin/default-artifact.png)
+		![Créer un fichier jar](./media/hdinsight-apache-spark-intellij-tool-plugin/default-artifact.png)
 
 	Vous pouvez également créer votre propre artefact en cliquant sur l’icône **+** mis en surbrillance dans la capture d’écran ci-dessus.
 
@@ -138,12 +138,12 @@ Le plug-in Outils HDInsight pour IntelliJ IDEA est disponible dans le cadre du k
 
         ![Résultat de l’application Spark](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-spark-app-result.png)
 
-    Dans la section suivante, vous allez apprendre à accéder à la sortie du travail à l’aide du plug-in HDInsight pour IntelliJ IDEA.
+    Dans la section suivante, vous allez apprendre à accéder à la sortie du travail à l’aide d’HDInsight Tools dans le kit de ressources Azure pour IntelliJ.
 
 
-## Accéder aux clusters HDInsight Spark et gérer ceux-ci à l’aide du plug-in HDInsight pour IntelliJ
+## Accéder aux clusters HDInsight Spark et les gérer à l’aide d’HDInsight Tools dans le kit de ressources Azure pour IntelliJ
 
-Vous pouvez effectuer diverses opérations à l’aide du plug-in HDInsight.
+Vous pouvez effectuer diverses opérations à l’aide d’HDInsight Tools, qui fait partie du kit de ressources Azure pour IntelliJ.
 
 ### Accéder au conteneur de stockage du cluster
 
@@ -157,7 +157,7 @@ Vous pouvez effectuer diverses opérations à l’aide du plug-in HDInsight.
 
 4. Cliquez sur le nom du conteneur de stockage associé au cluster. Le volet droit doit comporter un dossier appelé **HVACOut**. Double-cliquez sur ce dossier pour l’ouvrir et visualiser une série de fichiers **part-***. Ouvrez un de ces fichiers pour afficher la sortie de l’application.
 
-### Accéder à la vue de tâche directement dans le plug-in
+### Accéder directement à l’affichage des travaux à partir d’HDInsight Tools
 
 1. Dans **HDInsight Explorer**, développez le nom du cluster Spark, puis cliquez sur **Jobs** (Travaux).
 
@@ -181,12 +181,12 @@ Dans **l’Explorateur HDInsight**, cliquez avec le bouton droit sur le nom de v
 
 ### Gérer les abonnements Azure
 
-Par défaut, le plug-in HDInsight répertorie les clusters Spark à partir de tous vos abonnements Azure. Si nécessaire, vous pouvez spécifier les abonnements pour lesquels vous souhaitez accéder au cluster. Dans **l’Explorateur HDInsight**, cliquez avec le bouton droit sur le nœud racine **HDInsight** et sélectionnez **Manage Subscriptions** (Gérer les abonnements). Dans la boîte de dialogue, décochez les cases concernant l’abonnement auquel vous ne souhaitez pas accéder, puis cliquez sur **Close** (Fermer). Vous pouvez également cliquer sur **Sign Out** (Déconnexion) si vous souhaitez vous déconnecter de votre abonnement Azure.
+Par défaut, HDInsight Tools répertorie les clusters Spark à partir de tous vos abonnements Azure. Si nécessaire, vous pouvez spécifier les abonnements pour lesquels vous souhaitez accéder au cluster. Dans **l’Explorateur HDInsight**, cliquez avec le bouton droit sur le nœud racine **HDInsight** et sélectionnez **Manage Subscriptions** (Gérer les abonnements). Dans la boîte de dialogue, décochez les cases concernant l’abonnement auquel vous ne souhaitez pas accéder, puis cliquez sur **Close** (Fermer). Vous pouvez également cliquer sur **Sign Out** (Déconnexion) si vous souhaitez vous déconnecter de votre abonnement Azure.
 
 
 ## Exécuter une application Spark Scala localement
 
-Vous pouvez utiliser le plug-in Outils HDInsight pour IntelliJ IDEA afin d’exécuter des applications Spark Scala localement sur votre poste de travail. En règle générale, ces applications n’ont pas besoin d’accéder aux ressources de cluster telles que le conteneur de stockage et peuvent être exécutées et testées localement.
+Vous pouvez utiliser HDInsight Tools dans le kit de ressources Azure pour IntelliJ afin d’exécuter des applications Spark Scala localement sur votre poste de travail. En règle générale, ces applications n’ont pas besoin d’accéder aux ressources de cluster telles que le conteneur de stockage et peuvent être exécutées et testées localement.
 
 ### Configuration requise
 
@@ -224,9 +224,9 @@ Quand vous exécutez l’application Spark Scala locale sur un ordinateur Window
 
 	![Résultat de l’exécution locale de l’application Spark](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-spark-app-local-run-result.png)
 
-## Convertir des applications IntelliJ IDEA existantes pour qu’elles utilisent le plug-in Outils HDInsight
+## Convertir des applications IntelliJ IDEA existantes pour qu’elles utilisent HDInsight Tools dans le kit de ressources Azure pour IntelliJ
 
-Vous pouvez également convertir vos applications Spark Scala existantes créées dans IntelliJ IDEA pour qu’elles soient compatibles avec le plug-in Outils HDInsight. Cette opération vous permet d’utiliser l’outil pour envoyer les applications à un cluster HDInsight Spark. Pour ce faire, vous pouvez procéder comme suit :
+Vous pouvez également convertir vos applications Spark Scala existantes créées dans IntelliJ IDEA pour qu’elles soient compatibles avec HDInsight Tools dans le kit de ressources Azure pour IntelliJ. Cette opération vous permet d’utiliser l’outil pour envoyer les applications à un cluster HDInsight Spark. Pour ce faire, vous pouvez procéder comme suit :
 
 1. Pour une application Spark Scala existante créée à l’aide d’IntelliJ IDEA, ouvrez le fichier .iml associé.
 2. Au niveau de la racine se trouve un élément **module** comme celui-ci :
@@ -237,7 +237,7 @@ Vous pouvez également convertir vos applications Spark Scala existantes créée
 
 		<module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4" UniqueKey="HDInsightTool">
 
-4. Enregistrez les modifications. Votre application doit maintenant être compatible avec le plug-in Outils HDInsight. Vous pouvez effectuer un test en cliquant avec le bouton droit sur le nom du projet dans l’explorateur de projets. Le menu contextuel doit désormais comporter l’option **Submit Spark Application to HDInsight** (Envoyer l’application Spark à HDInsight).
+4. Enregistrez les modifications. Votre application doit maintenant être compatible avec HDInsight Tools dans le kit de ressources Azure pour IntelliJ. Vous pouvez effectuer un test en cliquant avec le bouton droit sur le nom du projet dans l’explorateur de projets. Le menu contextuel doit désormais comporter l’option **Submit Spark Application to HDInsight** (Envoyer l’application Spark à HDInsight).
 
 
 ## Résolution de problèmes
@@ -298,9 +298,9 @@ Si vous avez des suggestions ou des commentaires, ou que vous rencontrez des pro
 
 ### Outils et extensions
 
-* [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Spark applications remotely (Utiliser le plug-in Outils HDInsight pour IntelliJ IDEA pour déboguer des applications Spark à distance)](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [Utiliser HDInsight Tools dans le kit de ressources Azure pour IntelliJ pour déboguer des applications Spark à distance](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 
-* [Utilisation du plug-in Outils HDInsight pour Eclipse pour créer des applications Spark](hdinsight-apache-spark-eclipse-tool-plugin.md)
+* [Utiliser HDInsight Tools dans le kit de ressources Azure pour Eclipse pour créer des applications Spark](hdinsight-apache-spark-eclipse-tool-plugin.md)
 
 * [Utiliser des bloc-notes Zeppelin avec un cluster Spark sur HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
 
@@ -308,7 +308,7 @@ Si vous avez des suggestions ou des commentaires, ou que vous rencontrez des pro
 
 * [Utiliser des packages externes avec les blocs-notes Jupyter](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
 
-* [Installer Jupyter sur un ordinateur et se connecter au cluster Spark sur HDInsight](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
+* [Install Jupyter on your computer and connect to an HDInsight Spark cluster (Installer Jupyter sur un ordinateur et se connecter au cluster Spark sur HDInsight)](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
 
 ### Gestion des ressources
 
@@ -316,4 +316,4 @@ Si vous avez des suggestions ou des commentaires, ou que vous rencontrez des pro
 
 * [Track and debug jobs running on an Apache Spark cluster in HDInsight (Suivi et débogage des tâches en cours d’exécution sur un cluster Apache Spark dans HDInsight)](hdinsight-apache-spark-job-debugging.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0831_2016-->

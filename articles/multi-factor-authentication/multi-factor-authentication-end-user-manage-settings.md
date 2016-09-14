@@ -147,7 +147,7 @@ Vous devez tout d’abord vérifier les points suivants :
 - Si vous avez choisi de recevoir les codes de vérification par SMS sur votre téléphone mobile, assurez-vous que votre plan de service et votre appareil prennent en charge la diffusion des messages texte. La vitesse et la disponibilité de la diffusion des messages peuvent varier selon l’emplacement et l’opérateur. Assurez-vous également que vous disposez d’une bonne qualité de signal lors de la réception de ces codes.
 - Si vous avez choisi de recevoir une vérification via l’application mobile, vérifiez que votre téléphone reçoit bien le signal. N’oubliez pas que la vitesse et la disponibilité de la diffusion des messages peuvent varier selon l’emplacement et l’opérateur.
 
-Si vous disposez d’un smartphone, nous vous recommandons d’utiliser l’[application Azure Authenticator](multi-factor-authentication-microsoft-authenticator.md).
+Si vous disposez d’un smartphone, nous vous recommandons d’utiliser l’application Microsoft Authenticator, disponible pour [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) et [iOS](http://go.microsoft.com/fwlink/?Linkid=825073).
 
 Si vous recevez vos codes de vérification par des messages texte, vous pouvez changer le mode de réception et opter pour une diffusion via l'application mobile en sélectionnant simplement **Utiliser une autre option de vérification** lors de la connexion.
 
@@ -172,4 +172,4 @@ En outre, vous pouvez contacter votre administrateur ou la personne qui a config
 
 Enfin, veillez à laisser des commentaires détaillés sur cette page afin que nous puissions la mettre à jour, et que nous continuions à l’améliorer en fournissant plus d’informations.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

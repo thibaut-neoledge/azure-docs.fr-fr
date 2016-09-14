@@ -17,7 +17,7 @@
 
 # Consignes et limitations générales de base de données SQL Azure
 
-Cette rubrique fournit des instructions et présente les limitations générales applicables à la base de données Azure SQL. Pour mieux comprendre les notions de quotas, de gestion des ressources et de prise en charge, consultez les [ressources supplémentaires](#additional-guidelines) référencées à la fin de cette rubrique.
+Cette rubrique fournit des instructions et présente les limitations générales applicables à la base de données Azure SQL. Pour mieux comprendre les notions de quotas, de gestion des ressources et de support, consultez les [ressources supplémentaires](#additional-guidelines) référencées à la fin de cette rubrique.
 
 ## Connectivité et authentification
 
@@ -31,7 +31,7 @@ Cette rubrique fournit des instructions et présente les limitations générales
 
 ## Agents/tâches SQL Server
 
-La base de données SQL Microsoft Azure ne prend pas en charge l’Agent ou les tâches SQL Server. Vous pouvez toutefois exécuter l’agent SQL Server sur votre serveur SQL local et vous connecter à la base de données SQL Microsoft Azure.
+La base de données SQL Microsoft Azure ne prend pas en charge l’Agent SQL Server. Cependant, vous pouvez utiliser des tâches élastiques pour exécuter des tâches sur une ou plusieurs bases de données. Pour en savoir plus sur les tâches élastiques, consultez la rubrique [Tâches élastiques](sql-database-elastic-jobs-overview.md).
 
 ## Prise en charge du classement SQL Server
 
@@ -63,4 +63,4 @@ En outre, les noms de connexion et d’utilisateur ne peuvent pas contenir le ca
 
 - Pour plus d'informations sur la disponibilité des pilotes et sur la prise en charge de la base de données SQL, consultez [Bibliothèques de connexions pour SQL Database et SQL Server](sql-database-libraries.md).
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0831_2016-->

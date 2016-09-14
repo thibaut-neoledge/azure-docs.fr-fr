@@ -21,6 +21,14 @@ Cet article répond à certaines questions fréquemment posées sur Microsoft Az
 
 ## Certificats
 
+### Où dois-je installer mon certificat ?
+
+- **My** Certificat d’application avec une clé privée (*.pfx, *.p12).
+
+- **CA** Tous vos certificats intermédiaires sont stockés dans ce magasin (stratégie et autorités de certification secondaires).
+
+- **ROOT** Magasin de l’autorité de certification racine (par conséquent, il s’agit de l’emplacement de votre certificat principal de l’autorité de certification racine.
+
 ### Impossible de supprimer les certificats expirés
 
 Azure vous empêche de supprimer un certificat s’il est en cours d’utilisation. Vous devez soit supprimer le déploiement qui utilise le certificat, soit mettre à jour le déploiement avec un autre certificat ou avec un certificat que vous avez renouvelé.
@@ -35,19 +43,13 @@ Ces certificats sont créés chaque fois qu’une extension, par exemple l’ext
 
 ### Les certificats que j’ai supprimés continuent à s’afficher
 
-Ces certificats ne peuvent pas être supprimés, sans doute en raison d’un outil que vous utilisez, comme Visual Studio. À chaque fois que vous vous reconnectez avec un outil qui utilise un certificat, il sera à nouveau téléchargé dans Azure.
+Ces certificats continuent de s’afficher en raison d’un outil que vous utilisez, comme Visual Studio. À chaque fois que vous vous reconnectez avec un outil qui utilise un certificat, il sera à nouveau téléchargé dans Azure.
 
 ### Mes certificats ne cessent de disparaître
 
 Chaque nouveau cycle de l’instance de machine virtuelle entraîne la perte de toutes les modifications locales. Utilisez une [tâche de démarrage](cloud-services-startup-tasks.md) pour installer les certificats sur la machine virtuelle à chaque démarrage du rôle.
 
-### Où dois-je installer mon certificat ?
 
-**My** Certificat d’application avec une clé privée (*.pfx, *.p12).
-
-**CA** Tous vos certificats intermédiaires sont stockés dans ce magasin (stratégie et autorités de certification secondaires).
-
-**ROOT** Magasin de l’autorité de certification racine (par conséquent, il s’agit de l’emplacement de votre certificat principal de l’autorité de certification racine.
 
 ## Résolution de problèmes
 
@@ -55,4 +57,4 @@ Chaque nouveau cycle de l’instance de machine virtuelle entraîne la perte de 
 
 Tout d’abord, vérifiez que l’instance de machine virtuelle pour laquelle vous tentez de réserver l’adresse IP est activée. Ensuite, assurez-vous que vous utilisez des adresses IP réservées aussi bien pour les déploiements intermédiaires que pour les déploiements de production. **Ne** modifiez pas les paramètres pendant la mise à niveau du déploiement.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

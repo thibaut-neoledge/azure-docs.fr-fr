@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/18/2016"
+   ms.date="08/29/2016"
    ms.author="cherylmc"/>
 
 # Workflows ExpressRoute d’approvisionnement du circuit et états du circuit
@@ -50,7 +50,7 @@ Chaque circuit ExpressRoute comporte deux états :
 - État d’approvisionnement du fournisseur de service
 - État
 
-L'état représente l’état d'approvisionnement de Microsoft. Cette propriété peut avoir l'un des états suivants : *Enabled*, *Enabling* ou *Disabling*. Le circuit ExpressRoute doit être dans l'état suivant pour pouvoir être utilisé.
+L'état représente l’état d'approvisionnement de Microsoft. Cette propriété est définie sur Activée lorsque vous créez un circuit ExpressRoute
 
 L'état d’approvisionnement du fournisseur de connectivité représente l'état du côté du fournisseur de connectivité. Il peut afficher *NotProvisioned*, *Provisioning* ou *Provisioned*. Le circuit ExpressRoute doit être dans l'état Provisioned pour pouvoir être utilisé.
 
@@ -83,24 +83,18 @@ Le circuit ExpressRoute affiche l'état suivant dès que le fournisseur de conne
 
 Provisioned et Enabled sont les seuls états dans lesquels le circuit peut se trouver pour pouvoir être utilisé. Si vous utilisez un fournisseur de couche 2, vous pouvez configurer le routage pour votre circuit uniquement lorsqu'il est dans cet état.
 
-#### Si une annulation de provisionnement est lancée d’abord du côté Microsoft
+#### Lorsque le fournisseur de connectivité est en train d’annuler l’approvisionnement du circuit
 
-Le circuit ExpressRoute affiche l'état suivant dès que vous exécutez l'applet de commande PowerShell pour supprimer le circuit ExpressRoute.
-
-	ServiceProviderProvisioningState : Provisioned
-	Status                           : Disabling
-
-Vous devez contacter votre fournisseur de connectivité pour annuler l’approvisionnement du circuit ExpressRoute. **Important :** Microsoft continuera à facturer le circuit jusqu'à ce que vous exécutiez l'applet de commande PowerShell pour annuler l’approvisionnement du circuit.
-
-#### Si une annulation de provisionnement est lancée du côté du fournisseur de services
-
-Si vous avez demandé au fournisseur de services d’annuler d’abord l’approvisionnement du circuit ExpressRoute, le circuit affichera l'état suivant une fois que le fournisseur de services a terminé le processus d'annulation de l’approvisionnement.
+Si vous avez demandé au fournisseur de services d’annuler l’approvisionnement du circuit ExpressRoute, le circuit affichera l’état suivant une fois que le fournisseur de services aura terminé le processus d’annulation de l’approvisionnement.
 
 
 	ServiceProviderProvisioningState : NotProvisioned
 	Status                           : Enabled
 
-Vous pouvez choisir de le réactiver si nécessaire, ou exécuter des applets de commande PowerShell pour supprimer le circuit. **Important :** Microsoft continuera à facturer le circuit jusqu'à ce que vous exécutiez l'applet de commande PowerShell pour annuler l’approvisionnement du circuit.
+
+Vous pouvez choisir de le réactiver si nécessaire, ou exécuter des applets de commande PowerShell pour supprimer le circuit.
+
+>[AZURE.IMPORTANT] Si vous exécutez l’applet de commande PowerShell pour supprimer le circuit alors que ServiceProviderProvisioningState a la valeur En cours d’approvisionnement ou Approvisionné, l’opération échoue. Veuillez au préalable contacter votre fournisseur de connectivité pour annuler l’approvisionnement du circuit ExpressRoute, puis supprimer le circuit. Microsoft continuera à facturer le circuit jusqu’à ce que vous exécutiez l’applet de commande PowerShell pour supprimer le circuit.
 
 
 ## État de configuration d’une session de routage
@@ -122,4 +116,4 @@ Si l'état du préfixe public publié indique qu’une *validation est nécessai
 	- [Configuration du routage](expressroute-howto-routing-arm.md)
 	- [Liaison d’un réseau virtuel à un circuit ExpressRoute](expressroute-howto-linkvnet-arm.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -13,14 +13,18 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article"
-	ms.date="08/30/2016" 
+	ms.date="09/05/2016" 
 	ms.author="juliako"/>
 
 
 #Procédure de diffusion en continu avec des encodeurs en local à l’aide du portail Azure
 
-Ce didacticiel vous guide tout au long des étapes d’utilisation du portail Azure afin de créer un **canal** configuré pour une livraison directe.
+> [AZURE.SELECTOR]
+- [Portail](media-services-portal-live-passthrough-get-started.md)
+- [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
+- [REST](https://msdn.microsoft.com/library/azure/dn783458.aspx)
 
+Ce didacticiel vous guide tout au long des étapes d’utilisation du portail Azure afin de créer un **canal** configuré pour une livraison directe.
 
 ##Composants requis
 
@@ -73,12 +77,13 @@ Si vous souhaitez afficher les notifications et les erreurs produites par le por
 
 ##Configurer les points de terminaison de diffusion en continu 
 
-Media Services fournit l’empaquetage dynamique qui vous permet de distribuer des fichiers MP4 à débit binaire multiple dans les formats MPEG DASH, HLS, Smooth Streaming ou HDS, sans avoir à recréer de nouveaux packages dans ces formats. Avec l’empaquetage dynamique, vous devez stocker et payer les fichiers dans un seul format de stockage. Ensuite, Media Services crée et fournit la réponse appropriée en fonction des demandes des clients.
+Media Services fournit l’empaquetage dynamique qui vous permet de distribuer des fichiers MP4 multidébit dans les formats MPEG DASH, HLS, Smooth Streaming ou HDS, sans avoir à recréer de nouveaux packages dans ces formats. L’empaquetage dynamique vous permet de ne stocker et payer les fichiers que dans un seul format de stockage. Ensuite, Media Services crée et fournit la réponse appropriée en fonction des demandes des clients.
 
 Pour tirer parti de l’empaquetage dynamique, vous devez obtenir au moins une unité de diffusion en continu pour le point de terminaison de diffusion en continu à partir duquel vous envisagez de distribuer votre contenu.
 
 Pour créer et modifier le nombre d’unités réservées de diffusion en continu, procédez comme suit :
 
+1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 1. Dans la fenêtre **Paramètres**, cliquez sur **Points de terminaison de diffusion en continu**.
 
 2. Cliquez sur le point de terminaison de diffusion en continu par défaut.
@@ -87,7 +92,7 @@ Pour créer et modifier le nombre d’unités réservées de diffusion en contin
 
 3. Pour spécifier le nombre d’unités de diffusion en continu, faites glisser le curseur **Unités de diffusion en continu**.
 
-	![Unités de diffusion en continu](./media/media-services-portal-vod-get-started/media-services-streaming-units.png)
+	![Unités de diffusion en continu](./media/media-services-portal-passthrough-get-started/media-services-streaming-units.png)
 
 4. Cliquez sur le bouton **Enregistrer** pour enregistrer vos modifications.
 
@@ -99,7 +104,7 @@ Un canal est associé à des événements/programmes vous permettant de contrôl
 	
 Vous pouvez spécifier le nombre d’heures pendant lesquelles vous souhaitez conserver le contenu enregistré pour le programme en définissant la durée de la **fenêtre d’archivage**. Cette valeur peut être comprise entre 5 minutes et 25 heures. La durée de la fenêtre d’archivage détermine également la plage maximale de temps dans laquelle les clients peuvent effectuer des recherches en arrière à partir de la position dynamique actuelle. Les événements peuvent durer davantage que le laps de temps spécifié, mais le contenu qui se situe en dehors de la longueur de fenêtre est ignoré en permanence. La valeur de cette propriété détermine également la longueur maximale que les manifestes de client peuvent atteindre.
 
-Chaque événement est associé à un élément multimédia. Pour publier l’événement, vous devez créer un localisateur OnDemand pour l’élément multimédia associé. Le fait de posséder ce localisateur vous permettra de générer une URL de diffusion en continu que vous pourrez fournir à vos clients.
+Chaque événement est associé à un élément multimédia. Pour publier l’événement, vous devez créer un localisateur OnDemand pour l’élément multimédia associé. Le fait de posséder ce localisateur vous permet de générer une URL de diffusion en continu que vous pourrez fournir à vos clients.
 
 Un canal prend en charge jusqu’à trois événements exécutés simultanément, ce qui rend possible la création de plusieurs archives du même flux entrant. Cela vous permet de publier et d’archiver différentes parties d’un événement en fonction des besoins. Par exemple, imaginez que vous devez archiver 6 heures d’un programme, mais diffuser uniquement les 10 dernières minutes. Pour ce faire, vous devez créer deux programmes exécutés simultanément. Un programme est configuré pour archiver 6 heures de l’événement, mais il n’est pas publié. L’autre programme est configuré pour archiver pendant 10 minutes et il est publié.
 
@@ -132,9 +137,13 @@ Pour plus d’informations sur les canaux directs, consultez [Vidéo en flux con
 
 	Vous obtenez un canal direct avec le protocole de réception RTMP.
 
-	Le canal peut également ajouter, démarrer et publier un événement/programme en direct par défaut. Cet événement est configuré pour disposer de 8 heures d’archivage.
+##Créer des événements
 
-	Pour ajouter d’autres événements, appuyez sur le bouton **Événement réel**.
+1. Sélectionnez un canal auquel vous souhaitez ajouter un événement.
+2. Appuyez sur le bouton **Événement réel**.
+
+![Événement](./media/media-services-portal-passthrough-get-started/media-services-create-events.png)
+
 
 ##Obtenir les URL de réception
 
@@ -142,7 +151,7 @@ Lorsque le canal est créé, vous pouvez obtenir des URL de réception que vous
 
 ![Date de création](./media/media-services-portal-passthrough-get-started/media-services-channel-created.png)
 
-##Visionner un événement
+##Regarder l’événement
 
 Pour visionner l’événement, cliquez sur **Watch** (Visionner) dans le portail Azure ou copiez l’URL de diffusion en continu et utilisez le lecteur de votre choix.
  
@@ -165,7 +174,9 @@ Pour gérer vos éléments multimédias, cliquez sur **Paramètre** puis sur **�
 
 ![Éléments multimédias](./media/media-services-portal-passthrough-get-started/media-services-assets.png)
 
-##Parcours d’apprentissage de Media Services
+##Étape suivante
+
+Consultez les parcours d’apprentissage de Media Services.
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -173,4 +184,4 @@ Pour gérer vos éléments multimédias, cliquez sur **Paramètre** puis sur **�
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

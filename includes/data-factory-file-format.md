@@ -1,15 +1,20 @@
+## Spécification des formats
+
 ### Définition de TextFormat
 
 Si le format est défini sur **TextFormat**, vous pouvez spécifier les propriétés **facultatives** suivantes dans la section **Format**.
 
-| Propriété | Description | Requis |
-| -------- | ----------- | -------- |
-| columnDelimiter | Caractère utilisé comme séparateur de colonnes dans un fichier. Un seul caractère est autorisé pour le moment. Cette balise est facultative. La valeur par défaut est virgule (,). | Non |
-| rowDelimiter | Caractère utilisé comme séparateur de lignes dans un fichier. Un seul caractère est autorisé pour le moment. Cette balise est facultative. La valeur par défaut est : [« \\r\\n », « \\r », « \\n »]. | Non |
-| escapeChar | Caractère spécial utilisé pour échapper au délimiteur de colonnes indiqué dans le contenu. Cette balise est facultative. Aucune valeur par défaut. Vous ne devez pas spécifier plusieurs caractères pour cette propriété.<br/><br/>Par exemple, si vous utilisez une virgule (,) comme séparateur de colonnes, mais que vous voulez insérer une virgule dans le texte (par exemple, « Hello, world »), définissez « $ » comme caractère d’échappement et spécifiez la chaîne « Hello$, world » dans la source.<br/><br/>Notez que vous ne pouvez pas spécifier à la fois escapeChar et quoteChar pour une table. | Non | 
-| quoteChar | Caractère spécial utilisé pour entourer de guillemets la valeur de la chaîne. Les séparateurs de colonnes et de lignes à l'intérieur des caractères de guillemets sont considérés comme faisant partie de la valeur de la chaîne. Cette balise est facultative. Aucune valeur par défaut. Vous ne devez pas spécifier plusieurs caractères pour cette propriété.<br/><br/>Par exemple, si vous avez une virgule (,) comme séparateur de colonnes mais que vous voulez avoir le caractère virgule dans le texte (par exemple : <Hello, world>), vous pouvez définir « " » comme caractère de guillemet et utiliser la chaîne <"Hello, world"> dans la source. Cette propriété s’applique aux tables d’entrée et de sortie.<br/><br/>Notez que vous ne pouvez pas spécifier à la fois escapeChar et quoteChar pour une table. | Non |
-| nullValue | Caractère(s) utilisé(s) pour représenter la valeur Null dans le contenu du fichier blob. Cette balise est facultative. La valeur par défaut est « \\N » et « NULL ».<br/><br/>Par exemple, selon l’exemple ci-dessus, « NaN » dans l’objet blob est converti en tant que valeur Null au moment de la copie vers SQL Server, par exemple. | Non |
-| encodingName | Spécifier le nom d'encodage. Pour obtenir une liste des noms de d’encodage valides, consultez : [Propriété Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx). Par exemple : windows-1250 ou shift\_jis. La valeur par défaut est : UTF-8. | Non | 
+| Propriété | Description | Valeurs autorisées | Requis |
+| -------- | ----------- | -------- | -------- | 
+| columnDelimiter | Caractère utilisé pour séparer les colonnes dans un fichier. | Un seul caractère est autorisé. La valeur par défaut est virgule (,). | Non |
+| rowDelimiter | Caractère utilisé pour séparer les lignes dans un fichier. | Un seul caractère est autorisé. La valeur par défaut est : [« \\r\\n », « \\r », « \\n »] en lecture, et « \\r\\n » en écriture. | Non |
+| escapeChar | Caractère spécial utilisé pour échapper au délimiteur de colonnes dans le contenu du fichier d’entrée. <br/><br/>Vous ne pouvez pas spécifier à la fois escapeChar et quoteChar pour une table. | Un seul caractère est autorisé. Aucune valeur par défaut. <br/><br/>Par exemple, si vous avez une virgule (,) comme séparateur de colonnes mais que vous voulez avoir le caractère virgule dans le texte (par exemple : « Hello, world »), vous pouvez définir « $ » comme caractère d’échappement et utiliser la chaîne « Hello$, world » dans la source. | Non | 
+| quoteChar | Le caractère utilisé pour entourer de guillemets une valeur de chaîne. Les séparateurs de colonnes et de lignes à l'intérieur des caractères de guillemets sont considérés comme faisant partie de la valeur de la chaîne. Cette propriété s’applique aux jeux de données d’entrée et de sortie.<br/><br/>Vous ne pouvez pas spécifier à la fois escapeChar et quoteChar pour une table. | Un seul caractère est autorisé. Aucune valeur par défaut. <br/><br/>Par exemple, si vous avez une virgule (,) comme séparateur de colonnes mais que vous voulez avoir le caractère virgule dans le texte (par exemple : « Hello, world »), vous pouvez définir " (guillemet droit) comme caractère de guillemet et utiliser la chaîne "Hello, world" dans la source. | Non |
+| nullValue | Un ou plusieurs caractères utilisés pour représenter une valeur null. | Un ou plusieurs caractères. Les valeurs par défaut sont « \\N » et « NULL » en lecture, et « \\N » en écriture. | Non |
+| encodingName | Spécifier le nom d'encodage. | Une liste de noms d’encodage valides. Consultez : [Propriété Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx). Exemple : windows-1250 ou shift\_jis. La valeur par défaut est : UTF-8. | Non | 
+| firstRowAsHeader | Spécifie si la première ligne doit être considérée comme un en-tête. Pour un jeu de données d’entrée, Data Factory lit la première ligne comme un en-tête. Pour un jeu de données de sortie, Data Factory écrit la première ligne comme un en-tête. <br/><br/>Consultez la page [Scénarios d’utilisation de **firstRowAsHeader** et **skipLineCount**](#scenarios-for-using-firstrowasheader-and-skiplinecount) pour obtenir des exemples de scénarios. | True<br/>False (valeur par défaut) | Non |
+| skipLineCount | Indique le nombre de lignes à ignorer lors de la lecture des données à partir des fichiers d’entrée. Si skipLineCount et firstRowAsHeader sont spécifiés, les lignes sont d’abord ignorées, puis les informations d’en-tête sont lues à partir du fichier d’entrée. <br/><br/>Consultez la page [Scénarios d’utilisation de firstRowAsHeader et skipLineCount](#scenarios-for-using-firstrowasheader-and-skiplinecount) pour obtenir des exemples de scénarios. | Integer | Non | 
+| treatEmptyAsNull | Spécifie si une chaîne null ou vide doit être traitée comme une valeur null lors de la lecture des données à partir d’un fichier d’entrée. | True (valeur par défaut)<br/>False | Non |  
 
 #### Exemple pour TextFormat
 L'exemple suivant illustre certaines des propriétés de format pour TextFormat.
@@ -25,12 +30,23 @@ L'exemple suivant illustre certaines des propriétés de format pour TextFormat.
 	        "rowDelimiter": ";",
 	        "quoteChar": """,
 	        "NullValue": "NaN"
+			"firstRowAsHeader": true,
+			"skipLineCount": 0,
+			"treatEmptyAsNull": true
 	    }
 	},
 
 Pour utiliser escapeChar à la place de quoteChar, remplacez la ligne contenant quoteChar par ce qui suit :
 
 	"escapeChar": "$",
+
+
+
+### Scénarios d’utilisation de firstRowAsHeader et skipLineCount
+
+- Vous copiez à partir d’une source hors fichier vers un fichier texte et vous souhaitez ajouter une ligne d’en-tête qui contient les métadonnées de schéma (par exemple : schéma SQL). Définissez firstRowAsHeader sur true dans le jeu de données de sortie pour ce scénario.
+- Vous copiez à partir d’un fichier texte contenant une ligne d’en-tête vers un récepteur hors fichier et souhaitez supprimer cette ligne. Définissez firstRowAsHeader sur true dans le jeu de données d’entrée.
+- Vous copiez à partir d’un fichier texte et souhaitez ignorer quelques lignes au début qui ne sont ni des données ni un en-tête. Spécifiez skipLineCount pour indiquer le nombre de lignes à ignorer. Si le reste du fichier contient une ligne d’en-tête, vous pouvez également spécifier firstRowAsHeader. Si skipLineCount et firstRowAsHeader sont spécifiés, les lignes sont d’abord ignorées, puis les informations d’en-tête sont lues à partir du fichier d’entrée
 
 ### Définition d'AvroFormat
 Si le format est défini sur AvroFormat, il est inutile de spécifier des propriétés dans la section Format de la section typeProperties. Exemple :
@@ -48,9 +64,9 @@ Si le format est défini sur **JsonFormat**, vous pouvez spécifier les proprié
 
 | Propriété | Description | Obligatoire |
 | -------- | ----------- | -------- |
-| filePattern | Indiquez le modèle des données stockées dans chaque fichier JSON. Les valeurs autorisées sont les suivantes : **setOfObjects** et **arrayOfObjects**. La valeur **par défaut** est **setOfObjects**. Pour plus d’informations sur ces modèles, consultez les sections ci-dessous.| Non |
-| encodingName | Spécifiez le nom du codage. Pour obtenir une liste de noms d’encodage valides, consultez : [Propriété Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx). Par exemple : windows-1250 ou shift\_jis. La **valeur par défaut** est : **UTF-8**. | Non | 
-| nestingSeparator | Caractère utilisé pour séparer les niveaux d'imbrication. La valeur **par défaut** est **. (point)**. | Non | 
+| filePattern | Indiquez le modèle des données stockées dans chaque fichier JSON. Les valeurs autorisées sont les suivantes : **setOfObjects** et **arrayOfObjects**. La valeur **par défaut** est **setOfObjects**. Pour plus d’informations sur ces modèles, consultez les sections suivantes.| Non |
+| encodingName | Spécifier le nom d'encodage. Pour obtenir une liste de noms d’encodage valides, consultez : [Propriété Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx). Par exemple : windows-1250 ou shift\_jis. La valeur **par défaut** est : **UTF-8**. | Non | 
+| nestingSeparator | Caractère utilisé pour séparer les niveaux d'imbrication. La valeur par défaut est . (point). | Non | 
 
 
 #### Modèle de fichier setOfObjects
@@ -182,7 +198,7 @@ Prenons un fichier JSON avec le contenu suivant :
 
 Vous voulez copier ce contenu dans un tableau SQL Azure dans le format suivant :
 
-Id | Name.First | Name.Middle | Name.Last | Tags
+ID | Name.First | Name.Middle | Name.Last | Tags
 --- | ---------- | ----------- | --------- | ----
 1 | John | null | Doe | ["Data Factory", "Azure"]
 
@@ -214,7 +230,7 @@ Si la structure n’est pas définie, l’activité de copie aplatit la structur
 #### Structure JSON prise en charge
 Notez les points suivants :
 
-- Chaque objet avec une collection de paires nom/valeur est mappé à une seule ligne de données dans un format tabulaire. Les objets peuvent être imbriqués, et vous pouvez définir comment aplatir la structure dans un jeu de données en utilisant le séparateur d’imbrication (.) par défaut. Pour obtenir un exemple, consultez la section [Exemple pour JsonFormat](#jsonformat-example) ci-dessus.
+- Chaque objet avec une collection de paires nom/valeur est mappé à une seule ligne de données dans un format tabulaire. Les objets peuvent être imbriqués, et vous pouvez définir comment aplatir la structure dans un jeu de données en utilisant le séparateur d’imbrication (.) par défaut. Pour obtenir un exemple, consultez la section précédente, [Exemple pour JsonFormat](#jsonformat-example).
 - Si la structure n’est pas définie dans le jeu de données Data Factory, l’activité de copie détecte le schéma à partir du premier objet et aplatit l’objet entier.
 - Si l’entrée JSON contient un tableau, l’activité de copie convertit la valeur du tableau entier en une chaîne. Vous pouvez choisir d’utiliser à la place le [mappage ou filtrage de colonnes](#column-mapping-with-translator-rules).
 - S’il y a plusieurs noms identiques au même niveau, l’activité de copie sélectionne le dernier nom.
@@ -228,11 +244,11 @@ Si le format est défini sur OrcFormat, il est inutile de spécifier des propri�
 	    "type": "OrcFormat",
 	}
 
-> [AZURE.IMPORTANT] Si vous copiez des données entre des banques de données locales et cloud en utilisant le format ORC, mais sans copier de fichiers ORC tels quel entre la source et le récepteur, vous devez installer JRE 8 (Java Runtime Environment) sur votre machine passerelle pour transformer vos données dans un format adéquat. Notez que la passerelle 64 bits requiert un environnement JRE 64 bits et que la passerelle 32 bits nécessite un environnement JRE 32 bits. Ces deux versions sont disponibles [ici](http://go.microsoft.com/fwlink/?LinkId=808605). Choisissez la version appropriée.
+> [AZURE.IMPORTANT] Si vous ne copiez pas les fichiers ORC **tels quels** entre les magasins de données locaux et cloud, vous devez installer JRE 8 (Java Runtime Environment) sur votre machine de passerelle. La passerelle 64 bits requiert un environnement JRE 64 bits et que la passerelle 32 bits nécessite un environnement JRE 32 bits. Ces deux versions sont disponibles [ici](http://go.microsoft.com/fwlink/?LinkId=808605). Sélectionnez la bonne version.
 
 Notez les points suivants :
 
 -	Les types de données complexes ne sont pas pris en charge (STRUCT, MAP, LIST, UNION)
--	Le fichier ORC a 3 [options liées à la compression](http://hortonworks.com/blog/orcfile-in-hdp-2-better-compression-better-performance/) : NONE, ZLIB, SNAPPY. Data Factory prend en charge la lecture des données du fichier ORC dans tous les formats compressés ci-dessus. Il utilise le codec de compression se trouvant dans les métadonnées pour lire les données. Toutefois, lors de l’écriture dans un fichier ORC, Data Factory choisit ZLIB, qui est la valeur par défaut pour ORC. Il n’existe aucune option permettant de remplacer ce comportement pour l’instant.
+-	Le fichier ORC a trois [options liées à la compression](http://hortonworks.com/blog/orcfile-in-hdp-2-better-compression-better-performance/) : NONE, ZLIB, SNAPPY. Data Factory prend en charge la lecture des données du fichier ORC dans tous ces formats compressés. Il utilise le codec de compression se trouvant dans les métadonnées pour lire les données. Toutefois, lors de l’écriture dans un fichier ORC, Data Factory choisit ZLIB, qui est la valeur par défaut pour ORC. Actuellement, il n’existe aucune option permettant de remplacer ce comportement.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0831_2016-->

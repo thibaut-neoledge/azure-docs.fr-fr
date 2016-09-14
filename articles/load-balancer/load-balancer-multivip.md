@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/09/2016"
+   ms.date="08/25/2016"
    ms.author="sewhee" />
 
 # Plusieurs adresses IP virtuelles par service cloud
@@ -37,7 +37,7 @@ Vous pouvez utiliser PowerShell pour vérifier les adresses IP virtuelles utilis
 
 À ce stade, la fonctionnalité d'adresses IP virtuelles multiples est limitée aux scénarios suivants :
 
-- **IaaS uniquement**. Vous ne pouvez activer les adresses IP virtuelles multiples que pour les services cloud qui contiennent des machines virtuelles. Vous ne pouvez pas utiliser les adresses IP virtuelles multiples dans les scénarios PaaS avec des instances de rôle.
+- **IaaS uniquement**. Vous ne pouvez activer les adresses IP virtuelles multiples que pour les services cloud qui contiennent des machines virtuelles. Vous ne pouvez pas utiliser les adresses IP virtuelles multiples dans les scénarios PaaS avec des instances de rôles.
 - **PowerShell uniquement**. Vous pouvez gérer les adresses IP virtuelles multiples uniquement à l'aide de PowerShell.
 
 >[AZURE.IMPORTANT] Ces limitations sont temporaires et peuvent changer à tout moment. N'oubliez pas de revenir sur cette page pour consulter les modifications.
@@ -160,4 +160,4 @@ Vous pouvez également mettre à jour votre équilibrage de charge pour utiliser
 
 [API REST d’adresse IP réservée](https://msdn.microsoft.com/library/azure/dn722420.aspx)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

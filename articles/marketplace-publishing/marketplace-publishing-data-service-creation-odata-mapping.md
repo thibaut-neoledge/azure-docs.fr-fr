@@ -13,10 +13,12 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="na"
-      ms.date="01/04/2016"
+      ms.date="08/26/2016"
       ms.author="hascipio; avikova" />
 
 # Mappage d’un service web existant à OData via des le langage CSDL
+
+>[AZURE.IMPORTANT] **À ce stade, nous n’intégrons plus de nouveaux éditeurs de services de données. Le listing de nouveaux services de données ne sera pas approuvé.** Si vous avez une application SaaS professionnelle à publier sur AppSource, vous trouverez plus d’informations [ici](https://appsource.microsoft.com/partners). Si vous avez une application IaaS ou un service de développement à publier sur Azure Marketplace, vous trouverez plus d’informations [ici](https://azure.microsoft.com/marketplace/programs/certified/).
 
 Cet article offre une vue d’ensemble de l’utilisation d’un langage CSDL pour mapper un service existant à un service compatible OData. Il explique comment créer le document de mappage (CSDL) qui transforme la requête d’entrée provenant du client via un appel de service et la sortie (données) renvoyée au client via un flux compatible OData. Microsoft Azure Marketplace utilise le protocole OData pour exposer des services aux utilisateurs finaux. L’exposition des services par les fournisseurs de contenu (les propriétaires de données) s’effectue sous diverses formes, telles que REST, SOAP, etc.
 
@@ -129,7 +131,7 @@ Voici un exemple d’élément CSDL : (Copiez et collez l’exemple CSDL ci-des
 
 **Termes :** met en relation les termes CSDL avec les termes de l’interface utilisateur du [portail de publication](https://publish.windowsazure.com) (PPUI).
 - Le « titre » de l’offre dans le PPUI est associé à MyWebOffer
-- MyCompany dans le PPUI est associé au **nom complet de l’éditeur** dans l’interface utilisateur [Microsoft Developer Center](http://dev.windows.com/registration?accountprogram=azure)
+- MyCompany dans le PPUI est associé au **nom d’affichage de l’éditeur** dans l’interface utilisateur [Microsoft Developer Center](http://dev.windows.com/registration?accountprogram=azure)
 - Votre API est associée à un service web ou de données (un plan dans le PPUI)
 
 **Hiérarchie :** une entreprise (fournisseur de contenu) possède une ou plusieurs offres qui comprennent des plans, c’est-à-dire des services, qui sont associés à une API.
@@ -308,4 +310,4 @@ L’exemple suivant établit une connexion à un service qui expose une table ou
 - Si vous souhaitez passer en revue des exemples, lisez l’article [Exemples de mappage du service de données OData](marketplace-publishing-data-service-creation-odata-mapping-examples.md) pour consulter des exemples de code et pour comprendre la syntaxe et le contexte du code.
 - Pour retourner au chemin indiqué pour la publication d’un service de données sur Azure Marketplace, lisez l’article [Guide de publication de services de données](marketplace-publishing-data-service-creation.md).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0831_2016-->

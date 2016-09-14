@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="07/28/2016" 
+	ms.date="09/01/2016" 
 	ms.author="mandia"/>
 
 # Qu'est-ce qu'un connecteur et une application API BizTalk ?
@@ -35,12 +35,12 @@ La page [Tarification App Service](https://azure.microsoft.com/pricing/details/a
 
 
 ## Connecteurs hybrides 
-Les connecteurs hybrides étendent la portée dans l’entreprise avec une connectivité pour [SAP](app-service-logic-connector-sap.md), [Oracle](app-service-logic-connector-oracle.md), [DB2](app-service-logic-connector-db2.md), [Informix](app-service-logic-connector-informix.md) et WebSphere MQ.
+Les connecteurs hybrides étendent la portée dans l’entreprise avec une connectivité pour [DB2](app-service-logic-connector-db2.md), [Informix](app-service-logic-connector-informix.md) et WebSphere MQ.
 
 ## Services IAE et EDI
-La création d’applications professionnelles critiques nécessite plus qu’une simple connectivité. Basées sur la plateforme d'intégration Microsoft bien connue (BizTalk Server), les applications API BizTalk procurent des fonctionnalités d'intégration avancées qui peuvent être intégrées à vos applications web, mobiles et logiques en toute simplicité. Certaines de ces fonctionnalités d’intégration incluent la [validation](app-service-logic-xml-validator.md), l’[extraction](app-service-logic-xpath-extract.md), les [transformations](app-service-logic-transform-xml-documents.md), les [encodeurs](app-service-logic-connector-jsonencoder.md), la [gestion des partenaires commerciaux](app-service-logic-connector-tpm.md) et la prise en charge des formats EDI tels que [X12](app-service-logic-connector-x12.md), [EDIFACT](app-service-logic-connector-edifact.md) et [AS2](app-service-logic-connector-as2.md).
+La création d’applications professionnelles critiques nécessite plus qu’une simple connectivité. Basées sur la plateforme d'intégration Microsoft bien connue (BizTalk Server), les applications API BizTalk procurent des fonctionnalités d'intégration avancées qui peuvent être intégrées à vos applications web, mobiles et logiques en toute simplicité. Certaines de ces fonctionnalités d’intégration incluent la [validation](app-service-logic-xml-validator.md), [l’extraction](app-service-logic-xpath-extract.md), les [transformations](app-service-logic-transform-xml-documents.md), les [encodeurs](app-service-logic-connector-jsonencoder.md), la [gestion des partenaires commerciaux](app-service-logic-connector-tpm.md) et la prise en charge des formats EDI tels que [X12](app-service-logic-connector-x12.md), [EDIFACT](app-service-logic-connector-edifact.md) et [AS2](app-service-logic-connector-as2.md).
 
-Ressources supplémentaires : [Connecteurs et applications API interentreprises](app-service-logic-b2b-connectors.md) [Créer un processus B2B](app-service-logic-create-a-b2b-process.md) [Créer un accord de partenariat commercial](app-service-logic-create-a-trading-partner-agreement.md) [Suivre vos messages B2B](app-service-logic-track-b2b-messages.md)
+Ressources supplémentaires : [Connecteurs B2B et applications API](app-service-logic-b2b-connectors.md) [Créer un processus B2B](app-service-logic-create-a-b2b-process.md) [Créer un accord de partenariat commercial](app-service-logic-create-a-trading-partner-agreement.md) [Suivre des messages B2B](app-service-logic-track-b2b-messages.md)
 
 
 ## Règles
@@ -50,4 +50,4 @@ Les règles d'entreprise englobent les stratégies et les décisions qui contrô
 Consultez la page [Liste des connecteurs et applications API](app-service-logic-connectors-list.md) pour obtenir la liste complète des connecteurs et des applications API inclus dans chaque catégorie, y compris les connecteurs standard, IAE BizTalk, les connecteurs Premium et ainsi de suite.
  
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0907_2016-->

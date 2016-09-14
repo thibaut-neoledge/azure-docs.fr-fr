@@ -14,7 +14,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="08/17/2016"
+	ms.date="08/25/2016"
 	ms.author="markvi"/>
 
 
@@ -82,7 +82,7 @@ Des stratégies peuvent être définies en fonction des exigences suivantes :
 
 - **Appareils compatibles** : vous pouvez définir une stratégie pour limiter l’accès aux appareils qui sont marqués comme étant **conformes** dans le répertoire par le système de gestion. Cette stratégie garantit que seuls les appareils qui répondent aux stratégies de sécurité, comme le chiffrement des fichiers sur l’appareil, ont droit à l’accès. Cette stratégie peut être utilisée pour limiter l’accès par les périphériques suivants :
 
-    - Les **appareils joints à un domaine Windows** qui sont gérés par System Center Configuration Manager 2016 et déployés dans une configuration hybride.
+    - Les **appareils joints à un domaine Windows** qui sont gérés par System Center Configuration Manager (branche actuelle) et déployés dans une configuration hybride.
 
     - Les **appareils mobiles Windows 10 personnels ou professionnels** gérés par Microsoft Intune ou un système de gestion des appareils mobiles (MDM) tiers.
 
@@ -125,4 +125,4 @@ Le plan de contenu suivant répertorie les documents auxquels vous devez vous r�
 - [FAQ sur l’accès conditionnel](active-directory-conditional-faqs.md)
 - [Référence technique](active-directory-conditional-access-technical-reference.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0831_2016-->

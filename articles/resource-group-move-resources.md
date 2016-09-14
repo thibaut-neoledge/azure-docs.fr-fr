@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/21/2016" 
+	ms.date="08/30/2016" 
 	ms.author="tomfitz"/>
 
 # Déplacer des ressources vers un nouveau groupe de ressource ou un nouvel abonnement
@@ -75,6 +75,7 @@ Les services qui ne prennent actuellement pas en charge le déplacement d’une 
 - Application Gateway
 - Application Insights
 - ExpressRoute
+- Coffre Recovery Services : par ailleurs, ne déplacez pas les ressources de calcul, de réseau et de stockage associées au coffre Recovery Services.
 - Groupes identiques de machines virtuelles
 - Réseaux virtuels (classique) : consultez [Limitations relatives au déploiement classique](#classic-deployment-limitations)
 - Passerelle VPN
@@ -273,4 +274,4 @@ Avec le corps de requête :
 - Pour plus d’informations sur les fonctionnalités du portail permettant de gérer votre abonnement, consultez [Utilisation du Portail Azure pour gérer les ressources](./azure-portal/resource-group-portal.md).
 - Pour plus d’informations sur l’application d’une organisation logique à vos ressources, consultez [Organisation des ressources Azure à l’aide de balises](resource-group-using-tags.md).
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0831_2016-->

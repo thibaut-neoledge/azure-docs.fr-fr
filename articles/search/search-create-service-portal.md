@@ -11,14 +11,14 @@
 	ms.workload="search"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.date="07/13/2016"
+	ms.date="08/29/2016"
 	ms.author="ashmaka"/>
 
 # Créer un service Azure Search à l’aide du portail Azure
 
 Ce guide vous explique comment créer (ou approvisionner) un service Azure Search à l’aide du [portail Azure](https://portal.azure.com/).
 
-Ce guide suppose que vous disposez d’un abonnement Azure et que vous êtes en mesure de vous connecter au portail Azure.
+Ce guide suppose que vous disposez d’un abonnement Azure et que vous êtes en mesure de vous connecter au Portail Azure.
 
 ## Trouver Azure Search sur le portail Azure
 1. Accédez au [portail Azure](https://portal.azure.com/) et connectez-vous.
@@ -76,4 +76,4 @@ Après avoir approvisionné un service Azure Search, vous pouvez [définir un in
 
 Pour accéder à un didacticiel rapide, voir [Prise en main d’Azure Search dans le portail](search-get-started-portal.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0831_2016-->

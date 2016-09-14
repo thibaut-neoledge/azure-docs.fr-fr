@@ -13,14 +13,14 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="06/13/2016"
+	ms.date="08/31/2016"
 	ms.author="pratshar"/>
 
 # Protéger Active Directory et DNS avec Azure Site Recovery
 
 Les applications d'entreprise telles que SharePoint, Dynamics AX et SAP dépendent du bon fonctionnement d'Active Directory et de l'infrastructure DNS. Lorsque vous créez une solution de récupération d'urgence pour des applications, il est important de se rappeler que vous devez protéger et récupérer Active Directory et DNS avant les autres composants d'application, pour vous assurer que tout fonctionne correctement en cas de sinistre.
 
-Site Recovery est un service Azure offrant une récupération d’urgence en coordonnant la réplication, le basculement et la récupération des machines virtuelles. Site Recovery prend en charge un certain nombre de scénarios de réplication afin de systématiquement protéger et basculer en toute transparence des machines virtuelles et des applications sur des clouds privés, publics ou de l’hébergeur.
+Site Recovery est un service Azure offrant une récupération d’urgence en coordonnant la réplication, le basculement et la récupération des machines virtuelles. Site Recovery prend en charge un certain nombre de scénarios de réplication afin de systématiquement protéger et basculer en toute transparence des machines virtuelles et des applications sur des clouds privés, publics ou hébergeurs.
 
 À l’aide de Site Recovery, vous pouvez créer un plan de récupération d’urgence automatisé complet pour Active Directory. En cas d’interruption, vous pouvez lancer un basculement en quelques secondes, où que vous soyez, et bénéficier d’un Active Directory opérationnel en quelques minutes. Si vous avez déployé Active Directory pour plusieurs applications, telles que SharePoint et SAP dans votre site principal et que vous souhaitez basculer le site intégral, vous pouvez basculer Active Directory en premier lieu à l’aide de Site Recovery, puis basculer les autres applications en utilisant des plans de récupération spécifiques aux applications.
 
@@ -66,7 +66,7 @@ Pour la machine virtuelle du contrôleur de domaine/DNS, configurez les paramèt
 
 ### Protection de site à site
 
-Créez un contrôleur de domaine sur le site secondaire et spécifiez le même nom de domaine qui est utilisé sur le site principal lorsque vous attribuez au serveur un rôle de contrôleur de domaine. Vous pouvez utiliser le composant logiciel enfichable **Sites et services Active Directory** pour configurer les paramètres sur l'objet du lien de sites auquel les sites sont ajoutés. En configurant des paramètres sur un lien de sites, vous pouvez contrôler le moment où la réplication a lieu entre deux sites ou plus, ainsi que la fréquence. Consultez la rubrique [Planification de la réplication entre des sites](https://technet.microsoft.com/library/cc731862.aspx) pour plus de détails.
+Créez un contrôleur de domaine sur le site secondaire et spécifiez le même nom de domaine qui est utilisé sur le site principal lorsque vous promouvez le serveur au rôle de contrôleur de domaine. Vous pouvez utiliser le composant logiciel enfichable **Sites et services Active Directory** pour configurer les paramètres sur l'objet du lien de sites auquel les sites sont ajoutés. En configurant des paramètres sur un lien de sites, vous pouvez contrôler le moment où la réplication a lieu entre deux sites ou plus, ainsi que la fréquence. Consultez la rubrique [Planification de la réplication entre des sites](https://technet.microsoft.com/library/cc731862.aspx) pour plus de détails.
 
 ###Protection de site vers Azure
 
@@ -84,13 +84,13 @@ La plupart des applications requièrent également la présence d’un contrôle
 
 1. Activez la protection de la machine virtuelle du contrôleur de domaine/DNS dans Site Recovery.
 2. Créez un réseau isolé. Tout réseau virtuel créé dans Azure par défaut est isolé des autres réseaux. Il est recommandé que la plage d’adresses IP pour ce réseau soit identique à celle de votre réseau de production. N’activez pas la connectivité de site à site sur ce réseau.
-3. Fournissez une adresse IP DNS dans le réseau créé, comme l'adresse IP que vous attendez que la machine virtuelle du DNS obtienne. Si vous répliquez vers Azure, fournissez l’adresse IP de la machine virtuelle qui sera utilisée lors du basculement dans le paramètre **Adresse IP cible**, dans les propriétés de la machine virtuelle. Si vous répliquez vers un autre site local et que vous utilisez DHCP, suivez les instructions pour [configurer DNS et DHCP pour le test de basculement](site-recovery-failover.md#prepare-dhcp)
+3. Fournissez une adresse IP DNS dans le réseau créé, comme l'adresse IP que vous attendez que la machine virtuelle du DNS obtienne. Si vous répliquez vers Azure, fournissez l’adresse IP de la machine virtuelle qui sera utilisée lors du basculement dans le paramètre **Adresse IP cible** dans les propriétés de la machine virtuelle. Si vous répliquez vers un autre site local et que vous utilisez DHCP, suivez les instructions pour [configurer DNS et DHCP pour le test de basculement](site-recovery-failover.md#prepare-dhcp)
 
 >[AZURE.NOTE] L’adresse IP affectée à une machine virtuelle durant un test de basculement est identique à l’adresse IP qu’elle obtiendrait durant un basculement planifié ou non planifié, si l’adresse IP est disponible dans le réseau de test de basculement. Si ce n’est pas le cas, la machine virtuelle reçoit une adresse IP différente qui est disponible dans le réseau de test de basculement.
 
-4. Sur la machine virtuelle du contrôleur de domaine, exécutez un test de basculement de celle-ci dans le réseau isolé.
+4. Sur la machine virtuelle du contrôleur de domaine, exécutez un test de basculement de celle-ci dans le réseau isolé. Utilisez le dernier point de récupération d’application cohérent disponible de la machine virtuelle du contrôleur de domaine pour effectuer le test de basculement.
 5. Exécutez un test de basculement pour le plan de récupération de l’application.
-6. Une fois le test terminé, marquez le test de basculement de la tâche de la machine virtuelle du contrôleur de domaine et le plan de récupération d’urgence comme terminés dans l’onglet **Tâches** du portail Site Recovery.
+6. Une fois le test terminé, marquez la tâche de test de basculement de la machine virtuelle du contrôleur de domaine et le plan de récupération d’urgence comme terminés dans l’onglet **Tâches** du portail Site Recovery.
 
 ### DNS et contrôleur de domaine sur différentes machines
 
@@ -121,4 +121,4 @@ Vous pouvez utiliser un nouveau serveur DNS et créer toutes les zones requises
 
 Pour en savoir plus sur la protection des charges de travail d’entreprise avec Azure Site Recovery, consultez la rubrique [Quelles charges de travail puis-je protéger ?](../site-recovery/site-recovery-workload.md).
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0831_2016-->

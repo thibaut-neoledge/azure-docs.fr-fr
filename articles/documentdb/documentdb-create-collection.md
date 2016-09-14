@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/15/2016" 
+	ms.date="08/24/2016" 
 	ms.author="mimig"/>
 
 # Création d’une collection DocumentDB à l’aide du portail Azure
@@ -22,11 +22,11 @@ Pour utiliser Microsoft Azure DocumentDB, vous devez posséder un [compte Docume
 
 Vous ne savez pas vraiment ce qu’est une collection ? Consultez [Qu’est-ce qu’une collection DocumentDB ?](#what-is-a-documentdb-collection)
 
-1.  Dans le [portail Azure](https://portal.azure.com/), dans la barre de lancement, cliquez sur **Comptes DocumentDB**, puis, dans le panneau **Comptes DocumentDB**, sélectionnez le compte auquel ajouter une collection.
+1.  Dans le [portail Azure](https://portal.azure.com/), dans la barre de lancement, cliquez sur **DocumentDB (NoSQL)**, puis, dans le panneau **DocumentDB (NoSQL)**, sélectionnez le compte auquel ajouter une collection.
 
     ![Capture d'écran montrant l'option Comptes DocumentDB dans la barre de lancement, le compte dans le panneau Comptes DocumentDB et la base de données dans le panneau Compte DocumentDB, dans le filtre Bases de données](./media/documentdb-create-collection/docdb-database-creation-1-2.png)
     
-    Si l’option **Comptes DocumentDB** n’est pas visible dans la barre de lancement, cliquez sur **Plus de services**, puis sur **Comptes DocumentDB**. Si vous n’avez aucun compte répertorié, vous devrez [créer un compte DocumentDB](documentdb-create-account.md).
+    Si l’option **Comptes DocumentDB** n’est pas visible dans la barre de lancement, cliquez sur **Plus de services**, puis sur **DocumentDB (NoSQL)**. Si vous n’avez aucun compte répertorié, vous devrez [créer un compte DocumentDB](documentdb-create-account.md).
 
 2. Dans le panneau **Compte DocumentDB** pour le compte sélectionné, dans le filtre **Bases de données**, sélectionnez la base de données dans laquelle ajouter une collection.
 
@@ -91,4 +91,4 @@ Maintenant que vous avez une collection, l'étape suivante consiste à ajouter o
 
 Une fois que chaque collection contient des documents, vous pouvez utiliser [DocumentDB SQL](documentdb-sql-query.md) pour [exécuter des requêtes](documentdb-sql-query.md#executing-queries) sur vos documents à l’aide de l’[Explorateur de requête](documentdb-query-collections-query-explorer.md) du portail, de l’[API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) ou de l’un des [Kits de développement logiciel](documentdb-sdk-dotnet.md).
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -14,7 +14,7 @@
 	ms.workload="search" 
 	ms.topic="hero-article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="05/17/2016" 
+	ms.date="08/29/2016" 
 	ms.author="heidist"/>
 
 # Prise en main d’Azure Search dans le portail
@@ -23,7 +23,7 @@ Cet article est une présentation sans code de Microsoft Azure Search, à l’
 
 Le didacticiel prend l’exemple d’une [base de données Azure DocumentDB](#apdx-sampledata) que vous pouvez créer simplement avec nos données et instructions. Mais vous pouvez également adapter ces étapes aux données de votre base de données DocumentDB ou SQL.
 
-> [AZURE.NOTE] Ce didacticiel de prise en main nécessite un [abonnement Azure](../../includes/free-trial-note.md) et un [service Azure Search](search-create-service-portal.md).
+> [AZURE.NOTE] Ce didacticiel de prise en main nécessite un [abonnement Azure](../../includes/free-trial-note.md) et un [service Recherche Azure](search-create-service-portal.md).
  
 ## Recherche de votre service
 
@@ -72,9 +72,9 @@ Toujours dans l’assistant, cliquez sur **Index** et observez l’aire de conce
 
 Même si les champs et les types de données sont configurés, vous devez affecter les attributs. Les cases à cocher en haut de la liste de champs sont des *attributs d’index* qui contrôlent l’utilisation du champ.
 
-- **Récupérable** signifie que le champ s’affiche dans la liste des résultats de recherche. En décochant cette case, vous pouvez marquer des champs individuels comme hors limites pour les résultats de recherche, par exemple lorsqu’un champ est utilisé uniquement dans les expressions de filtre. 
-- Les options **Filtrable**, **Triable** et **À choix multiples** déterminent si le champ peut être utilisé dans un filtre, un tri ou une structure de navigation à facettes. 
-- **Possibilité de recherche** signifie que le champ est inclus dans la recherche en texte intégral. Une recherche est généralement possible sur les chaînes. Les champs numériques et booléens sont souvent marqués comme ne pouvant pas faire l’objet d’une recherche. 
+- **Récupérable** signifie que le champ s’affiche dans la liste des résultats de recherche. En décochant cette case, vous pouvez marquer des champs individuels comme hors limites pour les résultats de recherche, par exemple lorsqu’un champ est utilisé uniquement dans les expressions de filtre.
+- Les options **Filtrable**, **Triable** et **À choix multiples** déterminent si le champ peut être utilisé dans un filtre, un tri ou une structure de navigation à facettes.
+- **Possibilité de recherche** signifie que le champ est inclus dans la recherche en texte intégral. Une recherche est généralement possible sur les chaînes. Les champs numériques et booléens sont souvent marqués comme ne pouvant pas faire l’objet d’une recherche.
 
 Avant de quitter cette page, marquez les champs de votre index de manière à utiliser les options suivantes (Récupérable, Possibilité de recherche, etc.). La plupart des champs sont récupérables. La plupart des champs de type chaîne peuvent faire l’objet d’une recherche (vous n’avez pas besoin de marquer la clé en Possibilité de recherche). Certains champs tels que genre, orderableOnline, rating et tags sont également filtrables, triables, et à choix multiples.
 	
@@ -183,4 +183,4 @@ Vous devriez obtenir la sortie JSON, en commençant par le document n° 386 et 
 [6]: ./media/search-get-started-portal/AzureSearch-GetStart-IndexerList.png
 [7]: ./media/search-get-started-portal/search-data-import-wiz-btn.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0907_2016-->

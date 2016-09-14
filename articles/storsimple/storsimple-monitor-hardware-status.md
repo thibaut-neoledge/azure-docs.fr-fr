@@ -12,12 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/24/2016"
+   ms.date="08/18/2016"
    ms.author="alkohli" />
 
 # Utiliser le service StorSimple Manager pour surveiller les composants et l’état du matériel
 
-## Vue d’ensemble
+## Vue d'ensemble
 
 Cet article décrit les différents composants physiques et logiques de votre appareil StorSimple local. Il explique également comment surveiller l'état des composants de l’appareil à l'aide de la page **Maintenance** du service StorSimple Manager.
 
@@ -46,7 +46,7 @@ Un appareil 8600 présente des composants supplémentaires qui correspondent au 
 
 Procédez comme suit pour afficher l'état du matériel d'un composant d’appareil :
 
-1. Accédez à**Appareils** et sélectionnez un appareil StorSimple. Accédez au menu de niveau appareil, puis cliquez sur **Maintenance**. 
+1. Accédez à**Appareils** et sélectionnez un appareil StorSimple. Accédez au menu de niveau appareil, puis cliquez sur **Maintenance**.
 2. Recherchez la section **État du matériel** et faites un choix parmi les composants disponibles (comme décrit ci-dessus). Cliquez simplement sur la flèche en regard de l'étiquette du composant pour développer la liste et afficher l'état des différents composants de l’appareil. Consultez la [liste détaillée des composants du boîtier principal](#component-list-for-primary-enclosure-of-storsimple-device) et la [liste détaillée des composants détaillées du boîtier EBOD](#component-list-for-ebod-enclosure-of-storsimple-device).
 
 2. Utilisez le codage couleur suivant pour interpréter l'état du composant :
@@ -62,7 +62,7 @@ Procédez comme suit pour afficher l'état du matériel d'un composant d’appar
 
 Le tableau suivant présente les composants physiques et logiques contenus dans le boîtier principal de votre appareil StorSimple local.
 
-|Composant|Module|Type|Emplacement|Unité remplaçable sur site (FRU) ?|Description|
+|Composant|Module|Type|Lieu|Unité remplaçable sur site (FRU) ?|Description|
 |---|---|---|---|---|---|
 |Lecteur à l’emplacement [0-11]|Lecteurs de disque|Physique|Partagé|Oui|Les disques SSD et HDD sont représentés par une ligne dans le boîtier principal.|
 |Capteur de température ambiante|Boîtier|Physique|Partagé|Non|Mesure de la température à l’intérieur du châssis.|
@@ -104,7 +104,7 @@ Le tableau suivant présente les composants physiques et logiques contenus dans 
 
 Le tableau suivant présente les composants physiques et logiques contenus dans le boîtier EBOD de votre appareil StorSimple local.
 
-|Composant|Module|Type|Emplacement|FRU ?|Description|
+|Composant|Module|Type|Lieu|FRU ?|Description|
 |---|---|---|---|---|---|
 |Lecteur à l’emplacement [0-11]|Lecteurs de disque|Physique|Partagé|Oui|Une ligne représente chacun des disques HDD à l’avant du boîtier EBOD.|
 |Capteur de température ambiante|Boîtier|Physique|Partagé|Non|Mesure de la température à l’intérieur du châssis.|
@@ -136,4 +136,4 @@ Le tableau suivant présente les composants physiques et logiques contenus dans 
 
 - Si les problèmes persistent, [contactez le support technique Microsoft](storsimple-contact-microsoft-support.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0831_2016-->

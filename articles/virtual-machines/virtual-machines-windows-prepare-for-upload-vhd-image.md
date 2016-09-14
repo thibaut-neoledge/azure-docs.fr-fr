@@ -26,7 +26,7 @@ Pour charger une machine virtuelle Windows locale sur Azure, vous devez prépare
 
 Vérifiez que le disque dur virtuel Windows fonctionne correctement sur le serveur local. Résolvez toute erreur dans la machine virtuelle elle-même avant d’effectuer une conversion ou un chargement sur Azure.
 
-Pour convertir votre disque virtuel au format exigé par Azure, utilisez une des méthodes décrites dans les sections suivantes.
+Pour convertir votre disque virtuel au format exigé par Azure, utilisez une des méthodes décrites dans les sections suivantes. Sauvegardez la machine virtuelle avant d’exécuter tout processus de conversion de disque virtuel ou Sysprep.
 
 ### Convertir à l’aide du Gestionnaire Hyper-V
 - Ouvrez le Gestionnaire Hyper-V et sélectionnez votre ordinateur local sur la gauche. Dans le menu du haut, cliquez sur **Action** > **Modifier le disque**.
@@ -66,7 +66,7 @@ Si vous disposez d’une image de machine virtuelle Windows au [format de fichie
 3. Définissez la stratégie SAN pour les disques sur [onlineall](https://technet.microsoft.com/library/gg252636.aspx) :
 
 	```
-	dispart san policy=onlineall
+	diskpart san policy=onlineall
 	```
 
 4. Utilisez l’heure UTC (Temps universel coordonné) pour Windows et définissez le type de démarrage du service de Temps Windows (w32time) sur **automatique** :
@@ -287,6 +287,7 @@ Si vous disposez d’une image de machine virtuelle Windows au [format de fichie
 
 	- [Create a VM image from an existing Azure VM using the Resource Manager deployment model (Créer une image de machine virtuelle à partir d’une machine virtuelle Azure existante en utilisant le modèle de déploiement Resource Manager)](virtual-machines-windows-capture-image.md)
 	- [Create a VM image from an existing Azure VM using the Classic deployment model (Créer une image de machine virtuelle à partir d’une machine virtuelle Azure existante en utilisant le modèle de déploiement Classic)](virtual-machines-windows-classic-capture-image.md)
+	- [Prise en charge de Sysprep pour les rôles de serveur](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)
 
 
 ## Configurations supplémentaires suggérées
@@ -320,4 +321,4 @@ Les paramètres suivants n’affectent pas le chargement du disque dur virtuel. 
 
 - [Télécharger une image de machine virtuelle Windows dans Azure pour des déploiements Resource Manager](virtual-machines-windows-upload-image.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0831_2016-->

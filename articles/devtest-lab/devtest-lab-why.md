@@ -44,8 +44,10 @@ Capturez et partagez les artefacts et modèles d’environnement au sein de votr
 
 Tirez parti des plug-ins prêts à l’emploi ou de notre API pour approvisionner des environnement de développement/test directement à partir de votre outil d’intégration continue préféré, d’un environnement de développement intégré ou d’un pipeline de mise en production automatisé. Vous pouvez également utiliser notre outil en ligne de commande complet.
 
+[AZURE.INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
+
 ##Étapes suivantes
 
 [Concepts de DevTest Labs](devtest-lab-concepts.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

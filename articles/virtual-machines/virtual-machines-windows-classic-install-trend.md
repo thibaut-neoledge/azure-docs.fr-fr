@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/07/2016"
+	ms.date="08/24/2016"
 	ms.author="iainfou"/>
 
 
@@ -26,11 +26,11 @@ Cet article décrit comment installer et configurer Trend Micro Deep Security co
 
 Le client est installé sous forme d’extension de sécurité via l’agent de machine virtuelle. Sur une nouvelle machine virtuelle, vous devez installer l'agent de machine virtuelle en même temps que l'agent Deep Security. Sur une machine virtuelle existante sans l'agent, vous devez d'abord télécharger et installer l'agent. Cet article aborde ces deux situations.
 
-Si vous disposez d’un abonnement Trend Micro pour une solution locale, vous pouvez l’utiliser pour protéger vos machines virtuelles Microsoft Azure. Si vous n'êtes pas encore client, vous pouvez vous inscrire pour une version d'évaluation. Pour plus d’informations sur cette solution, consultez le billet de blog [Extension de l’agent de machine virtuelle Microsoft Azure pour Deep Security](http://go.microsoft.com/fwlink/p/?LinkId=403945).
+Si vous disposez d’un abonnement Trend Micro pour une solution locale, vous pouvez l’utiliser pour protéger vos machines virtuelles Microsoft Azure. Si vous n’êtes pas encore client, vous pouvez vous inscrire pour une version d’évaluation. Pour plus d’informations sur cette solution, consultez le billet de blog [Extension de l’agent de machine virtuelle Microsoft Azure pour Deep Security](http://go.microsoft.com/fwlink/p/?LinkId=403945).
 
-## Installation de l’agent Deep Security sur une nouvelle machine virtuelle
+## Installation de l'agent Deep Security sur une nouvelle machine virtuelle
 
-Le [portail Azure Classic](http://manage.windowsazure.com) vous permet d’installer l’agent de machine virtuelle et l’extension de sécurité Trend Micro lors de l’utilisation de l’option **À partir de la galerie** pour créer la machine virtuelle. Il s’agit d’une méthode simple pour ajouter une protection Trend Micro en cas de création d’une seule machine virtuelle.
+Le [portail Azure Classic](http://manage.windowsazure.com) vous permet d’installer l’agent de machine virtuelle et l’extension de sécurité Trend Micro lors de l’utilisation de l’option **À partir de la galerie** pour créer la machine virtuelle. La création d’une machine virtuelle unique à l’aide du portail est une méthode simple pour ajouter une protection Trend Micro.
 
 L'option **À partir de la galerie** ouvre un Assistant qui vous aide à configurer la machine virtuelle. Utilisez la dernière page de l’Assistant pour installer l’agent de machine virtuelle et l’extension de sécurité Trend Micro. Pour des instructions générales, consultez la page [Création d’une machine virtuelle exécutant Windows dans le portail Azure Classic](virtual-machines-windows-classic-tutorial.md). Lorsque vous atteignez la dernière page de l'Assistant, procédez comme suit :
 
@@ -44,9 +44,9 @@ L'option **À partir de la galerie** ouvre un Assistant qui vous aide à configu
 
 ## Installation de l’agent Deep Security sur une machine virtuelle existante
 
-Pour ce faire, vous avez besoin des éléments suivants :
+Pour installer l’agent sur une machine virtuelle existante, vous avez besoin des éléments suivants :
 
-- Le module Azure PowerShell, version 0.8.2 ou ultérieure, installé sur votre poste local. Vous pouvez vérifier la version d’Azure PowerShell installée à l’aide de la commande **Get-Module azure | format-table version**. Pour des instructions et un lien vers la dernière version, consultez la rubrique [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md).
+- Le module Azure PowerShell, version 0.8.2 ou ultérieure, installé sur votre poste local. Vous pouvez vérifier la version d’Azure PowerShell installée à l’aide de la commande **Get-Module azure | format-table version**. Pour des instructions et un lien vers la dernière version, consultez la rubrique [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md). Connectez-vous à votre abonnement Azure à l’aide d’`Add-AzureAccount`.
 
 - L'agent de machine virtuelle installé sur la machine virtuelle cible.
 
@@ -57,7 +57,7 @@ Tout d'abord, vérifiez que l’agent de machine virtuelle est déjà installé.
 	$vm = Get-AzureVM -ServiceName $CSName -Name $VMName
 	write-host $vm.VM.ProvisionGuestAgent
 
-Si vous ignorez le nom du service cloud et de la machine virtuelle, exécutez **Get-AzureVM** afin d’afficher ces informations pour toutes les machines virtuelles de l’abonnement actuel.
+Si vous ignorez le nom du service cloud et de la machine virtuelle, exécutez **Get-AzureVM** afin d’afficher ces informations pour toutes les machines virtuelles de l’abonnement en cours.
 
 Si la commande **write-host** renvoie **True**, cela signifie que l’agent de machine virtuelle est installé. Si elle retourne **False**, consultez les instructions et un lien vers le téléchargement dans le billet de blog Azure [Agent de machine virtuelle et extensions - 2e partie](http://go.microsoft.com/fwlink/p/?LinkId=403947).
 
@@ -69,7 +69,7 @@ Si l'agent de machine virtuelle est installé, exécutez ces commandes.
 
 ## Étapes suivantes
 
-Quelques minutes sont nécessaires avant que l'exécution de l'agent ne démarre, après l'installation. Vous devez ensuite activer Deep Security sur la machine virtuelle de façon à ce qu’elle puisse être gérée par Deep Security Manager. Pour obtenir des instructions supplémentaires, consultez les pages suivantes :
+Quelques minutes sont nécessaires avant que l'exécution de l'agent ne démarre, après l'installation. Vous devez ensuite activer Deep Security sur la machine virtuelle de façon à ce qu'elle puisse être gérée par Deep Security Manager. Pour obtenir des instructions supplémentaires, consultez les pages suivantes :
 
 - L’article de Trend sur cette solution, [Sécurité cloud instantanée pour Microsoft Azure](http://go.microsoft.com/fwlink/?LinkId=404101).
 - Un [exemple de script Windows PowerShell](http://go.microsoft.com/fwlink/?LinkId=404100) pour configurer la machine virtuelle.
@@ -86,4 +86,4 @@ Quelques minutes sont nécessaires avant que l'exécution de l'agent ne démarre
 [Connexion à une machine virtuelle exécutant Windows Server]: virtual-machines-windows-classic-connect-logon.md
 [Fonctionnalités et extensions de machine virtuelle Azure]: http://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0831_2016-->

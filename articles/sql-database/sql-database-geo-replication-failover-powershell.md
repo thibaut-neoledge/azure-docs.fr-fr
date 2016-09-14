@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
-    ms.date="07/19/2016"
+    ms.date="08/29/2016"
     ms.author="sstein"/>
 
 # Lancer un basculement planifié ou non planifié pour une base de données SQL Azure avec PowerShell
@@ -81,10 +81,11 @@ La commande suivante bascule les rôles de la base de données nommée « mydb�
 
 ## Étapes suivantes   
 
-- Pour en savoir plus sur la reprise après un sinistre à l’aide de la géo-réplication active, y compris les étapes de pré/post-récupération et la simulation d’une récupération d’urgence, consultez [Exercices de récupération d’urgence](sql-database-disaster-recovery.md)
-- Pour lire un billet de blog publié par Sasha Nosov concernant la géo-réplication active, consultez [Coup de projecteur sur les nouvelles fonctionnalités de géo-réplication](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/)
-- Pour plus d’informations sur la conception d’applications cloud afin d’utiliser la géo-réplication active, consultez [Conception d’applications cloud pour la continuité d’activité à l’aide de la géo-réplication](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
-- Pour plus d’informations sur l’utilisation de la géo-réplication active avec des pools de bases de données élastiques, consultez [Stratégies de récupération d’urgence de pool élastique](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
+- Après le basculement, assurez-vous que les exigences d’authentification de votre serveur et de votre base de données sont configurées sur la nouvelle base de données primaire. Pour plus d’informations, consultez [Gestion de la sécurité de la base de données SQL Azure après la récupération d’urgence](sql-database-geo-replication-security-config.md).
+- Pour en savoir plus sur la reprise après un sinistre à l’aide de la géoréplication active, notamment les étapes de pré/post-récupération et la simulation d’une récupération d’urgence, consultez [Exécution d’un exercice de récupération d’urgence](sql-database-disaster-recovery.md)
+- Consultez le billet de blog publié par Sasha Nosov concernant la géoréplication active : [Coup de projecteur sur les nouvelles fonctionnalités de géoréplication](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/) (en Anglais)
+- Pour plus d’informations sur la conception d’applications cloud afin d’utiliser la géoréplication active, consultez [Conception d’applications cloud pour la continuité d’activité à l’aide de la géoréplication](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
+- Pour plus d’informations sur l’utilisation de la géoréplication active avec des pools de bases de données élastiques, consultez [Stratégies de récupération d’urgence pour les applications utilisant le pool élastique de base de données SQL](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
 - Pour une vue d’ensemble de la continuité des activités, consultez [Vue d’ensemble de la continuité des activités](sql-database-business-continuity.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0831_2016-->

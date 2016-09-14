@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/19/2016"
+   ms.date="08/29/2016"
    ms.author="cherylmc"/>
 
 # Création et modification d’un circuit ExpressRoute
@@ -79,7 +79,7 @@ Vous pouvez afficher tous les circuits que vous avez créés en sélectionnant *
 
 Dans ce panneau, **Statut du fournisseur** fournit des informations sur l’état actuel de l’approvisionnement du côté du fournisseur de service. **Statut du circuit** indique l’état du côté Microsoft. Pour plus d’informations sur les états d’approvisionnement des circuits, consultez l’article [Flux de travail](expressroute-workflows.md#expressroute-circuit-provisioning-states).
 
-Quand vous créez un circuit ExpressRoute, ce circuit affiche l’état suivant :
+Quand vous créez un circuit ExpressRoute, ce circuit affiche l’état suivant :
 
 Statu du fournisseur : Non approvisionné<BR> Statut du circuit : Activé
 
@@ -89,7 +89,7 @@ Le circuit passe à l’état suivant quand le fournisseur de connectivité est 
 
 Statut du fournisseur : En cours d’approvisionnement <BR> Statut du circuit : Activé
 
-Pour pouvoir être utilisé, un circuit ExpressRoute doit être dans l’état suivant :
+Pour pouvoir être utilisé, un circuit ExpressRoute doit être dans l’état suivant :
 
 Statut du fournisseur : Approvisionné<BR> Statut du circuit : Activé
 
@@ -136,21 +136,21 @@ Vous pouvez effectuer les opérations suivantes sans entraîner d’interruption
 Pour plus d’informations sur les limites et les limitations, reportez-vous au [FAQ ExpressRoute](expressroute-faqs.md).
 
 
-## Suppression et annulation du provisionnement d'un circuit ExpressRoute
+## Annulation de l’approvisionnement et suppression d’un circuit ExpressRoute
 
-Vous pouvez supprimer votre circuit ExpressRoute en sélectionnant l’icône **Supprimer**. Notez les points suivants :
+Vous pouvez supprimer votre circuit ExpressRoute en sélectionnant l’icône **Supprimer**. Notez les points suivants :
 
 - Vous devez dissocier tous les réseaux virtuels du circuit ExpressRoute. Si cette opération échoue, vérifiez si certains de vos réseaux virtuels sont liés au circuit.
 
-- Si l’état d’approvisionnement du fournisseur de services du circuit ExpressRoute est Activé, l’approvisionnement passe de l’état Activé à l’état **Désactivation**. Vous devez contacter votre fournisseur de services pour annuler l’approvisionnement du circuit de son côté. Nous continuerons à réserver des ressources et à vous facturer jusqu’à ce que le fournisseur de services termine le désapprovisionnement du circuit et nous en avertisse.
+- Si l’état d’approvisionnement du fournisseur de services du circuit ExpressRoute est **En cours d’approvisionnement** ou **Approvisionné**, vous devez vous mettre en relation avec votre fournisseur de services pour annuler l’approvisionnement du circuit de son côté. Nous continuerons à réserver des ressources et à vous facturer jusqu’à ce que le fournisseur de services termine le désapprovisionnement du circuit et nous en avertisse.
 
-- Si le fournisseur de services a désapprovisionné le circuit (l’état d’approvisionnement du fournisseur de services est **Non approvisionné**) avant que vous exécutiez l’applet de commande précédente, nous désapprovisionnons le circuit et nous cessons de vous facturer.
+- Si le fournisseur de services a annulé l’approvisionnement du circuit (l’état d’approvisionnement du fournisseur de services affiche la valeur **Non approvisionné**), vous pouvez supprimer le circuit. Cette opération arrêtera la facturation du circuit
 
 ## Étapes suivantes
 
-Après avoir créé votre circuit, effectuez les opérations suivantes :
+Après avoir créé votre circuit, effectuez les opérations suivantes :
 
 - [Créer et modifier le routage le routage pour votre circuit ExpressRoute](expressroute-howto-routing-portal-resource-manager.md)
 - [Lier votre réseau virtuel à votre circuit ExpressRoute](expressroute-howto-linkvnet-arm.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0831_2016-->

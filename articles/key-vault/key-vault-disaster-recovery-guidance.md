@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/17/2016"
+	ms.date="08/26/2016"
 	ms.author="sumedhb;aglick"/>
 
 
@@ -46,4 +46,4 @@ Il existe quelques inconvénients, que vous devez connaître :
  * backup
 * Une fois le basculement restauré, tous les types de demandes (par exemple, demandes de lecture ___et___ d’écriture) sont disponibles.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0831_2016-->

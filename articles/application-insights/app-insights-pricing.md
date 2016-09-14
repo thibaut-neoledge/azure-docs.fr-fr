@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016" 
+	ms.date="08/27/2016" 
 	ms.author="awills"/>
 
 # Gestion de la tarification et du quota pour Application Insights
@@ -77,7 +77,7 @@ Si votre application dépasse le quota d’envoi mensuel, vous pouvez :
 * Ne rien faire. Les données de session continueront à être enregistrées, mais les autres données n’apparaîtront pas dans Recherche de diagnostic ou Metrics explorer.
 
 
-### Quelle quantité de données suis-je en train d’envoyer ?
+## Quelle quantité de données suis-je en train d’envoyer ?
 
 Le graphique au bas du panneau de tarification illustre le volume des points de données de votre application, regroupés par type. (Vous pouvez également créer ce graphique dans Metrics Explorer).
 
@@ -86,6 +86,8 @@ Le graphique au bas du panneau de tarification illustre le volume des points de 
 Cliquez sur le graphique pour plus d’informations ou sélectionnez une partie de ce dernier et cliquez sur (+) pour obtenir des informations sur une période.
 
 Le graphique montre le volume de données qui arrive au niveau du service Application Insights après l’[échantillonnage](app-insights-sampling.md).
+
+Si le volume de données atteint votre quota mensuel, une annotation s’affiche sur le graphique.
 
 
 ## Débit de données
@@ -112,7 +114,7 @@ En cas de limitation, vous en êtes informé par un avertissement.
 * Ou dans Metrics Explorer, ajoutez un nouveau graphique et sélectionnez la mesure **Volume du point de données**. Basculez sur le regroupement et regroupez par **Type de données**.
 
 
-### Conseils destinés à réduire votre débit de données
+## Pour réduire le débit de données
 
 Si vous rencontrez les seuils de limitation, voici quelques opérations à effectuer :
 
@@ -124,16 +126,30 @@ Si vous rencontrez les seuils de limitation, voici quelques opérations à effec
 
 ## Échantillonnage
 
-L’[échantillonnage](app-insights-sampling.md) est une méthode vous permettant de réduire la fréquence d’envoi des données de télémétrie à votre application, tout en conservant la capacité à trouver des événements connexes lors des recherches de diagnostic, ainsi que le décompte des événements corrects. L’échantillonnage vous permet de respecter votre quota mensuel.
-
-Il existe plusieurs formes d’échantillonnage. Nous vous recommandons d’utiliser l’[échantillonnage adaptatif](app-insights-sampling.md), qui s’ajuste automatiquement au volume de données de télémétrie envoyées par votre application. Il fonctionne dans le Kit de développement logiciel (SDL) de votre application web, afin de réduire le trafic de télémétrie sur le réseau. Vous pouvez l’utiliser si l’infrastructure de votre application web est .NET : installez la dernière version (bêta) du Kit de développement logiciel (SDK).
-
-En guise d’alternative, vous pouvez définir l’*échantillonnage d’ingestion* dans le panneau Quotas et tarification. Cette forme d’échantillonnage fonctionne au niveau où les données de télémétrie issues de votre application entrent dans le service Application Insights. Il n’affecte pas le volume de télémétrie envoyé depuis votre application, mais il réduit le volume conservé par le service.
-
-![Dans le panneau Quotas et tarification, cliquez sur la vignette Exemples et sélectionnez une fraction d’échantillonnage.](./media/app-insights-pricing/04.png)
+L’[échantillonnage](app-insights-sampling.md) est une méthode vous permettant de réduire la fréquence d’envoi des données de télémétrie à votre application, tout en conservant la capacité à trouver des événements connexes lors des recherches de diagnostic, ainsi que le décompte des événements corrects.
 
 L’échantillonnage est un moyen efficace de réduire les coûts et de respecter votre quota mensuel. L’algorithme d’échantillonnage conserve les éléments associés à la télémétrie, afin que, lorsque vous utilisez la recherche par exemple, vous puissiez trouver la demande liée à une exception spécifique. L’algorithme conserve également le décompte correct. Cela vous permet de voir les valeurs correctes des taux de demandes, des taux d’exception et des autres compteurs dans Metric Explorer.
 
+Il existe plusieurs formes d’échantillonnage.
+
+* L’[échantillonnage adaptatif](app-insights-sampling.md) est la méthode par défaut pour le kit de développement logiciel (SDK) ASP.NET. Il s’ajuste automatiquement au volume de données de télémétrie envoyées par votre application. Il fonctionne automatiquement dans le Kit de développement logiciel (SDK) de votre application web, afin de réduire le trafic de télémétrie sur le réseau.
+* *échantillonnage d’ingestion* est une méthode alternative qui fonctionne au niveau où les données de télémétrie issues de votre application entrent dans le service Application Insights. Il n’affecte pas le volume de télémétrie envoyé depuis votre application, mais il réduit le volume conservé par le service. Vous pouvez l’utiliser pour réduire le quota utilisé par les données de télémétrie provenant des navigateurs et d’autres kits de développement logiciel (SDK).
+
+Pour définir l’échantillonnage d’ingestion, définissez le contrôle dans le panneau Quotas et tarification :
+
+![Dans le panneau Quotas et tarification, cliquez sur la vignette Exemples et sélectionnez une fraction d’échantillonnage.](./media/app-insights-pricing/04.png)
+
+> [AZURE.WARNING] La valeur affichée sur la vignette Échantillons conservés indique uniquement la valeur que vous avez définie pour l’échantillonnage d’ingestion. Elle n’indique pas le taux d’échantillonnage en vigueur au niveau du kit de développement logiciel (SDK) dans votre application.
+> 
+> Si les données de télémétrie entrantes ont déjà été échantillonnées dans le kit de développement logiciel (SDK), l’échantillonnage d’ingestion n’est pas appliqué.
+ 
+Pour découvrir le taux d’échantillonnage réel, indépendamment de l’endroit où il a été appliqué, utilisez une [requête Analytics](app-insights-analytics.md) telle que celle-ci :
+
+    requests | where timestamp > ago(1d)
+    | summarize 100/avg(itemCount) by bin(timestamp, 1h) 
+    | render areachart 
+
+Pour chaque enregistrement conservé, `itemCount` indique le nombre d’enregistrements d’origine qu’il représente, soit 1 + le nombre d’enregistrements précédents ignorés.
 
 ## Consultation de la facture de votre abonnement à Azure
 
@@ -165,4 +181,4 @@ Si vous constatez que votre application dépasse ces limites, envisagez de fract
 
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0831_2016-->

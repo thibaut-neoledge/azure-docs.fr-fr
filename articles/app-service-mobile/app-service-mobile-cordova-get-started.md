@@ -79,9 +79,9 @@ Découvrez comment utiliser les Kits de développement logiciel.
 [Ajout de l’authentification]: app-service-mobile-cordova-get-started-users.md
 [Ajout de notifications Push]: app-service-mobile-cordova-get-started-push.md
 [Authentification]: app-service-mobile-auth.md
-[Notifications Push]: ../notification-hubs/notification-hubs-overview.md
+[Notifications Push]: ../notification-hubs/notification-hubs-push-notification-overview.md
 [Kit de développement logiciel (SDK) Apache Cordova]: app-service-mobile-cordova-how-to-use-client-library.md
 [Kit de développement logiciel du serveur ASP.NET]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Kit de développement logiciel du serveur Node.js]: app-service-mobile-node-backend-how-to-use-server-sdk.md
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0907_2016-->

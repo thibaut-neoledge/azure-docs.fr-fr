@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/06/2016"
+	ms.date="08/31/2016"
 	ms.author="luisca"/>
 
 #  Collecte de données pour la formation d’un modèle #
@@ -51,13 +51,13 @@ Avec caractéristiques :
 
 #### Détails du format
 
-| Nom | Obligatoire | Type | Description |
+| Name | Obligatoire | Type | Description |
 |:---|:---|:---|:---|
-| Item Id |Oui | [A-z], [a-z] [0-9], [\_] &#40;trait de soulignement&#41;, [-] &#40;tiret&#41;<br> Longueur maximale : 50 | Identificateur unique d’un élément. | 
-| Nom de l’élément | Oui | Caractères alphanumériques<br> Longueur maximale : 255 | Nom de l’élément. | 
-| Catégorie d’élément | Oui | Caractères alphanumériques <br> Longueur maximale : 255 | Catégorie à laquelle cet élément appartient (par exemple, livres de cuisine, théâtre...) ; peut être vide. | 
-| Description | Non, sauf si les fonctionnalités sont présentes (mais peuvent être vides) | Caractères alphanumériques <br> Longueur maximale : 4 000 | Description de cet élément. | 
-| Liste des fonctionnalités | Non | Caractères alphanumériques <br> Longueur maximale : 4 000 ; nombre maximal de fonctionnalités : 20 | Liste de noms de fonctionnalité séparés par une virgule = valeur de fonctionnalité qui peut être utilisée pour améliorer la recommandation du modèle.|
+| Item Id |Oui | [A-z], [a-z], [0-9], [\_] &#40;trait de soulignement&#41;, [-] &#40;tiret&#41;<br> Longueur maximale : 50 | Identificateur unique d'un élément. |
+| Item Name | Oui | Caractères alphanumériques<br> Longueur maximale : 255 | Nom de l'élément. |
+| Item Category | Oui | Caractères alphanumériques <br> Longueur maximale : 255 | Catégorie à laquelle cet élément appartient (par exemple, livres de cuisine, pièces de théâtre, etc.) ; peut être vide. |
+| Description | Non, sauf si des caractéristiques sont présentes (mais peut être vide) | Caractères alphanumériques <br> Longueur maximale : 4 000 | Description de cet élément. |
+| Features list | Non | Caractères alphanumériques <br> Longueur maximale : 4 000 ; nombre maximal de caractéristiques : 20 | Liste de noms de caractéristiques séparés par des virgules = valeur qui peut être utilisée pour améliorer la recommandation de modèle.|
 
 #### Chargement d’un fichier de catalogue
 
@@ -95,12 +95,12 @@ Un fichier d’utilisation est un fichier CSV (valeurs séparées par des virgul
 
 
 
-| Nom | Obligatoire | Type | Description
+| Name | Obligatoire | Type | Description
 |-------|------------|------|---------------
-|User Id| Oui|[A-z], [a-z], [0-9], [\_] &#40;Trait de souligne&#41;, [-] &#40;Tiret&#41;<br> Longueur maximale : 255 |Identifiant unique d’un utilisateur. 
-|Identifiant de l’article|Oui|[A-z], [a-z], [0-9], [&#95;] &#40;Trait de soulignement&#41;, [-] &#40;Tiret&#41;<br> Longueur maximale : 50|Identifiant unique d’un article. 
-|Heure|Oui|Date au format : AAAA/MM/JJTHH:MM:SS (e.g. 2013/06/20T10:00:00)|Indication de temps des données. 
-|Événement|Non | Un des éléments suivants:<br>• Clic<br>• Clic de recommandation<br>• Ajout au panier<br>• Suppression du panier<br>• Achat| Type de transaction. |
+|User Id| Oui|[A-z], [a-z], [0-9], [\_] &#40;trait de soulignement&#41;, [-] &#40;tiret&#41;<br> Longueur maximale : 255 |Identificateur unique d’un utilisateur.
+|Item Id|Oui|[A-z], [a-z], [0-9], [&#95;] &#40;trait de soulignement&#41;, [-] &#40;tiret&#41;<br> Longueur maximale : 50|Identificateur unique d'un élément.
+|Time|Oui|Date au format suivant : AAAA/MM/JJTHH:MM:SS (par exemple, 2013/06/20T10:00:00)|Indication de temps des données.
+|Événement|Non | Une des valeurs suivantes :<br>• Click<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Purchase| Le type de transaction. |
 
 #### Exemples de lignes dans un fichier d’utilisation
 
@@ -129,4 +129,4 @@ Une bonne règle empirique est de faire en sorte que la plupart des éléments s
 
 Une fois que vous avez créé un modèle, vous pouvez effectuer une [évaluation hors connexion](cognitive-services-recommendations-buildtypes.md) pour vérifier le comportement probable de votre modèle.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0831_2016-->

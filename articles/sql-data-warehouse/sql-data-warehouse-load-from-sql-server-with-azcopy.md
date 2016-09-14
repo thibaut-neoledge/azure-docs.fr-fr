@@ -3,7 +3,7 @@
    description="Utilise BCP pour exporter des données à partir de SQL Server vers des fichiers plats, AZCopy pour importer des données dans le stockage d’objets blob Azure et PolyBase pour recevoir les données dans Azure SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="lodipalm"
+   authors="ckarst"
    manager="barbkess"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="06/30/2016"
-   ms.author="lodipalm;barbkess;sonyama"/>
+   ms.author="cakarst;barbkess;sonyama"/>
 
 
 # Charger des données à partir de SQL Server dans Azure SQL Data Warehouse (AZCopy)
@@ -22,7 +22,7 @@
 Utilisez les utilitaires de ligne de commande BCP et AZCopy pour charger des données à partir de SQL Server dans un stockage d’objets blob Azure. Utilisez ensuite PolyBase ou Azure Data Factory pour charger les données dans Azure SQL Data Warehouse.
 
 
-## Configuration requise
+## Composants requis
 
 Pour parcourir ce didacticiel, vous avez besoin des éléments suivants :
 
@@ -171,4 +171,4 @@ Pour consulter une vue d’ensemble sur le chargement, accédez à la rubrique [
 <!--Other Web references-->
 [Centre de téléchargement Microsoft]: https://www.microsoft.com/download/details.aspx?id=36433
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0907_2016-->
