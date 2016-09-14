@@ -95,11 +95,9 @@ Pour faciliter l’interopérabilité avec les clients autres que .NET, utilisez
 
 Les fonctionnalités suivantes de l’API .NET Service Bus ne sont actuellement pas prises en charge lors de l’utilisation d’AMQP :
 
--   Transactions.
+-   Transactions
 
--   Envoi via destination de transfert.
-
--   Réception montée en charge.
+-   Envoi via destination de transfert
 
 Il existe également quelques petites différences dans le comportement de l’API .NET Service Bus lors de l’utilisation d’AMQP par rapport au protocole par défaut :
 
@@ -139,4 +137,4 @@ Prêt à en savoir plus ? Visitez les liens suivants :
 [Prise en charge d’AMQP 1.0 dans les rubriques et files d’attente partitionnées Service Bus]: service-bus-partitioned-queues-and-topics-amqp-overview.md
 [AMQP dans Service Bus pour Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

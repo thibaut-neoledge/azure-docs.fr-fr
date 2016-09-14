@@ -29,7 +29,7 @@ Pour le modèle complet, consultez le [modèle d'espace de noms et de file d’a
 >-    [Créer un espace de noms Service Bus avec file d'attente et règle d’autorisation](service-bus-resource-manager-namespace-auth-rule.md)
 >-    [Créer un espace de noms Service Bus par rubrique et abonnement](service-bus-resource-manager-namespace-topic.md)
 >-    [Création d'un espace de noms Service Bus](service-bus-resource-manager-namespace.md)
->-    [Créer un espace de noms Event Hub avec un Event Hub et un groupe de consommateurs](service-bus-resource-manager-namespace-event-hub.md)
+>-    [Créer un espace de noms Event Hubs avec un Event Hub et un groupe de consommateurs](../event-hubs/event-hubs-resource-manager-namespace-event-hub.md)
 >
 >Pour connaître les derniers modèles, recherchez Service Bus dans la galerie de [modèles de démarrage rapide Azure][].
 
@@ -145,4 +145,4 @@ Maintenant que vous avez créé et déployé des ressources à l’aide d’Azur
   [Using Azure PowerShell with Azure Resource Manager]: ../powershell-azure-resource-manager.md
   [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../xplat-cli-azure-resource-manager.md
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0831_2016-->

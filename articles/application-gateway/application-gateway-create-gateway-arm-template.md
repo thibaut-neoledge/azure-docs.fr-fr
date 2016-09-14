@@ -5,7 +5,7 @@
    documentationCenter="na"
    services="application-gateway"
    authors="georgewallace"
-   manager="jdial"
+   manager="carmonm"
    editor="tysonn"/>
 <tags
    ms.service="application-gateway"
@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/09/2016"
+   ms.date="09/06/2016"
    ms.author="gwallace"/>
 
 
@@ -28,12 +28,9 @@ La passerelle Azure Application Gateway est un équilibreur de charge de couche�
 - [Modèle Azure Resource Manager](application-gateway-create-gateway-arm-template.md)
 - [Interface de ligne de commande Azure](application-gateway-create-gateway-cli.md)
 
-<BR>
-
 Vous découvrirez comment télécharger et modifier un modèle Azure Resource Manager existant à partir de GitHub, et apprendrez à déployer le modèle à partir de GitHub, de PowerShell et de l’interface de ligne de commande Azure.
 
 Si vous déployez simplement le modèle Azure Resource Manager directement à partir de GitHub sans rien modifier, passez à la section Déployer un modèle à partir de GitHub.
-
 
 ## Scénario
 
@@ -46,15 +43,11 @@ Dans ce scénario, vous allez :
 
 >[AZURE.NOTE] Ce sont les paramètres de ce modèle. Pour personnaliser le modèle, vous pouvez modifier les règles, l’écouteur et le protocole SSL en ouvrant le fichier azuredeploy.json.
 
-
-
 ![Scénario](./media/application-gateway-create-gateway-arm-template/scenario-arm.png)
-
-
 
 ## Téléchargement et découverte du modèle Azure Resource Manager
 
-Vous pouvez télécharger le modèle Azure Resource Manager existant pour créer un réseau virtuel et deux sous-réseaux sur GitHub, apporter les modifications souhaitées, puis le réutiliser. Pour ce faire, procédez comme suit :
+Vous pouvez télécharger le modèle Azure Resource Manager existant pour créer un réseau virtuel et deux sous-réseaux sur GitHub, apporter les modifications souhaitées, puis le réutiliser. Pour ce faire, procédez comme suit :
 
 1. Accédez à [Créer une passerelle Application Gateway](https://github.com/Azure/azure-quickstart-templates/tree/master/101-application-gateway-create).
 2. Cliquez sur **azuredeploy.json**, puis sur **RAW**.
@@ -89,29 +82,29 @@ Vous pouvez télécharger le modèle Azure Resource Manager existant pour créer
 10. Ouvrez le fichier que vous avez enregistré et modifiez les valeurs des paramètres. Utilisez les valeurs suivantes pour déployer la passerelle Application Gateway décrite dans notre scénario.
 
 		{
-		  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+		"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
 		{
-    	"location" : {
-        "value" : "West US"
-    	},
-    	"addressPrefix": {
-        "value": "10.0.0.0/16"
-    	},
-    	"subnetPrefix": {
-        "value": "10.0.0.0/24"
-    	},
-    	"skuName": {
-        "value": "Standard_Small"
-    	},
-    	"capacity": {
-        "value": 2
-    	},
-    	"backendIpAddress1": {
-        "value": "10.0.1.10"
-    	},
-    	"backendIpAddress2": {
-        "value": "10.0.1.11"
-    	}
+		"location" : {
+		"value" : "West US"
+		},
+		"addressPrefix": {
+		"value": "10.0.0.0/16"
+		},
+		"subnetPrefix": {
+		"value": "10.0.0.0/24"
+		},
+		"skuName": {
+		"value": "Standard_Small"
+		},
+		"capacity": {
+		"value": 2
+		},
+		"backendIpAddress1": {
+		"value": "10.0.1.10"
+		},
+		"backendIpAddress2": {
+		"value": "10.0.1.11"
+		}
 		}
 
 11. Enregistrez le fichier . Vous pouvez tester le modèle JSON et le modèle de paramètres à l’aide des outils de validation JSON en ligne comme [JSlint.com](http://www.jslint.com/).
@@ -123,8 +116,6 @@ Si vous n’avez jamais utilisé Azure PowerShell, consultez [Installation et co
 ### Étape 1
 
 	Login-AzureRmAccount
-
-
 
 ### Étape 2
 
@@ -145,47 +136,14 @@ Parmi vos abonnements Azure, choisissez celui que vous souhaitez utiliser.<BR>
 ### Étape 4
 
 
-Au besoin, créez un groupe de ressources à l’aide de l’applet de commande **New-AzureResourceGroup**. Dans l’exemple ci-dessous, vous allez créer un groupe de ressources appelé AppgatewayRG dans l’Est des États-Unis.
+Au besoin, créez un groupe de ressources à l’aide de l’applet de commande **New-AzureResourceGroup**. Dans l’exemple suivant, vous allez créer un groupe de ressources appelé AppgatewayRG dans les États-Unis de l’Est.
 
 	New-AzureRmResourceGroup -Name AppgatewayRG -Location "East US"
-
-		ResourceGroupName : AppgatewayRG
-		Location          : eastus
-		ProvisioningState : Succeeded
-		Tags              :
-		Permissions       :
-	                 Actions  NotActions
-	                 =======  ==========
-	                  *
-
-		ResourceId        : /subscriptions/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx/resourceGroups/AppgatewayRG
 
 Exécutez l’applet de commande **New-AzureRmResourceGroupDeployment** pour déployer le nouveau réseau virtuel à l’aide du modèle précédent et des fichiers de paramètres que vous avez téléchargés et modifiés.
 
 	New-AzureRmResourceGroupDeployment -Name TestAppgatewayDeployment -ResourceGroupName AppgatewayRG `
  		-TemplateFile C:\ARM\azuredeploy.json -TemplateParameterFile C:\ARM\azuredeploy-parameters.json
-
-La sortie générée par la ligne de commande est la suivante :
-
-	DeploymentName    : testappgatewaydeployment
-	ResourceGroupName : appgatewayRG
-	ProvisioningState : Succeeded
-	Timestamp         : 9/19/2015 1:49:41 AM
-	Mode              : Incremental
-	TemplateLink      :
-	Parameters        :
-				Name             Type                       Value
-				===============  =========================  ==========
-				location         String                     East US
-				addressPrefix    String                     10.0.0.0/16
-				subnetPrefix     String                     10.0.0.0/24
-				skuName          String                     Standard_Small
-				capacity         Int                        2
-				backendIpAddress1  String                     10.0.1.10
-				backendIpAddress2  String                     10.0.1.11
-
-	Outputs           :
-
 
 ## Déploiement du modèle Azure Resource Manager à l’aide de l’interface de ligne de commande Azure
 
@@ -220,44 +178,13 @@ Exécutez l’applet de commande **azure group deployment create** pour déploye
 
 	azure group deployment create -g appgatewayRG -n TestAppgatewayDeployment -f C:\ARM\azuredeploy.json -e C:\ARM\azuredeploy-parameters.json
 
-Voici le résultat attendu pour la commande ci-dessus :
-
-	azure group deployment create -g appgatewayRG -n TestAppgatewayDeployment -f C:\ARM\azuredeploy.json -e C:\ARM\azuredeploy-parameters.json
-	info:    Executing command group deployment create
-	+ Initializing template configurations and parameters
-	+ Creating a deployment
-	info:    Created template deployment "TestAppgatewayDeployment"
-	+ Waiting for deployment to complete
-	data:    DeploymentName     : TestAppgatewayDeployment
-	data:    ResourceGroupName  : appgatewayRG
-	data:    ProvisioningState  : Succeeded
-	data:    Timestamp          : 2015-09-21T20:50:27.5129912Z
-	data:    Mode               : Incremental
-	data:    Name               Type    Value
-	data:    -----------------  ------  --------------
-	data:    location           String  East US
-	data:    addressPrefix      String  10.0.0.0/16
-	data:    subnetPrefix       String  10.0.0.0/24
-	data:    skuName            String  Standard_Small
-	data:    capacity           Int     2
-	data:    backendIpAddress1  String  10.0.1.10
-	data:    backendIpAddress2  String  10.0.1.11
-	info:    group deployment create command OK
-
-**-g (ou --resource-group)**. Nom du groupe de ressources dans lequel est créé le réseau virtuel.
-
-**-f (ou --template-file)**. Chemin d’accès au fichier de modèle Azure Resource Manager.
-
-**-e (ou --parameters-file)**. Chemin d’accès au fichier de paramètres Azure Resource Manager.
-
 ## Déploiement du modèle Azure Resource Manager à l’aide de la fonctionnalité « cliquer pour déployer »
 
 La fonctionnalité « cliquer pour déployer » offre une autre manière d’utiliser les modèles ARM. C’est un moyen facile d’utiliser des modèles avec le portail Azure.
 
-
 ### Étape 1
-Accédez à [Créer une passerelle Application Gateway avec une adresse IP publique](https://azure.microsoft.com/documentation/templates/101-application-gateway-public-ip/).
 
+Accédez à [Créer une passerelle Application Gateway avec une adresse IP publique](https://azure.microsoft.com/documentation/templates/101-application-gateway-public-ip/).
 
 ### Étape 2
 
@@ -279,8 +206,6 @@ Sélectionnez **Mentions légales** et cliquez sur **Acheter**.
 
 Dans le panneau Déploiement personnalisé, cliquez sur **Créer**.
 
-
-
 ## Étapes suivantes
 
 Si vous souhaitez configurer le déchargement SSL, consultez [Configuration d’une passerelle Application Gateway pour le déchargement SSL](application-gateway-ssl.md).
@@ -292,4 +217,4 @@ Si vous souhaitez plus d'informations sur les options d'équilibrage de charge e
 - [Équilibrage de charge Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Azure Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

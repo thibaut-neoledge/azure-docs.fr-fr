@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/13/2016"
+	ms.date="08/24/2016"
 	ms.author="szark"/>
 
 
@@ -29,7 +29,7 @@ Les images Linux présentes dans la galerie Azure ou Marketplace sont fournies p
 
 ## Distributions et versions prises en charge ##
 
-Le tableau suivant répertorie les distributions et les version Linux prises en charge sur Microsoft Azure.
+Le tableau suivant répertorie les distributions et les version Linux prises en charge sur Microsoft Azure. Reportez-vous également à [Prise en charge d'images Linux dans Microsoft Azure](https://support.microsoft.com/fr-FR/kb/2941892) pour plus d’informations.
 
 Les pilotes LIS (Linux Integration Services) pour Hyper-V et Azure sont des modules noyau que Microsoft distribue directement au noyau Linux en amont. Les pilotes LIS sont intégrés au noyau de distribution par défaut, ou les distributions basées sur RHEL/CentOS sont disponibles au téléchargement [ici](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409). Pour plus d’informations sur les pilotes LIS, consultez [cet article](virtual-machines-linux-create-upload-generic.md#linux-kernel-requirements).
 
@@ -75,7 +75,7 @@ La stratégie d'Oracle vise à offrir un portefeuille complet de solutions pour 
 ### Red Hat
 [http://www.redhat.com/en/partners/Strategic-Alliance/Microsoft](http://www.redhat.com/en/partners/strategic-alliance/microsoft)
 
-Le leader mondial de solutions open source, Red Hat permet à plus de 90 % des sociétés du classement Fortune 500 de résoudre les défis commerciaux, d’aligner leur stratégies informatique et commerciale, et d’anticiper l’évolution des technologies. Red Hat y parvient en proposant des solutions sécurisées grâce à un modèle commercial ouvert et un modèle d’abonnement abordable et prévisible.
+Le leader mondial de solutions open source, Red Hat permet à plus de 90 % des sociétés du classement Fortune 500 de résoudre les défis commerciaux, d’aligner leur stratégies informatique et commerciale, et d’anticiper l’évolution des technologies. Red Hat y parvient en proposant des solutions sécurisées grâce à un modèle commercial ouvert et à un modèle d’abonnement abordable et prévisible.
 
 ### SUSE
 [http://www.suse.com/suse-linux-enterprise-server-on-azure](http://www.suse.com/suse-linux-enterprise-server-on-azure)
@@ -89,4 +89,4 @@ L'ingénierie Canonical et le mode de gouvernance de la communauté open source 
 
 Avec des développeurs et des centres d'ingénierie présents dans le monde entier, Canonical est particulièrement bien placé pour collaborer avec les fabricants de matériel, les fournisseurs de contenu et les développeurs de logiciels pour mettre sur le marché des solutions Ubuntu qui s'adressent aussi bien aux utilisateurs de PC, de serveurs ou de périphériques de poche.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0831_2016-->

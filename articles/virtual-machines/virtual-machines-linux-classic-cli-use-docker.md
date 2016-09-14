@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="infrastructure-services"
-	ms.date="01/04/2016"
+	ms.date="08/29/2016"
 	ms.author="rasquill"/>
 
 # Utilisation de l’extension Docker VM à partir de l’interface de ligne de commande Microsoft Azure
@@ -30,7 +30,7 @@ Cette rubrique décrit la création d’une machine virtuelle avec l’extension
 Pour utiliser l’extension Docker VM avec Azure, vous devez installer une version de [l’interface de ligne de commande Azure](https://github.com/Azure/azure-sdk-tools-xplat) supérieure à 0.8.6 (lors de la rédaction de ce document, la version la plus récente était 0.10.0). Vous pouvez installer cette interface sur Mac, Linux et Windows.
 
 
-Le processus d’utilisation de Docker sur Azure est relativement simple :
+Le processus d'utilisation de Docker sur Azure est relativement simple :
 
 + Installez l’interface de ligne de commande et ses dépendances sur l’ordinateur à partir duquel vous souhaitez contrôler Microsoft Azure (sur Windows, il s’agira d’une distribution Linux qui s’exécute comme une machine virtuelle).
 + Utiliser les commandes Docker de l’interface de ligne de commande Azure pour créer un hôte VM Docker dans Microsoft Azure
@@ -44,7 +44,7 @@ Pour installer et configurer l’interface de ligne de commande Microsoft Azur
 > [AZURE.NOTE] Docker présente des outils pour Windows, [Docker Machine](https://docs.docker.com/installation/windows/), qui vous permet également d’automatiser la création d’un client Docker, à mettre à profit pour utiliser des machines virtuelles Azure en tant qu’hôtes Docker.
 
 ### Connecter l’interface de ligne de commande Microsoft Azure à votre compte Microsoft Azure
-Avant de pouvoir utiliser l’interface de ligne de commande Microsoft Azure, vous devez associer vos informations d’identification Microsoft Azure à l’interface sur votre plateforme. La section [Connexion à votre abonnement Azure](../xplat-cli-connect.md) explique comment télécharger ou importer votre fichier **.publishsettings** ou associer votre interface de ligne de commande Microsoft Azure à un ID d’organisation.
+Avant de pouvoir utiliser l’interface de ligne de commande Microsoft Azure, vous devez associer vos informations d’identification Microsoft Azure à l’interface sur votre plateforme. La section [Connexion à votre abonnement Azure](../xplat-cli-connect.md) explique comment télécharger ou importer votre fichier **.publishsettings** ou associer votre interface de ligne de commande Azure à un ID d’organisation.
 
 > [AZURE.NOTE] Le comportement diffère quelque peu selon que vous utilisez l’une ou l’autre méthode d’authentification. Veuillez donc lire attentivement le document ci-dessus pour bien comprendre les différentes fonctionnalités.
 
@@ -77,7 +77,7 @@ où :
 
 + *&lt;password&gt;* est le mot de passe du compte *nom\_utilisateur* remplissant les conditions de complexité Microsoft Azure
 
-> [AZURE.NOTE] Un mot de passe doit comporter au moins 8 caractères, dont une lettre minuscule et une lettre majuscule, un chiffre et un caractère spécial parmi les suivants : `!@#$%^&+=`. Le point à la fin de la phrase précédente N'EST PAS un caractère spécial.
+> [AZURE.NOTE] Un mot de passe doit comporter au moins 8 caractères, dont une lettre minuscule et une lettre majuscule, un chiffre et un caractère spécial parmi les suivants : `!@#$%^&+=`. Le point à la fin de la phrase précédente n'est PAS un caractère spécial.
 
 Si la commande a été exécutée correctement, vous devriez normalement obtenir un résultat comparable à ce qui est illustré ci-dessous, suivant les arguments et options spécifiques que vous avez utilisés :
 
@@ -176,4 +176,4 @@ Le démon Docker sur l’hôte est configuré pour écouter et authentifier les 
  
 [Prise en main de Docker et Compose pour définir et exécuter une application à conteneurs multiples sur une machine virtuelle Azure]: virtual-machines-linux-docker-compose-quickstart.md
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0831_2016-->

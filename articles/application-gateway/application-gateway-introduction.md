@@ -72,7 +72,7 @@ Azure Application Gateway surveille automatiquement l’intégrité des instance
 
 ## Configuration et gestion
 
-Vous pouvez créer et gérer une passerelle d'application à l'aide des API REST et des applets de commande PowerShell.
+Vous pouvez créer et gérer une passerelle d’application à l’aide des API REST, des applets de commande PowerShell ou du [Portail Azure](https://portal.azure.com/).
 
 
 ## Étapes suivantes
@@ -81,4 +81,4 @@ Vous pouvez créer et gérer une passerelle d'application à l'aide des API REST
 
 Pour savoir comment créer une passerelle d’application avec le routage de contenu basé sur une URL, consultez [Créer une passerelle d’application à l’aide du routage en fonction de l’URL](application-gateway-create-url-route-arm-ps.md).
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/02/2016"
+	ms.date="08/25/2016"
 	ms.author="tarcher"/>
 
 # Tendance des coûts mensuels estimés
@@ -60,10 +60,12 @@ Comme indiqué au-dessus du graphique, les coûts que vous voyez dans le graphiq
 - Vos remises
 - Votre devise de facturation. Actuellement, le coût du labo s'affiche uniquement dans la devise USD.
 
+[AZURE.INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
+
 ## Billets de blog connexes
 
-- [Two more things to keep your cost on track in DevTest Labs](https://blogs.msdn.microsoft.com/devtestlab/2016/06/21/keep-your-cost-on-track/) (Deux autres astuces pour maîtriser vos coûts dans DevTest Labs)
-- [Why Cost Thresholds?](https://blogs.msdn.microsoft.com/devtestlab/2016/04/11/why-cost-thresholds/) (Pourquoi définir des seuils de coût ?)
+- [Two more things to keep your cost on track in DevTest Labs (Deux autres astuces pour maîtriser vos coûts dans DevTest Labs)](https://blogs.msdn.microsoft.com/devtestlab/2016/06/21/keep-your-cost-on-track/)
+- [Why Cost Thresholds? (Pourquoi définir des seuils de coût ?)](https://blogs.msdn.microsoft.com/devtestlab/2016/04/11/why-cost-thresholds/)
 
 ## Étapes suivantes
 
@@ -74,4 +76,4 @@ Voici quelques possibilités d’opérations pour la suite :
 - [Configurer des images Marketplace](./devtest-lab-configure-marketplace-images.md) : DevTest Labs prend en charge la création de nouvelles machines virtuelles basées sur des images Azure Marketplace. Cet article explique comment spécifier, le cas échéant, les images Azure Marketplace pouvant être utilisées lors de la création de nouvelles machines virtuelles dans un laboratoire.
 - [Créer une machine virtuelle dans un laboratoire](./devtest-lab-add-vm-with-artifacts.md) : montre comment créer une machine virtuelle à partir d’une image de base (personnalisée ou Marketplace) et comment utiliser des artefacts dans votre machine virtuelle.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/11/2016"
+   ms.date="08/25/2016"
    ms.author="ryanwi"/>
 
 # Exceptions et erreurs courantes lorsque vous travaillez avec les API FabricClient
@@ -31,7 +31,7 @@ Il existe de nombreux types d'opérations qui peuvent être effectuées à l'aid
 
 Certaines erreurs [FabricErrorCode](https://msdn.microsoft.com/library/system.fabric.fabricerrorcode.aspx) courantes peuvent être retournées dans une exception [FabricException](https://msdn.microsoft.com/library/system.fabric.fabricexception.aspx) :
 
-|Erreur| Condition|
+|Error| Condition|
 |---------|:-----------|
 |CommunicationError|Une erreur de communication a provoqué l’échec de l'opération, retentez l'opération.|
 |InvalidCredentialType|Le type d'informations d'identification n'est pas valide.|
@@ -44,4 +44,4 @@ Certaines erreurs [FabricErrorCode](https://msdn.microsoft.com/library/system.fa
 |InvalidSubjectName|Le nom d'objet n'est pas valide.|
 |InvalidAllowedCommonNameList|Le format de la chaîne de la liste de noms courants n'est pas valide. Ce doit être une liste séparée par des virgules.|
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -31,7 +31,7 @@ Ce didacticiel montre comment utiliser Azure Notification Hubs pour envoyer des 
 Le code complet de ce didacticiel peut être téléchargé depuis GitHub [ici](https://github.com/Azure/azure-notificationhubs-samples/tree/master/Android/GetStarted).
 
 
-##Composants requis
+##Configuration requise
 
 > [AZURE.IMPORTANT] Pour suivre ce didacticiel, vous avez besoin d'un compte Azure actif. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A643EE910&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Ffr-FR%2Fdocumentation%2Farticles%2Fnotification-hubs-android-get-started).
 
@@ -231,7 +231,7 @@ Votre hub de notification est à présent configuré pour GCM, et vous disposez 
 		                regID = hub.register(token).getRegistrationId();
 
 		                // If you want to use tags...
-						// Refer to : https://azure.microsoft.com/fr-FR/documentation/articles/notification-hubs-routing-tag-expressions/
+						// Refer to : https://azure.microsoft.com/documentation/articles/notification-hubs-routing-tag-expressions/
 		                // regID = hub.register(token, "tag1", "tag2").getRegistrationId();
 
 		                resultString = "Registered Successfully - RegId : " + regID;
@@ -621,7 +621,7 @@ En règle générale, vous devez envoyer des notifications à l'aide d'un serveu
 	
 	                        // Include any tags
 	                        // Example below targets 3 specific tags
-	                        // Refer to : https://azure.microsoft.com/fr-FR/documentation/articles/notification-hubs-routing-tag-expressions/
+	                        // Refer to : https://azure.microsoft.com/documentation/articles/notification-hubs-routing-tag-expressions/
 	                        // urlConnection.setRequestProperty("ServiceBusNotification-Tags", 
 							//		"tag1 || tag2 || tag3");
 	
@@ -722,8 +722,8 @@ Pour obtenir des informations générales sur Notification Hubs, consultez nos [
 [Referencing a library project]: http://go.microsoft.com/fwlink/?LinkId=389800
 [Azure Classic Portal]: https://manage.windowsazure.com/
 [Recommandations relatives à Notification Hubs]: http://msdn.microsoft.com/library/jj927170.aspx
-[Utiliser Notification Hubs pour envoyer des notifications Push aux utilisateurs]: notification-hubs-aspnet-backend-android-notify-users.md
-[Utilisation des Notification Hubs pour diffuser les dernières nouvelles]: notification-hubs-aspnet-backend-android-breaking-news.md
+[Utiliser Notification Hubs pour envoyer des notifications Push aux utilisateurs]: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
+[Utilisation des Notification Hubs pour diffuser les dernières nouvelles]: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
 [portail Azure]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0907_2016-->

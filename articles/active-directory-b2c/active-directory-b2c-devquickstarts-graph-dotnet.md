@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="07/25/2016"
+	ms.date="08/30/2016"
 	ms.author="dastrock"/>
 
 # Azure AD B2C : utilisation de l’API Graph
@@ -35,7 +35,7 @@ Avant de pouvoir créer des applications ou des utilisateurs, ou interagir avec 
 
 Une fois que vous disposez d’un client B2C, vous devez créer votre application de service à l’aide des applets de commande PowerShell Azure AD. Premièrement, téléchargez et installez [l’Assistant de connexion Microsoft Online Services](http://go.microsoft.com/fwlink/?LinkID=286152). Ensuite, téléchargez et installez le [Module Azure Active Directory 64 bits pour Windows PowerShell](http://go.microsoft.com/fwlink/p/?linkid=236297).
 
-> [AZURE.NOTE]
+> [AZURE.IMPORTANT]
 Pour utiliser l’API Graph avec votre client B2C, vous devrez enregistrer une application dédiée à l’aide de PowerShell. Pour ce faire, suivez les instructions données dans cet article. Vous ne pouvez pas réutiliser les applications B2C déjà existantes que vous avez enregistrées dans le portail Azure.
 
 Une fois le module PowerShell installé, ouvrez PowerShell et connectez-vous à votre client B2C. Après avoir exécuté `Get-Credential`, vous serez invité à fournir un nom d’utilisateur et un mot de passe. Entrez le nom d’utilisateur et le mot de passe du compte d’administrateur de votre client B2C.
@@ -362,4 +362,4 @@ Avec `B2CGraphClient`, vous disposez d’une application de service capable de g
 
 Si vous avez des questions ou souhaitez effectuer d’autres actions à l’aide de l’API Graph sur votre client B2C, laissez un commentaire sur cet article ou enregistrez un problème dans le référentiel d’exemples de code GitHub.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0831_2016-->

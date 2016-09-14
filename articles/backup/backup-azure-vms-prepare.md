@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/03/2016"
+	ms.date="08/26/2016"
 	ms.author="trinadhk; jimpark; markgal;"/>
 
 
@@ -39,6 +39,7 @@ Si vous savez que ces conditions existent déjà dans votre environnement, passe
 
 - La sauvegarde de machines virtuelles ayant plus de 16 disques de données n’est pas prise en charge.
 - La sauvegarde de machines virtuelles avec une adresse IP réservée et sans point de terminaison n’est pas prise en charge.
+- Les données de sauvegarde n’incluent pas les lecteurs réseau montés attachés à la machine virtuelle.
 - Le remplacement d’une machine virtuelle existante pendant la restauration n’est pas pris en charge. Commencez par supprimer la machine virtuelle existante et tous les disques associés, puis restaurez les données de sauvegarde.
 - La sauvegarde et la restauration entre différentes régions ne sont pas prises en charge.
 - La sauvegarde de machines virtuelles à l’aide du service Azure Backup est prise en charge dans toutes les régions publiques d’Azure (voir la [liste](https://azure.microsoft.com/regions/#services) des régions prises en charge). Si la région que vous recherchez n’est pas prise en charge aujourd’hui, elle n’apparaît pas dans la liste déroulante lors de la création de l’archivage.
@@ -73,13 +74,13 @@ Pour créer un archivage de sauvegarde :
 
 4. Dans **Region**, sélectionnez la région géographique du coffre. L’archivage doit se trouver dans la même région que les machines virtuelles que vous souhaitez protéger. Si vous avez des machines virtuelles dans plusieurs régions, vous devez créer un coffre de sauvegarde dans chaque région. Il est inutile de spécifier des comptes de stockage pour stocker les données de sauvegarde : l’archivage de sauvegarde et le service Azure Backup s’en chargent automatiquement.
 
-5. Sous **Abonnement**, sélectionnez l’abonnement à associer à l’archivage de sauvegarde. Vous ne disposez de plusieurs choix que si votre compte professionnel est associé à plusieurs abonnements Azure.
+5. Sous **Abonnement**, sélectionnez l’abonnement à associer au coffre de sauvegarde. Vous ne disposez de plusieurs choix que si votre compte professionnel est associé à plusieurs abonnements Azure.
 
 6. Cliquez sur **Create vault**. La création du coffre de sauvegarde peut prendre du temps. Surveillez les notifications d'état en bas du portail.
 
     ![Créer une notification toast l’archivage](./media/backup-azure-vms-prepare/creating-vault.png)
 
-7. Un message confirme que le coffre a été correctement créé. Celui-ci est répertorié dans la page **Recovery Services** comme étant **Actif**. Veillez à choisir l’option de redondance de stockage appropriée juste après la création de l’archivage. En savoir plus sur la [définition de l’option de redondance de stockage dans le coffre de sauvegarde](backup-configure-vault.md#azure-backup---storage-redundancy-options).
+7. Un message confirme que le coffre a été correctement créé. Celui-ci est répertorié sur la page **Recovery Services** comme étant **Actif**. Veillez à choisir l’option de redondance de stockage appropriée juste après la création de l’archivage. En savoir plus sur la [définition de l’option de redondance de stockage dans le coffre de sauvegarde](backup-configure-vault.md#azure-backup---storage-redundancy-options).
 
     ![Liste des archivages de sauvegarde](./media/backup-azure-vms-prepare/backup_vaultslist.png)
 
@@ -92,19 +93,19 @@ Pour créer un archivage de sauvegarde :
 
 Afin de gérer les instantanés de la machine virtuelle, l’extension de sauvegarde nécessite une connectivité vers les adresses IP publiques Azure. Sans une bonne connectivité Internet, les requêtes HTTP de la machine virtuelle expirent et l’opération de sauvegarde échoue. Si votre déploiement comporte des restrictions d’accès (via un groupe de sécurité réseau (NSG), par exemple), choisissez l’une de ces options pour fournir un chemin clair pour le trafic de sauvegarde :
 
-- [Mettez sur liste blanche les plages IP du centre de données Azure](http://www.microsoft.com/fr-FR/download/details.aspx?id=41653) : consultez l’article pour obtenir des instructions sur la mise sur liste blanche des adresses IP.
+- [Mettez sur liste approuvée les plages IP du centre de données Azure](http://www.microsoft.com/fr-FR/download/details.aspx?id=41653) : consultez l’article pour obtenir des instructions sur la mise sur liste blanche des adresses IP.
 - Déployer un serveur de proxy HTTP pour acheminer le trafic.
 
 Lors du choix de l’option à utiliser, le compromis se situe entre la facilité de gestion, le contrôle granulaire et le coût.
 
 |Option|Avantages|Inconvénients|
 |------|----------|-------------|
-|Plages IP de liste blanche| Aucun coût supplémentaire<br><br>Pour l’ouverture d’accès à un groupe de sécurité réseau, utilisez l’applet de commande <i>Set-AzureNetworkSecurityRule</i>. | Difficile à gérer, car les plages IP impactées changent au fil du temps.<br><br>Fournit un accès à l’ensemble d’Azure et pas seulement au stockage.|
+|Plages IP de liste blanche| Aucun coût supplémentaire<br><br>Pour l’ouverture d’accès à un groupe de sécurité réseau, utilisez l’applet de commande <i>Set-AzureNetworkSecurityRule</i>. | Difficile à gérer, car les plages IP concernées changent au fil du temps.<br><br>Fournit un accès à l’ensemble d’Azure et pas seulement au stockage.|
 |Serveur proxy HTTP| Contrôle granulaire dans le proxy sur les URL de stockage autorisées.<br>Un seul point d’accès Internet aux machines virtuelles.<br>Non soumis aux modifications d’adresse IP Azure.| Frais supplémentaires d’exécution de machine virtuelle avec le logiciel de serveur proxy.|
 
-### Mettez sur liste blanche les plages IP du centre de données Azure.
+### Mettez sur liste approuvée les plages IP du centre de données Azure.
 
-Pour mettre sur liste blanche les plages IP du centre de données Azure, consultez le [site Web Azure](http://www.microsoft.com/fr-FR/download/details.aspx?id=41653) pour plus d’informations sur les plages d’adresses IP et obtenir des instructions.
+Pour mettre sur liste approuvée les plages IP du centre de données Azure, mais aussi obtenir plus d’informations sur les plages d’adresses IP et des instructions, voir le [site web Azure](http://www.microsoft.com/fr-FR/download/details.aspx?id=41653).
 
 ### Utilisation d’un proxy HTTP pour les sauvegardes de machine virtuelle
 Lorsque vous sauvegardez une machine virtuelle, l’extension de sauvegarde sur la machine virtuelle envoie les commandes de gestion de capture instantanée vers le stockage Azure à l’aide d’une API HTTPS. Acheminez le trafic de l’extension de sauvegarde via le proxy HTTP, car c’est le seul composant configuré pour l’accès à l’Internet public.
@@ -125,7 +126,7 @@ Pour utiliser un proxy HTTP pour communiquer avec le réseau Internet public, pr
 ###### Pour les machines Windows
 Cela définit la configuration du serveur proxy pour le compte système local.
 
-1. Télécharger [PsExec](https://technet.microsoft.com/sysinternals/bb897553)
+1. Téléchargez [PsExec](https://technet.microsoft.com/sysinternals/bb897553).
 2. Exécutez la commande suivante à partir de l’invite de commandes avec élévation de privilèges.
 
      ```
@@ -153,7 +154,7 @@ Si vous avez configuré un serveur proxy sur un compte d’utilisateur actuel (p
 
 ######Pour les machines Linux
 
-Ajoutez la ligne suivante au fichier ```/etc/environment``` :
+Ajoutez la ligne suivante au fichier ```/etc/environment``` :
 
 ```
 http_proxy=http://<proxy IP>:<proxy port>
@@ -185,7 +186,7 @@ HttpProxy.Port=<proxy port>
     ![Créer une nouvelle règle](./media/backup-azure-vms-prepare/firewall-03.png)
 
     - pour *Type de protocole*, choisissez *TCP*
-    - pour *Port local*, choisissez *Ports spécifiques* et dans le champ situé en dessous, spécifiez le ```<Proxy Port>``` qui a été configuré.
+    - pour *Port local*, choisissez *Ports spécifiques* et dans le champ situé en dessous, spécifiez le ```<Proxy Port>``` qui a été configuré.
     - pour *Port distant*, sélectionnez *Tous les ports*
 
     Pour le reste de l’Assistant, cliquez jusqu’à la fin et donnez un nom à cette règle.
@@ -194,7 +195,7 @@ HttpProxy.Port=<proxy port>
 
 Dans une invite de commandes Azure PowerShell, saisissez la commande suivante :
 
-La commande suivante ajoute une exception pour le groupe de sécurité réseau. Cette exception autorise le trafic TCP à partir d’un port 10.0.0.5 de n’importe quelle adresse Internet sur le port 80 (HTTP) ou 443 (HTTPS). Si vous avez besoin d’un port spécifique de l’Internet public, veillez à ajouter ce port à ```-DestinationPortRange``` également.
+La commande suivante ajoute une exception pour le groupe de sécurité réseau. Cette exception autorise le trafic TCP à partir d’un port 10.0.0.5 de n’importe quelle adresse Internet sur le port 80 (HTTP) ou 443 (HTTPS). Si vous avez besoin d’un port spécifique de l’Internet public, n’oubliez pas d’ajouter également ce port à ```-DestinationPortRange```.
 
 ```
 Get-AzureNetworkSecurityGroup -Name "NSG-lockdown" |
@@ -238,4 +239,4 @@ Si vous avez des questions ou si vous souhaitez que certaines fonctionnalités s
 - [Planification de votre infrastructure de sauvegarde de machines virtuelles](backup-azure-vms-introduction.md)
 - [Gestion des sauvegardes de machines virtuelles](backup-azure-manage-vms.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0831_2016-->

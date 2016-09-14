@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="tbd"
-	ms.date="05/22/2016"
+	ms.date="08/19/2016"
 	ms.author="garye" />
 
 
@@ -54,7 +54,7 @@ RRS accepte une seule ligne ou plusieurs lignes de paramètres d'entrée et prod
 La fonction de validation de l’authenticité d’une application est un exemple de RSS. Des centaines, voire des millions d’installations d’une application sont alors attendues. Lorsque l’application démarre, elle effectue un appel au service RRS avec l’entrée pertinente. L’application reçoit une réponse de validation du service du service, qui autorise ou bloque l’exécution de l’application.
 
 
-## Service d’exécution de lots (BES, Batch Execution Service)
+## Service d'exécution de lots (BES, Batch Execution Service)
 
 Un service d’exécution de lots (BES) est un service qui gère la notation asynchrone, portant sur des volumes élevés, d’un lot d’enregistrements de données. L’entrée du service BES contient un lot d’enregistrements provenant de diverses sources, telles que les objets blob, les tables dans Microsoft Azure, SQL Azure, HDInsight (résultats d’une requête Hive, par exemple) et les sources HTTP. La sortie du service BES contient les résultats de la notation. Les résultats sont envoyés vers un fichier dans Azure Blob Storage tandis que les données du point de terminaison de stockage sont renvoyées dans la réponse.
 
@@ -265,13 +265,13 @@ Quand vous créez un traitement par lots pour votre point de terminaison de serv
 
 * **Input** : représente une référence d’objet blob où l’entrée du traitement par lots est stockée.
 * **GlobalParameters** : représente l’ensemble des paramètres que vous pouvez définir pour l’expérience. Une expérience Microsoft Azure Machine Learning peut avoir des paramètres obligatoires et facultatifs qui personnalisent l’exécution du service, et l’appelant est censé fournir tous les paramètres requis, le cas échéant. Ces paramètres sont spécifiés comme une collection de paires clé-valeur.
-* **Outputs** : si le service a défini une ou plusieurs sorties, l’appelant peut les rediriger vers un emplacement d’objet blob Azure. Vous pouvez ainsi enregistrer la ou les sorties du service dans un nouvel emplacement et sous un nom prévisible ; sinon, le nom d’objet blob de sortie est généré de façon aléatoire. 
+* **Outputs** : si le service a défini une ou plusieurs sorties, l’appelant peut les rediriger vers un emplacement d’objet blob Azure. Vous pouvez ainsi enregistrer la ou les sorties du service dans un nouvel emplacement et sous un nom prévisible ; sinon, le nom d’objet blob de sortie est généré de façon aléatoire.
 
     Notez que le service s’attend à ce que le contenu de la sortie, selon son type, soit enregistré dans les formats pris en charge :
   - Sorties de jeu de données : peuvent être enregistrées en tant que **.csv, .tsv, .arff**
   - Sorties de modèle formé : peuvent être enregistrées en tant que **.ilearner**
 
-  Les remplacements d’emplacement de sortie sont spécifiés comme une collection de paires *<output name  blob reference>*, où le *nom de sortie* est le nom défini par l’utilisateur pour un nœud de sortie spécifique (également indiqué dans la page d’aide de l’API du service) et la *référence d’objet blob* est une référence à un emplacement d’objet blob Azure vers lequel la sortie doit être redirigée.
+  Les remplacements d’emplacement de sortie sont spécifiés comme une collection de paires *<nom de sortie, référence d’objet blob>*, où le *nom de sortie* est le nom défini par l’utilisateur pour un nœud de sortie spécifique (également indiqué dans la page d’aide de l’API du service) et la *référence d’objet blob* est une référence à un emplacement d’objet blob Azure vers lequel la sortie doit être redirigée.
 
 Tous ces paramètres de création de travail peuvent être facultatifs en fonction de la nature de votre service. Par exemple, les services sans nœud d’entrée défini n’exigent pas la transmission d’un paramètre *Input*. De même, la fonctionnalité de remplacement d’emplacement de sortie est entièrement facultative ; sinon, les sorties sont stockées dans le compte de stockage par défaut qui a été configuré pour votre espace de travail Microsoft Azure Machine Learning. Le code ci-dessus présente un exemple de demande de charge utile transmise à l’API REST pour un service où seules les informations d’entrée sont fournies :
 
@@ -301,7 +301,7 @@ Quand vous créez un traitement par lots, il est enregistré dans le système et
 
 **3. Obtenir l’état d’une tâche d’exécution de lots**
 
-Vous pouvez interroger l’état de votre traitement par lots asynchrone à tout moment, en transmettant l’ID du travail à l’API GetJobStatus. La réponse de l’API contient un indicateur de l’état actuel du travail, ainsi que les résultats réels du traitement par lots s’il s’est terminé correctement. En cas d’erreur, plus d’informations sur les raisons réelles de l’échec sont retournées dans la propriété *Details*, comme illustré ici :
+Vous pouvez interroger l’état de votre traitement par lots asynchrone à tout moment, en transmettant l’ID du travail à l’API GetJobStatus. La réponse de l’API contient un indicateur de l’état actuel du travail, ainsi que les résultats réels du traitement par lots s’il s’est terminé correctement. En cas d’erreur, d’autres d’informations sur les raisons réelles de l’échec sont retournées dans la propriété *Details*, comme illustré ici :
 
 **Charge utile de réponse**
 
@@ -353,7 +353,7 @@ Il est possible d’annuler à tout moment un traitement par lots en cours d'ex�
 
 #### Utilisation du Kit de développement logiciel (SDK) BES
 
-Le [package Nugget du Kit de développement logiciel BES](http://www.nuget.org/packages/Microsoft.Azure.MachineLearning/) fournit des fonctions qui permettent d'appeler facilement BES pour la notation en mode par lot. Pour installer le package Nuget, dans Visual Studio, dans le menu **Outils**, sélectionnez **Gestionnaire de package Nuget** et cliquez sur **Console du gestionnaire de package**.
+Le [package Nugget du Kit de développement logiciel BES](http://www.nuget.org/packages/Microsoft.Azure.MachineLearning/) fournit des fonctions qui permettent d'appeler facilement BES pour la notation en mode par lot. Pour installer le package NuGet, dans Visual Studio, dans le menu **Outils**, sélectionnez **Gestionnaire de package NuGet** et cliquez sur **Console du gestionnaire de package**.
 
 Les expériences Azure Machine Learning déployées en tant que services web peuvent inclure des modules d’entrée de service web. Cela signifie que l’entrée est censée être fournie par le biais de l’appel de service web sous la forme d’une référence à un emplacement d’objet blob. Il est également possible de ne pas utiliser de module d’entrée de service web et d’utiliser plutôt un module **Importer des données**. Dans ce cas, le module **Importer des données** lit généralement à partir d’une base de données SQL à l’aide d’une requête au moment de l’exécution pour obtenir les données. Les paramètres de service web peuvent être utilisés pour pointer dynamiquement vers d’autres serveurs ou tables, etc. Le Kit de développement logiciel (SDK) prend en charge ces deux modèles.
 
@@ -488,7 +488,7 @@ L'exemple de code ci-dessous montre comment vous pouvez soumettre et surveiller 
 	}
 
 #### Exemple de code en Java pour BES
-L’API REST BES (Batch Execution Service) traite le code JSON composé d’une référence à un exemple de fichier csv d’entrée et d’une référence à un exemple de fichier csv de sortie comme indiqué ci-dessous et crée un travail dans Azure ML pour effectuer les prédictions par lot. Vous pouvez consulter le code complet dans [Github](https://github.com/nk773/AzureML_BESApp/tree/master/src/azureml_besapp). Cet exemple Java requiert la [bibliothèque du client http apache](https://hc.apache.org/downloads.cgi).
+L’API REST BES (Batch Execution Service) traite le code JSON composé d’une référence à un exemple de fichier csv d’entrée et d’une référence à un exemple de fichier csv de sortie comme indiqué ci-dessous et crée un travail dans Azure ML pour effectuer les prédictions par lot. Vous pouvez consulter le code complet dans [GitHub](https://github.com/nk773/AzureML_BESApp/tree/master/src/azureml_besapp). Cet exemple Java requiert la [bibliothèque HttpClient Apache](https://hc.apache.org/downloads.cgi).
 
 
 	{ "GlobalParameters": {}, 
@@ -635,7 +635,7 @@ L’API REST BES (Batch Execution Service) traite le code JSON composé d’une 
 Vous pouvez également générer le code dans de nombreux autres langages à l’aide d’un document Swagger à partir de la page d’aide de l’API et en suivant les instructions fournies sur le site [swagger.io](http://swagger.io/). Accédez à [swagger.io](http://swagger.io/swagger-codegen/) et suivez les instructions pour télécharger le code Swagger, Java et Apache mvn. Voici le résumé des instructions pour configurer Swagger pour d’autres environnements de programmation.
 
 * Vérifiez que Java 7 ou version ultérieure est installé.
-* Installez Apache mvn (sur Ubuntu, vous pouvez utiliser *apt-get install mvn*).
+* Installez Apache mvn (sous Ubuntu, vous pouvez utiliser *apt-get install mvn*).
 * Accédez à la page Swagger sur Github et téléchargez le projet Swagger en tant que fichier zip.
 * Décompressez Swagger.
 * Générez les outils Swagger en exécutant *mvn package* à partir du répertoire source de Swagger.
@@ -645,7 +645,7 @@ Vous pouvez à présent utiliser les outils Swagger. Voici les instructions pour
 * Accédez à la page d’aide de l’API Azure ML (exemple [ici](https://studio.azureml.net/apihelp/workspaces/afbd553b9bac4c95be3d040998943a4f/webservices/4dfadc62adcc485eb0cf162397fb5682/endpoints/26a3afce1767461ab6e73d5a206fbd62/jobs)).
 * Recherchez l’URL du code swagger.json pour les API REST d’Azure ML (avant dernier point au début de la page d’aide de l’API)
 * Cliquez sur le lien du document Swagger (exemple [ici](https://management.azureml.net/workspaces/afbd553b9bac4c95be3d040998943a4f/webservices/4dfadc62adcc485eb0cf162397fb5682/endpoints/26a3afce1767461ab6e73d5a206fbd62/apidocument)).
-* Utilisez la commande suivante, comme indiqué dans le [fichier lisezmoi de Swagger](https://github.com/swagger-api/swagger-codegen/blob/master/README.md), pour générer le code client.
+* Utilisez la commande suivante, comme l’indique le [fichier lisezmoi de Swagger](https://github.com/swagger-api/swagger-codegen/blob/master/README.md), pour générer le code client.
 
 **Exemple de ligne de commande pour générer le code client**
 
@@ -654,7 +654,7 @@ Vous pouvez à présent utiliser les outils Swagger. Voici les instructions pour
 	fb62b56f29fc4ba4b8a8f900c9b89584/services/26a3afce1767461ab6e73d5a206fbd62/swagger.json\
 	 -l java -o /home/username/sample
 
-* Combinez les valeurs des champs host, basePath et /swagger.json de l’exemple de [page d’aide d’API](https://management.azureml.net/workspaces/afbd553b9bac4c95be3d040998943a4f/webservices/4dfadc62adcc485eb0cf162397fb5682/endpoints/26a3afce1767461ab6e73d5a206fbd62/apidocument) Swagger ci-dessous pour construire l’URL Swagger utilisée dans la ligne de commande ci-dessus.
+* Combinez les valeurs des champs host, basePath et /swagger.json de l’exemple de la [page d’aide d’API](https://management.azureml.net/workspaces/afbd553b9bac4c95be3d040998943a4f/webservices/4dfadc62adcc485eb0cf162397fb5682/endpoints/26a3afce1767461ab6e73d5a206fbd62/apidocument) Swagger ci-dessous pour construire l’URL Swagger utilisée dans la ligne de commande ci-dessus.
 
 **Exemple de page d’aide de l’API**
 
@@ -685,4 +685,4 @@ Vous pouvez à présent utiliser les outils Swagger. Voici les instructions pour
 	        "operationId": "getSwaggerDocument",
 	        
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0831_2016-->

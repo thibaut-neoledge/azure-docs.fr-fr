@@ -186,8 +186,7 @@ Les paramètres sont les suivants :
 
 	![Créez un compte de stockage](./media/site-recovery-hyper-v-site-to-azure-classic/create-resources.png)
 
->[AZURE.NOTE] Nous ne prenons pas en charge le déplacement des comptes de stockage créés à l’aide du [nouveau Portail Azure](../storage/storage-create-storage-account.md) dans les groupes de ressources.
-
+>[AZURE.NOTE] 1. Nous ne prenons pas en charge le déplacement des comptes de stockage créés à l’aide du [nouveau Portail Azure](../storage/storage-create-storage-account.md) dans les groupes de ressources. 2. [La migration de comptes de stockage](../resource-group-move-resources.md) entre les groupes de ressources d’un même abonnement ou de plusieurs abonnements n’est pas prise en charge pour les comptes de stockage utilisés pour le déploiement de Site Recovery.
 
 ## Étape 5 : Créer et configurer des groupes de protection
 
@@ -195,7 +194,7 @@ Les groupes de protection sont des regroupements logiques incluant les machines 
 
 1. Dans **Créer et configurer des groupes de protection**, cliquez sur **Créer un nouveau groupe de protection**. Si la configuration requise n’est pas respectée, un message s’affiche. Vous pouvez cliquer sur **Afficher les détails** pour obtenir plus d’informations.
 
-2. Sur l’onglet **Groupes de protection**, ajoutez un groupe de protection. Spécifiez un nom, le site Hyper-V source, le système Microsoft **Azure** cible, le nom de votre abonnement à Microsoft Azure Site Recovery et votre compte Microsoft Azure Storage.
+2. Sur l’onglet **Groupes de protection**, ajoutez un groupe de protection. Spécifiez un nom, le site Hyper-V source, le système **Azure** cible, le nom de votre abonnement Azure Site Recovery et votre compte Azure Storage.
 
 	![Groupe de protection](./media/site-recovery-hyper-v-site-to-azure-classic/protection-group.png)
 
@@ -215,7 +214,7 @@ Ajoutez des machines virtuelles à un groupe de protection pour activer leur pro
 
 >[AZURE.NOTE] La protection des machines virtuelles sous Linux avec une adresse IP statique n’est pas prise en charge.
 
-1. Sur l’onglet **Machines** du groupe de protection, cliquez sur **Ajouter des machines virtuelles aux groupes de protection pour activer la protection**.
+1. Sur l’onglet **Machines** du groupe de protection, cliquez sur **Ajouter des machines virtuelles à des groupes de protection pour les protéger**.
 2. Dans la page **Activer la protection pour les machines virtuelles**, sélectionnez les machines virtuelles à protéger.
 
 	![activer la protection des machines virtuelles](./media/site-recovery-hyper-v-site-to-azure-classic/add-vm.png)
@@ -229,7 +228,7 @@ Ajoutez des machines virtuelles à un groupe de protection pour activer leur pro
 		- **Taille** : taille cible de la machine virtuelle ayant basculé.
 
 		![Configurer les propriétés des machines virtuelles](./media/site-recovery-hyper-v-site-to-azure-classic/vm-properties.png)
-	- Configurez les paramètres supplémentaires des machines virtuelles dans le champ *Éléments protégés** > **Groupes de protection** > *nom\_groupeprotection* > **Machines virtuelles* nom\_machine\_virtuelle* > **Configurer**. Cela inclut :
+	- Configurez les paramètres supplémentaires des machines virtuelles dans le champ *Éléments protégés** > **Groupes de protection** > *nom\_groupeprotection* > **Machines virtuelles* nom\_machine\_virtuelle* > **Configurer**. Cela inclut notamment les éléments suivants :
 
 		- **Cartes réseau** : le nombre de cartes réseau est défini par la taille spécifiée pour la machine virtuelle cible. Vérifiez dans les [spécifications de taille de machine virtuelle](../virtual-machines/virtual-machines-linux-sizes.md#size-tables) le nombre de cartes réseau prises en charge par une machine virtuelle de cette taille.
 
@@ -243,6 +242,8 @@ Ajoutez des machines virtuelles à un groupe de protection pour activer leur pro
 		- **Réseau Microsoft Azure** : indiquez le réseau vers lequel la machine virtuelle doit basculer. Si la machine virtuelle présente plusieurs cartes réseau, l’ensemble des cartes doit être connecté au même réseau Microsoft Azure.
 		- **Sous-réseau** : pour chaque carte réseau de la machine virtuelle, sélectionnez le sous-réseau dans le réseau Microsoft Azure auquel la machine doit se connecter après le basculement.
 		- **Adresse IP cible** : si la carte réseau de la machine virtuelle source est configurée pour utiliser une adresse IP statique, vous pouvez indiquer l’adresse IP de la machine virtuelle cible, afin de vérifier que la machine présente la même adresse IP après le basculement. Si vous n’en indiquez aucune, n’importe quelle adresse disponible sera affectée lors du basculement. Si vous spécifiez une adresse en cours d’utilisation, le basculement échoue.
+		
+        > [AZURE.NOTE] [Migration of networks](../ressources-groupe-move-resources.md) entre les groupes de ressources d’un même abonnement ou de plusieurs abonnements n’est pas pris en charge pour les réseaux utilisés pour le déploiement de Site Recovery.
 
 		![Configurer les propriétés des machines virtuelles](./media/site-recovery-hyper-v-site-to-azure-classic/multiple-nic.png)
 
@@ -299,4 +300,4 @@ Exécutez un test de basculement, en procédant comme suit :
 
 Une fois votre déploiement configuré et en cours d'exécution, découvrez [plus d'informations](site-recovery-failover.md) sur le basculement.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0831_2016-->

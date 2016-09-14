@@ -173,8 +173,12 @@ Ajoutez la tâche de démarrage suivante au fichier [ServiceDefinition.csdef].
 </ServiceDefinition>
 ```
 
-Ajoutez cette commande au fichier **startup.cmd** :
+Ajoutez cette commande au fichier **startup.cmd** :
 
+    @echo off
+    @echo Installing "IPv4 Address and Domain Restrictions" feature 
+    powershell -ExecutionPolicy Unrestricted -command "Install-WindowsFeature Web-IP-Security"
+    @echo Unlocking configuration for "IPv4 Address and Domain Restrictions" feature 
     %windir%\system32\inetsrv\AppCmd.exe unlock config -section:system.webServer/security/ipSecurity
 
 Ainsi, le fichier de commandes **startup.cmd** s’exécute chaque fois que le rôle web est initialisé et la section **ipSecurity** nécessaire est systématiquement déverrouillée.
@@ -381,7 +385,7 @@ Voici quelques meilleures pratiques à suivre quand vous configurez la tâche po
 
 ### Toujours consigner les activités de démarrage
 
-Comme Visual Studio ne fournit pas de débogueur pour parcourir les fichiers de commandes, il est préférable de récupérer autant de données que possible sur le fonctionnement des fichiers de commandes. La consignation de la sortie des fichiers de commandes, **stdout** et **stderr**, peut fournir des informations importantes au moment du débogage et de la correction des fichiers de commandes. Pour consigner **stdout** et **stderr** dans le fichier StartupLog.txt dans le répertoire indiqué par la variable d’environnement **%TEMP%**, ajoutez le texte `>>  "%TEMP%\\StartupLog.txt" 2>&1` à la fin des lignes que vous souhaitez enregistrer. Par exemple, pour exécuter setup.exe dans le répertoire **% PathToApp1Install** :
+Comme Visual Studio ne fournit pas de débogueur pour parcourir les fichiers de commandes, il est préférable de récupérer autant de données que possible sur le fonctionnement des fichiers de commandes. La consignation de la sortie des fichiers de commandes, **stdout** et **stderr**, peut fournir des informations importantes au moment du débogage et de la correction des fichiers de commandes. Pour consigner **stdout** et **stderr** dans le fichier StartupLog.txt dans le répertoire indiqué par la variable d’environnement **%TEMP%**, ajoutez le texte `>>  "%TEMP%\\StartupLog.txt" 2>&1` à la fin des lignes que vous souhaitez enregistrer. Par exemple, pour exécuter setup.exe dans le répertoire **% PathToApp1Install** :
 
     "%PathToApp1Install%\setup.exe" >> "%TEMP%\StartupLog.txt" 2>&1
 
@@ -487,4 +491,4 @@ En savoir plus sur le fonctionnement des [tâches](cloud-services-startup-tasks.
 [LocalResources]: https://msdn.microsoft.com/library/azure/gg557552.aspx#LocalResources
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0831_2016-->

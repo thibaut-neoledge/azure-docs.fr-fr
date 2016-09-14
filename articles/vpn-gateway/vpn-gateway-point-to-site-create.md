@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Configuration d’une connexion VPN de point à site à un réseau virtuel à l’aide du portail Classic | Microsoft Azure"
-   description="Connectez-vous de façon sécurisée à votre réseau virtuel Azure en créant une connexion VPN point à site."
+   pageTitle="Configuration d’une connexion par passerelle VPN point à site à un réseau virtuel à l’aide du portail Classic | Microsoft Azure"
+   description="Connectez-vous de façon sécurisée à votre réseau virtuel Azure en créant une connexion par passerelle VPN point à site."
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
@@ -23,7 +23,7 @@
 - [PowerShell - Resource Manager](vpn-gateway-howto-point-to-site-rm-ps.md)
 - [Portail - Azure Classic](vpn-gateway-point-to-site-create.md)
 
-Une configuration de point à site (P2S) vous permet de créer individuellement une connexion sécurisée à un réseau virtuel à partir d’un ordinateur client. Une connexion P2S est utile lorsque vous souhaitez vous connecter à votre réseau virtuel à partir d’un site distant, comme depuis votre domicile ou une conférence ou lorsque seulement quelques clients doivent se connecter à un réseau virtuel.
+Une configuration point à site (P2S) vous permet de connecter de manière sécurisée un ordinateur client individuel à un réseau virtuel. Une connexion P2S est utile lorsque vous souhaitez vous connecter à votre réseau virtuel à partir d’un site distant, comme depuis votre domicile ou une conférence ou lorsque seulement quelques clients doivent se connecter à un réseau virtuel.
 
 Cet article vous guide dans le processus de création d’un réseau virtuel avec une connexion de point à site dans le **modèle de déploiement Classic** à l’aide du portail Classic. Pour le moment, il n’est pas possible de créer cette configuration de bout en bout dans le portail Azure pour le modèle de déploiement Classic.
 
@@ -60,25 +60,25 @@ La configuration d’une connexion de point à site est divisée en quatre secti
 2. Dans le coin inférieur gauche de l’écran, cliquez sur **Nouveau**. Dans le volet de navigation, cliquez sur **Services réseau**, puis sur **Réseau virtuel**. Cliquez sur **Custom Create** pour démarrer l'Assistant Configuration.
 
 3. Sur la page **Détails du réseau virtuel**, entrez les informations suivantes, puis cliquez sur la flèche Suivant située dans le coin inférieur droit.
-	- **Nom** : nommez votre réseau virtuel. Par exemple : « VNet1 ». Il s’agit du nom auquel vous ferez référence lors du déploiement de machines virtuelles sur ce réseau virtuel.
-	- **Emplacement** : l’emplacement est directement associé à l’emplacement physique (région) où vous souhaitez que vos ressources (machines virtuelles) résident. Par exemple, si les machines virtuelles que vous déployez dans ce réseau virtuel doivent être situées physiquement dans la région Est des États-Unis, sélectionnez cet emplacement. Après avoir créé votre réseau virtuel, vous ne pourrez plus modifier la région qui lui est associée.
+	- **Nom** : nommez votre réseau virtuel. Par exemple : « VNet1 ». Il s’agit du nom auquel vous ferez référence lors du déploiement de machines virtuelles sur ce réseau virtuel.
+	- **Emplacement** : l’emplacement est directement associé à l’emplacement physique (région) où vous souhaitez que vos ressources (machines virtuelles) résident. Par exemple, si les machines virtuelles que vous déployez dans ce réseau virtuel doivent être situées physiquement dans la région Est des États-Unis, sélectionnez cet emplacement. Après avoir créé votre réseau virtuel, vous ne pourrez plus modifier la région qui lui est associée.
 
 4. Sur la page **Serveurs DNS et connectivité VPN**, entrez les informations suivantes, puis cliquez sur la flèche Suivant située dans le coin inférieur droit.
-	- **Serveurs DNS** : entrez le nom et l’adresse IP du serveur DNS, ou sélectionnez un serveur DNS précédemment inscrit dans le menu contextuel. Ce paramètre n'entraîne pas la création de serveur DNS. Il vous permet de spécifier le serveur DNS que vous souhaitez utiliser pour la résolution de noms pour ce réseau virtuel. Si vous souhaitez utiliser le service de résolution de noms Azure par défaut, laissez cette section vide.
-	- **Configuration VPN de point à site** : cochez cette case.
+	- **Serveurs DNS** : entrez le nom et l’adresse IP du serveur DNS, ou sélectionnez un serveur DNS précédemment inscrit dans le menu contextuel. Ce paramètre n'entraîne pas la création de serveur DNS. Il vous permet de spécifier le serveur DNS que vous souhaitez utiliser pour la résolution de noms pour ce réseau virtuel. Si vous souhaitez utiliser le service de résolution de noms Azure par défaut, laissez cette section vide.
+	- **Configuration VPN de point à site** : cochez cette case.
 
 5. Dans la page **Connectivité de point à site**, spécifiez la plage d’adresses IP qui déterminera l’adresse IP de vos clients VPN au moment de la connexion. Il existe quelques règles concernant les plages d’adresses que vous pouvez spécifier. Il est important de vérifier que la plage que vous spécifiez ne recouvre aucune des plages situées sur votre réseau local.
 
 6. Entrez les informations ci-dessous, puis cliquez sur la flèche Suivant.
- - **Espace d’adressage** : incluez l’adresse IP de départ et le CIDR (nombre d’adresses).
+ - **Espace d’adressage** : incluez l’adresse IP de départ et le CIDR (nombre d’adresses).
  - **Ajouter un espace d’adressage** : procédez à cette opération uniquement si la conception de votre réseau l’exige.
 
 7. Dans la page **Espaces d’adresses du réseau virtuel**, indiquez la plage d’adresses que vous voulez utiliser pour votre réseau virtuel. Il s’agit des adresses IP dynamiques (DIP) qui seront affectées aux machines virtuelles et autres instances de rôle que vous déployez sur ce réseau virtuel.<br><br>Il est particulièrement important de sélectionner une plage qui ne chevauche aucune des plages utilisées pour votre réseau local. Vous devez contacter votre administrateur réseau, qui peut avoir besoin de retirer une plage d’adresses IP de l’espace d’adressage de votre réseau local pour que vous puissiez l’utiliser pour votre réseau virtuel.
 
 8. Entrez les informations ci-après, puis cliquez sur la coche pour commencer à créer votre réseau virtuel.
- - **Espace d’adressage** : ajoutez la plage d’adresses IP internes que vous voulez utiliser pour ce réseau virtuel, notamment l’adresse IP de départ et le nombre d’adresses. Il est important de sélectionner une plage qui ne chevauche aucune des plages utilisées pour votre réseau local.
- - **Ajouter un sous-réseau** : aucun sous-réseau supplémentaire n’est requis, mais vous pouvez créer un sous-réseau distinct pour les machines virtuelles qui disposeront d’adresses IP dédiées statiques. Vous pouvez également placer vos machines virtuelles dans un sous-réseau séparé de vos autres instances de rôle.
- - **Ajouter un sous-réseau de passerelle** : le sous-réseau de passerelle est requis pour un VPN point à site. Cliquez sur cette option pour ajouter le sous-réseau de passerelle. Ce sous-réseau est uniquement utilisé pour la passerelle de réseau virtuel.
+ - **Espace d’adressage** : ajoutez la plage d’adresses IP internes que vous voulez utiliser pour ce réseau virtuel, notamment l’adresse IP de départ et le nombre d’adresses. Il est important de sélectionner une plage qui ne chevauche aucune des plages utilisées pour votre réseau local.
+ - **Ajouter un sous-réseau** : aucun sous-réseau supplémentaire n’est requis, mais vous pouvez créer un sous-réseau distinct pour les machines virtuelles qui disposeront d’adresses IP dédiées statiques. Vous pouvez également placer vos machines virtuelles dans un sous-réseau séparé de vos autres instances de rôle.
+ - **Ajouter un sous-réseau de passerelle** : le sous-réseau de passerelle est requis pour un VPN point à site. Cliquez sur cette option pour ajouter le sous-réseau de passerelle. Ce sous-réseau est uniquement utilisé pour la passerelle de réseau virtuel.
 
 9. Une fois votre réseau virtuel créé, la mention **Créé** apparaît sous **État** sur la page Réseaux du portail Azure Classic. Une fois votre réseau virtuel créé, vous pouvez procéder à la création de votre passerelle de routage dynamique.
 
@@ -144,16 +144,30 @@ Pour vous connecter au réseau virtuel, vous devez également configurer un clie
 
 3. Après avoir généré et téléchargé le package client VPN à partir du portail Azure Classic, vous pouvez l’installer sur l’ordinateur client que vous souhaitez utiliser pour vous connecter à votre réseau virtuel. Si vous prévoyez d'installer le package client VPN sur plusieurs ordinateurs clients, assurez-vous que chacun d'entre eux dispose également d'un certificat client.
 
-### Partie 2 : installer le package de configuration VPN sur le client et lancer la connexion
+### Partie 2 : installer le package de configuration VPN sur le client
 
-1. Copiez le fichier de configuration localement sur l’ordinateur que vous souhaitez connecter à votre réseau virtuel, puis double-cliquez sur le fichier .exe. Une fois le package installé, vous pouvez démarrer la connexion VPN. Le package de configuration n’est pas signé par Microsoft. Si vous le souhaitez, vous pouvez signer le package à l’aide du service de signature de votre organisation ou le signer vous-même au moyen de l’outil [SignTool](http://go.microsoft.com/fwlink/p/?LinkId=699327). Il vous est possible d’utiliser le package sans le signer. Toutefois, si le package n’est pas signé, un avertissement s’affiche au moment où vous l’installez.
-2. Sur l’ordinateur client, accédez aux connexions VPN et recherchez celle que vous avez créée. Elle porte le même nom que votre réseau virtuel. Cliquez sur **Connecter**.
-3. Vous voyez apparaître un message contextuel vous permettant de créer un certificat auto-signé pour le point de terminaison de la passerelle. Cliquez sur **Continuer** pour utiliser des privilèges élevés.
-4. Dans la page de statut **Connexion**, cliquez sur **Connecter** pour démarrer la connexion.
-5. Si un écran **Sélectionner un certificat** apparaît, vérifiez que le certificat client affiché est celui que vous souhaitez utiliser pour la connexion. Dans le cas contraire, utilisez la flèche déroulante pour sélectionner le certificat approprié, puis cliquez sur **OK**.
-6. Vous êtes à présent connecté à votre réseau virtuel et vous disposez d’un accès complet à l’ensemble des services et machines virtuelles hébergés dans votre réseau virtuel.
+1. Copiez le fichier de configuration localement sur l’ordinateur que vous souhaitez connecter à votre réseau virtuel, puis double-cliquez sur le fichier .exe.
 
-### Partie 3 : vérifier la connexion VPN
+2. Une fois le package installé, vous pouvez démarrer la connexion VPN. Le package de configuration n’est pas signé par Microsoft. Si vous le souhaitez, vous pouvez signer le package à l’aide du service de signature de votre organisation ou le signer vous-même au moyen de l’outil [SignTool](http://go.microsoft.com/fwlink/p/?LinkId=699327). Il vous est possible d’utiliser le package sans le signer. Toutefois, si le package n’est pas signé, un avertissement s’affiche au moment où vous l’installez.
+
+3. Sur l’ordinateur client, accédez à **Paramètres réseau**, puis cliquez sur **VPN**. La connexion apparaît dans la liste. Le nom du réseau virtuel auquel il se connectera s’affiche, sous une forme du type :
+
+	![Client VPN](./media/vpn-gateway-point-to-site-create/vpn.png "Client VPN")
+
+
+### Partie 3 : se connecter à Azure
+
+1. Pour vous connecter à votre réseau virtuel, sur l’ordinateur client, accédez aux connexions VPN et recherchez celle que vous avez créée. Elle porte le même nom que votre réseau virtuel. Cliquez sur **Connecter**. Un message contextuel faisant référence à l’utilisation du certificat peut s’afficher. Le cas échéant, cliquez sur **Continuer** pour utiliser des privilèges élevés.
+
+2. Dans la page de statut **Connexion**, cliquez sur **Connecter** pour démarrer la connexion. Si un écran **Sélectionner un certificat** apparaît, vérifiez que le certificat client affiché est celui que vous souhaitez utiliser pour la connexion. Dans le cas contraire, utilisez la flèche déroulante pour sélectionner le certificat approprié, puis cliquez sur **OK**.
+
+	![Client VPN 2](./media/vpn-gateway-point-to-site-create/clientconnect.png "Connexion client VPN")
+
+3. À présent, votre connexion doit être établie.
+
+	![Client VPN 3](./media/vpn-gateway-point-to-site-create/connected.png "Connexion client VPN 2")
+
+### Partie 4 : vérifier la connexion VPN
 
 1. Pour vérifier que votre connexion VPN est active, ouvrez une invite de commandes avec élévation de privilèges, puis exécutez *ipconfig/all*.
 2. Affichez les résultats. Notez que l’adresse IP que vous avez reçue est l’une des adresses de la plage d’adresses de connectivité point à site que vous avez spécifiée quand vous avez créé votre réseau virtuel. Les résultats doivent être semblables à ce qui suit :
@@ -179,4 +193,4 @@ Vous pouvez ajouter des machines virtuelles à votre réseau virtuel. Consultez 
 
 Si vous voulez d’autres informations sur les réseaux virtuels, consultez la page [Virtual Network Documentation](https://azure.microsoft.com/documentation/services/virtual-network/).
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

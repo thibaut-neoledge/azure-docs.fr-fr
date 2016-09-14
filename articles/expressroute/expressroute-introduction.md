@@ -75,7 +75,7 @@ Les connexions ExpressRoute permettent d’accéder aux services suivants :
 
 - Services Microsoft Azure
 - Services Microsoft Office 365
-- Services Microsoft CRM Online 
+- Services Microsoft CRM Online
  
 Vous pouvez visiter la page [Forum Aux Questions ExpressRoute](expressroute-faqs.md) pour consulter une liste détaillée des services pris en charge via ExpressRoute.
 
@@ -99,7 +99,7 @@ Microsoft gère des environnements de cloud isolés dans des régions géopoliti
 
 ### Options relatives à la bande passante prise en charge
 
-Vous pouvez acheter des circuits ExpressRoute pour un large éventail de bandes passantes. Les bandes passantes prises en charge sont répertoriées dans la liste ci-dessous. Veillez à vérifier auprès de votre fournisseur de connectivité la liste des bandes passantes prises en charge qu'il propose.
+Vous pouvez acheter des circuits ExpressRoute pour un large éventail de bandes passantes. Les bandes passantes prises en charge sont répertoriées ci-dessous. Veillez à vérifier auprès de votre fournisseur de connectivité la liste des bandes passantes prises en charge qu'il propose.
 
 - 50 Mbits/s
 - 100 Mbits/s
@@ -118,9 +118,9 @@ Vous avez la possibilité d'augmenter la bande passante du circuit ExpressRoute 
 
 Vous pouvez choisir le modèle de facturation qui vous convient le mieux. Choisissez parmi les modèles de facturation ci-dessous. Consultez la page [Forum Aux Questions ExpressRoute](expressroute-faqs.md) pour plus d’informations.
 
-- **Données illimitées** Le circuit ExpressRoute est facturé sur une base mensuelle, et tous les transferts de données entrants et sortants sont inclus gratuitement. 
+- **Données illimitées** Le circuit ExpressRoute est facturé sur une base mensuelle, et tous les transferts de données entrants et sortants sont inclus gratuitement.
 - **Données limitées**. Le circuit ExpressRoute est facturé sur une base mensuelle. Tous les transferts de données entrants sont gratuits. Chaque transfert de données sortant est facturé par Go de données transférées. Les taux de transfert de données varient selon la région.
-- **Module complémentaire ExpressRoute premium**. Le module complémentaire ExpressRoute premium est un module qui s’ajoute au circuit ExpressRoute Le module complémentaire ExpressRoute premium offre les fonctionnalités suivantes : 
+- **Module complémentaire ExpressRoute premium**. Le module complémentaire ExpressRoute premium est un module qui s’ajoute au circuit ExpressRoute Le module complémentaire ExpressRoute premium offre les fonctionnalités suivantes :
 	- Augmentation de 4 000 à 10 000 routages des limites de routage pour les homologations publiques et privées Azure.
 	- Connectivité globale des services. Un circuit ExpressRoute créé dans une région quelconque (à l'exclusion des clouds nationaux) a accès aux ressources de n'importe quelle autre région dans le monde. Par exemple, un réseau virtuel créé en l'Europe occidentale est accessible via un circuit ExpressRoute configuré dans la Silicon Valley.
 	- Augmentation de 10 à une limite supérieure du nombre de liens de réseaux virtuels par circuit ExpressRoute, selon la bande passante du circuit.
@@ -136,4 +136,4 @@ Vous pouvez choisir le modèle de facturation qui vous convient le mieux. Choisi
 	- [Configuration du routage](expressroute-howto-routing-classic.md)
 	- [Liaison d’un réseau virtuel à un circuit ExpressRoute](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/29/2016"
+   ms.date="09/07/2016"
    ms.author="cherylmc" />
 
 # Partenaires ExpressRoute et emplacements d’homologation
@@ -31,7 +31,7 @@ Vous aurez accès aux services Azure dans toutes les régions au sein d’une r�
 |---|---|---|
 |**Amérique du Nord**|Est des États-Unis, Ouest des États-Unis, Est des États-Unis 2, Centre des États-Unis, Centre-Sud des États-Unis, Centre-Nord des États-Unis, Centre du Canada, Est du Canada|Atlanta, Chicago, Dallas, Las Vegas+, Los Angeles, New York, Seattle, Silicon Valley, Washington DC, Montréal+, Québec+, Toronto|
 |**Amérique du Sud**|Sud du Brésil|São Paulo|
-|**Europe**|Europe du Nord, Europe de l’Ouest|Amsterdam, Dublin, Londres, Newport(Pays de Galles)+, Paris|
+|**Europe**|Europe du Nord, Europe de l’Ouest, Ouest du Royaume-Uni, Sud du Royaume-Uni|Amsterdam, Dublin, Londres, Newport(Pays de Galles)+, Paris|
 |**Asie**|Asie orientale, Asie du Sud-Est|Hong Kong, Singapour|
 |**Japon**|Ouest du Japon, Est du Japon|Osaka, Tokyo|
 |**Australie**|Sud-est de l’Australie |Est de l’Australie|Melbourne, Sydney|
@@ -64,9 +64,9 @@ La connectivité entre les régions géopolitiques n’est pas prise en charge d
 | **[Réseaux Aryaka](http://www.aryaka.com/)** | Pris en charge | Pris en charge | Amsterdam, Silicon Valley, Singapour, Tokyo, Washington DC |
 | **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** | Pris en charge | Pris en charge | Amsterdam, Chicago, Dallas, Londres, Silicon Valley, Singapour, Sydney, Washington DC |
 | **[British Telecom](http://www.globalservices.bt.com/uk/en/news/bt_to_provide_connectivity_to_microsoft_azure)** | Pris en charge | Pris en charge | Amsterdam, Hong Kong, Londres, Silicon Valley, Singapour, Sydney, Tokyo, Washington DC |
-| **CenturyLink** | Bientôt disponible | Bientôt disponible| Silicon Valley |
+|**CenturyLink** | Bientôt disponible | Bientôt disponible| Silicon Valley |
 |**China Telecom Global** | Pris en charge | Non pris en charge | Hong Kong |
-| **[Cologix](http://www.cologix.com/solutions/cloud-connect/public-clouds/microsoft-cloud/)** | Pris en charge | Bientôt disponible | Montréal+, Toronto |
+|**[Cologix](http://www.cologix.com/solutions/cloud-connect/public-clouds/microsoft-cloud/)** | Pris en charge | Bientôt disponible | Montréal+, Toronto |
 | **[Colt](http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** | Pris en charge | Pris en charge | Amsterdam, Dublin, Londres, Tokyo |
 | **Comcast** | Pris en charge | Pris en charge | Chicago, Silicon Valley, Washington DC |
 | **[CoreSite](http://www.coresite.com/solutions/cloud-services/public-cloud-providers/microsoft-azure-expressroute)** | Pris en charge | Pris en charge | Los Angeles | 
@@ -83,7 +83,7 @@ La connectivité entre les régions géopolitiques n’est pas prise en charge d
 | **MTN** | Pris en charge | Pris en charge | Londres |
 | **NEXTDC** | Pris en charge | Pris en charge | Melbourne, Sydney |
 | **NTT Communications** | Pris en charge | Pris en charge | Londres, Los Angeles, Osaka, Tokyo |
-| **[Orange](http://www.orange-business.com/en/products/business-vpn-galerie)** | Pris en charge | Pris en charge | Amsterdam, Hong Kong, Londres, Silicon Valley, Singapour, Washington DC |
+| **[Orange](http://www.orange-business.com/en/products/business-vpn-galerie)** | Pris en charge | Pris en charge | Amsterdam, Hong Kong, Londres, Silicon Valley, Singapour, Sydney, Washington DC |
 | **PCCW Global Limited** | Pris en charge | Pris en charge | Hong Kong |
 | **[SingTel](http://info.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** | Pris en charge | Pris en charge | Singapour |
 | **Softbank** | Pris en charge | Pris en charge | Osaka, Tokyo | 
@@ -171,4 +171,4 @@ L’activation de la connectivité privée pour l’adapter à vos besoins peut 
 <!--Image References-->
 [0]: ./media/expressroute-locations/expressroute-locations-map.png "Carte géographique"
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

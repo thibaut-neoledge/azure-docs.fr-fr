@@ -30,8 +30,6 @@ Les hubs d’événements Azure constituent un service de traitement des événe
 
 Certaines autres fonctionnalités clés de Event Hubs incluent le suivi du comportement dans les applications mobiles, les informations sur le trafic provenant de batteries de serveurs web, la capture d'événements de jeu dans les jeux de console ou la télémétrie recueillie sur des machines industrielles ou des véhicules connectés.
 
-Contrairement aux [rubriques et files d’attente Service Bus](../service-bus/service-bus-messaging-overview.md), les hubs d’événements servent à fournir des flux de messagerie gérés à grande échelle. Leurs capacités diffèrent des rubriques Service Bus, dans la mesure où elles sont fortement orientées vers un débit élevé et les scénarios de traitement des événements. Par conséquent, les hubs d’événements n’implémentent pas certaines des fonctionnalités de messagerie qui sont disponibles pour les [rubriques](../service-bus/service-bus-fundamentals-hybrid-solutions.md#topics). Si vous avez besoin de ces fonctionnalités, les rubriques constituent le meilleur choix.
-
 ## Étapes suivantes
 
 Pour plus d’informations sur les hubs d’événements, consultez les rubriques suivantes.
@@ -45,4 +43,4 @@ Pour plus d’informations sur les hubs d’événements, consultez les rubrique
 [didacticiel des concentrateurs d'événements]: event-hubs-csharp-ephcs-getstarted.md
 [exemple d'application complet qui utilise des concentrateurs d’événements]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0907_2016-->

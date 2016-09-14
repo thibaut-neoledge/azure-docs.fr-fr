@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/16/2016"
+	ms.date="08/26/2016"
 	ms.author="trinadhk;jimpark;"/>
 
 
@@ -48,7 +48,7 @@ Vous pouvez résoudre les erreurs rencontrées pendant l’utilisation d’Azure
 | Opération | Détails de l’erreur | Solution de contournement |
 | -------- | -------- | -------|
 | Annuler le travail | L’annulation n’est pas prise en charge pour ce type de tâche. Veuillez patienter jusqu’à ce que le travail soit terminé. | Aucun |
-| Annuler le travail | Le travail n’est pas dans un état annulable. Veuillez patienter jusqu’à ce que le travail soit terminé. <br>OU<br> Le travail sélectionné n’est pas dans un état annulable. Attendez que le travail se termine.| Selon toute probabilité, le travail est presque terminé ; veuillez patienter jusqu’à ce que le travail soit terminé |
+| Annuler le travail | Le travail n’est pas dans un état annulable. Veuillez patienter jusqu’à ce que le travail soit terminé. <br>OU<br> Le travail sélectionné n’est pas dans un état annulable. Veuillez patienter jusqu’à ce que le travail soit terminé.| Selon toute probabilité, le travail est presque terminé ; veuillez patienter jusqu’à ce que le travail soit terminé |
 | Annuler le travail | Impossible d’annuler le travail, car il n’est pas en cours. L’annulation est prise en charge uniquement pour les travaux en cours. Veuillez tenter l’annulation de la tâche en cours d’exécution. | Cet événement est dû à un état provisoire. Attendez une minute et relancez l’opération d’annulation |
 | Annuler le travail | Impossible d’annuler le travail. Veuillez patienter jusqu’à la fin du travail. | Aucun |
 
@@ -56,7 +56,7 @@ Vous pouvez résoudre les erreurs rencontrées pendant l’utilisation d’Azure
 ## Restauration
 | Opération | Détails de l’erreur | Solution de contournement |
 | -------- | -------- | -------|
-| Restauration | Échec de la restauration avec une erreur interne du cloud | <ol><li>Le service cloud sur lequel vous essayez d’effectuer la restauration est configuré avec des paramètres DNS. Vous pouvez vérifier <br>$deployment = Get-AzureDeployment -ServiceName "ServiceName" -Slot "Production" Get-AzureDns -DnsSettings $deployment.DnsSettings<br>Si une adresse est configurée, cela signifie que des paramètres DNS sont configurés.<br> <li>Le service cloud vers lequel vous essayez de restaurer est configuré avec une adresse IP réservée et les machines virtuelles existantes dans le service cloud sont dans un état arrêté.<br>Vous pouvez voir si un service cloud utilise des adresses IP réservées à l’aide des applets de commande Powershell suivantes :<br>$deployment = Get-AzureDeployment -ServiceName "servicename" -Slot "Production" $dep.ReservedIPName <br><li>Vous essayez de restaurer une machine virtuelle avec les configurations réseau spéciales suivantes dans le même service cloud. <br>- Machines virtuelles sous configuration de l’équilibreur de charge (interne et externe)<br>- Machines virtuelles avec plusieurs adresses IP réservées<br>- Machines virtuelles avec plusieurs cartes réseau<br>Sélectionnez un nouveau service cloud dans l’interface utilisateur ou reportez-vous aux [considérations relatives à la restauration](./backup-azure-arm-restore-vms.md/#restoring-vms-with-special-network-configurations) pour les machines virtuelles avec des configurations réseau spéciales</ol> |
+| Restauration | Échec de la restauration avec une erreur interne du cloud | <ol><li>Le service cloud sur lequel vous essayez d’effectuer la restauration est configuré avec des paramètres DNS. Vous pouvez vérifier <br>$deployment = Get-AzureDeployment -ServiceName "ServiceName" -Slot "Production" Get-AzureDns -DnsSettings $deployment.DnsSettings<br>Si une adresse est configurée, cela signifie que des paramètres DNS sont configurés.<br> <li>Le service cloud vers lequel vous essayez de restaurer est configuré avec une adresse IP réservée et les machines virtuelles existantes dans le service cloud sont à l’état Arrêté.<br>Vous pouvez voir si un service cloud utilise des adresses IP réservées à l’aide des applets de commande Powershell suivantes :<br>$deployment = Get-AzureDeployment -ServiceName "servicename" -Slot "Production" $dep.ReservedIPName <br><li>Vous essayez de restaurer une machine virtuelle avec les configurations réseau spéciales suivantes dans le même service cloud. <br>- Machines virtuelles sous configuration de l’équilibreur de charge (interne et externe)<br>- Machines virtuelles avec plusieurs adresses IP réservées<br>- Machines virtuelles avec plusieurs cartes réseau<br>Sélectionnez un nouveau service cloud dans l’interface utilisateur ou reportez-vous aux [considérations relatives à la restauration](./backup-azure-arm-restore-vms.md/#restoring-vms-with-special-network-configurations) pour les machines virtuelles avec des configurations réseau spéciales</ol> |
 | Restauration | Le nom DNS sélectionné est déjà utilisé. Veuillez spécifier un autre nom DNS et réessayez. | Le nom DNS fait référence au nom du service cloud (se termine généralement par .cloudapp.net). Il doit être unique. Si vous rencontrez cette erreur, vous devez choisir un autre nom de machine virtuelle pendant la restauration. <br><br> Notez que cette erreur ne s’affiche que pour les utilisateurs du portail Azure. L’opération de restauration via PowerShell va réussir, car elle ne fait que restaurer les disques et ne crée pas de machine virtuelle. L’erreur se rencontre lorsque la machine virtuelle est explicitement créée par vos soins après l’opération de restauration du disque. |
 | Restauration | La configuration de réseau virtuel spécifiée n’est pas correcte. Veuillez indiquer une autre configuration de réseau virtuel et réessayez. | Aucun |
 | Restauration | Le service cloud spécifié utilise une adresse IP réservée, ce qui ne correspond pas à la configuration de machine virtuelle en cours de restauration. Veuillez spécifier un autre service cloud n’utilisant pas l’adresse IP réservée ou choisir un autre point de restauration. | Aucun |
@@ -97,7 +97,7 @@ Pour les machines virtuelles Windows :
 
 Pour les machines virtuelles Linux :
 
-- Suivez les instructions fournies dans la rubrique [Mise à jour d’un agent de machine virtuelle Linux](../virtual-machines/virtual-machines-linux-update-agent.md).
+- Suivez les instructions dans la rubrique [Mise à jour de l’agent Linux Azure sur une machine virtuelle vers la dernière version de Github](../virtual-machines/virtual-machines-linux-update-agent.md).
 
 
 ### Validation de l’installation de l’agent de machine virtuelle
@@ -117,8 +117,8 @@ La sauvegarde de machine virtuelle émet une commande de capture instantanée à
 	"USEVSSCOPYBACKUP"="TRUE"
 	```
 3.  État de la machine virtuelle rapporté de manière incorrecte en raison de l’arrêt de la machine virtuelle dans RDP. <br> Si vous avez arrêté la machine virtuelle dans RDP, retournez sur le portail pour vérifier que l’état de la machine virtuelle est correct. Si ce n’est pas le cas, arrêtez la machine virtuelle sur le portail à l’aide de l’option « Arrêter » dans le tableau de bord de la machine virtuelle.
-4.  Si plus de quatre machines virtuelles partagent le même service cloud, configurez plusieurs stratégies de sauvegarde pour répartir les heures de sauvegarde afin qu’il n’y ait pas plus de quatre sauvegardes de machines virtuelles démarrées en même temps. Essayez de répartir les heures de début de la sauvegarde d’une heure entre les stratégies. 
-5.  Forte sollicitation du processeur/de la mémoire sur la machine virtuelle.<br> Si la machine virtuelle sollicite fortement le processeur (utilisation supérieure à 90 %) ou la mémoire, la tâche de capture instantanée est mise en file d’attente, et le retard qui en résulte débouche sur une expiration de délai. En pareille situation, essayez de procéder à des sauvegardes à la demande.
+4.  Si plus de quatre machines virtuelles partagent le même service cloud, configurez plusieurs stratégies de sauvegarde pour répartir les heures de sauvegarde afin qu’il n’y ait pas plus de quatre sauvegardes de machines virtuelles démarrées en même temps. Essayez de répartir les heures de début de la sauvegarde d’une heure entre les stratégies.
+5.  Forte sollicitation du processeur/de la mémoire sur la machine virtuelle.<br> Si la machine virtuelle sollicite fortement le processeur (utilisation supérieure à 90 %) ou la mémoire, la tâche de capture instantanée est mise en file d’attente, et le retard qui en résulte débouche sur une expiration de délai. En pareille situation, essayez de procéder à des sauvegardes à la demande.
 
 <br>
 
@@ -143,4 +143,4 @@ Une fois que la résolution de noms a été effectuée correctement, l’accès 
 
 >[AZURE.NOTE] Le protocole DHCP doit être activé dans l’invité pour que la sauvegarde de la machine virtuelle IaaS fonctionne. Si vous avez besoin d’une adresse IP privée statique, vous devez la configurer via la plateforme. L’option DHCP à l’intérieur de la machine virtuelle doit être laissée désactivée. En savoir plus sur la [définition d’une adresse IP privée interne statique](../virtual-network/virtual-networks-reserved-private-ip.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0831_2016-->

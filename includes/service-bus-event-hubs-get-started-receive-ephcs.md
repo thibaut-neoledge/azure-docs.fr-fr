@@ -4,23 +4,27 @@
 
 Pour utiliser [EventProcessorHost][], vous devez disposer d’un [compte Azure Storage][] \:
 
-1. Connectez-vous au [portail Azure Classic][] et cliquez sur **NOUVEAU** en bas de l’écran.
+1. Connectez-vous au [portail Azure][], puis cliquez sur **Nouveau** en haut à gauche de l’écran.
 
-2. Cliquez sur **Services de données**, sur **Stockage**, puis sur **Création rapide**, et tapez un nom pour votre compte de stockage. Sélectionnez la région de votre choix, puis cliquez sur **Créer un compte de stockage**.
+2. Cliquez sur **Données + stockage**, puis sur **Compte de stockage**.
 
-    ![][11]
+    ![][1]
 
-3. Cliquez sur le compte de stockage que vous venez de créer, puis cliquez sur **Gérer les clés d'accès** :
+3. Dans le panneau **Créer un compte de stockage**, tapez un nom pour votre compte de stockage. Choisissez un abonnement Azure, un groupe de ressources et l’emplacement où créer la ressource. Cliquez ensuite sur **Créer**.
 
-    ![][12]
+    ![][2]
 
-    Copiez la clé d’accès principale à utiliser ultérieurement au cours de ce didacticiel.
+4. Dans la liste des comptes de stockage, cliquez sur le compte de stockage nouvellement créé.
+
+5. Dans le panneau du compte de stockage, cliquez sur **Clés d’accès**. Copiez la valeur de **key1** pour pouvoir l’utiliser ultérieurement au cours de ce didacticiel.
+
+	![][3]
 
 4. Dans Visual Studio, créez un projet d'application de bureau Visual C# à l'aide du modèle de projet d'**application de console**. Nommez le projet **Récepteur**.
 
     ![][14]
 
-5. Dans l'Explorateur de solutions, cliquez avec le bouton droit sur la solution, puis cliquez sur **Gérer les packages NuGet pour la solution...**.
+5. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur la solution, puis cliquez sur **Gérer les packages NuGet pour la solution**.
 
 6. Cliquez sur l’onglet **Parcourir**, puis recherchez `Microsoft Azure Service Bus Event Hub - EventProcessorHost`. Vérifiez que le nom du projet (**Récepteur**) est spécifié dans la zone **Version(s)**. Cliquez sur **Installer** et acceptez les conditions d’utilisation.
 
@@ -81,7 +85,7 @@ Pour utiliser [EventProcessorHost][], vous devez disposer d’un [compte Azure S
             }
 	    }
 	}
-    ```
+    ````
 
 	Cette classe sera appelée par **EventProcessorHost** pour traiter les événements envoyés par le hub d'événements. Notez que la classe `SimpleEventProcessor` utilise un chronomètre pour appeler régulièrement la méthode de point de contrôle sur le contexte **EventProcessorHost**. Cette opération garantit que, en cas de redémarrage du récepteur, la perte de traitement de travail ne sera pas supérieure à cinq minutes.
 
@@ -122,16 +126,17 @@ Pour utiliser [EventProcessorHost][], vous devez disposer d’un [compte Azure S
 [Guide de programmation Event Hubs]: event-hubs-programming-guide.md
 [traitement d'événement mis à l'échelle]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
 [traitement d’événement mis à l’échelle]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
-[compte Azure Storage]: ../storage/storage-create-storage-account-classic-portal.md
+[compte Azure Storage]: ../storage/storage-create-storage-account.md
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
-[portail Azure Classic]: http://manage.windowsazure.com
+[portail Azure]: https://portal.azure.com
 
 <!-- Images -->
 
-[11]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp2.png
-[12]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp3.png
-[13]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp1.png
-[14]: ./media/service-bus-event-hubs-getstarted/create-receiver-csharp1.png
-[15]: ./media/service-bus-event-hubs-getstarted/create-receiver-csharp2.png
+[1]: ./media/service-bus-event-hubs-getstarted-receive-ephcs/create-storage1.png
+[2]: ./media/service-bus-event-hubs-getstarted-receive-ephcs/create-storage2.png
+[3]: ./media/service-bus-event-hubs-getstarted-receive-ephcs/create-storage3.png
+[13]: ./media/service-bus-event-hubs-getstarted-receive-ephcs/create-eph-csharp1.png
+[14]: ./media/service-bus-event-hubs-getstarted-receive-ephcs/create-receiver-csharp1.png
+[15]: ./media/service-bus-event-hubs-getstarted-receive-ephcs/create-receiver-csharp2.png
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

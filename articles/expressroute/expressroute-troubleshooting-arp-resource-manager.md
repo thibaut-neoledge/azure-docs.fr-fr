@@ -128,10 +128,10 @@ La table ARP d’une homologation peut servir à valider la connectivité et la 
 
 ### Table ARP lorsqu’un circuit est dans un état opérationnel (état attendu)
 
- - La table ARP aura une entrée pour le côté local avec une adresse IP valide et une adresse MAC, ainsi qu’une entrée similaire pour le côté Microsoft. 
+ - La table ARP aura une entrée pour le côté local avec une adresse IP valide et une adresse MAC, ainsi qu’une entrée similaire pour le côté Microsoft.
  - Le dernier octet de l’adresse IP locale sera toujours un nombre impair.
  - Le dernier octet de l’adresse IP Microsoft sera toujours un nombre pair.
- - La même adresse MAC s’affichera côté Microsoft pour les trois homologations (principales/secondaires). 
+ - La même adresse MAC s’affichera côté Microsoft pour les trois homologations (principales/secondaires).
 
 
 		Age InterfaceProperty IpAddress  MacAddress    
@@ -141,7 +141,7 @@ La table ARP d’une homologation peut servir à valider la connectivité et la 
 
 ### Table ARP en cas de problèmes côté fournisseur de connectivité/local
 
- - Une seule entrée apparaîtra dans la table ARP. Cette commande affiche le mappage entre l’adresse MAC et l’adresse IP utilisée côté Microsoft. 
+ - Une seule entrée apparaîtra dans la table ARP. Cette commande affiche le mappage entre l’adresse MAC et l’adresse IP utilisée côté Microsoft.
 
 		Age InterfaceProperty IpAddress  MacAddress    
 		--- ----------------- ---------  ----------    
@@ -152,15 +152,15 @@ La table ARP d’une homologation peut servir à valider la connectivité et la 
 
 ### Table ARP en cas de problèmes côté Microsoft
 
- - Aucune table ARP ne s’affiche pour une homologation en cas de problèmes côté Microsoft. 
- -  Ouvrez un incident auprès du [support technique Microsoft](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). Spécifiez que vous avez un problème au niveau de la connectivité de couche 2. 
+ - Aucune table ARP ne s’affiche pour une homologation en cas de problèmes côté Microsoft.
+ -  Ouvrez un incident auprès du [support technique Microsoft](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). Spécifiez que vous avez un problème au niveau de la connectivité de couche 2.
 
 ## Étapes suivantes
 
  - Valider les configurations de couche 3 pour votre circuit ExpressRoute
-	 - Obtenir un récapitulatif d’itinéraires pour déterminer l’état des sessions BGP 
+	 - Obtenir un récapitulatif d’itinéraires pour déterminer l’état des sessions BGP
 	 - Obtenir une table d’itinéraires pour déterminer quels préfixes sont publiés sur ExpressRoute
  - Valider le transfert des données en examinant les octets en entrée/sortie
  - Ouvrez un ticket de support auprès du [support Microsoft](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) si vous rencontrez encore des problèmes.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0831_2016-->

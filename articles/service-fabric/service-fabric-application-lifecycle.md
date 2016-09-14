@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/11/2016"
+   ms.date="08/25/2016"
    ms.author="ryanwi"/>
 
 
@@ -24,13 +24,13 @@ Comme pour les autres plateformes, une application sur Azure Service Fabric pass
 ## Rôles de modèle de service
 Les rôles de modèle de service sont les suivants :
 
-- **Développeur de service** : développe des services génériques et modulaires qui peuvent être ajustés et utilisés dans plusieurs applications du même type ou de différents types. Par exemple, un service de file d'attente peut être utilisé pour la création d'une application de gestion de tickets (support technique) ou d'une application de commerce électronique (panier).
+- **Développeur de service** : développe des services génériques et modulaires qui peuvent être ajustés et utilisés dans plusieurs applications du même type ou de différents types. Par exemple, un service de file d'attente peut être utilisé pour la création d'une application de gestion de tickets (support technique) ou d'une application de commerce électronique (panier).
 
-- **Développeur d’application** : crée des applications en intégrant un ensemble de services pour répondre à des scénarios ou exigences spécifiques. Par exemple, un site web de commerce électronique peut intégrer un service frontal sans état JSON, un service sans état d’enchères et un service avec état de file d’attente pour créer une solution de vente aux enchères.
+- **Développeur d’application** : crée des applications en intégrant un ensemble de services pour répondre à des scénarios ou exigences spécifiques. Par exemple, un site web de commerce électronique peut intégrer un service frontal sans état JSON, un service sans état d’enchères et un service avec état de file d’attente pour créer une solution de vente aux enchères.
 
-- **Administrateur d’application** : prend des décisions sur la configuration de l’application (indication des paramètres de modèle de configuration), le déploiement (mappage aux ressources disponibles) et la qualité de service. Par exemple, un administrateur d’application détermine la langue locale de l’application (anglais pour les États-Unis ou japonais pour le Japon, par exemple). Une application déployée différente peut avoir différents paramètres.
+- **Administrateur d’application** : prend des décisions sur la configuration de l’application (indication des paramètres de modèle de configuration), le déploiement (mappage aux ressources disponibles) et la qualité de service. Par exemple, un administrateur d’application détermine la langue locale de l’application (anglais pour les États-Unis ou japonais pour le Japon, par exemple). Une application déployée différente peut avoir différents paramètres.
 
-- **Opérateur** : déploie des applications basées sur la configuration et les spécifications spécifiquement définies par l’administrateur d’application. Par exemple, un opérateur met en service et déploie l'application et s'assure qu'elle s'exécute dans Azure. Les opérateurs surveillent les informations d'intégrité et de performances des applications et gèrent l'infrastructure physique en fonction des besoins.
+- **Opérateur** : déploie des applications basées sur la configuration et les spécifications spécifiquement définies par l’administrateur d’application. Par exemple, un opérateur met en service et déploie l'application et s'assure qu'elle s'exécute dans Azure. Les opérateurs surveillent les informations d'intégrité et de performances des applications et gèrent l'infrastructure physique en fonction des besoins.
 
 
 ## Développement
@@ -41,7 +41,7 @@ Les rôles de modèle de service sont les suivants :
 
 Pour obtenir des exemples, voir [Prise en main des acteurs fiables](service-fabric-reliable-actors-get-started.md) et [Prise en main des services fiables](service-fabric-reliable-services-quick-start.md).
 
-## Déploiement
+## Déployer
 1. Un *administrateur d’application* personnalise le type d’application en une application spécifique en vue de son déploiement sur un cluster Service Fabric en spécifiant les paramètres appropriés de l’élément **ApplicationType** du manifeste d’application.
 
 2. Un *opérateur* télécharge le package d’application vers le magasin d’images du cluster à l’aide de la méthode [**CopyApplicationPackage** ](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.copyapplicationpackage.aspx) ou de l’applet de [**commande Copy-ServiceFabricApplicationPackage**](https://msdn.microsoft.com/library/azure/mt125905.aspx). Le package d'application contient le manifeste d'application et la collection de packages de service. Service Fabric déploie les applications à partir du package d’application stocké dans le magasin d’images, qui peut être un magasin d’objets blob Azure ou le service système Service Fabric.
@@ -121,4 +121,4 @@ Pour plus d'informations sur le développement, le test et la gestion des servic
 - [Vue d’ensemble de la testabilité](service-fabric-testability-overview.md)
 - [Échantillon de cycle de vie des applications basé sur REST](service-fabric-rest-based-application-lifecycle-sample.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0831_2016-->

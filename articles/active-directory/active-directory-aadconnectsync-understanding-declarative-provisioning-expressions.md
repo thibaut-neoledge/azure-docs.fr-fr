@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/23/2016"
+	ms.date="08/29/2016"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -70,28 +70,18 @@ Vous pouvez utiliser les opérateurs suivants :
 - **Logiques** : && (et), || (ou)
 - **Ordre d’évaluation** : ( )
 
-Les opérateurs sont évalués de la gauche vers la droite et ont la même priorité d'évaluation. Par exemple, le * (signe multiplicateur) n’est pas évalué avant - (soustraction). 2*(5+3) n’est pas la même chose que 2*5+3. Les crochets ( ) sont utilisés pour modifier l'ordre d'évaluation lorsqu'un ordre d'évaluation de la gauche vers la droite n'est pas approprié.
+Les opérateurs sont évalués de la gauche vers la droite et ont la même priorité d'évaluation. Par exemple, le * (signe multiplicateur) n’est pas évalué avant - (soustraction). 2*(5+3) n’est pas la même chose que 2*5+3. Les parenthèses ( ) sont utilisées pour modifier l’ordre d’évaluation lorsqu’un ordre d’évaluation de la gauche vers la droite n’est pas approprié.
 
 ## Attributs à valeurs multiples
-
-### Flux d’attributs pour les attributs à valeurs multiples
 Les fonctions peuvent fonctionner sur des attributs à valeur unique et à valeurs multiples. Pour les attributs à valeurs multiples, la fonction fonctionne sur toutes les valeurs et applique la même fonction à chaque valeur.
 
 Par exemple, `Trim([proxyAddresses])` supprime les espaces de gauche à droite dans chaque valeur de l’attribut proxyAddress. `Word([proxyAddresses],1,"@") & "@contoso.com"` Pour chaque valeur comportant un signe @, remplacez le domaine par @contoso.com. `IIF(InStr([proxyAddresses],"SIP:")=1,NULL,[proxyAddresses])` Recherchez l’adresse SIP et supprimez-la des valeurs.
 
-### Fusion de valeurs d’attribut
-Dans les flux d’attributs, il existe un paramètre permettant de déterminer si les attributs à valeurs multiples doivent être fusionnés à partir de plusieurs connecteurs différents. La valeur par défaut est **Mettre à jour**, ce qui indique que la règle de synchronisation avec la priorité la plus élevée prévaut.
-
-![Types de fusion](./media/active-directory-aadconnectsync-understanding-declarative-provisioning-expressions/mergetype.png)
-
-Il existe également une option **Fusionner** et **MergeCaseInsensitive** (Fusion non sensible à la casse). Ces options permettent de fusionner des valeurs issues de différentes sources. Par exemple, elles peuvent être utilisées pour fusionner le membre ou l’attribut proxyAddresses de plusieurs forêts différentes. Lorsque vous utilisez cette option, toutes les règles de synchronisation dans l’étendue d’un objet doivent utiliser le même type de fusion. Vous ne pouvez pas définir **Mettre à jour** à partir d’un connecteur et **Fusionner** à partir d’un autre connecteur. Si vous essayez, vous recevrez une erreur.
-
-La différence entre **Fusionner** et **MergeCaseInsensitive** (Fusion non sensible à la casse) est le traitement des valeurs d’attribut en double. Le moteur de synchronisation s’assure qu’aucun doublon n’est inséré dans l’attribut cible. Avec **MergeCaseInsensitive** (Fusion non sensible à la casse), les doublons présentant uniquement une différence de casse ne sont pas inclus. Par exemple, vous ne verrez pas à la fois « SMTP :bob@contoso.com » et « smtp :bob@contoso.com » dans l’attribut cible. **Fusionner** examine uniquement les valeurs exactes et plusieurs valeurs présentant uniquement une différence de casse peuvent être présentes.
-
-L’option **Remplacer** est identique à **Mettre à jour**, mais elle n’est pas utilisée.
-
 ## Ressources supplémentaires
 
-[Azure AD Connect sync : Référence aux fonctions](active-directory-aadconnectsync-functions-reference.md) [Azure AD Connect Sync : personnalisation des options de synchronisation](active-directory-aadconnectsync-whatis.md) [Intégration des identités locales avec Azure Active Directory](active-directory-aadconnect.md)
+- [Azure AD Connect Sync : présentation de l’approvisionnement déclaratif](active-directory-aadconnectsync-understanding-declarative-provisioning.md)
+- [Azure AD Connect Sync : Référence aux fonctions](active-directory-aadconnectsync-functions-reference.md)
+- [Azure AD Connect Sync : personnalisation des options de synchronisation](active-directory-aadconnectsync-whatis.md)
+- [Intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

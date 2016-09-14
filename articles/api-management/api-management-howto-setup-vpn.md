@@ -20,7 +20,7 @@
 
 La prise en charge du VPN par Gestion des API vous permet de connecter votre passerelle Gestion des API à un réseau virtuel Azure (classique). Ceci permet aux clients Gestion des API de se connecter de façon sécurisée à leurs services web principaux, qu’ils soient locaux ou qu’il s’agisse de services inaccessibles via l’internet public.
 
->[AZURE.NOTE] La gestion des API Azure fonctionne avec les réseaux virtuels classiques. Pour plus d’informations sur la création d’un réseau virtuel classique, consultez [Créer un réseau virtuel (classique) à l’aide du portail Azure](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). Pour obtenir des informations sur la connexion de réseaux virtuels classiques à des réseaux virtuels ARM, consultez [Connexion de réseaux virtuels classiques aux nouveaux réseaux virtuels](../virtual-network/virtual-networks-arm-asm-s2s.md).
+>[AZURE.NOTE] La gestion des API Azure fonctionne avec les réseaux virtuels classiques. Pour plus d’informations sur la création d’un réseau virtuel classique, consultez [Créer un réseau virtuel (classique) à l’aide du portail Azure](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). Pour obtenir des informations sur la connexion de réseaux virtuels classiques à des réseaux virtuels ARM, consultez [Connexion de réseaux virtuels classiques aux nouveaux réseaux virtuels](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md).
 
 ## <a name="enable-vpn"> </a>Activer les connexions VPN
 
@@ -62,6 +62,9 @@ Lorsque l’instance de service Gestion des API est hébergée dans un réseau v
 | 6381, 6382, 6383 | Entrant/sortant | UDP | Dépendances Gestion des API sur le cache Redis | VIRTUAL\_NETWORK / VIRTUAL\_NETWORK |
 | 445 | Règle de trafic sortant | TCP | Dépendance Gestion des API sur le partage de fichiers Azure pour GIT | VIRTUAL\_NETWORK / INTERNET |
 
+## <a name="custom-dns"> </a>Configuration de serveur DNS personnalisée
+
+La gestion des API dépend de plusieurs services Azure. Lorsqu’une instance de service de gestion des API est hébergée dans un réseau virtuel dans lequel un serveur DNS personnalisé est utilisé, il doit être en mesure de résoudre les noms d’hôtes de ces services Azure. Veuillez suivre [ce](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) guide sur la configuration de serveurs DNS personnalisée.
 
 ## <a name="related-content"> </a>Contenu connexe
 
@@ -82,4 +85,4 @@ Lorsque l’instance de service Gestion des API est hébergée dans un réseau v
 [Créer un réseau virtuel avec une connexion VPN site à site à l’aide du Portail Azure Classic]: ../vpn-gateway/vpn-gateway-site-to-site-create.md
 [Utilisation de l’inspecteur d’API pour le suivi des appels dans Gestion des API Azure]: api-management-howto-api-inspector.md
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0831_2016-->

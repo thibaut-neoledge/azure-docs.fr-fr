@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/14/2016" 
+	ms.date="08/30/2016" 
 	ms.author="stefsch"/>
 
 # Implémentation d’une architecture de sécurité en couche avec les environnements App Service
@@ -30,7 +30,7 @@ Le schéma ci-dessous présente un exemple d’architecture avec une application
 
 Les symboles « plus » verts indiquent que le groupe de sécurité réseau sur le sous-réseau contenant « apiase » autorise les appels entrants des applications web en amont, ainsi que les appels internes. Toutefois, le même groupe de sécurité réseau refuse explicitement l’accès au trafic entrant général à partir d’Internet.
 
-Le reste de cette rubrique décrit les étapes nécessaires pour configurer le groupe de sécurité réseau sur le sous-réseau contenant « apiase ».
+Le reste de cette rubrique décrit les étapes nécessaires pour configurer le groupe de sécurité réseau sur le sous-réseau contenant « apiase ».
 
 ## Détermination du comportement réseau ##
 Pour savoir quelles règles de sécurité réseau sont nécessaires, vous devez déterminer les clients réseau qui seront autorisés à atteindre l’environnement App Service contenant l’application API et les clients qui seront bloqués.
@@ -41,7 +41,7 @@ Pour savoir quelles règles de sécurité réseau sont nécessaires, vous devez 
 - **L’application API principale devra-t-elle s’appeler elle-même ?** Un point subtil et parfois négligé est le scénario dans lequel l’application principale doit s’appeler elle-même. Si une application API principale dans un environnement App Service doit s’appeler elle-même, elle est également traitée comme un appel « Internet ». Dans l’exemple d’architecture, cela nécessite également d’autoriser l’accès à partir de l’adresse IP sortante de l’environnement App Service « apiase ».
 
 ## Configuration du groupe de sécurité réseau ##
-Une fois que l’ensemble d’adresses IP sortantes est connu, l’étape suivante consiste à créer un groupe de sécurité réseau. Dans la mesure où les environnements App Service sont actuellement uniquement pris en charge dans les réseaux virtuels « v1 », la [configuration NSG][NetworkSecurityGroupsClassic] est effectuée à l’aide de la prise en charge NSG classique dans Powershell.
+Une fois que l’ensemble d’adresses IP sortantes est connu, l’étape suivante consiste à créer un groupe de sécurité réseau. Les groupes de sécurité réseau peuvent être créés pour les réseaux virtuels reposant sur Resource Manager, ainsi que les réseaux virtuels classiques. Les exemples ci-dessous illustrent la création et la configuration d’un groupe de sécurité réseau sur un réseau virtuel classique à l’aide de Powershell.
 
 Pour l’exemple d’architecture, les environnements sont situés dans le sud du centre des États-Unis (South Central US), donc un NSG vide est créé dans cette région :
 
@@ -91,7 +91,7 @@ Avec le NSG appliqué au sous-réseau, seuls les trois environnements App Servic
 ## Informations et liens supplémentaires ##
 Tous les articles et procédures concernant les environnements App Service sont disponibles dans le [fichier Lisez-moi des environnements App Service](../app-service/app-service-app-service-environments-readme.md).
 
-Configuration de [groupes de sécurité réseau][NetworkSecurityGroupsClassic] sur les réseaux virtuels classiques.
+Informations sur les [groupes de sécurité réseau](../virtual-network/virtual-networks-nsg.md).
 
 Présentation des [adresses IP sortantes][NetworkArchitecture] et des environnements App Service.
 
@@ -104,11 +104,10 @@ Présentation des [adresses IP sortantes][NetworkArchitecture] et des environne
 <!-- LINKS -->
 [NetworkSecurityGroups]: https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/
 [NetworkArchitecture]: https://azure.microsoft.com/documentation/articles/app-service-app-service-environment-network-architecture-overview/
-[NetworkSecurityGroupsClassic]: https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-classic-ps/
 [InboundTraffic]: https://azure.microsoft.com/documentation/articles/app-service-app-service-environment-control-inbound-traffic/
 
 <!-- IMAGES -->
 [ConceptualArchitecture]: ./media/app-service-app-service-environment-layered-security/ConceptualArchitecture-1.png
 [NSGConfiguration]: ./media/app-service-app-service-environment-layered-security/NSGConfiguration-1.png
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0831_2016-->

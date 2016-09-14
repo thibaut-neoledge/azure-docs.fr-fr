@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/10/2016"
+	ms.date="09/06/2016"
 	ms.author="jgao"/>
 
 
@@ -49,7 +49,7 @@ De plus, HDInsight permet d'accéder aux données du stockage d'objets blob Azur
 
 Hadoop prend en charge une notion de système de fichiers par défaut. Le système de fichiers par défaut implique un schéma et une autorité par défaut. Il peut également être utilisé pour résoudre les chemins d'accès relatifs. Au cours de la création de HDInsight, un compte de stockage Azure et un conteneur de stockage d'objets blob Azure spécifique de ce compte sont désignés en tant que système de fichiers par défaut.
 
-Outre ce compte de stockage, vous pouvez en ajouter d’autres à partir du même abonnement Azure ou à partir d’autres abonnements Azure pendant le processus de création. Pour plus d'instructions sur l'ajout de comptes de stockage supplémentaires, consultez la rubrique [Création de clusters HDInsight][hdinsight-creation].
+Outre ce compte de stockage, vous pouvez en ajouter d’autres à partir du même abonnement Azure ou à partir d’autres abonnements Azure pendant le processus de création ou à l’issue de la création d’un cluster. Pour plus d'instructions sur l'ajout de comptes de stockage supplémentaires, consultez la rubrique [Création de clusters HDInsight][hdinsight-creation].
 
 - **Conteneurs dans les comptes de stockage connectés à un cluster :** comme le nom et la clé du compte sont associés au cluster durant la création, vous disposez d'un accès complet aux objets blob de ces conteneurs.
 
@@ -297,4 +297,4 @@ Pour plus d'informations, consultez les pages suivantes :
 [img-hdi-quick-create]: ./media/hdinsight-hadoop-use-blob-storage/HDI.QuickCreateCluster.png
 [img-hdi-custom-create-storage-account]: ./media/hdinsight-hadoop-use-blob-storage/HDI.CustomCreateStorageAccount.png
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0907_2016-->

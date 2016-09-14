@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/08/2016"
+	ms.date="08/29/2016"
 	ms.author="jodebrui"/>
 
 
@@ -528,4 +528,4 @@ Si une base de données contient l’une des sortes d’objets ou de types In-Me
 
 - [Surveiller le stockage en mémoire](sql-database-in-memory-oltp-monitoring.md) pour In-Memory OLTP.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

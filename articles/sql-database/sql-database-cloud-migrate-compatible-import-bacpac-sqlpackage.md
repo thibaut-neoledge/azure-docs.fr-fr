@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="sqldb-migrate"
-   ms.date="06/07/2016"
+   ms.date="08/24/2016"
    ms.author="carlrab"/>
 
 # Importation vers Base de données SQL à partir d’un fichier BACPAC à l’aide de SqlPackage
@@ -24,20 +24,20 @@
 - [Portail Azure](sql-database-import.md)
 - [PowerShell](sql-database-import-powershell.md)
 
-Cet article explique comment effectuer une importation vers Base de données SQL à partir d’un fichier [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4), à l’aide de l’utilitaire de ligne de commande [SqlPackage](https://msdn.microsoft.com/library/hh550080.aspx). Cet utilitaire est fourni avec Visual Studio et SQL Server. Vous pouvez également [télécharger](https://msdn.microsoft.com/library/mt204009.aspx) la dernière version de SQL Server Data Tools pour obtenir cet utilitaire.
+Cet article explique comment effectuer une importation vers la SQL Database à partir d’un fichier [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) à l’aide de l’utilitaire de ligne de commande [SqlPackage](https://msdn.microsoft.com/library/hh550080.aspx). Cet utilitaire est fourni avec Visual Studio et SQL Server. Vous pouvez également [télécharger](https://msdn.microsoft.com/library/mt204009.aspx) la dernière version de SQL Server Data Tools pour obtenir cet utilitaire.
 
-> [AZURE.NOTE] Les étapes ci-dessous supposent que vous avez déjà configuré un serveur de Base de données SQL, que vous disposez des informations de connexion et que vous avez vérifié la compatibilité de votre base de données source.
+> [AZURE.NOTE] Les étapes suivantes supposent que vous avez déjà configuré un serveur SQL Database, que vous disposez des informations de connexion et que vous avez vérifié la compatibilité de votre base de données source.
 
 ## Importer un fichier BACPAC dans une base de données SQL Azure à l’aide de SqlPackage
 
 Procédez comme suit pour importer une base de données SQL Server (ou Base de données SQL Azure) compatible à partir d’un fichier BACPAC à l’aide de l’utilitaire de ligne de commande [SqlPackage.exe](https://msdn.microsoft.com/library/hh550080.aspx).
 
-> [AZURE.NOTE] Les étapes ci-dessous supposent que vous avez déjà configuré un serveur de base de données SQL Azure et que vous disposez des informations de connexion.
+> [AZURE.NOTE] Les étapes suivantes supposent que vous avez déjà configuré un serveur de base de données SQL Azure et que vous disposez des informations de connexion.
 
-1. Ouvrez une invite de commandes et modifiez un répertoire contenant l’utilitaire de ligne de commande sqlpackage.exe Cet utilitaire est fourni avec Visual Studio et SQL Server.
+1. Ouvrez une invite de commandes et modifiez un répertoire contenant l’utilitaire de ligne de commande sqlpackage.exe. Cet utilitaire est fourni avec Visual Studio et SQL Server.
 2. Exécutez la commande sqlpackage.exe suivante avec les arguments ci-dessous pour votre environnement :
 
-	'sqlpackage.exe /Action:Import /tsn:< nom\_serveur > /tdn:< nom\_base\_de\_données > /tu:< nom\_utilisateur > /tp:< mot\_de\_passe > /sf:< fichier\_source >
+	`sqlpackage.exe /Action:Import /tsn:< server_name > /tdn:< database_name > /tu:< user_name > /tp:< password > /sf:< source_file >`
 
 	| Argument | Description |
 	|---|---|
@@ -60,4 +60,4 @@ Procédez comme suit pour importer une base de données SQL Server (ou Base de d
 - [Fonctions partiellement ou non prises en charge de Transact-SQL](sql-database-transact-sql-information.md)
 - [Migration de bases de données non-SQL Server avec l’Assistant Migration SQL Server](http://blogs.msdn.com/b/ssma/)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0831_2016-->

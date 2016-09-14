@@ -42,8 +42,8 @@ Les règles de groupe de sécurité réseau contiennent les propriétés suivant
 |**Protocole**|Protocole à faire correspondre pour la règle|TCP, UDP ou *|L’utilisation de * comme protocole inclut ICMP (trafic est-ouest uniquement), ainsi que les protocoles UDP et TCP et peut réduire le nombre de règles dont vous avez besoin<br/>Dans le même temps, l’utilisation de * peut être une approche trop large, alors assurez-vous que vous ne l’utilisez qu’en cas de nécessité|
 |**Plage de ports source**|Plage de ports source à faire correspondre pour la règle|Numéro de port unique compris entre 1 et 65535, plage de ports (par exemple, 1-65635) ou * (pour tous les ports)|Les ports source peuvent être éphémères. Privilégiez l’utilisation de « * » dans la plupart des cas, sauf si votre programme client utilise un port spécifique.<br/>Essayez d’utiliser autant de plages de ports que possible afin d’éviter d’avoir plusieurs règles.<br/>Il est impossible de regrouper plusieurs ports ou plages de ports avec une virgule.
 |**Plage de ports de destination**|Plage de ports de destination à faire correspondre pour la règle|Numéro de port unique compris entre 1 et 65535, plage de ports (par exemple, 1-65535) ou * (pour tous les ports)|Essayez d’utiliser autant de plages de ports que possible afin d’éviter d’avoir plusieurs règles.<br/>Il est impossible de regrouper plusieurs ports ou plages de ports avec une virgule.
-|**Préfixe d’adresse source**|Préfixe d’adresse source à faire correspondre à la règle|Une seule adresse IP (par exemple 10.10.10.10), sous-réseau IP (par exemple, 192.168.1.0/24) [balise par défaut](#Default-Tags), ou * (pour toutes les adresses)|Envisagez d’utiliser des plages, balises par défaut et * pour réduire le nombre de règles|
-|**Préfixe d’adresse de destination**|Préfixe d’adresse de destination ou balise pour faire correspondre la règle|une seule adresse IP (par exemple 10.10.10.10), sous-réseau IP (par exemple, 192.168.1.0/24) [balise par défaut](#Default-Tags), ou * (pour toutes les adresses)|Envisagez d’utiliser des plages, balises par défaut et * pour réduire le nombre de règles|
+|**Préfixe d’adresse source**|Préfixe d’adresse source à faire correspondre à la règle|Une seule adresse IP (par exemple 10.10.10.10), sous-réseau IP (par exemple, 192.168.1.0/24) [balise par défaut](#default-tags), ou * (pour toutes les adresses)|Envisagez d’utiliser des plages, balises par défaut et * pour réduire le nombre de règles|
+|**Préfixe d’adresse de destination**|Préfixe d’adresse de destination ou balise pour faire correspondre la règle|une seule adresse IP (par exemple 10.10.10.10), sous-réseau IP (par exemple, 192.168.1.0/24) [balise par défaut](#default-tags), ou * (pour toutes les adresses)|Envisagez d’utiliser des plages, balises par défaut et * pour réduire le nombre de règles|
 |**Direction**|Direction du trafic à faire correspondre pour la règle|entrant ou sortant|Les règles entrantes et sortantes sont traitées séparément, en fonction de la direction|
 |**Priorité**|Les règles sont vérifiées dans l’ordre de priorité ; une fois qu’une règle s’applique, plus aucune correspondance de règle n’est testée.|Nombre compris entre 100 et 4096.|Envisagez de créer des règles de passage des priorités par 100 pour chaque règle, de laisser de la place pour les nouvelles règles à venir entre les règles existantes|
 |**Access**|Type d'accès à appliquer si la règle correspond|autoriser ou refuser|N’oubliez pas que si la règle d’autorisation d’un paquet est introuvable, le paquet est abandonné|
@@ -124,13 +124,13 @@ Vous pouvez implémenter des groupes de sécurité réseau dans les modèles de 
 
 |Outil de déploiement|Classique|Gestionnaire de ressources|
 |---|---|---|
-|Portail classique|![Non][red]|![Non][red]|
-|Portail Azure|![Oui][green]|[](virtual-networks-create-nsg-arm-pportal.md)![Oui][green]|
-|PowerShell|[](virtual-networks-create-nsg-classic-ps.md)![Oui][green]|[](virtual-networks-create-nsg-arm-ps.md)![Oui][green]|
-|Interface de ligne de commande Azure|[](virtual-networks-create-nsg-classic-cli.md)![Oui][green]|[](virtual-networks-create-nsg-arm-cli.md)![Oui][green]|
-|Modèle ARM|![Non][red]|[](virtual-networks-create-nsg-arm-template.md)![Oui][green]|
+|Portail classique|![Non](./media/virtual-network-nsg-overview/red.png)|![Non](./media/virtual-network-nsg-overview/red.png)|
+|Portail Azure|![Oui](./media/virtual-network-nsg-overview/green.png)|[![Oui][green]](virtual-networks-create-nsg-arm-pportal.md)|
+|PowerShell|[![Oui][green]](virtual-networks-create-nsg-classic-ps.md)|[![Oui][green]](virtual-networks-create-nsg-arm-ps.md)|
+|Interface de ligne de commande Azure|[![Oui][green]](virtual-networks-create-nsg-classic-cli.md)|[![Oui][green]](virtual-networks-create-nsg-arm-cli.md)|
+|Modèle ARM|![Non](./media/virtual-network-nsg-overview/red.png)|[![Oui][green]](virtual-networks-create-nsg-arm-template.md)|
 
-|**Clé**|![Oui][green] Pris en charge. Cliquez pour accéder à l’article correspondant.|![Non][red] Non pris en charge.|
+|**Clé**|![Oui](./media/virtual-network-nsg-overview/green.png) Pris en charge.|![Non](./media/virtual-network-nsg-overview/red.png) Non pris en charge.|
 |---|---|---|
 
 ## Planification
@@ -154,7 +154,7 @@ Vous devez tenir compte des limites suivantes en concevant vos groupes de sécur
 |**Description**|**Limite par défaut**|**Implications**|
 |---|---|---|
 |Nombre de groupes de sécurité réseau que vous pouvez associer à un sous-réseau, une machine virtuelle ou une carte réseau|1|Cela signifie que vous ne pouvez pas combiner des groupes de sécurité réseau. Vérifiez que toutes les règles nécessaires à un ensemble donné de ressources sont incluses dans un seul groupe de sécurité réseau.|
-|Groupes de sécurité réseau par région et par abonnement|100|Par défaut, un nouveau groupe de sécurité réseau est créé pour chaque machine virtuelle que vous créez dans le portail Azure. Si vous autorisez ce comportement par défaut, épuiserez rapidement vos groupes de sécurité réseau. Veillez à conserver cette limite à l’esprit pendant votre conception et à séparer vos ressources en plusieurs régions ou abonnements si nécessaire. |
+|Groupes de sécurité réseau par région et par abonnement|100|Par défaut, un nouveau groupe de sécurité réseau est créé pour chaque machine virtuelle que vous créez dans le portail Azure. Si vous autorisez ce comportement par défaut, épuiserez rapidement vos groupes de sécurité réseau. Veillez à garder cette limite à l’esprit pendant votre conception et à séparer vos ressources en plusieurs régions ou abonnements si nécessaire. |
 |Règles de groupe de sécurité réseau par groupe de sécurité réseau|200|Utiliser une large plage d’adresses IP et ports pour vous garantir de ne pas aller au-delà de cette limite. |
 
 >[AZURE.IMPORTANT] Assurez-vous que vous pouvez afficher toutes les [limites liées aux services de mise en réseau dans Azure](../azure-subscription-service-limits.md#networking-limits) avant de concevoir votre solution. Il est possible d’augmenter certaines limites par le biais d’un ticket d’assistance.
@@ -250,9 +250,9 @@ Les configurations requises 1 à 6 (à l’exception de 3) ci-dessus sont limit
 
 |Règle|Access|Priorité|Plage d’adresses source|Port source|Plage d’adresses de destination|Port de destination|Protocole|
 |---|---|---|---|---|---|---|---|
-|Autoriser RDP à partir d’Internet|Autoriser|100|INTERNET|*|*|3389|TCP|
+|Autoriser RDP à partir d’Internet|Autoriser|100|INTERNET|*|\*|3389|TCP|
 
->[AZURE.NOTE] Notez que la plage d’adresses source pour cette règle est **Internet**, et non l’adresse IP virtuelle de l’équilibreur de charge et le port source *****, pas 500001. Ne confondez pas les règles NAT/règles d’équilibre de charge et règles de groupe de sécurité réseau. Les règles du groupe de sécurité réseau sont toujours associées à la source d’origine et la destination finale du trafic, et **PAS** à l’équilibreur de charge entre les deux.
+>[AZURE.NOTE] Notez que la plage d’adresses source pour cette règle est **Internet**, et non l’adresse IP virtuelle de l’équilibreur de charge et le port source **\***, pas 500001. Ne confondez pas les règles NAT/règles d’équilibre de charge et règles de groupe de sécurité réseau. Les règles du groupe de sécurité réseau sont toujours associées à la source d’origine et la destination finale du trafic, et **PAS** à l’équilibreur de charge entre les deux.
 
 ### Le groupe de sécurité réseau pour la gestion des cartes réseau dans le serveur principal
 
@@ -260,7 +260,7 @@ Les configurations requises 1 à 6 (à l’exception de 3) ci-dessus sont limit
 
 |Règle|Access|Priorité|Plage d’adresses source|Port source|Plage d’adresses de destination|Port de destination|Protocole|
 |---|---|---|---|---|---|---|---|
-|Autoriser RDP à partir du serveur frontal|Autoriser|100|192\.168.1.0/24|*|*|3389|TCP|
+|Autoriser RDP à partir du serveur frontal|Autoriser|100|192\.168.1.0/24|*|\*|3389|TCP|
 
 ### Groupe de sécurité réseau pour la gestion des cartes réseau dans le serveur principal
 
@@ -268,7 +268,7 @@ Les configurations requises 1 à 6 (à l’exception de 3) ci-dessus sont limit
 
 |Règle|Access|Priorité|Plage d’adresses source|Port source|Plage d’adresses de destination|Port de destination|Protocole|
 |---|---|---|---|---|---|---|---|
-|Autoriser SQL à partir du serveur frontal|Autoriser|100|192\.168.1.0/24|*|*|1433|TCP|
+|Autoriser SQL à partir du serveur frontal|Autoriser|100|192\.168.1.0/24|*|\*|1433|TCP|
 
 Étant donné que certains des groupes de sécurité réseau ci-dessus doivent être associés à des cartes réseau individuelles, vous devez déployer ce scénario en tant que déploiement de gestionnaire de ressources. Notez comment les règles sont combinées au niveau du sous-réseau et de la carte réseau, selon la façon dont ils doivent être appliqués.
 
@@ -282,4 +282,4 @@ Les configurations requises 1 à 6 (à l’exception de 3) ci-dessus sont limit
 [yellow]: ./media/virtual-network-nsg-overview/yellow.png
 [red]: ./media/virtual-network-nsg-overview/red.png
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0907_2016-->

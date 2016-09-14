@@ -3,7 +3,7 @@
 	description="Découvrez les stratégies disponibles pour configurer Gestion des API." 
 	services="api-management" 
 	documentationCenter="" 
-	authors="steved0x" 
+	authors="vladvino" 
 	manager="erikre" 
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/09/2016" 
-	ms.author="sdanie"/>
+	ms.date="08/29/2016" 
+	ms.author="apimpm"/>
 
 # Référence sur les stratégies Gestion des API Azure
 
@@ -36,12 +36,14 @@ Les expressions de stratégie peuvent être utilisées comme valeurs d’attribu
 	-	[Control flow][] : applique de manière conditionnelle les instructions de stratégie en fonction des résultats de l’évaluation des [expressions][] booléennes.
 	-	[Forward request][] : transfère la demande vers le service principal.
 	-	[Log to Event Hub][] : envoie des messages au format spécifié à une cible de message définie par une entité [Enregistreur](https://msdn.microsoft.com/library/azure/mt592020.aspx#Logger).
+	-	[Retry](https://msdn.microsoft.com/fr-FR/library/dn894085.aspx#Retry) : effectue une nouvelle tentative d’exécution des instructions de stratégie incluses, si la condition est remplie et jusqu’à ce qu’elle le soit. L’exécution se répète à intervalles réguliers et ce jusqu’au nombre de tentatives défini.
 	-	[Return response](https://msdn.microsoft.com/library/azure/dn894085.aspx#ReturnResponse) : abandonne l’exécution du pipeline et renvoie la réponse indiquée directement à l’appelant.
 	-	[Send one way request](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendOneWayRequest) : envoie une demande à l’URL indiquée sans attendre de réponse.
 	-	[Send request](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest) : envoie une demande à l’URL indiquée.
 	-	[Set request method](https://msdn.microsoft.com/library/azure/dn894085.aspx#SetRequestMethod) : permet de modifier la méthode HTTP d’une demande.
 	-	[Set status](https://msdn.microsoft.com/library/azure/dn894085.aspx#SetStatus) : permet de définir le code d’état HTTP sur la valeur indiquée.
 	-	[Set variable][] : conserve une valeur dans une variable de [contexte][] nommée pour y accéder ultérieurement.
+	-	[Trace](https://msdn.microsoft.com/fr-FR/library/dn894085.aspx#Trace) : ajoute une chaîne à la sortie de l’[inspecteur d’API](../api-management/api-management-howto-api-inspector.md).
 	-	[Wait](https://msdn.microsoft.com/library/azure/dn894085.aspx#Wait) : attend l’exécution de la demande d’envoi intégré, la récupération de la valeur du cache ou le contrôle des stratégies du flux pour continuer.
 -	[Stratégies d’authentification][]
 	-	[Authenticate with Basic][] : authentification avec un service principal à l’aide de l’authentification de base.
@@ -51,6 +53,7 @@ Les expressions de stratégie peuvent être utilisées comme valeurs d’attribu
 	-	[Store to cache][] : met en cache la réponse en fonction de la configuration de contrôle de cache spécifiée.
 	-	[Get value from cache](https://msdn.microsoft.com/library/azure/dn894086.aspx#GetFromCacheByKey) : récupère un élément mis en cache par clé.
 	-	[Store value in cache](https://msdn.microsoft.com/library/azure/dn894086.aspx#StoreToCacheByKey) : stocke un élément mis en cache par clé.
+	-	[Supprimer la valeur du cache](https://msdn.microsoft.com/fr-FR/library/dn894086.aspx#RemoveCacheByKey) : supprime un élément du cache par clé.
 -	[Stratégies interdomaines][]
 	-	[Allow cross-domain calls][] : rend l'API accessible depuis les navigateurs clients utilisant Adobe Flash et Microsoft Silverlight.
 	-	[CORS][] : ajoute une prise en charge partage des ressources cross-origin (CORS) à une opération ou une API afin de permettre les appels interdomaines depuis les navigateurs clients.
@@ -121,4 +124,4 @@ Pour plus d’informations sur les expressions de stratégie, regardez la vidéo
 
  
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0831_2016-->

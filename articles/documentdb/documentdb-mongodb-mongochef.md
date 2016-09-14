@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2016" 
+	ms.date="08/25/2016" 
 	ms.author="stbaro"/>
 
 # Utiliser MongoChef avec un compte DocumentDB prenant en charge le protocole MongoDB
@@ -30,7 +30,7 @@ Pour ajouter votre compte DocumentDB prenant en charge le protocole MongoDB au g
 
 1. Récupérez votre compte DocumentDB avec les informations de connexion pour la prise en charge du protocole MongoDB à l’aide de [ces instructions](documentdb-connect-mongodb-account.md).
 
-	![Capture d’écran du panneau Chaîne de connexion](./media/documentdb-connect-mongodb-account/ConnectionStringBlade.png)
+	![Capture d’écran du panneau Chaîne de connexion](./media/documentdb-mongodb-mongochef/ConnectionStringBlade.png)
 
 2. Cliquez sur **Connexion** pour ouvrir le gestionnaire de connexions, puis cliquez sur **Nouvelle connexion**.
 
@@ -132,4 +132,4 @@ Pour créer une base de données, une collection et des documents à l’aide de
 
  
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0831_2016-->

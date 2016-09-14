@@ -13,16 +13,28 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/17/2016" 
+	ms.date="08/26/2016" 
 	ms.author="spelluru"/>
 
 # Notes de version pour la passerelle de gestion des données
-
 Un des défis de l’intégration de données modernes consiste à déplacer en toute transparence des données vers et depuis un site local et le cloud. Azure Data Factory facilite cette intégration avec la passerelle de gestion des données Microsoft, qui est un agent pouvant être installé en local pour activer le déplacement de données hybrides.
 
-Consultez les articles [Déplacement de données entre des sources locales et le cloud à l’aide de la passerelle de gestion des données](data-factory-move-data-between-onprem-and-cloud.md) et [Passerelle de gestion de données](data-factory-data-management-gateway.md) pour en savoir plus.
+Consultez les articles suivants pour des informations détaillées sur la passerelle de gestion des données et son utilisation :
 
-## VERSION ACTUELLE (2.1.6040.1)
+- [Passerelle de gestion de données](data-factory-data-management-gateway.md)
+- [Déplacement de données entre des emplacements locaux et le cloud à l'aide d’Azure Data Factory](data-factory-move-data-between-onprem-and-cloud.md)
+
+## Version actuelle (2.2.6072.1)
+
+- Permet de paramétrer le proxy HTTP pour la passerelle à l’aide du Gestionnaire de configuration de passerelle. Si configurés, Azure Blob, Azure Table, Azure Data Lake et Document DB sont accessibles via le proxy HTTP.
+- Prend en charge la gestion des en-têtes pour TextFormat lors de la copie des données depuis/vers un objet Blob Azure, Azure Data Lake Store, le système de fichiers local ou un système de fichiers HDFS local.
+- Prend en charge la copie des données d’objets blob d’ajouts et de pages, ainsi que des objets blob de blocs déjà pris en charge.
+- Introduit le nouvel état de passerelle **En ligne (limité)**, qui indique que la fonctionnalité principale de la passerelle fonctionne, à l’exception de la prise en charge de l’opération interactive pour l’assistant de copie.
+- Améliore la robustesse de l’inscription de la passerelle avec la clé d’inscription.
+
+## Versions antérieures
+
+## 2\.1.6040.1
 
 - Le pilote DB2 est désormais inclus dans le package d’installation de la passerelle. Il est inutile de l’installer séparément.
 - Le pilote DB2 prend désormais en charge z/OS et DB2 pour i (AS/400), ainsi que les plateformes déjà prises en charge (Windows, Unix et Linux).
@@ -30,16 +42,14 @@ Consultez les articles [Déplacement de données entre des sources locales et le
 - Prend en charge la copie de données depuis/vers un stockage d’objet blob à chaud ou à froid, ainsi que le compte de stockage à usage général déjà pris en charge.
 - Permet de vous connecter l’instance SQL Server locale via la passerelle avec des droits de connexion à distance.
 
-## Versions antérieures
-
 ## 2\.0.6013.1
 
 - Vous pouvez sélectionner la langue/culture utilisée par une passerelle lors de l’installation manuelle.
-- Lorsqu’une passerelle ne fonctionne pas comme prévu, vous pouvez choisir d’envoyer les journaux des 7 derniers jours de la passerelle à Microsoft pour faciliter la résolution du problème. Si la passerelle n’est pas connectée au service cloud, vous pouvez choisir d’enregistrer et d’archiver les journaux de la passerelle.
+- Lorsqu’une passerelle ne fonctionne pas comme prévu, vous pouvez choisir d’envoyer les journaux des sept derniers jours de la passerelle à Microsoft pour faciliter la résolution du problème. Si la passerelle n’est pas connectée au service cloud, vous pouvez choisir d’enregistrer et d’archiver les journaux de la passerelle.
 - Améliorations de l’interface utilisateur du gestionnaire de configuration de la passerelle :
 	- État de la passerelle plus visible dans l’onglet Accueil.
 	- Commandes réorganisées et simplifiées.
-- Vous pouvez copier des données à partir d’un stockage autre que le stockage d’objets Blob Azure dans Azure SQL Data Warehouse via Polybase et du stockage intermédiaire d’objets Blob à l’aide de [l’outil de prévisualisation de copie sans code](data-factory-copy-data-wizard-tutorial.md). Pour plus d’informations sur cette fonctionnalité, consultez [Copie intermédiaire](data-factory-copy-activity-performance.md#staged-copy).
+- Vous pouvez copier des données à partir d’un stockage à l’aide de [l’outil de prévisualisation de copie sans code](data-factory-copy-data-wizard-tutorial.md). Pour plus d’informations sur cette fonctionnalité, consultez [Copie intermédiaire](data-factory-copy-activity-performance.md#staged-copy).
 - Vous pouvez utiliser la passerelle de gestion des données pour entrer des données directement à partir d’une base de données SQL Server locale dans Azure Machine Learning.
 - Amélioration des performances
 	- Amélioration des performances d’affichage du schéma/de l’aperçu par rapport à SQL Server dans l’outil de prévisualisation de copie sans code.
@@ -53,7 +63,7 @@ Consultez les articles [Déplacement de données entre des sources locales et le
 
 - La taille maximale du journal des événements de la passerelle a été augmentée de 1 Mo à 40 Mo.
 - Une boîte de dialogue d’avertissement s’affiche si un redémarrage est nécessaire pendant la mise à jour automatique de la passerelle. Vous pouvez choisir de redémarrer immédiatement ou plus tard.
-- En cas d’échec de la mise à jour automatique, le programme d’installation de la passerelle retentera la mise à jour automatique 3 fois au maximum.
+- En cas d’échec de la mise à jour automatique, le programme d’installation de la passerelle retente la mise à jour automatique trois fois au maximum.
 - Amélioration des performances
 	- Améliorez les performances lors du chargement de tables de grande taille à partir du serveur local dans le scénario de copie sans code.
 - Résolution des bogues
@@ -135,7 +145,7 @@ Consultez les articles [Déplacement de données entre des sources locales et le
 
 ### 1\.5.5612.1
 
-- Prise en charge de 5 bases de données relationnelles pour Microsoft Azure Data Factory (MySQL, PostgreSQL, DB2, Teradata et Sybase)
+- Prise en charge de cinq bases de données relationnelles pour Microsoft Azure Data Factory (MySQL, PostgreSQL, DB2, Teradata et Sybase)
 - Prise en charge de la compression (Gzip et Deflate)
 - Amélioration des performances
 - Résolution des bogues
@@ -165,9 +175,4 @@ Consultez les articles [Déplacement de données entre des sources locales et le
 
 - Aucune modification affectant les scénarios Microsoft Azure Data Factory.
 
-## Questions et réponses
-
-### Pourquoi le Gestionnaire de sources de données tente-t-il de se connecter à une passerelle ?
-Il s’agit d’une conception de sécurité. Elle vous permet uniquement de configurer des sources de données locales pour l’accès au cloud au sein de votre réseau d’entreprise, et vos informations d’identification ne circulent pas en dehors de votre pare-feu d’entreprise. Assurez-vous que votre ordinateur peut atteindre l’ordinateur sur lequel la passerelle est installée.
-
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0831_2016-->

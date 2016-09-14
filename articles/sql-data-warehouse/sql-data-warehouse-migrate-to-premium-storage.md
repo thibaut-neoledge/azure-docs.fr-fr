@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/19/2016"
+   ms.date="08/24/2016"
    ms.author="nicw;barbkess;sonyama"/>
 
 # Détails relatifs à la migration vers Premium Storage
@@ -47,9 +47,9 @@ Si vous avez créé un entrepôt de données avant les dates ci-dessous, cela si
 | Centre-Sud des États-Unis | 27 mai 2016 |
 | Asie du Sud-Est | 24 mai 2016 |
 | Europe de l'Ouest | 25 mai 2016 |
-| Centre-Ouest des États-Unis | Premium Storage non disponible pour l’instant |
+| Centre-Ouest des États-Unis | 26 août 2016 |
 | Ouest des États-Unis | 26 mai 2016 |
-| Ouest des États-Unis 2 | Premium Storage non disponible pour l’instant |
+| Ouest des États-Unis 2 | 26 août 2016 |
 
 ## Détails sur la migration automatique
 Par défaut, nous allons migrer votre base de données pour vous entre 18:00 et 6 heures du matin (heure locale de votre région) à un moment pendant la [planification de la migration automatique][] \(voir section ci-dessous). L’entrepôt de données existant est inutilisable lors de la migration. Nous estimons que la migration dure environ une heure par To de stockage, pour chaque entrepôt de données. Nous allons également nous assurer que vous n’êtes facturé à aucun moment de la migration automatique.
@@ -133,7 +133,7 @@ ALTER DATABASE CurrentDatabasename MODIFY NAME = NewDatabaseName;
 >	-  Firewall rules at the **Database** level need to be readded.  Firewall rules at the **Server** level are not be impacted.
 
 ## Étapes suivantes
-Avec l’évolution de Premium Storage, nous avons également augmenté le nombre de fichiers blob de base de données dans l’architecture sous-jacente de votre entrepôt de données. Si vous rencontrez des problèmes de performances, nous vous recommandons de reconstruire vos index columnstore en cluster à l’aide du script suivant. Le script ci-dessous force le déplacement de certaines de vos données existantes vers les objets blob supplémentaires. Dans le cas contraire, les données seront naturellement redistribuées au fil du temps, quand vous chargerez d’autres données dans les tables de votre entrepôt de données.
+Avec l’évolution de Premium Storage, nous avons également augmenté le nombre de fichiers blob de base de données dans l’architecture sous-jacente de votre entrepôt de données. Pour optimiser les avantages en termes de performances de cette modification, nous vous recommandons de reconstruire vos index columnstore en cluster à l’aide du script suivant. Le script ci-dessous force le déplacement de certaines de vos données existantes vers les objets blob supplémentaires. Dans le cas contraire, les données seront naturellement redistribuées au fil du temps, quand vous chargerez d’autres données dans les tables de votre entrepôt de données.
 
 **Conditions préalables :**
 
@@ -150,7 +150,7 @@ Avec l’évolution de Premium Storage, nous avons également augmenté le nombr
 create table sql_statements
 WITH (distribution = round_robin)
 as select 
-    'alter index all on ' + s.name + '.' + t.NAME + ' rebuild;' as statement,
+	’alter index all on ’ + s.name + ’.’ + t.NAME + ’ rebuild;’ as statement, 
     row_number() over (order by s.name, t.name) as sequence
 from 
     sys.schemas s
@@ -171,7 +171,7 @@ declare @i int = 1
 while(@i <= @nbr_statements)
 begin
       declare @statement nvarchar(1000)= (select statement from sql_statements where sequence = @i)
-      print cast(getdate() as nvarchar(1000)) + ' Executing... ' + @statement
+	print cast(getdate() as nvarchar(1000)) + ’ Executing... ’ + @statement 
       exec (@statement)
       delete from sql_statements where sequence = @i
       set @i += 1
@@ -207,4 +207,4 @@ Si vous rencontrez des problèmes liés à votre entrepôt de données, [créez 
 [Premium Storage, afin d’optimiser la prévisibilité des performances]: https://azure.microsoft.com/blog/azure-sql-data-warehouse-introduces-premium-storage-for-greater-performance/
 [portail Azure]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

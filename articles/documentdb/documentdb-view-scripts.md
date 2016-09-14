@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/28/2016"
+	ms.date="08/30/2016"
 	ms.author="anhoh"/>
 
 # Créer et exécuter des procédures stockées, des déclencheurs et des fonctions définies par l’utilisateur à l’aide de l’Explorateur de scripts de DocumentDB
@@ -23,17 +23,13 @@ Cet article fournit une présentation de l’Explorateur de scripts [Microsoft A
 
 ## Lancer l’Explorateur de scripts
 
-1. Dans la barre de lancement du portail Azure, cliquez sur **Comptes DocumentDB**. Si l’option **Comptes DocumentDB** n’est pas affichée, cliquez sur **Parcourir**, puis sur **Comptes DocumentDB**.
+1. Dans la barre de lancement du Portail Azure, cliquez sur **DocumentDB (NoSQL)**. Si l’option **Comptes DocumentDB** n’est pas affichée, cliquez sur **Plus de services**, puis sur **DocumentDB (NoSQL)**.
 
-2. En haut du panneau **Comptes DocumentDB**, cliquez sur **Explorateur de scripts**.
+2. Dans le menu des ressources, cliquez sur **Explorateur de scripts**.
 
 	![Capture d'écran de la commande de l'Explorateur de scripts](./media/documentdb-view-scripts/scriptexplorercommand.png)
  
-    >[AZURE.NOTE] L’Explorateur de scripts s’affiche également dans les panneaux de base de données et de collection.
-
     Les zones de liste déroulante **Base de données** et **Collection** sont préalablement remplies en fonction du contexte de lancement de l’Explorateur de scripts. Par exemple, si vous le lancez à partir d'un panneau de base de données, la base de données active est préremplie. Si vous le lancez à partir d'un panneau de collection, la collection active est préremplie.
-
-	![Capture d'écran de l'Explorateur de scripts](./media/documentdb-view-scripts/scriptexplorerinitial.png)
 
 4.  Utilisez les zones de liste déroulante **Base de données** et **Collection** pour modifier facilement la collection à partir de laquelle les scripts sont affichés actuellement sans avoir à fermer, puis à relancer l’Explorateur de scripts.
 
@@ -53,7 +49,7 @@ Cet article fournit une présentation de l’Explorateur de scripts [Microsoft A
 
 L'Explorateur de scripts vous permet d'exécuter facilement des opérations CRUD sur les artefacts de programmation côté serveur de DocumentDB.
 
-- Pour créer un script, il vous suffit de cliquer sur la commande de création applicable dans l’Explorateur de scripts, de fournir un id, d’entrer le contenu du script, puis de cliquer sur **Enregistrer**.
+- Pour créer un script, il vous suffit de cliquer sur la commande de création applicable dans l’Explorateur de scripts, de fournir un ID, d’entrer le contenu du script, puis de cliquer sur **Enregistrer**.
 
 	![Capture d’écran de l’option de création de l’Explorateur de scripts, affichant l’éditeur JavaScript](./media/documentdb-view-scripts/scriptexplorercreatecommand.png)
 
@@ -89,11 +85,11 @@ L'Explorateur de scripts vous permet d'exécuter facilement des opérations CRUD
 
 ## Exécuter une procédure stockée
 
-> [AZURE.WARNING] L’exécution de procédures stockées dans l'Explorateur de scripts n'est pas encore possible pour les collections partitionnées côté serveur. Pour plus d'informations, consultez [Partitionnement et mise à l'échelle dans DocumentDB](documentdb-partition-data.md).
+> [AZURE.WARNING] L’exécution de procédures stockées dans l'Explorateur de scripts n'est pas encore possible pour les collections partitionnées côté serveur. Pour plus d’informations, consultez [Partitionnement et mise à l’échelle dans DocumentDB](documentdb-partition-data.md).
 
 L’Explorateur de scripts vous permet d’exécuter des procédures stockées côté serveur à partir du portail Azure.
 
-- Quand vous ouvrez le panneau de création de procédure stockée, un script par défaut (*prefix*) est déjà fourni. Pour exécuter le script *prefix* ou votre propre script, ajoutez un *id* et des *entrées*. Pour les procédures stockées qui acceptent plusieurs paramètres, toutes les entrées doivent se trouver dans un tableau (par exemple, *["foo", "bar"]*).
+- Quand vous ouvrez le panneau de création de procédure stockée, un script par défaut (*prefix*) est déjà fourni. Pour exécuter le script *prefix* ou votre propre script, ajoutez un *ID* et des *entrées*. Pour les procédures stockées qui acceptent plusieurs paramètres, toutes les entrées doivent se trouver dans un tableau (par exemple, *["foo", "bar"]*).
 
 	![Capture d’écran du panneau Procédures stockées de l’Explorateur de scripts, pour ajouter une entrée et exécuter une procédure stockée](./media/documentdb-view-scripts/documentdb-execute-a-stored-procedure-input.png)
 
@@ -101,7 +97,7 @@ L’Explorateur de scripts vous permet d’exécuter des procédures stockées c
 
 	> [AZURE.NOTE] La commande **Enregistrer et exécuter** enregistre votre procédure stockée avant de l’exécuter, remplaçant ainsi la version précédemment enregistrée de la procédure stockée.
 
-- Quand une procédure stockée s’exécutent normalement, son état est *Procédure stockée enregistrée et exécutée avec succès* et les résultats retournés apparaissent dans le volet *Résultats*.
+- Quand une procédure stockée s’exécute normalement, son état est *Procédure stockée enregistrée et exécutée avec succès* et les résultats retournés apparaissent dans le volet *Résultats*.
 
 	![Capture d’écran du panneau Procédures stockées de l’Explorateur de scripts, pour exécuter une procédure stockée](./media/documentdb-view-scripts/documentdb-execute-a-stored-procedure.png)
 
@@ -111,12 +107,12 @@ L’Explorateur de scripts vous permet d’exécuter des procédures stockées c
 
 ## Utiliser des scripts en dehors du portail
 
-L’Explorateur de scripts dans le portail Azure n’est qu’un des moyens d’utiliser des procédures stockées, des déclencheurs et des fonctions définies par l’utilisateur dans DocumentDB. Vous pouvez également utiliser des scripts à l’aide de l’API REST et des [Kits de développement logiciel (SDK)](documentdb-sdk-dotnet.md). La documentation de l’API REST inclut des exemples d’utilisation des [procédures stockées à l’aide de REST](https://msdn.microsoft.com/library/azure/mt489092.aspx), des [fonctions définies par l’utilisateur à l’aide de REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) et des [déclencheurs à l’aide de REST](https://msdn.microsoft.com/library/azure/mt489116.aspx). Des exemples illustrant l’[utilisation de scripts à l’aide de C#](documentdb-dotnet-samples.md#server-side-programming-examples) et l’[utilisation de scripts à l’aide de Node.js](documentdb-nodejs-samples.md#server-side-programming-examples) sont également proposés.
+L’Explorateur de scripts dans le portail Azure n’est qu’un des moyens d’utiliser des procédures stockées, des déclencheurs et des fonctions définies par l’utilisateur dans DocumentDB. Vous pouvez également travailler avec des scripts utilisant l’API REST et les [Kits de développement logiciel (SDK) clients](documentdb-sdk-dotnet.md). La documentation de l’API REST inclut des exemples d’utilisation des [procédures stockées utilisant REST](https://msdn.microsoft.com/library/azure/mt489092.aspx), des [fonctions définies par l’utilisateur utilisant REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) et des [déclencheurs utilisant REST](https://msdn.microsoft.com/library/azure/mt489116.aspx). Des exemples montrant comment [travailler avec des scripts utilisant C#](documentdb-dotnet-samples.md#server-side-programming-examples) et [travailler avec des scripts utilisant Node.js](documentdb-nodejs-samples.md#server-side-programming-examples) sont également proposés.
 
 ## Étapes suivantes
 
 Pour plus d’informations sur la programmation côté serveur de DocumentDB, consultez l’article [Procédures stockées, déclencheurs de base de données et fonctions définies par l’utilisateur](documentdb-programming.md).
 
-Le [parcours d’apprentissage](https://azure.microsoft.com/documentation/learning-paths/documentdb/) est également une ressource utile pour vous guider lorsque vous en apprenez plus sur DocumentDB.
+Le [parcours d’apprentissage](https://azure.microsoft.com/documentation/learning-paths/documentdb/) est également une ressource utile pour vous guider au fil de votre apprentissage de DocumentDB.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0831_2016-->

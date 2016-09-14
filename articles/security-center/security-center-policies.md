@@ -26,7 +26,7 @@ Par exemple, les ressources utilisées pour le développement ou le test peuvent
 
 ## Définition des stratégies de sécurité pour les abonnements
 
-Vous pouvez configurer des stratégies de sécurité pour chaque abonnement ou groupe de ressources. Pour modifier une stratégie de sécurité, vous devez avoir le rôle de propriétaire ou de collaborateur pour l’abonnement concerné. Accédez au Portail Azure et suivez les étapes précédentes pour configurer des stratégies de sécurité dans le Centre de sécurité :
+Vous pouvez configurer des stratégies de sécurité pour chaque abonnement ou groupe de ressources. Pour modifier une stratégie de sécurité, vous devez avoir le rôle de propriétaire ou de collaborateur pour l’abonnement concerné. Accédez au portail Azure et suivez les étapes suivantes pour configurer des stratégies de sécurité dans le Centre de sécurité :
 
 1. Cliquez sur la mosaïque **Stratégie** dans le tableau de bord du Centre de sécurité.
 
@@ -106,4 +106,4 @@ Dans ce document, vous avez appris à configurer des stratégies de sécurité d
 - [FAQ d’Azure Security Center](security-center-faq.md) : découvrez les réponses aux questions les plus souvent posées à propos de l’utilisation de ce service.
 - [Blog sur la sécurité Azure](http://blogs.msdn.com/b/azuresecurity/) : accédez à des billets de blog sur la sécurité et la conformité Azure.
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -19,8 +19,6 @@
 
 # Création d’une machine virtuelle Linux sur Azure à l’aide de l’interface de ligne de commande (CLI)
 
-> [AZURE.NOTE] Si vous avez un moment, aidez-nous à améliorer la documentation relative aux machines virtuelles Azure Linux en répondant à cette [enquête rapide](https://aka.ms/linuxdocsurvey) concernant vos expériences. Chaque réponse nous aide à vous faciliter la tâche.
-
 Cet article explique comment déployer rapidement une machine virtuelle Linux sur Azure à l’aide de la commande `azure vm quick-create` de l’interface de ligne de commande (CLI) Azure. La commande `quick-create` déploie une machine virtuelle avec une infrastructure de base que vous pouvez utiliser comme prototype ou pour tester très rapidement un concept. Cet article nécessite un compte Azure ([obtenir un compte d’essai gratuit](https://azure.microsoft.com/pricing/free-trial/)) et l’[interface de ligne de commande Azure](../xplat-cli-install.md) connectée en mode Classic (`azure login`) et en mode Resource Manager (`azure config mode arm`). Vous pouvez également déployer rapidement une machine virtuelle Linux à l’aide du [portail Azure](virtual-machines-linux-quick-create-portal.md).
 
 ## Résumé des commandes rapides
@@ -151,6 +149,7 @@ SSH dans votre machine virtuelle sur le port 22 et les adresses IP publiques ré
 ```bash
 ssh ops@rhel-westu-1630678171-pip.westus.cloudapp.azure.com
 ```
+
 Le processus de connexion doit ressembler à ceci :
 
 ```bash
@@ -170,4 +169,4 @@ La procédure `azure vm quick-create` permet de déployer rapidement une machine
 - [Créer votre propre environnement personnalisé pour une machine virtuelle Linux à l’aide des commandes de l’interface de ligne de commande Azure directement](virtual-machines-linux-create-cli-complete.md).
 - [Création d’une machine virtuelle Linux sécurisée par SSH dans Azure à l’aide de modèles](virtual-machines-linux-create-ssh-secured-vm-from-template.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

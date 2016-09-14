@@ -48,7 +48,7 @@ Dans cette section, vous allez créer une application console Node.js qui crée 
     npm init
     ```
 
-2. À l’invite de commandes, dans le dossier **createdeviceidentity**, exécutez la commande suivante pour installer le package **azure-iothub** :
+2. À l’invite de commandes, dans le dossier **createdeviceidentity**, exécutez la commande suivante pour installer le package SDK du service **azure-iothub** :
 
     ```
     npm install azure-iothub --save
@@ -108,7 +108,7 @@ Dans cette section, vous allez créer une application console Node.js qui crée 
 
 ## Recevoir des messages appareil-à-cloud
 
-Dans cette section, vous allez créer une application console Node.js qui lit les messages appareil-à-cloud à partir d’IoT Hub. Un IoT Hub expose un point de terminaison compatible avec [Event Hubs][lnk-event-hubs-overview] pour vous permettre de lire les messages Appareil vers cloud. Pour simplifier les choses, ce didacticiel crée un lecteur de base qui ne convient pas dans le cas d’un déploiement à débit élevé. Le didacticiel [Traiter les messages des appareils vers le cloud IoT Hub][lnk-process-d2c-tutorial] vous indique comment traiter les messages appareil-à-cloud à grande échelle. Le didacticiel [Prise en main des concentrateurs d’événements][lnk-eventhubs-tutorial] fournit des informations complémentaires sur le traitement des messages à partir d’Event Hubs et s’applique aux points de terminaison compatibles Event Hubs exposés par l’IoT Hub.
+Dans cette section, vous allez créer une application console Node.js qui lit les messages appareil-à-cloud à partir d’IoT Hub. Un IoT Hub expose un point de terminaison compatible avec [Event Hubs][lnk-event-hubs-overview] pour vous permettre de lire les messages Appareil vers cloud. Pour simplifier les choses, ce didacticiel crée un lecteur de base qui ne convient pas dans le cas d’un déploiement à débit élevé. Le didacticiel [Traiter les messages des appareils vers le cloud IoT Hub][lnk-process-d2c-tutorial] vous indique comment traiter les messages des appareils vers le cloud à grande échelle. Le didacticiel [Prise en main des hubs d’événements][lnk-eventhubs-tutorial] fournit des informations complémentaires sur le traitement des messages des hubs d’événements et s’applique aux points de terminaison compatibles avec les hubs d’événements de l’IoT Hub.
 
 > [AZURE.NOTE] Le point de terminaison compatible Event Hubs pour lire des messages de l'appareil vers le cloud utilise toujours le protocole AMQPS.
 
@@ -184,7 +184,7 @@ Dans cette section, vous allez créer une application console Node.js qui simule
     npm init
     ```
 
-2. À l’invite de commandes, dans le dossier **simulateddevice**, exécutez la commande suivante pour installer le package **azure-iot-device-amqp** :
+2. À l’invite de commandes, dans le dossier **simulateddevice**, exécutez la commande suivante pour installer le package device SDK **azure-iot-device** et le package **azure-iot-device-amqp** :
 
     ```
     npm install azure-iot-device azure-iot-device-amqp --save
@@ -201,7 +201,7 @@ Dans cette section, vous allez créer une application console Node.js qui simule
     var Message = require('azure-iot-device').Message;
     ```
 
-5. Ajoutez une variable **connectionString** et utilisez-la pour créer un client d’appareil. Remplacez la chaîne **{youriothubname}** par le nom de l’IoT Hub que vous avez créé dans la section *Création d’un IoT Hub*, et **{yourdevicekey}** par la valeur clé d’appareil que vous avez générée dans la section *Création d’une identité d’appareil* :
+5. Ajoutez une variable **connectionString** et utilisez-la pour créer un client d’appareil. Remplacez la chaîne **{youriothubname}** par le nom de l’IoT Hub que vous avez créé dans la section *Créer un IoT Hub*, et **{yourdevicekey}** par la valeur de clé d’appareil que vous avez générée dans la section *Création d’une identité d’appareil* :
 
     ```
     var connectionString = 'HostName={youriothostname};DeviceId=myFirstNodeDevice;SharedAccessKey={yourdevicekey}';
@@ -256,7 +256,7 @@ Dans cette section, vous allez créer une application console Node.js qui simule
 
 Vous êtes maintenant prêt à exécuter les applications.
 
-1. À l’invite de commandes dans le dossier **readdevicetocloudmessages**, exécutez la commande suivante pour commencer à analyser votre IoT Hub :
+1. À l’invite de commandes, dans le dossier **readdevicetocloudmessages**, exécutez la commande suivante pour commencer à surveiller votre IoT Hub :
 
     ```
     node ReadDeviceToCloudMessages.js 
@@ -264,7 +264,7 @@ Vous êtes maintenant prêt à exécuter les applications.
 
     ![][7]
 
-2. À l’invite de commandes dans le dossier **simulateddevice**, exécutez la commande suivante pour commencer à envoyer des données de télémétrie à votre IoT Hub :
+2. À l’invite de commandes, dans le dossier **simulateddevice**, exécutez la commande suivante pour commencer à envoyer des données de télémétrie à votre IoT Hub :
 
     ```
     node SimulatedDevice.js
@@ -272,7 +272,7 @@ Vous êtes maintenant prêt à exécuter les applications.
 
     ![][8]
 
-3. La vignette **Utilisation** du [portail Azure][lnk-portal] indique le nombre de messages envoyés au concentrateur :
+3. La vignette **Utilisation** du [portail Azure][lnk-portal] indique le nombre de messages envoyés au hub :
 
     ![][43]
 
@@ -312,4 +312,4 @@ Pour découvrir comment étendre votre solution IoT et traiter les messages appa
 [lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0907_2016-->
