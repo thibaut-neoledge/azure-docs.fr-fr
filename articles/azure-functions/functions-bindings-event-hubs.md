@@ -20,7 +20,7 @@
 
 # Liaisons de concentrateur d’événements Azure Functions
 
-[AZURE.INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md) liaisons de sélecteur de fonctions]
+[AZURE.INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
 Cet article explique comment configurer et coder des liaisons de [concentrateur d’événements Azure (Azure Event Hub)](../event-hubs/event-hubs-overview.md) pour Azure Functions. Azure Functions prend en charge des liaisons de déclencheur et de sortie pour des Azure Event Hubs.
 
@@ -136,4 +136,4 @@ L’exemple de code de fonction Node.js suivant illustre l’écriture d’un é
 
 [AZURE.INCLUDE [Étapes suivantes](../../includes/functions-bindings-next-steps.md)]
 
-<!---HONumber=AcomDC_0824_2016--->
+<!----HONumber=AcomDC_0824_2016--->
