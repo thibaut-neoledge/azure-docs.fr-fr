@@ -149,7 +149,7 @@ BrokeredMessage message = new BrokeredMessage("MyMessage");
 service.sendTopicMessage("TestTopic", message);
 ```
 
-Les messages envoyés aux rubriques Service Bus sont des instances de la classe [BrokeredMessage][]. Les objets [BrokeredMessage][]* *possèdent un ensemble de propriétés standard* (telles que *setLabel* *et* *TimeToLive**), un dictionnaire servant à conserver les propriétés personnalisées propres à une application, ainsi qu’un corps de données d’application arbitraires. Une application peut définir le corps du message en transmettant un objet sérialisable au constructeur de l'objet [BrokeredMessage][]. Le sérialiseur **DataContractSerializer** approprié est alors utilisé pour sérialiser l'objet. Une autre possibilité consiste à fournir un **java.io.InputStream**.
+Les messages envoyés aux rubriques Service Bus sont des instances de la classe [BrokeredMessage][]. Les objets [BrokeredMessage][]* possèdent un ensemble de propriétés standard (telles que **setLabel** et **TimeToLive**), un dictionnaire servant à conserver les propriétés personnalisées propres à une application, ainsi qu’un corps de données d’application arbitraires. Une application peut définir le corps du message en transmettant un objet sérialisable au constructeur de l'objet [BrokeredMessage][]. Le sérialiseur **DataContractSerializer** approprié est alors utilisé pour sérialiser l'objet. Une autre possibilité consiste à fournir un **java.io.InputStream**.
 
 L’exemple suivant montre comment envoyer cinq messages de test au client **MessageSender** `TestTopic` obtenu dans l’extrait de code précédent. Notez que la valeur de la propriété **MessageNumber** de chaque message varie au niveau de l'itération de la boucle (détermine les abonnements qui le reçoivent) :
 
@@ -267,4 +267,4 @@ Maintenant que vous connaissez les principes de base des files d’attente Servi
   [2]: ./media/service-bus-java-how-to-use-topics-subscriptions/sb-queues-04.png
   [3]: ./media/service-bus-java-how-to-use-topics-subscriptions/sb-queues-09.png
 
-<!---HONumber=AcomDC_0824_2016-->
+<!----HONumber=AcomDC_0824_2016-->
