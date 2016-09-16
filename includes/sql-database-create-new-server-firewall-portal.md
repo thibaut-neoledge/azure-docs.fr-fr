@@ -46,4 +46,4 @@ Exécutez les étapes suivantes dans le portail Azure pour créer une règle de 
 
 	>[AZURE.IMPORTANT] Votre adresse IP du client peut changer de temps à autre, et vous ne serez peut-être pas en mesure d’accéder à votre serveur jusqu’à ce que vous créiez une nouvelle règle de pare-feu. Vous pouvez vérifier votre adresse IP à l’aide de [Bing](http://www.bing.com/search?q=my%20ip%20address). Ajoutez ensuite une adresse IP ou une plage d’adresses IP. Pour plus d’informations, voir l’article sur la [gestion des paramètres de pare-feu](sql-database-configure-firewall-settings.md#manage-existing-server-level-firewall-rules-through-the-azure-portal)
 
-<!---HONumber=AcomDC_0912_2016-->
+<!----HONumber=AcomDC_0912_2016-->

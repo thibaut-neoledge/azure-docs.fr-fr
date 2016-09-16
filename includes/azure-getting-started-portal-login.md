@@ -31,4 +31,4 @@ Si vous n’avez pas de compte Azure existant, choisissez l’une des options su
 
    ![Connexion](./media/azure-getting-started-portal-login/login.png)
 
-<!---HONumber=AcomDC_0912_2016-->
+<!----HONumber=AcomDC_0912_2016-->

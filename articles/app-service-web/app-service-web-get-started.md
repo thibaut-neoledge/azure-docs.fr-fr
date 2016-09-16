@@ -144,4 +144,4 @@ Ou faites-en plus avec votre première application web. Par exemple :
 - Essayez [d’autres méthodes de déploiement de votre code vers Azure](../app-service-web/web-sites-deploy.md). Par exemple, pour déployer à partir de l’un de vos référentiels GitHub, sélectionnez simplement **GitHub** au lieu de **Référentiel Git local** dans les **Options de déploiement**.
 - Faites passer votre application Azure à la vitesse supérieure. Authentifiez vos utilisateurs. Mettez-la à l’échelle en fonction de la demande. Configurez des alertes de performance. Tout ceci en seulement quelques clics. Consultez l’article [Ajouter des fonctionnalités à votre première application web](app-service-web-get-started-2.md).
 
-<!---HONumber=AcomDC_0914_2016-->
+<!----HONumber=AcomDC_0914_2016-->

@@ -137,4 +137,4 @@ Maintenant que vous avez terminé ce didacticiel sur SQL Database et que vous av
 
 [Définition de la base de données SQL](sql-database-technical-overview.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!----HONumber=AcomDC_0914_2016-->

@@ -93,4 +93,4 @@ Pour en savoir plus sur DocumentDB, explorez les ressources suivantes :
 -	[Parcours d’apprentissage de DocumentDB](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
 -	[Modèle de ressources hiérarchiques et concepts de DocumentDB](documentdb-resources.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!----HONumber=AcomDC_0914_2016-->
