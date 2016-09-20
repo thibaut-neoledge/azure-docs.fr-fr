@@ -4,7 +4,7 @@
    services="virtual-machines-linux,virtual-network,storage"
    documentationCenter="saponazure"
    authors="MSSedusch"
-   manager="timlt"
+   manager="juergent"
    editor=""
    tags="azure-resource-manager"
    keywords=""/>
@@ -14,7 +14,7 @@
    ms.topic="campaign-page"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="na"
-   ms.date="08/02/2016"
+   ms.date="08/18/2016"
    ms.author="sedusch"/>
 
 # SAP NetWeaver sur les machines virtuelles Azure – Guide de déploiement SGBD
@@ -89,15 +89,15 @@
 [dbms-guide-8.4.4]: virtual-machines-linux-sap-dbms-guide.md#f77c1436-9ad8-44fb-a331-8671342de818 "Autres"
 [dbms-guide-900-sap-cache-server-on-premises]: virtual-machines-linux-sap-dbms-guide.md#642f746c-e4d4-489d-bf63-73e80177a0a8
 
-[dbms-guide-figure-100]: ./media/virtual-machines-linux-sap-dbms-guide/100_storage_account_types.png
-[dbms-guide-figure-200]: ./media/virtual-machines-linux-sap-dbms-guide/200-ha-set-for-dbms-ha.png
-[dbms-guide-figure-300]: ./media/virtual-machines-linux-sap-dbms-guide/300-reference-config-iaas.png
-[dbms-guide-figure-400]: ./media/virtual-machines-linux-sap-dbms-guide/400-sql-2012-backup-to-blob-storage.png
-[dbms-guide-figure-500]: ./media/virtual-machines-linux-sap-dbms-guide/500-sql-2012-backup-to-blob-storage-different-containers.png
-[dbms-guide-figure-600]: ./media/virtual-machines-linux-sap-dbms-guide/600-iaas-maxdb.png
-[dbms-guide-figure-700]: ./media/virtual-machines-linux-sap-dbms-guide/700-livecach-prod.png
-[dbms-guide-figure-800]: ./media/virtual-machines-linux-sap-dbms-guide/800-azure-vm-sap-content-server.png
-[dbms-guide-figure-900]: ./media/virtual-machines-linux-sap-dbms-guide/900-sap-cache-server-on-premises.png
+[dbms-guide-figure-100]: ./media/virtual-machines-shared-sap-dbms-guide/100_storage_account_types.png
+[dbms-guide-figure-200]: ./media/virtual-machines-shared-sap-dbms-guide/200-ha-set-for-dbms-ha.png
+[dbms-guide-figure-300]: ./media/virtual-machines-shared-sap-dbms-guide/300-reference-config-iaas.png
+[dbms-guide-figure-400]: ./media/virtual-machines-shared-sap-dbms-guide/400-sql-2012-backup-to-blob-storage.png
+[dbms-guide-figure-500]: ./media/virtual-machines-shared-sap-dbms-guide/500-sql-2012-backup-to-blob-storage-different-containers.png
+[dbms-guide-figure-600]: ./media/virtual-machines-shared-sap-dbms-guide/600-iaas-maxdb.png
+[dbms-guide-figure-700]: ./media/virtual-machines-shared-sap-dbms-guide/700-livecach-prod.png
+[dbms-guide-figure-800]: ./media/virtual-machines-shared-sap-dbms-guide/800-azure-vm-sap-content-server.png
+[dbms-guide-figure-900]: ./media/virtual-machines-shared-sap-dbms-guide/900-sap-cache-server-on-premises.png
 
 [deployment-guide]: virtual-machines-linux-sap-deployment-guide.md "SAP NetWeaver sur machines virtuelles Linux – Guide de déploiement"
 [deployment-guide-2.2]: virtual-machines-linux-sap-deployment-guide.md#42ee2bdb-1efc-4ec7-ab31-fe4c22769b94 "Ressources SAP"
@@ -120,25 +120,25 @@
 
 [deployment-guide-configure-monitoring-scenario-1]: virtual-machines-linux-sap-deployment-guide.md#ec323ac3-1de9-4c3a-b770-4ff701def65b "Configuration de l’analyse"
 [deployment-guide-configure-proxy]: virtual-machines-linux-sap-deployment-guide.md#baccae00-6f79-4307-ade4-40292ce4e02d "Configurer le proxy"
-[deployment-guide-figure-100]: ./media/virtual-machines-linux-sap-deployment-guide/100-deploy-vm-image.png
-[deployment-guide-figure-1000]: ./media/virtual-machines-linux-sap-deployment-guide/1000-service-properties.png
+[deployment-guide-figure-100]: ./media/virtual-machines-shared-sap-deployment-guide/100-deploy-vm-image.png
+[deployment-guide-figure-1000]: ./media/virtual-machines-shared-sap-deployment-guide/1000-service-properties.png
 [deployment-guide-figure-11]: virtual-machines-linux-sap-deployment-guide.md#figure-11
-[deployment-guide-figure-1100]: ./media/virtual-machines-linux-sap-deployment-guide/1100-azperflib.png
-[deployment-guide-figure-1200]: ./media/virtual-machines-linux-sap-deployment-guide/1200-cmd-test-login.png
-[deployment-guide-figure-1300]: ./media/virtual-machines-linux-sap-deployment-guide/1300-cmd-test-executed.png
+[deployment-guide-figure-1100]: ./media/virtual-machines-shared-sap-deployment-guide/1100-azperflib.png
+[deployment-guide-figure-1200]: ./media/virtual-machines-shared-sap-deployment-guide/1200-cmd-test-login.png
+[deployment-guide-figure-1300]: ./media/virtual-machines-shared-sap-deployment-guide/1300-cmd-test-executed.png
 [deployment-guide-figure-14]: virtual-machines-linux-sap-deployment-guide.md#figure-14
-[deployment-guide-figure-1400]: ./media/virtual-machines-linux-sap-deployment-guide/1400-azperflib-error-servicenotstarted.png
-[deployment-guide-figure-300]: ./media/virtual-machines-linux-sap-deployment-guide/300-deploy-private-image.png
-[deployment-guide-figure-400]: ./media/virtual-machines-linux-sap-deployment-guide/400-deploy-using-disk.png
+[deployment-guide-figure-1400]: ./media/virtual-machines-shared-sap-deployment-guide/1400-azperflib-error-servicenotstarted.png
+[deployment-guide-figure-300]: ./media/virtual-machines-shared-sap-deployment-guide/300-deploy-private-image.png
+[deployment-guide-figure-400]: ./media/virtual-machines-shared-sap-deployment-guide/400-deploy-using-disk.png
 [deployment-guide-figure-5]: virtual-machines-linux-sap-deployment-guide.md#figure-5
-[deployment-guide-figure-50]: ./media/virtual-machines-linux-sap-deployment-guide/50-forced-tunneling-suse.png
-[deployment-guide-figure-500]: ./media/virtual-machines-linux-sap-deployment-guide/500-install-powershell.png
+[deployment-guide-figure-50]: ./media/virtual-machines-shared-sap-deployment-guide/50-forced-tunneling-suse.png
+[deployment-guide-figure-500]: ./media/virtual-machines-shared-sap-deployment-guide/500-install-powershell.png
 [deployment-guide-figure-6]: virtual-machines-linux-sap-deployment-guide.md#figure-6
-[deployment-guide-figure-600]: ./media/virtual-machines-linux-sap-deployment-guide/600-powershell-version.png
+[deployment-guide-figure-600]: ./media/virtual-machines-shared-sap-deployment-guide/600-powershell-version.png
 [deployment-guide-figure-7]: virtual-machines-linux-sap-deployment-guide.md#figure-7
-[deployment-guide-figure-700]: ./media/virtual-machines-linux-sap-deployment-guide/700-install-powershell-installed.png
-[deployment-guide-figure-760]: ./media/virtual-machines-linux-sap-deployment-guide/760-azure-cli-version.png
-[deployment-guide-figure-900]: ./media/virtual-machines-linux-sap-deployment-guide/900-cmd-update-executed.png
+[deployment-guide-figure-700]: ./media/virtual-machines-shared-sap-deployment-guide/700-install-powershell-installed.png
+[deployment-guide-figure-760]: ./media/virtual-machines-shared-sap-deployment-guide/760-azure-cli-version.png
+[deployment-guide-figure-900]: ./media/virtual-machines-shared-sap-deployment-guide/900-cmd-update-executed.png
 [deployment-guide-figure-azure-cli-installed]: virtual-machines-linux-sap-deployment-guide.md#402488e5-f9bb-4b29-8063-1c5f52a892d0
 [deployment-guide-figure-azure-cli-version]: virtual-machines-linux-sap-deployment-guide.md#0ad010e6-f9b5-4c21-9c09-bb2e5efb3fda
 [deployment-guide-install-vm-agent-windows]: virtual-machines-linux-sap-deployment-guide.md#b2db5c9a-a076-42c6-9835-16945868e866
@@ -166,13 +166,14 @@
 
 [install-extension-cli]: virtual-machines-linux-enable-aem.md
 
-[Logo_Linux]: ./media/virtual-machines-linux-sap-shared/Linux.png
-[Logo_Windows]: ./media/virtual-machines-linux-sap-shared/Windows.png
+[Logo_Linux]: ./media/virtual-machines-shared-sap-shared/Linux.png
+[Logo_Windows]: ./media/virtual-machines-shared-sap-shared/Windows.png
 
 [msdn-set-azurermvmaemextension]: https://msdn.microsoft.com/library/azure/mt670598.aspx
 
 [planning-guide]: virtual-machines-linux-sap-planning-guide.md "SAP NetWeaver sur machines virtuelles Linux – Guide de planification et d’implémentation"
 [planning-guide-1.2]: virtual-machines-linux-sap-planning-guide.md#e55d1e22-c2c8-460b-9897-64622a34fdff "Ressources"
+[planning-guide-11]: virtual-machines-linux-sap-planning-guide.md#7cf991a1-badd-40a9-944e-7baae842a058 "Haute disponibilité (HA) et récupération d’urgence (DR)pour SAP NetWeaver s’exécutant sur des machines virtuelles Azure"
 [planning-guide-11.4.1]: virtual-machines-linux-sap-planning-guide.md#5d9d36f9-9058-435d-8367-5ad05f00de77 "Haute disponibilité pour les serveurs d’applications SAP"
 [planning-guide-11.5]: virtual-machines-linux-sap-planning-guide.md#4e165b58-74ca-474f-a7f4-5e695a93204f "Utilisation du démarrage automatique pour les instances SAP"
 [planning-guide-2.1]: virtual-machines-linux-sap-planning-guide.md#1625df66-4cc6-4d60-9202-de8a0b77f803 "Cloud uniquement : déploiement de machines virtuelles dans Azure sans dépendances du réseau local du client"
@@ -198,29 +199,29 @@
 [planning-guide-9.1]: virtual-machines-linux-sap-planning-guide.md#6f0a47f3-a289-4090-a053-2521618a28c3 "Solution de surveillance Azure pour SAP"
 [planning-guide-azure-premium-storage]: virtual-machines-linux-sap-planning-guide.md#ff5ad0f9-f7f4-4022-9102-af07aef3bc92 "Stockage Premium Azure"
 
-[planning-guide-figure-100]: ./media/virtual-machines-linux-sap-planning-guide/100-single-vm-in-azure.png
-[planning-guide-figure-1300]: ./media/virtual-machines-linux-sap-planning-guide/1300-ref-config-iaas-for-sap.png
-[planning-guide-figure-1400]: ./media/virtual-machines-linux-sap-planning-guide/1400-attach-detach-disks.png
-[planning-guide-figure-1600]: ./media/virtual-machines-linux-sap-planning-guide/1600-firewall-port-rule.png
-[planning-guide-figure-1700]: ./media/virtual-machines-linux-sap-planning-guide/1700-single-vm-demo.png
-[planning-guide-figure-1900]: ./media/virtual-machines-linux-sap-planning-guide/1900-vm-set-vnet.png
-[planning-guide-figure-200]: ./media/virtual-machines-linux-sap-planning-guide/200-multiple-vms-in-azure.png
-[planning-guide-figure-2100]: ./media/virtual-machines-linux-sap-planning-guide/2100-s2s.png
-[planning-guide-figure-2200]: ./media/virtual-machines-linux-sap-planning-guide/2200-network-printing.png
-[planning-guide-figure-2300]: ./media/virtual-machines-linux-sap-planning-guide/2300-sapgui-stms.png
-[planning-guide-figure-2400]: ./media/virtual-machines-linux-sap-planning-guide/2400-vm-extension-overview.png
-[planning-guide-figure-2500]: ./media/virtual-machines-linux-sap-planning-guide/2500-vm-extension-details.png
-[planning-guide-figure-2600]: ./media/virtual-machines-linux-sap-planning-guide/2600-sap-router-connection.png
-[planning-guide-figure-2700]: ./media/virtual-machines-linux-sap-planning-guide/2700-exposed-sap-portal.png
-[planning-guide-figure-2800]: ./media/virtual-machines-linux-sap-planning-guide/2800-endpoint-config.png
-[planning-guide-figure-2900]: ./media/virtual-machines-linux-sap-planning-guide/2900-azure-ha-sap-ha.png
-[planning-guide-figure-300]: ./media/virtual-machines-linux-sap-planning-guide/300-vpn-s2s.png
-[planning-guide-figure-3000]: ./media/virtual-machines-linux-sap-planning-guide/3000-sap-ha-on-azure.png
-[planning-guide-figure-3200]: ./media/virtual-machines-linux-sap-planning-guide/3200-sap-ha-with-sql.png
-[planning-guide-figure-400]: ./media/virtual-machines-linux-sap-planning-guide/400-vm-services.png
-[planning-guide-figure-600]: ./media/virtual-machines-linux-sap-planning-guide/600-s2s-details.png
-[planning-guide-figure-700]: ./media/virtual-machines-linux-sap-planning-guide/700-decision-tree-deploy-to-azure.png
-[planning-guide-figure-800]: ./media/virtual-machines-linux-sap-planning-guide/800-portal-vm-overview.png
+[planning-guide-figure-100]: ./media/virtual-machines-shared-sap-planning-guide/100-single-vm-in-azure.png
+[planning-guide-figure-1300]: ./media/virtual-machines-shared-sap-planning-guide/1300-ref-config-iaas-for-sap.png
+[planning-guide-figure-1400]: ./media/virtual-machines-shared-sap-planning-guide/1400-attach-detach-disks.png
+[planning-guide-figure-1600]: ./media/virtual-machines-shared-sap-planning-guide/1600-firewall-port-rule.png
+[planning-guide-figure-1700]: ./media/virtual-machines-shared-sap-planning-guide/1700-single-vm-demo.png
+[planning-guide-figure-1900]: ./media/virtual-machines-shared-sap-planning-guide/1900-vm-set-vnet.png
+[planning-guide-figure-200]: ./media/virtual-machines-shared-sap-planning-guide/200-multiple-vms-in-azure.png
+[planning-guide-figure-2100]: ./media/virtual-machines-shared-sap-planning-guide/2100-s2s.png
+[planning-guide-figure-2200]: ./media/virtual-machines-shared-sap-planning-guide/2200-network-printing.png
+[planning-guide-figure-2300]: ./media/virtual-machines-shared-sap-planning-guide/2300-sapgui-stms.png
+[planning-guide-figure-2400]: ./media/virtual-machines-shared-sap-planning-guide/2400-vm-extension-overview.png
+[planning-guide-figure-2500]: ./media/virtual-machines-shared-sap-planning-guide/2500-vm-extension-details.png
+[planning-guide-figure-2600]: ./media/virtual-machines-shared-sap-planning-guide/2600-sap-router-connection.png
+[planning-guide-figure-2700]: ./media/virtual-machines-shared-sap-planning-guide/2700-exposed-sap-portal.png
+[planning-guide-figure-2800]: ./media/virtual-machines-shared-sap-planning-guide/2800-endpoint-config.png
+[planning-guide-figure-2900]: ./media/virtual-machines-shared-sap-planning-guide/2900-azure-ha-sap-ha.png
+[planning-guide-figure-300]: ./media/virtual-machines-shared-sap-planning-guide/300-vpn-s2s.png
+[planning-guide-figure-3000]: ./media/virtual-machines-shared-sap-planning-guide/3000-sap-ha-on-azure.png
+[planning-guide-figure-3200]: ./media/virtual-machines-shared-sap-planning-guide/3200-sap-ha-with-sql.png
+[planning-guide-figure-400]: ./media/virtual-machines-shared-sap-planning-guide/400-vm-services.png
+[planning-guide-figure-600]: ./media/virtual-machines-shared-sap-planning-guide/600-s2s-details.png
+[planning-guide-figure-700]: ./media/virtual-machines-shared-sap-planning-guide/700-decision-tree-deploy-to-azure.png
+[planning-guide-figure-800]: ./media/virtual-machines-shared-sap-planning-guide/800-portal-vm-overview.png
 [planning-guide-microsoft-azure-networking]: virtual-machines-linux-sap-planning-guide.md#61678387-8868-435d-9f8c-450b2424f5bd "Mise en réseau Microsoft Azure"
 [planning-guide-storage-microsoft-azure-storage-and-data-disks]: virtual-machines-linux-sap-planning-guide.md#a72afa26-4bf4-4a25-8cf7-855d6032157f "Stockage : Microsoft Azure Storage et disques de données"
 
@@ -279,9 +280,9 @@
 [virtual-network-deploy-multinic-arm-cli]: ../virtual-network/virtual-network-deploy-multinic-arm-cli.md
 [virtual-network-deploy-multinic-arm-ps]: ../virtual-network/virtual-network-deploy-multinic-arm-ps.md
 [virtual-network-deploy-multinic-arm-template]: ../virtual-network/virtual-network-deploy-multinic-arm-template.md
-[virtual-networks-configure-vnet-to-vnet-connection]: ../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md
+[virtual-networks-configure-vnet-to-vnet-connection]: ../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md
 [virtual-networks-create-vnet-arm-pportal]: ../virtual-network/virtual-networks-create-vnet-arm-pportal.md
-[virtual-networks-manage-dns-in-vnet]: ../virtual-network/virtual-networks-manage-dns-in-vnet.md
+[virtual-networks-manage-dns-in-vnet]: ../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md
 [virtual-networks-multiple-nics]: ../virtual-network/virtual-networks-multiple-nics.md
 [virtual-networks-nsg]: ../virtual-network/virtual-networks-nsg.md
 [virtual-networks-reserved-private-ip]: ../virtual-network/virtual-networks-static-private-ip-arm-ps.md
@@ -289,6 +290,7 @@
 [virtual-networks-udr-overview]: ../virtual-network/virtual-networks-udr-overview.md
 [vpn-gateway-about-vpn-devices]: ../vpn-gateway/vpn-gateway-about-vpn-devices.md
 [vpn-gateway-create-site-to-site-rm-powershell]: ../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md
+[vpn-gateway-cross-premises-options]: ../vpn-gateway/vpn-gateway-plan-design.md
 [vpn-gateway-site-to-site-create]: ../vpn-gateway/vpn-gateway-site-to-site-create.md
 [vpn-gateway-vpn-faq]: ../vpn-gateway/vpn-gateway-vpn-faq.md
 [xplat-cli]: ../xplat-cli-install.md
@@ -316,7 +318,7 @@ Les termes suivants seront utilisés dans le document :
 * Paysage SAP : ce terme fait référence à l’ensemble des ressources SAP dans le paysage informatique d’un client. Le paysage SAP englobe tous les environnements de production et les autres types d’environnements.
 * Système SAP : ensemble couche SGBD/couche Application d’un système de développement SAP ERP, d’un système de test SAP BW, d’un système de production SAP CRM, etc. Dans les déploiements Azure, il n’est pas possible de séparer ces deux couches entre les sites et Azure. Cela signifie qu’un système SAP doit être déployé en local ou dans Azure. Vous pouvez toutefois déployer les différents systèmes d’un paysage SAP dans Azure ou en local. Par exemple, vous pouvez déployer les systèmes de test et de développement SAP CRM dans Azure et le système de production SAP CRM en local.
 * Déploiement cloud uniquement : déploiement dans lequel l’abonnement Azure n’est pas connecté via une connexion ExpressRoute ou de site à site à l’infrastructure réseau locale. Dans la documentation Azure courante, ces types de déploiements sont également décrits comme des déploiements « cloud uniquement ». Les machines virtuelles déployées avec cette méthode sont accessibles via Internet et des points de terminaison Internet publics affectés aux machines virtuelles dans Azure. Le répertoire Active Directory et le serveur DNS locaux ne sont pas étendus à Azure dans ces types de déploiements. Par conséquent, les machines virtuelles ne font pas partie du répertoire Active Directory local. Remarque : dans ce document, les déploiements cloud uniquement sont définis comme des paysages SAP complets exécutés uniquement dans Azure, sans extension du répertoire Active Directory ou de la résolution de noms des sites au cloud public. Les configurations cloud uniquement ne sont pas prises en charge pour les systèmes ou configurations SAP de production dans lesquels des ressources SAP STMS ou d’autres ressources locales doivent être utilisées entre les systèmes SAP hébergés sur Azure et les ressources en local.
-* Intersite : décrit un scénario dans lequel les machines virtuelles sont déployées vers un abonnement Azure qui dispose d’une connectivité de site à site, multisite ou ExpressRoute entre les centres de données locaux et Azure. Dans la documentation Azure courante, ces types de déploiements sont également décrits comme des scénarios de déploiement entre différents locaux. La connexion a pour but d’étendre les domaines locaux, le répertoire Active Directory local et le serveur DNS local à Azure. Le paysage local est étendu aux ressources Azure de l’abonnement. Grâce à cette extension, les machines virtuelles peuvent faire partie du domaine local. Les utilisateurs du domaine local peuvent accéder aux serveurs et exécuter des services (SGBD, par exemple) sur ces machines virtuelles. La communication et la résolution de noms entre les machines virtuelles déployées en local et les machines virtuelles déployées dans Azure est possible. Ce scénario devrait être le plus souvent utilisé pour le déploiement de ressources SAP sur Azure. Pour plus d’informations, voir [cet][vpn-gateway-site-to-site-create] article.
+* Intersite : décrit un scénario dans lequel les machines virtuelles sont déployées vers un abonnement Azure qui dispose d’une connectivité de site à site, multisite ou ExpressRoute entre les centres de données locaux et Azure. Dans la documentation Azure courante, ces types de déploiements sont également décrits comme des scénarios de déploiement entre différents locaux. La connexion a pour but d’étendre les domaines locaux, le répertoire Active Directory local et le serveur DNS local à Azure. Le paysage local est étendu aux ressources Azure de l’abonnement. Grâce à cette extension, les machines virtuelles peuvent faire partie du domaine local. Les utilisateurs du domaine local peuvent accéder aux serveurs et exécuter des services (SGBD, par exemple) sur ces machines virtuelles. La communication et la résolution de noms entre les machines virtuelles déployées en local et les machines virtuelles déployées dans Azure est possible. Ce scénario devrait être le plus souvent utilisé pour le déploiement de ressources SAP sur Azure. Pour plus d’informations, consultez [cet][vpn-gateway-cross-premises-options] article et [celui-ci][vpn-gateway-site-to-site-create].
 
 > [AZURE.NOTE] Les déploiements intersites de systèmes SAP dans lesquels des machines virtuelles Azure exécutant des systèmes SAP font partie d’un domaine local sont pris en charge pour les systèmes SAP de production. Les configurations entre différents locaux sont prises en charge pour le déploiement d’éléments ou de l’intégralité des paysages SAP dans Azure. Ces machines virtuelles doivent faire partie du domaine et des services Active Directory locaux même lorsque l’intégralité du paysage SAP est exécutée dans Azure. Dans les versions précédentes de la documentation, nous avons parlé des scénarios hybrides, où le terme « hybride » tient au fait qu’une connectivité entre différents locaux relie les sites et Azure. Dans ce cas, « hybride » signifie également que les machines virtuelles dans Azure font partie du répertoire Active Directory local.
 
@@ -444,6 +446,7 @@ ___
 > ![Linux][Logo_Linux] Linux
 >
 > Seuls MDADM et LVM (Logical Volume Manager) sont pris en charge pour créer un RAID logiciel sur Linux. Pour plus d’informations, consultez les articles suivants :
+>
 > * [Configurer un RAID logiciel sur Linux][virtual-machines-linux-configure-raid] \(pour MDADM)
 > * [Configurer LVM sur une machine virtuelle Linux dans Azure][virtual-machines-linux-configure-lvm]
 
@@ -465,10 +468,10 @@ Microsoft Azure Storage stocke la base machine virtuelle de base (avec le systè
 
 La réplication locale Azure Storage (localement redondante) fournit plusieurs niveaux de protection contre la perte de données en cas de défaillance de l’infrastructure que peu de clients pourraient se permettre de déployer. Comme illustré ci-dessus, il existe 4 options différentes, avec une cinquième option qui est une variante de l’une des trois premières. En les examinant de plus près, nous pouvons distinguer :
 
-* **Stockage localement redondant Premium (LRS)** : Azure Premium Storage offre une prise en charge très performante et à faible latence des disques pour les machines virtuelles exécutant des charges de travail qui utilisent beaucoup d’E/S. Trois réplicas des données sont créées au sein du même centre de données d’une région Azure. Les copies se trouvent dans des domaines d’erreur et de mise à niveau distincts (pour plus d’informations sur ces concepts, voir [ce][deployment-guide-3] chapitre du [Guide de déploiement][deployment-guide]). Dans le cas où une réplica des données devient hors service en raison d’une défaillance de nœud de stockage ou de disque, un nouveau réplica est généré automatiquement.
-* **Stockage localement redondant (LRS)** : 3 réplicas des données sont créés au sein du même centre de données d’une région Azure. Les copies se trouvent dans des domaines d’erreur et de mise à niveau distincts (pour plus d’informations sur ces concepts, voir [ce][deployment-guide-3] chapitre du [Guide de déploiement][deployment-guide]). Dans le cas où une réplica des données devient hors service en raison d’une défaillance de nœud de stockage ou de disque, un nouveau réplica est généré automatiquement.
+* **Stockage localement redondant Premium (LRS)** : Azure Premium Storage offre une prise en charge très performante et à faible latence des disques pour les machines virtuelles exécutant des charges de travail qui utilisent beaucoup d’E/S. Trois réplicas des données sont créées au sein du même centre de données d’une région Azure. Les copies se trouvent dans des domaines d’erreur et de mise à niveau distincts (pour plus d’informations sur ces concepts, consultez [ce][planning-guide-3.2] chapitre du [Guide de planification][planning-guide]). Dans le cas où une réplica des données devient hors service en raison d’une défaillance de nœud de stockage ou de disque, un nouveau réplica est généré automatiquement.
+* **Stockage localement redondant (LRS)** : 3 réplicas des données sont créés au sein du même centre de données d’une région Azure. Les copies se trouvent dans des domaines d’erreur et de mise à niveau distincts (pour plus d’informations sur ces concepts, consultez [ce][planning-guide-3.2] chapitre du [Guide de planification][planning-guide]). Dans le cas où une réplica des données devient hors service en raison d’une défaillance de nœud de stockage ou de disque, un nouveau réplica est généré automatiquement.
 * **Stockage géo-redondant (GRS)** : dans ce cas, 3 réplicas supplémentaires des données sont envoyés par réplication asynchrone dans une autre région Azure située la plupart du temps dans la même région géographique (par exemple, Europe du Nord ou Europe de l’Ouest). Il y a donc au total 6 réplicas des données. Une variante de cette option permet d’utiliser les données stockées dans la région Azure géo-répliquée à des fins de lecture (Stockage géo-redondant avec accès en lecture).
-* **Stockage redondant dans une zone (ZRS)** : dans ce cas, les 3 réplicas des données restent dans la même région Azure. Comme expliqué dans [ce][deployment-guide-3] chapitre du [Guide de déploiement][deployment-guide], une région Azure peut correspondre à plusieurs centres de données situés à proximité les uns des autres. Avec le stockage localement redondant, les réplicas seraient réparties dans les différents centres de données qui forment une région Azure unique.
+* **Stockage redondant dans une zone (ZRS)** : dans ce cas, les 3 réplicas des données restent dans la même région Azure. Comme l’explique [ce][planning-guide-3.1] chapitre du [Guide de planification][planning-guide], une région Azure peut correspondre à plusieurs centres de données situés à proximité les uns des autres. Avec le stockage localement redondant, les réplicas seraient réparties dans les différents centres de données qui forment une région Azure unique.
 
 Des informations supplémentaires sont disponibles [ici][storage-redundancy].
  
@@ -489,7 +492,7 @@ Concernant le stockage Azure Standard, il est important de noter qu’il y a une
  
 Pour le stockage Azure Standard, nous vous recommandons dans la mesure du possible de ne pas présenter le stockage de différents comptes de stockage à une machine virtuelle unique.
 
-Avec la série DS de machines virtuelles Azure, il est possible de monter des disques durs virtuels issus de comptes de stockage Azure Standard et Premium Storage. Un stockage hétérogène de ce type pourrait être utilisé par exemple pour écrire des sauvegardes dans un stockage Standard soutenu par des disques durs virtuels tout en ayant les fichiers de données et journaux du SGBD dans un stockage Premium Storage.
+Avec la série DS ou GS de machines virtuelles Azure, il est possible de monter des disques durs virtuels issus de comptes de Stockage Azure Standard et Premium. Un stockage hétérogène de ce type pourrait être utilisé par exemple pour écrire des sauvegardes dans un stockage Standard soutenu par des disques durs virtuels tout en ayant les fichiers de données et journaux du SGBD dans un stockage Premium Storage.
 
 Selon les déploiements client et les tests, environ 30 à 40 disques durs virtuels contenant les fichiers de données et les fichiers journaux de base de données peuvent être configurés sur un seul compte de stockage Azure Standard avec des performances acceptables. Comme indiqué précédemment, la limitation d’un compte de stockage Azure Premium Storage a des chances d’être le volume de données qu’il peut contenir et non le nombre d’E/S par seconde.
 
@@ -870,7 +873,7 @@ La compression des données et des éléments LOB fonctionne au sein d’une mac
 #### Utilisation de DBACockpit pour surveiller les instances de base de données
 Pour les systèmes SAP utilisant SAP ASE en tant que plateforme de base de données, la fonction DBACockpit est accessible sous forme de fenêtres de navigateur intégrées dans Transaction DBACockpit ou via Webdynpro. Toutefois, l’ensemble des fonctionnalités de surveillance et d’administration de la base de données sont uniquement disponibles dans l’implémentation Webdynpro de DBACockpit.
 
-À l’instar des systèmes locaux, plusieurs étapes sont nécessaires pour activer toutes les fonctionnalités de SAP NetWeaver utilisées par l’implémentation Webdynpro de DBACockpit. Suivez la Note de SAP [1245200] pour activer l’utilisation de webdynpros et générer les éléments requis. En suivant les instructions fournies dans les notes ci-dessus, vous configurerez Internet Communication Manager (ICM), ainsi que les ports à utiliser pour les connexions http et https. Pour http, la configuration par défaut ressemble à ceci :
+À l’instar des systèmes locaux, plusieurs étapes sont nécessaires pour activer toutes les fonctionnalités de SAP NetWeaver utilisées par l’implémentation Webdynpro de DBACockpit. Pour activer l’utilisation de webdynpros et générer les éléments requis, suivrez la Note de SAP [1245200]. En suivant les instructions fournies dans les notes ci-dessus, vous configurerez Internet Communication Manager (ICM), ainsi que les ports à utiliser pour les connexions http et https. Pour http, la configuration par défaut ressemble à ceci :
 
 > icm/server\_port\_0 = PROT=HTTP,PORT=8000,PROCTIMEOUT=600,TIMEOUT=600
 >
@@ -1322,7 +1325,7 @@ Tous les fichiers de base de données doivent être stockés sur le système de 
  
 Si vous utilisez des disques durs virtuels Azure basés sur le stockage d’objets blob de pages Azure, les instructions dans ce document figurant dans le chapitre [Structure d’un déploiement SGBDR][dbms-guide-2] s’appliquent également aux déploiements avec la base de données IBM DB2 pour LUW.
 
-Comme expliqué précédemment dans la partie générale du document, des quotas existent en ce qui concerne le débit d’E/S par seconde pour les disques durs virtuels Azure. Les quotas exacts dépendent du type de machine virtuelle utilisé. Une liste des types de machines virtuelles avec leurs quotas est disponible [ici][virtual-machines-sizes]
+Comme expliqué précédemment dans la partie générale du document, des quotas existent en ce qui concerne le débit d’E/S par seconde pour les disques durs virtuels Azure. Les quotas exacts dépendent du type de machine virtuelle utilisé. Une liste des types de machines virtuelles avec leurs quotas est disponible [ici][virtual-machines-sizes].
 
 Tant que le quota actuel d’E/S par seconde par disque est suffisant, il est possible de stocker tous les fichiers de base de données sur un seul disque dur virtuel Azure monté.
 
@@ -1358,4 +1361,58 @@ Tous les autres sujets généraux, notamment les groupes à haute disponibilité
 
 Voir également le chapitre [Résumé – SQL Server général pour SAP sur Azure][dbms-guide-5.8].
 
-<!----HONumber=AcomDC_0824_2016-->
+## Caractéristiques d’IBM DB2 pour LUW sous Linux
+Avec Microsoft Azure, vous pouvez facilement migrer votre application SAP existante exécutée sur IBM DB2 pour Linux, UNIX et Windows (LUW) vers les machines virtuelles Azure. Avec SAP sur IBM DB2 pour LUW, les administrateurs et développeurs peuvent utiliser les outils de développement et d’administration disponibles en local. Des informations générales sur l’exécution de SAP Business Suite sur IBM DB2 pour LUW sont disponibles dans SAP Community Network (SCN) à l’adresse <https://scn.sap.com/community/db2-for-linux-unix-windows>.
+
+Pour des informations et des mises à jour supplémentaires de SAP sur DB2 pour LUW sur Azure, voir la Note de SAP [2233094].
+
+### Prise en charge des versions IBM DB2 pour Linux, UNIX et Windows
+SAP sur IBM DB2 pour LUW est pris en charge sur les services de machines virtuelles Microsoft Azure à compter de la version DB2 10.5.
+
+Pour plus d’informations sur les produits SAP et les types de machines virtuelles Azure pris en charge, reportez-vous à la Note de SAP [1928533].
+
+### Instructions de configuration IBM DB2 pour Linux, UNIX et Windows pour les installations SAP sur des machines virtuelles Azure
+
+#### Configuration du stockage
+Tous les fichiers de base de données doivent être stockés sur un système de fichiers basé sur des disques durs virtuels. Ces disques durs virtuels sont montés sur la machine virtuelle Azure et sont basés sur le stockage d’objets blob de pages Azure (<https://msdn.microsoft.com/library/azure/ee691964.aspx>). Tous les types de lecteurs réseau ou de partages distants tels que les services de fichiers Azure suivants ne sont **PAS** pris en charge pour les fichiers de base de données :
+
+* <https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx>
+* <https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx>
+
+Si vous utilisez des disques durs virtuels Azure basés sur le stockage d’objets blob de pages Azure, les instructions dans ce document figurant dans le chapitre [Structure d’un déploiement SGBDR][dbms-guide-2] s’appliquent également aux déploiements avec la base de données IBM DB2 pour LUW.
+
+Comme expliqué précédemment dans la partie générale du document, des quotas existent en ce qui concerne le débit d’E/S par seconde pour les disques durs virtuels Azure. Les quotas exacts dépendent du type de machine virtuelle utilisé. Une liste des types de machines virtuelles avec leurs quotas est disponible [ici][virtual-machines-sizes].
+
+Tant que le quota actuel d’E/S par seconde par disque est suffisant, il est possible de stocker tous les fichiers de base de données sur un seul disque dur virtuel Azure monté.
+
+Pour des considérations sur les performances, consultez également, dans les guides d’installation SAP, le chapitre portant sur la sécurité des données et les considérations sur les performances pour les répertoires de base de données.
+
+Vous pouvez également utiliser LVM (Logical Volume Manager, gestionnaire de volumes logiques) ou MDADM comme le décrit le chapitre [RAID logiciel][dbms-guide-2.2] de ce document pour créer une seule unité logique volumineuse sur plusieurs disques durs virtuels montés. Pour les disques contenant les chemins d’accès de stockage DB2 pour vos données SAP et répertoires SAPTMP, vous devez spécifier une taille de secteur de disque physique de 512 Ko.
+
+#### Sauvegarde/restauration
+La fonctionnalité de sauvegarde/restauration pour IBM DB2 pour LUW est prise en charge de la même façon que sur l’installation Linux locale standard.
+
+Vous devez vous assurer que vous disposez d’une stratégie de sauvegarde de base de données valide en place.
+
+À l’instar des déploiements sur système nu, les performances de sauvegarde/restauration dépendent du nombre de volumes pouvant être lus en parallèle et du débit éventuel de ces volumes. En outre, la consommation d’UC par la compression de sauvegarde peut jouer un rôle significatif sur les machines virtuelles avec jusqu’à 8 threads UC seulement. Par conséquent, on peut partir des hypothèses suivantes :
+
+* Moins il y a de disques durs virtuels utilisés pour stocker les unités de base de données, plus le débit global de lecture est réduit
+* Moins il y a de threads UC dans la machine virtuelle, plus l’impact de la compression de sauvegarde est grave
+* Moins il y a de cibles (répertoires d’entrelacement, disques durs virtuels) d’écriture de la sauvegarde, plus le débit est faible
+
+Pour augmenter le nombre de cibles d’écriture, il est possible d’utiliser/de combiner deux options selon vos besoins :
+
+* Entrelacer le volume cible de sauvegarde sur plusieurs disques durs virtuels montés, afin d’améliorer le débit d’E/S par seconde sur ce volume agrégé par bandes
+* Utiliser plusieurs répertoires cible d’écriture de la sauvegarde
+
+#### Haute disponibilité et récupération d’urgence
+La fonction HADR (haute disponibilité et récupération d’urgence) DB2 est prise en charge. Si les machines virtuelles de la configuration haute disponibilité disposent de la résolution de noms de travail, l’installation dans Azure ne diffère pas d’une installation effectuée en local. Il est déconseillé de se fier uniquement à la résolution IP.
+
+N’utilisez pas la géoréplication Azure Store. Pour plus d’informations, voir les chapitres [Microsoft Azure Storage][dbms-guide-2.3] et [Haute disponibilité et récupération d’urgence avec les machines virtuelles Azure][dbms-guide-3].
+
+#### Autres
+Tous les autres sujets généraux, notamment les groupes à haute disponibilité Azure ou la surveillance SAP, s’appliquent avec IBM DB2 pour LUW comme décrit dans les trois premiers chapitres dans ce document pour les déploiements de machines virtuelles.
+
+Voir également le chapitre [Résumé – SQL Server général pour SAP sur Azure][dbms-guide-5.8].
+
+<!---HONumber=AcomDC_0907_2016-->

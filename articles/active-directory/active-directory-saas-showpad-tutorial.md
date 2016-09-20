@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/06/2016"
+	ms.date="09/01/2016"
 	ms.author="jeedes"/>
 
 
@@ -60,7 +60,7 @@ Pour configurer l’intégration de Showpad à Azure AD, vous devez ajouter Show
 
 **Pour ajouter Showpad à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **portail Azure Classic**, cliquez sur **Active Directory**. 
+1. Dans le volet de navigation gauche du **portail Azure Classic**, cliquez sur **Active Directory**.
 
 	![Applications][1]
 
@@ -204,7 +204,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans la zone de texte **Nom d’utilisateur**, tapez **BrittaSimon**.
 
-    b. Cliquez sur **Next**.
+    b. Cliquez sur **Suivant**.
 
 6.  Sur la page **Profil utilisateur**, procédez comme suit :
 
@@ -275,7 +275,7 @@ L’objectif de cette section est de permettre à Britta Simon d’utiliser l’
 
 ### Test de l’authentification unique
 
-L’objectif de cette section est de tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
+L’objectif de cette section est de tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Lorsque vous cliquez sur la mosaïque **Showpad** dans le volet d’accès, vous devez être connecté automatiquement à votre application Showpad.
 
@@ -304,4 +304,4 @@ Lorsque vous cliquez sur la mosaïque **Showpad** dans le volet d’accès, vous
 [204]: ./media/active-directory-saas-showpad-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-showpad-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0907_2016-->

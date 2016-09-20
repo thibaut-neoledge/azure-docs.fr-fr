@@ -24,7 +24,7 @@
 
 Les API PowerShell pour les **tâches de bases de données élastiques** (en version préliminaire) vous permettent de définir quels scripts seront exécutés pour quel groupe de bases de données. Cet article vous montre comment créer et gérer des **tâches de bases de données élastiques** à l’aide de PowerShell. Voir [Vue d’ensemble des tâches de base de données élastiques](sql-database-elastic-jobs-overview.md).
 
-## Configuration requise
+## Composants requis
 * Un abonnement Azure. Pour obtenir un essai gratuit, voir [Version d'évaluation d'un mois gratuite](https://azure.microsoft.com/pricing/free-trial/).
 * Un ensemble de bases de données créé avec les outils de bases de données élastiques. Voir [Prise en main des outils de base de données élastiques](sql-database-elastic-scale-get-started.md).
 * Azure PowerShell. Pour plus de détails, consultez la rubrique [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md).
@@ -32,9 +32,9 @@ Les API PowerShell pour les **tâches de bases de données élastiques** (en ver
 
 ### Sélectionner votre abonnement Azure
 
-Pour sélectionner l’abonnement, vous avez besoin de votre ID d’abonnement (**-SubscriptionId**) ou votre nom d’abonnement (**-SubscriptionName**). Si vous avez plusieurs abonnements, vous pouvez exécuter l'applet de commande **Get-AzureSubscription** et copier les informations d'abonnement souhaitées affichées dans les résultats. Une fois que vous disposez de vos informations d’abonnement, exécutez l’applet de commande pour définir l’abonnement en tant qu’abonnement par défaut, à savoir, la cible pour créer et gérer des tâches :
+Pour sélectionner l’abonnement, vous avez besoin de votre ID d’abonnement (**-SubscriptionId**) ou votre nom d’abonnement (**-SubscriptionName**). Si vous avez plusieurs abonnements, vous pouvez exécuter l’applet de commande **Get-AzureRmSubscription** et copier les informations d’abonnement souhaitées affichées dans les résultats. Une fois que vous disposez de vos informations d’abonnement, exécutez l’applet de commande pour définir l’abonnement en tant qu’abonnement par défaut, à savoir, la cible pour créer et gérer des tâches :
 
-	Select-AzureSubscription -SubscriptionId {SubscriptionID}
+	Select-AzureRmSubscription -SubscriptionId {SubscriptionID}
 
 Il est recommandé d’utiliser [PowerShell ISE](https://technet.microsoft.com/library/dd315244.aspx) pour développer et exécuter des scripts PowerShell sur les tâches de bases de données élastiques.
 
@@ -116,7 +116,7 @@ Le tableau suivant répertorie les types d’objets des **tâches de bases de do
   </tr>
 
 <tr>
-    <td>Job</td>
+    <td>Travail</td>
     <td>
 	<p>Définition des paramètres d'une tâche qui peut être utilisée pour déclencher l'exécution ou pour répondre à une planification.</p>
 	</td>
@@ -680,4 +680,4 @@ Après la création d’un DACPAC dans les tâches de bases de données élastiq
 [2]: ./media/sql-database-elastic-jobs-powershell/portal.png
 <!--anchors-->
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0907_2016-->

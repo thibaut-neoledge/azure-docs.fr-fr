@@ -83,7 +83,7 @@ Remplacez la clé d'instrumentation que avez obtenue sur le portail Azure.
 
 * La clé d'instrumentation est envoyée avec chaque élément de télémétrie et indique à Application Insights de l'afficher dans votre ressource.
 * Le composant de demande HTTP est facultatif. Il envoie automatiquement la télémétrie concernant les demandes et les temps de réponse au portail.
-* La corrélation des événements est un complément au composant de demande HTTP. Il assigne un identificateur à chaque demande reçue par le serveur et l'ajoute comme propriété de chaque élément de télémétrie en tant que propriété « Operation.Id ». Il vous permet de mettre en corrélation la télémétrie associée à chaque demande en définissant un filtre dans [recherche de diagnostic](app-insights-diagnostic-search.md).
+* La corrélation des événements est un complément au composant de demande HTTP. Il assigne un identificateur à chaque demande reçue par le serveur et l'ajoute comme propriété de chaque élément de télémétrie en tant que propriété « Operation.Id ». Il vous permet de mettre en corrélation la télémétrie associée à chaque demande en définissant un filtre dans [recherche de diagnostic](app-insights-diagnostic-search.md).
 
 
 ## 4\. Ajouter un filtre HTTP
@@ -107,9 +107,9 @@ Pour obtenir des résultats plus précis, le filtre doit être mappé avant tous
 
 Vous devrez peut-être [définir des exceptions pour envoyer les données sortantes](app-insights-ip-addresses.md).
 
-## 5\. Redémarrer votre application web
+## 6\. Redémarrer votre application web
 
-## 6\. Voir votre télémétrie dans Application Insights
+## 7\. Voir votre télémétrie dans Application Insights
 
 Revenez à votre ressource Application Insights sur le [portail Microsoft Azure](https://portal.azure.com).
 
@@ -143,4 +143,4 @@ Et lorsque vous affichez les propriétés d'une demande, vous voyez les événem
 
  
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

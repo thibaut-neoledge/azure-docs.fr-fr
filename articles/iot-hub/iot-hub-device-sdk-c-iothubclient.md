@@ -13,7 +13,7 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="05/17/2016"
+     ms.date="09/06/2016"
      ms.author="obloch"/>
 
 # Kit de développement logiciel (SDK) d’appareils Microsoft Azure IoT pour C : en savoir plus sur IoTHubClient
@@ -22,9 +22,9 @@ Le [premier article](iot-hub-device-sdk-c-intro.md) de cette série a présenté
 
 L’article précédent explique comment utiliser la bibliothèque **IoTHubClient** pour envoyer des événements à IoT Hub et recevoir des messages. Cet article approfondit le sujet en expliquant comment gérer de manière plus précise le *moment* de l’envoi ou de la réception des données, en vous présentant les **API de niveau inférieur**. Nous expliquerons également comment associer des propriétés à des événements (et les récupérer à partir de messages) en utilisant des fonctions de gestion de propriété de la bibliothèque **IoTHubClient**. Enfin, nous fournirons des explications supplémentaires sur les différentes façons de gérer les messages reçus d’IoT Hub.
 
-Cet article conclut en abordant des sujets divers, notamment les informations d’identification des appareils et la manière de modifier le comportement d’**IoTHubClient** par le biais des options de configuration.
+Cet article conclut en abordant des sujets divers, notamment les informations d’identification des appareils et la manière de modifier le comportement **d’IoTHubClient** par le biais des options de configuration.
 
-Nous allons utiliser les exemples du kit de développement logiciel (SDK) **IoTHubClient** pour illustrer ces rubriques. Si vous souhaitez assurer le suivi, consultez les applications **iothub\_client\_sample\_http** et **iothub\_client\_sample\_amqp** incluses dans le Kit de développement logiciel (SDK) d’appareils Azure IoT pour C. Les détails décrits dans les sections suivantes sont illustrés dans ces exemples.
+Nous allons utiliser les exemples du kit de développement logiciel **IoTHubClient** pour illustrer ces rubriques. Si vous souhaitez assurer le suivi, consultez les applications **iothub\_client\_sample\_http** et **iothub\_client\_sample\_amqp** incluses dans le Kit de développement logiciel (SDK) d’appareils Azure IoT pour C. Les détails décrits dans les sections suivantes sont illustrés dans ces exemples.
 
 Vous pouvez trouver le **Kit de développement logiciel Azure IoT device SDK pour C** dans le référentiel GitHub [Microsoft Azure IoT SDKs](https://github.com/Azure/azure-iot-sdks) (Kits de développement logiciel (SDK) Microsoft Azure IoT) et consulter les détails de l’API dans [C API reference](http://azure.github.io/azure-iot-sdks/c/api_reference/index.html) (Référence sur l’API C).
 
@@ -117,7 +117,7 @@ while ((IoTHubClient_LL_GetSendStatus(iotHubClientHandle, &status) == IOTHUB_CLI
 }
 ```
 
-Ce code appelle **IoTHubClient\_LL\_DoWork** jusqu’à ce que tous les événements placés en mémoire tampon aient été envoyés à IoT Hub. Notez que cela ne signifie pas non plus que tous les messages en file d’attente ont été reçus. Cela est en partie dû au fait que le contrôle de « tous » les messages n’est pas une action déterminante. Que se passe-t-il si vous récupérez « tous » les messages, mais qu’un autre est envoyé à l’appareil immédiatement après ? Une bonne façon de traiter cette possibilité consiste à programmer un délai d’attente. Par exemple, la fonction de rappel de message peut réinitialiser une minuterie à chaque fois qu’elle est appelée. Vous pouvez ensuite rédiger un programme permettant de poursuivre le traitement si, par exemple, aucun message n’a été reçu au cours des *X* dernières secondes.
+Ce code appelle **IoTHubClient\_LL\_DoWork** jusqu’à ce que tous les événements placés en mémoire tampon aient été envoyés à IoT Hub. Notez que cela ne signifie pas non plus que tous les messages en file d’attente ont été reçus. Cela est en partie dû au fait que le contrôle de « tous » les messages n’est pas une action déterminante. Que se passe-t-il si vous récupérez « tous » les messages, mais qu’un autre est envoyé à l’appareil immédiatement après ? Une bonne façon de traiter cette possibilité consiste à programmer un délai d’attente. Par exemple, la fonction de rappel de message peut réinitialiser une minuterie à chaque fois qu’elle est appelée. Vous pouvez ensuite rédiger un programme permettant de poursuivre le traitement si, par exemple, aucun message n’a été reçu au cours des *X* dernières secondes.
 
 Lorsque vous avez terminé de réceptionner les événements et les messages, assurez-vous d’appeler la fonction correspondante pour nettoyer les ressources.
 
@@ -202,7 +202,7 @@ Vous n’êtes pas obligé d’utiliser des propriétés dans votre application.
 
 ## Gestion des messages
 
-Comme expliqué précédemment, lorsque les messages arrivent d’IoT Hub, la bibliothèque **IoTHubClient** répond en appelant une fonction de rappel enregistrée. Un des paramètres de retour de cette fonction mérite cependant quelques explications supplémentaires. Voici un extrait de la fonction de rappel de l’exemple d’application **iothub\_client\_sample\_http** :
+Comme expliqué précédemment, lorsque les messages arrivent d’IoT Hub, la bibliothèque **IoTHubClient** répond en appelant une fonction de rappel enregistrée. Un des paramètres de retour de cette fonction mérite cependant quelques explications supplémentaires. Voici un extrait de la fonction de rappel de l’exemple d’application **iothub\_client\_sample\_http** :
 
 ```
 static IOTHUBMESSAGE_DISPOSITION_RESULT ReceiveMessageCallback(IOTHUB_MESSAGE_HANDLE message, void* userContextCallback)
@@ -214,11 +214,11 @@ static IOTHUBMESSAGE_DISPOSITION_RESULT ReceiveMessageCallback(IOTHUB_MESSAGE_HA
 
 Notez que le type de retour est **IOTHUBMESSAGE\_DISPOSITION\_RESULT** et, dans ce cas particulier, c’est le message **IOTHUBMESSAGE\_ACCEPTED** qui est renvoyé. Il existe d’autres valeurs que nous pouvons renvoyer à partir de cette fonction afin de modifier la réaction de la bibliothèque **IoTHubClient** au rappel de message. Les options proposées sont les suivantes.
 
--   **IOTHUBMESSAGE\_ACCEPTED** : le message a été traité avec succès. La bibliothèque **IoTHubClient** ne rappellera pas la fonction de rappel avec le même message.
+-   **IOTHUBMESSAGE\_ACCEPTED** : le message a été traité avec succès. La bibliothèque **IoTHubClient** ne rappellera pas la fonction de rappel avec le même message.
 
--   **IOTHUBMESSAGE\_REJECTED** : le message n’a pas été traité, et ne devrait pas l’être à l’avenir. La bibliothèque **IoTHubClient** n’appellera pas la fonction de rappel avec le même message.
+-   **IOTHUBMESSAGE\_REJECTED** : le message n’a pas été traité, et ne devrait pas l’être à l’avenir. La bibliothèque **IoTHubClient** n’appellera pas la fonction de rappel avec le même message.
 
--   **IOTHUBMESSAGE\_ABANDONED** : le message n’a pas été traité correctement, mais la bibliothèque **IoTHubClient** doit de nouveau invoquer la fonction de rappel, en utilisant le même message.
+-   **IOTHUBMESSAGE\_ABANDONED** : le message n’a pas été traité correctement, mais la bibliothèque **IoTHubClient** doit de nouveau invoquer la fonction de rappel, en utilisant le même message.
 
 Pour les deux premiers codes de retour, la bibliothèque **IoTHubClient** envoie à IoT Hub un message indiquant que le message doit être supprimé de la file d’attente de l’appareil et non remis à nouveau. La conséquence est identique (le message est supprimé de la file d’attente de l’appareil), mais le fait que le message ait été accepté ou rejeté reste dans les enregistrements. L’enregistrement de cette différence est utile aux expéditeurs du message qui peuvent écouter le retour et découvrir si un appareil a accepté ou rejeté un message particulier.
 
@@ -278,7 +278,7 @@ L’option de traitement par lot est importante. Par défaut, la bibliothèque i
 
 ## Étapes suivantes
 
-Cet article décrit en détail le comportement de la bibliothèque **IoTHubClient** se trouvant dans le **Kit de développement logiciel (SDK) d’appareils Azure IoT pour C **. Ces informations doivent vous permettre de bien comprendre les fonctionnalités de la bibliothèque **IoTHubClient**. Le [prochain article](iot-hub-device-sdk-c-serializer.md) fournit des détails similaires sur la bibliothèque **sérialiseur**.
+Cet article décrit en détail le comportement de la bibliothèque **IoTHubClient** se trouvant dans le **Kit de développement logiciel (SDK) d’appareils Azure IoT pour C**. Ces informations doivent vous permettre de bien comprendre les fonctionnalités de la bibliothèque **IoTHubClient**. Le [prochain article](iot-hub-device-sdk-c-serializer.md) fournit des détails similaires sur la bibliothèque **sérialiseur**.
 
 Pour en savoir plus sur le développement pour IoT Hub, consultez les [Kits SDK IoT Hub][lnk-sdks].
 
@@ -296,4 +296,4 @@ Pour explorer davantage les capacités de IoT Hub, consultez :
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
 [lnk-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0907_2016-->

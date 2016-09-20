@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/03/2016"
+	ms.date="08/31/2016"
 	ms.author="trinadhk; jimpark; markgal;"/>
 
 # Gestion et surveillance des sauvegardes de machines virtuelles Azure
@@ -229,7 +229,7 @@ PS C:\> Add-AzureRmLogAlertRule -Name backupFailedAlert -Location "East US" -Res
 
 **CustomEmail** : spécifiez l’adresse e-mail personnalisée à laquelle vous voulez envoyer des notifications d’alerte
 
-**SendToServiceOwners** : cette option envoie des notifications d’alerte à tous les administrateurs et coadministrateurs de l’abonnement. Elle peut être utilisée dans l’applet de commande **New-AzureRmAlertRuleEmail**
+**SendToServiceOwners** : cette option envoie des notifications d’alerte à tous les administrateurs et coadministrateurs de l’abonnement. Elle peut être utilisée dans l’applet de commande **New-AzureRmAlertRuleEmail**.
 
 ### Limitations sur les alertes
 Les alertes basées sur des événements sont soumises aux limitations suivantes :
@@ -242,4 +242,4 @@ Les alertes basées sur des événements sont soumises aux limitations suivantes
 
 - [Restauration de machines virtuelles Azure](backup-azure-restore-vms.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0907_2016-->

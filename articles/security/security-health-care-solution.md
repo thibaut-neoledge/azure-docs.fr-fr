@@ -1,10 +1,10 @@
 <properties
    pageTitle="Guide pratique de conception de solutions de santé sécurisées dans Azure | Microsoft Azure"
-   description="Cet article vous aidera à comprendre comment améliorer la sécurité de vos solutions de santé en utilisant les services et les fonctionnalités Azure que vous configurez."
+   description=" Cet article vous aidera à comprendre comment améliorer la sécurité de vos solutions de santé en utilisant les services et les fonctionnalités Azure que vous configurez. "
    services="security"
    documentationCenter="na"
    authors="TomShinder"
-   manager="StevenPo"
+   manager="MBaldwin"
    editor="TomSh"/>
 
 <tags
@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/08/2016"
+   ms.date="09/06/2016"
    ms.author="terrylan"/>
 
 # Guide pratique de conception de solutions de santé sécurisées dans Azure
 
-Les start-ups du secteur de la santé, les intégrateurs de systèmes, les éditeurs de logiciels indépendants et les organismes de santé qui envisagent le passage à Azure recherchent des conseils pour concevoir et utiliser des solutions qui intègrent des contrôles de sécurité leur permettant de respecter leurs obligations de conformité.
+Les start-ups du secteur de la santé, les intégrateurs de systèmes, les éditeurs de logiciels indépendants et les organismes de santé qui envisagent le passage à Azure recherchent des conseils les aidant à intégrer des contrôles de sécurité leur permettant de respecter leurs obligations de conformité.
 
 Le [Guide pratique de conception de solutions de santé sécurisées dans Microsoft Azure](https://aka.ms/azureindustrysecurity) vous permet de comprendre comment améliorer la sécurité de vos solutions en utilisant les services et les fonctionnalités Azure, que vous pouvez configurer en fonction de vos besoins. Le contenu se divise en trois sections principales :
 
@@ -28,4 +28,4 @@ Le [Guide pratique de conception de solutions de santé sécurisées dans Micros
 
 Nous espérons que vous trouverez le [Guide pratique de conception de solutions de santé sécurisées](https://aka.ms/azureindustrysecurity) utile. Si vous avez des questions ou des suggestions, faites-le nous savoir en laissant un commentaire ci-dessous.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0907_2016-->

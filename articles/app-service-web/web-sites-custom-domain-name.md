@@ -126,7 +126,7 @@ Configurez votre enregistrement A comme suit (@ représente généralement le do
   </tr>
 </table>
 
-L’enregistrement TXT supplémentaire adopte la convention qui mappe de &lt;*sous-domaine*>.&lt;*domaine\_racine*> à &lt;*sous-domaine*>.azurewebsites.net. Configurez votre enregistrement TXT comme suit :
+L’enregistrement TXT supplémentaire adopte la convention qui mappe de &lt;*sous-domaine*>.&lt;*domaine\_racine*> à &lt;*nom\_application*>.azurewebsites.net. Configurez votre enregistrement TXT comme suit :
 
 <table cellspacing="0" border="1">
   <tr>
@@ -203,6 +203,32 @@ De retour dans le panneau **Domaines personnalisés** du portail Azure (voir [l�
 
 8.  Une fois qu’Azure a terminé la configuration de votre nouveau nom de domaine, accédez à votre nom de domaine personnalisé dans un navigateur. Le navigateur devrait ouvrir votre application Azure, ce qui signifie que le nom de votre domaine personnalisé est correctement configuré.
 
+> [AZURE.NOTE] Si l’enregistrement DNS est déjà utilisé (domaine actif servant le scénario de trafic) et que vous devez y lier votre application web à titre préventif pour la vérification du domaine, créez simplement un enregistrement TXT tel qu’indiqué dans les exemples de la table suivante. L’enregistrement TXT supplémentaire adopte la convention qui mappe de &lt;*sous-domaine*>.&lt;*domaine\_racine*> à &lt;*nom\_application*>.azurewebsites.net.
+> <table cellspacing="0" border="1">
+>   <tr>
+>     <th>Exemple de nom de domaine complet</th>
+>     <th>Hôte TXT</th>
+>     <th>Valeur TXT</th>
+>   </tr>
+>   <tr>
+>     <td>contoso.com (racine)</td>
+>     <td>awverify.contoso.com</td>
+>     <td>&lt;<i>nom_application</i>>.azurewebsites.net</td>
+>   </tr>
+>   <tr>
+>     <td>www.contoso.com (sous-domaine)</td>
+>     <td>awverify.www.contoso.com</td>
+>     <td>&lt;<i>nom_application</i>>.azurewebsites.net</td>
+>   </tr>
+>     <tr>
+>     <td>*.contoso.com (sous-domaine)</td>
+>     <td>awverify.*.contoso.com</td>
+>     <td>&lt;<i>nom_application</i>>.azurewebsites.net</td>
+>   </tr>
+> </table>
+Une fois cet enregistrement DNS créé, revenez au portail Azure et ajoutez votre nom de domaine personnalisé à votre application web.
+ 
+
 <a name="verify"></a>
 ## Vérifier la propagation DNS
 
@@ -223,4 +249,4 @@ Apprenez à sécuriser votre nom de domaine personnalisé avec HTTPS en [achetan
 <!-- Images -->
 [subdomain]: media/web-sites-custom-domain-name/azurewebsites-subdomain.png
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

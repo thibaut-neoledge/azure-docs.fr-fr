@@ -97,7 +97,7 @@ Votre service est désormais configuré et prêt à fonctionner avec les notific
 
 3. Dans le même fichier, remplacez l’événement **RegisteredForRemoteNotifications**. Dans ce code, vous inscrivez une notification de modèle simple qui sera envoyée sur toutes les plateformes prises en charge par le serveur.
 
-	Pour plus d’informations sur les modèles avec Notification Hubs, consultez [Modèles](../notification-hubs/notification-hubs-templates.md).
+	Pour plus d’informations sur les modèles avec Notification Hubs, consultez [Modèles](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md).
 
 
         public override void RegisteredForRemoteNotifications(UIApplication application, NSData deviceToken)
@@ -156,4 +156,4 @@ Vous avez terminé ce didacticiel.
 
 <!-- URLs. -->
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

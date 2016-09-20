@@ -45,7 +45,7 @@ Après ces étapes, vous devez suivre la procédure décrite dans la section de 
 
 ###<a name="gradle-build"></a>Mise à jour du fichier de construction Gradle
 
-Modifiez les deux fichiers **build.gradle** :
+Modifiez les deux fichiers **build.gradle** :
 
 1. ajoutez ce code au fichier **build.gradle** de niveau *Project* à l’intérieur de la balise *buildscript* :
 
@@ -62,7 +62,7 @@ Modifiez les deux fichiers **build.gradle** :
 	La version la plus récente est la 3.1.0. Les versions prises en charge sont répertoriées [ici](http://go.microsoft.com/fwlink/p/?LinkID=717034).
 
 ###<a name="enable-internet"></a>activer les autorisations Internet.
-Pour accéder à Azure, l’autorisation INTERNET doit être activée sur votre application. Si ce n’est pas déjà fait, ajoutez la ligne de code suivante à votre fichier **AndroidManifest.xml** :
+Pour accéder à Azure, l’autorisation INTERNET doit être activée sur votre application. Si ce n’est pas déjà fait, ajoutez la ligne de code suivante à votre fichier **AndroidManifest.xml** :
 
 	<uses-permission android:name="android.permission.INTERNET" />
 
@@ -75,10 +75,10 @@ Cette section présente une partie du code de l’application de démarrage rapi
 
 ###<a name="data-object"></a>Définition des classes de données client
 
-Pour accéder aux données à partir des tables SQL Azure, vous devez définir des classes de données client qui correspondent aux tables du backend Mobile Apps. Les exemples de cette rubrique reposent sur une table nommée *ToDoItem*, qui contient les colonnes suivantes :
+Pour accéder aux données à partir des tables SQL Azure, vous devez définir des classes de données client qui correspondent aux tables du backend Mobile Apps. Les exemples de cette rubrique reposent sur une table nommée *ToDoItem*, qui contient les colonnes suivantes :
 
 - id
-- text
+- texte
 - terminé
 
 L’objet côté client typé correspondant est le suivant :
@@ -612,11 +612,11 @@ Vous pouvez utiliser la bibliothèque d’authentification Active Directory (ADA
 
 * Remplacez **INSERT-AUTHORITY-HERE** par le nom du client dans lequel vous avez déployé votre application. Vous devez utiliser le format https://login.windows.net/contoso.onmicrosoft.com. Cette valeur peut être copiée depuis l’onglet Domaine de votre Azure Active Directory dans le [portail Azure Classic].
 
-* Remplacez **INSERT-RESOURCE-ID-HERE** par l’ID client du serveur principal de votre application mobile. Vous pouvez obtenir cet identifiant sur le portail, dans l’onglet **Avancé** du menu **Paramètres Azure Active Directory**.
+* Remplacez **INSERT-RESOURCE-ID-HERE** par l’ID client du serveur principal de votre application mobile. Vous pouvez obtenir cet identifiant sur le portail, sous l’onglet **Avancé** du menu **Paramètres Azure Active Directory**.
 
 * Remplacez **INSERT-CLIENT-ID-HERE** par l’ID client que vous avez copié depuis l’application cliente native.
 
-* Remplacez **INSERT-REDIRECT-URI-HERE** par le point de terminaison _/.auth/login/done_ de votre site, en utilisant le schéma HTTPS. Cette valeur doit être similaire à \_https://contoso.azurewebsites.net/.auth/login/done_.
+* Remplacez **INSERT-REDIRECT-URI-HERE** par le point de terminaison _/.auth/login/done_ de votre site, en utilisant le modèle HTTPS. Cette valeur doit être similaire à \_https://contoso.azurewebsites.net/.auth/login/done_.
 
 		private AuthenticationContext mContext;
 		private void authenticate() {
@@ -678,7 +678,7 @@ Vous pouvez utiliser la bibliothèque d’authentification Active Directory (ADA
 
 ## Procédure : ajout d’une notification Push à votre application
 
-Vous pouvez [lire une présentation](../notification-hubs/notification-hubs-overview.md#integration-with-app-service-mobile-apps) qui explique comment Microsoft Azure Notification Hubs prend en charge un large éventail de notifications Push.
+Vous pouvez [lire une présentation](../notification-hubs/notification-hubs-push-notification-overview.md#integration-with-app-service-mobile-apps) qui explique comment Microsoft Azure Notification Hubs prend en charge un large éventail de notifications Push.
 
 Dans [ce didacticiel](app-service-mobile-android-get-started-push.md), une notification Push est envoyée à chaque fois qu’un enregistrement est inséré.
 
@@ -837,4 +837,4 @@ Cette méthode générale peut être utilisée dès lors que nous sommes en pré
 [Prise en main de l'authentification]: app-service-mobile-android-get-started-users.md
 [Prise en main de l’authentification]: app-service-mobile-android-get-started-users.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0907_2016-->

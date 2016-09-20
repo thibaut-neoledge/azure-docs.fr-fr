@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/25/2016"
+   ms.date="09/01/2016"
    ms.author="sonyama;barbkess;jrj"/>
 
 # Limites de la capacité de SQL Data Warehouse
@@ -24,8 +24,9 @@ Les tableaux suivants présentent les valeurs maximales autorisées pour les dif
 ## Gestion des charges de travail
 
 | Catégorie | Description | Maximale |
-| :------------------ | :------------------------------------------- | :----------------- |
-| [Data Warehouse Units (DWU)][]| Ressources de calcul, de mémoire et d’E/S | 6000 |
+| :------------------ | :------------------------------------------------ | :----------------- |
+| [Data Warehouse Units (DWU)][]| DWU max pour un SQL Data Warehouse unique | 6000 |
+| [Data Warehouse Units (DWU)][]| DWU max pour un serveur SQL unique | 6 000 par défaut<br/><br/> Par défaut, le Quota de DTU de chaque serveur SQL (par exemple, myserver.database.windows.net) est de 45 000, ce qui permet jusqu’à 6 000 DWU. Ce quota constitue simplement une limite de sécurité. Vous pouvez augmenter votre quota en [créant un ticket de support][] et en sélectionnant *Quota* en tant que type de demande. Pour calculer vos besoins en matière de DTU, multipliez le nombre total de DWU nécessaire par 7,5. Vous pouvez consulter votre consommation de DTU actuelle dans le panneau SQL Server dans le portail. Les bases de données suspendues et réactivées sont prises en compte dans le quota de DTU. |
 | Connexion de base de données | Sessions simultanées ouvertes | 1 024<br/><br/>Nous prenons en charge un maximum de 1 024 connexions actives, chacune pouvant envoyer simultanément des requêtes à une base de données SQL Data Warehouse. Notez que le nombre de requêtes pouvant réellement s’exécuter simultanément est limité. En cas de dépassement d’une limite de concurrence, la demande est placée dans une file d’attente interne où elle attend d’être traitée.|
 | Connexion de base de données | Mémoire maximale pour les instructions préparées | 20 Mo |
 | [Gestion des charges de travail][] | Nombre maximal de requêtes concurrentes | 32<br/><br/> Par défaut, SQL Data Warehouse peut exécuter un maximum de 32 requêtes simultanées et place en file d’attente les requêtes restantes.<br/><br/>Le niveau de concurrence peut diminuer lorsque des utilisateurs sont affectés à une classe de ressource supérieure ou si SQL Data Warehouse est configuré avec une DWU basse. Certaines requêtes, comme les requêtes DMV, sont toujours autorisées à s’exécuter.|
@@ -46,8 +47,6 @@ Les tableaux suivants présentent les valeurs maximales autorisées pour les dif
 | Table | Caractères par valeur limite de partition.| 4000 |
 | Index | Index non-cluster par table. | 999<br/><br/>Applicable uniquement aux tables Rowstore.|
 | Index | Index cluster par table. | 1<br><br/>Applicable à la fois aux tables Rowstore et Columnstore.|
-| Index | Lignes dans un groupe de lignes d’index de stockage de colonnes | 1 024<br/><br/>Chaque index columnstore est implémenté sous la forme de plusieurs index columnstore. Notez que si vous insérez 1 024 lignes dans un index de stockage de colonnes SQL Data Warehouse, les lignes ne sont pas toutes placées dans le même groupe de lignes.|
-| Index | Générations simultanées d’index de stockage de colonnes cluster. | 32<br/><br/>Applicable quand les index cluster columnstore reposent tous sur des tables différentes. Une seule génération d’index de stockage de colonnes cluster est autorisée par table. Les demandes supplémentaires attendent dans une file d’attente.|
 | Index | Taille de la clé d’index. | 900 octets.<br/><br/>Applicable aux index Rowstore uniquement.<br/><br/>Il est possible de créer des index sur des colonnes varchar d’une taille maximale de plus de 900 octets si les données existantes dans les colonnes n’excèdent pas 900 octets quand l’index est créé. Toutefois, les actions INSERT ou UPDATE ultérieures sur les colonnes, qui amènent la taille totale à dépasser 900 octets, échouent.|
 | Index | Colonnes clés par index. | 16<br/><br/>Applicable aux index Rowstore uniquement. Les index de stockage de colonnes cluster incluent toutes les colonnes.|
 | Statistiques | Taille des valeurs de colonnes combinées. | 900 octets. |
@@ -107,9 +106,10 @@ Pour plus d’informations, consultez la [vue d’ensemble de référence de SQL
 [Gestion des charges de travail]: ./sql-data-warehouse-develop-concurrency.md
 [Tempdb]: ./sql-data-warehouse-tables-temporary.md
 [type de données]: ./sql-data-warehouse-tables-data-types.md
+[créant un ticket de support]: /sql-data-warehouse-get-started-create-support-ticket.md
 
 <!--MSDN references-->
 [Données de dépassement de ligne de plus de 8 Ko]: https://msdn.microsoft.com/library/ms186981.aspx
 [Erreur interne : une limite des services d’expression a été atteint]: https://support.microsoft.com/kb/913050
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="06/04/2016" 
+	ms.date="08/04/2016" 
 	ms.author="heidist"/>
 
 # Utilisation des profils de score dans Azure Search
@@ -25,11 +25,11 @@ Pour vous aider à tester les profils de score, vous pouvez télécharger un exe
 L'exemple d'application illustre des comportements de score à l'aide de données fictives, appelées `musicstoreindex`. La simplicité de l'exemple d'application facilite la modification des profils de score et des requêtes. L'utilisateur peut voir les effets immédiats sur le classement quand le programme est exécuté.
 
 <a id="sub-1"></a>
-## Conditions préalables
+## Composants requis
 
 L’exemple d’application est écrit en C# à l’aide de Visual Studio 2013. Essayez l'édition [Visual Studio 2013 Express](http://www.visualstudio.com/products/visual-studio-express-vs.aspx) si vous ne disposez pas déjà d'une copie de Visual Studio.
 
-Vous avez besoin d'un abonnement Azure et d'un service Azure Search pour suivre ce didacticiel. Reportez-vous à la rubrique [Création d’un service Search dans le portail](search-create-service-portal.md) pour obtenir de l’aide sur la configuration du service.
+Vous avez besoin d’un abonnement Azure et d’un service Azure Search pour suivre ce didacticiel. Reportez-vous à la rubrique [Création d’un service Search dans le portail](search-create-service-portal.md) pour obtenir de l’aide sur la configuration du service.
 
 [AZURE.INCLUDE [Pour suivre ce didacticiel, vous avez besoin d'un compte Azure :](../../includes/free-trial-note.md)]
 
@@ -81,7 +81,7 @@ Vous êtes presque prêt à générer et à exécuter l'application, mais avant 
 - Interroge l'index à l'aide de quatre requêtes. Notez que les profils de score sont spécifiés comme un paramètre de requête. Toutes les requêtes recherchent le même terme « best ». La première requête montre le score par défaut. Les trois requêtes restantes utilisent un profil de score.
 
 <a id="sub-5"></a>
-## Génération et exécution de l'application
+## Génération et exécution de l’application
 
 Pour éliminer les problèmes de référence d'assembly ou de connectivité, générez et exécutez l'application pour vous assurer qu'aucun problème ne doit d'abord être résolu. Vous devez voir une application console ouverte en arrière-plan. Les quatre requêtes s'exécutent en séquence sans interruption. Sur de nombreux systèmes, la totalité du programme s'exécute en moins de 15 secondes. Si l'application console contient un message indiquant « Terminé. Appuyez sur ENTRÉE pour continuer », le programme s'est terminé correctement.
 
@@ -126,4 +126,4 @@ Vous avez besoin de revenir en arrière et de vous former davantage à la créat
 [10]: ./media/search-get-started-scoring-profiles/AzureSearch_XLSX1.PNG
 [9]: ./media/search-get-started-scoring-profiles/AzureSearch_XLSX2.PNG
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0907_2016-->

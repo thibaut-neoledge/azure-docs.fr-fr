@@ -25,16 +25,16 @@
 
 Cette rubrique montre comment utiliser Azure Notification Hubs pour diffuser des notifications relatives aux dernières nouvelles vers une application iOS. Lorsque vous aurez terminé, vous pourrez vous inscrire aux catégories de dernières nouvelles qui vous intéressent et recevoir uniquement des notifications Push pour ces catégories. Ce scénario est un modèle courant pour de nombreuses applications pour lesquelles des notifications doivent être envoyées à des groupes d'utilisateurs qui ont signalé antérieurement un intérêt, par exemple, lecteur RSS, applications pour fans de musique, etc.
 
-Les scénarios de diffusion sont activés en incluant une ou plusieurs _balises_ lors de la création d'une inscription dans le Notification Hub. Lorsque des notifications sont envoyées à une balise, tous les appareils pour lesquels cette balise est inscrite reçoivent la notification. Les balises étant de simples chaînes, il n’est pas nécessaire de les mettre en service à l’avance. Pour plus d’informations sur les balises, consultez [Routage et expressions de balise Notification Hubs](notification-hubs-tags-segment-push-message.md).
+Les scénarios de diffusion sont activés en incluant une ou plusieurs _balises_ lors de la création d'une inscription dans le Notification Hub. Lorsque des notifications sont envoyées à une balise, tous les appareils pour lesquels cette balise est inscrite reçoivent la notification. Les balises étant de simples chaînes, il n'est pas nécessaire de les mettre en service à l'avance. Pour plus d’informations sur les balises, consultez [Routage et expressions de balise Notification Hubs](notification-hubs-tags-segment-push-message.md).
 
 
 ##Composants requis
 
-Cette rubrique s'appuie sur l'application que vous avez créée dans [Prise en main de Notification Hubs][get-started]. Avant de commencer ce didacticiel, vous devez suivre celui intitulé [Prise en main de Notification Hubs][get-started].
+Cette rubrique s’appuie sur l’application que vous avez créée dans [Prise en main de Notification Hubs][get-started]. Avant de commencer ce didacticiel, vous devez suivre celui intitulé [Prise en main de Notification Hubs][get-started].
 
 ##Ajout d’une sélection de catégories à l’application
 
-La première étape consiste à ajouter à votre storyboard existant les éléments d’interface utilisateur qui permettent à l’utilisateur de sélectionner les catégories à inscrire. Les catégories sélectionnées par un utilisateur sont stockées sur l'appareil. Lorsque l'application démarre, une inscription d'appareil est créée dans votre concentrateur de notification avec les catégories sélectionnées sous forme de balises.
+La première étape consiste à ajouter à votre storyboard existant les éléments d'interface utilisateur qui permettent à l'utilisateur de sélectionner les catégories à inscrire. Les catégories sélectionnées par un utilisateur sont stockées sur l'appareil. Lorsque l’application démarre, une inscription d’appareil est créée dans votre hub de notification avec les catégories sélectionnées sous forme de balises.
 
 1. Dans MainStoryboard\_iPhone.storyboard, ajoutez les composants suivants de la bibliothèque d'objets :
 	+ une étiquette intitulée « Dernières nouvelles » ;
@@ -46,7 +46,7 @@ La première étape consiste à ajouter à votre storyboard existant les éléme
 
 	![][3]
 
-2. Dans l’éditeur de l’Assistant, créez des outlets pour tous les commutateurs et appelez-les "WorldSwitch", "PoliticsSwitch", "BusinessSwitch", "TechnologySwitch", "ScienceSwitch", "SportsSwitch".
+2. Dans l'éditeur de l'Assistant, créez des outlets pour tous les commutateurs et appelez-les "WorldSwitch", "PoliticsSwitch", "BusinessSwitch", "TechnologySwitch", "ScienceSwitch", "SportsSwitch".
 
 
 3. Créez une action pour le bouton intitulé « S’abonner ». Le fichier ViewController.h doit désormais contenir le code suivant :
@@ -134,12 +134,12 @@ La première étape consiste à ajouter à votre storyboard existant les éléme
 
 		self.notifications = [[Notifications alloc] initWithConnectionString:HUBLISTENACCESS HubName:HUBNAME];
 
-	> [AZURE.NOTE] Les informations d’identification distribuées avec une application cliente n’étant généralement pas sécurisées, vous ne devez distribuer que la clé d’accès d’écoute avec votre application cliente. L'accès d'écoute permet à votre application de s'inscrire à des notifications, mais les inscriptions existantes ne peuvent pas être modifiées et les notifications ne peuvent pas être envoyées. La clé d'accès complet est utilisée dans un service de serveur principal sécurisé pour l'envoi de notifications et la modification d'inscriptions existantes.
+	> [AZURE.NOTE] Les informations d'identification distribuées avec une application cliente n'étant généralement pas sécurisées, vous ne devez distribuer que la clé d'accès d'écoute avec votre application cliente. L'accès d'écoute permet à votre application de s'inscrire à des notifications, mais les inscriptions existantes ne peuvent pas être modifiées et les notifications ne peuvent pas être envoyées. La clé d'accès complet est utilisée dans un service de serveur principal sécurisé pour l'envoi de notifications et la modification d'inscriptions existantes.
 
 
 9. Dans la méthode **didRegisterForRemoteNotificationsWithDeviceToken** du fichier AppDelegate.m, remplacez le code de la méthode par le code suivant pour transmettre le jeton d’appareil à la classe Notifications. La classe Notifications effectue l’enregistrement pour les notifications avec les catégories. Si l’utilisateur modifie les sélections de catégorie, nous appelons la méthode `subscribeWithCategories` en réponse au bouton **S’abonner** pour mettre à jour les sections.
 
-	> [AZURE.NOTE] Étant donné que le jeton d’appareil attribué par le service de notification Push Apple (APN, Apple Push Notification) peut être modifié à tout moment, vous devez vous inscrire aux notifications à intervalles réguliers pour éviter les défaillances de notification. Cet exemple s'inscrit aux notifications chaque fois que l'application démarre. Pour les applications exécutées fréquemment, plus d'une fois par jour, vous pouvez probablement ignorer l'inscription afin de préserver la bande passante si moins d'un jour s'est écoulé depuis l'inscription précédente.
+	> [AZURE.NOTE] Étant donné que le jeton d'appareil attribué par le service de notification Push Apple (APN, Apple Push Notification) peut être modifié à tout moment, vous devez vous inscrire aux notifications à intervalles réguliers pour éviter les défaillances de notification. Cet exemple s'inscrit aux notifications chaque fois que l'application démarre. Pour les applications exécutées fréquemment, plus d'une fois par jour, vous pouvez probablement ignorer l'inscription afin de préserver la bande passante si moins d'un jour s'est écoulé depuis l'inscription précédente.
 
 		self.notifications.deviceToken = deviceToken;
 
@@ -318,7 +318,7 @@ Normalement, les notifications doivent être envoyées par un service principal.
 3. Régénérez votre projet et vérifiez qu’il n’existe aucune erreur de génération.
 
 
-##Exécution de l’application et génération de notifications
+##Exécution de l'application et génération de notifications
 
 1. Cliquez sur le bouton Exécuter pour générer le projet et démarrer l’application. Sélectionnez certaines options de dernières nouvelles pour vous y abonner, puis appuyez sur le bouton **S’abonner**. Vous devez voir une boîte de dialogue indiquant les notifications auxquelles vous êtes abonné.
 
@@ -337,7 +337,7 @@ Normalement, les notifications doivent être envoyées par un service principal.
 
 ## Étapes suivantes
 
-Dans ce didacticiel, nous avons appris à diffuser les dernières nouvelles par catégorie. Envisagez de suivre un des didacticiels suivants qui soulignent d’autres scénarios avancés Notification Hubs :
+Dans ce didacticiel, nous avons appris à diffuser les dernières nouvelles par catégorie. Envisagez de suivre un des didacticiels suivants qui soulignent d'autres scénarios avancés Notification Hubs :
 
 + **[Utilisation de Notification Hubs pour diffuser les dernières nouvelles localisées]**
 
@@ -361,7 +361,7 @@ Dans ce didacticiel, nous avons appris à diffuser les dernières nouvelles par 
 
 <!-- URLs. -->
 [How To: Service Bus Notification Hubs (iOS Apps)]: http://msdn.microsoft.com/library/jj927168.aspx
-[Utilisation de Notification Hubs pour diffuser les dernières nouvelles localisées]: notification-hubs-ios-send-localized-breaking-news.md
+[Utilisation de Notification Hubs pour diffuser les dernières nouvelles localisées]: notification-hubs-ios-xplat-localized-apns-push-notification.md
 [Mobile Service]: /develop/mobile/tutorials/get-started
 [Notify users with Notification Hubs]: notification-hubs-aspnet-backend-ios-notify-users.md
 [Notification Hubs Guidance]: http://msdn.microsoft.com/library/dn530749.aspx
@@ -369,4 +369,4 @@ Dans ce didacticiel, nous avons appris à diffuser les dernières nouvelles par 
 [get-started]: /manage/services/notification-hubs/get-started-notification-hubs-ios/
 [portail Azure Classic]: https://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0907_2016-->

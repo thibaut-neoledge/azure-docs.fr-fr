@@ -1,4 +1,4 @@
-Plusieurs raisons peuvent expliquer des problèmes de démarrage d’une application exécutée sur une machine virtuelle Azure ou de connexion à une telle application. Par exemple, l’application peut ne pas s’exécuter ou être à l’écoute sur les ports prévus, un port d’écoute peut être bloqué ou des règles de mise en réseau peuvent ne pas transmettre correctement le trafic à l’application. Cet article décrit une approche méthodique permettant d’identifier et de corriger le problème.
+Plusieurs raisons peuvent expliquer le fait que vous ne puissiez pas démarrer ou vous connecter à une application exécutée sur une machine virtuelle Azure. Parmi elles figurent le fait que l’application ne s’exécute pas ou ne surveille pas les ports attendus, que le port d’écoute soit bloqué ou que les règles réseau ne transmettent pas correctement le trafic à l’application. Cet article décrit une approche méthodique permettant d’identifier et de corriger le problème.
 
 Si vous rencontrez des problèmes de connexion à votre machine virtuelle à l’aide de RDP ou de SSH, consultez l’un des articles suivants :
 
@@ -7,7 +7,7 @@ Si vous rencontrez des problèmes de connexion à votre machine virtuelle à l�
 
 > [AZURE.NOTE] Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [Resource Manager et classique](../articles/resource-manager-deployment-model.md). Cet article traite des deux modèles, mais Microsoft recommande d’utiliser le modèle Resource Manager dans la plupart des nouveaux déploiements.
 
-Si vous avez besoin d’aide supplémentaire concernant n’importe quel point de cet article, contactez les experts Azure sur les [forums MSDN Azure et Stack Overflow](https://azure.microsoft.com/support/forums/). Vous pouvez également signaler un incident au support Azure. Accédez au [site du support Azure](https://azure.microsoft.com/support/options/), puis cliquez sur **Obtenir un support**.
+Si vous avez besoin d'aide supplémentaire concernant n'importe quel point de cet article, contactez les experts Azure sur les [forums MSDN Azure et Stack Overflow](https://azure.microsoft.com/support/forums/). Vous pouvez également signaler un incident au support Azure. Accédez au [site du support Azure](https://azure.microsoft.com/support/options/), puis cliquez sur **Obtenir un support**.
 
 ## Résolution rapide des problèmes de connectivité de point de terminaison
 
@@ -118,4 +118,4 @@ Si vous pouvez accéder à l’application, assurez-vous que votre périphériqu
 
 [Résolution des problèmes des connexions SSH avec une machine virtuelle Azure Linux](../articles/virtual-machines/virtual-machines-linux-troubleshoot-ssh-connection.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0907_2016-->

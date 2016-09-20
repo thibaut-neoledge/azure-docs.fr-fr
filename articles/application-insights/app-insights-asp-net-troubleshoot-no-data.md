@@ -60,7 +60,7 @@ Correctif :
 + vérifiez que les informations de connexion que vous avez fournies correspondent au bon compte Azure.
 + Dans votre navigateur, vérifiez que vous avez accès au [portail Azure](https://portal.azure.com). Ouvrez Paramètres et vérifiez s’il existe des restrictions.
 + [Ajoutez Application Insights à votre projet existant :](app-insights-asp-net.md) dans l’Explorateur de solutions, cliquez avec le bouton droit sur votre projet et sélectionnez « Ajouter Application Insights ».
-+ Si cela ne fonctionne toujours pas, suivez la [procédure manuelle](app-insights-asp-net-manual.md) pour ajouter une ressource dans le portail, puis ajoutez le Kit SDK à votre projet.
++ Si cela ne fonctionne toujours pas, suivez la [procédure manuelle](app-insights-windows-services.md) pour ajouter une ressource dans le portail, puis ajoutez le Kit SDK à votre projet.
 
 ## <a name="emptykey"></a>J’obtiens une erreur « La clé d’instrumentation ne peut pas être vide ».
 
@@ -215,4 +215,4 @@ Avez-vous effectué une génération pour .NET 4.6 ? 4.6 n’est pas automatiq
 
 * [Forum Application Insights](https://social.msdn.microsoft.com/Forums/vstudio/fr-FR/home?forum=ApplicationInsights)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

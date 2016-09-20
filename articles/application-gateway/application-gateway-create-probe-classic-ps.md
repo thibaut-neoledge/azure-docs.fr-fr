@@ -26,7 +26,7 @@
 
 <BR>
 
-[AZURE.INCLUDE [azure-probe-intro-include](../../includes/application-gateway-create-probe-intro-include.md)].
+[AZURE.INCLUDE [azure-probe-intro-include](../../includes/application-gateway-create-probe-intro-include.md)]
 
 [AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)] Découvrez comment [effectuer ces étapes à l’aide du modèle Resource Manager](application-gateway-create-probe-ps.md).
 
@@ -47,35 +47,13 @@ Pour créer la passerelle, utilisez l’applet de commande **New-AzureApplicatio
 
 L’exemple suivant illustre la création d’une nouvelle passerelle d’application avec un réseau virtuel appelé « testvnet1 » et un sous-réseau appelé « subnet-1 ».
 
-
-	PS C:\> New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
-
-	VERBOSE: 4:31:35 PM - Begin Operation: New-AzureApplicationGateway
-	VERBOSE: 4:32:37 PM - Completed Operation: New-AzureApplicationGateway
-	Name       HTTP Status Code     Operation ID                             Error
-	----       ----------------     ------------                             ----
-	Successful OK                   55ef0460-825d-2981-ad20-b9a8af41b399
-
-
- *Description*, *InstanceCount* et *GatewaySize* sont des paramètres facultatifs.
-
+	New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
 
 Pour vérifier que la passerelle a bien été créée, vous pouvez utiliser l’applet de commande **Get-AzureApplicationGateway**.
 
-
-	PS C:\> Get-AzureApplicationGateway AppGwTest
-	Name          : AppGwTest
-	Description   :
-	VnetName      : testvnet1
-	Subnets       : {Subnet-1}
-	InstanceCount : 2
-	GatewaySize   : Medium
-	State         : Stopped
-	VirtualIPs    : {}
-	DnsName       :
+	Get-AzureApplicationGateway AppGwTest
 
 >[AZURE.NOTE]  La valeur par défaut du paramètre *InstanceCount* est de 2, avec une valeur maximale de 10. La valeur par défaut du paramètre *GatewaySize* est Medium. Vous avez le choix entre Small, Medium et Large.
-
 
  Les paramètres *VirtualIPs* et *DnsName* sont sans valeur, car la passerelle n’a pas encore démarré. Ces valeurs seront créées une fois la passerelle en cours d'exécution.
 
@@ -87,10 +65,9 @@ Vous pouvez configurer la passerelle d’application à l’aide d’un objet de
 
 Dans l’exemple ci-dessous, vous allez utiliser un fichier XML pour configurer tous les paramètres de la passerelle d’application et les valider dans la ressource de passerelle d’application.
 
-### Étape 1 :  
+### Étape 1 :
 
 Copiez le texte suivant dans le Bloc-notes.
-
 
 	<ApplicationGatewayConfiguration xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/windowsazure">
     <FrontendIPConfigurations>
@@ -161,7 +138,6 @@ L’exemple suivant montre comment utiliser un fichier de configuration pour con
 
 >[AZURE.IMPORTANT] L’élément de protocole Http ou Https est sensible à la casse.
 
-
 Un nouvel élément de configuration <Probe> est ajouté pour configurer les sondes personnalisées.
 
 Les paramètres de configuration sont :
@@ -183,7 +159,7 @@ La modification de la configuration actuelle d’une passerelle d’application 
 
 Accédez au fichier XML à l’aide de get-AzureApplicationGatewayConfig. Le fichier XML de configuration est alors exporté pour être modifié de façon à y ajouter un paramètre de sonde.
 
-	get-AzureApplicationGatewayConfig -Name <application gateway name> -Exporttofile "<path to file>"
+	Get-AzureApplicationGatewayConfig -Name "<application gateway name>" -Exporttofile "<path to file>"
 
 
 ### Étape 2 :
@@ -200,6 +176,7 @@ Ouvrez le fichier XML dans un éditeur de texte. Ajoutez une section `<probe>` a
             <Timeout>15</Timeout>
             <UnhealthyThreshold>5</UnhealthyThreshold>
         </Probe>
+    </Probes>
 
 Dans la section backendHttpSettings du fichier XML, ajoutez le nom de la sonde comme dans l’exemple suivant :
 
@@ -214,12 +191,11 @@ Dans la section backendHttpSettings du fichier XML, ajoutez le nom de la sonde c
 
 Enregistrez le fichier XML.
 
-
 ### Étape 3
 
 Mettez à jour la configuration de la passerelle d’application à partir du nouveau fichier XML en utilisant **Set-AzureApplicationGatewayConfig**. Cette opération permettra de mettre à jour votre passerelle d’application avec cette nouvelle configuration.
 
-	set-AzureApplicationGatewayConfig -Name <application gateway name> -Configfile "<path to file>"
+	Set-AzureApplicationGatewayConfig -Name "<application gateway name>" -Configfile "<path to file>"
 
 
 ## Étapes suivantes
@@ -228,4 +204,4 @@ Si vous voulez configurer le déchargement SSL (Secure Sockets Layer), consultez
 
 Si vous voulez configurer une passerelle Application Gateway à utiliser avec l’équilibreur de charge interne, consultez [Création d’une passerelle Application Gateway avec un équilibrage de charge interne (ILB)](application-gateway-ilb.md).
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0907_2016-->

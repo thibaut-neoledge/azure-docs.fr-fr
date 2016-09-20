@@ -14,7 +14,7 @@
   ms.tgt_pltfrm="vm-windows"
   ms.devlang="na"
   ms.topic="article"
-  ms.date="06/20/2016"
+  ms.date="09/06/2016"
   ms.author="cjiang"/>
 
 # Résoudre les problèmes de déploiement Classic liés à la création d’une machine virtuelle Windows dans Azure
@@ -31,7 +31,7 @@
 
 Pour commencer la résolution des problèmes, collectez les journaux d’audit afin d’identifier l’erreur associée au problème.
 
-Dans le portail Azure, cliquez sur **Parcourir** > **Machines virtuelles** > *votre machine virtuelle Windows* > **Paramètres** > **Journaux d’audit**.
+Dans le portail Azure, cliquez sur **Parcourir** > **Machines virtuelles** > *votre machine virtuelle Windows* > **Paramètres** > **Journaux d’audit**.
 
 [AZURE.INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-issue1](../../includes/virtual-machines-troubleshoot-deployment-new-vm-issue1-include.md)]
 
@@ -84,4 +84,4 @@ Selon les contraintes du service cloud que vous utilisez pour créer la machine 
 ## Étapes suivantes
 Si vous rencontrez des problèmes lorsque vous démarrez une machine virtuelle Windows arrêtée ou que vous redimensionnez une machine virtuelle Windows existante dans Azure, consultez [Résoudre les problèmes de déploiement classique liés au redémarrage ou au redimensionnement d’une machine virtuelle Windows existante dans Azure](virtual-machines-windows-classic-restart-resize-error-troubleshooting.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0907_2016-->

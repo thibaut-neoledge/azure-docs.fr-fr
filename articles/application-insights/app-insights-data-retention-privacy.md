@@ -26,7 +26,7 @@ Tout d’abord, la réponse courte :
 
 * Les modules de télémétrie standard qui s’exécutent « dès le départ » sont peu susceptibles d’envoyer des données sensibles au service. La télémétrie s’attache aux métriques de charge, de performance et d’utilisation, aux rapports d’exception et autres données de diagnostic. Les données d’utilisateur principal visibles dans les rapports de diagnostics sont des URL ; mais votre application ne doit en aucun cas mettre des données sensibles en texte brut dans une URL.
 * Vous pouvez écrire du code qui envoie les données de télémétrie personnalisées supplémentaires, afin de vous aider avec les diagnostics et à surveiller l’utilisation. (Cette extensibilité est une fonctionnalité intéressante de Application Insights.) Il serait possible, par erreur, d’écrire ce code de manière à ce qu’il inclue les données personnelles et d’autres données sensibles. Si votre application fonctionne avec ces données, vous devez appliquer des processus de révision stricts à l’ensemble du code que vous écrivez.
-* Pendant le développement et le test de votre application, il est facile d’examiner ce qui est envoyé par le Kit de développement logiciel (SDK). Les données apparaissent dans les fenêtres de sortie de débogage de l’IDE et du navigateur. 
+* Pendant le développement et le test de votre application, il est facile d’examiner ce qui est envoyé par le Kit de développement logiciel (SDK). Les données apparaissent dans les fenêtres de sortie de débogage de l’IDE et du navigateur.
 * Les données sont stockées sur des serveurs [Microsoft Azure](http://azure.com) aux États-Unis. (Mais votre application peut s’exécuter n’importe où.) Azure dispose de [processus de sécurité renforcés, il est conforme à une large gamme de normes de conformité](https://azure.microsoft.com/support/trust-center/). Seuls vous et votre équipe avez accès à vos données. Le personnel Microsoft peut avoir un accès restreint uniquement dans certaines circonstances définies, avec votre consentement. Il est chiffré en transit, mais pas dans les serveurs.
 
 Le reste de cet article aborde plus en détail ces réponses. Il est conçu pour être autonome, afin que vous puissiez le montrer à des collègues qui ne font pas partie de votre équipe.
@@ -67,7 +67,7 @@ Les principales catégories sont :
 * [Les pages web](app-insights-javascript.md) : page, utilisateur et décomptes de sessions. Le temps de chargement de page. Les exceptions. Appels Ajax.
 * Les performances des compteurs : mémoire, UC, E/S, occupation du réseau.
 * Le contexte du client et du serveur : système d’exploitation, paramètres régionaux, type d’appareil, navigateur, résolution d’écran.
-* [Les exceptions](app-insights-asp-net-exceptions.md) et les incidents : **vidages de pile**, génération d’id, type d’UC. 
+* [Les exceptions](app-insights-asp-net-exceptions.md) et les incidents : **vidages de pile**, génération d’id, type d’UC.
 * [Les dépendances](app-insights-asp-net-dependencies.md) : les appels aux services externes tels que REST, SQL, AJAX. L’URI ou la chaîne de connexion, la durée, la réussite, la commande.
 * [Les tests de disponibilité](app-insights-monitor-web-app-availability.md) : durée et étapes du test, réponses.
 * [Les journaux de suivi](app-insights-search-diagnostic-logs.md) et [la télémétrie personnalisée](app-insights-api-custom-events-metrics.md) : **tout ce que vous codez dans vos journaux ou télémétrie**.
@@ -112,11 +112,11 @@ Microsoft n’utilise les données que pour vous fournir le service.
 
 ## Où sont conservées les données ? 
 
-* Aux États-Unis d'Amérique. 
+* Aux États-Unis d'Amérique.
 
 #### Peuvent-elles être stockées ailleurs, par exemple en Europe ? 
 
-* Pas à l'heure actuelle. 
+* Pas à l'heure actuelle.
 
 #### Cela signifie-t-il que mon application doit être hébergée aux États-Unis ?
 
@@ -196,7 +196,6 @@ Votre action | Classes de données collectées (voir tableau suivant)
 [Installer Status Monitor sur IIS][redfield]|Dependencies<br/>ServerContext<br/>Inferred<br/>Perf counters
 [Ajout du Kit de développement logiciel (SDK) Application Insights à une application web Java][java]|ServerContext<br/>Inferred<br/>Request<br/>Session<br/>users
 [Ajout d’un Kit de développement logiciel (SDK) JavaScript à une page web][client]|ClientContext <br/>Inferred<br/>Page<br/>ClientPerf<br/>Ajax
-[Ajout du Kit de développement logiciel (SDK) à une application Windows Store][windows]|DeviceContext<br/>Users<br/>Crash data
 [Définition des propriétés par défaut][apiproperties]|**Propriétés** sur tous les événements standard et personnalisés
 [Appel TrackMetric][api]|Valeurs numériques<br/>**Propriétés**
 [Appel Track*][api]|Nom de l’événement<br/>**Propriétés**
@@ -223,7 +222,7 @@ Mesures | Valeur et nom de la mesure
 PageViews | URL et nom de la page ou de l’écran
 Client perf | URL/nom de la page, temps de chargement du navigateur
 Ajax | Appels HTTP de la page web au serveur
-Demandes |URL, durée, code de réponse
+Requêtes |URL, durée, code de réponse
 Dépendances|Type (SQL, HTTP, ...), chaîne de connexion ou URI, synchronisation/désynchronisation, durée, réussite, instruction SQL (avec Status Monitor)
 **Exceptions** | Type, **message**, piles d’appels, fichier source et numéro ligne, ID du thread
 Crashes | ID de processus, ID de processus parent, ID de thread d’incident ; correctif de l’application, ID, version ; type d’exception, adresse, motif ; symboles et enregistrements masqués, adresses binaires de début et de fin, nom et chemin du fichier binaire, type de processeur
@@ -235,7 +234,7 @@ SDK diagnostics | Message de suivi ou exception
 Vous pouvez [désactiver certaines données en modifiant ApplicationInsights.config][config]
 
 
-## Remerciements
+## Crédits
 
 Ce produit contient des données GeoLite2 créées par MaxMind, disponible sur [http://www.maxmind.com](http://www.maxmind.com).
 
@@ -264,8 +263,7 @@ Ce produit contient des données GeoLite2 créées par MaxMind, disponible sur [
 [pricing]: http://azure.microsoft.com/pricing/details/application-insights/
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
-[windows]: app-insights-windows-get-started.md
 
  
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0907_2016-->

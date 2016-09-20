@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/26/2016" 
+	ms.date="09/06/2016" 
 	ms.author="danha"/>
 
 
@@ -125,11 +125,14 @@ Par défaut, les résultats sont initialement affichés sous forme de table. Vou
 
 ## Épingler au tableau de bord
 
-Vous pouvez épingler un diagramme à l’un de vos [tableaux de bord partagés](app-insights-dashboards.md) : cliquez simplement sur l’épingle. (Vous devrez peut-être [mettre à niveau le plan de tarification de votre application](app-insights-pricing.md) pour activer cette fonctionnalité.)
+Vous pouvez épingler un diagramme ou une table à l’un de vos [tableaux de bord partagés](app-insights-dashboards.md) : cliquez simplement sur l’épingle. (Vous devrez peut-être [mettre à niveau le plan de tarification de votre application](app-insights-pricing.md) pour activer cette fonctionnalité.)
 
 ![Cliquez sur l’épingle](./media/app-insights-analytics-using/pin-01.png)
 
 Cela signifie que, lorsque vous créez un tableau de bord pour vous aider à surveiller les performances ou l’utilisation de vos services web, vous pouvez inclure des analyses très complexes en parallèle des autres mesures.
+
+Vous pouvez épingler une table au tableau de bord, si elle comporte au maximum quatre colonnes. Seules les sept premières lignes sont affichées.
+
 
 #### Actualisation du tableau de bord
 
@@ -183,4 +186,4 @@ Une fois votre requête exécutée, vous pouvez télécharger un fichier .csv. C
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0907_2016-->

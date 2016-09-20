@@ -19,12 +19,12 @@
 # Utilisation de Notification Hubs pour envoyer les dernières nouvelles localisées
 
 > [AZURE.SELECTOR]
-- [Windows Store C#](notification-hubs-windows-store-dotnet-send-localized-breaking-news.md)
-- [iOS](notification-hubs-ios-send-localized-breaking-news.md)
+- [Windows Store C#](notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md)
+- [iOS](notification-hubs-ios-xplat-localized-apns-push-notification.md)
 
-##Vue d’ensemble
+##Vue d'ensemble
 
-Cette rubrique montre comment utiliser la fonctionnalité de **modèle** d'Azure Notification Hubs pour diffuser des notifications relatives aux dernières nouvelles qui ont été localisées par langue et par appareil. Vous devez commencer ce didacticiel avec l'application Windows Store que vous avez créée dans le cadre du didacticiel [Utilisation de Notification Hubs pour envoyer les dernières nouvelles]. Lorsque vous aurez terminé, vous pourrez vous inscrire aux catégories qui vous intéressent, spécifier une langue dans laquelle recevoir les notifications et recevoir uniquement des notifications Push pour les catégories sélectionnées dans cette langue.
+Cette rubrique montre comment utiliser la fonctionnalité de **modèle** d’Azure Notification Hubs pour diffuser des notifications relatives aux dernières nouvelles qui ont été localisées par langue et par appareil. Vous devez commencer ce didacticiel avec l'application Windows Store que vous avez créée dans le cadre du didacticiel [Utilisation de Notification Hubs pour envoyer les dernières nouvelles]. Lorsque vous aurez terminé, vous pourrez vous inscrire aux catégories qui vous intéressent, spécifier une langue dans laquelle recevoir les notifications et recevoir uniquement des notifications Push pour les catégories sélectionnées dans cette langue.
 
 
 Ce scénario comporte deux parties :
@@ -35,7 +35,7 @@ Ce scénario comporte deux parties :
 
 
 
-##Conditions préalables
+##Composants requis
 
 Vous devez avoir suivi le didacticiel [Utilisation de Notifications Hubs pour envoyer les dernières nouvelles] et avoir le code à disposition, car le présent didacticiel est basé sur ce code.
 
@@ -73,11 +73,11 @@ Les modèles sont une fonctionnalité très puissante sur laquelle vous pouvez o
 
 ##Interface utilisateur de l’application
 
-Nous allons maintenant modifier l'application de dernières nouvelles que vous avez créée à la rubrique [Utilisation de Notification Hubs pour envoyer les dernières nouvelles] pour envoyer les dernières nouvelles localisées à l'aide de modèles.
+Nous allons maintenant modifier l’application de dernières nouvelles que vous avez créée à la rubrique [Utilisation de Notification Hubs pour envoyer les dernières nouvelles] pour envoyer les dernières nouvelles localisées à l’aide de modèles.
 
 Dans votre application Windows Store :
 
-Modifiez le fichier MainPage.xaml pour qu’il inclue une zone de liste modifiable pour les paramètres régionaux :
+Modifiez le fichier MainPage.xaml pour qu'il inclue une zone de liste modifiable pour les paramètres régionaux :
 
 	<Grid Margin="120, 58, 120, 80"  
 			Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
@@ -228,4 +228,4 @@ Modifiez le fichier MainPage.xaml pour qu’il inclue une zone de liste modifiab
 [Notification Hubs How-To for iOS]: http://msdn.microsoft.com/library/jj927168.aspx
 [Notification Hubs How-To for Windows Store]: http://msdn.microsoft.com/library/jj927172.aspx
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0907_2016-->

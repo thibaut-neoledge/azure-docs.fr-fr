@@ -400,7 +400,7 @@ Lorsque vous créez un profil Traffic Manager, vous ne pouvez pas choisir direct
 [Journalisation]: ../app-service-web/web-sites-enable-diagnostic-log.md
 [Kit de développement logiciel (SDK) Mobile Apps Node.js]: https://github.com/azure/azure-mobile-apps-node
 [Services mobiles et App Service]: app-service-mobile-value-prop-migration-from-mobile-services.md
-[Notification Hubs]: ../notification-hubs/notification-hubs-overview.md
+[Notification Hubs]: ../notification-hubs/notification-hubs-push-notification-overview.md
 [analyse des performances]: ../app-service-web/web-sites-monitor.md
 [Postman]: http://www.getpostman.com/
 [sauvegarder les scripts]: ../mobile-services/mobile-services-disaster-recovery.md
@@ -410,4 +410,4 @@ Lorsque vous créez un profil Traffic Manager, vous ne pouvez pas choisir direct
 [Tâches web]: ../app-service-web/websites-webjobs-resources.md
 [Exemples de transformation XDT]: https://github.com/projectkudu/kudu/wiki/Xdt-transform-samples
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -12,20 +12,27 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/28/2016"
+	ms.date="09/01/2016"
 	ms.author="awills"/>
 
 # Surveillance des performances d'application web Azure
 
-Dans le [portail Azure](https://portal.azure.com), vous pouvez configurer l’analyse pour collecter des statistiques et des détails sur les dépendances de l’application dans vos [applications web Azure](../app-service-web/app-service-web-overview.md) ou vos [machines virtuelles](../virtual-machines/virtual-machines-linux-about.md).
+Dans le [portail Azure](https://portal.azure.com), vous pouvez configurer la surveillance des performances d’application pour vos [applications web Azure](../app-service-web/app-service-web-overview.md) ou vos [machines virtuelles](../virtual-machines/virtual-machines-linux-about.md). Les solutions de surveillance des performances instrumentent votre application afin qu’elle envoie des données de télémétrie concernant ses activités. Les mesures et les données de télémétrie en résultant peuvent alors être utilisées pour aider à diagnostiquer les problèmes, améliorer les performances et évaluer l’utilisation.
 
-Azure prend en charge l’analyse des performances des applications (APM) en tirant parti des extensions. Ces dernières sont installées dans votre application et collectent les données qu’elles renvoient aux services d’analyse.
+## En cours d’exécution ou en cours de création
 
-**Application Insights** et **New Relic** sont deux des extensions de surveillance des performances disponibles. Pour les utiliser, vous installez un agent lors de l'exécution. Application Insights permet également de générer votre code à l’aide d’un kit de développement logiciel. Le Kit de développement logiciel (SDK) vous permet d'écrire un code pour surveiller plus en détail l'utilisation et les performances de votre application.
+Vous pouvez configurer la surveillance par l’instrumentation de l’application de deux manières :
 
-## Application Insights
+* **En cours d’exécution** : vous pouvez sélectionner une extension de surveillance des performances lorsque votre application est déjà active. Il n’est pas nécessaire de reconstruire ou de réinstaller votre application. Vous obtenez un ensemble standard de packages qui analyse les temps de réponse, les taux de réussite, les exceptions, les dépendances, etc.
 
-### (Facultatif) Régénérez l’application avec le Kit de développement logiciel (SDK)...
+    **Application Insights** et **New Relic** sont deux des extensions de surveillance des performances disponibles en cours d’exécution.
+ 
+* **En cours de création** : vous pouvez installer un package dans votre application en cours de développement. Cette option est plus souple. Outre les mêmes packages standard, vous pouvez écrire du code pour personnaliser les données de télémétrie ou pour envoyer vos propres données de télémétrie. Vous pouvez consigner des activités spécifiques ou enregistrer les événements en fonction de la sémantique de votre domaine d’application.
+
+    **Application Insights** fournit les packages en cours de création.
+
+
+## Créez l’application avec le package Application Insights...
 
 Application Insights peut fournir des données de télémétrie détaillée par l’installation d’un SDK dans votre application.
 
@@ -46,7 +53,7 @@ Le Kit de développement logiciel (SDK) contient une API qui vous permet d’[é
 
 ### .. .ou définissez manuellement une ressource
 
-Si vous n’avez pas ajouté le Kit de développement logiciel dans Visual Studio, vous devez configurer la ressource Application Insights dans Azure, à l’emplacement de stockage, d’analyse et d’affichage de vos données de télémétrie.
+Si vous n’avez pas ajouté le Kit de développement logiciel dans Visual Studio, vous devez configurer une ressource Application Insights dans Azure, à l’emplacement de stockage, d’analyse et d’affichage de vos données de télémétrie.
 
 ![Cliquez sur Ajouter, Services de développement, Application Insights. Choisissez le type d’application ASP.NET.](./media/insights-perf-analytics/01-new.png)
 
@@ -101,7 +108,7 @@ Comment modifier la configuration pour envoyer des données vers une autre resso
 * [Analyse des mesures d’intégrité du service](insights-how-to-customize-monitoring.md) pour vous assurer que votre service est disponible et réactif.
 * [Activation de la surveillance et des diagnostics](insights-how-to-use-diagnostics.md) pour collecter des mesures détaillées à fréquence élevée sur votre service.
 * [Réceptions de notifications d'alerte](insights-receive-alert-notifications.md) lorsque des événements opérationnels se produisent ou que des mesures dépassent un seuil.
-* Utilisation [d’Application Insights pour les pages Web et les applications JavaScript](../application-insights/app-insights-web-track-usage.md) pour obtenir les données de télémétrie du client à partir des navigateurs qui consultent une page web.
+* Utilisation [d’Application Insights pour les pages web et les applications JavaScript](../application-insights/app-insights-web-track-usage.md) pour obtenir les données de télémétrie du client à partir des navigateurs qui consultent une page web.
 * [Configuration des tests de disponibilité web](../application-insights/app-insights-monitor-web-app-availability.md), pour recevoir des alertes en cas d’interruption de votre site.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0907_2016-->

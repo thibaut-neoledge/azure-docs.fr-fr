@@ -82,55 +82,12 @@ Vous devez inclure l’instruction d’importation suivante dans le fichier où 
     // Include the following import statement to use blob APIs.
     #import <AZSClient/AZSClient.h>
 
-## Configurer votre application pour accéder au stockage d’objets blob
-
-Il existe deux manières d’authentifier votre application pour accéder aux services de stockage :
-
-- Clé partagée : utilisez la clé partagée aux fins de test uniquement
-- Signature d’accès partagé (SAP) : utilisez la signature d’accès partagé pour les applications de production
-
-### Clé partagée
-L’authentification par clé partagée signifie que votre application utilisera votre nom de compte et votre clé de compte pour accéder aux services de stockage. Afin de vous montrer rapidement comment utiliser le stockage d’objets blob à partir d’iOS, nous allons utiliser l’authentification par clé partagée dans cet article de prise en main.
-
-> [AZURE.WARNING (Only use Shared Key authentication for testing purposes!) ] Votre nom de compte et votre clé de compte, qui donnent un accès complet en lecture/écriture au compte de stockage associé, seront distribués à chaque personne qui télécharge votre application. Ce n’est **pas** une bonne pratique car votre clé risque d’être compromise par des clients non approuvés.
-
-Lorsque vous utilisez une authentification par clé partagée, vous créez une chaîne de connexion. La chaîne de connexion comporte les éléments suivants :
-
-- **DefaultEndpointsProtocol** : vous avez le choix entre les protocoles HTTP et HTTPS. Toutefois, l’utilisation du protocole HTTPS est fortement recommandée.
-- **Nom du compte** : nom de votre compte de stockage.
-- **Clé de compte** : si vous utilisez le [portail Azure](https://portal.azure.com), accédez à votre compte de stockage, puis cliquez sur l’icône **Clés** pour rechercher ces informations. Si vous utilisez le [portail Azure Classic](https://manage.windowsazure.com), accédez à votre compte de stockage dans le portail, puis cliquez sur **Gérer les clés d’accès**.
-
-Voici l’aspect affiché dans votre application :
-
-    // Create a storage account object from a connection string.
-    AZSCloudStorageAccount *account = [AZSCloudStorageAccount accountFromConnectionString:@"DefaultEndpointsProtocol=https;AccountName=your_account_name_here;AccountKey=your_account_key_here" error:&accountCreationError];
-
-### Signatures d’accès partagé (SAP)
-Pour une application iOS, la méthode recommandée pour authentifier une demande d’un client par rapport au stockage d’objets blob consiste à utiliser une signature d’accès partagé (SAP). Une SAP vous permet d’accorder un accès client à une ressource pour une période spécifiée, avec un jeu d’autorisations spécifié. En tant que propriétaire du compte de stockage, vous devez générer une SAP que vos clients iOS pourront consommer. Pour ce faire, vous souhaiterez probablement écrire un service séparé qui génère les SAP à distribuer à vos clients. À des fins de test, vous pouvez utiliser l’Explorateur de stockage Microsoft Azure pour générer une SAP. Lorsque vous créez la SAP, vous pouvez spécifier l’intervalle de temps pendant lequel elle est valide et les autorisations qu’elle accorde au client.
-
-L’exemple suivant montre comment utiliser l’Explorateur de stockage Microsoft Azure pour générer une SAP.
-
-1. Si ce n’est déjà fait, [installez l’Explorateur de stockage Microsoft Azure](http://storageexplorer.com)
-
-2. Connectez-vous à votre abonnement.
-
-3. Cliquez sur votre compte de stockage puis sur l’onglet « Actions » en bas à gauche. Cliquez sur « Obtenir une signature d’accès partagé » afin de générer une « chaîne de connexion » pour votre SAS.
-
-4. Voici un exemple de chaîne de connexion SAS qui accorde des autorisations en lecture et écriture au niveau du service, du conteneur et de l’objet pour le service blob du compte de stockage.
-
-        SharedAccessSignature=sv=2015-04-05&ss=b&srt=sco&sp=rw&se=2016-07-21T18%3A00%3A00Z&sig=3ABdLOJZosCp0o491T%2BqZGKIhafF1nlM3MzESDDD3Gg%3D;BlobEndpoint=https://youraccount.blob.core.windows.net
-
-6. Dans votre application iOS, vous pouvez désormais obtenir une référence à votre compte à l’aide de la chaîne de connexion de la manière suivante :
-
-		// Get a reference to your Storage account
-    	AZSCloudStorageAccount *account = [AZSCloudStorageAccount accountFromConnectionString:@"SharedAccessSignature=sv=2015-04-05&ss=b&srt=sco&sp=rw&se=2016-07-21T18%3A00%3A00Z&sig=3ABdLOJZosCp0o491T%2BqZGKIhafF1nlM3MzESDDD3Gg%3D;BlobEndpoint=https://youraccount.blob.core.windows.net" error:&accountCreationError];
-
-Comme vous pouvez le voir, lorsque vous utilisez un SAP, vous n’exposez ni votre nom de compte ni votre clé de compte dans votre application iOS. Vous pouvez en savoir plus sur les SAP en consultant [Signatures d’accès partagé : présentation du modèle SAP](storage-dotnet-shared-access-signature-part-1.md).
+[AZURE.INCLUDE [storage-mobile-authentication-guidance](../../includes/storage-mobile-authentication-guidance.md)]
 
 ## Opérations asynchrones
 > [AZURE.NOTE] Toutes les méthodes qui effectuent une demande auprès du service sont des opérations asynchrones. Dans les exemples de code, vous découvrirez que ces méthodes sont dotées d’un gestionnaire d’achèvement. Le code dans le gestionnaire d’achèvement s’exécutera **après** que la demande sera terminée. Le code suivant le gestionnaire d’achèvement s’exécute **pendant** l’exécution de la demande.
 
-## Création d’un conteneur
+## Créer un conteneur
 Chaque objet blob dans Azure Storage doit résider dans un conteneur. L’exemple suivant montre comment créer un conteneur appelé *newcontainer* dans votre compte de stockage s’il n’existe pas déjà. Lorsque vous choisissez un nom pour votre conteneur, gardez à l’esprit les règles d’affectation de noms mentionnées ci-dessus.
 
     -(void)createContainer{
@@ -157,16 +114,16 @@ Chaque objet blob dans Azure Storage doit résider dans un conteneur. L’exempl
       }];
     }
 
-Vous pouvez vérifier que cela fonctionne en examinant l[’Explorateur Microsoft Azure Storage](http://storageexplorer.com) et en vérifiant que *newcontainer* figure dans la liste des conteneurs pour votre compte de stockage.
+Vous pouvez vérifier que cela fonctionne en examinant [l’Explorateur de stockage Microsoft Azure](http://storageexplorer.com) et en vérifiant que *newcontainer* figure dans la liste des conteneurs pour votre compte de stockage.
 
 ## Définir les autorisations du conteneur
 Les autorisations d’un conteneur sont configurées pour l’accès **Privé** par défaut. Toutefois, les conteneurs fournissent d’autres options pour l’accès aux conteneurs :
 
-- **Privé** : seul le propriétaire du compte peut lire les données de conteneur et d’objet blob.
+- **Privé** : seul le propriétaire du compte peut lire les données de conteneur et d’objet blob.
 
-- **BLOB** : les données blob à l’intérieur de ce conteneur sont lisibles au moyen d’une demande anonyme, mais les données du conteneur ne sont pas disponibles. Les clients ne peuvent pas énumérer les objets blob à l’intérieur du conteneur via une demande anonyme.
+- **BLOB** : les données blob à l’intérieur de ce conteneur sont lisibles au moyen d’une demande anonyme, mais les données du conteneur ne sont pas disponibles. Les clients ne peuvent pas énumérer les objets blob à l’intérieur du conteneur via une demande anonyme.
 
-- **Conteneur** : les données de conteneur et blob sont lisibles au moyen d’une demande anonyme. Les clients peuvent énumérer les objets blob à l’intérieur du conteneur via une demande anonyme, mais ne peuvent pas énumérer les conteneurs dans le compte de stockage.
+- **Conteneur** : les données de conteneur et blob sont lisibles au moyen d’une demande anonyme. Les clients peuvent énumérer les objets blob à l’intérieur du conteneur via une demande anonyme, mais ne peuvent pas énumérer les conteneurs dans le compte de stockage.
 
 L’exemple suivant montre comment créer un conteneur avec des autorisations d’accès de type **Conteneur**, qui autorisent un accès public en lecture seule à tous les utilisateurs sur Internet :
 
@@ -234,7 +191,7 @@ L’exemple suivant montre comment charger un objet blob de blocs à partir d’
          }];
     }
 
-Vous pouvez vérifier que cela fonctionne en examinant l[’Explorateur Microsoft Azure Storage](http://storageexplorer.com) et en vérifiant que le conteneur, *containerpublic*, contient l’objet blob, *sampleblob*. Dans cet exemple, nous avons utilisé un conteneur public afin que vous puissiez également vérifier que cela a fonctionné en accédant à l’URI des objets blob :
+Vous pouvez vérifier que cela fonctionne en examinant [l’Explorateur de stockage Microsoft Azure](http://storageexplorer.com) et en vérifiant que le conteneur, *containerpublic*, contient l’objet blob, *sampleblob*. Dans cet exemple, nous avons utilisé un conteneur public afin que vous puissiez également vérifier que cela a fonctionné en accédant à l’URI des objets blob :
 
     https://nameofyourstorageaccount.blob.core.windows.net/containerpublic/sampleblob
 
@@ -243,18 +200,18 @@ Outre le chargement d’un objet blob de blocs à partir d’une chaîne NSStrin
 ## Création d’une liste d’objets blob dans un conteneur
 L’exemple suivant montre comment répertorier tous les objets blob dans un conteneur. Lorsque vous effectuez cette opération, gardez à l’esprit les paramètres suivants :
 
-- **continuationToken** : le jeton de continuation représente l’emplacement où l’opération de liste doit commencer. Si aucun jeton n’est fourni, il répertorie les objets blob depuis le début. N’importe quel nombre d’objets blob peut être répertorié, à partir de zéro jusqu’à un maximum spécifié. Même si cette méthode ne retourne aucun résultat, si la valeur `results.continuationToken` n’est pas nulle, il peut y avoir davantage d’objets blob sur le service qui n’ont pas été répertoriés.
-- **prefix** : vous pouvez spécifier le préfixe à utiliser pour la liste d’objets blob. Seuls les objets blob qui commencent par ce préfixe sont répertoriés.
-- **useFlatBlobListing** : comme indiqué dans la section [Désignation et référencement des conteneurs et des objets blob](#naming-and-referencing-containers-and-blobs), bien que le service BLOB soit un schéma de stockage plat, vous pouvez créer une hiérarchie virtuelle en nommant les objets blob avec des informations de chemin d’accès. Toutefois, les listes de stockage non plat ne sont actuellement pas prises en charge ; cette option sera bientôt disponible. Pour le moment, cette valeur doit être `YES`
-- **blobListingDetails** : vous pouvez spécifier les éléments à inclure lors de la création de la liste d’objets blob.
+- **continuationToken** : le jeton de continuation représente l’emplacement où l’opération de liste doit commencer. Si aucun jeton n’est fourni, il répertorie les objets blob depuis le début. N’importe quel nombre d’objets blob peut être répertorié, à partir de zéro jusqu’à un maximum spécifié. Même si cette méthode ne retourne aucun résultat, si la valeur `results.continuationToken` n’est pas nulle, il peut y avoir davantage d’objets blob sur le service qui n’ont pas été répertoriés.
+- **prefix** : vous pouvez spécifier le préfixe à utiliser pour la liste d’objets blob. Seuls les objets blob qui commencent par ce préfixe sont répertoriés.
+- **useFlatBlobListing** : comme indiqué dans la section [Désignation et référencement des conteneurs et des objets blob](#naming-and-referencing-containers-and-blobs), bien que le service BLOB soit un schéma de stockage plat, vous pouvez créer une hiérarchie virtuelle en nommant les objets blob avec des informations de chemin d’accès. Toutefois, les listes de stockage non plat ne sont actuellement pas prises en charge ; cette option sera bientôt disponible. Pour le moment, cette valeur doit être `YES`
+- **blobListingDetails** : vous pouvez spécifier les éléments à inclure lors de la création de la liste d’objets blob.
 	- `AZSBlobListingDetailsNone` : répertorie uniquement les objets blob validés et ne renvoie pas de métadonnées d’objet blob.
 	- `AZSBlobListingDetailsSnapshots` : répertorie les objets blob validés et les instantanés d’objet blob.
 	- `AZSBlobListingDetailsMetadata` : récupère les métadonnées d’objet blob pour chaque objet blob renvoyé dans la liste.
 	- `AZSBlobListingDetailsUncommittedBlobs` : répertorie les objets blob validés et non validés.
 	- `AZSBlobListingDetailsCopy` : inclut des propriétés de copie dans la liste.
 	- `AZSBlobListingDetailsAll` : répertorie tous les objets blob validés, objets blob non validés et instantanés disponibles, et renvoie l’état de toutes les métadonnées et de la copie pour ces objets blob.
-- **maxResults** : nombre maximal de résultats à renvoyer pour cette opération. Utilisez -1 pour ne pas définir une limite.
-- **completionHandler** : bloc de code à exécuter avec les résultats de l’opération de génération de liste.
+- **maxResults** : nombre maximal de résultats à renvoyer pour cette opération. Utilisez -1 pour ne pas définir une limite.
+- **completionHandler** : bloc de code à exécuter avec les résultats de l’opération de génération de liste.
 
 Dans cet exemple, une méthode d’assistance est utilisée pour appeler de manière récursive la méthode de liste d’objets blob à chaque fois qu’un jeton de continuation est renvoyé.
 
@@ -342,7 +299,7 @@ L’exemple suivant montre comment télécharger un objet blob vers un objet NSS
         }];
     }
 
-## Supprimer un blob.
+## Supprimer un objet blob
 
 L’exemple suivant indique comment supprimer un objet blob.
 
@@ -410,6 +367,6 @@ Maintenant que vous avez appris à utiliser le stockage d’objets blob d’iOS,
 - [API REST des services d’Azure Storage](https://msdn.microsoft.com/library/azure/dd179355.aspx)
 - [Blog de l'équipe Azure Storage](http://blogs.msdn.com/b/windowsazurestorage)
 
-Si vous avez des questions concernant cette bibliothèque, n’hésitez pas à les publier sur notre [forum MSDN Azure](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=windowsazuredata) ou sur [Stack Overflow](http://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files). Si vous avez des suggestions de fonctionnalités pour Azure Storage, envoyez un message sur [Commentaires Azure Storage](https://feedback.azure.com/forums/217298-storage/).
+Si vous avez des questions concernant cette bibliothèque, n’hésitez pas à les publier sur notre [forum MSDN Azure](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=windowsazuredata) ou sur [Stack Overflow](http://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files). Si vous avez des suggestions de fonctionnalités pour le stockage Azure, envoyez un message sur [Commentaires sur le stockage Azure](https://feedback.azure.com/forums/217298-storage/).
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0907_2016-->

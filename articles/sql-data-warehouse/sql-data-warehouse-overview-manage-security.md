@@ -21,12 +21,10 @@
 > [AZURE.SELECTOR]
 - [Présentation de la sécurité](sql-data-warehouse-overview-manage-security.md)
 - [Détection de menaces](sql-data-warehouse-security-threat-detection.md)
-- [Chiffrement (portail)](sql-data-warehouse-encryption-tde.md)
-- [Chiffrement (T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
 - [Vue d’ensemble de l’audit](sql-data-warehouse-auditing-overview.md)
 - [Audit des clients de niveau inférieur](sql-data-warehouse-auditing-downlevel-clients.md)
-
-
+- [Chiffrement transparent des données (portail)](sql-data-warehouse-encryption-tde.md)
+- [Chiffrement transparent des données (T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
 
 Cet article présente les principes de base de la sécurisation de votre base de données Microsoft Azure SQL Data Warehouse. Plus spécifiquement, cet article vous offre un aperçu sur les ressources dédiées à la limitation de l’accès, à la protection des données et à la surveillance des activités sur une base de données.
 
@@ -34,10 +32,9 @@ Cet article présente les principes de base de la sécurisation de votre base de
 
 L’expression « sécurité de la connexion » fait référence au mode de restriction et de sécurisation appliqué aux connexions à votre base de données, au moyen de règles de pare-feu et d’une fonction de chiffrement des connexions.
 
-Les règles de pare-feu sont utilisées par le serveur et la base de données pour refuser toute tentative de connexion d’une adresse IP qui ne fait pas partie d’une liste blanche explicite. Pour permettre une connexion depuis l’adresse IP publique de l’ordinateur client ou votre application, vous devez d’abord créer une règle de pare-feu au niveau du serveur à l’aide du portail Azure Classic, d’une API REST ou de PowerShell. Nous vous recommandons, à titre de meilleure pratique, de limiter autant que possible le nombre de plages d’adresses IP autorisées à traverser le pare-feu de votre serveur. Pour accéder à SQL Data Warehouse à partir de votre ordinateur local, vérifiez que le pare-feu sur votre réseau et l’ordinateur local autorise les communications sortantes sur le port TCP 1433. Pour plus d’informations, voir [Pare-feu de la base de données Azure SQL][], [sp\_set\_firewall\_rule][], et [sp\_set\_database\_firewall\_rule][].
+Les règles de pare-feu sont utilisées par le serveur et la base de données pour refuser toute tentative de connexion d’une adresse IP qui ne fait pas partie d’une liste blanche explicite. Pour permettre une connexion depuis l’adresse IP publique de l’ordinateur client ou votre application, vous devez d’abord créer une règle de pare-feu au niveau du serveur à l’aide du portail Azure, d’une API REST ou de PowerShell. Nous vous recommandons, à titre de meilleure pratique, de limiter autant que possible le nombre de plages d’adresses IP autorisées à traverser le pare-feu de votre serveur. Pour accéder à SQL Data Warehouse à partir de votre ordinateur local, vérifiez que le pare-feu sur votre réseau et l’ordinateur local autorise les communications sortantes sur le port TCP 1433. Pour plus d’informations, voir [Pare-feu de la base de données Azure SQL][], [sp\_set\_firewall\_rule][], et [sp\_set\_database\_firewall\_rule][].
 
-Les connexions à votre SQL Data Warehouse peuvent être chiffrées en définissant le mode de chiffrement dans votre chaîne de connexion. La syntaxe pour l’activation du chiffrement de la connexion varie en fonction du protocole. Pour obtenir de l’aide pour la configuration de votre chaîne de connexion, accédez à votre base de données dans le portail Azure. Sous *Essentials* cliquez sur *Afficher les chaînes de connexion de la base de données*.
-
+Par défaut, les connexions à SQL Data Warehouse sont chiffrées. La modification des paramètres de connexion pour désactiver le chiffrement est ignorée.
 
 ## Authentification
 
@@ -125,4 +122,4 @@ Pour plus d’informations et des exemples sur la connexion à SQL Data Warehous
 <!--Other Web references-->
 [Contrôle d’accès en fonction du rôle dans le Portail Azure]: https://azure.microsoft.com/documentation/articles/role-based-access-control-configure
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

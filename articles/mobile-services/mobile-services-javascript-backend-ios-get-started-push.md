@@ -25,7 +25,7 @@
 [AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
 > Pour la version Mobile Apps équivalente de cette rubrique, consultez l’article [Ajout de notifications Push à votre application iOS](../app-service-mobile/app-service-mobile-ios-get-started-push.md).
 
-Cette rubrique vous montre comment ajouter des notifications push au [projet quickstart](mobile-services-ios-get-started.md), de sorte que votre service mobile envoie une notification push chaque fois qu'un enregistrement est inséré. Vous devez d’abord suivre le didacticiel [Prise en main de Mobile Services].
+Cette rubrique vous montre comment ajouter des notifications Push au [projet quickstart](mobile-services-ios-get-started.md), de sorte que votre service mobile envoie une notification Push à chaque fois qu’un enregistrement est inséré. Vous devez d’abord suivre le didacticiel [Prise en main de Mobile Services].
 
 > [AZURE.NOTE] Le [simulateur iOS ne prend pas en charge les notifications push](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html), vous devez donc utiliser un appareil iOS physique. Vous devrez également souscrire un [abonnement au programme pour développeurs Apple](https://developer.apple.com/programs/ios/).
 
@@ -119,7 +119,7 @@ Cette rubrique vous montre comment ajouter des notifications push au [projet qui
 [Send push notifications to authenticated users]: mobile-services-javascript-backend-ios-push-notifications-app-users.md
 [What are Notification Hubs?]: ../notification-hubs-overview.md
 [Send broadcast notifications to subscribers]: ../notification-hubs-ios-send-breaking-news.md
-[Send template-based notifications to subscribers]: ../notification-hubs-ios-send-localized-breaking-news.md
+[Send template-based notifications to subscribers]: ../notification-hubs-ios-xplat-localized-apns-push-notification.md
 [Mobile Services Objective-C how-to conceptual reference]: mobile-services-windows-dotnet-how-to-use-client-library.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0907_2016-->

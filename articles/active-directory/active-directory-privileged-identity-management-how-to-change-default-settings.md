@@ -23,8 +23,8 @@ Un administrateur de rôle privilégié peut personnaliser Azure AD Privileged I
 ## Gérer les paramètres d'activation de rôle
 
 1. Accédez à la [portail Azure](https://portal.azure.com) et sélectionnez l’application **Azure AD Privileged Identity Management** à partir du tableau de bord.
-2. Sélectionnez le rôle que vous souhaitez gérer à partir de la table des rôles.
-3. Cliquez sur **Paramètres**.
+2. Sélectionnez **Gérer les rôles privilégiés** > **Paramètres** > **Rôles privilégiés**.
+3. Choisissez le rôle dont vous souhaitez gérer les paramètres.
 
 Sur la page des paramètres de chaque rôle, vous pouvez configurer plusieurs paramètres. Ces paramètres affectent uniquement les utilisateurs qui sont des administrateurs éligibles et non des administrateurs permanents.
 
@@ -40,19 +40,24 @@ Sur la page des paramètres de chaque rôle, vous pouvez configurer plusieurs pa
 
 - Vous ne pouvez pas désactiver l’authentification multifacteur pour les rôles à privilèges élevés pour Azure AD et Office 365. Il s’agit d’une fonctionnalité de sécurité car ces rôles doivent être soigneusement protégés :
 
-    - Administrateur général
-    - Administrateur de rôle privilégié
-    - Administrateur de compte d’utilisateur
+    - Administrateur d’application
+    - Administrateur du serveur proxy d’application
+    - Administrateur de facturation
+    - Administrateur de conformité
+    - Administrateur de services CRM
+    - Approbateur d’accès au référentiel sécurisé client
     - Enregistreur de répertoire
+    - Administrateur Exchange
+    - Administrateur général
+    - Administrateur de services Intune
+    - Administrateur de boîte aux lettres
     - Prise en charge de niveau 1 de partenaire
     - Prise en charge de niveau 2 de partenaire
-    - Administrateur de facturation
+    - Administrateur de rôle privilégié
     - Administrateur de sécurité
-    - Administrateur Exchange
-    - Administrateur de boîte aux lettres
-    - Administrateur Skype Entreprise
     - Administrateur SharePoint
-    - Administrateur de conformité
+    - Administrateur Skype Entreprise
+    - Administrateur de compte d’utilisateur
 
 Pour plus d’informations sur l’utilisation de la solution MFA avec Privileged Identity Management, voir [Exigence de l’application de la solution MFA](active-directory-privileged-identity-management-how-to-require-mfa.md).
 
@@ -62,4 +67,4 @@ Pour plus d’informations sur l’utilisation de la solution MFA avec Privilege
 ## Étapes suivantes
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0907_2016-->

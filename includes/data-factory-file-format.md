@@ -44,9 +44,9 @@ Pour utiliser escapeChar à la place de quoteChar, remplacez la ligne contenant 
 
 ### Scénarios d’utilisation de firstRowAsHeader et skipLineCount
 
-- Vous copiez à partir d’une source hors fichier vers un fichier texte et vous souhaitez ajouter une ligne d’en-tête qui contient les métadonnées de schéma (par exemple : schéma SQL). Définissez firstRowAsHeader sur true dans le jeu de données de sortie pour ce scénario.
-- Vous copiez à partir d’un fichier texte contenant une ligne d’en-tête vers un récepteur hors fichier et souhaitez supprimer cette ligne. Définissez firstRowAsHeader sur true dans le jeu de données d’entrée.
-- Vous copiez à partir d’un fichier texte et souhaitez ignorer quelques lignes au début qui ne sont ni des données ni un en-tête. Spécifiez skipLineCount pour indiquer le nombre de lignes à ignorer. Si le reste du fichier contient une ligne d’en-tête, vous pouvez également spécifier firstRowAsHeader. Si skipLineCount et firstRowAsHeader sont spécifiés, les lignes sont d’abord ignorées, puis les informations d’en-tête sont lues à partir du fichier d’entrée
+- Vous copiez à partir d’une source hors fichier vers un fichier texte et vous souhaitez ajouter une ligne d’en-tête qui contient les métadonnées de schéma (par exemple : schéma SQL). Définissez **firstRowAsHeader** sur true dans le jeu de données de sortie pour ce scénario.
+- Vous copiez à partir d’un fichier texte contenant une ligne d’en-tête vers un récepteur hors fichier et souhaitez supprimer cette ligne. Définissez **firstRowAsHeader** sur true dans le jeu de données d’entrée.
+- Vous copiez à partir d’un fichier texte et souhaitez ignorer quelques lignes au début qui ne sont ni des données ni un en-tête. Spécifiez **skipLineCount** pour indiquer le nombre de lignes à ignorer. Si le reste du fichier contient une ligne d’en-tête, vous pouvez également spécifier **firstRowAsHeader**. Si **skipLineCount** et **firstRowAsHeader** sont spécifiés, les lignes sont d’abord ignorées, puis les informations d’en-tête sont lues à partir du fichier d’entrée
 
 ### Définition d'AvroFormat
 Si le format est défini sur AvroFormat, il est inutile de spécifier des propriétés dans la section Format de la section typeProperties. Exemple :
@@ -251,4 +251,4 @@ Notez les points suivants :
 -	Les types de données complexes ne sont pas pris en charge (STRUCT, MAP, LIST, UNION)
 -	Le fichier ORC a trois [options liées à la compression](http://hortonworks.com/blog/orcfile-in-hdp-2-better-compression-better-performance/) : NONE, ZLIB, SNAPPY. Data Factory prend en charge la lecture des données du fichier ORC dans tous ces formats compressés. Il utilise le codec de compression se trouvant dans les métadonnées pour lire les données. Toutefois, lors de l’écriture dans un fichier ORC, Data Factory choisit ZLIB, qui est la valeur par défaut pour ORC. Actuellement, il n’existe aucune option permettant de remplacer ce comportement.
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

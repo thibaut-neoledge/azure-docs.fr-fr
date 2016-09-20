@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/13/2016"
+	ms.date="09/01/2016"
 	ms.author="jeedes"/>
 
 
@@ -94,7 +94,7 @@ Pour ce faire, affectez la valeur du **nom d’utilisateur** dans Azure AD comme
 Pour configurer et tester l’authentification unique Azure AD avec Printix, vous devez suivre les indications des sections suivantes :
 
 1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
+2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
 3. **[Création d’un utilisateur de test Printix](#creating-a-printix-test-user)** pour avoir un équivalent de Britta Simon dans Printix lié à la représentation Azure AD associée.
 4. **[Affectation d’un utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
 5. **[Test de l’authentification unique](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
@@ -128,7 +128,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     a. Cliquez sur **Télécharger les métadonnées**, puis enregistrez le fichier sur votre ordinateur.
 
-    b. Cliquez sur **Next**.
+    b. Cliquez sur **Suivant**.
 
 
 5. Connectez-vous à votre client Printix en tant qu’administrateur.
@@ -182,15 +182,15 @@ Dans cette section, vous allez créer un utilisateur de test appelé Britta Simo
 
 2. Dans la liste **Annuaire**, sélectionnez l'annuaire pour lequel vous voulez activer l'intégration d'annuaire.
 
-3. Pour afficher la liste des utilisateurs, dans le menu situé en haut, cliquez sur **Utilisateurs**.
+3. Pour afficher la liste des utilisateurs, dans le menu du haut, cliquez sur **Utilisateurs**.
 
 	![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-printix-tutorial/create_aaduser_03.png)
 
-4. Pour ouvrir la boîte de dialogue **Ajouter un utilisateur**, cliquez sur **Ajouter un utilisateur** dans la barre d’outils située en bas.
+4. Pour ouvrir la boîte de dialogue **Ajouter un utilisateur**, cliquez sur l’option **Ajouter un utilisateur** figurant dans la barre d’outils du bas.
 
 	![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-printix-tutorial/create_aaduser_04.png)
 
-5. Dans la page de boîte de dialogue **Dites-nous en plus sur cet utilisateur**, procédez comme suit :
+5. Sur la page de boîte de dialogue **Dites-nous en plus sur cet utilisateur**, procédez comme suit :
 	
 	![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-printix-tutorial/create_aaduser_05.png)
 
@@ -245,7 +245,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 **Pour affecter Britta Simon à Printix, procédez comme suit :**
 
-1. Pour ouvrir l’affichage des applications dans le portail classique, dans l’affichage du répertoire, cliquez sur l’option **Applications** figurant dans le menu supérieur.
+1. Pour ouvrir la vue des applications dans le portail Azure Classic, dans la vue de répertoire, cliquez sur l’option **Applications** figurant dans le menu du haut.
 
 	![Affecter des utilisateurs][201]
 
@@ -259,7 +259,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 4. Dans la liste Utilisateurs, sélectionnez **Britta Simon**.
 
-5. Dans la barre d’outils inférieure, cliquez sur **Attribuer**.
+5. Dans la barre d’outils située en bas, cliquez sur **Attribuer**.
 
 	![Affecter des utilisateurs][205]
 
@@ -295,4 +295,4 @@ Lorsque vous cliquez sur la vignette Printix dans le volet d’accès, vous deve
 [204]: ./media/active-directory-saas-printix-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-printix-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0907_2016-->

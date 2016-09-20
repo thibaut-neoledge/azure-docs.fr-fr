@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Autoriser l’accès externe à une machine virtuelle à l’aide de PowerShell | Microsoft Azure"
-   description="Découvrez comment ouvrir un port / créer un point de terminaison qui permet un accès externe à votre machine virtuelle Windows à l’aide du modèle de déploiement Resource Manager et d’Azure PowerShell"
+   pageTitle="Ouvrir des ports sur une machine virtuelle Azure à l’aide de PowerShell | Microsoft Azure"
+   description="Découvrez comment ouvrir un port / créer un point de terminaison sur votre machine virtuelle Windows à l’aide du modèle de déploiement Azure Resource Manager et d’Azure PowerShell"
    services="virtual-machines-windows"
    documentationCenter=""
    authors="iainfoulds"
@@ -16,11 +16,11 @@
    ms.date="08/08/2016"
    ms.author="iainfou"/>
 
-# Autoriser l’accès externe à votre machine virtuelle à l’aide de PowerShell
+# Ouverture de ports sur une machine virtuelle dans Azure à l’aide de PowerShell
 [AZURE.INCLUDE [virtual-machines-common-nsg-quickstart](../../includes/virtual-machines-common-nsg-quickstart.md)]
 
 ## Commandes rapides
-Pour créer un groupe de sécurité réseau et des règles de liste de contrôle d’accès, vous devez installer [la version la plus récente d’Azure PowerShell](../powershell-install-configure.md). Vous pouvez également [effectuer ces étapes à l’aide du portail Azure](virtual-machines-windows-nsg-quickstart-portal.md).
+Pour créer un groupe de sécurité réseau et des règles de liste de contrôle d’accès, vous devez installer [la version la plus récente d’Azure PowerShell](../powershell-install-configure.md). Vous pouvez également [effectuer ces étapes à l’aide du Portail Azure](virtual-machines-windows-nsg-quickstart-portal.md).
 
 Tout d’abord, vous devez créer une règle pour autoriser le trafic HTTP sur le port TCP 80 en entrant votre propre nom et votre description :
 
@@ -63,7 +63,7 @@ Les commandes rapides vous permettent d’être opérationnel avec le trafic ent
 
 Vous pouvez définir des groupes de sécurité réseau et des règles de liste de contrôle d’accès dans le cadre de modèles Azure Resource Manager. En savoir plus sur la [création de groupes de sécurité réseau avec des modèles](../virtual-network/virtual-networks-create-nsg-arm-template.md).
 
-Si vous devez utiliser le réacheminement de port pour mapper un seul port externe sur un port interne de votre machine virtuelle, vous devez utiliser un équilibreur de charge et des règles de traduction d’adresses réseau (NAT). Par exemple, vous souhaitez peut-être exposer le port TCP 8080 en externe et diriger le trafic vers le port TCP 80 sur une machine virtuelle. En savoir plus sur [la création d'un équilibreur de charge accessible sur Internet](../load-balancer/load-balancer-get-started-internet-arm-ps.md)
+Si vous devez utiliser le réacheminement de port pour mapper un seul port externe sur un port interne de votre machine virtuelle, utilisez un équilibreur de charge et des règles de traduction d’adresses réseau (NAT). Par exemple, vous souhaitez peut-être exposer le port TCP 8080 en externe et diriger le trafic vers le port TCP 80 sur une machine virtuelle. En savoir plus sur [la création d'un équilibreur de charge accessible sur Internet](../load-balancer/load-balancer-get-started-internet-arm-ps.md)
 
 ## Étapes suivantes
 Dans cet exemple, vous avez créé une règle simple pour autoriser le trafic HTTP. Vous trouverez plus d’informations sur la création d’environnements plus détaillés dans les articles suivants :
@@ -72,4 +72,4 @@ Dans cet exemple, vous avez créé une règle simple pour autoriser le trafic HT
 - [Présentation du groupe de sécurité réseau](../virtual-network/virtual-networks-nsg.md)
 - [Présentation d’Azure Resource Manager](../load-balancer/load-balancer-arm.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0907_2016-->

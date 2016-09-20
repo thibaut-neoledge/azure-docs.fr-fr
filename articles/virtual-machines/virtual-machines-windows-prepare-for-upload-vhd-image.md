@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/11/2016"
-	ms.author="genli"/>
+	ms.date="09/01/2016"
+	ms.author="glimoli;genli"/>
 
 # Préparer un disque dur virtuel Windows à charger sur Azure
 Pour charger une machine virtuelle Windows locale sur Azure, vous devez préparer correctement le disque dur virtuel (VHD). Avant de charger un disque dur virtuel sur Azure, vous devez suivre une série d’étapes recommandées. L’exécution de `sysprep` est un processus courant, mais elle ne constitue qu’une seule étape de la généralisation d’une image. Cet article vous indique comment préparer un disque dur virtuel Windows à charger sur Microsoft Azure.
@@ -34,7 +34,7 @@ Pour convertir votre disque virtuel au format exigé par Azure, utilisez une des
 	- Sélectionnez **Convertir** dans l’écran suivant.
 		- Pour convertir un disque VHDX, sélectionnez **VHD**, puis cliquez sur **Suivant**.
 		- Pour convertir un disque dynamique, sélectionnez **Taille fixe**, puis cliquez sur **Suivant**.
-		
+
 	- Recherchez et sélectionnez le **chemin du nouveau fichier de disque dur virtuel**.
 	- Cliquez sur **Terminer** pour fermer la fenêtre.
 
@@ -93,17 +93,17 @@ Si vous disposez d’une image de machine virtuelle Windows au [format de fichie
 
 	sc config iphlpsvc start= auto
 
-	sc config PolicyAgent start= manual
+	sc config PolicyAgent start= demand
 
 	sc config LSM start= auto
 
-	sc config netlogon start= manual
+	sc config netlogon start= demand
 
-	sc config netman start= manual
+	sc config netman start= demand
 
-	sc config NcaSvc start= manual
+	sc config NcaSvc start= demand
 
-	sc config netprofm start= manual
+	sc config netprofm start= demand
 
 	sc config NlaSvc start= auto
 
@@ -113,11 +113,11 @@ Si vous disposez d’une image de machine virtuelle Windows au [format de fichie
 
 	sc config RpcEptMapper start= auto
 
-	sc config termService start= manual
+	sc config termService start= demand
 
 	sc config MpsSvc start= auto
 
-	sc config WinHttpAutoProxySvc start= manual
+	sc config WinHttpAutoProxySvc start= demand
 
 	sc config LanmanWorkstation start= auto
 
@@ -205,25 +205,25 @@ Si vous disposez d’une image de machine virtuelle Windows au [format de fichie
 	- Trafic sortant
 
 	```
-	netsh advfirewall firewall set rule dir=in name="Network Discovery (LLMNR-UDP-Out)" new enable=yes
+	netsh advfirewall firewall set rule dir=out name="Network Discovery (LLMNR-UDP-Out)" new enable=yes
 
-	netsh advfirewall firewall set rule dir=in name="Network Discovery (NB-Datagram-Out)" new enable=yes
+	netsh advfirewall firewall set rule dir=out name="Network Discovery (NB-Datagram-Out)" new enable=yes
 
-	netsh advfirewall firewall set rule dir=in name="Network Discovery (NB-Name-Out)" new enable=yes
+	netsh advfirewall firewall set rule dir=out name="Network Discovery (NB-Name-Out)" new enable=yes
 
-	netsh advfirewall firewall set rule dir=in name="Network Discovery (Pub-WSD-Out)" new enable=yes
+	netsh advfirewall firewall set rule dir=out name="Network Discovery (Pub-WSD-Out)" new enable=yes
 
-	netsh advfirewall firewall set rule dir=in name="Network Discovery (SSDP-Out)" new enable=yes
+	netsh advfirewall firewall set rule dir=out name="Network Discovery (SSDP-Out)" new enable=yes
 
-	netsh advfirewall firewall set rule dir=in name="Network Discovery (UPnPHost-Out)" new enable=yes
+	netsh advfirewall firewall set rule dir=out name="Network Discovery (UPnPHost-Out)" new enable=yes
 
-	netsh advfirewall firewall set rule dir=in name="Network Discovery (UPnP-Out)" new enable=yes
+	netsh advfirewall firewall set rule dir=out name="Network Discovery (UPnP-Out)" new enable=yes
 
-	netsh advfirewall firewall set rule dir=in name="Network Discovery (WSD Events-Out)" new enable=yes
+	netsh advfirewall firewall set rule dir=out name="Network Discovery (WSD Events-Out)" new enable=yes
 
-	netsh advfirewall firewall set rule dir=in name="Network Discovery (WSD EventsSecure-Out)" new enable=yes
+	netsh advfirewall firewall set rule dir=out name="Network Discovery (WSD EventsSecure-Out)" new enable=yes
 
-	netsh advfirewall firewall set rule dir=in name="Network Discovery (WSD-Out)" new enable=yes
+	netsh advfirewall firewall set rule dir=out name="Network Discovery (WSD-Out)" new enable=yes
 	```
 
 
@@ -233,17 +233,15 @@ Si vous disposez d’une image de machine virtuelle Windows au [format de fichie
 13. Vérifiez que les paramètres de données de configuration de démarrage (BCD) correspondent à ce qui suit :
 
 	```
-	bcdedit /set {bootmgr} device partition=<Boot Partition>
-
 	bcdedit /set {bootmgr} integrityservices enable
 
-	bcdedit /set {default} device partition=<OS Partition>
+	bcdedit /set {default} device partition=C:
 
 	bcdedit /set {default} integrityservices enable
 
 	bcdedit /set {default} recoveryenabled Off
 
-	bcdedit /set {default} osdevice partition=<OS Partition>
+	bcdedit /set {default} osdevice partition=C:
 
 	bcdedit /set {default} bootstatuspolicy IgnoreAllFailures
 	```
@@ -321,4 +319,4 @@ Les paramètres suivants n’affectent pas le chargement du disque dur virtuel. 
 
 - [Télécharger une image de machine virtuelle Windows dans Azure pour des déploiements Resource Manager](virtual-machines-windows-upload-image.md)
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

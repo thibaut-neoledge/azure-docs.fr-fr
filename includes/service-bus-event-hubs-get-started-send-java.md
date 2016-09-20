@@ -6,7 +6,7 @@ La bibliothèque cliente Java pour Event Hubs est disponible pour une utilisatio
 <dependency>
 	<groupId>com.microsoft.azure</groupId>
 	<artifactId>azure-eventhubs</artifactId>
-	<version>0.7.2</version>
+	<version>{VERSION}</version>
 </dependency>
 ```
  
@@ -57,4 +57,4 @@ Ensuite, créez un événement unique en transformant une chaîne dans son encod
 
 ``` 
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0907_2016-->

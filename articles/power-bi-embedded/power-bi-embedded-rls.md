@@ -3,7 +3,7 @@
    description="Détails sur la sécurité au niveau des lignes avec Power BI Embedded"
    services="power-bi-embedded"
    documentationCenter=""
-   authors="minewiskan"
+   authors="mgblythe"
    manager="NA"
    editor=""
    tags=""/>
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
    ms.date="07/05/2016"
-   ms.author="owend"/>
+   ms.author="mblythe"/>
 
 # Sécurité au niveau des lignes avec Power BI Embedded
 
@@ -83,7 +83,7 @@ Cela n’est peut-être pas problématique dans le cadre de notre recherche actu
 2.	**Fichier** -> **Options et paramètres** -> **DirectQuery** -> **Autoriser la mesure sans restriction en mode DirectQuery**.
 
 
-Pour en savoir plus sur le filtrage croisé bidirectionnel, téléchargez le livre blanc [Filtrage croisé bidirectionnel dans SQL Server Analysis Services 2016 et Power BI Desktop] (http://download.microsoft.com/download/2/7/8/2782DF95-3E0D-40CD-BFC8-749A2882E109/Bidirectional cross-filtering in Analysis Services 2016 and Power BI.docx).
+Pour en savoir plus sur le filtrage croisé bidirectionnel, téléchargez le livre blanc [Filtrage croisé bidirectionnel dans SQL Server Analysis Services 2016 et Power BI Desktop](http://download.microsoft.com/download/2/7/8/2782DF95-3E0D-40CD-BFC8-749A2882E109/Bidirectional cross-filtering in Analysis Services 2016 and Power BI.docx).
 
 Cela conclut le travail qui doit être fait dans Power BI Desktop, mais plusieurs autres tâches doivent encore être effectuées pour que les règles RLS définies puissent fonctionner dans Power BI Embedded. Les utilisateurs sont authentifiés et autorisés par votre application, et les jetons d’application sont utilisés pour accorder l’accès utilisateur à un rapport Power BI Embedded spécifique. Power BI Embedded ne dispose pas d’informations spécifiques relatives à l’utilisateur. Pour que RLS fonctionne, vous devez transmettre des informations supplémentaires dans le cadre du jeton d’application :
 -	**username** (facultatif) : utilisé avec la fonction RLS, ceci est une chaîne qui peut aider à identifier l’utilisateur lors de l’application des règles RLS. Voir Utilisation de la sécurité au niveau des lignes avec Power BI Embedded
@@ -102,4 +102,4 @@ Avec tous ces éléments, lorsqu’un utilisateur se connecte à notre applicati
 ## Voir aussi
 [Sécurité au niveau des lignes (RLS) avec Power](https://powerbi.microsoft.com/fr-FR/documentation/powerbi-admin-rls/)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0907_2016-->

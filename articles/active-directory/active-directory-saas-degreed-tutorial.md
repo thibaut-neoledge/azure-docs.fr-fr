@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/17/2016"
+	ms.date="09/07/2016"
 	ms.author="jeedes"/>
 
 
@@ -176,7 +176,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     c. Cliquez sur **Next**.
 
-6.  Sur la page de boîte de dialogue **Profil utilisateur**, procédez comme suit :
+6.  Sur la page **Profil utilisateur**, procédez comme suit :
 
 	![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-degreed-tutorial/create_aaduser_06.png)
 
@@ -271,4 +271,4 @@ L’objectif de cette section est de tester la configuration de l’authentifica
 [204]: ./media/active-directory-saas-degreed-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-degreed-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0907_2016-->

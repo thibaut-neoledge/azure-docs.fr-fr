@@ -33,7 +33,7 @@ Les journaux de diagnostic pour les ressources non liées au calcul sont configu
 
 - L’emplacement où les journaux de diagnostic sont envoyés (compte de stockage, Event Hubs et/ou OMS Log Analytics).
 - Les catégories de journal qui sont envoyées.
-- La durée de rétention de chaque catégorie de journal dans un compte de stockage ; une durée de rétention de zéro jour signifie que les journaux sont conservés indéfiniment. Si des stratégies de rétention sont définies, mais que le stockage des journaux dans un compte de stockage est désactivé (par exemple si seules les options Event Hubs ou OMS sont sélectionnées), les stratégies de rétention n’ont aucun effet.
+- La durée de rétention de chaque catégorie de journal dans un compte de stockage ; une durée de rétention de zéro jour signifie que les journaux sont conservés indéfiniment. Dans le cas contraire, cette valeur peut être comprise entre 1 et 2147483647. Si des stratégies de rétention sont définies, mais que le stockage des journaux dans un compte de stockage est désactivé (par exemple si seules les options Event Hubs ou OMS sont sélectionnées), les stratégies de rétention n’ont aucun effet.
 
 Ces paramètres sont facilement configurés via le panneau Diagnostics pour une ressource dans le portail Azure, via les commandes d’interface de ligne de commande et Azure PowerShell ou via [l’API REST Insights](https://msdn.microsoft.com/library/azure/dn931943.aspx).
 
@@ -50,13 +50,17 @@ La collecte des journaux de diagnostic peut être activée dans le cadre de la c
 Vous pouvez activer les journaux de diagnostic dans le portail Azure lorsque vous créez certains types de ressources en procédant comme suit :
 
 1.	Accédez à **Nouveau** et choisissez la ressource qui vous intéresse.
-2.	Après avoir configuré les paramètres de base et sélectionné une taille, dans le panneau **Paramètres**, sous **Analyse**, sélectionnez **Activé** et choisissez un compte de stockage dans lequel vous souhaitez stocker les journaux de diagnostic. Des frais de données normaux vous sont facturés pour le stockage et les transactions lorsque vous envoyez des diagnostics à un compte de stockage. ![Activer les journaux de diagnostic lors de la création de ressources](./media/monitoring-overview-of-diagnostic-logs/enable-portal-new.png)
+2.	Après avoir configuré les paramètres de base et sélectionné une taille, dans le panneau **Paramètres**, sous **Analyse**, sélectionnez **Activé** et choisissez un compte de stockage dans lequel vous souhaitez stocker les journaux de diagnostic. Des frais de données normaux vous sont facturés pour le stockage et les transactions lorsque vous envoyez des diagnostics à un compte de stockage.
+
+    ![Activer les journaux de diagnostic lors de la création de ressources](./media/monitoring-overview-of-diagnostic-logs/enable-portal-new.png)
 3.	Cliquez sur **OK** et créez la ressource.
 
 Pour activer les journaux de diagnostic dans le portail Azure après la création d’une ressource, procédez comme suit :
 
 1.	Accédez au panneau de la ressource et ouvrez le panneau **Diagnostics**.
-2.	Cliquez sur **On** (Activé) et choisissez un compte de stockage et/ou un Event Hub. ![Activer les journaux de diagnostic après la création de ressources](./media/monitoring-overview-of-diagnostic-logs/enable-portal-existing.png)
+2.	Cliquez sur **On** (Activé) et choisissez un compte de stockage et/ou un Event Hub.
+
+    ![Activer les journaux de diagnostic après la création de ressources](./media/monitoring-overview-of-diagnostic-logs/enable-portal-existing.png)
 3.	Sous **Journaux**, sélectionnez les **catégories de journaux** que vous souhaitez collecter ou diffuser en continu.
 4.	Cliquez sur **Save**.
 
@@ -104,10 +108,35 @@ Le schéma pour les journaux de diagnostic varie en fonction de la ressource et 
 | Data Lake Store | [Accès aux journaux de diagnostic d’Azure Data Lake Store](../data-lake-store/data-lake-store-diagnostic-logs.md) |
 | Data Lake Analytics | [Accès aux journaux de diagnostic d’Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-diagnostic-logs.md) |
 | Logic Apps | Aucun schéma disponible. |
+| Azure Batch | Aucun schéma disponible. |
+| Azure Automation | Aucun schéma disponible. |
+
+## Catégories de journaux prises en charge par type de ressource
+
+|Type de ressource|Catégorie|Nom d’affichage de la catégorie|
+|---|---|---|
+|Microsoft.Automation/automationAccounts|JobLogs|Journaux de travail|
+|Microsoft.Automation/automationAccounts|JobStreams|Flux de travail|
+|Microsoft.Batch/batchAccounts|ServiceLog|Journaux de service|
+|Microsoft.DataLakeAnalytics/accounts|Audit|Journaux d’audit|
+|Microsoft.DataLakeAnalytics/accounts|Requêtes|Journaux de requête|
+|Microsoft.DataLakeStore/accounts|Audit|Journaux d’audit|
+|Microsoft.DataLakeStore/accounts|Requêtes|Journaux de requête|
+|Microsoft.KeyVault/vaults|AuditEvent|Journaux d’audit|
+|Microsoft.Logic/workflows|WorkflowRuntime|Événements de diagnostic de runtime de workflow|
+|Microsoft.Network/networksecuritygroups|NetworkSecurityGroupEvent|Événement de groupe de sécurité réseau|
+|Microsoft.Network/networksecuritygroups|NetworkSecurityGroupRuleCounter|Compteur de règle de groupe de sécurité réseau|
+|Microsoft.Network/networksecuritygroups|NetworkSecurityGroupFlowEvent|Événement de flux de règle de groupe de sécurité réseau|
+|Microsoft.Network/loadBalancers|LoadBalancerAlertEvent|Événements d’alerte d’équilibrage de charge|
+|Microsoft.Network/loadBalancers|LoadBalancerProbeHealthStatus|État d’intégrité de la sonde d’équilibrage de charge|
+|Microsoft.Network/applicationGateways|ApplicationGatewayAccessLog|Journal d’accès à la passerelle d’application|
+|Microsoft.Network/applicationGateways|ApplicationGatewayPerformanceLog|Journal de performance de la passerelle d’application|
+|Microsoft.Network/applicationGateways|ApplicationGatewayFirewallLog|Journal de pare-feu de la passerelle d’application|
+|Microsoft.Search/searchServices|OperationLogs|Journaux des opérations|
 
 ## Étapes suivantes
 - [Stream Azure Diagnostic Logs to **Event Hubs**](monitoring-stream-diagnostic-logs-to-event-hubs.md) (Diffuser en continu les journaux de diagnostic Azure vers Event Hubs)
 - [Modifier les paramètres de diagnostic via l’API REST Insights](https://msdn.microsoft.com/library/azure/dn931931.aspx)
 - [Analyser les journaux avec OMS Log Analytics](../log-analytics/log-analytics-azure-storage-json.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

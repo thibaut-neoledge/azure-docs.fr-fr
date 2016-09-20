@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="09/02/2016"
 	ms.author="micurd"/>
 
 # Transfert de données avec l'utilitaire de ligne de commande AzCopy
 
-## Vue d’ensemble
+## Vue d'ensemble
 
 AzCopy est un utilitaire de ligne de commande Windows conçu pour copier des données depuis et vers un objet blob Microsoft Azure, un fichier ou un stockage de table en utilisant les commandes avec une performance optimale. Vous pouvez copier des données d’un objet vers un autre au sein de votre compte de stockage ou entre des comptes de stockage.
 
@@ -40,7 +40,7 @@ La syntaxe de base d’une commande AzCopy est :
 
 	AzCopy /Source:<source> /Dest:<destination> [Options]
 
-Ouvrez une fenêtre de commande, puis naviguez jusqu’au répertoire d’installation d’AzCopy sur votre ordinateur, où se trouve l’exécutable `AzCopy.exe`. Si vous le souhaitez, vous pouvez ajouter l’emplacement d’installation d’AzCopy au chemin de votre système. Par défaut, AzCopy est installé sur `%ProgramFiles(x86)%\Microsoft SDKs\Azure\AzCopy` (Windows 64 bits) ou `%ProgramFiles%\Microsoft SDKs\Azure\AzCopy` (Windows 32 bits).
+Ouvrez une fenêtre de commande, puis naviguez jusqu’au répertoire d’installation d’AzCopy sur votre ordinateur, où se trouve l’exécutable `AzCopy.exe`. Si vous le souhaitez, vous pouvez ajouter l’emplacement d’installation d’AzCopy au chemin de votre système. Par défaut, AzCopy est installé dans `%ProgramFiles(x86)%\Microsoft SDKs\Azure\AzCopy` ou `%ProgramFiles%\Microsoft SDKs\Azure\AzCopy`.
 
 Les exemples suivants montrent différents scénarios permettant de copier des données vers et à partir d’objets blob Microsoft Azure, les fichiers et les tables. Reportez-vous à la section [Paramètres AzCopy](#azcopy-parameters) pour obtenir une explication détaillée des paramètres utilisés dans chaque échantillon.
 
@@ -866,4 +866,4 @@ Pour plus d’informations sur Azure Storage et AzCopy, reportez-vous aux ressou
 - [AzCopy : Utilisation de copie d'objets blob sur plusieurs comptes](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx)
 - [AzCopy : Chargement/téléchargement des fichiers pour les objets blob Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0907_2016-->

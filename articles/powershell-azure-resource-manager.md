@@ -18,7 +18,7 @@
 
 # Utilisation d’Azure PowerShell avec Azure Resource Manager
 
-Azure Resource Manager contribue à initier une réflexion entièrement nouvelle concernant vos ressources Azure. Au lieu de créer et gérer des ressources à un niveau individuel, commencez à imaginer une solution globale, telle qu’un blog, une galerie de photos, un portail SharePoint ou un wiki. Vous utilisez un modèle, c’est-à-dire une représentation déclarative de la solution, pour créer un groupe de ressources contenant toutes les ressources dont vous avez besoin pour prendre en charge de la solution. Vous pouvez ensuite gérer et déployer ce groupe de ressources sous la forme d’une unité logique.
+Azure Resource Manager implémente une approche moderne de contrôle du cycle de vie des ressources Azure. Au lieu de créer et gérer des ressources à un niveau individuel, commencez à imaginer une solution globale, telle qu’un blog, une galerie de photos, un portail SharePoint ou un wiki. Vous utilisez un modèle, c’est-à-dire une représentation déclarative de la solution, pour définir un groupe de ressources contenant toutes les ressources dont vous avez besoin pour prendre en charge de la solution. Vous pouvez ensuite déployer et gérer ce groupe de ressources sous la forme d’une unité logique.
 
 Ce didacticiel vous apprend à utiliser Azure PowerShell avec Azure Resource Manager. Il vous guide dans le processus de déploiement d'une solution et vous explique comment utiliser cette solution. Vous utiliserez Azure PowerShell et un modèle Resource Manager pour déployer :
 
@@ -376,4 +376,4 @@ Les exemples de déploiement précédents de cette rubrique ne présentaient que
 - Pour obtenir un exemple détaillé de déploiement d’un projet, consultez [Déployer des microservices de manière prévisible dans Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
 - Pour résoudre les problèmes liés à l’échec d’un déploiement, consultez [Résolution des problèmes liés aux déploiements de groupes de ressources dans Azure](./resource-manager-troubleshoot-deployments-powershell.md).
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

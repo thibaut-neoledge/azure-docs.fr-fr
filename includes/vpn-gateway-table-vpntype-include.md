@@ -1,25 +1,25 @@
 #### Type de VPN : modèle de déploiement Resource Manager
 
-| | **Basé sur un itinéraire** | **Basé sur des stratégies** |
-|-----------------------------------|--------------------|------------------|
-| **De site à site** | yes | yes |
-| **Connexion entre deux réseaux virtuels** | yes | no |
-| **Multi-sites** | yes | no |
-| **Coexistence de S2S et ExpressRoute** | non disponible pour l’instant | no |
-| **De point à site** | yes | no |
-| **Classic vers Gestionnaire de ressources** | yes | no |
+| | **RouteBased** | **PolicyBased** |
+|-----------------------------------|-------------|------------------|
+| **De site à site** | Pris en charge | Pris en charge |
+| **Connexion entre deux réseaux virtuels** | Pris en charge | Non pris en charge |
+| **Multi-sites** | Pris en charge | Non pris en charge |
+| **Coexistence de S2S et ExpressRoute** | Pris en charge | Non pris en charge |
+| **De point à site** | Pris en charge | Non pris en charge |
+| **Classic vers Gestionnaire de ressources** | Pris en charge | Non pris en charge |
 
 
 #### Type de VPN : modèle de déploiement classique
 
 
 | | **Dynamique** | **Statique** |
-|---------------------------------------------|--------------------|--------------|
-| **De site à site** | yes | yes |
-| **Connexion entre deux réseaux virtuels** | yes | no |
-| **Multi-sites** | yes | no |
-| **Coexistence de S2S et ExpressRoute** | yes | no |
-| **De point à site** | yes | no |
-| **Classic vers Gestionnaire de ressources** | yes | no |
+|---------------------------------------------|--------------|--------------|
+| **De site à site** | Pris en charge | Pris en charge |
+| **Connexion entre deux réseaux virtuels** | Pris en charge | Non pris en charge |
+| **Multi-sites** | Pris en charge | Non pris en charge |
+| **Coexistence de S2S et ExpressRoute** | Pris en charge | Non pris en charge |
+| **De point à site** | Pris en charge | Non pris en charge |
+| **Classic vers Gestionnaire de ressources** | Pris en charge | Non pris en charge |
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0907_2016-->

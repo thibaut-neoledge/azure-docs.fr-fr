@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="na"
   ms.workload="data-services"
-  ms.date="08/30/2016"
+  ms.date="09/01/2016"
   ms.author="andrl"/>
 
 # Portail de la communauté
@@ -120,9 +120,9 @@ Pour vous tenir informé des dernières nouveautés et fonctionnalités Document
 
 | Nom de l'événement | Intervenant | Emplacement | Date | Hashtag |
 | -------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | -------------------- | ------------------------ | ------- |
-| [Groupe d’utilisateurs .NET Capitale](https://www.meetup.com/tally-dot-net/events/233070827/) | Santosh Hari | Tallahassee, Floride | 1er septembre 2016 | n/a |
 | [Ignite 2016](https://myignite.microsoft.com/sessions?q=documentdb) | Andrew Liu et Tara Jana | Atlanta, GA | 26-30 septembre 2016 | [#MSIgnite](https://twitter.com/MS_Ignite) |
 | [Strata + Hadoop World](http://conferences.oreilly.com/strata/hadoop-big-data-ny/?cmp=kn-data-confreg-home-stny16_bing_branded) | TBD | New York | 26-29 septembre 2016 | [#StrataConf](https://twitter.com/strataconf) |
+| [Groupe d’utilisateurs .NET Capitale](http://www.meetup.com/tally-dot-net/events/233768568/) | Santosh Hari | Tallahassee, Floride | 3 novembre 2016 | n/a |
 
 
 *Vous accueillez un événement ou y participez ? [Dites-nous](mailto:askdocdb@microsoft.com) en quoi nous pouvons vous aider !*
@@ -268,4 +268,4 @@ Assistant | Photo
 
 Vous voulez devenir assistant DocumentDB ? Il n’existe aucun critère défini pour devenir assistant DocumentDB. Nous évaluons entre autres l’intérêt des contributions des candidats aux forums en ligne tels que StackOverflow et MSDN, les wikis et le contenu en ligne, les conférences et les groupes d’utilisateurs, les podcasts, les sites web, les blogs et les réseaux sociaux, et enfin les articles et les livres. Vous pouvez vous porter vous-même candidat ou désigner quelqu’un d’autre en [nous envoyant un message](mailto:askdocdb@microsoft.com).
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

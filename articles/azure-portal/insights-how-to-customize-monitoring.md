@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Surveiller les métriques de service dans Microsoft Azure | Microsoft Azure"
+	pageTitle="Vue d’ensemble des mesures dans Microsoft Azure | Microsoft Azure"
 	description="Découvrez comment personnaliser les graphiques d'analyse dans Azure."
 	authors="rboucher"
 	manager=""
@@ -16,7 +16,7 @@
 	ms.date="09/08/2015"
 	ms.author="robb"/>
 
-# Surveillance des mesures de service
+# Vue d’ensemble des mesures dans Microsoft Azure
 
 Tous les services Azure assurent le suivi des mesures clés qui vous permettent de surveiller l’intégrité, les performances, la disponibilité et l'utilisation de vos services. Vous pouvez afficher ces mesures dans le portail Azure, et utiliser l’[API REST](https://msdn.microsoft.com/library/azure/dn931930.aspx) ou le [Kit de développement logiciel (SDK) .NET](https://www.nuget.org/packages/Microsoft.Azure.Insights/) pour accéder à l'ensemble des mesures par programmation.
 
@@ -72,4 +72,4 @@ Comme avec les mesures, vous pouvez utiliser l’[API REST](https://msdn.micros
 * Utilisez [Application Insights pour les pages Web et les applications JavaScript](../application-insights/app-insights-web-track-usage.md) pour obtenir une analyse client des navigateurs qui consultent une page Web.
 * [Surveillance de la disponibilité et de la réactivité des pages Web](../application-insights/app-insights-monitor-web-app-availability.md) avec Application Insights pour déterminer si vos pages sont inactives.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0907_2016-->

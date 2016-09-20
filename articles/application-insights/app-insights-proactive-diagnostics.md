@@ -44,8 +44,8 @@ Sélectionnez une alerte pour afficher les détails la concernant.
 
 Il existe trois types de détection :
 
-* [Alertes d’échec en temps quasi-réel](app-insights-nrt-proactive-diagnostics.md). Nous utilisons l’apprentissage automatique pour définir la fréquence attendue des demandes entraînant un échec pour votre application, en la mettant en corrélation avec la charge et d’autres facteurs. Si le taux d’échec est situé en dehors de la plage attendue, nous envoyons une alerte.
-* [Comportement anormal](app-insights-proactive-detection.md). Nous recherchons des modèles anormaux en matière de temps de réponse et de taux d’échec tous les jours. Nous mettons en corrélation ces problèmes avec des propriétés telles que l’emplacement, le navigateur, le système d’exploitation client, l’instance de serveur et le moment de la journée.
+* [Alertes d’échec en temps quasi-réel](app-insights-proactive-failure-diagnostics.md). Nous utilisons l’apprentissage automatique pour définir la fréquence attendue des demandes entraînant un échec pour votre application, en la mettant en corrélation avec la charge et d’autres facteurs. Si le taux d’échec est situé en dehors de la plage attendue, nous envoyons une alerte.
+* [Diagnostics d’anomalies](app-insights-proactive-anomaly-diagnostics.md). Nous recherchons des modèles anormaux en matière de temps de réponse et de taux d’échec tous les jours. Nous mettons en corrélation ces problèmes avec des propriétés telles que l’emplacement, le navigateur, le système d’exploitation client, l’instance de serveur et le moment de la journée.
 * [Azure Cloud Services](https://azure.microsoft.com/blog/proactive-notifications-on-cloud-service-issues-with-azure-diagnostics-and-application-insights/). Vous recevez des alertes si votre application est hébergée dans Azure Cloud Services et qu’une instance de rôle présente des échecs de démarrage, un recyclage fréquent ou des erreurs d’exécution.
 
 (Les liens d’aide dans chaque notification vous renvoient vers les articles pertinents.)
@@ -53,9 +53,15 @@ Il existe trois types de détection :
 
 ## Étapes suivantes
 
+Ces outils de diagnostic vous aident à inspecter les données de télémétrie à partir de votre application :
+
+* [Metrics Explorer](app-insights-metrics-explorer.md)
+* [Navigateur de recherche](app-insights-diagnostic-search.md)
+* [Analytics : un puissant langage de requête](app-insights-analytics-tour.md)
+
 Les détections proactives sont entièrement automatiques. Mais vous souhaitez peut-être configurer des alertes supplémentaires ?
 
 * [Alertes de mesures configurées manuellement](app-insights-alerts.md)
 * [Tests web de disponibilité](app-insights-monitor-web-app-availability.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="06/07/2016"
+   	ms.date="09/02/2016"
    	ms.author="jgao"/>
 
 #Créer des clusters basés sur Linux dans HDInsight à l’aide du Kit de développement logiciel (SDK) .NET
@@ -27,7 +27,7 @@ Le Kit de développement logiciel (SDK) .NET HDInsight fournit des bibliothèque
 >
 > Pour plus d’informations sur les tailles de nœud et les coûts associés, consultez [Tarification HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-##Configuration requise
+##Composants requis
 
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -43,7 +43,7 @@ Le Kit de développement logiciel (SDK) .NET HDInsight fournit des bibliothèque
     |Propriété|Valeur|
     |--------|-----|
     |Modèle|Templates/Visual C#/Windows/Console Application|
-    |Nom|CreateHDICluster|
+    |Name|CreateHDICluster|
 
 5. Dans le menu **Outils**, cliquez sur **Gestionnaire de package NuGet**, puis sur **Console du Gestionnaire de package**.
 
@@ -385,7 +385,7 @@ Vous avez créé un cluster HDInsight. Pour apprendre à l’utiliser, consultez
 * [Exécution de travaux à distance avec Livy sur un cluster Spark](hdinsight-apache-spark-livy-rest-interface.md)
 * [Spark avec BI : effectuez une analyse interactive des données à l’aide de Spark dans HDInsight avec des outils BI](hdinsight-apache-spark-use-bi-tools.md)
 * [Spark avec Machine Learning : utilisez Spark dans HDInsight pour prédire les résultats de l’inspection des aliments](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
-* [Streaming Spark : utilisez Spark dans HDInsight pour créer des applications de streaming en continu en temps réel](hdinsight-apache-spark-eventhub-streaming.md)
+* [Streaming Spark : Utiliser Spark dans HDInsight pour créer des applications de diffusion en continu en temps réel](hdinsight-apache-spark-eventhub-streaming.md)
 
 ### Exécuter des tâches
 
@@ -394,4 +394,4 @@ Vous avez créé un cluster HDInsight. Pour apprendre à l’utiliser, consultez
 - [Exécuter des tâches Sqoop dans HDInsight avec le Kit de développement logiciel (SDK) .NET](hdinsight-hadoop-use-sqoop-dotnet-sdk.md)
 - [Exécuter des tâches Oozie dans HDInsight](hdinsight-use-oozie.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0907_2016-->

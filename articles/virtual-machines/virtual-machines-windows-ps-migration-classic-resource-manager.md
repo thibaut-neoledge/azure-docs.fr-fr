@@ -76,7 +76,15 @@ Définissez votre abonnement Azure pour la session active. Remplacez tous les é
 	$subscr="<subscription name>"
 	Get-AzureSubscription –SubscriptionName $subscr | Select-AzureSubscription
 
-## Étape 4 : exécution de commandes pour effectuer la migration de vos ressources IaaS
+## Étape 4 : vérification du nombre de cœurs de machines virtuelles Azure Resource Manager dans la région Azure de votre déploiement ou réseau virtuel actuel
+
+Vous pouvez utiliser la commande PowerShell suivante pour vérifier la quantité de cœurs dont vous disposez actuellement dans Azure Resource Manager. Pour en savoir plus sur les quotas de cœurs, consultez [Limites et Azure Resource Manager](../azure-subscription-service-limits.md#limits-and-the-azure-resource-manager)
+
+```
+Get-AzureRmVMUsage -Location "<Your VNET or Deployment's Azure region"
+```
+
+## Étape 5 : exécution de commandes pour effectuer la migration de vos ressources IaaS
 
 >[AZURE.NOTE] Toutes les opérations décrites ici sont idempotentes. Si vous rencontrez un problème autre qu’une fonctionnalité non prise en charge ou qu’une erreur de configuration, nous vous recommandons de réexécuter la procédure de préparation, d’abandon ou de validation. La plateforme réessaie alors d’exécuter l’action.
 
@@ -181,4 +189,4 @@ Si la configuration préparée semble correcte, vous pouvez continuer et valider
 - [Étude technique approfondie de la migration prise en charge par la plateforme de ressources Classic vers Resource Manager](virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
 - [Cloner une machine virtuelle Classic vers Azure Resource Manager à l’aide de scripts PowerShell](virtual-machines-windows-migration-scripts.md)
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->
