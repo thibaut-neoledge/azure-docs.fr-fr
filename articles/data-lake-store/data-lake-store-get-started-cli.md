@@ -4,7 +4,7 @@
    services="data-lake-store"
    documentationCenter=""
    authors="nitinme"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/07/2016"
+   ms.date="09/13/2016"
    ms.author="nitinme"/>
 
 # Prise en main d'Azure Data Lake Store avec l'interface de ligne de commande Azure
@@ -36,11 +36,10 @@ L’interface de ligne de commande Azure est implémentée dans Node.js. Elle pe
 
 Avant de commencer cet article, vous devez disposer des éléments suivants :
 
-- **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
-- **Activez votre abonnement Azure** pour la version d'évaluation publique de Data Lake Store. Consultez les [instructions](data-lake-store-get-started-portal.md#signup).
+- **Un abonnement Azure**. Consultez la rubrique [Obtenir une version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/).
 - **Azure CLI** - Consultez la rubrique [Installer et configurer l’interface de ligne de commande Azure](../xplat-cli-install.md) pour obtenir des informations sur l’installation et la configuration. N'oubliez pas de redémarrer votre ordinateur une fois l'interface de ligne de commande installée.
 
-##Vous connecter à votre abonnement Azure
+##Connexion à votre abonnement Azure
 
 Suivez les étapes décrites dans [Se connecter à un abonnement Azure à partir de l’interface de ligne de commande Azure (Azure CLI)](../xplat-cli-connect.md) et connectez-vous à votre abonnement à l’aide de la méthode __login__.
 
@@ -49,7 +48,7 @@ Suivez les étapes décrites dans [Se connecter à un abonnement Azure à partir
 
 Ouvrez une invite de commande, un shell ou une session de terminal et exécutez les commandes suivantes.
 
-1. Connectez-vous à votre abonnement Azure :
+1. Connectez-vous à votre abonnement Azure :
 
 		azure login
 
@@ -65,7 +64,7 @@ Ouvrez une invite de commande, un shell ou une session de terminal et exécutez 
 		azure account list
 
 
-4. Si vous possédez plusieurs abonnements Azure, utilisez la commande suivante pour définir l'abonnement que les commandes de l'interface de ligne de commande Azure utiliseront :
+4. Si vous possédez plusieurs abonnements Azure, utilisez la commande suivante pour définir l’abonnement que les commandes de l’interface de ligne de commande Azure utiliseront :
 
 		azure account set <subscriptionname>
 
@@ -189,4 +188,4 @@ Quand vous y êtes invité, entrez **Y** pour supprimer le compte.
 
 [azure-command-line-tools]: ../xplat-cli-install.md
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0914_2016-->

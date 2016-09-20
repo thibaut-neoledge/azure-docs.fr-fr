@@ -5,7 +5,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -65,13 +65,13 @@ Vous avez le choix entre plusieurs exemples de jeux de données sont inclus dans
 
 3. Faites glisser ce jeu de données sur le canevas de l’expérience.
 
-	![Dataset][screen1]
+	![Jeu de données][screen1]
 
 Pour voir à quoi ressemblent ces données, cliquez sur le port de sortie situé en bas du jeu de données d’automobile, puis sélectionnez **Visualiser**.
 
 ![Port de sortie de module][screen1c]
 
-Les variables du jeu de données sont affichées sous forme de colonnes, tandis que les types d’automobiles sont affichés sous forme de lignes. La colonne située le plus à droite (colonne 26, intitulée « Price ») est la variable cible, dont nous allons essayer de prédire la valeur.
+Les variables du jeu de données sont affichées sous forme de colonnes, tandis que les types d'automobiles sont affichés sous forme de lignes. La colonne située le plus à droite (colonne 26, intitulée « Price ») est la variable cible, dont nous allons essayer de prédire la valeur.
 
 ![Dataset visualization][screen1b]
 
@@ -100,7 +100,7 @@ Commençons par supprimer la colonne **normalized-losses**, puis chaque ligne ay
 
     ![Propriétés du module Select Columns in Dataset][screen4]
 
-    > [AZURE.TIP] Vous pouvez ajouter un commentaire dans un module en double-cliquant sur ce module, puis en saisissant du texte. Ceci peut vous aider à voir d’un seul coup d’œil ce que fait chaque module dans votre expérience. Dans ce cas, double-cliquez sur le module [Sélectionner des colonnes dans le jeu de données][select-columns] et saisissez le commentaire suivant : « Exclure les pertes normalisées ».
+    > [AZURE.TIP] Vous pouvez ajouter un commentaire dans un module en double-cliquant sur ce module, puis en saisissant du texte. Ceci peut vous aider à voir d'un seul coup d'œil ce que fait chaque module dans votre expérience. Dans ce cas, double-cliquez sur le module [Sélectionner des colonnes dans le jeu de données][select-columns] et saisissez le commentaire suivant : « Exclure les pertes normalisées ».
 
 3. Faites glisser le module [Nettoyer les données manquantes][clean-missing-data] vers la zone de dessin de l’expérience et connectez-le au module [Sélectionner des colonnes dans le jeu de données][select-columns]. Dans le volet **Propriétés**, sélectionnez **Supprimer toute la ligne** sous **Mode de nettoyage**, afin de nettoyer les données en supprimant les lignes contenant des valeurs manquantes. Double-cliquez sur le module et saisissez le commentaire suivant : « Supprimer les lignes de valeur manquantes ».
 
@@ -199,7 +199,7 @@ Pour chacune des statistiques liées aux erreurs, les valeurs les plus petites s
 
 ![Evaluation results][screen9]
 
-Au final, l’expérience doit ressembler à ceci :
+Au final, l'expérience doit ressembler à ceci :
 
 ![Didacticiel sur l'apprentissage automatique : effectuer une expérience de régression linéaire qui utilise des techniques de modélisation prédictive.][screen10]
 
@@ -246,4 +246,4 @@ Pour obtenir un guide pas à pas plus complet et détaillé des techniques de mo
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0914_2016-->

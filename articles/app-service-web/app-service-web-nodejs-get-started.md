@@ -23,7 +23,7 @@
 Ce didacticiel explique comment créer une application [Node.js][NODEJS] simple et la déployer dans une [application web] sur [Azure App Service] à partir d’un environnement de ligne de commande comme cmd.exe ou bash. Les instructions de ce didacticiel s’appliquent à tous les systèmes d’exploitation pouvant exécuter Node.js.
 
 <a name="prereq"></a>
-## Configuration requise
+## Composants requis
 
 - **Node.js** ([cliquez ici pour l’installer][NODEJS])
 - **Bower** ([cliquez ici pour l’installer][BOWER])
@@ -52,8 +52,9 @@ Ce didacticiel explique comment créer une application [Node.js][NODEJS] simple 
 
     Dans votre navigateur, accédez à <http://localhost:3000> pour vérifier que la page d’accueil Express s’affiche. Une fois que vous êtes sûr que votre application s’exécute correctement, utilisez la commande `Ctrl-C` pour l’arrêter.
     
-1. Connectez-vous à Azure (pour ce faire, vous avez besoin de [l’interface de ligne de commande Azure](#prereq)) :
+1. Passez en mode ASM et connectez-vous à Azure (vous avez besoin de [l’interface de ligne de commande Azure](#prereq) pour cela) :
 
+        azure config mode asm
         azure login
 
     Suivez les instructions de l’invite pour poursuivre la connexion à un compte Microsoft associé à votre abonnement Azure.
@@ -62,7 +63,7 @@ Ce didacticiel explique comment créer une application [Node.js][NODEJS] simple 
 
         azure site create --git {appname}
 
-    Suivez les instructions pour sélectionner une région Azure vers laquelle effectuer le déploiement. Si vous n’avez jamais configuré d’informations d’identification de déploiement Git/FTP pour votre abonnement Azure, vous êtes invité à le faire.
+    Suivez les instructions pour sélectionner une région Azure vers laquelle effectuer le déploiement. Si vous n’avez jamais configuré les informations d’identification de déploiement Git/FTP pour votre abonnement Azure, vous êtes invité à les créer.
 
 3. Ouvrez le fichier ./config/config.js à partir de la racine de votre application, et définissez le port de production sur `process.env.port` ; votre propriété `production` de l’objet `config` doit ressembler à l’exemple suivant.
 
@@ -236,4 +237,4 @@ Pour activer Node-Inspector, procédez comme suit :
 [iislog-kudu-console-open]: ./media/app-service-web-nodejs-get-started/iislog-kudu-console-open.png
 [iislog-kudu-console-read]: ./media/app-service-web-nodejs-get-started/iislog-kudu-console-read.png
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0914_2016-->

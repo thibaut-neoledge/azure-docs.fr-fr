@@ -118,7 +118,7 @@ Vous allez :
 
     Si vous avez utilisé l’une des infrastructures de langage, vous verrez une sortie différente. Cela est dû au fait que `git push` injecte non seulement du code dans Azure, mais déclenche également des tâches de déploiement dans le moteur de déploiement. Si vous disposez de fichiers package.json (Node.js) ou requirements.txt (Python) à la racine (référentiel) du projet, ou si vous avez un fichier packages.config dans votre projet ASP.NET, le script de déploiement restaure les packages requis à votre place. Vous pouvez également [activer l’extension Composer](web-sites-php-mysql-deploy-use-git.md#composer) afin de traiter automatiquement les fichiers composer.json dans votre application PHP.
 
-Et voilà ! Votre code s’exécute désormais dans Azure. Dans votre navigateur, accédez à http://*&lt;appname>*. azurewebsites.net pour le voir en action.
+Et voilà ! Votre code s’exécute désormais dans Azure. Dans votre navigateur, accédez à http://*&lt;appname>*. azurewebsites.net pour le voir en action.
 
 ## Mettre à jour votre application
 
@@ -139,9 +139,9 @@ Recherchez les étapes de développement et de déploiement préférées pour vo
 - [Python](web-sites-python-ptvs-django-mysql.md)
 - [Java](web-sites-java-get-started.md)
 
-Ou faites-en plus avec votre première application web. Par exemple :
+Ou faites-en plus avec votre première application web. Par exemple :
 
 - Essayez [d’autres méthodes de déploiement de votre code vers Azure](../app-service-web/web-sites-deploy.md). Par exemple, pour déployer à partir de l’un de vos référentiels GitHub, sélectionnez simplement **GitHub** au lieu de **Référentiel Git local** dans les **Options de déploiement**.
 - Faites passer votre application Azure à la vitesse supérieure. Authentifiez vos utilisateurs. Mettez-la à l’échelle en fonction de la demande. Configurez des alertes de performance. Tout ceci en seulement quelques clics. Consultez l’article [Ajouter des fonctionnalités à votre première application web](app-service-web-get-started-2.md).
 
-<!----HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0914_2016-->

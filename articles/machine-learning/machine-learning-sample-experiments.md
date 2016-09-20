@@ -4,7 +4,7 @@
     services="machine-learning"
     documentationCenter=""
     authors="cjgronlund"
-    manager="paulettm"
+    manager="jhubbard"
     editor="cgronlun"/>
 
 <tags
@@ -40,8 +40,8 @@ Pour parcourir toutes les expériences :
 1. Cliquez sur **Browse all** (Parcourir tout) en haut de la page.
 2. Sous **Refine by** (Affiner par), sélectionnez **Experiment** (Expérience) pour afficher toutes les expériences de la galerie.
 3. Vous y trouverez des expériences qui répondent à vos besoins de différentes façons :
-   * **Sélectionnez des filtres sur la gauche.** Par exemple, pour parcourir les expériences utilisant un algorithme de détection des anomalies PCA, sélectionnez **Experiment** (Expérience) sous **Catégories**, puis **PCA-Based Anomaly Detection** (Détection des anomalies PCA) sous **Algorithms Used** (Algorithmes utilisés). (Si vous ne voyez pas cet algorithme, cliquez sur **Afficher tout** en bas de la liste.)<br></br> ![](./media/machine-learning-sample-experiments/refine-the-view.png)
-   *  **Utilisez la zone de recherche.** Par exemple, pour rechercher les expériences partagées par Microsoft sur la reconnaissance de chiffres et qui utilisent un algorithme de machine à vecteurs de support à deux classes, entrez « reconnaissance de chiffres » dans la zone de recherche. Puis sélectionnez les filtres **Experiment** (Expérience), **Microsoft content only** (Contenu Microsoft uniquement) et **Two-Class Support Vector Machine** (Machine à vecteurs de support à deux classes) : ![](./media/machine-learning-sample-experiments/search-for-experiments.png)
+    * **Sélectionnez des filtres sur la gauche.** Par exemple, pour parcourir les expériences utilisant un algorithme de détection des anomalies PCA, sélectionnez **Experiment** (Expérience) sous **Catégories**, puis **PCA-Based Anomaly Detection** (Détection des anomalies PCA) sous **Algorithms Used** (Algorithmes utilisés). (Si vous ne voyez pas cet algorithme, cliquez sur **Afficher tout** en bas de la liste.)<br></br> ![](./media/machine-learning-sample-experiments/refine-the-view.png)
+    *  **Utilisez la zone de recherche.** Par exemple, pour rechercher les expériences partagées par Microsoft sur la reconnaissance de chiffres et qui utilisent un algorithme de machine à vecteurs de support à deux classes, entrez « reconnaissance de chiffres » dans la zone de recherche. Puis sélectionnez les filtres **Experiment** (Expérience), **Microsoft content only** (Contenu Microsoft uniquement) et **Two-Class Support Vector Machine** (Machine à vecteurs de support à deux classes) : ![](./media/machine-learning-sample-experiments/search-for-experiments.png)
 4. Cliquez sur une expérience pour en savoir plus à propos de celle-ci.
 5. Pour exécuter et/ou modifier l’expérience, cliquez sur **Ouvrir dans Studio** sur la page de l’expérience.
 
@@ -66,4 +66,4 @@ Une expérience est créée dans votre espace de travail, et l’exemple d’exp
 - [Création d’une API de service web](machine-learning-publish-a-machine-learning-web-service.md)
 - [Parcourez des applications prêtes à l'emploi](https://datamarket.azure.com/browse?query=machine+learning)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0914_2016-->

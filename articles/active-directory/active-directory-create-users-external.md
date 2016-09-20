@@ -18,6 +18,10 @@
 
 # Ajouter des utilisateurs à partir d’autres répertoires ou entreprises partenaires dans Azure Active Directory
 
+> [AZURE.SELECTOR]
+- [Portail Azure](active-directory-create-users-external-azure-portal.md)
+- [Portail Azure Classic](active-directory-create-users-external.md)
+
 Cet article explique comment ajouter des utilisateurs à partir d’autres répertoires dans Azure Active Directory, ou comment ajouter des utilisateurs d’entreprises partenaires. Pour en savoir plus sur l’ajout de nouveaux utilisateurs dans votre organisation, et en particulier l’ajout d’utilisateurs disposant de comptes Microsoft, voir [Ajout ou modification d’utilisateurs dans Azure Active Directory](active-directory-create-users.md). Par défaut, les utilisateurs ajoutés ne reçoivent pas d’autorisations d’administrateur, mais vous pouvez leur attribuer des rôles à tout moment.
 
 ## Ajouter un utilisateur
@@ -48,7 +52,7 @@ Si vous modifiez les informations d’un utilisateur dont l’identité est sync
 
 Vous pouvez également ajouter des utilisateurs à partir d’un autre répertoire Azure AD auquel vous appartenez ou à partir d’entreprises partenaires en téléchargeant un fichier CSV. Pour ajouter un utilisateur externe, indiquez **Utilisateur dans un autre annuaire Microsoft Azure AD** ou **Utilisateurs dans les entreprises partenaires** pour **Type d’utilisateur**.
 
-Les deux types d’utilisateurs proviennent d’un autre répertoire et sont ajoutés en tant qu’**utilisateurs externes**. Les utilisateurs externes peuvent collaborer avec d’autres utilisateurs dans un répertoire sans qu’il y ait besoin d’ajouter de nouveaux comptes et informations d’identification. Quand ils se connectent, les utilisateurs externes sont authentifiés par leur répertoire de base, et cette authentification fonctionne pour tout autre répertoire dans lequel ils ont été ajoutés.
+Les deux types d’utilisateurs proviennent d’un autre répertoire et sont ajoutés en tant **qu’utilisateurs externes**. Les utilisateurs externes peuvent collaborer avec d’autres utilisateurs dans un répertoire sans qu’il y ait besoin d’ajouter de nouveaux comptes et informations d’identification. Quand ils se connectent, les utilisateurs externes sont authentifiés par leur répertoire de base, et cette authentification fonctionne pour tout autre répertoire dans lequel ils ont été ajoutés.
 
 ## Gestion des utilisateurs externes et limitations
 
@@ -84,4 +88,4 @@ Si un utilisateur est supprimé de son annuaire de base ou s’il annule son com
 - [Gestion des mots de passe dans Azure AD](active-directory-manage-passwords.md)
 - [Gestion des groupes dans Azure AD](active-directory-manage-groups.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0914_2016-->

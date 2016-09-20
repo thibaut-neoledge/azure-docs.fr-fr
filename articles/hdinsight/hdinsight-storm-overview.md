@@ -4,7 +4,7 @@
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"
 	tags="azure-portal"/>
 
@@ -97,7 +97,7 @@ Par défaut, Apache Storm est configuré pour n’avoir un seul nœud Nimbus. S
 
 ![Schéma de Nimbus, de Zookeeper et de Superviseur](./media/hdinsight-storm-overview/nimbus.png)
 
-###Mise à l'échelle
+###Scale
 
 Bien que vous puissiez spécifier le nombre de nœuds dans votre cluster lors de sa création, vous pourriez souhaiter augmenter ou réduire la taille du cluster pour l’adapter à votre charge de travail. Tous les clusters HDInsight permettent de modifier le nombre de nœuds du cluster, même lors du traitement des données.
 
@@ -116,7 +116,7 @@ Voici quelques scénarios courants dans lesquels vous pouvez utiliser Apache St
 * Analyse des réseaux sociaux
 * Extraire, transformer, charger (ETL)
 * Analyse du réseau
-* Recherche
+* Search
 * Engagement mobile
 
 ##Mode de gestion des données Storm HDInsight
@@ -225,4 +225,4 @@ En savoir plus sur les solutions d‘analyse en temps réel avec Apache Storm d
 [apachetutorial]: https://storm.apache.org/documentation/Tutorial.html
 [gettingstarted]: hdinsight-apache-storm-tutorial-get-started-linux.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->
