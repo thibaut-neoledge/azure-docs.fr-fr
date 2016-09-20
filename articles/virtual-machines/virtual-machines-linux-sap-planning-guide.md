@@ -645,7 +645,7 @@ La mise en réseau et la résolution de noms étant des aspects essentiels du d�
 
 En créant un réseau virtuel Azure, vous pouvez définir la plage d’adresses des adresses IP privées allouées par la fonctionnalité DHCP Azure. Dans les scénarios intersites, la plage d’adresses IP définie sera toujours allouée via la fonctionnalité DHCP par Azure. Toutefois, la résolution de noms de domaine sera effectuée en local (en supposant que les machines virtuelles font partie d’un domaine local) et peut donc résoudre les adresses au-delà des différents Azure Cloud Services.
 
-[comment]: <> (MSSedusch still needed? TODO À l’origine, un réseau virtuel Azure était lié à un groupe d’affinités. En raison de cela, un réseau virtuel dans Azure était limité à l’unité d’échelle Azure à laquelle le groupe d’affinités avait été attribué. Au final, cela signifiait que le réseau virtuel était limité aux ressources disponibles dans l’unité d’échelle Azure. Depuis, des modifications ont été apportées et les réseaux virtuels Azure peuvent désormais être étendus à plus d’une unité d’échelle Azure. Toutefois, il est nécessaire que les réseaux virtuels Azure ne soient **PLUS** associés aux groupes d’affinités lors de la création. Comme expliqué précédemment, contrairement aux recommandations de l’année dernière, vous ne devez **PLUS utiliser de groupes d’affinités Azure**. Pour plus d’informations, voir <https://azure.microsoft.com/blog/regional-virtual-networks/>
+[comment]: <> (MSSedusch still needed? TODO À l’origine, un réseau virtuel Azure était lié à un groupe d’affinités. En raison de cela, un réseau virtuel dans Azure était limité à l’unité d’échelle Azure à laquelle le groupe d’affinités avait été attribué. Au final, cela signifiait que le réseau virtuel était limité aux ressources disponibles dans l’unité d’échelle Azure. Depuis, des modifications ont été apportées et les réseaux virtuels Azure peuvent désormais être étendus à plus d’une unité d’échelle Azure. Toutefois, il est nécessaire que les réseaux virtuels Azure ne soient **PLUS** associés aux groupes d’affinités lors de la création. Comme expliqué précédemment, contrairement aux recommandations de l’année dernière, vous ne devez **PLUS utiliser de groupes d’affinités Azure**. Pour plus d’informations, voir <https://azure.microsoft.com/blog/regional-virtual-networks/>)
 
 Chaque machine virtuelle dans Azure doit être connectée à un réseau virtuel.
 
@@ -686,10 +686,10 @@ La figure ci-dessus présente deux abonnements Azure qui ont des sous-plages d�
 #### VPN de point à site
 Le VPN de point à site requiert que chaque machine du client se connecte à Azure avec son propre VPN. Pour les scénarios SAP que nous étudions, la connectivité de point à site n’est pas pratique. Par conséquent, nous n’en parlerons pas davantage.
 
-[comment]: <> (MSSedusch -- More information can be found here) 
-[comment]: <> (MShermannd TODO Link no longer valid; But ARM is anyway not supported - see next link below) 
-[comment]: <> (MSSedusch -- <http://msdn.microsoft.com/library/azure/dn133798.aspx>.) 
-[comment]: <> (MShermannd TODO Point to Site not supported yet with ARM ) 
+[comment]: <> (MSSedusch -- More information can be found here)
+[comment]: <> (MShermannd TODO Link no longer valid; But ARM is anyway not supported - see next link below)
+[comment]: <> (MSSedusch -- <http://msdn.microsoft.com/library/azure/dn133798.aspx>.)
+[comment]: <> (MShermannd TODO Point to Site not supported yet with ARM )
 [comment]: <> (MSSedusch -- <https://azure.microsoft.com/documentation/articles/vpn-gateway-point-to-site-create/>)
 
 #### VPN multisite
@@ -712,7 +712,7 @@ Vous trouverez plus d’informations sur Azure ExpressRoute et les offres ici :
 
 ExpressRoute permet d’utiliser plusieurs abonnements Azure via un seul circuit ExpressRoute, comme décrit ici
 
-* <https://azure.microsoft.com/documentation/articles/expressroute-howto-linkvnet-arm/>
+* <https://azure.microsoft.com/documentation/articles/expressroute-howto-linkvnet-arm/> 
 * <https://azure.microsoft.com/documentation/articles/expressroute-howto-circuit-arm/>
 
 
@@ -768,7 +768,7 @@ Le portail Azure constitue l’une des trois interfaces destinées à la gestion
  
 ![Portail Microsoft Azure - vue d’ensemble de la machine virtuelle][planning-guide-figure-800]
 
-[comment]: <> (MSSedusch * <https://azure.microsoft.com/documentation/articles/virtual-networks-create-vnet-arm-pportal/>) 
+[comment]: <> (MSSedusch * <https://azure.microsoft.com/documentation/articles/virtual-networks-create-vnet-arm-pportal/>)
 [comment]: <> (MSSedusch * <https://azure.microsoft.com/documentation/articles/virtual-machines-windows-tutorial/>)
 
 Les tâches d’administration et de configuration de la machine virtuelle sont possibles au sein du portail Azure.
@@ -780,8 +780,8 @@ Le portail Azure fournit des fonctionnalités de base pour déployer et configur
 * le téléchargement de disques durs virtuels vers Azure ;
 * la copie de machines virtuelles.
 
-[comment]: <> (MShermannd TODO what about automation service for SAP VMs ? ) 
-[comment]: <> (MSSedusch deployment of multiple VMs os meanwhile possible) 
+[comment]: <> (MShermannd TODO what about automation service for SAP VMs ? )
+[comment]: <> (MSSedusch deployment of multiple VMs os meanwhile possible)
 [comment]: <> (MSSedusch De plus, l’automation des déploiements n’est pas possible dans le portail Azure. Des tâches telles que les déploiements de plusieurs machines virtuelles à base de script ne sont pas possibles via le portail Azure.)
 
 ### Gestion par le biais des applets de commande Microsoft Azure PowerShell
@@ -795,7 +795,7 @@ Le retour de nos clients a permis de déterminer que PowerShell (PS) constitue l
 
 Voir l’exemple présenté ici : <http://blogs.technet.com/b/keithmayer/archive/2015/07/07/18-steps-for-end-to-end-iaas-provisioning-in-the-cloud-with-azure-resource-manager-arm-powershell-and-desired-state-configuration-dsc.aspx>
 
-[comment]: <> (MShermannd TODO describe new CLI command when tested ) 
+[comment]: <> (MShermannd TODO describe new CLI command when tested )
 Le déploiement de l’extension d’analyse Azure pour SAP (voir le chapitre [Solution de surveillance Azure pour SAP][planning-guide-9.1] dans ce document) est uniquement possible par le biais de PowerShell ou de l’interface de ligne de commande. Par conséquent, il est obligatoire d’installer et de configurer PowerShell ou l’interface de ligne de commandes lors du déploiement ou de l’administration d’un système SAP NetWeaver dans Azure.
 
 Étant donné qu’Azure propose davantage de fonctionnalités, de nouvelles applets de commande PS vont être ajoutées ; celles-ci nécessiteront une mise à jour des applets de commande. Par conséquent, il est judicieux de consulter le site de téléchargement Azure au moins une fois par mois, <https://azure.microsoft.com/downloads/>, afin de vérifier si une nouvelle version des applets de commande est disponible. La nouvelle version sera simplement installée par-dessus l’ancienne version.
@@ -855,7 +855,8 @@ Une méthode de déploiement courante consiste à déplacer une machine virtuell
 
 Les exigences à respecter pour la préparation de votre propre disque de machine virtuelle Azure sont les suivantes :
 
-* À l’origine, la taille maximale du disque dur virtuel contenant le système d’exploitation était seulement de 127 Go. Cette limite a été repoussée en mars 2015. Désormais, la taille du disque dur virtuel contenant le système d’exploitation peut aller jusqu’à 1 To, comme tout disque dur virtuel hébergé sur Azure Storage. [comment]: <> (MShermannd TODO have to check if CLI also converts to static )
+* À l’origine, la taille maximale du disque dur virtuel contenant le système d’exploitation était seulement de 127 Go. Cette limite a été repoussée en mars 2015. Désormais, la taille du disque dur virtuel contenant le système d’exploitation peut aller jusqu’à 1 To, comme tout disque dur virtuel hébergé sur Azure Storage.
+[comment]: <> (MShermannd TODO have to check if CLI also converts to static )
 * Il doit être au format VHD fixe. Les disques durs virtuels ou les disques durs virtuels au format VHDx ne sont pas encore pris en charge sur Azure. Les disques durs virtuels dynamiques seront convertis en disques durs virtuels statiques lorsque vous chargez le disque dur virtuel avec les applets de commande PowerShell ou l’interface CLI
 * Les disques durs virtuels montés sur la machine virtuelle, et devant être montés de nouveau sur celle-ci dans Azure, doivent également être au format VHD fixe. La même limite de taille du disque du système d’exploitation s’applique également aux disques de données. Les disques durs virtuels peuvent avoir une taille maximale de 1 To. Les disques durs virtuels dynamiques seront convertis en disques durs virtuels statiques lorsque vous chargez le disque dur virtuel avec les applets de commande PowerShell ou l’interface CLI
 * Ajoutez un autre compte local doté de privilèges d’administrateur, pouvant être utilisé par le support technique Microsoft ou pouvant être affecté en tant que contexte d’exécution pour les services et les applications, jusqu’à ce que la machine virtuelle soit déployée et des utilisateurs plus appropriés puissent être utilisés.
@@ -880,7 +881,8 @@ Les fichiers VHD contenant un système d’exploitation généralisé sont égal
 
 Les exigences à respecter pour la préparation de votre propre image de machine virtuelle Azure sont les suivantes :
 
-* À l’origine, la taille maximale du disque dur virtuel contenant le système d’exploitation était seulement de 127 Go. Cette limite a été repoussée en mars 2015. Désormais, la taille du disque dur virtuel contenant le système d’exploitation peut aller jusqu’à 1 To, comme tout disque dur virtuel hébergé sur Azure Storage. [comment]: <> (MShermannd TODO have to check if CLI also converts to static )
+* À l’origine, la taille maximale du disque dur virtuel contenant le système d’exploitation était seulement de 127 Go. Cette limite a été repoussée en mars 2015. Désormais, la taille du disque dur virtuel contenant le système d’exploitation peut aller jusqu’à 1 To, comme tout disque dur virtuel hébergé sur Azure Storage.
+[comment]: <> (MShermannd TODO have to check if CLI also converts to static )
 * Il doit être au format VHD fixe. Les disques durs virtuels ou les disques durs virtuels au format VHDx ne sont pas encore pris en charge sur Azure. Les disques durs virtuels dynamiques seront convertis en disques durs virtuels statiques lorsque vous chargez le disque dur virtuel avec les applets de commande PowerShell ou l’interface CLI
 * Les disques durs virtuels montés sur la machine virtuelle, et devant être montés de nouveau sur celle-ci dans Azure, doivent également être au format VHD fixe. La même limite de taille du disque du système d’exploitation s’applique également aux disques de données. Les disques durs virtuels peuvent avoir une taille maximale de 1 To. Les disques durs virtuels dynamiques seront convertis en disques durs virtuels statiques lorsque vous chargez le disque dur virtuel avec les applets de commande PowerShell ou l’interface CLI
 * Étant donné que tous les utilisateurs du domaine inscrits en tant qu’utilisateurs dans la machine virtuelle n’existent pas dans le cas d’un déploiement cloud uniquement, il se peut que des services tels que les comptes de domaine ne fonctionnent pas une fois l’image déployée dans Azure (voir le chapitre [Cloud uniquement : déploiement de machines virtuelles dans Azure sans dépendances du réseau local du client][planning-guide-2.1] dans ce document). Cela s’applique particulièrement aux comptes qui sont utilisés pour exécuter des services tels que les applications SGBD ou SAP. Par conséquent, vous devez remplacer ces comptes de domaine avec des comptes locaux de machine virtuelle et supprimer les comptes de domaine locaux dans la machine virtuelle. La conservation des utilisateurs du domaine local dans l’image de machine virtuelle ne constitue pas un problème lorsque la machine virtuelle est déployée dans le cas d’une connexion entre différents locaux (voir le chapitre [Intersite : déploiement d’une ou plusieurs machines virtuelles SAP dans Azure, dans lequel une intégration complète au réseau local est nécessaire][planning-guide-2.2] dans ce document).
