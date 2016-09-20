@@ -5,7 +5,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="andkjell"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/27/2016"
+	ms.date="08/31/2016"
 	ms.author="andkjell"/>
 
 
@@ -29,7 +29,7 @@ Lorsque vous démarrez l’Assistant Installation, une page s’affiche avec ces
 
 ![Page avec une liste de tâches supplémentaires](./media/active-directory-aadconnectsync-installation-wizard/additionaltasks.png)
 
-Si vous avez installé AD FS avec Azure AD Connect, vous aurez davantage d’options. Les options supplémentaires que vous avez pour AD FS sont documentées dans [Gestion AD FS](active-directory-aadconnect-federation-management.md#ad-fs-management).
+Si vous avez installé AD FS avec Azure AD Connect, vous avez davantage d’options. Les options supplémentaires que vous avez pour AD FS sont documentées dans [Gestion AD FS](active-directory-aadconnect-federation-management.md#ad-fs-management).
 
 Sélectionnez l’une des tâches et cliquez sur **Suivant** pour continuer.
 
@@ -40,24 +40,24 @@ Cette option vous donne un aperçu rapide de vos options actuellement configuré
 
 ![Page avec la liste de toutes les options et leur état](./media/active-directory-aadconnectsync-installation-wizard/viewconfig.png)
 
-Cliquez sur **Précédent** pour revenir en arrière. Si vous sélectionnez **Quitter**, vous fermerez l’Assistant Installation.
+Cliquez sur **Précédent** pour revenir en arrière. Si vous sélectionnez **Quitter**, vous fermez l’Assistant Installation.
 
 ## Personnaliser les options de synchronisation
-Cette option est utilisée pour apporter des modifications à la configuration de la synchronisation. Vous verrez un sous-ensemble d’options provenant du chemin d’installation de la configuration personnalisée. Et ce même si vous avez initialement utilisé l’installation rapide.
+Cette option est utilisée pour apporter des modifications à la configuration de la synchronisation. Vous voyez un sous-ensemble d’options provenant du chemin d’installation de la configuration personnalisée. Et ce, même si vous avez initialement utilisé l’installation rapide.
 
 - [Ajouter d’autres annuaires](active-directory-aadconnect-get-started-custom.md#connect-your-directories). Pour supprimer un annuaire, consultez [Supprimer un connecteur](active-directory-aadconnectsync-service-manager-ui-connectors.md#delete).
 - [Modifier le filtrage par domaine ou unité d’organisation](active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering).
 - Supprimer le filtrage de groupe.
 - [Modifier les fonctionnalités facultatives](active-directory-aadconnect-get-started-custom.md#optional-features).
 
-Les autres options provenant de l’installation initiale ne peuvent pas être modifiées et ne sont pas disponibles. Ce sont notamment :
+Les autres options provenant de l’installation initiale ne peuvent pas être modifiées et ne sont pas disponibles. Ces options sont :
 
 - Modifier l’attribut à utiliser pour userPrincipalName et sourceAnchor.
 - Modifier la méthode de jointure d’objets provenant de différentes forêts.
 - Activer le filtrage de groupe.
 
 ## Actualiser le schéma d’annuaire
-Cette option est utilisée si vous avez modifié le schéma dans l’une de vos forêts AD DS locales. Par exemple, vous pouvez avoir installé Exchange ou mis à niveau vers un schéma Windows Server 2012 avec des objets de périphérique. Dans ce cas, vous devez demander à Azure AD Connect de relire le schéma AD DS et de mettre à jour son cache. Cette opération regénère également les règles de synchronisation. Si vous ajoutez le schéma Exchange, par exemple, les règles de synchronisation d’Exchange sont ajoutées à la configuration.
+Cette option est utilisée si vous avez modifié le schéma dans l’une de vos forêts AD DS locales. Par exemple, vous pouvez avoir installé Exchange ou effectué une mise à niveau vers un schéma Windows Server 2012 avec des objets de périphérique. Dans ce cas, vous devez demander à Azure AD Connect de relire le schéma AD DS et de mettre à jour son cache. Cette action régénère également les règles de synchronisation. Si vous ajoutez le schéma Exchange, par exemple, les règles de synchronisation d’Exchange sont ajoutées à la configuration.
 
 Lorsque vous sélectionnez cette option, tous les annuaires de votre configuration sont répertoriés. Vous pouvez conserver le paramètre par défaut et actualiser toutes les forêts ou désélectionner certaines d’entre elles.
 
@@ -75,10 +75,13 @@ Cette option vous permet de passer de la synchronisation de mot de passe à la f
 
 Pour plus d’informations sur cette option, consultez [connexion de l’utilisateur](active-directory-aadconnect-user-signin.md#changing-user-sign-in-method).
 
-
 ## Étapes suivantes
-En savoir plus sur la configuration de la [synchronisation Azure AD Connect](active-directory-aadconnectsync-whatis.md).
 
-En savoir plus sur l’[intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).
+- En savoir plus sur le modèle de configuration utilisé par la synchronisation d’Azure AD Connect dans [Comprendre l’approvisionnement déclaratif](active-directory-aadconnectsync-understanding-declarative-provisioning.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+**Rubriques de présentation**
+
+- [Azure AD Connect Sync - Présentation et personnalisation des options de synchronisation](active-directory-aadconnectsync-whatis.md)
+- [Intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md)
+
+<!---HONumber=AcomDC_0907_2016-->

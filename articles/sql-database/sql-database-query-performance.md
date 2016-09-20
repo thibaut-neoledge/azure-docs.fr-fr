@@ -22,10 +22,7 @@
 La gestion et le réglage des performances des bases de données relationnelles est une tâche complexe qui nécessite une réelle expertise et un investissement en temps. Query Performance Insight vous permet de passer moins de temps à résoudre les problèmes de performances des bases de données en fournissant :
 
 - Une meilleure compréhension de la consommation des ressources des bases de données (DTU).
-- Les requêtes principales consommatrices d’UC peuvent être réglées pour améliorer les performances.
-  - UC
-  - Durée
-  - Nombre d’exécutions
+- Les requêtes principales par consommation d’UC/durée/exécution, qui peuvent être réglées pour améliorer les performances.
 - La possibilité de connaître les détails d’une requête, d’afficher son texte et l’historique d’utilisation des ressources.
 - Des annotations de réglage des performances qui indiquent les actions effectuées par [SQL Azure Database Advisor](sql-database-advisor.md)
 
@@ -192,7 +189,7 @@ Il existe deux types de stratégies de rétention :
 
 La stratégie de capture peut avoir les valeurs suivantes :
 
-- **Tout** : toutes les requêtes sont capturées.
+- **Tout** : toutes les requêtes sont capturées.
 - **Auto** : les requêtes peu fréquentes et les requêtes avec une durée de compilation et d’exécution insignifiante sont ignorées. Les seuils concernant le nombre d’exécutions, et la durée de compilation et d’exécution, sont déterminés en interne. Il s'agit de l'option par défaut.
 - **Aucune** : le magasin de requêtes arrête la capture de nouvelles requêtes, mais les statistiques d’exécution pour les requêtes déjà capturées sont toujours collectées.
 	
@@ -244,4 +241,4 @@ Pour obtenir d’autres recommandations concernant l’amélioration des perform
 [8]: ./media/sql-database-query-performance/qds-off.png
 [9]: ./media/sql-database-query-performance/qds-button.png
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0907_2016-->

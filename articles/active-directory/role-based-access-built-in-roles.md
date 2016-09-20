@@ -34,7 +34,7 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 | [Collaborateur BizTalk](#biztalk-contributor) | Gérer BizTalk Services |
 | [Collaborateur de base de données ClearDB MySQL](#cleardb-mysql-db-contributor) | Gérer les bases de données ClearDB MySQL |
 | [Collaborateur](#contributor) | Gérer tout sauf les accès |
-| [Collaborateurs de fabrique de données](#data-factory-contributor) | Gérer les fabriques de données |
+| [Collaborateurs de fabrique de données](#data-factory-contributor) | Créer et gérer des fabriques de données ainsi que leurs ressources enfants |
 | [Utilisateur de DevTest Labs](#devtest-labs-user) | Afficher tout et connecter, démarrer, redémarrer et arrêter les machines virtuelles |
 | [Collaborateur de compte DocumentDB](#documentdb-account-contributor) | Peut gérer les comptes DocumentDB |
 | [Collaborateur de compte Intelligent Systems](#intelligent-systems-account-contributor) | Gérer les comptes Intelligent Systems |
@@ -151,12 +151,12 @@ Gérer tout sauf les accès
 | Microsoft.Authorization/*/Write | Impossible de créer des rôles et des affectations de rôles |
 
 ### Collaborateurs de fabrique de données
-Gérer les fabriques de données
+Créer et gérer des fabriques de données ainsi que leurs ressources enfants
 
 | **Actions** ||
 | ------- | ------ |
 | Microsoft.Authorization/*/read | Lire les rôles et les affectations de rôles |
-| Microsoft.DataFactory/dataFactories/* | Gérer les fabriques de données |
+| Microsoft.DataFactory/dataFactories/* | Créer et gérer des fabriques de données ainsi que leurs ressources enfants |
 | Microsoft.Insights/alertRules/* | Créer et gérer les règles d’alerte |
 | Microsoft.ResourceHealth/availabilityStatuses/read | Lire l’intégrité des ressources |
 | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
@@ -534,4 +534,4 @@ Gérer les sites web, mais pas les plans web auxquels ils sont connectés
 - [Créer un rapport d’historique des modifications d’accès](role-based-access-control-access-change-history-report.md) : effectuez le suivi des changements d’affection de rôle dans RBAC.
 - [Résolution des problèmes de contrôle d’accès en fonction du rôle](role-based-access-control-troubleshooting.md) : obtenez des suggestions pour résoudre les problèmes courants.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

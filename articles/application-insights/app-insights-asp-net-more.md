@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Tirez davantage d’Application Insights" 
+	pageTitle="Tirez davantage d’Application Insights | Microsoft Azure" 
 	description="Après avoir pris en main Application Insights, voici un résumé des fonctionnalités que vous pouvez explorer." 
 	services="application-insights" 
     documentationCenter=".net"
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/10/2016" 
+	ms.date="08/30/2016" 
 	ms.author="awills"/>
 
 # Plus de télémétrie dans Application Insights
@@ -60,16 +60,19 @@ Si votre application s’exécute en tant qu’application web Azure, accédez a
 
 (Vous pouvez également utiliser cette méthode pour [activer l’analyse des performances lors de l’exécution](app-insights-monitor-performance-live-website-now.md), même si vous n’avez pas instrumenté votre application dans Visual Studio.)
 
+## Surveillance côté client
 
-## Performances du navigateur
+Vous avez installé le kit de développement logiciel (SDK) qui envoie des données de télémétrie depuis le serveur (principal) de votre application. Vous pouvez maintenant ajouter une surveillance côté client. Cette surveillance vous fournit des données sur les utilisateurs, les sessions, les pages consultées et les exceptions ou incidents qui se produisent dans le navigateur. Vous pourrez également écrire votre propre code pour suivre la façon dont les utilisateurs travaillent avec votre application, même jusqu'au niveau du nombre de clics et de frappes sur les touches.
 
-Ajoutez l’extrait de code JavaScript Application Insights à vos pages web pour obtenir des données de télémétrie à partir de navigateurs clients.
+Ajoutez l’extrait de code JavaScript Application Insights à chaque page web pour obtenir des données de télémétrie à partir de navigateurs clients.
 
 1. Dans Azure, ouvrez la ressource Application Insights correspondant à votre application.
 2. Accédez à Démarrage rapide, Analyse côté client et copiez l’extrait de code.
 3. Copiez-le de manière à le faire apparaître dans l’entête de chaque page web. Pour cela, il suffit généralement de coller le contenu dans la page de mise en forme principale.
 
 ![Extension dans Azure](./media/app-insights-asp-net-more/100.png)
+
+Notez que le code contient la clé d’instrumentation qui identifie la ressource de votre application.
 
 ### Résultat ?
 
@@ -78,6 +81,27 @@ Ajoutez l’extrait de code JavaScript Application Insights à vos pages web pou
 * [Données de performances et d’utilisation du client](app-insights-javascript.md) dans le panneau Navigateurs.
 
 ![Extension dans Azure](./media/app-insights-asp-net-more/090.png)
+
+
+[En savoir plus sur le suivi de page web.](app-insights-web-track-usage.md)
+
+
+
+## Suivi de la version de l'application
+
+Assurez-vous que `buildinfo.config` est généré par votre processus MSBuild. Dans votre fichier .csproj, ajoutez :
+
+```XML
+
+    <PropertyGroup>
+      <GenerateBuildInfoConfigFile>true</GenerateBuildInfoConfigFile>    <IncludeServerNameInBuildInfo>true</IncludeServerNameInBuildInfo>
+    </PropertyGroup> 
+```
+
+Quand il détient les informations de version, le module web Application Insights ajoute automatiquement la **version de l’application** en tant que propriété à chaque élément de télémétrie. Cela vous permet de filtrer par version pendant l’exécution de [recherches de diagnostic](app-insights-diagnostic-search.md) ou l’[exploration de métriques](app-insights-metrics-explorer.md).
+
+Toutefois, notez que le numéro de version de build est uniquement généré par MS Build, et non par la build de développement dans Visual Studio.
+
 
 ## Tests web de disponibilité
 
@@ -121,4 +145,4 @@ Il existe de nombreuses manières d’explorer vos données. Si vous venez de d�
 |**API d’accès aux données**<br/>Prochainement disponible.|
 |[**Échantillonnage**](app-insights-sampling.md)<br/>Réduit le débit de données et vous permet de rester dans la limite de votre niveau tarifaire.|![Mosaïque d’échantillonnage](./media/app-insights-asp-net-more/030.png)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0907_2016-->

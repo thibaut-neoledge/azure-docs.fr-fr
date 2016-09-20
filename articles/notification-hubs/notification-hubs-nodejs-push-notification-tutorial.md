@@ -31,7 +31,7 @@ Les scénarios traités incluent l’envoi de notifications Push à des applicat
 * Android
 * iOS
 * Windows Phone
-* Plateforme Windows universelle 
+* Plateforme Windows universelle
 
 Pour plus d'informations sur les concentrateurs de notification, consultez la section [Étapes suivantes](#next).
 
@@ -39,9 +39,9 @@ Pour plus d'informations sur les concentrateurs de notification, consultez la se
 
 Azure Notification Hubs offre une infrastructure multiplateforme extensible et conviviale pour l’envoi de notifications Push à des appareils mobiles. Pour plus d’informations sur l’infrastructure de service, voir la page [Azure Notification Hubs](http://msdn.microsoft.com/library/windowsazure/jj927170.aspx).
 
-##Création d’une application Node.js
+##Création d'une application Node.js
 
-La première étape de ce didacticiel consiste à créer une application Node.js vide. Pour des instructions sur la création d’une application Node.js, voir [Création et déploiement d’une application Node.js dans un site web Azure][nodejswebsite], [Service cloud Node.js][Node.js Cloud Service] (avec Windows PowerShell) ou [Site web avec WebMatrix].
+La première étape de ce didacticiel consiste à créer une application Node.js vide. Pour des instructions sur la création d’une application Node.js, voir [Création et déploiement d’une application Node.js dans un site web Azure][nodejswebsite], [Service cloud Node.js][Node.js Cloud Service] avec Windows PowerShell ou [Site web avec WebMatrix].
 
 ##Configuration de l’application pour utiliser Notification Hubs
 
@@ -63,7 +63,7 @@ Pour utiliser Azure Notification Hubs, vous devez télécharger et utiliser le [
 
     var azure = require('azure');
 
-### Configuration d’une connexion Azure Notification Hubs
+### Configuration d'une connexion Azure Notification Hubs
 
 L'objet **NotificationHubService** vous permet d'utiliser les hubs de notification. Le code suivant crée un objet **NotificationHubService** pour le concentrateur de notification nommé **hubname**. Ajoutez-le vers le début du fichier **server.js**, après l'instruction relative à l'importation du module Azure :
 
@@ -87,9 +87,9 @@ Pour obtenir la valeur de connexion **connectionstring** à partir du [portail A
 
 L’objet **NotificationHubService** expose les instances d’objet suivantes pour l’envoi de notifications Push à des appareils et applications spécifiques :
 
-* **Android** : utilisez l'objet **GcmService**, qui est disponible au niveau de **notificationHubService.gcm**
-* **iOS** : utilisez l'objet **ApnsService**, qui est disponible au niveau de **notificationHubService.apns**
-* **Windows Phone** : utilisez l'objet **MpnsService**, qui est disponible au niveau de **notificationHubService.mpns**
+* **Android** : utilisez l'objet **GcmService**, qui est disponible au niveau de **notificationHubService.gcm**
+* **iOS** : utilisez l'objet **ApnsService**, qui est disponible au niveau de **notificationHubService.apns**
+* **Windows Phone** : utilisez l'objet **MpnsService**, qui est disponible au niveau de **notificationHubService.mpns**
 * **Plateforme Windows universelle** : utilisez l’objet **WnsService**, disponible au niveau de **notificationHubService.wns**
 
 ### Envoi de notifications Push à des applications Android
@@ -218,4 +218,4 @@ Les exemples d’extrait de code ci-dessus permettent de créer facilement une i
   [Node.js Web Application with Storage]: /develop/nodejs/tutorials/web-site-with-storage/
   [portail Azure]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0907_2016-->

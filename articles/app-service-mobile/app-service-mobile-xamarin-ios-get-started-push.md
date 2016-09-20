@@ -78,7 +78,7 @@ Votre service est désormais configuré et prêt à fonctionner avec les notific
 		using Microsoft.WindowsAzure.MobileServices;
 		using Newtonsoft.Json.Linq;
 
-2. Dans **AppDelegate**, remplacez l'événement **FinishedLaunching** :
+2. Dans **AppDelegate**, remplacez l'événement **FinishedLaunching** :
 
         public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
         {
@@ -97,7 +97,7 @@ Votre service est désormais configuré et prêt à fonctionner avec les notific
 
 3. Dans le même fichier, remplacez l’événement **RegisteredForRemoteNotifications**. Dans ce code, vous inscrivez une notification de modèle simple qui sera envoyée sur toutes les plateformes prises en charge par le serveur.
 
-	Pour plus d’informations sur les modèles avec Notification Hubs, consultez [Modèles](../notification-hubs/notification-hubs-templates.md).
+	Pour plus d’informations sur les modèles avec Notification Hubs, consultez [Modèles](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md).
 
 
         public override void RegisteredForRemoteNotifications(UIApplication application, NSData deviceToken)
@@ -118,7 +118,7 @@ Votre service est désormais configuré et prêt à fonctionner avec les notific
         }
 
 
-4. Ensuite, remplacez l’événement **DidReceivedRemoteNotification** :
+4. Ensuite, remplacez l’événement **DidReceivedRemoteNotification** :
 
         public override void DidReceiveRemoteNotification (UIApplication application, NSDictionary userInfo, Action<UIBackgroundFetchResult> completionHandler)
         {
@@ -156,4 +156,4 @@ Vous avez terminé ce didacticiel.
 
 <!-- URLs. -->
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

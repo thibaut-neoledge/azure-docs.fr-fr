@@ -15,7 +15,7 @@
 	ms.topic="reference"
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
-	ms.date="06/02/2016"
+	ms.date="08/30/2016"
 	ms.author="glenga"/>
 
 # Liaisons Azure Mobile Apps Azure Functions
@@ -36,7 +36,7 @@ Les liaisons d’applications mobiles vous obligent à créer une variable d’e
 
 Pour définir cette URL comme variable d’environnement dans votre application de fonction (Function App) :
 
-1. Dans votre application de fonction dans le [portail Azure Functions](https://functions.azure.com/signin), cliquez sur les **Paramètres Function App** > **Accéder aux paramètres App Service**.
+1. Dans votre application de fonction dans le [portail Azure Functions](https://functions.azure.com/signin), cliquez sur les **Paramètres Function App** > **Accéder aux paramètres App Service**.
 
 	![Paramètres Function App](./media/functions-bindings-mobile-apps/functions-app-service-settings.png)
 
@@ -68,7 +68,7 @@ Le fichier *function.json* prend en charge les propriétés suivantes :
 - `connection` : chaîne correspondant au nom de la variable d’environnement dans les paramètres d’application qui spécifie l’URL du backend de votre application mobile.
 - `direction` : sens de la liaison, qui doit être défini sur *in*.
 
-Exemple de fichier *function.json* :
+Exemple de fichier *function.json* :
 
 	{
 	  "bindings": [
@@ -169,4 +169,4 @@ Cet exemple de code Node.js insère un nouvel enregistrement sur un point de ter
 
 [AZURE.INCLUDE [Étapes suivantes](../../includes/functions-bindings-next-steps.md)]
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

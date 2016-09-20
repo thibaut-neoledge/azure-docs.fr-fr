@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/06/2016"
+	ms.date="09/01/2016"
 	ms.author="jeedes"/>
 
 
@@ -27,7 +27,7 @@ L’objectif de ce didacticiel est de vous montrer comment intégrer @Task dans 
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
 
-## Configuration requise 
+## Composants requis 
 
 Pour configurer l’intégration d’Azure AD avec @Task, vous avez besoin des éléments suivants :
 
@@ -41,13 +41,13 @@ Pour configurer l’intégration d’Azure AD avec @Task, vous avez besoin des 
 Vous devez en outre suivre les recommandations ci-dessous :
 
 - Vous ne devez pas utiliser votre environnement de production, sauf si cela est nécessaire.
-- Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/). 
+- Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
 
  
 ## Description du scénario
 Ce didacticiel vise à vous permettre de tester l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
-1. Ajout de @Task depuis la galerie 
+1. Ajout de @Task depuis la galerie
 2. Configuration et test de l’authentification unique Azure AD
 
 
@@ -56,7 +56,7 @@ Pour configurer l’intégration de @Task avec Azure AD, vous devez ajouter @Ta
 
 **Pour ajouter @Task à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **portail Azure Classic**, cliquez sur **Active Directory**. 
+1. Dans le volet de navigation gauche du **portail Azure Classic**, cliquez sur **Active Directory**.
 
 	![Active Directory][1]
 
@@ -94,7 +94,7 @@ Pour configurer et tester l’authentification unique Azure AD avec @Task, vous
 
 1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-4. **[Création d’un utilisateur de test @Task](#creating-a-halogen-software-test-user)** : pour avoir un équivalent de Britta Simon dans @Task lié à la représentation Azure AD associée.
+4. **[Création d’un utilisateur de test @Task](#creating-a-halogen-software-test-user)** : pour avoir un équivalent de Britta Simon dans @Task lié à la représentation Azure AD associée.
 5. **[Affectation d’un utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
 5. **[Test de l’authentification unique](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 
@@ -116,11 +116,11 @@ L’objectif de cette section est d’activer l’authentification unique Azure�
 
 	![Configurer les paramètres d’application][8]
  
-     a. Dans la zone de texte **URL d’authentification**, entrez l'URL utilisée par vos utilisateurs pour se connecter à votre application @Task (par exemple : *https://<Tenant name>.attask-ondemand.com*).
+     a. Dans la zone de texte **URL de connexion**, tapez l’URL utilisée par vos utilisateurs pour se connecter à votre application @Task (par exemple, *https://<nom du locataire>.attask-ondemand.com*).
 
-     b. Cliquez sur **Next**.
+     b. Cliquez sur **Suivant**.
 
-4. Dans la page **Configurer l’authentification unique sur @Task**, cliquez sur **Télécharger les métadonnées**, puis enregistrez le fichier de métadonnées en local sur votre ordinateur, puis cliquez sur **Suivant**.
+4. Dans la page **Configurer l’authentification unique sur @Task**, cliquez sur **Télécharger les métadonnées**, enregistrez le fichier de métadonnées localement sur votre ordinateur, puis cliquez sur **Suivant**.
 
 	![Qu’est-ce qu’Azure AD Connect ?][9]
 
@@ -131,7 +131,7 @@ L’objectif de cette section est d’activer l’authentification unique Azure�
 2. Accédez à **Single Sign On Configuration**.
 
 
-1. Dans la boîte de dialogue **Single Sign-On**, procédez comme suit
+1. Dans la boîte de dialogue **Authentification unique**, procédez comme suit :
 
 	![Configurer l’authentification unique][23]
 
@@ -139,15 +139,15 @@ L’objectif de cette section est d’activer l’authentification unique Azure�
 
     b. Sélectionnez **///ID fournisseur de services**.
 
-    c. Sur le portail Azure Classic, copiez **l’URL de connexion à distance**, puis collez-la dans la zone de texte **URL du portail de connexion**.
+    c. Dans le portail Azure Classic, copiez **l’URL de connexion distante**, puis collez-la dans la zone de texte **URL du portail de connexion**.
 
-    d. Dans le portail Azure Classic, copiez la valeur **URL du service de déconnexion unique**, puis collez-la dans la zone de texte **URL de déconnexion**.
+    d. Dans le portail Azure Classic, copiez **l’URL du service de déconnexion unique**, puis collez-la dans la zone de texte **URL de déconnexion**.
 
-    e. Dans le portail Azure Classic, copiez la valeur **Modifier l’URL de mot de passe**, puis collez-la dans le champ **Modifier l’URL de mot de passe**.
+    e. Dans le portail Azure Classic, copiez la valeur **Modifier l’URL de mot de passe**, puis collez-la dans la zone de texte **Modifier l’URL de mot de passe**.
 
-    e. Cliquez sur **Enregistrer**.
+    e. Cliquez sur **Save**.
 
-6. Dans le Portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Suivant**.
+6. Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Suivant**.
 
 	![Qu’est-ce qu’Azure AD Connect ?][10]
 
@@ -171,11 +171,11 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
 2. Dans la liste **Annuaire**, sélectionnez l'annuaire pour lequel vous voulez activer l'intégration d'annuaire.
 
-3. Pour afficher la liste des utilisateurs, dans le menu situé en haut, cliquez sur **Utilisateurs**.
+3. Pour afficher la liste des utilisateurs, dans le menu du haut, cliquez sur **Utilisateurs**.
 
 	![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-attask-tutorial/create_aaduser_03.png)
  
-4. Pour ouvrir la boîte de dialogue **Ajouter un utilisateur**, cliquez sur **Ajouter un utilisateur** dans la barre d’outils située en bas.
+4. Pour ouvrir la boîte de dialogue **Ajouter un utilisateur**, cliquez sur l’option **Ajouter un utilisateur** figurant dans la barre d’outils du bas.
 
 	![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-attask-tutorial/create_aaduser_04.png)
 
@@ -251,7 +251,7 @@ L’objectif de cette section est de permettre à Britta Simon d’utiliser l’
 
 **Pour affecter Britta Simon à @Task, procédez comme suit :**
 
-1. Pour ouvrir la vue des applications dans le portail Azure Classic, cliquez dans la vue de répertoire sur **Applications** dans le menu du haut.
+1. Pour ouvrir l’affichage des applications dans le portail Azure Classic, cliquez dans l’affichage de l’annuaire sur **Applications** dans le menu du haut.
 
 	![Affecter des utilisateurs][201]
 
@@ -263,7 +263,7 @@ L’objectif de cette section est de permettre à Britta Simon d’utiliser l’
 
 	![Affecter des utilisateurs][203]
 
-1. Dans la liste des utilisateurs, sélectionnez **Britta Simon**.
+1. Dans la liste Utilisateurs, sélectionnez **Britta Simon**.
 
 2. Dans la barre d’outils située en bas, cliquez sur **Attribuer**.
 
@@ -273,7 +273,7 @@ L’objectif de cette section est de permettre à Britta Simon d’utiliser l’
 
 ### Test de l’authentification unique
 
-L’objectif de cette section est de tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès. Lorsque vous cliquez sur la vignette @Task dans le volet d’accès, vous devez être connecté automatiquement à votre application @Task.
+L’objectif de cette section est de tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès. Lorsque vous cliquez sur la vignette @Task dans le volet d’accès, vous devez être connecté automatiquement à votre application @Task.
 
 
 ## Ressources supplémentaires
@@ -311,4 +311,4 @@ L’objectif de cette section est de tester la configuration de l’authentifica
 [204]: ./media/active-directory-saas-attask-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-attask-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/06/2016"
+	ms.date="09/01/2016"
 	ms.author="jeedes"/>
 
 
@@ -27,7 +27,7 @@ L’objectif de ce didacticiel est de vous montrer comment intégrer HR2day dans
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
 
-## Configuration requise
+## Composants requis
 
 Pour configurer l’intégration d’Azure AD avec HR2day by Merces, vous avez besoin des éléments suivants :
 
@@ -56,7 +56,7 @@ Pour configurer l’intégration de HR2day by Merces avec Azure AD, vous devez 
 
 **Pour ajouter HR2day by Merces à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **portail Azure Classic**, cliquez sur **Active Directory**. 
+1. Dans le volet de navigation gauche du **portail Azure Classic**, cliquez sur **Active Directory**.
 
 	![Active Directory][1]
 
@@ -90,7 +90,7 @@ Pour configurer et tester l’authentification unique Azure AD avec HR2day by M
 
 1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-4. **[Création d’un utilisateur de test HR2day](#creating-a-hr2day-by-merces-test-user)** : pour avoir un équivalent de Britta Simon dans HR2day lié à la représentation Azure AD associée.
+4. **[Création d’un utilisateur de test HR2day](#creating-a-hr2day-by-merces-test-user)** : pour avoir un équivalent de Britta Simon dans HR2day lié à la représentation Azure AD associée.
 5. **[Affectation d’un utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
 5. **[Test de l’authentification unique](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 
@@ -107,7 +107,7 @@ Avant de pouvoir configurer votre assertion SAML, vous devez contacter l’équ
 
 **Pour configurer l’authentification unique Azure AD avec HR2day by Merces, procédez comme suit :**
 
-1. Dans le portail Azure Classic, dans la page d’intégration d’application **HR2day by Merces**, dans le menu en haut, cliquez sur **Attributs** pour ouvrir la boîte de dialogue **Attributs du jeton SAML**. 
+1. Dans le portail Azure Classic, dans la page d’intégration d’application **HR2day by Merces**, dans le menu en haut, cliquez sur **Attributs** pour ouvrir la boîte de dialogue **Attributs du jeton SAML**.
 
 	![Configurer l’authentification unique](./media/active-directory-saas-hr2day-tutorial/tutorial_hr2day_06.png)
 
@@ -163,7 +163,7 @@ Avant de pouvoir configurer votre assertion SAML, vous devez contacter l’équ
 
     a. Cliquez sur **Télécharger le certificat**, puis enregistrez le fichier sur votre ordinateur.
 
-    b. Cliquez sur **Next**.
+    b. Cliquez sur **Suivant**.
 
 
 5. Pour configurer l’authentification unique pour votre application, contactez votre équipe du support technique HR2day by Merces à l’adresse [servicedesk@merces.nl](emailTo:servicedesk@merces.nl) et joignez le fichier de certificat téléchargé à votre courrier électronique. Indiquez également l’URL d’authentification unique SAML, l’URL de déconnexion et l’URL de l’émetteur dans le cadre de l’intégration de l’authentification unique.
@@ -196,11 +196,11 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
 2. Dans la liste **Annuaire**, sélectionnez l'annuaire pour lequel vous voulez activer l'intégration d'annuaire.
 
-3. Pour afficher la liste des utilisateurs, dans le menu situé en haut, cliquez sur **Utilisateurs**.
+3. Pour afficher la liste des utilisateurs, dans le menu du haut, cliquez sur **Utilisateurs**.
 
 	![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-hr2day-tutorial/create_aaduser_03.png)
 
-4. Pour ouvrir la boîte de dialogue **Ajouter un utilisateur**, cliquez sur **Ajouter un utilisateur** dans la barre d’outils située en bas.
+4. Pour ouvrir la boîte de dialogue **Ajouter un utilisateur**, cliquez sur l’option **Ajouter un utilisateur** figurant dans la barre d’outils du bas.
 
 	![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-hr2day-tutorial/create_aaduser_04.png)
 
@@ -280,7 +280,7 @@ L’objectif de cette section est de permettre à Britta Simon d’utiliser l’
 
 ### Test de l’authentification unique
 
-L’objectif de cette section est de tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès. Lorsque vous cliquez sur la vignette HR2day by Merces dans le volet d’accès, vous devez être connecté automatiquement à votre application HR2day by Merces.
+L’objectif de cette section est de tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès. Lorsque vous cliquez sur la vignette HR2day by Merces dans le volet d’accès, vous devez être connecté automatiquement à votre application HR2day by Merces.
 
 
 ## Ressources supplémentaires
@@ -307,4 +307,4 @@ L’objectif de cette section est de tester la configuration de l’authentifica
 [204]: ./media/active-directory-saas-hr2day-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-hr2day-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0907_2016-->

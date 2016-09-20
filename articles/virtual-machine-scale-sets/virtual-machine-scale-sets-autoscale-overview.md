@@ -159,7 +159,7 @@ Cet exemple illustre la configuration de la ressource dans le modèle :
 
 Dans l’exemple ci-dessus, deux règles sont créées afin de définir les actions de mise à l’échelle automatique. La première règle définit l’augmentation de la taille des instances et la deuxième règle définit la diminution de la taille des instances. Ces valeurs sont fournies dans les règles :
 
-- **metricName** : il s’agit du même compteur que le compteur de performance que vous avez défini dans la variable wadperfcounter pour l’extension de diagnostic. Dans l’exemple ci-dessus, le compteur du nombre de threads est utilisé.  
+- **metricName** : il s’agit du même compteur que le compteur de performance que vous avez défini dans la variable wadperfcounter pour l’extension de diagnostic. Dans l’exemple ci-dessus, le compteur du nombre de threads est utilisé.
 - **metricResourceUri** : il s’agit de l’identificateur de ressource du jeu de mise à l’échelle de machine virtuelle. Cet identificateur contient le nom du groupe de ressources, le nom du fournisseur de ressources et le nom du jeu de mise à l’échelle à mettre à l’échelle.
 - **timeGrain** : il s’agit de la granularité des mesures collectées. Dans l’exemple ci-dessus, les données sont collectées sur un intervalle d’une minute. Cette valeur est utilisée en association avec timeWindow.
 - **statistiques** : ce paramètre détermine la façon dont les mesures sont combinées pour prendre en charge l’action de mise à l’échelle automatique. Les valeurs possibles sont : Moyenne, Min, Max.
@@ -228,5 +228,6 @@ Azure PowerShell permet de configurer la mise à l’échelle automatique pour u
 - Consultez [Mettre à l’échelle automatiquement des groupes identiques de machines virtuelles](virtual-machine-scale-sets-windows-autoscale.md) pour voir un exemple montrant comment créer un groupe identique une fois la mise à l’échelle automatique configurée.
 - Découvrez des exemples de fonctionnalités de surveillance Azure Insights dans les [exemples de démarrage rapide d’Azure Insights PowerShell](../azure-portal/insights-powershell-samples.md)
 - Pour en savoir plus sur les fonctionnalités de notification, consultez [Utilisation d’actions de mise à l’échelle automatique pour envoyer des notifications d’alerte webhook et par courrier électronique dans Azure Insights](../azure-portal/insights-autoscale-to-webhook-email.md) et [Utiliser les journaux d’audit pour envoyer des notifications webhook et par courrier électronique dans Azure Insights](../azure-portal/insights-auditlog-to-webhook-email.md)
+- En savoir plus sur les [scénarios avancés de mise à l’échelle automatique](./virtual-machine-scale-sets-advanced-autoscale.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0907_2016-->

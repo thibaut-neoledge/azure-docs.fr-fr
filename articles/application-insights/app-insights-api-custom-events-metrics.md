@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="07/21/2016" 
+	ms.date="09/01/2016" 
 	ms.author="awills"/>
 
 # API Application Insights pour les événements et les mesures personnalisés 
@@ -46,7 +46,6 @@ Si vous ne l'avez pas encore fait :
 
 * Ajoutez le Kit de développement logiciel (SDK) Application Insights à votre projet :
  * [Projet ASP.NET][greenbrown]
- * [Projet Windows][windows]
  * [Projet Java][java]
  * [JavaScript dans chaque page web][client]
 
@@ -276,7 +275,6 @@ Les Kits de développement logiciel (SDK) interceptent de nombreuses exceptions 
 
 * ASP.NET : [écriture d'un code pour intercepter les exceptions](app-insights-asp-net-exceptions.md)
 * J2EE : [les exceptions sont interceptées automatiquement](app-insights-java-get-started.md#exceptions-and-request-failures)
-* Applications Windows : [les incidents sont détectés automatiquement](app-insights-windows-crashes.md)
 * JavaScript : détection automatique. Si vous souhaitez désactiver la collecte automatique, ajoutez une ligne dans l'extrait de code que vous insérez dans vos pages web :
 
     ```
@@ -353,7 +351,7 @@ Normalement, le Kit de développement logiciel (SDK) envoie des données à des 
     // Allow some time for flushing before shutdown.
     System.Threading.Thread.Sleep(1000);
 
-Notez que la fonction est asynchrone pour les canaux en mémoire, mais synchrone si vous choisissez d'utiliser le [canal persistant](app-insights-windows-services.md#persistence-channel).
+Notez que la fonction est asynchrone pour les canaux en mémoire, mais synchrone si vous choisissez d’utiliser le [canal persistant](app-insights-api-filtering-sampling.md#persistence-channel).
 
 
 ## Utilisateurs authentifiés
@@ -727,7 +725,7 @@ Si vous définissez une de ces valeurs vous-même, supprimez la ligne approprié
 
 *Comment puis-je éviter d'atteindre la limite de débit de données ?*
 
-* Utilisez [l’échantillonnage](app-insights-sampling.md).
+* Utilisez l’[échantillonnage](app-insights-sampling.md).
 
 *Combien de temps les données sont-elles conservées ?*
 
@@ -747,17 +745,16 @@ Si vous définissez une de ces valeurs vous-même, supprimez la ligne approprié
 
 * [Kit de développement logiciel (SDK) principal ASP.NET](https://github.com/Microsoft/ApplicationInsights-dotnet)
 * [ASP.NET 5](https://github.com/Microsoft/ApplicationInsights-aspnet5)
-* [Kit de développement logiciel Android](https://github.com/Microsoft/ApplicationInsights-Android)
-* [Kit de développement logiciel (SDK) Java](https://github.com/Microsoft/ApplicationInsights-Java)
+* [Packages Windows Server](https://github.com/Microsoft/applicationInsights-dotnet-server)
+* [Kit SDK Java](https://github.com/Microsoft/ApplicationInsights-Java)
 * [Kit de développement logiciel (SDK) JavaScript](https://github.com/Microsoft/ApplicationInsights-JS)
-* [Kit de développement logiciel (SDK) iOS](https://github.com/Microsoft/ApplicationInsights-iOS)
 * [Toutes les plateformes](https://github.com/Microsoft?utf8=%E2%9C%93&query=applicationInsights)
 
 ## Questions
 
 * *Quelles exceptions peuvent être lancées par les appels Track\_() ?*
     
-    Aucun. Vous n’avez pas besoin de les inclure dans des clauses try-catch. Si le Kit de développement logiciel (SDK) rencontre des problèmes, il enregistrera des messages que vous pourrez consulter dans la sortie de la console de débogage et, si les messages aboutissent, dans la recherche de diagnostic.
+    Aucune. Vous n’avez pas besoin de les inclure dans des clauses try-catch. Si le Kit de développement logiciel (SDK) rencontre des problèmes, il enregistrera des messages que vous pourrez consulter dans la sortie de la console de débogage et, si les messages aboutissent, dans la recherche de diagnostic.
 
 
 
@@ -788,8 +785,7 @@ Si vous définissez une de ces valeurs vous-même, supprimez la ligne approprié
 [metrics]: app-insights-metrics-explorer.md
 [qna]: app-insights-troubleshoot-faq.md
 [trace]: app-insights-search-diagnostic-logs.md
-[windows]: app-insights-windows-get-started.md
 
  
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0907_2016-->

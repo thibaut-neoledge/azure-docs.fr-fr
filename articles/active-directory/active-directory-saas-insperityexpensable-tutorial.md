@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/06/2016"
+	ms.date="09/01/2016"
 	ms.author="jeedes"/>
 
 # Didacticiel : Intégration d’Azure Active Directory à Insperity ExpensAble
@@ -118,7 +118,7 @@ L’objectif de cette section est d’activer l’authentification unique Azure�
 
     a. Dans la zone de **texte URL d’authentification**, tapez l’URL utilisée par vos utilisateurs pour se connecter à votre application ExpensAble, au format suivant : `https://server.expensable.com/esapp/Authenticate?companyId=<company ID>`
 
-	b. Cliquez sur **Next**.
+	b. Cliquez sur **Suivant**.
 
 4. Dans la page **Configurer l’authentification unique sur Insperity ExpensAble**, procédez comme suit :
 
@@ -126,7 +126,7 @@ L’objectif de cette section est d’activer l’authentification unique Azure�
 
     a. Cliquez sur **Télécharger le certificat**, puis enregistrez le fichier sur votre ordinateur.
 
-    b. Cliquez sur **Next**.
+    b. Cliquez sur **Suivant**.
 
 
 5. Pour que l’authentification unique soit configurée pour votre application, contactez l’équipe du support technique Insperity ExpensAble. Une fois le cas attribué, envoyez par courrier électronique le fichier de certificat téléchargé. Indiquez également l’URL de l’émetteur et l’URL du service d’authentification unique. Vous pouvez ainsi les configurer pour l’intégration de l’authentification unique.
@@ -155,15 +155,15 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
 2. Dans la liste **Annuaire**, sélectionnez l'annuaire pour lequel vous voulez activer l'intégration d'annuaire.
 
-3. Pour afficher la liste des utilisateurs, dans le menu situé en haut, cliquez sur **Utilisateurs**.
+3. Pour afficher la liste des utilisateurs, dans le menu du haut, cliquez sur **Utilisateurs**.
 
 	![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-insperityexpensable-tutorial/create_aaduser_03.png)
 
-4. Pour ouvrir la boîte de dialogue **Ajouter un utilisateur**, cliquez sur **Ajouter un utilisateur** dans la barre d’outils située en bas.
+4. Pour ouvrir la boîte de dialogue **Ajouter un utilisateur**, cliquez sur l’option **Ajouter un utilisateur** figurant dans la barre d’outils du bas.
 
 	![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-insperityexpensable-tutorial/create_aaduser_04.png)
 
-5. Dans la page de boîte de dialogue **Dites-nous en plus sur cet utilisateur**, procédez comme suit :
+5. Sur la page de boîte de dialogue **Dites-nous en plus sur cet utilisateur**, procédez comme suit :
 
 	![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-insperityexpensable-tutorial/create_aaduser_05.png)
 
@@ -173,7 +173,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     c. Cliquez sur **Next**.
 
-6.  Dans la page de boîte de dialogue **Profil utilisateur**, procédez comme suit :
+6.  Sur la page **Profil utilisateur**, procédez comme suit :
 
 	![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-insperityexpensable-tutorial/create_aaduser_06.png)
 
@@ -187,11 +187,11 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     e. Cliquez sur **Next**.
 
-7. Dans la page de boîte de dialogue **Obtenir un mot de passe temporaire**, cliquez sur **Créer**.
+7. Sur la page de boîte de dialogue **Obtenir un mot de passe temporaire**, cliquez sur **créer**.
 
 	![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-insperityexpensable-tutorial/create_aaduser_07.png)
 
-8. Dans la page de boîte de dialogue **Obtenir un mot de passe temporaire**, procédez comme suit :
+8. Sur la page de boîte de dialogue **Obtenir un mot de passe temporaire**, procédez comme suit :
 
 	![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-insperityexpensable-tutorial/create_aaduser_08.png)
 
@@ -217,7 +217,7 @@ L’objectif de cette section est de permettre à Britta Simon d’utiliser l’
 
 **Pour affecter Britta Simon à Insperity ExpensAble, procédez comme suit :**
 
-1. Pour ouvrir la vue des applications dans le portail Azure Classic, dans la vue de répertoire, cliquez sur **Applications** dans le menu du haut.
+1. Pour ouvrir l’affichage des applications dans le portail Azure Classic, cliquez dans l’affichage de l’annuaire sur **Applications** dans le menu du haut.
 
 	![Affecter des utilisateurs][201]
 
@@ -239,7 +239,7 @@ L’objectif de cette section est de permettre à Britta Simon d’utiliser l’
 
 ### Test de l’authentification unique
 
-L’objectif de cette section est de tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès. Quand vous cliquez sur la vignette Insperity ExpensAble dans le volet d’accès, vous devez être connecté automatiquement à votre application Insperity ExpensAble.
+L’objectif de cette section est de tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès. Quand vous cliquez sur la vignette Insperity ExpensAble dans le volet d’accès, vous devez être connecté automatiquement à votre application Insperity ExpensAble.
 
 
 ## Ressources supplémentaires
@@ -266,4 +266,4 @@ L’objectif de cette section est de tester la configuration de l’authentifica
 [204]: ./media/active-directory-saas-insperityexpensable-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-insperityexpensable-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0907_2016-->

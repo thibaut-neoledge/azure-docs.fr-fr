@@ -52,7 +52,7 @@ Cette image de machine virtuelle de science des données ne génère pas de frai
 
 Avant de pouvoir créer une machine virtuelle de science des données Linux, vous devez disposer des éléments suivants :
 
-- **Un abonnement Azure** : pour obtenir un abonnement, consultez la page [Obtenir une version d’évaluation gratuite d’Azure](https://azure.microsoft.com/free/).
+- **Un abonnement Azure** : pour obtenir un abonnement, consultez la page [Obtenir une version d’évaluation gratuite d’Azure](https://azure.microsoft.com/free/).
 - **Un compte de stockage Azure** : pour en créer un, consultez la page [Créer un compte de stockage Azure](storage-create-storage-account.md#create-a-storage-account). Le compte de stockage peut également être créé dans le cadre du processus de création de la machine virtuelle, si vous ne souhaitez pas utiliser de compte existant.
 
 
@@ -73,7 +73,7 @@ Voici les étapes de création d’une instance de la machine virtuelle de scien
   - **Resource Group** (Groupe de ressources) : vous pouvez créer un nouveau groupe ou utiliser un groupe existant.
   - **Location** (Emplacement) : sélectionnez le centre de données qui convient le mieux. Généralement, il s’agit du centre de données qui héberge la plupart de vos données ou du centre de données le plus proche de votre emplacement physique afin d’accélérer l’accès au réseau.
 
-  b. **Taille** :
+  b. **Taille** :
 
   - Sélectionnez l’un des types de serveur qui répond à vos exigences fonctionnelles et à vos contraintes de coût. Sélectionnez **Afficher tout** pour afficher d’autres tailles de machines virtuelles.
 
@@ -111,7 +111,7 @@ La machine virtuelle Linux est déjà approvisionnée avec le serveur X2Go et el
         - **Login** (Connexion) : nom d’utilisateur sur la machine virtuelle Linux.
         - **SSH Port** (Port SSH) : conservez la valeur par défaut 22.
         - **Session Type** (Type de session) : remplacez la valeur par XFCE. La machine virtuelle Linux ne prend actuellement en charge que le bureau XFCE.
-    * **Onglet Media** (Média) : vous pouvez désactiver l’impression client et la prise en charge du son si vous n’en avez pas besoin.
+    * **Onglet Media ** (Média) : vous pouvez désactiver l’impression client et la prise en charge du son si vous n’en avez pas besoin.
     * **Shared folders** (Dossiers partagés) : si vous souhaitez que les répertoires de vos ordinateurs clients soient montés sur la machine virtuelle Linux, ajoutez ceux que vous souhaitez partager avec la machine virtuelle sous cet onglet.
 
 Une fois connecté à la machine virtuelle à l’aide du client SSH ou du bureau graphique XFCE par le biais du client X2Go, vous pouvez commencer à utiliser les outils installés et configurés sur la machine virtuelle. Sur XFCE, vous pouvez voir les icônes de bureau et raccourcis du menu d’applications de la plupart des outils.
@@ -247,7 +247,7 @@ La machine virtuelle est fournie avec quelques outils et algorithmes de Machine 
 * **CNTK (Computational Network Toolkit de Microsoft Research)** : kit de ressources d’apprentissage approfondi.
 * **Vowpal Wabbit** : algorithme d’apprentissage en ligne rapide.
 * **xgboost** : outil qui fournit des algorithmes d’arborescence optimisés.
-* **Python** : Anaconda Python est fourni avec des algorithmes de Machine Learning et des bibliothèques comme Scikit-learn. Vous pouvez installer d’autres bibliothèques en exécutant pip install.
+* **Python** : Anaconda Python est fourni avec des algorithmes de Machine Learning et des bibliothèques comme Scikit-learn. Vous pouvez installer d’autres bibliothèques à l’aide de la commande `pip install`.
 * **R** : riche bibliothèque de fonctions de Machine Learning disponible pour R. lm, glm, randomForest et rpart comptent parmi les bibliothèques préinstallées. D’autres bibliothèques peuvent être installées en exécutant la commande suivante :
 
 		install.packages(<lib name>)
@@ -344,4 +344,4 @@ Voici comment poursuivre votre formation et votre exploration :
 * Découvrez comment créer des solutions analytiques de bout en bout systématiquement à l’aide du [processus TDSP (Team Data Science Process)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 * Visitez la [galerie Cortana Analytics](http://gallery.cortanaanalytics.com) pour obtenir des exemples de Machine Learning et d’analyse des données qui utilisent la suite Cortana Analytics.
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

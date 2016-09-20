@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/20/2016"
-	ms.author="markvi;liviodlc"/>
+	ms.date="09/02/2016"
+	ms.author="markvi"/>
 
 #Index d’articles pour la gestion des applications dans Azure Active Directory
 
@@ -70,7 +70,7 @@ Pour activer l’authentification unique pour les applications qui ne prennent p
 | :---: | --- |
 | Introduction au fonctionnement de l’authentification unique par mot de passe et brève vue d’ensemble technique | [Authentification unique par mot de passe avec Azure AD](active-directory-appssoaccess-whatis.md#password-based-single-sign-on) |
 | Résumé des scénarios relatifs au partage de compte et résolution de ces problèmes par Azure AD | [Partage de comptes avec Azure AD](active-directory-sharing-accounts.md) |
-| Modifier automatiquement le mot de passe pour certaines applications à intervalles réguliers | [Substitution de mot de passe automatique (version préliminaire)](http://blogs.technet.com/b/ad/archive/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview.aspx0) |
+| Modifier automatiquement le mot de passe pour certaines applications à intervalles réguliers | [Substitution de mot de passe automatique (version préliminaire)](https://blogs.technet.microsoft.com/enterprisemobility/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview/) |
 | Guides de déploiement et de dépannage pour la version Internet Explorer de l’extension de gestion de mot de passe Azure AD | [Déploiement de l’extension Volet d’accès pour Internet Explorer à l’aide de la stratégie de groupe](active-directory-saas-ie-group-policy.md)<br /><br />[Résolution des problèmes liés à l’extension Volet d’accès pour Internet Explorer](active-directory-saas-ie-troubleshooting.md) |
 
 L’authentification unique par mot de passe est disponible pour toutes les éditions d’Azure AD dans la limite de dix applications par utilisateur. [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) prend en charge un nombre illimité d’applications. Si votre organisation a [Azure AD Standard](https://azure.microsoft.com/pricing/details/active-directory/) ou [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/), vous pouvez [utiliser des groupes pour affecter l’accès à des applications](#managing-access-to-applications). La substitution de mot de passe automatique est une fonctionnalité [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/).
@@ -228,4 +228,4 @@ Pour afficher les rapports qui sont inclus dans les différentes éditions d’A
 
 [Azure Multi-Factor Authentication](https://azure.microsoft.com/services/multi-factor-authentication/)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0907_2016-->

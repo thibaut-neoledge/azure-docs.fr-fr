@@ -57,7 +57,14 @@ Pour plus d’informations sur les quotas et les limitations et pour savoir comm
 
 ##Étape suivante
 
-[Utiliser le Portail Azure pour mettre à l’échelle le traitement multimédia](media-services-portal-scale-media-processing.md)
+Exécuter la tâche de traitement multimédia de mise à l’échelle avec l’une de ces technologies :
+
+> [AZURE.SELECTOR]
+- [.NET](media-services-dotnet-encoding-units.md)
+- [Portail](media-services-portal-scale-media-processing.md)
+- [REST](https://msdn.microsoft.com/library/azure/dn859236.aspx)
+- [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
+- [PHP](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)
 
 ##Parcours d’apprentissage de Media Services
 
@@ -67,4 +74,4 @@ Pour plus d’informations sur les quotas et les limitations et pour savoir comm
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

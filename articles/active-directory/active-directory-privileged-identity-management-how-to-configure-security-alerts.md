@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="08/17/2016"
+   ms.date="09/02/2016"
    ms.author="kgremban"/>
 
 # Comment configurer les alertes de sécurité dans Azure AD Privileged Identity Management
@@ -30,7 +30,7 @@ Azure Privileged Identity Management (PIM) génère des alertes en cas d’activ
 | **Les rôles sont affectés en dehors de PIM** | Un administrateur a été définitivement affecté à un rôle, en dehors de l’interface PIM. | Révisez la nouvelle affectation de rôle. Étant donné que les autres services peuvent uniquement affecter des administrateurs permanents, remplacez cette affectation par une affectation éligible si nécessaire. |
 | **Les rôles sont activés trop fréquemment.** | Un trop grand nombre de réactivations du même rôle ont eu lieu par rapport à la durée autorisée dans les paramètres. | Contactez l’utilisateur pour savoir pourquoi il a activé le rôle autant de fois. Le délai est peut-être trop court pour lui permettre de finaliser les tâches en cours, ou il utilise peut-être des scripts pour activer automatiquement un rôle. |
 | **Les rôles ne nécessitent pas l’authentification multifacteur pour l’activation** | Les paramètres comportent des rôles sans authentification MFA. | Nous exigeons l’authentification multifacteur pour les rôles les plus privilégiés, mais nous vous conseillons vivement d’activer l’authentification multifacteur pour l’activation de tous les rôles. |
-| **Les administrateurs n’utilisent par leurs rôles privilégiés** | Certains administrateurs temporaires n'ont pas activé leurs rôles récemment. | Démarrez une vérification d’accès pour identifier les utilisateurs qui n’ont plus besoin d’un accès. |
+| **Les administrateurs n’utilisent par leurs rôles privilégiés** | Certains administrateurs éligibles n’ont pas activé leurs rôles récemment. | Démarrez une vérification d’accès pour identifier les utilisateurs qui n’ont plus besoin d’un accès. |
 | **Trop d'administrateurs généraux** | Le nombre d’administrateurs généraux est supérieur au nombre recommandé. | Si vous avez un grand nombre d’administrateurs généraux, il est probable que les utilisateurs reçoivent plus d’autorisations que nécessaire. Affectez aux utilisateurs des rôles moins privilégiés, ou rendez certains d’entre eux éligibles au rôle au lieu de leur affecter le rôle de façon permanente. |
 
 ## Configurez les paramètres d'alerte de sécurité
@@ -75,4 +75,4 @@ Cette alerte se déclenche si un utilisateur reste un certain temps sans activer
 [1]: ./media/active-directory-privileged-identity-management-how-to-configure-security-alerts/PIM_security_dash.png
 [2]: ./media/active-directory-privileged-identity-management-how-to-configure-security-alerts/PIM_security_settings.png
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

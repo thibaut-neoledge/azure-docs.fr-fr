@@ -13,7 +13,7 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="03/29/2016"
+     ms.date="09/06/2016"
      ms.author="obloch"/>
 
 # Présentation du kit de développement logiciel Azure IoT device SDK pour C
@@ -41,9 +41,9 @@ Le dépôt contient l’ensemble des kits de développement logiciel d’apparei
   ![](media/iot-hub-device-sdk-c-intro/02-CFolder.PNG)
 
 * L’implémentation de base du Kit de développement logiciel (SDK) se trouve dans le dossier **iothub\_client** qui contient l’implémentation de la couche d’API la plus basse du Kit de développement logiciel (SDK) : la bibliothèque **IoTHubClient**. La bibliothèque **IoTHubClient** contient des API implémentant des messages bruts permettant d’envoyer des messages à IoT Hub et de recevoir des messages de ce dernier. Quand vous utilisez cette bibliothèque, vous êtes chargé de l’implémentation de la sérialisation des messages (en utilisant éventuellement l’exemple de sérialiseur décrit ci-dessous), mais d’autres détails concernant la communication avec IoT Hub sont automatiquement gérés.
-* Le dossier **serializer** contient des fonctions d’assistance et des exemples montrant comment sérialiser des données avant d’effectuer un envoi à Azure IoT Hub à l’aide de la bibliothèque cliente. Notez que l’utilisation du sérialiseur n’est pas obligatoire et est fournie uniquement à titre de commodité. Lorsque vous utilisez la bibliothèque **serializer**, vous commencez par définir un modèle désignant les événements que vous souhaitez envoyer à IoT Hub, ainsi que les messages que vous attendez de sa part. Une fois le modèle défini, le Kit de développement logiciel (SDK) vous fournit une surface d’API qui vous permet de travailler facilement avec des événements et des messages, sans vous soucier des détails de la sérialisation. La bibliothèque dépend d’autres bibliothèques open source qui implémentent le transport en utilisant plusieurs protocoles (AMQP, MQTT).
+* Le dossier **serializer** contient des fonctions d’assistance et des exemples montrant comment sérialiser des données avant d’effectuer un envoi à Azure IoT Hub à l’aide de la bibliothèque cliente. Notez que l’utilisation du sérialiseur n’est pas obligatoire et est fournie uniquement à titre de commodité. Lorsque vous utilisez la bibliothèque **serializer**, vous commencez par définir un modèle désignant les événements que vous souhaitez envoyer à IoT Hub, ainsi que les messages que vous attendez de sa part. Une fois le modèle défini, le Kit de développement logiciel (SDK) vous fournit une surface d’API qui vous permet de travailler facilement avec des événements et des messages, sans que vous ayez à vous soucier des détails de la sérialisation. La bibliothèque dépend d’autres bibliothèques open source qui implémentent le transport à l’aide de plusieurs protocoles (AMQP, MQTT).
 * La bibliothèque **IoTHubClient** dépend d’autres bibliothèques open source :
-   * La bibliothèque de l’[utilitaire partagé Azure C](https://github.com/Azure/azure-c-shared-utility), qui fournit des fonctionnalités communes pour les tâches de base (comme la manipulation de chaînes ou de listes, les E/S, etc.) nécessaires dans plusieurs Kits de développement logiciel (SDK) C liés à Azure.
+   * La bibliothèque de [l’utilitaire partagé Azure C](https://github.com/Azure/azure-c-shared-utility), qui fournit des fonctionnalités communes pour les tâches de base (comme la manipulation de chaînes ou de listes, les E/S, etc.) nécessaires dans plusieurs Kits de développement logiciel (SDK) C liés à Azure.
    * La bibliothèque [Azure uAMQP](https://github.com/Azure/azure-uamqp-c), qui est l’implémentation côté client du protocole AMQP optimisée pour les appareils avec contraintes de ressources.
    * La bibliothèque [Azure uMQTT](https://github.com/Azure/azure-umqtt-c), qui est une bibliothèque à usage général implémentant le protocole MQTT et optimisée pour les appareils avec contraintes de ressources.
 
@@ -51,7 +51,7 @@ Un exemple de code permet de mieux comprendre le processus. Les sections suivant
 
 ## Préalable à l’exécution des exemples
 
-Avant de pouvoir exécuter les exemples du Kit de développement logiciel Azure IoT device SDK pour C, vous devez, le cas échéant, créer une instance du service sur votre abonnement Azure et effectuer 2 tâches :
+Avant de pouvoir exécuter les exemples du Kit de développement logiciel (SDK) d’appareil Azure IoT pour C, vous devez, le cas échéant, créer une instance du service sur votre abonnement Azure et effectuer 2 tâches :
 * Préparer votre environnement de développement
 * Obtenir les informations d’identification de l’appareil
 
@@ -75,7 +75,7 @@ Voici quelques conseils pour vous aider à exécuter la procédure décrite dans
   ![](media/iot-hub-device-sdk-c-intro/08-CMake.PNG)
 
 
--   Avant d’ouvrir l’**invite de commandes Développeur pour VS2015**, installez les outils en ligne de commande Git. Pour installer ces outils, exécutez les opérations suivantes :
+-   Avant d’ouvrir **l’invite de commandes Développeur pour VS2015**, installez les outils en ligne de commande Git. Pour installer ces outils, exécutez les opérations suivantes :
 
 	1. Lancez le programme d’installation **Visual Studio 2015** (ou choisissez **Microsoft Visual Studio 2015** dans le panneau de configuration **Programmes et fonctionnalités**, puis sélectionnez **Modifier**).
 	
@@ -488,4 +488,4 @@ Pour explorer davantage les capacités de IoT Hub, consultez :
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
 [lnk-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0907_2016-->

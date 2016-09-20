@@ -79,7 +79,7 @@ Bien que ces trois emplacements de stockage fournissent les mêmes informations 
 
 > [AZURE.NOTE] Les informations stockées dans le **stockage de tables** ou le **stockage d’objets blob** ne sont accessibles qu’à l’aide d’un client de stockage ou d’une application capable d’utiliser directement ces systèmes de stockage. Par exemple, Visual Studio 2013 contient un Explorateur de stockage qui peut être utilisé pour explorer un système de stockage de tables ou d'objets blob, tandis que HDInsight peut accéder aux données stockées dans un stockage d'objets blob. Vous pouvez également écrire une application qui accède à Azure Storage en utilisant l'un des [Kits de développement logiciel (SDK) Azure](/downloads/#).
 
-> [AZURE.NOTE] Les diagnostics peuvent également être activés à partir du module Azure PowerShell via la cmdlet **Set-AzureWebsite**. Si vous n'avez pas installé ou configuré Azure PowerShell de manière à utiliser votre abonnement Azure, consultez la page [Utilisation d'Azure PowerShell](/develop/nodejs/how-to-guides/powershell-cmdlets/).
+> [AZURE.NOTE] Les diagnostics peuvent également être activés à partir du module Azure PowerShell via la cmdlet **Set-AzureWebsite**. Si vous n’avez pas installé ou configuré Azure PowerShell de manière à utiliser votre abonnement Azure, consultez la page [Utilisation d’Azure PowerShell](/develop/nodejs/how-to-guides/powershell-cmdlets/).
 
 ##<a name="download"></a> Téléchargement de journaux
 
@@ -121,14 +121,14 @@ Pour télécharger les fichiers journaux à l’aide de l’interface de ligne d
 
 Cette commande enregistre les journaux de l’application web nommée « webappname » dans un fichier **diagnostics.zip** du répertoire en cours.
 
-> [AZURE.NOTE] Si vous n’avez pas installé ou configuré l’interface de ligne de commande Azure (CLI Azure) de manière à utiliser votre abonnement Azure, consultez la page[ Utilisation de l’interface de ligne de commande Azure](../xplat-cli-install.md).
+> [AZURE.NOTE] Si vous n’avez pas installé ou configuré l’interface de ligne de commande Azure (CLI Azure) de manière à utiliser votre abonnement Azure, consultez la page [Utilisation de l’interface de ligne de commande Azure](../xplat-cli-install.md).
 
 ## Affichage des journaux dans Application Insights
 
 Visual Studio Application Insights fournit des outils de filtrage et de recherche dans les journaux, mais aussi de mise en corrélation des journaux avec les requêtes et d’autres événements.
 
 1. Ajoutez le Kit de développement logiciel Application Insights à votre projet dans Visual Studio.
- * Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le projet, puis sélectionnez Ajouter Application Insights. Vous serez guidé tout au long de la création de la ressource Application Insights. [En savoir plus](../application-insights/app-insights-start-monitoring-app-health-usage.md)
+ * Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le projet, puis sélectionnez Ajouter Application Insights. Vous serez guidé tout au long de la création de la ressource Application Insights. [En savoir plus](../application-insights/app-insights-asp-net.md)
 2. Ajoutez le package de l’écouteur de suivi à votre projet.
  * Cliquez avec le bouton droit sur votre projet et choisissez Gérer les packages NuGet. Sélectionnez `Microsoft.ApplicationInsights.TraceListener` [En savoir plus](../application-insights/app-insights-asp-net-trace-logs.md)
 3. Téléchargez votre projet et exécutez-le pour générer des données de journal.
@@ -166,7 +166,7 @@ Pour afficher la liste des chemins disponibles, utilisez le paramètre -ListPath
 
 ### Diffusion d’informations en continu avec l’interface de ligne de commande Azure
 
-Pour diffuser des informations de journalisation, ouvrez une nouvelle session d’invite de commandes, PowerShell, Bash ou Terminal, puis entrez la commande suivante :
+Pour diffuser des informations de journalisation, ouvrez une nouvelle session d'invite de commandes, PowerShell, Bash ou Terminal, puis entrez la commande suivante :
 
 	azure site log tail webappname
 
@@ -225,7 +225,7 @@ Lorsque vous consignez des données dans un stockage d'objets blob, elles sont s
 Nom de la propriété|Valeur/format
 ---|---
 Date|Date et heure auxquelles l'événement s'est produit
-Level|Niveau d'événement (erreur, avertissement ou information, par exemple)
+Niveau|Niveau d'événement (erreur, avertissement ou information, par exemple)
 ApplicationName|Nom de l’application web
 InstanceId|Instance d’application web sur laquelle l’événement s’est produit
 EventTickCount|Date et heure auxquelles l'événement s'est produit, au format Tick (précision accrue)
@@ -270,4 +270,4 @@ Les journaux de serveur Web utilisent le [format de fichier journal étendu W3C]
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l’ancien et le nouveau portail, consultez [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
  
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0907_2016-->

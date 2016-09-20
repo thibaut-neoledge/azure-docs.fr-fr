@@ -42,7 +42,7 @@ Pour plus d’informations sur les avantages d’Azure App Service, voir [Servic
 
 Avant de commencer tout travail majeure sur votre site, vous devez [sauvegarder les scripts] et la base de données SQL de service mobile.
 
-Si vous voulez tester le processus de migration avant de migrer votre site de production, dupliquez votre service mobile Azure de production dans une nouvelle [région Azure] \(complet, avec une copie de la source de données), puis testez la migration par rapport à la nouvelle URL. Vous avez également besoin d’une implémentation de client test qui pointe vers le site de test pour tester correctement le site migré.
+Si vous voulez tester le processus de migration avant de migrer votre site de production, dupliquez votre service mobile Azure de production dans une nouvelle [région Azure] (complet, avec une copie de la source de données), puis testez la migration par rapport à la nouvelle URL. Vous avez également besoin d’une implémentation de client test qui pointe vers le site de test pour tester correctement le site migré.
 
 ## <a name="migrating-site"></a>Migration de vos sites
 
@@ -265,7 +265,7 @@ Dans l’intervalle, tous les paramètres push hérités (à l’exception notab
 
 ### <a name="app-settings"></a>Autres paramètres d’application
 
-Les paramètres d’application supplémentaires suivants sont migrés à partir de votre service mobile, et disponibles sous *Paramètres* > *Paramètres de l’application* :
+Les paramètres d’application supplémentaires suivants sont migrés à partir de votre service mobile, et disponibles sous *Paramètres* > *Paramètres de l’application* :
 
 | Paramètre de l’application | Description |
 | :------------------------------- | :-------------------------------------- |
@@ -381,17 +381,17 @@ Lorsque vous créez un profil Traffic Manager, vous ne pouvez pas choisir direct
 [2]: ./media/app-service-mobile-migrating-from-mobile-services/triggering-job-with-postman.png
 
 <!-- Links -->
-[Tarification d’App Service]: https://azure.microsoft.com/pricing/details/app-service/
+[Tarification d’App Service]: https://azure.microsoft.com/fr-FR/pricing/details/app-service/
 [Application Insights]: ../application-insights/app-insights-overview.md
 [mise à l’échelle automatique]: ../app-service-web/web-sites-scale.md
 [Azure App Service]: ../app-service/app-service-value-prop-what-is.md
 [Documentation sur le déploiement d’Azure App Service]: ../app-service-web/web-sites-deploy.md
 [portail Azure Classic]: https://manage.windowsazure.com
 [portail Azure]: https://portal.azure.com
-[région Azure]: https://azure.microsoft.com/regions/
+[région Azure]: https://azure.microsoft.com/fr-FR/regions/
 [Plans d’Azure Scheduler]: ../scheduler/scheduler-plans-billing.md
 [déployer en continu]: ../app-service-web/app-service-continuous-deployment.md
-[convertir vos espaces de noms mixte]: https://azure.microsoft.com/blog/updates-from-notification-hubs-independent-nuget-installation-model-pmt-and-more/
+[convertir vos espaces de noms mixte]: https://azure.microsoft.com/fr-FR/blog/updates-from-notification-hubs-independent-nuget-installation-model-pmt-and-more/
 [curl]: http://curl.haxx.se/
 [noms de domaine personnalisés]: ../app-service-web/web-sites-custom-domain-name.md
 [Fiddler]: http://www.telerik.com/fiddler
@@ -400,7 +400,7 @@ Lorsque vous créez un profil Traffic Manager, vous ne pouvez pas choisir direct
 [Journalisation]: ../app-service-web/web-sites-enable-diagnostic-log.md
 [Kit de développement logiciel (SDK) Mobile Apps Node.js]: https://github.com/azure/azure-mobile-apps-node
 [Services mobiles et App Service]: app-service-mobile-value-prop-migration-from-mobile-services.md
-[Notification Hubs]: ../notification-hubs/notification-hubs-overview.md
+[Notification Hubs]: ../notification-hubs/notification-hubs-push-notification-overview.md
 [analyse des performances]: ../app-service-web/web-sites-monitor.md
 [Postman]: http://www.getpostman.com/
 [sauvegarder les scripts]: ../mobile-services/mobile-services-disaster-recovery.md
@@ -410,4 +410,4 @@ Lorsque vous créez un profil Traffic Manager, vous ne pouvez pas choisir direct
 [Tâches web]: ../app-service-web/websites-webjobs-resources.md
 [Exemples de transformation XDT]: https://github.com/projectkudu/kudu/wiki/Xdt-transform-samples
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0907_2016-->

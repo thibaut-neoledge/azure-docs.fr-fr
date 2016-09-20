@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="06/13/2016"
+   ms.date="08/30/2016"
    ms.author="amanbha"/>
 
 
@@ -36,7 +36,7 @@ Quand un acteur est désactivé, les événements suivants se produisent :
 - Quand un acteur n'est pas utilisé pendant un certain temps, il est supprimé de la table d'acteurs actifs.
 - La méthode `OnDeactivateAsync` (qui peut être remplacée dans l'implémentation de l'acteur) est appelée. Cette opération efface toutes les minuteries applicables à l'acteur.
 
-> [AZURE.TIP] Le runtime Fabric Actors émet des [événements liés à l'activation et la désactivation des acteurs](service-fabric-reliable-actors-diagnostics.md#actor-activation-and-deactivation-events). Ces événements sont utiles dans les diagnostics et la surveillance des performances.
+> [AZURE.TIP] Le runtime Fabric Actors émet des [événements liés à l'activation et la désactivation des acteurs](service-fabric-reliable-actors-diagnostics.md#actor-activation-and-deactivation-events). Ces derniers sont utiles dans les diagnostics et la surveillance des performances.
 
 ### Garbage Collection des acteurs
 Lorsqu’un acteur est désactivé, les références à l’objet acteur sont libérées et celui-ci peut faire l’objet d’un Garbage Collection normalement par le récupérateur de mémoire CLR (common language runtime). L’opération Garbage Collection nettoie uniquement l’objet acteur. Elle ne supprime **pas** l’état stocké dans le Gestionnaire d’état de l’acteur. La prochaine fois que l’acteur est activé, un nouvel objet acteur est créé et son état est restauré.
@@ -129,4 +129,4 @@ Notez qu’un acteur ne peut pas effectuer un appel de suppression sur lui-même
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-lifecycle/garbage-collection.png
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0907_2016-->

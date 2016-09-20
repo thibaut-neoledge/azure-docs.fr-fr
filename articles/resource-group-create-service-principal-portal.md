@@ -118,7 +118,7 @@ Si votre application accède aux ressources pour le compte d’un utilisateur co
 
 1. Sélectionnez **Ajouter une application**.
 
-2. Dans la liste, sélectionnez l’**API de gestion des services Azure**. Cliquez sur l’icône Terminer.
+2. Dans la liste, sélectionnez l’**API de gestion des services Windows Azure**. Cliquez sur l’icône Terminer.
 
       ![sélectionner une application](./media/resource-group-create-service-principal-portal/select-app.png)
 
@@ -208,4 +208,4 @@ Les exemples d’applications suivants montrent comment ouvrir une session en ta
 - Pour en savoir plus sur la spécification de stratégies de sécurité, consultez la rubrique [Contrôle d’accès en fonction du rôle](./active-directory/role-based-access-control-configure.md).
 - Pour une démonstration vidéo de ces étapes, consultez la rubrique [Activation de la gestion par programme d’une ressource Azure avec Azure Active Directory](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Enabling-Programmatic-Management-of-an-Azure-Resource-with-Azure-Active-Directory).
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/16/2016"
+	ms.date="09/06/2016"
 	ms.author="sethm"/>
 
 # Prise en main des hubs d’événements
@@ -64,7 +64,7 @@ Les ressources suivantes sont disponibles pour les applications de développemen
 [22]: ./media/event-hubs-java-storm-getstarted/receive-storm2.png
 
 <!-- Links -->
-[portail Azure Classic]: https://manage.windowsazure.com/
+[Azure classic portal]: https://manage.windowsazure.com/
 [Event Processor Host]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
 [Vue d'ensemble d’Event Hubs]: event-hubs-overview.md
 
@@ -74,4 +74,4 @@ Les ressources suivantes sont disponibles pour les applications de développemen
 [Développement d’applications de traitement de données de diffusion avec SCP.NET et C# sur Storm et HDInsight]: ../hdinsight/hdinsight-storm-develop-csharp-visual-studio-topology.md
  
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0907_2016-->

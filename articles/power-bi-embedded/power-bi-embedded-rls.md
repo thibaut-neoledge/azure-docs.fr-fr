@@ -3,7 +3,7 @@
    description="Détails sur la sécurité au niveau des lignes avec Power BI Embedded"
    services="power-bi-embedded"
    documentationCenter=""
-   authors="minewiskan"
+   authors="mgblythe"
    manager="NA"
    editor=""
    tags=""/>
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
    ms.date="07/05/2016"
-   ms.author="owend"/>
+   ms.author="mblythe"/>
 
 # Sécurité au niveau des lignes avec Power BI Embedded
 
@@ -102,4 +102,4 @@ Avec tous ces éléments, lorsqu’un utilisateur se connecte à notre applicati
 ## Voir aussi
 [Sécurité au niveau des lignes (RLS) avec Power](https://powerbi.microsoft.com/fr-FR/documentation/powerbi-admin-rls/)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0907_2016-->

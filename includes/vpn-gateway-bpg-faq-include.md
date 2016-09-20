@@ -37,7 +37,7 @@ Pas pour l'instant.
 
 #### Puis-je publier les mêmes préfixes que ceux de mon adresse de réseau virtuel ?
 
-Non. La publication des mêmes préfixes que ceux de votre adresse de réseau virtuel est bloquée ou filtrée par la plateforme Azure.
+Non. La publication des mêmes préfixes que ceux de votre adresse de réseau virtuel est bloquée ou filtrée par la plateforme Azure. Toutefois, vous pouvez publier un préfixe qui soit un sur-ensemble des éléments de votre réseau virtuel. Par exemple, votre réseau virtuel peut utiliser l’espace d’adresse 10.10.0.0/16 et vous pouvez publier 10.0.0.0/8.
 
 ### Puis-je utiliser le protocole BGP avec des connexions entre réseaux virtuels ?
 
@@ -79,4 +79,4 @@ La passerelle de réseau local Azure spécifie les préfixes d’adresse initiau
 
 Vous devez ajouter un itinéraire hôte de l’adresse IP d’homologue BGP Azure sur votre périphérique VPN pointant vers le tunnel VPN S2S IPsec. Par exemple, si l’adresse IP d’homologue VPN Azure est « 10.12.255.30 », vous devez ajouter un itinéraire hôte pour « 10.12.255.30 » avec l’interface de tronçon suivant de l’interface de tunnel IPsec correspondante sur votre périphérique VPN.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0907_2016-->

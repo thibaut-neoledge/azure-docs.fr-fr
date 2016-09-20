@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/31/2016"
+	ms.date="09/01/2016"
 	ms.author="rajram"/>
 
 # Utilisation et ajout du connecteur File dans votre application logique
@@ -27,18 +27,20 @@ Le connecteur File utilise le Gestionnaire de connexion hybride pour la connecti
 Pour utiliser le connecteur File, vous devez d’abord créer une instance de l’application API de ce connecteur. Pour cela, procédez comme suit :
 
 1.	Ouvrez Azure Marketplace à l’aide de l’option + NOUVEAU située à gauche du portail Azure.
-2.	Accédez à « Marketplace > Apps API » et recherchez « Connecteur File ».
-3.	Configurez le connecteur File comme suit : ![][1]
+2.	Recherchez « connecteur file ».
+3.	Sélectionnez **Connecteur File (version préliminaire)** dans les résultats de la recherche.
+4.	Cliquez sur le bouton **Créer**
+5.	Configurez le connecteur File comme suit : ![][1]
 
 	- **Nom** : indiquez le nom du connecteur File.
 	- **Paramètres du package**
-		- **Dossier racine** : indiquez le chemin du dossier racine sur l'ordinateur hôte. Par exemple : D:\\FileConnectorTest
-		- **Chaîne de connexion au Service Bus** : indiquez la chaîne de connexion au Service Bus. Vérifiez que l'espace de noms du Service Bus est de type Standard et NON Basique pour permettre l'utilisation de Service Bus Relays. Service Bus Relay est utilisé pour se connecter au Gestionnaire de connexion hybride.
-	- **Plan App Service** : sélectionnez ou créez un plan App Service.
-	- **Niveau de tarification** : choisissez un niveau de tarification pour le connecteur.
-	- **Groupe de ressources** : sélectionnez ou créez un groupe de ressources où doit résider le connecteur.
+		- **Dossier racine** : indiquez le chemin du dossier racine sur l'ordinateur hôte. Par exemple : D:\\FileConnectorTest
+		- **Chaîne de connexion au Service Bus** : indiquez la chaîne de connexion au Service Bus. Vérifiez que l'espace de noms du Service Bus est de type Standard et NON Basique pour permettre l'utilisation de Service Bus Relays. Service Bus Relay est utilisé pour se connecter au Gestionnaire de connexion hybride.
+	- **Plan App Service** : sélectionnez ou créez un plan App Service.
+	- **Niveau de tarification** : choisissez un niveau de tarification pour le connecteur.
+	- **Groupe de ressources** : sélectionnez ou créez un groupe de ressources où doit résider le connecteur.
 	- **Abonnement** : choisissez un abonnement dans lequel vous souhaitez créer ce connecteur.
-	- **Emplacement** : choisissez l’emplacement géographique dans lequel vous voulez déployer le connecteur.
+	- **Emplacement** : choisissez l’emplacement géographique dans lequel vous voulez déployer le connecteur.
 
 4. Cliquez sur Créer. Un connecteur File est créé.
 
@@ -54,7 +56,7 @@ Une fois votre application API créée, vous pouvez utiliser le connecteur File 
 
 3.	Le connecteur File s’affiche dans la section « Applications API dans ce groupe de ressources » de la galerie située à droite.
 
-4.	Vous pouvez déposer l’application API du connecteur File dans l’éditeur en cliquant sur « Connecteur File ». Le connecteur File expose un déclencheur et 4 actions :![][5]
+4.	Vous pouvez déposer l’application API du connecteur File dans l’éditeur en cliquant sur « Connecteur File ». Le connecteur File expose un déclencheur et 4 actions : ![][5]
 
 6.	Chacun de ces éléments a des propriétés. L’image ci-dessous montre les propriétés du déclencheur et de l’action « Obtenir le fichier » : ![][6]
 
@@ -87,4 +89,4 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 [Définition des API du connecteur File]: https://msdn.microsoft.com/library/dn936296.aspx
 [Utilisation du Gestionnaire de connexion hybride]: app-service-logic-hybrid-connection-manager.md
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0907_2016-->

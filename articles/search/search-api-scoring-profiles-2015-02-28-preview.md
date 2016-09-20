@@ -4,7 +4,7 @@
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
-	manager="mblythe"
+	manager="paulettm"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.author="heidist"
-	ms.date="05/18/2016" />
+	ms.date="08/29/2016" />
 
 # Profils de score (API REST Azure Search Version 2015-02-28-Preview)
 
@@ -55,7 +55,7 @@ Pour utiliser ce profil de score, votre requête est formulée de façon à spé
 
     GET /indexes/hotels/docs?search=inn&scoringProfile=geo&scoringParameter=currentLocation--122.123,44.77233&api-version=2015-02-28-Preview
 
-Cette requête effectue une recherche du terme « inn », puis transmet l'emplacement actuel. Notez que cette requête inclut d'autres paramètres, tel que `scoringParameter`. Les paramètres de requête sont décrits dans [Recherche dans des documents (API Azure Search)](search-api-2015-02-28-preview/#SearchDocs).
+Cette requête effectue une recherche du terme « inn », puis transmet l'emplacement actuel. Notez que cette requête inclut d'autres paramètres, tel que `scoringParameter`. Les paramètres de requête sont décrits dans [Recherche dans des documents (API Azure Search)](search-api-2015-02-28-preview.md#SearchDocs).
 
 Pour voir un exemple plus détaillé de profil de score, cliquez sur [Exemple](#example)
 
@@ -175,10 +175,10 @@ Les fonctions sont utilisées quand des calculs supplémentaires sont nécessair
 
   - Le type de fonction (freshness, magnitude, distance, tag) doit être en lettres minuscules.
   - Les fonctions ne peuvent pas contenir de valeurs null ou vides. En particulier, si vous incluez la valeur fieldname, vous devez la spécifier.
-  - Les fonctions ne peuvent être appliquées qu'à des champs filtrables. Pour plus d'informations sur les champs filtrables, consultez [Création d'index](search-api-2015-02-28/#createindex).
+  - Les fonctions ne peuvent être appliquées qu'à des champs filtrables. Pour plus d'informations sur les champs filtrables, consultez [Création d'index](search-api-2015-02-28.md#createindex).
   - Vous ne pouvez pas appliquer de fonctions à des champs définis dans la collection de champs d'un index.
 
-Une fois l'index défini, générez-le en chargeant le schéma d'index, puis des documents. Pour obtenir des instructions sur ces opérations, consultez [Création d'index](search-api-2015-02-28-preview/#createindex) et [Ajout, mise à jour ou suppression de documents](search-api-2015-02-28-preview/#AddOrUpdateDocuments). Une fois l'index généré, vous disposez d'un profil de calcul de score fonctionnel qui opère avec vos données de recherche.
+Une fois l'index défini, générez-le en chargeant le schéma d'index, puis des documents. Pour obtenir des instructions sur ces opérations, consultez [Création d'index](search-api-2015-02-28-preview.md#createindex) et [Ajout, mise à jour ou suppression de documents](search-api-2015-02-28-preview.md#AddOrUpdateDocuments). Une fois l'index généré, vous disposez d'un profil de calcul de score fonctionnel qui opère avec vos données de recherche.
 
 <a name="bkmk_template"></a>
 ## Modèle
@@ -254,12 +254,12 @@ Cette section présente la syntaxe et le modèle de profils de calcul de score. 
 | `magnitude:boostingRangeEnd` | Définit la valeur de fin de la plage sur laquelle les scores de magnitude sont calculés. La valeur doit être un entier ou un nombre à virgule flottante. Pour les évaluations de 1 à 4, il s'agit de 4. |
 | `magnitude:constantBoostBeyondRange` | Les valeurs autorisées sont true ou false (par défaut). Quand la valeur est true, la valorisation complète continue de s'appliquer aux documents dont la valeur pour le champ cible est supérieure à la limite supérieure de la plage. Quand la valeur est false, la valorisation de cette fonction ne s'applique pas aux documents dont la valeur pour le champ cible se situe en dehors de la plage. |
 | `freshness` | La fonction de calcul de score freshness permet de modifier les scores de classement d'éléments en fonction des valeurs des champs DateTimeOffset. Par exemple, un élément dont la date est plus récente peut être classé plus haut que des éléments plus anciens. (Notez qu’il est également possible de classer les éléments tels que les événements de calendrier comportant des dates futures afin que les éléments plus proches de la date du jour soient classés plus haut que les éléments plus éloignés dans le temps). Dans la version de service actuelle, une extrémité de la plage doit être définie sur l'heure réelle. L’autre extrémité est une heure dans le passé selon l’attribut `boostingDuration`. Pour privilégier une plage d’heures à venir, utilisez un attribut `boostingDuration` négatif. La vitesse à laquelle la valorisation passe d'une plage maximale à une plage minimale est déterminée par l'interpolation appliquée au profil de calcul de score (voir la figure ci-dessous). Pour inverser le facteur de valorisation appliqué, choisissez un facteur inférieur à 1. |
-| `freshness:boostingDuration` | Définit une période d'expiration après laquelle la valorisation s'arrête pour un document spécifique. Pour en savoir plus sur la syntaxe et découvrir des exemples, consultez [Set boostingDuration ][#bkmk\_boostdur] dans la section suivante. |
+| `freshness:boostingDuration` | Définit une période d'expiration après laquelle la valorisation s'arrête pour un document spécifique. Pour en savoir plus sur la syntaxe et découvrir des exemples, consultez [Set boostingDuration][#bkmk\_boostdur] dans la section suivante. |
 | `distance` | La fonction de calcul de score à distance est utilisée pour affecter le score de documents sur la base de leur proximité ou de l'éloignement par rapport à un emplacement géographique de référence. L’emplacement de référence est indiqué comme partie intégrante de la requête dans un paramètre (à l’aide du paramètre de requête `scoringParameter`) en tant qu’argument lon,lat. |
-| `distance:referencePointParameter` | Paramètre à transmettre dans des requêtes, à utiliser comme emplacement de référence. scoringParameter est un paramètre de requête. Pour obtenir une description des paramètres de requête, consultez [Rechercher des documents](search-api-2015-02-28-preview/#SearchDocs). |
+| `distance:referencePointParameter` | Paramètre à transmettre dans des requêtes, à utiliser comme emplacement de référence. scoringParameter est un paramètre de requête. Pour obtenir une description des paramètres de requête, consultez [Rechercher des documents](search-api-2015-02-28-preview.md#SearchDocs). |
 | `distance:boostingDistance` | Nombre indiquant la distance en kilomètres par rapport à l'emplacement de référence où la valorisation se termine. |
 | `tag` | La fonction de calcul de score de balises est utilisée pour affecter le score de documents sur la base de balises dans des documents et des requêtes de recherche. Les documents contenant des balises communes avec la requête de recherche seront privilégiés. Les balises pour la requête de recherche sont fournies en tant que paramètre de calcul de score dans chaque requête de recherche (à l’aide du paramètre de requête `scoringParameter`). |
-| `tag:tagsParameter` | Paramètre à transmettre dans des requêtes pour spécifier des balises pour une requête spécifique. `scoringParameter` est un paramètre de requête. Pour obtenir une description des paramètres de requête, consultez [Rechercher des documents](search-api-2015-02-28-preview/#SearchDocs). |
+| `tag:tagsParameter` | Paramètre à transmettre dans des requêtes pour spécifier des balises pour une requête spécifique. `scoringParameter` est un paramètre de requête. Pour obtenir une description des paramètres de requête, consultez [Recherche dans des documents](search-api-2015-02-28-preview.md#SearchDocs). |
 | `functionAggregation` | facultatif. S'applique uniquement quand des fonctions sont spécifiées. Les valeurs autorisées sont `sum` (par défaut), `average`, `minimum`, `maximum` et `firstMatching`. Un score de recherche est une valeur unique calculée à partir de plusieurs variables, notamment plusieurs fonctions. Cet attribut indique comment les valorisations de toutes les fonctions sont combinées en une valorisation agrégée qui est ensuite appliquée au score du document de base. Le score de base dépend de la valeur tf-idf calculée à partir du document et de la requête de recherche. |
 | `defaultScoringProfile` | Lors de l'exécution d'une demande de recherche, le calcul de score par défaut est utilisé (tf-idf uniquement) si aucun profil de calcul de score n'est spécifié. Un nom de profil de calcul de score par défaut peut être défini ici de façon à ce qu'Azure Search utilise ce profil quand aucun profil spécifique n'est fourni dans la requête de recherche. |
 
@@ -280,7 +280,7 @@ Les interpolations permettent de définir la pente pour laquelle le score augmen
 
 `boostingDuration` est un attribut de la fonction freshness. Il permet de définir une période d'expiration après laquelle la valorisation s'arrête pour un document spécifique. Par exemple, pour valoriser une ligne de produits ou une marque pendant une période promotionnelle de 10 jours, vous spécifiez la période de 10 jours en tant que « P10D » pour les documents correspondants. Ou pour valoriser des événements qui vont se produire au cours de la semaine à venir, spécifiez « -P7D ».
 
-La valeur `boostingDuration` doit être au format « dayTimeDuration » XSD (sous-ensemble limité d'une valeur de durée ISO 8601). Le modèle est le suivant : `][-]P\[nD]\[T\[nH]\[nM]\[nS]\]]`.
+La valeur `boostingDuration` doit être au format « dayTimeDuration » XSD (sous-ensemble limité d'une valeur de durée ISO 8601). Le modèle est le suivant : `[-]P[nD][T[nH][nM][nS]]`.
 
 Le tableau suivant fournit plusieurs exemples.
 
@@ -298,4 +298,4 @@ Pour plus d'exemples, consultez [Schéma XML : types de données (site Web W3.o
 <!--Image references-->
 [1]: ./media/search-api-scoring-profiles-2015-02-28-Preview/scoring_interpolations.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0907_2016-->

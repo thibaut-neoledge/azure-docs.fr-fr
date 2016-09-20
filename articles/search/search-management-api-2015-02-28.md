@@ -13,7 +13,7 @@
 	ms.workload="search"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.date="05/17/2016"
+	ms.date="08/29/2016"
 	ms.author="heidist" />
 
 # API de gestion : version 2015-02-28
@@ -25,7 +25,7 @@ Azure Search est un service de recherche cloud hébergé sur Microsoft Azure. Ce
 Avec l’API REST de gestion du service Azure Search, les administrateurs peuvent accéder par programme à la plupart des fonctionnalités disponibles sur le portail, et donc automatiser les opérations suivantes :
 
 - création ou suppression d’un service Azure Search ;
-- création, régénération ou récupération de `api-keys` afin d’automatiser les modifications de routine sur les clés d’administration utilisées pour authentifier les opérations menées sur les données de recherche ; 
+- création, régénération ou récupération de `api-keys` afin d’automatiser les modifications de routine sur les clés d’administration utilisées pour authentifier les opérations menées sur les données de recherche ;
 - ajustement du service de recherche Azure Search par rapport aux nouvelles exigences en matière de stockage ou de volume des requêtes.
 
 Pour administrer intégralement votre service par programme, vous avez besoin de deux API : l’API REST de gestion d’Azure Search et l’[API REST commune Azure Resource Manager](https://msdn.microsoft.com/library/azure/dn790568.aspx). L’API Resource Manager est utilisée dans le cadre d’opérations générales qui sont pas liées à un service spécifique, comme l’interrogation des données d’abonnement ou encore le recensement des géolocalisations. Pour créer et gérer des services Azure Search au sein de votre abonnement, votre requête HTTP doit inclure le point de terminaison de Resource Manager, l’ID d’abonnement, le fournisseur (dans le cas présent, Azure Search) et l’opération spécifique du service Search.
@@ -125,11 +125,11 @@ L’opération **Création de service Search** déploie un nouveau service Sea
 
 #### Paramètres de l’URI de requête
 
-`subscriptionId` : requis. `subscriptionID` correspondant à l’utilisateur Azure. Vous pouvez obtenir cette valeur à partir de l’API Azure Resource Manager ou du portail.
+`subscriptionId` : obligatoire. `subscriptionID` correspondant à l’utilisateur Azure. Vous pouvez obtenir cette valeur à partir de l’API Azure Resource Manager ou du portail.
 
-`resourceGroupName` : requis. Nom du groupe de ressources dans l’abonnement de l’utilisateur. Vous pouvez obtenir cette valeur à partir de l’API Azure Resource Manager ou du portail.
+`resourceGroupName` : obligatoire. Nom du groupe de ressources dans l’abonnement de l’utilisateur. Vous pouvez obtenir cette valeur à partir de l’API Azure Resource Manager ou du portail.
 
-`serviceName` : requis. Nom du service de recherche dans le groupe de ressources spécifié. Les noms de service doivent contenir uniquement des lettres minuscules, des chiffres ou des tirets, ne peuvent pas inclure de tiret dans les deux premiers ou les deux derniers caractères, ne peuvent pas comporter de tirets consécutifs et doivent être compris entre 2 et 15 caractères. Dans la mesure où tous les noms finissent par <name>.search.windows.net, les noms de service doivent être globalement uniques. Deux services d’un ou plusieurs abonnements ou groupes de ressources ne peuvent porter le même nom. Vous ne pouvez pas modifier le nom du service après sa création.
+`serviceName` : obligatoire. Nom du service de recherche dans le groupe de ressources spécifié. Les noms de service doivent contenir uniquement des lettres minuscules, des chiffres ou des tirets, ne peuvent pas inclure de tiret dans les deux premiers ou les deux derniers caractères, ne peuvent pas comporter de tirets consécutifs et doivent être compris entre 2 et 15 caractères. Dans la mesure où tous les noms finissent par <nom>.search.windows.net, les noms de service doivent être globalement uniques. Deux services d’un ou plusieurs abonnements ou groupes de ressources ne peuvent porter le même nom. Vous ne pouvez pas modifier le nom du service après sa création.
 
 `api-version` : requis. Indique la version du protocole utilisée pour cette demande. La version actuelle est `2015-02-28`.
 
@@ -158,7 +158,7 @@ L’opération **Création de service Search** déploie un nouveau service Sea
 `partitionCount` : facultatif. 1 constitue la valeur par défaut. Les valeurs valides incluent 1, 2, 3, 4, 6 et 12. Valide uniquement lorsque la `sku` est `standard`.
 
 
-### Response
+### Réponse
 
 HTTP 200 (OK) est renvoyé lorsqu’une définition de service est mise à jour. Le message HTTP 201 (Created) est renvoyé lorsqu’un service est créé.
 
@@ -211,7 +211,7 @@ Pour HTTP 200 et 201, le corps de la réponse contient la définition de servic
 
 - `free` : cluster partagé ;
 - `standard` : cluster dédié ;
-- `standard2` : à utiliser uniquement sous la direction du support Microsoft. 
+- `standard2` : à utiliser uniquement sous la direction du support Microsoft.
 
 `replicaCount` : indique le nombre de réplicas du service. Les valeurs valides vont de 1 à 6.
 
@@ -224,9 +224,9 @@ Pour HTTP 200 et 201, le corps de la réponse contient la définition de servic
 - `deleting` : le service Search est en cours de suppression.
 - `degraded` : le service Search est détérioré. Cela peut se produire lorsque le cluster rencontre une erreur susceptible ou non d’empêcher le bon fonctionnement du service.
 - `disabled` : le service Search est désactivé. Dans cet état, le service rejette toutes les demandes d’API.
-- `error` : le service Search indique un état d’erreur. 
+- `error` : le service Search indique un état d’erreur.
 
-**Remarque** : si votre service indique un état `degraded`, `disabled` ou `error`, cela signifie que l’équipe Azure Search met tout en œuvre pour traiter le problème sous-jacent. Les services dédiés indiquant ces états peuvent faire l’objet d’une facturation en fonction du nombre d’unités de recherche déployées.
+**Remarque** : si votre service indique un état `degraded`, `disabled` ou `error`, cela signifie que l’équipe Azure Search met tout en œuvre pour traiter le problème sous-jacent. Les services dédiés indiquant ces états peuvent faire l’objet d’une facturation en fonction du nombre d’unités de recherche déployées.
 
 `statusDetails` : détails de l’état.
 
@@ -234,7 +234,7 @@ Pour HTTP 200 et 201, le corps de la réponse contient la définition de servic
 
 - `succeeded` : le déploiement est effectué avec succès.
 - `provisioning` : le service est en cours de déploiement.
-- `failed` : le service n’a pas pu être déployé. 
+- `failed` : le service n’a pas pu être déployé.
 
 Le déploiement désigne un état intermédiaire pendant lequel la capacité de service est établie. Une fois que la capacité est paramétrée, le statut de `provisioningState` indique la réussite ou l’échec. Les applications clientes peuvent interroger l’état de déploiement (fréquence d’interrogation recommandée comprise entre 30 secondes et une minute) par le biais de l’opération **Obtention du service Search** afin de déterminer quand une opération est effectuée. Si vous utilisez le service gratuit, la valeur apparaît généralement comme réussie directement dans l’appel destiné à la création le service. Cela est dû au fait que le service gratuit utilise une capacité déjà configurée.
 
@@ -262,7 +262,7 @@ L’opération **Obtention du service Search** renvoie les propriétés du serv
 
 #### Corps de la requête
 
-Aucun.
+Aucune.
 
 
 #### Code du statut de réponse
@@ -327,9 +327,9 @@ HTTP 200 (OK) si l’opération réussit.
 - `deleting` : le service Search est en cours de suppression.
 - `degraded` : le service Search est détérioré. Cela peut se produire lorsque le cluster rencontre une erreur susceptible ou non d’empêcher le bon fonctionnement du service.
 - `disabled` : le service Search est désactivé. Dans cet état, le service rejette toutes les demandes d’API.
-- `error` : le service Search indique un état d’erreur. 
+- `error` : le service Search indique un état d’erreur.
  
-**Remarque** : si votre service indique un état `degraded`, `disabled` ou `error`, cela signifie que l’équipe Azure Search met tout en œuvre pour traiter le problème sous-jacent. Les services dédiés indiquant ces états peuvent faire l’objet d’une facturation en fonction du nombre d’unités de recherche déployées.
+**Remarque** : si votre service indique un état `degraded`, `disabled` ou `error`, cela signifie que l’équipe Azure Search met tout en œuvre pour traiter le problème sous-jacent. Les services dédiés indiquant ces états peuvent faire l’objet d’une facturation en fonction du nombre d’unités de recherche déployées.
  
 `statusDetails` : détails de l’état.
 
@@ -361,9 +361,9 @@ L’opération **Liste des services Search** renvoie la liste de tous les serv
 
 ####Corps de la requête
 
-Aucun.
+Aucune.
 
-####Response
+####Réponse
 
 Le code d’état est HTTP 200  (OK) si l’opération réussit.
 
@@ -452,9 +452,9 @@ L’opération **Suppression du service** supprime les données liées à la rec
 
 ###Corps de la requête###
 
-Aucun.
+Aucune.
 
-###Response###
+###Réponse###
 
 Pour HTTP 200, le corps de la réponse est vide. Lorsque la ressource n’existe pas, HTTP 200 (OK) est la réponse appropriée.
 
@@ -466,7 +466,7 @@ Vous pouvez utiliser l’**API Obtention du service Search** pour interroger l�
 
 ###Corps de réponse###
 
-Aucun.
+Aucune.
 
 <a name="UpdateService"></a>
 ### Mise à jour du service ##
@@ -520,7 +520,7 @@ Vous pouvez également utiliser la méthode PUT.
 
 `partitionCount` : facultatif. 1 constitue la valeur par défaut. Les valeurs valides incluent 1, 2, 3, 4, 6 et 12. Valide uniquement lorsque la `sku` est `standard`.
 
-###Response###
+###Réponse###
 
 HTTP 200 (OK) est renvoyé si l’opération a réussi. Vous pouvez utiliser l’**API Obtention du service Search** pour interroger l’état du service de mise à jour. Nous vous recommandons des fréquences d’interrogation comprises entre 30 secondes et une minute.
 
@@ -590,9 +590,9 @@ Les clés d’administration sont créées avec le service. Il existe toujours d
 
 ###Corps de la requête###
 
-Aucun.
+Aucune.
 
-###Response###
+###Réponse###
 
 HTTP 200 (OK) est renvoyé si l’opération a réussi.
 
@@ -634,7 +634,7 @@ L’opération **Régénération des clés d’administration** supprime et rég
 - `primary`
 - `secondary`
 
-###En-têtes de requête###
+###En-têtes de demande###
 
 `Content-Type` : requis. Définissez cet en-tête sur application/json.
 
@@ -642,9 +642,9 @@ L’opération **Régénération des clés d’administration** supprime et rég
 
 ###Corps de la requête###
 
-Aucun.
+Aucune.
 
-###Response###
+###Réponse###
 
 HTTP 200 (OK) est renvoyé si l’opération a réussi.
 
@@ -690,15 +690,15 @@ L’opération **Création d’une clé de requête** génère une nouvelle clé
 
 `name` : requis. Nom de la nouvelle clé.
 
-###En-têtes de requête###
+###En-têtes de demande###
 
 `x-ms-client-request-id` : facultatif. Valeur GUID générée par le client, qui identifie cette demande. Si elle est spécifiée, cette valeur sera incluse dans le message de réponse afin de mapper la demande.
 
 ###Corps de la requête###
 
-Aucun.
+Aucune.
 
-###Response###
+###Réponse###
 
 Le code d’état de la réponse est HTTP 200 (OK) si l’opération réussit.
 
@@ -742,15 +742,15 @@ L’opération **Liste des clés de requête** renvoie les clés de requête du 
 	
 `listQueryKeys` : requis. Cette action récupère les clés de requête du service Search.
 
-###En-têtes de requête###
+###En-têtes de demande###
 
 `x-ms-client-request-id` : facultatif. Valeur GUID générée par le client, qui identifie cette demande. Si elle est spécifiée, cette valeur sera incluse dans le message de réponse afin de mapper la demande.
 
 ###Corps de la requête###
 
-Aucun.
+Aucune.
 
-###Response###
+###Réponse###
 
 Le code d’état de la réponse est HTTP 200 (OK) si l’opération réussit.
 
@@ -806,15 +806,15 @@ Contrairement aux clés d’administration, les clés de requête ne sont pas r�
 
 `key` : requis. Clé à supprimer.
 
-###En-têtes de requête###
+###En-têtes de demande###
 
 `x-ms-client-request-id` : facultatif. Valeur GUID générée par le client, qui identifie cette demande. Si elle est spécifiée, cette valeur sera incluse dans le message de réponse afin de mapper la demande.
 
 ###Corps de la requête###
 
-Aucun.
+Aucune.
 
-###Response###
+###Réponse###
 
 Le code d’état de réponse est HTTP 200  (OK) si l’opération réussit.
 
@@ -828,4 +828,4 @@ Le code d’état de réponse est HTTP 200  (OK) si l’opération réussit.
 
 Aucune.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0907_2016-->

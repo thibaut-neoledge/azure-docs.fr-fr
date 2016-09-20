@@ -25,7 +25,7 @@ Le SDK 2.8 d’Azure doit être installé dans Visual Studio.
 
 ## Obtenir une ressource Application Insights
 
-Pour une expérience optimale, [ajoutez le Kit de développement logiciel (SDK) Application Insights à chaque rôle de votre application de services cloud](app-insights-cloudservices.md) ou [à n’importe quelle application que vous envisagez d’exécuter sur votre machine virtuelle](app-insights-get-started.md). Vous pouvez alors envoyer les données de diagnostic pour qu’elles soient analysées et affichées dans la même ressource Application Insights.
+Pour une expérience optimale, [ajoutez le Kit de développement logiciel (SDK) Application Insights à chaque rôle de votre application de services cloud](app-insights-cloudservices.md) ou [à n’importe quelle application que vous envisagez d’exécuter sur votre machine virtuelle](app-insights-overview.md). Vous pouvez alors envoyer les données de diagnostic pour qu’elles soient analysées et affichées dans la même ressource Application Insights.
 
 Vous pouvez également, si vous ne souhaitez pas utiliser le Kit de développement logiciel (par exemple si l’application a déjà été publiée), simplement [créer une nouvelle ressource Application Insights](app-insights-create-new-resource.md) dans le portail Azure. Choisissez **Azure Diagnostics** comme type d’application.
 
@@ -146,4 +146,4 @@ Il existe certaines limitations à connaître pour cette fonctionnalité :
 * [Utilisation de PowerShell pour l’envoi de diagnostics Azure vers Application Insights](app-insights-powershell-azure-diagnostics.md)
 * [Fichier de configuration Azure Diagnostics](https://msdn.microsoft.com/library/azure/dn782207.aspx)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="06/09/2016" 
+    ms.date="09/01/2016" 
     ms.author="jeedes" />
 
 #Didacticiel : Intégration d’Azure Active Directory à Kintone
@@ -68,7 +68,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
 ###Pour configurer l’authentification unique, procédez comme suit :
 
-1.  Dans le portail Azure Classic, puis dans la page d’intégration d’application **Kintone**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
+1.  Dans la page d’intégration d’applications **Kintone** du portail Azure Classic, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-kintone-tutorial/IC785872.png "Configurer l’authentification unique")
 
@@ -76,7 +76,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Configurer l’authentification unique](./media/active-directory-saas-kintone-tutorial/IC785873.png "Configurer l’authentification unique")
 
-3.  Dans la page **Configurer l’URL de l’application**, dans la zone de texte **URL de connexion de Kintone**, tapez votre URL selon le modèle suivant « *https://company.kintone.com*", puis cliquez sur **Suivant**.
+3.  Dans la page **Configurer l’URL de l’application**, dans la zone de texte **URL de connexion à Kintone**, tapez votre URL au format « **https://company.kintone.com*", puis cliquez sur **Suivant**.
 
     ![Configurer l’URL de l’application](./media/active-directory-saas-kintone-tutorial/IC785875.png "Configurer l’URL de l’application")
 
@@ -106,10 +106,10 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Authentification SAML](./media/active-directory-saas-kintone-tutorial/IC785883.png "Authentification SAML")
 
-    1.  Sur la page **Configurer l'authentification unique sur Kintone** du portail Azure Classic, copiez la valeur de l'**URL de connexion à distance**, puis collez-la dans la zone de texte **URL de connexion**.
-    2.  Dans la page **Configurer l’authentification unique sur Kintone** du portail Azure Classic, copiez la valeur **URL de déconnexion distante**, puis collez-la dans la zone de texte **Logout URL**.
-    3.  Cliquez sur **Parcourir** pour charger votre certificat téléchargé.
-    4.  Cliquez sur **Enregistrer**.
+    1.  Dans la page de boîte de dialogue **Configurer l’authentification unique sur Kintone** du portail Azure Classic, copiez la valeur **URL de connexion distante**, puis collez-la dans la zone de texte **URL de connexion**.
+    2.  Dans la page de boîte de dialogue **Configurer l’authentification unique sur Kintone** du portail Azure Classic, copiez la valeur **URL de déconnexion distante**, puis collez-la dans la zone de texte **URL de déconnexion**.
+    3.  Cliquez sur **Parcourir** pour charger le certificat téléchargé.
+    4.  Cliquez sur **Save**.
 
 11. Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
 
@@ -143,7 +143,7 @@ Pour se connecter à Kintone, les utilisateurs d’Azure AD doivent être approv
     ![Nouveaux utilisateurs](./media/active-directory-saas-kintone-tutorial/IC785890.png "Nouveaux utilisateurs")
 
     1.  Tapez le nom complet, le nom de connexion, le nouveau mot de passe et sa confirmation et l’adresse de messagerie d’un compte AAD valide que vous souhaitez approvisionner dans les zones de texte correspondantes, à savoir, **Display Name**, **Login Name**, **New Password**, **Confirm Password** et **E-mail Address**.
-    2.  Cliquez sur **Enregistrer**.
+    2.  Cliquez sur **Save**.
 
 >[AZURE.NOTE] Vous pouvez utiliser n’importe quel autre outil ou API de création de compte d’utilisateur Kintone fourni par ce service pour approvisionner des comptes d’utilisateurs Azure Active Directory.
 
@@ -155,7 +155,7 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
 1.  Dans le portail Azure Classic, créez un compte de test.
 
-2.  Dans la page d’intégration d’application **Kintone**, cliquez sur **Affecter des utilisateurs**.
+2.  Dans la page d’intégration d’applications **Kintone**, cliquez sur **Affecter des utilisateurs**.
 
     ![Affecter des utilisateurs](./media/active-directory-saas-kintone-tutorial/IC785891.png "Affecter des utilisateurs")
 
@@ -163,6 +163,6 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
     ![Oui](./media/active-directory-saas-kintone-tutorial/IC767830.png "Oui")
   
-Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
+Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0907_2016-->

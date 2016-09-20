@@ -13,7 +13,7 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="05/17/2016"
+     ms.date="09/06/2016"
      ms.author="obloch"/>
 
 # Kit de développement logiciel (SDK) d’appareils Microsoft Azure IoT pour C : en savoir plus sur IoTHubClient
@@ -22,9 +22,9 @@ Le [premier article](iot-hub-device-sdk-c-intro.md) de cette série a présenté
 
 L’article précédent explique comment utiliser la bibliothèque **IoTHubClient** pour envoyer des événements à IoT Hub et recevoir des messages. Cet article approfondit le sujet en expliquant comment gérer de manière plus précise le *moment* de l’envoi ou de la réception des données, en vous présentant les **API de niveau inférieur**. Nous expliquerons également comment associer des propriétés à des événements (et les récupérer à partir de messages) en utilisant des fonctions de gestion de propriété de la bibliothèque **IoTHubClient**. Enfin, nous fournirons des explications supplémentaires sur les différentes façons de gérer les messages reçus d’IoT Hub.
 
-Cet article conclut en abordant des sujets divers, notamment les informations d’identification des appareils et la manière de modifier le comportement d’**IoTHubClient** par le biais des options de configuration.
+Cet article conclut en abordant des sujets divers, notamment les informations d’identification des appareils et la manière de modifier le comportement **d’IoTHubClient** par le biais des options de configuration.
 
-Nous allons utiliser les exemples du kit de développement logiciel (SDK) **IoTHubClient** pour illustrer ces rubriques. Si vous souhaitez assurer le suivi, consultez les applications **iothub\_client\_sample\_http** et **iothub\_client\_sample\_amqp** incluses dans le Kit de développement logiciel (SDK) d’appareils Azure IoT pour C. Les détails décrits dans les sections suivantes sont illustrés dans ces exemples.
+Nous allons utiliser les exemples du kit de développement logiciel **IoTHubClient** pour illustrer ces rubriques. Si vous souhaitez assurer le suivi, consultez les applications **iothub\_client\_sample\_http** et **iothub\_client\_sample\_amqp** incluses dans le Kit de développement logiciel (SDK) d’appareils Azure IoT pour C. Les détails décrits dans les sections suivantes sont illustrés dans ces exemples.
 
 Vous pouvez trouver le **Kit de développement logiciel Azure IoT device SDK pour C** dans le référentiel GitHub [Microsoft Azure IoT SDKs](https://github.com/Azure/azure-iot-sdks) (Kits de développement logiciel (SDK) Microsoft Azure IoT) et consulter les détails de l’API dans [C API reference](http://azure.github.io/azure-iot-sdks/c/api_reference/index.html) (Référence sur l’API C).
 
@@ -296,4 +296,4 @@ Pour explorer davantage les capacités de IoT Hub, consultez :
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
 [lnk-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0907_2016-->

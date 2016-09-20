@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="cache-redis"
     ms.workload="tbd"
-    ms.date="06/09/2016"
+    ms.date="09/07/2016"
     ms.author="sdanie" />
 
 # Migrer un Service de cache géré vers le Cache Redis Azure
@@ -33,7 +33,7 @@ Vous devez exécuter les étapes suivantes pour migrer une application du Servic
 	-	Connexion au cache à l’aide de la classe ConnectionMultiplexer
 	-	Accès aux types de données primitifs dans le cache
 	-	Utilisation des objets .NET dans le cache
--	Migration de l’état de session ASP.NET et des caches de sortie vers le Cache Redis Azure 
+-	Migration de l’état de session ASP.NET et des caches de sortie vers le Cache Redis Azure
 
 ## Mappage des fonctionnalités du Service de cache géré au Cache Redis Azure
 
@@ -78,7 +78,7 @@ Une fois le cache créé et configuré, vous devez supprimer la configuration du
 
 Pour pouvoir configurer les applications clientes pour le Cache Redis Azure, vous devez au préalable supprimer la configuration et les références d’assembly existantes du Service de cache géré en désinstallant le package NuGet du Service de cache géré.
 
-Pour désinstaller ce package, cliquez avec le bouton droit sur le projet client dans l’**Explorateur de solutions** et choisissez **Gérer les packages NuGet**. Sélectionnez le nœud **Packages installés**, puis entrez W**indowsAzure.Caching** dans la zone de recherche des packages installés. Sélectionnez **Cache** **Microsoft Azure** (ou **Mise en cache** **Microsoft Azure** selon la version du package NuGet), cliquez sur **Désinstaller**, puis cliquez sur **Fermer**.
+Pour désinstaller ce package, cliquez avec le bouton droit sur le projet client dans l’**Explorateur de solutions** et choisissez **Gérer les packages NuGet**. Sélectionnez le nœud **Packages installés**, puis entrez W**indowsAzure.Caching** dans la zone de recherche des packages installés. Sélectionnez **Cache** ** Microsoft Azure** (ou **Mise en cache** **Microsoft Azure** selon la version du package NuGet), cliquez sur **Désinstaller**, puis cliquez sur **Fermer**.
 
 ![Désinstaller le package NuGet du Service de cache géré Azure](./media/cache-migrate-to-redis/IC757666.jpg)
 
@@ -179,4 +179,4 @@ Le Cache Redis Azure dispose de fournisseurs pour l’état de session ASP.NET e
 
 Explorez la [documentation du Cache Redis Azure](https://azure.microsoft.com/documentation/services/cache/) pour accéder à des didacticiels, des exemples, des vidéos et de nombreuses autres ressources.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0907_2016-->

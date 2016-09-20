@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/29/2016"
+	ms.date="08/31/2016"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -64,11 +64,11 @@ Voici un exemple qui remplira le domaine d’attribut du métaverse avec le nom 
 ### Opérateurs
 Vous pouvez utiliser les opérateurs suivants :
 
-- **Comparaison** : <, < =, <>, =, >, > =
-- **Mathématiques** : +, -, *, -
-- **Chaîne** : & (concaténation)
-- **Logiques** : && (et), || (ou)
-- **Ordre d’évaluation** : ( )
+- **Comparaison** : <, < =, <>, =, >, > =
+- **Mathématiques** : +, -, *, -
+- **Chaîne** : & (concaténation)
+- **Logiques** : && (et), || (ou)
+- **Ordre d’évaluation** : ( )
 
 Les opérateurs sont évalués de la gauche vers la droite et ont la même priorité d'évaluation. Par exemple, le * (signe multiplicateur) n’est pas évalué avant - (soustraction). 2*(5+3) n’est pas la même chose que 2*5+3. Les parenthèses ( ) sont utilisées pour modifier l’ordre d’évaluation lorsqu’un ordre d’évaluation de la gauche vers la droite n’est pas approprié.
 
@@ -77,11 +77,19 @@ Les fonctions peuvent fonctionner sur des attributs à valeur unique et à valeu
 
 Par exemple, `Trim([proxyAddresses])` supprime les espaces de gauche à droite dans chaque valeur de l’attribut proxyAddress. `Word([proxyAddresses],1,"@") & "@contoso.com"` Pour chaque valeur comportant un signe @, remplacez le domaine par @contoso.com. `IIF(InStr([proxyAddresses],"SIP:")=1,NULL,[proxyAddresses])` Recherchez l’adresse SIP et supprimez-la des valeurs.
 
-## Ressources supplémentaires
+## Étapes suivantes
 
-- [Azure AD Connect Sync : présentation de l’approvisionnement déclaratif](active-directory-aadconnectsync-understanding-declarative-provisioning.md)
-- [Azure AD Connect Sync : Référence aux fonctions](active-directory-aadconnectsync-functions-reference.md)
-- [Azure AD Connect Sync : personnalisation des options de synchronisation](active-directory-aadconnectsync-whatis.md)
+- En savoir plus sur le modèle de configuration dans [Comprendre l’approvisionnement déclaratif](active-directory-aadconnectsync-understanding-declarative-provisioning.md).
+- Apprendre comment l’approvisionnement déclaratif est utilisé out-of-box dans [Présentation de la configuration par défaut](active-directory-aadconnectsync-understanding-default-configuration.md).
+- Apprendre à effectuer une modification pratique à l’aide de l’approvisionnement déclaratif dans [Comment modifier la configuration par défaut](active-directory-aadconnectsync-change-the-configuration.md).
+
+**Rubriques de présentation**
+
+- [Azure AD Connect Sync - Présentation et personnalisation des options de synchronisation](active-directory-aadconnectsync-whatis.md)
 - [Intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0831_2016-->
+**Rubriques de référence**
+
+- [Azure AD Connect Sync : Référence aux fonctions](active-directory-aadconnectsync-functions-reference.md)
+
+<!---HONumber=AcomDC_0907_2016-->

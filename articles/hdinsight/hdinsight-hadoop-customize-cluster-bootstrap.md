@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/09/2016"
+	ms.date="09/02/2016"
 	ms.author="jgao"/>
 
 # Personnalisation de clusters HDInsight à l’aide de Bootstrap
@@ -46,14 +46,14 @@ Il existe 3 manières d’utiliser Bootstrap :
     [AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
     
 - Utilisation du Kit de développement logiciel (SDK) .NET
-- Utilisation du modèle ARM
+- Utilisation d’un modèle Azure Resource Manager
 
 Pour plus d’informations sur l’installation de composants supplémentaires sur un cluster HDInsight pendant le processus de création, consultez :
 
 - [Personnalisation des clusters HDInsight à l'aide d'une action de script (Linux)](hdinsight-hadoop-customize-cluster-linux.md)
 - [Personnalisation des clusters HDInsight à l'aide d'une action de script (Windows)](hdinsight-hadoop-customize-cluster.md)
 
-## Utilisation d’Azure PowerShell
+## Utilisation d'Azure PowerShell
 
 Le code PowerShell suivant permet de personnaliser une configuration Hive :
 
@@ -108,15 +108,15 @@ Et d’autres exemples sur la personnalisation d’autres fichiers de configurat
 	# oozie-site.xml configuration
 	$OozieConfigValues = @{ "oozie.service.coord.normal.default.timeout"="150" }  # default 120
 
-Pour plus d’informations, consultez le billet de blog d’Azim Uddin intitulé [Customizing HDInsight Cluster provisioning](http://blogs.msdn.com/b/bigdatasupport/archive/2014/04/15/customizing-hdinsight-cluster-provisioning-via-powershell-and-net-sdk.aspx).
+Pour plus d’informations, consultez le blog d’Azim Uddin, intitulé [Personnalisation de la création d’un cluster HDInsight](http://blogs.msdn.com/b/bigdatasupport/archive/2014/04/15/customizing-hdinsight-cluster-provisioning-via-powershell-and-net-sdk.aspx).
 
 ## Utilisation du Kit de développement logiciel (SDK) .NET
 
 Consultez [Créer des clusters Linux dans HDInsight à l’aide du Kit de développement logiciel (SDK) .NET](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md#use-bootstrap).
 
-## Utilisation du modèle Azure ARM
+## Utilisation d’un modèle Resource Manager
 
-Vous pouvez utiliser Bootstrap dans le modèle ARM :
+Vous pouvez utiliser bootstrap dans le modèle Resource Manager :
 
     "configurations": {
         …
@@ -128,7 +128,7 @@ Vous pouvez utiliser Bootstrap dans le modèle ARM :
     }
 
 
-![hdinsight hadoop personnaliser cluster bootstrap modèle arm](./media/hdinsight-hadoop-customize-cluster-bootstrap/hdinsight-customize-cluster-bootstrap-arm.png)
+![hdinsight hadoop personnaliser cluster bootstrap azure resource manager modèle](./media/hdinsight-hadoop-customize-cluster-bootstrap/hdinsight-customize-cluster-bootstrap-arm.png)
 
 
 
@@ -261,4 +261,4 @@ Ce script PowerShell permet de créer un cluster HDInsight et de personnaliser u
 
     #endregion
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0907_2016-->

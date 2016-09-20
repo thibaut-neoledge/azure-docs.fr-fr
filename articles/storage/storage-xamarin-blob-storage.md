@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Utilisation du stockage d’objets blob à partir de Xamarin (version préliminaire) | Microsoft Azure"
-	description="La bibliothèque cliente de stockage Azure pour Xamarin permet aux développeurs d’utiliser un code base C# partagé pour créer des applications iOS, Android et Windows Store avec leurs interfaces utilisateur natives. Ce didacticiel montre comment utiliser Xamarin pour créer une application Android qui utilise le stockage d’objets blob Azure."
+	pageTitle="Utilisation du stockage d’objets blob à partir de Xamarin | Microsoft Azure"
+	description="La bibliothèque cliente de stockage Azure pour Xamarin permet aux développeurs d’utiliser un code base C# partagé pour créer des applications iOS, Android et Windows Store avec leurs interfaces utilisateur natives. Ce didacticiel montre comment utiliser Xamarin pour créer une application qui utilise le stockage d’objets blob Azure."
 	services="storage"
 	documentationCenter="xamarin"
 	authors="micurd"
@@ -13,170 +13,208 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/26/2016"
+	ms.date="08/31/2016"
 	ms.author="micurd"/>
 
-# Utilisation du stockage d’objets blob à partir de Xamarin (version préliminaire)
+# Utilisation du stockage d’objets blob à partir de Xamarin
 
-[AZURE.INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)] <br/> [AZURE.INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
+[AZURE.INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)]
 
 ## Vue d'ensemble
 
-Xamarin permet aux développeurs d’utiliser un code base C# partagé pour créer des applications iOS, Android et Windows Store avec leurs interfaces utilisateur natives. La bibliothèque cliente de stockage Azure pour Xamarin est une bibliothèque en version préliminaire. Il convient de noter qu’elle est susceptible de faire l’objet de modifications.
-
-Ce didacticiel vous montre comment utiliser le stockage d’objets blob Azure avec une application Xamarin Android. Pour en savoir plus sur Azure Storage avant de vous plonger dans le code, consultez la section [Étapes suivantes](#next-steps) à la fin de ce document.
+Xamarin permet aux développeurs d’utiliser un code base C# partagé pour créer des applications iOS, Android et Windows Store avec leurs interfaces utilisateur natives. Ce didacticiel vous montre comment utiliser le stockage d’objets blob Azure avec une application Xamarin. Si vous souhaitez en savoir plus sur le stockage Azure, avant de vous plonger dans le code, consultez [Introduction à Microsoft Azure Storage](storage-introduction.md).
 
 [AZURE.INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
 
-## Création d’une signature d’accès partagé
-
-Lors du développement avec la bibliothèque cliente de stockage Azure pour Xamarin, vous ne pouvez pas authentifier l’accès à un compte de stockage Azure à l’aide des clés d’accès de votre compte. Cela permet d’empêcher la distribution de vos informations d’identification de compte à des utilisateurs qui risquent de télécharger votre application. Nous préférons encourager l’utilisation de signatures d’accès partagé (SAP), qui n’exposent pas les informations d’identification de votre compte.
-
-Dans ce guide, nous allons utiliser Azure PowerShell pour créer un jeton SAP. Nous allons ensuite créer une application Xamarin qui utilise la signature d’accès partagé créée.
-
-Tout d’abord, vous devez installer Azure PowerShell. Pour obtenir des instructions, consultez la rubrique [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md#Install).
-
-Ensuite, ouvrez Azure PowerShell et exécutez les commandes suivantes. N’oubliez pas de remplacer `ACCOUNT_NAME` et `ACCOUNT_KEY== ` par les informations d’identification de votre compte de stockage. Remplacez `CONTAINER_NAME` par un nom de votre choix.
-
-    PS C:\> $context = New-AzureStorageContext -StorageAccountName "ACCOUNT_NAME" -StorageAccountKey "ACCOUNT_KEY=="
-	PS C:\> New-AzureStorageContainer CONTAINER_NAME -Permission Off -Context $context
-	PS C:\> $now = Get-Date
-	PS C:\> New-AzureStorageContainerSASToken -Name CONTAINER_NAME -Permission rwdl -ExpiryTime $now.AddDays(1.0) -Context $context -FullUri
-
-L’URI de la signature d’accès partagé du nouveau conteneur doit être semblable à ce qui suit :
-
-	https://storageaccount.blob.core.windows.net/sascontainer?sv=2012-02-12&se=2013-04-13T00%3A12%3A08Z&sr=c&sp=wl&sig=t%2BbzU9%2B7ry4okULN9S0wst%2F8MCUhTjrHyV9rDNLSe8g%3Dsss
-
-La signature d’accès partagé que vous avez créée sur le conteneur est valide pour le jour suivant. La signature accorde des droits d’accès complets (*par exemple*, lecture, écriture, suppression et liste) aux objets blob du conteneur.
-
-Pour plus d’informations sur les signatures d’accès partagé, consultez la page [Signatures d’accès partagé : créer et utiliser une signature d’accès partagé avec Blob Storage](storage-dotnet-shared-access-signature-part-2.md).
+[AZURE.INCLUDE [storage-mobile-authentication-guidance](../../includes/storage-mobile-authentication-guidance.md)]
 
 ## Création d’une application Xamarin
 
-Pour ce didacticiel, nous allons créer l’application Xamarin dans Visual Studio. Procédez comme suit pour créer l’application :
+Pour la prise en main, nous allons créer une application qui cible Windows, iOS et Android. Cette application créera simplement un conteneur et chargera un objet blob dans ce conteneur. Nous utiliserons Visual Studio sous Windows pour la prise en main, mais les mêmes méthodes peuvent être appliquées lors de la création d’une application à l’aide de Xamarin Studio sous Mac OS.
 
-1. Exécutez le [programme d’installation de Visual Studio 2015](https://www.visualstudio.com/) en sélectionnant une installation **personnalisée** et en activant la case sous **Développement multiplateforme pour appareils mobiles > C#/.NET (Xamarin)**. Si vous avez déjà installé Visual Studio, téléchargez et installez [Xamarin](http://xamarin.com/platform) directement. Pour obtenir des instructions complètes pour Visual Studio et Xamarin, consultez [Configurer et installer](https://msdn.microsoft.com/library/mt613162.aspx) sur MSDN.
-3. Ouvrez Visual Studio et sélectionnez **Fichier > Nouveau > Projet > Android > Application vide (Android)**.
-4. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur votre projet, puis sélectionnez **Gérer les packages NuGet**. Ensuite, recherchez **Azure Storage** et installez la **version préliminaire d’Azure Storage 4.4.0**.
+Procédez comme suit pour créer votre application :
+
+1. Si vous ne l’avez pas encore fait, téléchargez et installez [Xamarin pour Visual Studio](https://www.xamarin.com/download).
+2. Ouvrez Visual Studio et créer une application vide (partagée native) : **Fichier > Nouveau > Projet > Multiplateforme > Application vide (partagée native)**.
+3. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur votre solution, puis sélectionnez **Gérer les packages NuGet pour la solution**. Recherchez **WindowsAzure.Storage** et installez la dernière version disponible sur tous les projets dans votre solution.
+4. Créez et exécutez votre projet.
 
 Vous devez maintenant avoir une application qui vous permet de cliquer sur un bouton et d’incrémenter un compteur.
 
-## Utilisez la signature d’accès partagé pour effectuer des opérations de conteneur.
+> [AZURE.NOTE] La bibliothèque cliente de stockage Azure pour Xamarin fonctionne également pour les applications Xamarin.Forms.
 
-Ensuite, ajoutez le code pour effectuer une série d’opérations de conteneur à l’aide de l’URI SAP que vous avez créé.
+## Créer un conteneur et télécharger un objet blob
 
-Tout d’abord, ajoutez les instructions **using** suivantes :
+Ensuite, vous allez ajouter du code à la classe partagée `MyClass.cs` qui crée un conteneur et charge un objet blob dans ce conteneur. `MyClass.cs` doit se présenter comme suit :
 
-	using System.IO;
-	using System.Text;
-	using System.Threading.Tasks;
+	using Microsoft.WindowsAzure.Storage;
 	using Microsoft.WindowsAzure.Storage.Blob;
+	using System.Threading.Tasks;
 
-
-Ensuite, ajoutez une ligne à votre jeton SAP. Remplacez la chaîne `"SAS_URI"` par l’URI SAP que vous avez créé dans Azure PowerShell. Ajoutez ensuite une ligne pour un appel à la méthode `UseContainerSAS` que nous allons créer ci-dessous. Notez que le mot clé **async** a été ajouté avant le délégué.
-
-
-	public class MainActivity : Activity
+	namespace XamarinApp
 	{
-    	int count = 1;
-    	string sas = "SAS_URI";
-    	protected override void OnCreate(Bundle bundle)
-    	{
-        	base.OnCreate(bundle);
+		public class MyClass
+		{
+			public MyClass ()
+			{
+			}
 
-        	// Set our view from the "main" layout resource
-        	SetContentView(Resource.Layout.Main);
+		    public static async Task createContainerAndUpload()
+		    {
+		        // Retrieve storage account from connection string.
+		        CloudStorageAccount storageAccount = CloudStorageAccount.Parse("DefaultEndpointsProtocol=https;AccountName=your_account_name_here;AccountKey=your_account_key_here");
 
-        	// Get our button from the layout resource, and attach an event to it
-        	Button button = FindViewById<Button>(Resource.Id.MyButton);
+		        // Create the blob client.
+		        CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
-        	button.Click += async delegate	{
-             	button.Text = string.Format("{0} clicks!", count++);
-             	await UseContainerSAS(sas);
-         	};
-     }
+		        // Retrieve reference to a previously created container.
+		        CloudBlobContainer container = blobClient.GetContainerReference("mycontainer");
 
-Ajoutez la nouvelle méthode `UseContainerSAS` sous la méthode `OnCreate`.
+				// Create the container if it doesn't already exist.
+            	await container.CreateIfNotExistsAsync();
 
-	static async Task UseContainerSAS(string sas)
-	{
-    	//Try performing container operations with the SAS provided.
+		        // Retrieve reference to a blob named "myblob".
+		        CloudBlockBlob blockBlob = container.GetBlockBlobReference("myblob");
 
-    	//Return a reference to the container using the SAS URI.
-    	CloudBlobContainer container = new CloudBlobContainer(new Uri(sas));
-    	string date = DateTime.Now.ToString();
-    	try
-    	{
-        	//Write operation: write a new blob to the container.
-        	CloudBlockBlob blob = container.GetBlockBlobReference("sasblob_" + date + ".txt");
-
-        	string blobContent = "This blob was created with a shared access signature granting write permissions to the container. ";
-        	MemoryStream msWrite = new
-        	MemoryStream(Encoding.UTF8.GetBytes(blobContent));
-        	msWrite.Position = 0;
-        	using (msWrite)
-         	{
-             	await blob.UploadFromStreamAsync(msWrite);
-         	}
-         	Console.WriteLine("Write operation succeeded for SAS " + sas);
-         	Console.WriteLine();
-     	}
-     	catch (Exception e)
-     	{
-        	Console.WriteLine("Write operation failed for SAS " + sas);
-        	Console.WriteLine("Additional error information: " + e.Message);
-        	Console.WriteLine();
-     	}
-     	try
-     	{
-        	//Read operation: Get a reference to one of the blobs in the container and read it.
-        	CloudBlockBlob blob = container.GetBlockBlobReference("sasblob_” + date + “.txt");
-        	string data = await blob.DownloadTextAsync();
-
-        	Console.WriteLine("Read operation succeeded for SAS " + sas);
-        	Console.WriteLine("Blob contents: " + data);
-     	}
-     	catch (Exception e)
-     	{
-        	Console.WriteLine("Additional error information: " + e.Message);
-       		Console.WriteLine("Read operation failed for SAS " + sas);
-        	Console.WriteLine();
-     	}
-     	Console.WriteLine();
-     	try
-     	{
-        	//Delete operation: Delete a blob in the container.
-         	CloudBlockBlob blob = container.GetBlockBlobReference("sasblob_” + date + “.txt");
-         	await blob.DeleteAsync();
-
-         	Console.WriteLine("Delete operation succeeded for SAS " + sas);
-         	Console.WriteLine();
-     	}
-     	catch (Exception e)
-     	{
-        	Console.WriteLine("Delete operation failed for SAS " + sas);
-        	Console.WriteLine("Additional error information: " + e.Message);
-        	Console.WriteLine();
-     	}
+		        // Create the "myblob" blob with the text "Hello, world!"
+		        await blockBlob.UploadTextAsync("Hello, world!");
+		    }
+		}
 	}
+
+Veillez à remplacer « nom\_de\_votre\_compte\_ici » et « clé\_de\_votre\_compte\_ici » par le nom du compte et la clé de compte. Vous pouvez ensuite utiliser cette classe partagée dans votre application iOS, Android et Windows Phone. Vous pouvez simplement ajouter `MyClass.createContainerAndUpload()` à chaque projet. Par exemple :
+
+### XamarinApp.Droid > MainActivity.cs
+
+	using Android.App;
+	using Android.Widget;
+	using Android.OS;
+
+	namespace XamarinApp.Droid
+	{
+		[Activity (Label = "XamarinApp.Droid", MainLauncher = true, Icon = "@drawable/icon")]
+		public class MainActivity : Activity
+		{
+			int count = 1;
+
+			protected override async void OnCreate (Bundle bundle)
+			{
+				base.OnCreate (bundle);
+
+				// Set our view from the "main" layout resource
+				SetContentView (Resource.Layout.Main);
+
+				// Get our button from the layout resource,
+				// and attach an event to it
+				Button button = FindViewById<Button> (Resource.Id.myButton);
+
+				button.Click += delegate {
+					button.Text = string.Format ("{0} clicks!", count++);
+				};
+
+	      	  await MyClass.createContainerAndUpload();
+			}
+		}
+	}
+
+### XamarinApp.iOS > ViewController.cs
+
+	using System;
+	using UIKit;
+
+	namespace XamarinApp.iOS
+	{
+		public partial class ViewController : UIViewController
+		{
+			int count = 1;
+
+			public ViewController (IntPtr handle) : base (handle)
+			{
+			}
+
+			public override async void ViewDidLoad ()
+			{
+				base.ViewDidLoad ();
+				// Perform any additional setup after loading the view, typically from a nib.
+				Button.AccessibilityIdentifier = "myButton";
+				Button.TouchUpInside += delegate {
+					var title = string.Format ("{0} clicks!", count++);
+					Button.SetTitle (title, UIControlState.Normal);
+				};
+
+	            await MyClass.createContainerAndUpload();
+	    	}
+
+			public override void DidReceiveMemoryWarning ()
+			{
+				base.DidReceiveMemoryWarning ();
+				// Release any cached data, images, etc that aren't in use.
+			}
+		}
+	}
+
+### XamarinApp.WinPhone > MainPage.xaml > MainPage.xaml.cs
+
+	using Windows.UI.Xaml.Controls;
+	using Windows.UI.Xaml.Navigation;
+
+	// The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=391641
+
+	namespace XamarinApp.WinPhone
+	{
+	    /// <summary>
+	    /// An empty page that can be used on its own or navigated to within a Frame.
+	    /// </summary>
+	    public sealed partial class MainPage : Page
+	    {
+	        int count = 1;
+
+	        public MainPage()
+	        {
+	            this.InitializeComponent();
+
+	            this.NavigationCacheMode = NavigationCacheMode.Required;
+	        }
+
+	        /// <summary>
+	        /// Invoked when this page is about to be displayed in a Frame.
+	        /// </summary>
+	        /// <param name="e">Event data that describes how this page was reached.
+	        /// This parameter is typically used to configure the page.</param>
+	        protected override async void OnNavigatedTo(NavigationEventArgs e)
+	        {
+	            // TODO: Prepare page for display here.
+
+	            // TODO: If your application contains multiple pages, ensure that you are
+	            // handling the hardware Back button by registering for the
+	            // Windows.Phone.UI.Input.HardwareButtons.BackPressed event.
+	            // If you are using the NavigationHelper provided by some templates,
+	            // this event is handled for you.
+	            Button.Click += delegate {
+	                var title = string.Format("{0} clicks!", count++);
+	                Button.Content = title;
+	            };
+
+	            await MyClass.createContainerAndUpload();
+	        }
+	    }
+	}
+
 
 ## Exécution de l'application
 
-Vous pouvez maintenant exécuter cette application dans un émulateur ou un appareil Android.
+Vous pouvez maintenant exécuter cette application dans un émulateur Android ou Windows Phone. Vous pouvez également exécuter cette application dans un émulateur iOS, mais cette opération nécessite un ordinateur Mac. Pour des instructions spécifiques sur la façon de procéder, lisez la documentation sur la [connexion de Visual Studio à un Mac](https://developer.xamarin.com/guides/ios/getting_started/installation/windows/connecting-to-mac/)
 
-Bien que la prise en main se concentre sur Android, vous pouvez aussi utiliser la méthode `UseContainerSAS` dans vos applications iOS ou Windows Store. Xamarin permet également aux développeurs de créer des applications Windows Phone. Néanmoins, notre bibliothèque ne prend pas encore cela en charge.
+Une fois que vous exécutez votre application, elle crée le conteneur `mycontainer` dans votre compte de stockage. Il doit contenir l’objet blob, `myblob`, qui présente le texte, `Hello, world!`. Vous pouvez le vérifier à l’aide de [l’Explorateur de stockage Microsoft Azure](http://storageexplorer.com/).
 
 ## Étapes suivantes
 
-Dans ce didacticiel, vous avez appris à utiliser le stockage d’objets blob Azure avec une application Xamarin Android. En guise d’exercice supplémentaire, vous pouvez appliquer un modèle similaire afin de créer un jeton SAP pour une file d’attente ou table Azure.
-
-Pour en savoir plus sur les objets blob, les tables et les files d’attente, suivez les liens ci-après :
-
-- [Introduction à Microsoft Azure Storage](storage-introduction.md)
+Dans cette prise en main, vous avez appris à créer une application multiplateforme dans Xamarin qui utilise le stockage Azure. Cette prise en main est spécifiquement axée sur un seul scénario dans le stockage Blob. Toutefois, vous pouvez en faire beaucoup plus, non seulement le Stockage Blob, mais également avec Table, Fichier et Stockage File d’attente. Pour en savoir plus, voir les articles suivants :
 - [Prise en main du stockage d’objets blob Azure à l’aide de .NET](storage-dotnet-how-to-use-blobs.md)
 - [Prise en main d’Azure Table Storage à l’aide de .NET](storage-dotnet-how-to-use-tables.md)
 - [Prise en main d’Azure Queue Storage à l’aide de .NET](storage-dotnet-how-to-use-queues.md)
 - [Prise en main du stockage de fichiers Azure sur Windows](storage-dotnet-how-to-use-files.md)
-- [Transfert de données avec l’utilitaire de ligne de commande AzCopy](storage-use-azcopy.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+[AZURE.INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
+
+<!---HONumber=AcomDC_0907_2016-->

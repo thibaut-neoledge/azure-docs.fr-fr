@@ -35,11 +35,12 @@ Votre service doit définir au moins deux instances d’un rôle pour que le rô
 Cette rubrique décrit les informations suivantes sur les mises à jour Azure :
 
 -   [Modifications de service autorisées pendant une mise à jour](#AllowedChanges)
+-   [Déroulement d’une mise à niveau](#howanupgradeproceeds)
 -   [Restauration d’une mise à jour](#RollbackofanUpdate)
 -   [Lancement de plusieurs opérations de mutation sur un déploiement en cours](#multiplemutatingoperations)
 -   [Distribution des rôles entre domaines de mise à niveau](#distributiondfroles)
--   [Déroulement d’une mise à niveau](#howanupgradeproceeds)
 
+<a name="AllowedChanges"></a>
 ## Modifications de service autorisées pendant une mise à jour
 Le tableau suivant présente les modifications de service autorisées au cours d’une mise à jour :
 
@@ -72,6 +73,7 @@ Les éléments suivants ne sont pas pris en charge pendant une mise à jour :
 
 Si vous exécutez d’autres mises à jour de votre définition de service, comme la réduction des ressources de taille locale, vous devez exécuter une mise à jour de l’échange d’adresses IP virtuelles. Pour plus d’informations, consultez [Déploiement d’échange](https://msdn.microsoft.com/library/azure/ee460814.aspx).
 
+<a name="howanupgradeproceeds"></a>
 ## Déroulement d’une mise à niveau
 Vous pouvez décider si vous souhaitez mettre à jour tous les rôles de votre service ou un seul rôle de ce service. Dans les deux cas, toutes les instances de chaque rôle mis à niveau qui appartiennent au premier domaine de mise à niveau sont arrêtées, mises à niveau et remises en ligne. Une fois de retour en ligne, les instances du deuxième domaine de mise à niveau sont arrêtées, mises à niveau et remises en ligne. Un service cloud peut avoir au plus une mise à niveau active à la fois. La mise à niveau s’effectue toujours sur la dernière version du service cloud.
 
@@ -124,6 +126,7 @@ Pendant une mise à jour automatique, le contrôleur de structure Azure évalue 
 ### Délai de démarrage de l’instance de rôle
 Le contrôleur de structure attend 30 minutes pour que chaque instance de rôle atteigne un état démarré. Si la durée d'expiration est écoulée, le contrôleur de structure continuera à remonter jusqu’à l'instance de rôle suivante.
 
+<a name="RollbackofanUpdate"></a>
 ## Restauration d’une mise à jour
 Azure offre une flexibilité dans la gestion des services pendant la mise à jour en vous permettant de lancer des opérations supplémentaires sur un service, une fois la demande de mise à jour initiale acceptée par le contrôleur d’architecture Azure. Une restauration ne peut être effectuée que lorsqu’une mise à jour (modification de configuration) ou une mise à niveau se trouve dans l’état **en cours** du déploiement. Une mise à jour ou mise à niveau est considérée comme en cours tant qu’il existe au moins une instance du service qui n’a pas encore été mise à jour vers la nouvelle version. Pour vérifier si une restauration est autorisée, contrôlez si la valeur de l’indicateur RollbackAllowed retournée par les opérations d’[obtention du déploiement](https://msdn.microsoft.com/library/azure/ee460804.aspx) et d’[obtention des propriétés de service cloud](https://msdn.microsoft.com/library/azure/ee460806.aspx), est bien définie sur true.
 
@@ -132,7 +135,7 @@ Azure offre une flexibilité dans la gestion des services pendant la mise à jou
 Le rétablissement d’une mise à jour en cours a les effets suivants sur le déploiement :
 
 -   Toutes les instances de rôle n’ayant pas encore été mises à jour ou à niveau vers la nouvelle version ne sont ni mises à jour ni mises à niveau, car les instances s’exécutent déjà sur la version cible du service.
--   Toutes les instances de rôle déjà mises à jour ou à niveau vers la nouvelle version du fichier de package de service (\*.cspkg) ou le fichier de configuration (\*.cscfg) (ou les deux fichiers) sont rétablis vers la version précédant la mise à niveau de ces fichiers.
+-   Toutes les instances de rôle déjà mises à jour ou à niveau vers la nouvelle version du fichier de package de service (*.cspkg) ou le fichier de configuration (*.cscfg) (ou les deux fichiers) sont rétablis vers la version précédant la mise à niveau de ces fichiers.
 
 Cette fonction est assurée par les fonctionnalités suivantes :
 
@@ -153,6 +156,7 @@ Exemple de la situation où le déploiement d’une mise à jour peut être util
 
 Lors du déploiement de la mise à niveau, vous appelez [Mettre à niveau un déploiement](https://msdn.microsoft.com/library/azure/ee460793.aspx) en mode manuel et commencez à parcourir les domaines de mise à niveau. Si à un moment donné, lorsque vous surveillez la mise à niveau, vous notez que des instances de rôle dans les premiers domaines de mise à niveau ne répondent plus, vous pouvez appeler une opération de [restauration de mise à jour ou de mise à niveau](https://msdn.microsoft.com/library/azure/hh403977.aspx) sur le déploiement, ce qui laissera les instances non mises à jour intactes, et restaurera les instances ayant été mises à niveau vers le package et la configuration de service à leur niveau antérieur.
 
+<a name="multiplemutatingoperations"></a>
 ## Lancement de plusieurs opérations de mutation sur un déploiement en cours
 Dans certains cas, vous pouvez souhaiter initier plusieurs opérations de mutation simultanées sur un déploiement en cours. Par exemple, vous pouvez effectuer une mise à jour du service et, pendant la propagation de la mise à jour sur votre service, vous pouvez apporter des modifications, par exemple, restaurer la mise à jour, en appliquer une autre, ou encore supprimer le déploiement. Cela peut s’avérer nécessaire si une mise à niveau de service contient un code bogué qui entraîne des échecs répétés d’une instance de rôle mise à niveau. Dans ce cas, le contrôleur de structure Azure ne sera pas en mesure de faire avancer l’application de cette mise à jour, parce qu’un nombre insuffisant d’instances du domaine mis à niveau sont dans un bon état. Cet état est appelé *Déploiement bloqué*. Vous pouvez débloquer le déploiement en restaurant la mise à jour ou en appliquant une nouvelle mise à jour par dessus celle qui a échoué.
 
@@ -166,6 +170,7 @@ Deux opérations, [Obtenir le déploiement](https://msdn.microsoft.com/library/a
 
 Pour appeler la version de ces méthodes qui renvoie un indicateur Verrouillé, vous devez définir un en-tête de requête « x-ms-version: 2011-10-01 » ou ultérieure. Pour plus d’informations sur les en-têtes de contrôle de version, consultez [Contrôle de version de gestion de service](https://msdn.microsoft.com/library/azure/gg592580.aspx).
 
+<a name="distributiondfroles"></a>
 ## Distribution des rôles entre domaines de mise à niveau
 Azure répartit les instances d’un rôle de manière égale sur un certain nombre de domaines de mise à niveau, qui peuvent être configurés dans le cadre du fichier de définition de service (.csdef). Le nombre maximal de domaines de mise à niveau est de 20, et le nombre par défaut est 5. Pour plus d’informations sur la façon de modifier le fichier de définition de service, consultez [Schéma de définition du service Azure (fichier .csdef)](cloud-services-model-and-package.md#csdef).
 
@@ -182,4 +187,4 @@ Le diagramme suivant montre comment un service contenant deux rôles qui sont di
 ## Étapes suivantes
 [Gestion de Cloud Services](cloud-services-how-to-manage.md) [Surveiller Cloud Services](cloud-services-how-to-monitor.md) [Configurer Cloud Services](cloud-services-how-to-configure.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Traiter les messages des appareils vers le cloud IoT Hub | Microsoft Azure"
+	pageTitle="Traiter les messages des appareils vers le cloud IoT Hub (.Net) | Microsoft Azure"
 	description="Suivez ce didacticiel pour découvrir des modèles utiles pour traiter les messages des appareils vers le cloud IoT Hub."
 	services="iot-hub"
 	documentationCenter=".net"
@@ -16,7 +16,9 @@
      ms.date="07/19/2016"
      ms.author="dobett"/>
 
-# Didacticiel : traiter les messages des appareils vers le cloud IoT Hub
+# Didacticiel : traiter les messages des appareils vers le cloud IoT Hub à l’aide de .Net
+
+[AZURE.INCLUDE [iot-hub-selector-process-d2c](../../includes/iot-hub-selector-process-d2c.md)]
 
 ## Introduction
 
@@ -24,7 +26,7 @@ Azure IoT Hub est un service entièrement géré qui autorise des communications
 
 Ce didacticiel s’appuie sur le code illustré dans le didacticiel [Prise en main d’IoT Hub] et décrit deux modèles évolutifs que vous pouvez utiliser pour le traitement des messages de l’appareil vers le cloud :
 
-- Le stockage fiable des messages envoyés de l’appareil vers le cloud dans le [stockage d’objets blob Azure]. Un scénario très courant est l’analyse de *chemin à froid*, dans laquelle vous stockez les données de télémétrie dans des objets Blob qui sont ensuite utilisés comme entrée dans les processus d’analyse. Ces processus peuvent être pilotés par des outils tels que [Azure Data Factory] ou la pile [HDInsight (Hadoop)].
+- Le stockage fiable des messages envoyés de l’appareil vers le cloud dans le [stockage d’objets blob Azure]. Un scénario courant est l’analyse de *chemin à froid*, dans laquelle vous stockez les données de télémétrie dans des objets Blob qui sont ensuite utilisés comme entrée dans les processus d’analyse. Ces processus peuvent être pilotés par des outils tels que [Azure Data Factory] ou la pile [HDInsight (Hadoop)].
 
 - Le traitement fiable des messages *interactifs* des appareils vers le cloud. Les messages envoyés de l’appareil vers le cloud sont considérés comme interactifs lorsqu’ils agissent comme déclencheurs immédiats d’un ensemble d’actions sur le système principal de l’application. Par exemple, un appareil peut envoyer un message d’alerte qui déclenche l’insertion d’un ticket dans un système CRM. Par opposition, les messages de *point de données* sont simplement chargés dans un moteur d’analyse. Par exemple, les données de télémétrie de température d’un appareil qui doivent être enregistrées pour analyse ultérieure constituent un message de point de données.
 
@@ -37,17 +39,17 @@ Service Bus permet d’assurer un traitement fiable des messages interactifs, ca
 
 > [AZURE.NOTE] Une instance **EventProcessorHost** ne constitue qu’une seule façon de traiter les messages interactifs. Les autres options incluent [Azure Service Fabric][lnk-service-fabric] et [Azure Stream Analytics][lnk-stream-analytics].
 
-À la fin de ce didacticiel, vous exécuterez trois applications de console Windows :
+À la fin de ce didacticiel, vous exécutez trois applications de console Windows :
 
 * **SimulatedDevice**, une version modifiée de l’application créée dans le didacticiel [Prise en main de IoT Hub] qui envoie des messages de point de données des appareils vers le cloud chaque seconde et des messages interactifs des appareils vers le cloud toutes les 10 secondes. Cette application utilise le protocole AMQPS pour communiquer avec IoT Hub.
 * **ProcessDeviceToCloudMessages** utilise la classe [EventProcessorHost] pour récupérer des messages à partir du point de terminaison compatible avec Event Hubs. L’instance stocke ensuite les messages de point de données dans le stockage d’objets Blob Azure de façon fiable, puis transfère les messages interactifs à une file d’attente Service Bus.
 * **ProcessD2CInteractiveMessages** extrait les messages interactifs de la file d’attente Service Bus.
 
-> [AZURE.NOTE] IoT Hub offre la prise en charge de Kit de développement logiciel (SDK) de plusieurs plateformes d’appareils et de plusieurs langages (notamment C, Java et JavaScript). Pour obtenir des instructions étape par étape expliquant comment remplacer l’appareil simulé de ce didacticiel par un appareil physique et comment connecter en général vos appareils à IoT Hub, consultez le [Centre de développement Azure IoT].
+> [AZURE.NOTE] IoT Hub offre la prise en charge de Kit de développement logiciel (SDK) de plusieurs plateformes d’appareils et de plusieurs langages (notamment C, Java et JavaScript). Pour obtenir des instructions expliquant comment remplacer l’appareil simulé de ce didacticiel par un appareil physique et comment connecter vos appareils à IoT Hub, consultez le [Centre de développement Azure IoT].
 
 Ce didacticiel s’applique directement à d’autres manières de consommer des messages compatibles avec Event Hubs, par exemple des projets [HDInsight (Hadoop)]. Pour plus d’informations, consultez le [Guide du développeur Azure IoT Hub - Appareil vers cloud].
 
-Pour réaliser ce didacticiel, vous aurez besoin des éléments suivants :
+Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
 + Microsoft Visual Studio 2015.
 
@@ -58,7 +60,7 @@ Vous devez avoir une connaissance de base des services [Azure Storage] et [Azure
 
 ## Envoi de messages interactifs depuis un appareil simulé
 
-Dans cette section, vous allez modifier l’application de l’appareil simulé que vous avez créée dans le didacticiel [Prise en main d’Azure IoT Hub] pour envoyer des messages appareil-à-cloud interactifs au concentrateur IoT.
+Dans cette section, vous modifiez l’application de l’appareil simulé que vous avez créée dans le didacticiel [Prise en main d’IoT Hub] pour envoyer des messages appareil-à-cloud interactifs au IoT Hub.
 
 1. Dans Visual Studio, dans le projet **SimulatedDevice**, ajoutez la méthode suivante à la classe **Program**.
 
@@ -80,9 +82,9 @@ Dans cette section, vous allez modifier l’application de l’appareil simulé 
     }
     ```
 
-    Cette méthode est très similaire à la méthode **SendDeviceToCloudMessagesAsync** dans le projet **SimulatedDevice**. Seules différences : à présent, vous définissez la propriété système **MessageId** et une propriété utilisateur appelée **messageType**. Le code assigne un identificateur global unique (GUID) à la propriété **MessageId**. Service Bus peut l’utiliser pour dédupliquer les messages qu’il reçoit. L’exemple utilise la propriété **messageType** pour distinguer les messages interactifs et les messages de point de données. L’application transmet ces informations dans les propriétés du message, plutôt que dans le corps du message, afin que le processeur d’événements n’ait pas besoin de désérialiser le message pour le router.
+    Cette méthode est similaire à la méthode **SendDeviceToCloudMessagesAsync** dans le projet **SimulatedDevice**. Seules différences : à présent, vous définissez la propriété système **MessageId** et une propriété utilisateur appelée **messageType**. Le code assigne un identificateur global unique (GUID) à la propriété **MessageId**. Service Bus peut l’utiliser pour dédupliquer les messages qu’il reçoit. L’exemple utilise la propriété **messageType** pour distinguer les messages interactifs et les messages de point de données. L’application transmet ces informations dans les propriétés du message, plutôt que dans le corps du message, afin que le processeur d’événements n’ait pas besoin de désérialiser le message pour le router.
 
-    > [AZURE.NOTE] Il est important de créer le **MessageId** utilisé pour dédupliquer les messages interactifs dans le code de l’appareil. Les communications réseau intermittentes ou d’autres défaillances pourrait entraîner une transmission multiple du même message à partir de cet appareil. Vous pouvez également utiliser un ID de message sémantique, comme un hachage des champs de données de message pertinents, à la place d’un GUID.
+    > [AZURE.NOTE] Il est important de créer le **MessageId** utilisé pour dédupliquer les messages interactifs dans le code de l’appareil. Les communications réseau intermittentes ou d’autres défaillances pourraient entraîner une retransmission multiple du même message à partir de cet appareil. Vous pouvez également utiliser un ID de message sémantique, comme un hachage des champs de données de message pertinents, à la place d’un GUID.
 
 2. Ajoutez la méthode suivante à la méthode **Main** juste avant la ligne `Console.ReadLine()` :
 
@@ -90,28 +92,28 @@ Dans cette section, vous allez modifier l’application de l’appareil simulé 
     SendDeviceToCloudInteractiveMessagesAsync();
     ````
 
-    > [AZURE.NOTE] Par souci de simplicité, ce didacticiel n’implémente aucune stratégie de nouvelle tentative. Dans le code de production, vous devez mettre en œuvre des stratégies de nouvelle tentative (par exemple, une interruption exponentielle), comme indiqué dans l’article MSDN [Transient Fault Handling] \(Gestion des erreurs temporaires).
+    > [AZURE.NOTE] Par souci de simplicité, ce didacticiel n’implémente aucune stratégie de nouvelle tentative. Dans le code de production, vous devez mettre en œuvre des stratégies de nouvelle tentative (par exemple, une interruption exponentielle), comme indiqué dans l’article MSDN [Transient Fault Handling] (Gestion des erreurs temporaires).
 
 ## Traitement des messages appareil-à-cloud
 
-Dans cette section, vous allez créer une application de console Windows qui traite les messages appareil-à-cloud à partir d’IoT Hub. IoT Hub expose un point de terminaison compatible avec [Event Hubs] pour permettre à une application de lire les messages appareil-à-cloud. Ce didacticiel utilise la classe [EventProcessorHost] pour traiter ces messages dans une application de console. Pour plus d’informations sur la façon de traiter les messages à partir d’Event Hubs, consultez le didacticiel [Prise en main des hubs d’événements].
+Dans cette section, vous créez une application de console Windows qui traite les messages appareil-à-cloud à partir d’IoT Hub. IoT Hub expose un point de terminaison compatible avec [Event Hubs] pour permettre à une application de lire les messages appareil-à-cloud. Ce didacticiel utilise la classe [EventProcessorHost] pour traiter ces messages dans une application de console. Pour plus d’informations sur la façon de traiter les messages à partir d’Event Hubs, consultez le didacticiel [Prise en main des hubs d’événements].
 
-Le défi principal auquel vous êtes confronté lors de l’implémentation d’un stockage fiable des messages de point de données ou du transfert des messages interactifs, est de faire en sorte que le traitement des événements Event Hubs s’appuie sur le consommateur de message pour contrôler la progression. En outre, pour atteindre un débit élevé, lors de la lecture à partir d’Event Hubs, vous devez effectuer les contrôles par grands lots, créant ainsi une possibilité de traitement en double pour un grand nombre de messages en cas d’erreur où vous devriez revenir au point de contrôle précédent. Dans ce didacticiel, vous verrez comment synchroniser des écritures de stockage Azure et des fenêtres de déduplication Service Bus avec les points de contrôle **EventProcessorHost**.
+Le défi auquel vous êtes confronté lors de l’implémentation d’un stockage fiable des messages de point de données ou du transfert des messages interactifs, est que le traitement des événements s’appuie sur le consommateur de message pour contrôler la progression. En outre, pour atteindre un débit élevé, lors de la lecture à partir d’Event Hubs, vous devez effectuer les contrôles par grands lots, créant ainsi une possibilité de traitement en double pour un grand nombre de messages en cas d’erreur où vous devriez revenir au point de contrôle précédent. Dans ce didacticiel, vous verrez comment synchroniser des écritures de stockage Azure et des fenêtres de déduplication Service Bus avec les points de contrôle **EventProcessorHost**.
 
-Pour écrire des messages dans le stockage Azure de manière fiable, l’exemple utilise la fonctionnalité de validation individuelle des blocs des [objets blob de blocs][Azure Block Blobs]. Le processeur d’événements accumule les messages dans la mémoire, jusqu’au moment du contrôle, c’est-à-dire une fois que la mémoire tampon accumulée de messages dépasse la taille de bloc maximale de 4 Mo, ou après écoulement de la fenêtre de temps de déduplication Service Bus. Ensuite, avant d’effectuer le contrôle, le code valide un nouveau bloc dans l’objet blob.
+Pour écrire des messages dans le stockage Azure de manière fiable, l’exemple utilise la fonctionnalité de validation individuelle des blocs des [objets blob de blocs][Azure Block Blobs]. Le processeur d’événements accumule les messages en mémoire jusqu'à ce qu’il soit temps de fournir un point de contrôle. Par exemple, une fois que la mémoire tampon de messages accumulés atteint la taille de bloc maximale de 4 Mo, ou après le délai d’expiration de la déduplication Service Bus. Ensuite, avant d’effectuer le contrôle, le code valide un nouveau bloc dans l’objet blob.
 
-Le processeur d’événements utilise les décalages des messages des hubs d’événements comme ID de bloc. Cela lui permet d’effectuer une vérification de la déduplication avant de valider le nouveau bloc dans le stockage, en tenant compte d’un possible incident entre un bloc et le point de contrôle.
+Le processeur d’événements utilise les décalages des messages des hubs d’événements comme ID de bloc. Ce mécanisme permet au processeur d’événements d’effectuer une vérification de la déduplication avant de valider le nouveau bloc dans le stockage, en tenant compte d’un possible incident entre un bloc et le point de contrôle.
 
 > [AZURE.NOTE] Ce didacticiel utilise un même compte de stockage pour enregistrer tous les messages récupérés d’IoT Hub. Pour décider si vous avez besoin d’utiliser plusieurs comptes Azure Storage dans votre solution, consultez [Objectifs de performance et évolutivité d’Azure Storage].
 
-L’application utilise la fonctionnalité de déduplication de Service Bus afin d’éviter les doublons lorsqu’elle traite les messages interactifs. L’appareil simulé affecte à chaque message interactif un **MessageId** unique. Service Bus peut ainsi garantir que la fenêtre de temps de déduplication spécifiée ne remettra jamais deux messages possédant le même **MessageId** aux récepteurs. Cette déduplication, conjointement avec la sémantique d’achèvement par message fournie par les files d’attente Service Bus, facilite le traitement fiable des messages interactifs.
+L’application utilise la fonctionnalité de déduplication de Service Bus afin d’éviter les doublons lorsqu’elle traite les messages interactifs. L’appareil simulé affecte à chaque message interactif un **MessageId** unique. Ces ID permettent à Service Bus de garantir que la fenêtre de temps de déduplication spécifiée ne remettra jamais deux messages possédant le même **MessageId** aux récepteurs. Cette déduplication, conjointement avec la sémantique d’achèvement par message fournie par les files d’attente Service Bus, facilite le traitement fiable des messages interactifs.
 
-Pour vous assurer qu’aucun message n’est renvoyé en dehors de la fenêtre de déduplication, le code synchronise le mécanisme de point de contrôle **EventProcessorHost** avec la fenêtre de déduplication de la file d’attente Service Bus. Pour cela, vous devez forcer un point de contrôle au moins une fois par écoulement de fenêtre de déduplication (une heure dans ce didacticiel).
+Pour vous assurer qu’aucun message n’est renvoyé en dehors de la fenêtre de déduplication, le code synchronise le mécanisme de point de contrôle **EventProcessorHost** avec la fenêtre de déduplication de la file d’attente Service Bus. Pour cette synchronisation, vous devez forcer un point de contrôle au moins une fois par écoulement de fenêtre de déduplication (une heure dans ce didacticiel).
 
 > [AZURE.NOTE] Ce didacticiel utilise une file d’attente Service Bus partitionnée unique pour traiter tous les messages interactifs récupérés d’IoT Hub. Pour plus d’informations sur l’utilisation des files d’attente Service Bus pour répondre aux exigences d’évolutivité de votre solution, consultez la documentation [Azure Service Bus].
 
 ### Approvisionner un compte Azure Storage et une file d’attente Service Bus
-Pour pouvoir utiliser la classe [EventProcessorHost], vous devez disposer d’un compte Azure Storage pour permettre à l’**EventProcessorHost** d’enregistrer les informations de point de contrôle. Vous pouvez utiliser un compte de stockage existant ou suivre les instructions figurant dans [À propos des comptes de stockage Azure] pour en créer un. Notez la chaîne de connexion du compte de stockage.
+Pour utiliser la classe [EventProcessorHost], vous devez disposer d’un compte Azure Storage pour permettre à **l’EventProcessorHost** d’enregistrer les informations de point de contrôle. Vous pouvez utiliser un compte de stockage existant ou suivre les instructions figurant dans [À propos des comptes de stockage Azure] pour en créer un. Notez la chaîne de connexion du compte de stockage.
 
 > [AZURE.NOTE] Lorsque vous copiez et collez la chaîne de connexion du compte de stockage, assurez-vous que la chaîne de connexion ne contient aucun espace.
 
@@ -294,11 +296,11 @@ Vous avez également besoin d’une file d’attente Service Bus pour permettre 
 
     La méthode **OpenAsync** initialise la variable **currentBlockInitOffset** qui suit le décalage actuel du premier message lu par ce processeur d’événements. N’oubliez pas : chaque processeur est chargé d’une partition unique.
 
-    La méthode **ProcessEventsAsync** reçoit un lot de messages d’IoT Hub et les traite comme suit : elle envoie des messages interactifs à la file d’attente Service Bus et ajoute les messages de point de données à la mémoire tampon appelée **toAppend**. Si la mémoire tampon atteint la limite de bloc de 4 Mo ou si les fenêtres de temps de déduplication Service Bus se sont écoulées depuis le dernier point de contrôle (une heure dans ce didacticiel), un point de contrôle est déclenché.
+    La méthode **ProcessEventsAsync** reçoit un lot de messages d’IoT Hub et les traite comme suit : elle envoie des messages interactifs à la file d’attente Service Bus et ajoute les messages de point de données à la mémoire tampon appelée **toAppend**. Si la mémoire tampon atteint la limite de 4 Mo ou si la fenêtre de temps de déduplication s’est écoulée (une heure depuis le dernier point de contrôle dans ce didacticiel), un point de contrôle est déclenché par l’application.
 
     La méthode **AppendAndCheckpoint** génère d’abord un ID de bloc pour le bloc à ajouter. Le stockage Azure requiert que tous les ID de bloc aient la même longueur, la méthode remplit donc le décalage avec des zéros non significatifs - `currentBlockInitOffset.ToString("0000000000000000000000000")`. Ensuite, si un bloc avec cet ID se trouve déjà dans l’objet blob, la méthode le remplace par le contenu actuel de la mémoire tampon.
 
-    > [AZURE.NOTE] Pour simplifier le code, ce didacticiel utilise un fichier blob unique par partition pour stocker les messages. La solution serait d’implémenter une substitution de fichier, en créant des fichiers supplémentaires lorsqu’ils atteignent une certaine taille (notez qu’un objet blob de blocs Azure est limité à 195 Go), ou après un certain laps de temps.
+    > [AZURE.NOTE] Pour simplifier le code, ce didacticiel utilise un fichier blob unique par partition pour stocker les messages. La solution serait d’implémenter une substitution de fichier, en créant des fichiers supplémentaires lorsqu’ils atteignent une certaine taille ou après un certain laps de temps. N’oubliez pas qu’un objet blob de blocs Azure peut contenir au maximum 195 Go de données.
 
 8. Dans la classe **Program**, ajoutez l’instruction **using** suivante en haut :
 
@@ -306,7 +308,7 @@ Vous avez également besoin d’une file d’attente Service Bus pour permettre 
     using Microsoft.ServiceBus.Messaging;
     ```
 
-9. Modifiez la méthode **Main** dans la classe **Program** comme indiqué ci-dessous. Remplacez la chaîne de connexion d’IoT Hub **iothubowner** (voir le didacticiel [Prise en main d’Azure IoT Hub]), la chaîne de connexion de stockage et la chaîne de connexion Service Bus par des autorisations **Send** pour la file d’attente nommée **d2ctutorial** :
+9. Modifiez la méthode **Main** dans la classe **Program** comme indiqué ci-dessous. Remplacez **{iot hub connection string}** par la chaîne de connexion **iothubowner** à partir du didacticiel [Prise en main d’IoT Hub]. Remplacez la chaîne de connexion de stockage par la chaîne de connexion que vous avez notée au début de cette section. Remplacez la chaîne de connexion Service Bus par les autorisations **Send** pour la file d’attente nommée **d2ctutorial** que vous avez notée au début de cette section :
 
     ```
     static void Main(string[] args)
@@ -330,9 +332,9 @@ Vous avez également besoin d’une file d’attente Service Bus pour permettre 
     > [AZURE.NOTE] Par souci de simplicité, ce didacticiel utilise une seule instance de la classe [EventProcessorHost]. Pour plus d’informations, consultez le [Guide de programmation de concentrateurs d’événements].
 
 ## Recevoir des messages interactifs
-Dans cette section, vous écrirez une application de console Windows qui reçoit les messages interactifs à partir de la file d’attente Service Bus. Pour plus d’informations sur la construction d’une solution à l’aide de Service Bus, voir [Application multiniveau .NET avec les files d’attente Azure Service Bus][].
+Dans cette section, vous écrivez une application de console Windows qui reçoit les messages interactifs à partir de la file d’attente Service Bus. Pour plus d’informations sur la construction d’une solution à l’aide de Service Bus, voir [Application multiniveau .NET avec les files d’attente Azure Service Bus][].
 
-1. Dans la solution Visual Studio actuelle, créez un projet Windows Visual C# à l’aide du modèle de projet d’**application de console**. Nommez le projet **ProcessD2CInteractiveMessages**.
+1. Dans la solution Visual Studio actuelle, créez un projet Windows Visual C# à l’aide du modèle de projet **d’application de console**. Nommez le projet **ProcessD2CInteractiveMessages**.
 
 2. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le projet **ProcessD2CInteractiveMessages**, puis cliquez sur **Gérer les packages NuGet**. Cela affiche la fenêtre **Gestionnaire de packages NuGet**.
 
@@ -390,7 +392,7 @@ Vous êtes maintenant prêt à exécuter les applications.
 
   ![Trois applications de console][50]
 
-> [AZURE.NOTE] Pour afficher les mises à jour dans votre fichier blob, vous devrez peut-être définir la constante **MAX\_BLOCK\_SIZE** dans la classe **StoreEventProcessor** sur une valeur inférieure, telle que **1024**. En effet, il faudra peut-être un certain temps pour atteindre la limite de taille de bloc avec les données envoyées par l’appareil simulé. Avec une plus petite taille de bloc, vous n’aurez pas attendre si longtemps avant la création et la mise à jour de l’objet blob. Sachez toutefois qu’une plus grande taille de bloc favorise l’évolutivité de l’application.
+> [AZURE.NOTE] Pour afficher les mises à jour dans votre fichier blob, vous devrez peut-être définir la constante **MAX\_BLOCK\_SIZE** dans la classe **StoreEventProcessor** sur une valeur inférieure, telle que **1024**. Cette modification est utile car il faut un certain temps pour atteindre la limite de taille de bloc avec les données envoyées par l’appareil simulé. Avec une plus petite taille de bloc, vous n’avez pas attendre si longtemps avant la création et la mise à jour de l’objet blob. Sachez toutefois qu’une plus grande taille de bloc favorise l’évolutivité de l’application.
 
 ## Étapes suivantes
 
@@ -425,7 +427,6 @@ Pour en savoir plus sur le développement de solutions avec IoT Hub, consultez l
 
 [Guide du développeur IoT Hub]: iot-hub-devguide.md
 [Prise en main de IoT Hub]: iot-hub-csharp-csharp-getstarted.md
-[Prise en main d’Azure IoT Hub]: iot-hub-csharp-csharp-getstarted.md
 [Prise en main d’IoT Hub]: iot-hub-csharp-csharp-getstarted.md
 [Prise en main d’IoT Hub]: iot-hub-csharp-csharp-getstarted.md
 [Centre de développement Azure IoT]: https://azure.microsoft.com/develop/iot
@@ -449,4 +450,4 @@ Pour en savoir plus sur le développement de solutions avec IoT Hub, consultez l
 [lnk-c2d]: iot-hub-csharp-csharp-process-d2c.md
 [lnk-suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

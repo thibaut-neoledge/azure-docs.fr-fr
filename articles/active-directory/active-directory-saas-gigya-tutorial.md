@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="06/09/2016" 
+    ms.date="09/01/2016" 
     ms.author="jeedes" />
 
 #Didacticiel : Intégration d’Azure Active Directory à Gigya
@@ -64,11 +64,11 @@ Cette section décrit l’activation de l’intégration d’application pour Gi
     ![Gigya](./media/active-directory-saas-gigya-tutorial/IC789527.png "Gigya")
 ##Configuration de l'authentification unique
   
-Cette section explique comment permettre aux utilisateurs de s’authentifier sur Gigya avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML. Dans le cadre de cette procédure, vous devez créer un fichier de certificat codé en base 64. Si cette procédure ne vous est pas familière, consultez [Conversion d’un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
+Cette section explique comment permettre aux utilisateurs de s’authentifier sur Gigya avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML. Dans le cadre de cette procédure, vous devez créer un fichier de certificat codé en base 64. Si cette procédure ne vous est pas familière, consultez [Comment convertir un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
 
 ###Pour configurer l’authentification unique, procédez comme suit :
 
-1.  Sur la page d’intégration d’applications **Gigya** du portail Azure Classic, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
+1.  Dans la page d’intégration d’applications **Gigya** du portail Azure Classic, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-gigya-tutorial/IC789528.png "Configurer l’authentification unique")
 
@@ -76,7 +76,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Configurer l’authentification unique](./media/active-directory-saas-gigya-tutorial/IC789529.png "Configurer l’authentification unique")
 
-3.  Dans la page **Configurer l’URL de l’application**, dans la zone de texte **URL de connexion à Gigya**, tapez votre URL selon le modèle suivant « *http://company.gigya.com*", puis cliquez sur **Suivant**.
+3.  Dans la page **Configurer l’URL de l’application**, dans la zone de texte **URL de connexion à Gigya**, tapez votre URL au format « **http://company.gigya.com*", puis cliquez sur **Suivant**.
 
     ![Configurer l’URL de l’application](./media/active-directory-saas-gigya-tutorial/IC789530.png "Configurer l’URL de l’application")
 
@@ -88,16 +88,16 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
 6.  Accédez à **Settings > SAML Login**, puis cliquez sur le bouton **Add**.
 
-    ![Connexion SAML](./media/active-directory-saas-gigya-tutorial/IC789532.png "Connexion SAML")
+    ![SAML Login](./media/active-directory-saas-gigya-tutorial/IC789532.png "Connexion SAML")
 
 7.  Dans la section **SAML Login**, procédez comme suit :
 
     ![Configuration SAML](./media/active-directory-saas-gigya-tutorial/IC789533.png "Configuration SAML")
 
     1.  Dans la zone de texte **Name**, tapez le nom de votre configuration.
-    2.  Sur la page **Configurer l’authentification unique sur Gigya** du portail Azure Classic, copiez la valeur **URL de l’émetteur**, puis collez-la dans la zone de texte **Issuer**.
-    3.  Dans la page **Configurer l’authentification unique sur Gigya** du portail Azure Classic, copiez la valeur **URL du service d’authentification unique**, puis collez-la dans la zone de texte **Single Sign-On Service URL**.
-    4.  Dans le portail Azure Classic, dans la page **Configurer l’authentification unique sur Gigya**, copiez la valeur **Format de l’identification du nom**, puis collez-la dans la zone de texte **Name ID Format**.
+    2.  Dans la page de boîte de dialogue **Configurer l’authentification unique sur Gigya** du portail Azure Classic, copiez la valeur **URL de l’émetteur**, puis collez-la dans la zone de texte **Issuer (Émetteur)**.
+    3.  Dans la page de boîte de dialogue **Configurer l’authentification unique sur Gigya** du portail Azure Classic, copiez la valeur **URL du service d’authentification unique**, puis collez-la dans la zone de texte **URL du service d’authentification unique**.
+    4.  Dans la page de boîte de dialogue **Configurer l’authentification unique sur Gigya** du portail Azure Classic, copiez la valeur **Format de l’identificateur du nom**, puis collez-la dans la zone de texte **Name ID Format** (Format d’ID de nom).
     5.  Créez un fichier **codé en base 64** à partir du certificat téléchargé.
         
 		>[AZURE.TIP]Pour plus d’informations, consultez [Comment convertir un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
@@ -139,7 +139,7 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
 1.  Dans le portail Azure Classic, créez un compte de test.
 
-2.  Dans la page d’intégration d’application **Gigya**, cliquez sur **Affecter des utilisateurs**.
+2.  Dans la page d’intégration d’applications **Gigya**, cliquez sur **Affecter des utilisateurs**.
 
     ![Affecter des utilisateurs](./media/active-directory-saas-gigya-tutorial/IC789537.png "Affecter des utilisateurs")
 
@@ -147,6 +147,6 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
     ![Oui](./media/active-directory-saas-gigya-tutorial/IC767830.png "Oui")
   
-Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
+Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d'informations sur le panneau d'accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0907_2016-->

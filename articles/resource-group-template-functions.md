@@ -631,34 +631,34 @@ L’exemple suivant supprime les espaces à partir de la valeur de paramètre in
 
 **uniqueString (baseString, ...)**
 
-Crée une chaîne unique basée sur les valeurs fournies en tant que paramètres.
+Crée une chaîne de hachage déterministe basée sur les valeurs fournies en tant que paramètres.
 
 | Paramètre | Requis | Description
 | :--------------------------------: | :------: | :----------
 | baseString | Oui | Chaîne utilisée dans la fonction de hachage pour créer une chaîne unique.
 | paramètres supplémentaires le cas échéant | Non | Vous pouvez ajouter autant de chaînes que nécessaire pour créer la valeur qui spécifie le niveau d’unicité.
 
-Cette fonction est utile lorsque vous avez besoin de créer un nom unique pour une ressource. Vous fournissez des valeurs de paramètre qui représentent le niveau d'unicité pour le résultat. Vous pouvez spécifier si le nom est unique pour votre abonnement, le groupe de ressources ou le déploiement.
+Cette fonction est utile lorsque vous avez besoin de créer un nom unique pour une ressource. Vous fournissez des valeurs de paramètre qui limitent l’étendue d’unicité pour le résultat. Vous pouvez spécifier si le nom est unique pour l’abonnement, le groupe de ressources ou le déploiement.
 
-La valeur renvoyée n’est pas une chaîne aléatoire, mais plutôt le résultat d’une fonction de hachage. La valeur renvoyée comprend 13 caractères. Son unicité globale n'est pas garantie Il se peut que vous souhaitiez associer un préfixe de votre convention d’affectation de noms à la valeur pour créer un nom plus facile à reconnaître. L’exemple suivant montre le format de la valeur renvoyée. Évidemment, la valeur réelle varie en fonction des paramètres fournis.
+La valeur renvoyée n’est pas une chaîne aléatoire, mais plutôt le résultat d’une fonction de hachage. La valeur renvoyée comprend 13 caractères. Elle n’est pas globalement unique. Il se peut que vous souhaitiez associer un préfixe de votre convention d’affectation de noms à la valeur pour créer un nom explicite. L’exemple suivant montre le format de la valeur renvoyée. Évidemment, la valeur réelle varie en fonction des paramètres fournis.
 
     tcvhiyu5h2o5o
 
 Les exemples suivants montrent comment utiliser uniqueString afin de créer une valeur unique pour des niveaux couramment utilisés.
 
-Unique au niveau de l’abonnement
+Unique limité à l’abonnement
 
     "[uniqueString(subscription().subscriptionId)]"
 
-Unique au niveau du groupe de ressources
+Unique limité au groupe de ressources
 
     "[uniqueString(resourceGroup().id)]"
 
-Unique au niveau du déploiement pour un groupe de ressources
+Unique limité au déploiement pour un groupe de ressources
 
     "[uniqueString(resourceGroup().id, deployment().name)]"
     
-L'exemple suivant montre comment créer un nom unique pour un compte de stockage basé sur votre groupe de ressources.
+L’exemple suivant montre comment créer un nom unique pour un compte de stockage basé sur votre groupe de ressources (à l’intérieur de ce groupe, le nom n’est pas unique s’il est construit de la même façon).
 
     "resources": [{ 
         "name": "[concat('contosostorage', uniqueString(resourceGroup().id))]", 
@@ -1217,4 +1217,4 @@ L’exemple suivant montre la fonction subscription appelée dans la section out
 - Pour effectuer une itération un nombre de fois spécifié pendant la création d'un type de ressource, consultez [Création de plusieurs instances de ressources dans Azure Resource Manager](resource-group-create-multiple.md).
 - Pour savoir comment déployer le modèle que vous avez créé, consultez [Déploiement d’une application avec un modèle Azure Resource Manager](resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0907_2016-->

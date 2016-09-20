@@ -28,9 +28,9 @@ Cet article vous montre comment télécharger votre propre image de machine virt
 
 Cet article suppose que vous disposez de :
 
-- **Un abonnement Azure** : si vous n’en avez pas, vous pouvez [ouvrir un compte Azure gratuitement](/pricing/free-trial/?WT.mc_id=A261C142F).
+- **Un abonnement Azure** : si vous n’en avez pas, vous pouvez [ouvrir un compte Azure gratuitement](/pricing/free-trial/?WT.mc_id=A261C142F).
 
-- **[Microsoft Azure PowerShell](../powershell-install-configure.md)** : le module Microsoft Azure PowerShell est installé et configuré de façon à utiliser votre abonnement.
+- **[Microsoft Azure PowerShell](../powershell-install-configure.md)** : le module Microsoft Azure PowerShell est installé et configuré de façon à utiliser votre abonnement.
 
 - **Un fichier .VHD** : système d’exploitation Windows pris en charge stocké dans un fichier .vhd et associé à une machine virtuelle. Vérifiez si les rôles serveur en cours d’exécution sur le disque dur virtuel sont pris en charge par Sysprep. Pour plus d’informations, consultez [Prise en charge de Sysprep pour les rôles serveur](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles).
 
@@ -95,7 +95,7 @@ Dans la fenêtre Azure PowerShell que vous avez utilisée à l’étape précéd
 
 ## Étape 4 : ajout de l’image à votre liste d’images personnalisées
 
-Utilisez l’applet de commande [Add-AzureVMImage]) (https://msdn.microsoft.com/library/mt589167.aspx) pour ajouter l’image à la liste de vos images personnalisées.
+Utilisez l’applet de commande [Add-AzureVMImage](https://msdn.microsoft.com/library/mt589167.aspx) pour ajouter l’image à la liste de vos images personnalisées.
 
 		Add-AzureVMImage -ImageName <ImageName> -MediaLocation "https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/<vhdName>.vhd" -OS "Windows"
 
@@ -104,4 +104,4 @@ Utilisez l’applet de commande [Add-AzureVMImage]) (https://msdn.microsoft.com/
 
 Vous pouvez à présent [créer une machine virtuelle personnalisée](virtual-machines-windows-classic-createportal.md) à l’aide de l’image que vous avez chargée.
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

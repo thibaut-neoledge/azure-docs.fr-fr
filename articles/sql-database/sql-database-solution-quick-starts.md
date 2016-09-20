@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="sqldb-quickstart"
-   ms.date="06/22/2016"
+   ms.date="09/06/2016"
    ms.author="carlrab"/>
 
 # Explorer les démarrages rapides de la solution de base de données SQL Azure
@@ -71,4 +71,4 @@ Cette [application de démonstration Contoso Clinique](https://github.com/Micros
 
 [Exploration des didacticiels relatifs à la base de données SQL Azure](sql-database-explore-tutorials.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0907_2016-->

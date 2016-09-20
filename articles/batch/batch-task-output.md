@@ -13,18 +13,18 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="big-compute"
-	ms.date="08/06/2016"
+	ms.date="09/07/2016"
 	ms.author="marsma" />
 
 # Conserver une sortie de tâche et de travail Azure Batch
 
 Les tâches que vous exécutez dans Batch produisent généralement une sortie qui doit être stockée, puis récupérée ultérieurement par d’autres tâches dans le travail et/ou l’application cliente qui a exécuté le travail. Cette sortie peut correspondre aux fichiers créés par le traitement des données d’entrée ou aux fichiers journaux associés à l’exécution des tâches. Cet article présente une bibliothèque de classes .NET qui utilise une technique basée sur des conventions pour conserver une sortie de tâche de ce type dans le stockage d’objets blob Azure, la rendant ainsi disponible même après que vous avez supprimé vos pools, travaux et nœuds de calcul.
 
-À l’aide de la technique présentée dans cet article, vous serez également en mesure d’afficher la sortie de votre tâche dans **Saved output files (Fichiers de sortie enregistrés)** et dans **Journaux enregistrés** dans le [portail Azure][portal].
+À l’aide de la technique présentée dans cet article, vous pouvez également afficher la sortie de votre tâche dans **Saved output files (Fichiers de sortie enregistrés)** et dans **Journaux enregistrés** dans le [portail Azure][portal].
 
 ![Sélecteurs Saved output files (Fichiers de sortie enregistrés) et Fichiers enregistrés dans le portail][1]
 
->[AZURE.NOTE] La méthode de stockage et de récupération des fichiers présentée ici fournit des fonctionnalités semblables à la façon dont **Batch Apps** (désormais obsolète) gérait les sorties des tâches.
+>[AZURE.NOTE] La bibliothèque de classes .NET [Azure Batch File Conventions][nuget_package] (Conventions de fichiers Azure Batch) abordée dans cet article est actuellement en version préliminaire. Certaines fonctionnalités présentées ici peuvent changer avant la mise à la disposition générale.
 
 ## Considérations relatives aux sorties des tâches
 
@@ -36,7 +36,7 @@ Lorsque vous concevez votre solution Batch, vous devez prendre en compte les sor
 
 * **Récupération de sortie** : vous pouvez récupérer une sortie de tâche directement à partir des nœuds de calcul de votre pool ou depuis Azure Storage si vos tâches conservent leur sortie. Pour récupérer la sortie d’une tâche directement à partir d’un nœud de calcul, vous avez besoin du nom de fichier et de son emplacement de sortie sur le nœud. Si vous conservez la sortie dans Azure Storage, les tâches en aval ou votre application cliente doivent disposer du chemin d’accès complet au fichier dans Azure Storage afin de le télécharger à l’aide du Kit de développement logiciel (SDK) Azure Storage.
 
-* **Affichage de sortie** : lorsque vous accédez à une tâche Batch dans le portail Azure et sélectionnez **Files on node (Fichiers sur le nœud)**, tous les fichiers associés à la tâche s’affichent, et pas seulement le ou les fichiers de sortie qui vous intéressent. De nouveau, les fichiers hébergés sur les nœuds de calcul sont disponibles uniquement lorsque le nœud existe, et seulement pendant la durée de rétention des fichiers que vous avez définie pour la tâche. Pour afficher la sortie de tâche que vous avez conservée dans Azure Storage, dans le portail ou dans une application comme [Azure Storage Explorer][storage_explorer], vous devez connaître son emplacement et accéder directement au fichier.
+* **Affichage de sortie** : lorsque vous accédez à une tâche Batch dans le portail Azure et sélectionnez **Files on node (Fichiers sur le nœud)**, tous les fichiers associés à la tâche s’affichent, et pas seulement les fichiers de sortie qui vous intéressent. De nouveau, les fichiers hébergés sur les nœuds de calcul sont disponibles uniquement lorsque le nœud existe, et seulement pendant la durée de rétention des fichiers que vous avez définie pour la tâche. Pour afficher la sortie de tâche que vous avez conservée dans Azure Storage, dans le portail ou dans une application comme [Azure Storage Explorer][storage_explorer], vous devez connaître son emplacement et accéder directement au fichier.
 
 ## Aide relative à la conservation des sorties
 
@@ -129,7 +129,7 @@ await jobOutputStorage.SaveAsync(JobOutputKind.JobOutput, "mymovie.mp4");
 await jobOutputStorage.SaveAsync(JobOutputKind.JobPreview, "mymovie_preview.mp4");
 ```
 
-Comme avec le paramètre TaskOutputKind pour les sorties des tâches, vous pouvez utiliser le paramètre [JobOutputKind][net_joboutputkind] pour catégoriser les fichiers conservés d’un travail. Cela vous permet d’interroger (répertorier) ultérieurement un type spécifique de sortie. Le paramètre JobOutputKind inclut les types de sortie et d’aperçu, et prend en charge la création de types personnalisés.
+Comme avec le paramètre TaskOutputKind pour les sorties des tâches, vous pouvez utiliser le paramètre [JobOutputKind][net_joboutputkind] pour catégoriser les fichiers conservés d’un travail. Ce paramètre vous permet d’interroger (répertorier) ultérieurement un type spécifique de sortie. Le paramètre JobOutputKind inclut les types de sortie et d’aperçu, et prend en charge la création de types personnalisés.
 
 ### Stocker les journaux de tâches
 
@@ -138,29 +138,39 @@ En plus de conserver un fichier dans un espace de stockage durable à l’issue 
 Dans l’extrait de code suivant, nous utilisons [SaveTrackedAsync][net_savetrackedasync] pour mettre à jour `stdout.txt` dans Azure Storage toutes les 15 secondes pendant l’exécution de la tâche :
 
 ```csharp
+TimeSpan stdoutFlushDelay = TimeSpan.FromSeconds(3);
 string logFilePath = Path.Combine(
 	Environment.GetEnvironmentVariable("AZ_BATCH_TASK_DIR"), "stdout.txt");
 
+// The primary task logic is wrapped in a using statement that sends updates to
+// the stdout.txt blob in Storage every 15 seconds while the task code runs.
 using (ITrackedSaveOperation stdout =
-		taskStorage.SaveTrackedAsync(
+		await taskStorage.SaveTrackedAsync(
 		TaskOutputKind.TaskLog,
 		logFilePath,
 		"stdout.txt",
 		TimeSpan.FromSeconds(15)))
 {
 	/* Code to process data and produce output file(s) */
+
+	// We are tracking the disk file to save our standard output, but the
+	// node agent may take up to 3 seconds to flush the stdout stream to
+	// disk. So give the file a moment to catch up.
+ 	await Task.Delay(stdoutFlushDelay);
 }
 ```
 
 `Code to process data and produce output file(s)` est simplement un espace réservé pour le code que votre tâche exécuterait normalement. Par exemple, vous pouvez insérer un code qui télécharge des données à partir d’Azure Storage et effectue sur celles-ci des transformations ou des calculs. La partie importante de cet extrait de code montre comment vous pouvez encapsuler un tel code dans un bloc `using` pour mettre régulièrement à jour un fichier avec [SaveTrackedAsync][net_savetrackedasync].
 
->[AZURE.NOTE] Lorsque vous activez le suivi des fichiers avec SaveTrackedAsync, seuls les *ajouts* apportés au fichier suivi sont conservés dans Azure Storage. Vous devez utiliser cette méthode uniquement pour le suivi des fichiers journaux sans rotation ou des autres fichiers qui leur sont ajoutés. Autrement dit, les données sont uniquement ajoutées à la fin du fichier lorsqu’il est mis à jour.
+Le `Task.Delay` est nécessaire à la fin de ce bloc `using` pour garantir que l’agent de nœud ait le temps de vider le contenu de la sortie standard vers le fichier stdout.txt sur le nœud (l’agent de nœud est un programme qui s’exécute sur chaque nœud dans le pool et fournit l’interface de commande et de contrôle entre le nœud et le service Batch). Sans ce délai, il est possible de manquer les dernières secondes de la sortie. Ce délai n’est pas forcément requis pour tous les fichiers.
+
+>[AZURE.NOTE] Lorsque vous activez le suivi des fichiers avec SaveTrackedAsync, seuls les *ajouts* apportés au fichier suivi sont conservés dans Azure Storage. Utilisez cette méthode uniquement pour le suivi des fichiers journaux sans rotation ou des autres fichiers qui leur sont ajoutés. Autrement dit, les données sont uniquement ajoutées à la fin du fichier lorsqu’il est mis à jour.
 
 ## Récupérer la sortie
 
 Lorsque vous récupérez votre sortie conservée à l’aide de la bibliothèque Azure Batch File Conventions, vous procédez d’une façon centrée sur les travaux et les tâches. Vous pouvez demander la sortie d’une tâche ou d’un travail donné sans avoir à connaître son chemin d’accès dans le stockage d’objets blob ni même son nom de fichier. Vous pouvez dire simplement, « Indiquez-moi les fichiers de sortie de la tâche *109* ».
 
-L’extrait de code indiqué ci-dessous itère toutes les tâches d’un travail, imprime des informations sur les fichiers de sortie de la tâche, puis télécharge les fichiers à partir d’Azure Storage.
+L’extrait de code suivant itère toutes les tâches d’un travail, imprime des informations sur les fichiers de sortie de la tâche, puis télécharge les fichiers à partir d’Azure Storage.
 
 ```csharp
 foreach (CloudTask task in myJob.ListTasks())
@@ -209,11 +219,11 @@ L’exemple de projet [PersistOutputs][github_persistoutputs] est l’un des [ex
 
 ### Déploiement des applications
 
-La fonctionnalité [packages d’application](batch-application-packages.md) de Batch permet de déployer et de contrôler facilement les versions des applications exécutées par vos tâches sur des nœuds de calcul.
+La fonctionnalité [packages d’application](batch-application-packages.md) de Batch est un moyen facile de déployer et contrôler les versions des applications exécutées par vos tâches sur des nœuds de calcul.
 
 ### Installation d’applications et de données intermédiaires
 
-Pour découvrir les différentes méthodes de préparation des nœuds à l’exécution de tâches, consultez l’article [Installing applications and staging data on Batch compute nodes][forum_post] \(Installation d’applications et de données intermédiaires sur les nœuds de calcul Batch) sur le forum Azure Batch. Rédigée par un membre de l’équipe Azure Batch, cette publication est une excellente introduction aux différentes façons d’obtenir des fichiers (y compris les applications et les données d’entrée de tâche) sur vos nœuds de calcul. Elle décrit également certains aspects à prendre en compte pour chaque méthode.
+Pour découvrir les différentes méthodes de préparation des nœuds à l’exécution de tâches, consultez l’article [Installing applications and staging data on Batch compute nodes][forum_post] (Installation d’applications et de données intermédiaires sur les nœuds de calcul Batch) sur le forum Azure Batch. Rédigée par un membre de l’équipe Azure Batch, cette publication est une excellente introduction aux différentes façons d’obtenir des fichiers (y compris les applications et les données d’entrée de tâche) sur vos nœuds de calcul. Elle décrit également certains aspects à prendre en compte pour chaque méthode.
 
 [forum_post]: https://social.msdn.microsoft.com/Forums/fr-FR/87b19671-1bdf-427a-972c-2af7e5ba82d9/installing-applications-and-staging-data-on-batch-compute-nodes?forum=azurebatch
 [github_file_conventions]: https://github.com/Azure/azure-sdk-for-net/tree/AutoRest/src/Batch/FileConventions
@@ -242,4 +252,4 @@ Pour découvrir les différentes méthodes de préparation des nœuds à l’ex�
 [1]: ./media/batch-task-output/task-output-01.png "Sélecteurs Saved output files (Fichiers de sortie enregistrés) et Fichiers enregistrés dans le portail"
 [2]: ./media/batch-task-output/task-output-02.png "Panneau des sorties des tâches dans le portail Azure"
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0907_2016-->

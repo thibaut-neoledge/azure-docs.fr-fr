@@ -31,7 +31,7 @@ Voyons d’abord comment la migration de données se produit entre deux banques 
 > [AZURE.NOTE] Pour en savoir plus sur les activités en général, consultez [Présentation des pipelines et des activités](data-factory-create-pipelines.md).
 
 ### Copie de données entre deux magasins de données cloud
-Lorsque les magasins de données source et récepteur (destination) se trouvent dans le cloud, l'activité de copie passe par les étapes suivantes pour copier/déplacer données de la source vers le récepteur. Le service qui alimente l’activité de copie :
+Lorsque les magasins de données source et récepteur se trouvent dans le cloud, l'activité de copie passe par les étapes suivantes pour copier des données de la source vers le récepteur. Le service qui alimente l’activité de copie :
 
 1. Lit les données du magasin de données source.
 2. Effectue la sérialisation/désérialisation, la compression/décompression, le mappage de colonnes et la conversion de type sont effectués par la passerelle de gestion des données. Il effectue ces opérations en se basant sur les configurations du jeu de données d’entrée, du jeu de données de sortie et de l’activité de copie.
@@ -43,7 +43,7 @@ Le service choisit automatiquement la région optimale pour effectuer le déplac
 
 
 ### Copie de données entre un magasin de données local et un magasin de données cloud
-Pour déplacer en toute sécurité des données entre des banques de données locales derrière votre pare-feu d’entreprise et une banque de données cloud, vous devez installer la passerelle de gestion des données sur votre ordinateur local. La passerelle de gestion des données est un agent qui permet le traitement et le déplacement de données hybrides. Vous pouvez l’installer sur la même machine que le magasin de données lui-même ou sur une machine distincte ayant accès au magasin de données.
+Pour déplacer en toute sécurité des données entre des banques de données locales et une banque de données cloud, installez la passerelle de gestion des données sur votre ordinateur local. La passerelle de gestion des données est un agent qui permet le traitement et le déplacement de données hybrides. Vous pouvez l’installer sur la même machine que le magasin de données lui-même ou sur une machine distincte ayant accès au magasin de données.
 
 Dans ce scénario, la passerelle de gestion des données effectue la sérialisation/désérialisation, la compression/décompression, le mappage de colonnes et la conversion de type sont effectués par la passerelle de gestion des données. Les données ne transitent pas via le service Azure Data Factory. Au lieu de cela, la passerelle de gestion des données les écrit directement dans le magasin de destination.
 
@@ -65,7 +65,7 @@ Autres | [Salesforce](data-factory-salesforce-connector.md)<br/> [ODBC génériq
 
 > [AZURE.NOTE] Les banques de données signalées par un astérisque (*) peuvent être locales ou résider sur une instance Azure IaaS. Elles nécessitent que vous installiez une [passerelle de gestion des données](data-factory-data-management-gateway.md) sur un ordinateur local ou Azure IaaS.
 
-Si vous devez déplacer des données vers ou à partir d’un magasin de données qui n’est pas pris en charge par l’activité de copie, utilisez **l’activité personnalisée** dans Data Factory avec votre propre logique de copie/déplacement des données. Pour plus d’informations sur la création et l’utilisation d’une activité personnalisée, consultez [Utilisation des activités personnalisées dans un pipeline Azure Data Factory](data-factory-use-custom-activities.md).
+Si vous devez déplacer des données vers ou à partir d’un magasin de données qui n’est pas pris en charge par l’activité de copie, utilisez une **activité personnalisée** dans Data Factory avec votre propre logique de copie/déplacement des données. Pour plus d’informations sur la création et l’utilisation d’une activité personnalisée, consultez [Utilisation des activités personnalisées dans un pipeline Azure Data Factory](data-factory-use-custom-activities.md).
 
 ### Formats de fichiers pris en charge
 Vous pouvez utiliser l’activité de copie pour copier des fichiers tels quels entre deux banques de données basées sur des fichiers comme un objet blob Azure, un système de fichiers et le système de fichiers HDFS. Pour ce faire, vous pouvez ignorer la [section format](data-factory-create-datasets.md) dans les définitions des jeux de données d’entrée et de sortie. Les données sont copiées efficacement, sans sérialisation/désérialisation.
@@ -79,17 +79,19 @@ L’activité de copie permet également de lire et d’écrire dans les fichier
 
 
 ## <a name="global"></a>Déplacement des données disponible globalement
-Même si Azure Data Factory est en soi disponible uniquement dans les régions États-Unis de l’Ouest, États-Unis de l’Est et Europe du Nord, le service alimentant l’activité de copie est disponible dans le monde entier, dans les régions et zones géographiques suivantes. La topologie globalement disponible garantit le déplacement efficace des données en évitant généralement les sauts entre régions. Consultez la section [Services par région](https://azure.microsoft.com/regions/#services) pour connaître la disponibilité de Data Factory et du déplacement des données dans une région.
+Azure Data Factory est disponible uniquement dans les régions Europe du Nord, États-Unis de l'Est et États-Unis de l'Ouest. Cependant, le service proposant l’activité de copie est disponible globalement dans les régions et zones géographiques suivantes. La topologie globalement disponible garantit le déplacement efficace des données en évitant généralement les sauts entre régions. Consultez la section [Services par région](https://azure.microsoft.com/regions/#services) pour connaître la disponibilité de Data Factory et du déplacement des données dans une région.
 
 ### Copier des données entre des banques de données cloud
-Lorsque les banques de données source et récepteur résident toutes les deux dans le cloud, Azure Data Factory utilise un déploiement de service dans la région la plus proche de l’emplacement du récepteur dans la même zone géographique afin d’effectuer le déplacement des données. Pour connaître le mappage, reportez-vous au tableau suivant :
+Lorsque les banques de données source et récepteur résident toutes les deux dans le cloud, Data Factory utilise un déploiement de service dans la région la plus proche du récepteur dans la même zone géographique afin de déplacer des données. Pour connaître le mappage, reportez-vous au tableau suivant :
 
 Région de la banque de données de destination | Région utilisée pour le déplacement des données
 :----------------------------------- | :----------------------------
 Est des États-Unis | Est des États-Unis
 Est des États-Unis 2 | Est des États-Unis 2
-Centre des États-Unis | Centre des États-Unis
 Ouest des États-Unis | Ouest des États-Unis
+Ouest des États-Unis 2 | Ouest des États-Unis
+Centre des États-Unis | Centre des États-Unis
+Centre-Ouest des États-Unis | Centre des États-Unis
 États-Unis - partie centrale septentrionale | États-Unis - partie centrale septentrionale
 Centre-Sud des États-Unis | Centre-Sud des États-Unis
 Europe du Nord | Europe du Nord
@@ -122,7 +124,7 @@ Vous pouvez utiliser Data Factory Editor dans le portail Azure, Visual Studio ou
 
 Les propriétés JSON (le nom, la description, les tables d'entrée et de sortie et les différentes stratégies) sont disponibles pour tous les types d'activités. Les propriétés qui sont disponibles dans la section `typeProperties` de l’activité varient avec chaque type d’activité.
 
-Dans le cas d’une activité de copie, la section `typeProperties` varie selon les types de source et de récepteur. Cliquez sur une source/un récepteur dans la section sur les [sources/récepteurs pris en charge](#supported-data-stores) pour en savoir plus sur les propriétés de type prises en charge par l’activité de copie de cette banque de données.
+Pour une activité de copie, la section `typeProperties` varie selon les types de source et de récepteur. Cliquez sur une source/un récepteur dans la section sur les [sources/récepteurs pris en charge](#supported-data-stores) pour en savoir plus sur les propriétés de type prises en charge par l’activité de copie de cette banque de données.
 
 Voici un exemple de définition JSON :
 
@@ -183,11 +185,11 @@ Les magasins de données ont différents types de systèmes natifs. L’activit�
 1. Conversion de types natifs source en types .NET.
 2. Conversion de types .NET en types récepteur natifs.
 
-Vous pouvez trouver le mappage d'un système de type natif donné en .NET pour le magasin de données dans les articles de magasin de données respectifs. (Cliquez sur le lien spécifié dans la table [Magasins de données pris en charge](#supported-data-stores)). Vous pouvez utiliser ces mappages pour déterminer les types appropriés lors de la création de vos tables afin d'exécuter les conversions adaptées lors de l'activité de copie.
+L mappage d'un système de type natif donné en .NET pour un magasin de données se trouve dans les articles de magasin de données respectifs. (Cliquez sur le lien spécifié dans la table [Magasins de données pris en charge](#supported-data-stores)). Vous pouvez utiliser ces mappages pour déterminer les types appropriés lors de la création de vos tables afin d'exécuter les conversions adaptées lors de l'activité de copie.
 
 
 ## Étapes suivantes
-- Consultez [Copie de données d’un objet blob vers Azure SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) pour en savoir plus sur l’utilisation de l’activité de copie pour déplacer des données d’une banque de données source vers une banque de données de récepteur.
+- Pour en savoir plus sur l’activité de copie, consultez [Copie de données d’Azure Blob Storage vers une base de données SQL Azure](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 - Consultez [Déplacement de données entre des sources locales et le cloud à l’aide de la passerelle de gestion des données](data-factory-move-data-between-onprem-and-cloud.md) pour en savoir plus sur le déplacement des données depuis une banque de données locale vers une banque de données cloud.
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

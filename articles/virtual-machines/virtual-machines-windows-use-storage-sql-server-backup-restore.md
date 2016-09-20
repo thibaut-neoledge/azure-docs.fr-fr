@@ -3,7 +3,7 @@
 	description="Découvrez comment sauvegarder SQL Server avec Azure Storage. Explique les avantages de la sauvegarde des bases de données SQL sur le stockage Azure."
 	services="virtual-machines-windows"
 	documentationCenter=""
-	authors="rothja"
+	authors="MikeRayMSFT"
 	manager="jhubbard"
 	tags="azure-service-management"/>
 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
 	ms.date="07/22/2016"
-	ms.author="jroth"/>
+	ms.author="mikeray"/>
 
 # Utilisation du stockage Azure pour la sauvegarde et la restauration de SQL Server
 
@@ -35,7 +35,7 @@ La sauvegarde de SQL Server pose diverses difficultés. Ces défis comprennent l
 - **Matériel géré** : il n’y a aucun frais de gestion du matériel avec les services Azure. Ces derniers gèrent le matériel et fournissent une géo-réplication à des fins de redondance et de protection contre les défaillances matérielles.
 - **Stockage illimité** : en activant une sauvegarde directe dans les objets blob Azure, vous avez accès à un stockage quasi illimité. De façon alternative, la sauvegarde sur un disque de machine virtuelle Azure présente des limites basées sur la taille de la machine. Le nombre de disques que vous pouvez attacher à une machine virtuelle Azure est limité pour les sauvegardes. Cette limite est de 16 disques pour une instance très volumineuse et un nombre inférieur pour les instances plus petites.
 - **Disponibilité des sauvegardes** : Les sauvegardes stockées dans des objets blob Azure sont disponibles depuis n’importe où et à tout moment et facilement accessibles pour les restaurations sur un serveur SQL Server local ou un autre serveur SQL en cours d’exécution sur une machine virtuelle Azure, sans avoir besoin d’attacher/détacher la base de données ni télécharger et attacher le disque dur virtuel.
-- **Coût** : ne payez que pour le service utilisé. Peut être économique comme option d’archivage hors site et de sauvegarde. Pour plus d’informations, consultez [Calcul des coûts Azure](http://go.microsoft.com/fwlink/?LinkId=277060 "Calcul des coûts") et l’[article Tarification Azure](http://go.microsoft.com/fwlink/?LinkId=277059 "Article sur les coûts").
+- **Coût** : ne payez que pour le service utilisé. Peut être économique comme option d'archivage hors site et de sauvegarde. Pour plus d’informations, consultez [Calcul des coûts Azure](http://go.microsoft.com/fwlink/?LinkId=277060 "Calcul des coûts") et l’[article Tarification Azure](http://go.microsoft.com/fwlink/?LinkId=277059 "Article sur les coûts").
 - **Instantanés de stockage** : quand les fichiers de base de données sont stockés dans un objet blob Azure et que vous utilisez SQL Server 2016, vous pouvez utiliser la [sauvegarde instantanée de fichiers](http://msdn.microsoft.com/library/mt169363.aspx) pour effectuer des sauvegardes quasi instantanées et des restaurations extrêmement rapides.
 
 Pour plus d'informations, consultez la page [Sauvegarde et restauration SQL Server avec le service de stockage d'objets blob Azure](http://go.microsoft.com/fwlink/?LinkId=271617).
@@ -59,7 +59,7 @@ Les composants SQL Server suivants sont utilisés pour les sauvegardes sur le se
 | Composant | Description |
 |---------------------|-------------------------------|
 | **URL** | une URL attribue un URI (Uniform Resource Identifier) à un fichier de sauvegarde unique. L’URL fournit l’emplacement et le nom du fichier de sauvegarde SQL Server. L’URL doit pointer vers un objet blob réel, pas juste un conteneur. Si l’objet blob n’existe pas, il est créé. Si un objet blob existant est indiqué, BACKUP échoue, sauf si l’option > WITH FORMAT est indiquée. Voici un exemple d’URL que vous pouvez spécifier dans la commande BACKUP : **http[s]://[comptestockage].blob.core.windows.net/[conteneur]/[NOMFICHIER.bak]**. HTTPS n’est pas requis, mais recommandé. |
-| **Informations d'identification** | les informations requises pour se connecter au service BLOB Azure et pour s'y authentifier sont stockées sous la forme d'informations d'identification. Vous devez créer des informations d’identification SQL Server afin que ce dernier écrive les sauvegardes sur un service BLOB Azure ou les restaure depuis celui-ci. Pour plus d’informations, consultez [Informations d’identification SQL Server](https://msdn.microsoft.com/library/ms189522.aspx). |
+| **Informations d'identification** | les informations requises pour se connecter au service BLOB Azure et pour s'y authentifier sont stockées sous la forme d'informations d'identification. Vous devez créer des informations d'identification SQL Server afin que ce dernier écrive les sauvegardes sur un service BLOB Azure ou les restaure depuis celui-ci. Pour plus d’informations, consultez [Informations d’identification SQL Server](https://msdn.microsoft.com/library/ms189522.aspx). |
 
 > [AZURE.NOTE] Si vous choisissez de copier et de charger un fichier de sauvegarde dans le service BLOB Azure, vous devez utiliser un type d’objet blob de pages comme option de stockage si vous prévoyez d’utiliser ce fichier pour des opérations de restauration. La commande RESTORE depuis un type d’objet blob de blocs échouera avec une erreur.
 
@@ -78,4 +78,4 @@ Si vous rencontrez des problèmes, consultez la rubrique [Meilleures pratiques e
 
 Pour les autres options de sauvegarde et de restauration de SQL Server, voir [Sauvegarde et restauration de SQL Server dans Azure Virtual Machines](../virtual-machines/virtual-machines-windows-sql-backup-recovery.md).
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0907_2016-->

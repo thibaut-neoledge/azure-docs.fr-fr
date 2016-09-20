@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.date="06/03/2016"
+	ms.date="08/29/2016"
 	ms.author="heidist"/>
 
 # Mettre à l’échelle les niveaux de ressources pour interroger et indexer les charges de travail dans Azure Search
@@ -118,4 +118,4 @@ Au départ, les deux niveaux disposent d’un réplica et d’une partition, con
 
 Le coût par unité de recherche est déterminé par le niveau. Le coût par unité de recherche pour le niveau de base est inférieur à celui du niveau standard. Consultez la [Tarification](https://azure.microsoft.com/pricing/details/search/) pour connaître les coûts pour chaque niveau.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0907_2016-->

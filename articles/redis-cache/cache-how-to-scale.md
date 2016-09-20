@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/16/2016" 
+	ms.date="09/07/2016" 
 	ms.author="sdanie"/>
 
 # Mise à l’échelle du cache Azure Redis
 
 >[AZURE.NOTE] La fonctionnalité de mise à l’échelle du cache Redis Azure est actuellement en version préliminaire.
 
-Le cache Redis Azure offre différents types de caches, permettant de choisir parmi plusieurs tailles et fonctionnalités de caches en toute flexibilité. Si les conditions requises de votre application changent après la création d’un cache, vous pouvez mettre à l’échelle la taille du cache en utilisant le panneau **Changer le niveau tarifaire** dans le [portail Azure](https://portal.azure.com).
+Le cache Redis Azure offre différents types de caches, permettant de choisir parmi plusieurs tailles et fonctionnalités de caches en toute flexibilité. Si les prérequis de votre application changent après la création d’un cache, vous pouvez mettre à l’échelle la taille du cache en utilisant le panneau **Changer le niveau de tarification** dans le [Portail Azure](https://portal.azure.com).
 
 ## Quand mettre à l’échelle ?
 
@@ -40,19 +40,19 @@ Pour mettre à l’échelle votre cache, [accédez au cache](cache-configure.md#
 
 Vous pouvez également cliquer sur la section **Niveau de tarification** dans le panneau **Cache Redis**.
 
-![Niveau de tarification][redis-cache-pricing-tier-part]
+![Niveau tarifaire][redis-cache-pricing-tier-part]
 
 Sélectionnez le niveau de tarification souhaité dans le panneau **Niveau de tarification**, puis cliquez sur **Sélectionner**.
 
-![Niveau de tarification][redis-cache-pricing-tier-blade]
+![Niveau tarifaire][redis-cache-pricing-tier-blade]
 
 >[AZURE.NOTE] Vous pouvez choisir un niveau tarifaire différent avec les restrictions suivantes.
 >
 >-	Vous ne pouvez pas passer d’un niveau de tarification supérieur à un niveau de tarification inférieur.
->    -    Vous ne pouvez pas passer d’un cache **Premium** à un cache **De base** ou **Standard**.
+>    -    Vous ne pouvez pas passer d’un cache **Premium** à un cache **Standard** ou **De base**.
 >    -    Vous ne pouvez pas passer d’un cache **Standard** à un cache **De base**.
 >-	Vous pouvez passer d’un cache **De base** à un cache **Standard**, mais vous ne pouvez pas modifier la taille en même temps. Si vous avez besoin d'une taille différente, vous pouvez effectuer ultérieurement une opération de mise à l'échelle vers la taille voulue.
->-	Vous ne pouvez pas passer directement d’un cache **De base** à un cache **Premium**. Vous devez passer du niveau **De base** au niveau **Standard** en une opération de mise à l’échelle, puis de **Standard** à **Premium** en une deuxième opération.
+>-	Vous ne pouvez pas passer directement d’un cache **De base** à un cache **Premium**. Vous devez passer du niveau **De base** au niveau **Standard** en une opération de mise à l’échelle, puis du niveau **Standard** au niveau **Premium** en une deuxième opération.
 >-	Vous ne pouvez pas mettre à l’échelle depuis une taille supérieure vers la taille **C0 (250 Mo)**.
 
 Lorsqu’un cache est mis à l’échelle vers un nouveau niveau de tarification, le statut **Mise à l’échelle** s’affiche sur le panneau **Cache Redis**.
@@ -145,7 +145,7 @@ Non, le nom et les clés d’accès de votre cache n’ont pas à être modifié
 
 -	Lors de la mise à l’échelle d’un cache **De base** vers une nouvelle taille, toutes les données sont perdues et le cache n’est plus disponible pendant l’exécution de la mise à l’échelle.
 -	Lorsqu'un cache **De base** est mis à l'échelle vers un cache **Standard**, les données qui se trouvent dans le cache sont généralement conservées.
--	Lors de la mise à l’échelle d’un cache **Standard** vers une taille ou un niveau supérieur, ou d’un cache **Premium** vers un niveau supérieur, toutes les données sont généralement conservées. Lors de la mise à l’échelle d’un cache **Standard** ou **Premium** vers une plus petite taille, il est possible que des données soient perdues si la quantité de données placées dans le cache est supérieure à la nouvelle taille du cache mis à l’échelle. En cas de pertes de données lors de la descente en puissante, les clés sont supprimées à l'aide de la stratégie d’éviction [allkeys-lru](http://redis.io/topics/lru-cache). 
+-	Lors de la mise à l’échelle d’un cache **Standard** vers une taille ou un niveau supérieur, ou d’un cache **Premium** vers un niveau supérieur, toutes les données sont généralement conservées. Lors de la mise à l’échelle d’un cache **Standard** ou **Premium** vers une plus petite taille, il est possible que des données soient perdues si la quantité de données placées dans le cache est supérieure à la nouvelle taille du cache mis à l’échelle. En cas de pertes de données lors de la descente en puissante, les clés sont supprimées à l'aide de la stratégie d’éviction [allkeys-lru](http://redis.io/topics/lru-cache).
 
 ### Les paramètres personnalisés de mes bases de données sont-ils affectés au cours de la mise à l’échelle ?
 
@@ -167,10 +167,10 @@ Notez que, si les caches Standard et Premium ont un contrat SLA proposant une di
 ### Quelles sont les opérations qui ne sont pas prises en charge ?
 
 -	Vous ne pouvez pas passer d’un niveau de tarification supérieur à un niveau de tarification inférieur.
-    -    Vous ne pouvez pas passer d’un cache **Premium** à un cache **De base** ou **Standard**.
+    -    Vous ne pouvez pas passer d’un cache **Premium** à un cache **Standard** ou **De base**.
     -    Vous ne pouvez pas passer d’un cache **Standard** à un cache **De base**.
 -	Vous pouvez passer d’un cache **De base** à un cache **Standard**, mais vous ne pouvez pas modifier la taille en même temps. Si vous avez besoin d'une taille différente, vous pouvez effectuer ultérieurement une opération de mise à l'échelle vers la taille voulue.
--	Vous ne pouvez pas passer directement d’un cache **De base** à un cache **Premium**. Vous devez passer du niveau **De base** au niveau **Standard** en une opération de mise à l’échelle, puis de **Standard** à **Premium** en une deuxième opération.
+-	Vous ne pouvez pas passer directement d’un cache **De base** à un cache **Premium**. Vous devez passer du niveau **De base** au niveau **Standard** en une opération de mise à l’échelle, puis du niveau **Standard** au niveau **Premium** en une deuxième opération.
 -	Vous ne pouvez pas mettre à l’échelle depuis une taille supérieure vers la taille **C0 (250 Mo)**.
 
 En cas d’échec d’une opération de mise à l’échelle, le service va essayer de rétablir l’opération et le cache reviendra à sa taille d’origine.
@@ -199,4 +199,4 @@ Nous publions cette fonctionnalité pour obtenir des commentaires. Selon les com
 
 [redis-cache-scaling]: ./media/cache-how-to-scale/redis-cache-scaling.png
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0907_2016-->

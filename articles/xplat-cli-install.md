@@ -35,33 +35,35 @@ Une fois l’interface de ligne de commande Azure installée, [connectez-vous à
 
 
 
-## Installer un package npm
+## Option 1. Installer un package npm
 
 Pour installer l’interface CLI à partir d’un package npm, vous avez besoin des derniers Node.js et npm installés sur votre système. Utilisez la commande suivante pour installer le package de l’interface de ligne de commande Azure. (Sur les distributions Linux, vous devrez peut-être utiliser **sudo** pour parvenir à exécuter la commande __npm__.)
 
 	npm install azure-cli -g
 
-> [AZURE.NOTE]Si vous avez besoin d’installer ou de mettre à jour Node.js et npm pour votre système d’exploitation, consultez la documentation sur [Nodejs.org](https://nodejs.org/en/download/package-manager/). Nous vous recommandons d’installer la dernière version de Node.js LTS (4.x). Si vous utilisez une version antérieure, vous pouvez obtenir des erreurs d’installation.
+> [AZURE.NOTE]Si vous avez besoin d’installer ou de mettre à jour Node.js et npm pour votre système d’exploitation, consultez la documentation sur [Nodejs.org](https://nodejs.org/en/download/package-manager/). Nous vous recommandons d’installer la dernière version de Node.js LTS (4.x). Si vous utilisez une version antérieure, vous pouvez obtenir des erreurs d’installation. Vous trouverez plus d’informations sur npm à l’adresse [npmjs.com](https://www.npmjs.com/).
 
-## Utilisation d’un programme d’installation
+## Option 2. Utilisation d’un programme d’installation
 
 Les packages d’installation d’interface de ligne de commande suivants sont également disponibles au téléchargement :
 
 
-* [Programme d’installation OS X][mac-installer]
+* [Programme d’installation Mac OS X][mac-installer]
 
 * [Programme d’installation Windows][windows-installer]
 
-* [Fichier tar Linux][linux-installer] \(nécessite Node.js et npm) - Exécutez `sudo npm install -g <path to downloaded tar file>` pour l’installer
+* [Fichier tar Linux][linux-installer] (nécessite Node.js et npm) - Exécutez `sudo npm install -g <path to downloaded tar file>` pour l’installer
 
 
-## Utiliser un conteneur Docker
+## Option 3. Utiliser un conteneur Docker
 
-Dans un hôte de Docker, exécutez la commande :
+Si vous avez défini un hôte Docker, vous pouvez exécuter l’interface de ligne de commande Azure dans un conteneur Docker. Exécutez :
 
 ```
 docker run -it microsoft/azure-cli
 ```
+
+Vous trouverez plus d’informations sur Docker à l’adresse [docker.com](https://docs.docker.com/engine/understanding-docker/).
 
 ## Exécution des commandes Azure CLI
 Une fois l’interface de ligne de commande Azure installée, exécutez la commande **azure** depuis l’interface de ligne de commande utilisateur (Bash, Terminal, invite de ligne de commande, etc.). Par exemple, pour exécuter la commande d’aide, saisissez ce qui suit :
@@ -83,7 +85,7 @@ azure --version
 
 Vous avez terminé l’installation. Pour accéder à toutes les commandes de l’interface de ligne de commande et travailler avec vos propres ressources, [connectez-vous à votre abonnement Azure à partir de l’interface de ligne de commande Azure](xplat-cli-connect.md).
 
->[AZURE.NOTE] Lorsque vous utilisez l’interface de ligne de commande Azure version 0.9.20 ou version ultérieure pour la première fois, vous voyez un message vous demandant si vous souhaitez autoriser Microsoft à recueillir des informations sur l’utilisation de l’interface de ligne de commande. La participation se fait sur la base du volontariat. Si vous choisissez de participer, vous pouvez arrêter à tout moment en exécutant `azure telemetry --disable`. Pour activer la participation, exécutez `azure telemetry --enable`.
+>[AZURE.NOTE] Lorsque vous utilisez l’interface de ligne de commande Azure pour la première fois, vous voyez un message vous demandant si vous souhaitez autoriser Microsoft à recueillir des informations sur votre utilisation de l’interface de ligne de commande. La participation se fait sur la base du volontariat. Si vous choisissez de participer, vous pouvez arrêter à tout moment en exécutant `azure telemetry --disable`. Pour activer la participation, exécutez `azure telemetry --enable`.
 
 
 ## Mise à jour de l’interface CLI
@@ -128,4 +130,4 @@ echo 'source ~/azure.completion.sh' >> ~/.bash_profile
 [cliasm]: virtual-machines-command-line-tools.md
 [cliarm]: ./virtual-machines/azure-cli-arm-commands.md
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

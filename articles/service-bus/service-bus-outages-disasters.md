@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="na"
-    ms.date="05/06/2016"
+    ms.date="09/02/2016"
     ms.author="sethm" />
 
 # Meilleures pratiques pour protéger les applications contre les pannes de Service Bus et les sinistres
@@ -25,9 +25,9 @@ Un sinistre est défini comme la perte définitive d'une unité d'échelle ou d'
 
 ## Architecture actuelle
 
-Service Bus utilise plusieurs banques de messagerie pour stocker les messages sont envoyés à des files d'attente ou des rubriques. Une file d'attente ou une rubrique non partitionnée est affectée à une banque de messagerie. Si cette banque de messagerie n'est pas disponible, toutes les opérations sur cette file d'attente ou rubrique échoueront.
+Service Bus utilise plusieurs banques de messagerie pour stocker les messages sont envoyés à des files d’attente ou des rubriques. Une file d’attente ou une rubrique non partitionnée est affectée à une banque de messagerie. Si cette banque de messagerie n’est pas disponible, toutes les opérations sur cette file d’attente ou rubrique échoueront.
 
-Toutes les entités de messagerie Service Bus (files d'attente, rubriques, relais) résident dans un espace de noms de service, qui est affilié à un centre de données. Service Bus ne permet pas la géo-réplication automatique des données et ne permet pas non plus qu’un espace de noms couvre plusieurs centres de données.
+Toutes les entités de messagerie Service Bus (files d’attente, rubriques, relais) résident dans un espace de noms de service, qui est affilié à un centre de données. Service Bus ne permet pas la géo-réplication automatique des données et ne permet pas non plus qu’un espace de noms couvre plusieurs centres de données.
 
 ## Protection contre les pannes ACS
 
@@ -35,15 +35,15 @@ Si vous utilisez des informations d'identification ACS et si ACS devient indispo
 
 Pour vous protéger contre les pannes ACS, utilisez des jetons SAS (Signature d'accès partagé). Dans ce cas, le client s'authentifie directement auprès de Service Bus en signant un jeton auto-émis avec une clé secrète. Les appels aux services ACS ne sont plus nécessaires. Pour plus d'informations sur les jetons SAS, consultez [Authentification Service Bus][].
 
-## Protection des files d'attente et des rubriques contre les défaillances de la banque de messagerie
+## Protection des files d’attente et des rubriques contre les défaillances de la banque de messagerie
 
-Une file d'attente ou une rubrique non partitionnée est affectée à une banque de messagerie. Si cette banque de messagerie n'est pas disponible, toutes les opérations sur cette file d'attente ou rubrique échoueront. D'autre part, une file d'attente partitionnée est constituée de plusieurs fragments. Chaque fragment est stocké dans une banque de messagerie différente. Lorsqu'un message est envoyé à une file d'attente ou une rubrique partitionnée, Service Bus affecte le message à l'un des fragments. Si la banque de messagerie correspondante n'est pas disponible, Service Bus écrit le message dans un fragment différent, si possible. Pour plus d'informations sur les entités partitionnées, consultez [Entités de messagerie partitionnées][].
+Une file d’attente ou une rubrique non partitionnée est affectée à une banque de messagerie. Si cette banque de messagerie n’est pas disponible, toutes les opérations sur cette file d’attente ou rubrique échoueront. D'autre part, une file d'attente partitionnée est constituée de plusieurs fragments. Chaque fragment est stocké dans une banque de messagerie différente. Lorsqu’un message est envoyé à une file d’attente ou une rubrique partitionnée, Service Bus affecte le message à l’un des fragments. Si la banque de messagerie correspondante n'est pas disponible, Service Bus écrit le message dans un fragment différent, si possible. Pour plus d'informations sur les entités partitionnées, consultez [Entités de messagerie partitionnées][].
 
 ## Protection contre les pannes ou les sinistres du centre de données
 
 Pour permettre un basculement entre deux centres de données, vous pouvez créer un espace de noms de service Service Bus dans chaque centre de données. Par exemple, l’espace de noms de service Service Bus **contosoPrimary.servicebus.windows.net** peut se trouver dans la région États-Unis (Nord/Centre) et **contosoSecondary.servicebus.windows.net** peut se trouver dans la région États-Unis (Sud/Centre). Si une entité de messagerie Service Bus doit rester accessible en cas de panne du centre de données, vous pouvez créer cette entité dans les deux espaces de noms.
 
-Pour plus d'informations, consultez la section « Échec de Service Bus dans un centre de données Azure » sous [Modèles de messagerie asynchrone et haute disponibilité][].
+Pour plus d’informations, consultez la section « Échec de Service Bus dans un centre de données Azure » sous [Modèles de messagerie asynchrone et haute disponibilité][].
 
 ## Protection des points de terminaison de relais contre les pannes ou les sinistres du centre de données
 
@@ -53,9 +53,9 @@ Le service écoute alors sur les deux points de terminaison et un client peut ap
 
 L'exemple [Géo-réplication avec la messagerie par relais Service Bus][] montre comment répliquer des relais.
 
-## Protection des files d'attente et des rubriques contre les pannes ou les sinistres du centre de données
+## Protection des files d’attente et des rubriques contre les pannes ou les sinistres du centre de données
 
-Pour obtenir une résilience contre les pannes du centre de données lors de l'utilisation de la messagerie répartie, Service Bus prend en charge deux approches : la réplication *active* et *passive*. Pour chaque approche, si une file d'attente ou une rubrique donnée doit rester accessible en cas de panne du centre de données, vous pouvez la créer dans les deux espaces de noms. Les deux entités peuvent avoir le même nom. Par exemple, une file d'attente principale peut être accessible sous **contosoPrimary.servicebus.windows.net/myQueue**, alors que son homologue secondaire peut être accessible sous **contosoSecondary.servicebus.windows.net/myQueue**.
+Pour obtenir une résilience contre les pannes du centre de données lors de l'utilisation de la messagerie répartie, Service Bus prend en charge deux approches : la réplication *active* et *passive*. Pour chaque approche, si une file d’attente ou une rubrique donnée doit rester accessible en cas de panne du centre de données, vous pouvez la créer dans les deux espaces de noms. Les deux entités peuvent avoir le même nom. Par exemple, une file d'attente principale peut être accessible sous **contosoPrimary.servicebus.windows.net/myQueue**, alors que son homologue secondaire peut être accessible sous **contosoSecondary.servicebus.windows.net/myQueue**.
 
 Si l'application ne nécessite pas une communication permanente entre l'expéditeur et le destinataire, l'application peut implémenter une file d'attente côté client durable pour empêcher la perte de messages et protéger l'expéditeur contre toute erreur Service Bus temporaire.
 
@@ -85,14 +85,6 @@ Lorsque vous utilisez la réplication passive, les messages peuvent être perdus
 
 L'exemple [Géo-réplication avec la messagerie répartie de Service Bus][] illustre la réplication passive des entités de messagerie.
 
-## File d'attente durable côté client
-
-Si l'application peut tolérer qu'une entité Service Bus ne soit pas disponible, mais ne doit pas perdre les messages, l'expéditeur peut utiliser une file d'attente durable côté client qui stocke localement tous les messages qui ne peuvent pas être envoyés à Service Bus. Lorsque l'entité Service Bus redevient disponible, tous les messages mis en mémoire tampon sont envoyés à cette entité. L'exemple [Expéditeur de message durable][] implémente une file d'attente de ce type à l'aide de MSMQ. Sinon, les messages peuvent être écrits sur le disque local.
-
-Une file d'attente durable côté client conserve l'ordre des messages et protège l'application cliente des exceptions au cas où l'entité Service Bus n'est pas disponible. Elle peut être utilisée avec des transactions simples et distribuées.
-
-> [AZURE.NOTE] Cet exemple fonctionne bien dans les scénarios IaaS (Infrastructure as a Service) où le disque local ou le disque pour MSMQ est mappé à un compte de stockage et où les messages sont stockés de façon fiable avec MSMQ. Il n’est pas approprié pour les scénarios PaaS (Platform as a Service) tels que les services cloud et les applications web.
-
 ## Étapes suivantes
 
 Pour plus d'informations sur la récupération d'urgence, consultez les articles suivants :
@@ -102,13 +94,12 @@ Pour plus d'informations sur la récupération d'urgence, consultez les articles
 
   [Authentification Service Bus]: service-bus-authentication-and-authorization.md
   [Entités de messagerie partitionnées]: service-bus-partitioning.md
-  [Modèles de messagerie asynchrone et haute disponibilité]: service-bus-async-messaging.md
+  [Modèles de messagerie asynchrone et haute disponibilité]: service-bus-async-messaging.md#failure-of-service-bus-within-an-azure-datacenter
   [Géo-réplication avec la messagerie par relais Service Bus]: http://code.msdn.microsoft.com/Geo-replication-with-16dbfecd
   [BrokeredMessage.MessageId]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.messageid.aspx
   [BrokeredMessage.Label]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.label.aspx
   [Géo-réplication avec la messagerie répartie de Service Bus]: http://code.msdn.microsoft.com/Geo-replication-with-f5688664
-  [Expéditeur de message durable]: http://code.msdn.microsoft.com/Service-Bus-Durable-Sender-0763230d
   [Continuité de l’activité des bases de données SQL Azure]: ../sql-database/sql-database-business-continuity.md
   [Guide technique de la résilience Azure]: ../resiliency/resiliency-technical-guidance.md
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0907_2016-->

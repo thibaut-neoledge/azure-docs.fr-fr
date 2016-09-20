@@ -18,7 +18,7 @@
 
 # Hébergement haute densité sur Azure App Service#
 
-Lorsque vous utilisez Azure App Service, votre application sera découplée à partir de sa capacité allouée par deux concepts :
+Lorsque vous utilisez App Service, votre application sera découplée à partir de la capacité allouée par 2 concepts :
 
 - **L’Application :** représente l’application et sa configuration lors de l’exécution. Par exemple, elle inclut la version de .NET que le runtime doit charger, les paramètres de l’application, etc.
 
@@ -101,4 +101,4 @@ Suivez ces étapes pour configurer un hébergement haute densité pour vos appli
 
 1. Le nombre de Workers peut être configuré indépendamment par site, pour accorder des ressources supplémentaires en fonction des besoins. Par exemple, un site à utilisation élevée peut définir **numberOfWorkers** sur **3** afin d’avoir plus de capacité de traitement pour cette application, tandis que les sites à faible utilisation peuvent définir **numberOfWorkers** sur **1**.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0907_2016-->

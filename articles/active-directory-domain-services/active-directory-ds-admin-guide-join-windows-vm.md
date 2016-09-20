@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Version préliminaire des services Azure Active Directory Domain : guide d’administration | Microsoft Azure"
+	pageTitle="Version préliminaire des services de domaine Azure Active Directory : guide d’administration | Microsoft Azure"
 	description="Joindre une machine virtuelle Windows Server aux services de domaine Azure AD"
 	services="active-directory-ds"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2016"
+	ms.date="08/31/2016"
 	ms.author="maheshu"/>
 
 # Joindre une machine virtuelle Windows Server à un domaine géré
@@ -28,9 +28,9 @@ Cet article explique comment joindre une machine virtuelle exécutant Windows Se
 
 
 ## Étape 1 : créer la machine virtuelle Windows Server
-Suivez les instructions du didacticiel [Création d’une machine virtuelle exécutant Windows dans le portail Azure Classic](../virtual-machines/virtual-machines-windows-classic-tutorial.md). Vous devez impérativement vérifier que la nouvelle machine virtuelle est bien jointe au réseau virtuel au sein duquel vous avez activé les services de domaine Azure AD. Remarque : l’option Création rapide ne vous permet pas de joindre la machine virtuelle à un réseau virtuel. Vous devez par conséquent utiliser l’option À partir de la galerie pour créer la machine virtuelle.
+Suivez les instructions du didacticiel [Création d’une machine virtuelle exécutant Windows dans le portail Azure Classic](../virtual-machines/virtual-machines-windows-classic-tutorial.md). Vous devez impérativement vérifier que la nouvelle machine virtuelle est bien jointe au réseau virtuel au sein duquel vous avez activé les services de domaine Azure AD. L’option Création rapide ne vous permet pas de joindre la machine virtuelle à un réseau virtuel. Vous devez donc utiliser l’option À partir de la galerie pour créer la machine virtuelle.
 
-Procédez comme suit pour créer une machine virtuelle Windows jointe au réseau virtuel au sein duquel vous avez activé les services de domaine Azure AD.
+Pour créer une machine virtuelle Windows jointe au réseau virtuel au sein duquel vous avez activé les services de domaine Azure AD, procédez comme suit :
 
 1. Sur le portail Azure Classic, dans la barre de commandes en bas de la fenêtre, cliquez sur **Nouveau**.
 
@@ -40,7 +40,7 @@ Procédez comme suit pour créer une machine virtuelle Windows jointe au réseau
 
     ![Sélectionner une image](./media/active-directory-domain-services-admin-guide/create-windows-vm-select-image.png)
 
-4. Le deuxième écran vous permet de choisir un nom d’ordinateur, la taille, un nom d’utilisateur et un mot de passe d’administration. Utilisez le niveau et la taille requis pour exécuter votre application ou charge de travail. Le nom d’utilisateur que vous sélectionnez ici correspond à un administrateur local sur l’ordinateur. Ne saisissez pas les informations d’identification associées à un compte d’utilisateur de domaine ici.
+4. Le deuxième écran vous permet de choisir un nom d’ordinateur, la taille, un nom d’utilisateur et un mot de passe d’administration. Utilisez le niveau et la taille requis pour exécuter votre application ou charge de travail. Le nom d’utilisateur que vous sélectionnez ici est un utilisateur d’administrateur local sur la machine. Ne saisissez pas les informations d’identification associées à un compte d’utilisateur de domaine ici.
 
     ![Configurer la machine virtuelle](./media/active-directory-domain-services-admin-guide/create-windows-vm-config.png)
 
@@ -49,7 +49,7 @@ Procédez comme suit pour créer une machine virtuelle Windows jointe au réseau
     ![Sélectionner un réseau virtuel pour la machine virtuelle](./media/active-directory-domain-services-admin-guide/create-windows-vm-select-vnet.png)
 
     > [AZURE.WARNING]
-    Vérifiez que vous joignez la machine virtuelle au réseau virtuel au sein duquel vous avez activé les services de domaine Azure AD. En effet, cela permet à la machine virtuelle de « voir » le domaine et d’effectuer différentes tâches le concernant, par exemple une jonction. Si vous décidez de créer la machine virtuelle au sein d’un autre réseau virtuel, assurez-vous que ce dernier est connecté au réseau virtuel au sein duquel les services de domaine Azure AD sont activés.
+    Vérifiez que vous joignez la machine virtuelle au réseau virtuel au sein duquel vous avez activé les services de domaine Azure AD. En conséquence, la machine virtuelle peut « voir » le domaine et effectuer différentes tâches, par exemple une jonction au domaine. Si vous décidez de créer la machine virtuelle au sein d’un autre réseau virtuel, assurez-vous que ce dernier est connecté au réseau virtuel au sein duquel les services de domaine Azure AD sont activés.
 
 6. Le quatrième écran vous permet d’installer l’agent de machine virtuelle et de configurer certaines des extensions disponibles.
 
@@ -61,31 +61,31 @@ Procédez comme suit pour créer une machine virtuelle Windows jointe au réseau
 
 
 ## Étape 2 : connexion à la machine virtuelle Windows Server à l’aide du compte d’administrateur local
-À présent, nous allons nous connecter à la nouvelle machine virtuelle Windows Server, afin de la joindre au domaine. Pour vous connecter, utilisez les informations d’identification de l’administrateur local que vous avez spécifiées lors de la création de la machine virtuelle.
+À présent, nous allons vous connecter à la nouvelle machine virtuelle Windows Server pour la joindre au domaine. Pour ce faire, utilisez les informations d’identification de l’administrateur local que vous avez spécifiées lors de la création de la machine virtuelle.
 
-Procédez comme suit pour vous connecter à la machine virtuelle.
+Pour vous connecter à la machine virtuelle, procédez comme suit :
 
-1. Accédez au nœud **Virtual Machines** du portail Classic. Sélectionnez la machine virtuelle que vous venez de créer et cliquez sur l’option **Connecter** de la barre de commandes, au bas de la fenêtre.
+1. Accédez au nœud **Virtual Machines** du portail Classic. Sélectionnez la machine virtuelle que vous avez créée à l’étape 1 et cliquez sur **Connecter** dans la barre de commandes, au bas de la fenêtre.
 
     ![Se connecter à une machine virtuelle Windows](./media/active-directory-domain-services-admin-guide/connect-windows-vm.png)
 
-2. Le portail Classic vous invite à ouvrir ou enregistrer un fichier .rdp, qui est utilisé pour la connexion à la machine virtuelle. Lorsqu’il est téléchargé, cliquez sur le fichier .rdp.
+2. Le portail Azure Classic vous invite à ouvrir ou à enregistrer un fichier pourvu de l’extension .rdp, qui permet de se connecter à la machine virtuelle. Cliquez pour ouvrir le fichier lorsque son téléchargement est terminé.
 
-3. À l’invite de connexion, saisissez les **informations d’identification d’administrateur local** que vous avez spécifiées lors de la création de la machine virtuelle. Par exemple, « localhost\\mahesh » (voir exemple ci-dessus).
+3. À l’invite de connexion, entrez vos **informations d’identification d’administrateur local** que vous avez spécifiées lors de la création de la machine virtuelle. Nous avons utilisé « localhost\\mahesh » dans cet exemple.
 
 À ce stade, vous devez être connecté à la nouvelle machine virtuelle Windows à l’aide des informations d’identification de l’administrateur local. L’étape suivante consiste à joindre la machine virtuelle au domaine.
 
 
 ## Étape 3 : joindre la machine virtuelle Windows Server au domaine géré par les services de domaine Azure AD
-Procédez comme suit pour joindre la machine virtuelle au domaine géré par les services de domaine Azure AD.
+Pour joindre la machine virtuelle Windows Server au domaine géré par les services de domaine Azure AD, procédez comme suit :
 
 1. Connectez-vous à la machine virtuelle Windows Server, comme indiqué à l’étape 2. Dans l’écran d’accueil, ouvrez **Gestionnaire de serveur**.
 
-2. Cliquez sur l’option **Serveur local** figurant sur le volet gauche de la fenêtre Gestionnaire de serveur.
+2. Cliquez sur l’option **Serveur local** dans le volet gauche de la fenêtre Gestionnaire de serveur.
 
     ![Lancer le gestionnaire de serveur sur la machine virtuelle](./media/active-directory-domain-services-admin-guide/join-domain-server-manager.png)
 
-3. Cliquez sur **GROUPE DE TRAVAIL**, sous la section **PROPRIÉTÉS**. Cette opération ouvre la page **Propriétés système**. Pour joindre le domaine, cliquez sur **Modifier**.
+3. Cliquez sur **GROUPE DE TRAVAIL** dans la section **PROPRIÉTÉS**. Cette opération ouvre la page **Propriétés système**. Pour joindre le domaine, cliquez sur **Modifier**.
 
     ![Page Propriétés système](./media/active-directory-domain-services-admin-guide/join-domain-system-properties.png)
 
@@ -93,17 +93,17 @@ Procédez comme suit pour joindre la machine virtuelle au domaine géré par les
 
     ![Spécifier le domaine à joindre](./media/active-directory-domain-services-admin-guide/join-domain-system-properties-specify-domain.png)
 
-5. Vous devrez entrer vos informations d’identification pour joindre le domaine. Veillez à **spécifier les informations d’identification d’un utilisateur appartenant au groupe « AAD DC Administrators »**. Seuls les membres de ce groupe disposent de privilèges suffisants pour pouvoir joindre des ordinateurs au domaine géré.
+5. Vous devez entrer vos informations d’identification pour joindre le domaine. Veillez à **spécifier les informations d’identification d’un utilisateur appartenant au groupe « AAD DC Administrators »**. Seuls les membres de ce groupe disposent de privilèges suffisants pour pouvoir joindre des ordinateurs au domaine géré.
 
-    ![Spécifier les informations d’identification pour joindre le domaine](./media/active-directory-domain-services-admin-guide/join-domain-system-properties-specify-credentials.png)
+    ![Spécifier les informations d’identification pour la jonction au domaine](./media/active-directory-domain-services-admin-guide/join-domain-system-properties-specify-credentials.png)
 
 6. Vous pouvez spécifier les informations d’identification de l’une des manières suivantes :
 
     - Format UPN : il s’agit du suffixe UPN du compte d’utilisateur, tel qu’il est configuré dans Azure AD. Dans cet exemple, le suffixe UPN de l’utilisateur « bob » est « bob@domainservicespreview.onmicrosoft.com ».
 
-    - Format SAMAccountName : vous pouvez spécifier le nom du compte au format SAMAccountName. Dans cet exemple, l’utilisateur « bob » doit saisir « CONTOSO100\\bob ». Remarque : si, au sein de votre client Azure AD, plusieurs utilisateurs présentent le même préfixe UPN (par exemple : « bob »), ils peuvent avoir des difficultés à se connecter au domaine s’ils utilisent le format SAMAccountName. Dans ce cas, le format UPN peut être utilisé pour assurer une connexion fiable au domaine.
+    - Format SAMAccountName : vous pouvez spécifier le nom du compte au format SAMAccountName. Dans cet exemple, l’utilisateur « bob » doit saisir « CONTOSO100\\bob ». Remarque : Si, au sein de votre locataire Azure AD, plusieurs utilisateurs présentent le même préfixe UPN (par exemple, « bob »), ils rencontreront des difficultés pour se connecter au domaine s’ils utilisent le format SAMAccountName. Dans ce cas, le format UPN peut être utilisé pour assurer une connexion fiable au domaine.
 
-7. Une fois que la jonction de domaine a abouti, le message suivant s’affiche, afin de vous accueillir dans le domaine. Vous devrez redémarrer la machine virtuelle pour terminer l’opération de jonction de domaine.
+7. Une fois que la jonction au domaine a abouti, le message suivant s’affiche afin de vous accueillir dans le domaine. Redémarrez la machine virtuelle pour terminer la jonction au domaine.
 
     ![Bienvenue dans le domaine](./media/active-directory-domain-services-admin-guide/join-domain-done.png)
 
@@ -112,11 +112,11 @@ Procédez comme suit pour joindre la machine virtuelle au domaine géré par les
 ### Problèmes de connectivité
 Si la machine virtuelle ne peut pas trouver le domaine, consultez les étapes suivantes pour résoudre le problème :
 
-- Vérifiez que la machine virtuelle est connectée au réseau virtuel au sein duquel vous avez activé les services de domaine. Si tel n’est pas le cas, la machine virtuelle ne pourra pas se connecter au domaine et la jonction sera impossible.
+- Vérifiez que la machine virtuelle est connectée au réseau virtuel au sein duquel vous avez activé les services de domaine. Si tel n’est pas le cas, la machine virtuelle ne peut pas se connecter au domaine, et la jonction est donc impossible.
 
 - Si la machine virtuelle est connectée à un autre réseau virtuel, assurez-vous que ce dernier est connecté au réseau virtuel au sein duquel les services de domaine Azure AD sont activés.
 
-- Effectuez un test ping du domaine en utilisant le nom du domaine géré (par exemple : « ping contoso100.com »). Si vous n’y parvenez pas, envoyez une commande ping aux adresses IP affichées sur la page sur laquelle vous avez activé les services de domaine Azure Active Directory (par exemple : « ping 10.0.0.4 »). Si le test de l’adresse IP aboutit et non celui du domaine, il se peut que la fonction DNS ne soit pas correctement configurée. Vous n’avez peut-être pas configuré les adresses IP du domaine en tant que serveurs DNS pour le réseau virtuel.
+- Effectuez un test Ping du domaine en utilisant le nom du domaine géré (par exemple, « ping contoso100.com »). Si vous n’y parvenez pas, envoyez une commande Ping aux adresses IP du domaine affichées sur la page sur laquelle vous avez activé les services de domaine Azure Active Directory (par exemple, « ping 10.0.0.4 »). Si le test de l’adresse IP aboutit et non celui du domaine, il se peut que la fonction DNS ne soit pas correctement configurée. Vous n’avez peut-être pas configuré les adresses IP du domaine en tant que serveurs DNS pour le réseau virtuel.
 
 - Essayez de vider le cache de résolution DNS sur la machine virtuelle (« ipconfig /flushdns »).
 
@@ -130,8 +130,15 @@ Reportez-vous à la procédure suivante si vous rencontrez des problèmes concer
 
 - Assurez-vous d'avoir [activé la synchronisation du mot de passe](active-directory-ds-getting-started-password-sync.md) selon les étapes décrites dans le guide de mise en route.
 
-- Assurez-vous que vous utilisez l’UPN de l’utilisateur tel que configuré dans Azure AD (par exemple : « bob@domainservicespreview.onmicrosoft.com ») pour vous connecter.
+- Veillez à utiliser l’UPN de l’utilisateur tel que configuré dans Azure AD (par exemple, « bob@domainservicespreview.onmicrosoft.com ») pour vous connecter.
 
 - Vérifiez que vous avez bien attendu la fin de la synchronisation des mots de passe, comme indiqué dans le guide de prise en main.
 
-<!---HONumber=AcomDC_0706_2016-->
+
+## Contenu connexe
+
+- [Services de domaine Azure AD : guide de mise en route](./active-directory-ds-getting-started.md)
+
+- [Administrer un domaine géré par les services de domaine Azure Active Directory](./active-directory-ds-admin-guide-administer-domain.md)
+
+<!---HONumber=AcomDC_0907_2016-->

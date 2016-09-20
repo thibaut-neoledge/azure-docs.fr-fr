@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/17/2016"
+	ms.date="09/07/2016"
 	ms.author="jeedes"/>
 
 
@@ -57,7 +57,7 @@ Pour configurer l’intégration d’ADP GlobalView à Azure AD, vous devez ajou
 
 **Pour ajouter ADP GlobalView à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **portail Azure Classic**, cliquez sur **Active Directory**. 
+1. Dans le volet de navigation gauche du **portail Azure Classic**, cliquez sur **Active Directory**.
 
 	![Active Directory][1]
 
@@ -127,7 +127,7 @@ Avant de pouvoir configurer votre assertion SAML, vous devez contacter l’équi
 
     b. Dans la zone de texte **URL de réponse**, tapez l’URL utilisée par Azure AD pour envoyer la réponse à l’application ADP GlobalView sous l’un des formats suivants : **https://<nom\_serveur>.globalview.adp.com/federate2/sp/ACS.saml2**, **https://<nom\_serveur>.globalview.adp.com/federate/sp/ACS.saml2**
 
-    c. Cliquez sur **Next**.
+    c. Cliquez sur **Suivant**.
 
 
 4. Dans la page **Configurer l’authentification unique sur ADP GlobalView**, procédez comme suit :
@@ -190,7 +190,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     c. Cliquez sur **Next**.
 
-6.  Sur la page de boîte de dialogue **Profil utilisateur**, procédez comme suit :
+6.  Sur la page **Profil utilisateur**, procédez comme suit :
 
 	![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-adpglobalview-tutorial/create_aaduser_06.png)
 
@@ -234,7 +234,7 @@ L’objectif de cette section est de permettre à Britta Simon d’utiliser l’
 
 **Pour affecter Britta Simon à ADP GlobalView, procédez comme suit :**
 
-1. Pour ouvrir la vue des applications dans le portail Azure Classic, cliquez dans la vue de répertoire sur **Applications** dans le menu du haut.
+1. Pour ouvrir l’affichage des applications dans le portail Azure Classic, cliquez dans l’affichage de l’annuaire sur **Applications** dans le menu du haut.
 
 	![Affecter des utilisateurs][201]
 
@@ -256,7 +256,7 @@ L’objectif de cette section est de permettre à Britta Simon d’utiliser l’
 
 ### Test de l’authentification unique
 
-L’objectif de cette section est de tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès. Quand vous cliquez sur la vignette ADP GlobalView dans le volet d’accès, vous êtes connecté automatiquement à votre application ADP GlobalView.
+L’objectif de cette section est de tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès. Quand vous cliquez sur la vignette ADP GlobalView dans le volet d’accès, vous êtes connecté automatiquement à votre application ADP GlobalView.
 
 
 ## Ressources supplémentaires
@@ -283,4 +283,4 @@ L’objectif de cette section est de tester la configuration de l’authentifica
 [204]: ./media/active-directory-saas-adpglobalview-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-adpglobalview-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0907_2016-->

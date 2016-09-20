@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="08/15/2016"
+   ms.date="09/04/2016"
    ms.author="rickbyh;barbkess;sonyama"/>
 
 # Authentification sur Azure SQL Data Warehouse
@@ -37,15 +37,12 @@ Pour vous connecter à SQL Data Warehouse, vous devez fournir les informations s
 - Mot de passe
 - Base de données par défaut (facultatif)
 
-Par défaut, votre connexion se connecte à la base de données MASTER et non à votre base de données utilisateur. Pour vous connecter à votre base de données utilisateur, vous pouvez choisir d’effectuer l’une des deux opérations suivantes :
+Par défaut, votre connexion se connecte à la base de données *MASTER* et non à votre base de données utilisateur. Pour vous connecter à votre base de données utilisateur, vous pouvez choisir d’effectuer l’une des deux opérations suivantes :
 
 - Spécifiez la base de données par défaut lors de l’inscription de votre serveur auprès de l’Explorateur d’objets SQL Server dans SQL Server Data Tools (SSDT), SSMS, ou dans votre chaîne de connexion d’application. Par exemple, insérez le paramètre InitialCatalog pour une connexion ODBC.
-- Commencez par sélectionner la base de données utilisateur avant de créer une session dans SSDT.
+- Sélectionnez la base de données utilisateur avant de créer une session dans SSDT.
 
-> [AZURE.NOTE] Pour obtenir des conseils en matière de connexion à SQL Data Warehouse avec SSDT, consultez l’article [Envoyer des requêtes avec Visual Studio][].
-
-Il est important de noter que l’instruction Transact-SQL **USE <votre base de données>** n’est pas prise en charge pour la modification de la base de données pour une connexion
-
+> [AZURE.NOTE] L’instruction Transact-SQL **USE MyDatabase;** n’est pas prise en charge pour la modification de la base de données pour une connexion. Pour obtenir des conseils en matière de connexion à SQL Data Warehouse avec SSDT, consultez l’article [Envoyer des requêtes avec Visual Studio][].
 
 ## Authentification Azure Active Directory (AAD)
 
@@ -53,21 +50,22 @@ L’authentification [Azure Active Directory][What is Azure Active Directory] es
 
 ### Avantages
 
-Les avantages suivants sont inclus :
+Les avantages d’Azure Active Directory incluent :
 
-- Il fournit une alternative à l’authentification SQL Server.
+- Fournit une alternative à l’authentification SQL Server.
 - Permet de bloquer la prolifération des identités utilisateur sur plusieurs serveurs de base de données.
 - Permet la rotation de mot de passe à un emplacement unique
-- Les clients peuvent gérer les autorisations de base de données à l’aide de groupes (AAD) externes.
-- Il peut éliminer le stockage des mots de passe en activant l’authentification intégrée Windows et les autres formes d’authentification prises en charge par Azure Active Directory.
-- L’authentification Azure Active Directory utilise les utilisateurs de base de données à relation contenant-contenu pour authentifier les identités au niveau de la base de données.
-- Azure Active Directory prend en charge l’authentification basée sur les jetons pour les applications se connectant à SQL Data Warehouse.
-- Lorsque l’authentification Azure Active Directory est configurée, SQL Server Management Studio prend en charge Multi-Factor Authentication avec l’authentification universelle Active Directory. Pour obtenir une description de Multi-Factor Authentication, consultez [Prise en charge SSMS de Azure AD MFA avec la base de données SQL et SQL Data Warehouse](../sql-database/sql-database-ssms-mfa-authentication.md).
+- Gérer les autorisations de base de données à l’aide de groupes (AAD) externes.
+- Élimine le stockage des mots de passe en activant l’authentification intégrée Windows et les autres formes d’authentification prises en charge par Azure Active Directory.
+- Utilise les utilisateurs de base de données à relation contenant-contenu pour authentifier les identités au niveau de la base de données.
+- Prend en charge l’authentification basée sur les jetons pour les applications se connectant à SQL Data Warehouse.
+- Prend en charge Multi-Factor Authentication avec l’authentification universelle Active Directory pour SQL Server Management Studio. Pour obtenir une description de Multi-Factor Authentication, consultez [Prise en charge SSMS de Azure AD MFA avec la base de données SQL et SQL Data Warehouse](../sql-database/sql-database-ssms-mfa-authentication.md).
 
+> [AZURE.NOTE] Azure Active Directory est encore relativement nouveau et présente certaines limitations. Pour vous assurer qu’Azure Active Directory est adapté à votre environnement, consultez [Limitations et fonctionnalités Azure AD][], en particulier les considérations supplémentaires.
 
 ### Configuration
 
-Les étapes de configuration incluent les procédures suivantes pour configurer et utiliser l’authentification Azure Active Directory.
+Suivez ces étapes pour configurer l’authentification Azure Active Directory.
 
 1. Créer et renseigner un répertoire Azure Active Directory
 2. Facultatif : associer ou modifier le répertoire actif actuellement associé à votre abonnement Azure
@@ -91,5 +89,6 @@ Pour commencer à interroger votre entrepôt de données avec Visual Studio et d
 [Envoyer des requêtes avec Visual Studio]: ./sql-data-warehouse-query-visual-studio.md
 [Soumettre des requêtes avec Visual Studio]: ./sql-data-warehouse-query-visual-studio.md
 [What is Azure Active Directory]: ../active-directory/active-directory-whatis.md
+[Limitations et fonctionnalités Azure AD]: ../sql-database/sql-database-aad-authentication.md#azure-ad-features-and-limitations
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0907_2016-->
