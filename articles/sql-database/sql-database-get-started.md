@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Didacticiel sur la base de données SQL : Créer une base de données SQL | Microsoft Azure"
+	pageTitle="Didacticiel sur la base de données SQL : Créer une base de données SQL | Microsoft Azure"
 	description="Découvrez comment configurer un serveur logique SQL Database, une règle de pare-feu de serveur, une base de données SQL et des exemples de données. Apprenez également à vous connecter avec les outils clients, à configurer des utilisateurs et à définir une règle de pare-feu de base de données."
 	keywords="didacticiel sur la base de données sql, créer une base de données sql"
 	services="sql-database"
@@ -37,7 +37,7 @@ Vous pouvez exécuter les mêmes tâches à l’aide de [C#](sql-database-get-st
 
 <a name="create-logical-server-bk"></a>
 
-## Créer votre première base de données SQL Azure 
+## Créer votre première base de données SQL Azure 
 
 1. Si ce n’est pas déjà fait, connectez-vous au [portail Azure](http://portal.azure.com).
 2. Cliquez sur **Nouveau**, cliquez sur **Données + stockage**, puis recherchez **SQL Database**.
@@ -137,4 +137,4 @@ Maintenant que vous avez terminé ce didacticiel sur SQL Database et que vous av
 
 [Définition de la base de données SQL](sql-database-technical-overview.md)
 
-<!----HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0914_2016-->

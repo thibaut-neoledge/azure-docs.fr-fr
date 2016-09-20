@@ -1,7 +1,7 @@
 <properties
    pageTitle="Charger des données à partir d’un fichier CSV dans la base de données SQL Azure (BCP) | Microsoft Azure"
    description="Pour les données de taille réduite, utilise l’utilitaire de ligne de commande BCP pour importer les données dans la base de données SQL Azure."
-   services="sql-data-warehouse"
+   services="sql-database"
    documentationCenter="NA"
    authors="CarlRabeler"
    manager="jhubbard"
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/30/2016"
+   ms.date="09/13/2016"
    ms.author="carlrab"/>
 
 
@@ -37,12 +37,9 @@ Pour télécharger les utilitaires bcp et sqlcmd, accédez au [Centre de téléc
 
 Si vous suivez ce didacticiel avec vos propres données, l’encodage de ces dernières doit être au format ASCII ou UTF-16, étant donné que bcp ne prend pas en charge UTF-8.
 
-PolyBase prend en charge UTF-8, mais pas UTF-16 pour l’instant. Notez que si vous souhaitez combiner bcp avec PolyBase, vous devrez convertir les données au format UTF-8 après les avoir exportées de SQL Server.
-
-
 ## 1\. Créer une table de destination
 
-Définissez une table dans SQL Data Warehouse qui sera la table de destination pour la charge. Les colonnes de la table doivent correspondre aux données dans chaque ligne du fichier de données.
+Dans la base de données SQL, définissez une table en tant que table de destination. Les colonnes de la table doivent correspondre aux données dans chaque ligne du fichier de données.
 
 Pour créer une table, ouvrez une invite de commandes et utilisez sqlcmd.exe pour exécuter la commande suivante :
 
@@ -118,7 +115,7 @@ DateId |CalendarQuarter |FiscalQuarter
 
 ## Étapes suivantes
 
-Pour migrer une base de données SQL Server, voir [Migration de base de données SQL Server](sql-database-cloud-migrate.md).
+Pour migrer une base de données SQL Server, consultez [Migration de base de données SQL Server](sql-database-cloud-migrate.md).
 
 <!--MSDN references-->
 [bcp]: https://msdn.microsoft.com/library/ms162802.aspx
@@ -127,4 +124,4 @@ Pour migrer une base de données SQL Server, voir [Migration de base de données
 <!--Other Web references-->
 [Centre de téléchargement Microsoft]: https://www.microsoft.com/download/details.aspx?id=36433
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0914_2016-->

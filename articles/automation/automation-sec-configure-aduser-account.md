@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/10/2016"
+   ms.date="09/12/2016"
    ms.author="magoedte" />
 
 # Authentification des Runbooks avec Azure Service Management et Resource Manager
@@ -26,7 +26,7 @@ Cet article décrit les étapes à effectuer pour configurer un compte d’utili
 2. Sélectionnez **Active Directory**, puis sélectionnez le nom du répertoire de votre organisation.
 3. Sélectionnez l’onglet **Utilisateurs**, puis, dans la zone de commande, sélectionnez **Ajouter un utilisateur**.
 4. Sur la page **Dites-nous en plus sur cet utilisateur**, sous **Type d’utilisateur**, sélectionnez **Nouvel utilisateur dans votre organisation**.
-5. Entrez un nom d’utilisateur.  
+5. Entrez un nom d’utilisateur.
 6. Sélectionnez le nom du répertoire associé à votre abonnement Azure sur la page Active Directory.
 7. Sur la page **Profil de l’utilisateur**, entrez les nom et prénom de l’utilisateur, un nom convivial et sélectionnez Utilisateur dans la liste **Rôles**. Ne sélectionnez pas la case à cocher **Activer l’authentification multifacteur**.
 8. Notez le nom complet de l’utilisateur et le mot de passe temporaire.
@@ -45,10 +45,10 @@ Dans cette section, vous allez effectuer les étapes suivantes pour créer un no
 1. Connectez-vous au portail Azure Classic en tant qu’administrateur de services fédérés pour l’abonnement Azure que vous souhaitez gérer.
 2. Sélectionnez **Automation**.
 3. Sur la page **Automation**, sélectionnez **Créer un compte Automation**.
-4. Dans la boîte de dialogue **Créer un compte Automation**, entrez un nom pour votre nouveau compte Automation et sélectionnez une **région** dans la liste déroulante.  
+4. Dans la boîte de dialogue **Créer un compte Automation**, entrez un nom pour votre nouveau compte Automation et sélectionnez une **région** dans la liste déroulante.
 5. Cliquez sur **OK** pour accepter les paramètres et créer le compte.
 6. Une fois le compte créé, il est répertorié sur la page **Automation**.
-7. Cliquez sur le compte pour accéder à la page Tableau de bord.  
+7. Cliquez sur le compte pour accéder à la page Tableau de bord.
 8. Sur la page Tableau de bord Automation, sélectionnez **Actifs**.
 9. Sur la page **Actifs**, sélectionnez l’option **Ajouter des paramètres** située en bas de la page.
 10. Sur la page **Ajouter des paramètres**, sélectionnez **Ajouter des informations d’identification**.
@@ -64,7 +64,7 @@ Dans cette section, vous allez effectuer les étapes suivantes pour créer un no
 3. Dans le panneau Comptes Automation, cliquez sur **Ajouter**.<br>![Ajouter un compte Automation](media/automation-sec-configure-azure-runas-account/add-automation-acct-properties.png)
 2. Dans le panneau **Ajouter un compte Automation**, entrez le nom de votre nouveau compte Automation dans la zone **Nom**.
 5. Si vous disposez de plusieurs abonnements, spécifiez celui du nouveau compte, ainsi qu’un **groupe de ressources** nouveau ou existant et un **emplacement** de centre de données Azure.
-3. Vérifiez que l’option **Créer un compte d’authentification Azure** est bien définie sur la valeur **Non**, puis cliquez sur le bouton **Créer**.  
+3. Vérifiez que l’option **Créer un compte d’authentification Azure** est bien définie sur la valeur **Non**, puis cliquez sur le bouton **Créer**.
 
     >[AZURE.NOTE] Si vous choisissez de ne pas créer de compte d’identification en sélectionnant l’option **Non**, un message d’avertissement s’affiche dans le panneau **Ajouter un compte Automation**. Bien que le compte soit créé avec le rôle de **contributeur** dans l’abonnement, il n’aura pas d’identité d’authentification correspondante au sein de votre service de répertoire d’abonnements et, par conséquent, il n’aura pas accès aux ressources de votre abonnement. Cela empêchera tous les Runbooks faisant référence à ce compte de pouvoir authentifier et effectuer des tâches sur les ressources ARM.
 
@@ -87,4 +87,4 @@ Vous devez répéter ces lignes après tout [point de contrôle](http://technet.
 ## Étapes suivantes
 * Passez en revue les différents types de Runbooks et les étapes pour créer vos propres Runbooks dans l’article [Types de Runbooks Azure Automation](../automation/automation-runbook-types.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0914_2016-->

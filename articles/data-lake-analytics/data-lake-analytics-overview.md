@@ -4,7 +4,7 @@
    services="data-lake-analytics" 
    documentationCenter="" 
    authors="edmacauley" 
-   manager="paulettm" 
+   manager="jhubbard" 
    editor="cgronlun"/>
  
 <tags
@@ -78,4 +78,4 @@ Azure Data Lake Analytics est un nouveau service, conçu pour faciliter l'analys
     - [Soumettre une demande de fonctionnalité](http://aka.ms/adlafeedback)
     - [Obtenir de l'aide dans les forums](http://aka.ms/adlaforums)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0914_2016-->

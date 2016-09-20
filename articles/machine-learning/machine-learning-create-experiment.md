@@ -5,7 +5,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -65,17 +65,17 @@ Vous avez le choix entre plusieurs exemples de jeux de données sont inclus dans
 
 3. Faites glisser ce jeu de données sur le canevas de l’expérience.
 
-	![Dataset][screen1]
+	![Jeu de données][screen1]
 
 Pour voir à quoi ressemblent ces données, cliquez sur le port de sortie situé en bas du jeu de données d’automobile, puis sélectionnez **Visualiser**.
 
 ![Port de sortie de module][screen1c]
 
-Les variables du jeu de données sont affichées sous forme de colonnes, tandis que les types d’automobiles sont affichés sous forme de lignes. La colonne située le plus à droite (colonne 26, intitulée « Price ») est la variable cible, dont nous allons essayer de prédire la valeur.
+Les variables du jeu de données sont affichées sous forme de colonnes, tandis que les types d'automobiles sont affichés sous forme de lignes. La colonne située le plus à droite (colonne 26, intitulée « Price ») est la variable cible, dont nous allons essayer de prédire la valeur.
 
 ![Dataset visualization][screen1b]
 
-Fermez la fenêtre de visualisation en cliquant sur le symbole « **x** » dans le coin supérieur droit.
+Fermez la fenêtre de visualisation en cliquant sur le symbole « **x** » dans le coin supérieur droit.
 
 ## Étape 2 : traitement préalable des données
 
@@ -100,7 +100,7 @@ Commençons par supprimer la colonne **normalized-losses**, puis chaque ligne ay
 
     ![Propriétés du module Select Columns in Dataset][screen4]
 
-    > [AZURE.TIP] Vous pouvez ajouter un commentaire dans un module en double-cliquant sur ce module, puis en saisissant du texte. Ceci peut vous aider à voir d’un seul coup d’œil ce que fait chaque module dans votre expérience. Dans ce cas, double-cliquez sur le module [Sélectionner des colonnes dans le jeu de données][select-columns] et saisissez le commentaire suivant : « Exclure les pertes normalisées ».
+    > [AZURE.TIP] Vous pouvez ajouter un commentaire dans un module en double-cliquant sur ce module, puis en saisissant du texte. Ceci peut vous aider à voir d'un seul coup d'œil ce que fait chaque module dans votre expérience. Dans ce cas, double-cliquez sur le module [Sélectionner des colonnes dans le jeu de données][select-columns] et saisissez le commentaire suivant : « Exclure les pertes normalisées ».
 
 3. Faites glisser le module [Nettoyer les données manquantes][clean-missing-data] vers la zone de dessin de l’expérience et connectez-le au module [Sélectionner des colonnes dans le jeu de données][select-columns]. Dans le volet **Propriétés**, sélectionnez **Supprimer toute la ligne** sous **Mode de nettoyage**, afin de nettoyer les données en supprimant les lignes contenant des valeurs manquantes. Double-cliquez sur le module et saisissez le commentaire suivant : « Supprimer les lignes de valeur manquantes ».
 
@@ -112,7 +112,7 @@ Une fois l'expérience terminée, une coche verte s'affiche en regard de chaque 
 
 ![First experiment run][screen5]
 
-Pour l’instant, nous n’avons exécuté que l’action de nettoyage dans l’expérience. Si vous souhaitez afficher le jeu de données nettoyé, cliquez sur le port de sortie gauche du module [Nettoyer les données manquantes][clean-missing-data] (« Jeu de données nettoyé ») et sélectionnez **Visualiser**. Vous pouvez constater que la colonne **normalized-losses** n’est plus là et qu’il ne manque plus de données.
+Pour l’instant, nous n’avons exécuté que l’action de nettoyage dans l’expérience. Si vous souhaitez afficher le jeu de données nettoyé, cliquez sur le port de sortie gauche du module [Nettoyer les données manquantes][clean-missing-data] \(« Jeu de données nettoyé ») et sélectionnez **Visualiser**. Vous pouvez constater que la colonne **normalized-losses** n’est plus là et qu’il ne manque plus de données.
 
 Maintenant que les données sont nettoyées, nous pouvons indiquer les fonctionnalités que nous allons utiliser dans le modèle de prévision.
 
@@ -191,15 +191,15 @@ Pour afficher la sortie du module [Evaluate Model][evaluate-model], cliquez sur 
 
 - **Erreur d’absolue moyenne** (EAM) : la moyenne des erreurs absolues (une *erreur* correspond à la différence entre la valeur prévue et la valeur réelle).
 - **Racine de l’erreur quadratique moyenne** (RMSE) : la racine carrée de la moyenne des erreurs carrées des prévisions effectuées sur le jeu de données de test.
-- **Erreur absolue relative** : la moyenne des erreurs absolues relative à la différence absolue entre les valeurs réelles et la moyenne de toutes les valeurs réelles.
-- **Erreur carrée relative** : la moyenne des erreurs carrées relative à la différence carrée entre les valeurs réelles et la moyenne de toutes les valeurs réelles.
-- **Coefficient de détermination** : aussi nommé « **valeur R au carré** », il s’agit d’une mesure statistique indiquant à quel point un modèle correspond aux données.
+- **Erreur absolue relative** : la moyenne des erreurs absolues relative à la différence absolue entre les valeurs réelles et la moyenne de toutes les valeurs réelles.
+- **Erreur carrée relative** : la moyenne des erreurs carrées relative à la différence carrée entre les valeurs réelles et la moyenne de toutes les valeurs réelles.
+- **Coefficient de détermination** : aussi nommé « **valeur R au carré** », il s’agit d’une mesure statistique indiquant à quel point un modèle correspond aux données.
 
 Pour chacune des statistiques liées aux erreurs, les valeurs les plus petites sont privilégiées. En effet, une valeur plus petite indique un degré de correspondance plus étroit avec la valeur réelle. Plus la valeur du **Coefficient de détermination**, est proche de un (1.0), plus la prévision est correcte.
 
 ![Evaluation results][screen9]
 
-Au final, l’expérience doit ressembler à ceci :
+Au final, l'expérience doit ressembler à ceci :
 
 ![Didacticiel sur l'apprentissage automatique : effectuer une expérience de régression linéaire qui utilise des techniques de modélisation prédictive.][screen10]
 
@@ -246,4 +246,4 @@ Pour obtenir un guide pas à pas plus complet et détaillé des techniques de mo
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0914_2016-->

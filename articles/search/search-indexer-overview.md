@@ -4,7 +4,7 @@
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
-	manager="paulettm"
+	manager="jhubbard"
 	editor=""
     tags="azure-portal"/>
 
@@ -76,4 +76,4 @@ Maintenant que vous avez la structure de base, l’étape suivante consiste à p
 - [Indexation d’objets blob CSV avec l’indexeur d’objets blob Azure Search (version préliminaire)](search-howto-index-csv-blobs.md)
 - [Indexation d’objets blob JSON avec l’indexeur d’objets blob Azure Search (version préliminaire)](search-howto-index-json-blobs.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -1,10 +1,10 @@
 <properties 
    pageTitle="Prise en main d’Azure Data Lake Analytics à l’aide de l’interface de ligne de commande Azure (CLI) | Microsoft Azure" 
-   description="Découvrez comment utiliser l’interface de ligne de commande Azure pour créer un compte Data Lake Store, créer un travail Data Lake Analytics avec U-SQL et le soumettre." 
+   description="Découvrez comment utiliser l’interface de ligne de commande Azure pour créer un compte Data Lake Store, créer un travail Data Lake Analytics avec U-SQL et le soumettre. " 
    services="data-lake-analytics" 
    documentationCenter="" 
    authors="edmacauley" 
-   manager="paulettm" 
+   manager="jhubbard" 
    editor="cgronlun"/>
  
 <tags
@@ -27,7 +27,7 @@ Dans ce didacticiel, vous allez développer un travail qui lit un fichier TSV (v
 
 [AZURE.INCLUDE [basic-process-include](../../includes/data-lake-analytics-basic-process.md)]
 
-##Configuration requise
+##Composants requis
 
 Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
@@ -37,7 +37,7 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 - **Authentication**, en utilisant la commande  suivante :
 
 		azure login
-	Pour plus d'informations sur l'authentification à l'aide d'un compte professionnel ou scolaire, consultez la rubrique [Se connecter à un abonnement Azure à partir de l'interface de ligne de commande Azure](../xplat-cli-connect.md).
+	Pour plus d’informations sur l’authentification à l’aide d’un compte professionnel ou scolaire, consultez la section [Se connecter à un abonnement Azure à partir de l’interface de ligne de commande Azure](../xplat-cli-connect.md).
 - **Passez en mode Azure Resource Manager** en exécutant la commande suivante :
 
 		azure config mode arm
@@ -46,9 +46,9 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 
 Vous devez disposer d’un compte Analytique Data Lake avant de pouvoir exécuter un travail quelconque. Pour créer un compte Analytique Data Lake, vous devez spécifier les éléments suivants :
 
-- **Groupe de ressources Azure** : un compte Data Lake Analytics doit être créé au sein d'un groupe de ressources Azure. [Azure Resource Manager](../resource-group-overview.md) vous permet de manipuler les ressources de votre application sous la forme d’un groupe. Vous pouvez déployer, mettre à jour ou supprimer toutes les ressources de votre application dans le cadre d’une opération unique et coordonnée.  
+- **Groupe de ressources Azure** : un compte Data Lake Analytics doit être créé au sein d'un groupe de ressources Azure. [Azure Resource Manager](../resource-group-overview.md) vous permet de manipuler les ressources de votre application sous la forme d’un groupe. Vous pouvez déployer, mettre à jour ou supprimer toutes les ressources de votre application dans le cadre d’une opération unique et coordonnée.
 
-	Pour répertorier les groupes de ressources dans votre abonnement :
+	Pour répertorier les groupes de ressources dans votre abonnement :
     
     	azure group list 
     
@@ -57,8 +57,8 @@ Vous devez disposer d’un compte Analytique Data Lake avant de pouvoir exécute
 		azure group create -n "<Resource Group Name>" -l "<Azure Location>"
 
 - **Nom du compte Analytique Data Lake**
-- **Emplacement** : un des centres de données Azure prenant en charge Data Lake Analytics.
-- **Compte Data Lake par défaut** : chaque compte Data Lake Analytics possède un compte Data Lake par défaut.
+- **Emplacement** : un des centres de données Azure prenant en charge Data Lake Analytics.
+- **Compte Data Lake par défaut** : chaque compte Data Lake Analytics possède un compte Data Lake par défaut.
 
 	Pour répertorier le compte Data Lake existant :
 	
@@ -86,7 +86,7 @@ Vous devez disposer d’un compte Analytique Data Lake avant de pouvoir exécute
 
 ## Téléchargement de données vers Data Lake Store
 
-Dans ce didacticiel, vous allez traiter des journaux de recherche. Le journal de recherche peut être stocké dans Data Lake Store ou dans le stockage d'objets blobs Azure.
+Dans ce didacticiel, vous allez traiter des journaux de recherche. Le journal de recherche peut être stocké dans Data Lake Store ou dans le stockage d’objets blobs Azure.
 
 Le portail Azure fournit une interface utilisateur pour la copie de fichiers de données d’exemple vers le compte Data Lake par défaut, y compris un fichier de journal de recherche. Voir [Préparer des données sources](data-lake-analytics-get-started-portal.md#prepare-source-data) pour charger les données dans le compte Data Lake Store par défaut.
 
@@ -132,7 +132,7 @@ Les travaux Data Lake Analytics sont écrits en langage U-SQL. Pour en savoir pl
     
         wasb://<BlobContainerName>@<StorageAccountName>.blob.core.windows.net/Samples/Data/SearchLog.tsv
 
-    >[AZURE.NOTE] Les conteneurs d’objets blobs Azure avec autorisations d’accès aux objets blobs publics ou aux conteneurs publics ne sont pas pris en charge actuellement.
+    >[AZURE.NOTE] Les conteneurs d'objets Blob Azure avec des autorisations d'accès aux objets Blob publics ou aux conteneurs publics ne sont pas pris en charge actuellement.
 
 	
 **Pour soumettre le travail**
@@ -162,4 +162,4 @@ Une fois le travail terminé, vous pouvez utiliser les applets de commande suiva
 - Pour les tâches de gestion, consultez [Gestion d’Azure Data Lake Analytics à l’aide du portail Azure](data-lake-analytics-manage-use-portal.md).
 - Pour obtenir une vue d’ensemble de Data Lake Analytics, consultez [Présentation d’Azure Data Lake Analytics](data-lake-analytics-overview.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0914_2016-->

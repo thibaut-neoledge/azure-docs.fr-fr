@@ -72,7 +72,7 @@ La classe **CloudBlobClient** vous permet de récupérer des conteneurs et des o
 
 Vous êtes maintenant prêt à écrire du code qui lit et écrit des données dans le Blob Storage.
 
-## Créez un conteneur.
+## Créer un conteneur
 
 [AZURE.INCLUDE [storage-container-naming-rules-include](../../includes/storage-container-naming-rules-include.md)]
 
@@ -125,7 +125,7 @@ L’exemple suivant illustre le chargement d’un objet blob dans un conteneur e
         blockBlob.UploadFromStream(fileStream);
     }
 
-## Création d'une liste d'objets blob dans un conteneur
+## Création d’une liste d’objets blob dans un conteneur
 
 Pour créer une liste d’objets blob dans un conteneur, commencez par obtenir une référence pointant vers un conteneur. Vous pouvez ensuite utiliser la méthode **ListBlobs** du conteneur pour récupérer les objets blob et/ou les répertoires qu’il contient. Pour accéder aux nombreuses propriétés et méthodes d’une **IListBlobItem** renvoyée, vous devez l’appeler vers un objet **CloudBlockBlob**, **CloudPageBlob** ou **CloudBlobDirectory**. Si vous ne connaissez pas le type, vous pouvez lancer une vérification de type pour déterminer la cible de l’appel. Le code suivant illustre la récupération et la génération de l’URI de chaque élément du conteneur `photos` :
 
@@ -365,7 +365,7 @@ Par défaut, Azure Storage préserve la sécurité de vos données en limitant l
 Par défaut, les données d’objets blob de votre compte de stockage sont accessibles uniquement par le propriétaire du compte de stockage. L’authentification des demandes vis-à-vis du stockage d’objets blob requiert la clé d’accès par défaut. Toutefois, vous pouvez rendre certaines données d’objets blob disponibles pour d’autres utilisateurs. Deux options s'offrent à vous :
 
 - **Accès anonyme :** vous pouvez rendre un conteneur ou ses objets blob disponibles publiquement pour un accès anonyme. Pour plus d'informations, consultez [Gestion de l'accès en lecture anonyme aux conteneurs et aux objets blob](storage-manage-access-to-resources.md).
-- **Signatures d’accès partagé :** vous pouvez fournir aux clients une signature d’accès partagé (SAP), qui fournit un accès délégué à une ressource de votre compte de stockage, avec des autorisations et sur un intervalle que vous spécifiez. Pour plus d’informations, voir [Signatures d’accès partagé, partie 1 : présentation du modèle SAP](storage-dotnet-shared-access-signature-part-1.md).
+- **Signatures d’accès partagé :** vous pouvez fournir aux clients une signature d’accès partagé (SAP), qui fournit un accès délégué à une ressource de votre compte de stockage, avec des autorisations et sur un intervalle que vous spécifiez. Pour plus d’informations, consultez [Utilisation des signatures d’accès partagé (SAP)](storage-dotnet-shared-access-signature-part-1.md).
 
 ### Chiffrement des données d’objets blob
 
@@ -407,4 +407,4 @@ Maintenant que vous connaissez les bases du stockage d’objets blob, consultez 
   [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
   [REST API reference]: http://msdn.microsoft.com/library/azure/dd179355
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->
