@@ -82,7 +82,7 @@ Enfin, créez l'indexeur en lui attribuant un nom et en référençant les sourc
 	    "targetIndexName" : "target index name"
 	}
 
-Un indexeur créé de cette façon n’a pas de planification. Il s'exécute automatiquement une fois dès qu'il est créé. Vous pouvez le réexécuter à tout moment à l'aide d’une requête **run indexer** :
+Un indexeur créé de cette façon n’a pas de planification. Il s'exécute automatiquement une fois dès qu'il est créé. Vous pouvez le réexécuter à tout moment à l'aide d’une requête **run indexer** :
 
 	POST https://myservice.search.windows.net/indexers/myindexer/run?api-version=2015-02-28 
 	api-key: admin-key
@@ -91,7 +91,7 @@ Vous pouvez personnaliser différents aspects du comportement des indexeurs, not
  
 Il se peut que vous deviez autoriser des services Azure pour vous connecter à votre base de données. Pour plus d’informations sur la marche à suivre, consultez la section [Connexion à partir de Azure](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure).
 
-Pour surveiller l’état et l’historique d’exécution de l'indexeur (nombre d’éléments indexés, échecs, etc.), utilisez une requête **indexer status** :
+Pour surveiller l’état et l’historique d’exécution de l'indexeur (nombre d’éléments indexés, échecs, etc.), utilisez une requête **indexer status** :
 
 	GET https://myservice.search.windows.net/indexers/myindexer/status?api-version=2015-02-28 
 	api-key: admin-key

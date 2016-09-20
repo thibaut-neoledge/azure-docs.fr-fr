@@ -56,7 +56,7 @@ Bien que similaires, le Service de cache géré Azure et le Cache Redis Azure im
 Cache Redis Microsoft Azure est disponible dans les niveaux suivants :
 
 -	**De base**, avec un seul nœud. Plusieurs tailles jusqu'à 53 Go.
--	**Standard** : avec deux nœuds, principal et réplica. Plusieurs tailles jusqu'à 53 Go. Un contrat SLA de 99,9 %.
+-	**Standard** : avec deux nœuds, principal et réplica. Plusieurs tailles jusqu'à 53 Go. Un contrat SLA de 99,9 %.
 -	**Premium** - Deux nœuds (principal / réplica) contenant jusqu’à 10 partitions. Plusieurs tailles de 6 Go à 530 Go (nous contacter pour en savoir plus). Toutes les fonctionnalités du niveau Standard et d’autres, y compris la prise en charge du [cluster Redis](cache-how-to-premium-clustering.md), la [persistance Redis](cache-how-to-premium-persistence.md) et le [réseau virtuel Azure](cache-how-to-premium-vnet.md). Un contrat SLA de 99,9 %.
 
 Chaque option diffère en termes de fonctionnalités et de tarification. Les fonctionnalités sont décrites plus loin dans ce guide ; pour plus d'informations sur la tarification, consultez la page [Tarification - Cache](https://azure.microsoft.com/pricing/details/cache/).
@@ -78,7 +78,7 @@ Une fois le cache créé et configuré, vous devez supprimer la configuration du
 
 Pour pouvoir configurer les applications clientes pour le Cache Redis Azure, vous devez au préalable supprimer la configuration et les références d’assembly existantes du Service de cache géré en désinstallant le package NuGet du Service de cache géré.
 
-Pour désinstaller ce package, cliquez avec le bouton droit sur le projet client dans l’**Explorateur de solutions** et choisissez **Gérer les packages NuGet**. Sélectionnez le nœud **Packages installés**, puis entrez W**indowsAzure.Caching** dans la zone de recherche des packages installés. Sélectionnez **Cache** ** Microsoft Azure** (ou **Mise en cache** **Microsoft Azure** selon la version du package NuGet), cliquez sur **Désinstaller**, puis cliquez sur **Fermer**.
+Pour désinstaller ce package, cliquez avec le bouton droit sur le projet client dans l’**Explorateur de solutions** et choisissez **Gérer les packages NuGet**. Sélectionnez le nœud **Packages installés**, puis entrez W**indowsAzure.Caching** dans la zone de recherche des packages installés. Sélectionnez **Cache** **Microsoft Azure** (ou **Mise en cache** **Microsoft Azure** selon la version du package NuGet), cliquez sur **Désinstaller**, puis cliquez sur **Fermer**.
 
 ![Désinstaller le package NuGet du Service de cache géré Azure](./media/cache-migrate-to-redis/IC757666.jpg)
 

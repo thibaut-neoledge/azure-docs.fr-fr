@@ -1053,7 +1053,7 @@ Nous choisissons un partage de fichiers témoin au lieu d’un disque quorum. Ce
 
 Dans la configuration que nous utilisons comme illustrations dans ce document, le partage de fichiers témoin est configuré sur le serveur AD/DNS qui s’exécute dans Azure et est appelé _**domcontr-0**_. Dans la mesure où vous avez configuré une connexion VPN à Azure (de site à site ou avec ExpressRoute), votre AD/DNS réside en local et par conséquent ne convient pas pour exécuter un partage de fichiers témoin.
 
-> [AZURE.NOTE] Dans le cas où votre AD/DNS s’exécute uniquement en local, ne configurez pas votre partage de fichiers témoin sur le système d’exploitation Windows AD/DNS s’exécutant en local, car la latence du réseau entre les nœuds de cluster s’exécutant sur Azure et AD/DNS en local peut devenir trop importante et entraîner des problèmes de connectivité. Veillez à configurer le partage de fichiers témoin sur une machine virtuelle Windows Azure proche du nœud de cluster.
+> [AZURE.NOTE] Dans le cas où votre AD/DNS s’exécute uniquement en local, ne configurez pas votre partage de fichiers témoin sur le système d’exploitation Windows AD/DNS s’exécutant en local, car la latence du réseau entre les nœuds de cluster s’exécutant sur Azure et AD/DNS en local peut devenir trop importante et entraîner des problèmes de connectivité. Veillez à configurer le partage de fichiers témoin sur une machine virtuelle Microsoft Azure proche du nœud de cluster.
 
 Le disque quorum a besoin d’au moins 1 024 Mo d’espace libre. Le volume recommandé est de 2 048 Mo
 
@@ -1289,7 +1289,7 @@ Si vous souhaitez conserver les ports par défaut pour l’équilibrage de charg
 
 - Pour **Système ABAP** - numéro d’instance **ASCS** **00**
 - Pour **Système Java** - numéro d’instance **SCS** **01**
-- Pour **Système ABAP+Java** - numéro d’instance **ASCS****00** et numéro d’instance **SCS** **01**
+- Pour **Système ABAP+Java** - numéro d’instance **ASCS** **00** et numéro d’instance **SCS** **01**
 
 Si vous souhaitez utiliser d’autres numéros d’instance que 00 pour l’instance ASCS ABAP et 01 pour l’instance SCS Java, vous devez tout d’abord modifier les règles d’équilibrage de charge interne Azure par défaut, comme décrit dans : **[Modification des règles d’équilibrage de charge interne (ILB) Azure ASCS/SCS par défaut][sap-ha-guide-8.9]**.
 

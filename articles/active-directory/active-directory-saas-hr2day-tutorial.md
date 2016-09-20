@@ -90,7 +90,7 @@ Pour configurer et tester l’authentification unique Azure AD avec HR2day by M
 
 1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-4. **[Création d’un utilisateur de test HR2day](#creating-a-hr2day-by-merces-test-user)** : pour avoir un équivalent de Britta Simon dans HR2day lié à la représentation Azure AD associée.
+4. **[Création d’un utilisateur de test HR2day](#creating-a-hr2day-by-merces-test-user)** : pour avoir un équivalent de Britta Simon dans HR2day lié à la représentation Azure AD associée.
 5. **[Affectation d’un utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
 5. **[Test de l’authentification unique](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 

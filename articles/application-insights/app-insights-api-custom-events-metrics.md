@@ -706,17 +706,17 @@ TelemetryClient a une propriété de contexte contenant un certain nombre de val
 
 Si vous définissez une de ces valeurs vous-même, supprimez la ligne appropriée dans [ApplicationInsights.config][config], de sorte que vos valeurs et les valeurs standard ne se mélangent pas.
 
-* **Composant** : identifie l'application et sa version
-* **Périphérique** : données du périphérique sur lequel l'application est en cours d'exécution (dans les applications web, il s’agit du serveur ou du périphérique client à partir duquel la télémétrie est envoyée)
-* **Clé d’instrumentation** : identifie la ressource d'Application Insights dans Azure où apparaît la télémétrie. Elle est généralement récupérée dans ApplicationInsights.config
-* **Emplacement** : identifie l'emplacement géographique du périphérique.
-* **Opération** : dans les applications web, il s’agit de la requête HTTP actuelle. Dans d'autres types d'application, vous pouvez définir celle-ci sur les événements regroupés.
- * **ID** : une valeur générée qui met en relation différents événements de manière à ce que vous trouviez les « Éléments associés » lorsque vous inspectez un événement dans la Recherche de diagnostic.
- * **Nom** : un identificateur, généralement l'URL de la requête HTTP.
- * **SyntheticSource** : si elle est non nulle ou vide, cette chaîne indique que la source de la requête a été identifiée en tant que robot ou test web. Par défaut, celle-ci sera exclue des calculs dans Metrics Explorer.
-* **Propriétés** : ce sont les propriétés qui sont envoyées avec toutes les données de télémétrie. Elles peuvent être remplacées dans les appels Track* individuels.
-* **Session** : identifie la session de l’utilisateur. L'ID est définie sur une valeur générée qui est modifiée lorsque l'utilisateur n'a pas été actif pendant un certain temps.
-* **Utilisateur** : informations utilisateur.
+* **Composant** : identifie l'application et sa version
+* **Périphérique** : données du périphérique sur lequel l'application est en cours d'exécution (dans les applications web, il s’agit du serveur ou du périphérique client à partir duquel la télémétrie est envoyée)
+* **Clé d’instrumentation** : identifie la ressource d'Application Insights dans Azure où apparaît la télémétrie. Elle est généralement récupérée dans ApplicationInsights.config
+* **Emplacement** : identifie l'emplacement géographique du périphérique.
+* **Opération** : dans les applications web, il s’agit de la requête HTTP actuelle. Dans d'autres types d'application, vous pouvez définir celle-ci sur les événements regroupés.
+ * **ID** : une valeur générée qui met en relation différents événements de manière à ce que vous trouviez les « Éléments associés » lorsque vous inspectez un événement dans la Recherche de diagnostic.
+ * **Nom** : un identificateur, généralement l'URL de la requête HTTP.
+ * **SyntheticSource** : si elle est non nulle ou vide, cette chaîne indique que la source de la requête a été identifiée en tant que robot ou test web. Par défaut, celle-ci sera exclue des calculs dans Metrics Explorer.
+* **Propriétés** : ce sont les propriétés qui sont envoyées avec toutes les données de télémétrie. Elles peuvent être remplacées dans les appels Track* individuels.
+* **Session** : identifie la session de l’utilisateur. L'ID est définie sur une valeur générée qui est modifiée lorsque l'utilisateur n'a pas été actif pendant un certain temps.
+* **Utilisateur** : informations utilisateur.
 
 ## Limites
 

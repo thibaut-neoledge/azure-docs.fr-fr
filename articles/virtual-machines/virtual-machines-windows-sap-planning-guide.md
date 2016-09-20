@@ -1806,7 +1806,7 @@ La solution SIOS DataKeeper fournit une ressource de cluster de disque partagée
 * Configuration de SIOS DataKeeper Cluster Edition de sorte qu’il mette en miroir de manière synchrone le contenu du volume attaché au disque dur virtuel supplémentaire depuis les machines virtuelles source sur le volume attaché du disque dur virtuel supplémentaire de la machine virtuelle cible.
 * SIOS DataKeeper fait abstraction des volumes locaux source et cible et les présente à un cluster de basculement Windows comme disque partagé unique.
  
-Vous trouverez tous les détails concernant l’installation d’un cluster de basculement Windows avec SIOS Datakeeper et SAP dans le livre blanc [Clustering SAP ASCS Instance using Windows Server Failover Cluster on Azure with SIOS DataKeeper][ha-guide-classic] (Clustering de l’instance ASCS SAP à l’aide du cluster de basculement Windows Server sur Azure avec SIOS DataKeeper).
+Vous trouverez tous les détails concernant l’installation d’un cluster de basculement Windows avec SIOS Datakeeper et SAP dans le livre blanc [Clustering SAP ASCS Instance using Windows Server Failover Cluster on Azure with SIOS DataKeeper][ha-guide-classic] \(Clustering de l’instance ASCS SAP à l’aide du cluster de basculement Windows Server sur Azure avec SIOS DataKeeper).
 
 #### Haute disponibilité pour l’instance (A)SCS SAP sous Linux
  

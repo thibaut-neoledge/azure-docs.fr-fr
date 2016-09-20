@@ -48,7 +48,7 @@ Cette section montre également comment une tranche de données passe d'un état
 	
 	![Parcourir tout -> Fabriques de données](./media/data-factory-monitor-manage-pipelines/browseall-data-factories.png)
 
-	Vous devez voir toutes les fabriques de données dans le panneau **Fabriques de données**.
+	Vous devez voir toutes les fabriques de données dans le panneau **Fabriques de données**. 
 4. Dans le panneau Fabriques de données, sélectionnez la fabrique de données qui vous intéresse. La page d’accueil associée devrait apparaître (panneau **Fabrique de données**).
 
 	![Panneau Data Factory](./media/data-factory-monitor-manage-pipelines/data-factory-blade.png)
@@ -66,10 +66,10 @@ Vous pouvez faire un zoom avant, un zoom arrière, un zoom à 100 %, un zoom po
 ### Activités à l'intérieur d'un pipeline 
 1. Cliquez avec le bouton droit sur le pipeline de votre choix puis cliquez sur **Ouvrir le pipeline** pour faire apparaître toutes les activités dans le pipeline, ainsi que les jeux de données d’entrée et de sortie des activités. Cette fonctionnalité est utile quand votre pipeline comprend plusieurs activités et que vous souhaitez comprendre le lignage opérationnel d'un seul pipeline.
 
-	![Menu Ouvrir un pipeline](./media/data-factory-monitor-manage-pipelines/open-pipeline-menu.png)
-2. Dans l'exemple suivant, deux activités dans le pipeline s’affichent avec leurs entrées et leurs sorties. Les activités intitulées **JoinData** du type d'activité Hive HDInsight et **EgressDataAzure** du type d'activité Copy figurent dans cet exemple de pipeline.
+	![Menu Ouvrir un pipeline](./media/data-factory-monitor-manage-pipelines/open-pipeline-menu.png)	 
+2. Dans l'exemple suivant, deux activités dans le pipeline s’affichent avec leurs entrées et leurs sorties. Les activités intitulées **JoinData** du type d'activité Hive HDInsight et **EgressDataAzure** du type d'activité Copy figurent dans cet exemple de pipeline. 
 	
-	![Activités à l'intérieur d'un pipeline](./media/data-factory-monitor-manage-pipelines/activities-inside-pipeline.png)
+	![Activités à l'intérieur d'un pipeline](./media/data-factory-monitor-manage-pipelines/activities-inside-pipeline.png) 
 3. Vous pouvez revenir à la page d'accueil de Data Factory. Pour ce faire, cliquez sur le lien Data Factory dans l'arborescence de navigation située dans le coin supérieur gauche.
 
 	![Revenir à la fabrique de données](./media/data-factory-monitor-manage-pipelines/navigate-back-to-data-factory.png)
@@ -353,7 +353,7 @@ Pour spécifier une définition d'alerte, vous devez créer un fichier JSON déc
 
 Si vous ne voulez pas recevoir d’alerte relative à un échec spécifique, supprimez **subStatus** de la définition JSON ci-dessus.
 
-L'exemple ci-dessus définit l'alerte de toutes les fabriques de données de votre abonnement. Si vous souhaitez configurer l'alerte pour une fabrique de données particulière, vous pouvez spécifier la fabrique de données **resourceUri** dans le bloc **dataSource** :
+L'exemple ci-dessus définit l'alerte de toutes les fabriques de données de votre abonnement. Si vous souhaitez configurer l'alerte pour une fabrique de données particulière, vous pouvez spécifier la fabrique de données **resourceUri** dans le bloc **dataSource** :
 
 	"resourceUri" : "/SUBSCRIPTIONS/<subscriptionId>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/DATAFACTORIES/<dataFactoryName>"
 
@@ -411,12 +411,12 @@ Pour récupérer la liste des déploiements de groupes de ressources Azure, util
 #### Résolution des problèmes des événements utilisateur
 
 
-- Vous pouvez voir tous les événements générés après avoir cliqué sur la vignette **Opérations**. En outre, vous pouvez configurer des alertes relatives à n’importe quelle opération visible dans le panneau **Événements** :
+- Vous pouvez voir tous les événements générés après avoir cliqué sur la vignette **Opérations**. En outre, vous pouvez configurer des alertes relatives à n’importe quelle opération visible dans le panneau **Événements** :
 
 	![Opérations](./media/data-factory-monitor-manage-pipelines/operations.png)
 
 
-- Consultez l’article [Applets de commande Azure Insight](https://msdn.microsoft.com/library/mt282452.aspx) pour plus d’informations sur les applets de commande PowerShell que vous pouvez utiliser pour ajouter/obtenir/supprimer des alertes. Voici quelques exemples d’utilisation de l’applet de commande **Get-AlertRule** :
+- Consultez l’article [Applets de commande Azure Insight](https://msdn.microsoft.com/library/mt282452.aspx) pour plus d’informations sur les applets de commande PowerShell que vous pouvez utiliser pour ajouter/obtenir/supprimer des alertes. Voici quelques exemples d’utilisation de l’applet de commande **Get-AlertRule** :
 
 
 		PS C:\> get-alertrule -res $resourceGroup -n ADFAlertsSlice -det

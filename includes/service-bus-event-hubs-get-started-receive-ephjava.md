@@ -12,7 +12,7 @@ Pour utiliser EventProcessorHost, vous devez disposer d’un [compte Azure Stora
 
     ![][11]
 
-3. Cliquez sur le compte de stockage que vous venez de créer, puis cliquez sur **Gérer les clés d'accès** :
+3. Cliquez sur le compte de stockage que vous venez de créer, puis cliquez sur **Gérer les clés d'accès** :
 
     ![][12]
 

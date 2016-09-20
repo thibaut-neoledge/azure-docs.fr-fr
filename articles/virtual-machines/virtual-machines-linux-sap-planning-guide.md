@@ -651,7 +651,8 @@ Chaque machine virtuelle dans Azure doit être connectée à un réseau virtuel.
 
 Pour plus d’informations, voir [cet article][resource-groups-networking] et [cette page](https://azure.microsoft.com/documentation/services/virtual-network/).
 
-[comment]: <> (MShermannd TODO Couldn’t find an article which includes the OpenLDAP topic + ARM; ) [comment]: <> (MSSedusch <https://channel9.msdn.com/Blogs/Open/Load-balancing-highly-available-Linux-services-on-Windows-Azure-OpenLDAP-and-MySQL>)
+[comment]: <> (MShermannd TODO Couldn’t find an article which includes the OpenLDAP topic + ARM; ) 
+[comment]: <> (MSSedusch <https://channel9.msdn.com/Blogs/Open/Load-balancing-highly-available-Linux-services-on-Windows-Azure-OpenLDAP-and-MySQL>)
 
 > [AZURE.NOTE] Par défaut, une fois qu’une machine virtuelle est déployée, vous ne pouvez pas modifier la configuration du réseau virtuel. Les paramètres TCP/IP doivent être conservés sur le serveur DHCP d’Azure. Le comportement par défaut est l’attribution d’adresse IP dynamique.
 
@@ -685,12 +686,17 @@ La figure ci-dessus présente deux abonnements Azure qui ont des sous-plages d�
 #### VPN de point à site
 Le VPN de point à site requiert que chaque machine du client se connecte à Azure avec son propre VPN. Pour les scénarios SAP que nous étudions, la connectivité de point à site n’est pas pratique. Par conséquent, nous n’en parlerons pas davantage.
 
-[comment]: <> (MSSedusch -- More information can be found here) [comment]: <> (MShermannd TODO Link no longer valid; But ARM is anyway not supported - see next link below) [comment]: <> (MSSedusch -- <http://msdn.microsoft.com/library/azure/dn133798.aspx>.) [comment]: <> (MShermannd TODO Point to Site not supported yet with ARM ) [comment]: <> (MSSedusch -- <https://azure.microsoft.com/documentation/articles/vpn-gateway-point-to-site-create/>)
+[comment]: <> (MSSedusch -- More information can be found here) 
+[comment]: <> (MShermannd TODO Link no longer valid; But ARM is anyway not supported - see next link below) 
+[comment]: <> (MSSedusch -- <http://msdn.microsoft.com/library/azure/dn133798.aspx>.) 
+[comment]: <> (MShermannd TODO Point to Site not supported yet with ARM ) 
+[comment]: <> (MSSedusch -- <https://azure.microsoft.com/documentation/articles/vpn-gateway-point-to-site-create/>)
 
 #### VPN multisite
 Actuellement, Azure propose aussi de créer une connexion VPN multisite pour un abonnement Azure. Précédemment, un abonnement était limité à une seule connexion VPN de intersite. Cette limitation a disparu et vous pouvez désormais bénéficier de connexions VPN multisites par abonnement. Cela permet d’exploiter plusieurs régions Azure pour un abonnement spécifique par le biais de configurations intersites.
 
-Pour plus d’informations, voir [cet article][vpn-gateway-create-site-to-site-rm-powershell] [comment]: <> (MShermannd TODO found no ARM docu link)
+Pour plus d’informations, voir [cet article][vpn-gateway-create-site-to-site-rm-powershell] 
+[comment]: <> (MShermannd TODO found no ARM docu link)
 
 #### Connexion de réseau virtuel à réseau virtuel
 À l’aide d’un VPN multisite, vous devez configurer un réseau virtuel Azure distinct dans chacune des régions. Cependant, très souvent vous avez besoin que les composants logiciels des différentes régions puissent communiquer entre eux. Dans l’idéal, cette communication ne doit pas être acheminée depuis une région Azure vers un site local, ni depuis ce site local vers l’autre région Azure. En bref, Azure vous offre la possibilité de configurer une connexion depuis un réseau virtuel Azure dans une région vers un autre réseau virtuel Azure hébergé dans l’autre région. Cette fonctionnalité est appelée connexion de réseau virtuel à réseau virtuel. Pour plus d’informations sur cette fonctionnalité, voir <https://azure.microsoft.com/documentation/articles/vpn-gateway-vnet-vnet-rm-ps/>.
@@ -762,7 +768,8 @@ Le portail Azure constitue l’une des trois interfaces destinées à la gestion
  
 ![Portail Microsoft Azure - vue d’ensemble de la machine virtuelle][planning-guide-figure-800]
 
-[comment]: <> (MSSedusch * <https://azure.microsoft.com/documentation/articles/virtual-networks-create-vnet-arm-pportal/>) [comment]: <> (MSSedusch * <https://azure.microsoft.com/documentation/articles/virtual-machines-windows-tutorial/>)
+[comment]: <> (MSSedusch * <https://azure.microsoft.com/documentation/articles/virtual-networks-create-vnet-arm-pportal/>) 
+[comment]: <> (MSSedusch * <https://azure.microsoft.com/documentation/articles/virtual-machines-windows-tutorial/>)
 
 Les tâches d’administration et de configuration de la machine virtuelle sont possibles au sein du portail Azure.
 
@@ -773,7 +780,9 @@ Le portail Azure fournit des fonctionnalités de base pour déployer et configur
 * le téléchargement de disques durs virtuels vers Azure ;
 * la copie de machines virtuelles.
 
-[comment]: <> (MShermannd TODO what about automation service for SAP VMs ? ) [comment]: <> (MSSedusch deployment of multiple VMs os meanwhile possible) [comment]: <> (MSSedusch De plus, l’automation des déploiements n’est pas possible dans le portail Azure. Des tâches telles que les déploiements de plusieurs machines virtuelles à base de script ne sont pas possibles via le portail Azure.)
+[comment]: <> (MShermannd TODO what about automation service for SAP VMs ? ) 
+[comment]: <> (MSSedusch deployment of multiple VMs os meanwhile possible) 
+[comment]: <> (MSSedusch De plus, l’automation des déploiements n’est pas possible dans le portail Azure. Des tâches telles que les déploiements de plusieurs machines virtuelles à base de script ne sont pas possibles via le portail Azure.)
 
 ### Gestion par le biais des applets de commande Microsoft Azure PowerShell
 Windows PowerShell est une infrastructure puissante et extensible, largement adoptée par les clients qui déploient un nombre plus important de systèmes dans Azure. Après avoir installé des applets de commande PowerShell sur un ordinateur de bureau, un ordinateur portable ou un poste de gestion dédié, les applets de commande PowerShell peuvent être exécutées à distance.
@@ -786,7 +795,8 @@ Le retour de nos clients a permis de déterminer que PowerShell (PS) constitue l
 
 Voir l’exemple présenté ici : <http://blogs.technet.com/b/keithmayer/archive/2015/07/07/18-steps-for-end-to-end-iaas-provisioning-in-the-cloud-with-azure-resource-manager-arm-powershell-and-desired-state-configuration-dsc.aspx>
 
-[comment]: <> (MShermannd TODO describe new CLI command when tested ) Le déploiement de l’extension d’analyse Azure pour SAP (voir le chapitre [Solution de surveillance Azure pour SAP][planning-guide-9.1] dans ce document) est uniquement possible par le biais de PowerShell ou de l’interface de ligne de commande. Par conséquent, il est obligatoire d’installer et de configurer PowerShell ou l’interface de ligne de commandes lors du déploiement ou de l’administration d’un système SAP NetWeaver dans Azure.
+[comment]: <> (MShermannd TODO describe new CLI command when tested ) 
+Le déploiement de l’extension d’analyse Azure pour SAP (voir le chapitre [Solution de surveillance Azure pour SAP][planning-guide-9.1] dans ce document) est uniquement possible par le biais de PowerShell ou de l’interface de ligne de commande. Par conséquent, il est obligatoire d’installer et de configurer PowerShell ou l’interface de ligne de commandes lors du déploiement ou de l’administration d’un système SAP NetWeaver dans Azure.
 
 Étant donné qu’Azure propose davantage de fonctionnalités, de nouvelles applets de commande PS vont être ajoutées ; celles-ci nécessiteront une mise à jour des applets de commande. Par conséquent, il est judicieux de consulter le site de téléchargement Azure au moins une fois par mois, <https://azure.microsoft.com/downloads/>, afin de vérifier si une nouvelle version des applets de commande est disponible. La nouvelle version sera simplement installée par-dessus l’ancienne version.
 
@@ -820,7 +830,11 @@ ___
 
 > ![Windows][Logo_Windows] Windows
 >
-> Les paramètres de Windows (tels que le nom d’hôte et le SID Windows) doivent être extraits/généralisés sur la machine virtuelle locale via la commande sysprep. [comment]: <> (MSSedusch > See more details here :) [comment]: <> (MShermannd TODO first link is about classic model. Didn’t find an Azure docu article) [comment]: <> (MSSedusch > <https://azure.microsoft.com/documentation/articles/virtual-machines-create-upload-vhd-windows-server/>) [comment]: <> (MSSedusch > <http://blogs.technet.com/b/blainbar/archive/2014/09/12/modernizing-your-infrastructure-with-hybrid-cloud-using-custom-vm-images-and-resource-groups-in-microsoft-azure-part-21-blain-barton.aspx>)
+> Les paramètres de Windows (tels que le nom d’hôte et le SID Windows) doivent être extraits/généralisés sur la machine virtuelle locale via la commande sysprep. 
+[comment]: <> (MSSedusch > See more details here :) 
+[comment]: <> (MShermannd TODO first link is about classic model. Didn’t find an Azure docu article) 
+[comment]: <> (MSSedusch > <https://azure.microsoft.com/documentation/articles/virtual-machines-create-upload-vhd-windows-server/>) 
+[comment]: <> (MSSedusch > <http://blogs.technet.com/b/blainbar/archive/2014/09/12/modernizing-your-infrastructure-with-hybrid-cloud-using-custom-vm-images-and-resource-groups-in-microsoft-azure-part-21-blain-barton.aspx>)
 >
 > ![Linux][Logo_Linux] Linux
 >
@@ -1805,7 +1819,7 @@ La solution SIOS DataKeeper fournit une ressource de cluster de disque partagée
 * Configuration de SIOS DataKeeper Cluster Edition de sorte qu’il mette en miroir de manière synchrone le contenu du volume attaché au disque dur virtuel supplémentaire depuis les machines virtuelles source sur le volume attaché du disque dur virtuel supplémentaire de la machine virtuelle cible.
 * SIOS DataKeeper fait abstraction des volumes locaux source et cible et les présente à un cluster de basculement Windows comme disque partagé unique.
  
-Vous trouverez tous les détails concernant l’installation d’un cluster de basculement Windows avec SIOS Datakeeper et SAP dans le livre blanc [Clustering SAP ASCS Instance using Windows Server Failover Cluster on Azure with SIOS DataKeeper][ha-guide-classic] (Clustering de l’instance ASCS SAP à l’aide du cluster de basculement Windows Server sur Azure avec SIOS DataKeeper).
+Vous trouverez tous les détails concernant l’installation d’un cluster de basculement Windows avec SIOS Datakeeper et SAP dans le livre blanc [Clustering SAP ASCS Instance using Windows Server Failover Cluster on Azure with SIOS DataKeeper][ha-guide-classic] \(Clustering de l’instance ASCS SAP à l’aide du cluster de basculement Windows Server sur Azure avec SIOS DataKeeper).
 
 #### Haute disponibilité pour l’instance (A)SCS SAP sous Linux
  

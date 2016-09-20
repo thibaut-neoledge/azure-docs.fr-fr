@@ -48,7 +48,7 @@ Vous devez disposer des éléments suivants pour suivre ce didacticiel :
 <a name="bkmk_deploy"></a>
 ## Créer et déployer une application web sur Azure ##
 
-1. Dans Visual Studio, cliquez sur **Fichier** > **Nouveau** > **Projet**.
+1. Dans Visual Studio, cliquez sur **Fichier** > **Nouveau** > **Projet**.
 
 2. Sélectionnez **Application web ASP.NET**, nommez votre projet, puis cliquez sur **OK**.
 

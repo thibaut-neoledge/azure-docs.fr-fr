@@ -46,7 +46,7 @@ Avant de créer une empreinte d’application distribuée, il peut s’avérer u
 
 
 ## Configuration d’un profil Traffic Manager ##
-Une fois que plusieurs instances d’une application sont déployées sur plusieurs environnements App Service, les instances d’application individuelles peuvent être enregistrées avec Traffic Manager. Dans l’exemple d’application, un profil Traffic Manager qui peut acheminer les clients vers les instances d’applications qui suivent est nécessaire pour *scalable-ase-demo.trafficmanager.net* :
+Une fois que plusieurs instances d’une application sont déployées sur plusieurs environnements App Service, les instances d’application individuelles peuvent être enregistrées avec Traffic Manager. Dans l’exemple d’application, un profil Traffic Manager qui peut acheminer les clients vers les instances d’applications qui suivent est nécessaire pour *scalable-ase-demo.trafficmanager.net* :
 
 - **webfrontend1.fe1ase.p.azurewebsites.net :** instance de l’exemple d’application déployée sur le premier environnement App Service.
 - **webfrontend2.fe2ase.p.azurewebsites.net :** instance de l’exemple d’application déployée sur le deuxième environnement App Service.
@@ -103,8 +103,8 @@ Le résultat final de la configuration de Traffic Manager et de DNS est que les 
 2. L’entrée CNAME sur l’enregistrement de domaine fait que la recherche DNS est redirigée vers Azure Traffic Manager.
 3. Une recherche DNS sur *scalable-ase-demo.trafficmanager.net* est effectuée sur l’un des serveurs DNS Traffic Manager d’Azure.
 4. Selon la stratégie d’équilibrage de charge (paramètre *TrafficRoutingMethod* utilisé précédemment lors de la création du profil Traffic Manager), Traffic Manager sélectionne un des points de terminaison configurés et renvoie le nom de domaine complet de ce point de terminaison au navigateur ou au périphérique.
-5.  Étant donné que le nom de domaine complet du point de terminaison est l’Url d’une instance d’application s’exécutant dans un environnement App Service, le navigateur ou le périphérique demandera à un serveur DNS de Microsoft Azure de résoudre le nom de domaine complet sur une adresse IP.
-6. Le navigateur ou le périphérique envoie la demande HTTP/S à l’adresse IP.
+5.  Étant donné que le nom de domaine complet du point de terminaison est l’Url d’une instance d’application s’exécutant dans un environnement App Service, le navigateur ou le périphérique demandera à un serveur DNS de Microsoft Azure de résoudre le nom de domaine complet sur une adresse IP. 
+6. Le navigateur ou le périphérique envoie la demande HTTP/S à l’adresse IP.  
 7. La demande arrive dans une des instances d’application en cours d’exécution sur un des environnements App Service.
 
 L’image de la console ci-dessous représente une recherche DNS sur le domaine personnalisé de l’exemple d’application se résolvant sur une instance d’application en cours d’exécution sur un des trois exemples d’environnements (dans ce cas le deuxième des trois environnements d’App Service ) :
@@ -123,7 +123,7 @@ Documentation de la [prise en charge Powershell Azure Resource Manager Traffic M
 <!-- LINKS -->
 [AzureTrafficManagerProfile]: https://azure.microsoft.com/documentation/articles/traffic-manager-manage-profiles/
 [ARMTrafficManager]: https://azure.microsoft.com/documentation/articles/traffic-manager-powershell-arm/
-[RegisterCustomDomain]: https://azure.microsoft.com/fr-FR/documentation/articles/web-sites-custom-domain-name/
+[RegisterCustomDomain]: https://azure.microsoft.com/documentation/articles/web-sites-custom-domain-name/
 
 
 <!-- IMAGES -->

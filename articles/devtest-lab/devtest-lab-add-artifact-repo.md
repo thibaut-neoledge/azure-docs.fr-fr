@@ -74,7 +74,7 @@ Pour obtenir l’URL de clonage du dépôt Visual Studio Team Services et le jet
 
 1. Sous l’onglet **Sécurité**, sélectionnez **Ajouter**.
 
-1. Sur la page **Créer un jeton d’accès personnel** :
+1. Sur la page **Créer un jeton d’accès personnel** :
 
     - Entrez une **Description** pour le jeton.
     - Dans la liste **Expire dans**, sélectionnez **180 jours**.

@@ -119,11 +119,11 @@ Vous pouvez vérifier que cela fonctionne en examinant [l’Explorateur de stock
 ## Définir les autorisations du conteneur
 Les autorisations d’un conteneur sont configurées pour l’accès **Privé** par défaut. Toutefois, les conteneurs fournissent d’autres options pour l’accès aux conteneurs :
 
-- **Privé** : seul le propriétaire du compte peut lire les données de conteneur et d’objet blob.
+- **Privé** : seul le propriétaire du compte peut lire les données de conteneur et d’objet blob.
 
-- **BLOB** : les données blob à l’intérieur de ce conteneur sont lisibles au moyen d’une demande anonyme, mais les données du conteneur ne sont pas disponibles. Les clients ne peuvent pas énumérer les objets blob à l’intérieur du conteneur via une demande anonyme.
+- **BLOB** : les données blob à l’intérieur de ce conteneur sont lisibles au moyen d’une demande anonyme, mais les données du conteneur ne sont pas disponibles. Les clients ne peuvent pas énumérer les objets blob à l’intérieur du conteneur via une demande anonyme.
 
-- **Conteneur** : les données de conteneur et blob sont lisibles au moyen d’une demande anonyme. Les clients peuvent énumérer les objets blob à l’intérieur du conteneur via une demande anonyme, mais ne peuvent pas énumérer les conteneurs dans le compte de stockage.
+- **Conteneur** : les données de conteneur et blob sont lisibles au moyen d’une demande anonyme. Les clients peuvent énumérer les objets blob à l’intérieur du conteneur via une demande anonyme, mais ne peuvent pas énumérer les conteneurs dans le compte de stockage.
 
 L’exemple suivant montre comment créer un conteneur avec des autorisations d’accès de type **Conteneur**, qui autorisent un accès public en lecture seule à tous les utilisateurs sur Internet :
 
@@ -200,18 +200,18 @@ Outre le chargement d’un objet blob de blocs à partir d’une chaîne NSStrin
 ## Création d’une liste d’objets blob dans un conteneur
 L’exemple suivant montre comment répertorier tous les objets blob dans un conteneur. Lorsque vous effectuez cette opération, gardez à l’esprit les paramètres suivants :
 
-- **continuationToken** : le jeton de continuation représente l’emplacement où l’opération de liste doit commencer. Si aucun jeton n’est fourni, il répertorie les objets blob depuis le début. N’importe quel nombre d’objets blob peut être répertorié, à partir de zéro jusqu’à un maximum spécifié. Même si cette méthode ne retourne aucun résultat, si la valeur `results.continuationToken` n’est pas nulle, il peut y avoir davantage d’objets blob sur le service qui n’ont pas été répertoriés.
-- **prefix** : vous pouvez spécifier le préfixe à utiliser pour la liste d’objets blob. Seuls les objets blob qui commencent par ce préfixe sont répertoriés.
-- **useFlatBlobListing** : comme indiqué dans la section [Désignation et référencement des conteneurs et des objets blob](#naming-and-referencing-containers-and-blobs), bien que le service BLOB soit un schéma de stockage plat, vous pouvez créer une hiérarchie virtuelle en nommant les objets blob avec des informations de chemin d’accès. Toutefois, les listes de stockage non plat ne sont actuellement pas prises en charge ; cette option sera bientôt disponible. Pour le moment, cette valeur doit être `YES`
-- **blobListingDetails** : vous pouvez spécifier les éléments à inclure lors de la création de la liste d’objets blob.
+- **continuationToken** : le jeton de continuation représente l’emplacement où l’opération de liste doit commencer. Si aucun jeton n’est fourni, il répertorie les objets blob depuis le début. N’importe quel nombre d’objets blob peut être répertorié, à partir de zéro jusqu’à un maximum spécifié. Même si cette méthode ne retourne aucun résultat, si la valeur `results.continuationToken` n’est pas nulle, il peut y avoir davantage d’objets blob sur le service qui n’ont pas été répertoriés.
+- **prefix** : vous pouvez spécifier le préfixe à utiliser pour la liste d’objets blob. Seuls les objets blob qui commencent par ce préfixe sont répertoriés.
+- **useFlatBlobListing** : comme indiqué dans la section [Désignation et référencement des conteneurs et des objets blob](#naming-and-referencing-containers-and-blobs), bien que le service BLOB soit un schéma de stockage plat, vous pouvez créer une hiérarchie virtuelle en nommant les objets blob avec des informations de chemin d’accès. Toutefois, les listes de stockage non plat ne sont actuellement pas prises en charge ; cette option sera bientôt disponible. Pour le moment, cette valeur doit être `YES`
+- **blobListingDetails** : vous pouvez spécifier les éléments à inclure lors de la création de la liste d’objets blob.
 	- `AZSBlobListingDetailsNone` : répertorie uniquement les objets blob validés et ne renvoie pas de métadonnées d’objet blob.
 	- `AZSBlobListingDetailsSnapshots` : répertorie les objets blob validés et les instantanés d’objet blob.
 	- `AZSBlobListingDetailsMetadata` : récupère les métadonnées d’objet blob pour chaque objet blob renvoyé dans la liste.
 	- `AZSBlobListingDetailsUncommittedBlobs` : répertorie les objets blob validés et non validés.
 	- `AZSBlobListingDetailsCopy` : inclut des propriétés de copie dans la liste.
 	- `AZSBlobListingDetailsAll` : répertorie tous les objets blob validés, objets blob non validés et instantanés disponibles, et renvoie l’état de toutes les métadonnées et de la copie pour ces objets blob.
-- **maxResults** : nombre maximal de résultats à renvoyer pour cette opération. Utilisez -1 pour ne pas définir une limite.
-- **completionHandler** : bloc de code à exécuter avec les résultats de l’opération de génération de liste.
+- **maxResults** : nombre maximal de résultats à renvoyer pour cette opération. Utilisez -1 pour ne pas définir une limite.
+- **completionHandler** : bloc de code à exécuter avec les résultats de l’opération de génération de liste.
 
 Dans cet exemple, une méthode d’assistance est utilisée pour appeler de manière récursive la méthode de liste d’objets blob à chaque fois qu’un jeton de continuation est renvoyé.
 

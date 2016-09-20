@@ -30,7 +30,7 @@ Vous pouvez trouver le **Kit de développement logiciel Azure IoT device SDK pou
 
 ## Le langage de modélisation
 
-L’[article d’introduction](iot-hub-device-sdk-c-intro.md) de cette série a présenté le langage de modélisation du **Kit SDK d’appareils Azure IoT pour C** via l’exemple fourni dans l’application **simplesample\_amqp** :
+L’[article d’introduction](iot-hub-device-sdk-c-intro.md) de cette série a présenté le langage de modélisation du **Kit SDK d’appareils Azure IoT pour C** via l’exemple fourni dans l’application **simplesample\_amqp** :
 
 ```
 BEGIN_NAMESPACE(WeatherStation);
@@ -58,7 +58,7 @@ Cet exemple n’illustre pas les types de données supplémentaires pris en char
 
 ### Types de données pris en charge
 
-Les types de données suivants sont pris en charge dans les modèles créés avec la bibliothèque **serializer** :
+Les types de données suivants sont pris en charge dans les modèles créés avec la bibliothèque **serializer** :
 
 | Type | Description |
 |-------------------------|----------------------------------------|
@@ -166,7 +166,7 @@ void SendAsync(IOTHUB_CLIENT_LL_HANDLE iotHubClientHandle, const void *dataEvent
 
 Cette fonction sérialise l’événement de données et l’envoie à IoT Hub à l’aide de la commande **IoTHubClient\_SendEventAsync**. Il s’agit du même code que le code traité dans les articles précédents (**SendAsync** encapsule la logique dans une fonction pratique).
 
-**GetDateTimeOffset** est une autre fonction d’assistance utilisée dans le code précédent. Cette fonction transforme l’heure donnée en une valeur de type **EDM\_DATE\_TIME\_OFFSET** :
+**GetDateTimeOffset** est une autre fonction d’assistance utilisée dans le code précédent. Cette fonction transforme l’heure donnée en une valeur de type **EDM\_DATE\_TIME\_OFFSET** :
 
 ```
 EDM_DATE_TIME_OFFSET GetDateTimeOffset(time_t time)
@@ -313,7 +313,7 @@ WITH_DATA(EDM_DATE_TIME_OFFSET, Time)
 
 Dans ce cas, nous avons éliminé les macros **DECLARE\_STRUCT** et nous définissons simplement les éléments de données à partir de notre scénario à l’aide de types simples du langage de modélisation.
 
-Pour le moment, nous allons ignorer l’événement **Time**. Ceci mis à part, voici le code pour entrer l’événement **Temperature** :
+Pour le moment, nous allons ignorer l’événement **Time**. Ceci mis à part, voici le code pour entrer l’événement **Temperature** :
 
 ```
 time_t now;
@@ -375,7 +375,7 @@ En d’autres termes, vous pouvez vous attendre à ce que ce code soit identique
 
 {"Temperature":75, "Humidity":45}
 
-Cela peut sembler étrange, étant donné que notre modèle définit **Temperature** et **Humidity** comme deux événements *distincts* :
+Cela peut sembler étrange, étant donné que notre modèle définit **Temperature** et **Humidity** comme deux événements *distincts* :
 
 ```
 DECLARE_MODEL(Thermostat,
@@ -544,7 +544,7 @@ Dans la bibliothèque de l’utilitaire partagé, vous trouverez le dossier suiv
 azure-c-shared-utility\\macro\_utils\_h\_generator.
 ```
 
-Ce dossier contient une solution Visual Studio appelée **macro\_utils\_h\_generator.sln** :
+Ce dossier contient une solution Visual Studio appelée **macro\_utils\_h\_generator.sln** :
 
   ![](media/iot-hub-device-sdk-c-serializer/01-macro_utils_h_generator.PNG)
 

@@ -92,7 +92,7 @@ Dans cette section, vous modifiez l’application de l’appareil simulé que vo
     SendDeviceToCloudInteractiveMessagesAsync();
     ````
 
-    > [AZURE.NOTE] Par souci de simplicité, ce didacticiel n’implémente aucune stratégie de nouvelle tentative. Dans le code de production, vous devez mettre en œuvre des stratégies de nouvelle tentative (par exemple, une interruption exponentielle), comme indiqué dans l’article MSDN [Transient Fault Handling] (Gestion des erreurs temporaires).
+    > [AZURE.NOTE] Par souci de simplicité, ce didacticiel n’implémente aucune stratégie de nouvelle tentative. Dans le code de production, vous devez mettre en œuvre des stratégies de nouvelle tentative (par exemple, une interruption exponentielle), comme indiqué dans l’article MSDN [Transient Fault Handling] \(Gestion des erreurs temporaires).
 
 ## Traitement des messages appareil-à-cloud
 
@@ -425,6 +425,7 @@ Pour en savoir plus sur le développement de solutions avec IoT Hub, consultez l
 [Azure Storage]: https://azure.microsoft.com/documentation/services/storage/
 [Azure Service Bus]: https://azure.microsoft.com/documentation/services/service-bus/
 
+[Traiter les messages des appareils vers le cloud]: iot-hub-csharp-csharp-process-d2c.md
 [Guide du développeur IoT Hub]: iot-hub-devguide.md
 [Prise en main de IoT Hub]: iot-hub-csharp-csharp-getstarted.md
 [Prise en main d’IoT Hub]: iot-hub-csharp-csharp-getstarted.md

@@ -12,8 +12,8 @@ L’authentification par clé partagée signifie que votre application utilisera
 
 Lorsque vous utilisez une authentification par clé partagée, vous créez une [chaîne de connexion](../articles/storage/storage-configure-connection-string.md). La chaîne de connexion comporte les éléments suivants :
 
-- **DefaultEndpointsProtocol** : vous avez le choix entre les protocoles HTTP et HTTPS. Toutefois, l’utilisation du protocole HTTPS est fortement recommandée.
-- **Nom du compte** : nom de votre compte de stockage.
+- **DefaultEndpointsProtocol** : vous avez le choix entre les protocoles HTTP et HTTPS. Toutefois, l’utilisation du protocole HTTPS est fortement recommandée.
+- **Nom du compte** : nom de votre compte de stockage.
 - **Clé de compte** : dans le [portail Azure](https://portal.azure.com), accédez à votre compte de stockage, puis cliquez sur l’icône **Clés** pour rechercher ces informations.
 - (Facultatif) **EndpointSuffix** : utilisé pour les services de stockage dans les régions avec des suffixes de point de terminaison différents, comme Azure China ou Azure Governance.
 

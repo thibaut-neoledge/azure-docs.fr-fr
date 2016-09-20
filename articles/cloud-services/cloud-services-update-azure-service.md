@@ -28,7 +28,7 @@ Le nombre de domaines de mise à niveau par défaut est de 5. Vous pouvez spéci
 
 Lorsque vous effectuez la mise à jour sur place d’un ou de plusieurs rôles dans votre service, Azure met à jour les ensembles d’instances de rôle en fonction du domaine de mise à niveau auquel ils appartiennent. Azure met à jour toutes les instances dans un domaine de mise à niveau donné (les arrête, les met à jour, les remet en ligne) puis passe au domaine suivant. En arrêtant uniquement les instances en cours d’exécution dans le domaine de mise à niveau en cours, Azure garantit que l’opération aura un impact minimal sur le service en cours d’exécution. Pour plus d’informations, consultez [Déroulement de la mise à niveau](#howanupgradeproceeds) plus loin dans cet article.
 
-> [AZURE.NOTE] Bien que les termes **mise à jour** et **mise à niveau** aient une signification légèrement différente dans le contexte Azure, ils peuvent être utilisés indifféremment pour les processus et les descriptions des fonctionnalités du présent document.
+> [AZURE.NOTE]Bien que les termes **mise à jour** et **mise à niveau** aient une signification légèrement différente dans le contexte Azure, ils peuvent être utilisés indifféremment pour les processus et les descriptions des fonctionnalités du présent document.
 
 Votre service doit définir au moins deux instances d’un rôle pour que le rôle soit mis à jour sur place, sans interruption de service. Si le service se compose d’une seule instance de rôle, votre service sera indisponible jusqu’à la fin de la mise à jour sur place.
 

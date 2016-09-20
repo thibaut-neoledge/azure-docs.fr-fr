@@ -44,7 +44,7 @@ Afin de permettre le scénario ci-dessus, procédez comme suit dans le service M
 * Créez un modèle : il s’agit d’un conteneur logique qui contient les données (de catalogue et d’utilisation) et le ou les modèles de prévision. Chaque conteneur de modèle est identifié par un identifiant unique attribué lors de sa création. Cet identifiant, appelé identifiant de modèle, est utilisé par la plupart des API.
 * Téléchargez un catalogue : une fois qu’un conteneur de modèle est créé, vous pouvez lui associer un catalogue.
 
-**Remarque** : les étapes de création d’un modèle et de téléchargement dans un catalogue sont généralement effectuées une fois pendant le cycle de vie du modèle.
+**Remarque** : les étapes de création d’un modèle et de téléchargement dans un catalogue sont généralement effectuées une fois pendant le cycle de vie du modèle.
 
 * Téléchargez l’utilisation : pour ajouter des données d’utilisation au conteneur du modèle.
 * Générez le modèle de recommandation : une fois que vous avez suffisamment de données, vous pouvez générer un modèle de recommandation. Cette opération utilise des algorithmes d’apprentissage automatique très performants pour créer un modèle de recommandation. Chaque génération est associée à un identifiant unique. Vous devez conserver un enregistrement de cet identifiant, car il est nécessaire au fonctionnement de certaines API.

@@ -55,7 +55,7 @@ Maintenant que vous avez modifié le serveur principal de votre application pour
 
 Nous allons maintenant modifier le processus de *connexion* afin d'enregistrer la valeur d'en-tête de l'authentification dans les préférences partagées de votre application. D'autres mécanismes de même type peuvent être utilisés pour stocker n'importe quel jeton d'authentification (par exemple des jetons OAuth) que l'application doit utiliser sans demander d'informations d'identification.
 
-1. Dans votre projet d'application Android, ajoutez les constantes suivantes au début de la classe **MainActivity** :
+1. Dans votre projet d'application Android, ajoutez les constantes suivantes au début de la classe **MainActivity** :
 
 		public static final String NOTIFY_USERS_PROPERTIES = "NotifyUsersProperties";
 		public static final String AUTHORIZATION_HEADER_PROPERTY = "AuthorizationHeader";
@@ -74,7 +74,7 @@ Nous allons maintenant modifier le processus de *connexion* afin d'enregistrer l
     		return basicAuthHeader;
 		}
 
-3. Ajoutez les instructions `import` suivantes au début du fichier **MainActivity** :
+3. Ajoutez les instructions `import` suivantes au début du fichier **MainActivity** :
 
 		import android.content.SharedPreferences;
 

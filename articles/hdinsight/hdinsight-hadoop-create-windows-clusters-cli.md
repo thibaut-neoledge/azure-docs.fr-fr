@@ -55,7 +55,7 @@ Pour obtenir de l’aide, utilisez le commutateur **-h**. Par exemple :
 
 Avant de pouvoir créer un cluster HDInsight, vous devez disposer d'une instance d'Azure Resource Management (ARM) et d'un compte de stockage d'objets Blob Azure. Pour créer un cluster HDInsight, vous devez indiquer les éléments suivants :
 
-- **Groupe de ressources Azure** : un compte Data Lake Analytics doit être créé au sein d'un groupe de ressources Azure. Azure Resource Manager vous permet de manipuler les ressources de votre application sous la forme d’un groupe. Vous pouvez déployer, mettre à jour ou supprimer toutes les ressources de votre application dans le cadre d’une opération unique et coordonnée.
+- **Groupe de ressources Azure** : un compte Data Lake Analytics doit être créé au sein d'un groupe de ressources Azure. Azure Resource Manager vous permet de manipuler les ressources de votre application sous la forme d’un groupe. Vous pouvez déployer, mettre à jour ou supprimer toutes les ressources de votre application dans le cadre d’une opération unique et coordonnée.
 
 	Pour répertorier les groupes de ressources dans votre abonnement :
 
@@ -67,9 +67,9 @@ Avant de pouvoir créer un cluster HDInsight, vous devez disposer d'une instance
 
 - **Nom du cluster HDInsight**
 
-- **Emplacement** : un des centres de données Azure prenant en charge des clusters HDInsight. Pour obtenir la liste des emplacements pris en charge, consultez [Tarification HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
+- **Emplacement** : un des centres de données Azure prenant en charge des clusters HDInsight. Pour obtenir la liste des emplacements pris en charge, consultez [Tarification HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-- **Compte de stockage par défaut** : HDInsight utilise un conteneur de stockage d'objets blob Azure comme système de fichiers par défaut. Un compte Azure Storage est nécessaire avant de pouvoir créer un cluster HDInsight.
+- **Compte de stockage par défaut** : HDInsight utilise un conteneur de stockage d'objets blob Azure comme système de fichiers par défaut. Un compte Azure Storage est nécessaire avant de pouvoir créer un cluster HDInsight.
 
 	Pour créer un compte de stockage Azure :
 
@@ -90,7 +90,7 @@ Avant de pouvoir créer un cluster HDInsight, vous devez disposer d'une instance
 
 	Pour en savoir plus sur l’obtention d’informations au moyen du portail Azure, consultez la section « Gérer votre compte de stockage » de la rubrique [À propos des comptes de stockage Azure](../storage/storage-create-storage-account#manage-your-storage-account).
 
-- **(facultatif) Conteneur d'objets blob par défaut** : la commande **azure hdinsight cluster create** crée le conteneur s'il n'existe pas. Si vous avez choisi de créer le conteneur au préalable, vous pouvez utiliser la commande suivante :
+- **(facultatif) Conteneur d'objets blob par défaut** : la commande **azure hdinsight cluster create** crée le conteneur s'il n'existe pas. Si vous avez choisi de créer le conteneur au préalable, vous pouvez utiliser la commande suivante :
 
 	azure storage container create --account-name "<nom du compte de stockage>" --account-key <clé du compte de stockage> [ContainerName]
 

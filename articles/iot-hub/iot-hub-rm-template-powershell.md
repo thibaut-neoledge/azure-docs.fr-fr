@@ -48,7 +48,7 @@ Vous pouvez utiliser les commandes suivantes pour découvrir où vous pouvez dé
 ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Devices).ResourceTypes | Where-Object ResourceTypeName -eq IoTHubs).ApiVersions
 ```
 
-Créez un groupe de ressources pour contenir votre IoT Hub avec la commande suivante dans l’un des emplacements pris en charge pour l’IoT Hub. Cet exemple crée un groupe de ressources appelé **MyIoTRG1** :
+Créez un groupe de ressources pour contenir votre IoT Hub avec la commande suivante dans l’un des emplacements pris en charge pour l’IoT Hub. Cet exemple crée un groupe de ressources appelé **MyIoTRG1** :
 
 ```
 New-AzureRmResourceGroup -Name MyIoTRG1 -Location "East US"

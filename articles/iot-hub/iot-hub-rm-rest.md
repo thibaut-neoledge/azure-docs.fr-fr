@@ -153,7 +153,7 @@ Utilisez l’[API REST IoT Hub][lnk-rest-api] pour créer un IoT Hub dans votre 
 
 Vous pouvez maintenant terminer l’application en appelant la méthode **CreateIoTHub** avant sa génération et son exécution.
 
-1. Ajoutez le code suivant à la fin de la méthode **Main** :
+1. Ajoutez le code suivant à la fin de la méthode **Main** :
 
     ```
     CreateIoTHub(token.AccessToken);

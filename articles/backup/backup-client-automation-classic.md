@@ -80,7 +80,16 @@ Les options disponibles incluent :
 
 | Option | Détails | Default |
 | ---- | ----- | ----- |
-| /q | Installation silencieuse | - | | /p:"emplacement" | Chemin du dossier d’installation de l’agent Azure Backup. | C:\\Program Files\\Microsoft Azure Recovery Services Agent | | /s:"emplacement" | Chemin du dossier du cache de l’agent Azure Backup. | C:\\Program Files\\Microsoft Azure Recovery Services Agent\\Scratch | | /m | Abonnement à Microsoft Update | - | | /nu | Ne pas rechercher les mises à jour après l’installation | - | | /d | Désinstalle Microsoft Azure Recovery Services Agent | - | | /ph | Adresse de l’hôte proxy | - | | /po | Numéro de port de l’hôte proxy | - | | /pu | Nom d’utilisateur de l’hôte proxy | - | | /pw | Mot de passe du proxy | - |
+| /q | Installation silencieuse | - |
+| /p:"emplacement" | Chemin du dossier d’installation de l’agent Azure Backup. | C:\\Program Files\\Microsoft Azure Recovery Services Agent |
+| /s:"emplacement" | Chemin du dossier du cache de l’agent Azure Backup. | C:\\Program Files\\Microsoft Azure Recovery Services Agent\\Scratch |
+| /m | Abonnement à Microsoft Update | - |
+| /nu | Ne pas rechercher les mises à jour après l’installation | - |
+| /d | Désinstalle Microsoft Azure Recovery Services Agent | - |
+| /ph | Adresse de l’hôte proxy | - |
+| /po | Numéro de port de l’hôte proxy | - |
+| /pu | Nom d’utilisateur de l’hôte proxy | - |
+| /pw | Mot de passe du proxy | - |
 
 
 ## Inscription auprès du service Azure Backup

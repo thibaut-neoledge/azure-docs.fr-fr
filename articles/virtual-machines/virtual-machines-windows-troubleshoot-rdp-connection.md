@@ -173,8 +173,8 @@ Cause : La machine virtuelle cible ne peut pas valider le nom et le mot de passe
 
 Un ordinateur Windows peut valider les informations d’identification d’un compte local ou d’un compte de domaine.
 
-- Pour les comptes locaux, utilisez la syntaxe *ComputerName*\*UserName* (par exemple : SQL1\\Admin4798).
-- Pour les comptes de domaine, utilisez la syntaxe *DomainName*\*UserName* (par exemple, CONTOSO\\johndoe).
+- Pour les comptes locaux, utilisez la syntaxe *ComputerName* \\ *UserName* (par exemple : SQL1\\Admin4798).
+- Pour les comptes de domaine, utilisez la syntaxe *DomainName*\\*UserName* (par exemple, CONTOSO\\johndoe).
 
 Si vous avez promu votre machine virtuelle en tant que contrôleur de domaine d’une nouvelle forêt Active Directory, le compte d’administrateur local auquel vous êtes connecté est converti en un compte équivalent avec le même mot de passe dans la nouvelle forêt et le nouveau domaine. Le compte local est alors supprimé.
 

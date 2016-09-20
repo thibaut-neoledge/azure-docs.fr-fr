@@ -28,7 +28,7 @@ Vous pouvez représenter l’une des mesures sur une période que vous choisisse
 
 1. Dans le [Portail Azure](https://portal.azure.com/), cliquez sur **Parcourir**, puis sur une ressource que vous voulez surveiller.
 
-2. La rubrique **Surveillance** contient les mesures les plus importantes pour chaque ressource Azure. Une application Web dispose, par exemple, de l’option **Demandes et erreurs**, alors qu’une machine virtuelle posséderait **Pourcentage UC** et **Lecture et écriture sur le disque** : ![Filtre Monitoring](./media/insights-how-to-customize-monitoring/Insights_MonitoringChart.png)
+2. La rubrique **Surveillance** contient les mesures les plus importantes pour chaque ressource Azure. Une application Web dispose, par exemple, de l’option **Demandes et erreurs**, alors qu’une machine virtuelle posséderait **Pourcentage UC** et **Lecture et écriture sur le disque** : ![Filtre Monitoring](./media/insights-how-to-customize-monitoring/Insights_MonitoringChart.png)
 
 3. Cliquez sur n'importe quel graphique pour afficher le panneau des **mesures**. Sur le panneau se trouve, en plus du graphique, un tableau qui affiche l'agrégation de ces mesures (comme la moyenne, le minimum et le maximum, la période que vous avez choisie). Retrouvez ci-dessous les règles d'alerte de la ressource. ![Volet Metric](./media/insights-how-to-customize-monitoring/Insights_MetricBlade.png)
 
@@ -49,7 +49,7 @@ Vous pouvez représenter l’une des mesures sur une période que vous choisisse
 
 Grâce au niveau élevé de personnalisation du portail, vous pouvez ajouter autant de graphiques que vous le souhaitez.
 
-1. Dans le menu **...**, situé en haut du panneau, cliquez sur **Ajouter des vignettes** : ![Ajouter un menu](./media/insights-how-to-customize-monitoring/Insights_AddMenu.png)
+1. Dans le menu **...**, situé en haut du panneau, cliquez sur **Ajouter des vignettes** : ![Ajouter un menu](./media/insights-how-to-customize-monitoring/Insights_AddMenu.png)
 2. Vous pouvez ensuite sélectionner un graphique à partir de la **Galerie**, située sur le côté droit de l'écran : ![Galerie](./media/insights-how-to-customize-monitoring/Insights_Gallery.png)
 3. Si vous ne voyez pas les mesures souhaitées, vous pouvez toujours ajouter une des mesures prédéfinies et **Modifier** le graphique pour afficher les mesures dont vous avez besoin.
 

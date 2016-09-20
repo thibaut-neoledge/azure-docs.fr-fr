@@ -249,7 +249,7 @@ Cette section compare les files d'attente Azure et les files d'attente Service 
 
 |Critères de comparaison|Files d'attente Azure|Files d'attente Service Bus|
 |---|---|---|
-|Coût de transaction de file d'attente|**0,0036 $**<br/><br/>(pour 100 000 transactions)|**Niveau de base** : **0,05 $**<br/><br/>(par million d'opérations)|
+|Coût de transaction de file d'attente|**0,0036 $**<br/><br/>(pour 100 000 transactions)|**Niveau de base** : **0,05 $**<br/><br/>(par million d'opérations)|
 |Opérations facturables|**Toutes**|**Envoi/réception uniquement**<br/><br/>(aucun frais pour les autres opérations)|
 |Transactions inactives|**Facturables**<br/><br/>(l’interrogation d’une file d’attente vide est comptabilisée comme une transaction facturable)|**Facturables**<br/><br/>(une réception sur une file d’attente vide est considérée comme un message facturable)|
 |Coût de stockage|**0,07 $**<br/><br/>(par Go/mois)|**0,00 $**|
