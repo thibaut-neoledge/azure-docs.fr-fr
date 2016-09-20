@@ -4,7 +4,7 @@
 
 1. Sur la page **Démarrage rapide** de l’appareil, cliquez sur **Ajouter un volume** pour démarrer l’Assistant Ajouter un volume.
 
-2. Dans l’Assistant Ajouter un volume, sous **Paramètres de base** :
+2. Dans l’Assistant Ajouter un volume, sous **Paramètres de base** :
 
 	4. Saisissez un **nom** pour le volume.
 	5. Dans la liste déroulante, sélectionnez le **Type d’utilisation** pour le volume. Pour les charges de travail qui nécessitent des garanties locales, une faible latence et les meilleures performances possibles, sélectionnez un volume **épinglé localement**. Pour toutes les autres données, sélectionnez un volume **à plusieurs niveaux**. Si vous utilisez ce volume pour les données d’archivage, cochez la case **Utiliser ce volume pour des données d’archivage moins fréquemment sollicitées**.

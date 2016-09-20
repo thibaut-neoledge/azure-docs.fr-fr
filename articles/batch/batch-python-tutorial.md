@@ -58,7 +58,7 @@ Vous pouvez également installer les packages Python [azure-batch][pypi_batch] e
 
 `pip install azure-batch==0.30.0rc4`<br/> `pip install azure-storage==0.30.0`
 
-> [AZURE.TIP] Vous devrez peut-être faire précéder vos commandes de `sudo` si vous utilisez un compte non privilégié. Par exemple : `sudo pip install -r requirements.txt`. Pour plus d’informations sur l’installation des packages Python, voir [Installing Packages][pypi_install] (Installation des packages) sur readthedocs.io.
+> [AZURE.TIP] Vous devrez peut-être faire précéder vos commandes de `sudo` si vous utilisez un compte non privilégié. Par exemple : `sudo pip install -r requirements.txt`. Pour plus d’informations sur l’installation des packages Python, voir [Installing Packages][pypi_install] \(Installation des packages) sur readthedocs.io.
 
 ## Exemple de code de didacticiel Python Batch
 
@@ -119,7 +119,7 @@ Batch prend en charge l’interaction avec Azure Storage. Les conteneurs présen
 - **input** : les tâches téléchargeront les fichiers de données à traiter à partir du conteneur *input*.
 - **output** : une fois que les tâches auront terminé de traiter les fichiers d’entrée, elles chargeront leurs résultats dans le conteneur *output*.
 
-Pour interagir avec un compte de stockage et créer des conteneurs, nous utilisons le package [azure-storage][pypi_storage] pour créer un objet [BlockBlobService][py_blockblobservice] (le « client d’objet blob »). Ensuite, nous créons trois conteneurs dans le compte de stockage à l’aide du client d’objet blob.
+Pour interagir avec un compte de stockage et créer des conteneurs, nous utilisons le package [azure-storage][pypi_storage] pour créer un objet [BlockBlobService][py_blockblobservice] \(le « client d’objet blob »). Ensuite, nous créons trois conteneurs dans le compte de stockage à l’aide du client d’objet blob.
 
 ```python
  # Create the blob client, for use in obtaining references to
@@ -372,7 +372,7 @@ Une fois qu’un travail a été créé, des tâches lui sont ajoutées pour men
 
 Les **tâches** Batch constituent les unités de travail individuelles qui s’exécutent sur les nœuds de calcul. Une ligne de commande est associée à une tâche et cette dernière exécute les scripts ou les exécutables que vous spécifiez dans la ligne de commande.
 
-Pour mener à bien l’opération requise, il est nécessaire d’ajouter les tâches à un travail. Chaque tâche [CloudTask][py_task] est configurée par le biais d’une propriété de ligne de commande et [ResourceFiles][py_resource_file] (comme avec la tâche StartTask du pool) que la tâche télécharge dans le nœud avant l’exécution automatique de sa ligne de commande. Dans l’exemple, chaque tâche traite un seul fichier. Par conséquent, sa collection ResourceFiles contient un seul élément.
+Pour mener à bien l’opération requise, il est nécessaire d’ajouter les tâches à un travail. Chaque tâche [CloudTask][py_task] est configurée par le biais d’une propriété de ligne de commande et [ResourceFiles][py_resource_file] \(comme avec la tâche StartTask du pool) que la tâche télécharge dans le nœud avant l’exécution automatique de sa ligne de commande. Dans l’exemple, chaque tâche traite un seul fichier. Par conséquent, sa collection ResourceFiles contient un seul élément.
 
 ```python
 def add_tasks(batch_service_client, job_id, input_files,

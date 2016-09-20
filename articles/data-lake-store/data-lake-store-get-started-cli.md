@@ -129,7 +129,7 @@ Le résultat doit ressembler à ceci :
 
 ## Renommer, télécharger et supprimer des données de votre Data Lake Store
 
-* Utilisez la commande suivante **pour renommer un fichier** :
+* Utilisez la commande suivante **pour renommer un fichier** :
 
     	azure datalake store filesystem move <dataLakeStoreAccountName> <path/old_file_name> <path/new_file_name>
 
@@ -137,7 +137,7 @@ Le résultat doit ressembler à ceci :
 
 		azure datalake store filesystem move mynewdatalakestore /mynewfolder/vehicle1_09142014.csv /mynewfolder/vehicle1_09142014_copy.csv
 
-* Utilisez la commande suivante **pour télécharger un fichier** : Assurez-vous que le chemin de destination que vous spécifiez existe.
+* Utilisez la commande suivante **pour télécharger un fichier** : Assurez-vous que le chemin de destination que vous spécifiez existe.
 
 		azure datalake store filesystem export <dataLakeStoreAccountName> <source_path> <destination_path>
 
@@ -145,7 +145,7 @@ Le résultat doit ressembler à ceci :
 
 		azure datalake store filesystem export mynewdatalakestore /mynewfolder/vehicle1_09142014_copy.csv "C:\mysampledata\vehicle1_09142014_copy.csv"
 
-* Utilisez la commande suivante **pour supprimer un fichier** :
+* Utilisez la commande suivante **pour supprimer un fichier** :
 
 		azure datalake store filesystem delete <dataLakeStoreAccountName> <path>
 

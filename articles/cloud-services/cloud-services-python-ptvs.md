@@ -24,7 +24,7 @@ Cet article fournit un aperçu de l'utilisation des rôles web et de travail Pyt
 ## Composants requis
 
  - Visual Studio 2013 ou 2015
- - [Python Tools pour Visual Studio][] (PTVS)
+ - [Python Tools pour Visual Studio][] \(PTVS)
  - [Outils du Kit de développement logiciel (SDK) Azure pour Visual Studio 2013][] ou [Outils du Kit de développement logiciel (SDK) Azure pour Visual Studio 2015][]
  - [Python 2.7 32 bits][] ou [Python 3.5 32 bits][]
 

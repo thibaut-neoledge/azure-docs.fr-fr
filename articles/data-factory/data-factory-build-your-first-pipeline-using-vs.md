@@ -30,7 +30,7 @@
 2. Pour pouvoir publier des entités Data Factory de Visual Studio dans Azure Data Factory, vous devez être un **administrateur de l’abonnement Azure**.
 3. Les composants suivants doivent être installés sur votre ordinateur :
 	- Visual Studio 2013 ou Visual Studio 2015
-	- Téléchargez le Kit de développement logiciel (SDK) Azure pour Visual Studio 2013 ou Visual Studio 2015. Accédez à la [page de téléchargement d’Azure](https://azure.microsoft.com/downloads/), puis cliquez sur **VS 2013** ou **VS 2015** dans la section **.NET**.
+	- Téléchargez le Kit de développement logiciel (SDK) Azure pour Visual Studio 2013 ou Visual Studio 2015. Accédez à la [page de téléchargement d’Azure](https://azure.microsoft.com/downloads/), puis cliquez sur **VS 2013** ou **VS 2015** dans la section **.NET**.
 	- Téléchargez le dernier plug-in Azure Data Factory pour Visual Studio : [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) ou [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005). Si vous utilisez Visual Studio 2013, vous pouvez également mettre à jour le plug-in de la manière suivante : dans le menu, cliquez sur **Outils** -> **Extensions et mises à jour** -> **En ligne** -> **Galerie Visual Studio** -> **Outils Microsoft Azure Data Factory pour Visual Studio** -> **Mettre à jour**.
  
 Les procédures pas à pas ci-après vous indiquent comment créer et déployer des entités de fabrique de données.
@@ -41,7 +41,7 @@ Les procédures pas à pas ci-après vous indiquent comment créer et déployer 
 
 	![Boîte de dialogue Nouveau projet](./media/data-factory-build-your-first-pipeline-using-vs/new-project-dialog.png)
 
-3. Entrez le **nom** du projet, son **emplacement** et le nom de la **solution**, puis cliquez sur **OK**.
+3. Entrez le **nom** du projet, son **emplacement** et le nom de la **solution**, puis cliquez sur **OK**.
 
 	![Explorateur de solutions](./media/data-factory-build-your-first-pipeline-using-vs/solution-explorer.png)
 
@@ -245,7 +245,7 @@ Dans cette étape, vous créez votre premier pipeline avec une activité **HDIns
 
 	Les propriétés **start** et **end** du pipeline spécifient la période active du pipeline.
 
-	Dans l’activité JSON, vous spécifiez que le script Hive s’exécute sur le calcul spécifié par le service **linkedServiceName** – **HDInsightOnDemandLinkedService**.
+	Dans l’activité JSON, vous spécifiez que le script Hive s’exécute sur le calcul spécifié par le service **linkedServiceName** – **HDInsightOnDemandLinkedService**.
 
 	> [AZURE.NOTE] Consultez [Anatomie d’un pipeline](data-factory-create-pipelines.md#anatomy-of-a-pipeline) pour plus d’informations sur les propriétés JSON utilisées dans l’exemple.
 3. Enregistrez le fichier **HiveActivity1.json**.
@@ -321,6 +321,7 @@ Notez les points suivants :
 
 	![Jeu de données](./media/data-factory-build-your-first-pipeline-using-vs/dataset-blade.png)
 9. Quand le traitement est terminé, l’état de la tranche est **Prêt**.
+
 	>[AZURE.IMPORTANT] La création d’un cluster HDInsight à la demande prend généralement un certain temps (environ 20 minutes).
 
 	![Jeu de données](./media/data-factory-build-your-first-pipeline-using-vs/dataset-slice-ready.png)

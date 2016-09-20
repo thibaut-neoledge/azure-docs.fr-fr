@@ -43,13 +43,13 @@ La procédure suivante utilise un modèle Azure ARM pour créer un cluster HBase
 
 1. Cliquez sur l’image suivante pour ouvrir un modèle ARM dans le portail Azure. Le modèle ARM est situé dans un conteneur blob public.
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-cluster-in-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/fr-FR/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-cluster-in-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
 2. À partir du panneau **Paramètres**, saisissez les informations suivantes :
 
-    - **ClusterName** : entrez un nom pour le cluster HBase que vous allez créer.
-    - **Nom d’utilisateur et mot de passe de cluster** : le nom de connexion par défaut est **admin**.
-    - **Nom d’utilisateur SSH et mot de passe** : le nom d’utilisateur par défaut est **sshuser**. Vous pouvez le renommer.
+    - **ClusterName** : entrez un nom pour le cluster HBase que vous allez créer.
+    - **Nom d’utilisateur et mot de passe de cluster** : le nom de connexion par défaut est **admin**.
+    - **Nom d’utilisateur SSH et mot de passe** : le nom d’utilisateur par défaut est **sshuser**. Vous pouvez le renommer.
      
     Tous les autres paramètres sont facultatifs.
     
@@ -185,8 +185,8 @@ Vous pouvez interroger les données des tables HBase à l’aide de Hive. Cette 
 
 	Les paramètres utilisés dans cette commande sont les suivants :
 
-	* **-u** : le nom d’utilisateur et le mot de passe utilisés pour authentifier la demande.
-	* **-G** : indique qu’il s’agit d’une demande GET.
+	* **-u** : le nom d’utilisateur et le mot de passe utilisés pour authentifier la demande.
+	* **-G** : indique qu’il s’agit d’une demande GET.
 
 2. Utilisez la commande suivante pour répertorier les tables HBase existantes :
 
@@ -246,13 +246,13 @@ Vous pouvez aussi utiliser SSH pour transférer des requêtes locales, telles qu
 3. Dans **Catégorie**, cliquez sur **Session**.
 4. Dans les options de base de l’écran de votre session PuTTY, entrez les valeurs suivantes :
 
-	- **Nom d’hôte** : adresse SSH de votre serveur HDInsight dans le champ Nom d’hôte (ou Adresse IP). L’adresse SSH est le nom de votre cluster, elle est ensuite suivie de **-ssh.azurehdinsight.net**. Par exemple *mycluster-ssh.azurehdinsight.net*
-	- **Port** : 22. Le port SSH sur le nœud principal 0 est 22.
+	- **Nom d’hôte** : adresse SSH de votre serveur HDInsight dans le champ Nom d’hôte (ou Adresse IP). L’adresse SSH est le nom de votre cluster, elle est ensuite suivie de **-ssh.azurehdinsight.net**. Par exemple *mycluster-ssh.azurehdinsight.net*
+	- **Port** : 22. Le port SSH sur le nœud principal 0 est 22.
 5. Dans la section **Catégorie** située à gauche de la boîte de dialogue, développez **Connexion** et **SSH**, puis cliquez sur **Tunnels**.
 6. Indiquez les informations suivantes dans le formulaire des options de contrôle de transfert du port SSH.
 
-	- **Port source** : le port sur le client que vous souhaitez transférer. Par exemple, 9876.
-	- **Dynamique** : active le routage dynamique du proxy SOCKS.
+	- **Port source** : le port sur le client que vous souhaitez transférer. Par exemple, 9876.
+	- **Dynamique** : active le routage dynamique du proxy SOCKS.
 7. Cliquez sur **Ajouter** pour ajouter les paramètres.
 8. Cliquez sur **Ouvrir** en bas de la boîte de dialogue pour ouvrir une connexion SSH.
 9. Quand vous y êtes invité, connectez-vous au serveur à l’aide d’un compte SSH. Cela permettra d'établir une session SSH et d'activer le tunnel.
@@ -274,10 +274,10 @@ Vous pouvez aussi utiliser SSH pour transférer des requêtes locales, telles qu
 5. Sélectionnez **Configuration manuelle du proxy**.
 6. Saisissez les valeurs suivantes :
 
-	- **Hôte Socks** : localhost
-	- **Port** : utilisez le même port que celui que vous avez configuré pour le tunnel SSH Putty. Par exemple, 9876.
-	- **SOCKS v5** : (sélectionné)
-	- **DNS distant** : (sélectionné)
+	- **Hôte Socks** : localhost
+	- **Port** : utilisez le même port que celui que vous avez configuré pour le tunnel SSH Putty. Par exemple, 9876.
+	- **SOCKS v5** : (sélectionné)
+	- **DNS distant** : (sélectionné)
 7. Cliquez sur **OK** pour enregistrer les modifications.
 8. Accédez au http://&lt;The nom de domaine complet public d’un ZooKeeper>:60010/master-status.
 

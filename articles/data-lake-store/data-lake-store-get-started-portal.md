@@ -54,7 +54,7 @@ Regardez les vidéos suivantes pour vous familiariser avec Data Lake Store.
 
 	- **Abonnement**. Sélectionnez l’abonnement sous lequel vous souhaitez créer un nouveau compte Data Lake Store.
 	- **Groupe de ressources**. Sélectionnez un groupe de ressources existant ou cliquez sur **Créer un groupe de ressources** pour en créer un. Un groupe de ressources est un conteneur réunissant les ressources associées d’une application. Pour plus d'informations, consultez [Groupes de ressources dans Azure](resource-group-overview.md#resource-groups).
-	- **Emplacement** : sélectionnez l'emplacement où vous souhaitez créer le compte Data Lake Store.
+	- **Emplacement** : sélectionnez l'emplacement où vous souhaitez créer le compte Data Lake Store.
 
 4. Sélectionnez **Épingler au tableau d'accueil** si vous souhaitez que le compte Data Lake Store soit accessible à partir du tableau d'accueil.
 

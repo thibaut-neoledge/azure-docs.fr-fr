@@ -36,7 +36,7 @@ Les étapes suivantes montrent comment utiliser le portail Azure pour créer un 
 
     ![Ajouter un laboratoire](./media/devtest-lab-create-lab/add-lab-button.png)
 
-1. Dans le panneau **Créer un laboratoire de test et développement** :
+1. Dans le panneau **Créer un laboratoire de test et développement** :
 
     1. Entrez un **Nom de laboratoire** pour le nouveau laboratoire.
     

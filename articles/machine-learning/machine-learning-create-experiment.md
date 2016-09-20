@@ -75,7 +75,7 @@ Les variables du jeu de données sont affichées sous forme de colonnes, tandis 
 
 ![Dataset visualization][screen1b]
 
-Fermez la fenêtre de visualisation en cliquant sur le symbole « **x** » dans le coin supérieur droit.
+Fermez la fenêtre de visualisation en cliquant sur le symbole « **x** » dans le coin supérieur droit.
 
 ## Étape 2 : traitement préalable des données
 
@@ -112,7 +112,7 @@ Une fois l'expérience terminée, une coche verte s'affiche en regard de chaque 
 
 ![First experiment run][screen5]
 
-Pour l’instant, nous n’avons exécuté que l’action de nettoyage dans l’expérience. Si vous souhaitez afficher le jeu de données nettoyé, cliquez sur le port de sortie gauche du module [Nettoyer les données manquantes][clean-missing-data] (« Jeu de données nettoyé ») et sélectionnez **Visualiser**. Vous pouvez constater que la colonne **normalized-losses** n’est plus là et qu’il ne manque plus de données.
+Pour l’instant, nous n’avons exécuté que l’action de nettoyage dans l’expérience. Si vous souhaitez afficher le jeu de données nettoyé, cliquez sur le port de sortie gauche du module [Nettoyer les données manquantes][clean-missing-data] \(« Jeu de données nettoyé ») et sélectionnez **Visualiser**. Vous pouvez constater que la colonne **normalized-losses** n’est plus là et qu’il ne manque plus de données.
 
 Maintenant que les données sont nettoyées, nous pouvons indiquer les fonctionnalités que nous allons utiliser dans le modèle de prévision.
 
@@ -191,9 +191,9 @@ Pour afficher la sortie du module [Evaluate Model][evaluate-model], cliquez sur 
 
 - **Erreur d’absolue moyenne** (EAM) : la moyenne des erreurs absolues (une *erreur* correspond à la différence entre la valeur prévue et la valeur réelle).
 - **Racine de l’erreur quadratique moyenne** (RMSE) : la racine carrée de la moyenne des erreurs carrées des prévisions effectuées sur le jeu de données de test.
-- **Erreur absolue relative** : la moyenne des erreurs absolues relative à la différence absolue entre les valeurs réelles et la moyenne de toutes les valeurs réelles.
-- **Erreur carrée relative** : la moyenne des erreurs carrées relative à la différence carrée entre les valeurs réelles et la moyenne de toutes les valeurs réelles.
-- **Coefficient de détermination** : aussi nommé « **valeur R au carré** », il s’agit d’une mesure statistique indiquant à quel point un modèle correspond aux données.
+- **Erreur absolue relative** : la moyenne des erreurs absolues relative à la différence absolue entre les valeurs réelles et la moyenne de toutes les valeurs réelles.
+- **Erreur carrée relative** : la moyenne des erreurs carrées relative à la différence carrée entre les valeurs réelles et la moyenne de toutes les valeurs réelles.
+- **Coefficient de détermination** : aussi nommé « **valeur R au carré** », il s’agit d’une mesure statistique indiquant à quel point un modèle correspond aux données.
 
 Pour chacune des statistiques liées aux erreurs, les valeurs les plus petites sont privilégiées. En effet, une valeur plus petite indique un degré de correspondance plus étroit avec la valeur réelle. Plus la valeur du **Coefficient de détermination**, est proche de un (1.0), plus la prévision est correcte.
 

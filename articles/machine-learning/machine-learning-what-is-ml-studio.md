@@ -48,12 +48,12 @@ Trois onglets apparaissent en haut de la page : **Accueil** (votre point de dé
 Cliquez sur l’onglet **Studio** et vous serez invité à vous connecter à l’aide de votre compte Microsoft, professionnel ou scolaire. Une fois que vous êtes connecté, les onglets suivants apparaissent sur la gauche :
 
 - **PROJETS** - Collections d’expériences, de DataSets, de notebooks et d’autres ressources représentant un projet spécifique
-- **EXPÉRIENCES** : expériences qui ont été créées, exécutées et enregistrées comme brouillons
+- **EXPÉRIENCES** : expériences qui ont été créées, exécutées et enregistrées comme brouillons
 - **SERVICES WEB** : services que vous avez déployés à partir de vos expériences web
-- **NOTEBOOKS** : notebooks Jupyter que vous avez créés
-- **JEUX DE DONNÉES** : jeux de données que vous avez téléchargés dans Studio
-- **MODÈLES FORMÉS** : modèles que vous avez formés dans les expériences, puis enregistrés dans Studio
-- **PARAMÈTRES** : ensemble des paramètres que vous pouvez utiliser pour configurer votre compte et vos ressources.
+- **NOTEBOOKS** : notebooks Jupyter que vous avez créés
+- **JEUX DE DONNÉES** : jeux de données que vous avez téléchargés dans Studio
+- **MODÈLES FORMÉS** : modèles que vous avez formés dans les expériences, puis enregistrés dans Studio
+- **PARAMÈTRES** : ensemble des paramètres que vous pouvez utiliser pour configurer votre compte et vos ressources.
 
 ### Galerie
 
@@ -81,9 +81,9 @@ Pour une description plus complète de la création d'une solution d'analyse pr�
 
 Un jeu de données représente des données téléchargées dans Machine Learning Studio de façon à les utiliser dans la procédure de modélisation. Machine Learning Studio fournit divers exemples de jeux de données utilisables pour vos expériences ; vous pouvez télécharger vers le serveur d'autres jeux de données si vous en avez besoin. Voici quelques exemples de jeux de données fournis :
 
-- **Données sur la quantité de litres au 100 pour différents véhicules automobiles** : valeurs de quantité de litres au 100 pour des automobiles identifiées par leur nombre de cylindres, leur puissance, etc.
-- **Données sur le cancer du sein** : données de diagnostics sur le cancer du sein.
-- **Données sur les feux de forêts** : tailles des incendies de forêts au nord-est du Portugal.
+- **Données sur la quantité de litres au 100 pour différents véhicules automobiles** : valeurs de quantité de litres au 100 pour des automobiles identifiées par leur nombre de cylindres, leur puissance, etc.
+- **Données sur le cancer du sein** : données de diagnostics sur le cancer du sein.
+- **Données sur les feux de forêts** : tailles des incendies de forêts au nord-est du Portugal.
 
 Lorsque vous créez une expérience, vous pouvez utiliser la liste des jeux de données à gauche du canevas.
 

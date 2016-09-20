@@ -120,7 +120,10 @@ Après avoir téléchargé l’exemple de configuration de périphérique VPN fo
 | Version IKE | IKEv1 | IKEv2 |
 | Algorithme de hachage | SHA1(SHA128) | SHA1(SHA128) |
 | Durée de vie d’association de sécurité de phase 2 (temps) | 3 600 secondes | 3 600 secondes |
-| Durée de vie d’association de sécurité de phase 2 (débit) | 102 400 000 Ko | - | | Offres d’authentification et de chiffrement d’association de sécurité IPsec (par ordre de préférence) | 1. ESP-AES256 2. ESP-AES128 3. ESP-3DES 4. N/A | Voir la section *Offres d’association de sécurité IPsec pour passerelle basée sur un itinéraire* (ci-dessous) | | PFS (Perfect Forward Secrecy) | Non | Non (*)| | Détection d’homologue mort | Non prise en charge | Prise en charge |
+| Durée de vie d’association de sécurité de phase 2 (débit) | 102 400 000 Ko | - | 
+| Offres d’authentification et de chiffrement d’association de sécurité IPsec (par ordre de préférence) | 1. ESP-AES256 2. ESP-AES128 3. ESP-3DES 4. N/A | Voir la section *Offres d’association de sécurité IPsec pour passerelle basée sur un itinéraire* (ci-dessous) | 
+| PFS (Perfect Forward Secrecy) | Non | Non (*)| 
+| Détection d’homologue mort | Non prise en charge | Prise en charge |
 
 (*) La passerelle Azure en tant que répondeur IKE peut accepter le groupe DH PFS 1, 2, 5, 14, 24.
 
@@ -146,7 +149,8 @@ Le tableau suivant répertorie les offres d’authentification et de chiffrement
 | 14 | AH MD5 avec ESP DES et HMAC Null, aucune durée de vie proposée | AH MD5 avec ESP DES MD5, aucune durée de vie |
 | 15 | AH SHA1 avec ESP DES SHA1, aucune durée de vie | ESP SHA, aucune durée de vie |
 | 16 | AH MD5 avec ESP DES MD5, aucune durée de vie | ESP MD5, aucune durée de vie |
-| 17 | - | AH SHA, aucune durée de vie | | 18 | - | AH MD5, aucune durée de vie |
+| 17 | - | AH SHA, aucune durée de vie | 
+| 18 | - | AH MD5, aucune durée de vie |
 
 
 - Vous pouvez spécifier le chiffrement IPsec ESP NULL avec les passerelles VPN basées sur un itinéraire et hautes performances. Le chiffrement Null ne fournit pas de protection des données en transit. Il doit être utilisé uniquement lorsqu’un débit maximal et une latence minimale sont requis. Les clients peuvent choisir de l’utiliser dans les scénarios de communication entre les réseaux virtuels ou lorsque le chiffrement est appliqué ailleurs dans la solution.
