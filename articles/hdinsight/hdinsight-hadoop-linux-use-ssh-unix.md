@@ -1,10 +1,10 @@
 <properties
    pageTitle="Utilisation de clés SSH avec un cluster Hadoop basé sur Linux sur Linux, Unix ou OS X | Microsoft Azure"
-   description="Vous pouvez accéder à un cluster HDInsight basé sur Linux à l’aide de SSH (Secure Shell). Ce document donne des informations sur l'utilisation de SSH avec HDInsight à partir des clients Linux, Unix ou OS X."
+   description=" Vous pouvez accéder à un cluster HDInsight basé sur Linux à l’aide de SSH (Secure Shell). Ce document donne des informations sur l'utilisation de SSH avec HDInsight à partir des clients Linux, Unix ou OS X."
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"
 	tags="azure-portal"/>
 
@@ -103,7 +103,8 @@ Si vous sélectionnez **CLÉ PUBLIQUE SSH**, vous pouvez coller la clé publique
 
 ![Image du formulaire de demande de clé publique](./media/hdinsight-hadoop-linux-use-ssh-unix/ssh-key.png)
 
-> [AZURE.NOTE]Le fichier de clé est simplement un fichier texte. Le contenu doit être identique à ce qui suit :```
+> [AZURE.NOTE] Le fichier de clé est simplement un fichier texte. Le contenu doit être identique à ce qui suit :
+> ```
 ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCelfkjrpYHYiks4TM+r1LVsTYQ4jAXXGeOAF9Vv/KGz90pgMk3VRJk4PEUSELfXKxP3NtsVwLVPN1l09utI/tKHQ6WL3qy89WVVVLiwzL7tfJ2B08Gmcw8mC/YoieT/YG+4I4oAgPEmim+6/F9S0lU2I2CuFBX9JzauX8n1Y9kWzTARST+ERx2hysyA5ObLv97Xe4C2CQvGE01LGAXkw2ffP9vI+emUM+VeYrf0q3w/b1o/COKbFVZ2IpEcJ8G2SLlNsHWXofWhOKQRi64TMxT7LLoohD61q2aWNKdaE4oQdiuo8TGnt4zWLEPjzjIYIEIZGk00HiQD+KCB5pxoVtp user@system
 > ```
 
@@ -246,4 +247,4 @@ Maintenant que vous savez comment vous authentifier avec une clé SSH, apprenez 
 
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

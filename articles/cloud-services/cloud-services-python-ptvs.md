@@ -240,6 +240,8 @@ if (-not $is_emulated){
 
 #### Modifier LaunchWorker.ps1
 
+>[AZURE.NOTE] Dans le cas d’un projet**rôle de travail**, le fichier **LauncherWorker.ps1** est requis pour exécuter le fichier de démarrage. Dans un projet **rôle web**, le fichier de démarrage est à la place défini dans les propriétés du projet.
+
 À l’origine, le fichier **bin\\LaunchWorker.ps1** avait été créé pour effectuer une grande partie du travail de préparation, mais ceci ne fonctionne pas vraiment. Remplacez le contenu de ce fichier par le script ci-après.
 
 Ce script appelle le fichier **worker.py** à partir de votre projet Python. Si la variable d’environnement **PYTHON2** est définie sur **on**, Python 2.7 est utilisé. Dans le cas contraire, c’est Python 3.5 qui est utilisé.
@@ -364,4 +366,4 @@ Pour plus de détails sur l'utilisation des services Azure à partir de vos rôl
 [Python 2.7 32 bits]: https://www.python.org/downloads/
 [Python 3.5 32 bits]: https://www.python.org/downloads/
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

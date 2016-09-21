@@ -37,7 +37,7 @@ Ces éléments sont des implémentations [Application Insights](app-insights-ove
 + [ASP.NET : pour les applications déjà actives](app-insights-monitor-performance-live-website-now.md)
 + [ASP.NET 5](app-insights-asp-net-core.md)
 + [Android](https://github.com/Microsoft/ApplicationInsights-Android) (HockeyApp)
-+ [Applications web Azure et machines virtuelles](../azure-portal/insights-perf-analytics.md)
++ [Applications web Azure et machines virtuelles](app-insights-azure-web-apps.md)
 + [Azure Cloud Services](app-insights-cloudservices.md) incluant les rôles web et de travail
 + [CRM Online pour Microsoft Dynamics](app-insights-sample-mscrm.md)
 + [Docker](app-insights-docker.md)
@@ -84,4 +84,4 @@ Ces éléments sont des implémentations [Application Insights](app-insights-ove
 
 S’il n’existe pas encore de kit de développement logiciel (SDK) pour votre langage ou plateforme, peut-être souhaitez-vous créer un ? Examinons le code des kits de développement logiciel (SDK) existants répertoriés dans le [projet Kit de développement logiciel (SDK) Application Insights sur GitHub](https://github.com/Microsoft/AppInsights-Home).
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

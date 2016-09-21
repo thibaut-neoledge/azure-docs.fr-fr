@@ -149,21 +149,21 @@ Voici la définition des paramètres transmis au script. (Également copié ci-d
     [PSObject[]] $AdditionDataLocationList = $null
     )
 
-- *ServiceName* : nom de votre service cloud.
+- *ServiceName* : nom de votre service cloud.
 
-- *Rôles* : une liste de rôles, tels que « WebRole1 » ou « WorkerRole1 ».
+- *Rôles* : une liste de rôles, tels que « WebRole1 » ou « WorkerRole1 ».
 
-- *Instances* : liste de noms des instances de rôle séparés par des virgules, utilisez la chaîne de caractères génériques (« * ») pour toutes les instances de rôle.
+- *Instances* : liste de noms des instances de rôle séparés par des virgules, utilisez la chaîne de caractères génériques (« * ») pour toutes les instances de rôle.
 
-- *Emplacement* : nom de l’emplacement. « Production » ou « Intermédiaire ».
+- *Emplacement* : nom de l’emplacement. « Production » ou « Intermédiaire ».
 
-- *Mode* : mode de collecte. « Complet » ou « GA ».
+- *Mode* : mode de collecte. « Complet » ou « GA ».
 
-- *StorageAccountName* : nom du compte de stockage Azure pour le stockage des données recueillies.
+- *StorageAccountName* : nom du compte de stockage Azure pour le stockage des données recueillies.
 
-- *StorageAccountKey* : nom de clé de compte de stockage Azure.
+- *StorageAccountKey* : nom de clé de compte de stockage Azure.
 
-- *AdditionalDataLocationList* : liste obéissant à la structure suivante :
+- *AdditionalDataLocationList* : liste obéissant à la structure suivante :
 
       { Nom de chaîne, Emplacement de chaîne, schéma de recherche, Récursive Bool }
 
@@ -503,4 +503,4 @@ SetAzureVMLogCollector.ps1
 
 Vous pouvez maintenant examiner ou copier vos journaux depuis un emplacement très simple.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!----HONumber=AcomDC_0629_2016-->

@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="08/11/2016" 
+ ms.date="09/02/2016" 
  ms.author="dobett"/>
 
 # Guide du développeur Azure IoT Hub
@@ -49,7 +49,7 @@ Vous trouverez ci-dessous une description des points de terminaison :
     - *Recevoir des messages cloud-à-appareil*. Un appareil utilise ce point de terminaison pour recevoir les messages cloud-à-appareil qui lui sont adressés. Pour plus d’informations, consultez [Messages cloud-à-appareil](#c2d).
     - *Initier des téléchargements de fichiers*. Un appareil utilise ce point de terminaison pour recevoir un URI SAP Azure Storage à partir d’IoT Hub pour télécharger un fichier. Pour plus d'informations, consultez la rubrique [Téléchargements de fichiers](#fileupload).
 
-    Ces points de terminaison sont exposés à l’aide des protocoles HTTP 1.1, [MQTT v3.1.1][lnk-mqtt] et [AMQP 1.0][lnk-amqp]. Notez que le protocole AMQP est également disponible sur [WebSockets][lnk-websockets], sur le port 443.
+    Ces points de terminaison sont exposés à l’aide des protocoles [MQTT v3.1.1][lnk-mqtt], HTTP 1.1 et [AMQP 1.0][lnk-amqp]. Notez que le protocole AMQP est également disponible sur [WebSockets][lnk-websockets], sur le port 443.
 * **Points de terminaison de service**. Chaque IoT Hub expose un ensemble de points de terminaison que votre système principal d’application peut utiliser pour communiquer avec vos appareils. Ces points de terminaison sont actuellement exposés uniquement à l’aide du protocole [AMQP][lnk-amqp].
     - *Recevoir des messages Appareil vers cloud*. Ce point de terminaison est compatible avec [Azure Event Hubs][lnk-event-hubs]. Il peut être utilisé par un service principal pour lire tous les messages appareil vers cloud envoyés par vos appareils. Pour plus d’informations, consultez [Messagerie appareil vers cloud](#d2c)
     - *Envoyer des messages Cloud vers appareil et recevoir des accusés de remise*. Ces points de terminaison autorisent votre système principal d’application à envoyer des messages cloud-à-appareil et à recevoir les accusés de réception ou d’expiration correspondants. Pour plus d’informations, consultez [Messagerie cloud vers appareil](#c2d).
@@ -202,7 +202,7 @@ Pour plus d’informations sur la construction et l’utilisation des jetons de 
 
 #### Spécifications de protocole
 
-Chaque protocole pris en charge (par exemple, AMQP, MQTT et HTTP) transporte des jetons de différentes façons.
+Chaque protocole pris en charge (par exemple, MQTT, AMQP et HTTP) transporte des jetons de différentes façons.
 
 
 Le protocole HTTP implémente l’authentification en incluant un jeton valide dans l’en-tête de demande **Authorization**.
@@ -219,7 +219,7 @@ Pour SASL PLAIN, le **nom d’utilisateur** peut être :
 
 Dans les deux cas, le champ de mot de passe contient le jeton, comme décrit dans l’article sur les [jetons de sécurité IoT Hub][lnk-sas-tokens].
 
-Lorsque vous utilisez MQTT, le paquet CONNECT utilise deviceid en tant que ClientId, {iothubhostname} / {deviceId} dans le champ Nom d’utilisateur et un jeton SAP dans le champ Mot de passe. {iothubhostname} doit être le nom canonique (CNAME) complet d’IoT Hub (par exemple, contoso.azure-devices.net).
+Lorsque vous utilisez MQTT, le paquet CONNECT utilise deviceid en tant que ClientId, {iothubhostname}/{deviceId} dans le champ Nom d’utilisateur et un jeton SAP dans le champ Mot de passe. {iothubhostname} doit être le nom canonique (CNAME) complet d’IoT Hub (par exemple, contoso.azure-devices.net).
 
 ##### Exemple : #####
 
@@ -282,17 +282,23 @@ Il s’agit de l’ensemble des propriétés système dans les messages IoT Hub.
 
 ### Choix de votre protocole de communication <a id="amqpvshttp"></a>
 
-IoT Hub prend en charge les protocoles [AMQP][lnk-amqp], AMQP sur WebSockets, MQTT et HTTP/1 pour les communications côté appareil. Considérez les points suivants concernant leur utilisation.
+IoT Hub prend en charge les protocoles MQTT, [AMQP][lnk-amqp], AMQP sur WebSockets et HTTP/1 pour les communications côté appareil. Le tableau suivant fournit des recommandations de haut niveau pour votre choix de protocole :
 
-* **Modèle Cloud vers appareil**. HTTP/1 ne dispose pas d’un moyen efficace de mettre en œuvre la transmission des messages par le serveur. Par conséquent, lorsque vous utilisez HTTP/1, les appareils interrogent IoT Hub pour rechercher les messages cloud vers appareil. Cette approche se révèle particulièrement inefficace pour l’appareil et pour IoT Hub. Conformément aux recommandations actuelles concernant HTTP/1, chaque périphérique interroge toutes les 25 minutes ou plus. En revanche, AMQP et MQTT prennent en charge les notifications Push sur le serveur lors de la réception de messages cloud vers appareil. Ils permettent d’obtenir des notifications Push immédiates pour les messages de l’IoT Hub vers l’appareil. Si la latence de livraison pose problème, AMQP ou MQTT sont les meilleurs protocoles à utiliser. Pour les appareils rarement connectés, HTTP/1 fonctionne aussi bien.
+| Protocole | Quand choisir ce protocole |
+| -------- | ------------------------------------ |
+| MQTT | Utiliser sur tous les appareils qui ne nécessitent pas l’utilisation du protocole WebSocket. |
+| AMQPS | Utiliser sur les passerelles de champ et de cloud pour tirer parti du multiplexage de connexion sur les appareils. <br/> Utiliser lorsque vous devez vous connecter sur le port 443. |
+| HTTPS | Utiliser pour les appareils qui ne peuvent pas prendre en charge les autres protocoles. |
+
+Prenez en compte les points suivants lorsque vous choisissez votre protocole pour les communications côté appareil :
+
+* **Modèle Cloud vers appareil**. HTTP/1 ne dispose pas d’un moyen efficace de mettre en œuvre la transmission des messages par le serveur. Par conséquent, lorsque vous utilisez HTTP/1, les appareils interrogent IoT Hub pour rechercher les messages cloud vers appareil. Cette approche se révèle particulièrement inefficace pour l’appareil et pour IoT Hub. Conformément aux recommandations actuelles concernant HTTP/1, chaque appareil doit interroger la présence de messages toutes les 25 minutes ou plus. En revanche, AMQP et MQTT prennent en charge les notifications Push sur le serveur lors de la réception de messages cloud vers appareil. Ils permettent d’obtenir des notifications Push immédiates pour les messages de l’IoT Hub vers l’appareil. Si la latence de livraison pose problème, AMQP ou MQTT sont les meilleurs protocoles à utiliser. Pour les appareils rarement connectés, HTTP/1 fonctionne aussi bien.
 * **Passerelles de champ**. Lorsque vous utilisez HTTP/1 et MQTT, il est impossible de connecter plusieurs appareils (chacun avec ses propres informations d’identification par appareil) à l’aide de la même connexion TLS. Par conséquent, ces protocoles ne sont donc pas la solution optimale lors de l’implémentation de [scénarios de passerelle de champ][lnk-azure-gateway-guidance], car ils nécessitent une connexion TLS entre la passerelle de champ et IoT Hub pour chaque appareil connecté à la passerelle de champ.
-* **Appareils faibles en ressources**. Les bibliothèques MQTT et HTTP/1 sont moins encombrantes que les bibliothèques AMQP. Donc, si l’appareil dispose de peu de ressources (par exemple, de moins d’1 Mo de mémoire RAM), ces protocoles sont peut-être les seuls protocoles d’implémentation disponibles.
+* **Appareils faibles en ressources**. Les bibliothèques MQTT et HTTP/1 sont moins encombrantes que les bibliothèques AMQP. Donc, si l’appareil dispose de ressources limitées (par exemple, moins de 1 Mo de mémoire RAM), ces protocoles sont peut-être les seuls protocoles d’implémentation disponibles.
 * **Traversée réseau**. Le standard MQTT écoute sur le port 8883, ce qui peut entraîner des problèmes dans les réseaux fermés aux protocoles autres que HTTP. HTTP et AMQP (sur WebSockets) sont tous les deux disponibles pour utilisation dans ce scénario.
-* **Taille de charge utile**. MQTT et AMQP sont des protocoles binaires qui sont beaucoup plus compacts que HTTP/1.
+* **Taille de charge utile**. MQTT et AMQP sont des protocoles binaires qui résultent en des charges utiles beaucoup plus compactes que HTTP/1.
 
-En règle générale, vous devez utiliser AMQP (ou AMQP sur WebSocket) autant que possible, et utiliser MQTT uniquement lorsque les contraintes de ressources empêchent l’utilisation d’AMQP. Utilisez uniquement HTTP/1 si la traversée réseau et la configuration de réseau empêchent l’utilisation de MQTT et AMQP. En outre, lorsque vous utilisez HTTP/1, chaque appareil doit envoyer des interrogations pour les messages cloud-à-appareil toutes les 25 minutes, voire plus.
-
-> [AZURE.NOTE] Au cours du développement, il est acceptable d’avoir des fréquences d’interrogation plus régulières que toutes les 25 minutes.
+> [AZURE.NOTE] Lorsque vous utilisez HTTP/1, chaque appareil doit envoyer des interrogations pour les messages cloud-à-appareil toutes les 25 minutes, voire plus. Toutefois, au cours du développement, il est clairement acceptable d’avoir des fréquences d’interrogation plus régulières que toutes les 25 minutes.
 
 <a id="mqtt-support">
 #### Remarques sur la prise en charge MQTT
@@ -637,4 +643,4 @@ Pour explorer davantage les capacités de IoT Hub, consultez :
 [lnk-portal]: iot-hub-manage-through-portal.md
 [lnk-securing]: iot-hub-security-ground-up.md
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

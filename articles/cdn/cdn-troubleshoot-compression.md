@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/28/2016"
+	ms.date="09/01/2016"
 	ms.author="casoper"/>
     
 # Résolution des problèmes de compression des fichiers CDN
@@ -26,6 +26,10 @@ Si vous avez besoin d'aide supplémentaire concernant n'importe quel point de ce
 
 La compression pour votre point de terminaison est activée, mais les fichiers sont renvoyés non compressés.
 
+>[AZURE.TIP] Pour vérifier si vos fichiers sont retournés sous une forme compressée, vous devez utiliser un outil tel que [Fiddler](http://www.telerik.com/fiddler) ou les [outils de développement](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/) de votre navigateur. Vérifiez les en-têtes de réponse HTTP retournés avec votre contenu CDN mis en cache. S’il existe un en-tête nommé `Content-Encoding` avec une valeur **gzip**, **bzip2**, ou **deflate**, votre contenu est compressé.
+>
+>![En-tête d’encodage de contenu](./media/cdn-troubleshoot-compression/cdn-content-header.png)
+
 ## Cause :
 
 Il existe plusieurs causes possibles, y compris :
@@ -36,7 +40,7 @@ Il existe plusieurs causes possibles, y compris :
 
 ## Étapes de dépannage
 
-> [AZURE.TIP] Comme lors du déploiement de nouveaux points de terminaison, les modifications de configuration CDN prennent un certain temps à se propager sur le réseau. Dans la plupart des cas, vous verrez que vos modifications s’appliquent dans les 90 minutes. S’il s’agit de la première fois que vous avez configuré la compression pour votre point de terminaison CDN, vous devez envisager d’attendre 1 à 2 heures pour vous assurer que les paramètres de compression ont été transmis aux POP.
+> [AZURE.TIP] Comme lors du déploiement de nouveaux points de terminaison, les modifications de configuration CDN prennent un certain temps à se propager sur le réseau. En règle générale, les modifications sont appliquées dans les 90 minutes. S’il s’agit de la première fois que vous avez configuré la compression pour votre point de terminaison CDN, vous devez envisager d’attendre 1 à 2 heures pour vous assurer que les paramètres de compression ont été transmis aux POP.
 
 ### Vérifier la requête
 
@@ -78,7 +82,7 @@ Accédez à votre point de terminaison dans le [portail Azure](https://portal.az
 
 À l’aide des outils de développement de votre navigateur, vérifiez les en-têtes de réponse pour vous assurer que le fichier est mis en cache dans la région où il est demandé.
 
-- Vérifiez l’en-tête de réponse **Server**. L’en-tête doit être au format **Plateforme (ID serveur/POP)**, comme indiqué dans l’exemple ci-dessous.
+- Vérifiez l’en-tête de réponse **Server**. L’en-tête doit être au format **Plateforme (ID serveur/POP)**, comme indiqué dans l’exemple suivant.
 - Vérifiez l’en-tête de réponse **X-Cache**. L’en-tête doit indiquer **HIT**.
 
 ![En-têtes de réponse CDN](./media/cdn-troubleshoot-compression/cdn-response-headers.png)
@@ -87,7 +91,7 @@ Accédez à votre point de terminaison dans le [portail Azure](https://portal.az
 
 > [AZURE.NOTE] Cette étape vaut uniquement si votre profil CDN est un profil du **CDN Azure fourni par Verizon** (Standard ou Premium).
 
-Pour être éligible pour la compression, un fichier doit respecter les exigences de taille suivantes :
+Afin d’être éligible pour la compression, un fichier doit respecter les exigences de taille suivantes :
 
 - Plus de 128 octets.
 - Moins de 1 Mo.
@@ -96,7 +100,7 @@ Pour être éligible pour la compression, un fichier doit respecter les exigence
 
 L’en-tête HTTP **Via** indique au serveur web que la requête est transmise par un serveur proxy. Par défaut, des serveurs web Microsoft IIS ne compressent pas les réponses lorsque la requête contient un en-tête **Via**. Pour modifier ce comportement, procédez comme suit :
 
-- **IIS 6**: [définissez HcNoCompressionForProxies="FALSE" dans les propriétés de la métabase IIS](https://msdn.microsoft.com/library/ms525390.aspx)
-- **IIS 7 et versions ultérieures**: [définissez **noCompressionForHttp10** et **noCompressionForProxies** sur False dans le serveur de configuration](http://www.iis.net/configreference/system.webserver/httpcompression)
+- **IIS 6** : [définissez HcNoCompressionForProxies="FALSE" dans les propriétés de la métabase IIS](https://msdn.microsoft.com/library/ms525390.aspx)
+- **IIS 7 et versions ultérieures** : [définissez **noCompressionForHttp10** et **noCompressionForProxies** sur False dans la configuration du serveur](http://www.iis.net/configreference/system.webserver/httpcompression)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0907_2016-->

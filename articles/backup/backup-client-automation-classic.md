@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/23/2016"
-	ms.author="markgal;jimpark;nkolli;trinadhk"/>
+	ms.date="09/01/2016"
+	ms.author="saurabhsensharma;markgal;jimpark;nkolli;trinadhk"/>
 
 
 # Déployer et gérer une sauvegarde vers Azure pour un serveur/client Windows à l’aide de PowerShell
@@ -599,4 +599,4 @@ Pour plus d’informations sur Azure Backup pour client/serveur Windows, consult
 - [Présentation d’Azure Backup](backup-introduction-to-azure-backup.md)
 - [Sauvegarder des serveurs Windows](backup-configure-vault.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="09/01/2016"
 	ms.author="jeedes"/>
 
 
@@ -57,7 +57,7 @@ Pour configurer l’intégration de Ceridian Dayforce HCM à Azure AD, vous dev
 
 **Pour ajouter Ceridian Dayforce HCM à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **portail Azure Classic**, cliquez sur **Active Directory**. 
+1. Dans le volet de navigation gauche du **portail Azure Classic**, cliquez sur **Active Directory**.
 
 	![Active Directory][1]
 
@@ -172,8 +172,8 @@ Votre application Ceridian Dayforce HCM attend les assertions SAML dans un forma
 
     - Le fichier de certificat téléchargé
     - L**’URL de l’émetteur**
-    - L**’URL d’authentification unique SAML** 
-    - L**’URL du service d’authentification unique** 
+    - L**’URL d’authentification unique SAML**
+    - L**’URL du service d’authentification unique**
 
 
 6. Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Suivant**.
@@ -199,11 +199,11 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
 2. Dans la liste **Annuaire**, sélectionnez l'annuaire pour lequel vous voulez activer l'intégration d'annuaire.
 
-3. Pour afficher la liste des utilisateurs, dans le menu situé en haut, cliquez sur **Utilisateurs**.
+3. Pour afficher la liste des utilisateurs, dans le menu du haut, cliquez sur **Utilisateurs**.
 
 	![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-ceridiandayforcehcm-tutorial/create_aaduser_03.png)
 
-4. Pour ouvrir la boîte de dialogue **Ajouter un utilisateur**, cliquez sur **Ajouter un utilisateur** dans la barre d’outils située en bas.
+4. Pour ouvrir la boîte de dialogue **Ajouter un utilisateur**, cliquez sur l’option **Ajouter un utilisateur** figurant dans la barre d’outils du bas.
 
 	![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-ceridiandayforcehcm-tutorial/create_aaduser_04.png)
 
@@ -217,7 +217,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     c. Cliquez sur **Next**.
 
-6.  Sur la page de boîte de dialogue **Profil utilisateur**, procédez comme suit :
+6.  Sur la page **Profil utilisateur**, procédez comme suit :
 
 	![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-ceridiandayforcehcm-tutorial/create_aaduser_06.png)
 
@@ -263,7 +263,7 @@ L’objectif de cette section est de permettre à Britta Simon d’utiliser l’
 
 **Pour affecter Britta Simon à Ceridian Dayforce HCM, procédez comme suit :**
 
-1. Pour ouvrir la vue des applications dans le portail Azure Classic, cliquez dans la vue de répertoire sur **Applications** dans le menu du haut.
+1. Pour ouvrir l’affichage des applications dans le portail Azure Classic, cliquez dans l’affichage de l’annuaire sur **Applications** dans le menu du haut.
 
 	![Affecter des utilisateurs][201]
 
@@ -312,4 +312,4 @@ L’objectif de cette section est de tester la configuration de l’authentifica
 [204]: ./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0907_2016-->

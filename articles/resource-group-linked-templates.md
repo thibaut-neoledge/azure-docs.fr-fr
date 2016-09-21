@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/11/2016"
+   ms.date="09/02/2016"
    ms.author="tomfitz"/>
 
 # Utilisation de modèles liés à Azure Resource Manager
@@ -29,7 +29,7 @@ Pour créer un lien entre deux modèles, ajoutez une ressource de déploiement 
     "resources": [ 
       { 
          "apiVersion": "2015-01-01", 
-         "name": "nestedTemplate", 
+         "name": "linkedTemplate", 
          "type": "Microsoft.Resources/deployments", 
          "properties": { 
            "mode": "incremental", 
@@ -53,7 +53,7 @@ Le service Resource Manager doit être en mesure d’accéder au modèle lié. V
 
 Bien que le modèle lié doive être disponible en externe, il n’a pas besoin d’être accessible au public. Vous pouvez ajouter votre modèle dans un compte de stockage privé, uniquement accessible au propriétaire du compte de stockage. Ensuite, vous créez un jeton de signature d’accès partagé (SAP) pour autoriser l’accès en cours de déploiement. Vous ajoutez ce jeton SAP à l’URI pour le modèle lié. Pour connaître les étapes de configuration d’un modèle dans un compte de stockage et de génération d’un jeton SAP, consultez [Déployer des ressources avec des modèles Resource Manager et Azure PowerShell](resource-group-template-deploy.md) ou [Déployer des ressources avec des modèles Resource Manager et l’interface de ligne de commande Azure](resource-group-template-deploy-cli.md).
 
-L’exemple suivant montre un modèle parent lié à un autre modèle. Le modèle imbriqué est accessible avec un jeton SAP qui est transmis en paramètre.
+L’exemple suivant montre un modèle parent lié à un autre modèle. Le modèle lié est accessible avec un jeton SAP qui est transmis en tant paramètre.
 
     "parameters": {
         "sasToken": { "type": "securestring" }
@@ -61,7 +61,7 @@ L’exemple suivant montre un modèle parent lié à un autre modèle. Le modèl
     "resources": [
         {
             "apiVersion": "2015-01-01",
-            "name": "nestedTemplate",
+            "name": "linkedTemplate",
             "type": "Microsoft.Resources/deployments",
             "properties": {
               "mode": "incremental",
@@ -82,7 +82,7 @@ L’exemple suivant utilise la propriété **parametersLink** pour créer un lie
     "resources": [ 
       { 
          "apiVersion": "2015-01-01", 
-         "name": "nestedTemplate", 
+         "name": "linkedTemplate", 
          "type": "Microsoft.Resources/deployments", 
          "properties": { 
            "mode": "incremental", 
@@ -161,7 +161,7 @@ Vous fournissez cette valeur de variable pour la ressource de déploiement.
     "resources": [
         {
             "apiVersion": "2015-01-01",
-            "name": "nestedTemplate",
+            "name": "linkedTemplate",
             "type": "Microsoft.Resources/deployments",
             "properties": {
                 "mode": "incremental",
@@ -200,7 +200,7 @@ L’exemple suivant illustre le modèle **existingStorageAccount.json**.
       }
     }
 
-L’exemple suivant illustre le modèle **newStorageAccount.json**. Tout comme le modèle de compte de stockage existant, l’objet de compte de stockage est renvoyé dans la section outputs. Le modèle principal fonctionne avec un modèle imbriqué.
+L’exemple suivant illustre le modèle **newStorageAccount.json**. Tout comme le modèle de compte de stockage existant, l’objet de compte de stockage est renvoyé dans la section outputs. Le modèle principal fonctionne avec l’un ou l’autre de ces modèles liés.
 
     {
       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -247,7 +247,7 @@ Le fichier **parent.json** est composé de :
       "resources": [
         {
           "apiVersion": "2015-01-01",
-          "name": "nestedTemplate",
+          "name": "linkedTemplate",
           "type": "Microsoft.Resources/deployments",
           "properties": {
             "mode": "incremental",
@@ -261,7 +261,7 @@ Le fichier **parent.json** est composé de :
       "outputs": {
         "result": {
           "type": "object",
-          "value": "[reference('nestedTemplate').outputs.result]"
+          "value": "[reference('linkedTemplate').outputs.result]"
         }
       }
     }
@@ -300,4 +300,4 @@ Vous devez fournir le jeton SAP en tant que paramètre. Vous devez faire précé
 - Pour obtenir des informations sur la définition de l’ordre de déploiement de vos ressources, consultez [Définition de dépendances dans les modèles Azure Resource Manager](resource-group-define-dependencies.md)
 - Pour savoir comment définir une seule ressource mais également créer de nombreuses instances de cette dernière, consultez [Création de plusieurs instances de ressources dans Azure Resource Manager](resource-group-create-multiple.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0907_2016-->

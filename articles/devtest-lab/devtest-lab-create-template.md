@@ -13,29 +13,32 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/24/2016"
+	ms.date="09/07/2016"
 	ms.author="tarcher"/>
 
 # Gérer les images personnalisées Azure DevTest Labs pour créer des machines virtuelles
 
-Une fois que vous avez [créé un laboratoire](devtest-lab-create-lab.md), vous pouvez [ajouter des machines virtuelles à ce laboratoire](devtest-lab-add-vm-with-artifacts.md). Quand vous créez une machine virtuelle, vous spécifiez une *base*, qui peut être une *image personnalisée* ou *image du Marketplace*. Dans cet article, vous allez apprendre comment [créer une image personnalisée à partir d’un disque dur virtuel](#create-a-custom-image-from-a-vhd) afin de pouvoir ensuite créer une machine virtuelle à partir de cette image personnalisée. En outre, vous pouvez également [créer une image personnalisée à partir d’une machine virtuelle](#create-a-custom-image-from-a-vm) pour créer rapidement des machines virtuelles par la suite.
+Dans Azure DevTest Labs, les images personnalisées vous permettent de créer rapidement des machines virtuelles sans attendre que tous les logiciels requis soient installés sur la machine cible. Les images personnalisées vous permettent de pré-installer tous les logiciels dont vous avez besoin dans un fichier de disque dur virtuel et d’utiliser ensuite le fichier de disque dur virtuel pour créer une machine virtuelle. Étant donné que les logiciels sont déjà installés, le temps de création de machines virtuelles est beaucoup plus court. En outre, les images personnalisées sont utilisées pour cloner des machines virtuelles en créant une image personnalisée à partir d’une machine virtuelle, puis en créant des machines virtuelles à partir de cette image personnalisée.
+
+Dans cet article, vous apprendrez comment :
+
+- [Créer une image personnalisée à partir d’un fichier de disque dur virtuel](#create-a-custom-image-from-a-vhd-file) afin de pouvoir ensuite créer une machine virtuelle à partir de cette image personnalisée.
+- [Créer une image personnalisée à partir d’une machine virtuelle](#create-a-custom-image-from-a-vm) pour le clonage rapide de machines virtuelles.
 
 ## Création d’une image personnalisée à partir d’un fichier VHD
 
-Dans cette section, vous allez apprendre à créer une image personnalisée à partir d’un fichier VHD. Notez que vous devez avoir accès à un fichier VHD valide pour effectuer toutes les étapes de cette section.
+Dans cette section, vous allez apprendre à créer une image personnalisée à partir d’un fichier VHD. Vous devez avoir accès à un fichier VHD valide pour effectuer toutes les étapes de cette section.
 
 
 1. Connectez-vous au [portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Sélectionnez **Parcourir**, puis **DevTest Labs** dans la liste.
+1. Sélectionnez **Plus de services**, puis **DevTest Labs** dans la liste.
 
 1. Sélectionnez le laboratoire souhaité dans la liste des laboratoires.
 
-1. Le panneau **Paramètres** du labo sélectionné s’affiche.
+1. Dans le panneau du laboratoire, sélectionnez **Configuration**.
 
-1. Dans le panneau **Paramètres** du laboratoire, sélectionnez **Images personnalisées**.
-
-    ![Option Images personnalisées](./media/devtest-lab-create-template/lab-settings-custom-images.png)
+1. Dans le panneau **Configuration** du laboratoire, sélectionnez **Images personnalisées**.
 
 1. Dans le panneau **Images personnalisées**, sélectionnez **+ Image personnalisée**.
 
@@ -67,7 +70,7 @@ Dans cette section, vous allez apprendre à créer une image personnalisée à p
 
 ###Téléchargement d’un fichier VHD
 
-Pour ajouter une nouvelle image personnalisée, vous devez avoir accès à un fichier VHD.
+Pour ajouter une image personnalisée, vous devez avoir accès à un fichier VHD.
 
 1. Dans le panneau **Fichier VHD**, sur **Télécharger un fichier VHD à l’aide de PowerShell**.
 
@@ -80,17 +83,19 @@ Si vous disposez d’une machine virtuelle qui est déjà configurée, vous pouv
 
 1. Connectez-vous au [portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Sélectionnez **Parcourir**, puis **DevTest Labs** dans la liste.
+1. Sélectionnez **Plus de services**, puis **DevTest Labs** dans la liste.
 
 1. Sélectionnez le laboratoire souhaité dans la liste des laboratoires.
 
-1. Dans le panneau **Présentation** du laboratoire, sélectionnez la machine virtuelle à partir de laquelle vous souhaitez créer l’image personnalisée.
+1. Sur le panneau du laboratoire, sélectionnez **Mes machines virtuelles**.
+ 
+1. Dans le panneau **Mes machines virtuelles** du laboratoire, sélectionnez la machine virtuelle à partir de laquelle vous souhaitez créer l’image personnalisée.
 
 1. Sur le panneau de la machine virtuelle, sélectionnez **Créer une image personnalisée (VHD)**.
 
 	![Élément de menu Créer une image personnalisée](./media/devtest-lab-create-template/create-custom-image.png)
 
-1. Dans le panneau **Créer une image**, entrez un nom et une description pour votre image personnalisée. Ces informations s’afficheront dans la liste de bases lorsque vous créez une machine virtuelle.
+1. Dans le panneau **Créer une image**, entrez un nom et une description pour votre image personnalisée. Ces informations s’affichent dans la liste de bases lorsque vous créez une machine virtuelle.
 
 	![Panneau Créer une image personnalisée](./media/devtest-lab-create-template/create-custom-image-blade.png)
 
@@ -109,4 +114,4 @@ Si vous disposez d’une machine virtuelle qui est déjà configurée, vous pouv
 
 Une fois que vous avez ajouté une image personnalisée à utiliser lors de la création d’une machine virtuelle, l’étape suivante consiste à [ajouter une machine virtuelle à votre laboratoire](./devtest-lab-add-vm-with-artifacts.md).
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

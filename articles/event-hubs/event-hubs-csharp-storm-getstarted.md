@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="05/13/2016"
+	ms.date="09/06/2016"
 	ms.author="sethm"/>
 
 # Prise en main des hubs d’événements
@@ -65,11 +65,11 @@ Vous avez conçu une application opérationnelle qui crée un hub d’événemen
 [22]: ./media/event-hubs-csharp-storm-getstarted/receive-storm1.png
 
 <!-- Links -->
-[portail Azure Classic]: https://manage.windowsazure.com/
+[Azure classic portal]: https://manage.windowsazure.com/
 [Vue d'ensemble des hubs d'événements]: event-hubs-overview.md
 [exemple d'application complet qui utilise des hubs d’événements]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
 [montée en puissance du traitement des événements avec Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
 [solution de messages de file d'attente]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0907_2016-->

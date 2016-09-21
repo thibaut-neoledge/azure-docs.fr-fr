@@ -22,8 +22,8 @@
 Vous pouvez accéder à toutes les fonctionnalités Notification Hubs à partir d'un serveur principal Java/PHP/Python/Ruby en utilisant l'interface REST Notification Hub, comme décrit dans la rubrique MSDN [API REST Notification Hubs](http://msdn.microsoft.com/library/dn223264.aspx).
 
 > [AZURE.NOTE] Ceci est un exemple d’implémentation de référence pour l’implémentation des envois de notifications dans Python. Il ne s’agit pas du Kit de développement logiciel (SDK) de Notification Hub Python officiellement pris en charge.
-
-> [AZURE.NOTE] Cet exemple a été écrit à l’aide de Python 3.4.
+>
+> Cet exemple a été écrit à l’aide de Python 3.4.
 
 Dans cette rubrique, nous vous montrons comment :
 
@@ -56,7 +56,7 @@ Si ce n'est déjà fait, suivez notre [didacticiel de prise en main] jusqu'à la
 Tous les détails de l'implémentation d'un wrapper REST complet se trouvent sur [MSDN](http://msdn.microsoft.com/library/dn530746.aspx). Dans cette section, nous allons décrire l’implémentation Python des principales étapes requises pour accéder aux point de terminaison REST de Notification Hubs et envoyer des notifications :
 
 1. Analyse de la chaîne de connexion
-2. Génération du jeton d’autorisation
+2. Génération du jeton d'autorisation
 3. Envoyer une notification à l’aide de l’API REST de HTTP
 
 ### Analyse de la chaîne de connexion
@@ -259,11 +259,11 @@ L’URL HTTP de demande d’envoi de hub de notification est ajoutée avec une c
 ##<a name="complete-tutorial"></a>Suivi du didacticiel
 Vous pouvez à présent terminer le didacticiel de prise en main en envoyant la notification à partir d’un serveur principal Python.
 
-Initialisez votre client Notification Hubs (remplacez la chaîne de connexion et le nom du hub comme indiqué dans le [didacticiel de prise en main]) :
+Initialisez votre client Notification Hubs (remplacez la chaîne de connexion et le nom du hub comme indiqué dans le [didacticiel de prise en main]) :
 
 	hub = NotificationHub("myConnectionString", "myNotificationHubName")
 
-Ajoutez ensuite le code d’envoi en fonction de la plateforme mobile cible. Cet exemple ajoute également des méthodes de plus haut niveau pour activer l’envoi de notifications basées sur la plateforme, par exemple send\_windows\_notification pour Windows, send\_apple\_notification (pour Apple), etc.
+Ajoutez ensuite le code d'envoi en fonction de la plateforme mobile cible. Cet exemple ajoute également des méthodes de plus haut niveau pour activer l’envoi de notifications basées sur la plateforme, par exemple send\_windows\_notification pour Windows, send\_apple\_notification (pour Apple), etc.
 
 ### Windows Store et Windows Phone 8.1 (non-Silverlight)
 
@@ -374,7 +374,7 @@ Notez que l’en-tête HTTP de format change et que le corps de charge utile est
 Dans cette rubrique, nous vous avons montré comment créer un client REST Python simple pour Notification Hubs. À ce stade, vous pouvez :
 
 * télécharger l'intégralité de l'[exemple de wrapper REST Python], qui contient tout le code ci-dessus ;
-* poursuivre l'apprentissage de la fonctionnalité de balisage de Notification Hubs dans le [didacticiel Nouvelles de dernière minute] ;
+* poursuivre l'apprentissage de la fonctionnalité de balisage de Notification Hubs dans le [didacticiel Nouvelles de dernière minute] ;
 * poursuivre l'apprentissage de la fonctionnalité des modèles de Notification Hubs dans le [didacticiel de localisation des dernières nouvelles].
 
 <!-- URLs -->
@@ -391,4 +391,4 @@ Dans cette rubrique, nous vous avons montré comment créer un client REST Pytho
 [5]: ./media/notification-hubs-python-backend-how-to/TemplatedNotification.png
  
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0907_2016-->

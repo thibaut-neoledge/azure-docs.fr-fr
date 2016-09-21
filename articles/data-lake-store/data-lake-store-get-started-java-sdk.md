@@ -4,7 +4,7 @@
    services="data-lake-store"
    documentationCenter=""
    authors="nitinme"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="08/18/2016"
+   ms.date="09/13/2016"
    ms.author="nitinme"/>
 
 # Prise en main d’Azure Data Lake Store à l’aide de Java
@@ -41,7 +41,6 @@ Les liens suivants permettent d’accéder à l’emplacement de téléchargemen
 * Kit de développement Java (JDK) 8 (avec Java version 1.8).
 * IntelliJ ou un autre environnement de développement Java approprié. Ceci étape est facultatif mais recommandé. Les instructions ci-dessous utilisent IntelliJ.
 * **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Activez votre abonnement Azure** pour la version d’évaluation publique de Data Lake Store. Consultez les [instructions](data-lake-store-get-started-portal.md#signup).
 * **Créez une application Azure Active Directory**. Il existe deux modes d’authentification à l’aide d’Azure Active Directory : **interactif** et **non interactif**. Les conditions préalables requises varient selon le mode d’authentification.
 	* **Pour l’authentification interactive** - Dans Azure Active Directory, vous devez créer une **application cliente native**. Une fois que vous avez créé l’application, récupérez les valeurs suivantes liées à l’application.
 		- Obtenez l’**ID client** et l’**URI de redirection** associés à l’application.
@@ -280,4 +279,4 @@ Vous devez donner à votre application l’autorisation de créer des ressources
 - [Utiliser Azure Data Lake Analytics avec Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Utiliser Azure HDInsight avec Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -15,7 +15,7 @@
 	ms.topic="reference"
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
-	ms.date="06/02/2016"
+	ms.date="08/30/2016"
 	ms.author="glenga"/>
 
 # Liaisons Azure Mobile Apps Azure Functions
@@ -169,4 +169,4 @@ Cet exemple de code Node.js insère un nouvel enregistrement sur un point de ter
 
 [AZURE.INCLUDE [Étapes suivantes](../../includes/functions-bindings-next-steps.md)]
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

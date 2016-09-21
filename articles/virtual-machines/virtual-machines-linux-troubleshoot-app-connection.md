@@ -15,11 +15,11 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="08/31/2016"
 	ms.author="iainfou"/>
 
 # Dépannage : impossible de démarrer, d’accéder ou de se connecter à une application exécutée sur une machine virtuelle Azure
 
 [AZURE.INCLUDE [virtual-machines-common-troubleshoot-app-connection](../../includes/virtual-machines-common-troubleshoot-app-connection.md)]
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0907_2016-->

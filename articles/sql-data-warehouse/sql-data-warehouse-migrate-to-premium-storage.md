@@ -207,4 +207,4 @@ Si vous rencontrez des problèmes liés à votre entrepôt de données, [créez 
 [Premium Storage, afin d’optimiser la prévisibilité des performances]: https://azure.microsoft.com/blog/azure-sql-data-warehouse-introduces-premium-storage-for-greater-performance/
 [portail Azure]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0831_2016-->
+<!-----HONumber=AcomDC_0831_2016-->

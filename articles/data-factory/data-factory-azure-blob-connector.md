@@ -18,9 +18,12 @@
 	ms.author="spelluru"/>
 
 # Déplacer des données vers et depuis un objet Blob Azure à l’aide d’Azure Data Factory
-Cet article explique comment utiliser l’activité de copie dans Azure Data Factory pour déplacer des données vers et à partir d’un objet Blob Azure en les extrayant des données blob provenant d’un autre magasin de données. Cet article s’appuie sur l’article relatif aux activités de déplacement des données qui présente une vue d’ensemble du déplacement des données avec l’activité de copie et les combinaisons de magasin de données prises en charge.
+Cet article explique comment utiliser l’activité de copie dans Azure Data Factory pour déplacer des données vers et à partir d’un objet Blob Azure en les extrayant des données blob provenant d’un autre magasin de données. Cet article s’appuie sur l’article relatif aux [activités de déplacement des données](data-factory-data-movement-activities.md) qui présente une vue d’ensemble du déplacement des données avec l’activité de copie et les combinaisons de magasin de données prises en charge.
 
-> [AZURE.NOTE] Ce connecteur d’objets Blob Azure prend actuellement en charge uniquement la copie depuis/vers des objets blob de blocs. Et il prend en charge le stockage Azure général et le stockage d’objets Blob à chaud/froid.
+> [AZURE.NOTE]
+L’activité de copie prend en charge la copie des données depuis/vers des comptes de stockage Azure à usage général et le stockage d’objets blob à chaud/froid.
+> 
+> L’activité prend en charge la lecture à partir d’objets blob de blocs, d’annexe ou de page, mais l’écriture vers les objets blob de blocs uniquement.
 
 ## Assistant Copier des données
 Le moyen le plus simple de créer un pipeline qui copie les données vers/depuis le stockage d’objets blob Azure (Azure Blob Storage) consiste à utiliser l’Assistant Copier des données. Consultez la page [Didacticiel : Créer un pipeline avec l’activité de copie à l’aide de l’Assistant Data Factory Copy](data-factory-copy-data-wizard-tutorial.md) pour une procédure pas à pas rapide sur la création d’un pipeline à l’aide de l’Assistant Copier des données.
@@ -449,18 +452,18 @@ En revanche, les propriétés disponibles dans la section typeProperties de l'ac
 | -------- | ----------- | -------------- | -------- |
 | copyBehavior | Cette propriété définit le comportement de copie lorsque la source est BlobSource ou FileSystem. | **PreserveHierarchy :** conserve la hiérarchie des fichiers dans le dossier cible. Le chemin relatif du fichier source vers le dossier source est identique au chemin relatif du fichier cible vers le dossier cible.<br/><br/>**FlattenHierarchy :** tous les fichiers du dossier source se trouvent dans le premier niveau du dossier cible. Le nom des fichiers cibles est généré automatiquement. <br/><br/>**MergeFiles : (par défaut)** fusionne tous les fichiers du dossier source dans un même fichier. Si le nom de fichier/d’objet blob est spécifié, le nom de fichier fusionné est le nom spécifié. Dans le cas contraire, le nom de fichier est généré automatiquement. | Non |
 
-**BlobSource** prend également en charge ces deux propriétés, qui seront bientôt déconseillées.
+**BlobSource** prend également en charge ces deux propriétés pour la compatibilité descendante.
 
 - **treatEmptyAsNull** : spécifie s’il faut traiter une chaîne null ou vide en tant que valeur null.
 - **skipHeaderLineCount** : spécifie le nombre de lignes à ignorer. Applicable uniquement quand le jeu de données d’entrée utilise TextFormat.
 
-De même, **BlobSink** prend en charge la propriété suivante, qui sera bientôt déconseillée.
+De même, **BlobSink** prend en charge la propriété suivante pour la compatibilité descendante.
 
 - **blobWriterAddHeader** : spécifie s’il faut ajouter un en-tête de définitions de colonne lors de l’écriture dans un jeu de données de sortie.
 
 Les jeux de données prennent désormais en charge les propriétés suivantes qui implémentent la même fonctionnalité : **treatEmptyAsNull**, **skipLineCount**, **firstRowAsHeader**.
 
-Le tableau suivant fournit des recommandations sur l’utilisation de nouvelles propriétés de jeu de données pour remplacer les propriétés de BlobSink et BlobSource, qui seront bientôt déconseillées.
+Le tableau suivant fournit des recommandations sur l’utilisation de nouvelles propriétés de jeu de données pour remplacer ces propriétés de BlobSink et BlobSource.
 
 | Propriété de l’activité de copie | Propriété du jeu de données |
 | :---------------------- | :---------------- | 
@@ -494,4 +497,4 @@ false | mergeFiles | Pour un dossier source nommé Dossier1 avec la structure su
 ## Performances et réglage  
 Consultez l’article [Guide sur les performances et le réglage de l’activité de copie](data-factory-copy-activity-performance.md) pour en savoir plus sur les facteurs clés affectant les performances de déplacement des données (activité de copie) dans Azure Data Factory et les différentes manières de les optimiser.
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

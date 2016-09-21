@@ -67,7 +67,7 @@ Le panneau **Add path-based rule (Ajouter une règle basée sur le chemin)** com
 - **Pool principal** - pool principal à utiliser pour la règle.
 - **Paramètre HTTP** - paramètres HTTP à utiliser pour la règle.
 
->[AZURE.IMPORTANT] Chemins d’accès : liste de modèles de chemin d’accès à utiliser pour la correspondance. Chaque modèle doit commencer par le signe / et le seul endroit où un astérisque (*) est autorisé est à la fin. /xyz, /xyz* ou /xyz/* sont des exemples valides.
+>[AZURE.IMPORTANT] Chemins d’accès : liste de modèles de chemin d’accès à utiliser pour la correspondance. Chaque modèle doit commencer par le signe / et le seul endroit où un astérisque "\*" est autorisé est à la fin. /xyz, /xyz* ou /xyz/* sont des exemples valides.
 
 ![Ajouter un panneau Règle basée sur le chemin contenant toutes les informations][2]
 
@@ -84,4 +84,4 @@ Pour découvrir comment configurer le déchargement SSL avec la passerelle Azure
 [3]: ./media/application-gateway-create-url-route-portal/figure3.png
 [scenario]: ./media/application-gateway-create-url-route-portal/scenario.png
 
-<!---HONumber=AcomDC_0824_2016-->
+<!----HONumber=AcomDC_0824_2016-->

@@ -6,7 +6,7 @@
 	documentationCenter=""
 	tags="azure-portal"
 	authors="mumian"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -109,7 +109,7 @@ Les clusters HDInsight sont fournis avec un exemple de table Hive qui porte le n
 1.	À partir de l’**Explorateur de serveurs**, développez **Azure** > **HDInsight** > le cluster de votre choix > **Bases de données Hive** > **Par défaut** > **hivesampletable** pour afficher le schéma de table.
 4.	Cliquez avec le bouton droit sur **hivesampletable**, puis cliquez sur **Afficher les 100 premières lignes** pour répertorier les lignes. Cela revient à exécuter la requête Hive suivante à l’aide du pilote ODBC Hive :
 
-		SELECT* FROM hivesampletable LIMIT 100
+		SELECT * FROM hivesampletable LIMIT 100
 
 	Vous pouvez personnaliser le nombre de lignes.
 
@@ -137,7 +137,7 @@ Vous pouvez créer et exécuter des requêtes Hive de deux manières :
 
 1. Dans l’**Explorateur de serveurs**, développez **Azure**, puis **Clusters HDInsight**.
 2. Cliquez avec le bouton droit sur le cluster dans lequel vous souhaitez exécuter la requête, puis cliquez sur **Écrire une requête Hive**.
-3. Entrez les requêtes Hive. Notez que l’éditeur Hive prend en charge IntelliSense. Les outils HDInsight pour Visual Studio prennent en charge le chargement des métadonnées distantes pendant la modification d’un script Hive. Par exemple, lorsque vous tapez « SELECT* FROM », IntelliSense répertorie tous les noms de table suggérés. Lorsqu’un nom de table est spécifié, les noms de colonne sont répertoriés par IntelliSense. L’outil prend en charge quasiment toutes les instructions DML, sous-requêtes et fonctions définies par l’utilisateur intégrées de Hive.
+3. Entrez les requêtes Hive. Notez que l’éditeur Hive prend en charge IntelliSense. Les outils HDInsight pour Visual Studio prennent en charge le chargement des métadonnées distantes pendant la modification d’un script Hive. Par exemple, lorsque vous tapez « SELECT * FROM », IntelliSense répertorie tous les noms de table suggérés. Lorsqu’un nom de table est spécifié, les noms de colonne sont répertoriés par IntelliSense. L’outil prend en charge quasiment toutes les instructions DML, sous-requêtes et fonctions définies par l’utilisateur intégrées de Hive.
 
 	![Outils Hadoop : IntelliSense dans Visual Studio Tools pour HDInsight][13]
 
@@ -282,4 +282,4 @@ Dans cet article, vous avez appris à établir une connexion à des clusters HDI
 
 [apache.hive]: http://hive.apache.org
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0914_2016-->

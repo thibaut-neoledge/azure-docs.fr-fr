@@ -102,4 +102,4 @@ Pour plus d’informations sur Azure Mobile Apps, voir notre [parcours d’appre
 [environnements App Service]: ../app-service-web/app-service-app-service-environment-intro.md
 [parcours d’apprentissage]: https://azure.microsoft.com/documentation/learning-paths/appservice-mobileapps/
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

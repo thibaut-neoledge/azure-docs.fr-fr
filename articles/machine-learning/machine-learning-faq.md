@@ -5,7 +5,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -345,7 +345,7 @@ Le service Azure Machine Learning comporte deux composantes : Machine Learning S
 
 Lorsque vous évaluez Machine Learning Studio, vous pouvez utiliser le niveau de facturation gratuit. Le niveau Gratuit vous permet également de déployer un service web classique avec une capacité limitée.
 
-Une fois que vous estimez qu’Azure Machine Learning répond à vos besoins, vous pouvez vous inscrire au niveau Standard. Pour vous inscrire, vous devez disposer d'un abonnement à Microsoft Azure.
+Une fois que vous estimez qu’Azure Machine Learning répond à vos besoins, vous pouvez vous inscrire au niveau Standard. Pour vous inscrire, vous devez disposer d’un abonnement à Microsoft Azure.
 
 Dans le niveau Standard, vous êtes soumis à une facturation mensuelle par siège pour l’utilisation de Machine Learning Studio. Lorsque vous exécutez une expérience dans le studio, vous êtes facturé selon les ressources de calcul nécessaires à son exécution. Lorsque vous déployez un service web classique, les transactions et les heures de calcul sont facturées sur la base d’un paiement à l’utilisation.
 
@@ -480,7 +480,7 @@ Les services affectés au niveau de développement/test sont arrêtés jusqu'à 
 
 **Pour les services web classiques et les dépassements des nouveaux services web, comment sont calculés les tarifs pour les charges de travail de demande-réponse (RRS) et d’exécution de lots (BES) ?**
 
-Pour une charge de travail RRS, vous êtes facturé pour chaque appel de transaction API, ainsi que pour le temps de calcul associé à ces demandes. Les coûts relatifs aux transactions API de production RRS sont donc calculés comme suit : nombre total d’appels d’API effectués, multiplié par le tarif par millier de transactions (au prorata par transaction individuelle). Les coûts relatifs aux heures de calcul API de production RRS sont calculés comme suit : durée d'exécution de chaque appel d'API, multiplié par le nombre total de transactions API, multiplié par le tarif par heure de calcul API de production. Par exemple, avec le niveau de dépassement Standard S1, le coût de 1 000 000 transactions API d'une durée de 0,72 secondes chacune est calculée comme suit : (1 000 000 * 0,50 $/1 000 transactions API), soit un tarif pour les transactions API de production de 500 $ et (1 000 000 * 0,72 s * 2 $/heure), soit un tarif pour les heures de calcul API de production de 400 $, pour un total de 900 $.
+Pour une charge de travail RRS, vous êtes facturé pour chaque appel de transaction API, ainsi que pour le temps de calcul associé à ces demandes. Les coûts relatifs aux transactions API de production RRS sont donc calculés comme suit : nombre total d’appels d’API effectués, multiplié par le tarif par millier de transactions (au prorata par transaction individuelle). Les coûts relatifs aux heures de calcul API de production RRS sont calculés comme suit : durée d'exécution de chaque appel d'API, multiplié par le nombre total de transactions API, multiplié par le tarif par heure de calcul API de production. Par exemple, avec le niveau de dépassement Standard S1, le coût de 1 000 000 transactions API d'une durée de 0,72 seconde chacune est calculée comme suit : (1 000 000 * 0,50 $/1 000 transactions API), soit un tarif pour les transactions API de production de 500 $ et (1 000 000 * 0,72 s * 2 $/heure), soit un tarif pour les heures de calcul API de production de 400 $, pour un total de 900 $.
 
 Pour une charge de travail BES, vous êtes facturé de la même manière. Toutefois, les coûts de transaction API représentent le nombre de travaux de traitement par lot que vous soumettez, et les coûts de calcul représentent le temps de calcul associé à ces travaux de traitement par lots. Les coûts relatifs aux transactions API de production BES sont donc calculés comme suit : nombre total de travaux soumis, multiplié par le tarif par millier de transactions (au prorata par transaction individuelle). Les coûts relatifs aux heures de calcul API de production BES sont calculés comme suit : durée d’exécution de chaque ligne de votre travail, multiplié par le nombre total de lignes de votre travail, multiplié par le nombre total de travaux, multiplié par le tarif par heure de calcul API de production. Lorsque vous utilisez la calculatrice Machine Learning, le compteur de transactions représente le nombre de travaux que vous planifiez de soumettre, et la durée par transaction représente la durée combinée nécessaire à l'exécution de toutes les lignes de chaque travail. Par exemple, avec le niveau de dépassement Standard S1, si vous soumettez 100 travaux par jour, chacun étant constitué de 500 lignes prenant 0,72 secondes chacune, le coût mensuel des dépassements est le suivant : (100 travaux par jour = 3 100 travaux/mois * 0,50 $/1 000 transactions API), soit des coûts de transaction API de production de 1,55 $ et (500 lignes * 0,72 s * 3 100 travaux * 2 $/heure) des heures de calcul API de production de 620 $, soit un total de 621,55 $.
 
@@ -524,7 +524,7 @@ Vous avez besoin uniquement d'un compte Microsoft. Accédez à la [page d'accuei
 
 **Comment s’inscrire au niveau Standard d’Azure ML ?**
 
-Vous devez d'abord avoir accès à un abonnement Azure pour créer un espace de travail ML Standard. Vous pouvez souscrire un abonnement Azure gratuit de 30 jours, puis migrer vers un abonnement Azure payant ou acheter directement ce dernier. Vous pouvez ensuite créer un espace de travail Machine Learning à partir du portail de gestion Microsoft Azure Classic après avoir obtenu l’accès à l’abonnement. Veuillez consulter [les instructions pas à pas](https://azure.microsoft.com/trial/get-started-machine-learning-b/).
+Vous devez d’abord avoir accès à un abonnement Azure pour créer un espace de travail ML Standard. Vous pouvez souscrire un abonnement Azure gratuit de 30 jours, puis migrer vers un abonnement Azure payant ou acheter directement ce dernier. Vous pouvez ensuite créer un espace de travail Machine Learning à partir du portail de gestion Microsoft Azure Classic après avoir obtenu l’accès à l’abonnement. Veuillez consulter [les instructions pas à pas](https://azure.microsoft.com/trial/get-started-machine-learning-b/).
 
 En outre, vous pouvez être invité par un propriétaire à accéder à son espace de travail Standard ML.
 
@@ -555,7 +555,7 @@ Pour copier vos expériences du niveau Gratuit vers le niveau Standard, suivez l
 
 **Qu’est-ce que l’abonnement de siège Machine Learning et quand dois-je y recourir ?**
 
-Un siège Machine Learning représente un espace de travail. Il est recommandé que tous les utilisateurs qui exécutent des expérimentations dans ML Studio ou qui utilisent un service d'API de production soient couverts par un abonnement de siège Machine Learning.
+Un siège Machine Learning représente un espace de travail. Il est recommandé que tous les utilisateurs qui exécutent des expérimentations dans ML Studio ou qui utilisent un service d’API de production soient couverts par un abonnement de siège Machine Learning.
 
 **Y a-t-il différentes factures pour différents espaces de travail ?**
 
@@ -582,4 +582,4 @@ L'accès invité est une expérience d'essai limitée qui vous permet de créer 
 [python]: https://msdn.microsoft.com/library/azure/CDB56F95-7F4C-404D-BDE7-5BB972E6F232
 [counts]: https://msdn.microsoft.com/library/azure/dn913056.aspx
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0914_2016-->

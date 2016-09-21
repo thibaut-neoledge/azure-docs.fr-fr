@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="06/14/2016"
+   ms.date="09/06/2016"
    ms.author="nitinme"/>
 
 # Utilisation d’Azure Data Lake Store pour les données volumineuses
@@ -145,4 +145,4 @@ Vous pouvez utiliser une combinaison de services pour créer des représentation
 * Vous pouvez commencer par utiliser [Azure Data Factory pour déplacer les données de Data Lake Store vers Azure SQL Data Warehouse](../data-factory/data-factory-data-movement-activities.md#supported-data-stores)
 * Ensuite, vous pouvez [intégrer Power BI à Azure SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-integrate-power-bi.md) pour créer une représentation visuelle des données.
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

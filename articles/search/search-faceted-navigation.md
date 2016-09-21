@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="06/08/2016" 
+	ms.date="08/08/2016" 
 	ms.author="heidist"/>
 
 #Implémentation de la navigation à facettes dans Azure Search
@@ -57,8 +57,8 @@ Le point de départ est une page d'application qui offre une navigation à facet
 
 1.	Une requête envoyée à Azure Search spécifie la structure de la navigation à facettes par le biais d'un ou plusieurs paramètres de requête de facette. Par exemple, la requête peut inclure `facet=Rating`, éventuellement avec une option `:values` ou `:sort` pour affiner la présentation.
 2.	La couche de présentation renvoie une page de recherche qui fournit une navigation à facettes, à l'aide des facettes spécifiées dans la requête.
-3.	Face à une structure de navigation à facettes qui inclut le paramètre Évaluation, l'utilisateur clique sur « 4 » pour indiquer que seuls les produits dotés d'une évaluation minimale de 4 doivent être affichés. 
-4.	En réponse, l'application envoie une requête qui inclut `$filter=Rating ge 4` 
+3.	Face à une structure de navigation à facettes qui inclut le paramètre Évaluation, l'utilisateur clique sur « 4 » pour indiquer que seuls les produits dotés d'une évaluation minimale de 4 doivent être affichés.
+4.	En réponse, l'application envoie une requête qui inclut `$filter=Rating ge 4`
 5.	La couche de présentation met à jour la page en affichant un jeu de résultats réduit, contenant uniquement les éléments qui répondent aux nouveaux critères (dans ce cas, les produits avec une évaluation de 4 et supérieure).
 
 Une facette est un paramètre de requête, mais ne la confondez pas avec l'entrée de requête. Elle n'est jamais utilisée comme critère de sélection dans une requête. Considérez plutôt les paramètres de requête de facette comme des entrées de la structure de navigation qui est renvoyée dans la réponse. Pour chaque paramètre de requête de facette que vous fournissez, Azure Search évaluera le nombre de documents dans les résultats partiels pour chaque valeur de la facette.
@@ -152,7 +152,7 @@ Vous trouverez ci-dessous quelques rappels des points à appliquer :
 
 - Pour chaque champ que vous souhaitez utiliser comme facette, demandez-vous s'il contient des valeurs qui conviennent en tant que filtres dans une recherche autonome. Les valeurs doivent être courtes, descriptives et suffisamment distinctives pour offrir un choix clair entre les différentes options.
 - Fautes d'orthographe ou valeurs presque correspondantes. Si vous créez une facette Couleur et que les valeurs de champ incluent Orange et Ornage (faute d'orthographe), une facette basée sur le champ Couleur renverrait les deux options.
-- Le texte à casse mixte peut également causer des dégâts dans la navigation à facettes, où orange et Orange s'afficheraient comme deux valeurs différentes. 
+- Le texte à casse mixte peut également causer des dégâts dans la navigation à facettes, où orange et Orange s'afficheraient comme deux valeurs différentes.
 - Les versions au singulier et au pluriel de la même valeur peuvent entraîner une facette distincte pour chacune.
 
 Comme vous pouvez l'imaginer, la rigueur en termes de préparation des données est un aspect essentiel d'une navigation à facettes efficace.
@@ -178,7 +178,7 @@ Lorsqu'un utilisateur clique sur « Rouge » pour indiquer que seuls les produ
 
 La liste suivante récapitule certaines meilleures pratiques.
 
-- **Précision**<br/> Utilisation de filtres. Si vous utilisez uniquement les expressions de recherche, la recherche de radical peut entraîner le renvoi d'un document qui ne contient pas la valeur de facette précise dans aucun de ses champs. 
+- **Précision**<br/> Utilisation de filtres. Si vous utilisez uniquement les expressions de recherche, la recherche de radical peut entraîner le renvoi d'un document qui ne contient pas la valeur de facette précise dans aucun de ses champs.
 
 - **Champs cibles**<br/> Dans l'exploration à facettes, vous ne voulez en général inclure que les documents qui contiennent la valeur de facette dans un champ spécifique (facette), non pas n'importe où dans tous les champs de recherche. L'ajout d'un filtre renforce le champ cible en indiquant au service de rechercher uniquement dans le champ à facette pour trouver une valeur correspondante.
 
@@ -250,7 +250,7 @@ Dans certaines circonstances, il est possible que les décomptes de facettes ne 
 
 Les décomptes de facettes peuvent être erronés en raison de l'architecture de partitionnement. Chaque index de recherche a plusieurs partitions et chacune d'elles indique les N premières facettes par décompte de document, qui est ensuite combiné en un résultat unique. Si certaines partitions ont beaucoup de valeurs correspondantes, tandis que d'autres en ont moins, il est possible que certaines valeurs de facettes soient manquantes ou sous-comptabilisées dans les résultats.
 
-Ce comportement peut changer à tout moment mais si vous rencontrez ce problème aujourd'hui, vous pouvez le contourner en gonflant artificiellement le décompte :<number> sur un nombre très élevé pour appliquer la déclaration complète depuis chaque partition. Si la valeur de décompte : est supérieure ou égale au nombre de valeurs uniques dans le champ, vous êtes sûr d'obtenir des résultats précis. Toutefois, lorsque les décomptes de documents sont réellement élevés, les performances baissent, alors utilisez cette option judicieusement.
+Ce comportement peut changer à tout moment mais si vous rencontrez ce problème aujourd’hui, vous pouvez le contourner en gonflant artificiellement le décompte : <chiffre> sur un nombre très élevé pour appliquer la déclaration complète depuis chaque partition. Si la valeur de décompte : est supérieure ou égale au nombre de valeurs uniques dans le champ, vous êtes sûr d'obtenir des résultats précis. Toutefois, lorsque les décomptes de documents sont réellement élevés, les performances baissent, alors utilisez cette option judicieusement.
 
 <a name="rangefacets"></a>
 ##Navigation à facettes basée sur une plage de valeurs
@@ -287,7 +287,7 @@ Il est courant de voir des filtres qui vous aident à choisir un magasin, un res
 
 Il existe deux fonctions géospatiales dans Azure Search, **geo.distance** et **geo.intersects**.
 
-- La fonction **geo.distance** renvoie la distance en kilomètres entre deux points, l'un étant un champ et l'autre une constante considérée comme partie du filtre. 
+- La fonction **geo.distance** renvoie la distance en kilomètres entre deux points, l'un étant un champ et l'autre une constante considérée comme partie du filtre.
 
 - La fonction **geo.intersects** renvoie la valeur « true » si un point donné se trouve dans un polygone donné, où le point est un champ et le polygone est spécifié en tant que liste constante de coordonnées considérées comme partie du filtre.
 
@@ -298,7 +298,7 @@ Vous trouverez des exemples de filtres dans [Syntaxe d'expression OData (Azure S
 
 La démonstration Adventure Works pour Azure Search sur Codeplex contient les exemples référencés dans cet article. Lorsque vous utilisez les résultats de la recherche, observez les modifications de construction de la requête dans l'URL. Cette application ajoute des facettes à l'URI lors de la sélection de chaque.
 
-1.	Configurez l’exemple d’application pour utiliser votre clé API et votre URL de service. 
+1.	Configurez l’exemple d’application pour utiliser votre clé API et votre URL de service.
 
 	Notez le schéma défini dans le fichier Program.cs du projet CatalogIndexer. Il spécifie les champs pouvant être utilisés comme facettes pour couleur, listPrice, taille, poids, categoryName et modelName. Seuls certains d'entre eux (couleur, listPrice, categoryName) sont implémentés dans la navigation à facettes.
 
@@ -369,4 +369,4 @@ Vous pouvez également regarder la [Présentation approfondie d'Azure Search](ht
 
  
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0907_2016-->

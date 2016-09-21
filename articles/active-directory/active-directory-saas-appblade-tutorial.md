@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/06/2016"
+	ms.date="09/01/2016"
 	ms.author="jeedes"/>
 
 
@@ -56,7 +56,7 @@ Pour configurer l’intégration de AppBlade à Azure AD, vous devez ajouter Ap
 
 **Pour ajouter AppBlade à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **portail Azure Classic**, cliquez sur **Active Directory**. 
+1. Dans le volet de navigation gauche du **portail Azure Classic**, cliquez sur **Active Directory**.
 
 	![Active Directory][1]
 
@@ -94,7 +94,7 @@ Pour configurer et tester l’authentification unique Azure AD avec AppBlade, v
 1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
 4. **[Création d’un utilisateur de test AppBlade](#creating-a-appblade-test-user)** pour avoir un équivalent de Britta Simon dans AppBlade lié à la représentation Azure AD associée.
-5. **[Affectation d’un utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+5. **[Affectation d’un utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
 5. **[Test de l’authentification unique](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 
 
@@ -121,7 +121,7 @@ L’objectif de cette section est d’activer l’authentification unique Azure�
 
     a. Dans la zone de texte URL d’authentification, tapez l’URL utilisée par vos utilisateurs pour se connecter à votre application AppBlade, au format suivant : **« https://nom\_entreprise.appblade.com/saml/id\_client »**.
 
-    b. Cliquez sur **Next**.
+    b. Cliquez sur **Suivant**.
 
 
 4. Dans la page **Configurer l’authentification unique sur AppBlade**, procédez comme suit :
@@ -130,10 +130,10 @@ L’objectif de cette section est d’activer l’authentification unique Azure�
 
     a. Cliquez sur **Télécharger les métadonnées**, puis enregistrez le fichier sur votre ordinateur.
 
-    b. Cliquez sur **Next**.
+    b. Cliquez sur **Suivant**.
 
 
-5. Pour configurer l’authentification unique pour votre application, contactez votre l’équipe de support technique AppBlade via **support@appblade.com** et joignez le fichier de métadonnées téléchargé à votre courrier électronique. Demandez-lui également de configurer l’**URL de l’émetteur d’authentification unique** sur **https://appblade.com/saml**. Ce paramètre est nécessaire pour que l'authentification unique fonctionne.
+5. Pour configurer l’authentification unique pour votre application, contactez votre équipe de support technique AppBlade via **support@appblade.com** et joignez le fichier de métadonnées téléchargé à votre courrier électronique. Demandez-lui également de configurer l’**URL de l’émetteur d’authentification unique** sur **https://appblade.com/saml**. Ce paramètre est nécessaire pour que l'authentification unique fonctionne.
 
 
 6. Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Suivant**.
@@ -160,15 +160,15 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
 2. Dans la liste **Annuaire**, sélectionnez l'annuaire pour lequel vous voulez activer l'intégration d'annuaire.
 
-3. Pour afficher la liste des utilisateurs, dans le menu situé en haut, cliquez sur **Utilisateurs**.
+3. Pour afficher la liste des utilisateurs, dans le menu du haut, cliquez sur **Utilisateurs**.
 
 	![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-appblade-tutorial/create_aaduser_03.png)
 
-4. Pour ouvrir la boîte de dialogue **Ajouter un utilisateur**, cliquez sur **Ajouter un utilisateur** dans la barre d’outils située en bas.
+4. Pour ouvrir la boîte de dialogue **Ajouter un utilisateur**, cliquez sur l’option **Ajouter un utilisateur** figurant dans la barre d’outils du bas.
 
 	![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-appblade-tutorial/create_aaduser_04.png)
 
-5. Dans la page de boîte de dialogue **Dites-nous en plus sur cet utilisateur**, procédez comme suit :
+5. Sur la page de boîte de dialogue **Dites-nous en plus sur cet utilisateur**, procédez comme suit :
 
 	![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-appblade-tutorial/create_aaduser_05.png)
 
@@ -178,7 +178,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     c. Cliquez sur **Next**.
 
-6.  Sur la page **Profil utilisateur**, procédez comme suit :
+6.  Sur la page **Profil utilisateur**, procédez comme suit :
 
 	![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-appblade-tutorial/create_aaduser_06.png)
 
@@ -225,7 +225,7 @@ L’objectif de cette section est de permettre à Britta Simon d’utiliser l’
 
 **Pour affecter Britta Simon à AppBlade, procédez comme suit :**
 
-1. Pour ouvrir la vue des applications dans le portail Azure Classic, cliquez dans la vue de répertoire sur **Applications** dans le menu du haut.
+1. Pour ouvrir l’affichage des applications dans le portail Azure Classic, cliquez dans l’affichage de l’annuaire sur **Applications** dans le menu du haut.
 
 	![Affecter des utilisateurs][201]
 
@@ -247,7 +247,7 @@ L’objectif de cette section est de permettre à Britta Simon d’utiliser l’
 
 ### Test de l’authentification unique
 
-L’objectif de cette section est de tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès. Quand vous cliquez sur la vignette AppBlade dans le volet d’accès, vous devez être connecté automatiquement à votre application AppBlade.
+L’objectif de cette section est de tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès. Quand vous cliquez sur la vignette AppBlade dans le volet d’accès, vous devez être connecté automatiquement à votre application AppBlade.
 
 
 ## Ressources supplémentaires
@@ -274,4 +274,4 @@ L’objectif de cette section est de tester la configuration de l’authentifica
 [204]: ./media/active-directory-saas-appblade-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-appblade-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0907_2016-->

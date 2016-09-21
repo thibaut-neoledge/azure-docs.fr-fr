@@ -15,7 +15,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="08/22/2016"
+   ms.date="09/08/2016"
    ms.author="glenga"/>
 
 #Créer votre première fonction Azure
@@ -23,7 +23,7 @@
 ##Vue d'ensemble
 Azure Functions est une expérience de calcul à la demande pilotée par les événements, qui étend la plateforme d’application Azure existante avec des capacités d’implémenter du code déclenché par des événements se produisant dans d’autres services Azure, dans les produits SaaS et dans les systèmes locaux. Avec Azure Functions, vos applications sont mises à l’échelle à la demande, et vous payez uniquement pour les ressources que vous utilisez. Azure Functions vous permet de créer des unités de code planifiées ou déclenchées, et de les implémenter dans différents langages de programmation. Pour en savoir plus sur Azure Functions, consultez [Vue d’ensemble d’Azure Functions](functions-overview.md).
 
-Cette rubrique vous montre comment utiliser le démarrage rapide d’Azure Functions dans le portail Azure Functions pour créer une fonction Node.js « Hello World » simple, appelée par un déclencheur HTTP. Vous pouvez également regarder une courte vidéo décrivant comment effectuer ces étapes dans le portail.
+Cette rubrique vous montre comment utiliser le démarrage rapide d’Azure Functions dans le portail pour créer une fonction Node.js « Hello World » simple, appelée par un déclencheur HTTP. Vous pouvez également regarder une courte vidéo décrivant comment effectuer ces étapes dans le portail.
 
 ## Regarder la vidéo
 
@@ -33,13 +33,17 @@ La vidéo suivante montre comment effectuer les étapes de base de ce didacticie
 
 ##Créer une fonction à l’aide du démarrage rapide
 
-Une application de fonction héberge l’exécution de vos fonctions dans Azure. Pour créer une application de fonction et la nouvelle fonction, procédez comme suit : Pour créer votre première fonction, vous devez avoir un compte Azure actif. Si tel n’est pas le cas, des [comptes gratuits sont disponibles](https://azure.microsoft.com/free/).
+Une application de fonction héberge l’exécution de vos fonctions dans Azure. Pour créer une application de fonction et la nouvelle fonction, procédez comme suit : La nouvelle application de fonction est créée avec une configuration par défaut. Pour obtenir un exemple explicite de la manière de créer votre application de fonction, consultez [l’autre didacticiel de démarrage rapide Azure Functions](functions-create-first-azure-function-azure-portal.md).
+
+Pour créer votre première fonction, vous devez avoir un compte Azure actif. Si tel n’est pas le cas, des [comptes gratuits sont disponibles](https://azure.microsoft.com/free/).
 
 1. Accédez au [portail Azure Functions](https://functions.azure.com/signin) et connectez-vous avec votre compte Azure.
 
 2. Dans **Nom**, indiquez le nom unique de votre nouvelle fonction ou acceptez le nom généré, sélectionnez votre **Région**, puis cliquez sur **Créer + Prise en main**.
 
-3. Dans l’onglet **Démarrage rapide**, cliquez sur **WebHook + API** > **Créer une fonction**. Une fonction Node.js prédéfinie est créée.
+3. Dans l’onglet **Démarrage rapide**, cliquez sur **WebHook + API** et **JavaScript**, puis cliquez sur **Créer une fonction**. Une fonction Node.js prédéfinie est créée.
+
+	![](./media/functions-create-first-azure-function/function-app-quickstart-node-webhook.png)
 
 4. (Facultatif) À ce stade du démarrage rapide, vous pouvez suivre une visite rapide des fonctionnalités Azure Functions dans le portail. Une fois la visite terminée ou ignorée, vous pouvez tester votre nouvelle fonction à l’aide du déclencheur HTTP.
 
@@ -48,6 +52,8 @@ Une application de fonction héberge l’exécution de vos fonctions dans Azure.
 Comme les démarrages rapides Azure Functions contiennent du code fonctionnel, vous pouvez tester votre nouvelle fonction immédiatement.
 
 1. Dans l’onglet **Développer**, examinez la fenêtre **Code** et notez que ce code Node.js attend une requête HTTP avec un *nom* transmis dans le corps du message ou dans une chaîne de requête. Lorsque la fonction s’exécute, cette valeur est renvoyée dans le message de réponse.
+
+	![](./media/functions-create-first-azure-function/function-app-develop-tab-testing.png)
 
 2. Faites défiler l’affichage jusqu’à la zone de texte **Corps de la requête**, remplacez la valeur de la propriété *Nom* par votre nom, puis cliquez sur **Exécuter**. Vous verrez que l’exécution est déclenchée par une requête HTTP de test, que des informations sont écrites dans les journaux de diffusion en continu, et que la réponse « Hello » s’affiche dans la **Sortie**.
 
@@ -64,4 +70,4 @@ Ce démarrage rapide montre l’exécution très simple d’une fonction HTTP de
 
 [AZURE.INCLUDE [Remarque relative à la prise en main](../../includes/functions-get-help.md)]
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

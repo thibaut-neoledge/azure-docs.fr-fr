@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/31/2016"
+	ms.date="09/06/2016"
 	ms.author="luisca"/>
 
 #  Collecte de données pour la formation d’un modèle #
@@ -45,9 +45,9 @@ Sans caractéristiques :
 
 Avec caractéristiques :
 
-    AAA04294,Office Language Pack Online DwnLd,Office, softwaretype=productivity, compatibility=Windows
-    BAB04303,Minecraft DwnLd,Games, softwaretype=gaming, compatibility=iOS, agegroup=all
-    C9F00168,Kiruna Flip Cover,Accessories, compatibility=lumia, hardwaretype=mobile
+    AAA04294,Office Language Pack Online DwnLd,Office,, softwaretype=productivity, compatibility=Windows
+    BAB04303,Minecraft DwnLd,Games, softwaretype=gaming,, compatibility=iOS, agegroup=all
+    C9F00168,Kiruna Flip Cover,Accessories, compatibility=lumia,, hardwaretype=mobile
 
 #### Détails du format
 
@@ -78,6 +78,25 @@ Ceci étant dit, si le moteur possède des informations sur ce violon (c.-à-d. 
 
 Les caractéristiques sont importées dans le cadre des données de catalogue, puis leur classement (autrement dit l’importance de la caractéristique dans le modèle) est associé au terme de l’exécution d’une build de classement. Le classement des caractéristiques peut varier selon le modèle des données d'utilisation et le type d'éléments. Toutefois, pour des données d'utilisation ou des éléments cohérents, les fluctuations de classement sont généralement minimes. Le classement des caractéristiques est représenté par une valeur non négative. La valeur 0 signifie que la caractéristique n'a pas été classée (ce qui se produit si vous appelez cette API avant la fin de la première build de classement). On parle d'actualisation du score pour désigner la date à laquelle le classement a été attribué.
 
+
+###Les caractéristiques sont catégorielles
+
+Cela signifie que vous devez créer des caractéristiques ressemblant à une catégorie. Par exemple, prix = 9,34 n’est pas une caractéristique catégorielle. En revanche, GammeDePrix = MoinsDe5Dollars est une caractéristique catégorielle. Une autre erreur fréquente consiste à utiliser le nom de l’élément en tant que caractéristique. Ce nom serait unique et ne décrirait donc pas une catégorie. Assurez-vous que les caractéristiques représentent des catégories d’éléments.
+
+
+###Combien de caractéristiques dois-je utiliser, et lesquelles ?
+
+
+En fin de compte, la build Recommendations prend en charge la création d’un modèle comprenant jusqu’à 20 caractéristiques. Vous pouvez attribuer plus de 20 caractéristiques aux éléments de votre catalogue, mais vous devez effectuer une build de classement et sélectionner uniquement les caractéristiques qui ont un rang élevé. (Une caractéristique avec un classement de 2,0 ou plus est très intéressante à utiliser !).
+
+
+###Quand les caractéristiques sont-elles réellement utilisées ?
+
+Le modèle utilise les caractéristiques lorsqu’il ne dispose pas de suffisamment de données de transaction pour fournir des recommandations uniquement à partir des informations de transaction. Les caractéristiques ont donc un plus grand impact sur les « éléments à froid » – éléments avec peu de transactions. Si tous vos éléments disposent de suffisamment d’informations de transaction, vous n’aurez peut-être pas besoin d’enrichir votre modèle avec des caractéristiques.
+
+
+###Utiliser les caractéristiques de produit
+
 Pour utiliser des caractéristiques dans le cadre de votre build, vous devez :
 
 1. veiller à ce que votre catalogue dispose de ces caractéristiques lors de son téléchargement ;
@@ -85,6 +104,9 @@ Pour utiliser des caractéristiques dans le cadre de votre build, vous devez :
 2. déclencher une build de classement. Ceci permettra d’analyser l’importance/le classement des caractéristiques ;
 
 3. déclencher une build de recommandations, en définissant les paramètres de build suivants : définir useFeaturesInModel sur true, définir allowColdItemPlacement sur true et définir modelingFeatureList sur la liste séparée par des virgules des caractéristiques que vous souhaitez utiliser pour améliorer votre modèle. Pour plus d’informations, consultez la page [Recommendations build type parameters](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/56f30d77eda5650db055a3d0) (Paramètres de build de type recommandation).
+
+
+
 
 
 ## Données d'utilisation ##
@@ -129,4 +151,4 @@ Une bonne règle empirique est de faire en sorte que la plupart des éléments s
 
 Une fois que vous avez créé un modèle, vous pouvez effectuer une [évaluation hors connexion](cognitive-services-recommendations-buildtypes.md) pour vérifier le comportement probable de votre modèle.
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

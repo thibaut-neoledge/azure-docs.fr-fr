@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="06/22/2016"
+   ms.date="09/06/2016"
    ms.author="nitinme"/>
 
 # Sécurisation des données stockées dans Azure Data Lake Store
@@ -185,4 +185,4 @@ Lorsque vous supprimez des ACL de groupes de sécurité du système de fichiers 
 - [Prise en main de Data Lake Store avec le Kit de développement logiciel (SDK) .NET](data-lake-store-get-started-net-sdk.md)
 - [Accéder aux journaux de diagnostic de Data Lake Store](data-lake-store-diagnostic-logs.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0907_2016-->

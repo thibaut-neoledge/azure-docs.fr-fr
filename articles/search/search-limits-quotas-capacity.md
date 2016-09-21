@@ -14,14 +14,14 @@
 	ms.workload="search"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.date="06/03/2016"
+	ms.date="08/03/2016"
 	ms.author="heidist"/>
 
 # Limites de service d’Azure Search
 
 Les limites maximales de stockage, de charges de travail et de quantités d’index, de documents et d’autres objets dépendent de l’ajout d’Azure Search avec le niveau de tarification **Gratuit**, **De base** ou **Standard**.
 
-- Le niveau **Gratuit** est un service partagé multi-locataire qui est fourni avec votre abonnement Azure. Il s’agit d’une option sans coût supplémentaire pour les abonnés existants et qui vous permet de tester le service avant de vous inscrire pour obtenir des ressources dédiées. 
+- Le niveau **Gratuit** est un service partagé multi-locataire qui est fourni avec votre abonnement Azure. Il s’agit d’une option sans coût supplémentaire pour les abonnés existants et qui vous permet de tester le service avant de vous inscrire pour obtenir des ressources dédiées.
 - Le niveau **De base** fournit des ressources informatiques dédiées aux charges de production à petite échelle.
 - Le niveau **Standard** est exécuté sur des ordinateurs dédiés, avec une capacité de stockage et de traitement beaucoup plus grande, et ce, à chaque niveau (même en configuration minimale). Le niveau Standard apparaît dans : S1, S2, S3 et S3 Haute densité (S3 HD). S3 et S3 HD sont actuellement en version préliminaire et bénéficient d’un tarif réduit de 50 %.
 
@@ -97,4 +97,4 @@ Les clés API sont utilisées pour l'authentification de service. Il existe deux
 - 2 clés administrateur maximum par service
 - 50 clés de requête maximum par service
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0907_2016-->

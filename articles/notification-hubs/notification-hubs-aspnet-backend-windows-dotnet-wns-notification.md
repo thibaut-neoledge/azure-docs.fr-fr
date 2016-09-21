@@ -384,9 +384,9 @@ Dans cette section, vous allez mettre à jour le code du projet que vous avez te
 <!-- URLs. -->
 [Prise en main de Notification Hubs]: notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
 [Prise en main de Notification Hubs didacticiel]: notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
-[Notifications Push sécurisées]: notification-hubs-aspnet-backend-windows-dotnet-secure-push.md
-[sur les notifications Push sécurisées]: notification-hubs-aspnet-backend-windows-dotnet-secure-push.md
+[Notifications Push sécurisées]: notification-hubs-aspnet-backend-windows-dotnet-wns-secure-push-notification.md
+[sur les notifications Push sécurisées]: notification-hubs-aspnet-backend-windows-dotnet-wns-secure-push-notification.md
 [Utilisation des Notification Hubs pour diffuser les dernières nouvelles]: notification-hubs-windows-store-dotnet-send-breaking-news.md
 [Recommandations relatives à Notification Hubs]: http://msdn.microsoft.com/library/jj927170.aspx
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0907_2016-->

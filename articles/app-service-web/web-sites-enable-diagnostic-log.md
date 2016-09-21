@@ -34,9 +34,9 @@ Les applications web App Service fournissent des fonctionnalités de diagnostic
 
 Vous pouvez activer ou désactiver les types de journaux suivants :
 
-- **Messages d’erreur détaillés** : informations d’erreur détaillées pour les codes d’état HTTP qui indiquent un échec (code d’état 400 ou supérieur). Il peut s'agir d'informations qui vous aident à déterminer la raison pour laquelle le serveur a renvoyé le code d'erreur.
-- **Suivi des demandes ayant échoué** : informations détaillées sur les demandes qui ont échoué, y compris une trace des composants IIS utilisés pour traiter la demande et la durée dans chaque composant. Cela peut se révéler utile si vous essayez d'améliorer les performances du site ou d'isoler la cause d'une erreur HTTP spécifique.
-- **Journalisation du serveur Web** : informations sur les transactions HTTP à l’aide du [format de fichier journal étendu W3C](http://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). Ce rapport se révèle utile pour déterminer les métriques globales d’un site, comme le nombre de demandes traitées ou le nombre de demandes émanant d’une adresse IP spécifique.
+- **Messages d’erreur détaillés** : informations d’erreur détaillées pour les codes d’état HTTP qui indiquent un échec (code d’état 400 ou supérieur). Il peut s'agir d'informations qui vous aident à déterminer la raison pour laquelle le serveur a renvoyé le code d'erreur.
+- **Suivi des demandes ayant échoué** : informations détaillées sur les demandes qui ont échoué, y compris une trace des composants IIS utilisés pour traiter la demande et la durée dans chaque composant. Cela peut se révéler utile si vous essayez d'améliorer les performances du site ou d'isoler la cause d'une erreur HTTP spécifique.
+- **Journalisation du serveur Web** : informations sur les transactions HTTP à l’aide du [format de fichier journal étendu W3C](http://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). Ce rapport se révèle utile pour déterminer les métriques globales d’un site, comme le nombre de demandes traitées ou le nombre de demandes émanant d’une adresse IP spécifique.
 
 ### Diagnostic d'application
 
@@ -63,10 +63,10 @@ Dans le [portail Azure Classic](https://manage.windowsazure.com), sous l’ongle
 
 Dans le [portail Azure Classic](https://manage.windowsazure.com), l’onglet **Configurer** de l’application web comprend aussi des paramètres supplémentaires pour le diagnostic d’application :
 
-* **Système de fichiers** : stocke les informations de diagnostics d’application dans le système de fichiers d’application web. Vous pouvez accéder à ces fichiers par FTP ou les télécharger sous la forme d’une archive ZIP en utilisant Azure PowerShell ou l’interface de ligne de commande Azure (CLI Azure).
-* **Stockage de tables** : stocke les informations de diagnostic d’application dans la table et le compte Azure Storage spécifiés.
-* **Stockage d'objets blob** : stocke les informations de diagnostic d'application dans le conteneur d'objets blob et le compte Azure Storage spécifiés.
-* **Période de rétention** : par défaut, les journaux ne sont pas automatiquement supprimés du **stockage d'objets blob**. Sélectionnez **Set retention** et entrez la période de conservation des journaux (en jours) si vous souhaitez les supprimer automatiquement.
+* **Système de fichiers** : stocke les informations de diagnostics d’application dans le système de fichiers d’application web. Vous pouvez accéder à ces fichiers par FTP ou les télécharger sous la forme d’une archive ZIP en utilisant Azure PowerShell ou l’interface de ligne de commande Azure (CLI Azure).
+* **Stockage de tables** : stocke les informations de diagnostic d’application dans la table et le compte Azure Storage spécifiés.
+* **Stockage d'objets blob** : stocke les informations de diagnostic d'application dans le conteneur d'objets blob et le compte Azure Storage spécifiés.
+* **Période de rétention** : par défaut, les journaux ne sont pas automatiquement supprimés du **stockage d'objets blob**. Sélectionnez **Set retention** et entrez la période de conservation des journaux (en jours) si vous souhaitez les supprimer automatiquement.
 
 >[AZURE.NOTE] Si vous [régénérez les clés d’accès de votre compte de stockage](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys), vous devez réinitialiser la configuration de journalisation correspondante pour utiliser les clés mises à jour. Pour ce faire :
 >
@@ -79,7 +79,7 @@ Bien que ces trois emplacements de stockage fournissent les mêmes informations 
 
 > [AZURE.NOTE] Les informations stockées dans le **stockage de tables** ou le **stockage d’objets blob** ne sont accessibles qu’à l’aide d’un client de stockage ou d’une application capable d’utiliser directement ces systèmes de stockage. Par exemple, Visual Studio 2013 contient un Explorateur de stockage qui peut être utilisé pour explorer un système de stockage de tables ou d'objets blob, tandis que HDInsight peut accéder aux données stockées dans un stockage d'objets blob. Vous pouvez également écrire une application qui accède à Azure Storage en utilisant l'un des [Kits de développement logiciel (SDK) Azure](/downloads/#).
 
-> [AZURE.NOTE] Les diagnostics peuvent également être activés à partir du module Azure PowerShell via la cmdlet **Set-AzureWebsite**. Si vous n'avez pas installé ou configuré Azure PowerShell de manière à utiliser votre abonnement Azure, consultez la page [Utilisation d'Azure PowerShell](/develop/nodejs/how-to-guides/powershell-cmdlets/).
+> [AZURE.NOTE] Les diagnostics peuvent également être activés à partir du module Azure PowerShell via la cmdlet **Set-AzureWebsite**. Si vous n’avez pas installé ou configuré Azure PowerShell de manière à utiliser votre abonnement Azure, consultez la page [Utilisation d’Azure PowerShell](/develop/nodejs/how-to-guides/powershell-cmdlets/).
 
 ##<a name="download"></a> Téléchargement de journaux
 
@@ -87,15 +87,15 @@ Les informations de diagnostic stockées dans le système de fichiers d’applic
 
 La structure de répertoires dans laquelle les journaux sont stockés est la suivante :
 
-* **Journaux d'application** : /LogFiles/Application/. Ce dossier contient un ou plusieurs fichiers texte contenant des informations générées dans le cadre de la journalisation des applications.
+* **Journaux d'application** : /LogFiles/Application/. Ce dossier contient un ou plusieurs fichiers texte contenant des informations générées dans le cadre de la journalisation des applications.
 
-* **Suivi des demandes ayant échoué** : /LogFiles/W3SVC#########/. Ce dossier contient un fichier XSL et un ou plusieurs fichiers XML. Assurez-vous de télécharger le fichier XSL dans le même répertoire que le(s) fichier(s) XML, car le fichier XSL possède des attributs permettant de formater et de filtrer le contenu de fichiers XML lorsqu'ils sont affichés dans Internet Explorer.
+* **Suivi des demandes ayant échoué** : /LogFiles/W3SVC#########/. Ce dossier contient un fichier XSL et un ou plusieurs fichiers XML. Assurez-vous de télécharger le fichier XSL dans le même répertoire que le(s) fichier(s) XML, car le fichier XSL possède des attributs permettant de formater et de filtrer le contenu de fichiers XML lorsqu'ils sont affichés dans Internet Explorer.
 
-* **Journaux d'erreurs détaillés** : /LogFiles/DetailedErrors/. Ce dossier contient un ou plusieurs fichiers .htm fournissant des informations détaillées sur toute erreur HTTP qui s'est produite.
+* **Journaux d'erreurs détaillés** : /LogFiles/DetailedErrors/. Ce dossier contient un ou plusieurs fichiers .htm fournissant des informations détaillées sur toute erreur HTTP qui s'est produite.
 
-* **Journaux des serveurs Web** : /LogFiles/http/RawLogs. Ce dossier contient un ou plusieurs fichiers texte au format [de fichier journal étendu W3C](http://msdn.microsoft.com/library/windows/desktop/aa814385.aspx).
+* **Journaux des serveurs Web** : /LogFiles/http/RawLogs. Ce dossier contient un ou plusieurs fichiers texte au format [de fichier journal étendu W3C](http://msdn.microsoft.com/library/windows/desktop/aa814385.aspx).
 
-* **Journaux de déploiement** : /LogFiles/Git. Ce dossier contient les journaux générés par les processus de déploiement internes utilisés par les applications web Azure, ainsi que les journaux des déploiements Git.
+* **Journaux de déploiement** : /LogFiles/Git. Ce dossier contient les journaux générés par les processus de déploiement internes utilisés par les applications web Azure, ainsi que les journaux des déploiements Git.
 
 ### FTP
 
@@ -121,14 +121,14 @@ Pour télécharger les fichiers journaux à l’aide de l’interface de ligne d
 
 Cette commande enregistre les journaux de l’application web nommée « webappname » dans un fichier **diagnostics.zip** du répertoire en cours.
 
-> [AZURE.NOTE] Si vous n’avez pas installé ou configuré l’interface de ligne de commande Azure (CLI Azure) de manière à utiliser votre abonnement Azure, consultez la page[ Utilisation de l’interface de ligne de commande Azure](../xplat-cli-install.md).
+> [AZURE.NOTE] Si vous n’avez pas installé ou configuré l’interface de ligne de commande Azure (CLI Azure) de manière à utiliser votre abonnement Azure, consultez la page [Utilisation de l’interface de ligne de commande Azure](../xplat-cli-install.md).
 
 ## Affichage des journaux dans Application Insights
 
 Visual Studio Application Insights fournit des outils de filtrage et de recherche dans les journaux, mais aussi de mise en corrélation des journaux avec les requêtes et d’autres événements.
 
 1. Ajoutez le Kit de développement logiciel Application Insights à votre projet dans Visual Studio.
- * Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le projet, puis sélectionnez Ajouter Application Insights. Vous serez guidé tout au long de la création de la ressource Application Insights. [En savoir plus](../application-insights/app-insights-start-monitoring-app-health-usage.md)
+ * Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le projet, puis sélectionnez Ajouter Application Insights. Vous serez guidé tout au long de la création de la ressource Application Insights. [En savoir plus](../application-insights/app-insights-asp-net.md)
 2. Ajoutez le package de l’écouteur de suivi à votre projet.
  * Cliquez avec le bouton droit sur votre projet et choisissez Gérer les packages NuGet. Sélectionnez `Microsoft.ApplicationInsights.TraceListener` [En savoir plus](../application-insights/app-insights-asp-net-trace-logs.md)
 3. Téléchargez votre projet et exécutez-le pour générer des données de journal.
@@ -166,7 +166,7 @@ Pour afficher la liste des chemins disponibles, utilisez le paramètre -ListPath
 
 ### Diffusion d’informations en continu avec l’interface de ligne de commande Azure
 
-Pour diffuser des informations de journalisation, ouvrez une nouvelle session d’invite de commandes, PowerShell, Bash ou Terminal, puis entrez la commande suivante :
+Pour diffuser des informations de journalisation, ouvrez une nouvelle session d'invite de commandes, PowerShell, Bash ou Terminal, puis entrez la commande suivante :
 
 	azure site log tail webappname
 
@@ -225,7 +225,7 @@ Lorsque vous consignez des données dans un stockage d'objets blob, elles sont s
 Nom de la propriété|Valeur/format
 ---|---
 Date|Date et heure auxquelles l'événement s'est produit
-Level|Niveau d'événement (erreur, avertissement ou information, par exemple)
+Niveau|Niveau d'événement (erreur, avertissement ou information, par exemple)
 ApplicationName|Nom de l’application web
 InstanceId|Instance d’application web sur laquelle l’événement s’est produit
 EventTickCount|Date et heure auxquelles l'événement s'est produit, au format Tick (précision accrue)
@@ -270,4 +270,4 @@ Les journaux de serveur Web utilisent le [format de fichier journal étendu W3C]
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l’ancien et le nouveau portail, consultez [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
  
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0907_2016-->

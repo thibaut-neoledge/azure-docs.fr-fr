@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="06/08/2016" 
+	ms.date="08/08/2016" 
 	ms.author="heidist"/>
 
 # Prise en main de l'API REST de gestion Azure Search
@@ -114,7 +114,7 @@ Dans cette section, vous allez effectuer les tâches suivantes :
 
 Ne fermez pas la page de configuration d'application. Dans l'étape suivante, vous allez copier les valeurs à partir de cette page pour les entrer dans l'exemple d'application.
 
-###Chargement de l'exemple de programme d'application avec des valeurs d'inscription et d'abonnement
+###Chargement de l’exemple de programme d’application avec des valeurs d’inscription et d’abonnement
 
 Dans cette section, vous allez modifier la solution dans Visual Studio, en remplaçant les valeurs valides obtenues dans le portail. Les valeurs que vous ajoutez apparaissent en haut du fichier Program.cs :
 
@@ -136,10 +136,10 @@ Si vous n’avez pas encore [téléchargé l’exemple d’application à partir
 	![][9]
 
 5. Spécifiez `TenantID.`
-	- Revenez à Active Directory | SearchTutorial (service). 
-	- Cliquez sur **Applications** dans la barre supérieure. 
-	- Cliquez sur **Afficher les points de terminaison** au bas de la page. 
-	- Copiez le point de terminaison d'autorisation OAUTH 2.0 au bas de la liste. 
+	- Revenez à Active Directory | SearchTutorial (service).
+	- Cliquez sur **Applications** dans la barre supérieure.
+	- Cliquez sur **Afficher les points de terminaison** au bas de la page.
+	- Copiez le point de terminaison d'autorisation OAUTH 2.0 au bas de la liste.
 	- Collez le point de terminaison dans TenantID, en ajustant la valeur de tous les paramètres d'URI à l'exception de l'ID de client.
 
     Étant donné « https://login.windows.net/55e324c7-1656-4afe-8dc3-43efcd4ffa50/oauth2/authorize?api-version=1.0 », supprimez tout sauf « 55e324c7-1656-4afe-8dc3-43efcd4ffa50 ».
@@ -149,7 +149,7 @@ Si vous n’avez pas encore [téléchargé l’exemple d’application à partir
 6. Spécifiez `SubscriptionID`.
 	- Accédez à la page principale du portail.
 	- Cliquez sur **Paramètres** au bas du volet de navigation gauche.
-	- Sous l'onglet Abonnements, copiez l'ID d'abonnement et collez-le dans Program.cs.
+	- Sous l’onglet Abonnements, copiez l’ID d’abonnement et collez-le dans Program.cs.
 
 7. Enregistrez et générez la solution.
 
@@ -158,17 +158,17 @@ Si vous n’avez pas encore [téléchargé l’exemple d’application à partir
 
 Ajoutez un point d'arrêt au premier appel de méthode pour parcourir le programme. Appuyez sur **F5** pour exécuter l'application et sur **F11** pour parcourir le code.
 
-L'exemple d'application crée un service Azure Search gratuit pour un abonnement Azure existant. Si un service gratuit existe déjà pour votre abonnement, l'exemple d'application échoue. Un seul service Search est autorisé par abonnement.
+L’exemple d’application crée un service Azure Search gratuit pour un abonnement Azure existant. Si un service gratuit existe déjà pour votre abonnement, l’exemple d’application échoue. Un seul service Search est autorisé par abonnement.
 
-1. Ouvrez Program.cs à partir de l'Explorateur de solutions et accédez à la fonction Main(string void). 
+1. Ouvrez Program.cs à partir de l'Explorateur de solutions et accédez à la fonction Main(string void).
  
 3. Notez qu'**ExecuteArmRequest** est utilisé pour exécuter des demandes sur le point de terminaison du gestionnaire de ressources Azure, `https://management.azure.com/subscriptions` pour un `subscriptionID` spécifié. Cette méthode est utilisée dans tout le programme pour effectuer des opérations à l'aide de l'API du gestionnaire de ressources Azure ou de l'API de gestion Search.
 
 3. Les demandes effectuées au gestionnaire de ressources Azure doivent être authentifiées et autorisées, par le biais de la méthode **GetAuthorizationHeader**, appelée par la méthode **ExecuteArmRequest**, empruntée aux [demandes d'authentification du gestionnaire de ressources Azure](http://msdn.microsoft.com/library/azure/dn790557.aspx). Notez que **GetAuthorizationHeader** appelle `https://management.core.windows.net` pour obtenir un jeton d'accès.
 
-4. Vous êtes invité à vous connecter avec un nom d'utilisateur et un mot de passe valides pour votre abonnement.
+4. Vous êtes invité à vous connecter avec un nom d’utilisateur et un mot de passe valides pour votre abonnement.
 
-5. Ensuite, un nouveau service Azure Search est inscrit auprès du fournisseur du gestionnaire de ressources Azure. Là encore, c'est la méthode **ExecuteArmRequest**, utilisée cette fois pour créer le service Search sur Azure pour votre abonnement via `providers/Microsoft.Search/register`.
+5. Ensuite, un nouveau service Azure Search est inscrit auprès du fournisseur du gestionnaire de ressources Azure. Là encore, c’est la méthode **ExecuteArmRequest**, utilisée cette fois pour créer le service Search sur Azure pour votre abonnement via `providers/Microsoft.Search/register`.
 
 6. Le reste du programme utilise l'[API REST de gestion Azure Search](http://msdn.microsoft.com/library/dn832684.aspx). Notez que l'`api-version` de cette API est différent de l'« api-version » du gestionnaire de ressources Azure. Par exemple, `/listAdminKeys?api-version=2014-07-31-Preview` affiche l’`api-version` de l’API REST de gestion d’Azure Search.
 
@@ -208,4 +208,4 @@ Après avoir terminé ce didacticiel, vous souhaiterez peut-être en savoir plus
 
  
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0907_2016-->

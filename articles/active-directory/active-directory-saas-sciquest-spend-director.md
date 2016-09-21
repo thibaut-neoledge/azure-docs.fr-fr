@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/09/2016"
+	ms.date="09/01/2016"
 	ms.author="jeedes"/>
 
 
@@ -21,7 +21,7 @@
 
 L’objectif de ce didacticiel est de vous montrer comment intégrer SciQuest Spend Director à Azure Active Directory (Azure AD). L’intégration de SciQuest Spend Director à Azure AD vous offre les avantages suivants :
 
-- Dans Azure AD, vous pouvez contrôler qui a accès à SciQuest Spend Director. 
+- Dans Azure AD, vous pouvez contrôler qui a accès à SciQuest Spend Director.
 - Vous pouvez autoriser vos utilisateurs à se connecter automatiquement à SciQuest Spend Director (via l’authentification unique) avec leur compte Azure AD.
 - Vous pouvez gérer vos comptes à un emplacement central : le portail Azure Classic.
 
@@ -41,13 +41,13 @@ Pour configurer l’intégration d’Azure AD avec SciQuest Spend Director, vous
 Vous devez en outre suivre les recommandations ci-dessous :
 
 - Vous ne devez pas utiliser votre environnement de production, sauf si cela est nécessaire.
-- Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/). 
+- Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
 
  
 ## Description du scénario
 Ce didacticiel vise à vous permettre de tester l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
-1. Ajout de SciQuest Spend Director à partir de la galerie 
+1. Ajout de SciQuest Spend Director à partir de la galerie
 2. Configuration et test de l’authentification unique Azure AD
 
 
@@ -56,7 +56,7 @@ Pour configurer l’intégration de SciQuest Spend Director avec Azure AD, vous 
 
 **Pour ajouter SciQuest Spend Director à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **portail Azure Classic**, cliquez sur **Active Directory**. 
+1. Dans le volet de navigation gauche du **portail Azure Classic**, cliquez sur **Active Directory**.
 
 	![Active Directory][1]
 
@@ -114,11 +114,11 @@ L’objectif de cette section est d’activer l’authentification unique Azure 
 
 	![Configurer les paramètres d’application][10]
  
-     3\.1. Dans la zone de texte **URL d’authentification**, tapez l’URL utilisée par vos utilisateurs pour se connecter à votre application SciQuest Spend Director, au format suivant : **https://.*sciquest.com/.**
+     3\.1. Dans la zone de texte **URL d’authentification**, tapez l’URL utilisée par vos utilisateurs pour se connecter à votre application SciQuest Spend Director, au format suivant : *https://.*sciquest.com/.**
 
      3\.2. Dans la zone de texte **URL de réponse**, tapez la valeur que vous venez de taper dans la zone de texte **URL d’authentification**.
 
-     3\.3. Cliquez sur **Next**.
+     3\.3. Cliquez sur **Suivant**.
  
 4. Dans la page **Configurer l’authentification unique sur SciQuest Spend Director**, cliquez sur **Télécharger les métadonnées**, puis enregistrez le fichier de métadonnées en local sur votre ordinateur.
 
@@ -147,11 +147,11 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 	![Qu’est-ce qu’Azure AD Connect ?][100]
 
 2. Dans la liste **Annuaire**, sélectionnez l'annuaire pour lequel vous voulez activer l'intégration d'annuaire.
-3. Pour afficher la liste des utilisateurs, dans le menu situé en haut, cliquez sur **Utilisateurs**.
+3. Pour afficher la liste des utilisateurs, dans le menu du haut, cliquez sur **Utilisateurs**.
 
 	![Qu’est-ce qu’Azure AD Connect ?][101]
 
-4. Pour ouvrir la boîte de dialogue **Ajouter un utilisateur**, cliquez sur **Ajouter un utilisateur** dans la barre d’outils située en bas.
+4. Pour ouvrir la boîte de dialogue **Ajouter un utilisateur**, cliquez sur l’option **Ajouter un utilisateur** figurant dans la barre d’outils du bas.
 
 	![Qu’est-ce qu’Azure AD Connect ?][102]
 
@@ -165,7 +165,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
   
 	c. Cliquez sur Suivant.
 
-6.  Sur la page de boîte de dialogue **Profil utilisateur**, procédez comme suit :
+6.  Sur la page **Profil utilisateur**, procédez comme suit :
 
 	![Qu’est-ce qu’Azure AD Connect ?][104]
 
@@ -235,7 +235,7 @@ L’objectif de cette section est de permettre à Britta Simon d’utiliser l’
 
 ### Test de l’authentification unique
 
-L’objectif de cette section est de tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès. Lorsque vous cliquez sur la vignette SciQuest Spend Director dans le volet d’accès, vous devez être connecté automatiquement à votre application SciQuest Spend Director.
+L’objectif de cette section est de tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès. Lorsque vous cliquez sur la vignette SciQuest Spend Director dans le volet d’accès, vous devez être connecté automatiquement à votre application SciQuest Spend Director.
 
 
 ## Ressources supplémentaires
@@ -270,4 +270,4 @@ L’objectif de cette section est de tester la configuration de l’authentifica
 [204]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_19.png
 [205]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_20.png
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0907_2016-->

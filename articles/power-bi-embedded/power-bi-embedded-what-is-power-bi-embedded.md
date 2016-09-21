@@ -3,7 +3,7 @@
    description="Power BI Embedded vous permet d’intégrer des rapports Power BI dans vos applications web ou mobiles. Vous n’avez donc pas besoin de créer des solutions personnalisées pour visualiser les données de vos utilisateurs"
    services="power-bi-embedded"
    documentationCenter=""
-   authors="minewiskan"
+   authors="mgblythe"
    manager="mblythe"
    editor=""
    tags=""/>
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
    ms.date="07/05/2016"
-   ms.author="owend"/>
+   ms.author="mblythe"/>
 
 # Pouvez-vous nous présenter le service Microsoft Power BI Embedded ?
 
@@ -71,4 +71,4 @@ Ces jetons sont utilisés pour les différentes phases de vos interactions avec 
 - [Scénarios Microsoft Power BI Embedded courants](power-bi-embedded-scenarios.md)
 - [Prise en main de Microsoft Power BI Embedded](power-bi-embedded-get-started.md)
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

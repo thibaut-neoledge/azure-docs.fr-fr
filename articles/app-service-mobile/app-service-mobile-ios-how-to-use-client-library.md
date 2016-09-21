@@ -393,6 +393,8 @@ Pour appeler une API personnalisée, appelez la commande `MSClient.invokeAPI` co
 Pour exécuter une requête `GET` à la place d’une requête `POST`, définissez le paramètre `HTTPMethod` sur `"GET"` et le paramètre `body` sur `nil` (étant donné que les requêtes GET ne comportent pas de corps de message). Si votre API personnalisée prend en charge les autres verbes HTTP, modifiez `HTTPMethod` en conséquence.
 
 **Objective-C** :
+
+
 ```
 [self.client invokeAPI:@"sendEmail"
                   body:@{ @"contents": @"Hello world!" }
@@ -854,4 +856,4 @@ Vous pouvez utiliser le kit de développement logiciel (SDK) Google Sign-In pour
 [CLI to manage Mobile Services tables]: ../virtual-machines-command-line-tools.md#Mobile_Tables
 [Conflict-Handler]: mobile-services-ios-handling-conflicts-offline-data.md#add-conflict-handling
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

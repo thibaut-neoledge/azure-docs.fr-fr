@@ -13,7 +13,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-compute"
-	ms.date="08/17/2016"
+	ms.date="09/08/2016"
 	ms.author="marsma"/>
 
 # Prise en main du client Python Azure Batch
@@ -22,9 +22,7 @@
 - [.NET](batch-dotnet-get-started.md)
 - [Python](batch-python-tutorial.md)
 
-Découvrez les principes de base des clients [Azure Batch][azure_batch] et [Batch Python][py_azure_sdk] dans cet article où nous décrivons une simple application Batch écrite en langage Python. Nous allons voir comment deux exemples de scripts tirent parti du service Batch pour traiter une charge de travail parallèle sur des machines virtuelles Linux dans le cloud, ainsi que la façon dont ceux-ci interagissent avec [Azure Storage](./../storage/storage-introduction.md) pour la gestion intermédiaire et la récupération des fichiers. Vous allez vous familiariser avec les flux de travail d’application Batch et découvrir une vue d’ensemble des principaux composants de Batch, tels que les travaux, les tâches, les pools et les nœuds de calcul.
-
-> [AZURE.NOTE] La prise en charge de Linux dans Azure Batch se trouve actuellement en version préliminaire. Certains aspects de la fonctionnalité présentée ici peuvent changer avant la mise à la disposition générale. Les [packages d’applications](batch-application-packages.md) ne sont **actuellement pas pris en charge** sur les nœuds de calcul Linux.
+Découvrez les principes de base des clients [Azure Batch][azure_batch] et [Batch Python][py_azure_sdk] dans cet article où nous décrivons une simple application Batch écrite en langage Python. Nous allons voir comment deux exemples de scripts tirent parti du service Batch pour traiter une charge de travail parallèle sur des machines virtuelles Linux dans le cloud, ainsi que la façon dont ceux-ci interagissent avec [Stockage Azure](./../storage/storage-introduction.md) pour la gestion intermédiaire et la récupération des fichiers. Vous allez vous familiariser avec les flux de travail d’application Batch et découvrir une vue d’ensemble des principaux composants de Batch, tels que les travaux, les tâches, les pools et les nœuds de calcul.
 
 ![Flux de travail de la solution Batch (de base)][11]<br/>
 
@@ -48,7 +46,7 @@ L’[exemple de code][github_article_samples] du didacticiel Python est l’un d
 
 Pour exécuter l’exemple de script *python\_tutorial\_client.py* sur votre station de travail locale, vous aurez besoin d’un **interpréteur Python** compatible avec la version **2.7** ou **3.3-3.5**. Le script a été testé sur Linux et Windows.
 
-Vous devez également installer les packages Python **Azure Batch** et **Azure Storage**. Vous pouvez le faire avec **pip** et le fichier*requirements.txt* disponibles ici :
+Vous devez également installer les packages Python **Azure Batch** et **Stockage Azure**. Vous pouvez le faire avec **pip** et le fichier*requirements.txt* disponibles ici :
 
 `/azure-batch-samples/Python/Batch/requirements.txt`
 
@@ -68,7 +66,7 @@ L’exemple de code du didacticiel Python Batch se compose de deux scripts Pytho
 
 - **python\_tutorial\_client.py** : interagit avec les services Batch et Storage pour exécuter une charge de travail parallèle sur des nœuds de calcul (machines virtuelles). Le script *python\_tutorial\_client.py* s’exécute sur votre station de travail locale.
 
-- **python\_tutorial\_task.py** : le script qui s’exécute sur les nœuds de calcul dans Azure pour mener à bien l’opération proprement dite. Dans l’exemple, *python\_tutorial\_task.py* analyse le texte dans un fichier téléchargé depuis Azure Storage (le fichier d’entrée). Ensuite, il génère un fichier texte (fichier de sortie) qui contient une liste des trois mots principaux qui s’affichent dans le fichier d’entrée. Après avoir créé le fichier de sortie, *python\_tutorial\_task.py* télécharge le fichier dans Azure Storage. Cela permet de le télécharger vers le script client s’exécutant sur votre station de travail. Le script *python\_tutorial\_task.py* s’exécute en parallèle sur plusieurs nœuds de calcul dans le service Batch.
+- **python\_tutorial\_task.py** : le script qui s’exécute sur les nœuds de calcul dans Azure pour mener à bien l’opération proprement dite. Dans l’exemple, *python\_tutorial\_task.py* analyse le texte dans un fichier téléchargé depuis Stockage Azure (le fichier d’entrée). Ensuite, il génère un fichier texte (fichier de sortie) qui contient une liste des trois mots principaux qui s’affichent dans le fichier d’entrée. Après avoir créé le fichier de sortie, *python\_tutorial\_task.py* télécharge le fichier dans Stockage Azure. Cela permet de le télécharger vers le script client s’exécutant sur votre station de travail. Le script *python\_tutorial\_task.py* s’exécute en parallèle sur plusieurs nœuds de calcul dans le service Batch.
 
 - **./data/taskdata*.txt** : ces trois fichiers texte fournissent l’entrée pour les tâches qui s’exécutent sur les nœuds de calcul.
 
@@ -76,13 +74,13 @@ Le schéma suivant illustre les opérations principales effectuées par les scri
 
 ![Exemple de flux de travail Batch][8]<br/>
 
-[**Étape 1.**](#step-1-create-storage-containers) Créer des **conteneurs** dans Azure Blob Storage.<br/> [**Étape 2.**](#step-2-upload-task-script-and-data-files) Charger le script de tâche et les fichiers d’entrée dans les conteneurs.<br/> [**Étape 3.**](#step-3-create-batch-pool) Créer un **pool** Batch <br/> &nbsp;&nbsp;&nbsp;&nbsp;**3a.** Le pool **StartTask** télécharge le script de tâche (python\_tutorial\_task.py) dans les nœuds lorsque ces derniers rejoignent le pool.<br/> [**Étape 4.**](#step-4-create-batch-job) Créer un **travail** Batch.<br/> [**Étape 5.**](#step-5-add-tasks-to-job) Ajouter des **tâches** au travail.<br/> &nbsp;&nbsp;&nbsp;&nbsp;**5a.** Les tâches sont planifiées pour s’exécuter sur des nœuds.<br/> &nbsp;&nbsp;&nbsp;&nbsp;**5b.** Chaque tâche télécharge ses données d’entrée depuis Azure Storage, puis commence l’exécution.<br/> [**Étape 6.**](#step-6-monitor-tasks) Analyser les tâches.<br/> &nbsp;&nbsp;&nbsp;&nbsp;**6a.** Lorsque les tâches sont terminées, les résultats générés sont chargés dans Azure Storage.<br/> [**Étape 7.**](#step-7-download-task-output) Télécharger la sortie des tâches à partir de Storage.
+[**Étape 1.**](#step-1-create-storage-containers) Créer des **conteneurs** dans Azure Blob Storage.<br/> [**Étape 2.**](#step-2-upload-task-script-and-data-files) Charger le script de tâche et les fichiers d’entrée dans les conteneurs.<br/> [**Étape 3.**](#step-3-create-batch-pool) Créer un **pool** Batch <br/> &nbsp;&nbsp;&nbsp;&nbsp;**3a.** Le pool **StartTask** télécharge le script de tâche (python\_tutorial\_task.py) dans les nœuds lorsque ces derniers rejoignent le pool.<br/> [**Étape 4.**](#step-4-create-batch-job) Créer un **travail** Batch.<br/> [**Étape 5.**](#step-5-add-tasks-to-job) Ajouter des **tâches** au travail.<br/> &nbsp;&nbsp;&nbsp;&nbsp;**5a.** Les tâches sont planifiées pour s’exécuter sur des nœuds.<br/> &nbsp;&nbsp;&nbsp;&nbsp;**5b.** Chaque tâche télécharge ses données d’entrée depuis Stockage Azure, puis commence l’exécution.<br/> [**Étape 6.**](#step-6-monitor-tasks) Analyser les tâches.<br/> &nbsp;&nbsp;&nbsp;&nbsp;**6a.** Lorsque les tâches sont terminées, les résultats générés sont chargés dans Stockage Azure.<br/> [**Étape 7.**](#step-7-download-task-output) Télécharger la sortie des tâches à partir de Storage.
 
 Comme indiqué précédemment, certaines solutions Batch ne suivent pas exactement cette procédure et peuvent exécuter de nombreuses autres opérations ; toutefois, cet exemple illustre les processus fréquemment inclus dans une solution Batch.
 
 ## Préparer le script client
 
-Avant d’exécuter l’exemple, ajoutez vos informations d’identification du compte Batch et d’Azure Storage à *python\_tutorial\_client.py*. Si ce n’est déjà fait, ouvrez le fichier dans votre éditeur favori, puis mettez à jour les lignes suivantes avec vos informations d’identification.
+Avant d’exécuter l’exemple, ajoutez vos informations d’identification du compte Batch et de Stockage Azure à *python\_tutorial\_client.py*. Si ce n’est déjà fait, ouvrez le fichier dans votre éditeur favori, puis mettez à jour les lignes suivantes avec vos informations d’identification.
 
 ```python
 # Update the Batch and Storage account credential strings below with the values
@@ -214,7 +212,7 @@ def upload_file_to_container(block_blob_client, container_name, file_path):
 
 ### Objets ResourceFile
 
-Un objet [ResourceFile][py_resource_file] fournit aux tâches de Batch l’URL d’un fichier d’Azure Storage qui est téléchargé dans un nœud de calcul avant l’exécution de ces tâches. La propriété [ResourceFile][py_resource_file].**blob\_source** spécifie l’URL complète du fichier tel qu’il existe dans Azure Storage. L’URL peut également inclure une signature d’accès partagé (SAS) fournissant un accès sécurisé au fichier. La propriété *ResourceFiles* est utilisée par la plupart des types de tâches dans Batch :
+Un objet [ResourceFile][py_resource_file] fournit aux tâches de Batch l’URL d’un fichier de Stockage Azure qui est téléchargé dans un nœud de calcul avant l’exécution de ces tâches. La propriété [ResourceFile][py_resource_file].**blob\_source** spécifie l’URL complète du fichier tel qu’il existe dans Stockage Azure. L’URL peut également inclure une signature d’accès partagé (SAS) fournissant un accès sécurisé au fichier. La propriété *ResourceFiles* est utilisée par la plupart des types de tâches dans Batch :
 
 - [CloudTask][py_task]
 - [StartTask][py_starttask]
@@ -229,7 +227,7 @@ Les signatures d’accès partagé sont des chaînes qui offrent un accès sécu
 
 - **Signature d’accès partagé d’objet blob** : le type de tâche StartTask du pool utilise les signatures d’accès partagé d’objet blob lors du téléchargement des scripts de tâche et des fichiers de données d’entrée à partir de Storage (voir [l’étape 3](#step-3-create-batch-pool) ci-dessous). La fonction `upload_file_to_container` dans *python\_tutorial\_client.py* contient le code qui obtient la signature d’accès partagé de l’objet blob. Elle le fait en appelant [BlockBlobService.make\_blob\_url][py_make_blob_url] dans le module Storage.
 
-- **Signature d’accès partagé de conteneur** : une fois que chaque tâche a mené à bien l’opération qui lui était affectée sur le nœud de calcul, elle charge son fichier de sortie dans le conteneur *output* d’Azure Storage. Pour ce faire, *python\_tutorial\_task.py* utilise une signature d’accès partagé de conteneur qui fournit l’accès en écriture au conteneur. La fonction `get_container_sas_token` dans *python\_tutorial\_client.py* obtient la signature d’accès partagé du conteneur, qui est ensuite transmise aux tâches en tant qu’argument de ligne de commande. L’étape 5, [Ajout de tâches à un travail](#step-5-add-tasks-to-job), décrit l’utilisation du SAP de conteneur.
+- **Signature d’accès partagé de conteneur** : une fois que chaque tâche a mené à bien l’opération qui lui était affectée sur le nœud de calcul, elle charge son fichier de sortie dans le conteneur *output* de Stockage Azure. Pour ce faire, *python\_tutorial\_task.py* utilise une signature d’accès partagé de conteneur qui fournit l’accès en écriture au conteneur. La fonction `get_container_sas_token` dans *python\_tutorial\_client.py* obtient la signature d’accès partagé du conteneur, qui est ensuite transmise aux tâches en tant qu’argument de ligne de commande. L’étape 5, [Ajout de tâches à un travail](#step-5-add-tasks-to-job), décrit l’utilisation du SAP de conteneur.
 
 > [AZURE.TIP] Pour plus d’informations sur la sécurisation de l’accès aux données dans votre compte de stockage, consultez la série en deux parties sur les signatures d’accès partagé, [Partie 1 : présentation du modèle SAP](../storage/storage-dotnet-shared-access-signature-part-1.md) et [Partie 2 : création et utilisation d’une signature d’accès partagé avec le service BLOB](../storage/storage-dotnet-shared-access-signature-part-2.md).
 
@@ -430,7 +428,7 @@ Dans la boucle `for` de l’extrait de code ci-dessus, vous pouvez remarquer que
 
 4. **storagecontainer** : le nom du conteneur de stockage dans lequel les fichiers de sortie doivent être chargés.
 
-5. **sastoken** : la signature d’accès partagé (SAP) qui fournit un accès en écriture au conteneur **output** d’Azure Storage. Le script *python\_tutorial\_task.py* utilise cette signature d’accès partagé pour créer sa référence BlockBlobService. Cela fournit un accès en écriture au conteneur sans avoir recours à une clé d’accès pour le compte de stockage.
+5. **sastoken** : la signature d’accès partagé (SAP) qui fournit un accès en écriture au conteneur **output** de Stockage Azure. Le script *python\_tutorial\_task.py* utilise cette signature d’accès partagé pour créer sa référence BlockBlobService. Cela fournit un accès en écriture au conteneur sans avoir recours à une clé d’accès pour le compte de stockage.
 
 ```python
 # NOTE: Taken from python_tutorial_task.py
@@ -444,7 +442,7 @@ blob_client = azureblob.BlockBlobService(account_name=args.storageaccount,
 
 ## Étape 6 : surveiller les tâches
 
-![Surveiller les tâches][6]<br/> *Le script (1) surveille l’état d’achèvement des tâches, et (2) les tâches chargent les données de résultat dans Azure Storage*
+![Surveiller les tâches][6]<br/> *Le script (1) surveille l’état d’achèvement des tâches, et (2) les tâches chargent les données de résultat dans Stockage Azure*
 
 Lorsque les tâches sont ajoutées à un travail, elles sont automatiquement mises en file d’attente et planifiées pour s’exécuter sur les nœuds de calcul dans le pool associé au travail. Selon les paramètres que vous spécifiez, Batch gère l’ensemble des opérations de mise en file d’attente, de planification, de ré-exécution et d’administration des tâches à votre intention.
 
@@ -556,7 +554,7 @@ if query_yes_no('Delete pool?') == 'yes':
 
 ## Exécuter l’exemple de script
 
-Lorsque vous exécutez le script *python\_tutorial\_client.py* du didacticiel [exemple de code][github_article_samples], la sortie de la console est identique à ce qui suit. Vous verrez une pause à `Monitoring all tasks for 'Completed' state, timeout in 0:20:00...` ; cela signifie que les nœuds de calcul du pool sont en cours de création et de démarrage et que les commandes de la tâche de démarrage du pool sont exécutées. Utilisez le [portail Azure][azure_portal] pour surveiller le pool, les nœuds de calcul, le travail et les tâches pendant et après l’exécution. Utilisez le [portail Azure][azure_portal] ou l’un des [explorateurs Microsoft Azure Storage][storage_explorer] disponibles pour visualiser les ressources de stockage (conteneurs et objets blob) créées par l’application.
+Lorsque vous exécutez le script *python\_tutorial\_client.py* du didacticiel [exemple de code][github_article_samples], la sortie de la console est identique à ce qui suit. Vous verrez une pause à `Monitoring all tasks for 'Completed' state, timeout in 0:20:00...` ; cela signifie que les nœuds de calcul du pool sont en cours de création et de démarrage et que les commandes de la tâche de démarrage du pool sont exécutées. Utilisez le [portail Azure][azure_portal] pour surveiller le pool, les nœuds de calcul, le travail et les tâches pendant et après l’exécution. Utilisez le [portail Azure][azure_portal] ou l’un des [explorateurs de stockage Microsoft Azure][storage_explorer] disponibles pour visualiser les ressources de stockage (conteneurs et objets blob) créées par l’application.
 
 Le temps d’exécution standard de l’application est **d’environ 5-7 minutes** lorsque l’application fonctionne dans sa configuration par défaut.
 
@@ -660,4 +658,4 @@ N’hésitez pas à apporter des modifications à *python\_tutorial\_client.py* 
 [10]: ./media/batch-python-tutorial/credentials_storage_sm.png "Informations d’identification de compte de stockage dans le portail"
 [11]: ./media/batch-python-tutorial/batch_workflow_minimal_sm.png "Flux de travail de la solution Batch (diagramme minimal)"
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0914_2016-->

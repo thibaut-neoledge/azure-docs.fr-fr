@@ -1,4 +1,6 @@
 
-| Resource | Limit |
+| Ressource | Limite |
 |----|----|
-| Autoscale Settings | 100 per region per subscription |
+| Paramètres de mise à l’échelle automatique | 100 par région et par abonnement |
+
+<!---HONumber=AcomDC_0907_2016-->

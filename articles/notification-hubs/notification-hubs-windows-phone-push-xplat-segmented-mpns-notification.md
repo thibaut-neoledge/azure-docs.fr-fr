@@ -25,15 +25,15 @@
 
 Cette rubrique montre comment utiliser Azure Notification Hubs pour diffuser des notifications relatives aux dernières nouvelles vers une application Windows Phone 8.0/8.1 Silverlight. Si vous ciblez une application Windows Store ou Windows Phone 8.1, consultez la version [Windows Universel](notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md). Lorsque vous aurez terminé, vous pourrez vous inscrire aux catégories de dernières nouvelles qui vous intéressent et recevoir uniquement des notifications Push pour ces catégories. Ce scénario est un modèle courant pour de nombreuses applications pour lesquelles des notifications doivent être envoyées à des groupes d'utilisateurs qui ont signalé antérieurement un intérêt, par exemple, lecteur RSS, applications pour fans de musique, etc.
 
-Les scénarios de diffusion sont activés en incluant une ou plusieurs _balises_ lors de la création d'une inscription dans le Notification Hub. Lorsque des notifications sont envoyées à une balise, tous les appareils pour lesquels cette balise est inscrite reçoivent la notification. Les balises étant de simples chaînes, il n’est pas nécessaire de les mettre en service à l’avance. Pour plus d’informations sur les balises, consultez [Routage et expressions de balise Notification Hubs](notification-hubs-tags-segment-push-message.md).
+Les scénarios de diffusion sont activés en incluant une ou plusieurs _balises_ lors de la création d'une inscription dans le Notification Hub. Lorsque des notifications sont envoyées à une balise, tous les appareils pour lesquels cette balise est inscrite reçoivent la notification. Les balises étant de simples chaînes, il n'est pas nécessaire de les mettre en service à l'avance. Pour plus d’informations sur les balises, consultez [Routage et expressions de balise Notification Hubs](notification-hubs-tags-segment-push-message.md).
 
 ##Composants requis
 
-Cette rubrique s'appuie sur l'application que vous avez créée dans [Prise en main de Notification Hubs]. Avant de commencer ce didacticiel, vous devez suivre celui intitulé [Prise en main de Notification Hubs].
+Cette rubrique s’appuie sur l’application que vous avez créée dans [Prise en main de Notification Hubs]. Avant de commencer ce didacticiel, vous devez suivre celui intitulé [Prise en main de Notification Hubs].
 
 ##Ajout d’une sélection de catégories à l’application
 
-La première étape consiste à ajouter des éléments de l’interface utilisateur à votre page principale existante qui permettent à l’utilisateur de sélectionner des catégories auxquelles s’inscrire. Les catégories sélectionnées par un utilisateur sont stockées sur l'appareil. Lorsque l’application démarre, une inscription d’appareil est créée dans votre hub de notification avec les catégories sélectionnées sous forme de balises.
+La première étape consiste à ajouter des éléments de l'interface utilisateur à votre page principale existante qui permettent à l'utilisateur de sélectionner des catégories auxquelles s'inscrire. Les catégories sélectionnées par un utilisateur sont stockées sur l'appareil. Lorsque l’application démarre, une inscription d’appareil est créée dans votre hub de notification avec les catégories sélectionnées sous forme de balises.
 
 1. Ouvrez le fichier de projet MainPage.xaml, puis remplacez les éléments **Grid** nommés `TitlePanel` et `ContentPanel` par le code suivant :
 
@@ -187,14 +187,14 @@ La première étape consiste à ajouter des éléments de l’interface utilisat
         }
 
 
-    Cette classe utilise le stockage isolé pour stocker les catégories de nouvelles que cet appareil doit recevoir. Elle comporte également des méthodes pour s’inscrire à ces catégories à l’aide de l’inscription de notification [modèle](notification-hubs-templates.md).
+    Cette classe utilise le stockage isolé pour stocker les catégories de nouvelles que cet appareil doit recevoir. Elle comporte également des méthodes pour s’inscrire à ces catégories à l’aide de l’inscription de notification [modèle](notification-hubs-templates-cross-platform-push-messages.md).
 
 
 4. Dans le fichier de projet App.xaml.cs, ajoutez la propriété suivante à la classe **App**. Remplacez les espaces réservés `<hub name>` et `<connection string with listen access>` par le nom du hub de notification et la chaîne de connexion pour *DefaultListenSharedAccessSignature* obtenue précédemment.
 
 		public Notifications notifications = new Notifications("<hub name>", "<connection string with listen access>");
 
-	> [AZURE.NOTE] Les informations d’identification distribuées avec une application cliente n’étant généralement pas sécurisées, vous ne devez distribuer que la clé d’accès d’écoute avec votre application cliente. L'accès d'écoute permet à votre application de s'inscrire à des notifications, mais les inscriptions existantes ne peuvent pas être modifiées et les notifications ne peuvent pas être envoyées. La clé d’accès complet est utilisée dans un service de serveur principal sécurisé pour l’envoi de notifications et la modification d’inscriptions existantes.
+	> [AZURE.NOTE] Les informations d'identification distribuées avec une application cliente n'étant généralement pas sécurisées, vous ne devez distribuer que la clé d'accès d'écoute avec votre application cliente. L'accès d'écoute permet à votre application de s'inscrire à des notifications, mais les inscriptions existantes ne peuvent pas être modifiées et les notifications ne peuvent pas être envoyées. La clé d'accès complet est utilisée dans un service de serveur principal sécurisé pour l'envoi de notifications et la modification d'inscriptions existantes.
 
 5. Dans MainPage.xaml.cs, ajoutez la ligne suivante :
 
@@ -266,7 +266,7 @@ L'application est désormais terminée et peut stocker un ensemble de catégorie
 
 [AZURE.INCLUDE [notification-hubs-send-categories-template](../../includes/notification-hubs-send-categories-template.md)]
 
-##Exécution de l’application et génération de notifications
+##Exécution de l'application et génération de notifications
 
 1. Dans Visual Studio, appuyez sur la touche F5 pour compiler et démarrer l’application.
 
@@ -321,4 +321,4 @@ In this tutorial we learned how to broadcast breaking news by category. Consider
 [Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
 [Notification Hubs How-To for Windows Phone]: ??
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0907_2016-->

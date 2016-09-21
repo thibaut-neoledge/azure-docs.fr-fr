@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="05/27/2016"
+    ms.date="09/06/2016"
     ms.author="ddove"/>
 
 # Montée en charge avec la base de données SQL Azure
@@ -33,10 +33,10 @@ Dans ce graphique, les couleurs de la base de données représentent des schéma
 1. Un ensemble de **bases de données SQL Azure** est hébergé sur Azure avec une architecture de partitionnement.
 2. La **bibliothèque cliente de base de données élastique** sert à gérer un ensemble de partitions.
 3. Un sous-ensemble des bases de données est placé dans un **pool de base de données élastique**. (Voir [Qu’est-ce qu’un pool ?](sql-database-elastic-pool.md)).
-4. Une **tâche de base de données élastique** exécute des scripts T-SQL sur toutes les bases de données.
+4. Une **tâche de base de données élastique** exécute des scripts T-SQL planifiés ou ad hoc sur toutes les bases de données.
 5. L’**outil de fusion et fractionnement** sert à déplacer des données d’une partition à l’autre.
 6. La **requête de base de données élastique** vous permet d’écrire une requête qui s’étend sur toutes les bases de données de l’ensemble de partitions.
-7. La fonctionnalité **Transactions élastiques** vous permet d’exécuter des transactions qui s’étendent sur plusieurs bases de données. 
+7. La fonctionnalité **Transactions élastiques** vous permet d’exécuter des transactions qui s’étendent sur plusieurs bases de données.
 
 
 ![Outils de base de données élastique][1]
@@ -109,4 +109,4 @@ Pour plus de détails sur le pool de base de données élastique, voir [Considé
 [3]: ./media/sql-database-elastic-scale-introduction/overview.png
 [4]: ./media/sql-database-elastic-scale-introduction/single_v_multi_tenant.png
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -20,9 +20,9 @@
 #Envoi de notifications push sécurisées avec Azure Notification Hubs
 
 > [AZURE.SELECTOR]
-- [Windows Universal](notification-hubs-aspnet-backend-windows-dotnet-secure-push.md)
-- [iOS](notification-hubs-aspnet-backend-ios-secure-push.md)
-- [Android](notification-hubs-aspnet-backend-android-secure-push.md)
+- [Windows Universal](notification-hubs-aspnet-backend-windows-dotnet-wns-secure-push-notification.md)
+- [iOS](notification-hubs-aspnet-backend-ios-push-apple-apns-secure-notification.md)
+- [Android](notification-hubs-aspnet-backend-android-secure-google-gcm-push-notification.md)
 
 ##Vue d'ensemble
 
@@ -39,7 +39,7 @@ Globalement, le processus est le suivant :
 	- envoie l'ID de cette notification à l'appareil Android (aucune information sécurisée n'est envoyée).
 2. L'application qui se trouve sur l'appareil, lorsqu'elle reçoit la notification :
 	- L'appareil Android contacte le serveur principal en demandant la charge utile sécurisée.
-	- L’application peut afficher la charge utile sous la forme d’une notification sur l’appareil.
+	- L'application peut afficher la charge utile sous la forme d'une notification sur l'appareil.
 
 Veuillez noter que dans le flux précédent (et dans ce didacticiel), nous partons du principe que l’appareil stocke un jeton d’authentification dans un stockage local, une fois l’utilisateur connecté. Cela simplifie nettement l’expérience, car l’appareil peut récupérer la charge utile sécurisée en utilisant ce jeton. Si votre application ne stocke pas les jetons d’authentification sur l’appareil, ou si ces jetons sont susceptibles d’expirer, lorsque l’application sur l’appareil reçoit la notification push, elle doit afficher une notification générique demandant à l’utilisateur de lancer l’application. L'application authentifie alors l'utilisateur et affiche la charge utile de la notification.
 
@@ -51,7 +51,7 @@ Ce didacticiel vous montre comment envoyer des notifications push sécurisées. 
 
 ## Modification du projet Android
 
-Maintenant que vous avez modifié le serveur principal de votre application pour qu'il n'envoie que l'*ID* d'une notification push, vous devez modifier votre application Android pour gérer cette notification et rappeler votre serveur pour récupérer le message sécurisé à afficher. Pour atteindre cet objectif, vous devez vous assurer que votre application Android sait comment s’authentifier auprès de votre serveur principal lorsqu’elle reçoit les notifications Push.
+Maintenant que vous avez modifié le serveur principal de votre application pour qu'il n'envoie que l'*ID* d'une notification push, vous devez modifier votre application Android pour gérer cette notification et rappeler votre serveur pour récupérer le message sécurisé à afficher. Pour atteindre cet objectif, vous devez vous assurer que votre application Android sait comment s'authentifier auprès de votre serveur principal lorsqu'elle reçoit les notifications Push.
 
 Nous allons maintenant modifier le processus de *connexion* afin d'enregistrer la valeur d'en-tête de l'authentification dans les préférences partagées de votre application. D'autres mécanismes de même type peuvent être utilisés pour stocker n'importe quel jeton d'authentification (par exemple des jetons OAuth) que l'application doit utiliser sans demander d'informations d'identification.
 
@@ -134,4 +134,4 @@ Pour exécuter l'application, procédez comme suit :
 
 4. Dans l'interface utilisateur de l'application Android, cliquez sur **Log in**. Cliquez ensuite sur **Send push**.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0907_2016-->

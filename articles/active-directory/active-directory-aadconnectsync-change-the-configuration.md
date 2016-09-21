@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="andkjell"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/26/2016"
+	ms.date="08/31/2016"
 	ms.author="andkjell"/>
 
 
@@ -55,7 +55,7 @@ Par défaut, le [planificateur](active-directory-aadconnectsync-feature-schedule
 	- Balise : laissez ce champ vide. Seules les règles par défaut de Microsoft doivent contenir une valeur dans cette zone.
 3. Sur la page **Scoping Filter** (Filtre d’étendue), entrez **givenName ISNOTNULL**. ![Filtre d’étendue des règles entrantes](./media/active-directory-aadconnectsync-change-the-configuration/scopingfilter.png) Cette section permet de définir les objets auxquels la règle s’applique. Si vous la laissez vide, la règle s’appliquera à tous les objets utilisateur, y compris les salles de conférence, les comptes de service et les autres objets d’utilisateurs non humains.
 4. Ne renseignez pas le champ **Join rule** (Règles de jointure).
-5. Sur la page **Transformations**, définissez le type de flux sur **Expression**. Sélectionnez l’attribut cible **giveName** et, dans Source, entrez `PCase([givenName])`. ![Transformations des règles entrantes](./media/active-directory-aadconnectsync-change-the-configuration/transformations.png) Le moteur de synchronisation respecte la casse aussi bien pour le nom de la fonction que pour le nom de l’attribut. Si vous faites une erreur de saisie, un message d’avertissement s’affiche lorsque vous ajoutez la règle. L’éditeur vous permet d’enregistrer et de continuer, mais vous devrez donc rouvrir la règle pour la corriger.
+5. Sur la page **Transformations**, définissez le type de flux sur **Expression**. Sélectionnez l’attribut cible **givenName** et, dans Source, entrez `PCase([givenName])`. ![Transformations des règles entrantes](./media/active-directory-aadconnectsync-change-the-configuration/transformations.png) Le moteur de synchronisation respecte la casse aussi bien pour le nom de la fonction que pour le nom de l’attribut. Si vous faites une erreur de saisie, un message d’avertissement s’affiche lorsque vous ajoutez la règle. L’éditeur vous permet d’enregistrer et de continuer, mais vous devrez donc rouvrir la règle pour la corriger.
 6. Cliquez sur **Ajouter** pour enregistrer la règle.
 
 Votre nouvelle règle personnalisée doit être visible pour les autres règles de synchronisation du système.
@@ -126,12 +126,12 @@ Chez Fabrikam, nous nous sommes rendus compte que certains des attributs que nou
 
 ## Étapes suivantes
 
-En savoir plus sur l’[approvisionnement déclaratif](active-directory-aadconnectsync-understanding-declarative-provisioning.md) et les options disponibles dans les règles de synchronisation.
+- En savoir plus sur le modèle de configuration dans [Comprendre l’approvisionnement déclaratif](active-directory-aadconnectsync-understanding-declarative-provisioning.md).
+- En savoir plus sur le langage d’expression dans [Comprendre les expressions d’approvisionnement déclaratif](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md).
 
-En savoir plus sur [l’approvisionnement déclaratif](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md) utilisé pour les flux d’attributs.
+**Rubriques de présentation**
 
-En savoir plus sur la configuration de la [synchronisation Azure AD Connect](active-directory-aadconnectsync-whatis.md).
+- [Azure AD Connect Sync - Présentation et personnalisation des options de synchronisation](active-directory-aadconnectsync-whatis.md)
+- [Intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md)
 
-En savoir plus sur l'[intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).
-
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

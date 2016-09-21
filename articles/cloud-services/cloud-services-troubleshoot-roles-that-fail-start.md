@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
-   ms.date="06/03/2016"
+   ms.date="09/02/2016"
    ms.author="v-six" />
 
 # Résoudre les problèmes de démarrage des rôles de service cloud
@@ -103,7 +103,7 @@ Vous pouvez utiliser l’émulateur de calcul Microsoft Azure pour diagnostiquer
 
 Pour obtenir de meilleurs résultats à l’aide de cette méthode de diagnostic, vous devez utiliser un ordinateur ou une machine virtuelle disposant d’une nouvelle installation de Windows. Pour mieux simuler l’environnement Azure, utilisez Windows Server 2008 R2 x64.
 
-1. Installez la version autonome du [SDK Azure](https://azure.microsoft.com/downloads/)
+1. Installez la version autonome du [SDK Azure](https://azure.microsoft.com/downloads/).
 
 2. Sur l’ordinateur de développement, générez le projet de service cloud.
 
@@ -163,4 +163,4 @@ Affichez plus d’[articles de résolution des problèmes](https://azure.microso
 
 Pour découvrir comment résoudre les problèmes liés aux rôles de service cloud à l’aide des données de diagnostic de calcul PaaS Azure, consultez la [série de blogs de Kevin Williamson](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0907_2016-->

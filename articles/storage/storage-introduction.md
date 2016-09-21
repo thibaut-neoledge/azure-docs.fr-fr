@@ -128,7 +128,7 @@ Une SAP de compte délègue l’accès aux ressources d’un ou plusieurs des se
 
 Enfin, vous pouvez spécifier qu'un conteneur et ses objets blob, ou un objet blob particulier, sont disponibles pour l'accès public. Lorsque vous indiquez qu'un conteneur ou un objet blob est public, n'importe qui peut le lire de manière anonyme ; aucune authentification n'est requise. Les conteneurs et les objets blob publics sont utiles pour exposer des ressources telles que des médias et des documents hébergés sur des sites Web. Afin de réduire la latence du réseau pour un public mondial, vous pouvez mettre en cache les données d’objets blob utilisées par des sites Web avec le réseau de distribution de contenu (CDN) Azure.
 
-Pour plus d’informations sur les signatures d’accès partagé, consultez [Signatures d’accès partagé : présentation du modèle SAP](storage-dotnet-shared-access-signature-part-1.md). Pour plus d’informations sur l’accès sécurisé à votre compte de stockage, consultez [Gestion de l’accès en lecture anonyme aux conteneurs et aux objets blob](storage-manage-access-to-resources.md) et [Authentification pour les services de stockage Azure](https://msdn.microsoft.com/library/azure/dd179428.aspx).
+Pour plus d’informations sur les signatures d’accès partagé, consultez [Utilisation des signatures d’accès partagé (SAP)](storage-dotnet-shared-access-signature-part-1.md). Pour plus d’informations sur l’accès sécurisé à votre compte de stockage, consultez [Gestion de l’accès en lecture anonyme aux conteneurs et aux objets blob](storage-manage-access-to-resources.md) et [Authentification pour les services de stockage Azure](https://msdn.microsoft.com/library/azure/dd179428.aspx).
 
 ## Réplication pour la durabilité et la haute disponibilité
 
@@ -267,4 +267,4 @@ Pour en savoir plus sur Azure Storage, explorez les ressources suivantes :
 - [Utilisation du stockage de files d'attente à partir de Python](storage-python-how-to-use-queue-storage.md)
 - [Utilisation du stockage de fichiers à partir de Python](storage-python-how-to-use-file-storage.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0914_2016-->

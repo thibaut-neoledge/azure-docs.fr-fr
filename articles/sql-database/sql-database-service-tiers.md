@@ -19,7 +19,9 @@
 
 # Options et performances de la base de données SQL : comprendre ce qui est disponible dans chaque niveau de service
 
-La [base de données SQL Azure](sql-database-technical-overview.md) dispose de plusieurs niveaux de service pour gérer les différentes charges de travail. Vous pouvez [modifier les niveaux de service](sql-database-scale-up.md) à tout moment avec un temps d’arrêt minimal de votre application (généralement sous les quatre secondes environ). Vous pouvez également [créer une base de données unique](sql-database-get-started.md) avec des caractéristiques et une tarification définies. Vous pouvez également gérer plusieurs bases de données en [créant un pool de bases de données élastiques](sql-database-elastic-pool-create-portal.md). Dans les deux cas, les niveaux **De base**, **Standard** et **Premium** sont inclus. Les options de base de données de ces niveaux sont similaires pour les bases de données autonomes et les pools élastiques. Toutefois, d’autres considérations sont à prendre en compte pour les pools élastiques. Cet article donne des détails sur les niveaux de service des bases de données autonomes et des pools élastiques.
+La [base de données SQL Azure](sql-database-technical-overview.md) propose trois niveaux de service associés à plusieurs niveaux de performance pour gérer différentes charges de travail. Chaque niveau de performance permet de gagner en ressources pour générer à chaque fois un meilleur débit. Vous pouvez gérer chaque base de données dans son propre [niveau de service](sql-database-service-tiers.md#standalone-database-service-tiers-and-performance-levels) avec son propre niveau de performances. Vous pouvez également gérer plusieurs bases de données dans un [pool élastique](sql-database-service-tiers.md#elastic-pool-service-tiers-and-performance-in-edtus) avec un ensemble partagé de ressources. Les ressources disponibles pour les bases de données autonomes sont exprimées en termes d’unités de transaction de base de données (DTU) et pour les pools élastiques en termes de DTU et d’eDTU élastiques. Pour plus d’informations sur les DTU et les eDTU, consultez [Qu’est-ce qu’une DTU ?](sql-database-what-is-a-DTU.md).
+
+Dans les deux cas, les niveaux de service incluent **De base**, **Standard** et **Premium**. Les options de base de données de ces niveaux sont similaires pour les bases de données autonomes et les pools élastiques. Toutefois, d’autres considérations sont à prendre en compte pour les pools élastiques. Cet article donne des détails sur les niveaux de service des bases de données autonomes et des pools élastiques.
 
 ## Niveaux de service et options de base de données
 Les niveaux de service De base, Standard et Premium proposent un contrat SLA garantissant un temps d'activité de 99,99 %. Par ailleurs, ils proposent des performances prévisibles, des options de continuité d'activité d'entreprise professionnelles, des fonctionnalités de gestion de la sécurité et une facturation à l'heure. Le tableau suivant fournit des exemples de niveaux adaptés à différentes charges de travail d'application.
@@ -39,8 +41,6 @@ Les caractéristiques de performances répertoriées ici s’appliquent aux base
 
 [AZURE.INCLUDE [Tableau de niveaux de service de base de données SQL](../../includes/sql-database-service-tiers-table.md)]
 
-Pour une meilleure compréhension des DTU, consultez la [section DTU](#understanding-dtus) de cette rubrique.
-
 >[AZURE.NOTE] Pour une explication détaillée du contenu de toutes les autres lignes de ce tableau de niveaux de service, consultez [Capacités et limites des niveaux de service](sql-database-performance-guidance.md#service-tier-capabilities-and-limits).
 
 ## Niveaux de service d’un pool élastique et performances dans les eDTU.
@@ -53,10 +53,6 @@ Le tableau suivant décrit les caractéristiques des niveaux de service de pool.
 [AZURE.INCLUDE [Tableau des niveaux de service de base de données SQL pour les pools élastiques](../../includes/sql-database-service-tiers-table-elastic-db-pools.md)]
 
 Chaque base de données au sein d’un pool respecte également les caractéristiques de base de données autonome pour ce niveau. Par exemple, le pool de base possède une limite de sessions maximale par pool de 4800 à 28800, mais une base de données individuelle dans un pool de base a une limite de base de données de 300 sessions.
-
-## Présentation des DTU
-
-[AZURE.INCLUDE [Description de la DTU d'une base de données SQL](../../includes/sql-database-understanding-dtus.md)]
 
 ## Choix d’un niveau de service
 
@@ -92,4 +88,4 @@ Une fois que vous avez choisi le niveau de service pour votre pool, vous êtes p
 
 Pour plus d’informations sur les modèles d’architecture de données des applications de base de données de logiciels en tant que service (SaaS) mutualisés, consultez [Modèles de conception pour les applications SaaS mutualisées avec Base de données SQL Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md).
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0914_2016-->

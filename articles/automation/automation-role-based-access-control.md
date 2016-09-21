@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/20/2016"
+   ms.date="09/12/2016"
    ms.author="magoedte;sngun"/>
 
 # Contrôle d’accès en fonction du rôle dans Azure Automation
@@ -127,7 +127,7 @@ Le tableau suivant présente les actions spécifiques qui peuvent être effectu�
 
 ## Configurer RBAC pour votre compte Automation à l’aide du portail Azure
 
-1.	Connectez-vous au [portail Azure](https://portal.azure.com/) et ouvrez votre compte Automation depuis le panneau Comptes Automation.  
+1.	Connectez-vous au [portail Azure](https://portal.azure.com/) et ouvrez votre compte Automation depuis le panneau Comptes Automation.
 
 2.	Cliquez sur le contrôle **Accès** dans l’angle supérieur droit afin d’ouvrir le panneau **Utilisateurs**. Celui-ci vous permet d’ajouter de nouveaux utilisateurs, groupes et applications pour gérer votre compte Automation et d’afficher les rôles existants qui peuvent être configurés pour le compte Automation.
 
@@ -137,7 +137,7 @@ Le tableau suivant présente les actions spécifiques qui peuvent être effectu�
 
 ### Ajouter un nouvel utilisateur et affecter un rôle
 
-1.	Dans le panneau Utilisateurs, cliquez sur **Ajouter** pour ouvrir le panneau **Ajouter un accès** dans lequel vous pouvez ajouter un utilisateur, un groupe ou une application et lui affecter un rôle.  
+1.	Dans le panneau Utilisateurs, cliquez sur **Ajouter** pour ouvrir le panneau **Ajouter un accès** dans lequel vous pouvez ajouter un utilisateur, un groupe ou une application et lui affecter un rôle.
 
     ![Ajouter un utilisateur](media/automation-role-based-access-control/automation-02-add-user.png)
 
@@ -231,4 +231,4 @@ Dans les exemples indiqués ci-dessus, remplacez **l’ID de connexion**,** l’
 - Pour plus d’informations sur les différentes façons de démarrer un Runbook, consultez l’article [Démarrage d’un Runbook](automation-starting-a-runbook.md).
 - Pour en savoir plus sur les différents types de Runbook, consultez l’article [Types de Runbook Azure Automation](automation-runbook-types.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

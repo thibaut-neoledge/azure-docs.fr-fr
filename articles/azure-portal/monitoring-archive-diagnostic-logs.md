@@ -23,7 +23,7 @@ Dans cet article, nous vous expliquons comment utiliser le portail Azure, les ap
 Avant de commencer, vous devez [créer un compte de stockage](../storage/storage-create-storage-account.md#create-a-storage-account) sur lequel vous pouvez archiver vos journaux de diagnostic. Nous vous recommandons vivement de ne pas utiliser un compte de stockage existant sur lequel sont stockées d’autres données de non-analyse, afin de pouvoir mieux contrôler l’accès aux données d’analyse. En revanche, si vous archivez également votre journal d’activité et des métriques de diagnostic sur un compte de stockage, il peut être judicieux d’utiliser également ce compte pour vos journaux de diagnostic, afin de centraliser toutes vos données d’analyse. Le compte de stockage que vous utilisez doit être un compte de stockage à usage général, et non un compte de stockage Blob.
 
 ## Paramètres de diagnostic
-Pour archiver vos journaux de diagnostic à l’aide de l’une des méthodes ci-dessous, vous devez définir un **paramètre de diagnostic** pour chaque ressource. Le paramètre de diagnostic d’une ressource définit les catégories de journaux qui sont stockés ou transmis en continu, ainsi que les sorties : compte de stockage et/ou hub d’événement. Il définit également la stratégie de rétention (nombre de jours de conservation) pour les événements de chaque catégorie de journal stockés dans un compte de stockage. Si la stratégie de rétention est définie sur zéro, les événements de cette catégorie de journal sont stockés indéfiniment. [Vous trouverez plus d’informations sur les paramètres de diagnostic ici](monitoring-overview-of-diagnostic-logs.md#diagnostic-settings).
+Pour archiver vos journaux de diagnostic à l’aide de l’une des méthodes ci-dessous, vous devez définir un **paramètre de diagnostic** pour chaque ressource. Le paramètre de diagnostic d’une ressource définit les catégories de journaux qui sont stockés ou transmis en continu, ainsi que les sorties : compte de stockage et/ou hub d’événement. Il définit également la stratégie de rétention (nombre de jours de conservation) pour les événements de chaque catégorie de journal stockés dans un compte de stockage. Si la stratégie de rétention est définie sur zéro, les événements de cette catégorie de journal sont stockés indéfiniment (c’est-à-dire pour toujours). Une stratégie de rétention peut également être définie sur n’importe quel nombre de jours entre 1 et 2147483647. [Vous trouverez plus d’informations sur les paramètres de diagnostic ici](monitoring-overview-of-diagnostic-logs.md#diagnostic-settings).
 
 ## Archivage des journaux de diagnostic à l’aide du portail
 
@@ -51,7 +51,7 @@ Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1id1234-5679-0123-4567-
 | Catégories | Non | Liste séparée par des virgules des catégories de journaux à activer. |
 | Activé | Oui | Valeur booléenne indiquant si les diagnostics sont activés ou désactivés pour cette ressource. |
 | RetentionEnabled | Non | Valeur booléenne indiquant si une stratégie de rétention est activée pour cette ressource. |
-| RetentionInDays | Non | Nombre de jours pendant lesquels les événements doivent être conservés. Une valeur de zéro signifie que les journaux seront stockés pour une durée indéfinie. |
+| RetentionInDays | Non | Nombre de jours pendant lesquels les événements doivent être conservés, compris entre 1 et 2147483647. Une valeur de zéro signifie que les journaux seront stockés pour une durée indéfinie. |
 
 ## Archivage du journal d’activité à l’aide de l’interface de ligne de commande multiplateforme
 
@@ -124,4 +124,4 @@ Dans le fichier PT1H.json, chaque événement est stocké dans le tableau « enr
 - [Diffuser en continu le journal des activités Azure sur les Event Hubs](monitoring-stream-diagnostic-logs-to-event-hubs.md)
 - [En savoir plus sur les journaux de diagnostic](monitoring-overview-of-diagnostic-logs.md)
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -386,7 +386,7 @@ Vous pouvez ajouter des notifications Push à votre projet de serveur en étenda
         NotificationHubClient hub = NotificationHubClient
         .CreateClientFromConnectionString(notificationHubConnection, notificationHubName);
 
-À ce stade, vous pouvez utiliser le client Notification Hubs pour envoyer des notifications Push aux appareils inscrits. Pour plus d’informations, consultez [Ajout de notifications Push à votre application](app-service-mobile-ios-get-started-push.md). Pour plus d'informations sur ce que Notification Hubs vous permet de faire, consultez [Vue d'ensemble de Notification Hubs](../notification-hubs/notification-hubs-overview.md).
+À ce stade, vous pouvez utiliser le client Notification Hubs pour envoyer des notifications Push aux appareils inscrits. Pour plus d’informations, consultez [Ajout de notifications Push à votre application](app-service-mobile-ios-get-started-push.md). Pour plus d'informations sur ce que Notification Hubs vous permet de faire, consultez [Vue d'ensemble de Notification Hubs](../notification-hubs/notification-hubs-push-notification-overview.md).
 
 ##<a name="tags"></a>Ajout de balises à l’installation d’un appareil pour activer une notification push ciblée
 
@@ -481,4 +481,4 @@ Votre serveur exécuté localement est désormais équipé de manière appropri�
 [Microsoft.Azure.Mobile.Server.Notifications]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Notifications/
 [MapHttpAttributeRoutes]: https://msdn.microsoft.com/library/dn479134(v=vs.118).aspx
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0907_2016-->

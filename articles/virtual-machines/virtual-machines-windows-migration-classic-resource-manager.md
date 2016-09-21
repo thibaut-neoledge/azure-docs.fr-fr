@@ -97,13 +97,14 @@ Gestionnaire de ressources | Contrôle d’accès en fonction du rôle (RBAC) po
 Calcul | Plusieurs sous-réseaux associés à une machine virtuelle | Mettez à jour la configuration du sous-réseau afin de référencer uniquement des sous-réseaux.
 Calcul | Machines virtuelles appartenant à un réseau virtuel, mais auxquelles aucun sous-réseau n’est affecté de manière explicite | Si vous le souhaitez, vous pouvez supprimer la machine virtuelle.
 Calcul | Machines virtuelles dotées d’alertes et de stratégies de mise à l’échelle automatique | La migration a lieu et ces paramètres sont ignorés. Il est vivement recommandé d’évaluer votre environnement avant de procéder à la migration. Vous pouvez également choisir de reconfigurer les paramètres d’alerte une fois la migration terminée.
-Calcul | Extensions XML de machines virtuelles (débogueur Visual Studio, Web Deploy et le débogage à distance) | Ce n’est pas pris en charge. Il est recommandé de supprimer ces extensions de la machine virtuelle pour poursuivre la migration.
+Calcul | Extensions XML de machines virtuelles (BGInfo 1.*, débogueur Visual Studio, Web Deploy et débogage à distance) | Ce n’est pas pris en charge. Il est recommandé de supprimer ces extensions de la machine virtuelle pour continuer la migration ; sinon, elles seront automatiquement supprimées pendant le processus de migration.
 Calcul | Diagnostics de démarrage avec le stockage Premium | Désactivez la fonctionnalité Diagnostics de démarrage pour les machines virtuelles avant de poursuivre la migration. Vous pouvez réactiver les Diagnostics de démarrage dans la pile Resource Manager une fois la migration terminée. En outre, les objets Blob utilisés pour la capture d’écran et les journaux de série doivent être supprimés afin que vous ne soyez plus facturé pour ces objets Blob.
 Calcul | Services cloud contenant des rôles Web/de travail | Non pris en charge actuellement.
 Réseau | Réseaux virtuels contenant des machines virtuelles et des rôles Web/de travail | Non pris en charge actuellement.
 Azure App Service | Réseaux virtuels contenant des environnements App Service | Non pris en charge actuellement.
 Azure HDInsight | Réseaux virtuels contenant des services HDInsight | Non pris en charge actuellement.
 Services de cycle de vie Microsoft Dynamics | Réseaux virtuel contenant des machines virtuelles gérées par Dynamics Lifecycle Services | Non pris en charge actuellement.
+Calcul | Extensions Azure Security Center avec un réseau virtuel disposant d’une passerelle VPN ou d’une passerelle ER avec serveur DNS local | Azure Security Center installe automatiquement les extensions sur vos machines virtuelles pour contrôler leur sécurité et déclencher des alertes. Ces extensions sont généralement installées automatiquement si la stratégie d’Azure Security Center est activée sur l’abonnement. La migration d’une passerelle n’est actuellement pas prise en charge et la passerelle doit être supprimée avant de procéder à la validation de la migration ; l’accès Internet au compte de stockage de la machine virtuelle est perdu lorsque la passerelle est supprimée. La migration ne se produit pas dans ce cas, car l’objet blob d’état de l’agent invité ne peut pas être rempli. Il est recommandé de désactiver la stratégie d’Azure Security Center de l’abonnement 3 heures avant de procéder à la migration.
 
 ## Expérience de migration
 
@@ -205,7 +206,7 @@ Pendant la migration, les ressources Classic sont converties en ressources Resou
 
 **Que se passera-t-il si j’utilise actuellement des services Azure Site Recovery ou Azure Backup ?**
 
-La prise en charge des services Azure Site Recovery et Azure Backup pour les machines virtuelles sous Resource Manager est un ajout récent. Nous travaillons actuellement également à la prise en charge de la migration de machines virtuelles dans Resource Manager. À ce stade, nous vous déconseillons d’effectuer la migration si vous utilisez ces fonctionnalités.
+Pour migrer vos machines virtuelles avec sauvegarde activée, consultez [J’ai sauvegardé mes machines virtuelles classiques dans le coffre de sauvegarde. Maintenant, je souhaite les migrer du mode Classic vers le mode Resource Manager. Comment faire pour les sauvegarder dans le coffre Recovery Services ?](../backup/backup-azure-backup-ibiza-faq.md#i-have-backed-up-my-classic-vms-in-backup-vault-now-i-want-to-migrate-my-vms-from-classic-mode-to-resource-manager-mode-how-can-i-backup-them-in-recovery-services-vault)
 
 **Puis-je vérifier si mon abonnement ou mes ressources peuvent faire l’objet d’une migration ?**
 
@@ -227,6 +228,7 @@ Les noms de toutes les ressources que vous avez explicitement fournis dans le mo
 
 Ce message est affiché lorsque la machine virtuelle n’a pas de connectivité sortante à Internet. L’agent de machine virtuelle utilise la connectivité sortante pour atteindre le compte de stockage Azure afin de mettre à jour l’état de l’agent toutes les 5 minutes.
 
+
 ## Étapes suivantes
 À présent que vous savez en quoi consiste la migration des ressources IaaS Classic vers Resource Manager, vous pouvez commencer à effectuer la migration des ressources.
 
@@ -235,4 +237,4 @@ Ce message est affiché lorsque la machine virtuelle n’a pas de connectivité 
 - [Faire migrer des ressources IaaS Classic vers Azure Resource Manager à l’aide de l’interface de ligne de commande Azure](virtual-machines-linux-cli-migration-classic-resource-manager.md)
 - [Cloner une machine virtuelle Classic vers Azure Resource Manager à l’aide de scripts PowerShell](virtual-machines-windows-migration-scripts.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

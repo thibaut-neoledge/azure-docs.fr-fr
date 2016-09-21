@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="06/07/2016" 
+   ms.date="08/29/2016" 
    ms.author="rortloff;barbkess;sonyama"/>
 
 # Mise en route avec le chiffrement transparent des données (TDE) dans SQL Data Warehouse
@@ -72,4 +72,4 @@ Le chiffrement peut être vérifié avec les vues DMV suivantes :
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0907_2016-->

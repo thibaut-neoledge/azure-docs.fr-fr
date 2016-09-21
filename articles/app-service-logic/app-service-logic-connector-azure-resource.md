@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="05/31/2016"
+   ms.date="09/01/2016"
    ms.author="stepsic"/>
 
 # Utilisation et ajout du connecteur de ressources Azure dans votre application logique
@@ -39,7 +39,7 @@ Seuil de métrique atteint | Déclenchement lorsqu’un métrique atteint un cer
 
 ### Action
 
-De la même façon, vous pouvez spécifier un grand nombre d’actions dans votre abonnement Azure :
+De la même façon, vous pouvez spécifier un grand nombre d’actions dans votre abonnement Azure :
 
 Pour **Groupes de ressources**, vous pouvez définir les actions suivantes :
 
@@ -98,4 +98,4 @@ Affichez la référence d’API REST Swagger sur [Référence de connecteurs et 
 <!--Links -->
 [Creating a Logic app]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0907_2016-->

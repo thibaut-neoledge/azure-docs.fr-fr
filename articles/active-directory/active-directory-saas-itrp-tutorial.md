@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="06/17/2016" 
+    ms.date="09/07/2016" 
     ms.author="jeedes" />
 
 #Didacticiel : Intégration d’Azure Active Directory à ITRP
@@ -68,7 +68,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
 ###Pour configurer l’authentification unique, procédez comme suit :
 
-1.  Sur la page d’intégration d’applications **ITRP** du portail Azure Classic, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
+1.  Dans la page d’intégration d’applications **ITRP** du portail Azure Classic, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-itrp-tutorial/IC771709.png "Configurer l’authentification unique")
 
@@ -101,13 +101,13 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
     ![Authentification unique](./media/active-directory-saas-itrp-tutorial/IC775573.png "Authentification unique")
 
     1.  Cliquez sur **Enable**.
-    2.  Dans la page **Configurer l’authentification unique sur ITRP** du portail Azure Classic, copiez la valeur **URL de déconnexion distante** et collez-la dans la zone de texte **Remote Logout URL**.
-    3.  Dans la page **Configurer l’authentification unique sur ITRP** du portail Azure Classic, copiez la valeur **URL d’authentification unique** et collez-la dans la zone de texte **SAML SSO URL**.
+    2.  Dans la page de boîte de dialogue **Configurer l’authentification unique sur ITRP** du portail Azure Classic, copiez la valeur **URL de déconnexion distante**, puis collez-la dans la zone de texte **URL de déconnexion distante**.
+    3.  Dans la page de boîte de dialogue **Configurer l’authentification unique sur ITRP** du portail Azure Classic, copiez la valeur **URL SSO SAML**, puis collez-la dans la zone de texte **URL SSO SAML**.
     4.  Copiez la valeur **Empreinte** du certificat exporté, puis collez-la dans la zone de texte **Certificate Fingerprint**.
         
 		>[AZURE.TIP]Pour plus d’informations, consultez [Comment récupérer la valeur d’empreinte numérique d’un certificat](http://youtu.be/YKQF266SAxI).
 
-    5.  Cliquez sur **Enregistrer**.
+    5.  Cliquez sur **Save**.
 
 9.  Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
 
@@ -149,7 +149,7 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
 1.  Dans le portail Azure AD, créez un compte de test.
 
-2.  Dans la page d’intégration d’application **ITRP**, cliquez sur **Affecter des utilisateurs**.
+2.  Dans la page d’intégration d’applications **ITRP**, cliquez sur **Affecter des utilisateurs**.
 
     ![Affecter des utilisateurs](./media/active-directory-saas-itrp-tutorial/IC775588.png "Affecter des utilisateurs")
 
@@ -157,6 +157,6 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
     ![Oui](./media/active-directory-saas-itrp-tutorial/IC767830.png "Oui")
   
-Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
+Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d'informations sur le panneau d'accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0907_2016-->

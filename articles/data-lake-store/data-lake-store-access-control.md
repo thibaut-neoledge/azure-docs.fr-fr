@@ -4,7 +4,7 @@
    services="data-lake-store"
    documentationCenter=""
    authors="nitinme"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"/>
 
 <tags
@@ -224,7 +224,9 @@ Dans un système HDFS, l’umask est généralement une option de configuration 
 
 | Groupe d'utilisateurs | Paramètre | Effet sur l’ACL d’accès du nouvel élément enfant |
 |------------ |---------|---------------------------------------|
-| Utilisateur propriétaire | --- | Aucun effet | | Groupe propriétaire | --- | Aucun effet | | Autres | RWX | Supprimer Lecture + Écriture + Exécution |
+| Utilisateur propriétaire | --- | Aucun effet |
+| Groupe propriétaire | --- | Aucun effet |
+| Autres | RWX | Supprimer Lecture + Écriture + Exécution |
 
 L’illustration suivante représente ce umask en action. L’effet immédiat est la suppression des autorisations **Lecture + Écriture + Exécution** pour les **autres** utilisateurs. Dans la mesure où l’umask n’a pas spécifié de bits pour l’**utilisateur propriétaire** et le **groupe propriétaire**, ces autorisations ne sont pas modifiées.
 
@@ -304,4 +306,4 @@ Non.
 
 * [Prise en main d'Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

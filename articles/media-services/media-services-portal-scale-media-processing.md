@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/29/2016"
+	ms.date="09/01/2016"
 	ms.author="juliako"/>
 
 # Modification du type d’unité réservée
@@ -27,7 +27,7 @@
 
 ## Vue d'ensemble
 
-Pour obtenir plus d’informations sur la mise à l’échelle du traitement multimédia, consultez cette rubrique de [présentation](media-services-scale-media-processing-overview.md).
+>[AZURE.IMPORTANT] Pour obtenir plus d’informations sur la mise à l’échelle du traitement multimédia, consultez la rubrique de [présentation](media-services-scale-media-processing-overview.md).
 
 ## Mise à l’échelle du traitement multimédia
 
@@ -57,4 +57,4 @@ Consultez les parcours d’apprentissage de Media Services.
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

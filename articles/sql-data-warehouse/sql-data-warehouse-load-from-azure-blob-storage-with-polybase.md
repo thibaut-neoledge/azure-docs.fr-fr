@@ -3,7 +3,7 @@
    description="Apprenez à utiliser PolyBase pour charger des données de stockage d’objets blob Azure dans SQL Data Warehouse. Chargez quelques tables à partir de données publiques dans le schéma d’entrepôt de données Contoso Retail."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="jrowlandjones"
+   authors="ckarst"
    manager="barbkess"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="08/25/2016"
-   ms.author="jrj;barbkess;sonyama"/>
+   ms.author="cakarst;barbkess;sonyama"/>
 
 
 # Charger les données de stockage d’objets blob Azure dans SQL Data Warehouse (PolyBase)
@@ -390,4 +390,4 @@ Pour charger l’ensemble des données de l’entrepôt de données Contoso Reta
 [Microsoft Download Center]: http://www.microsoft.com/download/details.aspx?id=36433
 [Load the full Contoso Retail Data Warehouse]: https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/contoso-data-warehouse/readme.md
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

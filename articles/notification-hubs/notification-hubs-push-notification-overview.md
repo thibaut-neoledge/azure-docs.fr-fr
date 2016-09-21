@@ -175,4 +175,4 @@ Les références d'API managées .NET pertinentes pour les notifications Push se
   [portail Azure]: https://portal.azure.com
   [cette page]: (http://msdn.microsoft.com/library/azure/dn530749.aspx)
 
-<!---HONumber=AcomDC_0907_2016-->
+<!----HONumber=AcomDC_0907_2016-->

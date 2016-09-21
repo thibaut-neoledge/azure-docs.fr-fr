@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="web" 
-	ms.date="08/31/2016" 
+	ms.date="09/01/2016" 
 	ms.author="cephalin"/>
 
 # Créer une application Azure cœur de métier avec authentification Azure Active Directory #
@@ -29,6 +29,7 @@ Vous allez créer une application CRUD (Create-Read-Update-Delete) métier simpl
 
 - Authentification des utilisateurs à l’aide d’Azure Active Directory
 - Interrogation des utilisateurs et des groupes de répertoires à l’aide de l’[API Graph Azure Active Directory](http://msdn.microsoft.com/library/azure/hh974476.aspx)
+- Utilisation du modèle ASP.NET MVC *Aucune authentification*
 
 Si vous avez besoin de contrôle d’accès en fonction du rôle (RBAC) pour votre application cœur de métier dans Azure, consultez l’[étape suivante](#next).
 
@@ -142,19 +143,11 @@ Vous devez disposer des éléments suivants pour suivre ce didacticiel :
 
 	![](./media/web-sites-dotnet-lob-application-azure-ad/14-edit-parameters.png)
 
-14. À présent, modifiez ~\\Controllers\\HomeController.cs de manière à utiliser la méthode d’action `Index()` suivante pour vérifier que vous disposez du jeton d’autorisation pour accéder à l’API Graph Azure Active Directory :
-	<pre class="prettyprint">
-	public ActionResult Index()
-	{
-		return <mark>Content(Request.Headers["X-MS-TOKEN-AAD-ACCESS-TOKEN"]);</mark>
-	}
-	</pre>
+14. Maintenant, pour vérifier si vous disposez du jeton d’autorisation permettant d’accéder à l’API Graph Azure Active Directory, accédez à **https://&lt;*appname*>.azurewebsites.net/.auth/me** dans votre navigateur. Si vous avez configuré tous les éléments correctement, vous devez voir la propriété `access_token` dans la réponse JSON.
 
-15. Publiez vos modifications en cliquant à l’aide du bouton droit sur votre projet et en cliquant sur **Publier**. Cliquez sur **Publier** à nouveau dans la boîte de dialogue.
+	Le chemin d’accès de l’URL `~/.auth/me` est géré par l’authentification/autorisation App Service, afin de vous donner toutes les informations relatives à votre session authentifiée. Pour plus d’informations, consultez la page [Authentification et autorisation dans Azure App Service](../app-service/app-service-authentication-overview.md).
 
-	![](./media/web-sites-dotnet-lob-application-azure-ad/15-publish-token-code.png)
-
-	Si la page d’accueil de votre application affiche maintenant un jeton d’accès, votre application peut accéder à l’API Graph Azure Active Directory. N’hésitez pas à annuler les modifications apportées à ~\\Controllers\\HomeController.cs.
+	>[AZURE.NOTE] Le `access_token` a un délai d’expiration. Toutefois, l’authentification/autorisation App Service fournit des fonctionnalités d’actualisation du jeton grâce à `~/.auth/refresh`. Pour plus d’informations sur son utilisation, consultez la page [App Service Token Store](https://cgillum.tech/2016/03/07/app-service-token-store/) (Boutique de jetons App Service).
 
 Ensuite, vous ferez quelque chose d’utile avec les données d’annuaire.
 
@@ -194,29 +187,6 @@ Nous allons maintenant créer un outil de suivi simple des éléments de travail
 10.	Sélectionnez le modèle que vous avez créé, puis cliquez sur **+**, puis sur **Ajouter** pour ajouter un contexte de données, puis cliquez sur **Ajouter**.
 
 	![](./media/web-sites-dotnet-lob-application-azure-ad/16-add-scaffolded-controller.png)
-
-9.	Ouvrez ~ \\Controllers\\WorkItemsController.cs.
-
-13.	Au début des méthodes `Create()` et `Edit(int? id)`, ajoutez le code suivant pour rendre certaines variables disponibles ultérieurement pour votre code JavaScript. `Ctrl`+`.` sur chaque erreur de résolution d’affectation de noms pour résoudre le problème.
-
-		ViewData["token"] = Request.Headers["X-MS-TOKEN-AAD-ACCESS-TOKEN"];
-		ViewData["tenant"] =
-			ClaimsPrincipal.Current.Claims
-			.Where(c => c.Type == "http://schemas.microsoft.com/identity/claims/tenantid")
-			.Select(c => c.Value).SingleOrDefault();
-
-	> [AZURE.NOTE] Vous avez peut-être remarqué la décoration <code>[ValidateAntiForgeryToken]</code> sur certaines des actions. En raison du comportement décrit par [Brock Allen](https://twitter.com/BrockLAllen) dans son article intitulé [MVC 4, AntiForgeryToken and Claims](http://brockallen.com/2012/07/08/mvc-4-antiforgerytoken-and-claims/) (en anglais), votre HTTP POST risque d’échouer lors de la validation du jeton anti-contrefaçon pour les motifs suivants :
-
-	> - Azure Active Directory n’envoie pas le http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider, qui est requis par défaut par le jeton anti-contrefaçon.
-	> - S’il y a synchronisation d’annuaire entre Azure Active Directory et AD FS, l’approbation AD FS par défaut n’envoie pas la revendication http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider, même si vous pouvez configurer manuellement l’envoi de cette revendication par les services AD FS.
-
-	> Vous vous chargerez de ce problème à l’étape suivante.
-
-12.  Dans ~ \\Global.asax, ajoutez la ligne de code suivante à la méthode `Application_Start()`. `Ctrl`+`.` sur chaque erreur de résolution d’affectation de noms pour résoudre le problème.
-
-		AntiForgeryConfig.UniqueClaimTypeIdentifier = ClaimTypes.NameIdentifier;
-	
-	`ClaimTypes.NameIdentifies` spécifie la revendication `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier`, qu’Azure Active Directory ne fournit pas.
 
 14.	Dans ~\\Views\\WorkItems\\Create.cshtml (élément généré automatiquement), recherchez la méthode d’assistance `Html.BeginForm` et modifiez-la comme suit :
 	<pre class="prettyprint">
@@ -287,8 +257,11 @@ Nous allons maintenant créer un outil de suivi simple des éléments de travail
 			var maxResultsPerPage = 14;
 			var input = document.getElementById("AssignedToName");
 	
-			var token = "@ViewData["token"]";
-			var tenant = "@ViewData["tenant"]";
+			// Jeton d’accès de l’en-tête de requête et ID de client de l’identité de revendication
+			var token = "@Request.Headers["X-MS-TOKEN-AAD-ACCESS-TOKEN"]";
+			var tenant ="@(System.Security.Claims.ClaimsPrincipal.Current.Claims
+							.Where(c => c.Type == "http://schemas.microsoft.com/identity/claims/tenantid")
+							.Select(c => c.Value).SingleOrDefault())";
 	
 			var picker = new AadPicker(maxResultsPerPage, input, token, tenant);
 	
@@ -303,7 +276,20 @@ Nous allons maintenant créer un outil de suivi simple des éléments de travail
 	</pre>
 	
 	Notez que `token` et `tenant` sont utilisés par l’objet `AadPicker` pour effectuer des appels API Graph Azure Active Directory. Vous allez ajouter `AadPicker` ultérieurement.
-
+	
+	>[AZURE.NOTE] Vous pouvez également obtenir `token` et `tenant` à partir du client avec `~/.auth/me`, mais ce serait un appel de serveur supplémentaire. Par exemple :
+	>  
+    >     $.ajax({
+    >         dataType: "json",
+    >         url: "/.auth/me",
+    >         success: function (data) {
+    >             var token = data[0].access_token;
+    >             var tenant = data[0].user_claims
+    >                             .find(c => c.typ === 'http://schemas.microsoft.com/identity/claims/tenantid')
+    >                             .val;
+    >         }
+    >     });
+	
 15. Apportez les mêmes modifications avec ~\\Views\\WorkItems\\Edit.cshtml.
 
 15. L’objet `AadPicker` est défini dans un script que vous souhaitez ajouter à votre projet. Cliquez avec le bouton droit sur le dossier ~\\Scripts, pointez sur **Ajouter**, et cliquez sur **Fichier JavaScript**. Tapez `AadPickerLibrary` pour le nom de fichier et cliquez sur **OK**.
@@ -350,6 +336,17 @@ Nous allons maintenant créer un outil de suivi simple des éléments de travail
 
 	Il existe d’autres manières de gérer de manière performante les fichiers JavaScript et CSS dans votre application. Toutefois, par souci de simplicité vous allez juste procéder à une superposition sur les offres groupées chargées avec chaque vue.
 
+12. Enfin, dans ~ \\Global.asax, ajoutez la ligne de code suivante à la méthode `Application_Start()`. `Ctrl`+`.` sur chaque erreur de résolution d’affectation de noms pour résoudre le problème.
+
+		AntiForgeryConfig.UniqueClaimTypeIdentifier = ClaimTypes.NameIdentifier;
+	
+	> [AZURE.NOTE] Vous avez besoin de cette ligne de code, car le modèle MVC par défaut utilise la décoration <code>[ValidateAntiForgeryToken]</code> sur certaines des actions. En raison du comportement décrit par [Brock Allen](https://twitter.com/BrockLAllen) dans son article intitulé [MVC 4, AntiForgeryToken and Claims](http://brockallen.com/2012/07/08/mvc-4-antiforgerytoken-and-claims/) (en anglais), votre HTTP POST risque d’échouer lors de la validation du jeton anti-contrefaçon pour les motifs suivants :
+
+	> - Azure Active Directory n’envoie pas le http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider, qui est requis par défaut par le jeton anti-contrefaçon.
+	> - S’il y a synchronisation d’annuaire entre Azure Active Directory et AD FS, l’approbation AD FS par défaut n’envoie pas la revendication http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider, même si vous pouvez configurer manuellement l’envoi de cette revendication par les services AD FS.
+
+	> `ClaimTypes.NameIdentifies` spécifie la revendication `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier`, qu’Azure Active Directory ne fournit pas.
+
 20. Maintenant, publiez vos modifications. Cliquez avec le bouton droit sur votre projet et cliquez sur **Publier**.
 
 21. Cliquez sur **Paramètres**, assurez-vous qu’il y a une chaîne de connexion à votre base de données SQL, sélectionnez **Mettre à jour la base de données** pour apporter les modifications de schéma pour votre modèle, puis cliquez sur **Publier**.
@@ -385,4 +382,4 @@ Si votre application cœur de métier doit accéder à des données locales, con
 
 [Protect the Application with SSL and the Authorize Attribute]: web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md#protect-the-application-with-ssl-and-the-authorize-attribute
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

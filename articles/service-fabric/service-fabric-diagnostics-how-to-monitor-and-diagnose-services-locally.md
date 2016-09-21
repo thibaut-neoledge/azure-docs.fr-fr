@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="06/20/2016"
+   ms.date="09/06/2016"
    ms.author="toddabel"/>
 
 
@@ -49,8 +49,8 @@ Pour les projets créés à partir des **modèles de service** (sans état ou av
 
 Pour les projets créés à partir des **modèles d'acteur** (sans état ou avec état) :
 
-1. Ouvrez le fichier **« Nom\_projet ».cs** où *Nom\_projet* est le nom que vous avez choisi pour votre projet Visual Studio.  
-2. Recherchez le code `ActorEventSource.Current.ActorMessage(this, "Doing Work");` dans la méthode *DoWorkAsync*. Il s'agit d'un exemple de suivi écrit ETW personnalisé à partir du code d'application.  
+1. Ouvrez le fichier **« Nom\_projet ».cs** où *Nom\_projet* est le nom que vous avez choisi pour votre projet Visual Studio.
+2. Recherchez le code `ActorEventSource.Current.ActorMessage(this, "Doing Work");` dans la méthode *DoWorkAsync*. Il s'agit d'un exemple de suivi écrit ETW personnalisé à partir du code d'application.
 3. Dans le fichier **ActorEventSource.cs**, vous trouverez une surcharge pour la méthode `ActorEventSource.ActorMessage` devant être utilisée pour les événements de haute fréquence pour une question de performances.
 
 Après avoir ajouté le suivi ETW personnalisé à votre code de service, vous pouvez générer, déployer et réexécuter l’application pour afficher vos événements dans la visionneuse d’événements de diagnostics. Si vous déboguez l’application en appuyant sur **F5**, la visionneuse d’événements de diagnostics s’ouvre automatiquement.
@@ -60,4 +60,4 @@ Le code de traçage que vous avez ajouté à votre application ci-dessus pour le
 * [Collecte des journaux avec Azure Diagnostics](service-fabric-diagnostics-how-to-setup-wad.md)
 * [Utilisation d’ElasticSearch en tant que magasin de trace d’applications Service Fabric](service-fabric-diagnostic-how-to-use-elasticsearch.md)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0907_2016-->

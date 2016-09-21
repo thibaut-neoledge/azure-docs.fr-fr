@@ -14,12 +14,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/09/2016"
+   ms.date="09/06/2016"
    ms.author="gwallace" />
 
 # Créer une passerelle Application Gateway à l’aide du portail
 
-La passerelle Azure Application Gateway est un équilibreur de charge de couche 7. Elle assure l’exécution des requêtes HTTP de basculement et de routage des performances entre serveurs locaux ou dans le cloud. Une passerelle Application Gateway offre les fonctionnalités de livraison d’applications suivantes : équilibrage de charge HTTP, affinité de session basée sur les cookies et déchargement SSL (Secure Sockets Layer), sondes d’intégrité personnalisées et prise en charge de plusieurs sites.
+La passerelle Azure Application Gateway est un équilibreur de charge de couche 7. Elle assure l’exécution des requêtes HTTP de basculement et de routage des performances entre serveurs locaux ou dans le cloud. L’application offre de nombreuses fonctionnalités Application Delivery Controller (ADC), notamment : équilibrage de charge HTTP, affinité de session basée sur les cookies, déchargement SSL (Secure Sockets Layer), sondes d’intégrité personnalisées, prise en charge de plusieurs sites, etc. Pour obtenir une liste complète des fonctionnalités prises en charge, consultez [Vue d’ensemble d’Application Gateway](application-gateway-introduction.md).
 
 > [AZURE.SELECTOR]
 - [Portail Azure](application-gateway-create-gateway-portal.md)
@@ -27,10 +27,6 @@ La passerelle Azure Application Gateway est un équilibreur de charge de couche�
 - [Azure Classic PowerShell](application-gateway-create-gateway.md)
 - [Modèle Azure Resource Manager](application-gateway-create-gateway-arm-template.md)
 - [Interface de ligne de commande Azure](application-gateway-create-gateway-cli.md)
-
-<BR>
-
-
 
 ## Scénario
 
@@ -75,7 +71,6 @@ Les informations nécessaires pour les paramètres de base sont les suivantes :
 
 >[AZURE.NOTE] Vous pouvez choisir un nombre d’instances de 1 à des fins de test. Il est important de savoir que n’importe quel nombre d’instances inférieur à 2 n’est pas couvert par le contrat SLA et n’est donc pas recommandé. Les petites passerelles doivent être utilisées pour les tests de développement et non à des fins de production.
 
-
 ### Étape 3
 
 Une fois les paramètres de base définis, l’étape suivante consiste à définir le réseau virtuel à utiliser. Le réseau virtuel héberge l’application pour laquelle la passerelle Application Gateway effectue l’équilibrage de charge.
@@ -88,7 +83,7 @@ Cliquez sur **Choisir un réseau virtuel** pour configurer le réseau virtuel.
 
 Dans le panneau *Choisir un réseau virtuel*, cliquez sur **Créer nouveau**
 
-*Bien que cela ne soit pas expliqué dans ce scénario, un réseau virtuel peut être sélectionné à ce stade*
+Bien que cela ne soit pas expliqué dans ce scénario, un réseau virtuel peut être sélectionné à ce stade. Si un réseau virtuel existant est utilisé, il est important de savoir que le réseau virtuel a besoin d’un sous-réseau vide ou d’un sous-réseau contenant uniquement des ressources Application Gateway pour pouvoir être utilisé.
 
 ![panneau Choisir un réseau virtuel][4]
 
@@ -147,7 +142,7 @@ Ces étapes permettent de créer une passerelle Application Gateway de base avec
 
 Apprenez à créer des sondes d’intégrité personnalisées en vous rendant sur [Créer une sonde d’intégrité personnalisée](application-gateway-create-probe-portal.md)
 
-Découvrez comment configurer le déchargement SSL et éviter à vos serveurs web le déchiffrement SSL coûteux en vous rendant sur [Configurer le déchargement SSL](application-gateway-ssl-arm.md)
+Découvrez comment configurer le déchargement SSL et éviter à vos serveurs web le déchiffrement SSL coûteux en vous rendant sur [Configurer le déchargement SSL](application-gateway-ssl-portal.md)
 
 <!--Image references-->
 [1]: ./media/application-gateway-create-gateway-portal/figure1.png
@@ -162,4 +157,4 @@ Découvrez comment configurer le déchargement SSL et éviter à vos serveurs we
 [10]: ./media/application-gateway-create-gateway-portal/figure10.png
 [scenario]: ./media/application-gateway-create-gateway-portal/scenario.png
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

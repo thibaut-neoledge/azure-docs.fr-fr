@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="cache-redis"
     ms.workload="tbd"
-    ms.date="06/09/2016"
+    ms.date="09/07/2016"
     ms.author="sdanie" />
 
 # Migrer un Service de cache géré vers le Cache Redis Azure
@@ -33,7 +33,7 @@ Vous devez exécuter les étapes suivantes pour migrer une application du Servic
 	-	Connexion au cache à l’aide de la classe ConnectionMultiplexer
 	-	Accès aux types de données primitifs dans le cache
 	-	Utilisation des objets .NET dans le cache
--	Migration de l’état de session ASP.NET et des caches de sortie vers le Cache Redis Azure 
+-	Migration de l’état de session ASP.NET et des caches de sortie vers le Cache Redis Azure
 
 ## Mappage des fonctionnalités du Service de cache géré au Cache Redis Azure
 
@@ -56,7 +56,7 @@ Bien que similaires, le Service de cache géré Azure et le Cache Redis Azure im
 Cache Redis Microsoft Azure est disponible dans les niveaux suivants :
 
 -	**De base**, avec un seul nœud. Plusieurs tailles jusqu'à 53 Go.
--	**Standard** : avec deux nœuds, principal et réplica. Plusieurs tailles jusqu'à 53 Go. Un contrat SLA de 99,9 %.
+-	**Standard** : avec deux nœuds, principal et réplica. Plusieurs tailles jusqu'à 53 Go. Un contrat SLA de 99,9 %.
 -	**Premium** - Deux nœuds (principal / réplica) contenant jusqu’à 10 partitions. Plusieurs tailles de 6 Go à 530 Go (nous contacter pour en savoir plus). Toutes les fonctionnalités du niveau Standard et d’autres, y compris la prise en charge du [cluster Redis](cache-how-to-premium-clustering.md), la [persistance Redis](cache-how-to-premium-persistence.md) et le [réseau virtuel Azure](cache-how-to-premium-vnet.md). Un contrat SLA de 99,9 %.
 
 Chaque option diffère en termes de fonctionnalités et de tarification. Les fonctionnalités sont décrites plus loin dans ce guide ; pour plus d'informations sur la tarification, consultez la page [Tarification - Cache](https://azure.microsoft.com/pricing/details/cache/).
@@ -179,4 +179,4 @@ Le Cache Redis Azure dispose de fournisseurs pour l’état de session ASP.NET e
 
 Explorez la [documentation du Cache Redis Azure](https://azure.microsoft.com/documentation/services/cache/) pour accéder à des didacticiels, des exemples, des vidéos et de nombreuses autres ressources.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0907_2016-->

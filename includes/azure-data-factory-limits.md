@@ -30,4 +30,4 @@ Délai d’expiration des nouvelles tentatives | 1 seconde | 1 seconde
 
 Azure Resource Manager comprend des limites pour les appels d’API. Vous pouvez effectuer des appels d’API à une fréquence comprise dans les [limites d’API d’Azure Resource Manager](../azure-subscription-service-limits.md#resource-group-limits).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0907_2016-->

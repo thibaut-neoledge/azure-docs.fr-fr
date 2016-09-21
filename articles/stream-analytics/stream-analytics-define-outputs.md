@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Sorties de transformation de données : options de stockage et d’analyse | Microsoft Azure"
-	description="Découvrez comment cibler les sorties de transformations de données Stream Analytics vers des options de stockage de données. Utilisez également Power BI pour les résultats d’analyse."
+	pageTitle="Sorties Stream Analytics : options de stockage, d’analyse | Microsoft Azure"
+	description="Découvrez les options de sorties de données Stream Analytics, notamment Power BI pour les résultats de l’analyse."
 	keywords="transformation de données, résultats d’analyse, options de stockage de données"
 	services="stream-analytics,documentdb,sql-database,event-hubs,service-bus,storage"
 	documentationCenter="" 
@@ -14,18 +14,28 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="07/27/2016"
+	ms.date="08/29/2016"
 	ms.author="jeffstok"/>
 
-# Cibler les sorties de transformations de données Stream Analytics vers des outils d’analyse et des options de stockage des données
+# Sorties Stream Analytics : options de stockage, d’analyse
 
-Quand vous créez une tâche Stream Analytics, songez à la façon dont la sortie de la transformation de données sera consommée. Comment allez-vous examiner les résultats de la tâche Stream Analytics ? Quels outils allez-vous utiliser pour afficher les résultats de l’analyse de données ? L’option de stockage des données est-elle une condition requise ?
+Quand vous créez une tâche Stream Analytics, songez à la façon dont les données obtenues seront consommées. Comment allez-vous examiner les résultats de la tâche Stream Analytics et où allez-vous la stocker ?
 
 Pour permettre un éventail de modèles d’application, Azure Stream Analytics propose différentes options pour stocker et afficher les résultats de l’analyse. Cela vous permet d’afficher plus facilement la sortie des tâches et de rendre plus flexibles leur consommation et leur stockage pour l’entreposage de données et d’autres utilisations. Toute sortie configurée dans la tâche doit exister avant le démarrage de la tâche et avant le début du transit des événements. Par exemple, si vous utilisez le stockage d’objets blob en tant que sortie, la tâche ne crée pas de compte de stockage automatiquement. Celui-ci doit être créé par l’utilisateur avant que la tâche ASA démarre.
 
 ## Azure Data Lake Store
 
 Stream Analytics prend en charge [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/). Ce type de stockage vous permet de stocker des données de toute taille, de tout type et de toute vitesse d’ingestion en vue d’une analyse opérationnelle et exploratoire. À l’heure actuelle, la création et la configuration des sorties Data Lake Store sont prises en charge uniquement dans le portail Azure Classic. De plus, Stream Analytics doit être autorisé à accéder à Data Lake Store. Des informations détaillées sur les autorisations et l’inscription à la version préliminaire de Data Lake Store (si nécessaire) sont fournies dans [cet article sur les sorties Data Lake](stream-analytics-data-lake-output.md).
+
+### Autoriser un Azure Data Lake Store
+
+Lorsque Data Lake Storage est sélectionné en tant que sortie dans le portail de gestion Azure, vous êtes invité à autoriser une connexion à un Data Lake Store existant.
+
+![Autoriser Data Lake Store](./media/stream-analytics-define-outputs/06-stream-analytics-define-outputs.png)
+
+Remplissez ensuite les propriétés de la sortie Data Lake Store comme indiqué ci-dessous :
+
+![Autoriser Data Lake Store](./media/stream-analytics-define-outputs/07-stream-analytics-define-outputs.png)
 
 Le tableau ci-dessous répertorie les noms et les descriptions des propriétés nécessaires à la création d’une sortie Data Lake Store.
 
@@ -40,8 +50,8 @@ Le tableau ci-dessous répertorie les noms et les descriptions des propriétés 
 <td>Nom convivial utilisé dans les requêtes pour diriger la sortie de requête vers Data Lake Store.</td>
 </tr>
 <tr>
-<td>Compte Data Lake Store</td>
-<td>Nom du compte de stockage où vous envoyez votre sortie. Vous voyez la liste déroulante des comptes Data Lake Store auxquels ont accès les utilisateurs connectés au portail.</td>
+<td>Nom du compte</td>
+<td>Nom du compte de stockage Data Lake Storage où vous envoyez votre sortie. Vous voyez la liste déroulante des comptes Data Lake Store auxquels ont accès les utilisateurs connectés au portail.</td>
 </tr>
 <tr>
 <td>Modèle de préfixe de chemin [<I>facultatif</I>]</td>
@@ -73,6 +83,13 @@ Le tableau ci-dessous répertorie les noms et les descriptions des propriétés 
 </tr>
 </tbody>
 </table>
+
+### Renouveler une autorisation Data Lake Store
+
+Vous devrez authentifier de nouveau votre compte Data Lake Store si son mot de passe a été modifié depuis la création ou la dernière authentification de votre tâche.
+
+![Autoriser Data Lake Store](./media/stream-analytics-define-outputs/08-stream-analytics-define-outputs.png)
+
 
 ## Base de données SQL
 
@@ -190,9 +207,9 @@ Une fois le compte Power BI authentifié, vous pouvez configurer les propriét�
 | Nom de la propriété | Description |
 |---------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Alias de sortie | Nom convivial utilisé dans les requêtes pour diriger la sortie de requête vers cette sortie Power BI. |
+| Espace de travail de groupe | Pour permettre le partage de données avec d’autres utilisateurs de Power BI, vous pouvez sélectionner des groupes à l’intérieur de votre compte Power BI ou choisir « Mon espace de travail » si vous ne souhaitez pas écrire dans un groupe. La mise à jour d’un groupe existant nécessite le renouvellement de l’authentification Power BI. | 
 | Nom du jeu de données | Fournissez un nom de jeu de données qui doit être utilisé pour la sortie Power BI |
 | Nom de la table | Fournissez un nom de table sous le jeu de données de la sortie Power BI. Actuellement, la sortie Power BI des tâches Stream Analytics peut avoir une table uniquement dans un jeu de données. |
-| Nom du groupe | Pour activer le partage de données avec d’autres utilisateurs de Power BI, écrivez des données dans les groupes. Vous pouvez sélectionner des groupes à l’intérieur de votre compte Power BI ou choisir « Mon espace de travail » si vous ne souhaitez pas écrire dans un groupe. La mise à jour d’un groupe existant nécessite le renouvellement de l’authentification Power BI. |
 
 Pour une vue d'ensemble de la configuration d'un tableau de bord et d’une sortie Power BI, consultez l’article [Azure Stream Analytics & Power BI](stream-analytics-power-bi-dashboard.md).
 
@@ -242,7 +259,7 @@ La table ci-dessous répertorie les noms de propriétés et leur description pou
 | Délimiteur | Applicable uniquement pour la sérialisation CSV. Stream Analytics prend en charge un certain nombre de délimiteurs communs pour sérialiser des données dans un format CSV. Valeurs prises en charge : virgule, point-virgule, espace, tabulation et barre verticale. |
 | Format | Applicable uniquement pour le type JSON. « Séparé par une ligne » spécifie que la sortie sera mise en forme avec chaque objet JSON séparé par une nouvelle ligne. « Tableau » spécifie que la sortie sera mise en forme en tant que tableau d’objets JSON. |
 
-## Rubriques Service Bus
+## Rubriques de Service Bus
 
 Les files d'attente Service Bus offrent une communication de type un-à-un entre l'expéditeur et le destinataire, alors que les [rubriques Service Bus](https://msdn.microsoft.com/library/azure/hh367516.aspx) offrent une communication de type un-à-plusieurs.
 
@@ -318,4 +335,4 @@ Stream Analytics, un service géré d’analyse de diffusion en continu des donn
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0907_2016-->
