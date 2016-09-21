@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Didacticiel Application Insights | Microsoft Azure" 
+	pageTitle="Didacticiel Application Insights | Microsoft Azure" 
 	description="Suivez l’utilisation et les performances de votre application web en ligne. Détection, tri et diagnostic des problèmes Surveillez et améliorez le succès auprès de vos utilisateurs en continu." 
 	services="application-insights" 
     documentationCenter=""
@@ -17,13 +17,13 @@
  
 # Application Insights - Présentation
 
-[Visual Studio Application Insights](app-insights-get-started.md) est un service d’analyse extensible qui surveille votre application web en direct. Il vous permet de détecter et diagnostiquer les problèmes de performances et de comprendre ce que font les utilisateurs avec votre application. Il est conçu pour les développeurs, pour vous aider à améliorer en permanence les performances et la convivialité. Il fonctionne avec des applications sur un large éventail de plates-formes, notamment .NET, Node.js et J2EE, hébergées sur site ou dans le cloud.
+Visual Studio Application Insights est un service d’analyse extensible qui surveille votre application web en direct. Il vous permet de détecter et diagnostiquer les problèmes de performances et de comprendre ce que font les utilisateurs avec votre application. Il est conçu pour les développeurs, pour vous aider à améliorer en permanence les performances et la convivialité. Il fonctionne avec des applications sur un large éventail de plates-formes, notamment .NET, Node.js et J2EE, hébergées sur site ou dans le cloud.
 
 ![Créez un graphique des statistiques d'activité de l’utilisateur ou explorez des événements spécifiques.](./media/app-insights-overview/00-sample.png)
 
 [Consultez l’animation de présentation](https://www.youtube.com/watch?v=fX2NtGrh-Y0).
 
-## Comment cela fonctionne-t-il ?
+## Comment cela fonctionne-t-il ?
 
 Vous installez un petit package d’instrumentation dans votre application puis configurez une ressource Application Insights dans le portail Microsoft Azure. L’instrumentation surveille votre application et envoie les données de télémétrie au portail. Le portail vous montre des graphiques statistiques et fournit de puissants outils de recherche pour vous aider à diagnostiquer les problèmes.
 
@@ -39,7 +39,7 @@ L'impact sur les performances de votre application est très faible. Le suivi de
 
 ## Fonction
 
-Application Insights est destiné à l’équipe de développement et permet de comprendre les performances et l’utilisation de votre application. Elle fournit :
+Application Insights est destiné à l’équipe de développement et permet de comprendre les performances et l’utilisation de votre application. Elle fournit :
 
 des types de télémétrie :
 
@@ -75,12 +75,12 @@ Il existe plusieurs façons de démarrer avec Application Insights. Commencez pa
  * [**Application web ou machine virtuelle Azure**](app-insights-monitor-performance-live-website-now.md#if-your-app-runs-as-an-azure-web-app)
  * [**J2EE**](app-insights-java-live.md)
 * **Au moment du développement : ajoutez Application Insights à votre code.** Vous permet d’écrire des données de télémétrie personnalisées et d’instrumenter le serveur principal et les applications de bureau.
- * [Visual Studio](app-insights-asp-net.md) 2013 Update 2 ou version ultérieure
+ * [Visual Studio](app-insights-asp-net.md) 2013 Update 2 ou version ultérieure.
  * Java dans [Eclipse](app-insights-java-eclipse.md) ou [autres outils](app-insights-java-get-started.md)
  * [Node.JS](app-insights-nodejs.md)
  * [autres plateformes](app-insights-platforms.md)
 * **[Instrumentez vos pages web](app-insights-javascript.md)** pour l’affichage de page, AJAX et d’autres données de télémétrie côté client.
-* **[Tests de disponibilité](app-insights-monitor-web-app-availability.md)** - effectuez régulièrement un test ping sur votre site web à partir de nos serveurs.
+* **[Tests de disponibilité](app-insights-monitor-web-app-availability.md)** : effectuez régulièrement un test ping sur votre site web à partir de nos serveurs.
 
 > [AZURE.NOTE]  À ce stade, vous souhaitez peut-être simplement vous lancer et expérimenter. Mais, si vous souhaitez voir ce dont Application Insights est capable, lisez la suite...
 
@@ -88,7 +88,7 @@ Il existe plusieurs façons de démarrer avec Application Insights. Commencez pa
 
 Exécutez votre application, que ce soit en mode débogage sur votre ordinateur de développement, ou en la déployant sur un serveur, et utilisez-la pendant quelques temps. Puis, connectez-vous au [portail Azure](https://portal.azure.com).
 
-Accédez au panneau de vue d’ensemble de votre application Application Insights :
+Accédez au panneau de vue d’ensemble de votre application Application Insights :
 
 ![Le panneau Vue d’ensemble](./media/app-insights-overview/01-find.png)
 
@@ -105,16 +105,16 @@ Le graphique de dépendances est utile car il vous permet de déterminer si les 
 
 #### Personnaliser un graphique
 
-Essayez de modifier un de ces graphiques. Par exemple, si votre application web s’exécute sur une collection d’instances de serveur, vous pouvez comparer les temps de réponse sur les différentes instances de serveur :
+Essayez de modifier un de ces graphiques. Par exemple, si votre application web s’exécute sur une collection d’instances de serveur, vous pouvez comparer les temps de réponse sur les différentes instances de serveur :
 
 ![modifier le graphique](./media/app-insights-overview/05.png)
 
 1. Placez le pointeur sur le graphique puis cliquez sur Modifier.
-2. Choisissez une mesure. Plusieurs mesures peuvent être affichées sur un graphique, mais uniquement dans certaines combinaisons : vous devrez peut-être désélectionner une mesure avant de sélectionner celle que vous souhaitez.
+2. Choisissez une mesure. Plusieurs mesures peuvent être affichées sur un graphique, mais uniquement dans certaines combinaisons : vous devrez peut-être désélectionner une mesure avant de sélectionner celle que vous souhaitez.
 3. Utilisez l’option Groupé pour segmenter une mesure selon une propriété. Dans cet exemple, nous affichons des lignes distinctes pour les temps de réponse.
 
-    Notez que vous devez sélectionner une propriété valide pour la mesure ; sinon, le graphique n’affiche pas toutes les données.
-4. Sélectionnez un type de graphique. Les graphiques à aires et à barres offrent un affichage empilé adapté au type d’agrégation « Somme ».
+    Notez que vous devez sélectionner une propriété valide pour la mesure ; sinon, le graphique n’affiche pas toutes les données.
+4. Sélectionnez un type de graphique. Les graphiques à aires et à barres offrent un affichage empilé adapté au type d’agrégation « Somme ».
 
 [En savoir plus sur l’exploration des mesures](app-insights-metrics-explorer.md).
 
@@ -124,15 +124,15 @@ Pour étudier un problème, il est utile d’inspecter des instances d’événe
 
 Cliquez sur un graphique de mesures pour parcourir les données d’instance avec les filtres et l’intervalle de temps appropriés. Par exemple, faites défiler le nombre de requêtes de serveur pour afficher des rapports de requête individuels.
 
-Vous pouvez également accéder directement aux données d’instance à partir de la recherche dans la page Vue d’ensemble :
+Vous pouvez également accéder directement aux données d’instance à partir de la recherche dans la page Vue d’ensemble :
 
 ![Recherche d’instances](./media/app-insights-overview/06.png)
 
-Utilisez des filtres pour vous concentrer sur certains types d’événements et des valeurs de propriétés choisies :
+Utilisez des filtres pour vous concentrer sur certains types d’événements et des valeurs de propriétés choisies :
 
 ![Filtrer des propriétés](./media/app-insights-overview/07.png)
 
-Cliquez sur « ... » pour afficher une liste complète des propriétés, ou ouvrez d’autres événements associés à la même demande. Dans cet exemple, la requête ayant échoué comporte un état d’exception associé :
+Cliquez sur « ... » pour afficher une liste complète des propriétés, ou ouvrez d’autres événements associés à la même demande. Dans cet exemple, la requête ayant échoué comporte un état d’exception associé :
 
 ![Articles connexes et détails des propriétés](./media/app-insights-overview/08.png)
 
@@ -154,9 +154,9 @@ Les résultats peuvent être [affichés dans des tables ou divers types de graph
 
 ## Télémétrie personnalisée
 
-La télémétrie intégrée que vous obtenez en installant simplement Application Insights vous permet d’analyser les nombres, les taux de réussite et les temps de réponse à la fois pour les demandes web vers votre application et les dépendances : autrement dit, les appels depuis votre application SQL et les API REST. Vous obtenez également des traces des exception et (avec Status Monitor sur votre serveur) des compteurs de performances système. Si vous ajoutez l’extrait de code client à vos pages web, vous obtenez le nombre de pages consultées, les temps de chargement, les exceptions client et les taux de réussite et de réponse des appels AJAX.
+La télémétrie intégrée que vous obtenez en installant simplement Application Insights vous permet d’analyser les nombres, les taux de réussite et les temps de réponse à la fois pour les demandes web vers votre application et les dépendances : autrement dit, les appels depuis votre application SQL et les API REST. Vous obtenez également des traces des exception et (avec Status Monitor sur votre serveur) des compteurs de performances système. Si vous ajoutez l’extrait de code client à vos pages web, vous obtenez le nombre de pages consultées, les temps de chargement, les exceptions client et les taux de réussite et de réponse des appels AJAX.
 
-L’analyse de toutes ces données de télémétrie peut vous en apprendre beaucoup sur les performances et l’utilisation de votre application. Mais parfois cela n’est pas suffisant. Vous souhaiterez peut-être surveiller la longueur d’une file d’attente afin d’ajuster les performances ; ou compter les ventes et les segmenter par site ; ou, côté client, découvrir comment les utilisateurs cliquent sur un bouton afin d’optimiser l’expérience utilisateur.
+L’analyse de toutes ces données de télémétrie peut vous en apprendre beaucoup sur les performances et l’utilisation de votre application. Mais parfois cela n’est pas suffisant. Vous souhaiterez peut-être surveiller la longueur d’une file d’attente afin d’ajuster les performances ; ou compter les ventes et les segmenter par site ; ou, côté client, découvrir comment les utilisateurs cliquent sur un bouton afin d’optimiser l’expérience utilisateur.
 
 L’[API Application Insights](app-insights-api-custom-events-metrics.md) fournit les appels `TrackEvent(name)` et `TrackMetric(name, value)` pour vous permettre d’envoyer vos propres événements et mesures personnalisés. Il existe des appels équivalents côté client.
 
@@ -167,7 +167,7 @@ Par exemple, si votre page web est une application de jeu à une seule page, vou
     ...
     appInsights.trackEvent("LoseGame");
 
-Nous pouvons ensuite créer un graphique comptabilisant les événements personnalisés, en les segmentant par nom d’événement :
+Nous pouvons ensuite créer un graphique comptabilisant les événements personnalisés, en les segmentant par nom d’événement :
 
 ![Analyse](./media/app-insights-overview/11.png)
 
@@ -185,7 +185,7 @@ Pour surveiller l’intégralité de votre système, vous pouvez sélectionner l
 
 ![Tableaux de bord](./media/app-insights-overview/12.png)
 
-En fait, vous pouvez créer plusieurs tableaux de bord : par exemple, un tableau de bord d’équipe pour surveiller l’état général du système ; un tableau de bord de conception qui se concentre sur l’utilisation des différentes fonctionnalités ; un tableau de bord distinct pour les composants testés, et ainsi de suite.
+En fait, vous pouvez créer plusieurs tableaux de bord : par exemple, un tableau de bord d’équipe pour surveiller l’état général du système ; un tableau de bord de conception qui se concentre sur l’utilisation des différentes fonctionnalités ; un tableau de bord distinct pour les composants testés, et ainsi de suite.
 
 Comme les ressources, les tableaux de bord peuvent être partagés entre les membres de l’équipe.
 
@@ -197,7 +197,7 @@ Si vous utilisez Visual Studio pour développer votre application, vous y trouve
 
 ### Recherche de diagnostic
 
-La fenêtre de recherche présente les événements qui ont été consignés. (Si vous étiez connecté à Azure au moment de l’installation d’Application Insights, vous pouvez rechercher ces mêmes événements dans le portail.)
+La fenêtre de recherche présente les événements qui ont été consignés. (Si vous étiez connecté à Azure au moment de l’installation d’Application Insights, vous pouvez rechercher ces mêmes événements dans le portail.)
 
 ![Cliquez avec le bouton droit sur le projet et sélectionnez Application Insights, Rechercher.](./media/app-insights-visual-studio/34.png)
 
@@ -214,14 +214,14 @@ Vous pouvez également ouvrir l’onglet Éléments connexes pour aider à repé
 
 ### Concentrateur de diagnostic
 
-Le concentrateur de diagnostic (Visual Studio 2015 ou version ultérieure) affiche les données de télémétrie du serveur Application Insights au moment où elles sont générées. Il fonctionne même si vous avez choisi d’installer le SDK sans le connecter à une ressource dans le portail Azure.
+Le concentrateur de diagnostic (Visual Studio 2015 ou version ultérieure) affiche les données de télémétrie du serveur Application Insights au moment où elles sont générées. Il fonctionne même si vous avez choisi d’installer le SDK sans le connecter à une ressource dans le portail Azure.
 
 ![Ouvrez la fenêtre Outils de diagnostic et passez en revue les événements Application Insights.](./media/app-insights-visual-studio/31.png)
 
 
 ### Exceptions
 
-Si vous avez [configuré la surveillance des exceptions](app-insights-asp-net-exceptions.md), les rapports d’exception s’afficheront dans la fenêtre de recherche.
+Si vous avez [configuré l’analyse des exceptions](app-insights-asp-net-exceptions.md), les rapports d’exception s’afficheront dans la fenêtre de recherche.
 
 Cliquez sur une exception pour obtenir une trace de pile. Si le code de l’application est ouvert dans Visual Studio, vous pouvez utiliser la trace de pile pour accéder à la ligne de code recherchée.
 
@@ -308,10 +308,10 @@ Les [tests de disponibilité web](app-insights-monitor-web-app-availability.md) 
 
 ## Exportation
 
-Il existe plusieurs façons d’exporter vos données de télémétrie à partir du portail Application Insights :
+Il existe plusieurs façons d’exporter vos données de télémétrie à partir du portail Application Insights :
 
 * L’[exportation continue](app-insights-export-telemetry.md) est idéale si vous souhaitez conserver la majeure partie de vos données de télémétrie plus longtemps que la période de rétention standard.
-* Le [bouton Exporter](app-insights-metrics-explorer.md#export-to-excel) en haut d’un panneau de métriques ou de recherche permet de transférer des tables et des graphiques dans une feuille de calcul Excel.
+* [Le bouton Exporter](app-insights-metrics-explorer.md#export-to-excel) en haut d’un panneau de métriques ou de recherche permet de transférer des tables et des graphiques dans une feuille de calcul Excel.
 * [Analytics](app-insights-analytics.md) fournit un langage de requête puissant pour la télémétrie et peut également exporter les résultats.
 * L’API REST d’accès aux données peut être utilisée pour rechercher et extraire des données. Elle peut exécuter des requêtes Analytics.
 * Si vous cherchez à [explorer vos données dans Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx), vous pouvez le faire sans utiliser l’exportation continue.
@@ -320,22 +320,22 @@ Il existe plusieurs façons d’exporter vos données de télémétrie à partir
  
 ## Gestion des données
 
-Il existe des limites à l’utilisation d’Application Insights, qui dépendent dans une certaine mesure du mécanisme de tarification que vous choisissez. Les principales limites sont :
+Il existe des limites à l’utilisation d’Application Insights, qui dépendent dans une certaine mesure du mécanisme de tarification que vous choisissez. Les principales limites sont :
 
 * Le taux de télémétrie par minute
 * Le nombre de points de données par mois
 * La période de rétention des données
 
-L’[échantillonnage](app-insights-sampling.md) est un mécanisme permettant de réduire le coût et d’éviter la limitation. Il rejette une proportion de vos données de télémétrie pour n’en conserver qu’un échantillon représentatif. Les éléments associés (par exemple les exceptions et les requêtes qui les ont causés) sont conservés ou supprimés ensemble. Pour les applications ASP.NET, l’échantillonnage est automatique et exécuté dans l’application ; sinon, vous pouvez choisir de l’appliquer à l’ingestion vers le portail.
+L’[échantillonnage](app-insights-sampling.md) est un mécanisme permettant de réduire le coût et d’éviter la limitation. Il rejette une proportion de vos données de télémétrie pour n’en conserver qu’un échantillon représentatif. Les éléments associés (par exemple les exceptions et les requêtes qui les ont causés) sont conservés ou supprimés ensemble. Pour les applications ASP.NET, l’échantillonnage est automatique et exécuté dans l’application ; sinon, vous pouvez choisir de l’appliquer à l’ingestion vers le portail.
 
 ## Étapes suivantes
 
-Prise en main lors de l’exécution avec :
+Prise en main lors de l’exécution avec :
 
 * [Serveur IIS](app-insights-monitor-performance-live-website-now.md)
 * [Serveur J2EE](app-insights-java-live.md)
 
-Prise en main pendant le développement avec :
+Prise en main pendant le développement avec :
 
 * [ASP.NET](app-insights-asp-net.md)
 * [Java](app-insights-java-get-started.md)
@@ -343,13 +343,13 @@ Prise en main pendant le développement avec :
 
 ## Support et commentaires
 
-* Questions et problèmes :
+* Questions et problèmes :
  * [Résolution des problèmes][qna]
  * [Forum MSDN](https://social.msdn.microsoft.com/Forums/vstudio/home?forum=ApplicationInsights)
  * [Stackoverflow](http://stackoverflow.com/questions/tagged/ms-application-insights)
 * Suggestions
  * [UserVoice](https://visualstudio.uservoice.com/forums/357324)
-* Blog :
+* Blog :
  * [Blog Application Insights](https://azure.microsoft.com/blog/tag/application-insights)
 
 
@@ -383,8 +383,7 @@ Prise en main pendant le développement avec :
 [portal]: http://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
 [redfield]: app-insights-monitor-performance-live-website-now.md
-[windows]: app-insights-windows-get-started.md
 
  
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0907_2016-->

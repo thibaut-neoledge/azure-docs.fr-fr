@@ -215,7 +215,7 @@ server.on("listening", () => {
 ## Étapes suivantes
 
 * [Navigation et tableaux de bord dans le portail Application Insights](app-insights-dashboards.md)
-* [Écrire des requêtes Analytics via vos données de télémétrie (app-insights-analytics-tour.md)]
+* [Écrire des requêtes Analytics via vos données de télémétrie](app-insights-analytics-tour.md)
 
 
 
@@ -228,4 +228,4 @@ server.on("listening", () => {
 [qna]: app-insights-troubleshoot-faq.md
 [roles]: app-insights-resources-roles-access-control.md
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

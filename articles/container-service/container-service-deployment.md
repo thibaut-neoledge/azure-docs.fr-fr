@@ -15,7 +15,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/16/2016"
+   ms.date="09/13/2016"
    ms.author="rogardle"/>
 
 # Déploiement d’un cluster Azure Container Service
@@ -115,8 +115,6 @@ Créez un groupe de ressources Azure et un cluster Container Service avec la com
 > [AZURE.NOTE] Lorsque vous exécutez cette commande, l’interpréteur de commandes vous invite à saisir les valeurs des paramètres de déploiement.
 
 ```bash
-# sample deployment
-
 azure group create -n RESOURCE_GROUP DEPLOYMENT_NAME -l LOCATION --template-uri TEMPLATE_URI
 ```
 
@@ -125,18 +123,14 @@ azure group create -n RESOURCE_GROUP DEPLOYMENT_NAME -l LOCATION --template-uri 
 Cette version de la commande vous oblige à définir les paramètres de manière interactive. Si vous souhaitez fournir des paramètres, comme une chaîne au format JSON, vous pouvez le faire à l’aide du commutateur `-p`. Par exemple :
 
  ```bash
- # sample deployment
-
 azure group deployment create RESOURCE_GROUP DEPLOYMENT_NAME --template-uri TEMPLATE_URI -p '{ "param1": "value1" … }'
- ```
+```
 
 Vous pouvez également fournir un fichier de paramètres au format JSON à l’aide du commutateur `-e` :
 
- ```bash
- # sample deployment
-
+```bash
 azure group deployment create RESOURCE_GROUP DEPLOYMENT_NAME --template-uri TEMPLATE_URI -e PATH/FILE.JSON
- ```
+```
 
 Pour voir un exemple de fichier de paramètres nommé `azuredeploy.parameters.json`, recherchez-le avec les modèles Azure Container Service dans GitHub.
 
@@ -170,10 +164,8 @@ New-AzureRmResourceGroup -Name GROUP_NAME -Location REGION
 Une fois le groupe de ressources créé, vous pouvez créer votre cluster à l’aide de la commande suivante. L’URI du modèle souhaité doit être spécifié pour le paramètre `-TemplateUri`. Lorsque vous exécutez cette commande, PowerShell vous invite à saisir les valeurs des paramètres de déploiement.
 
 ```powershell
-# sample deployment
-
 New-AzureRmResourceGroupDeployment -Name DEPLOYMENT_NAME -ResourceGroupName RESOURCE_GROUP_NAME -TemplateUri TEMPLATE_URI
- ```
+```
 
 ### Indication des paramètres du modèle
 
@@ -182,8 +174,6 @@ Si vous êtes familiarisé avec PowerShell, vous savez que vous pouvez parcourir
 Voici l’intégralité de la commande contenant les paramètres. Vous pouvez renseigner vos propres valeurs pour les noms des ressources.
 
 ```powershell
-# sample deployment
-
 New-AzureRmResourceGroupDeployment -ResourceGroupName RESOURCE_GROUP_NAME-TemplateURI TEMPLATE_URI -adminuser value1 -adminpassword value2 ....
 ```
 
@@ -195,4 +185,4 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName RESOURCE_GROUP_NAME-Templa
 - [Gestion de conteneur via l’API REST](container-service-mesos-marathon-rest.md)
 - [Gestion des conteneurs avec Docker Swarm](container-service-docker-swarm.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0914_2016-->

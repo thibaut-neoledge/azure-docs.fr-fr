@@ -15,13 +15,13 @@
     ms.workload="search"
     ms.topic="article"
     ms.tgt_pltfrm="na"
-    ms.date="05/17/2016"
+    ms.date="08/29/2016"
     ms.author="liamca"
 />
 
 # Exemples de syntaxe de requête Lucene pour créer des requêtes dans Azure Search
 
-Lors de la construction de requêtes pour Azure Search, vous pouvez utiliser la [syntaxe de requête simple](https://msdn.microsoft.com/library/azure/dn798920.aspx) par défaut ou bien l’[analyseur de requêtes Lucene dans Azure Search](https://msdn.microsoft.com/library/azure/mt589323.aspx). L’Analyseur de requêtes Lucene prend en charge des constructions de requêtes plus complexes, telles que les requêtes portant sur des champs, la recherche partielle, la recherche de proximité, la promotion de termes et la recherche d’expression régulière.
+Lors de la construction de requêtes pour Azure Search, vous pouvez utiliser la [syntaxe de requête simple](https://msdn.microsoft.com/library/azure/dn798920.aspx) par défaut ou bien [l’analyseur de requêtes Lucene dans Azure Search](https://msdn.microsoft.com/library/azure/mt589323.aspx). L’Analyseur de requêtes Lucene prend en charge des constructions de requêtes plus complexes, telles que les requêtes portant sur des champs, la recherche partielle, la recherche de proximité, la promotion de termes et la recherche d’expression régulière.
 
 Cet article contient des exemples qui affichent la syntaxe de requête Lucene et les résultats côte à côte. Les exemples s’exécutent sur un index de recherche préchargé dans [JSFiddle](https://jsfiddle.net/), éditeur de code en ligne pour le test de script et HTML.
 
@@ -31,18 +31,18 @@ Cliquez avec le bouton droit sur les URL des exemples de requêtes pour ouvrir J
 
 ## Affichage des exemples de cet article
 
-Tous les exemples de cet article spécifient l'analyseur de requêtes Lucene dans le paramètre de recherche **queryType**. Lorsque vous utilisez l'analyseur de requêtes Lucene à partir de votre code, vous devez spécifier le **queryType** à chaque requête. Les valeurs valides sont **simple**|**full**, **simple** étant la valeur par défaut et **full** la valeur faisant référence à l’analyseur de requêtes Lucene. Pour plus d’informations sur la spécification des paramètres de requêtes, consultez [Rechercher des documents (API REST du service Azure Search)](https://msdn.microsoft.com/library/azure/dn798927.aspx).
+Tous les exemples de cet article spécifient l’analyseur de requêtes Lucene dans le paramètre de recherche **queryType**. Lorsque vous utilisez l’analyseur de requêtes Lucene à partir de votre code, vous devez spécifier le **queryType** à chaque requête. Les valeurs valides sont **simple**|**full**, **simple** étant la valeur par défaut et **full** la valeur faisant référence à l’analyseur de requêtes Lucene. Pour plus d’informations sur la spécification des paramètres de requêtes, consultez [Rechercher des documents (API REST du service Azure Search)](https://msdn.microsoft.com/library/azure/dn798927.aspx).
 
 **Exemple 1** -- Cliquez avec le bouton droit sur l’extrait de requête suivant pour l’ouvrir sur une nouvelle page de navigateur qui charge JSFiddle et exécute la requête :
 - [&queryType=full&search=*](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2015-02-28-Preview%26searchFields=business_title%26$select=business_title%26queryType=full%26search=*)
 
 Cette requête retourne des documents à partir de notre index Jobs (chargé sur un service de bac à sable (sandbox))
 
-Dans la nouvelle fenêtre de navigateur, vous verrez le JavaScript source et la sortie HTML côte à côte. Le script fait référence à une requête, qui est fournie par les exemples d’URL dans cet article. Par exemple, dans l’**exemple 1**, la requête sous-jacente est la suivante :
+Dans la nouvelle fenêtre de navigateur, vous verrez le JavaScript source et la sortie HTML côte à côte. Le script fait référence à une requête, qui est fournie par les exemples d’URL dans cet article. Par exemple, dans **l’exemple 1**, la requête sous-jacente est la suivante :
 
     http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2015-02-28-Preview%26searchFields=business_title%26$select=business_title%26queryType=full%26search=*
 
-Notez que la requête utilise un index Azure Search préconfiguré appelé nycjobs. Le paramètre **searchFields** restreint la recherche au champ de titre d'entreprise. Le **queryType** est défini sur **full**, qui donne l’instruction à Azure Search d’utiliser l'analyseur de requêtes Lucene pour cette requête.
+Notez que la requête utilise un index Azure Search préconfiguré appelé nycjobs. Le paramètre **searchFields** restreint la recherche au champ de titre d’entreprise. Le **queryType** est défini sur **full**, qui donne l’instruction à Azure Search d’utiliser l'analyseur de requêtes Lucene pour cette requête.
 
 ### Opération de requête portant sur un champ
 
@@ -129,4 +129,4 @@ Essayez de spécifier l’Analyseur de requêtes Lucene dans votre code. Les lie
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0907_2016-->

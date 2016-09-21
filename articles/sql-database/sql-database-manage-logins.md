@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="08/24/2016"
+   ms.date="09/01/2016"
    ms.author="rickbyh"/>
 
 # Authentification et autorisation de base de données SQL : octroi de l’accès 
@@ -40,7 +40,7 @@ Un seul compte de connexion est créé lorsqu’une instance SQL logique est cr�
 Un compte Azure Active Directory peut également être configuré en tant qu’administrateur. Ce compte peut être un utilisateur Azure AD ou un groupe Azure AD comprenant plusieurs utilisateurs Azure AD. Il est facultatif de configurer un administrateur Azure AD, mais un administrateur Azure AD doit être configuré si vous voulez utiliser l’authentification Windows pour les comptes Azure AD pour vous connecter à la base de données SQL. Pour plus d’informations sur la configuration de l’accès à Azure Active Directory, voir [Connexion au service Base de données SQL ou SQL Data Warehouse avec l’authentification Azure Active Directory](sql-database-aad-authentication.md) et [Prise en charge de SSMS pour Azure AD MFA avec la base de données SQL et SQL Data Warehouse](sql-database-ssms-mfa-authentication.md).
 
 ### Configuration du pare-feu
-Quand le pare-feu au niveau du serveur est configuré, le compte abonné à la base de données SQL Azure et le compte Azure Active Directory peuvent se connecter à la base de données MASTER virtuelle et à toutes les bases de données utilisateur. Le pare-feu au niveau du serveur peut être configuré via le portail. Une fois la connexion établie, les règles supplémentaires de pare-feu au niveau du serveur peuvent également être configurées à l’aide de l’instruction Transact-SQL [sp\_set\_firewall\_rule](https://msdn.microsoft.com/library/dn270017.aspx). Pour plus d’informations sur la configuration du pare-feu, voir [Configurer un pare-feu sur une base de données Azure SQL à l’aide du portail Azure](sql-database-configure-firewall-settings.md).
+Quand le pare-feu au niveau du serveur est configuré, le compte abonné à la base de données SQL Azure et le compte Azure Active Directory peuvent se connecter à la base de données MASTER et à toutes les bases de données utilisateur. Le pare-feu au niveau du serveur peut être configuré via le portail. Une fois la connexion établie, les règles supplémentaires de pare-feu au niveau du serveur peuvent également être configurées à l’aide de l’instruction Transact-SQL [sp\_set\_firewall\_rule](https://msdn.microsoft.com/library/dn270017.aspx). Pour plus d’informations sur la configuration du pare-feu, voir [Configurer un pare-feu sur une base de données Azure SQL à l’aide du portail Azure](sql-database-configure-firewall-settings.md).
 
 ### Chemin d’accès administrateur
 
@@ -161,4 +161,4 @@ Il existe plus de 100 autorisations qui peuvent être accordées ou refusées in
 
 [Centre de sécurité pour le moteur de base de données SQL Server et la base de données SQL Azure](https://msdn.microsoft.com/library/bb510589.aspx)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

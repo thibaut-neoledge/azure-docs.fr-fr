@@ -81,7 +81,7 @@ Dans votre code R, pointez la référence du nœud de nom vers le compte de stoc
 
   Définir le contexte de calcul Spark :
 
-    mySparkCluster <- RxSpark(consoleOutput=TRUE)
+    mySparkCluster <- RxSpark(consoleOutput=TRUE, nameNode=myNameNode, port=myPort)
 
   Définir le contexte de calcul :
 
@@ -136,7 +136,7 @@ myPort <- 0
 bigDataDirRoot <- "/share"  
 
 # Define Spark compute context
-mySparkCluster <- RxSpark(consoleOutput=TRUE)
+mySparkCluster <- RxSpark(consoleOutput=TRUE, nameNode=myNameNode, port=myPort)
 
 # Set compute context
 rxSetComputeContext(mySparkCluster)
@@ -190,4 +190,4 @@ Maintenant que vous connaissez les principes de base pour utiliser la console R 
 - [Ajouter RStudio Server à HDInsight Premium](hdinsight-hadoop-r-server-install-r-studio.md)
 - [Options de contexte de calcul pour R Server sur HDInsight (version préliminaire)](hdinsight-hadoop-r-server-compute-contexts.md)
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/27/2016"
+   ms.date="09/02/2016"
    ms.author="jgao"/>
 
 # Approvisionnement de clusters HBase sur Azure Virtual Network
@@ -33,18 +33,18 @@ Avec l’intégration du réseau virtuel, les clusters HBase peuvent être dépl
 - Amélioration des performances en évitant à votre trafic de transiter par plusieurs passerelles et équilibrages de charge.
 - Capacité de traitement des informations critiques de façon plus sécurisée sans exposer de points de terminaison publics.
 
-##Configuration requise
+##Composants requis
 Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
 - **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 - **Un poste de travail sur lequel est installé Azure PowerShell**. Consultez [Installation et utilisation d'Azure PowerShell](https://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/). Pour obtenir des instructions, consultez la rubrique [Installation et configuration d'Azure PowerShell](../powershell-install-configure.md). Pour exécuter des scripts Azure PowerShell, vous devez exécuter Azure PowerShell en tant qu’administrateur et définir la stratégie d’exécution sur *RemoteSigned*. Consultez la rubrique [Utilisation de l'applet de commande Set-ExecutionPolicy][2].
 
-	Avant d’exécuter vos scripts Azure PowerShell, assurez-vous que vous êtes connecté à votre abonnement Azure à l’aide de la cmdlet suivante :
+	Avant d’exécuter vos scripts Azure PowerShell, assurez-vous que vous êtes connecté à votre abonnement Azure à l’aide de l’applet de commande suivante :
 
 		Add-AzureAccount
 
-	Si vous possédez plusieurs abonnements Azure, utilisez la cmdlet suivante pour définir l'abonnement en cours :
+	Si vous possédez plusieurs abonnements Azure, utilisez l’applet de commande suivante pour définir l'abonnement en cours :
 
 		Select-AzureSubscription <AzureSubscriptionName>
 
@@ -106,7 +106,7 @@ Un serveur DNS est facultatif, mais il est nécessaire dans certains cas. La pro
 8. Notez le nom du compte de stockage et la clé d’accès primaire (ou la clé d’accès secondaire, les deux peuvent être utilisées). Vous en aurez besoin plus loin dans le didacticiel.
 9. En haut de la page, cliquez sur **CONTENEUR**.
 10. En bas de la page, cliquez sur **AJOUTER**.
-11. Entrez le nom du conteneur. Ce conteneur sera utilisé comme conteneur par défaut pour le cluster HBase. Par défaut, le nom du conteneur par défaut correspond au nom du cluster. Pour le champ **ACCÈS**, gardez la valeur **Privé**.  
+11. Entrez le nom du conteneur. Ce conteneur sera utilisé comme conteneur par défaut pour le cluster HBase. Par défaut, le nom du conteneur par défaut correspond au nom du cluster. Pour le champ **ACCÈS**, gardez la valeur **Privé**.
 12. Cliquez sur la coche pour créer le conteneur.
 
 **Pour approvisionner un cluster HBase en utilisant le portail Azure Classic**
@@ -178,7 +178,7 @@ Un serveur DNS est facultatif, mais il est nécessaire dans certains cas. La pro
 			<td>Si vous choisissez l’option <strong>Utiliser le stockage associé à un autre abonnement</strong>, veuillez indiquer la clé de ce compte de stockage.</td></tr>
 		<tr><td>Conteneur par défaut</td>
 			<td><p>Spécifiez le conteneur par défaut du compte de stockage qui sera utilisé comme système de fichiers par défaut pour le cluster HDInsight. Si vous sélectionnez l’option <strong>Utiliser le stockage existant</strong> pour le champ <strong>Compte de stockage</strong> et qu’il n’y a aucun conteneur existant dans ce compte, le conteneur est créé par défaut avec le même nom que celui du cluster. Si un conteneur portant le nom du cluster existe déjà, un numéro de séquence est ajouté au nom de conteneur. Par exemple, mon_conteneur1, mon_conteneur2, et ainsi de suite. Cependant, si le compte de stockage existant dispose d’un conteneur dont le nom est différent de celui du cluster spécifié, vous pouvez également utiliser ce conteneur.</p>
-	        <p>Si vous avez choisi de créer un stockage ou d'utiliser le stockage d'un autre abonnement Azure, vous devez spécifier le nom du conteneur par défaut.</p>
+	        <p>Si vous avez choisi de créer un stockage ou d’utiliser le stockage d’un autre abonnement Azure, vous devez spécifier le nom du conteneur par défaut.</p>
 	    </td></tr>
 		<tr><td>Comptes de stockage supplémentaires</td>
 			<td>Si nécessaire, spécifiez les comptes de stockage supplémentaires pour le cluster. HDInsight prend en charge plusieurs comptes de stockage. Le nombre de comptes de stockage supplémentaires pouvant être utilisés par un cluster n’est pas limité. Toutefois, si vous créez un cluster au moyen du portail Azure Classic, la limite est établie à sept en raison de contraintes liées à l’interface utilisateur. Chaque compte de stockage supplémentaire que vous spécifiez dans ce champ ajoute une page <strong>Compte de stockage</strong> supplémentaire vers l’Assistant vous permettant de spécifier les informations de compte. Par exemple, dans la capture d’écran suivante, 1&#160;compte de stockage supplémentaire est sélectionné, une page est donc ajoutée à l’assistant.</td></tr>
@@ -436,4 +436,4 @@ Dans ce didacticiel, vous avez appris à approvisionner un cluster HBase. Pour p
 [img-provision-cluster-page1]: ./media/hdinsight-hbase-provision-vnet/hbasewizard1.png "Détails de configuration pour le nouveau cluster HBase"
 [img-provision-cluster-page5]: ./media/hdinsight-hbase-provision-vnet/hbasewizard5.png "Utilisation de l’action de script pour personnaliser un cluster HBase"
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0907_2016-->

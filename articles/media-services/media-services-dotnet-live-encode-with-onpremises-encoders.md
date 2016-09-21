@@ -13,12 +13,20 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
- 	ms.date="08/19/2016"  
+ 	ms.date="08/31/2016"  
 	ms.author="cenkdin;juliako"/>
 
 #Streaming en direct avec des encodeurs locaux avec .NET
 
-##Conditions préalables
+> [AZURE.SELECTOR]
+- [Portail](media-services-portal-live-passthrough-get-started.md)
+- [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
+- [REST](https://msdn.microsoft.com/library/azure/dn783458.aspx)
+
+Ce didacticiel vous guide tout au long des étapes d’utilisation du Kit de développement logiciel (SDK) .NET Azure Media Services afin de créer un **canal** configuré pour une livraison directe.
+
+
+##Composants requis
 
 Les éléments suivants sont requis pour suivre le didacticiel :
 
@@ -387,4 +395,4 @@ Consulter les parcours d’apprentissage de Media Services
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

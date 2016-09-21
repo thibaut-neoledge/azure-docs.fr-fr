@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="08/24/2016" 
+	ms.date="09/01/2016" 
 	ms.author="rnagpal"/>
 
 # API DocumentDB et Kits de développement logiciel (SDK) 
@@ -31,15 +31,20 @@
 <table>
 <tr><td>**Téléchargement du Kit de développement logiciel (SDK)**</td><td>[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)</td></tr>
 <tr><td>**Documentation de l'API**</td><td>[Documentation de référence de l'API .NET](https://msdn.microsoft.com/library/azure/dn948556.aspx)</td></tr>
-<tr><td>**Exemples**</td><td>[Exemples de code .NET] (documentdb-dotnet-samples.md)</td></tr>
-<tr><td>**Prise en main**</td><td>[Prise en main du Kit SDK .NET DocumentDB] (documentdb-get-started.md)</td></tr>
-<tr><td>** Didacticiel d’application web **</td><td>[Développement d’applications web avec DocumentDB] (documentdb-dotnet-application.md)</td></tr>
+<tr><td>**Exemples**</td><td>[Exemples de code .NET](documentdb-dotnet-samples.md)</td></tr>
+<tr><td>**Prise en main**</td><td>[Prise en main du Kit SDK .NET DocumentDB](documentdb-get-started.md)</td></tr>
+<tr><td>**Didacticiel d’application web**</td><td>[Développement d’applications web avec DocumentDB](documentdb-dotnet-application.md)</td></tr>
 <tr><td>**Infrastructure actuellement prise en charge**</td><td>[Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</td></tr>
 </table></br>
 
 ## Notes de publication
 
 > [AZURE.IMPORTANT] Vous pouvez recevoir une System.NotSupportedException lors de l’interrogation de collections partitionnées. Pour éviter cette erreur, désactivez l’option « Préférer 32 bits » dans la fenêtre Propriétés de votre projet, sous l’onglet Build.
+
+### <a name="1.9.5"/>[1\.9.5](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.9.5)
+
+  - Résolution du problème qui provoquait l’exception NotFoundException suivante : la session de lecture n’est pas disponible pour le jeton de session d’entrée. Cette exception se produisait dans certains cas lors de l’interrogation de la région de lecture d’un compte géo-distribué.
+  - Exposition de la propriété ResponseStream dans la classe ResourceResponse, qui permet d’accéder directement au flux sous-jacent à partir d’une réponse.
 
 ### <a name="1.9.4"/>[1\.9.4](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.9.4)
 
@@ -169,6 +174,7 @@ Toutes les versions du Kit de développement logiciel (SDK) Azure DocumentDB pou
  
 | Version | Date de lancement | Date de suppression 
 | ---	  | ---	         | ---
+| [1\.9.5](#1.9.5) | 1er septembre 2016 |--- 
 | [1\.9.4](#1.9.4) | 24 août 2016 |--- 
 | [1\.9.3](#1.9.3) | 15 août 2016 |--- 
 | [1\.9.2](#1.9.2) | 23 juillet 2016 |--- 
@@ -181,7 +187,7 @@ Toutes les versions du Kit de développement logiciel (SDK) Azure DocumentDB pou
 | [1\.6.2](#1.6.2) | 29 mars 2016 |--- 
 | [1\.5.3](#1.5.3) | 19 février 2016 |--- 
 | [1\.5.2](#1.5.2) | 14 décembre 2015 |--- 
-| [1\.5.1](#1.5.1) | 23 décembre 2015 |--- 
+| [1\.5.1](#1.5.1) | 23 novembre 2015 |--- 
 | [1\.5.0](#1.5.0) | 5 octobre 2015 |--- 
 | [1\.4.1](#1.4.1) | 25 août 2015 |--- 
 | [1\.4.0](#1.4.0) | 13 août 2015 |--- 
@@ -191,7 +197,7 @@ Toutes les versions du Kit de développement logiciel (SDK) Azure DocumentDB pou
 | [1\.0.0](#1.0.0) | 8 avril 2015 |--- 
 | [Version préliminaire 0.9.3](#0.9.x-preview) | 12 mars 2015 | 29 février 2016 
 | [Version préliminaire 0.9.2](#0.9.x-preview) | Janvier 2015 | 29 février 2016 
-| [Version préliminaire 0.9.1](#0.9.x-preview) | 13 octobre 2014 | 29 février 2016 
+| [Version préliminaire .9.1](#0.9.x-preview) | 13 octobre 2014 | 29 février 2016 
 | [Version préliminaire 0.9.0](#0.9.x-preview) | 21 août 2014 | 29 février 2016
 
 ## Forum Aux Questions
@@ -201,4 +207,4 @@ Toutes les versions du Kit de développement logiciel (SDK) Azure DocumentDB pou
 
 Pour en savoir plus sur DocumentDB, consultez la page du service [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/).
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

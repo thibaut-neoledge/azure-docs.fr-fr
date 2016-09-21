@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Pools d’agents publics et privés ACS | Microsoft Azure"
+   pageTitle="Pools d’agents publics et privés DC/OS ACS | Microsoft Azure"
    description="Fonctionnement des pools d’agents publics et privés avec un cluster Azure Container Service."
    services="container-service"
    documentationCenter=""
@@ -18,9 +18,9 @@
    ms.date="08/16/2016"
    ms.author="adegeo"/>
 
-# Pools d’agents
+# Pools d’agents DC/OS pour Azure Container Service
 
-Azure Container Service divise les agents en plusieurs pools. Bien que toutes les machines virtuelles d’un pool sont identiques, chaque pool a son propre sous-réseau. Par conséquent, chaque pool peut être marqué comme public ou privé, ce qui affecte l’accessibilité entre les machines virtuelles de votre conteneur de service.
+Azure Container Service DC/OS répartit les agents dans des pools publics ou privés. Un déploiement peut être effectué dans un pool, affectant ainsi l’accessibilité entre les machines de votre service de conteneur. Les machines peuvent être exposées à internet (publiques) ou conservées en interne (privées). Cet article explique brièvement pourquoi il existe des pools publics et privés.
 
 ### Agents privés
 
@@ -32,10 +32,12 @@ Les nœuds d’un agent public exécutent les services et les applications DC/OS
 
 ## Utiliser les pools d’agents
 
-Par défaut, **Marathon** déploie toute nouvelle application sur les nœuds de l’agent *privé*. Vous devez explicitement déployer l’application sur le nœud *public*. Malheureusement, il ne suffit pas de cocher une case pour déployer une application sur le nœud public. Pendant la création d’une nouvelle application, accédez à l’onglet **Facultatif** et saisissez **slave\_public** pour les **Rôles de ressources acceptés**. Ce processus est décrit [ici](container-service-mesos-marathon-ui.md#deploy-a-docker-formatted-container) et dans la documentation [DC\\OS](https://dcos.io/docs/1.7/administration/installing/custom/create-public-agent/).
+Par défaut, **Marathon** déploie toute nouvelle application sur les nœuds de l’agent *privé*. Vous devez explicitement déployer l’application sur le nœud *public* pendant la création de l’application. Sélectionnez l’onglet **Facultatif** et saisissez **slave\_public** pour la valeur **Rôles de ressources acceptés**. Ce processus est décrit [ici](container-service-mesos-marathon-ui.md#deploy-a-docker-formatted-container) et dans la documentation [DC\\OS](https://dcos.io/docs/1.7/administration/installing/custom/create-public-agent/).
 
 ## Étapes suivantes
 
 En savoir plus sur la [gestion de vos conteneurs DC/OS](container-service-mesos-marathon-ui.md).
 
-<!---HONumber=AcomDC_0824_2016-->
+Découvrez comment [ouvrir le pare-feu](container-service-enable-public-access.md) fourni par Azure pour autoriser l’accès public à votre conteneur de contrôleur DC/OS.
+
+<!---HONumber=AcomDC_0907_2016-->

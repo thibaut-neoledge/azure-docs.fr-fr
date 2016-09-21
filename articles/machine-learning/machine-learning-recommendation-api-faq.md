@@ -13,13 +13,17 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/18/2016" 
+	ms.date="08/26/2016" 
 	ms.author="luisca"/>
 
 #Forum aux questions relatif à la configuration et à l’utilisation de l’API de Machine Learning Recommendations
 
 
 **Qu’est-ce que RECOMMENDATIONS ?**
+
+> Il s’agit de documentation pour l’ancienne API Recommandations sur le marché des données, qui seront déconseillées d’ici au 31/12/2016. Vous devez maintenant passer au [Service cognitif de l’API Recommandations](https://www.microsoft.com/cognitive-services/fr-FR/recommendations-api).
+
+
 
 Conçu pour les organisations et les entreprises qui se basent sur les recommandations pour leurs ventes croisées et incitatives, le programme RECOMMENDATIONS d’Azure Machine Learning est un moteur de recommandations en libre-service. C’est une implémentation du filtrage collaboratif qui utilise la factorisation de matrice comme algorithme de base. Les développeurs d’applications peuvent accéder à RECOMMENDATIONS à l’aide d’API REST.
 
@@ -32,7 +36,7 @@ RECOMMENDATIONS utilise comme données d'entrée un élément ou un ensemble d'�
 **Existe-t-il des restrictions d’utilisation ?**
 
 Recommandations présente les limitations d’utilisation suivantes :
-* Nombre maximal de modèles par abonnement : 10
+* Nombre maximal de modèles par abonnement : 10
 * Nombre maximal d'éléments qu'un catalogue peut contenir : 100 000
 * La quantité maximale de points d'utilisation conservée est d'environ 5 000 000. Le plus ancien est supprimé quand des nouveaux sont téléchargés ou signalés.
 * La taille maximale des données pouvant être envoyées dans un message électronique (par exemple, importation des données de catalogue ou des données d’utilisation) est de 200 Mo
@@ -55,18 +59,18 @@ Il existe une version d’évaluation qui est limitée à 10 000 transactions 
 
 **Quand serai-je facturé pour l’utilisation de Recommendations ?**
 
-Un abonnement payant est un abonnement pour lequel il existe des frais mensuels. Lorsque vous achetez un abonnement payant, le premier mois vous est immédiatement facturé. Le montant qui vous est facturé est celui qui correspond à l’offre sur la page d’abonnement (plus les taxes applicables). Ce prix mensuel est facturé chaque mois à la même date jusqu'à l'annulation de votre abonnement.
+Un abonnement payant est un abonnement pour lequel il existe des frais mensuels. Lorsque vous achetez un abonnement payant, le premier mois vous est immédiatement facturé. Le montant qui vous est facturé est celui qui correspond à l’offre sur la page d’abonnement (plus les taxes applicables). Ce prix mensuel est facturé chaque mois à la même date jusqu’à l’annulation de votre abonnement.
 
 **Comment mettre à niveau mon abonnement vers une catégorie de services supérieure ?**
 
 Vous pouvez acheter ou mettre à niveau votre abonnement à partir de la [page des offres](https://datamarket.azure.com/dataset/amla/recommendations) sur Microsoft Azure Marketplace.
 
-Lorsque vous mettez à niveau un abonnement :
+Lorsque vous mettez à niveau un abonnement :
 
-* Les transactions qui demeurent sur votre ancien abonnement ne sont pas reportées sur votre nouvel abonnement. 
-* Vous payez le plein prix du nouvel abonnement, même s'il reste des transactions inutilisées sur votre ancien abonnement.
+* Les transactions qui demeurent sur votre ancien abonnement ne sont pas reportées sur votre nouvel abonnement.
+* Vous payez le plein prix du nouvel abonnement, même s’il reste des transactions inutilisées sur votre ancien abonnement.
 
-Procédure de mise à niveau d’un abonnement :
+Procédure de mise à niveau d’un abonnement :
 
 * Accédez à la [page des offres](https://datamarket.azure.com/dataset/amla/recommendations).
 * Connectez-vous sur Marketplace si ce n’est pas déjà le cas.
@@ -77,11 +81,11 @@ Procédure de mise à niveau d’un abonnement :
 
 **Quand mon abonnement à Recommendations prendra-t-il fin ?**
 
-Votre abonnement prendra fin lorsque vous l'annulerez. Si vous souhaitez annuler vos abonnements, consultez les instructions suivantes.
+Votre abonnement prendra fin lorsque vous l’annulerez. Si vous souhaitez annuler vos abonnements, consultez les instructions suivantes.
 
-**Comment annuler mon abonnement à Recommendations ?**
+**Comment annuler mon abonnement à Recommendations ?**
 
-Pour annuler votre abonnement, procédez comme suit. Si votre abonnement actuel est un abonnement payant, il se poursuit jusqu'à la fin de la période de facturation actuelle. Si vous souhaitez que l’annulation soit immédiatement effective, contactez-nous sur la page [Aide et support Microsoft](https://support.microsoft.com/oas/default.aspx?gprid=17024&st=1&wfxredirect=1&sd=gn).
+Pour annuler votre abonnement, procédez comme suit. Si votre abonnement actuel est un abonnement payant, il se poursuit jusqu’à la fin de la période de facturation actuelle. Si vous souhaitez que l’annulation soit immédiatement effective, contactez-nous sur la page [Aide et support Microsoft](https://support.microsoft.com/oas/default.aspx?gprid=17024&st=1&wfxredirect=1&sd=gn).
 
 **Remarque** : aucun remboursement ne sera accordé si vous annulez l’abonnement avant la fin d’une période de facturation ou pour les transactions non utilisées d’une période de facturation.
 
@@ -135,4 +139,4 @@ Une assistance technique est disponible sur le site de [Support Microsoft Azure]
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0907_2016-->

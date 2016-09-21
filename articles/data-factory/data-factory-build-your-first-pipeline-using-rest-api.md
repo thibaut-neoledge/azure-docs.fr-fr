@@ -17,20 +17,17 @@
 	ms.date="08/16/2016"
 	ms.author="spelluru"/>
 
-# Créer votre première fabrique de données Azure en utilisant l’API REST Data Factory
+# Didacticiel : Créer votre première fabrique de données Azure en utilisant l’API REST Data Factory
 > [AZURE.SELECTOR]
-- [Didacticiel - Vue d’ensemble](data-factory-build-your-first-pipeline.md)
-- [Utilisation de Data Factory Editor](data-factory-build-your-first-pipeline-using-editor.md)
-- [Utiliser PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
-- [Utilisation de Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
-- [Utilisation du modèle Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
-- [Utilisation de l'API REST](data-factory-build-your-first-pipeline-using-rest-api.md)
+- [Portail Azure](data-factory-build-your-first-pipeline-using-editor.md)
+- [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
+- [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
+- [Modèle Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
+- [API REST](data-factory-build-your-first-pipeline-using-rest-api.md)
 
-Dans cet article, vous allez découvrir comment utiliser l’API REST Data Factory pour créer votre première fabrique de données Azure.
+[AZURE.INCLUDE [Configuration requise pour le didacticiel Data Factory](../../includes/data-factory-tutorial-prerequisites.md)]
 
-## Composants requis
-
-- Lisez l’article [Didacticiel - Vue d’ensemble](data-factory-build-your-first-pipeline.md). Cet article vous aide à comprendre les concepts de base d’Azure Data Factory.
+## Autres composants requis
 - Installez [Curl](https://curl.haxx.se/dlwiz/) sur votre ordinateur. L’outil CURL et les commandes REST vous permettent de créer une fabrique de données.
 - Suivez les instructions de [cet article](../resource-group-create-service-principal-portal.md) pour effectuer les opérations suivantes :
 	1. Créez une application Web nommée **ADFGetStartedApp** dans Azure Active Directory.
@@ -218,7 +215,7 @@ La section **defines** sert à spécifier les paramètres d’exécution transmi
 
 Les propriétés **start** et **end** du pipeline spécifient la période active du pipeline.
 
-Dans l’activité JSON, vous spécifiez que le script Hive s’exécute sur le calcul spécifié par le service **linkedServiceName** – **HDInsightOnDemandLinkedService**.
+Dans l’activité JSON, vous spécifiez que le script Hive s’exécute sur le calcul spécifié par le service **linkedServiceName** – **HDInsightOnDemandLinkedService**.
 
 > [AZURE.NOTE] Pour plus d’informations sur les propriétés JSON utilisées dans l’exemple ci-dessus, consultez [Anatomie d’un pipeline](data-factory-create-pipelines.md#anatomy-of-a-pipeline) .
 
@@ -405,4 +402,4 @@ Dans cet article, vous avez créé un pipeline avec une activité de transformat
 | [Surveillance et gestion des pipelines d’Azure Data Factory](data-factory-monitor-manage-pipelines.md) | Dans cet article, vous apprendrez à surveiller, gérer et déboguer vos pipelines à l’aide des panneaux du portail Azure. |
 | [Surveiller et gérer les pipelines Azure Data Factory à l’aide de la nouvelle application de surveillance et gestion.](data-factory-monitor-manage-app.md) | Cet article décrit comment surveiller, gérer et déboguer les pipelines à l’aide de l’application de surveillance et gestion. 
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

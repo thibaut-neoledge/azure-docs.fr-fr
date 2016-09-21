@@ -5,7 +5,7 @@
 	services="machine-learning"
     documentationCenter=""
     authors="cjgronlund"
-    manager="paulettm"
+    manager="jhubbard"
     editor="cgronlun"/>
 
 <tags
@@ -65,11 +65,11 @@ Dans [Machine Learning Studio](machine-learning-what-is-ml-studio.md), vous pouv
 * Achetez des services web prêts à l'emploi à partir de [Microsoft Azure Marketplace](https://datamarket.azure.com/browse?query=machine+learning), comme des recommandations, des analyses de texte ou une détection d'anomalie.
 
 * Mettez en service vos modèles d’analyse prédictive :
-   * [Déployez des services web](machine-learning-publish-a-machine-learning-web-service.md)
-   * [Formez et reformez des modèles via les API](machine-learning-retrain-models-programmatically.md)
-   * [Gérez les points de terminaison des services web](machine-learning-create-endpoint.md)
-   * [Mettez à l’échelle des services web](machine-learning-scaling-endpoints.md)
-   * [Utilisez des services web](machine-learning-consume-web-services.md)
+    * [Déployez des services web](machine-learning-publish-a-machine-learning-web-service.md)
+    * [Formez et reformez des modèles via les API](machine-learning-retrain-models-programmatically.md)
+    * [Gérez les points de terminaison des services web](machine-learning-create-endpoint.md)
+    * [Mettez à l’échelle des services web](machine-learning-scaling-endpoints.md)
+    * [Utilisez des services web](machine-learning-consume-web-services.md)
 
 ## Concepts clé et terminologie de l’apprentissage automatique
 
@@ -125,4 +125,4 @@ Vous pouvez apprendre les principes fondamentaux de l’analyse prédictive et d
 <!-- Module References -->
 [learning-with-counts]: https://msdn.microsoft.com/library/azure/81c457af-f5c0-4b2d-922c-fdef2274413c/
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/08/2016"
+	ms.date="09/01/2016"
 	ms.author="jeedes"/>
 
 
@@ -32,7 +32,7 @@ Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, co
 Pour configurer l'intégration d'Azure AD avec Capriza, vous avez besoin des éléments suivants :
 
 - Un abonnement Azure AD
-- Un abonnement Capriza pour lequel l'authentification unique est activée
+- Un abonnement Capriza pour lequel l’authentification unique est activée
 
 
 > [AZURE.NOTE] Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production.
@@ -56,7 +56,7 @@ Pour configurer l'intégration de Capriza avec Azure AD, vous devez ajouter Cap
 
 **Pour ajouter Capriza à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du portail Azure Classic, cliquez sur **Active Directory**. 
+1. Dans le volet de navigation gauche du portail Azure Classic, cliquez sur **Active Directory**.
 
 	![Active Directory][1]
 
@@ -90,7 +90,7 @@ Pour que l'authentification unique fonctionne, Azure AD doit savoir qui est l'u
 Pour configurer et tester l'authentification unique Azure AD avec Capriza, vous devez suivre les indications des sections suivantes :
 
 1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
+2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
 4. **[Création d’un utilisateur de test Capriza](#creating-a-capriza-test-user)** pour avoir un équivalent de Britta Simon dans Capriza lié à la représentation Azure AD associée.
 5. **[Affectation d’un utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
 5. **[Test de l’authentification unique](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
@@ -118,7 +118,7 @@ L’objectif de cette section est d’activer l’authentification unique Azure�
 
     a. Dans la zone de texte URL d’authentification, tapez l’URL utilisée par vos utilisateurs pour se connecter à votre application Capriza, au format suivant : **« https://nom\_entreprise.capriza.com/id\_client »**.
 
-    b. Cliquez sur **Next**.
+    b. Cliquez sur **Suivant**.
 
 
 4. Dans la page **Configurer l’authentification unique sur Capriza**, procédez comme suit :
@@ -221,7 +221,7 @@ L’objectif de cette section est de permettre à Britta Simon d’utiliser l’
 
 **Pour affecter Britta Simon à Capriza, procédez comme suit :**
 
-1. Pour ouvrir la vue des applications dans le portail Azure Classic, dans la vue de répertoire, cliquez sur **Applications** dans le menu du haut.
+1. Pour ouvrir l’affichage des applications dans le portail Azure Classic, cliquez dans l’affichage de l’annuaire sur **Applications** dans le menu du haut.
 
 	![Affecter des utilisateurs][201]
 
@@ -243,7 +243,7 @@ L’objectif de cette section est de permettre à Britta Simon d’utiliser l’
 
 ### Test de l’authentification unique
 
-L’objectif de cette section est de tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès. Lorsque vous cliquez sur la mosaïque Capriza dans le volet d'accès, vous devez être connecté automatiquement à votre application Capriza.
+L’objectif de cette section est de tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès. Lorsque vous cliquez sur la mosaïque Capriza dans le volet d'accès, vous devez être connecté automatiquement à votre application Capriza.
 
 
 ## Ressources supplémentaires
@@ -270,4 +270,4 @@ L’objectif de cette section est de tester la configuration de l’authentifica
 [204]: ./media/active-directory-saas-capriza-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-capriza-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -63,6 +63,7 @@ Par conséquent, il peut s’avérer utile de décider de vos quotas de groupes 
 - [Media Services](#media-services-limits)
 - [Mobile Engagement](#mobile-engagement-limits)
 - [Mobile Services](#mobile-services-limits)
+- [Surveillance](#monitoring-limits)
 - [Azure Multi-Factor Authentication](#multi-factor-authentication)
 - [Mise en réseau](#networking-limits)
 - [Service de hub de notification](#notification-hub-service-limits)
@@ -219,6 +220,10 @@ Pour plus d’informations granulaires sur les autres limites, notamment la tail
 
 [AZURE.INCLUDE [mobile-services-limits](../includes/mobile-services-limits.md)]
 
+### Limites de surveillance
+
+[AZURE.INCLUDE [monitoring-limits](../includes/monitoring-limits.md)]
+
 ### Limites du service Notification Hub
 
 [AZURE.INCLUDE [notification-hub-limits](../includes/notification-hub-limits.md)]
@@ -305,4 +310,4 @@ Pour connaître les limites de la base de données SQL, consultez [Limites de re
 
 [Tailles de services cloud](cloud-services/cloud-services-sizes-specs.md)
 
-<!----HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

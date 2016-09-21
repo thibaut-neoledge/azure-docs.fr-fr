@@ -4,7 +4,7 @@
    services="data-lake-store" 
    documentationCenter="" 
    authors="nitinme" 
-   manager="paulettm" 
+   manager="jhubbard" 
    editor="cgronlun"/>
  
 <tags
@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="08/02/2016"
+   ms.date="09/13/2016"
    ms.author="nitinme"/>
 
 # Prise en main d'Azure Data Lake Store avec le portail Azure
@@ -35,22 +35,12 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 
 - **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-## <a name="signup"></a>Activer votre abonnement Azure pour la version d'évaluation publique de Data Lake Store
-
-Vous devez tout d'abord demander l'activation de votre abonnement Azure pour la version d'évaluation publique de Data Lake Store. Pour ce faire, procédez comme suit.
-
-1. Inscrivez-vous au nouveau [portail Azure](https://portal.azure.com).
-2. Cliquez sur **NOUVEAU**, puis sur **Données + Stockage** et enfin sur **Azure Data Lake Store**.
-3. Dans le panneau **Nouveau Data Lake Store**, cliquez sur **S'inscrire à la version d'évaluation**. Lisez les informations, puis cliquez sur **OK**. Vous recevez un courrier électronique une fois votre abonnement activé pour la version d'évaluation publique.
-
-	![S'inscrire à la version d'évaluation publique](./media/data-lake-store-get-started-portal/preview-signup.png "Créer un compte Azure Data Lake")
-
-## Les vidéos vous permettent-elles d’apprendre plus rapidement ?
+## Les vidéos vous permettent-elles d’apprendre rapidement ?
 
 Regardez les vidéos suivantes pour vous familiariser avec Data Lake Store.
 
 * [Créer un compte Data Lake Store](https://mix.office.com/watch/1k1cycy4l4gen)
-* [Manage data in Data Lake Store using the Data Explorer](https://mix.office.com/watch/icletrxrh6pc) (Gérer les données dans Data Lake Store à l’aide de l’Explorateur de données)
+* [Manage data in Data Lake Store using the Data Explorer (Gérer les données dans Data Lake Store à l’aide de l’Explorateur de données)](https://mix.office.com/watch/icletrxrh6pc)
 
 ## Créer un compte Azure Data Lake Store
 
@@ -62,9 +52,9 @@ Regardez les vidéos suivantes pour vous familiariser avec Data Lake Store.
 
 	![Créer un compte Azure Data Lake Store](./media/data-lake-store-get-started-portal/ADL.Create.New.Account.png "Créer un compte Azure Data Lake")
 
-	- **Abonnement**. Sélectionnez l'abonnement sous lequel vous souhaitez créer un nouveau compte Data Lake Store.
+	- **Abonnement**. Sélectionnez l’abonnement sous lequel vous souhaitez créer un nouveau compte Data Lake Store.
 	- **Groupe de ressources**. Sélectionnez un groupe de ressources existant ou cliquez sur **Créer un groupe de ressources** pour en créer un. Un groupe de ressources est un conteneur réunissant les ressources associées d’une application. Pour plus d'informations, consultez [Groupes de ressources dans Azure](resource-group-overview.md#resource-groups).
-	- **Emplacement** : sélectionnez l'emplacement où vous souhaitez créer le compte Data Lake Store.
+	- **Emplacement** : sélectionnez l'emplacement où vous souhaitez créer le compte Data Lake Store.
 
 4. Sélectionnez **Épingler au tableau d'accueil** si vous souhaitez que le compte Data Lake Store soit accessible à partir du tableau d'accueil.
 
@@ -138,4 +128,4 @@ Pour supprimer un compte Azure Data Lake Store, cliquez sur **Supprimer** dans l
 - [Utiliser Azure HDInsight avec Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
 - [Accéder aux journaux de diagnostic de Data Lake Store](data-lake-store-diagnostic-logs.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0914_2016-->

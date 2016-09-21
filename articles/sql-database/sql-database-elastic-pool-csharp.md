@@ -27,7 +27,7 @@
 
 Cet article vous montre comment créer un [pool de base de données élastique](sql-database-elastic-pool.md) pour des bases de données SQL à partir d’une application en utilisant des techniques de développement de base de données C#.
 
-> [AZURE.NOTE] Les pools élastiques de bases de données sont actuellement en version préliminaire et uniquement disponibles avec des serveurs SQL Database V12. Si vous disposez d’un serveur SQL Database V11, vous pouvez [utiliser PowerShell pour effectuer une mise à niveau vers V12 et créer un pool](sql-database-upgrade-server-powershell.md) en une seule étape.
+> [AZURE.NOTE] Les pools élastiques sont mis à la disposition générale dans toutes les régions Azure, à l’exception du Nord du centre des États-Unis et de l’Inde de l’Ouest, où ils sont actuellement en préversion. Les pools élastiques seront mis à la disposition générale dans ces régions dès que possible. En outre, les pools élastiques ne prennent pas en charge les bases de données utilisant [l’OLTP ou l’analytique en mémoire](sql-database-in-memory.md).
 
 Les exemples utilisent la [bibliothèque de base de données SQL Azure pour .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql). Les différents extraits de code sont fractionnés par souci de clarté, et un exemple d’application console réunit toutes les commandes dans la dernière section de cet article.
 
@@ -573,4 +573,4 @@ L'exemple suivant répertorie toutes les bases de données dans un pool :
 [8]: ./media/sql-database-elastic-pool-csharp/add-application2.png
 [9]: ./media/sql-database-elastic-pool-csharp/clientid.png
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

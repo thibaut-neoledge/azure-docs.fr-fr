@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/01/2016"
+   ms.date="09/03/2016"
    ms.author="barbkess;sonyama"/>
 
 # Gestion de la puissance de calcul dans Azure SQL Data Warehouse (Vue d’ensemble)
@@ -98,6 +98,10 @@ Pour reprendre une base de données, utilisez l’une des différentes méthodes
 - [Reprise du calcul avec PowerShell][]
 - [Reprise du calcul avec des API REST][]
 
+## Autorisations
+
+La mise à l’échelle de la base de données requiert les autorisations décrites dans [ALTER DATABASE][]. La suspension et la reprise requièrent l’autorisation [Collaborateur de base de données SQL][], notamment Microsoft.Sql/servers/databases/action.
+
 <a name="next-steps-bk"></a>
 
 ## Étapes suivantes
@@ -141,9 +145,12 @@ Consultez les articles suivants afin de mieux comprendre certains concepts suppl
 [Meilleures pratiques]: ./sql-data-warehouse-best-practices.md
 [development overview]: ./sql-data-warehouse-overview-develop.md
 
+[Collaborateur de base de données SQL]: ../active-directory/role-based-access-built-in-roles.md#sql-db-contributor
+
 <!--MSDN references-->
+[ALTER DATABASE]: https://msdn.microsoft.com/library/mt204042.aspx
 
 <!--Other Web references-->
 [Azure portal]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0907_2016-->

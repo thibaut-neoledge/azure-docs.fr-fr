@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/17/2016"
+	ms.date="09/07/2016"
 	ms.author="jeedes"/>
 
 
@@ -32,7 +32,7 @@ Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, co
 Pour configurer l'intégration d'Azure AD avec Trakstar, vous avez besoin des éléments suivants :
 
 - Un abonnement Azure AD
-- Un abonnement Trakstar pour lequel l'authentification unique est activée
+- Un abonnement Trakstar pour lequel l’authentification unique est activée
 
 
 > [AZURE.NOTE] Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production.
@@ -56,7 +56,7 @@ Pour configurer l'intégration de Trakstar avec Azure AD, vous devez ajouter Tra
 
 **Pour ajouter Trakstar à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **portail Azure Classic**, cliquez sur **Active Directory**. 
+1. Dans le volet de navigation gauche du **portail Azure Classic**, cliquez sur **Active Directory**.
 
 	![Active Directory][1]
 
@@ -127,7 +127,7 @@ L'objectif de cette section est d'activer l'authentification unique Azure AD dan
 
     a. Cliquez sur **Télécharger le certificat**, puis enregistrez le fichier sur votre ordinateur.
 
-    b. Cliquez sur **Next**.
+    b. Cliquez sur **Suivant**.
 
 
 
@@ -166,11 +166,11 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
 2. Dans la liste **Annuaire**, sélectionnez l'annuaire pour lequel vous voulez activer l'intégration d'annuaire.
 
-3. Pour afficher la liste des utilisateurs, dans le menu situé en haut, cliquez sur **Utilisateurs**.
+3. Pour afficher la liste des utilisateurs, dans le menu du haut, cliquez sur **Utilisateurs**.
  
 	![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-trakstar-tutorial/create_aaduser_03.png)
 
-4. Pour ouvrir la boîte de dialogue **Ajouter un utilisateur**, cliquez sur **Ajouter un utilisateur** dans la barre d’outils située en bas.
+4. Pour ouvrir la boîte de dialogue **Ajouter un utilisateur**, cliquez sur l’option **Ajouter un utilisateur** figurant dans la barre d’outils du bas.
  
 	![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-trakstar-tutorial/create_aaduser_04.png)
 
@@ -227,7 +227,7 @@ L’objectif de cette section est de permettre à Britta Simon d’utiliser l’
 
 **Pour affecter Britta Simon à Trakstar, procédez comme suit :**
 
-1. Pour ouvrir la vue des applications dans le Portail Azure Classic, cliquez dans la vue de répertoire sur **Applications** dans le menu du haut.
+1. Pour ouvrir l’affichage des applications dans le portail Azure Classic, cliquez dans l’affichage de l’annuaire sur **Applications** dans le menu du haut.
 
 	![Affecter des utilisateurs][201]
 
@@ -249,7 +249,7 @@ L’objectif de cette section est de permettre à Britta Simon d’utiliser l’
 
 ### Test de l’authentification unique
 
-L’objectif de cette section est de tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès. Lorsque vous cliquez sur la mosaïque Trakstar dans le volet d'accès, vous devez être connecté automatiquement à votre application Trakstar.
+L’objectif de cette section est de tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès. Lorsque vous cliquez sur la mosaïque Trakstar dans le volet d'accès, vous devez être connecté automatiquement à votre application Trakstar.
 
 
 ## Ressources supplémentaires
@@ -277,4 +277,4 @@ L’objectif de cette section est de tester la configuration de l’authentifica
 [204]: ./media/active-directory-saas-trakstar-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-trakstar-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0907_2016-->

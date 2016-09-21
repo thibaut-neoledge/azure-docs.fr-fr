@@ -3,7 +3,7 @@
    description="Scénarios Microsoft Power BI Embedded courants"
    services="power-bi-embedded"
    documentationCenter=""
-   authors="minewiskan"
+   authors="mgblythe"
    manager="mblythe"
    editor=""
    tags=""/>
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
    ms.date="07/05/2016"
-   ms.author="owend"/>
+   ms.author="mblythe"/>
 
 # Scénarios Power BI Embedded courants
 
@@ -31,4 +31,4 @@ Voici quelques scénarios d'utilisation de **Power BI Embedded** dans vos applic
 - [Prise en main de Microsoft Power BI Embedded](power-bi-embedded-get-started.md)
 - [Prise en main de l'exemple](power-bi-embedded-get-started.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0907_2016-->

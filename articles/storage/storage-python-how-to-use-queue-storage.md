@@ -64,14 +64,14 @@ Votre code supprime un message d'une file d'attente en deux étapes. Lorsque vou
 	messages = queue_service.get_messages('taskqueue')
 	for message in messages:
 		print(message.content)
-		queue_service.delete_message('taskqueue', message.message_id, message.pop_receipt)
+		queue_service.delete_message('taskqueue', message.id, message.pop_receipt)
 
-Il existe deux façons de personnaliser la récupération des messages à partir d'une file d'attente. Premièrement, vous pouvez obtenir un lot de messages (jusqu'à 32). Deuxièmement, vous pouvez définir un délai d'expiration de l'invisibilité plus long ou plus court afin d'accorder à votre code plus ou moins de temps pour traiter complètement chaque message. L'exemple de code suivant utilise la méthode **get\_messages** pour obtenir 16 messages en un appel. Ensuite, il traite chaque message à l'aide d'une boucle for. Il définit également le délai d'expiration de l'invisibilité sur cinq minutes pour chaque message.
+Il existe deux façons de personnaliser l'extraction des messages à partir d'une file d'attente. Premièrement, vous pouvez obtenir un lot de messages (jusqu'à 32). Deuxièmement, vous pouvez définir un délai d'expiration de l'invisibilité plus long ou plus court afin d'accorder à votre code plus ou moins de temps pour traiter complètement chaque message. L'exemple de code suivant utilise la méthode **get\_messages** pour obtenir 16 messages en un appel. Ensuite, il traite chaque message à l'aide d'une boucle for. Il définit également le délai d'expiration de l'invisibilité sur cinq minutes pour chaque message.
 
 	messages = queue_service.get_messages('taskqueue', num_messages=16, visibility_timeout=5*60)
 	for message in messages:
 		print(message.content)
-		queue_service.delete_message('taskqueue', message.message_id, message.pop_receipt)		
+		queue_service.delete_message('taskqueue', message.id, message.pop_receipt)		
 
 
 ## Modification du contenu d'un message en file d'attente
@@ -80,11 +80,11 @@ Vous pouvez modifier le contenu d'un message placé dans la file d'attente. Si l
 
 	messages = queue_service.get_messages('taskqueue')
 	for message in messages:
-		queue_service.update_message('taskqueue', message.message_id, message.pop_receipt, 0, u'Hello World Again')
+		queue_service.update_message('taskqueue', message.id, message.pop_receipt, 0, u'Hello World Again')
 
 ## Obtention de la longueur de la file d'attente
 
-Vous pouvez obtenir une estimation du nombre de messages dans une file d'attente. La méthode **get\_queue\_metadata** demande au service de File d’attente de renvoyer les métadonnées relatives à la file d’attente et **approximate\_message\_count**. Le résultat est seulement approximatif, car des messages peuvent être ajoutés ou supprimés après que le service de File d'attente a répondu à votre demande.
+Vous pouvez obtenir une estimation du nombre de messages dans une file d'attente. La méthode **get\_queue\_metadata** demande au service de File d’attente de renvoyer les métadonnées relatives à la file d’attente et **approximate\_message\_count**. Le résultat est seulement approximatif, car des messages peuvent être ajoutés ou supprimés après que le service de file d'attente a répondu à votre demande.
 
 	metadata = queue_service.get_queue_metadata('taskqueue')
 	count = metadata.approximate_message_count
@@ -108,4 +108,4 @@ Maintenant que vous connaissez les bases du stockage de files d’attente, consu
 [Kit de développement logiciel (SDK) Microsoft Azure Storage pour Python]: https://github.com/Azure/azure-storage-python
 [Kit de développement logiciel (SDK) Microsoft Azure Storage pour Python]: https://github.com/Azure/azure-storage-python
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0907_2016-->

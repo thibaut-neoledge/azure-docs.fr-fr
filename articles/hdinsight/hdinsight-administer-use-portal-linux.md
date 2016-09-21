@@ -86,7 +86,6 @@ HDInsight fonctionne avec un large éventail de composants Hadoop. Pour obtenir 
 
 	- **Journaux d’audit** :
     - **Démarrage rapide** : affiche des informations qui vous aideront à prendre en main HDInsight.
-	- **Connexion de cluster** : modifie le nom d’utilisateur de cluster et le mot de passe HTTP.
 	- **Mise à l’échelle de cluster** : augmenter et diminuer le nombre de nœuds de travail de cluster.
     - **Secure Shell** : affiche les instructions pour se connecter au cluster à l’aide d’une connexion Secure Shell (SSH).
     - **Partenaire HDInsight** : permet d’ajouter ou de supprimer le partenaire HDInsight actuel.
@@ -202,10 +201,12 @@ Un cluster HDInsight peut disposer de deux comptes d'utilisateur. Le nom d’uti
 
 ###Modifier le mot de passe d’utilisateur du cluster
 
+Vous pouvez utiliser l’interface utilisateur web d’Ambari pour modifier le mot de passe utilisateur du cluster. Pour vous connecter à Ambari, vous devez utiliser le nom d’utilisateur et le mot de passe du cluster existants.
+
 > [AZURE.NOTE] Si vous modifiez le mot de passe d’utilisateur (admin) du cluster, les actions de script exécutées sur ce cluster risquent d’échouer. Si des actions de script persistantes ciblent des nœuds de travail, elles peuvent échouer quand vous ajoutez des nœuds au cluster par le biais d’opérations de redimensionnement. Pour plus d’informations sur les actions de script, consultez la section [Personnaliser des clusters HDInsight à l’aide d’actions de script](hdinsight-hadoop-customize-cluster-linux.md).
 
 1. Connectez-vous à l’interface utilisateur web d’Ambari à l’aide des informations d’identification de l’utilisateur du cluster HDInsight. Le nom d’utilisateur par défaut est **admin**. L’URL est **https://&lt;HDInsight Nom du cluster>azurehdinsight.net**.
-2. Cliquez sur **Admin** dans le menu supérieur et cliquez sur « Gérer Ambari ».
+2. Cliquez sur **Admin** dans le menu supérieur et cliquez sur « Gérer Ambari ». 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs**.
 4. Cliquez sur **Admin**.
 5. Cliquez sur **Modifier le mot de passe**.
@@ -332,4 +333,4 @@ Dans cet article, vous avez appris à créer un cluster HDInsight à l’aide du
 [azure-portal]: https://portal.azure.com
 [image-hadoopcommandline]: ./media/hdinsight-administer-use-portal-linux/hdinsight-hadoop-command-line.png "Ligne de commande Hadoop"
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0907_2016-->

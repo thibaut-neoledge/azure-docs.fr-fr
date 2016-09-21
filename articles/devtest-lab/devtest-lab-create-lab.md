@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Créer un laboratoire dans Azure DevTest Labs | Microsoft Azure"
-	description="Créez un laboratoire dans DevTest Labs pour vos machines virtuelles"
+	description="Créer un laboratoire dans Azure DevTest Labs pour les machines virtuelles"
 	services="devtest-lab,virtual-machines"
 	documentationCenter="na"
 	authors="tomarcher"
@@ -13,25 +13,24 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/25/2016"
+	ms.date="09/12/2016"
 	ms.author="tarcher"/>
 
 # Créer un laboratoire dans Azure DevTest Labs
 
-## Conditions préalables
+## Composants requis
 
 Pour créer un laboratoire, vous devez avoir :
 
 - Un abonnement Azure. Pour en savoir plus sur les options d’achat d’Azure, consultez [Comment acheter Azure](https://azure.microsoft.com/pricing/purchase-options/) ou [Évaluation d’un mois gratuite](https://azure.microsoft.com/pricing/free-trial/). Pour créer le laboratoire, vous devez être le propriétaire de l’abonnement.
-- Groupe de ressources Azure pour le laboratoire. Consultez [Vue d’ensemble d’Azure Resource Manager](../resource-group-overview.md) et [Contrôle d’accès en fonction du rôle Azure](../active-directory/role-based-access-control-configure.md).
 
-## Création d’un laboratoire
+## Étapes de création d’un laboratoire dans Azure DevTest Labs
+
+Les étapes suivantes montrent comment utiliser le portail Azure pour créer un laboratoire dans Azure DevTest Labs.
 
 1. Connectez-vous au [portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Sélectionnez **Parcourir**.
-
-1. Sélectionnez **Laboratoires de test et développement** dans la liste.
+1. Sélectionnez **Plus de services**, puis **DevTest Labs** dans la liste.
 
 1. Dans le panneau **Laboratoires de test et développement**, sélectionnez **Ajouter**.
 
@@ -40,9 +39,16 @@ Pour créer un laboratoire, vous devez avoir :
 1. Dans le panneau **Créer un laboratoire de test et développement** :
 
     1. Entrez un **Nom de laboratoire** pour le nouveau laboratoire.
-    1. Sélectionnez l’**abonnement** à associer au laboratoire.
-    1. Sélectionnez un **Emplacement** dans lequel stocker le laboratoire.
-    1. Sélectionnez **Créer**.
+    
+	1. Sélectionnez l’**abonnement** à associer au laboratoire.
+    
+	1. Sélectionnez un **Emplacement** dans lequel stocker le laboratoire.
+    
+	1. Sélectionnez **Arrêt automatique** pour spécifier si vous souhaitez activer l’arrêt automatique de toutes les machines virtuelles du laboratoire et en définir les paramètres.
+	
+	1. Sélectionnez le **Type de stockage** pour indiquer le type de disque de stockage pour les machines virtuelles du laboratoire.
+    
+	1. Sélectionnez **Créer**.
 
     ![Créer un panneau de laboratoire](./media/devtest-lab-create-lab/create-devtestlab-blade.png)
 
@@ -62,4 +68,4 @@ Une fois que vous avez créé votre laboratoire, voici quelques étapes à prend
 
 - [Ajouter une machine virtuelle avec des artefacts à un laboratoire](devtest-lab-add-vm-with-artifacts.md).
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

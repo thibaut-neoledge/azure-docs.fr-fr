@@ -64,7 +64,7 @@ Si vous envisagez de procéder à un test avec un appareil ancien, consultez la 
 
 ## Test de l'application avec le service mobile publié
 
-Vous pouvez tester l'application en connectant directement un téléphone Android via un câble USB, ou en utilisant un appareil virtuel dans l'émulateur.
+Vous pouvez tester l’application en connectant directement un téléphone Android via un câble USB, ou en utilisant un appareil virtuel dans l’émulateur.
 
 ### Activation des notifications Push pour les tests en local
 
@@ -114,6 +114,6 @@ Découvrez Mobile Services et Notification Hubs dans les rubriques suivantes :
 
 [Présentation de Notification Hubs]: ../notification-hubs-overview.md
 [Envoi de notifications diffusées aux abonnés]: ../notification-hubs-windows-store-dotnet-send-breaking-news.md
-[Envoi de notifications basées sur un modèle aux abonnés]: ../notification-hubs-windows-store-dotnet-send-localized-breaking-news.md
+[Envoi de notifications basées sur un modèle aux abonnés]: ../notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0907_2016-->

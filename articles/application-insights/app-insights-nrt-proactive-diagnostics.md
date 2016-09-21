@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Diagnostics proactifs en temps quasi-réel dans Application Insights" 
+	pageTitle="Diagnostics proactifs en temps quasi réel dans Application Insights | Microsoft Azure" 
 	description="Vous avertissent en cas de modèles de défaillance inhabituels dans votre application et fournissent une analyse de diagnostic. Aucune configuration n’est nécessaire." 
 	services="application-insights" 
     documentationCenter=""
@@ -21,7 +21,7 @@
 
 Cette fonctionnalité est utilisée pour les applications web Java et ASP.NET, hébergées dans le cloud ou sur vos propres serveurs. Elle sert également pour n’importe quelle application qui génère de la télémétrie de demande : par exemple, si vous avez un rôle de travail qui appelle [TrackRequest()](app-insights-api-custom-events-metrics.md#track-request).
 
-Après avoir configuré [Application Insights pour votre projet](app-insights-get-started.md), et si votre application génère un certain volume minimal de télémétrie, un délai de 24 heures est nécessaire aux diagnostics proactifs en temps quasi réel pour découvrir le comportement normal de votre application, être activés et envoyer des alertes.
+Après avoir configuré [Application Insights pour votre projet](app-insights-overview.md), et si votre application génère un certain volume minimal de données de télémétrie, un délai de 24 heures est nécessaire aux diagnostics proactifs en temps quasi réel pour découvrir le comportement normal de votre application, être activés et envoyer des alertes.
 
 Voici un exemple d’alerte.
 
@@ -121,14 +121,14 @@ Les diagnostics proactifs en temps quasi-réel viennent compléter d’autres fo
 
     Les diagnostics proactifs NRT ajuste automatiquement son seuil en réponse aux conditions en vigueur.
 
-    Ils démarrent le travail de diagnostic à votre place. 
+    Ils démarrent le travail de diagnostic à votre place.
 * La [détection proactive](app-insights-proactive-detection.md) utilise également l’intelligence artificielle pour découvrir des modèles inhabituels dans vos mesures, sans qu’aucune configuration ne soit nécessaire. Toutefois, contrairement aux diagnostics proactifs en temps quasi-réel, l’objectif de la détection proactive vise à repérer les segments de votre collecteur d’utilisation qui peuvent être mal pris en charge (par certaines pages sur un certain type de navigateur, par exemple). L’analyse est effectuée tous les jours, et si elle renvoie un résultat, il est souvent bien moins urgent qu’une alerte. En revanche, l’analyse des diagnostics proactifs en temps quasi-réel est exécutée en continu sur la télémétrie entrante, et si le taux de défaillance du serveur est plus élevé que prévu, vous en êtes averti en quelques minutes.
 
 ## Si vous recevez une alerte de diagnostics proactifs NRT
 
 *Pourquoi ai-je reçu cette alerte ?*
 
-*	Nous avons détecté une augmentation anormale du taux de demandes ayant échoué par rapport au taux de référence de la période précédente. Après l’analyse des défaillances et de la télémétrie associée, nous pensons qu’il existe un problème que vous devez examiner. 
+*	Nous avons détecté une augmentation anormale du taux de demandes ayant échoué par rapport au taux de référence de la période précédente. Après l’analyse des défaillances et de la télémétrie associée, nous pensons qu’il existe un problème que vous devez examiner.
 
 *La notification signifie-t-elle obligatoirement que mon application rencontre un problème ?*
 
@@ -144,7 +144,7 @@ Les diagnostics proactifs en temps quasi-réel viennent compléter d’autres fo
 
 *Puis-je me désabonner ou obtenir des notifications envoyées à mes collègues ?*
 
-*	Oui. Dans les règles d’alerte, cliquez sur la règle de diagnostics proactifs pour la configurer. Vous pouvez désactiver cette alerte, ou modifier les destinataires de l’alerte. 
+*	Oui. Dans les règles d’alerte, cliquez sur la règle de diagnostics proactifs pour la configurer. Vous pouvez désactiver cette alerte, ou modifier les destinataires de l’alerte.
 
 *J’ai perdu le courrier électronique Où puis-je trouver les notifications dans le portail ?*
 
@@ -159,4 +159,17 @@ Les diagnostics proactifs en temps quasi-réel viennent compléter d’autres fo
 
 *Votre avis sur le sujet nous intéresse. Merci d’envoyer vos commentaires à :* [ainrtpd@microsoft.com](mailto:ainrtpd@microsoft.com).
 
-<!---HONumber=AcomDC_0608_2016-->
+## Étapes suivantes
+
+Ces outils de diagnostic vous aident à inspecter les données de télémétrie à partir de votre application :
+
+* [Metrics Explorer](app-insights-metrics-explorer.md)
+* [Navigateur de recherche](app-insights-diagnostic-search.md)
+* [Analytics : un puissant langage de requête](app-insights-analytics-tour.md)
+
+Les détections proactives sont entièrement automatiques. Mais vous souhaitez peut-être configurer des alertes supplémentaires ?
+
+* [Alertes de mesures configurées manuellement](app-insights-alerts.md)
+* [Tests web de disponibilité](app-insights-monitor-web-app-availability.md)
+
+<!---HONumber=AcomDC_0907_2016-->

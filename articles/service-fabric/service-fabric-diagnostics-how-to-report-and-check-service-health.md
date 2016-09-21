@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="06/07/2016"
+   ms.date="09/06/2016"
    ms.author="toddabel"/>
 
 # Signaler et contrôler l’intégrité du service
@@ -156,4 +156,4 @@ activationContext.ReportApplicationHealth(healthInformation);
 ## Étapes suivantes
 [Présentation approfondie de l’intégrité de Service Fabric](service-fabric-health-introduction.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -26,9 +26,7 @@
 
 Utilisez les commandes [Create Database (Azure SQL Database)](https://msdn.microsoft.com/library/dn268335.aspx) et [Alter Database(Azure SQL Database)](https://msdn.microsoft.com/library/mt574871.aspx) pour créer et déplacer les bases de données dans et en dehors des pools élastiques. Le pool élastique doit exister avant de pouvoir utiliser ces commandes. Ces commandes affectent uniquement les bases de données. La création de nouveaux pools et le paramétrage des propriétés du pool (telles qu’eDTU min. et max.) ne peuvent pas être modifiés avec les commandes T-SQL.
 
-
-> [AZURE.NOTE] Les pools élastiques de bases de données sont actuellement en version préliminaire et uniquement disponibles avec des serveurs SQL Database V12. Si vous disposez d’un serveur SQL Database V11, vous pouvez [utiliser PowerShell pour effectuer une mise à niveau vers V12 et créer un pool](sql-database-upgrade-server-portal.md) en une seule étape.
-
+> [AZURE.NOTE] Les pools élastiques sont mis à la disposition générale dans toutes les régions Azure, à l’exception du Nord du centre des États-Unis et de l’Inde de l’Ouest, où ils sont actuellement en préversion. Les pools élastiques seront mis à la disposition générale dans ces régions dès que possible. En outre, les pools élastiques ne prennent pas en charge les bases de données utilisant [l’OLTP ou l’analytique en mémoire](sql-database-in-memory.md).
 
 ## Créer une base de données dans un pool de base de données élastique
 Utilisez la commande CREATE DATABASE avec l’option SERVICE\_OBJECTIVE.
@@ -84,4 +82,4 @@ Après avoir créé un pool élastique de bases de données, vous pouvez gérer 
 
 Consultez [Vue d’ensemble des fonctionnalités de base de données élastique](sql-database-elastic-scale-introduction.md) : utilisez les outils de base de données élastique pour monter en charge, déplacer des données, exécuter des requêtes ou créer des transactions.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0907_2016-->

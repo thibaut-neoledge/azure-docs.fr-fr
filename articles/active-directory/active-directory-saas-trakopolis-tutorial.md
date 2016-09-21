@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/06/2016"
+	ms.date="09/01/2016"
 	ms.author="jeedes"/>
 
 
@@ -23,7 +23,7 @@ L’objectif de ce didacticiel est de vous montrer comment intégrer Trakopolis 
 
 - Dans Azure AD, vous pouvez contrôler qui a accès à Trakopolis
 - Vous pouvez autoriser les utilisateurs à se connecter automatiquement à Trakopolis (via l’authentification unique) avec leur compte Azure AD
-- Vous pouvez gérer vos comptes dans un emplacement central : Azure Active Directory. 
+- Vous pouvez gérer vos comptes dans un emplacement central : Azure Active Directory.
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
 
@@ -56,7 +56,7 @@ Pour configurer l’intégration de Trakopolis à Azure AD, vous devez ajouter 
 
 **Pour ajouter Trakopolis à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **portail Azure Classic**, cliquez sur **Active Directory**. 
+1. Dans le volet de navigation gauche du **portail Azure Classic**, cliquez sur **Active Directory**.
 
 	![Active Directory][1]
 
@@ -118,7 +118,7 @@ L’objectif de cette section est d’activer l’authentification unique Azure�
 
     a. Dans la zone de texte URL de connexion, tapez l’URL utilisée par vos utilisateurs pour se connecter à votre application Trakopolis au format suivant : **« https://<nom\_entreprise>.trakopolis.com »**.
 
-     b. Cliquez sur **Next**.
+     b. Cliquez sur **Suivant**.
 
 4. Sur la page **Configurer l’authentification unique sur Trakopolis**, procédez comme suit :
 
@@ -126,7 +126,7 @@ L’objectif de cette section est d’activer l’authentification unique Azure�
 
     a. Cliquez sur **Télécharger le certificat**, puis enregistrez le fichier sur votre ordinateur.
 
-    b. Cliquez sur **Next**.
+    b. Cliquez sur **Suivant**.
 
 
 5. Pour configurer l’authentification unique pour votre application, contactez votre équipe de support technique Trakopolis à l’adresse [support@cantelematics.com](mailto:support@cantelematics.com), joignez le certificat téléchargé et fournissez-lui l**’URL de l’émetteur**, l**’URL d’authentification unique SAML** et l**’URL de déconnexion unique**.
@@ -156,11 +156,11 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
 2. Dans la liste **Annuaire**, sélectionnez l'annuaire pour lequel vous voulez activer l'intégration d'annuaire.
 
-3. Pour afficher la liste des utilisateurs, dans le menu situé en haut, cliquez sur **Utilisateurs**.
+3. Pour afficher la liste des utilisateurs, dans le menu du haut, cliquez sur **Utilisateurs**.
 
 	![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-trakopolis-tutorial/create_aaduser_03.png)
 
-4. Pour ouvrir la boîte de dialogue **Ajouter un utilisateur**, cliquez sur **Ajouter un utilisateur** dans la barre d’outils située en bas.
+4. Pour ouvrir la boîte de dialogue **Ajouter un utilisateur**, cliquez sur l’option **Ajouter un utilisateur** figurant dans la barre d’outils du bas.
 
 	![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-trakopolis-tutorial/create_aaduser_04.png)
 
@@ -174,7 +174,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     c. Cliquez sur **Next**.
 
-6.  Sur la page de boîte de dialogue **Profil utilisateur**, procédez comme suit :
+6.  Sur la page **Profil utilisateur**, procédez comme suit :
 
 	![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-trakopolis-tutorial/create_aaduser_06.png)
 
@@ -238,7 +238,7 @@ L’objectif de cette section est de permettre à Britta Simon d’utiliser l’
 
 ### Test de l’authentification unique
 
-L’objectif de cette section est de tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès. Lorsque vous cliquez sur la mosaïque Trakopolis dans le volet d’accès, vous devez être connecté automatiquement à votre application Trakopolis.
+L’objectif de cette section est de tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès. Lorsque vous cliquez sur la mosaïque Trakopolis dans le volet d’accès, vous devez être connecté automatiquement à votre application Trakopolis.
 
 
 ## Ressources supplémentaires
@@ -266,4 +266,4 @@ L’objectif de cette section est de tester la configuration de l’authentifica
 [204]: ./media/active-directory-saas-trakopolis-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-trakopolis-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0907_2016-->

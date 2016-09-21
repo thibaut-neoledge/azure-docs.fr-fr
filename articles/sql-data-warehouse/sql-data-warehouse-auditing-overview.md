@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="05/31/2016" 
+   ms.date="08/29/2016" 
    ms.author="rortloff;barbkess;sonyama"/>
 
 # Audit dans Azure SQL Data Warehouse
@@ -51,9 +51,9 @@ Vous pouvez configurer l'audit pour les catégories d'événements suivantes :
 **SQL ordinaire** et **SQL paramétré** pour lesquels les journaux d'audit collectés sont classés comme
 
 - **accès aux données ;**
-- **modifications de schéma (DDL) ;**
-- **modifications de données (DML) ;**
-- **comptes, rôles et autorisations (DCL) ;**
+- **modifications de schéma (DDL) ;**
+- **modifications de données (DML) ;**
+- **comptes, rôles et autorisations (DCL) ;**
 - **Procédure stockée**, **connexion** et **Gestion des transactions**.
 
 Pour chaque catégorie d'événements, les audits des opérations **Succès** et **Échec** sont configurées séparément.
@@ -112,12 +112,12 @@ Pour des instructions plus détaillées sur la façon de travailler avec le mod�
 
 
 ##<a id="subheading-4">Pratiques d’utilisation dans un environnement de production</a>
-La description fournie dans cette section fait référence aux captures d'écran précédentes. Vous pouvez utiliser le <a href="https://portal.azure.com" target="_blank">portail Azure</a> ou le <a href= "https://manage.windowsazure.com/" target="_bank">portail Azure Classic</a>.
+La description fournie dans cette section fait référence aux captures d’écran précédentes. Vous pouvez utiliser le <a href="https://portal.azure.com" target="_blank">portail Azure</a> ou le <a href= "https://manage.windowsazure.com/" target="_bank">portail Azure Classic</a>.
 
 
 ##<a id="subheading-5"></a>Régénération des clés de stockage
 
-Dans un environnement de production, vous êtes susceptible d'actualiser de temps en temps vos clés de stockage. Au moment d'actualiser vos clés, vous devez réenregistrer la stratégie. Pour ce faire, procédez comme suit :
+Dans un environnement de production, vous êtes susceptible d’actualiser de temps en temps vos clés de stockage. Au moment d'actualiser vos clés, vous devez réenregistrer la stratégie. Pour ce faire, procédez comme suit :
 
 
 1. Dans le volet de configuration de l'audit (décrit plus haut dans la section de configuration de l'audit), faites passer la **clé d'accès de stockage** de *Primaire* à *Secondaire*, puis choisissez **ENREGISTRER**. ![][4]
@@ -151,4 +151,4 @@ Lorsque vous êtes en mode Azure Resource Manager, exécutez `Get-Command *Azu
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0907_2016-->

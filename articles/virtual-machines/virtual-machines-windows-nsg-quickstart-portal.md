@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Autoriser l’accès externe à une machine virtuelle à l’aide du portail | Microsoft Azure"
-   description="Découvrez comment ouvrir un port / créer un point de terminaison qui permet un accès à votre machine virtuelle à l’aide du modèle de déploiement Resource Manager dans le portail Azure"
+   pageTitle="Ouvrir des ports sur une machine virtuelle Linux à l’aide du Portail Azure | Microsoft Azure"
+   description="Découvrez comment ouvrir un port / créer un point de terminaison sur votre machine virtuelle Windows à l’aide du modèle de déploiement Resource Manager dans le Portail Azure"
    services="virtual-machines-windows"
    documentationCenter=""
    authors="iainfoulds"
@@ -16,7 +16,7 @@
    ms.date="08/08/2016"
    ms.author="iainfou"/>
 
-# Autoriser l’accès externe à votre machine virtuelle à l’aide du portail Azure
+# Ouverture de ports sur une machine virtuelle dans Azure à l’aide du Portail Azure
 [AZURE.INCLUDE [virtual-machines-common-nsg-quickstart](../../includes/virtual-machines-common-nsg-quickstart.md)]
 
 ## Commandes rapides
@@ -34,7 +34,7 @@ Sélectionnez un nouveau groupe de sécurité réseau. Vous créez maintenant un
 
 ![Ajouter une règle de trafic entrant](./media/virtual-machines-windows-nsg-quickstart-portal/add-inbound-rule.png)
 
-Entrez un nom pour votre nouvelle règle. Notez que le port 80 est déjà entré par défaut. Voici l’endroit où vous pourriez modifier la source, le protocole et la destination lors de l’ajout de règles supplémentaires à votre groupe de sécurité réseau :
+Entrez un nom pour votre nouvelle règle. Le port 80 est déjà entré par défaut. Sur ce panneau, vous pouvez modifier la source, le protocole et la destination lors de l’ajout de règles supplémentaires à votre groupe de sécurité réseau :
 
 ![Créer une règle de trafic entrant](./media/virtual-machines-windows-nsg-quickstart-portal/create-inbound-rule.png)
 
@@ -46,7 +46,7 @@ Sélectionnez votre réseau virtuel, puis sélectionnez le sous-réseau appropri
 
 ![Association d’un groupe de sécurité réseau à un réseau virtuel](./media/virtual-machines-windows-nsg-quickstart-portal/select-vnet-subnet.png)
 
-Vous avez maintenant créé un groupe de sécurité réseau, créé une règle de trafic entrant qui autorise le trafic sur le port 80 et l’avez associé à un sous-réseau. Toute machine virtuelle que vous connectez à ce sous-réseau sera accessibles sur le port 80.
+Vous avez maintenant créé un groupe de sécurité réseau, créé une règle de trafic entrant qui autorise le trafic sur le port 80 et l’avez associé à un sous-réseau. Toute machine virtuelle que vous connectez à ce sous-réseau est accessible sur le port 80.
 
 
 ## En savoir plus sur les groupes de sécurité réseau
@@ -54,7 +54,7 @@ Les commandes rapides vous permettent d’être opérationnel avec le trafic ent
 
 Vous pouvez définir des groupes de sécurité réseau et des règles de liste de contrôle d’accès dans le cadre de modèles Azure Resource Manager. En savoir plus sur la [création de groupes de sécurité réseau avec des modèles](../virtual-network/virtual-networks-create-nsg-arm-template.md).
 
-Si vous devez utiliser le réacheminement de port pour mapper un seul port externe sur un port interne de votre machine virtuelle, vous devez utiliser un équilibreur de charge et des règles de traduction d’adresses réseau (NAT). Par exemple, vous souhaitez peut-être exposer le port TCP 8080 en externe et diriger le trafic vers le port TCP 80 sur une machine virtuelle. En savoir plus sur [la création d'un équilibreur de charge accessible sur Internet](../load-balancer/load-balancer-get-started-internet-arm-ps.md)
+Si vous devez utiliser le réacheminement de port pour mapper un seul port externe sur un port interne de votre machine virtuelle, utilisez un équilibreur de charge et des règles de traduction d’adresses réseau (NAT). Par exemple, vous souhaitez peut-être exposer le port TCP 8080 en externe et diriger le trafic vers le port TCP 80 sur une machine virtuelle. En savoir plus sur [la création d'un équilibreur de charge accessible sur Internet](../load-balancer/load-balancer-get-started-internet-arm-ps.md)
 
 ## Étapes suivantes
 Dans cet exemple, vous avez créé une règle simple pour autoriser le trafic HTTP. Vous trouverez plus d’informations sur la création d’environnements plus détaillés dans les articles suivants :
@@ -63,4 +63,4 @@ Dans cet exemple, vous avez créé une règle simple pour autoriser le trafic HT
 - [Présentation du groupe de sécurité réseau](../virtual-network/virtual-networks-nsg.md)
 - [Présentation d’Azure Resource Manager](../load-balancer/load-balancer-arm.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0907_2016-->

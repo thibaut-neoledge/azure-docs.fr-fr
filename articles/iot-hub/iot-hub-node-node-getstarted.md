@@ -13,14 +13,14 @@
      ms.topic="hero-article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="06/16/2016"
+     ms.date="09/12/2016"
      ms.author="dobett"/>
 
 # Prise en main d’Azure IoT Hub pour Node.js
 
 [AZURE.INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
 
-À la fin de ce didacticiel, vous disposerez de trois applications console Node.js :
+À la fin de ce didacticiel, vous disposez de trois applications console Node.js :
 
 * **CreateDeviceIdentity**, qui crée une identité d’appareil et une clé de sécurité associée pour connecter votre appareil simulé ;
 * **ReadDEviceToCloudMessages.js**, qui affiche les données de télémétrie envoyées par votre appareil simulé ;
@@ -28,7 +28,7 @@
 
 > [AZURE.NOTE] L’article [kit de développement logiciel IoT Hub][lnk-hub-sdks] fournit des informations sur les différents kits de développement logiciels que vous pouvez utiliser pour générer les deux applications qui s’exécutent sur les appareils et sur le serveur de solution principal.
 
-Pour réaliser ce didacticiel, vous aurez besoin des éléments suivants :
+Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
 + Node.js version 0.12.x ou version ultérieure. <br/> L’article [Préparer votre environnement de développement][lnk-dev-setup] décrit l’installation de Node.js pour ce didacticiel sur Windows ou sur Linux.
 
@@ -40,7 +40,7 @@ Votre IoT Hub est maintenant créé. Vous disposez du nom d’hôte et de la cha
 
 ## Création d’une identité d’appareil
 
-Dans cette section, vous allez créer une application console Node.js qui crée une identité d’appareil dans le registre d’identité de votre IoT Hub. Un appareil ne peut pas se connecter à IoT Hub, à moins de posséder une entrée dans le registre d’identité des appareils. Reportez-vous à la section **Registre d’identité de l’appareil** du [Guide du développeur IoT Hub][lnk-devguide-identity] pour plus d’informations. Lorsque vous exécutez cette application console, elle génère un ID d’appareil et une clé uniques que votre appareil peut utiliser pour s’identifier lorsqu’il envoie des messages appareil-à-cloud à IoT Hub.
+Dans cette section, vous créez une application console Node.js qui crée une identité d’appareil dans le registre d’identité de votre IoT Hub. Un appareil ne peut pas se connecter à IoT Hub, à moins de posséder une entrée dans le registre d’identité des appareils. Reportez-vous à la section **Registre d’identité de l’appareil** du [Guide du développeur IoT Hub][lnk-devguide-identity] pour plus d’informations. Lorsque vous exécutez cette application console, elle génère un ID d’appareil et une clé uniques que votre appareil peut utiliser pour s’identifier lorsqu’il envoie des messages appareil-à-cloud à IoT Hub.
 
 1. Créez un dossier vide appelé **createdeviceidentity**. Dans le dossier **createdeviceidentity**, créez un fichier package.json à l’aide de la commande ci-dessous, à l’invite de commandes. Acceptez toutes les valeurs par défaut :
 
@@ -72,7 +72,7 @@ Dans cette section, vous allez créer une application console Node.js qui crée 
     var registry = iothub.Registry.fromConnectionString(connectionString);
     ```
 
-6. Ajoutez le code suivant pour créer une définition d’appareil dans le registre d’identité d’appareil dans votre IoT Hub. Ce code crée un appareil si l’ID correspondant n’existe pas dans le registre. Dans le cas contraire, il retourne la clé de l’appareil existant :
+6. Ajoutez le code suivant pour créer une définition d’appareil dans le registre d’identité d’appareil dans votre IoT Hub. Ce code crée un appareil si l’ID correspondant n’existe pas dans le registre. Dans le cas contraire, il retourne la clé de l’appareil existant :
 
     ```
     var device = new iothub.Device(null);
@@ -102,13 +102,13 @@ Dans cette section, vous allez créer une application console Node.js qui crée 
     node CreateDeviceIdentity.js 
     ```
 
-9. Prenez note de l’**ID de l’appareil** et de la **clé de l’appareil**. Vous en aurez besoin ultérieurement lorsque vous créerez une application qui se connecte à IoT Hub en tant qu’appareil.
+9. Prenez note de l’**ID de l’appareil** et de la **clé de l’appareil**. Vous aurez besoin de ces valeurs ultérieurement lorsque vous créerez une application qui se connecte à IoT Hub en tant qu’appareil.
 
 > [AZURE.NOTE] Le registre d’identité IoT Hub stocke uniquement les identités des appareils pour permettre un accès sécurisé à IoT Hub. Il stocke les ID et les clés des appareils à utiliser comme informations d’identification de sécurité, et un indicateur activé/désactivé que vous pouvez utiliser pour désactiver l’accès pour un appareil individuel. Si votre application a besoin de stocker d’autres métadonnées spécifiques aux appareils, elle doit utiliser un magasin spécifique aux applications. Reportez-vous au [Guide du développeur IoT Hub][lnk-devguide-identity] pour plus d’informations.
 
 ## Recevoir des messages appareil-à-cloud
 
-Dans cette section, vous allez créer une application console Node.js qui lit les messages appareil-à-cloud à partir d’IoT Hub. Un IoT Hub expose un point de terminaison compatible avec [Event Hubs][lnk-event-hubs-overview] pour vous permettre de lire les messages Appareil vers cloud. Pour simplifier les choses, ce didacticiel crée un lecteur de base qui ne convient pas dans le cas d’un déploiement à débit élevé. Le didacticiel [Traiter les messages des appareils vers le cloud IoT Hub][lnk-process-d2c-tutorial] vous indique comment traiter les messages des appareils vers le cloud à grande échelle. Le didacticiel [Prise en main des hubs d’événements][lnk-eventhubs-tutorial] fournit des informations complémentaires sur le traitement des messages des hubs d’événements et s’applique aux points de terminaison compatibles avec les hubs d’événements de l’IoT Hub.
+Dans cette section, vous créez une application console Node.js qui lit les messages appareil-à-cloud à partir d’IoT Hub. Un IoT Hub expose un point de terminaison compatible avec [Event Hubs][lnk-event-hubs-overview] pour vous permettre de lire les messages Appareil vers cloud. Pour simplifier les choses, ce didacticiel crée un lecteur de base qui ne convient pas dans le cas d’un déploiement à débit élevé. Le didacticiel [Traiter les messages des appareils vers le cloud IoT Hub][lnk-process-d2c-tutorial] vous indique comment traiter les messages des appareils vers le cloud à grande échelle. Le didacticiel [Prise en main des hubs d’événements][lnk-eventhubs-tutorial] fournit des informations complémentaires sur le traitement des messages des hubs d’événements et s’applique aux points de terminaison compatibles avec les hubs d’événements de l’IoT Hub.
 
 > [AZURE.NOTE] Le point de terminaison compatible Event Hubs pour lire des messages de l'appareil vers le cloud utilise toujours le protocole AMQPS.
 
@@ -154,7 +154,7 @@ Dans cette section, vous allez créer une application console Node.js qui lit le
     };
     ```
 
-7. Ajoutez le code ci-dessous pour créer l’instance **EventHubClient**, ouvrez la connexion à votre IoT Hub et créez un récepteur pour chaque partition. Cette application utilise un filtre lorsqu’elle crée un récepteur afin que ce dernier lise uniquement les messages envoyés à l’IoT Hub une fois que le récepteur a commencé à s’exécuter. Cette opération est utile dans un environnement de test, car vous voyez uniquement l’ensemble actuel de messages, mais dans un environnement de production, votre code doit vérifier qu’il traite la totalité des messages. Pour plus d’informations, voir le didacticiel [Traiter les messages appareil-à-cloud IoT Hub][lnk-process-d2c-tutorial].
+7. Ajoutez le code ci-dessous pour créer l’instance **EventHubClient**, ouvrez la connexion à votre IoT Hub et créez un récepteur pour chaque partition. Cette application utilise un filtre lorsqu’elle crée un récepteur afin que ce dernier lise uniquement les messages envoyés à l’IoT Hub une fois que le récepteur a commencé à s’exécuter. Dans un environnement de test, ce filtre permet de voir seulement l’ensemble des messages en cours. Dans un environnement de production, votre code doit vérifier qu’il traite la totalité des messages. Pour plus d’informations, consultez le didacticiel [Traiter les messages des appareils vers le cloud IoT Hub][lnk-process-d2c-tutorial] \:
 
     ```
     var client = EventHubClient.fromConnectionString(connectionString);
@@ -176,7 +176,7 @@ Dans cette section, vous allez créer une application console Node.js qui lit le
 
 ## Création d’une application de périphérique simulé
 
-Dans cette section, vous allez créer une application console Node.js qui simule un appareil envoyant des messages appareil-à-cloud à un IoT Hub.
+Dans cette section, vous créez une application console Node.js qui simule un appareil envoyant des messages appareil-à-cloud à un IoT Hub.
 
 1. Créez un dossier vide appelé **simulateddevice**. Dans le dossier **simulateddevice**, créez un fichier package.json à l’aide de la commande ci-dessous, à l’invite de commandes. Acceptez toutes les valeurs par défaut :
 
@@ -201,7 +201,7 @@ Dans cette section, vous allez créer une application console Node.js qui simule
     var Message = require('azure-iot-device').Message;
     ```
 
-5. Ajoutez une variable **connectionString** et utilisez-la pour créer un client d’appareil. Remplacez la chaîne **{youriothubname}** par le nom de l’IoT Hub que vous avez créé dans la section *Créer un IoT Hub*, et **{yourdevicekey}** par la valeur de clé d’appareil que vous avez générée dans la section *Création d’une identité d’appareil* :
+5. Ajoutez une variable **connectionString** et utilisez-la pour créer un client d’appareil. Remplacez **{youriothostname}** par le nom de l’IoT hub que vous avez créé dans la section *Créer un IoT Hub*. Remplacez **{yourdevicekey}** par la valeur clé d’appareil que vous avez générée dans la section *Création d’une identité d’appareil* :
 
     ```
     var connectionString = 'HostName={youriothostname};DeviceId=myFirstNodeDevice;SharedAccessKey={yourdevicekey}';
@@ -286,7 +286,7 @@ Pour continuer la prise en main de IoT Hub et explorer les autres scénarios IoT
 - [Prise en main de la gestion d’appareils][lnk-device-management]
 - [Prise en main du Kit de développement logiciel (SDK) Gateway][lnk-gateway-SDK]
 
-Pour découvrir comment étendre votre solution IoT et traiter les messages appareil-à-cloud à grande échelle, reportez-vous au didacticiel [Traitement des messages appareil-à-cloud][lnk-process-d2c-tutorial].
+Pour découvrir comment étendre votre solution IoT et traiter les messages des appareils vers le cloud à grande échelle, consultez le didacticiel [Traiter les messages des appareils vers le cloud IoT Hub][lnk-process-d2c-tutorial].
 
 <!-- Images. -->
 [6]: ./media/iot-hub-node-node-getstarted/create-iot-hub6.png
@@ -312,4 +312,4 @@ Pour découvrir comment étendre votre solution IoT et traiter les messages appa
 [lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

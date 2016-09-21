@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="06/13/2016"
+   ms.date="08/30/2016"
    ms.author="amanbha"/>
 
 
@@ -63,7 +63,7 @@ var proxy = ActorProxy.Create<IGameActor>(
 await proxy.SubscribeAsync<IGameEvents>(new GameEventsHandler());
 ```
 
-En cas de basculement, l’acteur peut basculer sur un nœud ou processus différent. Le proxy de l'acteur gère les abonnements actifs et s'y réabonne automatiquement. Vous pouvez contrôler l'intervalle de réabonnement via l'API `ActorProxyEventExtensions.SubscribeAsync<TEvent>`. Pour vous désabonner, utilisez l’API `ActorProxyEventExtensions.UnsubscribeAsync<TEvent>`.
+En cas de basculement, l’acteur peut basculer sur un nœud ou processus différent. Le proxy de l’acteur gère les abonnements actifs et s’y réabonne automatiquement. Vous pouvez contrôler l’intervalle de réabonnement via l’API `ActorProxyEventExtensions.SubscribeAsync<TEvent>`. Pour vous désabonner, utilisez l’API `ActorProxyEventExtensions.UnsubscribeAsync<TEvent>`.
 
 Sur l'acteur, publiez simplement les événements à mesure qu'ils se produisent. Le runtime Actors envoie la notification aux abonnés à l’événement, le cas échéant.
 
@@ -78,4 +78,4 @@ ev.GameScoreUpdated(Id.GetGuidId(), score);
  - [Documentation de référence de l’API d’acteur](https://msdn.microsoft.com/library/azure/dn971626.aspx)
  - [Exemple de code](https://github.com/Azure/servicefabric-samples)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0907_2016-->

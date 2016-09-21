@@ -16,22 +16,18 @@
 	ms.date="08/01/2016"
 	ms.author="spelluru"/>
 
-# Créer votre première fabrique de données Azure à l’aide de Microsoft Visual Studio
+# Didacticiel : Créer votre première fabrique de données Azure à l’aide de Microsoft Visual Studio
 > [AZURE.SELECTOR]
-- [Vue d’ensemble du didacticiel](data-factory-build-your-first-pipeline.md)
-- [Utilisation de Data Factory Editor](data-factory-build-your-first-pipeline-using-editor.md)
-- [Utiliser PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
-- [Utilisation de Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
-- [Utilisation du modèle Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
-- [Utilisation de l'API REST](data-factory-build-your-first-pipeline-using-rest-api.md)
+- [Portail Azure](data-factory-build-your-first-pipeline-using-editor.md)
+- [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
+- [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
+- [Modèle Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
+- [API REST](data-factory-build-your-first-pipeline-using-rest-api.md)
 
+[AZURE.INCLUDE [Configuration requise pour le didacticiel Data Factory](../../includes/data-factory-tutorial-prerequisites.md)]
 
-Dans cet article, vous allez découvrir comment utiliser Microsoft Visual Studio pour créer votre première fabrique de données Azure.
-
-## Composants requis
-
-1. Vous **devez** lire l’article [Vue d’ensemble du didacticiel](data-factory-build-your-first-pipeline.md) et effectuer les étapes préalables avant de continuer.
-2. Pour pouvoir publier des entités de fabrique de données dans Azure Data Factory, vous devez être un **administrateur de l’abonnement Azure**. Cette limitation est en vigueur pour l’instant.
+## Autres composants requis
+2. Pour pouvoir publier des entités Data Factory de Visual Studio dans Azure Data Factory, vous devez être un **administrateur de l’abonnement Azure**.
 3. Les composants suivants doivent être installés sur votre ordinateur :
 	- Visual Studio 2013 ou Visual Studio 2015
 	- Téléchargez le Kit de développement logiciel (SDK) Azure pour Visual Studio 2013 ou Visual Studio 2015. Accédez à la [page de téléchargement d’Azure](https://azure.microsoft.com/downloads/), puis cliquez sur **VS 2013** ou **VS 2015** dans la section **.NET**.
@@ -50,12 +46,12 @@ Les procédures pas à pas ci-après vous indiquent comment créer et déployer 
 	![Explorateur de solutions](./media/data-factory-build-your-first-pipeline-using-vs/solution-explorer.png)
 
 ## Créer des services liés
-Une fabrique de données peut avoir un ou plusieurs pipelines. Un pipeline peut contenir une ou plusieurs activités. Par exemple, une activité de copie pour copier des données d’une source vers un magasin de données de destination, et une activité Hive HDInsight pour exécuter un script Hive pour transformer des données d’entrée et produire des données de sortie. Vous spécifiez le nom et les paramètres de la fabrique de données ultérieurement, quand vous publiez votre solution Data Factory.
+Une fabrique de données peut avoir un ou plusieurs pipelines. Un pipeline peut contenir une ou plusieurs activités. Par exemple, une activité de copie censée copier des données d’un magasin de données source vers un magasin de données de destination, et une activité Hive HDInsight pour exécuter un script Hive pour transformer des données d’entrée. Vous spécifiez le nom et les paramètres de la fabrique de données ultérieurement, quand vous publiez votre solution Data Factory.
 
-Dans cette étape, vous liez votre compte Azure Storage et un cluster Azure HDInsight à la demande à votre fabrique de données. Le compte Azure Storage contient les données d’entrée et de sortie pour le pipeline de cet exemple. Le service lié HDInsight est utilisé pour exécuter le script Hive spécifié dans l’activité du pipeline de cet exemple. Vous devez identifier les services de magasin de données/de calcul qui sont utilisés dans votre scénario et les lier à la fabrique de données en créant des services liés.
+Dans cette étape, vous liez votre compte Stockage Azure et un cluster Azure HDInsight à la demande à votre fabrique de données. Le compte Stockage Azure contient les données d’entrée et de sortie pour le pipeline de cet exemple. Le service lié HDInsight est utilisé pour exécuter le script Hive spécifié dans l’activité du pipeline de cet exemple. Identifiez les services de magasin de données/de calcul qui sont utilisés dans votre scénario et les lier à la fabrique de données en créant des services liés.
 
 #### Créer le service lié Azure Storage
-Dans cette étape, vous liez votre compte Azure Storage à votre fabrique de données. Pour les besoins de ce didacticiel, vous utilisez le même compte Azure Storage pour stocker les données d’entrée/sortie et le fichier de script HQL.
+Dans cette étape, vous liez votre compte Stockage Azure à votre fabrique de données. Pour les besoins de ce didacticiel, vous utilisez le même compte Stockage Azure pour stocker les données d’entrée/sortie et le fichier de script HQL.
 
 4. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur **Services liés**, pointez sur **Ajouter**, puis cliquez sur **Nouvel élément**.
 5. Dans la boîte de dialogue **Ajouter un nouvel élément**, sélectionnez **Service lié Azure Storage** dans la liste, puis cliquez sur **Ajouter**.
@@ -96,11 +92,11 @@ Dans cette étape, vous liez un cluster HDInsight à la demande à votre fabriqu
 
 	Notez les points suivants :
 	
-	- La fabrique de données crée pour vous un cluster HDInsight **Windows** avec le JSON ci-dessus. Vous pouvez également lui faire créer un cluster HDInsight **Linux**. Consultez [Service lié HDInsight à la demande](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) pour plus d’informations.
-	- Vous pouvez utiliser **votre propre cluster HDInsight** au lieu d’utiliser un cluster HDInsight à la demande. Consultez [Service lié HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) pour plus d’informations.
-	- Le cluster HDInsight crée un **conteneur par défaut** dans le stockage d’objets blob que vous avez spécifié dans le JSON (**linkedServiceName**). HDInsight ne supprime pas ce conteneur lorsque le cluster est supprimé. C’est normal. Avec le service lié HDInsight à la demande, un cluster HDInsight est créé à chaque fois qu’une tranche doit être traitée, à moins qu’il n’existe un cluster activé (**timeToLive**), et est supprimé une fois le traitement activé.
+	- La fabrique de données crée pour vous un cluster HDInsight **Windows** avec le code JSON précédent. Vous pouvez également faire en sorte qu’elle crée un cluster HDInsight **Linux**. Pour plus d’informations, voir [Service lié à la demande Azure HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service).
+	- Vous pouvez utiliser votre **propre cluster HDInsight** au lieu d’utiliser un cluster HDInsight à la demande. Pour plus d’informations, voir [Service lié Azure HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service).
+	- Le cluster HDInsight crée un **conteneur par défaut** dans le stockage d’objets blob que vous avez spécifié dans le code JSON (**linkedServiceName**). HDInsight ne supprime pas ce conteneur lorsque le cluster est supprimé. Ce comportement est normal. Avec le service lié HDInsight disponible à la demande, un cluster HDInsight est créé dès qu’une tranche est traitée, à moins qu’il n’existe un cluster actif (**timeToLive**). Ce cluster est supprimé, une fois le traitement terminé.
 	
-		Comme un nombre croissant de tranches sont traitées, vous voyez un grand nombre de conteneurs dans votre stockage d’objets blob Azure. Si vous n’en avez pas besoin pour dépanner les travaux, il se peut que vous deviez les supprimer pour réduire les frais de stockage. Le nom de ces conteneurs suit un modèle : « adf**yourdatafactoryname**-**linkedservicename**-datetimestamp ». Utilisez des outils tels que [Microsoft Storage Explorer](http://storageexplorer.com/) pour supprimer des conteneurs de votre stockage d’objets blob Azure.
+		Comme un nombre croissant de tranches sont traitées, vous voyez un grand nombre de conteneurs dans votre stockage d’objets blob Azure. Si vous n’en avez pas besoin pour dépanner les travaux, il se peut que vous deviez les supprimer pour réduire les frais de stockage. Le nom de ces conteneurs suit un modèle : « adf**yourdatafactoryname**-**linkedservicename**-datetimestamp ». Utilisez des outils tels que [Microsoft Storage Explorer](http://storageexplorer.com/) pour supprimer des conteneurs dans votre stockage d’objets blob Azure.
 
 	Consultez [Service lié HDInsight à la demande](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) pour plus d’informations.
 4. Enregistrez le fichier **HDInsightOnDemandLinkedService1.json**.
@@ -188,7 +184,7 @@ Vous allez maintenant créer le jeu de données de sortie pour représenter les 
 
 
 ### Création d’un pipeline
-Dans cette étape, vous créez votre premier pipeline avec une activité **HDInsightHive**. Notez que le segment d’entrée est disponible mensuellement (fréquence : Mois, intervalle : 1), que le segment de sortie est produit mensuellement et que la propriété du planificateur pour l’activité est également définie sur Mensuellement (voir ci-dessous). Les paramètres pour le jeu de données de sortie et le planificateur d’activité doivent correspondre. À ce stade, le jeu de données de sortie est ce qui pilote la planification : vous devez donc créer un jeu de données de sortie même si l’activité ne génère aucune sortie. Si l’activité ne prend aucune entrée, vous pouvez ignorer la création du jeu de données d’entrée. Les propriétés utilisées dans le code JSON suivant sont expliquées à la fin de cette section.
+Dans cette étape, vous créez votre premier pipeline avec une activité **HDInsightHive**. La tranche d’entrée est disponible mensuellement (fréquence : Mois, intervalle : 1), la tranche de sortie est produite mensuellement et la propriété du planificateur pour l’activité est également définie sur Mensuellement. Les paramètres pour le jeu de données de sortie et le planificateur d’activité doivent correspondre. À ce stade, c'est le jeu de données de sortie qui pilote la planification : vous devez donc créer un jeu de données de sortie même si l’activité ne génère aucune sortie. Si l’activité ne prend aucune entrée, vous pouvez ignorer la création du jeu de données d’entrée. Les propriétés utilisées dans le code JSON suivant sont expliquées à la fin de cette section.
 
 1. Dans l’**Explorateur de solutions**, cliquez avec le bouton droit sur **Pipelines**, pointez sur **Ajouter**, puis cliquez sur **Nouvel élément**.
 2. Sélectionnez **Pipeline de transformation Hive** dans la liste, puis cliquez sur **Ajouter**.
@@ -251,7 +247,7 @@ Dans cette étape, vous créez votre premier pipeline avec une activité **HDIns
 
 	Dans l’activité JSON, vous spécifiez que le script Hive s’exécute sur le calcul spécifié par le service **linkedServiceName** – **HDInsightOnDemandLinkedService**.
 
-	> [AZURE.NOTE] Consultez la page [Anatomie d’un pipeline](data-factory-create-pipelines.md#anatomy-of-a-pipeline) pour plus d’informations sur les propriétés JSON utilisées dans l’exemple ci-dessus.
+	> [AZURE.NOTE] Consultez [Anatomie d’un pipeline](data-factory-create-pipelines.md#anatomy-of-a-pipeline) pour plus d’informations sur les propriétés JSON utilisées dans l’exemple.
 3. Enregistrez le fichier **HiveActivity1.json**.
 
 ### Ajouter partitionweblogs.hql et input.log comme dépendance 
@@ -306,7 +302,7 @@ Notez les points suivants :
 7. Dans la page d’accueil de votre fabrique de données, cliquez sur **Diagramme**.
   
 	![Vignette de diagramme](./media/data-factory-build-your-first-pipeline-using-vs/diagram-tile.png)
-7. Dans la vue de diagramme, une vue d’ensemble des pipelines et des jeux de données utilisés dans ce didacticiel s’affiche.
+7. Dans la Vue de diagramme, une vue d’ensemble des pipelines et des jeux de données utilisés dans ce didacticiel s’affiche.
 	
 	![Vue du diagramme](./media/data-factory-build-your-first-pipeline-using-vs/diagram-view-2.png)
 8. Pour afficher toutes les activités du pipeline, cliquez avec le bouton droit sur le pipeline dans le diagramme, puis cliquez sur Ouvrir un pipeline.
@@ -325,6 +321,7 @@ Notez les points suivants :
 
 	![Jeu de données](./media/data-factory-build-your-first-pipeline-using-vs/dataset-blade.png)
 9. Quand le traitement est terminé, l’état de la tranche est **Prêt**.
+
 	>[AZURE.IMPORTANT] La création d’un cluster HDInsight à la demande prend généralement un certain temps (environ 20 minutes).
 
 	![Jeu de données](./media/data-factory-build-your-first-pipeline-using-vs/dataset-slice-ready.png)
@@ -343,7 +340,7 @@ Vous pouvez également utiliser l’application Surveillance et gestion pour sur
 ## Utiliser l’Explorateur de serveurs pour passer en revue la fabrique des données
 
 1. Dans **Visual Studio**, cliquez sur **Affichage** dans le menu, puis sur **Explorateur de serveurs**.
-2. Dans la fenêtre Explorateur de serveurs, développez **Azure**, puis **Data Factory**. Si la boîte de dialogue **Connectez-vous à Visual Studio** est affichée, entrez le **compte** associé à votre abonnement Azure, puis cliquez sur **Continuer**. Entrez le **mot de passe**, puis cliquez sur **Se connecter**. Visual Studio essaie d’obtenir des informations sur toutes les fabriques de données Azure contenues dans votre abonnement. L’état de cette opération s’affiche dans la fenêtre **Liste des tâches de Data Factory**.
+2. Dans la fenêtre Explorateur de serveurs, développez **Azure**, puis **Data Factory**. Si la boîte de dialogue **Connectez-vous à Visual Studio** s’affiche, entrez le **compte** associé à votre abonnement Azure, puis cliquez sur **Continuer**. Entrez le **mot de passe**, puis cliquez sur **Se connecter**. Visual Studio essaie d’obtenir des informations sur toutes les fabriques de données Azure contenues dans votre abonnement. L’état de cette opération s’affiche dans la fenêtre **Liste des tâches de Data Factory**.
 
 	![Explorateur de serveurs](./media/data-factory-build-your-first-pipeline-using-vs/server-explorer.png)
 3. Vous pouvez cliquer avec le bouton droit sur une fabrique de données et sélectionner **Exporter la fabrique de données vers le nouveau projet** pour créer un projet Visual Studio basé sur une fabrique de données existante.
@@ -361,7 +358,7 @@ Pour mettre à jour des outils Azure Data Factory pour Visual Studio, procéd
 ## Utiliser des fichiers de configuration
 Vous pouvez utiliser des fichiers de configuration dans Visual Studio pour configurer les propriétés des services/tableaux/pipelines liés différemment pour chaque environnement.
 
-Examinez la définition JSON suivante pour un service lié Azure Storage. Spécifiez **connectionString** avec différentes valeurs pour accountname et accountkey, en fonction de l’environnement (dév./test/production) sur lequel vous déployez des entités Data Factory. Vous pouvez le faire à l’aide d’un fichier de configuration distinct pour chaque environnement.
+Examinez la définition JSON suivante pour un service lié Azure Storage. Spécifiez **connectionString** avec différentes valeurs pour accountname et accountkey, en fonction de l’environnement (dév./test/production) sur lequel vous déployez des entités Data Factory. Vous pouvez parvenir à ce comportement en utilisant un fichier de configuration distinct pour chaque environnement.
 
 	{
 	    "name": "StorageLinkedService",
@@ -381,7 +378,7 @@ Ajoutez un fichier de configuration pour chaque environnement en effectuant les 
 2. Sélectionnez **Config** dans la liste des modèles installés sur la gauche, choisissez **Fichier de configuration**, entrez un **nom** pour ce fichier, puis cliquez sur **Ajouter**.
 
 	![Ajouter un fichier de configuration](./media/data-factory-build-your-first-pipeline-using-vs/add-config-file.png)
-3. Ajouter des paramètres de configuration et leurs valeurs selon le format indiqué ci-dessous :
+3. Ajoutez les paramètres de configuration et leurs valeurs selon le format suivant.
 
 		{
 		    "$schema": "http://datafactories.schema.management.azure.com/vsschemas/V1/Microsoft.DataFactory.Config.json",
@@ -401,7 +398,7 @@ Ajoutez un fichier de configuration pour chaque environnement en effectuant les 
 
 	Cet exemple configure la propriété connectionString d’un service lié Azure Storage et d’un service lié SQL Azure. Notez que la syntaxe de spécification du nom est [JsonPath](http://goessner.net/articles/JsonPath/).
 
-	Si JSON est doté d’une propriété ayant un tableau de valeurs comme indiqué ci-dessous :
+	Si JSON est doté d’une propriété ayant un tableau de valeurs comme indiqué dans le code suivant :
 
 		"structure": [
 	  		{
@@ -414,7 +411,7 @@ Ajoutez un fichier de configuration pour chaque environnement en effectuant les 
 			}
 		],
 	
-	Vous devez appliquer la configuration suivante dans le fichier de configuration (utilisez une indexation de base zéro) :
+	Configurez les propriétés comme indiqué dans le fichier de configuration suivant (utilisez indexation de base zéro) :
 		
 		{
             "name": "$.properties.structure[0].name",
@@ -457,7 +454,7 @@ Pour publier des entités dans un projet Azure Data Factory à l’aide d’un
 5. Vérifiez que vous voyez bien le nom du fichier JSON dans la page **Résumé**, puis cliquez sur **Suivant**.
 6. Une fois l’opération de déploiement terminée, cliquez sur **Terminer**.
 
-Au cours du déploiement, les valeurs du fichier de configuration sont utilisées pour définir celles des propriétés des fichiers JSON pour les entités Data Factory (services, tableaux ou pipelines liés) avant que les entités ne soient déployées sur le service Azure Data Factory.
+Au cours du déploiement, les valeurs du fichier de configuration sont utilisées pour définir celles des propriétés des fichiers JSON pour les entités Data Factory avant que les entités ne soient déployées sur le service Azure Data Factory.
 
 ## Résumé 
 Dans ce didacticiel, vous avez créé une fabrique de données Azure pour traiter des données en exécutant le script Hive sur un cluster Hadoop HDInsight. Vous avez effectué les étapes suivantes dans le portail Azure à l’aide de Data Factory Editor :
@@ -482,4 +479,4 @@ Dans cet article, vous avez créé un pipeline avec une activité de transformat
 | [Groupes de données](data-factory-create-datasets.md) | Cet article vous aide à comprendre les jeux de données dans Azure Data Factory.
 | [Surveiller et gérer les pipelines Azure Data Factory à l’aide de la nouvelle application de surveillance et gestion.](data-factory-monitor-manage-app.md) | Cet article décrit comment surveiller, gérer et déboguer les pipelines à l’aide de l’application de surveillance et gestion. 
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0914_2016-->

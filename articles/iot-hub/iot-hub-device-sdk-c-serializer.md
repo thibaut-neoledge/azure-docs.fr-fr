@@ -13,7 +13,7 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="05/17/2016"
+     ms.date="09/06/2016"
      ms.author="obloch"/>
 
 # Kit Microsoft Azure IoT device SDK pour C - En savoir plus sur le sérialiseur
@@ -30,7 +30,7 @@ Vous pouvez trouver le **Kit de développement logiciel Azure IoT device SDK pou
 
 ## Le langage de modélisation
 
-L’[article d’introduction](iot-hub-device-sdk-c-intro.md) de cette série a présenté le langage de modélisation du **Kit SDK d’appareils Azure IoT pour C** via l’exemple fourni dans l’application **simplesample\_amqp** :
+L’[article d’introduction](iot-hub-device-sdk-c-intro.md) de cette série a présenté le langage de modélisation du **Kit SDK d’appareils Azure IoT pour C** via l’exemple fourni dans l’application **simplesample\_amqp** :
 
 ```
 BEGIN_NAMESPACE(WeatherStation);
@@ -58,7 +58,7 @@ Cet exemple n’illustre pas les types de données supplémentaires pris en char
 
 ### Types de données pris en charge
 
-Les types de données suivants sont pris en charge dans les modèles créés avec la bibliothèque **serializer** :
+Les types de données suivants sont pris en charge dans les modèles créés avec la bibliothèque **serializer** :
 
 | Type | Description |
 |-------------------------|----------------------------------------|
@@ -166,7 +166,7 @@ void SendAsync(IOTHUB_CLIENT_LL_HANDLE iotHubClientHandle, const void *dataEvent
 
 Cette fonction sérialise l’événement de données et l’envoie à IoT Hub à l’aide de la commande **IoTHubClient\_SendEventAsync**. Il s’agit du même code que le code traité dans les articles précédents (**SendAsync** encapsule la logique dans une fonction pratique).
 
-**GetDateTimeOffset** est une autre fonction d’assistance utilisée dans le code précédent. Cette fonction transforme l’heure donnée en une valeur de type **EDM\_DATE\_TIME\_OFFSET** :
+**GetDateTimeOffset** est une autre fonction d’assistance utilisée dans le code précédent. Cette fonction transforme l’heure donnée en une valeur de type **EDM\_DATE\_TIME\_OFFSET** :
 
 ```
 EDM_DATE_TIME_OFFSET GetDateTimeOffset(time_t time)
@@ -313,7 +313,7 @@ WITH_DATA(EDM_DATE_TIME_OFFSET, Time)
 
 Dans ce cas, nous avons éliminé les macros **DECLARE\_STRUCT** et nous définissons simplement les éléments de données à partir de notre scénario à l’aide de types simples du langage de modélisation.
 
-Pour le moment, nous allons ignorer l’événement **Time**. Ceci mis à part, voici le code pour entrer l’événement **Temperature** :
+Pour le moment, nous allons ignorer l’événement **Time**. Ceci mis à part, voici le code pour entrer l’événement **Temperature** :
 
 ```
 time_t now;
@@ -544,7 +544,7 @@ Dans la bibliothèque de l’utilitaire partagé, vous trouverez le dossier suiv
 azure-c-shared-utility\\macro\_utils\_h\_generator.
 ```
 
-Ce dossier contient une solution Visual Studio appelée **macro\_utils\_h\_generator.sln** :
+Ce dossier contient une solution Visual Studio appelée **macro\_utils\_h\_generator.sln** :
 
   ![](media/iot-hub-device-sdk-c-serializer/01-macro_utils_h_generator.PNG)
 
@@ -572,7 +572,7 @@ WITH_DATA(int, MyData)
 );
 ```
 
-Comme mentionné précédemment, **DECLARE\_MODEL** est une simple macro C. Le nom du modèle et l’instruction **WITH\_DATA** (encore une autre macro) sont des paramètres de **DECLARE\_MODEL**. **nMacroParameters** définit le nombre de paramètres pouvant être inclus dans **DECLARE\_MODEL**. Ces éléments définissent effectivement le nombre possible de déclarations d’événements de données et d’actions. Ainsi, avec la limite de 124 par défaut, vous êtes en mesure de définir un modèle avec une combinaison d’environ 60 actions et événements de données. Si vous tentez de dépasser cette limite, vous obtenez des erreurs du compilateur similaires à celles-ci :
+Comme mentionné précédemment, **DECLARE\_MODEL** est une simple macro C. Les noms du modèle et de l’instruction **WITH\_DATA** (encore une autre macro) sont des paramètres de **DECLARE\_MODEL**. **nMacroParameters** définit le nombre de paramètres pouvant être inclus dans **DECLARE\_MODEL**. Ces éléments définissent effectivement le nombre possible de déclarations d’événements de données et d’actions. Ainsi, avec la limite de 124 par défaut, vous êtes en mesure de définir un modèle avec une combinaison d’environ 60 actions et événements de données. Si vous tentez de dépasser cette limite, vous obtenez des erreurs du compilateur similaires à celles-ci :
 
   ![](media/iot-hub-device-sdk-c-serializer/02-nMacroParametersCompilerErrors.PNG)
 
@@ -602,7 +602,7 @@ Jusqu’à présent, nous avons abordé pratiquement tout ce que vous devez savo
 
 ## API de niveau inférieur
 
-L’exemple d’application traité dans cet article est **simplesample\_amqp**. Cet exemple utilise les API de niveau supérieur (non-« LL ») pour envoyer des événements et recevoir des messages. Si vous utilisez ces API, un thread d’arrière-plan s’exécute, prenant en charge l’envoi d’événements et la réception de messages. Toutefois, vous pouvez utiliser les API de niveau inférieur (LL) pour éliminer ce thread d’arrière-plan et prendre le contrôle explicite quand vous envoyez des événements ou recevez des messages du cloud.
+L’exemple d’application traité dans cet article est **simplesample\_amqp**. Cet exemple utilise les API de niveau supérieur (non « LL ») pour envoyer des événements et recevoir des messages. Si vous utilisez ces API, un thread d’arrière-plan s’exécute, prenant en charge l’envoi d’événements et la réception de messages. Toutefois, vous pouvez utiliser les API de niveau inférieur (LL) pour éliminer ce thread d’arrière-plan et prendre le contrôle explicite quand vous envoyez des événements ou recevez des messages du cloud.
 
 Comme décrit dans un [article précédent](iot-hub-device-sdk-c-iothubclient.md), il existe un ensemble de fonctions composé des API de niveau supérieur :
 
@@ -626,7 +626,7 @@ Il existe également un ensemble d’API de niveau inférieur analogue.
 
 -   IoTHubClient\_LL\_Destroy
 
-Notez que les API de niveau plus bas fonctionnent exactement comme le décrivent les articles qui précèdent. Vous pouvez utiliser le premier ensemble d’API si vous souhaitez un thread d’arrière-plan pour gérer les événements d’envoi et réception de messages. Vous utilisez le deuxième ensemble d’API si vous souhaitez contrôler explicitement vos envois et réceptions de données depuis IoT Hub. Les deux ensembles d’API fonctionnent aussi bien l’un que l’autre avec la bibliothèque **serializer**.
+Notez que les API de niveau inférieur fonctionnent exactement comme le décrivent les articles qui précèdent. Vous pouvez utiliser le premier ensemble d’API si vous souhaitez un thread d’arrière-plan pour gérer les événements d’envoi et réception de messages. Vous utilisez le deuxième ensemble d’API si vous souhaitez contrôler explicitement vos envois et réceptions de données depuis IoT Hub. Les deux ensembles d’API fonctionnent aussi bien l’un que l’autre avec la bibliothèque **serializer**.
 
 Pour obtenir un exemple d’utilisation des API de niveau inférieur avec la bibliothèque **serializer**, consultez l’application **simplesample\_http**.
 
@@ -660,7 +660,7 @@ De même, quand vous avez fini d’utiliser la bibliothèque, le dernier appel e
 serializer_deinit();
 ```
 
-Sinon, toutes les autres fonctionnalités répertoriées ci-dessus fonctionnent de la même manière dans la bibliothèque **serializer** ou dans la bibliothèque **IoTHubClient**. Pour plus d’informations sur ces rubriques, consultez l’[article précédent](iot-hub-device-sdk-c-iothubclient.md) de cette série.
+Sinon, toutes les autres fonctionnalités répertoriées ci-dessus fonctionnent de la même manière dans la bibliothèque **serializer** ou dans la bibliothèque **IoTHubClient**. Pour plus d’informations sur ces rubriques, consultez [l’article précédent](iot-hub-device-sdk-c-iothubclient.md) de cette série.
 
 ## Étapes suivantes
 
@@ -685,4 +685,4 @@ Pour explorer davantage les capacités de IoT Hub, consultez :
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
 [lnk-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0907_2016-->

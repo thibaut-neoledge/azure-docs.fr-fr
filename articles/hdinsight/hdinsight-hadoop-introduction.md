@@ -5,7 +5,7 @@
 	services="hdinsight"
 	documentationCenter=""
 	authors="cjgronlund"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -75,25 +75,25 @@ Les composants et les utilitaires suivants sont inclus dans les clusters HDInsig
 
 * **[Avro](#avro)** (bibliothèque Microsoft .NET pour Avro) : sérialisation de données pour l’environnement Microsoft .NET.
 
-* **[Hive et HCatalog](#hive)** : interrogation SQL (Structured Query Language, langage de requête structuré) et couche de gestion du stockage et des tables.
+* **[Hive et HCatalog](#hive)** : interrogation SQL (Structured Query Language, langage de requête structuré) et couche de gestion du stockage et des tables.
 
-* **[Mahout](#mahout)** : apprentissage automatique.
+* **[Mahout](#mahout)** : apprentissage automatique.
 
 * **[MapReduce](#mapreduce)** : infrastructure héritée pour le traitement distribué et la gestion des ressources Hadoop. Voir [YARN](#yarn), la nouvelle génération d’infrastructure de ressources.
 
-* **[Oozie](#oozie)** : gestion de flux de travail.
+* **[Oozie](#oozie)** : gestion de flux de travail.
 
-* **[Phoenix](#phoenix)** : couche de base de données relationnelle sur HBase.
+* **[Phoenix](#phoenix)** : couche de base de données relationnelle sur HBase.
 
-* **[Pig](#pig)** : création de scripts simplifiée pour les transformations MapReduce.
+* **[Pig](#pig)** : création de scripts simplifiée pour les transformations MapReduce.
 
-* **[Sqoop](#sqoop)** : importation et exportation de données.
+* **[Sqoop](#sqoop)** : importation et exportation de données.
 
-* **[Tez](#tez)** : permet aux processus gros consommateurs de données de s’exécuter efficacement à l’échelle.
+* **[Tez](#tez)** : permet aux processus gros consommateurs de données de s’exécuter efficacement à l’échelle.
 
 * **[YARN](#yarn)** : partie intégrante de la principale bibliothèque Hadoop et de la nouvelle génération d’infrastructure logicielle MapReduce.
 
-* **[ZooKeeper](#zookeeper)** : coordination des processus dans les systèmes distribués.
+* **[ZooKeeper](#zookeeper)** : coordination des processus dans les systèmes distribués.
 
 > [AZURE.NOTE] Pour plus d’informations sur les composants et leurs versions, consultez [Composants, contrôle de version et offres de services dans HDInsight][component-versioning]
 
@@ -268,4 +268,4 @@ Ces outils décisionnels peuvent s’avérer utiles lors de vos analyses de donn
 [component-versioning]: hdinsight-component-versioning.md
 [zookeeper]: http://zookeeper.apache.org/
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0914_2016-->

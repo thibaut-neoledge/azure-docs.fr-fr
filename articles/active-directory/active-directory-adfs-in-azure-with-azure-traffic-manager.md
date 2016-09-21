@@ -19,7 +19,7 @@
     
 #Déploiement des services AD FS haute disponibilité par-delà les frontières dans Azure avec Azure Traffic Manager
 
-L’article [Déploiement des services AD FS dans Azure](.\active-directory-aadconnect-azure-adfs.md) fournit des instructions détaillées sur la façon dont vous pouvez déployer une infrastructure AD FS simple pour votre organisation dans Azure. Cet article indique les étapes suivantes permettant de créer un déploiement par-delà les frontières des services AD FS dans Azure à l’aide [d’Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md). Azure Traffic Manager permet de créer une infrastructure AD FS à haute disponibilité et haute performance, répartie géographiquement pour votre organisation en utilisant les différentes méthodes de routage disponibles en fonction des besoins de l’infrastructure.
+L’article [Déploiement des services AD FS dans Azure](active-directory-aadconnect-azure-adfs.md) fournit des instructions détaillées sur la façon dont vous pouvez déployer une infrastructure AD FS simple pour votre organisation dans Azure. Cet article indique les étapes suivantes permettant de créer un déploiement par-delà les frontières des services AD FS dans Azure à l’aide [d’Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md). Azure Traffic Manager permet de créer une infrastructure AD FS à haute disponibilité et haute performance, répartie géographiquement pour votre organisation en utilisant les différentes méthodes de routage disponibles en fonction des besoins de l’infrastructure.
 
 Une infrastructure AD FS hautement disponible et par-delà les frontières permet d’obtenir ce qui suit :
 
@@ -49,7 +49,7 @@ Les principes de conception de base sont identiques à ceux qui sont indiqués d
 ##Procédure d’intégration d’Azure Traffic Manager
 
 ###Déployer les services AD FS dans la nouvelle région géographique
-Suivez les étapes et les instructions décrites dans l’article [Déploiement des services AD FS dans Azure](.\active-directory-aadconnect-azure-adfs.md) pour déployer la même topologie dans la nouvelle région géographique.
+Suivez les étapes et les instructions décrites dans l’article [Déploiement des services AD FS dans Azure](active-directory-aadconnect-azure-adfs.md) pour déployer la même topologie dans la nouvelle région géographique.
 
 ###Noms DNS des adresses IP publiques des équilibreurs de charge accessibles sur Internet (publics)
 Comme indiqué ci-dessus, Azure Traffic Manager ne peut faire référence aux points de terminaison qu’en utilisant des noms DNS. Il est donc important de créer des noms DNS pour les adresses IP publiques des équilibreurs de charge externes. La capture d’écran affichée ci-dessous vous indique comment configurer votre nom DNS pour l’adresse IP publique.
@@ -131,4 +131,4 @@ Le moyen le plus simple de tester AD FS est d’utiliser la page IdpInitiatedSig
 * [Gestion d’un profil Azure Traffic Manager](../traffic-manager/traffic-manager-manage-profiles.md)
 * [Ajouter, désactiver, activer ou supprimer des points de terminaison](../traffic-manager/traffic-manager-endpoints.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

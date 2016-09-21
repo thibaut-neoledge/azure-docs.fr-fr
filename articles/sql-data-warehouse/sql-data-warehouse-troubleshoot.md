@@ -52,7 +52,7 @@ Cette rubrique répertorie les questions les plus courantes relatives à la rés
 
 | Problème | Résolution : |
 | :----------------------------------| :---------------------------------------------- |
-| Msg 40847 : Impossible d’effectuer l’opération car le serveur risque de dépasser le quota d’unité de débit de base de données autorisé de 45 000. | Réduisez la [DWU][] de la base de données que vous essayez de créer ou [demandez une augmentation du quota][].|
+| Msg 40847 : Impossible d’effectuer l’opération car le serveur risque de dépasser le quota d’unité de transaction de base de données autorisé de 45 000. | Réduisez la [DWU][] de la base de données que vous essayez de créer ou [demandez une augmentation du quota][].|
 | Examen de l’utilisation de l’espace | Consultez la section relative aux [tailles des tables][] pour comprendre l’utilisation de l’espace de votre système.|
 | Aide concernant la gestion des tables | Consultez l’article [Table overview][Overview] \(Vue d’ensemble des tables) pour obtenir de l’aide pour la gestion de vos tables. Cet article inclut également des liens vers des rubriques plus détaillées, notamment [Types de données de table][Data types], [Distribution d’une table][Distribute], [Indexation d’une table][Index], [Partitionnement d’une table][Partition], [Maintenance des statistiques de table][Statistics] et [Tables temporaires][Temporary].|
 
@@ -140,4 +140,4 @@ Si les ressources ci-dessus ne vous ont pas permis de trouver une solution à vo
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [Vidéos]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

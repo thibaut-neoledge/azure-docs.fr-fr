@@ -154,7 +154,7 @@ Vous disposez de deux options pour les applications :
 En sélectionnant **Pour les applications de navigateur ou natives**, vous appliquez la stratégie d’accès aux applications via :
 
 - Les navigateurs (par exemple, Edge dans Windows 10, Safari dans iOS, etc.).
-- Les applications utilisant la bibliothèque d’application Active Directory (ADAL) sur n’importe quelle plate-forme ou l’API de gestionnaire de compte web (WAM) sous Windows 10.
+- Les applications utilisant la bibliothèque d’authentification Active Directory (ADAL) sur n’importe quelle plate-forme ou l’API de gestionnaire de compte web (WAM) sous Windows 10.
 
 >[AZURE.NOTE] Pour plus d’informations sur la prise en charge du navigateur et autres considérations pour l’utilisateur final accédant à des applications protégées par l’accès conditionnel en fonction de l’appareil, consultez [Accès conditionnel Azure Active Directory](active-directory-conditional-access.md).
 
@@ -173,4 +173,4 @@ Dans les applications Office 365 Exchange Online, vous disposez d’une section 
 
 - [Accès conditionnel Azure Active Directory](active-directory-conditional-access.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0907_2016-->

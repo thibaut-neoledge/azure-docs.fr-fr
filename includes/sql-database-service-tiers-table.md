@@ -3,7 +3,7 @@
 | | |
 |---|---|
 | DTU max | 5 |
-| Taille de base de données maximale | 2 |
+| Taille de base de données maximale (Go) | 2 |
 | Stockage In-Memory OLTP maximal (Go) | N/A |
 | Nombre maximal d’ouvriers simultanés | 30 |
 | Nombre maximal de connexions simultanées | 30 |
@@ -18,7 +18,7 @@
 |---|:---:|
 || **S0** &nbsp;&nbsp;&nbsp;&nbsp; **S1** &nbsp;&nbsp;&nbsp;&nbsp; **S2** &nbsp;&nbsp;&nbsp; **S3**|
 | DTU max | &nbsp;&nbsp;10 &nbsp;&nbsp;&nbsp;&nbsp; 20 &nbsp;&nbsp;&nbsp;&nbsp; 50 &nbsp;&nbsp; 100 |
-| Taille de base de données maximale | 250 |
+| Taille de base de données maximale (Go) | 250 |
 | Stockage In-Memory OLTP maximal (Go) | N/A |
 | Nombre maximal d’ouvriers simultanés | 60 &nbsp;&nbsp;&nbsp; 90 &nbsp;&nbsp;&nbsp; 120 &nbsp;&nbsp;&nbsp; 200 |
 | Nombre maximal de connexions simultanées | 60 &nbsp;&nbsp;&nbsp; 90 &nbsp;&nbsp;&nbsp; 120 &nbsp;&nbsp;&nbsp; 200 |
@@ -33,7 +33,7 @@
 |---|:---:|
 || **P1** &nbsp;&nbsp;&nbsp;&nbsp; **P2** &nbsp;&nbsp;&nbsp;&nbsp; **P4** &nbsp;&nbsp;&nbsp; **P6/P3** &nbsp;&nbsp; **P11** &nbsp;&nbsp; **P15**|
 | DTU max | 125 &nbsp;&nbsp; 250 &nbsp;&nbsp; 500 &nbsp;&nbsp; 1000 &nbsp;&nbsp;&nbsp; 1750 &nbsp;&nbsp; 4000 |
-| Taille de base de données maximale | 500 &nbsp;&nbsp; 500 &nbsp;&nbsp;&nbsp; 500 &nbsp;&nbsp;&nbsp; 500 &nbsp;&nbsp;&nbsp; 1000 &nbsp;&nbsp; 1000 |
+| Taille de base de données maximale (Go) | 500 &nbsp;&nbsp; 500 &nbsp;&nbsp;&nbsp; 500 &nbsp;&nbsp;&nbsp; 500 &nbsp;&nbsp;&nbsp; 1000 &nbsp;&nbsp; 1000 |
 | Stockage In-Memory OLTP maximal (Go) | &nbsp;&nbsp;&nbsp;&nbsp;1 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 4 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 8 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 14 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 32 |
 | Nombre maximal d’ouvriers simultanés | &nbsp; 200 &nbsp;&nbsp; 400 &nbsp;&nbsp;&nbsp; 800 &nbsp;&nbsp; 1600 &nbsp; 2400 &nbsp;&nbsp; 6400 |
 | Nombre maximal de connexions simultanées | &nbsp; 200 &nbsp;&nbsp; 400 &nbsp;&nbsp;&nbsp; 800 &nbsp;&nbsp; 1600 &nbsp; 2400 &nbsp;&nbsp; 6400 |
@@ -41,4 +41,4 @@
 | Restauration dans le temps | N’importe quel point dans les 35 derniers jours |
 | Récupération d'urgence | Géo-réplication active |
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0907_2016-->

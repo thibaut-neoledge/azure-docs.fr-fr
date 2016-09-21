@@ -101,57 +101,17 @@ La version actuelle de Service Bus ne prend pas en charge les règles SAS pour l
 
 En l'absence d'authentification SAS pour les groupes de consommateurs individuels, vous pouvez utiliser des clés SAS pour sécuriser tous les groupes de consommateurs avec une clé commune. Cette approche permet à une application de consommer des données à partir de n'importe quel groupe de consommateurs d'un hub d'événements.
 
-### Créer des identités de service, des parties de confiance et des règles dans ACS
-
-ACS prend en charge plusieurs façons de créer des identités de service, des parties de confiance et des règles, mais la méthode la plus simple est d'utiliser [SBAZTool](http://code.msdn.microsoft.com/Authorization-SBAzTool-6fd76d93). Par exemple :
-
-1. Créer une identité de service pour un **EventHubSender**. Cette opération renvoie le nom de l’identité de service qui a été créée et sa clé :
-
-	```
-	sbaztool.exe exe -n <namespace> -k <key>  makeid eventhubsender
-	```
-
-2. Accorder « Envoyer les revendications » **EventHubSender** au hub d'événements :
-
-	```
-	sbaztool.exe -n <namespace> -k <key> grant Send /AuthTestEventHub eventhubsender
-	```
-
-3. Créer une identité de service pour un récepteur au groupe de consommateurs 1 :
-
-	```
-	sbaztool.exe exe -n <namespace> -k <key> makeid consumergroup1receiver
-	```
-
-4. Accorder « Écouter les revendications » `consumergroup1receiver` au **groupe de consommateurs 1** :
-
-	```
-	sbaztool.exe -n <namespace> -k <key> grant Listen /AuthTestEventHub/ConsumerGroup1 consumergroup1receiver
-	```
-
-5. Créer une identité de service pour un récepteur au **groupe de consommateurs 2** :
-
-	```
-	sbaztool.exe exe -n <namespace> -k <key>  makeid consumergroup2receiver
-	```
-
-6. Accorder « Écouter les revendications » `consumergroup2receiver` au **groupe de consommateurs 2** :
-
-	```
-	sbaztool.exe -n <namespace> -k <key> grant Listen /AuthTestEventHub/ConsumerGroup2 consumergroup2receiver
-	```
-
 ## Étapes suivantes
 
 Pour plus d’informations sur Event Hubs, consultez les rubriques suivantes :
 
-- [Vue d’ensemble des concentrateurs d’événements]
-- Un [exemple d'application complet qui utilise des hubs d’événements].
+- [Vue d’ensemble des hubs d’événements]
 - Une [solution de messages de file d'attente] utilisant les files d'attente Service Bus.
+- Un [exemple d'application complet qui utilise des hubs d’événements].
 
-[Vue d’ensemble des concentrateurs d’événements]: event-hubs-overview.md
+[Vue d’ensemble des hubs d’événements]: event-hubs-overview.md
 [exemple d'application complet qui utilise des hubs d’événements]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
 [solution de messages de file d'attente]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0907_2016-->

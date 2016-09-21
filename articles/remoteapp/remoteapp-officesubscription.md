@@ -51,7 +51,7 @@ Tant que vous (l’administrateur) affectez des licences Office 365 ProPlus à
 
 ## Quelles applications Office puis-je utiliser avec Office 365 et Azure RemoteApp ?
 
-Vous pouvez utiliser votre abonnement Office 365 ProPlus pour partager Office 2013 et Office 2016 (après sa publication). Azure RemoteApp ne prend pas en charge les versions antérieures d’Office.
+Vous pouvez utiliser votre abonnement Office 365 ProPlus pour partager Office 2013. Azure RemoteApp ne prend pas en charge les versions antérieures d’Office.
 
 ## Qu’en est-il de Visio Pro ou de Project Pro ?
 
@@ -126,4 +126,4 @@ Vous avez besoin de plus d’informations sur l’utilisation de l’outil Dépl
 - [Déploiement et mise à jour d’Office 365 ProPlus à l’aide de l’outil Déploiement d’Office](https://channel9.msdn.com/Events/Ignite/2015/BRK3168) (vidéo)
 - [Définir les paramètres de mise à jour pour Office 365 ProPlus](https://technet.microsoft.com/library/dn761708.aspx)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0907_2016-->

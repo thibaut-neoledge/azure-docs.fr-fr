@@ -19,12 +19,12 @@
 #Notifications Push sécurisées avec Azure Notification Hubs
 
 > [AZURE.SELECTOR]
-- [Windows Universal](notification-hubs-aspnet-backend-windows-dotnet-secure-push.md)
-- [iOS](notification-hubs-aspnet-backend-ios-secure-push.md)
-- [Android](notification-hubs-aspnet-backend-android-secure-push.md)
+- [Windows Universal](notification-hubs-aspnet-backend-windows-dotnet-wns-secure-push-notification.md)
+- [iOS](notification-hubs-aspnet-backend-ios-push-apple-apns-secure-notification.md)
+- [Android](notification-hubs-aspnet-backend-android-secure-google-gcm-push-notification.md)
 
 
-##Vue d’ensemble
+##Vue d'ensemble
 
 La prise en charge des notifications Push dans Microsoft Azure vous permet d’accéder à une infrastructure Push conviviale, multiplateforme avec montée en charge qui simplifie fortement l’implémentation des notifications Push pour les applications grand public et d’entreprise destinées aux plateformes mobiles.
 
@@ -37,23 +37,23 @@ Globalement, le processus est le suivant :
 	- envoie l'ID de cette notification à l'appareil (aucune information sécurisée n'est envoyée).
 2. L'application qui se trouve sur l'appareil, lorsqu'elle reçoit la notification :
 	- L'appareil contacte le serveur principal en demandant la charge utile sécurisée.
-	- L’application peut afficher la charge utile sous la forme d’une notification sur l’appareil.
+	- L'application peut afficher la charge utile sous la forme d'une notification sur l'appareil.
 
-Veuillez noter que dans le flux précédent (et dans ce didacticiel), nous partons du principe que l’appareil stocke un jeton d’authentification dans un stockage local, une fois l’utilisateur connecté. Cela simplifie nettement l’expérience, car l’appareil peut récupérer la charge utile sécurisée en utilisant ce jeton. Si votre application ne stocke pas les jetons d’authentification sur l’appareil, ou si ces jetons sont susceptibles d’expirer, lorsque l’application sur l’appareil reçoit la notification, elle doit afficher une notification générique demandant à l’utilisateur de lancer l’application. L'application authentifie alors l'utilisateur et affiche la charge utile de la notification.
+Veuillez noter que dans le flux précédent (et dans ce didacticiel), nous partons du principe que l’appareil stocke un jeton d’authentification dans un stockage local, une fois l’utilisateur connecté. Cela simplifie nettement l’expérience, car l’appareil peut récupérer la charge utile sécurisée en utilisant ce jeton. Si votre application ne stocke pas les jetons d'authentification sur l'appareil, ou si ces jetons sont susceptibles d'expirer, lorsque l'application sur l'appareil reçoit la notification, elle doit afficher une notification générique demandant à l'utilisateur de lancer l'application. L'application authentifie alors l'utilisateur et affiche la charge utile de la notification.
 
 Ce didacticiel sur les notifications Push sécurisées montre comment envoyer une notification Push en toute sécurité. Il s'appuie sur le didacticiel [Envoi de notifications à des utilisateurs](notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md). Vous devez donc suivre ce dernier au préalable.
 
-> [AZURE.NOTE] Ce didacticiel part du principe que vous avez créé et configuré votre hub de notification comme décrit dans [Prise en main de Notification Hubs (Windows Store)](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md). Notez également que Windows Phone 8.1 nécessite des informations d’identification Windows (pas Windows Phone) et que les tâches en arrière-plan ne fonctionnent pas sur Windows Phone 8.0 ou Silverlight 8.1. Pour les applications Windows Store, vous pouvez recevoir des notifications via une tâche en arrière-plan uniquement si l'écran de verrouillage est activé pour l'application (activez la case à cocher dans Appmanifest).
+> [AZURE.NOTE] Ce didacticiel part du principe que vous avez créé et configuré votre hub de notification comme décrit dans [Prise en main de Notification Hubs (Windows Store)](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md). Notez également que Windows Phone 8.1 nécessite des informations d’identification Windows (pas Windows Phone) et que les tâches en arrière-plan ne fonctionnent pas sur Windows Phone 8.0 ou Silverlight 8.1. Pour les applications Windows Store, vous pouvez recevoir des notifications via une tâche en arrière-plan uniquement si l'écran de verrouillage activé pour l'application (activez la case à cocher dans Appmanifest).
 
 [AZURE.INCLUDE [notification-hubs-aspnet-backend-securepush](../../includes/notification-hubs-aspnet-backend-securepush.md)]
 
 ## Modification du projet Windows Phone
 
-1. Dans le projet **NotifyUserWindowsPhone**, ajoutez le code suivant à App.xaml.cs afin d'enregistrer la tâche en arrière-plan pour les notifications Push. Ajoutez la ligne de code ci-après à la fin de la méthode `OnLaunched()` :
+1. Dans le projet **NotifyUserWindowsPhone**, ajoutez le code suivant à App.xaml.cs afin d'enregistrer la tâche en arrière-plan pour les notifications Push. Ajoutez la ligne de code ci-après à la fin de la méthode `OnLaunched()` :
 
 		RegisterBackgroundTask();
 
-2. Toujours dans App.xaml.cs, ajoutez le code ci-dessous juste après la méthode `OnLaunched()` :
+2. Toujours dans App.xaml.cs, ajoutez le code ci-dessous juste après la méthode `OnLaunched()` :
 
 		private async void RegisterBackgroundTask()
         {
@@ -78,7 +78,7 @@ Ce didacticiel sur les notifications Push sécurisées montre comment envoyer un
 
 ## Création du composant en arrière-plan pour les notifications Push
 
-L'étape suivante consiste à créer le composant en arrière-plan pour les notifications Push.
+L’étape suivante consiste à créer le composant en arrière-plan pour les notifications Push.
 
 1. Dans l'Explorateur de solutions, cliquez avec le bouton droit sur le nœud de niveau supérieur de la solution (**Solution SecurePush** dans le cas présent). Cliquez ensuite sur **Ajouter**, puis sur **Nouveau projet**.
 
@@ -186,4 +186,4 @@ Pour exécuter l'application, procédez comme suit :
 [12]: ./media/notification-hubs-aspnet-backend-windows-dotnet-secure-push/notification-hubs-secure-push12.png
 [13]: ./media/notification-hubs-aspnet-backend-windows-dotnet-secure-push/notification-hubs-secure-push13.png
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0907_2016-->

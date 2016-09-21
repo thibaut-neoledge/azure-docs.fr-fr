@@ -39,7 +39,7 @@ Un **profil de journal** contrôle comment votre journal d’activité est expor
 - L’emplacement où le journal d’activité doit être envoyé (compte de stockage ou Event Hubs).
 - Les catégories d’événements (p. ex. Write, Delete, Action) qui doivent être envoyées.
 - Les régions (emplacements) qui doivent être exportées.
-- La durée de rétention du journal d’activité dans un compte de stockage ; une durée de rétention de zéro jour signifie que les journaux sont conservés indéfiniment. Si des stratégies de rétention sont définies, mais que le stockage des journaux dans un compte de stockage est désactivé (p. ex. si seules les options Event Hubs ou OMS sont sélectionnées), les stratégies de rétention n’ont aucun effet.
+- La durée de rétention du journal d’activité dans un compte de stockage ; une durée de rétention de zéro jour signifie que les journaux sont conservés indéfiniment. La valeur peut également être n’importe quel nombre de jours, compris entre 1 et 2147483647. Si des stratégies de rétention sont définies, mais que le stockage des journaux dans un compte de stockage est désactivé (p. ex. si seules les options Event Hubs ou OMS sont sélectionnées), les stratégies de rétention n’ont aucun effet.
 
 Ces paramètres peuvent être configurés via l’option d’export dans le panneau Journal d’activité dans le portail, ou par programme [à l’aide de l’API REST](https://msdn.microsoft.com/library/azure/dn931927.aspx), des applets de commande PowerShell ou de l’interface de ligne de commande. Un abonnement ne peut avoir qu’un seul profil de journal.
 
@@ -52,7 +52,7 @@ Vous pouvez diffuser en continu le journal d’activité vers un Event Hub ou le
 2. Cliquez sur le bouton **Exporter** en haut du panneau.
 
     ![Bouton Exporter dans le portail](./media/monitoring-overview-activity-logs/activity-logs-portal-export.png)
-3. Dans le panneau qui s’affiche, vous pouvez sélectionner les régions pour lesquelles vous souhaitez exporter les événements, le compte de stockage dans lequel vous souhaitez enregistrer les événements (ainsi que le nombre de jours pendant lesquels vous souhaitez conserver ces événements dans le stockage) et l’espace de noms Service Bus dans lequel vous souhaitez qu’un Event Hub soit créé pour diffuser en continu ces événements.
+3. Dans le panneau qui s’affiche, vous pouvez sélectionner les régions pour lesquelles vous souhaitez exporter les événements, le compte de stockage dans lequel vous souhaitez enregistrer les événements (ainsi que le nombre de jours pendant lesquels vous souhaitez conserver ces événements dans le stockage ; si vous indiquez 0, les journaux seront conservés indéfiniment) et l’espace de noms Service Bus dans lequel vous souhaitez qu’un Event Hub soit créé pour diffuser en continu ces événements.
 
     ![Panneau Exporter le journal d’activité](./media/monitoring-overview-activity-logs/activity-logs-portal-export-blade.png)
 4. Cliquez sur **Enregistrer** pour enregistrer ces paramètres. Les paramètres sont immédiatement appliqués à votre abonnement.
@@ -74,7 +74,7 @@ Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/r
 | StorageAccountId | Non | ID de ressource du compte de stockage dans lequel le journal d’activité doit être enregistré. |
 | serviceBusRuleId | Non | ID de règle Service Bus pour l’espace de noms Service Bus dans lequel vous souhaitez que des concentrateurs d’événements soient créés. Ce sera une chaîne au format suivant : `{service bus resource ID}/authorizationrules/{key name}`. |
 | Emplacements | Oui | Liste séparée par des virgules des régions pour lesquelles vous souhaitez collecter les événements du journal d’activité. |
-| RetentionInDays | Oui | Nombre de jours pendant lesquels les événements doivent être conservés. Une valeur de zéro signifie que les journaux seront stockés pour une durée indéfinie. |
+| RetentionInDays | Oui | Nombre de jours pendant lesquels les événements doivent être conservés, compris entre 1 et 2147483647. Une valeur de zéro signifie que les journaux seront stockés pour une durée indéfinie (pour toujours). |
 | Catégories | Non | Liste séparée par des virgules des catégories d’événements qui doivent être collectées. Les valeurs possibles sont Write, Delete et Action. |
 
 #### Supprimer un profil de journal
@@ -103,7 +103,7 @@ azure insights logprofile add --name my_log_profile --storageId /subscriptions/s
 | storageId | Non | ID de ressource du compte de stockage dans lequel le journal d’activité doit être enregistré. |
 | serviceBusRuleId | Non | ID de règle Service Bus pour l’espace de noms Service Bus dans lequel vous souhaitez que des concentrateurs d’événements soient créés. Ce sera une chaîne au format suivant : `{service bus resource ID}/authorizationrules/{key name}`. |
 | emplacements | Oui | Liste séparée par des virgules des régions pour lesquelles vous souhaitez collecter les événements du journal d’activité. |
-| retentionInDays | Oui | Nombre de jours pendant lesquels les événements doivent être conservés. Une valeur de zéro signifie que les journaux seront stockés pour une durée indéfinie. |
+| retentionInDays | Oui | Nombre de jours pendant lesquels les événements doivent être conservés, compris entre 1 et 2147483647. Une valeur de zéro signifie que les journaux seront stockés pour une durée indéfinie (pour toujours). |
 | categories | Non | Liste séparée par des virgules des catégories d’événements qui doivent être collectées. Les valeurs possibles sont Write, Delete et Action. |
 
 #### Supprimer un profil de journal
@@ -223,4 +223,4 @@ Chaque événement dans le journal d’activité a un objet blob JSON comme celu
 - [En savoir plus sur le journal d’activité (autrefois appelé journal d’audit)](../resource-group-audit.md)
 - [Stream the Azure Activity Log to Event Hubs (Diffuser en continu le journal d’activités Azure vers Event Hubs)](./monitoring-stream-activity-logs-event-hubs.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

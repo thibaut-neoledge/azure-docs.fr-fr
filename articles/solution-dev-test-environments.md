@@ -3,9 +3,9 @@
    description="Apprenez à utiliser les modèles Azure Resource Manager pour créer et supprimer rapidement et avec cohérence des environnements de développement et de test."
    services="azure-resource-manager"
    documentationCenter="na"
-   authors="jimdial"
-   manager="carmonm"
-   editor=""/>
+   authors="tfitzmac"
+   manager="timlt"
+   editor="tysonn"/>
 
 <tags
    ms.service="azure-resource-manager"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="01/22/2016"
-   ms.author="jdial"/>
+   ms.author="tomfitz"/>
 
 # Environnements de développement et de test dans Microsoft Azure
 
@@ -361,4 +361,4 @@ Maintenant que vous avez pu constater comme il est facile de créer, de gérer e
 - [Affecter des balises](resource-group-using-tags.md) aux groupes de ressources pour chaque environnement et/ou aux ressources individuelles. Vous pouvez ajouter une balise « Environment » à vos groupes de ressources et définir sa valeur de sorte qu’elle corresponde aux noms de votre environnement. Les balises peuvent être particulièrement utiles si vous devez organiser les ressources à des fins de facturation ou de gestion.
 - Surveiller les alertes et la facturation pour les ressources du groupe de ressources dans le [portail Azure](https://portal.azure.com).
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

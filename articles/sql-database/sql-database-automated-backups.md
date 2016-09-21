@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="06/16/2016"
+   ms.date="09/06/2016"
    ms.author="carlrab"/>
 
 # Sauvegardes automatisées d’une base de données SQL
@@ -62,4 +62,4 @@ La période de rétention est déterminée par le niveau de service de la base d
 - Pour en savoir plus sur l’utilisation des sauvegardes automatisées pour l’archivage, consultez [Copie de base de données](sql-database-copy.md)
 - Pour une vue d’ensemble de la continuité des activités, consultez [Vue d’ensemble de la continuité des activités](sql-database-business-continuity.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0907_2016-->

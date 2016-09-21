@@ -88,7 +88,7 @@ La manière la plus rapide de commencer consiste à compiler et exécuter l’ex
 	DocumentDBBenchmark completed successfully.
 
 
-**Étape 4 (si nécessaire) :** le débit signalé (RU/s) à partir de l’outil doit être identique ou supérieur au débit approvisionné de la collection. Dans le cas contraire, le fait d’augmenter la valeur de DegreeOfParallelism par petits incréments peut vous aider à atteindre la limite. Si le débit de votre application cliente se stabilise, le lancement de plusieurs instances de l’application sur les mêmes ordinateurs ou sur d’autres machines vous permettra d’atteindre la limite approvisionnée sur les différentes instances. Si vous avez besoin d’aide pour réaliser cette étape, contactez-nous par le biais [d’Ask DocumentDB](askdocdb@microsoft.com) ou en ouvrant un ticket de support.
+**Étape 4 (si nécessaire) :** le débit signalé (RU/s) à partir de l’outil doit être identique ou supérieur au débit approvisionné de la collection. Dans le cas contraire, le fait d’augmenter la valeur de DegreeOfParallelism par petits incréments peut vous aider à atteindre la limite. Si le débit de votre application cliente se stabilise, le lancement de plusieurs instances de l’application sur les mêmes ordinateurs ou sur d’autres machines vous permettra d’atteindre la limite approvisionnée sur les différentes instances. Si vous avez besoin d’aide pour cette étape, veuillez envoyer un e-mail à askdocdb@microsoft.com ou remplir un ticket de support.
 
 Une fois l’application en cours d’exécution, vous pouvez essayer différentes [stratégies d’indexation](documentdb-indexing-policies.md) et [niveaux de cohérence](documentdb-consistency-levels.md) pour comprendre leur impact sur le débit et la latence. Vous pouvez également examiner le code source et implémenter des configurations similaires dans vos propres suites de test ou applications de production.
 
@@ -103,4 +103,4 @@ Dans cet article, nous avons vu comment effectuer des tests de performances et d
 * [Exemples .NET DocumentDB](https://github.com/Azure/azure-documentdb-net)
 * [Blog de DocumentDB avec des conseils relatifs aux performances](https://azure.microsoft.com/blog/2015/01/20/performance-tips-for-azure-documentdb-part-1-2/)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0907_2016-->

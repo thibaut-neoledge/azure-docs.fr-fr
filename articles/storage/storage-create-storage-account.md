@@ -33,7 +33,7 @@ Un compte de stockage Azure fournit un espace de noms unique pour stocker vos ob
 
 > [AZURE.NOTE] Lorsque vous créez une machine virtuelle Azure, un compte de stockage est créé automatiquement pour vous sur le lieu de déploiement si vous ne disposez pas déjà de ce type de compte à cet emplacement. Il n’est donc pas nécessaire de suivre les étapes ci-dessous pour créer un compte de stockage pour vos disques de machines virtuelles. Le nom du compte de stockage dépend du nom de la machine virtuelle. Pour plus d’informations, consultez la [documentation relative aux machines virtuelles Azure](https://azure.microsoft.com/documentation/services/virtual-machines/).
 
-## Points de terminaison d’un compte de stockage
+## Points de terminaison d'un compte de stockage
 
 Chaque objet que vous stockez dans Azure Storage possède une adresse URL unique. Le nom du compte de stockage constitue le sous-domaine de cette adresse. La combinaison sous-domaine/nom du domaine, qui est propre à chaque service, forme un *point de terminaison* pour votre compte de stockage.
 
@@ -53,7 +53,7 @@ L’URL permettant d’accéder à un objet dans un compte de stockage est const
 
 Vous pouvez aussi configurer un nom de domaine personnalisé à utiliser avec votre compte de stockage. Dans le cas de comptes de stockage classiques, consultez la page [Configurer un nom de domaine personnalisé pour un point de terminaison Blob Storage](storage-custom-domain-name.md) pour plus d’informations. Pour les comptes de stockage Resource Manager, cette fonctionnalité n’a pas encore été ajoutée au [Portail Azure](https://portal.azure.com), mais vous pouvez la configurer avec PowerShell. Pour plus d’informations, référez-vous à l’applet de commande [Set-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607146.aspx).
 
-## Créer un compte de stockage
+## Créez un compte de stockage.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
@@ -101,7 +101,7 @@ Pour les comptes de stockage d’objets blob, changer le niveau d’accès peut 
 
 Lorsque vous créez un compte de stockage, Azure génère deux clés d'accès de stockage de 512 bits, qui servent à l'authentification lors de l'accès au compte de stockage. En fournissant deux clés d'accès de stockage, Azure vous permet de régénérer les clés sans interrompre votre service de stockage ni l'accès à ce service.
 
-> [AZURE.NOTE] Nous vous recommandons d’éviter de partager vos clés d’accès de stockage avec qui que ce soit. Pour autoriser l'accès aux ressources de stockage sans donner vos clés d'accès, vous pouvez utiliser une *signature d'accès partagé*. Celle-ci donne accès à votre compte à une ressource pendant une durée que vous déterminez et avec les autorisations que vous spécifiez. Pour plus d’informations, voir [Signatures d’accès partagé, partie 1 : présentation du modèle SAP](storage-dotnet-shared-access-signature-part-1.md).
+> [AZURE.NOTE] Nous vous recommandons d’éviter de partager vos clés d’accès de stockage avec qui que ce soit. Pour autoriser l'accès aux ressources de stockage sans donner vos clés d'accès, vous pouvez utiliser une *signature d'accès partagé*. Celle-ci donne accès à votre compte à une ressource pendant une durée que vous déterminez et avec les autorisations que vous spécifiez. Pour plus d’informations, consultez [Utilisation des signatures d’accès partagé (SAP)](storage-dotnet-shared-access-signature-part-1.md).
 
 #### Afficher et copier les clés d’accès de stockage
 
@@ -113,9 +113,9 @@ Nous vous recommandons de modifier périodiquement les clés d’accès à votre
 
 > [AZURE.WARNING] La régénération des clés d’accès peut affecter les services dans Azure, ainsi que vos applications qui dépendent du compte de stockage. Tous les clients qui utilisent la clé d'accès pour accéder au compte de stockage doivent être mis à jour pour utiliser la nouvelle clé.
 
-**Media Services** : si des services de médias sont liés à votre compte de stockage, vous devez resynchroniser les clés d’accès avec ces services après avoir régénéré les clés.
+**Media Services** : si des services de médias sont liés à votre compte de stockage, vous devez resynchroniser les clés d’accès avec ces services après avoir régénéré les clés.
 
-**Applications** : si des applications web ou des services cloud utilisent le compte de stockage, vous perdez les connexions en régénérant les clés, à moins de les substituer.
+**Applications** : si des applications web ou des services cloud utilisent le compte de stockage, vous perdez les connexions en régénérant les clés, à moins de les substituer.
 
 **Explorateurs de stockage** : si vous utilisez des [applications d’explorateur de stockage](storage-explorers.md), vous devrez probablement mettre à jour la clé de stockage utilisée par ces applications.
 
@@ -157,4 +157,4 @@ Pour plus d’informations, voir la [documentation sur les machines virtuelles A
 - [Transfert de données avec l'utilitaire de ligne de commande AzCopy](storage-use-azcopy.md)
 - Consultez le [Blog de l'équipe Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/).
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -26,10 +26,10 @@ Les appareils peuvent communiquer avec IoT Hub dans Azure à l’aide de divers 
 
 | Protocole | Port(s) |
 | -------- | ------- |
-| HTTPS | 443 |
+| MQTT | 8883 |
 | AMQP | 5671 |
 | AMQP sur WebSockets | 443 |
-| MQTT | 8883 |
+| HTTPS | 443 |
 | LWM2M (gestion des appareils) | 5684 |
 
 Lorsque vous avez créé un IoT Hub dans une région Azure, le hub conserve la même adresse IP pendant sa durée de vie. Toutefois, pour maintenir la qualité du service, si Microsoft le fait passer à une autre unité d’échelle, il reçoit une nouvelle adresse IP.
@@ -59,4 +59,4 @@ Pour explorer davantage les capacités de IoT Hub, consultez :
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
 [lnk-tokens]: iot-hub-sas-tokens.md
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

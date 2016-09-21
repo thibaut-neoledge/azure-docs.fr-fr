@@ -23,7 +23,7 @@ Découvrez les réponses aux questions les plus fréquentes, les modèles et les
 ## Forum Aux Questions
 
 -	[Comment puis-je poser une question à l’équipe de gestion des API ?](#how-can-i-ask-a-question-to-the-api-management-team)
--	[Qu’est-ce que cela signifie lorsqu’une fonctionnalité est disponible en version préliminaire ?](#what-does-it-mean-if-a-feature-is-in-preview)
+-	[Qu’est-ce que cela signifie lorsqu’une fonctionnalité est disponible en version préliminaire ?](#what-does-it-mean-when-a-feature-is-in-preview)
 -	[Quelles sont les options prises en charge pour sécuriser la connexion entre la passerelle de gestion des API et mes services principaux ?](#what-are-the-supported-options-to-secure-the-connection-between-the-api-management-gateway-and-my-backend-services)
 -	[Comment puis-je copier une instance de la gestion des API vers une nouvelle instance ?](#how-can-i-copy-an-api-management-instance-to-a-new-instance)
 -	[Puis-je gérer mon instance de gestion des API par programme ?](#can-i-manage-my-api-management-instance-programmatically)
@@ -39,6 +39,7 @@ Découvrez les réponses aux questions les plus fréquentes, les modèles et les
 -	[Puis-je utiliser un certificat SSL auto-signé pour un service principal ?](#can-i-use-a-self-signed-ssl-certificate-for-a-backend)
 -	[Pourquoi l’authentification échoue-t-elle lors de la tentative de clonage du référentiel GIT ?](#why-am-i-getting-authentication-failure-when-i-try-to-clone-the-git-repository)
 -	[Comment fonctionne la gestion des API avec Express Route ?](#does-api-management-work-with-express-route)
+-	[Puis-je déplacer l’instance de gestion des API d’un abonnement à un autre ?](#can-i-move-api-management-instance-from-one-subscription-to-another)
 
 
 ### Comment puis-je poser une question à l’équipe de gestion des API ?
@@ -74,9 +75,9 @@ Oui, vous pouvez la gérer à l’aide de [l’API REST Gestion des API](https:/
 
 ### Comment puis-je ajouter un utilisateur au groupe d’administrateurs ?
 
-Vous pouvez suivez les étapes ci-dessous :
+Vous pouvez suivre les étapes ci-dessous :
 
-1. Connectez-vous au nouveau [Portail Azure](https://portal.azure.com)
+1. Connectez-vous au [portail Azure](https://portal.azure.com)
 2. Accédez au groupe de ressources qui contient l’instance de gestion des API souhaitée
 3. Ajoutez l’utilisateur souhaité au rôle « collaborateur de gestion des API »
 
@@ -84,8 +85,8 @@ Une fois cette opération effectuée, le contributeur nouvellement ajouté peut 
 
 1. Utilisez l’applet de commande `Login-AzureRmAccount` pour vous connecter
 2. Définissez le contexte sur l’abonnement qui contient le service à l’aide de `Set-AzureRmContext -SubscriptionID <subscriptionGUID>`
-3. Récupérez le jeton d’authentification unique à l’aide de `Get-AzureRmApiManagementSsoToken -ResourceGroupName <rgName> -Name <serviceName>`
-4. Copiez-collez l’URL dans le navigateur : l’utilisateur doit avoir accès au portail d’administration
+3. Obtenez l’URL d’authentification unique à l’aide de `Get-AzureRmApiManagementSsoToken -ResourceGroupName <rgName> -Name <serviceName>`
+4. Utilisez l’URL pour accéder au portail d’administration
 
 
 ### Pourquoi la stratégie que je veux ajouter n’est-elle pas activée dans l’éditeur de stratégie ?
@@ -101,14 +102,14 @@ Si la stratégie que vous souhaitez ajouter n’est pas activée, vérifiez que 
 
 ### Comment puis-je configurer plusieurs environnements d’API, par exemple Sandbox et Production ?
 
-À ce stade, les options disponibles sont :
+Actuellement, vos options sont :
 
 -	Vous pouvez héberger des API distinctes sur le même client
 -	Vous pouvez héberger les mêmes API sur plusieurs clients
 
 ### SOAP est-il pris en charge dans la gestion des API ?
 
-Actuellement, nous proposons un support limité pour SOAP dans la gestion des API Azure. Nous étudions actuellement cette fonctionnalité. Il serait très intéressant pour nous de recevoir des exemples de WSDL de la part de votre client, ainsi qu’une description des fonctionnalités requises. Cela nous permettrait de développer notre stratégie. Veuillez nous contacter en utilisant les informations de contact référencées dans [Comment puis-je poser une question à l’équipe de gestion des API ?](#how-can-i-ask-a-question-to-the-api-management-team)
+Actuellement, nous proposons un support limité pour SOAP dans la gestion des API Azure. Nous étudions actuellement cette fonctionnalité. Nous aimerions obtenir des exemples de vos documents WSDL : cela nous aiderait à orienter nos réflexions. Veuillez nous contacter en utilisant les informations de contact référencées dans [Comment puis-je poser une question à l’équipe de gestion des API ?](#how-can-i-ask-a-question-to-the-api-management-team)
 
 Si vous avez besoin que cette fonctionnalité soit opérationnelle, certains membres de notre communauté ont suggéré des solutions. Consultez [Gestion des API Azure - APIM, consommer un service WCF de SOAP sur HTTP](http://mostlydotnetdev.blogspot.com/2015/03/azure-api-management-apim-consuming.html).
 
@@ -155,4 +156,8 @@ Si vous utilisez le Gestionnaire d’informations d’identification GIT ou si v
 
 Oui.
 
-<!---HONumber=AcomDC_0831_2016-->
+### Puis-je déplacer l’instance de gestion des API d’un abonnement à un autre ?
+
+Oui. Veuillez suivre les instructions de [cet article](../resource-group-move-resources.md).
+
+<!---HONumber=AcomDC_0907_2016-->

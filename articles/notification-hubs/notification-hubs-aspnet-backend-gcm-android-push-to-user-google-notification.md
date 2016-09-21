@@ -242,7 +242,7 @@ L'étape suivante consiste à créer l'application Android.
             }
         }
 
-	Ce composant met en œuvre les appels REST nécessaires pour contacter le service principal de l'application et inscrire cette dernière pour les notifications Push. Il enregistre également en local les informations *registrationIds* créées par le hub de notification, comme expliqué dans la rubrique [Inscription auprès du serveur principal de votre application](notification-hubs-registration-management.md#registration-management-from-a-backend). Notez qu'il utilise un jeton d'autorisation qui se trouve dans le stockage local quand vous cliquez sur le bouton **Log in**.
+	Ce composant met en œuvre les appels REST nécessaires pour contacter le service principal de l'application et inscrire cette dernière pour les notifications Push. Il enregistre également en local les informations *registrationIds* créées par le hub de notification, comme expliqué dans la rubrique [Inscription auprès du serveur principal de votre application](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend). Notez qu'il utilise un jeton d'autorisation qui se trouve dans le stockage local quand vous cliquez sur le bouton **Log in**.
 
 5. Dans votre classe `MainActivity`, supprimez ou commentez votre champ privé pour `NotificationHub`, puis ajoutez un champ pour la classe `RegisterClient` et une chaîne pour le point de terminaison de votre serveur principal ASP.NET. Remplacez bien `<Enter Your Backend Endpoint>` par le point de terminaison réel de votre serveur principal, obtenu précédemment. Par exemple : `http://mybackend.azurewebsites.net`.
 
@@ -432,4 +432,4 @@ L'étape suivante consiste à créer l'application Android.
 [A1]: ./media/notification-hubs-aspnet-backend-android-notify-users/android-notify-users.png
 [A2]: ./media/notification-hubs-aspnet-backend-android-notify-users/android-notify-users-enter-password.png
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0907_2016-->

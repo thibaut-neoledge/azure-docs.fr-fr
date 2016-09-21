@@ -23,7 +23,7 @@ Dans cet article, nous vous expliquons comment vous pouvez utiliser le portail A
 Avant de commencer, vous devez [créer un compte de stockage](../storage/storage-create-storage-account.md#create-a-storage-account) sur lequel vous pouvez archiver votre journal d’activité. Nous vous recommandons vivement de ne pas utiliser un compte de stockage existant sur lequel sont stockées d’autres données de non-analyse, afin de pouvoir mieux contrôler l’accès aux données d’analyse. En revanche, si vous archivez également des journaux de diagnostic et des métriques sur un compte de stockage, il peut être judicieux d’utiliser ce compte pour votre journal d’activité afin de regrouper toutes vos données d’analyse au même emplacement. Le compte de stockage que vous utilisez doit être un compte de stockage à usage général, et non un compte de stockage Blob.
 
 ## Profil de journal
-Pour archiver le journal d’activité à l’aide de l’une des méthodes ci-dessous, définissez le **profil journal** pour un abonnement. Le profil de journal définit le type d’événements qui sont stockés ou diffusés et les types de sortie : compte de stockage et/ou hub d’événements. Il définit également la stratégie de rétention (nombre de jours de conservation) pour les événements stockés dans un compte de stockage. Si la stratégie de rétention est définie sur zéro, les événements sont stockés indéfiniment. [Vous trouverez plus d’informations sur les profils de journal ici](monitoring-overview-activity-logs.md#export-the-activity-log-with-log-profiles).
+Pour archiver le journal d’activité à l’aide de l’une des méthodes ci-dessous, définissez le **profil journal** pour un abonnement. Le profil de journal définit le type d’événements qui sont stockés ou diffusés et les types de sortie : compte de stockage et/ou hub d’événements. Il définit également la stratégie de rétention (nombre de jours de conservation) pour les événements stockés dans un compte de stockage. Si la stratégie de rétention est définie sur zéro, les événements sont stockés indéfiniment. Elle peut également être définie sur n’importe quelle valeur comprise entre 1 et 2147483647. [Vous trouverez plus d’informations sur les profils de journal ici](monitoring-overview-activity-logs.md#export-the-activity-log-with-log-profiles).
 
 ## Archiver le journal d’activité à l’aide du portail
 1. Dans le portail, cliquez sur le lien **Journal d’activité** dans le volet de navigation de gauche. Si vous ne voyez pas de lien pour le journal d’activité, cliquez d’abord sur le lien **More Services** (Plus de services).
@@ -47,7 +47,7 @@ Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/r
 |------------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | StorageAccountId | Non | ID de ressource du compte de stockage dans lequel les journaux d’activité doivent être enregistrés. |
 | Emplacements | Oui | Liste séparée par des virgules des régions pour lesquelles vous souhaitez collecter les événements du journal d’activité. Vous pouvez afficher une liste de toutes les régions [en consultant cette page](https://azure.microsoft.com/regions) ou en utilisant [l’API REST de gestion Azure](https://msdn.microsoft.com/library/azure/gg441293.aspx). |
-| RetentionInDays | Oui | Nombre de jours pendant lesquels les événements doivent être conservés. Une valeur de zéro signifie que les journaux seront stockés pour une durée indéfinie. |
+| RetentionInDays | Oui | Nombre de jours pendant lesquels les événements doivent être conservés, compris entre 1 et 2147483647. Une valeur de zéro signifie que les journaux seront stockés pour une durée indéfinie (pour toujours). |
 | Catégories | Oui | Liste séparée par des virgules des catégories d’événements qui doivent être collectées. Les valeurs possibles sont Write, Delete et Action. |
 ## Archiver le journal d’activité avec l’interface de ligne de commande
 ```
@@ -59,7 +59,7 @@ azure insights logprofile add --name my_log_profile --storageId /subscriptions/s
 | name | Oui | Nom de votre profil de journal. |
 | storageId | Non | ID de ressource du compte de stockage dans lequel les journaux d’activité doivent être enregistrés. |
 | emplacements | Oui | Liste séparée par des virgules des régions pour lesquelles vous souhaitez collecter les événements du journal d’activité. Vous pouvez afficher une liste de toutes les régions [en consultant cette page](https://azure.microsoft.com/regions) ou en utilisant [l’API REST de gestion Azure](https://msdn.microsoft.com/library/azure/gg441293.aspx). |
-| retentionInDays | Oui | Nombre de jours pendant lesquels les événements doivent être conservés. Une valeur de zéro signifie que les journaux seront stockés pour une durée indéfinie. |
+| retentionInDays | Oui | Nombre de jours pendant lesquels les événements doivent être conservés, compris entre 1 et 2147483647. Une valeur de zéro signifie que les journaux seront stockés pour une durée indéfinie (pour toujours). |
 | categories | Oui | Liste séparée par des virgules des catégories d’événements qui doivent être collectées. Les valeurs possibles sont Write, Delete et Action. |
 
 ## Schéma de stockage du journal d’activité
@@ -156,4 +156,4 @@ Dans le fichier PT1H.json, chaque événement est stocké dans le tableau « enr
 - [Transférer le journal d’activité vers Event Hubs](monitoring-stream-activity-logs-event-hubs.md)
 - [En savoir plus sur le journal d’activité](monitoring-overview-activity-logs.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

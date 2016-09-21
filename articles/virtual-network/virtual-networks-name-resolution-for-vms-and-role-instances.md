@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Résolution pour les machines virtuelles et les instances de rôle"
-   description="Scénarios de résolution de noms pour Microsoft Azure IaaS, les solutions hybrides, entre différents services cloud, Active Directory et à l’aide de votre propre serveur DNS"
+   description="Scénarios de résolution de noms pour Microsoft Azure IaaS, les solutions hybrides, entre différents services cloud, Active Directory et à l’aide de votre propre serveur DNS "
    services="virtual-network"
    documentationCenter="na"
    authors="GarethBradshawMSFT"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/03/2016"
+   ms.date="08/31/2016"
    ms.author="telmos" />
 
 # Résolution de noms pour les machines virtuelles et les instances de rôle
@@ -89,9 +89,9 @@ Un certain nombre de packages de mise en cache DNS différents sont disponibles,
 - **Ubuntu (utilise resolvconf)** :
 	- installez simplement le package dnsmasq (« sudo apt-get install dnsmasq »).
 - **SUSE (utilise netconf)** :
-	- installez le package dnsmasq (« sudo zypper install dnsmasq ») 
-	- activez le service dnsmasq (« systemctl enable dnsmasq.service ») 
-	- démarrez le service dnsmasq (« systemctl start dnsmasq.service ») 
+	- installez le package dnsmasq (« sudo zypper install dnsmasq »)
+	- activez le service dnsmasq (« systemctl enable dnsmasq.service »)
+	- démarrez le service dnsmasq (« systemctl start dnsmasq.service »)
 	- modifiez « /etc/sysconfig/network/config » et remplacez NETCONFIG\_DNS\_FORWARDER="" par « dnsmasq »
 	- mettez à jour resolv.conf (netconfig update) pour définir le cache en tant que programme de résolution DNS local
 - **OpenLogic (utilise NetworkManager)** :
@@ -107,8 +107,8 @@ Un certain nombre de packages de mise en cache DNS différents sont disponibles,
 
 DNS est principalement un protocole UDP. Comme le protocole UDP ne garantit pas la remise des messages, la logique de nouvelle tentative est gérée dans le protocole DNS lui-même. Chaque client DNS (système d’exploitation) peut afficher une logique de nouvelle tentative différente selon la préférence de son auteur :
 
- - Les systèmes d’exploitation Windows effectuent de nouvelles tentatives après 1 seconde, puis à nouveau après 2 secondes, 4 secondes et encore 4 secondes. 
- - La configuration Linux par défaut effectue une nouvelle tentative après 5 secondes. Il est recommandé de modifier ce paramètre pour effectuer de nouvelles tentatives 5 fois à des intervalles de 1 seconde.  
+ - Les systèmes d’exploitation Windows effectuent de nouvelles tentatives après 1 seconde, puis à nouveau après 2 secondes, 4 secondes et encore 4 secondes.
+ - La configuration Linux par défaut effectue une nouvelle tentative après 5 secondes. Il est recommandé de modifier ce paramètre pour effectuer de nouvelles tentatives 5 fois à des intervalles de 1 seconde.
 
 Pour vérifier les paramètres actuels sur une machine virtuelle Linux, accédez à 'cat /etc/resolv.conf' et consultez la ligne 'options', par exemple :
 
@@ -117,13 +117,13 @@ Pour vérifier les paramètres actuels sur une machine virtuelle Linux, accédez
 Le fichier resolv.conf est généralement généré automatiquement et ne doit pas être modifié. Les étapes spécifiques pour l’ajout de la ligne 'options' varient selon la distribution :
 
 - **Ubuntu** (utilise resolvconf) :
-	- ajoutez la ligne 'options' à '/etc/resolveconf/resolv.conf.d/head' 
+	- ajoutez la ligne 'options' à '/etc/resolveconf/resolv.conf.d/head'
 	- exécutez 'resolvconf -u' pour mettre à jour
 - **SUSE** (utilise netconf) :
-	- ajoutez 'timeout:1 attempts:5' au paramètre NETCONFIG\_DNS\_RESOLVER\_OPTIONS="" dans '/etc/sysconfig/network/config' 
+	- ajoutez 'timeout:1 attempts:5' au paramètre NETCONFIG\_DNS\_RESOLVER\_OPTIONS="" dans '/etc/sysconfig/network/config'
 	- exécutez 'netconfig update' pour mettre à jour
 - **OpenLogic** (utilise NetworkManager) :
-	- ajoutez 'echo "options timeout:1 attempts:5"' à '/etc/NetworkManager/dispatcher.d/11-dhclient' 
+	- ajoutez 'echo "options timeout:1 attempts:5"' à '/etc/NetworkManager/dispatcher.d/11-dhclient'
 	- exécutez 'service network restart' pour mettre à jour
 
 ## Résolution de noms à l’aide de votre propre serveur DNS
@@ -139,13 +139,13 @@ Quand vous utilisez la résolution de noms dans Azure, un suffixe DNS interne (*
 
 Si nécessaire, le suffixe DNS interne peut être déterminé à l’aide de PowerShell ou de l’API :
 
--  Pour les réseaux virtuels dans les modèles de déploiement Resource Manager, le suffixe est disponible par le biais de la ressource [carte d’interface réseau](https://msdn.microsoft.com/library/azure/mt163668.aspx) ou de l’applet de commande [Get-AzureRmNetworkInterface](https://msdn.microsoft.com/library/mt619434.aspx).    
+-  Pour les réseaux virtuels dans les modèles de déploiement Resource Manager, le suffixe est disponible par le biais de la ressource [carte d’interface réseau](https://msdn.microsoft.com/library/azure/mt163668.aspx) ou de l’applet de commande [Get-AzureRmNetworkInterface](https://msdn.microsoft.com/library/mt619434.aspx).
 -  Pour les modèles de déploiement classiques, le suffixe est disponible par le biais de l’appel de l’[API d’obtention de déploiement](https://msdn.microsoft.com/library/azure/ee460804.aspx) ou de l’applet de commande [Get-AzureVM -Debug](https://msdn.microsoft.com/library/azure/dn495236.aspx).
 
 
 Si la redirection des requêtes vers Azure ne suffit pas, vous devez fournir votre propre solution DNS. Votre solution DNS doit présenter les caractéristiques suivantes :
 
--  Fournir la résolution de nom d’hôte approprié, par exemple par le biais de [DDNS](virtual-networks-name-resolution-ddns.md). Si vous utilisez DNS dynamique, vous pouvez être amené à désactiver le nettoyage des enregistrements DNS, car les baux DHCP d’Azure sont très longs et le nettoyage risque de supprimer des enregistrements DNS prématurément. 
+-  Fournir la résolution de nom d’hôte approprié, par exemple par le biais de [DDNS](virtual-networks-name-resolution-ddns.md). Si vous utilisez DNS dynamique, vous pouvez être amené à désactiver le nettoyage des enregistrements DNS, car les baux DHCP d’Azure sont très longs et le nettoyage risque de supprimer des enregistrements DNS prématurément.
 -  Fournir la résolution récursive appropriée pour permettre la résolution de noms de domaines externes.
 -  Être accessible (TCP et UDP sur le port 53) à partir des clients qu’elle dessert et être en mesure d’accéder à internet.
 -  Être protégée contre tout accès à partir d’Internet, pour atténuer les menaces posées par les agents externes.
@@ -181,6 +181,6 @@ Modèle de déploiement classique :
 
 - [Schéma de configuration de service Microsoft Azure](https://msdn.microsoft.com/library/azure/ee758710)
 - [Schéma de configuration du réseau virtuel](https://msdn.microsoft.com/library/azure/jj157100)
-- [Configuration d'un réseau virtuel à l'aide d'un fichier de configuration réseau](virtual-networks-using-network-configuration-file.md) 
+- [Configuration d'un réseau virtuel à l'aide d'un fichier de configuration réseau](virtual-networks-using-network-configuration-file.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0907_2016-->

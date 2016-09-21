@@ -132,12 +132,20 @@ Si vous avez plusieurs objets dans le même espace de connecteur joints au même
 
 Pour ce scénario, vous devez modifier la portée des règles de synchronisation, de façon à ce que les objets sources aient des règles de synchronisation différentes dans la portée. Cela vous permet de définir une précédence différente. ![Plusieurs objets joints au même objet mv](./media/active-directory-aadconnectsync-understanding-declarative-provisioning/multiple2.png)
 
-## Ressources supplémentaires
+## Étapes suivantes
 
-- [Azure AD Connect Sync : comment modifier la configuration par défaut](active-directory-aadconnectsync-change-the-configuration.md)
-- [Azure AD Connect Sync : présentation des expressions d’approvisionnement déclaratif](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md)
-- [Azure AD Connect Sync : Référence aux fonctions](active-directory-aadconnectsync-functions-reference.md)
-- [Azure AD Connect Sync : personnalisation des options de synchronisation](active-directory-aadconnectsync-whatis.md)
+- En savoir plus sur le langage d’expression dans [Comprendre les expressions d’approvisionnement déclaratif](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md).
+- Apprendre comment l’approvisionnement déclaratif est utilisé out-of-box dans [Présentation de la configuration par défaut](active-directory-aadconnectsync-understanding-default-configuration.md).
+- Apprendre à effectuer une modification pratique à l’aide de l’approvisionnement déclaratif dans [Comment modifier la configuration par défaut](active-directory-aadconnectsync-change-the-configuration.md).
+- Continuer à lire le fonctionnement des utilisateurs et des contacts dans [Présentation des utilisateurs et des Contacts](active-directory-aadconnectsync-understanding-users-and-contacts.md).
+
+**Rubriques de présentation**
+
+- [Azure AD Connect Sync - Présentation et personnalisation des options de synchronisation](active-directory-aadconnectsync-whatis.md)
 - [Intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0831_2016-->
+**Rubriques de référence**
+
+- [Azure AD Connect Sync : Référence aux fonctions](active-directory-aadconnectsync-functions-reference.md)
+
+<!---HONumber=AcomDC_0907_2016-->

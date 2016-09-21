@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="05/14/2016"
+   ms.date="09/01/2016"
    ms.author="jehollan"/>
 
 # Utilisation d’Azure Functions avec les applications logiques
@@ -26,7 +26,7 @@ Vous pouvez exécuter des extraits de code personnalisés de C# ou node.js en ut
 
 ## Créer une fonction pour Logic Apps
 
-Nous vous recommandons de créer une fonction dans le portail Azure Functions en utilisant les modèles **Generic Node Webhook** (Webhook de nœud générique) ou **Generic C# Webhook** (Webhook C# générique). Cela remplit automatiquement un modèle qui accepte `application/json` à partir d’une application logique. Les fonctions qui utilisent ces modèles sont automatiquement détectées et répertoriées dans le concepteur Logic Apps sous **Azure Functions in my region** (Azure Functions dans ma région).
+Nous vous recommandons de créer une fonction dans le portail Azure Functions en utilisant les modèles **Generic Webhook - Node** (Webhook générique - Nœud) ou **Generic Webhook - C#** (Webhook générique - C#). Cela remplit automatiquement un modèle qui accepte `application/json` à partir d’une application logique. Les fonctions qui utilisent ces modèles sont automatiquement détectées et répertoriées dans le concepteur Logic Apps sous **Azure Functions in my region** (Azure Functions dans ma région).
 
 Les fonctions de webhook acceptent une demande et la passent à la méthode par le biais d’une variable `data`. Vous pouvez accéder aux propriétés de votre charge utile à l’aide d’une notation par points telle que `data.foo`. Par exemple, une fonction JavaScript simple qui convertit une valeur DateTime en une chaîne de date se présente comme suit :
 
@@ -70,4 +70,4 @@ Le concepteur génère ensuite un modèle de fonction que vous pouvez créer sou
 [1]: ./media/app-service-logic-azure-functions/callFunction.png
 [2]: ./media/app-service-logic-azure-functions/createFunction.png
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -13,17 +13,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="07/01/2016"
+   ms.date="09/02/2016"
    ms.author="kgremban"/>
 
 # Comment démarrer une révision de l’accès dans Azure AD Privileged Identity Management ?
 
-Les attributions de rôles deviennent « obsolètes » lorsque les utilisateurs bénéficient d’un accès privilégié dont ils n’ont plus besoin. Pour réduire les risques associés à ces affectations de rôles « obsolètes », les administrateurs de rôle privilégié doivent régulièrement réviser les rôles qui ont été donnés aux utilisateurs. Ce document décrit les étapes de démarrage d’une révision de la sécurité dans Azure AD Privileged Identity Management (PIM).
+Les attributions de rôles deviennent « obsolètes » lorsque les utilisateurs bénéficient d’un accès privilégié dont ils n’ont plus besoin. Pour réduire les risques associés à ces affectations de rôles « obsolètes », les administrateurs de rôle privilégié doivent régulièrement réviser les rôles qui ont été donnés aux utilisateurs. Ce document décrit les étapes de démarrage d’une révision d’accès dans Azure AD Privileged Identity Management (PIM).
 
-## Démarrer une révision de sécurité
+## Démarrage d’une révision d’accès
 > [AZURE.NOTE] Si vous n’avez pas ajouté l’application PIM à votre tableau de bord dans le portail Azure, consultez les étapes dans [Prise en main d’Azure Privileged Identity Management](active-directory-privileged-identity-management-getting-started.md)
 
-Dans la page principale application PIM, il y a trois manières de démarrer une révision de sécurité :
+Dans la page principale de l’application PIM, vous pouvez démarrer une révision d’accès de trois façons différentes :
 
 - **Révisions d’accès** > **Ajouter**
 - **Rôles** > bouton **Révision**
@@ -53,25 +53,26 @@ Chaque révision se concentre sur un seul rôle. À moins d’avoir démarré la
 
 ### Désignez la personne qui effectuera la révision
 
-Il existe deux options pour effectuer une révision. Vous pouvez la faire vous-même, en approuvant ou refusant l’accès pour tous les utilisateurs d’un rôle. Ou vous pouvez laisser chaque utilisateur réviser son propres accès.
+Il existe trois options pour effectuer une révision. Vous pouvez affecter la révision à quelqu’un d’autre, vous pouvez la faire vous-même ou vous pouvez demander à chaque utilisateur de réviser son propre accès.
 
 1. Navigation vers **Sélectionner des réviseurs**
 
     ![Sélection des réviseurs - capture d’écran][4]
 
 2. Choisissez l'une des options :
-    - **Moi** : utile si vous souhaitez afficher un aperçu du fonctionnement des révisions d’accès ou effectuer une révision pour le compte de personnes qui ne peuvent pas le faire.
+    - **Sélectionnez le réviseur** : utilisez cette option lorsque vous ne savez pas qui a besoin de l’accès. Avec cette option, vous pouvez affecter la révision à un propriétaire de ressource ou un responsable de groupe.
+    - **Moi** : utile si vous souhaitez un aperçu du fonctionnement des révisions d’accès ou effectuer une révision à la place de personnes qui ne peuvent pas le faire.
     - **Auto-révision par les membres du rôle** : utilisez cette option pour demander aux utilisateurs de réviser leurs propres affectations de rôles.
 
 ### Démarrage d’une révision
 
 Enfin, vous pouvez obliger les utilisateurs à indiquer le motif pour lequel ils approuvent leur accès. Ajoutez une description de la révision si vous le souhaitez, puis sélectionnez **Démarrer**.
 
-Assurez-vous d’informer vos utilisateurs qu’une révision d’accès les attend, puis montrez-leur [comment effectuer une révision d’accès](active-directory-privileged-identity-management-how-to-perform-security-review.md).
+Assurez-vous d’informer vos utilisateurs qu’une révision d’accès les attend, puis montrez-leur [comment exécuter une révision d’accès](active-directory-privileged-identity-management-how-to-perform-security-review.md).
 
 ## Gestion de la révision d’accès
 
-Vous pouvez suivre la progression des révisions des réviseurs dans le tableau de bord Azure AD PIM, dans la section des révisions d'accès. Aucun droit d'accès ne sera modifié dans le répertoire avant que [la révision ne soit terminée](active-directory-privileged-identity-management-how-to-complete-review.md).
+Vous pouvez suivre la progression des révisions des réviseurs dans le tableau de bord Azure AD PIM, dans la section des révisions d'accès. Aucun droit d’accès ne sera modifié dans le répertoire avant que [la révision ne soit terminée](active-directory-privileged-identity-management-how-to-complete-review.md).
 
 Tant que la période de révision n’est pas terminée, vous pouvez rappeler aux utilisateurs d’effectuer leur révision, ou arrêter la révision au début de la section des révisions d’accès.
 
@@ -87,4 +88,4 @@ Tant que la période de révision n’est pas terminée, vous pouvez rappeler au
 [3]: ./media/active-directory-privileged-identity-management-how-to-start-security-review/PIM_review_role.png
 [4]: ./media/active-directory-privileged-identity-management-how-to-start-security-review/PIM_review_reviewers.png
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -247,7 +247,7 @@ La machine virtuelle est fournie avec quelques outils et algorithmes de Machine 
 * **CNTK (Computational Network Toolkit de Microsoft Research)** : kit de ressources d’apprentissage approfondi.
 * **Vowpal Wabbit** : algorithme d’apprentissage en ligne rapide.
 * **xgboost** : outil qui fournit des algorithmes d’arborescence optimisés.
-* **Python** : Anaconda Python est fourni avec des algorithmes de Machine Learning et des bibliothèques comme Scikit-learn. Vous pouvez installer d’autres bibliothèques en exécutant pip install.
+* **Python** : Anaconda Python est fourni avec des algorithmes de Machine Learning et des bibliothèques comme Scikit-learn. Vous pouvez installer d’autres bibliothèques à l’aide de la commande `pip install`.
 * **R** : riche bibliothèque de fonctions de Machine Learning disponible pour R. lm, glm, randomForest et rpart comptent parmi les bibliothèques préinstallées. D’autres bibliothèques peuvent être installées en exécutant la commande suivante :
 
 		install.packages(<lib name>)
@@ -344,4 +344,4 @@ Voici comment poursuivre votre formation et votre exploration :
 * Découvrez comment créer des solutions analytiques de bout en bout systématiquement à l’aide du [processus TDSP (Team Data Science Process)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 * Visitez la [galerie Cortana Analytics](http://gallery.cortanaanalytics.com) pour obtenir des exemples de Machine Learning et d’analyse des données qui utilisent la suite Cortana Analytics.
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

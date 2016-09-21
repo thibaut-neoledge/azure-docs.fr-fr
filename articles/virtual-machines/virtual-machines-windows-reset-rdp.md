@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Réinitialisation du mot de passe ou du Bureau à distance sur une machine virtuelle Windows | Microsoft Azure"
-	description="Réinitialisez le mot de passe administrateur ou les services Bureau à distance sur une machine virtuelle Windows créée avec le modèle de déploiement du Gestionnaire des ressources."
+	pageTitle="Réinitialisation du mot de passe ou de la configuration Bureau à distance sur une machine virtuelle Windows | Microsoft Azure"
+	description="Découvrez comment réinitialiser un mot de passe de compte ou des services Bureau à distance sur une machine virtuelle Windows à l’aide du Portail Azure ou d’Azure PowerShell."
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="iainfoulds"
@@ -14,21 +14,21 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/10/2016"
+	ms.date="09/01/2016"
 	ms.author="iainfou"/>
 
 # Comment réinitialiser le service Bureau à distance ou son mot de passe de connexion dans une machine virtuelle Windows
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-Si vous ne pouvez pas vous connecter à une machine virtuelle Windows en raison d’un oubli de mot de passe ou d’un problème avec la configuration du service Bureau à distance, vous pouvez réinitialiser le mot de passe de l’administrateur local ou la configuration du service Bureau à distance. Vous pouvez utiliser le portail Azure ou l’extension d’accès aux machines virtuelles dans Azure PowerShell pour réinitialiser le mot de passe. Si vous utilisez PowerShell, assurez-vous d’installer le dernier module PowerShell sur votre ordinateur de travail et d’être connecté à votre abonnement Azure. Pour plus de détails sur la procédure, consultez [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md).
+Vous pouvez réinitialiser le mot de passe d’administrateur local ou la configuration du service Bureau à distance si vous ne pouvez pas vous connecter à une machine virtuelle Windows. Vous pouvez utiliser le portail Azure ou l’extension d’accès aux machines virtuelles dans Azure PowerShell pour réinitialiser le mot de passe. Si vous utilisez PowerShell, assurez-vous d’installer le dernier module PowerShell sur votre ordinateur de travail et d’être connecté à votre abonnement Azure. Pour plus de détails sur la procédure, consultez [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md).
 
 > [AZURE.TIP] Vous pouvez vérifier la version de PowerShell que vous avez installée à l’aide de la commande `Import-Module Azure, AzureRM; Get-Module Azure, AzureRM | Format-Table Name, Version`
 
 ## Machines virtuelles Windows dans le modèle de déploiement Resource Manager
 
 ### Portail Azure
-Sélectionnez votre machine virtuelle en cliquant sur **Parcourir** > **Machines virtuelles** > *votre machine virtuelle Windows* > **Tous les paramètres** > **Réinitialiser le mot de passe**. Le panneau de réinitialisation du mot de passe s’affiche de la manière suivante :
+Sélectionnez votre machine virtuelle en cliquant sur **Parcourir** > **Machines virtuelles** > *votre machine virtuelle Windows* > **Tous les paramètres** > **Réinitialiser le mot de passe**. Le panneau de réinitialisation du mot de passe s’affiche :
 
 ![Page Réinitialiser le mot de passe](./media/virtual-machines-windows-reset-rdp/Portal-RM-PW-Reset-Windows.png)
 
@@ -143,4 +143,4 @@ Cette commande définit la valeur de registre fDenyTSConnections sur 0, pour act
 
 [Résolution des problèmes de connexion Bureau à distance avec une machine virtuelle Azure Windows](virtual-machines-windows-troubleshoot-rdp-connection.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -72,7 +72,7 @@ Ajoutez d’autres tests. Exemple : outre le test de votre page d’accueil, vo
 
 ## <a name="monitor"></a>3. Consulter les résultats des tests web
 
-Après 1 à 2 minutes, les résultats s’affichent dans :
+Après 1 à 2 minutes, les résultats s’affichent dans le panneau du test web.
 
 ![Summary results on the home blade](./media/app-insights-monitor-web-app-availability/14-availSummary.png)
 
@@ -323,4 +323,4 @@ Une fois le test terminé, les temps de réponse et les taux de réussite s’af
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -28,6 +28,8 @@ Pour ce document, nous allons configurer notre environnement App Service derri�
 
 ![Architecture][Architecture]
 
+> Remarque : avec l’introduction de la [prise en charge de l’équilibreur de charge interne pour l’environnement App Service](app-service-environment-with-internal-load-balancer.md), vous pouvez configurer l’ASE de façon à ce qu’il soit inaccessible depuis le DMZ et uniquement disponible pour le réseau privé.
+
 ## Configuration de votre environnement App Service ##
 Pour configurer un environnement App Service, consultez [notre documentation](app-service-web-how-to-create-an-app-service-environment.md) sur le sujet. Une fois qu’un environnement App Service est créé, vous pouvez créer des [Web Apps](app-service-web-overview.md), des [API Apps](../app-service-api/app-service-api-apps-why-best-platform.md) et des [Mobile Apps](../app-service-mobile/app-service-mobile-value-prop.md) dans cet environnement. Elles seront toutes protégées derrière le WAF que nous allons configurer dans la section suivante.
 
@@ -99,4 +101,4 @@ Remplacez SourceAddressPrefix par l'adresse IP virtuelle (VIP) du service cloud 
 [ConfigureTrafficManager]: ./media/app-service-app-service-environment-web-application-firewall/ConfigureTrafficManager.png
 [WebsiteTranslations]: ./media/app-service-app-service-environment-web-application-firewall/WebsiteTranslations.png
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0907_2016-->

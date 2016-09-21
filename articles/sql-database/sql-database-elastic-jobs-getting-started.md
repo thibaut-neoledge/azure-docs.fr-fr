@@ -12,14 +12,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/23/2016"
+	ms.date="09/06/2016"
 	ms.author="ddove" />
 
 # Prise en main de Tâches de bases de données élastiques
 
 Tâches de bases de données élastiques (version préliminaire) pour la base de données SQL Azure vous permet d’exécuter, de manière efficace, des scripts T-SQL qui s'étendent sur plusieurs bases de données, tout en apportant automatiquement de nouvelles tentatives et des garanties d’achèvement éventuel. Pour plus d’informations sur la fonctionnalité Tâches de bases de données élastiques, veuillez consulter la [page de vue d’ensemble des fonctionnalités](sql-database-elastic-jobs-overview.md).
 
-Cette rubrique étend l’exemple de la rubrique [Prise en main des outils de base de données élastique](sql-database-elastic-scale-get-started.md). Une fois l’opération terminée, vous apprendrez à créer et à gérer des tâches qui gèrent un groupe de bases de données associées.
+Cette rubrique étend l’exemple de la rubrique [Prise en main des outils de base de données élastique](sql-database-elastic-scale-get-started.md). Une fois l’opération terminée, vous apprendrez à créer et à gérer des tâches qui gèrent un groupe de bases de données associées. Il n’est pas nécessaire d’utiliser les outils de mise à l’échelle élastique pour tirer parti des avantages des tâches élastiques.
 
 ## Composants requis
 
@@ -238,7 +238,7 @@ Les stratégies d'exécution permettent de définir :
 * Délai d’attente de la tâche : délai avant l’annulation d’une tâche par Tâches de bases de données élastiques.
 * Intervalle avant nouvelle tentative initiale : l'intervalle d'attente avant la première nouvelle tentative.
 * Intervalle maximal avant nouvelle tentative : plafond des intervalles avant nouvelle tentative à utiliser.
-* Coefficient d'interruption de l’intervalle avant nouvelle tentative : ce coefficient permet de calculer le prochain intervalle entre les tentatives. La formule suivante est utilisée : (intervalle avant nouvelle tentative initiale) * Math.pow (coefficient d’interruption de l’intervalle), (nombre de tentatives) - 2). 
+* Coefficient d'interruption de l’intervalle avant nouvelle tentative : ce coefficient permet de calculer le prochain intervalle entre les tentatives. La formule suivante est utilisée : (intervalle avant nouvelle tentative initiale) * Math.pow (coefficient d’interruption de l’intervalle), (nombre de tentatives) - 2).
 * Nombre maximal de tentatives : le nombre maximal de nouvelles tentatives effectuées dans une tâche.
 
 La stratégie d'exécution par défaut utilise les valeurs suivantes :
@@ -447,4 +447,4 @@ Pour plus d’informations sur la tarification, consultez la page [Tarification 
 [5]: ./media/sql-database-elastic-query-getting-started/exel-sources.png
 <!--anchors-->
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0907_2016-->

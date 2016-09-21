@@ -12,7 +12,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="search" 
-	ms.date="05/17/2016" 
+	ms.date="08/29/2016" 
 	ms.author="heidist"/>
 
 # Étude de cas d’un développeur Azure Search
@@ -24,7 +24,7 @@
 
 Notre idée consiste à créer un portail d'informations permettant à des acheteurs de contacter des revendeurs grâce à une recherche pertinente et très ciblée, semblable à celle qu'utilisent les agences de voyages pour proposer des hôtels, des restaurants et des divertissements aux clients partant pour des destinations inconnues.
 
-Le portail que nous souhaitons créer offrira une expérience exceptionnelle pour la recherche de données sur les revendeurs d'un marché donné, et aidera les clients à trouver des magasins selon l'emplacement et les services proposés par le revendeur. Nous amorcerons le moteur de recherche avec un jeu de données initial, puis nous développerons sa valeur au fil du temps avec l'aide des revendeurs abonnés qui publient des informations relatives à leur activité. Les promotions, les nouveaux produits, les marques renommées et les services spécialisés internes sont des exemples de données qui augmentent la valeur de notre site. Ces données sont automatiquement collectées et intégrées au corpus de recherche lorsque le revendeur s'inscrit en tant qu'abonné. La publicité et le modèle d'abonnement constituent la source de revenus de notre nouvelle activité.
+Le portail que nous souhaitons créer offrira une expérience exceptionnelle pour la recherche de données sur les revendeurs d'un marché donné, et aidera les clients à trouver des magasins selon l'emplacement et les services proposés par le revendeur. Nous amorcerons le moteur de recherche avec un jeu de données initial, puis nous développerons sa valeur au fil du temps avec l'aide des revendeurs abonnés qui publient des informations relatives à leur activité. Les promotions, les nouveaux produits, les marques renommées et les services spécialisés internes sont des exemples de données qui augmentent la valeur de notre site. Ces données sont automatiquement collectées et intégrées au corpus de recherche lorsque le revendeur s'inscrit en tant qu'abonné. La publicité et le modèle d’abonnement constituent la source de revenus de notre nouvelle activité.
 
 La recherche sera le principal modèle d'interaction avec l'utilisateur, sur une plateforme 100 % cloud. À des fins d'économie d'échelle et de réduction des coûts, presque toutes les opérations, de la mise en place du portail au contrôle de la source, s'effectueront via un service en ligne. À l'aide d'un moteur de recherche qui fournit d'emblée les fonctionnalités nécessaires, nous pouvons rapidement créer une application de recherche, sans avoir à créer et à gérer nous-mêmes un moteur de recherche.
 
@@ -118,7 +118,7 @@ Voici comment nous avons créé le prototype.
 
 1. Lecture de tous les revendeurs à partir de la base de données.
 2. Appel de l'API du service Azure Search pour télécharger un par un les revendeurs (voir : http://msdn.microsoft.com/library/azure/dn798930.aspx).
-3. Définition dans la base de données d'une propriété indiquant que le revendeur est configuré pour l'indexation incrémentielle. Pour cela, nous avons ajouté un champ 'indexeur' qui stocke l'état de l'index de chaque profil (indexé ou non). 
+3. Définition dans la base de données d'une propriété indiquant que le revendeur est configuré pour l'indexation incrémentielle. Pour cela, nous avons ajouté un champ 'indexeur' qui stocke l'état de l'index de chaque profil (indexé ou non).
 
 Consultation de l'annexe pour connaître l'extrait de code qui constitue la tâche de l'indexeur.
 
@@ -421,4 +421,4 @@ Le code suivant génère l'indexeur mentionné dans la section sur la création 
 [Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account.md
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0907_2016-->

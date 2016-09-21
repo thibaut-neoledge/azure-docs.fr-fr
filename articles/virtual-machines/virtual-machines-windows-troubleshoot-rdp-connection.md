@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="support-article"
-	ms.date="06/14/2016"
+	ms.date="09/01/2016"
 	ms.author="iainfou"/>
 
 # Résolution des problèmes de connexion Bureau à distance avec une machine virtuelle Azure exécutant Windows
@@ -65,7 +65,7 @@ Après chaque étape de résolution des problèmes, essayez de vous reconnecter 
 		-VMName "myVM" -Name "myVMAccess" -Location Westus
 	```
 
-	> [AZURE.NOTE] Dans les exemples précédents, `myVMAccessExtension` ou `MyVMAccess` est un nom que vous spécifiez pour la nouvelle extension à installer dans le cadre de ce processus. Souvent, ce nom est souvent celui de la machine virtuelle. Si vous avez déjà utilisé VMAccessAgent, vous pouvez obtenir le nom de l’extension existante à l’aide de `Get-AzureRmVM -ResourceGroupName "myRG" -Name "myVM"` pour vérifier les propriétés de la machine virtuelle. Ensuite, examinez la section Extensions de la sortie. Comme une machine virtuelle ne peut avoir qu’un agent VMAccessAgent, vous devez également ajouter le paramètre `-ForceReRun` en cas d’utilisation de `Set-AzureRmVMExtension` pour réinscrire l’agent.
+	> [AZURE.NOTE] Dans les exemples précédents, `myVMAccessExtension` ou `MyVMAccess` est un nom que vous spécifiez pour la nouvelle extension à installer dans le cadre de ce processus. Souvent, ce nom est souvent celui de la machine virtuelle. Si vous avez déjà utilisé VMAccessAgent, vous pouvez obtenir le nom de l’extension existante à l’aide de `Get-AzureRmVM -ResourceGroupName "myRG" -Name "myVM"` pour vérifier les propriétés de la machine virtuelle. Examinez la section « Extensions » de la sortie pour voir le nom. Comme une machine virtuelle ne peut avoir qu’un agent VMAccessAgent, vous devez également ajouter le paramètre `-ForceReRun True` en cas d’utilisation de `Set-AzureRmVMExtension` pour réinscrire l’agent.
 
 2. Redémarrez votre machine virtuelle pour résoudre d’autres problèmes de démarrage. Sélectionnez **Parcourir** > **Machines virtuelles** > *votre machine virtuelle* > **Redémarrer**.
 
@@ -156,7 +156,7 @@ La partie adresse de ce fichier RDP comporte :
 
 Cause : La machine virtuelle cible n’a pas pu localiser l’autorité de sécurité dans la partie nom d’utilisateur de vos informations d’identification.
 
-Lorsque votre nom d’utilisateur est au format *AutoritéSécurité*\\*NomUtilisateur* (par exemple, CORP\\User1), la partie *AutoritéSécurité* est soit le nom d’ordinateur de la machine virtuelle (pour l’autorité de sécurité locale), soit un nom de domaine Active Directory.
+Lorsque votre nom d’utilisateur est au format *SecurityAuthority*\*UserName* (par exemple, CORP\\User1), la partie *SecurityAuthority* est soit le nom d’ordinateur de la machine virtuelle (pour l’autorité de sécurité locale), soit un nom de domaine Active Directory.
 
 Solutions possibles :
 
@@ -174,7 +174,7 @@ Cause : La machine virtuelle cible ne peut pas valider le nom et le mot de passe
 Un ordinateur Windows peut valider les informations d’identification d’un compte local ou d’un compte de domaine.
 
 - Pour les comptes locaux, utilisez la syntaxe *ComputerName* \\ *UserName* (par exemple : SQL1\\Admin4798).
-- Pour les comptes de domaine, utilisez la syntaxe *NomDomaine* \\ *NomUtilisateur* (par exemple, CONTOSO\\johndoe).
+- Pour les comptes de domaine, utilisez la syntaxe *DomainName*\\*UserName* (par exemple, CONTOSO\\johndoe).
 
 Si vous avez promu votre machine virtuelle en tant que contrôleur de domaine d’une nouvelle forêt Active Directory, le compte d’administrateur local auquel vous êtes connecté est converti en un compte équivalent avec le même mot de passe dans la nouvelle forêt et le nouveau domaine. Le compte local est alors supprimé.
 
@@ -210,4 +210,4 @@ Si aucune de ces erreurs ne s’est produite et que vous ne parvenez toujours pa
 
 [Résoudre les problèmes d’accès à une application exécutée sur une machine virtuelle Azure](virtual-machines-linux-troubleshoot-app-connection.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

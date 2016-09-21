@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="03/16/2016"
+   ms.date="09/01/2016"
    ms.author="sameerch"/>
 
 
 # Prise en main du connecteur SQL de Microsoft et ajout de celui-ci à votre application logique
 >[AZURE.NOTE] Cette version de l’article s’applique à la version du schéma 2014-12-01-preview des applications logiques. Pour la version de schéma 2015-08-01-preview SQL Azure, cliquez sur [API SQL Azure](../connectors/connectors-create-api-sqlazure.md).
 
-Connectez-vous à une base de données SQL Server ou Azure SQL en local pour créer et modifier vos informations ou données. Les connecteurs peuvent être utilisés dans les applications logiques pour extraire, traiter ou placer des données dans le cadre d'un « flux ». En utilisant le connecteur SQL dans votre flux, vous pouvez effectuer une multitude d'opérations. Vous pouvez, par exemple :
+Connectez-vous à une base de données SQL Server ou Azure SQL en local pour créer et modifier vos informations ou données. Les connecteurs peuvent être utilisés dans les applications logiques pour extraire, traiter ou placer des données dans le cadre d'un « flux ». En utilisant le connecteur SQL dans votre flux, vous pouvez effectuer une multitude d'opérations. Vous pouvez par exemple afficher :
 
 - Exposer une partie des données résidant dans votre base de données SQL via une interface utilisateur web ou mobile.
 - Insérer des données dans une table de stockage de votre base de données SQL. Par exemple, vous pouvez entrer des dossiers d'employés, mettre à jour des bons de commande, et ainsi de suite.
@@ -31,7 +31,7 @@ Vous pouvez ajouter le connecteur SQL à votre flux de travail professionnel et 
 ## Déclencheurs et actions
 Les *déclencheurs* sont des événements qui se produisent. Par exemple, lorsqu'une commande est mise à jour ou lorsqu'un nouveau client est ajouté. Une *action* est le résultat du déclencheur. Par exemple, lorsqu'une commande est mise à jour, envoyer une alerte au vendeur. Ou bien, lorsqu'un nouveau client est ajouté, lui envoyer un message de bienvenue.
 
-Le connecteur SQL peut être utilisé comme un déclencheur ou une action dans une application logique et prend en charge les données aux formats JSON et XML. Pour chaque table incluse dans les paramètres de votre package (voir plus loin dans cette rubrique), il existe un jeu d'actions JSON et un jeu d'actions XML.
+Le connecteur SQL peut être utilisé comme un déclencheur ou une action dans une application logique et prend en charge les données aux formats JSON et XML. Pour chaque table incluse dans les paramètres de votre package (voir plus loin dans cette rubrique), il existe un jeu d’actions JSON et un jeu d’actions XML.
 
 Le connecteur SQL propose les déclencheurs et les actions suivants :
 
@@ -52,7 +52,7 @@ Un connecteur peut être créé dans une application logique ou directement à p
 --- | --- | ---
 Nom du serveur | Oui | Entrez le nom du serveur SQL. Par exemple, entrez *SQLserver/sqlexpress* ou *SQLserver.mydomain.com*.
 Port | Non | La valeur par défaut est 1433.
-Nom d’utilisateur | Oui | Entrez un nom d'utilisateur pouvant se connecter au serveur SQL. Si vous vous connectez à un serveur SQL en local, entrez les informations d’identification SQL.
+User Name | Oui | Entrez un nom d'utilisateur pouvant se connecter au serveur SQL. Si vous vous connectez à un serveur SQL en local, entrez les informations d’identification SQL.
 Mot de passe | Oui | Entrez le mot de passe d'utilisateur.
 Nom de la base de données | Oui | Entrez la base de données à laquelle vous vous connectez. Par exemple, vous pouvez entrer *Customers* ou *dbo/orders*.
 Local | Oui | La valeur par défaut est False. Entrez False si vous vous connectez à une base de données SQL Azure. Entrez True si vous vous connectez à un serveur SQL en local.
@@ -155,4 +155,4 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 [11]: ./media/app-service-logic-connector-sql/LogicApp7.png
 [12]: ./media/app-service-logic-connector-sql/LogicApp8.png
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0907_2016-->

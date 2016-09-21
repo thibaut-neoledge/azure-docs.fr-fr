@@ -26,7 +26,7 @@ Le routage basé sur le chemin d’URL vous permet d’associer des itinéraires
 
 Le routage basé sur l’URL introduit un nouveau type de règle pour la passerelle Application Gateway. La passerelle Application Gateway comporte deux types de règles : une règle de base et PathBasedRouting. Le type de règle de base fournit le service de tourniquet (round robin) pour les pools principaux alors que PathBasedRouting, en plus de la distribution de tourniquet, prend également en compte le modèle de chemin de l’URL de demande lors du choix du pool principal.
 
->[AZURE.IMPORTANT] PathPattern : liste de modèles de chemin à utiliser pour la correspondance. Chaque modèle doit commencer par le signe / et le seul endroit où un astérisque (*) est autorisé est à la fin. /xyz, /xyz* ou /xyz/* sont des exemples valides. La chaîne transmise à l’outil de correspondance de chemin n’inclut pas de texte après le premier signe ? ou #. De plus, ces caractères ne sont pas autorisés.
+>[AZURE.IMPORTANT] PathPattern : liste de modèles de chemin à utiliser pour la correspondance. Chaque modèle doit commencer par le signe / et le seul endroit où un astérisque "\*" est autorisé est à la fin. /xyz, /xyz* ou /xyz/* sont des exemples valides. La chaîne transmise à l’outil de correspondance de chemin n’inclut pas de texte après le premier signe ? ou #. De plus, ces caractères ne sont pas autorisés.
 
 ## Scénario
 Dans l’exemple suivant, la passerelle Application Gateway gère le trafic pour contoso.com avec deux pools de serveurs principaux : un pool de serveurs vidéo et un pool de serveurs d’images.
@@ -227,4 +227,4 @@ Créez une passerelle Application Gateway avec tous les objets de configuration 
 
 Pour en savoir plus sur le déchargement SSL (Secure Sockets Layer), consultez [Configuration d’une passerelle Application Gateway pour le déchargement SSL](application-gateway-ssl-arm.md).
 
-<!---HONumber=AcomDC_0824_2016-->
+<!----HONumber=AcomDC_0824_2016-->

@@ -1,20 +1,22 @@
 ### Modifications d’applet de commande de balise dans la dernière version de PowerShell
 
-La version d’août 2016 d’Azure PowerShell inclut des modifications importantes pour l’utilisation des balises. Avant de continuer, vérifiez la version de votre module AzureRm.Resources.
+La version d’août 2016 [d’Azure PowerShell 2.0][powershell] inclut des modifications importantes pour l’utilisation des balises. Avant de continuer, vérifiez la version de votre module AzureRm.Resources.
 
-    (Get-Module -ListAvailable | Where-Object{ $_.Name -eq 'AzureRm.Resources' }) | Select Version, Name | Format-List
+    Get-Module -ListAvailable -Name AzureRm.Resources | Select Version
 
 Si vous avez mis à jour Azure PowerShell pour la dernière fois avant août 2016, la version indiquée dans les résultats doit être inférieure à 3.0.
 
-    Version : 2.0.2
-    Name    : AzureRM.Resources
+    Version
+    -------
+    2.0.2
 
 Si vous avez mis à jour Azure PowerShell après août 2016, les résultats doivent indiquer la version 3.0.
 
-    Version : 3.0.1
-    Name    : AzureRM.Resources
-
-Si votre version du module est 3.0.1 ou ultérieur, vous disposez des applets de commande les plus récentes pour utiliser des balises. Si votre version est antérieure à 3.0.1, vous pouvez continuer à utiliser cette version, mais vous pouvez envisager une mise à jour vers la version la plus récente. La dernière version inclut des modifications qui facilitent l’utilisation des balises. Les deux approches sont présentées dans cette rubrique.
+    Version
+    -------
+    3.0.1
+    
+Si votre version du module est 3.0.1 ou ultérieur, vous disposez des applets de commande les plus récentes pour utiliser des balises. Cette version du module de ressources Azure s’installe automatiquement lorsque vous installez ou mettez à niveau Azure PowerShell à l’aide de PowerShell Gallery, PowerShellGet ou Web Platform Installer. Si votre version est antérieure à 3.0.1, vous pouvez continuer à utiliser cette version, mais vous pouvez envisager une mise à jour vers la version la plus récente. La dernière version inclut des modifications qui facilitent l’utilisation des balises. Les deux approches sont présentées dans cette rubrique.
 
 ### Mise à jour de votre script pour prendre en compte les modifications apportées dans la version la plus récente 
 
@@ -228,4 +230,7 @@ Vous pouvez consulter les balises commençant par « masqué-» et « lien: �
 
 Pour ajouter des balises à la taxonomie, utilisez l’applet de commande **New-AzureRmTag**. Ces balises seront incluses dans la saisie semi-automatique, même si elles n'ont pas encore été appliquées à des ressources ou des groupes de ressources. Pour supprimer un nom ou une valeur de balise, commencez par supprimer la balise sur toutes les ressources où elle est appliquée, puis utilisez l’applet de commande **Remove-AzureRmTag** pour la supprimer de la taxonomie.
 
-<!---HONumber=AcomDC_0817_2016-->
+
+[powershell]: https://msdn.microsoft.com/library/mt619274(v=azure.200).aspx
+
+<!---HONumber=AcomDC_0907_2016-->
