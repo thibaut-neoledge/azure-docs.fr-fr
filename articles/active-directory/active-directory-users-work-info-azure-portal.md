@@ -30,7 +30,7 @@ Cet article explique comment ajouter ou modifier des informations de travail, co
 
 3.  Sur le panneau **Utilisateurs et groupes** panneau, sélectionnez **Utilisateurs**.
 
-    ![Ouverture du panneau Utilisateurs](./media/active-directory-users-work-info-azure-portal/create-users-opfr-FRers-blade.png)
+    ![Ouverture du panneau Utilisateurs](./media/active-directory-users-work-info-azure-portal/create-users-open-users-blade.png)
 
 4. Sur le panneau **Utilisateurs et groupes - Utilisateurs -**, sélectionnez un utilisateur dans la liste.
 
