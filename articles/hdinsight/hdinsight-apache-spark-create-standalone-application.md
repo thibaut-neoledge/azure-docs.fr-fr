@@ -4,7 +4,7 @@
 	services="hdinsight"
 	documentationCenter=""
 	authors="nitinme"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"
 	tags="azure-portal"/>
 
@@ -34,7 +34,7 @@ Cet article fournit des instructions détaillées pour le développement d'appli
 
 **Configuration requise**
 
-* Un abonnement Azure. Consultez [Obtenir une version d'évaluation gratuite d'Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+* Un abonnement Azure. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * Un cluster Apache Spark sur HDInsight Linux. Pour obtenir des instructions, consultez [Création de clusters Apache Spark dans Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
 * Kit de développement logiciel (SDK) Oracle Java. Vous pouvez l’installer à partir d’[ici](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
 * IDE Java. Cet article utilise IntelliJ IDEA 15.0.1. Vous pouvez l’installer [ici](https://www.jetbrains.com/idea/download/).
@@ -82,7 +82,7 @@ Si l’installation d’IntelliJ IDEA ne vous invite pas à activer le plug-in S
 	![Configurer Maven pour les téléchargements automatiques](./media/hdinsight-apache-spark-create-standalone-application/configure-maven.png)
 
 	1. Dans le menu **Fichier**, cliquez sur **Paramètres**.
-	2. Dans la boîte de dialoge **paramètres**, accédez à **Génération, exécution, déploiement** > **Outils de génération** > **Maven** > **Importation**.
+	2. Dans la boîte de dialoge **paramètres**, accédez à **Génération, exécution, déploiement** > **Outils de génération** > **Maven** > **Importation**.
 	3. Sélectionnez l'option **Importer les projets Maven automatiquement**.
 	4. Cliquez sur **Appliquer**, puis sur **OK**.
 
@@ -135,27 +135,27 @@ Si l’installation d’IntelliJ IDEA ne vous invite pas à activer le plug-in S
 	1. Dans le menu **Fichier**, cliquez sur **Structure de projet**.
 	2. Dans la boite de dialogue **Structure de projet**, cliquez sur **Artefacts**, puis sur le signe plus. Dans la boîte de dialogue contextuelle, cliquez sur **JAR**, puis sur **À partir de modules ayant des dépendances**.
 
-		![Créer un fichier JAR](./media/hdinsight-apache-spark-create-standalone-application/create-jar-1.png)
+		![Créer un fichier jar](./media/hdinsight-apache-spark-create-standalone-application/create-jar-1.png)
 
 	3. Dans la boîte de dialogue **Créer un fichier JAR à partir de modules**, cliquez sur le bouton de sélection (![points de suspension (bouton de sélection)](./media/hdinsight-apache-spark-create-standalone-application/ellipsis.png)) en regard de **Classe principale**.
 
 	4. Dans la boîte de dialogue **Sélectionner une classe principale**, sélectionnez la classe qui s'affiche par défaut, puis cliquez sur **OK**.
 
-		![Créer un fichier JAR](./media/hdinsight-apache-spark-create-standalone-application/create-jar-2.png)
+		![Créer un fichier jar](./media/hdinsight-apache-spark-create-standalone-application/create-jar-2.png)
 
 	5. Dans la boîte de dialogue **Create JAR from Modules** (Créer un fichier jar à partir de modules), assurez-vous que l’option **Extract to the target JAR** (Extraire vers le fichier jar cible) est activée, puis cliquez sur **OK**. Cela crée un fichier JAR contenant toutes les dépendances.
 
-		![Créer un fichier JAR](./media/hdinsight-apache-spark-create-standalone-application/create-jar-3.png)
+		![Créer un fichier jar](./media/hdinsight-apache-spark-create-standalone-application/create-jar-3.png)
 
 	6. L’onglet Disposition de la sortie répertorie tous les fichiers JAR inclus dans le cadre du projet Maven. Vous pouvez sélectionner et supprimer ceux sur lesquels l’application Scala n’a aucune dépendance directe. Pour l’application que nous créons ici, vous pouvez tous les supprimer sauf le dernier (**SparkSimpleApp compile output**). Sélectionnez les fichiers JAR à supprimer, puis cliquez sur l’icône **Delete**.
 
-		![Créer un fichier JAR](./media/hdinsight-apache-spark-create-standalone-application/delete-output-jars.png)
+		![Créer un fichier jar](./media/hdinsight-apache-spark-create-standalone-application/delete-output-jars.png)
 
 		Assurez-vous que la case à cocher **Générer à la création** est activée, ce qui garantit la création du fichier JAR à chaque génération ou mise à jour du projet. Cliquez sur **Appliquer**, puis sur **OK**.
 
 	7. Dans la barre de menus, cliquez sur **Générer**, puis sur **Créer le projet**. Vous pouvez également cliquer sur **Générer les artefacts** pour créer le fichier JAR. Le fichier JAR de sortie est créé sous **\\out\\artifacts**.
 
-		![Créer un fichier JAR](./media/hdinsight-apache-spark-create-standalone-application/output.png)
+		![Créer un fichier jar](./media/hdinsight-apache-spark-create-standalone-application/output.png)
 
 ## Exécuter l’application sur le cluster Spark
 
@@ -191,7 +191,7 @@ Pour exécuter l'application sur le cluster, procédez comme suit :
 
 * [Utilisez le plugin d’outils HDInsight pour IntelliJ IDEA pour créer et soumettre des applications Spark Scala](hdinsight-apache-spark-intellij-tool-plugin.md)
 
-* [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Spark applications remotely (Utiliser le plug-in Outils HDInsight pour IntelliJ IDEA pour déboguer des applications Spark à distance)](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Spark applications remotely) (Utiliser le plug-in Outils HDInsight pour IntelliJ IDEA pour déboguer des applications Spark à distance)](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 
 * [Utiliser des bloc-notes Zeppelin avec un cluster Spark sur HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
 
@@ -199,7 +199,7 @@ Pour exécuter l'application sur le cluster, procédez comme suit :
 
 * [Utiliser des packages externes avec les blocs-notes Jupyter](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
 
-* [Installer Jupyter sur un ordinateur et se connecter au cluster Spark sur HDInsight](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
+* [Install Jupyter on your computer and connect to an HDInsight Spark cluster (Installer Jupyter sur un ordinateur et se connecter au cluster Spark sur HDInsight)](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
 
 ### Gestion des ressources
 
@@ -207,4 +207,4 @@ Pour exécuter l'application sur le cluster, procédez comme suit :
 
 * [Track and debug jobs running on an Apache Spark cluster in HDInsight (Suivi et débogage des tâches en cours d’exécution sur un cluster Apache Spark dans HDInsight)](hdinsight-apache-spark-job-debugging.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

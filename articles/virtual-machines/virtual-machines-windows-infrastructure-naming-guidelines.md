@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/30/2016"
+	ms.date="09/08/2016"
 	ms.author="iainfou"/>
 
 # Instructions de dénomination d’infrastructure
@@ -31,7 +31,7 @@ Décisions :
 
 Tâches :
 
-- Définissez les affixes que vous utiliserez à travers vos ressources pour assurer la cohérence.
+- Définissez les affixes à utiliser parmi vos ressources pour assurer la cohérence.
 - Définissez des noms de compte de stockage devant être globalement uniques.
 - Documentez la convention de dénomination à utiliser et à distribuer à toutes les parties impliquées pour assurer la conformité à travers les déploiements.
 
@@ -41,7 +41,7 @@ Vous devez avoir une convention d’affectation de noms adaptée avant tout proc
 
 Vous pouvez choisir de suivre un ensemble spécifique de conventions d’affectation de noms définies pour votre organisation, ou pour un compte ou abonnement Azure spécifique. Bien qu’il soit facile d’établir des règles implicites au sein d’entreprises lorsque vous travaillez avec des ressources Azure, ce modèle n’est pas très souple lorsqu’une équipe doit travailler sur un projet sur Azure.
 
-Vous devez convenir d’un ensemble de conventions d’affectation de noms en amont. Certains facteurs sont à prendre en compte pour l’ensemble des règles de dénomination.
+Convenez d’un ensemble de conventions d’affectation de noms en amont. Certains facteurs sont à prendre en compte pour l’ensemble des règles de dénomination.
 
 ## Affixes
 
@@ -60,7 +60,7 @@ Les affixes peuvent faire référence à différents aspects des ressources spé
 | Aspect | Exemples | Remarques |
 |:-------------------------------------|:-----------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------|
 | Environnement | dev, stg, prod | En fonction de l’objectif et du nom de chaque environnement. |
-| Emplacement | usw (West US), use (East US 2) | En fonction de la région du centre de données et de l’organisation. |
+| Lieu | usw (West US), use (East US 2) | En fonction de la région du centre de données et de l’organisation. |
 | Composant, service ou produit Azure | Rg pour groupe de ressources, VNet pour réseau virtuel | En fonction du produit auquel la ressource est associée. |
 | Rôle | sql, ora, sp, iis | En fonction du rôle de la machine virtuelle. |
 | Instance | 01, 02, 03, etc. | Pour les ressources possédant plusieurs instances. Par exemple, des serveurs Web à charge équilibrée dans un service cloud. |
@@ -74,7 +74,7 @@ Dans de nombreux cas, il est important de déterminer la date de création à pa
 
 ## Ressources d’affectation de noms
 
-Vous devez définir chaque type de ressource dans la convention d’affectation de noms, qui doit comprendre des règles définissant l’attribution de nom pour chaque ressource créée. Ces règles doivent s’appliquer à tous les types de ressources, par exemple :
+Définissez chaque type de ressource dans la convention d’affectation de noms, qui doit comprendre des règles définissant l’attribution de nom pour chaque ressource créée. Ces règles doivent s’appliquer à tous les types de ressources, par exemple :
 
 - Abonnements
 - Comptes
@@ -100,7 +100,7 @@ Nous recommandons que le nom de la machine virtuelle Azure soit le même que le 
 
 ## Noms des comptes de stockage
 
-Le nom des comptes de stockage sont régis par des règles spécifiques. Vous ne pouvez utiliser que des lettres minuscules et des chiffres. Pour plus d’informations, voir [Création d’un compte de stockage](../storage/storage-create-storage-account.md#create-a-storage-account). En outre, le nom du compte de stockage, en association avec core.windows.net, doit être un nom DNS unique et globalement valide. Par exemple, si le compte de stockage est appelé mystorageaccount, les noms DNS suivants qui en résultent doivent être uniques :
+Le nom des comptes de stockage sont régis par des règles spécifiques. Vous ne pouvez utiliser que des lettres minuscules et des chiffres. Pour plus d’informations, voir [Création d’un compte de stockage](../storage/storage-create-storage-account.md#create-a-storage-account). En outre, le nom du compte de stockage, ainsi que core.windows.net, doit être un nom DNS unique et globalement valide. Par exemple, si le compte de stockage est appelé mystorageaccount, les noms DNS suivants qui en résultent doivent être uniques :
 
 - mystorageaccount.blob.core.windows.net
 - mystorageaccount.table.core.windows.net
@@ -110,4 +110,4 @@ Le nom des comptes de stockage sont régis par des règles spécifiques. Vous ne
 ## Étapes suivantes
 [AZURE.INCLUDE [virtual-machines-windows-infrastructure-guidelines-next-steps](../../includes/virtual-machines-windows-infrastructure-guidelines-next-steps.md)]
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0914_2016-->

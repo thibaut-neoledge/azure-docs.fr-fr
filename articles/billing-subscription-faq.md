@@ -61,6 +61,7 @@ Cet article répond aux questions les plus fréquemment posées sur la facturati
 - [Comment supprimer une carte de crédit que je n’utilise plus comme mode de paiement Azure ?](#how-do-i-remove-a-credit-card-that-i-no-longer-use-as-an-azure-payment-method)
 - [Comment mettre à jour ou modifier mes informations de carte de crédit ?](#how-can-i-update-or-change-my-credit-card-information)
 - [Comment modifier les informations de paiement de mes abonnements Azure ?](#how-can-i-edit-my-payment-information-for-my-azure-subscriptions)
+- [Pourquoi un message s’affiche-t-il indiquant que je dois utiliser une carte de crédit internationale ?](#why-am-i-seeing-a-message-that-i-need-to-use-an-international-credit-card)
 
 ## Tarification Azure
 
@@ -74,7 +75,7 @@ Cet article répond aux questions les plus fréquemment posées sur la facturati
 - [Que sont les crédits du contrat SLA Azure ?](#what-are-the-azure-sla-credits)
 - [Comment fonctionnent les contrats SLA Azure avec les contrats de licence Microsoft locaux actuels ?](#how-will-azure-service-level-agreements-work-with-current-on-premises-microsoft-licensing-agreements)
 
-## Limites de dépense d’Azure
+## Limites de dépense
 
 - [Si je désactive la limite de dépense, puis-je la réactiver par la suite ?](#can-i-turn-the-spending-limit-back-on-if-i-turn-off-it)
 - [Puis-je ajuster le montant de la limite de dépense ?](#can-i-adjust-the-amount-of-the-spending-limit)
@@ -251,6 +252,10 @@ Pour plus d’informations, consultez l’article [Comment modifier la carte de 
 
 >[AZURE.NOTE] Pour l’instant, l’outil Modifier le moyen de paiement ne vous permet pas de supprimer une carte bancaire existante utilisée comme moyen de paiement. Pour plus d’informations sur la suppression d’une carte de crédit, consultez [Comment supprimer une carte de crédit que je n’utilise plus comme mode de paiement Azure ?](#how-do-i-remove-a-credit-card-that-i-no-longer-use-as-an-azure-payment-method) dans cet article.
 
+### Pourquoi un message s’affiche-t-il indiquant que je dois utiliser une carte de crédit internationale ?
+
+Dans certains cas, alors que vous payez les services Azure dans votre devise locale/préférée, vous achetez des services via une entité Microsoft non locale et votre carte de crédit est traitée par une banque non locale. Dans ces cas, les cartes émises par des banques locales peuvent échouer, ce qui peut avoir un impact négatif sur vos services Azure. Veuillez contacter votre banque ou l’émetteur de la carte pour vérifier si votre carte de crédit est acceptée pour les transactions internationales. Consultez [Devises et pays pris en charge](billing-countries-and-currencies.md).
+
 ### Pourquoi ne puis-je pas modifier ou ajouter des détails à mon abonnement ?
 
 Pour afficher et modifier les informations de compte Azure, vous devez vous connecter au Centre des comptes Azure en tant qu’administrateur du compte. Si vous êtes l’administrateur du compte et que vous ne pouvez pas modifier l’abonnement, envoyez un ticket de support pour demander une assistance. Pour créer un ticket de support, consultez l’article [Comment créer un ticket de support pour les problèmes de facturation et d’abonnement Azure](billing-how-to-create-billing-support-ticket.md).
@@ -321,4 +326,4 @@ Si vous avez configuré une carte de crédit ou une carte bancaire comme mode de
 
 Si votre configuration spécifie un [mode de paiement par facture](https://azure.microsoft.com/pricing/invoicing/), envoyez votre paiement à l’endroit indiqué au bas de votre facture. Pour plus d’informations, [contactez le support technique](billing-how-to-create-billing-support-ticket.md).
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

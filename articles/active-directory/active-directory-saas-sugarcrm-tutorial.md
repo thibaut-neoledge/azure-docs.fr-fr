@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="06/29/2016" 
+    ms.date="09/11/2016" 
     ms.author="jeedes" />
 
 #Didacticiel : Intégration d’Azure AD à Sugar CRM
@@ -135,7 +135,7 @@ Pour se connecter à Sugar CRM, les utilisateurs d’Azure AD doivent être appr
 
 4.  Accédez à **Users > Create New User**.
 
-    ![Create New User](./media/active-directory-saas-sugarcrm-tutorial/IC795894.png "Create New User")
+    ![Create New User](./media/active-directory-saas-sugarcrm-tutorial/IC795894.png "Créer un nouvel utilisateur")
 
 5.  Dans l’onglet **User Profile**, procédez comme suit :
 
@@ -172,4 +172,4 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
   
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0914_2016-->

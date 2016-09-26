@@ -4,7 +4,7 @@
 	services="hdinsight"
 	documentationCenter=""
 	authors="nitinme"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -39,7 +39,7 @@ Découvrez comment installer Spark sur HDInsight basé sur Windows à l'aide d'u
 
 Spark permet également d'effectuer des opérations standard de traitement des données sur disque. En évitant les écritures sur disque lors des étapes intermédiaires, Spark améliore l’infrastructure MapReduce traditionnelle. En outre, Spark est compatible avec le système HDFS (Hadoop Distributed File System) et le stockage d’objets blob Azure ; les données existantes peuvent dont être traitées facilement via Spark.
 
-Cette rubrique contient des instructions de personnalisation d'un cluster HDInsight pour installer Spark.
+Cette rubrique contient des instructions de personnalisation d’un cluster HDInsight pour installer Spark.
 
 ## Installation de Spark à l’aide du portail Azure
 
@@ -64,7 +64,7 @@ Vous pouvez modifier ce script ou créer votre propre script pour installer d’
 
 	<table border='1'>
 		<tr><th>Propriété</th><th>Valeur</th></tr>
-		<tr><td>Nom</td>
+		<tr><td>Name</td>
 			<td>Indiquez un nom pour l'action de script. Par exemple, <b>Installation Spark</b>.</td></tr>
 		<tr><td>URI du script</td>
 			<td>Spécifiez l'URI (Uniform Resource Identifier) du script appelé pour personnaliser le cluster. Par exemple, <i>https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1</i></td></tr>
@@ -283,7 +283,7 @@ Procédez comme suit :
 	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Spécifie l’URI du script qui est exécuté.</td></tr>
 	<tr>
 	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Paramètres</td>
-	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Paramètres requis par le script. L'exemple de script utilisé dans cette rubrique ne requiert aucun paramètre. Par conséquent, ce paramètre n'apparaît pas dans l'extrait de code ci-dessus.
+	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Paramètres requis par le script. L’exemple de script utilisé dans cette rubrique ne requiert aucun paramètre. Par conséquent, ce paramètre n’apparaît pas dans l’extrait de code ci-dessus.
 	</td></tr>
 	</table>
 
@@ -318,4 +318,4 @@ Consultez [Personnalisation de clusters HDInsight à l’aide d’une action de 
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
 [powershell-install-configure]: powershell-install-configure.md
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0914_2016-->

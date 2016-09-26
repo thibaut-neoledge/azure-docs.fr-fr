@@ -4,7 +4,7 @@
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"
 	tags="azure-portal"/>
 
@@ -58,7 +58,7 @@ Une fois connecté au bureau pour le cluster HDInsight, procédez comme suit pou
 		File Output Format Counters
         Bytes Written=337623
 
-3. Lorsque la tâche est terminée, utilisez la commande suivante pour répertorier les fichiers de sortie stockés sur **wasbs://example/data/WordCountOutput** :
+3. Lorsque la tâche est terminée, utilisez la commande suivante pour répertorier les fichiers de sortie stockés sur **wasbs://example/data/WordCountOutput** :
 
 		hadoop fs -ls wasbs:///example/data/WordCountOutput
 
@@ -96,4 +96,4 @@ Pour plus d’informations sur d’autres méthodes de travail avec Hadoop sur H
 
 * [Utilisation de Pig avec Hadoop sur HDInsight](hdinsight-use-pig.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

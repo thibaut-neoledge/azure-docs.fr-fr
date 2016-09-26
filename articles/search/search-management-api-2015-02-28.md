@@ -4,7 +4,7 @@
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
-	manager="paulettm"
+	manager="jhubbard"
 	editor=""/>
 
 <tags
@@ -125,11 +125,11 @@ L’opération **Création de service Search** déploie un nouveau service Sea
 
 #### Paramètres de l’URI de requête
 
-`subscriptionId` : obligatoire. `subscriptionID` correspondant à l’utilisateur Azure. Vous pouvez obtenir cette valeur à partir de l’API Azure Resource Manager ou du portail.
+`subscriptionId` : requis. `subscriptionID` correspondant à l’utilisateur Azure. Vous pouvez obtenir cette valeur à partir de l’API Azure Resource Manager ou du portail.
 
-`resourceGroupName` : obligatoire. Nom du groupe de ressources dans l’abonnement de l’utilisateur. Vous pouvez obtenir cette valeur à partir de l’API Azure Resource Manager ou du portail.
+`resourceGroupName` : requis. Nom du groupe de ressources dans l’abonnement de l’utilisateur. Vous pouvez obtenir cette valeur à partir de l’API Azure Resource Manager ou du portail.
 
-`serviceName` : obligatoire. Nom du service de recherche dans le groupe de ressources spécifié. Les noms de service doivent contenir uniquement des lettres minuscules, des chiffres ou des tirets, ne peuvent pas inclure de tiret dans les deux premiers ou les deux derniers caractères, ne peuvent pas comporter de tirets consécutifs et doivent être compris entre 2 et 15 caractères. Dans la mesure où tous les noms finissent par <nom>.search.windows.net, les noms de service doivent être globalement uniques. Deux services d’un ou plusieurs abonnements ou groupes de ressources ne peuvent porter le même nom. Vous ne pouvez pas modifier le nom du service après sa création.
+`serviceName` : requis. Nom du service de recherche dans le groupe de ressources spécifié. Les noms de service doivent contenir uniquement des lettres minuscules, des chiffres ou des tirets, ne peuvent pas inclure de tiret dans les deux premiers ou les deux derniers caractères, ne peuvent pas comporter de tirets consécutifs et doivent être compris entre 2 et 15 caractères. Dans la mesure où tous les noms finissent par <nom>.search.windows.net, les noms de service doivent être globalement uniques. Deux services d’un ou plusieurs abonnements ou groupes de ressources ne peuvent porter le même nom. Vous ne pouvez pas modifier le nom du service après sa création.
 
 `api-version` : requis. Indique la version du protocole utilisée pour cette demande. La version actuelle est `2015-02-28`.
 
@@ -828,4 +828,4 @@ Le code d’état de réponse est HTTP 200  (OK) si l’opération réussit.
 
 Aucune.
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -4,7 +4,7 @@ description="Apprenez à utiliser un tunnel SSH pour accéder de façon sécuris
 services="hdinsight"
 documentationCenter=""
 authors="Blackmist"
-manager="paulettm"
+manager="jhubbard"
 editor="cgronlun"/>
 
 <tags
@@ -60,21 +60,21 @@ Utilisez la commande suivante pour créer un tunnel SSH à l'aide de la commande
 
 Cette commande va permettre de créer une connexion qui achemine le trafic vers le port local 9876 du cluster via SSH. Les options sont :
 
-* **D 9876** : port local qui acheminera le trafic via le tunnel.
+* **D 9876** : port local qui acheminera le trafic via le tunnel.
 
-* **C** : compresse toutes les données car le trafic web est principalement du texte
+* **C** : compresse toutes les données car le trafic web est principalement du texte
 
-* **2** : force le SSH à essayer le protocole version 2 uniquement
+* **2** : force le SSH à essayer le protocole version 2 uniquement
 
-* **q** : mode silencieux
+* **q** : mode silencieux
 
-* **T** : désactive l’allocation pseudo-tty puisque nous transférons simplement un port
+* **T** : désactive l’allocation pseudo-tty puisque nous transférons simplement un port
 
-* **n** : empêche la lecture STDIN puisque nous transférons simplement un port
+* **n** : empêche la lecture STDIN puisque nous transférons simplement un port
 
-* **N** : n’exécute pas une commande à distance puisque nous transférons simplement un port
+* **N** : n’exécute pas une commande à distance puisque nous transférons simplement un port
 
-* **f** : s’exécute à l’arrière-plan
+* **f** : s’exécute à l’arrière-plan
 
 Si vous avez configuré le cluster avec une clé SSH, il vous faudra peut-être utiliser le paramètre `-i` et indiquer le chemin d’accès vers la clé SSH privée.
 
@@ -90,11 +90,11 @@ Pour créer un tunnel SSH à l’aide de PuTTY, procédez comme suit.
 
 3. Indiquez les informations suivantes dans le formulaire des **Options de contrôle de transfert du port SSH**.
 
-	* **Port source** : le port sur le client que vous souhaitez transférer. Par exemple : **9876**.
+	* **Port source** : le port sur le client que vous souhaitez transférer. Par exemple : **9876**.
 
-	* **Destination** : l’adresse SSH pour le cluster HDInsight sous Linux. Par exemple : **moncluster-ssh.azurehdinsight.net**.
+	* **Destination** : l’adresse SSH pour le cluster HDInsight sous Linux. Par exemple : **moncluster-ssh.azurehdinsight.net**.
 
-	* **Dynamique** : active le routage dynamique du proxy SOCKS.
+	* **Dynamique** : active le routage dynamique du proxy SOCKS.
 
 	![image des options de tunneling](./media/hdinsight-linux-ambari-ssh-tunnel/puttytunnel.png)
 
@@ -130,21 +130,21 @@ Si vous avez installé FoxyProxy Standard, suivez les étapes suivantes pour con
 
 3. Sélectionnez l’onglet **Informations du proxy** et remplissez les champs suivants :
 
-	* **Hôte ou adresse IP** : il s’agit de localhost, puisque nous utilisons un tunnel SSH sur la machine locale.
+	* **Hôte ou adresse IP** : il s’agit de localhost, puisque nous utilisons un tunnel SSH sur la machine locale.
 
-	* **Port** : port que vous avez utilisé pour le tunnel SSH
+	* **Port** : port que vous avez utilisé pour le tunnel SSH
 
-	* **Proxy SOCKS** : sélectionnez celui-ci pour autoriser le navigateur à utiliser le tunnel comme proxy.
+	* **Proxy SOCKS** : sélectionnez celui-ci pour autoriser le navigateur à utiliser le tunnel comme proxy.
 
-	* **SOCKS v5** : sélectionnez celui-ci pour définir la version requise pour le proxy.
+	* **SOCKS v5** : sélectionnez celui-ci pour définir la version requise pour le proxy.
 
 	![proxy foxyproxy](./media/hdinsight-linux-ambari-ssh-tunnel/foxyproxyproxy.png)
 
-4. Sélectionnez l’onglet **Type d’URL**, puis **Ajouter un nouveau type**. Utilisez ce qui suit pour définir le type, puis cliquez sur **OK** :
+4. Sélectionnez l’onglet **Type d’URL**, puis **Ajouter un nouveau type**. Utilisez ce qui suit pour définir le type, puis cliquez sur **OK** :
 
-	* **Nom de type** - **clusternodes** : il s’agit simplement d’un nom de type convivial.
+	* **Nom de type** - **clusternodes** : il s’agit simplement d’un nom de type convivial.
 
-	* **Modèle d’URL** - **\*internal.cloudapp.net\*** : définit un modèle qui correspond au nom de domaine complet interne des nœuds du cluster.
+	* **Modèle d’URL** - **\*internal.cloudapp.net\*** : définit un modèle qui correspond au nom de domaine complet interne des nœuds du cluster.
 
 	![type foxyproxy](./media/hdinsight-linux-ambari-ssh-tunnel/foxypattern.png)
 
@@ -201,4 +201,4 @@ Pour plus d’informations sur l’utilisation de SSH avec HDInsight, consultez 
 
 * [Utilisation de SSH avec Hadoop Linux sur HDInsight à partir de Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

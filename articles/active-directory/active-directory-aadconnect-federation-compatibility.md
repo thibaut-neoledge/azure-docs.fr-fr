@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/08/2016"
+	ms.date="09/12/2016"
 	ms.author="billmath"/>
 
 # Liste de compatibilité de fédération Azure AD
@@ -41,7 +41,7 @@ Pour plus d’informations sur la façon dont votre fournisseur d’identité ti
 - [Centrify](#centrify)
 - [IBM Tivoli Federated Identity Manager 6.2.2](#ibm-tivoli-federated-identity-manager-622)
 - [SecureAuth IdP 7.2.0](#secureauth-idp-720)
-- [CA SiteMinder 12.52](#ca-siteminder-1252)
+- [CA SiteMinder 12.52](#ca-siteminder-1252-sp1-cumulative-release-4)
 - [RadiantOne CFS 3.0](#radiantone-cfs-30)
 - [Okta](#okta)
 - [OneLogin](#onelogin)
@@ -173,15 +173,15 @@ Voici la matrice de prise en charge des scénarios pour cette expérience d’au
 
 Pour plus d’informations sur SecureAuth, consultez [SecureAuth IdP](http://go.microsoft.com/?linkid=9845293).
 
-## CA SiteMinder 12.52 
+## CA SiteMinder 12.52 SP1 version cumulative 4
 CA SiteMinder Federation 12.52 implémente la norme d’identité WS Federation/WS-Trust largement utilisée pour fournir une expérience d’authentification unique et une structure d’échange d’attributs.
 
 Voici la matrice de prise en charge des scénarios pour cette expérience d’authentification unique :
 
 | Client |Support |Exceptions|
 | --------- | --------- |--------- |
-| Clients web (p. ex., Exchange Web Access et SharePoint Online) | Pris en charge |Authentification Windows intégrée|
-| Applications clientes riches (p. ex., Lync, abonnement Office, CRM) | Pris en charge |Authentification Windows intégrée|
+| Clients web (p. ex., Exchange Web Access et SharePoint Online) | Pris en charge |Aucun|
+| Applications clientes riches (p. ex., Lync, abonnement Office, CRM) | Pris en charge |Aucun|
 | Clients de messagerie riches (p. ex., Outlook et ActiveSync) | Pris en charge |Aucun|
 
 Pour plus d’informations sur CA SiteMinder, consultez [CA SiteMinder Federation.](http://www.ca.com/us/products/ca-single-sign-on.html)
@@ -339,4 +339,4 @@ Voici la matrice de prise en charge des scénarios pour cette expérience d’au
 
 Pour plus d’informations, consultez [AuthAnvil Single Sign On.](https://help.scorpionsoft.com/entries/26538603-How-can-I-Configure-Single-Sign-On-for-Office-365-)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0914_2016-->

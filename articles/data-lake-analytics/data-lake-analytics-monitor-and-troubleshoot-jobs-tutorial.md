@@ -1,10 +1,10 @@
 <properties 
    pageTitle="Dépanner les travaux Azure Data Lake Analytics à l’aide du portail Azure | Azure" 
-   description="Apprenez à utiliser le portail Azure afin de dépanner les travaux Data Lake Analytics." 
+   description="Apprenez à utiliser le portail Azure afin de dépanner les travaux Data Lake Analytics. " 
    services="data-lake-analytics" 
    documentationCenter="" 
    authors="edmacauley" 
-   manager="paulettm" 
+   manager="jhubbard" 
    editor="cgronlun"/>
  
 <tags
@@ -110,4 +110,4 @@ Dans la dernière section, vous avez envoyé un travail et ce dernier a échoué
 - [Prise en main d’Analytique Data Lake Azure et U-SQL à l’aide de Visual Studio.](data-lake-analytics-u-sql-get-started.md)
 - [Gestion d'Azure Data Lake Analytics à l'aide du portail Azure](data-lake-analytics-manage-use-portal.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0914_2016-->

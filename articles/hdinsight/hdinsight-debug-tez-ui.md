@@ -4,7 +4,7 @@ description="Apprenez à utiliser l'interface utilisateur Tez pour déboguer les
 services="hdinsight"
 documentationCenter=""
 authors="Blackmist"
-manager="paulettm"
+manager="jhubbard"
 editor="cgronlun"/>
 
 <tags
@@ -24,7 +24,7 @@ L’interface utilisateur Tez est une page web qui peut servir à comprendre et 
 
 ##Composants requis
 
-* Un cluster HDInsight Windows Pour plus d’informations sur la création d’un cluster, consultez [Prise en main de HDInsight sur Windows](hdinsight-hadoop-tutorial-get-started-windows.md).
+* Un cluster HDInsight Windows Pour plus d’informations sur la création d’un cluster, consultez [Prise en main de HDInsight sur Windows](hdinsight-hadoop-tutorial-get-started-windows.md).
 
     > [AZURE.IMPORTANT] L’interface utilisateur Tez est disponible uniquement pour les clusters HDInsight sur Windows créés après le 8 février 2016.
 
@@ -32,15 +32,15 @@ L’interface utilisateur Tez est une page web qui peut servir à comprendre et 
 
 ##Présentation de Tez
 
-Tez est une infrastructure extensible pour le traitement des données dans Hadoop plus rapide que le traitement MapReduce traditionnel. Pour les clusters HDInsight basés sur Windows, il s’agit d’un moteur facultatif que vous pouvez activer pour Hive dans le cadre de votre requête Hive à l’aide de la commande suivante :
+Tez est une infrastructure extensible pour le traitement des données dans Hadoop plus rapide que le traitement MapReduce traditionnel. Pour les clusters HDInsight basés sur Windows, il s’agit d’un moteur facultatif que vous pouvez activer pour Hive dans le cadre de votre requête Hive à l’aide de la commande suivante :
 
     set hive.execution.engine=tez;
 
-Lorsque Tez reçoit un travail à effectuer, il crée un graphe orienté acyclique (Directed Acyclic Graph - DAG) qui décrit l’ordre d’exécution des actions requises. Les actions individuelles sont appelées des vertex et exécutent une partie du travail global. L’exécution réelle du travail décrit par un vertex est appelée une tâche, et peut être répartie sur plusieurs nœuds du cluster.
+Lorsque Tez reçoit un travail à effectuer, il crée un graphe orienté acyclique (Directed Acyclic Graph - DAG) qui décrit l’ordre d’exécution des actions requises. Les actions individuelles sont appelées des vertex et exécutent une partie du travail global. L’exécution réelle du travail décrit par un vertex est appelée une tâche, et peut être répartie sur plusieurs nœuds du cluster.
 
 ###Présentation de l’interface utilisateur Tez
 
-L’interface utilisateur Tez est une page web qui fournit des informations sur les processus en cours d’exécution, ou qui ont été exécutés à l’aide de Tez. Elle vous permet d'afficher le DAG généré par Tez, de connaître la répartition entre les clusters, et d'accéder aux compteurs tels que la mémoire utilisée par les tâches et les vertex, ainsi qu'aux informations d'erreur. Elle peut fournir des informations utiles dans les scénarios suivants :
+L’interface utilisateur Tez est une page web qui fournit des informations sur les processus en cours d’exécution, ou qui ont été exécutés à l’aide de Tez. Elle vous permet d'afficher le DAG généré par Tez, de connaître la répartition entre les clusters, et d'accéder aux compteurs tels que la mémoire utilisée par les tâches et les vertex, ainsi qu'aux informations d'erreur. Elle peut fournir des informations utiles dans les scénarios suivants :
 
 * Surveiller les processus à long terme, voir l'avancement des tâches de mappage et de réduction.
 
@@ -63,7 +63,7 @@ Utilisez les étapes suivantes pour exécuter une requête Hive à l'aide de Tez
         set hive.execution.engine=tez;
         select market, state, country from hivesampletable where deviceplatform='Android' group by market, country, state;
 
-3. Cliquez sur le bouton __Envoyer__. La section __Session de travail__ en bas de la page affiche l'état de la requête. Une fois que l'état passe à __Terminé__, sélectionnez le lien __Afficher les détails__ pour afficher les résultats. La __sortie de la tâche__ doit ressembler à ce qui suit :
+3. Cliquez sur le bouton __Envoyer__. La section __Session de travail__ en bas de la page affiche l'état de la requête. Une fois que l'état passe à __Terminé__, sélectionnez le lien __Afficher les détails__ pour afficher les résultats. La __sortie de la tâche__ doit ressembler à ce qui suit :
         
         en-GB   Hessen      Germany
         en-GB   Kingston    Jamaica
@@ -147,4 +147,4 @@ Maintenant que vous avez appris à utiliser la vue Tez, obtenez plus d’informa
 
 Pour plus d’informations techniques sur Tez, consultez la [page Tez sur Hortonworks](http://hortonworks.com/hadoop/tez/) (en anglais).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0914_2016-->

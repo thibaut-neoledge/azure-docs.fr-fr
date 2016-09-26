@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="bradsev"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun" />
 
 <tags
@@ -81,7 +81,7 @@ Pour configurer votre environnement de science des données Azure :
 3. [Approvisionnez une machine virtuelle de science des données](machine-learning-data-science-setup-sql-server-virtual-machine.md), qui fera office de serveur SQL Server et de serveur Notebook IPython.
 
 	> [AZURE.NOTE] Les exemples de scripts et de notebooks IPython seront téléchargés sur votre machine virtuelle de science des données lors du processus de configuration. À l’issue du script de post-installation de la machine virtuelle, les exemples figureront dans la bibliothèque Documents de votre machine virtuelle :
-	> - Exemples de scripts : `C:\Users<user_name>\Documents\Data Science Scripts`  
+	> - Exemples de scripts : `C:\Users<user_name>\Documents\Data Science Scripts`
 	> - Exemples de notebooks IPython : `C:\Users<user_name>\Documents\IPython Notebooks\DataScienceSamples` où `<user_name>` est le nom de connexion de votre machine virtuelle Windows. Nous désignerons les dossiers d’exemples sous la forme **Exemples de scripts** et **Exemples de notebooks IPython**.
 
 
@@ -97,7 +97,7 @@ Pour copier les données à l’aide d’AzCopy :
 
 2. Créez un répertoire dans le disque de données de la machine virtuelle (remarque : n’utilisez pas le disque temporaire fourni avec la machine virtuelle en tant que disque de données).
 
-3. Dans une fenêtre d’invite de commandes, exécutez la ligne de commande Azcopy ci-après en remplaçant la chaîne <path_to_data_folder> par votre dossier de données créé à l’étape 2 :
+3. Dans une fenêtre d’invite de commandes, exécutez la ligne de commande Azcopy ci-après en remplaçant la chaîne <chemin\_dossier\_de\_données> par votre dossier de données créé à l’étape 2 :
 
 		"C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:https://nyctaxitrips.blob.core.windows.net/data /Dest:<path_to_data_folder> /S
 
@@ -144,7 +144,7 @@ Les performances de chargement et de transfert de grandes quantités de données
 7. Le dossier **Exemples de scripts** comporte deux exemples de scripts PowerShell présentant les procédures d’importations de données en bloc en parallèle dans des tables SQL Server.
 
 	- **bcp\_parallel\_generic.ps1** est un script générique permettant d’effectuer des importations de données en bloc en parallèle dans une table. Modifiez ce script pour définir les variables d’entrée et les variables cibles, comme indiqué dans les lignes de commentaire du script.
-	- **bcp\_parallel\_nyctaxi.ps1** est une version préconfigurée du script générique que vous pouvez utiliser pour charger les deux tables relatives aux données NYC Taxi Trips.  
+	- **bcp\_parallel\_nyctaxi.ps1** est une version préconfigurée du script générique que vous pouvez utiliser pour charger les deux tables relatives aux données NYC Taxi Trips.
 
 8. Cliquez avec le bouton droit sur le nom de script **bcp\_parallel\_nyctaxi.ps1**, puis cliquez sur **Modifier** pour l’ouvrir dans PowerShell. Examinez les variables prédéfinies et modifiez-les en fonction des valeurs que vous avez sélectionnées pour le nom de base de données, le dossier de données d’entrée, le dossier de journaux cibles et les chemins d’accès aux exemples de fichiers de format **nyctaxi\_trip.xml** et **nyctaxi\_fare.xml** (fournis dans le dossier **Exemples de scripts**).
 
@@ -266,7 +266,7 @@ Vous pouvez également utiliser les requêtes de génération d’étiquettes et
 
 #### Préparation des données pour la création de modèles
 
-La requête ci-après joint les tables **nyctaxi\_trip** et **nyctaxi\_fare**, génère une étiquette de classification binaire **tipped** et une étiquette de classification multiclasse **tip\_class**, puis extrait un échantillon aléatoire de 1 % des données de l’intégralité du jeu de données joint. Vous pouvez ensuite copier cette requête et la coller directement dans le module [Importer les données][import-data] d’[Azure Machine Learning Studio](https://studio.azureml.net) pour permettre la réception directe de données de l’instance de base de données SQL Server dans Azure. La requête exclut les enregistrements qui présentent des coordonnées (0, 0) incorrectes.
+La requête ci-après joint les tables **nyctaxi\_trip** et **nyctaxi\_fare**, génère une étiquette de classification binaire **tipped** et une étiquette de classification multiclasse **tip\_class**, puis extrait un échantillon aléatoire de 1 % des données de l’intégralité du jeu de données joint. Vous pouvez ensuite copier cette requête et la coller directement dans le module [Importer les données][import-data] [d’Azure Machine Learning Studio](https://studio.azureml.net) pour permettre la réception directe de données de l’instance de base de données SQL Server dans Azure. La requête exclut les enregistrements qui présentent des coordonnées (0, 0) incorrectes.
 
 	SELECT t.*, f.payment_type, f.fare_amount, f.surcharge, f.mta_tax, f.tolls_amount, 	f.total_amount, f.tip_amount,
 	    CASE WHEN (tip_amount > 0) THEN 1 ELSE 0 END AS tipped,
@@ -298,7 +298,7 @@ Lorsque vous travaillez sur des données volumineuses, il est recommandé de pro
 
 Lorsque vous êtes prêt à utiliser Azure Machine Learning, vous pouvez effectuer l’une des deux opérations suivantes :
 
-1. Enregistrer la requête SQL finale d’extraction et d’échantillonnage des données et copier-coller cette requête directement dans un module [Importer les données][import-data] d’Azure Machine Learning. Cette méthode est décrite dans la section [Création de modèles dans Azure Machine Learning](#mlmodel).    
+1. Enregistrer la requête SQL finale d’extraction et d’échantillonnage des données et copier-coller cette requête directement dans un module [Importer les données][import-data] d’Azure Machine Learning. Cette méthode est décrite dans la section [Création de modèles dans Azure Machine Learning](#mlmodel).
 2. Stocker les données échantillonnées et générées que vous prévoyez d’utiliser pour la création de modèles dans une nouvelle table de base de données et utiliser cette table dans le module [Importer les données][import-data].
 
 Vous trouverez ci-dessous quelques exemples d’exploration des données, de visualisation des données et de conception de fonctionnalités. Pour découvrir d’autres exemples, reportez-vous à l’exemple de notebook IPython SQL figurant dans le dossier **Exemples de notebooks IPython**.
@@ -334,7 +334,7 @@ Initialisez vos paramètres de connexion à la base de données dans les variabl
 
 	print 'Total number of columns = %d' % ncols.iloc[0,0]
 
-- Nombre total de lignes = 173 179 759  
+- Nombre total de lignes = 173 179 759
 - Nombre total de colonnes = 14
 
 #### Lire un petit échantillon de données depuis la base de données SQL Server
@@ -641,7 +641,7 @@ Dans cet exercice, nous avons déjà exploré et généré les données dans SQL
 
 4. Dans le champ **Nom de la base de données**, entrez le nom de la base de données.
 
-5. Entrez le **nom d’utilisateur SQL** dans le champ Nom de compte d’utilisateur du serveur**, et le mot de passe dans le champ **Mot de passe de compte d’utilisateur du serveur**.
+5. Entrez le **nom d’utilisateur SQL** dans le champ **Nom de compte d’utilisateur du serveur et le mot de passe dans le champ **Mot de passe de compte d’utilisateur du serveur**.
 
 6. Activez l’option **Accepter tout certificat de serveur**.
 
@@ -716,4 +716,4 @@ Cet exemple de procédure pas à pas et les scripts et notebooks IPython qui lui
 [select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

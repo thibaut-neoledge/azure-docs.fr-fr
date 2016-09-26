@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="06/21/2016" 
+    ms.date="09/11/2016" 
     ms.author="jeedes" />
 
 #Didacticiel : Intégration d’Azure AD à Work.com
@@ -57,7 +57,7 @@ Cette section décrit l’activation de l’intégration d’applications pour W
 
     ![Ajouter une application à partir de la galerie](./media/active-directory-saas-work-com-tutorial/IC749322.png "Ajouter une application à partir de la galerie")
 
-6.  Dans la **zone de recherche**, tapez **Work.com**.
+6.  Dans la **zone de recherche**, tapez **Work.com**.
 
     ![Galerie d’applications](./media/active-directory-saas-work-com-tutorial/IC794106.png "Galerie d’applications")
 
@@ -98,7 +98,7 @@ Dans le cadre de cette procédure, vous devez charger un certificat vers Work.co
 
     ![Configurer l’authentification unique](./media/active-directory-saas-work-com-tutorial/IC794110.png "Configurer l’authentification unique")
 
-8.  Dans la page **Configurer l’URL de l’application**, dans la zone de texte **URL de connexion à Work.com**, tapez l’URL utilisée par vos utilisateurs pour se connecter à votre application Work.com (par ex. "**http://company.my.salesforce.com*”)), puis cliquez sur **Suivant** :
+8.  Dans la page **Configurer l’URL de l’application**, dans la zone de texte **URL de connexion à Work.com**, tapez l’URL utilisée par vos utilisateurs pour se connecter à votre application Work.com (par ex. "**http://company.my.salesforce.com*”), puis cliquez sur **Suivant** :
 
     ![Configurer l’URL de l’application](./media/active-directory-saas-work-com-tutorial/IC794111.png "Configurer l’URL de l’application")
 
@@ -127,19 +127,19 @@ Dans le cadre de cette procédure, vous devez charger un certificat vers Work.co
 
     ![Paramètre d’authentification unique SAML](./media/active-directory-saas-work-com-tutorial/IC794114.png "Paramètre d’authentification unique SAML")
 
-    1.  Dans la zone de texte **Name**, tapez le nom de votre configuration.  
+    1.  Dans la zone de texte **Name**, tapez le nom de votre configuration.
 
         >[AZURE.NOTE] Le fait d’entrer une valeur pour **Name** renseigne automatiquement la zone de texte **API Name**.
 
     2.  Sur la page **Configurer l’authentification unique sur Work.com** du portail Azure Classic, copiez la valeur **URL de l’émetteur**, puis collez-la dans la zone de texte **Émetteur**.
     3.  Pour charger le certificat téléchargé, cliquez sur **Parcourir**.
-    4.  Dans la zone de texte **Entity Id**, tapez **https://salesforce-work.com**.
+    4.  Dans la zone de texte **Entity Id**, tapez **https://salesforce-work.com**.
     5.  Pour **SAML Identity Type**, sélectionnez **Assertion contains the Federation ID from the User object**.
     6.  Pour **SAML Identity Location**, sélectionnez **Identity is in the NameIdentfier element of the Subject statement**.
     7.  Dans le portail Azure Classic, dans la page **Configurer l’authentification unique sur Work.com**, copiez la valeur **URL de connexion distante**, puis collez-la dans la zone de texte **URL de connexion du fournisseur d’identité**.
     8.  Dans le portail Azure Classic, dans la page **Configurer l’authentification unique sur Work.com**, copiez la valeur **URL de déconnexion distante**, puis collez-la dans la zone de texte **URL de déconnexion du fournisseur d’identité**.
     9.  Pour **Service Provider Initiated Request Binding**, sélectionnez **HTTP POST**.
-    10. Cliquez sur **Enregistrer**.
+    10. Cliquez sur **Save**.
 
 15. Dans le volet de navigation gauche du portail classique Work.com, cliquez sur **Gestion de domaine** pour développer la section associée, puis sur **Mon domaine** pour ouvrir la page **Mon domaine**.
 
@@ -149,7 +149,7 @@ Dans le cadre de cette procédure, vous devez charger un certificat vers Work.co
 
     ![Personnalisation de la page de connexion](./media/active-directory-saas-work-com-tutorial/IC767826.png "Personnalisation de la page de connexion")
 
-17. Le nom des **SAML SSO Settings** s’affiche dans la section **Authentication Service** de la page **Login Page Branding**. Sélectionnez-le, puis cliquez sur **Save**.
+17. Le nom des **SAML SSO Settings** s’affiche dans la section **Authentication Service** de la page **Login Page Branding**. Sélectionnez-le, puis cliquez sur **Save**.
 
     ![Personnalisation de la page de connexion](./media/active-directory-saas-work-com-tutorial/IC784366.png "Personnalisation de la page de connexion")
 
@@ -184,7 +184,7 @@ Dans le cas de Work.com, l’approvisionnement est une tâche manuelle.
 
     1.  Dans les zones de texte **Last Name**, **Alias**, **Email**, **Username** et **Nickname**, tapez les attributs d’un compte Azure Active Directory valide que vous souhaitez approvisionner.
     2.  Sélectionnez **Role**, **User License** et **Profile**.
-    3.  Cliquez sur **Enregistrer**.  
+    3.  Cliquez sur **Save**.
 
         >[AZURE.NOTE] Le titulaire du compte Azure AD reçoit un message électronique contenant un lien pour confirmer le compte avant qu’il ne soit activé.
 
@@ -208,6 +208,6 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
   
 À présent, vous devez patienter 10 minutes et vérifier que le compte a été synchronisé avec Work.com.
   
-Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le panneau d’accès. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
+Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d'informations sur le panneau d'accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

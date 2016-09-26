@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="bradsev,hangzh-msft,wguo123"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun" />
 
 <tags
@@ -56,9 +56,9 @@ La **clé unique** utilisée pour joindre trip\_data et trip\_fare se compose de
 
 Nous formulons trois problèmes de prédiction reposant sur la valeur *tip\_amount* pour illustrer trois genres de tâches de modélisation :
 
-1. **Classification binaire** : prédire si un pourboire a ou non été versé pour une course ; autrement dit, une valeur *tip\_amount* supérieure à 0 $ constitue un exemple positif, alors qu’une valeur *tip\_amount* de 0 $ est un exemple négatif.
+1. **Classification binaire** : prédire si un pourboire a ou non été versé pour une course ; autrement dit, une valeur *tip\_amount* supérieure à 0 $ constitue un exemple positif, alors qu’une valeur *tip\_amount* de 0 $ est un exemple négatif.
 
-2. **Classification multiclasse** : prédire la fourchette des pourboires versés pour une course. Nous divisons la valeur *tip\_amount* en cinq compartiments ou classes :
+2. **Classification multiclasse** : prédire la fourchette des pourboires versés pour une course. Nous divisons la valeur *tip\_amount* en cinq compartiments ou classes :
 
 		Class 0 : tip_amount = $0
 		Class 1 : tip_amount > $0 and tip_amount <= $5
@@ -66,7 +66,7 @@ Nous formulons trois problèmes de prédiction reposant sur la valeur *tip\_amou
 		Class 3 : tip_amount > $10 and tip_amount <= $20
 		Class 4 : tip_amount > $20
 
-3. **Tâche de régression** : prédire le montant du pourboire versé pour une course.
+3. **Tâche de régression** : prédire le montant du pourboire versé pour une course.
 
 
 ## <a name="setup"></a>Configurer l’environnement de science des données Azure pour l’analyse avancée
@@ -107,7 +107,7 @@ Pour configurer votre environnement de science des données Azure, procédez com
 
 ## <a name="getdata"></a>Charger les données dans SQL Data Warehouse
 
-Ouvrez une console de commandes Windows PowerShell. Exécutez les commandes PowerShell suivantes pour télécharger les fichiers d’exemple de script SQL que nous partageons avec vous sur GitHub dans un répertoire local que vous spécifiez avec le paramètre *-DestDir*. Vous pouvez remplacer la valeur du paramètre *-DestDir* par un répertoire local. Si *-DestDir* n’existe pas, il est créé par le script PowerShell.
+Ouvrez une console de commandes Windows PowerShell. Exécutez les commandes PowerShell suivantes pour télécharger les fichiers d’exemple de script SQL que nous partageons avec vous sur GitHub dans un répertoire local que vous spécifiez avec le paramètre *-DestDir*. Vous pouvez remplacer la valeur du paramètre *-DestDir* par un répertoire local. Si *-DestDir* n’existe pas, il est créé par le script PowerShell.
 
 >[AZURE.NOTE] Vous devrez peut-être sélectionner **Exécuter en tant qu’administrateur** au moment de l’exécution du script PowerShell suivant si le privilège Administrateur est nécessaire pour créer le répertoire *DestDir* ou pour y écrire.
 
@@ -843,11 +843,11 @@ Dans cette section, nous allons explorer les distributions de données à l’ai
 
 Nous pouvons à présent passer aux phases de création et de déploiement de modèles dans [Azure Machine Learning](https://studio.azureml.net). Les données sont prêtes à être utilisées dans tous les problèmes de prédiction identifiés précédemment, à savoir :
 
-1. **Classification binaire** : prédire si un pourboire a ou non été versé pour une course.
+1. **Classification binaire** : prédire si un pourboire a ou non été versé pour une course.
 
-2. **Classification multiclasse** : prédire la fourchette du pourboire versé en fonction des classes précédemment définies.
+2. **Classification multiclasse** : prédire la fourchette du pourboire versé en fonction des classes précédemment définies.
 
-3. **Tâche de régression** : prédire le montant du pourboire versé pour une course.
+3. **Tâche de régression** : prédire le montant du pourboire versé pour une course.
 
 
 
@@ -969,4 +969,4 @@ Cet exemple de procédure pas à pas et les scripts et notebooks IPython qui lui
 [select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0914_2016-->

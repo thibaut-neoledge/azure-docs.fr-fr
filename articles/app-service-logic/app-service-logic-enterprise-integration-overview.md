@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/08/2016" 
+	ms.date="09/08/2016" 
 	ms.author="deonhe"/>
 
 # Vue d'ensemble d'Enterprise Integration Pack
@@ -23,7 +23,7 @@ Enterprise Integration Pack est la solution basée sur le cloud de Microsoft per
 
 Le pack permet aux organisations qui utilisent différents protocoles et formats d'échanger des messages électroniques en convertissant les différents formats dans un format que les systèmes de deux entreprises peuvent interpréter et exploiter.
 
-Si vous êtes familiarisé avec BizTalk Server ou Microsoft Azure BizTalk Services, vous saurez facilement utiliser les fonctionnalités Enterprise Integration car la plupart des concepts sont similaires. La principale différence réside dans le fait qu'Enterprise Integration s’appuie sur des comptes d’intégration pour simplifier le stockage et la gestion des artefacts utilisés dans les communications B2B.
+Si vous êtes familiarisé avec BizTalk Server ou Microsoft Azure BizTalk Services, vous saurez facilement utiliser les fonctionnalités Enterprise Integration car la plupart des concepts sont similaires. La principale différence réside dans le fait qu'Enterprise Integration utilise les comptes d’intégration pour simplifier le stockage et la gestion des artefacts utilisés dans les communications B2B.
 
 D'un point de vue architectural, Enterprise Integration Pack repose sur des **comptes d’intégration** qui stockent tous les artefacts pouvant être utilisés pour concevoir, déployer et gérer vos applications B2B. Un compte d’intégration est essentiellement un conteneur dans le cloud, dans lequel vous stockez des artefacts tels que des schémas, des partenaires, des certificats, des mappages et des contrats. Ces artefacts peuvent ensuite être utilisés dans des applications logiques pour créer des flux de travail B2B. Avant de pouvoir utiliser les artefacts dans une application logique, vous devez lier votre compte d’intégration à votre application logique. Une fois ces deux éléments liés, votre application logique pourra accéder aux artefacts du compte d’intégration.
 
@@ -35,7 +35,9 @@ D'un point de vue architectural, Enterprise Integration Pack repose sur des **co
 ## Comment prendre en main Enterprise Integration Pack ?
 Vous pouvez créer et gérer des applications B2B à l’aide d'Enterprise Integration Pack via le concepteur d’applications logiques du **portail Azure**.
 
-Voici une vue d’ensemble des étapes requises pour créer des applications dans le portail Azure : ![overviewimage](./media/app-service-logic-enterprise-integration-overview/overview-0.png)
+Vous pouvez également utiliser [PowerShell](https://msdn.microsoft.com/library/azure/mt652195.aspx "Rubriques PowerShell sur les applications logiques") pour vos applications logiques.
+
+Voici une vue d’ensemble des étapes requises pour créer des applications dans le portail Azure : ![image de présentation](./media/app-service-logic-enterprise-integration-overview/overview-0.png)
 
 ## Quels sont les scénarios courants ?
 
@@ -49,8 +51,8 @@ Enterprise Integration prend en charge les normes suivantes :
 - Visual Studio 2015 pour créer des mappages et des schémas
 - [Microsoft Azure Logic Apps Enterprise Integration Tools for Visual Studio 2015 2.0](https://aka.ms/vsmapsandschemas)
 
-## Essayez par vous-même
-Prêt à vous lancer ? Cliquez [ici](https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-as2-send-receive) pour déployer vos propres applications logiques d’envoi et de réception AS2 entièrement fonctionnelles à l’aide des fonctionnalités B2B de Logic Apps.
+## Essayer
+[Essayez-le maintenant](https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-as2-send-receive) pour déployer votre propre exemple d’application d’envoi et de réception AS2 entièrement fonctionnelle utilisant les fonctionnalités B2B de Logic Apps.
 
 ## Pour en savoir plus :
 - [Accords](./app-service-logic-enterprise-integration-agreements.md "Découvrez les contrats d’intégration d’entreprise")
@@ -63,5 +65,6 @@ Prêt à vous lancer ? Cliquez [ici](https://github.com/Azure/azure-quickstart-t
 - [Schémas](./app-service-logic-enterprise-integration-schemas.md "Découvrez les schémas d’intégration d’entreprise")
 - [Validation de message XML](./app-service-logic-enterprise-integration-xml.md "Découvrez comment valider des messages XML avec vos applications logiques")
 - [Transformation XML](./app-service-logic-enterprise-integration-transform.md "Découvrez les mappages d’intégration d’entreprise")
+- [Connecteurs Enterprise Integration](../connectors/apis-list.md "En savoir plus sur les connecteurs Enterprise Integration Pack")
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

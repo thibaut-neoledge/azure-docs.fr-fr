@@ -5,7 +5,7 @@
    services="machine-learning"
    documentationCenter="na"
    authors="brohrer-ms"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cjgronlund"/>
 
 <tags
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/24/2016"
+   ms.date="09/13/2016"
    ms.author="cgronlun;brohrer;garye"/>
 
 # Science des données pour les débutants, vidéo 1 : Les 5 questions auxquelles la science des données répond
@@ -31,13 +31,13 @@ La série *Science des données pour les débutants* offre une introduction rapi
 
   * Vidéo 1 : Les 5 questions auxquelles la science des données répond
   * Vidéo 2 : [Vos données sont-elles prêtes pour la science des données ?](machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 min 56 sec)*
-  * Vidéo 3 : [Poser une question à laquelle les données permettent de répondre](machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4 min 17 sec)*
+  * Vidéo 3 : [Poser une question à laquelle les données permettent de répondre](machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4 min 17 sec)*
   * Vidéo 4 : [Prédire une réponse à l’aide d’un modèle simple](machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7 min 42 sec)*
   * Vidéo 5 : [Copier le travail d’autres personnes pour des projets de science des données](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 min 18 sec)*
 
-## Transcription : Les 5 questions auxquelles la science des données répond
+## Transcription : Les 5 questions auxquelles la science des données répond
 
-Bonjour ! Bienvenue dans la série de vidéos *Science des données pour les débutants*.
+Bonjour ! Bienvenue dans la série de vidéos *Science des données pour les débutants*.
 
 La science des données peut être intimidante. Mais je vais vous présenter ici les principes de base sans équations ni jargon de programmation informatique.
 
@@ -51,7 +51,7 @@ Cela peut vous surprendre, mais *il existe cinq questions auxquelles la science 
   * Est-ce étrange ?
   * Quelle quantité (ou combien) ?
   * Comment les données sont-elles organisées ?
-  * Que dois-je faire ensuite ?
+  * Que dois-je faire ensuite ?
 
   Un groupe spécifique de méthodes d’apprentissage automatique, appelées algorithmes, permet de répondre à ces questions.
 
@@ -60,7 +60,7 @@ Le mieux est de considérer un algorithme comme une recette et vos données comm
 
 ## La question 1 (Est-ce A ou B ?) utilise des algorithmes de classification
 
-Commençons par la question « Est-ce A ou B ? »
+Commençons par la question « Est-ce A ou B ? »
 
 ![Algorithmes de classification : est-ce A ou B ?](./media/machine-learning-data-science-for-beginners-the-5-questions-data-science-answers/machine-learning-data-science-classification-algorithms.png)
 
@@ -68,9 +68,9 @@ Cette famille d’algorithmes est appelée la classification double classe.
 
 Elle est utile pour toute question qui n’a que deux réponses possibles.
 
-Par exemple :
+Par exemple :
 
-  *	Une défaillance du pneu pourra-t-elle se produire dans les prochains 1 600 km ? Oui ou non ?
+  *	Une défaillance du pneu pourra-t-elle se produire dans les prochains 1 600 km ? Oui ou non ?
   *	Qu’est-ce qui attire le plus les clients : un coupon de 5 $ ou une remise de 25 % ?
 
 Cette question peut également être reformulée pour inclure plus de deux options : est-ce A ou B, ou C ou D, etc. ? On parle de classification multiclasse. Elle est utile lorsque vous avez plusieurs (ou plusieurs milliers) de réponses possibles. La classification multiclasse choisit celle qui est la plus probable.
@@ -84,7 +84,7 @@ La prochaine question à laquelle la science des données peut répondre est : e
 
 Si vous disposez d’une carte de crédit, vous avez déjà bénéficié de la détection des anomalies. Votre société de carte de crédit analyse vos modèles d’achat, afin de vous alerter en cas de fraude possible. Les frais considérés comme « étranges » peuvent être liés à un achat dans un magasin dans lequel vous ne faites normalement aucun achat ou à un achat anormalement coûteux.
 
-Cette question peut se révéler utile dans de nombreux cas. Exemple :
+Cette question peut se révéler utile dans de nombreux cas. Exemple :
 
   *	Si vous disposez d’une voiture avec des indicateurs de pression, vous souhaitez peut-être savoir si les valeurs de ces indicateurs sont normales.
   *	Si vous utilisez Internet, vous voulez peut-être savoir si ce message Internet est normal.
@@ -103,7 +103,7 @@ L’apprentissage automatique peut également prédire une quantité ou un volum
 Les algorithmes de régression effectuent des prédictions numériques, notamment :
 
   *	Quelle sera la température mardi prochain ?
-  *	Quelles seront mes ventes au quatrième trimestre ?
+  *	Quelles seront mes ventes au quatrième trimestre ?
 
 Ils peuvent répondre à toute question dont la réponse est un chiffre.
 
@@ -117,24 +117,24 @@ Il existe de nombreuses manières d’analyser la structure de données. L’une
 
 ![Algorithmes de clustering : comment les données sont-elles organisées ?](./media/machine-learning-data-science-for-beginners-the-5-questions-data-science-answers/machine-learning-data-science-clustering-algorithms.png)
 
-Les exemples suivants sont des questions de clustering courantes :
+Les exemples suivants sont des questions de clustering courantes :
 
-  *	Quels spectateurs aiment quels types de films ?
+  *	Quels spectateurs aiment quels types de films ?
   *	Quels modèles défaillent de la même manière ?
 
 En comprenant comment les données sont organisées, vous pouvez mieux comprendre (et prédire) des événements et des comportements.
 
-## La question 5 (Que dois-je faire ensuite ?) utilise des algorithmes d’apprentissage par renforcement
+## La question 5 (Que dois-je faire ensuite ?) utilise des algorithmes d’apprentissage par renforcement
 
-La dernière question (Que dois-je faire ensuite ?) utilise une famille d’algorithmes appelée apprentissage par renforcement.
+La dernière question (Que dois-je faire ensuite ?) utilise une famille d’algorithmes appelée apprentissage par renforcement.
 
 L’apprentissage par renforcement est inspiré de la manière dont le cerveau de rats et d’humains répond aux punitions et aux récompenses. Ces algorithmes apprennent sur la base de résultats pour décider de l’action suivante.
 
 En règle générale, l’apprentissage par renforcement est une solution parfaitement adaptée à des systèmes automatisés qui doivent prendre un grand nombre de petites décisions sans instructions humaines.
 
-![Algorithmes d’apprentissage par renforcement : que dois-je faire ensuite ?](./media/machine-learning-data-science-for-beginners-the-5-questions-data-science-answers/machine-learning-data-science-reinforcement-learning-algorithms.png)
+![Algorithmes d’apprentissage par renforcement : que dois-je faire ensuite ?](./media/machine-learning-data-science-for-beginners-the-5-questions-data-science-answers/machine-learning-data-science-reinforcement-learning-algorithms.png)
 
-Les questions auxquelles il répond concernent toujours l’action à exécuter (généralement par une machine ou un robot). Voici quelques exemples :
+Les questions auxquelles il répond concernent toujours l’action à exécuter (généralement par une machine ou un robot). Voici quelques exemples :
 
   *	Si je suis un système de contrôle de température dans une maison : ajuster la température ou la laisser telle quelle ?
   *	Si je suis une voiture à conduite automatique : freiner ou accélérer au feu orange ?
@@ -142,7 +142,7 @@ Les questions auxquelles il répond concernent toujours l’action à exécuter 
 
 Les algorithmes d’apprentissage par renforcement collectent les données au fur et à mesure et apprend de ses essais et de ses erreurs.
 
-Et voilà ! Ce sont les 5 questions auxquelles la science des données peut répondre.
+Et voilà ! Ce sont les 5 questions auxquelles la science des données peut répondre.
 
 
 
@@ -151,4 +151,4 @@ Et voilà ! Ce sont les 5 questions auxquelles la science des données peut rép
   * [Menez votre première expérience de science des données avec Azure Machine Learning](machine-learning-create-experiment.md)
   * [Consultez la présentation de Machine Learning sur Microsoft Azure](machine-learning-what-is-machine-learning.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0914_2016-->

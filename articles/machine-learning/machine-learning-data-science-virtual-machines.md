@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="bradsev"
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun"  />
 
 <tags
@@ -26,7 +26,7 @@ Ce menu pointe vers des rubriques qui décrivent comment configurer les différe
 
 Vous pouvez approvisionner et configurer plusieurs types de machines virtuelles Azure en vue de les utiliser au sein d’un environnement de science des données dans le cloud. Le choix du type de machine virtuelle à utiliser dépend du type et de la quantité des données à modéliser avec l’apprentissage automatique, ainsi que de la destination cible de ces données dans le cloud.
 
-* Pour plus d’informations sur les questions à prendre en compte lors de cette prise de décision, consultez la page [Planifier votre environnement de science des données Azure Machine Learning](machine-learning-data-science-plan-your-environment.md). 
+* Pour plus d’informations sur les questions à prendre en compte lors de cette prise de décision, consultez la page [Planifier votre environnement de science des données Azure Machine Learning](machine-learning-data-science-plan-your-environment.md).
 * Pour accéder à un catalogue de scénarios que vous pouvez rencontrer lorsque vous effectuez des analyses avancées, consultez la page [Scénarios du processus de science des données Azure en action dans Azure Machine Learning](machine-learning-data-science-plan-sample-scenarios.md)
 
 Deux ensembles d’instructions vous sont fournis :
@@ -41,4 +41,4 @@ Une fois approvisionnées et configurées, ces machines virtuelles sont utilisab
 > [AZURE.NOTE] Le service Azure Virtual Machines est facturé au tarif du **paiement à l’utilisation**. Pour vous assurer de ne pas être facturé lorsque vous n’utilisez pas votre machine virtuelle, elle doit être définie sur l’état **Arrêté (désalloué)** à partir du [Portail Azure Classic](http://manage.windowsazure.com/). Pour obtenir des instructions détaillées sur la libération de votre machine virtuelle, consultez la page [Arrêter et libérer une machine virtuelle inutilisée](machine-learning-data-science-setup-virtual-machine.md#shutdown)
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

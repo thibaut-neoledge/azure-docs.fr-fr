@@ -4,7 +4,7 @@
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
-	manager="paulettm"
+	manager="jhubbard"
 	editor=""
     tags="azure-portal"/>
 
@@ -90,4 +90,4 @@ Procédure pas à pas|Description
 [Didacticiel de profils de score](search-get-started-scoring-profiles.md)|Testez les profils de score à l'aide d'une application console.
 [Didacticiel sur l’API REST de gestion d’Azure Search](search-get-started-management-api.md)|Comment utiliser l’API REST de gestion pour approvisionner le service et gérer des clés api admin ou la requête.
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -51,7 +51,7 @@ Installez l’agent approprié pour le serveur hôte.
 Plateforme | Installer
 ---|---
 Serveur IIS | [Installez Status Monitor sur votre serveur](app-insights-monitor-performance-live-website-now.md) ou [mettez à niveau votre application vers .NET Framework version 4.6 ou ultérieure](http://go.microsoft.com/fwlink/?LinkId=528259) et installez le [Kit de développement logiciel (SDK) Application Insights](app-insights-asp-net.md) dans votre application.
-Application web Azure | [Extension Application Insights](../azure-portal/insights-perf-analytics.md)
+Application web Azure | [Extension Application Insights](app-insights-azure-web-apps.md)
 Serveur web Java | [Applications web Java](app-insights-java-agent.md)
 Pages web | [Moniteur JavaScript](app-insights-javascript.md) (sans configuration supplémentaire en dehors de la surveillance de pages web)
 Azure Cloud Services | [Utilisez une tâche de démarrage](app-insights-cloudservices.md#dependencies) ou [installez .NET Framework version 4.6 ou ultérieure](../cloud-services/cloud-services-dotnet-install-dotnet.md).  
@@ -154,4 +154,4 @@ Voir [Pages web](app-insights-javascript.md).
 
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

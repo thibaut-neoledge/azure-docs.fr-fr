@@ -44,14 +44,14 @@ Connectez-vous à Decode AS2 Message pour créer des conditions sûres et fiable
 
 	| Propriété | Détails |
 	| --------   | ------- |
-	| Nom de connexion * | Entrez un nom pour votre connexion. |
-	| Compte d’intégration * | Entrez le nom du compte d’intégration. Vérifiez que votre compte d’intégration et votre application logique se trouvent dans le même emplacement Azure. |
+	| Nom de connexion * | Entrez un nom pour votre connexion |
+	| Compte d’intégration * | Entrez le nom du compte d’intégration. Vérifiez que votre compte d’intégration et votre application logique se trouvent dans le même emplacement Azure |
 
-  	Une fois complets, les détails de votre connexion se présentent comme suit.
+  	Une fois complets, les détails de votre connexion se présentent comme suit
 
   	![connexion d’intégration](./media/app-service-logic-enterprise-integration-AS2connector/as2decodeimage3.png)
 
-5. Sélectionnez **Créer**.
+5. Sélectionnez **Créer**
 	
 6. Vous pouvez voir que la connexion a été créée. Maintenant, effectuez les autres étapes dans votre application logique.
 
@@ -77,10 +77,10 @@ Connectez-vous à Decode AS2 Message pour créer des conditions sûres et fiable
 
 ##Essayez par vous-même
 
-Prêt à vous lancer ? Cliquez [ici](https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-as2-send-receive) pour déployer votre propre application logique entièrement fonctionnelle à l’aide des fonctionnalités AS2 de Logic Apps.
+Prêt à vous lancer ? Cliquez [ici](https://azure.microsoft.com/documentation/templates/201-logic-app-as2-send-receive/) pour déployer votre propre application logique entièrement fonctionnelle à l’aide des fonctionnalités AS2 de Logic Apps
 
 ## Étapes suivantes
 
 [En savoir plus sur Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md "En savoir plus sur Enterprise Integration Pack")
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

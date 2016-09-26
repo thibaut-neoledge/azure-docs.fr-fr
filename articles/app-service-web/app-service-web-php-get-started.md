@@ -39,13 +39,13 @@ Vous pourrez appliquer vos acquis à d’autres applications web PHP que vous d�
 - Installer [Composer](https://getcomposer.org/download/)
 - Installer [l’interface de ligne de commande Azure](../xplat-cli-install.md)
 - Installer [Git](http://www.git-scm.com/downloads)
-- Obtenir un compte Microsoft Azure. Si vous ne possédez pas de compte, vous pouvez [vous inscrire à un essai gratuit](/pricing/free-trial/?WT.mc_id=A261C142F) ou [activer les avantages de votre abonnement Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
+- Obtenir un compte Microsoft Azure. Si vous n’avez pas de compte, vous pouvez [demander un essai gratuit](/pricing/free-trial/?WT.mc_id=A261C142F) ou [activer les avantages de votre abonnement Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
 >[AZURE.NOTE] Visualisez une application web en action. [Essayez App Service](http://go.microsoft.com/fwlink/?LinkId=523751) dès maintenant et créez une première application temporaire. Aucune carte de crédit ni aucun engagement ne sont nécessaires.
 
 ## Créer une application PHP (Laravel) sur votre ordinateur de développement
 
-1. Ouvrez une nouvelle invite de commandes Windows, une fenêtre PowerShell, un interpréteur de commandes Linux ou un terminal OS X. Exécutez les commandes suivantes pour vérifier que les outils requis sont correctement installés sur votre ordinateur. 
+1. Ouvrez une nouvelle invite de commandes Windows, une fenêtre PowerShell, un interpréteur de commandes Linux ou un terminal OS X. Exécutez les commandes suivantes pour vérifier que les outils requis sont correctement installés sur votre ordinateur.
 
         php --version
         composer --version
@@ -82,8 +82,9 @@ Vous pourrez appliquer vos acquis à d’autres applications web PHP que vous d�
 
 Vous pouvez utiliser l’interface de ligne de commande Azure pour créer une application web dans Azure App Service et la configurer pour un déploiement Git avec une seule ligne de commande. Allons-y.
 
-3. Connectez-vous au portail Azure :
+1. Passez en mode ASM et connectez-vous à Azure :
 
+        azure config mode asm
         azure login
     
     Appuyez-vous sur le message d’aide pour poursuivre le processus de connexion.
@@ -96,7 +97,7 @@ Vous pouvez utiliser l’interface de ligne de commande Azure pour créer une ap
     
     ![Créer la ressource Azure pour votre application PHP (Laravel) dans Azure](./media/app-service-web-php-get-started/create-site-cli.png)
     
-    >[AZURE.NOTE] Si vous n’avez jamais configuré les informations d’identification de déploiement pour votre abonnement Azure, vous serez invité à les créer. Ces informations d’identification (et non pas les informations d’identification de votre compte Azure) sont utilisées par App Service uniquement dans le cadre des déploiements Git et des connexions FTP.
+    >[AZURE.NOTE] Si vous n’avez jamais configuré les informations d’identification de déploiement pour votre abonnement Azure, vous êtes invité à les créer. Ces informations d’identification (et non pas les informations d’identification de votre compte Azure) sont utilisées par App Service uniquement dans le cadre des déploiements Git et des connexions FTP.
     
     Cette commande crée un nouveau référentiel Git sur le répertoire en cours (avec `git init`) et le connecte au référentiel dans Azure en tant que Git distant (avec `git remote add`).
 
@@ -105,7 +106,7 @@ Vous pouvez utiliser l’interface de ligne de commande Azure pour créer une ap
 
 Pour que votre application Laravel puisse fonctionner dans Azure, vous devez tenir compte de plusieurs aspects. Vous pourrez répéter l’exercice suivant pour l’infrastructure PHP de votre choix.
 
-- Configurez PHP 5.5.9 ou version ultérieure. Consultez la section relative à la [configuration serveur requise pour Laravel 5.2](https://laravel.com/docs/5.2#server-requirements) pour obtenir la liste complète de la configuration requise du serveur. Le reste de la liste indique des extensions qui sont déjà activées par les installations PHP d’Azure. 
+- Configurez PHP 5.5.9 ou version ultérieure. Consultez la section relative à la [configuration serveur requise pour Laravel 5.2](https://laravel.com/docs/5.2#server-requirements) pour obtenir la liste complète de la configuration requise du serveur. Le reste de la liste indique des extensions qui sont déjà activées par les installations PHP d’Azure.
 - Définissez les variables d’environnement requises par votre application. Laravel utilise le fichier `.env` pour faciliter la configuration des variables d’environnement. Mais dans la mesure où il n’est pas censé être validé dans le contrôle de code source (voir la section relative à la [configuration de l’environnement Laravel](https://laravel.com/docs/5.2/configuration#environment-configuration)), vous allez devoir définir à la place les paramètres d’application de votre application web Azure.
 - Veillez à charger en premier le point d’entrée de l’application Laravel, `public/index.php`. Consultez la [vue d’ensemble du cycle de vie de Laravel](https://laravel.com/docs/5.2/lifecycle#lifecycle-overview). En d’autres termes, vous devez définir l’URL racine de l’application web pour pointer vers le répertoire `public`.
 - Activez l’extension du Compositeur dans Azure, puisque vous disposez d’un fichier composer.json. Vous pourrez ainsi laisser au Compositeur le soin d’obtenir les packages dont vous avez besoin lors d’un déploiement avec `git push`. Cette étape n’est à effectuer que pour des raisons pratiques. Si vous n’activez pas l’automatisation du Compositeur, il vous suffit de supprimer `/vendor` du fichier `.gitignore` pour que Git inclue (« n’ignore pas ») tous les éléments du répertoire `vendor` lors de la validation et du déploiement du code.
@@ -248,4 +249,4 @@ Découvrez comment ajouter des données à votre application en [créant une bas
 - [Conversion de WordPress en WordPress multisite dans Azure App Service](web-sites-php-convert-wordpress-multisite.md)
 - [WordPress d’entreprise sur Azure App Service](web-sites-php-enterprise-wordpress.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0914_2016-->

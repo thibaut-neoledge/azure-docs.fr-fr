@@ -1,6 +1,6 @@
-<properties 
+<properties
    pageTitle="Créer un équilibreur de charge accessible sur Internet dans Resource Manager à l’aide d’un modèle | Microsoft Azure"
-   description="Découvrez comment créer un équilibreur de charge accessible sur Internet dans Resource Manager à l'aide d'un modèle ARM"
+   description="Découvrez comment créer un équilibreur de charge accessible sur Internet dans Resource Manager à l’aide d’un modèle"
    services="load-balancer"
    documentationCenter="na"
    authors="sdwheeler"
@@ -8,7 +8,7 @@
    editor=""
    tags="azure-resource-manager"
 />
-<tags  
+<tags
    ms.service="load-balancer"
    ms.devlang="na"
    ms.topic="article"
@@ -17,7 +17,7 @@
    ms.date="02/09/2016"
    ms.author="sewhee" />
 
-# Prise en main de la création d'un équilibreur de charge accessible sur Internet à l'aide d'un modèle ARM
+# Prise en main de la création d’un équilibrage de charge accessible sur Internet à l’aide d’un modèle
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-arm-selectors-include.md](../../includes/load-balancer-get-started-internet-arm-selectors-include.md)]
 
@@ -28,13 +28,13 @@
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
-## Déployer le modèle ARM en cliquant pour déployer
+## Déployer le modèle en un clic
 
 L’exemple de modèle disponible dans le référentiel public utilise un fichier de paramètres contenant les valeurs par défaut utilisées pour générer le scénario décrit ci-dessus. Pour déployer ce modèle en un clic, suivez [ce lien](http://go.microsoft.com/fwlink/?LinkId=544801), cliquez sur **Déployer dans Azure**, remplacez les valeurs de paramètre par défaut si nécessaire, puis suivez les instructions dans le portail.
 
-## Déployer le modèle ARM à l'aide de PowerShell
+## Déployer le modèle à l’aide de PowerShell
 
-Pour déployer le modèle ARM téléchargé à l'aide de PowerShell, suivez les étapes ci-dessous.
+Pour déployer le modèle téléchargé à l’aide de PowerShell, suivez les étapes ci-dessous.
 
 1. Si vous n’avez jamais utilisé Azure PowerShell, consultez [Installation et configuration d’Azure PowerShell](../../articles/powershell-install-configure.md) et suivez les instructions jusqu’à la fin pour vous connecter à Azure et sélectionner votre abonnement.
 
@@ -42,13 +42,13 @@ Pour déployer le modèle ARM téléchargé à l'aide de PowerShell, suivez les 
 
 		New-AzureRmResourceGroupDeployment -Name TestRG -Location uswest `
 		    -TemplateFile 'https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.json' `
-		    -TemplateParameterFile 'https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.parameters.json'	
+		    -TemplateParameterFile 'https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.parameters.json'
 
-## Déployer le modèle ARM à l'aide de l'interface de ligne de commande Azure
+## Déployer le modèle à l’aide de l’interface de ligne de commande Azure
 
-Pour déployer le modèle ARM à l’aide de l’interface de ligne de commande Azure, procédez comme suit.
+Pour déployer le modèle à l’aide de l’interface de ligne de commande Azure, procédez comme suit.
 
-1. Si vous n’avez jamais utilisé l’interface de ligne de commande Azure, consultez [Installer et configurer l’interface de ligne de commande Azure](../../articles/xplat-cli-install.md) et suivez les instructions jusqu’à l’étape où vous sélectionnez votre compte et votre abonnement Azure.
+1. Si vous n’avez jamais utilisé l’interface de ligne de commande Azure, consultez [Installation et configuration de l’interface de ligne de commande Azure](../../articles/xplat-cli-install.md) et suivez les instructions jusqu’à l’étape vous invitant à sélectionner votre compte et votre abonnement Azure.
 2. Exécutez la commande **azure config mode** pour passer en mode Resource Manager, comme illustré ci-dessous.
 
 		azure config mode arm
@@ -70,4 +70,4 @@ Pour déployer le modèle ARM à l’aide de l’interface de ligne de commande 
 
 [Configuration des paramètres de délai d’expiration TCP inactif pour votre équilibrage de charge](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

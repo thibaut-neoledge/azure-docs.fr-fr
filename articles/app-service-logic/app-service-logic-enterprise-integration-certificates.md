@@ -23,6 +23,7 @@ Enterprise Integration utilise des certificats pour sécuriser les communication
 - Des certificats publics, qui doivent être achetés auprès d’une autorité de certification (CA)
 - Des certificats privés, que vous pouvez créer vous-même. Ces certificats sont parfois appelés « certificats auto-signés ».
 
+
 ## Que sont les certificats ?
 Les certificats sont des documents numériques utilisés pour vérifier l’identité des participants dans des communications électroniques et pour sécuriser ces communications électroniques.
 
@@ -36,7 +37,7 @@ Parfois, les communications B2B doivent rester confidentielles. Enterprise Integ
 ### Certificat public
 Pour utiliser un **certificat public** dans vos applications logiques avec fonctionnalités B2B, vous devez tout d’abord le télécharger dans votre compte d’intégration. D’autre part, pour utiliser un **certificat auto-signé**, ce certificat doit d’abord être téléchargé dans le coffre de clés [Key Vault](../key-vault/key-vault-get-started.md "En savoir plus sur le coffre de clés").
 
-Après avoir téléchargé un certificat, vous pourrez l'utiliser pour sécuriser vos messages B2B lorsque vous définissez leurs propriétés dans les [contrats](./app-service-logic-enterprise-integration-agreements.md) que vous créez.
+Après avoir téléchargé un certificat, vous pourrez l'utiliser pour sécuriser vos messages B2B lorsque vous définissez leurs propriétés dans des [contrats](./app-service-logic-enterprise-integration-agreements.md).
 
 Voici les étapes détaillées pour télécharger vos certificats publics sur votre compte d’intégration une fois que vous êtes connecté au portail Azure :
 1. Sélectionnez **Parcourir** ![](./media/app-service-logic-enterprise-integration-overview/overview-1.png)
@@ -49,6 +50,7 @@ Voici les étapes détaillées pour télécharger vos certificats publics sur vo
 8. Sélectionnez la mosaïque **Certificats**. Une fois la page actualisée, vous devez voir le certificat qui vient d’être ajouté : ![](./media/app-service-logic-enterprise-integration-certificates/certificate-4.png)
 
 ### Certificat privé
+
 Vous pouvez également télécharger des certificats privés sur votre compte d’intégration en procédant comme suit :
 
 1. [Télécharger votre clé privée dans Key Vault](../key-vault/key-vault-get-started.md "En savoir plus sur le coffre de clés")
@@ -61,6 +63,7 @@ Vous pouvez également télécharger des certificats privés sur votre compte d�
 Après avoir effectué les étapes ci-dessus, vous pouvez utiliser le certificat privé pour créer des contrats.
 
 Voici les étapes détaillées pour télécharger vos certificats privés sur votre compte d’intégration une fois que vous êtes connecté au portail Azure :
+   
 1. Sélectionnez **Parcourir** ![](./media/app-service-logic-enterprise-integration-overview/overview-1.png)
 2. Entrez **intégration** dans la zone de recherche de filtre et sélectionnez **Integration Accounts** (Comptes d’intégration) dans la liste des résultats ![](./media/app-service-logic-enterprise-integration-overview/overview-2.png)
 3. Sélectionnez le **compte d’intégration** auquel vous ajouterez le certificat ![](./media/app-service-logic-enterprise-integration-overview/overview-3.png)
@@ -78,4 +81,4 @@ Après avoir téléchargé un certificat, vous pourrez l'utiliser pour sécurise
 - [Créer un contrat B2B](./app-service-logic-enterprise-integration-agreements.md)
 - [En savoir plus sur Azure Key Vault](../key-vault/key-vault-get-started.md "En savoir plus sur le coffre de clés")
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

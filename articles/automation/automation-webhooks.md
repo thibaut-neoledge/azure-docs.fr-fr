@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/24/2016"
+   ms.date="09/12/2016"
    ms.author="magoedte;bwren;sngun"/>
 
 # Webhooks Azure Automation
@@ -84,7 +84,7 @@ Une autre stratégie consiste à ce que le Runbook effectue la validation d'une 
 
 Utilisez la procédure suivante pour créer un webhook lié à un Runbook dans le portail Azure.
 
-1. À partir du panneau **Runbooks** du portail Azure, cliquez sur le Runbook que le webhook démarrera pour afficher son panneau Détails. 
+1. À partir du panneau **Runbooks** du portail Azure, cliquez sur le Runbook que le webhook démarrera pour afficher son panneau Détails.
 3. Cliquez sur **Webhook** en haut du panneau pour ouvrir le panneau **Ajouter un webhook**. <br> ![Bouton Webhooks](media/automation-webhooks/webhooks-button.png)
 4. Cliquez sur **Créer un nouveau webhook** pour ouvrir le panneau **Créer un webhook**.
 5. Spécifiez un **Nom** et une **Date d'Expiration** pour le webhook, ainsi que s'il doit être activé. Pour plus d'informations sur ces propriétés, consultez [Détails d'un webhook](#details-of-a-webhook).
@@ -196,7 +196,7 @@ Outre l’utilisation des alertes Azure comme système de notification, vous pou
 
 Prenons une ressource Azure, par exemple, une machine virtuelle. L’utilisation du processeur de cette machine est l’une des principales métriques de performance. Si l’utilisation du processeur est de 100 % ou qu’elle est supérieure à une certaine quantité pendant une longue période de temps, vous voudrez probablement redémarrer la machine virtuelle pour résoudre le problème. Pour ce faire, vous pouvez configurer une règle d’alerte sur la machine virtuelle avec le pourcentage UC en guise de métrique. Dans ce scénario, le pourcentage UC est choisi à titre d’exemple, mais vous pouvez configurer beaucoup d’autres métriques pour vos ressources Azure. De même, le redémarrage de la machine virtuelle est l’action choisie pour résoudre ce problème, mais vous pouvez configurer le runbook pour exécuter d’autres actions.
 
-Quand cette règle d’alerte devient active et déclenche le runbook webhook, elle envoie le contexte de l’alerte au runbook. Le [contexte de l’alerte](../azure-portal/insights-receive-alert-notifications.md) contient des informations, notamment **SubscriptionID**, **ResourceGroupName**, **ResourceName**, **ResourceType**, **ResourceId** et **Timestamp**, qui sont utilisées par le runbook pour identifier la ressource sur laquelle il doit exécuter une action. Le contexte de l’alerte est incorporé dans le corps de l’objet **WebhookData** envoyé au runbook, et il est accessible avec la propriété **Webhook.RequestBody**
+Quand cette règle d’alerte devient active et déclenche le runbook webhook, elle envoie le contexte de l’alerte au runbook. Le [contexte de l’alerte](../azure-portal/insights-receive-alert-notifications.md) contient des informations, notamment **SubscriptionID**, **ResourceGroupName**, **ResourceName**, **ResourceType**, **ResourceId** et **Timestamp**, qui sont utilisées par le Runbook pour identifier la ressource sur laquelle il doit exécuter une action. Le contexte de l’alerte est incorporé dans le corps de l’objet **WebhookData** envoyé au runbook, et il est accessible avec la propriété **Webhook.RequestBody**
 
 
 ### Exemple
@@ -272,4 +272,4 @@ L’exemple de runbook suivant est déclenché quand la règle d’alerte devien
 - Pour plus d’informations sur l’affichage de l’état d’une tâche de Runbook, consultez l’article [Exécution d’un Runbook dans Azure Automation](automation-runbook-execution.md).
 - Pour savoir comment utiliser Azure Automation pour gérer les alertes Azure, consultez [Résoudre des alertes de machine virtuelle Azure avec des Runbooks Automation](automation-azure-vm-alert-integration.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0914_2016-->

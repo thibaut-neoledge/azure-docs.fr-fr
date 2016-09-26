@@ -5,7 +5,7 @@
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -19,7 +19,7 @@
 
 # Connexion de données : en savoir plus sur les entrées de flux de données pour Stream Analytics
 
-La connexion de données à Stream Analytics est un flux de données d’événements depuis une source de données. Il s’agit d’une « entrée ». Stream Analytics propose une meilleure intégration aux sources de flux de données Azure Event Hub, IoT Hub et stockages d’objets blob pouvant être issus du même abonnement Azure ou d’un autre abonnement comme votre tâche d’analyse.
+La connexion de données à Stream Analytics est un flux de données d’événements depuis une source de données. Il s’agit d’une « entrée ». Stream Analytics propose une meilleure intégration aux sources de flux de données Azure Event Hub, IoT Hub et Stockage Blob pouvant être issues du même abonnement Azure ou d’un autre abonnement comme votre travail d’analyse.
 
 ## Types d’entrée de données : flux de données et données de référence.
 Lorsque les données sont transmises à une source de données, elles sont utilisées par la tâche Stream Analytics et traitées en temps réel. Les entrées sont divisées en deux types distincts : les entrées de flux de données et les entrées de données de référence.
@@ -61,7 +61,7 @@ Lorsque vos données proviennent d’une source Event Hub, vous pouvez accéder 
 |------|------|
 | EventProcessedUtcTime | Date et heure du traitement de l’événement par Stream Analytics |
 | EventEnqueuedUtcTime | Date et heure de la réception de l’événement par le hub d’événements. |
-| PartitionId | ID de partition de base zéro de l’adaptateur d’entrée. |
+| PartitionId | ID de partition de base zéro de l'adaptateur d'entrée. |
 
 Par exemple, vous pouvez écrire une requête comme suit :
 
@@ -181,7 +181,7 @@ Lorsque vos données proviennent d’une source de stockage d’objets blob, vou
 | BlobName | Nom de l’objet blob d’entrée d’où provient l’événement. |
 | EventProcessedUtcTime | Date et heure du traitement de l’événement par Stream Analytics |
 | BlobLastModifiedUtcTime | Date et heure de la dernière modification apportée à l’objet blob. |
-| PartitionId | ID de partition de base zéro de l’adaptateur d’entrée. |
+| PartitionId | ID de partition de base zéro de l'adaptateur d'entrée. |
 
 Par exemple, vous pouvez écrire une requête comme suit :
 
@@ -213,4 +213,4 @@ Vous avez appris à connaître les options de connexion de données dans Azure p
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

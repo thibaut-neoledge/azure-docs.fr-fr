@@ -4,7 +4,7 @@
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"
 	tags="azure-portal"/>
 
@@ -25,7 +25,7 @@ Trident est une abstraction de haut niveau qui fournit des outils comme les join
 
 > [AZURE.NOTE] Cet article s’appuie fortement sur l’exemple [Trident Storm](https://github.com/jalonsoramos/trident-storm) de Juan Alonso.
 
-##Conditions requises
+##Configuration requise
 
 * <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html" target="_blank">Java et le JDK 1.7</a>
 
@@ -140,4 +140,4 @@ Pour obtenir plus d'exemples Storm pour HDinsight :
 
 * [Exemples de topologies pour Storm dans HDInsight](hdinsight-storm-example-topology.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0914_2016-->

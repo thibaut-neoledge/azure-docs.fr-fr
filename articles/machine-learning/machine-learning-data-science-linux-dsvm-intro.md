@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="bradsev"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"  />
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/10/2016"
-	ms.author="gokuma;bradsev" />
+	ms.date="09/12/2016"
+	ms.author="bradsev" />
 
 # Approvisionnement d’une machine virtuelle de science des données Linux
 
@@ -64,7 +64,7 @@ Voici les étapes de création d’une instance de la machine virtuelle de scien
 2.	 Cliquez sur **Créer** (au bas de l’écran) pour afficher l’assistant.![configure-data-science-vm](./media/machine-learning-data-science-linux-dsvm-intro/configure-linux-data-science-virtual-machine.png)
 3.	 Les sections suivantes fournissent les entrées de chacune des étapes de l’Assistant (énumérées à droite de la figure précédente) utilisé pour créer la machine virtuelle de sciences des données. Voici les entrées nécessaires à la configuration de chacune de ces étapes :
 
-  a. **Paramètres de base** :
+  	a. **Paramètres de base** :
 
   - **Name** (Nom) : nom du serveur Data Science que vous créez.
   - **User Name** (Nom d’utilisateur) : premier ID de connexion du compte.
@@ -73,21 +73,21 @@ Voici les étapes de création d’une instance de la machine virtuelle de scien
   - **Resource Group** (Groupe de ressources) : vous pouvez créer un nouveau groupe ou utiliser un groupe existant.
   - **Location** (Emplacement) : sélectionnez le centre de données qui convient le mieux. Généralement, il s’agit du centre de données qui héberge la plupart de vos données ou du centre de données le plus proche de votre emplacement physique afin d’accélérer l’accès au réseau.
 
-  b. **Taille** :
+  	b. **Taille** :
 
   - Sélectionnez l’un des types de serveur qui répond à vos exigences fonctionnelles et à vos contraintes de coût. Sélectionnez **Afficher tout** pour afficher d’autres tailles de machines virtuelles.
 
-  c. **Paramètres** :
+  	c. **Paramètres** :
 
   - **Disk Type** (Type de disque) : choisissez **Premium** si vous préférez un disque SSD. Sinon, choisissez **Standard**.
   - **Storage Account** (Compte de stockage) : vous pouvez créer un nouveau compte de stockage Azure associé à votre abonnement ou utiliser un compte existant au même emplacement que celui que vous avez sélectionné à l’étape de définition des **Paramètres de base** de l’Assistant.
   - **Other parameters** (Autres paramètres) : dans la plupart des cas, vous utilisez simplement la valeur par défaut. Si vous envisagez de ne pas utiliser les valeurs par défaut, survolez le lien d’informations pour obtenir de l’aide sur les différents champs.
 
-  d. **Résumé** :
+  	d. **Résumé** :
 
   - Vérifiez que toutes les informations que vous avez saisies sont correctes.
 
-  e. **Acheter** :
+  	e. **Acheter** :
 
   - Pour démarrer l’approvisionnement, cliquez sur **Buy** (Acheter). Les conditions de la transaction vous sont communiquées via un lien. La machine virtuelle n'est pas assortie de frais supplémentaires au-delà du calcul de la taille de serveur que vous avez choisie à l'étape **Taille**.
 
@@ -340,8 +340,9 @@ Vous pouvez quitter Rattle et R. Vous pouvez maintenant modifier le script R gé
 ## Étapes suivantes
 Voici comment poursuivre votre formation et votre exploration :
 
+* La procédure [Science des données sur la machine virtuelle de science des données Linux](machine-learning-data-science-linux-dsvm-walkthrough.md) vous montre comment effectuer plusieurs tâches courantes relatives à la science des données avec la machine virtuelle de science des données Linux configurée ici.
 * Explorez les différents outils de science des données sur la machine virtuelle de science des données en testant les outils répertoriés dans cet article. Vous pouvez également exécuter *dsvm-plus-info* dans l’interpréteur de commandes sur la machine virtuelle pour accéder à une présentation de base et à des liens vers des informations supplémentaires sur les outils installés sur la machine virtuelle.
 * Découvrez comment créer des solutions analytiques de bout en bout systématiquement à l’aide du [processus TDSP (Team Data Science Process)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 * Visitez la [galerie Cortana Analytics](http://gallery.cortanaanalytics.com) pour obtenir des exemples de Machine Learning et d’analyse des données qui utilisent la suite Cortana Analytics.
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

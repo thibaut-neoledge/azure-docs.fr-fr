@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Signatures d’accès partagé : Présentation du modèle SAP | Microsoft Azure"
-	description="Découvrez comment déléguer l’accès aux ressources de stockage Azure, notamment les objets blob, les files d’attente, les tables et les fichiers, à l’aide de signatures d’accès partagé (SAP). Les signatures d’accès partagé protègent la clé de votre compte de stockage tout en octroyant un accès aux ressources de votre compte à d’autres utilisateurs. Vous pouvez contrôler les autorisations accordées et l’intervalle pendant lequel la signature d’accès partagé est valide. Si vous établissez également une stratégie d’accès stockée, vous pouvez révoquer la signature d’accès partagé si vous craignez que la sécurité de votre compte ne soit compromise."
+	pageTitle="Utilisation des signatures d’accès partagé (SAP) | Microsoft Azure"
+	description="Découvrez comment déléguer l’accès aux ressources de stockage Azure, notamment les objets blob, les files d’attente, les tables et les fichiers, à l’aide de signatures d’accès partagé (SAP)."
 	services="storage"
 	documentationCenter=""
 	authors="tamram"
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/23/2016"
+	ms.date="09/07/2016"
 	ms.author="tamram"/>
 
 
 
-# Signatures d’accès partagé, partie 1 : présentation du modèle SAP
+# Utilisation des signatures d’accès partagé (SAP)
 
-## Vue d’ensemble
+## Vue d'ensemble
 
 Une signature d’accès partagé (SAP) constitue un moyen efficace pour octroyer aux autres clients un accès limité aux objets blob dans votre compte de stockage, sans exposer votre clé de compte. Dans la première partie de ce didacticiel consacré aux signatures d'accès partagé, nous allons vous présenter un aperçu du modèle SAP et examiner les meilleures pratiques concernant les signatures d'accès partagé. La [partie 2](storage-dotnet-shared-access-signature-part-2.md) du didacticiel décrit étape par étape la procédure de création de signatures d'accès partagé avec le service BLOB.
 
@@ -39,7 +39,7 @@ Un service où les utilisateurs lisent et écrivent leurs propres données dans 
 
 ![sas-storage-fe-proxy-service][sas-storage-fe-proxy-service]
 
-2\. Un service léger authentifie le client en fonction des besoins, puis génère une signature d’accès partagé. Une fois que le client reçoit la signature, il peut accéder aux ressources du compte de stockage directement avec les autorisations définies par la signature d'accès partagé et pendant l'intervalle autorisé par cette dernière. La signature d'accès partagé atténue la nécessité du routage de toutes les données via le service proxy frontal.
+2\. Un service léger authentifie le client en fonction des besoins, puis génère une signature d'accès partagé. Une fois que le client reçoit la signature, il peut accéder aux ressources du compte de stockage directement avec les autorisations définies par la signature d'accès partagé et pendant l'intervalle autorisé par cette dernière. La signature d'accès partagé atténue la nécessité du routage de toutes les données via le service proxy frontal.
 
 ![sas-storage-provider-service][sas-storage-provider-service]
 
@@ -133,7 +133,7 @@ Une signature d’accès partagé peut prendre deux formes :
 
 >[AZURE.NOTE] À l’heure actuelle, une SAP de compte doit être une SAP ad hoc. Les stratégies d’accès stockées ne sont pas encore prises en charge pour les SAP de compte.
 
-La différence entre les deux formes est importante pour un scénario clé : la révocation. Une signature d’accès partagé est une URL. Par conséquent, toute personne qui obtient la signature peut s’en servir, quel que soit celui qui l’a demandée initialement. Si une SAP est publiée publiquement, elle peut être utilisée par n’importe qui. Une clé d'accès partagé qui est distribuée est valide jusqu'à ce que l'un des quatre événements suivants ait lieu :
+La différence entre les deux formes est importante pour un scénario clé : la révocation. Une signature d'accès partagé est une URL. Par conséquent, toute personne qui obtient la signature peut s'en servir, quel que soit celui qui l'a demandée initialement. Si une SAP est publiée publiquement, elle peut être utilisée par n’importe qui. Une clé d'accès partagé qui est distribuée est valide jusqu'à ce que l'un des quatre événements suivants ait lieu :
 
 1.	L'heure d'expiration spécifiée sur la signature d'accès partagé est atteinte.
 2.	L'heure d'expiration spécifiée sur la stratégie d'accès stockée référencée par la signature d'accès partagé est atteinte (si une stratégie d'accès stockée est référencée et si elle spécifie une heure d'expiration). Cela peut arriver soit parce que l'intervalle s'est écoulé, soit parce que vous avez modifié la stratégie d'accès stockée pour définir une heure d'expiration dans le passé, ce qui est une manière de révoquer la signature d'accès partagé.
@@ -293,7 +293,7 @@ Lorsque vous utilisez des signatures d'accès partagé dans vos applications, vo
 
 Les recommandations suivantes relatives à l'utilisation des signatures d'accès partagé vous aideront à limiter ces risques :
 
-1. **Utilisez toujours HTTPS** pour créer ou distribuer une signature d'accès partagé. Si une signature d’accès partagé est transmise sur HTTP et interceptée, un pirate qui lance une attaque de type « attaque de l’intercepteur » (man-in-the-middle) peut lire la signature et s’en servir exactement comme l’utilisateur concerné aurait pu le faire, d’où le risque que les données sensibles soient compromises ou que les données soient altérées par l’utilisateur malveillant.
+1. **Utilisez toujours HTTPS** pour créer ou distribuer une signature d'accès partagé. Si une signature d'accès partagé est transmise sur HTTP et interceptée, un pirate qui lance une attaque de type « attaque de l'intercepteur » (man-in-the-middle) peut lire la signature et s'en servir exactement comme l'utilisateur concerné aurait pu le faire, d'où le risque que les données sensibles soient compromises ou que les données soient altérées par l'utilisateur malveillant.
 2. **Référencez si possible les stratégies d'accès stockées.** Celles-ci vous donnent la possibilité de révoquer les autorisations sans avoir à régénérer les clés de compte de stockage. Définissez l'expiration pour ces dernières de telle sorte que l'échéance soit très éloignée dans le temps (voire infinie) et veillez à ce qu'elle soit régulièrement mise à jour et repoussée dans le futur.
 3. **Utilisez des heures d'expiration avec une échéance à court terme sur une signature d'accès partagé ad hoc.** De cette manière, même si une signature d'accès partagé est compromise à votre insu, elle ne sera viable que pendant une courte durée. Cette pratique est particulièrement importante si vous ne pouvez pas référencer une stratégie d'accès stockée. Elle permet également de limiter la quantité de données pouvant être écrite dans un objet blob en limitant le temps disponible pour le téléchargement vers ce dernier.
 4. **Faites en sorte que les clients renouvellent automatiquement la signature d'accès partagé si nécessaire.** Les clients doivent renouveler la signature d'accès partagé bien avant l'heure d'expiration prévue afin de laisser suffisamment de temps pour de nouvelles tentatives, si le service qui fournit la signature est indisponible. Si votre signature d'accès partagé doit être utilisée pour un petit nombre d'opérations immédiates de courte durée, censées être terminées avant l'heure d'expiration indiquée, cela ne sera peut-être pas nécessaire, car il n'est pas prévu que la signature d'accès partagé soit renouvelée. Toutefois, si vous avez un client qui effectue régulièrement des demandes par le biais de signatures d'accès partagé, le risque d'expiration est à prendre en compte. La principale considération consiste à trouver un équilibre entre la nécessité que la signature d'accès partagé ait une durée de vie limitée (comme indiqué plus haut) et la nécessité de veiller à ce que le client demande le renouvellement suffisamment tôt pour éviter une interruption due à une expiration de la signature avant le renouvellement effectif.
@@ -315,7 +315,7 @@ Les signatures d'accès partagé sont utiles pour fournir des autorisations d'ac
 - [Gestion de l’accès en lecture anonyme aux conteneurs et aux objets blob](storage-manage-access-to-resources.md)
 - [Délégation de l'accès avec une signature d'accès partagé](http://msdn.microsoft.com/library/azure/ee395415.aspx)
 - [Présentation des signatures d’accès partagé de table et de file d’attente](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)
-[sas-storage-fe-proxy-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png 
+[sas-storage-fe-proxy-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png
 [sas-storage-provider-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0914_2016-->

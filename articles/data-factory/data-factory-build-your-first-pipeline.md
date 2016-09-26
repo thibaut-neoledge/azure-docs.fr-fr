@@ -19,8 +19,7 @@
 
 # Didacticiel : Générer votre premier pipeline pour traiter les données à l’aide du cluster Hadoop 
 > [AZURE.SELECTOR]
-- [Vue d’ensemble du didacticiel](data-factory-build-your-first-pipeline.md)
-- [Utilisation de Data Factory Editor](data-factory-build-your-first-pipeline-using-editor.md)
+- [Utilisation du portail Azure](data-factory-build-your-first-pipeline-using-editor.md)
 - [Utilisation de Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 - [Utiliser PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 - [Utilisation du modèle Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
@@ -226,4 +225,4 @@ Vous êtes maintenant prêt à démarrer le didacticiel. Cliquez sur l’un des 
 - [Utiliser PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 - [Utilisation du modèle Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Quotas et limites du service Batch | Microsoft Azure"
-	description="En savoir plus sur les quotas, les limites et les contraintes liés à l’utilisation du service Azure Batch"
+	description="En savoir plus sur les contraintes, les limites et les quotas par défaut d’Azure Batch, et comment demander une augmentation de quota"
 	services="batch"
 	documentationCenter=""
 	authors="mmacy"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/10/2016"
+	ms.date="09/10/2016"
 	ms.author="marsma"/>
 
 # Quotas et limites pour le service Azure Batch
@@ -46,13 +46,13 @@ Taille de package d’application (individuel) | Environ 195 Go<sup>1</sup>
 
 Affichez vos quotas de compte Batch dans le [portail Azure][portal].
 
-1. Dans le portail, cliquez sur **Comptes Batch**, puis sur le nom de votre compte Batch.
+1. Sélectionnez **Comptes Batch** dans le portail, puis sélectionnez le compte Batch qui vous intéresse.
 
-2. Dans le panneau associé au compte, cliquez sur **Tous les paramètres** > **Propriétés**.
+2. Sélectionnez **Propriétés** dans le panneau de menu du compte Batch
+
+3. Le panneau Propriétés affiche les **quotas** actuellement appliqués au compte Batch
 
 	![Quotas de compte Batch][account_quotas]
-
-3. Le panneau **Propriétés** affiche les quotas actuellement appliqués au compte Batch.
 
 ## Augmenter un quota
 
@@ -106,4 +106,4 @@ Une fois que vous avez envoyé votre demande de support, le support Azure vous c
 
 [account_quotas]: ./media/batch-quota-limit/accountquota_portal.PNG
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

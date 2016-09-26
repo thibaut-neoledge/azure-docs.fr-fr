@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/29/2016"
-   ms.author="ganesr"/>
+   ms.date="09/14/2016"
+   ms.author="ganesr;cherylmc"/>
 
 # Création et modification d’un circuit ExpressRoute
 
@@ -32,15 +32,34 @@ Cet article vous guide dans les étapes de création d’un circuit Azure Expres
 
 ## Avant de commencer
 
-- Vous devez utiliser la dernière version des modules Azure PowerShell. Vous pouvez télécharger les modules PowerShell les plus récents à partir de la section PowerShell de la [page des téléchargements Azure](https://azure.microsoft.com/downloads/). Suivez les instructions de [Comment installer et configurer Azure PowerShell](../powershell-install-configure.md) pour des étapes pas à pas permettant de configurer votre ordinateur pour l’utilisation des modules Azure PowerShell.
+### 1\. Passez en revue les conditions préalables et les articles sur le flux de travail
 
-- Veillez à consulter les [conditions préalables](expressroute-prerequisites.md) et les [flux de travail](expressroute-workflows.md) avant de commencer la configuration.
+Veillez à consulter les [conditions préalables](expressroute-prerequisites.md) et les [flux de travail](expressroute-workflows.md) avant de commencer la configuration.
+
+
+### 2\. Installez les dernières versions des modules Azure PowerShell 
+
+Suivez les instructions de [Comment installer et configurer Azure PowerShell](../powershell-install-configure.md) pour des étapes pas à pas permettant de configurer votre ordinateur pour l’utilisation des modules Azure PowerShell.
+
+### 3\. Connectez-vous à votre compte Azure et sélectionnez un abonnement
+
+1. Dans une invite Windows PowerShell exécutée avec des privilèges élevés, exécutez l’applet de commande suivante :
+
+		Add-AzureAccount
+2. Dans l’écran de connexion qui apparaît, connectez-vous à votre compte.
+
+3. Obtenez la liste de vos abonnements.
+
+		Get-AzureSubscription
+4. Sélectionnez l’abonnement à utiliser.
+	
+		Select-AzureSubscription -SubscriptionName "mysubscriptionname"
 
 ## Création et approvisionnement d’un circuit ExpressRoute
 
 ### 1\. Importer les modules PowerShell pour ExpressRoute
 
- Vous devez importer les modules Azure et ExpressRoute dans la session PowerShell pour utiliser les applets de commande ExpressRoute. Pour cela, exécutez les commandes suivantes :
+ Si vous ne l’avez pas encore fait, vous devez importer les modules Azure et ExpressRoute dans la session PowerShell pour utiliser les applets de commande ExpressRoute. Vous importez les modules à partir de l’emplacement où ils ont été installés sur votre ordinateur local. Selon la méthode utilisée pour installer les modules, l’emplacement peut être différent de l’exemple suivant. Modifiez l’exemple, si nécessaire.
 
 	Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\Azure.psd1'
 	Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\ExpressRoute\ExpressRoute.psd1'
@@ -313,4 +332,4 @@ Après avoir créé votre circuit, effectuez les opérations suivantes :
 - [Créer et modifier le routage le routage pour votre circuit ExpressRoute](expressroute-howto-routing-classic.md)
 - [Lier votre réseau virtuel à votre circuit ExpressRoute](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

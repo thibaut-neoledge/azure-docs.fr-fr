@@ -25,18 +25,9 @@
 - [Utiliser un certificat SSL depuis un autre emplacement](web-sites-configure-ssl-certificate.md)
 
 
-Cet article vous indique comment activer HTTPS pour une application web, un backend d’application mobile ou une application API dans un
-[Azure App Service](../app-service/app-service-value-prop-what-is.md) utilisant un nom de domaine personnalisé. 
-Seule l’authentification serveur est abordée. Si vous avez besoin de l’authentification mutuelle (y compris l’authentification client), consultez
-[Comment configurer l’authentification mutuelle TLS pour App Service](app-service-web-configure-tls-mutual-auth.md).
+Cet article vous indique comment activer HTTPS pour une application web, un backend d’application mobile ou une application API dans un [Azure App Service](../app-service/app-service-value-prop-what-is.md) utilisant un nom de domaine personnalisé. Seule l’authentification serveur est abordée. Si vous avez besoin de l’authentification mutuelle (y compris l’authentification client), consultez [Comment configurer l’authentification mutuelle TLS pour App Service](app-service-web-configure-tls-mutual-auth.md).
 
-Pour sécuriser une application disposant d’un nom de domaine personnalisé avec le protocole HTTPS, ajoutez un certificat pour ce nom de domaine. Azure sécurisant par défaut le domaine
-générique **\*.azurewebsites.net** avec un seul certificat SSL, 
-vos clients peuvent donc déjà accéder à votre application via **https://*&lt;appname>*.azurewebsites.net**. Si vous souhaitez utiliser 
-un domaine personnalisé, tel que **contoso.com**, **www.contoso.com** et **\*.contoso.com**, le certificat 
-par défaut ne peut pas le sécuriser. En outre, comme tous les 
-[certificats génériques](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates/), 
-le certificat par défaut n’offre pas la même sécurité qu’un domaine personnalisé et qu’un certificat pour ce domaine personnalisé.
+Pour sécuriser une application disposant d’un nom de domaine personnalisé avec le protocole HTTPS, ajoutez un certificat pour ce nom de domaine. Azure sécurisant par défaut le domaine générique ***.azurewebsites.net** avec un seul certificat SSL, vos clients peuvent donc déjà accéder à votre application via **https://*&lt;appname>*.azurewebsites.net**. Si vous souhaitez utiliser un domaine personnalisé, tel que **contoso.com**, **www.contoso.com** et ***.contoso.com**, le certificat par défaut ne peut pas le sécuriser. En outre, comme tous les [certificats génériques](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates/), le certificat par défaut n’offre pas la même sécurité qu’un domaine personnalisé et qu’un certificat pour ce domaine personnalisé.
 
 >[AZURE.NOTE] Pour accéder à tout moment à l’aide des experts Azure, consultez les [forums Azure](https://azure.microsoft.com/support/forums/). Pour un support personnalisé, accédez à [Support Azure](https://azure.microsoft.com/support/options/) et cliquez sur **Obtenir de l’aide**.
 
@@ -52,7 +43,7 @@ Pour sécuriser votre nom de domaine personnalisé avec le protocole HTTPS, vous
 	- Il contient une clé privée.
 	- Il est créé pour l’échange de clés et exporté vers un fichier PFX.
 	- Il utilise un chiffrement à 2 048 bits au minimum.
-	- Son nom d’objet correspond au domaine personnalisé qu’il doit sécuriser. Pour sécuriser plusieurs domaines avec un certificat, vous devez utiliser un nom générique (par exemple, **\*.contoso.com**) ou spécifier des valeurs subjectAltName.
+	- Son nom d’objet correspond au domaine personnalisé qu’il doit sécuriser. Pour sécuriser plusieurs domaines avec un certificat, vous devez utiliser un nom générique (par exemple, ***.contoso.com**) ou spécifier des valeurs subjectAltName.
 	- Il est fusionné avec tous les **[certificats intermédiaires](http://en.wikipedia.org/wiki/Intermediate_certificate_authorities)** utilisés par votre autorité de certification. Sinon, vous pouvez rencontrer des problèmes d’interopérabilité non reproductibles sur certains clients.
 
 		>[AZURE.NOTE] Le moyen le plus simple pour obtenir un certificat SSL répondant à toutes les exigences est [d’en acheter un directement dans le portail Azure](web-sites-purchase-ssl-web-site.md). Cet article vous montre comment le faire manuellement et comment le lier à votre domaine personnalisé dans App Service.
@@ -451,7 +442,9 @@ Avant de poursuivre, passez en revue la section [Ce dont vous avez besoin](#bkmk
 
 ## Étape 3. Modifier votre mappage de nom de domaine (liaison SSL basée sur IP uniquement)
 
-Si vous utilisez uniquement des liaisons **SSL SNI**, vous pouvez ignorer cette section. Plusieurs liaisons **SSL SNI** peuvent fonctionner conjointement sur l’adresse IP partagée existante attribuée à votre application. Toutefois, si vous créez une liaison **SSL basée sur IP**, App Service crée une adresse IP dédiée pour la liaison, car la liaison **SSL basée sur IP** la requiert. En raison de cette adresse IP dédiée, vous devez configurer votre application davantage dans les cas suivants :
+Si vous utilisez uniquement des liaisons **SSL SNI**, vous pouvez ignorer cette section. Plusieurs liaisons **SSL SNI** peuvent fonctionner conjointement sur l’adresse IP partagée existante attribuée à votre application. Toutefois, si vous créez une liaison **SSL basée sur IP**, App Service crée une adresse IP dédiée pour la liaison, car la liaison **SSL basée sur IP** la requiert. Une seule adresse IP dédiée peut être créée, par conséquent une seule liaison **SSL basée sur IP** peut être ajoutée.
+
+En raison de cette adresse IP dédiée, vous devez configurer votre application davantage dans les cas suivants :
 
 - Vous avez [utilisé un enregistrement A pour mapper votre domaine personnalisé](web-sites-custom-domain-name.md#a) à votre application Azure et vous venez d’ajouter une liaison **SSL basée sur IP**. Dans ce scénario, vous devez remapper l’enregistrement A existant pour pointer vers l’adresse IP dédiée en procédant comme suit :
 
@@ -556,4 +549,4 @@ Pour plus d'informations sur le module Réécriture d'URL d'IIS, consultez la do
 [certwiz3]: ./media/web-sites-configure-ssl-certificate/waws-certwiz3.png
 [certwiz4]: ./media/web-sites-configure-ssl-certificate/waws-certwiz4.png
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/20/2016"
+	ms.date="09/09/2016"
 	ms.author="jeedes"/>
 
 
@@ -21,9 +21,9 @@
 
 L’objectif de ce didacticiel est de vous montrer comment intégrer Kindling dans Azure AD (Azure Active Directory). L’intégration de Kindling à Azure AD vous offre les avantages suivants :
 
-- Dans Azure AD, vous pouvez contrôler qui a accès à Kindling 
+- Dans Azure AD, vous pouvez contrôler qui a accès à Kindling
 - Vous pouvez autoriser les utilisateurs à se connecter automatiquement à Kindling (via l'authentification unique) avec leur compte Azure AD
-- Vous pouvez gérer vos comptes à un emplacement central : le portail Azure Classic. 
+- Vous pouvez gérer vos comptes à un emplacement central : le portail Azure Classic.
 
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
@@ -42,13 +42,13 @@ Pour configurer l'intégration d'Azure AD avec Kindling, vous avez besoin des �
 Vous devez en outre suivre les recommandations ci-dessous :
 
 - Vous ne devez pas utiliser votre environnement de production, sauf si cela est nécessaire.
-- Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/). 
+- Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
 
  
 ## Description du scénario
 Ce didacticiel vise à vous permettre de tester l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
-1. Ajout de Kindling à partir de la galerie 
+1. Ajout de Kindling à partir de la galerie
 2. Configuration et test de l’authentification unique Azure AD
 
 
@@ -136,7 +136,7 @@ Pour configurer l'authentification unique pour Kindling, vous avez besoin d'un d
 
     a. Cliquez sur **Télécharger le certificat**, puis enregistrez le fichier sur votre ordinateur.
 
-    b. Cliquez sur **Next**.
+    b. Cliquez sur **Suivant**.
 
 
 
@@ -144,8 +144,8 @@ Pour configurer l'authentification unique pour Kindling, vous avez besoin d'un d
 
 	- Le certificat téléchargé
 	- La valeur de **l’URL de l’émetteur** qui correspond à **l’ID d’entité** de Kindling
-	- **L’URL du service d’authentification unique** qui correspond à **l’URL d’authentification unique** de Kindling 
-	- **L’URL du service de déconnexion unique** qui correspond à **l’URL de déconnexion unique** de Kindling. 
+	- **L’URL du service d’authentification unique** qui correspond à **l’URL d’authentification unique** de Kindling
+	- **L’URL du service de déconnexion unique** qui correspond à **l’URL de déconnexion unique** de Kindling.
 
 6. Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Suivant**.
 
@@ -171,11 +171,11 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
 2. Dans la liste **Annuaire**, sélectionnez l'annuaire pour lequel vous voulez activer l'intégration d'annuaire.
 
-3. Pour afficher la liste des utilisateurs, dans le menu situé en haut, cliquez sur **Utilisateurs**.
+3. Pour afficher la liste des utilisateurs, dans le menu du haut, cliquez sur **Utilisateurs**.
 
 	![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-kindling-tutorial/create_aaduser_03.png)
  
-4. Pour ouvrir la boîte de dialogue **Ajouter un utilisateur**, cliquez sur **Ajouter un utilisateur** dans la barre d’outils située en bas.
+4. Pour ouvrir la boîte de dialogue **Ajouter un utilisateur**, cliquez sur l’option **Ajouter un utilisateur** figurant dans la barre d’outils du bas.
 
 	![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-kindling-tutorial/create_aaduser_04.png)
 
@@ -189,7 +189,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     c. Cliquez sur **Next**.
 
-6.  Sur la page de boîte de dialogue **Profil utilisateur**, procédez comme suit :
+6.  Sur la page **Profil utilisateur**, procédez comme suit :
 
 	![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-kindling-tutorial/create_aaduser_06.png)
  
@@ -254,7 +254,7 @@ L’objectif de cette section est de permettre à Britta Simon d’utiliser l’
 
 ### Test de l’authentification unique
 
-L’objectif de cette section est de tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès. Lorsque vous cliquez sur la mosaïque Kindling dans le volet d'accès, vous êtes connecté automatiquement à votre application Kindling.
+L’objectif de cette section est de tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès. Lorsque vous cliquez sur la mosaïque Kindling dans le volet d'accès, vous êtes connecté automatiquement à votre application Kindling.
 
 
 ## Ressources supplémentaires
@@ -281,4 +281,4 @@ L’objectif de cette section est de tester la configuration de l’authentifica
 [204]: ./media/active-directory-saas-kindling-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-kindling-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

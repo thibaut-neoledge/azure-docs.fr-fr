@@ -4,7 +4,7 @@
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
-	manager="paulettm"
+	manager="jhubbard"
 	editor=""
     tags="azure-portal"/>
 
@@ -101,4 +101,4 @@ Une fois que vous avez déterminé la référence (SKU) qui convient le mieux, p
 - [Créer un service de recherche dans le portail](search-create-service-portal.md)
 - [Modifier l’allocation des partitions et des réplicas à l’échelle de votre service](search-capacity-planning.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0914_2016-->

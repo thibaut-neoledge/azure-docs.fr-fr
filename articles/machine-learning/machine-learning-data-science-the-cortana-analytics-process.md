@@ -4,7 +4,7 @@
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="bradsev"
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun" />
 
 <tags 
@@ -39,9 +39,9 @@ Lancer un projet d’analyse en définissant des objectifs d’entreprise et une
 
 Un environnement d’analyse pour le processus TDSP (Team Data Science Process) fait appel à plusieurs composants :
 
-- **des espaces de travail de données** dans lesquels les données sont conservées pour analyse et modélisation ; 
+- **des espaces de travail de données** dans lesquels les données sont conservées pour analyse et modélisation ;
 - une **infrastructure de traitement** pour le prétraitement, l'exploration et la modélisation des données ;
-- une **infrastructure d'exécution** qui sert à faire fonctionner les modèles analytiques et à exécuter les applications clientes intelligentes qui consomment les modèles.  
+- une **infrastructure d'exécution** qui sert à faire fonctionner les modèles analytiques et à exécuter les applications clientes intelligentes qui consomment les modèles.
 
 L’infrastructure d’analyse qui doit être installée fait souvent partie d’un environnement différent des systèmes d’exploitation de base. Cependant, elle utilise généralement des données issues de plusieurs systèmes fonctionnant au sein de l’entreprise ainsi que de sources externes. L’infrastructure d’analyse peut se trouver entièrement sur le cloud, être installée en local, ou présenter un mélange des deux. Pour connaître les options, référez-vous à [Configuration d’environnements de science des données à utiliser dans le processus TDSP (Team Data Science Process)](machine-learning-data-science-environment-setup.md).
 
@@ -70,9 +70,9 @@ Les scientifiques de données construisent des modèles permettant de prévoir d
 
 Les scientifiques de données doivent choisir le modèle le mieux adapté à leur tâche de prévision, et il n’est pas rare qu’il faille associer des résultats de différents modèles pour obtenir les meilleurs résultats. Les données en entrée destinées à la modélisation sont généralement divisées aléatoirement en trois parties :
 
-- un jeu de données de formation 
-- un jeu de données de validation 
-- un jeu de données de test 
+- un jeu de données de formation
+- un jeu de données de validation
+- un jeu de données de test
 
 Les modèles sont construits avec le **jeu de données d'apprentissage**. La combinaison optimale de modèles (avec des paramètres réglés) est sélectionnée en exécutant des modèles et en mesurant les erreurs de prévision du **jeu de données de validation**. Enfin, le **jeu de données de test** sert à évaluer les performances du modèle choisi pour des données indépendantes n'ayant pas été utilisées pour la formation ou la validation du modèle. Pour connaître les procédures, référez-vous à [Évaluation des performances d'un modèle dans Azure Machine Learning](machine-learning-evaluate-model-performance.md).
 
@@ -96,4 +96,4 @@ Des procédures pas à pas complètes illustrant toutes les étapes de **scénar
 
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

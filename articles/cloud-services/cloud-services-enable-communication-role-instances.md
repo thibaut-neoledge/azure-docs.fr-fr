@@ -12,12 +12,12 @@ ms.workload="tbd"
 ms.tgt_pltfrm="na" 
 ms.devlang="na" 
 ms.topic="article" 
-ms.date="06/22/2016" 
+ms.date="09/06/2016" 
 ms.author="adegeo"/>
 
 # Activer la communication pour les instances de rôle dans Azure
 
-Les rôles de service cloud communiquent via des connexions internes et externes. Les connexions externes sont appelées **points de terminaison d’entrée** tandis que les connexions internes sont appelées **points de terminaison internes**. Cette rubrique explique comment modifier le [définition de service](cloud-services-model-and-package.md#csdef) pour créer des points de terminaison.
+Les rôles de service cloud communiquent via des connexions internes et externes. Les connexions externes sont appelées **points de terminaison d’entrée** tandis que les connexions internes sont appelées **points de terminaison internes**. Cette rubrique explique comment modifier la [définition de service](cloud-services-model-and-package.md#csdef) pour créer des points de terminaison.
 
 
 ## Point de terminaison d’entrée
@@ -101,7 +101,7 @@ int port = RoleEnvironment.CurrentRoleInstance.InstanceEndpoints["StandardWeb"].
 
 La propriété **Instances** renvoie une collection d’objets **RoleInstance**. Cette collection contient toujours l’instance actuelle. Si le rôle ne définit pas de point de terminaison interne, la collection contient l’instance actuelle mais aucune autre instance. Lorsqu’aucun point de terminaison interne n’est défini pour le rôle, la collection contient toujours une seule instance de rôle. Si le rôle définit un point de terminaison interne, ses instances sont détectables lors de l’exécution et le nombre d’instances dans la collection correspond au nombre d’instances spécifiées pour le rôle dans le fichier de configuration de service.
 
-> [AZURE.NOTE] La bibliothèque managée Azure ne fournit aucun moyen de déterminer l’intégrité des autres instances de rôle. Cependant, vous pouvez implémenter ces évaluations d’intégrité vous-même si votre service a besoin de cette fonctionnalité. Vous pouvez utiliser les [diagnostics Azure](https://msdn.microsoft.com/library/azure/gg433048.aspx) pour obtenir des informations sur l’exécution des instances de rôle.
+> [AZURE.NOTE] La bibliothèque managée Azure ne fournit aucun moyen de déterminer l’intégrité des autres instances de rôle. Cependant, vous pouvez implémenter ces évaluations d’intégrité vous-même si votre service a besoin de cette fonctionnalité. Vous pouvez utiliser les [diagnostics Azure](cloud-services-dotnet-diagnostics.md) pour obtenir des informations sur l’exécution des instances de rôle.
 
 Pour déterminer le numéro de port d’un point de terminaison interne sur une instance de rôle, vous pouvez utiliser la propriété [InstanceEndpoints](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleinstance.instanceendpoints.aspx) pour renvoyer un objet Dictionnaire qui contient les noms des points de terminaison et les adresses IP et ports correspondants. La propriété [IPEndpoint](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleinstanceendpoint.ipendpoint.aspx) renvoie l’adresse IP et le port pour un point de terminaison spécifié. La propriété **PublicIPEndpoint** renvoie le port pour un point de terminaison à charge équilibrée. La partie de la propriété **PublicIPEndpoint** relative à l’adresse IP n’est pas utilisée.
 
@@ -359,4 +359,4 @@ Vous trouverez une référence de schéma XML pour les éléments ci-dessus [ici
 ## Étapes suivantes
 En savoir plus sur le [modèle](cloud-services-model-and-package.md) de service cloud.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Utilisation d’un service web Machine Learning à partir de Microsoft Excel | Microsoft Azure."
-	description="Utilisation d’un service web Microsoft Azure Machine Learning à partir de Microsoft Excel."
+	pageTitle="Utilisation d’un service web Machine Learning à partir de Microsoft Excel | Microsoft Azure."
+	description="Utilisation d’un service web Microsoft Azure Machine Learning à partir de Microsoft Excel."
 	services="machine-learning"
 	documentationCenter=""
 	authors="tedway"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -16,9 +16,9 @@
 	ms.date="07/06/2016"
 	ms.author="tedway"/>
 
-# Utilisation d’un service web Microsoft Azure Machine Learning à partir de Microsoft Excel.
+# Utilisation d’un service web Microsoft Azure Machine Learning à partir de Microsoft Excel.
 
- Microsoft Azure Machine Learning Studio permet d’appeler facilement des services web directement à partir de Microsoft Excel sans qu’il soit nécessaire d’écrire du code.
+ Microsoft Azure Machine Learning Studio permet d’appeler facilement des services web directement à partir de Microsoft Excel sans qu’il soit nécessaire d’écrire du code.
 
 Si vous utilisez Excel 2013 (ou une version ultérieure) ou Excel Online, nous vous recommandons d’utiliser la [macro complémentaire Excel](machine-learning-excel-add-in-for-web-services.md).
 
@@ -26,13 +26,13 @@ Si vous utilisez Excel 2013 (ou une version ultérieure) ou Excel Online, nous v
 
 ## Étapes
 
-Publiez un service web. [Cette page](machine-learning-walkthrough-5-publish-web-service.md) explique comment procéder. Actuellement, la fonctionnalité de classeur Excel est uniquement prise en charge pour les services de requête/réponse qui produisent une seule sortie (autrement dit, une étiquette de notation unique).
+Publiez un service web. [Cette page](machine-learning-walkthrough-5-publish-web-service.md) explique comment procéder. Actuellement, la fonctionnalité de classeur Excel est uniquement prise en charge pour les services de requête/réponse qui produisent une seule sortie (autrement dit, une étiquette de notation unique).
 
-Quand vous disposez d’un service web, cliquez sur la section **WEB SERVICES** située sur la partie gauche de Microsoft Azure Machine Learning Studio, puis sélectionnez le service web à utiliser à partir de Microsoft Excel.
+Quand vous disposez d’un service web, cliquez sur la section **WEB SERVICES** située sur la partie gauche de Microsoft Azure Machine Learning Studio, puis sélectionnez le service web à utiliser à partir de Microsoft Excel.
 
 **Service web classique**
 
-1. Sur l’onglet **TABLEAU DE BORD** du service web figure une ligne pour le service **REQUÊTE/RÉPONSE**. Si ce service produit une sortie unique, le lien **Télécharger un classeur Excel** doit apparaître sur cette ligne.
+1. Sur l’onglet **TABLEAU DE BORD** du service web figure une ligne pour le service **REQUÊTE/RÉPONSE**. Si ce service produit une sortie unique, le lien **Télécharger un classeur Excel** doit apparaître sur cette ligne.
 
 	![][1]
 
@@ -54,13 +54,13 @@ Quand vous disposez d’un service web, cliquez sur la section **WEB SERVICES** 
 3. Un avertissement de sécurité apparaît. Cliquez sur le bouton **Activer le contenu** pour pouvoir exécuter des macros sur votre feuille de calcul.
 
 	![][3]
-4. Une fois les macros activées, une table est générée. Les valeurs des colonnes en bleu sont requises en tant qu’entrées dans le service web RRS (Request/Response Service), ou en tant que **PARAMÈTRES**. Notez la sortie du service RRS, appelée **VALEURS PRÉDITES** et affichée en vert. Lorsque toutes les colonnes d’une ligne donnée sont remplies, le classeur appelle automatiquement l’API de notation et affiche les notes résultantes.
+4. Une fois les macros activées, une table est générée. Les valeurs des colonnes en bleu sont requises en tant qu’entrées dans le service web RRS (Request/Response Service), ou en tant que **PARAMÈTRES**. Notez la sortie du service RRS, appelée **VALEURS PRÉDITES** et affichée en vert. Lorsque toutes les colonnes d’une ligne donnée sont remplies, le classeur appelle automatiquement l’API de notation et affiche les notes résultantes.
 
 	![][4]
 
-5. Pour noter plusieurs lignes, remplissez la deuxième ligne avec les données ; des valeurs prédites sont produites. Vous pouvez même coller plusieurs lignes à la fois.
+5. Pour noter plusieurs lignes, remplissez la deuxième ligne avec les données ; des valeurs prédites sont produites. Vous pouvez même coller plusieurs lignes à la fois.
 
-Vous pouvez utiliser toutes les fonctionnalités de Microsoft Excel (graphiques, Power Map, mise en forme conditionnelle, etc.) avec les valeurs prédites pour visualiser les données.
+Vous pouvez utiliser toutes les fonctionnalités de Microsoft Excel (graphiques, Power Map, mise en forme conditionnelle, etc.) avec les valeurs prédites pour visualiser les données.
 
 
 ## Partage de votre classeur
@@ -69,9 +69,9 @@ Pour que les macros fonctionnent, votre Clé API doit faire partie de la feuille
 
 ## Mises à jour automatiques
 
-Un appel RRS est initié dans les deux cas suivants :
+Un appel RRS est initié dans les deux cas suivants :
 
-1. la première fois que du contenu apparaît dans l’ensemble des **PARAMÈTRES** d’une ligne ;
+1. la première fois que du contenu apparaît dans l’ensemble des **PARAMÈTRES** d’une ligne ;
 
 2. chaque fois que l’un ou l’autre des **PARAMÈTRES** change dans une ligne dont l’ensemble des **PARAMÈTRES** a été entré.
 
@@ -80,4 +80,4 @@ Un appel RRS est initié dans les deux cas suivants :
 [3]: ./media/machine-learning-consuming-from-excel/enablecontent.png
 [4]: ./media/machine-learning-consuming-from-excel/sampletable.png
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -58,7 +58,7 @@ Vous devez disposer des éléments suivants pour suivre ce didacticiel :
 
 4. Dans la boîte de dialogue **Créer App Service**, cliquez sur **Ajouter un compte** (puis sur **Ajouter un compte** dans la liste déroulante) pour vous connecter à votre compte Azure.
 
-5. Une fois connecté, configurez votre application web. Créez un groupe de ressources et un plan App Service en cliquant sur le bouton **Nouveau** correspondant. Cliquez sur **Exploration d’autres services** pour continuer.
+5. Une fois connecté, configurez votre application web. Créez un groupe de ressources et un plan App Service en cliquant sur le bouton **Nouveau** correspondant. Cliquez sur **Exploration d’autres services Azure** pour continuer.
 
 	![](./media/web-sites-dotnet-lob-application-azure-ad/2-create-app-service.png)
 
@@ -382,4 +382,4 @@ Si votre application cœur de métier doit accéder à des données locales, con
 
 [Protect the Application with SSL and the Authorize Attribute]: web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md#protect-the-application-with-ssl-and-the-authorize-attribute
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

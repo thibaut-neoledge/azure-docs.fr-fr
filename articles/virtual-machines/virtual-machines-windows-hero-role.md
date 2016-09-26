@@ -27,7 +27,7 @@ Si vous n’avez pas encore créé votre première machine virtuelle, vous devez
 
 1. Ouvrez le [portail Azure](https://portal.azure.com).
 2. Dans le menu hub, cliquez sur **Machines virtuelles**. Sélectionnez la machine virtuelle dans la liste.
-3. Si l’état est **Arrêté (Libéré), cliquez sur le bouton **Démarrer** sur le panneau **Bases** de la machine virtuelle. Si l’état est **En cours d’exécution*, vous pouvez passer à l’étape suivante.
+3. Si l’état est **Arrêté (Libéré)**, cliquez sur le bouton **Démarrer** sur le panneau **Bases** de la machine virtuelle. Si l’état est **En cours d’exécution**, vous pouvez passer à l’étape suivante.
 
 ## Se connecter à la machine virtuelle et ouvrir une session
 
@@ -120,10 +120,11 @@ Pour plus d’informations sur les groupes de sécurité réseau et sur les règ
 3. Votre navigateur ouvre la page web IIS par défaut. Voici ce à quoi elle ressemble :
 
 	![Capture d’écran montrant à quoi ressemble la page IIS par défaut dans un navigateur](./media/virtual-machines-windows-hero-tutorial/iis-default.png)
-	
-	
-	## Étapes suivantes
+
+    
+
+## Étapes suivantes
 
 - Vous pouvez également tester [l’association d’un disque de données](virtual-machines-windows-attach-disk-portal.md) à votre machine virtuelle. Les disques de données fournissent plus de stockage pour votre machine virtuelle.
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -4,7 +4,7 @@
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"
 	tags="azure-portal"/>
 
@@ -23,7 +23,7 @@ Dans ce document, vous allez recevoir des tweets à l'aide de l'API de diffusion
 
 > [AZURE.NOTE] Bien que des éléments individuels de ce document puissent être utilisés avec des clusters HDInsight Windows (Python, par exemple), plusieurs étapes de ce document sont basées sur les clusters HDInsight Linux. Pour les étapes spécifiques à un cluster Windows, consultez la rubrique [Analyse des données Twitter avec Hive dans HDInsight](hdinsight-analyze-twitter-data.md).
 
-###Configuration requise
+###Composants requis
 
 Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
@@ -161,7 +161,7 @@ Le code Python suivant téléchargera 10 000 tweets à partir de Twitter et les
 
 	Un indicateur de progression doit apparaître et afficher « 100 % » au fur et à mesure que des tweets sont téléchargés et enregistrés dans le fichier.
 
-    > [AZURE.NOTE] Si la barre de progression n’avance pas, vous devez modifier le filtre pour effectuer le suivi des rubriques tendances. Lorsqu’il existe un grand nombre de tweets concernant la rubrique que vous filtrez, vous pouvez obtenir rapidement les 10000 tweets nécessaires.
+    > [AZURE.NOTE] Si la barre de progression n’avance pas, vous devez modifier le filtre pour effectuer le suivi des rubriques tendances. Lorsqu’il existe un grand nombre de tweets concernant la rubrique que vous filtrez, vous pouvez obtenir rapidement les 10 000 tweets nécessaires.
 
 ###Téléchargement des données
 
@@ -319,4 +319,4 @@ Dans ce didacticiel, nous avons vu comment transformer le jeu de données JSON n
 [twitter-streaming-api]: https://dev.twitter.com/docs/streaming-apis
 [twitter-statuses-filter]: https://dev.twitter.com/docs/api/1.1/post/statuses/filter
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -3,7 +3,7 @@
 	description="Procédure de migration vers les outils de développement Azure Resource Manager pour les clusters HDInsight"
 	services="hdinsight"
 	editor="cgronlun"
-	manager="paulettm"
+	manager="jhubbard"
 	authors="nitinme"
 	documentationCenter=""/>
 
@@ -33,7 +33,7 @@ Les commandes de base pour travailler avec HDInsight via le Azure Resource Manag
 * `azure hdinsight cluster create` - crée un nouveau cluster HDInsight
 * `azure hdinsight cluster delete` - supprime un cluster HDInsight existant
 * `azure hdinsight cluster show` -affiche des informations sur un cluster existant
-* `azure hdinsight cluster list` -répertorie les clusters HDInsight pour votre abonnement Azure
+* `azure hdinsight cluster list` - répertorie les clusters HDInsight pour votre abonnement Azure
 
 Utilisez le commutateur `-h` pour inspecter les paramètres et les commutateurs disponibles pour chaque commande.
 
@@ -137,11 +137,11 @@ Le tableau suivant répertorie les applets de commande ASM et leurs noms en mode
 Les nouvelles applets de commande suivantes sont uniquement disponibles en mode ARM.
 
 **Applets de commandes associées à une action de script :**
-- **Get-AzureRmHDInsightPersistedScriptAction** : obtient les actions de script persistantes pour un cluster et les répertorie par ordre chronologique ou obtient des informations pour une action de script persistante spécifiée. 
-- **Get-AzureRmHDInsightScriptActionHistory** : obtient l’historique d’actions de script pour un cluster et les répertorie par ordre chronologique inversé, ou obtient des informations d’une action de script exécutée précédemment. 
+- **Get-AzureRmHDInsightPersistedScriptAction** : obtient les actions de script persistantes pour un cluster et les répertorie par ordre chronologique ou obtient des informations pour une action de script persistante spécifiée.
+- **Get-AzureRmHDInsightScriptActionHistory** : obtient l’historique d’actions de script pour un cluster et les répertorie par ordre chronologique inversé, ou obtient des informations d’une action de script exécutée précédemment.
 - **Remove-AzureRmHDInsightPersistedScriptAction** : retire une action de script persistante d’un cluster HDInsight.
 - **Set-AzureRmHDInsightPersistedScriptAction** : définit une action de script exécutée précédemment comme action de script persistante.
-- **Submit-AzureRmHDInsightScriptAction** : envoie une nouvelle action de script vers un cluster Azure HDInsight. 
+- **Submit-AzureRmHDInsightScriptAction** : envoie une nouvelle action de script vers un cluster Azure HDInsight.
 
 Pour plus d’informations sur l’utilisation, consultez la page [Personnaliser des clusters HDInsight à l’aide d’une action de script](hdinsight-hadoop-customize-cluster-linux.md).
 
@@ -375,4 +375,4 @@ Vous trouverez ci-dessous des exemples de la façon dont une opération est effe
 
 		client.Clusters.Delete(resourceGroup, dnsname);
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0914_2016-->

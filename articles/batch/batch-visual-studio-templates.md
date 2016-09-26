@@ -382,9 +382,9 @@ La méthode Run() est chargée de lancer de la ligne de commande, de démarrer u
 
 Votre implémentation Run() a accès :
 
-* Aux paramètres de la tâche, via le champ \_parameters.
-* Aux ID du travail et de la tâche, via les champs \_jobId et \_taskId.
-* À la configuration de la tâche, via le champ \_configuration.
+* Aux paramètres de la tâche, via le champ `_parameters`.
+* Aux ID du travail et de la tâche, via les champs `_jobId` et `_taskId`.
+* À la configuration de la tâche, via le champ `_configuration`.
 
 **Échec de la tâche**
 
@@ -427,7 +427,7 @@ Si vous préférez utiliser une URL de conteneur avec SAP, vous pouvez égalemen
 
 Il est recommandé que le client ou la tâche du gestionnaire de travaux crée tous les conteneurs requis par les tâches avant de les ajouter au travail. Cette étape est obligatoire si vous utilisez une URL de conteneur avec SAP, puisque ce type d’URL n’inclut pas l’autorisation de créer le conteneur. Elle est recommandée même si vous transmettez des informations d’identification de compte de stockage, car elle enregistre toutes les tâches devant appeler CloudBlobContainer.CreateIfNotExistsAsync sur le conteneur.
 
-## Transmettre des paramètres et des variables d’environnement à partir du code client
+## Transmettre des paramètres et des variables d’environnement
 
 ### Transmettre des paramètres d’environnement
 
@@ -482,4 +482,4 @@ Le [Forum Azure Batch][forum] sur MSDN est l’endroit idéal pour discuter de B
 [solution_explorer01]: ./media/batch-visual-studio-templates/solution_explorer01.png
 [solution_explorer02]: ./media/batch-visual-studio-templates/solution_explorer02.png
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/14/2016"
+   ms.date="09/08/2016"
    ms.author="terrylan"/>
 
 # Meilleures pratiques et tendances Azure relatives à la sécurité
@@ -28,11 +28,11 @@ Nous disposons actuellement des articles suivants sur les tendances et meilleure
 - [Meilleures pratiques Azure en matière de sécurité des limites](../best-practices-network-security.md)
 - [Implémentation d’une architecture réseau hybride sécurisée dans Azure](../guidance/guidance-iaas-ra-secure-vnet-hybrid.md)
 
-Azure fournit une plateforme sécurisée sur laquelle vous pouvez créer vos solutions. Nous fournissons également un grand nombre de services et technologies que vous pouvez utiliser pour sécuriser les services que vous créez sur Azure. En raison de la multitude d’options disponibles, vous êtes nombreux à avoir demandé à Microsoft de recommander les meilleures pratiques et tendances pour améliorer la sécurité des déploiements Azure.
+Azure fournit une plateforme sécurisée sur laquelle vous pouvez créer vos solutions. Nous proposons également des services et des technologies pour sécuriser davantage vos solutions sur Azure. En raison de la multitude d’options disponibles, vous êtes nombreux à avoir demandé à Microsoft de recommander les meilleures pratiques et tendances pour améliorer la sécurité.
 
-Nous comprenons votre intérêt et avons donc créé une collection de documents qui décrivent les choses à faire en fonction du contexte, et qui selon nous seront utiles pour améliorer la sécurité des déploiements Azure.
+Nous comprenons votre intérêt et avons créé une collection de documents qui décrivent les choses à faire, en fonction du contexte, pour améliorer la sécurité des déploiements Azure.
 
-Ces articles fournissant les meilleures pratiques et les tendances présentent un ensemble de meilleures pratiques et de tendances utiles sur des sujets spécifiques. Ces meilleures pratiques et tendances sont issues de notre expérience avec ces technologies, mais également de celle des clients, comme vous.
+Ces articles présentent un ensemble de meilleures pratiques et de tendances utiles sur des sujets spécifiques. Ces meilleures pratiques et tendances sont issues de notre expérience avec ces technologies, mais également de celle des clients, comme vous.
 
 Pour chaque meilleure pratique, nous tentons d’expliquer les éléments suivants :
 
@@ -44,4 +44,4 @@ Pour chaque meilleure pratique, nous tentons d’expliquer les éléments suivan
 
 Nous sommes impatients d’ajouter de nombreux autres articles sur l’architecture de sécurité Azure et les meilleures pratiques. Si vous souhaitez que nous incluions certaines rubriques, faites-le nous savoir dans la zone de discussion en bas de cette page.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0914_2016-->

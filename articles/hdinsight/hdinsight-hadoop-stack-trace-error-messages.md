@@ -5,7 +5,7 @@
 	services="hdinsight"
 	documentationCenter="NA"
 	authors="mumian"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -23,7 +23,7 @@ Les articles sont organisés par types d’erreur.
 
 ## Erreur de mémoire insuffisante
 
-* [Corriger une erreur de mémoire insuffisante (OOM) avec les paramètres Hive](hdinsight-hadoop-hive-out-of-memory-error-oom.md) : corriger une erreur de mémoire insuffisante (OOM) à partir d’une requête Hive. Le scénario client inclut une requête sur de nombreuses tables de grande taille.
+* [Corriger une erreur de mémoire insuffisante (OOM) avec les paramètres Hive](hdinsight-hadoop-hive-out-of-memory-error-oom.md) : corriger une erreur de mémoire insuffisante (OOM) à partir d’une requête Hive. Le scénario client inclut une requête sur de nombreuses tables de grande taille.
 
 ## Performances des requêtes Hive
 
@@ -33,9 +33,9 @@ Les articles sont organisés par types d’erreur.
 ## Autres articles de résolution des problèmes
 
 * [Informations sur l’utilisation de HDInsight sous Linux](hdinsight-hadoop-linux-information.md)
-* [Déboguer Hadoop dans HDInsight : afficher les journaux et interpréter les messages d’erreur](hdinsight-debug-jobs.md)
+* [Déboguer Hadoop dans HDInsight : afficher les journaux et interpréter les messages d’erreur](hdinsight-debug-jobs.md)
 * [Accéder aux journaux des applications YARN Hadoop dans HDInsight sous Linux](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 * [Activer les dumps de tas pour les services Hadoop sur HDInsight sur Linux](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
 * [Notes de publication pour les composants Hadoop sur Azure HDInsight](hdinsight-release-notes.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0914_2016-->

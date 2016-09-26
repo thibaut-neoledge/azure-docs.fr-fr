@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/09/2016"
+	ms.date="09/14/2016"
 	ms.author="markvi"/>
 
 
@@ -173,4 +173,4 @@ Dans les applications Office 365 Exchange Online, vous disposez d’une section 
 
 - [Accès conditionnel Azure Active Directory](active-directory-conditional-access.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->
