@@ -19,7 +19,8 @@
 
 # Didacticiel : Intégration d’Azure AD à @Task
 
-L’objectif de ce didacticiel est de vous montrer comment intégrer @Task dans Azure Active Directory (Azure AD). L’intégration de @Task dans Azure AD vous offre les avantages suivants :
+L’objectif de ce didacticiel est de vous montrer comment intégrer @Task dans Azure Active Directory (Azure AD).  
+L’intégration de @Task dans Azure AD vous offre les avantages suivants :
 
 - Dans Azure AD, vous pouvez contrôler qui a accès à @Task
 - Vous pouvez autoriser les utilisateurs à se connecter automatiquement à @Task (via l’authentification unique) avec leur compte Azure AD.
@@ -45,7 +46,8 @@ Vous devez en outre suivre les recommandations ci-dessous :
 
  
 ## Description du scénario
-Ce didacticiel vise à vous permettre de tester l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
+Ce didacticiel vise à vous permettre de tester l’authentification unique Azure AD dans un environnement de test.  
+Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
 1. Ajout de @Task depuis la galerie
 2. Configuration et test de l’authentification unique Azure AD
@@ -273,7 +275,8 @@ L’objectif de cette section est de permettre à Britta Simon d’utiliser l’
 
 ### Test de l’authentification unique
 
-L’objectif de cette section est de tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès. Lorsque vous cliquez sur la vignette @Task dans le volet d’accès, vous devez être connecté automatiquement à votre application @Task.
+L’objectif de cette section est de tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.  
+Lorsque vous cliquez sur la vignette @Task dans le volet d’accès, vous devez être connecté automatiquement à votre application @Task.
 
 
 ## Ressources supplémentaires
