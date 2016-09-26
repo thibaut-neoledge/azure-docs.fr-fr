@@ -30,7 +30,7 @@ Cet article explique comment affecter un rôle administratif à un utilisateur d
 
 3.  Dans le panneau **Utilisateurs et groupes**, sélectionnez **Tous les utilisateurs**.
 
-    ![Ouverture du panneau Tous les utilisateurs](./media/active-directory-users-assign-role-azure-portal/create-users-opfr-FRers-blade.png)
+    ![Ouverture du panneau Tous les utilisateurs](./media/active-directory-users-assign-role-azure-portal/create-users-open-users-blade.png)
 
 4. Sur le panneau **Utilisateurs et groupes - Tous les utilisateurs**, sélectionnez un utilisateur dans la liste.
 
@@ -49,4 +49,4 @@ Cet article explique comment affecter un rôle administratif à un utilisateur d
 - [Gérer les profils utilisateur](active-directory-users-profile-azure-portal.md)
 - [Suppression d’un utilisateur dans Azure AD](active-directory-users-delete-user-azure-portal.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0914_2016--->

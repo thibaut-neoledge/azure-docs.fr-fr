@@ -34,7 +34,7 @@ Cet article explique comment supprimer un utilisateur d’un répertoire dans la
 
 3.  Sur le panneau **Utilisateurs et groupes** panneau, sélectionnez **Utilisateurs**.
 
-    ![Ouverture du panneau Utilisateurs](./media/active-directory-users-reset-password-azure-portal/create-users-opfr-FRers-blade.png)
+    ![Ouverture du panneau Utilisateurs](./media/active-directory-users-reset-password-azure-portal/create-users-open-users-blade.png)
 
 4. Sur le panneau **Utilisateurs et groupes - Utilisateurs -**, sélectionnez un utilisateur dans la liste.
 
@@ -52,4 +52,4 @@ Cet article explique comment supprimer un utilisateur d’un répertoire dans la
 - [Gérer les profils utilisateur](active-directory-users-profile-azure-portal.md)
 - [Suppression d’un utilisateur dans Azure AD](active-directory-users-delete-user-azure-portal.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0914_2016--->

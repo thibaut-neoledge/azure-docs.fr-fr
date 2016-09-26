@@ -34,7 +34,7 @@ Cet article explique comment ajouter des utilisateurs à partir d’autres répe
 
 3.  Dans le panneau **Utilisateurs et groupes**, sélectionnez **Utilisateurs**, puis sélectionnez **Ajouter**.
 
-    ![Sélection de la commande Ajouter(./media/ management](./media/active-directory-users-create-external-azure-portal/create-users-add-command.png)
+    ![Sélection de la commande Ajouter](./media/active-directory-users-create-external-azure-portal/create-users-add-command.png)
 
 4. Dans le panneau **Utilisateur**, fournissez un nom complet dans **Nom** et le nom de connexion dans **Nom d’utilisateur**.
 
@@ -42,15 +42,15 @@ Cet article explique comment ajouter des utilisateurs à partir d’autres répe
 
 6. Si vous le souhaitez, sélectionnez **Profil** pour ajouter le nom et le prénom, la fonction et le nom de service de l’utilisateur.
 
-		![Opening the user profile](./media/ management](./media/active-directory-users-create-external-azure-portal/create-users-user-profile.png)
+	![Opening the user profile](./media/active-directory-users-create-external-azure-portal/create-users-user-profile.png)
 
 	- Sélectionnez **Groupes** pour ajouter l’utilisateur à un ou plusieurs groupes.
 
-		![Ajout d’un utilisateur aux groupes](./media/management](./media/active-directory-users-create-external-azure-portal/create-users-user-groups.png)
+		![Ajout d’un utilisateur aux groupes](./media/active-directory-users-create-external-azure-portal/create-users-user-groups.png)
 
 	- Sélectionnez **Rôle organisationnel** pour affecter l’utilisateur à un rôle à partir de la liste **Rôles**. Pour plus d’informations sur les utilisateurs et les rôles d’administrateur, consultez la page [Attribution de rôles d’administrateur dans Azure AD](active-directory-assign-admin-roles.md).
 
-		![Affectation d’un utilisateur à un rôle](./media/ management](./media/active-directory-users-create-external-azure-portal/create-users-assign-role.png)
+		![Affectation d’un utilisateur à un rôle](./media/active-directory-users-create-external-azure-portal/create-users-assign-role.png)
 
 7. Sélectionnez **Créer**.
 
@@ -73,4 +73,4 @@ Si vous modifiez les informations d’un utilisateur dont l’identité est sync
 - [Gérer les profils utilisateur](active-directory-users-profile-azure-portal.md)
 - [Suppression d’un utilisateur dans Azure AD](active-directory-users-delete-user-azure-portal.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!----HONumber=AcomDC_0914_2016-->
