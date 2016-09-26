@@ -16,7 +16,8 @@
 
 #Didacticiel : Intégration d’Azure AD à TOPdesk - Secure
   
-L’objectif de ce didacticiel est de montrer comment intégrer Azure et TOPdesk - Secure. Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
+L’objectif de ce didacticiel est de montrer comment intégrer Azure et TOPdesk - Secure.  
+Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
 -   Un abonnement Azure valide
 -   Un abonnement TOPdesk - Secure pour lequel l’authentification unique est activée
@@ -66,7 +67,8 @@ Cette section décrit l’activation de l’intégration d’applications pour T
 
 ##Configuration de l'authentification unique
   
-Cette section explique comment permettre aux utilisateurs de s’authentifier sur TOPdesk - Secure avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML. La configuration de l’authentification unique pour TOPdesk - Secure vous oblige à télécharger le fichier d’une icône. Pour obtenir ce fichier d’icône, contactez l’équipe de support TOPdesk.
+Cette section explique comment permettre aux utilisateurs de s’authentifier sur TOPdesk - Secure avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML.  
+La configuration de l’authentification unique pour TOPdesk - Secure vous oblige à télécharger le fichier d’une icône. Pour obtenir ce fichier d’icône, contactez l’équipe de support TOPdesk.
 
 ###Pour configurer l’authentification unique, procédez comme suit :
 
@@ -89,8 +91,9 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
     ![Technical Settings](./media/active-directory-saas-topdesk-secure-tutorial/IC790855.png "Technical Settings")
 
     1.  Cliquez sur **Download** pour télécharger le fichier de métadonnées public et enregistrez-le en local sur votre ordinateur.
-    2.  Ouvrez le fichier de métadonnées et recherchez le nœud **AssertionConsumerService**.![Assertion Consumer Service](./media/active-directory-saas-topdesk-secure-tutorial/IC790856.png "Assertion Consumer Service")
-    3.  Copiez la valeur de **AssertionConsumerService**.
+    2.  Ouvrez le fichier de métadonnées et recherchez le nœud **AssertionConsumerService**.
+        ![Assertion Consumer Service](./media/active-directory-saas-topdesk-secure-tutorial/IC790856.png "Assertion Consumer Service")
+    3.  Copiez la valeur de **AssertionConsumerService**.  
 
         >[AZURE.NOTE] Vous en aurez besoin dans la section **Configurer l’URL de l’application** plus loin dans ce didacticiel.
 
@@ -158,7 +161,8 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
 ##Configuration de l'approvisionnement des utilisateurs
   
-Pour se connecter à TOPdesk - Secure, les utilisateurs d’Azure AD doivent être approvisionnés dans TOPdesk - Secure. Dans le cas de TOPdesk - Secure, l’approvisionnement est une tâche manuelle.
+Pour se connecter à TOPdesk - Secure, les utilisateurs d’Azure AD doivent être approvisionnés dans TOPdesk - Secure.  
+Dans le cas de TOPdesk - Secure, l’approvisionnement est une tâche manuelle.
 
 ###Pour configurer l'approvisionnement des utilisateurs, procédez comme suit :
 

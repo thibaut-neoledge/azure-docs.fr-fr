@@ -52,8 +52,8 @@ Nous avons suivi ces étapes pour créer notre expérience dans Azure ML :
 
 1.	téléchargement du jeu de données dans un fichier csv vers Azure ML (très petit fichier) ;
 2.	création d’une expérience et utilisation du module [Sélectionner des colonnes dans le jeu de données][select-columns] pour sélectionner les mêmes fonctionnalités de données que dans Excel ;
-3.	utilisation du module de [Split Data][split] (avec le mode *Expression Relative*) pour répartir les données dans les mêmes jeux apprentissage que dans Excel ;
-4.	expériences avec le module de [régression linéaire][linear-regression] (options par défaut uniquement), documentation et comparaison des résultats à ceux de notre modèle de régression Excel.
+3.	utilisation du module de [Split Data][split] \(avec le mode *Expression Relative*) pour répartir les données dans les mêmes jeux apprentissage que dans Excel ;
+4.	expériences avec le module de [régression linéaire][linear-regression] \(options par défaut uniquement), documentation et comparaison des résultats à ceux de notre modèle de régression Excel.
 
 ### Examen des résultats initiaux
 Dans un premier temps, le modèle Excel a clairement surpassé le modèle Azure ML :

@@ -41,7 +41,7 @@ Afin d'équilibrer le trafic réseau à partir d'Internet sur les machines virtu
 
 3. Sur la page **Ajouter un point de terminaison à une machine virtuelle**, cliquez sur la flèche droite.
 
-4. Sur la page **Spécifier les détails du point de terminaison** :
+4. Sur la page **Spécifier les détails du point de terminaison** :
 
     * Dans **Nom**, saisissez le nom du point de terminaison ou sélectionnez-en un dans la liste des points de terminaison prédéfinis pour les protocoles communs.
     * Dans **Protocole**, sélectionnez le protocole requis, TCP ou UDP, pour ce type de point de terminaison.

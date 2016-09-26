@@ -176,12 +176,12 @@ Pour configurer un redirecteur conditionnel, vous devez connaître les suffixes 
 4.	Dans le volet gauche, développez **DSN**, **Contoso-DNS-EU**.
 5.	Cliquez avec le bouton droit sur **Redirecteurs conditionnels**, puis cliquez sur **Nouveau redirecteur conditionnel**.
 5.	Entrez les informations suivantes :
-	- **Domaine DNS** : entrez le suffixe DNS de Contoso-HBase-US. Par exemple : Contoso-HBase-US.f5.internal.cloudapp.net.
-	- **Adresses IP des serveurs maîtres** : entrez 10.2.0.4, qui est l'adresse IP de Contoso-DNS-US. Vérifiez l'adresse IP. Votre serveur DNS peut avoir une adresse IP différente.
+	- **Domaine DNS** : entrez le suffixe DNS de Contoso-HBase-US. Par exemple : Contoso-HBase-US.f5.internal.cloudapp.net.
+	- **Adresses IP des serveurs maîtres** : entrez 10.2.0.4, qui est l'adresse IP de Contoso-DNS-US. Vérifiez l'adresse IP. Votre serveur DNS peut avoir une adresse IP différente.
 6.	Appuyez sur **Entrée**, puis cliquez sur **OK**. Maintenant, vous pouvez résoudre l'adresse IP de Contoso-DNS-US à partir de Contoso-DNS-EU.
 7.	Répétez les étapes pour ajouter un redirecteur DNS conditionnel au service DNS sur la machine virtuelle de Contoso-DNS-US avec les valeurs suivantes :
-	- **Domaine DNS** : entrez le suffixe DNS de Contoso-HBase-EU.
-	- **Adresses IP des serveurs maîtres** : entrez 10.2.0.4, qui est l'adresse IP de Contoso-DNS-EU.
+	- **Domaine DNS** : entrez le suffixe DNS de Contoso-HBase-EU.
+	- **Adresses IP des serveurs maîtres** : entrez 10.2.0.4, qui est l'adresse IP de Contoso-DNS-EU.
 
 **Pour tester la résolution de noms de domaine**
 

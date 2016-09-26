@@ -57,7 +57,7 @@ Dans cette section, vous allez modifier l’application de l’appareil simulé 
 
         using System.IO;
 
-4. Ajoutez la méthode suivante à la classe **Program** :
+4. Ajoutez la méthode suivante à la classe **Program** :
          
         private static async void SendToBlobAsync()
         {
@@ -80,7 +80,7 @@ Dans cette section, vous allez modifier l’application de l’appareil simulé 
 
         SendToBlobAsync();
 
-> [AZURE.NOTE] Par souci de simplicité, ce didacticiel n’implémente aucune stratégie de nouvelle tentative. Dans le code de production, vous devez mettre en œuvre des stratégies de nouvelle tentative (par exemple, une interruption exponentielle), comme indiqué dans l’article MSDN [Transient Fault Handling] (Gestion des erreurs temporaires).
+> [AZURE.NOTE] Par souci de simplicité, ce didacticiel n’implémente aucune stratégie de nouvelle tentative. Dans le code de production, vous devez mettre en œuvre des stratégies de nouvelle tentative (par exemple, une interruption exponentielle), comme indiqué dans l’article MSDN [Transient Fault Handling] \(Gestion des erreurs temporaires).
 
 ## Recevoir une notification de téléchargement de fichier
 
@@ -107,7 +107,7 @@ Dans cette section, vous allez écrire une application console Windows qui reço
 		static ServiceClient serviceClient;
         static string connectionString = "{iot hub connection string}";
         
-5. Ajoutez la méthode suivante à la classe **Program** :
+5. Ajoutez la méthode suivante à la classe **Program** :
    
         private async static Task ReceiveFileUploadNotificationAsync()
         {
@@ -129,7 +129,7 @@ Dans cette section, vous allez écrire une application console Windows qui reço
 
     Notez que le modèle de réception est le même que celui utilisé pour recevoir des messages cloud-à-appareil à partir de l’application de l’appareil.
 
-6. Enfin, ajoutez les lignes suivantes à la méthode **Main** :
+6. Enfin, ajoutez les lignes suivantes à la méthode **Main** :
 
         Console.WriteLine("Receive file upload notifications\n");
         serviceClient = ServiceClient.CreateFromConnectionString(connectionString);

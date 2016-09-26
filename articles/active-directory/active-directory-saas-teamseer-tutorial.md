@@ -78,7 +78,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Configurer l’authentification unique](./media/active-directory-saas-teamseer-tutorial/IC789628.png "Configurer l’authentification unique")
 
-3.  Dans la zone de texte **URL de connexion à TeamSeer** de la page **Configurer l’URL de l’application**, tapez votre URL au format « *http://www.teamseer.com/companyid*", puis cliquez sur **Suivant**.
+3.  Dans la zone de texte **URL de connexion à TeamSeer** de la page **Configurer l’URL de l’application**, tapez votre URL au format « *http://www.teamseer.com/companyid*", puis cliquez sur **Suivant**.
 
     ![Configurer l’URL de l’application](./media/active-directory-saas-teamseer-tutorial/IC789629.png "Configurer l’URL de l’application")
 

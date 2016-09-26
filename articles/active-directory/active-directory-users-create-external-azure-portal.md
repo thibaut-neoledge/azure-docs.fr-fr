@@ -46,7 +46,7 @@ Cet article explique comment ajouter des utilisateurs à partir d’autres répe
 
 	- Sélectionnez **Groupes** pour ajouter l’utilisateur à un ou plusieurs groupes.
 
-		![Ajout d’un utilisateur aux groupes] (. /media/ management](. / media/active-directory-users-create-external-azure-portal/create-users-user-groups.png)
+		![Ajout d’un utilisateur aux groupes](./media/management](./media/active-directory-users-create-external-azure-portal/create-users-user-groups.png)
 
 	- Sélectionnez **Rôle organisationnel** pour affecter l’utilisateur à un rôle à partir de la liste **Rôles**. Pour plus d’informations sur les utilisateurs et les rôles d’administrateur, consultez la page [Attribution de rôles d’administrateur dans Azure AD](active-directory-assign-admin-roles.md).
 

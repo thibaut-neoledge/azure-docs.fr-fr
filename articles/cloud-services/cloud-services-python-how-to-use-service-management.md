@@ -20,7 +20,7 @@
 
 > [AZURE.NOTE] L’API Gestion des API est remplacée par la nouvelle API Gestion des ressources, actuellement disponible en version préliminaire. Consultez la [documentation sur la gestion de ressources Azure](http://azure-sdk-for-python.readthedocs.org/) pour plus de détails sur l’utilisation de la nouvelle API Gestion des ressources Python.
 
-Ce guide vous explique comment effectuer des tâches courantes de gestion des services par programme à partir de Python. La classe **ServiceManagementService** du [Kit de développement logiciel (SDK) Azure pour Python](https://github.com/Azure/azure-sdk-for-python) prend en charge l’accès par programme à une grande partie des fonctionnalités liées à la gestion des services disponibles dans le [portail Azure Classic][management-portal] (telles que **la création, la mise à jour et la suppression de services cloud, les déploiements, les services de gestion des données et les machines virtuelles**). Ces fonctionnalités peuvent être utiles pour la création d'applications nécessitant un accès par programme à la gestion des services.
+Ce guide vous explique comment effectuer des tâches courantes de gestion des services par programme à partir de Python. La classe **ServiceManagementService** du [Kit de développement logiciel (SDK) Azure pour Python](https://github.com/Azure/azure-sdk-for-python) prend en charge l’accès par programme à une grande partie des fonctionnalités liées à la gestion des services disponibles dans le [portail Azure Classic][management-portal] \(telles que **la création, la mise à jour et la suppression de services cloud, les déploiements, les services de gestion des données et les machines virtuelles**). Ces fonctionnalités peuvent être utiles pour la création d'applications nécessitant un accès par programme à la gestion des services.
 
 ## <a name="WhatIs"> </a>Présentation de la gestion des services
 L’API de gestion des services fournit un accès par programme aux fonctionnalités de gestion des services disponibles par le biais du [portail Azure Classic][management-portal]. Le Kit de développement logiciel (SDK) Azure pour Python vous permet de gérer vos services cloud et vos comptes de stockage.
@@ -52,7 +52,7 @@ Pour plus d’informations sur les certificats Azure, consultez la page [Vue d�
 
 Une fois ces fichiers créés, vous devez télécharger le fichier `.cer` sur Azure au moyen de l’action Télécharger de l’onglet Paramètres dans le [portail Azure Classic][management-portal]. Pensez également à noter l’endroit où vous avez enregistré le fichier `.pem`.
 
-Une fois que vous avez obtenu votre ID d’abonnement, créé un certificat et téléchargé le fichier `.cer` sur Azure, vous pouvez vous connecter au point de terminaison de gestion Azure en transmettant l’ID d’abonnement et le chemin du fichier `.pem` vers **ServiceManagementService** :
+Une fois que vous avez obtenu votre ID d’abonnement, créé un certificat et téléchargé le fichier `.cer` sur Azure, vous pouvez vous connecter au point de terminaison de gestion Azure en transmettant l’ID d’abonnement et le chemin du fichier `.pem` vers **ServiceManagementService** :
 
 	from azure import *
 	from azure.servicemanagement import *
@@ -88,7 +88,7 @@ Dans l’exemple ci-dessus, `sms` est un objet **ServiceManagementService**. La 
 
 ## <a name="ListAvailableLocations"> </a>Affichage de la liste des emplacements disponibles
 
-Pour afficher la liste des emplacements disponibles pour les services d'hébergement, utilisez la méthode **list\_locations** :
+Pour afficher la liste des emplacements disponibles pour les services d'hébergement, utilisez la méthode **list\_locations** :
 
 	from azure import *
 	from azure.servicemanagement import *
@@ -132,7 +132,7 @@ Lorsque vous créez une application et que vous l'exécutez dans Azure, l'ensemb
 
 	sms.create_hosted_service(name, label, desc, location)
 
-Vous pouvez afficher la liste de tous les services hébergés pour votre abonnement au moyen de la méthode **list\_hosted\_services** :
+Vous pouvez afficher la liste de tous les services hébergés pour votre abonnement au moyen de la méthode **list\_hosted\_services** :
 
 	result = sms.list_hosted_services()
 
@@ -142,7 +142,7 @@ Vous pouvez afficher la liste de tous les services hébergés pour votre abonnem
 		print('Location: ' + hosted_service.hosted_service_properties.location)
 		print('')
 
-Si vous souhaitez obtenir des informations sur un service hébergé particulier, transmettez son nom à la méthode **get\_hosted\_service\_properties** :
+Si vous souhaitez obtenir des informations sur un service hébergé particulier, transmettez son nom à la méthode **get\_hosted\_service\_properties** :
 
 	hosted_service = sms.get_hosted_service_properties('myhostedservice')
 
@@ -154,7 +154,7 @@ Une fois que vous avez créé un service cloud, vous pouvez déployer votre code
 
 ## <a name="DeleteCloudService"> </a>Suppression d’un service cloud
 
-Vous pouvez supprimer un service cloud en transmettant son nom à la méthode **delete\_hosted\_service** :
+Vous pouvez supprimer un service cloud en transmettant son nom à la méthode **delete\_hosted\_service** :
 
 	sms.delete_hosted_service('myhostedservice')
 
@@ -192,7 +192,7 @@ Un [service de stockage](../storage/storage-create-storage-account.md) vous donn
 
 Dans l’exemple ci-dessus, notez que l’état de l’opération **create\_storage\_account** peut être extrait en transmettant le résultat renvoyé par **create\_storage\_account** à la méthode **get\_operation\_status**.
 
-Vous pouvez afficher la liste de vos comptes de stockage et leurs propriétés avec la méthode **list\_storage\_accounts** :
+Vous pouvez afficher la liste de vos comptes de stockage et leurs propriétés avec la méthode **list\_storage\_accounts** :
 
 	from azure import *
 	from azure.servicemanagement import *
@@ -207,7 +207,7 @@ Vous pouvez afficher la liste de vos comptes de stockage et leurs propriétés a
 
 ## <a name="DeleteStorageService"> </a>Suppression d’un service de stockage
 
-Vous pouvez supprimer un service de stockage en transmettant son nom à la méthode **delete\_storage\_account** : La suppression d’un service de stockage supprime toutes les données qui y sont stockées (objets blob, tables et files d’attente).
+Vous pouvez supprimer un service de stockage en transmettant son nom à la méthode **delete\_storage\_account** : La suppression d’un service de stockage supprime toutes les données qui y sont stockées (objets blob, tables et files d’attente).
 
 	from azure import *
 	from azure.servicemanagement import *
@@ -218,7 +218,7 @@ Vous pouvez supprimer un service de stockage en transmettant son nom à la méth
 
 ## <a name="ListOperatingSystems"> </a>Affichage de la liste des systèmes d’exploitation disponibles
 
-Pour afficher la liste des systèmes d'exploitation disponibles pour les services d'hébergement, utilisez la méthode **list\_operating\_systems** :
+Pour afficher la liste des systèmes d'exploitation disponibles pour les services d'hébergement, utilisez la méthode **list\_operating\_systems** :
 
 	from azure import *
 	from azure.servicemanagement import *
@@ -246,7 +246,7 @@ Vous pouvez également utiliser la méthode **list\_operating\_system\_families*
 
 ## <a name="CreateVMImage"> </a>Création d’une image du système d’exploitation
 
-Pour ajouter une image du système d'exploitation au référentiel d'images, utilisez la méthode **add\_os\_image** :
+Pour ajouter une image du système d'exploitation au référentiel d'images, utilisez la méthode **add\_os\_image** :
 
 	from azure import *
 	from azure.servicemanagement import *
@@ -279,7 +279,7 @@ Pour afficher la liste des images de système d'exploitation qui sont disponible
 
 ## <a name="DeleteVMImage"> </a>Suppression d’une image du système d’exploitation
 
-Pour supprimer une image utilisateur, utilisez la méthode **delete\_os\_image** :
+Pour supprimer une image utilisateur, utilisez la méthode **delete\_os\_image** :
 
 	from azure import *
 	from azure.servicemanagement import *
@@ -293,7 +293,7 @@ Pour supprimer une image utilisateur, utilisez la méthode **delete\_os\_image**
 
 ## <a name="CreateVM"> </a>Création d’une machine virtuelle
 
-Pour créer une machine virtuelle, vous devez d'abord créer un [service cloud](#CreateCloudService). Ensuite, créez le déploiement de machine virtuelle en utilisant la méthode **create\_virtual\_machine\_deployment** :
+Pour créer une machine virtuelle, vous devez d'abord créer un [service cloud](#CreateCloudService). Ensuite, créez le déploiement de machine virtuelle en utilisant la méthode **create\_virtual\_machine\_deployment** :
 
 	from azure import *
 	from azure.servicemanagement import *
@@ -332,7 +332,7 @@ Pour créer une machine virtuelle, vous devez d'abord créer un [service cloud](
 
 ## <a name="DeleteVM"> </a>Suppression d’une machine virtuelle
 
-Pour supprimer une machine virtuelle, vous devez d'abord supprimer le déploiement au moyen de la méthode **delete\_deployment** :
+Pour supprimer une machine virtuelle, vous devez d'abord supprimer le déploiement au moyen de la méthode **delete\_deployment** :
 
 	from azure import *
 	from azure.servicemanagement import *
@@ -342,13 +342,13 @@ Pour supprimer une machine virtuelle, vous devez d'abord supprimer le déploieme
 	sms.delete_deployment(service_name='myvm',
 		deployment_name='myvm')
 
-Le service cloud peut ensuite être supprimé au moyen de la méthode **delete\_hosted\_service** :
+Le service cloud peut ensuite être supprimé au moyen de la méthode **delete\_hosted\_service** :
 
 	sms.delete_hosted_service(service_name='myvm')
 
 ##Création d’une machine virtuelle à partir d’une image de machine virtuelle capturée
 
-Pour capturer une image de machine virtuelle, appelez d’abord la méthode **capture\_vm\_image** :
+Pour capturer une image de machine virtuelle, appelez d’abord la méthode **capture\_vm\_image** :
 
 	from azure import *
 	from azure.servicemanagement import *
@@ -436,6 +436,6 @@ Pour plus d’informations, consultez le [Centre pour développeurs Python](/dev
 [svc-mgmt-rest-api]: http://msdn.microsoft.com/library/windowsazure/ee460799.aspx
 
 
-[service cloud]: https://azure.microsoft.com/fr-FR/documentation/services/cloud-services/
+[service cloud]: https://azure.microsoft.com/documentation/services/cloud-services/
 
 <!---HONumber=AcomDC_0914_2016-->

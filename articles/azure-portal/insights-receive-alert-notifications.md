@@ -34,13 +34,13 @@ Vous pouvez utiliser l'[API REST](https://msdn.microsoft.com/library/azure/dn931
 
 3. Cliquez sur la commande **Ajouter une alerte**.
 
-	![Ajouter une alerte](./media/insights-receive-alert-notifications/Insights_AddAlert.png)
+    ![Ajouter une alerte](./media/insights-receive-alert-notifications/Insights_AddAlert.png)
 
 4. Vous pouvez nommer votre règle d'alerte et choisir la description à afficher dans le message électronique de notification.
 
 5. Quand vous sélectionnez **Mesures**, vous allez choisir une condition et une valeur de seuil pour la métrique. Il s'agit de la période utilisée par Azure pour surveiller et tracer l'activité d'alerte.
 
-	![Condition et seuil](./media/insights-receive-alert-notifications/Insights_ConditionAndThreshold.png)
+    ![Condition et seuil](./media/insights-receive-alert-notifications/Insights_ConditionAndThreshold.png)
 
 6. Vous pouvez également choisir **Événements**, puis recevoir une notification quand un certain événement se produit.
 

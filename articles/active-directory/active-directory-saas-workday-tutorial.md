@@ -50,7 +50,7 @@ Cette section décrit l’activation de l’intégration d’application pour Wo
 
     ![Que voulez-vous faire ?](./media/active-directory-saas-workday-tutorial/IC700995.png "Que voulez-vous faire ?")
 
-5.  Dans la **zone de recherche**, tapez **Workday**.
+5.  Dans la **zone de recherche**, tapez **Workday**.
 
     ![Workday](./media/active-directory-saas-workday-tutorial/IC701021.png "Workday")
 
@@ -80,7 +80,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
 	b. Dans la zone de texte **URL de réponse de Workday**, tapez l’URL appropriée au format suivant : `https://impl.workday.com/<tenant>/login-saml.htmld`
 
-	>[AZURE.NOTE] Votre URL de réponse doit disposer d'un sous-domaine (par exemple, www, wd2, wd3, wd3-impl, wd5, wd5-impl). Une solution telle que "**http://www.myworkday.com*" fonctionne, mais pas "**http://myworkday.com*".
+	>[AZURE.NOTE] Votre URL de réponse doit disposer d'un sous-domaine (par exemple, www, wd2, wd3, wd3-impl, wd5, wd5-impl). Une solution telle que "*http://www.myworkday.com*" fonctionne, mais pas "*http://myworkday.com*".
  
 4.  Dans la page **Configurer l’authentification unique sur Workday**, cliquez sur **Télécharger le certificat**, puis enregistrez le fichier de certificat sur votre ordinateur.
 
@@ -118,7 +118,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
     >-   Si le nom de domaine de l’URL du client Workday commence par impl (par ex. : *https://impl.workday.com/\<client>/login-saml2.htmld*), l’attribut **Environment** doit être défini sur Implementation.
     >-   Si le nom de domaine commence par autre chose, vous devez contacter Workday pour obtenir la valeur correspondante de l’attribut **Environment**.
 
-10. Dans la section **SAML Setup**, procédez comme suit :
+10. Dans la section **SAML Setup**, procédez comme suit :
 
     ![SAML Setup](./media/active-directory-saas-workday-tutorial/IC782926.png "Configuration de SAML")
 
@@ -176,7 +176,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
 	a. Activez **x509 Private Key Pair**.
 
-	b. Dans la zone de texte **Service Provider ID**, tapez **http://www.workday.com**.
+	b. Dans la zone de texte **Service Provider ID**, tapez **http://www.workday.com**.
 
 	c. Sélectionnez **Enable SP Initiated SAML Authentication**.
 
@@ -184,7 +184,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
      
 	e. Sélectionnez **Ne pas compresser la demande d’authentification initiée par le fournisseur de services**.
 
-    f. Comme **Méthode de signature de la demande d’authentification**, sélectionnez **SHA256**.
+    f. Comme **Méthode de signature de la demande d’authentification**, sélectionnez **SHA256**.
         
 	![Méthode de signature de la demande d’authentification](./media/active-directory-saas-workday-tutorial/IC782932.png "Méthode de signature de la demande d’authentification")
  

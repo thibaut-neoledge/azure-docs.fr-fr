@@ -182,7 +182,7 @@ Maintenant que Machine Learning Studio contient des données, nous devons créer
 
 - Glissez-déplacez le **jeu de données csdairydata.csv** vers l’expérimentation.
 
-- Dans la zone **Search experiment items** (Rechercher dans les éléments de l’expérimentation) en haut du volet gauche, tapez [Execute R Script][execute-r-script] (Exécution de script R). Le module s'affiche alors dans la liste de recherche.
+- Dans la zone **Search experiment items** (Rechercher dans les éléments de l’expérimentation) en haut du volet gauche, tapez [Execute R Script][execute-r-script] \(Exécution de script R). Le module s'affiche alors dans la liste de recherche.
 
 - Glissez-déplacez le module d’[exécution de script R][execute-r-script] vers votre palette.
 
@@ -428,7 +428,7 @@ Exécutons ce code et examinons le journal de sortie pour le script R. Les donn�
 
 *Figure 9 : aperçu du tableau de données avec une variable facteur.*
 
-Le type de la colonne Month doit à présent indiquer « **Factor w/ 14 levels** » (Facteur à 14 niveaux). C'est un problème, car une année ne compte que 12 mois. Vous pouvez aussi vérifier que le type qui apparaît dans la **visualisation** du port du jeu de données de résultat est « **Categorical** » (Catégorique).
+Le type de la colonne Month doit à présent indiquer « **Factor w/ 14 levels** » (Facteur à 14 niveaux). C'est un problème, car une année ne compte que 12 mois. Vous pouvez aussi vérifier que le type qui apparaît dans la **visualisation** du port du jeu de données de résultat est « **Categorical** » (Catégorique).
 
 Le problème, c'est que la colonne « Month » n'a pas été codée de façon systématique. Le nom du mois sera dans certains cas affiché en toutes lettres (avril) et dans d’autres, il sera abrégé (avr.). Ce problème peut être résolu en limitant la chaîne à 3 caractères. La ligne de code se présente désormais comme suit :
 
@@ -922,7 +922,7 @@ Le code suivant permet d’extraire les valeurs de décalage de la liste d’obj
 
 La première ligne de code est un peu compliquée et vous pourriez avoir besoin d’une explication vous aider à la comprendre. Voici ce que l'on a :
 
-1.  L’opérateur « **[[** » associé à l’argument « **1** » sélectionne le vecteur de corrélations au niveau des décalages dans le premier élément de la liste d’objets ccf.
+1.  L’opérateur « **[[** » associé à l’argument « **1** » sélectionne le vecteur de corrélations au niveau des décalages dans le premier élément de la liste d’objets ccf.
 
 2.  La fonction `do.call()` applique la fonction `rbind()` aux éléments de la liste renvoyée par `lapply()`.
 

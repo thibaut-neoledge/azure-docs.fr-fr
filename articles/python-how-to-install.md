@@ -51,7 +51,7 @@ Sauf en cas de nécessité particulière, nous vous recommandons d’opter pour 
 
 ## Installation du SDK sous Windows, Linux et macOS (bibliothèques client uniquement)
 
-Si vous avez déjà installé Python, vous pouvez utiliser pip pour installer un lot de toutes les bibliothèques client dans votre environnement Python 2.7 ou Python 3.3+ existant. Cela télécharge les packages à partir du [Python Package Index][] (PyPI).
+Si vous avez déjà installé Python, vous pouvez utiliser pip pour installer un lot de toutes les bibliothèques client dans votre environnement Python 2.7 ou Python 3.3+ existant. Cela télécharge les packages à partir du [Python Package Index][] \(PyPI).
 
 Vous aurez peut-être besoin de droits d’administrateur :
 
@@ -88,12 +88,12 @@ ou directement
 
 ## Téléchargement d'autres packages
 
-[Python Package Index][] (PyPI) comporte une sélection étoffée de bibliothèques Python. Si vous avez installé une version fournie par un distributeur, vous disposez déjà de la plupart des éléments nécessaires pour différents scénarios, du développement web au calcul technique.
+[Python Package Index][] \(PyPI) comporte une sélection étoffée de bibliothèques Python. Si vous avez installé une version fournie par un distributeur, vous disposez déjà de la plupart des éléments nécessaires pour différents scénarios, du développement web au calcul technique.
 
 
 ## Python Tools for Visual Studio
 
-[Python Tools for Visual Studio][] (PTVS) est un plug-in gratuit/OSS de Microsoft, qui transforme Visual Studio en un environnement de développement intégré (IDE) Python à part entière :
+[Python Tools for Visual Studio][] \(PTVS) est un plug-in gratuit/OSS de Microsoft, qui transforme Visual Studio en un environnement de développement intégré (IDE) Python à part entière :
 
 ![how-to-install-python-ptvs](./media/python-how-to-install/how-to-install-python-ptvs.png)
 

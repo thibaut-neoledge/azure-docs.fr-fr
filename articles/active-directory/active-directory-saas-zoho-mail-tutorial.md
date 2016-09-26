@@ -97,11 +97,11 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Panneau de configuration](./media/active-directory-saas-zoho-mail-tutorial/IC789607.png "Panneau de configuration")
 
-7.  Cliquez sur l’onglet **SAML Authentication**.
+7.  Cliquez sur l’onglet **SAML Authentication**.
 
     ![Authentification SAML](./media/active-directory-saas-zoho-mail-tutorial/IC789608.png "Authentification SAML")
 
-8.  Dans la section **SAML Authentication Details**, procédez comme suit :
+8.  Dans la section **SAML Authentication Details**, procédez comme suit :
 
     ![Détails de l’authentification SAML](./media/active-directory-saas-zoho-mail-tutorial/IC789609.png "Détails de l’authentification SAML")
 
@@ -113,7 +113,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
         >[AZURE.TIP] Pour plus d’informations, consultez [Comment convertir un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
 
     5.  Ouvrez votre certificat codé en base 64 dans le Bloc-notes, copiez son contenu dans le Presse-papiers, puis collez-le dans la zone de texte **PublicKey**.
-    6.  Comme **Algorithme**, sélectionnez **RSA**.
+    6.  Comme **Algorithme**, sélectionnez **RSA**.
     7.  Cliquez sur **OK**.
 
 9.  Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
@@ -128,7 +128,7 @@ Pour que les utilisateurs d’Azure AD puissent se connecter à Zoho Mail, ils 
 
 1.  Connectez-vous à votre site d’entreprise **Zoho Mail** en tant qu’administrateur.
 
-2.  Accédez à **Control Panel > Mail & Docs**.
+2.  Accédez à **Control Panel > Mail & Docs**.
 
 3.  Accédez à **User Details > Add User**.
 

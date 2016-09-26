@@ -49,7 +49,7 @@ Cette image de machine virtuelle de science des données ne génère pas de frai
 
 Avant de pouvoir créer une machine virtuelle de science des données Microsoft, vous devez disposer des éléments suivants :
 
-- **Un abonnement Azure** : pour obtenir un abonnement, consultez la page [Obtenir une version d’évaluation gratuite d’Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- **Un abonnement Azure** : pour obtenir un abonnement, consultez la page [Obtenir une version d’évaluation gratuite d’Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 *   **Un compte de stockage Azure** : pour en créer un, consultez la page [Créer un compte de stockage Azure](storage-create-storage-account.md#create-a-storage-account). Le compte de stockage peut également être créé dans le cadre du processus de création de la machine virtuelle si vous ne souhaitez pas utiliser de compte existant.
 

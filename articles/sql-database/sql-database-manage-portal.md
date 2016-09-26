@@ -44,7 +44,7 @@ Pour ouvrir le panneau **Bases de données SQL**, cliquez sur **Bases de donnée
 
 ## Comment créer ou afficher des serveurs SQL Azure ?
 
-Pour ouvrir le panneau ** SQL**, cliquez sur ** SQL**, puis cliquez sur le serveur avec lequel vous souhaitez travailler, ou cliquez sur **+Ajouter** pour créer un serveur SQL. Pour plus d’informations, voir [Créer une base de données SQL en quelques minutes à l’aide du portail Azure](sql-database-get-started.md).
+Pour ouvrir le panneau **SQL**, cliquez sur **SQL**, puis cliquez sur le serveur avec lequel vous souhaitez travailler, ou cliquez sur **+Ajouter** pour créer un serveur SQL. Pour plus d’informations, voir [Créer une base de données SQL en quelques minutes à l’aide du portail Azure](sql-database-get-started.md).
 
 ![Serveurs SQL](./media/sql-database-manage-portal/sql-servers.png)
 

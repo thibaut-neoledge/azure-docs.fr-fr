@@ -78,7 +78,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Configurer l’authentification unique](./media/active-directory-saas-thousandeyes-tutorial/IC790063.png "Configurer l’authentification unique")
 
-3.  Dans la zone de texte **URL de connexion à ThousandEyes** de la page **Configurer l’URL de l’application**, entrez l’URL que les utilisateurs doivent saisir pour se connecter à votre application ThousandEyes (par ex., « *https://app.thousandeyes.com/login/sso*"), puis cliquez sur **Suivant**.
+3.  Dans la zone de texte **URL de connexion à ThousandEyes** de la page **Configurer l’URL de l’application**, entrez l’URL que les utilisateurs doivent saisir pour se connecter à votre application ThousandEyes (par ex., « *https://app.thousandeyes.com/login/sso*"), puis cliquez sur **Suivant**.
 
     ![Configurer l’URL de l’application](./media/active-directory-saas-thousandeyes-tutorial/IC790064.png "Configurer l’URL de l’application")
 

@@ -63,22 +63,22 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 
 **Pour créer une machine virtuelle au sein de Contoso-VNet-EU, appelée Contoso-DNS-EU**
 
-1.	Cliquez sur **NOUVEAU** > **CALCUL** > **MACHINE VIRTUELLE** > **À PARTIR DE LA GALERIE**.
+1.	Cliquez sur **NOUVEAU** > **CALCUL** > **MACHINE VIRTUELLE** > **À PARTIR DE LA GALERIE**.
 2.	Choisissez **Windows Server 2012 R2 Datacenter**.
 3.	Entrez :
-	- **NOM DE LA MACHINE VIRTUELLE** : Contoso-DNS-EU
-	- **NOUVEAU NOM D'UTILISATEUR** :
-	- **NOUVEAU MOT DE PASSE** :
+	- **NOM DE LA MACHINE VIRTUELLE** : Contoso-DNS-EU
+	- **NOUVEAU NOM D'UTILISATEUR** :
+	- **NOUVEAU MOT DE PASSE** :
 4.	Entrez :
-	- **SERVICE CLOUD** : créez un service cloud
-	- **RÉGION/GROUPE D'AFFINITÉ/RÉSEAU VIRTUEL** : (sélectionnez Contoso-VNet-EU)
-	- **SOUS-RÉSEAUX DU RÉSEAU VIRTUEL** : Subnet-1
-	- **COMPTE DE STOCKAGE** : utilisez un compte de stockage généré automatiquement
+	- **SERVICE CLOUD** : créez un service cloud
+	- **RÉGION/GROUPE D'AFFINITÉ/RÉSEAU VIRTUEL** : (sélectionnez Contoso-VNet-EU)
+	- **SOUS-RÉSEAUX DU RÉSEAU VIRTUEL** : Subnet-1
+	- **COMPTE DE STOCKAGE** : utilisez un compte de stockage généré automatiquement
 	
 		Le nom du service cloud est identique au nom de la machine virtuelle. Dans ce cas, il s’agit de Contoso-DNS-UE. Pour les machines virtuelles suivantes, il est possible d’utiliser le même service cloud. Toutes les machines virtuelles sous le même service cloud partagent le même réseau virtuel et le même suffixe de domaine.
 
 		Le compte de stockage est utilisé pour stocker le fichier d’image de la machine virtuelle.
-	- **POINTS DE TERMINAISON** : (faites défiler vers le bas et sélectionnez **DNS**)
+	- **POINTS DE TERMINAISON** : (faites défiler vers le bas et sélectionnez **DNS**)
 
 Une fois la machine virtuelle créée, recherchez les adresses IP interne et externe.
 
@@ -132,7 +132,7 @@ Les serveurs DNS doivent avoir des adresses IP statiques. Cette étape ne peut p
 5.	Cliquez sur **Suivant**
 6.	Sélectionnez **Installation basée sur un rôle ou une fonctionnalité**, puis cliquez sur **Suivant**.
 7.	Sélectionnez votre machine virtuelle DNS (elle doit être mise en surbrillance), puis cliquez sur **Suivant**.
-8.	Vérifiez le **Serveur DNS** :
+8.	Vérifiez le **Serveur DNS** :
 9.	Cliquez sur **Ajouter des fonctionnalités**, puis sur **Continuer**.
 10.	Cliquez sur **Suivant** trois fois de suite, puis sur **Installer**.
 
@@ -146,12 +146,12 @@ Les serveurs DNS doivent avoir des adresses IP statiques. Cette étape ne peut p
 
 1.	Dans le portail Azure Classic, cliquez sur **NOUVEAU**, **SERVICES RÉSEAU**, **RÉSEAU VIRTUEL**, **INSCRIRE LE SERVEUR DNS**.
 2.	Entrez :
-	- **NOM** : Contoso-DNS-EU
-	- **ADRESSE IP DU SERVEUR DNS** : 10.1.0.4. L'adresse IP doit correspondre à celle de la machine virtuelle du serveur DNS.
+	- **NOM** : Contoso-DNS-EU
+	- **ADRESSE IP DU SERVEUR DNS** : 10.1.0.4. L'adresse IP doit correspondre à celle de la machine virtuelle du serveur DNS.
 	 
 3.	Répétez la procédure pour inscrire les Contoso-DNS-US avec les paramètres suivants :
-	- **NOM** : Contoso-DNS-US
-	- **ADRESSE IP DU SERVEUR DNS** : 10.2.0.4
+	- **NOM** : Contoso-DNS-US
+	- **ADRESSE IP DU SERVEUR DNS** : 10.2.0.4
 
 **Pour assigner les deux serveurs DNS aux deux réseaux virtuels**
 
@@ -195,12 +195,12 @@ Pour configurer le redirecteur conditionnel, vous devez connaître les suffixes 
 3.	Cliquez sur **DNS**.
 4.	Dans le volet gauche, développez **DSN**, **Contoso-DNS-EU**.
 5.	Entrez les informations suivantes :
-	- **Domaine DNS** : entrez le suffixe DNS de Contoso-DNS-US. Par exemple : Contoso-DNS-US.b5.internal.cloudapp.net.
-	- **Adresses IP des serveurs maîtres** : entrez 10.2.0.4, qui est l'adresse IP de Contoso-DNS-US.
+	- **Domaine DNS** : entrez le suffixe DNS de Contoso-DNS-US. Par exemple : Contoso-DNS-US.b5.internal.cloudapp.net.
+	- **Adresses IP des serveurs maîtres** : entrez 10.2.0.4, qui est l'adresse IP de Contoso-DNS-US.
 6.	Appuyez sur **Entrée**, puis cliquez sur **OK**. Maintenant, vous pouvez résoudre l'adresse IP de Contoso-DNS-US à partir de Contoso-DNS-EU.
 7.	Répétez les étapes pour ajouter un redirecteur DNS au service DNS sur la machine virtuelle de Contoso-DNS-US avec les valeurs suivantes :
-	- **Domaine DNS** : entrez le suffixe DNS de Contoso-DNS-EU.
-	- **Adresses IP des serveurs maîtres** : entrez 10.2.0.4, qui est l'adresse IP de Contoso-DNS-EU.
+	- **Domaine DNS** : entrez le suffixe DNS de Contoso-DNS-EU.
+	- **Adresses IP des serveurs maîtres** : entrez 10.2.0.4, qui est l'adresse IP de Contoso-DNS-EU.
 
 ##Tester la résolution de noms sur les réseaux virtuels
 

@@ -111,7 +111,7 @@ Dans cet exemple, nous créons une partition de disque unique sur /dev/sdc. La n
 
 		# sudo mkfs -t ext3 /dev/md127
 
-	**SLES 11 et openSUSE** : activez boot.md et créez mdadm.conf
+	**SLES 11 et openSUSE** : activez boot.md et créez mdadm.conf
 
 		# sudo -i chkconfig --add boot.md
 		# sudo echo 'DEVICE /dev/sd*[0-9]' >> /etc/mdadm.conf
@@ -121,7 +121,7 @@ Dans cet exemple, nous créons une partition de disque unique sur /dev/sdc. La n
 
 ## Ajout du nouveau système de fichiers à /etc/fstab
 
-**Attention** : si vous ne modifiez pas correctement le fichier /etc/fstab, il se peut que le système ne puisse plus démarrer. En cas de doute, reportez-vous à la documentation de la distribution pour obtenir des informations sur la modification adéquate de ce fichier. Il est par ailleurs vivement recommandé de créer une sauvegarde du fichier /etc/fstab avant de le modifier.
+**Attention** : si vous ne modifiez pas correctement le fichier /etc/fstab, il se peut que le système ne puisse plus démarrer. En cas de doute, reportez-vous à la documentation de la distribution pour obtenir des informations sur la modification adéquate de ce fichier. Il est par ailleurs vivement recommandé de créer une sauvegarde du fichier /etc/fstab avant de le modifier.
 
 1. Créez le point de montage désiré pour le nouveau système de fichiers. Par exemple :
 
@@ -137,7 +137,7 @@ Dans cet exemple, nous créons une partition de disque unique sur /dev/sdc. La n
 
 		UUID=aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee  /data  ext4  defaults  0  2
 
-	Sur **SLES 11 et openSUSE** :
+	Sur **SLES 11 et openSUSE** :
 
 		/dev/disk/by-uuid/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee  /data  ext3  defaults  0  2
 

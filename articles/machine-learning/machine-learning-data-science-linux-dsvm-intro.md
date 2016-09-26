@@ -52,7 +52,7 @@ Cette image de machine virtuelle de science des données ne génère pas de frai
 
 Avant de pouvoir créer une machine virtuelle de science des données Linux, vous devez disposer des éléments suivants :
 
-- **Un abonnement Azure** : pour obtenir un abonnement, consultez la page [Obtenir une version d’évaluation gratuite d’Azure](https://azure.microsoft.com/free/).
+- **Un abonnement Azure** : pour obtenir un abonnement, consultez la page [Obtenir une version d’évaluation gratuite d’Azure](https://azure.microsoft.com/free/).
 - **Un compte de stockage Azure** : pour en créer un, consultez la page [Créer un compte de stockage Azure](storage-create-storage-account.md#create-a-storage-account). Le compte de stockage peut également être créé dans le cadre du processus de création de la machine virtuelle, si vous ne souhaitez pas utiliser de compte existant.
 
 
@@ -73,7 +73,7 @@ Voici les étapes de création d’une instance de la machine virtuelle de scien
   - **Resource Group** (Groupe de ressources) : vous pouvez créer un nouveau groupe ou utiliser un groupe existant.
   - **Location** (Emplacement) : sélectionnez le centre de données qui convient le mieux. Généralement, il s’agit du centre de données qui héberge la plupart de vos données ou du centre de données le plus proche de votre emplacement physique afin d’accélérer l’accès au réseau.
 
-  	b. **Taille** :
+  	b. **Taille** :
 
   - Sélectionnez l’un des types de serveur qui répond à vos exigences fonctionnelles et à vos contraintes de coût. Sélectionnez **Afficher tout** pour afficher d’autres tailles de machines virtuelles.
 
@@ -111,7 +111,7 @@ La machine virtuelle Linux est déjà approvisionnée avec le serveur X2Go et el
         - **Login** (Connexion) : nom d’utilisateur sur la machine virtuelle Linux.
         - **SSH Port** (Port SSH) : conservez la valeur par défaut 22.
         - **Session Type** (Type de session) : remplacez la valeur par XFCE. La machine virtuelle Linux ne prend actuellement en charge que le bureau XFCE.
-    * **Onglet Media ** (Média) : vous pouvez désactiver l’impression client et la prise en charge du son si vous n’en avez pas besoin.
+    * **Onglet Media** (Média) : vous pouvez désactiver l’impression client et la prise en charge du son si vous n’en avez pas besoin.
     * **Shared folders** (Dossiers partagés) : si vous souhaitez que les répertoires de vos ordinateurs clients soient montés sur la machine virtuelle Linux, ajoutez ceux que vous souhaitez partager avec la machine virtuelle sous cet onglet.
 
 Une fois connecté à la machine virtuelle à l’aide du client SSH ou du bureau graphique XFCE par le biais du client X2Go, vous pouvez commencer à utiliser les outils installés et configurés sur la machine virtuelle. Sur XFCE, vous pouvez voir les icônes de bureau et raccourcis du menu d’applications de la plupart des outils.

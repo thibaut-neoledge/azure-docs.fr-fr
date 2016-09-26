@@ -48,7 +48,7 @@ Nous devons supprimer les modules suivants :
 
 - [Machine à vecteurs de support à deux classes][two-class-support-vector-machine]
 - Modules associés [Former le modèle][train-model] et [Noter le modèle][score-model]
-- [Normaliser les données][normalize-data] (les deux)
+- [Normaliser les données][normalize-data] \(les deux)
 - [Évaluer le modèle][evaluate-model]
 
 Sélectionnez simplement le module et appuyez sur la touche Suppr, ou cliquez avec le bouton droit sur le module et sélectionnez **Supprimer**.

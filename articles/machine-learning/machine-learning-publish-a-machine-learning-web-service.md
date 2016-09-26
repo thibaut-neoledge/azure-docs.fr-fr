@@ -22,7 +22,7 @@ Microsoft Azure Machine Learning vous permet de générer, tester et déployer 
 
 D'un point de vue très général, cela s'effectue en trois étapes :
 
-- **[Créez une expérience d'apprentissage]** : Azure Machine Learning Studio est un environnement de développement visuel collaboratif qui vous permet d'effectuer l'apprentissage et de tester un modèle d'analyse prédictive à l'aide de données d'apprentissage que vous fournissez.
+- **[Créez une expérience d'apprentissage]** : Azure Machine Learning Studio est un environnement de développement visuel collaboratif qui vous permet d'effectuer l'apprentissage et de tester un modèle d'analyse prédictive à l'aide de données d'apprentissage que vous fournissez.
 - **[Convertissez-la en expérience prédictive]** : une fois que vous avez effectué l’apprentissage de votre modèle avec des données existantes et que vous êtes prêt à l’utiliser pour la notation de nouvelles données, vous préparez et simplifiez votre expérience prédictive.
 - **Déployez-la en tant que service web** : vous pouvez déployer votre expérience prédictive en tant que [nouveau] service web ou service web [classique] Azure. Les utilisateurs peuvent envoyer des données à votre modèle et recevoir des prédictions de votre modèle.
 

@@ -85,7 +85,7 @@ Si vous possédez déjà un compte GitHub et un référentiel que vous souhaitez
 
     ![Variables](media/automation-source-control-integration/automation_04_Variables.png)
 
-    * Le **contrôle de code source Automation** est ajouté en tant qu'application autorisée à votre compte GitHub. Pour afficher l'application : à partir de votre page d'accueil GitHub, accédez à **Profil** > **Paramètres** > **Applications**. Cette application permet à Azure Automation de synchroniser votre référentiel GitHub sur un compte Automation.
+    * Le **contrôle de code source Automation** est ajouté en tant qu'application autorisée à votre compte GitHub. Pour afficher l'application : à partir de votre page d'accueil GitHub, accédez à **Profil** > **Paramètres** > **Applications**. Cette application permet à Azure Automation de synchroniser votre référentiel GitHub sur un compte Automation.
 
     ![Application Git](media/automation-source-control-integration/automation_05_GitApplication.png)
 

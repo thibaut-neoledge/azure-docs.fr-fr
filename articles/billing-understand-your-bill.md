@@ -117,7 +117,7 @@ La page des informations supplémentaires fournit des références à d’autres
 ![informations supplémentaires](./media/billing-understand-your-bill/AdditionalInformation.png)
 
 ### Utilisation détaillée
-Le lien de la description qui figure sous **Utilisation détaillée** vous dirige vers le Centre des comptes, où vous pouvez afficher votre utilisation détaillée pour cet abonnement. Deux versions sont téléchargeables à présent : le fichier **.csv version 1** contient les champs d’utilisation appliquant l’ancienne convention d’affectation de noms, tandis que le fichier **.csv version 2** contient les noms conviviaux de chacune des catégories, ainsi que des champs supplémentaires qui vous aideront à comprendre les services que vous utilisez sur Microsoft Azure. Notez que, dans le fichier .csv version 1, il n’y a aucune information sur Azure Resource Manager. Vous trouverez des informations sur Azure Resource Manager dans le fichier .csv version 2.
+Le lien de la description qui figure sous **Utilisation détaillée** vous dirige vers le Centre des comptes, où vous pouvez afficher votre utilisation détaillée pour cet abonnement. Deux versions sont téléchargeables à présent : le fichier **.csv version 1** contient les champs d’utilisation appliquant l’ancienne convention d’affectation de noms, tandis que le fichier **.csv version 2** contient les noms conviviaux de chacune des catégories, ainsi que des champs supplémentaires qui vous aideront à comprendre les services que vous utilisez sur Microsoft Azure. Notez que, dans le fichier .csv version 1, il n’y a aucune information sur Azure Resource Manager. Vous trouverez des informations sur Azure Resource Manager dans le fichier .csv version 2.
 
 ### Informations supplémentaires et ressources utiles
 Cette section comporte des liens vers des questions simples concernant les tailles des instances de calcul et les frais des bases de données SQ, ainsi que des liens utiles pour vous aider à répondre à d'autres questions.
@@ -197,7 +197,7 @@ Informations sur le service 2 | Informations sur le service 2 | Champ hérité
 
 Outre certains nouveaux champs et changements de nom, la version 2 du fichier .csv inclut une mise en forme standardisée des données dans les champs ci-dessous :
 
-- **ID de l’instance** : ce champ représente l’identificateur spécifié par l’utilisateur pour le service approvisionné. À l’heure actuelle, l’ID de l’instance est représenté sous deux formes : soit le nom de la ressource, soit l’ID complet de la ressource. Les services Microsoft Azure font actuellement l’objet d’une transition en vue de représenter l’ID de l’instance au format standardisé d’ID de ressource complet _**(/subscriptions/<subscription id>/resourcegroups/<resourcegroupname>/providers/<providername>/<resourcename>)**_. Lorsque les services seront passés à ce nouveau format, le champ de données d’ID de l’instance n’indiquera plus le nom de la ressource, mais l’ID de la ressource. L’ID de la ressource correspond au format utilisé par l’[API Azure Resource Manager](https://msdn.microsoft.com/library/azure/dn790567.aspx) pour identifier les ressources dans un abonnement.
+- **ID de l’instance** : ce champ représente l’identificateur spécifié par l’utilisateur pour le service approvisionné. À l’heure actuelle, l’ID de l’instance est représenté sous deux formes : soit le nom de la ressource, soit l’ID complet de la ressource. Les services Microsoft Azure font actuellement l’objet d’une transition en vue de représenter l’ID de l’instance au format standardisé d’ID de ressource complet _**(/subscriptions/<subscription id>/resourcegroups/<resourcegroupname>/providers/<providername>/<resourcename>)**_. Lorsque les services seront passés à ce nouveau format, le champ de données d’ID de l’instance n’indiquera plus le nom de la ressource, mais l’ID de la ressource. L’ID de la ressource correspond au format utilisé par l’[API Azure Resource Manager](https://msdn.microsoft.com/library/azure/dn790567.aspx) pour identifier les ressources dans un abonnement.
 
 ![instanceid](./media/billing-understand-your-bill/instanceid.png)
 
@@ -205,7 +205,7 @@ Outre certains nouveaux champs et changements de nom, la version 2 du fichier 
 
 ![additionalinfo\_csv2](./media/billing-understand-your-bill/AdditionaInfo_csv2.png)
 
-- **Balises** : cette colonne contient les balises de ressource spécifiées par l’utilisateur. Les balises peuvent servir à regrouper les enregistrements de facturation. Par exemple, vous pouvez utiliser des balises pour répartir les coûts par département à l’aide du service. Pour plus d’informations, voir l’article décrivant l’[utilisation des balises pour organiser les ressources Azure](./resource-group-using-tags.md). Les services qui prennent en charge l’émission de balises sont les suivants :
+- **Balises** : cette colonne contient les balises de ressource spécifiées par l’utilisateur. Les balises peuvent servir à regrouper les enregistrements de facturation. Par exemple, vous pouvez utiliser des balises pour répartir les coûts par département à l’aide du service. Pour plus d’informations, voir l’article décrivant l’[utilisation des balises pour organiser les ressources Azure](./resource-group-using-tags.md). Les services qui prennent en charge l’émission de balises sont les suivants :
 
     - Machines virtuelles
 

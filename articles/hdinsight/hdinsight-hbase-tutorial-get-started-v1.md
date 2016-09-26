@@ -64,7 +64,7 @@ Avant de commencer ce didacticiel sur HBase, vous devez disposer des éléments 
 
 	Un compte de stockage Azure est nécessaire pour utiliser le processus de création HBase par défaut. Consultez la page [Création d’un compte de stockage Azure][azure-create-storageaccount] pour en créer un. L’option Création personnalisée permet de créer un compte de stockage avec le processus de création de cluster.
 
-	> [AZURE.WARNING] Pour la haute disponibilité des services HBase, vous devez créer un cluster contenant au moins **trois** nœuds. Cela garantit que si un nœud tombe en panne, les régions de données HBase sont disponibles sur d'autres nœuds.
+	> [AZURE.WARNING] Pour la haute disponibilité des services HBase, vous devez créer un cluster contenant au moins **trois** nœuds. Cela garantit que si un nœud tombe en panne, les régions de données HBase sont disponibles sur d'autres nœuds.
 
 	> Si vous commencez à découvrir HBase, sélectionnez toujours 1 pour la taille de cluster, puis supprimez le cluster après chaque utilisation pour réduire les coûts.
 

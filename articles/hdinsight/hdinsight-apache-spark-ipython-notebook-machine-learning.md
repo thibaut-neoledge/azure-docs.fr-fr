@@ -45,7 +45,7 @@ Nous utilisons ces données pour prédire si un bâtiment sera plus chaud ou plu
 
 Dans cette application, nous utilisons un pipeline Spark ML pour effectuer une classification de documents. Dans le pipeline, nous fractionnons le document en mots, que nous convertissons en vecteur de fonctionnalité numérique avant de créer un modèle de prédiction utilisant les vecteurs et étiquettes de fonctionnalité. Procédez comme suit pour créer l’application.
 
-1. Dans le tableau d’accueil du [portail Azure](https://portal.azure.com/), cliquez sur la vignette de votre cluster Spark (si vous l’avez épinglé au tableau d’accueil). Vous pouvez également accéder à votre cluster sous **Parcourir tout** > **Clusters HDInsight**.
+1. Dans le tableau d’accueil du [portail Azure](https://portal.azure.com/), cliquez sur la vignette de votre cluster Spark (si vous l’avez épinglé au tableau d’accueil). Vous pouvez également accéder à votre cluster sous **Parcourir tout** > **Clusters HDInsight**.
 
 2. Dans le panneau du cluster Spark, cliquez sur **Liens rapides**, puis dans le panneau **Tableau de bord du cluster**, cliquez sur **Bloc-notes Jupyter**. Si vous y êtes invité, entrez les informations d’identification d’administrateur pour le cluster.
 
@@ -61,7 +61,7 @@ Dans cette application, nous utilisons un pipeline Spark ML pour effectuer une 
 
 	![Fournir un nom pour le bloc-notes](./media/hdinsight-apache-spark-ipython-notebook-machine-learning/hdispark.note.jupyter.notebook.name.png "Fournir un nom pour le bloc-notes")
 
-3. Comme vous avez créé un bloc-notes à l’aide du noyau PySpark, il est inutile de créer des contextes explicitement. Les contextes Spark et Hive sont automatiquement créés pour vous lorsque vous exécutez la première cellule de code. Vous pouvez commencer par importer les types requis pour ce scénario. Collez l’extrait de code suivant dans une cellule vide, puis appuyez sur **MAJ + ENTRÉE**.
+3. Comme vous avez créé un bloc-notes à l’aide du noyau PySpark, il est inutile de créer des contextes explicitement. Les contextes Spark et Hive sont automatiquement créés pour vous lorsque vous exécutez la première cellule de code. Vous pouvez commencer par importer les types requis pour ce scénario. Collez l’extrait de code suivant dans une cellule vide, puis appuyez sur **MAJ + ENTRÉE**.
 
 		from pyspark.ml import Pipeline
 		from pyspark.ml.classification import LogisticRegression
@@ -78,9 +78,9 @@ Dans cette application, nous utilisons un pipeline Spark ML pour effectuer une 
 		
 		
 	 
-4. À présent, vous devez charger les données (hvac.csv), les analyser et les utiliser pour effectuer l’apprentissage du modèle. Pour ce faire, vous devez définir une fonction qui vérifie si la température réelle du bâtiment est supérieure à la température cible. Si la température actuelle est supérieure, le bâtiment est chaud, ce qui est indiqué par la valeur **1,0**. Si la température actuelle est inférieure, le bâtiment est froid, ce qui est indiqué par la valeur **0,0**.
+4. À présent, vous devez charger les données (hvac.csv), les analyser et les utiliser pour effectuer l’apprentissage du modèle. Pour ce faire, vous devez définir une fonction qui vérifie si la température réelle du bâtiment est supérieure à la température cible. Si la température actuelle est supérieure, le bâtiment est chaud, ce qui est indiqué par la valeur **1,0**. Si la température actuelle est inférieure, le bâtiment est froid, ce qui est indiqué par la valeur **0,0**.
 
-	Collez l’extrait de code suivant dans une cellule vide, puis appuyez sur **Maj+Entrée**.
+	Collez l’extrait de code suivant dans une cellule vide, puis appuyez sur **Maj+Entrée**.
 
 		
 		# List the structure of data for better understanding. Becuase the data will be
@@ -119,18 +119,18 @@ Dans cette application, nous utilisons un pipeline Spark ML pour effectuer une 
 
 5. Configurez le pipeline Spark ML qui est composé de trois étapes : Tokenizer, HashingTF et LogisticRegression. Pour plus d’informations sur ce qu’est un pipeline et sur son fonctionnement, consultez <a href="http://spark.apache.org/docs/latest/ml-guide.html#how-it-works" target="_blank">Spark machine learning pipeline</a>.
 
-	Collez l’extrait de code suivant dans une cellule vide, puis appuyez sur **Maj+Entrée**.
+	Collez l’extrait de code suivant dans une cellule vide, puis appuyez sur **Maj+Entrée**.
 
 		tokenizer = Tokenizer(inputCol="SystemInfo", outputCol="words")
 		hashingTF = HashingTF(inputCol=tokenizer.getOutputCol(), outputCol="features")
 		lr = LogisticRegression(maxIter=10, regParam=0.01)
 		pipeline = Pipeline(stages=[tokenizer, hashingTF, lr])
 
-6. Ajustez le pipeline au document d’apprentissage. Collez l’extrait de code suivant dans une cellule vide, puis appuyez sur **Maj+Entrée**.
+6. Ajustez le pipeline au document d’apprentissage. Collez l’extrait de code suivant dans une cellule vide, puis appuyez sur **Maj+Entrée**.
 
 		model = pipeline.fit(training)
 
-7. Vérifiez le document d’apprentissage pour contrôler votre progression dans l’application. Collez l’extrait suivant dans une cellule vide, puis appuyez sur **MAJ + ENTRÉE**.
+7. Vérifiez le document d’apprentissage pour contrôler votre progression dans l’application. Collez l’extrait suivant dans une cellule vide, puis appuyez sur **MAJ + ENTRÉE**.
 
 		training.show()
 
@@ -166,11 +166,11 @@ Dans cette application, nous utilisons un pipeline Spark ML pour effectuer une 
 
 	![HVAC, instantané des données](./media/hdinsight-apache-spark-ipython-notebook-machine-learning/hdispark.ml.show.data.first.row.png "Instantané des données HVAC")
 
-	Notez que la température réelle est inférieure à la température cible, suggérant que le bâtiment est froid. De ce fait, dans le résultat, l’**étiquette** de la première ligne a pour valeur **0,0**, ce qui signifie que le bâtiment n’est pas chaud.
+	Notez que la température réelle est inférieure à la température cible, suggérant que le bâtiment est froid. De ce fait, dans le résultat, l’**étiquette** de la première ligne a pour valeur **0,0**, ce qui signifie que le bâtiment n’est pas chaud.
 
 8.  Préparez un jeu de données sur lequel exécuter le modèle d’apprentissage. Pour ce faire, nous allons passer un ID système et une ancienneté du système (indiqués par **SystemInfo** dans le résultat de l’apprentissage). Le modèle prédira si le bâtiment ayant cet ID système et cette ancienneté de système sera plus chaud (indiqué par la valeur 1,0) ou plus froid (indiqué par la valeur 0,0).
 
-	Collez l’extrait suivant dans une cellule vide, puis appuyez sur **MAJ + ENTRÉE**.
+	Collez l’extrait suivant dans une cellule vide, puis appuyez sur **MAJ + ENTRÉE**.
 		
 		# SystemInfo here is a combination of system ID followed by system age
 		Document = Row("id", "SystemInfo")
@@ -182,7 +182,7 @@ Dans cette application, nous utilisons un pipeline Spark ML pour effectuer une 
                       (6L, "7 22")]) \
     		.map(lambda x: Document(*x)).toDF() 
 
-9. Pour finir, effectuez des prédictions sur les données de test. Collez l’extrait de code suivant dans une cellule vide, puis appuyez sur **Maj+Entrée**.
+9. Pour finir, effectuez des prédictions sur les données de test. Collez l’extrait de code suivant dans une cellule vide, puis appuyez sur **Maj+Entrée**.
 
 		# Make predictions on test documents and print columns of interest
 		prediction = model.transform(test)

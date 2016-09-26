@@ -85,7 +85,7 @@ Votre abonnement prendra fin lorsque vous l’annulerez. Si vous souhaitez annul
 
 Pour annuler votre abonnement, procédez comme suit. Si votre abonnement actuel est un abonnement payant, il se poursuit jusqu’à la fin de la période de facturation actuelle. Si vous souhaitez que l’annulation soit immédiatement effective, contactez-nous sur la page [Aide et support Microsoft](https://support.microsoft.com/oas/default.aspx?gprid=17024&st=1&wfxredirect=1&sd=gn).
 
-**Remarque** : aucun remboursement ne sera accordé si vous annulez l’abonnement avant la fin d’une période de facturation ou pour les transactions non utilisées d’une période de facturation.
+**Remarque** : aucun remboursement ne sera accordé si vous annulez l’abonnement avant la fin d’une période de facturation ou pour les transactions non utilisées d’une période de facturation.
 
 * Accédez à la [page des offres](https://datamarket.azure.com/dataset/amla/recommendations).
 * Connectez-vous sur Marketplace si ce n’est pas déjà le cas.

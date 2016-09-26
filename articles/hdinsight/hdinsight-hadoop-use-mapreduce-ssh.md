@@ -35,7 +35,7 @@ Pour effectuer les étapes présentées dans cet article, vous avez besoin des �
 
 ##<a id="ssh"></a>Connexion avec SSH
 
-Connectez-vous au nom de domaine complet de votre cluster HDInsight à l’aide de la commande SSH. Le nom de domaine complet est le nom attribué au cluster, suivi de **.azurehdinsight.net**. Par exemple, la commande suivante permettrait de se connecter à un cluster nommé **myhdinsight** :
+Connectez-vous au nom de domaine complet de votre cluster HDInsight à l’aide de la commande SSH. Le nom de domaine complet est le nom attribué au cluster, suivi de **.azurehdinsight.net**. Par exemple, la commande suivante permettrait de se connecter à un cluster nommé **myhdinsight** :
 
 	ssh admin@myhdinsight-ssh.azurehdinsight.net
 
@@ -70,7 +70,7 @@ Pour plus d’informations sur l’utilisation de PuTTY, consultez la rubrique [
 		File Output Format Counters
         Bytes Written=337623
 
-3. Lorsque la tâche est terminée, utilisez la commande suivante pour répertorier les fichiers de sortie stockés sur **wasbs://example/data/WordCountOutput** :
+3. Lorsque la tâche est terminée, utilisez la commande suivante pour répertorier les fichiers de sortie stockés sur **wasbs://example/data/WordCountOutput** :
 
 		hdfs dfs -ls wasbs:///example/data/WordCountOutput
 

@@ -41,15 +41,15 @@ Azure PowerShell propose des *applets de commande* qui vous permettent d'exécut
 
 Les applets de commande suivantes sont utilisées lors de l’exécution des tâches Pig sur un cluster HDInsight à distance :
 
-* **Login-AzureRmAccount** : authentifie Azure PowerShell sur votre abonnement Azure.
+* **Login-AzureRmAccount** : authentifie Azure PowerShell sur votre abonnement Azure.
 
-* **New-AzureRmHDInsightPigJobDefinition** : crée une *définition d’une tâche* à l’aide des instructions Pig Latin spécifiées.
+* **New-AzureRmHDInsightPigJobDefinition** : crée une *définition d’une tâche* à l’aide des instructions Pig Latin spécifiées.
 
-* **Start-AzureRmHDInsightJob** : envoie la définition de la tâche à HDInsight, démarre la tâche et retourne un objet de *tâche* pouvant être utilisé pour vérifier le statut de la tâche.
+* **Start-AzureRmHDInsightJob** : envoie la définition de la tâche à HDInsight, démarre la tâche et retourne un objet de *tâche* pouvant être utilisé pour vérifier le statut de la tâche.
 
-* **Wait-AzureRmHDInsightJob** : utilise l’objet de la tâche pour vérifier le statut de la tâche. Il attend que la tâche soit terminée ou que le délai d’attente soit dépassé.
+* **Wait-AzureRmHDInsightJob** : utilise l’objet de la tâche pour vérifier le statut de la tâche. Il attend que la tâche soit terminée ou que le délai d’attente soit dépassé.
 
-* **Get-AzureRmHDInsightJobOutput** : utilisé pour récupérer la sortie de la tâche.
+* **Get-AzureRmHDInsightJobOutput** : utilisé pour récupérer la sortie de la tâche.
 
 Les étapes suivantes montrent comment utiliser ces cmdlets pour exécuter une tâche sur votre cluster HDInsight.
 

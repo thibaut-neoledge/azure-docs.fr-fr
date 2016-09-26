@@ -28,11 +28,11 @@ Les clusters HDInsight sur Linux fournissent un ensemble d’exemples MapReduce 
 
 ##Composants requis
 
-- **Un abonnement Azure** : consultez la page [Obtention d’un essai gratuit Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)
+- **Un abonnement Azure** : consultez la page [Obtention d’un essai gratuit Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)
 
-- **Cluster HDInsight sur Linux** : consultez la rubrique [Prise en main de Hadoop avec Hive dans HDInsight sur Linux](hdinsight-hadoop-linux-tutorial-get-started.md)
+- **Cluster HDInsight sur Linux** : consultez la rubrique [Prise en main de Hadoop avec Hive dans HDInsight sur Linux](hdinsight-hadoop-linux-tutorial-get-started.md)
 
-- **Client SSH** : pour plus d’informations sur l’utilisation de SSH avec HDInsight, consultez les articles suivants :
+- **Client SSH** : pour plus d’informations sur l’utilisation de SSH avec HDInsight, consultez les articles suivants :
 
     - [Utilisation de SSH avec Hadoop Linux sur HDInsight à partir de Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
 
@@ -40,34 +40,34 @@ Les clusters HDInsight sur Linux fournissent un ensemble d’exemples MapReduce 
 
 ## Exemples disponibles ##
 
-**Emplacement** : les exemples se trouvent sur le cluster HDInsight sous **/usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar**
+**Emplacement** : les exemples se trouvent sur le cluster HDInsight sous **/usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar**
 
-**Contenu** : les exemples suivants sont contenus dans cette archive :
+**Contenu** : les exemples suivants sont contenus dans cette archive :
 
-- **aggregatewordcount** : programme map/reduce basé sur un agrégat qui compte les mots contenus dans les fichiers d’entrée
-- **aggregatewordhist** : programme map/reduce basé sur un agrégat qui calcule l’histogramme des mots contenus dans les fichiers d’entrée
-- **bbp** : programme map/reduce qui utilise Bailey-Borwein-Plouffe pour calculer la valeur exacte de Pi
-- **dbcount** : exemple de tâche qui compte le nombre d’affichages de pages d’une base de données
-- **distbbp** : programme map/reduce qui utilise une formule de type BBP pour calculer la valeur exacte de Pi
-- **grep** : programme map/reduce basé sur un agrégat qui compte les correspondances des expressions régulières dans l’entrée
-- **joint** : tâche qui génère des jeux de données à partition égale, triés sur la jointure
-- **multifilewc** : tâche qui compte les mots de plusieurs fichiers
-- **pentomino** : programme map/reduce de disposition de vignettes permettant de trouver des solutions aux problèmes posés par les pentominos
-- **pi** : programme map/reduce qui estime la valeur de Pi à l’aide de la méthode quasi-Monte-Carlo
-- **randomtextwriter** : programme map/reduce qui écrit 10 Go de données textuelles aléatoires par nœud
-- **randomwriter** : programme map/reduce qui écrit 10 Go de données aléatoires par nœud
-- **secondarysort** : exemple définissant un tri secondaire à la réduction
-- **sort** : programme map/reduce qui trie les données écrites par l’enregistreur aléatoire
-- **sudoku** : solveur de sudoku
-- **teragen** : générateur de données pour le programme terasort
-- **terasort** : exécution du terasort
-- **teravalidate** : vérification des résultats du programme terasort
-- **wordcount** : programme map/reduce qui compte les mots contenus dans les fichiers d’entrée
-- **wordmean** : programme map/reduce qui compte la longueur moyenne des mots contenus dans les fichiers d’entrée
-- **wordmedian** : programme map/reduce qui compte la longueur médiane des mots contenus dans les fichiers d’entrée
-- **wordstandarddeviation** : programme map/reduce qui compte l’écart standard de la longueur des mots contenus dans les fichiers d’entrée
+- **aggregatewordcount** : programme map/reduce basé sur un agrégat qui compte les mots contenus dans les fichiers d’entrée
+- **aggregatewordhist** : programme map/reduce basé sur un agrégat qui calcule l’histogramme des mots contenus dans les fichiers d’entrée
+- **bbp** : programme map/reduce qui utilise Bailey-Borwein-Plouffe pour calculer la valeur exacte de Pi
+- **dbcount** : exemple de tâche qui compte le nombre d’affichages de pages d’une base de données
+- **distbbp** : programme map/reduce qui utilise une formule de type BBP pour calculer la valeur exacte de Pi
+- **grep** : programme map/reduce basé sur un agrégat qui compte les correspondances des expressions régulières dans l’entrée
+- **joint** : tâche qui génère des jeux de données à partition égale, triés sur la jointure
+- **multifilewc** : tâche qui compte les mots de plusieurs fichiers
+- **pentomino** : programme map/reduce de disposition de vignettes permettant de trouver des solutions aux problèmes posés par les pentominos
+- **pi** : programme map/reduce qui estime la valeur de Pi à l’aide de la méthode quasi-Monte-Carlo
+- **randomtextwriter** : programme map/reduce qui écrit 10 Go de données textuelles aléatoires par nœud
+- **randomwriter** : programme map/reduce qui écrit 10 Go de données aléatoires par nœud
+- **secondarysort** : exemple définissant un tri secondaire à la réduction
+- **sort** : programme map/reduce qui trie les données écrites par l’enregistreur aléatoire
+- **sudoku** : solveur de sudoku
+- **teragen** : générateur de données pour le programme terasort
+- **terasort** : exécution du terasort
+- **teravalidate** : vérification des résultats du programme terasort
+- **wordcount** : programme map/reduce qui compte les mots contenus dans les fichiers d’entrée
+- **wordmean** : programme map/reduce qui compte la longueur moyenne des mots contenus dans les fichiers d’entrée
+- **wordmedian** : programme map/reduce qui compte la longueur médiane des mots contenus dans les fichiers d’entrée
+- **wordstandarddeviation** : programme map/reduce qui compte l’écart standard de la longueur des mots contenus dans les fichiers d’entrée
 
-**Code source** : pour ces exemples, est inclus dans le cluster HDInsight sous **/usr/hdp/2.2.4.9-1/hadoop/src/hadoop-mapreduce-project/hadoop-mapreduce-examples**
+**Code source** : pour ces exemples, est inclus dans le cluster HDInsight sous **/usr/hdp/2.2.4.9-1/hadoop/src/hadoop-mapreduce-project/hadoop-mapreduce-examples**
 
 > [AZURE.NOTE] Dans le chemin d’accès, `2.2.4.9-1` constitue la version de la plateforme de données Hortonworks du cluster HDInsight et peut changer au fil de la mise à jour de HDInsight.
 
@@ -85,7 +85,7 @@ Les clusters HDInsight sur Linux fournissent un ensemble d’exemples MapReduce 
 
     Cela génère la liste des exemples de la section précédente de ce document.
 
-3. Utilisez la commande suivante pour obtenir de l’aide sur un exemple spécifique. Dans ce cas, l’exemple **wordcount** :
+3. Utilisez la commande suivante pour obtenir de l’aide sur un exemple spécifique. Dans ce cas, l’exemple **wordcount** :
 
         yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount
 
@@ -184,19 +184,19 @@ Cet exemple utilise seulement 10 Go de données afin de pouvoir être exécuté
 
 Cet exemple utilise trois ensembles de programmes MapReduce :
 
-- **TeraGen** : programme MapReduce qui génère des lignes de données à trier
+- **TeraGen** : programme MapReduce qui génère des lignes de données à trier
 
-- **TeraSort** : échantillonne les données d'entrée et utilise MapReduce pour trier les données en une commande totale.
+- **TeraSort** : échantillonne les données d'entrée et utilise MapReduce pour trier les données en une commande totale.
 
     TeraSort est un tri standard de fonctions MapReduce, sauf pour un partitionneur personnalisé qui utilise une liste triée de clés échantillonnées N-1 définissant le groupe de clés pour chaque réduction. Plus particulièrement, toutes les clés semblables à cet échantillon [i-1] <= key < sample[i] sont envoyées pour réduire i. Cela garantit que les sorties de réduction i sont toutes inférieures aux sorties de réduction i+1.
 
-- **TeraValidate** : programme MapReduce qui valide le tri global de la sortie
+- **TeraValidate** : programme MapReduce qui valide le tri global de la sortie
 
     Il crée un mappage par fichier dans le répertoire de sortie et chaque mappage assure que chaque clé est inférieure ou égale à la précédente. La fonction de mappage génère également des enregistrements des première et dernière clés de chaque fichier et la fonction de réduction assure que la première clé du fichier i est supérieure à la dernière clé du fichier i-1. Un problème est signalé comme une sortie de la réduction avec les clés dans le désordre.
 
 Utilisez les étapes suivantes pour générer des données, trier, puis valider la sortie :
 
-1. Générer 10 Go de données, qui seront stockées dans le stockage du cluster HDInsight par défaut sous **wasbs:///example/data/10GB-sort-input** :
+1. Générer 10 Go de données, qui seront stockées dans le stockage du cluster HDInsight par défaut sous **wasbs:///example/data/10GB-sort-input** :
 
         yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar teragen -Dmapred.map.tasks=50 100000000 /example/data/10GB-sort-input
 

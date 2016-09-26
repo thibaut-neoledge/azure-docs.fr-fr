@@ -24,7 +24,7 @@ Si vous n’avez pas utilisé l’API et que vous souhaitez en savoir plus, vous
 
 ### Partie 1. Obtenir une nouvelle clé ###
 
-Tout d’abord, vous devez obtenir une nouvelle clé d’API à partir du **portail Azure** :
+Tout d’abord, vous devez obtenir une nouvelle clé d’API à partir du **portail Azure** :
 
 1. Accédez au service d’analyse de texte via la [galerie Cortana Intelligence](//gallery.cortanaintelligence.com/MachineLearningAPI/Text-Analytics-2). Vous y trouverez également des liens vers la documentation et des exemples de code.
 

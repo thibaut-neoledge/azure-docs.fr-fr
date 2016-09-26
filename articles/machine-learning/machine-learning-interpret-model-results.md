@@ -254,7 +254,7 @@ Il y a trois colonnes. Les deux premières colonnes représentent les paires uti
 
 *Recommander des éléments à un utilisateur donné*
 
-En sélectionnant ** Recommandation d'éléments** dans le menu **Type de prédiction de recommandation**, nous demandons au système de recommandation de recommander des éléments à un utilisateur donné. Il existe un paramètre supplémentaire, que nous devons choisir dans ce scénario : la sélection d'éléments recommandés. L'option **À partir d'éléments notés (pour l'évaluation de modèle)** est principalement utilisée pour l'évaluation de modèle lors du processus de formation. Pour cette étape de prédiction, nous choisissons **À partir de tous les éléments**. La visualisation de la sortie [Noter la recommandation Matchbox][score-matchbox-recommender] est semblable à celle mentionnée dans la Figure 22.
+En sélectionnant **Recommandation d'éléments** dans le menu **Type de prédiction de recommandation**, nous demandons au système de recommandation de recommander des éléments à un utilisateur donné. Il existe un paramètre supplémentaire, que nous devons choisir dans ce scénario : la sélection d'éléments recommandés. L'option **À partir d'éléments notés (pour l'évaluation de modèle)** est principalement utilisée pour l'évaluation de modèle lors du processus de formation. Pour cette étape de prédiction, nous choisissons **À partir de tous les éléments**. La visualisation de la sortie [Noter la recommandation Matchbox][score-matchbox-recommender] est semblable à celle mentionnée dans la Figure 22.
  
 ![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/22.png)
 

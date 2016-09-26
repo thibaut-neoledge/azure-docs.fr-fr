@@ -82,7 +82,7 @@ Si l’installation d’IntelliJ IDEA ne vous invite pas à activer le plug-in S
 	![Configurer Maven pour les téléchargements automatiques](./media/hdinsight-apache-spark-create-standalone-application/configure-maven.png)
 
 	1. Dans le menu **Fichier**, cliquez sur **Paramètres**.
-	2. Dans la boîte de dialoge **paramètres**, accédez à **Génération, exécution, déploiement** > **Outils de génération** > **Maven** > **Importation**.
+	2. Dans la boîte de dialoge **paramètres**, accédez à **Génération, exécution, déploiement** > **Outils de génération** > **Maven** > **Importation**.
 	3. Sélectionnez l'option **Importer les projets Maven automatiquement**.
 	4. Cliquez sur **Appliquer**, puis sur **OK**.
 

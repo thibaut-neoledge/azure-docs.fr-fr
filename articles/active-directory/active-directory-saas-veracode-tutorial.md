@@ -104,7 +104,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
     2.  Pour charger votre certificat téléchargé, cliquez sur**Choose File**.
     3.  Sélectionnez **Enable Self Registration**.
 
-9.  Dans la section **Self Registration Settings**, procédez comme suit, puis cliquez sur **Save** :
+9.  Dans la section **Self Registration Settings**, procédez comme suit, puis cliquez sur **Save** :
 
     ![Administration](./media/active-directory-saas-veracode-tutorial/IC802913.png "Administration")
 

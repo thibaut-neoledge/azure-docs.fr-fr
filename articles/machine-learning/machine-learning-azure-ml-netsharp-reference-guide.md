@@ -74,7 +74,7 @@ Une spécification de structure de réseau neuronal se compose de trois sections
 ## Déclaration de constante 
 Ce type de déclaration est facultatif. Elle offre une méthode de définition des valeurs utilisées à d’autres emplacements de la définition du réseau neuronal. L'instruction de déclaration se compose d'un identifiant suivi du signe égal et d'une expression de valeur.
 
-Par exemple, l'instruction suivante définit une constante **x** :
+Par exemple, l'instruction suivante définit une constante **x** :
 
 
     Const X = 28;  
@@ -126,7 +126,7 @@ Les fonctions de sortie suivantes sont prises en charge :
 -	tanh
 -	brlinear
 
-Par exemple, la déclaration suivante utilise la fonction **softmax** :
+Par exemple, la déclaration suivante utilise la fonction **softmax** :
 
 	output Result [100] softmax from Hidden all;  
 
@@ -173,18 +173,18 @@ Les faisceaux convolutionnels prennent en charge les attributs suivants :
 
 **InputShape** définit la dimensionnalité de la couche source pour ce faisceau convolutionnel. Cette valeur doit être un tuple d’entiers positifs. Le produit de ces entiers doit être égal au nombre de nœuds de la couche source, mais ne doit pas forcément correspondre à la dimensionnalité déclarée pour celle-ci. La longueur de ce tuple devient la valeur **arity** (arité) du faisceau convolutionnel. En général, l’arité fait référence au nombre d’arguments ou d’opérandes qu’une fonction peut accepter.
 
-Pour définir la forme et les emplacements des noyaux, utilisez les attributs **KernelShape**, **Stride**, **Padding**, **LowerPad** et **UpperPad** :
+Pour définir la forme et les emplacements des noyaux, utilisez les attributs **KernelShape**, **Stride**, **Padding**, **LowerPad** et **UpperPad** :
 
--	**KernelShape** : (obligatoire) définit la dimensionnalité de chaque noyau du faisceau convolutionnel. Cette valeur doit être un tuple d’entiers positifs, dont la longueur est égale à l’arité du faisceau. Chaque composant de ce tuple doit avoir une valeur inférieure ou égale au composant correspondant de l'élément **InputShape**.
--	**Stride** : (facultatif) définit les tailles d'incrément ajustables de la convolution (une par dimension), soit la distance entre les nœuds centraux. Cette valeur doit être un tuple d'entiers positifs, dont la longueur correspond à l'arité du faisceau. Chaque composant de ce tuple doit avoir une valeur inférieure ou égale au composant correspondant de l'élément **KernelShape**. La valeur par défaut est un tuple dont tous les éléments sont égaux à un.
--	**Sharing** : (facultatif) définit le partage des poids pour chaque dimension de la convolution. La valeur peut être une valeur booléenne unique ou un tuple de valeurs booléennes, dont la longueur est égale à l'arité du faisceau. Une valeur booléenne unique est étendue de façon à devenir un tuple de la bonne longueur dont tous les éléments sont égaux à la valeur spécifiée. La valeur par défaut est un tuple composé uniquement de valeurs True.
--	**MapCount** : (facultatif) définit le nombre de signatures pour le faisceau convolutionnel. Cette valeur peut être un entier positif unique ou un tuple d’entiers positifs dont la longueur est égale à l’arité du faisceau. Une valeur d'entier unique est étendue de façon à devenir un tuple de la bonne longueur dont les premiers éléments sont égaux à la valeur spécifiée et dont tous les éléments restants sont égaux à un. La valeur par défaut est 1. Le nombre total de signatures est le produit des éléments du tuple. La factorisation de ce nombre total sur les éléments détermine la façon dont les valeurs de signature sont regroupées dans les nœuds de destination.
--	**Weights** : (facultatif) définit les poids initiaux du faisceau. La valeur doit être un tuple de valeurs à virgule flottante dont la longueur correspond au nombre de noyaux, multiplié par le nombre de poids par noyau, tel que défini plus loin dans cet article. Les poids par défaut sont générés de façon aléatoire.
+-	**KernelShape** : (obligatoire) définit la dimensionnalité de chaque noyau du faisceau convolutionnel. Cette valeur doit être un tuple d’entiers positifs, dont la longueur est égale à l’arité du faisceau. Chaque composant de ce tuple doit avoir une valeur inférieure ou égale au composant correspondant de l'élément **InputShape**.
+-	**Stride** : (facultatif) définit les tailles d'incrément ajustables de la convolution (une par dimension), soit la distance entre les nœuds centraux. Cette valeur doit être un tuple d'entiers positifs, dont la longueur correspond à l'arité du faisceau. Chaque composant de ce tuple doit avoir une valeur inférieure ou égale au composant correspondant de l'élément **KernelShape**. La valeur par défaut est un tuple dont tous les éléments sont égaux à un.
+-	**Sharing** : (facultatif) définit le partage des poids pour chaque dimension de la convolution. La valeur peut être une valeur booléenne unique ou un tuple de valeurs booléennes, dont la longueur est égale à l'arité du faisceau. Une valeur booléenne unique est étendue de façon à devenir un tuple de la bonne longueur dont tous les éléments sont égaux à la valeur spécifiée. La valeur par défaut est un tuple composé uniquement de valeurs True.
+-	**MapCount** : (facultatif) définit le nombre de signatures pour le faisceau convolutionnel. Cette valeur peut être un entier positif unique ou un tuple d’entiers positifs dont la longueur est égale à l’arité du faisceau. Une valeur d'entier unique est étendue de façon à devenir un tuple de la bonne longueur dont les premiers éléments sont égaux à la valeur spécifiée et dont tous les éléments restants sont égaux à un. La valeur par défaut est 1. Le nombre total de signatures est le produit des éléments du tuple. La factorisation de ce nombre total sur les éléments détermine la façon dont les valeurs de signature sont regroupées dans les nœuds de destination.
+-	**Weights** : (facultatif) définit les poids initiaux du faisceau. La valeur doit être un tuple de valeurs à virgule flottante dont la longueur correspond au nombre de noyaux, multiplié par le nombre de poids par noyau, tel que défini plus loin dans cet article. Les poids par défaut sont générés de façon aléatoire.
 
 Il existe deux ensembles de propriétés contrôlant le remplissage, qui s'excluent mutuellement :
 
--	**Padding** : (facultatif) détermine si l'entrée doit être remplie selon un **schéma de remplissage par défaut**. La valeur peut être une valeur booléenne unique ou un tuple de valeurs booléennes, dont la longueur est égale à l’arité du faisceau. Une valeur booléenne unique est étendue de façon à devenir un tuple de la bonne longueur dont tous les éléments sont égaux à la valeur spécifiée. Si la valeur d'une dimension correspond à True, la source est remplie de façon logique dans cette dimension par des cellules de valeur zéro afin de prendre en charge d'autres applications de noyau, de façon que les nœuds centraux des premier et dernier noyaux de cette dimension soient les premier et dernier nœuds de cette dimension dans la couche source. Ainsi, le nombre de nœuds « factices » de chaque dimension est déterminé automatiquement, afin de correspondre exactement à _(InputShape[d] - 1) / Stride[d] + 1_ noyaux dans la couche source remplie. Si la valeur d’une dimension correspond à False, les noyaux sont définis de façon que le nombre de nœuds omis soit le même de chaque côté (une différence de 1 au maximum est tolérée). La valeur par défaut de cet attribut est un tuple dont tous les éléments ont la valeur False.
--	**UpperPad** et **LowerPad** : (facultatifs) permettent de contrôler la quantité de remplissage à utiliser. **Important :** ces attributs peuvent être définis si et seulement si la propriété **Padding** ci-dessus n'est ***pas*** définie. Les valeurs doivent être des tuples d’entiers dont la longueur est égale à l’arité du faisceau. Lorsque ces attributs sont spécifiés, des nœuds « factices » sont ajoutés aux extrémités inférieure et supérieure de chaque dimension de la couche d’entrée. Le nombre de nœuds ajoutés aux extrémités inférieure et supérieure de la dimension est déterminé respectivement par **LowerPad**[i] et **UpperPad**[i]. Afin de veiller à ce que les noyaux correspondent à des nœuds « réels » et non « factices », les conditions suivantes doivent être respectées :
+-	**Padding** : (facultatif) détermine si l'entrée doit être remplie selon un **schéma de remplissage par défaut**. La valeur peut être une valeur booléenne unique ou un tuple de valeurs booléennes, dont la longueur est égale à l’arité du faisceau. Une valeur booléenne unique est étendue de façon à devenir un tuple de la bonne longueur dont tous les éléments sont égaux à la valeur spécifiée. Si la valeur d'une dimension correspond à True, la source est remplie de façon logique dans cette dimension par des cellules de valeur zéro afin de prendre en charge d'autres applications de noyau, de façon que les nœuds centraux des premier et dernier noyaux de cette dimension soient les premier et dernier nœuds de cette dimension dans la couche source. Ainsi, le nombre de nœuds « factices » de chaque dimension est déterminé automatiquement, afin de correspondre exactement à _(InputShape[d] - 1) / Stride[d] + 1_ noyaux dans la couche source remplie. Si la valeur d’une dimension correspond à False, les noyaux sont définis de façon que le nombre de nœuds omis soit le même de chaque côté (une différence de 1 au maximum est tolérée). La valeur par défaut de cet attribut est un tuple dont tous les éléments ont la valeur False.
+-	**UpperPad** et **LowerPad** : (facultatifs) permettent de contrôler la quantité de remplissage à utiliser. **Important :** ces attributs peuvent être définis si et seulement si la propriété **Padding** ci-dessus n'est ***pas*** définie. Les valeurs doivent être des tuples d’entiers dont la longueur est égale à l’arité du faisceau. Lorsque ces attributs sont spécifiés, des nœuds « factices » sont ajoutés aux extrémités inférieure et supérieure de chaque dimension de la couche d’entrée. Le nombre de nœuds ajoutés aux extrémités inférieure et supérieure de la dimension est déterminé respectivement par **LowerPad**[i] et **UpperPad**[i]. Afin de veiller à ce que les noyaux correspondent à des nœuds « réels » et non « factices », les conditions suivantes doivent être respectées :
 	-	Chaque élément de **LowerPad** doit être strictement inférieur à KernelShape[d]/2.
 	-	Chaque élément de **UpperPad** doit être inférieur à KernelShape[d]/2.
 	-	La valeur par défaut de ces attributs est un tuple dont tous les éléments sont égaux à 0.
@@ -234,13 +234,13 @@ Les faisceaux de normalisation de réponse prennent en charge tous les attributs
 
 Les faisceaux de normalisation de réponse appliquant une fonction prédéfinie aux valeurs de nœud source pour déterminer la valeur du nœud de destination, ils n’ont pas d’état entraînable (poids ou biais).
 
-**Alerte** : les nœuds de la couche de destination correspondent aux neurones centraux des noyaux. Par exemple, si KernelShape[d] est impair, alors _KernelShape[d]/2_ correspond au nœud de noyau central. Si la valeur _KernelShape[d]_ est paire, le nœud central a la valeur _KernelShape[d]/2 - 1_. Par conséquent, si le paramètre **Padding**[d] a la valeur False, les premier et dernier nœuds _KernelShape[d]/2_ ne sont associés à aucun nœud correspondant dans la couche de destination. Pour éviter cette situation, définissez **Padding** sur [true, true, …, true].
+**Alerte** : les nœuds de la couche de destination correspondent aux neurones centraux des noyaux. Par exemple, si KernelShape[d] est impair, alors _KernelShape[d]/2_ correspond au nœud de noyau central. Si la valeur _KernelShape[d]_ est paire, le nœud central a la valeur _KernelShape[d]/2 - 1_. Par conséquent, si le paramètre **Padding**[d] a la valeur False, les premier et dernier nœuds _KernelShape[d]/2_ ne sont associés à aucun nœud correspondant dans la couche de destination. Pour éviter cette situation, définissez **Padding** sur [true, true, …, true].
 
 Outre les quatre attributs décrits précédemment, les faisceaux de normalisation de réponse prennent également en charge les attributs suivants :
 
--	**Alpha** : (obligatoire) spécifie une valeur à virgule flottante qui correspond à ***α*** dans la formule précédente.
--	**Beta** : (obligatoire) spécifie une valeur à virgule flottante qui correspond à ***β*** dans la formule précédente.
--	**Offset** : (facultatif) spécifie une valeur à virgule flottante correspondant à l'élément ***k*** dans la formule précédente. Par défaut, elle est de 1.
+-	**Alpha** : (obligatoire) spécifie une valeur à virgule flottante qui correspond à ***α*** dans la formule précédente.
+-	**Beta** : (obligatoire) spécifie une valeur à virgule flottante qui correspond à ***β*** dans la formule précédente.
+-	**Offset** : (facultatif) spécifie une valeur à virgule flottante correspondant à l'élément ***k*** dans la formule précédente. Par défaut, elle est de 1.
 
 L'exemple suivant définit un faisceau de normalisation de réponse utilisant ces attributs :
 
@@ -402,8 +402,8 @@ La définition du réseau ci-après, conçu pour reconnaître les chiffres, illu
 	-	**NodeCount**[0] = (5 - 1) / 1 + 1 = 5.
 	-	**NodeCount**[1] = (13 - 5) / 2 + 1 = 5.
 	-	**NodeCount**[2] = (13 - 5) / 2 + 1 = 5.
--	Vous pouvez calculer le nombre total de nœuds en utilisant la dimensionnalité déclarée de la couche, [50, 5, 5], comme suit : _**MapCount**  *NodeCount**[0] * **NodeCount**[1] *NodeCount**[2] = 10 * 5 * 5 * 5_
--	Puisque **Sharing**[d] est faux uniquement pour _d == 0_, le nombre de noyaux est _**MapCount** *NodeCount**[0] = 10 * 5 = 50_.
+-	Vous pouvez calculer le nombre total de nœuds en utilisant la dimensionnalité déclarée de la couche, [50, 5, 5], comme suit : _**MapCount**  *NodeCount**[0] * **NodeCount**[1] *NodeCount**[2] = 10 * 5 * 5 * 5_
+-	Puisque **Sharing**[d] est faux uniquement pour _d == 0_, le nombre de noyaux est _**MapCount** *NodeCount**[0] = 10 * 5 = 50_.
 
 
 ## Remerciements

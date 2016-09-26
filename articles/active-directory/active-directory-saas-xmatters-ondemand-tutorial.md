@@ -99,7 +99,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Administrateur](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776795.png "Administrateur")
 
-7.  Dans la page **SAML Configuration**, procédez comme suit :
+7.  Dans la page **SAML Configuration**, procédez comme suit :
 
     ![Configuration de SAML](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776796.png "Configuration de SAML")
 
@@ -107,7 +107,8 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
     2.  Dans la page **Configurer l’authentification unique sur xMatters OnDemand** du portail Azure Classic, copiez la valeur **ID du fournisseur d’identité**, puis collez-la dans la zone de texte **ID de fournisseur d’identité**.
     3.  Dans la page **Configurer l’authentification unique sur xMatters OnDemand** du portail Azure Classic, copiez la valeur **URL du service d’authentification unique**, puis collez-la dans la zone de texte **URL d’authentification unique**.
     4.  Dans la page **Configurer l’authentification unique sur xMatters OnDemand** du portail Azure Classic, copiez la valeur **URL du service de déconnexion unique**, puis collez-la dans la zone de texte **URL de déconnexion unique**.
-    5.  Dans la partie supérieure de la page Company Details, cliquez sur **Save Changes**. ![Détails sur l’entreprise](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776797.png "Détails sur l’entreprise")
+    5.  Dans la partie supérieure de la page Company Details, cliquez sur **Save Changes**.
+![Détails sur l’entreprise](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776797.png "Détails sur l’entreprise")
 
 8.  Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
 

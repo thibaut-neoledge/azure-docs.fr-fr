@@ -55,8 +55,8 @@ Pour effectuer les étapes présentées dans cet article, vous avez besoin des �
 
     Les paramètres utilisés dans cette commande sont les suivants :
 
-    * **-u** : indique le nom d’utilisateur et le mot de passe utilisés pour authentifier la demande.
-    * **-G** : indique qu’il s’agit d’une requête GET.
+    * **-u** : indique le nom d’utilisateur et le mot de passe utilisés pour authentifier la demande.
+    * **-G** : indique qu’il s’agit d’une requête GET.
 
     Le début de l’URL, **https://CLUSTERNAME.azurehdinsight.net/templeton/v1**, est le même pour toutes les demandes.
 
@@ -66,11 +66,11 @@ Pour effectuer les étapes présentées dans cet article, vous avez besoin des �
 
     La fin de l’URI (/mapreduce/jar) indique à WebHCat que cette demande lance une tâche MapReduce à partir d’une classe dans un fichier jar. Les paramètres utilisés dans cette commande sont les suivants :
 
-	* **-d** : étant donné que `-G` n’est pas utilisé, la demande passe par défaut à la méthode POST. `-d` spécifie les valeurs de données envoyées avec la demande.
+	* **-d** : étant donné que `-G` n’est pas utilisé, la demande passe par défaut à la méthode POST. `-d` spécifie les valeurs de données envoyées avec la demande.
 
-        * **user.name** : l’utilisateur qui exécute la commande
-        * **jar** : l’emplacement du fichier jar contenant la classe à exécuter
-        * **class** : la classe contenant la logique MapReduce
+        * **user.name** : l’utilisateur qui exécute la commande
+        * **jar** : l’emplacement du fichier jar contenant la classe à exécuter
+        * **class** : la classe contenant la logique MapReduce
         * **arg**: les arguments à transmettre à la tâche MapReduce ; dans ce cas, le fichier texte d'entrée et le répertoire utilisés pour la sortie
 
     Cette commande doit retourner un ID de tâche qui peut être utilisé pour vérifier le statut de la tâche :

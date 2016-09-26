@@ -178,7 +178,7 @@ Ce processeur d’archive utilise le répertoire local pour télécharger tous l
 
 Vous pouvez en apprendre plus sur Event Hubs en consultant les liens suivants :
 
-- [Overview of Event Hubs Archive][] (Vue d’ensemble d’Event Hubs Archive)
+- [Overview of Event Hubs Archive][] \(Vue d’ensemble d’Event Hubs Archive)
 - Un [exemple d'application complet qui utilise des hubs d’événements][].
 - L’exemple de [montée en puissance du traitement des événements avec Event Hubs][].
 - [Vue d’ensemble des concentrateurs d’événements][]
@@ -187,7 +187,7 @@ Vous pouvez en apprendre plus sur Event Hubs en consultant les liens suivants :
 [portail Azure]: https://portal.azure.com/
 [Overview of Event Hubs Archive]: event-hubs-archive-overview.md
 [1]: ./media/event-hubs-archive-python/event-hubs-python1.png
-[About Azure storage accounts]: https://azure.microsoft.com/fr-FR/documentation/articles/storage-create-storage-account/
+[About Azure storage accounts]: https://azure.microsoft.com/documentation/articles/storage-create-storage-account/
 [Visual Studio Code]: https://code.visualstudio.com/
 [Vue d’ensemble des concentrateurs d’événements]: event-hubs-overview.md
 [exemple d'application complet qui utilise des hubs d’événements]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097

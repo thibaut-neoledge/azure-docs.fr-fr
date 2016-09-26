@@ -51,12 +51,12 @@ Sur la quatrième page, indiquez le nom du compte de stockage et celui du conten
 
 Sur la dernière page de configuration, **Actions de script**, cliquez sur le bouton **Ajouter une action de script** et remplissez les champs de texte en saisissant les valeurs suivantes.
  
-* **NOM** : vous pouvez indiquer n’importe quelle chaîne en tant que nom de l’action de script.
-* **TYPE DE NŒUD** : sélectionnez **Tous les nœuds**.
-* **SCRIPT URI** : *http://getgoing.blob.core.windows.net/publicscripts/Azure_HDI_Setup_Windows.ps1*
+* **NOM** : vous pouvez indiquer n’importe quelle chaîne en tant que nom de l’action de script.
+* **TYPE DE NŒUD** : sélectionnez **Tous les nœuds**.
+* **SCRIPT URI** : *http://getgoing.blob.core.windows.net/publicscripts/Azure_HDI_Setup_Windows.ps1*
 	* *publicscripts* est un conteneur public dans le compte de stockage
 	* *getgoing* permet de partager les fichiers de scripts PowerShell afin d’aider les utilisateurs à travailler dans Azure.
-* **PARAMÈTRES** : (laisser cette zone vide)
+* **PARAMÈTRES** : (laisser cette zone vide)
 
 Enfin, cliquez sur la coche pour démarrer la création du cluster Hadoop HDInsight personnalisé.
 

@@ -33,9 +33,9 @@ Au lieu de vous obliger à utiliser uniquement le mappage et des fonctions de r�
 
 Le langage Pig Latin vous permet de décrire le flux de données provenant d’une entrée brute, via une ou plusieurs transformations, pour produire le résultat souhaité. Les programmes Pig Latin suivent le modèle général suivant :
 
-- **Chargement** : lecture des données à manipuler dans le système de fichiers
-- **Transformation** : manipulation des données
-- **Sortie ou stockage** : affichage du résultat à l'écran ou stockage pour traitement
+- **Chargement** : lecture des données à manipuler dans le système de fichiers
+- **Transformation** : manipulation des données
+- **Sortie ou stockage** : affichage du résultat à l'écran ou stockage pour traitement
 
 Pig Latin prend également en charge les fonctions définies par l'utilisateur (UDF), ce qui vous permet d'appeler des composants externes qui implémentent la logique qui est difficile à modéliser dans Pig Latin.
 

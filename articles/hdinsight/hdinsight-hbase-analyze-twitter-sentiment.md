@@ -508,7 +508,7 @@ Dans cette section, vous allez créer une application Web ASP.NET MVC afin de li
 	- Catégorie de modèle : **Visual C#/Web**
 	- Modèle : **Application Web ASP.NET**
 	- Nom : **TweetSentimentWeb**
-	- Emplacement : **C:\\Tutorials**
+	- Emplacement : **C:\Tutorials**
 4. Cliquez sur **OK**.
 5. Dans **Sélectionner un modèle**, cliquez sur **MVC**.
 6. Dans **Microsoft Azure**, cliquez sur **Gérer les abonnements**.
@@ -642,9 +642,9 @@ Dans cette section, vous allez créer une application Web ASP.NET MVC afin de li
 
 4. Dans la classe **HBaseReader**, modifiez les valeurs de constante comme suit :
 
-	- **CLUSTERNAME** : nom du cluster HBase, par exemple, *https://<NomClusterHBase>.azurehdinsight.net/*.
-    - **HADOOPUSERNAME** : le nom d'utilisateur Hadoop du cluster HBase. Le nom par défaut est *admin*.
-    - **HADOOPUSERPASSWORD** : le mot de passe utilisateur Hadoop du cluster HBase.
+	- **CLUSTERNAME** : nom du cluster HBase, par exemple, *https://<NomClusterHBase>.azurehdinsight.net/*.
+    - **HADOOPUSERNAME** : le nom d'utilisateur Hadoop du cluster HBase. Le nom par défaut est *admin*.
+    - **HADOOPUSERPASSWORD** : le mot de passe utilisateur Hadoop du cluster HBase.
     - **HBASETABLENAME** = « tweets\_by\_words » ;
 
 	Le nom de la table HBase est **« tweets\_by\_words »**. Les valeurs doivent correspondre aux valeurs que vous avez envoyées au service de diffusion pour que l'application Web lise les données de la même table HBase.
@@ -1250,7 +1250,7 @@ Dans cette section, vous allez créer une application Web ASP.NET MVC afin de li
 
 		using System.Web.Http;
 
-2. Ajoutez les lignes suivantes dans la fonction **Application\_Start()** :
+2. Ajoutez les lignes suivantes dans la fonction **Application\_Start()** :
 
 		// Register API routes
 		GlobalConfiguration.Configure(WebApiConfig.Register);

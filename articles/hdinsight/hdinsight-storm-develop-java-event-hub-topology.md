@@ -233,8 +233,8 @@ Par exemple, `mvn compile exec:java -Dstorm.topology=com.microsoft.example.Event
 
 Elle définit les ressources requises pour le projet :
 
-- **EventHubs.properties** : contient des informations utilisées pour se connecter à un Azure Event Hub
-- **core-site.xml** : contient des informations sur le stockage Azure utilisé par le cluster HDInsight.
+- **EventHubs.properties** : contient des informations utilisées pour se connecter à un Azure Event Hub
+- **core-site.xml** : contient des informations sur le stockage Azure utilisé par le cluster HDInsight.
 
 Vous devez remplir ces deux valeurs avec des informations concernant votre Event Hub et le cluster HDInsight.
 
@@ -242,9 +242,9 @@ Vous devez remplir ces deux valeurs avec des informations concernant votre Event
 
 Les variables d’environnement suivantes peuvent être définies lors de l’installation de Java et du Kit de développeur Java (JDK) sur votre station de travail de développement. Toutefois, vous devez vérifier qu’elles existent et qu’elles contiennent les valeurs correctes pour votre système.
 
-* **JAVA\_HOME** : doit pointer vers le répertoire d’installation de l’environnement d’exécution Java (JRE). Par exemple, sur une distribution Unix ou Linux, il doit avoir une valeur semblable à `/usr/lib/jvm/java-7-oracle`. Sous Windows, il a une valeur semblable à `c:\Program Files (x86)\Java\jre1.7`
+* **JAVA\_HOME** : doit pointer vers le répertoire d’installation de l’environnement d’exécution Java (JRE). Par exemple, sur une distribution Unix ou Linux, il doit avoir une valeur semblable à `/usr/lib/jvm/java-7-oracle`. Sous Windows, il a une valeur semblable à `c:\Program Files (x86)\Java\jre1.7`
 
-* **PATH** :doit contenir les chemins d’accès suivants :
+* **PATH** :doit contenir les chemins d’accès suivants :
 
 	* **JAVA\_HOME** (ou le chemin d’accès équivalent)
 
@@ -425,11 +425,11 @@ Vous pouvez exporter et importer les points de contrôle persistants vers le WAS
 
 Les scripts présents dans ce répertoire sont :
 
-* **stormmeta\_import.cmd** : pour importer toutes les métadonnées Storm du conteneur de stockage de clusters par défaut dans Zookeeper.
+* **stormmeta\_import.cmd** : pour importer toutes les métadonnées Storm du conteneur de stockage de clusters par défaut dans Zookeeper.
 
-* **stormmeta\_export.cmd** : pour exporter toutes les métadonnées Storm de Zookeeper vers le conteneur de stockage de clusters par défaut.
+* **stormmeta\_export.cmd** : pour exporter toutes les métadonnées Storm de Zookeeper vers le conteneur de stockage de clusters par défaut.
 
-* **stormmeta\_delete.cmd** : pour supprimer toutes les métadonnées Storm de Zookeeper.
+* **stormmeta\_delete.cmd** : pour supprimer toutes les métadonnées Storm de Zookeeper.
 
 L’exportation d’une importation vous permet de conserver les données du point de contrôle lorsque vous devez supprimer le cluster, mais que vous souhaitez reprendre le traitement à partir de l’offset actuel dans le hub lorsque vous remettez un nouveau cluster en ligne.
 

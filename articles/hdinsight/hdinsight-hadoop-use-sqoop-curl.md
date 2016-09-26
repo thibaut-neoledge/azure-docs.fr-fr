@@ -55,8 +55,8 @@ Pour effectuer les étapes présentées dans cet article, vous avez besoin des �
 
     Les paramètres utilisés dans cette commande sont les suivants :
 
-    * **-u** : le nom d’utilisateur et le mot de passe utilisés pour authentifier la demande.
-    * **-G** : indique qu’il s’agit d’une demande GET.
+    * **-u** : le nom d’utilisateur et le mot de passe utilisés pour authentifier la demande.
+    * **-G** : indique qu’il s’agit d’une demande GET.
 
     Le début de l’URL, **https://CLUSTERNAME.azurehdinsight.net/templeton/v1**, sera le même pour toutes les demandes. Le chemin d’accès, **/status, indique que la demande doit renvoyer le statut de WebHCat (également appelé Templeton) au serveur.
 
@@ -67,13 +67,13 @@ Pour effectuer les étapes présentées dans cet article, vous avez besoin des �
 
     Les paramètres utilisés dans cette commande sont les suivants :
 
-    * **-d** : étant donné que `-G` n’est pas utilisé, la demande passe par défaut à la méthode POST. `-d` spécifie les valeurs de données envoyées avec la demande.
+    * **-d** : étant donné que `-G` n’est pas utilisé, la demande passe par défaut à la méthode POST. `-d` spécifie les valeurs de données envoyées avec la demande.
 
-        * **user.name** : l’utilisateur qui exécute la commande.
+        * **user.name** : l’utilisateur qui exécute la commande.
 
         * **command**: commande Sqoop à exécuter.
 
-        * **statusdir** : le répertoire où seront enregistrés les statuts de cette tâche.
+        * **statusdir** : le répertoire où seront enregistrés les statuts de cette tâche.
 
     Cette commande doit retourner un ID de tâche qui peut être utilisé pour vérifier le statut de la tâche.
 

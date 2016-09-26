@@ -30,7 +30,7 @@ Découvrez comment utiliser Sqoop pour importer et exporter entre un cluster HDI
 Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
 - **Un cluster Hadoop dans HDInsight** et une __base de données SQL Azure__ : les étapes décrites dans ce document sont basées sur le cluster et la base de données créés à l’aide du document [Création du cluster et de la base de données SQL](hdinsight-use-sqoop.md#create-cluster-and-sql-database). Si vous avez déjà un cluster HDInsight et une base de données SQL, vous pouvez les remplacer pour les valeurs utilisées dans ce document.
-- **Station de travail** : ordinateur avec un client SSH.
+- **Station de travail** : ordinateur avec un client SSH.
 
 ##Installer FreeTDS
 
@@ -38,9 +38,9 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 
 	Pour plus d’informations sur l’utilisation de SSH pour se connecter à HDInsight, consultez les documents suivants :
 
-    * **Clients Linux, Unix ou OS X** : consultez la rubrique [Connexion à un cluster HDInsight sous Linux à partir de Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md#connect-to-a-linux-based-hdinsight-cluster)
+    * **Clients Linux, Unix ou OS X** : consultez la rubrique [Connexion à un cluster HDInsight sous Linux à partir de Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md#connect-to-a-linux-based-hdinsight-cluster)
 
-    * **Clients Windows** : consultez la rubrique [Connexion à un cluster HDInsight sous Linux à partir de Windows](hdinsight-hadoop-linux-use-ssh-windows.md#connect-to-a-linux-based-hdinsight-cluster)
+    * **Clients Windows** : consultez la rubrique [Connexion à un cluster HDInsight sous Linux à partir de Windows](hdinsight-hadoop-linux-use-ssh-windows.md#connect-to-a-linux-based-hdinsight-cluster)
 
 3. Utilisez la commande suivante pour installer FreeTDS :
 
@@ -104,7 +104,7 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 
     Cette commande doit renvoyer une liste des bases de données, y compris la base de données **sqooptest** que vous avez créée précédemment.
 
-4. Utilisez la commande suivante pour exporter des données à partir de **hivesampletable** dans la table **mobiledata** :
+4. Utilisez la commande suivante pour exporter des données à partir de **hivesampletable** dans la table **mobiledata** :
 
         sqoop export --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'mobiledata' --export-dir 'wasbs:///hive/warehouse/hivesampletable' --fields-terminated-by '\t' -m 1
 
@@ -114,7 +114,7 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 
         TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -P <adminPassword> -p 1433 -D sqooptest
 
-    Une fois que vous êtes connecté, utilisez les instructions suivantes pour vérifier que les données ont été exportées dans la table **mobiledata** :
+    Une fois que vous êtes connecté, utilisez les instructions suivantes pour vérifier que les données ont été exportées dans la table **mobiledata** :
 
         SELECT * FROM mobiledata
         GO

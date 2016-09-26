@@ -78,7 +78,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Configurer l’authentification unique](./media/active-directory-saas-sumologic-tutorial/IC778553.png "Configurer l’authentification unique")
 
-3.  Dans la zone de texte **URL de connexion à SumoLogic** de la page **Configuration l’URL de l’application**, tapez votre URL au format « *https://\<nom\_locataire>.SumoLogic.com* », puis cliquez sur **Suivant**.
+3.  Dans la zone de texte **URL de connexion à SumoLogic** de la page **Configuration l’URL de l’application**, tapez votre URL au format « *https://\<nom\_locataire>.SumoLogic.com* », puis cliquez sur **Suivant**.
 
     ![Configure aoo URL](./media/active-directory-saas-sumologic-tutorial/IC778554.png "Configure aoo URL")
 

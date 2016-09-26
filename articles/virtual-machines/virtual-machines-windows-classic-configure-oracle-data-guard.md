@@ -144,7 +144,7 @@ Exécutez l’instruction suivante pour basculer vers le répertoire Oracle\_Hom
 
 	cd %ORACLE_HOME%\database
 
-Créez ensuite un fichier de mot de passe à l’aide de l’utilitaire de création de fichier de mot de passe [ORAPWD](http://docs.oracle.com/cd/B28359_01/server.111/b28310/dba007.htm). Dans la même invite de commandes Windows sur Machine1, exécutez la commande suivante en définissant la valeur de mot de passe en tant que mot de passe de **SYS** :
+Créez ensuite un fichier de mot de passe à l’aide de l’utilitaire de création de fichier de mot de passe [ORAPWD](http://docs.oracle.com/cd/B28359_01/server.111/b28310/dba007.htm). Dans la même invite de commandes Windows sur Machine1, exécutez la commande suivante en définissant la valeur de mot de passe en tant que mot de passe de **SYS** :
 
 	ORAPWD FILE=PWDTEST.ora PASSWORD=password FORCE=y
 

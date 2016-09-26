@@ -201,7 +201,7 @@ Les métadonnées de modèle (fichier metadata.json) contiennent des paires clé
 
 **Les métadonnées de modèle sont décrites dans le fichier metadata.json**
 
-Les agents de logiciel peuvent récupérer le fichier metadata.json et publier les informations et un lien vers le modèle dans une page ou un répertoire web. Les éléments incluent *itemDisplayName*, *description*, *summary*, *githubUsername* et *dateUpdated*.
+Les agents de logiciel peuvent récupérer le fichier metadata.json et publier les informations et un lien vers le modèle dans une page ou un répertoire web. Les éléments incluent *itemDisplayName*, *description*, *summary*, *githubUsername* et *dateUpdated*.
 
 Un exemple de fichier est présenté ci-dessous dans son intégralité.
 

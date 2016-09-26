@@ -135,19 +135,19 @@ Dans ce document, découvrez comment utiliser Maven pour créer une tâche de co
 
     Ce fichier décrit le projet, les dépendances et les plug-ins. En voici les principales entrées :
 
-    * **maven.compiler.source** et **maven.compiler.target** : définissent la version Java du projet
+    * **maven.compiler.source** et **maven.compiler.target** : définissent la version Java du projet
 
-    * **repositories** : référentiels contenant les fichiers de dépendance utilisés par le projet
+    * **repositories** : référentiels contenant les fichiers de dépendance utilisés par le projet
 
-    * **scalding-core\_2.11** et **hadoop-core** : ce projet dépend des packages principaux Scalding et Hadoop
+    * **scalding-core\_2.11** et **hadoop-core** : ce projet dépend des packages principaux Scalding et Hadoop
 
-    * **maven-scala-plug-in** : plug-in pour compiler des applications scala
+    * **maven-scala-plug-in** : plug-in pour compiler des applications scala
 
-    * **maven-shade-plug-in** : plug-in pour créer des fichiers jar « shaded (fat) ». Ce plug-in applique des filtres et des transformations, en particulier :
+    * **maven-shade-plug-in** : plug-in pour créer des fichiers jar « shaded (fat) ». Ce plug-in applique des filtres et des transformations, en particulier :
 
-        * **filters** : les filtres appliqués modifient les métadonnées incluses dans le fichier jar. Pour éviter les exceptions de signature au moment de l’exécution, cela exclut les différents fichiers de signature qui peuvent être inclus avec les dépendances.
+        * **filters** : les filtres appliqués modifient les métadonnées incluses dans le fichier jar. Pour éviter les exceptions de signature au moment de l’exécution, cela exclut les différents fichiers de signature qui peuvent être inclus avec les dépendances.
 
-        * **executions** : la configuration d’exécution de la phase du package spécifie la classe **com.twitter.scalding.Tool** comme classe principale pour le package. Sans cela, vous devez spécifier com.twitter.scalding.Tool, ainsi que la classe qui contient la logique d’application, lors de l’exécution de la tâche avec la commande hadoop.
+        * **executions** : la configuration d’exécution de la phase du package spécifie la classe **com.twitter.scalding.Tool** comme classe principale pour le package. Sans cela, vous devez spécifier com.twitter.scalding.Tool, ainsi que la classe qui contient la logique d’application, lors de l’exécution de la tâche avec la commande hadoop.
 
 3. Supprimez le répertoire **src/test**, car vous n'allez pas créer de tests dans cet exemple.
 

@@ -40,7 +40,7 @@ Si vous annulez votre abonnement, vos données seront stockées pendant 90 jours
 
 5. Cliquez sur ![checkbutton](./media/billing-how-to-cancel-azure-subscription/checkbutton.png) pour fermer la boîte de dialogue et revenir à votre page d’abonnement.
 
-	> [AZURE.NOTE] Si vous avez accidentellement annulé votre abonnement avec paiement à l’utilisation, vous pouvez suivre les instructions décrites [ici](https://azure.microsoft.com/fr-FR/documentation/articles/billing-subscription-become-disable/) pour le réactiver.
+	> [AZURE.NOTE] Si vous avez accidentellement annulé votre abonnement avec paiement à l’utilisation, vous pouvez suivre les instructions décrites [ici](https://azure.microsoft.com/documentation/articles/billing-subscription-become-disable/) pour le réactiver.
 
 > [AZURE.NOTE] Si vous avez d’autres questions, veuillez [contacter le support technique](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour obtenir une prise en charge rapide de votre problème.
 

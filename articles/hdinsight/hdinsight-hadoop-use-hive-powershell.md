@@ -41,19 +41,19 @@ Azure PowerShell fournit des *cmdlets* qui vous permettent d'exécuter à distan
 
 Les applets de commande suivants sont utilisés lors de l'exécution de requêtes Hive sur un cluster à distance HDInsight :
 
-* **Add-AzureRmAccount** : authentifie Azure PowerShell dans votre abonnement Azure.
+* **Add-AzureRmAccount** : authentifie Azure PowerShell dans votre abonnement Azure.
 
-* **New-AzureRmHDInsightHiveJobDefinition** : crée une *définition de travail* à l’aide des instructions HiveQL spécifiées.
+* **New-AzureRmHDInsightHiveJobDefinition** : crée une *définition de travail* à l’aide des instructions HiveQL spécifiées.
 
-* **Start-AzureRmHDInsightJob** : envoie la définition de la tâche à HDInsight, démarre la tâche et retourne un objet de *tâche* pouvant être utilisé pour vérifier le statut de la tâche.
+* **Start-AzureRmHDInsightJob** : envoie la définition de la tâche à HDInsight, démarre la tâche et retourne un objet de *tâche* pouvant être utilisé pour vérifier le statut de la tâche.
 
-* **Wait-AzureRmHDInsightJob** : utilise l’objet de la tâche pour vérifier le statut de la tâche. Il attend que la tâche soit terminée ou que le délai d’attente soit dépassé.
+* **Wait-AzureRmHDInsightJob** : utilise l’objet de la tâche pour vérifier le statut de la tâche. Il attend que la tâche soit terminée ou que le délai d’attente soit dépassé.
 
-* **Get-AzureRmHDInsightJobOutput** : utilisé pour récupérer la sortie de la tâche.
+* **Get-AzureRmHDInsightJobOutput** : utilisé pour récupérer la sortie de la tâche.
 
-* **Invoke-AzureRmHDInsightHiveJob** : utilisé pour exécuter des instructions HiveQL. Cela bloque la fin de la requête, puis retourne les résultats.
+* **Invoke-AzureRmHDInsightHiveJob** : utilisé pour exécuter des instructions HiveQL. Cela bloque la fin de la requête, puis retourne les résultats.
 
-* **Use-AzureRmHDInsightCluster** : configure le cluster actuel à utiliser pour la commande **Invoke-AzureRmHDInsightHiveJob**.
+* **Use-AzureRmHDInsightCluster** : configure le cluster actuel à utiliser pour la commande **Invoke-AzureRmHDInsightHiveJob**.
 
 Les étapes suivantes montrent comment utiliser ces cmdlets pour exécuter une tâche sur votre cluster HDInsight :
 

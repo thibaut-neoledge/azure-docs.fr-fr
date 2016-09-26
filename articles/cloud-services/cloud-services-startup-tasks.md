@@ -61,9 +61,9 @@ Les informations suivantes indiquent la procédure de démarrage de rôle dans A
 
 Les tâches de démarrage sont définies dans le fichier [ServiceDefinition.csdef], dans l’élément **Task**. L’attribut **commandLine** spécifie le nom et les paramètres du fichier de commandes de démarrage ou de la commande de la console, l’attribut **executionContext** indique le niveau de privilège de la tâche de démarrage et l’attribut **taskType** définit l’exécution de la tâche.
 
-Dans cet exemple, une variable d’environnement **MyVersionNumber**, est créée pour la tâche de démarrage et définie sur « **1.0.0.0** ».
+Dans cet exemple, une variable d’environnement **MyVersionNumber**, est créée pour la tâche de démarrage et définie sur « **1.0.0.0** ».
 
-**ServiceDefinition.csdef** :
+**ServiceDefinition.csdef** :
 
 ```xml
 <Startup>
@@ -97,9 +97,9 @@ Vous trouverez ci-dessous une description des attributs de l’élément **Task*
 
 **executionContext** - spécifie le niveau de privilège pour la tâche de démarrage. Le niveau de privilège peut être limité ou élevé :
 
-- **limited** : la tâche de démarrage s’exécute avec les mêmes privilèges que le rôle. Quand l’attribut **executionContext** de l’élément [Runtime] est également **limited**, les privilèges utilisateur sont utilisés.
+- **limited** : la tâche de démarrage s’exécute avec les mêmes privilèges que le rôle. Quand l’attribut **executionContext** de l’élément [Runtime] est également **limited**, les privilèges utilisateur sont utilisés.
 
-- **elevated** : la tâche de démarrage s’exécute avec des privilèges d’administrateur. Les tâches de démarrage peuvent ainsi installer des programmes, apporter des modifications à la configuration IIS, modifier le Registre et effectuer d’autres tâches d’administration, sans augmenter le niveau de privilège du rôle.
+- **elevated** : la tâche de démarrage s’exécute avec des privilèges d’administrateur. Les tâches de démarrage peuvent ainsi installer des programmes, apporter des modifications à la configuration IIS, modifier le Registre et effectuer d’autres tâches d’administration, sans augmenter le niveau de privilège du rôle.
 
 > [AZURE.NOTE] Le niveau de privilège d’une tâche de démarrage n’a pas besoin d’être le même que celui du rôle.
 
@@ -121,13 +121,13 @@ Les variables d’environnement permettent de passer les informations à une tâ
 
 Il existe deux types de variables d’environnement pour des tâches de démarrage ; des variables d’environnement statiques et des variables d’environnement basées sur les membres de la classe [RoleEnvironment]. Elles se trouvent dans la section [Environment] du fichier [ServiceDefinition.csdef] et utilisent l’élément [Variable] et l’attribut **name**.
 
-Les variables d’environnement statiques utilisent l’attribut **value** de l’élement [Variable]. L’exemple ci-dessus crée la variable d’environnement **MyVersionNumber** avec une valeur statique de « **1.0.0.0** ». Un autre exemple consiste à créer une variable d’environnement **StagingOrProduction** à laquelle vous pouvez manuellement attribuer les valeurs « **staging** » ou « **production** » pour exécuter des actions de démarrage différentes en fonction de la valeur de la variable d’environnement **StagingOrProduction**.
+Les variables d’environnement statiques utilisent l’attribut **value** de l’élement [Variable]. L’exemple ci-dessus crée la variable d’environnement **MyVersionNumber** avec une valeur statique de « **1.0.0.0** ». Un autre exemple consiste à créer une variable d’environnement **StagingOrProduction** à laquelle vous pouvez manuellement attribuer les valeurs « **staging** » ou « **production** » pour exécuter des actions de démarrage différentes en fonction de la valeur de la variable d’environnement **StagingOrProduction**.
 
 Les variables d’environnement basées sur les membres de la classe RoleEnvironment n’utilisent pas l’attribut **value** de l’élément [Variable]. À la place, l’élément [RoleInstanceValue] enfant, avec la valeur d’attribut **xPath** appropriée, est utilisé pour créer une variable d’environnement basée sur un membre spécifique de la classe [RoleEnvironment]. Les valeurs de l’attribut **XPath** pour accéder aux différentes valeurs [RoleEnvironment] se trouvent [ici](cloud-services-role-config-xpath.md).
 
 
 
-Par exemple, pour créer une variable d’environnement qui a la valeur « **true** » quand l’instance s’exécute dans l’émulateur de calcul et la valeur « **false** » pendant une exécution dans le cloud, utilisez les éléments [Variable] et [RoleInstanceValue] :
+Par exemple, pour créer une variable d’environnement qui a la valeur « **true** » quand l’instance s’exécute dans l’émulateur de calcul et la valeur « **false** » pendant une exécution dans le cloud, utilisez les éléments [Variable] et [RoleInstanceValue] :
 
 ```xml
 <Startup>

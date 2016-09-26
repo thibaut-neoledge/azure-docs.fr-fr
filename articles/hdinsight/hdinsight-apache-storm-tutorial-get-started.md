@@ -123,8 +123,8 @@ Procédez comme suit pour exécuter un exemple Storm Starter :
 
 	![Storm Starter avec l'entrée Statistiques sélectionnée sur le tableau de bord Storm.](./media/hdinsight-apache-storm-tutorial-get-started/submit.png)
 
-	* **Nom de la classe** : classe dans le fichier .jar qui envoie la topologie.
-	* **Paramètres supplémentaires** : tous les paramètres requis par la topologie. Dans cet exemple, le champ sert à fournir un nom convivial pour la topologie envoyée.
+	* **Nom de la classe** : classe dans le fichier .jar qui envoie la topologie.
+	* **Paramètres supplémentaires** : tous les paramètres requis par la topologie. Dans cet exemple, le champ sert à fournir un nom convivial pour la topologie envoyée.
 
 2. Cliquez sur **Envoyer**. Après quelques instants, le champ **Résultat** affiche la commande utilisée pour envoyer la tâche, ainsi que les résultats de la commande. Le champ **Erreur** affiche toutes les erreurs qui se produisent au cours de l’envoi de la topologie.
 
@@ -150,25 +150,25 @@ L’interface utilisateur Storm peut servir à analyser la topologie.
 
 	Cette page fournit les informations suivantes :
 
-	* **Statistiques de topologie** : informations de base sur les performances de la topologie, organisées dans des fenêtres de temps.
+	* **Statistiques de topologie** : informations de base sur les performances de la topologie, organisées dans des fenêtres de temps.
 
 		> [AZURE.NOTE] La sélection d’une fenêtre de temps spécifique modifie la fenêtre de temps pour les informations affichées dans d’autres sections de la page.
 
-	* **Spouts** : informations de base sur les spouts, y compris la dernière erreur retournée par chaque spout.
+	* **Spouts** : informations de base sur les spouts, y compris la dernière erreur retournée par chaque spout.
 
-	* **Bolts** : informations de base sur les bolts.
+	* **Bolts** : informations de base sur les bolts.
 
-	* **Configuration de la topologie** : informations détaillées sur la configuration de la topologie.
+	* **Configuration de la topologie** : informations détaillées sur la configuration de la topologie.
 
 	Cette page présente également les actions qui peuvent être effectuées sur la topologie :
 
-	* **Activer** : reprend le traitement d’une topologie désactivée.
+	* **Activer** : reprend le traitement d’une topologie désactivée.
 
-	* **Désactiver** : suspend une topologie en cours d’exécution.
+	* **Désactiver** : suspend une topologie en cours d’exécution.
 
-	* **Rééquilibrer** : ajuste le parallélisme de la topologie. Il convient de rééquilibrer les topologies en cours d’exécution après avoir modifié le nombre de nœuds dans le cluster. Cela permet à la topologie d’ajuster le parallélisme pour compenser l’augmentation/la réduction du nombre de nœuds du cluster. Pour plus d’informations, consultez la rubrique [Présentation du parallélisme d’une topologie Storm](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).
+	* **Rééquilibrer** : ajuste le parallélisme de la topologie. Il convient de rééquilibrer les topologies en cours d’exécution après avoir modifié le nombre de nœuds dans le cluster. Cela permet à la topologie d’ajuster le parallélisme pour compenser l’augmentation/la réduction du nombre de nœuds du cluster. Pour plus d’informations, consultez la rubrique [Présentation du parallélisme d’une topologie Storm](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).
 
-	* **Supprimer** : met fin à une topologie Storm après expiration du délai spécifié.
+	* **Supprimer** : met fin à une topologie Storm après expiration du délai spécifié.
 
 5. À partir de cette page, sélectionnez une entrée dans la section **Spouts** ou **Bolts**. Vous obtenez des informations relatives au composant sélectionné.
 
@@ -176,17 +176,17 @@ L’interface utilisateur Storm peut servir à analyser la topologie.
 
 	Cette page affiche les informations suivantes :
 
-	* **Statistiques du spout/bolt** : informations de base sur les performances de la topologie, organisées dans des fenêtres de temps.
+	* **Statistiques du spout/bolt** : informations de base sur les performances de la topologie, organisées dans des fenêtres de temps.
 
 		> [AZURE.NOTE] La sélection d’une fenêtre de temps spécifique modifie la fenêtre de temps pour les informations affichées dans d’autres sections de la page.
 
 	* **Statistiques d’entrée** (bolt uniquement) : informations sur les composants qui produisent des données consommées par le bolt.
 
-	* **Statistiques de sortie** : informations sur les données émises par ce bolt.
+	* **Statistiques de sortie** : informations sur les données émises par ce bolt.
 
-	* **Exécuteurs** : informations sur les instances de ce composant.
+	* **Exécuteurs** : informations sur les instances de ce composant.
 
-	* **Erreurs** : erreurs générées par ce composant.
+	* **Erreurs** : erreurs générées par ce composant.
 
 5. Lorsque vous affichez les détails d’un spout ou d’un bolt, sélectionnez une entrée depuis la colonne **Port** située dans la section **Exécuteurs** pour afficher les détails d’une instance spécifique du composant.
 
@@ -215,11 +215,11 @@ Dans ce didacticiel sur Storm Apache, vous avez appris à créer un cluster Sto
 
 ## <a id="next"></a>Étapes suivantes
 
-* **HDInsight Tools pour Visual Studio** : HDInsight Tools vous permet d’utiliser Visual Studio pour envoyer, surveiller et gérer des topologies Storm semblables à celles du tableau de bord Storm mentionnées plus haut. HDInsight Tools offre la possibilité de créer des topologies Storm C# et inclut des exemples de topologies que vous pouvez déployer et exécuter sur votre cluster.
+* **HDInsight Tools pour Visual Studio** : HDInsight Tools vous permet d’utiliser Visual Studio pour envoyer, surveiller et gérer des topologies Storm semblables à celles du tableau de bord Storm mentionnées plus haut. HDInsight Tools offre la possibilité de créer des topologies Storm C# et inclut des exemples de topologies que vous pouvez déployer et exécuter sur votre cluster.
 
 	Pour plus d’informations, consultez la rubrique [Prise en main des outils HDInsight pour Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md).
 
-* **Exemples de fichiers** : le cluster Storm HDInsight contient plusieurs exemples dans le répertoire **%STORM\_HOME%\\contrib**. Chaque exemple doit contenir les éléments suivants :
+* **Exemples de fichiers** : le cluster Storm HDInsight contient plusieurs exemples dans le répertoire **%STORM\_HOME%\\contrib**. Chaque exemple doit contenir les éléments suivants :
 
 	* Le code source : par exemple, storm-starter-0.9.1.2.1.5.0-2057-sources.jar
 
