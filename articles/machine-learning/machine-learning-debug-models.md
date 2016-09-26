@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter="" 
 	authors="garyericson" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun"/>
 
 <tags 
@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/03/2016" 
+	ms.date="09/09/2016" 
 	ms.author="bradsev;garye" />
 
 # Déboguer votre modèle dans Azure Machine Learning
 
 Cet article explique comment déboguer vos modèles dans Microsoft Azure Machine Learning. Plus précisément, il décrit les raisons possibles pour lesquelles l’exécution d’un modèle peut donner lieu à l’un des deux scénarios d’échec suivants :
 
-* le module [Former le modèle][train-model] génère une erreur ; 
-* le module [Noter le modèle][score-model] produit des résultats incorrects ; 
+* le module [Former le modèle][train-model] génère une erreur ;
+* le module [Noter le modèle][score-model] produit des résultats incorrects ;
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
@@ -56,7 +56,7 @@ Le module [Noter le modèle][score-model] nécessite deux entrées :
 
 Même si l’expérience réussit, il est possible que le module [Noter le modèle][score-model] produise des résultats incorrects. Plusieurs scénarios peuvent donner lieu aux situations suivantes :
 
-1. Si l’étiquette spécifiée est catégorielle et qu’un modèle de régression est formé sur les données, le module [Noter le modèle][score-model] produit une sortie incorrecte. Ceci est dû au fait que la régression requiert une variable dépendante continue. Dans ce cas, il est plus judicieux d’utiliser un modèle de classification. 
+1. Si l’étiquette spécifiée est catégorielle et qu’un modèle de régression est formé sur les données, le module [Noter le modèle][score-model] produit une sortie incorrecte. Ceci est dû au fait que la régression requiert une variable dépendante continue. Dans ce cas, il est plus judicieux d’utiliser un modèle de classification.
 2. De la même façon, si un modèle de classification est formé sur un jeu de données comportant des nombres à virgule flottante dans la colonne Étiquette, il peut produire des résultats indésirables. Ceci s’explique par le fait que la classification requiert une variable dépendante discontinue qui autorise uniquement les valeurs couvrant un ensemble de classes fini et généralement plutôt restreint.
 3. Si le jeu de données de notation ne contient pas toutes les fonctionnalités utilisées pour effectuer l’apprentissage du modèle, le module [Noter le modèle][score-model] génère une erreur.
 4. Le module [Noter le modèle][score-model] ne produit aucune sortie correspondant à une ligne du jeu de données de notation qui présente une valeur manquante ou infinie pour l’une de ses fonctionnalités.
@@ -69,4 +69,4 @@ Même si l’expérience réussit, il est possible que le module [Noter le modè
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
  
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0914_2016-->

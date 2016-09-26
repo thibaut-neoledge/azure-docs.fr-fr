@@ -4,7 +4,7 @@
 	services="machine-learning,storage"
 	documentationCenter=""
 	authors="bradsev"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun" />
 
 <tags
@@ -18,7 +18,7 @@
 
 # Déplacer des données vers et depuis le stockage d’objets blob Azure à l’aide de Python
 
-Cette rubrique décrit comment répertorier, charger et télécharger des objets blob à l'aide de l'API Python. Avec l’API Python fournie dans le SDK Azure, vous pouvez :
+Cette rubrique décrit comment répertorier, charger et télécharger des objets blob à l’aide de l’API Python. Avec l’API Python fournie dans le SDK Azure, vous pouvez :
 
 - Créer un conteneur
 - Charger un objet blob dans un conteneur
@@ -129,4 +129,4 @@ L’exemple de code suivant télécharge tous les blobs d’un conteneur. Il uti
 	    except:
 	        print "something wrong happened when downloading the data %s"%blob.name
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -154,7 +154,7 @@ L’enregistrement TXT supplémentaire adopte la convention qui mappe de &lt;*so
 <a name="cname"></a>
 ### Créer un enregistrement CNAME
 
-Si vous utilisez un enregistrement CNAME à mapper au nom de domaine par défaut de votre application Azure, vous n’avez pas besoin d’un enregistrement CNAME supplémentaire, comme c’est le cas avec un enregistrement A.
+Si vous utilisez un enregistrement CNAME à mapper au nom de domaine par défaut de votre application Azure, vous n’avez pas besoin d’un enregistrement TXT supplémentaire, comme c’est le cas avec un enregistrement A.
 
 >[AZURE.IMPORTANT] Ne créez pas d’enregistrement CNAME pour votre domaine racine (c’est-à-dire « d’enregistrement racine »). Pour plus d’informations, consultez l’article [Why can’t a CNAME record be used at the root domain (Pourquoi un enregistrement CNAME ne peut-il pas être utilisé dans le domaine racine)](http://serverfault.com/questions/613829/why-cant-a-cname-record-be-used-at-the-apex-aka-root-of-a-domain). Pour mapper un domaine racine à votre application Azure, utilisez plutôt un [enregistrement A](#a).
 
@@ -249,4 +249,4 @@ Apprenez à sécuriser votre nom de domaine personnalisé avec HTTPS en [achetan
 <!-- Images -->
 [subdomain]: media/web-sites-custom-domain-name/azurewebsites-subdomain.png
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

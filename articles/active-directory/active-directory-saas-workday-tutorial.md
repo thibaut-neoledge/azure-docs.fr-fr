@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="06/20/2016" 
+    ms.date="09/09/2016" 
     ms.author="jeedes" />
 
 #Didacticiel : Intégration d’Azure AD à Workday
@@ -23,7 +23,7 @@ L’objectif de ce didacticiel est de montrer comment intégrer Azure et Workday
   
 Le scénario décrit dans ce didacticiel se compose des blocs de construction suivants :
 
-1.  Activation de l’intégration d’applications pour Workday
+1.  Activation de l’intégration d’application pour Workday
 2.  Configuration de l'authentification unique
 3.  Configuration de l'approvisionnement des utilisateurs
 4.  Configuration de l'approvisionnement des utilisateurs
@@ -80,7 +80,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
 	b. Dans la zone de texte **URL de réponse de Workday**, tapez l’URL appropriée au format suivant : `https://impl.workday.com/<tenant>/login-saml.htmld`
 
-	>[AZURE.NOTE] Votre URL de réponse doit disposer d'un sous-domaine (par exemple, www, wd2, wd3, wd3-impl, wd5, wd5-impl). Une solution telle que "*http://www.myworkday.com*" fonctionne, mais pas "*http://myworkday.com*".
+	>[AZURE.NOTE] Votre URL de réponse doit disposer d'un sous-domaine (par exemple, www, wd2, wd3, wd3-impl, wd5, wd5-impl). Une solution telle que "**http://www.myworkday.com*" fonctionne, mais pas "**http://myworkday.com*".
  
 4.  Dans la page **Configurer l’authentification unique sur Workday**, cliquez sur **Télécharger le certificat**, puis enregistrez le fichier de certificat sur votre ordinateur.
 
@@ -106,7 +106,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
 	a. Cliquez sur le **signe plus** pour ajouter une ligne.
 
-	b. Dans les zones de texte **URL de redirection de connexion** et **URL de redirection mobile**, tapez l’**URL de locataire Workday** que vous avez entrée dans la page **Configurer l’URL de l’application** du portail Azure Classic.
+	b. Dans les zones de texte **URL de redirection de connexion** et **URL de redirection mobile**, tapez **l’URL de locataire Workday** que vous avez entrée dans la page **Configurer l’URL de l’application** du portail Azure Classic.
     
 	c. Dans le portail Azure Classic, dans la page **Configurer l’authentification unique dans Workday** de la boîte de dialogue, copiez **l’URL du service de déconnexion unique**, puis collez-la dans la zone de texte **URL de redirection de déconnexion**.
 
@@ -120,7 +120,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
 10. Dans la section **SAML Setup**, procédez comme suit :
 
-    ![Configuration de SAML](./media/active-directory-saas-workday-tutorial/IC782926.png "Configuration de SAML")
+    ![SAML Setup](./media/active-directory-saas-workday-tutorial/IC782926.png "Configuration de SAML")
 
 	a. Sélectionnez **Enable SAML Authentication**.
 
@@ -162,7 +162,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
 	d. Créez un fichier **codé en base 64** à partir du certificat téléchargé.
 
-	>[AZURE.TIP] Pour plus d’informations, consultez la section [Comment convertir un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
+	>[AZURE.TIP] Pour plus d’informations, consultez [Comment convertir un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
 
 	e. Ouvrez le certificat codé en base 64 dans le Bloc-notes, puis copiez son contenu.
     
@@ -222,6 +222,6 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
     ![Oui](./media/active-directory-saas-workday-tutorial/IC767830.png "Oui")
   
-Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
+Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d'informations sur le panneau d'accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

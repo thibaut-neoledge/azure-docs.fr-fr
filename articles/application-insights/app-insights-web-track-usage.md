@@ -21,8 +21,8 @@ Le fait de savoir comment les personnes utilisent votre application vous permet 
 
 Visual Studio Application Insights offre deux niveaux de suivi de l'utilisation :
 
-* **Données sur les utilisateurs, les sessions et les pages consultées** - fournies dès le départ.  
-* **Télémétrie personnalisée** - Vous [écrivez un code][api] pour suivre vos utilisateurs via l'expérience utilisateur de votre application. 
+* **Données sur les utilisateurs, les sessions et les pages consultées** - fournies dès le départ.
+* **Télémétrie personnalisée** - Vous [écrivez un code][api] pour suivre vos utilisateurs via l'expérience utilisateur de votre application.
 
 ## Configuration
 
@@ -37,7 +37,7 @@ Connectez-vous au [portail Azure][portal] et accédez à votre ressource d’app
 
 ![](./media/app-insights-web-track-usage/14-usage.png)
 
-* **Utilisateurs :** nombre d'utilisateurs actifs distincts dans la plage de temps du graphique. 
+* **Utilisateurs :** nombre d'utilisateurs actifs distincts dans la plage de temps du graphique.
 * **Sessions :** nombre de sessions actives
 * **Affichages de pages** compte le nombre d’appels à trackPageView(), généralement appelé une seule fois dans chaque page web.
 
@@ -336,7 +336,7 @@ Dans l'initialiseur de l'application, par exemple Global.asax.cs :
 Lorsque vous utilisez l'analyse, elle devient partie intégrante de votre cycle de développement, et plus uniquement un élément auquel vous avez recours pour résoudre les problèmes. Voici quelques conseils :
 
 * Déterminez la mesure clé de votre application. Voulez-vous le plus d'utilisateurs possible ou préférez un petit groupe d'utilisateurs heureux ? Voulez-vous optimiser les visites ou les ventes ?
-* Prévoyez de mesurer chaque parcours. Lorsque vous concevez un nouveau parcours utilisateur ou une nouvelle fonctionnalité ou que vous appliquez une mise à jour, envisagez toujours comment vous allez mesurer la réussite de cet élément. Avant de commencer à créer votre code, posez-vous la question « Quel effet cela aura sur nos mesures, si ça fonctionne ? Est-ce que nous devons suivre tous les nouveaux événements ? » Et bien sûr, une fois la fonctionnalité active, veillez à examiner l'analyse et agir en fonction des résultats. 
+* Prévoyez de mesurer chaque parcours. Lorsque vous concevez un nouveau parcours utilisateur ou une nouvelle fonctionnalité ou que vous appliquez une mise à jour, envisagez toujours comment vous allez mesurer la réussite de cet élément. Avant de commencer à créer votre code, posez-vous la question « Quel effet cela aura sur nos mesures, si ça fonctionne ? Est-ce que nous devons suivre tous les nouveaux événements ? » Et bien sûr, une fois la fonctionnalité active, veillez à examiner l'analyse et agir en fonction des résultats.
 * Faites le lien entre la mesure clé et les autres mesures. Par exemple, si vous ajoutez une fonctionnalité de « favoris », vous souhaitez connaître la fréquence à laquelle les utilisateurs ajoutent des favoris. Mais il est peut-être plus intéressant de savoir avec quelle fréquence ils reviennent à leurs favoris. Et, plus important encore, les clients qui utilisent les favoris achètent-ils plus votre produit ?
 * Test du canari. Configurez une fonctionnalité qui ne sera visible que pour certains utilisateurs. Utilisez Application Insights pour voir si cette nouvelle fonctionnalité est utilisée comme vous l'aviez envisagé. Apportez les ajustements nécessaires, puis publiez-la pour un public plus large.
 * Parlez à vos utilisateurs ! L'analyse en soi n'est pas suffisante, mais elle vient compléter une bonne relation client.
@@ -366,4 +366,4 @@ Lorsque vous utilisez l'analyse, elle devient partie intégrante de votre cycle 
 
  
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0914_2016-->

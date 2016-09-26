@@ -1,11 +1,11 @@
 <properties
-	pageTitle="Utilisation d’un service Web Machine Learning à l’aide d’un modèle d’application Web | Microsoft Azure"
+	pageTitle="Utilisation d’un service Web Machine Learning à l’aide d’un modèle d’application Web | Microsoft Azure"
 	description="Utilisez un modèle d’application Web dans Azure Marketplace pour exploiter un service Web prédictif dans Azure Machine Learning."
 	keywords="service Web, opérationnalisation, API REST, apprentissage automatique"
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -17,7 +17,7 @@
 	ms.date="07/06/2016"
 	ms.author="garye;raymondl"/>
 
-# Utilisation d’un service Web Microsoft Azure Machine Learning à l’aide d’un modèle d’application Web
+# Utilisation d’un service Web Microsoft Azure Machine Learning à l’aide d’un modèle d’application Web
 
 >[AZURE.NOTE] Cette rubrique décrit les techniques applicables à un service web classique.
 
@@ -29,11 +29,11 @@ Mais le moyen le plus rapide et le plus simple d’accéder à votre service web
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-## Modèles d’applications Web de Microsoft Azure Machine Learning
+## Modèles d’applications Web de Microsoft Azure Machine Learning
 
 Les modèles d’applications Web disponibles dans Azure Marketplace peuvent générer une application Web personnalisée qui connaît les données d’entrée et les résultats attendus de votre service Web. Il vous suffit de donner à l’application Web l’accès à votre service Web et aux données associées, et le modèle fait le reste.
 
-Il existe deux modèles :
+Il existe deux modèles :
 
 - [Modèle d’application Web Azure ML Request-Response Service](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlaspnettemplateforrrs/)
 - [Modèle d’application Web Azure ML Batch Execution Service](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlbeswebapptemplate/)
@@ -52,7 +52,7 @@ Après avoir déployé votre service Web, vous pouvez suivre la procédure ci-de
 
 	![Clé d’API][image3]
 
-2. Ouvrez la page d’aide de l’API **REQUEST/RESPONSE**. En haut de la page d’aide, sous **Requête**, copiez et enregistrez la valeur **URI de requête**. Exemple de valeur :
+2. Ouvrez la page d’aide de l’API **REQUEST/RESPONSE**. En haut de la page d’aide, sous **Requête**, copiez et enregistrez la valeur **URI de requête**. Exemple de valeur :
 
 		https://ussouthcentral.services.azureml.net/workspaces/<workspace-id>/services/<service-id>/execute?api-version=2.0&details=true
 
@@ -70,7 +70,7 @@ Après avoir déployé votre service Web, vous pouvez suivre la procédure ci-de
 
 4. Une fois le déploiement de l’application web terminé, cliquez sur l’**URL** sur la page des paramètres de l’application web dans Azure, ou entrez l’URL dans un navigateur web. Par exemple, `http://carprediction.azurewebsites.net.`
 
-5. À la première exécution de l’application web, vous êtes invité à renseigner l’**URL de publication de l’API** et la **clé de l’API**. Entrez les valeurs que vous avez enregistrées précédemment :
+5. À la première exécution de l’application web, vous êtes invité à renseigner l’**URL de publication de l’API** et la **clé de l’API**. Entrez les valeurs que vous avez enregistrées précédemment :
 	- **URI de requête** de la page d’aide de l’API pour l’**URL de publication de l’API**
 	- **Clé de l’API** du tableau de bord de service web pour la **clé de l’API**.
 
@@ -86,7 +86,7 @@ Après avoir déployé votre service Web, vous pouvez suivre la procédure ci-de
 
 7. Dans la page d’accueil, vous pouvez saisir les valeurs à envoyer à votre service web et cliquer sur **Envoyer** pour obtenir le résultat.
 
-Si vous souhaitez revenir à la page **Configuration**, accédez à la page `setting.aspx` de l’application web. Par exemple : `http://carprediction.azurewebsites.net/setting.aspx.`. Vous serez invité à saisir de nouveau la clé de l’API pour pouvoir accéder à la page et mettre à jour les paramètres.
+Si vous souhaitez revenir à la page **Configuration**, accédez à la page `setting.aspx` de l’application web. Par exemple : `http://carprediction.azurewebsites.net/setting.aspx.`. Vous serez invité à saisir de nouveau la clé de l’API pour pouvoir accéder à la page et mettre à jour les paramètres.
 
 Vous pouvez arrêter, redémarrer ou supprimer l’application web dans le portail Azure comme n’importe quelle autre application web. Tant qu’elle est en cours d’exécution, vous pouvez accéder à l’adresse Web de base et saisir les nouvelles valeurs.
 
@@ -94,11 +94,11 @@ Vous pouvez arrêter, redémarrer ou supprimer l’application web dans le porta
 
 Vous pouvez utiliser le modèle d’application Web BES de la même manière que le modèle RRS, à ceci près que l’application Web créée vous permettra d’envoyer plusieurs lignes de données et de recevoir plusieurs résultats.
 
-Les résultats d’un service Web d’exécution par lot sont stockés dans un conteneur de stockage Azure ; les valeurs d’entrée peuvent provenir du stockage Azure ou d’un fichier local. Vous aurez donc besoin d’un conteneur de stockage Azure pour stocker les résultats renvoyés par l’application Web. Vous devrez également préparer vos données d’entrée.
+Les résultats d’un service Web d’exécution par lot sont stockés dans un conteneur de stockage Azure ; les valeurs d’entrée peuvent provenir du stockage Azure ou d’un fichier local. Vous aurez donc besoin d’un conteneur de stockage Azure pour stocker les résultats renvoyés par l’application Web. Vous devrez également préparer vos données d’entrée.
 
 ![Procédure d’utilisation du modèle Web BES][image2]
 
-1. Pour créer l’application Web BES, suivez la même procédure que celle utilisée pour le modèle RRS, à l’exception de ce qui suit :
+1. Pour créer l’application Web BES, suivez la même procédure que celle utilisée pour le modèle RRS, à l’exception de ce qui suit :
 	- Récupérez l’**URI de requête** dans la page d’aide de l’API **EXÉCUTION PAR LOTS** correspondant au service web.
 	- Accédez à [Azure ML Batch Execution Service Web App Template](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlbeswebapptemplate/) pour ouvrir le modèle BES sur Azure Marketplace et cliquez sur **Créer une application web**.
 
@@ -127,4 +127,4 @@ Pour en savoir plus sur...
 [image6]: media\machine-learning-consume-web-service-with-web-app-template\web-service-info.png
 [image7]: media\machine-learning-consume-web-service-with-web-app-template\storage.png
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0914_2016-->

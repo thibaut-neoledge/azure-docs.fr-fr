@@ -4,7 +4,7 @@
 	services="hdinsight" 
 	documentationCenter="" 
 	authors="nitinme" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun"
 	tags="azure-portal"/>
 
@@ -32,7 +32,7 @@ Dans cet exemple, vous allez utiliser un cluster HDInsight pour analyser des fic
 
 ##Composants requis
 
-- Vous devez avoir approvisionné un cluster Hadoop sur Azure HDInsight. Pour plus d'informations, consultez la rubrique [Approvisionnement de clusters HDInsight][hdinsight-provision]. 
+- Vous devez avoir approvisionné un cluster Hadoop sur Azure HDInsight. Pour plus d'informations, consultez la rubrique [Approvisionnement de clusters HDInsight][hdinsight-provision].
 - Microsoft Excel 2013 ou Microsoft Excel 2010 doivent être installés.
 - Vous devez disposer d'un [pilote ODBC Microsoft Hive](http://www.microsoft.com/download/details.aspx?id=40886) pour importer des données à partir de Hive dans Excel.
 
@@ -61,4 +61,4 @@ Essayez l’exemple suivant : [Analyse des données de capteur au moyen de Hive
 [img-hdi-weblogs-sample]: ./media/hdinsight-hive-analyze-website-log/hdinsight-weblogs-sample.png
  
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -23,6 +23,7 @@
 
 Cet article vous montre comment créer et télécharger un disque dur virtuel pour que vous puissiez l'utiliser comme image personnelle pour créer des machines virtuelles dans Azure. Découvrez comment préparer le système d’exploitation afin de pouvoir l’utiliser pour créer plusieurs machines virtuelles basées sur cette image.
 
+>  [AZURE.NOTE] Si vous avez un moment, aidez-nous à améliorer la documentation relative aux machines virtuelles Azure Linux en répondant à cette [enquête rapide](https://aka.ms/linuxdocsurvey) concernant vos expériences. Chaque réponse nous aide à vous faciliter la tâche.
 
 ## Composants requis
 Cet article part du principe que vous disposez des éléments suivants :
@@ -109,4 +110,4 @@ Pour plus d’informations, voir [référence CLI Azure pour le modèle de dépl
 [Step 2: Prepare the connection to Azure]: #connect
 [Step 3: Upload the image to Azure]: #upload
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

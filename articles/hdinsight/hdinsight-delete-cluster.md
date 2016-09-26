@@ -4,7 +4,7 @@ description="Informations sur les différentes méthodes que vous pouvez utilise
 services="hdinsight"
 documentationCenter=""
 authors="Blackmist"
-manager="paulettm"
+manager="jhubbard"
 editor="cgronlun"/>
 
 <tags
@@ -48,4 +48,4 @@ Remplacez __CLUSTERNAME__ par le nom de votre cluster HDInsight.
     
 Remplacez __CLUSTERNAME__ par le nom de votre cluster HDInsight.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0914_2016-->

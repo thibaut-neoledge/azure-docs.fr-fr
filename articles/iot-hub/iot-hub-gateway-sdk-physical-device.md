@@ -93,39 +93,7 @@ Pour configurer votre appareil Edison et vous familiariser avec celui-ci, vous d
 
 Avant d’exécuter l’exemple, vous devez vérifier que votre carte Edison peut se connecter à l’appareil SensorTag.
 
-Vous devez tout d’abord mettre à jour la version du logiciel BlueZ sur votre appareil Edison. Notez que même si la version 5.37 est déjà installée, vous devez effectuer les étapes suivantes pour vous assurer que l’installation est terminée :
-
-1. Arrêtez le démon Bluetooth en cours d’exécution.
-    
-    ```
-    systemctl stop bluetooth
-    ```
-
-2. Téléchargez et extrayez le [code source](http://www.kernel.org/pub/linux/bluetooth/bluez-5.37.tar.xz) pour la version 5.37 de BlueZ.
-    
-    ```
-    wget http://www.kernel.org/pub/linux/bluetooth/bluez-5.37.tar.xz
-    tar -xvf bluez-5.37.tar.xz
-    cd bluez-5.37
-    ```
-
-3. Générez et installez BlueZ.
-    
-    ```
-    ./configure --disable-udev --disable-systemd --enable-experimental
-    make
-    make install
-    ```
-
-4. Modifiez la configuration du service *systemd* pour Bluetooth afin qu’il pointe vers le nouveau démon Bluetooth en modifiant le fichier **/lib/systemd/system/bluetooth.service**. Remplacez la valeur de l’attribut **ExecStart** afin qu’il ressemble à ceci :
-    
-    ```
-    ExecStart=/usr/local/libexec/bluetooth/bluetoothd -E
-    ```
-
-5. Redémarrez votre appareil Edison.
-
-Ensuite, vous devez vérifier que votre carte Edison peut se connecter à l’appareil SensorTag.
+Vous devez d’abord vérifier que votre carte Edison peut se connecter à l’appareil SensorTag.
 
 1. Débloquez Bluetooth sur l’appareil Edison et vérifiez que le numéro de version est **5.37**.
     
@@ -134,20 +102,22 @@ Ensuite, vous devez vérifier que votre carte Edison peut se connecter à l’ap
     bluetoothctl --version
     ```
 
-2. Exécutez la commande **bluetoothctl**. La sortie doit ressembler à celle-ci :
+2. Exécutez la commande **bluetoothctl**. Vous êtes maintenant dans un shell Bluetooth interactif.
+
+3. Entrez la commande **power on** pour mettre le contrôleur bluetooth sous tension. La sortie doit ressembler à celle-ci :
     
     ```
     [NEW] Controller 98:4F:EE:04:1F:DF edison [default]
     ```
 
-3. Vous êtes maintenant dans un shell Bluetooth interactif. Entrez la commande **scan on** pour rechercher des appareils Bluetooth. La sortie doit ressembler à celle-ci :
+4. Toujours dans le shell interactif bluetooth, entrez la commande **scan on** pour rechercher des appareils bluetooth. La sortie doit ressembler à celle-ci :
     
     ```
     Discovery started
     [CHG] Controller 98:4F:EE:04:1F:DF Discovering: yes
     ```
 
-4. Appuyez sur le petit bouton de l’appareil SensorTag pour le rendre détectable (le voyant vert doit clignoter). L’appareil Edison doit détecter l’appareil SensorTag :
+5. Appuyez sur le petit bouton de l’appareil SensorTag pour le rendre détectable (le voyant vert doit clignoter). L’appareil Edison doit détecter l’appareil SensorTag :
     
     ```
     [NEW] Device A0:E6:F8:B5:F6:00 CC2650 SensorTag
@@ -157,14 +127,14 @@ Ensuite, vous devez vérifier que votre carte Edison peut se connecter à l’ap
     
     Dans cet exemple, vous pouvez voir que l’adresse MAC de l’appareil SensorTag est **A0:E6:F8:B5:F6:00**.
 
-5. Désactivez l’analyse en entrant la commande **scan off**.
+6. Désactivez l’analyse en entrant la commande **scan off**.
     
     ```
     [CHG] Controller 98:4F:EE:04:1F:DF Discovering: no
     Discovery stopped
     ```
 
-6. Connectez-vous à votre appareil SensorTag à l’aide de son adresse MAC en entrant **connect <adresse MAC>**. Notez que l’exemple de sortie ci-dessous est abrégé :
+7. Connectez-vous à votre appareil SensorTag à l’aide de son adresse MAC en entrant **connect <adresse MAC>**. Notez que l’exemple de sortie ci-dessous est abrégé :
     
     ```
     Attempting to connect to A0:E6:F8:B5:F6:00
@@ -185,7 +155,7 @@ Ensuite, vous devez vérifier que votre carte Edison peut se connecter à l’ap
     
     Remarque : vous pouvez de nouveau répertorier les caractéristiques GATT de l’appareil à l’aide de la commande **list-attributes**.
 
-7. Vous pouvez maintenant vous déconnecter de l’appareil à l’aide de la commande **disconnect**, puis utilisez la commande **quit** pour quitter le shell Bluetooth :
+8. Vous pouvez maintenant vous déconnecter de l’appareil à l’aide de la commande **disconnect**, puis utilisez la commande **quit** pour quitter le shell Bluetooth :
     
     ```
     Attempting to disconnect from A0:E6:F8:B5:F6:00
@@ -458,4 +428,4 @@ Pour explorer davantage les capacités de IoT Hub, consultez :
 [lnk-dmui]: iot-hub-device-management-ui-sample.md
 [lnk-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0914_2016-->

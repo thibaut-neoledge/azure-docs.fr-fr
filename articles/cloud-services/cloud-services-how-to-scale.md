@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/22/2016"
+	ms.date="09/06/2016"
 	ms.author="adegeo"/>
 
 
@@ -78,7 +78,7 @@ Dans la page **Mettre à l’échelle**, vous pouvez augmenter ou diminuer manue
 
     Si vous avez besoin d’instances supplémentaires, vous devrez peut-être modifier la [taille des machines virtuelles du service cloud](cloud-services-sizes-specs.md).
 
-6. Cliquez sur **Enregistrer**. Les instances de rôle sont ajoutées ou supprimées en fonction de vos sélections.
+6. Cliquez sur **Save**. Les instances de rôle sont ajoutées ou supprimées en fonction de vos sélections.
 
 >[AZURE.TIP] Chaque fois que l’icône ![][tip_icon] apparaît, pointez dessus avec le curseur de la souris pour obtenir de l’aide concernant la fonction d’un paramètre spécifique.
 
@@ -151,4 +151,4 @@ Lorsque vous mettez à l'échelle un rôle, il est souvent avantageux de mettre 
 [scale_popup]: ./media/cloud-services-how-to-scale/schedules-dialog.png
 [linked_resource]: ./media/cloud-services-how-to-scale/linked-resources.png
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

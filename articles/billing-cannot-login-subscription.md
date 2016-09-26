@@ -15,22 +15,68 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/17/2016"
+	ms.date="09/09/2016"
 	ms.author="genli"/>
 
 # Impossible de me connecter pour gérer mon abonnement Azure
 
-> [AZURE.NOTE] Si à un moment donné dans cet article, vous avez besoin d’aide, veuillez [contacter le support technique](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409) pour obtenir une prise en charge rapide de votre problème.
+Cet article vous présente certaines des méthodes plus courantes pour résoudre les problèmes de connexion.
 
-Cet article vous aidera à résoudre certains problèmes de connexion courants.
+> [AZURE.NOTE] Si à un moment donné dans cet article, vous rencontrez un problème et avez besoin d’aide, veuillez [contacter le support technique](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour obtenir une prise en charge rapide.
 
-## À quel portail tentez-vous d’accéder ?
+## Portails Azure
 
-Les administrateurs de comptes ne peuvent accéder qu’au [Centre des comptes](https://account.windowsazure.com/), tandis que les administrateurs de services (SA) et les co-administrateurs (CA) bénéficient uniquement d’un accès au [Portail Azure](https://portal.azure.com) ou au [Portail Azure Classic](https://manage.windowsazure.com/).
+| Nom | Description | URL |
+|---|---|---|
+| Portail Azure |Emplacement central vous permettant de configurer et de gérer vos ressources Azure | [https://portal.azure.com](https://portal.azure.com) |
+| Portail Azure Classic | Ancien portail Azure |[https://manage.windowsazure.com](https://manage.windowsazure.com) |
+| Centre des comptes Azure | Emplacement central vous permettant d’effectuer le suivi de votre utilisation d’Azure et de gérer votre abonnement |[https://account.windowsazure.com/Subscriptions](https://account.windowsazure.com/Subscriptions) ||
 
-Pour plus d’informations sur les rôles d’administrateur Azure, consultez [Ajout ou modification de rôles d’administrateur Azure](billing-add-change-azure-subscription-administrator.md).
+## Symptôme : La page se bloque à l’état de chargement
 
-## Votre abonnement est-il associé à un compte Microsoft ou à un compte professionnel ?
+Ce problème peut être dû à un dysfonctionnement qui affecte votre navigateur Internet.
+
+Pour résoudre ce problème, essayez les méthodes suivantes, dans l’ordre indiqué. Après chaque méthode, essayez de vous reconnecter à la page de connexion sur le portail.
+
+-	Actualisez la page.
+-	Utilisez un autre navigateur Internet.
+-	Si vous utilisez Microsoft Internet Explorer, accédez au portail Azure en utilisant le mode de navigation InPrivate. Pour ce faire, procédez comme suit :
+
+	A. Cliquez sur **Outils** ![bouton Outils](./media/billing-cannot-login-subscription/Toolsbutton.png) > **Sécurité** > **Navigation InPrivate**.
+
+	B. Accédez au [portail Azure](https://portal.azure.com) ou au [portail Azure Classic](https://manage.windowsazure.com), puis connectez-vous au portail.
+
+## Symptôme : Message d’erreur « Aucun abonnement trouvé »
+
+Ce problème peut se produire si le compte ne dispose pas des droits d’utilisateur suffisants. Un administrateur de compte ne peut accéder qu’au [Centre des comptes](https://account.windowsazure.com/), tandis que les administrateurs de services (SA) et les co-administrateurs (CA) bénéficient uniquement d’un accès au [portail Azure](https://portal.azure.com) ou au [portail Azure Classic](https://manage.windowsazure.com/).
+
+**Scénario 1 : Le message d’erreur s’affiche dans le portail Azure ou le portail Azure Classic**
+
+Pour résoudre ce problème, [ajoutez le rôle de co-administrateur ou de propriétaire](billing-add-change-azure-subscription-administrator.md) pour le compte.
+
+**Scénario 2 : Le message d’erreur s’affiche dans le Centre des comptes Azure**
+
+Vérifiez si le compte utilisé correspond à l’administrateur du compte. Pour vérifier qui est l’administrateur du compte, procédez comme suit :
+
+1.	Connectez-vous au [portail Azure](https://portal.azure.com).
+2.	Dans le menu Hub, sélectionnez **Abonnement**.
+3.	Sélectionnez l’abonnement que vous souhaitez vérifier, puis choisissez **Paramètres**.
+4.	Sélectionner **Propriétés**. L’administrateur de compte de l’abonnement s’affiche dans la zone **Administrateur de compte**.
+
+## Symptôme : Vous êtes automatiquement connecté en tant qu’utilisateur différent
+
+Ce problème peut se produire si vous utilisez plusieurs comptes utilisateur dans un navigateur Internet.
+
+Pour résoudre le problème, essayez l’une des méthodes suivantes :
+
+- Déconnectez-vous du portail, puis reconnectez-vous avec le compte que vous souhaitez utiliser.
+-	Effacez la mémoire cache et supprimez les cookies Internet. Pour ce faire, dans Internet Explorer, cliquez sur **Outils** ![bouton Outils](./media/billing-cannot-login-subscription/Toolsbutton.png) > **Options Internet** > **Supprimer**, vérifiez que les cases à cocher pour les fichiers temporaires, les cookies, les mots de passe et l’historique de navigation sont sélectionnées, puis cliquez sur Supprimer.
+
+-	Réinitialisez les paramètres Internet Explorer pour rétablir les paramètres personnels que vous avez définis. Pour ce faire, cliquez sur **Outils** ![bouton Outils](./media/billing-cannot-login-subscription/Toolsbutton.png)> **Options Internet** > **Avancé** > cochez la case **Supprimer les paramètres personnels** > **Réinitialiser**.
+
+-	Accédez au portail Azure en mode de navigation InPrivate. Pour ce faire, cliquez sur **Outils** ![bouton Outils](./media/billing-cannot-login-subscription/Toolsbutton.png) > **Sécurité** > **Navigation InPrivate**.
+
+## Compte Microsoft ou compte professionnel
 
 Votre compte Microsoft correspond à l’adresse de messagerie et au mot de passe que vous utilisez pour vous connecter à n’importe quel programme ou service Windows Live (par exemple, Outlook, Hotmail, MSN ou OneDrive). Vous pouvez configurer un compte Microsoft en utilisant l’une de vos adresses de messagerie personnelles, y compris la messagerie de votre entreprise. Pour plus d’informations, consultez [www.microsoft.com/account](http://www.microsoft.com/account).
 
@@ -38,22 +84,6 @@ Si votre compte est associé à un compte professionnel, sélectionnez l’optio
 
 ![page de connexion](./media/billing-cannot-login-subscription/signin.png)
 
-## Coadministrateurs : utilisez-vous le type de compte approprié pour gérer d’autres comptes ?
+> [AZURE.NOTE] Si vous avez d’autres questions, veuillez [contacter le support technique](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour obtenir une prise en charge rapide de votre problème.
 
-- Si vous vous êtes connecté avec un compte Microsoft, vous pouvez ajouter d’autres comptes Microsoft uniquement en tant que coadministrateur. Pour des raisons de sécurité, il importe d'empêcher les comptes autres que les comptes professionnels d’identifier si certains comptes (par exemple janedoe@contoso.com) sont des comptes valides.
-- Si vous vous êtes connecté avec un compte professionnel, vous pouvez ajouter d’autres comptes de société de votre société en tant que coadministrateur. Par exemple, abby@contoso.com peut ajouter bob@contoso.com en tant qu’administrateur de services ou coadministrateur, mais ne peut pas ajouter john@notcontoso.com. Les utilisateurs connectés avec des comptes professionnels peuvent également ajouter des utilisateurs de compte Microsoft en tant qu’administrateur de services ou coadministrateur.
-
-Il est désormais possible de se connecter à Azure avec un compte professionnel. Voici les modifications apportées aux exigences liées aux comptes Administrateur de services (SA) et Coadministrateur (CA) :
-
-| Méthode de connexion| Ajouter un compte Microsoft en tant que coadministrateur ou administrateur de services ? |Ajouter un compte de société de la même société en tant que coadministrateur ou administrateur de services ? |Ajouter un compte de société d’une autre société en tant que coadministrateur ou administrateur de services ?
-| ------------- | ------------- |---------------|---------------|
-|Compte Microsoft |Oui|Non|Non|
-|Compte de société|Oui|Oui|Non|
-
-## Y a-t-il un problème avec le navigateur Internet ?
-
-Essayez de supprimer le cache/les cookies en utilisant IE en mode de navigation InPrivate et en utilisant également un autre navigateur
-
-> [AZURE.NOTE] Si vous avez d’autres questions, veuillez [contacter le support technique](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409) pour obtenir une prise en charge rapide de votre problème.
-
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

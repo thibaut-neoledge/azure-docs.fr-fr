@@ -12,13 +12,13 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="infrastructure-services"
-	ms.date="05/17/2016"
+	ms.date="09/06/2016"
 	ms.author="rclaus" />
 
 #Configuration d’Oracle Data Guard pour Azure
 
 
-Ce didacticiel explique comment configurer et mettre en œuvre Oracle Data Guard dans un environnement Azure Virtual Machines pour disposer d’une haute disponibilité et d’une récupération d’urgence. Il se concentre sur la réplication unidirectionnelle de bases de données Oracle non RAC.
+Ce didacticiel explique comment configurer et mettre en œuvre Oracle Data Guard dans un environnement de Machines Virtuelles Azure pour disposer d’une haute disponibilité et d’une récupération d’urgence. Il se concentre sur la réplication unidirectionnelle de bases de données Oracle non RAC.
 
 Oracle Data Guard prend en charge la protection des données et la récupération d’urgence pour Oracle Database. Il s’agit d’une solution de dernière minute simple et aux performances élevées en matière de récupération d’urgence, de protection des données et de haute disponibilité pour l’ensemble de la base de données Oracle.
 
@@ -26,10 +26,10 @@ Ce didacticiel suppose que vous disposez déjà de connaissances théoriques et 
 
 En outre, le didacticiel suppose que vous avez déjà mis en œuvre les conditions préalables suivantes :
 
-- Vous avez déjà consulté la section Considérations relatives à la haute disponibilité et à la récupération d’urgence de la rubrique [Images de machine virtuelle Oracle - Considérations diverses](virtual-machines-windows-classic-oracle-considerations.md). Remarquez qu’Azure prend actuellement en charge des instances autonomes d’Oracle Database, mais pas Oracle Real Application Clusters (Oracle RAC).
+- Vous avez déjà consulté la section Considérations relatives à la haute disponibilité et à la récupération d’urgence de la rubrique [Images de machine virtuelle Oracle - Considérations diverses](virtual-machines-windows-classic-oracle-considerations.md). Azure prend actuellement en charge des instances autonomes d’Oracle Database, mais pas Oracle Real Application Clusters (Oracle RAC).
 
 
-- Vous avez créé deux machines virtuelles dans Azure à l’aide de la même image Oracle Enterprise Edition fournie par la plateforme. Assurez-vous que les machines virtuelles sont présentes au sein du [même service cloud](virtual-machines-windows-load-balance.md) et du même [réseau virtuel](azure.microsoft.com/documentation/services/virtual-network/) pour garantir qu’elles peuvent accéder l’une à l’autre via l’adresse IP privée persistante. En outre, nous vous recommandons de définir les machines virtuelles au sein du même [groupe à haute disponibilité](virtual-machines-windows-manage-availability.md) pour permettre à Azure de les positionner dans des domaines d’erreur ou de mise à niveau distincts. Remarquez qu’Oracle Data Guard est uniquement disponible avec Oracle Database Enterprise Edition. Chaque machine doit disposer d’au moins 2 Go de mémoire et de 5 Go d’espace disque. Pour obtenir les dernières informations sur les tailles des machines virtuelles fournies par la plateforme, consultez la rubrique [Tailles de machines virtuelles](virtual-machines-windows-sizes.md). Si vous avez besoin de volume de disque supplémentaire pour vos machines virtuelles, vous pouvez associer des disques supplémentaires. Pour plus d’informations, voir [Association d’un disque de données à une machine virtuelle Windows](virtual-machines-windows-classic-attach-disk.md).
+- Vous avez créé deux machines virtuelles dans Azure à l’aide de la même image Oracle Enterprise Edition fournie par la plateforme. Assurez-vous que les machines virtuelles sont présentes au sein du [même service cloud](virtual-machines-windows-load-balance.md) et du même réseau virtuel pour qu’elles puissent accéder l’une à l’autre via l’adresse IP privée persistante. En outre, nous vous recommandons de définir les machines virtuelles au sein du même [groupe à haute disponibilité](virtual-machines-windows-manage-availability.md) pour permettre à Azure de les positionner dans des domaines d’erreur ou de mise à niveau distincts. Oracle Data Guard est uniquement disponible avec Oracle Database Enterprise Edition. Chaque machine doit disposer d’au moins 2 Go de mémoire et de 5 Go d’espace disque. Pour obtenir les dernières informations sur les tailles des machines virtuelles fournies par la plateforme, consultez la rubrique [Tailles de machines virtuelles](virtual-machines-windows-sizes.md). Si vous avez besoin de volume de disque supplémentaire pour vos machines virtuelles, vous pouvez associer des disques supplémentaires. Pour plus d’informations, voir [Association d’un disque de données à une machine virtuelle Windows](virtual-machines-windows-classic-attach-disk.md).
 
 
 
@@ -65,7 +65,7 @@ Créer une base de données de secours physique
 
 	1. Configurer listener.ora sur les deux serveurs pour contenir les entrées pour les deux bases de données
 
-	2. Configurer tnsnames.ora sur les machines virtuelles principale et de secours pour contenir les entrées pour les bases de données primaire et de secours
+	2. Pour contenir les entrées pour les bases de données primaire et de secours, configurer tnsnames.ora sur les machines virtuelles principale et de secours.
 
 	3. Démarrer l’écouteur et vérifier tnsping sur les deux machines virtuelles concernant les deux services
 
@@ -88,13 +88,13 @@ Créer une base de données de secours physique
 >| **Mémoire** | Min. 2 Go | Min. 2 Go |
 >| **Espace disque** | Min. 5 Go | Min. 5 Go |
 
-Pour les versions ultérieures d’Oracle Database et d’Oracle Data Guard, il se peut que vous deviez procéder à certaines modifications supplémentaires. Pour obtenir les dernières informations concernant la version, voir la documentation relative à [Data Guard](http://www.oracle.com/technetwork/database/features/availability/data-guard-documentation-152848.html) et [Oracle Database](http://www.oracle.com/us/corporate/features/database-12c/index.html) sur le site web d’Oracle.
+Pour les versions ultérieures d’Oracle Database et d’Oracle Data Guard, il se peut que vous deviez procéder à certaines modifications supplémentaires. Pour obtenir les dernières informations concernant la version, consultez la documentation relative à [Data Guard](http://www.oracle.com/technetwork/database/features/availability/data-guard-documentation-152848.html) et [Oracle Database](http://www.oracle.com/us/corporate/features/database-12c/index.html) sur le site web d’Oracle.
 
 ##Mettre en œuvre l’environnement physique de la base de données de secours
 ### 1\. Créer une base de données primaire
 
 - Créez une base de données primaire « TEST » sur la machine virtuelle principale. Pour plus d’informations, consultez la section (en anglais) Creating and Configuring an Oracle Database.
-- Connectez-vous à votre base de données en tant qu’utilisateur SYS avec le rôle SYSDBA dans l’invite de commandes SQL*Plus, puis exécutez l’instruction suivante pour afficher le nom de votre base de données :
+- Pour afficher le nom de votre base de données, connectez-vous à votre base de données en tant qu’utilisateur SYS avec le rôle SYSDBA dans l’invite de commandes SQL*Plus, puis exécutez l’instruction suivante :
 
 		SQL> select name from v$database;
 
@@ -126,7 +126,7 @@ Avant de créer une base de données de secours, nous vous recommandons de véri
 
 #### Activer la journalisation forcée
 
-Pour mettre en œuvre une base de données de secours, il faut activer la « Journalisation forcée » au sein de la base de données primaire. Cette option garantit que, même en cas d’opération sans journalisation, la journalisation est prioritaire et toutes les opérations sont journalisées dans les journaux de rétablissement. Par conséquent, vous vous assurez que tous les éléments présents au sein de la base de données primaire sont journalisés et que la base de données de secours comporte toutes les opérations de la base de données primaire. Exécutez l’instruction de modification de la base de données Alter pour activer la journalisation forcée :
+Pour mettre en œuvre une base de données de secours, il faut activer la « Journalisation forcée » au sein de la base de données primaire. Cette option garantit que, même en cas d’opération sans journalisation, la journalisation est prioritaire et toutes les opérations sont journalisées dans les journaux de rétablissement. Par conséquent, vous vous assurez que tous les éléments présents au sein de la base de données primaire sont journalisés et que la base de données de secours comporte toutes les opérations de la base de données primaire. Pour activer la journalisation forcée, exécutez l’instruction de modification de la base de données Alter :
 
 	SQL> ALTER DATABASE FORCE LOGGING;
 
@@ -138,13 +138,13 @@ Afin de pouvoir transmettre et appliquer des journaux archivés depuis le serveu
 
 >[AZURE.IMPORTANT] Lorsque vous utilisez la base de données Oracle 12c, il existe un nouvel utilisateur **SYSDG**, qui vous permet de gérer Oracle Data Guard. Pour plus d’informations, voir [Changes in Oracle Database 12c Release](http://docs.oracle.com/database/121/UNXAR/release_changes.htm#UNXAR404) (en anglais).
 
-En outre, assurez-vous que l’environnement ORACLE\_HOME est déjà défini sur Machine1. Dans le cas contraire, définissez-le en tant que variable d’environnement à l’aide de la boîte de dialogue Variables d’environnement. Pour accéder à cette boîte de dialogue, démarrez l’utilitaire **Système** en double-cliquant sur l’icône Système dans le **Panneau de configuration**, puis cliquez sur l’onglet **Avancé** et sélectionnez **Variables d’environnement**. Cliquez sur le bouton **Nouveau** de la section **Variables système** pour configurer les variables d’environnement. Une fois les variables d’environnement configurées, fermez l’invite de commande Windows existante et ouvrez-en une nouvelle.
+En outre, assurez-vous que l’environnement ORACLE\_HOME est déjà défini sur Machine1. Dans le cas contraire, définissez-le en tant que variable d’environnement à l’aide de la boîte de dialogue Variables d’environnement. Pour accéder à cette boîte de dialogue, démarrez l’utilitaire **Système** en double-cliquant sur l’icône Système dans le **Panneau de configuration**, puis cliquez sous l’onglet **Avancé** et sélectionnez **Variables d’environnement**. Pour configurer les variables d’environnement, cliquez sur le bouton **Nouveau** de la section **Variables système**. Une fois les variables d’environnement configurées, fermez l’invite de commande Windows existante et ouvrez-en une nouvelle.
 
 Exécutez l’instruction suivante pour basculer vers le répertoire Oracle\_Home, par exemple C:\\OracleDatabase\\product\\11.2.0\\dbhome\_1\\database.
 
 	cd %ORACLE_HOME%\database
 
-Créez ensuite un fichier de mot de passe à l’aide de l’utilitaire de création de fichier de mot de passe [ORAPWD](http://docs.oracle.com/cd/B28359_01/server.111/b28310/dba007.htm). Dans la même invite de commandes Windows sur Machine1, exécutez la commande suivante en définissant la valeur de mot de passe en tant que mot de passe de **SYS** :
+Créez ensuite un fichier de mot de passe à l’aide de l’utilitaire de création de fichier de mot de passe [ORAPWD](http://docs.oracle.com/cd/B28359_01/server.111/b28310/dba007.htm). Dans la même invite de commandes Windows sur Machine1, exécutez la commande suivante en définissant la valeur de mot de passe en tant que mot de passe de **SYS** :
 
 	ORAPWD FILE=PWDTEST.ora PASSWORD=password FORCE=y
 
@@ -243,7 +243,7 @@ Vous pouvez contrôler l’environnement de Data Guard à l’aide des paramèt
 	SQL> create pfile from spfile;
 	File created.
 
-Vous devez ensuite modifier le fichier pfile pour ajouter les paramètres de secours. Pour ce faire, ouvrez le fichier INITTEST.ORA, situé à l’emplacement suivant : %ORACLE\_HOME%\\database. Ajoutez ensuite les instructions suivantes au fichier INITTEST.ora. Remarquez que la convention d’affectation de noms concernant votre fichier INIT.ORA est la suivante : INIT <Nom\_de\_votre\_base\_de\_données >.ORA.
+Vous devez ensuite modifier le fichier pfile pour ajouter les paramètres de secours. Pour ce faire, ouvrez le fichier INITTEST.ORA, situé à l’emplacement suivant : %ORACLE\_HOME%\\database. Ajoutez ensuite les instructions suivantes au fichier INITTEST.ora. La convention d’affectation de noms concernant votre fichier INIT.ORA est la suivante : INIT <Nom\_de\_votre\_base\_de\_données >.ORA.
 
 	db_name='TEST'
 	db_unique_name='TEST'
@@ -320,7 +320,7 @@ Cette section se concentre sur les étapes que vous devez effectuer sur Machine2
 
 Vous devez tout d'abord vous connecter à distance à Machine2 via le portail Azure Classic.
 
-Sur le serveur de secours (Machine2), créez ensuite tous les dossiers nécessaires pour la base de données de secours, tel que C:\\ <Votre\_dossier\_local>\\TEST. Pour poursuivre ce didacticiel, assurez-vous que la structure du dossier correspond à celle de Machine1 pour conserver tous les fichiers nécessaires, tels que le fichier de contrôle (controlfile), les fichiers de données (datafiles), les fichiers journaux de rétablissement (redologfiles) et les fichiers udump, bdump et cdump. Définissez également les variables d’environnement ORACLE\_HOME et ORACLE\_BASE sur Machine2. Dans le cas contraire, définissez-les en tant que variables d’environnement à l’aide de la boîte de dialogue Variables d’environnement. Pour accéder à cette boîte de dialogue, démarrez l’utilitaire **Système** en double-cliquant sur l’icône Système dans le **Panneau de configuration**, puis cliquez sous l’onglet **Avancé** et sélectionnez **Variables d’environnement**. Cliquez sur le bouton **Nouveau** de la section **Variables système** pour configurer les variables d’environnement. Une fois les variables d’environnement configurées, vous devez fermer l’invite de commande Windows existante et en ouvrir une nouvelle pour afficher les modifications.
+Sur le serveur de secours (Machine2), créez ensuite tous les dossiers nécessaires pour la base de données de secours, tel que C:\\ <Votre\_dossier\_local>\\TEST. Pour poursuivre ce didacticiel, assurez-vous que la structure du dossier correspond à celle de Machine1 pour conserver tous les fichiers nécessaires, tels que le fichier de contrôle (controlfile), les fichiers de données (datafiles), les fichiers journaux de rétablissement (redologfiles) et les fichiers udump, bdump et cdump. Définissez également les variables d’environnement ORACLE\_HOME et ORACLE\_BASE sur Machine2. Dans le cas contraire, définissez-les en tant que variables d’environnement à l’aide de la boîte de dialogue Variables d’environnement. Pour accéder à cette boîte de dialogue, démarrez l’utilitaire **Système** en double-cliquant sur l’icône Système dans le **Panneau de configuration**, puis cliquez sous l’onglet **Avancé** et sélectionnez **Variables d’environnement**. Pour configurer les variables d’environnement, cliquez sur le bouton **Nouveau** de la section **Variables système**. Une fois les variables d’environnement configurées, vous devez fermer l’invite de commande Windows existante et en ouvrir une nouvelle pour afficher les modifications.
 
 Procédez ensuite comme suit :
 
@@ -368,11 +368,11 @@ Le bloc d’instructions précédent comprend deux éléments de configuration i
 -	***.LOG\_ARCHIVE\_DEST\_1 :** vous devez créer manuellement le dossier C:\\OracleDatabase\\TEST\_STBY\\archives sur Machine2.
 -	***.LOG\_ARCHIVE\_DEST\_2 :** cette étape est facultative. Vous définissez ce paramètre dans la mesure où il peut être nécessaire lorsque la machine principale est en cours de maintenance et que la machine de secours fait office de base de données primaire.
 
-Vous devez ensuite démarrer l’instance de secours. Sur le serveur de la base de données de secours, entrez la commande suivante dans une invite de commandes Windows pour créer une instance Oracle en créant un nouveau service Windows :
+Vous devez ensuite démarrer l’instance de secours. Sur le serveur de la base de données de secours, entrez la commande suivante dans une invite de commandes Windows pour créer une instance Oracle en créant un service Windows :
 
 	oradim -NEW -SID TEST\_STBY -STARTMODE MANUAL
 
-Remarquez que la commande **Oradim** crée une instance Oracle, mais ne la démarre pas. Vous pouvez trouver cette commande dans le répertoire C:\\OracleDatabase\\product\\11.2.0\\dbhome\_1\\BIN.
+La commande **Oradim** crée une instance Oracle, mais ne la démarre pas. Vous pouvez trouver cette commande dans le répertoire C:\\OracleDatabase\\product\\11.2.0\\dbhome\_1\\BIN.
 
 ##Configurer l’écouteur et le fichier tnsnames pour prendre en charge la base de données sur les machines principale et de secours
 Avant de créer une base de données de secours, vous devez vous assurer que les bases de données primaire et de secours présentes au sein de votre configuration peuvent communiquer entre elles. Pour ce faire, vous devez configurer l’écouteur et TNSNames manuellement ou à l’aide de l’utilitaire de configuration réseau NETCA. Il s’agit d’une tâche obligatoire lorsque vous utilisez l’utilitaire Recovery Manager (RMAN).
@@ -502,7 +502,7 @@ Ouvrez une nouvelle invite de commandes Windows sur les machines virtuelles prin
 
 
 ##Démarrer l’instance de secours en état sans montage
-Vous devez configurer l’environnement pour prendre en charge de la base de données de secours sur la machine virtuelle de secours (Machine2).
+Pour configurer l’environnement de façon à prendre en charge la base de données de secours sur la machine virtuelle de secours (MACHINE2).
 
 Commencez par copier manuellement le fichier de mot de passe à partir de la machine principale (Machine1) vers la machine de secours (Machine2). Cette opération est nécessaire, car le mot de passe **sys** doit être identique sur les deux machines.
 
@@ -630,4 +630,4 @@ Nous vous recommandons d’activer la fonction Flashback sur les bases de donné
 ##Ressources supplémentaires
 [Liste des images de machine virtuelle Oracle](virtual-machines-windows-classic-oracle-images.md)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0914_2016-->

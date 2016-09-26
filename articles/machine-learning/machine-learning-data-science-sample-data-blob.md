@@ -4,7 +4,7 @@
 	services="machine-learning,storage" 
 	documentationCenter="" 
 	authors="bradsev" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun" />
 
 <tags 
@@ -31,7 +31,7 @@ Cette tâche d’échantillonnage est une étape du [processus TDSP (Team Data S
 
 
 ## Télécharger et sous-échantillonner les données
-1. Téléchargez les données du stockage d’objets blob Azure à l’aide du service BLOB en utilisant l’exemple de code suivant : 
+1. Téléchargez les données du stockage d’objets blob Azure à l’aide du service BLOB en utilisant l’exemple de code suivant :
 
 	    from azure.storage.blob import BlobService
     	import tables
@@ -102,4 +102,4 @@ Vous pouvez sous-échantillonner les données et les utiliser directement dans A
 
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

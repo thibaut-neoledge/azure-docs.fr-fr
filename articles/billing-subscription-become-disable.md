@@ -60,7 +60,18 @@ Pour résoudre ce problème, utilisez l’une des méthodes suivantes :
 - [Basculer vers une autre carte de crédit](billing-how-to-change-credit-card.md).
 - Si vous êtes une entreprise, vous pouvez [basculer vers le mode de paiement par facture](https://azure.microsoft.com/pricing/invoicing/).
 
-## Comment réactiver votre abonnement
+## L’abonnement a été annulé par l’administrateur de compte
+
+>[AZURE.NOTE] Actuellement, cette méthode s’applique uniquement aux abonnements de type paiement à l’utilisation. Pour les autres types d’abonnements, vous devrez [contacter le support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+
+Si vous êtes l’administrateur de compte, vous pouvez réactiver votre abonnement de type paiement à l’utilisation en suivant les étapes ci-dessous :
+
+- Sélectionnez l’abonnement annulé.
+- Cliquez sur l’un des liens **Réactiver** sur la page des détails de l’abonnement.
+
+![reactivate-sub](./media/billing-how-to-cancel-azure-subscription/reactivate-sub.png)
+
+## Réactivation des abonnements de type paiement à l’utilisation :
 
 Pour réactiver un abonnement désactivé, vous devez créer un ticket de support : connectez-vous au [portail Azure](https://portal.azure.com/), sélectionnez **Aide + Support**>**Nouvelle demande de support**.
 
@@ -75,4 +86,4 @@ Pour plus d’informations, consultez [Comment créer un ticket de support pour 
 
 > [AZURE.NOTE] Si vous avez d’autres questions, veuillez [contacter le support technique](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour obtenir une prise en charge rapide de votre problème.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

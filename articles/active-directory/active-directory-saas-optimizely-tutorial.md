@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/25/2016"
+	ms.date="09/11/2016"
 	ms.author="jeedes"/>
 
 
@@ -144,7 +144,7 @@ L’application Optimizely s’attend à ce que les assertions SAML contiennent 
 
 	b. Dans la zone de texte **Identificateur**, tapez `urn:auth0:optimizely:contoso`.
 
-	c. Cliquez sur **Next**.
+	c. Cliquez sur **Suivant**.
 
 
 	> [AZURE.NOTE] Les valeurs pour **URL de connexion** et **Identificateur** sont uniquement des espaces réservés pour les valeurs réelles. Vous trouverez des instructions sur l’acquisition des valeurs réelles à partir d’Optimizely plus loin dans ce didacticiel.
@@ -180,7 +180,7 @@ L’application Optimizely s’attend à ce que les assertions SAML contiennent 
 
     a. Sélectionnez la confirmation de la configuration de l’authentification unique.
 
-    b. Cliquez sur **Next**.
+    b. Cliquez sur **Suivant**.
 
 11. Sur la page **Confirmation de l’authentification unique**, cliquez sur **Terminer**.
   	
@@ -216,7 +216,7 @@ Dans cette section, vous allez créer un utilisateur de test appelé Britta Simo
 
 	![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-optimizely-tutorial/create_aaduser_04.png)
 
-5. Dans la page de boîte de dialogue **Dites-nous en plus sur cet utilisateur**, procédez comme suit :
+5. Sur la page de boîte de dialogue **Dites-nous en plus sur cet utilisateur**, procédez comme suit :
  
 	![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-optimizely-tutorial/create_aaduser_05.png)
 
@@ -226,7 +226,7 @@ Dans cette section, vous allez créer un utilisateur de test appelé Britta Simo
 
     c. Cliquez sur **Next**.
 
-6.  Dans la page de boîte de dialogue **Profil utilisateur**, procédez comme suit :
+6.  Sur la page **Profil utilisateur**, procédez comme suit :
 
 	![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-optimizely-tutorial/create_aaduser_06.png)
 
@@ -240,11 +240,11 @@ Dans cette section, vous allez créer un utilisateur de test appelé Britta Simo
 
     e. Cliquez sur **Next**.
 
-7. Dans la page de boîte de dialogue **Obtenir un mot de passe temporaire**, cliquez sur **Créer**.
+7. Sur la page de boîte de dialogue **Obtenir un mot de passe temporaire**, cliquez sur **créer**.
 
 	![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-optimizely-tutorial/create_aaduser_07.png)
 
-8. Dans la page de boîte de dialogue **Obtenir un mot de passe temporaire**, procédez comme suit :
+8. Sur la page de boîte de dialogue **Obtenir un mot de passe temporaire**, procédez comme suit :
 
 	![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-optimizely-tutorial/create_aaduser_08.png)
 
@@ -300,7 +300,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 ### Test de l’authentification unique
 
-L’objectif de cette section est de tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
+L’objectif de cette section est de tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Lorsque vous cliquez sur la vignette Optimizely dans le volet d’accès, vous devez être connecté automatiquement à votre application Optimizely.
 
@@ -332,4 +332,4 @@ Lorsque vous cliquez sur la vignette Optimizely dans le volet d’accès, vous d
 [204]: ./media/active-directory-saas-optimizely-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-optimizely-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0914_2016-->

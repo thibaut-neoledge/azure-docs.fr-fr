@@ -46,10 +46,10 @@ Dans cette procédure, vous verrez comment utiliser les actions AS2 et X12 pour 
 8. Ajoutez les **en-têtes** requis pour AS2. Ils apparaitront dans les en-têtes de requête HTTP. Dans cet exemple, sélectionnez les en-têtes de la demande HTTP qui a déclenché l’application logique.
 9. Ajoutez maintenant à nouveau l’action Decode X12 message en sélectionnant **Ajouter une action** ![](./media/app-service-logic-enterprise-integration-b2b/b2b-9.png)
 10. Entrez le mot **x12** dans la zone de recherche afin de filtrer toutes les actions et d’obtenir celle que vous souhaitez utiliser ![](./media/app-service-logic-enterprise-integration-b2b/b2b-10.png)
-11. Sélectionnez l'action **X12 - Decode X12 message** pour l’ajouter à l’application logique ![](./media/app-service-logic-enterprise-integration-b2b/b2b-11.png)
+11. Sélectionnez l'action **X12 - Decode X12 message** pour l’ajouter à l’application logique ![](./media/app-service-logic-enterprise-integration-b2b/b2b-as2message.png)
 12. Vous devez maintenant spécifier l’entrée de cette action qui correspondra à la sortie de l’action AS2 ci-dessus. Le contenu réel du message figure dans un objet JSON, au format base64 encodé. Vous devez donc spécifier une expression comme entrée : entrez l’expression suivante dans le champ d'entrée **X12 FLAT FILE MESSAGE TO DECODE**
 
-    @base64ToString(body('Decode\_AS2\_message')?['Message']?['Content'])
+    @base64ToString(body('Decode\_AS2\_message')?['AS2Message']?['Content'])
 
 13. Cette étape décodera les données X12 provenant d’un partenaire commercial et générera plusieurs éléments dans un objet JSON. Pour informer le partenaire de la réception des données, vous pouvez renvoyer une réponse contenant l'élément AS2 Message Disposition Notification (MDN) dans une action Response HTTP
 14. Ajoutez l'action **Response** en sélectionnant **Ajouter une action** ![](./media/app-service-logic-enterprise-integration-b2b/b2b-14.png)
@@ -75,4 +75,4 @@ Dans cette procédure, vous verrez comment utiliser les actions AS2 et X12 pour 
 
 [En savoir plus sur Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0914_2016-->

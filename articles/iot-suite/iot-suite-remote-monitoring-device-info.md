@@ -14,7 +14,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="06/20/2016"
+ ms.date="09/12/2016"
  ms.author="dobett"/>
 
 # Métadonnées relatives aux informations d’appareil dans la solution préconfigurée de surveillance à distance
@@ -30,7 +30,7 @@ La solution préconfigurée de surveillance à distance utilise [Azure IoT Hub][
 
 > [AZURE.NOTE] La solution préconfigurée de surveillance à distance synchronise le registre des identités des appareils avec le registre des appareils. Les deux utilisent le même id d’appareil pour identifier chaque appareil connecté à votre IoT hub de manière unique.
 
-La [Version préliminaire de la gestion des appareils IoT Hub][lnk-dm-preview] ajoute des fonctionnalités à IoT Hub qui sont similaires aux fonctionnalités de gestion des informations d’appareil de la solution préconfigurée de surveillance à distance décrite dans cet article. À ce stade toutefois, la solution de surveillance à distance utilise uniquement les fonctionnalités de IoT Hub généralement disponibles.
+La [Version préliminaire de la gestion des appareils IoT Hub][lnk-dm-preview] ajoute des fonctionnalités à IoT Hub qui sont similaires aux fonctionnalités de gestion des informations d’appareil décrites dans cet article. Actuellement, la solution de surveillance à distance utilise uniquement les fonctionnalités de IoT Hub généralement disponibles.
 
 ## Métadonnées des informations d’appareil
 
@@ -57,12 +57,12 @@ Un document JSON sur les métadonnées relatives aux informations d’appareil s
 
 - **DeviceProperties**: l’appareil lui-même écrit ces propriétés et l’appareil est l’autorité pour ces données. Parmi les exemples de propriétés d’appareil figurent, le fabricant, le numéro de modèle et le numéro de série.
 - **DeviceID** : ID d’appareil unique. Cette valeur est la même dans le registre des identités des appareils IoT Hub.
-- **HubEnabledState** : état de l’appareil dans IoT Hub. Ce paramètre est initialement défini sur **null** jusqu’à la première connexion de l’appareil. Dans le portail de la solution, cela se présente sous la forme « enregistré mais absent ».
+- **HubEnabledState** : état de l’appareil dans IoT Hub. Cette valeur est initialement définie sur **null** jusqu’à la première connexion de l’appareil. Dans le portail de la solution, une valeur **null** se présente sous la forme « enregistré mais absent ».
 - **CreatedTime** : heure à laquelle l’appareil a été créé.
 - **DeviceState** : état signalé par l’appareil.
 - **UpdatedTime** : heure de la dernière mise à jour dans le portail de la solution.
-- **SystemProperties** : le portail de la solution écrit les propriétés système sans que l’appareil ait connaissance de ces propriétés. Un exemple de propriété système est l’**ICCID** si la solution est autorisée auprès d’un service gérant les appareils SIM et connectée à ce dernier.
-- **Commandes** : liste des commandes prises en charge par l’appareil. L’appareil fournit ces informations à la solution.
+- **SystemProperties** : le portail de la solution écrit les propriétés système sans que l’appareil ait connaissance de ces propriétés. Un exemple de propriété système est **l’ICCID** si la solution est autorisée auprès d’un service gérant les appareils SIM et connectée à ce dernier.
+- **Commands** : liste des commandes prises en charge par l’appareil. L’appareil fournit ces informations à la solution.
 - **CommandHistory** : liste des commandes envoyées par la solution de surveillance à distance à l’appareil et état de ces commandes.
 - **IsSimulatedDevice** : indicateur identifiant un appareil comme étant simulé.
 - **id** : identifiant DocumentDB unique pour ce document d’appareil.
@@ -71,7 +71,7 @@ Un document JSON sur les métadonnées relatives aux informations d’appareil s
 
 ## Cycle de vie
 
-Lorsque vous créez pour la première fois un appareil dans le portail de la solution, la solution crée une entrée dans son registre des appareils comme indiqué ci-dessus. La plupart des informations sont initialement écrasées et **HubEnabledState** est défini sur **null**. À ce stade, la solution créée également une entrée pour l’appareil dans le registre des identités des appareils IoT Hub, qui génère les clés utilisées par l’appareil pour s’authentifier avec IoT Hub.
+Lorsque vous créez pour la première fois un appareil dans le portail de la solution, la solution crée une entrée dans son registre des appareils comme indiqué précédemment. La plupart des informations sont initialement écrasées et **HubEnabledState** est défini sur **null**. À ce stade, la solution crée également une entrée pour l’appareil dans le registre des identités des appareils, qui génère les clés utilisées par l’appareil pour s’authentifier avec IoT Hub.
 
 Lorsqu’un appareil se connecte pour la première fois à la solution, il envoie un message d’information d’appareil. Ce message d’information d’appareil inclut des propriétés d’appareil, telles que le fabricant de l’appareil, le numéro de modèle et le numéro de série. Un message d’information d’appareil inclut également une liste des commandes prises en charge par l’appareil comprenant des informations sur les paramètres de commande. Lorsque la solution reçoit ce message, elle met à jour les métadonnées d’information d’appareil dans le registre des appareils.
 
@@ -81,7 +81,7 @@ La liste des appareils du portail de la solution affiche les propriétés d’ap
 
 ![Liste des appareils][img-device-list]
 
-Vous pouvez modifier toutes ces propriétés en cliquant sur **Modifier** dans le volet **Détails de l’appareil** du portail de la solution. La modification de ces propriétés met à jour l’enregistrement de l’appareil dans la base de données DocumentDB ; toutefois, si un appareil envoie un message d’information indiquant la mise à jour d’un appareil, il remplace toutes les modifications effectuées dans le portail de la solution. Vous ne pouvez pas modifier les propriétés **DeviceId**, **Hostname**, **HubEnabledState**, **CreatedTime**, **DeviceState**, et **UpdatedTime** dans le portail de la solution, car seul l’appareil a autorité sur ces dernières.
+Vous pouvez modifier toutes ces propriétés en cliquant sur **Modifier** dans le volet **Détails de l’appareil** du portail de la solution. La modification de ces propriétés met à jour l’enregistrement de l’appareil dans la base de données DocumentDB. Toutefois, si un appareil envoie un message d’informations d’appareil mis à jour, il remplace toutes les modifications apportées dans le portail de la solution. Vous ne pouvez pas modifier les propriétés **DeviceId**, **Hostname**, **HubEnabledState**, **CreatedTime**, **DeviceState**, et **UpdatedTime** dans le portail de la solution, car seul l’appareil a autorité sur ces dernières.
 
 ![Modification d’appareils][img-device-edit]
 
@@ -91,7 +91,7 @@ Vous pouvez utiliser le portail de la solution pour supprimer un appareil de vot
 
 ## Traitement des messages d’information d’appareil
 
-Les messages d’information d’appareil envoyés par un appareil sont différents des messages de télémétrie dans la mesure où ils incluent des informations telles que les propriétés de l’appareil, les commandes auxquelles répond un appareil et tous les historiques de commandes. IoT Hub lui-même n’a aucune connaissance des métadonnées contenues dans un message d’information d’appareil et traite le message de la même manière qu’il traite tout message appareil-à-cloud. Dans la solution de surveillance à distance, une tâche [Azure Stream Analytics][lnk-stream-analytics] (ASA) lit les messages issus de IoT Hub. Le travail **DeviceInfo** Stream Analytics filtre les messages contenant **"ObjectType": "DeviceInfo"** et les transmet à l’instance hôte **EventProcessorHost** qui s’exécute dans une tâche web. La logique de l’instance **EventProcessorHost** utilise l’ID d’appareil pour rechercher l’enregistrement DocumentDB de l’appareil spécifique et le mettre à jour. L’enregistrement du registre des appareils inclut désormais des informations, telles que les propriétés d’appareil, les commandes et l’historique des commandes.
+Les messages d’information d’appareil envoyés par un appareil sont différents des messages de télémétrie. Les messages d’information d’appareil incluent des informations telles que les propriétés de l’appareil, les commandes auxquelles répond un appareil et tous les historiques de commandes. IoT Hub lui-même n’a aucune connaissance des métadonnées contenues dans un message d’information d’appareil et traite le message de la même manière qu’il traite tout message appareil-à-cloud. Dans la solution de surveillance à distance, une tâche [Azure Stream Analytics][lnk-stream-analytics] (ASA) lit les messages issus de IoT Hub. Le travail **DeviceInfo** Stream Analytics filtre les messages contenant **« ObjectType » : « DeviceInfo »** et les transmet à l’instance hôte **EventProcessorHost** qui s’exécute dans une tâche web. La logique de l’instance **EventProcessorHost** utilise l’ID d’appareil pour rechercher l’enregistrement DocumentDB de l’appareil spécifique et le mettre à jour. L’enregistrement du registre des appareils inclut désormais des informations, telles que les propriétés d’appareil, les commandes et l’historique des commandes.
 
 > [AZURE.NOTE] Un message d’information d’appareil est un message appareil-à-cloud standard. La solution fait la distinction entre les messages d’information d’appareil et les messages de télémétrie en utilisant des requêtes ASA.
 
@@ -285,4 +285,4 @@ Maintenant que vous savez comment personnaliser les solutions préconfigurées, 
 [lnk-faq]: iot-suite-faq.md
 [lnk-security-groundup]: securing-iot-ground-up.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

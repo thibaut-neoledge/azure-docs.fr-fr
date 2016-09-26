@@ -4,7 +4,7 @@
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="pengxia" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun"/>
 
 <tags 
@@ -27,7 +27,7 @@ Comment pouvez-vous évaluer les avis et les attitudes des utilisateurs envers d
 
 Il existe en général deux méthodes pour l’analyse de sentiments. L’une utilise un algorithme d’apprentissage supervisé et l’autre peut être traitée comme un apprentissage non supervisé. Un algorithme d’apprentissage supervisé crée généralement un modèle de classification pour les corpus volumineux annotés. Sa précision est principalement basée sur la qualité de l’annotation et la phase d’apprentissage prend généralement beaucoup de temps. En outre, lorsque nous appliquons l'algorithme à un autre domaine, le résultat n'est généralement pas bon. Par rapport à l’apprentissage supervisé, l’apprentissage non supervisé basé sur un lexique utilise un dictionnaire de sentiments, qui ne nécessite pas le stockage d’un corpus de données volumineux et de formation, ce qui permet d’accélérer considérablement l’ensemble du processus.
 
-Notre [service](https://datamarket.azure.com/dataset/aml_labs/lexicon_based_sentiment_analysis) repose sur le lexique MPQA (http://mpqa.cs.pitt.edu/lexicons/subj_lexicon/)), qui est l’un des lexiques de subjectivité les plus fréquemment utilisés. Il existe 5 097 mots négatifs et 2 533 mots positifs dans le MPQA. Par ailleurs, tous ces mots sont annotés avec une polarité forte ou faible. Le corpus entier fait l'objet d'une licence GPL GNU. Le service web peut être utilisé pour toutes les phrases courtes telles que les Tweets et les publications Facebook.
+Notre [service](https://datamarket.azure.com/dataset/aml_labs/lexicon_based_sentiment_analysis) repose sur le lexique MPQA (http://mpqa.cs.pitt.edu/lexicons/subj_lexicon/), qui est l’un des lexiques de subjectivité les plus fréquemment utilisés. Il existe 5 097 mots négatifs et 2 533 mots positifs dans le MPQA. Par ailleurs, tous ces mots sont annotés avec une polarité forte ou faible. Le corpus entier fait l'objet d'une licence GPL GNU. Le service web peut être utilisé pour toutes les phrases courtes telles que les Tweets et les publications Facebook.
 
 >Les utilisateurs peuvent potentiellement accéder à ce service web par le biais d’une application mobile, d’un site web ou même d’un ordinateur local, par exemple. Mais l’objectif du service web est également de servir d’exemple d’utilisation d’Azure Machine Learning pour créer des services web avec le code R. Avec seulement quelques lignes de code R et quelques clics dans Azure Machine Learning Studio, vous pouvez créer une expérience avec le code R et la publier en tant que service web. Le service web peut ensuite être publié sur Azure Marketplace afin que les utilisateurs et les appareils du monde entier l’utilisent sans que l’auteur du service web n’ait à configurer l’infrastructure.
 
@@ -153,4 +153,4 @@ Pour les questions fréquemment posées relatives à l’utilisation du service 
 
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

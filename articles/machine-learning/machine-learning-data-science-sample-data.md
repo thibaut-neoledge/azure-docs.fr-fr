@@ -4,7 +4,7 @@
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="bradsev" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun" />
 
 <tags 
@@ -21,7 +21,7 @@
 Ce document contient des liens vers des rubriques qui expliquent comment échantillonner les données stockées dans l’un des trois emplacements Azure :
 
 - Les **données de conteneurs d’objets blob Azure** sont échantillonnées par le biais de leur téléchargement par programmation, puis de leur échantillonnage à l’aide d’un exemple de code Python.
-- Les **données SQL Server** sont échantillonnées à l’aide de SQL et du langage de programmation Python. 
+- Les **données SQL Server** sont échantillonnées à l’aide de SQL et du langage de programmation Python.
 - Les données des **tables Hive** sont échantillonnées à l’aide de requêtes Hive.
 
 Le **menu** ci-dessous pointe vers les rubriques qui expliquent comment échantillonner des données dans chacun de ces environnements de stockage Azure.
@@ -34,4 +34,4 @@ Cette tâche d’échantillonnage est une étape du [processus TDSP (Team Data S
 
 Si vous prévoyez d'analyser un jeu de données volumineux, il est généralement recommandé de sous-échantillonner les données afin de réduire leur taille sous une forme plus facilement exploitable, mais toujours représentative. Cette opération facilite la compréhension et l’exploration des données, ainsi que la conception de fonctionnalités. Son rôle dans le processus Cortana Analytics consiste à permettre le prototypage rapide des fonctions de traitement des données et des modèles d’apprentissage automatique.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

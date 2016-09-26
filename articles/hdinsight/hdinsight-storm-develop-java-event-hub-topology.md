@@ -4,7 +4,7 @@
    services="hdinsight,notification hubs"
    documentationCenter=""
    authors="Blackmist"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"/>
 
 <tags
@@ -22,7 +22,7 @@ Azure Event Hubs permet de traiter d’énormes quantités de données provenant
 
 Dans ce didacticiel, vous allez apprendre à utiliser le spout et le bolt Event Hubs pour lire et écrire des données dans une topologie Storm basée sur Java.
 
-## Configuration requise
+## Composants requis
 
 * Un cluster Apache Storm sur HDInsight. Utilisez l’un des articles de prise en main suivants pour créer un cluster :
 
@@ -453,4 +453,4 @@ Pour plus d’informations sur l’utilisation de l’interface utilisateur de S
 
 * [Exemples de topologies pour Storm dans HDInsight](hdinsight-storm-example-topology.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

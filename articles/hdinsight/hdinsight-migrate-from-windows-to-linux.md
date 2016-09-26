@@ -4,7 +4,7 @@ description="Apprenez à effectuer la migration d’un cluster HDInsight Windows
 services="hdinsight"
 documentationCenter=""
 authors="Blackmist"
-manager="paulettm"
+manager="jhubbard"
 editor="cgronlun"/>
 
 <tags
@@ -132,9 +132,9 @@ Les **actions de script** utilisées avec les clusters Linux doivent être écri
 
 Bootstrap pour les clusters Linux ne fournit pas cette fonctionnalité. Utilisez à la place l’action de script décrite dans [Ajouter les bibliothèques Hive lors de la création de cluster HDInsight](hdinsight-hadoop-add-hive-libraries.md).
 
-### Réseaux virtuels
+### Virtual Network
 
-Les clusters HDInsight Windows fonctionnent uniquement avec les réseaux virtuels classiques tandis que les clusters HDInsight Linux nécessitent des réseaux virtuels Resource Manager. Si vous disposez de ressources dans un réseau virtuel classique auquel le cluster HDInsight Linux doit se connecter, consultez [Connexion de réseaux virtuels classiques aux nouveaux réseaux virtuels](../virtual-network/virtual-networks-arm-asm-s2s.md).
+Les clusters HDInsight Windows fonctionnent uniquement avec les réseaux virtuels classiques tandis que les clusters HDInsight Linux nécessitent des réseaux virtuels Resource Manager. Si vous disposez de ressources dans un réseau virtuel classique auquel le cluster HDInsight Linux doit se connecter, consultez [Connexion de réseaux virtuels classiques aux nouveaux réseaux virtuels](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md).
 
 Pour plus d’informations sur la configuration requise pour utiliser des réseaux virtuels Azure avec HDInsight, consultez [Extension des capacités de HDInsight à l’aide d’Azure Virtual Network](hdinsight-extend-hadoop-virtual-network.md).
 
@@ -254,4 +254,4 @@ Si vous savez que les scripts ne contiennent pas de chaînes avec des caractère
 
 -   [Gérer des clusters HDInsight à l’aide de l’interface utilisateur Web d’Ambari](hdinsight-hadoop-manage-ambari.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

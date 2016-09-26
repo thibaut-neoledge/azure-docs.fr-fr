@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -42,9 +42,9 @@ Pour gérer un espace de travail :
 
 La page de l’espace de travail comporte trois onglets :
 
-- **TABLEAU DE BORD** : vous permet d’afficher l’utilisation et les informations de l’espace de travail
-- **CONFIGURATION** : vous permet de gérer l’accès à l’espace de travail
-- **SERVICES WEB** : vous permet de gérer les services web publiés à partir de cet espace de travail
+- **TABLEAU DE BORD** : vous permet d’afficher l’utilisation et les informations de l’espace de travail
+- **CONFIGURATION** : vous permet de gérer l’accès à l’espace de travail
+- **SERVICES WEB** : vous permet de gérer les services web publiés à partir de cet espace de travail
 
 
 ## Pour surveiller l’utilisation de l’espace de travail
@@ -96,4 +96,4 @@ Cliquez sur l’onglet **CONFIGURER** pour modifier la description, contrôler l
 [consume]: machine-learning-consume-web-services.md
 [marketplace]: machine-learning-publish-web-service-to-azure-marketplace.md
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0914_2016-->

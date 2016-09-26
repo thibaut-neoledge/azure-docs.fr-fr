@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="06/21/2016" 
+    ms.date="09/11/2016" 
     ms.author="jeedes" />
 
 #Didacticiel : Intégration d’Azure AD à Veracode
@@ -104,7 +104,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
     2.  Pour charger votre certificat téléchargé, cliquez sur**Choose File**.
     3.  Sélectionnez **Enable Self Registration**.
 
-9.  Dans la section **Self Registration Settings**, procédez comme suit, puis cliquez sur **Save** :
+9.  Dans la section **Self Registration Settings**, procédez comme suit, puis cliquez sur **Save** :
 
     ![Administration](./media/active-directory-saas-veracode-tutorial/IC802913.png "Administration")
 
@@ -176,4 +176,4 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
   
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d'informations sur le panneau d'accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

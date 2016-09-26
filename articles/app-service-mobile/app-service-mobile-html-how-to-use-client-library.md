@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="html"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="06/29/2016"
+	ms.date="09/12/2016"
 	ms.author="adrianha;ricksal"/>
 
 # Utilisation de la bibliothèque cliente JavaScript pour Azure Mobile Apps
@@ -51,21 +51,29 @@ import * as WindowsAzure from 'azure-mobile-apps-client';
 
 ##<a name="auth"></a>Procédure : authentification des utilisateurs
 
-Azure App Service prend en charge l’authentification et l’autorisation des utilisateurs d’applications par le biais de divers fournisseurs d’identité externes : Facebook, Google, compte Microsoft et Twitter. Vous pouvez définir des autorisations sur les tables pour limiter l'accès à certaines opérations aux seuls utilisateurs authentifiés. Vous pouvez également utiliser l'identité des utilisateurs authentifiés pour implémenter des règles d'autorisation dans les scripts serveur. Pour plus d'informations, consultez la page [Prise en main de l'authentification].
+Azure App Service prend en charge l’authentification et l’autorisation des utilisateurs d’applications par le biais de divers fournisseurs d’identité externes : Facebook, Google, compte Microsoft et Twitter. Vous pouvez définir des autorisations sur les tables pour limiter l'accès à certaines opérations aux seuls utilisateurs authentifiés. Vous pouvez également utiliser l’identité des utilisateurs authentifiés pour implémenter des règles d’autorisation dans les scripts serveur. Pour plus d'informations, consultez la page [Prise en main de l'authentification].
 
 Deux flux d’authentification sont pris en charge : un flux serveur et un flux client. Le flux serveur fournit l'authentification la plus simple, car il repose sur l'interface d'authentification Web du fournisseur. Le flux client permet une intégration approfondie avec les fonctionnalités propres aux appareils, telles que l'authentification unique, car il repose sur des Kits de développement logiciel (SDK) propres aux fournisseurs.
 
 [AZURE.INCLUDE [app-service-mobile-html-js-auth-library](../../includes/app-service-mobile-html-js-auth-library.md)]
 
-###<a name="configure-external-redirect-urls"></a>Configurer votre Mobile App Service pour les URL de redirection externes.
+###<a name="configure-external-redirect-urls"></a>Configurer votre Mobile App Service pour les URL de redirection externes
 
-Plusieurs types d’applications JavaScript utilisent une fonctionnalité de bouclage pour gérer les flux d’interface utilisateur OAuth, par exemple lorsque vous exécutez votre service localement, à l’aide de Live Reload dans l’infrastructure Ionic, ou lors de la redirection vers l’App Service pour l’authentification. Cela peut entraîner des problèmes car, par défaut, l’authentification d’App Service est uniquement configurée pour autoriser l’accès à partir du serveur principal de votre application mobile.
+Plusieurs types d’applications JavaScript utilisent une fonctionnalité de bouclage pour gérer les flux d’interface utilisateur OAuth. Ces fonctionnalités sont les suivantes :
 
-Utilisez la procédure suivante pour modifier les paramètres d’App Service afin d’activer l’authentification de votre hôte local :
+* Exécuter votre service en local
+* Utilisation de Live Reload avec l’infrastructure Ionic
+* Redirection vers le App Service pour authentification.
 
-1. Connectez-vous au [portail Azure], accédez au serveur principal de votre application mobile, puis cliquez sur **Outils** > **Explorateur de ressources** > **Atteindre** pour ouvrir une nouvelle fenêtre de l’Explorateur de ressources pour le serveur principal du serveur principal de votre application mobile (site).
+L’exécution locale peut entraîner des problèmes car, par défaut, l’authentification d’App Service est uniquement configurée pour autoriser l’accès à partir du serveur principal de votre application mobile. Utilisez la procédure suivante pour modifier les paramètres d’App Service afin d’activer l’authentification lors de l’exécution locale du serveur :
 
-2. Développez le nœud **config** pour votre application, puis cliquez sur **authsettings** > **Modifier**, trouvez l’élément **allowedExternalRedirectUrls**, qui doit avoir la valeur null et remplacez-le par ce qui suit :
+1. Connectez-vous au [portail Azure].
+2. Accédez à votre backend d’application mobile.
+3. Sélectionnez **Explorateur de ressources** dans le menu **OUTILS DE DÉVELOPPEMENT**.
+4. Cliquez sur **Aller** pour ouvrir l’Explorateur de ressources pour votre application mobile principale dans une fenêtre ou un nouvel onglet.
+5. Développez le nœud **config** > **authsettings** pour votre application.
+6. Cliquez sur le bouton **Modifier** pour activer la modification de la ressource.
+7. Trouvez l’élément **allowedExternalRedirectUrls**, qui doit être null. Modifiez-le comme suit :
 
          "allowedExternalRedirectUrls": [
              "http://localhost:3000",
@@ -73,21 +81,26 @@ Utilisez la procédure suivante pour modifier les paramètres d’App Service af
          ],
 
     Remplacez les URL dans le tableau par les URL de votre service ; dans cet exemple, `http://localhost:3000` pour l’exemple de service Node.js local. Vous pouvez également utiliser `http://localhost:4400` pour le service Ripple ou d’autres URL, selon la configuration de votre application.
+
+8. En haut de la page, cliquez sur **Lecture/Écriture**, puis sur **PUT** pour enregistrer vos mises à jour.
+
+Vous devez aussi ajouter les mêmes URL de bouclage aux paramètres de la liste blanche CORS :
+
+1. Revenez au [portail Azure].
+2. Accédez à votre backend d’application mobile.
+3. Cliquez sur **CORS** dans le menu **API**.
+4. Saisissez chaque URL dans la zone de texte **Origines autorisées** vide. Une zone de texte est créée.
+5. Cliquez sur **ENREGISTRER**
     
-3. En haut de la page, cliquez sur **Lecture/Écriture**, puis sur **PUT** pour enregistrer vos mises à jour.
-
-    Vous devez toujours ajouter les mêmes URL de bouclage aux paramètres de la liste blanche CORS :
-
-4. Dans le [portail Azure] dans le serveur principal de votre application mobile, cliquez sur **Tous les paramètres** > **CORS**, et ajoutez les URL de bouclage à la liste blanche, puis cliquez sur **Enregistrer**.
-
 Après que le serveur principal sera mis à jour, vous serez en mesure d’utiliser les nouvelles URL de bouclage dans votre application.
 
 <!-- URLs. -->
 [Démarrage rapide d’Azure Mobile Apps]: app-service-mobile-cordova-get-started.md
 [Prise en main de l'authentification]: app-service-mobile-cordova-get-started-users.md
-[Ajout de l’authentification à votre application]: app-service-mobile-cordova-get-started-users.md
+[Add authentication to your app]: app-service-mobile-cordova-get-started-users.md
 
+[portail Azure]: https://portal.azure.com/
 [Kit de développement logiciel (SDK) JavaScript pour Azure Mobile Apps]: https://www.npmjs.com/package/azure-mobile-apps-client
-[documentation de l’objet Query]: https://msdn.microsoft.com/fr-FR/library/azure/jj613353.aspx
+[Query object documentation]: https://msdn.microsoft.com/fr-FR/library/azure/jj613353.aspx
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0914_2016-->

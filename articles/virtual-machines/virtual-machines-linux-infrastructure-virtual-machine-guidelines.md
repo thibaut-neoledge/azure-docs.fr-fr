@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/22/2016"
+	ms.date="09/08/2016"
 	ms.author="iainfou"/>
 
 # Instructions pour les machines virtuelles
@@ -31,7 +31,7 @@ Décisions :
 
 Tâches :
 
-- Définissez les charges de travail pour votre application et les ressources nécessaires pour la machine virtuelle.
+- Définissez les charges de travail pour votre application et les ressources nécessaires pour les machines virtuelles.
 - Alignez les demandes de ressources pour chaque ordinateur virtuel avec le bon type de stockage et la bonne taille de machine virtuelle.
 - Définissez vos groupes de ressources pour les couches et composants de votre infrastructure.
 - Définissez votre convention de dénomination de machines virtuelles.
@@ -39,11 +39,11 @@ Tâches :
 
 ## Machines virtuelles
 
-Les machines virtuelles seront probablement un des principaux composants au sein de votre environnement Azure. C’est ici que vous exécuterez vos applications, bases de données, services d’authentification, etc.
+Les machines virtuelles sont probablement un des principaux composants au sein de votre environnement Azure. C’est ici que vous exécutez vos applications, bases de données, services d’authentification, etc.
 
-Il est important de comprendre les [différentes tailles de machine virtuelle](virtual-machines-linux-sizes.md) pour dimensionner correctement votre environnement du point de vue des performances et du coût. Si vos machines virtuelles n’ont pas une quantité adéquate de cœurs de processeur ou de mémoire, les performances de votre application en seront affectées, quelle que soit la façon dont elle est conçue et développée. Vérifiez les charges de travail suggérées pour chaque série de machines virtuelles comme point de départ lorsque vous décidez de la taille de machine virtuelle à utiliser pour chaque composant de votre infrastructure. Vous pouvez [modifier la taille d’une machine virtuelle](virtual-machines-linux-change-vm-size.md) après le déploiement.
+Il est important de comprendre les [différentes tailles de machines virtuelles](virtual-machines-linux-sizes.md) pour dimensionner correctement votre environnement du point de vue des performances et du coût. Si vos machines virtuelles n’ont pas assez de cœurs de processeur ou de mémoire, les performances de votre application en sont affectées, quelle que soit la façon dont elle est conçue et développée. Vérifiez les charges de travail suggérées pour chaque série de machines virtuelles comme point de départ lorsque vous décidez de la taille de machine virtuelle à utiliser pour chaque composant de votre infrastructure. Vous pouvez [modifier la taille d’une machine virtuelle](virtual-machines-linux-change-vm-size.md) après le déploiement.
 
-Le stockage joue un rôle clé dans les performances des machines virtuelles. Vous pouvez utiliser le stockage Standard, qui emploie des disques rotatifs ordinaires ou le stockage Premium pour les charges de travail gourmandes en E/S les performances de pointe qui utilisent des disques SSD. Comme avec la taille de la machine virtuelle, vous devez envisager les coûts lorsque vous sélectionnez le support de stockage. Vous pouvez lire [l’article d’instructions pour les infrastructures de stockage](virtual-machines-linux-infrastructure-storage-solutions-guidelines.md) pour comprendre comment concevoir le stockage approprié pour optimiser les performances de vos machines virtuelles.
+Le stockage joue un rôle clé dans les performances des machines virtuelles. Vous pouvez utiliser le stockage Standard, qui emploie des disques rotatifs ordinaires, ou le stockage Premium pour les charges de travail gourmandes en E/S et des performances de pointe, qui utilise des disques SSD. Comme avec la taille de la machine virtuelle, vous devez envisager les coûts lorsque vous sélectionnez le support de stockage. Vous pouvez lire [l’article d’instructions pour les infrastructures de stockage](virtual-machines-linux-infrastructure-storage-solutions-guidelines.md) pour comprendre comment concevoir le stockage approprié pour optimiser les performances de vos machines virtuelles.
 
 
 ## Groupes de ressources
@@ -57,4 +57,4 @@ Vous pouvez créer des modèles, définis par des fichiers JSON déclaratifs pou
 ## Étapes suivantes
 [AZURE.INCLUDE [virtual-machines-linux-infrastructure-guidelines-next-steps](../../includes/virtual-machines-linux-infrastructure-guidelines-next-steps.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -4,7 +4,7 @@
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"
     tags="azure-portal"/>
 
@@ -26,7 +26,7 @@
 
 Les clusters HDInsight sur Linux fournissent un ensemble d’exemples MapReduce pour vous permettre de vous familiariser avec l’exécution de tâches MapReduce Hadoop. Dans ce document, vous allez découvrir les exemples et les procédures disponibles, par le biais de la mise en application de certains d’entre eux.
 
-##Conditions préalables
+##Composants requis
 
 - **Un abonnement Azure** : consultez la page [Obtention d’un essai gratuit Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)
 
@@ -236,4 +236,4 @@ Dans cet article, vous avez appris à exécuter les exemples inclus avec les clu
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/18/2016"
+   ms.date="09/07/2016"
    ms.author="tomfitz"/>
 
 # Utiliser le portail pour créer une application et un principal du service Active Directory pouvant accéder aux ressources
@@ -118,7 +118,7 @@ Si votre application accède aux ressources pour le compte d’un utilisateur co
 
 1. Sélectionnez **Ajouter une application**.
 
-2. Dans la liste, sélectionnez l’ **API de gestion des services Microsoft Azure**. Cliquez sur l’icône Terminer.
+2. Dans la liste, sélectionnez l’**API de gestion des services Windows Azure**. Cliquez sur l’icône Terminer.
 
       ![sélectionner une application](./media/resource-group-create-service-principal-portal/select-app.png)
 
@@ -148,9 +148,23 @@ Vous pouvez définir l’étendue au niveau de l’abonnement, du groupe de ress
 
      Si vous ne disposez pas des autorisations appropriées pour accorder l’accès à une application, vous devez demander que votre administrateur d’abonnement vous ajoute au rôle Administrateur de l’accès utilisateur, ou bien demander qu’un administrateur accorde l’accès à l’application.
 
-1. Accédez au niveau d’étendue que vous souhaitez affecter à l’application. Dans le cadre de cette rubrique, accédez à un groupe de ressources, puis dans le panneau du groupe de ressources, sélectionnez **Contrôle d’accès**.
+1. Accédez au niveau d’étendue que vous souhaitez affecter à l’application. Pour affecter un rôle sur l’étendue de l’abonnement, sélectionnez **Abonnements**.
+
+     ![sélectionner l'abonnement](./media/resource-group-create-service-principal-portal/select-subscription.png)
+
+     Sélectionnez l’abonnement auquel l’application doit être affectée.
+
+     ![sélectionner l’abonnement pour l’affectation](./media/resource-group-create-service-principal-portal/select-one-subscription.png)
+
+     Sélectionnez l’icône **Accès** dans l’angle supérieur droit.
+
+     ![sélectionner l’accès](./media/resource-group-create-service-principal-portal/select-access.png)
+     
+     Ou, pour affecter un rôle sur l’étendue du groupe de ressources, accédez au groupe de ressources. Dans le panneau du groupe de ressources, sélectionnez **Contrôle d’accès**.
 
      ![sélectionner les utilisateurs](./media/resource-group-create-service-principal-portal/select-users.png)
+
+     Les étapes suivantes sont les mêmes pour toutes les étendues.
 
 2. Sélectionnez **Ajouter**.
 
@@ -208,4 +222,4 @@ Les exemples d’applications suivants montrent comment ouvrir une session en ta
 - Pour en savoir plus sur la spécification de stratégies de sécurité, consultez la rubrique [Contrôle d’accès en fonction du rôle](./active-directory/role-based-access-control-configure.md).
 - Pour une démonstration vidéo de ces étapes, consultez la rubrique [Activation de la gestion par programme d’une ressource Azure avec Azure Active Directory](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Enabling-Programmatic-Management-of-an-Azure-Resource-with-Azure-Active-Directory).
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

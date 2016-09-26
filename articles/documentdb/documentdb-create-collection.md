@@ -26,7 +26,7 @@ Vous ne savez pas vraiment ce qu’est une collection ? Consultez [Qu’est-ce 
 
     ![Capture d'écran montrant l'option Comptes DocumentDB dans la barre de lancement, le compte dans le panneau Comptes DocumentDB et la base de données dans le panneau Compte DocumentDB, dans le filtre Bases de données](./media/documentdb-create-collection/docdb-database-creation-1-2.png)
     
-    Si l’option **Comptes DocumentDB** n’est pas visible dans la barre de lancement, cliquez sur **Plus de services**, puis sur **DocumentDB (NoSQL)**. Si vous n’avez aucun compte répertorié, vous devrez [créer un compte DocumentDB](documentdb-create-account.md).
+    Si l’option **DocumentDB (NoSQL)** n’est pas visible dans la barre de lancement, cliquez sur **Plus de services**, puis sur **DocumentDB (NoSQL)**. Si vous n’avez aucun compte répertorié, vous devrez [créer un compte DocumentDB](documentdb-create-account.md).
 
 2. Dans le panneau **Compte DocumentDB** pour le compte sélectionné, dans le filtre **Bases de données**, sélectionnez la base de données dans laquelle ajouter une collection.
 
@@ -91,4 +91,4 @@ Maintenant que vous avez une collection, l'étape suivante consiste à ajouter o
 
 Une fois que chaque collection contient des documents, vous pouvez utiliser [DocumentDB SQL](documentdb-sql-query.md) pour [exécuter des requêtes](documentdb-sql-query.md#executing-queries) sur vos documents à l’aide de l’[Explorateur de requête](documentdb-query-collections-query-explorer.md) du portail, de l’[API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) ou de l’un des [Kits de développement logiciel](documentdb-sdk-dotnet.md).
 
-<!----HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

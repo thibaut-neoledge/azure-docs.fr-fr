@@ -5,7 +5,7 @@
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="garyericson" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun"  />
 
 <tags 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/31/2016" 
+	ms.date="09/09/2016" 
 	ms.author="kbaroni;garye" />
 
 # Utilisation de la régression linéaire dans Azure Machine Learning
@@ -29,8 +29,8 @@
 
 Notre projet a commencé avec deux objectifs :
 
-1. l’utilisation de l’analyse prédictive pour améliorer la précision des projections de recettes mensuelles de notre organisation ;  
-2. l’utilisation d’Azure ML pour confirmer, optimiser, mettre à l’échelle nos résultats et en accélérer la vitesse.  
+1. l’utilisation de l’analyse prédictive pour améliorer la précision des projections de recettes mensuelles de notre organisation ;
+2. l’utilisation d’Azure ML pour confirmer, optimiser, mettre à l’échelle nos résultats et en accélérer la vitesse.
 
 Comme beaucoup d’entreprises, notre organisation connaît un processus de prévision des recettes mensuelles. Notre petite équipe d’analystes commerciaux a été chargée d’utiliser Machine Learning pour prendre en charge le processus et améliorer la précision des prévisions. L’équipe a passé plusieurs mois à collecter des données provenant de plusieurs sources et à exécuter les attributs de données via l’analyse statistique afin d’identifier les principaux attributs des prévisions de vente de services. Puis, ils ont commencé à réaliser des prototypes de modèles de régression statistique sur les données dans Excel. En quelques semaines, nous avions un modèle de régression Excel plus performant que nos anciens processus de prévisions financières et de champ. C’est devenu le résultat de prédiction de référence.
 
@@ -51,8 +51,8 @@ Nous avons calculé une *Erreur d’absolue moyenne en pourcentage* et l’avons
 Nous avons suivi ces étapes pour créer notre expérience dans Azure ML :
 
 1.	téléchargement du jeu de données dans un fichier csv vers Azure ML (très petit fichier) ;
-2.	création d’une expérience et utilisation du module [Sélectionner des colonnes dans le jeu de données][select-columns] pour sélectionner les mêmes fonctionnalités de données que dans Excel ;   
-3.	utilisation du module de [Split Data][split] (avec le mode *Expression Relative*) pour répartir les données dans les mêmes jeux apprentissage que dans Excel ;  
+2.	création d’une expérience et utilisation du module [Sélectionner des colonnes dans le jeu de données][select-columns] pour sélectionner les mêmes fonctionnalités de données que dans Excel ;
+3.	utilisation du module de [Split Data][split] (avec le mode *Expression Relative*) pour répartir les données dans les mêmes jeux apprentissage que dans Excel ;
 4.	expériences avec le module de [régression linéaire][linear-regression] (options par défaut uniquement), documentation et comparaison des résultats à ceux de notre modèle de régression Excel.
 
 ### Examen des résultats initiaux
@@ -71,7 +71,7 @@ Lorsque nous avons présenté notre processus et les résultats obtenus aux cher
 * Lorsque vous utilisez le module de [régression linéaire][linear-regression] dans Azure ML, deux méthodes sont fournies :
 	*  descente dégradée en ligne : plus adapté aux problèmes de plus grande échelle ;
 	*  moindres carrés ordinaires : il s’agit de la méthode qui vient à l’esprit de la plupart des personnes qui entendent « régression linéaire ». Pour les petits groupes de données, les moindres carrés ordinaires peuvent être un meilleur choix.
-*  Envisagez d’ajuster le paramètre de poids de régularisation L2 pour améliorer les performances. Il est défini à 0,001 par défaut. Pour notre petit ensemble de données, nous l’avons défini à 0,005 pour améliorer les performances.    
+*  Envisagez d’ajuster le paramètre de poids de régularisation L2 pour améliorer les performances. Il est défini à 0,001 par défaut. Pour notre petit ensemble de données, nous l’avons défini à 0,005 pour améliorer les performances.
 
 ### Mystère résolu !
 Lorsque nous avons appliqué les recommandations, nous avons obtenu les mêmes performances de référence dans Azure ML et Excel :
@@ -143,7 +143,7 @@ La capacité de transférer des analyses prévisionnelles à partir d’Azure ML
 Certaines ressources sont répertoriées pour vous aider à utiliser la régression :
 
 * Régression dans Excel. Si vous n’avez jamais essayé la régression dans Excel, ce didacticiel vous aidera beaucoup : [http://www.excel-easy.com/examples/regression.html](http://www.excel-easy.com/examples/regression.html)
-* Régression et prévisions. Tyler Chessman a écrit un article de blog expliquant comment effectuer des prévisions de série chronologique dans Excel, qui contient une excellente description de la régression linéaire pour les débutants. [http://sqlmag.com/sql-server-analysis-services/understanding-time-series-forecasting-concepts](http://sqlmag.com/sql-server-analysis-services/understanding-time-series-forecasting-concepts)  
+* Régression et prévisions. Tyler Chessman a écrit un article de blog expliquant comment effectuer des prévisions de série chronologique dans Excel, qui contient une excellente description de la régression linéaire pour les débutants. [http://sqlmag.com/sql-server-analysis-services/understanding-time-series-forecasting-concepts](http://sqlmag.com/sql-server-analysis-services/understanding-time-series-forecasting-concepts)
 * 	Régression linéaire et moindres carrés ordinaires : défauts, problèmes et pièges. Pour une introduction et une discussion relatives à la régression : [http://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/ ](http://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/)
 
 [1]: ./media/machine-learning-linear-regression-in-azure/machine-learning-linear-regression-in-azure-1.png
@@ -159,4 +159,4 @@ Certaines ressources sont répertoriées pour vous aider à utiliser la régress
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
  
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0914_2016-->

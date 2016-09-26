@@ -50,7 +50,7 @@ Voici les valeurs attendues :
 | {URL-encoded-resourceURI} | Encodage en URL minuscules de l’URI de ressource en minuscules |
 | {policyName} | Le nom de la stratégie d’accès partagé à laquelle ce jeton fait référence. Absent dans le cas de jetons faisant référence aux informations d’identification de registre des appareils. |
 
-**Remarque sur le préfixe** : le préfixe URI est calculé par segment et non par caractère. Par exemple `/a/b` est un préfixe de `/a/b/c`, mais pas de `/a/bc`.
+**Remarque sur le préfixe** : le préfixe URI est calculé par segment et non par caractère. Par exemple `/a/b` est un préfixe pour `/a/b/c`, mais pas pour `/a/bc`.
 
 Il s’agit d’une fonction Node qui calcule le jeton à partir des entrées `resourceUri, signingKey, policyName, expiresInMins`. Les sections suivantes décrivent en détail comment initialiser les différentes entrées pour les différents cas d’utilisation des jetons.
 
@@ -213,7 +213,7 @@ Un appareil peut utiliser un certificat X.509 ou un jeton de sécurité pour l�
 
 ## Inscrire un certificat de client X.509 pour un appareil
 
-Le [SDK Azure IoT Service pour C#][lnk-service-sdk] \(version 1.0.8+) prend en charge l’inscription d’un appareil qui utilise un certificat client X.509 pour s’authentifier. D’autres API telles que l’importation/exportation d’appareils prennent également en charge les certificats clients X.509.
+Le [SDK Azure IoT Service pour C#][lnk-service-sdk] (version 1.0.8+) prend en charge l’inscription d’un appareil qui utilise un certificat client X.509 pour s’authentifier. D’autres API telles que l’importation/exportation d’appareils prennent également en charge les certificats clients X.509.
 
 ### Prise en charge de C#
 
@@ -240,7 +240,7 @@ await registryManager.AddDeviceAsync(device);
 
 ## Utiliser un certificat client X.509 pendant les opérations d’exécution
 
-Le [SDK Azure IoT Device pour .NET][lnk-client-sdk] \(version 1.0.11+) prend en charge l’utilisation de certificats clients X.509.
+Le [SDK Azure IoT Device pour .NET][lnk-client-sdk] (version 1.0.11+) prend en charge l’utilisation de certificats clients X.509.
 
 ### Prise en charge de C#
 
@@ -265,4 +265,4 @@ var deviceClient = DeviceClient.Create("<IotHub DNS HostName>", authMethod);
 [lnk-service-sdk]: https://github.com/Azure/azure-iot-sdks/tree/master/csharp/service
 [lnk-client-sdk]: https://github.com/Azure/azure-iot-sdks/tree/master/csharp/device
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="bradsev" 
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun" />
 
 <tags
@@ -25,7 +25,7 @@ La galerie de machines virtuelles Azure inclut différentes images contenant Mic
 - SQL Server 2012 SP2 Enterprise pour les données de taille réduite ou moyenne
 - SQL Server 2012 SP2 Enterprise optimisé pour les charges de travail d’entreposage de données pour les données de taille conséquente ou très volumineuse
 
- > [AZURE.NOTE] L’image SQL Server 2012 SP2 Enterprise **n’inclut aucun disque de données**. Vous devrez ajouter et/ou attacher un ou plusieurs disques durs virtuels pour stocker vos données. Lorsque vous créez une machine virtuelle Azure, elle comporte un disque pour le système d’exploitation mappé au lecteur C et un disque temporaire mappé au lecteur D. Ne stockez pas de données dans le lecteur D. Comme son nom l’indique, il ne permet qu’un stockage temporaire. Il n’offre aucune possibilité de redondance ou de sauvegarde, car il ne réside pas dans le stockage Azure.
+ > [AZURE.NOTE] L’image SQL Server 2012 SP2 Enterprise **n’inclut aucun disque de données**. Vous devrez ajouter et/ou attacher un ou plusieurs disques durs virtuels pour stocker vos données. Lorsque vous créez une machine virtuelle Azure, elle comporte un disque pour le système d’exploitation mappé au lecteur C et un disque temporaire mappé au lecteur D. Ne stockez pas de données dans le lecteur D. Comme son nom l’indique, il ne permet qu’un stockage temporaire. Il n'offre aucune possibilité de redondance ou de sauvegarde, car il ne réside pas dans le stockage Azure.
 
 
 ##<a name="Provision"></a>Se connecter au portail Azure Classic et approvisionner une machine virtuelle SQL Server
@@ -34,7 +34,7 @@ La galerie de machines virtuelles Azure inclut différentes images contenant Mic
 
 2.  Dans le portail Azure Classic, en bas à gauche de la page web, cliquez sur **+NOUVEAU**, sur **CALCUL**, sur **MACHINE VIRTUELLE**, puis sur **À PARTIR DE LA GALERIE**.
 
-3.  Dans la page **Créer une machine virtuelle**, sélectionnez une image de machine virtuelle avec SQL Server adaptée à vos besoins en matière de données, puis cliquez sur la flèche suivante dans le coin inférieur droit de la page. Pour obtenir les informations les plus récentes sur les images SQL Server prises en charge sur Azure, consultez la page [Mise en route de SQL Server sur les machines virtuelles Microsoft Azure](http://go.microsoft.com/fwlink/p/?LinkId=294720) dans l’ensemble de documentation [SQL Server dans les machines virtuelles Azure](http://go.microsoft.com/fwlink/p/?LinkId=294719).
+3.  Dans la page **Créer une machine virtuelle**, sélectionnez une image de machine virtuelle avec SQL Server adaptée à vos besoins en matière de données, puis cliquez sur la flèche suivante dans le coin inférieur droit de la page. Pour obtenir les informations les plus récentes sur les images SQL Server prises en charge sur Azure, consultez la page [Mise en route de SQL Server sur les machines virtuelles Windows Azure](http://go.microsoft.com/fwlink/p/?LinkId=294720) dans l’ensemble de documentation [SQL Server dans les machines virtuelles Azure](http://go.microsoft.com/fwlink/p/?LinkId=294719).
 
 	![Sélection de la machine virtuelle Serveur SQL][1]
 
@@ -73,7 +73,7 @@ La galerie de machines virtuelles Azure inclut différentes images contenant Mic
 
 	`![Dernières Options de machine virtuelle][4]
 
-9.  Patientez pendant qu’Azure prépare votre machine virtuelle. L'état de la machine virtuelle doit normalement passer par les phases suivantes :
+9.  Patientez pendant qu'Azure prépare votre machine virtuelle. L'état de la machine virtuelle doit normalement passer par les phases suivantes :
 
     -   Démarrage (configuration)
     -   Arrêté
@@ -90,9 +90,9 @@ La galerie de machines virtuelles Azure inclut différentes images contenant Mic
 
 3.  Dans la boîte de dialogue **Sécurité de Windows**, entrez le mot de passe du compte d’administrateur local indiqué à l’étape précédente. (Il se peut que vous soyez invité à vérifier les informations d’identification de la machine virtuelle.)
 
-4.  Lors de la première connexion à cette machine virtuelle, il est possible que plusieurs processus doivent s'effectuer, par exemple, la configuration de votre bureau, les mises à jour de Windows et l'achèvement des tâches de configuration initiales de Windows (sysprep). Une fois Windows sysprep terminé, le programme d’installation de SQL Server effectue les tâches de configuration. L’exécution de ces tâches peut prendre quelques minutes. Tant que la configuration de SQL Server n’est pas terminée, il est possible que `SELECT @@SERVERNAME` ne renvoie pas le nom correct et que SQL Server Management Studio ne soit pas visible sur la page d’accueil.
+4.  Lors de la première connexion à cette machine virtuelle, il est possible que plusieurs processus doivent s'effectuer, par exemple, la configuration de votre bureau, les mises à jour de Windows et l'achèvement des tâches de configuration initiales de Windows (sysprep). Une fois Windows sysprep terminé, les tâches de configuration de SQL Server sont terminées. L’exécution de ces tâches peut prendre quelques minutes. Tant que la configuration de SQL Server n’est pas terminée, il est possible que `SELECT @@SERVERNAME` ne renvoie pas le nom correct et que SQL Server Management Studio ne soit pas visible sur la page d’accueil.
 
-Une fois que vous êtes connecté à la machine virtuelle avec le Bureau à distance Windows, celle-ci fonctionne comme un autre ordinateur. Connectez-vous normalement à l’instance par défaut de SQL Server avec SQL Server Management Studio (exécuté sur la machine virtuelle).
+Une fois que vous êtes connecté à la machine virtuelle avec le Bureau à distance Windows, celle-ci fonctionne comme un autre ordinateur. Connectez-vous normalement à l'instance par défaut de SQL Server avec SQL Server Management Studio (exécuté sur la machine virtuelle).
 
 
 ##<a name="InstallIPython"></a>Installer Notebook IPython et les autres outils connexes
@@ -131,7 +131,7 @@ Pour attacher des disques de données supplémentaires, suivez la procédure dé
 
 ##<a name="SSMS"></a>Se connecter à SQL Server Management Studio et activer l’authentification en mode mixte
 
-Le moteur de base de données de SQL Server ne peut pas utiliser l’authentification Windows sans un environnement de domaine. Pour vous connecter au moteur de base de données à partir d'un autre ordinateur, configurez SQL Server pour l'authentification en mode mixte qui permet l’authentification SQL Server et l’authentification Windows Le mode d’authentification SQL est requis pour la réception de données directement à partir de vos bases de données de machine virtuelle SQL Server dans [Azure Machine Learning Studio](https://studio.azureml.net) à l’aide du module Importer les données.
+Le moteur de base de données de SQL Server ne peut pas utiliser l’authentification Windows sans un environnement de domaine. Pour vous connecter au moteur de base de données à partir d'un autre ordinateur, configurez SQL Server pour l'authentification en mode mixte qui permet l'authentification SQL Server et l'authentification Windows Le mode d’authentification SQL est requis pour la réception de données directement à partir de vos bases de données de machine virtuelle SQL Server dans [Azure Machine Learning Studio](https://studio.azureml.net) à l’aide du module Importer les données.
 
 1.  Lorsque vous êtes connecté à la machine virtuelle à l’aide du Bureau à distance, utilisez le volet Windows **Rechercher** et tapez **SQL Server Management Studio** (SMSS). Cliquez pour démarrer SQL Server Management Studio (SSMS). Vous pouvez ajouter un raccourci pour SSMS sur votre Bureau à des fins d’utilisation ultérieure.
 
@@ -174,7 +174,7 @@ Le moteur de base de données de SQL Server ne peut pas utiliser l’authentific
 
 ##<a name="Logins"></a>Créer des connexions d’authentification SQL Server
 
-Pour vous connecter au moteur de base de données à partir d’un autre ordinateur, vous devez créer au moins une connexion d’authentification SQL Server.
+Pour vous connecter au moteur de base de données à partir d'un autre ordinateur, vous devez créer au moins une connexion d'authentification SQL Server.
 
 Vous pouvez créer des connexions SQL Server par programme ou en utilisant SQL Server Management Studio. Pour créer un utilisateur sysadmin avec l’authentification SQL par programme, démarrez une **Nouvelle requête**, puis exécutez le script ci-après. Remplacez les variables <nouveau nom d’utilisateur> et <nouveau mot de passe> par le *nom d’utilisateur* et le *mot de passe* de votre choix.
 
@@ -217,9 +217,9 @@ Pour créer des connexions SQL Server à l’aide de SQL Server Management Stu
 
     ![Propriétés de connexion][11]
 
-11. S’il s’agit de votre première connexion, vous pouvez désigner cette connexion en tant qu’administrateur SQL Server. Si cela est le cas, sur la page **Rôles du serveur**, activez la case à cocher **administrateur système**.
+11. S'il s'agit de votre première connexion, vous pouvez désigner cette connexion en tant qu'administrateur SQL Server. Si cela est le cas, sur la page **Rôles du serveur**, activez la case à cocher **administrateur système**.
 
-    **Remarque relative à la sécurité** : les membres du rôle serveur fixe administrateur système contrôlent complètement le moteur de base de données. Vous devez limiter soigneusement l'appartenance à ce rôle.
+    **Remarque relative à la sécurité** : les membres du rôle serveur fixe administrateur système contrôlent complètement le moteur de base de données. Vous devez limiter soigneusement l'appartenance à ce rôle.
 
     ![administrateur système][12]
 
@@ -227,7 +227,7 @@ Pour créer des connexions SQL Server à l’aide de SQL Server Management Stu
 
 ##<a name="DNS"></a>Déterminer le nom DNS de la machine virtuelle
 
-Pour vous connecter au moteur de base de données SQL Server à partir d’un autre ordinateur, vous devez connaître le nom DNS de la machine virtuelle.
+Pour vous connecter au moteur de base de données SQL Server à partir d'un autre ordinateur, vous devez connaître le nom DNS de la machine virtuelle.
 
 Il s'agit du nom utilisé par Internet pour identifier une machine virtuelle. Vous pouvez utiliser l'adresse IP, mais celle-ci peut être modifiée lorsqu'Azure déplace des ressources pour des raisons de redondance ou de maintenance. Le nom DNS reste stable, car il peut être redirigé vers une nouvelle adresse IP.
 
@@ -271,7 +271,7 @@ Le service Azure Virtual Machines est facturé au tarif du **paiement à l’uti
 
 Pour arrêter et libérer la machine virtuelle :
 
-1. Connectez-vous au [portail Azure Classic](http://manage.windowsazure.com/) avec votre compte.  
+1. Connectez-vous au [portail Azure Classic](http://manage.windowsazure.com/) avec votre compte.
 
 2. Sélectionnez **MACHINES VIRTUELLES** dans la barre de navigation gauche.
 
@@ -306,4 +306,4 @@ Les étapes suivantes du processus de science des données sont présentées dan
 [15]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/vmshutdown.png
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -4,7 +4,7 @@
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="LuisCabrer" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun"/>
 
 <tags 
@@ -13,14 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/24/2016" 
+	ms.date="09/08/2016" 
 	ms.author="luisca"/>
 
 
 # Procédure pas à pas d’exemple d’application d’API Recommendations
 
-> Il s’agit de documentation pour l’ancienne API Recommandations sur le marché des données, qui seront déconseillées d’ici au 31/12/2016. Vous devez maintenant passer au [Service cognitif de l’API Recommandations](https://www.microsoft.com/cognitive-services/fr-FR/recommendations-api).
-
+>[AZURE.NOTE] Vous devez commencer à utiliser le Service cognitif de l’API Recommandations au lieu de cette version. Le Service cognitif de l’API Recommandations remplacera ce service et toutes les nouvelles fonctionnalités y seront développées. Il propose de nouvelles fonctionnalités telles que la prise en charge du traitement par lot, un meilleur Explorateur d’API, une surface d’API plus propre, une expérience d’inscription/de facturation plus cohérente, etc. En savoir plus sur la [migration vers le nouveau Service cognitif](http://aka.ms/recomigrate)
 
 ##Objectif
 
@@ -44,7 +43,7 @@ Afin de permettre le scénario ci-dessus, procédez comme suit dans le service M
 * Créez un modèle : il s’agit d’un conteneur logique qui contient les données (de catalogue et d’utilisation) et le ou les modèles de prévision. Chaque conteneur de modèle est identifié par un identifiant unique attribué lors de sa création. Cet identifiant, appelé identifiant de modèle, est utilisé par la plupart des API.
 * Téléchargez un catalogue : une fois qu’un conteneur de modèle est créé, vous pouvez lui associer un catalogue.
 
-**Remarque** : les étapes de création d’un modèle et de téléchargement dans un catalogue sont généralement effectuées une fois pendant le cycle de vie du modèle.
+**Remarque** : les étapes de création d’un modèle et de téléchargement dans un catalogue sont généralement effectuées une fois pendant le cycle de vie du modèle.
 
 * Téléchargez l’utilisation : pour ajouter des données d’utilisation au conteneur du modèle.
 * Générez le modèle de recommandation : une fois que vous avez suffisamment de données, vous pouvez générer un modèle de recommandation. Cette opération utilise des algorithmes d’apprentissage automatique très performants pour créer un modèle de recommandation. Chaque génération est associée à un identifiant unique. Vous devez conserver un enregistrement de cet identifiant, car il est nécessaire au fonctionnement de certaines API.
@@ -93,4 +92,4 @@ Pour une description complète de l’API, consultez la documentation de Microso
 La version d’évaluation n’est pas conçue pour être exécutée dans un environnement de production. Les données fournies dans le catalogue ne sont pas nombreuses et ne fournissent pas un modèle de recommandation éloquent. Elles sont seulement fournies à titre de démonstration.
  
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

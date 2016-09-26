@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="06/20/2016" 
+    ms.date="09/09/2016" 
     ms.author="markvi" />
 
 #Didacticiel : Intégration d’Azure AD à Zoho Mail
@@ -66,7 +66,7 @@ Cette section décrit l’activation de l’intégration d’applications pour Z
 
 ##Configuration de l'authentification unique
   
-Cette section explique comment permettre aux utilisateurs de s’authentifier sur Zoho Mail avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML. Dans le cadre de cette procédure, vous devez créer un fichier de certificat codé en base 64. Si cette procédure ne vous est pas familière, consultez [Conversion d’un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
+Cette section explique comment permettre aux utilisateurs de s’authentifier sur Zoho Mail avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML. Dans le cadre de cette procédure, vous devez créer un fichier de certificat codé en base 64. Si cette procédure ne vous est pas familière, consultez [Comment convertir un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
 
 ###Pour configurer l’authentification unique, procédez comme suit :
 
@@ -84,7 +84,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
 	a. Dans la zone de texte **URL de connexion de Zoho Mail**, tapez votre URL au format suivant : `http://<company name>.ZohoMail.com`
 
-	b. Cliquez sur **Next**.
+	b. Cliquez sur **Suivant**.
 
 
 4.  Dans la page **Configurer l’authentification unique sur Zoho Mail**, cliquez sur **Télécharger le certificat**, puis enregistrez le fichier de certificat sur votre ordinateur.
@@ -108,9 +108,9 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
     1.  Dans la page **Configurer l’authentification unique sur Zoho Mail** du portail Azure Classic, copiez la valeur **URL de connexion distante**, puis collez-la dans la zone de texte **URL de connexion**.
     2.  Dans la page **Configurer l’authentification unique sur Zoho Mail** du portail Azure Classic, copiez la valeur **URL de déconnexion distante**, puis collez-la dans la zone de texte **URL de déconnexion**.
     3.  Dans la page **Configurer l’authentification unique sur Zoho Mail** du portail Azure Classic, copiez la valeur **Modifier l’URL de mot de passe**, puis collez-la dans la zone de texte **Modifier l’URL de mot de passe**.
-    4.  Créez un fichier **codé en base 64** à partir du certificat téléchargé.  
+    4.  Créez un fichier **codé en base 64** à partir du certificat téléchargé.
 
-        >[AZURE.TIP] Pour plus d’informations, consultez [Conversion d’un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
+        >[AZURE.TIP] Pour plus d’informations, consultez [Comment convertir un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
 
     5.  Ouvrez votre certificat codé en base 64 dans le Bloc-notes, copiez son contenu dans le Presse-papiers, puis collez-le dans la zone de texte **PublicKey**.
     6.  Comme **Algorithme**, sélectionnez **RSA**.
@@ -139,7 +139,7 @@ Pour que les utilisateurs d’Azure AD puissent se connecter à Zoho Mail, ils 
     ![Ajouter un utilisateur](./media/active-directory-saas-zoho-mail-tutorial/IC789612.png "Ajouter un utilisateur")
 
     1.  Tapez le prénom, le nom, l’ID de messagerie et le mot de passe du compte Azure AD valide que vous souhaitez approvisionner dans les zones de texte correspondantes, à savoir **First Name**, **Last Name**, **Email ID** et **Password**.
-    2.  Cliquez sur **OK**.  
+    2.  Cliquez sur **OK**.
 
         >[AZURE.NOTE] Le titulaire du compte Azure AD reçoit un message électronique contenant un lien pour confirmer le compte avant qu’il ne soit activé.
 
@@ -161,6 +161,6 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
     ![Oui](./media/active-directory-saas-zoho-mail-tutorial/IC767830.png "Oui")
   
-Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
+Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d'informations sur le panneau d'accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

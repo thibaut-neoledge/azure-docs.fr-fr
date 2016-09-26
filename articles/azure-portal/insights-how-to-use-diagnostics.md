@@ -49,15 +49,15 @@ Si vous avez déjà créé une ressource et que vous souhaitez modifier les para
 ### Catégories de collecte de données pour les machines virtuelles
 Pour les machines virtuelles, toutes les mesures et tous les journaux sont enregistrés à des intervalles d'une minute, de façon à vous fournir les informations les plus récentes possible concernant votre machine.
 
-- **Mesures de base** : mesures sur l'état d'intégrité de votre machine virtuelle (par ex., processeur et mémoire)
-- **Mesures réseau et mesures Web** : mesures concernant vos connexions réseau et services Web
-- **Mesures .NET** : mesures concernant les applications .NET et ASP.NET exécutées sur votre machine virtuelle
-- **Mesures SQL** : si vous exécutez Microsoft SQL Service, ses mesures de performances
-- **Journaux d'événements Windows de l'application** : événements Windows envoyés au canal Application
-- **Journaux d'événements Windows du système** : événements Windows envoyés au canal Système Cela inclut également tous les événements de [Microsoft Antimalware](http://go.microsoft.com/fwlink/?LinkID=404171&clcid=0x409).
-- **Journaux d'événements Windows de la sécurité** : événements Windows envoyés au canal Sécurité
-- **Journaux d'infrastructure de diagnostics** : journalisation concernant l'infrastructure de collecte de diagnostics
-- **Journaux IIS** : journaux concernant votre serveur IIS
+- **Mesures de base** : mesures sur l'état d'intégrité de votre machine virtuelle (par ex., processeur et mémoire)
+- **Mesures réseau et mesures Web** : mesures concernant vos connexions réseau et services Web
+- **Mesures .NET** : mesures concernant les applications .NET et ASP.NET exécutées sur votre machine virtuelle
+- **Mesures SQL** : si vous exécutez Microsoft SQL Service, ses mesures de performances
+- **Journaux d'événements Windows de l'application** : événements Windows envoyés au canal Application
+- **Journaux d'événements Windows du système** : événements Windows envoyés au canal Système Cela inclut également tous les événements de [Microsoft Antimalware](http://go.microsoft.com/fwlink/?LinkID=404171&clcid=0x409).
+- **Journaux d'événements Windows de la sécurité** : événements Windows envoyés au canal Sécurité
+- **Journaux d'infrastructure de diagnostics** : journalisation concernant l'infrastructure de collecte de diagnostics
+- **Journaux IIS** : journaux concernant votre serveur IIS
 
 Notez qu’à ce stade, certaines distributions de Linux ne sont pas prises en charge, et que l'agent invité doit être installé sur la machine virtuelle.
 
@@ -66,8 +66,8 @@ Notez qu’à ce stade, certaines distributions de Linux ne sont pas prises en c
 * [Réceptions de notifications d'alerte](insights-receive-alert-notifications.md) lorsque des événements opérationnels se produisent ou que des mesures dépassent un seuil.
 * [Surveillance des mesures de service](insights-how-to-customize-monitoring.md) pour vous assurer que votre service est disponible et réactif.
 * [Mise à l’échelle automatique du nombre d’instances](insights-how-to-scale.md) pour vous assurer que votre service est mis à l’échelle en fonction de la demande.
-* [Surveillance des performances d'une application](insights-perf-analytics.md) si vous voulez comprendre exactement comment votre code s'exécute dans le cloud.
+* [Surveillance des performances d'une application](../application-insights/app-insights-azure-web-apps.md) si vous voulez comprendre exactement comment votre code s'exécute dans le cloud.
 * [Affichage des événements et journaux d'audit](insights-debugging-with-events.md) pour découvrir tout ce qui s'est produit dans votre service.
 * [Suivi de l'intégrité du service](insights-service-health.md) pour déterminer à quel moment Azure a rencontré des interruptions de service ou une dégradation des performances.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0914_2016-->

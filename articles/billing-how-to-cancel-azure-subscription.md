@@ -22,7 +22,7 @@
 
 >[AZURE.NOTE] Un plan de support Azure a une durée de 6 mois et Microsoft requiert votre engagement monétaire jusqu’à son terme. En cas d’annulation avant le terme du plan, l’engagement restant est dû et aucun montant prépayé n’est remboursé. Si vous annulez votre abonnement par erreur et devez le réactiver, vous pouvez [contacter le support technique](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour obtenir une assistance.
 
-Si vous annulez votre abonnement, tous vos services sont immédiatement supprimés. Assurez-vous de sauvegarder les données que vous souhaitez enregistrer avant de procéder à l’annulation.
+Si vous annulez votre abonnement, vos données seront stockées pendant 90 jours selon la [stratégie de rétention de Microsoft](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31). En savoir plus dans le [Centre de gestion de la confidentialité Microsoft](https://www.microsoft.com/fr-FR/TrustCenter/Privacy/You-are-in-control-of-your-data).
 
 1. Connectez-vous au [Centre des comptes Azure](https://account.windowsazure.com/subscriptions) en tant qu’administrateur de compte.
 
@@ -40,6 +40,8 @@ Si vous annulez votre abonnement, tous vos services sont immédiatement supprim�
 
 5. Cliquez sur ![checkbutton](./media/billing-how-to-cancel-azure-subscription/checkbutton.png) pour fermer la boîte de dialogue et revenir à votre page d’abonnement.
 
+	> [AZURE.NOTE] Si vous avez accidentellement annulé votre abonnement avec paiement à l’utilisation, vous pouvez suivre les instructions décrites [ici](https://azure.microsoft.com/fr-FR/documentation/articles/billing-subscription-become-disable/) pour le réactiver.
+
 > [AZURE.NOTE] Si vous avez d’autres questions, veuillez [contacter le support technique](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour obtenir une prise en charge rapide de votre problème.
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

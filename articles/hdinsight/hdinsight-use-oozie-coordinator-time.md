@@ -5,7 +5,7 @@
 	documentationCenter=""
 	tags="azure-portal"
 	authors="mumian"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -76,7 +76,7 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 	<tr><td>Nom du conteneur d'objets blob Azure</td><td>$containerName</td><td></td><td>Dans cet exemple, utilisez le conteneur de stockage d'objets blob Azure utilisé pour le système de fichiers de cluster HDInsight par défaut. Par défaut, il porte le même nom que le cluster HDInsight.</td></tr>
 	</table>
 
-- **Une base de données SQL Azure**. Vous devez configurer une règle de pare-feu pour que le serveur de base de données SQL autorise l'accès à partir de votre station de travail. Pour des instructions sur la création d'une base de données SQL Azure et la configuration d'un pare-feu, consultez la rubrique [Prise en main de la base de données SQL Azure][sqldatabase-get-started]. Cet article inclut un script Windows PowerShell pour la création de la table de base de données SQL Azure dont vous avez besoin pour ce didacticiel.
+- **Une base de données SQL Azure**. Vous devez configurer une règle de pare-feu pour que le serveur de base de données SQL autorise l'accès à partir de votre poste de travail. Pour des instructions sur la création d'une base de données SQL Azure et la configuration d'un pare-feu, consultez la rubrique [Prise en main de la base de données SQL Azure][sqldatabase-get-started]. Cet article inclut un script Windows PowerShell pour la création de la table de base de données SQL Azure dont vous avez besoin pour ce didacticiel.
 
 	<table border = "1">
 	<tr><th>Propriété de base de données&#160;SQL</th><th>Nom de la variable Windows&#160;PowerShell</th><th>Valeur</th><th>Description</th></tr>
@@ -253,7 +253,7 @@ Exécutez un script Azure PowerShell pour effectuer les opérations suivantes :
 
 HDInsight utilise le stockage d’objets blob Azure pour stocker les données. wasbs:// est l’implémentation Microsoft du système de fichiers distribués Hadoop (HDFS) dans le stockage d’objets blob Azure. Pour plus d'informations, consultez la rubrique [Utilisation du stockage d'objets blob Azure avec HDInsight][hdinsight-storage].
 
-Lors de l'approvisionnement d'un cluster HDInsight, un compte Azure Storage et un conteneur spécifique de ce compte sont désignés en tant que système de fichiers par défaut, comme dans HDFS. En plus de ce compte de stockage, pendant le processus d’approvisionnement, vous pouvez ajouter des comptes de stockage supplémentaires à partir du même abonnement Azure ou à partir d'autres abonnements Azure. Pour plus d'instructions sur l’ajout des comptes de stockage supplémentaires, consultez la rubrique [Approvisionnement de clusters HDInsight][hdinsight-provision]. Pour simplifier le script Azure PowerShell utilisé dans ce didacticiel, tous les fichiers sont stockés dans le conteneur de système de fichiers par défaut, à l'emplacement */tutorials/useoozie*. Par défaut, ce conteneur porte le même nom que le cluster HDInsight. La syntaxe est :
+Lors de l'approvisionnement d'un cluster HDInsight, un compte Azure Storage et un conteneur spécifique de ce compte sont désignés en tant que système de fichiers par défaut, comme dans HDFS. En plus de ce compte de stockage, pendant le processus d’approvisionnement, vous pouvez ajouter des comptes de stockage supplémentaires à partir du même abonnement Azure ou à partir d’autres abonnements Azure. Pour plus d'instructions sur l’ajout des comptes de stockage supplémentaires, consultez la rubrique [Approvisionnement de clusters HDInsight][hdinsight-provision]. Pour simplifier le script Azure PowerShell utilisé dans ce didacticiel, tous les fichiers sont stockés dans le conteneur de système de fichiers par défaut, à l'emplacement */tutorials/useoozie*. Par défaut, ce conteneur porte le même nom que le cluster HDInsight. La syntaxe est :
 
 	wasb[s]://<ContainerName>@<StorageAccountName>.blob.core.windows.net/<path>/<filename>
 
@@ -290,9 +290,9 @@ Pour plus d'informations, consultez la rubrique [HDInsight : introduction aux t
 
 		Add-AzureAccount
 
-	Vous êtes invité à entrer les informations d'identification de votre compte Azure. Cette méthode d'ajout d'une connexion à un abonnement expire ; 12 heures plus tard, vous devez à nouveau exécuter la cmdlet.
+	Vous êtes invité à entrer les informations d'identification de votre compte Azure. Cette méthode d'ajout de la connexion d'abonnement expire, et vous devez réexécuter le cmdlet au bout de 12 heures.
 
-	> [AZURE.NOTE] Si vous disposez de plusieurs abonnements Azure et que vous ne souhaitez pas utiliser l'abonnement défini par défaut, utilisez la cmdlet <strong>Select-AzureSubscription</strong> pour sélectionner un abonnement.
+	> [AZURE.NOTE] Si vous disposez de plusieurs abonnements Azure et que vous ne souhaitez pas utiliser l’abonnement défini par défaut, utilisez l’applet de commande <strong>Select-AzureSubscription</strong> pour sélectionner un abonnement.
 
 3. Copiez le script suivant dans le volet de script, puis définissez les six premières variables :
 
@@ -428,7 +428,7 @@ Azure PowerShell ne fournit actuellement aucune cmdlet pour la définition de t�
 
 	$coordstart et $coordend représentent l'heure de début et de fin du workflow. Pour connaître l'heure UTC/GMT, recherchez « heure utc » sur bing.com. La valeur de $coordFrequency est la fréquence en minutes à laquelle vous voulez exécuter le workflow.
 
-3. Ajoutez ce qui suit au script. Cette partie définit la charge utile d'Oozie :
+3. Ajoutez ce qui suit au script : Cette partie définit la charge utile d'Oozie :
 
 		#OoziePayload used for Oozie web service submission
 		$OoziePayload =  @"
@@ -525,7 +525,7 @@ Azure PowerShell ne fournit actuellement aucune cmdlet pour la définition de t�
 
 	>[AZURE.NOTE] La principale différence avec le fichier de charge utile d'envoi du workflow est la variable **oozie.coord.application.path**. Lors de l'envoi d'une tâche de workflow, vous utilisez **oozie.wf.application.path**.
 
-4. Ajoutez ce qui suit au script. Cette partie vérifie l'état du service Web Oozie :
+4. Ajoutez ce qui suit au script : Cette partie vérifie l'état du service Web Oozie :
 
 		function checkOozieServerStatus()
 		{
@@ -740,4 +740,4 @@ Dans ce didacticiel, vous avez appris à définir un workflow Oozie et un coordi
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

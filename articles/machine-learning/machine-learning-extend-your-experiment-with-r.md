@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -17,7 +17,7 @@
 	ms.author="garye" />
 
 
-#Prolongez votre expérience avec R
+# Prolongez votre expérience avec R
 
 Vous pouvez étendre les fonctionnalités de ML Studio grâce au langage R en utilisant le module [Exécuter le script R][execute-r-script].
 
@@ -29,7 +29,7 @@ Pour accéder à chaque port d'entrée du module, utilisez un code semblable au 
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-##Liste de tous les packages actuellement installés
+## Liste de tous les packages actuellement installés
 
 La liste des packages installés peut changer. Pour obtenir la liste complète et à jour des packages installés, avec une description de chaque package, entrez le code suivant dans le module [Exécuter le Script R][execute-r-script] \:
 
@@ -40,8 +40,11 @@ La liste des packages est envoyée au port de sortie du module [Exécuter le Scr
 
 ![](./media/machine-learning-extend-your-experiment-with-r/download-package-list.png)
 
+<!--
+For convenience, here is the [current full list with version numbers in Excel format](http://az754797.vo.msecnd.net/docs/RPackages.xlsx).
+-->
 
-##Importation de packages
+## Importation de packages
 
 Vous pouvez également importer des packages qui ne sont pas déjà installés à partir d'un référentiel ML Studio intermédiaire à l'aide des commandes suivantes dans le module [Exécuter le script R][execute-r-script], ainsi que dans l'archive du package zippé :
 
@@ -50,9 +53,8 @@ Vous pouvez également importer des packages qui ne sont pas déjà installés �
 
 où `my_favorite_package.zip` contient le fichier zip de votre package.
 
-
 <!-- Module References -->
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
 [convert-to-csv]: https://msdn.microsoft.com/library/azure/faa6ba63-383c-4086-ba58-7abf26b85814/
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Création d’une application HBase à l’aide de Maven et Java, puis déploiement sur HDInsight basé sur Linux | Microsoft Azure"
+	pageTitle="Création d’une application HBase à l’aide de Maven et Java, puis déploiement sur HDInsight basé sur Linux | Microsoft Azure"
 	description="Découvrez comment utiliser Apache Maven pour créer une application Java Apache HBase, puis la déployer dans HDInsight Linux dans le cloud Azure."
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"
-	manager="paulettm"
+	manager="jhubbard"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/29/2016"
+	ms.date="09/14/2016"
 	ms.author="larryfr"/>
 
 #Utilisation de Maven pour créer des applications Java utilisant HBase avec HDInsight (Hadoop) sous Linux
@@ -26,7 +26,7 @@ Apprenez à créer et à générer une application [Apache HBase](http://hbase.a
 
 ##Configuration requise
 
-* [Java platform JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 7 ou version supérieure
+* [Java platform JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 7 ou version supérieure
 
 * [Maven](http://maven.apache.org/)
 
@@ -34,11 +34,11 @@ Apprenez à créer et à générer une application [Apache HBase](http://hbase.a
 
     > [AZURE.NOTE] Les étapes décrites dans ce document ont été testées avec des versions de cluster HDInsight 3.2, 3.3 et 3.4. Les valeurs par défaut fournies dans les exemples concernent un cluster HDInsight 3.4.
 
-* **Des connaissances en SSH et SCP**. Pour plus d’informations sur l’utilisation de SSH et SCP avec HDInsight, consultez les articles suivants :
+* **Des connaissances en SSH et SCP**. Pour plus d’informations sur l’utilisation de SSH et SCP avec HDInsight, consultez les articles suivants :
 
-    * **Clients Linux, Unix ou OS X** : consultez la page [Utilisation de SSH avec Hadoop dans HDInsight sous Linux à partir de Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
+    * **Clients Linux, Unix ou OS X** : consultez la page [Utilisation de SSH avec Hadoop dans HDInsight sous Linux à partir de Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
 
-    * **Clients Windows** : consultez la page [Utilisation de SSH avec Hadoop Linux dans HDInsight à partir de Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+    * **Clients Windows** : consultez la page [Utilisation de SSH avec Hadoop Linux dans HDInsight à partir de Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
 ##Création du projet
 
@@ -48,17 +48,17 @@ Apprenez à créer et à générer une application [Apache HBase](http://hbase.a
 
 		mvn archetype:generate -DgroupId=com.microsoft.examples -DartifactId=hbaseapp -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
 
-	Cela crée un répertoire dans le répertoire actuel avec le nom spécifié par le paramètre __artifactID__ (**hbaseapp** dans cet exemple.) Ce répertoire contiendra les éléments ci-après :
+	Cela crée un répertoire dans le répertoire actuel avec le nom spécifié par le paramètre __artifactID__ (**hbaseapp** dans cet exemple.) Ce répertoire contiendra les éléments ci-après :
 
-	* __pom.xml__ : le modèle d'objet du projet ([POM](http://maven.apache.org/guides/introduction/introduction-to-the-pom.html)) contient les informations et la configuration utilisées pour générer le projet.
+	* __pom.xml__ : le modèle d'objet du projet ([POM](http://maven.apache.org/guides/introduction/introduction-to-the-pom.html)) contient les informations et la configuration utilisées pour générer le projet.
 
-	* __src__ : répertoire contenant le répertoire __main\\java\\com\\microsoft\\examples__, dans lequel vous créerez l’application.
+	* __src__ : répertoire contenant le répertoire __main\\java\\com\\microsoft\\examples__, dans lequel vous créerez l’application.
 
 3. Supprimez le fichier __src\\test\\java\\com\\microsoft\\examples\\apptest.java__, car il ne sera pas utilisé dans cet exemple.
 
 ##Mise à jour du modèle d'objet du projet
 
-1. Modifiez le fichier __pom.xml__ et ajoutez le code suivant dans la section `<dependencies>` :
+1. Modifiez le fichier __pom.xml__ et ajoutez le code suivant dans la section `<dependencies>` :
 
 		<dependency>
       	  <groupId>org.apache.hbase</groupId>
@@ -87,7 +87,7 @@ Apprenez à créer et à générer une application [Apache HBase](http://hbase.a
     
     Cette opération charge les composants de base phoenix nécessaires à Hbase version 1.1.x.
 
-2. Ajoutez le code suivant au fichier __pom.xml__. Il doit être contenu entre les balises `<project>...</project>` dans le fichier, par exemple entre `</dependencies>` et `</project>`.
+2. Ajoutez le code suivant au fichier __pom.xml__. Il doit être contenu entre les balises `<project>...</project>` dans le fichier, par exemple entre `</dependencies>` et `</project>`.
 
 		<build>
 		  <sourceDirectory>src</sourceDirectory>
@@ -144,11 +144,11 @@ Apprenez à créer et à générer une application [Apache HBase](http://hbase.a
 
 4. Créez un répertoire appelé __conf__ dans le répertoire __hbaseapp__. Ceci sera utilisé pour conserver les informations de configuration pour la connexion à HBase.
 
-5. Utilisez la commande suivante pour copier la configuration de HBase à partir du serveur de HDInsight vers le répertoire __conf__. Remplacez **USERNAME** par le nom de votre connexion SSH. Remplacez **CLUSTERNAME** par le nom de votre cluster HDInsight :
+5. Utilisez la commande suivante pour copier la configuration de HBase à partir du serveur de HDInsight vers le répertoire __conf__. Remplacez **USERNAME** par le nom de votre connexion SSH. Remplacez **CLUSTERNAME** par le nom de votre cluster HDInsight :
 
 		scp USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:/etc/hbase/conf/hbase-site.xml ./conf/hbase-site.xml
 
-	> [AZURE.NOTE] Si vous avez utilisé un mot de passe pour votre compte SSH, vous serez invité à le saisir. Si vous avez utilisé une clé SSH avec le compte, vous devrez peut-être utiliser le paramètre `-i` pour spécifier le chemin d’accès au fichier de clé. L’exemple suivant charge la clé privée à partir de `~/.ssh/id_rsa` :
+	> [AZURE.NOTE] Si vous avez utilisé un mot de passe pour votre compte SSH, vous serez invité à le saisir. Si vous avez utilisé une clé SSH avec le compte, vous devrez peut-être utiliser le paramètre `-i` pour spécifier le chemin d’accès au fichier de clé. L’exemple suivant charge la clé privée à partir de `~/.ssh/id_rsa` :
 	>
 	> `scp -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:/etc/hbase/conf/hbase-site.xml ./conf/hbase-site.xml`
 
@@ -156,7 +156,7 @@ Apprenez à créer et à générer une application [Apache HBase](http://hbase.a
 
 1. Accédez au répertoire __hbaseapp\\src\\main\\java\\com\\microsoft\\examples__ et renommez le fichier app.java en __CreateTable.java__.
 
-2. Ouvrez le fichier __CreateTable.java__ et remplacez le contenu existant par les données suivantes :
+2. Ouvrez le fichier __CreateTable.java__ et remplacez le contenu existant par les données suivantes :
 
         package com.microsoft.examples;
         import java.io.IOException;
@@ -230,7 +230,7 @@ Apprenez à créer et à générer une application [Apache HBase](http://hbase.a
 
 3. Enregistrez le fichier __CreateTable.java__.
 
-4. Dans le répertoire __hbaseapp\\src\\main\\java\\com\\microsoft\\examples__, créez un fichier nommé __SearchByEmail.java__. Utilisez les données suivantes comme contenu de ce fichier :
+4. Dans le répertoire __hbaseapp\\src\\main\\java\\com\\microsoft\\examples__, créez un fichier nommé __SearchByEmail.java__. Utilisez les données suivantes comme contenu de ce fichier :
 
 		package com.microsoft.examples;
 		import java.io.IOException;
@@ -307,7 +307,7 @@ Apprenez à créer et à générer une application [Apache HBase](http://hbase.a
 
 5. Enregistrez le fichier __SearchByEmail.java__.
 
-6. Dans le répertoire __hbaseapp\\src\\main\\hava\\com\\microsoft\\examples__, créez un fichier nommé __DeleteTable.java__. Utilisez les données suivantes comme contenu de ce fichier :
+6. Dans le répertoire __hbaseapp\\src\\main\\hava\\com\\microsoft\\examples__, créez un fichier nommé __DeleteTable.java__. Utilisez les données suivantes comme contenu de ce fichier :
 
 		package com.microsoft.examples;
 		import java.io.IOException;
@@ -335,7 +335,7 @@ Apprenez à créer et à générer une application [Apache HBase](http://hbase.a
 
 ##Génération et package de l'application
 
-2. Utilisez la commande suivante à partir du répertoire __hbaseapp__ pour générer un fichier JAR contenant l’application :
+2. Utilisez la commande suivante à partir du répertoire __hbaseapp__ pour générer un fichier JAR contenant l’application :
 
 		mvn clean package
 
@@ -347,35 +347,35 @@ Apprenez à créer et à générer une application [Apache HBase](http://hbase.a
 
 ##Téléchargement du fichier JAR et exécution de tâches
 
-1. Utilisez la commande suivante pour télécharger le fichier jar dans le cluster HDInsight : Remplacez **USERNAME** par le nom de votre connexion SSH. Remplacez **CLUSTERNAME** par le nom de votre cluster HDInsight :
+1. Utilisez la commande suivante pour télécharger le fichier jar dans le cluster HDInsight : Remplacez **USERNAME** par le nom de votre connexion SSH. Remplacez **CLUSTERNAME** par le nom de votre cluster HDInsight :
 
 		scp ./target/hbaseapp-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:.
 
 	Ceci télécharge le fichier dans le répertoire de base de votre compte d’utilisateur SSH.
 
-	> [AZURE.NOTE] Si vous avez utilisé un mot de passe pour votre compte SSH, vous serez invité à le saisir. Si vous avez utilisé une clé SSH avec le compte, vous devrez peut-être utiliser le paramètre `-i` pour spécifier le chemin d’accès au fichier de clé. L’exemple suivant charge la clé privée à partir de `~/.ssh/id_rsa` :
+	> [AZURE.NOTE] Si vous avez utilisé un mot de passe pour votre compte SSH, vous serez invité à le saisir. Si vous avez utilisé une clé SSH avec le compte, vous devrez peut-être utiliser le paramètre `-i` pour spécifier le chemin d’accès au fichier de clé. L’exemple suivant charge la clé privée à partir de `~/.ssh/id_rsa` :
 	>
 	> `scp -i ~/.ssh/id_rsa ./target/hbaseapp-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:.`
 
-2. Utilisez SSH pour vous connecter au cluster HDInsight. Remplacez **USERNAME** par le nom de votre connexion SSH. Remplacez **CLUSTERNAME** par le nom de votre cluster HDInsight :
+2. Utilisez SSH pour vous connecter au cluster HDInsight. Remplacez **USERNAME** par le nom de votre connexion SSH. Remplacez **CLUSTERNAME** par le nom de votre cluster HDInsight :
 
 		ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
 
-	> [AZURE.NOTE] Si vous avez utilisé un mot de passe pour votre compte SSH, vous serez invité à le saisir. Si vous avez utilisé une clé SSH avec le compte, vous devrez peut-être utiliser le paramètre `-i` pour spécifier le chemin d’accès au fichier de clé. L’exemple suivant charge la clé privée à partir de `~/.ssh/id_rsa` :
+	> [AZURE.NOTE] Si vous avez utilisé un mot de passe pour votre compte SSH, vous serez invité à le saisir. Si vous avez utilisé une clé SSH avec le compte, vous devrez peut-être utiliser le paramètre `-i` pour spécifier le chemin d’accès au fichier de clé. L’exemple suivant charge la clé privée à partir de `~/.ssh/id_rsa` :
 	>
 	> `ssh -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ssh.azurehdinsight.net`
 
-3. Une fois connecté, utilisez ce qui suit pour créer une nouvelle table HBase à l’aide de l’application Java :
+3. Une fois connecté, utilisez ce qui suit pour créer une nouvelle table HBase à l’aide de l’application Java :
 
 		hadoop jar hbaseapp-1.0-SNAPSHOT.jar com.microsoft.examples.CreateTable
 
 	Ceci crée une nouvelle table HBase nommée __people__ en la remplissant avec des données.
 
-4. Ensuite, utilisez ce qui suit pour rechercher des adresses de messagerie stockées dans la table :
+4. Ensuite, utilisez ce qui suit pour rechercher des adresses de messagerie stockées dans la table :
 
 		hadoop jar hbaseapp-1.0-SNAPSHOT.jar com.microsoft.examples.SearchByEmail contoso.com
 
-	Les résultats suivants doivent s'afficher :
+	Les résultats suivants doivent s'afficher :
 
 		Franklin Holtz - ID: 2
 		Franklin Holtz - franklin@contoso.com - ID: 2
@@ -386,8 +386,8 @@ Apprenez à créer et à générer une application [Apache HBase](http://hbase.a
 
 ##Suppression de la table
 
-Lorsque vous avez terminé, utilisez la commande ci-après dans la session Azure PowerShell pour supprimer la table __people__ utilisée dans l'exemple :
+Lorsque vous avez terminé, utilisez la commande ci-après dans la session Azure PowerShell pour supprimer la table __people__ utilisée dans l'exemple :
 
 	hadoop jar hbaseapp-1.0-SNAPSHOT.jar com.microsoft.examples.DeleteTable
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0914_2016-->

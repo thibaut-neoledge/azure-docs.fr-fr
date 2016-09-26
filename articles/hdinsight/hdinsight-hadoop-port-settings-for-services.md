@@ -4,7 +4,7 @@ description="Liste des ports utilisés par les services Hadoop sur HDInsight."
 services="hdinsight"
 documentationCenter=""
 authors="Blackmist"
-manager="paulettm"
+manager="jhubbard"
 editor="cgronlun"/>
 
 <tags
@@ -143,4 +143,4 @@ Tous les services exposés publiquement sur Internet doivent être authentifiés
 | Service Broker | Nœuds de travail | 9092 | [Protocole Kafka](http://kafka.apache.org/protocol.html) | Utilisé pour la communication client |
 | &nbsp; | Nœuds Zookeeper | 2181 | &nbsp; | Le port que les clients utilisent pour se connecter à ZooKeeper |
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -1,10 +1,10 @@
 <properties 
    pageTitle="Gestion d'Azure Data Lake Analytics à l'aide d'Azure PowerShell | Azure" 
-   description="Apprenez à gérer des travaux Data Lake Analytics, des sources de données, des utilisateurs." 
+   description="Apprenez à gérer des travaux Data Lake Analytics, des sources de données, des utilisateurs. " 
    services="data-lake-analytics" 
    documentationCenter="" 
    authors="edmacauley" 
-   manager="paulettm" 
+   manager="jhubbard" 
    editor="cgronlun"/>
  
 <tags
@@ -20,13 +20,13 @@
 
 [AZURE.INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
-Apprenez à gérer des comptes Azure Data Lake Analytics, des sources de données, des utilisateurs et des travaux à l'aide d'Azure PowerShell. Pour afficher les rubriques de gestion à l'aide d'autres outils, cliquez sur l'onglet de sélection ci-dessus.
+Apprenez à gérer des comptes Azure Data Lake Analytics, des sources de données, des utilisateurs et des travaux à l'aide d'Azure PowerShell. Pour afficher les rubriques de gestion à l’aide d’autres outils, cliquez sur l’onglet de sélection ci-dessus.
 
 **Configuration requise**
 
 Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
-- **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
+- **Un abonnement Azure**. Consultez la rubrique [Obtenir une version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 
 <!-- ################################ -->
@@ -98,7 +98,7 @@ Vous pouvez également utiliser un modèle Groupe de ressources Azure. Vous trou
  
 ###Répertorier le compte
 
-Répertorier les comptes Data Lake Analytics dans l'abonnement sélectionné
+Répertorier les comptes Data Lake Analytics dans l’abonnement sélectionné
 
 	Get-AzureRmDataLakeAnalyticsAccount
 	
@@ -392,4 +392,4 @@ Le modèle ARM suivant peut être utilisé pour déployer un compte Data Lake An
 	  }
 	}
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0914_2016-->

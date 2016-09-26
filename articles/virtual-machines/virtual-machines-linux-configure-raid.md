@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/21/2016" 
+	ms.date="09/06/2016" 
 	ms.author="rclaus"/>
 
 
@@ -24,7 +24,7 @@ L'utilisation d'un RAID logiciel pour les machines virtuelles Linux sur Azure es
 
 
 ## Disques de données attachés
-En règle générale, au moins deux disques de données sont nécessaires pour configurer un périphérique RAID. La raison principale pour la création d’un appareil RAID est d’améliorer les performances de vos E/S de disque. En fonction de vos besoins d’E/S, vous pouvez choisir d’attacher des disques qui sont stockés dans notre stockage Standard, avec un maximum de 500 opérations d’E/S par disque ou dans notre stockage Premium avec un maximum de 5 000 opérations d’E/S par disque. Cet article n’aborde pas en détail la marche à suivre pour approvisionner et attacher des disques de données sur une machine virtuelle Linux. Consultez l’article Microsoft Azure [Attacher un disque](virtual-machines-linux-add-disk.md) pour obtenir des instructions détaillées sur la marche à suivre pour attacher un disque de données vide à une machine virtuelle Linux dans Azure.
+Au moins deux disques de données sont nécessaires pour configurer un périphérique RAID. La raison principale pour la création d’un appareil RAID est d’améliorer les performances de vos E/S de disque. En fonction de vos besoins d’E/S, vous pouvez choisir d’attacher des disques qui sont stockés dans notre stockage Standard, avec un maximum de 500 opérations d’E/S par disque ou dans notre stockage Premium avec un maximum de 5 000 opérations d’E/S par disque. Cet article n’aborde pas en détail la marche à suivre pour approvisionner et attacher des disques de données sur une machine virtuelle Linux. Consultez l’article Microsoft Azure [Attacher un disque](virtual-machines-linux-add-disk.md) pour obtenir des instructions détaillées sur la marche à suivre pour attacher un disque de données vide à une machine virtuelle Linux dans Azure.
 
 
 ## Installation de l'utilitaire mdadm
@@ -44,7 +44,7 @@ En règle générale, au moins deux disques de données sont nécessaires pour c
 
 
 ## Création des partitions de disque
-Dans cet exemple, nous allons créer une partition de disque unique sur /dev/sdc. La nouvelle partition de disque sera ensuite appelée /dev/sdc1.
+Dans cet exemple, nous créons une partition de disque unique sur /dev/sdc. La nouvelle partition de disque sera appelée /dev/sdc1.
 
 1. Démarrez fdisk pour lancer la création des partitions
 
@@ -72,17 +72,17 @@ Dans cet exemple, nous allons créer une partition de disque unique sur /dev/sdc
 
 		Partition number (1-4): 1
 
-5. Sélectionnez le point de départ de la nouvelle partition ou appuyez tout simplement sur `<enter>` pour accepter le paramètre par défaut et placer la partition au début de l'espace libre sur le disque :
+5. Sélectionnez le point de départ de la nouvelle partition ou appuyez sur `<enter>` pour accepter le paramètre par défaut et placer la partition au début de l’espace libre sur le disque :
 
 		First cylinder (1-1305, default 1):
 		Using default value 1
 
-6. Sélectionnez la taille de la partition. Par exemple, tapez « +10G » pour créer une partition de 10 Go. Vous pouvez aussi appuyer simplement sur `<enter>` pour créer une seule partition pour l'intégralité du disque :
+6. Sélectionnez la taille de la partition. Par exemple, tapez « +10G » pour créer une partition de 10 Go. Vous pouvez aussi appuyer sur `<enter>` pour créer une seule partition pour l’intégralité du disque :
 
 		Last cylinder, +cylinders or +size{K,M,G} (1-1305, default 1305): 
 		Using default value 1305
 
-7. Ensuite, remplacez l'ID et le **t**ype de partition de l'ID par défaut « 83 » (Linux) par l'ID « fd » (raid auto Linux) :
+7. Ensuite, remplacez l'ID et le **t**ype de partition de l'ID par défaut « 83 » (Linux) par l'ID « fd » (raid auto Linux) :
 
 		Command (m for help): t
 		Selected partition 1
@@ -111,7 +111,7 @@ Dans cet exemple, nous allons créer une partition de disque unique sur /dev/sdc
 
 		# sudo mkfs -t ext3 /dev/md127
 
-	**SLES 11 et openSUSE** : activez boot.md et créez mdadm.conf
+	**SLES 11 et openSUSE** : activez boot.md et créez mdadm.conf
 
 		# sudo -i chkconfig --add boot.md
 		# sudo echo 'DEVICE /dev/sd*[0-9]' >> /etc/mdadm.conf
@@ -121,7 +121,7 @@ Dans cet exemple, nous allons créer une partition de disque unique sur /dev/sdc
 
 ## Ajout du nouveau système de fichiers à /etc/fstab
 
-**Attention** : si vous ne modifiez pas correctement le fichier /etc/fstab, il se peut que le système ne puisse plus démarrer. En cas de doute, reportez-vous à la documentation de la distribution pour obtenir des informations sur la modification adéquate de ce fichier. Il est par ailleurs vivement recommandé de créer une sauvegarde du fichier /etc/fstab avant de le modifier.
+**Attention** : si vous ne modifiez pas correctement le fichier /etc/fstab, il se peut que le système ne puisse plus démarrer. En cas de doute, reportez-vous à la documentation de la distribution pour obtenir des informations sur la modification adéquate de ce fichier. Il est par ailleurs vivement recommandé de créer une sauvegarde du fichier /etc/fstab avant de le modifier.
 
 1. Créez le point de montage désiré pour le nouveau système de fichiers. Par exemple :
 
@@ -137,7 +137,7 @@ Dans cet exemple, nous allons créer une partition de disque unique sur /dev/sdc
 
 		UUID=aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee  /data  ext4  defaults  0  2
 
-	Sur **SLES 11 et openSUSE** :
+	Sur **SLES 11 et openSUSE** :
 
 		/dev/disk/by-uuid/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee  /data  ext3  defaults  0  2
 
@@ -147,7 +147,7 @@ Dans cet exemple, nous allons créer une partition de disque unique sur /dev/sdc
 
 		# sudo mount -a
 
-	Si cette commande génère un message d'erreur, vérifiez que la syntaxe utilisée dans le fichier /etc/fstab est correcte.
+	Si cette commande génère un message d’erreur, vérifiez que la syntaxe utilisée dans le fichier /etc/fstab est correcte.
 
 	Ensuite, exécutez la commande `mount` pour vérifier que le système de fichiers est monté :
 
@@ -159,9 +159,9 @@ Dans cet exemple, nous allons créer une partition de disque unique sur /dev/sdc
 
 	**Configuration fstab**
 
-	De nombreuses distributions comprennent les paramètres de montage `nobootwait` ou `nofail` pouvant être ajoutés au fichier /etc/fstab. Ces paramètres autorisent les échecs lors du montage d'un système de fichiers donné et permettent au système Linux de continuer à démarrer même s'il n'a pas été en mesure de monter le système de fichiers RAID. Pour plus d'informations sur ces paramètres, reportez-vous à la documentation de votre distribution.
+	De nombreuses distributions comprennent les paramètres de montage `nobootwait` ou `nofail` pouvant être ajoutés au fichier /etc/fstab. Ces paramètres autorisent les échecs lors du montage d'un système de fichiers donné et permettent au système Linux de continuer à démarrer même s'il n'a pas été en mesure de monter le système de fichiers RAID. Pour plus d’informations sur ces paramètres, reportez-vous à la documentation de votre distribution.
 
-	Exemple (Ubuntu) :
+	Exemple (Ubuntu) :
 
 		UUID=aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee  /data  ext4  defaults,nobootwait  0  2
 
@@ -171,4 +171,4 @@ Dans cet exemple, nous allons créer une partition de disque unique sur /dev/sdc
 
 	Pour plus d'informations sur la modification adéquate des paramètres de noyau, reportez-vous à la documentation de votre distribution. Par exemple, dans de nombreuses distributions (CentOS, Oracle Linux, SLES 11), ces paramètres peuvent être ajoutés manuellement au fichier « `/boot/grub/menu.lst` ». Sur Ubuntu, ce paramètre peut être ajouté à la variable `GRUB_CMDLINE_LINUX_DEFAULT` dans « /etc/default/grub ».
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0914_2016-->

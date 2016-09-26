@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -106,4 +106,4 @@ Voici une table permettant de clarifier la différence entre un administrateur d
 [Azure Machine Learning Studio]: https://studio.azureml.net/
 [portail Microsoft Azure Classic]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0914_2016-->

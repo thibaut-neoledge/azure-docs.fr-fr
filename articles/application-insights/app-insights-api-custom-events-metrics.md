@@ -12,16 +12,14 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="09/01/2016" 
+	ms.date="09/11/2016" 
 	ms.author="awills"/>
 
 # API Application Insights pour les événements et les mesures personnalisés 
 
 *Application Insights est à l'état de version préliminaire.*
 
-Insérez quelques lignes de code dans votre application pour découvrir ce qu’en font les utilisateurs ou pour faciliter le diagnostic des problèmes. Vous pouvez envoyer la télémétrie depuis des applications de périphérique et de bureau, des clients web et des serveurs web.
-
-Les collecteurs de données d’Application Insights utilisent cette API pour envoyer la télémétrie standard telle que des affichages de page et des rapports d’exceptions, mais vous pouvez également l’utiliser pour envoyer votre propre télémétrie personnalisée.
+Insérez quelques lignes de code dans votre application pour découvrir ce qu’en font les utilisateurs ou pour faciliter le diagnostic des problèmes. Vous pouvez envoyer la télémétrie depuis des applications de périphérique et de bureau, des clients web et des serveurs web. L’API de télémétrie [Visual Studio Application Insights](app-insights-overview.md) vous permet d’envoyer des événements et mesures personnalisés, et vos propres versions de la télémétrie standard. Cette API est la même que celle utilisée par les collecteurs de données standard d’Application Insights.
 
 ## API summary
 
@@ -103,7 +101,8 @@ Par exemple, dans une application de jeu, envoyez un événement chaque fois qu'
 
     telemetry.trackEvent("WinGame");
 
-Ici, « WinGame » est le nom qui apparaît dans le portail Application Insights.
+
+### Affichage de vos événements dans le portail Azure
 
 Pour voir un nombre de vos événements, ouvrez un panneau [Metrics Explorer](app-insights-metrics-explorer.md), ajoutez un nouveau graphique, puis sélectionnez les événements.
 
@@ -243,6 +242,36 @@ Vous pouvez également l'appeler vous-même si vous souhaitez simuler des requê
        stopwatch.Elapsed, 
        "200", true);  // Response code, success
 
+
+
+## Contexte de l’opération
+
+Les éléments de télémétrie peuvent être associés en leur joignant un ID d’opération commun. Le module de suivi de requête standard effectue cette opération pour les exceptions et les autres événements envoyés lors du traitement d’une requête HTTP. Dans [Recherche](app-insights-diagnostic-search.md) et [Analytique](app-insights-analytics.md), vous pouvez utiliser l’ID pour trouver facilement tous les événements associés à la requête.
+
+Pour définir l’ID, le plus simple consiste à définir un contexte d’opération à l’aide de ce modèle :
+
+    // Establish an operation context and associated telemetry item:
+    using (var operation = telemetry.StartOperation<RequestTelemetry>("operationName"))
+    {
+        // Telemetry sent in here will use the same operation ID.
+        ...
+        telemetry.TrackEvent(...); // or other Track* calls
+        ...
+        // Set properties of containing telemetry item - for example:
+        operation.Telemetry.ResponseCode = "200";
+        
+        // Optional: explicitly send telemetry item:
+        telemetry.StopOperation(operation);
+
+    } // When operation is disposed, telemetry item is sent.
+
+En plus de définir un contexte d’opération, `StartOperation` crée un élément de télémétrie du type que vous spécifiez, et l’envoie lorsque vous supprimez l’opération ou appelez explicitement `StopOperation`. Si vous utilisez `RequestTelemetry` comme type de télémétrie, alors sa durée est définie sur l’intervalle compris entre le début et la fin.
+
+Les contextes de l’opération ne peuvent pas être imbriqués. S’il existe déjà un contexte d’opération, son ID est associé à tous les éléments de contenu, y compris l’élément créé avec StartOperation.
+
+Dans Recherche, le contexte d’opération est utilisé pour créer la liste d’éléments connexes :
+
+![Éléments connexes](./media/app-insights-api-custom-events-metrics/21.png)
 
 
 ## Suivi des exceptions
@@ -517,32 +546,6 @@ Si cela est plus pratique, vous pouvez collecter les paramètres d'un événemen
 
 > [AZURE.WARNING] Ne réutilisez pas la même instance d’élément de télémétrie (`event` dans cet exemple) pour appeler Track*() plusieurs fois. Cela peut provoquer un envoi de données de télémétrie configurées de façon incorrecte.
 
-## Contexte de l’opération
-
-Lorsque votre application web reçoit une requête HTTP, le module de suivi des demandes Application Insights assigne un ID à la demande et définit la même valeur que l’ID de l’opération en cours. L’ID d’opération est désactivé lorsque la réponse à la demande est envoyée. Tous les appels de suivi effectués lors de l’opération obtiennent le même ID d’opération (à condition qu’ils utilisent la valeur par défaut TelemetryContext). Cela vous permet de mettre en corrélation les événements liés à une demande particulière lorsque vous les inspectez dans le portail.
-
-![Éléments connexes](./media/app-insights-api-custom-events-metrics/21.png)
-
-Si vous analysez des événements non associés à une requête HTTP, ou si vous n’utilisez pas le module de suivi de demande - par exemple, si vous analysez un processus principal - puis vous pouvez définir votre propre contexte d’opération à l’aide de ce modèle :
-
-    // Establish an operation context and associated telemetry item:
-    using (var operation = telemetry.StartOperation<RequestTelemetry>("operationName"))
-    {
-        // Telemetry sent in here will use the same operation ID.
-        ...
-        telemetry.TrackEvent(...); // or other Track* calls
-        ...
-        // Set properties of containing telemetry item - for example:
-        operation.Telemetry.ResponseCode = "200";
-        
-        // Optional: explicitly send telemetry item:
-        telemetry.StopOperation(operation);
-
-    } // When operation is disposed, telemetry item is sent.
-
-En plus de définir un contexte d’opération, `StartOperation` crée un élément de télémétrie du type que vous spécifiez, et l’envoie lorsque vous supprimez l’opération ou appelez explicitement `StopOperation`. Si vous utilisez `RequestTelemetry` comme type de télémétrie, alors sa durée est définie sur l’intervalle compris entre le début et la fin.
-
-Les contextes de l’opération ne peuvent pas être imbriqués. S’il existe déjà un contexte d’opération, son ID est associé à tous les éléments de contenu, y compris l’élément créé avec StartOperation.
 
 
 ## <a name="timed"></a> Événements de durée
@@ -706,17 +709,17 @@ TelemetryClient a une propriété de contexte contenant un certain nombre de val
 
 Si vous définissez une de ces valeurs vous-même, supprimez la ligne appropriée dans [ApplicationInsights.config][config], de sorte que vos valeurs et les valeurs standard ne se mélangent pas.
 
-* **Composant** : identifie l'application et sa version
-* **Périphérique** : données du périphérique sur lequel l'application est en cours d'exécution (dans les applications web, il s’agit du serveur ou du périphérique client à partir duquel la télémétrie est envoyée)
-* **Clé d’instrumentation** : identifie la ressource d'Application Insights dans Azure où apparaît la télémétrie. Elle est généralement récupérée dans ApplicationInsights.config
-* **Emplacement** : identifie l'emplacement géographique du périphérique.
-* **Opération** : dans les applications web, il s’agit de la requête HTTP actuelle. Dans d'autres types d'application, vous pouvez définir celle-ci sur les événements regroupés.
- * **ID** : une valeur générée qui met en relation différents événements de manière à ce que vous trouviez les « Éléments associés » lorsque vous inspectez un événement dans la Recherche de diagnostic.
- * **Nom** : un identificateur, généralement l'URL de la requête HTTP.
- * **SyntheticSource** : si elle est non nulle ou vide, cette chaîne indique que la source de la requête a été identifiée en tant que robot ou test web. Par défaut, celle-ci sera exclue des calculs dans Metrics Explorer.
-* **Propriétés** : ce sont les propriétés qui sont envoyées avec toutes les données de télémétrie. Elles peuvent être remplacées dans les appels Track* individuels.
-* **Session** : identifie la session de l’utilisateur. L'ID est définie sur une valeur générée qui est modifiée lorsque l'utilisateur n'a pas été actif pendant un certain temps.
-* **Utilisateur** : informations utilisateur.
+* **Composant** : identifie l'application et sa version
+* **Périphérique** : données du périphérique sur lequel l'application est en cours d'exécution (dans les applications web, il s’agit du serveur ou du périphérique client à partir duquel la télémétrie est envoyée)
+* **Clé d’instrumentation** : identifie la ressource d'Application Insights dans Azure où apparaît la télémétrie. Elle est généralement récupérée dans ApplicationInsights.config
+* **Emplacement** : identifie l'emplacement géographique du périphérique.
+* **Opération** : dans les applications web, il s’agit de la requête HTTP actuelle. Dans d'autres types d'application, vous pouvez définir celle-ci sur les événements regroupés.
+ * **ID** : une valeur générée qui met en relation différents événements de manière à ce que vous trouviez les « Éléments associés » lorsque vous inspectez un événement dans la Recherche de diagnostic.
+ * **Nom** : un identificateur, généralement l'URL de la requête HTTP.
+ * **SyntheticSource** : si elle est non nulle ou vide, cette chaîne indique que la source de la requête a été identifiée en tant que robot ou test web. Par défaut, celle-ci sera exclue des calculs dans Metrics Explorer.
+* **Propriétés** : ce sont les propriétés qui sont envoyées avec toutes les données de télémétrie. Elles peuvent être remplacées dans les appels Track* individuels.
+* **Session** : identifie la session de l’utilisateur. L'ID est définie sur une valeur générée qui est modifiée lorsque l'utilisateur n'a pas été actif pendant un certain temps.
+* **Utilisateur** : informations utilisateur.
 
 ## Limites
 
@@ -788,4 +791,4 @@ Si vous définissez une de ces valeurs vous-même, supprimez la ligne approprié
 
  
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

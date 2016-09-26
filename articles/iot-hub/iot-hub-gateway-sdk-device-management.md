@@ -13,7 +13,7 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="06/15/2016"
+     ms.date="09/12/2016"
      ms.author="dobett"/>
 
 
@@ -68,16 +68,16 @@ Pour exécuter cet exemple, vous devez créer une image personnalisée pour votr
 
 Avant de commencer, vous devez vous assurer que vous pouvez connecter votre carte Edison à votre réseau sans fil. Pour configurer votre carte Edison, vous devez la connecter à un ordinateur hôte. Plus tard, vous utiliserez l’ordinateur hôte pour flasher votre carte Edison avec l’image personnalisée que vous créez. Intel dispose d’un ensemble de guides de démarrage comprenant des guides pour les systèmes d’exploitation suivants :
 
-- [Get Started with the Intel Edison Development Board on Windows 64-bit][lnk-setup-win64] \(Guide de démarrage de la carte Intel Edison Development sur Windows 64 bits).
-- [Get Started with the Intel Edison Development Board on Windows 32-bit][lnk-setup-win32] \(Guide de démarrage de la carte Intel Edison Development sur Windows 32 bits).
-- [Getting Started with the Intel® Edison Board on Linux][lnk-setup-linux] \(Guide de démarrage de la carte Intel® Edison sur Linux).
+- [Get Started with the Intel Edison Development Board on Windows 64-bit][lnk-setup-win64] (Guide de démarrage de la carte Intel Edison Development sur Windows 64 bits).
+- [Get Started with the Intel Edison Development Board on Windows 32-bit][lnk-setup-win32] (Guide de démarrage de la carte Intel Edison Development sur Windows 32 bits).
+- [Getting Started with the Intel® Edison Board on Linux][lnk-setup-linux] (Guide de démarrage de la carte Intel® Edison sur Linux).
 
 Pour configurer votre carte Edison et vous familiariser avec celle-ci, vous devez effectuer toutes les étapes de ces articles « de démarrage », à l’exception des étapes suivantes :
 
 - Flasher le microprogramme le plus récent. Vous mettez à jour le microprogramme dans le cadre de ce didacticiel, vous n’avez donc pas besoin d’effectuer cette étape pour l’instant.
 - La dernière étape, « Choose IDE » (Sélection d’IDE), qui ne s’applique pas à ce didacticiel.
 
-Lorsque vous avez configuré la carte Edison et installé les pilotes nécessaires sur votre ordinateur hôte, vous devez vous assurer que vous pouvez vous connecter à la carte Edison à l’aide d’un terminal série. La page [Setting up a serial terminal][lnk-serial-connection] \(Configurer un terminal série) sur le site Web Intel propose des liens vers des instructions de configuration pour les systèmes d’exploitation hôtes tels que Windows et Linux.
+Lorsque vous avez configuré la carte Edison et installé les pilotes nécessaires sur votre ordinateur hôte, vous devez vous assurer que vous pouvez vous connecter à la carte Edison à l’aide d’un terminal série. La page [Setting up a serial terminal][lnk-serial-connection] (Configurer un terminal série) sur le site Web Intel propose des liens vers des instructions de configuration pour les systèmes d’exploitation hôtes tels que Windows et Linux.
 
 Vous devez également effectuer ces tâches.
 
@@ -90,7 +90,7 @@ Pour créer une image personnalisée pour votre carte Edison, vous avez besoin d
 
 > [AZURE.NOTE] L’exécution du script qui crée l’image personnalisée peut durer 6 heures sur un ordinateur quadricœur. Vous pouvez réduire ce délai en utilisant un ordinateur plus puissant qui possède plus de cœurs de processeur.
 
-Pour les étapes de cette section, nous avons consulté les articles suivants : [Intel Edison Board Support Package][lnk-inteledison-bsp] \(Package de support de carte Intel Edison), [Manually Building Yocto Images for the Intel Edison Board from Source][lnk-hackgnar] \(Création manuelle d’images Yocto pour la carte Intel Edison à partir de la source) et [Creating a Custom Linux Kernel for the Edison (release 2.1)][lnk-shawnhymel] \(Création d’un noyau Linux personnalisé pour la carte Edison (version 2.1).
+Pour les étapes de cette section, nous avons consulté les articles suivants : [Intel Edison Board Support Package][lnk-inteledison-bsp] (Package de support de carte Intel Edison), [Manually Building Yocto Images for the Intel Edison Board from Source][lnk-hackgnar] (Création manuelle d’images Yocto pour la carte Intel Edison à partir de la source) et [Creating a Custom Linux Kernel for the Edison (release 2.1)][lnk-shawnhymel] (Création d’un noyau Linux personnalisé pour la carte Edison (version 2.1).
 
 1. Connectez-vous à votre ordinateur Ubuntu 14.04 et exécutez la commande suivante dans votre dossier d’origine pour télécharger le package source Edison :
     
@@ -425,4 +425,4 @@ Pour explorer davantage les capacités de IoT Hub, consultez :
 [lnk-dmui]: iot-hub-device-management-ui-sample.md
 [lnk-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

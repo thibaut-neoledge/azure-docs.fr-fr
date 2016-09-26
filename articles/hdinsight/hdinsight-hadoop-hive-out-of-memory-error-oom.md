@@ -5,7 +5,7 @@
 	services="hdinsight"
 	documentationCenter=""
 	authors="rashimg"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -88,7 +88,7 @@ Nos équipes d’ingénierie et de support technique ont trouvé qu’un des pro
 
 	When hive.auto.convert.join.noconditionaltask = true we check noconditionaltask.size and if the sum  of tables sizes in the map join is less than noconditionaltask.size the plan would generate a Map join, the issue with this is that the calculation doesnt take into account the overhead introduced by different HashTable implementation as results if the sum of input sizes is smaller than the noconditionaltask size by a small margin queries will hit OOM.
 
-En consultant le fichier hive-site.xml, nous avons confirmé que **hive.auto.convert.join.noconditionaltask** a en effet la valeur **true** :
+En consultant le fichier hive-site.xml, nous avons confirmé que **hive.auto.convert.join.noconditionaltask** a en effet la valeur **true** :
 
 	<property>
     	<name>hive.auto.convert.join.noconditionaltask</name>
@@ -122,4 +122,4 @@ Avec ces paramètres, la requête s’est correctement exécutée en moins de di
 
 L’obtention d’une erreur de mémoire insuffisante ne signifie pas nécessairement que la taille du conteneur est insuffisante. Vous devez plutôt configurer les paramètres de mémoire afin que la taille du tas soit augmentée et qu’elle représente au moins 80 % de la taille de la mémoire du conteneur.
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

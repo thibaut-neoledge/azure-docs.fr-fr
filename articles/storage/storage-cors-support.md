@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/23/2016"
+	ms.date="09/07/2016"
 	ms.author="tamram"/>
 
 # Prise en charge du service Partage des ressources cross-origine (CORS) pour les services Azure Storage
@@ -169,7 +169,7 @@ Le tableau suivant indique comment le stockage Azure répond aux demandes GET/HE
 
 Demande|Paramètre de compte et résultat de l'évaluation de la règle|||Réponse|||
 ---|---|---|---|---|---|---|---|---
-**En-tête d’origine présent dans la demande** | **Règle(s) CORS spécifiée(s) pour ce service** | **Règle de correspondance existante qui autorise toutes les origines (*)** | **Règle de correspondance existante pour la correspondance exacte d’origine** | **La réponse inclut l’en-tête Vary avec la valeur Origin** | **La réponse inclut l’en-tête Access-Control-Allowed-Origin : "*"** | **La réponse inclut l’en-têteAccess-Control-Exposed-Headers**
+**En-tête d’origine présent dans la demande** | **Règle(s) CORS spécifiée(s) pour ce service** | **Règle de correspondance existante qui autorise toutes les origines(*)** | **Règle de correspondance existante pour la correspondance exacte d’origine** | **La réponse inclut l’en-tête Vary avec la valeur Origin** | **La réponse inclut l’en-tête Access-Control-Allowed-Origin : « * »** | **La réponse inclut l’en-têteAccess-Control-Exposed-Headers**
 Non|Non|Non|Non|Non|Non|Non
 Non|Oui|Non|Non|Oui|Non|Non
 Non|Oui|Oui|Non|Non|Oui|Oui
@@ -195,4 +195,4 @@ Les demandes préliminaires infructueuses ne seront pas facturés.
 
 [Spécification du Partage des ressources cross-origin (W3C)](http://www.w3.org/TR/cors/)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0914_2016-->

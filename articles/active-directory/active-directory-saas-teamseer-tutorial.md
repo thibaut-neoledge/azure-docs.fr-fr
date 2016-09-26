@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="06/21/2016" 
+    ms.date="09/11/2016" 
     ms.author="jeedes" />
 
 #Didacticiel : Intégration d’Azure AD à TeamSeer
@@ -66,7 +66,7 @@ Cette section décrit l’activation de l’intégration d’applications pour T
 
 ##Configuration de l'authentification unique
   
-Cette section explique comment permettre aux utilisateurs de s’authentifier sur TeamSeer avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML. Dans le cadre de cette procédure, vous devez créer un fichier de certificat codé en base 64. Si cette procédure ne vous est pas familière, consultez [Conversion d’un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
+Cette section explique comment permettre aux utilisateurs de s’authentifier sur TeamSeer avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML. Dans le cadre de cette procédure, vous devez créer un fichier de certificat codé en base 64. Si cette procédure ne vous est pas familière, consultez [Comment convertir un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
 
 ###Pour configurer l’authentification unique, procédez comme suit :
 
@@ -105,9 +105,9 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
     ![SAML Settings](./media/active-directory-saas-teamseer-tutorial/IC789637.png "SAML Settings")
 
     1.  Dans la page **Configurer l’authentification unique sur TeamSeer** du portail Azure Classic, copiez la valeur de **URL du service d’authentification unique**, puis collez-la dans la zone de texte **URL**.
-    2.  Créez un fichier **codé en base 64** à partir du certificat téléchargé.  
+    2.  Créez un fichier **codé en base 64** à partir du certificat téléchargé.
 
-        >[AZURE.TIP] Pour plus d’informations, consultez [Conversion d’un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
+        >[AZURE.TIP] Pour plus d’informations, consultez [Comment convertir un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
 
     3.  Ouvrez votre certificat codé en base 64 dans le Bloc-notes, copiez son contenu dans le Presse-papiers, puis collez-le dans la zone de texte **IdP Public Certificate**.
 
@@ -117,7 +117,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     1.  Dans la zone de test **Tester l’adresse de messagerie**, entrez l’adresse de messagerie de l’utilisateur de test.
     2.  Dans la zone de texte **Émetteur**, entrez l’URL de l’émetteur du fournisseur du service.
-    3.  Cliquez sur **Enregistrer**.
+    3.  Cliquez sur **Save**.
 
 11. Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
 
@@ -143,7 +143,7 @@ Pour se connecter à TeamSeer, les utilisateurs d’Azure AD doivent être appro
     ![User Details](./media/active-directory-saas-teamseer-tutorial/IC789641.png "Détails de l’utilisateur")
 
     1.  Indiquez le prénom, le nom et le nom d’utilisateur (adresse de messagerie) du compte AAD valide que vous souhaitez approvisionner, dans les zones de texte **First Name**, **Surname** et **User name (Email address)**.
-    2.  Cliquez sur **Next**.
+    2.  Cliquez sur **Suivant**.
 
 4.  Suivez les instructions à l’écran pour ajouter un nouvel utilisateur, puis cliquez sur **Finish**.
 
@@ -165,6 +165,6 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
     ![Oui](./media/active-directory-saas-teamseer-tutorial/IC767830.png "Oui")
   
-Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
+Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d'informations sur le panneau d'accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

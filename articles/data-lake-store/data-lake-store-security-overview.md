@@ -4,7 +4,7 @@
    services="data-lake-store"
    documentationCenter=""
    authors="nitinme"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"/>
 
 <tags
@@ -123,4 +123,4 @@ Si vous souhaitez voir de nouvelles fonctionnalités de Data Lake Store, envoyez
 - [Prise en main d’Azure Data Lake Store avec le portail Azure](data-lake-store-get-started-portal.md)
 - [Sécuriser les données dans Data Lake Store](data-lake-store-secure-data.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0914_2016-->

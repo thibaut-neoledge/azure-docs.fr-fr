@@ -1,10 +1,10 @@
 <properties
    pageTitle="Analyser les journaux des sites web à l'aide d'Azure Data Lake Analytics | Azure"
-   description="Apprendre à analyser les journaux des sites web à l'aide de Data Lake Analytics."
+   description="Apprendre à analyser les journaux des sites web à l'aide de Data Lake Analytics. "
    services="data-lake-analytics"
    documentationCenter=""
    authors="edmacauley"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"/>
 
 <tags
@@ -196,10 +196,10 @@ Pour commencer à utiliser Data Lake Analytics à l'aide de différents outils, 
 - [Prise en main de Data Lake Analytics à l'aide d'Azure PowerShell](data-lake-analytics-get-started-powershell.md)
 - [Prise en main de Data Lake Analytics à l'aide du Kit de développement logiciel (SDK) .NET](data-lake-analytics-get-started-net-sdk.md)
 
-Pour afficher les autres rubriques sur le développement :
+Pour afficher d’autres rubriques sur le développement :
 
 - [Développer des scripts U-SQL avec Data Lake Tools pour Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 - [Prise en main du langage U-SQL Azure Data Lake Analytics](data-lake-analytics-u-sql-get-started.md)
 - [Développer des opérateurs définis par l'utilisateur U-SQL pour des travaux Data Lake Analytics](data-lake-analytics-u-sql-develop-user-defined-operators.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0914_2016-->

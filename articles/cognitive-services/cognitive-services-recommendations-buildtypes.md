@@ -4,7 +4,7 @@
 	services="cognitive-services"
 	documentationCenter=""
 	authors="luiscabrer"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -34,7 +34,7 @@ Si vous formez le modèle en fonction des achats effectués dans votre boutique 
 
 La build de recommandation possède deux fonctionnalités intéressantes :
 
-**La build de recommandation prend en charge le positionnement d’ *articles* froids**
+**La build de recommandation prend en charge le positionnement d’*articles froids***
 
 Les articles qui ne sont pas utilisés de manière intensive sont appelés articles froids. Par exemple, si vous recevez un téléphone que n’avez jamais vendu auparavant, le système ne peut pas déduire les recommandations pour ce produit uniquement sur la base des transactions. Autrement dit, le système doit se renseigner à partir des informations concernant le produit lui-même.
 
@@ -263,4 +263,4 @@ Ceci déclenche une build qui utilise uniquement un sous-ensemble des données p
     "IsFaulted": false
     }
 
-<!----HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="06/21/2016" 
+    ms.date="09/11/2016" 
     ms.author="jeedes" />
 
 #Didacticiel : Intégration d’Azure AD à ThousandEyes
@@ -78,7 +78,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Configurer l’authentification unique](./media/active-directory-saas-thousandeyes-tutorial/IC790063.png "Configurer l’authentification unique")
 
-3.  Dans la zone de texte **URL de connexion à ThousandEyes** de la page **Configurer l’URL de l’application**, entrez l’URL que les utilisateurs doivent saisir pour se connecter à votre application ThousandEyes (par ex., « *https://app.thousandeyes.com/login/sso*")), puis cliquez sur **Suivant**.
+3.  Dans la zone de texte **URL de connexion à ThousandEyes** de la page **Configurer l’URL de l’application**, entrez l’URL que les utilisateurs doivent saisir pour se connecter à votre application ThousandEyes (par ex., « *https://app.thousandeyes.com/login/sso*"), puis cliquez sur **Suivant**.
 
     ![Configurer l’URL de l’application](./media/active-directory-saas-thousandeyes-tutorial/IC790064.png "Configurer l’URL de l’application")
 
@@ -104,12 +104,12 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Configuration de l’authentification unique](./media/active-directory-saas-thousandeyes-tutorial/IC790069.png "Configuration de l’authentification unique")
 
-    1.  Sélectionnez **Enable Single Sign-On**.
+    1.  Sélectionnez **Activer l'authentification unique**.
     2.  Dans la page **Configurer l’authentification unique sur ThousandEyes** du portail Microsoft Azure Classic, copiez la valeur de **URL de connexion distante** et collez-la dans la zone de texte **URL de la page de connexion**.
     3.  Dans la page **Configurer l’authentification unique sur ThousandEyes** du portail Microsoft Azure Classic, copiez la valeur de **URL de déconnexion distante** et collez-la dans la zone de texte **URL de la page de déconnexion**.
     4.  Dans la page **Configurer l’authentification unique sur ThousandEyes** du portail Microsoft Azure Classic, copiez la valeur de **URL de l’émetteur** et collez-la dans la zone de texte **Émetteur du fournisseur d’identité**.
     5.  Dans **Certificat du fournisseur d’identité**, cliquez sur **Choisir un fichier**, puis chargez le certificat que vous avez téléchargé à partir du portail Microsoft Azure Classic.
-    6.  Cliquez sur **Enregistrer**.
+    6.  Cliquez sur **Save**.
 
 10. Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
 
@@ -162,6 +162,6 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
     ![Oui](./media/active-directory-saas-thousandeyes-tutorial/IC767830.png "Oui")
   
-Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
+Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d'informations sur le panneau d'accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

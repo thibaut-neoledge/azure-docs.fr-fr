@@ -4,7 +4,7 @@
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
-	manager="paulettm"
+	manager="jhubbard"
 	editor=""/>
 
 <tags
@@ -125,11 +125,11 @@ L’opération **Création de service Search** déploie un nouveau service Sea
 
 #### Paramètres de l’URI de requête
 
-`subscriptionId` : obligatoire. `subscriptionID` correspondant à l’utilisateur Azure. Vous pouvez obtenir cette valeur à partir de l’API Azure Resource Manager ou du portail.
+`subscriptionId` : requis. `subscriptionID` correspondant à l’utilisateur Azure. Vous pouvez obtenir cette valeur à partir de l’API Azure Resource Manager ou du portail.
 
-`resourceGroupName` : obligatoire. Nom du groupe de ressources dans l’abonnement de l’utilisateur. Vous pouvez obtenir cette valeur à partir de l’API Azure Resource Manager ou du portail.
+`resourceGroupName` : requis. Nom du groupe de ressources dans l’abonnement de l’utilisateur. Vous pouvez obtenir cette valeur à partir de l’API Azure Resource Manager ou du portail.
 
-`serviceName` : obligatoire. Nom du service de recherche dans le groupe de ressources spécifié. Les noms de service doivent contenir uniquement des lettres minuscules, des chiffres ou des tirets, ne peuvent pas inclure de tiret dans les deux premiers ou les deux derniers caractères, ne peuvent pas comporter de tirets consécutifs et doivent être compris entre 2 et 15 caractères. Dans la mesure où tous les noms finissent par <nom>.search.windows.net, les noms de service doivent être globalement uniques. Deux services d’un ou plusieurs abonnements ou groupes de ressources ne peuvent porter le même nom. Vous ne pouvez pas modifier le nom du service après sa création.
+`serviceName` : requis. Nom du service de recherche dans le groupe de ressources spécifié. Les noms de service doivent contenir uniquement des lettres minuscules, des chiffres ou des tirets, ne peuvent pas inclure de tiret dans les deux premiers ou les deux derniers caractères, ne peuvent pas comporter de tirets consécutifs et doivent être compris entre 2 et 15 caractères. Dans la mesure où tous les noms finissent par <nom>.search.windows.net, les noms de service doivent être globalement uniques. Deux services d’un ou plusieurs abonnements ou groupes de ressources ne peuvent porter le même nom. Vous ne pouvez pas modifier le nom du service après sa création.
 
 `api-version` : requis. Indique la version du protocole utilisée pour cette demande. La version actuelle est `2015-02-28`.
 
@@ -226,7 +226,7 @@ Pour HTTP 200 et 201, le corps de la réponse contient la définition de servic
 - `disabled` : le service Search est désactivé. Dans cet état, le service rejette toutes les demandes d’API.
 - `error` : le service Search indique un état d’erreur.
 
-**Remarque** : si votre service indique un état `degraded`, `disabled` ou `error`, cela signifie que l’équipe Azure Search met tout en œuvre pour traiter le problème sous-jacent. Les services dédiés indiquant ces états peuvent faire l’objet d’une facturation en fonction du nombre d’unités de recherche déployées.
+**Remarque** : si votre service indique un état `degraded`, `disabled` ou `error`, cela signifie que l’équipe Azure Search met tout en œuvre pour traiter le problème sous-jacent. Les services dédiés indiquant ces états peuvent faire l’objet d’une facturation en fonction du nombre d’unités de recherche déployées.
 
 `statusDetails` : détails de l’état.
 
@@ -329,7 +329,7 @@ HTTP 200 (OK) si l’opération réussit.
 - `disabled` : le service Search est désactivé. Dans cet état, le service rejette toutes les demandes d’API.
 - `error` : le service Search indique un état d’erreur.
  
-**Remarque** : si votre service indique un état `degraded`, `disabled` ou `error`, cela signifie que l’équipe Azure Search met tout en œuvre pour traiter le problème sous-jacent. Les services dédiés indiquant ces états peuvent faire l’objet d’une facturation en fonction du nombre d’unités de recherche déployées.
+**Remarque** : si votre service indique un état `degraded`, `disabled` ou `error`, cela signifie que l’équipe Azure Search met tout en œuvre pour traiter le problème sous-jacent. Les services dédiés indiquant ces états peuvent faire l’objet d’une facturation en fonction du nombre d’unités de recherche déployées.
  
 `statusDetails` : détails de l’état.
 
@@ -343,7 +343,7 @@ HTTP 200 (OK) si l’opération réussit.
 <a name="ListService"></a>
 ### Liste des services Search
 
-L’opération **Liste des services Search** renvoie la liste de tous les services Search dans l’abonnement d’un groupe de ressources spécifique. Cette opération renvoie les définitions de service, sans les clés API d’administration. Utilisez l’opération **Obtention des clés d’administration** pour récupérer les clés d’administration.
+L’opération **Liste des services Search** renvoie la liste de tous les services Search dans l’abonnement d’un groupe de ressources spécifique. Cette opération renvoie les définitions de service, sans les clés API d’administration. Utilisez l’opération **Obtention des clés d’administration** pour récupérer les clés d’administration.
 
     GET https://management.azure.com/subscriptions/[subscriptionId]/resourceGroups/[resourceGroupName]/providers/Microsoft.Search/searchServices?api-version=2015-02-28
     
@@ -828,4 +828,4 @@ Le code d’état de réponse est HTTP 200  (OK) si l’opération réussit.
 
 Aucune.
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

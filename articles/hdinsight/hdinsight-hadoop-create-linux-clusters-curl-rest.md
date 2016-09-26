@@ -4,7 +4,7 @@
    	services="hdinsight"
    	documentationCenter=""
    	authors="Blackmist"
-   	manager="paulettm"
+   	manager="jhubbard"
    	editor="cgronlun"
 	tags="azure-portal"/>
 
@@ -27,7 +27,7 @@ L’API REST Azure vous permet d’effectuer des opérations de gestion sur les 
 >
 > Pour plus d’informations sur les tailles de nœud et les coûts associés, consultez [Tarification HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-##Configuration requise
+##Composants requis
 
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -260,7 +260,7 @@ Par exemple, le code ci-dessous combine le contenu des fichiers de modèle et de
 
 Cet exemple est utilisé dans les étapes de ce document. Vous devez remplacer les espaces réservés _value_ dans la section __Parameters__ à la fin du document par les valeurs que vous souhaitez utiliser pour votre cluster.
 
-##Vous connecter à votre abonnement Azure
+##Connexion à votre abonnement Azure
 
 Suivez les étapes décrites dans [Se connecter à un abonnement Azure à partir de l’interface de ligne de commande Azure (Azure CLI)](../xplat-cli-connect.md) et connectez-vous à votre abonnement à l’aide de la commande `azure login`.
 
@@ -272,7 +272,7 @@ Suivez les étapes décrites dans [Se connecter à un abonnement Azure à partir
 
         azure account list
         
-    Dans la liste, sélectionnez l’abonnement que vous souhaitez utiliser et notez la colonne __Id__. Il s’agit de l’__ID d’abonnement__, qui sera utilisé dans la plupart des étapes de ce document.
+    Dans la liste, sélectionnez l’abonnement que vous souhaitez utiliser et notez la colonne __Id__. Il s’agit de __l’ID d’abonnement__, qui sera utilisé dans la plupart des étapes de ce document.
 
 2. Créez une application dans Azure Active Directory.
 
@@ -305,7 +305,7 @@ Suivez les étapes décrites dans [Se connecter à un abonnement Azure à partir
         data:                      https://www.contoso.org/example
         info:    ad sp create command OK
         
-4. Affectez le rôle __Owner__ au principal du service à l’aide de la valeur __Object ID__ retournée précédemment. Vous devez également utiliser l’__ID d’abonnement__ obtenu précédemment.
+4. Affectez le rôle __Owner__ au principal du service à l’aide de la valeur __Object ID__ retournée précédemment. Vous devez également utiliser __l’ID d’abonnement__ obtenu précédemment.
     
         azure role assignment create --objectId 7dbc8265-51ed-4038-8e13-31948c7f4ce7 -o Owner -c /subscriptions/{SubscriptionID}/
         
@@ -313,7 +313,7 @@ Suivez les étapes décrites dans [Se connecter à un abonnement Azure à partir
 
 ##Obtenir un jeton d’authentification
 
-1. Utilisez la commande suivante pour trouver l’__ID de locataire__ pour votre abonnement.
+1. Utilisez la commande suivante pour trouver __l’ID de locataire__ pour votre abonnement.
 
         azure account show -s <subscription ID>
         
@@ -435,4 +435,4 @@ Vous avez créé un cluster HDInsight. Pour apprendre à l’utiliser, consultez
 * [Utilisation de composants Python dans Storm sur HDInsight](hdinsight-storm-develop-python-topology.md)
 * [Déploiement et analyse des topologies avec Storm sur HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

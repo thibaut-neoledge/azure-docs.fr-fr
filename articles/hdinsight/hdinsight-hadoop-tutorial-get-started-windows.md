@@ -5,7 +5,7 @@
    services="hdinsight"
    documentationCenter=""
    authors="nitinme"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"
    tags="azure-portal"/>
 
@@ -72,7 +72,7 @@ Lorsque vous créez un cluster, vous créez les ressources de calcul Azure conte
 	|Type du cluster| Sélectionnez **Hadoop** pour ce didacticiel. |
 	|Système d’exploitation du cluster| Sélectionnez **Windows Server 2012 R2 Datacenter** pour ce didacticiel.|
 	|Version de HDInsight| Sélectionnez la version la plus récente de ce didacticiel.|
-	|Abonnement| Sélectionnez l’abonnement Azure qui sera utilisé le cluster.|
+	|Abonnement| Sélectionnez l’abonnement Azure qui sera utilisé pour le cluster.|
 	|Groupe de ressources | Sélectionnez un groupe de ressources Azure existant ou créez-en un. Un cluster HDInsight de base contient un cluster et le compte de stockage par défaut qui lui est associé. À des fins de simplicité de gestion, vous pouvez regrouper les deux dans un groupe de ressources.|
 	|Informations d'identification| Entrez le nom d’utilisateur et le mot de passe du cluster. Les clusters basés sur Windows peuvent avoir deux comptes d’utilisateur. L’utilisateur du cluster (ou l’utilisateur HTTP) est utilisé pour gérer le cluster et soumettre des tâches. Vous pouvez éventuellement créer un compte d’utilisateur de bureau à distance (RDP) pour vous connecter au cluster. Si vous choisissez d’activer le bureau à distance, vous devrez créer le compte d’utilisateur RDP.|
 	|Source de données| Cliquez sur Créer un nouveau pour créer un nouveau compte de stockage Azure par défaut. Utilisez le nom du cluster comme nom de conteneur par défaut. Chaque cluster HDinsight possède un conteneur d’objets Blob par défaut sur un compte de stockage Azure. L’emplacement du compte de stockage Azure par défaut détermine l’emplacement du cluster HDInsight.|
@@ -155,7 +155,7 @@ Vous devez avoir installé Excel 2013 ou 2010 pour mener à bien cette partie
 4. Entrez la **Clé du compte** du compte de stockage d’objets blob Azure, puis cliquez sur **Enregistrer**.
 5. Dans le volet droit, double-cliquez sur le nom de l'objet blob. Par défaut, le nom de l'objet blob est identique à celui du cluster.
 
-6. Localisez **stdout** dans la colonne **Nom**. Vérifiez que le GUID de la colonne **Chemin du dossier** correspond au GUID que vous avez copié précédemment. Une correspondance suggère que les données de sortie correspondent à la tâche que vous avez envoyée. Cliquez sur **Fichier binaire** dans la colonne à gauche de **stdout**.
+6. Localisez **stdout** dans la colonne **Nom**. Vérifiez que le GUID de la colonne** Chemin du dossier** correspond au GUID que vous avez copié précédemment. Une correspondance suggère que les données de sortie correspondent à la tâche que vous avez envoyée. Cliquez sur **Fichier binaire** dans la colonne à gauche de **stdout**.
 
 	![Recherche des données produites par le GUID dans la liste du contenu.][image-hdi-gettingstarted-powerquery-importdata2]
 
@@ -255,4 +255,4 @@ Dans ce didacticiel Hadoop, vous avez appris à créer un cluster Hadoop sur Win
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData2.png
  
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -4,7 +4,7 @@
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"/>
 
 <tags
@@ -24,7 +24,7 @@ Le modèle Azure Resource Manager utilisé dans ce document montre comment crée
 
 > [AZURE.NOTE] Les informations contenues dans ce document et l’exemple fourni ont été testés à l’aide de versions de cluster HDInsight sous Linux 3.3 et 3.4.
 
-## Configuration requise
+## Composants requis
 
 * Un abonnement Azure. Consultez [Obtenir une version d'évaluation gratuite d'Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
@@ -59,7 +59,7 @@ Cet exemple est constitué des composants suivants :
 
 * **Azure Event Hubs** : contient les données collectées à partir des capteurs. Pour cet exemple, une application est fournie pour générer des données.
 
-* **Storm sur HDInsight** : fournit le traitement en temps réel des données à partir d’Event Hub.
+* **Storm sur HDInsight** : fournit le traitement en temps réel des données à partir d’Event Hub.
 
 * **HBase sur HDInsight** : fournit un magasin de données NoSQL persistant pour les données une fois celles-ci traitées par Storm.
 
@@ -67,7 +67,7 @@ Cet exemple est constitué des composants suivants :
 
     > [AZURE.NOTE] Un réseau virtuel est requis pour pouvoir utiliser l’API cliente Java HBase, car elle n’est pas exposée via la passerelle publique pour les clusters HBase. L’installation de clusters HBase et Storm dans le même réseau virtuel permet au cluster Storm (ou à tout autre système sur le réseau virtuel) d’accéder directement à HBase à l’aide de l’API cliente.
 
-* **Site web de tableau de bord** : un exemple de tableau de bord qui suit des données en temps réel.
+* **Site web de tableau de bord** : un exemple de tableau de bord qui suit des données en temps réel.
 
 	* Le site web est implémenté dans Node.js, donc il peut s'exécuter sur n'importe quel système d'exploitation de client de test, ou il peut être déployé sur des sites web Azure.
 
@@ -244,7 +244,7 @@ Le modèle Resource Manager utilisé dans ce document est situé dans un contene
 
 1. Cliquez sur le bouton suivant pour vous connecter à Azure et ouvrir le modèle Resource Manager dans le portail Azure.
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-storm-cluster-in-vnet.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-storm-cluster-in-vnet.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/fr-FR/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
 2. À partir du panneau **Paramètres**, saisissez les informations suivantes :
 
@@ -477,4 +477,4 @@ Vous avez à présent appris à utiliser Storm pour lire des données à partir 
 
 [azure-portal]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0914_2016-->

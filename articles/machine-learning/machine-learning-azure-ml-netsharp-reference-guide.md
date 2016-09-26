@@ -4,7 +4,7 @@
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="jeannt" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun"/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/22/2016" 
+	ms.date="09/12/2016" 
 	ms.author="jeannt"/>
 
 
@@ -26,14 +26,14 @@ Net# est un langage développé par Microsoft, qui définit les architectures de
 -	Concepts fondamentaux liés aux réseaux neuronaux
 -	Conditions des réseaux neuronaux et définition des principaux composants
 -	Syntaxe et mots clés du langage de spécification Net#
--	Exemples de réseaux neuronaux personnalisés créés avec Net# 
+-	Exemples de réseaux neuronaux personnalisés créés avec Net#
 	
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 ## Principes fondamentaux des réseaux neuronaux
 Un réseau neuronal se compose de ***nœuds***, organisés en ***couches***, et de ***connexions pondérées*** (ou ***bords***) reliant les nœuds. Les connexions sont directionnelles ; chaque connexion présente un nœud ***source*** et un nœud de ***destination***.
 
-Chaque ***couche apte à l'apprentissage*** (couche masquée ou de sortie) présente un ou plusieurs ***faisceaux de connexions***. Un faisceau de connexions se compose d’une couche source et d’une définition des connexions de cette couche. Toutes les connexions d'un même faisceau partagent la même ***couche source*** et la même ***couche de destination***. En Net#, on considère qu’un faisceau de connexions appartient à sa couche de destination.
+Chaque ***couche apte à l'apprentissage*** (couche masquée ou de sortie) présente un ou plusieurs ***faisceaux de connexions***. Un faisceau de connexions se compose d'une couche source et d'une définition des connexions de cette couche. Toutes les connexions d'un même faisceau partagent la même ***couche source*** et la même ***couche de destination***. En Net#, on considère qu'un faisceau de connexions appartient à sa couche de destination.
  
 Net# prend en charge différents types de faisceau de connexions, ce qui vous permet de personnaliser la façon dont les entrées sont mappées aux couches masquées et aux sorties.
 
@@ -43,7 +43,7 @@ En outre, Net# prend en charge les quatre types de faisceaux de connexions avanc
 
 -	**Faisceaux filtrés**. L’utilisateur peut définir un prédicat à l’aide de l’emplacement du nœud de la couche source et de celui de la couche de destination. Les nœuds sont connectés chaque fois que le prédicat a la valeur True.
 -	**Faisceaux convolutionnels**. L'utilisateur peut définir de petits voisinages de nœuds dans la couche source. Chaque nœud de la couche de destination est connecté à un voisinage de nœuds de la couche source.
--	**Faisceaux de regroupement** et **faisceaux de normalisation de réponse**. Ces faisceaux sont similaires aux faisceaux convolutionnels dans le sens où l’utilisateur définit de petits voisinages de nœuds dans la couche source. Il existe une différence : les poids des bords dans ces faisceaux ne sont pas aptes à l’apprentissage. Au lieu de cela, une fonction prédéfinie est appliquée aux valeurs de nœud source, afin de déterminer la valeur du nœud de destination.  
+-	**Faisceaux de regroupement** et **faisceaux de normalisation de réponse**. Ces faisceaux sont similaires aux faisceaux convolutionnels dans le sens où l'utilisateur définit de petits voisinages de nœuds dans la couche source. Il existe une différence : les poids des bords dans ces faisceaux ne sont pas aptes à l’apprentissage. Au lieu de cela, une fonction prédéfinie est appliquée aux valeurs de nœud source, afin de déterminer la valeur du nœud de destination.
 
 L’utilisation de Net# pour définir la structure d’un réseau neuronal permet de spécifier des structures complexes, comme des réseaux neuronaux profonds ou des convolutions de dimensions arbitraires, connues pour améliorer l’apprentissage à partir de données telles que des images, des sons ou des vidéos.
 
@@ -53,26 +53,26 @@ L’architecture des modèles de réseau neuronal que vous créez dans Microsoft
 -	créer des couches masquées et contrôler le nombre de nœuds dans chaque couche ;
 -	spécifier la façon dont les couches doivent être connectées les unes aux autres ;
 -	définir des structures de connectivité spéciales, telles que des convolutions et des faisceaux à poids partagé ;
--	spécifier différentes fonctions d’activation.  
+-	spécifier différentes fonctions d'activation.
 
 Pour plus d'informations sur la syntaxe du langage de spécification, consultez la section consacrée à la [définition de la structure](#Structure-specifications).
  
 Pour des exemples de définition de réseaux neuronaux pour certaines tâches standard d'apprentissage automatique, simples comme complexes, consultez la section [Exemples](#Examples-of-Net#-usage).
 
 ## Conditions générales
--	Il doit y avoir exactement une couche de sortie, au moins une couche d’entrée et aucune ou plusieurs couches masquées. 
--	Chaque couche a un nombre fixe de nœuds, organisés de façon conceptuelle dans un tableau rectangulaire aux dimensions arbitraires. 
--	Les couches d’entrée n’ont pas de paramètre formé associé et représentent le point où les données d’instance entrent dans le réseau. 
--	Les couches aptes à l’apprentissage (couches masquées et de sortie) présentent des paramètres formés associés, appelés poids et biais. 
--	Les nœuds source et de destination doivent se trouver sur des couches indépendantes. 
+-	Il doit y avoir exactement une couche de sortie, au moins une couche d’entrée et aucune ou plusieurs couches masquées.
+-	Chaque couche a un nombre fixe de nœuds, organisés de façon conceptuelle dans un tableau rectangulaire aux dimensions arbitraires.
+-	Les couches d'entrée n'ont pas de paramètre formé associé et représentent le point où les données d'instance entrent dans le réseau.
+-	Les couches aptes à l’apprentissage (couches masquées et de sortie) présentent des paramètres formés associés, appelés poids et biais.
+-	Les nœuds source et de destination doivent se trouver sur des couches indépendantes.
 -	Les connexions doivent être non cycliques. En d'autres termes, il ne peut pas y avoir une chaîne de connexions ramenant au nœud source initial.
--	La couche de sortie ne peut pas être la couche source d’un faisceau de connexions.  
+-	La couche de sortie ne peut pas être la couche source d'un faisceau de connexions.
 
 ## Spécifications de structures
-Une spécification de structure de réseau neuronal se compose de trois sections : la **déclaration de constante**, la **déclaration de couche** et la **déclaration de connexion**. Il existe également une section de **déclaration de partage**, qui est facultative. Ces sections peuvent être définies dans n’importe quel ordre.
+Une spécification de structure de réseau neuronal se compose de trois sections : la **déclaration de constante**, la **déclaration de couche** et la **déclaration de connexion**. Il existe également une section de **déclaration de partage**, qui est facultative. Ces sections peuvent être définies dans n'importe quel ordre.
 
 ## Déclaration de constante 
-Ce type de déclaration est facultatif. Elle offre une méthode de définition des valeurs utilisées à d’autres emplacements de la définition du réseau neuronal. L’instruction de déclaration se compose d’un identifiant suivi du signe égal et d’une expression de valeur.
+Ce type de déclaration est facultatif. Elle offre une méthode de définition des valeurs utilisées à d’autres emplacements de la définition du réseau neuronal. L'instruction de déclaration se compose d'un identifiant suivi du signe égal et d'une expression de valeur.
 
 Par exemple, l'instruction suivante définit une constante **x** :
 
@@ -95,14 +95,14 @@ La déclaration de couche est requise. Elle définit la taille et la source de l
 	output Result[2] from Hidden all;  
 
 -	Le produit des dimensions est le nombre de nœuds de la couche. Dans cet exemple, il y a deux dimensions [5,20], ce qui signifie qu'il y a 100 nœuds dans la couche.
--	Les couches peuvent être déclarés dans n'importe quel ordre, à une exception près : si plusieurs couches d'entrée sont définies, l'ordre dans lequel elles sont déclarées doit être le même que celui des fonctions dans les données d'entrée.  
+-	Les couches peuvent être déclarés dans n'importe quel ordre, à une exception près : si plusieurs couches d'entrée sont définies, l'ordre dans lequel elles sont déclarées doit être le même que celui des fonctions dans les données d'entrée.
 
 
 Pour spécifier que le nombre de nœuds d'une couche doit être déterminé automatiquement, utilisez le mot clé **auto**. Ce dernier peut avoir différents effets selon le type de couche :
 
 -	Dans une déclaration de couche d'entrée, le nombre de nœuds est le nombre de caractéristiques dans les données d'entrée.
--	Dans une déclaration de couche masquée, le nombre de nœuds correspond au nombre spécifié par la valeur du paramètre définissant le **Nombre de nœuds masqués**. 
--	Dans une déclaration de couche de sortie, le nombre de nœuds est de 2 pour les classifications à deux classes, de 1 pour la régression et égal au nombre de nœuds de sortie pour une classification multiclasse.   
+-	Dans une déclaration de couche masquée, le nombre de nœuds correspond au nombre spécifié par la valeur du paramètre définissant le **Nombre de nœuds masqués**.
+-	Dans une déclaration de couche de sortie, le nombre de nœuds est de 2 pour les classifications à deux classes, de 1 pour la régression et égal au nombre de nœuds de sortie pour une classification multiclasse.
 
 Par exemple, la définition de réseau ci-après permet de déterminer automatiquement la taille de toutes les couches :
 
@@ -123,8 +123,8 @@ Les fonctions de sortie suivantes sont prises en charge :
 -	sqrt
 -	srlinear
 -	abs
--	tanh 
--	brlinear  
+-	tanh
+-	brlinear
 
 Par exemple, la déclaration suivante utilise la fonction **softmax** :
 
@@ -139,7 +139,7 @@ Immédiatement après avoir défini la couche entraînable, vous devez déclarer
 -	Faisceau **filtré**, signalé par le mot clé **where**, suivi par une expression de prédicat
 -	Faisceau **convolutionnel**, signalé par le mot clé **convolve**, suivi des attributs de convolution
 -	Faisceau de **regroupement**, signalé par les mots clés **max pool** ou **mean pool**
--	Faisceau de **normalisation de réponse**, signalé par le mot clé **response norm**  	
+-	Faisceau de **normalisation de réponse**, signalé par le mot clé **response norm**
 
 ## Faisceaux complets  
 
@@ -152,8 +152,8 @@ Une spécification de faisceau de connexion filtré inclut un prédicat, dont la
 	hidden ByRow[10, 12] from Pixels where (s,d) => s[0] == d[0];
 	hidden ByCol[5, 20] from Pixels where (s,d) => abs(s[1] - d[1]) <= 1;  
 
--	Dans le prédicat de _ByRow_, **s** est un paramètre représentant un index dans le tableau rectangulaire de nœuds de la couche d'entrée, _Pixels_, tandis que **d** est un paramètre représentant un index dans le tableau de nœuds de la couche masquée _ByRow_. Le type de **s** et de **d** est un tuple d'entiers de longueur 2. D'un point de vue conceptuel, **s** couvre toutes les paires d'entiers avec _0 <= s[0] < 10_ et _0 <= s[1] < 20_, tandis que **d** couvre toutes les paires d'entiers avec _0 <= d[0] < 10_ et _0 <= d[1] < 12_. 
--	Sur la droite de l'expression de prédicat se trouve une condition. Dans cet exemple, pour chaque valeur de **s** et **d** permettant à la condition d'avoir la valeur True, il existe un bord à partir du nœud de couche source vers le nœud de couche de destination. Ainsi, cette expression de filtre indique que le faisceau inclut une connexion du nœud défini par **s** au nœud défini par **d**, dans tous les cas où s[0] est égal à d[0].  
+-	Dans le prédicat de _ByRow_, **s** est un paramètre représentant un index dans le tableau rectangulaire de nœuds de la couche d'entrée, _Pixels_, tandis que **d** est un paramètre représentant un index dans le tableau de nœuds de la couche masquée _ByRow_. Le type de **s** et de **d** est un tuple d'entiers de longueur 2. D'un point de vue conceptuel, **s** couvre toutes les paires d'entiers avec _0 <= s[0] < 10_ et _0 <= s[1] < 20_, tandis que **d** couvre toutes les paires d'entiers avec _0 <= d[0] < 10_ et _0 <= d[1] < 12_.
+-	Sur la droite de l'expression de prédicat se trouve une condition. Dans cet exemple, pour chaque valeur de **s** et **d** permettant à la condition d'avoir la valeur True, il existe un bord à partir du nœud de couche source vers le nœud de couche de destination. Ainsi, cette expression de filtre indique que le faisceau inclut une connexion du nœud défini par **s** au nœud défini par **d**, dans tous les cas où s[0] est égal à d[0].
 
 Vous pouvez également spécifier un ensemble de poids pour un faisceau filtré. La valeur de l'attribut **Weights** doit être un tuple de valeurs à virgule flottante dont la longueur est égale au nombre de connexions défini par le faisceau. Par défaut, les poids sont générés de façon aléatoire.
 
@@ -167,7 +167,7 @@ Il est possible de spécifier les poids directement comme des valeurs constantes
 ## Faisceaux convolutionnels
 Lorsque les données d’apprentissage présentent une structure homogène, des connexions convolutionnelles sont généralement utilisées pour l’apprentissage des caractéristiques de haut niveau des données. Par exemple, pour les données images, audio ou vidéo, la dimensionnalité spatiale ou temporelle peut être assez uniforme.
 
-Les faisceaux convolutionnels emploient des **noyaux** rectangulaires, glissés à travers les dimensions. En gros, chaque noyau définit un ensemble de poids appliqués dans les voisinages locaux, que l'on appelle **applications de noyau**. Chaque application de noyau correspond à un nœud de la couche source appelé **nœud central**. Les poids d’un noyau sont partagés entre de nombreuses connexions. Dans un faisceau convolutionnel, chaque noyau est rectangulaire et toutes les applications de noyau sont de la même taille.
+Les faisceaux convolutionnels emploient des **noyaux** rectangulaires, glissés à travers les dimensions. En gros, chaque noyau définit un ensemble de poids appliqués dans les voisinages locaux, que l'on appelle **applications de noyau**. Chaque application de noyau correspond à un nœud de la couche source appelé **nœud central**. Les poids d'un noyau sont partagés entre de nombreuses connexions. Dans un faisceau convolutionnel, chaque noyau est rectangulaire et toutes les applications de noyau sont de la même taille.
 
 Les faisceaux convolutionnels prennent en charge les attributs suivants :
 
@@ -175,34 +175,34 @@ Les faisceaux convolutionnels prennent en charge les attributs suivants :
 
 Pour définir la forme et les emplacements des noyaux, utilisez les attributs **KernelShape**, **Stride**, **Padding**, **LowerPad** et **UpperPad** :
 
--	**KernelShape** : (obligatoire) définit la dimensionnalité de chaque noyau du faisceau convolutionnel. Cette valeur doit être un tuple d’entiers positifs, dont la longueur est égale à l’arité du faisceau. Chaque composant de ce tuple doit avoir une valeur inférieure ou égale au composant correspondant de l'élément **InputShape**. 
--	**Stride** : (facultatif) définit les tailles d'incrément ajustables de la convolution (une par dimension), soit la distance entre les nœuds centraux. Cette valeur doit être un tuple d'entiers positifs, dont la longueur correspond à l'arité du faisceau. Chaque composant de ce tuple doit avoir une valeur inférieure ou égale au composant correspondant de l'élément **KernelShape**. La valeur par défaut est un tuple dont tous les éléments sont égaux à un. 
--	**Sharing** : (facultatif) définit le partage des poids pour chaque dimension de la convolution. La valeur peut être une valeur booléenne unique ou un tuple de valeurs booléennes, dont la longueur est égale à l’arité du faisceau. Une valeur booléenne unique est étendue de façon à devenir un tuple de la bonne longueur dont tous les éléments sont égaux à la valeur spécifiée. La valeur par défaut est un tuple composé uniquement de valeurs True. 
--	**MapCount** : (facultatif) définit le nombre de signatures pour le faisceau convolutionnel. Cette valeur peut être un entier positif unique ou un tuple d’entiers positifs dont la longueur est égale à l’arité du faisceau. Une valeur d’entier unique est étendue de façon à devenir un tuple de la bonne longueur dont les premiers éléments sont égaux à la valeur spécifiée et dont tous les éléments restants sont égaux à un. La valeur par défaut est 1. Le nombre total de signatures est le produit des éléments du tuple. La factorisation de ce nombre total sur les éléments détermine la façon dont les valeurs de signature sont regroupées dans les nœuds de destination. 
--	**Weights** : (facultatif) définit les poids initiaux du faisceau. La valeur doit être un tuple de valeurs à virgule flottante dont la longueur correspond au nombre de noyaux, multiplié par le nombre de poids par noyau, tel que défini plus loin dans cet article. Les poids par défaut sont générés de façon aléatoire.  
+-	**KernelShape** : (obligatoire) définit la dimensionnalité de chaque noyau du faisceau convolutionnel. Cette valeur doit être un tuple d’entiers positifs, dont la longueur est égale à l’arité du faisceau. Chaque composant de ce tuple doit avoir une valeur inférieure ou égale au composant correspondant de l'élément **InputShape**.
+-	**Stride** : (facultatif) définit les tailles d'incrément ajustables de la convolution (une par dimension), soit la distance entre les nœuds centraux. Cette valeur doit être un tuple d'entiers positifs, dont la longueur correspond à l'arité du faisceau. Chaque composant de ce tuple doit avoir une valeur inférieure ou égale au composant correspondant de l'élément **KernelShape**. La valeur par défaut est un tuple dont tous les éléments sont égaux à un.
+-	**Sharing** : (facultatif) définit le partage des poids pour chaque dimension de la convolution. La valeur peut être une valeur booléenne unique ou un tuple de valeurs booléennes, dont la longueur est égale à l'arité du faisceau. Une valeur booléenne unique est étendue de façon à devenir un tuple de la bonne longueur dont tous les éléments sont égaux à la valeur spécifiée. La valeur par défaut est un tuple composé uniquement de valeurs True.
+-	**MapCount** : (facultatif) définit le nombre de signatures pour le faisceau convolutionnel. Cette valeur peut être un entier positif unique ou un tuple d’entiers positifs dont la longueur est égale à l’arité du faisceau. Une valeur d'entier unique est étendue de façon à devenir un tuple de la bonne longueur dont les premiers éléments sont égaux à la valeur spécifiée et dont tous les éléments restants sont égaux à un. La valeur par défaut est 1. Le nombre total de signatures est le produit des éléments du tuple. La factorisation de ce nombre total sur les éléments détermine la façon dont les valeurs de signature sont regroupées dans les nœuds de destination.
+-	**Weights** : (facultatif) définit les poids initiaux du faisceau. La valeur doit être un tuple de valeurs à virgule flottante dont la longueur correspond au nombre de noyaux, multiplié par le nombre de poids par noyau, tel que défini plus loin dans cet article. Les poids par défaut sont générés de façon aléatoire.
 
 Il existe deux ensembles de propriétés contrôlant le remplissage, qui s'excluent mutuellement :
 
 -	**Padding** : (facultatif) détermine si l'entrée doit être remplie selon un **schéma de remplissage par défaut**. La valeur peut être une valeur booléenne unique ou un tuple de valeurs booléennes, dont la longueur est égale à l’arité du faisceau. Une valeur booléenne unique est étendue de façon à devenir un tuple de la bonne longueur dont tous les éléments sont égaux à la valeur spécifiée. Si la valeur d'une dimension correspond à True, la source est remplie de façon logique dans cette dimension par des cellules de valeur zéro afin de prendre en charge d'autres applications de noyau, de façon que les nœuds centraux des premier et dernier noyaux de cette dimension soient les premier et dernier nœuds de cette dimension dans la couche source. Ainsi, le nombre de nœuds « factices » de chaque dimension est déterminé automatiquement, afin de correspondre exactement à _(InputShape[d] - 1) / Stride[d] + 1_ noyaux dans la couche source remplie. Si la valeur d’une dimension correspond à False, les noyaux sont définis de façon que le nombre de nœuds omis soit le même de chaque côté (une différence de 1 au maximum est tolérée). La valeur par défaut de cet attribut est un tuple dont tous les éléments ont la valeur False.
 -	**UpperPad** et **LowerPad** : (facultatifs) permettent de contrôler la quantité de remplissage à utiliser. **Important :** ces attributs peuvent être définis si et seulement si la propriété **Padding** ci-dessus n'est ***pas*** définie. Les valeurs doivent être des tuples d’entiers dont la longueur est égale à l’arité du faisceau. Lorsque ces attributs sont spécifiés, des nœuds « factices » sont ajoutés aux extrémités inférieure et supérieure de chaque dimension de la couche d’entrée. Le nombre de nœuds ajoutés aux extrémités inférieure et supérieure de la dimension est déterminé respectivement par **LowerPad**[i] et **UpperPad**[i]. Afin de veiller à ce que les noyaux correspondent à des nœuds « réels » et non « factices », les conditions suivantes doivent être respectées :
-	-	Chaque élément de **LowerPad** doit être strictement inférieur à KernelShape[d]/2. 
-	-	Chaque élément de **UpperPad** doit être inférieur à KernelShape[d]/2. 
-	-	La valeur par défaut de ces attributs est un tuple dont tous les éléments sont égaux à 0. 
+	-	Chaque élément de **LowerPad** doit être strictement inférieur à KernelShape[d]/2.
+	-	Chaque élément de **UpperPad** doit être inférieur à KernelShape[d]/2.
+	-	La valeur par défaut de ces attributs est un tuple dont tous les éléments sont égaux à 0.
 
 Le paramètre **Padding** = true permet d’obtenir le remplissage requis pour maintenir le « centre » du noyau à l’intérieur de l’entrée « réelle ». Cela modifie un peu le calcul de la taille de sortie. En règle générale, la taille de sortie _D_ est calculée comme suit : _D = (I - K) / S + 1_, où _I_ est la taille d'entrée, _K_ est la taille du noyau, _S_ est le stride, et _/_ est la division d'entier (arrondi vers zéro). Si vous définissez UpperPad = [1, 1], la taille d'entrée _I_ est effectivement 29 et, par conséquent, _D = (29-5) / 2 + 1 = 13_. Toutefois, lorsque **Padding** = true, _I_ est essentiellement augmenté de _K - 1_ ; donc _D = ((28 + 4) - 5) / 2 + 1 = 27 / 2 + 1 = 13 + 1 = 14_. En spécifiant des valeurs pour **UpperPad** et **LowerPad**, vous obtenez un meilleur contrôle sur le remplissage que si vous définissez simplement **Padding** = true.
 
 Pour plus d’informations sur les réseaux convolutionnels et leurs applications, consultez les articles suivants :
 
 -	[http://deeplearning.net/tutorial/lenet.html ](http://deeplearning.net/tutorial/lenet.html)
--	[http://research.microsoft.com/pubs/68920/icdar03.pdf](http://research.microsoft.com/pubs/68920/icdar03.pdf) 
--	[http://people.csail.mit.edu/jvb/papers/cnn\_tutorial.pdf](http://people.csail.mit.edu/jvb/papers/cnn_tutorial.pdf)  
+-	[http://research.microsoft.com/pubs/68920/icdar03.pdf](http://research.microsoft.com/pubs/68920/icdar03.pdf)
+-	[http://people.csail.mit.edu/jvb/papers/cnn\_tutorial.pdf](http://people.csail.mit.edu/jvb/papers/cnn_tutorial.pdf)
 
 ## Faisceaux de regroupement
 Un **faisceau de regroupement** applique une géométrie similaire à la connectivité convolutionnelle, mais utilise des fonctions prédéfinies pour dériver les valeurs du nœud source vers la valeur du nœud de destination. De ce fait, les faisceaux de regroupement n’ont pas d’état entraînable (poids ou biais). Ils prennent en charge tous les attributs convolutionnels, hormis **Sharing**, **MapCount** et **Weights**.
 
 En général, les noyaux résumés par des unités de regroupement adjacentes ne se chevauchent pas. Si Stride[d] est égal à KernelShape[d] dans chaque dimension, la couche obtenue est la couche de regroupement locale traditionnelle, qui est généralement employée dans les réseaux neuronaux convolutionnels. Chaque nœud de destination calcule le maximum ou la moyenne des activités de son noyau dans la couche source.
 
-L’exemple suivant illustre un faisceau de regroupement :
+L'exemple suivant illustre un faisceau de regroupement :
 
 	hidden P1 [5, 12, 12]
 	  from C1 max pool {
@@ -211,15 +211,15 @@ L’exemple suivant illustre un faisceau de regroupement :
 	    Stride      = [ 1,  2,  2];
 	  }  
 
--	L'arité du faisceau est de 3 (longueur des tuples **InputShape**, **KernelShape** et **Stride**). 
--	Le nombre de nœuds de la couche source est égal à _5 * 24 * 24 = 2880_. 
--	Il s'agit d'une couche de regroupement locale traditionnelle, car les valeurs **KernelShape** et **Stride** sont égales. 
--	Le nombre de nœuds de la couche de destination est égal à _5 * 12 * 12 = 1440_.  
+-	L'arité du faisceau est de 3 (longueur des tuples **InputShape**, **KernelShape** et **Stride**).
+-	Le nombre de nœuds de la couche source est égal à _5 * 24 * 24 = 2 880_.
+-	Il s'agit d'une couche de regroupement locale traditionnelle, car les valeurs **KernelShape** et **Stride** sont égales.
+-	Le nombre de nœuds de la couche de destination est égal à _5 * 12 * 12 = 1 440_.
 	
 Pour plus d’informations sur les couches de regroupement, consultez les articles suivants :
 
 -	[http://www.cs.toronto.edu/~hinton/absps/imagenet.pdf](http://www.cs.toronto.edu/~hinton/absps/imagenet.pdf) (Section 3.4)
--	[http://cs.nyu.edu/~koray/publis/lecun-iscas-10.pdf](http://cs.nyu.edu/~koray/publis/lecun-iscas-10.pdf) 
+-	[http://cs.nyu.edu/~koray/publis/lecun-iscas-10.pdf](http://cs.nyu.edu/~koray/publis/lecun-iscas-10.pdf)
 -	[http://cs.nyu.edu/~koray/publis/jarrett-iccv-09.pdf](http://cs.nyu.edu/~koray/publis/jarrett-iccv-09.pdf)
 	
 ## Faisceaux de normalisation de réponse
@@ -230,7 +230,7 @@ La **normalisation de réponse** est un schéma de normalisation local proposé 
 Les faisceaux de normalisation de réponse prennent en charge tous les attributs convolutionnels, hormis **Sharing**, **MapCount** et **Weights**.
  
 -	Si le noyau contient des neurones de la même signature que ***x***, le schéma de normalisation est appelé **normalisation de même signature**. Pour définir une normalisation de ce type, la première coordonnée de **InputShape** doit avoir la valeur 1.
--	Si le noyau contient des neurones dans la même position spatiale que ***x***, mais situés dans d'autres signatures, le schéma de normalisation est appelé **normalisation intersignature**. Ce type de normalisation de réponse implémente une forme d'inhibition latérale inspirée par le type trouvé dans les vrais neurones et qui crée une compétition pour des niveaux d'activation élevés entre les sorties neuronales calculées sur différentes signatures. Pour définir une normalisation intersignature, la première coordonnée doit être un entier supérieur à 1 et inférieur ou égal au nombre de signatures. Les coordonnées restantes doivent avoir la valeur 1.  
+-	Si le noyau contient des neurones dans la même position spatiale que ***x***, mais situés dans d'autres signatures, le schéma de normalisation est appelé **normalisation intersignature**. Ce type de normalisation de réponse implémente une forme d'inhibition latérale inspirée par le type trouvé dans les vrais neurones et qui crée une compétition pour des niveaux d'activation élevés entre les sorties neuronales calculées sur différentes signatures. Pour définir une normalisation intersignature, la première coordonnée doit être un entier supérieur à 1 et inférieur ou égal au nombre de signatures. Les coordonnées restantes doivent avoir la valeur 1.
 
 Les faisceaux de normalisation de réponse appliquant une fonction prédéfinie aux valeurs de nœud source pour déterminer la valeur du nœud de destination, ils n’ont pas d’état entraînable (poids ou biais).
 
@@ -238,11 +238,11 @@ Les faisceaux de normalisation de réponse appliquant une fonction prédéfinie 
 
 Outre les quatre attributs décrits précédemment, les faisceaux de normalisation de réponse prennent également en charge les attributs suivants :
 
--	**Alpha** : (obligatoire) spécifie une valeur à virgule flottante qui correspond à ***α*** dans la formule précédente. 
--	**Beta** : (obligatoire) spécifie une valeur à virgule flottante qui correspond à ***β*** dans la formule précédente. 
--	**Offset** : (facultatif) spécifie une valeur à virgule flottante correspondant à l'élément ***k*** dans la formule précédente. Par défaut, elle est de 1.  
+-	**Alpha** : (obligatoire) spécifie une valeur à virgule flottante qui correspond à ***α*** dans la formule précédente.
+-	**Beta** : (obligatoire) spécifie une valeur à virgule flottante qui correspond à ***β*** dans la formule précédente.
+-	**Offset** : (facultatif) spécifie une valeur à virgule flottante correspondant à l'élément ***k*** dans la formule précédente. Par défaut, elle est de 1.
 
-L’exemple suivant définit un faisceau de normalisation de réponse utilisant ces attributs :
+L'exemple suivant définit un faisceau de normalisation de réponse utilisant ces attributs :
 
 	hidden RN1 [5, 10, 10]
 	  from P1 response norm {
@@ -252,9 +252,9 @@ L’exemple suivant définit un faisceau de normalisation de réponse utilisant 
 	    Beta = 0.75;
 	  }  
 
--	La couche source inclut cinq signatures, chacune présentant des dimensions 12x12, pour un total de 1 440 nœuds. 
--	La valeur de **KernelShape** indique qu'il s'agit d'une couche de normalisation de même signature, où le voisinage est un rectangle 3x3. 
--	La valeur par défaut de **Padding** est False. La couche de destination n'a donc que 10 nœuds par dimension. Pour inclure un seul nœud dans la couche de destination correspondant à tous les nœuds de la couche source, ajoutez la chaîne Padding = [true, true, true] et remplacez la taille de l'élément RN1 par [5, 12, 12].  
+-	La couche source inclut cinq signatures, chacune présentant des dimensions 12x12, pour un total de 1 440 nœuds.
+-	La valeur de **KernelShape** indique qu'il s'agit d'une couche de normalisation de même signature, où le voisinage est un rectangle 3x3.
+-	La valeur par défaut de **Padding** est False. La couche de destination n'a donc que 10 nœuds par dimension. Pour inclure un seul nœud dans la couche de destination correspondant à tous les nœuds de la couche source, ajoutez la chaîne Padding = [true, true, true] et remplacez la taille de l'élément RN1 par [5, 12, 12].
 
 ## Déclaration de partage 
 Net# peut prendre en charge la définition de plusieurs faisceaux avec des poids partagés. Les poids de deux faisceaux quelconques peuvent être partagés tant qu’ils ont la même structure. La syntaxe suivante définit des faisceaux avec des poids partagés :
@@ -305,9 +305,9 @@ Par exemple, la déclaration de partage spécifie les noms de couches, indiquant
 	}
 	share { H1, H2 } // share both weights and biases  
 
--	Les caractéristiques d'entrée sont partitionnées en deux couches d'entrée de même taille. 
--	Les couches masquées calculent alors des caractéristiques de niveau supérieur sur les deux couches d'entrée. 
--	La déclaration de partage spécifie que _H1_ et _H2_ doivent être calculés de la même façon à partir de leurs entrées respectives.  
+-	Les caractéristiques d'entrée sont partitionnées en deux couches d'entrée de même taille.
+-	Les couches masquées calculent alors des caractéristiques de niveau supérieur sur les deux couches d'entrée.
+-	La déclaration de partage spécifie que _H1_ et _H2_ doivent être calculés de la même façon à partir de leurs entrées respectives.
  
 Il est également possible de spécifier cet élément avec deux déclarations de partage indépendantes, comme suit :
 
@@ -331,9 +331,9 @@ Cet exemple simple montre comment créer un modèle de réseau neuronal contenan
 
 Cet exemple illustre certaines commandes de base, comme suit :
 
--	La première ligne définit la couche d'entrée (nommé _Données_). Lorsque vous utilisez le mot-clé **Automatique**, le réseau neuronal inclut automatiquement toutes les colonnes de fonctionnalité dans les exemples d'entrée. 
+-	La première ligne définit la couche d'entrée (nommé _Données_). Lorsque vous utilisez le mot-clé **Automatique**, le réseau neuronal inclut automatiquement toutes les colonnes de fonctionnalité dans les exemples d'entrée.
 -	La deuxième ligne crée la couche masquée. Le nom _H_ est affecté à la couche masquée, qui contient 200 nœuds. Cette couche est entièrement connectée à la couche d’entrée.
--	La troisième ligne définit la couche de sortie (appelée _O_), qui contient 10 nœuds de sortie. Si le réseau neuronal est utilisé pour une classification, il y a un nœud de sortie par classe. Le mot clé **sigmoid** indique que la fonction de sortie est appliquée à la couche de sortie.   
+-	La troisième ligne définit la couche de sortie (appelée _O_), qui contient 10 nœuds de sortie. Si le réseau neuronal est utilisé pour une classification, il y a un nœud de sortie par classe. Le mot clé **sigmoid** indique que la fonction de sortie est appliquée à la couche de sortie.
 
 ### Définir plusieurs couches masquées : exemple de vision
 L’exemple suivant montre comment définir un réseau neuronal un peu plus complexe, avec plusieurs couches masquées personnalisées.
@@ -396,14 +396,14 @@ La définition du réseau ci-après, conçu pour reconnaître les chiffres, illu
 -	Le mot clé **convolve** indique que les couches nommées _Conv1_ et _Conv2_ sont des couches convolutionnelles. Chacune de ces déclarations de couche est suivie d'une liste des attributs de convolution.
 -	Le réseau contient une troisième couche masquée, _Hid3_, entièrement connectée à la deuxième couche masquée, _Conv2_.
 -	La couche de sortie, _Digit_, n'est connectée qu'à la troisième couche masquée, _Hid3_. Le mot clé **all** indique que la couche de sortie est entièrement connectée à _Hid3_.
--	L'arité de la convolution est de 3 (longueur des tuples **InputShape**, **KernelShape**, **Stride** et **Sharing**). 
--	Le nombre de poids par noyau est de _ 1 + **KernelShape**\[0] * **KernelShape**\[1] * **KernelShape**\[2] = 1 + 1 * 5 * 5 = 26. Ou 26 * 50 = 1300_.
+-	L'arité de la convolution est de 3 (longueur des tuples **InputShape**, **KernelShape**, **Stride** et **Sharing**).
+-	Le nombre de poids par noyau est de _1 + **KernelShape**[0] *KernelShape**[1] * **KernelShape**[2] = 1 + 1 * 5 * 5 = 26. Ou 26 * 50 = 1300_.
 -	Vous pouvez calculer les nœuds de chaque couche masquée comme suit :
-	-	**NodeCount**\[0] = (5 - 1) / 1 + 1 = 5.
-	-	**NodeCount**\[1] = (13 - 5) / 2 + 1 = 5. 
-	-	**NodeCount**\[2] = (13 - 5) / 2 + 1 = 5. 
--	Vous pouvez calculer le nombre total de nœuds en utilisant la dimensionnalité déclarée de la couche, [50, 5, 5], comme suit : _**MapCount** * **NodeCount**\[0] * **NodeCount**\[1] * **NodeCount**\[2] = 10 * 5 * 5 * 5_
--	Puisque **Sharing**[d] est faux uniquement pour _d == 0_, le nombre de noyaux est _**MapCount** * **NodeCount**[0] = 10 * 5 = 50_. 
+	-	**NodeCount**[0] = (5 - 1) / 1 + 1 = 5.
+	-	**NodeCount**[1] = (13 - 5) / 2 + 1 = 5.
+	-	**NodeCount**[2] = (13 - 5) / 2 + 1 = 5.
+-	Vous pouvez calculer le nombre total de nœuds en utilisant la dimensionnalité déclarée de la couche, [50, 5, 5], comme suit : _**MapCount**  *NodeCount**[0] * **NodeCount**[1] *NodeCount**[2] = 10 * 5 * 5 * 5_
+-	Puisque **Sharing**[d] est faux uniquement pour _d == 0_, le nombre de noyaux est _**MapCount** *NodeCount**[0] = 10 * 5 = 50_.
 
 
 ## Remerciements
@@ -414,4 +414,4 @@ Le langage Net # pour la personnalisation de l'architecture des réseaux neurona
 [1]: ./media/machine-learning-azure-ml-netsharp-reference-guide/formula_large.gif
  
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0914_2016-->

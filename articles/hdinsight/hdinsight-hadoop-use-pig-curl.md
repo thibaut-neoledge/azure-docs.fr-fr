@@ -4,7 +4,7 @@
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"
 	tags="azure-portal"/>
 
@@ -55,8 +55,8 @@ Pour effectuer les étapes présentées dans cet article, vous avez besoin des �
 
     Les paramètres utilisés dans cette commande sont les suivants :
 
-    * **-u** : le nom d’utilisateur et le mot de passe utilisés pour authentifier la demande
-    * **-G** : indique qu’il s’agit d’une requête GET.
+    * **-u** : le nom d’utilisateur et le mot de passe utilisés pour authentifier la demande
+    * **-G** : indique qu’il s’agit d’une requête GET.
 
     Le début de l’URL, **https://CLUSTERNAME.azurehdinsight.net/templeton/v1**, sera le même pour toutes les demandes. Le chemin d’accès, **/status**, indique que la demande doit retourner le statut de WebHCat (également appelé Templeton) au serveur.
 
@@ -66,11 +66,11 @@ Pour effectuer les étapes présentées dans cet article, vous avez besoin des �
 
     Les paramètres utilisés dans cette commande sont les suivants :
 
-    * **-d** : étant donné que `-G` n’est pas utilisé, la demande passe par défaut à la méthode POST. `-d` spécifie les valeurs de données envoyées avec la demande.
+    * **-d** : étant donné que `-G` n’est pas utilisé, la demande passe par défaut à la méthode POST. `-d` spécifie les valeurs de données envoyées avec la demande.
 
-        * **user.name** : l’utilisateur qui exécute la commande
-        * **execute** : les instructions Pig Latin à exécuter
-        * **statusdir** : le répertoire où seront enregistrés les statuts de cette tâche
+        * **user.name** : l’utilisateur qui exécute la commande
+        * **execute** : les instructions Pig Latin à exécuter
+        * **statusdir** : le répertoire où seront enregistrés les statuts de cette tâche
 
     > [AZURE.NOTE] Notez que les espaces dans les instructions Pig Latin sont remplacées par le caractère `+` avec Curl.
 
@@ -118,4 +118,4 @@ Pour plus d’informations sur d’autres méthodes de travail avec Hadoop sur H
 
 * [Utilisation de MapReduce avec Hadoop sur HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

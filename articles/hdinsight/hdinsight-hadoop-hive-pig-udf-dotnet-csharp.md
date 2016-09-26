@@ -4,7 +4,7 @@
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"
 	tags="azure-portal"/>
 
@@ -24,7 +24,7 @@ Les langages Hive et Pig sont parfaits pour traiter des données dans Azure HDIn
 
 Dans ce document, découvrez comment utiliser C# avec Hive et Pig.
 
-##Configuration requise
+##Composants requis
 
 * Windows 7 ou version ultérieure.
 
@@ -241,4 +241,4 @@ Pour d’autres façons d’utiliser Pig et Hive et pour en savoir plus sur l’
 
 * [Utilisation de MapReduce avec HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

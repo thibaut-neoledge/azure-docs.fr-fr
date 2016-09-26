@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/03/2016"
+	ms.date="09/07/2016"
 	ms.author="tamram"/>
 
 # Configuration des chaînes de connexion Azure Storage
@@ -72,7 +72,7 @@ Pour créer une chaîne de connexion incluant une signature d’accès partagé,
 
 Chaque point de terminaison de service est facultatif, mais la chaîne de connexion doit en contenir au moins un.
 
-Il est recommandé d’utiliser le protocole HTTPS avec une SAS. Pour plus d’informations sur les signatures d’accès partagé, consultez [Signatures d’accès partagé partie 1 : présentation du modèle SAP](storage-dotnet-shared-access-signature-part-1.md).
+Il est recommandé d’utiliser le protocole HTTPS avec une SAS. Pour plus d’informations sur les signatures d’accès partagé, consultez [Utilisation des signatures d’accès partagé (SAP)](storage-dotnet-shared-access-signature-part-1.md).
 
 >[AZURE.NOTE] Si vous spécifiez une SAS dans une chaîne de connexion dans un fichier de configuration, vous devrez encoder les caractères spéciaux dans l’URL.
 
@@ -163,4 +163,4 @@ Par exemple, votre chaîne de connexion doit être similaire à celle-ci :
 - [Utilisation de l'émulateur de stockage Azure pour le développement et le test](storage-use-emulator.md)
 - [Explorateurs du stockage Azure](storage-explorers.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -153,7 +153,7 @@ Si votre environnement de réseau d’entreprise utilise un serveur proxy pour a
 
 ![Définir le serveur proxy lors de l’inscription](media/data-factory-data-management-gateway/SetProxyDuringRegistration.png)
 
-La passerelle utilise le serveur proxy pour se connecter au service cloud. Cliquez sur le lien **Modifier** lors de l’installation initiale qui lance la boîte de dialogue de configuration de proxy.
+La passerelle utilise le serveur proxy pour se connecter au service cloud. Cliquez sur le lien **Modifier** pendant l’installation initiale. La boîte de dialogue **Paramètre proxy** s’affiche.
 
 ![Définir le proxy avec le gestionnaire de configuration](media/data-factory-data-management-gateway/SetProxySettings.png)
 
@@ -181,7 +181,7 @@ Vous pouvez afficher et mettre à jour le proxy HTTP à l’aide de l’outil Ge
 ### Configurer les paramètres du serveur proxy dans diahost.exe.config
 Si vous sélectionnez le paramètre **Utiliser le proxy système** pour le proxy HTTP, la passerelle utilise le paramètre du proxy dans diahost.exe.config. Si aucun proxy n’est spécifié dans diahost.exe.config, la passerelle se connecte au service cloud directement sans passer par le proxy. La procédure suivante fournit des instructions pour mettre à jour le fichier de configuration.
 
-1.	Dans l’Explorateur de fichiers, effectuez une copie de sauvegarde de C:\\Program Files\\Microsoft Data Management Gateway\\1.0\\Shared\\diahost.exe.config pour sauvegarder le fichier d’origine.
+1.	Dans l’Explorateur de fichiers, effectuez une copie de sauvegarde de C:\\Program Files\\Microsoft Data Management Gateway\\2.0\\Shared\\diahost.exe.config pour sauvegarder le fichier d’origine.
 2.	Lancez Notepad.exe en tant qu’administrateur, puis ouvrez le fichier texte C:\\Program Files\\Microsoft Data Management Gateway\\2.0\\Shared\\diahost.exe.config. La balise par défaut pour system.net apparaît comme suit :
 
 			<system.net>
@@ -217,7 +217,7 @@ Si vous utilisez un pare-feu tiers, vous pouvez ouvrir manuellement le port 805
 
 	msiexec /q /i DataManagementGateway.msi NOFIREWALL=1
 
-Si vous préférez ne pas ouvrir le port 8050 sur l’ordinateur passerelle et souhaitez configurer un service lié local, utilisez d’autres mécanismes que l’application **Définition des informations d’identification** pour configurer les informations d’identification de la banque de données. Vous pouvez par exemple utiliser l’applet de commande PowerShell [New-AzureRmDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx). Consultez la section [Configuration des informations d’identification et de la sécurité](#set-credentials-and-securityy) pour savoir comment configurer les informations d’identification de la banque de données.
+Si vous préférez ne pas ouvrir le port 8050 sur l’ordinateur passerelle, utilisez d’autres mécanismes que l’application **Définition des informations d’identification** pour configurer les informations d’identification de la banque de données. Vous pouvez par exemple utiliser l’applet de commande PowerShell [New-AzureRmDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx). Consultez la section [Configuration des informations d’identification et de la sécurité](#set-credentials-and-securityy) pour savoir comment configurer les informations d’identification de la banque de données.
 
 ## Mettre à jour 
 Par défaut, la passerelle de gestion des données est automatiquement mise à jour lorsqu’une version plus récente est disponible. La passerelle n’est pas mise à jour tant que toutes les tâches planifiées ne sont pas terminées. Aucune autre tâche n’est traitée par la passerelle avant la fin de l’opération de mise à jour. Si la mise à jour échoue, la passerelle est restaurée vers son ancienne version.
@@ -246,7 +246,7 @@ Vous voyez s’afficher la progression de l’opération de mise à jour (manuel
 Vous pouvez désactiver/activer la fonctionnalité de mise à jour automatique de la manière suivante :
 
 1. Lancez Windows PowerShell sur l’ordinateur de passerelle.
-2. Accédez au dossier C:\\Program Files\\Microsoft Data Management Gateway\\1.0\\PowerShellScript.
+2. Accédez au dossier C:\\Program Files\\Microsoft Data Management Gateway\\2.0\\PowerShellScript.
 3. Exécutez la commande suivante pour désactiver la fonctionnalité de mise à jour automatique.
 
 		.\GatewayAutoUpdateToggle.ps1  -off
@@ -259,7 +259,7 @@ Vous pouvez désactiver/activer la fonctionnalité de mise à jour automatique d
 Une fois la passerelle installée, vous pouvez lancer le Gestionnaire de configuration de passerelle de gestion des données de l’une des manières suivantes :
 
 - Dans la fenêtre **Rechercher**, saisissez **passerelle de gestion de données** pour accéder à cet utilitaire.
-- Exécutez l’exécutable **ConfigManager.exe** dans le dossier : **C:\\Program Files\\Microsoft Data Management Gateway\\1.0\\Shared**.
+- Exécutez l’exécutable **ConfigManager.exe** dans le dossier : **C:\\Program Files\\Microsoft Data Management Gateway\\2.0\\Shared**.
  
 ### page d'accueil
 La page d’accueil permet d’effectuer les opérations suivantes :
@@ -340,6 +340,32 @@ Cliquez sur le lien **Archiver les journaux de la passerelle** pour archiver et 
 
 ![Passerelle de gestion de données - Archiver des journaux](media/data-factory-data-management-gateway/data-management-gateway-archive-logs.png)
 
+### La passerelle est en ligne avec des fonctionnalités limitées 
+Vous voyez que l’état de la passerelle est **en ligne avec des fonctionnalités limitées** pour l’une des raisons suivantes.
+
+- La passerelle ne peut pas se connecter au service cloud via service bus.
+- Le service cloud ne peut pas se connecter à la passerelle via service bus.
+
+Lorsque la passerelle est en ligne avec des fonctionnalités limitées, vous ne serez peut-être pas en mesure d’utiliser l’Assistant de copie Data Factory pour créer des pipelines de données afin de copier des données vers/à partir des magasins de données locaux.
+
+La résolution/solution de contournement pour ce problème (en ligne avec des fonctionnalités limitées) est basée sur le fait de savoir si la passerelle ne peut pas se connecter au service cloud ou bien si c’est l’inverse. Les sections suivantes fournissent des solutions de contournement.
+
+#### La passerelle ne peut pas se connecter au service cloud via service bus
+Suivez ces étapes pour remettre la passerelle en ligne :
+
+1. Activez les ports sortants 9350 à 9354 sur le pare-feu Windows de l’ordinateur passerelle et le pare-feu d’entreprise. Consultez la section [Ports et pare-feu](#ports-and-firewall) pour obtenir des détails.
+2. Configurez les paramètres de proxy de la passerelle. Consultez la section [Considérations relatives aux serveurs proxy](#proxy-server-considerations) pour obtenir des détails.
+
+Pour résoudre ce problème, utilisez Data Factory Editor dans le portail Azure (ou) Visual Studio (ou) Azure PowerShell.
+
+#### Erreur : Le service cloud ne peut pas se connecter à la passerelle via service bus.
+Suivez ces étapes pour remettre la passerelle en ligne :
+ 
+1. Activez les ports sortants 5671 et 9350 à 9354 sur le pare-feu Windows de l’ordinateur passerelle et le pare-feu d’entreprise. Consultez la section [Ports et pare-feu](#ports-and-firewall) pour obtenir des détails.
+2. Configurez les paramètres de proxy de la passerelle. Consultez la section [Considérations relatives aux serveurs proxy](#proxy-server-considerations) pour obtenir des détails.
+3. Supprimez la restriction d’IP statique sur le serveur proxy.
+
+Pour résoudre ce problème, vous pouvez utiliser Data Factory Editor dans le portail Azure (ou) Visual Studio (ou) Azure PowerShell.
  
 ## Déplacement d’une passerelle d’une machine vers une autre
 Cette section décrit les opérations pour déplacer une passerelle client d’une machine vers une autre.
@@ -406,7 +432,7 @@ Si vous accédez au portail à partir d’un ordinateur différent de l’ordina
 
 Quand vous utilisez l’application **Définition des informations d’identification**, le portail chiffre les informations d’identification avec le certificat que vous avez spécifié dans l’onglet **Certificat** du **Gestionnaire de configuration de passerelle** sur l’ordinateur passerelle.
 
-Si vous recherchez une approche basée sur une API pour chiffrer les informations d’identification, vous pouvez utiliser l’applet de commande PowerShell [New-AzureRmDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) pour chiffrer les informations d’identification. L'applet de commande utilise le certificat qui a servi à configurer la passerelle pour chiffrer les informations d'identification. Vous ajoutez les informations d’identification chiffrées à l’élément **EncryptedCredential** de **connectionString** dans le fichier JSON que vous utiliserez avec l’applet de commande [New-AzureRmDataFactoryLinkedService](https://msdn.microsoft.com/library/mt603647.aspx) ou dans l’extrait de code JSON dans Data Factory Editor.
+Si vous recherchez une approche basée sur une API pour chiffrer les informations d’identification, vous pouvez utiliser l’applet de commande PowerShell [New-AzureRmDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) pour chiffrer les informations d’identification. L'applet de commande utilise le certificat qui a servi à configurer la passerelle pour chiffrer les informations d'identification. Vous ajoutez des informations d’identification chiffrées pour l’élément **EncryptedCredential** de **connectionString** dans JSON. Vous utilisez JSON avec l’applet de commande [New-AzureRmDataFactoryLinkedService](https://msdn.microsoft.com/library/mt603647.aspx) ou dans Data Factory Editor.
 
 	"connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;EncryptedCredential=<encrypted credential>",
 
@@ -424,7 +450,7 @@ Cette section décrit comment créer et enregistrer une passerelle à l’aide d
 
 		$MyDMG = New-AzureRmDataFactoryGateway -Name <gatewayName> -DataFactoryName <dataFactoryName> -ResourceGroupName ADF –Description <desc>
 
-	**Exemple de commande et de sortie** :
+	**Exemple de commande et de sortie** :
 
 
 		PS C:\> $MyDMG = New-AzureRmDataFactoryGateway -Name MyGateway -DataFactoryName $df -ResourceGroupName ADF –Description “gateway for walkthrough”
@@ -442,7 +468,7 @@ Cette section décrit comment créer et enregistrer une passerelle à l’aide d
 		Key               : ADF#00000000-0000-4fb8-a867-947877aef6cb@fda06d87-f446-43b1-9485-78af26b8bab0@4707262b-dc25-4fe5-881c-c8a7c3c569fe@wu#nfU4aBlq/heRyYFZ2Xt/CD+7i73PEO521Sj2AFOCmiI
 
 	
-4. Dans Azure PowerShell, accédez au dossier **C:\\Program Files\\Microsoft Data Management Gateway\\1.0\\PowerShellScript**. Exécutez le script **RegisterGateway.ps1** associé à la variable locale **$Key** comme indiqué dans la commande suivante. Ce script enregistre l’agent client installé sur votre ordinateur avec la passerelle logique que vous avez créée précédemment.
+4. Dans Azure PowerShell, accédez au dossier **C:\\Program Files\\Microsoft Data Management Gateway\\2.0\\PowerShellScript**. Exécutez le script **RegisterGateway.ps1** associé à la variable locale **$Key** comme indiqué dans la commande suivante. Ce script enregistre l’agent client installé sur votre ordinateur avec la passerelle logique que vous avez créée précédemment.
 
 		PS C:\> .\RegisterGateway.ps1 $MyDMG.Key
 		
@@ -470,4 +496,4 @@ Vous pouvez supprimer une passerelle à l’aide de l’applet de commande **Rem
 ## Étapes suivantes
 - Pour obtenir des informations détaillées sur la passerelle, consultez l’article [Passerelle de gestion de données](data-factory-data-management-gateway.md).
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

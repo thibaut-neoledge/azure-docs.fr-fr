@@ -33,7 +33,7 @@ Ce didacticiel vous montre comment déployer une application Sails.js dans Azure
 
 ## Étape 1 : Créer une application Sails.js dans votre environnement de développement
 
-Commencez par créer rapidement une application Sails.js par défaut en procédant comme suit :
+Commencez par créer rapidement une application Sails.js par défaut en procédant comme suit :
 
 1. Ouvrez le terminal de ligne de commande de votre choix et tapez la commande `CD` pointant vers un répertoire de travail.
 
@@ -49,8 +49,10 @@ Commencez par créer rapidement une application Sails.js par défaut en procéda
 
 Créez ensuite la ressource d’application App Service. Vous y déploierez votre application Sails.js plus tard.
 
-1. Dans ce même terminal, connectez-vous à Azure comme suit :
+1. connectez-vous au portail Azure :
+1. Dans le même terminal, passez en mode ASM et connectez-vous à Azure :
 
+        azure config mode asm
         azure login
 
     Suivez les instructions de l’invite pour poursuivre la connexion à un compte Microsoft associé à votre abonnement Azure.
@@ -59,7 +61,7 @@ Créez ensuite la ressource d’application App Service. Vous y déploierez votr
 
         azure site create --git <appname>
 
-    Suivez les instructions pour sélectionner une région Azure vers laquelle effectuer le déploiement. Si vous n’avez jamais configuré d’informations d’identification de déploiement Git/FTP pour votre abonnement Azure, vous êtes invité à le faire.
+    Suivez les instructions pour sélectionner une région Azure vers laquelle effectuer le déploiement. Si vous n’avez jamais configuré les informations d’identification de déploiement Git/FTP pour votre abonnement Azure, vous êtes invité à les créer.
 
     Une fois que la ressource d’application App Service est créée :
 
@@ -75,7 +77,7 @@ Créez ensuite la ressource d’application App Service. Vous y déploierez votr
  - Déployez-la dans App Service.
  - Lisez les journaux stderr et stdout pour résoudre les éventuels problèmes de déploiement.
 
-Procédez comme suit :
+Procédez comme suit :
 
 1. Ouvrez le nouveau fichier iisnode.yml dans votre répertoire racine et ajoutez les deux lignes suivantes :
 
@@ -101,7 +103,7 @@ Procédez comme suit :
 
     Vous devez ensuite vérifier que [Grunt](https://www.npmjs.com/package/grunt) est compatible avec les lecteurs réseau Azure. Les versions de Grunt antérieures à 1.0.0 utilisent un package [glob](https://www.npmjs.com/package/glob) obsolète (antérieur à 5.0.14), qui ne prend pas en charge les lecteurs réseau.
 
-3. Ouvrez package.json et modifiez la `grunt` version en `1.0.0` et supprimez tous les packages `grunt-*`. Votre propriété `dependencies` doit avoir l’aspect suivant :
+3. Ouvrez package.json et modifiez la version `grunt` en `1.0.0` et supprimez tous les packages `grunt-*`. Votre propriété `dependencies` doit avoir l’aspect suivant :
 
         "dependencies": {
             "ejs": "<leave-as-is>",
@@ -215,14 +217,14 @@ Pour vous connecter à une base de données Azure, créez la base de données de
 
     `migrate: 'alter'` vous permet d’utiliser les fonctionnalités de migration de base de données pour créer et mettre à jour vos tables de base de données dans votre base de données SQL Azure en toute facilité. Cependant, `migrate: 'safe'` est utilisé pour votre environnement Azure (production) car Sails.js ne vous permet pas d’utiliser `migrate: 'alter'` dans un environnement de production (voir [Documentation Sails.js](http://sailsjs.org/documentation/concepts/models-and-orm/model-settings)).
 
-4. À partir du terminal, [générez](http://sailsjs.org/documentation/reference/command-line-interface/sails-generate) un [modèle d’API](http://sailsjs.org/documentation/concepts/blueprints) Sails.js comme vous le faites normalement, puis exécutez `sails lift` pour créer la base de données avec la migration de base de données Sails.js. Par exemple :
+4. À partir du terminal, [générez](http://sailsjs.org/documentation/reference/command-line-interface/sails-generate) un [modèle d’API](http://sailsjs.org/documentation/concepts/blueprints) Sails.js comme vous le faites normalement, puis exécutez `sails lift` pour créer la base de données avec la migration de base de données Sails.js. Par exemple :
 
          sails generate api mywidget
          sails lift
 
     Le modèle `mywidget` généré par cette commande est vide, mais nous pouvons l’utiliser pour montrer que nous disposons d’une connectivité de base de données. Lorsque vous exécutez `sails lift`, il crée les tables manquantes pour les modèles que votre application utilise.
 
-6. À présent, accédez au modèle d’API que vous venez de créer dans le navigateur. Par exemple :
+6. À présent, accédez au modèle d’API que vous venez de créer dans le navigateur. Par exemple :
 
         http://localhost:1337/mywidget/create
     
@@ -237,7 +239,7 @@ Pour vous connecter à une base de données Azure, créez la base de données de
         git push azure master
         azure site browse
 
-6. Accédez au modèle d’API de votre application web Azure. Par exemple :
+6. Accédez au modèle d’API de votre application web Azure. Par exemple :
 
         http://<appname>.azurewebsites.net/mywidget/create
 
@@ -248,4 +250,4 @@ Pour vous connecter à une base de données Azure, créez la base de données de
 - [Prise en main des applications web Node.js dans Azure App Service](app-service-web-nodejs-get-started.md)
 - [Utilisation de modules Node.js avec des applications Azure](../nodejs-use-node-modules-azure-apps.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0914_2016-->

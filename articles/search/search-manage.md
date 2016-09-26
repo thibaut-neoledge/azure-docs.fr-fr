@@ -4,7 +4,7 @@
 	services="search" 
 	documentationCenter="" 
 	authors="HeidiSteen" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor=""
     tags="azure-portal"/>
 
@@ -36,7 +36,7 @@ En tant qu'administrateur configurant un service Search, l'une de vos premières
 
 Les abonnés existants peuvent bénéficier gratuitement d'un service partagé. Celui-ci est recommandé à des fins de formation, pour les tests de validation technique et pour les projets de développement de faible envergure. Le service partagé est limité à 50 Mo de stockage, trois index et un certain nombre de documents (la limite stricte est de 10 000 documents, même si la capacité de 50 Mo n'a pas été atteinte). Les performances ne sont pas garanties avec le service partagé. Dès lors, si vous développez une application de recherche de production, pensez plutôt à utiliser la recherche standard.
 
-Les recherches de base et standard sont facturables, car vous bénéficiez d'une infrastructure et de ressources dédiées, utilisées uniquement par votre abonnement. Les recherches de base et standard sont allouées dans des lots de partitions (stockage) et de réplicas (charges de travail de service) définis par l'utilisateur, et facturées par unité de recherche. Vous pouvez faire évoluer les partitions ou les réplicas séparément, en ajoutant des ressources suivant les besoins.
+Les recherches de base et standard sont facturables, car vous bénéficiez d’une infrastructure et de ressources dédiées, utilisées uniquement par votre abonnement. Les recherches de base et standard sont allouées dans des lots de partitions (stockage) et de réplicas (charges de travail de service) définis par l'utilisateur, et facturées par unité de recherche. Vous pouvez faire évoluer les partitions ou les réplicas séparément, en ajoutant des ressources suivant les besoins.
 
 Pour planifier la capacité nécessaire et comprendre l'impact de la facturation, nous vous recommandons les liens suivants :
 
@@ -52,7 +52,7 @@ Vous pouvez activer la collecte de données sur l'activité de recherche des uti
 <a id="sub-2"></a>
 ## Tâches d'administration
 
-La présence de coadministrateurs est possible avec certains services. Cependant, dans le cas d'Azure Search, il ne peut y avoir qu'un seul administrateur par abonnement. Seul un administrateur est habilité à exécuter les tâches décrites dans cette section. Outre l'ajout du service Search à l'abonnement, l'administrateur est chargé d'effectuer les tâches suivantes :
+La présence de coadministrateurs est possible avec certains services. Cependant, dans le cas de la Recherche Azure, il ne peut y avoir qu’un seul administrateur par abonnement. Seul un administrateur est habilité à exécuter les tâches décrites dans cette section. Outre l’ajout du service Recherche à l’abonnement, l’administrateur est chargé d’effectuer les tâches suivantes :
 
 +	distribution de l'URL de service (définie lors de l'approvisionnement du service) ;
 +	gestion et distribution des clés API ;
@@ -175,7 +175,7 @@ Lecteur|Affichage de l'état du service et des clés Requête. Les membres de ce
 
 Notez que les rôles n'accordent pas de droits d'accès au point de terminaison de service. Les opérations du service Search telles que la gestion ou le remplissage d'index, tout comme les requêtes de données de recherche, sont contrôlées via des clés api, et non par des rôles. Pour en savoir plus, consultez la section « Autorisation pour les opérations de gestion et les opérations de données » de la page [Contrôle d'accès en fonction du rôle dans le portail Azure](../active-directory/role-based-access-control-configure.md).
 
-Les rôles offrent un contrôle d'accès après la création du service. Seuls les responsables d'abonnement peuvent ajouter un service Search à un abonnement.
+Les rôles offrent un contrôle d'accès après la création du service. Seuls les responsables d’abonnement peuvent ajouter un service Recherche à un abonnement.
 
 <!--Anchors-->
 [Add search service to your subscription]: #sub-1
@@ -194,4 +194,4 @@ Les rôles offrent un contrôle d'accès après la création du service. Seuls l
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0914_2016-->

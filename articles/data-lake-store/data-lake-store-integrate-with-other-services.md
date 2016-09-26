@@ -4,7 +4,7 @@
    documentationCenter=""
    services="data-lake-store"
    authors="nitinme"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"/>
 
 <tags
@@ -84,4 +84,4 @@ Vous pouvez inscrire des données issues de Data Lake Store dans Azure Data Cata
 - [Prise en main de Data Lake Store avec le portail](data-lake-store-get-started-portal.md)
 - [Prise en main de Data Lake Store avec PowerShell](data-lake-store-get-started-powershell.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0914_2016-->

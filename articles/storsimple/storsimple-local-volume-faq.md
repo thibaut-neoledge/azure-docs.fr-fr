@@ -12,12 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/26/2016"
+   ms.date="08/16/2016"
    ms.author="manuaery" />
 
 # Volumes StorSimple épinglés localement : forum aux questions (FAQ)
 
-## Vue d’ensemble
+## Vue d'ensemble
 
 Voici quelques questions/réponses qui pourraient vous être utiles lorsque vous créez un volume StorSimple épinglé localement, convertissez un volume à plusieurs niveaux en volume épinglé localement (et inversement), ou sauvegardez et restaurez un volume épinglé localement.
 
@@ -33,23 +33,23 @@ Les questions/réponses sont organisées en plusieurs catégories :
 
 **Q.** Quelle est la taille maximale des volumes épinglés localement que je peux créer sur les appareils de la gamme 8000 ?
 
-**R** Vous pouvez configurer des volumes épinglés localement d’une taille maximale de 8 To ou des volumes à plusieurs niveaux d’une taille maximale de 200 To sur l’appareil 8100. Sur l’appareil 8600, qui a une plus grande capacité, vous pouvez configurer des volumes épinglés localement d’une taille maximale de 20 To ou des volumes à plusieurs niveaux d’une taille maximale de 500 To.
+**R** Vous pouvez approvisionner des volumes épinglés localement d’une taille maximale de 8,5 To ou des volumes hiérarchisés d’une taille maximale de 200 To sur l’appareil 8100. Sur l’appareil 8600, qui a une plus grande capacité, vous pouvez approvisionner des volumes épinglés localement d’une taille maximale de 22,5 To ou des volumes hiérarchisés d’une taille maximale de 500 To.
 
-**Q.** J’ai récemment mis à niveau mon appareil 8100 vers la mise à jour 2 et lorsque j’essaie de créer un volume épinglé localement, la taille maximale disponible est de seulement 6 To, au lieu de 8 To. Pourquoi ne puis-je pas créer un volume de 8 To ?
+**Q.** J’ai récemment mis à niveau mon appareil 8100 vers Update 2 et, lorsque j’essaie de créer un volume épinglé localement, la taille maximale disponible est de seulement 6 To, au lieu de 8,5 To. Pourquoi ne puis-je pas créer un volume de 8,5 To ?
 
-**R** Vous pouvez configurer des volumes épinglés localement d’une taille maximale de 8 To OU des volumes à plusieurs niveaux d’une taille maximale de 200 To sur l’appareil 8100. Si votre appareil dispose déjà de volumes à plusieurs niveaux, l’espace disponible pour la création d’un volume épinglé localement sera proportionnellement inférieur à cette limite maximale. Par exemple, si 100 To de volumes à plusieurs niveaux ont déjà été configurés sur votre appareil 8100 (ce qui représente la moitié de la capacité à plusieurs niveaux),la taille maximale du volume épinglé localement que vous pouvez créer sur l’appareil 8100 est ramenée à 4 To (soit la moitié de la valeur maximale de la capacité pour les volumes épinglés localement).
+**R** Vous pouvez approvisionner des volumes épinglés localement d’une taille maximale de 8,5 To OU des volumes hiérarchisés d’une taille maximale de 200 To sur l’appareil 8100. Si votre appareil dispose déjà de volumes à plusieurs niveaux, l’espace disponible pour la création d’un volume épinglé localement sera proportionnellement inférieur à cette limite maximale. Par exemple, si 100 To de volumes hiérarchisés ont déjà été approvisionnés sur votre appareil 8100 (ce qui représente la moitié de la capacité hiérarchisée), la taille maximale du volume épinglé localement que vous pouvez créer sur l’appareil 8100 est ramenée à 4 To (soit à peu près la moitié de la valeur maximale de la capacité pour les volumes épinglés localement).
 
-Dans la mesure où une partie de l’espace local sur l’appareil est utilisée pour héberger l’ensemble actif de volumes à plusieurs niveaux, l’espace disponible pour la création d’un volume épinglé localement sera réduit si l’appareil dispose de volumes à plusieurs niveaux. À l’inverse, la création d’un volume épinglé localement réduit proportionnellement l’espace disponible pour les volumes à plusieurs niveaux. Le tableau suivant résume la capacité disponible pour les volumes à plusieurs niveaux sur les appareils 8100 et 8600 lorsque des volumes épinglés localement ont été créés.
+Dans la mesure où une partie de l’espace local de l’appareil est utilisée pour héberger la plage de travail de volumes hiérarchisés, l’espace disponible pour la création d’un volume épinglé localement est réduit si l’appareil dispose de volumes hiérarchisés. À l’inverse, la création d’un volume épinglé localement réduit proportionnellement l’espace disponible pour les volumes hiérarchisés. Le tableau suivant résume la capacité disponible pour les volumes à plusieurs niveaux sur les appareils 8100 et 8600 lorsque des volumes épinglés localement ont été créés.
 
 |Capacité configurée pour les volumes épinglés localement|Capacité disponible pour la configuration pour des volumes à plusieurs niveaux - 8100|Capacité disponible pour la configuration pour des volumes à plusieurs niveaux - 8600|
 |-----|------|------|
 |0 | 200 To | 500 To |
-|1 To | 175 To | 475 To|
-|4 To | 100 To | 400 To |
-|8 To | 0 To | 300 To|
-|10 To | N/D | 250 To |
-|15 To | N/D | 125 To |
-|20 To | N/D | 0 To |
+|1 To | 176,5 To | 477,8 To|
+|4 To | 105,9 To | 411,1 To |
+|8,5 To | 0 To | 311,1 To|
+|10 To | N/D | 277,8 To |
+|15 To | N/D | 166,7 To |
+|22,5 To | N/D | 0 To |
 
 
 **Q.** Pourquoi la création d’un volume épinglé localement est-elle une opération longue ?
@@ -64,11 +64,11 @@ Dans la mesure où une partie de l’espace local sur l’appareil est utilisée
 
 **A.** Les volumes épinglés localement sont adaptés aux charges de travail qui requièrent des garanties locales sur les données en permanence et sont sensibles à la latence du cloud. Lorsque vous envisagez d’utiliser des volumes locaux pour l’une de vos charges de travail, n’oubliez pas les éléments suivants :
 
-- Les volumes épinglés localement sont configurés complètement et la création de volumes locaux aura un impact sur l’espace disponible pour les volumes à plusieurs niveaux. Par conséquent, nous vous conseillons de commencer par des volumes de petite taille et de monter en puissance au fur et à mesure que vos besoins de stockage augmentent.
+- Les volumes épinglés localement sont approvisionnés de façon traditionnelle et la création de volumes locaux a un impact sur l’espace disponible pour les volumes hiérarchisés. Par conséquent, nous vous conseillons de commencer par des volumes de petite taille et de monter en puissance au fur et à mesure que vos besoins de stockage augmentent.
 
 - La configuration des volumes locaux est une opération longue qui peut impliquer l’envoi de données existantes à partir de volumes à plusieurs niveaux vers le cloud. Par conséquent, les performances sur ces volumes peuvent se trouver amoindries.
 
-- La configuration des volumes locaux est une opération longue. Le temps réellement nécessaire dépend de plusieurs facteurs : la taille du volume en cours de configuration, les données sur votre appareil et la bande passante disponible. Si vous n’avez pas sauvegardé vos volumes existants dans le cloud, la création de volume sera plus lente. Nous vous suggérons de prendre des instantanés cloud de vos volumes existants avant de configurer un volume local.
+- La configuration des volumes locaux est une opération longue. Le temps réellement nécessaire dépend de plusieurs facteurs : la taille du volume en cours de configuration, les données sur votre appareil et la bande passante disponible. Si vous n’avez pas sauvegardé vos volumes existants dans le cloud, la création de volume est plus lente. Nous vous suggérons de prendre des instantanés cloud de vos volumes existants avant de configurer un volume local.
  
 - Vous pouvez convertir des volumes à plusieurs niveaux existants en volumes épinglés localement. Cette conversion implique la configuration d’espace sur l’appareil pour le volume épinglé localement ainsi créé (en plus de mettre hors fonction les données à plusieurs niveaux du cloud [le cas échéant]). Là encore, il s’agit d’une opération longue qui dépend des facteurs dont nous avons parlé plus haut. Nous vous suggérons de sauvegarder vos volumes existants avant la conversion, car le processus sera encore plus lent si des volumes existants n’ont pas été sauvegardés. Les performances de votre appareil peuvent également être limitées pendant ce processus.
 	
@@ -76,13 +76,13 @@ Plus d’informations sur comment [créer un volume épinglé localement](storsi
 
 **Q.** Puis-je créer plusieurs volumes épinglés localement simultanément ?
 
-**A.** Oui, mais toutes les tâches de création et d’extension d’un volume épinglé localement seront traitées de manière séquentielle.
+**A.** Oui, mais tous les travaux de création et d’extension d’un volume épinglé localement sont traités de manière séquentielle.
 
 Les volumes épinglés localement étant configurés complètement, ils nécessitent la création d’espace local sur l’appareil (ce qui peut entraîner l’envoi de données existantes de volumes à plusieurs niveaux vers le cloud pendant la configuration). Par conséquent, si une tâche de configuration est en cours, d’autres tâches de création de volumes locaux seront mises en attente jusqu’à ce que cette tâche soit terminée.
 
-De même, si un volume local existant est étendu ou qu’un volume à plusieurs niveaux est converti en volume épinglé localement, la création d’un nouveau volume épinglé localement est mise en attente jusqu’à ce que la tâche précédente soit terminée. L’augmentation de la taille d’un volume épinglé localement implique l’extension de l’espace local existant pour ce volume. La conversion d’un volume à plusieurs niveaux en volume épinglé localement implique également la création d’espace local pour le volume épinglé localement ainsi créé. Dans ces deux opérations, la création ou l’extension de l’espace local est une tâche de longue haleine.
+De même, si un volume local existant est étendu ou qu’un volume hiérarchisé est converti en volume épinglé localement, la création d’un nouveau volume épinglé localement est mise en attente jusqu’à ce que le travail précédent soit terminé. L’augmentation de la taille d’un volume épinglé localement implique l’extension de l’espace local existant pour ce volume. La conversion d’un volume à plusieurs niveaux en volume épinglé localement implique également la création d’espace local pour le volume épinglé localement ainsi créé. Dans ces deux opérations, la création ou l’extension de l’espace local est une tâche de longue haleine.
 
-Vous pouvez visualiser ces tâches sur la page **Tâches** du service Azure StorSimple Manager. La tâche en cours de traitement sera mise à jour en continu pour refléter l’avancement de la configuration de l’espace. Les autres tâches sur les volumes épinglés localement seront marquées comme en cours d’exécution, mais leur progression est bloquée et elles seront prises en charge dans l’ordre où elles ont été mises en file d’attente.
+Vous pouvez visualiser ces tâches sur la page **Tâches** du service Azure StorSimple Manager. Le travail en cours de traitement est mis à jour en continu pour refléter l’avancement de l’approvisionnement de l’espace. Les autres travaux sur les volumes épinglés localement sont marqués comme en cours d’exécution, mais leur progression est bloquée et ils sont pris en charge dans l’ordre où ils ont été mis en file d’attente.
 
 **Q.** J’ai supprimé un volume épinglé localement. Pourquoi l’espace ainsi récupéré n’est-il pas reflété dans l’espace disponible lorsque j’essaie de créer un nouveau volume ?
 
@@ -94,7 +94,7 @@ Vous pouvez visualiser ces tâches sur la page **Tâches** du service Azure Stor
 
 **Q.** Puis-je utiliser les applets de commande Azure PowerShell pour créer et gérer des volumes épinglés localement ?
 
-**A.** Non, il est impossible de créer des volumes épinglés localement via les applets de commande Azure PowerShell (tous les volumes que vous créez à l’aide d’Azure PowerShell comportent plusieurs niveaux). Nous vous recommandons également de ne pas utiliser les applets de commande Azure PowerShell pour modifier les propriétés d’un volume épinglé localement, dans la mesure où cela aurait pour effet indésirable de modifier le type de volume en volume à plusieurs niveaux.
+**A.** Non, il est impossible de créer des volumes épinglés localement avec les applets de commande Azure PowerShell (tous les volumes que vous créez à l’aide d’Azure PowerShell sont hiérarchisés). Nous vous recommandons également de ne pas utiliser les applets de commande Azure PowerShell pour modifier les propriétés d’un volume épinglé localement, dans la mesure où cela aurait pour effet indésirable de modifier le type de volume en volume à plusieurs niveaux.
 
 ## Questions sur la sauvegarde d’un volume épinglé localement
 
@@ -155,7 +155,7 @@ Plus d’informations sur comment [convertir un volume à plusieurs niveaux en v
 
 **Q.** Combien de temps faut-il pour restaurer un volume épinglé localement ?
 
-**A.** Les volumes épinglés localement sont restaurés instantanément et mis en ligne dès que les informations de métadonnées du volume sont récupérées à partir du cloud, alors que les données du volume continuent à être téléchargées en arrière-plan. Cette dernière partie de l’opération de restauration (la récupération des garanties locales pour les données du volume) est une opération longue : plusieurs heures peuvent s’écouler avant que toutes les données soient de nouveau locales. Le temps nécessaire pour terminer cette opération dépend de plusieurs facteurs, tels que la taille du volume en cours de restauration et la bande passante disponible. Si le volume d’origine du volume en cours de restauration a été supprimé, l’opération prendra plus de temps car il faudra créer l’espace local sur l’appareil dans le cadre de la restauration.
+**A.** Les volumes épinglés localement sont restaurés instantanément et mis en ligne dès que les informations de métadonnées du volume sont récupérées à partir du cloud, alors que les données du volume continuent à être téléchargées en arrière-plan. Cette dernière partie de l’opération de restauration (la récupération des garanties locales pour les données du volume) est une opération longue : plusieurs heures peuvent s’écouler avant que toutes les données soient de nouveau locales. Le temps nécessaire pour terminer cette opération dépend de plusieurs facteurs, notamment la taille du volume en cours de restauration et la bande passante disponible. Si le volume d’origine du volume en cours de restauration a été supprimé, l’opération prendra plus de temps car il faudra créer l’espace local sur l’appareil dans le cadre de la restauration.
 
 **Q.** J’ai besoin de restaurer mon volume épinglé localement existant vers un instantané plus ancien (effectué lorsque le volume était un volume à plusieurs niveaux). Le volume sera-t-il restauré en tant que volume à plusieurs niveaux ?
 
@@ -213,4 +213,4 @@ Plus d’informations sur [le basculement et la récupération d’urgence de vo
 
 **A.** Oui, vous pouvez. Les volumes épinglés localement sont basculés sous forme de volumes à plusieurs niveaux. Plus d’informations sur [le basculement et la récupération d’urgence de volumes épinglés localement en fonction des versions](storsimple-device-failover-disaster-recovery.md#considerations-for-device-failover)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

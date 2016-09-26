@@ -5,7 +5,7 @@
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"
 	tags="azure-portal"/>
 
@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="06/22/2016"
+   ms.date="09/07/2016"
    ms.author="larryfr"/>
 
 
@@ -45,7 +45,7 @@ Storm sur HDInsight utilise un stockage d’objet blob Azure pour stocker les fi
 
 3. Entrez un __nom de cluster__. Une coche verte s’affiche en regard du __Nom de cluster__ s’il est disponible.
 
-4. Si vous avez plusieurs abonnements, sélectionnez l’entrée __Abonnement__ pour sélectionner l’abonnement Azure qui sera utilisé pour le cluster.
+4. Si vous avez plusieurs abonnements,sélectionnez l’entrée __Abonnement__ pour sélectionner l’abonnement Azure qui sera utilisé pour le cluster.
 
 5.  Utilisez __Sélectionner un type de cluster__ pour choisir un cluster __Storm__. Pour le __Système d’exploitation__, sélectionnez Windows. Pour __Niveau de cluster__, sélectionnez STANDARD. Enfin, utilisez le bouton Sélectionner pour enregistrer ces paramètres
 
@@ -245,4 +245,4 @@ Dans ce didacticiel sur Storm Apache, vous avez appris à créer un cluster Sto
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0914_2016-->

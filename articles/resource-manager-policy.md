@@ -132,7 +132,7 @@ Actuellement, les alias pris en charge sont les suivants :
 
 | Nom d'alias | Description |
 | ---------- | ----------- |
-| {resourceType}/sku.name | Les types de ressources pris en charge sont les suivants : Microsoft.Compute/virtualMachines,<br />Microsoft.Storage/storageAccounts,<br />Microsoft.Web/serverFarms,<br /> Microsoft.Scheduler/jobcollections,<br />Microsoft.DocumentDB/databaseAccounts,<br />Microsoft.Cache/Redis,<br />Microsoft..CDN/profiles |
+| {resourceType}/sku.name | Les types de ressources pris en charge sont les suivants : Microsoft.Compute/virtualMachines,<br />Microsoft.Storage/storageAccounts,<br />Microsoft.Web/serverFarms,<br /> Microsoft.Scheduler/jobcollections,<br />Microsoft.DocumentDB/databaseAccounts,<br />Microsoft.Cache/Redis,<br />Microsoft.CDN/profiles |
 | {resourceType}/sku.family | Le type de ressource pris en charge est Microsoft.Cache/Redis |
 | {resourceType}/sku.capacity | Le type de ressource pris en charge est Microsoft.Cache/Redis |
 | Microsoft.Compute/virtualMachines/imagePublisher | |
@@ -414,6 +414,27 @@ Le résultat de l'exécution est stocké dans l'objet $policy, car il peut être
 
     New-AzureRmPolicyDefinition -Name regionPolicyDefinition -Description "Policy to allow resource creation only in certain 	regions" -Policy "path-to-policy-json-on-disk"
 
+### Création d’une définition de stratégie à l’aide de l’interface CLI Azure
+
+Vous pouvez créer une nouvelle définition de stratégie à l’aide de l’interface de ligne de commande Azure avec la commande de définition de stratégie, comme indiqué ci-dessous. Les exemples ci-dessous créent une stratégie permettant d'attribuer des ressources uniquement en Europe du Nord et en Europe de l'ouest.
+
+    azure policy definition create --name regionPolicyDefinition --description "Policy to allow resource creation only in certain regions" --policy-string '{	
+      "if" : {
+        "not" : {
+          "field" : "location",
+          "in" : ["northeurope" , "westeurope"]
+    	}
+      },
+      "then" : {
+        "effect" : "deny"
+      }
+    }'    
+    
+
+Il est possible de spécifier le chemin d’accès au fichier .json contenant la stratégie plutôt que la stratégie en ligne, comme indiqué ci-dessous.
+
+    azure policy definition create --name regionPolicyDefinition --description "Policy to allow resource creation only in certain regions" --policy "path-to-policy-json-on-disk"
+
 
 ## Application d’une stratégie
 
@@ -456,17 +477,46 @@ Vous pouvez obtenir, modifier ou supprimer des définitions de stratégie à l'a
 
 De même, vous pouvez obtenir, modifier ou supprimer les affectations de stratégies à l'aide des applets de commande Get-AzureRmPolicyAssignment, Set-AzureRmPolicyAssignment et Remove-AzureRmPolicyAssignment respectivement.
 
+### Affectation de stratégies à l’aide de l’interface CLI Azure
+
+Vous pouvez appliquer la stratégie créée précédemment à l’aide de l’interface de ligne de commande Azure sur l’étendue de votre choix à l’aide de la commande d’affectation de stratégies, comme indiqué ci-dessous :
+
+    azure policy assignment create --name regionPolicyAssignment --policy-definition-id /subscriptions/########-####-####-####-############/providers/Microsoft.Authorization/policyDefinitions/<policy-name> --scope    /subscriptions/########-####-####-####-############/resourceGroups/<resource-group-name>
+        
+L'étendue est ici le nom du groupe de ressources que vous spécifiez. Si la valeur du paramètre policy-definition-id est inconnue, il est possible de l’obtenir grâce à l’interface CLI Azure, comme indiqué ci-dessous :
+
+    azure policy definition show <policy-name>
+
+Si vous souhaitez supprimer l'affectation de stratégie ci-dessus, procédez comme suit :
+
+    azure policy assignment remove --name regionPolicyAssignment --ccope /subscriptions/########-####-####-####-############/resourceGroups/<resource-group-name>
+
+Vous pouvez récupérer, modifier ou supprimer des définitions de stratégies par le biais des commandes d’affichage, de configuration et de suppression de définitions de stratégies respectivement.
+
+De même, vous pouvez récupérer, modifier ou supprimer des affectations de stratégies par le biais des commandes d’affichage et de suppression des affectations de stratégies respectivement.
+
 ##Événements d’audit de stratégie
 
-Après avoir appliqué votre stratégie, vous commencez à voir des événements liés à la stratégie. Vous pouvez accéder au portail ou utiliser PowerShell pour obtenir ces données.
+Après avoir appliqué votre stratégie, vous commencez à voir des événements liés à la stratégie. Vous pouvez accéder au portail ou utiliser PowerShell ou l’interface CLI Azure pour obtenir ces données.
 
-Pour afficher tous les événements liés au résultat « refus », vous pouvez utiliser la commande suivante.
+### Événements d’audit de stratégie avec PowerShell
+
+Pour afficher tous les événements liés au résultat « refus », vous pouvez utiliser la commande PowerShell suivante.
 
     Get-AzureRmLog | where {$_.OperationName -eq "Microsoft.Authorization/policies/deny/action"} 
 
 Pour afficher tous les événements liés au résultat « audit », vous pouvez utiliser la commande suivante.
 
     Get-AzureRmLog | where {$_.OperationName -eq "Microsoft.Authorization/policies/audit/action"} 
-    
 
-<!---HONumber=AcomDC_0810_2016-->
+### Événements d’audit de stratégie avec l’interface CLI Azure
+
+Pour afficher tous les événements d’un groupe de ressources liés au résultat « refus », vous pouvez utiliser la commande CLI suivante.
+
+    azure group log show ExampleGroup --json | jq ".[] | select(.operationName.value == "Microsoft.Authorization/policies/deny/action")"
+
+Pour afficher tous les événements liés au résultat « audit », vous pouvez utiliser la commande CLI suivante.
+
+    azure group log show ExampleGroup --json | jq ".[] | select(.operationName.value == "Microsoft.Authorization/policies/audit/action")"
+
+<!---HONumber=AcomDC_0914_2016-->

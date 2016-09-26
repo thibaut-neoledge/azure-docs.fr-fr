@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun" />
 
 <tags
@@ -263,9 +263,9 @@ Contrairement au service RRS, le service BES est asynchrone. Cela signifie que
 
 Quand vous créez un traitement par lots pour votre point de terminaison de service Microsoft Azure Machine Learning, vous pouvez spécifier plusieurs paramètres qui définissent l’exécution du traitement par lots :
 
-* **Input** : représente une référence d’objet blob où l’entrée du traitement par lots est stockée.
-* **GlobalParameters** : représente l’ensemble des paramètres que vous pouvez définir pour l’expérience. Une expérience Microsoft Azure Machine Learning peut avoir des paramètres obligatoires et facultatifs qui personnalisent l’exécution du service, et l’appelant est censé fournir tous les paramètres requis, le cas échéant. Ces paramètres sont spécifiés comme une collection de paires clé-valeur.
-* **Outputs** : si le service a défini une ou plusieurs sorties, l’appelant peut les rediriger vers un emplacement d’objet blob Azure. Vous pouvez ainsi enregistrer la ou les sorties du service dans un nouvel emplacement et sous un nom prévisible ; sinon, le nom d’objet blob de sortie est généré de façon aléatoire.
+* **Input** : représente une référence d’objet blob où l’entrée du traitement par lots est stockée.
+* **GlobalParameters** : représente l’ensemble des paramètres que vous pouvez définir pour l’expérience. Une expérience Microsoft Azure Machine Learning peut avoir des paramètres obligatoires et facultatifs qui personnalisent l’exécution du service, et l’appelant est censé fournir tous les paramètres requis, le cas échéant. Ces paramètres sont spécifiés comme une collection de paires clé-valeur.
+* **Outputs** : si le service a défini une ou plusieurs sorties, l’appelant peut les rediriger vers un emplacement d’objet blob Azure. Vous pouvez ainsi enregistrer la ou les sorties du service dans un nouvel emplacement et sous un nom prévisible ; sinon, le nom d’objet blob de sortie est généré de façon aléatoire.
 
     Notez que le service s’attend à ce que le contenu de la sortie, selon son type, soit enregistré dans les formats pris en charge :
   - Sorties de jeu de données : peuvent être enregistrées en tant que **.csv, .tsv, .arff**
@@ -685,4 +685,4 @@ Vous pouvez à présent utiliser les outils Swagger. Voici les instructions pour
 	        "operationId": "getSwaggerDocument",
 	        
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

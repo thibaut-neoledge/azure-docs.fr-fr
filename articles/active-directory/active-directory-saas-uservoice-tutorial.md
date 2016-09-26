@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="06/21/2016" 
+    ms.date="09/11/2016" 
     ms.author="jeedes" />
 
 #Didacticiel : Intégration d’Azure AD à UserVoice
@@ -66,7 +66,7 @@ Cette section décrit l’activation de l’intégration d’applications pour U
 
 ##Configuration de l'authentification unique
   
-Cette section explique comment permettre aux utilisateurs de s’authentifier sur UserVoice avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML. La configuration de l’authentification unique pour UserVoice oblige à récupérer une valeur d’empreinte numérique dans un certificat. Si cette procédure ne vous est pas familière, consultez [Récupération de la valeur de l’empreinte numérique d’un certificat](http://youtu.be/YKQF266SAxI).
+Cette section explique comment permettre aux utilisateurs de s’authentifier sur UserVoice avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML. La configuration de l’authentification unique pour UserVoice oblige à récupérer une valeur d’empreinte numérique dans un certificat. Si cette procédure ne vous est pas familière, consultez [Comment récupérer la valeur d’empreinte numérique d’un certificat](http://youtu.be/YKQF266SAxI).
 
 ###Pour configurer l’authentification unique, procédez comme suit :
 
@@ -78,7 +78,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Configurer l’authentification unique](./media/active-directory-saas-uservoice-tutorial/IC777516.png "Configurer l’authentification unique")
 
-3.  Dans la zone de texte **URL de connexion de UserVoice** de la page **Configurer l’URL de l’application**, tapez votre URL au format « *https://\<nom-locataire>.UserVoice.com* », puis cliquez sur **Suivant**.
+3.  Dans la zone de texte **URL de connexion de UserVoice** de la page **Configurer l’URL de l’application**, tapez votre URL au format « *https://\<nom-locataire>.UserVoice.com* », puis cliquez sur **Suivant**.
 
     ![Configurer l’URL de l’application](./media/active-directory-saas-uservoice-tutorial/IC777517.png "Configurer l’URL de l’application")
 
@@ -103,9 +103,9 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
     1.  Cliquez sur **Single Sign-On (SSO)**.
     2.  Dans la page de la boîte de dialogue **Configurer l’authentification unique sur UserVoice** du portail Azure Classic, copiez la valeur de **URL de connexion distante** et collez-la dans la zone de texte **Connexion distante SSO**.
     3.  Dans la page de la boîte de dialogue **Configurer l’authentification unique sur UserVoice** du portail Azure Classic, copiez la valeur de **URL de déconnexion distante** et collez-la dans la zone de texte **Déconnexion distante SSO**.
-    4.  Copiez la valeur de **Empreinte** dans le certificat exporté, puis collez-la dans la zone de texte **Current certificate SHA1 fingerprint**.  
+    4.  Copiez la valeur de **Empreinte** dans le certificat exporté, puis collez-la dans la zone de texte **Current certificate SHA1 fingerprint**.
 
-        >[AZURE.TIP] Pour plus d’informations, consultez [Récupération de la valeur de l’empreinte numérique d’un certificat](http://youtu.be/YKQF266SAxI).
+        >[AZURE.TIP] Pour plus d’informations, consultez [Comment récupérer la valeur d’empreinte numérique d’un certificat](http://youtu.be/YKQF266SAxI).
 
     5.  Cliquez sur **Save authentication settings**.
 
@@ -140,7 +140,7 @@ Pour permettre aux utilisateurs Azure AD de se connecter à UserVoice, ils doive
     ![Invite admins](./media/active-directory-saas-uservoice-tutorial/IC777814.png "Invite admins")
 
     1.  Dans la zone de texte Emails, entrez l’adresse de messagerie du compte que vous souhaitez approvisionner, puis cliquez sur **Add**.
-    2.  Cliquez sur **Invite**.
+    2.  Cliquez sur **Inviter**.
 
 >[AZURE.NOTE] Vous pouvez utiliser n’importe quel outil ou API de création de compte d’utilisateur, fourni par UserVoice, pour approvisionner des comptes d’utilisateur AAD.
 
@@ -160,6 +160,6 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
     ![Oui](./media/active-directory-saas-uservoice-tutorial/IC767830.png "Oui")
   
-Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
+Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

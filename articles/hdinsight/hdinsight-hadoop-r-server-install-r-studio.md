@@ -4,7 +4,7 @@
 	services="hdinsight"
 	documentationCenter=""
 	authors="jeffstokes72"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -85,7 +85,7 @@ Dans cet article, vous allez apprendre à installer la version (gratuite) de la 
 		2.  Dans la rubrique **Catégorie** située à gauche dans la boîte de dialogue, développez **Connexion** et **SSH**, puis sélectionnez **Tunnels**.
 		3.  Indiquez les informations suivantes dans le formulaire des **Options de contrôle de transfert du port SSH**.
 
-			* **Port source** : le port sur le client que vous souhaitez transférer. Par exemple, **8787**.
+			* **Port source** : le port sur le client que vous souhaitez transférer. Par exemple, **8787**.
 			* **Destination** - La destination doit être mappée à l’ordinateur client local. Par exemple, **localhost:8787**.
 
 			![Création d’un tunnel SSH](./media/hdinsight-hadoop-r-server-install-r-studio/createsshtunnel.png "Création d’un tunnel SSH")
@@ -126,4 +126,4 @@ Vous pouvez également taper `source(testhdi.r)` ou `source(testhdi_spark.r)` po
 
  
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

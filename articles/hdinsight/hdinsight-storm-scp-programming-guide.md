@@ -4,8 +4,8 @@ pageTitle="Guide de programmation SCP.NET | Azure"
 description="Découvrez comment utiliser SCP.NET pour créer des topologies Storm basées sur .NET en vue d’une utilisation avec Storm sur HDInsight."
 services="hdinsight"
 documentationCenter=""
-authors="rperi"
-manager="paulettm"
+authors="raviperi"
+manager="jhubbard"
 editor="cgronlun"/>
 
 <tags
@@ -688,4 +688,4 @@ Pour obtenir des exemples de topologies Storm créées à l’aide de SCP, consu
 * [Extraction, transformation et chargement (ETL) à partir d’Azure Event Hubs dans HBase](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/RealTimeETLExample)
 * [Corrélation des événements à l’aide de Storm et HBase sur HDInsight](hdinsight-storm-correlation-topology.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0914_2016-->

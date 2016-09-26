@@ -4,7 +4,7 @@
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"
 	tags="azure-portal"/>
 
@@ -23,11 +23,11 @@ Dans cette rubrique, vous allez apprendre à installer Solr sur Azure HDInsight 
 
 > [AZURE.NOTE] Les étapes décrites dans ce document nécessitent un cluster HDInsight Linux. Pour plus d’informations sur l’utilisation de Solr avec un cluster Windows, consultez [Installation et utilisation de Solr sur des clusters HDInsight Hadoop (Windows)](hdinsight-hadoop-solr-install.md)
 
-L'exemple de script utilisé dans cette rubrique crée un cluster Solr avec une configuration spécifique. Si vous souhaitez configurer le cluster Solr avec d'autres collections, partitions, schémas, réplicas, etc., vous devez modifier le script et les fichiers binaires Solr en conséquence.
+L’exemple de script utilisé dans cette rubrique crée un cluster Solr avec une configuration spécifique. Si vous souhaitez configurer le cluster Solr avec d'autres collections, partitions, schémas, réplicas, etc., vous devez modifier le script et les fichiers binaires Solr en conséquence.
 
 ## <a name="whatis"></a>Présentation de Solr
 
-[Apache Solr](http://lucene.apache.org/solr/features.html) est une plateforme de recherche d’entreprise qui permet d’effectuer de puissantes opérations de recherche en texte intégral sur des données. Alors que Hadoop permet de stocker et de gérer de grandes quantités de données, Apache Solr fournit les fonctionnalités de recherche nécessaires pour les récupérer rapidement. Cette rubrique contient les instructions de personnalisation d'un cluster HDInsight pour installer Solr.
+[Apache Solr](http://lucene.apache.org/solr/features.html) est une plateforme de recherche d’entreprise qui permet d’effectuer de puissantes opérations de recherche en texte intégral sur des données. Alors que Hadoop permet de stocker et de gérer de grandes quantités de données, Apache Solr fournit les fonctionnalités de recherche nécessaires pour les récupérer rapidement. Cette rubrique contient les instructions de personnalisation d’un cluster HDInsight pour installer Solr.
 
 > [AZURE.WARNING] Les composants fournis avec le cluster HDInsight bénéficient d’une prise en charge totale, et le support Microsoft vous aidera à identifier et à résoudre les problèmes liés à ces composants.
 >
@@ -106,7 +106,7 @@ Vous devez commencer par indexer Solr avec quelques fichiers de données. Vous p
 
 		curl "http://localhost:8983/solr/collection1/select?q=*%3A*&wt=json&indent=true"
 
-	Cela permet d’émettre une requête par rapport à __collection1__ pour tous les documents correspondants à __\*:\*__ (encodé sous la forme \*%3A\* dans la chaîne de requête) et que la réponse doit être retournée au format JSON. La réponse doit sembler similaire à ce qui suit :
+	Cela permet d’émettre une requête par rapport à __collection1__ pour tous les documents correspondants à __*:*__ (encodé sous la forme *%3A* dans la chaîne de requête) et que la réponse doit être retournée au format JSON. La réponse doit sembler similaire à ce qui suit :
 
 			"response": {
 			    "numFound": 2,
@@ -184,7 +184,7 @@ Une fois que vous avez établi un tunnel SSH, procédez comme suit pour utiliser
 
 3. Dans les entrées sous __collection1__, sélectionnez __Requête__. Utilisez les valeurs suivantes pour remplir la page de recherche :
 
-	* Dans la zone de texte **q**, entrez **\*:**\*. Tous les documents indexés dans Solr sont alors renvoyés. Si vous souhaitez rechercher une chaîne spécifique dans les documents, vous pouvez la saisir à cet emplacement.
+	* Dans la zone de texte **q**, entrez ***:***. Tous les documents indexés dans Solr sont alors renvoyés. Si vous souhaitez rechercher une chaîne spécifique dans les documents, vous pouvez la saisir à cet emplacement.
 
 	* Sélectionnez le format de sortie dans la zone de texte **wt**. La valeur par défaut est **json**.
 
@@ -311,4 +311,4 @@ Pour plus d’informations sur l’utilisation de sauvegardes et de restauration
 [hdinsight-install-r]: hdinsight-hadoop-r-scripts-linux.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

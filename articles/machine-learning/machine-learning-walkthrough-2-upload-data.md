@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -69,7 +69,7 @@ Une fois les données converties au format CSV, nous devons les télécharger ve
 1.	Entrez le nom du jeu de données. Pour les besoins de cette procédure, nous allons l'appeler « Données de carte de crédit allemande UCI ».
 1.	Pour le type de données, sélectionnez **Fichier CSV générique sans en-tête (.nh.csv)**.
 1.	Ajoutez la description de votre choix.
-1.	Cliquez sur **OK**.  
+1.	Cliquez sur **OK**.
 
 ![Télécharger le jeu de données][1]
 
@@ -84,4 +84,4 @@ Pour plus d'informations sur l'importation de différents types de données dans
 
 [1]: ./media/machine-learning-walkthrough-2-upload-data/upload1.png
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0914_2016-->

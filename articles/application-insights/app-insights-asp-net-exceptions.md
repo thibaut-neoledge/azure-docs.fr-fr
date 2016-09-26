@@ -23,7 +23,7 @@
 
 En analysant votre application avec [Application Insights de Visual Studio][start], vous pouvez associer les demandes ayant échoué à des exceptions et à d’autres événements sur le client et le serveur, ce qui vous permet de diagnostiquer rapidement les causes.
 
-Pour analyser une application ASP.NET, vous devez [ajouter le Kit de développement logiciel (SDK) Application Insights][greenbrown] à votre application, ou [installer le Status Monitor sur votre serveur IIS][redfield], ou, si votre application est une application web de Azure, ajoutez l’[extension Application Insights][azure].
+Pour analyser une application ASP.NET, vous devez [ajouter le Kit de développement logiciel (SDK) Application Insights][greenbrown] à votre application, ou [installer le Status Monitor sur votre serveur IIS][redfield], ou, si votre application est une application web de Azure, ajoutez l’[extension Application Insights](app-insights-azure-web-apps.md).
 
 ## Diagnostic des exceptions à l’aide de Visual Studio
 
@@ -76,7 +76,7 @@ Cliquez sur l’un des types de demande défaillante dans la liste pour obtenir 
 
 Une *dépendance* est un service que votre application appelle, généralement via une API REST ou une connexion à une base de données. [Application Insights Status Monitor][redfield] analyse automatiquement différents types d'appel de dépendance en déterminant la durée et la réussite ou la défaillance de l’appel.
 
-Pour obtenir des données de dépendance, vous devez [installer Status Monitor][redfield] sur votre serveur IIS ou, si votre application est une application web d’Azure, utilisez l’[extension Application Insights][azure].
+Pour obtenir des données de dépendance, vous devez [installer Status Monitor][redfield] sur votre serveur IIS ou, si votre application est une application web d’Azure, utilisez l’[extension Application Insights](app-insights-azure-web-apps.md).
 
 Les appels vers les dépendances ayant échoué sont répertoriés dans le panneau Défaillance et vous pouvez également les trouver sous Éléments associés dans les détails de la demande et les détails de l'exception.
 
@@ -109,7 +109,7 @@ Les détails de la demande n'incluent pas les données envoyées à votre applic
 
 * [Installez le Kit de développement logiciel (SDK)][greenbrown] dans votre projet d’application.
 * Insérez du code dans votre application pour appeler [Microsoft.ApplicationInsights.TrackTrace()][api]. Envoyez les données POST dans le paramètre du message. Il existe une limite à la taille autorisée. Vous pouvez donc essayer d'envoyer uniquement les données essentielles.
-* Lorsque vous examinez une demande ayant échoué, recherchez les traces associées.  
+* Lorsque vous examinez une demande ayant échoué, recherchez les traces associées.
 
 ![Extraire](./media/app-insights-asp-net-exceptions/060-req-related.png)
 
@@ -327,10 +327,10 @@ Vous pouvez ajouter cet attribut remplacé à des contrôleurs spécifiques ou l
 
 Il existe un certain nombre de cas que les filtres d'exception ne peuvent pas gérer. Par exemple :
 
-* Les exceptions lancées à partir des constructeurs de contrôleur. 
-* Les exceptions lancées à partir des gestionnaires de messages. 
-* Les exceptions lancées pendant le routage. 
-* Les exceptions lancées pendant la sérialisation du contenu de réponse. 
+* Les exceptions lancées à partir des constructeurs de contrôleur.
+* Les exceptions lancées à partir des gestionnaires de messages.
+* Les exceptions lancées pendant le routage.
+* Les exceptions lancées pendant la sérialisation du contenu de réponse.
 
 ## API Web 2.x
 
@@ -386,7 +386,7 @@ Ajoutez cela aux services dans WebApiConfig :
 
 Alternativement, vous pouvez :
 
-2. Remplacer le seul gestionnaire d’exceptions avec une implémentation personnalisée de IExceptionHandler. Celle-ci est appelée uniquement lorsque l'infrastructure est toujours en mesure de choisir le message de réponse à envoyer (mais pas lorsque la connexion est abandonnée par exemple) 
+2. Remplacer le seul gestionnaire d’exceptions avec une implémentation personnalisée de IExceptionHandler. Celle-ci est appelée uniquement lorsque l'infrastructure est toujours en mesure de choisir le message de réponse à envoyer (mais pas lorsque la connexion est abandonnée par exemple)
 3. Les filtres d'exception (comme décrit dans la section sur les contrôleurs API Web 1.x ci-dessus) ne sont pas appelés dans tous les cas.
 
 
@@ -467,7 +467,6 @@ Notez que ce chiffre sera différent du nombre d’« exceptions » calculé p
 <!--Link references-->
 
 [api]: app-insights-api-custom-events-metrics.md
-[azure]: ../azure-portal/insights-perf-analytics.md
 [client]: app-insights-javascript.md
 [diagnostic]: app-insights-diagnostic-search.md
 [greenbrown]: app-insights-asp-net.md
@@ -477,4 +476,4 @@ Notez que ce chiffre sera différent du nombre d’« exceptions » calculé p
 
  
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0914_2016-->

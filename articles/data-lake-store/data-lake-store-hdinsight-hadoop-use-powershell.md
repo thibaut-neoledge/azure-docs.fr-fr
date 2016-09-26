@@ -4,7 +4,7 @@
    services="data-lake-store,hdinsight" 
    documentationCenter=""
    authors="nitinme"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"/>
 
 <tags
@@ -45,12 +45,12 @@ Pour configurer HDInsight afin qu'il fonctionne avec Data Lake Store à l'aide d
 * Créer un cluster HDInsight avec authentification à Data Lake Store
 * Lancer une tâche de test sur le cluster
 
-## Configuration requise
+## Composants requis
 
 Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
 - **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
-- **Activez votre abonnement Azure** pour la version d'évaluation publique de Data Lake Store. Consultez les [instructions](data-lake-store-get-started-portal.md#signup).
+- **Activez votre abonnement Azure** pour la version d’évaluation publique de Data Lake Store. Consultez les [instructions](data-lake-store-get-started-portal.md#signup).
 - **Kit de développement logiciel (SDK) Windows**. Vous pouvez l'installer [ici](https://dev.windows.com/fr-FR/downloads). Il vous permet de créer un certificat de sécurité.
 
 
@@ -90,7 +90,7 @@ WebPI reçoit des mises à jour mensuelles. PowerShell Gallery reçoit des mises
 
 Pour créer un Data Lake Store, procédez comme suit.
 
-1. Sur votre bureau, ouvrez une nouvelle fenêtre Azure PowerShell et entrez l'extrait de code suivant. Lorsque vous êtes invité à vous connecter, vérifiez que vous vous connectez en tant qu'administrateur/propriétaire de l'abonnement :
+1. Sur votre bureau, ouvrez une nouvelle fenêtre Azure PowerShell et entrez l'extrait de code suivant. Lorsque vous êtes invité à vous connecter, vérifiez que vous vous connectez en tant qu’administrateur/propriétaire de l’abonnement :
 
         # Log in to your Azure account
 		Login-AzureRmAccount
@@ -135,7 +135,7 @@ Pour créer un Data Lake Store, procédez comme suit.
 
 ## Configurer l'authentification pour définir un accès à Data Lake Store en fonction du rôle
 
-Chaque abonnement Azure est associé à un annuaire Azure Active Directory. Les utilisateurs et services qui accèdent aux ressources de l’abonnement avec les API du portail Azure Classic ou d’Azure Resource Manager doivent au préalable s’authentifier avec cette application Azure Active Directory. L'accès est accordé aux abonnements et services Azure en leur affectant le rôle approprié sur une ressource Azure. Pour les services, un principal du service identifie le service dans Azure Active Directory (AAD). Cette section montre comment accorder l'accès à une ressource Azure (le compte Azure Data Lake Store créé précédemment) à un service d'application, comme HDInsight, en créant un principal du service pour l'application et en lui attribuant des rôles avec Azure PowerShell.
+Chaque abonnement Azure est associé à un Azure Active Directory. Les utilisateurs et services qui accèdent aux ressources de l’abonnement avec les API du portail Azure Classic ou d’Azure Resource Manager doivent au préalable s’authentifier avec cette application Azure Active Directory. L’accès est accordé aux abonnements et services Azure en leur affectant le rôle approprié sur une ressource Azure. Pour les services, un principal du service identifie le service dans Azure Active Directory (AAD). Cette section montre comment accorder l'accès à une ressource Azure (le compte Azure Data Lake Store créé précédemment) à un service d'application, comme HDInsight, en créant un principal du service pour l'application et en lui attribuant des rôles avec Azure PowerShell.
 
 Pour configurer l'authentification Active Directory pour Azure Data Lake, vous devez effectuer les tâches suivantes.
 
@@ -207,7 +207,7 @@ Cette section décrit les étapes pour créer un principal du service pour une a
 
 Dans cette section, nous créons un cluster HDInsight Hadoop. Pour cette version, le cluster HDInsight et le Data Lake Store doivent se situer au même emplacement (Est des États-Unis 2).
 
-1. Commencez par récupérer l'ID du client de l'abonnement. Vous en aurez besoin ultérieurement.
+1. Commencez par récupérer l’ID du client de l’abonnement. Vous en aurez besoin ultérieurement.
 
 		$tenantID = (Get-AzureRmContext).Tenant.TenantId
 
@@ -384,4 +384,4 @@ Vous pouvez également utiliser la commande `hdfs dfs -put` pour charger des fic
 [makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0914_2016-->

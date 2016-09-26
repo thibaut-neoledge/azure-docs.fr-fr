@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="bradsev"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun" />
 
 <tags
@@ -74,30 +74,30 @@ Si vous avez des valeurs manquantes, la première chose à faire est d’en iden
 * **Remplacement par une valeur factice :** remplacer des valeurs manquantes par une valeur factice : par exemple, _inconnu_ pour les valeurs catégorielles ou 0 pour les valeurs numériques.
 * **Remplacement par la moyenne :** si les données manquantes sont numériques, remplacez-les par la valeur moyenne.
 * **Remplacement par l’élément le plus fréquent :** si les données manquantes sont catégorielles, remplacer les valeurs manquantes par l’élément le plus fréquent.
-* **Remplacement par la valeur de régression :** remplacer les valeurs manquantes par des valeurs de régression.  
+* **Remplacement par la valeur de régression :** remplacer les valeurs manquantes par des valeurs de régression.
 
 ## Comment normaliser les données ?
 
 La normalisation des données restreint les valeurs numériques à une plage spécifiée. Les méthodes de normalisation les plus courantes sont les suivantes :
 
-* **Normalisation min-max** : adapter linéairement les données à une plage comprise, par exemple, entre 0 et 1. La valeur minimale est 0 et la valeur maximale est 1.
-* **Normalisation par le test Z** : mettre les données à l’échelle en fonction de la moyenne et de l’écart standard : diviser la différence entre les données et la moyenne par l’écart standard.
-* **Mise à l'échelle décimale** : mettre les données à l’échelle en déplaçant le séparateur décimal de la valeur de l’attribut.  
+* **Normalisation min-max** : adapter linéairement les données à une plage comprise, par exemple, entre 0 et 1. La valeur minimale est 0 et la valeur maximale est 1.
+* **Normalisation par le test Z** : mettre les données à l’échelle en fonction de la moyenne et de l’écart standard : diviser la différence entre les données et la moyenne par l’écart standard.
+* **Mise à l'échelle décimale** : mettre les données à l’échelle en déplaçant le séparateur décimal de la valeur de l’attribut.
 
 ## Comment discrétiser les données ?
 
 Pour discrétiser les données, il faut convertir les valeurs continues en attributs ou intervalles nominaux. Plusieurs méthodes permettent d’effectuer cette opération :
 
-* **Compartimentage à largeur identique** : diviser la plage de toutes les valeurs possibles d’un attribut en N groupes de même taille et attribuer aux valeurs le numéro de compartiment qui leur correspond.
-* **Compartimentage à hauteur identique :** diviser la plage de toutes les valeurs possibles d’un attribut en N groupes contenant le même nombre d’instances, puis attribuer à aux valeurs le numéro de compartiment qui leur correspond.  
+* **Compartimentage à largeur identique** : diviser la plage de toutes les valeurs possibles d’un attribut en N groupes de même taille et attribuer aux valeurs le numéro de compartiment qui leur correspond.
+* **Compartimentage à hauteur identique :** diviser la plage de toutes les valeurs possibles d’un attribut en N groupes contenant le même nombre d’instances, puis attribuer à aux valeurs le numéro de compartiment qui leur correspond.
 
 ## Comment réduire les données ?
 
 Plusieurs méthodes permettent de réduire la taille des données pour en faciliter la manipulation. Selon la taille et le domaine, les méthodes applicables sont les suivantes :
 
-* **Échantillonnage des enregistrements** : échantillonner les enregistrements de données et ne choisir que le sous-ensemble représentatif.
-* **Échantillonnage des attributs** : ne sélectionner que les attributs importants dans les données.  
-* **Agrégation **: diviser les données en groupes et stocker les nombres de chaque groupe. Par exemple, le chiffre d’affaires quotidien d’une chaîne de restaurants sur les 20 dernières années peut être agrégé en un chiffre d’affaires mensuel pour réduire la taille des données.  
+* **Échantillonnage des enregistrements** : échantillonner les enregistrements de données et ne choisir que le sous-ensemble représentatif.
+* **Échantillonnage des attributs** : ne sélectionner que les attributs importants dans les données.
+* **Agrégation **: diviser les données en groupes et stocker les nombres de chaque groupe. Par exemple, le chiffre d’affaires quotidien d’une chaîne de restaurants sur les 20 dernières années peut être agrégé en un chiffre d’affaires mensuel pour réduire la taille des données.
 
 ## Comment nettoyer les données textuelles ?
 
@@ -109,4 +109,4 @@ Plusieurs méthodes permettent de réduire la taille des données pour en facili
 
 >*Data Mining : Concepts et Techniques*, 3e édition, Morgan Kaufmann, 2011, Jiawei Han, Micheline Kamber et Jian Pei
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

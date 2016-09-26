@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="onewth"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -31,7 +31,7 @@ Vous pouvez voir une démonstration de l’analyse de texte sur notre [site de d
 
 ---
 
-## Analyse de sentiments
+## analyse de sentiments
 
 Cette API renvoie une valeur numérique de notation située entre 0 et 1. Les valeurs de notation proches de 1 indiquent un sentiment positif, tandis que les valeurs proches de 0 signalent un sentiment négatif. La valeur de notation du sentiment est générée via des techniques de classification. Les fonctionnalités d’entrée du classifieur incluent des services n-grams, des fonctionnalités générées à partir de balises morphosyntaxiques et des incorporations de mot. Actuellement, l’anglais est la seule langue prise en charge.
  
@@ -45,7 +45,7 @@ L’API indique la langue détectée et un score entre 0 et 1. Un score proche d
 
 ## Détection de la rubrique
 
-Il s'agit d'une API lancée récemment, qui renvoie les premières rubriques détectées pour une liste d’enregistrements texte soumis. Une rubrique est identifiée par une phrase clé, représentée par un ou plusieurs mots associés. Cette API nécessite l’envoi d’au moins 100 enregistrements texte, mais elle est conçu pour détecter des rubriques parmi des centaines de milliers d'enregistrements. Notez que cette API facture 1 transaction par enregistrement texte soumis. L'API est conçue pour fonctionner correctement avec un texte court écrit par un humain, par exemple des évaluations et des commentaires d’utilisateurs.
+Il s’agit d’une API lancée récemment, qui renvoie les premières rubriques détectées pour une liste d’enregistrements texte soumis. Une rubrique est identifiée par une expression clé, représentée par un ou plusieurs mots associés. Cette API nécessite l’envoi d’au moins 100 enregistrements texte, mais elle est conçu pour détecter des rubriques parmi des centaines de milliers d'enregistrements. Notez que cette API facture 1 transaction par enregistrement texte soumis. L'API est conçue pour fonctionner correctement avec un texte court écrit par un humain, par exemple des évaluations et des commentaires d’utilisateurs.
 
 ---
 
@@ -271,7 +271,7 @@ Cet exemple renvoie la réponse suivante, où l’anglais est détecté dans la 
 
 ## API de détection de la rubrique
 
-Il s'agit d'une API lancée récemment, qui renvoie les premières rubriques détectées pour une liste d’enregistrements texte soumis. Une rubrique est identifiée par une phrase clé, représentée par un ou plusieurs mots associés. Notez que cette API facture 1 transaction par enregistrement texte soumis.
+Il s’agit d’une API lancée récemment, qui renvoie les premières rubriques détectées pour une liste d’enregistrements texte soumis. Une rubrique est identifiée par une expression clé, représentée par un ou plusieurs mots associés. Notez que cette API facture 1 transaction par enregistrement texte soumis.
 
 Cette API nécessite l’envoi d’au moins 100 enregistrements texte, mais elle est conçu pour détecter des rubriques parmi des centaines de milliers d'enregistrements.
 
@@ -285,7 +285,7 @@ Cette API nécessite l’envoi d’au moins 100 enregistrements texte, mais elle
 **Exemple de demande**
 
 
-Dans l'appel POST ci-dessous, nous demandons des rubriques pour un ensemble de 100 articles, où les premier et dernier articles d'entrée sont affichés, et deux StopPhrases sont inclus.
+Dans l’appel POST ci-dessous, nous demandons des rubriques pour un ensemble de 100 articles, où les premier et dernier articles d’entrée sont affichés, et deux StopPhrases sont inclus.
 
 	POST https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/StartTopicDetection HTTP/1.1
 
@@ -374,7 +374,7 @@ Les propriétés de chaque partie de la réponse sont les suivantes :
 | Clé | Description |
 |:-----|:----|
 | TopicId | Identificateur unique de chaque rubrique. |
-| Score | Nombre d'enregistrements affectés à une rubrique. |
+| Score | Nombre d’enregistrements affectés à une rubrique. |
 | KeyPhrase | Mot ou phrase résumant la rubrique. Peut contenir un ou plusieurs mots. |
 
 **Propriétés de TopicAssignment**
@@ -382,7 +382,7 @@ Les propriétés de chaque partie de la réponse sont les suivantes :
 | Clé | Description |
 |:-----|:----|
 | ID | Identificateur de l'enregistrement. Équivaut à l'ID inclus dans l'entrée. |
-| TopicId | ID de rubrique auquel l'enregistrement a été affecté. |
-| Distance | Niveau de confiance que l'enregistrement appartient à la rubrique. Plus la distance est proche de zéro, plus le niveau de confiance est élevé. |
+| TopicId | ID de rubrique auquel l’enregistrement a été affecté. |
+| Distance | Niveau de confiance que l’enregistrement appartient à la rubrique. Plus la distance est proche de zéro, plus le niveau de confiance est élevé. |
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0914_2016-->

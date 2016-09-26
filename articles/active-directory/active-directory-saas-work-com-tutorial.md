@@ -11,13 +11,12 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="06/21/2016" 
+    ms.date="09/11/2016" 
     ms.author="jeedes" />
 
 #Didacticiel : Intégration d’Azure AD à Work.com
   
-L’objectif de ce didacticiel est de montrer comment intégrer Azure et Work.com.  
-Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
+L’objectif de ce didacticiel est de montrer comment intégrer Azure et Work.com. Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
 -   Un abonnement Azure valide
 -   Un abonnement Work.com pour lequel l’authentification unique est activée
@@ -67,8 +66,7 @@ Cette section décrit l’activation de l’intégration d’applications pour W
 
 ##Configuration de l'authentification unique
   
-Cette section explique comment permettre aux utilisateurs de s’authentifier sur Work.com avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML.  
-Dans le cadre de cette procédure, vous devez charger un certificat vers Work.com.
+Cette section explique comment permettre aux utilisateurs de s’authentifier sur Work.com avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML. Dans le cadre de cette procédure, vous devez charger un certificat vers Work.com.
 
 >[AZURE.NOTE] Pour configurer l’authentification unique, vous devez encore configurer un nom de domaine personnalisé Work.com. Vous devez définir au moins un nom de domaine, le tester, puis le déployer dans l’ensemble de votre entreprise.
 
@@ -98,7 +96,7 @@ Dans le cadre de cette procédure, vous devez charger un certificat vers Work.co
 
     ![Configurer l’authentification unique](./media/active-directory-saas-work-com-tutorial/IC794110.png "Configurer l’authentification unique")
 
-8.  Dans la page **Configurer l’URL de l’application**, dans la zone de texte **URL de connexion à Work.com**, tapez l’URL utilisée par vos utilisateurs pour se connecter à votre application Work.com (par ex. "**http://company.my.salesforce.com*”)), puis cliquez sur **Suivant** :
+8.  Dans la page **Configurer l’URL de l’application**, dans la zone de texte **URL de connexion à Work.com**, tapez l’URL utilisée par vos utilisateurs pour se connecter à votre application Work.com (par ex. "**http://company.my.salesforce.com*”), puis cliquez sur **Suivant** :
 
     ![Configurer l’URL de l’application](./media/active-directory-saas-work-com-tutorial/IC794111.png "Configurer l’URL de l’application")
 
@@ -127,7 +125,7 @@ Dans le cadre de cette procédure, vous devez charger un certificat vers Work.co
 
     ![Paramètre d’authentification unique SAML](./media/active-directory-saas-work-com-tutorial/IC794114.png "Paramètre d’authentification unique SAML")
 
-    1.  Dans la zone de texte **Name**, tapez le nom de votre configuration.  
+    1.  Dans la zone de texte **Name**, tapez le nom de votre configuration.
 
         >[AZURE.NOTE] Le fait d’entrer une valeur pour **Name** renseigne automatiquement la zone de texte **API Name**.
 
@@ -139,7 +137,7 @@ Dans le cadre de cette procédure, vous devez charger un certificat vers Work.co
     7.  Dans le portail Azure Classic, dans la page **Configurer l’authentification unique sur Work.com**, copiez la valeur **URL de connexion distante**, puis collez-la dans la zone de texte **URL de connexion du fournisseur d’identité**.
     8.  Dans le portail Azure Classic, dans la page **Configurer l’authentification unique sur Work.com**, copiez la valeur **URL de déconnexion distante**, puis collez-la dans la zone de texte **URL de déconnexion du fournisseur d’identité**.
     9.  Pour **Service Provider Initiated Request Binding**, sélectionnez **HTTP POST**.
-    10. Cliquez sur **Enregistrer**.
+    10. Cliquez sur **Save**.
 
 15. Dans le volet de navigation gauche du portail classique Work.com, cliquez sur **Gestion de domaine** pour développer la section associée, puis sur **Mon domaine** pour ouvrir la page **Mon domaine**.
 
@@ -159,8 +157,7 @@ Dans le cadre de cette procédure, vous devez charger un certificat vers Work.co
 
 ##Configuration de l'approvisionnement des utilisateurs
   
-Pour que les utilisateurs d’Azure AD puissent se connecter, leur accès doit être approvisionné dans Work.com.  
-Dans le cas de Work.com, l’approvisionnement est une tâche manuelle.
+Pour que les utilisateurs d’Azure AD puissent se connecter, leur accès doit être approvisionné dans Work.com. Dans le cas de Work.com, l’approvisionnement est une tâche manuelle.
 
 ###Pour configurer l'approvisionnement des utilisateurs, procédez comme suit :
 
@@ -184,7 +181,7 @@ Dans le cas de Work.com, l’approvisionnement est une tâche manuelle.
 
     1.  Dans les zones de texte **Last Name**, **Alias**, **Email**, **Username** et **Nickname**, tapez les attributs d’un compte Azure Active Directory valide que vous souhaitez approvisionner.
     2.  Sélectionnez **Role**, **User License** et **Profile**.
-    3.  Cliquez sur **Enregistrer**.  
+    3.  Cliquez sur **Save**.
 
         >[AZURE.NOTE] Le titulaire du compte Azure AD reçoit un message électronique contenant un lien pour confirmer le compte avant qu’il ne soit activé.
 
@@ -208,6 +205,6 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
   
 À présent, vous devez patienter 10 minutes et vérifier que le compte a été synchronisé avec Work.com.
   
-Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le panneau d’accès. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
+Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d'informations sur le panneau d'accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -4,7 +4,7 @@
    services="hdinsight" 
    documentationCenter="" 
    authors="mumian" 
-   manager="paulettm" 
+   manager="jhubbard" 
    editor="cgronlun"/>
 
 <tags
@@ -240,9 +240,9 @@ Vous devez le copier sur votre poste de travail sous [Dossier d’installation S
 2. Dans le menu **Drivers**, cliquez sur **New Driver**.
 3. Entrez les informations suivantes :
 
-	- **Name** : Phoenix
-	- **Example URL** : jdbc:phoenix:zookeeper2.contoso-hbase-eu.f5.internal.cloudapp.net
-	- **Class Name** : org.apache.phoenix.jdbc.PhoenixDriver
+	- **Name** : Phoenix
+	- **Example URL** : jdbc:phoenix:zookeeper2.contoso-hbase-eu.f5.internal.cloudapp.net
+	- **Class Name** : org.apache.phoenix.jdbc.PhoenixDriver
 
 	>[AZURE.WARNING] N'utilisez que des minuscules dans l'exemple d'URL. Vous pouvez utiliser le quorum complet zookeeper au cas où l’un d’eux est inactif. Les noms d’hôte sont zookeeper0, zookeeper1 et zookeeper2.
 
@@ -255,11 +255,11 @@ Vous devez le copier sur votre poste de travail sous [Dossier d’installation S
 2. Dans le menu **Aliases**, cliquez sur **New Alias**.
 3. Entrez les informations suivantes :
 
-	- **Name** : nom du cluster HBase ou un nom de votre choix.
-	- **Driver** : Phoenix. Le nom du pilote doit correspondre à celui que vous avez créé dans la dernière procédure.
-	- **URL** : l'URL est copiée à partir de la configuration de votre pilote. N'utilisez que des minuscules.
-	- **Nom d’utilisateur** : il s’agit de texte. Étant donné que vous utilisez une connectivité VPN ici, le nom d’utilisateur n’est pas du tout utilisé.
-	- **Password** : il s’agit de texte.
+	- **Name** : nom du cluster HBase ou un nom de votre choix.
+	- **Driver** : Phoenix. Le nom du pilote doit correspondre à celui que vous avez créé dans la dernière procédure.
+	- **URL** : l'URL est copiée à partir de la configuration de votre pilote. N'utilisez que des minuscules.
+	- **Nom d’utilisateur** : il s’agit de texte. Étant donné que vous utilisez une connectivité VPN ici, le nom d’utilisateur n’est pas du tout utilisé.
+	- **Password** : il s’agit de texte.
 
 	![Pilote HDInsight HBase Phoenix SQuirreL][img-squirrel-alias]
 4. Cliquez sur **Test**.
@@ -308,4 +308,4 @@ Dans cet article, vous avez appris comment utiliser Apache Phoenix dans HDInsigh
 
  
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

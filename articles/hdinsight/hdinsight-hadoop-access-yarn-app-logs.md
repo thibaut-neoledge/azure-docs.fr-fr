@@ -5,7 +5,7 @@
 	documentationCenter=""
 	tags="azure-portal"
 	authors="mumian" 
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -19,11 +19,11 @@
 
 # Accéder aux journaux des applications YARN dans HDInsight sous Windows
 
-Cette rubrique explique comment accéder aux journaux des applications YARN (Yet Another Resource Negotiator) ayant terminé leur exécution sur un cluster Hadoop dans Azure HDInsight.
+Cette rubrique explique comment accéder aux journaux des applications YARN (Yet Another Resource Negotiator) ayant terminé leur exécution sur un cluster Hadoop dans Azure HDInsight
 
 > [AZURE.NOTE] Les informations présentes dans ce document sont spécifiques aux clusters HDInsight sous Windows. Pour plus d'informations sur l'accès aux journaux YARN sur les clusters HDInsight sous Linux, consultez [Accès aux journaux d'application YARN basés sur Hadoop Linux sous HDInsight](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 
-### Configuration requise
+### Composants requis
 
 - Un cluster HDInsight Windows Voir [Création de clusters Hadoop basés sur Windows dans HDInsight](hdinsight-provision-clusters.md).
 
@@ -84,4 +84,4 @@ L’IU ResourceManager de YARN s’exécute sur le nœud principal du cluster e
 [binary-format]: https://issues.apache.org/jira/browse/HADOOP-3315
 [YARN-concepts]: http://hortonworks.com/blog/apache-hadoop-yarn-concepts-and-applications/
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

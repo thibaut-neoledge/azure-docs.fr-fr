@@ -4,7 +4,7 @@
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="06/22/2016"
+   ms.date="09/07/2016"
    ms.author="larryfr"/>
 
 # Déploiement et gestion des topologies Apache Storm sur HDInsight Linux
@@ -22,7 +22,7 @@ Ce document présente les principes fondamentaux de la gestion et de la surveill
 
 > [AZURE.IMPORTANT] Les étapes décrites dans cet article nécessitent un cluster Storm Linux sur HDInsight. Pour plus d’informations sur le déploiement et la surveillance des topologies sur HDInsight Windows, consultez [Déploiement et gestion des topologies Apache Storm sur HDInsight Windows](hdinsight-storm-deploy-monitor-topology.md)
 
-## Configuration requise
+## Composants requis
 
 * **Un cluster Storm Linux sur HDInsight** : consultez [Prise en main d’Apache Storm sur HDInsight](hdinsight-apache-storm-tutorial-get-started-linux.md) pour connaître les étapes de création d’un cluster
 
@@ -62,11 +62,11 @@ Ce document présente les principes fondamentaux de la gestion et de la surveill
 
 Vous pouvez, par programmation, déployer une topologie vers Storm sur HDInsight en communiquant avec le service Nimbus hébergé dans votre cluster. [https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology](https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology) fournit un exemple d’application Java qui montre comment déployer et démarrer une topologie via le service Nimbus.
 
-##Surveillance et gestion à l’aide de la commande storm
+## Surveillance et gestion à l’aide de la commande storm
 
 L’utilitaire `storm` vous permet d’utiliser des topologies en cours d’exécution à partir de la ligne de commande. Voici une liste des commandes couramment utilisées. Pour obtenir la liste complète des commandes, utilisez `storm -h`.
 
-###Liste de toutes les topologies
+### Liste de toutes les topologies
 
 Utilisez la commande suivante pour répertorier toutes les topologies en cours d’exécution :
 
@@ -78,7 +78,7 @@ La commande retourne des informations similaires à ce qui suit :
     -------------------------------------------------------------------
     WordCount            ACTIVE     29         2            263
 
-###Désactivation et réactivation
+### Désactivation et réactivation
 
 La désactivation d’une topologie la met en pause jusqu’à ce qu’elle soit arrêtée ou réactivée. Utilisez les commandes suivantes pour désactiver et réactiver :
 
@@ -86,13 +86,13 @@ La désactivation d’une topologie la met en pause jusqu’à ce qu’elle soit
     
     storm Activate TOPOLOGYNAME
 
-###Arrêt d’une topologie en cours d’exécution
+### Arrêt d’une topologie en cours d’exécution
 
 Les topologies Storm, une fois démarrées, continuent leur exécution jusqu’à ce qu’elles soient arrêtées. Pour ce faire, utilisez la commande suivante :
 
     storm stop TOPOLOGYNAME
 
-###Rééquilibrage
+### Rééquilibrage
 
 Le rééquilibrage d’une topologie permet au système de réviser le parallélisme de la topologie. Par exemple, si vous avez redimensionné le cluster pour ajouter plus de nœuds, le rééquilibrage permet à une topologie en cours d’exécution d’utiliser les nouveaux nœuds.
 
@@ -100,7 +100,7 @@ Le rééquilibrage d’une topologie permet au système de réviser le parallél
 
     storm rebalance TOPOLOGYNAME
 
-##Surveillance et gestion à l’aide de l’interface utilisateur Storm
+## Surveillance et gestion à l’aide de l’interface utilisateur Storm
 
 L’interface utilisateur Storm fournit une interface web incluse dans votre cluster HDInsight pour utiliser les topologies en cours d’exécution. Pour afficher l’interface utilisateur Storm, utilisez un navigateur Web pour ouvrir __https://CLUSTERNAME.azurehdinsight.net/stormui__, où __CLUSTERNAME\_\_ est le nom de votre cluster.
 
@@ -197,4 +197,4 @@ Maintenant que vous avez appris à déployer et surveiller des topologies à l�
 
 Pour accéder à une liste d’exemples supplémentaires de topologies, consultez la rubrique [Exemples de topologies Storm sur HDInsight](hdinsight-storm-example-topology.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0914_2016-->

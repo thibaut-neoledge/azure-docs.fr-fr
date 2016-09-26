@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="06/20/2016" 
+    ms.date="09/09/2016" 
     ms.author="jeedes" />
 
 #Didacticiel : Intégration d’Azure AD à xMatters OnDemand
@@ -84,7 +84,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
 	a. Dans la zone de texte **URL de connexion de xMatters OnDemand**, tapez votre URL au format suivant : `https://<tenant-name>.XMattersOnDemandapp.com`
 
-	b. Cliquez sur **Next**.
+	b. Cliquez sur **Suivant**.
 
 
 4.  Dans la page **Configurer l’authentification unique sur XMatters OnDemand**, cliquez sur **Télécharger le certificat**, puis enregistrez le fichier de certificat en local sous le nom **c:\\xMatters OnDemand.cer**.
@@ -107,8 +107,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
     2.  Dans la page **Configurer l’authentification unique sur xMatters OnDemand** du portail Azure Classic, copiez la valeur **ID du fournisseur d’identité**, puis collez-la dans la zone de texte **ID de fournisseur d’identité**.
     3.  Dans la page **Configurer l’authentification unique sur xMatters OnDemand** du portail Azure Classic, copiez la valeur **URL du service d’authentification unique**, puis collez-la dans la zone de texte **URL d’authentification unique**.
     4.  Dans la page **Configurer l’authentification unique sur xMatters OnDemand** du portail Azure Classic, copiez la valeur **URL du service de déconnexion unique**, puis collez-la dans la zone de texte **URL de déconnexion unique**.
-    5.  Dans la partie supérieure de la page Company Details, cliquez sur **Save Changes**.
-![Détails sur l’entreprise](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776797.png "Détails sur l’entreprise")
+    5.  Dans la partie supérieure de la page Company Details, cliquez sur **Save Changes**. ![Détails sur l’entreprise](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776797.png "Détails sur l’entreprise")
 
 8.  Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
 
@@ -135,7 +134,7 @@ Pour pouvoir se connecter à XMatters OnDemand, les utilisateurs d’Azure AD d
     ![Ajouter un utilisateur](./media/active-directory-saas-xmatters-ondemand-tutorial/IC781049.png "Ajouter un utilisateur")
 
     1.  Entrez les attributs **UserID**, **First name**, **Last name** et **Site** d’un compte Azure AD valide que vous voulez approvisionner.
-    2.  Cliquez sur **Enregistrer**.
+    2.  Cliquez sur **Save**.
 
 >[AZURE.NOTE] Vous pouvez utiliser tout autre outil ou n’importe quelle API de création de compte d’utilisateur fournis par XMatters OnDemand pour approvisionner des comptes d’utilisateurs Azure AD.
 
@@ -157,4 +156,4 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
   
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

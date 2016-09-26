@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Ajouter des propriétaires et des utilisateurs à un laboratoire | Microsoft Azure"
-	description="Ajouter en toute sécurité à Azure DevTest Labs un utilisateur non inclus dans votre abonnement"
+	pageTitle="Ajouter des propriétaires et des utilisateurs dans Azure DevTest Labs | Microsoft Azure"
+	description="Ajouter des propriétaires et des utilisateurs dans Azure DevTest Labs à l’aide du portail Azure ou de PowerShell"
 	services="devtest-lab,virtual-machines"
 	documentationCenter="na"
 	authors="tomarcher"
@@ -13,44 +13,119 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/25/2016"
+	ms.date="09/12/2016"
 	ms.author="tarcher"/>
 
-# Ajouter des propriétaires et des utilisateurs à un laboratoire
+# Ajouter des propriétaires et des utilisateurs dans Azure DevTest Labs
 
 > [AZURE.VIDEO how-to-set-security-in-your-devtest-lab]
 
-## Vue d'ensemble
-L’accès à DevTest Labs est contrôlé par le contrôle d’accès en fonction du rôle (RBAC) d’Azure. Pour plus d’informations, recherchez [Contrôle d’accès en fonction du rôle (RBAC)](https://azure.microsoft.com/search/?q=role%20based%20access%20control) dans le [portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+L’accès à Azure DevTest Labs est contrôlé par le [contrôle d’accès en fonction du rôle (RBAC) Azure](../active-directory/role-based-access-control-what-is.md). Avec le contrôle d’accès en fonction du rôle, vous pouvez séparer les tâches au sein de votre équipe en *rôles* dans lesquels vous accordez aux utilisateurs uniquement les accès nécessaires pour accomplir leur travail. Trois de ces rôles RBAC sont *Propriétaire*, *Utilisateur de DevTest Labs* et *Collaborateur*. Dans cet article, vous allez découvrir quelles actions peuvent être effectuées dans chacun des trois rôles RBAC principaux. À partir de là, vous allez apprendre à ajouter des utilisateurs à un laboratoire, à la fois via le portail et via un script PowerShell, et à ajouter des utilisateurs au niveau de l’abonnement.
 
+## Actions qui peuvent être effectuées dans chaque rôle
 
-L'accès à votre labo s'accorde selon deux rôles :
+Il existe trois rôles principaux que vous pouvez attribuer à un utilisateur :
 
-- **Propriétaire** : les utilisateurs affectés au rôle **Propriétaire** au niveau du labo ont un accès complet au labo, y compris aux fonctions de gestion et de surveillance. Le rôle **Propriétaire** affecté au niveau du labo n'accorde pas l'autorisation aux utilisateurs d'accéder aux ressources de l'abonnement en dehors de l'étendue du labo. Les utilisateurs affectés au rôle **Propriétaire** au niveau de l’abonnement Azure ont automatiquement des droits d’accès **Propriétaire** aux ressources créées dans cet abonnement, y compris aux laboratoires et aux machines virtuelles.
+- Propriétaire
+- Utilisateur de DevTest Labs
+- Collaborateur
 
--  **Utilisateur DevTest Labs** : les utilisateurs affectés au rôle **Utilisateur DevTest Labs** peuvent créer des machines virtuelles dans le laboratoire spécifié, et consulter toutes les ressources du laboratoire, telles que les machines virtuelles, les stratégies ou les réseaux virtuels. Les utilisateurs peuvent être *internes* (membres d'Azure Active Directory pour l'abonnement) ou *externes* (utilisateurs non membres d'Azure AD, par exemple membres d'une organisation partenaire).
-	-  Un rôle **Utilisateur DevTest Labs** doit être affecté via les vignettes **Ajouter des utilisateurs** du laboratoire.
-	-  Les utilisateurs du rôle **Utilisateur DevTest Labs** peuvent effectuer ces opérations seulement au sein du laboratoire auquel ils sont affectés. Par exemple, un **Utilisateur DevTest Labs** ne peut pas créer une machine virtuelle avec le service Virtual Machines de l’abonnement. La création d’une machine virtuelle est autorisée seulement à partir du compte DevTest Labs.
-	- Les utilisateurs *externes* sont des utilisateurs qui disposent d’un compte Microsoft (MSA).
- 
-Une fois qu’une machine virtuelle est créée, l’utilisateur qui l’a créée est automatiquement affecté au rôle de **Propriétaire** sur la machine virtuelle créée, ce qui lui permet d’effectuer toutes les actions proposées dans le laboratoire.
+Le tableau suivant décrit les actions pouvant être effectuées par les utilisateurs dans chacun de ces rôles :
 
-## Ajouter un propriétaire à votre labo
+| **Actions que les utilisateurs dans ce rôle peuvent effectuer** | **Utilisateur de DevTest Labs** | **Propriétaire** | **Collaborateur** |
+|---|---|---|---|
+| **Tâches de laboratoire** | | | |
+| Ajouter des utilisateurs à un laboratoire | Non | Oui | Non |
+| Mettre à jour les paramètres de coût | Non | Oui | Oui |
+| **Tâches de base de machine virtuelle** | | | |
+| Ajouter et supprimer des images personnalisées | Non | Oui | Oui |
+| Ajouter, mettre à jour et supprimer des formules | Oui | Oui | Oui |
+| Images Place de marché Azure de liste blanche | Non | Oui | Oui |
+| **Tâches de machine virtuelle** | | | |
+| Créer des machines virtuelles | Oui | Oui | Oui |
+| Démarrer, arrêter et supprimer des machines virtuelles | Seules les machines virtuelles créées par l’utilisateur | Oui | Oui |
+| Mettre à jour les stratégies de machine virtuelle | Non | Oui | Oui |
+| Ajouter des disques de données à des machines virtuelles ou en supprimer de celles-ci | Seules les machines virtuelles créées par l’utilisateur | Oui | Oui |
+| **Tâches d’artefact** | | | |
+| Ajouter et supprimer des référentiels d’artefact | Non | Oui | Oui |
+| Appliquer des artefacts | Oui | Oui | Oui |
 
-En raison de la façon dont les autorisations sont propagées de l’étendue parent à l’étendue enfant dans Azure, les propriétaires d’un abonnement Azure contenant des laboratoires sont automatiquement propriétaires de ces laboratoires, ainsi que de toutes les machines virtuelles et autres ressources créées par les utilisateurs du laboratoire et par le service DevTest Lab. Bien que vous puissiez ajouter des propriétaires à un laboratoire via le panneau du laboratoire dans le [portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040), leur étendue d’administration sera plus restreinte que celle des propriétaires d’abonnement, car ils n’auront pas accès à certaines ressources créées dans l’abonnement par le service DevTest Labs.
+> [AZURE.NOTE] Lorsqu’un utilisateur crée une machine virtuelle, le rôle **Propriétaire** de la machine virtuelle créée est automatiquement attribué à cet utilisateur.
 
-Pour ajouter un propriétaire à un abonnement Azure où vous avez déjà créé ou allez créer des labos, procédez comme suit :
+## Ajouter un utilisateur ou un propriétaire au niveau du laboratoire
+
+Les propriétaires et les utilisateurs peuvent être ajoutés au niveau du laboratoire via le portail Azure. Cela comprend les utilisateurs externes qui disposent d’un [compte Microsoft (MSA)](devtest-lab-faq.md#what-is-a-microsoft-account) valide. Les étapes suivantes vous guident dans le processus d’ajout d’un propriétaire ou d’un utilisateur à un laboratoire dans Azure DevTest Labs :
 
 1. Connectez-vous au [portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Dans la partie de gauche, sélectionnez **Abonnements**.
+1. Sélectionnez **Plus de services**, puis **DevTest Labs** dans la liste.
 
-	![Lien vers les abonnements](./media/devtest-lab-add-devtest-user/subscriptions.png)
+1. Sélectionnez le laboratoire souhaité dans la liste des laboratoires.
+
+1. Dans le panneau du laboratoire, sélectionnez **Configuration**.
+
+1. Dans le panneau **Configuration**, sélectionnez **Utilisateurs**.
+
+1. Dans le panneau **Utilisateurs**, sélectionnez **+Ajouter**.
+
+	![Ajouter un utilisateur](./media/devtest-lab-add-devtest-user/devtest-users-blade.png)
+
+1. Dans le panneau **Sélectionner un rôle**, sélectionnez le rôle souhaité. La section [Actions qui peuvent être effectuées dans chaque rôle](#actions-that-can-be-performed-in-each-role) répertorie les différentes actions qui peuvent être effectuées par les utilisateurs dans les rôles Propriétaire, Utilisateur de DevTest Labs et Collaborateur.
+
+1. Dans le panneau **Ajouter des utilisateurs**, entrez l’adresse de messagerie ou le nom de l’utilisateur que vous souhaitez ajouter dans le rôle spécifié. Si l’utilisateur n’est pas trouvé, un message d’erreur expliquant le problème s’affiche. Si l’utilisateur est trouvé, il est répertorié et sélectionné.
+
+1. Sélectionnez **Sélectionner**.
+
+1. Cliquez sur **OK** pour fermer le panneau **Ajouter un accès**.
+
+1. Lorsque vous revenez sur le panneau **Utilisateurs**, l’utilisateur a été ajouté.
+
+## Ajouter un utilisateur externe à un laboratoire à l’aide de PowerShell
+
+Outre l’ajout d’utilisateurs dans le portail Azure, vous pouvez ajouter un utilisateur externe à votre laboratoire à l’aide d’un script PowerShell. Dans l’exemple suivant, modifiez simplement les valeurs des paramètres sous le commentaire **Valeurs à modifier**. Vous pouvez récupérer les valeurs `subscriptionId`, `labResourceGroup` et `labName` à partir du panneau de laboratoire dans le portail Azure.
+
+> [AZURE.NOTE]
+L’exemple de script suppose que l’utilisateur spécifié a été ajouté en tant qu’invité à Active Directory et échoue si ce n’est pas le cas. Pour ajouter un utilisateur qui ne se trouve pas dans Active Directory à un laboratoire, utilisez le portail Azure pour attribuer un rôle à l’utilisateur, comme illustré dans la section [Ajouter un utilisateur ou un propriétaire au niveau du laboratoire](#add-an-owner-or-user-at-the-lab-level).
+
+	# Add an external user in DevTest Labs user role to a lab
+	# Ensure that guest users can be added to the Azure Active directory:
+	# https://azure.microsoft.com/fr-FR/documentation/articles/active-directory-create-users/#set-guest-user-access-policies
+
+	# Values to change
+	$subscriptionId = "<Enter Azure subscription ID here>"
+	$labResourceGroup = "<Enter lab's resource name here>"
+	$labName = "<Enter lab name here>"
+	$userDisplayName = "<Enter user's display name here>"
+
+	# Log into your Azure account
+	Login-AzureRmAccount
 	
-1. Sélectionnez l'abonnement qui contiendra le(s) labo(s).  
+	# Select the Azure subscription that contains the lab. 
+	# This step is optional if you have only one subscription.
+	Select-AzureRmSubscription -SubscriptionId $subscriptionId
+	
+	# Retrieve the user object
+	$adObject = Get-AzureRmADUser -SearchString $userDisplayName
+	
+	# Create the role assignment. 
+	$labId = ('subscriptions/' + $subscriptionId + '/resourceGroups/' + $labResourceGroup + '/providers/Microsoft.DevTestLab/labs/' + $labName)
+	New-AzureRmRoleAssignment -ObjectId $adObject.Id -RoleDefinitionName 'DevTest Labs User' -Scope $labId
 
+## Ajouter un utilisateur ou un propriétaire au niveau du laboratoire
 
-1. Sélectionnez l'icône **Accès**.
+Les autorisations Azure sont propagées à partir de l’étendue parent vers l’étendue enfant dans Azure. Par conséquent, les propriétaires d’un abonnement Azure qui contient des laboratoires sont automatiquement les propriétaires de ces laboratoires. Ils sont également propriétaires des machines virtuelles et des autres ressources créées par les utilisateurs du laboratoire et le service Azure DevTest Labs.
+
+Vous pouvez ajouter des propriétaires supplémentaires à un laboratoire via le panneau du laboratoire dans le [portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040). Toutefois, l’étendue d’administration du propriétaire ajouté est plus étroite que l’étendue du propriétaire de l’abonnement. Par exemple, les propriétaires ajoutés n’ont pas un accès complet à certaines ressources qui sont créées dans l’abonnement par le service DevTest Labs.
+
+Pour ajouter un propriétaire à un abonnement Azure, procédez comme suit :
+
+1. Connectez-vous au [portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+
+1. Sélectionnez **Plus de services**, puis **Abonnements** dans la liste.
+
+1. Sélectionnez l’abonnement souhaité.
+
+1. Sélectionnez l’icône **Accès**.
 
 	![Accéder aux utilisateurs](./media/devtest-lab-add-devtest-user/access-users.png)
 
@@ -60,7 +135,7 @@ Pour ajouter un propriétaire à un abonnement Azure où vous avez déjà créé
 
 1. Sur le panneau **Sélectionner un rôle**, sélectionner **Propriétaire**.
 
-1. Dans la zone de texte **Utilisateur**, tapez l'adresse e-mail de l'utilisateur que vous souhaitez ajouter comme propriétaire. Si l'utilisateur n'est pas trouvé, vous obtiendrez un message d'erreur expliquant le problème. Si l'utilisateur est trouvé, cet utilisateur sera répertorié sous la zone de texte **Utilisateur**.
+1. Dans le panneau **Ajouter des utilisateurs**, entrez l’adresse de messagerie ou le nom de l’utilisateur que vous souhaitez ajouter en tant que propriétaire. Si l’utilisateur n’est pas trouvé, vous obtenez un message d’erreur expliquant le problème. Si l’utilisateur est trouvé, cet utilisateur est répertorié sous la zone de texte **Utilisateur**.
 
 1. Sélectionnez le nom d'utilisateur trouvé.
 
@@ -68,42 +143,8 @@ Pour ajouter un propriétaire à un abonnement Azure où vous avez déjà créé
 
 1. Cliquez sur **OK** pour fermer le panneau **Ajouter un accès**.
 
-1. Lorsque vous reviendrez sur le panneau **Utilisateurs**, vous verrez que l'utilisateur a été ajouté comme propriétaire. Cette personne est désormais propriétaire de tous les labos créés sous cet abonnement et pourra par conséquent effectuer des tâches de propriétaire.
-
-## Ajouter un utilisateur DevTest Labs à votre laboratoire
-
-Pour ajouter un utilisateur DevTest Labs à votre laboratoire, procédez comme suit :
-
-1. Connectez-vous au [portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
-
-1. Sélectionnez **Parcourir**.
-
-1. Sélectionnez **DevTest Labs**.
-
-1. Sélectionnez le laboratoire souhaité dans la liste des laboratoires.
-
-1. Sélectionnez l'icône **Accès**.
-
-	![Accès des utilisateurs](./media/devtest-lab-add-devtest-user/devtest-lab-home-blade.png)
-
-1. Dans le panneau **Utilisateurs**, sélectionnez **Ajouter**.
-
-	![Ajouter un utilisateur](./media/devtest-lab-add-devtest-user/devtest-users-blade.png)
-
-1. Dans le panneau **Sélectionner un rôle**, sélectionnez **Utilisateur DevTest Labs**
-
-1. Dans le panneau **Ajouter des utilisateurs** :
-
-	1. Le panneau **Ajouter des utilisateurs** affiche la liste des utilisateurs intégrés. Si l'utilisateur souhaité est déjà dans la liste, vous pouvez simplement sélectionner sa ligne pour le sélectionner. Une coche s'affiche à gauche de l'utilisateur pour indiquer que l'utilisateur a été sélectionné. Pour sélectionner plusieurs utilisateurs, maintenez la touche **&lt;Ctrl>** enfoncée tout en sélectionnant chaque utilisateur. Pour désélectionner un utilisateur, maintenez la touche **&lt;Ctrl>** enfoncée et sélectionnez l'utilisateur. Un compteur en bas du panneau indique le nombre d'utilisateurs sélectionnés.
-
-	1. Si l'utilisateur n'est pas dans la liste, entrez un compte de messagerie Microsoft valide dans la zone de texte **Utilisateurs**. Si l'adresse de messagerie est valide, l'utilisateur s'affiche sous la zone de texte **Utilisateur**.
-
-	1. Une fois que vous avez sélectionné les utilisateurs que vous souhaitez ajouter au labo, cliquez sur **Sélectionner**.
-
-	1. Cliquez sur **OK** pour fermer le panneau **Ajouter un accès**.
-
-1. Le panneau **Utilisateurs** affiche les rôles et les utilisateurs ajoutés.
+1. Lorsque vous revenez sur le panneau **Utilisateurs**, l’utilisateur a été ajouté en tant que propriétaire. Cet utilisateur est désormais propriétaire de tous les laboratoires créés sous cet abonnement et peut par conséquent effectuer des tâches de propriétaire.
 
 [AZURE.INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

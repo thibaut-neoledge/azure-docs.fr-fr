@@ -4,7 +4,7 @@
 	services="cognitive-services"
 	documentationCenter=""
 	authors="onewth"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -24,13 +24,13 @@ Si vous n’avez pas utilisé l’API et que vous souhaitez en savoir plus, vous
 
 ### Partie 1. Obtenir une nouvelle clé ###
 
-Tout d’abord, vous devez obtenir une nouvelle clé d’API à partir du **portail Azure** :
+Tout d’abord, vous devez obtenir une nouvelle clé d’API à partir du **portail Azure** :
 
 1. Accédez au service d’analyse de texte via la [galerie Cortana Intelligence](//gallery.cortanaintelligence.com/MachineLearningAPI/Text-Analytics-2). Vous y trouverez également des liens vers la documentation et des exemples de code.
 
 1. Cliquez sur **S’inscrire**. Ce lien vous dirigera vers le portail de gestion Azure, où vous pouvez vous inscrire au service.
 
-1. Sélectionnez un plan. Vous pouvez sélectionner le **niveau gratuit pour 5 000 transactions par mois**. Étant donné qu’il s’agit d’un plan gratuit, son utilisation ne vous sera pas facturée. Vous devez vous connecter à votre abonnement Azure.
+1. Sélectionnez un plan. Vous pouvez sélectionner le **niveau gratuit pour 5 000 transactions/mois**. Étant donné qu’il s’agit d’un plan gratuit, son utilisation ne vous sera pas facturée. Vous devrez vous connecter à votre abonnement Azure.
 
 1. Une fois inscrit à l’analyse de texte, vous recevrez une **clé d’API**. Copiez cette clé, car vous en aurez besoin lors de l’utilisation des services d’API.
 
@@ -308,4 +308,4 @@ Une fois que l’API de rubriques a terminé, l’état `succeeded` est renvoyé
 
 Vous devriez être fin prêt ! Testez votre code avec un petit exemple pour vous assurer que vous pouvez traiter vos données.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0914_2016-->

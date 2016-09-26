@@ -151,7 +151,7 @@ Vous êtes maintenant prêt à exécuter les applications.
 
 Dans ce didacticiel, vous avez appris à tirer parti des fonctionnalités de téléchargement de fichier d’IoT Hub pour simplifier les chargements de fichiers à partir d’appareils. Vous pouvez continuer à explorer les scénarios et les fonctionnalités d’IoT Hub avec les articles suivants :
 
-- [Créer un IoT Hub par programme][lnk-create-hub]
+- [Créer un IoT hub par programme][lnk-create-hub]
 - [Présentation du Kit de développement logiciel (SDK) C][lnk-c-sdk]
 - [Kits SDK IoT Hub][lnk-sdks]
 
@@ -197,4 +197,4 @@ Pour explorer davantage les capacités de IoT Hub, consultez :
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
 [lnk-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0914_2016-->

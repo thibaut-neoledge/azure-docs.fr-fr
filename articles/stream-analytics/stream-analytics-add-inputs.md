@@ -5,7 +5,7 @@
 	documentationCenter=""
 	services="stream-analytics"
 	authors="jeffstokes72"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"
 />
 
@@ -24,7 +24,7 @@
 
 Découvrez comment connecter une source de données à votre tâche Stream Analytics en tant qu’entrée de données de diffusion en continu à partir de Event Hubs ou référencer des données à partir du stockage d’objets blob.
 
-Les tâches Azure Stream Analytics peuvent être connectées à une ou plusieurs entrées de données, chacune d'entre elles définissant une connexion à une source de données existante. Comme les données sont envoyées à la source de données, elles sont utilisées par la tâche Stream Analytics et traitées en temps réel en tant que données de diffusion en continu. Stream Analytics propose une intégration de pointe aux [Event Hubs Azure](https://azure.microsoft.com/services/event-hubs/) et au [stockage d'objets blob Azure](../storage/storage-dotnet-how-to-use-blobs.md) externes et internes à l'abonnement de tâche.
+Les tâches Azure Stream Analytics peuvent être connectées à une ou plusieurs entrées de données, chacune d'entre elles définissant une connexion à une source de données existante. Comme les données sont envoyées à la source de données, elles sont utilisées par la tâche Stream Analytics et traitées en temps réel en tant que données de diffusion en continu. Stream Analytics propose une intégration de pointe à [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) et au [Stockage Blob Azure](../storage/storage-dotnet-how-to-use-blobs.md) externes et internes à l’abonnement du travail.
 
 Cet article est une étape dans le [parcours d'apprentissage de Stream Analytics](/documentation/learning-paths/stream-analytics/).
 
@@ -88,4 +88,4 @@ Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https:
 - [Références sur le langage des requêtes d'Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Références sur l'API REST de gestion d'Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

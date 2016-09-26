@@ -4,7 +4,7 @@ description="Utilisez les données d’une base de données SQL Server locale po
 services="machine-learning"
 documentationCenter=""
 authors="garyericson"
-manager="paulettm"
+manager="jhubbard"
 editor="cgronlun"/>
 
 <tags
@@ -19,9 +19,9 @@ ms.author="garye;krishnan"/>
 # Effectuer des analyses avancées avec Azure Machine Learning en utilisant les données d’une base de données SQL Server locale
 
 
-Souvent, les entreprises qui travaillent avec des données locales souhaitent tirer parti de l’évolutivité et de l’agilité du cloud pour leurs charges de travail d’apprentissage automatique. Mais elles ne souhaitent pas perturber leurs processus métier et leurs flux de travail actuels en déplaçant leurs données locales vers le cloud. Azure Machine Learning prend désormais en charge la lecture de vos données à partir d’une base de données SQL Server locale, puis l’apprentissage et l’évaluation d’un modèle avec ces données. Vous n’avez plus à copier et à synchroniser manuellement les données entre le cloud et votre serveur local. Au lieu de cela, le module **Importer des données** dans Azure Machine Learning Studio peut maintenant lire directement dans votre base de données SQL Server locale pour vos travaux d’apprentissage et d’évaluation.
+Souvent, les entreprises qui travaillent avec des données locales souhaitent tirer parti de l’échelle et de l’agilité du cloud pour leurs charges de travail d’apprentissage automatique. Mais elles ne souhaitent pas perturber leurs processus métier et leurs flux de travail actuels en déplaçant leurs données locales vers le cloud. Azure Machine Learning prend désormais en charge la lecture de vos données à partir d’une base de données SQL Server locale, puis l’apprentissage et l’évaluation d’un modèle avec ces données. Vous n’avez plus à copier et à synchroniser manuellement les données entre le cloud et votre serveur local. Au lieu de cela, le module **Importer des données** dans Azure Machine Learning Studio peut maintenant lire directement dans votre base de données SQL Server locale pour vos travaux d’apprentissage et d’évaluation.
 
-Cet article fournit une vue d’ensemble de l’intégration de données SQL Server locales dans Azure Machine Learning. Il part du principe que vous êtes familiarisé avec les concepts Azure Machine Learning, comme les espaces de travail, des modules, les jeux de données, les expériences, *etc*.
+Cet article fournit une vue d’ensemble de l’intégration de données SQL Server locales dans Azure Machine Learning. Il part du principe que vous êtes familiarisé avec les concepts Azure Machine Learning, comme les espaces de travail, les modules, les jeux de données, les expériences, *etc*.
 
 > [AZURE.NOTE] Cette fonctionnalité n’est pas disponible pour les espaces de travail gratuits. Pour plus d’informations sur la tarification et les niveaux de Machine Learning, consultez la [Tarification d’Azure Machine Learning](https://azure.microsoft.com/pricing/details/machine-learning/).
 
@@ -51,7 +51,7 @@ Vous devez prendre en compte ce qui suit lors de la configuration et de l’util
 - Vous ne configurez une passerelle que pour un seul espace de travail à la fois. Pour le moment, les passerelles ne peuvent pas être partagées entre différents espaces de travail.
 - Vous pouvez configurer plusieurs passerelles pour un espace de travail unique. Par exemple, vous pouvez choisir d’utiliser une passerelle connectée à vos sources de données de test lors du développement et une passerelle de production lorsque vous êtes prêt pour l’opérationnalisation.
 - Il n’est pas nécessaire que la passerelle soit sur le même ordinateur que la source de données, mais le fait qu’elle soit proche de cette dernière réduit le temps nécessaire à la passerelle pour se connecter à la source de données. Nous vous recommandons d’installer la passerelle sur un ordinateur différent de celui qui héberge la source de données locale, afin que la passerelle et la source de données ne soient pas en concurrence pour l’attribution de ressources.
-- Si une passerelle est déjà installée sur votre ordinateur desservant des scénarios Power BI ou Azure Data Factory, installez une passerelle distincte pour Azure Machine Learning sur un autre ordinateur. 
+- Si une passerelle est déjà installée sur votre ordinateur desservant des scénarios Power BI ou Azure Data Factory, installez une passerelle distincte pour Azure Machine Learning sur un autre ordinateur.
 
     > [AZURE.NOTE] Vous ne pouvez pas exécuter la passerelle de gestion des données et la passerelle Power BI sur le même ordinateur.
 
@@ -126,7 +126,7 @@ La première étape consiste à créer et à configurer la passerelle pour accé
 
 Le processus de configuration de la passerelle dans Azure Machine Learning est terminé. Vous êtes maintenant prêt à utiliser vos données locales.
 
-Vous pouvez créer et configurer plusieurs passerelles dans Studio pour chaque espace de travail. Par exemple, vous pouvez avoir une passerelle que vous souhaitez connecter à vos sources de données de test pendant le développement et une passerelle distincte pour vos sources de données en production. Azure Machine Learning vous donne la possibilité de configurer plusieurs passerelles en fonction de votre environnement d’entreprise. Actuellement, vous ne pouvez pas partager une passerelle entre différents espaces de travail et seule une passerelle peut être installée sur un même ordinateur. Pour plus d’informations sur l’installation de la passerelle, consultez [Considérations sur l’utilisation de la passerelle de gestion des données](../data-factory/data-factory-move-data-between-onprem-and-cloud.md#considerations-for-using-data-management-gateway) dans l’article [Déplacer des données entre des sources locales et le cloud avec la passerelle de gestion des données](../data-factory/data-factory-move-data-between-onprem-and-cloud.md).
+Vous pouvez créer et configurer plusieurs passerelles dans Studio pour chaque espace de travail. Par exemple, vous pouvez avoir une passerelle que vous souhaitez connecter à vos sources de données de test pendant le développement et une passerelle distincte pour vos sources de données en production. Azure Machine Learning vous donne la possibilité de configurer plusieurs passerelles en fonction de votre environnement d’entreprise. Actuellement, vous ne pouvez pas partager une passerelle entre différents espaces de travail et une seule passerelle peut être installée sur un même ordinateur. Pour plus d’informations sur l’installation de la passerelle, consultez [Considérations sur l’utilisation de la passerelle de gestion des données](../data-factory/data-factory-move-data-between-onprem-and-cloud.md#considerations-for-using-data-management-gateway) dans l’article [Déplacer des données entre des sources locales et le cloud avec la passerelle de gestion des données](../data-factory/data-factory-move-data-between-onprem-and-cloud.md).
 
 ### Étape 2 : Utiliser la passerelle pour lire des données à partir d’une source de données locale
 
@@ -162,4 +162,4 @@ Une fois l’expérience terminée, vous pouvez visualiser les données que vous
 
 Une fois que vous avez terminé le développement de votre expérience, vous pouvez déployer et opérationnaliser votre modèle. Grâce au service d’exécution de lots, les données de la base de données SQL Server locale configurées dans le module **Importer des données** seront lues et utilisées pour l’évaluation. Vous pouvez utiliser le service de réponse aux demandes pour l’évaluation des données locales, mais Microsoft recommande d’utiliser plutôt le [complément Excel](machine-learning-excel-add-in-for-web-services.md). Actuellement, l’écriture dans une base de données SQL Server locale avec **Exporter des données** n’est pas prise en charge dans vos expériences ou dans les services web publiés.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0914_2016-->

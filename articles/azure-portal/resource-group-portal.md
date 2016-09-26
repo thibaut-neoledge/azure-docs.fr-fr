@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/23/2016" 
+	ms.date="09/12/2016" 
 	ms.author="tomfitz"/>
 
 # Gérer les ressources Azure sur le portail
@@ -94,7 +94,7 @@ Lorsque vous sélectionnez une ressource, le panneau de ressources présente les
 
     ![dashboard](./media/resource-group-portal/create-dashboard.png)
 
-     Pour plus d’informations sur l’utilisation des tableaux de bord, visionnez la vidéo [Build Custom Dashboards in the Azure Portal](https://channel9.msdn.com/Blogs/trevor-cloud/azure-portal-dashboards) (Créer des tableaux de bord personnalisés dans le portail Azure). Pour plus d’informations sur le partage de l’accès à un tableau de bord publié, voir [Partage des tableaux de bord Azure](azure-portal-dashboard-share-access.md).
+     Pour plus d’informations sur l’utilisation des tableaux de bord, consultez [Création et partage de tableaux de bord sur le Portail Azure](azure-portal-dashboards.md).
 
 ## Gestion des ressources
 
@@ -151,4 +151,4 @@ La suppression d’un groupe de ressources supprime toutes les ressources qu’i
 - Pour déployer des ressources via le portail, voir [Déployer des ressources à l’aide de modèles Resource Manager et du Portail Azure](../resource-group-template-deploy-portal.md).
 - Pour gérer l’accès aux ressources, voir [Utiliser les attributions de rôle pour gérer l’accès à vos ressources d’abonnement Azure](../active-directory/role-based-access-control-configure.md).
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

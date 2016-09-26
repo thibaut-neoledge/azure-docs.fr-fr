@@ -5,7 +5,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="Blackmist"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -1056,7 +1056,7 @@ Si l'on considère les valeurs P (Pr(>|t|)) de cette sortie, nous pouvons consta
 	milk.lm <- update(milk.lm, . ~ . - I(Month.Count^2))
 	summary(milk.lm)
 
-Voici ce que nous obtenons :
+Voici ce que cela génère :
 
 	##
 	## Call:
@@ -1358,4 +1358,4 @@ Quelques ressources Internet particulièrement utiles :
 <!-- Module References -->
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0914_2016-->

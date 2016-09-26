@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/06/2016"
+   ms.date="09/12/2016"
    ms.author="bwren" />
 
 # Types de Runbooks Azure Automation
@@ -39,7 +39,7 @@ Les [Runbooks graphiques](automation-runbook-types.md#graphical-runbooks) et les
 - Incluez d’autres Runbooks en tant que Runbooks enfants pour créer des workflows de niveau élevés.
 
 
-### Limites
+### Limitations
 
 - Impossible de modifier le Runbook en dehors du portail Azure.
 - Peut nécessiter une activité de code contenant le code PowerShell pour exécuter une logique complexe.
@@ -55,7 +55,7 @@ Les Runbooks PowerShell sont basés sur Windows PowerShell. Vous modifiez direct
 - Implémentez tout type de la logique complexe avec le code PowerShell sans la complexité supplémentaire liée au workflow PowerShell.
 - Le Runbook démarre plus rapidement que les Runbooks graphiques ou de workflow PowerShell dans la mesure où il n'a pas besoin d'être compilé avant l'exécution.
 
-### Limites
+### Limitations
 
 - Doit être familiarisé avec les scripts PowerShell.
 - Impossible d'utiliser un [traitement en parallèle](automation-powershell-workflow.md#parallel-processing) pour effectuer plusieurs actions en parallèle.
@@ -82,7 +82,7 @@ Les Runbooks de workflow PowerShell sont des Runbooks texte basés sur un [workf
 - Peut inclure d'autres Runbooks graphiques et Runbooks de workflow PowerShell en tant que Runbooks enfants afin de créer des workflows de haut niveau.
 
 
-### Limites
+### Limitations
 
 - L’auteur doit être familiarisé avec les workflows PowerShell.
 - Un Runbook doit pouvoir gérer la complexité supplémentaire liée au workflow PowerShell, notamment les [objets désérialisés](automation-powershell-workflow.md#code-changes).
@@ -104,4 +104,4 @@ Vous devez prendre en compte les considérations supplémentaires suivantes pour
 - Pour comprendre les différences entre PowerShell et les workflows PowerShell pour les Runbooks, consultez [Apprentissage du workflow Windows PowerShell](automation-powershell-workflow.md)
 - Pour en savoir plus sur la création ou l’importation d’un Runbook, consultez [Création ou importation d’un Runbook](automation-creating-importing-runbook.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0914_2016-->
