@@ -48,4 +48,4 @@ Cet article explique comment ajouter ou modifier des informations de travail, co
 - [Gérer les profils utilisateur](active-directory-users-profile-azure-portal.md)
 - [Suppression d’un utilisateur dans Azure AD](active-directory-users-delete-user-azure-portal.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0914_2016---->
