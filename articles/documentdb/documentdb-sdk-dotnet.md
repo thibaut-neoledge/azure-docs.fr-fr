@@ -140,9 +140,9 @@
   - Prise en charge du fournisseur LINQ pour OrderBy() ou OrderByDescending()
   - IndexingPolicy pour prendre en charge la clause Order By
   
-		**NB: Possible breaking change** 
+		**NB : modification avec rupture possible** 
   
-    	If you have existing code that provisions collections with a custom indexing policy, then your existing code will need to be updated to support the new IndexingPolicy class. If you have no custom indexing policy, then this change does not affect you.
+    	Si vous avez un code qui configure les collections avec une stratégie d'indexation personnalisée, vous devrez le mettre à jour de sorte qu'il prenne en charge la nouvelle classe IndexingPolicy. Si vous n'avez pas de stratégie d'indexation personnalisée, cette modification ne vous affecte pas.
 
 ### <a name="1.1.0"/>[1\.1.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.1.0)
 - Prise en charge du partitionnement des données à l’aide des nouvelles classes HashPartitionResolver et RangePartitionResolver et de IPartitionResolver
