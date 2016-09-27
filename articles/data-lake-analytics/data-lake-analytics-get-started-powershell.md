@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="05/16/2016"
+   ms.date="09/21/2016"
    ms.author="edmaca"/>
 
 # Prise en main du service Analytique Data Lake Azure à l’aide d’Azure PowerShell
@@ -22,9 +22,7 @@
 
 Découvrez comment utiliser le Kit de développement logiciel (SDK) Azure PowerShell pour créer des comptes Azure Data Lake Analytics, définir des travaux Data Lake Analytics dans [U-SQL](data-lake-analytics-u-sql-get-started.md) et envoyer des travaux à des comptes Data Lake Analytics. Pour plus d’informations sur Analytique Data Lake, consultez [Présentation d’Analytique Data Lake Azure](data-lake-analytics-overview.md).
 
-Dans ce didacticiel, vous allez développer un travail qui lit un fichier TSV (valeurs séparées par des tabulations) et le convertir en fichier CSV (valeurs séparées par des virgules). Pour suivre ce même didacticiel à l’aide d’autres outils pris en charge, cliquez sur les onglets en haut de cette section.
-
-[AZURE.INCLUDE [basic-process-include](../../includes/data-lake-analytics-basic-process.md)]
+Dans ce didacticiel, vous allez développer un travail qui lit un fichier TSV (valeurs séparées par des tabulations) et le convertir en fichier CSV (valeurs séparées par des virgules). Pour suivre ce didacticiel même à l'aide d'autres outils pris en charge, cliquez sur les onglets en haut de cette section.
 
 ##Composants requis
 
@@ -125,7 +123,8 @@ Le script PowerShell suivant montre comment obtenir le nom de magasin Data Lake 
 
 	$resourceGroupName = "<ResourceGroupName>"
 	$dataLakeAnalyticsName = "<DataLakeAnalyticsAccountName>"
-	$dataLakeStoreName = (Get-AzureRmDataLakeAnalyticsAccount -ResourceGroupName $resourceGroupName -Name $dataLakeAnalyticName).Properties.DefaultDataLakeAccount
+	$dataLakeStoreName = (Get-AzureRmDataLakeAnalyticsAccount -ResourceGroupName $resourceGroupName -Name $dataLakeAnalyticsName).Properties.DefaultDataLakeAccount
+	echo $dataLakeStoreName
 
 >[AZURE.NOTE] Le portail Azure fournit une interface utilisateur permettant de copier les fichiers d’exemples de données dans le compte Data Lake Store par défaut. Pour obtenir des instructions, consultez [Prise en main d’Azure Data Lake Analytics à l’aide du portail Azure](data-lake-analytics-get-started-portal.md#upload-data-to-the-default-data-lake-store-account).
 
@@ -177,13 +176,10 @@ Les travaux Data Lake Analytics sont écrits en langage U-SQL. Pour en savoir pl
 		$dataLakeAnalyticsName = "<DataLakeAnalyticsAccountName>"
 		$usqlScript = "c:\tutorials\data-lake-analytics\copyFile.usql"
 		
-		Submit-AzureRmDataLakeAnalyticsJob -Name "convertTSVtoCSV" -AccountName $dataLakeAnalyticsName –ScriptPath $usqlScript 
-		                
-		While (($t = Get-AzureRmDataLakeAnalyticsJob -AccountName $dataLakeAnalyticsName -JobId $job.JobId).State -ne "Ended"){
-			Write-Host "Job status: "$t.State"..."
-			Start-Sleep -seconds 5
-		}
-		
+		$job = Submit-AzureRmDataLakeAnalyticsJob -Name "convertTSVtoCSV" -AccountName $dataLakeAnalyticsName –ScriptPath $usqlScript 
+
+		Wait-AdlJob -Account $dataLakeAnalyticsName -JobId $job.JobId
+
 		Get-AzureRmDataLakeAnalyticsJob -AccountName $dataLakeAnalyticsName -JobId $job.JobId
 
 	Dans le script, le fichier de script U-SQL est stocké à c:\\tutorials\\data-lake-analytics\\copyFile.usql. Mettez à jour le chemin d’accès en conséquence.
@@ -209,4 +205,4 @@ Une fois le travail terminé, vous pouvez utiliser les applets de commande suiva
 - Pour les tâches de gestion, consultez [Gestion d’Azure Data Lake Analytics à l’aide du portail Azure](data-lake-analytics-manage-use-portal.md).
 - Pour obtenir une vue d’ensemble de Data Lake Analytics, consultez [Présentation d’Azure Data Lake Analytics](data-lake-analytics-overview.md).
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

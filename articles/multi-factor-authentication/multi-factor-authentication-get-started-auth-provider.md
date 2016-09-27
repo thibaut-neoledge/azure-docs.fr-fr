@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Prise en main du fournisseur Microsoft Azure Multi-Factor Auth" 
-	description="Découvrez comment créer un fournisseur Azure Multi-Factor Auth." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
+<properties
+	pageTitle="Prise en main du fournisseur Microsoft Azure Multi-Factor Auth"
+	description="Découvrez comment créer un fournisseur Azure Multi-Factor Auth."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
 	editor="curtand"/>
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="08/04/2016" 
-	ms.author="billmath"/>
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="08/04/2016"
+	ms.author="kgremban"/>
 
 
 
@@ -26,7 +26,7 @@ L’authentification multifacteur est disponible par défaut pour les administra
 Il sera en revanche nécessaire si vous souhaitez télécharger le Kit de développement logiciel (SDK).
 
 > [AZURE.IMPORTANT]  Si vous souhaitez télécharger le Kit de développement logiciel (SDK), vous devrez créer un fournisseur d’authentification multifacteur Azure, même si vous disposez de licences EMS, AAD Premium ou Azure MFA. Si vous créez un fournisseur d’authentification multifacteur Azure à cet effet et que vous possédez déjà des licences, vous devez créer le fournisseur à l’aide du modèle **Par utilisateur activé** et lier le fournisseur au répertoire qui contient les licences EMS, Azure AD Premium ou Azure MFA. Cela garantit que vous ne serez pas facturé à moins d’avoir plus d’utilisateurs uniques utilisant le Kit de développement logiciel (SDK) que de licences possédées.
- 
+
 Suivez les étapes ci-dessous pour créer un fournisseur Azure Multi-Factor Auth.
 
 ## Pour créer un fournisseur Multi-Factor Auth
@@ -49,4 +49,4 @@ Suivez les étapes ci-dessous pour créer un fournisseur Azure Multi-Factor Auth
 		- Azure AD Connect, AAD Sync ou DirSync ne sont nécessaires que si vous synchronisez votre environnement Active Directory local avec un annuaire Azure AD. Si vous utilisez uniquement un annuaire Azure AD non synchronisé, la synchronisation n’est pas requise. ![Création d’un fournisseur d’authentification Multifacteur](./media/multi-factor-authentication-get-started-auth-provider/authprovider5.png)
 5. Une fois que vous cliquez sur Créer, le fournisseur Multi-Factor Authentication est créé et vous devriez voir un message indiquant : **Le fournisseur Multi-Factor Authentication a été créé correctement**. Cliquez sur **OK**. ![Création d’un fournisseur d’authentification Multifacteur](./media/multi-factor-authentication-get-started-auth-provider/authprovider6.png)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -14,8 +14,8 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/02/2016"
-   ms.author="narayanannamalai"/>
+   ms.date="09/14/2016"
+   ms.author="narayanannamalai;annahar"/>
 
 # Créer une homologation de réseaux virtuels à l’aide de modèles Resource Manager
 
@@ -27,9 +27,9 @@
 
 Pour créer une homologation de réseaux virtuels à l’aide de modèles Resource Manager, suivez les étapes ci-dessous :
 
-1. Si vous n’avez jamais utilisé Azure PowerShell, voir [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md) et suivre les instructions jusqu’à la fin pour vous connecter à Azure et sélectionner votre abonnement.
+1. Si vous n’avez jamais utilisé Azure PowerShell, consultez [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md) et suivez les instructions jusqu’à la fin pour vous connecter à Azure et sélectionner votre abonnement.
 
-    Remarque : L’applet de commande PowerShell pour la gestion de l’homologation de réseaux virtuels est fournie avec [Azure PowerShell 1.6](http://www.powershellgallery.com/packages/Azure/1.6.0).
+    > [AZURE.NOTE] L’applet de commande PowerShell pour la gestion de l’homologation de réseaux virtuels est fournie avec [Azure PowerShell 1.6](http://www.powershellgallery.com/packages/Azure/1.6.0).
 
 2. Le texte ci-dessous illustre la définition d’un lien d’homologation de réseaux virtuels de VNet1 à VNet2, d’après le scénario ci-dessus. Copiez le contenu ci-dessous et enregistrez-le dans un fichier nommé VNetPeeringVNet1.json.
 
@@ -58,7 +58,7 @@ Pour créer une homologation de réseaux virtuels à l’aide de modèles Resour
             }
         ]
         }
-    
+
 3. La section ci-dessous illustre la définition d’un lien d’homologation de réseaux virtuels de VNet2 à VNet1, d’après le scénario ci-dessus. Copiez le contenu ci-dessous et enregistrez-le dans un fichier nommé VNetPeeringVNet2.json.
 
         {
@@ -178,7 +178,7 @@ Pour créer une homologation de réseaux virtuels entre différents abonnements,
         New-AzureRmResourceGroupDeployment -ResourceGroupName VNet101 -TemplateFile .\VNetPeeringVNet3.json -DeploymentDebugLogLevel all
 
     Voici comment le fichier JSON est défini :
-    
+
         {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
         "contentVersion": "1.0.0.0",
@@ -204,11 +204,11 @@ Pour créer une homologation de réseaux virtuels entre différents abonnements,
             }
         ]
         }
-   
+
 4. Dans la session de connexion de l’utilisateur UserB, exécutez l’applet de commande suivante :
 
         New-AzureRmResourceGroupDeployment -ResourceGroupName VNet101 -TemplateFile .\VNetPeeringVNet5.json -DeploymentDebugLogLevel all
-   
+
 	Voici comment le fichier JSON est défini :
 
         {
@@ -236,7 +236,7 @@ Pour créer une homologation de réseaux virtuels entre différents abonnements,
             }
         ]
         }
- 
+
  	Une fois l’homologation créée dans ce scénario, vous devez être en mesure d’établir des connexions de n’importe quelle machine virtuelle à n’importe quelle machine virtuelle des deux réseaux virtuels entre différents abonnements.
 
 [AZURE.INCLUDE [virtual-networks-create-vnet-scenario-transit-include](../../includes/virtual-networks-create-vnetpeering-scenario-transit-include.md)]
@@ -303,4 +303,57 @@ Pour créer une homologation de réseaux virtuels entre différents abonnements,
 
 3. Une fois l’homologation établie, vous pouvez vous reporter à [cet article](virtual-network-create-udr-arm-ps.md) pour créer des itinéraires définis par l’utilisateur (UDR) afin de rediriger le trafic du réseau virtuel VNET1 via une appliance virtuelle et d’utiliser ses fonctionnalités. Lorsque vous spécifiez l’adresse du tronçon suivant dans l’itinéraire, vous pouvez la définir sur l’adresse IP de l’appliance virtuelle du réseau virtuel homologue HubVNet.
 
-<!---HONumber=AcomDC_0810_2016-->
+[AZURE.INCLUDE [virtual-networks-create-vnet-scenario-asmtoarm-include](../../includes/virtual-networks-create-vnetpeering-scenario-asmtoarm-include.md)]
+
+Pour créer une homologation entre des réseaux virtuels utilisant des modèles de déploiement différents, procédez comme suit :
+1. Le texte ci-dessous illustre la définition d’un lien d’homologation de réseaux virtuels de VNET1 à VNET2 dans ce scénario. Un seul lien est requis pour homologuer un réseau virtuel Classic à un réseau virtuel Azure Resource Manager.
+
+    Veillez à placer dans votre ID d’abonnement dans l’emplacement du réseau virtuel Classic, ou VNET2, et à remplacer MyResouceGroup par le nom du groupe de ressources approprié.
+
+    { "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#", "contentVersion": "1.0.0.0", "parameters": { }, "variables": { }, "resources": [ { "apiVersion": "2016-06-01", "type": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings", "name": "VNET1/LinkToVNET2", "location": "[resourceGroup().location]", "properties": { "allowVirtualNetworkAccess": true, "allowForwardedTraffic": false, "allowGatewayTransit": false, "useRemoteGateways": false, "remoteVirtualNetwork": { "id": "[resourceId(’Microsoft.ClassicNetwork/virtualNetworks’, ’VNET2’)]" } } } ] }
+
+2. Pour déployer le fichier de modèle, exécutez l’applet de commande suivante afin de créer ou de mettre à jour le déploiement.
+
+        New-AzureRmResourceGroupDeployment -ResourceGroupName MyResourceGroup -TemplateFile .\VnetPeering.json -DeploymentDebugLogLevel all
+
+        Output shows:
+
+        DeploymentName          : VnetPeering
+        ResourceGroupName       : MyResourceGroup
+        ProvisioningState       : Succeeded
+        Timestamp               : XX/XX/YYYY 5:42:33 PM
+        Mode                    : Incremental
+        TemplateLink            :
+        Parameters              :
+        Outputs                 :
+        DeploymentDebugLogLevel : RequestContent, ResponseContent
+
+3. Une fois le déploiement réussi, vous pouvez exécuter l’applet de commande suivante pour afficher l’état de l’homologation :
+
+        Get-AzureRmVirtualNetworkPeering -VirtualNetworkName VNET1 -ResourceGroupName MyResourceGroup -Name LinkToVNET2
+
+        Output shows:
+
+        Name                             : LinkToVNET2
+        Id                               : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/MyResource
+                                   Group/providers/Microsoft.Network/virtualNetworks/VNET1/virtualNetworkPeering
+                                   s/LinkToVNET2
+        Etag                             : W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+        ResourceGroupName                : MyResourceGroup
+        VirtualNetworkName               : VNET1
+        PeeringState                     : Connected
+        ProvisioningState                : Succeeded
+        RemoteVirtualNetwork             : {
+                                     "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/M
+                                   yResourceGroup/providers/Microsoft.ClassicNetwork/virtualNetworks/VNET2"
+                                   }
+        AllowVirtualNetworkAccess        : True
+        AllowForwardedTraffic            : False
+        AllowGatewayTransit              : False
+        UseRemoteGateways                : False
+        RemoteGateways                   : null
+        RemoteVirtualNetworkAddressSpace : null
+
+Lorsque l’homologation est établie entre un réseau virtuel Classic et un réseau virtuel Resource Manager, vous devez être en mesure d’établir des connexions de n’importe quelle machine virtuelle de VNET1 à n’importe quelle machine virtuelle de VNET2, et inversement.
+
+<!---HONumber=AcomDC_0921_2016-->

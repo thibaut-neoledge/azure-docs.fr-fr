@@ -20,10 +20,9 @@
 # Création d’un réseau virtuel avec une connexion de site à site à l’aide du portail Azure Classic
 
 > [AZURE.SELECTOR]
-- [Portail Azure](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
-- [Portail Azure Classic](vpn-gateway-site-to-site-create.md)
-- [PowerShell - Resource Manager](vpn-gateway-create-site-to-site-rm-powershell.md)
-
+- [Resource Manager - Portail Azure](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+- [Resource Manager - PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
+- [Classic - Portail Classic](vpn-gateway-site-to-site-create.md)
 
 Cet article vous guide lors de la création d’un réseau virtuel et d’une connexion VPN de site à site à votre réseau local, à l’aide du **modèle de déploiement Classic** et du portail Classic. Les connexions site à site peuvent être utilisées pour les configurations hybrides et entre les différents locaux. Pour le moment, il n’est pas possible de créer une configuration site à site de bout en bout pour le modèle de déploiement classique à l’aide du portail Azure.
 
@@ -55,11 +54,11 @@ Vérifiez que vous disposez des éléments suivants avant de commencer la config
 
 2. Dans le coin inférieur gauche de l’écran, cliquez sur **Nouveau**. Dans le volet de navigation, cliquez sur **Services réseau**, puis sur **Réseau virtuel**. Cliquez sur **Custom Create** pour démarrer l'Assistant Configuration.
 
-3. Pour créer votre réseau virtuel, fournissez les informations dans les pages suivantes.
+3. Pour créer votre réseau virtuel, entrez vos paramètres de configuration dans les pages suivantes :
 
 ## Détails du réseau virtuel
 
-Entrez les informations ci-après.
+Entrez les informations suivantes :
 
 - **Nom** : nommez votre réseau virtuel. Par exemple, *NordFranceVNet*. Sachant que vous utiliserez ce nom de réseau virtuel au moment de déployer vos machines virtuelles et vos instances PaaS, vous préféreriez probablement avoir un nom qui n’est pas trop compliqué.
 - **Emplacement** : l’emplacement est directement associé à l’emplacement physique (région) où vous souhaitez que vos ressources (machines virtuelles) résident. Par exemple, si les machines virtuelles que vous déployez dans ce réseau virtuel doivent être situées physiquement dans le *nord de la France*, sélectionnez cet emplacement. Après avoir créé votre réseau virtuel, vous ne pourrez plus modifier la région qui lui est associée.
@@ -76,7 +75,7 @@ Saisissez les informations ci-dessous, puis cliquez sur la flèche Suivant situ�
 
 Si vous créez un nouveau réseau local, vous verrez la page **Connectivité site à site**. Si vous souhaitez utiliser un réseau local que vous avez précédemment créé, cette page n'apparaîtra pas dans l'Assistant ; vous pouvez alors passer à la section suivante.
 
-Saisissez les informations ci-dessous puis cliquez sur la flèche Suivant.
+Entrez les informations ci-dessous, puis cliquez sur la flèche Suivant.
 
 - 	**Nom** : nom que vous souhaitez donner à votre site de réseau local.
 - 	**Adresse IP du périphérique VPN** : adresse IPv4 publique de votre appareil VPN local que vous utilisez pour vous connecter à Azure. Le périphérique VPN ne peut pas se trouver derrière un traducteur d'adresses réseau.
@@ -107,4 +106,4 @@ Configurez la passerelle du réseau virtuel pour créer une connexion de site à
 
 Une fois la connexion achevée, vous pouvez ajouter des machines virtuelles à vos réseaux virtuels. Pour plus d’informations, consultez la documentation relative aux [machines virtuelles](https://azure.microsoft.com/documentation/services/virtual-machines/).
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0921_2016-->

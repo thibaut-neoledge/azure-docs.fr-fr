@@ -3,7 +3,7 @@
 	description="Ce didacticiel vous guide tout au long des étapes de création d’un canal qui reçoit un flux en temps réel à vitesse de transmission unique et qui l’encode en flux à vitesses de transmission multiples à l’aide du portail Azure." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako,anilmur" 
+	authors="anilmur" 
 	manager="erikre" 
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="get-started-article"
 	ms.date="09/06/2016"
-	ms.author="juliako"/>
+	ms.author="juliako;juliako"/>
 
 
 #Comment effectuer une diffusion de vidéo en flux continu à l’aide d’Azure Media Services pour créer des flux multidébit avec le portail Azure
@@ -183,7 +183,7 @@ Il existe deux façons de démarrer un événement :
 	
 	![createprogram](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-program.png)
 	
-	Si vous avez laissé la case **Publier cet événement maintenant** cochée, l’événement de publication des URL est créé.
+	Si vous avez laissé la case **Publier cet événement en direct maintenant** cochée, l’événement de publication des URL est créé.
 	
 	Vous pouvez appuyer sur **Démarrer** chaque fois que vous êtes prêt à diffuser l’événement.
 
@@ -240,4 +240,4 @@ Consultez les parcours d’apprentissage de Media Services.
 
  
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0921_2016-->

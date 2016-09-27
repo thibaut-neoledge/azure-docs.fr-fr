@@ -62,7 +62,7 @@ Pour choisir un niveau de service, commencez par déterminer si la base de donn�
 
 Pour choisir un niveau de service pour une base de données autonome, commencez par déterminer les caractéristiques de base de données dont vous avez besoin afin de savoir pour quelle édition du service Base de données SQL opter :
 
-- Taille de la base de données (5 Go maximum pour l’édition De base, 250 Go maximum pour l’édition Standard et 500 Go à 1 To pour l’édition Premium, selon le niveau de performances)
+- Taille de la base de données (2 Go maximum pour l’édition De base, 250 Go maximum pour l’édition Standard et 500 Go à 1 To pour l’édition Premium, selon le niveau de performances)
 - Période de rétention des sauvegardes de base de données (7 jours pour l’édition De base, 35 jours pour l’édition Standard et 35 jours pour l’édition Premium)
 
 Une fois que vous avez choisi l’édition du service Base de données SQL, vous êtes prêt à déterminer le niveau de performances (nombre de DTU) requis pour la base de données. Vous pouvez l’évaluer grossièrement, puis [augmenter ou réduire dynamiquement l’échelle](sql-database-scale-up.md) en fonction de l’expérience réelle. Vous pouvez également utiliser l’outil [DTU Calculator](http://dtucalculator.azurewebsites.net/) pour estimer le nombre de DTU nécessaire.
@@ -88,4 +88,4 @@ Une fois que vous avez choisi le niveau de service pour votre pool, vous êtes p
 
 Pour plus d’informations sur les modèles d’architecture de données des applications de base de données de logiciels en tant que service (SaaS) mutualisés, consultez [Modèles de conception pour les applications SaaS mutualisées avec Base de données SQL Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md).
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

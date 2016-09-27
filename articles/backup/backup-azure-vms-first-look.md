@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="07/29/2016"
+	ms.date="09/15/2016"
 	ms.author="markgal; jimpark"/>
 
 
 # Découverte : sauvegarde des machines virtuelles Azure
 
 > [AZURE.SELECTOR]
-- [Découverte : Protéger les machines virtuelles avec un coffre Recovery Services](backup-azure-vms-first-look-arm.md)
-- [Découverte : Protéger les machines virtuelles Azure avec un coffre de sauvegarde](backup-azure-vms-first-look.md)
+- [Protéger les machines virtuelles avec un coffre Recovery Services](backup-azure-vms-first-look-arm.md)
+- [Protéger les machines virtuelles Azure avec un coffre de sauvegarde](backup-azure-vms-first-look.md)
 
 Ce didacticiel vous accompagne tout au long de la procédure de sauvegarde d’une machine virtuelle Azure vers un archivage de sauvegarde dans Azure. Cet article décrit le modèle Classic ou le modèle de déploiement Service Manager, pour la sauvegarde des machines virtuelles. Si vous souhaitez sauvegarder une machine virtuelle dans un coffre Recovery Services qui appartient à un groupe de ressources, consultez l’article [Découverte : Protéger les machines virtuelles avec un coffre Recovery Services](backup-azure-vms-first-look-arm.md). Pour pouvoir suivre ce didacticiel, ces conditions préalables doivent être réunies :
 
@@ -213,4 +213,4 @@ Maintenant que vous êtes parvenu à sauvegarder une machine virtuelle, d’autr
 ## Des questions ?
 Si vous avez des questions ou si vous souhaitez que certaines fonctionnalités soient incluses, [envoyez-nous vos commentaires](http://aka.ms/azurebackup_feedback).
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0921_2016-->

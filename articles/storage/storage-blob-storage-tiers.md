@@ -3,8 +3,8 @@
     description="Niveaux de stockage d’objets blob Azure pour un stockage économique des données d’objet basé sur les modèles d’accès. Le niveau de stockage froid est optimisé pour les données moins fréquemment utilisées."
     services="storage"
     documentationCenter=""
-    authors="sribhat-msft"
-    manager=""
+    authors="michaelhauss"
+    manager="vamshik"
     editor="tysonn"/>
 
 <tags
@@ -13,8 +13,8 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="07/05/2016"
-    ms.author="sribhat"/>
+    ms.date="09/20/2016"
+    ms.author="mihauss;robinsh"/>
 
 
 # Stockage des objets blob Azure : niveaux de stockage chauds et froids
@@ -340,4 +340,4 @@ Pour plus d’informations, voir [Prise en main du stockage d’objets blob Azur
 
 [Parcourez et explorez vos comptes de stockage](http://storageexplorer.com/)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0921_2016-->

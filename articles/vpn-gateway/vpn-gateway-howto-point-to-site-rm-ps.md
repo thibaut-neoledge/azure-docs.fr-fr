@@ -19,8 +19,8 @@
 # Configuration d’une connexion de point à site à un réseau virtuel à l’aide de PowerShell
 
 > [AZURE.SELECTOR]
-- [PowerShell - Resource Manager](vpn-gateway-howto-point-to-site-rm-ps.md)
-- [Portail - Azure Classic](vpn-gateway-point-to-site-create.md)
+- [Resource Manager - PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
+- [Classic - Portail Classic](vpn-gateway-point-to-site-create.md)
 
 Une configuration point à site (P2S) vous permet de connecter de manière sécurisée un ordinateur client individuel à un réseau virtuel. Une connexion P2S est utile lorsque vous souhaitez vous connecter à votre réseau virtuel à partir d’un site distant, comme depuis votre domicile ou une conférence ou lorsque seulement quelques clients doivent se connecter à un réseau virtuel.
 
@@ -53,7 +53,7 @@ Pour cette configuration, nous utilisons les valeurs suivantes. Nous avons défi
 - Nom du sous-réseau : **GatewaySubnet**, utilisant **192.168.200.0/24**. Le nom du sous-réseau *GatewaySubnet* est obligatoire pour que la passerelle fonctionne.
 - Pool d’adresses des clients VPN : **172.16.201.0/24**. Les clients VPN qui se connectent au réseau virtuel à l’aide de cette connexion de point à site reçoivent une adresse IP de ce pool.
 - Abonnement : Vérifiez que vous disposez de l'abonnement approprié si vous en possédez plusieurs.
-- Groupe de ressources : **TestRG**
+- Groupe de ressources : **TestRG**
 - Emplacement : **États-Unis de l’Est**
 - Serveur DNS : **Adresse IP** du serveur DNS que vous souhaitez utiliser pour la résolution de noms.
 - Nom de passerelle : **GW**
@@ -111,7 +111,7 @@ Dans cette section, vous vous connectez et déclarez les valeurs utilisées pour
 
 		New-AzureRmResourceGroup -Name $RG -Location $Location
 
-2. Créez les configurations de sous-réseau du réseau virtuel en les nommant *FrontEnd*, *BackEnd* et *GatewaySubnet*. Ces préfixes doivent faire partie de l’espace d’adressage du réseau virtuel déclaré ci-dessus.
+2. Créez les configurations de sous-réseau du réseau virtuel en les nommant *FrontEnd*, *BackEnd* et *GatewaySubnet*. Ces préfixes doivent faire partie de l’espace d’adressage du réseau virtuel que vous avez déclaré.
 
 		$fesub = New-AzureRmVirtualNetworkSubnetConfig -Name $FESubName -AddressPrefix $FESubPrefix
 		$besub = New-AzureRmVirtualNetworkSubnetConfig -Name $BESubName -AddressPrefix $BESubPrefix
@@ -172,7 +172,7 @@ Un certificat client et un package de configuration du client VPN doivent être 
 
 3. Effectuez un copier-coller du lien renvoyé dans un navigateur web pour télécharger le package. Installez ensuite le package sur l’ordinateur client.
 
-4. Sur l’ordinateur client, accédez à **Paramètres réseau**, puis cliquez sur **VPN**. La connexion apparaît dans la liste. Le nom du réseau virtuel auquel il se connectera s’affiche, sous une forme du type :
+4. Sur l’ordinateur client, accédez à **Paramètres réseau**, puis cliquez sur **VPN**. La connexion apparaît dans la liste. Le nom du réseau virtuel auquel il se connectera s’affiche, sous une forme semblable à cet exemple :
 
 	![Client VPN](./media/vpn-gateway-howto-point-to-site-rm-ps/vpn.png "Client VPN")
 
@@ -190,7 +190,7 @@ Installez un certificat client sur chaque ordinateur que vous souhaitez connecte
 
 1. Pour exporter un certificat client, vous pouvez utiliser *certmgr.msc*. Cliquez avec le bouton droit sur le certificat client à exporter, cliquez sur **Toutes les tâches**, puis cliquez sur **Exporter**.
 2. Exportez le certificat client avec la clé privée. Il s’agit d’un fichier *.pfx*. Prenez soin d’enregistrer ou de mémoriser le mot de passe (clé) que vous définissez pour ce certificat.
-3. Copiez le fichier *.pfx* sur l’ordinateur client. Sur l’ordinateur client, double-cliquez sur le fichier *.pfx* pour l’installer. Entrez le mot de passe lorsque vous y êtes invité. Ne modifiez pas l’emplacement d’installation.
+3. Copiez le fichier *.pfx* sur l’ordinateur client. Sur l’ordinateur client, double-cliquez sur le fichier *.pfx* pour l’installer. Entrez le mot de passe lorsque vous y êtes invité. Ne modifiez pas l’emplacement d’installation.
 
 
 ## Partie 8 - Connexion à Azure
@@ -226,7 +226,7 @@ Installez un certificat client sur chaque ordinateur que vous souhaitez connecte
 
 Les certificats sont utilisés pour authentifier les clients VPN pour les VPN point à site. La procédure suivante vous guide dans l’ajout et la suppression des certificats racine. Lorsque vous ajoutez un fichier codé en Base64 X.509 (.cer) pour Azure, vous indiquez à Azure de faire confiance au certificat racine que le fichier représente.
 
-Vous pouvez ajouter ou supprimer des certificats racine approuvés à l’aide de PowerShell ou dans le portail Azure. Si vous souhaitez utiliser le portail Azure, accédez à votre **passerelle de réseau virtuel, puis sélectionnez Paramètres, Configuration de point à site, et enfin Certificats racine**. Les étapes ci-dessous vous guideront pour effectuer ces tâches à l’aide de PowerShell.
+Vous pouvez ajouter ou supprimer des certificats racine approuvés à l’aide de PowerShell ou dans le portail Azure. Si vous souhaitez utiliser le portail Azure, accédez à votre **passerelle de réseau virtuel, puis sélectionnez Paramètres, Configuration de point à site, et enfin Certificats racine**. Les étapes suivantes vous guideront pour effectuer ces tâches à l’aide de PowerShell.
 
 ### Ajout ou suppression d’un certificat racine approuvé
 
@@ -234,11 +234,11 @@ Vous pouvez ajouter jusqu’à 20 fichiers .cer de certificat racine approuvés 
 
 1. Créez et préparez le nouveau certificat racine que vous allez ajouter à Azure. Exportez la clé publique en tant que fichier X.509 codé en Base64 (.CER) et ouvrez-la dans un éditeur de texte. Copiez ensuite uniquement la section ci-dessous.
  
-	Copiez les valeurs comme indiqué dans l’exemple suivant.
+	Copiez les valeurs, comme illustré dans l’exemple suivant :
 
 	![certificat](./media/vpn-gateway-howto-point-to-site-rm-ps/copycert.png "certificat")
 	
-2. Dans l’exemple ci-dessous, indiquez le nom du certificat et les informations clés en tant que variable. Remplacez les informations par les vôtres.
+2. Indiquez le nom du certificat et les informations clés en tant que variable. Remplacez les informations par les vôtres, comme illustré dans l’exemple suivant :
 
 		$P2SRootCertName2 = "ARMP2SRootCert2.cer"
 		$MyP2SCertPubKeyBase64_2 = "MIIC/zCCAeugAwIBAgIQKazxzFjMkp9JRiX+tkTfSzAJBgUrDgMCHQUAMBgxFjAUBgNVBAMTDU15UDJTUm9vdENlcnQwHhcNMTUxMjE5MDI1MTIxWhcNMzkxMjMxMjM1OTU5WjAYMRYwFAYDVQQDEw1NeVAyU1Jvb3RDZXJ0MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAyjIXoWy8xE/GF1OSIvUaA0bxBjZ1PJfcXkMWsHPzvhWc2esOKrVQtgFgDz4ggAnOUFEkFaszjiHdnXv3mjzE2SpmAVIZPf2/yPWqkoHwkmrp6BpOvNVOpKxaGPOuK8+dql1xcL0eCkt69g4lxy0FGRFkBcSIgVTViS9wjuuS7LPo5+OXgyFkAY3pSDiMzQCkRGNFgw5WGMHRDAiruDQF1ciLNojAQCsDdLnI3pDYsvRW73HZEhmOqRRnJQe6VekvBYKLvnKaxUTKhFIYwuymHBB96nMFdRUKCZIiWRIy8Hc8+sQEsAML2EItAjQv4+fqgYiFdSWqnQCPf/7IZbotgQIDAQABo00wSzBJBgNVHQEEQjBAgBAkuVrWvFsCJAdK5pb/eoCNoRowGDEWMBQGA1UEAxMNTXlQMlNSb290Q2VydIIQKazxzFjMkp9JRiX+tkTfSzAJBgUrDgMCHQUAA4IBAQA223veAZEIar9N12ubNH2+HwZASNzDVNqspkPKD97TXfKHlPlIcS43TaYkTz38eVrwI6E0yDk4jAuPaKnPuPYFRj9w540SvY6PdOUwDoEqpIcAVp+b4VYwxPL6oyEQ8wnOYuoAK1hhh20lCbo8h9mMy9ofU+RP6HJ7lTqupLfXdID/XevI8tW6Dm+C/wCeV3EmIlO9KUoblD/e24zlo3YzOtbyXwTIh34T0fO/zQvUuBqZMcIPfM1cDvqcqiEFLWvWKoAnxbzckye2uk1gHO52d8AVL3mGiX8wBJkjc/pMdxrEvvCzJkltBmqxTM6XjDJALuVh16qFlqgTWCIcb7ju"
@@ -311,4 +311,4 @@ Vous pouvez réactiver un certificat client en supprimant l'empreinte numérique
 
 Vous pouvez ajouter une machine virtuelle à votre réseau virtuel. Consultez [Création d’une machine virtuelle](../virtual-machines/virtual-machines-windows-hero-tutorial.md) pour connaître les différentes étapes.
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0921_2016-->

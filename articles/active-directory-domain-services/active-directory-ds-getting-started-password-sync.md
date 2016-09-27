@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/08/2016"
+	ms.date="09/20/2016"
 	ms.author="maheshu"/>
 
-# Services de domaine Azure AD *(Version préliminaire)* : Activer la synchronisation du mot de passe pour les services de domaine Azure AD
+# Activer la synchronisation de mot de passe pour les services de domaine Azure AD
 Dans les tâches précédentes, vous avez activé Services de domaine Azure AD pour votre client Azure AD. Dans la tâche suivante, vous allez activer les hachages d’informations d’identification pour que l’authentification NTLM et Kerberos se synchronise avec Services de domaine Azure AD. Une fois la synchronisation des informations d’identification configurée, les utilisateurs peuvent se connecter au domaine géré à l’aide des informations d’identification d’entreprise.
 
 Les étapes sont différentes selon que votre organisation a un client Azure AD uniquement dans le cloud ou est paramétrée de manière à se synchroniser avec votre annuaire local à l’aide d’Azure AD Connect.
@@ -61,11 +61,11 @@ Une fois que vous avez modifié votre mot de passe, le nouveau mot de passe est 
 
 ## Contenu connexe
 
-- [Activer la synchronisation de mot de passe pour les services de domaine AAD pour un client Azure AD synchronisé](active-directory-ds-getting-started-password-sync-synced-tenant.md)
-
 - [Comment mettre à jour votre mot de passe](../active-directory/active-directory-passwords-update-your-own-password.md)
 
 - [Prise en main de la gestion de mot de passe dans Azure AD](../active-directory/active-directory-passwords-getting-started.md).
+
+- [Activer la synchronisation de mot de passe pour les services de domaine AAD pour un client Azure AD synchronisé](active-directory-ds-getting-started-password-sync-synced-tenant.md)
 
 - [Administrer un domaine géré par les services de domaine Azure Active Directory](active-directory-ds-admin-guide-administer-domain.md)
 
@@ -73,4 +73,4 @@ Une fois que vous avez modifié votre mot de passe, le nouveau mot de passe est 
 
 - [Joindre une machine virtuelle Linux Red Hat Enterprise à un domaine géré par les services de domaine Azure AD](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

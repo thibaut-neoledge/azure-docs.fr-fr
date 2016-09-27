@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="07/23/2016"
-	ms.author="tamram"/>
+	ms.date="09/20/2016"
+	ms.author="gusapost;tamram"/>
 
 
 # Prise en main du stockage de tables Azure à l’aide de .NET
@@ -57,7 +57,7 @@ Pour obtenir des exemples supplémentaires utilisant Table Storage, voir [Gettin
 
 Ajoutez les instructions `using` suivantes au début du fichier `program.cs` :
 
-	using Microsoft.Azure; // Namespace for CloudConfigurationManager 
+	using Microsoft.Azure; // Namespace for CloudConfigurationManager
 	using Microsoft.WindowsAzure.Storage; // Namespace for CloudStorageAccount
     using Microsoft.WindowsAzure.Storage.Table; // Namespace for Table storage types
 
@@ -74,26 +74,26 @@ La classe **CloudTableClient** vous permet de récupérer des tables et entités
 
 Vous êtes maintenant prêt à écrire du code qui lit et écrit des données dans Table Storage.
 
-## Création d'une table
+## Création d’une table
 
 Cet exemple montre comment créer une table, si elle n’existe pas encore :
 
 	// Retrieve the storage account from the connection string.
 	CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
 	    CloudConfigurationManager.GetSetting("StorageConnectionString"));
-	
+
 	// Create the table client.
 	CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 
 	// Retrieve a reference to the table.
     CloudTable table = tableClient.GetTableReference("people");
-		
+
     // Create the table if it doesn't exist.
     table.CreateIfNotExists();
 
-## Ajout d'une entité à une table
+## Ajout d’une entité à une table
 
-Les entités mappent vers les objets C# en utilisant une classe personnalisée dérivée d’une **TableEntity**. Pour ajouter une entité à une table, créez une classe définissant les propriétés de votre entité. Le code suivant définit une classe d’entité utilisant le prénom du client en tant que clé de ligne et son nom de famille en tant que clé de partition. Ensemble, les clés de partition et de ligne d'une entité identifient l'entité de façon unique dans la table. Les requêtes d’entités dont les clés de partition sont identiques sont plus rapides que celles d’entités dont les clés de partition sont différentes, mais le fait d’utiliser différentes clés de partition améliore l’extensibilité des opérations parallèles. Si une propriété doit être stockée dans le service de Table, il doit s’agir d’une propriété publique d’un type pris en charge qui expose à la fois `get` et `set`. De plus, votre type d’entité *doit* exposer un constructeur sans paramètre.
+Les entités mappent vers les objets C# en utilisant une classe personnalisée dérivée d’une **TableEntity**. Pour ajouter une entité à une table, créez une classe définissant les propriétés de votre entité. Le code suivant définit une classe d’entité utilisant le prénom du client en tant que clé de ligne et son nom de famille en tant que clé de partition. Ensemble, les clés de partition et de ligne d’une entité identifient l’entité de façon unique dans la table. Les requêtes d’entités dont les clés de partition sont identiques sont plus rapides que celles d’entités dont les clés de partition sont différentes, mais le fait d’utiliser différentes clés de partition améliore l’extensibilité des opérations parallèles. Si une propriété doit être stockée dans le service de Table, il doit s’agir d’une propriété publique d’un type pris en charge qui expose à la fois `get` et `set`. De plus, votre type d’entité *doit* exposer un constructeur sans paramètre.
 
     public class CustomerEntity : TableEntity
     {
@@ -133,13 +133,13 @@ Les opérations de table qui impliquent des entités sont effectuées par le bia
     // Execute the insert operation.
     table.Execute(insertOperation);
 
-## Insertion d'un lot d'entités
+## Insertion d’un lot d’entités
 
 Vous pouvez insérer un lot d'entités dans une table en une seule opération d'écriture. Autres remarques sur les opérations par lot :
 
 -  Vous pouvez effectuer des mises à jour, des suppressions et des insertions dans la même opération par lot.
 -  Une seule opération par lot peut inclure jusqu’à 100 entités.
--  Toutes les entités d’une opération par lot doivent avoir la même clé de partition.
+-  Toutes les entités d'une opération par lot doivent avoir la même clé de partition.
 -  Même s'il est possible d'exécuter une requête en tant qu'opération par lot, il doit s'agir de la seule opération du lot.
 
 <!-- -->
@@ -199,7 +199,7 @@ Pour exécuter une requête de table pour toutes les entités d’une partition,
             entity.Email, entity.PhoneNumber);
     }
 
-## Extraction d'un ensemble d'entités dans une partition
+## Extraction d’un ensemble d’entités dans une partition
 
 Si vous ne voulez pas exécuter une requête pour toutes les entités d'une partition, vous pouvez spécifier un ensemble en combinant le filtre de clé de partition avec un filtre de clé de ligne. L’exemple de code suivant utilise deux filtres pour obtenir toutes les entités dans la partition « Smith » où la clé de ligne (prénom) commence par une lettre située avant la lettre « E » dans l’ordre alphabétique, puis imprime les résultats de la requête.
 
@@ -229,7 +229,7 @@ Si vous ne voulez pas exécuter une requête pour toutes les entités d'une part
 
 ## Extraction d'une seule entité
 
-Vous pouvez écrire une requête pour extraire une seule entité. Le code suivant utilise **TableOperation** pour spécifier le client « Ben Smith ». Cette méthode renvoie une seule entité (et non une collection). De plus, la valeur renvoyée dans **TableResult.Result** est un objet **CustomerEntity**. La méthode la plus rapide pour extraire une seule entité dans le service de table consiste à spécifier une clé de partition et une clé de ligne.
+Vous pouvez écrire une requête pour extraire une seule entité. Le code suivant utilise **TableOperation** pour spécifier le client « Ben Smith ». Cette méthode renvoie une seule entité (et non une collection). De plus, la valeur renvoyée dans **TableResult.Result** est un objet **CustomerEntity**. La méthode la plus rapide pour extraire une seule entité dans le service de Table consiste à spécifier une clé de partition et une clé de ligne.
 
     // Retrieve the storage account from the connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -253,7 +253,7 @@ Vous pouvez écrire une requête pour extraire une seule entité. Le code suivan
 	else
 	   Console.WriteLine("The phone number could not be retrieved.");
 
-## Remplacement d'une entité
+## Remplacement d’une entité
 
 Pour mettre à jour une entité, récupérez-la du service de Table, modifiez l’objet d’entité, puis enregistrez les modifications dans le service de Table. Le code suivant modifie le numéro de téléphone d'un client existant. Au lieu d’appeler la méthode **Insert**, ce code utilise la méthode **Replace**. Ceci entraîne le remplacement complet de l’entité sur le serveur, sauf si cette dernière a été modifiée depuis sa récupération, auquel cas l’opération échoue. Cet échec survient pour empêcher votre application de remplacer par erreur une modification apportée entre la récupération et la mise à jour par un autre composant de votre application. Pour gérer correctement cet échec, vous devez récupérer de nouveau l’entité, apporter vos modifications (si elles sont toujours valides), puis effectuer une autre opération **Replace**. La prochaine section vous apprendra à remplacer ce comportement.
 
@@ -333,7 +333,7 @@ Les opérations **Replace** échouent si l’entité est modifiée depuis sa ré
 	else
 	   Console.WriteLine("Entity could not be retrieved.");
 
-## Interrogation d'un sous-ensemble de propriétés d'entité
+## Interrogation d’un sous-ensemble de propriétés d’entité
 
 Vous pouvez utiliser une requête de table pour récupérer uniquement quelques propriétés au lieu de l’intégralité des propriétés de l’entité. Cette technique, nommée « projection », réduit la consommation de bande passante et peut améliorer les performances des requêtes, notamment pour les entités volumineuses. La requête contenue dans le code suivant renvoie uniquement les adresses de messagerie électronique des entités dans la table. Pour ce faire, nous utilisons une requête **DynamicTableEntity**, ainsi qu’**EntityResolver**. Pour plus d’informations sur la projection, consultez le billet de blog [Introducing Upsert and Query Projection][]. Notez que la projection n’est pas prise en charge sur l’émulateur de stockage local : ce code ne s’exécute donc que si vous utilisez un compte sur le service de Table.
 
@@ -358,7 +358,7 @@ Vous pouvez utiliser une requête de table pour récupérer uniquement quelques 
         Console.WriteLine(projectedEmail);
     }
 
-## Suppression d'une entité
+## Suppression d’une entité
 
 Il est facile de supprimer une entité après l’avoir récupérée. Il suffit pour cela d’utiliser la procédure suivie pour la mise à jour d’une entité. Le code suivant extrait et supprime une entité de client.
 
@@ -395,7 +395,7 @@ Il est facile de supprimer une entité après l’avoir récupérée. Il suffit 
 	else
 	   Console.WriteLine("Could not retrieve the entity.");
 
-## Suppression d'une table
+## Suppression d’une table
 
 Pour finir, l’exemple de code suivant supprime une table d’un compte de stockage. Une table supprimée ne peut plus être recréée pendant un certain temps.
 
@@ -447,7 +447,7 @@ Comme vous connaissez maintenant les bases du stockage des tables, vous pouvez c
     - [Référence de la bibliothèque cliente de stockage pour .NET](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
     - [Référence d’API REST](http://msdn.microsoft.com/library/azure/dd179355)
 - Découvrez comment simplifier le code que vous écrivez avec Azure Storage, à l’aide du [Kit de développement logiciel (SDK) Azure WebJobs](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md)
-- Pour plus d'informations sur les autres options de stockage de données dans Azure, consultez d'autres guides de fonctionnalités.
+- Pour plus d’informations sur les autres options de stockage de données dans Azure, consultez d’autres guides de fonctionnalités.
     - [Prise en main d’Azure Blob Storage à l’aide de .NET](storage-dotnet-how-to-use-blobs.md) pour le stockage de données non structurées.
     - [Utilisation d’une base de données SQL Azure dans des applications .NET](sql-database-dotnet-how-to-use.md) pour le stockage de données relationnelles.
 
@@ -469,4 +469,4 @@ Comme vous connaissez maintenant les bases du stockage des tables, vous pouvez c
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
   [How to: Programmatically access Table storage]: #tablestorage
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0921_2016-->

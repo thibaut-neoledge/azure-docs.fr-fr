@@ -13,7 +13,7 @@
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
 	ms.date="07/26/2016"
-	ms.author="minet" />
+	ms.author="minet;robinsh" />
 
 # Prise en main du stockage de fichiers Azure sur Windows
 
@@ -189,7 +189,7 @@ Depuis la version 0.9.7 d’Azure PowerShell, vous pouvez copier un fichier dan
     # copy a blob to a file directory
     Start-AzureStorageFileCopy -SrcContainerName srcctn -SrcBlobName hello2.txt -DestShareName hello -DestFilePath hellodir/hello2copy.txt -DestContext $ctx -Context $ctx
 
-## Montage du partage de fichiers 
+## Montage du partage de fichiers
 
 Avec la prise en charge de SMB 3.0, le stockage de fichiers prend désormais en charge le chiffrement et les handles persistants à partir de clients SMB 3.0. La prise en charge du chiffrement signifie que les clients SMB 3.0 peuvent monter un partage de fichiers à partir de n’importe quel emplacement, y compris :
 
@@ -200,7 +200,7 @@ Avec la prise en charge de SMB 3.0, le stockage de fichiers prend désormais en
 Lorsqu’un client accède au stockage de fichiers, la version de SMB utilisée dépend de la version de SMB prise en charge par le système d’exploitation. Le tableau ci-dessous récapitule les versions prises en charge par les différents clients Windows. Pour plus d’informations sur les [versions du protocole SMB](http://blogs.technet.com/b/josebda/archive/2013/10/02/windows-server-2012-r2-which-version-of-the-smb-protocol-smb-1-0-smb-2-0-smb-2-1-smb-3-0-or-smb-3-02-you-are-using.aspx), reportez-vous à ce blog.
 
 | Client Windows | Version de SMB prise en charge |
-|------------------------|-----------------------|
+|:-----------------------|:----------------------|
 | Windows 7 | SMB 2.1 |
 | Windows Server 2008 R2 | SMB 2.1 |
 | Windows 8 | SMB 3.0 |
@@ -247,7 +247,7 @@ Vous pouvez maintenant utiliser le partage de stockage de fichiers à partir de 
 
 Vous pouvez également monter le partage de fichiers à partir d’un rôle exécuté dans un service cloud Azure en vous connectant à distance à ce rôle.
 
-### Montage du partage de fichiers à partir d’un client local exécutant Windows 
+### Montage du partage de fichiers à partir d’un client local exécutant Windows
 
 Pour monter le partage de fichiers à partir d’un client local, vous devez d’abord suivre ces étapes :
 
@@ -589,13 +589,13 @@ Bien que les services Blob, Table et Queue Storage utilisent le type `ServicePro
 	Les SAP sont uniquement prises en charge via l’API REST ou les bibliothèques clientes. Lorsque vous montez le partage de fichiers via le protocole SMB, vous ne pouvez pas utiliser de SAP pour déléguer l’accès à son contenu.
 
 2. **Les partages de fichiers Azure sont-ils visibles publiquement sur Internet ou sont-ils seulement accessibles à partir d’Azure ?**
- 
+
 	Tant que le port 445 (TCP sortant) est ouvert et que votre client prend en charge le protocole SMB 3.0 (*par exemple*, Windows 8 ou Windows Server 2012), votre partage de fichiers est disponible via Internet.
 
 3. **Le trafic réseau entre une machine virtuelle Azure et un partage de fichiers est-il considéré comme de la bande passante externe qui est facturée dans le cadre de l’abonnement ?**
 
 	Si le partage de fichiers et la machine virtuelle se trouvent dans des régions différentes, le trafic entre eux sera facturé en tant que bande passante externe.
- 
+
 4. **Si le trafic réseau se fait entre une machine virtuelle et un partage de fichiers se trouvant dans la même région, est-il gratuit ?**
 
 	Oui. Le trafic est gratuit s’il concerne une même région.
@@ -607,7 +607,7 @@ Bien que les services Blob, Table et Queue Storage utilisent le type `ServicePro
 6. **Un « témoin de partage de fichiers » pour un cluster de basculement constitue-t-il un des cas d’utilisation du stockage de fichiers Azure ?**
 
 	Cela n’est pas pris en charge à l’heure actuelle.
- 
+
 7. **Le stockage de fichiers est répliqué uniquement via LRS ou GRS pour l’instant, n’est-ce pas ?**
 
 	Nous prévoyons de prendre en charge RA-GRS, mais nous n’avons pas encore de calendrier bien défini.
@@ -667,4 +667,4 @@ Pour plus d’informations sur le stockage de fichiers Azure, consultez ces lien
 - [Présentation de Microsoft Azure File Service](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [Conservation des connexions vers les fichiers Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

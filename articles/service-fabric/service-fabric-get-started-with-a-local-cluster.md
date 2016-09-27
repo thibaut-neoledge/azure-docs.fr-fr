@@ -13,8 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="06/10/2016"
-   ms.author="ryanwi"/>
+   ms.date="09/09/2016"
+   ms.author="ryanwi;mikhegn"/>
 
 # Prise en main avec le déploiement et la mise à niveau d’applications sur votre cluster local
 Le kit de développement logiciel Fabric Service comprend un environnement de développement local complet que vous pouvez utiliser pour rapidement maîtriser le déploiement et la gestion des applications sur un cluster local. Dans cet article, vous créez un cluster local, déployez une application existante, puis mettez à niveau cette application vers une nouvelle version, le tout à partir de Windows PowerShell.
@@ -193,11 +193,39 @@ Avant de conclure, il est important de se rappeler que le cluster local est rée
 
 3. Pour arrêter le cluster tout en conservant les données et les traces de l’application, cliquez sur **Arrêter le cluster local** dans l’application de zone de notification.
 
-4. Pour supprimer complètement le cluster, cliquez sur **Supprimer le cluster local** dans l’application de zone de notification. Notez que cette option se traduira par un autre déploiement lent la prochaine fois que vous appuierez sur F5 dans Visual Studio. Supprimez le cluster local uniquement si vous n’envisagez pas de l’utiliser pendant un certain temps, ou si vous avez besoin de libérer des ressources.
+4. Pour supprimer complètement le cluster, cliquez sur **Supprimer le cluster local** dans l’application de zone de notification. Cette option se traduira par un autre déploiement lent la prochaine fois que vous appuierez sur F5 dans Visual Studio. Supprimez le cluster local uniquement si vous n’envisagez pas de l’utiliser pendant un certain temps, ou si vous avez besoin de libérer des ressources.
+
+## Modes de cluster 1 nœud et 5 nœuds
+
+Lorsque vous travaillez avec le cluster local pour développer des applications, vous êtes souvent amené à effectuer des itérations rapides d’écriture de code, de débogage, de modification de code, etc.. Afin d’optimiser ce processus, le cluster local peut s’exécuter dans deux modes : 1 nœud ou 5 nœuds. Ces deux modes de cluster présentent chacun des avantages. Le mode de cluster 5 nœuds vous permet d’utiliser un cluster réel. Vous pouvez tester des scénarios de basculement, et travailler avec un plus grand nombre d’instances et de réplicas de vos services. Le mode de cluster 1 nœud est optimisé pour accélérer le déploiement et l’inscription des services, pour vous aider à valider rapidement le code à l’aide du runtime Service Fabric.
+
+Aucun de ces modes ne constitue un émulateur ou un simulateur. Il exécute le même code de plateforme que celui qu’on trouve sur les clusters comportant plusieurs ordinateurs.
+
+> [AZURE.NOTE] Cette fonctionnalité est disponible dans le Kit de développement logiciel (SDK) version 5.2 et ultérieure.
+
+Pour basculer le cluster sur le mode 1 nœud, utilisez le gestionnaire de cluster local Service Fabric ou utilisez PowerShell comme suit :
+
+1. Lancez une nouvelle fenêtre PowerShell en tant qu’administrateur.
+
+2. Exécutez le script de configuration de cluster à partir du dossier du kit de développement logiciel :
+
+	```powershell
+	& "$ENV:ProgramFiles\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1" -CreateOneNodeCluster
+	```
+
+    L’installation du cluster prend quelques instants. Une fois l’installation terminée, vous devriez obtenir un résultat similaire à ceci :
+    
+    ![Résultat de configuration du cluster][cluster-setup-success-1-node]
+
+Si vous utilisez le gestionnaire de cluster local Service Fabric :
+
+![Changer de mode de cluster][switch-cluster-mode]
+
+> [AZURE.WARNING] Lorsque vous changez de mode de cluster, le cluster actuel est supprimé de votre système et un nouveau cluster est créé. Les données stockées dans le cluster sont également supprimées.
 
 ## Étapes suivantes
 - Maintenant que vous avez déployé et mis à niveau certaines des applications pré intégrées, vous pouvez [Réessayer de générer les vôtres dans Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md).
-- Toutes les opérations effectuées sur le cluster local dans cet article sont également applicables à un [cluster Azure](service-fabric-cluster-creation-via-portal.md).
+- Dans cet article, toutes les opérations effectuées sur le cluster local sont également applicables à un [cluster Azure](service-fabric-cluster-creation-via-portal.md).
 - La mise à niveau exécutée dans cet article a été simple. Consultez la [documentation relative à la mise à niveau](service-fabric-application-upgrade.md) pour en savoir plus sur la puissance et la flexibilité des mises à niveau de Service Fabric.
 
 <!-- Images -->
@@ -217,5 +245,7 @@ Avant de conclure, il est important de se rappeler que le cluster local est rée
 [sfx-upgradeprogress]: ./media/service-fabric-get-started-with-a-local-cluster/SfxUpgradeOverview.png
 [sfx-service-overview]: ./media/service-fabric-get-started-with-a-local-cluster/sfx-service-overview.png
 [sfe-delete-application]: ./media/service-fabric-get-started-with-a-local-cluster/sfe-delete-application.png
+[cluster-setup-success-1-node]: ./media/service-fabric-get-started-with-a-local-cluster/cluster-setup-success-1-node.png
+[switch-cluster-mode]: ./media/service-fabric-get-started-with-a-local-cluster/switch-cluster-mode.png
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0921_2016-->

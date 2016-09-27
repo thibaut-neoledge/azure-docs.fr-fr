@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Intégration d'annuaires entre Azure Multi-Factor Authentication et Active Directory" 
-	description="Il s'agit de la page d'authentification multifacteur Azure qui décrit comment intégrer le serveur Azure Multi-Factor Authentication avec Active Directory afin de pouvoir synchroniser les annuaires." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
+	pageTitle="Intégration d'annuaires entre Azure Multi-Factor Authentication et Active Directory"
+	description="Il s'agit de la page d'authentification multifacteur Azure qui décrit comment intégrer le serveur Azure Multi-Factor Authentication avec Active Directory afin de pouvoir synchroniser les annuaires."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
 	editor="curtand"/>
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="08/04/2016" 
-	ms.author="billmath"/>
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="08/04/2016"
+	ms.author="kgremban"/>
 
 # Intégration d'annuaires entre le serveur Azure MFA et Active Directory
 
@@ -53,11 +53,11 @@ Les filtres vous permettent de définir des critères pour qualifier les enregis
 
 Azure Multi-Factor Authentication comporte les trois options suivantes.
 
-- **Filtre conteneur** : spécifiez les critères de filtre utilisés pour qualifier les enregistrements de conteneur lorsque vous effectuez une recherche dans l'annuaire. Pour Active Directory et ADAM, (|(objectClass=organizationalUnit)(objectClass=container)) est généralement utilisé. Pour d'autres annuaires LDAP, les critères de filtre qualifiant chaque type d'objet de conteneur doivent être utilisés en fonction du schéma de l'annuaire. <br>Remarque : si ce champ n'est pas renseigné, ((objectClass=organizationalUnit)(objectClass=container)) sera utilisé par défaut.
+- **Filtre conteneur** : spécifiez les critères de filtre utilisés pour qualifier les enregistrements de conteneur lorsque vous effectuez une recherche dans l'annuaire. Pour Active Directory et ADAM, (|(objectClass=organizationalUnit)(objectClass=container)) est généralement utilisé. Pour d'autres annuaires LDAP, les critères de filtre qualifiant chaque type d'objet de conteneur doivent être utilisés en fonction du schéma de l'annuaire. <br>Remarque : si ce champ n'est pas renseigné, ((objectClass=organizationalUnit)(objectClass=container)) sera utilisé par défaut.
 
-- **Filtre de groupes de sécurité** : spécifiez les critères de filtre utilisés pour qualifier les enregistrements de groupes de sécurité lorsque vous effectuez une recherche dans l'annuaire. Pour Active Directory et ADAM, (&(objectCategory=group)(groupType:1.2.840.113556.1.4.804:=-2147483648)) est généralement utilisé. Pour d'autres annuaires LDAP, les critères de filtre qualifiant chaque type d'objet de groupe de sécurité doivent être utilisés en fonction du schéma de l'annuaire. <br>Remarque : si ce champ n'est pas renseigné, (&(objectCategory=group)(groupType:1.2.840.113556.1.4.804:=-2147483648)) sera utilisé par défaut.
+- **Filtre de groupes de sécurité** : spécifiez les critères de filtre utilisés pour qualifier les enregistrements de groupes de sécurité lorsque vous effectuez une recherche dans l'annuaire. Pour Active Directory et ADAM, (&(objectCategory=group)(groupType:1.2.840.113556.1.4.804:=-2147483648)) est généralement utilisé. Pour d'autres annuaires LDAP, les critères de filtre qualifiant chaque type d'objet de groupe de sécurité doivent être utilisés en fonction du schéma de l'annuaire. <br>Remarque : si ce champ n'est pas renseigné, (&(objectCategory=group)(groupType:1.2.840.113556.1.4.804:=-2147483648)) sera utilisé par défaut.
 
-- **Filtre d'utilisateur** : spécifiez les critères de filtre utilisés pour qualifier les enregistrements utilisateur lorsque vous effectuez une recherche dans l'annuaire. Pour Active Directory et ADAM, (&(objectClass=user)(objectCategory=person)) est généralement utilisé. Pour d'autres annuaires LDAP, (objectClass=inetOrgPerson) ou autre paramètre similaire doit être utilisé en fonction du schéma de l'annuaire. <br>Remarque : si ce champ n'est pas renseigné, (&(objectCategory=person)(objectClass=user)) sera utilisé par défaut.
+- **Filtre d'utilisateur** : spécifiez les critères de filtre utilisés pour qualifier les enregistrements utilisateur lorsque vous effectuez une recherche dans l'annuaire. Pour Active Directory et ADAM, (&(objectClass=user)(objectCategory=person)) est généralement utilisé. Pour d'autres annuaires LDAP, (objectClass=inetOrgPerson) ou autre paramètre similaire doit être utilisé en fonction du schéma de l'annuaire. <br>Remarque : si ce champ n'est pas renseigné, (&(objectCategory=person)(objectClass=user)) sera utilisé par défaut.
 
 ## Attributs
 Il est possible de personnaliser les attributs pour un annuaire spécifique. Cela vous permet d'ajouter des attributs personnalisés et de régler avec précision la synchronisation uniquement avec les attributs dont vous avez besoin. La valeur de chaque champ d'attribut doit être le nom de l'attribut, tel que défini dans le schéma de l'annuaire. Pour plus d'informations, utilisez le tableau ci-dessous.
@@ -137,4 +137,4 @@ Il est possible de configurer des serveurs MFA supplémentaires en tant que prox
 
 ![Serveurs MFA](./media/multi-factor-authentication-get-started-server-dirint/dirint6.png)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0921_2016-->
