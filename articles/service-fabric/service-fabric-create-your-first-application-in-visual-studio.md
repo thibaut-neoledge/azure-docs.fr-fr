@@ -54,9 +54,9 @@ Une application Service Fabric peut contenir un ou plusieurs services, chacun ay
 
 	Le projet d’application ne contient pas de code directement. Au lieu de cela, il fait référence à un ensemble de projets de service. En outre, il contient trois autres types de contenu :
 
-	- **Profils de publication** : permet de gérer les préférences d’outils pour différents environnements.
+	- **Profils de publication** : permet de gérer les préférences d’outils pour différents environnements.
 
-	- **Scripts** : contient un script PowerShell de déploiement/mise à niveau de votre application. Visual Studio utilise le script en arrière-plan. Le script peut également être appelé directement dans la ligne de commande.
+	- **Scripts** : contient un script PowerShell de déploiement/mise à niveau de votre application. Visual Studio utilise le script en arrière-plan. Le script peut également être appelé directement dans la ligne de commande.
 
 	- **Définition d’application** : inclut le manifeste d’application dans le dossier *ApplicationPackageRoot*. Les fichiers de paramètres d’application associés, qui définissent l’application et vous permettent de la configurer spécifiquement pour un environnement donné, se trouvent dans le dossier *ApplicationParameters*.
 

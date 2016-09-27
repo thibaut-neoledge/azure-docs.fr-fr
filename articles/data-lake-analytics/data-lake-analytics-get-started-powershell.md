@@ -35,7 +35,7 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 
 Vous devez disposer d’un compte Analytique Data Lake avant de pouvoir exécuter un travail quelconque. Pour créer un compte Analytique Data Lake, vous devez spécifier les éléments suivants :
 
-- **Groupe de ressources Azure** : un compte Data Lake Analytics doit être créé au sein d'un groupe de ressources Azure. [Azure Resource Manager](../resource-group-overview.md) vous permet de manipuler les ressources de votre application sous la forme d’un groupe. Vous pouvez déployer, mettre à jour ou supprimer toutes les ressources de votre application dans le cadre d’une opération unique et coordonnée.
+- **Groupe de ressources Azure** : un compte Data Lake Analytics doit être créé au sein d'un groupe de ressources Azure. [Azure Resource Manager](../resource-group-overview.md) vous permet de manipuler les ressources de votre application sous la forme d’un groupe. Vous pouvez déployer, mettre à jour ou supprimer toutes les ressources de votre application dans le cadre d’une opération unique et coordonnée.
 
 	Pour répertorier les groupes de ressources dans votre abonnement :
     
@@ -48,8 +48,8 @@ Vous devez disposer d’un compte Analytique Data Lake avant de pouvoir exécute
 			-Location "<Azure Data Center>" # For example, "East US 2"
 
 - **Nom du compte Analytique Data Lake**
-- **Emplacement** : un des centres de données Azure prenant en charge Data Lake Analytics.
-- **Compte Data Lake par défaut** : chaque compte Data Lake Analytics possède un compte Data Lake par défaut.
+- **Emplacement** : un des centres de données Azure prenant en charge Data Lake Analytics.
+- **Compte Data Lake par défaut** : chaque compte Data Lake Analytics possède un compte Data Lake par défaut.
 
 	Pour créer un compte Azure Data Lake :
 

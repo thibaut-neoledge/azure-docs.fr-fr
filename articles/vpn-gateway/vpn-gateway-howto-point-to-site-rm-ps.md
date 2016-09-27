@@ -53,7 +53,7 @@ Pour cette configuration, nous utilisons les valeurs suivantes. Nous avons défi
 - Nom du sous-réseau : **GatewaySubnet**, utilisant **192.168.200.0/24**. Le nom du sous-réseau *GatewaySubnet* est obligatoire pour que la passerelle fonctionne.
 - Pool d’adresses des clients VPN : **172.16.201.0/24**. Les clients VPN qui se connectent au réseau virtuel à l’aide de cette connexion de point à site reçoivent une adresse IP de ce pool.
 - Abonnement : Vérifiez que vous disposez de l'abonnement approprié si vous en possédez plusieurs.
-- Groupe de ressources : **TestRG**
+- Groupe de ressources : **TestRG**
 - Emplacement : **États-Unis de l’Est**
 - Serveur DNS : **Adresse IP** du serveur DNS que vous souhaitez utiliser pour la résolution de noms.
 - Nom de passerelle : **GW**
@@ -190,7 +190,7 @@ Installez un certificat client sur chaque ordinateur que vous souhaitez connecte
 
 1. Pour exporter un certificat client, vous pouvez utiliser *certmgr.msc*. Cliquez avec le bouton droit sur le certificat client à exporter, cliquez sur **Toutes les tâches**, puis cliquez sur **Exporter**.
 2. Exportez le certificat client avec la clé privée. Il s’agit d’un fichier *.pfx*. Prenez soin d’enregistrer ou de mémoriser le mot de passe (clé) que vous définissez pour ce certificat.
-3. Copiez le fichier *.pfx* sur l’ordinateur client. Sur l’ordinateur client, double-cliquez sur le fichier *.pfx* pour l’installer. Entrez le mot de passe lorsque vous y êtes invité. Ne modifiez pas l’emplacement d’installation.
+3. Copiez le fichier *.pfx* sur l’ordinateur client. Sur l’ordinateur client, double-cliquez sur le fichier *.pfx* pour l’installer. Entrez le mot de passe lorsque vous y êtes invité. Ne modifiez pas l’emplacement d’installation.
 
 
 ## Partie 8 - Connexion à Azure

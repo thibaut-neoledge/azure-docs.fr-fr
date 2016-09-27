@@ -88,7 +88,7 @@ Nous allons créer une application de base à l’aide de XCode afin d’illustr
 
 Pour commencer à envoyer des données et vous assurer que les utilisateurs sont actifs, vous devez envoyer au moins un écran (activité) au serveur principal Mobile Engagement.
 
-1. Ouvrez le fichier **ViewController.h** et importez **EngagementViewController.h** :
+1. Ouvrez le fichier **ViewController.h** et importez **EngagementViewController.h** :
 
     `# import "EngagementViewController.h"`
 

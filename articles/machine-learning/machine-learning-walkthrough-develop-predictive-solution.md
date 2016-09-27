@@ -30,7 +30,7 @@ Dans ce guide pas à pas détaillé, nous allons suivre le processus de dévelop
 
 <!-- -->
 
->[AZURE.TIP] Pour télécharger et imprimer un diagramme offrant une vue d’ensemble des fonctionnalités de Machine Learning Studio, consultez [Diagramme de vue d’ensemble des fonctionnalités d’Azure Machine Learning Studio](machine-learning-studio-overview-diagram.md).
+>[AZURE.TIP]Pour télécharger et imprimer un diagramme offrant une vue d’ensemble des fonctionnalités de Machine Learning Studio, consultez [Diagramme de vue d’ensemble des fonctionnalités d’Azure Machine Learning Studio](machine-learning-studio-overview-diagram.md).
 
 Pour créer une solution d'évaluation des risques de crédit, nous allons suivre ces étapes :
 

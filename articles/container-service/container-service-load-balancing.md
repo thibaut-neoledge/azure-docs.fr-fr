@@ -24,7 +24,7 @@ Dans cet article, nous allons découvrir comment créer un équilibreur de charg
 
 ## Composants requis
 
-[Déployez une instance d’Azure Container Service](container-service-deployment.md) avec un orchestrator de type DC/OS, et [vérifiez que votre client peut se connecter à votre cluster](container-service-connect.md).
+[Déployez une instance d’Azure Container Service](container-service-deployment.md) avec un orchestrator de type DC/OS, et [vérifiez que votre client peut se connecter à votre cluster](container-service-connect.md). Effectuez également les étapes suivantes.
 
 ## Équilibrage de la charge
 

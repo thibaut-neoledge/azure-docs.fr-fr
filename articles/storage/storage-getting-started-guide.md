@@ -34,7 +34,7 @@ Vérifiez que les conditions préalables suivantes sont remplies avant de commen
 
 3. Assurez-vous que [.NET Framework 4.5](http://www.microsoft.com/download/details.aspx?id=30653) est installé sur votre ordinateur, car cette application est nécessaire aux exemples de projets de démarrage rapide Azure que nous allons utiliser dans ce didacticiel.
 
-	Si vous ne savez pas quelle version de .NET Framework est installée sur votre ordinateur, consultez la rubrique [Comment déterminer les versions .NET Framework installées](https://msdn.microsoft.com/vstudio/hh925568.aspx). Sinon, cliquez sur le bouton **Démarrer** ou appuyez sur la touche Windows, et tapez **Panneau de configuration**. Ensuite, cliquez sur **Programmes** > **Programmes et fonctionnalités**, et vérifiez si .NET Framework 4.5 est répertorié parmi les programmes installés.
+	Si vous ne savez pas quelle version de .NET Framework est installée sur votre ordinateur, consultez la rubrique [Comment déterminer les versions .NET Framework installées](https://msdn.microsoft.com/vstudio/hh925568.aspx). Sinon, cliquez sur le bouton **Démarrer** ou appuyez sur la touche Windows, et tapez **Panneau de configuration**. Ensuite, cliquez sur **Programmes** > **Programmes et fonctionnalités**, et vérifiez si .NET Framework 4.5 est répertorié parmi les programmes installés.
 
 4. Vous aurez besoin d’un abonnement Azure et d’un compte de stockage Azure.
 
@@ -43,7 +43,7 @@ Vérifiez que les conditions préalables suivantes sont remplies avant de commen
 
 ## Exécution de votre première application Azure Storage sur Azure Storage dans le cloud
 
-Une fois votre compte créé, vous pouvez créer une application Azure Storage simple à l’aide d’un des exemples de projet de démarrage rapide Azure dans Visual Studio. Ce didacticiel se concentre sur les exemples de projets pour Azure Storage : **Azure Storage : Blobs**, **Azure Storage : Fichiers**, **Azure Storage : Files d’attente** et **Azure Storage : Tables** :
+Une fois votre compte créé, vous pouvez créer une application Azure Storage simple à l’aide d’un des exemples de projet de démarrage rapide Azure dans Visual Studio. Ce didacticiel se concentre sur les exemples de projets pour Azure Storage : **Azure Storage : Blobs**, **Azure Storage : Fichiers**, **Azure Storage : Files d’attente** et **Azure Storage : Tables** :
 
 1. Démarrez Visual Studio.
 2. Dans le menu **Fichier**, cliquez sur **Nouveau projet**.

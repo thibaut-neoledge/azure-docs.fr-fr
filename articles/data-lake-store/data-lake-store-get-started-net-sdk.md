@@ -37,7 +37,7 @@ Découvrez comment utiliser le [Kit de développement logiciel (SDK) .NET Azure 
 
 * **Compte Azure Data Lake Store**. Pour savoir comment créer un compte, consultez [Prise en main d’Azure Data Lake Store](data-lake-store-get-started-portal.md)
 
-* **Créez une application Azure Active Directory ** si vous souhaitez que votre application s’authentifie automatiquement avec Azure Active Directory.
+* **Créez une application Azure Active Directory** si vous souhaitez que votre application s’authentifie automatiquement avec Azure Active Directory.
 
 	* **Pour l’authentification non interactive du principal de service** : dans Azure Active Directory, vous devez créer une **application web**. Une fois que vous avez créé l’application, récupérez les valeurs suivantes liées à l’application.
 		- Obtenez l’**ID client** et la **clé secrète du client** pour l’application
