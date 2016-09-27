@@ -113,7 +113,7 @@ La connectivité entre les régions géopolitiques n’est pas prise en charge d
 
 | **Fournisseur de services** |**Microsoft Azure** | **Office 365** | **Emplacements** |
 |-----------------------|--------------------|----------------|---------------|
-| **China Telecom** | Pris en charge | Non pris en charge | Pékin, Shanghai +|
+| **China Telecom** | Pris en charge | Non pris en charge | Beijing, Shanghai +|
 Pour plus d’informations, consultez [ExpressRoute en Chine](http://www.windowsazure.cn/home/features/expressroute/).
 
 #### Allemagne
