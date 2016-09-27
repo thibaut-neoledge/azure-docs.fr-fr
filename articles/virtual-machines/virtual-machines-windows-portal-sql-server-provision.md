@@ -13,7 +13,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="06/21/2016"
+	ms.date="09/21/2016"
 	ms.author="jroth" />
 
 # Approvisionnement d’une machine virtuelle SQL Server dans le portail Azure
@@ -76,7 +76,7 @@ Dans le panneau **De base**, fournissez les informations suivantes :
 * Entrez un **nom** de machine virtuelle unique.
 * Indiquez uniquement un **Nom d’utilisateur** pour le compte administrateur local de la machine virtuelle. Ce compte est également ajouté au serveur fixe **sysadmin** SQL Server.
 * Utilisez un **mot de passe** fort.
-* Si vous avez plusieurs abonnements, vérifiez que l’abonnement est correct pour la nouvelle machine virtuelle.
+* Si vous possédez plusieurs abonnements, vérifiez que l’abonnement est correct pour la nouvelle machine virtuelle.
 * Dans la zone **Groupe de ressources**, saisissez un nom pour le groupe de ressources. Sinon, pour utiliser un groupe de ressources existant, cliquez sur **Sélectionner un élément existant**. Un groupe de ressources est une collection de ressources liées dans Azure (machines virtuelles, comptes de stockage, réseaux virtuels, etc.).
 
 	>[AZURE.NOTE] L’utilisation d’un nouveau groupe de ressources est utile si vous testez ou découvrez les déploiements SQL Server dans Azure. Une fois que vous avez terminé votre test, supprimez le groupe de ressources pour supprimer automatiquement la machine virtuelle et toutes les ressources associées à ce groupe de ressources. Pour plus d’informations sur les groupes de ressources, consultez [Présentation d’Azure Resource Manager](../resource-group-overview.md).
@@ -125,20 +125,23 @@ Dans le panneau **Paramètres SQL Server**, configurez des paramètres spécifiq
 | [Mise à jour corrective automatisée](#automated-patching) |
 | [Sauvegarde automatisée](#automated-backup) |
 | [Intégration du coffre de clés Azure](#azure-key-vault-integration) |
+| [R Services](#r-services) |
 
 ### Connectivité
-Sous **SQL connectivity** (Connectivité SQL), spécifiez le type d’accès souhaité à l’instance SQL Server sur cette machine virtuelle. Pour les besoins de ce didacticiel, sélectionnez **Public (Internet)** pour autoriser les connexions à SQL Server à partir de machines ou de services sur Internet. Une fois cette option sélectionnée, Azure configure automatiquement le pare-feu et le groupe de sécurité réseau pour autoriser le trafic sur le port 1433.
+Sous **SQL connectivity** (Connectivité SQL), spécifiez le type d’accès à l’instance SQL Server souhaité sur cette machine virtuelle. Pour les besoins de ce didacticiel, sélectionnez **Public (Internet)** pour autoriser les connexions à SQL Server depuis des machines ou des services sur Internet. Une fois cette option sélectionnée, Azure configure automatiquement le pare-feu et le groupe de sécurité réseau pour autoriser le trafic sur le port 1433.
 
 ![Options de connectivité SQL](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-connectivity-alt.png)
 
 Pour vous connecter à SQL Server via Internet, vous devez également activer l’authentification SQL Server décrite à la section suivante.
 
->[AZURE.NOTE] Il est possible d’ajouter plus de restrictions pour les communications réseau à votre machine virtuelle SQL Server. Pour cela, modifiez le groupe de sécurité réseau une fois la machine virtuelle créée. Pour plus d’informations, voir [Présentation du groupe de sécurité réseau](../virtual-network/virtual-networks-nsg.md).
+>[AZURE.NOTE] Il est possible d’ajouter plus de restrictions pour les communications réseau à votre machine virtuelle SQL Server. Pour cela, modifiez le groupe de sécurité réseau une fois la machine virtuelle créée. Pour plus d’informations, voir [Présentation du groupe de sécurité réseau](../virtual-network/virtual-networks-nsg.md)
 
 Si vous préférez ne pas activer les connexions au moteur de base de données via Internet, choisissez l’une des options suivantes :
 
-- **Local (dans la machine virtuelle uniquement)** pour autoriser les connexions à SQL Server uniquement à partir de la machine virtuelle.
-- **Privé (dans le réseau virtuel)** pour autoriser les connexions à SQL Server à partir de machines ou de services résidant dans le même réseau virtuel.
+- **Local (sur la machine virtuelle uniquement)** pour autoriser les connexions à SQL Server uniquement depuis la machine virtuelle.
+- **Privé (dans un réseau virtuel)** pour autoriser les connexions à SQL Server depuis des machines ou des services résidant dans le même réseau virtuel.
+
+>[AZURE.NOTE] L’image de machine virtuelle pour l’édition SQL Server Express n’active pas automatiquement le protocole TCP/IP. Cela est vrai même pour les options de connectivité Public et Privé. Pour l’édition Express, vous devez utiliser le Gestionnaire de configuration SQL Server pour [activer manuellement le protocole TCP/IP](#configure-sql-server-to-listen-on-the-tcp-protocol) après avoir créé la machine virtuelle.
 
 En règle générale, améliorez la sécurité en choisissant la connectivité autorisée par votre scénario. Mais toutes les options sont sécurisables via les règles du groupe de sécurité réseau et l’authentification Windows/SQL.
 
@@ -151,7 +154,7 @@ Si vous avez besoin de l’authentification SQL Server, cliquez sur **Activer** 
 
 >[AZURE.NOTE] Si vous envisagez d’accéder à SQL Server via Internet (par exemple, avec l’option Connectivité publique), vous devez activer l’authentification SQL ici. L’accès public à SQL Server requiert l’utilisation de l’authentification SQL.
 
-Si vous activez l’authentification SQL Server, spécifiez un **nom de connexion** et un **mot de passe**. Ce nom d’utilisateur est configuré en tant que connexion d’authentification SQL Server et un membre du rôle serveur fixe **sysadmin**. Consultez [Choisir un mode d’authentification](http://msdn.microsoft.com/library/ms144284.aspx) pour plus d’informations sur les modes d’authentification.
+Si vous activez l’authentification SQL Server, spécifiez un **nom de connexion** et un **mot de passe**. Ce nom d’utilisateur est configuré en tant qu’identifiant d’authentification SQL Server et membre du rôle serveur fixe **sysadmin**. Pour plus d’informations sur les modes d’authentification, consultez [Choisir un mode d’authentification](http://msdn.microsoft.com/library/ms144284.aspx).
 
 Si vous n’activez pas l’authentification SQL Server, vous pouvez utiliser le compte d’administrateur local sur la machine virtuelle pour vous connecter à l’instance SQL Server.
 
@@ -166,18 +169,18 @@ Vous pouvez spécifier des exigences comme les opérations d’entrée/sortie pa
 
 Par défaut, Azure optimise le stockage pour 5 000 E/S par seconde, 200 Mbit/s et 1 To d’espace de stockage. Vous pouvez modifier ces paramètres de stockage en fonction de la charge de travail. Sous **Stockage optimisé pour**, sélectionnez l’une des options suivantes :
 
-- **Général** est le paramètre par défaut et prend en charge la plupart des charges de travail.
+- **Général** est le paramètre par défaut ; il prend en charge la plupart des charges de travail.
 - Le traitement **transactionnel** optimise le stockage pour les charges de travail OLTP de base de données traditionnelles.
-- **L’entreposage de données** optimise le stockage pour les charges de travail d’analyse et de création de rapports.
+- L’option **Entreposage de données** optimise le stockage pour les charges de travail d’analyse et de création de rapports.
 
 >[AZURE.NOTE] Les limites supérieures sur les curseurs varient selon la taille de la machine virtuelle sélectionnée.
 
 ### Mise à jour corrective automatisée
-La **mise à jour corrective automatisée** est activée par défaut. La mise à jour corrective automatisée permet à Azure de corriger automatiquement SQL Server et le système d’exploitation. Spécifiez un jour de la semaine, une heure et une durée pour la fenêtre de maintenance. Azure effectue la mise à jour corrective dans cette fenêtre de maintenance. La planification de la fenêtre de maintenance utilise les paramètres régionaux de la machine virtuelle pour l’heure. Si vous ne souhaitez pas qu’Azure corrige automatiquement SQL Server et le système d’exploitation, cliquez sur **Désactiver**.
+L’option **Mise à jour corrective automatisée** est activée par défaut. La mise à jour corrective automatisée permet à Azure de corriger automatiquement SQL Server et le système d’exploitation. Spécifiez un jour de la semaine, une heure et une durée pour la fenêtre de maintenance. Azure effectue la mise à jour corrective dans cette fenêtre de maintenance. La planification de la fenêtre de maintenance utilise les paramètres régionaux de la machine virtuelle pour l’heure. Si vous ne souhaitez pas qu’Azure corrige automatiquement SQL Server et le système d’exploitation, cliquez sur **Désactiver**.
 
 ![Mise à jour corrective automatisée SQL](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-patching.png)
 
-Pour plus d’informations, consultez [Mise à jour corrective automatisée pour SQL Server dans les machines virtuelles Azure](virtual-machines-windows-classic-sql-automated-patching.md).
+Pour plus d’informations, consultez [Mise à jour corrective automatisée pour SQL Server dans les machines virtuelles Azure](virtual-machines-windows-sql-automated-patching.md).
 
 ### Sauvegarde automatisée
 Activez les sauvegardes automatiques de base de données pour toutes les bases de données sous **Sauvegarde automatisée**. La sauvegarde automatisée est désactivée par défaut.
@@ -188,14 +191,14 @@ Lorsque vous activez la sauvegarde SQL automatisée, vous pouvez configurer les 
 - Compte de stockage à utiliser pour les sauvegardes
 - Option de chiffrement et mot de passe pour les sauvegardes
 
-Pour chiffrer la sauvegarde, cliquez sur **Activer**. Puis, spécifiez le **mot de passe**. Azure crée un certificat pour chiffrer les sauvegardes et utilise le mot de passe pour protéger ce certificat.
+Pour chiffrer la sauvegarde, cliquez sur **Activer**. Spécifiez ensuite le **mot de passe**. Azure crée un certificat pour chiffrer les sauvegardes et utilise le mot de passe pour protéger ce certificat.
 
 ![Sauvegarde automatisée SQL](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-autobackup.png)
 
- Pour plus d’informations, voir [Sauvegarde automatisée pour SQL Server dans les machines virtuelles Azure](virtual-machines-windows-classic-sql-automated-backup.md).
+ Pour plus d’informations, voir [Sauvegarde automatisée pour SQL Server dans les machines virtuelles Azure](virtual-machines-windows-sql-automated-backup.md).
 
 ### Intégration du coffre de clés Azure
-Pour stocker des secrets de sécurité dans Azure pour le chiffrement, cliquez sur **Intégration du coffre de clés Azure**, puis sur **Activer**.
+Pour stocker des clés secrètes de sécurité dans Azure pour le chiffrement, cliquez sur **Azure Key Vault Integration**, puis sur **Activer**.
 
 ![Intégration du coffre de clés Azure SQL](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-akv.png)
 
@@ -208,12 +211,19 @@ Le tableau suivant répertorie les paramètres requis pour configurer l’intég
 | **Secret du principal**|Secret du principal du service Azure Active Directory Également appelé Secret client. | 9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM=|
 |**Nom des informations d’identification**|**Nom d’identification** : le module d’intégration du coffre de clés Azure crée des informations d’identification dans SQL Server, permettant ainsi à la machine virtuelle d’accéder au coffre de clés. Choisissez un nom pour cette identification.| mycred1|
 
-Pour plus d’informations, consultez [Configurer l’intégration du coffre de clés Azure SQL Server sur des machines virtuelles](virtual-machines-windows-classic-ps-sql-keyvault.md).
+Pour plus d’informations, consultez [Configurer l’intégration d’Azure Key Vault pour SQL Server sur des machines virtuelles Azure](virtual-machines-windows-ps-sql-keyvault.md).
 
-Lorsque vous avez terminé de configurer les paramètres de SQL Server, cliquez sur **OK**.
+Une fois la configuration des paramètres de SQL Server terminée, cliquez sur **OK**.
+
+### R Services
+Pour l’édition SQL Server 2016 Enterprise, vous avez la possibilité d’activer [SQL Server R Services](https://msdn.microsoft.com/library/mt604845.aspx). Cela vous permet d’exécuter des analyses avancées avec SQL Server 2016. Dans le panneau **Paramètres SQL Server**, cliquez sur **Activer**.
+
+![Activer SQL Server R Services](./media/virtual-machines-windows-portal-sql-server-provision/azure-vm-sql-server-r-services.png)
+
+>[AZURE.NOTE] Pour les images SQL Server dont l’édition n’est pas 2016 Enterprise, l’option permettant d’activer R Services est désactivée.
 
 ## 5\. Passer en revue le résumé
-Passez en revue le **résumé** sur le panneau correspondant et cliquez sur **OK** pour créer SQL Server, le groupe de ressources et les ressources spécifiées pour cette machine virtuelle.
+Passez en revue le **résumé** dans le panneau correspondant et cliquez sur **OK** pour créer l’instance SQL Server, le groupe de ressources et les ressources spécifiées pour cette machine virtuelle.
 
 Vous pouvez surveiller le déploiement à partir du portail Azure. Le bouton **Notifications** en haut de l’écran affiche l’état de base du déploiement.
 
@@ -228,8 +238,8 @@ Procédez comme suit pour vous connecter à la machine virtuelle à l’aide du 
 1. Le navigateur télécharge un fichier RDP pour la machine virtuelle. Ouvrez le fichier RDP. ![Connexion à la machine virtuelle SQL à l’aide du Bureau à distance](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-vm-remote-desktop.png)
 1. La connexion Bureau à distance vous informe que le serveur de publication de cette connexion à distance n’est pas identifiable. Cliquez sur **Connect** pour continuer.
 1. Dans la boîte de dialogue **Sécurité de Windows**, cliquez sur **Utiliser un autre compte**.
-1. Pour **Nom d’utilisateur**, saisissez le **<nom d’utilisateur>** où <user name> est le nom d’utilisateur spécifié lors de la configuration de la machine virtuelle. Vous devez ajouter une barre oblique inverse avant le nom.
-1. Entrez le **mot de passe** que vous avez configuré précédemment pour cette machine virtuelle, puis cliquez sur **OK** pour vous connecter.
+1. Pour **Nom d’utilisateur**, tapez **<nom d’utilisateur>**, où <nom d’utilisateur> est le nom d’utilisateur spécifié lors de la configuration de la machine virtuelle. Vous devez ajouter une barre oblique inverse avant le nom.
+1. Tapez le **mot de passe** que vous avez configuré précédemment pour cette machine virtuelle, puis cliquez sur **OK** pour vous connecter.
 1. Si une autre boîte de dialogue **Connexion Bureau à distance** vous demande si vous souhaitez vous connecter, cliquez sur **Oui**.
 
 Une fois que vous vous connectez à la machine virtuelle SQL Server, vous pouvez lancer SQL Server Management Studio et vous connecter avec l’authentification Windows à l’aide de vos informations d’identification d’administrateur local. Si vous avez activé l’authentification SQL Server, vous pouvez également vous connecter avec l’authentification SQL à l’aide de la connexion SQL et du mot de passe configuré lors de l’approvisionnement.
@@ -247,10 +257,10 @@ Les sections suivantes montrent comment se connecter à l’instance SQL Server 
 > [AZURE.INCLUDE [Se connecter à SQL Server dans une machine virtuelle (Resource Manager)](../../includes/virtual-machines-sql-server-connection-steps-resource-manager.md)]
 
 ## Étapes suivantes
-Pour en savoir plus sur l’utilisation de SQL Server dans Azure, consultez [SQL Server sur Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-overview.md) et le [Forum Aux Questions](virtual-machines-windows-sql-server-iaas-faq.md).
+Pour en savoir plus sur l’utilisation de SQL Server dans Azure, consultez [Présentation de SQL Server sur les machines virtuelles Azure](virtual-machines-windows-sql-server-iaas-overview.md) et le [Forum Aux Questions associé](virtual-machines-windows-sql-server-iaas-faq.md).
 
-Pour obtenir une vue d’ensemble de SQL Server sur Azure Virtual Machines, regardez la vidéo [Azure VM is the best platform for SQL Server 2016](https://channel9.msdn.com/Events/DataDriven/SQLServer2016/Azure-VM-is-the-best-platform-for-SQL-Server-2016) (Azure est la plate-forme la mieux adaptée à SQL Server 2016).
+Pour une présentation vidéo de SQL Server sur les machines virtuelles Azure, regardez [Azure VM is the best platform for SQL Server 2016](https://channel9.msdn.com/Events/DataDriven/SQLServer2016/Azure-VM-is-the-best-platform-for-SQL-Server-2016) (Machines virtuelles Azure : Une excellente plateforme pour SQL Server 2016).
 
 [Découvrez le parcours d’apprentissage](https://azure.microsoft.com/documentation/learning-paths/sql-azure-vm/) pour SQL Server sur les machines virtuelles Azure.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0921_2016-->

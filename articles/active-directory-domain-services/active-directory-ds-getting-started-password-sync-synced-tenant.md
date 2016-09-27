@@ -13,30 +13,29 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/07/2016"
+	ms.date="09/20/2016"
 	ms.author="maheshu"/>
 
-# Services de domaine Azure AD *(Version préliminaire)* : Activer la synchronisation du mot de passe pour les services de domaine Azure AD
+# Activer la synchronisation de mot de passe pour les services de domaine Azure AD
+Dans les tâches précédentes, vous avez activé Services de domaine Azure AD pour votre client Azure AD. La tâche suivante consiste à activer la synchronisation des mots de passe pour les services de domaine Azure AD. Une fois la synchronisation des informations d’identification configurée, les utilisateurs peuvent se connecter au domaine géré à l’aide des informations d’identification d’entreprise.
 
-## Tâche 5 : activer la synchronisation de mot de passe pour les services de domaine AAD pour un client Azure AD synchronisé
-Une fois que vous avez activé les services de domaine Azure AD pour votre répertoire Azure AD, la tâche suivante consiste à activer la synchronisation de mots de passe pour les services de domaine Azure AD. Après cette opération, les utilisateurs peuvent se connecter au domaine à l’aide de leurs informations d’identification d’entreprise.
-
-Les étapes sont différentes selon que votre organisation dispose d’un répertoire Azure AD uniquement dans le cloud ou est paramétrée de manière à se synchroniser avec votre répertoire local à l’aide d’Azure AD Connect.
+Les étapes sont différentes selon que votre organisation a un client Azure AD uniquement dans le cloud ou est paramétrée de manière à se synchroniser avec votre annuaire local à l’aide d’Azure AD Connect.
 
 <br>
 
 > [AZURE.SELECTOR]
-- [Répertoire Azure AD uniquement dans le cloud](active-directory-ds-getting-started-password-sync.md)
-- [Répertoire Azure AD synchronisé](active-directory-ds-getting-started-password-sync-synced-tenant.md)
+- [Client Azure AD dans le cloud uniquement](active-directory-ds-getting-started-password-sync.md)
+- [Client Azure AD synchronisé](active-directory-ds-getting-started-password-sync-synced-tenant.md)
 
 <br>
 
-### Clients synchronisés - Activer la synchronisation des hachages des informations d'identification NTLM et Kerberos avec Azure AD
+
+## Tâche 5 : activer la synchronisation de mot de passe pour les services de domaine AAD pour un client Azure AD synchronisé
 Un client Azure AD connecté est défini pour se synchroniser avec le répertoire local de votre organisation à l’aide d’Azure AD Connect. Azure AD Connect ne synchronise pas les hachages des informations d’identification NTLM et Kerberos avec Azure AD par défaut. Pour utiliser les Services de domaine Azure AD, vous devez configurer Azure AD Connect pour synchroniser les hachages d’informations d’identification requis pour l’authentification NTLM et Kerberos. Les étapes suivantes permettent la synchronisation des hachages d’informations d’identification avec votre client Azure AD.
 
-#### Installer ou mettre à jour Azure AD Connect
 
-Vous devez installer la dernière version recommandée d’Azure AD Connect sur un ordinateur joint au domaine. Si une instance d’Azure AD Connect est déjà configurée, vous devez la mettre à jour pour utiliser la dernière version d’Azure AD Connect. Veillez à utiliser la dernière version d’Azure AD Connect afin d’éviter les problèmes/bogues connus déjà corrigés.
+### Installer ou mettre à jour Azure AD Connect
+Installer la dernière version recommandée d’Azure AD Connect sur un ordinateur joint à un domaine. Si une instance d’Azure AD Connect est déjà configurée, vous devez la mettre à jour pour utiliser la dernière version d’Azure AD Connect. Veillez à utiliser la dernière version d’Azure AD Connect afin d’éviter les problèmes/bogues connus déjà corrigés.
 
 **[Télécharger Azure AD Connect](http://www.microsoft.com/download/details.aspx?id=47594)**
 
@@ -47,8 +46,7 @@ Version minimale recommandée : **1.1.281.0** - publiée le 7 septembre 2016.
 Les instructions d’installation d’Azure AD Connect sont disponibles dans l’article suivant : [Prise en main d’Azure AD Connect](../active-directory/active-directory-aadconnect.md).
 
 
-#### Forcer la synchronisation de mot de passe complète avec Azure AD
-
+### Activez la synchronisation des hachages des informations d’identification NTLM et Kerberos avec Azure AD
 Exécutez le script PowerShell suivant sur chaque forêt AD, pour forcer la synchronisation de mot de passe complète, et permettre à tous les hachages d’informations d’identification des utilisateurs locaux de se synchroniser avec votre client Azure AD. Ce script permet les hachages d’informations d’identification requis pour que l’authentification NTLM/Kerberos soit synchronisée avec votre client Azure AD.
 
 ```
@@ -80,4 +78,4 @@ En fonction de la taille de votre répertoire (nombre d’utilisateurs, de group
 
 - [Joindre une machine virtuelle Linux Red Hat Enterprise à un domaine géré par les services de domaine Azure AD](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

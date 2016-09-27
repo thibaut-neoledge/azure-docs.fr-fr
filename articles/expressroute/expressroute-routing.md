@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/10/2016"
+   ms.date="09/16/2016"
    ms.author="ganesr"/>
 
 
@@ -78,7 +78,7 @@ L’échange de routage s’effectuera via le protocole eBGP. Des sessions EBGP 
 
 ## Numéros système autonomes
 
-Microsoft utilisera le numéro AS 12076 pour les homologations publiques Azure, privées Azure et Microsoft. Nous avons réservé les numéros AS 65515 à 65520 pour un usage interne. Les numéros AS 16 bits et 32 bits sont pris en charge. Du côté de l’homologation (client ou fournisseur), la clause AS peut être un ASN public s’il est possible de vérifier qu’elle vous appartient, ou un ASN privé pour l’homologation privée et nécessite un ASN public pour les homologations publiques et Microsoft.
+Microsoft utilisera le numéro AS 12076 pour les homologations publiques Azure, privées Azure et Microsoft. Nous avons réservé les numéros AS 65515 à 65520 pour un usage interne. Les numéros AS 16 bits et 32 bits sont pris en charge. Du côté de l’homologation (client ou fournisseur), la clause AS peut être un ASN public s’il est possible de vérifier qu’elle vous appartient, ou un ASN privé.
 
 Aucune configuration n’est requise concernant la symétrie de transfert de données sur les chemins d’accès primaires et secondaires d’un circuit donné. Les chemins d’envoi et de réception peuvent transiter par différentes paires de routeurs. Les routages identiques doivent être publiés des côtés primaire et secondaire, sur plusieurs paires de circuits vous appartenant. Les métriques de routage n’ont pas besoin d’être identiques.
 
@@ -175,4 +175,4 @@ Par ailleurs, Microsoft marquera également des préfixes basés sur le service 
 	- [Configurer le routage à l’aide du modèle de déploiement classique](expressroute-howto-routing-classic.md) ou [Configurer le routage à l’aide du modèle de déploiement Resource Manager](expressroute-howto-routing-arm.md)
 	- [Lier un réseau virtuel classique à un circuit ExpressRoute](expressroute-howto-linkvnet-classic.md) ou [Lier un réseau virtuel Resource Manager à un circuit ExpressRoute](expressroute-howto-linkvnet-arm.md)
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0921_2016-->

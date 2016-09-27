@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Équilibrage de charge d’un cluster Azure Container Service | Microsoft Azure"
-   description="Équilibrage de charge d’un cluster Azure Container Service."
+   pageTitle="Équilibrer la charge des conteneurs dans un cluster Azure Container Service | Microsoft Azure"
+   description="Équilibrer la charge de plusieurs conteneurs dans un cluster Azure Container Service."
    services="container-service"
    documentationCenter=""
    authors="rgardler"
@@ -18,11 +18,11 @@
    ms.date="07/11/2016"
    ms.author="rogardle"/>
 
-# Équilibrage de charge d’un cluster Azure Container Service
+# Équilibrer la charge des conteneurs dans un cluster Azure Container Service
 
-Dans cet article, nous allons configurer un site web frontal sur un service Azure Container Service géré par DC/OS. Nous allons également configurer un outil Marathon-LB pour activer la montée en puissance de l’application.
+Dans cet article, nous allons découvrir comment créer un équilibreur de charge interne dans un cluster Azure Container Service géré par DC/OS à l’aide de Marathon-LB. Cela vous permettra de faire évoluer vos applications horizontalement. Vous pourrez également tirer parti des clusters d’agents publics et privés en plaçant vos équilibrages de charge sur le cluster public et vos conteneurs d’applications sur le cluster privé.
 
-## Configuration requise
+## Composants requis
 
 [Déployez une instance d’Azure Container Service](container-service-deployment.md) avec un orchestrator de type DC/OS, et [vérifiez que votre client peut se connecter à votre cluster](container-service-connect.md).
 
@@ -55,9 +55,11 @@ Après avoir installé l’interface CLI DC/OS et vous être assuré que vous po
 dcos package install marathon-lb
 ```
 
+Cette commande installe automatiquement l’équilibreur de charge sur le cluster d’agents publics.
+
 ## Déployer une application web à charge équilibrée
 
-À présent que nous disposons du package marathon-lb, nous pouvons déployer un serveur web simple en utilisant la configuration suivante :
+Maintenant que nous avons le package marathon-lb, nous pouvons déployer le conteneur d’applications dont nous souhaitons équilibrer la charge. Pour cet exemple, nous allons déployer un serveur web simple à l’aide de la configuration suivante :
 
 ```json
 {
@@ -94,22 +96,24 @@ dcos package install marathon-lb
 
 ```
 
-  * Définissez la valeur de `HAProxy_0_VHOST` sur le nom de domaine complet de l’équilibreur de charge de vos agents. Il respecte la forme `<acsName>agents.<region>.cloudapp.azure.com`. Par exemple, si vous créez un cluster Container Service avec le nom `myacs` dans la région `West US`, le nom de domaine complet est `myacsagents.westus.cloudapp.azure.com`. Vous pouvez également le trouver en recherchant l’équilibreur de charge dont le nom contient le terme « agent » lorsque vous parcourez les ressources du groupe de ressources que vous avez créé pour votre service Container Service dans le [portail Azure](https://portal.azure.com).
+  * Définissez la valeur `HAProxy_0_VHOST` sur le nom de domaine complet de l’équilibreur de charge de vos agents. Il respecte la forme `<acsName>agents.<region>.cloudapp.azure.com`. Par exemple, si vous créez un cluster Container Service avec le nom `myacs` dans la région `West US`, le nom de domaine complet sera `myacsagents.westus.cloudapp.azure.com`. Vous pouvez également le trouver en recherchant l’équilibreur de charge dont le nom contient le terme « agent » lorsque vous parcourez les ressources du groupe de ressources que vous avez créé pour votre service Container Service dans le [portail Azure](https://portal.azure.com).
   * Définissez servicePort sur un port supérieur ou égal à 10 000. Cela identifie le service en cours d’exécution dans ce conteneur ; marathon-lb s’en sert pour identifier les services sur lesquels il doit équilibrer les charges.
   * Définissez l’étiquette `HAPROXY_GROUP` sur external (externe).
   * Définissez `hostPort` sur 0. Cela signifie que Marathon allouera un port disponible de manière aléatoire.
   * Définissez `instances` sur le nombre d’instances à créer. Vous pourrez toujours augmenter ou réduire ce nombre ultérieurement.
 
+Il est intéressant de noter que, par défaut, Marathon se déploiera sur le cluster privé. Cela signifie que le déploiement ci-dessus sera accessible uniquement via votre équilibreur de charge, ce qui est généralement le comportement souhaité.
+
 ### Déployer à l’aide de l’IU du site web DC/OS
 
-  1. Visitez la page Marathon à l’adresse http://localhost/marathon (après avoir configuré votre [tunnel SSH](container-service-connect.md) et cliquez sur `Create Appliction`.
-  2. Dans la boîte de dialogue `New Application`, cliquez sur `JSON Mode` dans le coin supérieur droit.
+  1. Visitez la page Marathon à l’adresse http://localhost/marathon (après avoir configuré votre [tunnel SSH](container-service-connect.md) et cliquez sur `Create Appliction`
+  2. Dans la boîte de dialogue `New Application`, cliquez sur `JSON Mode` dans le coin supérieur droit
   3. Collez le code JSON ci-dessus dans l’éditeur.
-  4. Cliquez sur `Create Appliction`.
+  4. Cliquez sur `Create Appliction`
 
 ### Déployer à l’aide de l’interface CLI DC/OS
 
-Pour déployer cette application avec l’interface CLI DC/OS, copiez simplement le code JSON ci-dessus dans un fichier appelé `hello-web.json`, puis exécutez :
+Pour déployer cette application avec l’interface CLI DC/OS, il vous suffit de copier le code JSON ci-dessus dans un fichier appelé `hello-web.json`, puis exécutez :
 
 ```bash
 dcos marathon app add hello-web.json
@@ -126,7 +130,7 @@ Un scénario possible serait l’utilisation de différents domaines pour expose
 
 mondomaine1.com -> Azure LB:80 -> marathon-lb:10001 -> monconteneur1:33292 mondomaine2.com -> Azure LB:80 -> marathon-lb:10002 -> monconteneur2:22321
 
-Pour ce faire, consultez la section consacrée aux [hôtes virtuels](https://mesosphere.com/blog/2015/12/04/dcos-marathon-lb/) , qui fournit un moyen d’associer des domaines à des chemins d’accès à l’outil marathon-lb spécifiques.
+Pour ce faire, consultez la section consacrée aux [hôtes virtuels](https://mesosphere.com/blog/2015/12/04/dcos-marathon-lb/) , qui explique comment associer des domaines à des chemins d’accès marathon-lb spécifiques.
 
 Vous pouvez également exposer des ports différents et les remapper vers le service correct derrière marathon-lb. Par exemple :
 
@@ -137,4 +141,4 @@ Azure lb:80 -> marathon-lb:10001 -> monconteneur:233423 Azure lb:8080 -> maratho
 
 Pour en savoir plus sur [marathon-lb](https://dcos.io/docs/1.7/usage/service-discovery/marathon-lb/), consultez la documentation DC/OS.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0921_2016-->

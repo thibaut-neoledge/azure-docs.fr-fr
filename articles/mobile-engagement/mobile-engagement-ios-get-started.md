@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Prise en main d’Azure Mobile Engagement pour iOS en Objective C"
+	pageTitle="Prise en main d’Azure Mobile Engagement pour iOS en Objective C | Microsoft Azure"
 	description="Découvrez comment utiliser Azure Mobile Engagement avec les analyses et les notifications push pour les applications iOS."
 	services="mobile-engagement"
-	documentationCenter="ios"
+	documentationCenter="mobile"
 	authors="piyushjo"
-	manager="dwrede"
+	manager="erikre"
 	editor="" />
 
 <tags
@@ -13,18 +13,18 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="hero-article"
-	ms.date="05/03/2016"
+	ms.date="09/14/2016"
 	ms.author="piyushjo" />
 
 # Prise en main d’Azure Mobile Engagement pour les applications iOS dans Objective C
 
 [AZURE.INCLUDE [Sélecteur de didacticiel Hero](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
-Cette rubrique indique comment utiliser Azure Mobile Engagement pour comprendre l'utilisation de votre application et envoyer des notifications push aux utilisateurs segmentés d'une application iOS. Dans ce didacticiel, vous créez une application iOS vide qui collecte des données de base et reçoit des notifications push à l'aide du service APN (Apple Push Notification Service).
+Cette rubrique indique comment utiliser Azure Mobile Engagement pour comprendre l’utilisation de votre application et envoyer des notifications push à un segment d’utilisateurs d’une application iOS. Dans ce didacticiel, vous créez une application iOS vide qui collecte des données de base et reçoit des notifications push à l'aide du service APN (Apple Push Notification Service).
 
 Ce didacticiel requiert les éléments suivants :
 
-+ XCode 6 ou XCode 7 que vous pouvez installer depuis votre MAC App Store
++ XCode 8, que vous pouvez installer depuis l’App Store de votre MAC
 + Le [kit de développement logiciel (SDK) iOS Mobile Engagement]
 
 Vous devez suivre ce didacticiel pour avoir accès à tous les autres didacticiels Mobile Engagement pour applications iOS.
@@ -88,7 +88,7 @@ Nous allons créer une application de base à l’aide de XCode afin d’illustr
 
 Pour commencer à envoyer des données et vous assurer que les utilisateurs sont actifs, vous devez envoyer au moins un écran (activité) au serveur principal Mobile Engagement.
 
-1. Ouvrez le fichier **ViewController.h** et importez **EngagementViewController.h** :
+1. Ouvrez le fichier **ViewController.h** et importez **EngagementViewController.h** :
 
     `# import "EngagementViewController.h"`
 
@@ -178,4 +178,4 @@ Mobile Engagement vous permet d’interagir et d’atteindre vos utilisateurs e
 [3]: ./media/mobile-engagement-ios-get-started/xcode-build-phases.png
 [4]: ./media/mobile-engagement-ios-get-started/app-connection-info-page.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0921_2016-->

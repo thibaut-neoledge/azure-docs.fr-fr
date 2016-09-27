@@ -91,9 +91,9 @@ Utilisez les informations suivantes si vous envisagez d'utiliser les clés SSH a
 
 À la création d'un cluster HDInsight sous Linux, vous devez fournir la clé publique précédemment créée. À partir des clients Windows, il existe deux façons de créer un cluster HDInsight sous Linux :
 
-* **Portail Azure** : utilise un portail web pour créer le cluster.
+* **Portail Azure** : utilise un portail web pour créer le cluster.
 
-* **Interface de ligne de commande Azure pour Mac, Linux et Windows** : utilise des commandes de ligne de commande pour créer le cluster.
+* **Interface de ligne de commande Azure pour Mac, Linux et Windows** : utilise des commandes de ligne de commande pour créer le cluster.
 
 Chacune de ces méthodes nécessite une clé publique. Pour plus d’informations sur la création d’un cluster HDInsight sous Linux, consultez [Approvisionner des clusters HDInsight sous Linux](hdinsight-hadoop-provision-linux-clusters.md).
 
@@ -141,7 +141,7 @@ Pour plus d’informations sur l’utilisation de cette commande, consultez la r
 
 6. Lorsque vous y êtes invité, entrez le nom d'utilisateur que vous avez entré lors la création du cluster. Si vous avez donné un mot de passe pour le compte d'utilisateur, il vous sera demandé d'entrer le mot de passe.
 
-> [AZURE.NOTE] Les étapes ci-dessus supposent que vous utilisez le port 22, qui se connecte au nœud principal 0 sur le cluster HDInsight. Si vous utilisez le port 23, vous allez vous connecter au nœud principal 1. Pour plus d’informations sur les nœuds principaux, consultez [Disponibilité et fiabilité des clusters Hadoop dans HDInsight](hdinsight-high-availability-linux.md).
+> [AZURE.NOTE] Les étapes ci-dessus supposent que vous utilisez le port 22, qui se connecte au nœud principal sur le cluster HDInsight. Si vous utilisez le port 23, vous allez vous connecter au nœud secondaire. Pour plus d’informations sur les nœuds principaux, consultez [Disponibilité et fiabilité des clusters Hadoop dans HDInsight](hdinsight-high-availability-linux.md).
 
 ###Connexion à des nœuds de travail
 
@@ -173,7 +173,7 @@ Si vous avez fourni une clé SSH lors de la création de votre compte d’utilis
 
         curl --user admin:ADMINPASSWORD https://CLUSTERNAME.azurehdinsight.net/api/v1/hosts
 
-    Cette commande renvoie des informations au format JSON pour les nœuds du cluster, notamment `host_name`, qui contient le nom de domaine complet (FQDN) pour chaque nœud. Voici l’exemple d’une entrée `host_name` renvoyée par la commande **curl** :
+    Cette commande renvoie des informations au format JSON pour les nœuds du cluster, notamment `host_name`, qui contient le nom de domaine complet (FQDN) pour chaque nœud. Voici l’exemple d’une entrée `host_name` renvoyée par la commande **curl** :
 
         "host_name" : "workernode0.workernode-0-e2f35e63355b4f15a31c460b6d4e1230.j1.internal.cloudapp.net"
 
@@ -185,9 +185,9 @@ Si vous avez fourni une clé SSH lors de la création de votre compte d’utilis
 
     > [AZURE.NOTE] Si vous utilisez un mot de passe pour l’authentification de votre session SSH, vous devez entrer à nouveau le mot de passe. Si vous utilisez une clé SSH, la connexion doit se terminer sans invite de commandes.
 
-9. Une fois la session établie, l’invite de commandes de votre session PuTTY passe de `username@hn0-clustername` à `username@wn0-clustername` pour indiquer que vous êtes connecté au nœud de travail. Les commandes que vous exécutez à ce stade sont exécutées sur le nœud de travail.
+9. Une fois la session établie, l’invite de commandes de votre session PuTTY passe de `username@hn#-clustername` à `username@wn#-clustername` pour indiquer que vous êtes connecté au nœud de travail. Les commandes que vous exécutez à ce stade sont exécutées sur le nœud de travail.
 
-10. Une fois les actions sur le nœud de travail terminées, utilisez la commande `exit` pour fermer la session sur le nœud de travail. Vous revenez à l’invite de commandes `username@hn0-clustername`.
+10. Une fois les actions sur le nœud de travail terminées, utilisez la commande `exit` pour fermer la session sur le nœud de travail. Vous revenez à l’invite de commandes `username@hn#-clustername`.
 
 ##Ajout d’autres comptes
 
@@ -237,4 +237,4 @@ Maintenant que vous savez comment vous authentifier avec une clé SSH, apprenez 
 
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

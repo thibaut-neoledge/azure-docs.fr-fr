@@ -13,30 +13,28 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="08/17/2016" 
+	ms.date="09/16/2016" 
 	ms.author="spelluru"/>
 
 # Didacticiel : Créer un pipeline avec l’activité de copie à l’aide de l’API REST
 > [AZURE.SELECTOR]
-- [Didacticiel - Vue d’ensemble](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
-- [Utilisation de Data Factory Editor](data-factory-copy-activity-tutorial-using-azure-portal.md)
-- [Utiliser PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
-- [Utilisation de Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
-- [Utilisation de l'API REST](data-factory-copy-activity-tutorial-using-rest-api.md)
-- [Utilisation de l’API .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
-- [Utilisation de l’Assistant de copie](data-factory-copy-data-wizard-tutorial.md)
+- [Vue d’ensemble et étapes préalables requises](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+- [Portail Azure](data-factory-copy-activity-tutorial-using-azure-portal.md)
+- [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
+- [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
+- [API REST](data-factory-copy-activity-tutorial-using-rest-api.md)
+- [API .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
+- [Assistant de copie](data-factory-copy-data-wizard-tutorial.md)
 
 Ce didacticiel vous montre comment créer et surveiller une fabrique de données Azure à l’aide de l’API REST. Le pipeline de la fabrique de données utilise une activité de copie pour copier les données d’un objet Stockage Blob Azure vers une base de données Azure SQL Database.
-
-L’activité de copie effectue le déplacement des données dans Azure Data Factory. Elle est mise en œuvre par un service disponible dans le monde entier, capable de copier des données entre différents magasins de données de façon sécurisée, fiable et évolutive. Pour plus d’informations sur l’activité de copie, consultez l’article [Activités de déplacement des données](data-factory-data-movement-activities.md).
 
 > [AZURE.NOTE] 
 Cet article ne couvre pas toute l’API REST Data Factory. Consultez les [informations de référence sur l’API REST Data Factory](https://msdn.microsoft.com/library/azure/dn906738.aspx) pour obtenir une documentation complète sur les applets de commande Data Factory.
   
 
-## Conditions préalables
+## Composants requis
 
-- Lisez l’article [Didacticiel - Vue d’ensemble](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+- Lisez l’article [Vue d’ensemble du didacticiel](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) et effectuez les **étapes préalables requises**.
 - Installez [Curl](https://curl.haxx.se/dlwiz/) sur votre ordinateur. L’outil Curl et les commandes REST vous permettent de créer une fabrique de données.
 - Suivez les instructions de [cet article](../resource-group-create-service-principal-portal.md) pour effectuer les opérations suivantes :
 	1. Créez une application Web nommée **ADFCopyTutotiralApp** dans Azure Active Directory.
@@ -302,7 +300,7 @@ Dans cette étape, vous créez une fabrique de données Azure nommée **ADFCopyT
 
 Notez les points suivants :
  
-- Le nom de la fabrique de données Azure doit être un nom global unique. Si l’erreur : **Le nom de fabrique de données « ADFCopyTutorialDF » n’est pas disponible** apparaît dans les résultats, procédez comme suit :
+- Le nom de la fabrique de données Azure doit être un nom global unique. Si le message d’erreur **Le nom de la fabrique de données « ADFCopyTutorialDF » n’est pas disponible** s’affiche dans les résultats, procédez comme suit :
 	1. Modifiez le nom (par exemple, votrenomADFCopyTutorialDF) dans le fichier **datafactory.json**.
 	2. Dans la première commande où une valeur est attribuée à la variable **$cmd**, remplacez ADFCopyTutorialDF par le nouveau nom, puis exécutez la commande.
 	3. Exécutez les deux commandes suivantes pour appeler l’API REST afin de créer la fabrique de données et d’imprimer les résultats de l’opération.
@@ -373,7 +371,7 @@ Effectuez les étapes suivantes pour préparer le stockage d’objets blob Azure
         John, Doe
 		Jane, Doe
 				
-2. Utilisez des outils tels que l’[Explorateur Azure Storage](https://azurestorageexplorer.codeplex.com/) pour créer le conteneur **adftutorial** et télécharger le fichier **emp.txt** vers ce dernier.
+2. Utilisez des outils tels que l’[Explorateur Stockage Azure](https://azurestorageexplorer.codeplex.com/) pour créer le conteneur **adftutorial** et télécharger le fichier **emp.txt** vers ce dernier.
 
     ![Azure Storage Explorer](media/data-factory-copy-activity-tutorial-using-powershell/getstarted-storage-explorer.png)
 3. Utilisez le script SQL suivant pour créer la table **emp** dans votre base de données SQL Azure.
@@ -493,4 +491,4 @@ Dans ce didacticiel, vous avez utilisé une API REST pour créer une fabrique de
 [sql-management-studio]: ../sql-database/sql-database-manage-azure-ssms.md
  
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0921_2016-->

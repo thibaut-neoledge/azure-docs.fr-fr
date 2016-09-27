@@ -18,35 +18,33 @@
 
 # Didacticiel : concevoir votre première fabrique de données Azure à l’aide du modèle Azure Resource Manager
 > [AZURE.SELECTOR]
+- [Vue d’ensemble et étapes préalables requises](data-factory-build-your-first-pipeline.md)
 - [Portail Azure](data-factory-build-your-first-pipeline-using-editor.md)
 - [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 - [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 - [Modèle Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
 - [API REST](data-factory-build-your-first-pipeline-using-rest-api.md)
 
+Dans cet article, vous utilisez un modèle Azure Resource Manager pour créer votre première fabrique de données Azure.
 
-[AZURE.INCLUDE [Configuration requise pour le didacticiel Data Factory](../../includes/data-factory-tutorial-prerequisites.md)]
-
-## Autres composants requis
-Outre la configuration requise présentée dans la section précédente, vous devez installer les éléments suivants :
-
-- **Installez Azure PowerShell**. Suivez les instructions de l’article [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md) pour installer la dernière version d’Azure PowerShell sur votre ordinateur.
+## Composants requis
+- Lisez l’article [Vue d’ensemble du didacticiel](data-factory-build-your-first-pipeline.md) et effectuez les **étapes préalables requises**.
+- Suivez les instructions de l’article [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md) pour installer la dernière version d’Azure PowerShell sur votre ordinateur.
 - Consultez [Création de modèles Azure Resource Manager](../resource-group-authoring-templates.md) pour en savoir plus sur les modèles Azure Resource Manager.
 
 ## Créer un modèle Resource Manager
 
-Créez un fichier JSON nommé **ADFTutorialARM.json** dans le dossier **C:\\ADFGetStarted** avec le contenu suivant :
-
-Le modèle vous permet de créer les entités suivantes de la fabrique de données.
+Dans cette section, vous créez les tables Data Factory suivantes :
 
 1. Une **fabrique de données** nommée **TutorialDataFactoryARM**. Une fabrique de données peut avoir un ou plusieurs pipelines. Un pipeline peut contenir une ou plusieurs activités. Par exemple, une activité de copie censée copier des données d’un magasin de données source vers un magasin de données de destination, et une activité Hive HDInsight pour exécuter un script Hive pour transformer des données d’entrée.
-2. Deux **services liés** : **StorageLinkedService** et **HDInsightOnDemandLinkedService**. Ces services liés lient votre compte Azure Storage et un cluster Azure HDInsight à la demande à votre fabrique de données. Le compte Stockage Azure contient les données d’entrée et de sortie pour le pipeline de cet exemple. Le service lié HDInsight est utilisé pour exécuter le script Hive spécifié dans l’activité du pipeline de cet exemple. Identifiez les services de magasin de données/de calcul qui sont utilisés dans votre scénario et les lier à la fabrique de données en créant des services liés.
+2. Deux **services liés** : **StorageLinkedService** et **HDInsightOnDemandLinkedService**. Ces services liés lient votre compte Azure Storage et un cluster Azure HDInsight à la demande à votre fabrique de données. Le compte Stockage Azure contient les données d’entrée et de sortie pour le pipeline de cet exemple. Le service lié HDInsight est utilisé pour exécuter le script Hive spécifié dans l’activité du pipeline de cet exemple. Identifiez les services de magasin de données/de calcul qui sont utilisés dans votre scénario et les lier à la fabrique de données en créant des services liés.
 3. Deux **jeux de données** (entré/sortie) : **AzureBlobInput** et **AzureBlobOutput**. Ces jeux de données représentent les données d’entrée et de sortie pour le traitement Hive. Ces jeux de données font référence au service **StorageLinkedService** que vous avez créé précédemment dans ce didacticiel. Le service lié pointe vers un compte de stockage Azure, et les jeux de données spécifient le conteneur, le dossier et le nom de fichier dans le stockage qui contient les données d’entrée et de sortie.
 
 Cliquez sur l’onglet **Utilisation de Data Factory Editor** pour passer à l’article contenant des détails sur les propriétés JSON utilisées dans ce modèle.
 
-> [AZURE.IMPORTANT] Changez les valeurs des variables **storageAccountName** et **storageAccountKey**. Changez également **dataFactoryName**, car le nom doit être unique.
+Créez un fichier JSON nommé **ADFTutorialARM.json** dans le dossier **C:\\ADFGetStarted** avec le contenu suivant :
 
+> [AZURE.IMPORTANT] Changez les valeurs des variables **storageAccountName** et **storageAccountKey**. Changez également **dataFactoryName**, car le nom doit être unique.
 
 	{
 	    "contentVersion": "1.0.0.0",
@@ -226,9 +224,10 @@ Consultez [Service lié HDInsight à la demande](data-factory-compute-linked-ser
 
 ## Créer une fabrique de données
 
-1. Démarrez **Azure PowerShell** et exécutez la commande suivante.
-	- Exécutez **Login-AzureRmAccount**, puis saisissez le nom d’utilisateur et le mot de passe que vous avez utilisés pour la connexion au portail Azure.
-	- Exécutez la commande suivante pour sélectionner un abonnement dans lequel vous souhaitez créer la fabrique de données. Get-AzureRmSubscription -SubscriptionName <NOM D’ABONNEMENT> | Set-AzureRmContext
+1. Démarrez **Azure PowerShell** et exécutez la commande suivante :
+	- Exécutez `Login-AzureRmAccount`, puis entrez le nom d’utilisateur et le mot de passe que vous avez utilisés pour vous connecter au portail Azure.
+	- Exécutez `Get-AzureRmSubscription` pour afficher tous les abonnements de ce compte.
+	- Exécutez `Get-AzureRmSubscription -SubscriptionName <SUBSCRIPTION NAME> | Set-AzureRmContext` pour sélectionner l’abonnement que vous souhaitez utiliser. Cet abonnement doit être identique à celui utilisé dans le portail Azure.
 1. Exécutez la commande suivante pour déployer des entités Data Factory à l’aide du modèle Resource Manager que vous avez créé à l’étape 1.
 
 		New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile C:\ADFGetStarted\ADFTutorialARM.json
@@ -244,7 +243,7 @@ Consultez [Service lié HDInsight à la demande](data-factory-compute-linked-ser
 8. Dans la vue de diagramme, double-cliquez sur le jeu de données **AzureBlobOutput**. La tranche est en cours de traitement.
 
 	![Jeu de données](./media/data-factory-build-your-first-pipeline-using-arm/AzureBlobOutput.png)
-9. Quand le traitement est terminé, l’état de la tranche est **Prêt**. La création d’un cluster HDInsight à la demande prend généralement un certain temps (environ 20 minutes).
+9. Quand le traitement est terminé, l’état de la tranche est **Prêt**. La création d’un cluster HDInsight à la demande prend généralement un certain temps (environ 20 minutes). Le pipeline devrait donc traiter la tranche en **30 minutes environ**.
 
 	![Jeu de données](./media/data-factory-build-your-first-pipeline-using-arm/SliceReady.png)
 10. Quand l’état du segment est **Prêt**, vérifiez la présence des données de sortie dans le dossier **partitioneddata** du conteneur **adfgetstarted** de votre stockage d’objets blob.
@@ -302,4 +301,4 @@ Ce modèle crée une fabrique de données nommée GatewayUsingArmDF avec une pas
 
   
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

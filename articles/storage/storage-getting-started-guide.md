@@ -1,22 +1,22 @@
-<properties 
-	pageTitle="Familiarisez-vous avec Azure Storage en cinq minutes | Microsoft Azure" 
-	description="Développez rapidement les objets blob, les tables et les files d'attente Microsoft Azure à l'aide des rubriques de démarrage rapide Azure, de Visual Studio et de l’émulateur d’Azure Storage. Exécutez votre première application Azure Storage en cinq minutes." 
-	services="storage" 
-	documentationCenter=".net" 
-	authors="tamram" 
-	manager="carmonm" 
+<properties
+	pageTitle="Familiarisez-vous avec Azure Storage en cinq minutes | Microsoft Azure"
+	description="Développez rapidement les objets blob, les tables et les files d'attente Microsoft Azure à l'aide des rubriques de démarrage rapide Azure, de Visual Studio et de l’émulateur d’Azure Storage. Exécutez votre première application Azure Storage en cinq minutes."
+	services="storage"
+	documentationCenter=".net"
+	authors="tamram"
+	manager="carmonm"
 	editor="tysonn"/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="get-started-article" 
-	ms.date="07/21/2016"
-	ms.author="tamram"/>
+<tags
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="get-started-article"
+	ms.date="09/20/2016"
+	ms.author="dineshm;tamram"/>
 
-# Familiarisez-vous avec Azure Storage en cinq minutes 
+# Familiarisez-vous avec Azure Storage en cinq minutes
 
 ## Vue d'ensemble
 
@@ -38,7 +38,7 @@ Vérifiez que les conditions préalables suivantes sont remplies avant de commen
 
 4. Vous aurez besoin d’un abonnement Azure et d’un compte de stockage Azure.
 
-    - Pour obtenir un abonnement Azure, consultez [Version d'évaluation gratuite](https://azure.microsoft.com/pricing/free-trial/), [Options d'achat](https://azure.microsoft.com/pricing/purchase-options/) et [Offres spéciales membres](https://azure.microsoft.com/pricing/member-offers/) (pour les membres MSDN, Microsoft Partner Network, BizSpark et autres programmes Microsoft).
+    - Pour obtenir un abonnement Azure, consultez [Version d’évaluation gratuite](https://azure.microsoft.com/pricing/free-trial/), [Options d’achat](https://azure.microsoft.com/pricing/purchase-options/) et [Offres spéciales membres](https://azure.microsoft.com/pricing/member-offers/) (pour les membres de MSDN, Microsoft Partner Network, BizSpark et des autres programmes Microsoft).
     - Pour créer un compte de stockage dans Azure, consultez la page [Création d’un compte de stockage](storage-create-storage-account.md#create-a-storage-account).
 
 ## Exécution de votre première application Azure Storage sur Azure Storage dans le cloud
@@ -49,7 +49,7 @@ Une fois votre compte créé, vous pouvez créer une application Azure Storage s
 2. Dans le menu **Fichier**, cliquez sur **Nouveau projet**.
 3. Dans la boîte de dialogue **Nouveau projet**, cliquez sur **Installé** > **Modèles** > **Visual C#** > **Cloud** > **Démarrages rapides** > **Services de données**. a. Choisissez l’un des modèles suivants : **Azure Storage : Blobs**, **Azure Storage : Fichiers**, **Azure Storage : Files d’attente** ou **Azure Storage : Tables**. b. Vérifiez que la version cible sélectionnée est **.NET Framework 4.5**.
 	- 3\.c. Donnez un nom à votre projet et créez la nouvelle solution Visual Studio, comme indiqué :
-	
+
 	![Exemples de Démarrage rapide pour Azure][Image1]
 
 Il peut être utile d’examiner le code source avant d'exécuter l'application. Pour ce faire, dans le menu **Affichage** de Visual Studio, sélectionnez **Explorateur de solutions**. Ensuite, double-cliquez sur le fichier Program.cs.
@@ -71,14 +71,14 @@ Exécutez ensuite l'exemple d'application :
 
 ## Exécution locale de votre première application Azure Storage sur l’émulateur d’Azure Storage
 
-L'[émulateur de stockage](storage-use-emulator.md) fournit un environnement local qui émule les services d’objets blob, de File d'attente et de Table Azure à des fins de développement. Vous pouvez utiliser l'émulateur de stockage pour tester votre application de stockage localement, sans souscrire d’abonnement Azure ni de compte de stockage et sans frais.
+L'[émulateur de stockage](storage-use-emulator.md) fournit un environnement local qui émule les services d’objets blob, de File d'attente et de Table Azure à des fins de développement. Vous pouvez utiliser l’émulateur de stockage pour tester votre application de stockage localement, sans souscrire d’abonnement Azure ni de compte de stockage et sans frais.
 
 Pour l’essayer, nous allons créer une application Azure Storage simple à l’aide d’un des exemples de projet de démarrage rapide Azure dans Visual Studio. Ce didacticiel se concentre sur les exemples de projets de **stockage d’objets blob Azure**, de **tables Azure Storage** et de **files d’attente Azure Storage**.
 
 1. Démarrez Visual Studio.
 2. Dans le menu **Fichier**, cliquez sur **Nouveau projet**.
 3. Dans la boîte de dialogue **Nouveau projet**, cliquez sur **Installé** > **Modèles** > **Visual C#** > **Cloud** > **Démarrages rapides** > **Services de données**. a. Choisissez l’un des modèles suivants : **Azure Storage : Blobs**, **Azure Storage : Fichiers**, **Azure Storage : Files d’attente** ou **Azure Storage : Tables**. b. Vérifiez que la version cible sélectionnée est **.NET Framework 4.5**. c. Donnez un nom à votre projet et créez la nouvelle solution Visual Studio, comme indiqué :
-	
+
 	![Exemples de Démarrage rapide pour Azure][Image1]
 
 4.	Dans le menu **Affichage** de Visual Studio, sélectionnez **Explorateur de solutions**. Ouvrez le fichier App.config et supprimez la marque de commentaire de la chaîne de connexion pour votre compte de stockage Azure si vous en avez ajouté une. Puis supprimez la marque de commentaire de la chaîne de connexion pour l’émulateur de stockage Azure :
@@ -109,6 +109,5 @@ Pour en savoir plus sur Azure Storage, consultez les ressources suivantes :
 * [API REST des services d’Azure Storage](https://msdn.microsoft.com/library/azure/dd179355.aspx)
 
 [Image1]: ./media/storage-getting-started-guide/QuickStart.png
- 
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0921_2016-->

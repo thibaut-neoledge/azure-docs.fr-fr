@@ -25,8 +25,6 @@ Découvrez comment utiliser le Kit de développement logiciel (SDK) Azure .NET p
 
 Dans ce didacticiel, vous allez développer une application de console C# qui contient un script U-SQL qui lit un fichier TSV (valeurs séparées par des tabulations) et le convertit en fichier CSV (valeurs séparées par des virgules). Pour suivre ce didacticiel même à l'aide d'autres outils pris en charge, cliquez sur les onglets en haut de cette section.
 
-[AZURE.INCLUDE [basic-process-include](../../includes/data-lake-analytics-basic-process.md)]
-
 ##Composants requis
 
 Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
@@ -265,4 +263,4 @@ Un exemple de journal de recherche a été copié vers un conteneur d’objets b
 - Pour les tâches de gestion, consultez [Gestion d’Azure Data Lake Analytics à l’aide du portail Azure](data-lake-analytics-manage-use-portal.md).
 - Pour obtenir une vue d’ensemble de l’analyse de données Analytique Data Lake, consultez [Présentation d’Analytique Data Lake Azure](data-lake-analytics-overview.md).
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->
