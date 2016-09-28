@@ -156,7 +156,7 @@ La partie adresse de ce fichier RDP comporte :
 
 Cause : La machine virtuelle cible n’a pas pu localiser l’autorité de sécurité dans la partie nom d’utilisateur de vos informations d’identification.
 
-Lorsque votre nom d’utilisateur est au format *SecurityAuthority*\*UserName* (par exemple, CORP\\User1), la partie *SecurityAuthority* est soit le nom d’ordinateur de la machine virtuelle (pour l’autorité de sécurité locale), soit un nom de domaine Active Directory.
+Lorsque votre nom d’utilisateur est au format *SecurityAuthority*\\*UserName* (par exemple, CORP\\User1), la partie *SecurityAuthority* est soit le nom d’ordinateur de la machine virtuelle (pour l’autorité de sécurité locale), soit un nom de domaine Active Directory.
 
 Solutions possibles :
 
