@@ -151,4 +151,4 @@ Ou faites-en plus avec votre première application web. Par exemple :
 - Donnez une nouvelle dimension à votre application Azure. Authentifiez vos utilisateurs. Faites évoluer sa capacité en fonction de la demande. Configurez des alertes de performance. Tout cela en seulement quelques clics. Consultez l’article 
 [Ajouter des fonctionnalités à votre première application web](app-service-web-get-started-2.md).
 
-<!---HONumber=AcomDC_0920_2016-->
+<!----HONumber=AcomDC_0920_2016-->
