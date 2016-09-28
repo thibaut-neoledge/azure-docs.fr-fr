@@ -62,7 +62,7 @@ Pour associer votre domaine personnalisé à une application web dans App Servi
 
 	* Lorsque vous ajoutez un enregistrement (hôte A) (**A (host) record**) , vous devez attribuer au champ **Host** la valeur **@** (correspondant au nom de domaine racine, par exemple **contoso.com**), la valeur * (caractère générique correspondant à plusieurs sous-domaines) ou le sous-domaine à utiliser (par exemple, **www**.) Dans le champ **Points to**, indiquez l’adresse IP de votre application web Azure.
 
-	* Quand vous ajoutez un **CNAME (alias) record**, vous devez définir le champ **Host** en fonction du sous-domaine à utiliser. Par exemple, **www**. Dans le **Points to**, indiquez le nom de domaine **.azurewebsites.net** de votre application web Azure. Par exemple, **contoso.azurwebsites.net**.
+	* Quand vous ajoutez un **CNAME (alias) record**, vous devez définir le champ **Host** en fonction du sous-domaine à utiliser. Par exemple, **www**. Dans le **Points to**, indiquez le nom de domaine **.azurewebsites.net** de votre application web Azure. Par exemple, **contoso.azurewebsites.net**.
 
 5. Cliquez sur **Ajouter**.
 6. Sélectionnez **TXT** comme type d’enregistrement, puis spécifiez une valeur **Host** de **@** et une valeur **Points to** de **&lt;yourwebappname&gt;.azurewebsites.net**.
