@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Déployer votre première application web sur Azure en 5 minutes | Microsoft Azure" 
-	description="Découvrez la facilité avec laquelle vous pouvez exécuter des applications web dans App Service en déployant un exemple d’application. Commencez à développer pour de vrai en rapidement, et voyez les résultats immédiatement." 
+	pageTitle="Déployer votre première application web dans Azure en 5 minutes | Microsoft Azure" 
+	description="Découvrez la facilité avec laquelle vous pouvez exécuter des applications web dans App Service en déployant un exemple d’application. Commencez le développement rapidement et visualisez les résultats immédiatement." 
 	services="app-service\web"
 	documentationCenter=""
 	authors="cephalin"
@@ -18,28 +18,32 @@
 	ms.author="cephalin"
 />
 	
-# Déployer votre première application web sur Azure en 5 minutes
+# Déployer votre première application web dans Azure en 5 minutes
 
-Dans ce didacticiel, vous découvrirez comment déployer votre première application web vers [Azure App Service](../app-service/app-service-value-prop-what-is.md). App Service vous permet de créer des applications web, des [backends d’applications mobiles](/documentation/learning-paths/appservice-mobileapps/) et des [applications API](../app-service-api/app-service-api-apps-why-best-platform.md).
+Dans ce didacticiel, vous découvrirez comment déployer votre première application web dans [Azure App Service](../app-service/app-service-value-prop-what-is.md). 
+App Service permet de créer des applications web, des [back-ends d’applications mobiles](/documentation/learning-paths/appservice-mobileapps/) et des [applications API](../app-service-api/app-service-api-apps-why-best-platform.md).
 
 Vous allez :
 
-- Créer une application web dans Azure App Service.
-- Déployer un exemple de code (vous avez le choix entre ASP.NET, PHP, Node.js, Java ou Python).
-- Voir votre code s’exécuter en production.
-- mettre à jour votre application web de la même façon que vous transférez des validations [Git](https://git-scm.com/docs/git-push).
+- Créer une application web dans Azure App Service
+- Déployer un exemple de code (vous avez le choix entre ASP.NET, PHP, Node.js, Java ou Python)
+- Voir votre code s’exécuter dans un environnement de production
+- Mettre à jour votre application web de la même façon que vous [transmettez des validations Git](https://git-scm.com/docs/git-push)
 
-## Composants requis
+## Conditions préalables
 
-- [Installez Git](http://www.git-scm.com/downloads). Vérifiez que votre installation a réussi en exécutant `git --version` à partir d’une nouvelle invite de commande Windows, d’une fenêtre PowerShell, d’un interpréteur de commande Linux ou d’un terminal OS X.
-- Obtenir un compte Microsoft Azure. Si vous n’avez pas de compte, vous pouvez [demander un essai gratuit](/pricing/free-trial/?WT.mc_id=A261C142F) ou [activer les avantages de votre abonnement Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
+- [Installer Git](http://www.git-scm.com/downloads). Vérifiez que votre installation a réussi en exécutant `git --version` à partir d’une nouvelle invite de commande Windows, 
+d’une fenêtre PowerShell, d’un interpréteur de commande Linux ou d’un terminal OS X.
+- Obtenir un compte Microsoft Azure. Si vous ne possédez pas de compte, vous pouvez 
+[demander un essai gratuit](/pricing/free-trial/?WT.mc_id=A261C142F) ou 
+[activer les avantages de votre abonnement Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
->[AZURE.NOTE] Vous pouvez [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751) sans compte Azure. Créez une application de démarrage et expérimentez-la pendant une heure – aucun engagement ni carte de crédit requis.
+>[AZURE.NOTE] Vous pouvez [essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751) sans compte Azure. Créez une application de base et expérimentez-la pendant une heure, sans carte de paiement et sans engagement.
 
 <a name="create"></a>
 ## Créer une application web
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com) avec votre compte Azure.
+1. Connectez-vous au [portail Azure](https://portal.azure.com) avec votre compte Azure.
 
 2. Dans le menu de gauche, cliquez sur **Nouveau** > **Web + mobile** > **Application web**.
 
@@ -49,29 +53,30 @@ Vous allez :
 
     - **Nom de l’application** : tapez un nom unique.
     - **Groupe de ressources** : sélectionnez **Créer** et donnez un nom au groupe de ressources.
-    - **Plan App Service/Emplacement** : cliquez sur cette option pour la configurer, puis cliquez sur **Créer** pour définir le nom, l’emplacement et le niveau tarifaire du plan App Service. N’hésitez pas à utiliser le niveau tarifaire **Gratuit**.
+    - **Plan App Service/Emplacement** : cliquez sur cette option pour la configurer, puis cliquez sur **Créer** pour définir le nom, l’emplacement et 
+    le niveau tarifaire du plan App Service. N’hésitez pas à utiliser le niveau tarifaire **Gratuit**.
 
     Lorsque vous avez terminé, le panneau de création de votre application doit ressembler à ceci :
 
     ![configurer votre première application web dans Azure](./media/app-service-web-get-started/create-web-app-settings.png)
 
-3. Cliquez sur l’option **Créer** figurant en bas. Vous pouvez cliquer sur l’icône **Notification** en haut pour voir la progression.
+3. Cliquez sur l’option **Créer** au bas du panneau. Pour afficher la progression, cliquez sur l’icône **Notification** située en haut.
 
     ![notification de création d’application de votre première application web dans Azure](./media/app-service-web-get-started/create-web-app-started.png)
 
-4. Lorsque le déploiement est terminé, vous devez voir ce message de notification. Cliquez sur le message pour ouvrir le panneau de votre déploiement.
+4. Une fois le déploiement terminé, le message de notification ci-dessous doit s’afficher. Cliquez sur ce message pour ouvrir le panneau de votre déploiement.
 
     ![message de fin du déploiement de votre première application web dans Azure](./media/app-service-web-get-started/create-web-app-finished.png)
 
-5. Dans le panneau **Déploiement réussi**, cliquez sur le lien **Ressources** pour ouvrir le panneau de votre nouvelle application web.
+5. Dans le panneau **Déploiement réussi**, cliquez sur le lien **Ressource** pour ouvrir le panneau de votre nouvelle application web.
 
     ![lien de ressource de votre première application web dans Azure](./media/app-service-web-get-started/create-web-app-resource.png)
 
-## Déployer le code sur votre application web
+## Déployer du code dans votre application web
 
-À présent, nous allons déployer du code vers Azure à l’aide de Git.
+À présent, nous allons déployer du code dans Azure à l’aide de Git.
 
-5. Dans le panneau de l’application web, accédez aux **Options de déploiement** ou recherchez-les, puis cliquez dessus.
+5. Dans le panneau de l’application web, accédez au menu **Options de déploiement** ou recherchez-le, puis cliquez dessus.
 
     ![options de déploiement de votre première application web dans Azure](./media/app-service-web-get-started/deploy-web-app-deployment-options.png)
 
@@ -81,7 +86,7 @@ Vous allez :
 
 8. Définissez vos informations d’identification de déploiement et cliquez sur **Enregistrer**.
 
-7. De retour dans le panneau de l’application web, accédez aux **Propriétés** ou recherchez-les, puis cliquez dessus. En regard de **l’URL Git**, cliquez sur le bouton **Copier**.
+7. De retour dans le panneau de l’application web, accédez aux **Propriétés** ou recherchez-les, puis cliquez dessus. En regard de **URL Git**, cliquez sur le bouton **Copier**.
 
     ![panneau de propriétés de votre première application web dans Azure](./media/app-service-web-get-started/deploy-web-app-properties.png)
 
@@ -91,38 +96,38 @@ Vous allez :
 
         git clone <github_sample_url>
 
-    ![Cloner l’exemple de code d’application pour votre première application web dans Azure](./media/app-service-web-get-started/html-git-clone.png)
+    ![Clonez l’exemple de code d’application pour votre première application web dans Azure](./media/app-service-web-get-started/html-git-clone.png)
 
-    Pour *&lt;github\_sample\_url>*, utilisez l’une des URL suivantes, en fonction de l’infrastructure souhaitée :
+    Pour *&lt;github_sample_url>*, utilisez l’une des URL suivantes, en fonction de l’infrastructure souhaitée :
 
-    - HTML+CSS+JS : [https://github.com/Azure-Samples/app-service-web-html-get-started.git](https://github.com/Azure-Samples/app-service-web-html-get-started.git)
-    - ASP.NET : [https://github.com/Azure-Samples/app-service-web-dotnet-get-started.git](https://github.com/Azure-Samples/app-service-web-dotnet-get-started.git)
-    - PHP (CodeIgniter) : [https://github.com/Azure-Samples/app-service-web-php-get-started.git](https://github.com/Azure-Samples/app-service-web-php-get-started.git)
-    - Node.js (Express) : [https://github.com/Azure-Samples/app-service-web-nodejs-get-started.git](https://github.com/Azure-Samples/app-service-web-nodejs-get-started.git)
-    - Java : [https://github.com/Azure-Samples/app-service-web-java-get-started.git](https://github.com/Azure-Samples/app-service-web-java-get-started.git)
-    - Python (Django) : [https://github.com/Azure-Samples/app-service-web-python-get-started.git](https://github.com/Azure-Samples/app-service-web-python-get-started.git)
+    - HTML+CSS+JS: [https://github.com/Azure-Samples/app-service-web-html-get-started.git](https://github.com/Azure-Samples/app-service-web-html-get-started.git)
+    - ASP.NET: [https://github.com/Azure-Samples/app-service-web-dotnet-get-started.git](https://github.com/Azure-Samples/app-service-web-dotnet-get-started.git)
+    - PHP (CodeIgniter): [https://github.com/Azure-Samples/app-service-web-php-get-started.git](https://github.com/Azure-Samples/app-service-web-php-get-started.git)
+    - Node.js (Express): [https://github.com/Azure-Samples/app-service-web-nodejs-get-started.git](https://github.com/Azure-Samples/app-service-web-nodejs-get-started.git)
+    - Java: [https://github.com/Azure-Samples/app-service-web-java-get-started.git](https://github.com/Azure-Samples/app-service-web-java-get-started.git)
+    - Python (Django): [https://github.com/Azure-Samples/app-service-web-python-get-started.git](https://github.com/Azure-Samples/app-service-web-python-get-started.git)
 
-2. Passez au référentiel de votre exemple d’application. Par exemple,
+2. Passez au référentiel de votre exemple d’application. Par exemple :
 
         cd app-service-web-html-get-started
 
-3. Configurez le Git distant pour votre application Azure et son URL Git, que vous avez copiée à partir du Portail, quelques étapes auparavant.
+3. Configurez l’objet distant Git de votre application Azure en ajoutant l’URL Git copiée dans le portail quelques étapes auparavant.
 
         git remote add azure <giturlfromportal>
 
-4. Déployez votre exemple de code dans votre application Azure de la même manière que si vous transfériez un code avec Git :
+4. Déployez votre exemple de code dans votre application Azure de la même façon que vous transmettez du code avec Git :
 
         git push azure master
 
-    ![Pousser du code dans votre première application web dans Azure](./media/app-service-web-get-started/html-git-push.png)
+    ![Transmettez du code pour votre première application web dans Azure](./media/app-service-web-get-started/html-git-push.png)
 
-    Si vous avez utilisé l’une des infrastructures de langage, vous verrez une sortie différente. Cela est dû au fait que `git push` injecte non seulement du code dans Azure, mais déclenche également des tâches de déploiement dans le moteur de déploiement. Si vous disposez de fichiers package.json (Node.js) ou requirements.txt (Python) à la racine (référentiel) du projet, ou si vous avez un fichier packages.config dans votre projet ASP.NET, le script de déploiement restaure les packages requis à votre place. Vous pouvez également [activer l’extension Composer](web-sites-php-mysql-deploy-use-git.md#composer) afin de traiter automatiquement les fichiers composer.json dans votre application PHP.
+    Si vous avez utilisé l’une des infrastructures de langage, vous observerez un résultat différent. En effet, en plus d’injecter du code dans Azure, `git push` déclenche des tâches de déploiement dans le moteur de déploiement. Si vous disposez de fichiers package.json (Node.js) ou requirements.txt (Python) à la racine (référentiel) du projet, ou si vous avez un fichier packages.config dans votre projet ASP.NET, le script de déploiement restaure les packages requis à votre place. Vous pouvez également [activer l’extension Composer](web-sites-php-mysql-deploy-use-git.md#composer) afin de traiter automatiquement les fichiers composer.json dans votre application PHP.
 
-Et voilà ! Votre code s’exécute désormais dans Azure. Dans votre navigateur, accédez à http://*&lt;appname>*. azurewebsites.net pour le voir en action.
+Et voilà ! Votre code s’exécute désormais dans Azure. Dans votre navigateur, accédez à http://*&lt;appname>*.azurewebsites.net pour le voir à l’œuvre.
 
 ## Mettre à jour votre application
 
-Vous pouvez désormais procéder à un transfert depuis la racine (référentiel) de votre projet à tout moment à l’aide de Git. Vous pouvez ainsi effectuer des mises à jour du site web en activité. Vous pouvez utiliser la même procédure que celle que vous avez utilisée lors du déploiement de votre code pour la première fois. Par exemple : chaque fois que vous voulez transférer la modification que vous avez testée localement, exécutez simplement les commandes suivantes à partir de la racine (référentiel) du projet :
+Vous pouvez désormais utiliser Git pour transmettre votre code depuis la racine (référentiel) de votre projet dès que vous avez besoin d’apporter une mise à jour au site en ligne. Pour ce faire, il vous suffit de suivre la même procédure que pour le déploiement initial de votre code. Par exemple, chaque fois que vous voulez transmettre une nouvelle modification que vous avez testée localement, exécutez simplement les commandes suivantes depuis la racine (référentiel) de votre projet :
 
     git add .
     git commit -m "<your_message>"
@@ -130,7 +135,7 @@ Vous pouvez désormais procéder à un transfert depuis la racine (référentiel
 
 ## Étapes suivantes
 
-Recherchez les étapes de développement et de déploiement préférées pour votre infrastructure de langage :
+Accédez aux étapes de développement et de déploiement recommandées pour votre infrastructure de langage :
 
 > [AZURE.SELECTOR]
 - [.NET](web-sites-dotnet-get-started.md)
@@ -139,9 +144,11 @@ Recherchez les étapes de développement et de déploiement préférées pour vo
 - [Python](web-sites-python-ptvs-django-mysql.md)
 - [Java](web-sites-java-get-started.md)
 
-Ou faites-en plus avec votre première application web. Par exemple :
+Ou faites-en plus avec votre première application web. Par exemple :
 
-- Essayez [d’autres méthodes de déploiement de votre code vers Azure](../app-service-web/web-sites-deploy.md). Par exemple, pour déployer à partir de l’un de vos référentiels GitHub, sélectionnez simplement **GitHub** au lieu de **Référentiel Git local** dans les **Options de déploiement**.
-- Faites passer votre application Azure à la vitesse supérieure. Authentifiez vos utilisateurs. Mettez-la à l’échelle en fonction de la demande. Configurez des alertes de performance. Tout ceci en seulement quelques clics. Consultez l’article [Ajouter des fonctionnalités à votre première application web](app-service-web-get-started-2.md).
+- Essayez [d’autres méthodes de déploiement de votre code dans Azure](../app-service-web/web-sites-deploy.md). Par exemple, pour effectuer un déploiement à partir de l’un de vos référentiels GitHub, sélectionnez simplement 
+**GitHub** au lieu de **Référentiel Git local** dans les **Options de déploiement**.
+- Donnez une nouvelle dimension à votre application Azure. Authentifiez vos utilisateurs. Faites évoluer sa capacité en fonction de la demande. Configurez des alertes de performance. Tout cela en seulement quelques clics. Consultez l’article 
+[Ajouter des fonctionnalités à votre première application web](app-service-web-get-started-2.md).
 
-<!---HONumber=AcomDC_0914_2016-->
+<!----HONumber=AcomDC_0920_2016-->

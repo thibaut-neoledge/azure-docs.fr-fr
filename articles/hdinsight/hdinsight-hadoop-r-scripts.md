@@ -5,7 +5,7 @@
 	documentationCenter=""
 	tags="azure-portal"
 	authors="mumian"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-    ms.date="06/28/2016"
+    ms.date="09/14/2016"
 	ms.author="jgao"/>
 
 # Installation et utilisation de R sur des clusters HDInsight Hadoop
@@ -68,9 +68,9 @@ Cette section décrit comment exécuter un script R sur le cluster Hadoop avec 
 
 1. **Établissez une connexion Bureau à distance au cluster :** dans le portail, activez le Bureau à distance pour le cluster que vous avez créé et sur lequel vous avez installé R, puis accédez à distance au cluster. Pour la marche à suivre, consultez [Connexion à des clusters HDInsight à l’aide de RDP](hdinsight-administer-use-management-portal.md#rdp).
 
-2. **Ouvrez la console R** : l’installation de R crée un lien vers la console R sur le Bureau du nœud principal. Cliquez sur celui-ci pour ouvrir la console R.
+2. **Ouvrez la console R** : l’installation de R crée un lien vers la console R sur le Bureau du nœud principal. Cliquez sur celui-ci pour ouvrir la console R.
 
-3. **Exécutez le script R** : pour exécuter directement le script R à partir de la console R, collez-le dans la console, sélectionnez-le, puis appuyez sur Entrée. L'exemple simple de script suivant génère les nombres de 1 à 100, puis les multiplie par 2.
+3. **Exécutez le script R** : pour exécuter directement le script R à partir de la console R, collez-le dans la console, sélectionnez-le, puis appuyez sur Entrée. L'exemple simple de script suivant génère les nombres de 1 à 100, puis les multiplie par 2.
 
 		library(rmr2)
 		library(rhdfs)
@@ -114,4 +114,4 @@ Consultez [Personnalisation de clusters HDInsight à l'aide d'une action de scri
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
 [hdinsight-install-spark]: hdinsight-apache-spark-jupyter-spark-sql.md
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0914_2016-->

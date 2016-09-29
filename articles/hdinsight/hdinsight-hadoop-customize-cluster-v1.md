@@ -4,7 +4,7 @@
 	services="hdinsight" 
 	documentationCenter="" 
 	authors="nitinme" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun"/>
 
 <tags 
@@ -65,14 +65,14 @@ Nom | Script
 
 **Depuis le portail Azure Classic**
 
-1. Commencez l’approvisionnement d’un cluster à l’aide de l’option **CUSTOM CREATE**, comme cela est décrit dans la rubrique [Approvisionnement d’un cluster à l’aide d’options personnalisées](hdinsight-provision-clusters.md#portal). 
+1. Commencez l’approvisionnement d’un cluster à l’aide de l’option **CUSTOM CREATE**, comme cela est décrit dans la rubrique [Approvisionnement d’un cluster à l’aide d’options personnalisées](hdinsight-provision-clusters.md#portal).
 2. Sur la page **Actions de script** de l’Assistant, cliquez sur **Ajouter l’action de script** pour fournir des informations sur l’action de script, comme illustré ci-dessous :
 
 	![Utilisation d’une action de script pour personnaliser un cluster](./media/hdinsight-hadoop-customize-cluster-v1/HDI.CustomProvision.Page6.png "Utilisation d’une action de script pour personnaliser un cluster")
 	
 	<table border='1'>
 		<tr><th>Propriété</th><th>Valeur</th></tr>
-		<tr><td>Nom</td>
+		<tr><td>Name</td>
 			<td>Indiquez un nom pour l'action de script.</td></tr>
 		<tr><td>URI du script</td>
 			<td>Spécifiez l’URI du script appelé pour personnaliser les clusters.</td></tr>
@@ -180,4 +180,4 @@ Consultez [Développer des scripts d’action de script pour HDInsight][hdinsigh
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-v1/HDI-Cluster-state.png "Procédure d’approvisionnement d’un cluster"
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0914_2016-->

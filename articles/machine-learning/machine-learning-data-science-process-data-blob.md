@@ -4,7 +4,7 @@
 	services="machine-learning,storage" 
 	documentationCenter="" 
 	authors="bradsev" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun" />
 
 <tags 
@@ -23,7 +23,7 @@ Ce document concerne l’exploration des données et la génération de fonction
 ## Chargement des données dans une trame de données Pandas
 Pour explorer et manipuler un jeu de données, celui-ci doit être téléchargé depuis la source Blob vers un fichier local qui peut ensuite être chargé dans une trame de données Pandas. Voici les étapes à suivre pour cette procédure :
 
-1. Téléchargez les données à partir du blob Azure avec l’exemple de code Python à l’aide du service du blob. Remplacez la variable dans le code ci-dessous par vos propres valeurs : 
+1. Téléchargez les données à partir du blob Azure avec l’exemple de code Python à l’aide du service du blob. Remplacez la variable dans le code ci-dessous par vos propres valeurs :
 
 	    from azure.storage.blob import BlobService
     	import tables
@@ -54,7 +54,7 @@ Vous êtes maintenant prêt à explorer les données et à générer des fonctio
 
 Voici quelques méthodes pour explorer des données à l’aide de Pandas :
 
-1. Vérifiez le nombre de lignes et de colonnes. 
+1. Vérifiez le nombre de lignes et de colonnes.
 
 		print 'the size of the data is: %d rows and  %d columns' % dataframe_blobdata.shape
 
@@ -191,4 +191,4 @@ Après avoir exploré les données et créé les fonctionnalités nécessaires, 
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

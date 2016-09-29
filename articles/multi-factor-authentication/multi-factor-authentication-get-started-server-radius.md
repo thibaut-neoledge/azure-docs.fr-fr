@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Authentification RADIUS et serveur Azure Multi-Factor Authentication" 
-	description="Il s'agit de la page d'authentification multifacteur Azure qui facilite le déploiement de l’authentification RADIUS et du serveur Azure Multi-Factor Authentication." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="femila" 
+	pageTitle="Authentification RADIUS et serveur Azure Multi-Factor Authentication"
+	description="Il s'agit de la page d'authentification multifacteur Azure qui facilite le déploiement de l’authentification RADIUS et du serveur Azure Multi-Factor Authentication."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
 	editor="curtand"/>
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="08/15/2016" 
-	ms.author="billmath"/>
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="08/15/2016"
+	ms.author="kgremban"/>
 
 
 
@@ -60,4 +60,4 @@ Pour configurer le client RADIUS, suivez ces indications :
 - Utilisez le même secret partagé configuré ci-dessus.
 - Configurez le délai d'expiration RADIUS sur 30 à 60 secondes pour pouvoir valider les informations d'identification de l'utilisateur, effectuez l'authentification multifacteur, recevez leur réponse et répondez à la demande d'accès RADIUS.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="06/20/2016" 
+    ms.date="09/09/2016" 
     ms.author="jeedes" />
 
 #Didacticiel : Intégration d’Azure AD à Zendesk
@@ -66,7 +66,7 @@ Cette section décrit l’activation de l’intégration d’applications pour Z
 
 ##Configuration de l'authentification unique
   
-Cette section explique comment permettre aux utilisateurs de s’authentifier sur Zendesk avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML. La configuration de l’authentification unique pour Zendesk implique que vous récupériez la valeur de l’empreinte numérique d’un certificat. Si cette procédure ne vous est pas familière, consultez [Récupération de la valeur de l’empreinte numérique d’un certificat](http://youtu.be/YKQF266SAxI).
+Cette section explique comment permettre aux utilisateurs de s’authentifier sur Zendesk avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML. La configuration de l’authentification unique pour Zendesk implique que vous récupériez la valeur de l’empreinte numérique d’un certificat. Si cette procédure ne vous est pas familière, consultez [Comment récupérer la valeur d’empreinte numérique d’un certificat](http://youtu.be/YKQF266SAxI).
 
 ###Pour configurer l’authentification unique, procédez comme suit :
 
@@ -84,7 +84,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
   
 	a. Dans la zone de texte **URL de connexion de Zendesk**, tapez votre URL à l’aide du modèle suivant : `https://<tenant-name>.zendesk.com`
 
-	b. Cliquez sur **Next**.
+	b. Cliquez sur **Suivant**.
 
 
 
@@ -102,11 +102,11 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
 8.  Dans la page **Sécurité**, cliquez sur l’onglet **Admin & Agents**.
 
-9.  Sélectionnez **Single sign-on (SSO) and SAML**, puis **SAML**.
+9.  Sélectionnez **Single sign-on (SSO) and SAML**, puis **SAML**.
 
-10. Dans la page **Configurer l’authentification unique sur Zendesk** du portail Azure AD, copiez la valeur **URL SSO SAML**, puis collez-la dans la zone de texte **SAML SSO URL**.
+10. Dans la page **Configurer l’authentification unique sur Zendesk** du portail Azure AD, copiez la valeur **URL SSO SAML**, puis collez-la dans la zone de texte **SAML SSO URL**.
 
-11. Dans la page **Configurer l’authentification unique sur Zendesk** du portail Azure AD, copiez la valeur **URL de déconnexion distante**, puis collez-la dans la zone de texte **Remote Logout URL**.
+11. Dans la page **Configurer l’authentification unique sur Zendesk** du portail Azure AD, copiez la valeur **URL de déconnexion distante**, puis collez-la dans la zone de texte **Remote Logout URL**.
 
     ![Authentification unique](./media/active-directory-saas-zendesk-tutorial/IC773090.png "Authentification unique")
 
@@ -114,9 +114,9 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
 	>[AZURE.TIP] Pour plus d’informations, consultez [Comment récupérer la valeur d’empreinte numérique d’un certificat](http://youtu.be/YKQF266SAxI).
 
-13. Cliquez sur **Enregistrer**.
+13. Cliquez sur **Save**.
 
-14. Dans le portail Azure Active Directory, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
+14. Dans le portail Azure AD, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-zendesk-tutorial/IC773093.png "Configurer l’authentification unique")
 
@@ -146,7 +146,7 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
 ###Pour affecter des utilisateurs à Zendesk, procédez comme suit :
 
-1.  Dans le portail Azure AD, créez un compte test.
+1.  Dans le portail Azure AD, créez un compte de test.
 
 2.  Dans la page d’intégration d’applications **Zendesk**, cliquez sur **Affecter des utilisateurs**.
 
@@ -156,6 +156,6 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
     ![Oui](./media/active-directory-saas-zendesk-tutorial/IC767830.png "Oui")
   
-Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
+Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d'informations sur le panneau d'accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

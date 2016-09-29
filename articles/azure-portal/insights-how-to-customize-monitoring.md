@@ -68,8 +68,8 @@ Comme avec les mesures, vous pouvez utiliser l’[API REST](https://msdn.micros
 * [Réception de notifications d'alerte](insights-receive-alert-notifications.md) lorsqu'une mesure dépasse un seuil.
 * [Activation de la surveillance et des diagnostics](insights-how-to-use-diagnostics.md) pour collecter des mesures détaillées à fréquence élevée sur votre service.
 * [Mise à l’échelle automatique du nombre d’instances](insights-how-to-scale.md) pour vous assurer que votre service est disponible et réactif.
-* [Surveillance des performances d'une application](insights-perf-analytics.md) si vous voulez comprendre exactement comment votre code s'exécute dans le cloud.
+* [Surveillance des performances d'une application](../application-insights/app-insights-azure-web-apps.md) si vous voulez comprendre exactement comment votre code s'exécute dans le cloud.
 * Utilisez [Application Insights pour les pages Web et les applications JavaScript](../application-insights/app-insights-web-track-usage.md) pour obtenir une analyse client des navigateurs qui consultent une page Web.
 * [Surveillance de la disponibilité et de la réactivité des pages Web](../application-insights/app-insights-monitor-web-app-availability.md) avec Application Insights pour déterminer si vos pages sont inactives.
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

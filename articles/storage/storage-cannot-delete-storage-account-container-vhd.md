@@ -58,7 +58,7 @@ La section suivante répertorie les erreurs courantes que vous pourriez recevoir
 
 Lorsque vous accédez au compte de stockage dans le [portail Azure](https://portal.azure.com/) ou dans le [portail Azure Classic](https://manage.windowsazure.com/) et que vous sélectionnez **Supprimer**, le message d'erreur suivant peut s’afficher :
 
-**Dans le portail Azure **:
+**Dans le portail Azure**:
 
 *Échec de suppression du compte de stockage <vm-storage-account-name>. Impossible de supprimer le compte de stockage <vm-storage-account-name> : Storage account <vm-storage-account-name> contient des images et/ou des disques actifs. Supprimez ces images et/ou disques avant de supprimer ce compte de stockage. ».*
 

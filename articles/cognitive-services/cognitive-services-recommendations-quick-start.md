@@ -4,7 +4,7 @@
 	services="cognitive-services"
 	documentationCenter=""
 	authors="luiscabrer"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -168,4 +168,4 @@ Consultez la [documentation Obtenir des recommandations d’articles](http://go.
 ### Et ensuite ?
 Félicitations si vous êtes arrivé jusqu’ici ! Pour en savoir plus, vous pouvez consulter la [Référence de l'API de recommandations](http://go.microsoft.com/fwlink/?LinkId=759348). Si vous avez des questions, n'hésitez pas à nous contacter au mlapi@microsoft.com
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

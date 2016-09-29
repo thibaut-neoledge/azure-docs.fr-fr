@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"
 	ms.workload="data-catalog"
-	ms.date="06/27/2016"
+	ms.date="09/13/2016"
 	ms.author="spelluru"/>
 
 # Raccourcis clavier pour Azure Data Catalog
@@ -22,7 +22,7 @@
 
 ### Raccourcis clavier généraux
 
-|Pour faire cette action|Appuyez sur
+|Opération|Appuyez sur
 |---|---
 |Accéder à chaque contrôle sur une page|Tab
 |Choisir une option|Entrée ou barre d’espace
@@ -33,27 +33,27 @@
 
 ### Page d’authentification
 
-|Pour faire cette action|Appuyez sur
+|Opération|Appuyez sur
 |---|---
 |Se connecter au service|ALT + S
 
 ### Page de sélection de la source de données
 
-|Pour faire cette action|Appuyez sur
+|Opération|Appuyez sur
 |---|---
 |Accéder à la page suivante (si activé)|ALT + N
 |Modifier la sélection lorsqu’une mosaïque est sélectionnée|FLÈCHE GAUCHE, HAUT, DROITE, ou BAS
 
 ### Page de connexion à la source de données
 
-|Pour faire cette action|Appuyez sur
+|Opération|Appuyez sur
 |---|---
 |Accéder à la page précédente (si activé)|ALT + P
 |Sélectionner le bouton de connexion.| ALT + C
 
 ### Page contextuelle de connexion
 
-|Pour faire cette action|Appuyez sur
+|Opération|Appuyez sur
 |---|---
 |Bouton d’inscription (si activé)| ALT + R
 |Inclure la case à cocher Aperçu (si disponible)|ALT + P
@@ -64,7 +64,7 @@
 
 ### Page Progression de la publication
 
-|Pour faire cette action|Appuyez sur
+|Opération|Appuyez sur
 |---|---
 |Bouton Annuler|ALT + C
 |Bouton Inscrire d’autres objets| ALT + R
@@ -72,14 +72,14 @@
 
 ### Page Progression de la publication
 
-|Pour faire cette action|Appuyez sur
+|Opération|Appuyez sur
 |---|---
 |Bouton Enregistrer (si activé)| ALT + S
 |Bouton Annuler|ALT + C
 
 ## Raccourcis clavier pour le portail Data Catalog
 
-|Pour faire cette action|Appuyez sur
+|Opération|Appuyez sur
 |---|---
 |Naviguer| TAB et MAJ + TAB
 |Cliquez sur un élément| ESPACE ou ENTRÉE
@@ -92,4 +92,4 @@
 |Activer/désactiver le menu **Ouvrir dans** | ALT + O
 |Explorer le conteneur, si la ressource est un conteneur | ALT + L
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0914_2016-->

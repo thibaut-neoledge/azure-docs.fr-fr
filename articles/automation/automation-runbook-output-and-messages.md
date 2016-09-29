@@ -101,7 +101,7 @@ Dans l’exemple suivant, nous avons deux Runbooks graphiques illustrant cette f
 
 Voici la logique de base du Runbook **AuthenticateTo-Azure**.<br> ![Exemple de modèle Runbook d’authentification](media/automation-runbook-output-and-messages/runbook-authentication-template.png).
 
-Il inclut le type de sortie *Microsoft.Azure.Commands.Profile.Models.PSAzureContext*, qui renvoie les propriétés de profil d’authentification.{0}{0}{0}
+Il inclut le type de sortie *Microsoft.Azure.Commands.Profile.Models.PSAzureContext*, qui renvoie les propriétés de profil d’authentification.<br> ![Exemple de type de sortie Runbook](media/automation-runbook-output-and-messages/runbook-input-and-output-add-blade.png) 
 
 Ce Runbook est très simple, mais l’un des éléments de configuration requiert une attention particulière. La dernière activité exécute l’applet de commande **Write-Output** et écrit les données de profil dans une variable $\_ à l’aide d’une expression PowerShell pour le paramètre **Inputobject**, ce qui est requis pour cette applet de commande.
 

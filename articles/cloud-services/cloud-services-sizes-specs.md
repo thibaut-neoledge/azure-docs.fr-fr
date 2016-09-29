@@ -143,6 +143,7 @@ Pour les grandes bases de données, les batteries de serveurs SharePoint et les 
 | Standard\_D12\_v2 | 4 | 28 Go | Élevé | 200 Go |
 | Standard\_D13\_v2 | 8 | 56 Go | Élevé | 400 Go |
 | Standard\_D14\_v2 | 16 | 112 Go | Très élevée | 800 Go |
+| Standard\_D15\_v2 | 20 | 140 Go | Très élevée | 1 000 Go |
 
 ## Configurer les tailles pour les Cloud Services
 
@@ -156,4 +157,4 @@ Voici un exemple qui montre comment configurer un rôle avec la taille [Standard
 </WebRole>
 ```
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0914_2016-->

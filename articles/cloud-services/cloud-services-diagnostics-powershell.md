@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/07/2016"
+	ms.date="09/06/2016"
 	ms.author="adegeo"/>
 
 
@@ -83,7 +83,7 @@ Visual Studio Online utilise une approche similaire pour les déploiements autom
 
 Si aucun StorageAccount n’a été spécifié dans la configuration des diagnostics, vous devez transmettre le paramètre StorageAccountName à l’applet de commande. Si le paramètre StorageAccountName est spécifié, l’applet de commande utilise toujours le compte de stockage spécifié dans le paramètre et non celui spécifié dans le fichier de configuration des diagnostics.
 
-Si le compte de stockage de diagnostics appartient à un autre abonnement que celui du service cloud, vous devez transmettre explicitement les paramètres StorageAccountName et StorageAccountKey à l’applet de commande. Le paramètre StorageAccountKey n’est pas nécessaire lorsque le compte de stockage de diagnostics appartient au même abonnement si l’applet de commande peut interroger et définir automatiquement la valeur clé lors de l’activation de l’extension de diagnostics. Toutefois si le compte de stockage de diagnostics appartient à un autre abonnement, l’applet de commande n’est peut-être pas en mesure d’obtenir automatiquement la clé, et vous devez explicitement spécifier la clé par le biais du paramètre StorageAccountKey.
+Si le compte de stockage de diagnostics appartient à un autre abonnement que celui du service cloud, vous devez transmettre explicitement les paramètres StorageAccountName et StorageAccountKey à l’applet de commande. Le paramètre StorageAccountKey n’est pas nécessaire lorsque le compte de stockage de diagnostics appartient au même abonnement, car l’applet de commande peut interroger et définir automatiquement la valeur clé lors de l’activation de l’extension de diagnostics. Toutefois si le compte de stockage de diagnostics appartient à un autre abonnement, l’applet de commande n’est peut-être pas en mesure d’obtenir automatiquement la clé, et vous devez explicitement spécifier la clé par le biais du paramètre StorageAccountKey.
 
 	$webrole_diagconfig = New-AzureServiceDiagnosticsExtensionConfig -Role "WebRole" -DiagnosticsConfigurationPath $webrole_diagconfigpath -StorageAccountName $diagnosticsstorage_name -StorageAccountKey $diagnosticsstorage_key
 	$workerrole_diagconfig = New-AzureServiceDiagnosticsExtensionConfig -Role "WorkerRole" -DiagnosticsConfigurationPath $workerrole_diagconfigpath -StorageAccountName $diagnosticsstorage_name -StorageAccountKey $diagnosticsstorage_key
@@ -125,6 +125,6 @@ Pour supprimer l’extension de diagnostics de chaque rôle individuel :
 
 - Pour obtenir une aide supplémentaire sur l’utilisation des diagnostics Azure et d’autres techniques pour résoudre les problèmes, consultez la page [Activation de Diagnostics dans Azure Cloud Services et Azure Virtual Machines](cloud-services-dotnet-diagnostics.md).
 - Le [schéma de configuration des diagnostics](https://msdn.microsoft.com/library/azure/dn782207.aspx) explique les différentes options de configuration xml pour l’extension de diagnostics.
-- Pour savoir comment activer l’extension de diagnostics pour les machines virtuelles, consultez [Créer une machine virtuelle Windows avec la surveillance et les diagnostics à l’aide d’un modèle Azure Resource Manager](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md).  
+- Pour savoir comment activer l’extension de diagnostics pour les machines virtuelles, consultez [Créer une machine virtuelle Windows avec la surveillance et les diagnostics à l’aide d’un modèle Azure Resource Manager](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0914_2016-->

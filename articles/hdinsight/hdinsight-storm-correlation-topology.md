@@ -4,7 +4,7 @@
  services="hdinsight"
  documentationCenter=""
  authors="Blackmist"
- manager="paulettm"
+ manager="jhubbard"
  editor="cgronlun"
  tags="azure-portal"/>
 
@@ -25,7 +25,7 @@ Dans ce document, vous allez apprendre à créer une topologie Storm C# de base 
 
 [AZURE.INCLUDE [windows-only](../../includes/hdinsight-windows-only.md)]
 
-## Configuration requise
+## Composants requis
 
 -	Visual Studio et les outils HDInsight pour Visual Studio : voir [Prise en main des outils HDInsight pour Visual Studio](../HDInsight/hdinsight-hadoop-visual-studio-tools-get-started.md) pour plus d’informations sur l’installation.
 
@@ -204,4 +204,4 @@ Quand vous êtes prêt à arrêter la topologie, revenez au projet **Correlation
 Pour plus d’exemples Storm, consultez la page [Exemples de topologies pour Storm dans HDInsight](hdinsight-storm-example-topology.md).
  
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0914_2016-->

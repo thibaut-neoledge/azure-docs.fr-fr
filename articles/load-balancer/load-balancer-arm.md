@@ -1,6 +1,6 @@
 <properties
    pageTitle="Aperçu du support d’Azure Resource Manager pour l’équilibrage de charge | Microsoft Azure "
-   description="Utilisation de Powershell pour l’équilibrage de charge avec Azure Resource Manager (ARM) en version préliminaire Utilisation de modèles pour l'équilibrage de charge"
+   description="Utilisation de Powershell pour l’équilibrage de charge avec Azure Resource Manager en version préliminaire. Utilisation de modèles pour l'équilibrage de charge"
    services="load-balancer"
    documentationCenter="na"
    authors="sdwheeler"
@@ -71,4 +71,4 @@ Vous pouvez également [commencer par créer un équilibrage de charge accessibl
 
 Découvrez comment gérer les [paramètres de délai d’expiration TCP inactif pour un équilibreur de charge](load-balancer-tcp-idle-timeout.md). C’est important lorsque votre application a besoin de conserver des connexions actives pour les serveurs situés derrière un équilibreur de charge.
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

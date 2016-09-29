@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="06/22/2016"
+    ms.date="09/06/2016"
     ms.author="adegeo"/>
 
 # Connexion des rôles de services cloud Azure à un contrôleur de domaine Active Directory personnalisé hébergé dans Azure
@@ -156,4 +156,4 @@ help New-AzureServiceADDomainExtensionConfig
 
 Nous aimerions également connaître votre avis sur l'utilité pour vous d'avoir une extension qui promeut une machine virtuelle vers un contrôleur de domaine. Si vous pensez que cela peut vous être utile, merci de nous l'indiquer dans la section des commentaires.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0914_2016-->

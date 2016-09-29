@@ -107,9 +107,9 @@ Pour l’*augmentation de la taille des instances*, la mise à l’échelle auto
 Pour illustrer cela, supposons que vous disposez des 4 règles de mise à l’échelle automatique suivantes :
 
 - Si UC < 30 %, diminuer la taille des instances de 1
-- Si mémoire < 50 %, diminuer la taille des instances de 1
-- Si UC > 75 %, augmenter la taille des instancesde 1
-- Si mémoire > 75 %, augmenter la taille des instances de 1
+- Si Mémoire < 50 %, diminuer la taille des instances de 1
+- Si UC > 75 %, augmenter la taille des instances de 1
+- Si Mémoire > 75 %, augmenter la taille des instances de 1
 
 Alors, ce qui suit se produit :
 
@@ -127,4 +127,4 @@ La mise à l’échelle automatique notifie par e-mail les administrateurs et le
 - Les mesures ne sont pas disponibles pour que le service de mise à l’échelle automatique prenne une décision de mise à l’échelle.
 - Les mesures sont de nouveau disponibles (récupération) pour prendre une décision de mise à l’échelle. Outre les conditions ci-dessus, vous pouvez configurer des notifications par e-mail ou webhook pour être averti en cas d’action de mise à l’échelle réussie.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

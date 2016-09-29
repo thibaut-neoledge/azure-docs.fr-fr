@@ -4,7 +4,7 @@
 	services="cortana-analytics"
 	documentationCenter=""
 	authors="fboylu"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/28/2016"
+	ms.date="09/13/2016"
 	ms.author="fboylu" />
 
 # Guide technique du modèle de solution Cortana Intelligence pour la maintenance prédictive dans l’industrie aérospatiale et d’autres secteurs d’activité
@@ -173,7 +173,7 @@ Pour plus d’informations sur la création de l’expérience Azure Machine Lea
 
 ## **Tableau de bord Power BI**
 
-### Vue d’ensemble
+### Vue d'ensemble
 
 Cette section décrit comment configurer un tableau de bord Power BI afin de visualiser vos données en temps réel à partir d’Azure Stream Analytics (chemin à chaud), ainsi que les résultats des prédictions par lots à partir d’Azure Machine Learning (chemin à froid).
 
@@ -272,4 +272,4 @@ Les deux outils suivants peuvent vous aider à mieux comprendre les coûts impli
 
 -   [Microsoft Azure Cost Estimator Tool (de bureau)](http://www.microsoft.com/download/details.aspx?id=43376)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0914_2016-->

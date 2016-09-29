@@ -5,7 +5,7 @@
 	services="cognitive-services"
 	documentationCenter=""
 	authors="luiscabrer"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -64,4 +64,4 @@ L’[API Recommendations sur DataMarket](https://datamarket.azure.com/dataset/am
 
 Nous souhaitons que cette transition se fasse aussi aisément que possible pour vous. Nous pouvons vous aider à déplacer vos anciens modèles de votre compte DataMarket vers votre nouvel abonnement à l’API Recommendations d’Azure Cognitive Services. Contactez-nous à l’adresse [mlapi@microsoft.com](mailto://mlapi@microsoft.com). Avant d’associer les modèles à votre nouveau compte, nous vous demanderons de fournir votre ID d’abonnement DataMarket et votre ID d’abonnement Cognitive Services.
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

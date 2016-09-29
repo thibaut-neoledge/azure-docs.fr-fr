@@ -4,7 +4,7 @@
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="ireiter" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun"/>
 
 <tags 
@@ -35,17 +35,17 @@ La suite de distribution binomiale inclut les 3 services suivants.
 ###Calculatrice de quantile pour la distribution binomiale
 Ce service accepte 4 arguments d'une distribution normale et calcule le quantile associé. Les arguments d'entrée sont les suivants :
 
-- p : probabilité unique agrégée de plusieurs essais  
+- p : probabilité unique agrégée de plusieurs essais
 - size : nombre d’essais
 - prob : probabilité de réussite d’un essai
-- side : L pour la partie inférieure de la distribution, U pour la partie supérieure de la distribution 
+- side : L pour la partie inférieure de la distribution, U pour la partie supérieure de la distribution
 
 La sortie du service correspond au quantile calculé qui est associé à la probabilité donnée.
 
 ###Calculatrice de probabilité de distribution binomiale
 Ce service accepte 4 arguments d'une distribution binomiale et calcule la probabilité associée. Les arguments d'entrée sont les suivants :
 
-- q : quantile unique d’un événement avec une distribution binomiale 
+- q : quantile unique d’un événement avec une distribution binomiale
 - size : nombre d’essais
 - prob : probabilité de réussite d’un essai
 - side : L pour la partie inférieure de la distribution, U pour la partie supérieure de la distribution ou E qui est égal à un nombre unique de succès
@@ -55,7 +55,7 @@ La sortie du service correspond à la probabilité calculée qui est associée a
 ###Générateur de distribution binomiale
 Ce service accepte 3 arguments d'une distribution binomiale et génère une séquence aléatoire de nombres qui sont distribués selon une loi binomiale. Les arguments suivants doivent lui être fournis au sein de la demande :
 
-- n : nombre d’observations 
+- n : nombre d’observations
 - size : nombre d’essais
 - prob : probabilité de réussite
 
@@ -290,4 +290,4 @@ Pour les questions fréquemment posées relatives à l’utilisation du service 
 [6]: ./media/machine-learning-r-csharp-binomial-distribution/binomial_6.png
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -4,7 +4,7 @@
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"
 	tags="azure-portal"/>
 
@@ -55,11 +55,11 @@ Python est installé sur tous les clusters HDInsight.
 
 Hadoop vous permet de spécifier un fichier qui dispose de la logique de mappage et de réduction utilisée par un travail. Parmi les exigences spécifiques de mappage et de réduction, on retrouve les éléments suivants :
 
-* **Entrée** : les composants de mappage et de réduction doivent lire les données d’entrée depuis STDIN.
+* **Entrée** : les composants de mappage et de réduction doivent lire les données d’entrée depuis STDIN.
 
-* **Sortie** : les composants de mappage et de réduction doivent écrire les données de sortie vers STDOUT.
+* **Sortie** : les composants de mappage et de réduction doivent écrire les données de sortie vers STDOUT.
 
-* **Format de données** : les données consommées et produites doivent représenter une paire clé/valeur, séparée par un caractère de tabulation.
+* **Format de données** : les données consommées et produites doivent représenter une paire clé/valeur, séparée par un caractère de tabulation.
 
 Python peut facilement gérer ces exigences en utilisant le module **sys** pour lire depuis STDIN, et **print** pour imprimer vers STDOUT. Le travail restant consiste à disposer un caractère de tabulation (`\t`) entre la clé et la valeur pour vous permettre d’effectuer, si vous le souhaitez, le formatage de ces données.
 
@@ -167,17 +167,17 @@ De cette façon, les fichiers du système local sont copiés dans le nœud princ
 
 	Cette commande dispose des éléments suivants :
 
-	* **hadoop-streaming.jar** : utilisé lors de l’exécution d’opérations de diffusion en contenu MapReduce. Il établit un lien entre Hadoop et le code externe MapReduce que vous fournissez
+	* **hadoop-streaming.jar** : utilisé lors de l’exécution d’opérations de diffusion en contenu MapReduce. Il établit un lien entre Hadoop et le code externe MapReduce que vous fournissez
 
-	* **-files** : indique à Hadoop que les fichiers spécifiés sont nécessaires pour effectuer cette tâche MapReduce, et qu’ils doivent être copiés sur tous les nœuds de travail.
+	* **-files** : indique à Hadoop que les fichiers spécifiés sont nécessaires pour effectuer cette tâche MapReduce, et qu’ils doivent être copiés sur tous les nœuds de travail.
 
-	* **-mapper** : indique à Hadoop quel fichier doit être utilisé comme mappeur.
+	* **-mapper** : indique à Hadoop quel fichier doit être utilisé comme mappeur.
 
-	* **-reducer** : indique à Hadoop quel fichier doit être utilisé comme raccord de réduction.
+	* **-reducer** : indique à Hadoop quel fichier doit être utilisé comme raccord de réduction.
 
-	* **-input** : le fichier d’entrée à partir duquel nous devrions compter les mots.
+	* **-input** : le fichier d’entrée à partir duquel nous devrions compter les mots.
 
-	* **-output** : le répertoire sur lequel la sortie sera écrite
+	* **-output** : le répertoire sur lequel la sortie sera écrite
 
 		> [AZURE.NOTE] Ce répertoire sera créé par la tâche.
 
@@ -212,4 +212,4 @@ Maintenant que vous avez découvert comment utiliser des travaux de diffusion en
 * [Utilisation de Pig avec HDInsight](hdinsight-use-pig.md)
 * [Utilisation des tâches MapReduce avec HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -1,10 +1,10 @@
 <properties 
    pageTitle="Développer des scripts U-SQL avec Data Lake Tools pour Visual Studio | Azure" 
-   description="Découvrez comment installer Data Lake Tools Visual Studio et développer et tester des scripts U-SQL." 
+   description="Découvrez comment installer Data Lake Tools Visual Studio et développer et tester des scripts U-SQL. " 
    services="data-lake-analytics" 
    documentationCenter="" 
    authors="edmacauley" 
-   manager="paulettm" 
+   manager="jhubbard" 
    editor="cgronlun"/>
  
 <tags
@@ -26,7 +26,7 @@ Son système de types et son langage d'expression au sein des clauses SELECT, de
 
 Pour plus d'informations, consultez [Référence U-SQL](http://go.microsoft.com/fwlink/p/?LinkId=691348).
 
-###Configuration requise
+###Composants requis
 
 Vous devez suivre le [didacticiel : Développer des scripts U-SQL avec Data Lake Tools pour Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
 
@@ -53,10 +53,10 @@ Notez le point d'interrogation en regard du type de données du champ Durée. Ce
 
 Quelques concepts et mots-clés du script :
 
-- **Variables de l'ensemble de lignes** : toute expression de requête qui produit un ensemble de lignes peut être affectée à une variable. U-SQL suit le modèle d'affectation de noms variable T-SQL, par exemple **@searchlog** dans le script. Remarque : l'affectation ne force pas l'exécution. Elle nomme simplement l'expression et vous donne la possibilité de construire des expressions plus complexes.
+- **Variables de l'ensemble de lignes** : toute expression de requête qui produit un ensemble de lignes peut être affectée à une variable. U-SQL suit le modèle d'affectation de noms variable T-SQL, par exemple **@searchlog** dans le script. Remarque : l'affectation ne force pas l'exécution. Elle nomme simplement l'expression et vous donne la possibilité de construire des expressions plus complexes.
 - **EXTRACT** vous donne la possibilité de définir un schéma lors de la lecture. Le schéma est spécifié par une paire nom de colonne et nom de type C# par colonne. Il utilise un **Extracteur**, par exemple **Extractors.Tsv()**, pour extraire les fichiers tsv. Vous pouvez développer des extracteurs personnalisés.
 - **OUTPUT** prend un ensemble de lignes et le sérialise. Outputters.Csv() génère un fichier séparé par des virgules dans l'emplacement spécifié. Vous pouvez également développer des générateurs de sortie personnalisés.
-- Notez que les deux chemins d'accès sont relatifs. Vous pouvez également utiliser des chemins d'accès absolus. Par exemple : 
+- Notez que les deux chemins d'accès sont relatifs. Vous pouvez également utiliser des chemins d'accès absolus. Par exemple :
     
         adl://<ADLStorageAccountName>.azuredatalakestore.net:443/Samples/Data/SearchLog.tsv
         
@@ -402,13 +402,13 @@ Ce didacticiel ne couvre qu'une petite partie d'U-SQL. En raison de la portée d
 - Développement d'opérateurs définis par l'utilisateur, notamment des extracteurs, des générateurs de sortie, des processeurs et des agrégateurs définis par l'utilisateur en C#.
 - Utilisation des fonctions de fenêtrage U-SQL.
 - Gestion du code U-SQL avec les procédures stockées, les fonctions table et les vues.
-- Exécution d'un code personnalisé arbitraire sur vos nœuds de traitement. 
+- Exécution d'un code personnalisé arbitraire sur vos nœuds de traitement.
 - Connexion aux bases de données SQL Azure et fédération de requêtes entre celles-ci et vos données U-SQL et Azure Data Lake.
 
 ## Voir aussi 
 
 - [Vue d'ensemble de Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
-- [Développer des scripts U-SQL avec Data Lake Tools pour Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
+- [Développer des scripts U-SQL avec les outils Data Lake pour Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 - [Utilisation des fonctions U-SQL dans les travaux Analytique Data Lake Azure](data-lake-analytics-use-window-functions.md)
 - [Surveiller et résoudre les problèmes des tâches d’analyse Azure Data Lake à l’aide du portail Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
@@ -419,4 +419,4 @@ Ce didacticiel ne couvre qu'une petite partie d'U-SQL. En raison de la portée d
 - [Obtenir de l'aide dans les forums](http://aka.ms/adlaforums)
 - [Faire des commentaires sur U-SQL](http://aka.ms/usqldiscuss)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="06/10/2016"
+   ms.date="08/26/2016"
    ms.author="ryanwi"/>
 
 # Créer votre première application Service Fabric Azure dans Visual Studio
@@ -110,6 +110,14 @@ Maintenant que vous disposez d’une application, essayez de l’exécuter.
 
     ![Observateur d’événements de diagnostic après basculement][diagnostic-events-viewer-detail-post-failover]
 
+## Changer de mode de cluster
+
+Par défaut, le cluster de développement local est configuré pour s’exécuter en tant que cluster à 5 nœuds, ce qui s’avère utile pour déboguer les services déployés sur plusieurs nœuds. Cependant, le déploiement d’une application sur le cluster de développement à 5 nœuds peut prendre un certain temps. Si vous souhaitez itérer des modifications de code rapidement, sans exécuter votre application sur 5 nœuds, vous pouvez basculer le cluster de développement sur le mode 1 nœud. Pour exécuter votre code sur un cluster à un nœud, cliquez avec le bouton droit sur le gestionnaire de cluster local dans la barre d’état système, puis sélectionnez **Switch Cluster Mode -> 1 Node** (Changer de mode de cluster -> 1 nœud).
+
+![Changer de mode de cluster][switch-cluster-mode]
+
+Lorsque vous changez de mode de cluster, le cluster du cluster de développement redémarre et toutes les applications approvisionnées ou en cours d’exécution sur le cluster sont supprimées.
+
 ## Nettoyage
 
   Avant de conclure, il est important de se rappeler que le cluster local est très réel. L’arrêt du débogueur supprime votre instance d’application et annule l’inscription du type d’application. Toutefois, le cluster continue de s’exécuter en arrière-plan. Vous disposez de plusieurs options pour gérer le cluster :
@@ -138,5 +146,6 @@ Maintenant que vous disposez d’une application, essayez de l’exécuter.
 [systray-launch-sfx]: ./media/service-fabric-create-your-first-application-in-visual-studio/launch-sfx.png
 [diagnostic-events-viewer-detail-post-failover]: ./media/service-fabric-create-your-first-application-in-visual-studio/diagnostic-events-viewer-detail-post-failover.png
 [sfe-delete-application]: ./media/service-fabric-create-your-first-application-in-visual-studio/sfe-delete-application.png
+[switch-cluster-mode]: ./media/service-fabric-create-your-first-application-in-visual-studio/switch-cluster-mode.png
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -5,7 +5,7 @@
    services="machine-learning"
    documentationCenter="na"
    authors="brohrer-ms"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cjgronlund"/>
 
 <tags
@@ -45,7 +45,7 @@ Dans celle-ci, nous allons vous donner des conseils pour formuler une question �
 
 Pour tirer pleinement parti de cette vidéo, nous vous recommandons de regarder les deux premières vidéos de cette série, « Les 5 questions auxquelles la science des données peut répondre » et « Vos données sont-elles prêtes pour la science des données ? ».
 
-## Posez une question précise
+## Poser une question précise
 
 Comme nous l’avons vu, la science des données est le processus consistant à utiliser des noms (également appelés catégories ou étiquettes) et des nombres pour prédire la réponse à une question. Toutefois, la question ne peut pas avoir n’importe quelle forme. Il doit s’agir d’une *question précise.*
 
@@ -93,7 +93,7 @@ Mais surtout, vous devez poser une question précise, à laquelle les données p
 
 Vous connaissez maintenant certains principes de base à observer pour poser une question à laquelle les données permettent de répondre.
 
-Nous vous invitons à consulter les autres vidéos de la série « Science des données pour les débutants » de Microsoft Azure Machine Learning.
+Nous vous invitons à consulter les autres vidéos de la série « Science des données pour les débutants » de Microsoft Azure Machine Learning.
 
 
 ## Étapes suivantes
@@ -101,4 +101,4 @@ Nous vous invitons à consulter les autres vidéos de la série « Science des d
   * [Menez votre première expérience de science des données avec Azure Machine Learning](machine-learning-create-experiment.md)
   * [Consultez la présentation de Machine Learning sur Microsoft Azure](machine-learning-what-is-machine-learning.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0914_2016-->

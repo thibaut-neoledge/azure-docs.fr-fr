@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/23/2016"
+	ms.date="09/07/2016"
 	ms.author="tamram"/>
 
 # Configuration et récupération des propriétés et des métadonnées #
@@ -22,7 +22,7 @@
 
 Objets dans les propriétés du système de support de stockage Azure et des métadonnées définies par l’utilisateur, en plus des données qu’ils contiennent :
 
-*   **Les propriétés système :** propriétés existant sur chaque ressource de stockage. Certaines d'entre elles peuvent être lues ou configurées, alors que d'autres sont en lecture seule. En arrière-plan, certaines propriétés système correspondent à certains en-têtes HTTP standard. La bibliothèque cliente de stockage Azure gère ces en-têtes pour vous.  
+*   **Les propriétés système :** propriétés existant sur chaque ressource de stockage. Certaines d'entre elles peuvent être lues ou configurées, alors que d'autres sont en lecture seule. En arrière-plan, certaines propriétés système correspondent à certains en-têtes HTTP standard. La bibliothèque cliente de stockage Azure gère ces en-têtes pour vous.
 
 *   **Les métadonnées configurées par l’utilisateur :** il s’agit de métadonnées que vous spécifiez pour une ressource donnée, sous la forme d’une paire nom-valeur. Vous pouvez utiliser les métadonnées pour stocker des valeurs supplémentaires avec une ressource de stockage. Ces valeurs sont pour votre usage personnel et n’ont aucun impact sur le comportement de la ressource.
 
@@ -95,6 +95,6 @@ Pour récupérer des métadonnées, appelez la méthode **FetchAttributes** sur 
 ## Voir aussi  
 
 - [Références sur la bibliothèque cliente Azure Storage pour .NET](http://msdn.microsoft.com/library/azure/wa_storage_30_reference_home.aspx)
-- [Package de la bibliothèque cliente Azure Storage pour .NET](https://www.nuget.org/packages/WindowsAzure.Storage/) 
+- [Package de la bibliothèque cliente Azure Storage pour .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0914_2016-->

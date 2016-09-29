@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="hero-article"
 	ms.date="05/03/2016"
-	ms.author="krisagh"/>
+	ms.author="glennga"/>
 
 # <a name="getting-started"> </a>Qu’est ce que la fonctionnalité Mobile Apps ?
 
@@ -102,4 +102,4 @@ Pour plus d’informations sur Azure Mobile Apps, voir notre [parcours d’appre
 [environnements App Service]: ../app-service-web/app-service-app-service-environment-intro.md
 [parcours d’apprentissage]: https://azure.microsoft.com/documentation/learning-paths/appservice-mobileapps/
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

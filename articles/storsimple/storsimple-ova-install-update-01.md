@@ -12,22 +12,23 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="06/16/2016"
+   ms.date="09/07/2016"
    ms.author="alkohli" />
 
 # Installation de mises à jour sur votre instance StorSimple Virtual Array
 
 ## Vue d'ensemble
 
-Cet article décrit les étapes requises pour installer des mises à jour sur votre instance StorSimple Virtual Array à l’aide de l’interface utilisateur web locale. Cette procédure prend moins de 2 minutes. Pour maintenir votre instance StorSimple Virtual Array à jour, vous devez appliquer des mises à jour ou des correctifs logiciels.
+Cet article décrit les étapes requises pour installer des mises à jour sur votre instance StorSimple Virtual Array à l’aide de l’interface utilisateur web locale et du Portail Azure Classic. Pour maintenir votre instance StorSimple Virtual Array à jour, vous devez appliquer des mises à jour ou des correctifs logiciels.
 
 N’oubliez pas que l’installation d’une mise à jour ou d’un correctif logiciel nécessite le redémarrage de votre appareil. Étant donné que StorSimple Virtual Array est un appareil à nœud unique, les E/S en cours seront interrompues et votre appareil subira des temps d’arrêt.
 
 Avant d’appliquer une mise à jour, nous vous recommandons de mettre les volumes ou les partages hors connexion sur l’ordinateur hôte puis sur l’appareil. Vous réduisez ainsi toute possibilité d’altération des données.
 
-## Utilisation de l’interface utilisateur web locale 
-Pour installer la dernière mise à jour, vous devez utiliser l’interface utilisateur web locale pour appliquer des correctifs ou des mises à jour (pour l’instant, vous ne pouvez pas utiliser le portail Azure Classic pour installer la mise à jour).
+> [AZURE.IMPORTANT] Si vous utilisez Update 0.1 ou les versions logicielles GA, vous devez appliquer la méthode de correctif logiciel par le biais de l’interface utilisateur web locale pour installer Update 0.3. Si vous utilisez Update 0.2, nous vous recommandons d’installer les mises à jour au moyen du Portail Azure Classic.
 
+## Utilisation de l’interface utilisateur web locale 
+ 
 Le procédure de mise à jour à l’aide de l’interface utilisateur web locale se déroule en deux étapes :
 
 - Téléchargement de la mise à jour ou du correctif
@@ -42,12 +43,10 @@ Procédez comme suit pour télécharger la mise à jour logicielle à partir du 
 1. Démarrez Internet Explorer et accédez à [http://catalog.update.microsoft.com](http://catalog.update.microsoft.com).
 
 2. Si vous utilisez le catalogue Microsoft Update pour la première fois sur cet ordinateur, cliquez sur **Installer** lorsque vous êtes invité à installer le module complémentaire Catalogue Microsoft Update.
-   
-	![Installer le catalogue](./media/storsimple-ova-install-update-01/install-catalog.png)
+  
+3. Dans la zone de recherche du Catalogue Microsoft Update, entrez le numéro KB (Base de connaissances) du correctif que vous souhaitez télécharger. Entrez **3182061** pour Update 0.3, puis cliquez sur **Rechercher**.
 
-3. Dans la zone de recherche du Catalogue Microsoft Update, entrez le numéro KB (Base de connaissances) du correctif que vous souhaitez télécharger. Entrez **3160441** pour Update 0.2 ou **3160441** pour Update 0.1, puis cliquez sur **Rechercher**.
-
-    La liste des correctifs s’affiche, par exemple, **StorSimple Virtual Array Update 0.1**.
+    La liste des correctifs s’affiche, par exemple **StorSimple Virtual Array Update 0.3**.
 
     ![Rechercher dans le catalogue](./media/storsimple-ova-install-update-01/download1.png)
 
@@ -57,35 +56,56 @@ Procédez comme suit pour télécharger la mise à jour logicielle à partir du 
 
 6. Cliquez sur **Télécharger**. Spécifiez ou **recherchez** l’emplacement local où vous voulez effectuer les téléchargements. Les mises à jour sont téléchargées à l’emplacement spécifié et placées dans un sous-dossier portant le même nom que la mise à jour. Ce dossier peut également être copié sur un partage réseau accessible à partir de l’appareil.
 
+7. Ouvrez le dossier copié ; vous devriez voir un fichier de package autonome de mise à jour Microsoft `WindowsTH-KB3011067-x64`. Ce fichier est utilisé pour installer la mise à jour ou le correctif logiciel.
+
 
 ### Installation de la mise à jour ou du correctif
 
-Avant l'installation de la mise à jour ou du correctif, vérifiez que la mise à jour ou le correctif est téléchargé(e) localement sur votre ordinateur hôte ou accessible via un partage réseau. Effectuez les opérations suivantes pour installer la mise à jour ou le correctif logiciel.
+Avant l'installation de la mise à jour ou du correctif, vérifiez que la mise à jour ou le correctif est téléchargé(e) localement sur votre ordinateur hôte ou accessible via un partage réseau.
+
+Cette méthode permet d’installer les mises à jour sur un appareil exécutant les versions logicielles GA ou Update 0.1. Cette procédure prend moins de 2 minutes. Effectuez les opérations suivantes pour installer la mise à jour ou le correctif logiciel.
+
 
 #### Pour installer la mise à jour ou le correctif
 
 1. Dans l’interface utilisateur web locale, accédez à **Maintenance** > **Mise à jour logicielle**.
 
-2. Dans le **chemin d’accès au fichier de mise à jour**, entrez le nom de fichier pour la mise à jour ou le correctif. Vous pouvez également accéder au fichier d'installation de la mise à jour ou du correctif si celui-ci est placé sur un partage réseau. Cliquez sur **Apply**.
+    ![mettre à jour l'appareil](./media/storsimple-ova-install-update-01/update1m.png)
 
-	![mettre à jour l'appareil](./media/storsimple-ova-install-update-01/update1m.png)
+2. Dans le **chemin d’accès au fichier de mise à jour**, entrez le nom du fichier de mise à jour ou de correctif. Vous pouvez également accéder au fichier d'installation de la mise à jour ou du correctif si celui-ci est placé sur un partage réseau. Cliquez sur **Appliquer**.
 
-3.  Un message d’avertissement s’affiche. Puisqu’il s’agit d’un appareil à nœud unique, l’application de la mise à jour entraînera le redémarrage de l’appareil et provoquera un temps d’arrêt. Cliquez sur l’icône en forme de coche.
+	![mettre à jour l'appareil](./media/storsimple-ova-install-update-01/update2m.png)
 
-	![mettre à jour l'appareil](./media/storsimple-ova-install-update-01/update4m.png)
+3.  Un avertissement s’affiche. Puisqu’il s’agit d’un appareil à nœud unique, l’application de la mise à jour entraîne le redémarrage de l’appareil et provoque un temps d’arrêt. Cliquez sur l’icône en forme de coche.
 
-4. La mise à jour démarre. Une fois l’appareil correctement mis à jour, il sera redémarré. L’interface utilisateur locale ne sera pas accessible pendant cet intervalle.
+	![mettre à jour l'appareil](./media/storsimple-ova-install-update-01/update3m.png)
 
-    ![mettre à jour l'appareil](./media/storsimple-ova-install-update-01/update6m.png)
+4. La mise à jour démarre. Une fois l’appareil correctement mis à jour, il est redémarré. L’interface utilisateur locale n’est pas accessible pendant cet intervalle.
 
-4. Une fois le redémarrage effectué, vous êtes redirigé vers la page de connexion. Vous pouvez alors vérifier la version du logiciel. Accédez à **Maintenance** > **Mise à jour logicielle**. La version du logiciel doit être **10.0.10280.0** pour Update 0.2 ou **10.0.10279.0** pour Update 0.1.
+    ![mettre à jour l'appareil](./media/storsimple-ova-install-update-01/update5m.png)
 
-	> [AZURE.NOTE] L’affichage des versions logicielles diffère légèrement entre l’interface utilisateur web locale et le portail Azure Classic. Par exemple, la même version est signalée par **10.0.0.0.10279** dans l’interface utilisateur web locale et par **10.0.10279.0** sur le portail Azure Classic.
+5. Une fois le redémarrage effectué, vous êtes redirigé vers la page **Se connecter**. Pour vérifier que le logiciel de l’appareil a été mis à jour, accédez à **Maintenance** > **Mise à jour logicielle** dans l’interface utilisateur web locale. La version du logiciel doit être **10.0.0.0.0.10288.0** pour Update 0.3.
 
-	![mettre à jour l'appareil](./media/storsimple-ova-install-update-01/update9m.png)
+	> [AZURE.NOTE] L’affichage des versions logicielles diffère légèrement entre l’interface utilisateur web locale et le portail Azure Classic. Par exemple, la même version est signalée par **10.0.0.0.0.10288** dans l’interface utilisateur web locale et par **10.0.10288.0** sur le Portail Azure Classic.
+
+	![mettre à jour l'appareil](./media/storsimple-ova-install-update-01/update6m.png)
+
+
+
+
+
+## Utilisation du portail Azure Classic
+
+Si vous utilisez Update 0.2, nous vous recommandons d’installer les mises à jour par le biais du Portail Azure Classic. La procédure du portail oblige l’utilisateur à rechercher et télécharger les mises à jour avant de les installer. Cette procédure prend environ sept minutes. Effectuez les opérations suivantes pour installer la mise à jour ou le correctif logiciel.
+
+[AZURE.INCLUDE [storsimple-ova-install-update-via-portal](../../includes/storsimple-ova-install-update-via-portal.md)]
+
+Une fois l’installation terminée (lorsque l’état du travail atteint 100 %), accédez à **Appareils > Maintenance > Mises à jour logicielles**. La version du logiciel doit être 10.0.10288.0.
+
+![mettre à jour l'appareil](./media/storsimple-ova-install-update-01/azupdate12m.png)
 
 ## Étapes suivantes
 
-En savoir plus sur la [gestion de votre StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
+Découvrez plus en détails la [gestion de votre instance StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

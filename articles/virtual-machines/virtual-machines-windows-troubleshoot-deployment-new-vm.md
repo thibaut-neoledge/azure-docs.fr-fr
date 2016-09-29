@@ -14,12 +14,10 @@
   ms.tgt_pltfrm="vm-windows"
   ms.devlang="na"
   ms.topic="article"
-  ms.date="09/06/2016"
+  ms.date="09/09/2016"
   ms.author="cjiang"/>
 
 # Résoudre les problèmes de déploiement de Resource Manager avec la création d’une machine virtuelle Windows dans Azure
-
-[AZURE.INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-selectors](../../includes/virtual-machines-windows-troubleshoot-deployment-new-vm-selectors-include.md)]
 
 [AZURE.INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
 
@@ -84,4 +82,4 @@ Cette erreur se produit lorsque la nouvelle demande de la machine virtuelle est 
 ## Étapes suivantes
 Si vous rencontrez des problèmes lorsque vous démarrez une machine virtuelle Windows arrêtée ou que vous redimensionnez Windows une machine virtuelle existante dans Azure, consultez [Résoudre les problèmes de déploiement Resource Manager liés au redémarrage ou au redimensionnement d’une machine virtuelle Windows existante dans Azure](virtual-machines-windows-restart-resize-error-troubleshooting.md).
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

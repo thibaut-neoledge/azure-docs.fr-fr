@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/03/2016"
+	ms.date="09/08/2016"
 	ms.author="robinsh"/>
 
 #Guide de sécurité Azure Storage
@@ -60,7 +60,7 @@ Ce guide porte essentiellement sur le modèle Resource Manager, qui est la méth
 
 ###Comment sécuriser un compte de stockage en utilisant le contrôle d’accès en fonction du rôle (RBAC)
 
-Pour commencer, expliquons ce qu’est RBAC et voyons comment l’utiliser. À chaque abonnement Azure correspond un annuaire Azure Active Directory. Les utilisateurs, les groupes et les applications de cet annuaire peuvent être autorisés à gérer les ressources de l’abonnement Azure qui reposent sur le modèle de déploiement Gestionnaire de ressources. C’est ce que l’on appelle le contrôle d’accès en fonction du rôle (RBAC). Pour gérer cet accès, vous pouvez utiliser le [portail Azure](https://portal.azure.com/), les [outils de l’interface de ligne de commande Azure](../xplat-cli-install.md), [PowerShell](../powershell-install-configure.md) ou les [API REST du fournisseur de ressources Azure Storage](https://msdn.microsoft.com/library/azure/mt163683.aspx).
+Pour commencer, expliquons ce qu’est RBAC et voyons comment l’utiliser. À chaque abonnement Azure correspond un annuaire Azure Active Directory. Les utilisateurs, les groupes et les applications de cet annuaire peuvent être autorisés à gérer les ressources de l’abonnement Azure qui reposent sur le modèle de déploiement Gestionnaire de ressources. C’est ce que l’on appelle le contrôle d’accès en fonction du rôle (RBAC). Pour gérer cet accès, vous pouvez utiliser le [Portail Azure](https://portal.azure.com/), les [outils de l’interface de ligne de commande Azure](../xplat-cli-install.md), [PowerShell](../powershell-install-configure.md) ou les [API REST du fournisseur de ressources Stockage Azure](https://msdn.microsoft.com/library/azure/mt163683.aspx).
 
 Avec le modèle Gestionnaire de ressources, vous devez placer le compte de stockage dans un groupe de ressources et contrôler l’accès au plan de gestion de ce compte de stockage spécifique à l’aide d’Azure Active Directory. Par exemple, vous pouvez permettre à certains utilisateurs d’accéder aux clés de compte de stockage, pendant que d’autres pourront voir les informations relatives au compte de stockage, mais pas accéder aux clés de compte de stockage.
 
@@ -138,7 +138,7 @@ Voici les principaux points à prendre en compte pour accéder aux opérations d
 
 Les clés de compte de stockage sont des chaînes de 512 bits créés par Azure qui, combinées avec le nom de compte, permettent d’accéder aux objets de données stockés dans le compte de stockage, notamment les objets blob, les entités d’une table, les messages de file d’attente et les fichiers se trouvant sur un partage Azure Files. Le contrôle d’accès aux clés de compte de stockage permet de contrôler l’accès au plan de données de ce compte de stockage.
 
-Chaque compte de stockage a deux clés appelées « Clé 1 » et « Clé 2 » dans le [portail Azure](http://portal.azure.com/) et dans les applets de commande PowerShell. Il est possible de les régénérer manuellement au moyen de diverses méthodes, notamment via le [portail Azure](https://portal.azure.com/), PowerShell, l’interface de ligne de commande Azure ou par programmation en utilisant la bibliothèque cliente de stockage .NET ou l’API REST des services Azure Storage.
+Chaque compte de stockage a deux clés appelées « Clé 1 » et « Clé 2 » dans le [Portail Azure](http://portal.azure.com/) et dans les applets de commande PowerShell. Il est possible de les régénérer manuellement au moyen de diverses méthodes, notamment avec le [Portail Azure](https://portal.azure.com/), PowerShell, l’interface de ligne de commande Azure ou par programmation en utilisant la bibliothèque cliente de stockage .NET ou l’API REST des services de Stockage Azure.
 
 La décision de régénérer les clés de compte de stockage peut être motivée par différents facteurs.
 
@@ -154,11 +154,11 @@ Vous ne pouvez pas vous permettre de régénérer la clé que vous utilisez sans
 
 Avant de régénérer vos clés, veillez à dresser une liste qui recense toutes les applications qui dépendent du compte de stockage, ainsi que tous les autres services que vous utilisez dans Azure, le cas échéant. Par exemple, si vous utilisez Azure Media Services et que ce produit dépend de votre compte de stockage, vous devez resynchroniser les clés d’accès avec ce services après avoir régénéré la clé. Si vous utilisez des applications telles que Storage Explorer, vous devrez aussi fournir les nouvelles clés à ces applications. Notez que si vous disposez de machines virtuelles dont les fichiers VHD sont stockés dans le compte de stockage, elles ne seront pas affectées par la régénération des clés de compte de stockage.
 
-Vous pouvez régénérer vos clés dans le portail Azure. Une fois les clés régénérées, leur synchronisation au niveau des services de stockage peut prendre jusqu’à 10 minutes.
+Vous pouvez régénérer vos clés dans le Portail Azure. Une fois les clés régénérées, leur synchronisation au niveau des services de stockage peut prendre jusqu’à 10 minutes.
 
 Quand vous êtes prêt, voici la procédure générale à suivre pour modifier votre clé. Dans ce cas, vous êtes censé utiliser actuellement la clé 1 et vous apprêter à tout modifier pour utiliser la clé 2.
 
-1.  Régénérez la clé 2 de façon à la sécuriser. Vous pouvez faire cette opération dans le portail Azure.
+1.  Régénérez la clé 2 de façon à la sécuriser. Vous pouvez faire cette opération dans le Portail Azure.
 
 2.  Dans toutes les applications où est stockée la clé de stockage, remplacez la valeur de clé de stockage par la nouvelle valeur de la clé 2. Testez et publiez l’application.
 
@@ -206,7 +206,7 @@ Une exception à noter est que vous pouvez autoriser un accès public à vos obj
 
 Les clés de compte de stockage sont des chaînes de 512 bits créées par Azure qui, combinées avec le nom de compte, permettent d’accéder aux objets de données stockés dans le compte de stockage.
 
-Par exemple, vous pouvez lire des objets blob, écrire dans des files d’attente, créer des tables et modifier des fichiers. La plupart de ces actions peuvent être effectuées via le portail Azure ou à l’aide de l’une des nombreuses applications de l’explorateur de stockage. Vous pouvez également écrire du code pour utiliser l’API REST ou l’une des bibliothèques clientes de stockage pour effectuer ces opérations.
+Par exemple, vous pouvez lire des objets blob, écrire dans des files d’attente, créer des tables et modifier des fichiers. La plupart de ces actions peuvent être effectuées avec le Portail Azure ou à l’aide de l’une des nombreuses applications de l’explorateur de stockage. Vous pouvez également écrire du code pour utiliser l’API REST ou l’une des bibliothèques clientes de stockage pour effectuer ces opérations.
 
 Comme indiqué dans la section [Sécurité du plan de gestion](#management-plane-security), l’accès aux clés de stockage pour un compte de stockage classique peut être accordé en donnant un accès complet à l’abonnement Azure. L’accès aux clés de stockage pour un compte de stockage avec le modèle Azure Resource Manager peut être contrôlé via le contrôle d’accès en fonction du rôle (RBAC).
 
@@ -366,19 +366,17 @@ Vous pouvez utiliser le chiffrement côté client pour chiffrer les données en 
 
 ###Storage Service Encryption (SSE)
 
-SSE est une nouvelle fonctionnalité Azure Storage disponible en version préliminaire publique. Cette fonctionnalité vous permet de demander que le service de stockage chiffre automatiquement les données lors de leur écriture dans Azure Storage. Les données lues à partir d’Azure Storage sont déchiffrées par le service de stockage avant d’être renvoyées. Grâce à ce processus, vous sécurisez vos données sans avoir à modifier le code existant ni à ajouter du code dans les applications.
+SSE vous permet de demander que le service de stockage chiffre automatiquement les données lors de leur écriture dans le Stockage Azure. Les données lues à partir d’Azure Storage sont déchiffrées par le service de stockage avant d’être renvoyées. Grâce à ce processus, vous sécurisez vos données sans avoir à modifier le code existant ni à ajouter du code dans les applications.
 
-Il s’agit d’un paramètre qui s’applique à l’ensemble du compte de stockage. Vous pouvez activer ou désactiver cette fonctionnalité en modifiant la valeur du paramètre. Pour cela, vous utilisez le portail Azure, PowerShell, l’interface de ligne de commande Azure, l’API REST du fournisseur de ressources de stockage ou la bibliothèque cliente de stockage .NET. Par défaut, SSE est désactivé.
+Il s’agit d’un paramètre qui s’applique à l’ensemble du compte de stockage. Vous pouvez activer ou désactiver cette fonctionnalité en modifiant la valeur du paramètre. Pour cela, vous pouvez utiliser le Portail Azure, PowerShell, l’interface de ligne de commande Azure, l’API REST du fournisseur de ressources de stockage ou la bibliothèque cliente de stockage .NET. Par défaut, SSE est désactivé.
 
 Actuellement, les clés utilisées pour le chiffrement sont gérées par Microsoft. Nous créons initialement les clés, puis nous gérons le stockage sécurisé des clés ainsi que leur rotation régulière, conformément à la politique interne de Microsoft en la matière. À l’avenir, vous pourrez gérer vos propres clés de chiffrement et fournir un chemin de migration des clés gérées par Microsoft en clés gérées par le client.
 
-Cette fonctionnalité est disponible pour les comptes Standard Storage et Premium Storage qui ont été créés avec le modèle de déploiement Resource Manager après le 30/3/2016 12h00 (heure PST). SSE s’applique uniquement aux objets blob de blocs, aux objets blob de pages et aux objets blob d’ajout. Les autres types de données, y compris les tables, les files d’attente et les fichiers, ne sont pas chiffrés.
+Cette fonctionnalité est disponible pour les comptes de Stockage Standard et Premium créés avec le modèle de déploiement Resource Manager. SSE s’applique uniquement aux objets blob de blocs, aux objets blob de pages et aux objets blob d’ajout. Les autres types de données, y compris les tables, les files d’attente et les fichiers, ne sont pas chiffrés.
 
-Les données sont chiffrées uniquement si la fonctionnalité SSE est activée. Le chiffrement s’effectue pendant l’écriture des données dans le stockage Blob Storage. L’activation ou la désactivation de la fonctionnalité SSE n’a pas d’impact sur les données existantes. En d’autres termes, quand vous activez cette fonctionnalité, les données qui existent déjà ne sont pas chiffrées ; de la même façon, si vous la désactivez, les données existantes ne sont pas déchiffrées.
+Les données sont chiffrées uniquement si la fonctionnalité SSE est activée. Le chiffrement s’effectue pendant l’écriture des données dans le stockage Blob Storage. L’activation ou la désactivation de SSE n’a pas d’impact sur les données existantes. En d’autres termes, quand vous activez cette fonctionnalité, les données qui existent déjà ne sont pas chiffrées ; de la même façon, si vous la désactivez, les données existantes ne sont pas déchiffrées.
 
-Si vous souhaitez essayer cette fonctionnalité avec un compte de stockage créé avant la date indiquée plus haut, ou avec un compte de stockage standard, vous pouvez créer un compte de stockage et utiliser AzCopy pour copier les données dans ce nouveau compte. Cela ne sera normalement pas nécessaire après la version préliminaire.
-
-Comme avec la plupart des versions préliminaires, cette fonctionnalité ne doit pas être utilisée dans les environnements de production tant que la mise à disposition générale n’est pas effective.
+Si vous souhaitez utiliser cette fonctionnalité avec un compte de stockage Classic, vous pouvez créer un compte de stockage Resource Manager et utiliser AzCopy pour copier les données dans ce nouveau compte.
 
 ###Chiffrement côté client
 
@@ -460,7 +458,7 @@ Le chiffrement côté client entraîne une plus grande charge pour le client. Vo
 
 ####Storage Service Encryption (SSE)
 
-Le chiffrement SSE est un processus simple géré par Azure Storage. SSE ne sécurise pas les données en transit, mais chiffre les données quand elles sont écrites dans Azure Storage. L’utilisation de cette fonctionnalité n’a pas d’impact sur les performances.
+SSE est géré par le Stockage Azure. SSE ne sécurise pas les données en transit, mais chiffre les données quand elles sont écrites dans Azure Storage. L’utilisation de cette fonctionnalité n’a pas d’impact sur les performances.
 
 Avec SSE, vous pouvez uniquement chiffrer des objets blob de blocs, des objets blob d’ajout et des objets blob de pages. Si vous devez chiffrer des données de table ou de file d’attente, utilisez plutôt le chiffrement côté client.
 
@@ -480,7 +478,7 @@ Cela peut être très utile si vous surveillez étroitement l’accès au stocka
 
 ####Comment se présentent les journaux ?
 
-Une fois que vous activez les métriques de compte de stockage et la journalisation par le biais du portail Azure, les données d’analyse commencent à s’accumuler rapidement. La journalisation et les métriques de chaque service sont distinctes : la journalisation est écrite uniquement en cas d’activité dans ce compte de stockage, tandis que les métriques sont consignées chaque minute, chaque heure ou chaque jour, en fonction de leur configuration.
+Une fois que vous avez activé les métriques de compte de stockage et la journalisation par le biais du Portail Azure, les données d’analyse commencent à s’accumuler rapidement. La journalisation et les métriques de chaque service sont distinctes : la journalisation est écrite uniquement en cas d’activité dans ce compte de stockage, tandis que les métriques sont consignées chaque minute, chaque heure ou chaque jour, en fonction de leur configuration.
 
 Les journaux sont stockés dans des objets blob de blocs se trouvant dans un conteneur nommé $logs dans le compte de stockage. Ce conteneur est automatiquement créé quand Storage Analytics est activé. Une fois ce conteneur créé, vous ne pouvez pas le supprimer, même si vous pouvez en supprimer le contenu.
 
@@ -634,4 +632,4 @@ Pour plus d’informations sur CORS et sur la façon de l’activer, consultez l
 
 	Cet article traite de l’utilisation du mode FIPS sur des ordinateurs Windows anciens.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0914_2016-->

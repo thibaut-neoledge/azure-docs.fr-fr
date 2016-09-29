@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="vDonGlover"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -21,7 +21,7 @@
 
 > [AZURE.NOTE] Les procédures décrites dans cet article s’appliquent aux nouveaux services web Azure Machine Learning. Pour obtenir des informations sur la gestion des services web classiques, voir [Gestion d’un espace de travail Azure Machine Learning](machine-learning-manage-workspace.md).
 
-Le portail de services web Microsoft Azure Machine Learning vous permet de gérer vos nouveaux services web Machine Learning. Vous pouvez :
+Le portail de services web Microsoft Azure Machine Learning vous permet de gérer vos nouveaux services web Machine Learning. Vous pouvez :
 
 - surveiller l’utilisation du service web
 - configurer la description, mettre à jour les clés pour le service web, mettre à jour votre clé de compte de stockage et activer ou désactiver les exemples de données
@@ -97,4 +97,4 @@ Le tableau de bord du plan affiche les informations suivantes :
 * **Top Web Service By Calls** (Principaux services web par appels) : les quatre principaux services web qui effectuent des appels facturés dans le cadre du plan.
 * **Top Web Services by Compute Hrs** (Principaux services web par heures de calcul) : les quatre principaux services web qui utilisent des ressources de calcul facturées dans le cadre du plan.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0914_2016-->

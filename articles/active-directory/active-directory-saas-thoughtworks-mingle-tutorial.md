@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="06/21/2016" 
+    ms.date="09/11/2016" 
     ms.author="jeedes" />
 
 #Didacticiel : Intégration d’Azure AD à Thoughtworks Mingle
@@ -76,7 +76,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Configurer l’authentification unique](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785154.png "Configurer l’authentification unique")
 
-3.  Dans la zone de texte **URL du locataire Thoughtworks Mingle** de la page **Configurer l’URL de l’application**, tapez votre URL au format « *http://company.mingle.thoughtworks.com*", puis cliquez sur **Suivant**.
+3.  Dans la zone de texte **URL du locataire Thoughtworks Mingle** de la page **Configurer l’URL de l’application**, tapez votre URL au format « *http://company.mingle.thoughtworks.com*", puis cliquez sur **Suivant**.
 
     ![Configurer l’URL de l’application](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785155.png "Configurer l’URL de l’application")
 
@@ -95,7 +95,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
     ![SSO Config](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785158.png "SSO Config")
 
     1.  Pour charger le fichier de métadonnées, cliquez sur **Choose file**.
-    2.  Cliquez sur **Save Changes**.
+    2.  Cliquez sur **Enregistrer les modifications**.
 
 8.  Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
 
@@ -147,7 +147,6 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
     ![Oui](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC767830.png "Oui")
   
-Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
+Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d'informations sur le panneau d'accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0622_2016-->
-
+<!---HONumber=AcomDC_0914_2016-->

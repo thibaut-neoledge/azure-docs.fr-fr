@@ -3,8 +3,8 @@
 	description="Publication du service web Azure Machine Learning sur Azure Marketplace" 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="LuisCabrer" 
-	manager="paulettm" 
+	authors="BharathS" 
+	manager="jhubbard" 
 	editor="cgronlun"/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/31/2016" 
+	ms.date="09/08/2016" 
 	ms.author="bharaths"/>
 
 # Publication du service Web Azure Machine Learning sur Azure Marketplace 
@@ -29,15 +29,15 @@ Les étapes suivantes vous permettront de publier un service Web Azure Machine L
 
 1. Créez et publiez un service Request-Response (Request-Response Service, service de requête-réponse) Machine Learning
 2. Déployez le service en production et obtenez les informations du point de terminaison OData et de la clé d’API.
-3. Utilisez l’URL du service Web à publier sur [Azure Marketplace (Data Market)](https://publish.windowsazure.com/workspace/) 
-4. Une fois soumise, votre offre est évaluée et doit être approuvée avant que vos clients puissent commencer à l'acheter. Le processus de publication peut prendre quelques jours ouvrés. 
+3. Utilisez l’URL du service Web à publier sur [Azure Marketplace (Data Market)](https://publish.windowsazure.com/workspace/)
+4. Une fois soumise, votre offre est évaluée et doit être approuvée avant que vos clients puissent commencer à l'acheter. Le processus de publication peut prendre quelques jours ouvrés.
 
 ## Procédure
 ###Étape 1 : créez et publiez un RRS (Request-Response Service, service de requête-réponse) Machine Learning###
  Si vous ne l’avez pas encore fait, consultez ce [guide](machine-learning-walkthrough-5-publish-web-service.md).
 
 ###Étape 2 : déployez le service en production et obtenez les informations de point de terminaison OData et de la clé d’API.###
-1. Depuis le [portail Azure Classic](http://manage.windowsazure.com), sélectionnez l’option **MACHINE LEARNING** dans la barre de navigation de gauche, puis sélectionnez votre espace de travail. 
+1. Depuis le [portail Azure Classic](http://manage.windowsazure.com), sélectionnez l’option **MACHINE LEARNING** dans la barre de navigation de gauche, puis sélectionnez votre espace de travail.
 
 2. Cliquez sur l’onglet **WEB SERVICES** (services Web) et sélectionnez le service Web que vous souhaitez publier sur le marché.
 
@@ -64,10 +64,10 @@ déployez le service en production.
 
 ###Étape 3 : utilisez l’URL du service Web à publier sur Azure Marketplace (DataMarket)###
 
-1.  Accédez à [Azure Marketplace (Data Market)](http://datamarket.azure.com/home) 
+1.  Accédez à [Azure Marketplace (Data Market)](http://datamarket.azure.com/home)
 2.  Cliquez sur le lien **Publish** (Publier) en haut de la page. Vous serez dirigé vers le [portail de publication Microsoft Azure](https://publish.windowsazure.com)
 3.  Cliquez sur la section **publishers** (éditeurs) pour vous inscrire en tant qu’éditeur.
-4.	Lors de la création d'une offre, sélectionnez **Services de données**, puis cliquez sur **Créer un nouveau service de données**. 
+4.	Lors de la création d'une offre, sélectionnez **Services de données**, puis cliquez sur **Créer un nouveau service de données**.
  
 	![Azure Marketplace][image1]
 
@@ -109,4 +109,4 @@ déployez le service en production.
 [odata]: ./media/machine-learning-publish-web-service-to-azure-marketplace/odata.png
  
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -1,0 +1,147 @@
+<properties 
+	pageTitle="Déployer votre première application web Node.js dans Azure en 5 minutes | Microsoft Azure" 
+	description="Découvrez la facilité avec laquelle vous pouvez exécuter des applications web dans App Service en déployant un exemple d’application. Commencez le développement rapidement et visualisez les résultats immédiatement." 
+	services="app-service\web"
+	documentationCenter=""
+	authors="cephalin"
+	manager="wpickett"
+	editor=""
+/>
+
+<tags
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="hero-article"
+	ms.date="09/16/2016" 
+	ms.author="cephalin"
+/>
+	
+# Déployer votre première application web Node.js dans Azure en 5 minutes
+
+Dans ce didacticiel, vous découvrirez comment déployer votre première application web Node.js dans [Azure App Service](../app-service/app-service-value-prop-what-is.md). 
+App Service permet de créer des applications web, des [back-ends d’applications mobiles](/documentation/learning-paths/appservice-mobileapps/) et 
+des [applications API](../app-service-api/app-service-api-apps-why-best-platform.md).
+
+Vous allez :
+
+- Créer une application web dans Azure App Service
+- Déployer un exemple de code Node.js
+- Voir votre code s’exécuter dans un environnement de production
+- Mettre à jour votre application web de la même façon que vous [transmettez des validations Git](https://git-scm.com/docs/git-push)
+
+## Conditions préalables
+
+- [Installer Git](http://www.git-scm.com/downloads). Vérifiez que votre installation a réussi en exécutant `git --version` à partir d’une nouvelle invite de commande Windows,
+d’une fenêtre PowerShell, d’un interpréteur de commande Linux ou d’un terminal OS X.
+- Obtenir un compte Microsoft Azure. Si vous ne possédez pas de compte, vous pouvez 
+[demander un essai gratuit](/pricing/free-trial/?WT.mc_id=A261C142F) ou 
+[activer les avantages de votre abonnement Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
+
+>[AZURE.NOTE] Vous pouvez [essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751) sans compte Azure. Créez une application de base et expérimentez-la pendant une heure, sans carte de paiement et sans engagement.
+
+<a name="create"></a>
+## Créer une application web
+
+1. Connectez-vous au [portail Azure](https://portal.azure.com) avec votre compte Azure.
+
+2. Dans le menu de gauche, cliquez sur **Nouveau** > **Web + mobile** > **Application web**.
+
+    ![](./media/app-service-web-get-started-languages/create-web-app-portal.png)
+
+3. Dans le panneau de création d’application, utilisez les paramètres suivants pour votre nouvelle application :
+
+    - **Nom de l’application** : tapez un nom unique.
+    - **Groupe de ressources** : sélectionnez **Créer** et donnez un nom au groupe de ressources.
+    - **Plan App Service/Emplacement** : cliquez sur cette option pour la configurer, puis cliquez sur **Créer** pour définir le nom, l’emplacement et 
+    le niveau tarifaire du plan App Service. N’hésitez pas à utiliser le niveau tarifaire **Gratuit**.
+
+    Lorsque vous avez terminé, le panneau de création de votre application doit ressembler à ceci :
+
+    ![](./media/app-service-web-get-started-languages/create-web-app-settings.png)
+
+3. Cliquez sur l’option **Créer** au bas du panneau. Pour afficher la progression, cliquez sur l’icône **Notification** située en haut.
+
+    ![](./media/app-service-web-get-started-languages/create-web-app-started.png)
+
+4. Une fois le déploiement terminé, le message de notification ci-dessous doit s’afficher. Cliquez sur ce message pour ouvrir le panneau de votre déploiement.
+
+    ![](./media/app-service-web-get-started-languages/create-web-app-finished.png)
+
+5. Dans le panneau **Déploiement réussi**, cliquez sur le lien **Ressource** pour ouvrir le panneau de votre nouvelle application web.
+
+    ![](./media/app-service-web-get-started-languages/create-web-app-resource.png)
+
+## Déployer du code dans votre application web
+
+À présent, nous allons déployer du code dans Azure à l’aide de Git.
+
+5. Dans le panneau de l’application web, accédez au menu **Options de déploiement** ou recherchez-le, puis cliquez dessus.
+
+    ![](./media/app-service-web-get-started-languages/deploy-web-app-deployment-options.png)
+
+6. Cliquez sur **Choisir la source** > **Référentiel Git local** > **OK**.
+
+7. De retour dans le panneau de l’application web, cliquez sur **Informations d’identification de déploiement**.
+
+8. Définissez vos informations d’identification de déploiement et cliquez sur **Enregistrer**.
+
+7. De retour dans le panneau de l’application web, accédez aux **Propriétés** ou recherchez-les, puis cliquez dessus. En regard de **URL Git**, cliquez sur le bouton **Copier**.
+
+    ![](./media/app-service-web-get-started-languages/deploy-web-app-properties.png)
+
+    Vous êtes maintenant prêt à déployer votre code avec Git.
+
+1. Dans votre terminal de ligne de commande, passez à un répertoire de travail (`CD`) et clonez l’exemple d’application comme suit :
+
+        git clone https://github.com/Azure-Samples/app-service-web-nodejs-get-started.git
+
+    ![Clonez l’exemple de code d’application pour votre première application web dans Azure](./media/app-service-web-get-started-languages/node-git-clone.png)
+
+    Pour *&lt;github_sample_url>*, utilisez l’une des URL suivantes, en fonction de l’infrastructure souhaitée :
+
+2. Passez au référentiel de votre exemple d’application. Par exemple :
+
+        cd app-service-web-nodejs-get-started
+
+3. Configurez l’objet distant Git de votre application Azure en ajoutant l’URL Git copiée dans le portail quelques étapes auparavant.
+
+        git remote add azure <giturlfromportal>
+
+4. Déployez votre exemple de code dans votre application Azure de la même façon que vous transmettez du code avec Git :
+
+        git push azure master
+
+    ![Transmettez du code pour votre première application web dans Azure](./media/app-service-web-get-started-languages/node-git-push.png)
+
+    Si vous avez utilisé l’une des infrastructures de langage, vous observerez un résultat différent. En effet, en plus d’injecter du code dans Azure, `git push` déclenche des tâches de déploiement dans le moteur de déploiement. Si vous avez un fichier package.json à la racine de votre projet (référentiel), le script de déploiement restaure les packages requis pour vous.
+
+Et voilà ! Votre code s’exécute désormais dans Azure. Dans votre navigateur, accédez à http://*&lt;appname>*.azurewebsites.net pour le voir à l’œuvre.
+
+## Mettre à jour votre application
+
+Vous pouvez désormais utiliser Git pour transmettre votre code depuis la racine (référentiel) de votre projet dès que vous avez besoin d’apporter une mise à jour au site en ligne. Pour ce faire, il vous suffit de suivre la même procédure que pour le déploiement initial de votre code. Par exemple, chaque fois que vous voulez transmettre une nouvelle modification que vous avez testée localement, exécutez simplement les commandes suivantes depuis la racine (référentiel) de votre projet :
+
+    git add .
+    git commit -m "<your_message>"
+    git push azure master
+
+## Étapes suivantes
+
+[Créez, configurez et déployez une application web Node.js Express dans Azure](app-service-web-nodejs-get-started.md). En suivant ce didacticiel, vous acquerrez les compétences de base nécessaires pour exécuter n’importe quelle application web Node.js dans Azure. Vous apprendrez notamment à :
+
+- Créer et configurer des applications dans Azure depuis PowerShell/Bash
+- Définir la version de Node.js
+- Utiliser un fichier de démarrage qui ne se trouve pas dans le répertoire de l’application racine
+- Automatiser des tâches à l’aide de NPM
+- Obtenir les journaux d’erreurs et de sortie
+
+Ou faites-en plus avec votre première application web. Par exemple :
+
+- Essayez [d’autres méthodes de déploiement de votre code dans Azure](../app-service-web/web-sites-deploy.md). Par exemple, pour effectuer un déploiement à partir de l’un de vos référentiels GitHub, sélectionnez simplement 
+**GitHub** au lieu de **Référentiel Git local** dans les **Options de déploiement**.
+- Donnez une nouvelle dimension à votre application Azure. Authentifiez vos utilisateurs. Faites évoluer sa capacité en fonction de la demande. Configurez des alertes de performance. Tout cela en seulement quelques clics. Consultez l’article 
+[Ajouter des fonctionnalités à votre première application web](app-service-web-get-started-2.md).
+
+<!----HONumber=AcomDC_0920_2016-->

@@ -121,7 +121,7 @@ Pour les besoins de la formation, nous devons d’abord créer une tâche qui cr
 
     Sous la section **Command** où vous avez entré un script pour **Execute Windows batch command**, un lien permet d'accéder aux variables d'environnement reconnues par Hudson. Cliquez sur ce lien pour découvrir les noms des variables d’environnement avec leurs descriptions. Notez que les variables d'environnement qui contiennent des caractères spéciaux, telle la variable d'environnement **BUILD\_URL**, ne sont pas autorisées comme nom de conteneur ou chemin virtuel commun.
 
-8. Cliquez sur **Rendre le nouveau conteneur public par défaut** pour cet exemple. Si vous voulez utiliser un conteneur privé, vous devez créer une signature d'accès partagé pour autoriser l'accès. La procédure n'entre pas dans le cadre de cet article. Pour en savoir plus sur les signatures d’accès partagé, consultez [Signatures d’accès partagé : présentation du modèle SAP](storage-dotnet-shared-access-signature-part-1.md).
+8. Cliquez sur **Rendre le nouveau conteneur public par défaut** pour cet exemple. Si vous voulez utiliser un conteneur privé, vous devez créer une signature d'accès partagé pour autoriser l'accès. La procédure n'entre pas dans le cadre de cet article. Pour en savoir plus sur les signatures d’accès partagé, consultez [Utilisation des signatures d’accès partagé (SAP)](storage-dotnet-shared-access-signature-part-1.md).)
 9. [Facultatif] Cliquez sur **Nettoyer le conteneur avant le téléchargement** si vous souhaitez que le contenu du conteneur soit effacé avant le téléchargement des artefacts de build (ne sélectionnez pas cette option si vous ne souhaitez pas effacer le contenu du conteneur).
 10. Pour **List of Artifacts to upload**, entrez **text/*.txt**.
 11. Pour **Common virtual path for uploaded artifacts**, entrez **${BUILD\_ID}/${BUILD\_NUMBER}**.
@@ -182,4 +182,4 @@ La section suivante présente les composants du service BLOB.
 
 Pour plus d’informations, consultez également le [Centre pour développeurs Java](https://azure.microsoft.com/develop/java/).
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0914_2016-->

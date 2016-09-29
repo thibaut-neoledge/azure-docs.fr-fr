@@ -12,7 +12,7 @@ ms.workload="tbd"
 ms.tgt_pltfrm="na" 
 ms.devlang="na" 
 ms.topic="article" 
-ms.date="06/07/2016" 
+ms.date="09/06/2016" 
 ms.author="adegeo"/>
 
 # Personnalisation du cycle de vie d'un rôle Web ou de travail dans .NET
@@ -33,9 +33,9 @@ Lors de l'extension de **RoleEntryPoint**, vous devez tenir compte des comportem
 
      Si une exception se produit dans une des méthodes de cycle de vie, Azure déclenche l’événement [UnhandledException](https://msdn.microsoft.com/library/system.appdomain.unhandledexception.aspx) et le processus prend fin. Une fois mis hors connexion, votre rôle sera redémarré par Azure. Lorsqu'une exception non gérée se produit, l’événement [Stopping](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.stopping.aspx) n'est pas déclenché et la méthode **OnStop** n'est pas appelée.
 
-Si votre rôle ne démarre pas ou qu’il est recyclé entre les états Initialisation, Occupé et Arrêté, votre code peut lever une exception non gérée dans l'un des événements du cycle de vie chaque fois que le rôle redémarre. Utilisez, dans ce cas, l’événement [UnhandledException](https://msdn.microsoft.com/library/system.appdomain.unhandledexception.aspx) pour déterminer la cause de l'exception et la gérer correctement. Votre rôle peut également être retourné depuis la méthode [Run](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx), ce qui entraîne ainsi son redémarrage. Pour plus d'informations sur les états de déploiement, consultez la rubrique [Problèmes courants qui entraînent le recyclage des rôles](https://msdn.microsoft.com/library/azure/gg465402.aspx).
+Si votre rôle ne démarre pas ou qu’il est recyclé entre les états Initialisation, Occupé et Arrêté, votre code peut lever une exception non gérée dans l'un des événements du cycle de vie chaque fois que le rôle redémarre. Utilisez, dans ce cas, l’événement [UnhandledException](https://msdn.microsoft.com/library/system.appdomain.unhandledexception.aspx) pour déterminer la cause de l'exception et la gérer correctement. Votre rôle peut également être retourné depuis la méthode [Run](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx), ce qui entraîne ainsi son redémarrage. Pour plus d'informations sur les états de déploiement, consultez la rubrique [Problèmes courants qui entraînent le recyclage des rôles](cloud-services-troubleshoot-common-issues-which-cause-roles-recycle.md).
 
-> [AZURE.NOTE] Si vous utilisez [Azure Tools pour Microsoft Visual Studio](https://msdn.microsoft.com/library/azure/ee405484.aspx) pour développer votre application, les modèles de projet de rôle étendent automatiquement la classe **RoleEntryPoint** pour vous, dans les fichiers WebRole.cs et WorkerRole.cs.
+> [AZURE.NOTE] Si vous utilisez **Azure Tools pour Microsoft Visual Studio** pour développer votre application, les modèles de projet de rôle étendent automatiquement la classe **RoleEntryPoint** pour vous, dans les fichiers *WebRole.cs* et *WorkerRole.cs*.
 
 ## Méthode OnStart
 
@@ -80,4 +80,4 @@ Vous pouvez utiliser les méthodes de cycle de vie ASP.NET, en plus de celles fo
 ## Étapes suivantes
 Découvrez comment [créer un package de service cloud](cloud-services-model-and-package.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Déploiement du portail de l'utilisateur pour le serveur Azure Multi-Factor Authentication" 
-	description="Voici la page Azure Multi-Factor Authentication qui explique la prise en main de Azure MFA et du portail de l’utilisateur." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="femila" 
+	pageTitle="Déploiement du portail de l'utilisateur pour le serveur Azure Multi-Factor Authentication"
+	description="Voici la page Azure Multi-Factor Authentication qui explique la prise en main de Azure MFA et du portail de l’utilisateur."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
 	editor="curtand"/>
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="08/15/2016" 
-	ms.author="billmath"/>
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="08/15/2016"
+	ms.author="kgremban"/>
 
 # Déploiement du portail de l'utilisateur pour le serveur Azure Multi-Factor Authentication
 
@@ -101,7 +101,7 @@ Maintenant que le portail est installé, vous devez configurer le serveur Azure 
 Le serveur Azure Multi-Factor Authentication fournit plusieurs options pour le portail de l'utilisateur. Le tableau suivant fournit une liste de ces options, ainsi qu'une explication de leur utilisation.
 
 Paramètres du portail de l'utilisateur|Description|
-:------------- | :------------- | 
+:------------- | :------------- |
 URL du portail de l'utilisateur| Vous permet d'entrer l'URL d'hébergement du portail.
 Authentification principale| Vous permet de spécifier le type d'authentification à utiliser lors de la connexion au portail. Authentification Windows, Radius ou LDAP.
 Autoriser les utilisateurs à se connecter|Permet aux utilisateurs d'entrer un nom d'utilisateur et un mot de passe sur la page de connexion pour le portail de l'utilisateur. Si cette option n'est pas sélectionnée, les zones sont grisées.
@@ -187,6 +187,4 @@ Si les administrateurs ont configuré le serveur Azure Multi-Factor Authenticati
 
 L'inscription automatique de l'utilisateur est à présent terminée et l'utilisateur est connecté au portail de l'utilisateur. Les utilisateurs peuvent se reconnecter au portail de l'utilisateur à tout moment pour modifier leurs numéros de téléphone, les codes PIN, les méthodes d'authentification et les questions de sécurité, si les administrateurs les y autorisent.
 
- 
-
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0921_2016-->

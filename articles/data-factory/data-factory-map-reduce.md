@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/27/2016" 
+	ms.date="09/12/2016" 
 	ms.author="spelluru"/>
 
 # Appeler des programmes MapReduce à partir de Data Factory
@@ -22,7 +22,7 @@ L’activité MapReduce de HDInsight dans un [pipeline](data-factory-create-pipe
 ## Introduction 
 Un pipeline dans une fabrique de données Azure traite les données dans les services de stockage liés à l'aide des services de calcul liés. Il contient une séquence d'activités dans laquelle chaque activité effectue une opération de traitement spécifique. Cet article décrit l'utilisation de l’activité MapReduce de HDInsight.
  
-Consultez les articles [Pig](data-factory-pig-activity.md) et [Hive](data-factory-hive-activity.md) pour plus d’informations sur l’exécution de scripts Pig/Hive sur un cluster HDInsight sous Windows ou Linux à partir d’un pipeline de fabrique de données Azure à l’aide des activités Pig et Hive de HDInsight.
+Consultez [Pig](data-factory-pig-activity.md) et [Hive](data-factory-hive-activity.md) pour plus d’informations sur l’exécution de scripts Pig/Hive sur un cluster HDInsight sous Windows ou Linux à partir d’un pipeline à l’aide des activités Pig et Hive de HDInsight.
 
 ## JSON pour l’activité MapReduce de HDInsight 
 
@@ -32,7 +32,7 @@ Dans la définition JSON de l’activité HDInsight :
 3. Spécifiez le nom de la classe pour la propriété **className**.
 4. Spécifiez le chemin d’accès du fichier JAR, ainsi que le nom de fichier, pour la propriété **jarFilePath**.
 5. Spécifiez le service lié qui fait référence au stockage d’objets blob Azure contenant le fichier JAR pour la propriété **jarLinkedService**.
-6. Spécifiez les arguments du programme MapReduce dans la section **arguments**. Lors de l'exécution, vous verrez quelques arguments supplémentaires (par exemple : mapreduce.job.tags) à partir de l'infrastructure MapReduce. Pour différencier vos arguments avec les arguments MapReduce, envisagez d'utiliser l’option et la valeur en tant qu'arguments comme indiqué dans l'exemple suivant (- s,--entrée - sortie etc. sont des options immédiatement suivies par leurs valeurs).
+6. Spécifiez les arguments du programme MapReduce dans la section **arguments**. Lors de l’exécution, vous verrez quelques arguments supplémentaires (par exemple : mapreduce.job.tags) à partir de l’infrastructure MapReduce. Pour différencier vos arguments avec les arguments MapReduce, envisagez d’utiliser l’option et la valeur en tant qu’arguments comme indiqué dans l’exemple suivant (-s, --entrée, --sortie etc. sont des options immédiatement suivies par leurs valeurs).
 
 		{
 		    "name": "MahoutMapReduceSamplePipeline",
@@ -131,10 +131,10 @@ Tout d'abord, vous créez un service lié pour lier le cluster Azure HDInsight �
 	    }
 	}
 
-### Jeux de données
+### Groupes de données
 
 #### Jeu de données de sortie
-Le pipeline dans cet exemple n’accepte pas d'entrées. Vous devez spécifier un jeu de données de sortie pour l'activité MapReduce HDInsight. Il s'agit simplement d'un ensemble de données factice qui est nécessaire au fonctionnement de la planification de pipeline.
+Le pipeline de cet exemple n’accepte pas d’entrées. Vous spécifiez un jeu de données de sortie pour l’activité MapReduce HDInsight. Il s’agit simplement d’un ensemble de données factice qui est nécessaire au fonctionnement de la planification de pipeline.
 
 	{
 	    "name": "MROutput",
@@ -163,8 +163,8 @@ Propriété | Remarques
 :-------- | :-----
 type | Le type doit être défini sur **HDInsightMapReduce**. 
 className | Le nom de la classe est : **wordcount**
-jarFilePath | Chemin d'accès au fichier jar contenant la classe ci-dessus. Si vous copiez/collez le code suivant, n'oubliez pas de modifier le nom du cluster. 
-jarLinkedService | Service Azure Storage lié qui contient le fichier jar. Il s'agit du stockage associé au cluster HDInsight. 
+jarFilePath | Chemin d’accès au fichier jar contenant la classe. Si vous copiez/collez le code suivant, n'oubliez pas de modifier le nom du cluster. 
+jarLinkedService | Service Azure Storage lié qui contient le fichier jar. Ce service lié fait référence au stockage associé au cluster HDInsight. 
 arguments | Le programme de nombre de mots accepte deux arguments, une entrée et une sortie. Le fichier d'entrée est le fichier davinci.txt.
 frequency/interval | Les valeurs de ces propriétés correspondent au jeu de données de sortie. 
 linkedServiceName | fait référence au service HDInsight lié créé précédemment.   
@@ -228,4 +228,4 @@ Vous pouvez utiliser l'activité MapReduce pour exécuter des programmes Spark s
 - [Appeler des programmes Spark](data-factory-spark.md)
 - [Appeler des scripts R](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0914_2016-->

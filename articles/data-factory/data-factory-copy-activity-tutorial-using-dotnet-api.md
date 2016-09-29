@@ -13,18 +13,18 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="08/19/2016" 
+	ms.date="09/16/2016" 
 	ms.author="spelluru"/>
 
 # Didacticiel : Créer un pipeline avec l’activité de copie à l’aide de l’API .NET
 > [AZURE.SELECTOR]
-- [Vue d’ensemble du didacticiel](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
-- [Utilisation de Data Factory Editor](data-factory-copy-activity-tutorial-using-azure-portal.md)
-- [Utiliser PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
-- [Utilisation de Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
-- [Utilisation de l'API REST](data-factory-copy-activity-tutorial-using-rest-api.md)
-- [Utilisation de l’API .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
-- [Utilisation de l’Assistant de copie](data-factory-copy-data-wizard-tutorial.md)
+- [Vue d’ensemble et étapes préalables requises](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+- [Portail Azure](data-factory-copy-activity-tutorial-using-azure-portal.md)
+- [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
+- [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
+- [API REST](data-factory-copy-activity-tutorial-using-rest-api.md)
+- [API .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
+- [Assistant de copie](data-factory-copy-data-wizard-tutorial.md)
 
 Ce didacticiel vous montre comment créer et surveiller une fabrique de données Azure à l’aide de l’API .NET. Le pipeline de la fabrique de données utilise une activité de copie pour copier les données d’un objet blob Azure vers une base de données SQL Azure.
 
@@ -34,7 +34,7 @@ L’activité de copie effectue le déplacement des données dans Azure Data Fac
 Cet article ne couvre pas toutes les API .NET Data Factory. Pour plus d’informations sur le Kit de développement logiciel (SDK) .NET de Data Factory, consultez [Fabrique de données .NET](https://msdn.microsoft.com/library/mt415893.aspx).
 
 ## Composants requis
-- Pour obtenir une vue d’ensemble du didacticiel et la configuration requise, consultez les sections [Vue d’ensemble et Configuration requise](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+- Consultez [Vue d’ensemble et étapes préalables requises](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) pour obtenir une vue d’ensemble du didacticiel et effectuer les **étapes préalables requises**.
 - Visual Studio 2012, 2013 ou 2015
 - Téléchargez et installez le [Kit de développement logiciel (SDK) Azure .NET](http://azure.microsoft.com/downloads/).
 - Azure PowerShell. Suivez les instructions de l’article [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md) pour installer Azure PowerShell sur votre ordinateur. Vous utilisez Azure PowerShell pour créer une application Azure Active Directory.
@@ -458,4 +458,4 @@ Vous devez avoir les quatre valeurs suivantes après ces étapes :
 
  
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0921_2016-->

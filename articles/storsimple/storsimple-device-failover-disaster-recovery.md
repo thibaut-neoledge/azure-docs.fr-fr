@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/10/2016"
+   ms.date="09/07/2016"
    ms.author="alkohli" />
 
 # Basculement et récupération d’urgence pour votre appareil StorSimple
@@ -21,7 +21,7 @@
 
 Ce didacticiel décrit les étapes nécessaires pour basculer un appareil StorSimple en cas d’urgence. Un basculement vous permet de migrer vos données à partir d’un appareil source dans le centre de données vers un autre appareil physique ou virtuel situé à un emplacement géographique identique ou différent.
 
-Le basculement de l’appareil est orchestré via la fonctionnalité de récupération d’urgence et se lance à partir de la page **Appareils**. Cette page répertorie tous les appareils StorSimple connectés à votre service StorSimple Manager. Pour chaque appareil, le nom convivial, le statut, la capacité maximale et d’approvisionnement, le type et le modèle s’affichent.
+La récupération d’urgence est orchestrée par la fonctionnalité de basculement de l’appareil et se lance à partir de la page **Appareils**. Cette page répertorie tous les appareils StorSimple connectés à votre service StorSimple Manager. Pour chaque appareil, le nom convivial, le statut, la capacité maximale et d’approvisionnement, le type et le modèle s’affichent.
 
 ![Page Appareils](./media/storsimple-device-failover-disaster-recovery/IC740972.png)
 
@@ -31,7 +31,9 @@ Les instructions de ce didacticiel concerne les appareils physiques et virtuels 
 
 ## Récupération d’urgence et basculement d’appareil
 
-Dans un scénario de récupération d’urgence, l’appareil principal cesse de fonctionner. Dans ce cas, vous pouvez déplacer les données de cloud associées à l’appareil défaillant vers un autre appareil en utilisant l’appareil principal en tant que *source* et en spécifiant un autre appareil en tant que *cible*. Vous pouvez sélectionner un ou plusieurs conteneurs de volume à migrer vers l’appareil cible. Ce processus est appelé le *basculement*. Pendant le basculement, la propriété des conteneurs de volume de l’appareil source change et ceux-ci sont transférés vers l’appareil cible.
+Dans un scénario de récupération d’urgence, l’appareil principal cesse de fonctionner. Dans ce cas, vous pouvez déplacer les données de cloud associées à l’appareil défaillant vers un autre appareil en utilisant l’appareil principal en tant que *source* et en spécifiant un autre appareil en tant que *cible*. Vous pouvez sélectionner un ou plusieurs conteneurs de volume à migrer vers l’appareil cible. Ce processus est appelé le *basculement*.
+
+Pendant le basculement, la propriété des conteneurs de volume de l’appareil source change et ceux-ci sont transférés vers l’appareil cible. Une fois la propriété des conteneurs de volumes modifiée, ceux-ci sont supprimés de l’appareil source. La suppression effectuée, l’appareil cible peut être restauré.
 
 En général, après une récupération d’urgence, la sauvegarde la plus récente est utilisée pour restaurer les données sur l’appareil cible. Toutefois, s’il existe plusieurs stratégies de sauvegarde pour le même volume, la stratégie de sauvegarde associée au plus grand nombre de volumes est choisie et la sauvegarde la plus récente de cette stratégie est utilisée pour restaurer les données sur l’appareil cible.
 
@@ -170,6 +172,35 @@ Procédez comme suit pour restaurer votre appareil vers un appareil virtuel Stor
 
 Pour visionner une vidéo expliquant comment restaurer un appareil physique basculé vers un appareil virtuel dans le cloud, cliquez [ici](https://azure.microsoft.com/documentation/videos/storsimple-and-disaster-recovery/).
 
+
+## Restauration automatique
+
+Pour Update 3 et les versions ultérieures, StorSimple prend également en charge la restauration automatique. À la fin du basculement, l’action suivante se produit :
+
+- Les conteneurs de volumes basculés sont nettoyés de l’appareil source.
+
+- Un travail de suppression par conteneur de volumes (basculé) est visible sur la page **Travaux**. Le temps nécessaire à la suppression des conteneurs de volumes dépend de la quantité de données présente dans les conteneurs. Si vous envisagez de tester les basculements / restaurations, nous vous recommandons de tester des conteneurs de volumes comprenant moins de données (Go).
+
+- Une fois tous les travaux de suppression terminés, vous pouvez tenter la restauration automatique.
+
+## Forum Aux Questions
+
+Q : **Que se passe-t-il si la récupération d’urgence échoue ou réussit partiellement ?**
+
+A. Si la récupération d’urgence échoue, nous vous recommandons d’essayer à nouveau. La deuxième fois, la récupération d’urgence sait ce qui a été effectué et à quel moment le processus s’est bloqué la première fois. Le processus de récupération d’urgence démarre à partir de ce point.
+
+Q : **Puis-je supprimer un appareil pendant son basculement ?**
+
+A. Vous ne pouvez pas supprimer un appareil lorsqu’une récupération d’urgence est en cours. Vous ne pourrez le faire qu’après la récupération d’urgence.
+
+Q : **Quand commence le garbage collection sur l’appareil source pour en supprimer les données locales ?**
+
+A. Le garbage collection ne sera activé sur l’appareil source qu’une fois l’appareil entièrement nettoyé. Le nettoyage inclut le nettoyage des objets qui ont échoué sur l’appareil source, notamment les volumes, objets de sauvegarde (et non les données), conteneurs de volumes et stratégies.
+
+Q : **Que se passe-t-il en cas d’échec du travail de suppression associé aux conteneurs de volumes dans l’appareil source ?**
+
+A. Si le travail de suppression échoue, vous devez déclencher manuellement la suppression des conteneurs de volumes. Sur la page **Appareils**, sélectionnez votre appareil source, puis cliquez sur **Conteneurs de volumes**. Sélectionnez les conteneurs de volumes que vous avez basculés et, en bas de la page, cliquez sur **Supprimer**. Une fois que vous avez supprimé tous les conteneurs de volumes basculés sur l’appareil source, vous pouvez démarrer la restauration automatique.
+
 ## Continuité d’activité et récupération d’urgence (Business Continuity Disaster Recovery - BCDR)
 
 Un scénario de continuité d’activité et récupération d’urgence (BCDR) se produit lorsque l’ensemble du centre de données Azure cesse de fonctionner. Cela peut affecter votre service StorSimple Manager et les appareils StorSimple associés.
@@ -184,4 +215,4 @@ S’il existe des appareils StorSimple inscrits juste avant un incident, ces pé
 - Pour plus d’informations sur l’utilisation du service StorSimple Manager, consultez [Utiliser le service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
  
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0914_2016-->

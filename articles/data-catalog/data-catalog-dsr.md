@@ -3,8 +3,8 @@
    description="Spécification des sources de données actuellement prises en charge."
    services="data-catalog"
    documentationCenter=""
-   authors="spelluru"
-   manager="paulettm"
+   authors="trhabe"
+   manager="jstrauss"
    editor=""
    tags=""/>
 <tags
@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="07/25/2016"
+   ms.date="09/13/2016"
    ms.author="trhabe"/>
 
 # Sources de données prises en charge par Azure Data Catalog
 
-Les utilisateurs d’Azure Data Catalog peuvent publier des métadonnées à l’aide d’une API publique, en utilisant un outil d’inscription par simple clic, ou en entrant manuellement les informations directement dans le portail Web de Data Catalog. Le tableau ci-dessous résume toutes les sources actuellement prises en charge par le catalogue ainsi que les fonctionnalités de publication disponibles pour chacune d’elles. Sont également répertoriés les outils de données externes que chaque source peut initier à partir du portail. Le deuxième tableau ci-dessous spécifie les propriétés de connexion de chaque source de données sous un angle plus technique.
+Les utilisateurs d’Azure Data Catalog peuvent publier des métadonnées à l’aide d’une API publique, en utilisant un outil d’inscription par simple clic, ou en entrant manuellement les informations directement dans le portail Web de Data Catalog. Le tableau ci-dessous résume toutes les sources actuellement prises en charge par le catalogue ainsi que les fonctionnalités de publication disponibles pour chacune d’elles. Sont également répertoriés les outils de données externes que chaque source peut initier à partir du portail. Le deuxième tableau dans cet article spécifie les propriétés de connexion de chaque source de données sous un angle plus technique.
 
 
 ## Liste des sources de données prises en charge
@@ -73,8 +73,8 @@ Les utilisateurs d’Azure Data Catalog peuvent publier des métadonnées à l�
     <tr>
       <td>Azure Storage Table</td>
       <td>✓</td>
-      <td></td>
-      <td></td>
+      <td>✓</td>
+      <td>✓</td>
       <td>
         <font size="2"></font>
       </td>
@@ -795,6 +795,17 @@ Si vous avez besoin d’une prise en charge de sources supplémentaires, envoyez
       </td>
     </tr>
     <tr>
+      <td>Power Query</td>
+      <td>Table</td>
+      <td>Application Web hybride</td>
+      <td>
+        <font size=2> protocole : power-query
+            <br>authentification : {oauth}
+            <br>adresse&#160;:
+            <br>&#160;&#160;&#160;&#160;&#160; url </font>
+      </td>
+    </tr>
+    <tr>
       <td>Salesforce</td>
       <td>Table</td>
       <td>Object</td>
@@ -858,6 +869,20 @@ Si vous avez besoin d’une prise en charge de sources supplémentaires, envoyez
     </tr>
     <tr>
       <td>SQL&#160;Data&#160;Warehouse</td>
+      <td>TableValuedFunction</td>
+      <td>Fonction table</td>
+      <td>
+        <font size=2> protocole&#160;: tds
+            <br>authentification&#160;: {protocole, windows}
+            <br>adresse&#160;:
+            <br>&#160;&#160;&#160;&#160;&#160; server
+            <br>&#160;&#160;&#160;&#160;&#160; database
+            <br>&#160;&#160;&#160;&#160;&#160; schema
+            <br>&#160;&#160;&#160;&#160;&#160; object </font>
+      </td>
+    </tr>
+    <tr>
+      <td>SQL&#160;Data&#160;Warehouse</td>
       <td>Conteneur</td>
       <td>Base de données</td>
       <td>
@@ -898,6 +923,20 @@ Si vous avez besoin d’une prise en charge de sources supplémentaires, envoyez
     </tr>
     <tr>
       <td>SQL Server</td>
+      <td>TableValuedFunction</td>
+      <td>Fonction table</td>
+      <td>
+        <font size=2> protocole&#160;: tds
+            <br>authentification&#160;: {protocole, windows}
+            <br>adresse&#160;:
+            <br>&#160;&#160;&#160;&#160;&#160; server
+            <br>&#160;&#160;&#160;&#160;&#160; database
+            <br>&#160;&#160;&#160;&#160;&#160; schema
+            <br>&#160;&#160;&#160;&#160;&#160; object </font>
+      </td>
+    </tr>
+    <tr>
+      <td>SQL Server</td>
       <td>Conteneur</td>
       <td>Base de données</td>
       <td>
@@ -911,7 +950,7 @@ Si vous avez besoin d’une prise en charge de sources supplémentaires, envoyez
     <tr>
       <td>SQL Server</td>
       <td>Table</td>
-      <td>Table, Vue, Fonction table</td>
+      <td>Table, Vue</td>
       <td>
         <font size=2> protocole&#160;: tds
             <br>authentification&#160;: {protocole, windows}
@@ -1127,4 +1166,4 @@ Si vous avez besoin d’une prise en charge de sources supplémentaires, envoyez
     </tr>
 </table>
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

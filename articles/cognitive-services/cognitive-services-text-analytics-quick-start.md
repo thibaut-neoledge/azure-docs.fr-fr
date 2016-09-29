@@ -4,7 +4,7 @@
 	services="cognitive-services"
 	documentationCenter=""
 	authors="onewth"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -297,4 +297,4 @@ Félicitations ! Vous avez terminé l’analyse des données de votre texte. Vo
 
 Pour voir comment des fonctionnalités d’analyse de texte, telles que des sentiments, peuvent être utilisées en tant que composant d’un bot, consultez l’exemple [Robot émotionnel](http://docs.botframework.com/fr-FR/bot-intelligence/language/#example-emotional-bot) sur le site Bot Framework (Infrastructure de robot).
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0914_2016-->

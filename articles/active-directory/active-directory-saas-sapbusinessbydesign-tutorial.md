@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/20/2016"
+	ms.date="09/09/2016"
 	ms.author="jeedes"/>
 
 
@@ -29,7 +29,7 @@ L’intégration de SAP Business ByDesign à Azure AD vous offre les avantages s
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
 
-## Configuration requise
+## Composants requis
 
 Pour configurer l’intégration d’Azure AD avec SAP Business ByDesign, vous avez besoin des éléments suivants :
 
@@ -223,11 +223,11 @@ Dans cette section, vous allez créer un utilisateur de test appelé Britta Simo
 
 2. Dans la liste **Annuaire**, sélectionnez l'annuaire pour lequel vous voulez activer l'intégration d'annuaire.
 
-3. Pour afficher la liste des utilisateurs, dans le menu situé en haut, cliquez sur **Utilisateurs**.
+3. Pour afficher la liste des utilisateurs, dans le menu du haut, cliquez sur **Utilisateurs**.
 
 	![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-sapbusinessbydesign-tutorial/create_aaduser_03.png)
 
-4. Pour ouvrir la boîte de dialogue **Ajouter un utilisateur**, cliquez sur **Ajouter un utilisateur** dans la barre d’outils située en bas.
+4. Pour ouvrir la boîte de dialogue **Ajouter un utilisateur**, cliquez sur l’option **Ajouter un utilisateur** figurant dans la barre d’outils du bas.
 
 	![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-sapbusinessbydesign-tutorial/create_aaduser_04.png)
 
@@ -241,7 +241,7 @@ Dans cette section, vous allez créer un utilisateur de test appelé Britta Simo
 
     c. Cliquez sur **Next**.
 
-6.  Dans la page de boîte de dialogue **Profil utilisateur**, procédez comme suit :
+6.  Sur la page **Profil utilisateur**, procédez comme suit :
 	
 	![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-sapbusinessbydesign-tutorial/create_aaduser_06.png)
 
@@ -255,11 +255,11 @@ Dans cette section, vous allez créer un utilisateur de test appelé Britta Simo
 
     e. Cliquez sur **Next**.
 
-7. Dans la page de boîte de dialogue **Obtenir un mot de passe temporaire**, cliquez sur **créer**.
+7. Sur la page de boîte de dialogue **Obtenir un mot de passe temporaire**, cliquez sur **créer**.
 
 	![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-sapbusinessbydesign-tutorial/create_aaduser_07.png)
 
-8. Dans la page de boîte de dialogue **Obtenir un mot de passe temporaire**, procédez comme suit :
+8. Sur la page de boîte de dialogue **Obtenir un mot de passe temporaire**, procédez comme suit :
 
 	![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-sapbusinessbydesign-tutorial/create_aaduser_08.png)
 
@@ -333,4 +333,4 @@ Lorsque vous cliquez sur la vignette SAP Business ByDesign dans le volet d’acc
 [204]: ./media/active-directory-saas-sapbusinessbydesign-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-sapbusinessbydesign-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

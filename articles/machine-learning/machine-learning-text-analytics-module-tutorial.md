@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="rastala"
-	manager="paulettm"
+	manager="jhubbard"
 	editor=""/>
 
 <tags
@@ -95,4 +95,4 @@ Nous avons à présent une expérience qui peut être publiée en tant que servi
 
 En savoir plus sur les modules d’analyse de texte à partir de la [documentation MSDN](https://msdn.microsoft.com/library/azure/dn905886.aspx).
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

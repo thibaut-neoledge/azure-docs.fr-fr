@@ -4,7 +4,7 @@ description="Découvrez comment utiliser les signatures d’accès partagé pour
 services="hdinsight"
 documentationCenter=""
 authors="Blackmist"
-manager="paulettm"
+manager="jhubbard"
 editor="cgronlun"/>
 
 <tags
@@ -50,7 +50,7 @@ Il existe deux types de signatures d’accès partagé :
 
 * Stratégie d’accès stockée : une stratégie d’accès stockée est définie sur un conteneur de ressources (conteneur d’objets blob, table, file d’attente ou partage de fichiers) et permet de gérer les contraintes d’une ou de plusieurs signatures d’accès partagé. Lorsque vous associez une signature d'accès partagé à une stratégie d'accès stockée, la signature hérite des contraintes (heure de début, heure d'expiration et autorisations) définies pour la stratégie.
 
-La différence entre les deux formes est importante pour un scénario clé : la révocation. Une signature d’accès partagé est une URL. Par conséquent, toute personne qui obtient la signature peut s’en servir, quel que soit celui qui l’a demandée initialement. Si une SAP est publiée publiquement, elle peut être utilisée par n’importe qui. Une clé d'accès partagé qui est distribuée est valide jusqu'à ce que l'un des quatre événements suivants ait lieu :
+La différence entre les deux formes est importante pour un scénario clé : la révocation. Une signature d'accès partagé est une URL. Par conséquent, toute personne qui obtient la signature peut s'en servir, quel que soit celui qui l'a demandée initialement. Si une SAP est publiée publiquement, elle peut être utilisée par n’importe qui. Une clé d'accès partagé qui est distribuée est valide jusqu'à ce que l'un des quatre événements suivants ait lieu :
 
 1. L'heure d'expiration spécifiée sur la signature d'accès partagé est atteinte.
 
@@ -256,7 +256,7 @@ Une fois connecté au cluster, procédez comme suit pour vérifier que vous pouv
         
     Cette fois, l’opération doit se terminer normalement.
     
-##Résolution de problèmes
+##Résolution des problèmes
 
 ###Une tâche a été annulée
 
@@ -290,4 +290,4 @@ Maintenant que vous avez appris comment ajouter un stockage à accès limité à
 
 [powershell]: ../powershell-install-configure.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/01/2016"
+	ms.date="09/08/2016"
 	ms.author="iainfou"/>
 
 # Procédure pas à pas d’exemple d’infrastructure Azure
 
 [AZURE.INCLUDE [virtual-machines-windows-infrastructure-guidelines-intro](../../includes/virtual-machines-windows-infrastructure-guidelines-intro.md)]
 
-Cet article vous guide à travers la création d’un exemple d’infrastructure d’application. Nous allons détailler la conception d’une infrastructure pour un magasin en ligne simple qui réunit toutes les instructions et les décisions concernant les conventions de dénomination, les groupes à haute disponibilité, les réseaux virtuels et équilibreurs de charge, ainsi que le déploiement de vos machines virtuelles.
+Cet article vous guide à travers la création d’un exemple d’infrastructure d’application. Nous détaillons la conception d’une infrastructure pour un magasin en ligne simple qui réunit toutes les instructions et les décisions concernant les conventions de dénomination, les groupes à haute disponibilité, les réseaux virtuels et équilibreurs de charge, ainsi que le déploiement de vos machines virtuelles.
 
 
 ## Exemple de charge de travail
@@ -38,7 +38,7 @@ Adventure Works Cycles souhaite créer une application de magasin en ligne dans 
 
 ![Diagramme de différentes couches pour l’infrastructure d’applications](./media/virtual-machines-common-infrastructure-service-guidelines/example-tiers.png)
 
-La charge du trafic Web entrant sécurisé doit être répartie sur les serveurs web lorsque les clients parcourent le magasin en ligne. Le trafic de traitement des commandes sous la forme de requêtes HTTP depuis les serveurs web doit être réparti sur les serveurs d’applications. En outre, l’infrastructure doit être conçue pour la haute disponibilité.
+La charge du trafic web entrant sécurisé doit être répartie sur les serveurs web lorsque les clients parcourent le magasin en ligne. Le trafic de traitement des commandes sous la forme de requêtes HTTP provenant des serveurs web doit être équilibré sur les serveurs d’applications. En outre, l’infrastructure doit être conçue pour la haute disponibilité.
 
 La conception qui en résulte doit comprendre :
 
@@ -54,7 +54,7 @@ Tous les éléments ci-dessus sont conformes aux conventions de dénomination :
 - Adventure Works Cycles utilise **[Charge de travail informatique]-[Emplacement]-[Ressources Azure]** comme préfixe
 	- Pour cet exemple, « **azos** » (Azure On-line Store) est le nom de la charge de travail informatique et « **use** » (États-Unis de l’Est 2) est l’emplacement
 - Les comptes de stockage utilisent adventureazosusesa**[description]**
-	- Notez que le mot adventure a été ajouté au préfixe pour garantir l’unicité et que les noms de compte de stockage ne prennent pas en charge l’utilisation de traits d’union.
+	- Le mot « adventure » a été ajouté au préfixe pour garantir l’unicité et les noms de compte de stockage ne prennent pas en charge l’utilisation de traits d’union.
 - Les réseaux virtuels utilisent AZOS-USE-VN**[numéro]**
 - Les groupes à haute disponibilité utilisent azos-use-as-**[rôle]**
 - Les noms de machine virtuelle utilisent azos-use-vm-**[nom de machine virtuelle]**
@@ -119,7 +119,7 @@ Voici la configuration obtenue.
 
 Cette configuration comprend :
 
-- un réseau virtuel cloud avec deux sous-réseaux (FrontEnd et BackEnd) ;
+- un réseau virtuel cloud avec deux sous-réseaux (FrontEnd et BackEnd) ;
 - deux comptes de stockage ;
 - quatre groupes à haute disponibilité, un pour chaque niveau du magasin en ligne
 - les machines virtuelles pour les quatre niveaux ;
@@ -132,4 +132,4 @@ Cette configuration comprend :
 
 [AZURE.INCLUDE [virtual-machines-windows-infrastructure-guidelines-next-steps](../../includes/virtual-machines-windows-infrastructure-guidelines-next-steps.md)]
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="07/21/2016"
-	ms.author="tamram"/>
+	ms.date="09/20/2016"
+	ms.author="vamshik;tamram"/>
 
 # Introduction à Microsoft Azure Storage
 
@@ -139,7 +139,7 @@ Pour plus d’informations sur les services disponibles dans chaque région, voi
 Lorsque vous créez un compte de stockage, vous devez sélectionner une des options de réplication suivantes :
 
 - **Stockage localement redondant (LRS).** Le stockage localement redondant effectue trois copies de vos données. Le stockage LRS est répliqué trois fois par installation et par région. Il protège vos données des défaillances matérielles normales, mais pas des pannes susceptibles de survenir dans une installation donnée.
-  
+
 	Vous pouvez bénéficier d'une réduction pour le stockage LRS. Pour une durabilité maximale, nous vous recommandons d’utiliser le stockage géo-redondant décrit ci-dessous.
 
 
@@ -148,7 +148,7 @@ Lorsque vous créez un compte de stockage, vous devez sélectionner une des opti
 	Le stockage ZRS offre un niveau de durabilité supérieur à celui du stockage LRS ; toutefois, pour une durabilité maximale, nous vous recommandons d'utiliser le stockage géo-redondant décrit ci-dessous.
 
 	> [AZURE.NOTE] ZRS est actuellement disponible uniquement pour les objets BLOB de blocs et est pris en charge uniquement dans les versions 2014-02-14 et versions ultérieures.
-	> 
+	>
 	> Une fois votre compte de stockage créé et la réplication ZRS sélectionné, vous ne pouvez plus revenir en arrière et choisir un autre type de réplication (ou inversement).
 
 - **Stockage géo-redondant (GRS)**. Le stockage GRS effectue six copies de vos données. Avec le stockage GRS, vos données sont répliquées trois fois dans la région principale et trois fois dans une région secondaire située à des centaines de kilomètres de la région principale, ce qui confère aux données le plus haut niveau de durabilité disponible. En cas de défaillance dans la région principale, Azure Storage bascule vers la région secondaire. Le stockage GRS assure la durabilité de vos données dans deux régions distinctes.
@@ -158,7 +158,7 @@ Lorsque vous créez un compte de stockage, vous devez sélectionner une des opti
 - **Stockage géo-redondant avec accès en lecture (RA-GRS)**. Le stockage géo-redondant avec accès en lecture est activé par défaut sur votre compte de stockage lors de la création de celui-ci. Le stockage géo-redondant avec accès en lecture réplique vos données dans un emplacement secondaire et permet d’y accéder en lecture. Le stockage géo-redondant avec accès en lecture offre un accès aux données, qu’elles se situent dans l’emplacement principal ou secondaire, si l’un des deux n’est pas disponible.
 
 	> [AZURE.IMPORTANT] Vous pouvez modifier le mode de réplication de vos données après la création de votre compte de stockage, sauf si vous avez défini la réplication ZRS à cette étape. Toutefois, notez qu’il vous faudra éventuellement subir un coût forfaitaire supplémentaire lié au transfert de données si vous passez de LRS à GRS ou RA-GRS.
- 
+
 Pour plus d’informations sur les options de réplication de stockage, voir [Réplication Azure Storage](storage-redundancy.md).
 
 Pour plus d’informations sur la tarification relative à la réplication des comptes de stockage, voir [Tarification Azure Storage](https://azure.microsoft.com/pricing/details/storage/).
@@ -267,4 +267,4 @@ Pour en savoir plus sur Azure Storage, explorez les ressources suivantes :
 - [Utilisation du stockage de files d'attente à partir de Python](storage-python-how-to-use-queue-storage.md)
 - [Utilisation du stockage de fichiers à partir de Python](storage-python-how-to-use-file-storage.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

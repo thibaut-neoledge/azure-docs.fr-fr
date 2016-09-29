@@ -20,12 +20,12 @@
 # Configuration d’une connexion de point à site à un réseau virtuel à l’aide du portail Classic
 
 > [AZURE.SELECTOR]
-- [PowerShell - Resource Manager](vpn-gateway-howto-point-to-site-rm-ps.md)
-- [Portail - Azure Classic](vpn-gateway-point-to-site-create.md)
+- [Resource Manager - PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
+- [Classic - Portail Classic](vpn-gateway-point-to-site-create.md)
 
 Une configuration point à site (P2S) vous permet de connecter de manière sécurisée un ordinateur client individuel à un réseau virtuel. Une connexion P2S est utile lorsque vous souhaitez vous connecter à votre réseau virtuel à partir d’un site distant, comme depuis votre domicile ou une conférence ou lorsque seulement quelques clients doivent se connecter à un réseau virtuel.
 
-Cet article vous guide dans le processus de création d’un réseau virtuel avec une connexion de point à site dans le **modèle de déploiement Classic** à l’aide du portail Classic. Pour le moment, il n’est pas possible de créer cette configuration de bout en bout dans le portail Azure pour le modèle de déploiement Classic.
+Cet article vous guide dans le processus de création d’un réseau virtuel avec une connexion de point à site dans le **modèle de déploiement Classic** à l’aide du **portail Classic**. Pour le moment, il n’est pas possible de créer cette configuration de bout en bout dans le portail Azure pour le modèle de déploiement Classic. Vous pouvez effectuer certaines étapes dans le portail Azure, mais PowerShell est toujours requis pour le téléchargement de la configuration du client VPN.
 
 Les connexions de ce type ne nécessitent pas de périphérique VPN ou d’adresse IP publique pour fonctionner. Le démarrage de la connexion à partir de l’ordinateur client permet d’établir une connexion VPN. Pour plus d’informations sur les connexions de point à site, consultez la page [FAQ sur la passerelle VPN](vpn-gateway-vpn-faq.md#point-to-site-connections) et [Planifier et concevoir](vpn-gateway-plan-design.md).
 
@@ -102,7 +102,7 @@ Dans cette section, vous allez effectuer les tâches suivantes :
 
 ### <a name="root"></a>Partie 1 : obtenir le fichier .cer pour le certificat racine
 
-Si vous utilisez un système de certificat d’entreprise, il vous faut obtenir le fichier .cer pour le certificat racine que vous souhaitez utiliser. Dans la [Partie 3](#createclientcert), vous générerez les certificats clients à partir du certificat racine.
+Si vous utilisez un système de certificat d’entreprise, il vous faut obtenir le fichier .cer pour le certificat racine que vous souhaitez utiliser. Dans la [Partie 3](#createclientcert), vous générez les certificats clients à partir du certificat racine.
 
 Si vous n’utilisez pas de solution de certificat d’entreprise, vous devez générer un certificat racine auto-signé. Pour connaître les étapes relatives à Windows 10, référez-vous à l’article [Utilisation des certificats racine auto-signés pour les configurations point à site](vpn-gateway-certificates-point-to-site.md). Cet article vous explique comment utiliser makecert pour générer un certificat auto-signé, puis exporter le fichier .cer.
 
@@ -128,7 +128,7 @@ Installez un certificat client sur chaque ordinateur que vous souhaitez connecte
 
 1. Pour exporter un certificat client, vous pouvez utiliser *certmgr.msc*. Cliquez avec le bouton droit sur le certificat client à exporter, cliquez sur **Toutes les tâches**, puis cliquez sur **Exporter**.
 2. Exportez le certificat client avec la clé privée. Il s’agit d’un fichier *.pfx*. Prenez soin d’enregistrer ou de mémoriser le mot de passe (clé) que vous définissez pour ce certificat.
-3. Copiez le fichier *.pfx* sur l’ordinateur client. Sur l’ordinateur client, double-cliquez sur le fichier *.pfx* pour l’installer. Entrez le mot de passe lorsque vous y êtes invité. Ne modifiez pas l’emplacement d’installation.
+3. Copiez le fichier *.pfx* sur l’ordinateur client. Sur l’ordinateur client, double-cliquez sur le fichier *.pfx* pour l’installer. Entrez le mot de passe lorsque vous y êtes invité. Ne modifiez pas l’emplacement d’installation.
 
 ## <a name="vpnclientconfig"></a>Section 4 : configurer votre client VPN
 
@@ -140,7 +140,7 @@ Pour vous connecter au réseau virtuel, vous devez également configurer un clie
  - Pour les clients 32 bits, sélectionnez **Télécharger le package VPN client 32 bits**.
  - Pour les clients 64 bits, sélectionnez **Télécharger le package VPN client 64 bits**.
 
-2. La création du package client prend quelques minutes. Une fois le package généré, vous pouvez télécharger le fichier. Le fichier *.exe* que vous téléchargez peut être stocké en toute sécurité sur votre ordinateur local.
+2. La création du package client prend quelques minutes. Une fois le package généré, vous pouvez télécharger le fichier. Le fichier *.exe* que vous téléchargez peut être stocké en toute sécurité sur votre ordinateur local.
 
 3. Après avoir généré et téléchargé le package client VPN à partir du portail Azure Classic, vous pouvez l’installer sur l’ordinateur client que vous souhaitez utiliser pour vous connecter à votre réseau virtuel. Si vous prévoyez d'installer le package client VPN sur plusieurs ordinateurs clients, assurez-vous que chacun d'entre eux dispose également d'un certificat client.
 
@@ -193,4 +193,4 @@ Vous pouvez ajouter des machines virtuelles à votre réseau virtuel. Consultez 
 
 Si vous voulez d’autres informations sur les réseaux virtuels, consultez la page [Virtual Network Documentation](https://azure.microsoft.com/documentation/services/virtual-network/).
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0921_2016-->

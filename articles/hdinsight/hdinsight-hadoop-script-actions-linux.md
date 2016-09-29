@@ -4,7 +4,7 @@
     services="hdinsight"
     documentationCenter=""
     authors="Blackmist"
-    manager="paulettm"
+    manager="jhubbard"
     editor="cgronlun"/>
 
 <tags
@@ -229,7 +229,7 @@ Microsoft fournit des exemples de scripts pour installer des composants sur un c
 
 > [AZURE.NOTE] Les documents sont spécifiques aux clusters HDInsight sous Linux. Pour les scripts qui fonctionnent avec HDInsight sous Windows, consultez le [développement d’action de script HDInsight (Windows)](hdinsight-hadoop-script-actions.md) ou utilisez les liens disponibles en haut de chaque article.
 
-##Résolution de problèmes
+##Résolution des problèmes
 
 Voici les erreurs que vous pouvez rencontrer lorsque vous utilisez les scripts que vous avez développé :
 
@@ -268,4 +268,4 @@ Pour la commande ci-dessus, remplacez __INFILE__ par le fichier contenant la mar
 
 * Utilisez l’[API REST HDInsight](https://msdn.microsoft.com/library/azure/mt622197.aspx) pour savoir comment utiliser REST pour effectuer des actions de gestion sur des clusters HDInsight.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0914_2016-->

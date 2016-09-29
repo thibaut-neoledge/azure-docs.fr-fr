@@ -15,7 +15,7 @@
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
-	ms.date="04/29/2016"
+	ms.date="09/06/2016"
 	ms.author="rclaus"/>
 
 # Ajouter un disque à une machine virtuelle Linux
@@ -277,4 +277,4 @@ Il existe deux façons d’activer la prise en charge de TRIM sur votre machine 
 - Pour vous assurer que votre machine virtuelle Linux est correctement configurée, passez en revue les recommandations visant à [optimiser les performances de votre machine virtuelle Linux](virtual-machines-linux-optimization.md).
 - Développez votre capacité de stockage en ajoutant des disques supplémentaires et [configurez RAID](virtual-machines-linux-configure-raid.md) pour augmenter les performances.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -4,7 +4,7 @@
 	services="machine-learning" 
 	documentationCenter="python" 
 	authors="bradsev" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun"/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/27/2016" 
+	ms.date="09/12/2016" 
 	ms.author="huvalo;bradsev" />
 
 
@@ -23,7 +23,7 @@ L’aperçu de la bibliothèque cliente Python de Microsoft Azure Machine Learni
 
 Cette rubrique fournit des instructions pour les procédures suivantes :
 
-* installation de la bibliothèque cliente Python de Machine Learning 
+* installation de la bibliothèque cliente Python de Machine Learning
 * accès et téléchargement des jeux de données, y compris des instructions sur l’obtention d’une autorisation d'accès aux jeux de données Azure Machine Learning depuis votre environnement Python local
 *  accès aux jeux de données intermédiaires à partir d'expériences
 *  utilisation de la bibliothèque cliente Python pour énumérer les jeux de données, accès aux métadonnées, lecture du contenu d'un jeu de données, création de nouveaux jeux de données et mise à jour des jeux de données existants
@@ -49,7 +49,7 @@ Nous vous invitons à utiliser une distribution Python telle qu'[Anaconda](http:
 
 ###<a name="installation"></a>Installation de la bibliothèque cliente Python d'Azure Machine Learning
 
-La bibliothèque cliente Python d'Azure Machine Learning doit également être installée pour effectuer les tâches décrites dans cette rubrique. Elle est disponible depuis le [Python Package Index](https://pypi.python.org/pypi/azureml). Pour l'installer dans votre environnement Python, exécutez la commande suivante à partir de votre environnement Python local :
+La bibliothèque cliente Python d’Azure Machine Learning doit également être installée pour effectuer les tâches décrites dans cette rubrique. Elle est disponible depuis le [Python Package Index](https://pypi.python.org/pypi/azureml). Pour l'installer dans votre environnement Python, exécutez la commande suivante à partir de votre environnement Python local :
 
     pip install azureml
 
@@ -76,19 +76,21 @@ Pour des raisons de sécurité, la fonctionnalité d'extrait de code est uniquem
 
 ![Sécurité][security]
 
-Si votre rôle n'est pas défini en tant que **Propriétaire**, vous pouvez demander à être invité à nouveau en tant que propriétaire ou demander au propriétaire de l'espace de travail de vous fournir l'extrait de code.
+Si votre rôle n’est pas défini en tant que **Propriétaire**, vous pouvez demander à être invité à nouveau en tant que propriétaire ou demander au propriétaire de l’espace de travail de vous fournir l’extrait de code.
 
 Pour obtenir le jeton d'autorisation, vous pouvez effectuer l'une des opérations suivantes :
 
-1. Demander un jeton à un propriétaire. Les propriétaires peuvent accéder à leurs jetons d'autorisation à partir de la page Paramètres de leur espace de travail dans Studio. Sélectionnez **Paramètres** dans le volet gauche puis cliquez sur **JETONS D'AUTORISATION** pour voir les jetons principaux et secondaires. Bien que les jetons d'autorisation principaux ou secondaires puissent être utilisés dans l'extrait de code, il est recommandé aux propriétaires de ne partager que les jetons d'autorisation secondaires.
+
+
+- Demander un jeton à un propriétaire. Les propriétaires peuvent accéder à leurs jetons d'autorisation à partir de la page Paramètres de leur espace de travail dans Studio. Sélectionnez **Paramètres** dans le volet gauche puis cliquez sur **JETONS D’AUTORISATION** pour voir les jetons principaux et secondaires. Bien que les jetons d'autorisation principaux ou secondaires puissent être utilisés dans l'extrait de code, il est recommandé aux propriétaires de ne partager que les jetons d'autorisation secondaires.
 
 ![](./media/machine-learning-python-data-access/ml-python-access-settings-tokens.png)
 
-2. Demander à être promu au rôle de propriétaire. Pour cela, un propriétaire actuel de l'espace de travail doit tout d'abord vous supprimer de l'espace de travail puis vous y inviter à nouveau en tant que propriétaire.
+- Demander à être promu au rôle de propriétaire. Pour cela, un propriétaire actuel de l'espace de travail doit tout d'abord vous supprimer de l'espace de travail puis vous y inviter à nouveau en tant que propriétaire.
 
-Une fois que les développeurs ont obtenu l'ID de l'espace de travail et les jetons d'autorisation, ils pourront accéder à l'espace de travail à l'aide de l'extrait de code, quel que soit leur rôle.
+Une fois que les développeurs ont obtenu l’ID de l’espace de travail et les jetons d’autorisation, ils peuvent accéder à l’espace de travail à l’aide de l’extrait de code, quel que soit leur rôle.
 
-Les jetons d'autorisation sont gérés sur la page **JETONS D'AUTORISATION** sous **PARAMÈTRES**. Vous pouvez les régénérer, mais cette procédure entraîne la révocation de l'accès au jeton précédent.
+Les jetons d'autorisation sont gérés sur la page **JETONS D'AUTORISATION** sous **PARAMÈTRES**. Vous pouvez les régénérer, mais cette procédure entraîne la révocation de l’accès au jeton précédent.
 
 ### <a name="accessingDatasets"></a>Accès aux jeux de données depuis une application Python locale
 
@@ -96,7 +98,7 @@ Les jetons d'autorisation sont gérés sur la page **JETONS D'AUTORISATION** sou
 
 2. Sélectionnez le jeu de données auquel vous souhaitez accéder. Vous pouvez sélectionner un des jeux de données depuis la liste **MES JEUX DE DONNÉES** ou depuis la liste **EXEMPLES**.
 
-3. Dans la barre d'outils inférieure, cliquez sur **Générer un code d'accès aux données**. Notez que ce bouton est désactivé si les données sont dans un format incompatible avec la bibliothèque cliente Python.
+3. Dans la barre d’outils inférieure, cliquez sur **Générer un code d’accès aux données**. Ce bouton est désactivé si les données sont dans un format incompatible avec la bibliothèque cliente Python.
 
 	![Groupes de données][datasets]
 
@@ -128,7 +130,7 @@ Certains des modules, tels que le module [Fractionner][split], ont un format de 
 
 ![Format de jeu de données][dataset-format]
 
-Vous devez utiliser un module de conversion, tel que [Convertir en CSV][convert-to-csv], afin d'obtenir un format de sortie pris en charge.
+Vous devez utiliser un module de conversion, tel que [Convertir en CSV][convert-to-csv], afin d’obtenir un format de sortie pris en charge.
 
 ![Format CSV générique][csv-format]
 
@@ -146,11 +148,12 @@ Les étapes suivantes proposent un exemple qui créé une expérience, l'exécut
 
 6. Cliquez sur le nœud de sortie du module [Convertir en CSV][convert-to-csv].
 
-7. Un menu contextuel s'affiche. Sélectionnez **Générer un code d'accès aux données**.
+7. Un menu contextuel
+8.  s’affiche. Sélectionnez **Générer un code d’accès aux données**.
 
 	![Menu contextuel][experiment]
 
-8. Une fenêtre s'affiche. Sélectionnez l'extrait de code et copiez-le dans votre presse-papiers.
+8. Sélectionnez l’extrait de code dans la fenêtre qui s’affiche et copiez-le dans votre presse-papiers.
 
 	![Code d'accès][intermediate-dataset-access-code]
 
@@ -243,7 +246,7 @@ Vous pouvez également ouvrir un simple flux vers le contenu :
 
 ### Créer un nouveau jeu de données
 
-La bibliothèque cliente Python vous permet de télécharger des jeux de données depuis votre programme Python. Ces jeux de données seront disponibles pour une utilisation dans votre espace de travail.
+La bibliothèque cliente Python vous permet de télécharger des jeux de données depuis votre programme Python. Ces jeux de données sont alors disponibles pour une utilisation dans votre espace de travail.
 
 Si vous avez vos données dans un DataFrame de Pandas, utilisez le code suivant :
 
@@ -267,7 +270,7 @@ Si vos données sont déjà sérialisées, vous pouvez utiliser :
         description='my description'
     )
 
-La bibliothèque cliente Python est en mesure de sérialiser un DataFrame de Pandas aux formats suivants (ces constantes sont dans la classe `azureml.DataTypeIds`) :
+La bibliothèque cliente Python est en mesure de sérialiser une trame de données Pandas aux formats suivants (ces constantes sont dans la classe `azureml.DataTypeIds`) :
 
  - Texte brut
  - CSV générique
@@ -278,7 +281,7 @@ La bibliothèque cliente Python est en mesure de sérialiser un DataFrame de Pan
 
 ### Mettre à jour un jeu de données existant
 
-Si vous essayez de télécharger un nouveau jeu de données avec un nom qui correspond à un jeu de données existant, vous obtiendrez une erreur de conflit.
+Si vous essayez de télécharger un nouveau jeu de données avec un nom qui correspond à un jeu de données existant, vous devriez obtenir une erreur de conflit.
 
 Pour mettre à jour un jeu de données existant, vous devez d'abord obtenir la référence d'un jeu de données existant :
 
@@ -343,9 +346,9 @@ Vous pouvez éventuellement définir un nouveau nom en spécifiant une valeur po
     print(ws.datasets['existing dataset v2'].name) # 'existing dataset v2'
     print(ws.datasets['existing dataset'].name)    # IndexError
 
-Les paramètres `data_type_id`, `name` et `description` sont tous facultatifs. Par défaut, ils indiquent leur valeur précédente. Le paramètre `dataframe` est toujours requis.
+Les paramètres `data_type_id`, `name` et `description` sont facultatifs. Par défaut, ils indiquent leur valeur précédente. Le paramètre `dataframe` est toujours requis.
 
-Si vos données sont déjà sérialisées, utilisez `update_from_raw_data` au lieu de `update_from_dataframe`. Il fonctionne de la même manière. Vous transmettez simplement `raw_data` au lieu de `dataframe`.
+Si vos données sont déjà sérialisées, utilisez `update_from_raw_data` au lieu de `update_from_dataframe`. Si vous transmettez simplement `raw_data` au lieu de `dataframe`, cela fonctionne de la même manière.
 
 
 
@@ -367,4 +370,4 @@ Si vos données sont déjà sérialisées, utilisez `update_from_raw_data` au l
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
  
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0914_2016-->

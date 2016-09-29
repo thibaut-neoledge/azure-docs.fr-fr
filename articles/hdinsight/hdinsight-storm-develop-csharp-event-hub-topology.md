@@ -4,7 +4,7 @@
    services="hdinsight,notification hubs"
    documentationCenter=""
    authors="Blackmist"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"/>
 
 <tags
@@ -572,4 +572,4 @@ Dans ce document, vous avez découvert comment utiliser le spout et le bolt du h
 * [Exemples de topologies pour Storm dans HDInsight](hdinsight-storm-example-topology.md)
  
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0914_2016-->

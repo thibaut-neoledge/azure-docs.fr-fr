@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Attribution de licences pour Microsoft Azure Multi-Factor Authentication" 
-	description="Découvrez comment attribuer des licences pour Microsoft Azure Multi-Factor Authentication" 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
+<properties
+	pageTitle="Attribution de licences pour Microsoft Azure Multi-Factor Authentication"
+	description="Découvrez comment attribuer des licences pour Microsoft Azure Multi-Factor Authentication"
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
 	editor="curtand"/>
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="08/04/2016" 
-	ms.author="billmath"/>
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="08/04/2016"
+	ms.author="kgremban"/>
 
 # Attribution d’une licence Azure MFA, Azure AD Premium ou Enterprise Mobility aux utilisateurs
 
@@ -33,4 +33,4 @@ Si vous avez acheté des licences Azure MFA, Azure AD Premium ou Enterprise Mobi
 7. **Cliquez** sur la coche pour enregistrer les modifications. ![Attribuer des licences](./media/multi-factor-authentication-get-started-assign-licenses/assign4.png)
 8. Vous devriez voir un message indiquant le nombre de licences qui ont été attribuées et le nombre d’échecs, le cas échéant. Cliquez sur **OK**. ![Attribuer des licences](./media/multi-factor-authentication-get-started-assign-licenses/assign5.png)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0921_2016-->

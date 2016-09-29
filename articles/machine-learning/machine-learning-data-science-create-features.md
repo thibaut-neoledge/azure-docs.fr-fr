@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="bradsev"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -19,7 +19,7 @@
 
 # Conception de fonctionnalités dans le processus Cortana Analytics 
 
-Cette rubrique explique les finalités de la conception de fonctionnalités et fournit des exemples de son rôle dans le processus d'amélioration des données de l'apprentissage automatique. Les exemples utilisés pour illustrer ce processus sont tirés d’Azure Machine Learning Studio.
+Cette rubrique explique les finalités de la conception de fonctionnalités et fournit des exemples de son rôle dans le processus d’amélioration des données de l’apprentissage automatique. Les exemples utilisés pour illustrer ce processus sont tirés d’Azure Machine Learning Studio.
 
 [AZURE.INCLUDE [cap-create-features-data-selector](../../includes/cap-create-features-selector.md)]
 
@@ -79,7 +79,7 @@ Dans Azure Machine Learning, il existe un module de [hachage de caractéristiq
 
 * Tout d'abord, sélectionnez la colonne qui contient le texte d'entrée (« Col2 » pour cet exemple).
 * Ensuite, définissez le « nombre de bits de hachage » sur 8, ce qui signifie que 2 ^ 8 = 256 caractéristiques seront créées. Le mot ou l'expression sera haché en 256 index dans tout le texte. Le paramètre « hachage du nombre de bits » est compris entre 1 et 31. Les mots ou les phrases sont moins susceptibles d'être hachés dans le même index s'ils sont définis sur un nombre plus grand.
-* Enfin, définissez le paramètre « N-grammes » sur 2. Celui-ci permet d'obtenir la fréquence d'occurrence d'unigrammes (une caractéristique pour chaque mot) et de bigrammes (une caractéristique pour chaque paire de mots juxtaposés) à partir du texte d'entrée. Le paramètre « N-grammes » est compris entre 0 et 10, ce qui indique le nombre maximum de mots séquentiels à inclure dans une caractéristique.  
+* Enfin, définissez le paramètre « N-grammes » sur 2. Celui-ci permet d'obtenir la fréquence d'occurrence d'unigrammes (une caractéristique pour chaque mot) et de bigrammes (une caractéristique pour chaque paire de mots juxtaposés) à partir du texte d'entrée. Le paramètre « N-grammes » est compris entre 0 et 10, ce qui indique le nombre maximum de mots séquentiels à inclure dans une caractéristique.
 
 ![Module « hachage de caractéristiques »](./media/machine-learning-data-science-create-features/feature-Hashing1.png)
 
@@ -95,4 +95,4 @@ L'ingénierie et la sélection de caractéristiques augmentent l'efficacité du 
 Notez qu'il n'est pas toujours nécessaire d'effectuer l'ingénierie de caractéristiques ou la sélection des caractéristiques. Que cela soit nécessaire ou non dépend des données que l'on a à disposition ou qui sont collectées, de l'algorithme choisi et des objectifs de l'expérience.
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

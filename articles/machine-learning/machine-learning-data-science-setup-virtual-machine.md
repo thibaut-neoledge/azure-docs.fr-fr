@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="bradsev"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"  />
 
 <tags
@@ -108,7 +108,7 @@ Le service Azure Virtual Machines est facturé au tarif du **paiement à l’uti
 
 Pour arrêter et libérer la machine virtuelle :
 
-1. Connectez-vous au [portail Azure Classic](http://manage.windowsazure.com/) avec votre compte.  
+1. Connectez-vous au [portail Azure Classic](http://manage.windowsazure.com/) avec votre compte.
 
 2. Sélectionnez **MACHINES VIRTUELLES** dans la barre de navigation gauche.
 
@@ -142,4 +142,4 @@ Les étapes suivantes du processus TDSP (Team Data Science Process) sont présen
 [28]: ./media/machine-learning-data-science-setup-virtual-machine/create-virtual-machine-5.png
 [29]: ./media/machine-learning-data-science-setup-virtual-machine/create-virtual-machine-6.png
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

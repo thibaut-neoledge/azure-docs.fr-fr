@@ -14,7 +14,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="08/29/2016"
+	ms.date="09/21/2016"
 	ms.author="jroth"/>
 
 # Présentation de SQL Server sur les machines virtuelles Azure
@@ -38,10 +38,13 @@ Si vous déplacez d’autres charges de travail vers Azure, par exemple une appl
 
 Une fois que vous décidez d’exécuter SQL Server sur Azure Virtual Machines, l’une de vos premières décisions sera d’utiliser ou non une image de machine virtuelle qui inclut les coûts de licence de SQL Server. Vous avez également la possibilité d’utiliser votre BYOL (apportez votre propre licence) et de payer seulement pour la machine virtuelle elle-même. Les deux sections suivantes décrivent ces options.
 
-## Option 1 : Déployer une machine virtuelle SQL (gestion de licences par minute)
-Le tableau suivant récapitule les images liées à SQL Server actuellement disponibles dans la galerie de machines virtuelles Azure. Cliquez sur un lien pour commencer à créer une machine virtuelle SQL avec la version, l’édition et le système d’exploitation de votre choix. Toutes les images incluent [les coûts des licences SQL Server](https://azure.microsoft.com/pricing/details/virtual-machines/#Sql).
+## Créer une nouvelle machine virtuelle SQL
+Les sections suivantes fournissent des liens directs vers le portail Azure pour les images de la galerie de machines virtuelles SQL Server. Selon l’image que vous sélectionnez, vous pouvez soit payer les coûts de licence SQL Server à la minute, soit apporter votre propre licence (modèle BYOL).
 
-Des instructions pas à pas sont disponibles dans le didacticiel [Approvisionnement d’une machine virtuelle SQL Server dans le portail Azure](virtual-machines-windows-portal-sql-server-provision.md). Vous pouvez en outre consulter les [meilleures pratiques relatives aux performances de SQL Server dans les machines virtuelles Azure](virtual-machines-windows-sql-performance.md), qui expliquent comment sélectionner la taille de machine appropriée et les autres fonctionnalités disponibles lors de l’approvisionnement.
+Vous trouverez des instructions pas à pas pour ce processus dans le didacticiel [Approvisionnement d’une machine virtuelle SQL Server dans le portail Azure](virtual-machines-windows-portal-sql-server-provision.md). Vous pouvez en outre consulter les [meilleures pratiques relatives aux performances de SQL Server dans les machines virtuelles Azure](virtual-machines-windows-sql-performance.md), qui expliquent comment sélectionner la taille de machine appropriée et les autres fonctionnalités disponibles lors de l’approvisionnement.
+
+## Option 1 : Créer une machine virtuelle SQL avec licence à la minute
+Le tableau suivant récapitule les images liées à SQL Server actuellement disponibles dans la galerie de machines virtuelles Azure. Cliquez sur un lien pour commencer à créer une machine virtuelle SQL avec la version, l’édition et le système d’exploitation de votre choix.
 
 |Version|Système d’exploitation|Édition|
 |---|---|---|
@@ -54,12 +57,8 @@ Des instructions pas à pas sont disponibles dans le didacticiel [Approvisionnem
 |**SQL 2008 R2 SP3**|Windows Server 2008 R2|[Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2008R2SP3EnterpriseWindowsServer2008R2), [Standard](https://portal.azure.com/#create/Microsoft.SQLServer2008R2SP3StandardWindowsServer2008R2), [Web](https://portal.azure.com/#create/Microsoft.SQLServer2008R2SP3WebWindowsServer2008R2)|
 |**SQL 2008 R2 SP3**|Windows Server 2012|[Express](https://portal.azure.com/#create/Microsoft.SQLServer2008R2SP3ExpressWindowsServer2012)|
 
-## Option 2 : Déployer une machine virtuelle SQL (BYOL)
-Vous pouvez également choisir la solution BYOL (apportez votre propre licence). Dans ce scénario, vous payez uniquement pour la machine virtuelle sans frais supplémentaires pour la gestion de licences SQL Server. Pour utiliser votre propre licence, utilisez la matrice des versions, éditions et systèmes d’exploitation SQL Server ci-dessous. Dans le portail, les noms d’image comportent le préfixe **{BYOL}**.
-
-> [AZURE.IMPORTANT] Pour utiliser les images BYOL de machines virtuelles, vous devez disposer d’un Contrat Entreprise avec [License Mobility via Software Assurance sur Azure](https://azure.microsoft.com/pricing/license-mobility/). Vous devez également disposer d’une licence valide pour la version/l’édition de SQL Server que vous voulez utiliser. Vous devez [fournir les informations BYOL nécessaires à Microsoft](http://d36cz9buwru1tt.cloudfront.net/License_Mobility_Customer_Verification_Guide.pdf) dans un délai de **10** jours à compter de l’approvisionnement de votre machine virtuelle.
-
-Les instructions du [didacticiel relatif à l’approvisionnement](virtual-machines-windows-portal-sql-server-provision.md) s’appliquent, mais vous devez utiliser l’une des options d’image **BYOL** suivantes. Vous pouvez en outre consulter les [meilleures pratiques relatives aux performances de SQL Server dans les machines virtuelles Azure](virtual-machines-windows-sql-performance.md), qui expliquent comment sélectionner la taille de machine appropriée et les autres fonctionnalités disponibles lors de l’approvisionnement.
+## Option 2 : Créer une machine virtuelle SQL avec une licence existante
+Vous pouvez également apporter votre propre licence (modèle BYOL). Dans ce scénario, vous payez uniquement pour la machine virtuelle sans frais supplémentaires pour la gestion de licences SQL Server. Pour utiliser votre propre licence, utilisez la matrice des versions, éditions et systèmes d’exploitation SQL Server ci-dessous. Dans le portail, le nom de ces images comporte le préfixe **{BYOL}**.
 
 |Version|Système d’exploitation|Édition|
 |---|---|---|
@@ -67,8 +66,10 @@ Les instructions du [didacticiel relatif à l’approvisionnement](virtual-machi
 |**SQL Server 2014 SP1**|Windows Server 2012 R2|[BYOL Enterprise](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2014SP1EnterpriseWindowsServer2012R2), [BYOL Standard](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2014SP1StandardWindowsServer2012R2)|
 |**SQL Server 2012 SP2**|Windows Server 2012 R2|[BYOL Enterprise](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2012SP3EnterpriseWindowsServer2012R2), [BYOL Standard](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2012SP3StandardWindowsServer2012R2)|
 
+> [AZURE.IMPORTANT] Pour utiliser des images de machines virtuelles BYOL, vous devez disposer d’un Contrat Entreprise avec [License Mobility via Software Assurance sur Azure](https://azure.microsoft.com/pricing/license-mobility/). Vous devez également disposer d’une licence valide pour la version/l’édition de SQL Server que vous voulez utiliser. Vous devez [fournir les informations BYOL nécessaires à Microsoft](http://d36cz9buwru1tt.cloudfront.net/License_Mobility_Customer_Verification_Guide.pdf) dans un délai de **10** jours à compter de l’approvisionnement de votre machine virtuelle.
+
 ## Gérer votre machine virtuelle SQL
-Après avoir approvisionné votre machine virtuelle SQL Server, vous pouvez effectuer plusieurs tâches de gestion facultatives. Par certains aspects, vous configurez et gérez SQL Server exactement comme vous le feriez en local. Toutefois, certaines tâches sont spécifiques à Azure. Les sections suivantes illustrent certains de ces domaines avec des liens vers des informations supplémentaires.
+Après avoir approvisionné votre machine virtuelle SQL Server, vous pouvez effectuer plusieurs tâches de gestion facultatives. Par bien des aspects, vous configurez et gérez SQL Server exactement comme vous le feriez avec une instance SQL Server locale. Toutefois, certaines tâches sont propres à Azure. Les sections suivantes illustrent certains de ces domaines avec des liens vers des informations supplémentaires.
 
 ### Migration de vos données
 
@@ -94,4 +95,4 @@ Le Programme d’amélioration du produit est activé par défaut. Il ne s’agi
 
 D’autres questions ? Tout d’abord, consultez le [Forum Aux Questions (FAQ) concernant SQL Server sur les machines virtuelles Azure](virtual-machines-windows-sql-server-iaas-faq.md). Vous devez également ajouter vos questions ou commentaires au bas de l’une des rubriques relatives aux machines virtuelles SQL afin d’interagir avec Microsoft et la communauté.
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0921_2016-->

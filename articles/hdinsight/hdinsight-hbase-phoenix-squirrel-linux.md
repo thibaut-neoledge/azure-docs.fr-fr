@@ -4,7 +4,7 @@
    services="hdinsight" 
    documentationCenter="" 
    authors="mumian" 
-   manager="paulettm" 
+   manager="jhubbard" 
    editor="cgronlun"/>
 
 <tags
@@ -95,4 +95,4 @@ Dans cet article, vous avez appris comment utiliser Apache Phoenix dans HDInsigh
 
  
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

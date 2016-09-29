@@ -5,7 +5,7 @@
    documentationCenter=""
    tags="azure-portal"
    authors="mumian"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"/>
 
 <tags
@@ -76,7 +76,7 @@ Vous pouvez créer des clusters HDInsight sur l’un des deux systèmes d’expl
 
 La version de HDInsight permet de déterminer la version de HDInsight qui doit être utilisée pour ce cluster. Pour plus d’informations, consultez [Quels sont les différents composants Hadoop disponibles avec HDInsight ?](https://go.microsoft.com/fwLink/?LinkID=320896&clcid=0x409).
 
-### Nom d'abonnement###
+### Nom d’abonnement###
 
 Chaque cluster HDInsight est lié à un abonnement Azure.
 
@@ -131,7 +131,7 @@ L’utilisation de ces nœuds est facturée aux clients pendant toute la durée 
 
 Les différents types de cluster ont des types de nœuds, des nombres de nœuds et des tailles de nœud différents. Par exemple, un type de cluster Hadoop possède deux _nœuds principaux_ et une valeur par défaut de quatre _nœuds de données_, tandis qu’un type de cluster Storm possède deux _nœuds nimbus_, trois _nœuds ZooKeeper_ et une valeur par défaut de quatre _nœuds superviseur_. Le coût des clusters HDInsight est déterminé par le nombre de nœuds et par la taille de la machine virtuelle pour les nœuds. Par exemple, si vous savez que vous allez effectuer des opérations nécessitant un grand volume de mémoire, vous souhaitez sélectionner une ressource de calcul avec davantage de mémoire. À des fins d’apprentissage, nous vous recommandons d’utiliser un nœud de données. Pour plus d'informations sur la tarification de HDInsight, consultez la rubrique [Tarification HDInsight](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409).
 
->[AZURE.NOTE] La limite de taille de cluster varie selon les abonnements Azure. Contactez le support de facturation pour augmenter la limite.
+>[AZURE.NOTE] La limite de taille du cluster varie selon les abonnements Azure. Contactez le support de facturation pour augmenter la limite.
 
 >Les nœuds utilisés par votre cluster ne sont pas comptés en tant que machines virtuelles, car les images de machine virtuelle utilisées pour les nœuds sont un détail d’implémentation du service HDInsight. Cependant, les cœurs de calcul utilisés par les nœuds sont comptés dans le nombre total de cœurs de calcul disponibles pour votre abonnement. Vous pouvez voir les cœurs disponibles et le nombre de cœurs que le cluster utilisera dans la section Résumé du panneau Niveaux de tarification du nœud lors de la création d’un cluster HDInsight.
 
@@ -279,4 +279,4 @@ Grâce à cet article, vous avez acquis les informations de base sur la créatio
 | [KIT DE DÉVELOPPEMENT LOGICIEL (SDK) .NET](hdinsight-hadoop-create-windows-clusters-dotnet-sdk.md) | &nbsp; | &nbsp; | &nbsp; | ✔ | ✔ | ✔ |
 | [Modèles Microsoft Azure Resource Manager](hdinsight-hadoop-create-windows-clusters-arm-templates.md) | &nbsp; | ✔ | &nbsp; | &nbsp; | ✔ | ✔ |
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0914_2016-->

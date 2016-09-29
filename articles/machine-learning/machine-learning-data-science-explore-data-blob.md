@@ -4,7 +4,7 @@
 	services="machine-learning,storage" 
 	documentationCenter="" 
 	authors="bradsev" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun" />
 
 <tags 
@@ -13,28 +13,28 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/14/2016" 
-	ms.author="fashah;garye;bradsev" />
+	ms.date="09/13/2016" 
+	ms.author="bradsev" />
 
 #Explorer les données dans le stockage d’objets blob Azure avec Pandas
 
 Ce document explique comment explorer les données stockées dans un conteneur d’objets blob Azure à l’aide du package Python [Pandas](http://pandas.pydata.org/).
 
-Le **menu** ci-dessous pointe vers des rubriques qui expliquent comment utiliser des outils pour explorer des données dans différents environnements de stockage. Cette tâche est une étape du processus Cortana Analytics (CAP).
+Le **menu** suivant pointe vers des rubriques qui expliquent comment utiliser des outils pour explorer des données dans différents environnements de stockage. Cette tâche est une étape du [processus de sciences des données (Data Science Process)]().
 
 [AZURE.INCLUDE [cap-explore-data-selector](../../includes/cap-explore-data-selector.md)]
 
 
-## Configuration requise
+## Composants requis
 Cet article suppose que vous avez :
 
-* Créé un compte Azure Storage. Si vous avez besoin d’aide, consultez [Créer un compte Azure Storage](../hdinsight-get-started.md#storage).
-* Stocké vos données dans un compte de stockage d’objets blob Azure.
+* Créé un compte Azure Storage. Si vous avez besoin d’aide, consultez [Créer un compte Azure Storage](../storage/storage-create-storage-account.md).
+* Stocké vos données dans un compte de stockage d’objets blob Azure. Si vous avez besoin d’aide, consultez la page [Transfert de données vers et à partir d’Azure Storage](../storage/storage-moving-data.md)
 
 ## Chargement des données dans une trame de données Pandas
-Pour explorer et manipuler un jeu de données, celui-ci doit être téléchargé depuis la source Blob vers un fichier local qui peut ensuite être chargé dans une trame de données Pandas. Voici les étapes à suivre pour cette procédure :
+Pour explorer et manipuler un jeu de données, celui-ci doit d’abord être téléchargé depuis la source Blob vers un fichier local qui peut ensuite être chargé dans une trame de données Pandas. Voici les étapes à suivre pour cette procédure :
 
-1. Téléchargez les données à partir du blob Azure avec l’exemple de code Python à l’aide du service BLOB. Remplacez la variable dans le code ci-dessous par vos propres valeurs : 
+1. Téléchargez les données à partir du blob Azure avec l’exemple de code Python à l’aide du service BLOB. Remplacez la variable dans le code ci-dessous par vos propres valeurs :
 
 	    from azure.storage.blob import BlobService
     	import tables
@@ -64,11 +64,11 @@ Vous êtes maintenant prêt à explorer les données et à générer des fonctio
 
 Voici quelques méthodes pour explorer des données à l’aide de Pandas :
 
-1. Vérifiez le **nombre de lignes et de colonnes**. 
+1. Vérifiez le **nombre de lignes et de colonnes**.
 
 		print 'the size of the data is: %d rows and  %d columns' % dataframe_blobdata.shape
 
-2. **Vérifiez** les premières ou dernières **lignes** de l’ensemble de données, comme indiqué ci-dessous :
+2. **Vérifiez** les premières ou dernières **lignes** de l’ensemble de données ci-dessous :
 
 		dataframe_blobdata.head(10)
 		
@@ -115,4 +115,4 @@ Voici quelques méthodes pour explorer des données à l’aide de Pandas :
 		#correlation between column_a and column_b
 		dataframe_blobdata[['<column_a>', '<column_b>']].corr()
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

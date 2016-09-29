@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/23/2016"
+   ms.date="09/13/2016"
    ms.author="erihur;genli"/>
 
 
@@ -161,8 +161,8 @@ Selon votre utilisation, il peut y avoir des milliers de lignes de données d'ut
 
  Name | Télécharger |
  :----------:| :-------: |
- Fichier .csv d’utilisation détaillée version 1| [Exemple de fichier](https://azurepricing.blob.core.windows.net/sampleinvoices/Micorosft_Azure_Detailed_Usage_v1.csv)
- Fichier .csv d’utilisation détaillée version 2 | [Exemple de fichier](https://azurepricing.blob.core.windows.net/sampleinvoices/Micorosft_Azure_Detailed_Usage_v2.csv)
+ Fichier .csv d’utilisation détaillée version 1| [Exemple de fichier](https://azurepricing.blob.core.windows.net/supplemental/MOSPServices_csv1.xlsx)
+ Fichier .csv d’utilisation détaillée version 2 | [Exemple de fichier](https://azurepricing.blob.core.windows.net/supplemental/MOSPServices_csv2.xlsx)
 
 
 
@@ -206,11 +206,11 @@ Outre certains nouveaux champs et changements de nom, la version 2 du fichier 
 ![additionalinfo\_csv2](./media/billing-understand-your-bill/AdditionaInfo_csv2.png)
 
 - **Balises** : cette colonne contient les balises de ressource spécifiées par l’utilisateur. Les balises peuvent servir à regrouper les enregistrements de facturation. Par exemple, vous pouvez utiliser des balises pour répartir les coûts par département à l’aide du service. Pour plus d’informations, voir l’article décrivant l’[utilisation des balises pour organiser les ressources Azure](./resource-group-using-tags.md). Les services qui prennent en charge l’émission de balises sont les suivants :
-    
+
     - Machines virtuelles
-    
+
     - Stockage
-   
+
     - Services de mise en réseau approvisionnés à l’aide de l’[API Azure Resource Manager](https://msdn.microsoft.com/library/azure/dn790567.aspx)
 
 ![tags](./media/billing-understand-your-bill/tags.png)
@@ -241,4 +241,4 @@ OLD MSDN Articles
 
 <!--Image references-->
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

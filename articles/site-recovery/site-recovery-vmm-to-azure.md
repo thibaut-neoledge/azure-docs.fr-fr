@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="08/23/2016"
+	ms.date="09/16/2016"
 	ms.author="raynew"/>
 
 # Réplication de machines virtuelles Hyper-V dans des clouds VMM à l’aide d’Azure Site Recovery et du portail Azure | Microsoft Azure
@@ -571,4 +571,4 @@ Voici comment vous pouvez surveiller l’intégrité, l’état et les paramètr
 
 Une fois votre déploiement configuré et effectué, pour en savoir plus sur les différents types de basculement, [cliquez ici](site-recovery-failover.md).
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0921_2016-->

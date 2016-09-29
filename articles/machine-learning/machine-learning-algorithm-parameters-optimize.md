@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter="" 
 	authors="bradsev" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun"/>
 
 <tags 
@@ -13,23 +13,23 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/27/2016" 
+	ms.date="09/12/2016" 
 	ms.author="bradsev" />
 
 
 # Sélection des paramètres permettant d’optimiser des algorithmes dans Microsoft Azure Machine Learning
 
-Cette rubrique explique comment choisir le bon ensemble d’hyperparamètres pour un algorithme dans Microsoft Azure Machine Learning. La plupart des algorithmes ML dépendent de différents paramètres. Lorsque nous gérons l’apprentissage d’un modèle, nous devons fournir des valeurs pour ces paramètres. L’efficacité du modèle formé dépend des paramètres de modèle choisis. Le processus de recherche de l’ensemble optimal de paramètres est connu sous le nom de « sélection du modèle ».
+Cette rubrique explique comment choisir le bon ensemble d’hyperparamètres pour un algorithme dans Microsoft Azure Machine Learning. La plupart des algorithmes Machine Learning ont des paramètres qui doivent être définis. Lorsque nous gérons l’apprentissage d’un modèle, nous devons fournir des valeurs pour ces paramètres. L’efficacité du modèle formé dépend des paramètres de modèle choisis. Le processus de recherche de l’ensemble optimal de paramètres est connu sous le nom de « sélection du modèle ».
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-Cette sélection peut être effectuée de différentes manières. Dans ML, la méthode de validation croisée est l’une des plus largement utilisées pour la sélection de modèle. Il s’agit du mécanisme par défaut utilisé à cette fin dans Microsoft Azure Machine Learning. Comme les langages R et Python sont pris en charge par Microsoft Azure Machine Learning, les utilisateurs peuvent toujours implémenter leur propre mécanisme de sélection de modèle, via l’un ou l’autre de ces langages.
+Cette sélection peut être effectuée de différentes manières. Dans ML, la méthode de validation croisée est l’une des plus largement utilisées pour la sélection de modèle. Il s’agit du mécanisme par défaut utilisé à cette fin dans Microsoft Azure Machine Learning. Comme les langages R et Python sont pris en charge par Microsoft Azure Machine Learning, vous pouvez toujours implémenter votre propre mécanisme de sélection de modèle, via l’un ou l’autre de ces langages.
 
 Le processus de recherche de l’ensemble de paramètres idéal comprend quatre étapes.
 
-1.	**Définir l’espace de paramètre** : pour l’algorithme, nous devons d’abord déterminer les valeurs de paramètres exactes que nous souhaitons prendre en compte. 
-2.	**Définir les paramètres de validation croisée** : pour le jeu de données, nous devons déterminer comment choisir les plis de validation croisée. 
-3.	**Définir la mesure** : nous devons à présent déterminer la mesure à utiliser pour évaluer l’ensemble de paramètres le plus approprié (exactitude, erreur quadratique moyenne, précision, rappel ou f-score). 
+1.	**Définir l’espace de paramètre** : pour l’algorithme, nous devons d’abord déterminer les valeurs de paramètres exactes que nous souhaitons prendre en compte.
+2.	**Définir les paramètres de validation croisée** : pour le jeu de données, nous devons déterminer comment choisir les plis de validation croisée.
+3.	**Définir la mesure** : nous devons à présent déterminer la mesure à utiliser pour évaluer l’ensemble de paramètres le plus approprié (par exemple, exactitude, erreur quadratique moyenne, précision, rappel ou f-score).
 4.	**Apprentissage, évaluation et comparaison** : pour chaque combinaison unique de valeurs de paramètres, la validation croisée est effectuée. Le modèle le plus performant peut alors être choisi selon la mesure d’erreur définie par l’utilisateur.
 
 L’expérience ci-dessous indique comment effectuer cette opération dans Microsoft Azure Machine Learning.
@@ -42,7 +42,7 @@ L’ensemble de paramètres peut être défini lors de l’étape d’initialisa
 ![image2](./media/machine-learning-algorithm-parameters-optimize/fig2.png) ![image3](./media/machine-learning-algorithm-parameters-optimize/fig3.png)
 
 ## Définition du pli de validation croisée
-Le module [Partition and Sample][partition-and-sample] peut être utilisé pour affecter des plis aux données, de manière aléatoire. Dans la figure suivante, nous avons représenté un exemple de configuration de ce module, dans lequel nous allons définir 5 plis et affecter au hasard le nombre de plis aux exemples d’instances.
+Le module [Partition and Sample][partition-and-sample] peut être utilisé pour affecter des plis aux données, de manière aléatoire. Dans la figure suivante, nous avons représenté un exemple de configuration de ce module, dans lequel nous allons définir cinq plis et affecter au hasard le nombre de plis aux exemples d’instances.
 
 ![image4](./media/machine-learning-algorithm-parameters-optimize/fig4.png)
 
@@ -53,12 +53,12 @@ Le module [Tune Model Hyperparameters][tune-model-hyperparameters] assure la pri
 ![image5](./media/machine-learning-algorithm-parameters-optimize/fig5.png)
 
 ## Apprentissage, évaluation et comparaison  
-Le même module [Tune Model Hyperparameters][tune-model-hyperparameters] gère l’apprentissage de tous les modèles correspondant à l’ensemble de paramètres, évalue diverses mesures et renvoie ensuite le meilleur modèle formé en fonction de la mesure choisie par l’utilisateur. Ce module dispose de deux entrées obligatoires :
+Le même module [Tune Model Hyperparameters][tune-model-hyperparameters] gère l’apprentissage de tous les modèles correspondant à l’ensemble de paramètres, évalue diverses mesures et renvoie ensuite le meilleur modèle formé en fonction de la mesure choisie. Ce module dispose de deux entrées obligatoires :
 
-* apprenant non formé, 
-* jeu de données, 
+* apprenant non formé,
+* jeu de données,
 
-ainsi qu’un jeu de données en entrée. Nous allons connecter le jeu de données incluant des informations sur les plis au jeu de données en entrée obligatoire. Si le jeu de données n’est associé à aucune information sur les plis, une validation croisée de 10 plis est exécutée automatiquement, par défaut. Si l’affectation de plis n’est pas effectuée et si un jeu de données de validation est fourni au port de jeu de données facultatif, un mode de test de formation est sélectionné et le premier jeu de données est utilisé pour gérer l’apprentissage du modèle pour chaque combinaison de paramètres. Ensuite, il est évalué sur le jeu de données de validation. Le port de sortie de gauche du module affiche des mesures différentes en fonction des valeurs de paramètres. Le port de sortie de droite indique le modèle formé correspondant au modèle le plus performant, conformément à la mesure choisie par l’utilisateur (dans ce cas, l’exactitude).
+Le module dispose également d’un jeu de données d’entrée facultatif. Nous allons connecter le jeu de données incluant des informations sur les plis au jeu de données en entrée obligatoire. Si le jeu de données n’est associé à aucune information sur les plis, une validation croisée de 10 plis est exécutée automatiquement, par défaut. Si l’affectation de plis n’est pas effectuée et si un jeu de données de validation est fourni au port de jeu de données facultatif, un mode de test de formation est sélectionné et le premier jeu de données est utilisé pour gérer l’apprentissage du modèle pour chaque combinaison de paramètres. Ensuite, il est évalué sur le jeu de données de validation. Le port de sortie de gauche du module affiche des mesures différentes en fonction des valeurs de paramètres. Le port de sortie de droite indique le modèle formé correspondant au modèle le plus performant, conformément à la mesure choisie (dans ce cas, l’exactitude).
 
 ![image6](./media/machine-learning-algorithm-parameters-optimize/fig6a.png) ![image7](./media/machine-learning-algorithm-parameters-optimize/fig6b.png)
  
@@ -70,4 +70,4 @@ Nous pouvons voir les paramètres exacts choisis en visualisant le port de sorti
 [tune-model-hyperparameters]: https://msdn.microsoft.com/library/azure/038d91b6-c2f2-42a1-9215-1f2c20ed1b40/
  
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0914_2016-->

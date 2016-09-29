@@ -13,14 +13,14 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="na"
-	ms.date="08/26/2016"
+	ms.date="09/08/2016"
 	ms.author="marsma" />
 
 # Configurer des nœuds de calcul Linux dans des pools Azure Batch
 
 Vous pouvez utiliser Azure Batch pour exécuter des charges de travail de calcul parallèles sur les machines virtuelles Linux et Windows. Cet article explique comment créer des pools de nœuds de calcul Linux dans le service Batch à l’aide de bibliothèques clientes [Batch Python][py_batch_package] et [Batch .NET][api_net].
 
-> [AZURE.NOTE] La prise en charge de Linux dans Azure Batch se trouve actuellement en version préliminaire. Certains aspects de la fonctionnalité présentés ici peuvent changer avant la mise à la disposition générale. Les [packages d’applications](batch-application-packages.md) ne sont actuellement pas pris en charge sur les nœuds de calcul Linux.
+> [AZURE.NOTE] [Application packages](batch-application-packages.md) ne sont actuellement pas pris en charge sur les nœuds de calcul Linux.
 
 ## Configuration de la machine virtuelle
 
@@ -349,6 +349,4 @@ Le [Forum Azure Batch][forum] sur MSDN est l’endroit idéal pour discuter de B
 [vm_marketplace]: https://azure.microsoft.com/marketplace/virtual-machines/
 [vm_pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/
 
-[1]: ./media/batch-application-packages/app_pkg_01.png "Diagramme détaillée des packages d’applications"
-
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

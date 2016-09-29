@@ -4,7 +4,7 @@
 	services="data-factory"
 	documentationCenter=""
 	authors="spelluru"
-	manager="paulettm"
+	manager="jhubbard"
 	editor=""/>
 
 <tags
@@ -162,4 +162,4 @@ Cette section répertorie les articles qui ont été mis à jour récemment et d
 | 66 | [Azure Data Factory - Règles d'affectation des noms](data-factory-naming-rules.md) | Décrit les règles d'affectation de noms pour les entités Data Factory. |
 | 67 | [Résolution des problèmes liés à Data Factory](data-factory-troubleshoot.md) | Découvrez comment résoudre les problèmes liés à l'utilisation de Azure Data Factory. |
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

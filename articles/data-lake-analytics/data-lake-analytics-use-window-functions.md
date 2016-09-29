@@ -1,10 +1,10 @@
 <properties 
    pageTitle="Utilisation des fonctions fenêtre U-SQL dans les travaux Analytique Data Lake Azure | Azure" 
-   description="Apprenez à utiliser les fonctions de fenêtre U-SQL." 
+   description="Apprenez à utiliser les fonctions de fenêtre U-SQL. " 
    services="data-lake-analytics" 
    documentationCenter="" 
    authors="edmacauley" 
-   manager="paulettm" 
+   manager="jhubbard" 
    editor="cgronlun"/>
  
 <tags
@@ -44,7 +44,7 @@ Les fonctions de fenêtre sont classées dans les catégories :
 
 Ce didacticiel utilise deux jeux de données :
 
-- QueryLog 
+- QueryLog
 
     QueryLog présente une liste de ce que les personnes ont recherché dans le moteur de recherche. Chaque journal des requêtes inclut :
     
@@ -166,7 +166,7 @@ La somme de la colonne SalaryByDept est 165 000 $, qui correspond à la quanti
  
 Dans ces deux cas, le nombre de lignes de sortie est inférieur à celui des lignes d’entrée :
  
-- Sans GROUP BY, l’agrégation réduit toutes les lignes dans une seule ligne. 
+- Sans GROUP BY, l’agrégation réduit toutes les lignes dans une seule ligne.
 - Avec GROUP BY, il y a N lignes de sortie, N étant le nombre de valeurs distinctes apparaissant dans les données, dans ce cas, la sortie contiendra 4 lignes.
 
 ###  Utiliser une fonction de fenêtre
@@ -328,7 +328,7 @@ Les fonctions de classement renvoient une valeur de classement (longue) pour cha
 Vous trouverez plus loin les fonctions de classement prises en charge :
 
 - RANK
-- DENSE\_RANK 
+- DENSE\_RANK
 - NTILE
 - ROW\_NUMBER
 
@@ -341,7 +341,7 @@ Vous trouverez plus loin les fonctions de classement prises en charge :
 	) AS <alias>
 
 - La clause ORDER BY est facultative pour les fonctions de classement. Si ORDER BY est spécifié, il détermine l’ordre de classement. Si ORDER BY n’est pas spécifié, U-SQL affecte des valeurs en fonction de l’ordre, dans lequel il lit l’enregistrement. Il en résulte une valeur non déterminante de nombre de ligne, de classement ou de classement sans vide dans le cas où ordre par clause n’est pas spécifié.
-- NTILE exige une expression qui s’évalue en entier positif. Ce nombre indique le nombre de groupes en lequel chaque partition doit être divisée. Cet identificateur est utilisé uniquement avec la fonction de classement de NTILE. 
+- NTILE exige une expression qui s’évalue en entier positif. Ce nombre indique le nombre de groupes en lequel chaque partition doit être divisée. Cet identificateur est utilisé uniquement avec la fonction de classement de NTILE.
 
 Pour plus d’informations sur la clause OVER, consultez [Référence U-SQL]().
 
@@ -431,8 +431,8 @@ Résultats :
 
 NTILE prend un paramètre (« numgroups »). Numgroups est un entier positif ou une expression constante longue qui spécifie le nombre de groupes en lequel chaque partition doit être divisée.
 
-- Si le nombre de lignes présentes dans la partition est divisible par numgroups, alors les groupes auront tous une taille égale. 
-- Si le nombre de lignes d’une partition n’est pas divisible par numgroups, les groupes auront deux tailles différentes à cause d’un membre. Les groupes plus grands viennent avant les plus petits dans l’ordre spécifié par la clause OVER. 
+- Si le nombre de lignes présentes dans la partition est divisible par numgroups, alors les groupes auront tous une taille égale.
+- Si le nombre de lignes d’une partition n’est pas divisible par numgroups, les groupes auront deux tailles différentes à cause d’un membre. Les groupes plus grands viennent avant les plus petits dans l’ordre spécifié par la clause OVER.
 
 Par exemple :
 
@@ -561,7 +561,7 @@ Les fonctions analytiques sont utilisées pour comprendre les distributions de v
 
 **Prise en charge des fonctions de fenêtre analytique**
 
-- CUME\_DIST 
+- CUME\_DIST
 - PERCENT\_RANK
 - PERCENTILE\_CONT
 - PERCENTILE\_DISC
@@ -570,7 +570,7 @@ Les fonctions analytiques sont utilisées pour comprendre les distributions de v
 
 CUME\_DIST calcule la position relative d’une valeur spécifiée dans un groupe de valeurs. Elle calcule le pourcentage de requêtes qui ont une latence inférieure ou égale à la latence de la requête actuelle dans la même verticale. Pour une ligne R, en supposant l’utilisation d’un ordre croissant, le CUME\_DIST de R correspond au nombre de lignes avec des valeurs inférieures ou égales à la valeur de R, divisé par le nombre de lignes évaluées dans le jeu de résultats de la partition ou de la requête. CUME\_DIST renvoie des nombres dans la plage 0 < x < = 1.
 
-** Syntaxe**
+**Syntaxe**
 
     CUME_DIST() 
         OVER (
@@ -606,7 +606,7 @@ Il existe 6 lignes dans la partition dont la clé de partition est « Web » 
 - Il existe 5 lignes avec une valeur égale ou inférieure à 400, et donc CUME\_DIST est égal à 5/6 = 0,83.
 - Il existe 4 lignes avec une valeur égale ou inférieure à 300, et CUME\_DIST est donc égal à 4/6 = 0,66
 - Il existe 3 lignes avec une valeur égale ou inférieure à 200, et donc CUME\_DIST est égal à 3/6 = 0,5. Il existe deux lignes avec la même valeur de latence.
-- Il existe 1 ligne avec une valeur égale ou inférieure à 100, et donc CUME\_DIST est égal à 1/6 = 0,16. 
+- Il existe 1 ligne avec une valeur égale ou inférieure à 100, et donc CUME\_DIST est égal à 1/6 = 0,16.
 
 
 **Notes d’utilisation :**
@@ -623,7 +623,7 @@ Remarque : La clause ORDER BY n’est pas autorisée si l’instruction SELECT 
 
 PERCENT\_RANK calcule le classement relatif d’une ligne dans un groupe de lignes. PERCENT\_RANK est utilisé pour évaluer la position relative d’une valeur dans un ensemble de lignes ou une partition. La plage de valeurs retournée par PERCENT\_RANK est supérieure à 0 et inférieure ou égale à 1. Contrairement à CUME\_DIST, la première ligne de PERCENT\_RANK est toujours 0.
 	
-** Syntaxe**
+**Syntaxe**
 
     PERCENT_RANK() 
         OVER (
@@ -636,7 +636,7 @@ PERCENT\_RANK calcule le classement relatif d’une ligne dans un groupe de lign
 - La première ligne de n’importe quel jeu a une valeur PERCENT\_RANK de 0.
 - Les valeurs NULL sont traitées comme les valeurs les plus basses possible.
 - Vous devez spécifier la clause ORDER BY pour calculer PERCENT\_RANK.
-- CUME\_DIST s’apparente à la fonction PERCENT\_RANK 
+- CUME\_DIST s’apparente à la fonction PERCENT\_RANK
 
 
 L’exemple suivant utilise la fonction PERCENT\_RANK. pour calculer le centile de latence pour chaque requête au sein d’une verticale.
@@ -678,9 +678,9 @@ Ces deux fonctions calculent un centile basé sur une distribution continue ou d
 
 **numeric\_literal** -centile à calculer. La valeur doit être comprise entre 0,0 et 1,0.
 
-WITHIN GROUP (ORDER BY <identifier> [ASC | DESC]) - spécifie une liste de valeurs numériques à trier et pour lesquelles calculer le centile. Un seul identificateur de colonne est autorisé. L’expression doit correspondre à un type numérique. Les autres types de données ne sont pas autorisés. L’ordre de tri par défaut est croissant.
+WITHIN GROUP (ORDER BY <identificateur> [ASC | DESC]) - spécifie une liste de valeurs numériques à trier et pour lesquelles calculer le centile. Un seul identificateur de colonne est autorisé. L’expression doit correspondre à un type numérique. Les autres types de données ne sont pas autorisés. L’ordre de tri par défaut est croissant.
 
-OVER ([PARTITION BY <identifier,>... [n] ] ) - divise l’ensemble de lignes d’entrée en fonction de la clé de partition à laquelle la fonction centile est appliquée. Pour plus d’informations, voir la section RANKING du présent document. Remarque : Toutes les valeurs null présentes dans le jeu de données sont ignorées.
+OVER ([PARTITION BY <identificateur,>... [n] ] ) - divise l’ensemble de lignes d’entrée en fonction de la clé de partition à laquelle la fonction centile est appliquée. Pour plus d’informations, voir la section RANKING du présent document. Remarque : Toutes les valeurs null présentes dans le jeu de données sont ignorées.
 
 **PERCENTILE\_CONT** calcule un centile en fonction d’une distribution continue ou discrète de la valeur de colonne. Le résultat est interpolé et peut ne pas être égal à une des valeurs spécifiques de la colonne.
 
@@ -743,4 +743,4 @@ PERCENTILE\_DISC n’interpole pas les valeurs, et par conséquent, la valeur m�
 - [Gestion d'Azure Data Lake Analytics à l'aide d'Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
 - [Surveiller et résoudre les problèmes des tâches Azure Data Lake Analytics à l’aide du portail Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0914_2016-->

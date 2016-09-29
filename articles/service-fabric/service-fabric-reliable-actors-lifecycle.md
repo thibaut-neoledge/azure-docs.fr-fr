@@ -34,7 +34,7 @@ Quand un acteur est activé, les événements suivants se produisent :
 Quand un acteur est désactivé, les événements suivants se produisent :
 
 - Quand un acteur n'est pas utilisé pendant un certain temps, il est supprimé de la table d'acteurs actifs.
-- La méthode `OnDeactivateAsync` (qui peut être remplacée dans l'implémentation de l'acteur) est appelée. Cette opération efface toutes les minuteries applicables à l'acteur.
+- La méthode `OnDeactivateAsync` (qui peut être remplacée dans l'implémentation de l'acteur) est appelée. Cette opération efface toutes les minuteries applicables à l'acteur. Les opérations de l’acteur, comme la modification de l’état, ne doivent pas être appelées avec cette méthode.
 
 > [AZURE.TIP] Le runtime Fabric Actors émet des [événements liés à l'activation et la désactivation des acteurs](service-fabric-reliable-actors-diagnostics.md#actor-activation-and-deactivation-events). Ces derniers sont utiles dans les diagnostics et la surveillance des performances.
 
@@ -129,4 +129,4 @@ Notez qu’un acteur ne peut pas effectuer un appel de suppression sur lui-même
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-lifecycle/garbage-collection.png
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

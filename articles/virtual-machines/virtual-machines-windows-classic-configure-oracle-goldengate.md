@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="infrastructure-services"
-	ms.date="05/17/2016"
+	ms.date="09/06/2016"
 	ms.author="rclaus" />
 
 
@@ -43,7 +43,7 @@ En outre, le didacticiel suppose que vous avez déjà mis en œuvre les conditio
 
 Ce didacticiel présente les procédures suivantes :
 
-1. Configurer la base de données sur les sites A et B  
+1. Configurer la base de données sur les sites A et B
 
 	1. Charger les données initiales
 
@@ -601,4 +601,4 @@ Connectez-vous à distance au site A et vérifiez la bonne réplication :
 ##Ressources supplémentaires
 [Liste des images de machine virtuelle Oracle](virtual-machines-linux-classic-oracle-images.md)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0914_2016-->

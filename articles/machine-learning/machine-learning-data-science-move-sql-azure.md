@@ -4,7 +4,7 @@
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="bradsev"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun" />
 
 <tags 
@@ -60,7 +60,7 @@ Les étapes de la procédure à l'aide de la requête SQL Bulk Insert sont sim
 
 Si la source de données est stockée dans un serveur local SQL Server, il existe différentes possibilités pour déplacer les données vers une base de données Azure SQL :
 
-1. [Exporter dans un fichier plat](#export-flat-file) 
+1. [Exporter dans un fichier plat](#export-flat-file)
 2. [Assistant Migration de la base de données SQL](#insert-tables-bcp)
 3. [Sauvegarde et restauration de base de données](#db-migration)
 4. [Azure Data Factory](#adf)
@@ -85,4 +85,4 @@ La procédure de déplacement des données vers une base de données Azure SQL
 
 Envisagez d'utiliser ADF lorsque les données doivent être migrées en permanence dans un scénario hybride qui accède aux ressources locales et cloud, et lorsque les données sont traitées ou doivent être modifiées ou si vous avez une logique métier ajoutée en cours de migration. ADF permet la planification et la surveillance des travaux à l'aide de scripts JSON simples qui gèrent le déplacement des données sur une base périodique. ADF dispose également d'autres fonctionnalités comme la prise en charge des opérations complexes.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

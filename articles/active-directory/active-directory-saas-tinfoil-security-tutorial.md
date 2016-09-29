@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="06/21/2016" 
+    ms.date="09/11/2016" 
     ms.author="jeedes" />
 
 #Didacticiel : Intégration d’Azure AD à Tinfoil Security
@@ -66,7 +66,7 @@ Cette section décrit l’activation de l’intégration d’applications pour T
 
 ##Configuration de l'authentification unique
   
-Cette section explique comment permettre aux utilisateurs de s’authentifier sur Tinfoil Security avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML. La configuration de l’authentification unique pour Tinfoil Security oblige à récupérer une valeur d’empreinte numérique dans un certificat. Si cette procédure ne vous est pas familière, consultez [Récupération de la valeur de l’empreinte numérique d’un certificat](http://youtu.be/YKQF266SAxI).
+Cette section explique comment permettre aux utilisateurs de s’authentifier sur Tinfoil Security avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML. La configuration de l’authentification unique pour Tinfoil Security oblige à récupérer une valeur d’empreinte numérique dans un certificat. Si cette procédure ne vous est pas familière, consultez [Comment récupérer la valeur d’empreinte numérique d’un certificat](http://youtu.be/YKQF266SAxI).
 
 ###Pour configurer l’authentification unique, procédez comme suit :
 
@@ -78,7 +78,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Configurer l’authentification unique](./media/active-directory-saas-tinfoil-security-tutorial/IC798968.png "Configurer l’authentification unique")
 
-3.  Dans la zone de texte **URL de réponse de Tinfoil Security** de la page **Configurer l’URL de l’application**, entrez l’URL de votre service ACS (Assertion Consumer Service) Tinfoil Security (par exemple, « *https://www.tinfoilsecurity.com/saml/consume*", puis cliquez sur **Suivant**.
+3.  Dans la zone de texte **URL de réponse de Tinfoil Security** de la page **Configurer l’URL de l’application**, entrez l’URL de votre service ACS (Assertion Consumer Service) Tinfoil Security (par exemple, « *https://www.tinfoilsecurity.com/saml/consume*"), puis cliquez sur **Suivant**.
 
     >[AZURE.NOTE] Vous devez pouvoir obtenir l’URL d’ACS dans les métadonnées de Tinfoil Security (https://www.tinfoilsecurity.com/saml/metadata).
 
@@ -102,15 +102,15 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Authentification unique](./media/active-directory-saas-tinfoil-security-tutorial/IC798973.png "Authentification unique")
 
-    1.  Sélectionnez **Enable SAML**.
+    1.  Sélectionnez **Enable SAML**.
     2.  Cliquez sur **Manual Configuration**.
     3.  Dans la boîte de dialogue **Configurer l’authentification unique sur Tinfoil Security** du portail Azure Classic, copiez la valeur de **URL d’authentification unique SAML** et collez-la dans la zone de texte **URL de publication SAML**.
-    4.  Copiez la valeur de **Empreinte** dans le certificat exporté, puis collez-la dans la zone de texte **SAML Certificate Fingerprint**.  
+    4.  Copiez la valeur de **Empreinte** dans le certificat exporté, puis collez-la dans la zone de texte **SAML Certificate Fingerprint**.
 
-        >[AZURE.TIP] Pour plus d’informations, consultez [Récupération de la valeur de l’empreinte numérique d’un certificat](http://youtu.be/YKQF266SAxI).
+        >[AZURE.TIP] Pour plus d’informations, consultez [Comment récupérer la valeur d’empreinte numérique d’un certificat](http://youtu.be/YKQF266SAxI).
 
     5.  Copiez **Votre ID de compte**.
-    6.  Cliquez sur **Enregistrer**.
+    6.  Cliquez sur **Save**.
 
 9.  Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
 
@@ -159,6 +159,6 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
     ![Oui](./media/active-directory-saas-tinfoil-security-tutorial/IC767830.png "Oui")
   
-Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
+Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d'informations sur le panneau d'accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

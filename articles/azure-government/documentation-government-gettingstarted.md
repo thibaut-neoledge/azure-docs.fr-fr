@@ -38,16 +38,16 @@ Les informations de ce site sont destinées aux clients Azure Government ayant d
 
 Reportez-vous à la <a href="http://www.microsoft.com/fr-FR/TrustCenter/Compliance/default.aspx/"> page de conformité du centre de gestion de la confidentialité Azure Microsoft </a> pour obtenir des informations actuelles sur les services Azure Government concernés par la réglementation ITAR. D’autres services Microsoft peuvent également être disponibles, mais ne font pas partie des services Azure Government couverts. Les services Azure Government peuvent également vous autoriser à utiliser différents services, ressources ou applications supplémentaires fournis par des tiers, ou par Microsoft conformément à des conditions d’utilisation et des stratégies de confidentialité distinctes. Il est de votre responsabilité de passer en revue les termes de toutes ces offres « additionnelles », telles que les offres du Marketplace, afin de vous assurer qu’elles répondent à vos besoins en matière de conformité à la réglementation ITAR.
 
-{0}Azure Government</a> est disponible pour les entités gérant des données soumises à certaines réglementations et exigences gouvernementales, comme ITAR, pour lesquelles l’utilisation d’Azure Government est requise à des fins de conformité. Les clients Azure Government sont soumis à un contrôle d’éligibilité. Le contrôle d’éligibilité effectué par Microsoft inclut la confirmation que vous êtes bien un fabricant, exportateur ou répartiteur d’articles de défense soumis aux réglementations ITAR, comme indiqué par votre inscription auprès du département d’État des États-Unis, ou par l’intermédiaire d’un accord de parrainage avec une entité gouvernementale ayant des exigences spécifiques pour la gestion des données.
+<a href="https://azure.microsoft.com/features/gov/">Azure Government</a> est disponible pour les entités gérant des données soumises à certaines réglementations et exigences gouvernementales, comme ITAR, pour lesquelles l’utilisation d’Azure Government est requise à des fins de conformité. Les clients Azure Government sont soumis à un contrôle d’éligibilité. Le contrôle d’éligibilité effectué par Microsoft inclut la confirmation que vous êtes bien un fabricant, exportateur ou répartiteur d’articles de défense soumis aux réglementations ITAR, comme indiqué par votre inscription auprès du département d’État des États-Unis, ou par l’intermédiaire d’un accord de parrainage avec une entité gouvernementale ayant des exigences spécifiques pour la gestion des données.
 
 Les entités ayant des questions relatives à l’éligibilité pour Azure Government doivent consulter leur équipe de compte.
 
 Informations supplémentaires :
 
-{0}{0}Centre de gestion de la confidentialité Microsoft - page web ITAR </a>
+<a href="https://www.microsoft.com/fr-FR/TrustCenter/Compliance/itar">Centre de gestion de la confidentialité Microsoft - page web ITAR </a>
 
 <a href="http://download.microsoft.com/download/5/1/6/516B50FE-4FF6-4DF6-B61B-90432D07DDF3/Using_Azure_Government_with_ITAR_June_2016.pdf"> Utilisation d’Azure Government avec des données contrôlées par les réglementations ITAR </a>
 
-{0}Blog Microsoft Azure Government. </a>
+<a href="https://blogs.msdn.microsoft.com/azuregov/">Blog Microsoft Azure Government. </a>
 
 <!---HONumber=AcomDC_0831_2016-->

@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="09/11/2016"
 	ms.author="nisoneji"/>
 
 
 # Répliquer des machines virtuelles VMware locales ou des serveurs physiques dans un site secondaire
 
 
-## Vue d’ensemble
+## Vue d'ensemble
 
 InMage Scout dans Azure Site Recovery assure une réplication en temps réel entre des sites VMware locaux. InMage Scout est inclus dans les abonnements au service Azure Site Recovery.
 
@@ -34,7 +34,7 @@ InMage Scout dans Azure Site Recovery assure une réplication en temps réel ent
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Développez **Services de données** > **Services de récupération**, puis cliquez sur **Coffre Site Recovery**.
-3. Cliquez sur **Créer un nouveau** > **Création rapide**.
+3. Cliquez sur **Créer nouveau** > **Création rapide**.
 4. Dans **Name**, entrez un nom convivial pour identifier le coffre.
 5. Dans **Region**, sélectionnez la région géographique du coffre. Pour vérifier les régions prises en charge, consultez [Tarification d’Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
 
@@ -164,4 +164,4 @@ Update 1 contient les correctifs de bogues et les nouvelles fonctionnalités sui
 
 Publiez vos questions sur le [Forum Azure Recovery Services](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0914_2016-->

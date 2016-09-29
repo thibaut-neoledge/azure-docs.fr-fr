@@ -4,7 +4,7 @@
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"
 	tags="azure-portal"/>
 
@@ -222,4 +222,4 @@ Les affichages Ambari permettent aux développeurs d’incorporer des éléments
 * Affichage Hive : l’affichage Hive vous permet d’exécuter des requêtes Hive directement à partir du navigateur web. Vous pouvez enregistrer des requêtes, afficher les résultats, enregistrer les résultats dans le stockage de cluster ou les télécharger sur votre système local. Pour plus d’informations sur l’utilisation des affichages Hive, consultez [Utiliser des affichages Hive avec HDInsight](hdinsight-hadoop-use-hive-ambari-view.md).
 * Affichage Tez : l’affichage Tez vous permet de mieux comprendre et optimiser les tâches en affichant des informations sur le mode d’exécution des tâches Tez et les ressources utilisées par la tâche.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0914_2016-->

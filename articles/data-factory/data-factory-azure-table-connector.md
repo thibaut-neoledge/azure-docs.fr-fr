@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/28/2016" 
+	ms.date="09/13/2016" 
 	ms.author="spelluru"/>
 
 # Déplacer des données vers et depuis Azure Table à l’aide d’Azure Data Factory
 
-Cet article décrit comment vous pouvez utiliser l’activité de copie dans une fabrique Azure Data Factory pour déplacer des données à partir d’un autre magasin de données vers Table Azure et vice versa. Cet article s’appuie sur l’article des [activités de déplacement des données](data-factory-data-movement-activities.md) qui présente une vue d’ensemble du déplacement des données avec l’activité de copie et les combinaisons de magasins de données prises en charge.
+Cet article explique comment utiliser l'activité de copie d’une fabrique de données Azure pour déplacer des données vers/à partir d’Azure Table depuis/vers un autre magasin de données. Cet article s’appuie sur l’article des [activités de déplacement de données](data-factory-data-movement-activities.md) qui présente une vue d’ensemble du déplacement de données et les combinaisons de magasins de données prises en charge avec l’activité de copie.
 
 ## Assistant Copier des données
 Le moyen le plus simple de créer un pipeline qui copie les données vers/depuis Azure Table Storage consiste à utiliser l’Assistant Copier des données. Consultez la page [Didacticiel : Créer un pipeline avec l’activité de copie à l’aide de l’Assistant Data Factory Copy](data-factory-copy-data-wizard-tutorial.md) pour une procédure pas à pas rapide sur la création d’un pipeline à l’aide de l’Assistant Copier des données.
@@ -27,7 +27,7 @@ Les exemples suivants présentent des exemples de définitions de JSON que vous 
 
 ## Exemple : copie de données à partir de Table Azure vers un objet Blob Azure
 
-L’exemple ci-dessous présente les éléments suivants :
+L’exemple suivant montre :
 
 1.	Un service lié de type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties) (utilisé pour la table et l’objet blob).
 2.	Un [jeu de données](data-factory-create-datasets.md) d’entrée de type [AzureTable](#azure-table-dataset-type-properties).
@@ -54,7 +54,7 @@ Azure Data Factory prend en charge deux types de service lié Azure Storage : *
 
 L'exemple suppose que vous avez créé une table « MyTable » dans la Table Azure.
  
-La définition de « external » : « true » et la spécification de la stratégie externalData informent Data Factory qu'il s'agit d'une table externe à Data Factory et non produite par une activité dans Data Factory.
+La définition de « external » : « true» informe le service Data Factory qu’il s’agit d’un jeu de données qui est externe à Data Factory et non produit par une activité dans Data Factory.
 
 	{
 	  "name": "AzureTableInput",
@@ -79,7 +79,7 @@ La définition de « external » : « true » et la spécification de la stra
 	  }
 	}
 
-**Jeu de données de sortie d'objet Blob Azure :**
+**Jeu de données de sortie Azure Blob :**
 
 Les données sont écrites dans un nouvel objet blob toutes les heures (fréquence : heure, intervalle : 1). Le chemin d’accès du dossier pour l’objet blob est évalué dynamiquement en fonction de l’heure de début du segment en cours de traitement. Le chemin d’accès du dossier utilise l’année, le mois, le jour et l’heure de l’heure de début.
 
@@ -139,7 +139,7 @@ Les données sont écrites dans un nouvel objet blob toutes les heures (fréquen
 
 **Pipeline avec l'activité de copie :**
 
-Le pipeline contient une activité de copie qui est configurée pour utiliser les jeux de données d’entrée et de sortie ci-dessus, et qui est planifiée pour s’exécuter toutes les heures. Dans la définition du pipeline JSON, le type **source** est défini sur **AzureTableSource** et le type **sink** est défini sur **BlobSink**. La requête SQL spécifiée avec la propriété **AzureTableSourceQuery** sélectionne les données à copier de la partition par défaut toutes les heures.
+Le pipeline contient une activité de copie qui est configurée pour utiliser les jeux de données d'entrée et de sortie, et qui est planifiée pour s'exécuter toutes les heures. Dans la définition du pipeline JSON, le type **source** est défini sur **AzureTableSource** et le type **sink** est défini sur **BlobSink**. La requête SQL spécifiée avec la propriété **AzureTableSourceQuery** sélectionne les données à copier de la partition par défaut toutes les heures.
 
 	{  
 	    "name":"SamplePipeline",
@@ -188,7 +188,7 @@ Le pipeline contient une activité de copie qui est configurée pour utiliser le
 
 ## Exemple : copie de données à partir d'un objet Blob Azure vers Table Azure
 
-L’exemple ci-dessous présente les éléments suivants :
+L’exemple suivant montre :
 
 1.	Un service lié de type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties) (utilisé pour la table et l’objet blob).
 3.	un [jeu de données](data-factory-create-datasets.md) d'entrée de type [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties) ;
@@ -196,7 +196,7 @@ L’exemple ci-dessous présente les éléments suivants :
 4.	Le [pipeline](data-factory-create-pipelines.md) avec une activité de copie qui utilise [BlobSource](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) et [AzureTableSink](#azure-table-copy-activity-type-properties).
 
 
-L'exemple copie des données appartenant à une série horaire à partir d'un objet Blob Azure vers une table dans une base de données Table Azure, toutes les heures. Les propriétés JSON utilisées dans ces exemples sont décrites dans les sections suivant les exemples.
+L’exemple copie des données de série horaire à partir d’un objet blob Azure vers une table Azure, toutes les heures. Les propriétés JSON utilisées dans ces exemples sont décrites dans les sections suivant les exemples.
 
 **Service lié Azure Storage (pour Table Azure et objet Blob Azure) :**
 
@@ -214,7 +214,7 @@ Azure Data Factory prend en charge deux types de service lié Azure Storage : *
 
 **Jeu de données d'entrée d'objet Blob Azure :**
 
-Les données sont récupérées à partir d'un nouvel objet Blob toutes les heures (fréquence : heure, intervalle : 1). Le nom du chemin d’accès et du fichier de dossier pour l’objet Blob sont évalués dynamiquement en fonction de l’heure de début du segment en cours de traitement. Le chemin d’accès du dossier utilise l’année, le mois et le jour de l’heure de début et le nom de fichier utilise la partie heure de l’heure de début. Le paramètre « external » : « true » informe le service Data Factory que cette table est externe à la Data Factory et non produite par une activité dans la Data Factory.
+Les données sont récupérées à partir d'un nouvel objet Blob toutes les heures (fréquence : heure, intervalle : 1). Le nom du chemin d'accès et du fichier de dossier pour l'objet blob sont évalués dynamiquement en fonction de l'heure de début du segment en cours de traitement. Le chemin d’accès du dossier utilise l’année, le mois et le jour de l’heure de début et le nom de fichier utilise la partie heure de l’heure de début. Le paramètre « external » : « true » informe le service Data Factory que ce jeu de données est externe à la Data Factory et non produit par une activité dans la Data Factory.
 	
 	{
 	  "name": "AzureBlobInput",
@@ -281,7 +281,7 @@ Les données sont récupérées à partir d'un nouvel objet Blob toutes les heur
 
 **Jeu de données de sortie Table Azure :**
 
-L'exemple copie les données dans une table nommée « MyTable » dans Table Azure. Vous devez créer la table dans Table Azure avec le même nombre de colonnes que le fichier CSV d'objets Blob doit contenir. De nouvelles lignes sont ajoutées à la table toutes les heures.
+L'exemple copie les données dans une table nommée « MyTable » dans Table Azure. Créez une table Azure avec le même nombre de colonnes que le fichier CSV des objets blob doit contenir. De nouvelles lignes sont ajoutées à la table toutes les heures.
 
 	{
 	  "name": "AzureTableOutput",
@@ -300,7 +300,7 @@ L'exemple copie les données dans une table nommée « MyTable » dans Table A
 
 **Pipeline avec l'activité de copie :**
 
-Le pipeline contient une activité de copie qui est configurée pour utiliser les jeux de données d’entrée et de sortie ci-dessus, et qui est planifiée pour s’exécuter toutes les heures. Dans la définition du pipeline JSON, le type **source** est défini sur **BlobSource** et le type **sink** est défini sur **AzureTableSink**.
+Le pipeline contient une activité de copie qui est configurée pour utiliser les jeux de données d'entrée et de sortie, et qui est planifiée pour s'exécuter toutes les heures. Dans la définition du pipeline JSON, le type **source** est défini sur **BlobSource** et le type **sink** est défini sur **AzureTableSink**.
 
 
 	{  
@@ -358,7 +358,7 @@ Il existe deux types de services liés que vous pouvez utiliser pour lier un sto
 
 Pour obtenir une liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l’article [Création de jeux de données](data-factory-create-datasets.md). Les sections comme la structure, la disponibilité et la stratégie d'un jeu de données JSON sont similaires pour tous les types de jeux de données (SQL Azure, Azure Blob, Azure Table, etc.).
 
-La section typeProperties est différente pour chaque type de jeu de données et fournit des informations sur l’emplacement des données dans le magasin de données. La section **typeProperties** pour le jeu de données de type **AzureTable** a les propriétés suivantes.
+La section typeProperties est différente pour chaque type de jeu de données et fournit des informations sur l'emplacement des données dans le magasin de données. La section **typeProperties** pour le jeu de données de type **AzureTable** a les propriétés suivantes.
 
 | Propriété | Description | Requis |
 | -------- | ----------- | -------- |
@@ -368,21 +368,21 @@ La section typeProperties est différente pour chaque type de jeu de données et
 Pour les magasins de données sans schéma comme Azure Table, le service Data Factory déduit le schéma de l’une des manières suivantes :
 
 1.	Si vous spécifiez la structure des données à l’aide de la propriété **structure** dans la définition du jeu de données, le service Data Factory respecte cette structure en tant que schéma. Dans ce cas, si une ligne ne contient pas de valeur pour une colonne, une valeur null est fournie pour celle-ci.
-2.	Si vous ne spécifiez pas la structure des données à l’aide de la propriété **structure** dans la définition du jeu de données, le service Data Factory déduit le schéma à l’aide de la première ligne dans les données. Dans ce cas, si la première ligne ne contient pas le schéma complet, certaines colonnes ne seront pas incluses dans le résultat de l’opération de copie.
+2. Si vous ne spécifiez pas la structure des données à l’aide de la propriété **structure** dans la définition du jeu de données, Data Factory déduit le schéma à l’aide de la première ligne dans les données. Dans ce cas, si la première ligne ne contient pas le schéma complet, certaines colonnes ne sont pas incluses dans le résultat de l’opération de copie.
 
 Par conséquent, pour les sources de données sans schéma, la meilleure pratique consiste à définir la structure des données à l’aide de la propriété **structure**.
 
 ## Propriétés de type de l'activité de copie Table Azure
 
-Pour obtenir la liste complète des sections et des propriétés disponibles pour la définition des activités, consultez l’article [Création de pipelines](data-factory-create-pipelines.md). Des propriétés telles que le nom, la description, les tables d’entrée et de sortie, différentes stratégies, etc. sont disponibles pour tous les types d’activités.
+Pour obtenir la liste complète des sections et des propriétés disponibles pour la définition des activités, consultez l’article [Création de pipelines](data-factory-create-pipelines.md). Les propriétés comme le nom, la description, les jeux de données d’entrée et de sortie et les stratégies sont disponibles pour tous les types d’activités.
 
-Par contre, les propriétés disponibles dans la section typeProperties de l'activité varient avec chaque type d'activité et dans le cas de l'activité de copie, elles varient selon les types de sources et de récepteurs.
+En revanche, les propriétés disponibles dans la section typeProperties de l'activité varient pour chaque type d'activité. Pour l’activité de copie, elles dépendent des types de sources et récepteurs.
 
 **AzureTableSource** prend en charge les propriétés suivantes dans la section typeProperties :
 
 Propriété | Description | Valeurs autorisées | Requis
 -------- | ----------- | -------------- | -------- 
-azureTableSourceQuery | Utilise la requête personnalisée pour lire des données. | Chaîne de requête de table Azure. Voir les exemples ci-dessous. | Non. Lorsqu’un tableName est spécifié sans azureTableSourceQuery, tous les enregistrements de la table sont copiés vers la destination. Si un azureTableSourceQuery est également spécifié, les enregistrements de la table qui satisfont à la requête sont copiés vers la destination.  
+azureTableSourceQuery | Utilise la requête personnalisée pour lire des données. | Chaîne de requête de table Azure. Consultez les exemples dans la section suivante. | Non. Lorsqu’un tableName est spécifié sans azureTableSourceQuery, tous les enregistrements de la table sont copiés vers la destination. Si un azureTableSourceQuery est également spécifié, les enregistrements de la table qui satisfont à la requête sont copiés vers la destination.
 azureTableSourceIgnoreTableNotFound | Indiquer si l'exception de la table n'existe pas. | TRUE<br/>FALSE | Non |
 
 ### Exemples azureTableSourceQuery
@@ -402,14 +402,14 @@ Si la colonne de table Azure est de type datetime:
 Propriété | Description | Valeurs autorisées | Requis  
 -------- | ----------- | -------------- | -------- 
 azureTableDefaultPartitionKeyValue | Valeur de clé de partition par défaut qui peut être utilisée par le récepteur. | Valeur de chaîne. | Non 
-azureTablePartitionKeyName | Nom de colonne spécifié par l'utilisateur, dont les valeurs de colonne sont utilisées comme clé de partition. Si aucune valeur n'est spécifiée, AzureTableDefaultPartitionKeyValue est utilisée comme clé de partition. | Nom de colonne. | Non |
-azureTableRowKeyName | Nom de colonne spécifié par l'utilisateur, dont les valeurs de colonne sont utilisées comme clé de ligne. Si aucune valeur n'est spécifiée, un GUID est utilisé pour chaque ligne. | Nom de colonne. | Non  
-azureTableInsertType | Le mode d’insertion des données dans une table Azure.<br/><br/>Cette propriété détermine le remplacement ou la fusion des valeurs des lignes existantes dans la table de sortie avec des clés de partition et de ligne correspondantes. <br/><br/>Consultez [Insertion ou fusion d’entité](https://msdn.microsoft.com/library/azure/hh452241.aspx) et [Insertion ou remplacement d’entité](https://msdn.microsoft.com/library/azure/hh452242.aspx) pour en savoir plus sur le fonctionnement de ces paramètres (fusion et remplacement). <br/><br> Notez que ce paramètre s’applique au niveau de la ligne, non au niveau de la table, et qu’aucune option ne supprimera des lignes de la table de sortie qui n’existent pas dans l’entrée. | fusionner (par défaut)<br/>remplacer | Non 
+azureTablePartitionKeyName | Spécifiez le nom de la colonne dont les valeurs sont utilisées comme clés de partition. Si aucune valeur n'est spécifiée, AzureTableDefaultPartitionKeyValue est utilisée comme clé de partition. | Nom de colonne. | Non |
+azureTableRowKeyName | Spécifiez le nom de la colonne dont les valeurs sont utilisées comme clé de ligne. Si aucune valeur n'est spécifiée, un GUID est utilisé pour chaque ligne. | Nom de colonne. | Non  
+azureTableInsertType | Le mode d’insertion des données dans une table Azure.<br/><br/>Cette propriété détermine le remplacement ou la fusion des valeurs des lignes existantes dans la table de sortie avec des clés de partition et de ligne correspondantes. <br/><br/>Consultez [Insertion ou fusion d’entité](https://msdn.microsoft.com/library/azure/hh452241.aspx) et [Insertion ou remplacement d’entité](https://msdn.microsoft.com/library/azure/hh452242.aspx) pour en savoir plus sur le fonctionnement de ces paramètres (fusion et remplacement). <br/><br> Ce paramètre s’applique au niveau de la ligne, non au niveau de la table, et aucune option ne supprime des lignes de la table de sortie qui n’existent pas dans l’entrée. | fusionner (par défaut)<br/>remplacer | Non 
 writeBatchSize | Insère des données dans la table Azure lorsque la valeur de writeBatchSize ou writeBatchTimeout est atteinte. | Nombre entier (nombre de lignes)| Non (valeur par défaut : 10000) 
 writeBatchTimeout | Insère des données dans la table Azure lorsque la valeur de writeBatchSize ou writeBatchTimeout est atteinte | intervalle de temps<br/><br/>Exemple : « 00: 20:00 » (20 minutes) | Non (Valeur par défaut du délai d'attente du stockage client par défaut : 90 secondes)
 
 ### azureTablePartitionKeyName
-Vous devez mapper une colonne source sur une colonne de destination à l’aide de la propriété JSON translator pour pouvoir utiliser la colonne de destination comme azureTablePartitionKeyName.
+Mappez une colonne source sur une colonne de destination à l’aide de la propriété JSON translator pour pouvoir utiliser la colonne de destination comme azureTablePartitionKeyName.
 
 Dans l’exemple suivant, la colonne source DivisionID est mappée sur la colonne de destination DivisionID.
 
@@ -418,7 +418,7 @@ Dans l’exemple suivant, la colonne source DivisionID est mappée sur la colonn
 		"columnMappings": "DivisionID: DivisionID, FirstName: FirstName, LastName: LastName"
 	} 
 
-EmpID est spécifie en tant que clé de partition.
+EmpID est spécifié en tant que clé de partition.
 
 	"sink": {
 		"type": "AzureTableSink",
@@ -432,23 +432,23 @@ EmpID est spécifie en tant que clé de partition.
 
 ### Mappage de type de Table Azure
 
-Comme mentionné dans l’article consacré aux [activités de déplacement des données](data-factory-data-movement-activities.md), l’activité de copie convertit automatiquement des types source en types récepteur à l’aide de l’approche en 2 étapes suivante.
+Comme mentionné dans l’article consacré aux [activités de déplacement de données](data-factory-data-movement-activities.md), l’activité de copie convertit automatiquement des types source en types récepteur à l’aide de l’approche en deux étapes suivante.
 
-1. Conversion à partir de types de source natifs en types .NET
-2. Conversion à partir du type .NET en type de récepteur natif
+1. Conversion de types natifs source en types .NET
+2. Conversion de types .NET en types récepteur natifs
 
 Pendant le déplacement de données à partir de et vers Table Azure, les [mappages suivants définis par le service de Table Azure](https://msdn.microsoft.com/library/azure/dd179338.aspx) sont utilisés à partir des types OData Table Azure vers le type .NET et vice versa.
 
 | Type de données OData | Type .NET | Détails |
 | --------------- | --------- | ------- |
-| Edm.Binary | byte | Tableau d'octets jusqu'à 64 Ko. |
+| Edm.Binary | byte | Tableau d’octets jusqu’à 64 Ko. |
 | Edm.Boolean | valeur booléenne | Valeur booléenne. |
 | Edm.DateTime | DateTime | Valeur de 64 bits exprimée en temps universel coordonné (UTC). La plage DateHeure prise en charge commence à partir de 12:00 minuit, le 1er janvier 1601 apr. J.C. (NOTRE ÈRE), UTC. La plage se termine le 31 décembre 9999. |
 | Edm.Double | double | Valeur à virgule flottante de 64 bits. |
 | Edm.Guid | Guid | Identificateur global unique de 128 bits. |
 | Edm.Int32 | Int32 ou int | Nombre entier 32 bits. |
 | Edm.Int64 | Int64 ou long | Nombre entier 64 bits. |
-| Edm.String | String | Valeur encodée en UTF-16. La taille des valeurs de chaîne peut aller jusqu'à 64 Ko. |
+| Edm.String | String | Valeur encodée en UTF-16. Les valeurs de chaîne peuvent aller jusqu’à 64 Ko. |
 
 ### Exemple de conversion de type
 
@@ -456,7 +456,7 @@ L'exemple suivant montre la copie de données à partir d'un objet Blob Azure ve
 
 Supposons que le jeu de données Blob soit au format CSV et contienne trois colonnes. L'une d'elles est une colonne datetime avec un format de date et d'heure personnalisé comprenant un nom abrégé en français pour le jour de la semaine.
 
-Vous allez définir le jeu de données d'objets blob source comme suit, ainsi que des définitions de type pour les colonnes.
+Définissez le jeu de données des objets blob source comme suit, ainsi que des définitions de type pour les colonnes.
 	
 	{
 	    "name": " AzureBlobInput",
@@ -495,7 +495,7 @@ Vous allez définir le jeu de données d'objets blob source comme suit, ainsi qu
 	    }
 	}
 
-Étant donné le mappage de type OData Table Azure vers le type .NET ci-dessus, vous devez définir la table dans Table Azure avec le schéma suivant.
+Étant donné le mappage de type OData Table Azure vers le type .NET, vous devez définir la table dans Table Azure avec le schéma suivant.
 
 **Schéma de Table Azure :**
 
@@ -505,7 +505,7 @@ userid | Edm.Int64
 name | Edm.String 
 lastlogindate | Edm.DateTime
 
-Ensuite, vous allez définir le jeu de données Table Azure comme suit. Il est inutile de spécifier la section « structure » à l'aide des informations de type, car celles-ci sont déjà spécifiées dans le magasin de données sous-jacent.
+Ensuite, définissez le jeu de données Table Azure comme suit. Il est inutile de spécifier la section « structure » à l'aide des informations de type, car celles-ci sont déjà spécifiées dans le magasin de données sous-jacent.
 
 	{
 	  "name": "AzureTableOutput",
@@ -522,7 +522,7 @@ Ensuite, vous allez définir le jeu de données Table Azure comme suit. Il est i
 	  }
 	}
 
-Dans ce cas, Data Factory effectuera automatiquement les conversions de type, y compris pour le champ Datetime avec son format date/heure personnalisé, en utilisant la culture fr-fr lors du déplacement des données à partir de l'objet blob vers Table Azure.
+Dans ce cas, Data Factory effectue automatiquement les conversions de type, y compris pour le champ Datetime avec son format date/heure personnalisé, en utilisant la culture fr-fr lors du déplacement des données à partir de l’objet blob vers Table Azure.
 
 
 
@@ -531,4 +531,4 @@ Dans ce cas, Data Factory effectuera automatiquement les conversions de type, y
 ## Performances et réglage  
 Consultez l’article [Guide sur les performances et le réglage de l’activité de copie](data-factory-copy-activity-performance.md) pour en savoir plus sur les facteurs clés affectant les performances de déplacement des données (activité de copie) dans Azure Data Factory et les différentes manières de les optimiser.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0914_2016-->

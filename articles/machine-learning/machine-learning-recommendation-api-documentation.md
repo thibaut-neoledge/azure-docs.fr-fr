@@ -4,7 +4,7 @@
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="LuisCabrer" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun"/>
 
 <tags 
@@ -13,15 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/17/2016" 
+	ms.date="09/08/2016" 
 	ms.author="LuisCa"/>
 
 #Documentation sur les API Azure Machine Learning Recommendations
 
-Ce document décrit les API Recommandations Microsoft Azure Machine Learning exposées sur la Marketplace.
+>[AZURE.NOTE] Vous devez commencer à utiliser le Service cognitif de l’API Recommandations au lieu de cette version. Le Service cognitif de l’API Recommandations remplacera ce service et toutes les nouvelles fonctionnalités y seront développées. Il propose de nouvelles fonctionnalités telles que la prise en charge du traitement par lot, un meilleur Explorateur d’API, une surface d’API plus propre, une expérience d’inscription/de facturation plus cohérente, etc. En savoir plus sur la [migration vers le nouveau Service cognitif](http://aka.ms/recomigrate)
 
-
-> Il s’agit de documentation pour l’ancienne API Recommandations sur le marché des données, qui seront déconseillées d’ici au 31/12/2016. Vous devez maintenant passer au [Service cognitif de l’API Recommandations](https://www.microsoft.com/cognitive-services/fr-FR/recommendations-api).
+Ce document décrit les API Microsoft Azure Machine Learning Recommendations.
 
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
@@ -269,9 +268,7 @@ OData XML
 
 ###5\.4. Mise à jour du modèle
 
-Vous pouvez mettre à jour la description du modèle ou l'ID de build active.<br> 
-<ins>ID de build active</ins> : chaque build de chaque modèle possède un ID de build. L'ID de build active correspond à la première build réussie de chaque nouveau modèle. Une fois que vous avez un ID de build active et que vous effectuez d'autres builds pour le même modèle, vous pouvez le définir explicitement comme ID de build par défaut. Quand vous utilisez des recommandations, si vous ne spécifiez pas l'ID de build à utiliser, l'ID par défaut est automatiquement sélectionné.<br> 
-Ce mécanisme vous permet, une fois que vous disposez d'un modèle de recommandation en production, de générer de nouveaux modèles et de les tester avant de les passer en production.
+Vous pouvez mettre à jour la description du modèle ou l'ID de build active.<br> <ins>ID de build active</ins> : chaque build de chaque modèle possède un ID de build. L'ID de build active correspond à la première build réussie de chaque nouveau modèle. Une fois que vous avez un ID de build active et que vous effectuez d'autres builds pour le même modèle, vous pouvez le définir explicitement comme ID de build par défaut. Quand vous utilisez des recommandations, si vous ne spécifiez pas l'ID de build à utiliser, l'ID par défaut est automatiquement sélectionné.<br> Ce mécanisme vous permet, une fois que vous disposez d'un modèle de recommandation en production, de générer de nouveaux modèles et de les tester avant de les passer en production.
 
 
 | Méthode HTTP | URI |
@@ -1878,7 +1875,7 @@ Le tableau ci-dessous décrit les paramètres de build pour une build de recomma
 | Description | Description de la build. | String | Tout texte, 512 caractères maximum |
 | EnableModelingInsights | Permet de calculer des mesures sur le modèle de recommandation. | Boolean | True/False |
 | UseFeaturesInModel | Indique si des caractéristiques peuvent être utilisées pour améliorer le modèle de recommandation. | Boolean | True/False |
-| ModelingFeatureList | Liste de noms de caractéristiques séparés par des virgules à utiliser dans la build de recommandation pour améliorer les recommandations. | String | Noms de caractéristiques, 512 caractères maximum |
+| ModelingFeatureList | Liste de noms de caractéristiques séparés par des virgules à utiliser dans la build de recommandation pour améliorer les recommandations. | Chaîne | Noms de caractéristiques, 512 caractères maximum |
 | AllowColdItemPlacement | Indique si la recommandation doit également placer les éléments froids selon la similarité des caractéristiques. | Boolean | True/False |
 | EnableFeatureCorrelation | Indique si des caractéristiques peuvent être utilisées dans le raisonnement. | Boolean | True/False |
 | ReasoningFeatureList | Liste de noms de caractéristiques séparés par des virgules à utiliser pour générer des phrases de raisonnement (par exemple, pour expliquer les recommandations). | String | Noms de caractéristiques, 512 caractères maximum |
@@ -3102,4 +3099,4 @@ Code d'état HTTP : 200
 Ce document est fourni « en l'état ». Les informations et les points de vue exprimés dans ce document, y compris les URL et autres références à des sites web, peuvent être modifiés sans préavis.<br><br> Certains exemples sont fournis à titre indicatif uniquement et sont fictifs. Toute association ou lien est purement involontaire ou fortuit.<br><br> Ce document ne vous accorde aucun droit légal à la propriété intellectuelle pour un produit Microsoft. Vous pouvez copier et utiliser ce document pour un usage interne, à titre de référence.<br><br> © 2015 Microsoft. Tous droits réservés.
  
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

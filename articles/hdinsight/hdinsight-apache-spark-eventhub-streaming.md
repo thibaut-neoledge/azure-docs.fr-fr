@@ -4,7 +4,7 @@
 	services="hdinsight" 
 	documentationCenter="" 
 	authors="nitinme" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun"
 	tags="azure-portal"/>
 
@@ -51,7 +51,7 @@ Voici le déroulement de la solution de diffusion en continu :
 
 1. À partir du [portail Azure](https://manage.windowsazure.com), sélectionnez **NOUVEAU** > **Service Bus** > **Hub d’événements** > **Création personnalisée**.
 
-2. Sur l’écran **Ajouter un nouvel hub d’événements**, entrez un **nom de hub d’événements**, sélectionnez la **région** dans laquelle créer le hub, puis créez un espace de noms ou sélectionnez-en un existant. Cliquez sur la **flèche** pour continuer.
+2. Sur l’écran **Ajouter un nouvel hub d’événements**, entrez un **nom du hub d’événements**, sélectionnez la **région** dans laquelle créer le hub, puis créez un espace de noms ou sélectionnez-en un existant. Cliquez sur la **flèche** pour continuer.
 
 	![page 1 de l’assistant](./media/hdinsight-apache-spark-eventhub-streaming/hdispark.streaming.create.event.hub.png "Création d'un hub d'événements Azure")
 
@@ -162,7 +162,7 @@ Un exemple d’application Scala pour recevoir l’événement et le router vers
 
 	1. Dans la boîte de dialogue **Select Main Class** (Sélectionner une classe principale), sélectionnez l’une des classes disponibles, puis cliquez sur **OK**.
 
-		![Créer un fichier JAR](./media/hdinsight-apache-spark-eventhub-streaming/create-jar-2.png)
+		![Créer un fichier jar](./media/hdinsight-apache-spark-eventhub-streaming/create-jar-2.png)
 
 	1. Dans la boîte de dialogue **Create JAR from Modules** (Créer un fichier jar à partir de modules), assurez-vous que l’option **Extract to the target JAR** (Extraire vers le fichier jar cible) est activée, puis cliquez sur **OK**. Cela crée un fichier JAR contenant toutes les dépendances.
 
@@ -364,7 +364,7 @@ Le résultat ressemble à ce qui suit :
 
 * [Utilisez le plugin d’outils HDInsight pour IntelliJ IDEA pour créer et soumettre des applications Spark Scala](hdinsight-apache-spark-intellij-tool-plugin.md)
 
-* [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Spark applications remotely (Utiliser le plug-in Outils HDInsight pour IntelliJ IDEA pour déboguer des applications Spark à distance)](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Spark applications remotely) (Utiliser le plug-in Outils HDInsight pour IntelliJ IDEA pour déboguer des applications Spark à distance)](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 
 * [Utiliser des bloc-notes Zeppelin avec un cluster Spark sur HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
 
@@ -372,7 +372,7 @@ Le résultat ressemble à ce qui suit :
 
 * [Utiliser des packages externes avec les blocs-notes Jupyter](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
 
-* [Installer Jupyter sur un ordinateur et se connecter au cluster Spark sur HDInsight](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
+* [Install Jupyter on your computer and connect to an HDInsight Spark cluster (Installer Jupyter sur un ordinateur et se connecter au cluster Spark sur HDInsight)](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
 
 ### Gestion des ressources
 
@@ -391,4 +391,4 @@ Le résultat ressemble à ce qui suit :
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->
