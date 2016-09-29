@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/28/2016" 
+	ms.date="09/12/2016" 
 	ms.author="spelluru"/>
 
 # Azure Data Factory - Forum aux Questions
@@ -22,9 +22,9 @@
 
 ### qu'est-ce qu'Azure Data Factory ?
 
-Data Factory est un service d’intégration de données dans le cloud qui **automatise le déplacement et la transformation des données**. À la manière d’une usine de fabrication, qui utilise des machines visant à transformer des matières premières en produits manufacturés, Data Factory orchestre des services existants qui collectent des données brutes et les transforment en informations prêtes à l'emploi.
+Data Factory est un service d’intégration de données dans le cloud qui **automatise le déplacement et la transformation des données**. À la manière d’une usine, qui utilise des machines visant à transformer des matières premières en produits manufacturés, Data Factory orchestre des services existants qui collectent des données brutes et les transforment en informations prêtes à l’emploi.
  
-Le service Data Factory vous permet de créer des flux de travail pilotés par les données pour déplacer des données entre des magasins de données locaux et cloud et traiter/transformer des données avec des services de calcul comme Azure HDInsight et Azure Data Lake Analytics. Après avoir créé un pipeline qui exécute l'action dont vous avez besoin, vous pouvez planifier son exécution périodique (toutes les heures, tous les jours, toutes les semaines, etc.).
+Data Factory vous permet de créer des flux de travail pilotés par les données pour déplacer des données entre des magasins de données locaux et cloud et traiter/transformer des données avec des services de calcul comme Azure HDInsight et Azure Data Lake Analytics. Après avoir créé un pipeline qui exécute l’action dont vous avez besoin, vous pouvez planifier son exécution périodique (toutes les heures, tous les jours, toutes les semaines, etc.).
 
 Consultez les sections [Vue d'ensemble et Concepts clés](data-factory-introduction.md) pour plus de détails.
 
@@ -53,7 +53,7 @@ Vous pouvez créer des fabriques de données à l'aide de l'une des solutions su
 
 - **Visual Studio** : vous pouvez utiliser Visual Studio pour créer une fabrique de données Azure. Pour plus d’informations, consultez [Créer votre premier pipeline de données à l’aide de Visual Studio](data-factory-build-your-first-pipeline-using-vs.md).
 
-- **Azure PowerShell** : consultez [Créer et surveiller Azure Data Factory à l’aide d’Azure PowerShell](data-factory-build-your-first-pipeline-using-powershell.md) pour obtenir un didacticiel/procédure pas à pas pour créer une fabrique de données à l’aide de PowerShell. Consultez [Informations de référence sur les applets de commande Data Factory][adf-powershell-reference] dans la bibliothèque MSDN pour obtenir une documentation complète sur les applets de commande Data Factory.
+- **Azure PowerShell** : consultez [Créer et surveiller Azure Data Factory à l’aide d’Azure PowerShell](data-factory-build-your-first-pipeline-using-powershell.md) pour obtenir un didacticiel/une procédure pas à pas pour créer une fabrique de données à l’aide de PowerShell. Consultez [Informations de référence sur les applets de commande Data Factory][adf-powershell-reference] dans la bibliothèque MSDN pour obtenir une documentation complète sur les applets de commande Data Factory.
    
 - **Bibliothèque de classes .NET** Vous pouvez créer par programmation des fabriques de données à l'aide du Kit de développement logiciel (SDK) Data Factory .NET. Consultez [Créer, surveiller et gérer des fabriques de données à l'aide du Kit de développement logiciel (SDK) .NET](data-factory-create-data-factories-programmatically.md) pour découvrir comment créer une fabrique de données à l'aide du Kit de développement logiciel (SDK) .NET. Consultez [Informations de référence sur la bibliothèque de classes Data Factory][msdn-class-library-reference] pour obtenir une documentation complète sur le Kit de développement logiciel (SDK) Data Factory .NET.
 
@@ -65,7 +65,7 @@ Vous pouvez créer des fabriques de données à l'aide de l'une des solutions su
 Non. Tout comme les autres ressources Azure, le nom d'une fabrique de données Azure ne peut pas être modifié.
 
 ### Puis-je déplacer une fabrique de données d’un abonnement Azure à un autre ? 
-Oui. Utilisez le bouton **Déplacer** sur votre panneau Data Factory comme indiqué ci-dessous :
+Oui. Utilisez le bouton **Déplacer** sur votre panneau Data Factory comme indiqué dans le graphique ci-dessous.
 
 ![Déplacer la fabrique de données](media/data-factory-faq/move-data-factory.png)
 
@@ -76,11 +76,11 @@ Oui. Utilisez le bouton **Déplacer** sur votre panneau Data Factory comme indiq
 - [Activités de transformation des données](data-factory-data-transformation-activities.md) pour traiter/transformer les données.
 
 ### Quand une activité s'exécute-t-elle ?
-Les paramètres de configuration de la **disponibilité** présents dans la table de données de sortie déterminent quand l'activité doit être exécutée. L'activité vérifie si toutes les dépendances de données d'entrée sont satisfaites (par exemple, l’état **Prêt**) avant de s'exécuter si des jeux de données d’entrée sont spécifiés.
+Les paramètres de configuration de la **disponibilité** présents dans la table de données de sortie déterminent quand l'activité doit être exécutée. Si des jeux de données d’entrée sont spécifiés, l’activité vérifie si toutes les dépendances de données d’entrée sont satisfaites (par exemple, l’état **Prêt**) avant de s’exécuter.
 
 ## Activité de copie - Forum Aux Questions
 ### Est-il préférable d'avoir un pipeline avec plusieurs activités ou un pipeline distinct pour chaque activité ? 
-Les pipelines sont censés regrouper des activités connexes. Logiquement, vous pouvez conserver les activités dans un seul pipeline si les tables qui les relient ne sont pas utilisées par d'autres activités extérieures au pipeline. De cette façon, vous n'aurez pas besoin de relier les périodes actives du pipeline pour qu'elles s'accordent les unes avec les autres. En outre, l'intégrité des données dans les tables internes au pipeline est mieux préservée lors de la mise à jour du pipeline. La mise à jour d'un pipeline arrête toutes les activités du pipeline, les supprime et les crée de nouveau. En termes de création, il peut être plus facile de voir le flux de données au sein des activités connexes dans un seul fichier JSON pour le pipeline.
+Les pipelines sont censés regrouper des activités connexes. Vous pouvez conserver les activités dans un seul pipeline si les tables qui les relient ne sont pas utilisées par d’autres activités extérieures au pipeline. De cette façon, vous n'aurez pas besoin de relier les périodes actives du pipeline pour qu'elles s'accordent les unes avec les autres. En outre, l’intégrité des données dans les tables internes au pipeline est mieux préservée lors de la mise à jour du pipeline. La mise à jour d'un pipeline arrête toutes les activités du pipeline, les supprime et les crée de nouveau. En termes de création, il peut être plus facile de voir le flux de données au sein des activités connexes dans un seul fichier JSON pour le pipeline.
 
 ### Où est effectuée l’opération de copie ? 
 
@@ -104,7 +104,7 @@ Si vous utilisez votre propre cluster HDInsight (BYOC, Bring Your Own Cluster), 
 - [Utilisation d'un cluster HDInsight avec des comptes de stockage et des metastores secondaires][hdinsight-alternate-storage]
 - [Utilisation de comptes de stockage supplémentaires avec Hive HDInsight][hdinsight-alternate-storage-2]
 
-Si vous utilisez un cluster à la demande créé par le service Data Factory, vous devez spécifier les comptes de stockage supplémentaires pour le service lié HDInsight afin que le service Data Factory puisse les inscrire en votre nom. Dans la définition JSON pour le service lié à la demande, utilisez la propriété **additionalLinkedServiceNames** pour spécifier les comptes de stockage secondaires, comme indiqué dans l'extrait de code JSON suivant :
+Si vous utilisez un cluster à la demande créé par le service Data Factory, spécifiez les comptes de stockage supplémentaires pour le service lié HDInsight afin que le service Data Factory puisse les inscrire en votre nom. Dans la définition JSON pour le service lié à la demande, utilisez la propriété **additionalLinkedServiceNames** pour spécifier les comptes de stockage secondaires, comme indiqué dans l'extrait de code JSON suivant :
  
 	{
 	    "name": "MyHDInsightOnDemandLinkedService",
@@ -131,7 +131,7 @@ Dans l’exemple suivant, vous devez uniquement définir **external** sur true p
 
 **DataFactory1** Pipeline 1: dataset1 -> activity1 -> dataset2 -> activity2 -> dataset3 Pipeline 2: dataset3-> activity3 -> dataset4
 
-Si vous avez une autre fabrique de données avec un pipeline qui prend dataset4 (généré par le pipeline 2 dans DataFactory1), vous devez marquer dataset4 comme un jeu de données externe, car il a été généré par une autre fabrique de données (DataFactory1, et non DataFactory2).
+Si vous avez une autre fabrique de données avec un pipeline qui prend dataset4 (généré par le pipeline 2 dans DataFactory1), marquez dataset4 comme un jeu de données externe, car il a été généré par une autre fabrique de données (DataFactory1, et non DataFactory2).
 
 **DataFactory2** Pipeline 1: dataset4->activity4->dataset5
 
@@ -153,7 +153,7 @@ Les tranches quotidiennes commencent à **6 h** au lieu de minuit, qui est l’h
 Vous pouvez réexécuter une tranche de l'une des manières suivantes :
 
 - Utilisez l’application Surveiller et gérer pour réexécuter une fenêtre d’activité ou une tranche. Pour obtenir des instructions, consultez [Réexécuter les fenêtres d’activité sélectionnées](data-factory-monitor-manage-app.md#re-run-selected-activity-windows).
-- Cliquez sur **Exécuter** dans la barre de commandes du panneau **TRANCHE DE DONNÉES** de la tranche, dans le portail.
+- Cliquez sur **Exécuter** dans la barre de commandes du panneau **TRANCHE DE DONNÉES** de la tranche, dans le portail Azure.
 - Exécutez l’applet de commande **Set-AzureRmDataFactorySliceStatus** en ayant affecté la valeur **En attente** à l’état de la tranche.
 	
 		Set-AzureRmDataFactorySliceStatus -Status Waiting -ResourceGroupName $ResourceGroup -DataFactoryName $df -TableName $table -StartDateTime "02/26/2015 19:00:00" -EndDateTime "02/26/2015 20:00:00" 
@@ -170,7 +170,7 @@ Vous pouvez également faire ce qui suit dans le portail Azure :
 3. Sélectionnez la tranche qui vous intéresse dans la liste **Tranches récentes** située dans le panneau **TABLE**.
 4. Cliquez sur l'exécution dans la liste **Exécutions d'activité** située dans le panneau **TRANCHE DE DONNÉES**.
 5. Cliquez sur la vignette **Propriétés** dans le panneau **DÉTAILS DE L'EXÉCUTION D'ACTIVITÉ**.
-6. Une valeur doit apparaître dans le champ **DURÉE**. Il s'agit du temps nécessaire pour traiter la tranche.
+6. Une valeur doit apparaître dans le champ **DURÉE**. Il s’agit du temps nécessaire pour traiter la tranche.
 
 ### Comment arrêter une tranche en cours d'exécution ?
 Si vous devez arrêter l’exécution du pipeline, vous pouvez utiliser l’applet de commande [Suspend-AzureRmDataFactoryPipeline](https://msdn.microsoft.com/library/mt603721.aspx). Actuellement, l'interruption du pipeline n'arrête pas les exécutions de tranche en cours. Une fois que les exécutions en cours sont terminées, aucune tranche supplémentaire n'est récupérée.
@@ -192,4 +192,4 @@ Si vous voulez vraiment arrêter immédiatement toutes les exécutions, le seul 
 [hdinsight-alternate-storage-2]: http://blogs.msdn.com/b/cindygross/archive/2014/05/05/use-additional-storage-accounts-with-hdinsight-hive.aspx
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0914_2016-->

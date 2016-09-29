@@ -4,7 +4,7 @@
 	services="hdinsight" 
 	documentationCenter="" 
 	authors="nitinme" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun"/>
 
 <tags 
@@ -117,21 +117,21 @@ Utilisez la commande suivante pour créer un tunnel SSH à l'aide de la commande
 
 Cette commande va permettre de créer une connexion qui achemine le trafic vers le port local 9876 du cluster via SSH. Les options sont :
 
-* **D 9876** : port local qui acheminera le trafic via le tunnel.
+* **D 9876** : port local qui acheminera le trafic via le tunnel.
 
-* **C** : compresse toutes les données car le trafic web est principalement du texte
+* **C** : compresse toutes les données car le trafic web est principalement du texte
 
-* **2** : force le SSH à essayer le protocole version 2 uniquement
+* **2** : force le SSH à essayer le protocole version 2 uniquement
 
-* **q** : mode silencieux
+* **q** : mode silencieux
 
-* **T** : désactive l’allocation pseudo-tty puisque nous transférons simplement un port
+* **T** : désactive l’allocation pseudo-tty puisque nous transférons simplement un port
 
-* **n** : empêche la lecture STDIN puisque nous transférons simplement un port
+* **n** : empêche la lecture STDIN puisque nous transférons simplement un port
 
-* **N** : n’exécute pas une commande à distance puisque nous transférons simplement un port
+* **N** : n’exécute pas une commande à distance puisque nous transférons simplement un port
 
-* **f** : s’exécute à l’arrière-plan
+* **f** : s’exécute à l’arrière-plan
 
 Si vous avez configuré le cluster avec une clé SSH, il vous faudra peut-être utiliser le paramètre `-i` et indiquer le chemin d’accès vers la clé SSH privée.
 
@@ -147,11 +147,11 @@ Pour créer un tunnel SSH à l’aide de PuTTY, procédez comme suit.
 
 3. Indiquez les informations suivantes dans le formulaire des **Options de contrôle de transfert du port SSH**.
 
-	* **Port source** : le port sur le client que vous souhaitez transférer. Par exemple : **9876**.
+	* **Port source** : le port sur le client que vous souhaitez transférer. Par exemple : **9876**.
 
-	* **Destination** : l’adresse SSH pour le cluster HDInsight sous Linux. Par exemple : **moncluster-ssh.azurehdinsight.net**.
+	* **Destination** : l’adresse SSH pour le cluster HDInsight sous Linux. Par exemple : **moncluster-ssh.azurehdinsight.net**.
 
-	* **Dynamique** : active le routage dynamique du proxy SOCKS.
+	* **Dynamique** : active le routage dynamique du proxy SOCKS.
 
 	![image des options de tunneling](./media/hdinsight-apache-spark-use-zeppelin-notebook/puttytunnel.png)
 
@@ -187,19 +187,19 @@ Si vous avez installé FoxyProxy Standard, suivez les étapes suivantes pour con
 
 3. Sélectionnez l’onglet **Informations du proxy** et remplissez les champs suivants :
 
-	* **Hôte ou adresse IP** : il s’agit de localhost, puisque nous utilisons un tunnel SSH sur la machine locale.
+	* **Hôte ou adresse IP** : il s’agit de localhost, puisque nous utilisons un tunnel SSH sur la machine locale.
 
-	* **Port** : port que vous avez utilisé pour le tunnel SSH
+	* **Port** : port que vous avez utilisé pour le tunnel SSH
 
-	* **Proxy SOCKS** : sélectionnez celui-ci pour autoriser le navigateur à utiliser le tunnel comme proxy.
+	* **Proxy SOCKS** : sélectionnez celui-ci pour autoriser le navigateur à utiliser le tunnel comme proxy.
 
-	* **SOCKS v5** : sélectionnez celui-ci pour définir la version requise pour le proxy.
+	* **SOCKS v5** : sélectionnez celui-ci pour définir la version requise pour le proxy.
 
 	![proxy foxyproxy](./media/hdinsight-apache-spark-use-zeppelin-notebook/foxyproxyproxy.png)
 
-4. Sélectionnez l’onglet **Type d’URL**, puis **Ajouter un nouveau type**. Utilisez ce qui suit pour définir le type, puis cliquez sur **OK** :
+4. Sélectionnez l’onglet **Type d’URL**, puis **Ajouter un nouveau type**. Utilisez ce qui suit pour définir le type, puis cliquez sur **OK** :
 
-	* **Nom de type** – **zeppelinnotebook** : il s’agit simplement d’un nom de type convivial.
+	* **Nom de type** – **zeppelinnotebook** : il s’agit simplement d’un nom de type convivial.
 
 	* **Modèle d’URL** – **\*hn0\*** : définit un modèle qui correspond au nom de domaine complet interne du système d’extrémité où sont hébergés les blocs-notes Zeppelin. Étant donné que les blocs-notes Zeppelin sont uniquement disponibles sur headnode0 du cluster et que le système d’extrémité est généralement `http://hn0-<string>.internal.cloudapp.net`, l'utilisation du modèle **hn0** garantit que la requête est redirigée vers le point de terminaison Zeppelin.
 
@@ -227,7 +227,7 @@ Une fois les tunnels SSH configurés, vous pouvez accéder au bloc-notes Zeppeli
 
 2. Créer un nouveau bloc-notes. Dans le volet d'en-tête, cliquez sur **Bloc-notes**, puis sur **Créer une note**.
 
-	![Créer un bloc-notes Zeppelin](./media/hdinsight-apache-spark-use-zeppelin-notebook/hdispark.createnewnote.png "Créer un nouveau bloc-notes Zeppelin")
+	![Créer un nouveau bloc-notes Zeppelin](./media/hdinsight-apache-spark-use-zeppelin-notebook/hdispark.createnewnote.png "Créer un nouveau bloc-notes Zeppelin")
 
 	Dans la même page, sous le titre **Bloc-notes**, un nouveau bloc-notes dont le nom commence par **Note XXXXXXXXX** doit s’afficher. Cliquez sur le nouveau bloc-notes.
 
@@ -237,7 +237,7 @@ Une fois les tunnels SSH configurés, vous pouvez accéder au bloc-notes Zeppeli
 
 ### Exécuter des instructions SQL
 
-4. Chargez un exemple de données dans une table temporaire. Lorsque vous créez un cluster Spark dans HDInsight, l’exemple de fichier de données **hvac.csv** est copié vers le compte de stockage associé dans **\\HdiSamples\\SensorSampleData\\hvac**.
+4. Chargez un exemple de données dans une table temporaire. Lorsque vous créez un cluster Spark dans HDInsight, l’exemple de fichier de données **hvac.csv** est copié vers le compte de stockage associé dans **\\HdiSamples\\SensorSampleData\\hvac**.
 
 	Collez l’extrait suivant dans le paragraphe vide créé par défaut dans le nouveau bloc-notes.
 
@@ -260,20 +260,20 @@ Une fois les tunnels SSH configurés, vous pouvez accéder au bloc-notes Zeppeli
 		// Register as a temporary table called "hvac"
 		hvac.registerTempTable("hvac")
 		
-	Appuyez sur **MAJ + ENTRÉE** ou cliquez sur le bouton **Lire** pour que le paragraphe exécute l'extrait de code. L’état indiqué dans le coin supérieur droit du paragraphe doit progresser de READY, PENDING, RUNNING à FINISHED. Le résultat s’affiche au bas du même paragraphe. La capture d’écran ressemble à ceci :
+	Appuyez sur **MAJ + ENTRÉE** ou cliquez sur le bouton **Lire** pour que le paragraphe exécute l'extrait de code. L’état indiqué dans le coin supérieur droit du paragraphe doit progresser de READY, PENDING, RUNNING à FINISHED. Le résultat s’affiche au bas du même paragraphe. La capture d’écran ressemble à ceci :
 
 	![Créer une table temporaire à partir de données brutes](./media/hdinsight-apache-spark-use-zeppelin-notebook/hdispark.note.loaddDataintotable.png "Créer une table temporaire à partir de données brutes")
 
 	Vous pouvez également indiquer un titre pour chaque paragraphe. Dans le coin droit, cliquez sur l’icône **Settings**, puis sur **Show title**.
 
-5. Vous pouvez maintenant exécuter des instructions Spark SQL dans la table **hvac**. Collez la requête suivante dans un nouveau paragraphe. La requête récupère l’ID de bâtiment et la différence entre les températures cibles et réelles pour chaque bâtiment à une date donnée. Appuyez sur **MAJ + ENTRÉE**.
+5. Vous pouvez maintenant exécuter des instructions Spark SQL dans la table **hvac**. Collez la requête suivante dans un nouveau paragraphe. La requête récupère l’ID de bâtiment et la différence entre les températures cibles et réelles pour chaque bâtiment à une date donnée. Appuyez sur **MAJ + ENTRÉE**.
 
 		%sql
 		select buildingID, (targettemp - actualtemp) as temp_diff, date 
 		from hvac
 		where date = "6/1/13" 
 
-	L'instruction **%sql** du début indique au bloc-notes d'utiliser l'interpréteur Spark SQL. Vous pouvez consulter les interpréteurs définis dans l'onglet **Interpreter** dans l'en-tête du bloc-notes.
+	L'instruction **%sql** du début indique au bloc-notes d'utiliser l'interpréteur Spark SQL. Vous pouvez consulter les interpréteurs définis dans l'onglet **Interpreter** dans l'en-tête du bloc-notes.
 
 	La capture d’écran qui suit présente le résultat.
 
@@ -289,7 +289,7 @@ Une fois les tunnels SSH configurés, vous pouvez accéder au bloc-notes Zeppeli
 		from hvac
 		where targettemp > "${Temp = 65,65|75|85}" 
 
-	Collez cet extrait dans un nouveau paragraphe, puis appuyez sur **MAJ + ENTRÉE**. La capture d’écran qui suit présente le résultat.
+	Collez cet extrait dans un nouveau paragraphe, puis appuyez sur **MAJ + ENTRÉE**. La capture d’écran qui suit présente le résultat.
 
 	![Exécuter une instruction Spark SQL à l’aide du bloc-notes](./media/hdinsight-apache-spark-use-zeppelin-notebook/hdispark.note.sparksqlquery2.png "Exécuter une instruction Spark SQL à l’aide du bloc-notes")
 
@@ -387,4 +387,4 @@ Une fois les tunnels SSH configurés, vous pouvez accéder au bloc-notes Zeppeli
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

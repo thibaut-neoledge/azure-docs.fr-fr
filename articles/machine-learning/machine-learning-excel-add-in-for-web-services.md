@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Complément Excel pour les services web Machine Learning | Microsoft Azure"
+	pageTitle="Complément Excel pour les services web Machine Learning | Microsoft Azure"
 	description="Comment utiliser les services web Azure Machine Learning directement dans Excel sans écrire de code."
 	services="machine-learning"
 	documentationCenter=""
 	authors="tedway"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"
     tags=""/>
 
@@ -17,9 +17,9 @@
 	ms.date="07/06/2016"
 	ms.author="tedway;garye" />
 
-# Complément Excel de services web Azure Machine Learning
+# Complément Excel de services web Azure Machine Learning
 
-Excel permet d'appeler facilement des services web directement sans qu'il soit nécessaire d'écrire du code.
+Excel permet d'appeler facilement des services web directement sans qu'il soit nécessaire d'écrire du code.
 
 ## Étapes pour utiliser un fichier de service web existant dans le classeur
 
@@ -43,7 +43,7 @@ Obtenez la clé API de votre service web. L’endroit duquel vous la récupérez
 
 **Service web classique**
 
-1. Dans Machine Learning Studio, cliquez sur la section **WEB SERVICES** située sur le volet de gauche, puis sélectionnez le service web.
+1. Dans Machine Learning Studio, cliquez sur la section **WEB SERVICES** située sur le volet de gauche, puis sélectionnez le service web.
 
 	![Studio Sélectionner un site Web][04]
 
@@ -67,7 +67,7 @@ Obtenez la clé API de votre service web. L’endroit duquel vous la récupérez
 2. Dans Excel, accédez à la section **Services web** (si vous vous trouvez dans la section **Prédire**, cliquez sur la flèche Précédent pour accéder à la liste des services web).
 
 	![Accéder à la sélection du service web][03]
-3. Cliquez sur **Ajouter un service web**.
+3. Cliquez sur **Ajouter un service web**.
 4. Collez l’URL dans la zone de texte du complément Excel intitulée **URL**.
 5. Collez l’API/Clé primaire dans la zone de texte intitulée **Clé API**.
 6. Cliquez sur **Add**.
@@ -89,4 +89,4 @@ Posez des questions ci-dessous ou sur notre [forum](http://go.microsoft.com/fwli
 [05]: ./media/machine-learning-excel-add-in-for-web-services/image5.png
 [06]: ./media/machine-learning-excel-add-in-for-web-services/image6.png
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0914_2016-->

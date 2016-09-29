@@ -52,7 +52,7 @@ Nous avons maintenant le fichier dont nous avons besoin et pouvons commencer à 
 6. Tous les types d’attribut ne peuvent pas être détectés dans une base de données SQL, le type d’attribut de référence en particulier. Pour le type d’objet de groupe, nous devons modifier OwnerID et MemberID en attributs de référence. ![Connecteur6](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\connector6.png)
 7. Les attributs que nous avons sélectionnés en tant qu’attributs de référence à l’étape précédente nécessitent le type d’objet auquel ces valeurs font référence. Dans notre cas, il s’agit du type d’objet User. ![Connecteur7](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\connector7.png)
 8. Dans la page Paramètres généraux, sélectionnez **Filigrane** comme stratégie delta. Entrez également le format de date/heure **yyyy-MM-dd HH:mm:ss**. ![Connecteur8](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\connector8.png)
-9. Dans la page **Configurer les partitions**, sélectionnez les deux types d’objet. ![Connecteur9](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\connector9.png)
+9. Dans la page **Configurer les partitions et hiérarchies**, sélectionnez les deux types d’objet. ![Connecteur9](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\connector9.png)
 10. Dans **Sélectionner les types d’objet** et **Sélectionner les attributs**, sélectionnez les types d’objet et tous les attributs. Sur la page **Configurer les ancres**, cliquez sur **Terminer**.
 
 ## Créer les profils d’exécution
@@ -170,4 +170,4 @@ ALTER TABLE [dbo].[USERPHONE] CHECK CONSTRAINT [FK_USERPHONE_USER]
 GO
 ```
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -13,20 +13,34 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/01/2016"
+   ms.date="09/21/2016"
    ms.author="cherylmc" />
 
 # À propos de la passerelle VPN
 
 
-Une passerelle de réseau virtuel est conçue pour faire circuler le trafic réseau entre les réseaux virtuels Azure et les emplacements sur site, mais aussi entre plusieurs réseaux virtuels au sein d’Azure (réseau virtuel vers réseau virtuel). Pour créer une connexion, vous ajoutez une passerelle de réseau virtuel à un réseau virtuel, et ajoutez également les ressources supplémentaires et leurs paramètres.
+Une passerelle de réseau virtuel est conçue pour faire circuler le trafic réseau entre les réseaux virtuels Azure et les emplacements locaux, mais aussi entre plusieurs réseaux virtuels au sein d’Azure (connexion entre deux réseaux virtuels). Lorsque vous configurez une passerelle VPN, vous devez créer et configurer une passerelle de réseau virtuel et une connexion à la passerelle de réseau virtuel.
 
-Lorsque vous créez une ressource de passerelle de réseau virtuel, vous spécifiez plusieurs paramètres. L’un des paramètres requis est « -GatewayType ». Le type de passerelle spécifie le mode de connexion de la passerelle. Il existe deux types de passerelle de réseau virtuel : Vpn et ExpressRoute. Lorsque le trafic réseau est envoyé sur une connexion privée dédiée, vous utilisez le type de passerelle « ExpressRoute ». C’est ce que l’on appelle une passerelle ExpressRoute. Lorsque le trafic réseau est chiffré et envoyé via une connexion publique, vous utilisez le type de passerelle « Vpn ». Il s’agit alors d’une passerelle VPN. Les connexions site à site, point à site et réseau virtuel à réseau virtuel utilisent toutes une passerelle VPN.
+Avec le modèle de déploiement Resource Manager, lorsque vous créez une ressource de passerelle de réseau virtuel, vous spécifiez plusieurs paramètres. L’un des paramètres requis est « -GatewayType ». Il existe deux types de passerelle de réseau virtuel : Vpn et ExpressRoute.
 
-Chaque réseau virtuel ne peut posséder qu’une seule passerelle de réseau virtuel par type de passerelle. Par exemple, une passerelle de réseau virtuel peut utiliser le type de passerelle VPN et une autre le type de passerelle ExpressRoute. Cet article se concentre essentiellement sur la passerelle VPN. Pour plus d’informations sur ExpressRoute, consultez [Présentation technique d’ExpressRoute](../expressroute/expressroute-introduction.md).
+Lorsque le trafic réseau est envoyé sur une connexion privée dédiée, vous utilisez le type de passerelle « ExpressRoute ». C’est ce que l’on appelle une passerelle ExpressRoute. Lorsque le trafic réseau est chiffré et envoyé via une connexion publique, vous utilisez le type de passerelle « Vpn ». Il s’agit alors d’une passerelle VPN. Les connexions site à site, point à site et réseau virtuel à réseau virtuel utilisent toutes une passerelle VPN.
 
-Pour plus d’informations sur les conditions requises de la passerelle, voir [Conditions requises de la passerelle](vpn-gateway-about-vpn-gateway-settings.md#requirements). Pour connaître le débit total estimé, voir [À propos des paramètres de la passerelle VPN](vpn-gateway-about-vpn-gateway-settings.md#aggthroughput). Pour la tarification, voir [Tarification de la passerelle VPN](https://azure.microsoft.com/pricing/details/vpn-gateway). Pour les abonnements et les limites de service, voir [Limites de mise en réseau](../articles/azure-subscription-service-limits.md#networking-limits).
+Chaque réseau virtuel ne peut posséder qu’une seule passerelle de réseau virtuel par type de passerelle. Par exemple, vous pouvez avoir une passerelle de réseau virtuel qui utilise -GatewayType ExpressRoute et une autre -GatewayType Vpn. Cet article se concentre essentiellement sur la passerelle VPN. Pour plus d’informations sur ExpressRoute, consultez [Présentation technique d’ExpressRoute](../expressroute/expressroute-introduction.md).
 
+## Tarification
+
+[AZURE.INCLUDE [vpn-gateway-about-pricing-include](../../includes/vpn-gateway-about-pricing-include.md)]
+
+
+## SKU de passerelle
+
+[AZURE.INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-include.md)]
+
+###  <a name="skugw"></a>Débit agrégé estimé par type de SKU et de passerelle
+
+Le tableau ci-dessous présente les types de passerelle et le débit total estimé. Cette table s’applique aux modèles de déploiement classique et Resource Manager.
+
+[AZURE.INCLUDE [vpn-gateway-table-gwtype-aggthroughput](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)]
 
 ## Configuration d’une passerelle VPN
 
@@ -34,7 +48,7 @@ Lorsque vous configurez votre passerelle VPN, les instructions que vous utilisez
 
 Une connexion par passerelle VPN s’appuie sur plusieurs ressources qui sont configurées avec des paramètres spécifiques. La plupart des ressources peuvent être configurées séparément, mais elles doivent être configurées dans un certain ordre dans certains cas. Vous pouvez commencer par créer et configurer des ressources à l’aide de l’un des outils de configuration, comme le portail Azure. Vous pouvez décider ultérieurement de passer à un autre outil, tel que PowerShell, pour configurer des ressources supplémentaires ou pour modifier les ressources existantes, le cas échéant. Il n’est pour le moment pas possible de configurer toutes les ressources et tous les paramètres des ressources dans le portail Azure. Les instructions fournies dans les articles dédiés à chaque topologie de connexion indiquent si un outil de configuration spécifique est requis. Pour plus d’informations sur les ressources et paramètres spécifiques pour la passerelle VPN, consultez [À propos des paramètres de passerelle VPN](vpn-gateway-about-vpn-gateway-settings.md).
 
-Les sections ci-dessous contiennent des tableaux répertoriant les éléments suivants :
+Les sections ci-après contiennent des tableaux répertoriant les éléments suivants :
 
 - Modèle de déploiement disponible
 - Outils de configuration disponibles
@@ -136,4 +150,4 @@ Planifiez votre configuration de passerelle VPN. Consultez la page [Planificatio
 
  
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0921_2016-->

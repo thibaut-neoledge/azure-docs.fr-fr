@@ -20,9 +20,9 @@
 # Création d’un réseau virtuel avec une connexion de site à site à l’aide de PowerShell
 
 > [AZURE.SELECTOR]
-- [Portail Azure](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
-- [Portail Azure Classic](vpn-gateway-site-to-site-create.md)
-- [PowerShell - Resource Manager](vpn-gateway-create-site-to-site-rm-powershell.md)
+- [Resource Manager - Portail Azure](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+- [Resource Manager - PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
+- [Classic - Portail Classic](vpn-gateway-site-to-site-create.md)
 
 Cet article vous guide lors de la création d’un réseau virtuel et d’une connexion VPN de site à site à votre réseau local, à l’aide du **modèle de déploiement Azure Resource Manager**. Les connexions site à site peuvent être utilisées pour les configurations hybrides et entre les différents locaux.
 
@@ -148,7 +148,7 @@ Ensuite, vous demandez qu’une adresse IP publique soit allouée à votre passe
 
 Actuellement, la passerelle VPN Azure du modèle de déploiement de Resource Manager ne prend en charge que les adresses IP publiques à l’aide de la méthode d’allocation dynamique. Néanmoins, cela ne signifie pas que l’adresse IP est modifiée. L’adresse IP de la passerelle VPN Azure change uniquement lorsque la passerelle est supprimée, puis recréée. L’adresse IP publique de la passerelle n’est pas modifiée lors du redimensionnement, de la réinitialisation ou des autres opérations de maintenance/mise à niveau internes de votre passerelle VPN Azure.
 
-Utilisez l’exemple PowerShell suivant.
+Utilisez l’exemple PowerShell suivant :
 
 	$gwpip= New-AzureRmPublicIpAddress -Name gwpip -ResourceGroupName testrg -Location 'West US' -AllocationMethod Dynamic
 
@@ -177,7 +177,7 @@ Utilisez les valeurs suivantes :
 
 ## 7\. Configuration de votre périphérique VPN
 
-À ce stade, vous avez besoin de l’adresse IP publique de la passerelle de réseau virtuel pour configurer votre périphérique VPN local. Consultez le fabricant de votre périphérique pour des informations de configuration spécifiques. Vous pouvez aussi vous reporter à [Périphériques VPN](vpn-gateway-about-vpn-devices.md) pour plus d’informations.
+À ce stade, vous avez besoin de l’adresse IP publique de la passerelle de réseau virtuel pour configurer votre périphérique VPN local. Consultez le fabricant de votre périphérique pour des informations de configuration spécifiques. Pour plus d’informations, reportez-vous à [Périphériques VPN](vpn-gateway-about-vpn-devices.md).
 
 Pour trouver l’adresse IP publique de votre passerelle de réseau virtuel, utilisez l’exemple suivant :
 
@@ -222,4 +222,4 @@ Si vous devez modifier les préfixes de votre passerelle de réseau local, suive
 
 - Pour plus d’informations sur le protocole BGP, consultez les articles [Vue d’ensemble du protocole BGP](vpn-gateway-bgp-overview.md) et [Comment configurer BGP sur des passerelles VPN](vpn-gateway-bgp-resource-manager-ps.md).
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0921_2016-->

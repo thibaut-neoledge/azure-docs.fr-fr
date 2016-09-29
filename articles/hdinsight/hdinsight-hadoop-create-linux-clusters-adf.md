@@ -5,7 +5,7 @@
    documentationCenter=""
    tags="azure-portal"
    authors="mumian"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"/>
 
 <tags
@@ -438,4 +438,4 @@ Dans cet article, vous avez appris comment utiliser Azure Data Factory pour cré
 - [Documentation HDInsight](https://azure.microsoft.com/documentation/services/hdinsight/)
 - [Documentation Data Factory](https://azure.microsoft.com/documentation/services/data-factory/)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/03/2016"
+   ms.date="09/20/2016"
    ms.author="tomfitz" />
 
 # Création et déploiement de groupes de ressources Azure à l’aide de Visual Studio
@@ -21,7 +21,7 @@ Avec Visual Studio et les [Kits de développement logiciel (SDK) Azure](https:/
 
 Les projets de groupe de ressources Azure contiennent des modèles JSON Azure Resource Manager, qui définissent les ressources que vous déployez sur Azure. Pour en savoir plus sur les éléments du modèle Resource Manager, consultez [Création de modèles Azure Resource Manager](resource-group-authoring-templates.md). Visual Studio vous permet de modifier ces modèles et fournit des outils qui simplifient l’utilisation des modèles.
 
-Dans cette rubrique, vous déployez une application web et une base de données SQL. Toutefois, les étapes sont presque identiques pour tous les types de ressources. Vous pouvez tout aussi facilement déployer une machine virtuelle et ses ressources associées. Visual Studio fournit de nombreux modèles de démarrage différents pour déployer des scénarios courants.
+Dans cette rubrique, vous déployez une application web et SQL Database. Toutefois, les étapes sont presque identiques pour tous les types de ressources. Vous pouvez tout aussi facilement déployer une machine virtuelle et ses ressources associées. Visual Studio fournit de nombreux modèles de démarrage différents pour déployer des scénarios courants.
 
 Cet article présente Visual Studio 2015 Update 2 et le Kit de développement logiciel (SDK) Microsoft Azure pour .NET 2.9. Si vous utilisez Visual Studio 2013 avec le Kit de développement logiciel (SDK) Azure 2.9, votre expérience sera en grande partie la même. Vous pouvez également utiliser la version 2.6 ou les versions ultérieures du Kit de développement logiciel (SDK) Azure, mais l’interface utilisateur que vous verrez peut différer de celle illustrée dans cet article. Nous vous recommandons fortement d’installer la dernière version du [Kit de développement logiciel (SDK) Azure](https://azure.microsoft.com/downloads/) avant de commencer à suivre les étapes.
 
@@ -47,7 +47,7 @@ Au cours de cette procédure, vous allez apprendre à créer un projet de groupe
 
     ![afficher les nœuds](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-items.png)
 
-    Puisque nous avons choisi le modèle Application web + SQL pour cet exemple, vous voyez les fichiers suivants.
+    Puisque nous avons choisi le modèle Application web + SQL pour cet exemple, vous voyez les fichiers suivants :
 
     |Nom de fichier|Description|
     |---|---|
@@ -75,7 +75,7 @@ Vous pouvez ajouter une ressource en sélectionnant le bouton **Ajouter une ress
 
 ![ajouter une ressource](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-resource.png)
 
-Pour ce didacticiel, sélectionnez **Compte de stockage** et donnez-lui un nom. Un nom de compte de stockage doit être composé uniquement de chiffres et de lettres en minuscule, et comporter moins de 24 caractères. Le projet ajoute une chaîne unique de 13 caractères au nom que vous fournissez, alors assurez-vous que votre nom ne comporte pas plus de 11 caractères.
+Pour ce didacticiel, sélectionnez **Compte de stockage** et donnez-lui un nom. Choisissez un nom qui ne contient pas plus de 11 caractères et uniquement des chiffres et des lettres minuscules.
 
 ![ajouter du stockage](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-storage.png)
 
@@ -83,7 +83,7 @@ Notez qu’en plus de la ressource, un paramètre pour le compte de stockage de 
 
 ![afficher la structure](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-new-items.png)
 
-Le paramètre **storageType** est prédéfini avec des types autorisés et un type par défaut. Vous pouvez laisser ces valeurs ou les modifier pour votre scénario. Si vous ne souhaitez autoriser personne à déployer un compte de stockage **Premium\_LRS** via ce modèle, supprimez simplement ce dernier des types autorisés.
+Le paramètre **storageType** est prédéfini avec des types autorisés et un type par défaut. Vous pouvez laisser ces valeurs ou les modifier pour votre scénario. Si vous ne souhaitez autoriser personne à déployer un compte de stockage **Premium\_LRS** via ce modèle, supprimez ce dernier des types autorisés.
 
     "storageType": {
       "type": "string",
@@ -127,30 +127,37 @@ Vous êtes maintenant prêt à déployer votre projet. Lorsque vous déployez un
 
     ![Boîte de dialogue Créer un groupe de ressources](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/create-resource-group.png)
    
-1. Vous pouvez modifier les paramètres du déploiement en choisissant le bouton **Modifier les paramètres**. Fournissez les valeurs des paramètres et sélectionnez le bouton **Enregistrer**.
+1. Modifiez les paramètres du déploiement en sélectionnant le bouton **Modifier les paramètres**.
+
+    ![Bouton Modifier les paramètres](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/edit-parameters.png)
+
+1. Fournissez des valeurs pour les paramètres vides et sélectionnez le bouton **Enregistrer**. Les paramètres vides sont **hostingPlanName**, **Connexionadministrateur**, **administratorLoginPassword** et **databaseName**.
+
+    **hostingPlanName** spécifie le nom du [plan App Service](./app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) à créer.
+    
+    **administratorLogin** spécifie le nom d’utilisateur de l’administrateur SQL Server. N’utilisez pas de noms d’administrateur communs comme **sa** ou **admin**.
+    
+    **administratorLoginPassword** spécifie le mot de passe d’administrateur SQL Server. L’option **Enregistrer les mots de passe en texte brut dans le fichier de paramètres** n’est pas sécurisée. Ne sélectionnez pas cette option. Étant donné que le mot de passe n’est pas enregistré en texte brut, vous devrez indiquer ce mot de passe à nouveau lors du déploiement.
+    
+    **databaseName**spécifie le nom de la base de données à créer.
 
     ![Boîte de dialogue Modifier les paramètres](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/provide-parameters.png)
     
-    L’option **Enregistrer les mots de passe en texte brut dans le fichier de paramètres** n’est pas sécurisée.
-
-1. Sélectionnez le bouton **Déployer** pour déployer le projet dans Azure. Vous pouvez suivre la progression du déploiement dans la fenêtre **Sortie**. Le déploiement peut prendre quelques minutes. Sa durée dépend de votre configuration. Entrez le mot de passe d’administrateur de base de données dans la console PowerShell lorsque vous y êtes invité. Si la progression de votre déploiement est bloquée, cela peut être dû au fait que le processus attend la saisie du mot de passe dans la console PowerShell.
+1. Sélectionnez le bouton **Déployer** pour déployer le projet dans Azure. Une console PowerShell s’ouvre en dehors de l’instance de Visual Studio. Entrez le mot de passe d’administrateur SQL Server dans la console PowerShell lorsque vous y êtes invité. **Votre console PowerShell peut être masquée par d’autres éléments ou réduite dans la barre des tâches.** Recherchez-la et sélectionnez-la pour indiquer le mot de passe.
 
     >[AZURE.NOTE] Il se peut que Visual Studio vous invite à installer les applets de commande Azure PowerShell. Vous devez disposer des applets de commande Azure PowerShell pour déployer des groupes de ressources. Si vous y êtes invité, installez-les.
     
-1. Une fois le déploiement terminé, vous devriez voir un message dans la fenêtre **Sortie**, quelque chose comme :
+1. Ce déploiement peut prendre quelques minutes. La fenêtre **Sortie** indique l’état du déploiement. Lorsque le déploiement est terminé, le dernier message indique que le déploiement a été réalisé avec succès :
 
-        ...
-        15:19:19 - DeploymentName     : websitesqldatabase-0212-2318
-        15:19:19 - CorrelationId      : 6cb43be5-86b4-478f-9e2c-7e7ce86b26a2
-        15:19:19 - ResourceGroupName  : DemoSiteGroup
-        15:19:19 - ProvisioningState  : Succeeded
-        ...
+        ... 
+        18:00:58 - Successfully deployed template 'c:\users\user\documents\visual studio 2015\projects\azureresourcegroup1\azureresourcegroup1\templates\websitesqldatabase.json' to resource group 'DemoSiteGroup'.
+
 
 1. Dans un navigateur, ouvrez le [portail Azure](https://portal.azure.com/) et connectez-vous à votre compte. Pour afficher le groupe de ressources, sélectionnez **Groupes de ressources** et le groupe de ressources vers lequel vous avez effectué le déploiement.
 
     ![sélectionner un groupe](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/select-group.png)
 
-1. Vous verrez toutes les ressources déployées.
+1. Vous verrez toutes les ressources déployées. Notez que le nom du compte de stockage n’est pas exactement celui spécifié lors de l’ajout de cette ressource. Le compte de stockage doit être unique. Le modèle ajoute automatiquement une chaîne de caractères au nom que vous avez spécifié pour créer un nom unique.
 
     ![afficher des ressources](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-deployed-resources.png)
 
@@ -160,9 +167,13 @@ Vous êtes maintenant prêt à déployer votre projet. Lorsque vous déployez un
 
 ## Déployer le code avec votre infrastructure
 
-À ce stade, vous avez déployé l’infrastructure de votre application, mais aucun code réel n’est déployé avec le projet. Cette rubrique montre comment déployer une application web et des tables de base de données SQL lors du déploiement. Si vous déployez une machine virtuelle au lieu d’une application web, vous devrez exécuter du code sur la machine dans le cadre du déploiement. Le processus de déploiement du code pour une application web ou pour la configuration d’une machine virtuelle est quasiment le même.
+À ce stade, vous avez déployé l’infrastructure de votre application, mais aucun code réel n’est déployé avec le projet. Cette rubrique montre comment déployer une application web et des tables SQL Database lors du déploiement. Si vous déployez une machine virtuelle au lieu d’une application web, vous devrez exécuter du code sur la machine dans le cadre du déploiement. Le processus de déploiement du code pour une application web ou pour la configuration d’une machine virtuelle est quasiment le même.
 
-1. Dans votre solution Visual Studio, ajoutez **Application Web ASP.NET**.
+1. Ajoutez un projet à votre solution Visual Studio. Cliquez avec le bouton droit sur la solution et sélectionnez **Ajouter** > **Nouveau projet**.
+
+    ![ajouter un projet](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-project.png)
+
+1. Ajoutez une **application web ASP.NET**.
 
     ![ajouter une application web](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-app.png)
     
@@ -170,37 +181,55 @@ Vous êtes maintenant prêt à déployer votre projet. Lorsque vous déployez un
 
     ![sélectionner MVC](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/select-mvc.png)
     
-1. Une fois que Visual Studio a créé votre application web, ajoutez une référence dans le projet de groupe de ressources pour le projet d’application web.
+1. Une fois votre application web créée par Visual Studio, vous voyez les deux projets dans la solution.
+
+    ![afficher les projets](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-projects.png)
+
+1. À présent, vous devez vous assurer que votre projet de groupe de ressources est informé du nouveau projet. Revenez à votre projet de groupe de ressources (AzureResourceGroup1). Cliquez avec le bouton droit sur **Références** et sélectionnez **Ajouter une référence**.
+
+    ![ajouter une référence](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-new-reference.png)
+
+1. Sélectionnez le projet d’application web que vous avez créé.
 
     ![ajouter une référence](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-reference.png)
     
-    En ajoutant une référence, vous liez le projet d’application web au projet de groupe de ressources et définissez automatiquement trois propriétés clés.
+    En ajoutant une référence, vous liez le projet d’application web au projet de groupe de ressources et définissez automatiquement trois propriétés clés. Vous voyez ces propriétés dans la fenêtre **Propriétés** de la référence.
+
+      ![voir une référence](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/see-reference.png)
     
-    - **Propriétés supplémentaires** contient l’emplacement intermédiaire du package de déploiement web qui est envoyé vers Azure Storage.
+    Les propriétés sont les suivantes :
+
+    - **Propriétés supplémentaires** contient l’emplacement intermédiaire du package de déploiement web qui est envoyé vers Azure Storage. Notez le dossier (ExampleApp) et le fichier (package.zip). Vous fournirez ces valeurs en tant que paramètres lors du déploiement de l’application.
     - **Inclure le chemin d’accès au fichier** contient le chemin d’accès à l’emplacement de création du package. **Inclure les cibles** contient la commande que ce déploiement exécute.
     - La valeur par défaut **Build;Package** permet au déploiement de construire et créer un package de déploiement web (package.zip).
     
     Vous n’avez pas besoin de profil de publication, car le déploiement obtient les informations nécessaires à partir des propriétés pour créer le package.
-    
-      ![voir une référence](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/see-reference.png)
       
-1. Ajoutez une ressource au modèle et cette fois sélectionnez **Web Deploy pour les applications web**.
+1. Ajoutez une ressource au modèle.
+
+    ![ajouter une ressource](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-resource-2.png)
+
+1. Cette fois-ci, sélectionnez **Web Deploy pour les applications Web**.
 
     ![ajouter web deploy](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-web-deploy.png)
     
-1. Redéployez votre projet de groupe de ressources vers le groupe de ressources. Cette fois, il y a de nouveaux paramètres. Vous n’avez pas besoin de fournir des valeurs pour **\_artifactsLocation** ou **\_artifactsLocationSasToken** car Visual Studio les génère automatiquement. Définissez le dossier et le nom de fichier sur le chemin d’accès qui contient le package de déploiement.
+1. Redéployez votre projet de groupe de ressources vers le groupe de ressources. Cette fois, il y a de nouveaux paramètres. Vous n’avez pas besoin de fournir des valeurs pour **\_artifactsLocation** ou **\_artifactsLocationSasToken** car Visual Studio les génère automatiquement. Toutefois, vous devez définir le dossier et le nom de fichier sur le chemin d’accès qui contient le package de déploiement (présenté comme **ExampleAppPackageFolder** et **ExampleAppPackageFileName** dans l’image suivante). Indiquez les valeurs que vous avez vues précédemment dans les propriétés de référence (**ExampleApp** et **package.zip**).
 
     ![ajouter web deploy](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/set-new-parameters.png)
     
-    Pour le **Compte de stockage des artefacts**, vous pouvez utiliser celui déployé avec ce groupe de ressources.
+    Pour le **compte de stockage des artefacts**, sélectionnez celui déployé avec ce groupe de ressources.
     
-Une fois le déploiement terminé, parcourez le site et notez que l’application ASP.NET par défaut a été déployée.
+1. Une fois le déploiement terminé, sélectionnez votre application web dans le portail. Sélectionnez l’URL pour accéder au site.
 
-![afficher l’application déployée](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-deployed-app.png)
+    ![parcourir le site](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/browse-site.png)
+
+1. Notez que vous avez déployé avec succès l’application ASP.NET par défaut.
+
+    ![afficher l’application déployée](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-deployed-app.png)
 
 ## Étapes suivantes
 
 - Pour plus d’informations sur la gestion des ressources via le portail, voir [Utilisation du portail Azure pour gérer vos ressources Azure](./azure-portal/resource-group-portal.md).
 - Pour en savoir plus sur les modèles, voir [Création de modèles Azure Resource Manager](resource-group-authoring-templates.md).
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -185,7 +185,7 @@ Ce code augmente le nombre minimum de threads du pool de threads :
 
 	ThreadPool.SetMinThreads(100,100); //(Determine the right number for your application)  
 
-Pour plus d’informations, consultez [Méthode ThreadPool.SetMinThreads](http://msdn.microsoft.com/library/system.threading.threadpool.setminthreads(v=vs.110).aspx)).
+Pour plus d’informations, consultez [Méthode ThreadPool.SetMinThreads](http://msdn.microsoft.com/library/system.threading.threadpool.setminthreads%28v=vs.110%29.aspx).
 
 ####<a name="subheading11"></a>Utilisation du nettoyage de la mémoire de .NET 4.5
 Utilisez .NET 4.5 ou version ultérieure pour que l’application cliente tire parti des améliorations de la fonctionnalité de nettoyage de la mémoire du serveur sur le plan des performances.
@@ -404,4 +404,4 @@ Il est conseillé d’utiliser des files d’attente pour rendre l’architectur
 ##Conclusion
 Dans cet article, nous avons passé en revue quelques-unes des pratiques utilisées le plus couramment pour optimiser les performances lors de l’utilisation d’Azure Storage. Nous invitons tous les développeurs d’applications à évaluer chacune d’elles et à prendre en compte les recommandations énoncées afin de bénéficier de performances optimales pour les applications qui utilisent Azure Storage.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0914_2016-->

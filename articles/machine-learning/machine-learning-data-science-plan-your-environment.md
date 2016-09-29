@@ -4,7 +4,7 @@
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="bradsev"
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun" />
 
 <tags 
@@ -42,7 +42,7 @@ Les questions logistiques concernent l’emplacement de la **source de données*
 
 3. **Comment allez-vous déplacer les données ?** Les procédures et les ressources disponibles pour l’intégration ou le chargement des données dans différents environnements de stockage et de traitement sont décrites dans les rubriques suivantes.
 
-	-  [Charger des données dans des environnements de stockage à des fins d’analyse](machine-learning-data-science-ingest-data.md) 
+	-  [Charger des données dans des environnements de stockage à des fins d’analyse](machine-learning-data-science-ingest-data.md)
 	-  [Importez vos données d’apprentissage Azure Machine Learning Studio depuis différentes sources de données](machine-learning-data-science-import-data,md).
 
 4. **Les données doivent-elles être déplacées à intervalles réguliers ou modifiées pendant la migration ?** Envisagez d’utiliser Azure Data Factory (ADF) lorsque les données doivent être migrées en permanence, notamment si cela implique un scénario hybride qui accède aux ressources locales et cloud, lorsque les données sont traitées ou doivent être modifiées, ou si vous ajoutez une logique métier en cours de migration. Pour plus d’informations, référez-vous à [Déplacement de données à partir d’un serveur SQL local vers SQL Azure avec Azure Data Factory](machine-learning-data-science-move-sql-azure-adf.md)
@@ -53,7 +53,7 @@ Les questions logistiques concernent l’emplacement de la **source de données*
 ## Questions sur les caractéristiques des données : type, format et taille
 Ces questions sont essentielles pour la planification de vos environnements de stockage et de traitement. Chacun d’entre eux sera adapté aux différents types de données, avec des restrictions propres.
 
-1. **Quels sont les types de données ?** Par exemple : 
+1. **Quels sont les types de données ?** Par exemple :
 	- Numérique
 	- Par catégorie
 	- Chaînes
@@ -87,7 +87,7 @@ Pour plus d’informations sur les limitations des autres services Azure utilis�
 ## Questions sur les outils et les langues
 Il existe un grand nombre de possibilités en fonction des langues, des environnements de développement et des outils dont vous avez besoin ou avec lesquels vous êtes le plus à l’aise.
  
-1. **Quelles langues préférez-vous utiliser pour l’analyse ?**  
+1. **Quelles langues préférez-vous utiliser pour l’analyse ?**
 	- R
 	- Python
 	- SQL
@@ -100,7 +100,7 @@ Il existe un grand nombre de possibilités en fonction des langues, des environn
 	- [Python Tools pour Visual Studio](http://microsoft.github.io/PTVS/)
 	- [Anaconda](https://www.continuum.io/why-anaconda)
 	- [Notebooks Jupiter](http://jupyter.org/)
-	- [Microsoft Power BI](http://powerbi.microsoft.com) 
+	- [Microsoft Power BI](http://powerbi.microsoft.com)
 
 
 ## Identification de votre scénario d’analyse avancée
@@ -114,4 +114,4 @@ Une fois que vous avez répondu aux questions de la section précédente, vous �
 
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

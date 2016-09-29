@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/11/2016"
+   ms.date="09/12/2016"
    ms.author="tomfitz"/>
 
 # Fonctions des modèles Azure Resource Manager
@@ -1087,7 +1087,7 @@ L’exemple ci-après référence un compte de stockage figurant dans un autre g
 		}
 	}
 
-Les propriétés de l’objet renvoyé varient en fonction du type de ressource.
+Les propriétés de l’objet renvoyé par la fonction **reference** varient selon le type de ressource. Pour afficher les noms et les valeurs des propriétés pour un type de ressource donné, créez un modèle simple qui retourne l’objet dans la section **outputs**. Si vous disposez déjà d’une ressource de ce type, votre modèle retourne simplement l’objet sans déployer de nouvelles ressources. Si vous ne disposez pas de ressources de ce type, votre modèle déploie seulement ce type et retourne l’objet. Ensuite, ajoutez ces propriétés à d’autres modèles qui doivent récupérer les valeurs de manière dynamique au cours du déploiement.
 
 <a id="resourcegroup" />
 ### resourceGroup
@@ -1217,4 +1217,4 @@ L’exemple suivant montre la fonction subscription appelée dans la section out
 - Pour effectuer une itération un nombre de fois spécifié pendant la création d'un type de ressource, consultez [Création de plusieurs instances de ressources dans Azure Resource Manager](resource-group-create-multiple.md).
 - Pour savoir comment déployer le modèle que vous avez créé, consultez [Déploiement d’une application avec un modèle Azure Resource Manager](resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

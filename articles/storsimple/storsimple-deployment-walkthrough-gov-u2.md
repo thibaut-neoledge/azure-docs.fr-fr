@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/26/2016"
+   ms.date="08/16/2016"
    ms.author="v-sharos" />
 
 # Déploiement de votre appareil StorSimple local sur Microsoft Azure Government Portal (Mise à jour 2)
 
 [AZURE.INCLUDE [storsimple-version-selector-deploy-gov](../../includes/storsimple-version-selector-deploy-gov.md)]
 
-## Vue d’ensemble
+## Vue d'ensemble
 
 Bienvenue dans cette série de didacticiels consacrée au déploiement d’appareils Microsoft Azure StorSimple. Ces didacticiels de déploiement s'appliquent à la gamme StorSimple 8000 avec logiciel Update 2 dans Microsoft Azure Government Portal. Ils proposent une liste de contrôle de la configuration, ainsi qu’une liste des éléments requis et des étapes de configuration détaillées pour votre appareil StorSimple.
 
@@ -79,7 +79,7 @@ Avant de commencer, assurez-vous que :
 
 - Vous disposez d’un compte de stockage Microsoft Azure doté d’informations d’identification d’accès.
 
-- Votre abonnement Microsoft Azure est activé pour le service StorSimple Manager. Votre abonnement doit être acheté en passant par la page [Licences Azure pour l’entreprise](https://azure.microsoft.com/pricing/enterprise-agreement/).
+- Le service StorSimple Manager est activé dans votre abonnement Microsoft Azure. Votre abonnement doit être acheté dans la page [Accord Entreprise](https://azure.microsoft.com/pricing/enterprise-agreement/).
 
 - Vous avez accès à un logiciel d’émulation de terminal tel que PuTTY.
 
@@ -111,7 +111,7 @@ Un service StorSimple Manager peut gérer plusieurs appareils StorSimple. Procé
 
 > [AZURE.IMPORTANT] Si vous n’avez pas activé la création automatique d’un compte de stockage avec votre service, vous devez créer au moins un compte de stockage après avoir créé un service. Ce compte de stockage est utilisé lorsque vous créez un conteneur de volumes.
 >
-> * Si vous n’avez pas créé de compte de stockage automatiquement, accédez à la page [Configuration d’un compte de stockage pour le service](#configure-a-new-storage-account-for-the-service) pour obtenir des instructions détaillées. 
+> * Si vous n’avez pas créé de compte de stockage automatiquement, accédez à la page [Configuration d’un compte de stockage pour le service](#configure-a-new-storage-account-for-the-service) pour obtenir des instructions détaillées.
 > * Si vous avez activé la création automatique d’un compte de stockage, passez à l’[étape 2 : Obtention de la clé d’inscription](#step-2-get-the-service-registration-key).
 
 ## Étape 2 : Obtention de la clé d’inscription
@@ -208,8 +208,8 @@ La mise à jour de votre appareil peut prendre plusieurs heures. Procédez comme
 
 #### Mise à jour de votre appareil
 
-1.	Sur la page **Démarrage rapide** de l’appareil, cliquez sur **Appareils**. Sélectionnez l'appareil physique, cliquez sur **Maintenance** puis sur **Rechercher les mises à jour**.  
-2.	La tâche créée recherche les mises à jour disponibles. Si des mises à jour sont disponibles, l’option **Rechercher les mises à jour** devient **Installer les mises à jour**. Cliquez sur **Installer les mises à jour**. 
+1.	Sur la page **Démarrage rapide** de l’appareil, cliquez sur **Appareils**. Sélectionnez l'appareil physique, cliquez sur **Maintenance** puis sur **Rechercher les mises à jour**.
+2.	La tâche créée recherche les mises à jour disponibles. Si des mises à jour sont disponibles, l’option **Rechercher les mises à jour** devient **Installer les mises à jour**. Cliquez sur **Installer les mises à jour**.
 3.	Une tâche de mise à jour est créée. Surveillez l'état de la mise à jour en accédant à **Tâches**.
 
 	> [AZURE.NOTE] Lorsque la tâche de mise à jour démarre, elle affiche immédiatement l'état de 50 %. L’état ne passe à 100 % que lorsque la tâche de mise à jour est terminée. Il n’existe aucun état en temps réel du processus de mise à jour.
@@ -243,4 +243,4 @@ Pour obtenir les instructions d'installation et de configuration de MPIO pour un
 - Utilisez le [service StorSimple Manager](https://msdn.microsoft.com/library/azure/dn772396.aspx) pour gérer votre appareil StorSimple.
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0914_2016-->

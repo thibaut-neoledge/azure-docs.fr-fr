@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="08/30/2016"
+   ms.date="09/13/2016"
    ms.author="larryfr"/>
 
 #Utilisation de SSH avec Hadoop Linux sur HDInsight depuis Linux, Unix ou OS X :
@@ -114,7 +114,7 @@ L’utilisateur indiqué peut ainsi se connecter avec le mot de passe ou la clé
 
 Vous pouvez utiliser l’[interface de ligne de commande Azure pour Mac, Linux et Windows](../xplat-cli-install.md) afin de créer un cluster en utilisant la commande `azure hdinsight cluster create`.
 
-Pour plus d’informations sur l’utilisation de cette commande, consultez la rubrique [Approvisionnement de clusters Hadoop sous Linux dans HDInsight à l’aide d’options personnalisées](hdinsight-hadoop-provision-linux-clusters.md).
+Pour plus d’informations sur l’utilisation de cette commande, voir [Approvisionnement de clusters Hadoop sous Linux dans HDInsight à l'aide d'options personnalisées](hdinsight-hadoop-provision-linux-clusters.md).
 
 ##Connexion à un cluster HDInsight sous Linux
 
@@ -128,7 +128,7 @@ Pour plus d’informations sur l’utilisation de cette commande, consultez la r
 
 * **Nom d’utilisateur** : le nom d’utilisateur SSH que vous avez fourni en créant le cluster
 
-L’exemple suivant vous connecte au nœud principal 0 de **mycluster** en tant qu’utilisateur **me** :
+L’exemple suivant permettra de se connecter au nœud principal **mycluster** en tant qu’utilisateur **me** :
 
 	ssh me@mycluster-ssh.azurehdinsight.net
 
@@ -140,7 +140,7 @@ Si vous avez utilisé une clé SSH sécurisée avec une phrase secrète, vous de
 >
 > `ssh -i ~/.ssh/id_rsa me@mycluster-ssh.azurehdinsight.net`
 
-Si vous vous connectez à l’aide de l’adresse correspondant au nœud principal et si aucun port n’est spécifié, SSH est par défaut connecté au port 22, qui se connecte au nœud principal 0 sur le cluster HDInsight. Si vous utilisez le port 23, vous allez vous connecter au nœud principal 1. Pour plus d’informations sur les nœuds principaux, consultez [Disponibilité et fiabilité des clusters Hadoop dans HDInsight](hdinsight-high-availability-linux.md).
+Si vous vous connectez à l’aide de l’adresse correspondant au nœud principal et si aucun port n’est spécifié, SSH est par défaut connecté au port 22, qui se connecte au nœud principal 0 sur le cluster HDInsight. Si vous utilisez le port 23, vous allez vous connecter au nœud secondaire. Pour plus d’informations sur les nœuds principaux, consultez [Disponibilité et fiabilité des clusters Hadoop dans HDInsight](hdinsight-high-availability-linux.md).
 
 ###Connexion à des nœuds de travail
 
@@ -195,9 +195,9 @@ Utilisez les étapes suivantes pour vous connecter aux nœuds de travail de votr
 
     > [AZURE.NOTE] Si vous utilisez un mot de passe pour l’authentification de votre session SSH, vous devez entrer à nouveau le mot de passe. Si vous utilisez une clé SSH, la connexion doit se terminer sans invite de commandes.
 
-4. Une fois la session établie, l’invite de commandes du terminal passe de `username@hn0-clustername` à `username@wk0-clustername` pour indiquer que vous êtes connecté au nœud de travail. Les commandes que vous exécutez à ce stade sont exécutées sur le nœud de travail.
+4. Une fois la session établie, l’invite de commandes du terminal passe de `username@hn#-clustername` à `username@wk#-clustername` pour indiquer que vous êtes connecté au nœud de travail. Les commandes que vous exécutez à ce stade sont exécutées sur le nœud de travail.
 
-4. Une fois les actions sur le nœud de travail terminées, utilisez la commande `exit` pour fermer la session sur le nœud de travail. Vous revenez à l’invite de commandes `username@hn0-clustername`.
+4. Une fois les actions sur le nœud de travail terminées, utilisez la commande `exit` pour fermer la session sur le nœud de travail. Vous revenez à l’invite de commandes `username@hn#-clustername`.
 
 ##Ajout d’autres comptes
 
@@ -247,4 +247,4 @@ Maintenant que vous savez comment vous authentifier avec une clé SSH, apprenez 
 
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -37,7 +37,7 @@ Azure vous empêche de supprimer un certificat s’il est en cours d’utilisati
 
 Vous pouvez utiliser l’applet de commande PowerShell [Remove-AzureCertificate](https://msdn.microsoft.com/library/azure/mt589145.aspx) pour supprimer un certificat, à condition qu’il n’est pas utilisé.
 
-### Mes certificats Microsoft Azure Service Management for Extensions ont expiré
+### Mes certificats Windows Azure Service Management for Extensions ont expiré
 
 Ces certificats sont créés chaque fois qu’une extension, par exemple l’extension du Bureau à distance, est ajoutée au service cloud. Ces certificats sont utilisés uniquement pour le chiffrement et le déchiffrement de la configuration privée de l’extension. L’expiration de ces certificats n’a aucune importance. La date d’expiration n’est pas vérifiée.
 
@@ -49,7 +49,17 @@ Ces certificats continuent de s’afficher en raison d’un outil que vous utili
 
 Chaque nouveau cycle de l’instance de machine virtuelle entraîne la perte de toutes les modifications locales. Utilisez une [tâche de démarrage](cloud-services-startup-tasks.md) pour installer les certificats sur la machine virtuelle à chaque démarrage du rôle.
 
+### Impossible de trouver les certificats de gestion dans le portail
 
+Les [certificats de gestion](..\azure-api-management-certs.md) sont uniquement disponibles dans le portail Azure Classic. Le portail Azure actuel n’utilise pas de certificats de gestion.
+
+### Comment puis-je désactiver un certificat de gestion ?
+
+Les [certificats de gestion](..\azure-api-management-certs.md) ne peuvent pas être désactivés. Vous les supprimez via le portail Azure Classic lorsque vous ne souhaitez plus les utiliser.
+
+### Comment créer un certificat SSL pour une adresse IP spécifique ?
+
+Suivez les instructions du [didacticiel de création de certificat](cloud-services-certs-create.md). Utilisez l’adresse IP en tant que nom DNS.
 
 ## Résolution de problèmes
 
@@ -57,4 +67,4 @@ Chaque nouveau cycle de l’instance de machine virtuelle entraîne la perte de 
 
 Tout d’abord, vérifiez que l’instance de machine virtuelle pour laquelle vous tentez de réserver l’adresse IP est activée. Ensuite, assurez-vous que vous utilisez des adresses IP réservées aussi bien pour les déploiements intermédiaires que pour les déploiements de production. **Ne** modifiez pas les paramètres pendant la mise à niveau du déploiement.
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

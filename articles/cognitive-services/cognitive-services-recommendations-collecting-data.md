@@ -4,7 +4,7 @@
 	services="cognitive-services"
 	documentationCenter=""
 	authors="luiscabrer"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -151,4 +151,4 @@ Une bonne règle empirique est de faire en sorte que la plupart des éléments s
 
 Une fois que vous avez créé un modèle, vous pouvez effectuer une [évaluation hors connexion](cognitive-services-recommendations-buildtypes.md) pour vérifier le comportement probable de votre modèle.
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

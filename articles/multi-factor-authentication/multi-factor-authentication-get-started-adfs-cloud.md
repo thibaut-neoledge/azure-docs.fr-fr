@@ -1,26 +1,26 @@
-<properties 
-	pageTitle="Sécurisation des ressources de cloud avec le serveur Azure Multi-Factor Authentication et AD FS" 
-	description="Voici la page d'authentification multifacteur Azure qui explique la prise en main de l'authentification multifacteur Azure et d’AD FS 2.0 dans le cloud." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
+<properties
+	pageTitle="Sécurisation des ressources de cloud avec le serveur Azure Multi-Factor Authentication et AD FS"
+	description="Voici la page d'authentification multifacteur Azure qui explique la prise en main de l'authentification multifacteur Azure et d’AD FS 2.0 dans le cloud."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
 	editor="curtland"/>
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="08/04/2016" 
-	ms.author="billmath"/>
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="08/04/2016"
+	ms.author="kgremban"/>
 
 # Sécurisation des ressources de cloud avec le serveur Azure Multi-Factor Authentication et AD FS
 
 Si votre organisation est fédérée avec Azure Active Directory et que vous disposez de ressources accessibles à Azure AD, vous pouvez utiliser l'authentification multifacteur d’Azure ou les services de fédération d’Active Directory pour sécuriser ces ressources. Utilisez les procédures ci-dessous pour sécuriser les ressources Azure Active Directory avec l’authentification multifacteur d’Azure ou les services de fédération d’Active Directory
 
-## Pour sécuriser les ressources Azure AD à l'aide d'AD FS, procédez comme suit : 
+## Pour sécuriser les ressources Azure AD à l'aide d'AD FS, procédez comme suit :
 
 
 
@@ -67,7 +67,7 @@ La première chose à faire consiste à configurer les revendications AD FS. Nou
 10. Dans l'Assistant d'ajout d'une règle de revendication de transformation, sélectionnez Send Claims Using a Custom Rule (Envoyer les revendications à l'aide d'une règle personnalisée) dans la liste déroulante et cliquez sur Next (Suivant).
 11. Dans la zone sous le nom de la règle de revendication, entrez Keep Users Signed In (Maintenir les utilisateurs connectés).
 12. Dans la zone de règle personnalisée, entrez :
-	    
+
 		c:[Type == "http://schemas.microsoft.com/2014/03/psso"]
 			=> issue(claim = c);
 ![Cloud](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip5.png)
@@ -93,4 +93,4 @@ Maintenant que les revendications sont en place, nous pouvons configurer des adr
 
 Et voilà ! À ce stade, les utilisateurs fédérés d'Office 365 doivent pouvoir utiliser uniquement MFA lorsqu'une revendication provient de l'extérieur de l'intranet de l'entreprise.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0921_2016-->

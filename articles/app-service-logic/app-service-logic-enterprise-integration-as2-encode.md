@@ -22,7 +22,7 @@ Connectez-vous à Encode AS2 Message pour créer des conditions sûres et fiable
 
 ## Créer la connexion
 
-### Conditions préalables
+### Composants requis
 
 * Un compte Azure (que vous pouvez [créer gratuitement)](https://azure.microsoft.com/free)
 
@@ -66,10 +66,10 @@ Connectez-vous à Encode AS2 Message pour créer des conditions sûres et fiable
 
 ##Essayez par vous-même
 
-Prêt à vous lancer ? Cliquez [ici](https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-as2-send-receive) pour déployer votre propre application logique entièrement fonctionnelle à l’aide des fonctionnalités AS2 de Logic Apps
- 
+Prêt à vous lancer ? Cliquez [ici](https://azure.microsoft.com/documentation/templates/201-logic-app-as2-send-receive/) pour déployer votre propre application logique entièrement fonctionnelle à l’aide des fonctionnalités AS2 de Logic Apps
+
 ## Étapes suivantes
 
 [En savoir plus sur Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md "En savoir plus sur Enterprise Integration Pack")
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

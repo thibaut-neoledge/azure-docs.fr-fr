@@ -4,7 +4,7 @@
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="bradsev"  
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun" />
 
 <tags 
@@ -287,7 +287,7 @@ Un paramètre de module est défini à l’aide de l’élément enfant **Arg** 
 		</Arg>
 
 
-* *Propriétés obligatoires* : **portId**. Correspond à l’ID d’un élément Input de type *DataTable* .
+* *Propriétés obligatoires* : **portId**. Correspond à l’ID d’un élément Input de type *DataTable*.
 * *Propriétés facultatives* :
 	* **allowedTypes**. Filtre les types de colonnes que vous pouvez choisir. Les valeurs valides incluent :
 		* 	Chiffre
@@ -382,4 +382,4 @@ Les **limitations de l’environnement d’exécution** sont les suivantes :
 
  
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

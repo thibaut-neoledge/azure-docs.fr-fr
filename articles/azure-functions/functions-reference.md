@@ -78,21 +78,19 @@ L’éditeur de fonctions intégré au portail Azure vous permet de mettre à jo
 
 Les conteneurs de fonctions sont créés sur App Service, de sorte que toutes les [options de déploiement disponibles sur les applications web standard](../app-service-web/web-sites-deploy.md) le sont également sur les conteneurs de fonctions. Voici des méthodes que vous pouvez utiliser pour télécharger ou mettre à jour les fichiers du conteneur de fonctions.
 
-#### Pour utiliser Visual Studio Online (Monaco)
+#### Pour utiliser l’Éditeur App Service
 
 1. Dans le portail Azure Functions, cliquez sur **Paramètres du conteneur de fonctions**.
 
 2. Dans la section **Paramètres avancés** cliquez sur **Accéder aux paramètres App Service**.
 
-3. Cliquez sur **Outils**.
+3. Cliquez sur **Éditeur App Service** dans App Menu Nav sous **OUTILS DE DÉVELOPPEMENT**.
 
-4. Sous **Développer**, cliquez sur **Visual Studio Online**.
+4.  Cliquez sur **Atteindre**.
 
-5. **Activez-le** si ce n’est pas déjà fait, puis cliquez sur **Accéder**.
+	Une fois l’Éditeur App Service chargé, le fichier *host.json* est les dossiers de fonctions s’affichent sous *wwwroot*.
 
-	Une fois Visual Studio Online chargé, vous verrez le fichier *host.json* est les dossiers de fonctions sous *wwwroot*.
-
-6. Ouvrez des fichiers pour les modifier, ou téléchargez des fichiers par glisser-déplacer depuis votre machine de développement.
+5. Ouvrez des fichiers pour les modifier, ou téléchargez des fichiers par glisser-déplacer depuis votre machine de développement.
 
 #### Pour utiliser la fonction de système d'extrémité SCM (Kudu) de l’application
 
@@ -151,4 +149,4 @@ Pour plus d’informations, consultez les ressources suivantes :
 * [Déclencheurs et liaisons Azure Functions](functions-triggers-bindings.md)
 * [Azure Functions : The Journey](https://blogs.msdn.microsoft.com/appserviceteam/2016/04/27/azure-functions-the-journey/) (Découverte d’Azure Functions) sur le blog d’Azure App Service. Un historique sur le développement d’Azure Functions.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

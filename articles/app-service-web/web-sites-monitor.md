@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/31/2016"
+	ms.date="09/07/2016"
 	ms.author="byvinyal"/>
 
 # Surveillance des applications dans Azure App Service
@@ -47,7 +47,7 @@ Les **quotas** des applications **gratuites** ou **partagées** sont les suivant
    
 Le seul quota applicable aux applications hébergées sur les plans **De base**, **Standard** et **Premium** est **Système de fichiers**.
 
-Pour plus d’informations sur les quotas, limites et fonctionnalités spécifiques disponibles pour les différentes références (SKU) App Service, voir l’article décrivant les [limites du service d’abonnement Azure](../azure-subscription-service-limits.md#app-service-limits).
+Pour plus d’informations sur les quotas, limites et fonctionnalités spécifiques disponibles pour les différentes références (SKU) App Service, consultez [Limites du service d’abonnement Azure](../azure-subscription-service-limits.md#app-service-limits).
 
 #### Application de quotas
 
@@ -126,9 +126,9 @@ D’un autre côté, la métrique **Pourcentage UC** est utile pour les applicat
 
 Les métriques d’une application et d’un plan App Service sont journalisées et agrégées par le service avec les granularités et les stratégies de rétention suivantes :
 
- * Les métriques de granularité **Minute** sont conservées **24 heures**
- * Les métriques de granularité **Hour** sont conservées **7 jours**.
- * Les métriques de granularité **Day** sont conservées **30 jours**.
+ * Les métriques de granularité **Minute** sont conservées **48 heures**
+ * Les métriques de granularité **Hour** sont conservées **30 jours**
+ * Les métriques de granularité **Day** sont conservées **90 jours**
 
 ## Surveillance des quotas et des métriques dans le Portail Azure
 
@@ -160,4 +160,4 @@ Les applications App Service hébergées dans les plans App Service De base, Sta
 [quotas]: ./media/web-sites-monitor/quotas.png
 [metrics]: ./media/web-sites-monitor/metrics.png
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0914_2016-->

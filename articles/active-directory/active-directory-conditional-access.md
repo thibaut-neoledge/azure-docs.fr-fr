@@ -14,7 +14,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="08/25/2016"
+	ms.date="09/14/2016"
 	ms.author="markvi"/>
 
 
@@ -30,9 +30,7 @@ Les fonctionnalités de contrôle d’accès conditionnel d’Active Directory 
 
 ## Licences requises
 
-L’accès conditionnel est une fonctionnalité [Azure AD Premium](http://www.microsoft.com/identity). Tous les utilisateurs accédant à une application limitée par une stratégie d’accès conditionnel doivent disposer d’une licence Azure AD Premium. Consultez [Unlicensed User report](https://aka.ms/utc5ix) (Rapport sur les utilisateurs sans licence) pour en savoir plus sur l’utilisation de cette fonctionnalité.
-
-
+L’accès conditionnel Azure Active Directory est une fonctionnalité [Azure AD Premium](http://www.microsoft.com/identity). Tous les utilisateurs accédant à une application limitée par une stratégie d’accès conditionnel doivent disposer d’une licence Azure AD Premium. Consultez [Unlicensed User report](https://aka.ms/utc5ix) (Rapport sur les utilisateurs sans licence) pour en savoir plus sur l’utilisation de cette fonctionnalité.
 
 
 
@@ -125,4 +123,4 @@ Le plan de contenu suivant répertorie les documents auxquels vous devez vous r�
 - [FAQ sur l’accès conditionnel](active-directory-conditional-faqs.md)
 - [Référence technique](active-directory-conditional-access-technical-reference.md)
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

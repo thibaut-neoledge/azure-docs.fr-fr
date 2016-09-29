@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/03/2016" 
+	ms.date="09/07/2016" 
 	ms.author="tamram"/>
 
 # Utilisation de l'émulateur de stockage Azure pour le développement et le test
@@ -22,6 +22,8 @@
 L'émulateur de stockage Microsoft Azure fournit un environnement local qui émule les services BLOB, de File d'attente et de Table Azure à des fins de développement. L’émulateur de stockage vous permet de tester localement votre application sur les services de stockage, sans souscrire d’abonnement Azure et sans frais. Lorsque vous êtes satisfait du fonctionnement de votre application dans l’émulateur, vous pouvez commencer à utiliser un compte de stockage Azure dans le cloud.
 
 > [AZURE.NOTE] L’émulateur de stockage fait partie du [Kit de développement logiciel (SDK) Microsoft Azure](https://azure.microsoft.com/downloads/). Vous pouvez également installer l’émulateur de stockage en tant que [programme d’installation autonome](https://go.microsoft.com/fwlink/?linkid=717179&clcid=0x409). Pour configurer l'émulateur de stockage, vous devez disposer de privilèges d'administrateur sur l'ordinateur.
+> 
+> Actuellement, l’émulateur de stockage s’exécute uniquement sous Windows.
 >  
 > Notez qu'il n'est pas garanti que vous puissiez accéder aux données créées dans une version de l'émulateur de stockage à partir d'une autre version. Si vous devez rendre vos données persistantes à long terme, nous vous recommandons de stocker ces données dans un compte de stockage Azure plutôt que dans l'émulateur de stockage.
 
@@ -65,7 +67,7 @@ L’URI de la signature d’accès partagé obtenue pour le nouveau conteneur do
 
 La signature d’accès partagé créée avec cet exemple est valide une journée. La signature accorde un accès complet (lecture, écriture, suppression et liste) aux objets blob du conteneur.
 
-Pour plus d’informations sur les signatures d’accès partagé, consultez la page [Signatures d’accès partagé : présentation du modèle SAP](storage-dotnet-shared-access-signature-part-1.md)
+Pour plus d’informations sur les signatures d’accès partagé, consultez [Utilisation des signatures d’accès partagé (SAP)](storage-dotnet-shared-access-signature-part-1.md).
 
 
 ## Démarrer et initialiser l’émulateur de stockage
@@ -203,7 +205,13 @@ Le stockage de files d’attente dans l’émulateur ne présente aucune différ
 
 ## Notes de publication de l’émulateur de stockage
 
+### Version 4.5
+
+- Corrige un bogue qui a provoqué l’échec de l’initialisation et de l’installation de l’émulateur de stockage lorsque la base de données de sauvegarde a été renommée.
+
 ### Version 4.4
+
+- L’émulateur de stockage prend maintenant en charge la version 2015-12-11 des services de stockage sur les points de terminaison des services BLOB, de File d’attente et de Table.
 
 - Le garbage collection par l’émulateur de stockage des données blob est désormais plus efficace quand le nombre d’objets blob est élevé.
 
@@ -247,4 +255,4 @@ Le stockage de files d’attente dans l’émulateur ne présente aucune différ
 
 - La version 2013-08-15 des services de stockage Azure est maintenant entièrement prise en charge. (Auparavant, cette version était uniquement prise en charge par la version préliminaire de l’émulateur de stockage version 2.2.1.)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0914_2016-->

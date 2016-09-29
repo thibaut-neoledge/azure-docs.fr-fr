@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"
 	ms.workload="data-catalog"
-	ms.date="06/27/2016"
+	ms.date="09/13/2016"
 	ms.author="spelluru"/>
 
 # Documentation de sources de données
@@ -32,7 +32,7 @@ Les balises et descriptions sont idéales pour ajouter des annotations simples. 
 
 ## Documentation de ressources de données
 
-La documentation **Azure Data Catalog** vous permet d’utiliser votre catalogue de données comme référentiel de contenu pour créer une narration complète de vos ressources de données. Les utilisateurs peuvent explorer le contenu détaillé décrivant les conteneurs et tables. Si vous utilisez déjà un autre référentiel de contenu, tel que SharePoint ou un partage de fichiers, vous pouvez ajouter des liens de documentation à votre ressource pour référencer ce contenu existant. Vos documents existants seront ainsi mieux exposés.
+La documentation **Azure Data Catalog** vous permet d’utiliser votre catalogue de données comme référentiel de contenu pour créer une narration complète de vos ressources de données. Vous pouvez explorer le contenu détaillé décrivant les conteneurs et tables. Si vous utilisez déjà un autre référentiel de contenu, tel que SharePoint ou un partage de fichiers, vous pouvez ajouter des liens de documentation à votre ressource pour référencer ce contenu existant. Vos documents existants seront ainsi mieux exposés.
 
 > [AZURE.NOTE] La documentation n’est pas incluse dans l’index de recherche.
 
@@ -48,4 +48,4 @@ Le niveau de documentation peut aller d’une simple description des caractéris
 
 La documentation des sources de données avec **Azure Data Catalog** peut créer une narration sur vos ressources de données avec le degré de détail dont vous avez besoin. À l’aide de liens, vous pouvez référencer du contenu stocké dans un référentiel de contenu existant qui rassemble vos documents et vos ressources de données existants. Une fois que vos utilisateurs accèdent aux ressources de données appropriées, ils peuvent bénéficier d’un ensemble de documentation complet.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -1,10 +1,10 @@
 <properties 
    pageTitle="Développer des opérateurs définis par l’utilisateur U-SQL pour des travaux Azure Data Lake Analytics | Azure" 
-   description="Apprenez à développer des opérateurs définis par l’utilisateur pour les utiliser et les réutiliser dans des travaux Data Lake Analytics." 
+   description="Apprenez à développer des opérateurs définis par l’utilisateur pour les utiliser et les réutiliser dans des travaux Data Lake Analytics. " 
    services="data-lake-analytics" 
    documentationCenter="" 
    authors="edmacauley" 
-   manager="paulettm" 
+   manager="jhubbard" 
    editor="cgronlun"/>
  
 <tags
@@ -21,14 +21,14 @@
 
 Apprenez à développer des opérateurs définis par l’utilisateur pour les utiliser et les réutiliser dans des travaux Data Lake Analytics. Vous allez développer un opérateur personnalisé pour convertir des noms de pays.
 
-##Configuration requise
+##Composants requis
 
-- Visual Studio 2015, Visual Studio 2013 mise à jour 4 ou Visual Studio 2012 avec Visual C++. 
+- Visual Studio 2015, Visual Studio 2013 mise à jour 4 ou Visual Studio 2012 avec Visual C++.
 - Kit de développement logiciel (SDK) Microsoft Azure pour .NET version 2.5 ou ultérieure. Installez-le avec Web Platform Installer.
 - Un compte Data Lake Analytics. Consulter [Prise en main des analyses Azure Data Lake Analytics à l’aide du portail Azure](data-lake-analytics-get-started-portal.md).
 - Parcourez le didacticiel [Prise en main d’Azure Data Lake Analytics avec U-SQL Studio](data-lake-analytics-u-sql-get-started.md).
-- Connectez-vous à Azure, consultez [Prise en main d’Azure Data Lake Analytics avec U-SQL Studio](data-lake-analytics-u-sql-get-started.md#connect-to-azure). 
-- Téléchargez la source de données, consultez [Prise en main d’Azure Data Lake Analytics avec U-SQL Studio](data-lake-analytics-u-sql-get-started.md#upload-source-data-files). 
+- Connectez-vous à Azure, consultez [Prise en main d’Azure Data Lake Analytics avec U-SQL Studio](data-lake-analytics-u-sql-get-started.md#connect-to-azure).
+- Téléchargez la source de données, consultez [Prise en main d’Azure Data Lake Analytics avec U-SQL Studio](data-lake-analytics-u-sql-get-started.md#upload-source-data-files).
 
 ## Définir et utiliser un opérateur défini par l’utilisateur en U-SQL
 
@@ -137,7 +137,7 @@ Apprenez à développer des opérateurs définis par l’utilisateur pour les ut
 
 **Pour voir la sortie du travail**
 
-1. Dans l’**Explorateur de serveurs**, développez successivement **Azure**, **Data Lake Analytics**, votre compte Data Lake Analytics, **Comptes de stockage**, puis cliquez avec le bouton droit sur le stockage par défaut et sur **Explorer**. 
+1. Dans l’**Explorateur de serveurs**, développez successivement **Azure**, **Data Lake Analytics**, votre compte Data Lake Analytics, **Comptes de stockage**, puis cliquez avec le bouton droit sur le stockage par défaut et sur **Explorer**.
 2. Développez des exemples, des sorties, puis double-cliquez sur **Drivers.csv**.
 
 
@@ -147,4 +147,4 @@ Apprenez à développer des opérateurs définis par l’utilisateur pour les ut
 - [Prise en main de Data Lake Analytics à l’aide du portail Azure](data-lake-analytics-get-started-portal.md)
 - [Utiliser les outils Data Lake pour Visual Studio pour le développement d’applications U-SQL](data-lake-analytics-data-lake-tools-get-started.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/22/2016"
+	ms.date="09/08/2016"
 	ms.author="iainfou"/>
 
 # Instructions de dénomination d’infrastructure
@@ -31,7 +31,7 @@ Décisions :
 
 Tâches :
 
-- Définissez les affixes que vous utilisez à travers vos ressources pour assurer la cohérence.
+- Définissez les affixes à utiliser parmi vos ressources pour assurer la cohérence.
 - Définissez des noms de compte de stockage devant être globalement uniques.
 - Documentez la convention de dénomination à utiliser et à distribuer à toutes les parties impliquées pour assurer la conformité à travers les déploiements.
 
@@ -110,4 +110,4 @@ Le nom des comptes de stockage sont régis par des règles spécifiques. Vous ne
 ## Étapes suivantes
 [AZURE.INCLUDE [virtual-machines-linux-infrastructure-guidelines-next-steps](../../includes/virtual-machines-linux-infrastructure-guidelines-next-steps.md)]
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

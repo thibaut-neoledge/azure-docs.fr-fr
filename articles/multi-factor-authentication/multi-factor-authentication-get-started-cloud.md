@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Prise en main de Microsoft Azure Multi-Factor Authentication dans le cloud" 
-	description="Cette page dédiée à Microsoft Azure Multi-Factor Authentication décrit la prise en main d’Azure MFA dans le cloud." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="femila" 
+	pageTitle="Prise en main de Microsoft Azure Multi-Factor Authentication dans le cloud"
+	description="Cette page dédiée à Microsoft Azure Multi-Factor Authentication décrit la prise en main d’Azure MFA dans le cloud."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
 	editor="curtand"/>
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="08/15/2016" 
-	ms.author="billmath"/>
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="08/15/2016"
+	ms.author="kgremban"/>
 
 # Prise en main avec Azure Multi-Factor Authentication dans le cloud
 Dans l’article suivant, vous allez apprendre à utiliser Azure Multi-Factor dans le cloud.
@@ -33,7 +33,7 @@ Les conditions préalables suivantes sont requises pour pouvoir activer Azure Mu
 2. [Créez un fournisseur Multi-Factor Auth](multi-factor-authentication-get-started-auth-provider.md) et attribuez-le à votre répertoire ou [attribuez des licences à vos utilisateurs](multi-factor-authentication-get-started-assign-licenses.md).
 
 > [AZURE.NOTE]  Les licences sont disponibles pour les utilisateurs qui disposent d’Azure MFA, d’Azure AD Premium ou d’Enterprise Mobility Suite (EMS). MFA est inclus dans Azure AD Premium et dans l’EMS. Si vous avez suffisamment de licences, il est inutile de créer un fournisseur d’authentification.
-		
+
 
 ## Activer l’authentification multifacteur pour vos utilisateurs
 Pour activer l’authentification multifacteur pour un utilisateur, vous devez simplement passer de l’état Désactivé à l’état Activé. Pour plus d’informations sur les états des utilisateurs, consultez [User States un Azure Multi-Factor Authentication](multi-factor-authentication-get-started-user-states.md) (États des utilisateurs dans Azure Multi-Factor Authentication)
@@ -65,7 +65,7 @@ Pour modifier l’[état](multi-factor-authentication-whats-next.md) à l’aide
 - Désactivé
 
 > [AZURE.IMPORTANT]  N’oubliez pas que si vous passez directement de l’état Désactivé à l’état Appliqué, les clients d’authentification d’ancienne génération cesseront de fonctionner, car l’utilisateur n’a pas fait l’objet d’un enregistrement MFA et n’a pas obtenu de [mot de passe d’application](multi-factor-authentication-whats-next.md#app-passwords). Si vous utilisez des clients d’authentification d’ancienne génération et que vous avez besoin de mots de passe d’application, il est recommandé de passer de l’état Désactivé à l’état Activé. Cela permettra aux utilisateurs de s’inscrire et d’obtenir leurs mots de passe d’application.
-		
+
 		$st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
 		$st.RelyingParty = "*"
 		$st.State = “Enabled”
@@ -73,7 +73,7 @@ Pour modifier l’[état](multi-factor-authentication-whats-next.md) à l’aide
 		Set-MsolUser -UserPrincipalName bsimon@contoso.com -StrongAuthenticationRequirements $sta
 
 L’utilisation de PowerShell permet une activation en bloc des utilisateurs. Il n’existe actuellement aucune fonctionnalité d’activation en bloc dans le portail Azure ; vous devez donc sélectionner chaque utilisateur un à un. Cela peut se révéler fastidieux si vous avez un grand nombre d’utilisateurs. En créant un script PowerShell à l’aide de la commande ci-dessus, vous pouvez parcourir une liste d’utilisateurs et les activer. Voici un exemple :
-    
+
     $users = "bsimon@contoso.com","jsmith@contoso.com","ljacobson@contoso.com"
     foreach ($user in $users)
     {
@@ -90,4 +90,4 @@ Pour plus d’informations sur les états des utilisateurs, consultez [User Stat
 ## Étapes suivantes
 Maintenant que vous avez configuré l’authentification multifacteur dans le cloud, vous pouvez configurer et installer votre déploiement. Consultez [Configuration d’Azure Multi-Factor Authentication.]
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0921_2016-->

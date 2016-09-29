@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/10/2016"
+	ms.date="09/16/2016"
 	ms.author="garye"/>
 
 
@@ -30,7 +30,7 @@ Dans ce guide pas à pas détaillé, nous allons suivre le processus de dévelop
 
 <!-- -->
 
->[AZURE.TIP] Pour télécharger et imprimer un diagramme offrant une vue d’ensemble des fonctionnalités de Machine Learning Studio, consultez [Diagramme de vue d’ensemble des fonctionnalités d’Azure Machine Learning Studio](machine-learning-studio-overview-diagram.md).
+>[AZURE.TIP]Pour télécharger et imprimer un diagramme offrant une vue d’ensemble des fonctionnalités de Machine Learning Studio, consultez [Diagramme de vue d’ensemble des fonctionnalités d’Azure Machine Learning Studio](machine-learning-studio-overview-diagram.md).
 
 Pour créer une solution d'évaluation des risques de crédit, nous allons suivre ces étapes :
 
@@ -43,4 +43,4 @@ Pour créer une solution d'évaluation des risques de crédit, nous allons suivr
 
 Cette procédure pas à pas repose sur une version simplifiée de l’exemple d’expérience [Binary Classification: Credit risk prediction](http://go.microsoft.com/fwlink/?LinkID=525270) (Classification binaire : prédiction du risque de crédit) inclus dans la [galerie Cortana Intelligence](http://gallery.cortanaintelligence.com/).
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

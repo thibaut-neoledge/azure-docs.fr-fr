@@ -5,7 +5,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="bradsev"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -22,9 +22,9 @@
 
 Pour utiliser vos propres données dans Machine Learning Studio afin de développer et de tester une solution d'analyse prédictive, vous pouvez :
 
-- télécharger par avance les données d’un **fichier local** sur votre disque dur pour créer un module de jeu de données dans votre espace de travail.  
-- accéder aux données à partir d’une des nombreuses **sources de données en ligne** pendant que votre expérience s’exécute à l’aide du module [Importer des données][import-data]. 
-- utiliser les données d’une autre expérimentation Azure Machine Learning enregistrée en tant que **jeu de données**. 
+- télécharger par avance les données d’un **fichier local** sur votre disque dur pour créer un module de jeu de données dans votre espace de travail.
+- accéder aux données à partir d’une des nombreuses **sources de données en ligne** pendant que votre expérience s’exécute à l’aide du module [Importer des données][import-data].
+- utiliser les données d’une autre expérimentation Azure Machine Learning enregistrée en tant que **jeu de données**.
 
 [AZURE.INCLUDE [import-data-into-aml-studio-selector](../../includes/machine-learning-import-data-into-aml-studio.md)]
 
@@ -32,7 +32,7 @@ Chacune de ces options est décrite dans une des rubriques du menu ci-dessus. Ce
 
 > [AZURE.NOTE] Un certain nombre d'exemples de jeux de données sont disponibles dans Machine Learning Studio et vous pouvez les utiliser à cet effet. Pour plus d’informations, consultez [Utilisation des exemples de jeux de données dans Azure Machine Learning Studio](machine-learning-use-sample-datasets.md).
 
-Cette rubrique d'introduction montre également comment préparer des données afin de les utiliser dans Machine Learning Studio, et décrit les formats et les types de données pris en charge.
+Cette rubrique d’introduction montre également comment préparer des données afin de les utiliser dans Machine Learning Studio, et décrit les formats et les types de données pris en charge.
 
 > [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
@@ -89,4 +89,4 @@ Au besoin, vous pouvez convertir à nouveau le format de la table de données au
 [edit-metadata]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

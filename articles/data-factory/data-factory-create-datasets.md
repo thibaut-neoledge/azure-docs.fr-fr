@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/27/2016" 
+	ms.date="09/13/2016" 
 	ms.author="spelluru"/>
 
 # Jeux de données dans Azure Data Factory
@@ -22,11 +22,11 @@ Cet article décrit les jeux de données dans Azure Data Factory et propose dive
 
 Lorsque vous créez un jeu de données, vous créez un pointeur vers les données que vous souhaitez traiter. Les données sont traitées (entrées/sorties) dans une activité, laquelle est contenue dans un pipeline. Un jeu de données d’entrée représente l’entrée d’une activité dans le pipeline, tandis qu’un jeu de données de sortie représente la sortie de l’activité.
 
-Les jeux de données identifient les données dans différents magasins de données, par exemple des tables, des fichiers, des dossiers et des documents. Après avoir créé un jeu de données, vous pouvez l’utiliser avec des activités d’un pipeline. Un jeu de données peut, par exemple, constituer un jeu de données d’entrée/sortie d’une activité de copie ou d’une activité HDInsightHive. Le portail Azure vous donne une présentation visuelle de tous les pipelines et de toutes les entrées et sorties de données. Vous pouvez voir instantanément toutes les relations et dépendances de vos pipelines de données sur l’ensemble de vos sources, de manière à connaître systématiquement l’origine et la destination des données.
+Les jeux de données identifient les données dans différents magasins de données, par exemple des tables, des fichiers, des dossiers et des documents. Après avoir créé un jeu de données, vous pouvez l’utiliser avec des activités d’un pipeline. Un jeu de données peut, par exemple, constituer un jeu de données d’entrée/sortie d’une activité de copie ou d’une activité HDInsightHive. Le portail Azure vous donne une présentation visuelle de tous les pipelines et de toutes les entrées et sorties de données. Vous pouvez voir instantanément toutes les relations et dépendances de vos pipelines sur l’ensemble de vos sources, de manière à connaître systématiquement l’origine et la destination des données.
 
 Dans Azure Data Factory, vous pouvez obtenir des données à partir d’un jeu de données en utilisant l’activité de copie dans un pipeline.
 
-> [AZURE.NOTE] Si vous découvrez tout juste Azure Data Factory, consultez la [Présentation d’Azure Data Factory](data-factory-introduction.md) pour une vue d’ensemble du service Azure Data Factory et le didacticiel [Créer votre première fabrique de données](data-factory-build-your-first-pipeline.md) pour créer votre première fabrique de données. Ces deux articles fournissent des informations de base pour mieux comprendre le présent article.
+> [AZURE.NOTE] Si vous débutez avec Azure Data Factory, consultez [Présentation d’Azure Data Factory](data-factory-introduction.md) pour en obtenir une vue d’ensemble. Consultez la page [Build your first data factory](data-factory-build-your-first-pipeline.md) (Concevoir votre première fabrique de données) pour accéder à un didacticiel expliquant comment créer votre première fabrique de données. Ces deux articles fournissent des informations de base pour mieux comprendre le présent article.
 
 ## Définir les jeux de données
 Un jeu de données dans Azure Data Factory est défini comme suit :
@@ -71,8 +71,7 @@ La table suivante décrit les propriétés dans le JSON ci-dessus :
 | policy | Définit les critères ou la condition que les segments du jeu de données doivent remplir. <br/><br/>Consultez la rubrique [Stratégie du jeu de données](#Policy) pour plus de détails | Non | N/D |
 
 ## Exemple de jeu de données
-
-Voici un exemple de jeu de données qui représente une table nommée **MyTable** dans une **base de données SQL Azure**.
+Dans l’exemple suivant, le jeu de données représente une table nommée **MyTable** dans une **base de données SQL Azure**.
 
 	{
 	    "name": "DatasetSample",
@@ -95,7 +94,7 @@ Notez les points suivants :
 
 - Le type est défini sur AzureSQLTable.
 - La propriété de type tableName (propre au type AzureSqlTable) est définie sur MyTable.
-- linkedServiceName fait référence à un service lié de type AzureSqlDatabase. Voir la définition du service lié ci-dessous.
+- linkedServiceName fait référence à un service lié de type AzureSqlDatabase. Voir la définition du service lié suivant.
 - la fréquence de disponibilité (availability) est définie sur Day et l’intervalle sur 1, ce qui signifie que la tranche est exécutée quotidiennement.
 
 AzureSqlLinkedService est défini comme suit :
@@ -117,13 +116,13 @@ Dans l’exemple JSON ci-dessus :
 - la propriété de type connectionString spécifie les informations nécessaires pour vous connecter à une base de données SQL Azure.
 
 
-Comme vous pouvez le voir, le service lié définit comment se connecter à une base de données SQL Azure et le jeu de données définit quelle table est utilisée comme entrée/sortie de votre fabrique de données. La section d’activité de votre [pipeline](data-factory-create-pipelines.md) JSON spécifie si le jeu de données est utilisé comme jeu de données d’entrée ou de sortie.
+Comme vous pouvez le voir, le service lié définit comment se connecter à une base de données SQL Azure. Le jeu de données définit quelle table est utilisée comme une entrée/sortie de l’activité dans un pipeline. La section d’activité de votre [pipeline](data-factory-create-pipelines.md) JSON spécifie si le jeu de données est utilisé comme jeu de données d’entrée ou de sortie.
 
 
-> [AZURE.IMPORTANT] À moins qu’un jeu de données ne soit généré par Azure Data Factory, il doit être marqué comme **external** (externe). Cela s’applique généralement aux entrées de la première activité d’un pipeline.
+> [AZURE.IMPORTANT] À moins qu’un jeu de données ne soit généré par Azure Data Factory, il doit être marqué comme **external** (externe). Ce paramètre s’applique généralement aux entrées de la première activité d’un pipeline.
 
 ## <a name="Type"></a> Type du jeu de données
-Les sources de données prises en charge et les types de jeux de données sont alignés. Consultez les rubriques référencées dans l’article [Activités de déplacement des données](data-factory-data-movement-activities.md#supported-data-stores) pour obtenir plus d’informations sur les types et la configuration des jeux de données. Par exemple : si vous utilisez des données à partir d’une base de données SQL Azure, cliquez sur Base de données SQL Microsoft Azure dans la liste des magasins de données pris en charge pour afficher des informations détaillées sur l’utilisation d’une base de données SQL Azure en tant que magasin de données source ou magasin de données récepteur.
+Les sources de données prises en charge et les types de jeux de données sont alignés. Consultez les rubriques référencées dans l’article [Activités de déplacement des données](data-factory-data-movement-activities.md#supported-data-stores) pour obtenir plus d’informations sur les types et la configuration des jeux de données. Par exemple, si vous utilisez des données à partir d’une base de données SQL Azure, cliquez sur Base de données SQL Microsoft Azure dans la liste des magasins de données pris en charge pour afficher des informations détaillées.
 
 ## <a name="Structure"></a>Structure d'un jeu de données
 La section **Structure** définit le schéma du jeu de données. Il contient une collection de noms et types de données de colonnes. Dans l’exemple suivant, le jeu de données contient trois colonnes : slicetimestamp, projectname et pageviews. Leurs types respectifs sont les suivants : String, String et Decimal.
@@ -136,9 +135,9 @@ La section **Structure** définit le schéma du jeu de données. Il contient une
 	]
 
 ## <a name="Availability"></a> Disponibilité du jeu de données
-La section **availability** (disponibilité) dans un jeu de données définit la fenêtre de traitement (horaire, journalier, hebdomadaire etc.) ou le modèle de découpage du jeu de données. Consultez l’article [Planification et exécution](data-factory-scheduling-and-execution.md) pour plus d'informations sur le découpage du jeu de données et le modèle de dépendance.
+La section **availability** (disponibilité) dans un jeu de données définit la fenêtre de traitement (horaire, journalier, hebdomadaire, etc.) ou le modèle de découpage du jeu de données. Consultez l’article [Planification et exécution](data-factory-scheduling-and-execution.md) pour plus d'informations sur le découpage du jeu de données et le modèle de dépendance.
 
-La section availability ci-dessous spécifie que le jeu de données est exécuté toutes les heures dans le cas d’un jeu de données de sortie ou qu’il est disponible toutes les heures dans le cas d’un jeu de données d’entrée.
+La section availability suivante spécifie que le jeu de données de sortie est exécuté toutes les heures (ou) que le jeu de données d’entrée est disponible toutes les heures.
 
 	"availability":	
 	{	
@@ -153,7 +152,7 @@ Le tableau suivant décrit les propriétés que vous pouvez utiliser dans la sec
 | frequency | Spécifie l’unité de temps pour la production du segment du jeu de données.<br/><br/>**Fréquence prise en charge** : minute, heure, jour, semaine, mois | Oui | N/D |
 | interval | Spécifie un multiplicateur de fréquence<br/><br/>« Fréquence x intervalle » détermine la fréquence à laquelle le segment est généré.<br/><br/>Si vous voulez que le jeu de données soit segmenté toutes les heures, définissez **Frequency** sur **Hour** et **Interval** sur **1**.<br/><br/>**Remarque :** si vous définissez la fréquence en minutes, nous vous recommandons de définir l’intervalle de 15 au minimum | Oui | N/D |
 | style | Spécifie si le segment doit être généré au début / à la fin de l’intervalle.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul><br/><br/>Si la fréquence est définie sur Month et le style défini sur EndOfInterval, le segment est généré le dernier jour du mois. Si le style est défini sur StartOfInterval, le segment est généré le premier jour du mois.<br/><br/>Si la fréquence est définie sur Day et style défini sur EndOfInterval, le segment est généré durant la dernière heure du jour.<br/><br/>Si la fréquence est définie sur Hour et le style défini sur EndOfInterval, le segment est généré à la fin de l’heure. Par exemple, pour un segment de la période 13 h-14 h, le segment est généré à 14 h. | Non | EndOfInterval |
-| anchorDateTime | Définit la position absolue dans le temps utilisée par le planificateur pour calculer les limites de tranche de jeu de données. <br/><br/>**Remarque :** si AnchorDateTime contient des éléments de date plus précis que la fréquence, ces éléments plus précis seront ignorés. <br/><br/>Par exemple, si **interval** est défini sur **hourly** (frequency : hour et interval : 1) et si **AnchorDateTime** contient **minutes et secondes**, les parties **minutes et secondes** de la valeur AnchorDateTime seront ignorées. | Non | 01/01/0001 |
+| anchorDateTime | Définit la position absolue dans le temps utilisée par le planificateur pour calculer les limites de tranche de jeu de données. <br/><br/>**Remarque :** si AnchorDateTime contient des éléments de date plus précis que la fréquence, ces éléments plus précis sont ignorés. <br/><br/>Par exemple, si **interval** est défini sur **hourly** (frequency : hour et interval : 1) et si **AnchorDateTime** contient **minutes et secondes**, les parties **minutes et secondes** de la valeur AnchorDateTime sont ignorées. | Non | 01/01/0001 |
 | Offset | Intervalle de temps marquant le déplacement du début et de la fin de toutes les tranches du jeu de données. <br/><br/>**Remarque :** si anchorDateTime et offset sont spécifiés, on obtient un décalage combiné. | Non | N/D |
 
 ### exemple offset
@@ -173,7 +172,7 @@ Pour un planning de 12 mois (fréquence = mois ; intervalle = 12), la valeur of
 
 ## Exemple anchorDateTime
 
-**Exemple :** segments du jeu de données de 23 heures qui démarrent le 2007-04-19T08:00:00
+**Exemple :** segments du jeu de données de 23 heures qui démarrent le 2007-04-19T08:00:00
 
 	"availability":	
 	{	
@@ -184,7 +183,7 @@ Pour un planning de 12 mois (fréquence = mois ; intervalle = 12), la valeur of
 
 ## Exemple de décalage/style
 
-Si vous avez besoin d’un jeu de données tous les mois à une date et une heure spécifiques (par exemple, le 3e jour de chaque mois à 8h), vous pouvez utiliser la balise **offset** pour définir la date et l’heure d’exécution.
+Si vous avez besoin d’un jeu de données tous les mois à une date et une heure spécifiques (par exemple, le 3e jour de chaque mois à 8 h), utilisez la balise **offset** pour définir la date et l’heure d’exécution.
 
 	{
 	  "name": "MyDataset",
@@ -242,12 +241,12 @@ La section **policy** de la définition du jeu de données définit les critère
 
 Les jeux de données externes sont ceux qui ne sont pas générés par un pipeline en cours d’exécution dans la fabrique de données. Si le jeu de données est marqué comme étant **external**, la stratégie **ExternalData** peut être définie de manière à influencer le comportement de disponibilité du segment du jeu de données.
 
-À moins qu’un jeu de données ne soit généré par Azure Data Factory, il doit être marqué comme **external** (externe). Cela s’applique généralement aux entrées de la première activité dans un pipeline, à moins que l’activité ou le chaînage de pipeline soient utilisés.
+À moins qu’un jeu de données ne soit généré par Azure Data Factory, il doit être marqué comme **external** (externe). Cela s’applique généralement aux entrées de la première activité dans un pipeline, à moins que l’activité ou le chaînage de pipeline ne soient utilisés.
 
 | Nom | Description | Requis | Valeur par défaut |
 | ---- | ----------- | -------- | -------------- |
-| dataDelay | Durée du délai de la vérification de la disponibilité des données externes pour le segment donné. Par exemple, si les données sont supposées être disponibles toutes les heures, la vérification permettant de déterminer si les données externes sont réellement disponibles et si le segment correspondant est à l’état Ready peut être différée selon la valeur de dataDelay.<br/><br/>S’applique uniquement à l’heure actuelle. Par exemple, s’il est 13 h et que cette valeur est de 10 minutes, la validation commence à 13 h 10.<br/><br/>Ce paramètre n’affecte pas les segments dans le passé (segments avec Slice End Time + dataDelay < maintenant) qui sont traités sans délai.<br/><br/>Au-delà de 23 heures et 59 minutes, vous devez utiliser le format jour.heures:minutes:secondes. Par exemple, pour spécifier 24 heures, n'utilisez pas 24:00:00 ; utilisez plutôt 1.00:00:00. Si vous utilisez 24:00:00, cette valeur sera traitée comme 24 jours (24.00:00:00). Pour 1 jour et 4 heures, spécifiez 1:04:00:00. | Non | 0 |
-| retryInterval | Délai d'attente entre un échec et la nouvelle tentative. S'applique à l'heure actuelle ; si la tentative précédente a échoué, le système laisse ce délai s'écouler après la dernière tentative. <br/><br/>S’il est 13 h actuellement, la première tentative commence. Si la durée de la première vérification de validation est de 1 minute et si l'opération a échoué, la tentative suivante aura lieu à 13h + 1 min (durée) + 1 minute (intervalle avant nouvelle tentative) = 13h02. <br/><br/>Pour les segments dans le passé, il n’y a aucun délai. La nouvelle tentative a lieu immédiatement. | Non | 00:01:00 (1 minute) | 
+| dataDelay | Durée du délai de la vérification de la disponibilité des données externes pour le segment donné. Par exemple, si les données sont censées être disponibles toutes les heures, il est possible de retarder le test vérifiant si les données externes sont disponibles et si le segment correspondant est prêt à l’aide de dataDelay.<br/><br/>S’applique uniquement à l’heure actuelle. Par exemple, s’il est 13 h et si cette valeur est de 10 minutes, la validation commence à 13 h 10.<br/><br/>Ce paramètre n’affecte pas les segments passés : les segments pour lesquelles Slice End Time (Heure de fin du segment) + dataDelay < Maintenant sont traités sans délai.<br/><br/>Les heures supérieures à 23:59 doivent être spécifiées en suivant le format jour.heures:minutes:secondes. Par exemple, pour spécifier 24 heures, n'utilisez pas 24:00:00 ; utilisez plutôt 1.00:00:00. Si vous utilisez 24:00:00, cette valeur est traitée comme 24 jours (24.00:00:00). Pour 1 jour et 4 heures, spécifiez 1:04:00:00. | Non | 0 |
+| retryInterval | Délai d'attente entre un échec et la nouvelle tentative. S'applique à l'heure actuelle ; si la tentative précédente a échoué, le système laisse ce délai s'écouler après la dernière tentative. <br/><br/>S’il est 13 h actuellement, la première tentative commence. Si la durée de la première vérification de validation est de 1 minute et si l’opération a échoué, la tentative suivante aura lieu à 13 h + 1 min (durée) + 1 minute (intervalle avant nouvelle tentative) = 13 h 02. <br/><br/>Pour les segments dans le passé, il n’y a aucun délai. La nouvelle tentative se fait immédiatement. | Non | 00:01:00 (1 minute) | 
 | retryTimeout | Le délai d’attente pour chaque nouvelle tentative.<br/><br/>S’il est défini sur 10 minutes, la validation doit être effectuée en 10 minutes maximum. S’il faut plus de 10 minutes pour effectuer la validation, la nouvelle tentative expire.<br/><br/>Si toutes les tentatives de validation expirent, le segment est marqué comme TimedOut. | Non | 00:10:00 (10 minutes) |
 | maximumRetry | Nombre de fois où la disponibilité des données externes est vérifiée. La valeur maximale autorisée est de 10. | Non | 3 | 
 
@@ -345,4 +344,4 @@ Vous pouvez créer des jeux de données étendus jusqu’à un pipeline à l’a
 	    }
 	}
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -5,7 +5,7 @@
 	services="cognitive-services"
 	documentationCenter=""
 	authors="luiscabrer"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -198,4 +198,4 @@ L’exemple ci-dessous montre ce à quoi la sortie peut ressembler. Dans cet exe
 -	Un seul traitement par lots peut être appelé par abonnement à la fois.
 -	Un fichier d’entrée de traitement par lots ne peut pas avoir une taille supérieure à 2 Mo.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

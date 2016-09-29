@@ -18,6 +18,10 @@
 
 # Réinitialisation du mot de passe pour un utilisateur
 
+> [AZURE.SELECTOR]
+- [Portail Azure](active-directory-users-reset-password-azure-portal.md)
+- [Portail Azure Classic](active-directory-create-users-reset-password.md)
+
 Que vous répondiez à un utilisateur qui demande une réinitialisation de son mot de passe après le verrouillage de son compte ou que vous exécutiez une maintenance de routine de la sécurité, vous devez parfois réinitialiser le mot de passe d’un utilisateur. Azure Active Directory (Azure AD) facilite cette opération.
 
   1. Ouvrez votre annuaire.
@@ -35,4 +39,4 @@ Que vous répondiez à un utilisateur qui demande une réinitialisation de son m
 - [Gestion des mots de passe dans Azure AD](active-directory-manage-passwords.md)
 - [Gestion des groupes dans Azure AD](active-directory-manage-groups.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

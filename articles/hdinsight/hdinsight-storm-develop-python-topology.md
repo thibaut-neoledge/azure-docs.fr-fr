@@ -4,7 +4,7 @@
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"/>
 
 <tags
@@ -20,7 +20,7 @@
 
 Apache Storm prend en charge plusieurs langages et vous permet de combiner des composants de plusieurs langages dans une même topologie. Dans cet article, vous apprendrez à utiliser les composants de Python dans vos topologies Storm basées sur Java et Clojure à partir de HDInsight.
 
-##Configuration requise
+##Composants requis
 
 * Python 2.7 ou ultérieure
 
@@ -174,4 +174,4 @@ Dans ce document, vous avez appris à utiliser les composants de Python à parti
 * [Développement de programmes de diffusion en continu Python pour HDInsight](hdinsight-hadoop-streaming-python.md)
 * [Utilisation de Python avec Hive et Pig dans HDInsight](hdinsight-python.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0914_2016-->

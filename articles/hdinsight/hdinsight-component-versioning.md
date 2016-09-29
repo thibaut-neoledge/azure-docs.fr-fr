@@ -3,7 +3,7 @@
 	description="HDInsight prend en charge plusieurs composants et versions de cluster Hadoop pouvant être déployés. Découvrez les versions de distributions prises en charge Hadoop et HortonWorks Data Platform (HDP)."
 	services="hdinsight"
 	editor="cgronlun"
-	manager="paulettm"
+	manager="jhubbard"
 	authors="mumian"
 	tags="azure-portal"
 	documentationCenter=""/>
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/10/2016"
+	ms.date="09/14/2016"
 	ms.author="jgao"/>
 
 
@@ -51,10 +51,11 @@ Pour plus d’informations sur la tarification et le contrat SLA pour l’éditi
 
 ## Composants Hadoop disponibles avec différentes versions de HDInsight
 
-Azure HDInsight prend en charge plusieurs versions de cluster Hadoop qui peuvent être déployées à tout moment. Le choix d'une version crée une version spécifique de la distribution de la plateforme de données Hortonworks (HDP) et un ensemble de composants qui sont contenus dans cette distribution. Les versions des composants associées aux versions de cluster HDInsight sont répertoriées dans le tableau suivant. Notez que la version de cluster par défaut actuellement utilisée par Azure HDInsight est la version 3.2, et, à la date du 03/12/2015, elle est basée sur HDP 2.2.
+Azure HDInsight prend en charge plusieurs versions de cluster Hadoop qui peuvent être déployées à tout moment. Le choix d'une version crée une version spécifique de la distribution de la plateforme de données Hortonworks (HDP) et un ensemble de composants qui sont contenus dans cette distribution. Les versions des composants associées aux versions de cluster HDInsight sont répertoriées dans le tableau suivant. Notez que la version de cluster par défaut actuellement utilisée par Azure HDInsight est la version 3.4, et, à la date du 14/09/2016, elle est basée sur HDP 2.4.
 
+> [AZURE.NOTE] La version par défaut du service peut changer sans préavis. Nous vous recommandons de spécifier la version lorsque vous créez des clusters à l’aide du Kit de développement logiciel (SDK) .NET/Azure PowerShell et Azure CLI, si vous êtes dépendant d’une version.
 
-Composant|HDInsight version 3.4 | HDInsight version 3.3 | HDInsight version 3.2 (par défaut)|HDInsight version 3.1 |HDInsight Version 3,0|
+Composant|HDInsight Version 3.4 (par défaut) | HDInsight version 3.3 | HDInsight Version 3.2 |HDInsight version 3.1 |HDInsight Version 3,0|
 ---|---|---|---|---|---
 Hortonworks Data Platform|2\.4|2\.3|2\.2|2\.1.7|2\.0|
 Apache Hadoop et YARN|2\.7.1|2\.7.1|2\.6.0|2\.4.0|2\.2.0|
@@ -112,7 +113,7 @@ La **Date d’obsolescence** est la date après laquelle la version du cluster n
 
 ## Notes de publication de Hortonworks associées aux versions de HDInsight##
 
-* Le cluster HDInsight version 3.4 utilise une distribution Hadoop basée sur [Hortonworks Data Platform 2.4](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.4.0/bk_HDP_RelNotes/content/ch_relnotes_v240.html).
+* Le cluster HDInsight version 3.4 utilise une distribution Hadoop basée sur [Hortonworks Data Platform 2.4](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.4.0/bk_HDP_RelNotes/content/ch_relnotes_v240.html). Il s’agit du cluster Hadoop **par défaut** créé lors de l’utilisation du portail.
 
 
 
@@ -120,7 +121,7 @@ La **Date d’obsolescence** est la date après laquelle la version du cluster n
 	* Les notes de publication d’Apache Storm sont disponibles [ici](https://storm.apache.org/2015/11/05/storm0100-released.html).
 	* Les notes de publication d’Apache Hive sont disponibles [ici](https://issues.apache.org/jira/secure/ReleaseNote.jspa?version=12332384&styleName=Text&projectId=12310843).
 
-* Le cluster HDInsight version 3.2 utilise une distribution Hadoop basée sur [Hortonworks Data Platform 2.2][hdp-2-2]. Il s’agit du cluster Hadoop **par défaut** créé lors de l’utilisation du portail.
+* Le cluster HDInsight version 3.2 utilise une distribution Hadoop basée sur [Hortonworks Data Platform 2.2][hdp-2-2].
 
 	* Notes de publication pour les composants spécifiques d’Apache - [Hive 0.14](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310843&version=12326450), [Pig 0.14](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310730&version=12326954), [HBase 0.98.4](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310753&version=12326810), [Phoenix 4.2.0](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12315120&version=12327581), [M/R 2.6](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310941&version=12327180), [HDFS 2.6](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310942&version=12327181), [YARN 2.6](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12313722&version=12327197), [Common](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310240&version=12327179), [Tez 0.5.2](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12314426&version=12328742), [Ambari 2.0](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12312020&version=12327486), [Storm 0.9.3](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12314820&version=12327112), [Oozie 4.1.0](https://issues.apache.org/jira/secure/ReleaseNote.jspa?version=12324960&projectId=12311620).
 
@@ -156,4 +157,4 @@ La **Date d’obsolescence** est la date après laquelle la version du cluster n
 
 [zookeeper]: http://zookeeper.apache.org/
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0914_2016-->

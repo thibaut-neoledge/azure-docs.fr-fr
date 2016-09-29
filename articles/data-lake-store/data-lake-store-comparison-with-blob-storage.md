@@ -4,7 +4,7 @@
    services="data-lake-store"
    documentationCenter=""
    authors="nitinme"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"/>
 
 <tags
@@ -48,4 +48,4 @@ Le tableau de cet article résume les différences entre Azure Data Lake Store e
 - [Présentation d’Azure Data Lake Store](data-lake-store-overview.md)
 - [Prise en main de Data Lake Store](data-lake-store-get-started-portal.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0914_2016-->

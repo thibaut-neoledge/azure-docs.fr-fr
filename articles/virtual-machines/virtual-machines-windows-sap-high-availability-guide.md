@@ -434,7 +434,8 @@ Microsoft Azure permet aux entreprises d’acquérir des ressources de calcul, 
 Ce document détaille toutes les étapes nécessaires pour déployer des systèmes SAP hautement disponibles dans Azure suivant notre nouvelle méthode avec le nouveau modèle de déploiement Azure Resource Manager. Ce guide vous guidera tout au long des étapes principales :
 
 
-- Recherche des notes et des guides d’installation de SAP adaptés, listés plus bas dans la section intitulée [Ressources][sap-ha-guide-2]. Ce document vient compléter la documentation sur l’installation SAP et des notes SAP, qui représentent les ressources incontournables en matière d’installation et de déploiement de logiciels SAP sur des plateformes données.
+- Recherche des notes et des guides d’installation de SAP adaptés, listés plus bas dans la section intitulée [Ressources][sap-ha-guide-2].  
+  Ce document vient compléter la documentation sur l’installation SAP et des notes SAP, qui représentent les ressources incontournables en matière d’installation et de déploiement de logiciels SAP sur des plateformes données.
 
 - Présentation de la différence entre le modèle de déploiement Azure Classic actuel et le nouveau modèle de déploiement Azure Resource Manager.
 

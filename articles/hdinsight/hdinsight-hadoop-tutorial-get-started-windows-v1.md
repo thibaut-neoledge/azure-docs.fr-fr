@@ -5,7 +5,7 @@
    services="hdinsight"
    documentationCenter=""
    authors="nitinme"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"/>
 
 <tags
@@ -67,7 +67,7 @@ Lors de l'approvisionnement d'un cluster Hadoop dans HDInsight, vous spécifiez 
 
 >[AZURE.NOTE] Ne partagez pas un conteneur de stockage d'objets blob par défaut avec plusieurs clusters Hadoop.
 
-En plus de ce compte de stockage, vous pouvez ajouter des comptes de stockage supplémentaires quand vous configurez de façon personnalisée un cluster. Ce compte de stockage supplémentaire peut être ajouté à partir du même abonnement Azure ou à partir d'autres abonnements Azure. Pour plus d'informations, consultez la rubrique [Approvisionnement de clusters HDInsight au moyen d'options personnalisées][hdinsight-provision].
+En plus de ce compte de stockage, vous pouvez ajouter des comptes de stockage supplémentaires quand vous configurez de façon personnalisée un cluster. Ce compte de stockage supplémentaire peut être ajouté à partir du même abonnement Azure ou à partir d’autres abonnements Azure. Pour plus d'informations, consultez la rubrique [Approvisionnement de clusters HDInsight au moyen d'options personnalisées][hdinsight-provision].
 
 Ce didacticiel utilise uniquement l'objet blob par défaut et le compte de stockage par défaut.
 
@@ -91,7 +91,7 @@ Quand vous approvisionnez un cluster, vous approvisionnez les ressources de calc
 
 **Pour approvisionner un cluster Hadoop**
 
-1. Connectez-vous au [portail Azure Classic][azure-management-portal].
+1. Connectez-vous au [Portail Azure Classic][azure-management-portal].
 
 2. Cliquez sur **NOUVEAU** dans l'angle inférieur gauche, puis entrez les valeurs comme indiqué dans l'image.
 
@@ -283,4 +283,4 @@ Dans ce didacticiel Hadoop, vous avez appris à approvisionner un cluster Hadoop
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows-v1/HDI.GettingStarted.PowerQuery.ImportData2.png
  
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0914_2016-->

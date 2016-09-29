@@ -41,4 +41,4 @@ Vous avez terminé. Votre application logique est maintenant terminée.
 Vous pouvez maintenant tester votre application logique : dans Salesforce, créez un prospect qui répond à la condition que vous avez créée. Si vous avez suivi cette procédure pas à pas en intégralité, créez simplement un prospect avec une adresse de messagerie qui contient *amazon.com*. Votre application logique doit être déclenchée après quelques secondes, et les résultats devraient ressembler à ceci :   
 ![Image d’action Salesforce 9](./media/connectors-create-api-salesforce/action-9.png)  
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

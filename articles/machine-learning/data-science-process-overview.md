@@ -5,7 +5,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="bradsev"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun" />
 
 <tags
@@ -100,4 +100,4 @@ TDSP n'impose pas de types d'artefacts de **documentation** spécifiques. Cepend
 
 Des procédures pas à pas complètes illustrant toutes les étapes de **scénarios spécifiques** sont également fournies. Elles sont répertoriées avec des descriptions de miniatures dans la rubrique [Team Data Science Process walkthroughs](data-science-process-walkthroughs.md) (Procédures pas à pas du processus TDSP (Team Data Science Process)).
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

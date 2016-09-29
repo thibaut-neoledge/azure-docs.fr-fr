@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/10/2016"
+	ms.date="09/09/2016"
 	ms.author="garye"/>
 
 
@@ -27,7 +27,7 @@ Ce guide propose des solutions pour quelques-uns des défis qui se posent souven
 
 Quand vous créez un espace de travail Machine Learning, le code que vous entrez dans le champ PROPRIÉTAIRE DE L'ESPACE DE TRAVAIL doit être un compte Microsoft valide (anciennement Windows Live ID), par exemple, john-contoso@live.com ou john-contoso@hotmail.com. Il ne peut pas s'agir d'un compte autre que Microsoft, tel que votre compte de messagerie d'entreprise. Pour créer un compte Microsoft gratuit, accédez à [www.live.com](http://www.live.com).
 
-Notez que le compte que vous utilisez pour vous connecter au portail Azure Classic afin de créer l’espace de travail n’est pas automatiquement autorisé à *ouvrir* cet espace de travail, sauf si vous spécifiez ce compte comme propriétaire. Pour ouvrir un espace de travail de Machine Learning Studio, vous devez être connecté au compte Microsoft qui a été défini comme propriétaire de l'espace de travail ou recevoir une invitation du propriétaire à rejoindre l'espace de travail. À partir du portail Azure Classic, cependant, vous pouvez *gérer* l’espace de travail, notamment modifier le propriétaire et configurer l’accès.
+Notez que le compte que vous utilisez pour vous connecter au portail Azure afin de créer l’espace de travail n’est pas automatiquement autorisé à *ouvrir* cet espace de travail, sauf si vous spécifiez ce compte comme propriétaire. Pour ouvrir un espace de travail de Machine Learning Studio, vous devez être connecté au compte Microsoft qui a été défini comme propriétaire de l'espace de travail ou recevoir une invitation du propriétaire à rejoindre l'espace de travail. À partir du portail Azure Classic, cependant, vous pouvez *gérer* l’espace de travail, notamment modifier le propriétaire et configurer l’accès.
 
 Pour plus d'informations sur la gestion d'un espace de travail, consultez [Gestion d'un espace de travail Azure Machine Learning].
 
@@ -80,4 +80,4 @@ Notre objectif est de vous offrir une expérience de Machine Learning qui soit a
 [screen5]: media/machine-learning-troubleshooting-creating-ml-workspace/screen5.png
 [screen6]: media/machine-learning-troubleshooting-creating-ml-workspace/screen6.png
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0914_2016-->

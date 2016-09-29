@@ -14,8 +14,8 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/02/2016"
-   ms.author="narayanannamalai"/>
+   ms.date="09/14/2016"
+   ms.author="narayanannamalai;annahar"/>
 
 # Créer une homologation de réseaux virtuels à l’aide du portail Azure
 
@@ -60,7 +60,7 @@ Pour créer une homologation de réseaux virtuels selon le scénario ci-dessus �
 
 	![État final du lien 2](./media/virtual-networks-create-vnetpeering-arm-portal/figure08.png)
 
-10. Remarque : L’homologation de réseaux virtuels est établie uniquement si les deux liens sont connectés.
+    > [AZURE.NOTE] L’homologation de réseaux virtuels est établie uniquement si les deux liens sont connectés.
 
 Il existe plusieurs propriétés configurables pour chaque lien :
 
@@ -91,7 +91,7 @@ Chaque lien de l’homologation de réseaux virtuels présente plusieurs des pro
 
     ![RBAC 2](./media/virtual-networks-create-vnetpeering-arm-portal/figure11.png)
 
-    REMARQUE : Vous pouvez vous déconnecter et vous connecter avec les comptes des deux utilisateurs dans le navigateur pour vous assurer que l’autorisation a bien été activée.
+    > [AZURE.NOTE] Vous pouvez vous déconnecter et vous connecter avec les comptes des deux utilisateurs dans le navigateur pour vous assurer que l’autorisation a bien été activée.
 
 6. Connectez-vous au portail en tant qu’utilisateur A, accédez au panneau du réseau virtuel VNET3, cliquez sur Homologation, activez la case à cocher Je connais mon ID de ressource, puis tapez l’ID de ressource de VNET5 au format ci-dessous.
 
@@ -117,6 +117,28 @@ Chaque lien de l’homologation de réseaux virtuels présente plusieurs des pro
 
 3. Une fois l’homologation établie, vous pouvez vous reporter à [cet article](virtual-network-create-udr-arm-ps.md) et créer un itinéraire défini par l’utilisateur (UDR) pour rediriger le trafic du réseau virtuel VNET1 via une appliance virtuelle afin d’utiliser ses fonctionnalités. Lorsque vous spécifiez l’adresse du tronçon suivant dans l’itinéraire, vous pouvez la définir sur l’adresse IP de l’appliance virtuelle du réseau virtuel homologue HubVNet.
 
+
+[AZURE.INCLUDE [virtual-networks-create-vnet-scenario-asmtoarm-include](../../includes/virtual-networks-create-vnetpeering-scenario-asmtoarm-include.md)]
+
+
+
+1. Dans un navigateur, accédez à http://portal.azure.com et, si nécessaire, connectez-vous avec votre compte Azure.
+
+2. Pour établir une homologation de réseaux virtuels dans ce scénario, vous n’avez besoin de créer qu’un seul lien, du réseau virtuel d’Azure Resource Manager à celui du portail Classic, c’est-à-dire de **VNET1** à **VNET2**. Dans le portail, cliquez sur **Parcourir** > **Réseaux virtuels**.
+
+3. Dans le panneau Réseaux virtuels, choisissez **VNET1**. Cliquez sur **omologations**, puis sur **Ajouter**.
+
+4. Dans le panneau Ajouter l’homologation, nommez votre lien. Ici, il est appelé **LinkToVNet2**. Sous Détails de l’homologue, sélectionnez **Classique**.
+
+5. Choisissez ensuite l’abonnement et le réseau virtuel homologue **VNET2**. Puis cliquez sur OK.
+
+    ![Lien de Vnet1 à VNet2](./media/virtual-networks-create-vnetpeering-arm-portal/figure18.png)
+
+6. Une fois ce lien d’homologation de réseaux virtuels créé, les deux réseaux virtuels sont appariés et l’écran suivant est affiché :
+
+    ![Vérification de la connexion d’homologation](./media/virtual-networks-create-vnetpeering-arm-portal/figure19.png)
+
+
 ## Supprimer l’homologation de réseaux virtuels
 
 1.	Dans un navigateur, accédez à http://portal.azure.com et, si nécessaire, connectez-vous avec votre compte Azure.
@@ -130,4 +152,4 @@ Chaque lien de l’homologation de réseaux virtuels présente plusieurs des pro
 
 4. Dans cet état, vous ne pouvez pas recréer le lien tant que l’état du lien d’homologation n’est pas défini sur Initiated (Initialisé). Nous vous recommandons de supprimer les deux liens avant de recréer l’homologation de réseaux virtuels.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

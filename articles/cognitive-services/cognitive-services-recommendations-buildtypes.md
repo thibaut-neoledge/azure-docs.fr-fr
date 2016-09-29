@@ -4,7 +4,7 @@
 	services="cognitive-services"
 	documentationCenter=""
 	authors="luiscabrer"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -263,4 +263,4 @@ Ceci déclenche une build qui utilise uniquement un sous-ensemble des données p
     "IsFaulted": false
     }
 
-<!----HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

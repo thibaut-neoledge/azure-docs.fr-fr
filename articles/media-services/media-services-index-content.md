@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/22/2016"   
+	ms.date="09/12/2016"   
 	ms.author="adsolank;juliako;johndeu"/>
 
 
@@ -46,7 +46,7 @@ Vous pouvez définir plus de détails pour vos tâches d’indexation en utilisa
 
 Vous pouvez également traiter plusieurs fichiers multimédias à la fois à l’aide d’un fichier manifeste.
 
-Pour plus d’informations, consultez [Présélection de tâches pour Azure Media Indexer](#).
+Pour plus d’informations, consultez [Présélection de tâches pour Azure Media Indexer](https://msdn.microsoft.com/library/dn783454.aspx).
 
 ## Indexation d’une ressource
 
@@ -162,7 +162,7 @@ Si tous les fichiers multimédias d’entrée ne sont pas correctement indexés,
 
 La méthode suivante télécharge plusieurs fichiers multimédias en tant que ressource et crée une tâche pour indexer tous ces fichiers en lot.
 
-Un fichier manifeste avec l’extension .lst est créé et téléchargé dans la ressource. Le fichier manifeste contient la liste de tous les fichiers de ressources. Pour plus d’informations, consultez [Présélection de tâches pour Indexeur multimédia](https://msdn.microsoft.com/library/azure/dn783454.aspx).
+Un fichier manifeste avec l’extension .lst est créé et téléchargé dans la ressource. Le fichier manifeste contient la liste de tous les fichiers de ressources. Pour plus d’informations, consultez [Présélection de tâches pour Indexeur multimédia](https://msdn.microsoft.com/library/dn783454.aspx).
 
 	static bool RunBatchIndexingJob(string[] inputMediaFiles, string outputFolder)
 	{
@@ -294,4 +294,4 @@ Les langues prises en charge pour le moment sont l’anglais et l’espagnol. Po
 
 [Indexation de fichiers multimédias avec Azure Media Indexer 2 Preview](media-services-process-content-with-indexer2.md)
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

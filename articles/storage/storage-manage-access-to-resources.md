@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/23/2016"
+	ms.date="09/07/2016"
 	ms.author="tamram"/>
 
 # Gestion de l’accès en lecture anonyme aux conteneurs et aux objets blob
@@ -22,7 +22,7 @@
 
 Par défaut, seul le propriétaire du compte de stockage peut accéder aux ressources de stockage de ce compte. Pour le stockage d’objets Blob uniquement, vous pouvez définir les autorisations d’un conteneur pour autoriser l’accès en lecture anonyme au conteneur et à ses objets Blob, afin que vous puissiez accorder l’accès à ces ressources sans avoir à partager votre clé de compte.
 
-L’accès anonyme est idéal dans les situations où vous souhaitez permettre l’accès en lecture anonyme à certains objets Blob de façon permanente. Pour un contrôle plus fin, vous pouvez créer une signature d’accès partagé de manière à déléguer un accès restreint en utilisant des autorisations différentes sur un intervalle de temps spécifié. Pour plus d’informations sur les signatures d’accès partagé, consultez la page [Signatures d’accès partagé : présentation du modèle SAP](storage-dotnet-shared-access-signature-part-1.md)
+L’accès anonyme est idéal dans les situations où vous souhaitez permettre l’accès en lecture anonyme à certains objets Blob de façon permanente. Pour un contrôle plus fin, vous pouvez créer une signature d’accès partagé de manière à déléguer un accès restreint en utilisant des autorisations différentes sur un intervalle de temps spécifié. Pour plus d’informations sur la création de signatures d’accès partagé, consultez [Utilisation des signatures d’accès partagé (SAP)](storage-dotnet-shared-access-signature-part-1.md).
 
 ## Accorder à des utilisateurs anonymes des autorisations d’accès aux conteneurs et objets blob
 
@@ -30,7 +30,7 @@ Par défaut, un conteneur et tous les objets blob qu'il contient sont accessible
 
 Les conteneurs fournissent les options suivantes pour gérer leur accès :
 
-- **Accès public en lecture** : les données de conteneur et d’objet blob peuvent être lues via une demande anonyme. Les clients peuvent énumérer les objets blob à l’intérieur du conteneur via une demande anonyme, mais ne peuvent pas énumérer les conteneurs dans le compte de stockage.
+- **Accès public en lecture** : les données de conteneur et d’objet blob peuvent être lues via une demande anonyme. Les clients peuvent énumérer les objets blob à l’intérieur du conteneur via une demande anonyme, mais ne peuvent pas énumérer les conteneurs dans le compte de stockage.
 
 - **Accès public en lecture pour les objets blob uniquement :** les données d’objets blob à l’intérieur de ce conteneur peuvent être lues via une demande anonyme, mais les données du conteneur ne sont pas disponibles. Les clients ne peuvent pas énumérer les objets blob à l’intérieur du conteneur via une demande anonyme.
 
@@ -152,7 +152,7 @@ Le tableau suivant indique les opérations pouvant être appelées par les utili
 ## Voir aussi
 
 - [Authentification pour les services de stockage Azure](https://msdn.microsoft.com/library/azure/dd179428.aspx)
-- [Signatures d'accès partagé : présentation du modèle SAP](storage-dotnet-shared-access-signature-part-1.md)
-- [Délégation de l'accès avec une signature d'accès partagé](https://msdn.microsoft.com/library/azure/ee395415.aspx) 
+- [Utilisation des signatures d’accès partagé (SAP)](storage-dotnet-shared-access-signature-part-1.md)
+- [Délégation de l'accès avec une signature d'accès partagé](https://msdn.microsoft.com/library/azure/ee395415.aspx)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0914_2016-->

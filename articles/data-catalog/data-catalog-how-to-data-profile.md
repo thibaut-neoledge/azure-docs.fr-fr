@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"
 	ms.workload="data-catalog"
-	ms.date="06/27/2016"
+	ms.date="09/13/2016"
 	ms.author="spelluru"/>
 
 # Profilage de données dans des sources de données
@@ -22,11 +22,11 @@
 
 **Microsoft Azure Data Catalog** est un service cloud entièrement géré qui sert de système d'inscription et de détection des sources de données d'entreprise. En d'autres termes, **Microsoft Azure Data Catalog** vise essentiellement à aider les utilisateurs à détecter, comprendre et utiliser des sources de données et permet aux organisations de mieux exploiter leurs données. Lorsqu’une source de données est inscrite dans **Azure Data Catalog**, ses métadonnées sont copiées et indexées par le service. Mais ce n’est pas tout.
 
-**Azure Data Catalog** examine les données à partir des sources de données prises en charge dans votre catalogue et collecte des statistiques et des informations relatives à ces données. Il s’agit de ce que l’on appelle le **profilage des données**. Vous pouvez inclure très facilement un profil de vos ressources de données. Lorsque vous enregistrez une ressource de données, sélectionnez **Inclure le profil de données** dans l’outil d’inscription de sources de données.
+La fonctionnalité **Profilage des données** dans **Azure Data Catalog** examine les données à partir des sources de données prises en charge dans votre catalogue et collecte des statistiques et des informations relatives à ces données. Vous pouvez inclure très facilement un profil de vos ressources de données. Lorsque vous enregistrez une ressource de données, sélectionnez **Inclure le profil de données** dans l’outil d’inscription de sources de données.
 
 ## Qu’est-ce que le profilage de données ?
 
-Le profilage des données consiste à examiner les données dans la source de données en cours d’inscription et à collecter des statistiques et des informations sur ces données. Lors de la découverte de sources de données, ces statistiques peuvent aider les utilisateurs à déterminer dans quelle mesure les données peuvent les aider à résoudre leur problème métier.
+Le profilage des données consiste à examiner les données dans la source de données en cours d’inscription et à collecter des statistiques et des informations sur ces données. Lors de la découverte de sources de données, ces statistiques peuvent vous aider à déterminer dans quelle mesure les données peuvent vous aider à résoudre vos problème métier.
 
 <!-- In [How to discover data sources](data-catalog-how-to-discover.md), you learn about **Azure Data Catalog's** extensive search capabilities including searching for data assets that have a profile. See [How to include a data profile when registering a data source](#howto). -->
 
@@ -58,9 +58,9 @@ Pour en savoir plus sur l’inscription des sources de données, consultez les a
 
 
 ## Filtrage sur des ressources de données comprenant des profils de données
-Pour découvrir des ressources de données qui incluent un profil de données, vous pouvez inclure l’élément **has:tableDataProfiles** ou **has:columnsDataProfiles** dans l’un de vos termes de recherche.
+Pour découvrir des ressources de données qui incluent un profil de données, vous pouvez inclure l’élément `has:tableDataProfiles` ou `has:columnsDataProfiles` dans l’un de vos termes de recherche.
 
-> [AZURE.NOTE] Si vous sélectionnez **Inclure le profil de données** dans l’outil d’inscription des sources de données, les informations de profil au niveau de la table et de la colonne seront prises en compte. L’API Data Catalog autorise toutefois seulement l’inscription de ressources de données comprenant un seul jeu d’informations de profil.
+> [AZURE.NOTE] La sélection de l’option **Inclure le profil de données** dans l’outil d’enregistrement de la source de données inclut les informations de profil au niveau de la colonne et de la table. Toutefois, l’API Data Catalog autorise l’enregistrement des ressources de données avec un seul jeu d’informations de profil.
 
 ## Affichage des informations de profil de données
 
@@ -84,11 +84,11 @@ Un profil de données dans **Azure Data Catalog** affiche les informations de pr
 - Valeurs minimale, maximale, moyenne et d’écart type des colonnes
 
 ## Résumé
-Le profilage des données fournit des statistiques et des informations sur les ressources de données inscrites afin d’aider les utilisateurs à déterminer en quoi les données peuvent les aider à résoudre leurs problèmes métiers. Outre l’annotation et la documentation de sources de données, les profils de données peuvent permettre aux utilisateurs de mieux comprendre vos données.
+Le profilage des données fournit des statistiques et des informations sur les ressources de données inscrites afin de vous aider à déterminer en quoi les données peuvent vous aider à résoudre vos problèmes métier. Outre l’annotation et la documentation de sources de données, les profils de données peuvent permettre aux utilisateurs de mieux comprendre vos données.
 
 
 ## Voir aussi
 -	[Inscription de sources de données](data-catalog-how-to-register.md)
 -	[Prise en main d’Azure Data Catalog](data-catalog-get-started.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0914_2016-->

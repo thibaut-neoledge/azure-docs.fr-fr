@@ -347,11 +347,11 @@ Prise en main pendant le développement avec :
  * [Résolution des problèmes][qna]
  * [Forum MSDN](https://social.msdn.microsoft.com/Forums/vstudio/home?forum=ApplicationInsights)
  * [Stackoverflow](http://stackoverflow.com/questions/tagged/ms-application-insights)
-* Suggestions
+ * [Obtenir un support Developer Support](app-insights-get-dev-support.md)
+* Vos suggestions :
  * [UserVoice](https://visualstudio.uservoice.com/forums/357324)
 * Blog :
  * [Blog Application Insights](https://azure.microsoft.com/blog/tag/application-insights)
-
 
 
 
@@ -386,4 +386,4 @@ Prise en main pendant le développement avec :
 
  
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

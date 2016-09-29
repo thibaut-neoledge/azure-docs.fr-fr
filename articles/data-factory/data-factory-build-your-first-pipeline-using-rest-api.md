@@ -19,15 +19,17 @@
 
 # Didacticiel : Créer votre première fabrique de données Azure en utilisant l’API REST Data Factory
 > [AZURE.SELECTOR]
+- [Vue d’ensemble et étapes préalables requises](data-factory-build-your-first-pipeline.md)
 - [Portail Azure](data-factory-build-your-first-pipeline-using-editor.md)
 - [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 - [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 - [Modèle Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
 - [API REST](data-factory-build-your-first-pipeline-using-rest-api.md)
 
-[AZURE.INCLUDE [Configuration requise pour le didacticiel Data Factory](../../includes/data-factory-tutorial-prerequisites.md)]
+Dans cet article, vous utilisez l’API REST Data Factory pour créer votre première fabrique de données Azure.
 
-## Autres composants requis
+## Composants requis
+- Lisez l’article [Vue d’ensemble du didacticiel](data-factory-build-your-first-pipeline.md) et effectuez les **étapes préalables requises**.
 - Installez [Curl](https://curl.haxx.se/dlwiz/) sur votre ordinateur. L’outil CURL et les commandes REST vous permettent de créer une fabrique de données.
 - Suivez les instructions de [cet article](../resource-group-create-service-principal-portal.md) pour effectuer les opérations suivantes :
 	1. Créez une application Web nommée **ADFGetStartedApp** dans Azure Active Directory.
@@ -39,7 +41,7 @@
 	1. Exécutez **Login-AzureRmAccount**, puis saisissez le nom d’utilisateur et le mot de passe que vous avez utilisés pour la connexion au portail Azure.
 	2. Exécutez **Get-AzureRmSubscription** pour afficher tous les abonnements de ce compte.
 	3. Exécutez **Get-AzureRmSubscription -SubscriptionName NameOfAzureSubscription| Set-AzureRmContext** to select the subscription that you want to work with. Replace **NameOfAzureSubscription** with the name of your Azure subscription. 
-3. Créez un groupe de ressources Azure nommé **ADFTutorialResourceGroup** en exécutant la commande suivante dans PowerShell.
+3. Créez un groupe de ressources Azure nommé **ADFTutorialResourceGroup** en exécutant la commande suivante dans PowerShell :
 
 		New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
 
@@ -263,7 +265,7 @@ Dans cette étape, vous créez une fabrique de données Azure Data Factory nomm�
 
 Notez les points suivants :
  
-- Le nom de la fabrique de données Azure doit être un nom global unique. Si l’erreur **Le nom de la fabrique de données " ADFCopyTutorialDF " n’est pas disponible** apparaît dans les résultats, procédez comme suit :
+- Le nom de la fabrique de données Azure doit être un nom global unique. Si le message d’erreur **Le nom de la fabrique de données « FirstDataFactoryREST » n’est pas disponible** s’affiche dans les résultats, procédez comme suit :
 	1. Modifiez le nom (par exemple, votrenomFirstDataFactoryREST) dans le fichier **datafactory.json**. Consultez la rubrique [Data Factory - Règles d'affectation des noms](data-factory-naming-rules.md) pour savoir comment nommer les artefacts Data Factory.
 	2. Dans la première commande où une valeur est attribuée à la variable **$cmd**, remplacez FirstDataFactoryREST par le nouveau nom, puis exécutez la commande.
 	3. Exécutez les deux commandes suivantes pour appeler l’API REST afin de créer la fabrique de données et d’imprimer les résultats de l’opération.
@@ -271,11 +273,11 @@ Notez les points suivants :
 - Le nom de la fabrique de données pourra être enregistré en tant que nom DNS et devenir ainsi visible publiquement.
 - Si vous recevez le message d’erreur : « **L’abonnement n’est pas inscrit pour utiliser l’espace de noms Microsoft.DataFactory** », effectuez l’une des opérations suivantes et essayez de relancer la publication :
 
-	- Dans Azure PowerShell, exécutez la commande suivante pour enregistrer le fournisseur Data Factory.
+	- Dans Azure PowerShell, exécutez la commande suivante pour enregistrer le fournisseur Data Factory :
 		
 			Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
 	
-		Vous pouvez exécuter la commande suivante pour confirmer que le fournisseur Data Factory est bien enregistré.
+		Vous pouvez exécuter la commande suivante pour confirmer l’enregistrement du fournisseur Data Factory :
 	
 			Get-AzureRmResourceProvider
 	- Connectez-vous au [portail Azure](https://portal.azure.com) à l’aide de l’abonnement Azure et accédez à un panneau Data Factory (ou) créez une fabrique de données dans le portail Azure. Cette action enregistre automatiquement le fournisseur.
@@ -370,6 +372,10 @@ Dans cette étape, vous utilisez l’API REST Data Factory pour surveiller les t
     	    (convertFrom-Json $results2).RemoteException
 	}
 
+
+> [AZURE.IMPORTANT] 
+La création d’un cluster HDInsight à la demande prend généralement un certain temps (environ 20 minutes). Le pipeline devrait donc traiter la tranche en **30 minutes environ**.
+
 Exécutez Invoke-Command et la commande suivante jusqu’à ce que la tranche soit à l’état **Prêt** ou **Échec**. Quand le segment est dans l’état Prêt, vérifiez la présence des données de sortie dans le dossier **partitioneddata** du conteneur **adfgetstarted** de votre stockage d’objets blob. La création d’un cluster HDInsight à la demande prend généralement un certain temps.
 
 ![données de sortie](./media/data-factory-build-your-first-pipeline-using-rest-api/three-ouptut-files.png)
@@ -402,4 +408,4 @@ Dans cet article, vous avez créé un pipeline avec une activité de transformat
 | [Surveillance et gestion des pipelines d’Azure Data Factory](data-factory-monitor-manage-pipelines.md) | Dans cet article, vous apprendrez à surveiller, gérer et déboguer vos pipelines à l’aide des panneaux du portail Azure. |
 | [Surveiller et gérer les pipelines Azure Data Factory à l’aide de la nouvelle application de surveillance et gestion.](data-factory-monitor-manage-app.md) | Cet article décrit comment surveiller, gérer et déboguer les pipelines à l’aide de l’application de surveillance et gestion. 
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

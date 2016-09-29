@@ -4,7 +4,7 @@
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="ireiter" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun"/>
 
 <tags 
@@ -36,9 +36,9 @@ Ce service accepte 4 arguments d'une distribution normale et calcule le quantil
 
 Les arguments d'entrée sont les suivants :
 
-* p : probabilité unique d’un événement avec distribution normale 
+* p : probabilité unique d’un événement avec distribution normale
 * Mean : moyenne de la distribution normale
-* SD : écart type de la distribution normale 
+* SD : écart type de la distribution normale
 * Side : L pour la partie inférieure de la distribution et U pour la partie supérieure de la distribution
 
 La sortie du service correspond au quantile calculé qui est associé à la probabilité donnée.
@@ -48,9 +48,9 @@ Ce service accepte 4 arguments d'une distribution normale et calcule la probabi
 
 Les arguments d'entrée sont les suivants :
 
-* q : quantile unique d’un événement avec une distribution normale 
+* q : quantile unique d’un événement avec une distribution normale
 * Mean : moyenne de la distribution normale
-* SD : écart type de la distribution normale 
+* SD : écart type de la distribution normale
 * Side : L pour la partie inférieure de la distribution et U pour la partie supérieure de la distribution
 
 La sortie du service correspond à la probabilité calculée qui est associée au quantile donné.
@@ -58,9 +58,9 @@ La sortie du service correspond à la probabilité calculée qui est associée a
 ###Générateur de distribution normale
 Ce service accepte 3 arguments d'une distribution normale et génère une séquence aléatoire de nombres qui sont distribués normalement. Les arguments suivants doivent lui être fournis au sein de la demande :
 
-* n : nombre d’observations 
+* n : nombre d’observations
 * Mean : moyenne de la distribution normale
-* SD : écart type de la distribution normale 
+* SD : écart type de la distribution normale
 
 La sortie du service est une séquence de longueur n avec une distribution normale basée sur les arguments mean et sd.
 
@@ -265,4 +265,4 @@ Pour les questions fréquemment posées relatives à l’utilisation du service 
 [4]: ./media/machine-learning-r-csharp-normal-distribution/normal-img4.png
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

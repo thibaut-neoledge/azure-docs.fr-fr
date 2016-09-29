@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter="" 
 	authors="bradsev" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun"/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/27/2016" 
+	ms.date="09/12/2016" 
 	ms.author="bradsev" />
 
 
@@ -32,34 +32,34 @@ Il existe quatre principaux types de modèles d'apprentissage automatique dans A
 
 Les modules utilisés pour réaliser une prédiction sur ces modules, appelée « notation », compte tenu de certaines données de test, sont les suivants :
 
-* [Noter le modèle][score-model] pour la classification et la régression, 
-* [Attribuer aux clusters][assign-to-clusters] pour le clustering 
-* [Noter la recommandation Matchbox][score-matchbox-recommender] pour les systèmes de recommandation 
+* [Noter le modèle][score-model] pour la classification et la régression,
+* [Attribuer aux clusters][assign-to-clusters] pour le clustering
+* [Noter la recommandation Matchbox][score-matchbox-recommender] pour les systèmes de recommandation
  
 Ce document vous explique comment interpréter les résultats de prédiction pour chacun de ces modules. Pour obtenir une vue d'ensemble de ces types de modèles, consultez la rubrique [Sélection des paramètres permettant d'optimiser des algorithmes dans Azure Machine Learning](machine-learning-algorithm-parameters-optimize.md).
 
-Cette rubrique aborde l'interprétation des prédictions et non l'évaluation du modèle. Pour plus d'informations sur la manière d'évaluer votre modèle, reportez-vous à la rubrique [Évaluation des performances d'un modèle dans Azure Machine Learning ](machine-learning-evaluate-model-performance.md).
+Cette rubrique aborde l’interprétation des prédictions et non l’évaluation du modèle. Pour plus d’informations sur la manière d’évaluer votre modèle, reportez-vous à la rubrique [Évaluation des performances d’un modèle dans Azure Machine Learning ](machine-learning-evaluate-model-performance.md).
 
 Si vous débutez avec Azure Machine Learning et souhaitez découvrir comment créer une expérience simple, consultez la rubrique [Création d'une expérience simple dans Azure Machine Learning Studio](machine-learning-create-experiment.md) dans Azure Machine Learning Studio.
 
 ##Classification
 Il existe deux sous-catégories de problèmes de classification :
 
-* problèmes avec uniquement deux classes (classification double classe ou binaire) 
-* problèmes avec plus de deux classes (classification multiclasse) 
+* problèmes avec uniquement deux classes (classification double classe ou binaire)
+* problèmes avec plus de deux classes (classification multiclasse)
 
-Azure Machine Learning dispose de différents modules permettant de traiter chacun de ces types de classification. Les manières d'interpréter leurs résultats de prédiction sont cependant très similaires. Nous aborderons tout d'abord les problèmes de classification double classe, et nous poursuivrons ensuite avec les problèmes de classification multiclasse.
+Azure Machine Learning dispose de différents modules permettant de traiter chacun de ces types de classification. Les manières d’interpréter leurs résultats de prédiction sont cependant similaires. Nous aborderons tout d’abord les problèmes de classification double classe, et nous poursuivrons ensuite avec les problèmes de classification multiclasse.
 
 ###Classification double classe.
 **Exemple d'expérience**
 
-Prenons le problème de classification double classe, la classification de fleurs d'Iris à titre d'exemple : la tâche consiste à classer les fleurs d'Iris en fonction de leurs fonctionnalités. Notez que l'ensemble des données d'Iris fourni dans Azure Machine Learning constitue un sous-ensemble de ce fameux [Ensemble de données Iris](http://en.wikipedia.org/wiki/Iris_flower_data_set) contenant des instances d'uniquement 2 espèces de fleur (classes 0 et 1). Il existe quatre fonctionnalités pour chaque fleur (la longueur des sépales, la largeur des sépales, la longueur des pétales et la largeur des pétales).
+Prenons le problème de classification double classe, la classification de fleurs d'Iris à titre d'exemple : la tâche consiste à classer les fleurs d'Iris en fonction de leurs fonctionnalités. L’ensemble des données Iris fourni dans Azure Machine Learning constitue un sous-ensemble de ce fameux [Ensemble de données Iris](http://en.wikipedia.org/wiki/Iris_flower_data_set) contenant des instances d’uniquement deux espèces de fleur (classes 0 et 1). Il existe quatre fonctionnalités pour chaque fleur (la longueur des sépales, la largeur des sépales, la longueur des pétales et la largeur des pétales).
 
 ![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/1.png)
 
 Figure 1 : Expérience d'un problème de classification double classe
 
-Une expérience a été réalisée pour résoudre ce problème, comme mentionnée dans la Figure 1. Un modèle d'arbre de décision augmentée, double classe a été formé et noté. Vous pouvez dès à présent visualiser les résultats de prédiction du module [Noter le modèle][score-model] en cliquant sur le port de sortie du module [Modèle de notation][score-model], puis cliquer sur **Visualiser** dans le menu qui s'affiche. Cela fera apparaître les résultats de notation, comme mentionné dans la Figure 2.
+Une expérience a été réalisée pour résoudre ce problème, comme mentionnée dans la Figure 1. Un modèle d'arbre de décision augmentée, double classe a été formé et noté. Vous pouvez dès à présent visualiser les résultats de prédiction du module [Noter le modèle][score-model] en cliquant sur le port de sortie du module [Modèle de notation][score-model], puis cliquez sur **Visualiser** dans le menu qui s’affiche. Ceci affiche les résultats de notation, comme mentionné dans la Figure 2.
 
 ![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/1_1.png)
 
@@ -96,7 +96,7 @@ Figure 5 : Résultats du service web de classification double classe Iris
 ###Classification multiclasse.
 **Exemple d'expérience**
 
-Lors de cette expérience, vous réaliserez une tâche de reconnaissance de lettres en tant qu'exemple de classification multiclasse. Le classificateur essaiera de prédire une lettre (classe), compte tenu de certaines valeurs d'attribut écrites, extraites d'images écrites. Dans les données de formation, seize caractéristiques sont extraites d'images de lettres écrites. Les vingt-six lettres représentent nos vingt-six classes. Une expérience a été mise en place pour former un modèle de classification multiclasse de reconnaissance de lettres et établir des prédictions sur le même ensemble de fonctionnalités d'un ensemble de données de test, comme mentionné dans la Figure 6.
+Lors de cette expérience, vous réalisez une tâche de reconnaissance de lettres en tant qu’exemple de classification multiclasse. Le classificateur essaye de prédire une lettre (classe), compte tenu de certaines valeurs d’attribut écrites, extraites d’images écrites. Dans les données de formation, 16 caractéristiques sont extraites d’images de lettres écrites. Les vingt-six lettres représentent nos vingt-six classes. Une expérience a été mise en place pour former un modèle de classification multiclasse de reconnaissance de lettres et établir des prédictions sur le même ensemble de fonctionnalités d’un ensemble de données de test, comme mentionné dans la Figure 6.
 
 ![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/5_1.png)
  
@@ -112,7 +112,7 @@ Figure 7 : Visualisation du résultat de modèle de notation dans la classific
 
 **Interprétation du résultat**
 
-Les seize colonnes de gauche représentent les valeurs caractéristiques de l'ensemble du test. Les colonnes intitulées Probabilités notées de classe « XX » sont similaires à la colonne Probabilités notées dans le cas d'utilisation d'une classification double classe. Elles indiquent la probabilité que l'entrée correspondante est comprise dans une certaine classe. Par exemple, pour la première entrée, il y a une probabilité de 0,003571 que ce soit un « A », une probabilité de 0,000451 que ce soit un « B », et ainsi de suite. La dernière colonne Étiquettes notées est identique aux Étiquettes notées dans le cas d'utilisation d'une classification double classe. Elle sélectionne la classe présentant la probabilité notée la plus élevée en tant que classe prédite de l'entrée correspondante. Par exemple, pour la première entrée, l'étiquette notée est un « F », car elle présente la probabilité la plus élevée que ce soit un « F » (0,916995).
+Les 16 colonnes de gauche représentent les valeurs caractéristiques de l’ensemble du test. Les colonnes intitulées Probabilités notées de classe « XX » sont similaires à la colonne Probabilités notées dans le cas d'utilisation d'une classification double classe. Elles indiquent la probabilité que l'entrée correspondante est comprise dans une certaine classe. Par exemple, pour la première entrée, il y a une probabilité de 0,003571 que ce soit un « A », une probabilité de 0,000451 que ce soit un « B », et ainsi de suite. La dernière colonne Étiquettes notées est identique aux Étiquettes notées dans le cas d'utilisation d'une classification double classe. Elle sélectionne la classe présentant la probabilité notée la plus élevée en tant que classe prédite de l'entrée correspondante. Par exemple, pour la première entrée, l'étiquette notée est un « F », car elle présente la probabilité la plus élevée que ce soit un « F » (0,916995).
 
 **Publication du service web**
 
@@ -126,7 +126,7 @@ Figure 8 : Code R permettant d'extraire les étiquettes notées et les probab
 
 Figure 9 : Expérience de notation finale d'un problème de classification multiclasse de reconnaissance de lettres
 
-Une fois le service web publié et exécuté, et certaines valeurs caractéristiques d'une instance de test saisies, le résultat renvoyé est semblable à celui mentionné dans la Figure 10. Cette lettre écrite, accompagnée de ses seize fonctionnalités extraites, est prédite pour être un « T » avec une probabilité de 0,9715.
+Une fois le service web publié et exécuté, et certaines valeurs caractéristiques d'une instance de test saisies, le résultat renvoyé est semblable à celui mentionné dans la Figure 10. Cette lettre écrite, accompagnée de ses 16 fonctionnalités extraites, est prédite pour être un « T » avec une probabilité de 0,9715.
  
 ![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/9_1.png)
 
@@ -176,7 +176,7 @@ Figure 14 : Résultat du service web d'un problème de régression du prix d'u
 
 **Exemple d'expérience**
 
-Réutilisons l'ensemble de données Iris pour réaliser une expérience de clustering Nous filtrons ici les étiquettes de classe dans l'ensemble de données de manière à ce qu'il dispose de fonctionnalités et puisse être utilisé uniquement pour le clustering. Dans ce cas d'utilisation Iris, lorsque nous définissons 2 clusters lors du processus de formation, cela signifie que nous souhaitons regrouper les fleurs en deux classes. L'expérience est indiquée dans la Figure 15.
+Réutilisons l'ensemble de données Iris pour réaliser une expérience de clustering Nous filtrons ici les étiquettes de classe dans l'ensemble de données de manière à ce qu'il dispose de fonctionnalités et puisse être utilisé uniquement pour le clustering. Dans ce cas d’utilisation Iris, lorsque nous définissons deux clusters lors du processus de formation, cela signifie que nous souhaitons regrouper les fleurs en deux classes. L'expérience est indiquée dans la Figure 15.
  
 ![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/15.png)
 
@@ -198,7 +198,7 @@ Figure 17 : Visualisation du résultat de clustering sur le nouvel ensemble de 
 
 **Interprétation du résultat**
 
-Bien que provenant d'étapes d'expérience différentes, les résultats des deux parties sont similaires et interprétés de la même manière. Les quatre premières colonnes représentent les caractéristiques. La dernière colonne Affectations représente les résultats de prédiction. Les entrées affectées du même numéro sont prédites dans le même groupe, c'est-à-dire qu'elles partagent d'une certaine façon des similitudes (nous avons utilisé la mesure de la distance euclidienne par défaut dans cette expérience). Rappelez-vous que nous avons défini 2 clusters. Par conséquent, dans la colonne Affectations, les entrées sont étiquetées d'un 0 ou d'un 1.
+Bien que provenant d'étapes d'expérience différentes, les résultats des deux parties sont similaires et interprétés de la même manière. Les quatre premières colonnes représentent les caractéristiques. La dernière colonne Affectations représente les résultats de prédiction. Les entrées affectées du même numéro sont prédites dans le même groupe, c’est-à-dire qu’elles partagent d’une certaine façon des similitudes (nous avons utilisé la mesure de la distance euclidienne par défaut dans cette expérience). Rappelez-vous que nous avons défini 2 clusters. Par conséquent, dans la colonne Affectations, les entrées sont étiquetées d'un 0 ou d'un 1.
 
 **Publication du service web**
 
@@ -219,11 +219,11 @@ Figure 19 : Résultat du service web de classification double classe Iris
 ##Système de recommandation
 **Exemple d'expérience**
 
-Pour les systèmes de recommandation, nous utiliserons le problème de recommandation de restaurants à titre d'exemple : recommander des restaurants aux clients en fonction de leur historique de notation. Les données d'entrée sont composées de trois parties :
+Pour les systèmes de recommandation, nous utilisons le problème de recommandation de restaurants à titre d’exemple : recommander des restaurants aux clients en fonction de leur historique de notation. Les données d'entrée sont composées de trois parties :
 
-* les notations de restaurants attribuées par les clients 
-* les données caractéristiques des clients 
-* les données caractéristiques des restaurants 
+* les notations de restaurants attribuées par les clients
+* les données caractéristiques des clients
+* les données caractéristiques des restaurants
 
 Plusieurs tâches peuvent être effectuées via le module intégré [Former la recommandation Matchbox][train-matchbox-recommender] d'Azure Machine Learning, à savoir :
 
@@ -232,7 +232,7 @@ Plusieurs tâches peuvent être effectuées via le module intégré [Former la r
 - Trouver des utilisateurs associés à un utilisateur donné
 - Trouver des éléments associés à un utilisateur donné
 
-Nous pouvons choisir ce que nous voulons en sélectionnant parmi les quatre options du menu **Type de prédiction de recommandation** du volet droit. Nous vous guiderons ici à travers ces quatre scénarios. Une expérience type Azure Machine Learning d'un système de recommandation est semblable à celui indiqué dans la Figure 20. Pour plus d'informations sur l'utilisation de ces modules de système de recommandation, consultez la page d'aide, aux rubriques [Former la recommandation Matchbox][train-matchbox-recommender] et [Noter la recommandation Matchbox][score-matchbox-recommender].
+Nous pouvons choisir ce que nous voulons en sélectionnant parmi les quatre options du menu **Type de prédiction de recommandation** du volet droit. Nous vous guidons ici à travers ces quatre scénarios. Une expérience type Azure Machine Learning d'un système de recommandation est semblable à celui indiqué dans la Figure 20. Pour plus d’informations sur l’utilisation de ces modules de système de recommandation, consultez la page d’aide, aux rubriques [Former la recommandation Matchbox][train-matchbox-recommender] et [Noter la recommandation Matchbox][score-matchbox-recommender].
  
 ![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/19_1.png)
 
@@ -254,7 +254,7 @@ Il y a trois colonnes. Les deux premières colonnes représentent les paires uti
 
 *Recommander des éléments à un utilisateur donné*
 
-En sélectionnant **Recommandation d'éléments** dans le menu **Type de prédiction de recommandation**, nous demandons au système de recommandation de recommander des éléments à un utilisateur donné. Il existe un paramètre supplémentaire, que nous devons choisir dans ce scénario : la sélection d'éléments recommandés. L'option **À partir d'éléments notés (pour l'évaluation de modèle)** est principalement utilisée pour l'évaluation de modèle lors du processus de formation. Pour cette étape de prédiction, nous choisirons **À partir de tous les éléments**. La visualisation de la sortie [Noter la recommandation Matchbox][score-matchbox-recommender] est semblable à celle mentionnée dans la Figure 22.
+En sélectionnant **Recommandation d'éléments** dans le menu **Type de prédiction de recommandation**, nous demandons au système de recommandation de recommander des éléments à un utilisateur donné. Il existe un paramètre supplémentaire, que nous devons choisir dans ce scénario : la sélection d'éléments recommandés. L'option **À partir d'éléments notés (pour l'évaluation de modèle)** est principalement utilisée pour l'évaluation de modèle lors du processus de formation. Pour cette étape de prédiction, nous choisissons **À partir de tous les éléments**. La visualisation de la sortie [Noter la recommandation Matchbox][score-matchbox-recommender] est semblable à celle mentionnée dans la Figure 22.
  
 ![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/22.png)
 
@@ -270,7 +270,7 @@ En sélectionnant Utilisateurs associés dans « Type de prédiction de recomma
 
 Figure 23 : Visualisation du résultat de notation du système de recommandation - Utilisateurs associés
 
-Il y a six colonnes. La première colonne représente les ID des utilisateurs donnés pour lesquels nous recherchons des utilisateurs associés, fournis par les données d'entrée. Les cinq colonnes restantes répertorient les utilisateurs associés prédits, classés par ordre décroissant en fonction de leur pertinence. Par exemple, dans la première ligne, le client le plus pertinent pour le client U1048 est le client U1051, suivi des clients U1066, U1044, U1017 et U1072.
+Il y a six colonnes. La première colonne représente les ID des utilisateurs donnés pour lesquels nous recherchons des utilisateurs associés, fournis par les données d’entrée. Les cinq colonnes restantes répertorient les utilisateurs associés prédits, classés par ordre décroissant en fonction de leur pertinence. Par exemple, dans la première ligne, le client le plus pertinent pour le client U1048 est le client U1051, suivi des clients U1066, U1044, U1017 et U1072.
 
 **Trouver des éléments associés à un élément donné**
 
@@ -282,7 +282,7 @@ Figure 24 : Visualisation du résultat de notation du système de recommandati
 
 Il y a six colonnes. La première colonne représente le nom de l'élément donné pour lequel nous recherchons des éléments associés, fournis par les données d'entrée. Les cinq colonnes restantes répertorient les éléments associés prédits, classés par ordre décroissant en fonction de leur pertinence. Par exemple, dans la première ligne, l'élément le plu pertinent pour l'élément 135 026 est l'élément 135 074, suivi des éléments 135 035 132 875 135 055 et 134 992. Publication du service web
 
-Le processus de publication de ces expériences en tant que services web permettant d'obtenir des prédictions est similaire pour chacun des quatre scénarios. Nous nous attarderons ici sur le second scénario, la recommandation d'éléments à un utilisateur donné, à titre d'exemple. Vous pouvez suivre la même procédure pour les trois autres.
+Le processus de publication de ces expériences en tant que services web permettant d'obtenir des prédictions est similaire pour chacun des quatre scénarios. Nous nous attardons ici sur le second scénario, la recommandation d’éléments à un utilisateur donné, à titre d’exemple. Vous pouvez suivre la même procédure pour les trois autres.
 
 Enregistrement du système de recommandation formé en tant que modèle formé, filtrage des données d'entrée dans une colonne d'ID utilisateur unique (tel que cela l'a été demandé), nous pouvons raccorder l'expérience, comme mentionné dans la Figure 25, et la publier en tant que service web.
 
@@ -309,4 +309,4 @@ Figure 26 : Résultat du service web d'un problème de recommandation de resta
 [train-matchbox-recommender]: https://msdn.microsoft.com/library/azure/fa4aa69d-2f1c-4ba4-ad5f-90ea3a515b4c/
  
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0914_2016-->

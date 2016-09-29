@@ -4,7 +4,7 @@
 	services="machine-learning,storage"
 	documentationCenter=""
 	authors="bradsev"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun" />
 
 <tags
@@ -74,8 +74,8 @@ Pour transférer des objets blob entre des conteneurs Azure, utilisez la command
 ## Conseils d'utilisation d’AzCopy
 
 > [AZURE.TIP]   
-> 1. Lors du chargement de fichiers, le paramètre /S charge les fichiers de manière récursive. Sans ce paramètre, les fichiers situés dans le sous-répertoire ne sont pas chargés.  
-> 2. Lors du téléchargement du fichier, /S recherche le conteneur de manière récursive jusqu’à ce que tous les fichiers du répertoire spécifié et de ses sous-répertoires ou que tous les fichiers répondant au critère spécifié dans le répertoire concerné et ses sous-répertoires soient téléchargés.  
+> 1. Lors du chargement de fichiers, le paramètre /S charge les fichiers de manière récursive. Sans ce paramètre, les fichiers situés dans le sous-répertoire ne sont pas chargés.
+> 2. Lors du téléchargement du fichier, /S recherche le conteneur de manière récursive jusqu’à ce que tous les fichiers du répertoire spécifié et de ses sous-répertoires ou que tous les fichiers répondant au critère spécifié dans le répertoire concerné et ses sous-répertoires soient téléchargés.
 > 3.  Vous ne pouvez pas spécifier un fichier de blob à télécharger, à l’aide du paramètre /Source. Pour télécharger un fichier spécifique, spécifiez le nom du fichier à télécharger à l’aide du paramètre /Pattern. Le paramètre /S peut être utilisé pour qu’AzCopy recherche un modèle de nom de fichier de manière récursive. Sans le paramètre /Pattern, AzCopy télécharge tous les fichiers de ce répertoire.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

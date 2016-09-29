@@ -20,7 +20,7 @@
 
 # Limites de ressources de base de données SQL Azure
 
-## Vue d’ensemble
+## Vue d'ensemble
 
 La base de données SQL Azure gère les ressources disponibles pour une base de données à l’aide de deux mécanismes différents : **Gouvernance des ressources** et **Application de limites**. Cette rubrique décrit ces deux domaines principaux de la gestion des ressources.
 
@@ -45,11 +45,17 @@ Par exemple, le nombre de connexions à une base de données SQL ainsi que le no
 
 ## Niveaux de service et niveaux de performances
 
-Pour une base de données unique, les limites d’une base de données sont définies par ses niveaux de service et de performances. Le tableau suivant décrit les caractéristiques des bases de données De base, Standard et Premium de bases de données à différents niveaux de performances.
+Il existe des niveaux de service et de performances à la fois pour les pools élastiques et pour la base de données autonome.
+
+### Bases de données autonomes
+
+Les limites d’une base de données autonome sont définies par ses niveaux de service et de performances. Le tableau suivant décrit les caractéristiques des bases de données De base, Standard et Premium de bases de données à différents niveaux de performances.
 
 [AZURE.INCLUDE [Tableau de niveaux de service de base de données SQL](../../includes/sql-database-service-tiers-table.md)]
 
-Les [pools de base de données élastique](sql-database-elastic-pool.md) partagent des ressources entre les bases de données dans le pool. Le tableau suivant décrit les caractéristiques des pools de base de données élastique De base, Standard et Premium.
+### Pools élastiques
+
+Les [pools élastiques](sql-database-elastic-pool.md) partagent des ressources entre les bases de données du pool. Le tableau suivant décrit les caractéristiques des pools de base de données élastique De base, Standard et Premium.
 
 [AZURE.INCLUDE [Tableau des niveaux de service de base de données SQL pour les bases de données élastiques](../../includes/sql-database-service-tiers-table-elastic-db-pools.md)]
 
@@ -73,4 +79,4 @@ Pour consulter une définition étendue de chaque ressource répertoriée dans l
 
 [Messages d'erreur pour les programmes clients SQL Database](sql-database-develop-error-messages.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0914_2016-->

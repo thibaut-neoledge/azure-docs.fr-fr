@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/01/2016"
+	ms.date="09/13/2016"
 	ms.author="tarcher"/>
 
 # FAQ d’Azure DevTest Labs
@@ -45,6 +45,7 @@ Cet article répond aux questions les plus fréquemment posées sur Azure DevTes
 - [Comment puis-je déplacer mes machines virtuelles Azure existantes dans mon laboratoire Azure DevTest Labs ?](#how-do-i-move-my-existing-azure-vms-into-my-azure-devtest-labs-lab)
 - [Puis-je attacher plusieurs disques à mes machines virtuelles ?](#can-i-attach-multiple-disks-to-my-vms)
 - [Comment puis-je automatiser le processus de téléchargement des fichiers de disque dur virtuel pour créer des images personnalisées ?](#how-do-i-automate-the-process-of-uploading-vhd-files-to-create-custom-images)
+- [Comment puis-je automatiser le processus de suppression de toutes les machines virtuelles dans mon laboratoire ?](#how-can-i-automate-the-process-of-deleting-all-the-vms-in-my-lab)
  
 ## Artefacts 
  
@@ -56,6 +57,8 @@ Cet article répond aux questions les plus fréquemment posées sur Azure DevTes
 - [Pourquoi mes machines virtuelles sont-elles créées dans différents groupes de ressources avec des noms arbitraires ? Puis-je renommer ou modifier ces groupes de ressources ?](#why-are-my-vms-created-in-different-resource-groups-with-arbitrary-names-can-i-rename-or-modify-these-resource-groups)
 - [Combien de laboratoires puis-je créer sous le même abonnement ?](#how-many-labs-can-i-create-under-the-same-subscription)
 - [Combien de machines virtuelles puis-je créer par laboratoire ?](#how-many-vms-can-i-create-per-lab)
+- [Comment partager un lien direct vers mon laboratoire ?](#how-do-i-share-a-direct-link-to-my-lab)
+- [Qu’est-ce qu’un compte Microsoft ?](#what-is-a-microsoft-account)
  
 ## Résolution de problèmes 
  
@@ -168,11 +171,48 @@ Pour trouver le compte de stockage de destination associé à votre laboratoire,
 1. Recherchez les téléchargements dans la liste. S’il n’y en a aucun, revenez à l’étape 4 et essayez un autre compte de stockage.
 1. Utilisez **l’URL** en tant que destination dans votre commande AzCopy.
 
+
+### Comment puis-je automatiser le processus de suppression de toutes les machines virtuelles dans mon laboratoire ?
+
+Outre la suppression des machines virtuelles de votre laboratoire dans le portail Azure, vous pouvez supprimer toutes les machines virtuelles dans votre laboratoire à l’aide d’un script PowerShell. Dans l’exemple suivant, modifiez simplement les valeurs des paramètres sous le commentaire **Valeurs à modifier**. Vous pouvez récupérer les valeurs `subscriptionId`, `labResourceGroup` et `labName` à partir du panneau de laboratoire dans le portail Azure.
+
+
+	# Delete all the VMs in a lab
+	
+	# Values to change
+	$subscriptionId = "<Enter Azure subscription ID here>"
+	$labResourceGroup = "<Enter lab's resource group here>"
+	$labName = "<Enter lab name here>"
+
+	# Login to your Azure account
+	Login-AzureRmAccount
+	
+	# Select the Azure subscription that contains the lab. This step is optional
+	# if you have only one subscription.
+	Select-AzureRmSubscription -SubscriptionId $subscriptionId
+	
+	# Get the lab that contains the VMs to delete.
+	$lab = Get-AzureRmResource -ResourceId ('subscriptions/' + $subscriptionId + '/resourceGroups/' + $labResourceGroup + '/providers/Microsoft.DevTestLab/labs/' + $labName)
+	
+	# Get the VMs from that lab.
+	$labVMs = Get-AzureRmResource | Where-Object { 
+	          $_.ResourceType -eq 'microsoft.devtestlab/labs/virtualmachines' -and
+	          $_.ResourceName -like "$($lab.ResourceName)/*"}
+	
+	# Delete the VMs.
+	foreach($labVM in $labVMs)
+	{
+	    Remove-AzureRmResource -ResourceId $labVM.ResourceId -Force
+	}
+
+
+
+
 ### Que sont les artefacts ? 
 Les artefacts sont des éléments personnalisables qui peuvent être utilisés pour déployer vos tout derniers bits ou vos outils de développement sur une machine virtuelle. Ils sont attachés à votre machine virtuelle lors de la création en quelques clics simples, et une fois que la machine virtuelle est configurée, les artefacts déploient et configurent votre machine virtuelle. Il existe divers artefacts préexistants dans notre [référentiel Github public](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts), mais vous pouvez également [créer vos propres artefacts](devtest-lab-artifact-author.md) facilement.
 
 ### Comment puis-je créer un laboratoire à partir d’un modèle Azure Resource Manager ? 
-Nous avons un [référentiel Github de modèles Azure Resource Manager de laboratoire](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates). Chacun de ces modèles a un lien sur lequel vous pouvez cliquer pour déployer le laboratoire Azure DevTest Labs sous votre abonnement Azure.
+Nous avons fourni un [référentiel Github de modèles Azure Resource Manager de laboratoire](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates) que vous pouvez déployer tels quels ou modifier pour créer des modèles personnalisés pour vos laboratoires. Chacun de ces modèles a un lien sur lequel vous pouvez cliquer pour déployer le laboratoire tel quel sous votre propre abonnement Azure, ou vous pouvez personnaliser le modèle et le [déployer à l’aide de PowerShell ou de l’interface de ligne de commande (CLI) Azure](../resource-group-template-deploy.md).
  
 ### Pourquoi mes machines virtuelles sont-elles créées dans différents groupes de ressources avec des noms arbitraires ? Puis-je renommer ou modifier ces groupes de ressources ? 
 Les groupes de ressources sont créés de cette façon pour qu’Azure DevTest Labs puisse gérer les autorisations utilisateur et l’accès aux machines virtuelles. Même si vous pouvez déplacer la machine virtuelle vers un autre groupe de ressources avec le nom de votre choix, cela n’est pas recommandé. Nous travaillons sur l’amélioration de cette fonctionnalité pour une flexibilité accrue.
@@ -182,6 +222,21 @@ Il n’existe aucune limite spécifique concernant le nombre de laboratoires qui
  
 ### Combien de machines virtuelles puis-je créer par laboratoire ? 
 Il n’existe aucune limite spécifique concernant le nombre de machines virtuelles qui peuvent être créées par laboratoire. Cependant, actuellement le laboratoire prend uniquement en charge 40 machines virtuelles s’exécutant en même temps dans le stockage standard et 25 machines virtuelles s’exécutant simultanément dans Premium Storage. Nous travaillons actuellement à l’augmentation de ces limites.
+
+### Comment partager un lien direct vers mon laboratoire ?
+
+Pour partager un lien direct à destination des utilisateurs de votre laboratoire, vous pouvez effectuer la procédure suivante.
+
+1. Accédez au laboratoire dans le portail Azure.
+2. Copiez l’URL du laboratoire dans votre navigateur et partagez-la avec les utilisateurs de votre laboratoire.
+
+>[AZURE.NOTE] Si les utilisateurs de votre laboratoire sont des utilisateurs externes avec un [compte MSA](#what-is-a-microsoft-account) et s’ils n’appartiennent pas au répertorie Active Directory de votre entreprise, il est possible qu’ils reçoivent une erreur lors de la navigation vers le lien fourni. Le cas échéant, indiquez-leur de cliquer sur leur nom dans le coin supérieur droit du portail Azure et de sélectionner le répertoire où se situe le laboratoire dans la section **Répertoire** du menu.
+
+### Qu’est-ce qu’un compte Microsoft ?
+
+Vous utilisez un compte Microsoft pour la plupart des opérations effectuées avec les services et les périphériques Microsoft. Il s’agit d’une adresse de messagerie et d’un mot de passe que vous utilisez pour vous connecter à Skype, Outlook.com, OneDrive, Windows Phone et Xbox LIVE. Cela signifie que vos fichiers, photos, contacts et paramètres vous suivent sur n’importe quel appareil.
+
+>[AZURE.NOTE] Auparavant le compte Microsoft était appelé « Windows Live ID ».
  
 ### Mon artefact a échoué lors de la création d’une machine virtuelle. Comment puis-je résoudre ce problème ? 
 Reportez-vous à ce billet de blog [How to troubleshoot failing Artifacts in AzureDevTestLabs](http://www.visualstudiogeeks.com/blog/DevOps/How-to-troubleshoot-failing-artifacts-in-AzureDevTestLabs) (Comment résoudre le problème des artefacts qui échouent dans AzureDevTestLabs) écrit par un de nos MVP, pour savoir comment obtenir des journaux concernant votre artefact ayant échoué.
@@ -189,4 +244,4 @@ Reportez-vous à ce billet de blog [How to troubleshoot failing Artifacts in Azu
 ### Pourquoi mon réseau virtuel existant n’est pas enregistré correctement ?  
 Il se peut que votre nom de réseau virtuel contienne des points. Si tel est le cas, essayez de supprimer les points ou remplacez-les par des tirets, puis réessayez d’enregistrer le réseau virtuel.
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

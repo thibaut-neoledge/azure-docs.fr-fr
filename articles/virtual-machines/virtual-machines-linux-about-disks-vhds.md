@@ -23,7 +23,7 @@ Comme tout autre ordinateur, les machines virtuelles dans Azure utilisent des di
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-
+> [AZURE.NOTE] Si vous avez un moment, aidez-nous à améliorer la documentation relative aux machines virtuelles Azure Linux en répondant à cette [enquête rapide](https://aka.ms/linuxdocsurvey) concernant vos expériences. Chaque réponse nous aide à vous faciliter la tâche.
 
 ## Disque de système d’exploitation
 
@@ -73,4 +73,4 @@ Avant de pouvoir supprimer un fichier .vhd source, vous devrez supprimer le bail
 -  [Configurer un RAID logiciel](virtual-machines-linux-configure-raid.md) pour la redondance.
 -  [Capturer une machine virtuelle Linux](virtual-machines-linux-classic-capture-image.md) afin de déployer rapidement des machines virtuelles supplémentaires.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->
