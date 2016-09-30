@@ -113,4 +113,4 @@ Après avoir ajouté des bases de données au pool, des recommandations seront g
 - [Gérer un pool élastique de base de données SQL en C#](sql-database-elastic-pool-manage-csharp.md)
 - [Montée en charge avec Base de données SQL Azure](sql-database-elastic-scale-introduction.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+<!-----HONumber=AcomDC_0907_2016-->

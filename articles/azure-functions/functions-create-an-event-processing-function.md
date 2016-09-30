@@ -81,4 +81,4 @@ Pour plus d’informations sur Azure Functions, consultez ces rubriques.
 
 [AZURE.INCLUDE [Remarque relative à la prise en main](../../includes/functions-get-help.md)]
 
-<!---HONumber=AcomDC_0622_2016-->
+<!-----HONumber=AcomDC_0622_2016-->
