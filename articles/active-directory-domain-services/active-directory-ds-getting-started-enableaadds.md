@@ -94,4 +94,4 @@ Au cours de cette tâche, vous activerez les services de domaine Azure AD pour v
 ## Tâche 4 : mettre à jour les paramètres DNS pour le réseau virtuel Azure
 La tâche de configuration suivante consiste à [mettre à jour les paramètres DNS pour le réseau virtuel Azure](active-directory-ds-getting-started-dns.md).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!-----HONumber=AcomDC_0706_2016-->

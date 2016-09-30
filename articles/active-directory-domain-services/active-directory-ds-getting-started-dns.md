@@ -51,4 +51,4 @@ Effectuez les étapes de configuration suivantes pour mettre à jour le paramèt
 ## Tâche 5 : activer la synchronisation du mot de passe pour les services de domaine Azure AD
 La tâche de configuration suivante consiste à [activer la synchronisation du mot de passe pour les services de domaine Azure AD](active-directory-ds-getting-started-password-sync.md).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!-----HONumber=AcomDC_0706_2016-->
