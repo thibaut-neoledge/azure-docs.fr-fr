@@ -445,7 +445,7 @@ Fusionne les lignes de deux tables en faisant correspondre les valeurs de la col
 
 **Syntaxe**
 
-    Table1 | join [kind=Kind] (Table2) on CommonColumn [, ...]
+    Table1 | join [kind=Kind] \(Table2) on CommonColumn [, ...]
 
 **Arguments**
 

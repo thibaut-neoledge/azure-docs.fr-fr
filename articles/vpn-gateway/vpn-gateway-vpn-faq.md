@@ -195,7 +195,7 @@ Une passerelle VPN est, fondamentalement, un périphérique multirésident avec 
 
 ### Plus d'informations sur les types de passerelle, la configuration requise et le débit
 
-Pour plus d’informations , voir [À propos des paramètres de la passerelle VPN] (vpn-gateway-about-vpn gateway-settings.md).
+Pour plus d’informations , voir [À propos des paramètres de la passerelle VPN](vpn-gateway-about-vpn gateway-settings.md).
 
 ## Connectivité multisite et de réseau virtuel à réseau virtuel
 
