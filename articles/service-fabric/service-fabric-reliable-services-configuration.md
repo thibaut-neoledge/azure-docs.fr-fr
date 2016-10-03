@@ -56,7 +56,7 @@ SharedLogSizeInMB spécifie la quantité d’espace disque à préallouer pour l
 ## Configuration spécifiques à un service
 Vous pouvez modifier la configuration par défaut des Reliable Services avec état par le biais du package de configuration (Config) ou l'implémentation du service (Code).
 
-+ **Config** : vous pouvez réaliser la configuration par le biais du package de configuration en modifiant le fichier Settings.xml généré dans la racine du package Microsoft Visual Studio, dans le dossier Config de chaque service dans l'application.
++ **Config** : vous pouvez réaliser la configuration par le biais du package de configuration en modifiant le fichier Settings.xml généré dans la racine du package Microsoft Visual Studio, dans le dossier Config de chaque service dans l'application.
 + **Code** - La configuration par l’intermédiaire du code est obtenue en créant un ReliableStateManager à l’aide d’un objet ReliableStateManagerConfiguration avec les options appropriées définies.
 
 Par défaut, le runtime Azure Service Fabric recherche des noms de sections prédéfinis dans le fichier Settings.xml et utilise les valeurs de configuration pendant la création des composants runtime sous-jacents.

@@ -105,7 +105,7 @@ La clause set définit une option pour la durée de la requête. Les options de 
     set OptionName [= OptionValue] ; query
 
 
-|Name | Implication si la valeur est définie sur true
+|Nom | Implication si la valeur est définie sur true
 |---|---
 |querytrace| Augmente le niveau des traces de débogage générées par une requête. 
 |noexecute| Désactive l’exécution réelle de la requête (seule la phase de planification de la requête est exécutée). 
@@ -1704,7 +1704,17 @@ Argument évalué. Si l’argument est une table, retourne la première colonne 
 || |
 |---|-------------|
 | + | Ajouter |
-| - | Soustraire || * | Multiplier || / | Diviser || % | Modulo | || |`<` |Inférieur à |`<=`|Inférieur ou égal à |`>` |Supérieur à |`>=`|Supérieur ou égal à |`<>`|Non égal à |`!=`|Non égal à
+| - | Soustraire |
+| * | Multiplier |
+| / | Diviser |
+| % | Modulo | 
+|| 
+|`<` |Inférieur à 
+|`<=`|Inférieur ou égal à 
+|`>` |Supérieur à 
+|`>=`|Supérieur ou égal à 
+|`<>`|Non égal à 
+|`!=`|Non égal à
 
 
 ### abs

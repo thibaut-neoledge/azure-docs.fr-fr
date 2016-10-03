@@ -42,7 +42,7 @@
 
 	![](./media/event-hubs-create-event-hub/create-event-hub8.png)
 
-Votre concentrateur d’événements est désormais créé et vous disposez des chaînes de connexion dont vous avez besoin pour envoyer et recevoir des événements.
+Votre concentrateur d’événements est désormais créé et vous disposez des chaînes de connexion dont vous avez besoin pour envoyer et recevoir des événements. 
 
 [portail Azure]: https://portal.azure.com/
 

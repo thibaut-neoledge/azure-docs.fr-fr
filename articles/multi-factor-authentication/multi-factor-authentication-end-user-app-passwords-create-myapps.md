@@ -25,7 +25,7 @@ Si vous n’utilisez pas l’authentification multifacteur avec Office 365 et n
 ## Pour créer des mots de passe d’application si vous ne possédez pas d’abonnement Office 365 ou Azure
 --------------------------------------------------------------------------------
 <ol>
-<li>Connectez-vous à [https://myapps.microsoft.com] (https://myapps.microsoft.com)</li>
+<li>Connectez-vous à [https://myapps.microsoft.com](https://myapps.microsoft.com)</li>
 <li>En haut de la page, sélectionnez le profil.</li>
 
 <center>![Cloud](./media/multi-factor-authentication-end-user-app-passwords-create-myapps/myapp.png)</center>

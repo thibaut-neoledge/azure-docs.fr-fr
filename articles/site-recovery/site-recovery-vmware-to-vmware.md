@@ -34,7 +34,7 @@ InMage Scout dans Azure Site Recovery assure une réplication en temps réel ent
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Développez **Services de données** > **Services de récupération**, puis cliquez sur **Coffre Site Recovery**.
-3. Cliquez sur **Créer nouveau** > **Création rapide**.
+3. Cliquez sur **Créer nouveau** > **Création rapide**.
 4. Dans **Name**, entrez un nom convivial pour identifier le coffre.
 5. Dans **Region**, sélectionnez la région géographique du coffre. Pour vérifier les régions prises en charge, consultez [Tarification d’Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
 

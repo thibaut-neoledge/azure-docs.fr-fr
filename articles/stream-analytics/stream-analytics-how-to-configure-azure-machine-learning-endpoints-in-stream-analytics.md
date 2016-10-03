@@ -26,10 +26,10 @@ Stream Analytics prend en charge les fonctions définies par l’utilisateur con
 
 Microsoft Azure Machine Learning offre un outil collaboratif fonctionnant par glisser-déplacer qui vous permet de générer, tester et déployer des solutions d’analyse prédictive à partir de vos données. Cet outil est appelé *Azure Machine Learning Studio*. Studio servira à l’interaction avec les ressources d’apprentissage et de facilement générer, tester et affiner votre conception. Ces ressources et leurs définitions se trouvent ci-dessous.
 
-- **Espace de travail** : l’*espace de travail* est un conteneur qui contient toutes les autres ressources Machine Learning avec un conteneur pour la gestion et le contrôle.
-- **Expérience** : les *expériences* sont créées par des scientifiques de données qui utilisent des jeux de données et créent un modèle Machine Learning.
-- **Point de terminaison** : les *points de terminaison* sont un objet Azure Machine Learning servant à saisir des fonctionnalités en entrée, appliquer un modèle machine learning spécifié et renvoyer le résultat évalué.
-- **Service Web d’évaluation** : un *service web d’évaluation* est une collection de points de terminaison, comme indiqué ci-dessus.
+- **Espace de travail** : l’*espace de travail* est un conteneur qui contient toutes les autres ressources Machine Learning avec un conteneur pour la gestion et le contrôle.
+- **Expérience** : les *expériences* sont créées par des scientifiques de données qui utilisent des jeux de données et créent un modèle Machine Learning.
+- **Point de terminaison** : les *points de terminaison* sont un objet Azure Machine Learning servant à saisir des fonctionnalités en entrée, appliquer un modèle machine learning spécifié et renvoyer le résultat évalué.
+- **Service Web d’évaluation** : un *service web d’évaluation* est une collection de points de terminaison, comme indiqué ci-dessus.
 
 Chaque point de terminaison dispose d’API servant à l’exécution de lots et l’exécution synchronisée. Stream Analytics utilise l’exécution synchronisée. Le service spécifique s’appelle [Service requête/réponse](../machine-learning/machine-learning-consume-web-services.md#request-response-service-rrs) dans AzureML studio.
 

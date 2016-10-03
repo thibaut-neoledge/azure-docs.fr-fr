@@ -203,7 +203,7 @@ Vous pouvez créer votre propre modèle à l’aide des informations figurant da
 
 Pour spécifier des valeurs pour les paramètres de ressource qui ont été définis dans le modèle, créez un fichier de paramètres qui contient les valeurs et envoyez-le au Gestionnaire de ressources avec le modèle.
 
-1. Dans l’éditeur de texte, copiez ces informations JSON dans un nouveau fichier appelé *Parameters.json* :
+1. Dans l'éditeur de texte, copiez ces informations JSON dans un nouveau fichier appelé *Parameters.json* :
 
         {
           "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",

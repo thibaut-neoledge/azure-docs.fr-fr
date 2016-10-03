@@ -130,7 +130,7 @@ Dans la boîte de dialogue **Ajouter structure**, agrandissez **Commun** sur la 
 
 ![][7]
 
-Dans la boîte de dialogue **Ajouter un contrôleur** :
+Dans la boîte de dialogue **Ajouter un contrôleur** :
 
 1.	Sous **Classe de modèle**, sélectionnez Player.
 2.	Sous la **classe de contexte de données**, sélectionnez MobileServiceContext.
@@ -635,12 +635,12 @@ Dans la page principale, ajoutez une instance du modèle de vue. Définissez ens
 
 Comme indiqué précédemment, nous ne verrons pas l'intégralité du XAML pour l'application. L'un des avantages du modèle MVVM est la séparation entre la présentation et la logique d'application. Il est donc facile de modifier l'interface utilisateur, si l'exemple d'application n'est pas à notre goût.
 
-La liste des joueurs s'affiche dans une zone **ListBox** :
+La liste des joueurs s'affiche dans une zone **ListBox** :
 
 	<ListBox Width="200" Height="400" x:Name="PlayerListBox"
 	    ItemsSource="{Binding Players}" DisplayMemberPath="Name"/>
 
-Les rangs s'affichent dans une liste **ListView** :
+Les rangs s'affichent dans une liste **ListView** :
 
 	<ListView x:Name="RankingsListView" ItemsSource="{Binding Ranks}" SelectionMode="None">
 	    <!-- Header and styles not shown -->

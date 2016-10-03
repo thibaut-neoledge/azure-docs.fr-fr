@@ -152,7 +152,7 @@ Le tableau de bord est à l’adresse URL suivante :
 
 	https://{function app name}.scm.azurewebsites.net/azurejobs/#/functions
 
-La page **Fonctions ** affiche une liste des fonctions qui ont été exécutées et une liste des appels de fonctions.
+La page **Fonctions** affiche une liste des fonctions qui ont été exécutées et une liste des appels de fonctions.
 
 ![Détails des appels](./media/functions-run-local/invocationdetail.png)
 

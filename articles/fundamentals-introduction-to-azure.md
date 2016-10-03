@@ -188,7 +188,7 @@ Localement, les gros volumes de stockage de fichiers sont généralement accessi
 
 - **Paramètres d'applications partagés** - Pour les applications distribuées, les fichiers de configuration sont souvent centralisés à un emplacement accessible par différentes machines virtuelles. Ces fichiers de configuration peuvent être stockés dans un partage Azure Files, puis lus par toutes les instances de l'application. Les paramètres peuvent également être gérés via l'interface REST, ce qui offre un accès mondial aux fichiers de configuration.
 
-- **Partage de diagnostic** - Vous pouvez enregistrer et partager des fichiers de diagnostic comme des journaux, des indicateurs de performances et des vidages sur incident. Le fait que ces fichiers soient à la fois disponibles via SMB et l'interface REST permet aux applications d'utiliser différents outils d'analyse pour traiter et analyser les données de diagnostic.
+- **Partage de diagnostic** - Vous pouvez enregistrer et partager des fichiers de diagnostic comme des journaux, des indicateurs de performances et des vidages sur incident. Le fait que ces fichiers soient à la fois disponibles via SMB et l'interface REST permet aux applications d'utiliser différents outils d'analyse pour traiter et analyser les données de diagnostic.
 
 - **Développement/Test/Débogage** - Lorsque les développeurs ou les administrateurs travaillent sur des machines virtuelles situées dans le cloud, ils ont souvent besoin de différents outils ou utilitaires. L'installation et la distribution de ces utilitaires sur chaque machine virtuelle prennent du temps. Avec Azure Files Services, un développeur ou administrateur peut stocker ses outils préférés sur un partage de fichiers et les relier à n'importe quelle machine virtuelle.
 

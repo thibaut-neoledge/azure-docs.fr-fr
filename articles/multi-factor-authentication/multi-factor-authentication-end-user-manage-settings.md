@@ -38,17 +38,17 @@ Si vous avez essayé les étapes de dépannage décrites ci-dessous et que vous 
 
 Lorsque vous contactez le support, il est recommandé de fournir les informations suivantes :
 
- - **Description générale de l’erreur** : quel message d’erreur exact est apparu ? Si aucun message d’erreur n’est apparu, décrivez en détail le comportement inattendu remarqué.
- - **Page** : sur quelle page vous trouviez-vous lorsque l’erreur est apparue (incluez l’URL) ?
- - **ErrorCode** : le code d’erreur spécifique que vous recevez.
- - **SessionId** : l’ID de session spécifique que vous recevez.
+ - **Description générale de l’erreur** : quel message d’erreur exact est apparu ? Si aucun message d’erreur n’est apparu, décrivez en détail le comportement inattendu remarqué.
+ - **Page** : sur quelle page vous trouviez-vous lorsque l’erreur est apparue (incluez l’URL) ?
+ - **ErrorCode** : le code d’erreur spécifique que vous recevez.
+ - **SessionId** : l’ID de session spécifique que vous recevez.
  - **ID de corrélation** : quel était l’ID de corrélation généré lorsque l’utilisateur a remarqué l’erreur ?
- - **Horodatage** : quelles étaient la date et l’heure précises auxquelles l’erreur s’est produite (incluez le fuseau horaire) ?
+ - **Horodatage** : quelles étaient la date et l’heure précises auxquelles l’erreur s’est produite (incluez le fuseau horaire) ?
 
 ![ID de corrélation :](./media/multi-factor-authentication-end-user-manage/correlation.png)
 
- - **ID utilisateur** : quel est l’ID de l’utilisateur qui a vu l’erreur (par exemple user@contoso.com) ?
- - **Informations sur l’utilisateur** : l’utilisateur était-il fédéré, disposait-il de la synchronisation du hachage de mot de passe ou était-ce un utilisateur du cloud uniquement ? L'utilisateur disposait-il d'une licence Azure AD Premium, Enterprise Mobility ou Azure AD de base ? L'utilisateur utilise-t-il Office 365 ? etc.
+ - **ID utilisateur** : quel est l’ID de l’utilisateur qui a vu l’erreur (par exemple user@contoso.com) ?
+ - **Informations sur l’utilisateur** : l’utilisateur était-il fédéré, disposait-il de la synchronisation du hachage de mot de passe ou était-ce un utilisateur du cloud uniquement ? L'utilisateur disposait-il d'une licence Azure AD Premium, Enterprise Mobility ou Azure AD de base ? L'utilisateur utilise-t-il Office 365 ? etc.
 
 Ces informations nous aideront à résoudre votre problème aussi rapidement que possible.
 

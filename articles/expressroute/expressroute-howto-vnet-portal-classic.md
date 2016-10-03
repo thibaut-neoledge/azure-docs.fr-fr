@@ -37,8 +37,8 @@ Les étapes suivantes vous permettent de créer un réseau virtuel classique et 
 
 3. Dans la page **Détails du réseau virtuel**, entrez les informations suivantes :
 
-	- **Nom** : nommez votre réseau virtuel. Sachant que vous utiliserez ce nom de réseau virtuel au moment de déployer vos machines virtuelles et vos instances PaaS, vous préféreriez probablement avoir un nom qui n’est pas trop compliqué.
-	- **Emplacement** : l’emplacement est directement associé à l’emplacement physique (région) où vous souhaitez que vos ressources (machines virtuelles) résident. Par exemple, si les machines virtuelles que vous déployez dans ce réseau virtuel doivent être situées physiquement dans la région Est des États-Unis, sélectionnez cet emplacement. Après avoir créé votre réseau virtuel, vous ne pourrez plus modifier la région qui lui est associée.
+	- **Nom** : nommez votre réseau virtuel. Sachant que vous utiliserez ce nom de réseau virtuel au moment de déployer vos machines virtuelles et vos instances PaaS, vous préféreriez probablement avoir un nom qui n’est pas trop compliqué.
+	- **Emplacement** : l’emplacement est directement associé à l’emplacement physique (région) où vous souhaitez que vos ressources (machines virtuelles) résident. Par exemple, si les machines virtuelles que vous déployez dans ce réseau virtuel doivent être situées physiquement dans la région Est des États-Unis, sélectionnez cet emplacement. Après avoir créé votre réseau virtuel, vous ne pourrez plus modifier la région qui lui est associée.
 
 4. Sur la page **Serveurs DNS et connectivité VPN**, entrez les informations suivantes, puis cliquez sur la flèche Suivant située dans le coin inférieur droit.
 
@@ -49,16 +49,16 @@ Les étapes suivantes vous permettent de créer un réseau virtuel classique et 
 
 5. La page **Connectivité de site à site** s’affiche si vous avez choisi de spécifier un nouveau réseau local à l’étape précédente. Pour configurer votre réseau local, entrez les informations ci-dessous, puis cliquez sur la flèche Suivant.
 
-	- **Nom** : nom que vous souhaitez donner à votre site de réseau local.
-	- **Espace d’adressage** : inclut l’adresse IP de départ et le nombre d’adresses (CIDR). Vous pouvez spécifier n’importe quelle plage d’adresses à condition qu’elle ne chevauche pas la plage d’adresses de votre réseau virtuel. Habituellement, les plages d’adresses de vos réseaux locaux sont spécifiées ainsi, mais dans le cas d’ExpressRoute, ces paramètres ne sont pas utilisés. Toutefois, ce paramètre est requis pour créer le réseau local lorsque vous utilisez le portail classique.
-	- **Ajouter un espace d’adressage** : ce paramètre ne s’applique pas à ExpressRoute.
+	- **Nom** : nom que vous souhaitez donner à votre site de réseau local.
+	- **Espace d’adressage** : inclut l’adresse IP de départ et le nombre d’adresses (CIDR). Vous pouvez spécifier n’importe quelle plage d’adresses à condition qu’elle ne chevauche pas la plage d’adresses de votre réseau virtuel. Habituellement, les plages d’adresses de vos réseaux locaux sont spécifiées ainsi, mais dans le cas d’ExpressRoute, ces paramètres ne sont pas utilisés. Toutefois, ce paramètre est requis pour créer le réseau local lorsque vous utilisez le portail classique.
+	- **Ajouter un espace d’adressage** : ce paramètre ne s’applique pas à ExpressRoute.
 
 
 6. Sur la page **Virtual Network Address Spaces**, entrez les informations ci-dessous, puis cliquez sur la coche située dans le coin inférieur droit pour configurer votre réseau.
 
-	- **Espace d’adressage** : inclut l’adresse IP de départ et le nombre d’adresses. Vérifiez que les espaces d’adressage que vous spécifiez ne chevauchent pas les espaces d’adressage de votre réseau local.
-	- **Ajouter un sous-réseau** : inclut l’adresse IP de départ et le nombre d’adresses. Il est inutile d’ajouter des sous-réseaux supplémentaires.
-	- **Ajouter un sous-réseau de passerelle** : cliquez sur cette option pour ajouter le sous-réseau de passerelle. Le sous-réseau de passerelle est utilisé uniquement pour la passerelle de réseau virtuel et est requis pour cette configuration.<BR>Le CIDR du sous-réseau de passerelle (nombre d’adresses) pour ExpressRoute doit être /28 ou supérieur (/27, /26, etc.). Ainsi, il y a suffisamment d’adresses IP dans ce sous-réseau pour que la configuration fonctionne. Dans le portail classique, si vous avez activé la case à cocher pour utiliser ExpressRoute, le portail spécifie un sous-réseau de passerelle avec /28. Vous ne pouvez pas ajuster le nombre d’adresses CIDR dans le portail classique. Le sous-réseau de passerelle apparaîtra en tant que **Gateway** dans le portail classique, bien que le nom réel du sous-réseau de passerelle créé soit en fait **GatewaySubnet**. Vous pouvez voir ce nom à l’aide de PowerShell ou dans le Portail Azure.
+	- **Espace d’adressage** : inclut l’adresse IP de départ et le nombre d’adresses. Vérifiez que les espaces d’adressage que vous spécifiez ne chevauchent pas les espaces d’adressage de votre réseau local.
+	- **Ajouter un sous-réseau** : inclut l’adresse IP de départ et le nombre d’adresses. Il est inutile d’ajouter des sous-réseaux supplémentaires.
+	- **Ajouter un sous-réseau de passerelle** : cliquez sur cette option pour ajouter le sous-réseau de passerelle. Le sous-réseau de passerelle est utilisé uniquement pour la passerelle de réseau virtuel et est requis pour cette configuration.<BR>Le CIDR du sous-réseau de passerelle (nombre d’adresses) pour ExpressRoute doit être /28 ou supérieur (/27, /26, etc.). Ainsi, il y a suffisamment d’adresses IP dans ce sous-réseau pour que la configuration fonctionne. Dans le portail classique, si vous avez activé la case à cocher pour utiliser ExpressRoute, le portail spécifie un sous-réseau de passerelle avec /28. Vous ne pouvez pas ajuster le nombre d’adresses CIDR dans le portail classique. Le sous-réseau de passerelle apparaîtra en tant que **Gateway** dans le portail classique, bien que le nom réel du sous-réseau de passerelle créé soit en fait **GatewaySubnet**. Vous pouvez voir ce nom à l’aide de PowerShell ou dans le Portail Azure.
 
 7. Cliquez sur la coche en bas de la page pour créer votre réseau virtuel. Une fois votre réseau virtuel créé, la mention **Créé** apparaît sous **État** sur la page **Réseaux** du portail classique.
 

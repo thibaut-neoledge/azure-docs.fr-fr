@@ -34,7 +34,7 @@ Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
 ## Points à prendre en considération pour le déploiement
 
-Vous pouvez exécuter plusieurs instances de l’intégrateur Azlog si le volume d’événements est élevé. L’équilibrage de charge des comptes de stockage Diagnostics Windows Azure pour Windows *(WAD)* et le nombre d’abonnements à fournir aux instances doivent être basés sur la capacité.
+Vous pouvez exécuter plusieurs instances de l’intégrateur Azlog si le volume d’événements est élevé. L’équilibrage de charge des comptes de stockage Diagnostics Microsoft Azure pour Windows *(WAD)* et le nombre d’abonnements à fournir aux instances doivent être basés sur la capacité.
 
 Sur un ordinateur 8 processeurs (cœurs), une seule instance de l’intégrateur Azlog peut traiter environ 24 millions d’événements par jour (environ 1 million/heure).
 
@@ -76,7 +76,7 @@ Le service d’intégration des journaux Azure collecte les données de télém�
 
 ## Que se passe-t-il si les données ne s’affichent pas dans le dossier Événements transférés ?
 
-Si les données ne s’affichent pas dans le dossier **Événements transférés** après une heure, procédez comme suit :
+Si les données ne s’affichent pas dans le dossier **Événements transférés** après une heure, procédez comme suit :
 
 1. Vérifiez que l’ordinateur peut accéder à Azure. Pour tester la connectivité, essayez d’ouvrir le [portail Azure](http://portal.azure.com) à partir du navigateur.
 

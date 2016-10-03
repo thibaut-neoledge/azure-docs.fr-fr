@@ -33,7 +33,7 @@ Lorsque vous essayez de démarrer une machine virtuelle Azure arrêtée ou de re
 
 Pour résoudre les problèmes, commencez par collecter les journaux d’audit afin d’identifier l’erreur associée au problème.
 
-Dans le portail Azure, cliquez sur **Parcourir** > **Machines virtuelles** > _votre machine virtuelle Linux_ > **Paramètres** > **Journaux d’audit**.
+Dans le portail Azure, cliquez sur **Parcourir** > **Machines virtuelles** > _votre machine virtuelle Linux_ > **Paramètres** > **Journaux d’audit**.
 
 ## Problème : Erreur lors du démarrage d’une machine virtuelle arrêtée
 
@@ -69,7 +69,7 @@ La demande de redimensionnement de la machine virtuelle doit être exécutée su
 
 Réduisez la taille de la machine virtuelle demandée, puis relancez la demande de redimensionnement.
 
-* Cliquez sur **Parcourir tout** > **Machines virtuelles (classiques)** > _votre machine virtuelle_ > **Paramètres** > **Taille**. Pour connaître la procédure détaillée, consultez [Redimensionner la machine virtuelle](https://msdn.microsoft.com/library/dn168976.aspx).
+* Cliquez sur **Parcourir tout** > **Machines virtuelles (classiques)** > _votre machine virtuelle_ > **Paramètres** > **Taille**. Pour connaître la procédure détaillée, consultez [Redimensionner la machine virtuelle](https://msdn.microsoft.com/library/dn168976.aspx).
 
 S’il est impossible de réduire la taille de la machine virtuelle, procédez comme suit :
 

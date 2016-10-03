@@ -97,9 +97,9 @@ Pour plus d’informations, consultez :
 
 - Le blog [Kit de développement logiciel (SDK) Microsoft Azure Media Services pour PHP](http://southworks.com/blog/2015/12/09/new-microsoft-azure-media-services-sdk-for-php-release-available-with-new-features-and-samples/).
 - Les [exemples de code](http://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices) suivants pour vous aider à commencer rapidement :
-	- **vodworkflow\_aes.php** : fichier PHP indiquant comment utiliser le chiffrement dynamique AES 128 et le service de remise de clés. Il est basé sur l’exemple .NET expliqué dans [cet](media-services-protect-with-aes128.md) article.
-	- **vodworkflow\_aes.php** : fichier PHP indiquant comment utiliser le chiffrement dynamique PlayReady et le service de remise de licences. Il est basé sur l’exemple .NET expliqué dans [cet](media-services-protect-with-drm.md) article.
-	- **scale\_encoding\_units.php** : fichier PHP qui indiquant comment mettre à l’échelle l’unité réservée d’encodage.
+	- **vodworkflow\_aes.php** : fichier PHP indiquant comment utiliser le chiffrement dynamique AES 128 et le service de remise de clés. Il est basé sur l’exemple .NET expliqué dans [cet](media-services-protect-with-aes128.md) article.
+	- **vodworkflow\_aes.php** : fichier PHP indiquant comment utiliser le chiffrement dynamique PlayReady et le service de remise de licences. Il est basé sur l’exemple .NET expliqué dans [cet](media-services-protect-with-drm.md) article.
+	- **scale\_encoding\_units.php** : fichier PHP qui indiquant comment mettre à l’échelle l’unité réservée d’encodage.
 
 
 ##<a id="nov_changes_15"></a>Version de novembre 2015
@@ -202,7 +202,7 @@ La version du Kit de développement logiciel (SDK) Azure Media Services est dés
 
 Voici certaines mises à jour à destination des clients :
 
-- **Dernière modification** : **TokenRestrictionTemplate.Issuer** et **TokenRestrictionTemplate.Audience** sont désormais de type chaîne.
+- **Dernière modification** : **TokenRestrictionTemplate.Issuer** et **TokenRestrictionTemplate.Audience** sont désormais de type chaîne.
 - Mises à jour relatives à la création de stratégies personnalisées de nouvel essai.
 - Correctifs liés au téléchargement/chargement de fichiers.
 - La classe **MediaServicesCredentials** accepte désormais le point de terminaison de contrôle d’accès principal et secondaire d’authentification.

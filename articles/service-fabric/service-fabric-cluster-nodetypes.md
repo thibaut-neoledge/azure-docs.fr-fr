@@ -102,7 +102,7 @@ Connectez-vous à votre compte Azure. Si cette commande PowerShell échoue pour 
 Login-AzureRmAccount
 ```
 
-Exécutez la commande suivante pour obtenir les détails de votre équilibrage de charge et découvrir les valeurs qui décrivent **inboundNatPools** :
+Exécutez la commande suivante pour obtenir les détails de votre équilibrage de charge et découvrir les valeurs qui décrivent **inboundNatPools** :
 
 ```
 Get-AzureRmResource -ResourceGroupName <RGname> -ResourceType Microsoft.Network/loadBalancers -ResourceName <load balancer name>

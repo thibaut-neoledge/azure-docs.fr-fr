@@ -38,15 +38,15 @@ Prenons, par exemple, une instance de chaos définie pour s’exécuter une heur
 Dans sa forme actuelle, le chaos déclenche uniquement des erreurs sécurisées, ce qui implique qu’en l’absence d’erreurs externes, une perte de quorum ou une perte de données ne se produit jamais.
 
 ## Options de configuration importantes
- - **TimeToRun** : durée totale d’exécution du chaos jusqu’à sa réussite. Il est possible d’arrêter le chaos avant qu’il ne se soit exécuté durant la période TimeToRun définie via l’API StopChaos.
+ - **TimeToRun** : durée totale d’exécution du chaos jusqu’à sa réussite. Il est possible d’arrêter le chaos avant qu’il ne se soit exécuté durant la période TimeToRun définie via l’API StopChaos.
  - **MaxClusterStabilizationTimeout** : durée d’attente maximale pour que le cluster devienne sain avant une nouvelle vérification. Cette attente vise à réduire la charge sur le cluster pendant sa récupération. Les vérifications effectuées sont
     - Si l’intégrité du cluster est OK
     - L’intégrité du service est OK
     - La taille du jeu de réplicas cible est atteinte pour la partition de service
     - Aucun réplica InBuild n’existe
- - **MaxConcurrentFaults** : nombre maximal d’erreurs introduites simultanément dans chaque itération. Plus le nombre est élevé, plus le chaos est efficace. Vous obtiendrez des combinaisons plus complexes de basculement et de transition. Le chaos garantit qu’aucune perte de quorum ou de données ne sera à déplorer en l’absence d’erreurs externes, quel que soit la valeur de la configuration.
- - **EnableMoveReplicaFaults** : active ou désactive les erreurs provoquant le déplacement des réplicas primaires ou secondaires. Ces erreurs sont désactivées par défaut.
- - **WaitTimeBetweenIterations** : délai d’attente entre les itérations, c’est-à-dire après une séquence d’erreurs et la validation correspondante.
+ - **MaxConcurrentFaults** : nombre maximal d’erreurs introduites simultanément dans chaque itération. Plus le nombre est élevé, plus le chaos est efficace. Vous obtiendrez des combinaisons plus complexes de basculement et de transition. Le chaos garantit qu’aucune perte de quorum ou de données ne sera à déplorer en l’absence d’erreurs externes, quel que soit la valeur de la configuration.
+ - **EnableMoveReplicaFaults** : active ou désactive les erreurs provoquant le déplacement des réplicas primaires ou secondaires. Ces erreurs sont désactivées par défaut.
+ - **WaitTimeBetweenIterations** : délai d’attente entre les itérations, c’est-à-dire après une séquence d’erreurs et la validation correspondante.
  - **WaitTimeBetweenFaults** : délai d’attente entre deux erreurs consécutives lors d’une itération.
 
 ## Procédure d’exécution du chaos

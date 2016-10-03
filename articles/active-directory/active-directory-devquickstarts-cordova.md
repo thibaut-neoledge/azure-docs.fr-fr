@@ -72,7 +72,7 @@ Chaque plateforme cible a sa propre configuration requise.
     - *Android SDK Build-tools* version 19.1.0 ou supérieure
     - *Android Support Repository* (modules complémentaires)
 
-  Le Kit de développement logiciel (SDK) Android ne fournit pas d’instance d’émulateur par défaut. Créez-en une en exécutant `android avd` à partir du terminal, puis en sélectionnant *Create...* si vous souhaitez exécuter l’application Android sur l’émulateur. *Niveau d’API* 19 ou supérieur recommandé. Voir [Gestionnaire AVD](http://developer.android.com/tools/help/avd-manager.html) pour plus d’informations sur les options de création et l’émulateur Android.
+  Le Kit de développement logiciel (SDK) Android ne fournit pas d’instance d’émulateur par défaut. Créez-en une en exécutant `android avd` à partir du terminal, puis en sélectionnant *Create...* si vous souhaitez exécuter l’application Android sur l’émulateur. *Niveau d’API* 19 ou supérieur recommandé. Voir [Gestionnaire AVD](http://developer.android.com/tools/help/avd-manager.html) pour plus d’informations sur les options de création et l’émulateur Android.
 
 
 ## *1. Inscription d’une application auprès d’Azure AD*

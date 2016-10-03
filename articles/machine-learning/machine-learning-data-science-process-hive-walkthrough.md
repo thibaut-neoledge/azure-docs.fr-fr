@@ -55,14 +55,14 @@ Pour obtenir tous les détails pertinents pour un voyage en particulier, il suff
 Nous fournissons rapidement des informations supplémentaires relatives aux données lorsque nous les stockons dans les tables Hive.
 
 ## <a name="mltasks"></a>Exemples de tâches de prédiction
-Le fait de connaître le type de prévisions que vous souhaitez obtenir de l’analyse des données permet de clarifier les tâches à inclure dans votre processus. Voici trois exemples de problèmes de prévisions que nous allons traiter dans ce guide et dont la formulation s’appuie sur le champ *tip\_amount* :
+Le fait de connaître le type de prévisions que vous souhaitez obtenir de l’analyse des données permet de clarifier les tâches à inclure dans votre processus. Voici trois exemples de problèmes de prévisions que nous allons traiter dans ce guide et dont la formulation s’appuie sur le champ *tip\_amount* :
 
-1. **Classification binaire** : prédire si un pourboire a ou non été versé pour une course ; autrement dit, une valeur *tip\_amount* supérieure à 0 $ constitue un exemple positif, alors qu’une valeur *tip\_amount* de 0 $ est un exemple négatif.
+1. **Classification binaire** : prédire si un pourboire a ou non été versé pour une course ; autrement dit, une valeur *tip\_amount* supérieure à 0 $ constitue un exemple positif, alors qu’une valeur *tip\_amount* de 0 $ est un exemple négatif.
 
 		Class 0 : tip_amount = $0
 		Class 1 : tip_amount > $0
 
-2. **Classification multiclasse** : prédire la fourchette du montant des pourboires versés pour une course. Nous divisons la valeur *tip\_amount* en cinq compartiments ou classes :
+2. **Classification multiclasse** : prédire la fourchette du montant des pourboires versés pour une course. Nous divisons la valeur *tip\_amount* en cinq compartiments ou classes :
 
 		Class 0 : tip_amount = $0
 		Class 1 : tip_amount > $0 and tip_amount <= $5
@@ -70,7 +70,7 @@ Le fait de connaître le type de prévisions que vous souhaitez obtenir de l’a
 		Class 3 : tip_amount > $10 and tip_amount <= $20
 		Class 4 : tip_amount > $20
 
-3. **Tâche de régression** : prédire le montant du pourboire versé pour une course.
+3. **Tâche de régression** : prédire le montant du pourboire versé pour une course.
 
 
 ## <a name="setup"></a>Configuration d’un cluster Hadoop HDInsight pour une analyse avancée
@@ -111,7 +111,7 @@ Nous décrivons ici comment utiliser AzCopy pour transférer les fichiers conten
 
 Dans les commandes AzCopy suivantes, remplacez les paramètres suivants par les valeurs réelles que vous avez spécifiées lors de la création du cluster Hadoop et lors de la décompression des fichiers de données.
 
-* ***& #60;path\_to\_data\_folder >*** le répertoire (ainsi que le chemin d'accès) sur votre ordinateur qui contiennent les fichiers de données décompressés
+* ***& #60;path\_to\_data\_folder >*** le répertoire (ainsi que le chemin d'accès) sur votre ordinateur qui contiennent les fichiers de données décompressés  
 * ***&#60;storage account name of Hadoop cluster>*** le compte de stockage associé à votre cluster HDInsight
 * ***&#60;default container of Hadoop cluster>*** le conteneur par défaut utilisé par votre cluster. Notez que le nom du conteneur par défaut est généralement le même nom que celui du cluster. Par exemple, si le cluster est appelé « abc123.azurehdinsight.net », le conteneur par défaut est abc123.
 * ***&#60;storage account key>*** la clé du compte de stockage utilisé par votre cluster
@@ -434,10 +434,10 @@ Un objectif commun d'une analyse exploratoire des données est d'éliminer les e
 
 Voici le contenu du fichier *sample\_hive\_quality\_assessment.hql* pour l’inspection.
 
-	    SELECT COUNT(*) FROM nyctaxidb.trip
-	    WHERE month=1
-	    AND  (CAST(pickup_longitude AS float) NOT BETWEEN -90 AND -30
-	    OR    CAST(pickup_latitude AS float) NOT BETWEEN 30 AND 90
+    	SELECT COUNT(*) FROM nyctaxidb.trip
+    	WHERE month=1
+    	AND  (CAST(pickup_longitude AS float) NOT BETWEEN -90 AND -30
+    	OR    CAST(pickup_latitude AS float) NOT BETWEEN 30 AND 90
 	    OR    CAST(dropoff_longitude AS float) NOT BETWEEN -90 AND -30
 	    OR    CAST(dropoff_latitude AS float) NOT BETWEEN 30 AND 90);
 
@@ -454,7 +454,7 @@ L’argument *-S* inclus dans la commande supprime l’affichage de l’état de
 
 Pour le problème de classification binaire présenté dans la section [Exemples de tâches de prédiction](machine-learning-data-science-process-hive-walkthrough.md#mltasks), il est utile de savoir si un pourboire a été donné ou non. Cette distribution de pourboires est binaire :
 
-* pourboire donné (classe 1, tip\_amount > 0 $)
+* pourboire donné (classe 1, tip\_amount > 0 $)  
 * aucun pourboire (classe 0, tip\_amount > 0 $)
 
 Le fichier *sample\_hive\_tipped\_frequencies.hql* ci-dessous effectue cette opération.
@@ -495,7 +495,7 @@ Exécutez la commande suivante dans la console de ligne de commande Hadoop :
 
 ### Exploration : calculer la distance directe entre deux emplacements de latitude-longitude
 
-**Remarque :** il s'agit généralement d’une tâche de ** données scientifiques**.
+**Remarque:** il s'agit généralement d’une tâche de **données scientifiques**.
 
 Avoir une idée de la distance directe nous permet de déterminer l'écart entre celle-ci et la distance de course réelle. Nous expliquons cette fonctionnalité par le fait qu’un passager peut être moins susceptible de donner un pourboire s’il se rend compte que le chauffeur a pris intentionnellement un itinéraire beaucoup plus long.
 
@@ -564,10 +564,10 @@ Ensuite, cette requête réduit l’échantillon des données pour que ses rés
 
 Voici le contenu du fichier *sample\_hive\_prepare\_for\_aml\_full.hql* qui prépare les données pour la création du modèle dans Azure Machine Learning.
 
-        set R = 3959;
-        set pi=radians(180);
+		set R = 3959;
+	    set pi=radians(180);
 
-        create table if not exists nyctaxidb.nyctaxi_downsampled_dataset (
+		create table if not exists nyctaxidb.nyctaxi_downsampled_dataset (
 
         medallion string,
         hack_license string,
@@ -622,7 +622,7 @@ Voici le contenu du fichier *sample\_hive\_prepare\_for\_aml\_full.hql* qui pré
         t.pickup_latitude,
         t.dropoff_longitude,
         t.dropoff_latitude,
-        t.direct_distance,
+		t.direct_distance,
         f.payment_type,
         f.fare_amount,
         f.surcharge,
@@ -697,17 +697,17 @@ En tant que composants requis pour la création de requêtes Hive dans le module
 
 Certains détails sur le module [Importer des données][import-data] et les paramètres à entrer :
 
-**URI du serveur HCatalog** : si le nom du cluster est abc123, il s'agit simplement : https://abc123.azurehdinsight.net
+**URI du serveur HCatalog** : si le nom du cluster est abc123, il s'agit simplement : https://abc123.azurehdinsight.net
 
-**Nom du compte utilisateur Hadoop** : le nom d'utilisateur choisi pour le cluster (et **non** le nom d'utilisateur de l'accès à distance)
+**Nom du compte utilisateur Hadoop** : le nom d'utilisateur choisi pour le cluster (et **non** le nom d'utilisateur de l'accès à distance)
 
-**Mot de passe du compte utilisateur Hadoop** : le mot de passe choisi pour le cluster (et **non** le mot de passe d'accès à distance)
+**Mot de passe du compte utilisateur Hadoop** : le mot de passe choisi pour le cluster (et **non** le mot de passe d'accès à distance)
 
-**Emplacement des données de sortie** : il est choisi pour être Azure.
+**Emplacement des données de sortie** : il est choisi pour être Azure.
 
-**Nom du compte de stockage Azure** : le nom du compte de stockage par défaut associé au cluster.
+**Nom du compte de stockage Azure** : le nom du compte de stockage par défaut associé au cluster.
 
-**Nom de conteneur Azure** : c’est le nom de conteneur par défaut pour le cluster et c’est généralement le même que le nom du cluster. Pour un cluster appelé « abc123 », il s'agit simplement d’abc123.
+**Nom de conteneur Azure** : c’est le nom de conteneur par défaut pour le cluster et c’est généralement le même que le nom du cluster. Pour un cluster appelé « abc123 », il s'agit simplement d’abc123.
 
 **Remarque importante :** **toute table que nous souhaitons interroger à l’aide du module [Importer des données][import-data] dans Azure Machine Learning doit être une table interne.** Voici un conseil pour déterminer si une table T dans une base de données D.db est une table interne.
 
@@ -729,7 +729,7 @@ Le jeu de données peut maintenant être utilisé comme point de départ pour g�
 
 Nous sommes désormais capables de passer aux phases de création et de déploiement de modèles dans [Azure Machine Learning](https://studio.azureml.net). Les données sont exploitables pour répondre aux problèmes de prévision identifiés précédemment :
 
-**1. Classification binaire** : prédire si un pourboire a ou non été versé pour une course.
+**1. Classification binaire** : prédire si un pourboire a ou non été versé pour une course.
 
 **Apprenant utilisé :** régression logistique à deux classes
 
@@ -749,7 +749,7 @@ Par conséquent, nous obtenons une intégration de 0,987 comme indiqué dans la 
 
 ![](./media/machine-learning-data-science-process-hive-walkthrough/8JDT0F8.png)
 
-**2. Classification multiclasse ** : pour prédire le montant des pourboires réglés pour la course, en utilisant les classes précédemment définies.
+**2. Classification multiclasse ** : pour prédire le montant des pourboires réglés pour la course, en utilisant les classes précédemment définies.
 
 **Apprenant utilisé :** régression logistique multiclasse
 
@@ -770,7 +770,7 @@ b. Pour cette expérience, nous utilisons une matrice de confusion pour consulte
 Notez que la précision des classes sur les classes les plus courantes est assez bonne, mais que le modèle n'effectue pas un bon travail d’« apprentissage » sur les classes plus rares.
 
 
-**3. Tâche de régression** : prédire le montant du pourboire versé pour une course.
+**3. Tâche de régression** : prédire le montant du pourboire versé pour une course.
 
 **Apprenant utilisé :** arbre de décision optimisé
 
@@ -794,7 +794,9 @@ Ce didacticiel et ses scripts associés sont partagés par Microsoft sous la lic
 
 ## Références
 
-• [Page de téléchargement des jeux de données NYC Taxi Trips par Andrés Monroy (en anglais)](http://www.andresmh.com/nyctaxitrips/) • [Page de partage des données relatives aux courses en taxi new-yorkais par Chris Whong (en anglais)](http://chriswhong.com/open-data/foil_nyc_taxi/) • [Page de recherche et de statistiques de la Commission des services de taxis et de limousines de la ville de New York (en anglais)](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml)
+•	[Page de téléchargement des jeux de données NYC Taxi Trips par Andrés Monroy (en anglais)](http://www.andresmh.com/nyctaxitrips/)  
+•	[Page de partage des données relatives aux courses en taxi new-yorkais par Chris Whong (en anglais)](http://chriswhong.com/open-data/foil_nyc_taxi/)   
+•	[Page de recherche et de statistiques de la Commission des services de taxis et de limousines de la ville de New York (en anglais)](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml)
 
 
 [2]: ./media/machine-learning-data-science-process-hive-walkthrough/output-hive-results-3.png

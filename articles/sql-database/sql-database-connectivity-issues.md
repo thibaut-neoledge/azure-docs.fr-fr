@@ -36,9 +36,9 @@ Si votre programme client utilise ADO.NET, votre programme est informé de l’
 
 Vous allez réessayer la connexion SQL ou la rétablir, en fonction de ce qui suit :
 
-* **Une erreur temporaire survient pendant une tentative de connexion** : la connexion doit être retentée après un délai de quelques secondes.
+* **Une erreur temporaire survient pendant une tentative de connexion** : la connexion doit être retentée après un délai de quelques secondes.
 
-* **Une erreur temporaire se produit pendant une commande de requête SQL** : cette dernière ne doit pas être retentée immédiatement. Au lieu de cela, après qu’un certain délai se soit écoulé, la connexion doit être établie. Ensuite, la commande peut être relancée.
+* **Une erreur temporaire se produit pendant une commande de requête SQL** : cette dernière ne doit pas être retentée immédiatement. Au lieu de cela, après qu’un certain délai se soit écoulé, la connexion doit être établie. Ensuite, la commande peut être relancée.
 
 
 <a id="j-retry-logic-transient-faults" name="j-retry-logic-transient-faults"></a>
@@ -187,7 +187,7 @@ Il existe une subtilité. Si une erreur temporaire se produit pendant l’exécu
 
 #### Le paramètre ConnectRetryCount doit-il être combiné avec la logique de nouvelle tentative d’application ?
 
-Supposons que votre application possède une logique de nouvelle tentative personnalisée robuste. Elle peut réessayer l’opération de connexion 4 fois. Si vous ajoutez **ConnectRetryInterval** et **ConnectRetryCount** = 3 à votre chaîne de connexion, vous augmentez le nombre de nouvelles tentatives à 4 × 3, soit 12 nouvelles tentatives. Vous ne souhaitez peut-être pas un si grand nombre de nouvelles tentatives.
+Supposons que votre application possède une logique de nouvelle tentative personnalisée robuste. Elle peut réessayer l’opération de connexion 4 fois. Si vous ajoutez **ConnectRetryInterval** et **ConnectRetryCount** = 3 à votre chaîne de connexion, vous augmentez le nombre de nouvelles tentatives à 4 × 3, soit 12 nouvelles tentatives. Vous ne souhaitez peut-être pas un si grand nombre de nouvelles tentatives.
 
 <a id="a-connection-connection-string" name="a-connection-connection-string"></a>
 
@@ -361,7 +361,7 @@ Voici certaines instructions Transact-SQL SELECT qui permettent d’interroger l
 ### Diagnostics : Rechercher les événements liés aux problèmes dans le journal de base de données SQL
 
 
-Vous pouvez rechercher des entrées sur les problèmes survenus dans le journal de base de données SQL Azure. Essayez l’instruction Transact-SQL SELECT qui suit dans la base de données **MASTER** :
+Vous pouvez rechercher des entrées sur les problèmes survenus dans le journal de base de données SQL Azure. Essayez l’instruction Transact-SQL SELECT qui suit dans la base de données **MASTER** :
 
 
 ```
@@ -425,7 +425,7 @@ La logique de nouvelle tentative pour la gestion des erreurs temporaires est un 
 ### Classes EntLib60 pour les erreurs temporaires et les nouvelles tentatives
 
 
-Les classes EntLib60 suivantes sont particulièrement utiles pour la logique de nouvelle tentative. Toutes se trouvent dans ou sous l’espace de noms **Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling** :
+Les classes EntLib60 suivantes sont particulièrement utiles pour la logique de nouvelle tentative. Toutes se trouvent dans ou sous l’espace de noms **Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling** :
 
 *Dans l’espace de noms **Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling** :*
 
@@ -443,7 +443,7 @@ Les classes EntLib60 suivantes sont particulièrement utiles pour la logique de 
  - Méthode **ExecuteCommand**
 
 
-Dans l’espace de noms **Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling.TestSupport** :
+Dans l’espace de noms **Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling.TestSupport** :
 
 - Classe **AlwaysTransientErrorDetectionStrategy**
 
