@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Configurer l’encodeur NewTek TriCaster pour envoyer un flux en direct à débit binaire unique" 
+	pageTitle="Configurer l’encodeur NewTek TriCaster pour envoyer un flux en direct à débit binaire unique | Microsoft Azure" 
 	description="Cette rubrique explique comment configurer l’encodeur en direct TriCaster afin d’envoyer un flux à débit binaire unique à des canaux AMS activés pour l’encodage en temps réel." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="Juliako,cenkdin,anilmur" 
+	authors="cenkdin" 
 	manager="erikre" 
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="06/22/2016" 
-	ms.author="juliako"/>
+	ms.date="09/15/2016" 
+	ms.author="juliako;cenkd;anilmur"/>
 
 #Utiliser l’encodeur NewTek TriCaster pour envoyer un flux en direct à débit binaire unique
 
@@ -34,7 +34,7 @@ Ce didacticiel montre comment gérer Azure Media Services (AMS) avec l’outil A
 ##Composants requis
 
 - [Créer un compte Azure Media Services](media-services-create-account.md)
-- Assurez-vous qu’il y a un point de terminaison de diffusion en continu en cours d’exécution avec au moins une unité de diffusion en continu allouée. Pour plus d’informations, consultez la rubrique [Gestion des points de terminaison de diffusion en continu dans un compte Media Services](media-services-manage-origins.md).
+- Assurez-vous qu’il y a un point de terminaison de diffusion en continu en cours d’exécution avec au moins une unité de diffusion en continu allouée. Pour plus d’informations, consultez la rubrique [Gestion des points de terminaison de diffusion en continu dans un compte Media Services](media-services-portal-manage-streaming-endpoints.md).
 - Installez la dernière version de l’outil [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer).
 - Lancez l’outil et connectez-vous à votre compte AMS.
 
@@ -157,7 +157,9 @@ Le flux est maintenant prêt à être incorporé dans un lecteur ou distribué �
 Pour obtenir des instructions détaillées, reportez-vous à la rubrique consacrée à la [résolution des problèmes](media-services-troubleshooting-live-streaming.md).
 
 
-##Parcours d’apprentissage de Media Services
+##Étape suivante
+
+Consultez les parcours d’apprentissage de Media Services.
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -165,4 +167,4 @@ Pour obtenir des instructions détaillées, reportez-vous à la rubrique consacr
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

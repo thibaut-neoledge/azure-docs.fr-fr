@@ -4,7 +4,7 @@
    services="service-fabric"
    documentationCenter=".net"
    authors="motanv"
-   manager="timlt"
+   manager="rsinha"
    editor="toddabel"/>
 
 <tags
@@ -20,6 +20,8 @@
 Les grands systèmes distribués, comme les infrastructures cloud, sont par définition peu fiables. Grâce à Azure Service Fabric, les développeurs sont en mesure d’écrire des services s’exécutant sur ces infrastructures. Pour écrire des services de haute qualité, les développeurs doivent pouvoir introduire de tels défauts de fiabilité, et ainsi tester la fiabilité des solutions qu’ils conçoivent.
 
 Le service d’analyse des erreurs permet aux développeurs de provoquer des actions erronées afin de tester les services en présence de défaillances. Toutefois, les erreurs simulées ciblées présentent une efficacité limitée. Grâce aux scénarios de test prédéfinis de Service Fabric, vous pouvez réaliser un test de chaos et un test de basculement. Au sein du cluster, ces scénarios simulent des erreurs entrelacées en continu, avec et sans perte de données, sur des périodes prolongées. Une fois qu’un test est configuré avec la fréquence et le type des erreurs, il peut être démarré à l’aide des API C# ou de PowerShell pour générer des erreurs au sein du cluster et de votre service.
+
+>[AZURE.WARNING] ChaosTestScenario est remplacé par un chaos plus robuste, basé sur le service. Pour plus d’informations, consultez le nouvel article [Chaos contrôlé](service-fabric-controlled-chaos.md).
 
 ## Test chaos
 Le scénario chaos génère des erreurs dans l’ensemble du cluster Service Fabric. Le scénario compresse les erreurs habituellement étalées sur plusieurs mois voire années en quelques heures. L’utilisation d’erreurs entrelacées avec un taux élevé d’erreurs permet d’identifier des dysfonctionnements qui n’auraient pu être isolés autrement. Il en résulte une amélioration significative de la qualité du code du service.
@@ -247,4 +249,4 @@ Connect-ServiceFabricCluster $connection
 Invoke-ServiceFabricFailoverTestScenario -TimeToRunMinute $timeToRun -MaxServiceStabilizationTimeoutSec $maxStabilizationTimeSecs -WaitTimeBetweenFaultsSec $waitTimeBetweenFaultsSec -ServiceName $serviceName -PartitionKindSingleton
 ```
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0921_2016-->

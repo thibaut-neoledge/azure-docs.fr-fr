@@ -4,7 +4,7 @@
 	keywords="flux de données, cache redis, file d’attente Service Bus"
 	services="stream-analytics"
 	authors="ryancrawcour"
-	manager="paulettm"
+	manager="jhubbard"
     documentationCenter=""
 	/>
 
@@ -44,8 +44,8 @@ Pour créer une file d’attente Service Bus, suivez les étapes 1 et 2 de la se
 
 2. Choisissez **File d’attente Service Bus** comme **Récepteur** et suivez les instructions à l’écran. Veillez à choisir l’espace de noms de la file d’attente Service Bus que vous avez créé dans le cadre de la [Prise en main des files d’attente Service Bus][servicebus-getstarted]. Cliquez sur le bouton « Droite » lorsque vous avez terminé.
 3. Spécifiez les valeurs suivantes :
-	- **Format du sérialiseur d'événement** : JSON
-	- **Encodage** : UTF8
+	- **Format du sérialiseur d'événement** : JSON
+	- **Encodage** : UTF8
 	- **FORMAT** : séparé par une ligne
 
 4. Cliquez sur le bouton **Créer** pour ajouter cette source et vérifier que Stream Analytics peut se connecter au compte de stockage.
@@ -202,6 +202,7 @@ Vous pouvez également vous référer aux ressources suivantes :
 
 - [Informations de référence pour les développeurs sur Azure Functions](../azure-functions/functions-reference.md)
 - [Informations de référence pour les développeurs C# sur Azure Functions](../azure-functions/functions-reference-csharp.md)
+- [Informations de référence pour les développeurs F# sur Azure Functions](../azure-functions/functions-reference-fsharp.md)
 - [Azure Functions NodeJS developer reference (Référence pour les développeurs NodeJS Azure Functions)](../azure-functions/functions-reference.md)
 - [Déclencheurs et liaisons Azure Functions](../azure-functions/functions-triggers-bindings.md)
 - [Surveillance du cache Redis Azure](../redis-cache/cache-how-to-monitor.md)
@@ -214,4 +215,4 @@ Pour vous tenir informé des dernières nouveautés et fonctionnalités, suivez 
 [use-rediscache]: ../redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md
 [functions-getstarted]: ../azure-functions/functions-create-first-azure-function.md
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0921_2016-->

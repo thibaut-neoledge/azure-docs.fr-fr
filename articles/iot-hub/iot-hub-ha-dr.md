@@ -18,7 +18,7 @@
 
 # Haute disponibilité et récupération d’urgence IoT Hub :
 
-En tant que service Azure, IoT Hub offre la haute disponibilité à l’aide de redondances au niveau de la région Azure, sans aucun travail supplémentaire requis par la solution. En outre, Azure offre certaines fonctions qui aident à construire des solutions avec des fonctionnalités de récupération d’urgence ou disponibilité inter-régions si nécessaire. Vous devez concevoir et préparer vos solutions de manière à tirer parti de ces fonctionnalités afin de fournir une haute disponibilité globale inter-régions aux appareils et à l’utilisateur. L’article [Azure Business Continuity Technical Guidance] [Guide technique pour la continuité des activités Azure] décrit les fonctionnalités intégrées Azure permettant la continuité d’activité et la récupération d’urgence. Le document [Récupération d’urgence et haute disponibilité des applications développées sur Microsoft Azure][] contient des recommandations en matière d’architecture sur les stratégies pour les applications Azure permettant de bénéficier de la haute disponibilité et de la récupération d’urgence.
+En tant que service Azure, IoT Hub offre la haute disponibilité à l’aide de redondances au niveau de la région Azure, sans aucun travail supplémentaire requis par la solution. En outre, Azure offre certaines fonctions qui aident à construire des solutions avec des fonctionnalités de récupération d’urgence ou disponibilité inter-régions si nécessaire. Vous devez concevoir et préparer vos solutions de manière à tirer parti de ces fonctionnalités afin de fournir une haute disponibilité globale inter-régions aux appareils et à l’utilisateur. L’article [Guide technique de la résilience Azure](../resiliency/resiliency-technical-guidance.md) décrit les fonctionnalités intégrées Azure permettant la continuité d’activité et la récupération d’urgence. Le document [Récupération d’urgence et haute disponibilité des applications développées sur Microsoft Azure][] contient des recommandations en matière d’architecture sur les stratégies pour les applications Azure permettant de bénéficier de la haute disponibilité et de la récupération d’urgence.
 
 ## Récupération d’urgence Azure IoT Hub
 En plus de la haute disponibilité intra-région, IoT Hub implémente des mécanismes de basculement pour la récupération d’urgence qui ne nécessitent aucune intervention de l’utilisateur. La récupération d’urgence IoT Hub est lancée automatiquement et a un objectif de temps de récupération (RTO) de 2 à 26 heures, ainsi que les objectifs de point de récupération (RPO) suivants.
@@ -60,4 +60,4 @@ Suivez ces liens pour en savoir plus sur Azure IoT Hub :
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [Qu’est-ce qu’Azure IoT Hub ?]: iot-hub-what-is-iot-hub.md
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

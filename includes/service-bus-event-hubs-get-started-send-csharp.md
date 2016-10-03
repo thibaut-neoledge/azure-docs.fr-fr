@@ -4,17 +4,17 @@ Dans cette section, vous allez écrire une application console Windows pour envo
 
 1. Dans Visual Studio, créez un projet d'application de bureau Visual C# à l'aide du modèle de projet d'**application de console**. Nommez le projet **Sender**.
 
-	![][7]
+	![](./media/service-bus-event-hubs-getstarted-send-csharp/create-sender-csharp1.png)
 
 2. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur la solution, puis cliquez sur **Gérer les packages NuGet pour la solution**.
 
 3. Cliquez sur l’onglet **Parcourir**, puis recherchez `Microsoft Azure Service Bus`. Vérifiez que le nom du projet (**Expéditeur**) est spécifié dans la zone **Version(s)**. Cliquez sur **Installer** et acceptez les conditions d’utilisation.
 
-	![][8]
+	![](./media/service-bus-event-hubs-getstarted-send-csharp/create-sender-csharp2.png)
 
 	Visual Studio lance le téléchargement, l’installation et ajoute une référence au [Package NuGet Azure Service Bus](https://www.nuget.org/packages/WindowsAzure.ServiceBus).
 
-4. Ajoutez les instructions `using` suivantes en haut du fichier **Program.cs** :
+4. Ajoutez les instructions `using` suivantes en haut du fichier **Program.cs** :
 
 	```
 	using System.Threading;
@@ -28,7 +28,7 @@ Dans cette section, vous allez écrire une application console Windows pour envo
 	static string connectionString = "{send connection string}";
 	```
 
-6. Ajoutez la méthode suivante à la classe **Program** :
+6. Ajoutez la méthode suivante à la classe **Program** :
 
 	```
 	static void SendingRandomMessages()
@@ -56,7 +56,7 @@ Dans cette section, vous allez écrire une application console Windows pour envo
 
 	Cette méthode envoie en continu les événements à votre hub d’événements avec un délai de 200 ms.
 
-7. Enfin, ajoutez les lignes suivantes à la méthode **Main** :
+7. Enfin, ajoutez les lignes suivantes à la méthode **Main** :
 
 	```
 	Console.WriteLine("Press Ctrl-C to stop the sender process");
@@ -65,9 +65,4 @@ Dans cette section, vous allez écrire une application console Windows pour envo
 	SendingRandomMessages();
 	```
 
-
-<!-- Images -->
-[7]: ./media/service-bus-event-hubs-getstarted-send-csharp/create-sender-csharp1.png
-[8]: ./media/service-bus-event-hubs-getstarted-send-csharp/create-sender-csharp2.png
-
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0921_2016-->

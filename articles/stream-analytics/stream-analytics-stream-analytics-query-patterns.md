@@ -5,7 +5,7 @@
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -29,7 +29,7 @@ Les requêtes Azure Stream Analytics sont exprimées dans un langage de requête
 
 **Entrée** :
 
-| Assurez-vous | Time | Poids |
+| Make | Temps | Poids |
 | --- | --- | --- |
 | Honda | 2015-01-01T00:00:01.0000000Z | "1000" |
 | Honda | 2015-01-01T00:00:02.0000000Z | "2000" |
@@ -59,7 +59,7 @@ Les requêtes Azure Stream Analytics sont exprimées dans un langage de requête
 
 **Entrée** :
 
-| Assurez-vous | LicensePlate | Time |
+| Make | LicensePlate | Temps |
 | --- | --- | --- |
 | Honda | ABC-123 | 2015-01-01T00:00:01.0000000Z |
 | Toyota | AAA-999 | 2015-01-01T00:00:02.0000000Z |
@@ -67,7 +67,7 @@ Les requêtes Azure Stream Analytics sont exprimées dans un langage de requête
 
 **Sortie** :
 
-| Assurez-vous | LicensePlate | Time |
+| Make | LicensePlate | Temps |
 | --- | --- | --- |
 | Toyota | AAA-999 | 2015-01-01T00:00:02.0000000Z |
 | Nissan | ABC-369 | 2015-01-01T00:00:03.0000000Z |
@@ -88,7 +88,7 @@ Les requêtes Azure Stream Analytics sont exprimées dans un langage de requête
 
 **Entrée** :
 
-| Assurez-vous | Time |
+| Make | Temps |
 | --- | --- |
 | Honda | 2015-01-01T00:00:01.0000000Z |
 | Toyota | 2015-01-01T00:00:02.0000000Z |
@@ -96,7 +96,7 @@ Les requêtes Azure Stream Analytics sont exprimées dans un langage de requête
 
 **Sortie** :
 
-| CarsPassed | Time |
+| CarsPassed | Temps |
 | --- | --- | --- |
 | 1 Honda | 2015-01-01T00:00:10.0000000Z |
 | 2 Toyota | 2015-01-01T00:00:10.0000000Z |
@@ -122,7 +122,7 @@ Les requêtes Azure Stream Analytics sont exprimées dans un langage de requête
 
 **Entrée** :
 
-| Assurez-vous | Time |
+| Make | Temps |
 | --- | --- |
 | Honda | 2015-01-01T00:00:01.0000000Z |
 | Honda | 2015-01-01T00:00:02.0000000Z |
@@ -132,7 +132,7 @@ Les requêtes Azure Stream Analytics sont exprimées dans un langage de requête
 
 **Output1** :
 
-| Assurez-vous | Time |
+| Make | Temps |
 | --- | --- |
 | Honda | 2015-01-01T00:00:01.0000000Z |
 | Honda | 2015-01-01T00:00:02.0000000Z |
@@ -142,7 +142,7 @@ Les requêtes Azure Stream Analytics sont exprimées dans un langage de requête
 
 **Output2** :
 
-| Assurez-vous | Time | Nombre |
+| Make | Temps | Nombre |
 | --- | --- | --- |
 | Toyota | 2015-01-01T00:00:10.0000000Z | 3 |
 
@@ -169,7 +169,7 @@ Les requêtes Azure Stream Analytics sont exprimées dans un langage de requête
 	HAVING
 		[Count] >= 3
 
-**Explication** : la clause INTO indique à Stream Analytics la sortie sur laquelle écrire les données à partir de cette instruction. La première requête est un transfert des données que nous avons reçues vers une sortie nommée ArchiveOutput. La deuxième requête effectue une agrégation et un filtrage simples et envoie les résultats vers un système d'alerte en aval. *Remarque* : vous pouvez également réutiliser des résultats d’expressions de table communes (par exemple, avec des instructions WITH) dans plusieurs instructions de sortie : cela présente l’avantage supplémentaire d’ouvrir moins de lecteurs à la source d’entrée par exemple.
+**Explication** : la clause INTO indique à Stream Analytics la sortie sur laquelle écrire les données à partir de cette instruction. La première requête est un transfert des données que nous avons reçues vers une sortie nommée ArchiveOutput. La deuxième requête effectue une agrégation et un filtrage simples et envoie les résultats vers un système d'alerte en aval. *Remarque* : vous pouvez également réutiliser des résultats d’expressions de table communes (par exemple, avec des instructions WITH) dans plusieurs instructions de sortie : cela présente l’avantage supplémentaire d’ouvrir moins de lecteurs à la source d’entrée par exemple.
 
 	WITH AllRedCars AS (
 		SELECT
@@ -187,7 +187,7 @@ Les requêtes Azure Stream Analytics sont exprimées dans un langage de requête
 
 **Entrée** :
 
-| Assurez-vous | Time |
+| Make | Temps |
 | --- | --- |
 | Honda | 2015-01-01T00:00:01.0000000Z |
 | Honda | 2015-01-01T00:00:02.0000000Z |
@@ -197,7 +197,7 @@ Les requêtes Azure Stream Analytics sont exprimées dans un langage de requête
 
 **Output:**
 
-| Nombre | Time |
+| Nombre | Temps |
 | --- | --- |
 | 2 | 2015-01-01T00:00:02.000Z |
 | 1 | 2015-01-01T00:00:04.000Z |
@@ -230,14 +230,14 @@ Les requêtes Azure Stream Analytics sont exprimées dans un langage de requête
 
 **Entrée** :
 
-| Assurez-vous | Time |
+| Make | Temps |
 | --- | --- |
 | Honda | 2015-01-01T00:00:01.0000000Z |
 | Toyota | 2015-01-01T00:00:02.0000000Z |
 
 **Sortie** :
 
-| Assurez-vous | Time |
+| Make | Temps |
 | --- | --- |
 | Toyota | 2015-01-01T00:00:02.0000000Z |
 
@@ -258,7 +258,7 @@ Les requêtes Azure Stream Analytics sont exprimées dans un langage de requête
 
 **Entrée** :
 
-| LicensePlate | Assurez-vous | Time |
+| LicensePlate | Make | Temps |
 | --- | --- | --- |
 | DXE 5291 | Honda | 2015-07-27T00:00:05.0000000Z |
 | YZK 5704 | Ford | 2015-07-27T00:02:17.0000000Z |
@@ -270,7 +270,7 @@ Les requêtes Azure Stream Analytics sont exprimées dans un langage de requête
 
 **Sortie** :
 
-| LicensePlate | Assurez-vous | Time |
+| LicensePlate | Make | Temps |
 | --- | --- | --- |
 | DXE 5291 | Honda | 2015-07-27T00:00:05.0000000Z |
 | QYF 9358 | Honda | 2015-07-27T00:12:02.0000000Z |
@@ -288,7 +288,7 @@ Les requêtes Azure Stream Analytics sont exprimées dans un langage de requête
 
 À présent, nous allons modifier le problème et trouver la première voiture d’une marque donnée dans chaque intervalle de 10 minutes.
 
-| LicensePlate | Assurez-vous | Time |
+| LicensePlate | Make | Temps |
 | --- | --- | --- |
 | DXE 5291 | Honda | 2015-07-27T00:00:05.0000000Z |
 | YZK 5704 | Ford | 2015-07-27T00:02:17.0000000Z |
@@ -312,7 +312,7 @@ Les requêtes Azure Stream Analytics sont exprimées dans un langage de requête
 
 **Entrée** :
 
-| LicensePlate | Assurez-vous | Time |
+| LicensePlate | Make | Temps |
 | --- | --- | --- |
 | DXE 5291 | Honda | 2015-07-27T00:00:05.0000000Z |
 | YZK 5704 | Ford | 2015-07-27T00:02:17.0000000Z |
@@ -324,7 +324,7 @@ Les requêtes Azure Stream Analytics sont exprimées dans un langage de requête
 
 **Sortie** :
 
-| LicensePlate | Assurez-vous | Time |
+| LicensePlate | Make | Temps |
 | --- | --- | --- |
 | VFE 1616 | Toyota | 2015-07-27T00:09:31.0000000Z |
 | MDR 6128 | BMW | 2015-07-27T00:13:45.0000000Z |
@@ -357,7 +357,7 @@ Les requêtes Azure Stream Analytics sont exprimées dans un langage de requête
 
 **Entrée** :
 
-| Assurez-vous | LicensePlate | Time |
+| Make | LicensePlate | Temps |
 | --- | --- | --- |
 | Honda | ABC-123 | 2015-01-01T00:00:01.0000000Z |
 | Honda | AAA-999 | 2015-01-01T00:00:02.0000000Z |
@@ -366,7 +366,7 @@ Les requêtes Azure Stream Analytics sont exprimées dans un langage de requête
 
 **Sortie** :
 
-| Assurez-vous | Time | CurrentCarLicensePlate | FirstCarLicensePlate | FirstCarTime |
+| Make | Temps | CurrentCarLicensePlate | FirstCarLicensePlate | FirstCarTime |
 | --- | --- | --- | --- | --- |
 | Honda | 2015-01-01T00:00:02.0000000Z | AAA-999 | ABC-123 | 2015-01-01T00:00:01.0000000Z |
 
@@ -390,7 +390,7 @@ Les requêtes Azure Stream Analytics sont exprimées dans un langage de requête
 
 **Entrée** :
   
-| Utilisateur | Fonctionnalité | Événement | Time |
+| Utilisateur | Fonctionnalité | Événement | Temps |
 | --- | --- | --- | --- |
 | user@location.com | RightMenu | Démarrer | 2015-01-01T00:00:01.0000000Z |
 | user@location.com | RightMenu | Terminer | 2015-01-01T00:00:08.0000000Z |
@@ -419,7 +419,7 @@ Les requêtes Azure Stream Analytics sont exprimées dans un langage de requête
 
 **Entrée** :
 
-| Assurez-vous | Time | Poids |
+| Make | Temps | Poids |
 | --- | --- | --- |
 | Honda | 2015-01-01T00:00:01.0000000Z | 2000 |
 | Toyota | 2015-01-01T00:00:02.0000000Z | 25000 |
@@ -502,7 +502,7 @@ Les requêtes Azure Stream Analytics sont exprimées dans un langage de requête
 **Explication** : cette requête génère des événements toutes les 5 secondes et indique le dernier événement précédemment reçu. La durée [Fenêtre récurrente](https://msdn.microsoft.com/library/dn835041.aspx "Fenêtre récurrente - Azure Stream Analytics") détermine la période que la requête remonte pour rechercher le dernier événement (300 secondes, dans cet exemple).
 
 
-## Obtenir de l'aide
+## Obtenir de l’aide
 Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/fr-FR/home?forum=AzureStreamAnalytics)
 
 ## Étapes suivantes
@@ -514,4 +514,4 @@ Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https:
 - [Références sur l’API REST de gestion d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -34,7 +34,7 @@ Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
 ## Points à prendre en considération pour le déploiement
 
-Vous pouvez exécuter plusieurs instances de l’intégrateur Azlog si le volume d’événements est élevé. L’équilibrage de charge des comptes de stockage Diagnostics Microsoft Azure pour Windows *(WAD)* et le nombre d’abonnements à fournir aux instances doivent être basés sur la capacité.
+Vous pouvez exécuter plusieurs instances de l’intégrateur Azlog si le volume d’événements est élevé. L’équilibrage de charge des comptes de stockage Diagnostics Windows Azure pour Windows *(WAD)* et le nombre d’abonnements à fournir aux instances doivent être basés sur la capacité.
 
 Sur un ordinateur 8 processeurs (cœurs), une seule instance de l’intégrateur Azlog peut traiter environ 24 millions d’événements par jour (environ 1 million/heure).
 
@@ -76,7 +76,7 @@ Le service d’intégration des journaux Azure collecte les données de télém�
 
 ## Que se passe-t-il si les données ne s’affichent pas dans le dossier Événements transférés ?
 
-Si les données ne s’affichent pas dans le dossier **Événements transférés** après une heure, procédez comme suit :
+Si les données ne s’affichent pas dans le dossier **Événements transférés** après une heure, procédez comme suit :
 
 1. Vérifiez que l’ordinateur peut accéder à Azure. Pour tester la connectivité, essayez d’ouvrir le [portail Azure](http://portal.azure.com) à partir du navigateur.
 
@@ -125,6 +125,8 @@ Si vous ne voyez toujours les événements, procédez comme suit :
 
 6. Pointez le connecteur de transfert de fichier SIEM standard vers le dossier approprié pour diriger les données vers l’instance SIEM. Vous aurez peut-être besoin de certains mappages de champ en fonction du produit SIEM que vous utilisez.
 
+Si vous avez des questions sur l’intégration des journaux Azure, envoyez un e-mail à [AzSIEMteam@microsoft.com](mailto:AzSIEMteam@microsoft.com)
+
 ## Étapes suivantes
 
 Dans ce didacticiel, vous avez appris à installer l’intégration des journaux Azure et d’intégrer des journaux à partir du stockage Azure. Pour en savoir plus, consultez les articles suivants :
@@ -136,4 +138,4 @@ Dans ce didacticiel, vous avez appris à installer l’intégration des journaux
 - [Intégration des alertes du Security Center avec les journaux Azure](../security-center/security-center-integrating-alerts-with-log-integration.md) : ce document montre comment synchroniser les alertes du Security Center, ainsi que les événements de sécurité des machines virtuelles collectés par Azure Diagnostics et les journaux d’audit Azure dans leur solution SIEM ou Log Analytics.
 - [Nouvelles fonctionnalités des diagnostics Azure et des journaux d’Audit Azure](https://azure.microsoft.com/blog/new-features-for-azure-diagnostics-and-azure-audit-logs/) : ce billet de blog présente les journaux d’Audit Azure et autres fonctionnalités pour vous permettre de mieux connaître les opérations de vos ressources Azure.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

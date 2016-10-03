@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="09/19/2016"
 	ms.author="xibingao;bradsev" />
 
 # Configurer une machine virtuelle Azure SQL Server comme serveur IPython Notebook pour des analyses avancées
@@ -55,7 +55,7 @@ La galerie de machines virtuelles Azure inclut différentes images contenant Mic
 5.  Dans la deuxième page **Configuration de la machine virtuelle**, configurez les ressources pour la mise en réseau, le stockage et la disponibilité :
 
     -   Dans la zone **Service cloud**, sélectionnez **Créer un nouveau service de cloud computing**.
-    -   Dans la zone **Nom du cloud Service DNS**, entrez la première partie d'un nom DNS de votre choix, pour qu'il complète un nom au format **TESTNAME.cloudapp.net**
+    -   Dans la zone **Nom du cloud Service DNS**, entrez la première partie d'un nom DNS de votre choix, pour qu'il complète un nom au format **TESTNAME.cloudapp.net**
     -   Dans la zone **REGION/AFFINITY GROUP/VIRTUAL NETWORK**, sélectionnez une région d'hébergement pour cette image virtuelle.
     -   Dans **Compte de stockage**, sélectionnez un compte de stockage existant ou un compte créé automatiquement.
     -   Dans la zone **AVAILABILITY SET**, sélectionnez **(none)**.
@@ -219,7 +219,7 @@ Pour créer des connexions SQL Server à l’aide de SQL Server Management Stu
 
 11. S'il s'agit de votre première connexion, vous pouvez désigner cette connexion en tant qu'administrateur SQL Server. Si cela est le cas, sur la page **Rôles du serveur**, activez la case à cocher **administrateur système**.
 
-    **Remarque relative à la sécurité** : les membres du rôle serveur fixe administrateur système contrôlent complètement le moteur de base de données. Vous devez limiter soigneusement l'appartenance à ce rôle.
+    > [AZURE.IMPORTANT] les membres du rôle serveur administrateur système fixe contrôlent complètement le moteur de base de données. Pour des raisons de sécurité, vous devez limiter soigneusement l'appartenance à ce rôle.
 
     ![administrateur système][12]
 
@@ -306,4 +306,4 @@ Les étapes suivantes du processus de science des données sont présentées dan
 [15]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/vmshutdown.png
  
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

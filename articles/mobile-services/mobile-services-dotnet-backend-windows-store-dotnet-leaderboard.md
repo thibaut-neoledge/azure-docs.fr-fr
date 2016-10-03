@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="07/21/2016"
+	ms.date="09/20/2016"
 	ms.author="glenga"/>
 
 # Création d'une application de classement avec le backend .NET Azure Mobile Services
@@ -325,7 +325,7 @@ L’attribut **[Route]** définit un itinéraire personnalisé pour cette métho
 
 Vous pouvez également placer la méthode dans un contrôleur séparé. Aucun des deux cas n'est préférable, tout dépend comment vous voulez organiser votre code. Pour en savoir plus sur l’attribut **[Route]**, consultez la page [Routage d’attribut dans l’API web](http://www.asp.net/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2).
 
-## Création de l'application du Windows Store
+## Création de l'application Windows Store
 
 Cette section fournit une description de l'application Windows Store qui consomme le service mobile. Cependant, nous ne nous concentrerons pas sur le XAML ou l'interface utilisateur. Au lieu de cela, nous nous pencherons sur la logique d'application. Vous pouvez télécharger le projet complet [ici](http://code.msdn.microsoft.com/Leaderboard-App-with-Azure-9acf63af).
 
@@ -765,4 +765,4 @@ Transmettez l'URL de service et la clé d'application au constructeur **MobileSe
 [Ajout de notifications Push]: ../notification-hubs-windows-store-dotnet-get-started.md
 [Prise en main de l'authentification]: /develop/mobile/tutorials/get-started-with-users-dotnet
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0921_2016-->

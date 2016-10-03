@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/24/2016" 
+	ms.date="09/15/2016" 
 	ms.author="sdanie"/>
 
 # Utilisation de Service de cache géré Azure
@@ -65,11 +65,11 @@ Pour créer une instance du service de cache géré, ouvrez une fenêtre de comm
 
 >Pour obtenir des instructions sur l'installation et l'utilisation d'Azure PowerShell, consultez [Installation et configuration d'Azure PowerShell][].
 
-Appelez l'applet de commande [Add-AzureAccount][], puis entrez l'adresse de messagerie et le mot de passe associés à votre compte. Un abonnement est choisi par défaut et s'affiche une fois que vous avez appelé l'applet de commande [Add-AzureAccount][]. Pour changer l'abonnement, appelez l'applet de commande [Select-AzureSubscription][].
+Appelez l'applet de commande [Add-AzureAccount][], puis entrez l'adresse de messagerie et le mot de passe associés à votre compte. Un abonnement est choisi par défaut et s’affiche une fois que vous avez appelé l’applet de commande [Add-AzureAccount][]. Pour changer l’abonnement, appelez l’applet de commande [Select-AzureSubscription][].
 
 >Si vous avez configuré Azure PowerShell avec un certificat pour votre compte, vous pouvez sauter cette étape. Pour plus d'informations sur la connexion d'Azure PowerShell à votre compte Azure, consultez [Installation et configuration d'Azure PowerShell][].
 
-Un abonnement choisi par défaut s'affiche. Pour changer l'abonnement, appelez l'applet de commande [Select-AzureSubscription][].
+Un abonnement est choisi par défaut et s’affiche. Pour changer l’abonnement, appelez l’applet de commande [Select-AzureSubscription][].
 
 Appelez l'applet de commande [New-AzureManagedCache][], puis spécifiez le nom, la région, l'offre de cache et la taille de la mémoire cache.
 
@@ -485,4 +485,4 @@ Pour plus d'informations sur l'utilisation du fournisseur de caches de sortie d'
 [Which Azure Cache offering is right for me?]: cache-faq.md#which-azure-cache-offering-is-right-for-me
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

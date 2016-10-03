@@ -40,7 +40,7 @@ PowerShell DSC a introduit un nouveau concept appelé « configurations ». Le
 
 Dans le bloc de configuration, vous pouvez définir des blocs de configuration de nœuds qui spécifient la configuration souhaitée pour un ensemble de nœuds (machines) de votre environnement qui doivent être configurés exactement de la même manière. De cette façon, une configuration de nœuds représente un « rôle » qu'un ou plusieurs nœuds doivent adopter. Un bloc de configuration de nœuds commence par le mot clé « node ». Faites suivre ce mot clé du nom du rôle, qui peut être une variable ou une expression. Après le nom du rôle, utilisez des accolades {} pour délimiter le bloc de configuration de nœuds.
 
-![alt text](./media/automation-dsc-overview/AADSC_2.png)
+![texte de remplacement](./media/automation-dsc-overview/AADSC_2.png)
  
 Dans le bloc de configuration de nœuds, vous pouvez définir des blocs de ressources pour configurer les ressources DSC spécifiques. Un bloc de ressources commence par le nom de la ressource, suivi de l'identificateur que vous souhaitez spécifier pour ce bloc, puis d'accolades {} pour délimiter le bloc.
 
@@ -90,7 +90,7 @@ Dans Azure Automation DSC, une tâche de compilation est une instance de compila
 ##Cycle de vie d’Azure Automation DSC##
 Passer d’un compte Automation vide à un ensemble géré de nœuds correctement configurés implique un ensemble de processus permettant de définir des configurations, de convertir ces configurations en configurations de nœud et d’intégrer ces nœuds à Azure Automation DSC et à ces configurations de nœud. Le diagramme suivant illustre le cycle de vie d’Azure Automation DSC :
 
-![alt text](./media/automation-dsc-overview/DSCLifecycle.png)
+![texte de remplacement](./media/automation-dsc-overview/DSCLifecycle.png)
 
 
 L’image suivante illustre le processus détaillé du cycle de vie de DSC. Elle décrit les différentes approches utilisées pour importer une configuration et l’appliquer à des nœuds dans Azure Automation, présente les composants requis pour permettre à un ordinateur local de prendre en charge DSC, et illustre les interactions entre les différents composants.
@@ -101,7 +101,7 @@ L’image suivante illustre le processus détaillé du cycle de vie de DSC. Elle
 
 - Lors d’une mise à niveau vers WMF 5 RTM, si l’ordinateur est déjà inscrit en tant que nœud dans Azure Automation DSC, vous devez annuler son inscription dans Azure Automation DSC et l’enregistrer à nouveau après avoir effectué la mise à niveau.
 
-- Azure Automation DSC ne prend pas en charge les configurations DSC partielles ou composites pour le moment. Il est toutefois possible d’importer et utiliser les ressources DSC composites comme dans une instance PowerShell locale, ce qui permet d’en réutiliser la configuration.
+- Azure Automation DSC ne prend pas en charge les configurations DSC partielles ou composites pour le moment. Il est toutefois possible d’importer et utiliser les ressources DSC composites dans des configurations DSC d’Azure Automation exactement comme dans une instance PowerShell locale, ce qui permet d’en réutiliser la configuration.
 
 - La dernière version de WMF 5 doit être installée pour que l'agent PowerShell DSC pour Windows puisse communiquer avec Azure Automation. La dernière version de l’agent PowerShell DSC pour Linux doit être installée pour que Linux puisse communiquer avec Azure Automation.
 
@@ -111,7 +111,7 @@ L’image suivante illustre le processus détaillé du cycle de vie de DSC. Elle
 
 - Quand un nœud est d’abord enregistré avec un compte Azure Automation, ou que le nœud est modifié pour être mappé à une autre configuration de nœud côté serveur, son état sera « Conforme », même s’il n’est pas réellement conforme à la configuration de nœud à laquelle il est maintenant mappé. Dès que le nœud a effectué sa première collecte et qu’il a envoyé son premier rapport, une fois que l’inscription a eu lieu ou qu’un mappage de configuration de nœud a changé, l’état du nœud peut être approuvé.
 
-- Lorsqu’une machine virtuelle Microsoft Azure est intégrée en vue d’être gérée par Azure Automation DSC, une heure peut être nécessaire avant que la machine virtuelle apparaisse en tant que nœud DSC dans Azure Automation. Cela est dû à l'installation de Windows Management Framework 5.0 sur la machine virtuelle par l'extension Azure VM DSC, nécessaire à l’intégration de la machine virtuelle dans Azure Automation DSC.
+- Lorsqu’une machine virtuelle Windows Azure est intégrée en vue d’être gérée par Azure Automation DSC, une heure peut être nécessaire avant que la machine virtuelle apparaisse en tant que nœud DSC dans Azure Automation. Cela est dû à l'installation de Windows Management Framework 5.0 sur la machine virtuelle par l'extension Azure VM DSC, nécessaire à l’intégration de la machine virtuelle dans Azure Automation DSC.
 
 - Une fois inscrit, chaque nœud négocie automatiquement un certificat unique pour l'authentification qui expire après un an. À ce stade, le protocole d'inscription DSC PowerShell ne peut pas renouveler automatiquement les certificats lorsqu'ils approchent de l'expiration, donc vous devez réinscrire les nœuds après une année. Avant la réinscription, assurez-vous que chaque nœud exécute Windows Management Framework 5.0 RTM. Si le certificat d'authentification d'un nœud expire et si le nœud n'est pas réinscrit, le nœud ne pourra pas communiquer avec Azure Automation et sera marqué « Ne répond pas ». La réinscription s'effectue de la même façon que l'inscription initiale du nœud. La réinscription effectuée dans un délai de 90 jours ou moins à partir de l'heure d'expiration du certificat, ou à tout moment après le délai d'expiration du certificat, entraîne la génération et l'utilisation d'un nouveau certificat.
 
@@ -128,4 +128,4 @@ L’image suivante illustre le processus détaillé du cycle de vie de DSC. Elle
 - [Tarification d’Azure Automation DSC](https://azure.microsoft.com/pricing/details/automation/)
 - [Déploiement continu sur les machines virtuelles IaaS à l’aide d'Azure Automation DSC et Chocolatey](automation-dsc-cd-chocolatey.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0921_2016-->

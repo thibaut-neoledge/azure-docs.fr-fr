@@ -1,21 +1,21 @@
-<properties 
-	pageTitle="Expérience de connexion Azure MFA avec Azure Multi-Factor Authentication" 
+<properties
+	pageTitle="Expérience de connexion Azure MFA avec Azure Multi-Factor Authentication"
 	description="Cette page vous fournit des conseils pour consulter les différentes méthodes de connexion disponibles avec Azure MFA."
-	keywords="authentification de l'utilisateur, expérience de connexion, connexion avec un téléphone mobile, connexion avec le téléphone de bureau" 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
+	keywords="authentification de l'utilisateur, expérience de connexion, connexion avec un téléphone mobile, connexion avec le téléphone de bureau"
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
 	editor="curtland"/>
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/22/2016" 
-	ms.author="billmath"/>
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/22/2016"
+	ms.author="kgremban"/>
 
 # Expérience de connexion avec Azure Multi-Factor Authentication
 > [AZURE.NOTE]  La documentation suivante fournie sur cette page montre une expérience de connexion classique. Pour obtenir de l'aide concernant la connexion, référez-vous à [Problèmes avec Azure Multi-Factor Authentication](multi-factor-authentication-end-user-manage-settings.md)
@@ -27,7 +27,7 @@ Selon la méthode de connexion et l'authentification multifacteur utilisées, le
 
 
 Que faites-vous ?|Description
-:------------- | :------------- | 
+:------------- | :------------- |
 [Connexion avec un téléphone mobile ou de bureau](#signing-in-with-mobile-or-office-phone) | Voici le processus de connexion habituel lors d’une connexion à l'aide de votre téléphone mobile ou de bureau.
 [Connexion avec l’application Microsoft Authenticator à l’aide de notifications](#signing-in-with-the-microsoft-authenticator-app-using-notification) | Voici ce à quoi vous pouvez vous attendre en utilisant l’application Microsoft Authenticator avec des notifications.
 [Connexion avec l’application Microsoft Authenticator à l’aide d’un code de vérification](#signing-in-with-the-microsoft-authenticator-app-using-verification-code)|Voici ce à quoi vous pouvez vous attendre en utilisant l’application Microsoft Authenticator avec un code de vérification.
@@ -105,6 +105,4 @@ La section suivante vous montre comment vous connecter avec une autre méthode q
 
 - Choisissez une autre méthode et connectez-vous.
 
- 
-
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0921_2016-->

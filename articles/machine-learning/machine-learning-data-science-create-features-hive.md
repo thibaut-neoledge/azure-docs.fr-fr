@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="09/19/2016"
 	ms.author="hangzh;bradsev" />
 
 
@@ -25,7 +25,7 @@ Les opérations nécessaires pour créer des fonctionnalités peuvent utiliser l
 
 Des exemples de requêtes présentés propres aux scénarios mettant en œuvre le [jeu de données NYC Taxi Trip](http://chriswhong.com/open-data/foil_nyc_taxi/) sont également disponibles dans le [dépôt Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts). Le schéma de données de ces requêtes est déjà spécifié et elles sont exécutables en l’état. La dernière section présente également les paramètres que les utilisateurs peuvent ajuster pour accélérer le traitement des requêtes Hive.
 
-[AZURE.INCLUDE [cap-create-features-data-selector](../../includes/cap-create-features-selector.md)] Ce **menu** pointe vers des rubriques qui expliquent comment créer des fonctionnalités pour les données dans différents environnements. Cette tâche est une étape du [processus TDSP(Team Data Science Process](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+[AZURE.INCLUDE [cap-create-features-data-selector](../../includes/cap-create-features-selector.md)] Ce **menu** pointe vers des rubriques qui expliquent comment créer des fonctionnalités pour les données dans différents environnements. Cette tâche est une étape du [processus TDSP (Team Data Science Process)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
 
 ## Composants requis
@@ -150,7 +150,7 @@ La liste complète des FDU Hive intégrées est disponible dans la section **Fon
 
 Les paramètres par défaut du cluster Hive peuvent ne pas convenir aux requêtes Hive et aux données qu’elles traitent. Cette section présente certains paramètres que les utilisateurs peuvent ajuster pour accélérer le traitement des requêtes Hive. Les requêtes d’ajustement des paramètres doivent précéder les requêtes de traitement des données.
 
-1. **Espace de tas Java** : les requêtes impliquant la jointure de jeux de données volumineux ou le traitement d'enregistrements longs peuvent générer une erreur de type **espace du tas insuffisant**. Vous pouvez arranger cela en définissant les paramètres *mapreduce.map.java.opts* et *mapreduce.task.io.sort.mb* sur les valeurs souhaitées. Voici un exemple :
+1. **Espace de tas Java** : les requêtes impliquant la jointure de jeux de données volumineux ou le traitement d'enregistrements longs peuvent générer une erreur de type **espace du tas insuffisant**. Vous pouvez arranger cela en définissant les paramètres *mapreduce.map.java.opts* et *mapreduce.task.io.sort.mb* sur les valeurs souhaitées. Voici un exemple :
 
 		set mapreduce.map.java.opts=-Xmx4096m;
 		set mapreduce.task.io.sort.mb=-Xmx1024m;
@@ -158,19 +158,19 @@ Les paramètres par défaut du cluster Hive peuvent ne pas convenir aux requête
 
 	Ce paramètre alloue 4 Go de mémoire à l’espace de tas Java et accélère le tri en lui attribuant davantage de mémoire. Ajuster ce paramètre est une bonne idée si des erreurs se produisent à cause d’un espace de tas insuffisant.
 
-2. **Taille de bloc DFS** : ce paramètre définit l'unité élémentaire de donnée stockée dans le système de fichiers. Par exemple, si le bloc DFS a une taille de 128 Mo, les données dont la taille est inférieure à ce seuil occupent un bloc, et celles dont la taille est supérieure à ce seuil reçoivent des blocs supplémentaires. Une taille de bloc très petite génère des temps de traitement importants dans Hadoop, car le nœud de noms doit traiter beaucoup plus de requêtes pour trouver le bloc approprié au fichier. Lorsque vos données ont une taille supérieure ou égale à plusieurs gigaoctets, la valeur suivante est recommandée :
+2. **Taille de bloc DFS** : ce paramètre définit l'unité élémentaire de donnée stockée dans le système de fichiers. Par exemple, si le bloc DFS a une taille de 128 Mo, les données dont la taille est inférieure à ce seuil occupent un bloc, et celles dont la taille est supérieure à ce seuil reçoivent des blocs supplémentaires. Une taille de bloc très petite génère des temps de traitement importants dans Hadoop, car le nœud de noms doit traiter beaucoup plus de requêtes pour trouver le bloc approprié au fichier. Lorsque vos données ont une taille supérieure ou égale à plusieurs gigaoctets, la valeur suivante est recommandée :
 
 		set dfs.block.size=128m;
 
-3. **Optimisation de l'opération de jointure dans Hive** : dans l'architecture Map/Reduce, si les opérations de jointure s'exécutent en général pendant la phase de réduction, il est possible de gagner en efficacité en planifiant les jointures pendant la phase de mappage (également appelée « jointures Map »). Pour obtenir ce comportement dans Hive le cas échéant, saisissez la commande suivante :
+3. **Optimisation de l'opération de jointure dans Hive** : dans l'architecture Map/Reduce, si les opérations de jointure s'exécutent en général pendant la phase de réduction, il est possible de gagner en efficacité en planifiant les jointures pendant la phase de mappage (également appelée « jointures Map »). Pour obtenir ce comportement dans Hive le cas échéant, saisissez la commande suivante :
 
 		set hive.auto.convert.join=true;
 
-4. **Détermination du nombre de mappeurs dans Hive** : Hadoop permet à l'utilisateur de définir le nombre de réducteurs, mais pas le nombre de mappeurs. Pour contrôler ce nombre dans une certaine mesure, l'astuce consiste à configurer les variables Hadoop *mapred.min.split.size* et *mapred.max.split.size* car la taille de chaque tâche de mappage est déterminée par :
+4. **Détermination du nombre de mappeurs dans Hive** : Hadoop permet à l'utilisateur de définir le nombre de réducteurs, mais pas le nombre de mappeurs. Pour contrôler ce nombre dans une certaine mesure, l'astuce consiste à configurer les variables Hadoop *mapred.min.split.size* et *mapred.max.split.size* car la taille de chaque tâche de mappage est déterminée par :
 
 		num_maps = max(mapred.min.split.size, min(mapred.max.split.size, dfs.block.size))
 
-	En général, la valeur par défaut de *mapred.min.split.size* est 0, celle de *mapred.max.split.size* est **Long.MAX** et celle de *dfs.block.size* est 64 Mo. Comme nous pouvons le constater, vu la taille des données, l’ajustement de ces paramètres permet d’optimiser le nombre de mappeurs utilisés.
+	En général, la valeur par défaut de *mapred.min.split.size* est 0, celle de *mapred.max.split.size* est **Long.MAX** et celle de *dfs.block.size* est 64 Mo. Comme nous pouvons le constater, vu la taille des données, l’ajustement de ces paramètres permet d’optimiser le nombre de mappeurs utilisés.
 
 5. D’autres **options avancées** optimisant les performances de Hive sont indiquées ci-dessous. Elles permettent de configurer la mémoire allouée aux tâches de mappage et de réduction, et d’ajuster au mieux les performances. Mais gardez à l'esprit que *mapreduce.reduce.memory.mb* ne peut pas être supérieur à la mémoire physique de chaque nœud de travail du cluster Hadoop.
 
@@ -183,4 +183,4 @@ Les paramètres par défaut du cluster Hive peuvent ne pas convenir aux requête
 
  
 
-<!---HONumber=AcomDC_0914_2016--->
+<!---HONumber=AcomDC_0921_2016-->

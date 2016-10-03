@@ -3,8 +3,8 @@
 	description="Stockez des données non structurées dans le cloud avec Azure Blob Storage (stockage d’objets)."
     services="storage"
     documentationCenter=".net"
-    authors="tamram"
-    manager="carmonm"
+    authors="dineshmurthy"
+    manager="jahogg"
     editor="tysonn"/>
 
 <tags
@@ -13,8 +13,8 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="07/25/2016"
-    ms.author="dineshm"/>
+    ms.date="09/20/2016"
+    ms.author="dineshm;tamram"/>
 
 # Utilisation du stockage d'objets blob à partir de C++  
 
@@ -143,7 +143,7 @@ Pour télécharger un fichier vers un objet blob de blocs, obtenez une référen
 Vous pouvez également utiliser la méthode **upload\_from\_file** pour télécharger un fichier vers un objet blob de blocs.
 
 ## Création d’une liste d’objets blob dans un conteneur
-Pour créer une liste d’objets blob dans un conteneur, commencez par obtenir une référence pointant vers un conteneur. Vous pouvez ensuite utiliser la méthode **List\_blobs** du conteneur pour récupérer les objets blob et/ou les répertoires qu’il contient. Pour accéder à l’ensemble complet des propriétés et méthodes d’un **list\_blob\_item** renvoyé, vous devez appeler la méthode **list\_blob\_item.as\_blob** afin d’obtenir un objet **cloud\_blob** ou la méthode **list\_blob.as\_directory** afin d’obtenir un objet cloud\_blob\_directory. Le code suivant illustre la récupération et la génération de l'URI de chaque élément du conteneur **my-sample-container** :
+Pour créer une liste d’objets blob dans un conteneur, commencez par obtenir une référence pointant vers un conteneur. Vous pouvez ensuite utiliser la méthode **List\_blobs** du conteneur pour récupérer les objets blob et/ou les répertoires qu’il contient. Pour accéder à l’ensemble complet des propriétés et méthodes d’un **list\_blob\_item** renvoyé, vous devez appeler la méthode **list\_blob\_item.as\_blob** afin d’obtenir un objet **cloud\_blob** ou la méthode **list\_blob.as\_directory** afin d’obtenir un objet cloud\_blob\_directory. Le code suivant illustre la récupération et la génération de l'URI de chaque élément du conteneur **my-sample-container** :
 
 	// Retrieve storage account from connection string.
 	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
@@ -241,4 +241,4 @@ Maintenant que vous connaissez les bases du stockage d'objets blob, consultez le
 -	[Documentation d'Azure Storage](https://azure.microsoft.com/documentation/services/storage/)
 - [Transfert de données avec l’utilitaire de ligne de commande AzCopy](storage-use-azcopy.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0921_2016-->

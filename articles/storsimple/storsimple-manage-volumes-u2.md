@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="06/10/2016"
+   ms.date="09/21/2016"
    ms.author="alkohli" />
 
 # Utilisez le service StorSimple Manager pour gérer les volumes (Mise à jour 2)
 
 [AZURE.INCLUDE [storsimple-version-selector-manage-volumes](../../includes/storsimple-version-selector-manage-volumes.md)]
 
-## Vue d’ensemble
+## Vue d'ensemble
 
 Ce didacticiel explique comment utiliser le service StorSimple Manager pour créer et gérer des volumes sur l’appareil StorSimple et l’appareil virtuel StorSimple avec la mise à jour Update 2 installée.
 
@@ -89,12 +89,12 @@ Un volume est constitué d’une série d’attributs :
 
 Suivez les instructions de ce didacticiel pour effectuer les tâches suivantes :
 
-- Ajout d’un volume 
-- Modification d’un volume 
+- Ajout d’un volume
+- Modification d’un volume
 - Modification du type de volume
-- Suppression d’un volume 
-- Mise hors connexion d’un volume 
-- Analyse d’un volume 
+- Suppression d’un volume
+- Mise hors connexion d’un volume
+- Analyse d’un volume
 
 ## Ajout d’un volume
 
@@ -144,8 +144,8 @@ Modifiez un volume lorsque vous avez besoin d’en augmenter la taille ou de mod
 
 > [AZURE.IMPORTANT] 
 >
-> - Si vous modifiez la taille du volume sur l’appareil, vous devez la modifier sur l’hôte également. 
-> - Les étapes côté hôte décrites ici concernent Windows Server 2012 (2012R2). Les procédures pour Linux ou d’autres systèmes d’exploitation sont différentes. Consultez les instructions du système d’exploitation de l’hôte pour modifier le volume sur un hôte exécutant un autre système d’exploitation. 
+> - Si vous modifiez la taille du volume sur l’appareil, vous devez la modifier sur l’hôte également.
+> - Les étapes côté hôte décrites ici concernent Windows Server 2012 (2012R2). Les procédures pour Linux ou d’autres systèmes d’exploitation sont différentes. Consultez les instructions du système d’exploitation de l’hôte pour modifier le volume sur un hôte exécutant un autre système d’exploitation.
 
 #### Pour modifier un volume
 
@@ -299,4 +299,4 @@ Suivez la procédure ci-dessous pour activer ou désactiver l’analyse d’un v
 
  
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="09/19/2016"
 	ms.author="fashah;bradsev"/>
 
 
@@ -76,7 +76,7 @@ Pour configurer votre environnement de science des données Azure :
 
 1. [Créez un compte de stockage](../storage/storage-create-storage-account.md)
 
-2. [Créez un espace de travail Azure Machine Learning](machine-learning-create-workspace.md)
+2. [Création d’un espace de travail Microsoft Azure Machine Learning](machine-learning-create-workspace.md)
 
 3. [Approvisionnez une machine virtuelle de science des données](machine-learning-data-science-setup-sql-server-virtual-machine.md), qui fera office de serveur SQL Server et de serveur Notebook IPython.
 
@@ -358,8 +358,7 @@ Initialisez vos paramètres de connexion à la base de données dans les variabl
 
     print 'Number of rows and columns retrieved = (%d, %d)' % (df1.shape[0], df1.shape[1])
 
-Temps de lecture de la table d’échantillon = 6,492000 secondes  
-Nombre de lignes et de colonnes récupérées = (84 952, 21)
+Temps de lecture de la table d’échantillon = 6,492000 secondes Nombre de lignes et de colonnes récupérées = (84 952, 21)
 
 #### Statistiques descriptives
 
@@ -426,7 +425,7 @@ Dans cette section, nous allons créer une table destinée à contenir les donn�
 
 #### Créer une table d’échantillon et la remplir avec 1 % des données des tables jointes en commençant par supprimer la table si elle existe
 
-Dans cette section, nous allons joindre les tables **nyctaxi\_trip** et **nyctaxi\_fare**, extraire un échantillon aléatoire de 1 % des données et stocker les données échantillonnées dans une nouvelle table nommée **nyctaxi\_one\_percent** :
+Dans cette section, nous allons joindre les tables **nyctaxi\_trip** et **nyctaxi\_fare**, extraire un échantillon aléatoire de 1 % des données et stocker les données échantillonnées dans une nouvelle table nommée **nyctaxi\_one\_percent** :
 
     cursor = conn.cursor()
 
@@ -620,7 +619,7 @@ Pour démarrer l’exercice de modélisation, connectez-vous à votre espace de 
 Une expérience d’apprentissage classique se déroule comme suit :
 
 1. Création d’une expérience à l’aide du bouton **+NOUVEAU**.
-2. Récupération des données dans Azure Machine Learning.
+2. Transfert des données vers Azure Machine Learning.
 3. Prétraitement, transformation et manipulation des données en fonction des besoins.
 4. Génération des fonctionnalités requises.
 5. Fractionnement des données sous forme de jeux de données d’apprentissage/de validation/de test (ou utilisation de jeux de données distincts pour chacune de ces opérations).
@@ -634,7 +633,7 @@ Dans cet exercice, nous avons déjà exploré et généré les données dans SQL
 
 1. Récupérez les données dans Azure Machine Learning avec le module [Importer les données][import-data], disponible dans la section **Entrée et sortie des données**. Pour plus d’informations, consultez la page de référence du module [Importer les données][import-data].
 
-	![Importer les données Azure ML][17]
+	![Importation de données Azure Machine Learning][17]
 
 2. Dans le panneau **Propriétés**, sélectionnez **Base de données SQL Azure** dans le champ **Source de données**.
 
@@ -650,7 +649,7 @@ Dans cet exercice, nous avons déjà exploré et généré les données dans SQL
 
 La figure ci-après illustre un exemple d’expérience de classification binaire lisant les données directement dans la base de données SQL Server. Vous pouvez créer des expériences similaires pour les problèmes de classification multiclasse et de régression.
 
-![Formation Azure Machine Learning][10]
+![Formation Azure Machine Learning Studio][10]
 
 > [AZURE.IMPORTANT] Dans les exemples de requêtes d’extraction et d’échantillonnage de données de modélisation qui sont fournis aux sections précédentes, **toutes les étiquettes des trois exercices de modélisation sont incluses dans la requête**. Dans chacun des exercices de modélisation, une étape (obligatoire) importante consiste à **exclure** les étiquettes superflues pour les deux autres problèmes, ainsi que toute autre **fuite cible**. Par exemple, si vous avez recours à la classification binaire, utilisez l’étiquette **tipped** et excluez les champs **tip\_class**, **tip\_amount** et **total\_amount**. Les derniers champs sont des fuites cibles, car ils impliquent le pourboire versé.
 >
@@ -689,9 +688,7 @@ Cet exemple de procédure pas à pas et les scripts et notebooks IPython qui lui
 
 ### Références
 
-• [Page de téléchargement des jeux de données NYC Taxi Trips par Andrés Monroy (en anglais)](http://www.andresmh.com/nyctaxitrips/)  
-• [Page de partage des données relatives aux courses en taxi new-yorkais par Chris Whong (en anglais)](http://chriswhong.com/open-data/foil_nyc_taxi/)   
-• [Page de recherche et de statistiques de la Commission des services de taxis et de limousines de la ville de New York (en anglais)](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml)
+• [Page de téléchargement des jeux de données NYC Taxi Trips par Andrés Monroy (en anglais)](http://www.andresmh.com/nyctaxitrips/) • [Page de partage des données relatives aux courses en taxi new-yorkais par Chris Whong (en anglais)](http://chriswhong.com/open-data/foil_nyc_taxi/) • [Page de recherche et de statistiques de la Commission des services de taxis et de limousines de la ville de New York (en anglais)](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml)
 
 
 [1]: ./media/machine-learning-data-science-process-sql-walkthrough/sql-walkthrough_26_1.png
@@ -719,4 +716,4 @@ Cet exemple de procédure pas à pas et les scripts et notebooks IPython qui lui
 [select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

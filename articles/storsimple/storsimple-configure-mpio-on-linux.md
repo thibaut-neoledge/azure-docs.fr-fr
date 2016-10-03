@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/21/2016"
+   ms.date="09/21/2016"
    ms.author="alkohli" />
 
 # Configuration de MPIO sur un hôte StorSimple exécutant CentOS
@@ -29,28 +29,28 @@ La fonctionnalité de gestion multivoie vous permet de configurer plusieurs chem
 
 L’objectif de la gestion multivoie est double :
 
-- **Haute disponibilité** : elle fournit un autre chemin en cas d’échec de tout élément du chemin d’accès d’E/S (p. ex., câble, commutateur, interface réseau ou contrôleur).
+- **Haute disponibilité** : elle fournit un autre chemin en cas d’échec de tout élément du chemin d’accès d’E/S (p. ex., câble, commutateur, interface réseau ou contrôleur).
 
-- **Équilibrage de charge** : selon la configuration de votre appareil de stockage, elle peut améliorer les performances en détectant des charges sur les chemins d’accès d’E/S et en les rééquilibrant dynamiquement.
+- **Équilibrage de charge** : selon la configuration de votre appareil de stockage, elle peut améliorer les performances en détectant des charges sur les chemins d’accès d’E/S et en les rééquilibrant dynamiquement.
 
 
 ### À propos des composants de la gestion multivoie 
 
 Sous Linux, la gestion multivoie comprend des composants du noyau et des composants de l’espace utilisateur comme présenté ci-dessous.
 
-- **Noyau** : le composant principal est le *mappeur d’appareils* qui redirige les E/S et prend en charge le basculement pour les chemins d’accès et les groupes de chemin d’accès.
+- **Noyau** : le composant principal est le *mappeur d’appareils* qui redirige les E/S et prend en charge le basculement pour les chemins d’accès et les groupes de chemin d’accès.
 
-1. **Espace utilisateur** : il s’agit des *outils de la gestion multivoie* permettant de gérer les appareils à chemins d’accès multiples en indiquant la marche à suivre au module multivoie du mappeur d’appareils. Les outils comprennent les éléments suivants :
+1. **Espace utilisateur** : il s’agit des *outils de la gestion multivoie* permettant de gérer les appareils à chemins d’accès multiples en indiquant la marche à suivre au module multivoie du mappeur d’appareils. Les outils comprennent les éléments suivants :
 
-	- **Multipath** : répertorie et configure les appareils à chemins d’accès multiples.
+	- **Multipath** : répertorie et configure les appareils à chemins d’accès multiples.
 		
-	- **Multipathd** : démon qui exécute la gestion multivoie et surveille les chemins d’accès.
+	- **Multipathd** : démon qui exécute la gestion multivoie et surveille les chemins d’accès.
 	
-	- **Devmap-name** : fournit un nom d’appareil explicite vers udev pour devmaps.
+	- **Devmap-name** : fournit un nom d’appareil explicite vers udev pour devmaps.
  
-	- **Kpartx** : mappe les éléments devmaps linéaires aux partitions d’appareils pour effectuer des mappages multivoies configurables en partition.
+	- **Kpartx** : mappe les éléments devmaps linéaires aux partitions d’appareils pour effectuer des mappages multivoies configurables en partition.
 	
-	- **Multipath.conf** : fichier de configuration pour démon multivoie, utilisé pour remplacer la table de configuration intégrée.
+	- **Multipath.conf** : fichier de configuration pour démon multivoie, utilisé pour remplacer la table de configuration intégrée.
 
 ### À propos du fichier de configuration multipath.conf
 
@@ -58,15 +58,15 @@ Le fichier de configuration `/etc/multipath.conf` rend un grand nombre de foncti
 
 Le fichier multipath.conf comporte cinq sections :
 
-- **Valeurs par défaut au niveau système** *(defaults)* : vous pouvez remplacer les valeurs par défaut au niveau système.
+- **Valeurs par défaut au niveau système** *(defaults)* : vous pouvez remplacer les valeurs par défaut au niveau système.
 
-1. **Appareils sur liste noire** *(blacklist)* : vous pouvez spécifier la liste des appareils qui ne doivent pas être contrôlés par le mappeur d’appareils.
+1. **Appareils sur liste noire** *(blacklist)* : vous pouvez spécifier la liste des appareils qui ne doivent pas être contrôlés par le mappeur d’appareils.
 
-1. **Exceptions de la liste noire** *(blacklist\_exceptions)* : vous pouvez identifier des appareils spécifiques devant être traités en tant qu’appareils multivoies même s’ils sont répertoriés dans la liste noire.
+1. **Exceptions de la liste noire** *(blacklist\_exceptions)* : vous pouvez identifier des appareils spécifiques devant être traités en tant qu’appareils multivoies même s’ils sont répertoriés dans la liste noire.
 
-1. **Paramètres spécifiques au contrôleur de stockage** *(devices)* : vous pouvez spécifier des paramètres de configuration qui seront appliqués aux appareils contenant des informations de produit et de fournisseur.
+1. **Paramètres spécifiques au contrôleur de stockage** *(devices)* : vous pouvez spécifier des paramètres de configuration qui seront appliqués aux appareils contenant des informations de produit et de fournisseur.
 
-1. **Paramètres spécifiques aux appareils** *(multipaths)* : vous pouvez utiliser cette section pour ajuster les paramètres de configuration des numéros d’unité logique individuels.
+1. **Paramètres spécifiques aux appareils** *(multipaths)* : vous pouvez utiliser cette section pour ajuster les paramètres de configuration des numéros d’unité logique individuels.
 
 ## Configuration de la gestion multivoie sur StorSimple connecté à l’hôte Linux
 
@@ -82,7 +82,7 @@ Cette section détaille la configuration requise pour le serveur CentOS et votre
 
 
 
-1. Assurez-vous que votre hôte CentOS possède 2 interfaces réseau activées. Tapez :
+1. Assurez-vous que votre hôte CentOS possède 2 interfaces réseau activées. Entrez :
 
 	`ifconfig`
 
@@ -123,12 +123,12 @@ Cette section détaille la configuration requise pour le serveur CentOS et votre
 
 	1. Connectez-vous en tant que `root` à votre hôte CentOS.
 
-	1. Installez *iSCSI-initiator-utils*. Tapez :
+	1. Installez *iSCSI-initiator-utils*. Entrez :
 		
 		`yum install iscsi-initiator-utils`
 
 
-	1. Après avoir correctement installé *iSCSI-Initiator-utils*, démarrez le service iSCSI. Tapez :
+	1. Après avoir correctement installé *iSCSI-Initiator-utils*, démarrez le service iSCSI. Entrez :
 
 		`service iscsid start`
 
@@ -151,7 +151,7 @@ Cette section détaille la configuration requise pour le serveur CentOS et votre
 		Dans l’exemple ci-dessus, vous pouvez voir que votre environnement iSCSI s’exécutera à l’heure de démarrage sur les niveaux d’exécution 2, 3, 4 et 5.
 
 
-1. Installez *device-mapper-multipath*. Tapez :
+1. Installez *device-mapper-multipath*. Entrez :
 
 	`yum install device-mapper-multipath`
 
@@ -220,14 +220,14 @@ Les étapes de configuration pour la gestion multivoie impliquent la configurati
 
 Les appareils pris en charge par la gestion multivoie peuvent être automatiquement détectés et configurés.
 
-1. Initialisez le fichier `/etc/multipath.conf`. Tapez :
+1. Initialisez le fichier `/etc/multipath.conf`. Entrez :
 
 	 `Copy mpathconf --enable`
 	
 	La commande ci-dessus crée un fichier `sample/etc/multipath.conf`.
 
 
-1. Démarrez le service de gestion multivoie. Tapez :
+1. Démarrez le service de gestion multivoie. Entrez :
 
     ``Copy service multipathd start``
 	
@@ -235,7 +235,7 @@ Les appareils pris en charge par la gestion multivoie peuvent être automatiquem
 
 	`Starting multipathd daemon:`
 
-1. Activez la détection automatique des chemins d’accès multiples. Tapez :
+1. Activez la détection automatique des chemins d’accès multiples. Entrez :
 
 	`mpathconf --find_multipaths y`
 
@@ -251,7 +251,7 @@ Les appareils pris en charge par la gestion multivoie peuvent être automatiquem
 
 Par défaut, tous les appareils sont sur liste noire dans le fichier multipath.conf et seront contournés. Vous devrez créer des exceptions de la liste noire pour autoriser la gestion multivoie pour les volumes à partir des appareils StorSimple.
 
-1. Modifiez le fichier `/etc/mulitpath.conf`. Tapez :
+1. Modifiez le fichier `/etc/mulitpath.conf`. Entrez :
 
 	`vi /etc/multipath.conf`
 
@@ -272,7 +272,7 @@ Par défaut, tous les appareils sont sur liste noire dans le fichier multipath.c
 
 Cet algorithme d’équilibrage de charge utilise tous les chemins d’accès multiples disponibles pour le contrôleur actif de manière équilibrée, en tourniquet (round robin).
 
-1. Modifiez le fichier `/etc/multipath.conf`. Tapez :
+1. Modifiez le fichier `/etc/multipath.conf`. Entrez :
 
 	`vi /etc/multipath.conf`
 
@@ -310,7 +310,7 @@ Les valeurs les plus courantes de `path_grouping_policy` incluent :
 1. Tout d’abord, assurez-vous que la connexion iSCSI est établie avec l’appareil StorSimple comme suit :
 
 
-	1. Détectez votre appareil StorSimple. Tapez :
+	1. Détectez votre appareil StorSimple. Entrez :
 		
 		`iscsiadm -m discovery -t sendtargets -p  <IP address of network interface on the device>:<iSCSI port on StorSimple device>`
 
@@ -324,7 +324,7 @@ Les valeurs les plus courantes de `path_grouping_policy` incluent :
 
 
 
-	1. Connectez-vous à l’appareil à l’aide du nom qualifié cible. L’appareil StorSimple est la cible iSCSI ici. Tapez :
+	1. Connectez-vous à l’appareil à l’aide du nom qualifié cible. L’appareil StorSimple est la cible iSCSI ici. Entrez :
 
 		`iscsiadm -m node --login -T <IQN of iSCSI target>`
 
@@ -345,7 +345,7 @@ Les valeurs les plus courantes de `path_grouping_policy` incluent :
 	
 	1. Un volume est exposé au serveur CentOS à partir de l’appareil StorSimple. Pour plus d’informations, consultez [Étape 6 : Créer un volume](storsimple-deployment-walkthrough.md#step-6-create-a-volume) via le portail Azure Classic sur votre appareil StorSimple.
 
-	1. Vérifiez les chemins d’accès disponibles. Tapez :
+	1. Vérifiez les chemins d’accès disponibles. Entrez :
 
 		`multipath –l`
 
@@ -390,7 +390,7 @@ A. En règle générale, le non-affichage de chemins d’accès multiples suggè
 
 Il convient également de vérifier que vous pouvez voir certains disques après la connexion à la cible, car l’absence de réponse des listes multivoies peut signifier que vous n’avez aucun disque.
 
-- Pour relancer l’analyse du bus SCSI, utilisez la commande suivante : 
+- Pour relancer l’analyse du bus SCSI, utilisez la commande suivante :
  
 	`$ rescan-scsi-bus.sh `(partie du package sg3\_utils)
  
@@ -492,4 +492,4 @@ Pour plus d’informations, accédez à [Utilisation de la commande interactive 
 - [Configuration de MPIO sur CentOS](http://www.centos.org/docs/5/html/5.1/DM_Multipath/setup_procedure.html)
 - [Guide de formation Linux](http://linux-training.be/files/books/LinuxAdm.pdf)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0921_2016-->

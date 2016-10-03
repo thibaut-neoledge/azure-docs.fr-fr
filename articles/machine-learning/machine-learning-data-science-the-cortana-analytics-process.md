@@ -13,19 +13,19 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/14/2016" 
-	ms.author="bradsev;gopitk" />
+	ms.date="09/19/2016" 
+	ms.author="bradsev" />
 
 
 # Qu’est-ce que le processus TDSP (Team Data Science Process) ?
 
-Le processus TDSP (Team Data Science Process) fournit une approche systématique pour la création d’applications intelligentes qui permettent aux équipes de chercheurs de données de collaborer dans les meilleures conditions tout au long du cycle de vie des activités nécessaires à la conversion de ces applications en produits. Le processus TDSP décrit une séquence d’étapes qui offrent des **conseils** sur la façon de définir le problème, de configurer les outils et l’environnement nécessaires, d’analyser les données pertinentes, de créer et d’évaluer des modèles prédictifs et ensuite de déployer ces modèles dans les applications d’entreprise.
+Le [processus TDSP (Team Data Science Process)](data-science-process-overview.md) fournit une approche systématique pour la création d’applications intelligentes qui permettent aux équipes de chercheurs de données de collaborer dans les meilleures conditions tout au long du cycle de vie des activités nécessaires à la conversion de ces applications en produits. Le processus TDSP décrit une séquence d’étapes qui offrent des **conseils** sur la façon de définir le problème, de configurer les outils et l’environnement nécessaires, d’analyser les données pertinentes, de créer et d’évaluer des modèles prédictifs et ensuite de déployer ces modèles dans les applications d’entreprise.
 
 Voici les étapes du **processus TDSP (Team Data Science Process)** :
 
 ![Flux de travail CAP](./media/machine-learning-data-science-the-cortana-analytics-process/CAP-workflow.png)
 
-Le processus est **itératif** : la connaissance des nouveautés, des données existantes, ou des adaptations du modèle évolue et nécessite une reprise des opérations déjà terminées dans la séquence. Les processus de planification et de développement organisationnel du projet sont **facilement adaptables**, et peuvent donc fonctionner avec des suites d’opérations définies par TDSP.
+Le processus est **itératif** : la connaissance des nouveautés, des données existantes, ou des adaptations du modèle évolue et nécessite une reprise des opérations déjà terminées dans la séquence. Les processus de planification et de développement organisationnel du projet sont **facilement adaptables**, et peuvent donc fonctionner avec des suites d’opérations définies par TDSP.
 
 Les étapes du processus sont représentées et rassemblées dans le [parcours d'apprentissage TDSP](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) et décrites ci-dessous.
 
@@ -96,4 +96,4 @@ Des procédures pas à pas complètes illustrant toutes les étapes de **scénar
 
  
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

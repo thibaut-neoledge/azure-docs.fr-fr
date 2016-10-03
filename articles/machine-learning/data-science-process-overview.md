@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/17/2016"
-	ms.author="bradsev;gopitk" />
+	ms.date="09/19/2016"
+	ms.author="bradsev" />
 
 
 # Qu’est-ce que le processus TDSP (Team Data Science Process) ?
@@ -32,7 +32,7 @@ Voici le cycle de vie de développement du processus de sciences des données d�
 ![Diagramme  : Procédure de science des données pour les équipes](./media/data-science-process-overview/data-science-process-for-teams-diagram.png)
 
 
-Le processus est **itératif** : la connaissance des nouveautés, des données existantes, ou des adaptations du modèle évolue et nécessite une reprise des opérations déjà terminées dans la séquence. Les processus de planification et de développement organisationnel du projet sont **facilement adaptables**, et peuvent donc fonctionner avec des suites d’opérations définies par TDSP.
+Le processus est **itératif** : la connaissance des nouveautés, des données existantes, ou des adaptations du modèle évolue et nécessite une reprise des opérations déjà terminées dans la séquence. Les processus de planification et de développement organisationnel du projet sont **facilement adaptables**, et peuvent donc fonctionner avec des suites d’opérations définies par TDSP.
 
 Les étapes du processus sont représentées et rassemblées dans le [parcours d'apprentissage TDSP](https://azure.microsoft.com/documentation/learning-paths/data-science-process/) et décrites ci-dessous.
 
@@ -74,9 +74,9 @@ L’étape suivante a pour objet d’offrir une meilleure connaissance des donn�
 Les analystes des données, en collaboration avec des experts du domaine, doivent identifier les fonctionnalités qui capturent les propriétés dominantes du jeu de données pouvant être utilisées pour prédire les données d’entreprise clés identifiées pendant la planification. Ces nouvelles fonctionnalités peuvent être dérivées de données existantes ou nécessiter la collecte de données supplémentaires. Ce processus est appelé **Conception de fonctionnalités** et est l'une des principales étapes de la création d'un système efficace d'analyse prédictive. Cette étape nécessite une combinaison inédite d’expertise dans le secteur et d’informations obtenues à partir de l’étape d’exploration de données. Pour plus d'informations, voir [Conception de fonctionnalités dans le processus TDSP (Team Data Science Process)](machine-learning-data-science-create-features.md).
 
 
-## 4\. Création et formation des modèles ML
+## 4\. Créer et former des modèles d’apprentissage automatique
 
-Les scientifiques de données construisent des modèles permettant de prévoir des variables clés identifiées dans les impératifs d’entreprise définis lors de l’étape grâce aux données nettoyées et analysées. Les systèmes d'apprentissage informatiques prennent en charge plusieurs **algorithmes de modélisation** applicables à toutes sortes de cas. Pour plus d'informations, voir [Comment choisir les algorithmes dans Team Azure Machine Learning](machine-learning-algorithm-choice.md).
+Les scientifiques de données construisent des modèles permettant de prévoir des variables clés identifiées dans les impératifs d’entreprise définis lors de l’étape grâce aux données nettoyées et analysées. Les systèmes d'apprentissage informatiques prennent en charge plusieurs **algorithmes de modélisation** applicables à toutes sortes de cas. Pour plus d'informations, voir [Comment choisir les algorithmes dans Azure Machine Learning](machine-learning-algorithm-choice.md).
 
 Les scientifiques de données doivent choisir le modèle le mieux adapté à leur tâche de prévision, et il n’est pas rare qu’il faille associer des résultats de différents modèles pour obtenir les meilleurs résultats. Les données en entrée destinées à la modélisation sont généralement divisées aléatoirement en trois parties :
 
@@ -100,4 +100,4 @@ TDSP n'impose pas de types d'artefacts de **documentation** spécifiques. Cepend
 
 Des procédures pas à pas complètes illustrant toutes les étapes de **scénarios spécifiques** sont également fournies. Elles sont répertoriées avec des descriptions de miniatures dans la rubrique [Team Data Science Process walkthroughs](data-science-process-walkthroughs.md) (Procédures pas à pas du processus TDSP (Team Data Science Process)).
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

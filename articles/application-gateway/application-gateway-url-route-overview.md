@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/18/2016"
+   ms.date="09/16/2016"
    ms.author="gwallace"/>
 
 # Présentation du routage basé sur le chemin d’accès de l’URL
@@ -25,7 +25,7 @@ Les demandes adressées à http://contoso.com/video* sont acheminées vers Video
 
 ## Élément de configuration UrlPathMap
 
-L’élément UrlPathMap est utilisé pour spécifier les modèles de chemin d’accès vers les mappages de pools de serveurs principaux. Ci-dessous, voici l’extrait de l’élément urlPathMap provenant du fichier de modèle.
+L’élément UrlPathMap est utilisé pour spécifier les modèles de chemin d’accès vers les mappages de pools de serveurs principaux. L’exemple de code suivant est un extrait de l’élément urlPathMap issu du fichier de modèle.
 
 	"urlPathMaps": [
 	{
@@ -58,7 +58,7 @@ L’élément UrlPathMap est utilisé pour spécifier les modèles de chemin d�
 	}
 	
 
->[AZURE.NOTE] PathPattern : ce paramètre est une liste de modèles de chemin d’accès à utiliser pour la correspondance. Chaque modèle doit commencer par le signe « * » et le seul endroit où un astérisque * est autorisé est à la fin après un signe « / ». La chaîne transmise à l’outil de correspondance de chemin d’accès n’inclut pas de texte après le premier signe ? ou #. De plus, ces caractères ne sont pas autorisés ici.
+>[AZURE.NOTE] PathPattern : ce paramètre est une liste de modèles de chemin d’accès à utiliser pour la correspondance. Chaque modèle doit commencer par le signe « * » et le seul endroit où un astérisque * est autorisé est à la fin après un signe « / ». La chaîne transmise à l’outil de correspondance de chemin d’accès n’inclut pas de texte après le premier signe ? ou #. De plus, ces caractères ne sont pas autorisés ici.
 
 Pour plus d’informations, vous pouvez consulter un [modèle Resource Manager utilisant le routage basé sur URL](https://azure.microsoft.com/documentation/templates/201-application-gateway-url-path-based-routing).
 
@@ -82,8 +82,8 @@ La règle RequestRoutingRule de type PathBasedRouting est utilisée pour lier un
 
     }
 	
-## Étapes suivantes 
+## Étapes suivantes
 
 Après vous être familiarisé avec le routage de contenu basé sur URL, accédez à la section [Créer une passerelle d’application à l’aide du routage basé sur URL](application-gateway-create-url-route-portal.md) pour créer une passerelle d’application avec les règles de routage URL.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -5,7 +5,7 @@
 	documentationCenter=""
 	services="stream-analytics"
 	authors="jeffstokes72"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"
 />
 
@@ -31,7 +31,7 @@ Une fonction Machine Learning dans Stream Analytics peut être utilisée comme u
 
 Lorsque vous configurez une fonction Machine Learning pour un travail Stream Analytics, vous devez prendre en compte deux paramètres : la taille de lot des appels de fonction Machine Learning et les unités de diffusion en continu approvisionnées pour le travail Stream Analytics. Pour déterminer les valeurs appropriées pour ces paramètres, commencez par trouver le bon compromis entre latence et débit, autrement dit, entre la latence du travail Stream Analytics et le débit de chaque unité de diffusion en continu. Il est toujours possible d’ajouter des unités de diffusion en continu à un travail pour augmenter le débit d’une requête Stream Analytics correctement partitionnée. Toutefois, cet ajout augmente le coût d’exécution du travail.
 
-Il est donc important de déterminer la *tolérance* de latence pour l’exécution d’un travail Stream Analytics. L’augmentation de la taille de lot entraîne naturellement une latence supplémentaire dans le cadre de l’exécution des demandes de services Azure Machine Learning, et donc une augmentation de la latence du travail Stream Analytics. En revanche, l’accroissement de la taille de lot permet au travail Stream Analytics de traiter davantage d’événements avec le *même nombre* * de demandes de services web Machine Learning. L’augmentation de la latence de service web Machine Learning est souvent consécutive à l’augmentation de la taille de lot ; il est donc important de prendre en compte la taille de lot la plus rentable pour un service web Machine Learning dans n’importe quelle situation donnée. La taille de lot par défaut pour les demandes de service web est de 1 000 et peut être modifiée au moyen de l’[API REST Stream Analytics](https://msdn.microsoft.com/library/mt653706.aspx "API REST Stream Analytics") ou du [client PowerShell pour Stream Analytics](stream-analytics-monitor-and-manage-jobs-use-powershell.md "Client PowerShell pour Stream Analytics").
+Il est donc important de déterminer la *tolérance* de latence pour l’exécution d’un travail Stream Analytics. L’augmentation de la taille de lot entraîne naturellement une latence supplémentaire dans le cadre de l’exécution des demandes de services Azure Machine Learning, et donc une augmentation de la latence du travail Stream Analytics. En revanche, l’accroissement de la taille de lot permet au travail Stream Analytics de traiter davantage d’événements avec le *même nombre** de demandes de services web Machine Learning. L’augmentation de la latence de service web Machine Learning est souvent consécutive à l’augmentation de la taille de lot ; il est donc important de prendre en compte la taille de lot la plus rentable pour un service web Machine Learning dans n’importe quelle situation donnée. La taille de lot par défaut pour les demandes de service web est de 1 000 et peut être modifiée au moyen de l’[API REST Stream Analytics](https://msdn.microsoft.com/library/mt653706.aspx "API REST Stream Analytics") ou du [client PowerShell pour Stream Analytics](stream-analytics-monitor-and-manage-jobs-use-powershell.md "Client PowerShell pour Stream Analytics").
 
 Une fois qu’une taille de lot a été déterminée, la quantité d’unités de diffusion en continu peut être fixée en fonction du nombre d’événements que la fonction doit traiter par seconde. Pour plus d’informations sur les unités de diffusion en continu, voir l’article décrivant la procédure de [mise à l’échelle des travaux Stream Analytics](stream-analytics-scale-jobs.md#configuring-streaming-units).
 
@@ -130,4 +130,4 @@ Pour en savoir plus sur Stream Analytics, consultez :
 - [Références sur le langage des requêtes d'Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Références sur l'API REST de gestion d'Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0921_2016-->
