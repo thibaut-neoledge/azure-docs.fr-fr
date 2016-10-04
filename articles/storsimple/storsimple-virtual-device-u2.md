@@ -12,7 +12,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/17/2016"
+   ms.date="09/23/2016"
    ms.author="alkohli" />
 
 # Déployer et gérer un appareil virtuel StorSimple dans Azure
@@ -44,7 +44,7 @@ L’appareil virtuel StorSimple est disponible en deux modèles, un 8010 Standar
 
 Les régions Premium Storage actuellement prises en charge pour 8020 sont indiquées dans le tableau ci-dessous. Cette liste est mise à jour chaque fois que Premium Storage est disponible dans une nouvelle région.
 
-| No | Actuellement pris en charge dans les régions |
+| N° | Actuellement pris en charge dans les régions |
 |---------------------------------------------------------|--------------------------------|
 | 1 | Centre des États-Unis |
 | 2 | Est des États-Unis |
@@ -139,13 +139,14 @@ Procédez comme suit pour créer l’appareil virtuel StorSimple.
 
 [AZURE.INCLUDE [Création d'un appareil virtuel](../../includes/storsimple-create-virtual-device-u2.md)]
 
+Si la création de l’appareil virtuel échoue au cours de cette étape, vous ne disposerez peut-être pas d’une connectivité à Internet. Pour plus d’informations, consultez la section [Résolution des problèmes de connectivité Internet](#troubleshoot-internet-connectivity-errors) lors de la création d’un appareil virtuel.
+
 
 ### Étape 2 : configuration et inscription de l’appareil virtuel
 
 Avant de commencer cette procédure, assurez-vous que vous disposez d’une copie de la clé de chiffrement des données de service. Cette clé de chiffrement a été créée lorsque vous avez configuré votre premier appareil StorSimple et que vous avez été invité à l’enregistrer dans un emplacement sécurisé. Si vous n’avez pas de copie de la clé de chiffrement des données de service, vous devez contacter le support technique de Microsoft pour obtenir de l’aide.
 
-Procédez comme suit pour configurer et inscrire l’appareil virtuel StorSimple.
-[AZURE.INCLUDE [Configuration et inscription de l’appareil virtuel](../../includes/storsimple-configure-register-virtual-device.md)]
+Procédez comme suit pour configurer et inscrire l’appareil virtuel StorSimple. [AZURE.INCLUDE [Configuration et inscription de l’appareil virtuel](../../includes/storsimple-configure-register-virtual-device.md)]
 
 ### Étape 3 : (facultatif) modification des paramètres de configuration de l’appareil
 
@@ -273,6 +274,19 @@ Si vous supprimez ou arrêtez l’appareil virtuel, il apparaît comme **Hors co
 [AZURE.INCLUDE [Suppression d’un appareil virtuel](../../includes/storsimple-delete-virtual-device.md)]
 
    
+## Résolution des problèmes de connectivité Internet 
+
+La création d’un appareil virtuel échoue si vous ne disposez d’aucune connectivité à Internet. Pour déterminer si le problème est lié à la connectivité Internet, procédez comme suit dans le portail Azure Classic :
+
+1. Créez une machine virtuelle Windows Server 2012 dans Azure. Cette machine virtuelle doit utiliser le même compte de stockage, le même réseau virtuel et le même sous-réseau que ceux utilisés par votre appareil virtuel. Si vous disposez déjà d’un hôte Windows Server dans Azure en utilisant le même compte de stockage, le même réseau virtuel et le même sous-réseau, vous pouvez également l’utiliser pour résoudre vos problèmes de connectivité Internet.
+2. Connectez-vous à distance à la machine virtuelle créée à l’étape précédente.
+3. Ouvrez une fenêtre de commande à l’intérieur de la machine virtuelle (Win + R, puis tapez `cmd`).
+4. À l’invite, entrez la commande suivante :
+
+	`nslookup windows.net`
+
+5. Si `nslookup` échoue, l’échec de la connectivité Internet empêche l’appareil virtuel de s’inscrire au service StorSimple Manager.
+6. Apportez les modifications requises à votre réseau virtuel pour vous assurer que l’appareil virtuel est en mesure d’accéder aux sites Azure tels que « windows.net ».
 
 ## Étapes suivantes
 
@@ -280,4 +294,4 @@ Si vous supprimez ou arrêtez l’appareil virtuel, il apparaît comme **Hors co
  
 - Découvrez comment [restaurer un volume StorSimple à partir d’un jeu de sauvegarde](storsimple-restore-from-backup-set.md).
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0928_2016-->
