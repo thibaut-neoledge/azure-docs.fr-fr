@@ -306,7 +306,8 @@ Quelques points importants à prendre en compte :
 
 ### Surveillance d’un pipeline à l’aide de la Vue de diagramme
 6. Connectez-vous au [portail Azure](https://portal.azure.com/) et procédez comme suit :
-	1. Cliquez sur **Plus de services**, puis sur **Fabriques de données**. ![Parcourir les fabriques de données](./media/data-factory-build-your-first-pipeline-using-vs/browse-datafactories.png)
+	1. Cliquez sur **Parcourir** et sélectionnez **Fabriques de données**. 
+		![Parcourir les fabriques de données](./media/data-factory-build-your-first-pipeline-using-vs/browse-datafactories.png) 
 	2. Sélectionnez le nom de votre fabrique de données (par exemple : **FirstDataFactoryUsingVS09152016**) dans la liste des fabriques de données. ![Sélectionner votre fabrique de données](./media/data-factory-build-your-first-pipeline-using-vs/select-first-data-factory.png)
 7. Dans la page d’accueil de votre fabrique de données, cliquez sur **Diagramme**.
   
