@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="CENC avec Multi-DRM et contrôle d’accès : une conception de référence et l’application sur Windows Azure et Azure Media Services | Microsoft Azure" 
+	pageTitle="CENC avec Multi-DRM et contrôle d’accès : une conception de référence et l’application sur Microsoft Azure et Azure Media Services | Microsoft Azure" 
 	description="En savoir plus sur la licence du kit de portage Smooth Streaming client Microsoft®." 
 	services="media-services" 
 	documentationCenter="" 
@@ -16,7 +16,7 @@
 	ms.date="09/26/2016"  
 	ms.author="willzhan;kilroyh;yanmf;juliako"/>
 
-#CENC avec Multi-DRM et contrôle d’accès : une conception de référence et l’application sur Windows Azure et Azure Media Services
+#CENC avec Multi-DRM et contrôle d’accès : une conception de référence et l’application sur Microsoft Azure et Azure Media Services
 
 ##Mots-clés
  
@@ -442,15 +442,15 @@ Vous pouvez contacter l’un des auteurs pour qu’un compte soit créé ou ajou
 
 Vous trouverez ci-dessous les captures d’écran de pages de connexion différentes utilisées par les différents comptes de domaine.
 
-Le **compte de domaine client Azure personnalisé** : dans ce cas, vous pouvez voir la page de connexion personnalisée du domaine client Azure AD.
+Le **compte de domaine client Azure personnalisé** : dans ce cas, vous pouvez voir la page de connexion personnalisée du domaine client Azure AD.
 
 ![Compte de domaine client Azure AD personnalisé](./media/media-services-cenc-with-multidrm-access-control/media-services-ad-tenant-domain1.png)
 
-**Compte de domaine Microsoft avec carte à puce** : dans ce cas, vous voyez la page de connexion personnalisée par Microsoft corporate IT avec authentification à deux facteurs.
+**Compte de domaine Microsoft avec carte à puce** : dans ce cas, vous voyez la page de connexion personnalisée par Microsoft corporate IT avec authentification à deux facteurs.
 
 ![Compte de domaine client Azure AD personnalisé](./media/media-services-cenc-with-multidrm-access-control/media-services-ad-tenant-domain2.png)
 
-**Compte Microsoft (MSA)** : dans ce cas, vous allez voir la page de connexion de Microsoft Account pour les consommateurs.
+**Compte Microsoft (MSA)** : dans ce cas, vous allez voir la page de connexion de Microsoft Account pour les consommateurs.
 
 ![Compte de domaine client Azure AD personnalisé](./media/media-services-cenc-with-multidrm-access-control/media-services-ad-tenant-domain3.png)
 

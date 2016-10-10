@@ -108,17 +108,17 @@ Dans ce scénario, vous déployez le nœud principal HPC Pack et les nœuds de c
     
     Pour déployer les nœuds de calcul compatibles RDMA, notez les considérations supplémentaires suivantes :
     
-    * **Réseau virtuel** : spécifiez un nouveau réseau virtuel dans une région dans laquelle la taille d’instance compatible RDMA souhaitée est disponible.
+    * **Réseau virtuel** : spécifiez un nouveau réseau virtuel dans une région dans laquelle la taille d’instance compatible RDMA souhaitée est disponible.
 
-    * **Système d’exploitation Windows Server** : pour prendre en charge la connectivité RDMA, spécifiez un système d’exploitation Windows Server 2012 R2 ou Windows Server 2012 pour les machines virtuelles de nœud de calcul.
+    * **Système d’exploitation Windows Server** : pour prendre en charge la connectivité RDMA, spécifiez un système d’exploitation Windows Server 2012 R2 ou Windows Server 2012 pour les machines virtuelles de nœud de calcul.
 
-    * **Services cloud** : nous vous recommandons de déployer votre nœud principal dans un service cloud et vos nœuds de calcul dans un autre service cloud.
+    * **Services cloud** : nous vous recommandons de déployer votre nœud principal dans un service cloud et vos nœuds de calcul dans un autre service cloud.
 
-    * **Taille du nœud principal** : pour ce scénario, considérez une taille d’au moins A4 (Très grande) pour le nœud principal.
+    * **Taille du nœud principal** : pour ce scénario, considérez une taille d’au moins A4 (Très grande) pour le nœud principal.
 
-    * **Extension HpcVmDrivers** : le script de déploiement installe l’agent de machine virtuelle Azure et l’extension HpcVmDrivers automatiquement lors du déploiement de nœuds de taille A8 ou A9 avec un système d’exploitation Windows Server. HpcVmDrivers installe des pilotes sur des machines virtuelles à nœud de calcul afin qu’ils puissent se connecter au réseau RDMA.
+    * **Extension HpcVmDrivers** : le script de déploiement installe l’agent de machine virtuelle Azure et l’extension HpcVmDrivers automatiquement lors du déploiement de nœuds de taille A8 ou A9 avec un système d’exploitation Windows Server. HpcVmDrivers installe des pilotes sur des machines virtuelles à nœud de calcul afin qu’ils puissent se connecter au réseau RDMA.
 
-    * **Configuration du réseau de clusters** : le script de déploiement définit automatiquement le cluster HPC Pack dans la topologie 5 (tous les nœuds sur le réseau d’entreprise). Cette topologie est requise pour tous les déploiements de cluster HPC Pack dans les machines virtuelles. Ne modifiez pas la topologie de réseau de clusters ultérieurement.
+    * **Configuration du réseau de clusters** : le script de déploiement définit automatiquement le cluster HPC Pack dans la topologie 5 (tous les nœuds sur le réseau d’entreprise). Cette topologie est requise pour tous les déploiements de cluster HPC Pack dans les machines virtuelles. Ne modifiez pas la topologie de réseau de clusters ultérieurement.
 
 2. **Mettre en ligne les nœuds de calcul pour exécuter des travaux**
 

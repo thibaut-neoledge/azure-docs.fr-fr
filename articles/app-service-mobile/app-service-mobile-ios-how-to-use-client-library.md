@@ -153,7 +153,7 @@ MSQuery *query = [table query];
 MSQuery *query = [table queryWithPredicate: [NSPredicate predicateWithFormat:@"complete == NO"]];
 ```
 
-**Swift** :
+**Swift** :
 
 ```
 let query = table.query()
@@ -218,7 +218,7 @@ Pour limiter les champs à retourner dans une requête, spécifiez les noms des 
 query.selectFields = @[@"text", @"complete"];
 ```
 
-**Swift** :
+**Swift** :
 
 ```
 query.selectFields = ["text", "complete"]
@@ -226,7 +226,7 @@ query.selectFields = ["text", "complete"]
 
 Pour inclure des paramètres de chaîne de requête supplémentaires dans la demande serveur (par exemple, si un script côté serveur personnalisé les utilise), remplissez `query.parameters` comme suit :
 
-**Objective-C** :
+**Objective-C** :
 
 ```
 query.parameters = @{
@@ -235,7 +235,7 @@ query.parameters = @{
 };
 ```
 
-**Swift** :
+**Swift** :
 
 ```
 query.parameters = ["myKey1": "value1", "myKey2": "value2"]
@@ -262,7 +262,7 @@ NSDictionary *newItem = @{@"id": @"custom-id", @"text": @"my new item", @"comple
 }];
 ```
 
-**Swift** :
+**Swift** :
 
 ```
 let newItem = ["id": "custom-id", "text": "my new item", "complete": false]
@@ -279,7 +279,7 @@ table.insert(newItem) { (result, error) in
 
 Pour mettre à jour une ligne existante, modifiez un élément et appelez `update` :
 
-**Objective-C** :
+**Objective-C** :
 
 ```
 NSMutableDictionary *newItem = [oldItem mutableCopy]; // oldItem is NSDictionary
@@ -293,7 +293,7 @@ NSMutableDictionary *newItem = [oldItem mutableCopy]; // oldItem is NSDictionary
 }];
 ```
 
-**Swift** :
+**Swift** :
 
 ```
 if let newItem = oldItem.mutableCopy() as? NSMutableDictionary {
@@ -340,7 +340,7 @@ Au minimum, l'attribut `id` doit être défini quand vous effectuez des mises à
 
 Pour supprimer un élément, appelez `delete` avec l'élément :
 
-**Objective-C** :
+**Objective-C** :
 
 ```
 [table delete:item completion:^(id itemId, NSError *error) {
@@ -352,7 +352,7 @@ Pour supprimer un élément, appelez `delete` avec l'élément :
 }];
 ```
 
-**Swift** :
+**Swift** :
 
 ```
 table.delete(newItem as [NSObject: AnyObject]) { (itemId, error) in
@@ -415,7 +415,7 @@ Pour appeler une API personnalisée, appelez `MSClient.invokeAPI`. Le contenu de
             }];
 ```
 
-**Swift** :
+**Swift** :
 
 ```
 client.invokeAPI("sendEmail",
@@ -447,7 +447,7 @@ Pour inscrire des modèles, transmettez-les avec votre méthode **client.push re
 }];
 ```
 
-**Swift** :
+**Swift** :
 
 ```
     client.push?.registerDeviceToken(NSData(), template: iOSTemplate, completion: { (error) in
@@ -465,7 +465,7 @@ Vos modèles sont de type NSDictionary et peuvent contenir plusieurs modèles au
 NSDictionary *iOSTemplate = @{ @"templateName": @{ @"body": @{ @"aps": @{ @"alert": @"$(message)" } } } };
 ```
 
-**Swift** :
+**Swift** :
 
 ```
 let iOSTemplate = ["templateName": ["body": ["aps": ["alert": "$(message)"]]]]
@@ -485,7 +485,7 @@ Le fichier [`<WindowsAzureMobileServices/MSError.h>`][6] définit les constantes
 NSDictionary *serverItem = [error.userInfo objectForKey:MSErrorServerItemKey];
 ```
 
-**Swift** :
+**Swift** :
 
 ```
 let serverItem = error.userInfo[MSErrorServerItemKey]
@@ -499,7 +499,7 @@ En outre, le fichier définit des constantes pour chaque code d'erreur :
 if (error.code == MSErrorPreconditionFailed) {
 ```
 
-**Swift** :
+**Swift** :
 
 ```
 if (error.code == MSErrorPreconditionFailed) {
@@ -530,7 +530,7 @@ Vous pouvez utiliser la bibliothèque d’authentification Active Directory (ADA
     * Remplacez **INSERT-CLIENT-ID-HERE** par l’ID client que vous avez copié depuis l’application cliente native.
     * Remplacez **INSERT-REDIRECT-URI-HERE** par le point de terminaison _/.auth/login/done_ de votre site, en utilisant le modèle HTTPS. Cette valeur doit être similaire à \_https://contoso.azurewebsites.net/.auth/login/done_.
 
-**Objective-C** :
+**Objective-C** :
 
 	#import <ADALiOS/ADAuthenticationContext.h>
 	#import <ADALiOS/ADAuthenticationSettings.h>
@@ -646,7 +646,7 @@ Vous pouvez utiliser le kit de développement logiciel (SDK) Facebook pour iOS p
 	     }];
 	}
 
-**Swift** :
+**Swift** :
 
 	// Add the following imports to your bridging header:
 	//		#import <FBSDKLoginKit/FBSDKLoginKit.h>
@@ -693,7 +693,7 @@ Vous pouvez utiliser Twitter Fabric pour iOS pour identifier les utilisateurs su
 		    return YES;
 		}
 		
-	**Swift** :
+	**Swift** :
 	
 		import Fabric
 		import TwitterKit
@@ -776,7 +776,7 @@ Vous pouvez utiliser le kit de développement logiciel (SDK) Google Sign-In pour
 
  		[GIDSignIn sharedInstance].serverClientID = @"SERVER_CLIENT_ID";
  
- **Swift** :
+ **Swift** :
  
 		GIDSignIn.sharedInstance().serverClientID = "SERVER_CLIENT_ID"
 

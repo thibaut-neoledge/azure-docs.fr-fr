@@ -103,7 +103,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
     1.  Cliquez sur **Add**.
     2.  Entrez un nom pour votre configuration.
     3.  Sélectionnez **Set as default**.
-    4.  Dans la page **Configurer l’authentification unique sur Picturepark** du portail Azure Classic, copiez la valeur **URL SSO SAML**, puis collez-la dans la zone de texte **Issuer URI**.
+    4.  Dans la page **Configurer l’authentification unique sur Picturepark** du portail Azure Classic, copiez la valeur **URL SSO SAML**, puis collez-la dans la zone de texte **Issuer URI**.
     5.  Copiez la valeur **Empreinte numérique** du certificat exporté, puis collez-la dans la zone de texte **Trusted Issuer Thumb Print**.
 
         >[AZURE.TIP]Pour plus d’informations, consultez [Comment récupérer la valeur d’empreinte numérique d’un certificat](http://youtu.be/YKQF266SAxI).

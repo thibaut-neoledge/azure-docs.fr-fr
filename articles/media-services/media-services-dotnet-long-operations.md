@@ -29,7 +29,7 @@ Dans certains scénarios, une application ne peut pas attendre une requête HTTP
 
 À l’heure actuelle, les classes suivantes prennent en charge les méthodes sans interrogation : **Channel**, **StreamingEndpoint** et **Program**.
 
-Pour interroger l’état de l’opération, utilisez la méthode **GetOperation** sur la classe **OperationBaseCollection**. Utilisez les intervalles suivants pour vérifier l’état de l’opération : 30 secondes pour les opérations **Channel** et **StreamingEndpoint** ; 10 secondes pour les opérations **Program**.
+Pour interroger l’état de l’opération, utilisez la méthode **GetOperation** sur la classe **OperationBaseCollection**. Utilisez les intervalles suivants pour vérifier l’état de l’opération : 30 secondes pour les opérations **Channel** et **StreamingEndpoint** ; 10 secondes pour les opérations **Program**.
 
 
 ##Exemple

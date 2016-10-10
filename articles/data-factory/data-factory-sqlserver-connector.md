@@ -480,7 +480,7 @@ En revanche, les propriétés disponibles dans la section typeProperties de l'ac
 
 ### SqlSource
 
-Lorsqu’une source dans une activité de copie est de type **SqlSource**, les propriétés suivantes sont disponibles dans la section **typeProperties** :
+Lorsqu’une source dans une activité de copie est de type **SqlSource**, les propriétés suivantes sont disponibles dans la section **typeProperties** :
 
 | Propriété | Description | Valeurs autorisées | Requis |
 | -------- | ----------- | -------------- | -------- |

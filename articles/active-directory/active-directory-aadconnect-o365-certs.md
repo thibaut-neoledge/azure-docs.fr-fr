@@ -84,7 +84,9 @@ Dans la sortie de Get-MsolFederationProperty ou Get-AdfsCertificate, vérifiez l
 
 | AutoCertificateRollover | Certificats synchronisés avec Azure AD | Les métadonnées de fédération sont accessibles publiquement | Validité | Action |
 |:-----------------------:|:-----------------------:|:-----------------------:|:-----------------------:|:-----------------------:|
-| Oui | Oui | Oui | - | Aucune action n’est requise. Voir [Renouveler le certificat de signature de jetons automatiquement](#autorenew). | | Oui | Non | - | Moins de 15 jours | Renouveler immédiatement. Voir [Renouveler le certificat de signature de jetons manuellement](#manualrenew). | | Non | - | - | Moins de 30 jours | Renouveler immédiatement. Voir [Renouveler le certificat de signature de jetons manuellement](#manualrenew). |
+| Oui | Oui | Oui | - | Aucune action n’est requise. Voir [Renouveler le certificat de signature de jetons automatiquement](#autorenew). | 
+| Oui | Non | - | Moins de 15 jours | Renouveler immédiatement. Voir [Renouveler le certificat de signature de jetons manuellement](#manualrenew). | 
+| Non | - | - | Moins de 30 jours | Renouveler immédiatement. Voir [Renouveler le certificat de signature de jetons manuellement](#manualrenew). |
 
 [-] N’a pas d’importance
 

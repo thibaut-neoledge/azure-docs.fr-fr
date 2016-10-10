@@ -97,7 +97,7 @@ Cet exemple utilise le service lié **Salesforce**. Consultez la section [Servic
 		}
 	}
 
-La définition de **external** sur **true** informe le service Data Factory qu’il s’agit d’un jeu de données qui est externe à la Data Factory et non produit par une activité dans la Data Factory.
+La définition de **external** sur **true** informe le service Data Factory qu’il s’agit d’un jeu de données qui est externe à la Data Factory et non produit par une activité dans la Data Factory.
 
 > [AZURE.IMPORTANT] La partie « \_\_c » du nom de l’API est requise pour tout objet personnalisé.
 

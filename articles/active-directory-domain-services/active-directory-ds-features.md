@@ -45,7 +45,7 @@ Les fonctionnalités suivantes sont disponibles dans la version préliminaire de
 
 - **Créer des unités organisationnelles (UO) personnalisées :** les membres du groupe AAD DC Administrators peuvent créer des unités organisationnelles personnalisées au sein du domaine géré par les services de domaine AAD. Ces utilisateurs bénéficient de privilèges administratifs complets sur les unités organisationnelles personnalisées et peuvent donc ajouter/supprimer des comptes de service, des ordinateurs, des groupes, etc. au sein de ces unités organisationnelles personnalisées.
 
-- **Disponibilité dans plusieurs régions Azure **: consultez la page [Services Azure par région](https://azure.microsoft.com/regions/#services/) pour connaître les régions Azure dans lesquelles les services de domaine Azure AD sont disponibles.
+- **Disponibilité dans plusieurs régions Azure **: consultez la page [Services Azure par région](https://azure.microsoft.com/regions/#services/) pour connaître les régions Azure dans lesquelles les services de domaine Azure AD sont disponibles.
 
 - **Haute disponibilité :** les services de domaine Azure AD offrent une haute disponibilité pour votre domaine. Vous bénéficiez ainsi d’une disponibilité de service et d’une tolérance aux pannes plus élevées. La surveillance intégrée de l’intégrité permet de corriger automatiquement les défaillances en configurant de nouvelles instances pour remplacer les instances défectueuses et fournir un service continu pour votre domaine.
 

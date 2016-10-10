@@ -68,7 +68,7 @@ Vous pouvez afficher la liste complète des règles de sécurité effectives sur
 	- **Onglet VM1-nsg :** la liste de règles affichée dans l’image a trait au groupe de sécurité réseau appliqué à la carte réseau. Azure crée plusieurs règles par défaut à chaque création d’un groupe de sécurité réseau. Vous ne pouvez pas supprimer les règles par défaut, mais vous pouvez les remplacer par des règles de priorité plus élevée. Pour en savoir plus sur les règles par défaut, consultez [Vue d’ensemble d’un groupe de sécurité réseau](virtual-networks-nsg.md#default-rules).
 	- **Colonne DESTINATION :** certaines règles contiennent du texte dans la colonne, tandis que d’autres contiennent des préfixes d’adresse. Le texte est le nom des balises par défaut appliquées à la règle de sécurité lors de sa création. Les balises sont des identificateurs fournis par le système, qui représentent plusieurs préfixes. La sélection d’une règle avec une balise, telle que *AllowInternetOutBound*, répertorie les préfixes dans le panneau **Préfixes d’adresse**.
 	- **Télécharger :** la liste de règles peut être longue. Vous pouvez télécharger un fichier .csv des règles pour l’analyse hors connexion en cliquant sur **Télécharger**, puis en enregistrant le fichier.
-	- Règle de trafic entrant **AllowRDP** : cette règle autorise les connexions RDP à la machine virtuelle.
+	- Règle de trafic entrant **AllowRDP** : cette règle autorise les connexions RDP à la machine virtuelle.
 7. Cliquez sur l’onglet **Subnet1-NSG** pour afficher les règles effectives du groupe de sécurité réseau appliquées au sous-réseau, comme illustré dans l’image suivante :
 
 	![](./media/virtual-network-nsg-troubleshoot-portal/image4.png)

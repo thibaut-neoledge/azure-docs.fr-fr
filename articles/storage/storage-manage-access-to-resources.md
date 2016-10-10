@@ -30,7 +30,7 @@ Par défaut, un conteneur et tous les objets blob qu'il contient sont accessible
 
 Les conteneurs fournissent les options suivantes pour gérer leur accès :
 
-- **Accès public en lecture** : les données de conteneur et d’objet blob peuvent être lues via une demande anonyme. Les clients peuvent énumérer les objets blob à l’intérieur du conteneur via une demande anonyme, mais ne peuvent pas énumérer les conteneurs dans le compte de stockage.
+- **Accès public en lecture** : les données de conteneur et d’objet blob peuvent être lues via une demande anonyme. Les clients peuvent énumérer les objets blob à l’intérieur du conteneur via une demande anonyme, mais ne peuvent pas énumérer les conteneurs dans le compte de stockage.
 
 - **Accès public en lecture pour les objets blob uniquement :** les données d’objets blob à l’intérieur de ce conteneur peuvent être lues via une demande anonyme, mais les données du conteneur ne sont pas disponibles. Les clients ne peuvent pas énumérer les objets blob à l’intérieur du conteneur via une demande anonyme.
 

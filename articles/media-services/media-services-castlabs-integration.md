@@ -87,7 +87,7 @@ Pour utiliser l'application console :
 
 4.	Utilisez un AssetId pour nommer l'élément multimédia dans le système castLabs (ligne 44 dans le fichier Program.cs).
 
-	Vous devez définir AssetId pour **castLabs** ; il doit s'agir d'une chaîne alphanumérique unique.
+	Vous devez définir AssetId pour **castLabs** ; il doit s'agir d'une chaîne alphanumérique unique.
 
 5.	Exécutez le programme.
 

@@ -23,7 +23,7 @@ La réponse d'Azure AD qui contient le jeton SAML est généralement celle qui 
  
 Vous pouvez afficher le jeton SAML en sélectionnant cette ligne, puis **Inspecteurs > WebForms** dans le volet droit. À partir de là, cliquez sur la valeur **SAMLResponse** et sélectionnez **Send to TextWizard**. Puis sélectionnez **From Base64** à partir du menu **Transform** pour décoder le jeton et afficher son contenu.
  
-**Remarque** : pour afficher le contenu de cette requête HTTP, Fiddler peut vous inviter à configurer le déchiffrement du trafic HTTPS, que vous devez effectuer.
+**Remarque** : pour afficher le contenu de cette requête HTTP, Fiddler peut vous inviter à configurer le déchiffrement du trafic HTTPS, que vous devez effectuer.
 
 ## Articles connexes
 

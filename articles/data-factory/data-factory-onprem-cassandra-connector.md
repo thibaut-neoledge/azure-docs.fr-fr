@@ -105,7 +105,7 @@ Cet exemple utilise le service lié **Cassandra**. Consultez la section [Service
 		}
 	}
 
-La définition de **external** sur **true** informe le service Data Factory qu’il s’agit d’un jeu de données qui est externe à la Data Factory et non produit par une activité dans la Data Factory.
+La définition de **external** sur **true** informe le service Data Factory qu’il s’agit d’un jeu de données qui est externe à la Data Factory et non produit par une activité dans la Data Factory.
 
 **Jeu de données de sortie d’objet Blob Azure**
 

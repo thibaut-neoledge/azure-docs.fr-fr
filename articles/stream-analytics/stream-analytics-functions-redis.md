@@ -44,8 +44,8 @@ Pour créer une file d’attente Service Bus, suivez les étapes 1 et 2 de la se
 
 2. Choisissez **File d’attente Service Bus** comme **Récepteur** et suivez les instructions à l’écran. Veillez à choisir l’espace de noms de la file d’attente Service Bus que vous avez créé dans le cadre de la [Prise en main des files d’attente Service Bus][servicebus-getstarted]. Cliquez sur le bouton « Droite » lorsque vous avez terminé.
 3. Spécifiez les valeurs suivantes :
-	- **Format du sérialiseur d'événement** : JSON
-	- **Encodage** : UTF8
+	- **Format du sérialiseur d'événement** : JSON
+	- **Encodage** : UTF8
 	- **FORMAT** : séparé par une ligne
 
 4. Cliquez sur le bouton **Créer** pour ajouter cette source et vérifier que Stream Analytics peut se connecter au compte de stockage.
@@ -79,7 +79,7 @@ Suivez le didacticiel [Créer votre première fonction Azure][functions-getstart
 1. Dans le portail, sélectionnez App Services dans le volet de navigation gauche, puis cliquez sur le nom de votre application de fonction Azure pour accéder au site Web de l’application de fonction. ![Capture d’écran de la liste des applications App Services](./media/stream-analytics-functions-redis/app-services-function-list.png)
 
 2. Cliquez sur **Nouvelle fonction > ServiceBusQueueTrigger – C#**. Pour les champs suivants, suivez les instructions ci-dessous :
-	- **Nom de la file d’attente** : le même nom que le nom que vous avez entré lorsque vous avez créé la file d’attente dans [Prise en main des files d’attente Service Bus][servicebus-getstarted] (pas le nom du service bus). Vérifiez que vous utilisez la file d’attente qui est connectée à la sortie Stream Analytics.
+	- **Nom de la file d’attente** : le même nom que le nom que vous avez entré lorsque vous avez créé la file d’attente dans [Prise en main des files d’attente Service Bus][servicebus-getstarted] \(pas le nom du service bus). Vérifiez que vous utilisez la file d’attente qui est connectée à la sortie Stream Analytics.
 	- **Connexion Service Bus**: sélectionnez **Ajouter une chaîne de connexion**. Pour rechercher la chaîne de connexion, accédez au portail Classic, sélectionnez **Service Bus**, le bus de service que vous avez créé, et **INFORMATIONS DE CONNEXION** en bas de l’écran. Assurez-vous que vous êtes dans l’écran principal de cette page. Copiez et collez la chaîne de connexion. N’hésitez pas à entrer un nom de connexion.
 	
 		![Capture d’écran de la connexion Service Bus](./media/stream-analytics-functions-redis/servicebus-connection.png)

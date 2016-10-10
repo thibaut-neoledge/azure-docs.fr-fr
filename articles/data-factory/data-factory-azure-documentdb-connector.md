@@ -396,7 +396,7 @@ Pour obtenir la liste complète des sections et des propriétés disponibles pou
 
 Par contre, les propriétés disponibles dans la section typeProperties de l'activité varient avec chaque type d'activité et dans le cas de l'activité de copie, elles varient selon les types de sources et de récepteurs.
 
-Dans le cas d’une activité de copie, quand la source est de type **DocumentDbCollectionSource**, les propriétés suivantes sont disponibles dans la section **typeProperties** :
+Dans le cas d’une activité de copie, quand la source est de type **DocumentDbCollectionSource**, les propriétés suivantes sont disponibles dans la section **typeProperties** :
 
 | **Propriété** | **Description** | **Valeurs autorisées** | **Obligatoire** |
 | ------------ | --------------- | ------------------ | ------------ |

@@ -434,7 +434,8 @@ Microsoft Azure permet aux entreprises d’acquérir des ressources de calcul, 
 Ce document détaille toutes les étapes nécessaires pour déployer des systèmes SAP hautement disponibles dans Azure suivant notre nouvelle méthode avec le nouveau modèle de déploiement Azure Resource Manager. Ce guide vous guidera tout au long des étapes principales :
 
 
-- Recherche des notes et des guides d’installation de SAP adaptés, listés plus bas dans la section intitulée [Ressources][sap-ha-guide-2]. Ce document vient compléter la documentation sur l’installation SAP et des notes SAP, qui représentent les ressources incontournables en matière d’installation et de déploiement de logiciels SAP sur des plateformes données.
+- Recherche des notes et des guides d’installation de SAP adaptés, listés plus bas dans la section intitulée [Ressources][sap-ha-guide-2].  
+  Ce document vient compléter la documentation sur l’installation SAP et des notes SAP, qui représentent les ressources incontournables en matière d’installation et de déploiement de logiciels SAP sur des plateformes données.
 
 - Présentation de la différence entre le modèle de déploiement Azure Classic actuel et le nouveau modèle de déploiement Azure Resource Manager.
 
@@ -1053,7 +1054,7 @@ Nous choisissons un partage de fichiers témoin au lieu d’un disque quorum. Ce
 
 Dans la configuration que nous utilisons comme illustrations dans ce document, le partage de fichiers témoin est configuré sur le serveur AD/DNS qui s’exécute dans Azure et est appelé _**domcontr-0**_. Dans la mesure où vous avez configuré une connexion VPN à Azure (de site à site ou avec ExpressRoute), votre AD/DNS réside en local et par conséquent ne convient pas pour exécuter un partage de fichiers témoin.
 
-> [AZURE.NOTE] Dans le cas où votre AD/DNS s’exécute uniquement en local, ne configurez pas votre partage de fichiers témoin sur le système d’exploitation Windows AD/DNS s’exécutant en local, car la latence du réseau entre les nœuds de cluster s’exécutant sur Azure et AD/DNS en local peut devenir trop importante et entraîner des problèmes de connectivité. Veillez à configurer le partage de fichiers témoin sur une machine virtuelle Windows Azure proche du nœud de cluster.
+> [AZURE.NOTE] Dans le cas où votre AD/DNS s’exécute uniquement en local, ne configurez pas votre partage de fichiers témoin sur le système d’exploitation Windows AD/DNS s’exécutant en local, car la latence du réseau entre les nœuds de cluster s’exécutant sur Azure et AD/DNS en local peut devenir trop importante et entraîner des problèmes de connectivité. Veillez à configurer le partage de fichiers témoin sur une machine virtuelle Microsoft Azure proche du nœud de cluster.
 
 Le disque quorum a besoin d’au moins 1 024 Mo d’espace libre. Le volume recommandé est de 2 048 Mo
 

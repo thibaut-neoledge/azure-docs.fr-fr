@@ -64,7 +64,7 @@ bus_service.create_queue('taskqueue', queue_options)
 
 Pour envoyer un message à une file d’attente Service Bus, votre application appelle la méthode **send\_queue\_message** sur l’objet **ServiceBusService**.
 
-L'exemple suivant montre comment envoyer un message test à la file d'attente nommée *taskqueue* au moyen de **send\_queue\_message** :
+L'exemple suivant montre comment envoyer un message test à la file d'attente nommée *taskqueue* au moyen de **send\_queue\_message** :
 
 ```
 msg = Message(b'Test Message')

@@ -218,7 +218,7 @@ La méthode **TableRestProxy->getEntity** vous permet de récupérer une seule e
 
 ## Extraction de toutes les entités d'une partition
 
-Les requêtes d'entité sont construites à l'aide de filtres (pour plus d'informations, consultez la page [Interrogation de tables et d'entités][filters]). Pour extraire toutes les entités d'une partition, utilisez le filtre « PartitionKey eq *nom\_partition* ». L’exemple suivant montre comment récupérer toutes les entités de la partition `tasksSeattle` en passant un filtre à la méthode **queryEntities**.
+Les requêtes d'entité sont construites à l'aide de filtres (pour plus d'informations, consultez la page [Interrogation de tables et d'entités][filters]). Pour extraire toutes les entités d'une partition, utilisez le filtre « PartitionKey eq *nom\_partition* ». L’exemple suivant montre comment récupérer toutes les entités de la partition `tasksSeattle` en passant un filtre à la méthode **queryEntities**.
 
 	require_once 'vendor/autoload.php';
 

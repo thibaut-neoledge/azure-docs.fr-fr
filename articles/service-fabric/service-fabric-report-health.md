@@ -54,11 +54,11 @@ Lorsque la conception de la création des rapports d’intégrité est claire, l
 ## Client de contrôle d’intégrité
 Les rapports d’intégrité sont envoyés au magasin d’intégrité à l’aide d’un client de contrôle d’intégrité, qui réside dans le client Fabric. Le client de contrôle d’intégrité peut être configuré avec les éléments suivants :
 
-- **HealthReportSendInterval** : délai qui s’écoule entre le moment où le rapport est ajouté au client et celui où il est envoyé au magasin d’intégrité. Il est utilisé pour regrouper les rapports dans un seul message, au lieu d’envoyer un message pour chaque rapport. Ce regroupement améliore les performances. Par défaut : 30 secondes.
+- **HealthReportSendInterval** : délai qui s’écoule entre le moment où le rapport est ajouté au client et celui où il est envoyé au magasin d’intégrité. Il est utilisé pour regrouper les rapports dans un seul message, au lieu d’envoyer un message pour chaque rapport. Ce regroupement améliore les performances. Par défaut : 30 secondes.
 
-- **HealthReportRetrySendInterval** : intervalle auquel le client de contrôle d’intégrité renvoie les rapports d’intégrité cumulés au magasin d’intégrité. Par défaut : 30 secondes.
+- **HealthReportRetrySendInterval** : intervalle auquel le client de contrôle d’intégrité renvoie les rapports d’intégrité cumulés au magasin d’intégrité. Par défaut : 30 secondes.
 
-- **HealthOperationTimeout** : délai d’expiration pour un message de rapport envoyé au magasin d’intégrité. Si un message expire, le client de contrôle d’intégrité réessaie de l’envoyer jusqu’à ce que le magasin d’intégrité confirme que le rapport a été traité. Par défaut : deux minutes.
+- **HealthOperationTimeout** : délai d’expiration pour un message de rapport envoyé au magasin d’intégrité. Si un message expire, le client de contrôle d’intégrité réessaie de l’envoyer jusqu’à ce que le magasin d’intégrité confirme que le rapport a été traité. Par défaut : deux minutes.
 
 > [AZURE.NOTE] Lorsque les rapports sont traités par lot, le client Fabric doit être maintenu actif pendant au moins l’intervalle HealthReportSendInterval pour s’assurer qu’ils sont envoyés. Si le message est perdu ou si le magasin d’intégrité n’est pas en mesure de d’appliquer les rapports en raison d’erreurs transitoires, le client Fabric doit être maintenu actif plus longtemps pour lui donner une chance de réessayer.
 

@@ -450,7 +450,7 @@ Cette section décrit comment créer et enregistrer une passerelle à l’aide d
 
 		$MyDMG = New-AzureRmDataFactoryGateway -Name <gatewayName> -DataFactoryName <dataFactoryName> -ResourceGroupName ADF –Description <desc>
 
-	**Exemple de commande et de sortie** :
+	**Exemple de commande et de sortie** :
 
 
 		PS C:\> $MyDMG = New-AzureRmDataFactoryGateway -Name MyGateway -DataFactoryName $df -ResourceGroupName ADF –Description “gateway for walkthrough”

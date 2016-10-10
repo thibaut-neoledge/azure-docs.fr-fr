@@ -76,11 +76,11 @@ Pour afficher les itinéraires agrégés appliqués à une carte d’interface r
 		NextHopIpAddress : {}
 
 	Notez ce qui suit dans la sortie :
-	- **Name** : le nom de l’itinéraire effectif peut être vide, sauf spécification explicite, pour les itinéraires définis par l’utilisateur.
-	- **State** : indique l’état de l’itinéraire effectif. Les valeurs possibles sont « Actif » ou « Non valide ».
+	- **Name** : le nom de l’itinéraire effectif peut être vide, sauf spécification explicite, pour les itinéraires définis par l’utilisateur.
+	- **State** : indique l’état de l’itinéraire effectif. Les valeurs possibles sont « Actif » ou « Non valide ».
 	- **AddressPrefixes** : spécifie le préfixe d’adresse de l’itinéraire effectif en notation CIDR.
-	- **nextHopType** : indique le saut suivant pour l’itinéraire donné. Les valeurs possibles sont *VirtualAppliance*, *Internet*, *VNetLocal*, *VNetPeering* ou *Null*. La valeur *Null* pour **nextHopType** dans un itinéraire défini par l’utilisateur peut indiquer un itinéraire non valide. Par exemple, si **nextHopType** est *VirtualAppliance* et si la machine virtuelle d’appliance virtuelle de réseau n’est pas dans en service ou en cours d’exécution. Si **nextHopType** est *VPNGateway* et s’il n’existe aucune passerelle en service ou en cours d’exécution dans le réseau virtuel donné, l’itinéraire peut devenir non valide.
-	- **NextHopIpAddress** : spécifie l’adresse IP du saut suivant de l’itinéraire effectif.
+	- **nextHopType** : indique le saut suivant pour l’itinéraire donné. Les valeurs possibles sont *VirtualAppliance*, *Internet*, *VNetLocal*, *VNetPeering* ou *Null*. La valeur *Null* pour **nextHopType** dans un itinéraire défini par l’utilisateur peut indiquer un itinéraire non valide. Par exemple, si **nextHopType** est *VirtualAppliance* et si la machine virtuelle d’appliance virtuelle de réseau n’est pas dans en service ou en cours d’exécution. Si **nextHopType** est *VPNGateway* et s’il n’existe aucune passerelle en service ou en cours d’exécution dans le réseau virtuel donné, l’itinéraire peut devenir non valide.
+	- **NextHopIpAddress** : spécifie l’adresse IP du saut suivant de l’itinéraire effectif.
     
 	La commande suivante retourne les itinéraires dans un tableau plus lisible :
 

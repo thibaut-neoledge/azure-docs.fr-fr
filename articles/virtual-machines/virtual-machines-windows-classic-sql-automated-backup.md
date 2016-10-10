@@ -24,18 +24,19 @@
 
 La sauvegarde automatisée configure automatiquement une [sauvegarde managée sur Microsoft Azure](https://msdn.microsoft.com/library/dn449496.aspx) pour toutes les bases de données nouvelles et existantes sur une machine virtuelle Azure exécutant SQL Server 2014 Standard ou Enterprise. Cela vous permet de configurer des sauvegardes régulières de base de données utilisant le stockage d’objets blob Azure durable. La sauvegarde automatisée dépend l’[extension de l’agent IaaS de SQL Server](virtual-machines-windows-classic-sql-server-agent-extension.md).
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Pour afficher la version Resource Manager de cet article, consultez [Automated Backup for SQL Server in Azure Virtual Machines Resource Manager (Sauvegarde automatisée pour SQL Server dans les machines virtuelles SQL Server (Resource Manager))](virtual-machines-windows-sql-automated-backup.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] 
+Pour afficher la version Resource Manager de cet article, consultez [Automated Backup for SQL Server in Azure Virtual Machines Resource Manager (Sauvegarde automatisée pour SQL Server dans les machines virtuelles SQL Server (Resource Manager))](virtual-machines-windows-sql-automated-backup.md).
 
 ## Composants requis
 
 Pour utiliser la sauvegarde automatisée, prenez en compte les conditions préalables suivantes :
 
-**Système d’exploitation** :
+**Système d’exploitation** :
 
 - Windows Server 2012
 - Windows Server 2012 R2
 
-**Édition/version de SQL Server** :
+**Édition/version de SQL Server** :
 
 - SQL Server 2014 Standard
 - SQL Server 2014 Enterprise
@@ -46,11 +47,11 @@ Pour utiliser la sauvegarde automatisée, prenez en compte les conditions préal
 
 - Les bases de données cibles doivent utiliser le modèle de récupération complète.
 
-**Azure PowerShell** :
+**Azure PowerShell** :
 
 - [Installez les commandes de la version la plus récente d’Azure PowerShell](../powershell-install-configure.md).
 
-**Extension IaaS SQL Server** :
+**Extension IaaS SQL Server** :
 
 - [Installez l’extension IaaS SQL Server](virtual-machines-windows-classic-sql-server-agent-extension.md).
 

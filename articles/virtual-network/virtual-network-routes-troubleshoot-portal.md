@@ -69,12 +69,12 @@ Pour afficher les itinéraires agrégés qui s’appliquent à une machine virtu
 	>[AZURE.NOTE] Si la machine virtuelle associée à la carte réseau n’est pas en cours d’exécution, les itinéraires effectifs ne s’affichent pas. Uniquement les 200 premiers itinéraires effectifs s’affichent dans le portail. Pour obtenir la liste complète, cliquez sur **Télécharger**. Vous pouvez filtrer davantage les résultats à partir du fichier .csv téléchargé.
 
 	Notez ce qui suit dans la sortie :
-	- **Source** : indique le type d’itinéraire. Les itinéraires système sont affichés en tant que *Default*, les itinéraires définis par l’utilisateur en tant que *User* et les itinéraires de passerelle (statiques ou BGP) en tant que *VPNGateway*.
-	- **State** : indique l’état de l’itinéraire effectif. Les valeurs possibles sont *Active* ou *Non valide*.
+	- **Source** : indique le type d’itinéraire. Les itinéraires système sont affichés en tant que *Default*, les itinéraires définis par l’utilisateur en tant que *User* et les itinéraires de passerelle (statiques ou BGP) en tant que *VPNGateway*.
+	- **State** : indique l’état de l’itinéraire effectif. Les valeurs possibles sont *Active* ou *Non valide*.
 	- **AddressPrefixes** : spécifie le préfixe d’adresse de l’itinéraire effectif en notation CIDR.
-	- **nextHopType** : indique le saut suivant pour l’itinéraire donné. Les valeurs possibles sont *VirtualAppliance*, *Internet*, *VNetLocal*, *VNetPeering* ou *Null*. La valeur *Null* pour **nextHopType** dans un itinéraire défini par l’utilisateur peut indiquer un itinéraire non valide. Par exemple, si **nextHopType** est *VirtualAppliance* et si la machine virtuelle d’appliance virtuelle de réseau n’est pas dans en service ou en cours d’exécution. Si **nextHopType** est *VPNGateway* et s’il n’existe aucune passerelle en service ou en cours d’exécution dans le réseau virtuel donné, l’itinéraire peut devenir non valide.
+	- **nextHopType** : indique le saut suivant pour l’itinéraire donné. Les valeurs possibles sont *VirtualAppliance*, *Internet*, *VNetLocal*, *VNetPeering* ou *Null*. La valeur *Null* pour **nextHopType** dans un itinéraire défini par l’utilisateur peut indiquer un itinéraire non valide. Par exemple, si **nextHopType** est *VirtualAppliance* et si la machine virtuelle d’appliance virtuelle de réseau n’est pas dans en service ou en cours d’exécution. Si **nextHopType** est *VPNGateway* et s’il n’existe aucune passerelle en service ou en cours d’exécution dans le réseau virtuel donné, l’itinéraire peut devenir non valide.
     
-7. Aucun itinéraire n’est répertorié vers le réseau virtuel *WestUS-VNET3* (préfixe 10.10.0.0/16) à partir de *WestUS-VNet1* (préfixe 10.9.0.0/16) dans l’image à l’étape précédente. Dans l’illustration suivante, le lien d’homologation est en état *déconnecté* :
+7. Aucun itinéraire n’est répertorié vers le réseau virtuel *WestUS-VNET3* (préfixe 10.10.0.0/16) à partir de *WestUS-VNet1* (préfixe 10.9.0.0/16) dans l’image à l’étape précédente. Dans l’illustration suivante, le lien d’homologation est en état *déconnecté* :
 	
 	![](./media/virtual-network-routes-troubleshoot-portal/image4.png)
 

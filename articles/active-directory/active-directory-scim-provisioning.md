@@ -28,9 +28,9 @@ Cette fonctionnalité peut être utilisée conjointement avec la fonctionnalité
 
 Il existe deux cas d'utilisation de SCIM dans Azure Active Directory :
 
-* **Mise en service d’utilisateurs et de groupes pour les applications qui prennent en charge SCIM** : les applications qui prennent en charge SCIM 2.0 et utilisent les jetons de porteur OAuth d’Azure AD pour l’authentification fonctionneront avec Azure AD Directory dès la première utilisation.
+* **Mise en service d’utilisateurs et de groupes pour les applications qui prennent en charge SCIM** : les applications qui prennent en charge SCIM 2.0 et utilisent les jetons de porteur OAuth d’Azure AD pour l’authentification fonctionneront avec Azure AD Directory dès la première utilisation.
 
-* **Créer votre propre solution d'attribution pour les applications qui prennent en charge d'autres attributions basées sur API** : pour les applications autres que SCIM, vous pouvez créer un point de terminaison SCIM pour la translation entre le point de terminaison SCIM d'Azure AD et l'API prise en charge par l'application pour l'attribution des utilisateurs. Pour faciliter le développement d'un point de terminaison SCIM, nous fournissons des bibliothèques CLI, ainsi que des exemples de code qui vous indiquent comment fournir un point de terminaison SCIM et convertir les messages SCIM.
+* **Créer votre propre solution d'attribution pour les applications qui prennent en charge d'autres attributions basées sur API** : pour les applications autres que SCIM, vous pouvez créer un point de terminaison SCIM pour la translation entre le point de terminaison SCIM d'Azure AD et l'API prise en charge par l'application pour l'attribution des utilisateurs. Pour faciliter le développement d'un point de terminaison SCIM, nous fournissons des bibliothèques CLI, ainsi que des exemples de code qui vous indiquent comment fournir un point de terminaison SCIM et convertir les messages SCIM.
 
 ##Attribution d'utilisateurs et de groupes à des applications qui prennent en charge SCIM
 

@@ -373,7 +373,7 @@ Notez que le service de stockage calcule uniquement la métrique **AverageE2ELat
 
 Les raisons possibles à une réponse lente du client incluent un nombre limité de connexions ou threads disponibles. Il se peut que le problème puisse être résolu en modifiant le code client afin de le rendre plus efficace (par exemple, en utilisant des appels asynchrones vers le service de stockage), ou en utilisant une machine virtuelle plus puissante (avec davantage de cœurs et de mémoire).
 
-Pour les services de Table et de File d’attente, l’algorithme Nagle peut également provoquer de hautes valeurs **AverageE2ELatency** par rapport à **AverageServerLatency** : pour plus d’informations, consultez le billet <a href="http://blogs.msdn.com/b/windowsazurestorage/archive/2010/06/25/nagle-s-algorithm-is-not-friendly-towards-small-requests.aspx" target="_blank">Nagle’s Algorithm is Not Friendly towards Small Requests</a> sur le blog de l’équipe de Microsoft Azure Storage. Vous pouvez désactiver l'algorithme Nagle dans le code en utilisant la classe **ServicePointManager** dans l'espace de noms **System.Net**. Cette opération doit être effectuée avant de réaliser des appels vers les services de table et de file d’attente dans votre application, car elle n’affecte pas les connexions déjà ouvertes. L'exemple suivant provient de la méthode **Application\_Start** dans un rôle de travail.
+Pour les services de Table et de File d’attente, l’algorithme Nagle peut également provoquer de hautes valeurs **AverageE2ELatency** par rapport à **AverageServerLatency** : pour plus d’informations, consultez le billet <a href="http://blogs.msdn.com/b/windowsazurestorage/archive/2010/06/25/nagle-s-algorithm-is-not-friendly-towards-small-requests.aspx" target="_blank">Nagle’s Algorithm is Not Friendly towards Small Requests</a> sur le blog de l’équipe de Microsoft Azure Storage. Vous pouvez désactiver l'algorithme Nagle dans le code en utilisant la classe **ServicePointManager** dans l'espace de noms **System.Net**. Cette opération doit être effectuée avant de réaliser des appels vers les services de table et de file d’attente dans votre application, car elle n’affecte pas les connexions déjà ouvertes. L'exemple suivant provient de la méthode **Application\_Start** dans un rôle de travail.
 
     var storageAccount = CloudStorageAccount.Parse(connStr);
     ServicePoint tableServicePoint = ServicePointManager.FindServicePoint(storageAccount.TableEndpoint);
@@ -762,9 +762,9 @@ Cette annexe explique brièvement comment configurer Fiddler pour capturer le tr
 Après avoir lancé Fiddler, il commence à capturer le trafic HTTP et HTTPS de votre ordinateur local. Voici quelques commandes utiles pour contrôler Fiddler :
 
 - Arrêt et démarrage de la capture du trafic. Dans le menu principal, accédez à **File**, puis cliquez sur **Capture Traffic** pour activer et désactiver la capture.
-- Enregistrement des données de trafic capturées. Dans le menu principal, accédez à **File**, cliquez sur **Save**, puis sur **All Sessions** : cela vous permet d’enregistrer le trafic dans un fichier d’archive de la session. Vous pouvez charger à nouveau ultérieurement un fichier Session Archive à des fins d'analyse, ou l'envoyer, si nécessaire, au support Microsoft.
+- Enregistrement des données de trafic capturées. Dans le menu principal, accédez à **File**, cliquez sur **Save**, puis sur **All Sessions** : cela vous permet d’enregistrer le trafic dans un fichier d’archive de la session. Vous pouvez charger à nouveau ultérieurement un fichier Session Archive à des fins d'analyse, ou l'envoyer, si nécessaire, au support Microsoft.
 
-Pour limiter le volume de trafic capturé par Fiddler, vous pouvez utiliser des filtres que vous configurez dans l'onglet **Filters**. La capture d'écran suivante illustre un filtre qui capture uniquement le trafic envoyé au point de terminaison de stockage **contosoemaildist.table.core.windows.net** :
+Pour limiter le volume de trafic capturé par Fiddler, vous pouvez utiliser des filtres que vous configurez dans l'onglet **Filters**. La capture d'écran suivante illustre un filtre qui capture uniquement le trafic envoyé au point de terminaison de stockage **contosoemaildist.table.core.windows.net** :
 
 ![][5]
 
@@ -801,7 +801,7 @@ Vous pouvez utiliser l’analyseur de message Microsoft pour capturer le trafic 
 
 #### Configuration d'une nouvelle session de suivi Web à l'aide de l'analyseur de message Microsoft
 
-Pour configurer une nouvelle session de suivi web pour le trafic HTTP et HTTPS à l'aide de l'analyseur de message Microsoft, exécutez l'application Analyseur de message Microsoft et, dans le menu **Fichier**, cliquez sur **Capture/Trace**. Dans la liste des scénarios de suivi disponibles, sélectionnez **Web Proxy**. Ensuite, dans le panneau **Trace Scenario Configuration**, dans la zone de texte **HostnameFilter**, ajoutez les noms de vos points de terminaison de stockage (ces noms figurent dans le portail Azure Classic). Par exemple, si le nom de votre compte de stockage Azure est **contosodata**, vous devez ajouter ce qui suit dans la zone de texte **HostnameFilter** :
+Pour configurer une nouvelle session de suivi web pour le trafic HTTP et HTTPS à l'aide de l'analyseur de message Microsoft, exécutez l'application Analyseur de message Microsoft et, dans le menu **Fichier**, cliquez sur **Capture/Trace**. Dans la liste des scénarios de suivi disponibles, sélectionnez **Web Proxy**. Ensuite, dans le panneau **Trace Scenario Configuration**, dans la zone de texte **HostnameFilter**, ajoutez les noms de vos points de terminaison de stockage (ces noms figurent dans le portail Azure Classic). Par exemple, si le nom de votre compte de stockage Azure est **contosodata**, vous devez ajouter ce qui suit dans la zone de texte **HostnameFilter** :
 
     contosodata.blob.core.windows.net contosodata.table.core.windows.net contosodata.queue.core.windows.net
 

@@ -43,11 +43,11 @@ Vous pouvez surveiller votre compte de stockage à partir du [portail Azure](htt
 
 	-  Pour définir le niveau de surveillance, sélectionnez l’une des options suivantes :
 
-      **Minimal** : collecte des mesures telles que l’entrée/sortie, la disponibilité, la latence et les pourcentages de réussite, qui sont agrégées pour les services BLOB, de Table et de File d’attente.
+      **Minimal** : collecte des mesures telles que l’entrée/sortie, la disponibilité, la latence et les pourcentages de réussite, qui sont agrégées pour les services BLOB, de Table et de File d’attente.
 
-      **Verbose** : outre les mesures minimales, collecte le même ensemble de mesures pour chaque opération de stockage de l’API Azure Storage Service. Les mesures détaillées permettent d'analyser plus précisément les problèmes survenant durant le fonctionnement d'une application.
+      **Verbose** : outre les mesures minimales, collecte le même ensemble de mesures pour chaque opération de stockage de l’API Azure Storage Service. Les mesures détaillées permettent d'analyser plus précisément les problèmes survenant durant le fonctionnement d'une application.
 
-      **Off** : désactive la surveillance. Les données de surveillance existantes sont conservées jusqu'au terme de la période de rétention.
+      **Off** : désactive la surveillance. Les données de surveillance existantes sont conservées jusqu'au terme de la période de rétention.
 
 - Pour définir la stratégie de rétention de données, dans **Rétention (en jours)**, tapez le nombre de jours durant lesquels les données sont conservées (de 1 à 365 jours). Si vous ne souhaitez pas définir de stratégie de rétention, entrez 0. Dans ce cas, il vous appartient de supprimer ou non les données de surveillance. Nous vous recommandons de définir une stratégie de rétention en fonction de la durée de conservation que vous souhaitez appliquer aux données d’analyse de votre compte, de sorte que les données d’analyse anciennes et non utilisées puissent être supprimées par le système sans frais.
 

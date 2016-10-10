@@ -227,7 +227,7 @@ L’extrait de code C# suivant présente une entité de client précédemment cr
 	        throw;
 	}  
 
-Pour désactiver de manière explicite la vérification d'accès concurrentiel, vous devez définir la propriété **ETag** de l'objet **employee** sur « * » avant d'exécuter l'opération de remplacement.
+Pour désactiver de manière explicite la vérification d'accès concurrentiel, vous devez définir la propriété **ETag** de l'objet **employee** sur « * » avant d'exécuter l'opération de remplacement.
 
 	customer.ETag = "*";  
 

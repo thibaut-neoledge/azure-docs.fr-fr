@@ -111,7 +111,7 @@ Pour réduire l’étendue des données retournées, vous pouvez créer une comb
 
 **Opérateurs pris en charge** : eq, ge, le, gt, lt
 
-**Exemple** :
+**Exemple** :
 
 Utilisation d’une date spécifique
 
@@ -124,7 +124,7 @@ Utilisation d’une plage de dates
 	$filter=signinDateTime+ge+2016-07-01T17:05:21Z+and+signinDateTime+le+2016-07-07T17:05:21Z
 
 
-**Remarques** :
+**Remarques** :
 
 Le paramètre datetime doit être au format UTC
 
@@ -135,11 +135,11 @@ Le paramètre datetime doit être au format UTC
 
 **Opérateurs pris en charge** : eq
 
-**Exemple** :
+**Exemple** :
 
 	$filter=userId+eq+’00000000-0000-0000-0000-000000000000’
 
-**Remarques** :
+**Remarques** :
 
 La valeur d’userId est une valeur de chaîne
 
@@ -151,12 +151,12 @@ La valeur d’userId est une valeur de chaîne
 
 **Opérateurs pris en charge** : eq
 
-**Exemple** :
+**Exemple** :
 
 	$filter=userPrincipalName+eq+'audrey.oliver@wingtiptoysonline.com' 
 
 
-**Remarques** :
+**Remarques** :
 
 La valeur d’userPrincipalName est une valeur de chaîne
 
@@ -166,13 +166,13 @@ La valeur d’userPrincipalName est une valeur de chaîne
 
 **Opérateurs pris en charge** : eq
 
-**Exemple** :
+**Exemple** :
 
 	$filter=appId+eq+’00000000-0000-0000-0000-000000000000’
 
 
 
-**Remarques** :
+**Remarques** :
 
 La valeur d’appId est une valeur de chaîne
 
@@ -183,12 +183,12 @@ La valeur d’appId est une valeur de chaîne
 
 **Opérateurs pris en charge** : eq
 
-**Exemple** :
+**Exemple** :
 
 	$filter=appDisplayName+eq+'Azure+Portal' 
 
 
-**Remarques** :
+**Remarques** :
 
 La valeur d’appDisplayName est une valeur de chaîne
 
@@ -198,12 +198,12 @@ La valeur d’appDisplayName est une valeur de chaîne
 
 **Opérateurs pris en charge** : eq
 
-**Exemple** :
+**Exemple** :
 
 	$filter=loginStatus+eq+'1'  
 
 
-**Remarques** :
+**Remarques** :
 
 Il existe deux options pour loginStatus : 0 - Réussite, 1 - Échec
 

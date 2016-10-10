@@ -40,9 +40,9 @@ Pour obtenir une vue d’ensemble des options de déploiement dans Azure, voir l
 
 ### Composants requis
 
-* **Abonnement Azure** : vous pouvez utiliser un abonnement dans le service Azure Global ou Azure Chine. Si vous ne possédez pas de compte, vous pouvez créer un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/) en quelques minutes.
+* **Abonnement Azure** : vous pouvez utiliser un abonnement dans le service Azure Global ou Azure Chine. Si vous ne possédez pas de compte, vous pouvez créer un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/) en quelques minutes.
 
-* **Quota de cœurs** : vous devrez peut-être augmenter le quota de cœurs, en particulier si vous choisissez de déployer plusieurs nœuds de cluster avec des tailles de machines virtuelles multiprocesseurs. Pour augmenter un quota, ouvrez une demande de service clientèle en ligne gratuitement.
+* **Quota de cœurs** : vous devrez peut-être augmenter le quota de cœurs, en particulier si vous choisissez de déployer plusieurs nœuds de cluster avec des tailles de machines virtuelles multiprocesseurs. Pour augmenter un quota, ouvrez une demande de service clientèle en ligne gratuitement.
 
 * **Distributions Linux** : actuellement, HPC Pack prend en charge les distributions Linux suivantes pour les nœuds de calcul. Vous pouvez utiliser les versions Marketplace de ces distributions dans la mesure où elles sont disponibles, ou fournissez la vôtre.
 
@@ -57,11 +57,11 @@ Pour obtenir une vue d’ensemble des options de déploiement dans Azure, voir l
 
 Autres conditions préalables à respecter pour un déploiement du cluster à l’aide du script de déploiement HPC Pack IaaS :
 
-* **Ordinateur client** : vous avez besoin d’un ordinateur client Windows pour exécuter le script de déploiement de cluster.
+* **Ordinateur client** : vous avez besoin d’un ordinateur client Windows pour exécuter le script de déploiement de cluster.
 
-* **Azure PowerShell** : [installez et configurez Azure PowerShell](../powershell-install-configure.md) (version 0.8.10 ou ultérieure) sur votre ordinateur client.
+* **Azure PowerShell** : [installez et configurez Azure PowerShell](../powershell-install-configure.md) (version 0.8.10 ou ultérieure) sur votre ordinateur client.
 
-* **Script de déploiement IaaS de HPC Pack** : téléchargez et décompressez la dernière version du script à partir du [Centre de téléchargement Microsoft](https://www.microsoft.com/download/details.aspx?id=44949). Vous pouvez vérifier la version du script en exécutant `.\New-HPCIaaSCluster.ps1 –Version`. Cet article est basé sur la version 4.4.1 ou ultérieure du script.
+* **Script de déploiement IaaS de HPC Pack** : téléchargez et décompressez la dernière version du script à partir du [Centre de téléchargement Microsoft](https://www.microsoft.com/download/details.aspx?id=44949). Vous pouvez vérifier la version du script en exécutant `.\New-HPCIaaSCluster.ps1 –Version`. Cet article est basé sur la version 4.4.1 ou ultérieure du script.
 
 ### Option de déploiement 1. Utiliser un modèle Resource Manager
 
@@ -150,7 +150,7 @@ Le script de déploiement de HPC Pack IaaS utilise un fichier de configuration X
 
     ![Validation][validate]
 
-    c. Une fois les validations effectuées, le script répertorie les ressources de cluster à créer. Tapez *Y* pour continuer.
+    c. Une fois les validations effectuées, le script répertorie les ressources de cluster à créer. Tapez *Y* pour continuer.
 
     ![Ressources][resources]
 
@@ -174,11 +174,11 @@ Les nœuds Linux figurent aussi dans la vue **Carte thermique**.
 
 Vous avez plusieurs possibilités pour déplacer des données entre des nœuds de Linux et le nœud principal Windows du cluster. Voici trois méthodes courantes.
 
-* **Azure File** : expose un partage de fichiers SMB géré pour stocker les fichiers de données dans le stockage Azure. Les nœuds Windows et les nœuds Linux peuvent monter un partage Azure File comme un lecteur ou un dossier en même temps, même s’ils sont déployés dans des réseaux virtuels différents.
+* **Azure File** : expose un partage de fichiers SMB géré pour stocker les fichiers de données dans le stockage Azure. Les nœuds Windows et les nœuds Linux peuvent monter un partage Azure File comme un lecteur ou un dossier en même temps, même s’ils sont déployés dans des réseaux virtuels différents.
 
-* **Head node SMB share** : monte un dossier partagé Windows standard du nœud principal sur des nœuds Linux.
+* **Head node SMB share** : monte un dossier partagé Windows standard du nœud principal sur des nœuds Linux.
 
-* **Head node NFS server** : fournit une solution de partage de fichiers pour un environnement mixte Windows et Linux.
+* **Head node NFS server** : fournit une solution de partage de fichiers pour un environnement mixte Windows et Linux.
 
 ### Présentation du stockage de fichiers
 

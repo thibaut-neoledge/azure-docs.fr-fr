@@ -228,7 +228,7 @@ Consultez les rubriques suivantes si vous ne connaissez pas le service Azure Bat
 	  }
 	}
 
-Ajoutez « **.<nom région** » au nom de votre compte Batch pour la propriété **accountName**. Exemple :
+Ajoutez « **.<nom région** » au nom de votre compte Batch pour la propriété **accountName**. Exemple :
 
 			"accountName": "mybatchaccount.eastus"
 

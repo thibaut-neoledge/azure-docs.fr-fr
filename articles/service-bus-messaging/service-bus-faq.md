@@ -149,11 +149,11 @@ Le nombre maximal de rubriques/files d’attente (entités soutenues par un stoc
 
 **Taille de message** – chaque message est limité au total à 256 Ko, en-têtes de message compris.
 
-**Taille de l’en-tête de message** : chaque en-tête de message est limité à 64 Ko.
+**Taille de l’en-tête de message** : chaque en-tête de message est limité à 64 Ko.
 
-**Relais NetOneway et NetEvent** : chaque message est limité au total à 64 Ko, en-têtes de message compris.
+**Relais NetOneway et NetEvent** : chaque message est limité au total à 64 Ko, en-têtes de message compris.
 
-**Relais http et NetTcp** : Service Bus n’applique pas de limite supérieure à la taille de ces messages.
+**Relais http et NetTcp** : Service Bus n’applique pas de limite supérieure à la taille de ces messages.
 
 Les messages qui dépassent ces quotas de taille sont rejetés et le code appelant reçoit une exception.
 

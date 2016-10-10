@@ -206,13 +206,18 @@ Les exemples suivants supposent que le service de Table stocke les entités rela
 
 La section précédente [Présentation du service de Table Azure](#overview) décrit quelques-unes des principales fonctionnalités du service de Table Azure qui ont un impact direct sur la conception des requêtes. Il en résulte les conseils suivants, qui vous aideront à concevoir des requêtes de service de Table. Notez que la syntaxe de filtre utilisée dans les exemples ci-dessous provient de l’API REST du service de Table. Pour en savoir plus, consultez la rubrique [Interrogation d’entités](http://msdn.microsoft.com/library/azure/dd179421.aspx).
 
--	Une ***requête de pointage*** constitue la méthode de recherche la plus efficace. Elle est recommandée pour les recherches sur de gros volumes ou des recherches nécessitant la latence la plus faible. Une telle requête peut utiliser les index pour localiser une entité individuelle très efficacement en spécifiant les valeurs de **PartitionKey** et de **RowKey**. Par exemple : $filter=(PartitionKey eq ’Sales’) and (RowKey eq ’2’)
--	La deuxième méthode conseillée consiste à utiliser une ***requête de plage de données*** qui utilise la valeur de **PartitionKey** et des filtres sur une plage de valeurs de **RowKey** pour retourner plusieurs entités. La valeur de **PartitionKey** identifie une partition spécifique, tandis que la valeur de **RowKey** identifie un sous-ensemble des entités de cette partition. Par exemple : $filter=PartitionKey eq ’Sales’ and RowKey ge ’S’ and RowKey lt ’T’
--	La troisième méthode conseillée consiste à effectuer une ***analyse de partition*** qui utilise la valeur de **PartitionKey** et des filtres sur une autre propriété sans clé afin de renvoyer plusieurs entités. La valeur de **PartitionKey** identifie une partition spécifique et les valeurs des propriétés sélectionnent un sous-ensemble d’entités dans cette partition. Par exemple : $filter=PartitionKey eq ’Sales’ and LastName eq ’Smith’
--	Une ***analyse de table*** n’inclut pas la valeur de **PartitionKey** et s’avère particulièrement inefficace, car elle lance une recherche sur toutes les partitions qui composent la table pour toutes les entités correspondantes. Elle effectue une analyse de table, que votre filtre utilise la valeur de **RowKey** ou non. Par exemple : $filter=LastName eq ’Jones’
--	Les requêtes qui retournent plusieurs entités les retournent triées dans l’ordre de la **PartitionKey** et de la **RowKey**. Pour éviter un nouveau tri des entités dans le client, sélectionnez une valeur de **RowKey** qui définit l’ordre de tri le plus répandu.
+-	Une ***requête de pointage*** constitue la méthode de recherche la plus efficace. Elle est recommandée pour les recherches sur de gros volumes ou des recherches nécessitant la latence la plus faible. Une telle requête peut utiliser les index pour localiser une entité individuelle très efficacement en spécifiant les valeurs de **PartitionKey** et de **RowKey**. Par exemple :
+$filter=(PartitionKey eq ’Sales’) and (RowKey eq ’2’)  
+-	La deuxième méthode conseillée consiste à utiliser une ***requête de plage de données*** qui utilise la valeur de **PartitionKey** et des filtres sur une plage de valeurs de **RowKey** pour retourner plusieurs entités. La valeur de **PartitionKey** identifie une partition spécifique, tandis que la valeur de **RowKey** identifie un sous-ensemble des entités de cette partition. Par exemple :
+$filter=PartitionKey eq ’Sales’ and RowKey ge ’S’ and RowKey lt ’T’  
+-	La troisième méthode conseillée consiste à effectuer une ***analyse de partition*** qui utilise la valeur de **PartitionKey** et des filtres sur une autre propriété sans clé afin de renvoyer plusieurs entités. La valeur de **PartitionKey** identifie une partition spécifique et les valeurs des propriétés sélectionnent un sous-ensemble d’entités dans cette partition. Par exemple :
+$filter=PartitionKey eq ’Sales’ and LastName eq ’Smith’  
+-	Une ***analyse de table*** n’inclut pas la valeur de **PartitionKey** et s’avère particulièrement inefficace, car elle lance une recherche sur toutes les partitions qui composent la table pour toutes les entités correspondantes. Elle effectue une analyse de table, que votre filtre utilise la valeur de **RowKey** ou non. Par exemple :
+$filter=LastName eq ’Jones’  
+-	Les requêtes qui retournent plusieurs entités les retournent triées dans l’ordre de la **PartitionKey** et de la **RowKey**. Pour éviter un nouveau tri des entités dans le client, sélectionnez une valeur de **RowKey** qui définit l’ordre de tri le plus répandu.  
 
-Notez que l’utilisation d’un connecteur « **or** » pour spécifier un filtre selon les valeurs de **RowKey** déclenche une analyse de partition et n’est pas traitée en tant que requête de plage de données. Par conséquent, vous devez éviter les requêtes qui utilisent des filtres comme : $filter=PartitionKey eq ’Sales’ and (RowKey eq ’121’ or RowKey eq ’322’)
+Notez que l’utilisation d’un connecteur « **or** » pour spécifier un filtre selon les valeurs de **RowKey** déclenche une analyse de partition et n’est pas traitée en tant que requête de plage de données. Par conséquent, vous devez éviter les requêtes qui utilisent des filtres comme : 
+$filter=PartitionKey eq ’Sales’ and (RowKey eq ’121’ or RowKey eq ’322’)
 
 Pour obtenir des exemples de code côté client qui utilisent la bibliothèque cliente de stockage pour exécuter des requêtes efficaces, consultez les pages suivantes :
 
@@ -298,7 +303,7 @@ Les modèles suivants de la section [Modèles de conception de table](#table-des
      
 La bibliothèque cliente de stockage .NET Azure Storage prend en charge le chiffrement des propriétés de l’entité de chaîne pour les opérations d’insertion et de remplacement. Les chaînes chiffrées sont stockées sur le service en tant que propriétés binaires, et elles sont converties en chaînes après le déchiffrement.
 
-Pour les tables, outre la stratégie de chiffrement, les utilisateurs doivent spécifier les propriétés à chiffrer. Pour ce faire, il faut spécifier un attribut [EncryptProperty] (pour les entités POCO qui dérivent de TableEntity) ou un programme de résolution de chiffrement dans les options de requête. Un programme de résolution de chiffrement est un délégué qui prend une clé de partition, une clé de ligne et un nom de propriété, puis renvoie une valeur booléenne indiquant si cette propriété doit être chiffrée. Au cours du chiffrement, la bibliothèque cliente utilise ces informations pour décider si une propriété doit être chiffrée lors de l’écriture en ligne. Le délégué fournit également la possibilité de définir la manière dont les propriétés sont chiffrées l’aide d’un programme logique. (Par exemple, si X, alors chiffrer la propriété A ; sinon chiffrer les propriétés A et B.) Notez qu’il n’est pas nécessaire de fournir ces informations lors de la lecture ou de l’interrogation des entités.
+Pour les tables, outre la stratégie de chiffrement, les utilisateurs doivent spécifier les propriétés à chiffrer. Pour ce faire, il faut spécifier un attribut [EncryptProperty] \(pour les entités POCO qui dérivent de TableEntity) ou un programme de résolution de chiffrement dans les options de requête. Un programme de résolution de chiffrement est un délégué qui prend une clé de partition, une clé de ligne et un nom de propriété, puis renvoie une valeur booléenne indiquant si cette propriété doit être chiffrée. Au cours du chiffrement, la bibliothèque cliente utilise ces informations pour décider si une propriété doit être chiffrée lors de l’écriture en ligne. Le délégué fournit également la possibilité de définir la manière dont les propriétés sont chiffrées l’aide d’un programme logique. (Par exemple, si X, alors chiffrer la propriété A ; sinon chiffrer les propriétés A et B.) Notez qu’il n’est pas nécessaire de fournir ces informations lors de la lecture ou de l’interrogation des entités.
 
 Notez que la fusion n’est pas prise en charge pour le moment. Si un sous-ensemble de propriétés a été chiffré précédemment à l’aide d’une clé différente, la fusion des nouvelles propriétés et la mise à jour des métadonnées entraîne une perte de données. L’opération de fusion nécessite d’effectuer des appels de service supplémentaires pour lire l’entité pré-existante à partir du service ou d’utiliser une nouvelle clé par propriété. Ces deux solutions ne conviennent pas pour des raisons de performances.
 
@@ -551,16 +556,16 @@ Dans cet exemple, l’étape 4 permet d’insérer l’employé dans la table *
 
 #### Récupération après échec  
 
-Il est important que les opérations des étapes **4** et **5** soient *idempotentes* au cas où le rôle de travail nécessite un redémarrage de l’opération d’archivage. Si vous utilisez le service de Table, à l’étape **4**, vous devez utiliser une opération « insérer ou remplacer » (insert or replace) ; à l’étape **5**, vous devez faire appel à une opération « supprimer si existe » (delete if exists) dans la bibliothèque cliente que vous utilisez. Si vous utilisez un autre système de stockage, vous devez utiliser une opération idempotent appropriée.
+Il est important que les opérations des étapes **4** et **5** soient *idempotentes* au cas où le rôle de travail nécessite un redémarrage de l’opération d’archivage. Si vous utilisez le service de Table, à l’étape **4**, vous devez utiliser une opération « insérer ou remplacer » (insert or replace) ; à l’étape **5**, vous devez faire appel à une opération « supprimer si existe » (delete if exists) dans la bibliothèque cliente que vous utilisez. Si vous utilisez un autre système de stockage, vous devez utiliser une opération idempotent appropriée.
 
-Si le rôle de travail ne termine jamais l’étape **6**, après un délai d’attente, le message réapparaît dans la file d’attente, prêt pour le rôle de travail qui tentera de le retraiter. Le rôle de travail peut vérifier le nombre de fois où un message de file d'attente a été lu et, si nécessaire, l'indiquer comme message « incohérent » en vue d'une investigation en l'envoyant vers une file d'attente distincte. Pour plus d’informations sur la lecture des messages de la file d’attente et la vérification du nombre de retraits, consultez [Obtention des messages](https://msdn.microsoft.com/library/azure/dd179474.aspx).
+Si le rôle de travail ne termine jamais l’étape **6**, après un délai d’attente, le message réapparaît dans la file d’attente, prêt pour le rôle de travail qui tentera de le retraiter. Le rôle de travail peut vérifier le nombre de fois où un message de file d'attente a été lu et, si nécessaire, l'indiquer comme message « incohérent » en vue d'une investigation en l'envoyant vers une file d'attente distincte. Pour plus d’informations sur la lecture des messages de la file d’attente et la vérification du nombre de retraits, consultez [Obtention des messages](https://msdn.microsoft.com/library/azure/dd179474.aspx).
 
 Certaines erreurs provenant des services de Table et de File d'attente sont des erreurs temporaires et votre application cliente doit inclure une logique de nouvelle tentative appropriée pour les gérer.
 
 #### Problèmes et considérations
 Prenez en compte les points suivants lorsque vous choisissez comment implémenter ce modèle :
 
--	Cette solution ne fournit pas d'isolation des transactions. Par exemple, un client peut lire les tables **Current** et **Archive** quand le rôle de travail est entre les étapes **4** et **5**, et voir des données incohérentes affichées. Notez que les données seront cohérentes par la suite.
+-	Cette solution ne fournit pas d'isolation des transactions. Par exemple, un client peut lire les tables **Current** et **Archive** quand le rôle de travail est entre les étapes **4** et **5**, et voir des données incohérentes affichées. Notez que les données seront cohérentes par la suite.
 -	Vous pouvez être amené à vérifier que les étapes 4 et 5 sont idempotent afin d'assurer la cohérence.
 -	Vous pouvez mettre à l'échelle la solution en utilisant plusieurs files d'attente et instances de rôle de travail.
 
@@ -715,7 +720,7 @@ $filter=(PartitionKey eq ’Sales’) and (RowKey ge ’empid_000123’) and (Ro
 #### Problèmes et considérations
 Prenez en compte les points suivants lorsque vous choisissez comment implémenter ce modèle :
 
--	Vous devez utiliser un caractère de séparation approprié pour faciliter l’analyse des valeurs de **RowKey** : par exemple, **000123\_2012**.
+-	Vous devez utiliser un caractère de séparation approprié pour faciliter l’analyse des valeurs de **RowKey** : par exemple, **000123\_2012**.
 -	Vous stockez également cette entité dans la même partition que les autres entités qui contiennent des données associées au même employé, ce qui signifie que vous pouvez utiliser des EGT pour maintenir une forte cohérence.
 -	Vous devez prendre en compte la fréquence à laquelle vous interrogez les données afin de déterminer si ce modèle est approprié. Par exemple, si vous accédez rarement aux données d'évaluation et souvent aux données principales de l'employé, vous devez les conserver en entités distinctes.
 
@@ -781,7 +786,7 @@ Activez la suppression d'un volume élevé d'entités en stockant toutes les ent
 
 De nombreuses applications suppriment les anciennes données qui n'ont plus besoin d'être disponibles pour une application cliente ou archivées par l'application sur un autre support de stockage. Vous identifiez généralement ces données à une date : par exemple, vous devez supprimer les enregistrements de toutes les demandes de connexion datant de plus de 60 jours.
 
-Une conception possible consiste à utiliser la date et l’heure de la demande de connexion dans la **RowKey** :
+Une conception possible consiste à utiliser la date et l’heure de la demande de connexion dans la **RowKey** :
 
 ![][21]
 
@@ -1344,7 +1349,7 @@ Le reste de cette section décrit certaines des fonctionnalités de la biblioth�
 
 Si vous utilisez la bibliothèque cliente de stockage, vous avez trois options pour travailler avec plusieurs types d'entité.
 
-Si vous connaissez le type de l’entité stockée avec des valeurs de **RowKey** et de **PartitionKey** spécifiques, vous pouvez spécifier le type d’entité quand vous récupérez l’entité, comme indiqué dans les deux exemples précédents qui récupèrent des entités de type **EmployeeEntity** : [Exécution d’une requête de pointage à l’aide de la bibliothèque cliente de stockage](#executing-a-point-query-using-the-storage-client-library) et [Récupération de plusieurs entités à l’aide de LINQ](#retrieving-multiple-entities-using-linq).
+Si vous connaissez le type de l’entité stockée avec des valeurs de **RowKey** et de **PartitionKey** spécifiques, vous pouvez spécifier le type d’entité quand vous récupérez l’entité, comme indiqué dans les deux exemples précédents qui récupèrent des entités de type **EmployeeEntity** : [Exécution d’une requête de pointage à l’aide de la bibliothèque cliente de stockage](#executing-a-point-query-using-the-storage-client-library) et [Récupération de plusieurs entités à l’aide de LINQ](#retrieving-multiple-entities-using-linq).
 
 La deuxième option consiste à utiliser le type **DynamicTableEntity** (un conteneur de propriétés) plutôt qu’un type d’entité POCO concret (cette option peut également améliorer les performances, car il n’est pas nécessaire de sérialiser et désérialiser l’entité en types .NET). Le code C# suivant récupère plusieurs entités de types différents à partir de la table, mais renvoie toutes les entités en tant qu’instances de **DynamicTableEntity**. Il utilise ensuite la propriété **EventType** pour déterminer le type de chaque entité :
 
@@ -1455,7 +1460,8 @@ Il est possible de générer un jeton SAP qui accorde l'accès à un sous-ensemb
 
 ### Opérations asynchrones et parallèles  
 
-Si vous effectuez la diffusion de vos demandes sur plusieurs partitions, vous pouvez améliorer le débit et la réactivité du client en utilisant des requêtes asynchrones ou parallèles. Par exemple, vous pouvez avoir plusieurs instances de rôle de travail accédant à vos tables en parallèle. Vous pouvez avoir des rôles de travail individuels responsables d'ensembles particuliers de partitions ou simplement plusieurs instances de rôle de travail, chacune étant en mesure d'accéder à toutes les partitions d'une table.
+Si vous effectuez la diffusion de vos demandes sur plusieurs partitions, vous pouvez améliorer le débit et la réactivité du client en utilisant des requêtes asynchrones ou parallèles.
+Par exemple, vous pouvez avoir plusieurs instances de rôle de travail accédant à vos tables en parallèle. Vous pouvez avoir des rôles de travail individuels responsables d'ensembles particuliers de partitions ou simplement plusieurs instances de rôle de travail, chacune étant en mesure d'accéder à toutes les partitions d'une table.
 
 Dans une instance cliente, vous pouvez améliorer le débit en exécutant des opérations de stockage en mode asynchrone. La bibliothèque cliente de stockage facilite l'écriture des modifications et des requêtes asynchrones. Par exemple, vous pouvez commencer avec la méthode synchrone qui récupère toutes les entités dans une partition, comme illustré dans le code C# suivant :
 

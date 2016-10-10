@@ -28,11 +28,11 @@ Découvrez comment configurer un cluster RDMA Linux dans Azure avec des [machine
 Voici des méthodes que vous pouvez utiliser pour créer un cluster Linux RDMA avec ou sans planificateur de tâches.
 
 
-* **Scripts de l’interface de ligne de commande Azure** : comme indiqué plus loin dans cet article, utilisez l’[interface de ligne de commande (CLI) Azure](../xplat-cli-install.md) pour créer un script de déploiement d’un cluster de machines virtuelles prenant en charge RDMA. La CLI en mode Service Management crée les nœuds de cluster en série dans le modèle de déploiement classique. Le déploiement d’un grand nombre de nœuds de calcul peut donc prendre plusieurs minutes. Pour activer la connexion réseau RDMA lorsque vous utilisez le modèle de déploiement classique, déployez les machines virtuelles dans le même service cloud.
+* **Scripts de l’interface de ligne de commande Azure** : comme indiqué plus loin dans cet article, utilisez l’[interface de ligne de commande (CLI) Azure](../xplat-cli-install.md) pour créer un script de déploiement d’un cluster de machines virtuelles prenant en charge RDMA. La CLI en mode Service Management crée les nœuds de cluster en série dans le modèle de déploiement classique. Le déploiement d’un grand nombre de nœuds de calcul peut donc prendre plusieurs minutes. Pour activer la connexion réseau RDMA lorsque vous utilisez le modèle de déploiement classique, déployez les machines virtuelles dans le même service cloud.
 
-* **Modèles Azure Resource Manager** : vous pouvez utiliser le modèle de déploiement Resource Manager pour déployer un cluster de machines virtuelles prenant en charge RDMA, qui se connecte au réseau RDMA. Vous pouvez [créer votre propre modèle](../resource-group-authoring-templates.md) ou consulter la page [Modèles de démarrage rapide Azure](https://azure.microsoft.com/documentation/templates/) pour trouver des modèles fournis par Microsoft ou la communauté, pour déployer la solution de votre choix. Les modèles Resource Manager peuvent fournir un moyen rapide et fiable pour déployer un cluster Linux. Pour activer la connexion réseau RDMA lorsque vous utilisez le modèle de déploiement Resource Manager, déployez les machines virtuelles dans le même groupe à haute disponibilité.
+* **Modèles Azure Resource Manager** : vous pouvez utiliser le modèle de déploiement Resource Manager pour déployer un cluster de machines virtuelles prenant en charge RDMA, qui se connecte au réseau RDMA. Vous pouvez [créer votre propre modèle](../resource-group-authoring-templates.md) ou consulter la page [Modèles de démarrage rapide Azure](https://azure.microsoft.com/documentation/templates/) pour trouver des modèles fournis par Microsoft ou la communauté, pour déployer la solution de votre choix. Les modèles Resource Manager peuvent fournir un moyen rapide et fiable pour déployer un cluster Linux. Pour activer la connexion réseau RDMA lorsque vous utilisez le modèle de déploiement Resource Manager, déployez les machines virtuelles dans le même groupe à haute disponibilité.
 
-* **HPC Pack** : créez un cluster Microsoft HPC Pack dans Azure, et ajoutez des nœuds de calcul prenant en charge RDMA, qui exécutent des distributions Linux prises en charge pour accéder au réseau RDMA. Consultez [Prise en main des nœuds de calcul Linux dans un cluster HPC Pack dans Azure](virtual-machines-linux-classic-hpcpack-cluster.md).
+* **HPC Pack** : créez un cluster Microsoft HPC Pack dans Azure, et ajoutez des nœuds de calcul prenant en charge RDMA, qui exécutent des distributions Linux prises en charge pour accéder au réseau RDMA. Consultez [Prise en main des nœuds de calcul Linux dans un cluster HPC Pack dans Azure](virtual-machines-linux-classic-hpcpack-cluster.md).
 
 ## Exemple d’étapes de déploiement dans un modèle classique
 
@@ -47,9 +47,9 @@ Les étapes suivantes montrent comment utiliser la CLI Azure pour déployer une 
 
 *   **Abonnement Azure** : si vous n’en avez pas, vous pouvez créer un [compte gratuit](https://azure.microsoft.com/free/) en quelques minutes. Pour les clusters de grande taille, envisagez de souscrire un abonnement de paiement à l’utilisation ou d’autres options d’achat.
 
-*   **Disponibilité de taille de machine virtuelle** : actuellement les tailles d’instance prenant en charge RDMA sont les suivantes : H16r, H16mr, A8 et A9. Pour connaître la disponibilité dans les différentes régions Azure, voir [Disponibilité des produits par région](https://azure.microsoft.com/regions/services/).
+*   **Disponibilité de taille de machine virtuelle** : actuellement les tailles d’instance prenant en charge RDMA sont les suivantes : H16r, H16mr, A8 et A9. Pour connaître la disponibilité dans les différentes régions Azure, voir [Disponibilité des produits par région](https://azure.microsoft.com/regions/services/).
 
-*   **Quota de cœurs** : il se peut que vous deviez augmenter le quota de cœurs pour déployer un cluster de machines virtuelles nécessitant beaucoup de ressources système. Par exemple, vous devez avoir au moins 128 cœurs si vous souhaitez déployer 8 machines virtuelles A9, comme indiqué dans cet article. Votre abonnement peut également limiter le nombre de cœurs, que vous pouvez déployer dans certaines familles de taille de machine virtuelle, dont la série H. Pour demander une augmentation de quota, [ouvrez une demande de service clientèle en ligne](../azure-supportability/how-to-create-azure-support-request.md) gratuitement.
+*   **Quota de cœurs** : il se peut que vous deviez augmenter le quota de cœurs pour déployer un cluster de machines virtuelles nécessitant beaucoup de ressources système. Par exemple, vous devez avoir au moins 128 cœurs si vous souhaitez déployer 8 machines virtuelles A9, comme indiqué dans cet article. Votre abonnement peut également limiter le nombre de cœurs, que vous pouvez déployer dans certaines familles de taille de machine virtuelle, dont la série H. Pour demander une augmentation de quota, [ouvrez une demande de service clientèle en ligne](../azure-supportability/how-to-create-azure-support-request.md) gratuitement.
 
 *   **Interface de ligne de commande Azure** : [installez](../xplat-cli-install.md) l’interface de ligne de commande (CLI) Azure et [connectez-vous à votre abonnement Azure](../xplat-cli-connect.md) sur l’ordinateur client.
 
@@ -71,7 +71,7 @@ L’abonnement actif actuel est identifié par `Current` avec la valeur `true`. 
 
     azure account set <subscription-Id>
 
-Pour afficher les images de SLES 12 SP1 HPC publiquement disponibles dans Azure, exécutez une commande similaire à celle qui suit, si votre environnement d’interpréteur de commandes prend en charge **grep** :
+Pour afficher les images de SLES 12 SP1 HPC publiquement disponibles dans Azure, exécutez une commande similaire à celle qui suit, si votre environnement d’interpréteur de commandes prend en charge **grep** :
 
 
     azure vm image list | grep "suse.*hpc"
@@ -96,15 +96,15 @@ Après le provisionnement de la machine virtuelle, utilisez SSH pour vous connec
 
 >[AZURE.IMPORTANT]Microsoft Azure ne fournit pas d'accès racine aux machines virtuelles Linux. Pour obtenir un accès administratif lorsque vous êtes connecté en tant qu'utilisateur à la machine virtuelle, exécutez les commandes avec `sudo`.
 
-* **Mises à jour** : installez les mises à jour à l'aide de **zypper**. Vous pouvez également installer les utilitaires NFS.
+* **Mises à jour** : installez les mises à jour à l'aide de **zypper**. Vous pouvez également installer les utilitaires NFS.
 
     >[AZURE.IMPORTANT]Dans une machine virtuelle SLES 12 SP1 HPC, nous vous recommandons de ne pas appliquer les mises à jour du noyau, qui peuvent provoquer des problèmes avec les pilotes RDMA Linux.
 
-* **Intel MPI** : terminez l’installation d’Intel MPI sur la machine virtuelle SLES 12 SP1 HPC en exécutant la commande suivante :
+* **Intel MPI** : terminez l’installation d’Intel MPI sur la machine virtuelle SLES 12 SP1 HPC en exécutant la commande suivante :
 
         sudo rpm -v -i --nodeps /opt/intelMPI/intel_mpi_packages/*.rpm
 
-* **Verrouiller la mémoire** : pour que les codes MPI verrouillent la mémoire disponible pour RDMA, ajoutez ou modifiez les paramètres suivants dans le fichier /etc/security/limits.conf. (Un accès racine est requis pour modifier ce fichier.)
+* **Verrouiller la mémoire** : pour que les codes MPI verrouillent la mémoire disponible pour RDMA, ajoutez ou modifiez les paramètres suivants dans le fichier /etc/security/limits.conf. (Un accès racine est requis pour modifier ce fichier.)
 
     ```
     <User or group name> hard    memlock <memory required for your application in KB>
@@ -142,7 +142,7 @@ Après le provisionnement de la machine virtuelle, utilisez SSH pour vous connec
 
     >[AZURE.NOTE]La configuration de `StrictHostKeyChecking no` peut créer un risque de sécurité potentiel si une adresse IP ou une plage d’adresses IP spécifiques ne sont pas spécifiées.
 
-* **Applications** : installez les applications dont vous avez besoin sur cette machine virtuelle ou effectuez d'autres personnalisations avant de capturer l'image.
+* **Applications** : installez les applications dont vous avez besoin sur cette machine virtuelle ou effectuez d'autres personnalisations avant de capturer l'image.
 
 ### Étape 3. capture de l’image
 

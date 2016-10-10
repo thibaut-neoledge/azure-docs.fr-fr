@@ -30,7 +30,7 @@ Microsoft HPC Pack fournit des fonctionnalités permettant d’exécuter un éve
 
 ## Composants requis
 
-*   **Cluster HPC Pack avec nœuds de calcul Linux prenant en charge RDMA** : déployez un cluster HPC Pack avec des nœuds de calcul Linux de taille A8, A9, H16r ou H16rm à l’aide d’un [modèle Azure Resource Manager](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterlinuxcn/) ou d’un [script Azure PowerShell](virtual-machines-linux-classic-hpcpack-cluster-powershell-script.md). Consultez la configuration requise et la procédure pour chaque option sur la page [Prise en main des nœuds de calcul Linux dans un cluster HPC Pack dans Azure](virtual-machines-linux-classic-hpcpack-cluster.md). Si vous choisissez l’option de déploiement de script PowerShell, voir l’exemple de fichier de configuration dans les fichiers d’exemple à la fin de cet article. Utilisez cette configuration pour déployer un cluster HPC Pack basé sur Azure, composé d’un nœud principal Windows Server 2012 R2 de taille A8, et de 2 nœuds de calcul SUSE Linux Enterprise Server 12 de taille A8. Remplacez les valeurs appropriées pour les noms de vos abonnement et service.
+*   **Cluster HPC Pack avec nœuds de calcul Linux prenant en charge RDMA** : déployez un cluster HPC Pack avec des nœuds de calcul Linux de taille A8, A9, H16r ou H16rm à l’aide d’un [modèle Azure Resource Manager](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterlinuxcn/) ou d’un [script Azure PowerShell](virtual-machines-linux-classic-hpcpack-cluster-powershell-script.md). Consultez la configuration requise et la procédure pour chaque option sur la page [Prise en main des nœuds de calcul Linux dans un cluster HPC Pack dans Azure](virtual-machines-linux-classic-hpcpack-cluster.md). Si vous choisissez l’option de déploiement de script PowerShell, voir l’exemple de fichier de configuration dans les fichiers d’exemple à la fin de cet article. Utilisez cette configuration pour déployer un cluster HPC Pack basé sur Azure, composé d’un nœud principal Windows Server 2012 R2 de taille A8, et de 2 nœuds de calcul SUSE Linux Enterprise Server 12 de taille A8. Remplacez les valeurs appropriées pour les noms de vos abonnement et service.
 
     **Autres informations à connaître**
 
@@ -40,9 +40,9 @@ Microsoft HPC Pack fournit des fonctionnalités permettant d’exécuter un éve
 
     *   Après avoir déployé les nœuds Linux, connectez-vous à SSH pour effectuer toutes tâches administratives supplémentaires. Recherchez les détails de connexion SSH pour chaque machine virtuelle Linux dans le portail Azure.
         
-*   **Intel MPI** : pour exécuter OpenFOAM sur des nœuds de calcul SLES 12 HPC dans Azure, vous devez installer le runtime Intel MPI Library 5 que vous trouverez sur le [site Intel.com](https://software.intel.com/fr-FR/intel-mpi-library/). (Intel MPI 5 est préinstallé sur des images HPC basées sur CentOS.) Si nécessaire, vous devez ensuite installer Intel MPI sur vos nœuds de calcul Linux. Pour préparer cette étape, après votre inscription auprès d’Intel, suivez le lien vers la page web associée, figurant dans le message de confirmation. Ensuite, copiez le lien de téléchargement du fichier .tgz pour la version appropriée d’Intel MPI. Cet article est basé sur Intel MPI version 5.0.3.048.
+*   **Intel MPI** : pour exécuter OpenFOAM sur des nœuds de calcul SLES 12 HPC dans Azure, vous devez installer le runtime Intel MPI Library 5 que vous trouverez sur le [site Intel.com](https://software.intel.com/fr-FR/intel-mpi-library/). (Intel MPI 5 est préinstallé sur des images HPC basées sur CentOS.) Si nécessaire, vous devez ensuite installer Intel MPI sur vos nœuds de calcul Linux. Pour préparer cette étape, après votre inscription auprès d’Intel, suivez le lien vers la page web associée, figurant dans le message de confirmation. Ensuite, copiez le lien de téléchargement du fichier .tgz pour la version appropriée d’Intel MPI. Cet article est basé sur Intel MPI version 5.0.3.048.
 
-*   **OpenFOAM Source Pack** : téléchargez le logiciel OpenFOAM Source Pack pour Linux à partir du [site d’OpenFOAM Foundation](http://openfoam.org/download/2-3-1-source/). Cet article est basé sur la version du Pack Source 2.3.1, disponible en téléchargement en tant que OpenFOAM 2.3.1.tgz. Suivez les instructions présentes plus loin dans cet article pour décompresser et compiler OpenFOAM sur les nœuds de calcul Linux.
+*   **OpenFOAM Source Pack** : téléchargez le logiciel OpenFOAM Source Pack pour Linux à partir du [site d’OpenFOAM Foundation](http://openfoam.org/download/2-3-1-source/). Cet article est basé sur la version du Pack Source 2.3.1, disponible en téléchargement en tant que OpenFOAM 2.3.1.tgz. Suivez les instructions présentes plus loin dans cet article pour décompresser et compiler OpenFOAM sur les nœuds de calcul Linux.
 
 *   **EnSight** (facultatif) : pour afficher les résultats de votre simulation OpenFOAM, téléchargez et installez le programme de visualisation et d’analyse [EnSight](https://www.ceisoftware.com/download/). Les informations de licence et de téléchargement se trouvent sur le site EnSight.
 
@@ -338,7 +338,7 @@ Maintenant, vous pouvez envoyer un travail dans HPC Cluster Manager. Vous devez 
     
         *   Affecter un nœud à la tâche
 
-        *   **Ligne de commande** - `source /openfoam/settings.sh && decomposePar -force > /openfoam/decomposePar${CCP_JOBID}.log`
+        *   **Ligne de commande** - `source /openfoam/settings.sh && decomposePar -force > /openfoam/decomposePar${CCP_JOBID}.log`
     
         *   **Répertoire de travail** - /openfoam/sloshingTank3D
         
@@ -350,7 +350,7 @@ Maintenant, vous pouvez envoyer un travail dans HPC Cluster Manager. Vous devez 
 
         *   Affectez deux nœuds à la tâche
 
-        *   **Ligne de commande** - `source /openfoam/settings.sh && /openfoam/hpcimpirun.sh interDyMFoam -parallel > /openfoam/interDyMFoam${CCP_JOBID}.log`
+        *   **Ligne de commande** - `source /openfoam/settings.sh && /openfoam/hpcimpirun.sh interDyMFoam -parallel > /openfoam/interDyMFoam${CCP_JOBID}.log`
 
         *   **Répertoire de travail** - /openfoam/sloshingTank3D
 
@@ -358,7 +358,7 @@ Maintenant, vous pouvez envoyer un travail dans HPC Cluster Manager. Vous devez 
 
         *   Affecter un nœud à la tâche
 
-        *   **Ligne de commande** - `source /openfoam/settings.sh && reconstructPar > /openfoam/reconstructPar${CCP_JOBID}.log`
+        *   **Ligne de commande** - `source /openfoam/settings.sh && reconstructPar > /openfoam/reconstructPar${CCP_JOBID}.log`
 
         *   **Répertoire de travail** - /openfoam/sloshingTank3D
 
@@ -366,7 +366,7 @@ Maintenant, vous pouvez envoyer un travail dans HPC Cluster Manager. Vous devez 
 
         *   Affectez deux nœuds à la tâche
 
-        *   **Ligne de commande** - `source /openfoam/settings.sh && /openfoam/hpcimpirun.sh foamToEnsight -parallel > /openfoam/foamToEnsight${CCP_JOBID}.log`
+        *   **Ligne de commande** - `source /openfoam/settings.sh && /openfoam/hpcimpirun.sh foamToEnsight -parallel > /openfoam/foamToEnsight${CCP_JOBID}.log`
 
         *   **Répertoire de travail** - /openfoam/sloshingTank3D
 

@@ -80,10 +80,10 @@ Ce didacticiel suppose que vous utilisez un appareil [Texas Instruments SensorTa
 
 Avant de commencer, vous devez vous assurer que vous pouvez connecter votre appareil Edison à votre réseau sans fil. Pour configurer votre appareil Edison, vous devez le connecter à un ordinateur hôte. Intel fournit des guides de démarrage pour les systèmes d’exploitation suivants :
 
-- [Get Started with the Intel Edison Development Board on Windows 64-bit][lnk-setup-win64] (Guide de démarrage de la carte Intel Edison Development sur Windows 64 bits).
-- [Get Started with the Intel Edison Development Board on Windows 32-bit][lnk-setup-win32] (Guide de démarrage de la carte Intel Edison Development sur Windows 32 bits).
-- [Get Started with the Intel Edison Development Board on Mac OS X][lnk-setup-osx] (Guide de démarrage de la carte Intel Edison Development sur Mac OS X).
-- [Getting Started with the Intel® Edison Board on Linux][lnk-setup-linux] (Guide de démarrage de la carte Intel® Edison sur Linux).
+- [Get Started with the Intel Edison Development Board on Windows 64-bit][lnk-setup-win64] \(Guide de démarrage de la carte Intel Edison Development sur Windows 64 bits).
+- [Get Started with the Intel Edison Development Board on Windows 32-bit][lnk-setup-win32] \(Guide de démarrage de la carte Intel Edison Development sur Windows 32 bits).
+- [Get Started with the Intel Edison Development Board on Mac OS X][lnk-setup-osx] \(Guide de démarrage de la carte Intel Edison Development sur Mac OS X).
+- [Getting Started with the Intel® Edison Board on Linux][lnk-setup-linux] \(Guide de démarrage de la carte Intel® Edison sur Linux).
 
 Pour configurer votre appareil Edison et vous familiariser avec celui-ci, vous devez effectuer toutes les étapes de ces articles « de démarrage », à l’exception de la dernière étape, « Choose IDE » (Sélection d’IDE), qui ne s’applique pas à ce didacticiel. À la fin du processus de configuration Edison, vous avez :
 

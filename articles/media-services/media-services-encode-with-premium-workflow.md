@@ -61,7 +61,7 @@ Les étapes à exécuter sont les suivantes :
 
 	b. En second lieu, la ressource vidéo.
 	
-	**Remarque** : la ressource de flux de travail doit être ajoutée à la tâche avant la ressource multimédia. La chaîne de configuration de cette tâche doit être vide.
+	**Remarque** : la ressource de flux de travail doit être ajoutée à la tâche avant la ressource multimédia. La chaîne de configuration de cette tâche doit être vide.
 
 6. Soumettez le travail d’encodage.
 

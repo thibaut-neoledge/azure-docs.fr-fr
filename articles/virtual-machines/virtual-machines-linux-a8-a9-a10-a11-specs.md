@@ -29,7 +29,7 @@ Cet article fournit des informations et quelques considérations générales sur
 
 Vous pouvez créer des clusters de machines virtuelles Linux prenant en charge RDMA qui exécutent l’une des distributions Linux HPC prises en charge suivantes, et une implémentation MPI prise en charge pour tirer parti du réseau RDMA Azure. Pour obtenir des informations sur les options de déploiement et des exemples d’étapes de configuration, consultez la page [Configuration d’un cluster Linux RDMA pour exécuter des applications MPI](virtual-machines-linux-classic-rdma-cluster.md).
 
-* **Distributions** : vous devez déployer des machines virtuelles à partir d’images SUSE Linux Enterprise Server (SLES) prenant en charge RDMA ou d’images HPC basées sur OpenLogic CentOS dans la Place de marché Azure. Seules les images suivantes de la Place de marché prennent en charge les pilotes RDMA Linux nécessaires :
+* **Distributions** : vous devez déployer des machines virtuelles à partir d’images SUSE Linux Enterprise Server (SLES) prenant en charge RDMA ou d’images HPC basées sur OpenLogic CentOS dans la Place de marché Azure. Seules les images suivantes de la Place de marché prennent en charge les pilotes RDMA Linux nécessaires :
 
     * SLES 12 SP1 pour HPC, SLES 12 SP1 pour HPC (Premium)
     
@@ -47,13 +47,13 @@ Vous pouvez créer des clusters de machines virtuelles Linux prenant en charge R
 
     En fonction de l’image de la Place de marché choisie, une gestion de licence, une installation ou une configuration distinctes d’Intel MPI peuvent être nécessaires, comme suit :
     
-    * **Image SLES 12 SP1 pour HPC** : installez les packages Intel MPI distribués sur la machine virtuelle en exécutant la commande suivante :
+    * **Image SLES 12 SP1 pour HPC** : installez les packages Intel MPI distribués sur la machine virtuelle en exécutant la commande suivante :
     
             sudo rpm -v -i --nodeps /opt/intelMPI/intel_mpi_packages/*.rpm
 
-    * **Image SLES 12 pour HPC** : vous devez vous inscrire séparément pour télécharger et installer Intel MPI. Voir le [Guide d’installation de la bibliothèque Intel MPI](https://software.intel.com/sites/default/files/managed/7c/2c/intelmpi-2017-installguide-linux.pdf).
+    * **Image SLES 12 pour HPC** : vous devez vous inscrire séparément pour télécharger et installer Intel MPI. Voir le [Guide d’installation de la bibliothèque Intel MPI](https://software.intel.com/sites/default/files/managed/7c/2c/intelmpi-2017-installguide-linux.pdf).
     
-    * **Images HPC basées sur CentOS** : Intel MPI 5.1 est déjà installé.
+    * **Images HPC basées sur CentOS** : Intel MPI 5.1 est déjà installé.
 
     Une configuration supplémentaire du système est nécessaire pour exécuter des travaux MPI sur des machines virtuelles en cluster. Par exemple, sur un cluster de machines virtuelles, vous devez établir une approbation entre les nœuds de calcul. Pour les paramètres classiques, consultez [Configurer un cluster RDMA Linux pour exécuter des applications MPI](virtual-machines-linux-classic-rdma-cluster.md).
 

@@ -54,7 +54,7 @@ Windows 10 propose deux façons d’utiliser les appareils professionnels pour
 
 Azure AD Join est une nouvelle expérience d’approvisionnement de ressources de travail en libre-service dans Windows 10. Elle s’adresse aux professionnels qui accèdent essentiellement à des ressources de travail hébergées dans le cloud, comme Office 365. Il s’agit d’une méthode légère permettant de configurer des ordinateurs, des tablettes et des téléphones pour l’entreprise. Les appareils sont gérés via la gestion des périphériques mobiles (GPM), avec des contrôles homogènes entre les différentes plateformes Windows.
 
-**Voici plusieurs raisons d’utiliser Azure AD Join **:
+**Voici plusieurs raisons d’utiliser Azure AD Join **:
 
 - Vous souhaitez permettre l’approvisionnement en libre-service d’appareils pour les professionnels qui sont souvent amenés à se déplacer.
 - Vous fournissez aux utilisateurs des appareils professionnels, comme des tablettes et téléphones.

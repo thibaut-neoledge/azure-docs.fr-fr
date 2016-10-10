@@ -24,28 +24,29 @@
 
 La mise à jour corrective automatisée établit une fenêtre de maintenance pour une machine virtuelle Azure exécutant SQL Server. Les mises à jour automatisées ne peuvent être installées qu’au cours de cette fenêtre de maintenance. Pour SQL Server, les mises à jour système et les redémarrages associés ont ainsi lieu au meilleur moment possible pour la base de données. La mise à jour corrective automatisée utilise l’[extension de l’agent IaaS de SQL Server](virtual-machines-windows-classic-sql-server-agent-extension.md).
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Pour afficher la version Resource Manager de cet article, consultez [Mise à jour corrective automatisée pour SQL Server dans les machines virtuelles Azure (classiques)](virtual-machines-windows-sql-automated-patching.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] 
+Pour afficher la version Resource Manager de cet article, consultez [Mise à jour corrective automatisée pour SQL Server dans les machines virtuelles Azure (classiques)](virtual-machines-windows-sql-automated-patching.md).
 
 ## Composants requis
 
 Pour utiliser la mise à jour corrective automatisée, prenez en compte les conditions préalables suivantes :
 
-**Système d’exploitation** :
+**Système d’exploitation** :
 
 - Windows Server 2012
 - Windows Server 2012 R2
 
-**Version de SQL Server** :
+**Version de SQL Server** :
 
 - SQL Server 2012
 - SQL Server 2014
 - SQL Server 2016
 
-**Azure PowerShell** :
+**Azure PowerShell** :
 
 - [Installez les commandes de la version la plus récente d’Azure PowerShell](../powershell-install-configure.md).
 
-**Extension IaaS SQL Server** :
+**Extension IaaS SQL Server** :
 
 - [Installez l’extension IaaS SQL Server](virtual-machines-windows-classic-sql-server-agent-extension.md).
 

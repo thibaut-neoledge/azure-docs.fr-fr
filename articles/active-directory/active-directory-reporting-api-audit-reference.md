@@ -104,11 +104,11 @@ Pour indiquer le type d’enregistrements qui vous intéressent, vous pouvez cr�
 
 **Opérateurs pris en charge** : eq, ge, le, gt, lt
 
-**Exemple** :
+**Exemple** :
 
 	$filter=activityDate ge 2016-01-01T00:00:00Z and activityDate le 2016-01-02T00:00:00Z	
 
-**Remarques** :
+**Remarques** :
 
 datetime doit être au format UTC
 
@@ -118,11 +118,11 @@ datetime doit être au format UTC
 
 **Opérateurs pris en charge** : eq
 
-**Exemple** :
+**Exemple** :
 
 	$filter=activityType eq 'User'	
 
-**Remarques** :
+**Remarques** :
 
 respecte la casse
 
@@ -132,11 +132,11 @@ respecte la casse
 
 **Opérateurs pris en charge** : eq, contains, startsWith
 
-**Exemple** :
+**Exemple** :
 
 	$filter=activity eq 'Add application' or contains(activity, 'Application') or startsWith(activity, 'Add')	
 
-**Remarques** :
+**Remarques** :
 
 respecte la casse
 
@@ -146,11 +146,11 @@ respecte la casse
 
 **Opérateurs pris en charge** : eq, contains, startsWith
 
-**Exemple** :
+**Exemple** :
 
 	$filter=actor/name eq 'test' or contains(actor/name, 'test') or startswith(actor/name, 'test')	
 
-**Remarques** :
+**Remarques** :
 
 ne respecte pas la casse
 
@@ -161,7 +161,7 @@ ne respecte pas la casse
 
 **Opérateurs pris en charge** : eq
 
-**Exemple** :
+**Exemple** :
 
 	$filter=actor/objectId eq 'e8096343-86a2-4384-b43a-ebfdb17600ba'	
 
@@ -170,11 +170,11 @@ ne respecte pas la casse
 
 **Opérateurs pris en charge** : eq, contains, startsWith
 
-**Exemple** :
+**Exemple** :
 
 	$filter=target/name eq 'test' or contains(target/name, 'test') or startswith(target/name, 'test')	
 
-**Remarques** :
+**Remarques** :
 
 Non-respect de la casse
 
@@ -184,11 +184,11 @@ Non-respect de la casse
 
 **Opérateurs pris en charge** : eq, startsWith
 
-**Exemple** :
+**Exemple** :
 
 	$filter=targets/any(t: startswith(t/Microsoft.ActiveDirectory.DataService.PublicApi.Model.Reporting.AuditLog.TargetResourceUserEntity/userPrincipalName,'abc'))	
 
-**Remarques** :
+**Remarques** :
 
 - Non-respect de la casse
 - Vous devez ajouter l’espace de noms complet lors de l’interrogation de Microsoft.ActiveDirectory.DataService.PublicApi.Model.Reporting.AuditLog.TargetResourceUserEntity
@@ -199,7 +199,7 @@ Non-respect de la casse
 
 **Opérateurs pris en charge** : eq
 
-**Exemple** :
+**Exemple** :
 
 	$filter=target/objectId eq 'e8096343-86a2-4384-b43a-ebfdb17600ba'	
 
@@ -209,11 +209,11 @@ Non-respect de la casse
 
 **Opérateurs pris en charge** : eq, startsWith
 
-**Exemple** :
+**Exemple** :
 
 	$filter=startswith(actor/Microsoft.ActiveDirectory.DataService.PublicApi.Model.Reporting.AuditLog.ActorUserEntity/userPrincipalName,'abc')	
 
-**Remarques** :
+**Remarques** :
 
 - Non-respect de la casse
 - Vous devez ajouter l’espace de noms complet lors de l’interrogation de Microsoft.ActiveDirectory.DataService.PublicApi.Model.Reporting.AuditLog.ActorUserEntity

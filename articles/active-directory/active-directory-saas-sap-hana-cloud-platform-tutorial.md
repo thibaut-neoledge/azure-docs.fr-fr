@@ -140,7 +140,9 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
         |Assertion Attribute| Principal Attribute|
 		|-------------------|--------------------|
-        |http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname| firstname|--------------------|--------------------| |http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname| lastname|-----------| |http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress|email|
+        |http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname| firstname|--------------------|--------------------| 
+	|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname| lastname|-----------| 
+	|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress|email|
 
     >[AZURE.NOTE]La configuration des attributs dépend de la façon dont sont développées les applications sur HCP, en l’occurrence des attributs qu’elles attendent dans la réponse SAML et avec quel nom (Principal Attribute) elles accèdent à cet attribut dans le code.
     >  
@@ -154,9 +156,9 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
   
 Comme étape facultative, vous pouvez configurer des groupes basés sur une assertion pour votre fournisseur d’identité Azure Active Directory
 
->[AZURE.NOTE]L’utilisation de SAP HANA Cloud Platform vous permet d’attribuer de manière dynamique un ou plusieurs utilisateurs à un ou plusieurs rôles dans vos applications SAP HANA Cloud Platform, en fonction des valeurs des attributs de l’assertion SAML 2.0. Par exemple, si l’assertion contient l’attribut « *contract=temporaire* », vous souhaiterez peut-être que tous les utilisateurs affectés soient ajoutés au groupe « *TEMPORAIRE* ». Le groupe « *TEMPORAIRE* » peut contenir un ou plusieurs rôles d’une ou plusieurs applications déployées dans votre compte SAP HANA Cloud Platform.
+>[AZURE.NOTE]L’utilisation de SAP HANA Cloud Platform vous permet d’attribuer de manière dynamique un ou plusieurs utilisateurs à un ou plusieurs rôles dans vos applications SAP HANA Cloud Platform, en fonction des valeurs des attributs de l’assertion SAML 2.0. Par exemple, si l’assertion contient l’attribut « *contract=temporaire* », vous souhaiterez peut-être que tous les utilisateurs affectés soient ajoutés au groupe « *TEMPORAIRE* ». Le groupe « *TEMPORAIRE* » peut contenir un ou plusieurs rôles d’une ou plusieurs applications déployées dans votre compte SAP HANA Cloud Platform.
 >  
->Utilisez des groupes basés sur une assertion si vous souhaitez affecter en masse plusieurs utilisateurs à un ou plusieurs rôles d’applications dans votre compte SAP HANA Cloud Platform. Si vous ne souhaitez attribuer qu’un seul utilisateur ou un petit nombre d’utilisateurs à un ou des rôles spécifiques, nous vous recommandons de les attribuer directement dans l’onglet « **Autorisations** » de SAP HANA Cloud Platform Cockpit.
+>Utilisez des groupes basés sur une assertion si vous souhaitez affecter en masse plusieurs utilisateurs à un ou plusieurs rôles d’applications dans votre compte SAP HANA Cloud Platform. Si vous ne souhaitez attribuer qu’un seul utilisateur ou un petit nombre d’utilisateurs à un ou des rôles spécifiques, nous vous recommandons de les attribuer directement dans l’onglet « **Autorisations** » de SAP HANA Cloud Platform Cockpit.
 
 ##Affectation d’un rôle à un utilisateur
   

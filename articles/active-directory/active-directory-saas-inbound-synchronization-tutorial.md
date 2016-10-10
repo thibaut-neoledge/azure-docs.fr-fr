@@ -52,7 +52,7 @@ Cette section décrit l’activation de l’intégration d’application pour Wo
 
 	![Que voulez-vous faire ?](./media/active-directory-saas-inbound-synchronization-tutorial/IC700995.png "Que voulez-vous faire ?")
 
-5.  Dans la **zone de recherche**, tapez **Workday**.
+5.  Dans la **zone de recherche**, tapez **Workday**.
 
 	![Workday](./media/active-directory-saas-inbound-synchronization-tutorial/IC701021.png "Workday")
 

@@ -21,7 +21,7 @@
 
 Microsoft Azure s’engage fermement à préserver la confidentialité, la souveraineté de vos données et vous permet de contrôler vos données Azure hébergées via une suite de technologies servant à chiffrer, contrôler et gérer les clés de chiffrement, le contrôle et l’audit de l’accès aux données. Les clients Azure ont ainsi la possibilité de choisir la solution qui répond le mieux à leurs besoins professionnels. Dans ce document, nous allons vous présenter une nouvelle solution technologique « Azure Disk Encryption for Windows and Linux IaaS VM’s » pour protéger et sauvegarder vos données afin de répondre aux engagements de votre sécurité en matière d’organisation et les exigences de conformité. Cet article fournit des instructions détaillées sur la façon d’utiliser les fonctionnalités de cryptage de disque Azure, notamment sur les scénarios pris en charge et sur les expériences utilisateur.
 
-**Remarque** : Certaines recommandations contenues dans cet article peuvent entraîner une augmentation des taux d’utilisation des données, des réseaux ou des ressources de calcul débouchant sur des coûts de licence ou abonnement supplémentaires.
+**Remarque** : Certaines recommandations contenues dans cet article peuvent entraîner une augmentation des taux d’utilisation des données, des réseaux ou des ressources de calcul débouchant sur des coûts de licence ou abonnement supplémentaires.
 
 ## Vue d’ensemble
 
@@ -119,7 +119,7 @@ Voici les conditions requises pour activer le chiffrement de disque de machines 
 - Azure Disk Encryption est pris en charge sur les versions Windows Server suivantes : Windows Server 2008 R2, Windows Server 2012 et Windows Server 2012 R2. Windows Server 2016 Technical Preview n’est pas pris en charge dans cette version.
 - Azure Disk Encryption est pris en charge sur les SKU clients Windows suivants : client Windows 8 et client Windows 10.
 
-**Remarque** : Pour Windows Server 2008 R2, .Net Framework 4.5 DOIT être installé avant l’activation du chiffrement dans Azure. Vous pouvez l’installer à partir de Windows Update en installant la mise à jour facultative « Microsoft .NET Framework 4.5.2 pour systèmes Windows Server 2008 R2 x64 ([KB2901983](https://support.microsoft.com/kb/2901983)) »
+**Remarque** : Pour Windows Server 2008 R2, .Net Framework 4.5 DOIT être installé avant l’activation du chiffrement dans Azure. Vous pouvez l’installer à partir de Windows Update en installant la mise à jour facultative « Microsoft .NET Framework 4.5.2 pour systèmes Windows Server 2008 R2 x64 ([KB2901983](https://support.microsoft.com/kb/2901983)) »
 
 - Azure Disk Encryption est pris en charge sur les versions serveur Linux suivantes : Ubuntu, CentOS, SUSE, SUSE Linux Enterprise Server (SLES) et Red Hat Enterprise Linux.
 
@@ -718,7 +718,7 @@ Pour CentOS 7.2, le chiffrement du lecteur du système d’exploitation est pris
     OsVolumeEncryptionSettings : Microsoft.Azure.Management.Compute.Models.DiskEncryptionSettings
     ProgressMessage            : OS disk successfully encrypted, please reboot the VM
 
-Il est recommandé d’enregistrer le [diagnostic de démarrage](https://azure.microsoft.com/fr-FR/blog/boot-diagnostics-for-virtual-machines-v2/) de la machine virtuelle *avant* le redémarrage.
+Il est recommandé d’enregistrer le [diagnostic de démarrage](https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/) de la machine virtuelle *avant* le redémarrage.
 
 #### Surveillance de la progression du chiffrement du système d’exploitation
 
@@ -753,7 +753,7 @@ Faites défiler InstanceView pour afficher l’état de chiffrement de vos lecte
 
 ![Vue d’instance de machine virtuelle](./media/azure-security-disk-encryption/vm-instanceview.png)
 
-2\. Recherchez les [diagnostics de démarrage](https://azure.microsoft.com/fr-FR/blog/boot-diagnostics-for-virtual-machines-v2/). Les messages de l’extension ADE doivent être précédés du préfixe `[AzureDiskEncryption]`.
+2\. Recherchez les [diagnostics de démarrage](https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/). Les messages de l’extension ADE doivent être précédés du préfixe `[AzureDiskEncryption]`.
 
 3 Ouvrez une session sur la machine virtuelle via SSH et obtenez le journal des extensions à partir de
 
@@ -787,7 +787,7 @@ Il n’est pas recommandé de se connecter à la machine virtuelle lorsque le ch
 
 ![Configuration d’Ubuntu 16.04](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig5.png)
 
-6\. Préparez une machine virtuelle pour le chargement dans Azure à l’aide de [ces instructions](https://azure.microsoft.com/fr-FR/documentation/articles/virtual-machines-linux-create-upload-ubuntu/). N’exécutez pas encore la dernière étape (annulation de l’approvisionnement de la machine virtuelle).
+6\. Préparez une machine virtuelle pour le chargement dans Azure à l’aide de [ces instructions](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-create-upload-ubuntu/). N’exécutez pas encore la dernière étape (annulation de l’approvisionnement de la machine virtuelle).
 
 ###### Configurer le chiffrement pour travailler avec Azure
 
@@ -862,7 +862,7 @@ Il n’est pas recommandé de se connecter à la machine virtuelle lorsque le ch
 
 ![Configuration d’openSUSE 13.2](./media/azure-security-disk-encryption/opensuse-encrypt-fig2.png)
 
-3\. Préparez la machine virtuelle au chargement dans Azure à l’aide de [ces instructions](https://azure.microsoft.com/fr-FR/documentation/articles/virtual-machines-linux-suse-create-upload-vhd/#prepare-opensuse-131). N’exécutez pas encore la dernière étape (annulation de l’approvisionnement de la machine virtuelle).
+3\. Préparez la machine virtuelle au chargement dans Azure à l’aide de [ces instructions](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-suse-create-upload-vhd/#prepare-opensuse-131). N’exécutez pas encore la dernière étape (annulation de l’approvisionnement de la machine virtuelle).
 
 ###### Configurer le chiffrement pour travailler avec Azure
 
@@ -942,7 +942,7 @@ to
 
 ![Configuration de centOS 7](./media/azure-security-disk-encryption/centos-encrypt-fig4.png)
 
-5\. Préparez la machine virtuelle au chargement dans Azure à l’aide de [ces instructions](https://azure.microsoft.com/fr-FR/documentation/articles/virtual-machines-linux-create-upload-centos/#centos-70). N’exécutez pas encore la dernière étape (annulation de l’approvisionnement de la machine virtuelle).
+5\. Préparez la machine virtuelle au chargement dans Azure à l’aide de [ces instructions](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-create-upload-centos/#centos-70). N’exécutez pas encore la dernière étape (annulation de l’approvisionnement de la machine virtuelle).
 
 6\. Maintenant vous pouvez annuler l’approvisionnement de la machine virtuelle et [charger votre disque dur virtuel](#upload-encrypted-vhd-to-an-azure-storage-account) dans Azure.
 

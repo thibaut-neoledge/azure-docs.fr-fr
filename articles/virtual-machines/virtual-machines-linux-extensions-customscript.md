@@ -31,9 +31,9 @@ La configuration de l’extension de script personnalisé spécifie des élémen
 
 Schéma :
 
-- **commandToExecute** : (obligatoire, chaîne) script de point d’entrée à exécuter
-- **fileUris** : (facultatif, tableau de chaînes) URL des fichiers à télécharger.
-- **timestamp** : (facultatif, entier) utilisez ce champ uniquement pour déclencher la réexécution du script en modifiant la valeur de ce champ.
+- **commandToExecute** : (obligatoire, chaîne) script de point d’entrée à exécuter
+- **fileUris** : (facultatif, tableau de chaînes) URL des fichiers à télécharger.
+- **timestamp** : (facultatif, entier) utilisez ce champ uniquement pour déclencher la réexécution du script en modifiant la valeur de ce champ.
 
 ```none
 {
@@ -46,9 +46,9 @@ Schéma :
 
 Schéma :
 
-- **commandToExecute** : (facultatif, chaîne) script de point d’entrée à exécuter. Utilisez plutôt ce champ si votre commande contient des secrets tels que des mots de passe.
-- **storageAccountName** : (facultatif, chaîne) nom du compte de stockage. Si vous spécifiez des informations d’identification de stockage, tous les fileUris doivent être des URL pour les objets blob Azure.
-- **storageAccountKey** : (facultatif, chaîne) clé d’accès du compte de stockage.
+- **commandToExecute** : (facultatif, chaîne) script de point d’entrée à exécuter. Utilisez plutôt ce champ si votre commande contient des secrets tels que des mots de passe.
+- **storageAccountName** : (facultatif, chaîne) nom du compte de stockage. Si vous spécifiez des informations d’identification de stockage, tous les fileUris doivent être des URL pour les objets blob Azure.
+- **storageAccountKey** : (facultatif, chaîne) clé d’accès du compte de stockage.
 
 
 ```json
@@ -75,7 +75,7 @@ azure vm extension set <resource-group> <vm-name> CustomScript Microsoft.Azure.E
 
 ### Exemples d’interface de ligne de commande Azure
 
-**Exemple 1** : configuration publique avec fichier de script.
+**Exemple 1** : configuration publique avec fichier de script.
 
 ```json
 {
@@ -90,7 +90,7 @@ Commande d’interface de ligne de commande Azure :
 azure vm extension set <resource-group> <vm-name> CustomScript Microsoft.Azure.Extensions 2.0 --auto-upgrade-minor-version --public-config-path /public.json
 ```
 
-**Exemple 2** : configuration publique sans fichier de script.
+**Exemple 2** : configuration publique sans fichier de script.
 
 ```json
 {
@@ -104,7 +104,7 @@ Commande d’interface de ligne de commande Azure :
 azure vm extension set <resource-group> <vm-name> CustomScript Microsoft.Azure.Extensions 2.0 --auto-upgrade-minor-version --public-config-path /public.json
 ```
 
-**Exemple 3** : un fichier de configuration publique est utilisé pour spécifier l’URI du fichier de script et un fichier de configuration protégée est utilisé pour spécifier la commande à exécuter.
+**Exemple 3** : un fichier de configuration publique est utilisé pour spécifier l’URI du fichier de script et un fichier de configuration protégée est utilisé pour spécifier la commande à exécuter.
 
 Fichier de configuration publique :
 
@@ -134,7 +134,7 @@ L’extension de script personnalisé Azure peut être exécutée au moment du d
 
 ### Exemples Resource Manager
 
-**Exemple 1** : configuration publique.
+**Exemple 1** : configuration publique.
 
 ```json
 {
@@ -163,7 +163,7 @@ L’extension de script personnalisé Azure peut être exécutée au moment du d
 }
 ```
 
-**Exemple 2** : commande d’exécution dans une configuration protégée.
+**Exemple 2** : commande d’exécution dans une configuration protégée.
 
 ```json
 {

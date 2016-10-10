@@ -74,15 +74,15 @@ Vous pouvez récupérer l'identificateur global unique pour la définition de r�
 
 Vous pouvez récupérer l'identificateur du principal avec l'une des commandes suivantes.
 
-Pour un groupe nommé **Auditors** :
+Pour un groupe nommé **Auditors** :
 
     PS C:\> $principal = (Get-AzureRmADGroup -SearchString Auditors).id
 
-Pour un utilisateur nommé **exampleperson** :
+Pour un utilisateur nommé **exampleperson** :
 
     PS C:\> $principal = (Get-AzureRmADUser -SearchString exampleperson).id
 
-Pour un principal du service nommé **exampleapp** :
+Pour un principal du service nommé **exampleapp** :
 
     PS C:\> $principal = (Get-AzureRmADServicePrincipal -SearchString exampleapp).id 
  

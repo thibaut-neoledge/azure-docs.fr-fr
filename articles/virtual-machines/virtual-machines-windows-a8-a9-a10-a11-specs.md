@@ -28,10 +28,10 @@ Cet article fournit des informations et quelques considérations générales sur
 Vous pouvez créer des clusters d’instances Windows Server prenant en charge RDMA et déployer une des implémentations MPI prises en charge pour tirer parti du réseau RDMA Azure. Ce réseau à faible latence et débit élevé est réservé uniquement au trafic MPI.
 
 * **Système d’exploitation**
-    * **Machines virtuelles** : Windows Server 2012 R2, Windows Server 2012
-    * **Services cloud** : famille de systèmes d’exploitation invités Windows Server 2012 R2, Windows Server 2012 et Windows Server 2008 R2
+    * **Machines virtuelles** : Windows Server 2012 R2, Windows Server 2012
+    * **Services cloud** : famille de systèmes d’exploitation invités Windows Server 2012 R2, Windows Server 2012 et Windows Server 2008 R2
 
-* **MPI** : Microsoft MPI (MS-MPI) 2012 R2 ou version ultérieure, bibliothèque Intel MPI 5.x
+* **MPI** : Microsoft MPI (MS-MPI) 2012 R2 ou version ultérieure, bibliothèque Intel MPI 5.x
 
 Les implémentations MPI prises en charge utilisent l’interface Microsoft Network Direct pour la communication entre les instances. Pour des options de déploiement et des exemples de configuration, consultez [Configuration d’un cluster Windows RDMA avec HPC Pack pour exécuter des applications MPI](virtual-machines-windows-classic-hpcpack-rdma-cluster.md) et [Utiliser les tâches multi-instances pour exécuter des applications MPI (Message Passing Interface) dans Azure Batch](../batch/batch-mpi.md).
 

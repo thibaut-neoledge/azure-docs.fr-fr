@@ -37,7 +37,7 @@ Des objets client Service Bus, tels que [QueueClient][] ou [MessageSender][], so
 
 L’exécution d’une opération (envoi, réception, suppression, etc.) prend un certain temps. Ce temps comprend le traitement de l’opération par le service Service Bus en plus de la latence de la demande et de la réponse. Pour augmenter le nombre d’opérations par période, les opérations doivent s’exécuter simultanément. Pour cela, vous pouvez procéder de plusieurs façons différentes :
 
--   **Opérations asynchrones** : le client planifie les opérations en effectuant des opérations asynchrones. La requête suivante démarre avant la fin de la demande précédente. Voici un exemple d’opération d’envoi asynchrone :
+-   **Opérations asynchrones** : le client planifie les opérations en effectuant des opérations asynchrones. La requête suivante démarre avant la fin de la demande précédente. Voici un exemple d’opération d’envoi asynchrone :
 
 	```
 	BrokeredMessage m1 = new BrokeredMessage(body);
@@ -73,7 +73,7 @@ L’exécution d’une opération (envoi, réception, suppression, etc.) prend u
 	}
 	```
 
--   **Plusieurs structures** : tous les clients (expéditeurs et destinataires) sont créés par la même structure partagent une connexion TCP. Le débit maximal de messages est limité par le nombre d’opérations pouvant emprunter cette connexion TCP. Le débit qui peut être obtenu avec une seule structure varie sensiblement en fonction des durées de parcours aller-retour TCP et de la taille des messages. Pour obtenir des débits plus importants, vous devez utiliser plusieurs structures de messagerie.
+-   **Plusieurs structures** : tous les clients (expéditeurs et destinataires) sont créés par la même structure partagent une connexion TCP. Le débit maximal de messages est limité par le nombre d’opérations pouvant emprunter cette connexion TCP. Le débit qui peut être obtenu avec une seule structure varie sensiblement en fonction des durées de parcours aller-retour TCP et de la taille des messages. Pour obtenir des débits plus importants, vous devez utiliser plusieurs structures de messagerie.
 
 ## Mode de réception
 

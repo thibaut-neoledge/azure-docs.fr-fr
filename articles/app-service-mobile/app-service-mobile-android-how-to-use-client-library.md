@@ -54,9 +54,9 @@ Si vous décidez de ne pas suivre le didacticiel de démarrage rapide, effectuez
 
 ###<a name="gradle-build"></a>Mise à jour du fichier de construction Gradle
 
-Modifiez les deux fichiers **build.gradle** :
+Modifiez les deux fichiers **build.gradle** :
 
-1. ajoutez ce code au fichier **build.gradle** de niveau *Project* à l’intérieur de la balise *buildscript* :
+1. ajoutez ce code au fichier **build.gradle** de niveau *Project* à l’intérieur de la balise *buildscript* :
 
 		buildscript {
 		    repositories {
@@ -64,7 +64,7 @@ Modifiez les deux fichiers **build.gradle** :
 		    }
 		}
 
-2. Ajoutez ce code au fichier **build.gradle** de niveau *Module app* à l’intérieur de la balise *dependencies* :
+2. Ajoutez ce code au fichier **build.gradle** de niveau *Module app* à l’intérieur de la balise *dependencies* :
 
 		compile 'com.microsoft.azure:azure-mobile-android:3.1.0'
 
@@ -72,7 +72,7 @@ Modifiez les deux fichiers **build.gradle** :
 
 ###<a name="enable-internet"></a>activer les autorisations Internet.
 
-Pour accéder à Azure, l’autorisation INTERNET doit être activée sur votre application. Si ce n’est pas déjà fait, ajoutez la ligne de code suivante à votre fichier **AndroidManifest.xml** :
+Pour accéder à Azure, l’autorisation INTERNET doit être activée sur votre application. Si ce n’est pas déjà fait, ajoutez la ligne de code suivante à votre fichier **AndroidManifest.xml** :
 
 	<uses-permission android:name="android.permission.INTERNET" />
 
@@ -119,7 +119,7 @@ Si votre table SQL Azure contient davantage de colonnes, vous devez ajouter les 
 	    mPriority = priority;
 	}
 
-Pour savoir comment créer des tables supplémentaires dans votre backend Mobile Apps, consultez [Définir un contrôleur de table][15] (backend .NET) ou [Procédure : définir des tables à l’aide d’un schéma dynamique][16] (backend Node.js). Pour un backend Node.js, vous pouvez également utiliser les **Easy Tables** dans le [portail Azure].
+Pour savoir comment créer des tables supplémentaires dans votre backend Mobile Apps, consultez [Définir un contrôleur de table][15] \(backend .NET) ou [Procédure : définir des tables à l’aide d’un schéma dynamique][16] \(backend Node.js). Pour un backend Node.js, vous pouvez également utiliser les **Easy Tables** dans le [portail Azure].
 
 ###<a name="create-client"></a>Création du contexte client
 
@@ -194,7 +194,7 @@ Dans le code précédent, l'attribut *listitem* spécifie l'ID de la mise en pag
 
 Comme la source de données de notre vue est un tableau de **ToDoItem**, nous créons une sous-classe de notre adaptateur à partir de la classe **ArrayAdapter&lt;ToDoItem&gt;**. Cette sous-classe produit une vue pour chaque élément **ToDoItem** utilisant la mise en page **row\_list\_to\_do**.
 
-Dans notre code, nous définissons la classe suivante, qui est une extension de la classe **ArrayAdapter&lt;E&gt;** :
+Dans notre code, nous définissons la classe suivante, qui est une extension de la classe **ArrayAdapter&lt;E&gt;** :
 
 	public class ToDoItemAdapter extends ArrayAdapter<ToDoItem> {
 
@@ -469,7 +469,7 @@ Ensuite, utilisez **insert()** pour insérer l’objet non typé dans la table.
 
     mJsonToDoTable.insert(jsonItem).get();
 
-Si vous avez besoin d’obtenir l’ID de l’objet inséré, utilisez la méthode **getAsJsonPrimitive()**.
+Si vous avez besoin d’obtenir l’ID de l’objet inséré, utilisez la méthode **getAsJsonPrimitive()**.
 
 	jsonItem.getAsJsonPrimitive("id").getAsInt());
 

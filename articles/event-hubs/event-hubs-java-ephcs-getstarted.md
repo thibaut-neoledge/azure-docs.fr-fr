@@ -69,7 +69,7 @@ Pour plus d’informations, consultez le [Centre pour développeurs Java](/devel
 [22]: ./media/event-hubs-java-ephcs-getstarted/java-send.png
 
 <!-- Links -->
-[Azure classic portal]: https://manage.windowsazure.com/
+[portail Azure Classic]: https://manage.windowsazure.com/
 [hôte du processeur d’événements]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
 [Vue d'ensemble d’Event Hubs]: event-hubs-overview.md
 [exemple d'application complet qui utilise des hubs d’événements]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097

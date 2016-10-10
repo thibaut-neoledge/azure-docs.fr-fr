@@ -241,7 +241,7 @@ Des exemples de modèles Resource Manager sont disponibles dans [la galerie de m
 
 ### Créer le modèle Resource Manager
 
-Ce guide utilise l’exemple de modèle [5-node secure cluster][service-fabric-secure-cluster-5-node-1-nodetype-wad] (cluster sécurisé 5 nœuds) et ses paramètres du modèle. Téléchargez `azuredeploy.json` et `azuredeploy.parameters.json` sur votre ordinateur et ouvrez les deux fichiers dans votre éditeur de texte préféré.
+Ce guide utilise l’exemple de modèle [5-node secure cluster][service-fabric-secure-cluster-5-node-1-nodetype-wad] \(cluster sécurisé 5 nœuds) et ses paramètres du modèle. Téléchargez `azuredeploy.json` et `azuredeploy.parameters.json` sur votre ordinateur et ouvrez les deux fichiers dans votre éditeur de texte préféré.
 
 ### Ajout de certificats
 

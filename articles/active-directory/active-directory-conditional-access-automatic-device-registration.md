@@ -36,7 +36,7 @@ Déployez AD FS et connectez-vous à Azure Active Directory à l’aide d’Azu
 4. Sous l’onglet **Règles de transformation d’émission**, sélectionnez **Ajouter une règle**.
 5. Sélectionnez **Envoyer les revendications en utilisant une règle personnalisée** dans la zone de liste déroulante **Règle de revendication**. Sélectionnez **Suivant**.
 6. Tapez *Règle de revendication de méthode d’authentification* dans la zone de texte **Nom de la règle de revendication :**.
-7. Tapez la règle de revendication suivante dans la zone de texte **Règle de revendication** :
+7. Tapez la règle de revendication suivante dans la zone de texte **Règle de revendication** :
 
         c:[Type == "http://schemas.microsoft.com/claims/authnmethodsreferences"]
         => issue(claim = c);

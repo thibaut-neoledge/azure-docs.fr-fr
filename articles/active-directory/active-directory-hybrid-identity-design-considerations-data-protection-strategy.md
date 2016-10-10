@@ -122,20 +122,20 @@ Chaque interaction du schéma présenté dans la Figure X représente un scéna
 ## Définir les options de réponse aux incidents
 Azure AD peut aider le service informatique à identifier des risques de sécurité éventuels dans l’environnement, en surveillant l’activité de l’utilisateur. Le service informatique peut tirer parti de la fonction de rapports d’accès et d’utilisation Azure AD pour bénéficier d’une visibilité sur l’intégrité et la sécurité du répertoire de votre organisation. Grâce à ces informations, un administrateur informatique est capable de déterminer plus précisément les risques de sécurité potentiels et donc de les atténuer au maximum. L’[abonnement Azure AD Premium](active-directory-get-started-premium.md) intègre un ensemble de rapports de sécurité qui peuvent permettre au service informatique d’obtenir ces informations. Les [rapports Azure AD](active-directory-view-access-usage-reports.md) sont classés comme indiqué ci-dessous :
 
-- **Rapports d’anomalies** : contiennent des événements de connexion qui peuvent nous sembler anormaux. Notre objectif est de vous faire part de ces activités et de vous permettre de déterminer si un événement est suspect.
-- **Rapports d’application intégrée** : fournissent des indications sur l’utilisation des applications du cloud au sein de votre société. Azure Active Directory permet d’intégrer des milliers d'applications du cloud.
-- **Rapports d’erreurs** : indiquent les erreurs qui peuvent survenir lors de la configuration de comptes sur des applications externes.
-- **Rapports spécifiques à l’utilisateur** : affichent les données d’activité relatives aux appareils/connexions d’un utilisateur spécifique.
-- **Journaux d’activité** : contiennent un enregistrement de tous les événements audités durant les 24 dernières heures, 7 derniers jours ou 30 derniers jours, des modifications d’activité de groupes, et des activités d’enregistrement et de réinitialisation de mot de passe.
+- **Rapports d’anomalies** : contiennent des événements de connexion qui peuvent nous sembler anormaux. Notre objectif est de vous faire part de ces activités et de vous permettre de déterminer si un événement est suspect.
+- **Rapports d’application intégrée** : fournissent des indications sur l’utilisation des applications du cloud au sein de votre société. Azure Active Directory permet d’intégrer des milliers d'applications du cloud.
+- **Rapports d’erreurs** : indiquent les erreurs qui peuvent survenir lors de la configuration de comptes sur des applications externes.
+- **Rapports spécifiques à l’utilisateur** : affichent les données d’activité relatives aux appareils/connexions d’un utilisateur spécifique.
+- **Journaux d’activité** : contiennent un enregistrement de tous les événements audités durant les 24 dernières heures, 7 derniers jours ou 30 derniers jours, des modifications d’activité de groupes, et des activités d’enregistrement et de réinitialisation de mot de passe.
 
 >[AZURE.TIP]
 Autre rapport pouvant également aider l’équipe de réponse aux incidents à travailler sur un dossier : le rapport [Utilisateur avec des informations d’identification volées](http://blogs.technet.com/b/ad/archive/2015/06/15/azure-active-directory-premium-reporting-now-detects-leaked-credentials.aspx). Ce rapport couvre toutes les correspondances entre cette liste d’informations d’identification volées et votre client.
 
 Les autres rapports intégrés importants dans Azure AD qui peuvent être utilisés lors d’une investigation de réponse aux incidents sont les suivants :
 
-- **Activité de réinitialisation de mot de passe** : fournit à l’administrateur des indications sur la fréquence de réinitialisation de mot de passe dans l’organisation.
-- **Activité d’enregistrement de réinitialisation de mot de passe** : fournit des indications sur les utilisateurs qui ont enregistré leurs méthodes pour la réinitialisation de mot de passe, et sur les méthodes qu’ils ont sélectionnées.
-- **Activité de groupe** : fournit un historique des modifications apportées au groupe (p. ex., les utilisateurs ajoutés ou supprimés) qui ont été lancées dans le volet d’accès.
+- **Activité de réinitialisation de mot de passe** : fournit à l’administrateur des indications sur la fréquence de réinitialisation de mot de passe dans l’organisation.
+- **Activité d’enregistrement de réinitialisation de mot de passe** : fournit des indications sur les utilisateurs qui ont enregistré leurs méthodes pour la réinitialisation de mot de passe, et sur les méthodes qu’ils ont sélectionnées.
+- **Activité de groupe** : fournit un historique des modifications apportées au groupe (p. ex., les utilisateurs ajoutés ou supprimés) qui ont été lancées dans le volet d’accès.
 
 Outre la fonctionnalité de création de rapports de base disponible dans Azure AD Premium qui peut être exploitée lors d’un processus d’investigation de réponse aux incidents, le service informatique peut également tirer parti d’un rapport d’audit pour obtenir les informations suivantes :
 

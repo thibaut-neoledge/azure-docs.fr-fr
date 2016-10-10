@@ -231,7 +231,7 @@ Sur votre serveur de fédération, ouvrez une fenêtre de commande Windows Power
     Set-AdfsRelyingPartyWebContent -Name "relying party trust name" -ErrorPageAuthorizationErrorMessage
 Vous devez inscrire votre appareil avant d'accéder à cette application.
 
-**Si vous utilisez un appareil iOS, cliquez sur ce lien pour joindre votre appareil** :
+**Si vous utilisez un appareil iOS, cliquez sur ce lien pour joindre votre appareil** :
 
     a href='https://enterpriseregistration.windows.net/enrollmentserver/otaprofile/yourdomain.com
 
@@ -241,7 +241,7 @@ Joindre cet appareil iOS à votre espace de travail.
 **Si vous utilisez un appareil Windows 8.1**, vous pouvez joindre votre appareil en accédant à **Paramètres du PC**> **Réseau** > **Espace de travail**.
 
 
-Où « **relying party trust name** » correspond au nom de l'objet d'approbation de la partie de confiance de vos applications dans AD FS. Où **yourdomain.com** correspond au nom du domaine que vous avez configuré avec Azure Active Directory. Par exemple, contoso.com. Assurez-vous de supprimer les sauts de ligne (le cas échéant) dans le contenu HTML que vous transmettez à l'applet de commande **Set-AdfsRelyingPartyWebContent**.
+Où « **relying party trust name** » correspond au nom de l'objet d'approbation de la partie de confiance de vos applications dans AD FS. Où **yourdomain.com** correspond au nom du domaine que vous avez configuré avec Azure Active Directory. Par exemple, contoso.com. Assurez-vous de supprimer les sauts de ligne (le cas échéant) dans le contenu HTML que vous transmettez à l'applet de commande **Set-AdfsRelyingPartyWebContent**.
 
 
 Désormais, lorsque les utilisateurs accèdent à votre application à partir d'un appareil qui n'est pas enregistré auprès d'Azure Active Directory Device Registration Service, ils verront s'afficher une page qui ressemble à la capture d'écran ci-dessous.

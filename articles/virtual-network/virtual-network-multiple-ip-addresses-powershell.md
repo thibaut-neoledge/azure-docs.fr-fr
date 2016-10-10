@@ -70,9 +70,9 @@ Pour obtenir la version préliminaire, envoyez un e-mail à [Plusieurs adresses 
 
 	Les exemples de configuration suivants sont créés et affectés à une interface réseau à laquelle trois adresses IP privées et une adresse IP publique sont affectées.
 
-	- **IPConfig-1** : une adresse IP privée dynamique (par défaut) et une adresse IP publique émanant de la ressource d’adresses IP publiques nommée *PIP1*.
-	- **IPConfig-2** : une adresse IP privée statique et aucune adresse IP publique.
-	- **IPConfig-3** : une adresse IP privée dynamique et aucune adresse IP publique.
+	- **IPConfig-1** : une adresse IP privée dynamique (par défaut) et une adresse IP publique émanant de la ressource d’adresses IP publiques nommée *PIP1*.
+	- **IPConfig-2** : une adresse IP privée statique et aucune adresse IP publique.
+	- **IPConfig-3** : une adresse IP privée dynamique et aucune adresse IP publique.
 
 	Ajoutez ou supprimez un certain nombre de configurations parmi les suivantes, selon le nombre d’adresses IP à associer à l’interface réseau et les paramètres que vous souhaitez configurer.
 
@@ -135,9 +135,9 @@ Pour obtenir la version préliminaire, envoyez un e-mail à [Plusieurs adresses 
 	2. Ouvrez les propriétés de la carte réseau.
 	3. Ouvrez les propriétés de **Internet Protocol Version 4**.
 		- Cliquez sur **Utiliser l’adresse IP suivante** et entrez les valeurs suivantes :
-			- **Adresse IP** : entrez l’adresse IP privée *principale*.
-			- **Masque de sous-réseau** : définissez cette option en fonction de votre sous-réseau. Par exemple, si le sous-réseau est un sous-réseau /24, le masque de sous-réseau est 255.255.255.0.
-			- **Passerelle par défaut** : première adresse IP du sous-réseau. Si votre sous-réseau est 10.0.0.0/24m, l’adresse IP de la passerelle est 10.0.0.1.
+			- **Adresse IP** : entrez l’adresse IP privée *principale*.
+			- **Masque de sous-réseau** : définissez cette option en fonction de votre sous-réseau. Par exemple, si le sous-réseau est un sous-réseau /24, le masque de sous-réseau est 255.255.255.0.
+			- **Passerelle par défaut** : première adresse IP du sous-réseau. Si votre sous-réseau est 10.0.0.0/24m, l’adresse IP de la passerelle est 10.0.0.1.
 		- Cliquez sur **Utiliser l’adresse de serveur DNS suivante** et saisissez les valeurs ci-dessous :
 			- **Serveur DNS préféré :** saisissez 168.63.129.16 si vous n’utilisez pas votre propre serveur DNS. Dans le cas contraire, entrez l’adresse IP de votre serveur DNS.
 		- Cliquez sur le bouton **Avancé** et ajoutez des adresses IP supplémentaires. Ajoutez chacune des adresses IP privées secondaires de l’étape 8 à l’interface réseau avec le même sous-réseau que celui de l’adresse IP principale.

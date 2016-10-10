@@ -79,7 +79,7 @@ L'API de recommandations apprendra à partir de votre catalogue et de vos opéra
 
  Vous pouvez télécharger les données [ici](http://aka.ms/RecoSampleData). Copiez et décompressez l’archive MsStoreData.Zip dans un dossier sur votre ordinateur local.
 
- > ** Remarque :** l’exemple de code que vous allez télécharger et exécuter dans la tâche 3 comporte des exemples de données déjà intégrés. Cette tâche est donc facultative. Cela dit, elle vous permettra de télécharger des jeux de données plus réalistes et de mieux comprendre les entrées dans l'API de recommandations.
+ > **Remarque:** l’exemple de code que vous allez télécharger et exécuter dans la tâche 3 comporte des exemples de données déjà intégrés. Cette tâche est donc facultative. Cela dit, elle vous permettra de télécharger des jeux de données plus réalistes et de mieux comprendre les entrées dans l'API de recommandations.
 
 1.	Examinons maintenant le fichier de catalogue. Naviguez jusqu'à l'emplacement où vous avez copié les données. Ouvrez le fichier de catalogue dans le **bloc-notes**.
 

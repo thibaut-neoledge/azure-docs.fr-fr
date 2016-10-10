@@ -83,7 +83,8 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
     1.  Dans la zone de texte **Replicon Sign On URL**, entrez l’URL de votre locataire Replicon (par exemple, *https://na2.replicon.com/company/saml2/sp-sso/post*).
     2.  Dans la zone de texte **Replicon Reply URL**, entrez votre URL Replicon **AssertionConsumerService** (par exemple, *https://global.replicon.com/!/saml2/company/sso/post*).
 
-        >[AZURE.NOTE] Vous pouvez obtenir l’URL à partir des métadonnées Replicon à : **https://global.replicon.com/!/saml2/\<CléDeVotreEntreprise>**.
+        >[AZURE.NOTE]Vous pouvez obtenir l’URL à partir des métadonnées Replicon à :
+        **https://global.replicon.com/!/saml2/\<CléDeVotreEntreprise>**.
 
     3.  Cliquez sur **Suivant**
 
@@ -97,7 +98,10 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Activer l’authentification SAML](./media/active-directory-saas-replicon-tutorial/IC777805.png "Activer l’authentification SAML")
 
-    1.  Pour afficher la boîte de dialogue **EnableSAML Authentication2**, ajoutez ce qui suit à votre URL, après la clé de votre entreprise : **/services/SecurityService1.svc/help/test/EnableSAMLAuthentication2** Voici une illustration du schéma de l’URL complète : **https://na2.replicon.com/\<CléDeVotreEntreprise>/services/SecurityService1.svc/help/test/EnableSAMLAuthentication2**
+    1.  Pour afficher la boîte de dialogue **EnableSAML Authentication2**, ajoutez ce qui suit à votre URL, après la clé de votre entreprise :  
+        **/services/SecurityService1.svc/help/test/EnableSAMLAuthentication2**  
+        Voici une illustration du schéma de l’URL complète :  
+        **https://na2.replicon.com/\<CléDeVotreEntreprise>/services/SecurityService1.svc/help/test/EnableSAMLAuthentication2**
     2.  Cliquez sur **+** pour développer la section **v20Configuration**.
     3.  Cliquez sur **+** pour développer la section **metaDataConfiguration**.
     4.  Cliquez sur **Choose File** pour sélectionner votre fichier XML de métadonnées de fournisseur d’identité, puis cliquez sur **Submit**.
@@ -107,7 +111,8 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
     ![Configurer l’authentification unique](./media/active-directory-saas-replicon-tutorial/IC778418.png "Configurer l’authentification unique")
 ##Configuration de l'approvisionnement des utilisateurs
   
-Pour se connecter à Replicon, les utilisateurs d’Azure AD doivent être approvisionnés dans Replicon. Dans le cas de Replicon, l’approvisionnement est une tâche manuelle.
+Pour se connecter à Replicon, les utilisateurs d’Azure AD doivent être approvisionnés dans Replicon.  
+Dans le cas de Replicon, l’approvisionnement est une tâche manuelle.
 
 ###Pour configurer l'approvisionnement des utilisateurs, procédez comme suit :
 

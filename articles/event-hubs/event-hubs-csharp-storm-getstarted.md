@@ -65,7 +65,7 @@ Vous avez conçu une application opérationnelle qui crée un hub d’événemen
 [22]: ./media/event-hubs-csharp-storm-getstarted/receive-storm1.png
 
 <!-- Links -->
-[Azure classic portal]: https://manage.windowsazure.com/
+[portail Azure Classic]: https://manage.windowsazure.com/
 [Vue d'ensemble des hubs d'événements]: event-hubs-overview.md
 [exemple d'application complet qui utilise des hubs d’événements]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
 [montée en puissance du traitement des événements avec Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3

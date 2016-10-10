@@ -48,7 +48,7 @@ git@github.com:Azure-Samples/active-directory-android-native-oidcandroidlib-v2.g
 Créez une nouvelle application dans le [Portail d’inscription des applications](https://apps.dev.microsoft.com), ou suivez les étapes détaillées dans [Inscription d’une application avec le point de terminaison v2.0](active-directory-v2-app-registration.md). Veillez à respecter les points suivants :
 
 - Copiez **l’ID d’application** affecté à votre application, vous en aurez besoin rapidement.
-- ajouter la plateforme **Mobile** pour votre application ;
+- ajouter la plateforme **Mobile** pour votre application ;
 
 > Remarque : Le portail d’inscription des applications fournit une valeur **URI de redirection**. Toutefois, dans cet exemple, vous devez utiliser la valeur par défaut `https://login.microsoftonline.com/common/oauth2/nativeclient`.
 

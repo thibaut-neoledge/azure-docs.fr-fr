@@ -42,7 +42,7 @@ Pour dépanner des groupes de sécurité réseau pour une machine virtuelle, pro
 
 1. Démarrez une session Azure PowerShell et connectez-vous à Azure. Si vous n’êtes pas familiarisé avec l’utilisation d’Azure PowerShell, lisez l’article [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md) .
 
-2. Entrez la commande suivante pour renvoyer toutes les règles du groupe de sécurité réseau appliquées à une carte d’interface réseau nommée *VM1-NIC1* dans le groupe de ressources *RG1* :
+2. Entrez la commande suivante pour renvoyer toutes les règles du groupe de sécurité réseau appliquées à une carte d’interface réseau nommée *VM1-NIC1* dans le groupe de ressources *RG1* :
 
 		Get-AzureRmEffectiveNetworkSecurityGroup -NetworkInterfaceName VM1-NIC1 -ResourceGroupName RG1
 
@@ -50,7 +50,7 @@ Pour dépanner des groupes de sécurité réseau pour une machine virtuelle, pro
 	
 	>`Get-AzureRmNetworkInterface -ResourceGroupName RG1 | Format-Table Name`
 
-	Le texte suivant est un exemple de sortie de règles effectives retournée pour la carte d’interface réseau *VM1-NIC1* :
+	Le texte suivant est un exemple de sortie de règles effectives retournée pour la carte d’interface réseau *VM1-NIC1* :
 
 		NetworkSecurityGroup   : {
 		                           "Id": "/subscriptions/[Subscription ID]/resourceGroups/RG1/providers/Microsoft.Network/networkSecurityGroups/VM1-NIC1-NSG"
@@ -151,9 +151,9 @@ Pour dépanner des groupes de sécurité réseau pour une machine virtuelle, pro
 
 	Notez les informations suivantes dans la sortie :
 
-	- Il existe deux sections **NetworkSecurityGroup** : l’une est associée à un sous-réseau (*Subnet1*), et l’autre à une carte d’interface réseau (*VM1-NIC1*). Dans cet exemple, un groupe de sécurité réseau a été appliquée à chacune d’elles.
+	- Il existe deux sections **NetworkSecurityGroup** : l’une est associée à un sous-réseau (*Subnet1*), et l’autre à une carte d’interface réseau (*VM1-NIC1*). Dans cet exemple, un groupe de sécurité réseau a été appliquée à chacune d’elles.
 	- **Association** montre les ressources (carte d’interface réseau ou sous-réseau) auxquelles un groupe de sécurité réseau donné est associé. Si la ressource de groupe de sécurité réseau est déplacée/dissociée immédiatement avant l’exécution de cette commande, il se peut que vous deviez attendre quelques secondes pour que la modification apparaisse dans la sortie de la commande.
-	- Les noms de règle sont précédés de *defaultSecurityRules* : lors de la création d’un groupe de sécurité réseau, plusieurs règles de sécurité par défaut sont créées à l’intérieur de celui-ci. Vous ne pouvez pas supprimer des règles par défaut, mais vous pouvez les remplacer par des règles de priorité plus élevée. Pour en savoir plus sur les règles de sécurité par défaut de groupe de sécurité réseau , voir l’article [Vue d’ensemble de groupe de sécurité réseau](virtual-networks-nsg.md#default-rules).
+	- Les noms de règle sont précédés de *defaultSecurityRules* : lors de la création d’un groupe de sécurité réseau, plusieurs règles de sécurité par défaut sont créées à l’intérieur de celui-ci. Vous ne pouvez pas supprimer des règles par défaut, mais vous pouvez les remplacer par des règles de priorité plus élevée. Pour en savoir plus sur les règles de sécurité par défaut de groupe de sécurité réseau , voir l’article [Vue d’ensemble de groupe de sécurité réseau](virtual-networks-nsg.md#default-rules).
 	- **ExpandedAddressPrefix** développe les préfixes d’adresse pour les balises par défaut de groupe de sécurité réseau. Les balises représentent plusieurs préfixes d’adresse. L’expansion des balises peut être utile lors de la résolution de problèmes de connectivité de machine virtuelle avec des préfixes d’adresse spécifiques. Par exemple, avec VNET Peering, la balise VIRTUAL\_NETWORK se développe pour afficher les préfixes de réseau virtuel homologués dans la sortie précédente.
 
 		>[AZURE.NOTE] La commande affiche des règles effectives uniquement si un groupe de sécurité réseau est associé à un sous-réseau, à une carte d’interface réseau ou aux deux. Une machine virtuelle peut avoir plusieurs cartes d’interface réseau à laquelle différents groupes de sécurité réseau sont appliqués. Lors de la résolution du problème, exécutez la commande pour chaque carte d’interface réseau.

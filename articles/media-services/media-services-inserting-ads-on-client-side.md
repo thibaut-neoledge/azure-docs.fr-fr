@@ -29,9 +29,9 @@ Pour en savoir plus sur la prise en charge du sous-titrage codé et des publicit
 
 Azure Media Services assure la prise en charge des insertions publicitaires via la plateforme Windows Media : Infrastructures de lecteur. Des infrastructures de lecteur avec prise en charge des publicités sont disponibles pour les périphériques Windows 8, Silverlight, Windows Phone 8 et iOS. Chaque infrastructure de lecteur contient un exemple de code qui montre comment implémenter une application de lecteur. Il existe trois sortes de publicités que vous pouvez insérer dans votre liste multimédia.
 
-- **Linéaire** : publicité en plein cadre qui interrompt la vidéo principale.
-- **Non linéaire** : publicité superposée qui s’affiche pendant la lecture de la vidéo principale ; il s’agit généralement d’un logo ou d’une autre image statique apparaissant à l’intérieur du cadre du lecteur.
-- **Compagnon** : publicité d’accompagnement qui s’affiche hors du cadre du lecteur.
+- **Linéaire** : publicité en plein cadre qui interrompt la vidéo principale.
+- **Non linéaire** : publicité superposée qui s’affiche pendant la lecture de la vidéo principale ; il s’agit généralement d’un logo ou d’une autre image statique apparaissant à l’intérieur du cadre du lecteur.
+- **Compagnon** : publicité d’accompagnement qui s’affiche hors du cadre du lecteur.
 
 Les publicités peuvent être placées à n’importe quel point dans la chronologie de la vidéo principale. Vous devez indiquer au lecteur les publicités à diffuser, ainsi que le moment auquel le faire. Cela s’effectue via un ensemble de fichiers XML standard : Video Ad Service Template (VAST), Digital Video Multiple Ad Playlist (VMAP), Media Abstract Sequencing Template (MAST) et Digital Video Player Ad Interface Definition (VPAID). Les fichiers VAST spécifient les publicités à afficher. Les fichiers VMAP indiquent quand diffuser les différentes publicités ; ils contiennent le code XML VAST. Les fichiers MAST permettent également de séquencer des publicités contenant aussi du code XML VAST. Les fichiers VPAID définissent une interface entre le lecteur vidéo et la publicité ou le serveur publicitaire.
 
@@ -318,10 +318,10 @@ Un fichier MAST commence par un élément **<MAST>** qui contient un élément *
 
 L’élément **<trigger>** contient un élément **<startConditions>** qui spécifie quand la diffusion d’une publicité doit commencer. L’élément **<startConditions>** contient un ou plusieurs éléments <condition>. Quand chaque <condition> prend la valeur True, un déclencheur est lancé ou révoqué, selon que la <condition> est contenue respectivement dans un élément **<startConditions**> ou **<endConditions>**, respectivement. En présence de plusieurs éléments <condition>, ces derniers sont traités comme une condition OR implicite ; autrement dit, toute condition prenant la valeur True entraîne le lancement du déclencheur. Les éléments <condition> peuvent être imbriqués. Lorsque des éléments <condition> enfants sont prédéfinis, ils sont traités comme une condition AND implicite ; autrement dit, toutes les conditions doivent prendre la valeur True pour que le déclencheur soit lancé. L’élément <condition> contient les attributs suivants qui définissent la condition :
 
-1. **type** : spécifie le type de condition, d’événement ou de propriété.
-1. **name** : nom de la propriété ou de l’événement à utiliser au cours de l’évaluation.
-1. **value** : valeur à laquelle une propriété sera comparée.
-1. **operator** : opération à utiliser pendant l’évaluation : EQ (égal à), NEQ (différent de), GTR (supérieur à), GEQ (supérieur ou égal à), LT (inférieur à), LEQ (inférieur ou égal à), MOD (modulo).
+1. **type** : spécifie le type de condition, d’événement ou de propriété.
+1. **name** : nom de la propriété ou de l’événement à utiliser au cours de l’évaluation.
+1. **value** : valeur à laquelle une propriété sera comparée.
+1. **operator** : opération à utiliser pendant l’évaluation : EQ (égal à), NEQ (différent de), GTR (supérieur à), GEQ (supérieur ou égal à), LT (inférieur à), LEQ (inférieur ou égal à), MOD (modulo).
 
 **<endConditions>** contient également des éléments <condition>. Lorsqu’une condition prend la valeur True, le déclencheur est réinitialisé. L’élément <trigger> contient également un élément <sources> qui renferme à son tour un ou plusieurs éléments <source>. Les éléments <source> définissent l’URI vers la réponse publicitaire et le type de réponse publicitaire. Dans cet exemple, un URI est donné à une réponse VAST.
 

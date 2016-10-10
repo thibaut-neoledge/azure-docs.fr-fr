@@ -29,7 +29,7 @@ Il existe deux méthodes pour mapper votre domaine personnalisé au point de ter
 
 Le processus consistant à mapper votre domaine personnalisé à votre point de terminaison de service BLOB peut entraîner un problème d’indisponibilité de courte durée du service au moment où vous enregistrez le domaine dans le [portail Azure Classic](https://manage.windowsazure.com). Si votre domaine personnalisé prend en charge, à ce moment-là, une application visée par un contrat de niveau de service (SLA) interdisant toute interruption de service, vous pouvez utiliser le sous-domaine Azure **asverify** en tant qu'étape d'enregistrement intermédiaire pour permettre aux utilisateurs d'accéder à votre domaine pendant que vous procédez au mappage DNS.
 
-Le tableau suivant contient des exemples d'URL permettant d'accéder aux données d'objets blob dans un compte de stockage nommé **mystorageaccount**. Le domaine personnalisé enregistré pour le compte de stockage est **www.contoso.com** :
+Le tableau suivant contient des exemples d'URL permettant d'accéder aux données d'objets blob dans un compte de stockage nommé **mystorageaccount**. Le domaine personnalisé enregistré pour le compte de stockage est **www.contoso.com** :
 
 Type de ressource|Formats d'URL
 ---|---
@@ -61,7 +61,7 @@ Chaque bureau d'enregistrement possède sa propre méthode de spécification des
 
 7.  Créez un enregistrement CNAME et indiquez un alias de sous-domaine tel que **www** ou **photos**. Indiquez ensuite un nom d'hôte, à savoir votre point de terminaison de service BLOB, au format **mystorageaccount.blob.core.windows.net** (où **mystorageaccount** correspond au nom de votre compte de stockage). Le nom d'hôte à utiliser est indiqué dans le texte de la boîte de dialogue **Manage Custom Domain**.
 
-8.  Après avoir créé un enregistrement CNAME, retournez dans la boîte de dialogue **Manage Custom Domain** et entrez le nom de votre domaine personnalisé, en incluant le sous-domaine, dans le champ **Custom Domain Name**. Par exemple, si votre domaine est **contoso.com** et votre sous-domaine **www**, entrez **www.contoso.com** ; si votre sous-domaine est **photos**, entrez **photos.contoso.com**. Notez que le sous-domaine est obligatoire.
+8.  Après avoir créé un enregistrement CNAME, retournez dans la boîte de dialogue **Manage Custom Domain** et entrez le nom de votre domaine personnalisé, en incluant le sous-domaine, dans le champ **Custom Domain Name**. Par exemple, si votre domaine est **contoso.com** et votre sous-domaine **www**, entrez **www.contoso.com** ; si votre sous-domaine est **photos**, entrez **photos.contoso.com**. Notez que le sous-domaine est obligatoire.
 
 9. Cliquez sur le bouton **Register** pour enregistrer votre domaine personnalisé.
 
@@ -87,7 +87,7 @@ Le sous-domaine asverify est un sous-domaine spécial reconnu par Azure. En ajou
 
 7.  Créez un enregistrement CNAME et indiquez un alias de sous-domaine qui inclut le sous-domaine asverify. Par exemple, le sous-domaine que vous spécifiez sera au format **asverify.www** ou **asverify.photos**. Indiquez ensuite un nom d'hôte, à savoir votre point de terminaison de service BLOB, au format **asverify.mystorageaccount.blob.core.windows.net** (où **mystorageaccount** correspond au nom de votre compte de stockage). Le nom d'hôte à utiliser est indiqué dans le texte de la boîte de dialogue **Manage Custom Domain**.
 
-8.  Après avoir créé un enregistrement CNAME, retournez dans la boîte de dialogue **Manage Custom Domain** et entrez le nom de votre domaine personnalisé dans le champ **Custom Domain Name**. Par exemple, si votre domaine est **contoso.com** et votre sous-domaine **www**, entrez **www.contoso.com** ; si votre sous-domaine est **photos**, entrez **photos.contoso.com**. Notez que le sous-domaine est obligatoire.
+8.  Après avoir créé un enregistrement CNAME, retournez dans la boîte de dialogue **Manage Custom Domain** et entrez le nom de votre domaine personnalisé dans le champ **Custom Domain Name**. Par exemple, si votre domaine est **contoso.com** et votre sous-domaine **www**, entrez **www.contoso.com** ; si votre sous-domaine est **photos**, entrez **photos.contoso.com**. Notez que le sous-domaine est obligatoire.
 
 9.	Cochez la case **Avancé : utilisez le sous-domaine Microsoft Azure ’asverify’ pour préenregistrer votre domaine personnalisé**.
 
@@ -107,7 +107,7 @@ Pour vérifier que votre domaine personnalisé est correctement mappé à votre 
 
 -   http://<*subdomain.customdomain*>/<*mycontainer*>/<*myblob*>
 
-Vous pouvez par exemple utiliser l'URI suivant pour accéder à un formulaire Web via un domaine personnalisé **photos.contoso.com** qui renvoie à un objet blob dans votre conteneur **myforms** :
+Vous pouvez par exemple utiliser l'URI suivant pour accéder à un formulaire Web via un domaine personnalisé **photos.contoso.com** qui renvoie à un objet blob dans votre conteneur **myforms** :
 
 -   http://photos.contoso.com/myforms/applicationform.htm
 

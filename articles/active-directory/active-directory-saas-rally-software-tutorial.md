@@ -74,7 +74,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Authentification unique Microsoft Azure AD](./media/active-directory-saas-rally-software-tutorial/IC769528.png "Authentification unique avec Microsoft Azure AD")
 
-3.  Dans la page **Configurer l’URL de l’application**, dans la zone de texte **URL de connexion de Rally Software**, tapez votre URL selon le modèle suivant « *https://\<nom-locataire>.rally.com* », puis cliquez sur **Suivant**.
+3.  Dans la page **Configurer l’URL de l’application**, dans la zone de texte **URL de connexion de Rally Software**, tapez votre URL selon le modèle suivant « *https://\<nom-locataire>.rally.com* », puis cliquez sur **Suivant**.
 
     ![Configurer l’URL de l’application](./media/active-directory-saas-rally-software-tutorial/IC769529.png "Configurer l’URL de l’application")
 
@@ -96,7 +96,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     1.  Sélectionnez **Rally or SSO authentication** dans la liste déroulante Authentication.
     2.  Dans la page **Configurer l’authentification unique sur Rally Software** du portail Azure Classic, copiez la valeur de **ID de fournisseur d’identité** et collez-la dans la zone de texte **Identity Provider URL**
-    3.  Dans la page **Configurer l’authentification unique sur Rally Software** du portail Azure Classic, copiez la valeur **URL de déconnexion distante**.
+    3.  Dans la page **Configurer l’authentification unique sur Rally Software** du portail Azure Classic, copiez la valeur **URL de déconnexion distante**.
 
 9.  Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
 

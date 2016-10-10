@@ -229,7 +229,7 @@ En plus d’une machine virtuelle hébergeant le site web du Store musique, une 
 
 Vous pouvez ajouter une base de données Azure SQL Database à l’aide de l’Assistant Ajouter une nouvelle ressource de Visual Studio, ou en insérant un JSON valide dans un modèle. La ressource SQL Server inclut un nom d’utilisateur et un mot de passe auxquels sont associés des droits d’administration sur l’instance SQL. Par ailleurs, une ressource de pare-feu SQL est ajoutée. Par défaut, les applications hébergées dans Azure sont en mesure de se connecter à l’instance SQL. Pour qu’une application externe telle que SQL Server Management Studio puisse se connecter à l’instance SQL, le pare-feu doit être configuré. Pour la démonstration du Store musique, la configuration par défaut est correcte.
 
-Pour voir l’exemple JSON dans le modèle Resource Manager, suivez ce lien : [Azure SQL DB] (https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L401.
+Pour voir l’exemple JSON dans le modèle Resource Manager, suivez ce lien : [Azure SQL DB](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L401.
 
 
 ```none

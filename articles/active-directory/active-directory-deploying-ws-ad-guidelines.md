@@ -16,7 +16,7 @@
    ms.date="09/27/2016"
    ms.author="femila"/>
 
-# Recommandations en matière de déploiement de Windows Server Active Directory sur des machines virtuelles Windows Azure
+# Recommandations en matière de déploiement de Windows Server Active Directory sur des machines virtuelles Microsoft Azure
 
 Cet article présente les principales différences d’un déploiement en local des services de domaine Windows Server Active Directory (AD DS) et des services de fédération Active Directory (AD FS) par rapport à un déploiement des mêmes outils sur des machines virtuelles Microsoft Azure.
 
@@ -77,15 +77,15 @@ Les adresses dynamiques sont allouées par défaut, mais vous pouvez utiliser l�
 
 Voici une liste non exhaustive de termes référencés dans le présent article concernant diverses technologies Azure.
 
-- **Machines virtuelles Azure** : offre IaaS dans Azure qui permet aux clients de déployer des machines virtuelles exécutant pratiquement n’importe quelle charge de travail classique de serveur local.
+- **Machines virtuelles Azure** : offre IaaS dans Azure qui permet aux clients de déployer des machines virtuelles exécutant pratiquement n’importe quelle charge de travail classique de serveur local.
 
-- **Réseau virtuel Azure** : service de mise en réseau dans Azure qui permet aux clients de créer et gérer des réseaux virtuels dans Azure et de les associer en toute sécurité à leur propre infrastructure réseau locale à l’aide d’un réseau privé virtuel (VPN).
+- **Réseau virtuel Azure** : service de mise en réseau dans Azure qui permet aux clients de créer et gérer des réseaux virtuels dans Azure et de les associer en toute sécurité à leur propre infrastructure réseau locale à l’aide d’un réseau privé virtuel (VPN).
 
-- **Adresse IP virtuelle** : adresse IP Internet qui n’est pas liée à un ordinateur ou à une carte d’interface réseau spécifique. Une adresse IP virtuelle est allouée aux services cloud pour leur permettre de recevoir le trafic réseau qui est redirigé vers une machine virtuelle Azure. Une adresse IP virtuelle est une propriété d’un service cloud qui contient une ou plusieurs machines virtuelles Azure. Notez également qu’un réseau virtuel Azure peut contenir un ou plusieurs services cloud. Les adresses IP virtuelles fournissent des fonctions d’équilibrage de charge.
+- **Adresse IP virtuelle** : adresse IP Internet qui n’est pas liée à un ordinateur ou à une carte d’interface réseau spécifique. Une adresse IP virtuelle est allouée aux services cloud pour leur permettre de recevoir le trafic réseau qui est redirigé vers une machine virtuelle Azure. Une adresse IP virtuelle est une propriété d’un service cloud qui contient une ou plusieurs machines virtuelles Azure. Notez également qu’un réseau virtuel Azure peut contenir un ou plusieurs services cloud. Les adresses IP virtuelles fournissent des fonctions d’équilibrage de charge.
 
-- **Adresse IP dynamique** : adresse IP utilisée uniquement en interne. Elle doit être configurée comme adresse IP statique (à l’aide de l’applet de commande Set-AzureStaticVNetIP) pour les machines virtuelles hébergeant les rôles de serveur DC/DNS.
+- **Adresse IP dynamique** : adresse IP utilisée uniquement en interne. Elle doit être configurée comme adresse IP statique (à l’aide de l’applet de commande Set-AzureStaticVNetIP) pour les machines virtuelles hébergeant les rôles de serveur DC/DNS.
 
-- **Réparation de service** : processus au cours duquel Azure restaure automatiquement l’état d’exécution d’un service après avoir détecté un échec du service. La réparation de service représente un des aspects d’Azure au service de la disponibilité et de la résilience. Bien que cela soit peu probable, le résultat obtenu après un incident de réparation de service pour un contrôleur de domaine exécuté sur une machine virtuelle est semblable à un redémarrage non planifié, mais présente quelques inconvénients :
+- **Réparation de service** : processus au cours duquel Azure restaure automatiquement l’état d’exécution d’un service après avoir détecté un échec du service. La réparation de service représente un des aspects d’Azure au service de la disponibilité et de la résilience. Bien que cela soit peu probable, le résultat obtenu après un incident de réparation de service pour un contrôleur de domaine exécuté sur une machine virtuelle est semblable à un redémarrage non planifié, mais présente quelques inconvénients :
 
  - la carte réseau virtuelle de la machine virtuelle sera modifiée ;
  - l’adresse MAC de la carte réseau virtuelle sera modifiée ;
@@ -417,7 +417,7 @@ Vous devez définir correctement les sites et les liens des sites afin d’optim
 
  - Si vous utilisez plusieurs réseaux virtuels, configurez les liens de sites et leurs coûts de manière à empêcher Windows Server AD DS de donner la priorité au site Azure plutôt qu’à un autre capable de fournir les mêmes niveaux de service sans frais. Vous pouvez également envisager de désactiver l’option Relier tous les liens de sites (qui est activée par défaut). Cela garantit que seuls les sites connectés directement sont répliqués avec un autre. Les contrôleurs de domaine des sites connectés transitivement ne peuvent plus être répliqués directement entre eux, mais doivent être répliqués via un ou plusieurs sites communs. Si les sites intermédiaires deviennent indisponibles pour une raison quelconque, la réplication entre les contrôleurs de domaine sur les sites connectés transitivement n’a pas lieu même si la connectivité entre les sites est disponible. Enfin, chaque fois que des sections de comportement de réplication transitive restent souhaitables, créez des ponts de liaison de sites appropriés contenant des liens de sites et des sites, par exemple des sites locaux et des sites de réseau d’entreprise.
 
- - [Configurez les coûts des liens des sites](https://technet.microsoft.com/library/cc794882) de manière à éviter le trafic involontaire. Par exemple, si le réglage **Essayer le site le plus proche suivant ** est activé, vérifiez que les sites de réseau virtuel ne sont pas les sites les plus proches suivants en augmentant le coût associé de l’objet lien de sites qui connecte le site Azure au réseau d’entreprise.
+ - [Configurez les coûts des liens des sites](https://technet.microsoft.com/library/cc794882) de manière à éviter le trafic involontaire. Par exemple, si le réglage **Essayer le site le plus proche suivant** est activé, vérifiez que les sites de réseau virtuel ne sont pas les sites les plus proches suivants en augmentant le coût associé de l’objet lien de sites qui connecte le site Azure au réseau d’entreprise.
 
  - Configurez les [intervalles](https://technet.microsoft.com/library/cc794878) et les [planifications](https://technet.microsoft.com/library/cc816906) de liens de sites en fonction des exigences de cohérence et du taux de modifications d’objet. Alignez la planification des réplications avec la tolérance de latence. Les contrôleurs de domaine répliquent uniquement le dernier état d’une valeur, si bien que la diminution de l’intervalle de réplication peut réduire les coûts si le taux de modification d’objet est suffisant.
 

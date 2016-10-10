@@ -60,7 +60,7 @@ Vous devez modifier votre délégué d'application :
 		[...]
 		#import "EngagementAgent.h"
 
--   Initialisez Engagement au sein de la méthode **applicationDidFinishLaunching:** ou **application:didFinishLaunchingWithOptions:** :
+-   Initialisez Engagement au sein de la méthode **applicationDidFinishLaunching:** ou **application:didFinishLaunchingWithOptions:** :
 
 		- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 		{
@@ -163,7 +163,7 @@ L'API d'Engagement permet d'utiliser toutes les fonctionnalités avancées d'Eng
 
 Par défaut, Engagement utilise l'[IDFA] pour identifier un utilisateur de manière unique. Toutefois, si vous n'utilisez pas de publicités à un autre endroit dans l'application, cette dernière peut être rejetée par le processus de vérification de la boutique d'applications. La collection de l'IDFA peut être désactivée en ajoutant la macro `ENGAGEMENT_DISABLE_IDFA` du préprocesseur dans votre fichier pch (ou dans le `Build Settings` de votre application). De cette façon, vous garantissez qu'il n'existe aucune référence à `ASIdentifierManager`, `advertisingIdentifier` ou `isAdvertisingTrackingEnabled` dans la génération de l'application.
 
-Intégration dans le fichier **prefix.pch** :
+Intégration dans le fichier **prefix.pch** :
 
 	#define ENGAGEMENT_DISABLE_IDFA
 	...

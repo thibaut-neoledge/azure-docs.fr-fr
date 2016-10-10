@@ -263,19 +263,19 @@ Dans les étapes suivantes, vous allez configurer la machine **ad-primary-dc** c
 
 	![Boîte de dialogue Ajouter des rôles](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC784624.png)
 
-1. Cliquez sur **Suivant** jusqu'à ce que vous atteigniez la section **Confirmation**. Cochez la case **Redémarrer automatiquement le serveur de destination, si nécessaire**.
+1. Cliquez sur **Suivant** jusqu'à ce que vous atteigniez la section **Confirmation**. Cochez la case **Redémarrer automatiquement le serveur de destination, si nécessaire**.
 
 1. Cliquez sur **Installer**.
 
 1. Une fois les fonctionnalités installées, retournez dans le tableau de bord **Gestionnaire de serveur**.
 
-1. Sélectionnez la nouvelle option **AD DS** dans le volet gauche.
+1. Sélectionnez la nouvelle option **AD DS** dans le volet gauche.
 
-1. Cliquez sur le lien **Plus** dans la barre d'avertissement jaune.
+1. Cliquez sur le lien **Plus** dans la barre d'avertissement jaune.
 
 	![Boîte de dialogue AD DS sur une machine virtuelle du serveur DNS](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC784625.png)
 
-1. Dans la colonne **Action** de la boîte de dialogue **Tous les détails de la tâche serveur**, cliquez sur **Promouvoir ce serveur en contrôleur de domaine**.
+1. Dans la colonne **Action** de la boîte de dialogue **Tous les détails de la tâche serveur**, cliquez sur **Promouvoir ce serveur en contrôleur de domaine**.
 
 1. Dans l'**Assistant de configuration des services de domaine Active Directory**, utilisez les valeurs suivantes :
 
@@ -364,7 +364,7 @@ Les étapes suivantes configurent les comptes Active Directory (AD) pour une u
 
 	![Propriétés de l'utilisateur CORP](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC784627.png)
 
-1. Sélectionnez **Extensions**, puis cliquez sur le bouton **Avancé** de l'onglet **Sécurité**.
+1. Sélectionnez **Extensions**, puis cliquez sur le bouton **Avancé** de l'onglet **Sécurité**.
 
 1. Dans la fenêtre **Paramètres de sécurité avancés pour corp**. Cliquez sur **Ajouter**.
 
@@ -398,7 +398,7 @@ Créez ensuite trois machines virtuelles, dont deux machines virtuelles SQL Serv
 
 
 
-Une fois les trois machines virtuelles entièrement configurées, vous devez les attacher au domaine **corp.contoso.com** et accorder à CORP\\Install des droits d’administration sur les machines.
+Une fois les trois machines virtuelles entièrement configurées, vous devez les attacher au domaine **corp.contoso.com** et accorder à CORP\\Install des droits d’administration sur les machines.
 
 Pour simplifier la procédure, notez l’adresse IP virtuelle Azure pour chaque machine virtuelle. Obtenez l’adresse IP pour chaque serveur. Dans le groupe de ressources Azure SQL-HA-RG, cliquez sur la ressource **autohaVNET**. Le panneau **autohaVNET** affiche les adresses IP de chaque machine de votre réseau.
 
@@ -444,7 +444,7 @@ Utilisez ces adresses pour configurer le service DNS pour chaque machine virtuel
 
 1. Cliquez sur **OK**, puis sur **Fermer** pour valider les modifications. Vous pouvez maintenant joindre la machine virtuelle à **corp.contoso.com**.
 
-1. De retour dans la fenêtre **Serveur local**, cliquez sur le lien **WORKGROUP**.
+1. De retour dans la fenêtre **Serveur local**, cliquez sur le lien **WORKGROUP**.
 
 1. Dans **Nom de l'ordinateur**, cliquez sur **Modifier**.
 
@@ -468,11 +468,11 @@ Utilisez ces adresses pour configurer le service DNS pour chaque machine virtuel
 
 1. Dans la fenêtre **Gestion de l’ordinateur**, développez **Utilisateurs et groupes locaux**, puis sélectionnez **Groupes**.
 
-1. Double-cliquez sur le groupe **Administrateurs**.
+1. Double-cliquez sur le groupe **Administrateurs**.
 
-1. Dans la boîte de dialogue **Propriétés de Administrateurs**, cliquez sur le bouton **Ajouter**.
+1. Dans la boîte de dialogue **Propriétés de Administrateurs**, cliquez sur le bouton **Ajouter**.
 
-1. Entrez l’utilisateur **CORP\\Install**, puis cliquez sur **OK**. Lorsque vous êtes invité à spécifier vos informations d’identification, utilisez le compte **DomainAdmin** avec le mot de passe **Contoso!0000**.
+1. Entrez l’utilisateur **CORP\\Install**, puis cliquez sur **OK**. Lorsque vous êtes invité à spécifier vos informations d’identification, utilisez le compte **DomainAdmin** avec le mot de passe **Contoso!0000**.
 
 1. Cliquez sur **OK** pour fermer la boîte de dialogue **Propriétés de Administrateurs**.
 
@@ -486,13 +486,13 @@ Utilisez ces adresses pour configurer le service DNS pour chaque machine virtuel
 
 1. Dans le tableau de bord **Gestionnaire de serveur**, cliquez sur **Ajouter des rôles et fonctionnalités**.
 
-1. Dans l’**Assistant d’ajout de rôles et fonctionnalités**, cliquez sur **Suivant** jusqu'à ce que vous atteigniez la page **Fonctionnalités**.
+1. Dans l’**Assistant d’ajout de rôles et fonctionnalités**, cliquez sur **Suivant** jusqu'à ce que vous atteigniez la page **Fonctionnalités**.
 
 1. Sélectionnez **Clustering de basculement**. Lorsque vous y êtes invité, ajoutez toutes les autres fonctionnalités.
 
 	![Ajout de la fonctionnalité de Clustering de basculement à la machine virtuelle](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC784631.png)
 
-1. Cliquez sur **Suivant**, puis sur **Installer** dans la page **Confirmation**.
+1. Cliquez sur **Suivant**, puis sur **Installer** dans la page **Confirmation**.
 
 1. Lorsque l’installation de la fonctionnalité de **Clustering de basculement** est terminée, cliquez sur **Fermer**.
 
@@ -546,11 +546,11 @@ Suivez les étapes ci-dessous pour configurer le cluster.
 |Point d'accès pour l'administration du cluster|Tapez **Cluster1** dans **Nom de cluster**.|
 |Confirmation|Utilisez les valeurs par défaut, sauf si vous utilisez des espaces de stockage. Consultez la remarque qui suit ce tableau.|
 
->[AZURE.NOTE] Si vous utilisez des [espaces de stockage](https://technet.microsoft.com/library/hh831739), qui regroupent plusieurs disques dans des pools de stockage, vous devez décocher la case **Ajouter la totalité du stockage disponible au cluster** sur la page **Confirmation**. Si vous ne décochez pas cette option, Windows détache les disques virtuels pendant le processus de clustering. Par conséquent, ils n’apparaissent pas dans le Gestionnaire de disque ou dans l’explorateur, jusqu’à ce que les espaces de stockage soient supprimés du cluster et rattachés à l’aide de PowerShell.
+>[AZURE.NOTE] Si vous utilisez des [espaces de stockage](https://technet.microsoft.com/library/hh831739), qui regroupent plusieurs disques dans des pools de stockage, vous devez décocher la case **Ajouter la totalité du stockage disponible au cluster** sur la page **Confirmation**. Si vous ne décochez pas cette option, Windows détache les disques virtuels pendant le processus de clustering. Par conséquent, ils n’apparaissent pas dans le Gestionnaire de disque ou dans l’explorateur, jusqu’à ce que les espaces de stockage soient supprimés du cluster et rattachés à l’aide de PowerShell.
 
 Maintenant que vous avez créé le cluster, vérifiez la configuration et ajoutez les nœuds restants.
 
-1. Dans le volet central, faites défiler jusqu'à la section **Ressources principales du cluster** et développez les détails de **Nom : Cluster1**. Les ressources **Nom** et **Adresse IP** doivent toutes deux être à l’état **Échec**. La ressource d’adresse IP ne peut pas être mise en ligne, car le cluster a la même adresse IP que la machine elle-même, qui est une adresse dupliquée.
+1. Dans le volet central, faites défiler jusqu'à la section **Ressources principales du cluster** et développez les détails de **Nom : Cluster1**. Les ressources **Nom** et **Adresse IP** doivent toutes deux être à l’état **Échec**. La ressource d’adresse IP ne peut pas être mise en ligne, car le cluster a la même adresse IP que la machine elle-même, qui est une adresse dupliquée.
 
 1. Cliquez avec le bouton droit sur la ressource **Adresse IP** en échec, puis cliquez sur **Propriétés**.
 
@@ -568,11 +568,11 @@ Maintenant que vous avez créé le cluster, vérifiez la configuration et ajoute
 
 1. Sur la page **Avertissement de Validation**, cliquez sur **Non** (dans un scénario de production vous devez effectuer les essais de validation). Cliquez ensuite sur **Suivant**.
 
-1. Dans la page **Confirmation**, cliquez sur **Suivant** pour ajouter les nœuds.
+1. Dans la page **Confirmation**, cliquez sur **Suivant** pour ajouter les nœuds.
 
 	>[AZURE.WARNING] Si vous utilisez des [espaces de stockage](https://technet.microsoft.com/library/hh831739), qui regroupent plusieurs disques dans des pools de stockage, vous devez décocher la case **Ajouter la totalité du stockage disponible au cluster**. Si vous ne décochez pas cette option, les disques virtuels sont détachés pendant le processus de clustering. Par conséquent, ils n’apparaissent pas non plus dans le Gestionnaire de disque ou dans l'explorateur, jusqu'à ce que les espaces de stockage soient supprimés du cluster et rattachés à l'aide de PowerShell.
 
-1. Une fois les nœuds ajoutés au cluster, cliquez sur **Terminer**. Le Gestionnaire du cluster de basculement doit maintenant indiquer que votre cluster a trois nœuds, répertoriés dans le conteneur **Nœuds**.
+1. Une fois les nœuds ajoutés au cluster, cliquez sur **Terminer**. Le Gestionnaire du cluster de basculement doit maintenant indiquer que votre cluster a trois nœuds, répertoriés dans le conteneur **Nœuds**.
 
 1. Déconnectez-vous de la session Bureau à distance.
 
@@ -614,11 +614,11 @@ Cette solution requiert deux règles de pare-feu sur chaque serveur SQL Server. 
 
 1. Dans la page **Programme**, sélectionnez **Ce chemin d'accès au programme** et saisissez **%ProgramFiles%\\Microsoft SQL Server\\MSSQL12.MSSQLSERVER\\MSSQL\\Binn\\sqlservr.exe** dans la zone de texte (si vous suivez ces instructions avec SQL Server 2012, le répertoire de SQL Server est **MSSQL11.MSSQLSERVER**). Cliquez ensuite sur **Suivant**.
 
-1. Dans la page **Action**, sélectionnez **Autoriser la connexion** et cliquez sur **Suivant**.
+1. Dans la page **Action**, sélectionnez **Autoriser la connexion** et cliquez sur **Suivant**.
 
-1. Dans la page **Profil**, acceptez les paramètres par défaut et cliquez sur **Suivant**.
+1. Dans la page **Profil**, acceptez les paramètres par défaut et cliquez sur **Suivant**.
 
-1. Dans la page **Nom**, spécifiez un nom pour la règle, par exemple **SQL Server (règle de programme)** dans la zone de texte **Nom**, puis cliquez sur **Terminer**.
+1. Dans la page **Nom**, spécifiez un nom pour la règle, par exemple **SQL Server (règle de programme)** dans la zone de texte **Nom**, puis cliquez sur **Terminer**.
 
 1. Créez une autre règle de pare-feu de trafic entrant pour le port de sonde. Cette règle est une règle de trafic entrant vers le port TCP 59999, utilisée dans le cadre de ce didacticiel. Nommez la règle **Écouteur SQL Server**.
 
@@ -685,7 +685,7 @@ Vous pouvez maintenant configurer le groupe de disponibilité. Voici une présen
 
 1. Puis, effectuez une sauvegarde complète de la base de données. Dans l'**Explorateur d'objets**, développez **Bases de données**, cliquez sur **MyDB1**, pointez sur **Tâches**, puis cliquez sur **Sauvegarder**.
 
-1. Dans la section **Source**, laissez la valeur de **Type de sauvegarde** sur **Complet**. Dans la section **Destination**, cliquez sur **Supprimer** afin de supprimer le chemin d’accès de fichier par défaut correspondant au fichier de sauvegarde.
+1. Dans la section **Source**, laissez la valeur de **Type de sauvegarde** sur **Complet**. Dans la section **Destination**, cliquez sur **Supprimer** afin de supprimer le chemin d’accès de fichier par défaut correspondant au fichier de sauvegarde.
 
 1. Dans la section **Destination**, cliquez sur **Ajouter**.
 
@@ -701,7 +701,7 @@ Vous pouvez maintenant configurer le groupe de disponibilité. Voici une présen
 
 1. Dans l’**Explorateur d’objets**, cliquez avec le bouton droit sur **Bases de données**, puis cliquez sur **Restaurer une base de données**.
 
-1. Dans la section **Source**, sélectionnez **Unité**, puis cliquez sur le bouton **…**.
+1. Dans la section **Source**, sélectionnez **Unité**, puis cliquez sur le bouton **…**.
 
 1. Dans **Sélectionner les unités de sauvegarde**, cliquez sur **Ajouter**.
 
@@ -715,7 +715,7 @@ Vous pouvez maintenant configurer le groupe de disponibilité. Voici une présen
 
 	![Lancer l'Assistant Nouveau groupe de disponibilité](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC665523.gif)
 
-1. Sur la page **Introduction**, cliquez sur **Suivant**. Dans la page **Spécifier le nom du groupe de disponibilité**, tapez **AG1** dans **Nom du groupe de disponibilité**, puis cliquez à nouveau sur **Suivant**.
+1. Sur la page **Introduction**, cliquez sur **Suivant**. Dans la page **Spécifier le nom du groupe de disponibilité**, tapez **AG1** dans **Nom du groupe de disponibilité**, puis cliquez à nouveau sur **Suivant**.
 
 	![Assistant Nouveau groupe de disponibilité, spécifier le nom du groupe de disponibilité](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC665524.gif)
 
@@ -744,11 +744,11 @@ Vous pouvez maintenant configurer le groupe de disponibilité. Voici une présen
 
 	![Assistant Nouveau groupe de disponibilité, sélectionner la synchronisation initiale des données](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC665529.png)
 
-1. Dans la page **Validation**, cliquez sur **Suivant**. Cette page doit ressembler à l’illustration ci-dessous. Un avertissement concernant la configuration de l’écouteur s’affiche, car aucun écouteur du groupe de disponibilité n’est configuré. Vous pouvez ignorer cet avertissement, étant donné que ce didacticiel ne configure pas d’écouteur. Vous créerez l’écouteur ultérieurement dans le cadre de ce didacticiel.
+1. Dans la page **Validation**, cliquez sur **Suivant**. Cette page doit ressembler à l’illustration ci-dessous. Un avertissement concernant la configuration de l’écouteur s’affiche, car aucun écouteur du groupe de disponibilité n’est configuré. Vous pouvez ignorer cet avertissement, étant donné que ce didacticiel ne configure pas d’écouteur. Vous créerez l’écouteur ultérieurement dans le cadre de ce didacticiel.
 
 	![Assistant Nouveau groupe de disponibilité, validation](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC665530.gif)
 
-1. Dans la page **Résumé**, cliquez sur **Terminer**, puis patientez pendant que l'Assistant configure le nouveau groupe de disponibilité. Dans la page **Progression**, vous pouvez cliquer sur **Plus de détails** pour afficher la progression détaillée. Une fois l’Assistant terminé, examinez la page **Résultats** pour vérifier que le groupe de disponibilité a bien été créé, comme illustré ci-dessous, puis cliquez sur **Fermer** pour quitter l’assistant.
+1. Dans la page **Résumé**, cliquez sur **Terminer**, puis patientez pendant que l'Assistant configure le nouveau groupe de disponibilité. Dans la page **Progression**, vous pouvez cliquer sur **Plus de détails** pour afficher la progression détaillée. Une fois l’Assistant terminé, examinez la page **Résultats** pour vérifier que le groupe de disponibilité a bien été créé, comme illustré ci-dessous, puis cliquez sur **Fermer** pour quitter l’assistant.
 
 	![Assistant Nouveau groupe de disponibilité, résultats](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC665531.png)
 
@@ -762,7 +762,7 @@ Vous pouvez maintenant configurer le groupe de disponibilité. Voici une présen
 
 1. Revenez au **Gestionnaire de serveur**, sélectionnez **Outils**, puis lancez le **Gestionnaire du cluster de basculement**.
 
-1. Développez **Cluster1.corp.contoso.com**, puis développez **Services et applications**. Sélectionnez **Rôles** et notez que le rôle du groupe de disponibilité **AG1** a été créé. Notez que AG1 n'a pas d’adresse IP permettant aux clients de base de données de se connecter au groupe de disponibilité, car vous n'avez pas configuré d’écouteur. Vous pouvez vous connecter directement au nœud principal pour les opérations de lecture-écriture et au nœud secondaire pour les requêtes en lecture seule.
+1. Développez **Cluster1.corp.contoso.com**, puis développez **Services et applications**. Sélectionnez **Rôles** et notez que le rôle du groupe de disponibilité **AG1** a été créé. Notez que AG1 n'a pas d’adresse IP permettant aux clients de base de données de se connecter au groupe de disponibilité, car vous n'avez pas configuré d’écouteur. Vous pouvez vous connecter directement au nœud principal pour les opérations de lecture-écriture et au nœud secondaire pour les requêtes en lecture seule.
 
 	![Groupe de disponibilité dans le Gestionnaire du cluster de basculement](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC665534.png)
 

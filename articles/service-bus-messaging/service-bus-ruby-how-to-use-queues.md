@@ -122,7 +122,7 @@ queue = azure_service_bus_service.create_queue(queue)
 
 Pour envoyer un message à une file d'attente Service Bus, votre application appelle la méthode **send\_queue\_message()** de l'objet **Azure::ServiceBusService**. Les messages envoyés aux files d'attente Service Bus (et reçus de celles-ci) sont les objets **Azure::ServiceBus::BrokeredMessage**. Ils possèdent un ensemble de propriétés standard (telles que **label** et **time\_to\_live**), un dictionnaire servant à conserver les propriétés personnalisées propres à une application, ainsi qu'un corps de données d'application arbitraires. Une application peut définir le corps du message en transmettant une valeur de chaîne en tant que message pour remplir toutes les propriétés standard requises avec les valeurs par défaut.
 
-L'exemple suivant indique comment envoyer un message test à la file d'attente nommée « test-queue » au moyen de **send\_queue\_message()** :
+L'exemple suivant indique comment envoyer un message test à la file d'attente nommée « test-queue » au moyen de **send\_queue\_message()** :
 
 ```
 message = Azure::ServiceBus::BrokeredMessage.new("test queue message")
@@ -140,7 +140,7 @@ Avec le comportement par défaut, la lecture et la suppression sont une opérati
 
 Si le paramètre **:peek\_lock** est défini sur **false**, la lecture et la suppression des messages suivent un modèle plus simple qui fonctionne mieux pour les scénarios dans lesquels une application peut ne pas traiter un message en cas d'échec. Pour mieux comprendre, imaginez un scénario dans lequel le consommateur émet la demande de réception et subit un incident avant de la traiter. Comme Service Bus a marqué le message comme étant consommé, lorsque l’application redémarre et recommence à consommer des messages, elle manque le message consommé avant l’incident.
 
-L’exemple suivant montre comment recevoir et traiter des messages à l’aide de la méthode **receive\_queue\_message()**. Dans l'exemple, un message est d'abord reçu puis supprimé par le biais de **:peek\_lock** défini sur **false**. Un autre message est ensuite reçu, puis supprimé via **delete\_queue\_message()** :
+L’exemple suivant montre comment recevoir et traiter des messages à l’aide de la méthode **receive\_queue\_message()**. Dans l'exemple, un message est d'abord reçu puis supprimé par le biais de **:peek\_lock** défini sur **false**. Un autre message est ensuite reçu, puis supprimé via **delete\_queue\_message()** :
 
 ```
 message = azure_service_bus_service.receive_queue_message("test-queue",

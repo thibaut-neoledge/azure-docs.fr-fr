@@ -41,7 +41,7 @@ Avant de commencer les étapes de ce didacticiel, [installez l’interface de li
 
 ## Étape 1 : créer un groupe de ressources et un compte de stockage
 
-1. **Se connecter à Microsoft Azure** : dans votre interface de ligne de commande (Bash, Terminal, invite de commandes), passez en mode Resource Manager, puis [connectez-vous avec votre ID professionnel ou scolaire](../xplat-cli-connect.md#use-the-log-in-method). Suivez les invites pour une expérience de connexion interactive à votre compte Azure.
+1. **Se connecter à Microsoft Azure** : dans votre interface de ligne de commande (Bash, Terminal, invite de commandes), passez en mode Resource Manager, puis [connectez-vous avec votre ID professionnel ou scolaire](../xplat-cli-connect.md#use-the-log-in-method). Suivez les invites pour une expérience de connexion interactive à votre compte Azure.
 
         azure config mode arm
 
@@ -49,11 +49,11 @@ Avant de commencer les étapes de ce didacticiel, [installez l’interface de li
 
 	> [AZURE.NOTE] Si vous disposez d’un ID professionnel ou scolaire et n’avez pas d’authentification à deux facteurs activée, vous pouvez utiliser `azure login -u` avec l’ID pour vous connecter sans session interactive. Si vous ne disposez pas d’un ID professionnel ou scolaire, vous pouvez [créer un ID professionnel ou scolaire à partir de votre compte Microsoft personnel](../virtual-machines/resource-group-create-work-id-from-personal.md).
 
-2. **Créer un groupe de ressources** : toutes les ressources doivent être déployées dans un groupe de ressources. Pour les besoins de ce didacticiel, nommez le groupe de ressources **vmsstest1**.
+2. **Créer un groupe de ressources** : toutes les ressources doivent être déployées dans un groupe de ressources. Pour les besoins de ce didacticiel, nommez le groupe de ressources **vmsstest1**.
 
         azure group create vmsstestrg1 centralus
 
-3. **Déployer un compte de stockage dans le nouveau groupe de ressources** : ce compte de stockage est l’emplacement dans lequel le modèle est stocké. Créez un compte de stockage nommé **vmsstestsa**.
+3. **Déployer un compte de stockage dans le nouveau groupe de ressources** : ce compte de stockage est l’emplacement dans lequel le modèle est stocké. Créez un compte de stockage nommé **vmsstestsa**.
 
         azure storage account create -g vmsstestrg1 -l centralus --kind Storage --sku-name LRS vmsstestsa
 
@@ -438,18 +438,18 @@ Un modèle Azure Resource Manager permet de déployer et gérer des ressources
     
     Pour ce didacticiel, les valeurs suivantes sont importantes :
     
-    - **metricName** : cette valeur est la même que celle du compteur de performances que nous avons défini dans la variable wadperfcounter. Grâce à cette variable, l’extension Diagnostics collecte le compteur **Processor\\PercentProcessorTime**.
-    - **metricResourceUri** : cette valeur est l’identificateur de ressource du jeu de mise à l’échelle de machines virtuelles.
-    - **timeGrain** : cette valeur est la granularité des mesures collectées. Dans ce modèle, elle est définie sur une minute.
-    - **statistic** : cette valeur détermine la façon dont les mesures sont combinées pour prendre en charge l’action de mise à l’échelle automatique. Les valeurs possibles sont : Moyenne, Min, Max. Dans ce modèle, l’utilisation moyenne totale du processeur des machines virtuelles est collectée.
+    - **metricName** : cette valeur est la même que celle du compteur de performances que nous avons défini dans la variable wadperfcounter. Grâce à cette variable, l’extension Diagnostics collecte le compteur **Processor\\PercentProcessorTime**.
+    - **metricResourceUri** : cette valeur est l’identificateur de ressource du jeu de mise à l’échelle de machines virtuelles.
+    - **timeGrain** : cette valeur est la granularité des mesures collectées. Dans ce modèle, elle est définie sur une minute.
+    - **statistic** : cette valeur détermine la façon dont les mesures sont combinées pour prendre en charge l’action de mise à l’échelle automatique. Les valeurs possibles sont : Moyenne, Min, Max. Dans ce modèle, l’utilisation moyenne totale du processeur des machines virtuelles est collectée.
     - **timeWindow** : cette valeur est la plage de temps pendant laquelle les données d’instance sont collectées. Elle doit être comprise entre 5 minutes et 12 heures.
-    - **timeAggregation** : cette valeur détermine la façon dont les données collectées doivent être combinées au fil du temps. La valeur par défaut est Average. Les valeurs possibles sont : Moyenne, Minimum, Maximum, Dernier, Total, Nombre.
-    - **operator** : cette valeur est l’opérateur utilisé pour comparer les données de mesure et le seuil. Les valeurs possibles sont : est égal à -Equals), différent de (NotEquals), supérieur à (GreaterThan), égal ou supérieur à (GreaterThanOrEqual), Inférieur à (LessThan), Inférieur ou égal à (LessThanOrEqual).
-    - **threshold** : cette valeur déclenche l’action de mise à l’échelle. Dans ce modèle, les machines sont ajoutées au jeu de mise à l’échelle défini lorsque l’utilisation moyenne du processeur dans le jeu de machines des est supérieur à 50 %.
-    - **direction** : cette valeur détermine l’opération qui est effectuée lorsque la valeur de seuil est atteinte. Les valeurs possibles sont Augmenter ou Diminuer. Dans ce modèle, le nombre de machines virtuelles dans le jeu de mise à l’échelle est augmenté si le seuil est supérieur à 50 % dans la fenêtre de temps définie.
-    - **type** : cette valeur est le type d’action qui doit se produire. Elle doit être définie sur ChangeCount.
-    - **value** : cette valeur est le nombre de machines virtuelles qui sont ajoutées ou supprimées dans le jeu de mise à l’échelle. Cette valeur doit être définie sur 1 ou supérieur. La valeur par défaut est 1. Dans ce modèle, le nombre d’ordinateurs présent dans le jeu de mise à l’échelle augmente de 1 lorsque le seuil est atteint.
-    - **cooldown** : cette valeur est la durée d’attente depuis la dernière opération de mise à l’échelle avant que l’action suivante se produise. Elle doit être comprise entre une minute et une semaine.
+    - **timeAggregation** : cette valeur détermine la façon dont les données collectées doivent être combinées au fil du temps. La valeur par défaut est Average. Les valeurs possibles sont : Moyenne, Minimum, Maximum, Dernier, Total, Nombre.
+    - **operator** : cette valeur est l’opérateur utilisé pour comparer les données de mesure et le seuil. Les valeurs possibles sont : est égal à -Equals), différent de (NotEquals), supérieur à (GreaterThan), égal ou supérieur à (GreaterThanOrEqual), Inférieur à (LessThan), Inférieur ou égal à (LessThanOrEqual).
+    - **threshold** : cette valeur déclenche l’action de mise à l’échelle. Dans ce modèle, les machines sont ajoutées au jeu de mise à l’échelle défini lorsque l’utilisation moyenne du processeur dans le jeu de machines des est supérieur à 50 %.
+    - **direction** : cette valeur détermine l’opération qui est effectuée lorsque la valeur de seuil est atteinte. Les valeurs possibles sont Augmenter ou Diminuer. Dans ce modèle, le nombre de machines virtuelles dans le jeu de mise à l’échelle est augmenté si le seuil est supérieur à 50 % dans la fenêtre de temps définie.
+    - **type** : cette valeur est le type d’action qui doit se produire. Elle doit être définie sur ChangeCount.
+    - **value** : cette valeur est le nombre de machines virtuelles qui sont ajoutées ou supprimées dans le jeu de mise à l’échelle. Cette valeur doit être définie sur 1 ou supérieur. La valeur par défaut est 1. Dans ce modèle, le nombre d’ordinateurs présent dans le jeu de mise à l’échelle augmente de 1 lorsque le seuil est atteint.
+    - **cooldown** : cette valeur est la durée d’attente depuis la dernière opération de mise à l’échelle avant que l’action suivante se produise. Elle doit être comprise entre une minute et une semaine.
 
 12.	Enregistrez le fichier de modèle.
 

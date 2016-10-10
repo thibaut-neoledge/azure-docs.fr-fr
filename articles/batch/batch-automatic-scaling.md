@@ -26,7 +26,7 @@ Vous pouvez activer la mise à l’échelle automatique lors de la création d�
 
 ## Formules de mise à l’échelle automatique
 
-Une formule de mise à l’échelle automatique est une valeur de chaîne qui contient une ou plusieurs instructions, et qui est affectée à un élément de pool [autoScaleFormula][rest_autoscaleformula] (REST de Batch) ou à la propriété [CloudPool.AutoScaleFormula][net_cloudpool_autoscaleformula] (.NET de Batch). Une fois affectées à un pool, le service Batch utilise votre formule pour déterminer le nombre de nœuds de calcul cibles d’un pool pour le prochain intervalle de traitement (les intervalles seront décrits en détail dans la suite de cet article). La chaîne de formule ne peut pas dépasser 8 Ko. Elle peut inclure jusqu’à 100 instructions séparées par des points-virgules, et peut comprendre des sauts de ligne et des commentaires.
+Une formule de mise à l’échelle automatique est une valeur de chaîne qui contient une ou plusieurs instructions, et qui est affectée à un élément de pool [autoScaleFormula][rest_autoscaleformula] \(REST de Batch) ou à la propriété [CloudPool.AutoScaleFormula][net_cloudpool_autoscaleformula] \(.NET de Batch). Une fois affectées à un pool, le service Batch utilise votre formule pour déterminer le nombre de nœuds de calcul cibles d’un pool pour le prochain intervalle de traitement (les intervalles seront décrits en détail dans la suite de cet article). La chaîne de formule ne peut pas dépasser 8 Ko. Elle peut inclure jusqu’à 100 instructions séparées par des points-virgules, et peut comprendre des sauts de ligne et des commentaires.
 
 Les formules de mise à l’échelle automatique reviennent en quelque sorte à utiliser un « langage » de mise à l’échelle Batch. Les instructions de formules sont des expressions de forme libre qui peuvent inclure des variables définies par le service (variables définies par le service Batch) et des variables définies par l’utilisateur (variables que vous définissez). Elles peuvent effectuer différentes opérations sur ces valeurs à l’aide de types, d’opérateurs et de fonctions intégrés. Par exemple, une instruction peut prendre la forme suivante :
 
@@ -133,7 +133,14 @@ Les **opérations** autorisées sur les types répertoriés ci-dessus sont les s
 | timeinterval *opérateur* timeinterval | +, - | timeinterval |
 | timeinterval *opérateur* timestamp | + | timestamp |
 | timestamp *opérateur* timeinterval | + | timestamp |
-| timestamp *opérateur* timestamp | - | timeinterval | | *opérateur*double | -, ! | double | | *opérateur*timeinterval | - | timeinterval | | double *opérateur* double | <, <=, ==, >=, >, != | double | | string *opérateur* string | <, <=, ==, >=, >, != | double | | timestamp *opérateur* timestamp | <, <=, ==, >=, >, != | double | | timeinterval *opérateur* timeinterval | <, <=, ==, >=, >, != | double | | double *opérateur* double | &&, || | double |
+| timestamp *opérateur* timestamp | - | timeinterval | 
+| *opérateur*double | -, ! | double | 
+| *opérateur*timeinterval | - | timeinterval | 
+| double *opérateur* double | <, <=, ==, >=, >, != | double | 
+| string *opérateur* string | <, <=, ==, >=, >, != | double | 
+| timestamp *opérateur* timestamp | <, <=, ==, >=, >, != | double | 
+| timeinterval *opérateur* timeinterval | <, <=, ==, >=, >, != | double | 
+| double *opérateur* double | &&, &#124;&#124; | double |
 
 Lorsque vous testez un double avec un opérateur ternaire (`double ? statement1 : statement2`), la valeur différente de zéro est **true**, et zéro est **false**.
 

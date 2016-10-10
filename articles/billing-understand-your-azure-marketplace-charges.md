@@ -31,11 +31,11 @@ Pour afficher ou télécharger votre facture :
 1. Connectez-vous au portail de comptes Azure en utilisant votre ID d’organisation.
 2. Cliquez sur **Marketplace**. La liste affichée est la liste complète de toutes les commandes Marketplace qui ont été passées par votre compte Azure. Notez que les commandes sont regroupées par nom et ID d’abonnement Azure parent.
 
-    ![Commandes Marketplace](./media/billing-understand-your-azure-marketplace-charges/marketplace-orders.png)
+	![Commandes Marketplace](./media/billing-understand-your-azure-marketplace-charges/marketplace-orders.png)
 
 3. Cliquez sur l’une des commandes affichées pour accéder à la présentation résumée du cycle de facturation actuel de cette commande. Une explication des différents modèles de tarification figure dans le [FAQ sur Marketplace](https://azure.microsoft.com/marketplace/faq/).
 
-    ![Résumé de la commande](./media/billing-understand-your-azure-marketplace-charges/order-summary.png)
+	![Résumé de la commande](./media/billing-understand-your-azure-marketplace-charges/order-summary.png)
 
 La vue récapitulative contient les informations suivantes pour chaque commande :
 - Prix
@@ -61,11 +61,11 @@ Pour changer votre mode de paiement, procédez comme suit :
 
 1. Cliquez sur **Change how you pay** (Modifiez votre mode de paiement).
 
-    ![Abonnements](./media/billing-understand-your-azure-marketplace-charges/subscriptions.jpg)
+	![Abonnements](./media/billing-understand-your-azure-marketplace-charges/subscriptions.jpg)
 
 2. Sélectionnez le mode de paiement que vous souhaitez adopter. L’option **Pay with** (Payer avec) vous permet de sélectionner votre carte de crédit. L’option **Ajouter un nouveau moyen de paiement** vous permet d’ajouter une nouvelle carte de crédit.
 
-    ![Modifier le mode de paiement](./media/billing-understand-your-azure-marketplace-charges/change-payment-method.jpg)
+	![Modifier le mode de paiement](./media/billing-understand-your-azure-marketplace-charges/change-payment-method.jpg)
 
 ## Gestion des commandes
 La page de synthèse contient un lien **Gérer la commande**. Ce lien vous dirige vers votre portail où vous pouvez consulter l’ensemble de vos commandes Marketplace, afficher l’état du service et demander de l’assistance.

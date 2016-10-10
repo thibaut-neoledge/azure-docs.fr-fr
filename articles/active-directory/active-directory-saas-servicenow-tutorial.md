@@ -157,12 +157,12 @@ Dans le cadre de cette procédure, vous devez télécharger un certificat codé 
 
     ![Configurer l’authentification unique](./media/active-directory-saas-servicenow-tutorial/IC7694976.png "Configurer l’authentification unique")
 
-1. Dans la boîte de dialogue **Identity Providers**, cliquez sur **New** :
+1. Dans la boîte de dialogue **Identity Providers**, cliquez sur **New** :
 
     ![Configurer l’authentification unique](./media/active-directory-saas-servicenow-tutorial/IC7694977.png "Configurer l’authentification unique")
 
 
-1. Dans la boîte de dialogue **Identity Providers**, cliquez sur **SAML2 Update1?** :
+1. Dans la boîte de dialogue **Identity Providers**, cliquez sur **SAML2 Update1?** :
 
     ![Configurer l’authentification unique](./media/active-directory-saas-servicenow-tutorial/IC7694978.png "Configurer l’authentification unique")
 
@@ -245,7 +245,7 @@ Cette section décrit comment activer l’approvisionnement des utilisateurs des
 
      e. Cliquez sur le bouton **Suivant** pour ouvrir la page **Étapes suivantes**.
 
-     f. Si vous voulez approvisionner tous les utilisateurs pour cette application, sélectionnez « **Approvisionner automatiquement tous les comptes du répertoire dans cette application** ».
+     f. Si vous voulez approvisionner tous les utilisateurs pour cette application, sélectionnez « **Approvisionner automatiquement tous les comptes du répertoire dans cette application** ».
 
 	![Étapes suivantes](./media/active-directory-saas-servicenow-tutorial/IC698804.png "Étapes suivantes")
 
